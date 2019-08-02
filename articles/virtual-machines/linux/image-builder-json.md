@@ -3,16 +3,16 @@ title: Een Azure Image Builder-sjabloon maken (preview)
 description: Meer informatie over het maken van een sjabloon voor gebruik met Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/10/2019
+ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 065962614d0b85c4c50f86bef0b610c9b3577e07
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: a623aa98cd26e1636e47cb0e2831eeced17935b9
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248139"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695401"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Preview: Een Azure Image Builder-sjabloon maken 
 
@@ -185,6 +185,19 @@ Hiermee stelt u de bron afbeelding een versie van een bestaande installatie kopi
 
 De `imageVersionId` moet de ResourceID van de versie van de installatie kopie zijn. Gebruik [AZ sig installatie kopie](/cli/azure/sig/image-version#az-sig-image-version-list) van de lijst met installatie kopieën om versie-versies weer te geven.
 
+## <a name="properties-buildtimeoutinminutes"></a>Eigenschappen: buildTimeoutInMinutes
+Standaard wordt de opbouw functie voor installatie kopieën gedurende 240 minuten uitgevoerd. Daarna wordt de time-out en stopt, ongeacht of de installatie kopie is gemaakt. Als de time-out wordt weer gegeven, ziet u een fout die vergelijkbaar is met de volgende:
+
+```text
+[ERROR] Failed while waiting for packerizer: Timeout waiting for microservice to
+[ERROR] complete: 'context deadline exceeded'
+```
+
+Als u geen buildTimeoutInMinutes-waarde opgeeft of als u deze instelt op 0, wordt de standaard waarde gebruikt. U kunt de waarde verg Roten of verkleinen, tot het maximum van 960mins (16hrs). Voor Windows raden we u aan dit 60 minuten niet in te stellen. Als u merkt dat u de time-out hebt, [](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs)raadpleegt u de logboeken om te zien of de stap voor aanpassing wacht op een soort gebruikers invoer. 
+
+Als u vindt dat er meer tijd nodig is voor het volt ooien van aanpassingen, stelt u deze in op wat u denkt dat u nodig hebt, met een beetje extra overhead. Stel deze echter niet te hoog in omdat u mogelijk moet wachten op time-out voordat u een fout ziet. 
+
+
 ## <a name="properties-customize"></a>Eigenschappen: aanpassen
 
 
@@ -194,7 +207,6 @@ Bij gebruik `customize`van:
 - U kunt meerdere aanpassingen gebruiken, maar ze moeten uniek `name`zijn.
 - Aanpassingen worden uitgevoerd in de volg orde die is opgegeven in de sjabloon.
 - Als een aanpassings functie mislukt, mislukt het hele aanpassings onderdeel en wordt er een fout melding weer gegeven.
-- Bedenk hoeveel tijd uw installatie kopie nodig heeft en pas de eigenschap ' buildTimeoutInMinutes ' aan zodat Image Builder genoeg tijd kan volt ooien.
 - U wordt aangeraden het script grondig te testen voordat u het in een sjabloon kunt gebruiken. Fout opsporing van het script op uw eigen VM is eenvoudiger.
 - Plaats geen gevoelige gegevens in de scripts. 
 - De script locaties moeten openbaar toegankelijk zijn, tenzij u [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage)gebruikt.

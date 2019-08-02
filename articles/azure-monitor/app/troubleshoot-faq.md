@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights Veelgestelde vragen over | Microsoft Docs
+title: Veelgestelde vragen over Azure-toepassing Insights | Microsoft Docs
 description: Veelgestelde vragen over Application Insights.
 services: application-insights
 documentationcenter: .net
@@ -12,198 +12,199 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: ab1327b42a76a6e76183d84cb1750cce8b85228f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 778a95db8ce462d06e2464db56b542f8113a4960
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604280"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875382"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
-## <a name="configuration-problems"></a>Configuratieproblemen
-*Ik ondervind problemen met het instellen van mijn:*
+## <a name="configuration-problems"></a>Configuratie problemen
+*Ik ondervind problemen bij het instellen van mijn:*
 
 * [.NET app](asp-net-troubleshoot-no-data.md)
-* [Bewaken van een app al actief](monitor-performance-live-website-now.md#troubleshoot)
-* [Azure diagnostics](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
+* [Een app die al wordt uitgevoerd bewaken](monitor-performance-live-website-now.md#troubleshoot)
+* [Diagnostische gegevens van Azure](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Java-web-app](java-troubleshoot.md)
 
-*Kan ik ophalen geen gegevens uit mijn server*
+*Ik krijg geen gegevens van mijn server*
 
-* [Set firewall-uitzonderingen](ip-addresses.md)
-* [Een ASP.NET-server instellen](monitor-performance-live-website-now.md)
-* [Een Java-server instellen](java-agent.md)
+* [Firewall-uitzonde ringen instellen](ip-addresses.md)
+* [Een ASP.NET-Server instellen](monitor-performance-live-website-now.md)
+* [Een Java-Server instellen](java-agent.md)
 
-## <a name="can-i-use-application-insights-with-"></a>Kan ik met Application Insights... gebruiken?
+## <a name="can-i-use-application-insights-with-"></a>Kan ik Application Insights gebruiken met...?
 
-* [Web-apps op een IIS-server, on-premises of in een virtuele machine](asp-net.md)
-* [Java-web-apps](java-get-started.md)
+* [Web-apps op een IIS-server in een Azure VM-of Azure virtual machine-schaalset](azure-vm-vmss-apps.md)
+* [Web-apps op een IIS-server, on-premises of in een VM](asp-net.md)
+* [Java-Web-apps](java-get-started.md)
 * [Node.js-apps](nodejs.md)
 * [Web-apps op Azure](azure-web-apps.md)
-* [Cloudservices op Azure](cloudservices.md)
-* [Appservers die worden uitgevoerd in Docker](docker.md)
-* [Één pagina web-apps](javascript.md)
+* [Cloud Services op Azure](cloudservices.md)
+* [App-servers die worden uitgevoerd in docker](docker.md)
+* [Web-apps met één pagina](javascript.md)
 * [SharePoint](sharepoint.md)
-* [Windows desktop-app](windows-desktop.md)
+* [Windows-bureau blad-app](windows-desktop.md)
 * [Andere platforms](platforms.md)
 
 ## <a name="is-it-free"></a>Is dit gratis?
 
-Ja, voor experimentele gebruik. In de basic prijsstelling, kan uw toepassing een bepaalde toegestane hoeveelheid gegevens per maand gratis verzenden. Het gratis tegoed is groot genoeg is voor cover ontwikkelings- en publiceren van een app voor een klein aantal gebruikers. U kunt instellen dat een limiet om te voorkomen dat meer dan een opgegeven hoeveelheid gegevens die worden verwerkt.
+Ja, voor experimenteel gebruik. In het Basic-prijs plan kan uw toepassing elke maand gratis een bepaalde hoeveelheid gegevens verzenden. De gratis limiet is groot genoeg voor ontwikkeling en het publiceren van een app voor een klein aantal gebruikers. U kunt een limiet instellen om te voor komen dat er meer dan een opgegeven hoeveelheid gegevens wordt verwerkt.
 
-Grotere hoeveelheden telemetriegegevens worden gefactureerd op de Gb. We bieden enkele tips over het [beperken van de kosten voor uw](pricing.md).
+Grotere hoeveel heden telemetrie worden in rekening gebracht op basis van de GB. We bieden enkele tips over het [beperken van uw kosten](pricing.md).
 
-Het Enterprise-plan leidt tot een kosten in rekening gebracht voor elke dag dat elk knooppunt van de server web telemetrie verzendt. Het is geschikt als u wilt gebruiken van continue Export op grote schaal.
+In het Enter prise-plan worden kosten in rekening gebracht voor elke dag dat elk webserver knooppunt telemetrie verzendt. Het is geschikt als u doorlopend exporteren wilt gebruiken op een grote schaal.
 
-[Lees de prijsstelling](https://azure.microsoft.com/pricing/details/application-insights/).
+[Lees het prijs plan](https://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="how-much-is-it-costing"></a>Wat is het stuk?
+## <a name="how-much-is-it-costing"></a>Hoeveel kost het?
 
-* Open de **pagina gebruik en geschatte kosten** in een Application Insights-resource. Er is een diagram van recente gebruik. Als u wilt, kunt u een maximum gegevensvolume instellen.
-* Open de [blade Azure Billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) om te zien van uw facturen voor alle resources.
+* Open de **pagina gebruik en geschatte kosten** in een Application Insights resource. Er is een grafiek van recent gebruik. Als u wilt, kunt u een limiet voor gegevens volumes instellen.
+* Open de [Blade Azure-facturering](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) om uw rekeningen voor alle resources weer te geven.
 
-## <a name="q14"></a>Wat Application Insights in mijn project wijzigen?
-De details zijn afhankelijk van het type van het project. Voor een webtoepassing:
+## <a name="q14"></a>Wat doet Application Insights wijzigen in mijn project?
+De details zijn afhankelijk van het type project. Voor een webtoepassing:
 
-* Deze bestanden toevoegt aan uw project:
+* Voegt deze bestanden toe aan uw project:
 
   * ApplicationInsights.config.
   * ai.js
-* Deze NuGet-pakketten installeert:
+* Installeert deze NuGet-pakketten:
 
-  * *Application Insights-API* -de core API
-  * *Application Insights-API voor webtoepassingen* : wordt gebruikt voor het verzenden van telemetrie van de server
-  * *Application Insights-API voor JavaScript-toepassingen* : wordt gebruikt voor het verzenden van telemetrie van de client
+  * *Application Insights-API* : de core-API
+  * *Application Insights-API voor* webtoepassingen: wordt gebruikt voor het verzenden van telemetrie van de server
+  * *Application Insights-API voor Java script-toepassingen* : wordt gebruikt voor het verzenden van telemetrie van de client
 
-    De pakketten zijn onder andere de volgende assembly's:
+    De pakketten bevatten de volgende assembly's:
   * Microsoft.ApplicationInsights
   * Microsoft.ApplicationInsights.Platform
-* Hiermee voegt u items in:
+* Hiermee worden items ingevoegd in:
 
   * Web.config
   * packages.config
-* (Nieuwe alleen - projecten als u [Application Insights toevoegen aan een bestaand project][start], u moet dit handmatig doen.) Hiermee voegt u codefragmenten in de client en server code ze initialiseren met de Application Insights-resource-ID. Bijvoorbeeld, wordt code in een MVC-app ingevoegd in de basispagina Views/Shared/_Layout.cshtml
+* (Alleen nieuwe projecten: als u [Application Insights toevoegt aan een bestaand project][start], moet u dit hand matig doen.) Hiermee worden fragmenten ingevoegd in de client-en server code om ze te initialiseren met de Application Insights Resource-ID. In een MVC-app wordt bijvoorbeeld code ingevoegd in de basis pagina weergaven/gedeeld/_Layout. cshtml
 
-## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Hoe voer ik een upgrade van oudere versies van de SDK?
-Zie de [opmerkingen bij de release](release-notes.md) voor de SDK die geschikt is voor uw type van de toepassing.
+## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Hoe kan ik upgrade van oudere SDK-versies?
+Zie de [release opmerkingen](release-notes.md) voor de SDK die geschikt is voor uw type toepassing.
 
-## <a name="update"></a>Hoe kan ik welke Mijn project gegevens naar verzendt Azure-resource wijzigen?
-Klik in Solution Explorer met de rechtermuisknop op `ApplicationInsights.config` en kies **Update Application Insights**. U kunt de gegevens verzenden naar een bestaande of nieuwe resource in Azure. De wizard update verandert de instrumentatiesleutel in ApplicationInsights.config, waarmee wordt bepaald waar uw gegevens in de SDK-server wordt verzonden. Tenzij u 'Alles bijwerken' uitschakelt, wordt de sleutel waar deze wordt weergegeven in uw webpagina's ook gewijzigd.
+## <a name="update"></a>Hoe kan ik wijzigen met welke Azure-resource mijn project gegevens verzendt?
+Klik `ApplicationInsights.config` in Solution Explorer met de rechter muisknop en kies **Application Insights bijwerken**. U kunt de gegevens verzenden naar een bestaande of nieuwe resource in Azure. De update wizard wijzigt de instrumentatie sleutel in ApplicationInsights. config, waarmee wordt bepaald waar de server-SDK uw gegevens verzendt. Tenzij u ' Alles bijwerken ' uitschakelt, wordt ook de sleutel gewijzigd waar deze wordt weer gegeven op uw webpagina's.
 
 ## <a name="what-is-status-monitor"></a>Wat is Status Monitor?
 
-Een bureaublad-app die u in uw IIS-webserver gebruiken kunt voor het configureren van Application Insights in web-apps. Status monitor verzamelt niet telemetrie: u kunt voorkomen dat deze wanneer u een app niet configureert. 
+Een bureau blad-app die u kunt gebruiken op uw IIS-webserver om Application Insights te configureren in web-apps. Er wordt geen telemetrie verzameld: u kunt deze stoppen wanneer u geen app configureert. 
 
 [Meer informatie](monitor-performance-live-website-now.md#questions).
 
-## <a name="what-telemetry-is-collected-by-application-insights"></a>Welke telemetrie wordt verzameld door Application Insights?
+## <a name="what-telemetry-is-collected-by-application-insights"></a>Welke telemetrie wordt door Application Insights verzameld?
 
-Van server-web-apps:
+Van server web apps:
 
 * HTTP-aanvragen
-* [Afhankelijkheden](asp-net-dependencies.md). Aanroepen naar: SQL-Databases. HTTP-aanroepen naar externe services; Azure Cosmos DB, tabel, blob-opslag en wachtrij. 
-* [Uitzonderingen](asp-net-exceptions.md) en stack-traces.
-* [Prestatiemeteritems](performance-counters.md) : als u [Status Monitor](monitor-performance-live-website-now.md), [Azure monitoring](azure-web-apps.md), of de [Application Insights verzamelde schrijver](java-collectd.md).
-* [Aangepaste gebeurtenissen en metrische gegevens](api-custom-events-metrics.md) dat u de code.
-* [Logboeken met traceringen](asp-net-trace-logs.md) als u de juiste collector configureert.
+* [Afhankelijkheden](asp-net-dependencies.md). Aanroepen naar: SQL-data bases; HTTP-aanroepen naar externe services; Azure Cosmos DB, tabel, Blob Storage en wachtrij. 
+* [Uitzonde ringen](asp-net-exceptions.md) en stack traceringen.
+* [Prestatie meter items](performance-counters.md) : als u [status monitor](monitor-performance-live-website-now.md)gebruikt, wordt [Azure monitoring voor app Services](azure-web-apps.md), [Azure monitoring voor VM of virtual machine Scale set](azure-vm-vmss-apps.md)of de [Application Insights verzamelde Writer](java-collectd.md).
+* [Aangepaste gebeurtenissen en metrische gegevens](api-custom-events-metrics.md) die u codeert.
+* [Traceer logboeken](asp-net-trace-logs.md) als u de juiste Collector configureert.
 
 Van [client webpagina's](javascript.md):
 
-* [Aantal paginaweergaven](usage-overview.md)
-* [AJAX-aanroepen](asp-net-dependencies.md) aanvragen van een script uit te voeren.
-* Gegevens laden van pagina weergeven
+* [Aantal pagina weergaven](usage-overview.md)
+* [Ajax](asp-net-dependencies.md) -aanroepen Aanvragen die afkomstig zijn van een script dat wordt uitgevoerd.
+* Laad gegevens pagina weergave
 * Aantal gebruikers en sessies
-* [Geverifieerde gebruikers-id 's](api-custom-events-metrics.md#authenticated-users)
+* [Geverifieerde gebruikers-Id's](api-custom-events-metrics.md#authenticated-users)
 
-Uit andere bronnen, als u ze configureren:
+Van andere bronnen, als u deze configureert:
 
-* [Azure diagnostics](../platform/diagnostics-extension-to-application-insights.md)
-* [Importeren met Analytics](../platform/data-collector-api.md)
+* [Diagnostische gegevens van Azure](../platform/diagnostics-extension-to-application-insights.md)
+* [Importeren naar Analytics](../platform/data-collector-api.md)
 * [Log Analytics](../platform/data-collector-api.md)
 * [Logstash](../platform/data-collector-api.md)
 
-## <a name="can-i-filter-out-or-modify-some-telemetry"></a>Kan ik wegfilteren of telemetrie wijzigen?
+## <a name="can-i-filter-out-or-modify-some-telemetry"></a>Kan ik een telemetrie uitfilteren of wijzigen?
 
-Ja, in de server die u kunt schrijven:
+Ja, op de server kunt u het volgende schrijven:
 
-* Telemetrie-Processor om te filteren of eigenschappen aan geselecteerde telemetrie-items toevoegen, voordat ze worden verzonden vanuit uw app.
-* Telemetrie-Initializer eigenschappen toevoegen aan alle telemetrie-items.
+* Telemetrie-processor om eigenschappen te filteren of toe te voegen aan geselecteerde telemetriegegevens voordat ze vanuit uw app worden verzonden.
+* De initialisatie functie voor telemetrie om eigenschappen toe te voegen aan alle items van telemetrie.
 
-Meer informatie voor [ASP.NET](api-filtering-sampling.md) of [Java](java-filter-telemetry.md).
+Meer informatie voor [ASP.net](api-filtering-sampling.md) of [Java](java-filter-telemetry.md).
 
-## <a name="how-are-city-countryregion-and-other-geo-location-data-calculated"></a>Hoe worden stad, land/regio en andere gegevens geo-locatie berekend?
+## <a name="how-are-city-countryregion-and-other-geo-location-data-calculated"></a>Hoe worden plaats, land/regio en andere geografische locatie gegevens berekend?
 
-We controleren of het IP-adres (IPv4 of IPv6) van de webclient met behulp van [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
+We zoeken het IP-adres (IPv4 of IPv6) van de webclient met behulp van [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
-* Telemetrie van de browser: We verzamelen van de afzender IP-adres.
-* Servertelemetrie: De module Application Insights verzamelt IP-adres van de client. Het is niet verzameld als `X-Forwarded-For` is ingesteld.
+* Browser-telemetrie: Het IP-adres van de afzender wordt verzameld.
+* Server-telemetrie: De module Application Insights verzamelt het IP-adres van de client. Als `X-Forwarded-For` is ingesteld, wordt deze niet verzameld.
 
-U kunt configureren dat de `ClientIpHeaderTelemetryInitializer` overnemen van het IP-adres van een andere koptekst. In sommige systemen, bijvoorbeeld, wordt deze verplaatst door een proxy, load balancer of een CDN `X-Originating-IP`. [Meer informatie](https://apmtips.com/blog/2016/07/05/client-ip-address/).
+U kunt de `ClientIpHeaderTelemetryInitializer` configureren om het IP-adres van een andere header te halen. In sommige systemen wordt het bijvoorbeeld verplaatst met een proxy, load balancer of CDN naar `X-Originating-IP`. [Meer informatie](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
-U kunt [Power BI gebruiken](export-power-bi.md ) om de aanvraagtelemetrie van uw op een kaart weer te geven.
+U kunt [Power bi gebruiken](export-power-bi.md ) om uw aanvraag-telemetrie weer te geven op een kaart.
 
 
-## <a name="data"></a>Hoelang gegevens bewaard in de portal? Is het veilig?
-Kijk eens [bewaren van gegevens en Privacy][data].
+## <a name="data"></a>Hoe lang worden gegevens in de portal bewaard? Is het veilig?
+Bekijk de [gegevens retentie en privacy][data].
 
-## <a name="could-personal-data-be-sent-in-the-telemetry"></a>Kan de persoonlijke gegevens worden verzonden in de telemetrie?
+## <a name="could-personal-data-be-sent-in-the-telemetry"></a>Kunnen persoons gegevens in de telemetrie worden verzonden?
 
-Dit is mogelijk als de code dergelijke gegevens verzendt. Het kan ook gebeuren als variabelen in de stack-traces persoonlijke gegevens bevatten. Uw ontwikkelteam moet risicobeoordelingen om ervoor te zorgen dat de persoonlijke gegevens goed wordt afgehandeld uitvoeren. [Meer informatie over het bewaren van gegevens en privacy](data-retention-privacy.md).
+Dit is mogelijk als uw code dergelijke gegevens verzendt. Dit kan ook gebeuren als variabelen in stack-traceringen persoons gegevens bevatten. Uw ontwikkel team moet risico beoordelingen uitvoeren om ervoor te zorgen dat persoons gegevens op de juiste wijze worden afgehandeld. Meer [informatie over gegevens retentie en privacy](data-retention-privacy.md).
 
-**Alle** octetten van het webadres van de client altijd zijn ingesteld op 0 nadat de geo-locatie-kenmerken worden opgezocht.
+**Alle** octetten van het webadres van de client zijn altijd ingesteld op 0 nadat de geografische locatie kenmerken zijn opgezocht.
 
-## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>Mijn Instrumentatiesleutel is zichtbaar in de bron van mijn webpagina. 
+## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>Mijn instrumentatie sleutel is zichtbaar in de bron van de webpagina. 
 
-* Dit is gebruikelijk om in oplossingen voor de controle.
-* Het kan niet worden gebruikt voor het stelen van uw gegevens.
-* Het kan worden gebruikt om uw gegevens of trigger waarschuwingen scheeftrekken.
-* We hebben geen gehoord dat elke klant met een dergelijke problemen heeft gehad.
+* Dit is gebruikelijk bij het controleren van oplossingen.
+* Het kan niet worden gebruikt om uw gegevens te stelen.
+* Het kan worden gebruikt om uw gegevens te scheef stellen of waarschuwingen te activeren.
+* We hebben niet gehoord dat een klant dergelijke problemen heeft gehad.
 
-U kunt de onderstaande:
+U kunt het volgende doen:
 
-* Gebruik twee afzonderlijke Instrumentatiesleutels (Scheid Application Insights-resources), voor client en server-gegevens. of
-* Schrijven van een proxy die wordt uitgevoerd op uw server en de web client verzenden van gegevens via deze proxy.
+* Gebruik twee afzonderlijke instrumentatie sleutels (afzonderlijke Application Insights resources) voor client-en Server gegevens. of
+* Schrijf een proxy die op uw server wordt uitgevoerd en laat de webclient gegevens verzenden via die proxy.
 
-## <a name="post"></a>Hoe kan ik postgegevens doorzoeken van diagnostische gegevens zien?
-We geen bericht gegevens automatisch vastleggen, maar u kunt een aanroep van TrackTrace: de gegevens in de parameter bericht plaatsen. Dit heeft een limiet langer dan de grenzen van de eigenschappen van een verbindingsreeks, maar u kunt niet op het filteren.
+## <a name="post"></a>Hoe kan ik raadpleegt u POST gegevens in diagnostische Zoek opdrachten?
+Er worden geen POST gegevens automatisch geregistreerd, maar u kunt een TrackTrace-aanroep gebruiken: plaats de gegevens in de bericht parameter. Dit heeft een maximale grootte die groter is dan de limieten voor teken reeks eigenschappen, maar u kunt er niet op filteren.
 
-## <a name="should-i-use-single-or-multiple-application-insights-resources"></a>Moet ik één of meerdere Application Insights-resources gebruiken?
+## <a name="should-i-use-single-or-multiple-application-insights-resources"></a>Moet ik een of meerdere Application Insights bronnen gebruiken?
 
-Gebruik één resource voor alle onderdelen of rollen in een enkele business-systeem. Gebruik afzonderlijke resources voor ontwikkelings-, test- en release-versies en voor onafhankelijke toepassingen.
+Gebruik één resource voor alle onderdelen of rollen in één bedrijfs systeem. Gebruik afzonderlijke resources voor ontwikkelings-, test-en release versies en voor onafhankelijke toepassingen.
 
-* [Zie het onderwerp hier](separate-resources.md)
-* [Voorbeeld - service in de cloud met behulp van worker en webservice](cloudservices.md)
+* [Bekijk de discussie hier](separate-resources.md)
+* [Voor beeld-Cloud service met werk nemers en webrollen](cloudservices.md)
 
-## <a name="how-do-i-dynamically-change-the-instrumentation-key"></a>Hoe kan ik de instrumentatiesleutel dynamisch wijzigen?
+## <a name="how-do-i-dynamically-change-the-instrumentation-key"></a>Hoe kan ik de instrumentatie sleutel dynamisch wijzigen?
 
-* [Hier discussie](separate-resources.md)
-* [Voorbeeld - service in de cloud met behulp van worker en webservice](cloudservices.md)
+* [Discussie hier](separate-resources.md)
+* [Voor beeld-Cloud service met werk nemers en webrollen](cloudservices.md)
 
-## <a name="what-are-the-user-and-session-counts"></a>Wat zijn de gebruikers- en telt?
+## <a name="what-are-the-user-and-session-counts"></a>Wat zijn de gebruikers-en sessie aantallen?
 
-* De JavaScript-SDK wordt de cookie van een gebruiker op de webclient, om terugkerende gebruikers te identificeren en een sessiecookie ingesteld om activiteiten te groeperen.
-* Als er geen client-side-script, kunt u [cookies ingesteld op de server](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
-* Als een echte gebruiker maakt gebruik van uw site in verschillende browsers of met behulp van in-privé-/ incognito te bladeren, of verschillende computers, en ze zullen meer dan één keer worden geteld.
-* Voor het identificeren van een gebruiker is aangemeld op computers en browsers, Voeg een aanroep naar [setAuthenticatedUserContext()](api-custom-events-metrics.md#authenticated-users).
+* De Java script-SDK stelt een gebruikers cookie op de webclient in om terugkerende gebruikers te identificeren en een sessie cookie om activiteiten te groeperen.
+* Als er geen script aan de client zijde is, kunt u [cookies instellen op de server](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
+* Als een echte gebruiker uw site in verschillende browsers gebruikt of als u in-private/incognito Browse of verschillende computers gebruikt, worden deze meerdere keren geteld.
+* Als u een aangemelde gebruiker op verschillende computers en browsers wilt identificeren, voegt u een aanroep toe aan [setAuthenticatedUserContext ()](api-custom-events-metrics.md#authenticated-users).
 
-## <a name="q17"></a> Hebt ik alles in Application Insights ingeschakeld?
-| U ziet | Hoe u deze ophalen | Waarom u deze wilt |
+## <a name="q17"></a>Heb ik alles in Application Insights ingeschakeld?
+| Wat u moet zien | Hoe kan ik het downloaden? | Waarom u wilt |
 | --- | --- | --- |
-| Beschikbaarheid van grafieken |[Webtests](monitor-web-app-availability.md) |Kent dat uw web-app is actief |
-| Server app-prestaties: reactietijden,... |[Application Insights toevoegen aan uw project](asp-net.md) of [AI Status Monitor installeren op de server](monitor-performance-live-website-now.md) (of uw eigen code te schrijven [afhankelijkheden bijhouden](api-custom-events-metrics.md#trackdependency)) |Perf problemen detecteren |
-| Afhankelijkheidstelemetrie |[AI Status Monitor installeren op server](monitor-performance-live-website-now.md) |Problemen met databases of andere externe componenten |
-| Ontvang stack-traces van uitzonderingen |[TrackException aanroepen invoegen in uw code](asp-net-exceptions.md) (maar enkele automatisch worden gerapporteerd) |Detecteer en diagnosticeer uitzonderingen |
-| Logboektraceringen zoeken |[Een registratie-adapter toevoegen](asp-net-trace-logs.md) |Uitzonderingen, prestaties, problemen vaststellen |
-| Grondbeginselen van de client gebruik: paginaweergaven, sessies,... |[De initialisatiefunctie JavaScript in webpagina 's](javascript.md) |Gebruiksanalyse |
-| Aangepaste metrische gegevens van client |[Tracerings-aanroepen in webpagina 's](api-custom-events-metrics.md) |Gebruikerservaring te verbeteren |
-| Aangepaste metrische gegevens van server |[Aanroepen voor het bijhouden van server](api-custom-events-metrics.md) |Business intelligence |
+| Beschikbaarheids grafieken |[Webtests](monitor-web-app-availability.md) |Weet u zeker dat uw web-app actief is |
+| Server app-prestaties: reactie tijden,... |[Application Insights toevoegen aan uw project](asp-net.md) of [AI-status monitor op server installeren](monitor-performance-live-website-now.md) (of uw eigen code schrijven om [afhankelijkheden bij te houden](api-custom-events-metrics.md#trackdependency)) |Prestatie problemen detecteren |
+| Telemetrie van afhankelijkheid |[AI-Status Monitor op server installeren](monitor-performance-live-website-now.md) |Problemen met data bases of andere externe onderdelen vaststellen |
+| Stack traceringen ophalen van uitzonde ringen |[TrackException-aanroepen invoegen in uw code](asp-net-exceptions.md) (maar sommige worden automatisch gerapporteerd) |Uitzonde ringen detecteren en diagnosticeren |
+| Logboek traceringen zoeken |[Een logboek registratie adapter toevoegen](asp-net-trace-logs.md) |Diagnose uitzonde ringen, prestatie problemen |
+| Basis beginselen van client gebruik: pagina weergaven, sessies,... |[Java script-initialisatie functie in webpagina's](javascript.md) |Gebruiksanalyse |
+| Aangepaste metrische gegevens van client |[Aanroepen bijhouden op webpagina's](api-custom-events-metrics.md) |Gebruikers ervaring verbeteren |
+| Aangepaste metrische gegevens voor de server |[Tracerings aanroepen op server](api-custom-events-metrics.md) |Business intelligence |
 
-## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Waarom zijn de aantallen in zoek- en metrische gegevens over grafieken ongelijk?
+## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Waarom zijn de aantallen in zoek-en metrische grafieken niet gelijk?
 
-[Sampling](sampling.md) vermindert het aantal telemetrie-items (aanvragen, aangepaste gebeurtenissen, enzovoort) die daadwerkelijk vanuit uw app worden verzonden naar de portal. In Search ziet u het aantal items daadwerkelijk ontvangen. In grafieken met metrische gegevens die een aantal gebeurtenissen worden weergegeven, ziet u het nummer van de oorspronkelijke gebeurtenissen die hebben plaatsgevonden. 
+Door [steek proeven](sampling.md) wordt het aantal telemetriegegevens (aanvragen, aangepaste gebeurtenissen, enzovoort) verminderd die daad werkelijk vanuit uw app naar de portal worden verzonden. In de zoek opdracht ziet u het aantal items dat daad werkelijk is ontvangen. In metrische grafieken die een aantal gebeurtenissen weer geven, ziet u het aantal oorspronkelijke gebeurtenissen dat heeft plaatsgevonden. 
 
-Elk item dat is verzonden uitvoert een `itemCount` eigenschap die laat hoeveel oorspronkelijke gebeurtenissen dat item zien vertegenwoordigt. Als u wilt nagaan steekproeven in bewerking, kunt u deze query uitvoeren in Analytics:
+Elk item dat wordt verzonden, bevat een `itemCount` eigenschap die laat zien hoeveel oorspronkelijke gebeurtenissen een item vertegenwoordigt. Als u de bemonsterings bewerking wilt observeren, kunt u deze query uitvoeren in Analytics:
 
 ```
     requests | summarize original_events = sum(itemCount), transmitted_events = count()
@@ -214,58 +215,58 @@ Elk item dat is verzonden uitvoert een `itemCount` eigenschap die laat hoeveel o
 
 ### <a name="configuring-application-insights"></a>Application Insights configureren
 
-U kunt [PowerShell-scripts schrijven](powershell.md) met behulp van Azure Resource Monitor:
+U kunt [Power shell-scripts](powershell.md) met Azure Broncontrole schrijven om het volgende te doen:
 
-* Maken en bijwerken van Application Insights-resources.
-* Stel de prijsstelling.
-* De instrumentatiesleutel ophalen.
-* Een metrische waarschuwing toevoegen.
-* Een beschikbaarheidstest toevoegen.
+* Application Insights resources maken en bijwerken.
+* Stel het prijs plan in.
+* Haal de instrumentatie sleutel op.
+* Een waarschuwing voor metrische gegevens toevoegen.
+* Voeg een beschikbaarheids test toe.
 
-U kan instellen van een rapport Metric Explorer of instellen van continue export.
+U kunt geen metrisch Explorer-rapport instellen of continue export instellen.
 
-### <a name="querying-the-telemetry"></a>Uitvoeren van query's de telemetrie
+### <a name="querying-the-telemetry"></a>Query's uitvoeren op de telemetrie
 
-Gebruik de [REST-API](https://dev.applicationinsights.io/) om uit te voeren [Analytics](analytics.md) query's.
+Gebruik de [rest API](https://dev.applicationinsights.io/) om [Analytics](analytics.md) -query's uit te voeren.
 
-## <a name="how-can-i-set-an-alert-on-an-event"></a>Hoe kan ik een melding instellen op een gebeurtenis?
+## <a name="how-can-i-set-an-alert-on-an-event"></a>Hoe kan ik een waarschuwing instellen voor een gebeurtenis?
 
-Azure-waarschuwingen zijn alleen voor metrische gegevens. Maak een aangepaste meetwaarde die een waarde drempel overschrijden wanneer de gebeurtenis zich voordoet. Vervolgens stelt u een waarschuwing op de metrische gegevens. Houd er rekening mee dat: u ontvangt een melding wanneer de metriek de drempelwaarde in beide richtingen; u ontvangen een melding totdat de eerste overschrijding, ongeacht of de aanvankelijke waarde hoog of laag; is geen Er is altijd een latentie van een paar minuten.
+Azure-waarschuwingen zijn alleen op metrische gegevens. Maak een aangepaste metriek die een drempel waarde voor waarden kruist wanneer uw gebeurtenis zich voordoet. Stel vervolgens een waarschuwing in voor de metrische gegevens. Houd er rekening mee dat: u ontvangt een melding wanneer de metriek de drempel in een van beide richtingen overschrijdt. u krijgt pas een melding als de eerste doorhaling, ongeacht of de aanvankelijke waarde hoog of laag is. Er is altijd een latentie van een paar minuten.
 
-## <a name="are-there-data-transfer-charges-between-an-azure-web-app-and-application-insights"></a>Zijn er kosten voor gegevensoverdracht tussen een Azure-web-app en de Application Insights?
+## <a name="are-there-data-transfer-charges-between-an-azure-web-app-and-application-insights"></a>Zijn er kosten voor gegevens overdracht tussen een Azure-web-app en Application Insights?
 
-* Als uw Azure-web-app wordt gehost in een datacenter waar er een verzamelingseindpunt voor Application Insights is, er zijn geen kosten verbonden. 
-* Als er geen verzamelingseindpunt in uw datacenter host is, wordt de telemetrie van uw app wordt in rekening gebracht [Azure kosten uitgaande](https://azure.microsoft.com/pricing/details/bandwidth/).
+* Als uw Azure-web-app wordt gehost in een Data Center waar zich een Application Insights verzamelings eindpunt bevindt, worden er geen kosten in rekening gebracht. 
+* Als er geen eind punt van een verzameling in uw host Data Center is, worden door de telemetrie van uw app [uitgaande Azure-kosten](https://azure.microsoft.com/pricing/details/bandwidth/)in rekening gebracht.
 
-Dit wordt niet afhankelijk van waar uw Application Insights-resource wordt gehost. Dit is alleen afhankelijk van de distributie van onze eindpunten.
+Dit is niet afhankelijk van waar uw Application Insights-bron wordt gehost. Het hangt gewoon af van de distributie van onze eind punten.
 
-## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Kan ik telemetrie verzenden naar de Application Insights-portal?
+## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Kan ik telemetrie verzenden naar de Application Insights Portal?
 
-Aangeraden u onze SDK's gebruiken en gebruik de [SDK-API](api-custom-events-metrics.md). Er zijn varianten van de SDK voor verschillende [platforms](platforms.md). Deze SDK's verwerken buffer, compressie, beperking, nieuwe pogingen, enzovoort. Echter, de [opname schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) en [eindpunt protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) openbaar zijn.
+We raden u aan om onze Sdk's te gebruiken en de [SDK API](api-custom-events-metrics.md)te gebruiken. Er zijn varianten van de SDK voor verschillende [platforms](platforms.md). Deze Sdk's behandelen buffering, compressie, beperking, nieuwe pogingen, enzovoort. Het [opname schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) en het [eindpunt protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) zijn echter openbaar.
 
-## <a name="can-i-monitor-an-intranet-web-server"></a>Kan ik een intranet-webserver controleren?
+## <a name="can-i-monitor-an-intranet-web-server"></a>Kan ik een intranet webserver bewaken?
 
-Ja, maar u moet verkeer toe te staan onze services door de firewall-uitzonderingen of proxy stuurt.
-- QuickPulse `https://rt.services.visualstudio.com:443` 
+Ja, maar u moet het verkeer naar onze services toestaan door Firewall-uitzonde ringen of proxy omleidingen.
+- QuickPulse`https://rt.services.visualstudio.com:443` 
 - ApplicationIdProvider `https://dc.services.visualstudio.com:443` 
-- TelemetryChannel `https://dc.services.visualstudio.com:443` 
+- TelemetryChannel`https://dc.services.visualstudio.com:443` 
 
 
-Bekijk onze volledige lijst met services en IP-adressen [hier](../../azure-monitor/app/ip-addresses.md).
+Bekijk [hier](../../azure-monitor/app/ip-addresses.md)onze volledige lijst met Services en IP-adressen.
 
-### <a name="firewall-exception"></a>Firewall-uitzondering
+### <a name="firewall-exception"></a>Firewall-uitzonde ring
 
-Toestaan dat uw webserver voor het verzenden van telemetrie naar de eindpunten. 
+Hiermee staat u toe dat uw webserver telemetrie naar onze eind punten verzendt. 
 
-### <a name="gateway-redirect"></a>Gateway-omleiding
+### <a name="gateway-redirect"></a>Gateway omleiden
 
-Verkeer routeren van uw server aan een gateway op uw intranet door te overschrijven eindpunten in uw configuratie.
-Als deze eigenschappen 'Eindpunt' niet aanwezig in uw configuratie zijn, wordt deze klassen de standaardwaarden die hieronder wordt weergegeven in het voorbeeld ApplicationInsights.config gebruiken. 
+Verkeer van uw server naar een gateway op uw intranet routeren door eind punten in uw configuratie te overschrijven.
+Als deze eigenschappen van het eind punt niet aanwezig zijn in uw configuratie, gebruiken deze klassen de standaard waarden die hieronder worden weer gegeven in het voor beeld ApplicationInsights. config. 
 
-Uw gateway moet verkeer gerouteerd naar het basisadres van onze eindpunt. Vervang in de configuratie, de standaardwaarden met `http://<your.gateway.address>/<relative path>`.
+Uw gateway moet verkeer routeren naar het basis adres van het eind punt. Vervang in uw configuratie de standaard waarden `http://<your.gateway.address>/<relative path>`door.
 
 
-#### <a name="example-applicationinsightsconfig-with-default-endpoints"></a>Voorbeeld ApplicationInsights.config met Standaardeindpunten:
+#### <a name="example-applicationinsightsconfig-with-default-endpoints"></a>Voor beeld van ApplicationInsights. config met standaard eindpunten:
 ```xml
 <ApplicationInsights>
   ...
@@ -286,14 +287,14 @@ Uw gateway moet verkeer gerouteerd naar het basisadres van onze eindpunt. Vervan
 </ApplicationInsights>
 ```
 
-_Houd er rekening mee ApplicationIdProvider is beschikbaar in v2.6.0_
+_Opmerking ApplicationIdProvider is beschikbaar vanaf v 2.6.0_
 
-### <a name="proxy-passthrough"></a>Proxy-passthrough
+### <a name="proxy-passthrough"></a>Passthrough van proxy
 
-Proxy-passthrough kan worden bereikt door het configureren van een niveau van machine- of toepassingsniveau proxy.
-Zie voor meer informatie de dotnet-artikel op [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+Passthrough van de proxy kan worden bereikt door een computer niveau of proxy op toepassings niveau te configureren.
+Zie voor meer informatie het artikel van DOTNET op [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
  
- Voorbeeld van Web.config:
+ Voor beeld van web. config:
  ```xml
 <system.net>
     <defaultProxy>
@@ -303,19 +304,19 @@ Zie voor meer informatie de dotnet-artikel op [DefaultProxy](https://docs.micros
 ```
  
 
-## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Kan ik webtests voor beschikbaarheid uitvoeren op een intranetserver?
+## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Kan ik beschik baarheid-webtests op een intranet server uitvoeren?
 
-Onze [webtests](monitor-web-app-availability.md) worden uitgevoerd op de punten van de aanwezigheid die zijn verdeeld over de hele wereld. Er zijn twee mogelijke oplossingen:
+Onze [](monitor-web-app-availability.md) webtests worden uitgevoerd op de aanwezigheids punten die over de hele wereld worden gedistribueerd. Er zijn twee oplossingen:
 
-* De deur van Firewall - aanvragen toestaan op uw server uit [de lange en instelbare lijst web testagents](ip-addresses.md).
-* Schrijf uw eigen code voor het verzenden van periodieke aanvragen naar uw server uit in uw intranet. U kunt Visual Studio-webtests die voor dit doel kan uitvoeren. Het testprogramma kan de resultaten verzenden naar Application Insights met behulp van de API TrackAvailability().
+* Firewall deur: Hiermee worden aanvragen van de server met [de lange en de lijst met webtest agents](ip-addresses.md)toegestaan.
+* Schrijf uw eigen code voor het verzenden van periodieke aanvragen naar uw server vanuit uw intranet. U kunt Visual Studio-webtests voor dit doel uitvoeren. De tester kan de resultaten naar Application Insights verzenden met behulp van de API TrackAvailability ().
 
-## <a name="how-long-does-it-take-for-telemetry-to-be-collected"></a>Hoe lang duurt het voor telemetrie wordt verzameld?
+## <a name="how-long-does-it-take-for-telemetry-to-be-collected"></a>Hoe lang duurt het voordat telemetrie is verzameld?
 
-De meeste Application Insights-gegevens heeft een latentie van minder dan vijf minuten. Sommige gegevens kunnen langer; Normaal gesproken grotere logboekbestanden. Zie voor meer informatie de [Application Insights SLA](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/).
+De meeste Application Insights gegevens hebben een latentie van minder dan vijf minuten. Sommige gegevens kunnen langer duren. meestal grotere logboek bestanden. Zie de [Application INSIGHTS Sla](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/)voor meer informatie.
 
 ## <a name="more-answers"></a>Meer antwoorden
-* [Application Insights-forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+* [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
 
 <!--Link references-->
 

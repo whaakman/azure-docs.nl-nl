@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
 ms.openlocfilehash: 957fff73f2406e0e057a7c978dd76a6bd9c156b7
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "67876210"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple als back-updoel met NetBackup
@@ -302,9 +302,9 @@ Hier volgt een voor beeld van een GFS-rotatie schema voor vier weken, maandelijk
 
 | Type frequentie/back-up | Volledig | Incrementeel (dagen 1-5)  |   
 |---|---|---|
-| Wekelijks (weken 1-4) | Zaterdag | Maandag t/m vrijdag |
-| Maandelijks  | Zaterdag  |   |
-| Jaarlijks | Zaterdag  |   |
+| Wekelijks (weken 1-4) | zaterdag | Maandag t/m vrijdag |
+| Maandelijks  | zaterdag  |   |
+| Per jaar | zaterdag  |   |
 
 ## <a name="assigning-storsimple-volumes-to-a-netbackup-backup-job"></a>StorSimple-volumes toewijzen aan een back-uptaak voor netback-ups
 
@@ -340,9 +340,9 @@ In de volgende procedure wordt ervan uitgegaan dat NetBackup en de doelhost zijn
 
    ![Beheer console voor netback-ups, back-upfrequentie en rotatie voor een nieuw beleid](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8. Selecteer **volgende** > volgendevolt > **ooien**.  U kunt het schema wijzigen nadat het beleid is gemaakt.
+8. Selecteer **volgende** >  **** volgendevolt > **ooien**.  U kunt het schema wijzigen nadat het beleid is gemaakt.
 
-9. Selecteer om het beleid dat u zojuist hebt gemaakt uit te vouwen en selecteer vervolgens planningen.
+9. Selecteer om het beleid dat u zojuist hebt gemaakt uit te vouwenen selecteer vervolgens planningen.
 
    ![Beheer console voor netback-ups, schema's voor een nieuw beleid](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
 
@@ -408,14 +408,14 @@ In de volgende tabel ziet u hoe u back-ups kunt instellen om uit te voeren op de
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Voorbeeld schema voor GFS: GFS draaiing wekelijks, maandelijks en jaarlijks plannen
 
-| Wekelijks | Volledig | Incrementele dag 1 | Incrementele dag 2 | Incrementele dag 3 | Incrementele dag 4 | Incrementele dag 5 |
+| Week | Volledig | Incrementele dag 1 | Incrementele dag 2 | Incrementele dag 3 | Incrementele dag 4 | Incrementele dag 5 |
 |---|---|---|---|---|---|---|
 | Week 1 | Lokaal RAID-volume  | Lokaal RAID-volume | Lokaal RAID-volume | Lokaal RAID-volume | Lokaal RAID-volume | Lokaal RAID-volume |
 | Week 2 | StorSimple weken 2-4 |   |   |   |   |   |
 | Week 3 | StorSimple weken 2-4 |   |   |   |   |   |
 | Week 4 | StorSimple weken 2-4 |   |   |   |   |   |
 | Maandelijks | StorSimple maandelijks |   |   |   |   |   |
-| Jaarlijks | Jaarlijks StorSimple  |   |   |   |   |   |
+| Per jaar | Jaarlijks StorSimple  |   |   |   |   |   |
 
 
 ## <a name="assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>StorSimple-volumes toewijzen aan een archief voor netback-ups en een duplicatie taak

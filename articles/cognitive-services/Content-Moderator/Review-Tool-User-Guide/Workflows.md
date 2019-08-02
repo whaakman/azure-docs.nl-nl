@@ -1,7 +1,7 @@
 ---
-title: Definiëren en gebruiken van inhoud werkstromen via het beoordelingsprogramma - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: U kunt het Azure Content Moderator workflow designer gebruiken om aangepaste werkstromen en drempelwaarden op basis van uw inhoud beleidsregels te definiëren.
+title: Definieer en gebruik inhouds werk stromen via het hulp programma voor beoordeling-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: U kunt de Azure Content Moderator Workflow Designer gebruiken om aangepaste werk stromen en drempel waarden te definiëren op basis van uw inhouds beleid.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -10,77 +10,77 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: sajagtap
-ms.openlocfilehash: 006f7d6691b8872aaa7ff8ccacff484585761d00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b87529014a0eeb5561cd166a29f2309198733b5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61271116"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565632"
 ---
-# <a name="define-and-use-moderation-workflows"></a>Definiëren en toezicht werkstromen gebruiken
+# <a name="define-and-use-moderation-workflows"></a>Toezicht werk stromen definiëren en gebruiken
 
-In deze handleiding leert u hoe u kunt instellen en gebruiken [werkstromen](../review-api.md#workflows) op de [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com) website. Werkstromen zijn cloud-gebaseerde aangepaste filters die u gebruiken kunt voor het afhandelen van inhoud efficiënter. Werkstromen kunnen verbinding maken met tal van services voor het filteren van inhoud op verschillende manieren en vervolgens de juiste actie ondernemen. Deze handleiding wordt beschreven hoe u inhoud filteren en onlinebeoordelingen door mensen in een scenario voor het beheer van typische instellen met de Content Moderator-connector (die is opgenomen in de standaardinstelling).
+In deze hand leiding leert u hoe u [werk stromen](../review-api.md#workflows) kunt instellen en gebruiken op de website van het [controle programma](https://contentmoderator.cognitive.microsoft.com) . Werk stromen zijn op de cloud gebaseerde aangepaste filters die u kunt gebruiken om inhoud efficiënter af te handelen. Werk stromen kunnen verbinding maken met verschillende services om inhoud op verschillende manieren te filteren en vervolgens de juiste actie ondernemen. In deze hand leiding wordt beschreven hoe u de Content Moderator connector (die standaard is opgenomen) kunt gebruiken om inhoud te filteren en mensen beoordelingen in te stellen in een typisch toezicht scenario.
 
 ## <a name="create-a-new-workflow"></a>Een nieuwe werkstroom maken
 
-Ga naar de [Content Moderator-controlehulpprogramma](https://contentmoderator.cognitive.microsoft.com/) en meld u aan. Op de **instellingen** tabblad **werkstromen**.
+Ga naar het [hulp programma content moderator controle](https://contentmoderator.cognitive.microsoft.com/) en meld u aan. Op het tabblad **instellingen** selecteert u **werk stromen**.
 
-![Werkstromen instellen](images/2-workflows-0.png)
+![Werk stroom instelling](images/2-workflows-0.png)
 
-Selecteer op het volgende scherm **werkstroom toevoegen**.
+Selecteer op het volgende scherm **werk stroom toevoegen**.
 
-![Een werkstroom toevoegen](images/2-workflows-1.png)
+![Een werk stroom toevoegen](images/2-workflows-1.png)
 
-### <a name="assign-a-name-and-description"></a>Toewijzen van een naam en beschrijving
+### <a name="assign-a-name-and-description"></a>Een naam en beschrijving toewijzen
 
-Naam van uw werkstroom, voer een beschrijving in en kies of de werkstroom wordt afgehandeld, afbeeldingen of tekst.
+Geef een naam op voor uw werk stroom, voer een beschrijving in en kies of de werk stroom afbeeldingen of tekst zal verwerken.
 
-![Naam van de werkstroom en beschrijving](images/image-workflow-create.PNG)
+![Naam en beschrijving van werk stroom](images/image-workflow-create.PNG)
 
-### <a name="define-evaluation-criteria"></a>Van evaluatiecriteria definiëren
+### <a name="define-evaluation-criteria"></a>Evaluatie criteria definiëren
 
-In het volgende scherm, gaat u naar de **als** sectie. Kies in het bovenste vervolgkeuzemenu **voorwaarde**. Hiermee kunt u de voorwaarde waarop de werkstroom wordt maatregelen te configureren. Als u gebruiken van meerdere voorwaarden wilt, kiest u **combinatie** in plaats daarvan. 
+In het volgende scherm gaat u naar de sectie **als** . Kies **voor waarde**in het bovenste vervolg keuzemenu. Zo kunt u de voor waarde configureren waaronder de werk stroom actie moet ondernemen. Als u meerdere voor waarden wilt gebruiken, kiest u in plaats daarvan **combi natie** . 
 
-Selecteer vervolgens een connector. In dit voorbeeld wordt **Content Moderator**. Afhankelijk van de connector die u kiest, krijgt u verschillende opties voor gegevensuitvoer. Zie de [Connectors](./configure.md#connectors) sectie van de handleiding voor de beoordeling van hulpprogramma voor meer informatie over het instellen van andere connectors.
+Selecteer vervolgens een connector. In dit voor beeld wordt **Content moderator**gebruikt. Afhankelijk van de connector die u kiest, krijgt u verschillende opties voor gegevens uitvoer. Zie de [](./configure.md#connectors) sectie connectors in de instellingen handleiding voor het hulp programma voor meer informatie over het instellen van andere connectors.
 
-![Selecteer de connector werkstroom](images/image-workflow-connect-to.PNG)
+![Werk stroom connector selecteren](images/image-workflow-connect-to.PNG)
 
-Kies de gewenste uitvoer te gebruiken en de voorwaarden om te controleren tegen instellen.
+Kies de gewenste uitvoer om te gebruiken en stel de voor waarden in om deze te controleren.
 
-![Werkstroom voorwaarde definiëren](images/image-workflow-condition.PNG)
+![Werk stroom voorwaarde definiëren](images/image-workflow-condition.PNG)
 
 ### <a name="define-the-action"></a>De actie definiëren
 
-Ga naar de **vervolgens** sectie, waar u een actie selecteren. Het volgende voorbeeld maakt u een beoordeling van de installatiekopie en een label toegewezen. U kunt (optioneel) een alternatieve (Else)-pad toevoegen en een actie voor die ook ingesteld.
+Ga naar de sectie **vervolgens** , waar u een actie selecteert. In het volgende voor beeld wordt een afbeeldings revisie gemaakt en wordt een tag toegewezen. U kunt eventueel ook een alternatief (else) pad toevoegen en hiervoor een actie instellen.
 
-![Werkstroomactie definiëren](images/image-workflow-action.PNG)
+![Werk stroom actie definiëren](images/image-workflow-action.PNG)
 
-### <a name="save-the-workflow"></a>De werkstroom opslaan
+### <a name="save-the-workflow"></a>De werk stroom opslaan
 
-Noteer de Werkstroomnaam van de; u moet de naam voor het starten van een taak voor beheer met de werkstroom-API (Zie hieronder). Sla ten slotte de werkstroom met de **opslaan** knop aan de bovenkant van de pagina.
+Noteer de naam van de werk stroom. u hebt de naam nodig om een toezicht taak te starten met de werk stroom-API (zie hieronder). Sla tot slot de werk stroom op met behulp van de knop **Opslaan** boven aan de pagina.
 
 ## <a name="test-the-workflow"></a>De werkstroom testen
 
-Nu dat u een aangepaste werkstroom hebt gedefinieerd, kunt u deze met voorbeeldinhoud testen. Ga naar **werkstromen** en selecteert u de bijbehorende **werkstroom uitvoeren** knop.
+Nu u een aangepaste werk stroom hebt gedefinieerd, test u deze met voorbeeld inhoud. Ga naar **werk stromen** en selecteer de bijbehorende knop voor het uitvoeren van de **werk stroom** .
 
-![Werkstroom testen](images/image-workflow-execute.PNG)
+![Werk stroom testen](images/image-workflow-execute.PNG)
 
-Sla dit [voorbeeldafbeelding](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg) naar uw lokale schijf. Selecteer vervolgens **bestand(en) Kies** en de installatiekopie uploaden naar de werkstroom.
+Sla deze [voorbeeld afbeelding](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg) op uw lokale station op. Selecteer vervolgens **bestand (en) kiezen** en upload de installatie kopie naar de werk stroom.
 
-![Een runner met een aanhalingsteken boven op de installatiekopie](images/sample-text.jpg)
+![Een loper met een citaat dat is opgelegd op de afbeelding](images/sample-text.jpg)
 
 ### <a name="track-progress"></a>Voortgang bijhouden
 
-U kunt de voortgang van de werkstroom weergeven in het volgende pop-upvenster.
+U kunt de voortgang van de werk stroom weer geven in het volgende pop-upvenster.
 
-![Bijhouden van uitvoering](images/image-workflow-job.PNG)
+![Werk stroom uitvoering bijhouden](images/image-workflow-job.PNG)
 
-### <a name="verify-workflow-action"></a>Controleer of de werkstroomactie
+### <a name="verify-workflow-action"></a>Werk stroom actie verifiëren
 
-Ga naar de **installatiekopie** tabblad onder **bekijken** en controleer of er een beoordeling van de zojuist gemaakte installatiekopie.
+Ga naar het tabblad **afbeelding** onder **controleren** en controleer of er een nieuwe afbeeldings controle is gemaakt.
 
 ![Afbeeldingen beoordelen](images/image-workflow-review.PNG)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze handleiding hebt u geleerd hoe u kunt instellen en gebruiken van werkstromen voor beheer van de Content Moderator [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com). Hieronder staan de [REST-API-handleiding](../try-review-api-workflow.md) voor meer informatie over het maken van werkstromen via een programma.
+In deze hand leiding hebt u geleerd hoe u toezicht werk stromen kunt instellen en gebruiken vanuit het Content Moderator [controle programma](https://contentmoderator.cognitive.microsoft.com). Raadpleeg vervolgens de [rest API Guide](../try-review-api-workflow.md) voor informatie over het programmatisch maken van werk stromen.

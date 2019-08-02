@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van de e-mailservice van SendGrid (PHP) | Microsoft Docs
-description: Informatie over hoe e-mailbericht met de e-mailservice van SendGrid verzenden op Azure. Voorbeelden van code geschreven in PHP.
+title: De SendGrid-e-mail service (PHP) gebruiken | Microsoft Docs
+description: Meer informatie over het verzenden van e-mail met de SendGrid-e-mail service op Azure. Code voorbeelden geschreven in PHP.
 documentationcenter: php
 services: ''
 manager: sendgrid
@@ -13,46 +13,47 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
-ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: db3333aa52782ceb949ef3f46a903b618f6e3f2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: erikre
+ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
+ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60931225"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67870916"
 ---
-# <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Het gebruik van de SendGrid-e-mailservice via PHP
+# <a name="how-to-use-the-sendgrid-email-service-from-php"></a>De SendGrid-e-mail service van PHP gebruiken
 
-Deze handleiding laat zien hoe u veelvoorkomende programming taken met de e-mailservice van SendGrid uitvoeren op Azure. De voorbeelden zijn geschreven in PHP.
-De behandelde scenario's zijn **maken e**, **verzenden van e-mail**, en **bijlagen toevoegen**. Zie voor meer informatie over SendGrid en het verzenden van e-mail, het [Vervolgstappen](#next-steps) sectie.
+In deze hand leiding wordt gedemonstreerd hoe u algemene programmeer taken uitvoert met de SendGrid-e-mail service op Azure. De voor beelden zijn geschreven in PHP.
+De besproken scenario's zijn onder andere het **samen stellen van e-mail**, het **verzenden van e-mail**en het **toevoegen van bijlagen**. Zie de sectie [volgende stappen](#next-steps) voor meer informatie over het SendGrid en verzenden van e-mail.
 
-## <a name="what-is-the-sendgrid-email-service"></a>Wat is het e-mailservice van SendGrid?
-SendGrid is een [cloud-gebaseerde e-mailservice] die zorgt voor betrouwbare [transactionele e-mail delivery], schaalbaarheid en realtime analyses en flexibele API's waarmee u aangepaste integratie eenvoudig. Veelvoorkomende SendGrid gebruiksscenario's zijn onder andere:
+## <a name="what-is-the-sendgrid-email-service"></a>Wat is de SendGrid-e-mail service?
+SendGrid is een [e-mail service op basis van de Cloud] die betrouw bare transactionele [e-mail levering], schaal baarheid en real-time analyse biedt, samen met flexibele api's die eenvoudig aangepaste integratie maken. Veelvoorkomende scenario's voor SendGrid-gebruik zijn:
 
-* Automatisch verzenden van meldingen voor klanten
-* Beheer van distributie bevat voor het verzenden van klanten maandelijks e-flyers en speciale aanbiedingen
-* Realtime metrische gegevens voor zaken zoals geblokkeerde e-mail- en reactietijd van klanten verzamelen
-* Genereren van rapporten voor het identificeren van trends
-* Doorsturen van vragen van klanten
-* E-mailmeldingen van uw toepassing
+* Automatisch ontvangst bevestigingen verzenden naar klanten
+* Distributie lijsten beheren voor het maandelijks verzenden van klanten per maand e-flyers en speciale aanbiedingen
+* Realtime metrische gegevens verzamelen voor zaken als geblokkeerde e-mail en reactie tijd van klant
+* Rapporten genereren om trends te identificeren
+* Vragen van klanten door sturen
+* E-mail meldingen van uw toepassing
 
-Zie voor meer informatie, [ https://sendgrid.com ] [ https://sendgrid.com].
+Zie [https://sendgrid.com][https://sendgrid.com]voor meer informatie.
 
-## <a name="create-a-sendgrid-account"></a>Een SendGrid-Account maken
+## <a name="create-a-sendgrid-account"></a>Een SendGrid-account maken
 
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## <a name="using-sendgrid-from-your-php-application"></a>Met behulp van SendGrid van uw PHP-toepassing
+## <a name="using-sendgrid-from-your-php-application"></a>SendGrid gebruiken in uw PHP-toepassing
 
-SendGrid gebruiken in een Azure PHP-toepassing vereist geen speciale configuratie of coderen. Omdat SendGrid een service is, kunnen deze worden geopend op exact dezelfde manier uit een cloudtoepassing zoals kan vanuit een on-premises toepassing.
+Voor het gebruik van SendGrid in een Azure PHP-toepassing is geen speciale configuratie of code ring vereist. Omdat SendGrid een service is, kan deze op exact dezelfde manier worden geopend vanuit een Cloud toepassing als vanuit een on-premises toepassing.
 
 ## <a name="how-to-send-an-email"></a>Procedure: Een E-mail verzenden
 
-U kunt e-mailadres van de SMTP- of de Web-API die is geleverd door SendGrid verzenden.
+U kunt e-mail verzenden via SMTP of met de Web-API van SendGrid.
 
 ### <a name="smtp-api"></a>SMTP-API
 
-Gebruiken voor het verzenden van e-mailadres van de SMTP-API van SendGrid, *Swift e-mailprogramma*, een bibliotheek op basis van onderdelen voor het verzenden van e-mailberichten van PHP-toepassingen. U kunt downloaden de [Swift e-mailprogramma bibliotheek](https://swiftmailer.symfony.com/) v5.3.0 (Gebruik [Composer] Swift e-mailprogramma installeren). Verzenden van e-mailbericht met de bibliotheek omvat het maken van instanties van de `Swift\_SmtpTransport`, `Swift\_Mailer`, en `Swift\_Message` klassen, instellen van de gewenste eigenschappen en het aanroepen van de `Swift\_Mailer::send` methode.
+Als u e-mail berichten wilt verzenden met de SendGrid SMTP API, gebruikt u *Swift Mailer*, een op onderdelen gebaseerde bibliotheek voor het verzenden van e-mail berichten van PHP-toepassingen. U kunt de [Swift Mailer-bibliotheek](https://swiftmailer.symfony.com/) v 5.3.0 downloaden ( [] gebruik Composer om de SWIFT-mailer te installeren). Het verzenden van een e-mail met de bibliotheek omvat het `Swift\_SmtpTransport`maken `Swift\_Mailer`van instanties `Swift\_Message` van de klassen,,, en het instellen van `Swift\_Mailer::send` de juiste eigenschappen, en het aanroepen van de-methode.
 
 ```php
 <?php
@@ -117,7 +118,7 @@ Gebruiken voor het verzenden van e-mailadres van de SMTP-API van SendGrid, *Swif
 ```
 
 ### <a name="web-api"></a>Web-API
-Gebruik van PHP [curl functie] [ curl function] e-mail verzenden via de Web-API van SendGrid.
+Gebruik de [krul functie][curl function] van PHP om e-mail te verzenden met behulp van de SendGrid-Web-API.
 
 ```php
 <?php
@@ -159,13 +160,13 @@ Gebruik van PHP [curl functie] [ curl function] e-mail verzenden via de Web-API 
  print_r($response);
 ```
 
-Web-API van SendGrid is vergelijkbaar met een REST-API, maar het is niet echt een RESTful-API omdat, in de meeste aanroepen beide ophalen en POST-bewerkingen door elkaar kunnen worden gebruikt.
+De Web-API van SendGrid is vergelijkbaar met een REST API, hoewel het niet echt een resterende API is, omdat in de meeste gesp rekken zowel GET als POST-woorden door elkaar kunnen worden gebruikt.
 
-## <a name="how-to-add-an-attachment"></a>Procedure: Voeg een bijlage toe
+## <a name="how-to-add-an-attachment"></a>Procedure: Een bijlage toevoegen
 
 ### <a name="smtp-api"></a>SMTP-API
 
-Een extra regel code aan het voorbeeldscript voor het verzenden van een e-mailbericht met Swift e-mailprogramma omvat het verzenden van een bijlage met behulp van de SMTP-API.
+Het verzenden van een bijlage met de SMTP-API omvat een extra regel code in het voorbeeld script voor het verzenden van een e-mail met een Swift-Mailer.
 
 ```php
 <?php
@@ -232,17 +233,17 @@ Een extra regel code aan het voorbeeldscript voor het verzenden van een e-mailbe
  }
 ```
 
-De aanvullende coderegel is als volgt:
+De aanvullende regel code is als volgt:
 
 ```php
  $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 ```
 
-Deze regel code roept de methode koppelen op de `Swift\_Message` object en maakt gebruik van statische methode `fromPath` op de `Swift\_Attachment` klasse voor het ophalen en een bestand bijvoegen aan een bericht.
+Deze regel code roept de methode attach aan voor het `Swift\_Message` object en gebruikt statische methode `fromPath` voor de `Swift\_Attachment` klasse om een bestand op te halen en aan een bericht toe te voegen.
 
 ### <a name="web-api"></a>Web-API
 
-Verzenden van een bijlage met behulp van de Web-API is vergelijkbaar met het verzenden van een e-mail met behulp van de Web-API. Houd er echter rekening mee dat in het volgende voorbeeld, de parametermatrix mag dit element:
+Het verzenden van een bijlage met de Web-API lijkt veel op het verzenden van een e-mail met de Web-API. Houd er echter rekening mee dat in het volgende voor beeld de parameter matrix dit element moet bevatten:
 
 ```php
     'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
@@ -296,13 +297,13 @@ Verzenden van een bijlage met behulp van de Web-API is vergelijkbaar met het ver
  print_r($response);
 ```
 
-## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Procedure: Filters gebruiken om in te schakelen voetteksten, tracering en Analytics
+## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Procedure: Filters gebruiken om voet teksten, tracering en analyses in te scha kelen
 
-SendGrid zorgt voor extra e-mailfunctionaliteit via het gebruik van *filters*. Dit zijn de instellingen die kunnen worden toegevoegd aan een e-mailbericht om in te schakelen specifieke functionaliteit, zoals het inschakelen van klikken traceren in, Google analytics en abonnement bijhouden.
+SendGrid biedt extra e-mail functionaliteit dankzij het gebruik van *filters*. Dit zijn instellingen die kunnen worden toegevoegd aan een e-mail bericht om specifieke functionaliteit in te scha kelen, zoals het inschakelen van klikken op bijhouden, Google Analytics, bijhouden van abonnementen, enzovoort.
 
-Filters kunnen worden toegepast op een bericht met behulp van de eigenschap filters. Elk filter is opgegeven door een hash met filter-specifieke instellingen. Het volgende voorbeeld wordt het filter voettekst en bevat een SMS-bericht dat wordt toegevoegd aan de onderkant van het e-mailbericht. Voor dit voorbeeld gebruiken we [sendgrid-php-bibliotheek].
+Filters kunnen worden toegepast op een bericht met behulp van de eigenschap filters. Elk filter wordt opgegeven met een hash die filter-specifieke instellingen bevat. In het volgende voor beeld wordt het filter voet tekst ingeschakeld en wordt een tekst bericht opgegeven dat aan de onderkant van het e-mail bericht wordt toegevoegd. Voor dit voor beeld gebruiken we [sendgrid-PHP-bibliotheek].
 
-Gebruik [Composer] bibliotheek te installeren:
+[Composer] gebruiken voor het installeren van de bibliotheek:
 
 ```bash
 php composer.phar require sendgrid/sendgrid 2.1.1
@@ -407,13 +408,13 @@ php composer.phar require sendgrid/sendgrid 2.1.1
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u de basisprincipes van de SendGrid-e-mailservice hebt geleerd, volgt u deze koppelingen voor meer informatie.
+Nu u de basis principes van de SendGrid-e-mail service hebt geleerd, volgt u deze koppelingen voor meer informatie.
 
-* SendGrid-documentatie: <https://sendgrid.com/docs>
-* SendGrid PHP-bibliotheek: <https://github.com/sendgrid/sendgrid-php>
-* SendGrid speciaal aanbod voor Azure-klanten: <https://sendgrid.com/windowsazure.html>
+* SendGrid-documentatie:<https://sendgrid.com/docs>
+* SendGrid PHP-bibliotheek:<https://github.com/sendgrid/sendgrid-php>
+* SendGrid speciale aanbieding voor Azure-klanten:<https://sendgrid.com/windowsazure.html>
 
-Zie voor meer informatie, ook de [PHP-ontwikkelaarscentrum](https://azure.microsoft.com/develop/php/).
+Zie ook het [PHP-ontwikkelaars centrum](https://azure.microsoft.com/develop/php/)voor meer informatie.
 
 [https://sendgrid.com]: https://sendgrid.com
 [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
@@ -421,7 +422,7 @@ Zie voor meer informatie, ook de [PHP-ontwikkelaarscentrum](https://azure.micros
 [Packaging and Deploying PHP Applications for Azure]: https://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
 [http://swiftmailer.org/download]: http://swiftmailer.org/download
 [curl function]: https://php.net/curl
-[cloud-gebaseerde e-mailservice]: https://sendgrid.com/email-solutions
-[transactionele e-mail delivery]: https://sendgrid.com/transactional-email
-[sendgrid-php-bibliotheek]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
+[e-mail service op basis van de Cloud]: https://sendgrid.com/email-solutions
+[e-mail levering]: https://sendgrid.com/transactional-email
+[sendgrid-PHP-bibliotheek]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
 [Composer]: https://getcomposer.org/download/

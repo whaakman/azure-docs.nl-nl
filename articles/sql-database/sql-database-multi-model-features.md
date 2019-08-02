@@ -1,6 +1,6 @@
 ---
-title: Mogelijkheden van Azure SQL Database-multi-model | Microsoft Docs
-description: Azure SQL Database kunt u werken met meerdere gegevensmodellen in dezelfde database.
+title: Azure SQL Database mogelijkheden voor meerdere modellen | Microsoft Docs
+description: Met Azure SQL Database kunt u werken met meerdere gegevens modellen in dezelfde data base.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,121 +10,120 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 84efdb0297a2dc69497baee5fb746fb51d02b1b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e319daf322d688828c7d05d78dacd2359273223f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939521"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567129"
 ---
-# <a name="multi-model-capabilities-of-azure-sql-database"></a>Multi-modeldatabase mogelijkheden van Azure SQL Database
+# <a name="multi-model-capabilities-of-azure-sql-database"></a>Mogelijkheden van meerdere modellen van Azure SQL Database
 
-Databases met meerdere modellen kunnen u voor het opslaan en werken met gegevens die worden weergegeven in meerdere gegevensindelingen zoals relationele gegevens, grafieken, JSON/XML-documenten, sleutel / waarde-paren, enzovoort.
+Data bases met meerdere modellen bieden de mogelijkheid om gegevens op te slaan en te gebruiken die zijn opgenomen in meerdere gegevens indelingen, zoals relationele gegevens, grafieken, JSON/XML-documenten, sleutel-waardeparen, enzovoort.
 
-## <a name="when-to-use-multi-model-capabilities"></a>Wanneer u meerdere modellen mogelijkheden
+## <a name="when-to-use-multi-model-capabilities"></a>Wanneer u multi-model mogelijkheden gebruikt
 
-Azure SQL Database is ontworpen voor gebruik met het relationele model dat de beste prestaties in de meeste gevallen voor tal van algemene toepassingen biedt. Azure SQL Database is echter niet beperkt tot relationele-alleen gegevens. Azure SQL Database kunt u een groot aantal niet-relationele indelingen die nauw worden geïntegreerd in het relationele model gebruiken.
-Overweeg het gebruik van meerdere modellen mogelijkheden van Azure SQL Database in de volgende gevallen:
-- U hebt enkele gegevens of structuren die beter voor NoSQL-modellen en u geschikt zijn niet wilt gebruiken van afzonderlijke NoSQL-database.
-- Het merendeel van uw gegevens is geschikt voor relationele model en moet u bepaalde onderdelen van uw gegevens in NoSQL-stijl.
-- U wilt gebruikmaken van uitgebreide Transact-SQL-taal om te zoeken en analyseren van zowel relationele en NoSQL-gegevens en deze integreren met een verscheidenheid aan hulpprogramma's en toepassingen die de SQL-taal gebruiken.
-- U wilt toepassen van database-functies zoals [technologieën in het geheugen](sql-database-in-memory.md) te verbeteren de prestaties van uw analytische verwerking van uw strucutres NoSQL-gegevens gebruiken [transactionele replicatie](sql-database-managed-instance-transactional-replication.md) of [leesbare replica's](sql-database-read-scale-out.md) kopie van uw gegevens op de andere plaats maken en bepaalde analyseworkloads uit de primaire database-offload.
+Azure SQL Database is ontworpen om te werken met het relationele model dat de beste prestaties biedt in de meeste gevallen voor diverse toepassingen voor algemeen gebruik. Azure SQL Database is echter niet beperkt tot relationele gegevens. Met Azure SQL Database kunt u een groot aantal niet-relationele indelingen gebruiken die nauw geïntegreerd zijn in het relationele model.
+U kunt in de volgende gevallen gebruikmaken van mogelijkheden voor het gebruik van meerdere modellen van Azure SQL Database:
+- U hebt een aantal informatie of structuren die beter passen voor NoSQL-modellen en u geen afzonderlijke NoSQL-Data Base wilt gebruiken.
+- Een meerderheid van uw gegevens is geschikt voor relationele modellen en u moet een deel van uw gegevens in NoSQL-stijl model leren.
+- U wilt gebruikmaken van de uitgebreide Transact-SQL-taal voor het opvragen en analyseren van relationele en NoSQL-gegevens en deze te integreren met een aantal hulpprogram ma's en toepassingen die SQL-taal kunnen gebruiken.
+- U wilt database functies, zoals [in-Memory technologieën](sql-database-in-memory.md) , Toep assen om de prestaties van uw analyse-of verwerking van uw NoSQL-gegevens strucutres te verbeteren, gebruik transactionele [replicatie](sql-database-managed-instance-transactional-replication.md) of [Lees bare replica's](sql-database-read-scale-out.md) om een kopie van uw gegevens te maken op de andere locatie en offload enkele analytische workloads van de primaire data base.
 
 ## <a name="overview"></a>Overzicht
 
 Azure SQL biedt de volgende functies voor meerdere modellen:
-- [Graph-functies](#graph-features) kunt u uw gegevens vertegenwoordigen als set knooppunten en randen en standard Transact-SQL-query's, uitgebreid met graph gebruiken `MATCH` operator op die de graph-gegevens op te vragen.
-- [JSON-functies](#json-features) kunt u JSON-documenten in tabellen plaatsen, transformeer relationele gegevens in JSON-documenten en vice versa. U kunt de standaard Transact-SQL-taal uitgebreid met JSON-functies voor het parseren van documenten gebruiken en niet-geclusterde indexen, columnstore-indexen of tabellen geoptimaliseerd voor geheugen, het optimaliseren van uw query's gebruiken.
-- [Ruimtelijke functies](#spatial-features) kunt u geografische en geometrische gegevens opslaan en ophalen van de gegevens met behulp van ruimtelijke query's indexeren met behulp van de ruimtelijke indexen.
-- [XML-functies](#xml-features) kunt u opslaan en indexeren van XML-gegevens in uw database en gebruik de systeemeigen XQuery/XPath-bewerkingen om te werken met XML-gegevens. Azure SQL-database heeft een speciale ingebouwde XML-query-engine waarmee XML-gegevens worden verwerkt.
-- [Sleutel / waarde-paren](#key-value-pairs) niet expliciet worden ondersteund als speciale functies omdat sleutel / waarde-Parijs kan systeemeigen worden gemodelleerd als twee kolommen tabellen.
+- Met [Graph-functies](#graph-features) kunt u uw gegevens weer geven als set van knoop punten en randen en kunt u standaard Transact-SQL- `MATCH` query's gebruiken met de grafiek operator voor het opvragen van de grafiek gegevens.
+- Met de [JSON-functies](#json-features) kunt u JSON-documenten in tabellen plaatsen, relationele gegevens TRANSFORMEREN naar JSON-documenten en vice versa. U kunt de standaard Transact-SQL-taal uitgebreid met JSON-functies voor het parseren van documenten en niet-geclusterde indexen, Column Store-indexen of tabellen die zijn geoptimaliseerd voor geheugen gebruiken om uw query's te optimaliseren.
+- Met [ruimtelijke functies](#spatial-features) kunt u geografische en geometrische gegevens opslaan, indexeren met behulp van ruimtelijke indexen en de gegevens ophalen met behulp van ruimtelijke query's.
+- Met [XML-functies](#xml-features) kunt u XML-gegevens in uw data base opslaan en indexeren en systeem eigen XQuery/XPath-bewerkingen gebruiken om met XML-gegevens te werken. Azure SQL database heeft een speciaal ingebouwde XML-query-engine waarmee XML-gegevens worden verwerkt.
+- [Sleutel-](#key-value-pairs) waardeparen worden niet expliciet ondersteund als speciale functies omdat de sleutel waarde Parijs kan worden gemodelleerd als tabellen met twee kolommen.
 
   > [!Note]
-  > U kunt het JSON-padexpressie aan, XQuery/XPath-expressies, ruimtelijke functies en graph-query-expressies in de dezelfde Transact-SQL-query gebruiken voor toegang tot alle gegevens die u in de database opgeslagen. Een hulpprogramma of programmeertaal die Transact-SQL-query's kunt uitvoeren kunt ook ook gebruiken dat query-interface voor toegang tot gegevens van meerdere modellen. Dit is het belangrijkste verschil in vergelijking met de databases met meerdere modellen zoals [Azure Cosmos DB](/azure/cosmos-db/) die gespecialiseerde API biedt voor verschillende gegevensmodellen.
+  > U kunt JSON Path-expressie, XQuery/XPath-expressies, ruimtelijke functies en Graph-query-expressies in dezelfde Transact-SQL-query gebruiken om toegang te krijgen tot gegevens die u in de Data Base hebt opgeslagen. Daarnaast kan elk hulp programma of elke programmeer taal waarmee Transact-SQL-query's kunnen worden uitgevoerd, deze query-interface ook gebruiken om toegang te krijgen tot gegevens van meerdere modellen. Dit is het belangrijkste verschil ten opzichte van de data bases met meerdere modellen, zoals [Azure Cosmos DB](/azure/cosmos-db/) die speciale API bieden voor verschillende gegevens modellen.
 
-In de volgende secties, kunt u meer informatie over de belangrijkste multi-modeldatabase mogelijkheden van Azures SQL-Database.
+In de volgende secties vindt u meer informatie over de belangrijkste mogelijkheden voor meerdere modellen van Azure SQL Database.
 
 ## <a name="graph-features"></a>Graph-functies
 
-Azure SQL Database biedt mogelijkheden van graph database model veel-op-veel-relaties in de database. Een grafiek is een verzameling van knooppunten (of hoekpunten) en randen (of relaties). Een knooppunt staat voor een entiteit (bijvoorbeeld een persoon of een organisatie) en een rand voor een relatie tussen de twee knooppunten die deze verbinding (voor bijvoorbeeld likes of vrienden maakt). Hier volgen enkele functies die een grafiekdatabase uniek te maken:
-- Randen of relaties zijn eersteklas entiteiten in een Grafiekdatabase en kunnen hebben eigenschappen of kenmerken die zijn gekoppeld aan deze.
-- Een enkele edge kunt flexibel verbinding maken met meerdere knooppunten in een Grafiekdatabase.
-- U kunt jokertekens en Multihop-navigatie-query's eenvoudig express.
-- U kunt transitieve sluiting en polymorf query's eenvoudig express.
+Azure SQL Database biedt grafische database mogelijkheden om veel-op-veel-relaties in de data base te model leren. Een grafiek is een verzameling knoop punten (of hoek punten) en randen (of relaties). Een knoop punt vertegenwoordigt een entiteit (bijvoorbeeld een persoon of een organisatie) en een rand vertegenwoordigt een relatie tussen de twee knoop punten die er verbinding mee maakt (bijvoorbeeld leuk of vrienden). Hier volgen enkele functies die een grafiek database uniek maken:
+- Randen of relaties zijn de eerste klasse-entiteiten in een grafiek database en er kunnen kenmerken of eigenschappen aan zijn gekoppeld.
+- Eén rand kan flexibel meerdere knoop punten in een grafiek database verbinden.
+- U kunt snel patroon overeenkomsten en navigatie query's met meerdere hops eenvoudig uitdrukken.
+- U kunt transitieve sluitingen en polymorphing-query's eenvoudig uitdrukken.
 
-De graph-relaties en mogelijkheden van graph-query's zijn geïntegreerd in de Transact-SQL en profiteer van de voordelen van het gebruik van SQL Server als de fundamentele database management systeem.
-[Grafische verwerking](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) is van het onderdeel van de Database-Engine van SQL Server core, zodat u meer informatie over de grafiek kunt vinden er verwerken.
+De mogelijkheden van Graph-relaties en Graph-query's zijn geïntegreerd in Transact-SQL en ontvangen de voor delen van het gebruik van SQL Server als basis Database Management System.
+Het [verwerken van grafieken](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) is de belangrijkste functie SQL server data base-engine, zodat u meer informatie over de grafiek verwerking kunt vinden.
 
-### <a name="when-to-use-a-graph-capability"></a>Wanneer u de mogelijkheid van een grafiek
+### <a name="when-to-use-a-graph-capability"></a>Wanneer u een grafiek mogelijkheid wilt gebruiken
 
-Er is niets die een grafiekdatabase bereiken kunt, die niet kan worden bereikt met behulp van een relationele database. Echter, een grafiekdatabase kunt maken het gemakkelijker om bepaalde query's. Uw beslissing kiezen of het andere kan worden gebaseerd op de volgende factoren:
+Er is niets wat een grafiek database kan bereiken. Dit kan niet worden bereikt met een relationele data base. Met een Graph-Data Base kunt u echter gemakkelijker bepaalde query's uitdrukken. Uw beslissing om een van de andere te kiezen, kan worden gebaseerd op de volgende factoren:
 
-- Model hiërarchische gegevens waar een van de knooppunten meerdere bovenliggende items, hebben zodat HierarchyId kan niet worden gebruikt
-- Heeft uw toepassing heeft veel-op-veel-relaties, complexe; Als de toepassing zich verder ontwikkelt, worden nieuwe relaties toegevoegd.
-- U hoeft te analyseren met elkaar verbonden gegevens en relaties.
+- Modeleer hiërarchische gegevens waarbij één knoop punt meerdere bovenliggende items kan hebben, zodat HierarchyId niet kan worden gebruikt
+- Model heeft uw toepassing complexe veel-op-veel-relaties. Naarmate de toepassing wordt ontwikkeld, worden nieuwe relaties toegevoegd.
+- U moet onderling verbonden gegevens en relaties analyseren.
 
 ## <a name="json-features"></a>JSON-functies
 
-Azure SQL Database kunt u parseren en query uitvoeren op gegevens die worden weergegeven in JavaScript Object Notation [(JSON)](https://www.json.org/) formatteren en exporteren van uw relationele gegevens als JSON-tekst.
+Met Azure SQL Database kunt u gegevens parseren en opvragen die worden weer gegeven in de indeling van JavaScript Object Notation [(JSON)](https://www.json.org/) en uw relationele gegevens exporteren als JSON-tekst.
 
-JSON is een veelgebruikte gegevensindeling die wordt gebruikt voor het uitwisselen van gegevens in moderne webtoepassingen en mobiele toepassingen. JSON wordt ook gebruikt voor het opslaan van semi-gestructureerde gegevens in logboekbestanden of in NoSQL-databases zoals [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Veel REST-webservices resultaten opgemaakt als JSON-tekst of accepteer gegevens opgemaakt als JSON. De meeste Azure-services zoals [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/), en [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) REST-eindpunten die retourneren of JSON gebruiken.
+JSON is een populaire gegevens indeling die wordt gebruikt voor het uitwisselen van gegevens in moderne web-en mobiele toepassingen. JSON wordt ook gebruikt voor het opslaan van semi-gestructureerde gegevens in logboek bestanden of in NoSQL-data bases zoals [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Veel REST-webservices retour neren resultaten die zijn opgemaakt als JSON-tekst of accepteren gegevens die zijn opgemaakt als JSON. De meeste Azure-Services, zoals [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/)en [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hebben rest-eind punten die JSON retour neren of gebruiken.
 
-Azure SQL Database kunt u eenvoudig werken met JSON-gegevens en het integreren van uw database met moderne services. Azure SQL Database biedt de volgende functies voor het werken met JSON-gegevens:
+Met Azure SQL Database kunt u eenvoudig met JSON-gegevens werken en uw data base integreren met moderne services. Azure SQL Database biedt de volgende functies voor het werken met JSON-gegevens:
 
 ![JSON-functies](./media/sql-database-json-features/image_1.png)
 
-Als u JSON-tekst hebt, kunt u gegevens ophalen uit JSON of Controleer of JSON correct is geformatteerd met behulp van de ingebouwde functies [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx), en [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx). De [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) functie kunt u de waarde in JSON-tekst wordt bijgewerkt. Voor meer query's en analyse geavanceerde, [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) functie's kunt gebruiken om een matrix met JSON-objecten in een set rijen. Een SQL-query kan worden uitgevoerd op de geretourneerde resultatenset. Ten slotte, er is een [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) component waarmee u gegevens die zijn opgeslagen in de relationele tabellen als JSON-tekst opmaken.
+Als u JSON-tekst hebt, kunt u gegevens uit JSON extra heren of controleren of de JSON juist is ingedeeld met behulp van de ingebouwde functies [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx)en [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx). Met de functie [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) kunt u de waarde in JSON-tekst bijwerken. Voor meer geavanceerde query's en analyse kunnen met [](https://msdn.microsoft.com/library/dn921885.aspx) de functie openjson een matrix van JSON-objecten worden omgezet in een set rijen. Een SQL-query kan worden uitgevoerd op de geretourneerde resultatenset. Ten slotte is er een [voor json](https://msdn.microsoft.com/library/dn921882.aspx) -component waarmee u gegevens kunt opmaken die in uw relationele tabellen zijn opgeslagen als JSON-tekst.
 
-Zie voor meer informatie, [over het werken met JSON-gegevens in azure SQL-Database](sql-database-json-features.md).
-[JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) is core SQL Server Database Engine-functie, zodat u meer informatie over de JSON-functie er kunt vinden.
+Zie [werken met JSON-gegevens in azure SQL database](sql-database-json-features.md)voor meer informatie.
+[JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) is kern SQL server data base-engine, zodat u hier meer informatie over de json-functie kunt vinden.
 
-### <a name="when-to-use-a-json-capability"></a>Wanneer u een JSON-mogelijkheid
+### <a name="when-to-use-a-json-capability"></a>Wanneer gebruikt u een JSON-mogelijkheid?
 
-Document-modellen kunnen worden gebruikt in plaats van de relationele modellen in sommige scenario's:
-- Hoog-normalisering van het schema doen niet aanzienlijke voordelen omdat u alle velden van objecten in één keer toegang tot, of u genormaliseerde delen van de objecten niet bijwerken. Het model genormaliseerde verhoogt echter de complexiteit van uw query's vanwege het grote aantal tabellen die u nodig hebt om toe te voegen om de gegevens.
-- U werkt met de toepassingen die systeemeigen gebruiken JSON-documenten communicatie of gegevensmodellen zijn en u niet wilt introduceren extra lagen waarmee relationele gegevens in JSON en vice versa worden getransformeerd.
-- U moet uw gegevensmodel door ongedaan maken normaliseren onderliggende tabellen of entiteit objectwaarde patronen vereenvoudigen.
-- U moet laden of exporteren van gegevens die zijn opgeslagen in JSON-indeling zonder enige extra hulpmiddelen die de gegevens worden geparseerd.
+Document modellen kunnen worden gebruikt in plaats van de relationele modellen in een aantal specifieke scenario's:
+- Hoge normalisatie van het schema brengt geen aanzienlijke voor delen met zich mee, omdat u alle velden van objecten tegelijk opent, of als u de genormaliseerde delen van de objecten nooit bijwerkt. Het genormaliseerde model verhoogt echter de complexiteit van uw query's vanwege het grote aantal tabellen dat u moet koppelen om de gegevens op te halen.
+- U werkt met de toepassingen die systeem eigen gebruik maken van JSON-documenten zijn communicatie-of gegevens modellen en u wilt geen extra lagen introduceren waarmee relationele gegevens naar JSON worden getransformeerd en omgekeerd.
+- U moet uw gegevens model vereenvoudigen door onderliggende tabellen of entiteit-object-waarde-patronen te ontsleutelen.
+- U moet gegevens die zijn opgeslagen in JSON-indeling laden of exporteren zonder een extra hulp programma waarmee de gegevens worden geparseerd.
 
-## <a name="spatial-features"></a>Ruimtelijke-functies
+## <a name="spatial-features"></a>Ruimtelijke functies
 
-Ruimtelijke gegevens Hiermee geeft u informatie over de fysieke locatie en de vorm van geometrische objecten. Deze objecten kunnen worden distributiepuntlocaties of meer complexe objecten zoals landen/regio's, wegen of meren.
+Ruimtelijke gegevens vertegenwoordigen informatie over de fysieke locatie en vorm van geometrische objecten. Deze objecten kunnen punt locaties of complexere objecten zijn, zoals landen/regio's, wegen of meren.
 
-Azure SQL Database ondersteunt twee typen voor ruimtelijke gegevens: het gegevenstype geometry en geography gegevens typt.
-- Het type geometry vertegenwoordigt gegevens in een Euclidean (vast) coördinatensysteem.
-- Het type geography vertegenwoordigt gegevens in een round-aarde coördinatensysteem.
+Azure SQL Database ondersteunt twee ruimtelijke gegevens typen: het gegevens type geometrie en het gegevens type geografie.
+- Het type geometrie vertegenwoordigt gegevens in een Euclidean (plat)-coördinaten systeem.
+- Het geografie type staat voor gegevens in een coördinaten systeem met round-Earth.
 
-Er is een aantal ruimtelijke objecten die kunnen worden gebruikt in Azure SQL-database, zoals [punt](https://docs.microsoft.com/sql/relational-databases/spatial/point), [LineString](https://docs.microsoft.com/sql/relational-databases/spatial/linestring), [veelhoek](https://docs.microsoft.com/sql/relational-databases/spatial/polygon), enzovoort.
+Er is een aantal ruimtelijke objecten die kunnen worden gebruikt in Azure SQL database zoals [Point](https://docs.microsoft.com/sql/relational-databases/spatial/point), [Lines Tring](https://docs.microsoft.com/sql/relational-databases/spatial/linestring), [veelhoek](https://docs.microsoft.com/sql/relational-databases/spatial/polygon), enzovoort.
 
-Azure SQL Database biedt ook gespecialiseerd [ruimtelijke indexen](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-indexes-overview) die kunnen worden gebruikt om de prestaties van uw ruimtelijke query's te verbeteren.
+Azure SQL Database biedt ook gespecialiseerde [ruimtelijke indexen](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-indexes-overview) die kunnen worden gebruikt om de prestaties van uw ruimtelijke query's te verbeteren.
 
-[Ondersteuning voor ruimtelijke](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) is core SQL Server Database Engine-functie, zodat u meer informatie over de ruimtelijke functie er kunt vinden.
+[Ruimtelijke ondersteuning](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) is kern SQL Server de functie data base-engine, zodat u hier meer informatie over de ruimtelijke functie kunt vinden.
 
 ## <a name="xml-features"></a>XML-functies
 
-SQL Server biedt een krachtig platform voor het ontwikkelen van uitgebreide toepassingen voor het beheer van semi-gestructureerde gegevens. Ondersteuning voor XML is geïntegreerd in alle componenten in SQL Server en omvat het volgende:
+SQL Server biedt een krachtig platform voor het ontwikkelen van geavanceerde toepassingen voor semi-gestructureerde gegevens beheer. Ondersteuning voor XML is geïntegreerd in alle onderdelen in SQL Server en bevat het volgende:
 
-- Het gegevenstype xml. XML-waarden kunnen systeemeigen worden opgeslagen in een XML-kolom met gegevenstype die kan worden getypt op basis van een verzameling van XML-schema's of links getypeerde. U kunt de kolom XML-index.
-- De mogelijkheid om op te geven van een XQuery-query op XML-gegevens die zijn opgeslagen in de kolommen en variabelen van het type xml. XQuery-functionaliteit kunnen worden gebruikt in een Transact-SQL-query die toegang hebben tot een gegevensmodel dat u in de database gebruiken.
-- Automatisch indexeren alle elementen in XML-documenten met behulp van [primaire XML-index](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#primary-xml-index) of geef de exacte paden die moeten worden geïndexeerd met behulp van [secundaire XML-index](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#secondary-xml-indexes).
-- OPENROWSET waarmee bulksgewijs laden van XML-gegevens.
-- Relationele gegevens transformeren naar XML-indeling.
+- Het XML-gegevens type. XML-waarden kunnen worden opgeslagen in een kolom met XML-gegevens typen die kunnen worden getypt op basis van een verzameling van XML-schema's of niet-getypte links. U kunt de XML-kolom indexeren.
+- De mogelijkheid om een XQuery-query op te geven voor XML-gegevens die zijn opgeslagen in kolommen en variabelen van het XML-type. XQuery-functionaliteiten kunnen worden gebruikt in elke Transact-SQL-query die toegang heeft tot elk gegevens model dat u in uw data base gebruikt.
+- Alle elementen in XML-documenten automatisch indexeren met de [primaire XML-index](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#primary-xml-index) of de exacte paden opgeven die moeten worden geïndexeerd met de [secundaire XML-index](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#secondary-xml-indexes).
+- OPENROWSET waarmee XML-gegevens bulksgewijs kunnen worden geladen.
+- Transformeer relationele gegevens in XML-indeling.
 
-[XML](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server) is core SQL Server Database Engine-functie, zodat u meer informatie over de functie van de XML er kunt vinden.
+[XML](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server) is kern SQL server data base engine-functie, zodat u hier meer informatie over de XML-functie kunt vinden.
 
-### <a name="when-to-use-an-xml-capability"></a>Wanneer u een XML-mogelijkheden
+### <a name="when-to-use-an-xml-capability"></a>Wanneer gebruikt u een XML-mogelijkheid?
 
-Document-modellen kunnen worden gebruikt in plaats van de relationele modellen in sommige scenario's:
-- Hoog-normalisering van het schema doen niet aanzienlijke voordelen omdat u alle velden van objecten in één keer toegang tot, of u genormaliseerde delen van de objecten niet bijwerken. Het model genormaliseerde verhoogt echter de complexiteit van uw query's vanwege het grote aantal tabellen die u nodig hebt om toe te voegen om de gegevens.
-- U werkt met de toepassingen die systeemeigen Gebruik XML-documenten communicatie of gegevensmodellen zijn en u niet wilt introduceren extra lagen waarmee relationele gegevens naar XML en omgekeerd worden getransformeerd.
-- U moet uw gegevensmodel door ongedaan maken normaliseren onderliggende tabellen of entiteit objectwaarde patronen vereenvoudigen.
-- U moet laden of exporteren van gegevens die zijn opgeslagen in XML-indeling zonder enige extra hulpmiddelen die de gegevens worden geparseerd.
+Document modellen kunnen worden gebruikt in plaats van de relationele modellen in een aantal specifieke scenario's:
+- Hoge normalisatie van het schema brengt geen aanzienlijke voor delen met zich mee, omdat u alle velden van objecten tegelijk opent, of als u de genormaliseerde delen van de objecten nooit bijwerkt. Het genormaliseerde model verhoogt echter de complexiteit van uw query's vanwege het grote aantal tabellen dat u moet koppelen om de gegevens op te halen.
+- U werkt met de toepassingen die systeem eigen XML-documenten gebruiken, zijn communicatie-of gegevens modellen en u wilt geen extra lagen maken waarmee relationele gegevens worden omgezet naar XML en omgekeerd.
+- U moet uw gegevens model vereenvoudigen door onderliggende tabellen of entiteit-object-waarde-patronen te ontsleutelen.
+- U moet gegevens die zijn opgeslagen in XML-indeling laden of exporteren zonder een extra hulp programma waarmee de gegevens worden geparseerd.
 
 ## <a name="key-value-pairs"></a>Sleutel-waardeparen
 
-Azure SQL Database is geen speciale typen of structuren die ondersteuning bieden voor sleutel / waarde-paren omdat sleutel / waarde-structuren kunnen systeemeigen worden weergegeven als standaard relationele tabellen:
+Azure SQL Database geen gespecialiseerde typen of structuren die sleutel-waardeparen ondersteunen, omdat de sleutel-waardeparen kunnen worden aangeduid als standaard relationele tabellen:
 
 ```sql
 CREATE TABLE Collection (
@@ -133,14 +132,14 @@ CREATE TABLE Collection (
 )
 ```
 
-U kunt deze sleutel / waarde-structuur aan uw behoeften zonder enige beperkingen aan aanpassen. Als u bijvoorbeeld de waarde in plaats van XML-document kan zijn `nvarchar(max)` type, als de waarde is een JSON-document, kunt u plaatsen `CHECK` beperking die controleert of de geldigheid van de JSON-inhoud. U kunt plaatsen van een willekeurig aantal waarden die betrekking hebben op één sleutel in de extra kolommen, toevoegen van berekende kolommen en indexen te vereenvoudigen en gegevenstoegang te optimaliseren, de tabel hebt gedefinieerd als geoptimaliseerd voor geheugen/alleen-schema-tabel ophalen voor betere prestaties, enzovoort.
+U kunt deze structuur van de sleutel waarde aanpassen aan uw behoeften zonder beperkingen. Een voor beeld: de waarde kan een XML-document zijn `nvarchar(max)` in plaats van het type, als de waarde een JSON- `CHECK` document is, kunt u een beperking plaatsen die de geldigheid van JSON-inhoud verifieert. U kunt een wille keurig aantal waarden in verband met één sleutel in de extra kolommen plaatsen, berekende kolommen en indexen toevoegen om gegevens toegang te vereenvoudigen en te optimaliseren, de tabel definiëren als tabel met alleen geheugen/geoptimaliseerd schema voor betere prestaties, enzovoort.
 
-Zie [hoe BWin gebruikt In-Memory OLTP voor ongeëvenaarde prestaties en schaal](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) voor het opslaan van de ASP.NET-oplossing die 1.200.000 bereikt batches per seconde, als een voorbeeld van hoe relationele model effectief kan worden gebruikt als sleutel / waarde-paar oplossing in de praktijk.
+Bekijk [hoe BWin in-Memory OLTP gebruikt om ongekende prestaties te bereiken en te schalen](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) voor de ASP.NET-cache oplossing die 1.200.000 batches per seconden heeft behaald, als voor beeld hoe relationeel model effectief kan worden gebruikt als een oplossing voor sleutel waarde-paar in proef.
 
 ## <a name="next-steps"></a>Volgende stappen
-Multi-modeldatabase mogelijkheden in Azure SQL-Databases zijn ook de belangrijkste SQL Server Database Engine-functies die worden gedeeld tussen Azure SQL Database en SQL Server. Meer informatie over deze functies, gaat u naar de relationele SQL database-documentatiepagina's:
+Mogelijkheden van meerdere modellen in Azure SQL-data bases zijn ook de kern functies van SQL Server data base-engine die worden gedeeld tussen Azure SQL Database en SQL Server. Ga voor meer informatie over deze functies naar de documentatie pagina's van SQL relationele data base:
 
-* [Grafische verwerking](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
+* [Grafiek verwerking](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
 * [JSON-gegevens](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server)
-* [Ruimtelijke-ondersteuning](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server)
+* [Ruimtelijke ondersteuning](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server)
 * [XML-gegevens](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server)

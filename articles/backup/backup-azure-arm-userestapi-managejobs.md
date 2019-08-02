@@ -1,29 +1,29 @@
 ---
-title: "Azure Backup: Back-uptaken met REST API's beheren"
-description: beheren van back-up en herstellen van taken van Azure Backup met behulp van REST-API
-services: backup
-author: pvrk
-manager: shivamg
-keywords: REST-API; Azure VM back-up. Azure VM-herstel.
+title: 'Azure Backup: Back-uptaken beheren met REST API'
+description: back-up-en herstel taken van Azure Backup beheren met REST API
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
+keywords: REST API; Back-ups van Azure-VM'S; Azure VM herstellen;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: eb8b7dc77d180eb56c2585e93e60a36742f6c84c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a8ba5727dea214343e7696ff3193aba13922be03
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646619"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689454"
 ---
-# <a name="track-backup-and-restore-jobs-using-rest-api"></a>Bijhouden van back-up en herstel taken met behulp van REST-API
+# <a name="track-backup-and-restore-jobs-using-rest-api"></a>Back-up-en herstel taken bijhouden met behulp van REST API
 
-Azure Backup-service wordt geactiveerd voor taken die worden uitgevoerd op de achtergrond in verschillende scenario's zoals back-up activeren, bewerkingen, uitschakelen van back-up te herstellen. Deze taken kunnen worden gevolgd met behulp van de id's.
+Azure Backup-service activeert taken die op de achtergrond worden uitgevoerd in verschillende scenario's, zoals het activeren van back-ups, herstel bewerkingen, het uitschakelen van back-ups. Deze taken kunnen worden gevolgd met hun Id's.
 
-## <a name="fetch-job-information-from-operations"></a>Taakgegevens ophalen uit operations
+## <a name="fetch-job-information-from-operations"></a>Taak gegevens ophalen uit bewerkingen
 
-Een bewerking, zoals back-up activeren retourneert altijd een jobID is. Voor bijvoorbeeld: De definitieve antwoord van een [back-REST-API-bewerking activeren](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) is als volgt:
+Een bewerking zoals het activeren van een back-up retourneert altijd een jobID. Voor bijvoorbeeld: De laatste reactie van een [trigger back-up rest API bewerking](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) is als volgt:
 
 ```http
 {
@@ -39,15 +39,15 @@ Een bewerking, zoals back-up activeren retourneert altijd een jobID is. Voor bij
 }
 ```
 
-De Azure-VM back-uptaak wordt aangeduid met "jobId" veld en kunnen worden bijgehouden, zoals vermeld [hier](https://docs.microsoft.com/rest/api/backup/jobdetails/) met behulp van een eenvoudige *ophalen* aanvraag.
+De Azure VM-back-uptaak wordt aangeduid met het veld jobId en kan worden gevolgd [](https://docs.microsoft.com/rest/api/backup/jobdetails/) door een eenvoudige *Get* -aanvraag.
 
-## <a name="tracking-the-job"></a>De taak volgen
+## <a name="tracking-the-job"></a>De taak bijhouden
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2017-07-01
 ```
 
-De `{jobName}` 'jobId' hierboven wordt genoemd. Het antwoord is altijd 200 OK met het veld 'status' met de huidige status van de taak. Zodra deze is 'Voltooid' of 'CompletedWithWarnings', wordt de sectie 'extendedInfo' meer informatie over de taak.
+De `{jobName}` is de ' jobId ' die hierboven wordt vermeld. Het antwoord is altijd 200 OK met het veld Status om de huidige status van de taak aan te geven. Zodra het ' voltooid ' of ' CompletedWithWarnings ' is, toont de sectie ' extendedInfo ' meer informatie over de taak.
 
 ### <a name="response"></a>Antwoord
 
@@ -57,7 +57,7 @@ De `{jobName}` 'jobId' hierboven wordt genoemd. Het antwoord is altijd 200 OK me
 
 #### <a name="example-response"></a>Voorbeeld van een antwoord
 
-Zodra de *ophalen* URI wordt ingediend, een 200 (OK) antwoord wordt geretourneerd.
+Zodra de *Get* -URI is verzonden, wordt een antwoord van 200 (OK) geretourneerd.
 
 ```http
 HTTP/1.1 200 OK

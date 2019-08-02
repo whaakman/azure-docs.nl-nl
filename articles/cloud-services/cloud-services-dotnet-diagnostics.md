@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: gwallace
 ms.openlocfilehash: 5f2ec77452b90d4270de043955fc0b443f045d5b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "68359684"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Azure Diagnostics in azure inschakelen Cloud Services
@@ -24,7 +24,7 @@ Zie [Azure Diagnostics overzicht](../azure-diagnostics.md) voor een achtergrond 
 In dit scenario wordt beschreven hoe u een Azure worker-rol implementeert die telemetriegegevens verzendt met behulp van de .NET Event source-klasse. Azure Diagnostics wordt gebruikt om de telemetriegegevens te verzamelen en op te slaan in een Azure-opslag account. Wanneer u een werknemersrol maakt, schakelt Visual Studio automatisch diagnostische gegevens van 1,0 in als onderdeel van de oplossing in azure Sdk's voor .NET 2,4 en eerdere versies. De volgende instructies beschrijven het proces voor het maken van de rol van werk nemers, het uitschakelen van diagnose 1,0 van de oplossing en het implementeren van diagnostische gegevens 1,2 of 1,3 voor uw werknemersrol.
 
 ### <a name="prerequisites"></a>Vereisten
-In dit artikel wordt ervan uitgegaan dat u een Azure-abonnement hebt en Visual Studio gebruikt met de Azure SDK. Als u geen Azure-abonnement hebt, kunt u zich aanmelden voor de [gratis proef versie][Free Trial]. Make sure to [Install and configure Azure PowerShell version 0.8.7 or later][Install and configure Azure PowerShell version 0.8.7 or later].
+In dit artikel wordt ervan uitgegaan dat u een Azure-abonnement hebt en Visual Studio gebruikt met de Azure SDK. Als u geen Azure-abonnement hebt, kunt u zich aanmelden voor de [gratis proef versie][Free Trial]. Zorg ervoor dat u [Azure PowerShell versie 0.8.7 of hoger installeert en configureert][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-worker-role"></a>Stap 1: Een werk rollen maken
 1. Start **Visual Studio**.
@@ -136,10 +136,10 @@ namespace WorkerRole1
     ```powershell
     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
     ```
-2. Voeg een XML-bestand toe aan uw **WorkerRole1** -project door met de rechter muisknop op het **WorkerRole1** -project te klikken en nieuw item **toevoegen** -> te selecteren **...** -> **C#** **XML-bestand**met Visual-items. ->  ->  Noem het bestand ' WadExample. XML '.
+2. Voeg een XML-bestand toe aan uw **WorkerRole1** -project door met de rechter muisknop op het **WorkerRole1** -project te klikken en nieuw item **toevoegen** -> te selecteren **...** -> **C#** **XML-bestand**met Visual-items. ****  ->  ->  Noem het bestand ' WadExample. XML '.
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
-3. Koppel de WadConfig. XSD aan het configuratie bestand. Zorg ervoor dat het venster WadExample. XML editor het actieve venster is. Druk op **F4** om het venster **Eigenschappen** te openen. Klik op  de eigenschap schemas in het venster **Eigenschappen** . Klik op de **..** . in de  eigenschap schemas. Klik op de knop **Toevoegen...** en navigeert u naar de locatie waar u het XSD-bestand hebt opgeslagen en selecteert u het bestand WadConfig. XSD. Klik op **OK**.
+3. Koppel de WadConfig. XSD aan het configuratie bestand. Zorg ervoor dat het venster WadExample. XML editor het actieve venster is. Druk op **F4** om het venster **Eigenschappen** te openen. Klik op de eigenschap schemas in het venster **Eigenschappen** . Klik op de **..** . in de eigenschap schemas. Klik op de knop **Toevoegen...** en navigeert u naar de locatie waar u het XSD-bestand hebt opgeslagen en selecteert u het bestand WadConfig. XSD. Klik op **OK**.
 
 4. Vervang de inhoud van het configuratie bestand WadExample. XML door de volgende XML en sla het bestand op. Dit configuratie bestand definieert een aantal prestatie meter items die moeten worden verzameld: één voor CPU-gebruik en één voor geheugen gebruik. Vervolgens definieert de configuratie de vier gebeurtenissen die overeenkomen met de methoden in de SampleEventSourceWriter-klasse.
 

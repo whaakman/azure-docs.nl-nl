@@ -1,184 +1,187 @@
 ---
-title: How Personalizer Works - Personalizer
+title: 'Hoe Personaler werkt: Personaler'
 titleSuffix: Azure Cognitive Services
-description: Personalizer maakt gebruik van machine learning om te ontdekken welke actie moet worden gebruikt in een context. Elke lus learning is een model dat uitsluitend op gegevens die u hebt verzonden naar het via de positie en aanroepen van derden wordt getraind. Elke lus learning is volledig onafhankelijk van elkaar.
-author: edjez
+description: Personaler gebruikt machine learning om te ontdekken welke actie in een context moet worden gebruikt. Elke Learning-lus heeft een model dat uitsluitend is getraind op gegevens die u hebt verzonden via rang en beloning. Elke Learning-lus is volledig onafhankelijk van elkaar.
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: edjez
-ms.openlocfilehash: 38480d3cc32d53084b79af627e4f7e6ae7dcc03d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: e55ccb508760c4473f71245c183948219f31985c
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722358"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663917"
 ---
 # <a name="how-personalizer-works"></a>Hoe Personalizer werkt
 
-Personalizer maakt gebruik van machine learning om te ontdekken welke actie moet worden gebruikt in een context. Elke lus learning is een model dat is getraind op gegevens die u hebt verzonden naar via uitsluitend op **positie** en **beloning** aanroepen. Elke lus learning is volledig onafhankelijk van elkaar. Maak een lus learning voor elk onderdeel of het gedrag van uw toepassing die u wilt aanpassen.
+Personaler gebruikt machine learning om te ontdekken welke actie in een context moet worden gebruikt. Elke Learning-lus heeft een model dat uitsluitend is getraind op gegevens die u hebt verzonden via **rang** en **beloning** . Elke Learning-lus is volledig onafhankelijk van elkaar. Maak een leer proces voor elk onderdeel of gedrag van de toepassing die u wilt personaliseren.
 
-Voor elke lus **aanroepen van de positie-API met** op basis van de huidige context met:
+Voor elke lus **roept u de Rank API aan** op basis van de huidige context, waarbij:
 
-* Lijst met mogelijke acties: inhoud van items uit die bovenste actie selecteren.
-* Lijst met [context functies](concepts-features.md): contextueel relevante gegevens, zoals gebruikers, inhoud en context.
+* Lijst met mogelijke acties: inhouds items waarvan u de bovenste actie wilt selecteren.
+* Lijst met [context functies](concepts-features.md): contextuele relevante gegevens zoals gebruiker, inhoud en context.
 
-De **positie** API wil gebruiken:
+De **positie** -API besluit om de volgende te gebruiken:
 
-* _Exploit_: Het huidige model om te bepalen van de actie die het beste op basis van oude gegevens.
-* _Verken_: Selecteer een andere actie in plaats van de eerste actie.
+* _Misbruik_: Het huidige model om de beste actie te bepalen op basis van gegevens in het verleden.
+* _Verkennen_: Selecteer een andere actie in plaats van de bovenste actie.
 
-De **beloning** API:
+De **belonings** -API:
 
-* Verzamelt gegevens voor het model te trainen door de functies en scores van de prijs van elke aanroep van de positie op te nemen.
-* Maakt gebruik van die gegevens bijwerken van het model op basis van de instellingen die zijn opgegeven de _Learning beleid_.
+* Verzamelt gegevens om het model te trainen door de functies en belonings scores van elke positie oproep vast te leggen.
+* Gebruikt die gegevens om het model bij te werken op basis van de instellingen die zijn opgegeven in het _trainings beleid_.
 
 ## <a name="architecture"></a>Architectuur
 
-De volgende afbeelding toont de architectuur stroom van het aanroepen van de positie en beloon aanroepen:
+In de volgende afbeelding ziet u de architectuur stroom van het aanroepen van de rang-en belonings aanroepen:
 
-![alternatieve tekst](./media/how-personalizer-works/personalization-how-it-works.png "hoe personalisatie werkt")
+![alternatieve tekst](./media/how-personalizer-works/personalization-how-it-works.png "Hoe persoonlijke instellingen werken")
 
-1. Personalizer maakt gebruik van een interne AI-model om te bepalen de positie van de actie.
-1. De service besluit of misbruik te maken van het huidige model of nieuwe keuzes voor het model te verkennen.  
-1. Het resultaat van de classificatie is verzonden naar Event hub.
-1. Wanneer Personalizer de vergoeding ontvangt, wordt de prijs verzonden naar Event hub. 
-1. De positie en beloon worden gecorreleerd.
-1. Het AI-model wordt bijgewerkt op basis van de correlatie-resultaten.
-1. De engine Deductie wordt bijgewerkt met het nieuwe model. 
+1. Personaler gebruikt een intern AI-model om de positie van de actie te bepalen.
+1. De service beslist of het huidige model moet worden misbruikt of dat er nieuwe opties voor het model moeten worden bekeken.  
+1. Het resultaat van de rang schikking wordt verzonden naar EventHub.
+1. Wanneer Personaler de beloning ontvangt, wordt de vergoeding verzonden naar EventHub. 
+1. De positie en beloning worden gecorreleerd.
+1. Het AI-model wordt bijgewerkt op basis van de correlatie resultaten.
+1. De engine voor het ingrijpen van de functie wordt bijgewerkt met het nieuwe model. 
 
-## <a name="research-behind-personalizer"></a>Onderzoek achter Personalizer
+## <a name="research-behind-personalizer"></a>Onderzoek achter persoonlijker
 
-Personalizer is gebaseerd op geavanceerde science en onderzoek op het gebied van [Bekrachtigingen](concepts-reinforcement-learning.md) inclusief documenten, onderzoek en doorlopende gebieden van verkennen in Microsoft Research.
+Personaler is gebaseerd op wetenschap en onderzoek op het gebied van versterking van het [onderwijs](concepts-reinforcement-learning.md) , waaronder documenten, onderzoeksactiviteiten en lopende onderzoeksgebieden in micro soft Research.
 
 ## <a name="terminology"></a>Terminologie
 
-* **Learning-lus**: U kunt een lus learning maken voor elk onderdeel van uw toepassing die u van persoonlijke instellingen profiteren kunt. Als u meer dan één ervaring aanpassen hebt, maakt u een lus voor elke. 
+* **Leer loop**: U kunt voor elk onderdeel van uw toepassing een leer proces maken dat kan profiteren van personalisatie. Als u meer dan één ervaring hebt om persoonlijker te maken, maakt u een lus voor elke. 
 
-* **Acties**: Acties zijn de inhoud items, zoals producten of -aanbiedingen, waaruit u kunt kiezen. Personalizer kiest de bovenste actie om weer te geven aan uw gebruikers bekend als de _Beloon actie_, via de API positie. Elke actie kan functies die worden verzonden met de positie aanvraag hebben.
+* **Acties**: Acties zijn de inhouds items, zoals producten of promoties, waaruit u kunt kiezen. Personaler kiest voor de beste actie die aan uw gebruikers wordt weer gegeven. dit wordt aangeduid met de _actie_-API. Elke actie kan functies hebben verzonden met de rang aanvraag.
 
-* **Context**: Bevatten informatie over de context, bijvoorbeeld voor een meer nauwkeurige positie:
-    * De gebruiker.
-    * Het apparaat dat ze zijn verbonden. 
+* **Context**: Geef informatie op over uw context om een nauw keurigere positie te geven, bijvoorbeeld:
+    * Uw gebruiker.
+    * Het apparaat waarop deze zich bevinden. 
     * De huidige tijd.
     * Andere gegevens over de huidige situatie.
-    * Historische gegevens over de gebruiker of een context.
+    * Historische gegevens over de gebruiker of context.
 
-    Uw specifieke toepassing bevat mogelijk andere contextinformatie. 
+    Uw specifieke toepassing heeft mogelijk andere context informatie. 
 
-* **[Functies](concepts-features.md)** : Een eenheid met gegevens over een item voor inhoud of een gebruikerscontext.
+* **[Functies](concepts-features.md)** : Een eenheid van informatie over een inhouds item of een gebruikers context.
 
-* **Beloning**: Een meting van hoe de gebruiker wordt gereageerd op de positie API actie, als een score tussen 0 en 1 geretourneerd. De waarde van 0 tot en met 1 wordt ingesteld door uw zakelijke logica, op basis van hoe de keuze geholpen bij het bereiken van de uw doelstellingen van persoonlijke instellingen. 
+* **Beloning**: Een meting van de manier waarop de gebruiker heeft gereageerd op de geretourneerde API van de interface, als een score tussen 0 en 1. De waarde van 0 tot 1 wordt ingesteld door uw bedrijfs logica, op basis van de manier waarop de keuze heeft geholpen bij het bereiken van uw zakelijke doel stellingen voor persoonlijke instellingen. 
 
-* **Verkenning**: De service Personalizer onderzoekt wanneer in plaats van de aanbevolen actie wordt geretourneerd, een andere actie voor de gebruiker worden gekozen. De service Personalizer voorkomt drift, stagnatie, en kan worden aangepast aan de lopende gebruikersgedrag door te verkennen. 
+* **Verkennen**: De Personaler Service verkennen wanneer, in plaats van de beste actie te retour neren, een andere actie voor de gebruiker wordt gekozen. De Personaler-service vermijdt drift, stagnation en kan worden aangepast aan het doorlopende gedrag van gebruikers door te verkennen. 
 
-* **Duur van experiment**: De hoeveelheid tijd die de Personalizer-service moet voor een beloning wachten, starten vanaf het moment dat de aanroep van de positie is er gebeurd voor die gebeurtenis.
+* **Duur**van het experiment: De hoeveelheid tijd die de Personaler-service wacht op een beloning, vanaf het moment dat de rang oproep voor die gebeurtenis is opgetreden.
 
-* **Niet-actieve gebeurtenissen**: Een inactieve gebeurtenis is een waar u positie aangeroepen, maar u niet zeker weet dat de gebruiker ziet het resultaat, vanwege client toepassing besluiten ooit. Niet-actieve gebeurtenissen kunnen u maken en opslaan van resultaten van persoonlijke instellingen en vervolgens wilt deze later verwijderen zonder enige impact op de machine learning-model.
+* **Inactieve gebeurtenissen**: Een inactieve gebeurtenis is een locatie waar u positie noemt, maar u weet niet zeker dat de gebruiker het resultaat ooit zal zien vanwege beslissingen van de client toepassing. Inactieve gebeurtenissen bieden u de mogelijkheid om persoonlijke resultaten te maken en op te slaan. vervolgens besluit u deze later te negeren zonder dat dit van invloed is op het machine learning model.
 
-* **Model**: Een model Personalizer bevat alle gegevens hebt geleerd over gebruikersgedrag, trainingsgegevens ophalen uit een combinatie van de argumenten die u verzendt voor positie en beloon en met een bepaald door het beleid Learning training-gedrag. 
+* **Model**: Een persoonlijk model bevat alle gegevens die zijn geleerd over het gedrag van gebruikers, het ophalen van trainings gegevens uit de combi natie van de argumenten die u verzendt voor het classificeren en beloningen en het trainings gedrag dat door het leer beleid wordt bepaald. 
 
-## <a name="example-use-cases-for-personalizer"></a>Voorbeeld van de use cases voor Personalizer
+* **Leer beleid**: Hoe Personaler een model voor elke gebeurtenis traint, wordt bepaald door Meta-para meters die van invloed zijn op de werking van de machine learning-algoritmen. Nieuwe Personaler-lussen beginnen met een standaard learningbeleid, waarmee de prestaties kunnen worden vertraagd. Bij het [](concepts-offline-evaluation.md)uitvoeren van evaluaties kan personaler een nieuw leer beleid maken dat specifiek is geoptimaliseerd voor de gebruiks voorbeelden van uw lus. Personaler presteert aanzienlijk beter met beleids regels die zijn geoptimaliseerd voor elke specifieke lus, die tijdens de evaluatie wordt gegenereerd.
 
-* Uitleg van intentie & ondubbelzinnigheid: help uw gebruikers een betere ervaring hebben wanneer de bedoeling is niet gewist door te geven van een optie die is afgestemd op elke gebruiker.
-* Suggesties voor en opties van menu's standaard: zijn de bot de meest waarschijnlijke item in een persoonlijke manier voorstellen als een eerste stap, in plaats van een onpersoonlijke menu of een lijst met alternatieven wordt gepresenteerd.
-* Eigenschappen van de bot & toon: voor bots die verschillen kan toon, uitgebreid en schrijfstijl, kunt u overwegen deze kenmerken in een persoonlijke manieren variëren.
-* Inhoud melding & Waarschuwing: bepalen welke tekst moet worden gebruikt voor waarschuwingen om meer gebruikers actief betrekken.
-* Melding & waarschuwing timing: gepersonaliseerde leren van wanneer meldingen verzenden naar gebruikers contact opnemen met deze informatie.
+## <a name="example-use-cases-for-personalizer"></a>Voor beelden van use cases for Personaler
 
-## <a name="checklist-for-applying-personalizer"></a>Controlelijst voor het toepassen van Personalizer
+* Verklaring van intentie & ondubbelzinnigheid: Help uw gebruikers een betere ervaring te hebben wanneer hun intentie niet duidelijk is door een optie te bieden die aan elke gebruiker is aangepast.
+* Standaard suggesties voor menu's & opties: laat de bot het meest waarschijnlijke item op een gepersonaliseerde manier Voorst Ellen als een eerste stap, in plaats van een niet-persoonlijk menu of lijst met alternatieven te presen teren.
+* Bot-eigenschappen & Toon: voor bots die de Toon, uitgebreidheid en schrijf stijl kunnen variëren, kunt u op een aangepaste manier overwegen deze eigenschappen te variëren.
+* Inhoud van meldings & waarschuwing: Beslis welke tekst u voor waarschuwingen wilt gebruiken om gebruikers meer te benaderen.
+* Timing van meldings & waarschuwing: laat u weten wanneer u meldingen naar gebruikers wilt verzenden om ze te benaderen.
 
-U kunt Personalizer toepassen in situaties waar:
+## <a name="checklist-for-applying-personalizer"></a>Controle lijst voor het Toep assen van persoonlijker
 
-* U hebt een bedrijf of de bruikbaarheid doel voor uw toepassing.
-* U hebt een centrale locatie in uw toepassing waar u een contextuele beslissing over welke om weer te geven aan gebruikers die doel wordt verbeterd.
-* De beste keuze kan en moet worden geleerd van collectieve gebruiker gedrag en de totale prijs score.
-* Het gebruik van machine learning voor persoonlijke instellingen volgt [verantwoordelijk gebruik richtlijnen](ethics-responsible-use.md) en opties voor uw team.
-* De beslissing kan worden uitgedrukt als de volgorde van de beste optie ([actie](concepts-features.md#actions-represent-a-list-of-options) van een beperkt aantal mogelijkheden.
-* Hoe goed deze keuze gewerkt wordt berekend door uw zakelijke logica, door het meten van een bepaald aspect van gebruikersgedrag en uit te drukken in een getal tussen 1 en 1.
-* De score beloning niet plaatsen in te veel vertekening of externe factoren, specifiek de duur van het experiment is laag genoeg is dat de score van derden kunnen worden berekend terwijl deze wel relevant is.
-* Als een woordenlijst met ten minste 5 functies die u wilt helpen de juiste keuze en die niet persoonlijk identificeerbare informatie bevatten, kunt u de context voor de rang uitdrukken.
-* Hebt u meer informatie over elke actie als wanneer u een woordenlijst van ten minste 5 kenmerken of functies die u denkt dat de juiste keuze Personalizer helpt.
-* Kunt u gegevens bewaren lang genoeg is voor het verzamelen van een geschiedenis van ten minste 100.000 interacties.
+U kunt persoonlijker Toep assen in situaties waarin:
 
-## <a name="machine-learning-considerations-for-applying-personalizer"></a>Machine learning-overwegingen voor het toepassen van Personalizer
+* U hebt een zakelijk of bruikbaar doel voor uw toepassing.
+* U hebt een plaats in uw toepassing waar u een contextuele beslissing neemt om het doel van gebruikers te verbeteren.
+* De beste keuze kan en moeten worden geleerd van het gedrag van de collectieve gebruiker en de totale belonings Score.
+* Het gebruik van machine learning voor personalisatie is gebaseerd op de beschik bare [richt lijnen](ethics-responsible-use.md) en opties voor uw team.
+* De beslissing kan worden uitgedrukt als een classificatie van de beste optie ([actie](concepts-features.md#actions-represent-a-list-of-options) van een beperkt aantal keuzes.
+* Hoe goed de gekozen keuze kan worden berekend door uw bedrijfs logica, door een bepaald aspect van het gedrag van de gebruiker te meten en deze uit te drukken in een getal tussen-1 en 1.
+* De belonings Score brengt niet te veel congevonden of externe factoren in, met name de duur van het experiment is te laag, waardoor de belonings Score kan worden berekend terwijl deze nog steeds relevant is.
+* U kunt de context voor de rang orde als een woorden lijst van ten minste vijf functies die u denkt wilt gebruiken om de juiste keuze te maken en die geen persoons gegevens bevatten.
+* U hebt informatie over elke actie als een woorden lijst van ten minste vijf kenmerken of functies die u denkt te helpen de juiste keuze te maken.
+* U kunt gegevens lang genoeg bewaren om een geschiedenis van ten minste 100.000 interacties te verzamelen.
 
-Personalizer is gebaseerd op versterkend leren, een benadering tot machine learning die opgehaald en onderwezen door feedback geeft u deze. 
+## <a name="machine-learning-considerations-for-applying-personalizer"></a>Overwegingen voor machine learning voor het Toep assen van persoonlijker
 
-Personalizer leert geschikt in situaties waar:
-* Er is onvoldoende gebeurtenissen op de hoogte van optimale persoonlijke instellingen als het probleem drifts na verloop van tijd (zoals voorkeuren in nieuws of Mode). Personalizer continue wijziging in de praktijk wordt aangepast, maar resultaten niet optimaal als er niet voldoende gegevens om te leren uit om te detecteren en te betalen op nieuwe patronen over gebeurtenissen en. U moet een use-case die vaak genoeg gebeurt. Kunt u op zoek naar use-cases die ten minste 500 keer per dag plaatsvinden.
-* Context en acties hebt voldoende functies om learning mogelijk te maken.
-* Er zijn minder dan 50 acties voor positie per aanroep.
-* Uw instellingen voor het bewaren van gegevens kunnen Personalizer voor het verzamelen van voldoende gegevens om uit te voeren offline evaluaties en beleid voor optimalisatie. Dit is meestal ten minste 50.000 gegevenspunten.
+Personaler is gebaseerd op educatief leren, een aanpak van machine learning die de duur van de cursus ontvangt door feedback die u geeft. 
 
-## <a name="how-to-use-personalizer-in-a-web-application"></a>Het gebruik van Personalizer in een webtoepassing
+Personaler leert het beste in situaties waarin:
+* Er zijn voldoende gebeurtenissen om optimaal te kunnen voldoen aan de optimale persoonlijke instellingen als het probleem zich in de loop van de tijd (zoals voor keuren in nieuws of mode) bevindt. Personaler wordt aangepast aan doorlopende wijzigingen in de echte wereld, maar de resultaten zijn niet optimaal als er niet voldoende gebeurtenissen en gegevens zijn om te leren van het detecteren en afrekenen van nieuwe patronen. U moet een use-case kiezen die vaak voldoende optreedt. Overweeg voor het zoeken naar use cases die ten minste 500 keer per dag plaatsvinden.
+* Context en acties hebben voldoende functies om leren te vergemakkelijken.
+* Er zijn minder dan 50 acties voor de positie per aanroep.
+* Met de instellingen voor het bewaren van gegevens kan Personaler voldoende gegevens verzamelen om offline-evaluaties en optimalisatie van het beleid uit te voeren. Dit is meestal ten minste 50.000 gegevens punten.
 
-Een lus toe te voegen aan een web-App bevat:
+## <a name="how-to-use-personalizer-in-a-web-application"></a>Personaliseren gebruiken in een webtoepassing
 
-* Bepalen welke ervaring aanpassen, welke acties en de functies hebt, welke functies context moet worden gebruikt, en welke beloning die u hebt ingesteld.
-* Voeg een verwijzing naar de SDK persoonlijke instellingen in uw toepassing.
-* De positie-API aanroepen wanneer u bent klaar om aan te passen.
-* De gebeurtenis-id Store. U verzendt een beloning met de API van derden later opnieuw.
-1. Activeren-aanroep voor de gebeurtenis als u zeker weet dat uw persoonlijke pagina is gezien door de gebruiker.
-1. Wachten op selectie van de gebruiker van gerangschikte inhoud. 
-1. Roep de API van derden om op te geven hoe goed de uitvoer van de positie-API hebt.
+Het toevoegen van een lus aan een webtoepassing omvat:
 
-## <a name="how-to-use-personalizer-with-a-chat-bot"></a>Personalizer gebruiken met een chatbot
+* Bepaal welke ervaring u wilt aanpassen, welke acties en functies u hebt, welke context functies u moet gebruiken en welke beloning u moet instellen.
+* Voeg een verwijzing naar de personalisatie-SDK in uw toepassing toe.
+* Roep de classificatie-API aan wanneer u klaar bent om te personaliseren.
+* Sla de gebeurtenis-eigenbestand op. U stuurt later een beloning met de belonings-API.
+1. Roep Activate aan voor de gebeurtenis zodra u zeker weet dat de gebruiker uw persoonlijke pagina heeft bekeken.
+1. Wacht tot de gebruiker geclassificeerde inhoud heeft geselecteerd. 
+1. Roep belonings-API om op te geven hoe goed de uitvoer van de Rank API is.
 
-In dit voorbeeld ziet u hoe u een standaard suggestie wilt doen in plaats van de gebruiker in een reeks van menu's of keuzen elke keer dat met persoonlijke instellingen.
+## <a name="how-to-use-personalizer-with-a-chat-bot"></a>Personaler gebruiken met een chat sessie
 
-* Krijgen de [code](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/ChatbotExample) voor dit voorbeeld.
-* Instellen van uw bot-oplossing. Zorg ervoor dat uw LUIS-toepassing wilt publiceren. 
-* Beheren van de positie en beloning API-aanroepen voor bot.
-    * Code voor het beheren van LUIS intentie verwerking toevoegen. Als de **geen** wordt geretourneerd als het belangrijkste doel of het belangrijkste doel score lager dan de drempelwaarde van uw zakelijke logica is, verzendt de intenties lijst Personalizer op positie de intents.
-    * Intentie lijst weergeven voor gebruiker als koppelingen in met het eerste doel is de bedoeling boven gerangschikt van positie-API-reactie wordt alle geselecteerd.
-    * Selectie van de gebruiker vastleggen en verzendt u deze in de beloning API-aanroep. 
+In dit voor beeld ziet u hoe u personalisatie kunt gebruiken om een standaard suggestie te maken in plaats van de gebruiker elke keer een reeks menu's of keuzes te verzenden.
 
-### <a name="recommended-bot-patterns"></a>Aanbevolen bot patronen
+* Haal de [code](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/ChatbotExample) op voor dit voor beeld.
+* Stel uw bot-oplossing in. Zorg ervoor dat u uw LUIS-toepassing publiceert. 
+* Rang en beloning-API-aanroepen voor bot beheren.
+    * Voeg code toe om LUIS intentie verwerking te beheren. Als de **geen** wordt geretourneerd als de hoogste intentie of als de Score van het hoogste niveau lager is dan de drempel waarde voor uw bedrijfs logica, stuurt u de lijst met intenties naar persoonlijker om de intentie te rangschikken.
+    * De lijst met intents weer geven aan de gebruiker als selecteerbaar koppelingen met de eerste intentie van de rang orde die het beste bij de positie API-reactie ligt.
+    * Leg de selectie van de gebruiker vast en verzend deze in de API-aanroep van beloning. 
 
-* Personalizer positie API-aanroepen telkens wanneer een oplossen van ambiguïteit nodig is, in plaats van in cache opslaan van resultaten voor elke gebruiker. Het resultaat van het oplossen van dubbelzinnigheden in doel kan worden gewijzigd na verloop van tijd voor één persoon en zodat de positie-API voor het verkennen van afwijkingen versnelt de algehele learning.
-* Kies een interactie die geldt met veel gebruikers zodat er voldoende gegevens om aan te passen. Bijvoorbeeld, inleidende vragen mogelijk beter geschikt dan kleinere verduidelijkingen diep in de conversatie-grafiek die alleen enkele gebruikers tot krijgen kunnen.
-* Positie API-aanroepen gebruiken om in te schakelen "eerste voorstel is rechts" gesprekken, waarbij de gebruiker wordt gevraagd "Wilt u X?" of "Bedoelde u X?" en de gebruiker kan alleen bevestigen; in plaats van met opties voor de gebruiker waar ze moeten kiezen uit een menu. Bijvoorbeeld gebruiker: 'Ik wil een kopje koffie order' Bot: "Wilt u een dubbele espresso?". Op deze manier het signaal beloning is ook sterk wordt rechtstreeks naar de één suggestie ingegaan.
+### <a name="recommended-bot-patterns"></a>Aanbevolen bot-patronen
 
-## <a name="how-to-use-personalizer-with-a-recommendation-solution"></a>Personalizer gebruiken met een aanbeveling-oplossing
+* Stel de aanroepen van de gebruikers interface van de persoonlijker-API telkens wanneer er een ondubbelzinnigheid nodig is, in tegens telling tot cache resultaten voor elke gebruiker. Het resultaat van disambiguating intentie kan in de loop van de tijd worden gewijzigd voor één persoon en de classificatie-API om afwijkingen te verkennen, versnelt het algehele leer proces.
+* Kies een interactie die gemeen schappelijk is voor veel gebruikers, zodat u voldoende gegevens hebt om te personaliseren. Inleidende vragen kunnen bijvoorbeeld beter worden afgestemd op de diepte van kleinere toelichtingen in de conversatie grafiek die slechts een paar gebruikers kan krijgen.
+* Gebruik rank API-aanroepen om de conversaties ' eerste suggestie is geschikt ' in te scha kelen, waarbij de gebruiker wordt gevraagd om X? of ' hebt u X? ' en de gebruiker kan gewoon bevestigen; in plaats van opties te geven aan de gebruiker, waar ze moeten kiezen in een menu. Bijvoorbeeld gebruiker: ' Ik wil graag een koffie-bot best Ellen: ' wilt u graag een dubbele espresso hebben? '. Op deze manier is het belonings signaal ook sterk, omdat het direct op de ene suggestie van toepassing is.
 
-De engine voor aanbevelingen voor het filteren van een grote catalogus om enkele items die vervolgens kunnen worden weergegeven als 30 mogelijke acties die worden verzonden naar de API van de positie te gebruiken.
+## <a name="how-to-use-personalizer-with-a-recommendation-solution"></a>Personaler gebruiken met een aanbevelings oplossing
 
-U kunt Personalizer aanbevelingsengines gebruiken:
+Gebruik uw aanbevelings Engine om een grote catalogus te filteren op enkele items die vervolgens kunnen worden weer gegeven als 30 mogelijke acties die worden verzonden naar de classificatie-API.
 
-* Instellen van de [aanbeveling oplossing](https://github.com/Microsoft/Recommenders/). 
-* Bij het weergeven van een pagina, aanroepen van het Model van de aanbeveling om een korte lijst aanbevelingen.
-* Persoonlijke instellingen voor de rangschikking van de uitvoer van de aanbeveling oplossing aanroepen.
-* Feedback over uw gebruikersbewerking met de beloning API-aanroep.
+U kunt aanbevelings motoren gebruiken met Personaler:
 
-
-## <a name="pitfalls-to-avoid"></a>Valkuilen om te voorkomen
-
-* Gebruik geen Personalizer waarbij de persoonlijke gedrag is niet iets dat voor alle gebruikers kunnen worden gedetecteerd, maar in plaats van iets dat moet worden onthouden voor specifieke gebruikers of afkomstig is van een bepaalde gebruiker lijst alternatieven. Bijvoorbeeld, met behulp van Personalizer een eerste pizza volgorde uit een lijst met 20 mogelijk menuopdrachten is nuttig, maar die contactpersoon aan te roepen vanuit de gebruikers lijst met contactpersonen als hulp bij kinderen (zoals 'oma') die niet iets aanpasbare via voorstellen uw gebruikersbasis.
+* Stel de [aanbevelings oplossing](https://github.com/Microsoft/Recommenders/)in. 
+* Bij het weer geven van een pagina roept u het Aanbevelings model op om een korte lijst met aanbevelingen te krijgen.
+* Roep personalisatie aan om de uitvoer van Aanbevelings oplossing te rangschikken.
+* Stuur feedback over uw actie van uw gebruiker met behulp van de API-aanroep van beloning.
 
 
-## <a name="adding-content-safeguards-to-your-application"></a>Inhoud beveiliging toe te voegen aan uw toepassing
+## <a name="pitfalls-to-avoid"></a>Valk uilen om te voor komen
 
-Als uw toepassing kunt u grote verschillen in de inhoud die wordt weergegeven aan gebruikers en enkele van die inhoud mogelijk onveilige of niet geschikt zijn voor sommige gebruikers, u moet plan vooruit om ervoor te zorgen dat zijn de juiste beveiligingen om te voorkomen dat uw gebruikers herstelopties zien niet toegestaan. inhoud. De aanbevolen patroon voor het implementeren van veiligheidsmaatregelen is: De aanbevolen patroon voor het implementeren van veiligheidsmaatregelen is:
-    * De lijst met acties op de positie ophalen.
-    * Filter de waarden die niet haalbaar voor het publiek.
-    * Alleen deze levensvatbare acties rangschikken.
-    * De bovenste gerangschikt actie voor de gebruiker worden weergegeven.
+* Gebruik persoonlijke voor keuren niet wanneer het persoonlijke gedrag niet iets is dat kan worden gedetecteerd voor alle gebruikers, maar iets dat moet worden onthouden voor specifieke gebruikers of afkomstig is van een gebruikersspecifieke lijst met alternatieven. Als u bijvoorbeeld met Personaler een pizza-volg orde van een lijst met 20 mogelijke menu-items wilt gebruiken, is het nuttig, maar welke contact persoon moet worden aangeroepen vanuit de lijst met contact personen van de gebruiker wanneer u hulp nodig hebt bij Childcare (zoals ' Grandma ') is niet iets dat persoonlijk is in uw gebruikers basis.
 
-In sommige architecturen, de bovenstaande reeks mogelijk moeilijk te implementeren. In dat geval wordt er is een alternatieve methode voor het implementeren van beveiliging na rangorde, maar een voorziening moet worden gemaakt, zodat de acties die valt buiten de beveiliging niet worden gebruikt voor het Personalizer-model te trainen.
 
-* De lijst met acties wilt rangschikken, verkrijgen met learning gedeactiveerd.
-* Positie acties.
-* Controleer of de bovenste actie mogelijk is.
-    * Als de bovenste actie mogelijk is, learning voor deze rangschikking activeren, wordt deze aan de gebruiker weergegeven.
-    * Als de eerste actie niet levensvatbare, training voor deze rangschikking activeren en bepalen via uw eigen logica of alternatieve methoden wat om weer te geven aan de gebruiker. Zelfs als u de tweede beste gerangschikte-optie gebruikt, hebt u training voor deze classificatie niet geactiveerd.
+## <a name="adding-content-safeguards-to-your-application"></a>Inhouds beveiligingen toevoegen aan uw toepassing
 
-## <a name="verifying-adequate-effectiveness-of-personalizer"></a>Voldoende effectiviteit van Personalizer controleren
+Als uw toepassing grote afwijkingen toestaat in inhoud die wordt weer gegeven voor gebruikers, en een deel van die inhoud onveilig of ongepast is voor sommige gebruikers, moet u ervoor zorgen dat de juiste veiligheids maatregelen worden getroffen om te voor komen dat uw gebruikers onaanvaardbaar kunnen zien Inhoudbeheer. Het beste patroon om beveiligingen te implementeren is: Het beste patroon om beveiligingen te implementeren is:
+    * De lijst met te rangschikken acties ophalen.
+    * Filter de items die niet geschikt zijn voor de doel groep.
+    * Rang Schik deze levensvat bare acties alleen.
+    * De bovenste geclassificeerde actie weer geven voor de gebruiker.
 
-U kunt de effectiviteit van Personalizer periodiek controleren door te voeren [offline evaluaties](how-to-offline-evaluation.md)
+In sommige architecturen is de bovenstaande reeks mogelijk moeilijk te implementeren. In dat geval is er een alternatieve benadering voor het implementeren van veiligheids maatregelen na de rang schikking, maar een inrichting moet worden gemaakt, zodat acties die buiten de beveiliging vallen, niet worden gebruikt voor het trainen van het Personaler model.
+
+* Haal de lijst met acties op die moeten worden gerangschikt, waarbij learning is gedeactiveerd.
+* Rang schikkings acties.
+* Controleer of de meest voorkomende actie levensvatbaar is.
+    * Als de meest voorkomende actie haalbaar is, kunt u learning voor deze classificatie activeren en deze vervolgens weer geven aan de gebruiker.
+    * Als de meest voorkomende actie niet haalbaar is, moet u learning voor deze classificatie niet activeren en zelf bepalen hoe u uw eigen logica of alternatieve benaderingen kunt zien wat u aan de gebruiker kunt weer geven. Ook als u de optie voor de tweede beste gerangschikt gebruikt, moet u learning voor deze classificatie niet activeren.
+
+## <a name="verifying-adequate-effectiveness-of-personalizer"></a>De juiste effectiviteit van Personaler controleren
+
+U kunt de effectiviteit van personalisatie periodiek controleren door [offline](how-to-offline-evaluation.md) -evaluaties uit te voeren
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Inzicht in [waar kunt u Personalizer](where-can-you-use-personalizer.md).
+Meer informatie over [hoe u personaler kunt gebruiken](where-can-you-use-personalizer.md).
+[Offline](how-to-offline-evaluation.md) -evaluaties uitvoeren

@@ -1,115 +1,108 @@
 ---
 title: Azure Active Directory Identity Protection | Microsoft Docs
-description: Meer informatie over hoe Azure AD Identity Protection kunt u de mogelijkheid van een aanvaller misbruik te maken van een apparaat of aangetaste identiteit en beveiliging van een identiteit of een apparaat dat eerder is verdacht of bekend is dat inbreuk worden gepleegd beperken.
+description: Meer informatie over hoe u met Azure AD Identity Protection kunt u de mogelijkheid van een aanvaller om misbruik te maken van een identiteit of apparaat te beperken en om een identiteit of een apparaat te beveiligen dat eerder is vermoed of waarvan bekend is dat deze zijn aangetast.
 services: active-directory
-keywords: Azure active directory identity protection cloud app discovery, toepassingen, beveiliging, risico's, risiconiveau, beveiligingsproblemen, beveiligingsbeleid beheren
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 01/29/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 660793cdba61b5438283ea54a9f7349bdfbc98e1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 99a542d3208d5871d88c966fffc65cf16e0fbeee
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440497"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335388"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Wat is Azure Active Directory Identity Protection?
 
-Azure Active Directory [identiteit](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology) beveiliging zorgt ervoor dat organisaties automatische antwoorden op gedetecteerde verdachte activiteit met betrekking tot gebruikers-id's configureren.
+Met [](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology) Azure Active Directory identiteits beveiliging kunnen organisaties automatische antwoorden configureren op gedetecteerde verdachte acties die betrekking hebben op gebruikers identiteiten.
 
 ## <a name="get-started"></a>Aan de slag
 
-Cloud-gebaseerde identiteiten is voor meer dan tien jaar beveiligd door Microsoft. Met Azure Active Directory Identity Protection kunt in uw omgeving, u de dezelfde systemen ter bescherming van die Microsoft gebruikt voor het beveiligen van identiteiten.
+Micro soft heeft al meer dan tien jaar identiteiten op basis van de Cloud beveiligd. Met Azure Active Directory Identity Protection, in uw omgeving, kunt u dezelfde beveiligings systemen gebruiken die micro soft gebruikt om identiteiten te beveiligen.
 
-De meeste van de beveiliging terugdringen plaatsvinden als aanvallers toegang krijgen tot een omgeving door het stelen van de identiteit van een gebruiker. In de afgelopen jaren, zijn aanvallers steeds meer in gebruik te maken van inbreuken op de derde partij en het gebruik van geavanceerde phishing-aanvallen van kracht geworden. Als een aanvaller toegang heeft om met lage bevoegdheden gebruikersaccounts nog, is het relatief gemakkelijk voor hen toegang te krijgen tot belangrijke bedrijfsbronnen via een laterale verplaatsing.
+Het overgrote deel van de beveiligings Risico's doen zich voor wanneer aanvallers toegang krijgen tot een omgeving door de identiteit van een gebruiker te stelen. Over de jaren zijn aanvallers steeds effectiever geworden bij inbreuken van derden en met behulp van geavanceerde phishing-aanvallen. Zodra een aanvaller toegang krijgt tot zelfs gebruikers accounts met beperkte rechten, is het relatief eenvoudig om toegang te krijgen tot belang rijke bedrijfs bronnen via een later verplaatsings beweging.
 
-Als dit moet u naar:
+Als gevolg hiervan moet u het volgende doen:
 
-- Beveiligen van alle identiteiten, ongeacht hun niveau van bevoegdheden
+- Alle identiteiten beveiligen, ongeacht het bevoegdheden niveau
+- Proactief voor komen dat identiteiten misbruikt worden
 
-- Proactief te voorkomen dat verdachte identiteiten worden misbruikt
+Het detecteren van gemanipuleerde identiteiten is geen eenvoudige taak. Azure Active Directory gebruikt adaptieve machine learning algoritmen en heuristiek om afwijkingen en verdachte incidenten te detecteren die duiden op mogelijke verdachte identiteiten. Met behulp van deze gegevens genereren identiteits beveiliging rapporten en waarschuwingen waarmee u de gedetecteerde problemen kunt evalueren en de juiste oplossings-of herstel acties kunt ondernemen.
 
-Verdachte identiteiten detecteren, is geen eenvoudige taak. Azure Active Directory maakt gebruik van geavanceerde machine learning-algoritmen en methodieken voor het detecteren van afwijkingen en verdachte incidenten die duiden op mogelijk verdachte identiteiten. Met behulp van deze gegevens genereert Identity Protection rapporten en waarschuwingen waarmee u kunt de gedetecteerde problemen evalueren en juiste risicobeperking of herstelacties.
+Azure Active Directory Identity Protection is meer dan een hulp programma voor bewaking en rapportage. Als u de identiteit van uw organisatie wilt beveiligen, kunt u op risico gebaseerd beleid configureren dat automatisch reageert op gedetecteerde problemen wanneer een opgegeven risico niveau is bereikt. Deze beleids regels, naast andere besturings elementen voor voorwaardelijke toegang van Azure Active Directory en [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS), kunnen automatisch adaptieve herstel acties blok keren of initiëren, inclusief het opnieuw instellen van wacht woorden en multi-factor Authentication-afdwinging.
 
-Azure Active Directory Identity Protection is meer dan een controle- en rapportagetool. Ter bescherming van identiteiten in uw organisatie, kunt u risico's gebaseerd beleid die automatisch op gedetecteerde problemen reageren wanneer een opgegeven risiconiveau is bereikt. Deze beleidsregels, naast andere besturingselementen voor voorwaardelijke toegang is geleverd door Azure Active Directory en [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS), kunnen automatisch blokkeren of adaptieve herstelacties met inbegrip van initiëren wachtwoord opnieuw instellen van wachtwoorden en meervoudige verificatie afdwingen.
+### <a name="identity-protection-capabilities"></a>Mogelijkheden voor identiteits beveiliging
 
-### <a name="identity-protection-capabilities"></a>Mogelijkheden voor identiteits-beveiliging
+**Beveiligings problemen en Risk ante accounts detecteren:**  
 
-**Detecteren van beveiligingsproblemen en riskante accounts:**  
+- Aangepaste aanbevelingen bieden voor het verbeteren van de algemene beveiligings postuur door beveiligings lekken te markeren
+- Risico niveaus voor aanmelding worden berekend
+- De risico niveaus van gebruikers worden berekend
 
-- Bieden van aangepaste aanbevelingen voor het totale beveiligingspostuur verbeteren door het markeren van beveiligingsproblemen
-- Berekenen van de aanmelding risiconiveaus
-- Berekenen van de gebruiker risiconiveaus
+**Risico gebeurtenissen onderzoeken:**
 
-**Risicogebeurtenissen onderzoeken:**
+- Meldingen verzenden voor risico gebeurtenissen
+- Risico gebeurtenissen onderzoeken met behulp van relevante en contextuele informatie
+- Eenvoudige werk stromen bieden voor het bijhouden van onderzoeken
+- Eenvoudige toegang bieden tot herstel acties, zoals het opnieuw instellen van wacht woorden
 
-- Verzenden van meldingen voor risicogebeurtenissen
-- Het onderzoeken van risico's met behulp van relevante en contextuele informatie
-- Biedt eenvoudige werkstromen voor het volgen van onderzoek
-- Eenvoudige toegang tot herstelacties, zoals wachtwoord opnieuw instellen
+**Beleid voor voorwaardelijke toegang op basis van risico:**
 
-**Risico's gebaseerde beleidsregels voor voorwaardelijke toegang:**
+- Beleid om Risk ante aanmeldingen te beperken door aanmeldingen te blok keren of om multi-factor Authentication-uitdagingen te vereisen
+- Beleid voor het blok keren of beveiligen van Risk ante gebruikers accounts
+- Beleid om te vereisen dat gebruikers zich registreren voor multi-factor Authentication
 
-- Beleid voor riskante aanmeldingen beperken door het blokkeren van aanmeldingen of het vereisen van multi-factor authentication-uitdagingen
-- Beleid op blokkeren of accounts voor beveiligde riskante gebruikers
-- Beleid om te vereisen dat gebruikers zich registreren voor meervoudige verificatie
+## <a name="identity-protection-roles"></a>Rollen voor identiteits beveiliging
 
-## <a name="identity-protection-roles"></a>Identity Protection-functies
+Als u de beheer activiteiten rond uw implementatie van de identiteits beveiliging wilt verdelen, kunt u verschillende rollen toewijzen. Azure AD Identity Protection ondersteunt drie Directory-rollen:
 
-Om taken te verdelen de beheeractiviteiten rond uw Identity Protection-implementatie, kunt u verschillende rollen toewijzen. Azure AD Identity Protection ondersteunt 3 directory-rollen:
-
-| Role | Kan doen | Niet mogelijk is |
+| Role | Kan doen | Kan niet |
 | :-- | --- | --- |
-| Globale beheerder | Volledige toegang tot Identity Protection, onboarding Identity Protection| |
-| Beveiligingsbeheerder | Volledige toegang tot Identity Protection | Onboarding Identity Protection, wachtwoorden opnieuw instellen voor een gebruiker |
-| Beveiligingslezer | Alleen-lezen toegang tot Identity Protection | Onboarding Identity Protection, gebruikers herstellen, configureren van beleid, wachtwoorden opnieuw instellen |
+| Globale beheerder | Volledige toegang tot identiteits beveiliging, onboarding-identiteits beveiliging| |
+| Beveiligingsbeheerder | Volledige toegang tot identiteits beveiliging | Identiteits beveiliging voor onboarding, wacht woorden opnieuw instellen voor een gebruiker |
+| Beveiligingslezer | Alleen-lezen toegang tot identiteits beveiliging | Identiteits beveiliging voor onboarding, gebruikers herstellen, beleid configureren, wacht woorden opnieuw instellen |
 
-Zie voor meer informatie, [beheerdersrollen toewijzen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+Zie [beheerders rollen toewijzen in azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md) voor meer informatie.
 
 ## <a name="detection"></a>Detectie
 
 ### <a name="vulnerabilities"></a>Beveiligingsproblemen
 
-Azure Active Directory Identity Protection analyseert uw configuratie en beveiligingsproblemen die invloed op van uw gebruikers-id's hebben kunnen detecteert. Zie voor meer informatie, [beveiligingsproblemen die worden gedetecteerd door Azure Active Directory Identity Protection](vulnerabilities.md).
+Azure Active Directory Identity Protection analyseert uw configuratie en detecteert beveiligings problemen die invloed kunnen hebben op de identiteiten van uw gebruikers. Zie [beveiligings problemen die worden gedetecteerd door Azure Active Directory Identity Protection](vulnerabilities.md)voor meer informatie.
 
 ### <a name="risk-events"></a>Risicogebeurtenissen
 
-Azure Active Directory maakt gebruik van geavanceerde machine learning-algoritmen en methodieken voor het detecteren van verdachte activiteit die betrekking op de identiteiten van uw gebruikers hebben. Maakt een record voor elke gedetecteerde verdachte actie van het systeem. Deze records worden ook wel bekend als risicogebeurtenissen.  
+Azure Active Directory gebruikt adaptieve machine learning algoritmen en heuristiek om verdachte acties te detecteren die betrekking hebben op de identiteiten van uw gebruikers. Het systeem maakt een record voor elke gedetecteerde verdachte actie. Deze records worden ook wel risico gebeurtenissen genoemd.  
 Zie [Risicogebeurtenissen in Azure Active Directory](../active-directory-identity-protection-risk-events.md) voor meer informatie.
 
 ## <a name="investigation"></a>Onderzoek
 
-Uw reis via Identity Protection wordt doorgaans begint met het dashboard Identity Protection.
+Uw traject voor identiteits beveiliging begint meestal met het dash board voor identiteits beveiliging.
 
-![Herstel](./media/overview/1000.png "herstel")
+![Herstel](./media/overview/1000.png "Herstel")
 
 Het dashboard biedt u toegang tot:
 
-- Rapporten, zoals **gebruikers die zijn gemarkeerd voor risico's**, **Risicogebeurtenissen** en **beveiligingsproblemen**
-- Instellingen zoals de configuratie van uw **beveiligingsbeleid**, **meldingen** en **registratie voor meervoudige verificatie**
+- Rapporten zoals gebruikers die zijn **gemarkeerd voor risico**, **risico gebeurtenissen** en **beveiligings problemen**
+- Instellingen, zoals de configuratie van uw **beveiligings beleid**, **meldingen** en **registratie van multi-factor Authentication**
 
-Het is doorgaans het startpunt voor onderzoek, is het proces van het controleren van de activiteiten, logboeken en andere relevante informatie met betrekking tot een risicogebeurtenis om te bepalen of de updateherstel- of risicobeperking stappen nodig zijn, en hoe de identiteit is aangetast en te begrijpen hoe de identiteit van de aangetaste is gebruikt.
+Het is doorgaans uw begin punt voor onderzoek. Dit is het proces van het controleren van de activiteiten, logboeken en andere relevante informatie met betrekking tot een risico gebeurtenis om te bepalen of de stappen voor herstel of beperking nood zakelijk zijn, en hoe de identiteit is u hebt geknoeid en weet hoe de aangetaste identiteit is gebruikt.
 
-U kunt uw onderzoeksactiviteiten om te verbinden, de [meldingen](notifications.md) Azure Active Directory Protection per e-mail verzendt.
+U kunt uw onderzoeksactiviteiten koppelen aan de [meldingen](notifications.md) Azure Active Directory bescherming per e-mail wordt verzonden.
 
 ## <a name="policies"></a>Beleidsregels
 
-Voor het implementeren van automatische antwoorden, biedt Azure Active Directory Identity Protection drie beleidsregels:
+Azure Active Directory Identity Protection biedt u drie beleids regels om automatische reacties te implementeren:
 
-- [Registratiebeleid voor meervoudige verificatie](howto-mfa-policy.md)
-- [Beleid voor gebruikersrisico 's](howto-user-risk-policy.md)
-- [Beleid voor aanmeldingsrisico](howto-sign-in-risk-policy.md)
+- [Registratie beleid voor multi-factor Authentication](howto-mfa-policy.md)
+- [Beleid voor gebruikers Risico's](howto-user-risk-policy.md)
+- [Beleid voor aanmeldings Risico's](howto-sign-in-risk-policy.md)
 
 ## <a name="license-requirements"></a>Licentievereisten
 
@@ -117,5 +110,5 @@ Voor het implementeren van automatische antwoorden, biedt Azure Active Directory
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Channel 9: Azure AD en Identity weergeven: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+- [Channel 9: Azure AD en identiteits weergave: Preview van identiteits beveiliging](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 - [Azure Active Directory Identity Protection inschakelen](enable.md)

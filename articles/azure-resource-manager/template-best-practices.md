@@ -1,6 +1,6 @@
 ---
-title: Aanbevolen procedures voor Azure Resource Manager-sjablonen
-description: Hierin wordt beschreven aanbevolen benaderingen voor het ontwerpen van Azure Resource Manager-sjablonen. Biedt suggesties om te voorkomen dat bekende problemen bij het gebruik van sjablonen.
+title: Aanbevolen procedures voor Azure Resource Manager sjablonen
+description: Hierin worden aanbevolen benaderingen beschreven voor het ontwerpen van Azure Resource Manager sjablonen. Biedt suggesties om veelvoorkomende problemen te voor komen bij het gebruik van sjablonen.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,57 +9,57 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cdec216187050a449f23f72474e0265acce14c5f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60389573"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "67867392"
 ---
-# <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager sjabloon aanbevolen procedures
+# <a name="azure-resource-manager-template-best-practices"></a>Aanbevolen procedures voor Azure Resource Manager sjabloon
 
-In dit artikel biedt aanbevelingen over het maken van uw Resource Manager-sjabloon. Deze aanbevelingen kunnen u voorkomen dat bekende problemen bij het gebruik van een sjabloon om een oplossing te implementeren.
+Dit artikel bevat aanbevelingen voor het samen stellen van uw Resource Manager-sjabloon. Deze aanbevelingen helpen u veelvoorkomende problemen te voor komen wanneer u een sjabloon gebruikt om een oplossing te implementeren.
 
-Zie voor aanbevelingen over het beheren van uw Azure-abonnementen, [Azure enterprise-platform: Prescriptieve abonnementsgovernance](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
+Zie [Azure Enter prise-steigers voor aanbevelingen voor het beheren van uw Azure-abonnementen: Beheer van voorscriptieve](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)abonnementen.
 
-Zie voor aanbevelingen over het bouwen van sjablonen die in alle Azure-cloud-omgevingen werken [ontwikkelen van Azure Resource Manager-sjablonen voor de consistentie van de cloud](templates-cloud-consistency.md).
+Zie [Azure Resource Manager sjablonen ontwikkelen voor Cloud consistentie](templates-cloud-consistency.md)voor aanbevelingen voor het maken van sjablonen die in alle Azure-Cloud omgevingen werken.
 
-## <a name="template-limits"></a>Limieten voor sjabloon
+## <a name="template-limits"></a>Sjabloon limieten
 
-Beperkt de grootte van uw sjabloon 1 MB en elk parameterbestand aan 64 KB. De limiet van 1 MB is van toepassing op de laatste status van de sjabloon nadat deze is uitgebreid met iteratieve resourcedefinities en waarden voor parameters en variabelen. 
+Beperk de grootte van uw sjabloon tot 4 MB en elk parameter bestand tot 64 KB. De limiet van 4 MB is van toepassing op de uiteindelijke status van de sjabloon nadat deze is uitgebreid met iteratieve resource definities en waarden voor variabelen en para meters. 
 
 U bent ook beperkt tot:
 
-* 256-parameters
+* 256-para meters
 * 256 variabelen
-* 800 bronnen (zoals aantal kopieën)
-* 64 uitvoerwaarden
-* 24\.576 tekens in een sjabloonexpressie voor een
+* 800 bronnen (met inbegrip van het aantal kopieën)
+* 64 uitvoer waarden
+* 24.576 tekens in een sjabloon expressie
 
-U kunt sommige limieten sjabloon met behulp van een geneste sjabloon overschrijdt. Zie voor meer informatie, [gekoppelde sjablonen gebruiken bij het implementeren van Azure-resources](resource-group-linked-templates.md). Als u wilt verkleinen het aantal parameters, variabelen of uitvoer, kunt u verschillende waarden combineren in een object. Zie voor meer informatie, [objecten als parameters](resource-manager-objects-as-parameters.md).
+U kunt enkele sjabloon limieten overschrijden met behulp van een geneste sjabloon. Zie voor meer informatie [gekoppelde sjablonen gebruiken bij het implementeren van Azure-resources](resource-group-linked-templates.md). Als u het aantal para meters, variabelen of uitvoer wilt reduceren, kunt u verschillende waarden combi neren in een-object. Zie [objecten als para meters](resource-manager-objects-as-parameters.md)voor meer informatie.
 
-## <a name="resource-group"></a>Resourcegroep
+## <a name="resource-group"></a>Resource group
 
-Wanneer u resources in een resourcegroep implementeert, wordt de resourcegroep slaat metagegevens over de resources. De metagegevens worden opgeslagen in de locatie van de resourcegroep.
+Wanneer u resources implementeert voor een resource groep, slaat de resource groep meta gegevens over de resources op. De meta gegevens worden opgeslagen op de locatie van de resource groep.
 
-Als de resourcegroep regio tijdelijk niet beschikbaar is, kunt u resources in de resourcegroep niet bijwerken omdat de metagegevens niet beschikbaar is. De resources in andere regio's wordt nog steeds werken zoals verwacht, maar kan niet worden bijgewerkt. Zoeken om risico te beperken, de resourcegroep en resources in dezelfde regio.
+Als de regio van de resource groep tijdelijk niet beschikbaar is, kunt u resources in de resource groep niet bijwerken omdat de meta gegevens niet beschikbaar zijn. De resources in andere regio's zullen nog steeds werken zoals verwacht, maar u kunt ze niet bijwerken. Als u het risico wilt minimaliseren, zoekt u de resource groep en de resources in dezelfde regio.
 
 ## <a name="parameters"></a>Parameters
-De informatie in deze sectie kan nuttig zijn wanneer u met werkt [parameters](resource-group-authoring-templates.md#parameters).
+De informatie in deze sectie kan nuttig zijn wanneer u met [para meters](resource-group-authoring-templates.md#parameters)werkt.
 
-### <a name="general-recommendations-for-parameters"></a>Algemene aanbevelingen voor de parameters
+### <a name="general-recommendations-for-parameters"></a>Algemene aanbevelingen voor para meters
 
-* Uw gebruik van parameters minimaliseren. Gebruik in plaats daarvan variabelen of letterlijke waarden voor eigenschappen die niet hoeven te worden opgegeven tijdens de implementatie.
+* Minimaliseer het gebruik van para meters. Gebruik in plaats daarvan variabelen of letterlijke waarden voor eigenschappen die tijdens de implementatie niet hoeven te worden opgegeven.
 
-* Gebruik kamelen voor namen van parameters.
+* Gebruik Camel-Case voor parameter namen.
 
-* Gebruik de parameters voor instellingen die afhankelijk van de omgeving, zoals SKU, grootte of capaciteit zijn.
+* Gebruik para meters voor instellingen die variëren afhankelijk van de omgeving, zoals SKU, grootte of capaciteit.
 
-* Gebruik de parameters voor de namen van voorbeeldresources die u wilt opgeven voor de eenvoudige identificatie.
+* Gebruik para meters voor resource namen die u voor eenvoudige identificatie wilt opgeven.
 
-* Geef een beschrijving van elke parameter in de metagegevens:
+* Geef een beschrijving op van elke para meter in de meta gegevens:
 
    ```json
    "parameters": {
@@ -72,7 +72,7 @@ De informatie in deze sectie kan nuttig zijn wanneer u met werkt [parameters](re
    }
    ```
 
-* Standaardwaarden voor parameters die niet gevoelige definiëren. Door op te geven een standaardwaarde is opgegeven, is het eenvoudiger om de sjabloon te implementeren en gebruikers van uw sjabloon bekijken een voorbeeld van een geschikte waarde op. Standaardwaarde voor een parameter moet geldig zijn voor alle gebruikers in de standaardconfiguratie van de implementatie. 
+* Standaard waarden definiëren voor para meters die niet gevoelig zijn. Als u een standaard waarde opgeeft, is het eenvoudiger om de sjabloon te implementeren en zien gebruikers van uw sjabloon een voor beeld van een geschikte waarde. Een standaard waarde voor een para meter moet geldig zijn voor alle gebruikers in de standaard implementatie configuratie. 
    
    ```json
    "parameters": {
@@ -86,7 +86,7 @@ De informatie in deze sectie kan nuttig zijn wanneer u met werkt [parameters](re
    }
    ```
 
-* Als u een optionele parameter, gebruik niet een lege tekenreeks als een standaardwaarde. Een letterlijke waarde of taalexpressie voor een in plaats daarvan gebruik te maken van een waarde.
+* Als u een optionele para meter wilt opgeven, gebruikt u geen lege teken reeks als standaard waarde. Gebruik in plaats daarvan een letterlijke waarde of een taal expressie om een waarde te maken.
 
    ```json
    "storageAccountName": {
@@ -98,17 +98,17 @@ De informatie in deze sectie kan nuttig zijn wanneer u met werkt [parameters](re
    },
    ```
 
-* Een parameter niet worden gebruikt voor de API-versie voor een resourcetype. Resource-eigenschappen en waarden kunnen variëren per versienummer. IntelliSense in een code-editor kan niet het juiste schema bepalen wanneer de API-versie is ingesteld op een parameter. In plaats daarvan programmeren de API-versie in de sjabloon.
+* Gebruik geen para meter voor de API-versie voor een resource type. De resource-eigenschappen en-waarden kunnen variëren per versie nummer. IntelliSense in een code-editor kan het juiste schema niet bepalen wanneer de API-versie is ingesteld op een para meter. In plaats daarvan wordt de API-versie in de sjabloon vastgelegd.
 
-* Gebruik `allowedValues` spaarzaam. Gebruik deze optie alleen als moet u ervoor zorgen dat bepaalde waarden niet zijn opgenomen in de toegestane opties. Als u `allowedValues` te breed u geldige implementaties mogelijk blokkeren door de lijst met niet up-to-date houden.
+* Gebruik `allowedValues` spaarzaam. Gebruik deze alleen wanneer u moet controleren of sommige waarden niet zijn opgenomen in de toegestane opties. Als u te `allowedValues` breed gebruikt, kunt u geldige implementaties blok keren door de lijst niet up-to-date te houden.
 
-* Wanneer een parameternaam in uw sjabloon overeenkomt met een parameter in de PowerShell-opdracht voor implementatie, Resource Manager deze naamgevingsconventie conflict opgelost doordat de postfix **FromTemplate** aan de sjabloonparameter. Bijvoorbeeld, als u een parameter met de naam opgeeft **ResourceGroupName** in uw sjabloon, deze conflicteert met de **ResourceGroupName** parameter in de [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. Tijdens de implementatie van u wordt gevraagd om een waarde voor **ResourceGroupNameFromTemplate**.
+* Wanneer een parameter naam in uw sjabloon overeenkomt met een para meter in de Power shell-implementatie opdracht, wordt deze naam conflicten opgelost door de achtervoegsel **FromTemplate** toe te voegen aan de sjabloon parameter. Als u bijvoorbeeld een para meter met de naam **ResourceGroupName** in uw sjabloon opneemt, wordt er een conflict veroorzaakt met de para meter **ResourceGroupName** in de cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Tijdens de implementatie wordt u gevraagd om een waarde voor **ResourceGroupNameFromTemplate**op te geven.
 
-### <a name="security-recommendations-for-parameters"></a>Aanbevelingen voor beveiliging voor de parameters
+### <a name="security-recommendations-for-parameters"></a>Beveiligings aanbevelingen voor para meters
 
-* Gebruik altijd de parameters voor gebruikersnamen en wachtwoorden (of geheime informatie).
+* Gebruik altijd para meters voor gebruikers namen en wacht woorden (of geheimen).
 
-* Gebruik `securestring` voor alle wachtwoorden en geheimen. Als u gevoelige gegevens in een JSON-object doorgeven, gebruikt u de `secureObject` type. Sjabloonparameters met beveiligde tekenreeks of beveiligde objecttypen kunnen niet worden gelezen na de implementatie van de resource. 
+* Gebruiken `securestring` voor alle wacht woorden en geheimen. Gebruik het `secureObject` type als u gevoelige gegevens doorgeeft in een JSON-object. Sjabloon parameters met een beveiligde teken reeks of beveiligde object typen kunnen niet worden gelezen na het implementeren van de resource. 
    
    ```json
    "parameters": {
@@ -121,13 +121,13 @@ De informatie in deze sectie kan nuttig zijn wanneer u met werkt [parameters](re
    }
    ```
 
-* Niet voor de standaardwaarden voor gebruikersnamen, wachtwoorden of een willekeurige waarde waarvoor een `secureString` type.
+* Geef geen standaard waarden op voor gebruikers namen, wacht woorden of een waarde die een `secureString` type vereist.
 
-* Niet u standaardwaarden opgeven voor eigenschappen die de aanval surface area van de toepassing te verhogen.
+* Geef geen standaard waarden op voor eigenschappen waarmee de aanval surface area van de toepassing wordt verhoogd.
 
-### <a name="location-recommendations-for-parameters"></a>Locatie-aanbevelingen voor de parameters
+### <a name="location-recommendations-for-parameters"></a>Aanbevelingen voor de locatie van para meters
 
-* Gebruik een parameter om op te geven van de locatie voor resources en de standaardwaarde ingesteld op `resourceGroup().location`. De parameter van een locatie bieden, kunnen gebruikers van de sjabloon om een locatie die ze gemachtigd zijn om te implementeren op te geven.
+* Gebruik een para meter om de locatie voor resources op te geven en stel de standaard `resourceGroup().location`waarde in op. Als u een locatie parameter opgeeft, kunnen gebruikers van de sjabloon een locatie opgeven waarvoor ze gemachtigd zijn om te implementeren.
 
    ```json
    "parameters": {
@@ -141,49 +141,49 @@ De informatie in deze sectie kan nuttig zijn wanneer u met werkt [parameters](re
    },
    ```
 
-* Geef geen `allowedValues` voor de locatieparameter. De locaties die u opgeeft zijn mogelijk niet in alle clouds beschikbaar.
+* Geef `allowedValues` geen voor de locatie parameter op. De locaties die u opgeeft, zijn mogelijk niet beschikbaar in alle Clouds.
 
-* Gebruik de waarde van de locatie voor resources die kunnen worden op dezelfde locatie. Deze aanpak minimaliseert het aantal keer dat gebruikers wordt gevraagd om locatie-informatie te geven.
+* Gebruik de locatie parameter waarde voor bronnen die zich waarschijnlijk op dezelfde locatie bevinden. Deze aanpak minimaliseert het aantal keren dat gebruikers worden gevraagd om locatie gegevens op te geven.
 
-* Voor resources die niet beschikbaar zijn op alle locaties, gebruikt u een afzonderlijke parameter of geef een locatiewaarde voor letterlijke.
+* Voor bronnen die niet op alle locaties beschikbaar zijn, gebruikt u een afzonderlijke para meter of geeft u een letterlijke locatie waarde op.
 
 ## <a name="variables"></a>Variabelen
 
-De volgende informatie kan nuttig zijn wanneer u met werkt [variabelen](resource-group-authoring-templates.md#variables):
+De volgende informatie kan nuttig zijn wanneer u met [variabelen](resource-group-authoring-templates.md#variables)werkt:
 
-* Variabelen voor waarden die u wilt meer dan één keer gebruiken in een sjabloon gebruiken. Als een waarde slechts één keer gebruikt wordt, een vastgelegde waarde maakt de sjabloon voor het gemakkelijker te lezen.
+* Gebruik variabelen voor waarden die u meer dan één keer wilt gebruiken in een sjabloon. Als een waarde slechts één keer wordt gebruikt, wordt uw sjabloon in een in code vastgelegde waarde gemakkelijker te lezen.
 
-* Variabelen gebruiken voor waarden die u uit een complexe rangschikking van de sjabloonvariabelen samenstelt. De sjabloon is gemakkelijker te lezen wanneer de complexe expressie alleen wordt weergegeven in de variabelen.
+* Gebruik variabelen voor waarden die u maakt op basis van een complexe schikking van sjabloon functies. De sjabloon is gemakkelijker te lezen wanneer de complexe expressie alleen in variabelen wordt weer gegeven.
 
-* Gebruik geen variabelen voor `apiVersion` op een resource. De API-versie bepaalt het schema van de resource. U kunt de versie vaak niet wijzigen zonder het wijzigen van de eigenschappen voor de resource.
+* Gebruik geen variabelen voor `apiVersion` op een resource. De API-versie bepaalt het schema van de resource. Vaak kunt u de versie niet wijzigen zonder de eigenschappen van de resource te wijzigen.
 
-* U kunt geen gebruiken de [verwijzing](resource-group-template-functions-resource.md#reference) werken in de **variabelen** gedeelte van de sjabloon. De **verwijzing** functie is afgeleid van de waarde van de runtimestatus van de resource. Variabelen zijn echter opgelost bij het eerste parseren van de sjabloon. Om voor te bereiden waarden die moeten de **verwijzing** functie rechtstreeks in de **resources** of **levert** gedeelte van de sjabloon.
+* U kunt de functie [Reference](resource-group-template-functions-resource.md#reference) niet gebruiken in de sectie **Varia bles** van de sjabloon. De **verwijzings** functie heeft zijn waarde afgeleid van de runtime status van de resource. Variabelen worden echter opgelost tijdens het eerst parseren van de sjabloon. Bouw waarden die de **verwijzings** functie rechtstreeks nodig hebben in het gedeelte **resources** of **uitvoer** van de sjabloon.
 
-* Variabelen voor de namen van voorbeeldresources die moeten uniek zijn.
+* Variabelen voor resource namen bevatten die uniek moeten zijn.
 
-* Gebruik een [kopie-lus in variabelen](resource-group-create-multiple.md#variable-iteration) herhaalde patronen van JSON-objecten maken.
+* Gebruik een [copy-lus in variabelen](resource-group-create-multiple.md#variable-iteration) om een herhaald patroon van JSON-objecten te maken.
 
-* Niet-gebruikte variabelen verwijderen.
+* Ongebruikte variabelen verwijderen.
 
 ## <a name="resource-dependencies"></a>Bronafhankelijkheden
 
-Wanneer u beslist wat [afhankelijkheden](resource-group-define-dependencies.md) wilt instellen, gebruikt u de volgende richtlijnen:
+Wanneer u wilt [](resource-group-define-dependencies.md) bepalen welke afhankelijkheden er moeten worden ingesteld, gebruikt u de volgende richt lijnen:
 
-* Gebruik de **verwijzing** functioneren en geef de resourcenaam een impliciete afhankelijkheid tussen resources die nodig hebt voor het delen van een eigenschap instellen. Voeg een expliciete niet `dependsOn` element als u al een impliciete afhankelijkheid hebt gedefinieerd. Deze aanpak vermindert het risico dat onnodige afhankelijkheden.
+* Gebruik de functie **Reference** en geef de naam van de resource door om een impliciete afhankelijkheid in te stellen tussen resources die een eigenschap moeten delen. Voeg geen expliciet `dependsOn` element toe wanneer u al een impliciete afhankelijkheid hebt gedefinieerd. Deze aanpak vermindert het risico van overbodige afhankelijkheden.
 
-* Een onderliggende resource instellen als afhankelijk van de bovenliggende resource.
+* Stel een onderliggende bron in die afhankelijk is van de bovenliggende resource.
 
-* Resources met de [voorwaarde element](resource-group-authoring-templates.md#condition) ingesteld op false, worden automatisch verwijderd uit de volgorde van de afhankelijkheid. De afhankelijkheden instellen als de resource is altijd geïmplementeerd.
+* Resources waarvoor het [element voor waarde](resource-group-authoring-templates.md#condition) is ingesteld op ONWAAR, worden automatisch verwijderd uit de afhankelijkheids volgorde. Stel de afhankelijkheden zo in dat de resource altijd wordt geïmplementeerd.
 
-* Laat afhankelijkheden cascade zonder expliciet instelt. Bijvoorbeeld: uw virtuele machine is afhankelijk van een virtuele netwerkinterface en de virtuele netwerkinterface is afhankelijk van een virtueel netwerk en openbare IP-adressen. Daarom wordt de virtuele machine is geïmplementeerd nadat alle drie resources, maar de virtuele machine niet expliciet worden ingesteld als afhankelijk is van alle drie resources. Deze aanpak wordt uitleg gegeven over de volgorde van de afhankelijkheid en kunt u gemakkelijker de sjabloon later wijzigen.
+* Zorg ervoor dat afhankelijkheden trapsgewijs worden ingesteld zonder ze expliciet in te stellen. Uw virtuele machine is bijvoorbeeld afhankelijk van een virtuele netwerk interface en de virtuele netwerk interface is afhankelijk van een virtueel netwerk en open bare IP-adressen. De virtuele machine wordt daarom geïmplementeerd na alle drie de resources, maar u hoeft de virtuele machine niet expliciet in te stellen als afhankelijk van alle drie de resources. Deze benadering verduidelijkt de afhankelijkheids volgorde en maakt het eenvoudiger om de sjabloon later te wijzigen.
 
-* Als een waarde kan worden bepaald vóór de implementatie, kunt u de implementatie van de resource zijn zonder een afhankelijkheid. Bijvoorbeeld, als een configuratiewaarde de naam van een andere bron moet, moet u mogelijk niet een afhankelijkheid. In deze richtlijnen werken niet altijd, omdat sommige resources controleren of er sprake van de andere resource. Als u een foutbericht ontvangt, moet u een afhankelijkheid toevoegen.
+* Als een waarde kan worden bepaald vóór de implementatie, probeert u de resource te implementeren zonder een afhankelijkheid. Als voor een configuratie waarde bijvoorbeeld de naam van een andere resource nodig is, hebt u mogelijk geen afhankelijkheid nodig. Deze richt lijnen werken niet altijd omdat sommige resources de aanwezigheid van de andere bron verifiëren. Als er een fout bericht wordt weer gegeven, voegt u een afhankelijkheid toe.
 
 ## <a name="resources"></a>Resources
 
-De volgende informatie kan nuttig zijn wanneer u met werkt [resources](resource-group-authoring-templates.md#resources):
+De volgende informatie kan nuttig zijn wanneer u met [resources](resource-group-authoring-templates.md#resources)werkt:
 
-* Geef andere inzenders leert wat het doel van de resource, zodat **opmerkingen** voor elke resource in de sjabloon:
+* Om andere inzenders inzicht te geven in het doel van de resource, geeft u **opmerkingen** op voor elke resource in de sjabloon:
    
    ```json
    "resources": [
@@ -198,7 +198,7 @@ De volgende informatie kan nuttig zijn wanneer u met werkt [resources](resource-
    ]
    ```
 
-* Als u een *openbaar eindpunt* in uw sjabloon (zoals een Azure Blob storage openbaar eindpunt), *programmeren niet* de naamruimte. Gebruik de **verwijzing** functie voor het dynamisch de naamruimte niet ophalen. Deze aanpak kunt u de sjabloon implementeren in andere openbare naamruimte omgevingen zonder handmatig wijzigen van het eindpunt in de sjabloon. Stel de API-versie naar dezelfde versie die u voor het opslagaccount in de sjabloon gebruikt:
+* Als u een *openbaar eind punt* in uw sjabloon gebruikt (zoals een openbaar eind punt voor Azure Blob-opslag), hoeft u de naam ruimte *niet vast te coderen* . Gebruik de functie **Reference** om de naam ruimte dynamisch op te halen. U kunt deze methode gebruiken om de sjabloon te implementeren in verschillende open bare naam ruimte omgevingen zonder het eind punt in de sjabloon hand matig te wijzigen. Stel de API-versie in op de versie die u gebruikt voor het opslag account in uw sjabloon:
    
    ```json
    "osDisk": {
@@ -209,7 +209,7 @@ De volgende informatie kan nuttig zijn wanneer u met werkt [resources](resource-
    }
    ```
    
-   Als het opslagaccount dat is geïmplementeerd in dezelfde sjabloon die u maakt, moet u geen naamruimte van de provider opgeven wanneer u verwijst naar de resource. Het volgende voorbeeld ziet u de vereenvoudigde syntaxis:
+   Als het opslag account is geïmplementeerd in dezelfde sjabloon die u maakt, hoeft u de naam ruimte van de provider niet op te geven als u verwijst naar de resource. In het volgende voor beeld ziet u de vereenvoudigde syntaxis:
    
    ```json
    "osDisk": {
@@ -220,7 +220,7 @@ De volgende informatie kan nuttig zijn wanneer u met werkt [resources](resource-
    }
    ```
    
-   Als u andere waarden in de sjabloon die zijn geconfigureerd voor het gebruik van een openbare-naamruimte hebt, wijzigt u deze waarden om dezelfde **verwijzing** functie. U kunt bijvoorbeeld instellen de **storageUri** eigenschap van de virtuele machine diagnostische profiel:
+   Als uw sjabloon andere waarden bevat die zijn geconfigureerd voor het gebruik van een open bare naam ruimte, wijzigt u deze waarden zodat deze overeenkomen met dezelfde verwijzings functie. U kunt bijvoorbeeld de eigenschap **storageUri** van het diagnostische Profiel van de virtuele machine instellen:
    
    ```json
    "diagnosticsProfile": {
@@ -231,7 +231,7 @@ De volgende informatie kan nuttig zijn wanneer u met werkt [resources](resource-
    }
    ```
    
-   U kunt ook een bestaand opslagaccount die zich in een andere resourcegroep verwijzen:
+   U kunt ook verwijzen naar een bestaand opslag account dat zich in een andere resource groep bevindt:
 
    ```json
    "osDisk": {
@@ -242,17 +242,17 @@ De volgende informatie kan nuttig zijn wanneer u met werkt [resources](resource-
    }
    ```
 
-* Openbare IP-adressen toewijzen aan een virtuele machine alleen wanneer een toepassing vereist. Voor verbinding met een virtuele machine (VM) voor het opsporen van fouten, of voor beheer of administratieve doeleinden, inkomende NAT-regels, een virtuele netwerkgateway of een jumpbox te gebruiken.
+* Wijs alleen open bare IP-adressen toe aan een virtuele machine wanneer deze vereist zijn voor een toepassing. Als u verbinding wilt maken met een virtuele machine (VM) voor fout opsporing of voor beheer-of beheer doeleinden, gebruikt u binnenkomende NAT-regels, een virtuele netwerk gateway of een JumpBox.
    
-     Zie voor meer informatie over verbinding maken met virtuele machines:
+     Zie voor meer informatie over het maken van verbinding met virtuele machines:
    
-   * [VM's uitvoeren voor een architectuur met meerdere lagen in Azure](../guidance/guidance-compute-n-tier-vm.md)
+   * [Vm's uitvoeren voor een architectuur met meerdere lagen in azure](../guidance/guidance-compute-n-tier-vm.md)
    * [WinRM-toegang instellen voor virtuele machines in Azure Resource Manager](../virtual-machines/windows/winrm.md)
-   * [Externe toegang tot uw virtuele machine toestaan met behulp van Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md)
-   * [Externe toegang tot uw virtuele machine toestaan met behulp van PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Externe toegang tot uw Linux-VM geven met behulp van Azure CLI](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+   * [Externe toegang tot uw virtuele machine toestaan met behulp van de Azure Portal](../virtual-machines/windows/nsg-quickstart-portal.md)
+   * [Externe toegang tot uw virtuele machine toestaan met behulp van Power shell](../virtual-machines/windows/nsg-quickstart-powershell.md)
+   * [Externe toegang tot uw virtuele Linux-machine toestaan met behulp van Azure CLI](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
 
-* De **Domeinnaamlabel** eigenschap voor openbare IP-adressen moet uniek zijn. De **Domeinnaamlabel** waarde moet tussen 3 en 63 tekens lang en volgt u de regels die door deze reguliere expressie opgegeven: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Omdat de **uniqueString** functie genereert een tekenreeks van 13 tekens lang zijn en de **dnsPrefixString** parameter is beperkt tot 50 tekens bevatten:
+* De eigenschap **domeinnaam label** voor open bare IP-adressen moet uniek zijn. De **domeinnaam label** -waarde moet tussen de 3 en 63 tekens lang zijn en de regels volgen die zijn opgegeven met deze `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`reguliere expressie:. Omdat de functie **Unique string** een teken reeks genereert die 13 tekens lang is, is de para meter **dnsPrefixString** beperkt tot 50 tekens:
 
    ```json
    "parameters": {
@@ -269,7 +269,7 @@ De volgende informatie kan nuttig zijn wanneer u met werkt [resources](resource-
    }
    ```
 
-* Wanneer u een wachtwoord aan een extensie voor aangepaste scripts toevoegen, gebruikt u de **commandToExecute** eigenschap in de **protectedSettings** eigenschap:
+* Wanneer u een wacht woord aan een aangepaste script extensie toevoegt, gebruikt u de eigenschap **commandToExecute** in de eigenschap **protectedSettings** :
    
    ```json
    "properties": {
@@ -289,13 +289,13 @@ De volgende informatie kan nuttig zijn wanneer u met werkt [resources](resource-
    ```
    
    > [!NOTE]
-   > Om ervoor te zorgen dat er geheimen worden versleuteld wanneer ze als parameters worden doorgegeven aan VM's en -extensies, gebruikt u de **protectedSettings** eigenschap van de relevante extensies.
+   > Gebruik de eigenschap **protectedSettings** van de relevante extensies om ervoor te zorgen dat geheimen worden versleuteld wanneer ze worden door gegeven als para meters voor vm's en uitbrei dingen.
    > 
    > 
 
-## <a name="outputs"></a>Uitvoer
+## <a name="outputs"></a>outputs
 
-Als u een sjabloon te maken van openbare IP-adressen gebruiken, voegt een [sectie uitvoer](resource-group-authoring-templates.md#outputs) die retourneert gegevens van het IP-adres en de volledig gekwalificeerde domeinnaam (FQDN). U kunt uitvoerwaarden gebruiken om op te halen eenvoudig meer informatie over openbare IP-adressen en FQDN's na de implementatie.
+Als u een sjabloon gebruikt voor het maken van open bare IP-adressen, neemt u een [sectie outputs](resource-group-authoring-templates.md#outputs) op waarmee details van het IP-adres en de Fully QUALIFIED domain name (FQDN) worden geretourneerd. U kunt uitvoerwaarden gebruiken om op te halen eenvoudig meer informatie over openbare IP-adressen en FQDN's na de implementatie.
 
 ```json
 "outputs": {
@@ -312,5 +312,5 @@ Als u een sjabloon te maken van openbare IP-adressen gebruiken, voegt een [secti
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over de structuur van het Resource Manager-sjabloonbestand [inzicht in de structuur en de syntaxis van Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).
-* Zie voor aanbevelingen over het bouwen van sjablonen die in alle Azure-cloud-omgevingen werken [ontwikkelen van Azure Resource Manager-sjablonen voor de consistentie van de cloud](templates-cloud-consistency.md).
+* Voor informatie over de structuur van het Resource Manager-sjabloon bestand, Zie [de structuur en syntaxis van Azure Resource Manager sjablonen begrijpen](resource-group-authoring-templates.md).
+* Zie [Azure Resource Manager sjablonen ontwikkelen voor Cloud consistentie](templates-cloud-consistency.md)voor aanbevelingen voor het maken van sjablonen die in alle Azure-Cloud omgevingen werken.

@@ -1,6 +1,6 @@
 ---
 title: Overzicht van Azure Status Monitor v2 | Microsoft Docs
-description: Een overzicht van Status Monitor v2. Websiteprestaties controleren zonder de website opnieuw te implementeren. Werkt met ASP.NET web-apps die on-premises, in virtuele machines, of op Azure worden gehost.
+description: Een overzicht van Status Monitor v2. Bewaak de prestaties van de website zonder de website opnieuw te implementeren. Werkt met ASP.NET-Web-apps die on-premises worden gehost, in Vm's of op Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,35 +12,32 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 2126408222433e6339723dc2da0d2611bb234fe8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0264cf3a972c35edb3ad6dc600ca39bdaa076dfd
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734164"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333683"
 ---
 # <a name="status-monitor-v2"></a>Status Monitor v2
 
-Status Monitor v2 is een PowerShell module gepubliceerd naar de [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
-Azure Backup vervangt u [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now).
-De module biedt zonder code instrumentatie van .NET web-apps die worden gehost in IIS.
-Telemetrie wordt verzonden naar de Azure-portal, waar u kunt [monitor](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) uw app.
-
-> [!IMPORTANT]
-> Status Monitor v2 is momenteel in openbare preview.
-> Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Sommige functies mogelijk niet ondersteund, en sommige mogelijk beperkt.
-> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+Status Monitor v2 is een Power shell-module die is gepubliceerd op de [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
+Het vervangt [status monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now).
+De module biedt codeloze instrumentatie van .NET-Web-apps die worden gehost met IIS.
+Telemetrie wordt verzonden naar de Azure Portal, waar u [](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) uw app kunt bewaken.
 
 ## <a name="powershell-gallery"></a>PowerShell Gallery
 
-De PowerShell Gallery bevindt zich hier: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+Status Monitor v2 bevindt zich https://www.powershellgallery.com/packages/Az.ApplicationMonitor hier:.
+
+![PowerShell Gallery](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
 ## <a name="instructions"></a>Instructies
-- Zie de [aan de slag instructies](status-monitor-v2-get-started.md) om op te halen van een begin met beknopte codevoorbeelden.
-- Zie de [gedetailleerde instructies](status-monitor-v2-detailed-instructions.md) voor gedetailleerde informatie over hoe u aan de slag.
+- Zie de [aan](status-monitor-v2-get-started.md) de slag-instructies om een begin te krijgen met beknopte code voorbeelden.
+- Raadpleeg de [gedetailleerde instructies](status-monitor-v2-detailed-instructions.md) voor een grondige uitleg over hoe u aan de slag kunt gaan.
 
-## <a name="powershell-api-reference"></a>PowerShell-API-verwijzing
+## <a name="powershell-api-reference"></a>Power shell API-naslag informatie
 - [Disable-ApplicationInsightsMonitoring](status-monitor-v2-api-disable-monitoring.md)
 - [Disable-InstrumentationEngine](status-monitor-v2-api-disable-instrumentation-engine.md)
 - [Enable-ApplicationInsightsMonitoring](status-monitor-v2-api-enable-monitoring.md)
@@ -48,6 +45,7 @@ De PowerShell Gallery bevindt zich hier: https://www.powershellgallery.com/packa
 - [Get-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
 - [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)
 - [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
+- [Start-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 - [Problemen oplossen](status-monitor-v2-troubleshoot.md)
@@ -56,34 +54,34 @@ De PowerShell Gallery bevindt zich hier: https://www.powershellgallery.com/packa
 
 ## <a name="faq"></a>Veelgestelde vragen
 
-- Status Monitor v2 biedt ondersteuning voor installaties van de proxy?
+- Ondersteunt Status Monitor v2 proxy-installaties?
 
-  *Ja*. Er zijn meerdere manieren voor het downloaden van Status Monitor v2. Als uw computer toegang tot internet heeft, kunt u onboarding naar de PowerShell Gallery met behulp van `-Proxy` parameters.
-U kunt ook handmatig de module downloaden en een installeren op uw computer of rechtstreeks gebruiken.
+  *Ja*. Er zijn meerdere manieren om Status Monitor v2 te downloaden. Als uw computer toegang heeft tot internet, kunt u de PowerShell Gallery onboarden `-Proxy` met behulp van para meters.
+U kunt de module ook hand matig downloaden en installeren op uw computer of rechtstreeks gebruiken.
 Elk van deze opties wordt beschreven in de [gedetailleerde instructies](status-monitor-v2-detailed-instructions.md).
   
 - Hoe kan ik controleren of de activering is geslaagd?
 
-   Er is geen cmdlet om te controleren of activering is voltooid.
-Raden wij aan u [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) om snel te bepalen als uw app telemetrie verzendt.
+  - De cmdlet [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) kan worden gebruikt om te controleren of de activering is geslaagd.
+  - We raden u aan [Live metrische gegevens](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) te gebruiken om snel te bepalen of uw app telemetrie verzendt.
 
-   U kunt ook [Log Analytics](../log-query/get-started-portal.md) om alle cloudrollen die momenteel verzenden telemetrie weer te geven:
-   ```Kusto
-   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
-   ```
+  - U kunt [log Analytics](../log-query/get-started-portal.md) ook gebruiken om alle Cloud rollen weer te geven die momenteel telemetrie verzenden:
+      ```Kusto
+      union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+      ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Uw telemetrie weergeven:
 
-* [Verken de metrische gegevens](../../azure-monitor/app/metrics-explorer.md) prestaties controleren en gebruik.
-* [Doorzoek gebeurtenissen en logboeken](../../azure-monitor/app/diagnostic-search.md) om problemen te diagnosticeren.
-* [Analytics gebruiken](../../azure-monitor/app/analytics.md) voor meer geavanceerde query's.
-* [Maak dashboards](../../azure-monitor/app/overview-dashboard.md).
+* [Bekijk metrische gegevens](../../azure-monitor/app/metrics-explorer.md) om de prestaties en het gebruik te bewaken.
+* [Zoek gebeurtenissen en logboeken](../../azure-monitor/app/diagnostic-search.md) om problemen op te sporen.
+* [Gebruik analyses](../../azure-monitor/app/analytics.md) voor meer geavanceerde query's.
+* [Dash boards maken](../../azure-monitor/app/overview-dashboard.md).
 
 Meer telemetrie toevoegen:
 
-* [Maak webtests](monitor-web-app-availability.md) om ervoor te zorgen dat uw site actief blijft.
-* [Voeg telemetrie van de webclient](../../azure-monitor/app/javascript.md) om te zien welke uitzonderingen webpaginacode en om in te schakelen trace-aanroepen.
-* [Voeg de Application Insights SDK toe aan uw code](../../azure-monitor/app/asp-net.md) zodat u kunt invoegen van trace en logboekaanroepen.
+* [Maak](monitor-web-app-availability.md) webtests om ervoor te zorgen dat uw site actief blijft.
+* [Voeg](../../azure-monitor/app/javascript.md) de telemetrie van de webclient toe om uitzonde ringen van webpagina code te bekijken en tracerings aanroepen in te scha kelen.
+* [Voeg de Application INSIGHTS SDK toe aan uw code](../../azure-monitor/app/asp-net.md) zodat u tracerings-en logboek aanroepen kunt invoegen.
 

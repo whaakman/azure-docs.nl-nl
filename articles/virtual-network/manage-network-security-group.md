@@ -1,7 +1,7 @@
 ---
-title: Maken, wijzigen of verwijderen van een Azure-netwerkbeveiligingsgroep
+title: Een Azure-netwerk beveiligings groep maken, wijzigen of verwijderen
 titlesuffix: Azure Virtual Network
-description: Informatie over het maken, wijzigen of verwijderen van een netwerkbeveiligingsgroep.
+description: Meer informatie over het maken, wijzigen of verwijderen van een netwerk beveiligings groep.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,181 +12,181 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: kumud
-ms.openlocfilehash: f1353165954021cd949d6e46357d10514ee26b3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c00f23570c3f8d80e39f3fe3901f866e40dc2ea
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65560929"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305688"
 ---
-# <a name="create-change-or-delete-a-network-security-group"></a>Maken, wijzigen of verwijderen van een netwerkbeveiligingsgroep
+# <a name="create-change-or-delete-a-network-security-group"></a>Een netwerk beveiligings groep maken, wijzigen of verwijderen
 
-Beveiligingsregels in netwerkbeveiligingsgroepen kunnen u voor het filteren van het type netwerkverkeer dat naar en uit de virtuele subnetten en netwerkinterfaces stromen kan. Als u niet bekend met netwerkbeveiligingsgroepen bent, Zie [overzicht van netwerkbeveiligingsgroepen](security-overview.md) voor meer informatie over deze en voer de [-netwerkverkeer filteren](tutorial-filter-network-traffic.md) zelfstudie om te krijgen van enige ervaring met het netwerk -beveiligingsgroepen.
+Met beveiligings regels in netwerk beveiligings groepen kunt u het type netwerk verkeer filteren dat in en uit de subnetten van het virtuele netwerk en netwerk interfaces kan stromen. Als u niet bekend bent met netwerk beveiligings groepen, raadpleegt u overzicht van de [netwerk beveiligings groep](security-overview.md) voor meer informatie en voltooit u de zelf studie [netwerk verkeer filteren](tutorial-filter-network-traffic.md) om zo ervaring te krijgen met netwerk beveiligings groepen.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Voer de volgende taken voordat u de stappen in elke sectie van dit artikel:
+Voer de volgende taken uit voordat u de stappen in een van de secties van dit artikel uitvoert:
 
-- Als u nog een Azure-account hebt, kunt u zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
-- Als u de portal gebruikt, opent u https://portal.azure.com, en meld u aan met uw Azure-account.
-- Als u PowerShell-opdrachten gebruikt om taken in dit artikel te voltooien, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. In deze zelfstudie vereist de Azure PowerShell-moduleversie 1.0.0 of hoger. Voer `Get-Module -ListAvailable Az` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
-- Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor taken in dit artikel uit te voeren, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI van de computer. In deze zelfstudie gebruikmaken van Azure CLI versie 2.0.28 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren. Als u de Azure CLI lokaal uitvoert, moet u ook om uit te voeren `az login` voor het maken van een verbinding met Azure.
+- Als u nog geen Azure-account hebt, kunt u zich aanmelden voor een [gratis proef account](https://azure.microsoft.com/free).
+- Als u de portal gebruikt, https://portal.azure.com opent u en meldt u zich aan met uw Azure-account.
+- Als u Power shell-opdrachten gebruikt om taken in dit artikel te volt ooien, moet u de opdrachten uitvoeren in de [Azure Cloud shell](https://shell.azure.com/powershell)of Power shell uitvoeren vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Voor deze zelf studie is de Azure PowerShell module versie 1.0.0 of hoger vereist. Voer `Get-Module -ListAvailable Az` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
+- Als u Azure-opdracht regel interface opdrachten gebruikt om taken in dit artikel te volt ooien, moet u de opdrachten uitvoeren in de [Azure Cloud shell](https://shell.azure.com/bash)of door de CLI vanaf uw computer uit te voeren. Voor deze zelf studie is de Azure CLI-versie 2.0.28 of hoger vereist. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren. Als u de Azure cli lokaal uitvoert, moet u ook uitvoeren `az login` om een verbinding te maken met Azure.
 
-Het account dat u zich aanmelden bij of verbinding maken met Azure met moet worden toegewezen aan de [Inzender voor netwerken](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) die is toegewezen de nodige acties die worden vermeld in [machtigingen ](#permissions).
+Het account waarmee u zich aanmeldt of verbinding maakt met Azure met, moet worden toegewezen aan de rol [netwerk bijdrager](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) of aan een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) waaraan de juiste acties zijn toegewezen die worden vermeld in [machtigingen](#permissions).
 
 ## <a name="work-with-network-security-groups"></a>Met netwerkbeveiligingsgroepen werken
 
-U kunt maken, [weergeven van alle](#view-all-network-security-groups), [details bekijken van](#view-details-of-a-network-security-group), [wijzigen](#change-a-network-security-group), en [verwijderen](#delete-a-network-security-group) een netwerkbeveiligingsgroep. U kunt ook [koppelen of ontkoppelen](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface) een netwerkbeveiligingsgroep van een netwerkinterface of subnet.
+U kunt alle [gegevens van](#view-details-of-a-network-security-group)een netwerk beveiligings groep maken, [weer geven, bekijken](#view-all-network-security-groups), [wijzigen](#change-a-network-security-group)en [verwijderen](#delete-a-network-security-group) . U kunt ook een netwerk beveiligings groep [koppelen aan of loskoppelen](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface) van een netwerk interface of subnet.
 
 ### <a name="create-a-network-security-group"></a>Een netwerkbeveiligingsgroep maken
 
-Er is een limiet aan het aantal netwerkbeveiligingsgroepen die kunt u per Azure-locatie en abonnement maken. Zie [Netwerkenlimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie.
+Er is een limiet aan het aantal netwerk beveiligings groepen dat u kunt maken per Azure-locatie en-abonnement. Zie [Netwerkenlimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie.
 
 1. Selecteer in de linkerbovenhoek van de portal **+ een resource maken**.
-2. Selecteer **netwerken**en selecteer vervolgens **netwerkbeveiligingsgroep**.
-3. Voer een **naam** voor de netwerkbeveiligingsgroep, selecteert u uw **abonnement**, maakt u een nieuw **resourcegroep**, of Selecteer een bestaande resourcegroep, selecteert u een **Locatie**, en selecteer vervolgens **maken**.
+2. Selecteer **netwerken**en selecteer vervolgens **netwerk beveiligings groep**.
+3. Voer een **naam** in voor de netwerk beveiligings groep, selecteer uw **abonnement**, maak een nieuwe **resource groep**of selecteer een bestaande resource groep, selecteer een **locatie**en selecteer vervolgens **maken**.
 
 **Opdrachten**
 
-- Azure CLI: [az network nsg maken](/cli/azure/network/nsg#az-network-nsg-create)
+- Azure CLI: [AZ Network NSG Create](/cli/azure/network/nsg#az-network-nsg-create)
 - PowerShell: [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)
 
-### <a name="view-all-network-security-groups"></a>Alle netwerkbeveiligingsgroepen weergeven
+### <a name="view-all-network-security-groups"></a>Alle netwerk beveiligings groepen weer geven
 
-Voer in het zoekvak boven aan de portal, *netwerkbeveiligingsgroepen*. Wanneer **netwerkbeveiligingsgroepen** worden weergegeven in de lijst met zoekresultaten, selecteert u deze. De netwerkbeveiligingsgroepen die zijn opgenomen in uw abonnement worden weergegeven.
+In het zoekvak boven aan de portal voert u *netwerk beveiligings groepen*in. Wanneer **netwerk beveiligings groepen** worden weer gegeven in de zoek resultaten, selecteert u deze. De netwerk beveiligings groepen die in uw abonnement aanwezig zijn, worden weer gegeven.
 
 **Opdrachten**
 
-- Azure CLI: [az network nsg list](/cli/azure/network/nsg#az-network-nsg-list)
+- Azure CLI: [AZ Network NSG List](/cli/azure/network/nsg#az-network-nsg-list)
 - PowerShell: [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)
 
-### <a name="view-details-of-a-network-security-group"></a>Details van een netwerkbeveiligingsgroep weergeven
+### <a name="view-details-of-a-network-security-group"></a>Details van een netwerk beveiligings groep weer geven
 
-1. Voer in het zoekvak boven aan de portal, *netwerkbeveiligingsgroepen*. Wanneer **netwerkbeveiligingsgroepen** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
-2. Selecteer de netwerkbeveiligingsgroep in de lijst die u wilt weergeven van details voor. Onder **instellingen** vindt u de **inkomende beveiligingsregels** en **uitgaande beveiligingsregels**, wordt de **netwerkinterfaces** en  **Subnetten** de netwerkbeveiligingsgroep is gekoppeld aan. U kunt ook inschakelen of uitschakelen **diagnostische logboeken** en **effectieve beveiligingsregels**. Zie voor meer informatie, [diagnostische logboeken](virtual-network-nsg-manage-log.md) en [effectieve beveiligingsregels bekijken](diagnose-network-traffic-filter-problem.md).
-3. Zie voor meer informatie over de algemene instellingen voor Azure die worden vermeld, de volgende artikelen:
+1. In het zoekvak boven aan de portal voert u *netwerk beveiligings groepen*in. Wanneer **netwerk beveiligings groepen** worden weer gegeven in de zoek resultaten, selecteert u deze.
+2. Selecteer de netwerk beveiligings groep in de lijst waarvoor u details wilt weer geven. Onder **instellingen** kunt u de regels voor **binnenkomende** en **uitgaande beveiliging**bekijken, de **netwerk interfaces** en **subnetten** waaraan de netwerk beveiligings groep is gekoppeld. U kunt Diagnostische logboeken **** ook in-of uitschakelen en de **juiste beveiligings regels**weer geven. Zie Diagnostische logboeken [](virtual-network-nsg-manage-log.md) en de [juiste beveiligings regels weer geven](diagnose-network-traffic-filter-problem.md)voor meer informatie.
+3. Zie de volgende artikelen voor meer informatie over de algemene Azure-instellingen die worden weer gegeven:
     *   [Activiteitenlogboek](../azure-monitor/platform/activity-logs-overview.md)
-    *   [Toegangsbeheer (IAM)](../role-based-access-control/overview.md)
+    *   [Toegangs beheer (IAM)](../role-based-access-control/overview.md)
     *   [Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-    *   [Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-    *   [Automatiseringsscript](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
+    *   [Vergren delingen](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+    *   [Automatiserings script](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **Opdrachten**
 
-- Azure CLI: [az network nsg show](/cli/azure/network/nsg#az-network-nsg-show)
+- Azure CLI: [AZ Network NSG show](/cli/azure/network/nsg#az-network-nsg-show)
 - PowerShell: [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)
 
-### <a name="change-a-network-security-group"></a>Een netwerkbeveiligingsgroep wijzigen
+### <a name="change-a-network-security-group"></a>Een netwerk beveiligings groep wijzigen
 
-1. Voer in het zoekvak boven aan de portal, *netwerkbeveiligingsgroepen* in het zoekvak in. Wanneer **netwerkbeveiligingsgroepen** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
-2. Selecteer de netwerkbeveiligingsgroep die u wilt wijzigen. De meest voorkomende wijzigingen zijn [toe te voegen](#create-a-security-rule) of [verwijderen](#delete-a-security-rule) beveiligingsregels en [Associating of een netwerkbeveiligingsgroep naar of van een subnet of netwerkinterface ontkoppelen](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface).
+1. Voer in het zoekvak boven aan de portal *netwerk beveiligings groepen* in het zoekvak in. Wanneer **netwerk beveiligings groepen** worden weer gegeven in de zoek resultaten, selecteert u deze.
+2. Selecteer de netwerk beveiligings groep die u wilt wijzigen. De meest voorkomende wijzigingen zijn het [toevoegen](#create-a-security-rule) of [verwijderen](#delete-a-security-rule) van beveiligings regels en [het koppelen of loskoppelen van een netwerk beveiligings groep van een subnet of netwerk interface](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface).
 
 **Opdrachten**
 
-- Azure CLI: [az network nsg update](/cli/azure/network/nsg#az-network-nsg-update)
+- Azure CLI: [AZ Network NSG update](/cli/azure/network/nsg#az-network-nsg-update)
 - PowerShell: [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup)
 
-### <a name="associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface"></a>Koppelen of ontkoppelen van een netwerkbeveiligingsgroep naar of van een subnet of netwerkinterface
+### <a name="associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface"></a>Een netwerk beveiligings groep koppelen aan of loskoppelen van een subnet of netwerk interface
 
-Als u een netwerkbeveiligingsgroep te koppelen of ontkoppelen van een netwerkbeveiligingsgroep naar een netwerkinterface, Zie [een netwerkbeveiligingsgroep te koppelen of ontkoppelen van een netwerkbeveiligingsgroep naar een netwerkinterface](virtual-network-network-interface.md#associate-or-dissociate-a-network-security-group). Als u een netwerkbeveiligingsgroep te koppelen of ontkoppelen van een netwerkbeveiligingsgroep van een subnet, Zie [-subnet-instellingen wijzigen](virtual-network-manage-subnet.md#change-subnet-settings).
+Zie [een netwerk beveiligings groep koppelen aan of een netwerk beveiligings groep loskoppelen van een netwerk interface](virtual-network-network-interface.md#associate-or-dissociate-a-network-security-group)om een netwerk beveiligings groep aan te koppelen aan of om een netwerk beveiligings groep te loskoppelen van een netwerk interface. Zie [subnet-instellingen wijzigen](virtual-network-manage-subnet.md#change-subnet-settings)als u een netwerk beveiligings groep aan wilt koppelen of een netwerk beveiligings groep wilt loskoppelen van een subnet.
 
-### <a name="delete-a-network-security-group"></a>Een netwerkbeveiligingsgroep verwijderen
+### <a name="delete-a-network-security-group"></a>Een netwerk beveiligings groep verwijderen
 
-Als een netwerkbeveiligingsgroep gekoppeld aan subnetten of netwerkinterfaces is, kan niet worden verwijderd. U kunt een netwerkbeveiligingsgroep van alle subnetten en netwerkinterfaces loskoppelen voordat u probeert te verwijderen.
+Als een netwerk beveiligings groep is gekoppeld aan subnetten of netwerk interfaces, kan deze niet worden verwijderd. Verbreken van een netwerk beveiligings groep van alle subnetten en netwerk interfaces voordat u deze verwijdert.
 
-1. Voer in het zoekvak boven aan de portal, *netwerkbeveiligingsgroepen* in het zoekvak in. Wanneer **netwerkbeveiligingsgroepen** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
-2. Selecteer de netwerkbeveiligingsgroep die u wilt verwijderen uit de lijst.
-3. Selecteer **verwijderen**, en selecteer vervolgens **Ja**.
+1. Voer in het zoekvak boven aan de portal *netwerk beveiligings groepen* in het zoekvak in. Wanneer **netwerk beveiligings groepen** worden weer gegeven in de zoek resultaten, selecteert u deze.
+2. Selecteer de netwerk beveiligings groep die u wilt verwijderen uit de lijst.
+3. Selecteer **verwijderen**en selecteer vervolgens **Ja**.
 
 **Opdrachten**
 
-- Azure CLI: [az network nsg verwijderen](/cli/azure/network/nsg#az-network-nsg-delete)
+- Azure CLI: [AZ Network NSG delete](/cli/azure/network/nsg#az-network-nsg-delete)
 - PowerShell: [Remove-AzNetworkSecurityGroup](/powershell/module/az.network/remove-aznetworksecuritygroup)
 
-## <a name="work-with-security-rules"></a>Werken met beveiligingsregels
+## <a name="work-with-security-rules"></a>Werken met beveiligings regels
 
-Een netwerkbeveiligingsgroep bevat nul of meer beveiligingsregels. U kunt maken, [weergeven van alle](#view-all-security-rules), [details bekijken van](#view-details-of-a-security-rule), [wijzigen](#change-a-security-rule), en [verwijderen](#delete-a-security-rule) een beveiligingsregel.
+Een netwerk beveiligings groep bevat geen of meer beveiligings regels. U kunt alle regels maken, [weer geven](#view-all-security-rules), [Details van](#view-details-of-a-security-rule)een beveiligings regel bekijken, [wijzigen](#change-a-security-rule)en [verwijderen](#delete-a-security-rule) .
 
-### <a name="create-a-security-rule"></a>Maak een beveiligingsregel
+### <a name="create-a-security-rule"></a>Een beveiligings regel maken
 
-Er is een limiet aan het aantal regels per netwerkbeveiligingsgroep per Azure-locatie en abonnement kunnen maken. Zie [Netwerkenlimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie.
+Er geldt een limiet voor het aantal regels per netwerk beveiligings groep dat per Azure-locatie en-abonnement kan worden gemaakt. Zie [Netwerkenlimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie.
 
-1. Voer in het zoekvak boven aan de portal, *netwerkbeveiligingsgroepen* in het zoekvak in. Wanneer **netwerkbeveiligingsgroepen** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
-2. De netwerkbeveiligingsgroep in de lijst die u wilt toevoegen van een beveiligingsregel te selecteren.
-3. Selecteer **inkomende beveiligingsregels** onder **instellingen**. Meerdere bestaande regels worden weergegeven. Sommige van de regels die u niet hebt toegevoegd. Wanneer een netwerkbeveiligingsgroep wordt gemaakt, worden in deze verschillende standaardbeveiligingsregels gemaakt. Zie voor meer informatie, [standaard beveiligingsregels](security-overview.md#default-security-rules).  Standaardregels voor beveiliging kan niet worden verwijderd, maar u kunt ze wel negeren met regels die een hogere prioriteit hebben.
+1. Voer in het zoekvak boven aan de portal *netwerk beveiligings groepen* in het zoekvak in. Wanneer **netwerk beveiligings groepen** worden weer gegeven in de zoek resultaten, selecteert u deze.
+2. Selecteer de netwerk beveiligings groep in de lijst waaraan u een beveiligings regel wilt toevoegen.
+3. Selecteer **binnenkomende beveiligings regels** onder **instellingen**. Er worden verschillende bestaande regels vermeld. Sommige van de regels die u mogelijk niet hebt toegevoegd. Wanneer er een netwerk beveiligings groep wordt gemaakt, worden er diverse standaard beveiligings regels in gemaakt. Zie [standaard beveiligings regels](security-overview.md#default-security-rules)voor meer informatie.  Het is niet mogelijk om standaard beveiligings regels te verwijderen, maar u kunt ze vervangen door regels met een hogere prioriteit.
 4. <a name = "security-rule-settings"></a>Selecteer **+ toevoegen**.  Selecteer of voeg waarden toe voor de volgende instellingen en selecteer vervolgens **OK**:
     
     |Instelling  |Value  |Details  |
     |---------|---------|---------|
-    |source     | Selecteer **eventuele**, **toepassingsbeveiligingsgroep**, **IP-adressen**, of **servicetag** voor inkomende beveiligingsregels. Als u een beveiligingsregel voor uitgaand maakt, de opties zijn hetzelfde als de opties die worden weergegeven voor **bestemming**.       | Als u selecteert **toepassingsbeveiligingsgroep**, selecteert u vervolgens een of meer bestaande toepassing beveiligingsgroepen die aanwezig zijn in dezelfde regio als de netwerkinterface. Meer informatie over het [Maak een toepassingsbeveiligingsgroep](#create-an-application-security-group). Als u selecteert **toepassingsbeveiligingsgroep** voor zowel de **bron** en **bestemming**, de netwerkinterfaces in beide toepassingsbeveiligingsgroepen moeten zich in dezelfde virtueel netwerk. Als u selecteert **IP-adressen**, geeft u **bron-IP-adressen/CIDR-bereiken**. U kunt een enkele waarde of een door komma's gescheiden lijst met meerdere waarden opgeven. Een voorbeeld van meerdere waarden is 10.0.0.0/16, 192.188.1.1. Er gelden beperkingen voor het aantal waarden die u kunt opgeven. Zie [Azure-limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie. Als u selecteert **servicetag**, selecteer vervolgens een servicetag. Een servicetag is een vooraf gedefinieerde id voor een bepaalde categorie IP-adressen. Zie voor meer informatie over de beschikbare service-tags en wat elke tag vertegenwoordigt, [servicetags](security-overview.md#service-tags). Als het IP-adres dat u opgeeft is toegewezen aan een virtuele machine van Azure, zorg ervoor dat u de privé IP-adres, niet het openbare IP-adres toegewezen aan de virtuele machine opgeven. Beveiligingsregels worden verwerkt nadat Azure vertaalt het openbare IP-adres op een privé IP-adres voor inkomende beveiligingsregels en voordat Azure zet een privé IP-adres een openbaar IP-adres voor regels voor uitgaand verkeer. Zie voor meer informatie over openbare en persoonlijke IP-adressen in Azure, [IP-adrestypen](virtual-network-ip-addresses-overview-arm.md).        |
-    |Poortbereiken van bron     | Geef één poort zijn, zoals 80, een poortbereik, bijvoorbeeld 1024-65535, of een door komma's gescheiden lijst met losse poorten en/of poortbereiken, zoals 80, 1024-65535. Voer een sterretje voor verkeer op een willekeurige poort. | De poorten en adresbereiken opgeven welke poorten verkeer wordt toegestaan of geweigerd door de regel. Er gelden beperkingen voor het aantal poorten die u kunt opgeven. Zie [Azure-limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie.  |
-    |Bestemming     | Selecteer **eventuele**, **toepassingsbeveiligingsgroep**, **IP-adressen**, of **Virtueelnetwerk** voor uitgaande beveiligingsregels. Als u een beveiligingsregel voor binnenkomend verkeer maakt, de opties zijn hetzelfde als de opties die worden weergegeven voor **bron**.        | Als u selecteert **toepassingsbeveiligingsgroep** Selecteer u vervolgens een of meer bestaande toepassingsbeveiligingsgroepen die aanwezig zijn in dezelfde regio als de netwerkinterface. Meer informatie over het [Maak een toepassingsbeveiligingsgroep](#create-an-application-security-group). Als u selecteert **toepassingsbeveiligingsgroep**, selecteert u een bestaande toepassingsbeveiligingsgroep dat zich in dezelfde regio als de netwerkinterface. Als u selecteert **IP-adressen**, geeft u **doel-IP-adressen/CIDR-bereiken**. Vergelijkbaar met **bron** en **bron-IP-adressen/CIDR-bereiken**, kunt u één of meerdere adressen of bereiken en er gelden beperkingen aan het getal dat u kunt opgeven. Selecteren **virtueel netwerk**, welke een servicetag is, betekent dat het verkeer is toegestaan voor alle IP-adressen in de adresruimte van het virtuele netwerk. Als het IP-adres dat u opgeeft is toegewezen aan een virtuele machine van Azure, zorg ervoor dat u de privé IP-adres, niet het openbare IP-adres toegewezen aan de virtuele machine opgeven. Beveiligingsregels worden verwerkt nadat Azure vertaalt het openbare IP-adres op een privé IP-adres voor inkomende beveiligingsregels en voordat Azure zet een privé IP-adres een openbaar IP-adres voor regels voor uitgaand verkeer. Zie voor meer informatie over openbare en persoonlijke IP-adressen in Azure, [IP-adrestypen](virtual-network-ip-addresses-overview-arm.md).        |
-    |Poortbereiken van doel     | Geef een enkele waarde of een door komma's gescheiden lijst met waarden. | Vergelijkbaar met **poortbereiken van bron**, kunt u één of meerdere poorten en -bereiken en er gelden beperkingen aan het getal dat u kunt opgeven. |
-    |Protocol     | Selecteer **eventuele**, **TCP**, of **UDP**.        |         |
-    |Bewerking     | Selecteer **toestaan** of **weigeren**.        |         |
-    |Prioriteit     | Voer een waarde tussen 100-4096 die uniek is voor alle beveiligingsregels binnen de netwerkbeveiligingsgroep. |Regels worden verwerkt in volgorde van prioriteit. Des te lager het nummer, hoe hoger de prioriteit. Het raadzaam dat u een lege ruimte tussen de getallen prioriteit laten bij het maken van regels, zoals 100, 200, 300. Openingen maakt het eenvoudiger om toe te voegen in de toekomst regels die u mogelijk wilt aanbrengen hoger of lager is dan de bestaande regels.         |
-    |Name     | Een unieke naam voor de regel in de netwerkbeveiligingsgroep.        |  De naam mag maximaal 80 tekens bevatten. Moet beginnen met een letter of cijfer, eindigen met een letter, cijfer of onderstrepingsteken en mag alleen letters, cijfers, onderstrepingstekens, punten of afbreekstreepjes bevatten.       |
+    |Source     | Selecteer **een wille keurige**, **toepassings beveiligings groep**, **IP-adressen**of **servicetag voor inkomende** beveiligings regels. Als u een uitgaande beveiligings regel maakt, zijn de opties hetzelfde als de opties die worden weer gegeven voor **doel**.       | Als u **toepassings beveiligings groep**selecteert, selecteert u een of meer bestaande toepassings beveiligings groepen die zich in dezelfde regio bevinden als de netwerk interface. Meer informatie over het [maken van een toepassings beveiligings groep](#create-an-application-security-group). Als u **toepassings beveiligings groep** voor zowel de **bron** als de **bestemming**selecteert, moeten de netwerk interfaces binnen beide toepassings beveiligings groepen zich in hetzelfde virtuele netwerk bevallen. Als u **IP-adressen**selecteert, geeft u **IP-adressen/CIDR-bereiken**voor de bron op. U kunt een enkele waarde of een door komma's gescheiden lijst met meerdere waarden opgeven. Een voor beeld van meerdere waarden is 10.0.0.0/16, 192.188.1.1. Er zijn limieten voor het aantal waarden dat u kunt opgeven. Zie [Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) -limieten voor meer informatie. Als u **service label**selecteert, selecteert u vervolgens één servicetag. Een servicetag is een vooraf gedefinieerde id voor een categorie met IP-adressen. Zie [service Tags](security-overview.md#service-tags)voor meer informatie over de beschik bare service tags en wat elke tag vertegenwoordigt. Als het door u opgegeven IP-adres is toegewezen aan een virtuele machine van Azure, moet u ervoor zorgen dat u het privé-IP-adres opgeeft, niet het open bare IP-adressen dat aan de virtuele machine is toegewezen. Beveiligings regels worden verwerkt nadat Azure het open bare IP-adres heeft omgezet in een privé-IP-adres voor binnenkomende beveiligings regels, en voordat Azure een privé-IP-adres vertaalt naar een openbaar IP-adres voor uitgaande regels. Zie [IP-adres typen](virtual-network-ip-addresses-overview-arm.md)voor meer informatie over open bare en privé-IP-adressen in Azure.        |
+    |Source port ranges     | Geef één poort op, zoals 80, een bereik van poorten, zoals 1024-65535, of een door komma's gescheiden lijst met afzonderlijke poorten en/of poortbereiken, zoals 80, 1024-65535. Voer een asterisk in om verkeer toe te staan op een wille keurige poort. | De poorten en bereiken geven aan welk poort verkeer wordt toegestaan of geweigerd door de regel. Er zijn limieten voor het aantal poorten dat u kunt opgeven. Zie [Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) -limieten voor meer informatie.  |
+    |Bestemming     | Selecteer **een wille keurige**, **toepassings beveiligings groep**, **IP-adressen**of **Virtual Network** voor uitgaande beveiligings regels. Als u een binnenkomende beveiligings regel maakt, zijn de opties hetzelfde als de opties die worden weer gegeven voor de **bron**.        | Als u **toepassings beveiligings groep** selecteert, moet u vervolgens een of meer bestaande toepassings beveiligings groepen selecteren die zich in dezelfde regio bevinden als de netwerk interface. Meer informatie over het [maken van een toepassings beveiligings groep](#create-an-application-security-group). Als u **toepassings beveiligings groep**selecteert, selecteert u vervolgens een bestaande toepassings beveiligings groep die in dezelfde regio als de netwerk interface voor komt. Als u **IP-adressen**selecteert, geeft u **doel-IP-adressen/CIDR-bereiken**op. Net als **bron** **-en bron-IP-adressen/CIDR-bereiken**, kunt u één of meerdere adressen of bereiken opgeven, en er gelden limieten voor het aantal dat u kunt opgeven. Het selecteren van een **virtueel netwerk**, een servicetag, betekent dat verkeer is toegestaan voor alle IP-adressen binnen de adres ruimte van het virtuele netwerk. Als het door u opgegeven IP-adres is toegewezen aan een virtuele machine van Azure, moet u ervoor zorgen dat u het privé-IP-adres opgeeft, niet het open bare IP-adressen dat aan de virtuele machine is toegewezen. Beveiligings regels worden verwerkt nadat Azure het open bare IP-adres heeft omgezet in een privé-IP-adres voor binnenkomende beveiligings regels, en voordat Azure een privé-IP-adres vertaalt naar een openbaar IP-adres voor uitgaande regels. Zie [IP-adres typen](virtual-network-ip-addresses-overview-arm.md)voor meer informatie over open bare en privé-IP-adressen in Azure.        |
+    |Poortbereiken van doel     | Geef een enkele waarde of een door komma's gescheiden lijst met waarden op. | Net als bij de bronbereiken van de **bron**, kunt u één of meerdere poorten en bereiken opgeven, en er gelden beperkingen voor het aantal dat u kunt opgeven. |
+    |Protocol     | Selecteer **wille keurig**, **TCP**, **UDP** of **ICMP**.        |         |
+    |Action     | Selecteer **toestaan** of **weigeren**.        |         |
+    |Priority     | Voer een waarde in tussen 100-4096 die uniek is voor alle beveiligings regels in de netwerk beveiligings groep. |Regels worden in volg orde van prioriteit verwerkt. Hoe lager het getal, des te hoger de prioriteit. Het is raadzaam om een hiaat tussen prioriteits nummers te laten bij het maken van regels, zoals 100, 200, 300. Als u hiaten hebt, is het eenvoudiger om in de toekomst regels toe te voegen die u mogelijk hoger of lager dan bestaande regels moet maken.         |
+    |Name     | Een unieke naam voor de regel binnen de netwerk beveiligings groep.        |  De naam mag Maxi maal 80 tekens lang zijn. De naam moet beginnen met een letter of cijfer, eindigen met een letter, cijfer of onderstrepings teken en mag alleen letters, cijfers, onderstrepings tekens, punten of afbreek streepjes bevatten.       |
     |Description     | Een optionele beschrijving.        |         |
 
 **Opdrachten**
 
-- Azure CLI: [az network nsg-regel maken](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)
+- Azure CLI: [AZ Network NSG Rule Create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)
 - PowerShell: [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)
 
-### <a name="view-all-security-rules"></a>Alle regels weergeven
+### <a name="view-all-security-rules"></a>Alle beveiligings regels weer geven
 
-Een netwerkbeveiligingsgroep bevat nul of meerdere regels. Zie voor meer informatie over de gegevens die worden vermeld bij het weergeven van regels, [overzicht van netwerkbeveiligingsgroepen](security-overview.md).
+Een netwerk beveiligings groep bevat nul of meerdere regels. Zie [overzicht van netwerk beveiligings groepen](security-overview.md)voor meer informatie over de informatie die wordt weer gegeven wanneer regels worden weer gegeven.
 
-1. Voer in het zoekvak boven aan de portal, *netwerkbeveiligingsgroepen*. Wanneer **netwerkbeveiligingsgroepen** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
-2. Selecteer de netwerkbeveiligingsgroep in de lijst die u wilt weergeven van regels voor.
-3. Selecteer **inkomende beveiligingsregels** of **uitgaande beveiligingsregels** onder **instellingen**.
+1. In het zoekvak boven aan de portal voert u *netwerk beveiligings groepen*in. Wanneer **netwerk beveiligings groepen** worden weer gegeven in de zoek resultaten, selecteert u deze.
+2. Selecteer de netwerk beveiligings groep in de lijst waarvoor u regels wilt weer geven.
+3. Selecteer **binnenkomende beveiligings regels** of **uitgaande beveiligings regels** onder **instellingen**.
 
-De lijst bevat alle regels die u hebt gemaakt en de netwerkbeveiligingsgroep [standaard beveiligingsregels](security-overview.md#default-security-rules).
+De lijst bevat de regels die u hebt gemaakt en de [standaard beveiligings regels](security-overview.md#default-security-rules)voor de netwerk beveiligings groep.
 
 **Opdrachten**
 
-- Azure CLI: [lijst az network nsg-regel](/cli/azure/network/nsg/rule#az-network-nsg-rule-list)
+- Azure CLI: [AZ Network NSG Rule List](/cli/azure/network/nsg/rule#az-network-nsg-rule-list)
 - PowerShell: [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig)
 
 ### <a name="view-details-of-a-security-rule"></a>Details van een beveiligingsregel weergeven
 
-1. Voer in het zoekvak boven aan de portal, *netwerkbeveiligingsgroepen*. Wanneer **netwerkbeveiligingsgroepen** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
-2. Selecteer de netwerkbeveiligingsgroep die u wilt weergeven van details van een beveiligingsregel voor.
-3. Selecteer **inkomende beveiligingsregels** of **uitgaande beveiligingsregels** onder **instellingen**.
-4. Selecteer de regel die u wilt weergeven van details voor. Zie voor een gedetailleerde beschrijving van alle instellingen [beveiligingsinstellingen van de regel](#security-rule-settings).
+1. In het zoekvak boven aan de portal voert u *netwerk beveiligings groepen*in. Wanneer **netwerk beveiligings groepen** worden weer gegeven in de zoek resultaten, selecteert u deze.
+2. Selecteer de netwerk beveiligings groep waarvoor u de details van een beveiligings regel wilt weer geven.
+3. Selecteer **binnenkomende beveiligings regels** of **uitgaande beveiligings regels** onder **instellingen**.
+4. Selecteer de regel waarvan u de details wilt weer geven. Zie [beveiligings regel instellingen](#security-rule-settings)voor een gedetailleerde uitleg van alle instellingen.
 
 **Opdrachten**
 
-- Azure CLI: [az network nsg-regel weergeven](/cli/azure/network/nsg/rule#az-network-nsg-rule-show)
+- Azure CLI: [AZ Network NSG Rule show](/cli/azure/network/nsg/rule#az-network-nsg-rule-show)
 - PowerShell: [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig)
 
-### <a name="change-a-security-rule"></a>Wijzigen van een beveiligingsregel
+### <a name="change-a-security-rule"></a>Een beveiligings regel wijzigen
 
-1. Voer de stappen in [details bekijken van een beveiligingsregel](#view-details-of-a-security-rule).
-2. De instellingen naar wens wijzigen en selecteer vervolgens **opslaan**. Zie voor een gedetailleerde beschrijving van alle instellingen [beveiligingsinstellingen van de regel](#security-rule-settings).
+1. Volg de stappen in [Details van een beveiligings regel weer geven](#view-details-of-a-security-rule).
+2. Wijzig de instellingen naar wens en selecteer vervolgens **Opslaan**. Zie [beveiligings regel instellingen](#security-rule-settings)voor een gedetailleerde uitleg van alle instellingen.
 
 **Opdrachten**
 
-- Azure CLI: [az network nsg-regel update](/cli/azure/network/nsg/rule#az-network-nsg-rule-update)
+- Azure CLI: [AZ Network NSG Rule update](/cli/azure/network/nsg/rule#az-network-nsg-rule-update)
 - PowerShell: [Set-AzNetworkSecurityRuleConfig](/powershell/module/az.network/set-aznetworksecurityruleconfig)
 
-### <a name="delete-a-security-rule"></a>Een beveiligingsregel verwijderen
+### <a name="delete-a-security-rule"></a>Een beveiligings regel verwijderen
 
-1. Voer de stappen in [details bekijken van een beveiligingsregel](#view-details-of-a-security-rule).
-2. Selecteer **verwijderen**, en selecteer vervolgens **Ja**.
+1. Volg de stappen in [Details van een beveiligings regel weer geven](#view-details-of-a-security-rule).
+2. Selecteer **verwijderen**en selecteer vervolgens **Ja**.
 
 **Opdrachten**
 
-- Azure CLI: [az network nsg-regel verwijderen](/cli/azure/network/nsg/rule#az-network-nsg-rule-delete)
+- Azure CLI: [AZ Network NSG regel delete](/cli/azure/network/nsg/rule#az-network-nsg-rule-delete)
 - PowerShell: [Remove-AzNetworkSecurityRuleConfig](/powershell/module/az.network/remove-aznetworksecurityruleconfig)
 
-## <a name="work-with-application-security-groups"></a>Werken met beveiligingsgroepen voor toepassing
+## <a name="work-with-application-security-groups"></a>Werken met toepassings beveiligings groepen
 
-Een toepassingsbeveiligingsgroep bevat nul of meer netwerkinterfaces. Zie voor meer informatie, [toepassingsbeveiligingsgroepen](security-overview.md#application-security-groups). Alle netwerkinterfaces in een toepassingsbeveiligingsgroep moeten zich in hetzelfde virtuele netwerk. Zie voor meer informatie over een netwerkinterface toevoegen aan een toepassingsbeveiligingsgroep, [een netwerkinterface toevoegen aan een toepassingsbeveiligingsgroep](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups).
+Een toepassings beveiligings groep bevat geen of meer netwerk interfaces. Zie [toepassings beveiligings groepen](security-overview.md#application-security-groups)voor meer informatie. Alle netwerk interfaces in een toepassings beveiligings groep moeten zich in hetzelfde virtuele netwerk bevinden. Zie [een netwerk interface toevoegen aan een toepassings beveiligings groep](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups)voor meer informatie over het toevoegen van een netwerk interface aan een toepassings beveiligings groep.
 
-### <a name="create-an-application-security-group"></a>Maak een toepassingsbeveiligingsgroep
+### <a name="create-an-application-security-group"></a>Een toepassings beveiligings groep maken
 
 1. Selecteer **+ Een resource maken** in de linkerbovenhoek van Azure Portal.
 2. Voer *Toepassingsbeveiligingsgroep* in het vak **In Marketplace zoeken** in. Wanneer **Toepassingsbeveiligingsgroep** wordt weergegeven in de zoekresultaten, selecteert u deze optie. Vervolgens selecteert u onder **Alles** opnieuw **Toepassingsbeveiligingsgroep** en selecteert u **Maken**.
@@ -195,92 +195,92 @@ Een toepassingsbeveiligingsgroep bevat nul of meer netwerkinterfaces. Zie voor m
     | Instelling        | Waarde                                                   |
     | ---            | ---                                                     |
     | Name           | De naam moet uniek zijn binnen de resourcegroep.        |
-    | Abonnement   | Selecteer uw abonnement.                               |
-    | Resourcegroep | Selecteer een bestaande resourcegroep of maak een nieuwe. |
-    | Locatie       | Selecteer een locatie                                       |
+    | Subscription   | Selecteer uw abonnement.                               |
+    | Resource group | Selecteer een bestaande resource groep of maak een nieuwe. |
+    | Location       | Selecteer een locatie                                       |
 
 **Opdrachten**
 
-- Azure CLI: [az netwerk asg maken](/cli/azure/network/asg#az-network-asg-create)
+- Azure CLI: [AZ Network ASG Create](/cli/azure/network/asg#az-network-asg-create)
 - PowerShell: [New-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup)
 
-### <a name="view-all-application-security-groups"></a>Alle beveiligingsgroepen voor toepassing weergeven
+### <a name="view-all-application-security-groups"></a>Alle toepassings beveiligings groepen weer geven
 
-1. Selecteer **alle services** links in de linkerbovenhoek van Azure portal.
-2. Voer *toepassingsbeveiligingsgroepen* in de **alle services Filter** vak en selecteer vervolgens **toepassingsbeveiligingsgroepen** wanneer deze wordt weergegeven in de lijst met zoekresultaten.
+1. Selecteer **alle services** in de linkerbovenhoek van de Azure Portal.
+2. Voer *toepassings beveiligings groepen* in het vak **alle services filter** in en selecteer vervolgens **toepassings beveiligings groepen** wanneer deze worden weer gegeven in de zoek resultaten.
 
 **Opdrachten**
 
-- Azure CLI: [az netwerk asg lijst](/cli/azure/network/asg#az-network-asg-list)
+- Azure CLI: [AZ Network ASG List](/cli/azure/network/asg#az-network-asg-list)
 - PowerShell: [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup)
 
-### <a name="view-details-of-a-specific-application-security-group"></a>Details van de beveiligingsgroep van een specifieke toepassing weergeven
+### <a name="view-details-of-a-specific-application-security-group"></a>Details van een specifieke toepassings beveiligings groep weer geven
 
-1. Selecteer **alle services** links in de linkerbovenhoek van Azure portal.
-2. Voer *toepassingsbeveiligingsgroepen* in de **alle services Filter** vak en selecteer vervolgens **toepassingsbeveiligingsgroepen** wanneer deze wordt weergegeven in de lijst met zoekresultaten.
-3. Selecteer de toepassing van een beveiligingsgroep die u wilt weergeven van de details van.
+1. Selecteer **alle services** in de linkerbovenhoek van de Azure Portal.
+2. Voer *toepassings beveiligings groepen* in het vak **alle services filter** in en selecteer vervolgens **toepassings beveiligings groepen** wanneer deze worden weer gegeven in de zoek resultaten.
+3. Selecteer de toepassings beveiligings groep waarvan u de details wilt weer geven.
 
 **Opdrachten**
 
-- Azure CLI: [az netwerk asg weergeven](/cli/azure/network/asg#az-network-asg-show)
+- Azure CLI: [AZ Network ASG show](/cli/azure/network/asg#az-network-asg-show)
 - PowerShell: [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup)
 
-### <a name="change-an-application-security-group"></a>Een toepassingsbeveiligingsgroep wijzigen
+### <a name="change-an-application-security-group"></a>Een toepassings beveiligings groep wijzigen
 
-1. Selecteer **alle services** links in de linkerbovenhoek van Azure portal.
-2. Voer *toepassingsbeveiligingsgroepen* in de **alle services Filter** vak en selecteer vervolgens **toepassingsbeveiligingsgroepen** wanneer deze wordt weergegeven in de lijst met zoekresultaten.
-3. Selecteer de toepassing van een beveiligingsgroep die u wilt wijzigen van instellingen voor. U kunt toevoegen of verwijderen van tags, of toewijzen of verwijderen van machtigingen aan de toepassingsbeveiligingsgroep.
+1. Selecteer **alle services** in de linkerbovenhoek van de Azure Portal.
+2. Voer *toepassings beveiligings groepen* in het vak **alle services filter** in en selecteer vervolgens **toepassings beveiligings groepen** wanneer deze worden weer gegeven in de zoek resultaten.
+3. Selecteer de toepassings beveiligings groep waarvan u de instellingen wilt wijzigen. U kunt Tags toevoegen of verwijderen, of machtigingen toewijzen of verwijderen voor de toepassings beveiligings groep.
 
-- Azure CLI: [az netwerk asg update](/cli/azure/network/asg#az-network-asg-update)
-- PowerShell: Er is geen PowerShell-cmdlet.
+- Azure CLI: [AZ Network ASG update](/cli/azure/network/asg#az-network-asg-update)
+- PowerShell: Geen Power shell-cmdlet.
 
-### <a name="delete-an-application-security-group"></a>Een toepassingsbeveiligingsgroep verwijderen
+### <a name="delete-an-application-security-group"></a>Een toepassings beveiligings groep verwijderen
 
-U kunt een toepassingsbeveiligingsgroep niet verwijderen als er netwerkinterfaces in het. Verwijder alle netwerkinterfaces van de toepassingsbeveiligingsgroep door netwerkinterface-instellingen wijzigen of verwijderen van de netwerkinterfaces. Zie voor meer informatie, [toevoegen aan of verwijderen van een netwerkinterface van toepassingsbeveiligingsgroepen](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) of [verwijderen van een netwerkinterface](virtual-network-network-interface.md#delete-a-network-interface).
+U kunt een toepassings beveiligings groep niet verwijderen als deze netwerk interfaces bevat. Verwijder alle netwerk interfaces uit de toepassings beveiligings groep door ofwel de instellingen van de netwerk interface te wijzigen of de netwerk interfaces te verwijderen. Zie [toevoegen aan of verwijderen van een netwerk interface uit toepassings beveiligings groepen](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) of [een netwerk interface verwijderen](virtual-network-network-interface.md#delete-a-network-interface)voor meer informatie.
 
-1. Selecteer **alle services** links in de linkerbovenhoek van Azure portal.
-2. Voer *toepassingsbeveiligingsgroepen* in de **alle services Filter** vak en selecteer vervolgens **toepassingsbeveiligingsgroepen** wanneer deze wordt weergegeven in de lijst met zoekresultaten.
-3. Selecteer de toepassing van een beveiligingsgroep die u wilt verwijderen.
-4. Selecteer **verwijderen**, en selecteer vervolgens **Ja** verwijderen van de toepassingsbeveiligingsgroep.
+1. Selecteer **alle services** in de linkerbovenhoek van de Azure Portal.
+2. Voer *toepassings beveiligings groepen* in het vak **alle services filter** in en selecteer vervolgens **toepassings beveiligings groepen** wanneer deze worden weer gegeven in de zoek resultaten.
+3. Selecteer de toepassings beveiligings groep die u wilt verwijderen.
+4. Selecteer **verwijderen**en selecteer vervolgens **Ja** om de toepassings beveiligings groep te verwijderen.
 
 **Opdrachten**
 
-- Azure CLI: [az netwerk asg verwijderen](/cli/azure/network/asg#az-network-asg-delete)
+- Azure CLI: [AZ Network ASG delete](/cli/azure/network/asg#az-network-asg-delete)
 - PowerShell: [Remove-AzApplicationSecurityGroup](/powershell/module/az.network/remove-azapplicationsecuritygroup)
 
 ## <a name="permissions"></a>Machtigingen
 
-Om uit te voeren taken van netwerkbeveiligingsgroepen, beveiligingsregels en beveiligingsgroepen voor toepassing, moet uw account worden toegewezen aan de [Inzender voor netwerken](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) die is toegewezen de juiste machtigingen die worden vermeld in de volgende tabellen:
+Als u taken wilt uitvoeren voor netwerk beveiligings groepen, beveiligings regels en toepassings beveiligings groepen, moet uw account worden toegewezen aan de rol [netwerk bijdrager](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) of aan een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) waaraan de juiste machtigingen worden toegewezen in de volgende maateenheidgroeptabellen
 
-### <a name="network-security-group"></a>Netwerkbeveiligingsgroep
+### <a name="network-security-group"></a>Netwerk beveiligings groep
 
-| Bewerking                                                        |   Name                                                                |
+| Action                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
-| Microsoft.Network/networkSecurityGroups/read                  |   Netwerkbeveiligingsgroep ophalen                                          |
-| Microsoft.Network/networkSecurityGroups/write                 |   Maken of bijwerken van netwerkbeveiligingsgroep                             |
-| Microsoft.Network/networkSecurityGroups/delete                |   Netwerkbeveiligingsgroep verwijderen                                       |
-| Microsoft.Network/networkSecurityGroups/join/action           |   Een netwerkbeveiligingsgroep aan een subnet of netwerkinterface koppelen 
+| Microsoft.Network/networkSecurityGroups/read                  |   Netwerk beveiligings groep ophalen                                          |
+| Microsoft.Network/networkSecurityGroups/write                 |   Een netwerk beveiligings groep maken of bijwerken                             |
+| Microsoft.Network/networkSecurityGroups/delete                |   Netwerk beveiligings groep verwijderen                                       |
+| Microsoft.Network/networkSecurityGroups/join/action           |   Een netwerk beveiligings groep aan een subnet of netwerk interface koppelen 
 
 
-### <a name="network-security-group-rule"></a>Regel voor netwerkbeveiligingsgroep
+### <a name="network-security-group-rule"></a>Regel voor netwerk beveiligings groep
 
-| Bewerking                                                        |   Name                                                                |
+| Action                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/rules/read            |   Regel ophalen                                                            |
-| Microsoft.Network/networkSecurityGroups/rules/write           |   Maken of bijwerken van regel                                               |
+| Microsoft.Network/networkSecurityGroups/rules/write           |   Regel maken of bijwerken                                               |
 | Microsoft.Network/networkSecurityGroups/rules/delete          |   Regel verwijderen                                                         |
 
-### <a name="application-security-group"></a>Toepassingsbeveiligingsgroep
+### <a name="application-security-group"></a>Toepassings beveiligings groep
 
-| Bewerking                                                                     | Name                                                     |
+| Action                                                                     | Name                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
-| Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Een IP-configuratie toevoegen aan een toepassingsbeveiligingsgroep|
-| Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Een beveiligingsregel toevoegen aan een toepassingsbeveiligingsgroep    |
-| Microsoft.Network/applicationSecurityGroups/read                           | Een toepassingsbeveiligingsgroep ophalen                        |
-| Microsoft.Network/applicationSecurityGroups/write                          | Maken of bijwerken van een toepassingsbeveiligingsgroep           |
-| Microsoft.Network/applicationSecurityGroups/delete                         | Een toepassingsbeveiligingsgroep verwijderen                     |
+| Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Een IP-configuratie toevoegen aan een toepassings beveiligings groep|
+| Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Een beveiligings regel toevoegen aan een toepassings beveiligings groep    |
+| Microsoft.Network/applicationSecurityGroups/read                           | Een toepassings beveiligings groep ophalen                        |
+| Microsoft.Network/applicationSecurityGroups/write                          | Een toepassings beveiligings groep maken of bijwerken           |
+| Microsoft.Network/applicationSecurityGroups/delete                         | Een toepassings beveiligings groep verwijderen                     |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Maken van een netwerk of een toepassing via [PowerShell](powershell-samples.md) of [Azure CLI](cli-samples.md) voorbeeld scripts of met behulp van Azure [Resource Manager-sjablonen](template-samples.md)
-- Maken en toepassen [Azure policy](policy-samples.md) voor virtuele netwerken
+- Een netwerk-of toepassings beveiligings groep maken met behulp van [Power shell](powershell-samples.md) of [Azure cli](cli-samples.md) -voorbeeld scripts of met behulp van Azure [Resource Manager-sjablonen](template-samples.md)
+- [Azure-beleid](policy-samples.md) maken en Toep assen voor virtuele netwerken

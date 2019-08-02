@@ -1,6 +1,6 @@
 ---
-title: Prestaties van Azure SQL Database met behulp van DMV's controleren | Microsoft Docs
-description: Informatie over het detecteren en onderzoeken van problemen met de algemene prestaties met behulp van dynamische beheerweergaven voor het bewaken van Microsoft Azure SQL Database.
+title: Prestatie Azure SQL Database bewaken met Dmv's | Microsoft Docs
+description: Meer informatie over het detecteren en onderzoeken van veelvoorkomende prestatie problemen met dynamische beheer weergaven om Microsoft Azure SQL Database te bewaken.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,49 +10,48 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 371632a28d22583f8b206e4d8b9d2b6b4e510ab0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5bddcb89d26566bd2024cbde086b6e35ddaf94ef
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62103760"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567177"
 ---
-# <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Prestaties van Azure SQL Database controleren met dynamic management views
+# <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Prestaties bewaken Azure SQL Database het gebruik van dynamische beheer weergaven
 
-Microsoft Azure SQL Database kunt een subset van de dynamische beheerweergaven voor het vaststellen van prestatieproblemen, die kunnen worden veroorzaakt door geblokkeerd of langlopende query's, resourceknelpunten en slechte queryplannen. In dit onderwerp bevat informatie over het vaststellen van problemen met de algemene prestaties met behulp van dynamische beheerweergaven.
+Microsoft Azure SQL Database maakt een subset van dynamische beheer weergaven mogelijk om prestatie problemen vast te stellen. Dit kan worden veroorzaakt door geblokkeerde of langlopende query's, knel punten in resources, slechte query plannen, enzovoort. In dit onderwerp vindt u informatie over het detecteren van veelvoorkomende prestatie problemen met dynamische beheer weergaven.
 
-SQL Database ondersteunt gedeeltelijk drie categorieën van dynamische beheerweergaven:
+SQL Database gedeeltelijk ondersteunt drie categorieën dynamische beheer weergaven:
 
-- Database-gerelateerde dynamische beheerweergaven.
-- Met betrekking tot uitvoering van dynamische beheerweergaven.
-- Transactie-gerelateerde dynamische beheerweergaven.
+- Dynamische beheer weergaven die betrekking hebben op de data base.
+- Aan uitvoering gerelateerde dynamische beheer weergaven.
+- Dynamische beheer weergaven die betrekking hebben op trans acties.
 
-Zie voor gedetailleerde informatie over dynamische beheerweergaven [functies (Transact-SQL) en dynamische beheerweergaven](https://msdn.microsoft.com/library/ms188754.aspx) in SQL Server Books Online.
+Zie [dynamische beheer weergaven en-functies (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) in SQL Server Books Online voor meer informatie over dynamische beheer weergaven.
 
 ## <a name="permissions"></a>Machtigingen
 
-In SQL-Database, uitvoeren van query's een dynamische Beheerweergave vereist **VIEW DATABASE STATE** machtigingen. De **VIEW DATABASE STATE** machtiging retourneert informatie over alle objecten in de huidige database.
-Om te verlenen de **VIEW DATABASE STATE** machtiging voor een specifieke databasegebruiker, voer de volgende query uit:
+In SQL Database moet u voor het uitvoeren van een query op een dynamische beheer weergave machtigingen **voor de database status weer geven** hebben. De machtiging **database status weer geven** retourneert informatie over alle objecten in de huidige data base.
+Voer de volgende query uit om de machtiging status van de **weergave database** te verlenen aan een specifieke database gebruiker:
 
 ```sql
 GRANT VIEW DATABASE STATE TO database_user;
 ```
 
-Dynamische beheerweergaven retourneren in een on-premises SQL Server-exemplaar, informatie over de status van de server. In SQL-Database retourneert deze informatie met betrekking tot alleen de huidige logische database.
+In een exemplaar van on-premises SQL Server retour neren dynamische beheer weergaven de status informatie van de server. In SQL Database retour neren ze alleen informatie over uw huidige logische data base.
 
-## <a name="identify-cpu-performance-issues"></a>CPU-prestatieproblemen kunt identificeren
+## <a name="identify-cpu-performance-issues"></a>Prestatie problemen met CPU identificeren
 
-Als hoger dan 80% CPU-verbruik gedurende langere tijd wordt opgelost is, kunt u de volgende stappen:
+Als het CPU-verbruik langer is dan 80% gedurende langere Peri Oden, kunt u de volgende stappen voor probleem oplossing overwegen:
 
-### <a name="the-cpu-issue-is-occurring-now"></a>Het CPU-probleem optreedt nu
+### <a name="the-cpu-issue-is-occurring-now"></a>Het CPU-probleem nu optreedt
 
-Als het probleem nu optreedt, zijn er twee mogelijke scenario's:
+Als er nu een probleem optreedt, zijn er twee mogelijke scenario's:
 
-#### <a name="many-individual-queries-that-cumulatively-consume-high-cpu"></a>Veel afzonderlijke query's die hoge CPU cumulatief gebruiken
+#### <a name="many-individual-queries-that-cumulatively-consume-high-cpu"></a>Veel afzonderlijke query's die cumulatief hoge CPU verbruiken
 
-Gebruik de volgende query uit om te identificeren van de belangrijkste query-hashes:
+Gebruik de volgende query om de belangrijkste hashes van query's te identificeren:
 
 ```sql
 PRINT '-- top 10 Active CPU Consuming Queries (aggregated)--';
@@ -65,9 +64,9 @@ FROM(SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cpu
 ORDER BY Total_Request_Cpu_Time_Ms DESC;
 ```
 
-#### <a name="long-running-queries-that-consume-cpu-are-still-running"></a>Langlopende query's die CPU verbruikt nog steeds worden uitgevoerd
+#### <a name="long-running-queries-that-consume-cpu-are-still-running"></a>Langlopende query's die gebruikmaken van CPU worden nog steeds uitgevoerd
 
-Gebruik de volgende query uit om te identificeren van deze query's:
+Gebruik de volgende query om deze query's te identificeren:
 
 ```sql
 PRINT '--top 10 Active CPU Consuming Queries by sessions--';
@@ -80,7 +79,7 @@ GO
 
 ### <a name="the-cpu-issue-occurred-in-the-past"></a>Het CPU-probleem is opgetreden in het verleden
 
-Als het probleem is opgetreden in het verleden en u wilt de hoofd-analyse, gebruikt u [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Gebruikers met toegang tot de database kunt T-SQL-Query Store om gegevens te doorzoeken.  Query Store standaardconfiguraties gebruiken een granulariteit van één uur.  Gebruik de volgende query om te kijken naar activiteit voor hoge CPU-verbruik van query's. Deze query retourneert de top 15 CPU in beslag nemen-query's.  Vergeet niet te wijzigen `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`:
+Als het probleem zich in het verleden heeft voorgedaan en u de analyse van de hoofd oorzaak wilt uitvoeren, gebruikt u [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Gebruikers met database toegang kunnen T-SQL gebruiken om query's in query Store-gegevens op te vragen.  De standaard configuraties van de query-Store gebruiken een granulatie van 1 uur.  Gebruik de volgende query om activiteiten te bekijken voor hoge CPU-verbruiks query's. Met deze query worden de top 15 van de CPU-verbruikte query's geretourneerd.  Vergeet niet om `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`te wijzigen:
 
 ```sql
 -- Top 15 CPU consuming queries by query hash
@@ -101,27 +100,27 @@ WHERE OD.RN<=15
 ORDER BY total_cpu_millisec DESC;
 ```
 
-Nadat u de problematische query's identificeren, is het tijd om af te stemmen die query's uit om het CPU-gebruik verminderen.  Als u geen tijd voor het afstemmen van de query's hebt, kunt u ook om te upgraden van de SLO van de database om het probleem te omzeilen.
+Zodra u de problematische query's hebt geïdentificeerd, is het tijd om deze query's af te stemmen om het CPU-gebruik te verminderen.  Als u geen tijd hebt om de query's af te stemmen, kunt u er ook voor kiezen om de SLO van de data base bij te werken om het probleem te omzeilen.
 
-## <a name="identify-io-performance-issues"></a>Identificeren van problemen met de i/o-prestaties
+## <a name="identify-io-performance-issues"></a>Problemen met IO-prestaties identificeren
 
-Bij het identificeren van problemen met de i/o-prestaties, wordt de bovenste wait-typen die zijn gekoppeld aan de i/o-problemen zijn:
+Bij het identificeren van i/o-prestatie problemen zijn de meest voorkomende wacht typen die zijn gekoppeld aan IO-problemen:
 
 - `PAGEIOLATCH_*`
 
-  Voor gegevens bestand i/o-problemen (met inbegrip van `PAGEIOLATCH_SH`, `PAGEIOLATCH_EX`, `PAGEIOLATCH_UP`).  Als de naam van het wacht heeft **i/o** , dat deze verwijst naar een i/o-probleem. Als er geen **i/o** in de naam van pagina vergrendeling wachten deze verwijst naar een ander type probleem (bijvoorbeeld tempdb conflicten).
+  Voor IO-problemen met gegevens bestanden `PAGEIOLATCH_SH`( `PAGEIOLATCH_EX`inclusief `PAGEIOLATCH_UP`,,).  Als de wait-type naam **io** bevat, verwijst deze naar een io-probleem. Als er geen **io** is in de wacht naam voor de vergren deling van de pagina, wijst deze naar een ander type probleem (bijvoorbeeld TempDB-conflicten).
 
 - `WRITE_LOG`
 
-  Voor transactie log i/o-problemen.
+  Voor IO-problemen met transactie Logboeken.
 
-### <a name="if-the-io-issue-is-occurring-right-now"></a>Als het probleem i/o-nu zich voordoet
+### <a name="if-the-io-issue-is-occurring-right-now"></a>Als het IO-probleem nu optreedt
 
-Gebruik de [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) of [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) om te zien de `wait_type` en `wait_time`.
+Gebruik de [sys. DM _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) of [sys. DM _os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) om de `wait_type` en `wait_time`weer te geven.
 
-#### <a name="identify-data-and-log-io-usage"></a>Gegevens identificeren en i/o-gebruik
+#### <a name="identify-data-and-log-io-usage"></a>Gegevens identificeren en i/o-logboek gebruiken
 
-Gebruik de volgende query om te bepalen van gegevens en i/o-gebruik. Als de gegevens of logboek-IO hoger is dan 80%, betekent dat gebruikers de beschikbare i/o hebt gebruikt voor de SQL-database-servicelaag.
+Gebruik de volgende query om gegevens en logboek-IO-gebruik te identificeren. Als de gegevens-of logboek-IO meer dan 80% is, betekent dit dat gebruikers de beschik bare IO voor de SQL DB-servicelaag hebben gebruikt.
 
 ```sql
 SELECT end_time, avg_data_io_percent, avg_log_write_percent
@@ -131,12 +130,12 @@ ORDER BY end_time DESC;
 
 Als de i/o-limiet is bereikt, hebt u twee opties:
 
-- Optie 1: Upgrade uitvoeren voor de compute-grootte of servicelaag
-- Optie 2: Identificeer en afstemmen van de query's de meeste i/o verbruikt.
+- Optie 1: De berekenings grootte of servicelaag upgraden
+- Optie 2: Identificeer en stem de query's af die de meeste IO gebruiken.
 
-#### <a name="view-buffer-related-io-using-the-query-store"></a>Weergave buffer met betrekking tot i/o met behulp van de Query Store
+#### <a name="view-buffer-related-io-using-the-query-store"></a>Aan de buffer gerelateerde IO weer geven met behulp van de query Store
 
-Voor optie 2, kunt u de volgende query uit op basis van de Query Store voor i/o-buffer-gerelateerde gebruiken om de laatste twee uren van bijgehouden activiteit weer te geven:
+Voor optie 2 kunt u de volgende query gebruiken voor query Store voor de buffer-gerelateerde IO om de laatste twee uur van bijgehouden activiteiten weer te geven:
 
 ```sql
 -- top queries that waited on buffer
@@ -157,9 +156,9 @@ ORDER BY total_wait_time_ms DESC;
 GO
 ```
 
-#### <a name="view-total-log-io-for-writelog-waits"></a>Totaal aantal logboek weergeven i/o-voor WRITELOG wacht
+#### <a name="view-total-log-io-for-writelog-waits"></a>Totale logboek-IO voor WRITELOG-wacht tijden weer geven
 
-Als het type wacht `WRITELOG`, gebruik de volgende query om totale logboek-IO voor instructie weer te geven:
+Als het wacht type is `WRITELOG`, gebruikt u de volgende query om het totale aantal logboek-io per-instructie weer te geven:
 
 ```sql
 -- Top transaction log consumers
@@ -236,21 +235,21 @@ ORDER BY total_log_bytes_used DESC;
 GO
 ```
 
-## <a name="identify-tempdb-performance-issues"></a>Identificeer `tempdb` prestatieproblemen
+## <a name="identify-tempdb-performance-issues"></a>Prestatie `tempdb` problemen identificeren
 
-Bij het identificeren van problemen met de i/o-prestaties, de bovenkant typen die zijn gekoppeld aan wacht `tempdb` problemen is `PAGELATCH_*` (niet `PAGEIOLATCH_*`). Echter, `PAGELATCH_*` wacht altijd betekenen niet hebt `tempdb` conflicten.  Deze wachttijd kan ook betekenen dat u hebt gebruikersobject gegevens pagina conflicten vanwege gelijktijdige aanvragen die gericht is op de pagina met dezelfde gegevens. Om verder te bevestigen `tempdb` conflicten, gebruik [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) om te bevestigen dat de waarde wait_resource met begint `2:x:y` waar 2 is `tempdb` is de databaseid `x` is de bestands-id en `y` is de pagina-id.  
+Bij het identificeren van i/o-prestatie problemen, zijn `tempdb` `PAGELATCH_*` de meest voorkomende wacht `PAGEIOLATCH_*`typen die zijn gekoppeld aan problemen (niet). Wacht tijden zijn echter niet altijd de bedoeling dat u `tempdb` conflicten hebt. `PAGELATCH_*`  Dit kan ook betekenen dat u een gegevens pagina-inhoud voor gebruikers objecten hebt vanwege gelijktijdige aanvragen die zijn gericht op dezelfde gegevens pagina. `2:x:y` `tempdb` `x` `y` [](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) Gebruik sys. DM _exec_requests om te bevestigen dat de wait_resource-waarde begint met 2 is de data base-id, de bestands-id en de pagina-id. `tempdb`  
 
-Voor tempdb conflicten, een veelgebruikte methode is om te beperken of opnieuw Schrijf de toepassingscode die is gebaseerd op `tempdb`.  Algemene `tempdb` gebruik onderwerpen zijn:
+Voor TempDB-conflicten is een gemeen schappelijke methode het verminderen of herschrijven van toepassings code die afhankelijk `tempdb`is van.  Algemene `tempdb` gebruiks gebieden zijn:
 
 - Tijdelijke tabellen
-- tabelvariabelen voor de
-- Tabelgewaardeerde parameters
-- Versie store gebruik (specifiek gekoppeld aan langlopende transacties)
-- Query's waarop query's die gebruikmaken van sorteert, hash-joins en afdrukwachtrij geplaatst
+- Tabel variabelen
+- Para meters voor tabel waarden
+- Gebruik van versie opslag (specifiek gekoppeld aan langlopende trans acties)
+- Query's met query plannen die gebruikmaken van sorteringen, hash-samen voegingen en spools
 
-### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Populairste query's die gebruikmaken van tabelvariabelen en tijdelijke tabellen
+### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Meest voorkomende query's die tabel variabelen en tijdelijke tabellen gebruiken
 
-Gebruik de volgende query uit om te identificeren van de populairste query's die gebruikmaken van tabelvariabelen en tijdelijke tabellen:
+Gebruik de volgende query om de belangrijkste query's te identificeren die gebruikmaken van tabel variabelen en tijdelijke tabellen:
 
 ```sql
 SELECT plan_handle, execution_count, query_plan
@@ -273,9 +272,9 @@ FROM(SELECT DISTINCT plan_handle, [Database], [Schema], [table]
     JOIN #tmpPlan AS t2 ON t.plan_handle=t2.plan_handle;
 ```
 
-### <a name="identify-long-running-transactions"></a>Langlopende transacties identificeren
+### <a name="identify-long-running-transactions"></a>Langlopende trans acties identificeren
 
-Gebruik de volgende query uit om te identificeren lang transacties uitgevoerd. Langlopende transacties te voorkomen dat de versie-archief opschonen.
+Gebruik de volgende query om langlopende trans acties te identificeren. Langlopende trans acties verhinderen het opruimen van versie opslag.
 
 ```sql
 SELECT DB_NAME(dtr.database_id) 'database_name',
@@ -331,13 +330,13 @@ WHERE atr.transaction_type != 2
 ORDER BY start_time ASC;
 ```
 
-## <a name="identify-memory-grant-wait-performance-issues"></a>Geheugen verlenen wacht prestatieproblemen identificeren
+## <a name="identify-memory-grant-wait-performance-issues"></a>Prestatie problemen met geheugen toekenning identificeren
 
-Als het hoogste wacht type `RESOURCE_SEMAHPORE` en u hebt een hoog CPU-gebruik probleem, moet u een voor geheugentoewijzing in batchmodus wachten probleem.
+Als uw hoogste wacht type is `RESOURCE_SEMAHPORE` en u geen hoog CPU-gebruik hebt, is het mogelijk dat er een wacht probleem is met geheugen toekenning.
 
-### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>Bepalen of een `RESOURCE_SEMAHPORE` wacht is een bovenste wait
+### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>Bepalen of een `RESOURCE_SEMAHPORE` wachten een ogen blik geduld
 
-Gebruik de volgende query om te bepalen of een `RESOURCE_SEMAHPORE` wacht is een bovenste wait
+Gebruik de volgende query om te bepalen of `RESOURCE_SEMAHPORE` een wachten een ogen blik geduld
 
 ```sql
 SELECT wait_type,
@@ -350,9 +349,9 @@ GROUP BY wait_type
 ORDER BY SUM(wait_time) DESC;
 ```
 
-### <a name="identity-high-memory-consuming-statements"></a>Instructies voor hoog geheugen verbruikt identiteit
+### <a name="identity-high-memory-consuming-statements"></a>Identiteits hoge geheugen-verbruiks instructies
 
-Gebruik de volgende query uit om te identificeren van hoge geheugen verbruikt instructies:
+Gebruik de volgende query om hoge geheugen-verbruiks instructies te identificeren:
 
 ```sql
 SELECT IDENTITY(INT, 1, 1) rowId,
@@ -386,9 +385,9 @@ FROM cte
 ORDER BY SerialDesiredMemory DESC;
 ```
 
-### <a name="identify-the-top-10-active-memory-grants"></a>De top 10 actieve geheugen verleent identificeren
+### <a name="identify-the-top-10-active-memory-grants"></a>De belangrijkste 10 actieve geheugen subsidies identificeren
 
-Gebruik de volgende query uit om te identificeren van de bovenste 10 actieve geheugen verleent:
+Gebruik de volgende query om de belangrijkste 10 actieve geheugen toekenningen te identificeren:
 
 ```sql
 SELECT TOP 10
@@ -460,9 +459,9 @@ FROM sys.dm_exec_requests AS r
 ORDER BY mg.granted_memory_kb DESC;
 ```
 
-## <a name="calculating-database-and-objects-sizes"></a>Berekenen van de database en de objecten grootten
+## <a name="calculating-database-and-objects-sizes"></a>Grootte van de data base en objecten berekenen
 
-De volgende query retourneert de grootte van uw database (in MB):
+De volgende query retourneert de grootte van de data base (in mega bytes):
 
 ```sql
 -- Calculates the size of the database.
@@ -472,7 +471,7 @@ WHERE type_desc = 'ROWS';
 GO
 ```
 
-De volgende query retourneert de grootte van afzonderlijke objecten (in MB) in uw database:
+Met de volgende query wordt de grootte van afzonderlijke objecten (in mega bytes) in uw data base geretourneerd:
 
 ```sql
 -- Calculates the size of individual database objects.
@@ -483,10 +482,10 @@ GROUP BY sys.objects.name;
 GO
 ```
 
-## <a name="monitoring-connections"></a>Verbindingen controleren
+## <a name="monitoring-connections"></a>Bewakings verbindingen
 
-U kunt de [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) weergave informatie ophalen over de verbindingen met een specifieke Azure SQL Database-server en de details van elke verbinding. Bovendien de [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) weergave is handig bij het ophalen van informatie over alle actieve gebruikersverbindingen en interne taken.
-De volgende query haalt informatie op de huidige verbinding:
+U kunt de _exec_connections-weer gave [sys. DM](https://msdn.microsoft.com/library/ms181509.aspx) gebruiken om informatie op te halen over de verbindingen die tot stand zijn gebracht met een specifieke Azure SQL database-server en de details van elke verbinding. Daarnaast is de weer gave [sys. DM _exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) handig bij het ophalen van informatie over alle actieve gebruikers verbindingen en interne taken.
+Met de volgende query wordt informatie opgehaald over de huidige verbinding:
 
 ```sql
 SELECT
@@ -502,22 +501,22 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> Bij het uitvoeren van de **sys.dm_exec_requests** en **sys.dm_exec_sessions weergaven**, hebt u **VIEW DATABASE STATE** machtiging op de database, ziet u alle uitvoeren sessies op de database. anders is, ziet u alleen de huidige sessie.
+> Als u de weer gaven **sys. DM _exec_requests** en **sys. DM _exec_sessions**hebt uitgevoerd en u de machtiging **database status weer geven** hebt voor de data base, ziet u alle sessies die worden uitgevoerd op de data base. anders ziet u alleen de huidige sessie.
 
-## <a name="monitor-resource-use"></a>Resource-gebruik bewaken
+## <a name="monitor-resource-use"></a>Resource gebruik bewaken
 
-U kunt controleren resource gebruik [SQL Database Query Performance Insight](sql-database-query-performance.md) en [Query Store](https://msdn.microsoft.com/library/dn817826.aspx).
+U kunt het resource gebruik bewaken met behulp van [SQL Database query Performance Insight](sql-database-query-performance.md) en [query Store](https://msdn.microsoft.com/library/dn817826.aspx).
 
-U kunt ook gebruik van deze twee weergaven met bewaken:
+U kunt het gebruik ook controleren met behulp van deze twee weer gaven:
 
 - [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
 ### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
 
-U kunt de [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) weergeven in elke SQL-database. De **sys.dm_db_resource_stats** weergave toont recente gegevens in de resource gebruiken ten opzichte van de service tier. Gemiddelde percentages voor CPU, gegevens-i/o-logboek geschreven en geheugen elke 15 seconden worden vastgelegd en 1 uur worden bewaard.
+U kunt de weer gave [sys. DM _db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) in elke SQL database gebruiken. De weer gave **sys. DM _db_resource_stats** toont recent gebruikte resource gegevens ten opzichte van de servicelaag. Gemiddeld percentages voor CPU, gegevens-IO, logboek schrijf bewerkingen en geheugen worden elke 15 seconden geregistreerd en worden gedurende één uur bewaard.
 
-Omdat deze weergave een meer gedetailleerd blik op gebruik van bronnen biedt, gebruikt u **sys.dm_db_resource_stats** eerste voor de analyse van de huidige status of het oplossen van problemen. Deze query geeft bijvoorbeeld het gebruik van gemiddelde en maximale resource voor de huidige database in het afgelopen uur:
+Omdat deze weer gave een gedetailleerdere blik biedt bij het gebruik van resources, gebruikt u **sys. DM _db_resource_stats** eerst voor een analyse van de huidige status of het oplossen van problemen. Met deze query wordt bijvoorbeeld het gemiddelde en maximum resource gebruik voor de huidige data base in het afgelopen uur weer gegeven:
 
 ```sql
 SELECT  
@@ -532,26 +531,26 @@ SELECT
 FROM sys.dm_db_resource_stats;  
 ```
 
-Voor andere query's, Zie de voorbeelden in [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
+Zie de voor beelden in [sys. DM _db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)voor andere query's.
 
 ### <a name="sysresourcestats"></a>sys.resource_stats
 
-De [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) weergeven in de **master** database bevat extra informatie waarmee u de prestaties van uw SQL-database op de specifieke servicelaag controleren en compute-grootte. De gegevens worden verzameld om de 5 minuten en is ongeveer 14 dagen bewaard. In deze weergave is handig voor een langere historische analyse van hoe uw SQL-database maakt gebruik van resources.
+De [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) -weer gave in de **hoofd** database bevat aanvullende informatie die u kan helpen bij het bewaken van de prestaties van uw SQL database in de desbetreffende servicelaag en de bijbehorende reken grootte. De gegevens worden elke vijf minuten verzameld en worden ongeveer 14 dagen bewaard. Deze weer gave is handig voor een historisch historische analyse van de manier waarop uw SQL database resources gebruikt.
 
-In het volgende diagram ziet u het CPU-resource gebruik voor een Premium-database met de grootte van de compute P2 voor elk uur in een week. Deze grafiek begint op een maandag, ziet u 5 werkdagen en geeft vervolgens een weekend, als er veel minder wordt uitgevoerd op de toepassing.
+In de volgende grafiek ziet u het gebruik van de CPU-resource voor een Premium-data base met de P2-reken grootte voor elk uur in een week. Deze grafiek begint op een maandag, toont vijf werk dagen en toont vervolgens een weekend, wanneer er veel minder gebeurt met de toepassing.
 
-![SQL database resource gebruiken](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
+![Resource Gebruik SQL database](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
 
-De gegevens, heeft deze database momenteel een piek-CPU-belasting van iets meer dan 50% CPU-gebruik ten opzichte van de P2 compute grootte (twaalf uur 's middags op dinsdag). Als CPU de dominante factor in de resource-profiel van de toepassing is, kunt u vervolgens besluit dat P2 de grootte van de juiste compute om te waarborgen is dat de werkbelasting altijd past. Als u verwacht een toepassing na verloop van tijd toeneemt dat, is het een goed idee om een extra bron buffer zodat de toepassing niet steeds de prestatieniveau-limiet is bereikt. Als u de grootte van de rekencapaciteit vergroten, kunt u helpen te voorkomen dat zichtbaar is voor een klant fouten die optreden wanneer een database beschikt niet over voldoende kracht voor het verwerken van aanvragen effectief, met name in omgevingen met latentiegevoelige. Een voorbeeld is een database die ondersteuning biedt voor een toepassing die u webpagina's op basis van de resultaten van de database-aanroepen tekent.
+Van de gegevens heeft deze data base momenteel een piek CPU-belasting van meer dan 50 procent van het CPU-gebruik ten opzichte van de P2-reken grootte (rond middaguur op dinsdag). Als CPU de dominante factor in het bron Profiel van de toepassing is, kunt u besluiten dat P2 de juiste reken grootte is om te garanderen dat de werk belasting altijd past. Als u verwacht dat een toepassing na verloop van tijd toeneemt, is het een goed idee om een extra bron buffer te hebben, zodat de toepassing niet ooit de limiet van het prestatie niveau bereikt. Als u de berekenings grootte verg root, kunt u voor komen dat klant-zicht bare fouten die zich kunnen voordoen wanneer een Data Base onvoldoende stroom heeft om aanvragen effectief te verwerken, met name in latentie gevoelige omgevingen. Een voor beeld is een Data Base die ondersteuning biedt voor een toepassing die webpagina's tekent op basis van de resultaten van database aanroepen.
 
-Andere soorten toepassingen mogelijk dezelfde grafiek anders worden geïnterpreteerd. Bijvoorbeeld, als een toepassing probeert te verwerken gegevens van elke dag en dezelfde grafiek, dit soort 'batch-taak' model kan van pas komen goed bij een P1 compute-grootte. De grootte van de compute P1 heeft 100 dtu's in vergelijking tot 200 dtu's op de P2 compute-grootte. De grootte van de compute P1 biedt dat de helft van de prestaties van de P2 compute grootte. Dus, 50 procent van de CPU-gebruik in P2 is gelijk aan 100 procent CPU-gebruik van P1. Als de toepassing heeft geen time-outs, maakt het niet uit als een taak duurt 2 uur of 2,5 uren in beslag, als het vandaag nog wordt uitgevoerd. Een toepassing in deze categorie kunt waarschijnlijk een grootte van de compute P1 gebruiken. U kunt profiteren van het feit dat er perioden gedurende de dag wanneer Resourcegebruik lager, is zodat eventuele 'big piek' kan worden gelekt via in een van de holten later op de dag. De grootte van de compute P1 kan zijn goed voor die van toepassing (en geld besparen) van het type, zolang de taken op elke dag tijd voltooien kunnen.
+Andere toepassings typen kunnen dezelfde grafiek anders interpreteren. Als een toepassing bijvoorbeeld elke dag salaris gegevens wil verwerken en dezelfde grafiek heeft, kan dit soort ' batch-taak model ' nauw keurig zijn bij een berekenings grootte van P1. De berekenings grootte van P1 heeft 100 Dtu's vergeleken met 200 Dtu's bij de grootte van P2-berekeningen. De berekenings grootte van P1 biedt de helft van de prestaties van de P2-reken grootte. 50 procent van het CPU-gebruik in P2 is dus gelijk aan 100 procent van het CPU-gebruik in P1. Als de toepassing geen time-outs heeft, is het mogelijk dat het niet van belang is dat een taak twee uur of 2,5 uur duurt, als deze vandaag wordt uitgevoerd. Een toepassing in deze categorie kan waarschijnlijk een P1-reken grootte gebruiken. U kunt profiteren van het feit dat er Peri Oden zijn gedurende de dag dat het gebruik van resources lager is, zodat elke ' grote piek ' in een van de troughs later op de dag kan overlopen. De berekenings grootte van P1 kan geschikt zijn voor dat soort toepassing (en geld besparen), zolang de taken op tijd elke dag kunnen worden voltooid.
 
-Azure SQL Database beschikbaar stelt verbruikt resource-informatie voor elke actieve database in de **sys.resource_stats** weergave van de **master** database op elke server. De gegevens in de tabel wordt samengevoegd voor 5 minuten durende intervallen. De Servicelagen Basic, Standard en Premium, kan de gegevens worden weergegeven in de tabel, zodat deze gegevens nog meer nuttige voor historische analyse in plaats van in de buurt van de realtime-analyse is meer dan vijf minuten maken. Query de **sys.resource_stats** weergeven om te zien van de recente geschiedenis van een database en om te valideren of de reservering die u kiest de prestaties die u wilt dat wanneer dat nodig is geleverd.
+Azure SQL Database geeft de verbruikte resource gegevens voor elke actieve data base in de **sys. resource_stats** -weer gave van de **hoofd** database op elke server. De gegevens in de tabel worden samengevoegd gedurende een interval van vijf minuten. Met de service lagen Basic, Standard en Premium kan het langer dan vijf minuten duren voordat de gegevens in de tabel worden weer gegeven. deze gegevens zijn dus handiger voor historische analyses in plaats van bijna realtime analyses. Vraag de weer gave **sys. resource_stats** om de recente geschiedenis van een Data Base te zien en te controleren of de door u gekozen reserve ring de gewenste prestaties heeft geleverd wanneer dat nodig is.
 
 > [!NOTE]
-> U moet zijn verbonden met de **master** database van uw SQL-Database-server aan de query **sys.resource_stats** in de volgende voorbeelden.
+> U moet zijn verbonden met de **hoofd** database van uw SQL database-server om in de volgende voor beelden de query **sys. resource_stats** te doorzoeken.
 
-Dit voorbeeld ziet u hoe de gegevens in deze weergave wordt weergegeven:
+In dit voor beeld ziet u hoe de gegevens in deze weer gave worden blootgesteld:
 
 ```sql
 SELECT TOP 10 *
@@ -560,11 +559,11 @@ WHERE database_name = 'resource1'
 ORDER BY start_time DESC
 ```
 
-![De catalogusweergave sys.resource_stats](./media/sql-database-performance-guidance/sys_resource_stats.png)
+![De catalogus weergave sys. resource_stats](./media/sql-database-performance-guidance/sys_resource_stats.png)
 
-Het volgende voorbeeld ziet u verschillende manieren waarop u kunt de **sys.resource_stats** catalogusweergave voor informatie over hoe uw SQL-database maakt gebruik van resources:
+In het volgende voor beeld ziet u verschillende manieren waarop u de catalogus weergave **sys. resource_stats** kunt gebruiken om informatie te krijgen over de manier waarop uw SQL database gebruikmaakt van resources:
 
-1. Om te kijken naar de afgelopen week resource voor de database-userdb1 gebruiken, kunt u deze query uitvoeren:
+1. Als u het resource gebruik van de afgelopen week wilt bekijken voor de data base userdb1, kunt u deze query uitvoeren:
 
     ```sql
     SELECT *
@@ -574,7 +573,7 @@ Het volgende voorbeeld ziet u verschillende manieren waarop u kunt de **sys.reso
     ORDER BY start_time DESC;
     ```
 
-2. Om te evalueren hoe goed uw werkbelasting geschikt is voor de compute-grootte, die u wilt inzoomen op elk aspect van de metrische resource gegevens: CPU, leesbewerkingen, schrijfbewerkingen, aantal werkrollen en sessies. Hier volgt een gewijzigde query's uitvoeren met behulp van **sys.resource_stats** voor het rapporteren van de gemiddelde en maximale waarden van deze metrische gegevens voor resources:
+2. Als u wilt evalueren hoe goed uw werk belasting past bij de berekenings grootte, moet u inzoomen op elk aspect van de metrische gegevens van de resource: CPU, lees bewerkingen, schrijf bewerkingen, aantal werk rollen en aantal sessies. Hier volgt een aangepaste query met **sys. resource_stats** om de gemiddelde en maximale waarde van de metrische gegevens van deze resource te rapporteren:
 
     ```sql
     SELECT
@@ -592,11 +591,11 @@ Het volgende voorbeeld ziet u verschillende manieren waarop u kunt de **sys.reso
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-3. Met deze informatie over de gemiddelde en maximale waarden van elke metrisch resourcegegeven, kunt u beoordelen hoe goed uw werkbelasting geschikt is voor de compute-grootte die u hebt gekozen. Normaal gesproken gemiddelde waarden van **sys.resource_stats** bieden u een goede basis te gebruiken op basis van de doelgrootte. Uw primaire meting stick dient te zijn. Voor een voorbeeld mogelijk gebruikt u de servicelaag Standard S2 compute-grootte. Het gemiddelde gebruik percentages voor CPU- en i/o-leesbewerkingen, schrijfbewerkingen zijn dan 40 procent, het gemiddelde aantal werknemers lager is dan 50 en het gemiddelde aantal sessies lager is dan 200. Uw workload passen mogelijk in de S1-compute-grootte. Het is gemakkelijk om te zien of uw database in de sessie en werknemer limieten past. Het DTU-nummer van de laagste grootte wijzigen van het DTU-nummer van de grootte van uw huidige compute compute en vervolgens het resultaat vermenigvuldigd met 100 om te zien of een database past de grootte van een lagere compute met betrekking tot CPU-, lees- en schrijfbewerkingen, delen:
+3. Met deze informatie over de gemiddelde en de maximum waarde van elke resource metriek kunt u bepalen hoe goed de workload past in de reken grootte die u hebt gekozen. Normaal gesp roken geven gemiddelde waarden uit **sys. resource_stats** een goede basis lijn voor gebruik voor de doel grootte. Dit moet uw primaire meet stick zijn. Voor een voor beeld gebruikt u mogelijk de standaard service-laag met de compute-grootte S2. De gemiddelde percentages voor CPU-en IO-Lees bewerkingen en-schrijf bewerkingen zijn lager dan 40 procent, het gemiddelde aantal werkers ligt onder 50 en het gemiddelde aantal sessies is lager dan 200. De werk belasting kan in de reken grootte van S1 passen. Het is eenvoudig om te zien of uw data base past bij de limieten van de werk nemer en de sessie. Als u wilt weten of een Data Base past in een lagere reken grootte met betrekking tot CPU, lees-en schrijf bewerkingen, deelt u het DTU-nummer van de lagere reken grootte door het DTU-nummer van de huidige reken grootte en vermenigvuldigt u het resultaat met 100:
 
     ```S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40```
 
-    Het resultaat is de relatieve prestatieverschil tussen de twee compute-grootten die in een percentage. Als uw gebruik van de resource niet deze hoeveelheid overschrijdt, kan uw workload passen in de onderste compute-grootte. U moet echter te kijken naar alle bereikwaarden van waarden voor het gebruik van resources, en te bepalen, op percentage, hoe vaak de databaseworkload zou passen in de onderste compute-grootte. De volgende query levert het percentage passend per resourcedimensie, op basis van de drempelwaarde van 40 procent die in dit voorbeeld is berekend:
+    Het resultaat is het relatieve prestatie verschil tussen de twee reken grootten in procenten. Als uw resource gebruik deze hoeveelheid niet overschrijdt, kan uw werk belasting in de lagere reken grootte passen. U moet echter alle bereiken van resource waarden bekijken en bepalen hoe vaak de werk belasting van de data base in de lagere reken grootte past. Met de volgende query wordt het aanpassings percentage per resource dimensie uitgevoerd op basis van de drempel van 40 procent die we in dit voor beeld hebben berekend:
 
    ```sql
     SELECT
@@ -607,15 +606,15 @@ Het volgende voorbeeld ziet u verschillende manieren waarop u kunt de **sys.reso
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-    Op basis van uw database-servicelaag, kunt u bepalen of uw workload de grootte van de lagere compute past. Als het doel van de werkbelasting database 99,9 procent is en de voorgaande query de waarden groter is dan 99,9% voor alle drie resourcedimensies retourneert, wordt uw workload waarschijnlijk in de grootte van de lagere compute past.
+    Op basis van de servicelaag van de Data Base kunt u bepalen of uw workload in de lagere reken grootte past. Als het doel van de data base-workload 99,9 procent is en de voor gaande query waarden retourneert die groter zijn dan 99,9 procent voor alle drie de resource dimensies, past uw werk belasting waarschijnlijk toe op de lagere reken grootte.
 
-    Kijken naar het passend percentage geeft ook inzicht in of u naar de volgende hogere compute grootte overstappen moet om te voldoen aan het doel. Userdb1 ziet u bijvoorbeeld het volgende CPU-gebruik voor de afgelopen week:
+    Als u het aanpassings percentage bekijkt, kunt u ook zien of u moet overstappen op de volgende hogere reken grootte om te voldoen aan uw doel. Userdb1 toont bijvoorbeeld het volgende CPU-gebruik voor de afgelopen week:
 
-   | Gemiddelde CPU-percentage | Maximale CPU-percentage |
+   | Gemiddeld CPU-percentage | Maximum CPU-percentage |
    | --- | --- |
    | 24.5 |100.00 |
 
-    De gemiddelde CPU is over een kwart van de limiet van de compute-grootte, die zijn voor de compute-grootte van de database geschikt zou. Maar de maximale waarde te zien dat de database heeft de limiet van de compute-grootte bereikt. Wilt u verplaatsen naar de volgende hogere compute grootte? Bekijken hoe vaak uw werkbelasting bereikt 100 procent en dit vervolgens vergelijken met het doel van de werkbelasting database.
+    De gemiddelde CPU is ongeveer een kwar taal van de limiet van de berekenings grootte, die goed overeenkomt met de reken grootte van de data base. Maar de maximum waarde laat zien dat de data base de limiet van de reken grootte bereikt. Moet u overstappen naar de volgende hogere reken grootte? Bekijk hoe vaak uw werk belasting 100 procent bereikt en vergelijkt deze met het doel van uw data base-workload.
 
     ```sql
     SELECT
@@ -626,22 +625,22 @@ Het volgende voorbeeld ziet u verschillende manieren waarop u kunt de **sys.reso
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-    Deze query retourneert een waarde minder dan 99,9 procent voor een van de drie resourcedimensies, kunt u overwegen om een van beide op de volgende hogere compute-grootte of toepassing afstemmen technieken gebruiken om de belasting op de SQL-database te verminderen.
+    Als deze query een waarde van minder dan 99,9 procent retourneert voor een van de drie resource dimensies, kunt u overwegen om over te stappen op de volgende hogere reken grootte of door technieken voor het afstemmen van toepassingen te gebruiken om de belasting van de SQL database te verminderen.
 
-4. In deze oefening wordt ook rekening gehouden uw toename van de verwachte werkbelasting in de toekomst.
+4. Deze oefening houdt ook rekening met de toename van de geschatte werk belasting in de toekomst.
 
 Voor elastische pools kunt u afzonderlijke databases in de pool bewaken met de technieken die in deze sectie zijn beschreven. U kunt echter ook de groep als geheel bewaken. Zie [Een elastische pool bewaken en beheren](sql-database-elastic-pool-manage-portal.md) voor meer informatie.
 
 ### <a name="maximum-concurrent-requests"></a>Maximum aantal gelijktijdige aanvragen
 
-Als u wilt zien van het aantal gelijktijdige aanvragen, deze Transact-SQL-query op uw SQL-database worden uitgevoerd:
+Als u het aantal gelijktijdige aanvragen wilt zien, voert u deze Transact-SQL-query uit op uw SQL database:
 
     ```sql
     SELECT COUNT(*) AS [Concurrent_Requests]
     FROM sys.dm_exec_requests R;
     ```
 
-Voor het analyseren van de werkbelasting van een on-premises SQL Server-database, wijzigt u deze query kunt u filteren op de specifieke database die u wilt analyseren. Als u een on-premises database met de naam MijnDatabase hebt, retourneert deze Transact-SQL-query bijvoorbeeld het aantal gelijktijdige aanvragen in de database:
+Als u de werk belasting van een on-premises SQL Server-Data Base wilt analyseren, wijzigt u deze query zodat deze kan worden gefilterd op de specifieke data base die u wilt analyseren. Als u bijvoorbeeld een on-premises Data Base hebt met de naam MyDatabase, retourneert deze Transact-SQL-query het aantal gelijktijdige aanvragen in die Data Base:
 
     ```sql
     SELECT COUNT(*) AS [Concurrent_Requests]
@@ -650,25 +649,25 @@ Voor het analyseren van de werkbelasting van een on-premises SQL Server-database
     AND D.name = 'MyDatabase';
     ```
 
-Dit is slechts een momentopname op een bepaald tijdstip. Als u een beter inzicht in uw werkbelasting en de vereisten voor gelijktijdige aanvraag, moet u voor het verzamelen van veel voorbeelden na verloop van tijd.
+Dit is slechts een moment opname op één punt in de tijd. Als u een beter inzicht wilt krijgen in uw werk belasting en gelijktijdige aanvraag vereisten, moet u een groot aantal voor beelden in de loop van de tijd verzamelen.
 
 ### <a name="maximum-concurrent-logins"></a>Maximum aantal gelijktijdige aanmeldingen
 
-U kunt uw gebruikers en toepassingen patronen voor een beter beeld van de frequentie van aanmeldingen analyseren. U kunt ook echte belastingen uitvoeren in een testomgeving om ervoor te zorgen dat u niet te maken met bent deze of andere limieten we in dit artikel bespreken. Er is een eenvoudige query uitvoeren of dynamische beheerweergave (DMV) waarin kunt u gelijktijdige aanmelding wordt geteld of geschiedenis niet.
+U kunt uw gebruikers-en toepassings patronen analyseren om een idee te krijgen van de frequentie van aanmeldingen. U kunt ook praktijk belasting in een test omgeving uitvoeren om ervoor te zorgen dat u niet aan deze of andere limieten komt die in dit artikel worden besproken. Er is geen enkele query of dynamische beheer weergave (DMV) waarmee u gelijktijdige aanmeldings aantallen of-geschiedenis kunt weer geven.
 
-Als meerdere clients de verbindingsreeks gebruiken, verifieert de service voor elke aanmelding. Als er 10 gebruikers tegelijk verbinding met een database met behulp van dezelfde gebruikersnaam en wachtwoord, wordt 10 gelijktijdige aanmeldingen. Deze limiet geldt alleen voor de duur van de aanmelding en verificatie. Als dezelfde 10 gebruikers verbinding met de database sequentieel worden verwerkt, wordt het aantal gelijktijdige aanmeldingen nooit groter zijn dan 1.
+Als meerdere clients hetzelfde connection string gebruiken, verifieert de service elke aanmelding. Als 10 gebruikers gelijktijdig verbinding maken met een Data Base met behulp van dezelfde gebruikers naam en hetzelfde wacht woord, zijn er 10 gelijktijdige aanmeldingen. Deze limiet geldt alleen voor de duur van de aanmelding en verificatie. Als dezelfde 10 gebruikers opeenvolgend verbinding maken met de data base, is het aantal gelijktijdige aanmeldingen nooit groter dan 1.
 
 > [!NOTE]
-> Op dit moment is deze limiet niet van toepassing op databases in elastische pools.
+> Deze limiet geldt momenteel niet voor data bases in elastische Pools.
 
 ### <a name="maximum-sessions"></a>Maximum aantal sessies
 
-Als u wilt zien van het aantal huidige actieve sessies, deze Transact-SQL-query op uw SQL-database worden uitgevoerd:
+Als u het aantal actieve sessies wilt zien, voert u deze Transact-SQL-query uit op uw SQL database:
 
     SELECT COUNT(*) AS [Sessions]
     FROM sys.dm_exec_connections
 
-Als u een on-premises SQL Server-werkbelasting analyseert, wijzigt u de query om zich te richten op een specifieke database. Deze query kunt u mogelijke sessie behoeften voor de database te bepalen of u overweegt u deze verplaatst naar Azure SQL Database.
+Als u een on-premises SQL Server werk belasting analyseert, wijzigt u de query zodanig dat deze zich op een specifieke Data Base bevindt. Met deze query kunt u de mogelijke sessie vereisten voor de data base bepalen als u overweegt om deze naar Azure SQL Database te verplaatsen.
 
     SELECT COUNT(*)  AS [Sessions]
     FROM sys.dm_exec_connections C
@@ -676,17 +675,17 @@ Als u een on-premises SQL Server-werkbelasting analyseert, wijzigt u de query om
     INNER JOIN sys.databases D ON (D.database_id = S.database_id)
     WHERE D.name = 'MyDatabase'
 
-Deze query's retourneren, een aantal point-in-time. Als u meerdere voorbeelden na verloop van tijd verzamelt, hebt u het beste begrip van de sessie gebruikt.
+Deze query's retour neren een bepaald aantal tijdstippen. Als u meerdere voor beelden in de loop van de tijd verzamelt, hebt u een goed beeld van het gebruik van uw sessie.
 
-Voor de analyse van de SQL-Database, kunt u historische statistieken opvragen op sessies door het opvragen van de [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) weergeven en controleren van de **active_session_count** kolom.
+Voor de analyse van SQL Database kunt u historische statistieken voor sessies ontvangen door een query uit te geven op de [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) -weer gave en de kolom **active_session_count** te controleren.
 
-## <a name="monitoring-query-performance"></a>Bewaking van prestaties van query 's
+## <a name="monitoring-query-performance"></a>Query prestaties bewaken
 
-Trage of lang uitvoeren van query's kan aanzienlijke systeembronnen gebruiken. In deze sectie ziet u hoe u dynamische beheerweergaven gebruiken voor het detecteren van enkele veelvoorkomende problemen met de queryprestaties. De verwijzing naar een oudere, maar wel nog steeds nuttig voor het oplossen van problemen, is de [problemen met prestaties oplossen in SQL Server 2008](https://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) artikel op Microsoft TechNet.
+Trage of langlopende query's kunnen aanzienlijke systeem bronnen in beslag nemen. In deze sectie ziet u hoe u dynamische beheer weergaven gebruikt voor het detecteren van enkele veelvoorkomende prestatie problemen met query's. Een oudere, maar toch handig referentie voor het oplossen van problemen is het [oplossen van prestatie problemen in SQL Server 2008](https://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) -artikel op micro soft TechNet.
 
-### <a name="finding-top-n-queries"></a>Top N-query's zoeken
+### <a name="finding-top-n-queries"></a>Eerste N query's zoeken
 
-Het volgende voorbeeld retourneert informatie over de top vijf van query's gerangschikt op gemiddelde CPU-tijd. In dit voorbeeld maakt een aggregatie van de query's op basis van de queryhash, zodat logisch gelijkwaardige query's zijn gegroepeerd op hun cumulatieve resourceverbruik.
+In het volgende voor beeld wordt informatie gegeven over de top vijf query's gerangschikt op gemiddelde CPU-tijd. In dit voor beeld worden de query's geaggregeerd volgens hun query-hash, zodat logische equivalente query's worden gegroepeerd op basis van het cumulatieve Resource verbruik.
 
     ```sql
     SELECT TOP 5 query_stats.query_hash AS "Query Hash",
@@ -705,13 +704,13 @@ Het volgende voorbeeld retourneert informatie over de top vijf van query's geran
     ORDER BY 2 DESC;
     ```
 
-### <a name="monitoring-blocked-queries"></a>Geblokkeerde query's controleren
+### <a name="monitoring-blocked-queries"></a>Geblokkeerde query's bewaken
 
-Trage of langlopende query's kunnen bijdragen tot overmatig resourceverbruik en de gevolgen van geblokkeerde query's. De oorzaak van de blokkering is slecht presteert ontwerp, ongeldige queryplannen, het ontbreken van nuttige indexen, enzovoort. U kunt de weergave sys.dm_tran_locks gebruiken voor informatie over de huidige activiteit van de vergrendeling in uw Azure SQL Database. Bijvoorbeeld code, Zie [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) in SQL Server Books Online.
+Trage of langlopende query's kunnen bijdragen aan overmatig bronnen gebruik en zijn het gevolg van geblokkeerde query's. De oorzaak van de blok kering kan zijn dat het toepassings ontwerp, ongeldige query plannen, het gebrek aan handige indexen, enzovoort. U kunt de _tran_locks-weer gave sys. DM gebruiken om informatie over de huidige vergrendelings activiteit in uw Azure SQL Database op te halen. Zie voorbeeld code [sys. DM _tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) in SQL Server Books Online.
 
-### <a name="monitoring-query-plans"></a>Bewaking van de query-plannen
+### <a name="monitoring-query-plans"></a>Query plannen bewaken
 
-Een inefficiënte queryplan kan worden verhoogd CPU-verbruik. Het volgende voorbeeld wordt de [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) weergeven om te bepalen welke query het meest cumulatieve CPU gebruikt.
+Een inefficiënt query plan kan ook het CPU-verbruik verhogen. In het volgende voor beeld wordt de [sys. DM _exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) weer gave gebruikt om te bepalen welke query de meest cumulatieve CPU gebruikt.
 
     ```sql
     SELECT

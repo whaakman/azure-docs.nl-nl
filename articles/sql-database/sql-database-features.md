@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
-manager: craigg
 ms.date: 05/10/2019
-ms.openlocfilehash: 5bdbd9bebfb819ae18de884a014c574e12c53ebf
-ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
+ms.openlocfilehash: 3f991d90dfdd5d31d1a7cf7119356f40458e7614
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371704"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568238"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Vergelijking van functies: Azure SQL Database versus SQL Server
 
@@ -89,9 +88,10 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en geeft inform
 | [Ondersteuning voor JSON-gegevens](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Ja](sql-database-json-features.md) | [Ja](sql-database-json-features.md) |
 | [Taal elementen](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | De meeste-Zie afzonderlijke elementen |  Ja, Zie [T-SQL-verschillen](sql-database-managed-instance-transact-sql-information.md) |
 | [Gekoppelde servers](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Nee, Zie [elastische query's](sql-database-elastic-query-horizontal-partitioning.md) | Ja. Alleen voor [SQL Server en SQL database](sql-database-managed-instance-transact-sql-information.md#linked-servers) zonder gedistribueerde trans acties. |
+| [Gekoppelde servers](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) die van bestanden worden gelezen (CSV, Excel)| Nee. Gebruik [Bulk Insert](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) of [](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) OPENROWSET als alternatief voor CSV-indeling. | Nee. Gebruik [Bulk Insert](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) of [](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) OPENROWSET als alternatief voor CSV-indeling. Deze aanvragen bijhouden voor het feedback-item van het [beheerde exemplaar](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 | [Logboek verzending](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Hoge Beschik baarheid](sql-database-high-availability.md) is opgenomen in elke Data Base. Herstel na nood gevallen wordt beschreven in [overzicht van bedrijfs continuïteit met Azure SQL database](sql-database-business-continuity.md) | Systeem eigen gemaakt als onderdeel van het DMS-migratie proces. Niet beschikbaar als oplossing met hoge Beschik baarheid, omdat andere methoden voor [hoge Beschik baarheid](sql-database-high-availability.md) zijn opgenomen in elke Data Base en het wordt afgeraden om gebruik te maken van log-shipping als ha-alternatief. Herstel na nood gevallen wordt beschreven in [overzicht van bedrijfs continuïteit met Azure SQL database](sql-database-business-continuity.md). Niet beschikbaar als replicatie mechanisme tussen data bases: Gebruik secundaire replica's op [bedrijfskritiek laag](sql-database-service-tier-business-critical.md), [groepen met automatische failover](sql-database-auto-failover-group.md)of transactionele [replicatie](sql-database-managed-instance-transactional-replication.md) als alternatief. |
 | [Aanmeldingen en gebruikers](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) | Ja, maar `CREATE` en `ALTER` aanmeldings instructies bieden niet alle opties (geen Azure Active Directory-aanmeldingen op Windows en server niveau). `EXECUTE AS LOGIN`wordt niet ondersteund. Gebruik `EXECUTE AS USER` in plaats daarvan.  | Ja, met enkele [verschillen](sql-database-managed-instance-transact-sql-information.md#logins-and-users). Windows-aanmeldingen worden niet ondersteund en moeten worden vervangen door Azure Active Directory aanmeldingen. |
-| [Minimale logboek registratie in bulk import](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Nee | Nee |
+| [Minimale logboek registratie in bulk import](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Nee, alleen het volledige herstel model wordt ondersteund. | Nee, alleen het volledige herstel model wordt ondersteund. |
 | [Systeem gegevens wijzigen](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | Nee | Ja |
 | [OLE-automatisering](https://docs.microsoft.com/sql/database-engine/configure-windows/ole-automation-procedures-server-configuration-option) | Nee | Nee |
 | [Online-index bewerkingen](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | Ja | Ja |
@@ -108,6 +108,7 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en geeft inform
 | [Predicaten](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Ja | Ja |
 | [Query meldingen](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | Nee | Ja |
 | [R Services](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Ja, in [open bare preview](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | Nee |
+| [Herstel modellen](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) | Alleen volledig herstel dat een hoge Beschik baarheid garandeert, wordt ondersteund. Eenvoudige en bulksgewijs geregistreerde herstel modellen zijn niet beschikbaar. | Alleen volledig herstel dat een hoge Beschik baarheid garandeert, wordt ondersteund. Eenvoudige en bulksgewijs geregistreerde herstel modellen zijn niet beschikbaar. | 
 | [Resource regeling](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Nee | Ja |
 | [Instructies voor herstellen](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Nee | Ja, met verplichte `FROM URL` opties voor de back-upbestanden die in Azure Blob Storage worden geplaatst. Zie [verschillen herstellen](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
 | [Data base terugzetten vanuit een back-up](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Alleen uit automatische back-ups: Zie [SQL database herstel](sql-database-recovery-using-backups.md) | Van automatische back-ups: Zie [SQL database herstel](sql-database-recovery-using-backups.md) en de volledige back-ups die zijn geplaatst op Azure Blob Storage-Zie [back-upverschillen](sql-database-managed-instance-transact-sql-information.md#backup) |
@@ -148,6 +149,7 @@ Azure-platform biedt een aantal PaaS-mogelijkheden die als extra waarde worden t
 | [Groepen voor automatische failover](sql-database-auto-failover-group.md) | Ja, alle service lagen dan grootschalige | Ja, in [open bare preview](sql-database-auto-failover-group.md)|
 | [Azure Resource Health](/azure/service-health/resource-health-overview) | Ja | Nee |
 | [Gegevens migratie service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | Ja | Ja |
+| Toegang tot bestands systeem | Nee. Gebruik [Bulk Insert](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) of [](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) OPENROWSET om gegevens van Azure Blob Storage als een alternatief te openen en te laden. | Nee. Gebruik [Bulk Insert](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) of [](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) OPENROWSET om gegevens van Azure Blob Storage als een alternatief te openen en te laden. |
 | [Geo-restore](sql-database-recovery-using-backups.md#geo-restore) | Ja, alle service lagen dan grootschalige | Ja, met behulp van [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
 | [Grootschalige-architectuur](sql-database-service-tier-hyperscale.md) | Ja | Nee |
 | [Lange termijn retentie van back-ups-LTR](sql-database-long-term-retention.md) | Ja, behoud automatisch tot tien jaar back-ups. | Nog niet. Gebruik `COPY_ONLY` [hand matige back-ups](sql-database-managed-instance-transact-sql-information.md#backup) als tijdelijke oplossing. |
@@ -167,7 +169,7 @@ Azure-platform biedt een aantal PaaS-mogelijkheden die als extra waarde worden t
 | [VNet](../virtual-network/virtual-networks-overview.md) | Gedeeltelijk, het maakt beperkte toegang mogelijk met behulp van [VNet-eind punten](sql-database-vnet-service-endpoint-rule-overview.md) | Ja, beheerd exemplaar wordt geïnjecteerd in het VNet van de klant. Zie [subnet](sql-database-managed-instance-transact-sql-information.md#subnet) en [VNet](sql-database-managed-instance-transact-sql-information.md#vnet) |
 
 ## <a name="tools"></a>Hulpprogramma's
-Azure SQL database ondersteunt diverse hulp middelen voor gegevens die uou kunnen helpen bij het beheren van uw gegevens.
+Azure SQL database ondersteunt diverse hulp middelen voor gegevens die u kunnen helpen bij het beheren van uw gegevens.
 
 | **SQL-hulp programma** | **Afzonderlijke data bases en elastische Pools** | **Beheerde instanties** |
 | --- | --- | --- |

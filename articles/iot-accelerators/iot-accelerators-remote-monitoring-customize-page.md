@@ -1,6 +1,6 @@
 ---
-title: Een pagina toevoegen aan de oplossing voor externe controle UI - Azure | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u voor het toevoegen van een nieuwe pagina in de Remote Monitoring solution accelerator-Webgebruikersinterface.
+title: Een pagina toevoegen aan de gebruikers interface van de oplossing voor externe bewaking-Azure | Microsoft Docs
+description: In dit artikel leest u hoe u een nieuwe pagina kunt toevoegen aan de Web-UI van de oplossing voor externe bewaking.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,36 +8,36 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 95830cdffb232e16f9fbae51cfa11fbd18172c3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec0b9fbdfdb96317e1e7f6fe00384ba4f8c42bcc
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447077"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607950"
 ---
-# <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Een aangepaste pagina toevoegen aan de Remote Monitoring solution accelerator-Webgebruikersinterface
+# <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Een aangepaste pagina toevoegen aan de gebruikers interface van de oplossings versneller voor externe controle
 
-In dit artikel wordt beschreven hoe u voor het toevoegen van een nieuwe pagina in de Remote Monitoring solution accelerator-Webgebruikersinterface. Dit artikel wordt beschreven:
+In dit artikel leest u hoe u een nieuwe pagina kunt toevoegen aan de Web-UI van de oplossing voor externe bewaking. In het artikel worden de volgende informatie beschreven:
 
-- Klik hier voor meer informatie over het voorbereiden van een lokale ontwikkelingsomgeving.
-- Over het toevoegen van een nieuwe pagina aan de web-UI.
+- Het voorbereiden van een lokale ontwikkel omgeving.
+- Een nieuwe pagina toevoegen aan de Web-UI.
 
-Andere handleidingen uitbreiden in dit scenario voor het toevoegen van meer functies aan de pagina die u toevoegt.
+Andere hand leidingen kunnen dit scenario uitbreiden om meer functies toe te voegen aan de pagina die u toevoegt.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt de stappen in deze handleiding hebt voltooid, moet u de volgende software is geïnstalleerd op uw lokale ontwikkelcomputer:
+Als u de stappen in deze hand leiding wilt uitvoeren, moet u de volgende software op uw lokale ontwikkel computer installeren:
 
 - [Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
-## <a name="prepare-a-local-development-environment-for-the-ui"></a>Een lokale ontwikkelomgeving voorbereiden in de gebruikersinterface
+## <a name="prepare-a-local-development-environment-for-the-ui"></a>Een lokale ontwikkel omgeving voorbereiden voor de gebruikers interface
 
-De Remote Monitoring solution accelerator UI-code is geïmplementeerd met behulp van de [reageren](https://reactjs.org/) JavaScript-framework. U vindt de broncode in de [webinterface voor externe bewaking](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub-opslagplaats.
+De code van de gebruikers interface voor de externe controle oplossing [](https://reactjs.org/) wordt geïmplementeerd met het reagerende java script-Framework. U vindt de bron code in de WebUI github-opslag plaats voor [externe bewaking](https://github.com/Azure/pcs-remote-monitoring-webui) .
 
-Als u wilt maken en testen van wijzigingen in de gebruikersinterface, kunt u deze uitvoeren op uw lokale ontwikkelcomputer. (Optioneel) kunt de lokale kopie koppelen aan een geïmplementeerd exemplaar van de oplossingsversnellers zodat deze kan communiceren met uw apparaten echt of gesimuleerd.
+Als u wijzigingen in de gebruikers interface wilt aanbrengen en wilt testen, kunt u deze op uw lokale ontwikkel computer uitvoeren. De lokale kopie kan worden gebruikt om verbinding te maken met een geïmplementeerd exemplaar van de oplossings versneller, zodat deze kan communiceren met uw echte of gesimuleerde apparaten.
 
-Om voor te bereiden op uw lokale ontwikkelomgeving, gebruikt u Git kloon de [webinterface voor externe bewaking](https://github.com/Azure/pcs-remote-monitoring-webui) opslagplaats naar uw lokale computer:
+Als u uw lokale ontwikkel omgeving wilt voorbereiden, gebruikt u Git om de WebUI-opslag plaats voor [externe bewaking](https://github.com/Azure/pcs-remote-monitoring-webui) te klonen op uw lokale computer:
 
 ```cmd/sh
 git clone https://github.com/Azure/pcs-remote-monitoring-webui.git
@@ -45,11 +45,11 @@ git clone https://github.com/Azure/pcs-remote-monitoring-webui.git
 
 ## <a name="add-a-page"></a>Een pagina toevoegen
 
-Als u wilt een pagina toevoegen aan de web-UI, moet u de bronbestanden die definiëren van de pagina toevoegen en wijzigen van bestaande bestanden zodat de web-UI op de hoogte van de nieuwe pagina.
+Als u een pagina wilt toevoegen aan de webgebruikersinterface, moet u de bron bestanden toevoegen die de pagina definiëren en een aantal bestaande bestanden wijzigen om de webgebruikersinterface op de hoogte te stellen van de nieuwe pagina.
 
-### <a name="add-the-new-files-that-define-the-page"></a>De nieuwe bestanden die definiëren van de pagina toevoegen
+### <a name="add-the-new-files-that-define-the-page"></a>De nieuwe bestanden toevoegen waarmee de pagina wordt gedefinieerd
 
-Aan de slag te gaan, de **src/overzicht/onderdelen/pagina's / basicPage** map bevat vier bestanden die een eenvoudige pagina definiëren:
+Om aan de slag te gaan, bevat de map **src/walkthrough/onderdelen/pages/basicPage** vier bestanden die een eenvoudige pagina definiëren:
 
 **basicPage.container.js**
 
@@ -67,21 +67,21 @@ Aan de slag te gaan, de **src/overzicht/onderdelen/pagina's / basicPage** map be
 
 [!code-javascript[Test code for basic page](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.test.js?name=test "Test code for basic page")]
 
-Maak een nieuwe map **src/onderdelen/pagina's / voorbeeld** en kopieer deze vier bestanden naar het.
+Maak een nieuwe map **brondoc/onderdelen/pagina's/voor beeld** en kopieer deze vier bestanden hierin.
 
-### <a name="add-the-new-page-to-the-web-ui"></a>De nieuwe pagina toevoegen aan de web-UI
+### <a name="add-the-new-page-to-the-web-ui"></a>De nieuwe pagina toevoegen aan de Web-UI
 
-Als u wilt toevoegen de nieuwe pagina in de web-UI, moet u de volgende wijzigingen aanbrengen in bestaande bestanden:
+Als u de nieuwe pagina wilt toevoegen aan de Web-UI, moet u de volgende wijzigingen aanbrengen in bestaande bestanden:
 
-1. Toevoegen van de nieuwe pagina container naar de **src/components/pages/index.js** bestand:
+1. Voeg de nieuwe pagina container toe aan het bestand **src/Components/pages/index. js** :
 
     ```js
     export * from './example/basicPage.container';
     ```
 
-1. (Optioneel)  Een SVG-pictogram voor de nieuwe pagina toevoegen. Zie voor meer informatie, [webui/src/utilities/README.md](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/utilities/README.md). U kunt een bestaand SVG-bestand.
+1. Beschrijving  Voeg een SVG-pictogram toe voor de nieuwe pagina. Zie [webui/src/Utilities/README. MD](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/utilities/README.md)(Engelstalig) voor meer informatie. U kunt een bestaand SVG-bestand gebruiken.
 
-1. Naam van de pagina toevoegen aan het bestand vertalingen **public/locales/en/translations.json**. De web UI gebruikt [i18next](https://www.i18next.com/) voor verschillende talen.
+1. Voeg de pagina naam toe aan het Vertaal bestand, **open bare/land instellingen/en/of-vertalingen. json**. De Web-UI maakt gebruik van [i18next](https://www.i18next.com/) voor verschillende talen.
 
     ```json
     "tabs": {
@@ -89,7 +89,7 @@ Als u wilt toevoegen de nieuwe pagina in de web-UI, moet u de volgende wijziging
     },
     ```
 
-1. Open de **src/components/app.js** -bestand dat de pagina op het hoogste niveau toepassing definieert. De nieuwe pagina aan de lijst met imports toevoegen:
+1. Open het bestand **src/Components/app. js** waarmee de toepassings pagina op het hoogste niveau wordt gedefinieerd. Voeg de nieuwe pagina toe aan de lijst met import bewerkingen:
 
     ```javascript
     // Page Components
@@ -99,7 +99,7 @@ Als u wilt toevoegen de nieuwe pagina in de web-UI, moet u de volgende wijziging
     } from './pages';
     ```
 
-1. In hetzelfde bestand, de nieuwe pagina toevoegen aan de `pagesConfig` matrix. Stel de `to` adres voor de route, verwijzen naar het SVG-pictogram en de vertalingen eerder toegevoegd en stel de `component` naar de container van de pagina:
+1. Voeg in hetzelfde bestand de nieuwe pagina toe aan de `pagesConfig` matrix. Stel het `to` adres voor de route in, wijs het SVG-pictogram en de gemaakte vertalingen eerder toe `component` en stel de in op de container van de pagina:
 
     ```js
     const pagesConfig = [
@@ -115,7 +115,7 @@ Als u wilt toevoegen de nieuwe pagina in de web-UI, moet u de volgende wijziging
     ];
     ```
 
-1. Toevoegen van een nieuwe breadcrumbs om de `crumbsConfig` matrix:
+1. Voeg nieuwe brood kruimels toe aan `crumbsConfig` de matrix:
 
     ```js
     const crumbsConfig = [
@@ -129,58 +129,58 @@ Als u wilt toevoegen de nieuwe pagina in de web-UI, moet u de volgende wijziging
     ];
     ```
 
-    In dit voorbeeldpagina heeft slechts één breadcrumb, maar enkele pagina's mogelijk meer.
+    Deze voorbeeld pagina heeft slechts één brood kruimel, maar sommige pagina's hebben mogelijk meer.
 
-Sla al uw wijzigingen op. U bent gereed voor het uitvoeren van de web-UI met uw nieuwe pagina toegevoegd.
+Sla al uw wijzigingen op. U bent klaar om de Web-UI uit te voeren met de nieuwe pagina die is toegevoegd.
 
 ### <a name="test-the-new-page"></a>De nieuwe pagina testen
 
-Ga naar de hoofdmap van de lokale kopie van de opslagplaats bij een opdrachtprompt en voer de volgende opdrachten op de vereiste bibliotheken installeren en lokaal uitvoeren van de web-UI:
+Ga bij een opdracht prompt naar de hoofdmap van uw lokale exemplaar van de opslag plaats en voer de volgende opdrachten uit om de vereiste bibliotheken te installeren en de webgebruikersinterface lokaal uit te voeren:
 
 ```cmd/sh
 npm install
 npm start
 ```
 
-De vorige opdracht wordt uitgevoerd de Webinterface lokaal op [ http://localhost:3000/dashboard ](http://localhost:3000/dashboard).
+Met de vorige opdracht wordt de gebruikers interface [http://localhost:3000/dashboard](http://localhost:3000/dashboard)lokaal uitgevoerd op.
 
-Zonder verbinding met het maken van uw lokale exemplaar van de web-UI met een geïmplementeerd exemplaar van de oplossingsversnellers, kunt u fouten ziet op het dashboard. Deze fouten hebben geen invloed op uw mogelijkheid voor het testen van uw nieuwe pagina.
+Zonder dat u uw lokale exemplaar van de Web-UI verbindt met een geïmplementeerd exemplaar van de oplossings versneller, worden er fouten weer geven op het dash board. Deze fouten hebben geen invloed op de mogelijkheid om uw nieuwe pagina te testen.
 
-Nu kunt u de code bewerken terwijl de site lokaal wordt uitgevoerd en ziet de web UI dynamisch bijwerken.
+U kunt de code nu bewerken terwijl de site lokaal wordt uitgevoerd en de Web-UI-update dynamisch weer geven.
 
-## <a name="optional-connect-to-deployed-instance"></a>[Optioneel] Verbinding maken met geïmplementeerd exemplaar
+## <a name="optional-connect-to-deployed-instance"></a>Beschrijving Verbinding maken met het geïmplementeerde exemplaar
 
-Desgewenst kunt u uw lokale actieve kopie van de web-UI verbinding maken met de oplossingsverbetering voor externe controle in de cloud:
+U kunt eventueel uw lokale actieve kopie van de Web-UI koppelen aan de oplossings versneller voor externe controle in de Cloud:
 
-1. Implementeer een **basic** exemplaar van de solution accelerator met behulp van de **pc's** CLI. Noteer de naam van uw implementatie en de referenties die u hebt opgegeven voor de virtuele machine. Zie voor meer informatie, [implementeren met behulp van de CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
+1. Implementeer een **basis** exemplaar van de oplossings versneller met de **PCs** -cli. Noteer de naam van uw implementatie en de referenties die u hebt ingevoerd voor de virtuele machine. Zie [implementeren met de CLI](iot-accelerators-remote-monitoring-deploy-cli.md)voor meer informatie.
 
-1. Gebruik de Azure-portal of de [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) voor SSH-toegang tot de virtuele machine die als host fungeert voor de microservices in uw oplossing. Bijvoorbeeld:
+1. Gebruik de Azure Portal of [AZ cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) om SSH-toegang tot de virtuele machine in te scha kelen die als host fungeert voor de micro Services in uw oplossing. Bijvoorbeeld:
 
     ```sh
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    U moet alleen SSH-toegang inschakelen tijdens het testen en ontwikkeling. Als u SSH schakelt, [moet u dit opnieuw zo snel mogelijk uitschakelen](../security/azure-security-network-security-best-practices.md).
+    Schakel SSH-toegang alleen in tijdens testen en ontwikkeling. Als u SSH inschakelt, [moet u dit zo snel mogelijk weer uitschakelen](../security/fundamentals/network-best-practices.md).
 
-1. Gebruik de Azure-portal of de [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) om de naam en openbare IP-adres van uw virtuele machine te vinden. Bijvoorbeeld:
+1. Gebruik de Azure Portal of [AZ cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) om de naam en het open bare IP-adres van uw virtuele machine te vinden. Bijvoorbeeld:
 
     ```sh
     az resource list --resource-group {your solution name} -o table
     az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
     ```
 
-1. SSH gebruiken om te verbinden met uw virtuele machine met behulp van het IP-adres uit de vorige stap en de referenties die u hebt opgegeven toen u uitvoerde **pc's** om de oplossing te implementeren.
+1. Gebruik SSH om verbinding te maken met uw virtuele machine met behulp van het IP-adres uit de vorige stap en de referenties die u hebt ingevoerd tijdens het uitvoeren van **pc's** om de oplossing te implementeren.
 
-1. Als u wilt toestaan dat de lokale UX om verbinding te maken, moet u de volgende opdrachten uitvoeren in de bash-shell in de virtuele machine:
+1. Als u de lokale UX wilt toestaan verbinding te maken, voert u de volgende opdrachten uit in de bash-shell in de virtuele machine:
 
     ```sh
     cd /app
     sudo ./start.sh --unsafe
     ```
 
-1. Nadat u ziet de opdracht is voltooid en de website wordt gestart, kunt u de verbinding verbreken van de virtuele machine.
+1. Nadat de opdracht is voltooid en de website wordt gestart, kunt u de verbinding met de virtuele machine verbreken.
 
-1. In de lokale kopie van de [webinterface voor externe bewaking](https://github.com/Azure/pcs-remote-monitoring-webui) opslagplaats, bewerken de **.env** -bestand naar de URL van uw geïmplementeerde oplossing toevoegen:
+1. Bewerk in het lokale exemplaar van de WebUI-opslag plaats voor [externe bewaking](https://github.com/Azure/pcs-remote-monitoring-webui) het **. env** -bestand om de URL van uw geïmplementeerde oplossing toe te voegen:
 
     ```config
     NODE_PATH = src/
@@ -189,8 +189,8 @@ Desgewenst kunt u uw lokale actieve kopie van de web-UI verbinding maken met de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd over de resources beschikbaar voor het aanpassen van de web-UI in de oplossingsverbetering voor externe controle.
+In dit artikel hebt u geleerd over de resources die beschikbaar zijn om u te helpen bij het aanpassen van de webgebruikersinterface in de oplossings versneller voor externe controle.
 
-Nu u een pagina hebt gedefinieerd, wordt de volgende stap is het [een aangepaste service toevoegen aan de Remote Monitoring solution accelerator-Webgebruikersinterface](iot-accelerators-remote-monitoring-customize-service.md) waarmee gegevens om weer te geven in de gebruikersinterface worden opgehaald.
+Nu u een pagina hebt gedefinieerd, is de volgende stap het [toevoegen van een aangepaste service aan de Web-UI voor externe controle oplossing](iot-accelerators-remote-monitoring-customize-service.md) waarmee gegevens worden opgehaald die in de gebruikers interface worden weer gegeven.
 
-Zie voor meer informatie over de oplossingsverbetering voor externe controle [architectuur voor externe controle](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Zie [architectuur voor externe bewaking](iot-accelerators-remote-monitoring-sample-walkthrough.md)voor meer conceptuele informatie over de oplossings versneller voor externe controle.

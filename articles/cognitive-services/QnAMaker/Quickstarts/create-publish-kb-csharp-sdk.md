@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: QnA Maker-clientbibliotheek voor .NET'
-titlesuffix: Azure Cognitive Services
-description: Aan de slag met de QnA Maker-clientbibliotheek voor .NET. Volg deze stappen voor het pakket installeren en uit te proberen de voorbeeldcode voor eenvoudige taken.  Met QnA Maker kunt u een vraag- en antwoordservice maken op basis van uw semi-gestructureerde inhoud zoals FAQ-documenten, URL's en producthandleidingen.
+title: 'Quickstart: QnA Maker-client bibliotheek voor .NET'
+titleSuffix: Azure Cognitive Services
+description: Ga aan de slag met de QnA Maker-client bibliotheek voor .NET. Volg deze stappen om het pakket te installeren en de voorbeeld code voor basis taken uit te proberen.  Met QnA Maker kunt u een vraag- en antwoordservice maken op basis van uw semi-gestructureerde inhoud zoals FAQ-documenten, URL's en producthandleidingen.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,55 +10,55 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: f38cbfa0efd3b9be9ca091942dca7ffcd91b6019
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: af3de85cb2d32b4828a4641318f66f91c9254e24
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67828118"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563012"
 ---
-# <a name="quickstart-qna-maker-client-library-for-net"></a>Quickstart: QnA Maker-clientbibliotheek voor .NET
+# <a name="quickstart-qna-maker-client-library-for-net"></a>Quickstart: QnA Maker-client bibliotheek voor .NET
 
-Aan de slag met de QnA Maker-clientbibliotheek voor .NET. Volg deze stappen voor het pakket installeren en uit te proberen de voorbeeldcode voor eenvoudige taken.  Met QnA Maker kunt u een vraag- en antwoordservice maken op basis van uw semi-gestructureerde inhoud zoals FAQ-documenten, URL's en producthandleidingen. 
+Ga aan de slag met de QnA Maker-client bibliotheek voor .NET. Volg deze stappen om het pakket te installeren en de voorbeeld code voor basis taken uit te proberen.  Met QnA Maker kunt u een vraag- en antwoordservice maken op basis van uw semi-gestructureerde inhoud zoals FAQ-documenten, URL's en producthandleidingen. 
 
-De QnA Maker-clientbibliotheek voor .NET te gebruiken:
+Gebruik de QnA Maker-client bibliotheek voor .NET voor het volgende:
 
 * Een kennisdatabase maken 
-* Een kennisdatabase beheren
+* Een kennis database beheren
 * Een kennisdatabase publiceren
 
-[Referentiedocumentatie](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet) | [broncode clientbibliotheek](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [pakket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/)  |  [ C# voorbeelden](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)
+[](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet) | [NuGet-](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/)  |  voor[ beeldenC# ](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp) ([Source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | package) voor referentie documentatie
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Azure-abonnement: [maakt u er een gratis](https://azure.microsoft.com/free/)
-* De huidige versie van [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* Azure-abonnement: [Maak er gratis een](https://azure.microsoft.com/free/)
+* De huidige versie van [.net core](https://dotnet.microsoft.com/download/dotnet-core).
 
 ## <a name="setting-up"></a>Instellen
 
 ### <a name="create-a-qna-maker-azure-resource"></a>Een QnA Maker Azure-resource maken
 
-Azure Cognitive Services worden vertegenwoordigd door de Azure-resources die u zich abonneert op. Een resource maken voor QnA Maker met behulp van de [Azure-portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) of [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) op uw lokale computer. 
+Azure-Cognitive Services worden vertegenwoordigd door Azure-resources waarop u zich abonneert. Maak een resource voor QnA Maker met behulp van de [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) of [Azure cli](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) op uw lokale machine. 
 
-Nadat u een sleutel uit uw resource [maken van een omgevingsvariabele](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) voor de sleutel met de naam `QNAMAKER_SUBSCRIPTION_KEY`.
+Nadat u een sleutel van uw resource hebt opgehaald, [maakt u een omgevings variabele](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) voor `QNAMAKER_SUBSCRIPTION_KEY`de sleutel met de naam.
 
-### <a name="create-a-new-c-application"></a>Maak een nieuwe C# toepassing
+### <a name="create-a-new-c-application"></a>Een nieuwe C# toepassing maken
 
-Maak een nieuwe .NET Core-toepassing in de gewenste editor of IDE. 
+Maak een nieuwe .NET core-toepassing in uw voorkeurs editor of IDE. 
 
-In een consolevenster (zoals cmd, PowerShell of Bash), gebruikt u de dotnet `new` opdracht voor het maken van een nieuwe console-app met de naam van de `qna-maker-quickstart`. Deze opdracht maakt u een eenvoudige 'Hallo wereld" C# project met een één-bronbestand: `Program.cs`. 
+Gebruik in een console venster (zoals cmd, Power shell of bash) de opdracht DotNet `new` om een nieuwe console-app met de naam `qna-maker-quickstart`te maken. Met deze opdracht maakt u een eenvoudig ' C# Hallo wereld '-project met één bron `Program.cs`bestand:. 
 
 ```console
 dotnet new console -n qna-maker-quickstart
 ```
 
-Wijzig de directory naar de zojuist gemaakte app-map. U kunt de toepassing met het bouwen:
+Wijzig uw directory in de zojuist gemaakte app-map. U kunt de toepassing samen stellen met:
 
 ```console
 dotnet build
 ```
 
-Uitvoer van de build mag geen fouten of waarschuwingen worden gegenereerd. 
+De build-uitvoer mag geen waarschuwingen of fouten bevatten. 
 
 ```console
 ...
@@ -71,100 +71,100 @@ Build succeeded.
 
 ### <a name="install-the-sdk"></a>De SDK installeren
 
-In de toepassingsmap de QnA Maker-clientbibliotheek voor .NET te installeren met de volgende opdracht:
+Installeer de QnA Maker-client bibliotheek voor .NET in de toepassingsmap met de volgende opdracht:
 
 ```console
 dotnet add package Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker --version 1.0.0
 ```
 
-Als u de Visual Studio IDE, is de clientbibliotheek beschikbaar als een downloadbare NuGet-pakket.
+Als u de Visual Studio IDE gebruikt, is de client bibliotheek beschikbaar als een downloadbaar NuGet-pakket.
 
 
-## <a name="object-model"></a>Objectmodel
+## <a name="object-model"></a>Object model
 
-De QnA Maker-client is een [QnAMakerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-dotnet) -object dat wordt geverifieerd bij Azure met behulp van Microsoft.Rest.ServiceClientCredentials, dat de sleutel bevat.
+De QnA Maker-client is een [QnAMakerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-dotnet) -object dat wordt geverifieerd bij Azure met behulp van micro soft. rest. ServiceClientCredentials, dat uw sleutel bevat.
 
-Nadat de client is gemaakt, gebruikt u de [Knowledge base](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient.knowledgebase?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_QnAMakerClient_Knowledgebase) eigenschap maken, beheren en publiceren van uw knowledge base. 
+Nadat de client is gemaakt, gebruikt u de [Knowledge Base](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient.knowledgebase?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_QnAMakerClient_Knowledgebase) -eigenschap uw kennis database maken, beheren en publiceren. 
 
-Uw knowledge base beheren met het verzenden van een JSON-object. Voor directe bewerkingen retourneert een methode doorgaans een JSON-object die status aangeeft. Voor langlopende bewerkingen is het antwoord de bewerking-ID. Roep de [client. Operations.GetDetailsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.operationsextensions.getdetailsasync?view=azure-dotnet) methode met de bewerkings-ID om te bepalen de [status van de aanvraag](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.operationstatetype?view=azure-dotnet). 
+Uw Knowledge Base beheren door een JSON-object te verzenden. Voor directe bewerkingen retourneert een methode meestal een JSON-object dat de status aangeeft. Voor langlopende bewerkingen is het antwoord de bewerkings-ID. Roep de [client aan. Methode Operations. GetDetailsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.operationsextensions.getdetailsasync?view=azure-dotnet) met de bewerkings-id om de [status van de aanvraag](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.operationstatetype?view=azure-dotnet)te bepalen. 
 
  
-## <a name="code-examples"></a>Voorbeelden van code
+## <a name="code-examples"></a>Code voorbeelden
 
-Deze codefragmenten laten zien hoe u het volgende doen met de QnA Maker-clientbibliotheek voor .NET:
+Deze code fragmenten laten zien hoe u het volgende kunt doen met de QnA Maker-client bibliotheek voor .NET:
 
 * [Een kennisdatabase maken](#create-a-knowledge-base)
 * [Een kennisdatabase bijwerken](#update-a-knowledge-base)
-* [Een kennisdatabase downloaden](#download-a-knowledge-base)
+* [Een Knowledge base downloaden](#download-a-knowledge-base)
 * [Een kennisdatabase publiceren](#publish-a-knowledge-base)
-* [Een kennisdatabase verwijderen](#delete-a-knowledge-base)
+* [Een Knowledge Base verwijderen](#delete-a-knowledge-base)
 * [Status van een bewerking ophalen](#get-status-of-an-operation)
 
 ## <a name="add-the-dependencies"></a>De afhankelijkheden toevoegen
 
-Open in de projectmap, de **Program.cs** -bestand in de gewenste editor of IDE. Vervang de bestaande `using` code met de volgende `using` richtlijnen:
+Open het **Program.cs** -bestand in de map van het project in uw voorkeurs editor of IDE. Vervang de bestaande `using` code door de volgende `using` instructies:
 
 [!code-csharp[Using statements](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Dependencies)]
 
-## <a name="authenticate-the-client"></a>Verifiëren van de client
+## <a name="authenticate-the-client"></a>De client verifiëren
 
-In de **belangrijkste** methode, maak een variabele voor de Azure sleutel van uw resource opgehaald uit een omgevingsvariabele met de naam `QNAMAKER_SUBSCRIPTION_KEY`. Als u de omgevingsvariabele gemaakt nadat de toepassing wordt gestart, moet de editor, IDE of shell die wordt uitgevoerd om te worden gesloten en opnieuw geladen voor toegang tot de variabele. De methoden wordt later opnieuw worden gemaakt.
+Maak in de methode **Main** een variabele voor de Azure-sleutel van uw resource die wordt opgehaald uit een `QNAMAKER_SUBSCRIPTION_KEY`omgevings variabele met de naam. Als u de omgevings variabele hebt gemaakt nadat de toepassing is gestart, moet de editor, IDE of shell die deze uitvoert, worden gesloten en opnieuw worden geladen om toegang te krijgen tot de variabele. De methoden worden later gemaakt.
 
-Maak vervolgens een [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.apikeyserviceclientcredentials?view=azure-dotnet) object met de sleutel, en deze gebruiken met uw eindpunt te maken van een [QnAMakerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-dotnet) object.
+Maak vervolgens een [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.apikeyserviceclientcredentials?view=azure-dotnet) -object met uw sleutel en gebruik dit met uw eind punt om een [QnAMakerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-dotnet) -object te maken.
 
-Als de sleutel niet in de `westus` regio, als deze voorbeeldcode bevat, wijzigt u de locatie voor de **eindpunt** variabele. Deze locatie is gevonden op de **overzicht** -pagina voor uw QnA Maker-resource in Azure portal.
+Als uw sleutel zich niet in de `westus` regio bevindt, zoals in deze voorbeeld code wordt weer gegeven, wijzigt u de locatie voor de **eindpunt** variabele. Deze locatie is te vinden op  de overzichts pagina voor uw QnA Maker-resource in de Azure Portal.
 
 [!code-csharp[Authorization to resource key](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Authorization)]
 
 ## <a name="create-a-knowledge-base"></a>Een kennisdatabase maken
 
-Een kennisdatabase slaat paren van vragen en antwoorden voor de [CreateKbDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.createkbdto?view=azure-dotnet) object op basis van drie bronnen:
+In een Knowledge Base worden vraag-en antwoord paren voor het [CreateKbDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.createkbdto?view=azure-dotnet) -object uit drie bronnen opgeslagen:
 
-* Voor **redactionele inhoud**, gebruikt u de [QnADTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.qnadto?view=azure-dotnet) object.
-* Voor **bestanden**, gebruikt u de [FileDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.filedto?view=azure-dotnet) object. 
-* Voor **URL's**, gebruikt u een lijst met tekenreeksen.
+* Gebruik het [QnADTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.qnadto?view=azure-dotnet) -object voor **redactionele inhoud**.
+* Voor **bestanden**gebruikt u het [FileDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.filedto?view=azure-dotnet) -object. 
+* Gebruik voor **url's**een lijst met teken reeksen.
 
-Bel de [CreateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.createasync?view=azure-dotnet) methode geeft u de geretourneerde bewerkings-ID aan de [MonitorOperation](#get-status-of-an-operation) methode om te pollen voor status. 
+Roep de [CreateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.createasync?view=azure-dotnet) -methode aan en geef vervolgens de geretourneerde bewerkings-id door aan de methode [MonitorOperation](#get-status-of-an-operation) om de status te controleren. 
 
-De laatste regel van de volgende code retourneert de knowledge base-ID van het antwoord van MonitorOoperation. 
+De laatste regel van de volgende code retourneert de Knowledge Base-ID uit het antwoord van MonitorOoperation. 
 
 [!code-csharp[Create a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=CreateKB&highlight=29,30)]
 
 ## <a name="update-a-knowledge-base"></a>Een kennisdatabase bijwerken
 
-U kunt een kennisdatabase bijwerken door te geven in het knowledge base-ID en een [UpdatekbOperationDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdto?view=azure-dotnet) met [toevoegen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoadd?view=azure-dotnet), [bijwerken](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoupdate?view=azure-dotnet), en [verwijderen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtodelete?view=azure-dotnet)DTO objecten naar de [UpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.updateasync?view=azure-dotnet) methode. Gebruik de [MonitorOperation](#get-status-of-an-operation) methode om te bepalen als de update is voltooid.
+U kunt een Knowledge Base bijwerken door door te geven in de Knowledge Base-ID en een [UpdatekbOperationDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdto?view=azure-dotnet) met DTO-objecten [toevoegen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoadd?view=azure-dotnet), [bijwerken](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoupdate?view=azure-dotnet)en [verwijderen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtodelete?view=azure-dotnet) voor de [UpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.updateasync?view=azure-dotnet) -methode. Gebruik de methode [MonitorOperation](#get-status-of-an-operation) om te bepalen of de update is geslaagd.
 
 [!code-csharp[Update a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=UpdateKB&highlight=4,13)]
 
-## <a name="download-a-knowledge-base"></a>Een kennisdatabase downloaden
+## <a name="download-a-knowledge-base"></a>Een Knowledge base downloaden
 
-Gebruik de [DownloadAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.downloadasync?view=azure-dotnet) methode voor het downloaden van de database als een lijst met [QnADocumentsDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.qnadocumentsdto?view=azure-dotnet). Dit is _niet_ gelijk is aan de QnA Maker-portal-export uit de **instellingen** pagina omdat het resultaat van deze methode niet een TSV-bestand is.
+Gebruik de methode [DownloadAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.downloadasync?view=azure-dotnet) om de data base te downloaden als een lijst met [QnADocumentsDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.qnadocumentsdto?view=azure-dotnet). Dit is _niet_ gelijk aan de export van de QnA Maker portal vanaf de pagina **instellingen** omdat het resultaat van deze methode geen TSV-bestand is.
 
 [!code-csharp[Download a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=DownloadKB&highlight=2)]
 
 ## <a name="publish-a-knowledge-base"></a>Een kennisdatabase publiceren
 
-Publiceer de knowledge base met behulp van de [PublishAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.publishasync?view=azure-dotnet) methode. Dit duurt het huidige opgeslagen en het getrainde model, waarnaar wordt verwezen door de knowledge base-ID, en die op een eindpunt publiceert. 
+Publiceer de Knowledge Base met behulp van de methode [PublishAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.publishasync?view=azure-dotnet) . Dit maakt het huidige opgeslagen en getrainde model, waarnaar wordt verwezen door de Knowledge Base-ID en publiceert die op een eind punt. 
 
 [!code-csharp[Publish a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=PublishKB&highlight=2)]
 
 ## <a name="delete-a-knowledge-base"></a>Een knowledge base verwijderen
 
-Verwijderen van de knowledge base met behulp van de [DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.deleteasync?view=azure-dotnet) methode met een parameter van de knowledge base-ID. 
+Verwijder de Knowledge Base met behulp van de methode [DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.deleteasync?view=azure-dotnet) met een para meter van de Knowledge Base-id. 
 
 [!code-csharp[Delete a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=DeleteKB&highlight=2)]
 
 ## <a name="get-status-of-an-operation"></a>Status van een bewerking ophalen
 
-Sommige methoden, zoals maken en bijwerken, kan duren voordat voldoende tijd die niet afhankelijk van het proces is voltooid, een [bewerking](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.operation?view=azure-dotnet) wordt geretourneerd. Gebruik de [bewerkings-ID](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.operation.operationid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Models_Operation_OperationId) van de bewerking voor het pollen (met de logica voor opnieuw proberen) om de status van de oorspronkelijke methode te bepalen. 
+Sommige methoden, zoals maken en bijwerken, kunnen voldoende tijd in beslag nemen, in plaats van te wachten tot het proces is voltooid, een [bewerking](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.operation?view=azure-dotnet) wordt geretourneerd. Gebruik de [bewerkings-id](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.operation.operationid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Models_Operation_OperationId) van de bewerking om te pollen (met pogings logica) om de status van de oorspronkelijke methode te bepalen. 
 
-De _lus_ en _Task.Delay_ in het volgende codeblok worden gebruikt voor het simuleren van logica voor opnieuw proberen. Deze moeten worden vervangen door uw eigen logica voor opnieuw proberen. 
+De _lus_ en _taak. delay_ in het volgende code blok worden gebruikt voor het simuleren van de logica voor opnieuw proberen. Deze moeten worden vervangen door uw eigen logica voor nieuwe pogingen. 
 
 [!code-csharp[Monitor an operation](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=MonitorOperation&highlight=10)]
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
-Voer de toepassing uit met de dotnet `run` opdracht uit vanaf de toepassingsmap.
+Voer de toepassing uit met de `run` opdracht DotNet in de map van de toepassing.
 
 ```dotnet
 dotnet run
@@ -172,7 +172,7 @@ dotnet run
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u wilt wissen en verwijderen van een Cognitive Services-abonnement, kunt u de resource of resourcegroep verwijderen. Als u de resourcegroep, verwijdert u ook alle andere resources die ermee verbonden zijn.
+Als u een Cognitive Services-abonnement wilt opschonen en verwijderen, kunt u de resource of resource groep verwijderen. Als u de resource groep verwijdert, worden ook alle bijbehorende resources verwijderd.
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure-CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
@@ -180,9 +180,9 @@ Als u wilt wissen en verwijderen van een Cognitive Services-abonnement, kunt u d
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
->[Zelfstudie: Maken en een KB beantwoorden](../tutorials/create-publish-query-in-portal.md)
+>[Zelfstudie: Een KB maken en beantwoorden](../tutorials/create-publish-query-in-portal.md)
 
 * [Wat is de QnA Maker-API?](../Overview/overview.md)
 * [Een kennisdatabase bewerken](../how-to/edit-knowledge-base.md)
-* [Gebruiksanalyse ophalen](../how-to/get-analytics-knowledge-base.md)
+* [Gebruiks analyse ophalen](../how-to/get-analytics-knowledge-base.md)
 * De broncode voor dit voorbeeld is te vinden op [GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs).

@@ -1,6 +1,6 @@
 ---
-title: Integratie van Azure ExpressRoute met herstel na noodgevallen voor Azure VM's met behulp van de Azure Site Recovery-service | Microsoft Docs
-description: Hierin wordt beschreven hoe u herstel na noodgevallen instelt voor virtuele Azure-machines met behulp van Azure Site Recovery en Azure ExpressRoute
+title: Azure ExpressRoute integreren met herstel na nood gevallen voor Azure Vm's met behulp van de Azure Site Recovery-service | Microsoft Docs
+description: Hierin wordt beschreven hoe u herstel na nood gevallen instelt voor Azure-Vm's met behulp van Azure Site Recovery en Azure ExpressRoute
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
@@ -8,213 +8,213 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0974e2ed78e557168357c51b5c77a94de2f56dc5
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772379"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722105"
 ---
-# <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integratie van Azure ExpressRoute met herstel na noodgevallen voor Azure VM 's
+# <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure ExpressRoute integreren met nood herstel voor Azure-Vm's
 
 
-Dit artikel wordt beschreven hoe u Azure ExpressRoute met integreert [Azure Site Recovery](site-recovery-overview.md), bij het instellen van herstel na noodgevallen voor Azure VM's naar een secundaire Azure-regio.
+In dit artikel wordt beschreven hoe u Azure ExpressRoute integreert met [Azure site Recovery](site-recovery-overview.md), wanneer u herstel na nood geval instelt voor Azure-vm's naar een secundaire Azure-regio.
 
-Site Recovery maakt herstel na noodgeval voor virtuele Azure-machines door Azure VM-gegevens te repliceren naar Azure.
+Met Site Recovery kunnen Azure-Vm's in nood gevallen worden hersteld door Azure VM-gegevens te repliceren naar Azure.
 
-- Als Azure-VM's met [Azure beheerde schijven](../virtual-machines/windows/managed-disks-overview.md), VM-gegevens worden gerepliceerd naar een gerepliceerde beheerde schijf in de secundaire regio.
-- Als Azure virtuele machines geen beheerde schijven gebruiken, wordt de VM-gegevens gerepliceerd naar Azure storage-account.
-- Replicatie-eindpunten openbaar zijn, maar niet via het internet gaat replicatieverkeer voor Azure VM's.
+- Als Azure-Vm's [Azure Managed disks](../virtual-machines/windows/managed-disks-overview.md)gebruiken, worden VM-gegevens gerepliceerd naar een gerepliceerde beheerde schijf in de secundaire regio.
+- Als Azure-Vm's geen beheerde schijven gebruiken, worden VM-gegevens gerepliceerd naar een Azure-opslag account.
+- Replicatie-eind punten zijn openbaar, maar het replicatie verkeer voor Azure-Vm's heeft geen betrekking op internet.
 
-ExpressRoute kunt u on-premises netwerken in de Microsoft Azure-cloud uitbreiden via een persoonlijke verbinding, die wordt gefaciliteerd door een connectiviteitsprovider. Als u ExpressRoute geconfigureerd hebt, deze kan worden geïntegreerd met Site Recovery als volgt:
+Met ExpressRoute kunt u on-premises netwerken uitbreiden naar de Microsoft Azure Cloud via een particuliere verbinding, waardoor een connectiviteits provider wordt vergemakkelijkt. Als u ExpressRoute hebt geconfigureerd, wordt dit met Site Recovery als volgt geïntegreerd:
 
-- **Tijdens de replicatie tussen Azure-regio's**: Replicatieverkeer voor noodherstel van Azure-VM is alleen in Azure, en ExpressRoute niet nodig is of wordt gebruikt voor replicatie. Als u verbinding vanaf een on-premises site naar de Azure VM's in de primaire site voor Azure maakt, zijn er echter een aantal problemen rekening mee moet houden wanneer u van herstel na noodgevallen voor deze virtuele machines van Azure instellen bent.
-- **Failover tussen Azure-regio's**: Als er uitval optreedt, schakelt u over Azure-VM's van de primaire naar secundaire Azure-regio. Na de failover wordt uitgevoerd naar een secundaire regio zijn er een aantal stappen doen om toegang te krijgen tot de Azure VM's in de secundaire regio met behulp van ExpressRoute.
+- **Tijdens de replicatie tussen Azure-regio's**: Replicatie verkeer voor Azure VM-nood herstel is alleen binnen Azure en ExpressRoute is niet nodig of wordt niet gebruikt voor replicatie. Als u echter verbinding maakt vanaf een on-premises site naar de Azure-Vm's in de primaire Azure-site, zijn er een aantal problemen waarvan u rekening moet houden wanneer u herstel na nood gevallen instelt voor die virtuele Azure-machines.
+- **Failover tussen Azure-regio's**: Als er storingen optreden, voert u een failover uit van de Azure-Vm's van de primaire naar de secundaire Azure-regio. Na een failover naar een secundaire regio, zijn er een aantal stappen die u moet uitvoeren om toegang te krijgen tot de virtuele Azure-machines in de secundaire regio met behulp van ExpressRoute.
 
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Voordat u begint, zorg ervoor dat de volgende concepten:
+Voordat u begint, moet u de volgende concepten begrijpen:
 
-- ExpressRoute [circuits](../expressroute/expressroute-circuit-peerings.md)
-- ExpressRoute [Routeringsdomeinen](../expressroute/expressroute-circuit-peerings.md#routingdomains)
+- ExpressRoute [](../expressroute/expressroute-circuit-peerings.md) -circuits
+- ExpressRoute- [routerings domeinen](../expressroute/expressroute-circuit-peerings.md#routingdomains)
 - ExpressRoute [locaties](../expressroute/expressroute-locations.md).
-- Azure-VM [-replicatiearchitectuur](azure-to-azure-architecture.md)
-- Hoe u [instellen van replicatie](azure-to-azure-tutorial-enable-replication.md) voor virtuele Azure-machines.
-- Hoe u [failover](azure-to-azure-tutorial-failover-failback.md) virtuele Azure-machines.
+- Azure VM- [replicatie architectuur](azure-to-azure-architecture.md)
+- [Replicatie instellen](azure-to-azure-tutorial-enable-replication.md) voor virtuele Azure-machines.
+- Over het [uitvoeren](azure-to-azure-tutorial-failover-failback.md) van een failover voor virtuele Azure-machines.
 
 
 ## <a name="general-recommendations"></a>Algemene aanbevelingen
 
-Voor de beste praktijken, en om ervoor te zorgen efficiënte Recovery Time Objectives (RTO's) voor herstel na noodgevallen, raden we dat u het volgende doen bij het instellen van Site Recovery om te integreren met ExpressRoute:
+Voor best practice en om te zorgen voor efficiënte herstel tijd doel stellingen (Rto's) voor herstel na nood gevallen, raden we u aan het volgende te doen wanneer u Site Recovery instelt om te integreren met ExpressRoute:
 
-- Netwerkonderdelen voordat de failover naar een secundaire regio inrichten:
-    - Wanneer u replicatie voor virtuele Azure-machines inschakelt, kunnen netwerkresources zoals netwerken, subnetten en gateways in de Azure-doelregio, afhankelijk van instellingen voor gegevensbron netwerk automatisch door Site Recovery implementeren.
-    - Site Recovery instellen niet automatisch van netwerkresources, zoals de VNet-gateways.
-    - U wordt aangeraden dat u deze extra netwerkresources voordat de failover wordt inrichten. Een kleine uitvaltijd is gekoppeld aan deze implementatie en het kan gevolgen hebben voor de algehele hersteltijd, als u niet hebt voor het account tijdens het plannen van de implementatie.
-- Reguliere noodhersteloefeningen uitvoeren:
-    - Een analyse valideert uw replicatiestrategie zonder gegevensverlies of uitvaltijd, en is niet van invloed op uw productieomgeving. Het helpt te voorkomen dat de laatste minuut configuratieproblemen die nadelige gevolgen van RTO hebben kunnen.
-    - Wanneer u een testfailover uitvoeren voor de analyse uitgevoerd, raden wij aan dat u een afzonderlijke Azure-VM-netwerk, in plaats van het standaardnetwerk dat ingesteld wanneer u replicatie inschakelt.
-- Gebruik verschillende IP-adresruimten als er een enkel ExpressRoute-circuit.
-    - U wordt aangeraden dat u een ander IP-adresruimte voor het virtuele netwerk gebruiken. Hiermee voorkomt u problemen bij het maken van verbindingen tijdens een regionale onderbreking.
-    - Als u niet een afzonderlijke adresruimte gebruiken, zorg er dan voor dat het uitvoeren van de testfailover disaster recovery Inzoomen op een afzonderlijke testnetwerk met verschillende IP-adressen. U kunt geen twee VNets verbinden met overlappende IP-adresruimte aan hetzelfde ExpressRoute-circuit.
+- Netwerk onderdelen inrichten vóór een failover naar een secundaire regio:
+    - Wanneer u replicatie voor virtuele Azure-machines inschakelt, kan Site Recovery netwerk bronnen, zoals netwerken, subnetten en gateways, automatisch implementeren in de Azure-doel regio, op basis van de instellingen van het bron netwerk.
+    - Site Recovery kan geen netwerk bronnen, zoals VNet-gateways, automatisch instellen.
+    - U wordt aangeraden deze extra netwerk bronnen in te richten vóór de failover. Een kleine uitval tijd is gekoppeld aan deze implementatie en kan van invloed zijn op de totale herstel tijd, als u deze niet hebt gezien tijdens de implementatie planning.
+- Normale nood herstel oefeningen uitvoeren:
+    - Een analyse valideert uw replicatiestrategie zonder gegevensverlies of uitvaltijd, en is niet van invloed op uw productieomgeving. Het helpt bij het voor komen van problemen met de configuratie van het laatste moment dat de RTO nadelig kan beïnvloeden.
+    - Wanneer u een testfailover voor de analyse uitvoert, raden we u aan om een afzonderlijk Azure VM-netwerk te gebruiken in plaats van het standaard netwerk dat wordt ingesteld wanneer u replicatie inschakelt.
+- Gebruik verschillende IP-adres ruimten als u een enkel ExpressRoute-circuit hebt.
+    - U wordt aangeraden een andere IP-adres ruimte te gebruiken voor het virtuele netwerk van het doel. Dit voor komt problemen bij het tot stand brengen van verbindingen tijdens regionale storingen.
+    - Als u geen afzonderlijke adres ruimte kunt gebruiken, moet u ervoor zorgen dat u de testfailover voor herstel na nood gevallen uitvoert op een afzonderlijk test netwerk met verschillende IP-adressen. U kunt niet twee VNets koppelen met overlappende IP-adres ruimte aan hetzelfde ExpressRoute-circuit.
 
-## <a name="replicate-azure-vms-when-using-expressroute"></a>Virtuele Azure-machines repliceren bij het gebruik van ExpressRoute
+## <a name="replicate-azure-vms-when-using-expressroute"></a>Virtuele Azure-machines repliceren wanneer u ExpressRoute gebruikt
 
 
-Als u wilt instellen van replicatie voor virtuele Azure-machines in een primaire site en u verbinding met deze VM's van uw on-premises site via ExpressRoute maakt, is dit wat u moet doen:
+Als u replicatie wilt instellen voor virtuele Azure-machines in een primaire site en u vanaf uw on-premises site via ExpressRoute verbinding maakt met deze virtuele machines, kunt u het volgende doen:
 
-1. [Replicatie inschakelen](azure-to-azure-tutorial-enable-replication.md) voor elke Azure-VM.
-2. Eventueel kunt instellen Site Recovery netwerken:
-    - Wanneer u configureren en inschakelen van replicatie, stelt Site Recovery u netwerken, subnetten en gateway-subnetten in de doel-Azure-regio, zodat deze overeenkomen met die in de bronregio. Site Recovery wordt ook aangegeven tussen de bron- en virtuele netwerken.
-    - Als u niet dat Site Recovery om dit te doen automatisch wilt, de doelzijde netwerkresources maken voordat u replicatie inschakelt.
-3. Andere netwerkelementen maken:
-    - Site Recovery maakt geen routetabellen, VNet-gateways, verbindingen voor VNet-gateway, VNet-peering, of andere netwerken resources en -verbindingen in de secundaire regio.
-    - U moet maken van deze extra Netwerkelementen in de secundaire regio, elk gewenst moment voordat u een failover uitvoert van de primaire regio.
-    - U kunt [herstelplannen](site-recovery-create-recovery-plans.md) en netwerkresources automatiseringsscripts instellen en deze verbinding te maken.
-1. Als u een virtueel netwerkapparaat (NVA hebt) geïmplementeerd voor het beheren van de stroom van het netwerkverkeer, houd er rekening mee dat:
-    - Azure standaardroute systeem voor Azure VM-replicatie is 0.0.0.0/0.
-    - Normaal gesproken definiëren NVA implementaties ook een standaardroute (0.0.0.0/0) die ervoor zorgt uitgaand internetverkeer dat naar flow via het NVA. De standaardroute wordt gebruikt wanneer er geen andere specifieke route-configuratie kan worden gevonden.
-    - Als dit het geval is, is de NVA mogelijk overbelast als alle replicatieverkeer wordt doorgegeven via de NVA.
-    - Deze beperking geldt ook wanneer standaardroutes voor de routering van verkeer van alle virtuele machine van Azure naar on-premises implementaties.
-    - In dit scenario raden wij aan dat u [maken van een service-eindpunt van het netwerk](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) in uw virtuele netwerk voor de Microsoft.Storage-service, zodat het replicatieverkeer niet Azure grens achterlaten.
+1. [Schakel replicatie in](azure-to-azure-tutorial-enable-replication.md) voor elke virtuele machine van Azure.
+2. U kunt eventueel Site Recovery netwerk instellen:
+    - Wanneer u replicatie configureert en inschakelt, worden in Site Recovery netwerken, subnetten en gateway-subnetten in de Azure-doel regio ingesteld, zodat deze overeenkomen met die in de bron regio. Site Recovery is ook gekoppeld tussen de bron-en doel-virtuele netwerken.
+    - Als u Site Recovery dit niet automatisch wilt doen, maakt u de netwerk resources aan de doel zijde voordat u replicatie inschakelt.
+3. Andere netwerk elementen maken:
+    - Site Recovery maakt geen route tabellen, VNet-gateways, vnet-gateway verbindingen, VNet-peering of andere netwerk bronnen en verbindingen in de secundaire regio.
+    - U moet deze extra netwerk elementen in de secundaire regio maken, telkens voordat u een failover uitvoert vanuit de primaire regio.
+    - U kunt [herstel plannen](site-recovery-create-recovery-plans.md) en automatiserings scripts gebruiken om deze netwerk bronnen in te stellen en te verbinden.
+1. Als u een virtueel netwerk apparaat (NVA) hebt geïmplementeerd om de stroom van het netwerk verkeer te beheren, moet u rekening houden met het volgende:
+    - De standaard systeem route van Azure voor Azure VM-replicatie is 0.0.0.0/0.
+    - In NVA-implementaties wordt meestal ook een standaard route (0.0.0.0/0) gedefinieerd waarmee uitgaand Internet verkeer wordt afgedwongen door de NVA. De standaard route wordt gebruikt wanneer er geen andere specifieke route configuratie kan worden gevonden.
+    - Als dit het geval is, kan de NVA overbelast zijn als alle replicatie verkeer via de NVA wordt door gegeven.
+    - Deze beperking geldt ook wanneer standaard routes worden gebruikt voor het routeren van alle Azure VM-verkeer naar on-premises implementaties.
+    - In dit scenario wordt u aangeraden [een netwerk service-eind punt](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) in uw virtuele netwerk te maken voor de service micro soft. Storage, zodat het replicatie verkeer Azure-grens niet verlaat.
 
-## <a name="replication-example"></a>Voorbeeld van de replicatie
+## <a name="replication-example"></a>Voor beeld van replicatie
 
-Enterprise-implementaties hebben meestal verdeeld over meerdere Azure VNets, met een hub centrale connectiviteit voor externe verbinding met internet en sites die on-premises workloads. Een hub en spoke-topologie wordt meestal gebruikt samen met ExpressRoute.
+Bedrijfs implementaties hebben doorgaans werk belastingen gesplitst over meerdere Azure-VNets, met een centrale connectiviteit hub voor externe verbinding met internet en op on-premises sites. Een hub-en-spoke-topologie wordt doorgaans gebruikt in combi natie met ExpressRoute.
 
-![On-premises-to-Azure met ExpressRoute voordat de failover](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
+![On-premises-naar-Azure met ExpressRoute vóór een failover](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
 
-- **Regio**. Apps zijn geïmplementeerd in de regio Oost-Azië van Azure.
-- **Knooppunt vNets**. Apps worden geïmplementeerd in twee spoke-vNets:
+- **Regio**. Apps worden geïmplementeerd in de Azure Azië-oost-regio.
+- **Spoke vNets**. Apps worden geïmplementeerd in twee spoke-vNets:
     - **Bron vNet1**: 10.1.0.0/24.
     - **Bron vNet2**: 10.2.0.0/24.
-    - Elk knooppunt virtueel netwerk is verbonden met **Hub vNet**.
-- **Hub vNet**. Er is een hub vNet **bron Hub vNet**: 10.10.10.0/24.
-  - Dit vNet hub fungeert als de gatekeeper.
-  - Alle communicatie tussen subnetten zijn doorlopen van deze hub.
-    - **Hub vNet subnetten**. De hub vNet heeft twee subnetten:
+    - Elk spoke-virtueel netwerk is verbonden met de **hub vNet**.
+- **Hub-vNet**. Er is een hub vNet- **bron-hub vnet**: 10.10.10.0/24.
+  - Dit hub vNet fungeert als gate keeper.
+  - Alle communicaties tussen subnetten passeren deze hub.
+    - **Hub vNet**-subnetten. De hub vNet heeft twee subnetten:
     - **NVA-subnet**: 10.10.10.0/25. Dit subnet bevat een NVA (10.10.10.10).
-    - **Gatewaysubnet**: 10.10.10.128/25. Dit subnet bevat een ExpressRoute-gateway verbonden met een ExpressRoute-verbinding die u routes naar de on-premises site via een persoonlijke peering routeringsdomein.
+    - **Gatewaysubnet**: 10.10.10.128/25. Dit subnet bevat een ExpressRoute-gateway die is verbonden met een ExpressRoute-verbinding die naar de on-premises site verzendt via een particulier routerings domein.
 - Het on-premises datacenter heeft een ExpressRoute-circuit-verbinding via een partner edge in Hong Kong SAR.
-- Alle routering wordt geregeld via de Azure-routetabellen (UDR).
-- Al het uitgaande verkeer tussen vNets of het on-premises datacenter wordt doorgestuurd via de NVA.
+- Alle route ring wordt geregeld via Azure route Tables (UDR).
+- Al het uitgaande verkeer tussen vNets of het on-premises Data Center wordt doorgestuurd via de NVA.
 
-### <a name="hub-and-spoke-peering-settings"></a>Hub en spoke-instellingen voor peering
+### <a name="hub-and-spoke-peering-settings"></a>Instellingen voor hub en spoke-peering
 
 #### <a name="spoke-to-hub"></a>Spoke naar hub
 
-**Richting** | **Instelling** | **status**
+**Richting** | **Instelling** | **Overheids**
 --- | --- | ---
-Spoke naar hub | Adres van het virtuele netwerk toestaan | Enabled
+Spoke naar hub | Virtueel netwerk adres toestaan | Enabled
 Spoke naar hub | Doorgestuurd verkeer toestaan | Enabled
 Spoke naar hub | Gatewayoverdracht toestaan | Uitgeschakeld
-Spoke naar hub | Remove-gateways gebruiken | Enabled
+Spoke naar hub | Gateways verwijderen gebruiken | Enabled
 
- ![Knooppunt naar hub peering-configuratie](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
+ ![Configuratie van spoke to hub-peering](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
 #### <a name="hub-to-spoke"></a>Hub naar spoke
 
-**Richting** | **Instelling** | **status**
+**Richting** | **Instelling** | **Overheids**
 --- | --- | ---
-Hub naar spoke | Adres van het virtuele netwerk toestaan | Enabled
+Hub naar spoke | Virtueel netwerk adres toestaan | Enabled
 Hub naar spoke | Doorgestuurd verkeer toestaan | Enabled
 Hub naar spoke | Gatewayoverdracht toestaan | Enabled
-Hub naar spoke | Remove-gateways gebruiken | Uitgeschakeld
+Hub naar spoke | Gateways verwijderen gebruiken | Uitgeschakeld
 
- ![Hub en een peeringconfiguratie knooppunt](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
+ ![Configuratie van hub naar spoke-peering](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 
-### <a name="example-steps"></a>Voorbeelden van stappen
+### <a name="example-steps"></a>Voorbeeld stappen
 
-In ons voorbeeld moet het volgende gebeuren wanneer het inschakelen van replicatie voor virtuele Azure-machines in het Bronnetwerk:
+In ons voor beeld moet het volgende gebeuren bij het inschakelen van replicatie voor virtuele Azure-machines in het bron netwerk:
 
-1. U [inschakelen replicatie](azure-to-azure-tutorial-enable-replication.md) voor een virtuele machine.
-2. Site Recovery maakt replica vnet's, subnetten en gateway-subnetten in de doelregio.
-3. Toewijzingen tussen de bronnetwerken en de replica-doelnetwerken die wordt gemaakt, maakt site Recovery.
-4. U maken handmatig voor virtuele netwerkgateways, virtuele netwerkgatewayverbindingen, peering op virtueel netwerk, of een andere netwerken bronnen of verbindingen.
+1. U [schakelt replicatie in](azure-to-azure-tutorial-enable-replication.md) voor een virtuele machine.
+2. Site Recovery maakt replica-vNets, subnetten en gateway-subnetten in de doel regio.
+3. Site Recovery maakt toewijzingen tussen de bron netwerken en de replica doel netwerken die worden gemaakt.
+4. U kunt hand matig virtuele netwerk gateways, virtuele netwerk gateway verbindingen, peering van virtuele netwerken of andere netwerk bronnen of-verbindingen maken.
 
 
-## <a name="fail-over-azure-vms-when-using-expressroute"></a>Failover van virtuele machines van Azure bij het gebruik van ExpressRoute
+## <a name="fail-over-azure-vms-when-using-expressroute"></a>Failover van virtuele Azure-machines bij gebruik van ExpressRoute
 
-Nadat u een failover Azure-VM's met de doel-Azure-regio met behulp van Site Recovery, kunt u ze openen met behulp van ExpressRoute [privépeering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
+Nadat u virtuele Azure-machines hebt uitgevoerd in de Azure-doel regio met behulp van Site Recovery, kunt u deze openen met ExpressRoute- [persoonlijke peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
-- U moet verbinding maken met ExpressRoute met de doel-vNet met een nieuwe verbinding. De bestaande ExpressRoute-verbinding niet automatisch doorgegeven.
-- De manier waarop u uw ExpressRoute-verbinding met het doel-vNet hebt ingesteld, is afhankelijk van de topologie van uw ExpressRoute.
+- U moet verbinding maken met ExpressRoute met de doel-vNet met een nieuwe verbinding. De bestaande ExpressRoute-verbinding wordt niet automatisch overgedragen.
+- De manier waarop u de ExpressRoute-verbinding met het doel-vNet instelt, is afhankelijk van uw ExpressRoute-topologie.
 
 
 ### <a name="access-with-two-circuits"></a>Toegang met twee circuits
 
-#### <a name="two-circuits-with-two-peering-locations"></a>Twee circuits met twee peeringlocaties
+#### <a name="two-circuits-with-two-peering-locations"></a>Twee circuits met twee peering-locaties
 
-Deze configuratie beveiligt ExpressRoute-circuits tegen regionale na noodgevallen. Als uw primaire locatie uitvalt, worden verbindingen kunnen blijven van de andere locatie.
+Deze configuratie helpt ExpressRoute-circuits te beschermen tegen regionale nood gevallen. Als uw primaire peering-locatie uitvalt, kunnen verbindingen van de andere locatie worden voortgezet.
 
-- Het circuit dat is verbonden met de productie-omgeving is meestal de primaire. Het secundaire circuit heeft meestal een lagere bandbreedte, die kan worden verhoogd als zich een noodgeval voordoet.
-- U kunt verbindingen van de secundaire ExpressRoute-circuit met de doel-vNet maken na een failover. U kunt ook verbindingen instellen en in geval van nood, klaar om te beperken van de algehele hersteltijd hebben.
-- Zorg dat uw on-premises routering alleen gebruikmaakt van de secundaire circuit en de verbinding na een failover met gelijktijdige verbindingen met zowel de primaire en doel-vnet's.
-- De bron en doel-vNets kunnen worden ontvangen van nieuwe IP-adressen of behouden dezelfde die, na een failover. In beide gevallen kunnen de secundaire verbindingen worden gemaakt voordat u een failover.
-
-
-#### <a name="two-circuits-with-single-peering-location"></a>Twee circuits met één locatie
-
-Deze configuratie helpt te beschermen tegen fouten in het primaire ExpressRoute-circuit, maar niet als de één locatie van de ExpressRoute-peering uitgeschakeld wordt, van invloed op beide circuits.
-
-- U kunt gelijktijdige verbindingen van het on-premises datacenter met bron vNEt met het primaire circuit, en met de doel-vNet met het secundaire circuit hebben.
-- Zorg ervoor dat on-premises alleen routering maakt gebruik van de secundaire circuit en de verbinding na een failover met gelijktijdige verbindingen met primaire en doel.
--   U kunt beide circuits geen verbinding met hetzelfde vNet wanneer circuits zijn gemaakt op dezelfde locatie peering.
-
-### <a name="access-with-a-single-circuit"></a>Toegang met een enkel-circuit
-
-In deze configuratie wordt slechts één Expressroute-circuit. Hoewel het circuit een redundante verbinding heeft in het geval een uitvalt, wordt een enkele route-circuit niet flexibiliteit bieden als uw peering regio uitvalt. Houd rekening met het volgende:
-
-- U kunt virtuele Azure-machines repliceren naar een Azure-regio in de [dezelfde geografische locatie](azure-to-azure-support-matrix.md#region-support). Als het doel-Azure-regio is niet op dezelfde locatie als de bron, moet u ExpressRoute Premium inschakelen als u een enkel ExpressRoute-circuit. Meer informatie over [ExpressRoute-locaties](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) en [prijzen voor ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
-- U kan geen verbinding maken bron en doel-vnet's tegelijkertijd aan het circuit als dezelfde IP-adresruimte wordt gebruikt voor de doelregio. In dit scenario geldt het volgende:    
-    -  Verbreken van verbinding met de gegevensbron aan clientzijde, en vervolgens de doel-kant-verbinding tot stand te brengen. Deze wijziging verbinding kan scripts worden gebruikt als onderdeel van een plan voor herstel van Site Recovery. Houd rekening met het volgende:
-        - In een regionale storing optreedt, als de primaire regio niet toegankelijk is, is kan de verbinding verbreken-bewerking mislukken. Dit kan gevolgen voor het maken van verbinding naar de doelregio.
-        - Als u de verbinding hebt gemaakt in de doelregio en primaire regio later herstelt, ervaren kunt u pakket val als twee gelijktijdige verbindingen probeert verbinding maken met dezelfde-adresruimte.
-        - Om dit te voorkomen, moet u de primaire verbinding onmiddellijk beëindigd.
-        - Nadat de virtuele machine failback naar de primaire regio, de primaire verbinding kan opnieuw worden gemaakt, nadat u de secundaire verbinding verbreken.
--   Als een andere adresruimten wordt gebruikt op de doel-vNet, kunt u tegelijkertijd naar de bron en doel-vnet's verbinden vanaf hetzelfde ExpressRoute-circuit.
+- Het circuit dat is verbonden met de productie omgeving, is meestal de primaire. Het secundaire circuit heeft doorgaans een lagere band breedte, wat kan worden verhoogd als er sprake is van een nood geval.
+- Na een failover kunt u verbindingen tot stand brengen tussen het secundaire ExpressRoute-circuit en het doel-vNet. U kunt ook in het geval van een ramp verbindingen instellen en gereed maken, om de totale herstel tijd te verminderen.
+- Met gelijktijdige verbindingen met zowel de primaire als de doel-vNets, moet u ervoor zorgen dat uw on-premises route ring alleen gebruikmaakt van het secundaire circuit en de verbinding na een failover.
+- De bron-en doel-vNets kunnen nieuwe IP-adressen ontvangen of dezelfde gebruiken na een failover. In beide gevallen kunnen de secundaire verbindingen tot stand worden gebracht voordat de failover wordt uitgevoerd.
 
 
-## <a name="failover-example"></a>Voorbeeld van de failover
+#### <a name="two-circuits-with-single-peering-location"></a>Twee circuits met één peering-locatie
 
-In ons voorbeeld gebruiken we de volgende topologie:
+Deze configuratie helpt bij het opsporen van fouten in het primaire ExpressRoute-circuit, maar niet als de peering-locatie met één ExpressRoute uitvalt, wat van invloed is op beide circuits.
 
-- Twee verschillende ExpressRoute-circuits in twee verschillende peeringlocaties.
-- Privé-IP-adressen behouden voor de Azure VM's na een failover.
-- De doelregio voor herstel is Azure Zuidoost-Azië.
-- Een secundaire ExpressRoute-circuit-verbinding tot stand is gebracht via een partner edge in Singapore.
+- U kunt gelijktijdige verbindingen van het on-premises Data Center hebben tot het bron-vNEt met het primaire circuit en naar het doel-vNet met het secundaire circuit.
+- Zorg ervoor dat de on-premises route ring alleen gebruikmaakt van het secundaire circuit en de verbinding na een failover met gelijktijdige verbindingen met het primaire en het doel.
+-   U kunt niet beide circuits verbinden met hetzelfde vNet wanneer circuits op dezelfde peering-locatie worden gemaakt.
 
-Voor een eenvoudige topologie die gebruikmaakt van een enkel ExpressRoute-circuit met hetzelfde IP-adres na een failover, [raadpleegt u dit artikel](site-recovery-retain-ip-azure-vm-failover.md#hybrid-resources-full-failover).
+### <a name="access-with-a-single-circuit"></a>Toegang met één circuit
 
-### <a name="example-steps"></a>Voorbeelden van stappen
-Voor het automatiseren van herstel in deze hier volgt een voorbeeld van wat u moet doen:
+In deze configuratie is er slechts één Expressroute-circuit. Hoewel het circuit een redundante verbinding heeft voor het geval één wordt afgesloten, biedt één route-Circuit geen flexibiliteit als uw peering-regio uitvalt. Houd rekening met het volgende:
 
-1. Volg de stappen voor het instellen van replicatie.
-2. [Failover van de Azure VM's](azure-to-azure-tutorial-failover-failback.md), met deze extra stappen tijdens of na de failover.
-
-    a. De Azure ExpressRoute-Gateway maken in de doel-regio hub VNet. U moet dit het doel hub vNet verbinden met het ExpressRoute-circuit.
-
-    b. De verbinding van het doel hub vNet maken met de doel-ExpressRoute-circuit.
-
-    c. Instellen van de VNet-peerings tussen de doelregio hub en spoke-netwerken. De eigenschappen van de peering in de doelregio is hetzelfde als die in de bronregio.
-
-    d. Stel de udr's in de hub VNet en het knooppunt twee VNets.
-
-    - De eigenschappen van de doel-kant udr's zijn hetzelfde als die aan de bron wanneer met de dezelfde IP-adressen.
-    - Met een ander doel-IP-adressen, moeten de udr's dienovereenkomstig worden gewijzigd.
+- U kunt virtuele Azure-machines repliceren naar een Azure-regio op [dezelfde geografische locatie](azure-to-azure-support-matrix.md#region-support). Als de Azure-doel regio zich niet op dezelfde locatie bevindt als de bron, moet u ExpressRoute Premium inschakelen als u één ExpressRoute-circuit gebruikt. Meer informatie over [ExpressRoute-locaties](../expressroute/expressroute-locations.md) en ExpressRoute- [prijzen](https://azure.microsoft.com/pricing/details/expressroute/).
+- U kunt geen bron-en doel-vNets tegelijkertijd verbinden met het circuit als dezelfde IP-adres ruimte wordt gebruikt voor de doel regio. In dit scenario geldt het volgende:    
+    -  Verbreek de verbinding met de bron zijde en stel vervolgens de verbinding met de doel zijde in. Deze verbindings wijziging kan worden vastgelegd als onderdeel van een Site Recovery herstel plan. Houd rekening met het volgende:
+        - Als de primaire regio niet toegankelijk is, kan de verbrekings bewerking mislukken als er een regionale fout optreedt. Dit kan invloed hebben op het maken van een verbinding met de doel regio.
+        - Als u de verbinding in de doel regio hebt gemaakt en de primaire regio later wordt hersteld, kunt u het pakket ondervinden als twee gelijktijdige verbindingen proberen verbinding te maken met dezelfde adres ruimte.
+        - Om dit te voor komen, moet u de primaire verbinding direct beëindigen.
+        - Nadat de VM is gefailback naar de primaire regio, kan de primaire verbinding opnieuw tot stand worden gebracht, nadat u de verbinding met de secundaire verbindingen hebt verbroken.
+-   Als er een andere adres ruimte wordt gebruikt op het doel-vNet, kunt u gelijktijdig verbinding maken met de bron-en doel-vNets vanuit hetzelfde ExpressRoute-circuit.
 
 
-De bovenstaande stappen kunnen scripts worden gebruikt als onderdeel van een [herstelplan](site-recovery-create-recovery-plans.md). Afhankelijk van de connectiviteit van toepassingen en de vereisten voor het moment van herstel, kunnen ook de bovenstaande stappen worden uitgevoerd voordat de failover wordt gestart.
+## <a name="failover-example"></a>Voor beeld van failover
 
-#### <a name="after-recovery"></a>Na het herstel
+In ons voor beeld gebruiken we de volgende topologie:
 
-Na het herstellen van de virtuele machines en voltooien van de connectiviteit, is betrouwbare omgeving voor het herstel als volgt uit.
+- Twee verschillende ExpressRoute-circuits op twee verschillende peering-locaties.
+- Bewaar privé IP-adressen voor de virtuele Azure-machines na een failover.
+- De doel herstel regio is Azure Zuidoost-Azië.
+- Een secundaire ExpressRoute-circuit verbinding wordt tot stand gebracht via een partner Edge in Singapore.
 
-![On-premises-to-Azure met ExpressRoute na een Failover](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-after-failover.png)
+[Raadpleeg dit artikel](site-recovery-retain-ip-azure-vm-failover.md#hybrid-resources-full-failover)voor een eenvoudige topologie die gebruikmaakt van één ExpressRoute-circuit, met hetzelfde IP-adres na een failover.
+
+### <a name="example-steps"></a>Voorbeeld stappen
+Als u herstel in dit voor beeld wilt automatiseren, kunt u het volgende doen:
+
+1. Volg de stappen voor het instellen van de replicatie.
+2. [Failover van de virtuele Azure-machines](azure-to-azure-tutorial-failover-failback.md), met de volgende aanvullende stappen tijdens of na de failover.
+
+    a. Maak de Azure ExpressRoute-gateway in de doel regio-hub VNet. Dit is nodig om de doel-hub vNet te verbinden met het ExpressRoute-circuit.
+
+    b. Maak de verbinding van de doel-hub vNet naar het doel-ExpressRoute-circuit.
+
+    c. Stel de VNet-peering in tussen de hub-en spoke-virtuele netwerken van de doel regio. De peering-eigenschappen voor de doel regio zijn hetzelfde als die in de bron regio.
+
+    d. Stel de Udr's in het hub-VNet in en de twee spoke-VNets.
+
+    - De eigenschappen van de Udr's van de doel zijde zijn hetzelfde als die op de bron zijde wanneer u dezelfde IP-adressen gebruikt.
+    - Met verschillende doel-IP-adressen moet de Udr's dienovereenkomstig worden gewijzigd.
+
+
+De bovenstaande stappen kunnen worden vastgelegd als onderdeel van een [herstel plan](site-recovery-create-recovery-plans.md). Afhankelijk van de vereisten voor de verbindings-en herstel tijd van de toepassing, kunnen de bovenstaande stappen ook worden voltooid voordat de failover wordt gestart.
+
+#### <a name="after-recovery"></a>Na herstel
+
+Na het herstellen van de Vm's en het volt ooien van de connectiviteit, is de herstel omgeving als volgt.
+
+![On-premises-naar-Azure met ExpressRoute na een failover](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-after-failover.png)
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het gebruik van [herstelplannen](site-recovery-create-recovery-plans.md) app failover wilt automatiseren.
+Meer informatie over het gebruik van [herstel plannen](site-recovery-create-recovery-plans.md) voor het automatiseren van de failover van de app.

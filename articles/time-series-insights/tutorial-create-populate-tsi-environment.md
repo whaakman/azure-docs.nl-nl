@@ -9,12 +9,12 @@ ms.date: 07/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 921528c50bae03b67800bf3ccab8b5cd9bb704f6
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 4c81daa1f55167fa868c69f3bff388dbaa4887cd
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677740"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725741"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Zelfstudie: Een Azure Time Series Insights-omgeving maken
 
@@ -34,7 +34,7 @@ Deze zelf studie leidt u door het proces van het maken van een Azure Time Series
 
 * Uw Azure-aanmeldings account moet ook lid zijn van de rol **eigenaar** van het abonnement. Zie [toegang beheren met op rollen gebaseerd toegangs beheer en de Azure Portal](../role-based-access-control/role-assignments-portal.md)voor meer informatie.
 
-## <a name="video"></a>Video
+## <a name="review-video"></a>Video bekijken
 
 ### <a name="learn-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-and-get-started-with-time-series-insights-br"></a>Meer informatie over het gebruik van een Azure IoT-oplossings versneller om gegevens te genereren en aan de slag te gaan met Time Series Insights. </br>
 
@@ -116,7 +116,7 @@ Maak vervolgens een Time Series Insights omgeving in uw Azure-abonnement.
 
    [![Implementatie van Time Series Insights-omgeving is voltooid](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png#lightbox)
 
-## <a name="run-device-simulation-to-stream-data"></a>Simulatie van apparaten uitvoeren om gegevens te streamen
+## <a name="run-device-simulation"></a>Simulatie van apparaten uitvoeren
 
 Nu de implementatie en de initiële configuratie zijn voltooid, vult u de Time Series Insights omgeving in met voorbeeld gegevens van gesimuleerde [apparaten die door de Accelerator zijn gemaakt](#create-a-device-simulation).
 

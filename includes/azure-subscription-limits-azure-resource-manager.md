@@ -5,42 +5,42 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 04/22/2019
+ms.date: 07/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 712b70960e09a9c2b0e7a998bc0bddbc28c1e112
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4d13779317793b5edd971dd457a77e0bc5cae1c8
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176394"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68426874"
 ---
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
 | Virtuele machines [per abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |25.000<sup>1</sup> per regio. |25.000 per regio. |
 | Totaal aantal VM-cores per [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per regio. | Neem contact op met ondersteuning. |
-| Virtuele machine per serie, zoals Dv2- en F-cores per [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per regio. | Neem contact op met ondersteuning. |
-| [Medebeheerders](../articles/billing-add-change-azure-subscription-administrator.md) per abonnement |Onbeperkt. |Onbeperkt. |
-| [Storage-accounts](../articles/storage/common/storage-quickstart-create-account.md) per regio per abonnement |250 |250 |
-| [Resourcegroepen](../articles/azure-resource-manager/resource-group-overview.md) per abonnement |980 |980 |
-| [Beschikbaarheidssets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per abonnement |2000 per regio. |2000 per regio. |
-| Grootte van Azure Resource Manager-API-aanvraag |4,194,304 bytes. |4,194,304 bytes. |
-| Tags per abonnement<sup>2</sup> |Onbeperkt. |Onbeperkt. |
-| De unieke code berekeningen per abonnement<sup>2</sup> | 10.000 | 10.000 |
+| VM per serie, zoals dv2 en F, kernen per [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per regio. | Neem contact op met ondersteuning. |
+| [](../articles/billing-add-change-azure-subscription-administrator.md) Cobeheerders per abonnement |Limited. |Limited. |
+| [Opslag accounts](../articles/storage/common/storage-quickstart-create-account.md) per regio per abonnement |250 |250 |
+| [Resource groepen](../articles/azure-resource-manager/resource-group-overview.md) per abonnement |980 |980 |
+| [Beschikbaarheids sets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per abonnement |2\.000 per regio. |2\.000 per regio. |
+| Grootte van de Azure Resource Manager-API-aanvraag |4\.194.304 bytes. |4\.194.304 bytes. |
+| Tags per abonnement<sup>2</sup> |Limited. |Limited. |
+| Unieke label berekeningen per abonnement<sup>2</sup> | 10.000 | 10.000 |
 | [Cloudservices](../articles/cloud-services/cloud-services-choose-me.md) per abonnement |N.V.T.<sup>3</sup> |N.V.T.<sup>3</sup> |
 | [Affiniteitsgroepen](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per abonnement |N.V.T.<sup>3</sup> |N.V.T.<sup>3</sup> |
-| [Abonnementsniveau implementaties](../articles/azure-resource-manager/deploy-to-subscription.md) per locatie | 800<sup>4</sup> | 800 |
+| [Implementaties op abonnements niveau](../articles/azure-resource-manager/deploy-to-subscription.md) per locatie | 800<sup>4</sup> | 800 |
 
-<sup>1</sup>standaardlimieten variëren per type categorie aanbieding, zoals gratis proefversie en betalen per gebruik, en door, zoals Dv2, F en G.
+<sup>1</sup> De standaard limieten variëren per aanbiedings categorie type, zoals gratis proef versie en betalen per gebruik en op serie, zoals dv2, F en G. De standaard instelling voor Enterprise Agreement abonnementen is 350.
 
-<sup>2</sup>kunt u een onbeperkt aantal tags per abonnement toepassen. Het aantal tags per resource of resourcegroep is beperkt tot 15. Resource Manager retourneert een [lijst met unieke tagnamen en -waarden](/rest/api/resources/tags) in het abonnement alleen wanneer het aantal tags 10.000 of minder. Nog steeds vindt u een resource op label wanneer meer dan 10.000.  
+<sup>2</sup> U kunt een onbeperkt aantal Tags per abonnement Toep assen. Het aantal tags per resource of resourcegroep is beperkt tot 15. Resource Manager retourneert alleen een [lijst met unieke label namen en-waarden](/rest/api/resources/tags) in het abonnement wanneer het aantal Tags 10.000 of minder is. U kunt nog steeds een resource vinden op label wanneer het aantal groter is dan 10.000.  
 
-<sup>3</sup>deze functies zijn niet langer vereist met Azure-resourcegroepen en Resource Manager.
+<sup>3</sup> Deze functies zijn niet langer vereist voor Azure-resource groepen en Resource Manager.
 
-<sup>4</sup>als u de limiet van 800 implementaties is bereikt, verwijdert u implementaties uit de geschiedenis die niet meer nodig zijn. Als u wilt verwijderen van abonnement niveau implementaties, gebruikt u [Remove-AzDeployment](/powershell/module/az.resources/Remove-AzDeployment) of [az-implementatie verwijderen](/cli/azure/deployment?view=azure-cli-latest#az-deployment-delete).
+<sup>4</sup> Als u de limiet van 800 implementaties bereikt, verwijdert u implementaties uit de geschiedenis die niet meer nodig zijn. Als u implementaties op abonnements niveau wilt verwijderen, gebruikt u verwijderen [AzDeployment](/powershell/module/az.resources/Remove-AzDeployment) of [AZ implementatie delete](/cli/azure/deployment?view=azure-cli-latest#az-deployment-delete).
 
 > [!NOTE]
-> Cores van virtuele machine hebben een regionale totale limiet. Ze hebben ook een limiet voor de regionale per grootte-serie, zoals Dv2- en f kan zijn. Deze limieten zijn afzonderlijk worden gehandhaafd. Neem bijvoorbeeld een abonnement met een limiet van 30 VM-cores voor US - oost, een limiet van 30 cores voor de A-serie en een limiet van 30 cores voor de D-serie. Dit abonnement kunt 30 A1-VM's of 30 D1-VM's of een combinatie van beide om meer dan een totaal van 30 cores niet te implementeren. Een voorbeeld van een combinatie is 10 A1-VM's en 20 D1-VM's.  
+> De kern geheugens van de virtuele machine hebben een regionale limiet. Ze hebben ook een limiet voor regionale reeksen per grootte, zoals dv2 en F. Deze limieten worden afzonderlijk afgedwongen. Neem bijvoorbeeld een abonnement met een limiet van 30 VM-cores voor US - oost, een limiet van 30 cores voor de A-serie en een limiet van 30 cores voor de D-serie. Dit abonnement kan 30 a1-vm's of 30 D1 Vm's implementeren, of een combi natie van de twee niet meer dan een totaal van 30 kernen overschrijdt. Een voor beeld van een combi natie is 10 a1-Vm's en 20 D1 Vm's.  
 > <!-- -->
 > 
 > 

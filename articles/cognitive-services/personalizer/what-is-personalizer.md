@@ -1,68 +1,68 @@
 ---
 title: Wat is Personalizer?
 titleSuffix: Azure Cognitive Services
-description: Personalizer is een op cloud-gebaseerde API-service waarmee u de beste ervaring om weer te geven aan uw gebruikers, leren van hun realtime gedrag kiezen.
+description: Personaler is een API-service in de Cloud waarmee u de beste ervaring kunt kiezen die aan uw gebruikers wordt weer gegeven, en leer vanuit hun realtime gedrag.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: 286a19207236392367b924bea7e26e90fd0db8d5
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.author: diberry
+ms.openlocfilehash: 99750971e11171c0b315cac38089c216d42c7ba6
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253449"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663671"
 ---
 # <a name="what-is-personalizer"></a>Wat is Personalizer?
 
 Azure Personalizer is een op de cloud gebaseerde API-service waarmee u de beste ervaring kunt kiezen om aan uw gebruikers te laten zien, waarbij u leert van hun real-time gedrag.
 
-* Bevatten informatie over uw gebruikers en de inhoud en de bovenste actie om weer te geven uw gebruikers ontvangen. 
-* U hoeft te reinigen en labelen voordat u Personalizer.
-* Feedback aan Personalizer wanneer het u uitkomt. 
-* Realtime analytische gegevens bekijken. 
-* Personalizer gebruiken als onderdeel van een grotere data science-inspanning om te valideren van bestaande experimenten.
+* Geef informatie op over uw gebruikers en inhoud en ontvang de meest voorkomende actie om uw gebruikers weer te geven. 
+* U hoeft geen gegevens op te schonen en labelen voordat u Personaler gebruikt.
+* Geef feedback over persoonlijker wanneer het handig is voor u. 
+* Real-time analyse weer geven. 
+* Gebruik Personaler als onderdeel van een grotere gegevens wetenschap om bestaande experimenten te valideren.
 
-## <a name="how-does-personalizer-work"></a>Hoe werkt Personalizer?
+## <a name="how-does-personalizer-work"></a>Hoe werkt Personaler?
 
-Personalizer maakt gebruik van machine learning-modellen om te ontdekken welke actie moet worden in een context hoogste positie. Uw clienttoepassing bevat een lijst met mogelijke acties, met informatie over deze; en informatie over de context, waaronder informatie over de gebruiker, apparaat, enzovoort. Personalizer bepaalt de actie te ondernemen. Nadat u de clienttoepassing gebruikmaakt van de gekozen actie, biedt feedback voor Personalizer in de vorm van een score van derden. Nadat de feedback is ontvangen, worden de eigen model dat wordt gebruikt voor toekomstige posities Personalizer automatisch bijgewerkt.
+Personaler gebruikt machine learning modellen om te ontdekken welke actie het hoogst in een context kan worden gerangschikt. Uw client toepassing bevat een lijst met mogelijke acties, met informatie over de activiteiten; en informatie over de context, die informatie kan bevatten over de gebruiker, het apparaat, enzovoort. Personaler bepaalt welke actie moet worden ondernomen. Zodra uw client toepassing de gekozen actie gebruikt, geeft deze aan de persoonlijke voor keuren de vorm van een belonings Score. Nadat de feedback is ontvangen, wordt door Personaler automatisch een eigen model bijgewerkt dat wordt gebruikt voor toekomstige classificaties.
 
-## <a name="how-do-i-use-the-personalizer"></a>Hoe gebruik ik de Personalizer?
+## <a name="how-do-i-use-the-personalizer"></a>De Personaler Hoe kan ik gebruiken?
 
-![Met behulp van Personalizer om te kiezen welke video om weer te geven aan een gebruiker](media/what-is-personalizer/personalizer-example-highlevel.png)
+![Personaler gebruiken om te kiezen welke video wordt weer gegeven aan een gebruiker](media/what-is-personalizer/personalizer-example-highlevel.png)
 
-1. Kies een ervaring in uw app om aan te passen.
-1. Maken en configureren van een exemplaar van de Service persoonlijke instellingen in de Azure-portal. Elke instantie is een lus Personalizer.
-1. Gebruik de SDK om aan te roepen Personalizer met informatie (_functies_) over uw gebruikers en de inhoud (_acties_). U hoeft niet te bieden verwijdert, met het label gegevens voordat u Personalizer. 
-1. Weergeven in de clienttoepassing, de gebruiker de actie die door Personalizer is geselecteerd.
-1. Gebruik de SDK feedback te geven aan Personalizer waarmee wordt aangegeven als de gebruiker van Personalizer actie geselecteerd. Dit is een _Beloon score_, meestal tussen 1 en 1.
-1. Analytics in Azure portal om te evalueren hoe het systeem werkt en hoe uw gegevens helpt persoonlijke instellingen weergeven.
+1. Kies een ervaring in uw app om deze aan te passen.
+1. Maak en configureer een exemplaar van de personalisatie service in de Azure Portal. Elk exemplaar is een aangepaste lus.
+1. Gebruik SDK om uw persoonlijke voor keur aan te __ roepen met informatie over uw gebruikers en de inhoud (_acties_). U hoeft geen schone, gelabelde gegevens op te geven voordat u personaliseren gebruikt. 
+1. Geef in de client toepassing de gebruiker de actie weer die door Personaler is geselecteerd.
+1. Gebruik SDK om uw persoonlijke voor keuren aan te bieden om aan te geven of de gebruiker de gekozen actie voor persoonlijke instellingen heeft geselecteerd. Dit is een _belonings Score_, doorgaans tussen-1 en 1.
+1. Bekijk de analyse in de Azure Portal om te evalueren hoe het systeem werkt en hoe uw gegevens personalisatie helpen.
 
-## <a name="where-can-i-use-personalizer"></a>Waar kan ik Personalizer gebruiken?
+## <a name="where-can-i-use-personalizer"></a>Waar kan ik Personaler gebruiken?
 
-Uw clienttoepassing kunt bijvoorbeeld Personalizer aan toevoegen:
+Uw client toepassing kan bijvoorbeeld persoonlijker toevoegen aan:
 
-* Aanpassen wat artikel op een nieuwswebsite is gemarkeerd.    
-* Optimaliseer ad plaatsing op een website.
-* Een persoonlijke "aanbevolen item" worden weergegeven op de website van een winkelwagen.
-* Gebruikersinterface-elementen, zoals filters toe te passen op een specifieke foto voorstellen.
-* Kies een chatbot antwoord om te verduidelijken bedoeling van gebruikers of een actie voorstellen.
-* Suggesties van wat een gebruiker als de volgende stap in een bedrijfsproces doen moet prioriteren.
+* Personaliseer welk artikel op een nieuws website is gemarkeerd.    
+* Optimaliseer de plaatsing van advertenties op een website.
+* Een aangepast ' Aanbevolen item ' op een winkel website weer geven.
+* Stel gebruikers interface-elementen, zoals filters, voor op een specifieke foto.
+* Kies een reactie op een chat-bot om de gebruikers intentie te verduidelijken of om een actie te suggereren.
+* Volg prioriteiten voor suggesties van wat een gebruiker moet doen als de volgende stap in een bedrijfs proces.
 
-## <a name="personalization-for-developers"></a>Persoonlijke instellingen voor ontwikkelaars
+## <a name="personalization-for-developers"></a>Personalisatie voor ontwikkel aars
 
-Personalizer Service heeft twee API's:
+Personaler service heeft twee Api's:
 
-* Verzenden van informatie (_functies_) over uw gebruikers en de inhoud (_acties_) om aan te passen. Personalizer reageert met de eerste actie.
-* Feedback verzenden naar Personalizer over hoe goed de rangorde als een getal meestal tussen 0 en 1 gewerkt (de vorige sectie gezegd 1 en 1). 
+* Verzend informatie (_functies_) over uw gebruikers en de inhoud (_acties_) die u wilt personaliseren. Personaler reageert met de bovenste actie.
+* Stuur feedback naar persoonlijkere informatie over hoe goed de classificatie heeft gewerkt, doorgaans tussen 0 en 1 (de vorige sectie zei 1 en 1). 
 
-![Algemene volgorde van gebeurtenissen voor persoonlijke instellingen](media/what-is-personalizer/personalization-intro.png)
+![Eenvoudige reeks gebeurtenissen voor personalisatie](media/what-is-personalizer/personalization-intro.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Snelstart: Maken van een feedback-lus inC#](csharp-quickstart-commandline-feedback-loop.md)
-* [Gebruik de interactieve demo](https://personalizationdemo.azurewebsites.net/)
+* [Snelstart: Een feedback-lus maken inC#](csharp-quickstart-commandline-feedback-loop.md)
+* [De interactieve demo gebruiken](https://personalizationdemo.azurewebsites.net/)

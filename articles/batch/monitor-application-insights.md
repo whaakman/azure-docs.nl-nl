@@ -1,9 +1,9 @@
 ---
-title: Batch met Azure Application Insights bewaken | Microsoft Docs
-description: Informatie over het instrumenteren van een Azure Batch .NET-toepassing met behulp van de Azure Application Insights-bibliotheek.
+title: Bewaak batch met Azure-toepassing Insights | Microsoft Docs
+description: Meer informatie over het instrumenteren van een Azure Batch .NET-toepassing met behulp van de Azure-toepassing Insights-bibliotheek.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: .NET
@@ -11,66 +11,66 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: c527b0b10a2b9a351b242d0858fdbe64687970a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d896785a2f000a22f68611d5b3b1162c2021236
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595301"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322568"
 ---
-# <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Bewaken en fouten opsporen in een Azure Batch .NET-toepassing met Application Insights
+# <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Een Azure Batch .NET-toepassing bewaken en fouten opsporen met Application Insights
 
-[Application Insights](../azure-monitor/app/app-insights-overview.md) biedt een elegante en krachtige manier voor ontwikkelaars om te controleren en fouten opsporen toepassingen die zijn geïmplementeerd met Azure-services. Gebruik Application Insights te bewaken van prestatiemeteritems en uitzonderingen, alsmede instrument uw code met aangepaste metrische gegevens en tracering. Integratie van Application Insights met uw Azure Batch-toepassing, kunt u meer inzicht in problemen en onderzoeken van problemen in near-real-time.
+[Application Insights](../azure-monitor/app/app-insights-overview.md) biedt ontwikkel aars een elegante en krachtige manier om toepassingen te controleren en te debuggen die zijn geïmplementeerd in Azure-Services. Gebruik Application Insights om prestatie meter items en uitzonde ringen te bewaken en uw code te instrumenteren met aangepaste metrische gegevens en tracering. Als u Application Insights integreert met uw Azure Batch-toepassing, kunt u in bijna realtime nauw keurig inzicht krijgen in gedrag en problemen onderzoeken.
 
-In dit artikel laat zien hoe toevoegen en configureren van de Application Insights-bibliotheek in uw Azure Batch .NET-oplossing en code van uw toepassing instrumenteren. U ziet ook manieren voor het bewaken van uw toepassing via Azure portal en aangepaste dashboards kunt bouwen. Voor Application Insights-ondersteuning in andere talen, bekijk de [programmeertalen, platforms en integraties documentatie](../azure-monitor/app/platforms.md).
+In dit artikel wordt uitgelegd hoe u de Application Insights-bibliotheek kunt toevoegen en configureren in uw Azure Batch .NET-oplossing en hoe u uw toepassings code kunt instellen. U ziet ook hoe u uw toepassing kunt bewaken via de Azure Portal en aangepaste Dash boards bouwt. Raadpleeg de [documentatie over talen, platforms en integraties](../azure-monitor/app/platforms.md)voor Application Insights ondersteuning in andere talen.
 
-Een voorbeeld van C#-oplossing met code ter ondersteuning van dit artikel vindt u op [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). In dit voorbeeld instrumentation code Application Insights wordt de [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) voorbeeld. Als u niet bekend met dit voorbeeld, probeer het bouwen en uitvoeren van TopNWords eerst bent. Dit doet, krijgt u inzicht in een algemene Batch-werkstroom van de verwerking van een reeks blobs voor invoer parallel op meerdere rekenknooppunten. 
+In github C# vindt u een voor beeld van een oplossing met code [](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights)die moet worden meegeleverd met dit artikel. In dit voor beeld wordt Application Insights instrumentatie code toegevoegd aan het [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) -voor beeld. Als u niet bekend bent met dit voor beeld, probeer dan eerst TopNWords te bouwen en uit te voeren. Dit helpt u inzicht te krijgen in een eenvoudige batch-werk stroom van het verwerken van een set invoer-blobs parallel op meerdere reken knooppunten. 
 
 > [!TIP]
-> Als alternatief kunt configureren van uw Batch-oplossing om Application Insights-gegevens, zoals VM-prestatiemeteritems in Batch Explorer weer te geven. [Batch Explorer](https://github.com/Azure/BatchExplorer) is een gratis, uitgebreid, zelfstandig clienthulpprogramma voor het maken, foutopsporing en Azure Batch-toepassingen bewaken. Download een [installatiepakket](https://azure.github.io/BatchExplorer/) voor Mac, Linux of Windows. Zie de [opslagplaats voor batch-inzichten](https://github.com/Azure/batch-insights) voor snelle stappen voor het inschakelen van Application Insights-gegevens in de Batch Explorer. 
+> Als alternatief kunt u uw batch-oplossing configureren om Application Insights gegevens weer te geven, zoals prestatie meter items voor virtuele machines in Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) is een gratis, uitgebreid, zelfstandig client hulpprogramma waarmee Azure batch toepassingen kunnen worden gemaakt, opgespoord en gecontroleerd. Download een [installatiepakket](https://azure.github.io/BatchExplorer/) voor Mac, Linux of Windows. Raadpleeg de [batch-Insights-opslag plaats](https://github.com/Azure/batch-insights) voor snelle stappen om Application Insights gegevens in batch Explorer in te scha kelen. 
 >
 
 ## <a name="prerequisites"></a>Vereisten
-* [Visual Studio 2017 of later](https://www.visualstudio.com/vs)
+* [Visual Studio 2017 of hoger](https://www.visualstudio.com/vs)
 
-* [Batch-account en gekoppelde storage-account](batch-account-create-portal.md)
+* [Batch-account en gekoppeld opslag account](batch-account-create-portal.md)
 
-* [Application Insights-resource](../azure-monitor/app/create-new-resource.md )
+* [Application Insights resource](../azure-monitor/app/create-new-resource.md )
   
-   * De Azure portal gebruiken voor het maken van een Application Insights *resource*. Selecteer de *algemene* **toepassingstype**.
+   * Gebruik de Azure Portal om een Application Insights *resource*te maken. Selecteer het type *algemene* **toepassing**.
 
-   * Kopieer de [instrumentatiesleutel](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) vanuit de portal. Verderop in dit artikel is verplicht.
+   * Kopieer de [instrumentatie sleutel](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) vanuit de portal. Verderop in dit artikel is dit vereist.
   
   > [!NOTE]
-  > U kunt mogelijk [in rekening gebracht](https://azure.microsoft.com/pricing/details/application-insights/) voor de gegevens die zijn opgeslagen in Application Insights. Dit omvat de diagnose en controle van gegevens die in dit artikel worden besproken.
+  > Mogelijk worden er [kosten in rekening gebracht](https://azure.microsoft.com/pricing/details/application-insights/) voor de gegevens die zijn opgeslagen in Application Insights. Dit omvat de diagnostische en bewakings gegevens die in dit artikel worden besproken.
   > 
 
 ## <a name="add-application-insights-to-your-project"></a>Application Insights toevoegen aan uw project
 
-De **Microsoft.ApplicationInsights.WindowsServer** NuGet-pakket en de bijbehorende afhankelijkheden zijn vereist voor uw project. Toevoegen of deze terugzetten naar project van uw toepassing. Voor het installeren van het pakket, gebruikt u de `Install-Package` opdracht of het NuGet-Pakketbeheer.
+Het **micro soft. ApplicationInsights. Windowsserver** NuGet-pakket en de bijbehorende afhankelijkheden zijn vereist voor uw project. Deze toevoegen aan of herstellen in het project van uw toepassing. Gebruik de `Install-Package` opdracht of NuGet Package Manager om het pakket te installeren.
 
 ```powershell
 Install-Package Microsoft.ApplicationInsights.WindowsServer
 ```
-Naar Application Insights verwijzen vanuit uw .NET-toepassing met behulp van de **Microsoft.ApplicationInsights** naamruimte.
+Referentie Application Insights van uw .NET-toepassing met behulp van de **micro soft. ApplicationInsights** -naam ruimte.
 
-## <a name="instrument-your-code"></a>Instrumenteer uw code
+## <a name="instrument-your-code"></a>Uw code instrumenteren
 
-Als u wilt instrumenteren van uw code, uw oplossing moet maken van een Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). In het voorbeeld wordt de TelemetryClient laadt de configuratie van de [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md) bestand. Zorg ervoor dat ApplicationInsights.config in de volgende projecten bijwerken met de Application Insights-instrumentatiesleutel: Microsoft.Azure.Batch.Samples.TelemetryStartTask en TopNWordsSample.
+Uw oplossing moet een Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient)maken om uw code te instrumenteren. In het voor beeld wordt de configuratie van de TelemetryClient geladen uit het [ApplicationInsights. config](../azure-monitor/app/configuration-with-applicationinsights-config.md) -bestand. Zorg ervoor dat u ApplicationInsights. config in de volgende projecten bijwerkt met uw Application Insights instrumentatie sleutel: Micro soft. Azure. batch. samples. TelemetryStartTask en TopNWordsSample.
 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
 ```
-Ook de instrumentatiesleutel in het bestand TopNWords.cs toevoegen.
+Voeg ook de instrumentatie sleutel toe in het bestand TopNWords.cs.
 
-Het voorbeeld in TopNWords.cs gebruikgemaakt van de volgende [instrumentation aanroepen](../azure-monitor/app/api-custom-events-metrics.md) uit de Application Insights-API:
-* `TrackMetric()` -Wordt bijgehouden hoe lang, Gemiddeld, een rekenknooppunt duurt om de vereiste tekst-bestand te downloaden.
-* `TrackTrace()` -Toegevoegd foutopsporing aanroepen naar uw code.
-* `TrackEvent()` -Nummers interessante gebeurtenissen vast te leggen.
+In het voor beeld in TopNWords.cs worden [](../azure-monitor/app/api-custom-events-metrics.md) de volgende instrumentatie aanroepen van de Application INSIGHTS-API gebruikt:
+* `TrackMetric()`-Houdt in hoe lang, het gemiddelde van een reken knooppunt het vereiste tekst bestand downloadt.
+* `TrackTrace()`-Voegt fout opsporingsgegevens toe aan uw code.
+* `TrackEvent()`-Hiermee worden interessante gebeurtenissen bijgehouden die moeten worden vastgelegd.
 
-In dit voorbeeld opzettelijk weggelaten afhandeling van uitzonderingen. In plaats daarvan rapporteert Application Insights automatisch niet-verwerkte uitzonderingen die de probleemoplossingservaring aanzienlijk wordt verbeterd. 
+In dit voor beeld wordt uitzonde ring verwerkt. In plaats daarvan Application Insights automatisch onverwerkte uitzonde ringen, waardoor de fout opsporing aanzienlijk wordt verbeterd. 
 
-Het volgende codefragment laat zien hoe deze methoden te gebruiken.
+Het volgende code fragment laat zien hoe u deze methoden gebruikt.
 
 ```csharp
 public void CountWords(string blobName, int numTopN, string storageAccountName, string storageAccountKey)
@@ -124,8 +124,8 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 }
 ```
 
-### <a name="azure-batch-telemetry-initializer-helper"></a>Azure Batch telemetrie-initializer helper
-Tijdens het rapporteren van telemetrie voor een bepaalde server en het exemplaar, Application Insights maakt gebruik van de Azure VM-rol en de VM-naam voor de standaardwaarden. In de context van Azure Batch ziet het voorbeeld u hoe u de naam van de toepassingen en compute knooppuntnaam in plaats daarvan. Gebruik een [telemetrische initializer](../azure-monitor/app/api-filtering-sampling.md#add-properties) voor de onderdrukking van de standaardwaarden. 
+### <a name="azure-batch-telemetry-initializer-helper"></a>Hulp bij het initialiseren van Azure Batch telemetrie
+Wanneer u telemetrie rapporteert voor een bepaalde server en exemplaar, Application Insights gebruikt de Azure VM-rol en de VM-naam voor de standaard waarden. In de context van Azure Batch ziet u in het voor beeld hoe u de naam van de pool en de naam van het reken knooppunt kunt gebruiken. Gebruik een telemetrie- [initialisatie functie](../azure-monitor/app/api-filtering-sampling.md#add-properties) voor het overschrijven van de standaard waarden. 
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -174,7 +174,7 @@ namespace Microsoft.Azure.Batch.Samples.TelemetryInitializer
 }
 ```
 
-Als u wilt de initialisatiefunctie voor telemetrie inschakelen, moet aan het bestand ApplicationInsights.config in het project TopNWordsSample omvat het volgende:
+Het ApplicationInsights. config-bestand in het TopNWordsSample-project bevat de volgende opties om de initialisatie functie voor telemetrie in te scha kelen:
 
 ```xml
 <TelemetryInitializers>
@@ -182,11 +182,11 @@ Als u wilt de initialisatiefunctie voor telemetrie inschakelen, moet aan het bes
 </TelemetryInitializers>
 ``` 
 
-## <a name="update-the-job-and-tasks-to-include-application-insights-binaries"></a>De taak en taken om op te nemen van Application Insights-binaire bestanden bijwerken
+## <a name="update-the-job-and-tasks-to-include-application-insights-binaries"></a>De taak en taken voor het toevoegen van Application Insights binaire bestanden bijwerken
 
-Controleer of dat de binaire bestanden correct worden geplaatst in de volgorde voor Application Insights correct uit te voeren op uw rekenknooppunten. Binaire bestanden voor de vereiste toevoegen aan resourceverzameling voor bestanden van uw taak, zodat ze gedownload op het moment dat de taak wordt uitgevoerd. De volgende codefragmenten zijn vergelijkbaar met de code in Job.cs.
+Controleer of de binaire bestanden correct zijn geplaatst om Application Insights correct op uw reken knooppunten uit te voeren. Voeg de vereiste binaire bestanden toe aan de verzameling resource bestanden van uw taak, zodat ze worden gedownload op het moment dat de taak wordt uitgevoerd. De volgende fragmenten zijn vergelijkbaar met de code in Job.cs.
 
-Maak eerst een statische lijst met Application Insights-bestanden te uploaden.
+Maak eerst een statische lijst met Application Insights bestanden die u wilt uploaden.
 
 ```csharp
 private static readonly List<string> AIFilesToUpload = new List<string>()
@@ -206,7 +206,7 @@ private static readonly List<string> AIFilesToUpload = new List<string>()
 ...
 ```
 
-Maak vervolgens de staging-bestanden die worden gebruikt door de taak.
+Maak vervolgens de tijdelijke bestanden die worden gebruikt door de taak.
 ```csharp
 ...
 // create file staging objects that represent the executable and its dependent assembly to run as the task.
@@ -223,9 +223,9 @@ foreach (string aiFile in AIFilesToUpload)
 ...
 ```
 
-De `FileToStage` methode is een Help-functie in het codevoorbeeld waarmee u eenvoudig een bestand van de lokale schijf naar een Azure Storage-blob te uploaden. Elk bestand wordt later naar een rekenknooppunt wordt gedownload en waarnaar wordt verwezen door een taak.
+De `FileToStage` methode is een Help-functie in het code voorbeeld waarmee u eenvoudig een bestand van een lokale schijf naar een Azure Storage-BLOB kunt uploaden. Elk bestand wordt later gedownload naar een reken knooppunt en ernaar wordt verwezen door een taak.
 
-Ten slotte de taken toevoegen aan de job en de benodigde Application Insights-binaire bestanden bevatten.
+Voeg ten slotte de taken toe aan de taak en neem de benodigde Application Insights binaire bestanden op.
 ```csharp
 ...
 // initialize a collection to hold the tasks that will be submitted in their entirety
@@ -259,52 +259,52 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
 }
 ```
 
-## <a name="view-data-in-the-azure-portal"></a>Gegevens weergeven in Azure portal
+## <a name="view-data-in-the-azure-portal"></a>Gegevens weer geven in de Azure Portal
 
-Nu dat u de taak en taken met Application Insights hebt geconfigureerd, moet u de voorbeeld-taak uitvoeren in uw pool. Navigeer naar de Azure-portal en open de Application Insights-resource die u hebt ingericht. Nadat de groep is ingericht, moet u gaan zien gegevens doorgestuurd en ophalen in het logboek geregistreerd. De rest van dit artikel is van toepassing op slechts een paar Application Insights-functies, maar u kunt de volledige functieset worden besproken.
+Nu u de taak en taken hebt geconfigureerd voor het gebruik van Application Insights, voert u de voorbeeld taak uit in uw pool. Ga naar het Azure Portal en open de Application Insights resource die u hebt ingericht. Nadat de groep is ingericht, moet u de gegevens stroom en het vastgelegde logboek weer geven. De rest van dit artikel raakt slechts op enkele Application Insights functies, maar u kunt de volledige functieset bekijken.
 
-### <a name="view-live-stream-data"></a>Live stream-gegevens weergeven
+### <a name="view-live-stream-data"></a>Live Stream-gegevens weer geven
 
-Als u wilt weergeven van logboeken met traceringen in uw toepassingen Insights-resource, klikt u op **Live Stream**. De volgende schermafbeelding ziet u hoe u live-gegevens die afkomstig zijn van de rekenknooppunten in de groep, bijvoorbeeld het CPU-gebruik per knooppunt weergeven.
+Als u traceer logboeken wilt weer geven in uw toepassingen Insights-resource, klikt u op **Live Stream**. In de volgende scherm afbeelding ziet u hoe u Live-gegevens kunt weer geven die afkomstig zijn van de reken knooppunten in de groep, bijvoorbeeld het CPU-gebruik per reken knooppunt.
 
-![Live stream compute-knooppuntgegevens](./media/monitor-application-insights/applicationinsightslivestream.png)
+![Gegevens van reken knooppunten van Live Stream](./media/monitor-application-insights/applicationinsightslivestream.png)
 
-### <a name="view-trace-logs"></a>Traceringslogboeken weergeven
+### <a name="view-trace-logs"></a>Traceer logboeken weer geven
 
-Als u wilt weergeven van logboeken met traceringen in uw toepassingen Insights-resource, klikt u op **zoeken**. Deze weergave toont een lijst met diagnostische gegevens die zijn vastgelegd door Application Insights, met inbegrip van traceringen, gebeurtenissen en uitzonderingen. 
+Als u traceer logboeken wilt weer geven in uw Applications Insights-resource, klikt u op **zoeken**. In deze weer gave ziet u een lijst met diagnostische gegevens die zijn vastgelegd door Application Insights, met inbegrip van traceringen, gebeurtenissen en uitzonde ringen. 
 
-De volgende schermafbeelding ziet u hoe een enkele tracering voor een taak is geregistreerd en later een query uitgevoerd voor foutopsporing.
+In de volgende scherm afbeelding ziet u hoe een enkele tracering voor een taak wordt geregistreerd en later wordt gevraagd om fouten op te sporen.
 
-![Afbeelding van Trace-Logboeken](./media/monitor-application-insights/tracelogsfortask.png)
+![Afbeelding van traceer logboeken](./media/monitor-application-insights/tracelogsfortask.png)
 
-### <a name="view-unhandled-exceptions"></a>Niet-verwerkte uitzonderingen weergeven
+### <a name="view-unhandled-exceptions"></a>Niet-verwerkte uitzonde ringen weer geven
 
-De volgende schermafbeeldingen laat zien hoe Application Insights-logboeken uitzonderingen van uw toepassing. In dit geval binnen enkele seconden van de toepassing die de uitzondering veroorzaakt, kunt u inzoomen op een specifieke uitzondering en vaststellen van het probleem.
+In de volgende scherm afbeeldingen ziet u hoe Application Insights logboeken uitzonde ringen veroorzaakt vanuit uw toepassing. In dit geval kunt u binnen enkele seconden van de toepassing die de uitzonde ring opvoert, een specifieke uitzonde ring bekijken en het probleem vaststellen.
 
 ![Onverwerkte uitzonderingen](./media/monitor-application-insights/exception.png)
 
-### <a name="measure-blob-download-time"></a>Meting blob-downloadtijd
+### <a name="measure-blob-download-time"></a>Download tijd van BLOB meten
 
-Aangepaste metrische gegevens zijn ook een waardevol hulpmiddel in de portal. U kunt bijvoorbeeld de gemiddelde tijd die het heeft elk knooppunt voor het downloaden van het vereiste bestand dat het verwerken van weergeven.
+Aangepaste metrische gegevens zijn ook een waardevol hulp middel in de portal. U kunt bijvoorbeeld de gemiddelde tijd die nodig is voor elk reken knooppunt weer geven om het vereiste tekst bestand dat het verwerkt is te downloaden.
 
-Een voorbeeldgrafiek maken:
-1. Klik in uw Application Insights-resource op **Metrics Explorer** > **toevoegen grafiek**.
+Een voorbeeld grafiek maken:
+1. Klik in de Application Insights resource op **Metrics Explorer** > **grafiek toevoegen**.
 2. Klik op **bewerken** in de grafiek die is toegevoegd.
-2. De grafiekdetails van de als volgt bijwerken:
-   * Stel **grafiektype** naar **raster**.
-   * Stel **aggregatie** naar **gemiddelde**.
-   * Stel **groeperen op** naar **NodeId**.
-   * In **metrische gegevens**, selecteer **aangepaste** > **Blob download in een paar seconden**.
-   * Weergave aanpassen **kleurenpalet** naar keuze. 
+2. Werk de grafiek Details als volgt bij:
+   * Stel het **grafiek type** in op **raster**.
+   * Stel **aggregatie** in op **gemiddelde**.
+   * Stel **Group by** in op **NodeId**.
+   * Selecteer in **metrische gegevens**de optie **aangepaste** > **BLOB-down load in seconden**.
+   * Pas de weer gave **kleuren palet** aan uw keuze aan. 
 
-![Downloadtijd voor BLOB per knooppunt](./media/monitor-application-insights/blobdownloadtime.png)
+![Download tijd voor BLOB per knoop punt](./media/monitor-application-insights/blobdownloadtime.png)
 
 
-## <a name="monitor-compute-nodes-continuously"></a>Rekenknooppunten continu bewaken
+## <a name="monitor-compute-nodes-continuously"></a>Reken knooppunten continu bewaken
 
-U wellicht hebt opgemerkt dat alle metrische gegevens, met inbegrip van prestatiemeteritems, alleen worden geregistreerd wanneer de taken worden uitgevoerd. Dit gedrag is nuttig omdat deze wordt beperkt door de hoeveelheid gegevens die Application Insights-Logboeken. Er zijn echter gevallen wanneer u graag altijd voor het bewaken van de compute-knooppunten. Bijvoorbeeld, ook ze worden uitgevoerd achtergrond work. Dit is niet gepland via de Batch-service. In dit geval, instellen van een controleproces voor de levensduur van het rekenknooppunt uit te voeren. 
+U hebt wellicht gezien dat alle metrische gegevens, met inbegrip van prestatie meter items, alleen worden geregistreerd wanneer de taken worden uitgevoerd. Dit gedrag is handig omdat hiermee de hoeveelheid gegevens die Application Insights Logboeken wordt beperkt. Er zijn echter gevallen waarin u de reken knooppunten altijd wilt bewaken. Ze kunnen bijvoorbeeld achtergrond taken uitvoeren die niet zijn gepland via de batch-service. In dit geval moet u een bewakings proces instellen om te worden uitgevoerd gedurende de levens duur van het reken knooppunt. 
 
-Een manier om dit gedrag bewerkstelligen is voor het produceren van een proces dat de Application Insights-bibliotheek geladen en uitgevoerd op de achtergrond. In het voorbeeld wordt de begintaak laadt de binaire bestanden op de machine en een proces wordt uitgevoerd voor onbepaalde tijd blijft. Configureer het Application Insights-configuratiebestand voor dit proces om te verzenden als u meer gegevens die u geïnteresseerd in, zoals prestatiemeteritems bent.
+Een van de manieren om dit gedrag te verzorgen is het starten van een proces waarmee de Application Insights-bibliotheek wordt geladen en op de achtergrond wordt uitgevoerd. In het voor beeld worden met de begin taak de binaire bestanden op de computer geladen en wordt een proces voor onbepaalde tijd uitgevoerd. Configureer het Application Insights configuratie bestand voor dit proces voor het verzenden van extra gegevens die u wilt, zoals prestatie meter items.
 
 ```csharp
 ...
@@ -333,17 +333,17 @@ pool.StartTask = new StartTask()
 ```
 
 > [!TIP]
-> Als u wilt de beheerbaarheid van uw oplossing verhogen, kunt u de assembly in het bundelen een [toepassingspakket](./batch-application-packages.md). Vervolgens voor het implementeren van het toepassingspakket automatisch naar uw groepen, voegt u een verwijzing naar het toepassingspakket voor configuratie van de pool.
+> Als u de beheer baarheid van uw oplossing wilt verg Roten, kunt u de assembly bundelen in een [toepassings pakket](./batch-application-packages.md). U kunt het toepassings pakket vervolgens automatisch implementeren in uw Pools door een toepassings pakket verwijzing toe te voegen aan de groeps configuratie.
 >
 
-## <a name="throttle-and-sample-data"></a>Vertraging en voorbeeldgegevens 
+## <a name="throttle-and-sample-data"></a>Gashendel en voorbeeld gegevens 
 
-Vanwege de grootschalige aard van Azure Batch-toepassingen in productie, is het raadzaam om de hoeveelheid gegevens die zijn verzameld door Application Insights voor het beheren van kosten te beperken. Zie [steekproeven in Application Insights](../azure-monitor/app/sampling.md) voor sommige methoden om dit te bereiken.
+Als gevolg van de grootschalige aard van Azure Batch toepassingen die in productie worden uitgevoerd, wilt u mogelijk de hoeveelheid gegevens die door Application Insights wordt verzameld, beperken om de kosten te beheren. Zie [sampling in Application Insights](../azure-monitor/app/sampling.md) voor een aantal mechanismen om dit te doen.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
-* Voor Application Insights-ondersteuning in andere talen, bekijk de [programmeertalen, platforms en integraties documentatie](../azure-monitor/app/platforms.md).
+* Raadpleeg de [documentatie over talen, platforms en integraties](../azure-monitor/app/platforms.md)voor Application Insights ondersteuning in andere talen.
 
 

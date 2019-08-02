@@ -9,12 +9,12 @@ ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: 11b47483eaf39e7445ece8b9e38d81a6a2404cc6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0f0acc721fd8888953d80976234b431943985ebf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130465"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68356277"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Aan de slag met Azure Table Storage en de Azure Cosmos DB Table-API met behulp van Python
 
@@ -56,7 +56,7 @@ Nadat u een opslagaccount hebt gemaakt, gaat u de [Microsoft Azure Cosmos DB Tab
 
 ## <a name="import-the-tableservice-and-entity-classes"></a>De TableService- en Entity-klassen importeren
 
-Wanneer u wilt werken met entiteiten in de Azure Table-service in Python, gebruikt u de klassen [TableService][py_TableService] en [Entity][py_Entity]. Voeg deze code aan het begin van uw Python-bestand toe om beide te importeren:
+Als u wilt werken met entiteiten in de Azure Table service in Python, gebruikt u de klassen [TableService][py_TableService] en [entity][py_Entity] . Voeg deze code aan het begin van uw Python-bestand toe om beide te importeren:
 
 ```python
 from azure.cosmosdb.table.tableservice import TableService
@@ -73,7 +73,7 @@ table_service = TableService(account_name='myaccount', account_key='mykey')
 
 ## <a name="connect-to-azure-cosmos-db"></a>Verbinding maken met Azure Cosmos DB
 
-Wanneer u verbinding wilt maken met Azure Cosmos DB, kopieert u de primaire verbindingsreeks vanuit de Azure-portal en maakt u een [TableService][py_TableService]-object met de gekopieerde verbindingsreeks:
+Wanneer u verbinding wilt maken met Azure Cosmos DB, kopieert u de primaire verbindingsreeks vanuit Azure Portal en maakt u een [TableService][py_TableService]-object met de gekopieerde verbindingsreeks:
 
 ```python
 table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;)
@@ -81,7 +81,7 @@ table_service = TableService(connection_string='DefaultEndpointsProtocol=https;A
 
 ## <a name="create-a-table"></a>Een tabel maken
 
-Roep [create_table] [ py_create_table] aan om de tabel te maken.
+Roep [create_table][py_create_table] aan om de tabel te maken.
 
 ```python
 table_service.create_table('tasktable')
@@ -89,16 +89,17 @@ table_service.create_table('tasktable')
 
 ## <a name="add-an-entity-to-a-table"></a>Een entiteit toevoegen aan een tabel
 
-Als u een entiteit wilt toevoegen, maakt u eerst een object dat uw entiteit vertegenwoordigt. Vervolgens geeft het object door aan de [TableService.insert_entity-methode][py_TableService]. Het entiteitsobject mag een woordenboek of een object van het type [entiteit][py_Entity] zijn en definieert de eigenschapsnamen en -waarden van uw entiteit. Elke entiteit moet de vereiste [PartitionKey- en RowKey](#partitionkey-and-rowkey)-eigenschappen bevatten, naast de andere eigenschappen die u voor de entiteit definieert.
+Als u een entiteit wilt toevoegen, maakt u eerst een-object dat uw entiteit vertegenwoordigt. vervolgens geeft u het object door aan de [methode TableService. insert_entity][py_TableService]. Het entiteits object kan een woorden lijst of een object van het type [entity][py_Entity]zijn en definieert de eigenschaps namen en waarden van uw entiteit. Elke entiteit moet de vereiste [PartitionKey- en RowKey](#partitionkey-and-rowkey)-eigenschappen bevatten, naast de andere eigenschappen die u voor de entiteit definieert.
 
-In dit voorbeeld maakt u een woordenboekobject dat een entiteit vertegenwoordigt en geeft u dit vervolgens door aan de [insert_entity][py_insert_entity]-methode om het toe te voegen aan de tabel:
+In dit voor beeld wordt een Dictionary-object gemaakt dat een entiteit vertegenwoordigt, waarna het wordt door gegeven aan de methode [insert_entity][py_insert_entity] om deze aan de tabel toe te voegen:
 
 ```python
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out the trash', 'priority' : 200}
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001',
+        'description': 'Take out the trash', 'priority': 200}
 table_service.insert_entity('tasktable', task)
 ```
 
-In dit voorbeeld maakt u een [Entity][py_Entity]-object en geeft u dit door aan de [insert_entity][py_insert_entity]-methode om het toe te voegen aan de tabel:
+In dit voor beeld [][py_Entity] wordt een entiteits object gemaakt en vervolgens door gegeven aan de methode [insert_entity][py_insert_entity] om dit aan de tabel toe te voegen:
 
 ```python
 task = Entity()
@@ -117,10 +118,11 @@ De Table-service gebruikt **PartitionKey** voor intelligente distributie van tab
 
 ## <a name="update-an-entity"></a>Een entiteit bijwerken
 
-Wanneer u alle eigenschapswaarden van een entiteit wilt bijwerken, roept u de [update_entity][py_update_entity]-methode aan. In dit voorbeeld ziet u hoe u een bestaande entiteit vervangt door een bijgewerkte versie:
+Als u alle eigenschaps waarden van een entiteit wilt bijwerken, roept u de methode [update_entity][py_update_entity] aan. In dit voorbeeld ziet u hoe u een bestaande entiteit vervangt door een bijgewerkte versie:
 
 ```python
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out the garbage', 'priority' : 250}
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001',
+        'description': 'Take out the garbage', 'priority': 250}
 table_service.update_entity('tasktable', task)
 ```
 
@@ -128,28 +130,32 @@ Als de entiteit die wordt bijgewerkt, niet al bestaat, mislukt het de updatebewe
 
 ```python
 # Replace the entity created earlier
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out the garbage again', 'priority' : 250}
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001',
+        'description': 'Take out the garbage again', 'priority': 250}
 table_service.insert_or_replace_entity('tasktable', task)
 
 # Insert a new entity
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '003', 'description' : 'Buy detergent', 'priority' : 300}
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '003',
+        'description': 'Buy detergent', 'priority': 300}
 table_service.insert_or_replace_entity('tasktable', task)
 ```
 
 > [!TIP]
-> Met de [update_entity][py_update_entity]-methode vervangt u alle eigenschappen en waarden van een bestaande entiteit. U kunt deze methode ook gebruiken om eigenschappen te verwijderen uit een bestaande entiteit. U kunt de [merge_entity][py_merge_entity]-methode gebruiken om een bestaande entiteit bij te werken met nieuwe of gewijzigde eigenschapswaarden, zonder de entiteit volledig te vervangen.
+> De methode [update_entity][py_update_entity] vervangt alle eigenschappen en waarden van een bestaande entiteit, die u ook kunt gebruiken om eigenschappen van een bestaande entiteit te verwijderen. U kunt de [merge_entity][py_merge_entity] -methode gebruiken om een bestaande entiteit bij te werken met nieuwe of gewijzigde eigenschaps waarden zonder de entiteit volledig te vervangen.
 
 ## <a name="modify-multiple-entities"></a>Meerdere entiteiten wijzigen
 
-Om te zorgen dat een aanvraag atomisch door de Table-service wordt verwerkt, kunt u meerdere bewerkingen in een batch verzenden. Gebruik eerst de klasse [TableBatch][py_TableBatch] om meerdere bewerkingen toe te voegen aan één batch. Daarna roept u [TableService][py_TableService].[commit_batch][py_commit_batch] aan om bewerkingen te verzenden in een atomische bewerking. Alle te wijzigen entiteiten in de batch, moeten zich in dezelfde partitie bevinden.
+Om te zorgen dat een aanvraag atomisch door de Table-service wordt verwerkt, kunt u meerdere bewerkingen in een batch verzenden. Gebruik eerst de [TableBatch][py_TableBatch] -klasse om meerdere bewerkingen aan één batch toe te voegen. Roep vervolgens [TableService][py_TableService]aan. [commit_batch][py_commit_batch] om de bewerkingen in een Atomic-bewerking te verzenden. Alle te wijzigen entiteiten in de batch, moeten zich in dezelfde partitie bevinden.
 
 In dit voorbeeld worden twee entiteiten samen aan een batch toegevoegd:
 
 ```python
 from azure.cosmosdb.table.tablebatch import TableBatch
 batch = TableBatch()
-task004 = {'PartitionKey': 'tasksSeattle', 'RowKey': '004', 'description' : 'Go grocery shopping', 'priority' : 400}
-task005 = {'PartitionKey': 'tasksSeattle', 'RowKey': '005', 'description' : 'Clean the bathroom', 'priority' : 100}
+task004 = {'PartitionKey': 'tasksSeattle', 'RowKey': '004',
+           'description': 'Go grocery shopping', 'priority': 400}
+task005 = {'PartitionKey': 'tasksSeattle', 'RowKey': '005',
+           'description': 'Clean the bathroom', 'priority': 100}
 batch.insert_entity(task004)
 batch.insert_entity(task005)
 table_service.commit_batch('tasktable', batch)
@@ -158,8 +164,10 @@ table_service.commit_batch('tasktable', batch)
 Batches kunnen ook worden gebruikt met de syntaxis van de contextmanager:
 
 ```python
-task006 = {'PartitionKey': 'tasksSeattle', 'RowKey': '006', 'description' : 'Go grocery shopping', 'priority' : 400}
-task007 = {'PartitionKey': 'tasksSeattle', 'RowKey': '007', 'description' : 'Clean the bathroom', 'priority' : 100}
+task006 = {'PartitionKey': 'tasksSeattle', 'RowKey': '006',
+           'description': 'Go grocery shopping', 'priority': 400}
+task007 = {'PartitionKey': 'tasksSeattle', 'RowKey': '007',
+           'description': 'Clean the bathroom', 'priority': 100}
 
 with table_service.batch('tasktable') as batch:
     batch.insert_entity(task006)
@@ -168,7 +176,7 @@ with table_service.batch('tasktable') as batch:
 
 ## <a name="query-for-an-entity"></a>Een query uitvoeren voor een entiteit
 
-Wanneer u met een query een entiteit in een tabel wilt opvragen, geeft u de PartitionKey en RowKey van de entiteit door aan de [TableService][py_TableService].[ get_entity][py_get_entity]-methode.
+Als u een query wilt uitvoeren voor een entiteit in een tabel, geeft u de PartitionKey en RowKey door aan de [TableService][py_TableService]. methode [get_entity][py_get_entity] .
 
 ```python
 task = table_service.get_entity('tasktable', 'tasksSeattle', '001')
@@ -181,7 +189,8 @@ print(task.priority)
 U kunt een query voor een aantal entiteiten uitvoeren door een filtertekenreeks op te geven met de **filter**-parameter. In dit voorbeeld worden alle taken in Haarlem gevonden door een filter toepassen op PartitionKey:
 
 ```python
-tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'")
+tasks = table_service.query_entities(
+    'tasktable', filter="PartitionKey eq 'tasksSeattle'")
 for task in tasks:
     print(task.description)
     print(task.priority)
@@ -197,14 +206,15 @@ De query in de volgende code retourneert alleen de beschrijvingen van de entitei
 > Het volgende fragment werkt alleen op basis van de Azure Storage. Dit wordt niet ondersteund door de opslagemulator.
 
 ```python
-tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'", select='description')
+tasks = table_service.query_entities(
+    'tasktable', filter="PartitionKey eq 'tasksSeattle'", select='description')
 for task in tasks:
     print(task.description)
 ```
 
 ## <a name="delete-an-entity"></a>Een entiteit verwijderen
 
-Verwijder een entiteit door de **PartitionKey** en **RowKey** van de entiteit door te geven aan de [delete_entity][py_delete_entity]-methode.
+Verwijder een entiteit door de **PartitionKey** en **RowKey** door te geven aan de methode [delete_entity][py_delete_entity] .
 
 ```python
 table_service.delete_entity('tasktable', 'tasksSeattle', '001')
@@ -212,7 +222,7 @@ table_service.delete_entity('tasktable', 'tasksSeattle', '001')
 
 ## <a name="delete-a-table"></a>Een tabel verwijderen
 
-Als u een tabel of een van de entiteiten in de tabel niet meer nodig hebt, roept u de [delete_table][py_delete_table]-methode aan om de tabel definitief te verwijderen uit Azure Storage.
+Als u een tabel of een van de entiteiten niet meer nodig hebt, roept u de [delete_table][py_delete_table] -methode op om de tabel permanent uit Azure Storage te verwijderen.
 
 ```python
 table_service.delete_table('tasktable')

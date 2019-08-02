@@ -1,156 +1,157 @@
 ---
-title: Ontwikkelen van veilige toepassingen op Microsoft Azure
-description: In dit artikel wordt beschreven aanbevolen procedures overwegen tijdens de fasen van de implementatie en controle van uw web application-project.
+title: Veilige toepassingen ontwikkelen op Microsoft Azure
+description: In dit artikel worden aanbevolen procedures besproken die u moet overwegen tijdens de implementatie-en verificatie fasen van uw webtoepassingen project.
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
 ms.date: 06/12/2019
 ms.topic: article
 ms.service: security
+ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f4add4bf07178aa616e86f8a64b313630466824f
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: cc0540f74b755e083855721ad62754c70edb88b6
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653271"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728677"
 ---
-# <a name="develop-secure-applications-on-azure"></a>Ontwikkelen van veilige toepassingen op Azure
-In dit artikel geven we beveiligingsactiviteiten en besturingselementen om te overwegen bij het ontwikkelen van toepassingen voor de cloud. Beveiligingsvragen en -concepten te houden tijdens de fasen van de implementatie en controle van de Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) vallen. Het doel is voor het definiëren van activiteiten en Azure-services die u gebruiken kunt voor het ontwikkelen van een beter beveiligde toepassing.
+# <a name="develop-secure-applications-on-azure"></a>Veilige toepassingen ontwikkelen in azure
+In dit artikel bieden we beveiligings activiteiten en-controles waarmee u rekening moet houden bij het ontwikkelen van toepassingen voor de Cloud. Beveiligings vragen en-concepten waarmee u rekening moet houden tijdens de implementatie-en verificatie fasen van micro soft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) vallen onder de dekking. Het doel is om u te helpen bij het definiëren van activiteiten en Azure-Services die u kunt gebruiken om een veiligere toepassing te ontwikkelen.
 
-De volgende fasen van de SDL worden in dit artikel besproken:
+In dit artikel komen de volgende SDL-fasen aan bod:
 
 - Implementatie
 - Verificatie
 
 ## <a name="implementation"></a>Implementatie
-De focus van de implementatiefase is tot stand brengen van aanbevolen procedures voor vroege voorkomen en detecteren en verwijderen van beveiligingsproblemen op het gebied van de code.
-Wordt ervan uitgegaan dat uw toepassing wordt gebruikt op een manier die u niet van plan bent om te worden gebruikt. Zo kunt u bescherming tegen per ongeluk of opzettelijk misbruik van uw toepassing.
+De focus van de implementatie fase is het instellen van aanbevolen procedures voor vroegtijdige preventie en voor het detecteren en verwijderen van beveiligings problemen van de code.
+Stel dat uw toepassing wordt gebruikt op een manier die u niet wilt gebruiken. Zo kunt u zich beschermen tegen onbedoelde of opzettelijke misbruik van uw toepassing.
 
-### <a name="perform-code-reviews"></a>Codebeoordelingen uitvoeren
+### <a name="perform-code-reviews"></a>Code beoordelingen uitvoeren
 
-Voordat u code incheckt, voeren [code, revisies](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) voor betere algehele kwaliteit van code en vermindert het risico van het maken van bugs. U kunt [Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) voor het beheren van het proces voor de code.
+Voordat u code incheckt, voert u [code beoordelingen](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) uit om de algehele code kwaliteit te verbeteren en het risico op het maken van fouten te verminderen. U kunt [Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) gebruiken om het code controle proces te beheren.
 
-### <a name="perform-static-code-analysis"></a>De statische codeanalyse analyses uitvoeren
+### <a name="perform-static-code-analysis"></a>Statische code analyse uitvoeren
 
-[Analyse van de statische codeanalyse](https://www.owasp.org/index.php/Static_Code_Analysis) (ook wel bekend als *source code analysis*) wordt gewoonlijk uitgevoerd als onderdeel van een beoordeling code. Analyse van de statische codeanalyse vaak verwijst naar het uitvoeren van de statische codeanalyse analyseprogramma's om mogelijke beveiligingsproblemen in de code niet worden uitgevoerd met behulp van technieken zoals [taint controleren](https://en.wikipedia.org/wiki/Taint_checking) en [gegevensstroom analysis](https://en.wikipedia.org/wiki/Data-flow_analysis).
+[Statische code analyse](https://www.owasp.org/index.php/Static_Code_Analysis) (ook wel bekend als de analyse van de *bron code*) wordt doorgaans uitgevoerd als onderdeel van een code controle. Statische code analyse verwijst doorgaans naar het uitvoeren van hulpprogram ma's voor statische code analyse om mogelijke beveiligings problemen in niet-actieve code te vinden met behulp van technieken als [Taint-controle](https://en.wikipedia.org/wiki/Taint_checking) en [gegevens stroom analyse](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
-Azure Marketplace-aanbiedingen [hulpprogramma's voor ontwikkelaars](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) die statische code analyses uitvoeren en hulp met codebeoordelingen.
+Azure Marketplace biedt [ontwikkel hulpprogramma's](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) voor het uitvoeren van een statische code analyse en hulp bij het evalueren van code.
 
-### <a name="validate-and-sanitize-every-input-for-your-application"></a>Valideren en opschonen van elke invoer voor uw toepassing
+### <a name="validate-and-sanitize-every-input-for-your-application"></a>Elke invoer voor uw toepassing valideren en opschonen
 
-Alle invoer behandelen als niet-vertrouwde ter bescherming van uw toepassing van de meest voorkomende internetkwetsbaarheden van toepassing. Niet-vertrouwde gegevens is een voertuig voor injectieaanvallen. Invoer voor uw toepassing met parameters die in de URL invoeren van de gebruiker gegevens uit de database of uit een API, en alles dat wordt doorgegeven in die een gebruiker mogelijk kan bewerken. Een toepassing moet [valideren](https://www.owasp.org/index.php/OWASP_Proactive_Controls_2016#4:_Validate_All_Inputs) dat gegevens syntactisch en semantisch geldig is voordat de toepassing gebruikmaakt van de gegevens op een manier (met inbegrip van deze terug naar de gebruiker wordt weergegeven).
+Behandel alle invoer als niet-vertrouwd om uw toepassing te beschermen tegen de meest voorkomende beveiligings problemen van webtoepassingen. Niet-vertrouwde gegevens zijn een medium voor injectie aanvallen. De invoer voor uw toepassing bevat para meters in de URL, de invoer van de gebruiker, de gegevens uit de data base of een API, en alles wat wordt door gegeven in een gebruiker die mogelijk kan worden bewerkt. Een toepassing moet [valideren](https://www.owasp.org/index.php/OWASP_Proactive_Controls_2016#4:_Validate_All_Inputs) dat gegevens syntactisch en semantisch geldig zijn voordat de toepassing de gegevens op een wille keurige manier gebruikt (met inbegrip van het weer geven van de gebruiker).
 
-Valideren van invoer vroeg in de gegevensstroom om ervoor te zorgen dat alleen juist opgemaakte gegevens de werkstroom voert. U wilt niet dat onjuist gevormde gegevens persistent maken in uw database of activeren van een storing in een downstream-onderdeel.
+Valideer invoer vroegtijdig in de gegevens stroom om ervoor te zorgen dat alleen goed gevormde gegevens de werk stroom binnenkomen. U wilt niet dat er misvormde gegevens in uw data base worden bewaard of een storing in een downstream-onderdeel wordt geactiveerd.
 
-Zijn twee algemene methoden voor het valideren van de syntaxis van de invoer blacklisting en opname in de whitelist:
+Black listing en white list zijn twee algemene benaderingen voor het uitvoeren van validatie van invoer syntaxis:
 
-  - Witte probeert om te controleren dat de invoer van een bepaalde gebruiker geen 'bekende schadelijke worden' inhoud bevat.
+  - Bij het in de lijst opnemen wordt geprobeerd te controleren of een bepaalde gebruikers invoer niet de inhoud ' bekend als schadelijk ' bevat.
 
-  - Opname in de Whitelist probeert om te controleren of de invoer van een bepaalde gebruiker overeenkomt met een set 'bekende goede' invoer. Op basis van een teken in een whitelist opnemen is een vorm van opname in de whitelist waarin een toepassing wordt gecontroleerd dat invoer van de gebruiker alleen 'bekende goede' tekens bevat of dat invoer komt overeen met een bekende indeling.
-    Bijvoorbeeld, kan dit inhouden controleren dat een gebruikersnaam alleen alfanumerieke tekens bevat of dat deze precies twee getallen bevat.
+  - White list probeert te controleren of een bepaalde gebruikers invoer overeenkomt met een aantal "bekende goede" invoer. Op tekens gebaseerd white list is een vorm van white list waarbij een toepassing controleert of gebruikers invoer alleen ' bekende goede ' tekens bevat of dat de invoer overeenkomt met een bekende indeling.
+    Dit kan bijvoorbeeld nodig zijn om te controleren of een gebruikers naam alleen alfanumerieke tekens bevat of dat deze precies twee getallen bevat.
 
-Opname in de Whitelist is de aanpak van voorkeur voor het bouwen van veilige software.
-Witte is foutgevoelig, omdat het is niet mogelijk om na te denken van een volledige lijst met mogelijk ongeldige invoer.
+White List is de aanbevolen benadering voor het bouwen van beveiligde software.
+Het is gevoelig voor een fout omdat het niet mogelijk is om een volledige lijst met mogelijk onjuiste invoer te bedenken.
 
-Dit werk op de server, niet op de client (of op de server en op de client).
+Doe dit op de-server, niet aan de client zijde (of op de-server en aan de client zijde).
 
-### <a name="verify-your-applications-outputs"></a>Controleer of de uitvoer van uw toepassing
+### <a name="verify-your-applications-outputs"></a>De uitvoer van uw toepassing controleren
 
-Geen uitvoer die u visueel of in een document moet altijd worden gecodeerd en escape. [Aanhalingstekens](https://www.owasp.org/index.php/Injection_Theory#Escaping_.28aka_Output_Encoding.29), ook wel bekend als *uitvoercodering*, om ervoor te zorgen dat niet-vertrouwde gegevens een voertuig voor een injectie-aanval niet wordt gebruikt. Aanhalingstekens, gecombineerd met gegevensvalidatie, biedt gelaagde beveiliging voor betere beveiliging van het systeem als geheel.
+Een uitvoer die u visueel of in een document bevindt, moet altijd worden gecodeerd en ontsnapeerd. [Escapes](https://www.owasp.org/index.php/Injection_Theory#Escaping_.28aka_Output_Encoding.29), ook wel bekend als *uitvoer codering*, wordt gebruikt om ervoor te zorgen dat niet-vertrouwde gegevens geen voer tuig zijn voor een injectie aanval. Escapes, gecombineerd met gegevens validatie, bieden gelaagde beveiligingen voor een betere beveiliging van het systeem als geheel.
 
-Aanhalingstekens is ervoor dat alles weergegeven als *uitvoer.* Aanhalingstekens, kunt ook de interpreter weet dat de gegevens is niet bedoeld om te worden uitgevoerd en zo worden aanvallen werken voorkomen. Dit is een andere veelvoorkomende aanval techniek met de naam *cross-site scripting* (XSS).
+Bij het maken van een Escape wordt gecontroleerd of alles wordt weer gegeven als *uitvoer.* Bij het maken van een Escape kan de interpreter ook weten dat de gegevens niet zijn bedoeld om te worden uitgevoerd. dit voor komt dat aanvallen werken. Dit is een andere veelvoorkomende aanvals techniek die *cross-site scripting* (XSS) wordt genoemd.
 
-Als u een webframework van een derde partij gebruikt, kunt u controleren of uw opties voor het coderen van uitvoer op websites met behulp van de [OWASP XSS preventie overzichtskaart](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md).
+Als u een webframework van een derde partij gebruikt, kunt u de opties voor uitvoer codering op websites controleren met behulp van het [Cheat-blad OWASP XSS-preventie](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md).
 
-### <a name="use-parameterized-queries-when-you-contact-the-database"></a>Geparameteriseerde query's gebruiken wanneer u contact opnemen met de database
+### <a name="use-parameterized-queries-when-you-contact-the-database"></a>Query's met para meters gebruiken wanneer u contact opneemt met de data base
 
-Maak nooit een inline-databasequery 'op elk gewenst moment"in uw code en verzend het rechtstreeks naar de database. Schadelijke code ingevoegd in uw toepassing zou kunnen veroorzaken voor uw database worden gestolen, gewist of gewijzigd. Uw toepassing kan ook worden gebruikt om schadelijke besturingssysteem-opdrachten uitvoeren op het besturingssysteem dat als host fungeert voor uw database.
+Maak nooit een inline-database query in uw code en verzend deze rechtstreeks naar de data base. Door schadelijke code die in uw toepassing is ingevoegd, kan uw data base mogelijk worden gestolen, gewist of gewijzigd. Uw toepassing kan ook worden gebruikt om schadelijke besturingssysteem opdrachten uit te voeren op het besturings systeem dat als host fungeert voor uw data base.
 
-Gebruik in plaats daarvan geparameteriseerde query's of opgeslagen procedures. Wanneer u geparameteriseerde query's gebruikt, kunt u de procedure veilig aanroepen vanuit uw code en geven deze een tekenreeks zonder u zorgen te maken dat dit wordt beschouwd als onderdeel van de query-instructie.
+Gebruik in plaats daarvan query's met para meters of opgeslagen procedures. Wanneer u query's met para meters gebruikt, kunt u de procedure veilig aanroepen vanuit uw code en deze door geven aan een teken reeks zonder dat deze wordt beschouwd als onderdeel van de query-instructie.
 
-### <a name="remove-standard-server-headers"></a>Standard van SQL server-headers verwijderen
+### <a name="remove-standard-server-headers"></a>Standaard server headers verwijderen
 
-Kopteksten, zoals Server X-aangedreven-By, en X-AspNet-Version geven informatie over de server en de onderliggende technologie. Het is raadzaam dat u deze headers om te voorkomen dat de toepassing fingerprinting onderdrukken.
-Zie [headers van de standaard-server op Azure websites verwijderen](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
+Headers zoals server, X-by en X-AspNet-version tonen informatie over de-server en onderliggende technologieën. We raden u aan deze headers te onderdrukken om te voor komen dat de toepassing wordt gevingerafdrukd.
+Zie [standaard server headers verwijderen op Azure websites](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
 
-### <a name="segregate-your-production-data"></a>Uw productiegegevens scheiden
+### <a name="segregate-your-production-data"></a>Uw productie gegevens scheiden
 
-Uw productiegegevens of 'echte' gegevens moeten niet worden gebruikt voor ontwikkeling, tests of andere doeleinden dan wat het bedrijf bestemd. Een gemaskeerd ([geanonimiseerd](https://en.wikipedia.org/wiki/Data_anonymization)) gegevensset moet worden gebruikt voor alle ontwikkeling en testen.
+Uw productie gegevens, of echte gegevens, mogen niet worden gebruikt voor ontwikkeling, tests of andere doel einden dan het bedrijf dat bedoeld is. Een gemaskeerde ([geanonimiseerd](https://en.wikipedia.org/wiki/Data_anonymization)) gegevensset moet worden gebruikt voor alle ontwikkel-en test doeleinden.
 
-Dit betekent dat minder personen hebben toegang tot uw echte gegevens waardoor uw kwetsbaarheid voor aanvallen. Het betekent ook dat minder werknemers Zie persoonlijke gegevens, waarmee wordt voorkomen dat een mogelijk beveiligingsprobleem in vertrouwen te behandelen.
+Dit betekent dat minder mensen toegang hebben tot uw echte gegevens, waardoor uw kwets baarheid wordt beperkt. Het betekent ook dat minder werk nemers persoonlijke gegevens zien, waardoor een mogelijke schending van vertrouwelijkheid wordt voor komen.
 
-### <a name="implement-a-strong-password-policy"></a>Een sterk wachtwoordbeleid implementeren
+### <a name="implement-a-strong-password-policy"></a>Een sterk wachtwoord beleid implementeren
 
-Om te zetten voor bescherming tegen brute-force en op basis van een woordenlijst raden, moet u een sterk wachtwoordbeleid om ervoor te zorgen dat gebruikers een complex wachtwoord (bijvoorbeeld de minimale lengte 12 tekens en alfanumerieke tekens en speciale tekens vereisen) maken implementeren.
+U moet een sterk wachtwoord beleid implementeren om ervoor te zorgen dat gebruikers een complex wacht woord maken (bijvoorbeeld: 12 tekens minimum lengte en alfanumerieke en speciale tekens vereisen) om te voor komen dat de computer wordt geraden.
 
-Een identiteit framework kunt u maken en wachtwoordbeleid afdwingen. Azure AD B2C helpt u bij het Wachtwoordbeheer door te geven [ingebouwde beleidsregels](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow), [Self-service voor wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr), en nog veel meer.
+U kunt een identiteits raamwerk gebruiken om wachtwoord beleid te maken en af te dwingen. Azure AD B2C helpt u bij het beheer van wacht woorden door [ingebouwde beleids regels](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow), [selfservice voor wachtwoord herstel](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr)en meer te bieden.
 
-Als u wilt beschermen tegen aanvallen op de standaard-accounts, Controleer of alle sleutels en wachtwoorden replaceable en ze zijn gegenereerd of vervangen na de installatie van resources.
+Om te beschermen tegen aanvallen op standaard accounts, moet u controleren of alle sleutels en wacht woorden worden vervangen en dat ze worden gegenereerd of vervangen nadat u resources hebt geïnstalleerd.
 
-Als de toepassing automatisch wachtwoorden genereren moet, zorgt u ervoor dat de gegenereerde wachtwoorden willekeurige zijn en of ze hoge entropie hebben.
+Als de toepassing automatisch wacht woorden moet genereren, zorgt u ervoor dat de gegenereerde wacht woorden wille keurig zijn en dat ze een hoge entropie hebben.
 
-### <a name="validate-file-uploads"></a>Valideren van het uploaden van bestanden
+### <a name="validate-file-uploads"></a>Uploads van bestanden valideren
 
-Als uw toepassing kunt [file uploads](https://www.owasp.org/index.php/Unrestricted_File_Upload), houd rekening met voorzorgsmaatregelen die u voor deze riskante activiteit kunt uitvoeren. De eerste stap in veel aanvallen is toegang te krijgen van bepaalde schadelijke code tot een systeem dat wordt aangevallen. Met behulp van een bestand is geüpload, kunt de aanvaller hiervoor. OWASP biedt oplossingen voor het valideren van een bestand om ervoor te zorgen dat het bestand dat u uploadt veilig is.
+Als uw toepassing uploads van [bestanden](https://www.owasp.org/index.php/Unrestricted_File_Upload)toestaat, moet u rekening houden met voorzorgsmaatregelen die u voor deze Risk ante activiteit kunt nemen. De eerste stap in veel aanvallen is het verkrijgen van schadelijke code in een systeem dat wordt aangevallen. Als u een bestand uploadt, helpt de aanvaller dit te doen. OWASP biedt oplossingen voor het valideren van een bestand om ervoor te zorgen dat het bestand dat u uploadt veilig is.
 
-Bescherming tegen malware helpt te identificeren en verwijderen van virussen, spyware en andere schadelijke software. U kunt installeren [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) of oplossing voor eindpuntbeveiliging is een Microsoft-partner ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10), en [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
+Met antimalware Protection kunt u virussen, spyware en andere schadelijke software identificeren en verwijderen. U kunt [micro soft antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) of een Endpoint Protection-oplossing van micro soft partner ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)en [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)) installeren.
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) bevat functies zoals realtime-beveiliging, geplande scannen, oplossen van malware, handtekeningupdates, engine-updates, rapportage-voorbeelden en uitsluitingsverzameling gebeurtenis. U kunt oplossingen van Microsoft Antimalware en partners met integreren [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) voor een eenvoudige implementatie en ingebouwde detecties (waarschuwingen en incidenten).
+[Micro soft antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) bevat functies als realtime-beveiliging, geplande scans, malware-herstel, handtekening updates, engine-updates, voor beelden van rapporten en uitsluitings gebeurtenissen verzamelen. U kunt micro soft antimalware en partner oplossingen integreren met [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) voor een gemakkelijke implementatie en ingebouwde detecties (waarschuwingen en incidenten).
 
-### <a name="dont-cache-sensitive-content"></a>Geen gevoelige inhoud in cache
+### <a name="dont-cache-sensitive-content"></a>Geen gevoelige inhoud opslaan in cache
 
-Geen cache gevoelige inhoud in de browser. Browsers kunnen opslaan voor caching en geschiedenis. Bestanden in de cache worden opgeslagen in een map, zoals de map Tijdelijke internetbestanden in het geval van Internet Explorer. Wanneer deze pagina's worden aangeduid, de browser, wordt de pagina's uit de cache weergegeven. Als gevoelige gegevens (adres, creditcardgegevens, burgerservicenummer, gebruikersnaam) worden weergegeven aan de gebruiker, de informatie kan worden opgeslagen in de cache van de browser en meer worden opgehaald door te controleren van de cache van de browser of door op de browser tedrukken **Terug** knop.
+Sla gevoelige inhoud niet op in de cache van de browser. Browsers kunnen gegevens opslaan voor caching en geschiedenis. Bestanden in de cache worden opgeslagen in een map, zoals de map Tijdelijke Internet bestanden, in het geval van Internet Explorer. Wanneer deze pagina's weer worden genoemd, worden de pagina's uit de cache van de browser weer gegeven. Als gevoelige informatie (adres, creditcard gegevens, sofi-nummer, gebruikers naam) wordt weer gegeven aan de gebruiker, kan de informatie worden opgeslagen in de cache van de browser en kan worden opgehaald door de cache van de browser te controleren of door simpelweg op de browser **te drukken Knop terug** .
 
 ## <a name="verification"></a>Verificatie
-De verificatie-fase omvat een uitgebreide inspanning om ervoor te zorgen dat de code voldoet aan de basisprincipes voor beveiliging en privacy die zijn vastgelegd in de vorige fasen.
+De verificatie fase omvat een uitgebreide inspanning om ervoor te zorgen dat de code voldoet aan de beveiligings-en privacyfuncties die in de voor gaande fasen zijn vastgelegd.
 
-### <a name="find-and-fix-vulnerabilities-in-your-application-dependencies"></a>Zoek en corrigeer kwetsbaarheden in uw toepassingsafhankelijkheden
+### <a name="find-and-fix-vulnerabilities-in-your-application-dependencies"></a>Problemen in uw toepassings afhankelijkheden detecteren en oplossen
 
-U scannen uw toepassing en de afhankelijke bibliotheken voor het identificeren van alle bekende kwetsbare onderdelen. Producten die beschikbaar zijn voor het uitvoeren van deze scan [OWASP-afhankelijkheden controleren](https://www.owasp.org/index.php/OWASP_Dependency_Check),[Snyk](https://snyk.io/), en [zwart Duck](https://www.blackducksoftware.com/).
+U scant uw toepassing en de bijbehorende afhankelijke bibliotheken om bekende kwets bare onderdelen te identificeren. Producten die beschikbaar zijn voor het uitvoeren van deze scan, zijn [OWASP dependency check](https://www.owasp.org/index.php/OWASP_Dependency_Check),[Snyk](https://snyk.io/)en [Black eenden](https://www.blackducksoftware.com/).
 
-Scannen op beveiligingsproblemen aangedreven door [Tinfoil Security](https://www.tinfoilsecurity.com/) is beschikbaar voor Azure App Service Web Apps. [Tinfoil Security scanning via App Service](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) biedt ontwikkelaars en beheerders snel, geïntegreerde en betaalbare middel om te detecteren en aanpakken van beveiligingsproblemen voordat een schadelijke actor van deze profiteren kan.
+Het scannen van beveiligings problemen met [Tinfoil-beveiliging](https://www.tinfoilsecurity.com/) is beschikbaar voor Azure app service Web apps. [Tinfoil Security scanning via app service](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) biedt ontwikkel aars en beheerders een snelle, geïntegreerde en betaal bare manier om beveiligings problemen op te sporen en op te lossen voordat een kwaadwillende actor hiervan gebruik kan maken.
 
 > [!NOTE]
-> U kunt ook [Tinfoil Security integreren met Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tinfoil-security-tutorial). Tinfoil Security integreren met Azure AD biedt u de volgende voordelen:
->  - In Azure AD, kunt u bepalen wie toegang heeft tot Tinfoil Security.
->  - Uw gebruikers kunnen worden automatisch aangemeld bij Tinfoil Security (eenmalige aanmelding) met behulp van hun Azure AD-accounts.
->  - U kunt uw accounts op een centrale locatie, de Azure-portal beheren.
+> U kunt ook [Tinfoil-beveiliging integreren met Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tinfoil-security-tutorial). Het integreren van Tinfoil-beveiliging met Azure AD biedt de volgende voor delen:
+>  - In azure AD kunt u bepalen wie toegang heeft tot Tinfoil-beveiliging.
+>  - Uw gebruikers kunnen automatisch worden aangemeld bij Tinfoil-beveiliging (eenmalige aanmelding) door gebruik te maken van hun Azure AD-accounts.
+>  - U kunt uw accounts beheren op één centrale locatie, het Azure Portal.
 
-### <a name="test-your-application-in-an-operating-state"></a>Uw toepassing testen in een operationele status
+### <a name="test-your-application-in-an-operating-state"></a>Uw toepassing testen in een bedrijfs toestand
 
-Dynamische toepassing beveiligingstesten (DAST) is een proces van het testen van een toepassing in een operationele status voor het vinden van beveiligingsproblemen. Hulpprogramma's voor DAST analyseren programma's, terwijl ze worden uitgevoerd om te vinden van beveiligingsproblemen, zoals beschadiging van het geheugen, onveilig serverconfiguratie, cross-site scripting, gebruiker bevoegdheden problemen, SQL-injectie en andere kritieke beveiligingsproblemen.
+Dynamische test op toepassings beveiliging (DAST) is een proces van het testen van een toepassing in een bedrijfs status om beveiligings problemen op te sporen. Met DAST-hulpprogram ma's worden Program ma's geanalyseerd terwijl ze worden uitgevoerd voor het vinden van beveiligings problemen, zoals geheugen beschadiging, onveilige server configuratie, cross-site scripting, problemen met gebruikers bevoegdheden, SQL-injectie en andere belang rijke beveiligings problemen.
 
-DAST wijkt af van statische Toepassingsbeveiliging testen (SAST). Hulpprogramma's voor SAST broncode analyseren of versies van de code wordt gecompileerd wanneer de code wordt uitgevoerd om te zoeken beveiligingsfouten.
+DAST wijkt af van de statische test van de toepassings beveiliging (SAST). SAST-hulpprogram ma's analyseren bron code of gecompileerde versies van code wanneer de code niet wordt uitgevoerd om beveiligings fouten te vinden.
 
-DAST, bij voorkeur uitgevoerd met de hulp van een medewerker van de beveiliging (een [indringingstests tester](https://docs.microsoft.com/azure/security/azure-security-pen-testing) of door een beveiligingslek assessor). Als een medewerker van de beveiliging niet beschikbaar is, kunt u uitvoeren DAST uzelf met een web proxy-scanner en training. Sluit een scanner DAST vroeg om ervoor te zorgen dat u voor de hand liggende beveiligingsproblemen geen in uw code introduceren. Zie de [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) site voor een lijst met scanners van beveiligingsproblemen voor web-toepassing.
+Voer DAST uit, bij voor keur met de hulp van een beveiligings [](https://docs.microsoft.com/azure/security/azure-security-pen-testing) Professional (een indringings tester of beveiligings ervaring). Als een beveiligings Professional niet beschikbaar is, kunt u DAST zelf uitvoeren met een webproxy scanner en een aantal trainingen. Sluit in een vroeg stadium een DAST-scanner aan om ervoor te zorgen dat u geen duidelijke beveiligings problemen in uw code kunt introduceren. Zie de [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) -site voor een lijst met scanners voor beveiligings problemen met webtoepassingen.
 
-### <a name="perform-fuzz-testing"></a>Fuzzy testen uit te voeren
+### <a name="perform-fuzz-testing"></a>Fuzzy tests uitvoeren
 
-In [fuzzy testen](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/), u programma fout veroorzaken door de introductie van opzettelijk onjuist gevormd of willekeurige gegevens naar een toepassing. Programma fout veroorzaken, kunt mogelijke beveiligingsproblemen te onthullen voordat de toepassing wordt uitgebracht.
+Bij [fuzz testen](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/)wordt programma fouten veroorzaakt door een opzettelijk geformuleerde of wille keurige gegevens naar een toepassing te introduceren. Als er programma fouten optreden, kunnen er beveiligings problemen worden onthuld voordat de toepassing wordt uitgebracht.
 
-[Detectie van beveiligingsrisico](https://docs.microsoft.com/security-risk-detection/) is de unieke fuzzy testen van de service voor het vinden van beveiligings-kritieke fouten in de software van Microsoft.
+[Detectie van beveiligings Risico's](https://docs.microsoft.com/security-risk-detection/) is de micro soft Unique-test service voor het vinden van essentiële beveiligings problemen in software.
 
-### <a name="conduct-attack-surface-review"></a>Aanval surface evaluatie uitvoeren
+### <a name="conduct-attack-surface-review"></a>Aanvals beoordeling uitvoeren
 
-Controleren van de kwetsbaarheid voor aanvallen na codevoltooiing ervoor zorgt dat elk ontwerp of implementatie van in een toepassing wijzigingen of systeem heeft genomen. Dit zorgt ervoor dat alle nieuwe aanvalsvectoren die zijn gemaakt als gevolg van de wijzigingen, met inbegrip van bedreigingsmodellen, zijn bekeken en verholpen.
+Door de kwets baarheid te controleren nadat de code is voltooid, zorgt u ervoor dat alle ontwerp-of implementatie wijzigingen in een toepassing of systeem worden overwogen. Het helpt ervoor te zorgen dat nieuwe aanvals vectoren die zijn gemaakt als gevolg van de wijzigingen, met inbegrip van bedreigings modellen, worden beoordeeld en verholpen.
 
-U kunt een afbeelding van de kwetsbaarheid voor aanvallen maken met het scannen van de toepassing. Microsoft biedt een aanval analysehulpprogramma met de naam [aanval Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487). U kunt kiezen uit veel commerciële dynamische testen en hulpprogramma's of services, met inbegrip van scannen van beveiligingsproblemen [OWASP schrijving aanval Proxy Project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/), en [w3af](http://w3af.sourceforge.net/). Deze hulpprogramma's voor scannen verkennen van uw app en toewijzen van de onderdelen van de toepassing die toegankelijk via het web zijn. U kunt ook zoeken naar de Azure Marketplace voor vergelijkbare [hulpprogramma's voor ontwikkelaars](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
+U kunt een afbeelding van de kwets baarheid bouwen door de toepassing te scannen. Micro soft biedt een hulp programma voor het uitvoeren van een kwets baarheid voor aanvallen met de naam [aanval Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487) U kunt kiezen uit veel commerciële, dynamische tests en hulpprogram ma's voor het scannen van problemen of services, waaronder [OWASP schrijving Attack proxy project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/)en [w3af](http://w3af.sourceforge.net/). Deze scan tools verkennen uw app en wijst de onderdelen van de toepassing toe die toegankelijk zijn via het web. U kunt ook de Azure Marketplace doorzoeken op vergelijk bare [ontwikkel hulpprogramma's](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
 
-### <a name="perform-security-penetration-testing"></a>Indringingstests beveiliging uitvoeren
+### <a name="perform-security-penetration-testing"></a>Beveiligings indringings tests uitvoeren
 
-Ervoor te zorgen dat uw toepassing beveiligd is is net zo belangrijk als alle andere functionaliteit testen. Controleer [indringingstests](https://docs.microsoft.com/azure/security/azure-security-pen-testing) standaard deel uitmaken van de build- en implementatieproces. Plannen van regelmatige tests en scannen op geïmplementeerde toepassingen van beveiligingsproblemen en controleren voor open poorten, eindpunten en aanvallen.
+Om ervoor te zorgen dat uw toepassing veilig is, is het belang rijk dat u een andere functionaliteit test. Zorg voor indringings [test](https://docs.microsoft.com/azure/security/azure-security-pen-testing) een standaard onderdeel van het build-en implementatie proces. Plan regel matige beveiligings tests en beveiligings problemen met het scannen van geïmplementeerde toepassingen en controleer op open poorten, eind punten en aanvallen.
 
-### <a name="run-security-verification-tests"></a>Voer tests uit security-verificatie
+### <a name="run-security-verification-tests"></a>Tests voor beveiligings verificatie uitvoeren
 
-[Secure DevOps Kit voor Azure](https://azsk.azurewebsites.net/index.html) (AzSK) bevat SVTs voor meerdere services van het Azure-platform. U uitvoeren deze SVTs periodiek om ervoor te zorgen dat uw Azure-abonnement en de verschillende bronnen die deel uitmaken van uw toepassing zich in een beveiligde status. U kunt ook deze tests automatiseren met behulp van de continue integratie/continue implementatie (CI/CD)-extensies functie van AzSK, waardoor SVTs beschikbaar als een uitbreiding van Visual Studio.
+[Secure DevOps Kit voor Azure](https://azsk.azurewebsites.net/index.html) (AzSK) bevat SVTs voor meerdere services van het Azure-platform. U voert deze SVTs regel matig uit om ervoor te zorgen dat uw Azure-abonnement en de verschillende resources waaruit uw toepassing bestaat een veilige status hebben. U kunt deze tests ook automatiseren door gebruik te maken van de functie continue integratie/doorlopende implementatie (CI/CD) Extensions van AzSK, die SVTs beschikbaar maakt als een Visual Studio-uitbrei ding.
 
 ## <a name="next-steps"></a>Volgende stappen
-In de volgende artikelen, is het raadzaam beveiligingsmaatregelen en activiteiten waarmee u kunnen ontwerpen en implementeren van veilige toepassingen.
+In de volgende artikelen raden wij aan beveiligings maatregelen en activiteiten te gebruiken die u kunnen helpen bij het ontwerpen en implementeren van veilige toepassingen.
 
-- [Beveiligde toepassingen ontwerpen](secure-design.md)
-- [Beveiligde toepassingen implementeren](secure-deploy.md)
+- [Veilige toepassingen ontwerpen](secure-design.md)
+- [Veilige toepassingen implementeren](secure-deploy.md)

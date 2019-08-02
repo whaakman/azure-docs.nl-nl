@@ -1,7 +1,7 @@
 ---
-title: Video-inhoud voor aanstootgevende materiaal in analyseren C# -Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Over het analyseren van video-inhoud voor verschillende ongewenst materiaal met de inhoud Moderator SDK voor .NET
+title: Video-inhoud analyseren voor aanstootgevend materiaal C# in-content moderator
+titleSuffix: Azure Cognitive Services
+description: Video-inhoud analyseren voor verschillende aanstootgevende materialen met behulp van de Content Moderator SDK voor .NET
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 7e987c1249360b14fddf8af57c61fdd1a46ee6c5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1742db702a899d47110177532f5e85e74a59d91c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60605325"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564312"
 ---
-# <a name="analyze-video-content-for-objectionable-material-in-c"></a>Video-inhoud voor aanstootgevende materiaal in analyserenC#
+# <a name="analyze-video-content-for-objectionable-material-in-c"></a>Video-inhoud analyseren voor aanstootgevend materiaal inC#
 
-In dit artikel vindt u informatie en voorbeelden van code om u te helpen aan de slag met de [inhoud Moderator SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) voor het scannen van video-inhoud voor volwassenen of ongepaste inhoud.
+In dit artikel vindt u informatie en code voorbeelden waarmee u aan de slag kunt met de [Content moderator SDK voor .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) voor het scannen van video-inhoud voor inhoud voor volwassenen of ongepaste.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
@@ -28,39 +28,39 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="set-up-azure-resources"></a>Azure-resources instellen
 
-De Content Moderator videotoezicht mogelijkheid is beschikbaar als een preview-versie gratis **Mediaprocessor** in Azure Media Services (AMS). Azure Media Services is een speciale Azure-service voor het opslaan en streamen van video-inhoud. 
+De functie voor video toezicht van de Content Moderator is beschikbaar als een gratis open bare preview- **Media processor** in azure Media Services (AMS). Azure Media Services is een gespecialiseerde Azure-service voor het opslaan en streamen van video-inhoud. 
 
 ### <a name="create-an-azure-media-services-account"></a>Een Azure Media Services-account maken
 
-Volg de instructies in [maken van een Azure Media Services-account](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) abonneren op AMS en een gekoppelde Azure storage-account maken. Maak een nieuwe Blob storage-container in dat opslagaccount.
+Volg de instructies in [Create a Azure Media Services account](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) om u te abonneren op AMS en een gekoppeld Azure Storage-account te maken. Maak in dat opslag account een nieuwe Blob Storage-container.
 
 ### <a name="create-an-azure-active-directory-application"></a>Een Azure Active Directory-toepassing maken
 
-Navigeer naar het nieuwe AMS-abonnement in Azure portal en selecteer **API-toegang** in het menu aan clientzijde. Selecteer **verbinding maken met Azure Media Services met service-principal**. Noteer de waarde in de **REST API-eindpunt** veld; u deze later nodig.
+Ga naar het nieuwe AMS-abonnement in de Azure Portal en selecteer **API-toegang** in het menu aan de zijkant. Selecteer **verbinding maken met Azure Media Services met Service-Principal**. Let op de waarde in het veld **rest API eindpunt** . u hebt dit later nodig.
 
-In de **Azure AD-app** sectie, selecteer **nieuw** en noem uw nieuwe Azure AD-toepassing registreren (bijvoorbeeld ' VideoModADApp'). Klik op **opslaan** en een paar minuten wachten terwijl de toepassing is geconfigureerd. Vervolgens ziet u uw nieuwe app-registratie onder de **Azure AD-app** sectie van de pagina.
+Selecteer in het gedeelte **Azure AD-App** de optie **nieuwe maken** en geef uw nieuwe Azure AD-toepassings registratie een naam (bijvoorbeeld ' VideoModADApp '). Klik op **Opslaan** en wacht enkele minuten totdat de toepassing is geconfigureerd. Vervolgens ziet u de nieuwe app-registratie in het gedeelte **Azure AD-App** van de pagina.
 
-Selecteer uw app-registratie en klik op de **toepassing beheren** knop eronder. Noteer de waarde in de **toepassings-ID** veld; u deze later nodig. Selecteer **instellingen** > **sleutels**, en voer een beschrijving in voor een nieuwe sleutel (zoals 'VideoModKey'). Klik op **opslaan**, en vervolgens ziet u de waarde van de nieuwe sleutel. Kopieer deze tekenreeks en sla deze ergens veilig.
+Selecteer de registratie van uw app en klik op de knop **toepassing beheren** hieronder. Noteer de waarde in het veld **toepassings-id** . u hebt dit later nodig. Selecteer **instellingen** > **sleutels**en voer een beschrijving in voor een nieuwe sleutel (bijvoorbeeld ' VideoModKey '). Klik op **Opslaan**en noteer de nieuwe sleutel waarde. Kopieer deze teken reeks en sla deze op een veilige plek op.
 
-Zie voor een uitgebreider overzicht van het bovenstaande proces, [aan de slag met Azure AD-verificatie](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
+Zie [aan de slag met Azure AD-verificatie](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)voor een gedetailleerder overzicht van het bovenstaande proces.
 
-Als u dit hebt gedaan, kunt u de Mediaprocessor die videotoezicht op twee verschillende manieren kunt gebruiken.
+Zodra u dit hebt gedaan, kunt u de media processor voor video toezicht op twee verschillende manieren gebruiken.
 
 ## <a name="use-azure-media-services-explorer"></a>Azure Media Services Explorer gebruiken
 
-Azure Media Services Explorer is een gebruiksvriendelijke frontend voor AMS. Gebruik dit voor uw AMS-account te bladeren, video's uploaden en inhoud met de Content Moderator Mediaprocessor scannen. Download en installeer deze vanaf [GitHub](https://github.com/Azure/Azure-Media-Services-Explorer/releases), of Raadpleeg de [Azure Media Services Explorer-blogbericht](https://azure.microsoft.com/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/) voor meer informatie.
+De Azure Media Services Explorer is een gebruikers vriendelijke frontend voor AMS. Gebruik het om door uw AMS-account te bladeren, Video's te uploaden en inhoud te scannen met de Content Moderator-media processor. Down load en installeer deze via [github](https://github.com/Azure/Azure-Media-Services-Explorer/releases)of Raadpleeg het [blog bericht van Azure Media Services Explorer](https://azure.microsoft.com/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/) voor meer informatie.
 
-![Azure Media Services explorer met Content Moderator](images/ams-explorer-content-moderator.PNG)
+![Azure Media Services Explorer met Content Moderator](images/ams-explorer-content-moderator.PNG)
 
 ## <a name="create-the-visual-studio-project"></a>Het Visual Studio-project maken
 
-1. In Visual Studio, maak een nieuwe **Console-app (.NET Framework)** project en geef deze de naam **VideoModeration**. 
+1. Maak in Visual Studio een nieuw **console-app-project (.NET Framework)** en noem het **VideoModeration**. 
 1. Als uw oplossing nog meer projecten bevat, selecteert u deze als het enkele opstartproject.
 1. Download de vereiste NuGet-pakketten. Klik met de rechtermuisknop op uw project in Solution Explorer en selecteer **NuGet-pakketten beheren**. Zoek en installeer vervolgens de volgende pakketten:
     - windowsazure.mediaservices
-    - windowsazure.mediaservices.extensions
+    - windowsazure. Media Services. Extensions
 
-## <a name="add-video-moderation-code"></a>Videotoezicht code toevoegen
+## <a name="add-video-moderation-code"></a>Code voor video toezicht toevoegen
 
 Vervolgens kopieert en plakt u de code uit deze handleiding in uw project om een eenvoudig scenario voor inhoudstoezicht te implementeren.
 
@@ -81,9 +81,9 @@ using Microsoft.WindowsAzure.Storage.Auth;
 using System.Collections.Generic;
 ```
 
-### <a name="set-up-resource-references"></a>Verwijzingen van de resource instellen
+### <a name="set-up-resource-references"></a>Resource verwijzingen instellen
 
-Voeg de volgende statische velden toe aan de klasse **Program** in _Program.cs_. Deze velden bevatten de informatie die nodig zijn om verbinding te maken met uw AMS-abonnement. Vul deze met de waarden die u hebt verkregen in de bovenstaande stappen. Houd er rekening mee dat `CLIENT_ID` is de **toepassings-ID** waarde van uw Azure AD-app en `CLIENT_SECRET` is de waarde van de 'VideoModKey' die u hebt gemaakt voor die app.
+Voeg de volgende statische velden toe aan de klasse **Program** in _Program.cs_. Deze velden bevatten de gegevens die nodig zijn om verbinding te maken met uw AMS-abonnement. Vul deze in met de waarden die u in de bovenstaande stappen hebt ontvangen. Houd er `CLIENT_ID` rekening mee dat de waarde van de **toepassings-id** van uw `CLIENT_SECRET` Azure AD-app is en de waarde is van de ' VideoModKey ' die u hebt gemaakt voor die app.
 
 ```csharp
 // declare constants and globals
@@ -118,9 +118,9 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 ```
 
-Als u wilt gebruiken van een lokale videobestand (meest eenvoudige geval), toe te voegen aan het project en voert u het pad als de `INPUT_FILE` waarde (relatieve paden zijn ten opzichte van de map kan worden uitgevoerd).
+Als u een lokaal video bestand (het eenvoudigste geval) wilt gebruiken, voegt u het toe aan het project en voert u het `INPUT_FILE` pad in als de waarde (relatieve paden zijn relatief ten opzichte van de uitvoerings Directory).
 
-U moet ook maken de _preset.json_ -bestand in de huidige map en deze gebruiken om een uniek versienummer. Bijvoorbeeld:
+U moet ook het bestand voor de _vooraf ingestelde. json_ in de huidige map maken en gebruiken om een versie nummer op te geven. Bijvoorbeeld:
 
 ```JSON
 {
@@ -128,9 +128,9 @@ U moet ook maken de _preset.json_ -bestand in de huidige map en deze gebruiken o
 }
 ```
 
-### <a name="load-the-input-videos"></a>De invoer video(s) laden
+### <a name="load-the-input-videos"></a>De invoer video (s) laden
 
-De **Main** -methode van de **programma** klasse maakt u de Context van een Azure-Media en vervolgens de Context van een Azure-opslag (in het geval uw video's in blob-opslag zijn). De resterende code scant een video van een lokale map, blob of meerdere blobs binnen een Azure storage-container. Door de opmerkingen bij de andere regels code kunt u alle opties proberen.
+Met de methode **Main** van de klasse **Program** wordt een Azure-media context gemaakt en vervolgens een Azure Storage context (als uw Video's zich in Blob-opslag bevinden). De resterende code scant een video van een lokale map, Blob of meerdere blobs in een Azure storage-container. U kunt alle opties proberen door de andere code regels te controleren.
 
 ```csharp
 // Create Azure Media Context
@@ -156,9 +156,9 @@ RunContentModeratorJob(asset);
 // RunContentModeratorJobOnBlobs();
 ```
 
-### <a name="create-an-azure-media-context"></a>De Context van een Azure Media maken
+### <a name="create-an-azure-media-context"></a>Een Azure-media context maken
 
-Voeg de volgende methode toe aan de klasse **Program**. Dit maakt gebruik van uw AMS-referenties voor de communicatie met AMS.
+Voeg de volgende methode toe aan de klasse **Program**. Dit maakt gebruik van uw AMS-referenties om communicatie met AMS toe te staan.
 
 ```csharp
 // Creates a media context from azure credentials
@@ -177,9 +177,9 @@ static void CreateMediaContext()
 }
 ```
 
-### <a name="add-the-code-to-create-an-azure-storage-context"></a>Voeg de code voor het maken van een Azure Storage-Context
+### <a name="add-the-code-to-create-an-azure-storage-context"></a>De code toevoegen om een Azure Storage context te maken
 
-Voeg de volgende methode toe aan de klasse **Program**. U de opslag-Context wordt gemaakt op basis van uw storage-referenties gebruiken voor toegang tot de blob-opslag.
+Voeg de volgende methode toe aan de klasse **Program**. U gebruikt de opslag context, die u hebt gemaakt op basis van uw opslag referenties, om toegang te krijgen tot de Blob-opslag.
 
 ```csharp
 // Creates a storage context from the AMS associated storage name and key
@@ -194,10 +194,10 @@ static void CreateStorageContext()
 }
 ```
 
-### <a name="add-the-code-to-create-azure-media-assets-from-local-file-and-blob"></a>Voeg de code voor het maken van Azure Media-activa in lokale bestands- en blob
+### <a name="add-the-code-to-create-azure-media-assets-from-local-file-and-blob"></a>Voeg de code toe om Azure-media-assets te maken op basis van het lokale bestand en de BLOB
 
-De processor van de media Content Moderator voert taken uit volgens **activa** binnen het Azure Media Services-platform.
-Deze methoden maken de activa van een lokaal bestand of een bijbehorende blob.
+De Content Moderator media processor voert taken uit op **activa** binnen het Azure Media Services platform.
+Met deze methoden maakt u de assets van een lokaal bestand of een gekoppelde blob.
 
 ```csharp
 // Creates an Azure Media Services Asset from the video file
@@ -214,7 +214,7 @@ static IAsset CreateAssetfromBlob(CloudBlockBlob Blob)
 }
 ```
 
-### <a name="add-the-code-to-scan-a-collection-of-videos-as-blobs-within-a-container"></a>De code voor het scannen van een verzameling van video's (als blobs) binnen een container toevoegen
+### <a name="add-the-code-to-scan-a-collection-of-videos-as-blobs-within-a-container"></a>De code toevoegen voor het scannen van een verzameling Video's (als blobs) binnen een container
 
 ```csharp
 // Runs the Content Moderator Job on all Blobs in a given container name
@@ -316,9 +316,9 @@ static void RunContentModeratorJob(IAsset asset)
 }
 ```
 
-### <a name="add-helper-functions"></a>Ondersteunende functies toevoegen
+### <a name="add-helper-functions"></a>Hulp functies toevoegen
 
-Deze methoden de Content Moderator-uitvoer-bestand (JSON) downloaden van de Azure Media Services-activa en het bijhouden van de status van de taak voor beheer, zodat het programma kan een actieve status Meld u aan de console.
+Met deze methoden wordt het Content Moderator-uitvoer bestand (JSON) gedownload uit de Azure Media Services-Asset en kan de status van de taak voor toezicht worden bijgehouden, zodat het programma de status actief kan registreren in de-console.
 
 ```csharp
 static void DownloadAsset(IAsset asset, string outputDirectory)
@@ -361,18 +361,18 @@ static void StateChanged(object sender, JobStateChangedEventArgs e)
 
 ### <a name="run-the-program-and-review-the-output"></a>Het programma uitvoeren en de uitvoer controleren
 
-Nadat de taak Content Moderation is voltooid, Analyseer het JSON-antwoord. Er bestaat een van deze elementen bevatten:
+Analyseer het JSON-antwoord nadat de taak voor inhouds toezicht is voltooid. Deze bestaat uit de volgende elementen:
 
-- Informatie over de video samenvatting
-- **Foto's** als '**fragmenten**"
-- **Sleutel frames** als '**gebeurtenissen**"met een **reviewRecommended ' (= true of false)"** vlag op basis van **volwassenen** en **Racy** scores
-- **Start**, **duur**, **totalDuration**, en **timestamp** in 'maatstreepjes' zijn. Delen door **tijdschaal** om op te halen van het getal in seconden.
+- Samen vatting van video gegevens
+- **Opnamen** als '**fragmenten**'
+- **Key-frames** als "**Events**" met de vlag **reviewRecommended "(= True of false)** op basis van de scores voor **volwassenen** en **ongepaste**
+- **Start**, **duration**, **totalDuration**en **Time Stamp** bevinden zich in ' Ticks '. Delen door **tijd schaal** om het getal in seconden op te halen.
  
 > [!NOTE]
-> - `adultScore` Hiermee geeft u de mogelijke aanwezigheid en voorspelling score van inhoud die kan worden beschouwd als seksueel expliciet of volwassenen in bepaalde situaties.
-> - `racyScore` Hiermee geeft u de mogelijke aanwezigheid en voorspelling score van inhoud die kan worden beschouwd als seksueel suggestieve of volwassen in bepaalde situaties.
-> - `adultScore` en `racyScore` zijn tussen 0 en 1. Hoe hoger de score, hoe hoger het model is voorspellen van de categorie mogelijk van toepassing zijn. Deze Preview-versie, is afhankelijk van een statistische model in plaats van handmatig gecodeerde resultaten. Het is raadzaam om eerst te testen met uw eigen inhoud om te bepalen hoe elke categorie overeenstemt met uw vereisten.
-> - `reviewRecommended` waar of ONWAAR afhankelijk van de interne score drempelwaarden is. Klanten moeten beoordelen of u wilt deze waarde wordt gebruikt of moet u besluiten welke aangepaste drempelwaarden op basis van hun inhoud beleid.
+> - `adultScore`vertegenwoordigt de potentiële aanwezigheids-en voorspellende Score van inhoud die in bepaalde situaties als seksueel expliciet of volwassen kan worden beschouwd.
+> - `racyScore`vertegenwoordigt de potentiële aanwezigheids-en voorspellende Score van inhoud die in bepaalde situaties als seksueel voor stel of rijp kan worden beschouwd.
+> - `adultScore`en `racyScore` tussen 0 en 1 liggen. Hoe hoger de score, hoe hoger het model is om te voors pellen dat de categorie van toepassing kan zijn. Dit voor beeld is afhankelijk van een statistisch model in plaats van hand matige gecodeerde resultaten. We raden u aan om te testen met uw eigen inhoud om te bepalen hoe elke categorie wordt uitgelijnd op uw vereisten.
+> - `reviewRecommended`is waar of onwaar, afhankelijk van de drempel waarden van de interne Score. Klanten moeten beoordelen of u deze waarde moet gebruiken of besluiten over aangepaste drempel waarden op basis van hun inhouds beleid.
 
 ```json
 {
@@ -428,10 +428,10 @@ Nadat de taak Content Moderation is voltooid, Analyseer het JSON-antwoord. Er be
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het genereren van [video bekijkt](video-reviews-quickstart-dotnet.md) uit de uitvoer van uw beheer.
+Meer informatie over het genereren van [video beoordelingen](video-reviews-quickstart-dotnet.md) uit uw toezicht uitvoer.
 
-Voeg [transcript toezicht](video-transcript-moderation-review-tutorial-dotnet.md) op uw video beoordelingen.
+U [](video-transcript-moderation-review-tutorial-dotnet.md) kunt de transcriptie van uw video beoordelingen toevoegen.
 
-Bekijk de gedetailleerde zelfstudie op over het bouwen van een [voltooien van de oplossing voor video- en transcript toezicht](video-transcript-moderation-review-tutorial-dotnet.md).
+Bekijk de gedetailleerde zelf studie over het bouwen van een [volledige video-en transcriptie oplossing](video-transcript-moderation-review-tutorial-dotnet.md).
 
-[Downloaden van de Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere Content Moderator-snelstartgidsen voor .NET.
+[Down load de Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere content moderator Quick starts voor .net.

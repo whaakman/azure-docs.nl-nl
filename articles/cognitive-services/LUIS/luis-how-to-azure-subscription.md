@@ -1,7 +1,7 @@
 ---
-title: Abonnementssleutels
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: U hoeft niet te maken van abonnementssleutels voor het gebruik van uw gratis eindpunt van de eerste 1000 query's. Als u ontvangt een _buiten het quotum_ fout opgetreden in de vorm van een HTTP 403 of 429, moet u een sleutel maken en toewijzen aan uw app.
+title: Abonnements sleutels-LUIS
+titleSuffix: Azure Cognitive Services
+description: U hoeft geen abonnements sleutels te maken om uw gratis eerste-1000-eindpunt query's te gebruiken. Als u _een fout melding_ ontvangt in de vorm van een HTTP 403 of 429, moet u een sleutel maken en deze toewijzen aan uw app.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: dedc498ebc910b448b1684136c288b2045780e00
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: c7e23c78b5d03b834d593bd2b53958c3379c51f2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797952"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560526"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Abonnementssleutels gebruiken met uw LUIS-app
 
-Wanneer u Language Understanding (LUIS) voor het eerst gebruikt, hoeft u niet te abonnementssleutels maken. U begint met, 1000 endpoint-query's wordt verstrekt. 
+Wanneer u Language Understanding (LUIS) voor het eerst gebruikt, hoeft u geen abonnements sleutels te maken. U krijgt 1000 eindpunt query's te beginnen met. 
 
 Gebruik voor testen en prototype alleen de gratis laag van (F0). Gebruik voor productiesystemen, een [betaalde](https://aka.ms/luis-price-tier) laag. Gebruik niet de [ontwerpen sleutel](luis-concept-keys.md#authoring-key) voor eindpunt query's in de productieomgeving.
 
@@ -28,11 +28,11 @@ Gebruik voor testen en prototype alleen de gratis laag van (F0). Gebruik voor pr
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
-## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Voorspelling endpoint runtime-resource maken in Azure portal
+## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Een Voorspellings eindpunt runtime-resource maken in de Azure Portal
 
-U maakt de [voorspelling eindpuntresource](get-started-portal-deploy-app.md#create-the-endpoint-resource) in Azure portal. Deze resource moet alleen worden gebruikt voor eindpunt voorspelling query's. Gebruik deze resource niet voor schrijven wijzigingen in de app.
+U maakt de [Voorspellings eindpunt resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) in de Azure Portal. Deze bron mag alleen worden gebruikt voor eindpunt Voorspellings query's. Gebruik deze resource niet voor het ontwerpen van wijzigingen in de app.
 
-U kunt een resource Language Understanding of een Cognitive Services-resource maken. Als u een Language Understanding-resource maakt, is een goede gewoonte postpend typt u de resource op de resourcenaam. 
+U kunt een Language Understanding resource of een Cognitive Services resource maken. Als u een Language Understanding resource maakt, is het raadzaam om het resource type te postpend naar de resource naam. 
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -47,19 +47,19 @@ U kunt een resource Language Understanding of een Cognitive Services-resource ma
 <a name="assign-endpoint-key"></a>
 <a name="assign-resource"></a>
 
-### <a name="using-resource-from-luis-portal"></a>Met behulp van de resource van LUIS-portal
+### <a name="using-resource-from-luis-portal"></a>Resource uit LUIS Portal gebruiken
 
-Als u van de resource in de portal LUIS gebruikmaakt, hoeft u niet aan uw sleutel en de locatie weet. In plaats daarvan moet u weten van uw resource-tenant, het abonnement en de resourcenaam.
+Als u de resource uit de LUIS-Portal gebruikt, hoeft u uw sleutel en locatie niet te weten. In plaats daarvan moet u de resource-Tenant, het abonnement en de resource naam weten.
 
-Nadat u [toewijzen](#assign-resource-key-to-luis-app-in-luis-portal) uw resource in uw LUIS-app in de LUIS-portal, de sleutel en de locatie zijn geleverd als onderdeel van de query voorspelling eindpunt-URL in het gedeelte Beheer **sleutels en het eindpunt instellingen** pagina.
+Zodra u [](#assign-resource-key-to-luis-app-in-luis-portal) uw resource toewijst aan uw Luis-app in de Luis-Portal, worden de sleutel en locatie weer gegeven als onderdeel van de URL voor het Voorspellings eindpunt van de query op de sleutels van de sectie en de instellingen van het **eind punt** .
  
-### <a name="using-resource-from-rest-api-or-sdk"></a>Met behulp van resource in de REST API of SDK
+### <a name="using-resource-from-rest-api-or-sdk"></a>Resource uit REST API of SDK gebruiken
 
-Als u de resource in de REST-API(s) of SDK gebruikt, moet u uw sleutel en de locatie weet. Deze informatie wordt verstrekt als onderdeel van de query voorspelling eindpunt-URL in het gedeelte Beheer **sleutels en het eindpunt instellingen** ook pagina zoals in de Azure-portal op de pagina overzicht en sleutels van de resource.
+Als u de resource uit de REST API (s) of SDK gebruikt, moet u uw sleutel en locatie kennen. Deze informatie wordt verstrekt als onderdeel van de URL voor het Voorspellings eindpunt van de query op de pagina sleutels van de sectie en de instellingen van het **eind punt** , en in de Azure Portal op de pagina's overzicht en sleutels van de resource.
 
-## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Resource toewijzen aan een LUIS-app in de Portal LUIS
+## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>De resource sleutel toewijzen aan de LUIS-app in de LUIS-Portal
 
-Telkens wanneer u een nieuwe resource van LUIS maakt, moet u [de resource toewijzen aan de LUIS-app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal). Nadat deze toegewezen, hoeft u deze stap opnieuw uitvoert, tenzij u een nieuwe resource maken. U kunt een nieuwe resource om uit te breiden, de regio's van uw app of voor de ondersteuning van een hoger aantal voorspelling query's maken.
+Telkens wanneer u een nieuwe resource voor LUIS maakt, moet u [de resource toewijzen aan de Luis-app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal). Nadat deze is toegewezen, hoeft u deze stap niet opnieuw uit te voeren tenzij u een nieuwe resource maakt. U kunt een nieuwe resource maken om de regio's van uw app uit te breiden of om een hoger aantal Voorspellings query's te ondersteunen.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -102,7 +102,7 @@ De intenties en hun scores zijn ook opgenomen van de eindpunt-Logboeken. U kunt 
 ### <a name="enable-bing-spell-checker"></a>Inschakelen van de spellingcontrole van Bing 
 In de **eindpunt-url-instellingen**, wordt de **Bing spellingcontrole** schakelaar kunt u LUIS te corrigeren van verkeerd gespelde woorden voordat voorspelling. Maak een  **[sleutel Bing spellingcontrole](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)** . 
 
-Voeg de **spellingcontrole = true** querystring-parameter en de **bing-spellingcontrole-controle-subscription-key = {YOUR_BING_KEY_HERE}** . Vervang de `{YOUR_BING_KEY_HERE}` met de Bing spell checker sleutel.
+Voeg de para meter **spelling controle = True** string en de **Bing-spelling check-Subscription-Key = {YOUR_BING_KEY_HERE}** toe. Vervang de `{YOUR_BING_KEY_HERE}` met de Bing spell checker sleutel.
 
 ```JSON
 {
@@ -122,11 +122,11 @@ Meer informatie over publiceren [regio's](luis-reference-regions.md) inclusief p
 
 ## <a name="assign-resource-without-luis-portal"></a>Resource zonder LUIS portal toewijzen
 
-Voor automation-doeleinden, zoals een CI/CD-pijplijn, kunt u de toewijzing van een LUIS-resource om een LUIS-app te automatiseren. Als u wilt doen, moet u de volgende stappen uitvoeren:
+Voor automation-doeleinden, zoals een CI/CD-pijplijn, kunt u de toewijzing van een LUIS-resource om een LUIS-app te automatiseren. Om dat te doen, moet u de volgende stappen uitvoeren:
 
 1. Een Azure Resource Manager-token ophalen uit deze [website](https://resources.azure.com/api/token?plaintext=true). Dit token verloopt dus direct gebruiken. De aanvraag retourneert een Azure Resource Manager-token.
 
-    ![Azure Resource Manager-token aanvragen en ontvangen van Azure Resource Manager-token](./media/luis-manage-keys/get-arm-token.png)
+    ![Azure Resource Manager token aanvragen en Azure Resource Manager token ontvangen](./media/luis-manage-keys/get-arm-token.png)
 
 1. Het token gebruiken om aan te vragen de LUIS-resources tussen abonnementen, vanuit de [ophalen LUIS azure API-accounts](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), uw gebruikersaccount heeft toegang tot. 
 
@@ -155,40 +155,40 @@ Voor automation-doeleinden, zoals een CI/CD-pijplijn, kunt u de toewijzing van e
 
 ## <a name="change-pricing-tier"></a>Prijscategorie wijzigen
 
-1.  In [Azure](https://portal.azure.com), zoek uw LUIS-abonnement. Selecteer het abonnement LUIS.
+1.  In [Azure](https://portal.azure.com), zoek uw LUIS-abonnement. Selecteer het LUIS-abonnement.
     ![Zoek uw LUIS-abonnement](./media/luis-usage-tiers/find.png)
-1.  Selecteer **prijscategorie** om te zien van de beschikbare Prijscategorieën. 
+1.  Selecteer **prijs categorie** om de beschik bare prijs categorieën te bekijken. 
     ![Prijscategorieën weergeven](./media/luis-usage-tiers/subscription.png)
-1.  Selecteer de prijscategorie laag en selecteert u **Selecteer** uw wijziging op te slaan. 
+1.  Selecteer de prijs categorie en selecteer **selecteren** om uw wijziging op te slaan. 
     ![De betaling LUIS laag wijzigen](./media/luis-usage-tiers/plans.png)
 1.  Wanneer met de prijswijziging voltooid is, controleert de nieuwe prijscategorie of in een pop-upvenster. 
     ![Controleer of uw LUIS betaling-laag](./media/luis-usage-tiers/updated.png)
 1. Houd er rekening mee te [toewijzen van deze eindpuntsleutel](#assign-endpoint-key) op de **publiceren** pagina en deze gebruiken in alle endpoint-query's. 
 
-## <a name="fix-http-status-code-403-and-429"></a>HTTP-statuscode 403 en 429 oplossen
+## <a name="fix-http-status-code-403-and-429"></a>De HTTP-status code 403 en 429 herstellen
 
-U krijgt fout 403 en 429 statuscodes wanneer u de transacties per seconde of transacties per maand voor uw prijscategorie overschrijdt.
+U krijgt de status codes 403 en 429 wanneer u de trans acties per seconde of trans acties per maand voor uw prijs categorie overschrijdt.
 
-### <a name="when-you-receive-an-http-403-error-status-code"></a>Wanneer u de statuscode van een HTTP 403-fout ontvangt
+### <a name="when-you-receive-an-http-403-error-status-code"></a>Wanneer u een HTTP 403-fout status code ontvangt
 
-Wanneer u alle deze gratis 1000 eindpunt query's gebruiken of u uw prijscategorie maandelijkse transacties quota overschrijdt, ontvangt u de statuscode van een HTTP 403-fout. 
+Wanneer u al deze gratis 1000-eindpunt query's gebruikt of als u het quotum voor maandelijkse trans acties van uw prijs categorie overschrijdt, ontvangt u een HTTP 403-fout status code. 
 
-U kunt deze fout oplossen, moet u een [uw prijscategorie wijzigen](luis-how-to-azure-subscription.md#change-pricing-tier) naar een hogere laag of [Maak een nieuwe resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) en [toewijzen aan uw app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+U kunt deze fout oplossen door [de prijs categorie te wijzigen](luis-how-to-azure-subscription.md#change-pricing-tier) in een hogere laag of door [een nieuwe resource te maken](get-started-portal-deploy-app.md#create-the-endpoint-resource) en [deze toe te wijzen aan uw app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
 
 Oplossingen voor deze fout zijn onder andere:
 
-* In de [Azure-portal](https://portal.azure.com), op uw Taalbegrip resource, op de **Resource Management-prijscategorie >** , uw prijscategorie wijzigen naar een hogere TPS-laag. U hoeft te doen in de portal van Language Understanding als uw resource al aan uw app Language Understanding toegewezen is.
-*  Als uw gebruik groter is dan de hoogste prijscategorie, moet u meer Language Understanding-resources met een load balancer vóór ze toevoegen. De [Language Understanding container](luis-container-howto.md) met Kubernetes of Docker Compose met dit kan helpen.
+* Wijzig in de [Azure Portal](https://portal.azure.com), op uw language Understanding-resource, in de **prijs categorie resource management->** de prijs categorie in een hogere TPS-laag. U hoeft niets te doen in de Language Understanding portal als uw resource al is toegewezen aan uw Language Understanding app.
+*  Als uw gebruik de hoogste prijs categorie overschrijdt, voegt u meer Language Understanding resources toe met een load balancer. De [Language Understanding-container](luis-container-howto.md) met Kubernetes of docker-opstellen kan u hierbij helpen.
 
-### <a name="when-you-receive-an-http-429-error-status-code"></a>Wanneer u een HTTP 429 foutstatuscode ontvangt
+### <a name="when-you-receive-an-http-429-error-status-code"></a>Wanneer u een HTTP 429-fout status code ontvangt
 
-Deze statuscode is geretourneerd wanneer de transacties per seconde is groter dan uw prijscategorie.  
+Deze status code wordt geretourneerd wanneer uw trans acties per seconde uw prijs categorie overschrijden.  
 
 Oplossingen omvatten:
 
-* U kunt [verhogen van uw prijscategorie](#change-pricing-tier), als u niet op het hoogste niveau.
-* Als uw gebruik groter is dan de hoogste prijscategorie, moet u meer Language Understanding-resources met een load balancer vóór ze toevoegen. De [Language Understanding container](luis-container-howto.md) met Kubernetes of Docker Compose met dit kan helpen.
-* U kunt uw toepassingsaanvragen van clients met gate een [beleid voor opnieuw proberen](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) u zelf implementeren wanneer u deze statuscode. 
+* U kunt [de prijs categorie verhogen](#change-pricing-tier)als u niet de hoogste laag hebt.
+* Als uw gebruik de hoogste prijs categorie overschrijdt, voegt u meer Language Understanding resources toe met een load balancer. De [Language Understanding-container](luis-container-howto.md) met Kubernetes of docker-opstellen kan u hierbij helpen.
+* U kunt de aanvragen van uw client toepassing gateiseren met een [beleid voor opnieuw proberen](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) dat u zelf implementeert wanneer u deze status code ophaalt. 
 
 ## <a name="viewing-summary-usage"></a>Overzicht gebruik weergeven
 U kunt informatie over het gebruik van LUIS weergeven in Azure. De **overzicht** pagina toont recente samenvattende informatie, inclusief aanroepen en fouten. Als u een LUIS-aanvraag voor het claimeindpunt aanbrengt, klikt u vervolgens onmiddellijk volgen het **overzichtspagina**, leiden tot vijf minuten voor het gebruik worden weergegeven.

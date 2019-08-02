@@ -1,10 +1,10 @@
 ---
-title: Uitgaande verbindingen in Azure (klassiek)
+title: Uitgaande verbindingen in azure (klassiek)
 titlesuffix: Azure Load Balancer
-description: Dit artikel wordt uitgelegd hoe Azure biedt de mogelijkheid cloudservices om te communiceren met services met openbare internet.
+description: In dit artikel wordt uitgelegd hoe u met Azure Cloud Services kunt communiceren met open bare Internet Services.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
@@ -12,174 +12,174 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
-ms.author: kumud
-ms.openlocfilehash: 3267d79387586f5ca8475d7ac0ed0f86d3f64f0d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 10af3b4838aae1565bac1d996997c117a74cedbc
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595044"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274670"
 ---
 # <a name="outbound-connections-classic"></a>Uitgaande verbindingen (klassiek)
 
-Azure biedt uitgaande connectiviteit voor implementaties van klanten via meerdere verschillende mechanismen. Dit artikel wordt beschreven wat de scenario's zijn, wanneer ze van toepassing zijn, hoe deze werken en hoe deze te beheren.
+Azure biedt uitgaande connectiviteit voor klant implementaties via verschillende mechanismen. In dit artikel wordt beschreven wat de scenario's zijn, wanneer deze van toepassing zijn, hoe ze werken en hoe u ze beheert.
 
 >[!NOTE]
->Dit artikel behandelt alleen voor klassieke implementaties.  Beoordeling [uitgaande verbindingen](load-balancer-outbound-connections.md) voor alle Resource Manager-implementatiescenario's in Azure.
+>In dit artikel worden alleen klassieke implementaties behandeld.  Controleer de [uitgaande verbindingen](load-balancer-outbound-connections.md) voor alle implementatie Scenario's van resource manager in Azure.
 
-Een implementatie in Azure kan communiceren met eindpunten buiten Azure in de openbare IP-adresruimte. Wanneer een exemplaar een uitgaande stroom naar een bestemming in de openbare IP-adresruimte initieert, Azure dynamisch privé IP-adres toegewezen aan een openbaar IP-adres. Nadat u deze toewijzing is gemaakt, kan retourverkeer voor deze uitgaande afkomstige stroom ook bereiken het privé IP-adres waarvan de stroom afkomstig is.
+Een implementatie in azure kan communiceren met eind punten buiten Azure in de open bare IP-adres ruimte. Wanneer een exemplaar een uitgaande stroom initieert naar een bestemming in de open bare IP-adres ruimte, wijst Azure het privé-IP-adres dynamisch toe aan een openbaar IP-adres. Nadat deze toewijzing is gemaakt, kan het retour verkeer voor deze uitgaande stroom van het doel ook het privé-IP-adres bereiken waarvan de stroom afkomstig is.
 
-Azure maakt gebruik van bron-NAT (SNAT) om uit te voeren van deze functie. Wanneer meerdere persoonlijke IP-adressen zijn zich achter een enkel openbaar IP-adres, gebruikt Azure [netwerkadresomzetting (PAT)-poort](#pat) aan het privé IP-adressen zich voordoen. Kortstondige poorten worden gebruikt voor PAT en [vooraf toegewezen](#preallocatedports) op basis van de grootte van de opslaggroep.
+Azure gebruikt bron Network Address Translation (SNAT) om deze functie uit te voeren. Wanneer meerdere privé-IP-adressen worden gemaskeerd achter één openbaar IP-adres, gebruikt Azure [poort adres omzetting (Pat)](#pat) voor het maskeren van privé-IP-adressen. Tijdelijke poorten worden gebruikt voor PAT en zijn [vooraf toegewezen](#preallocatedports) op basis van pool grootte.
 
-Er zijn meerdere [scenario's voor uitgaande](#scenarios). U kunt deze scenario's kunt combineren, indien nodig. Bekijk deze zorgvuldig voor meer informatie over de mogelijkheden, beperkingen en patronen als ze van toepassing op uw implementatiemodel zijn en het toepassingsscenario. Bekijk de richtlijnen voor [beheren van deze scenario's](#snatexhaust).
+Er zijn meerdere [uitgaande scenario's](#scenarios). U kunt deze scenario's zo nodig combi neren. Lees deze zorgvuldig door om inzicht te krijgen in de mogelijkheden, beperkingen en patronen zoals die van toepassing zijn op uw implementatie model en toepassings scenario. Raadpleeg de richt lijnen voor het [beheren van deze scenario's](#snatexhaust).
 
 ## <a name="scenarios"></a>Scenario-overzicht
 
-Azure biedt drie verschillende methoden voor het bereiken van uitgaande connectiviteit klassieke implementaties.  Niet alle klassieke implementaties hebben alle drie scenario's die voor hen beschikbaar:
+Azure biedt drie verschillende methoden voor het bezorgen van klassieke connectiviteits implementaties.  Niet alle klassieke implementaties hebben alle drie de scenario's die beschikbaar zijn:
 
-| Scenario | Methode | IP-protocollen | Description | Web-Werkrol | IaaS | 
+| Scenario | Methode | IP-protocollen | Description | Web Worker-rol | IaaS | 
 | --- | --- | --- | --- | --- | --- |
-| [1. VM met een Instance Level Public IP-adres](#ilpip) | SNAT, poort zich niet gebruikt. | TCP, UDP, ICMP, ESP | Azure maakt gebruik van het openbare IP-adres toegewezen virtuele Machine. Het exemplaar heeft alle kortstondige poorten die beschikbaar zijn. | Nee | Ja |
-| [2. openbare load balancing-eindpunt](#publiclbendpoint) | SNAT met poort onechte (PAT) naar het openbare eindpunt | TCP, UDP | Azure heeft het openbare eindpunt van openbare IP-adres met meerdere privé-eindpunten. Azure maakt gebruik van kortstondige poorten van het openbare eindpunt voor PAT. | Ja | Ja |
-| [3. Zelfstandige virtuele machine](#defaultsnat) | SNAT met poort onechte (PAT) | TCP, UDP | Azure automatisch een openbaar IP-adres voor SNAT aanwijst, deelt dit openbare IP-adres met de volledige implementatie, en gebruikt kortstondige poorten van de IP-adres van het openbare eindpunt voor PAT. Dit is een alternatief scenario voor het voorgaande scenario's. Wordt niet aanbevolen als u nodig, zichtbaarheid en controle hebt. | Ja | Ja |
+| [1. VM met een openbaar IP-adres op exemplaar niveau](#ilpip) | SNAT, poort masker niet gebruikt | TCP, UDP, ICMP, ESP | Azure maakt gebruik van de aan het open bare IP-adres van de virtuele machine. Alle tijdelijke poorten zijn beschikbaar voor het exemplaar. | Nee | Ja |
+| [2. openbaar eind punt met gelijke taak verdeling](#publiclbendpoint) | SNAT met poort maskering (PAT) naar het open bare eind punt | TCP, UDP | Azure deelt het open bare IP-adres openbaar eind punt met meerdere persoonlijke eind punten. Azure gebruikt tijdelijke poorten van het open bare eind punt voor PAT. | Ja | Ja |
+| [3. Zelfstandige VM](#defaultsnat) | SNAT met poort maskering (PAT) | TCP, UDP | Azure wijst automatisch een openbaar IP-adres toe voor SNAT, deelt dit open bare IP-adres met de volledige implementatie en maakt gebruik van tijdelijke poorten van het IP-adres van het open bare eind punt voor PAT. Dit is een terugval scenario voor de voor gaande scenario's. Het is niet raadzaam om het te controleren en te beheren. | Ja | Ja |
 
-Dit is een subset van de uitgaande verbinding-functionaliteit is beschikbaar voor implementaties in Azure Resource Manager.  
+Dit is een subset van de functionaliteit voor uitgaande verbindingen die beschikbaar is voor implementaties van resource manager in Azure.  
 
-Verschillende implementaties in de klassieke versie hebben verschillende functionaliteit:
+Verschillende implementaties in het klassiek hebben verschillende functionaliteit:
 
-| Klassieke implementatie | Functionaliteit die beschikbaar is | 
+| Klassieke implementatie | Beschik bare functionaliteit | 
 | --- | --- |
-| Virtuele Machine | scenario [1](#ilpip), [2](#publiclbendpoint), of [3](#defaultsnat) |
-| Web-Werkrol | alleen scenario [2](#publiclbendpoint), [3](#defaultsnat) | 
+| Virtuele Machine | scenario [1](#ilpip), [2](#publiclbendpoint)of [3](#defaultsnat) |
+| Web Worker-rol | alleen scenario [2](#publiclbendpoint), [3](#defaultsnat) | 
 
-[Strategieën voor risicobeperking](#snatexhaust) hebben ook de dezelfde verschillen.
+[Strategieën voor risico beperking](#snatexhaust) hebben ook dezelfde verschillen.
 
-De algoritme die wordt gebruikt voor het vooraf toewijzen van kortstondige poorten voor PAT voor klassieke implementaties is dezelfde als die voor implementaties van Azure Resource Manager-resource.
+De algoritme die wordt gebruikt voor het voortoewijzen van tijdelijke poorten voor PAT voor klassieke implementaties is hetzelfde als voor de implementatie van Azure Resource Manager-resources.
 
-### <a name="ilpip"></a>Scenario 1: VM met een Instance Level Public IP-adres
+### <a name="ilpip"></a>Scenario 1: VM met een openbaar IP-adres op exemplaar niveau
 
-In dit scenario wordt heeft de virtuele machine een exemplaar van het niveau van openbare IP (ILPIP) zijn toegewezen. Wat betreft uitgaande verbindingen zijn, het maakt niet uit of de virtuele machine heeft een eindpunt met gelijke of niet. In dit scenario heeft voorrang op de andere. Wanneer een ILPIP wordt gebruikt, wordt de virtuele machine de ILPIP gebruikt voor alle uitgaande stromen.  
+In dit scenario heeft de virtuele machine een openbaar IP-adres (ILPIP) met een instantie niveau toegewezen. Voor uitgaande verbindingen is het niet van belang of de VM een eind punt met gelijke taak verdeling heeft of niet. Dit scenario heeft voor rang op de andere. Wanneer er een ILPIP wordt gebruikt, gebruikt de virtuele machine de ILPIP voor alle uitgaande stromen.  
 
-Een openbare IP die zijn toegewezen aan een virtuele machine is een 1:1-relatie (plaats 1:many) en geïmplementeerd als een stateless 1:1 NAT bevinden.  Poort onechte (PAT) wordt niet gebruikt en de virtuele machine heeft alle kortstondige poorten beschikbaar voor gebruik.
+Een openbaar IP-adres dat is toegewezen aan een virtuele machine is een 1:1-relatie (in plaats van 1: veel) en geïmplementeerd als een stateless 1:1 NAT.  Poort maskering (PAT) wordt niet gebruikt en de virtuele machine heeft alle tijdelijke poorten die beschikbaar zijn voor gebruik.
 
-Als uw toepassing veel uitgaande stromen initieert en u SNAT poortuitputting ondervindt, kunt u overwegen een [ILPIP SNAT beperkingen beperken](#assignilpip). Beoordeling [SNAT beheren uitputting](#snatexhaust) in zijn geheel toe.
+Als uw toepassing veel uitgaande stromen initieert en u de SNAT-poort uitputtt, kunt u overwegen een [ILPIP toe te wijzen om de SNAT-beperkingen te beperken](#assignilpip). Bekijk het beheer van de [SNAT](#snatexhaust) -uitputting in zijn geheel.
 
-### <a name="publiclbendpoint"></a>Scenario 2: Openbare load balancing-eindpunt
+### <a name="publiclbendpoint"></a>Scenario 2: Openbaar eind punt met gelijke taak verdeling
 
-In dit scenario zijn de virtuele machine of de Web-Werkrol is gekoppeld aan een openbaar IP-adres via het eindpunt met load balancing. De virtuele machine heeft geen openbaar IP-adres toegewezen. 
+In dit scenario wordt de rol VM of Web Worker gekoppeld aan een openbaar IP-adres met behulp van het eind punt met gelijke taak verdeling. Aan de virtuele machine is geen openbaar IP-adres toegewezen. 
 
-Wanneer de VM met load balancing een uitgaande stroom maakt, wordt het privé IP-bronadres van de uitgaande stroom naar het openbare IP-adres van het openbare eindpunt met gelijke omgezet in Azure. Azure maakt gebruik van SNAT om uit te voeren van deze functie. Azure gebruikt ook [PAT](#pat) naar meerdere privé IP-adressen achter een openbaar IP-adres zich voordoen. 
+Wanneer de virtuele machine met taak verdeling een uitgaande stroom maakt, vertaalt Azure het IP-adres van de particuliere bron van de uitgaande stroom naar het open bare IP-adres van het open bare eind punt met gelijke taak verdeling. Azure gebruikt SNAT om deze functie uit te voeren. Azure gebruikt ook [Pat](#pat) om meerdere privé-IP-adressen achter een openbaar IP-adres te maskeren. 
 
-Kortstondige poorten van de load balancer openbare IP-adres frontend worden gebruikt om te onderscheiden van afzonderlijke stromen afkomstig van de virtuele machine. Dynamisch maakt gebruik van SNAT [vooraf toegewezen kortstondige poorten](#preallocatedports) wanneer uitgaande stromen worden gemaakt. In deze context worden de kortstondige poorten die voor SNAT SNAT poorten genoemd.
+Tijdelijke poorten van de open bare IP-adres-frontend van de load balancer worden gebruikt voor het onderscheiden van de afzonderlijke stromen die afkomstig zijn van de virtuele machine. SNAT maakt dynamisch gebruik van [vooraf toegewezen tijdelijke poorten](#preallocatedports) wanneer uitgaande stromen worden gemaakt. In deze context worden de tijdelijke poorten die worden gebruikt voor SNAT de SNAT-poorten genoemd.
 
-SNAT poorten zijn vooraf toegewezen zoals beschreven in de [Understanding SNAT en PAT](#snat) sectie. Zijn in feite een eindige resource die kan worden verbruikt. Het is belangrijk om te weten hoe ze zijn [verbruikt](#pat). Als u wilt weten hoe u voor dit verbruik ontwerpen en te beperken indien nodig, Bekijk [SNAT beheren uitputting](#snatexhaust).
+SNAT-poorten zijn vooraf toegewezen, zoals beschreven in de sectie [over SNAT en Pat](#snat) . Ze zijn een eindige resource die kan worden uitgeput. Het is belang rijk om te begrijpen hoe [](#pat)ze worden verbruikt. Als u wilt weten hoe u dit verbruik kunt ontwerpen en zo nodig kunt beperken, raadpleegt u de [beheer SNAT](#snatexhaust)-uitputting.
 
-Wanneer [meerdere openbare taakverdeling eindpunten](load-balancer-multivip.md) bestaan, een van deze openbare IP-adressen zijn een kandidaat voor uitgaande stromen en een willekeurig is geselecteerd.  
+Als er [meerdere open bare eind punten met gelijke taak verdeling](load-balancer-multivip.md) bestaan, zijn een van deze open bare IP-adressen een kandidaat voor uitgaande stromen en wordt er een wille keurige selectie geselecteerd.  
 
-### <a name="defaultsnat"></a>Scenario 3: Er is geen openbaar IP-adres dat is gekoppeld
+### <a name="defaultsnat"></a>Scenario 3: Geen openbaar IP-adres gekoppeld
 
-In dit scenario wordt maakt de virtuele machine of Worker-Webrol geen deel uit van een openbare load balancing-eindpunt.  En in het geval van een virtuele machine, het heeft geen een ILPIP-adres is toegewezen. Wanneer de virtuele machine een uitgaande stroom maakt, zet Azure privé IP-bronadres van de uitgaande stroom aan een openbare IP-adres. Het openbare IP-adres gebruikt voor deze uitgaande stroom kan niet worden geconfigureerd en worden niet meegeteld in openbare IP-resource-limiet van het abonnement.  Dit adres wordt automatisch toegewezen door Azure.
+In dit scenario maakt de rol VM of Web Worker geen deel uit van een openbaar eind punt met gelijke taak verdeling.  In het geval van een virtuele machine is er geen ILPIP-adres toegewezen aan de VM. Wanneer de virtuele machine een uitgaande stroom maakt, vertaalt Azure het IP-adres van de privé bron van de uitgaande stroom naar een IP-adres van een open bare bron. Het open bare IP-adres dat voor deze uitgaande stroom wordt gebruikt, kan niet worden geconfigureerd en telt niet op basis van de open bare IP-resource limiet van het abonnement.  Dit adres wordt automatisch door Azure toegewezen.
 
-Azure maakt gebruik van SNAT met poort onechte ([PAT](#pat)) om uit te voeren van deze functie. In dit scenario is vergelijkbaar met scenario 2, maar er geen controle over het IP-adres gebruikt is. Dit is een alternatief scenario voor wanneer scenario 1 en 2 niet bestaan. In dit scenario wordt niet aanbevolen als u wilt dat de controle over het uitgaande adres. Als u uitgaande verbindingen zijn een belangrijk onderdeel van uw toepassing, moet u een ander scenario hebt gekozen.
+Azure gebruikt SNAT met poort maskering ([Pat](#pat)) om deze functie uit te voeren. Dit scenario is vergelijkbaar met scenario 2, maar er is geen controle over het gebruikte IP-adres. Dit is een terugval scenario voor situaties waarin de scenario's 1 en 2 niet bestaan. Dit scenario wordt niet aanbevolen als u het uitgaande adres wilt beheren. Als uitgaande verbindingen een belang rijk onderdeel zijn van uw toepassing, moet u een ander scenario kiezen.
 
-SNAT poorten zijn vooraf toegewezen zoals beschreven in de [Understanding SNAT en PAT](#snat) sectie.  Het aantal virtuele machines of Webwerkrollen delen van het openbare IP-adres bepaalt het aantal kortstondige poorten genoemd vooraf toegewezen.   Het is belangrijk om te weten hoe ze zijn [verbruikt](#pat). Als u wilt weten hoe u voor dit verbruik ontwerpen en te beperken indien nodig, Bekijk [SNAT beheren uitputting](#snatexhaust).
+SNAT-poorten zijn vooraf toegewezen, zoals beschreven in de sectie [over SNAT en Pat](#snat) .  Het aantal Vm's of Web Worker-rollen die het open bare IP-adres delen, bepaalt het aantal vooraf toegewezen tijdelijke poorten.   Het is belang rijk om te begrijpen hoe [](#pat)ze worden verbruikt. Als u wilt weten hoe u dit verbruik kunt ontwerpen en zo nodig kunt beperken, raadpleegt u de [beheer SNAT](#snatexhaust)-uitputting.
 
-## <a name="snat"></a>Inzicht krijgen in SNAT en PAT
+## <a name="snat"></a>Meer informatie over SNAT en PAT
 
-### <a name="pat"></a>Poort onechte SNAT (PAT)
+### <a name="pat"></a>Poort maskering SNAT (PAT)
 
-Wanneer een implementatie een uitgaande verbinding maakt, wordt elke bron uitgaande verbindingen herschreven. De bron is van de privé IP-adresruimte herschreven naar het openbare IP-adres dat is gekoppeld aan de implementatie (op basis van scenario's zoals hierboven beschreven). In de openbare IP-adresruimte, moet de 5-tuple van de stroom (bron-IP-adres, bronpoort, transportprotocol IP, doel-IP-adres, doelpoort) uniek zijn.  
+Wanneer een implementatie een uitgaande verbinding maakt, wordt elke uitgaande verbindings bron herschreven. De bron wordt herschreven van de privé-IP-adres ruimte naar de open bare IP die is gekoppeld aan de implementatie (op basis van de scenario's die hierboven worden beschreven). In de open bare IP-adres ruimte moet de 5-tuple van de stroom (bron-IP-adres, bron poort, IP-transport protocol, doel-IP-adres, doel poort) uniek zijn.  
 
-Kortstondige poorten (SNAT) worden gebruikt om dit te bereiken nadat het herschrijven van de persoonlijke bron-IP-adres, omdat meerdere stromen afkomstig van een enkel openbaar IP-adres zijn. 
+Tijdelijke poorten (SNAT-poorten) worden gebruikt om dit te verhelpen na het herschrijven van het IP-adres van de privé bron, omdat meerdere stromen afkomstig zijn van één openbaar IP-adres. 
 
-Een poort met SNAT wordt verbruikt per overdracht naar een enkel IP-adres, poort en protocol. Voor meerdere stromen naar de doel-IP-adres, poort en protocol verbruikt elke stroom één SNAT-poort. Dit zorgt ervoor dat de stromen uniek zijn als ze afkomstig uit hetzelfde openbare IP-adres zijn en gaat u naar het hetzelfde doel-IP-adres, poort en protocol. 
+Eén SNAT-poort wordt per stroom verbruikt naar één doel-IP-adres, poort en protocol. Voor meerdere stromen naar hetzelfde doel-IP-adres, dezelfde poort en hetzelfde protocol gebruikt elke stroom één SNAT-poort. Dit zorgt ervoor dat de stromen uniek zijn wanneer ze afkomstig zijn uit hetzelfde open bare IP-adres en naar hetzelfde doel-IP-adres, dezelfde poort en hetzelfde protocol gaan. 
 
-Meerdere stromen, elk op een andere doel-IP-adres, poort en protocol, delen een enkel SNAT-poort. De doel-IP-adres, poort en protocol maken stromen uniek zonder de noodzaak voor extra bron poorten te onderscheiden van stromen in de openbare IP-adresruimte.
+Meerdere stromen, elk naar een ander doel-IP-adres, poort en protocol, delen één SNAT-poort. Het doel-IP-adres, de poort en het Protocol maken stroom uniek zonder dat er extra bron poorten nodig zijn om stromen te onderscheiden van de open bare IP-adres ruimte.
 
-Wanneer SNAT poort resources verbruikt, wordt uitgaande stromen mislukken totdat bestaande stromen SNAT poorten. Load Balancer maakt SNAT poorten wanneer de stroom wordt gesloten en maakt gebruik van een [time-out voor inactiviteit van 4 minuten durende](#idletimeout) voor het vrijmaken van SNAT poorten van niet-actieve stromen.
+Wanneer de SNAT-poort resources zijn uitgeput, mislukken uitgaande stromen totdat bestaande stromen van SNAT-poorten worden vrijgegeven. Load Balancer overschrijden de SNAT-poorten wanneer de stroom wordt gesloten en gebruikt een [time-out van 4 minuten](#idletimeout) voor het vrijmaken van de SNAT-poorten van niet-actieve stromen.
 
-Voor patronen om te beperken van voorwaarden die vaak tot uitputting van SNAT poort leiden, raadpleegt u de [SNAT beheren](#snatexhaust) sectie.
+Raadpleeg de sectie [SNAT beheren](#snatexhaust) als u patronen wilt beperken die vaak leiden tot een SNAT-poort uitputting.
 
-### <a name="preallocatedports"></a>Tijdelijke poort voorafgaande toewijzing voor de onechte SNAT (PAT)-poort
+### <a name="preallocatedports"></a>Tijdelijke poort voortoewijzing voor poort maskering SNAT (PAT)
 
-Azure maakt gebruik van een algoritme om te bepalen het aantal vooraf toegewezen SNAT poorten die beschikbaar zijn op basis van de grootte van de back-endpool bij het gebruik van poort onechte SNAT ([PAT](#pat)). SNAT poorten zijn kortstondige poorten die beschikbaar zijn voor een bepaalde openbare IP-bronadres.
+Azure gebruikt een algoritme om te bepalen hoeveel vooraf toegewezen SNAT-poorten beschikbaar zijn op basis van de grootte van de back-end-pool wanneer poort maskering SNAT ([Pat](#pat)) wordt gebruikt. SNAT-poorten zijn tijdelijke poorten die beschikbaar zijn voor een bepaald openbaar IP-bron adres.
 
-Azure preallocates SNAT poorten wanneer een exemplaar is geïmplementeerd op basis van hoeveel exemplaren van virtuele machine of Werkrol Web een opgegeven openbare IP-adres delen.  Wanneer uitgaande stromen worden gemaakt, [PAT](#pat) dynamisch verbruikt (tot de vooraf toegewezen limiet) en deze poorten worden vrijgegeven wanneer de stroom wordt gesloten of niet-actieve time-outs optreden.
+Azure wijst SNAT-poorten vooraf toe wanneer een exemplaar wordt geïmplementeerd op basis van het aantal exemplaren van virtuele machines of Web-Workers die een gegeven openbaar IP-adres delen.  Wanneer uitgaande stromen worden gemaakt, gebruikt [Pat](#pat) dynamisch (Maxi maal de vooraf toegewezen limiet) en worden deze poorten vrijgegeven wanneer de stroom wordt gesloten of er time-outs voor inactiviteit optreden.
 
-De volgende tabel toont de preallocations SNAT poort voor de lagen van de back-end poolgrootten:
+In de volgende tabel ziet u de SNAT-poort voortoewijzingen voor lagen van back-endadresgroep-Pools:
 
-| exemplaren | Vooraf toegewezen SNAT poorten per exemplaar |
+| exemplaren | Vooraf toegewezen SNAT-poorten per instantie |
 | --- | --- |
 | 1-50 | 1,024 |
 | 51-100 | 512 |
 | 101-200 | 256 |
 | 201-400 | 128 |
 
-Houd er rekening mee dat het aantal beschikbare poorten op de SNAT geen rechtstreeks naar het aantal stromen vertaalt. Één poort zijn SNAT kan worden hergebruikt voor meerdere unieke doelen. Poorten die worden verbruikt alleen indien nodig stromen om uniek te maken. Voor richtlijnen voor ontwerp en risicobeperking, raadpleegt u de sectie over [over het beheren van deze resource onuitputtelijk](#snatexhaust) en de sectie waarin wordt beschreven [PAT](#pat).
+Houd er rekening mee dat het aantal beschik bare SNAT-poorten niet rechtstreeks naar het aantal stromen kan worden vertaald. Eén SNAT-poort kan opnieuw worden gebruikt voor meerdere unieke bestemmingen. Poorten worden alleen gebruikt als het nodig is om stromen uniek te maken. Raadpleeg de sectie over het [beheren van deze exhaustible-resource](#snatexhaust) en de sectie met [Pat](#pat)voor instructies voor het ontwerpen en beperken van problemen.
 
-Wijzigen van de grootte van uw implementatie mogelijk van invloed op enkele van uw bestaande stromen. Als de grootte van de back-end-groep verhoogt en in de volgende laag overgangen, wordt de helft van de vooraf toegewezen SNAT poorten vrijgemaakt tijdens de overgang naar de volgende laag voor grotere back-end-pool. Stromen die gekoppeld aan een geregenereerde SNAT poort zijn time-out en moeten opnieuw tot stand worden gebracht. Als een nieuwe stroom wordt uitgevoerd, wordt de stroom onmiddellijk slaagt, zolang vooraf toegewezen poorten beschikbaar zijn.
+Het wijzigen van de grootte van uw implementatie kan invloed hebben op sommige van uw vastgelegde stromen. Als de grootte van de back-end-groep toeneemt en overschakelt naar de volgende laag, worden de helft van uw vooraf toegewezen SNAT-poorten vrijgemaakt tijdens de overgang naar de volgende grotere back-endadresgroep. Stromen die zijn gekoppeld aan een vrijgestelde SNAT-poort, worden getimed en moeten opnieuw worden ingesteld. Als er een nieuwe stroom wordt gedaan, wordt de stroom onmiddellijk uitgevoerd zolang er vooraf toegewezen poorten beschikbaar zijn.
 
-Als de implementatiegrootte van de wordt verlaagd en in een lagere laag verandert, verhoogt het aantal beschikbare poorten van SNAT. In dit geval SNAT poorten bestaande toegewezen en hun respectieve stromen worden niet beïnvloed.
+Als de implementatie grootte vermindert en overgangen naar een lagere laag, neemt het aantal beschik bare SNAT-poorten toe. In dit geval worden bestaande toegewezen SNAT-poorten en de bijbehorende stromen niet beïnvloed.
 
-Als een service in de cloud wordt opnieuw geïmplementeerd of gewijzigd, de infrastructuur mogelijk tijdelijk de back-endpool worden maximaal twee keer zo groot als werkelijke rapporteren en Azure wordt op zijn beurt wijzen minder SNAT poorten per exemplaar dan verwacht.  Hierdoor kan de kans op SNAT poortuitputting tijdelijk toenemen. Uiteindelijk de poolgrootte op werkelijke grootte veranderen en Azure automatisch verhoogd vooraf toegewezen SNAT poorten op het verwachte aantal aan de hand van de bovenstaande tabel.  Dit gedrag is inherent aan het ontwerp en kan niet worden geconfigureerd.
+Als een Cloud service opnieuw wordt geïmplementeerd of gewijzigd, kan de-infra structuur de back-end-pool tijdelijk zo hoog als werkelijk instellen, zodat Azure minder SNAT-poorten per instantie vooraf toewijst dan verwacht.  Dit kan de waarschijnlijkheid van de SNAT-poort uitgeput tijdelijk verhogen. Uiteindelijk wordt de grootte van de pool overgezet naar de werkelijke grootte en Azure worden vooraf toegewezen SNAT-poorten automatisch verhoogd naar het verwachte aantal volgens de bovenstaande tabel.  Dit gedrag is inherent aan het ontwerp en kan niet worden geconfigureerd.
 
-SNAT poorten toewijzingen zijn specifieke IP-transportprotocol (TCP en UDP-worden afzonderlijk onderhouden) en worden uitgebracht onder de volgende voorwaarden:
+Toewijzing van SNAT-poorten is een specifiek IP-transport protocol (TCP en UDP worden afzonderlijk onderhouden) en worden vrijgegeven onder de volgende voor waarden:
 
-### <a name="tcp-snat-port-release"></a>Release van SNAT TCP-poort
+### <a name="tcp-snat-port-release"></a>TCP SNAT-poort release
 
-- Als beide server/client FIN/ACK verzendt, wordt na 240 seconden SNAT poort uitgebracht.
-- Wanneer er een eerste worden gedetecteerd, wordt poort SNAT na 15 seconden worden vrijgegeven.
+- Als zowel de server als de client FIN/ACK verzendt, wordt de SNAT-poort na 240 seconden vrijgegeven.
+- Als een RST wordt gezien, wordt de SNAT-poort na 15 seconden vrijgegeven.
 - time-out voor inactiviteit is bereikt
 
-### <a name="udp-snat-port-release"></a>Release van SNAT UDP-poort
+### <a name="udp-snat-port-release"></a>UDP SNAT-poort release
 
 - time-out voor inactiviteit is bereikt
 
-## <a name="problemsolving"></a> Problemen oplossen 
+## <a name="problemsolving"></a>Probleem oplossen 
 
-Deze sectie is bedoeld om te beperken SNAT uitputting en andere scenario's die met uitgaande verbindingen in Azure optreden kunnen.
+Deze sectie is bedoeld om de SNAT-uitputting en andere scenario's die kunnen worden uitgevoerd met uitgaande verbindingen in azure te beperken.
 
-### <a name="snatexhaust"></a> Poortuitputting SNAT (PAT) beheren
-[Kortstondige poorten](#preallocatedports) gebruikt voor [PAT](#pat) vormen een onuitputtelijk resource, zoals beschreven in [geen openbaar IP-adres dat is gekoppeld](#defaultsnat) en [openbaar eindpunt met gelijke](#publiclbendpoint).
+### <a name="snatexhaust"></a>Poort uitputting van SNAT (PAT) beheren
+[Tijdelijke poorten](#preallocatedports) die worden gebruikt voor [Pat](#pat) zijn een exhaustible-bron, zoals beschreven in [geen openbaar IP-adres dat is gekoppeld aan](#defaultsnat) het [open bare eind punt](#publiclbendpoint).
 
-Als u weet dat u bij het initiëren van veel uitgaande TCP of UDP-verbindingen op hetzelfde IP-doeladres en poort, en u observeren uitgaande verbindingen mislukken of door het ondersteuningsteam van wordt aangeraden dat u uitput SNAT-poorten bent (vooraf toegewezen [kortstondige poorten](#preallocatedports) die worden gebruikt door [PAT](#pat)), hebt u verschillende algemene risicobeperkende mogelijkheden. Bekijk deze opties en bepaal wat beschikbaar is en voor uw scenario het meest geschikt is. Het is mogelijk dat een of meer kan het beheer van dit scenario.
+Als u weet dat u een groot aantal uitgaande TCP-of UDP-verbindingen met hetzelfde doel-IP-adres en dezelfde poort wilt initiëren, kunt u zien dat uitgaande verbindingen mislukken of worden aanbevolen door ondersteuning te bieden voor de SNAT-poorten (vooraf toegewezen [tijdelijke poorten](#preallocatedports) ) gebruikt door [Pat](#pat)), hebt u enkele algemene beperkende opties. Bekijk deze opties en beslis wat er beschikbaar en beste is voor uw scenario. Het is mogelijk dat een of meer informatie kan helpen bij het beheren van dit scenario.
 
-Als u problemen bij het begrijpen van het gedrag van de uitgaande verbindingen ondervindt, kunt u IP-stack-statistieken (netstat). Of het gedrag van de verbinding met behulp van pakketopnamen in acht nemen handig kan zijn.
+Als u problemen ondervindt met het gedrag van uitgaande verbindingen, kunt u IP-stack statistieken (netstat) gebruiken. Het kan ook handig zijn om verbindings gedrag te observeren met behulp van pakket opnamen.
 
-#### <a name="connectionreuse"></a>De toepassing om verbindingen opnieuw te wijzigen 
-U kunt de vraag naar kortstondige poorten die worden gebruikt voor SNAT door verbindingen in uw toepassing opnieuw te verminderen. Dit geldt met name voor protocollen zoals HTTP/1.1, waarbij het hergebruik van de verbinding de standaardinstelling is. En andere protocollen die HTTP als transportmechanisme gebruiken (bijvoorbeeld REST gebruiken) op zijn beurt kunnen profiteren. 
+#### <a name="connectionreuse"></a>Wijzig de toepassing om verbindingen opnieuw te gebruiken 
+U kunt de vraag beperken voor tijdelijke poorten die worden gebruikt voor SNAT door verbindingen in uw toepassing opnieuw te gebruiken. Dit geldt met name voor protocollen zoals HTTP/1.1, waarbij hergebruik van verbindingen de standaard instelling is. En andere protocollen die gebruikmaken van HTTP als Trans Port (bijvoorbeeld REST), kunnen op hun beurt profiteren van. 
 
-Hergebruik is altijd beter dan afzonderlijke, atomic TCP-verbindingen voor elke aanvraag. Hergebruiken resulteert in meer prestaties, zeer efficiënt TCP-transacties.
+Hergebruik is altijd beter dan afzonderlijke, atomische TCP-verbindingen voor elke aanvraag. Het opnieuw gebruiken van resultaten in meer uitvoerende, zeer efficiënte TCP-trans acties.
 
-#### <a name="connection pooling"></a>De toepassing te gebruiken Groepsgewijze verbinding wijzigen
-U kunt gebruikmaken van een groepsgewijze verbindingen schema in uw toepassing, waar aanvragen intern worden verdeeld over een vaste set van verbindingen (elke hergebruiken indien mogelijk). Dit schema Hiermee beperkt u het aantal kortstondige poorten in gebruik en maakt u een omgeving beter te voorspellen. Dit schema kunt ook de doorvoer van aanvragen door meerdere gelijktijdige bewerkingen toe wanneer een enkele verbinding wordt geblokkeerd door op het antwoord van een bewerking te verhogen.  
+#### <a name="connection pooling"></a>De toepassing wijzigen voor het gebruik van groepsgewijze verbindingen
+U kunt een schema voor groepsgewijze verbindingen gebruiken in uw toepassing, waarbij aanvragen intern worden gedistribueerd via een vaste set verbindingen (waarbij elk gebruik waar mogelijk wordt gebruikt). Dit schema beperkt het aantal tijdelijke poorten dat in gebruik is en maakt een meer voorspel bare omgeving. Dit schema kan ook de door Voer van aanvragen verhogen door meerdere gelijktijdige bewerkingen toe te staan wanneer één verbinding wordt geblokkeerd bij het beantwoorden van een bewerking.  
 
-Groepsgewijze verbinding bestaat mogelijk al in het kader die u gebruikt voor het ontwikkelen van uw toepassing of de configuratie-instellingen voor uw toepassing. U kunt combineren Groepsgewijze verbinding met de verbinding opnieuw gebruiken. Uw meerdere aanvragen worden vervolgens een vast, voorspelbaar aantal poorten op de dezelfde IP-doeladres en poort gebruiken. De aanvragen worden ook profiteren van efficiënt gebruik van TCP-transacties latentie en resource-gebruik verminderen. UDP-transacties kunnen ook profiteren, omdat op zijn beurt beheren van het aantal UDP-stromen kunt uitlaatgas voorwaarden voorkomen en het gebruik van de poort SNAT beheren.
+Verbindings groeperingen kunnen al bestaan in het Framework dat u gebruikt voor het ontwikkelen van uw toepassing of de configuratie-instellingen voor uw toepassing. U kunt groepsgewijze verbindingen combi neren met het opnieuw gebruiken van verbindingen. Uw meerdere aanvragen verbruiken vervolgens een vast, voorspelbaar aantal poorten op hetzelfde doel-IP-adres en dezelfde poort. De aanvragen profiteren ook van efficiënt gebruik van TCP-trans acties waarbij de latentie en het resource gebruik worden verminderd. UDP-trans acties kunnen ook profiteren van het voor deel, omdat het beheer van het aantal UDP-stromen mogelijk is om de uitlaat omstandigheden te voor komen en het SNAT-poort gebruik te beheren.
 
-#### <a name="retry logic"></a>Wijzig de toepassing te gebruiken minder agressief logica voor opnieuw proberen
-Wanneer [vooraf toegewezen kortstondige poorten](#preallocatedports) gebruikt voor [PAT](#pat) zijn uitgeput of toepassing fouten optreden, agressief of beveiligingsaanvallen pogingen zonder verval en uitstel logica leiden tot uitputting of behouden. Aanvraag voor kortstondige poorten kunt u beperken met behulp van een minder agressief logica voor opnieuw proberen. 
+#### <a name="retry logic"></a>De toepassing wijzigen voor het gebruik van minder agressieve nieuwe logica
+Wanneer [tijdelijke poorten](#preallocatedports) die worden gebruikt voor [Pat](#pat) , worden uitgeput of er fouten in de toepassing optreden, worden pogingen voor agressieve of brute Forces zonder onverwachting en uitstel Logic uitputting veroorzaakt of blijven ze behouden. U kunt de vraag naar tijdelijke poorten verminderen door een minder agressieve pogings logica te gebruiken. 
 
-Kortstondige poorten hebben een 4 minuten durende time-out voor inactiviteit (niet-aanpasbare). Als de nieuwe pogingen te agressief, heeft de uitputting geen mogelijkheid om te wissen op zichzelf. Overwegen hoe-- en hoe vaak--uw toepassing opnieuw transacties probeert is daarom een belangrijk onderdeel van het ontwerp.
+Tijdelijke poorten hebben een time-out van 4 minuten (niet aanpasbaar). Als de nieuwe pogingen te agressief zijn, heeft de uitputting geen mogelijkheid om zichzelf zelf te wissen. Daarom is het een belang rijk onderdeel van het ontwerp om te overwegen hoe--en hoe vaak uw toepassingen nieuwe pogingen doen.
 
-#### <a name="assignilpip"></a>Een exemplaar op openbare IP-adres toewijzen aan elke virtuele machine
-Uw scenario toewijzen van een ILPIP verandert [Instance Level Public IP aan een virtuele machine](#ilpip). Alle kortstondige poorten van het openbare IP-adres die worden gebruikt voor elke virtuele machine zijn beschikbaar voor de virtuele machine. (In plaats van scenario's waarbij kortstondige poorten van een openbaar IP-adres worden gedeeld met alle virtuele machines die zijn gekoppeld aan de betreffende implementatie.) Er zijn wisselwerking om te overwegen, zoals de potentiële impact van opname in de whitelist een groot aantal afzonderlijke IP-adressen.
+#### <a name="assignilpip"></a>Een openbaar IP-adres op instantie niveau toewijzen aan elke VM
+Als u een ILPIP toewijst, wordt uw scenario gewijzigd in [een open bare IP-adres op instantie niveau](#ilpip). Alle tijdelijke poorten van het open bare IP-adres dat voor elke VM worden gebruikt, zijn beschikbaar voor de VM. (In tegens telling tot scenario's waarbij tijdelijke poorten van een openbaar IP-adres worden gedeeld met alle virtuele machines die zijn gekoppeld aan de betreffende implementatie.) Er zijn zaken die u moet overwegen, zoals de potentiële impact van het white list van een groot aantal afzonderlijke IP-adressen.
 
 >[!NOTE] 
->Deze optie is niet beschikbaar voor webwerkrollen.
+>Deze optie is niet beschikbaar voor Web Worker-rollen.
 
-### <a name="idletimeout"></a>Keepalives gebruiken om te herstellen van de uitgaande time-out voor inactiviteit
+### <a name="idletimeout"></a>Keepalives gebruiken om de uitgaande time-out voor inactiviteit opnieuw in te stellen
 
-Uitgaande verbindingen hebben een time-out voor inactiviteit 4 minuten. Deze time-out is niet aanpasbaar. U kunt echter transport (bijvoorbeeld TCP keepalives) of de toepassingslaag keepalives gebruiken vernieuwen van een niet-actieve stroom en opnieuw instellen van deze time-out voor inactiviteit indien nodig.  Neem contact op met de leverancier van alle verpakte software op of dit wordt ondersteund of het inschakelen ervan.  In het algemeen moet alleen een-zijde keepalives als u de time-out voor inactiviteit opnieuw wilt genereren. 
+Uitgaande verbindingen hebben een time-out van 4 minuten. Deze time-out kan niet worden aangepast. U kunt echter Trans Port (bijvoorbeeld TCP-keepalives) of keepalives op toepassings niveau gebruiken om een niet-actieve stroom te vernieuwen en zo nodig de time-out voor inactiviteit opnieuw in te stellen.  Neem contact op met de leverancier van verpakte software, of dit wordt ondersteund en hoe u deze functie inschakelt.  Over het algemeen moet slechts één zijde keepalives genereren om de time-out voor inactiviteit opnieuw in te stellen. 
 
-## <a name="discoveroutbound"></a>Het openbare IP-adres dat gebruikmaakt van een virtuele machine detecteren
-Er zijn veel manieren om te bepalen van het openbare IP-bronadres van een uitgaande verbinding. OpenDNS is een service waarmee u het openbare IP-adres van uw virtuele machine kunt weergeven. 
+## <a name="discoveroutbound"></a>Het open bare IP-adres dat door een virtuele machine wordt gebruikt, wordt gedetecteerd
+Er zijn veel manieren om het IP-adres van de open bare bron van een uitgaande verbinding te bepalen. OpenDNS biedt een service waarmee u het open bare IP-adres van uw virtuele machine kunt weer geven. 
 
-Met behulp van de nslookup-opdracht, kunt u een DNS-query voor de naam myip.opendns.com verzenden naar de conflictoplosser OpenDNS. De service retourneert de bron-IP-adres dat is gebruikt voor het verzenden van de query. Wanneer u de volgende query vanaf uw virtuele machine uitvoeren, is het antwoord het openbare IP-adres gebruikt voor die VM:
+Met de opdracht nslookup kunt u een DNS-query voor de naam myip.opendns.com verzenden naar de OpenDNS-resolver. De service retourneert het bron-IP-adres dat is gebruikt om de query te verzenden. Wanneer u de volgende query uitvoert vanaf uw virtuele machine, is het antwoord het open bare IP-adres dat voor die virtuele machine wordt gebruikt:
 
     nslookup myip.opendns.com resolver1.opendns.com
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [Load Balancer](load-balancer-overview.md) gebruikt in implementaties van Resource Manager.
-- Meer informatie over [uitgaande verbindingen](load-balancer-outbound-connections.md) scenario's die beschikbaar zijn in Resource Manager-implementaties.
+- Meer informatie over [Load Balancer](load-balancer-overview.md) gebruikt in Resource Manager-implementaties.
+- Lees modus over scenario's voor [uitgaande verbindingen](load-balancer-outbound-connections.md) die beschikbaar zijn in implementaties van Resource Manager.

@@ -1,9 +1,9 @@
 ---
-title: Workloads voor containers - Azure Batch | Microsoft Docs
-description: Informatie over het uitvoeren van toepassingen van containerinstallatiekopieën op Azure Batch.
+title: Container werkbelastingen-Azure Batch | Microsoft Docs
+description: Meer informatie over het uitvoeren van toepassingen vanuit container installatie kopieën op Azure Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
@@ -11,95 +11,95 @@ ms.workload: na
 ms.date: 11/19/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: cfd00ad124db33cec8e30e8e1bb701388ee71838
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: edf4ce2be451672ecbd4f732c3110617dc122ca0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340229"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323588"
 ---
-# <a name="run-container-applications-on-azure-batch"></a>Containertoepassingen uitvoeren op Azure Batch
+# <a name="run-container-applications-on-azure-batch"></a>Container toepassingen uitvoeren op Azure Batch
 
-Azure Batch kunt u uitvoeren en schalen van grote aantallen computing-taken op Azure batch. Batch-taken rechtstreeks op virtuele machines (knooppunten) in een Batch-pool kunnen uitvoeren, maar u kunt ook een Batch-pool instellen voor uitvoering van taken in compatibel is met Docker-containers op de knooppunten. Dit artikel laat u het maken van een pool van rekenknooppunten met actieve container taken ondersteunen en die vervolgens container taken uitvoeren in de pool. 
+Met Azure Batch kunt u grote aantallen taken voor batch verwerking op Azure uitvoeren en schalen. Batch taken kunnen rechtstreeks worden uitgevoerd op virtuele machines (knoop punten) in een batch-pool, maar u kunt ook een batch-pool instellen om taken uit te voeren in docker-compatibele containers op de knoop punten. In dit artikel wordt beschreven hoe u een pool van reken knooppunten maakt die ondersteuning bieden voor container taken en vervolgens container taken uitvoeren in de groep. 
 
-U moet bekend zijn met de container-concepten en over het maken van een Batch-pool en de taak. De codevoorbeelden gebruikt de Batch .NET en Python-SDK's. U kunt ook andere Batch-SDK's en hulpprogramma's, waaronder de Azure-portal gebruiken om te maken van container-functionaliteit van de Batch-pools en container-taken uitvoeren.
+U moet bekend zijn met de container concepten en een batch-pool en-taak maken. De code voorbeelden gebruiken de batch .NET-en python-Sdk's. U kunt ook andere batch-Sdk's en-hulpprogram ma's, waaronder de Azure Portal, gebruiken om batch-Pools met container functionaliteit te maken en container taken uit te voeren.
 
 ## <a name="why-use-containers"></a>Waarom containers gebruiken?
 
-Met behulp van containers biedt een eenvoudige manier Batch-taken uitvoeren zonder voor het beheren van een omgeving en afhankelijkheden toepassingen uit te voeren. Containers implementeren van toepassingen als lichtgewicht, draagbare, zelfvoorzienende eenheden die kunnen worden uitgevoerd in verschillende omgevingen. Bijvoorbeeld, bouwen en testen van een container is lokaal uitgevoerd en vervolgens de containerinstallatiekopie uploaden naar een register in Azure of ergens anders. Het implementatiemodel container zorgt ervoor dat de runtime-omgeving van uw toepassing altijd correct is geïnstalleerd en geconfigureerd wanneer u de toepassing wordt gehost. Op containers gebaseerde taken in Batch kunnen ook profiteren van functies van niet-container-taken, waaronder toepassingspakketten en beheer van resourcebestanden en uitvoerbestanden. 
+Het gebruik van containers biedt een eenvoudige manier om batch taken uit te voeren zonder dat u een omgeving en afhankelijkheden hoeft te beheren om toepassingen uit te voeren. Containers implementeren toepassingen als Lightweight, Portable, Self-toereikende eenheden die in verschillende omgevingen kunnen worden uitgevoerd. Bouw en test bijvoorbeeld een container lokaal en upload de container installatie kopie naar een REGI ster in azure of ergens anders. Het implementatie model van de container zorgt ervoor dat de runtime omgeving van uw toepassing altijd correct is geïnstalleerd en geconfigureerd, waar u de toepassing host. Op containers gebaseerde taken in batch kunnen ook profiteren van functies van niet-container taken, waaronder toepassings pakketten en beheer van bron bestanden en uitvoer bestanden. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **SDK-versies**: De Batch-SDK's ondersteunen containerinstallatiekopieën vanaf de volgende versies:
-    * Batch REST-API versie 2017-09-01.6.0
-    * Batch .NET SDK versie 8.0.0
-    * Batch Python SDK versie 4.0
-    * Batch Java SDK versie 3.0
-    * Batch Node.js SDK versie 3.0
+* **SDK-versies**: De batch-Sdk's ondersteunen container installatie kopieën vanaf de volgende versies:
+    * Batch-REST API versie 2017 -09-01.6.0
+    * Batch .NET SDK-versie 8.0.0
+    * Batch python SDK-versie 4,0
+    * Batch Java SDK-versie 3,0
+    * Batch node. js SDK-versie 3,0
 
-* **Accounts**: In uw Azure-abonnement moet u een Batch-account en optioneel een Azure Storage-account maken.
+* **Accounts**: In uw Azure-abonnement moet u een batch-account en optioneel een Azure Storage-account maken.
 
-* **Een ondersteunde VM-installatiekopie**: Containers worden alleen ondersteund in pools die zijn gemaakt met de configuratie van de virtuele Machine, van afbeeldingen in de volgende sectie worden beschreven, 'ondersteund installatiekopieën voor virtuele machines." Als u een aangepaste installatiekopie, Zie de overwegingen met betrekking tot in de volgende sectie en de vereisten in [een beheerde aangepaste installatiekopie gebruiken om een pool van virtuele machines te maken](batch-custom-images.md). 
+* **Een ondersteunde VM-installatie kopie**: Containers worden alleen ondersteund in Pools die zijn gemaakt met de virtuele-machine configuratie, van afbeeldingen die worden beschreven in de volgende sectie, "ondersteunde installatie kopieën van virtuele machines". Als u een aangepaste installatie kopie opgeeft, raadpleegt u de overwegingen in de volgende sectie en de vereisten in [een beheerde aangepaste installatie kopie gebruiken om een pool van virtuele machines te maken](batch-custom-images.md). 
 
 ### <a name="limitations"></a>Beperkingen
 
-* Batch biedt RDMA-ondersteuning voor containers die worden uitgevoerd op Linux-pools
+* Batch biedt RDMA-ondersteuning alleen voor containers die worden uitgevoerd op Linux-Pools
 
-* Voor Windows-containerwerkbelastingen, is het raadzaam om te kiezen voor uw pool een multicore VM-grootte
+* Voor Windows-container workloads is het raadzaam om een multicore-VM-grootte te kiezen voor uw pool
 
-## <a name="supported-virtual-machine-images"></a>Installatiekopieën van ondersteunde virtuele machines
+## <a name="supported-virtual-machine-images"></a>Ondersteunde installatie kopieën van virtuele machines
 
-Gebruik een van de volgende ondersteund Windows of Linux-installatiekopieën om een pool van virtuele machine te maken van rekenknooppunten voor workloads voor containers. Zie voor meer informatie over de Marketplace-installatiekopieën die compatibel met Batch zijn [lijst met installatiekopieën van virtuele machines](batch-linux-nodes.md#list-of-virtual-machine-images). 
+Gebruik een van de volgende ondersteunde Windows-of Linux-installatie kopieën voor het maken van een pool van VM-reken knooppunten voor container werkbelastingen. Zie [lijst met installatie kopieën van virtuele machines](batch-linux-nodes.md#list-of-virtual-machine-images)voor meer informatie over Marketplace-installatie kopieën die compatibel zijn met batch. 
 
-### <a name="windows-images"></a>Windows-installatiekopieën
+### <a name="windows-images"></a>Windows-installatie kopieën
 
-Voor Windows-containerwerkbelastingen, Batch ondersteunt momenteel de **Windows Server 2016 Datacenter met Containers** installatiekopie in de Azure Marketplace. Alleen de installatiekopieën van Docker-containers worden ondersteund op Windows.
+Voor Windows-container workloads ondersteunt batch momenteel de installatie kopie van **Windows Server 2016 Data Center met containers** in de Azure Marketplace. Alleen docker-container installatie kopieën worden ondersteund in Windows.
 
-U kunt ook aangepaste installatiekopieën maken van virtuele machines met Docker op Windows.
+U kunt ook aangepaste installatie kopieën maken van virtuele machines waarop docker in Windows wordt uitgevoerd.
 
-### <a name="linux-images"></a>Linux-installatiekopieën
+### <a name="linux-images"></a>Linux-installatie kopieën
 
-Batch ondersteunt momenteel de volgende Linux-installatiekopieën gepubliceerd door Microsoft Azure Batch in de Azure Marketplace voor Linux-container-workloads:
+Voor de workloads van een Linux-container ondersteunt batch momenteel de volgende Linux-installatie kopieën die zijn gepubliceerd door Microsoft Azure Batch in azure Marketplace:
 
-* **CentOS voor Azure Batch-pools van container**
+* **CentOS voor Azure Batch container groepen**
 
-* **CentOS (met RDMA-stuurprogramma's) voor Azure Batch-pools van container**
+* **CentOS (met RDMA-Stuur Programma's) voor Azure Batch container Pools**
 
-* **Ubuntu-Server voor Azure Batch-pools van container**
+* **Ubuntu-Server voor Azure Batch container groepen**
 
-* **Ubuntu-Server (met RDMA-stuurprogramma's) voor Azure Batch-pools van container**
+* **Ubuntu-Server (met RDMA-Stuur Programma's) voor Azure Batch container Pools**
 
-Deze installatiekopieën worden alleen ondersteund voor gebruik in Azure Batch-pools. Deze functie:
+Deze installatie kopieën worden alleen ondersteund voor gebruik in Azure Batch groepen. Deze functie:
 
-* Een vooraf geïnstalleerde [Moby](https://github.com/moby/moby) container-runtime 
+* Een vooraf geïnstalleerde [Moby](https://github.com/moby/moby) -container-runtime 
 
-* Vooraf geïnstalleerde NVIDIA GPU-stuurprogramma's, voor het stroomlijnen van implementatie op Azure uit de N-serie VM 's
+* Vooraf geïnstalleerde NVIDIA GPU-Stuur Programma's voor het stroom lijnen van de implementatie op Vm's uit de Azure N-serie
 
-* Uw keuze van afbeeldingen met of zonder RDMA-stuurprogramma's die vooraf zijn geïnstalleerd. Deze stuurprogramma's kunnen knooppunten toegang hebben tot de Azure RDMA-netwerk wanneer geïmplementeerd op RDMA-compatibele VM-grootten in de pool. 
+* U hebt de keuze uit installatie kopieën met of zonder vooraf geïnstalleerde RDMA-Stuur Programma's. Met deze Stuur Programma's kunnen groeps knooppunten toegang krijgen tot het Azure RDMA-netwerk wanneer deze zijn geïmplementeerd op met RDMA geschikte VM-grootten. 
 
-U kunt ook aangepaste installatiekopieën maken van virtuele machines met Docker op een van de Linux-distributies die compatibel is met Batch. Als u kiest voor uw eigen aangepaste installatiekopie van Linux, raadpleegt u de instructies in [een beheerde aangepaste installatiekopie gebruiken om een pool van virtuele machines te maken](batch-custom-images.md).
+U kunt ook aangepaste installatie kopieën maken van virtuele machines die docker uitvoeren op een van de Linux-distributies die compatibel zijn met batch. Als u ervoor kiest om uw eigen aangepaste Linux-installatie kopie op te geven, raadpleegt u de instructies in [een beheerde aangepaste installatie kopie gebruiken om een pool van virtuele machines te maken](batch-custom-images.md).
 
-Voor Docker-ondersteuning op een aangepaste installatiekopie, installeren [Docker Community Edition (CE)](https://www.docker.com/community-edition) of [Docker Enterprise Edition (EE)](https://www.docker.com/enterprise-edition).
+Installeer [docker Community Edition (CE)](https://www.docker.com/community-edition) of [docker Enter PRISE Edition (EE)](https://www.docker.com/enterprise-edition)voor docker-ondersteuning op een aangepaste installatie kopie.
 
-Aanvullende overwegingen voor het gebruik van een aangepaste installatiekopie van Linux:
+Aanvullende overwegingen voor het gebruik van een aangepaste Linux-installatie kopie:
 
-* Als u wilt profiteren van de GPU-prestaties van Azure N-serie beschikbaar wanneer u een aangepaste installatiekopie, voorafgaand aan installatie NVIDIA-stuurprogramma's. Bovendien moet u het hulpprogramma voor Docker-Engine installeren voor NVIDIA GPU's, [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker).
+* Als u gebruik wilt maken van de GPU-prestaties van de Azure N-serie-grootten wanneer u een aangepaste installatie kopie gebruikt, installeert u NVIDIA-Stuur Programma's vooraf. U moet ook het hulp programma docker-engine voor NVIDIA-Gpu's, [NVIDIA docker](https://github.com/NVIDIA/nvidia-docker)installeren.
 
-* Voor toegang tot het Azure-RDMA-netwerk, gebruikt u een RDMA-compatibele VM-grootte. Vereiste RDMA-stuurprogramma's zijn geïnstalleerd in de HPC CentOS en Ubuntu-installatiekopieën ondersteund door de Batch. Aanvullende configuratie kan nodig zijn voor het uitvoeren van MPI-workloads. Zie [gebruik RDMA-compatibele of met GPU exemplaren in de Batch-pool](batch-pool-compute-intensive-sizes.md).
-
-
-## <a name="container-configuration-for-batch-pool"></a>Containerconfiguratie voor Batch-pool
-
-Om in te schakelen in een Batch-pool containerwerkbelastingen uitvoeren, moet u [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) instellingen in van de pool [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object. (In dit artikel vindt u koppelingen naar de Batch .NET API-verwijzing. Bijbehorende instellingen zijn de [Batch Python](/python/api/azure.batch) API.)
-
-U kunt een container-functionaliteit van toepassingen maken met of zonder tabelruimte containerinstallatiekopieën, zoals wordt weergegeven in de volgende voorbeelden. Het proces pull (of prefetch) kunt u vooraf laden containerinstallatiekopieën uit Docker Hub of een andere containerregister op het Internet. Gebruik voor de beste prestaties een [Azure-containerregister](../container-registry/container-registry-intro.md) in dezelfde regio als het Batch-account.
-
-Het voordeel van veelgevraagde containerinstallatiekopieën is dat wanneer u taken voor het eerst uitgevoerd ze hoeft te wachten op de container-installatiekopie te downloaden. De containerconfiguratie van de wordt deze containerinstallatiekopieën naar de virtuele machines wanneer de groep wordt gemaakt. Taken die worden uitgevoerd op de pool kunnen vervolgens verwijzen naar de lijst met installatiekopieën van containers en container opties voor het uitvoeren.
+* Voor toegang tot het Azure RDMA-netwerk gebruikt u een met RDMA geschikte VM-grootte. Benodigde RDMA-Stuur Programma's worden geïnstalleerd in de CentOS HPC-en Ubuntu-installatie kopieën die door batch worden ondersteund. Er is mogelijk aanvullende configuratie nodig om MPI-workloads uit te voeren. Zie [RDMA-compatibele of GPU-compatibele instanties gebruiken in de batch-pool](batch-pool-compute-intensive-sizes.md).
 
 
-### <a name="pool-without-prefetched-container-images"></a>Groep zonder tabelruimte containerinstallatiekopieën
+## <a name="container-configuration-for-batch-pool"></a>Container configuratie voor batch-pool
 
-Voor het configureren van een groep container ingeschakeld zonder tabelruimte containerinstallatiekopieën definiëren `ContainerConfiguration` en `VirtualMachineConfiguration` objecten, zoals wordt weergegeven in het volgende voorbeeld van Python. Dit voorbeeld wordt de Ubuntu-Server voor Azure Batch-containerinstallatiekopie groepen vanuit de Marketplace.
+Als u een batch-pool wilt inschakelen om container werkbelastingen uit te voeren, moet u [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) -instellingen opgeven in het [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) -object van de groep. (In dit artikel vindt u koppelingen naar de naslag informatie voor batch .NET API. De bijbehorende instellingen bevinden zich in de [batch-python](/python/api/azure.batch) -API.)
+
+U kunt een container groep maken met of zonder vooraf opgehaalde container installatie kopieën, zoals wordt weer gegeven in de volgende voor beelden. Met het pull-of prefetch-proces kunt u container installatie kopieën vooraf laden vanuit docker hub of een ander container register op internet. Gebruik voor de beste prestaties een [Azure container Registry](../container-registry/container-registry-intro.md) in dezelfde regio als het batch-account.
+
+Het voor deel van het vooraf ophalen van container installatie kopieën is dat wanneer taken voor het eerst worden gestart, niet hoeven te wachten tot de container installatie kopie is gedownload. De container configuratie haalt container installatie kopieën op naar de virtuele machines wanneer de pool wordt gemaakt. Taken die worden uitgevoerd in de groep, kunnen vervolgens verwijzen naar de lijst met container installatie kopieën en de opties voor container uitvoering.
+
+
+### <a name="pool-without-prefetched-container-images"></a>Groep zonder vooraf opgehaalde container installatie kopieën
+
+Als u een groep container ingeschakeld wilt configureren zonder vooraf opgehaalde container installatie kopieën `ContainerConfiguration` , `VirtualMachineConfiguration` definieert u en objecten, zoals wordt weer gegeven in het volgende python-voor beeld. In dit voor beeld wordt de Ubuntu-Server gebruikt voor de installatie kopie van Azure Batch container Pools van de Marketplace.
 
 
 ```python
@@ -127,11 +127,11 @@ new_pool = batch.models.PoolAddParameter(
 ```
 
 
-### <a name="prefetch-images-for-container-configuration"></a>Prefetch-installatiekopieën voor de containerconfiguratie van de
+### <a name="prefetch-images-for-container-configuration"></a>Prefetch-installatie kopieën voor container configuratie
 
-Toevoegen als u wilt prefetch-containerinstallatiekopieën in de pool, de lijst met installatiekopieën van containers (`container_image_names`, in Python) naar de `ContainerConfiguration`. 
+Als u container installatie kopieën in de pool wilt prefetch, voegt u de lijst`container_image_names`met container installatie kopieën (in `ContainerConfiguration`python) toe aan de. 
 
-De volgende eenvoudige Python-voorbeeld laat zien hoe vooraf ophalen van een standard Ubuntu-containerinstallatiekopie van [Docker Hub](https://hub.docker.com).
+In het volgende voor beeld van een basis python ziet u hoe u een standaard Ubuntu-container installatie kopie kunt prefetch van [docker hub](https://hub.docker.com).
 
 ```python
 image_ref_to_use = batch.models.ImageReference(
@@ -159,7 +159,7 @@ new_pool = batch.models.PoolAddParameter(
 ```
 
 
-De volgende C# voorbeeld wordt ervan uitgegaan dat u wilt een TensorFlow-installatiekopie uit prefetch [Docker Hub](https://hub.docker.com). In dit voorbeeld bevat een begintaak die wordt uitgevoerd in de VM-host op de knooppunten in de pool. U kunt bijvoorbeeld een begintaak op de host uitvoeren voor het koppelen van een bestandsserver die kan worden benaderd vanaf de containers.
+In het C# volgende voor beeld wordt ervan uitgegaan dat u een tensor flow-installatie kopie wilt prefetch van [docker hub](https://hub.docker.com). Dit voor beeld bevat een begin taak die wordt uitgevoerd op de VM-host op de groeps knooppunten. U kunt een begin taak uitvoeren op de host, bijvoorbeeld om een bestands server te koppelen die toegankelijk is vanuit de containers.
 
 ```csharp
 
@@ -192,9 +192,9 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 ```
 
 
-### <a name="prefetch-images-from-a-private-container-registry"></a>Prefetch afbeeldingen uit een privécontainerregister
+### <a name="prefetch-images-from-a-private-container-registry"></a>Installatie kopieën opprefetch van een persoonlijk container register
 
-U kunt installatiekopieën van de container ook vooraf ophalen door te verifiëren met een privé-container registry-server. In het volgende voorbeeld wordt de `ContainerConfiguration` en `VirtualMachineConfiguration` objecten vooraf een persoonlijke TensorFlow-installatiekopie ophalen vanuit een persoonlijke Azure container registry. De verwijzing naar de installatiekopie is hetzelfde als in het vorige voorbeeld.
+U kunt ook container installatie kopieën prefetch door te verifiëren bij een persoonlijke container register server. In het volgende voor beeld wordt `ContainerConfiguration` met `VirtualMachineConfiguration` de-en-objecten een persoonlijke tensor flow-installatie kopie van een persoonlijk Azure container Registry prefetch. De verwijzing naar de afbeelding is hetzelfde als in het vorige voor beeld.
 
 ```csharp
 // Specify a container registry
@@ -224,53 +224,53 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 ...
 ```
 
-## <a name="container-settings-for-the-task"></a>Container-instellingen voor de taak
+## <a name="container-settings-for-the-task"></a>Container instellingen voor de taak
 
-Geef een container-taak uitvoeren op een groep container is ingeschakeld, container-specifieke instellingen. Instellingen omvatten de afbeelding om te gebruiken, het register en uitvoeringsopties.
+Als u een container taak wilt uitvoeren in een groep waarvoor container is ingeschakeld, geeft u providerspecifieke instellingen op. Instellingen zijn onder andere de installatie kopie voor gebruik, het REGI ster en de uitvoer opties voor containers.
 
-* Gebruik de `ContainerSettings` eigenschap van de taak klassen om container-specifieke instellingen te configureren. Deze instellingen worden gedefinieerd door de [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) klasse.
+* Gebruik de `ContainerSettings` eigenschap van de taak klassen om providerspecifieke instellingen te configureren. Deze instellingen worden gedefinieerd door de [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) -klasse.
 
-* Als u taken op containerinstallatiekopieën uitvoeren de [cloud taak](/dotnet/api/microsoft.azure.batch.cloudtask) en [jobbeheertaak](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) containerinstellingen vereisen. Echter, de [begintaak](/dotnet/api/microsoft.azure.batch.starttask), [jobvoorbereidingstaak](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), en [jobvrijgevingstaak](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) vereisen geen container-instellingen (dat wil zeggen, ze kunnen worden uitgevoerd binnen de context van een container of rechtstreeks op het knooppunt).
+* Als u taken uitvoert in container installatie kopieën, zijn voor de taak [Cloud taak](/dotnet/api/microsoft.azure.batch.cloudtask) en [taak beheer](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) container instellingen nodig. De taak voor het [starten van taken](/dotnet/api/microsoft.azure.batch.starttask), taak [voorbereiding](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask)en taak [release](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) vereisen echter geen container instellingen (dat wil zeggen, ze kunnen worden uitgevoerd binnen een container context of rechtstreeks op het knoop punt).
 
-### <a name="container-task-command-line"></a>De opdrachtregel van de container-taak
+### <a name="container-task-command-line"></a>Opdracht regel voor container taak
 
-Wanneer u een container-taak uitvoert, wordt automatisch Batch gebruikt de [docker maken](https://docs.docker.com/engine/reference/commandline/create/) opdracht om een container met behulp van de opgegeven in de taak te maken. Batch bepaalt vervolgens de uitvoering van de taak in de container. 
+Wanneer u een container taak uitvoert, gebruikt batch automatisch de opdracht [docker Create](https://docs.docker.com/engine/reference/commandline/create/) om een container te maken met behulp van de installatie kopie die is opgegeven in de taak. Batch beheert vervolgens de uitvoering van de taak in de container. 
 
-Als met de Batch-taken niet-container instellen u een opdrachtregel voor de taak van een container. Omdat de container wordt automatisch gemaakt in Batch, de opdrachtregel alleen Hiermee geeft u de opdracht of opdrachten die in de container wordt uitgevoerd.
+Net als bij niet-container batch taken, stelt u een opdracht regel in voor een container taak. Omdat batch automatisch de container maakt, geeft de opdracht regel alleen de opdracht of opdrachten op die in de container zullen worden uitgevoerd.
 
-Als de installatiekopie van de container voor een batchtaak is geconfigureerd met een [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example) script, die u kunt de opdrachtregel te gebruiken de standaard ENTRYPOINT instellen of deze overschrijven: 
+Als de container installatie kopie voor een batch-taak is geconfigureerd met een [Entry Point](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example) -script, kunt u de opdracht regel instellen op het standaard toegangs punt of het overschrijven: 
 
-* Voor het gebruik van de standaard ENTRYPOINT van de containerinstallatiekopie, stelt u de opdrachtregel van de taak op een lege tekenreeks `""`.
+* Als u het standaard-INGANGs punt van de container installatie kopie wilt gebruiken, stelt u de `""`opdracht regel voor de taak in op de lege teken reeks.
 
-* De standaardwaarde van het INGANGSPUNT vervangen, of als de afbeelding niet over een ENTRYPOINT instellen een opdrachtregel geschikt is voor de container, bijvoorbeeld `/app/myapp` of `/bin/sh -c python myscript.py`.
+* Als u het standaard toegangs punt wilt overschrijven of als de afbeelding geen entry point heeft, stelt u een opdracht regel in die geschikt is voor `/app/myapp` de `/bin/sh -c python myscript.py`container, bijvoorbeeld of.
 
-Optionele [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) extra argumenten die u aan te bieden de `docker create` opdracht dat Batch maakt gebruik van maken en uitvoeren van de container. Bijvoorbeeld, om een werkmap voor de container, stel de `--workdir <directory>` optie. Zie de [docker maken](https://docs.docker.com/engine/reference/commandline/create/) verwijzing naar extra opties.
+Optionele [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) zijn aanvullende argumenten die u opgeeft voor `docker create` de opdracht die door batch wordt gebruikt om de container te maken en uit te voeren. Als u bijvoorbeeld een werkmap wilt instellen voor de container, stelt u de `--workdir <directory>` optie in. Raadpleeg de docker-Naslag informatie [maken](https://docs.docker.com/engine/reference/commandline/create/) voor extra opties.
 
-### <a name="container-task-working-directory"></a>Werkmap van de container-taak
+### <a name="container-task-working-directory"></a>Werkmap voor container taak
 
-Een Batch-container-taak wordt uitgevoerd in een werkmap in de container die erg lijkt op de map die batch heeft ingesteld voor een normale (niet-container)-taak. Houd er rekening mee dat deze werkmap van verschilt de [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) als geconfigureerd in de afbeelding of de werkmap van de standaard-container (`C:\` op een Windows-container of `/` op een Linux-container). 
+Een batch-container taak wordt uitgevoerd in een werkmap in de container die vergelijkbaar is met de Directory batch is ingesteld voor een normale (niet-container) taak. Deze werkmap wijkt af van de [workdir](https://docs.docker.com/engine/reference/builder/#workdir) als deze is geconfigureerd in de installatie kopie, of de standaard container werkmap (`C:\` op een Windows-container of `/` in een Linux-container). 
 
-Voor de taak van een Batch-container:
+Voor een batch-container taak:
 
-* Alle mappen recursief hieronder de `AZ_BATCH_NODE_ROOT_DIR` op de host-knooppunt (de hoofdmap van de Azure Batch-mappen) naar de container zijn toegewezen
-* Alle variabelen voor de omgeving worden toegewezen aan de container
-* De werkmap van de taak `AZ_BATCH_TASK_WORKING_DIR` op het knooppunt is dezelfde als die voor een normale taak ingesteld en naar de container is toegewezen. 
+* Alle mappen recursief onder het `AZ_BATCH_NODE_ROOT_DIR` knoop punt host (de hoofdmap van Azure batch directory's) worden toegewezen aan de container
+* Alle taak omgevings variabelen worden toegewezen aan de container
+* De werkmap `AZ_BATCH_TASK_WORKING_DIR` van de taak op het knoop punt is ingesteld op dezelfde als voor een gewone taak en toegewezen aan de container. 
 
-Deze toewijzingen kunnen u werken met taken van de container op ongeveer dezelfde manier als niet-container-taken. Bijvoorbeeld, installeren van toepassingen die gebruikmaken van toepassingspakketten, toegang krijgen tot resourcebestanden van Azure Storage gebruiken omgevingsinstellingen voor taken en uitvoerbestanden van de taak behouden nadat de container wordt gestopt.
+Met deze toewijzingen kunt u op ongeveer dezelfde manier werken met container taken als niet-container taken. U kunt bijvoorbeeld toepassingen installeren met behulp van toepassings pakketten, bron bestanden openen vanuit Azure Storage, instellingen voor de taak omgeving gebruiken en uitvoer bestanden van taken persistent maken nadat de container is gestopt.
 
-### <a name="troubleshoot-container-tasks"></a>Container taken oplossen
+### <a name="troubleshoot-container-tasks"></a>Problemen met container taken oplossen
 
-Als uw container-taak niet wordt uitgevoerd zoals verwacht, moet u mogelijk voor informatie over de configuratie van WORKDIR of ENTRYPOINT van de containerinstallatiekopie. Als u wilt zien van de configuratie, de [docker-installatiekopie inspecteren](https://docs.docker.com/engine/reference/commandline/image_inspect/) opdracht. 
+Als uw container taak niet wordt uitgevoerd zoals verwacht, moet u mogelijk informatie ophalen over de WORKDIR of de toegangs punt configuratie van de container installatie kopie. Voer de opdracht voor het inspecteren van de docker- [installatie kopie](https://docs.docker.com/engine/reference/commandline/image_inspect/) uit om de configuratie weer te geven. 
 
-Wijzig indien nodig de instellingen van de container-taak op basis van de installatiekopie:
+Indien nodig past u de instellingen van de container taak aan op basis van de installatie kopie:
 
-* Geef een absoluut pad in de opdrachtregel van de taak. Als de afbeelding standaard ENTRYPOINT wordt gebruikt voor de opdrachtregel van de taak, moet u controleren of een absoluut pad is ingesteld.
+* Geef een absoluut pad op in de opdracht regel van de taak. Als het standaard toegangs punt voor de taak opdracht regel wordt gebruikt, moet u ervoor zorgen dat een absoluut pad is ingesteld.
 
-* Wijzig de werkmap zodat deze overeenkomt met de WORKDIR in de afbeelding in opties voor het uitvoeren van de taak container. Bijvoorbeeld, stel `--workdir /app`.
+* Wijzig in de uitvoer opties van de taak container de werkmap zodat deze overeenkomt met de WORKDIR in de installatie kopie. Stel `--workdir /app`bijvoorbeeld in.
 
-## <a name="container-task-examples"></a>Voorbeelden van container-taak
+## <a name="container-task-examples"></a>Voor beelden van container taken
 
-Het volgende fragment van Python ziet u een eenvoudige opdrachtregel die wordt uitgevoerd in een container gemaakt op basis van de installatiekopie van een fictieve opgehaald uit Docker Hub. Hier de `--rm` container optie wordt de container verwijderd nadat de taak is voltooid, en de `--workdir` optie stelt u een werkmap. De container ENTRYPOINT met een eenvoudige shellopdracht die u een klein bestand naar de werkmap van de taak op de host schrijft heeft voorrang op de opdrachtregel. 
+Het volgende python-fragment toont een Basic-opdracht regel die wordt uitgevoerd in een container die is gemaakt op basis van een fictieve installatie kopie die wordt opgehaald uit docker hub. Hier verwijdert de `--rm` container optie de container nadat de taak is voltooid en met de `--workdir` optie wordt een werkmap ingesteld. De opdracht regel overschrijft het container-INGANGs punt met een eenvoudige shell-opdracht waarmee een klein bestand naar de werkmap van de taak op de host wordt geschreven. 
 
 ```python
 task_id = 'sampletask'
@@ -284,7 +284,7 @@ task = batch.models.TaskAddParameter(
 )
 ```
 
-De volgende C#-voorbeeld ziet u eenvoudige container-instellingen voor een cloud-taak:
+In het C# volgende voor beeld worden de basis instellingen van de container voor een Cloud taak weer gegeven:
 
 ```csharp
 // Simple container task command
@@ -305,10 +305,10 @@ CloudTask containerTask = new CloudTask (
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie ook de [Batch scheepswerf](https://github.com/Azure/batch-shipyard) toolkit voor een gemakkelijke implementatie van containerworkloads op Azure Batch via [scheepswerf recepten](https://github.com/Azure/batch-shipyard/tree/master/recipes).
+* Zie ook de [batch Shipyard](https://github.com/Azure/batch-shipyard) Toolkit voor een eenvoudige implementatie van container werkbelastingen op Azure batch via [Shipyard recepten](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 
-* Zie voor meer informatie over het installeren en met behulp van Docker CE voor Linux de [Docker](https://docs.docker.com/engine/installation/) documentatie.
+* Raadpleeg de docker-documentatie voor meer informatie over het installeren en gebruiken van [](https://docs.docker.com/engine/installation/) docker CE op Linux.
 
-* Zie voor meer informatie over het gebruik van aangepaste installatiekopieën [een beheerde aangepaste installatiekopie gebruiken om een pool van virtuele machines te maken](batch-custom-images.md).
+* Zie [een beheerde aangepaste installatie kopie gebruiken voor het maken van een groep virtuele machines](batch-custom-images.md)voor meer informatie over het gebruik van aangepaste installatie kopieën.
 
-* Meer informatie over de [Moby project](https://mobyproject.org/), een framework voor het maken van container-systemen.
+* Meer informatie over het [Moby-project](https://mobyproject.org/), een framework voor het maken van op containers gebaseerde systemen.

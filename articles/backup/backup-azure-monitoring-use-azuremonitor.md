@@ -1,136 +1,119 @@
 ---
-title: 'Azure Backup: Azure Backup bewaken met Azure Monitor'
-description: Azure Backup workloads bewaken en aangepaste waarschuwingen te maken met behulp van Azure Monitor.
-services: backup
-author: pvrk
-manager: shivamg
-keywords: Log Analytics; Azure back-up. Waarschuwingen; Diagnostische instellingen. Actiegroepen
+title: 'Azure Backup: Azure Backup met Azure Monitor bewaken'
+description: Bewaak Azure Backup werk belastingen en maak aangepaste waarschuwingen met behulp van Azure Monitor.
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
+keywords: Log Analytics; Azure Backup; Berichten Diagnostische instellingen; Actie groepen
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: e2d4a235737789f2f5852c00218427613db3d558
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: de13518173f21a0a802c37eb7be3cd6c4926d884
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786318"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689196"
 ---
-# <a name="monitor-at-scale-by-using-azure-monitor"></a>Controleren op schaal met behulp van Azure Monitor
+# <a name="monitor-at-scale-by-using-azure-monitor"></a>Op schaal controleren met behulp van Azure Monitor
 
-Azure Backup biedt [ingebouwde controle- en waarschuwingsfuncties](backup-azure-monitoring-built-in-monitor.md) in een Recovery Services-kluis. Deze mogelijkheden zijn beschikbaar zonder eventuele extra beheerinfrastructuur. Maar deze ingebouwde service is beperkt in de volgende scenario's:
+Azure Backup biedt [ingebouwde mogelijkheden voor bewaking en waarschuwingen](backup-azure-monitoring-built-in-monitor.md) in een Recovery Services kluis. Deze mogelijkheden zijn beschikbaar zonder enige extra beheer infrastructuur. Maar deze ingebouwde service is beperkt in de volgende scenario's:
 
-- Als u gegevens uit meerdere Recovery Services-kluizen tussen abonnementen controleren
-- Als de gewenste meldingskanaal *niet* e-mailadres
-- Als wilt dat gebruikers waarschuwingen voor meer scenario 's
-- Als u bekijken van gegevens van een on-premises-onderdeel, zoals System Center Data Protection Manager in Azure, die in de portal niet wordt weergegeven wilt in [ **back-uptaken** ](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault) of [  **Back-Upwaarschuwingen**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)
+- Als u gegevens van meerdere Recovery Services-kluizen in abonnementen bewaakt
+- Als het voorkeurs meldings kanaal *geen* e-mail adres is
+- Als gebruikers waarschuwingen voor meer scenario's willen
+- Als u informatie wilt weer geven van een on-premises onderdeel, zoals System Center Data Protection Manager in azure, dat niet wordt weer gegeven in [**back-uptaken**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault) of [**back-** ](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) upwaarschuwingen van de portal
 
-## <a name="using-log-analytics-workspace"></a>Met behulp van Log Analytics-werkruimte
+## <a name="using-log-analytics-workspace"></a>Log Analytics werkruimte gebruiken
 
 > [!NOTE]
-> Gegevens van virtuele Azure-machines, de Azure backup-agent, System Center Data Protection Manager, SQL-back-ups in Azure VM's en back-ups van Azure Files-share is dat aan de Log Analytics-werkruimte via diagnostische instellingen. 
+> Gegevens van back-ups van virtuele Azure-machines, de Azure Backup-Agent, System Center Data Protection Manager, SQL-back-ups in azure Vm's en Azure Files share back-ups worden gepompt naar de Log Analytics-werk ruimte via Diagnostische instellingen. 
 
-Voor het controleren op schaal, moet u de mogelijkheden van twee Azure-services. *Diagnostische instellingen* verzenden van gegevens vanuit meerdere Azure Resource Manager-resources naar een andere resource. *Log Analytics* genereert aangepaste waarschuwingen waar u actiegroepen gebruiken kunt voor het definiëren van andere meldingskanalen. 
+Als u op schaal wilt bewaken/rapporteren, hebt u de mogelijkheden van twee Azure-Services nodig. *Diagnostische instellingen* verzenden gegevens van meerdere Azure Resource Manager resources naar een andere resource. *Log Analytics* genereert aangepaste waarschuwingen waarbij u actie groepen kunt gebruiken om andere meldings kanalen te definiëren. 
 
-De volgende secties bevatten informatie over het gebruik van Log Analytics voor het bewaken van Azure back-up op schaal.
+In de volgende secties wordt beschreven hoe u Log Analytics kunt gebruiken om Azure Backup op schaal te bewaken.
 
 ### <a name="configure-diagnostic-settings"></a>Diagnostische instellingen configureren
 
-Azure Resource Manager-resources, zoals de Recovery Services-kluis, vastleggen informatie over geplande bewerkingen en bewerkingen gebruiker heeft geactiveerd als diagnostische gegevens. 
+Azure Resource Manager resources, zoals de Recovery Services kluis, registreert u informatie over geplande bewerkingen en door de gebruiker geactiveerde bewerkingen als diagnostische gegevens. 
 
-Selecteer in de sectie bewaking **diagnostische instellingen** en geeft u het doel voor diagnostische gegevens van de Recovery Services-kluis.
+Selecteer **Diagnostische instellingen** in het gedeelte bewaking en geef het doel op voor de diagnostische gegevens van de Recovery Services kluis.
 
-![Diagnostische instelling van de Recovery Services-kluis, die gericht is op Log Analytics](media/backup-azure-monitoring-laworkspace/rs-vault-diagnostic-setting.png)
+![De diagnostische instelling van de Recovery Services kluis, gericht op Log Analytics](media/backup-azure-monitoring-laworkspace/rs-vault-diagnostic-setting.png)
 
-U kunt een Log Analytics-werkruimte van een ander abonnement doelgroep. Voor het controleren van kluizen voor abonnementen op één plek, selecteert u de dezelfde werkruimte van Log Analytics voor meerdere Recovery Services-kluizen. Als u wilt channel alle informatie die gerelateerd aan Azure Backup aan de Log Analytics-werkruimte, selecteert u **AzureBackupReport** als het logboek.
-
-> [!IMPORTANT]
-> Nadat u de configuratie te voltooien, moet u wachten 24 uur voor de initiële gegevens-push te voltooien. Nadat die voor de eerste gegevens-push, alle gebeurtenissen worden gepusht, zoals verderop in dit artikel wordt beschreven in de [sectie frequentie](#diagnostic-data-update-frequency).
-
-### <a name="deploy-a-solution-to-the-log-analytics-workspace"></a>Een oplossing implementeren in de Log Analytics-werkruimte
-
-Nadat de gegevens zich in de Log Analytics-werkruimte [een GitHub-sjabloon implementeren](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) naar Log Analytics om de gegevens te visualiseren. Voor het juist identificeren van de werkruimte, moet dat u wijs hieraan de dezelfde resourcegroep bevinden, naam van de werkruimte en de locatie. Vervolgens installeert u deze sjabloon in de werkruimte.
-
-> [!NOTE]
-> Als u geen waarschuwingen, back-uptaken of hersteltaken in uw Log Analytics-werkruimte, ziet u mogelijk een foutcode 'BadArgumentError' in de portal. Deze fout negeren en doorgaan met behulp van de oplossing. Nadat de relevante gegevens begint doorgestuurd naar de werkruimte, de visualisaties geldt dezelfde en u niet meer de volgende fout weergegeven.
-
-### <a name="view-azure-backup-data-by-using-log-analytics"></a>Azure Backup-gegevens weergeven met behulp van Log Analytics
-
-Nadat de sjabloon is geïmplementeerd, worden de oplossing voor het bewaken van Azure Backup in de werkruimte overzicht regio weergegeven. Ga naar de samenvatting van een van deze paden te volgen:
-
-- **Azure Monitor**: In de **Insights** sectie, selecteer **meer** en kies vervolgens de relevante werkruimte.
-- **Log Analytics-werkruimten**: Selecteer de relevante werkruimte, en klik vervolgens onder **algemene**, selecteer **werkruimte overzicht**.
-
-![De tegel van Log Analytics-bewaking](media/backup-azure-monitoring-laworkspace/la-azurebackup-azuremonitor-tile.png)
-
-Wanneer u de bewaking tegel selecteert, wordt in de ontwerpfunctie sjabloon wordt een reeks grafieken over eenvoudige bewakingsgegevens geopend vanuit Azure Backup. Hier volgen enkele van de grafieken u ziet:
-
-* Alle back-uptaken
-
-   ![Log Analytics grafieken voor back-uptaken](media/backup-azure-monitoring-laworkspace/la-azurebackup-allbackupjobs.png)
-
-* Herstellen van taken
-
-   ![Log Analytics-grafiek voor het herstellen van taken](media/backup-azure-monitoring-laworkspace/la-azurebackup-restorejobs.png)
-
-* Ingebouwde back-up van Azure-waarschuwingen voor Azure-resources
-
-   ![Log Analytics-grafiek voor ingebouwde back-up van Azure-waarschuwingen voor Azure-resources](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts.png)
-
-* Ingebouwde back-up van Azure-waarschuwingen voor on-premises bronnen
-
-   ![Log Analytics-grafiek voor ingebouwde back-up van Azure-waarschuwingen voor on-premises bronnen](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts-onprem.png)
-
-* Actieve gegevensbronnen
-
-   ![Log Analytics-grafiek voor actieve back-up-entiteiten](media/backup-azure-monitoring-laworkspace/la-azurebackup-activedatasources.png)
-
-* Recovery Services-kluis opslag in de cloud
-
-   ![Log Analytics-grafiek voor cloudopslag voor Recovery Services-kluis](media/backup-azure-monitoring-laworkspace/la-azurebackup-cloudstorage-in-gb.png)
-
-De grafieken worden geleverd met de sjabloon. U kunt de grafieken te bewerken of meer grafieken toevoegen als u wilt.
+U kunt een Log Analytics-werk ruimte richten op een ander abonnement. Als u de kluizen op één locatie wilt bewaken, selecteert u dezelfde Log Analytics werk ruimte voor meerdere Recovery Services kluizen. Als u alle informatie die betrekking heeft op Azure Backup in de Log Analytics-werk ruimte, wilt kanaal, selecteert u **AzureBackupReport** als het logboek.
 
 > [!IMPORTANT]
-> Wanneer u de sjabloon implementeert, maakt u in feite een alleen-lezen vergrendeld. Als u wilt bewerken en opslaan van de sjabloon, moet u de vergrendeling te verwijderen. Kunt u een vergrendeling in de **instellingen** sectie van de Log Analytics-werkruimte, op de **Hiermee vergrendelt u** deelvenster.
+> Nadat u de configuratie hebt voltooid, moet u 24 uur wachten totdat de eerste gegevens push is voltooid. Na deze eerste gegevens push worden alle gebeurtenissen gepusht, zoals verderop in dit artikel wordt beschreven, in de [sectie frequentie](#diagnostic-data-update-frequency).
+
+### <a name="deploy-a-solution-to-the-log-analytics-workspace"></a>Een oplossing implementeren voor de Log Analytics-werk ruimte
+
+> [!IMPORTANT]
+> We hebben een bijgewerkte [sjabloon](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) voor meerdere weer gaven uitgebracht voor bewaking en rapportage op basis van LA in azure backup. Gebruikers die de [eerdere oplossing](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) gebruiken, blijven deze in hun werk ruimten zien, zelfs na het implementeren van de nieuwe oplossing. De oude oplossing kan echter onnauwkeurige resultaten opleveren als gevolg van een aantal kleine wijzigingen in het schema. Gebruikers zijn daarom vereist voor het implementeren van de nieuwe sjabloon.
+
+Nadat de gegevens zich in de Log Analytics-werk ruimte bevinden, implementeert u [een github-sjabloon](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) voor log Analytics om de gegevens te visualiseren. Zorg ervoor dat u dezelfde resource groep, werkruimte naam en werkruimte locatie geeft om de werk ruimte goed te kunnen identificeren. Installeer vervolgens deze sjabloon in de werk ruimte.
+
+### <a name="view-azure-backup-data-by-using-log-analytics"></a>Azure Backup gegevens weer geven met behulp van Log Analytics
+
+Nadat de sjabloon is geïmplementeerd, wordt de oplossing voor bewaking en rapportage in Azure Backup weer gegeven in de samenvattings regio van de werk ruimte. Als u naar de samen vatting wilt gaan, volgt u een van deze paden:
+
+- **Azure monitor**: Selecteer in de sectie **inzichten** **meer** en kies vervolgens de relevante werk ruimte.
+- **Log Analytics werk ruimten**: Selecteer de relevante werk ruimte en selecteer vervolgens **samen vatting van werk ruimte**onder **Algemeen**.
+
+![De tegels Log Analytics bewaking en rapportage](media/backup-azure-monitoring-laworkspace/la-azurebackup-overview-dashboard.png)
+
+Wanneer u een van de overzichts tegels selecteert, kunt u meer informatie weer geven. Hier volgen enkele van de rapporten die u ziet:
+
+* Niet-logboek back-uptaken
+
+   ![Grafieken Log Analytics voor back-uptaken](media/backup-azure-monitoring-laworkspace/la-azurebackup-backupjobsnonlog.png)
+
+* Waarschuwingen van back-ups van Azure-resources
+
+   ![Log Analytics Graph voor het herstellen van taken](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertsazure.png)
+
+Op dezelfde manier kunt u op de andere tegels rapporten bekijken over herstel taken, Cloud opslag, back-upitems, waarschuwingen van on-premises bronnen en back-uptaken.
+ 
+Deze grafieken worden bij de sjabloon meegeleverd. Als dat nodig is, kunt u de grafieken bewerken of meer grafieken toevoegen.
 
 ### <a name="create-alerts-by-using-log-analytics"></a>Waarschuwingen maken met behulp van Log Analytics
 
-U kunt uw eigen waarschuwingen in Log Analytics-werkruimte maken in Azure Monitor. In de werkruimte, gebruikt u *Azure actiegroepen* uw voorkeur meldingsmechanisme selecteren. 
+In Azure Monitor kunt u uw eigen waarschuwingen maken in een Log Analytics-werk ruimte. In de werk ruimte gebruikt u *Azure-actie groepen* om uw voorkeurs meldings mechanisme te selecteren. 
 
 > [!IMPORTANT]
-> Zie voor informatie over de kosten voor het maken van deze query, [prijzen van Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+> Zie voor meer informatie over de kosten voor het maken van deze query [Azure monitor prijzen](https://azure.microsoft.com/pricing/details/monitor/).
 
-Selecteer een of meer grafieken om te openen de **logboeken** sectie van de Log Analytics-werkruimte. In de **logboeken** sectie, de query's bewerken en waarschuwingen maken op deze.
+Selecteer een van de grafieken om de sectie **Logboeken** van de log Analytics-werk ruimte te openen. Bewerk de query's in de sectie **logs** en maak waarschuwingen.
 
-![Een waarschuwing in Log Analytics-werkruimte maken](media/backup-azure-monitoring-laworkspace/la-azurebackup-customalerts.png)
+![Een waarschuwing maken in een Log Analytics-werk ruimte](media/backup-azure-monitoring-laworkspace/la-azurebackup-customalerts.png)
 
-Wanneer u selecteert **nieuwe waarschuwingsregel**, de pagina van Azure Monitor het maken van de waarschuwing wordt geopend, zoals wordt weergegeven in de volgende afbeelding. De resource is hier al gemarkeerd als de Log Analytics-werkruimte en integratie met actie wordt aangeboden.
+Wanneer u **nieuwe waarschuwings regel**selecteert, wordt de pagina Azure monitor waarschuwings-maken geopend, zoals wordt weer gegeven in de volgende afbeelding. Hier is de resource al gemarkeerd als de Log Analytics-werk ruimte en de integratie van de actie groep.
 
-![De pagina van de Log Analytics-waarschuwing-maken](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
+![De pagina Log Analytics waarschuwing: maken](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
 
-#### <a name="alert-condition"></a>De voorwaarde voor waarschuwing
+#### <a name="alert-condition"></a>Waarschuwings voorwaarde
 
-De onderscheidende kenmerken van een waarschuwing is de activerende voorwaarde. Selecteer **voorwaarde** automatisch laden van de Kusto-query op de **logboeken** pagina zoals in de volgende afbeelding. Hier kunt u de voorwaarde op basis van uw behoeften. Zie voor meer informatie, [voorbeeld Kusto-query's](#sample-kusto-queries).
+Het definiëren van het kenmerk van een waarschuwing is de trigger voorwaarde. Selecteer **voor waarde** om de Kusto-query automatisch te laden op de pagina logboeken, zoals wordt weer gegeven in de volgende afbeelding. Hier kunt u de voor waarde aan uw behoeften aanpassen. Zie voor [beelden van Kusto-query's](#sample-kusto-queries)voor meer informatie.
 
-![De voorwaarde voor een waarschuwing instellen](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
+![Een waarschuwings voorwaarde instellen](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-Indien nodig, kunt u de Kusto-query bewerken. Kies een drempelwaarde, de periode en de frequentie. De drempelwaarde bepaalt wanneer de waarschuwing wordt gegeven. De periode is de periode waarin de query wordt uitgevoerd. Bijvoorbeeld, als de drempelwaarde groter dan 0 is, de periode 5 minuten is en de frequentie 5 minuten is, klikt u vervolgens de regel wordt uitgevoerd de query elke 5 minuten controleren van de vorige vijf minuten. Als het aantal resultaten groter dan 0 is, krijgt u een melding via de geselecteerde actiegroep.
+Indien nodig kunt u de Kusto-query bewerken. Kies een drempel waarde, punt en frequentie. De drempel waarde bepaalt wanneer de waarschuwing wordt gegenereerd. De periode is het tijd venster waarin de query wordt uitgevoerd. Als de drempel waarde bijvoorbeeld groter is dan 0, de periode 5 minuten is en de frequentie 5 minuten is, voert de regel de query elke vijf minuten uit, waarna de vorige 5 minuten wordt gecontroleerd. Als het aantal resultaten groter is dan 0, ontvangt u een melding via de geselecteerde actie groep.
 
-#### <a name="alert-action-groups"></a>Actie bij waarschuwing groepen
+#### <a name="alert-action-groups"></a>Waarschuwings actie groepen
 
-Een actiegroep gebruiken om een meldingskanaal. Om te zien van de beschikbare meldingsmechanismen onder **actiegroepen**, selecteer **nieuw**.
+Een actie groep gebruiken om een meldings kanaal op te geven. Voor een overzicht van de beschik bare meldings mechanismen onder **actie groepen**, selecteert u **nieuwe maken**.
 
-![Beschikbare meldingsmechanismen in het venster 'Actiegroep toevoegen'](media/backup-azure-monitoring-laworkspace/LA-AzureBackup-ActionGroup.png)
+![Beschik bare meldings mechanismen in het venster actie groep toevoegen](media/backup-azure-monitoring-laworkspace/LA-AzureBackup-ActionGroup.png)
 
-U kunt voldoen aan alle waarschuwingen en bewaking van de vereisten van Log Analytics-zelfstandig of u Log Analytics kunt gebruiken om te voorzien van ingebouwde meldingen.
+U kunt aan alle vereisten voor waarschuwingen en bewaking voldoen via alleen Log Analytics, of u kunt Log Analytics gebruiken om ingebouwde meldingen aan te vullen.
 
-Zie voor meer informatie, [maken, weergeven en beheren van waarschuwingen via Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) en [maken en beheren van actiegroepen in Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+Zie [logboek waarschuwingen maken, weer geven en beheren](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) met behulp van Azure monitor en [actie groepen maken en beheren in de Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)voor meer informatie.
 
-### <a name="sample-kusto-queries"></a>Voorbeeld Kusto-query 's
+### <a name="sample-kusto-queries"></a>Voor beeld van Kusto-query's
 
-De standaardgrafieken bieden u Kusto-query's voor algemene scenario's waarvoor u waarschuwingen kunt bouwen. U kunt ook de query om de gegevens die u wilt worden gewaarschuwd over wijzigen. Plak het volgende voorbeeld Kusto-query's in de **logboeken** pagina en maak vervolgens waarschuwingen op de query's:
+De standaard grafieken bieden u Kusto query's voor basis scenario's waarop u waarschuwingen kunt bouwen. U kunt ook de query's wijzigen om de gegevens op te halen waarvoor u waarschuwingen wilt ontvangen. Plak de volgende voor beelden van Kusto- query's op de logboeken pagina en maak waarschuwingen op de query's:
 
 * Alle geslaagde back-uptaken
 
@@ -152,7 +135,7 @@ De standaardgrafieken bieden u Kusto-query's voor algemene scenario's waarvoor u
     | where JobStatus_s == "Failed"
     ````
     
-* Alle succesvolle Azure-VM back-uptaken
+* Alle voltooide Azure VM-back-uptaken
 
     ````Kusto
     AzureDiagnostics
@@ -175,7 +158,7 @@ De standaardgrafieken bieden u Kusto-query's voor algemene scenario's waarvoor u
     | project-away Resource
     ````
 
-* Alle succesvolle SQL logboek back-uptaken
+* Alle voltooide SQL-logboek back-uptaken
 
     ````Kusto
     AzureDiagnostics
@@ -198,7 +181,7 @@ De standaardgrafieken bieden u Kusto-query's voor algemene scenario's waarvoor u
     | project-away Resource
     ````
 
-* Alle succesvolle Azure Backup agent-taken
+* Alle geslaagde Azure Backup Agent taken
 
     ````Kusto
     AzureDiagnostics
@@ -221,54 +204,54 @@ De standaardgrafieken bieden u Kusto-query's voor algemene scenario's waarvoor u
     | project-away Resource
     ````
 
-### <a name="diagnostic-data-update-frequency"></a>De updatefrequentie diagnostische gegevens
+### <a name="diagnostic-data-update-frequency"></a>Update frequentie van diagnostische gegevens
 
-De diagnostische gegevens uit de kluis is dat aan de Log Analytics-werkruimte met enige vertraging. Elke gebeurtenis bij de Log Analytics-werkruimte aankomt *20-30 minuten* nadat wordt deze doorgestuurd vanaf de Recovery Services-kluis. Hier vindt u meer informatie over de vertraging:
+De diagnostische gegevens van de kluis worden naar de Log Analytics-werk ruimte gepompt met enige vertraging. Elke gebeurtenis arriveert in de Log Analytics werk ruimte van *20 tot 30 minuten* nadat deze is gepusht vanuit de Recovery Services kluis. Hier vindt u meer informatie over de vertraging:
 
-- Voor alle oplossingen worden de ingebouwde waarschuwingen van de Backup-service worden gepusht zodra ze worden gemaakt. Zodat ze doorgaans worden weergegeven in de Log Analytics-werkruimte na 20-30 minuten.
-- Voor alle oplossingen ad-hoc back-uptaken en het herstellen van taken worden gepusht zo snel als ze *voltooien*.
-- Voor alle oplossingen met uitzondering van de SQL-back-up, geplande back-uptaken zo snel als ze worden gepusht *voltooien*.
-- Voor back-up van SQL, omdat elke 15 minuten, de logboekback-ups vindt is gegevens voor alle de voltooide geplande back-uptaken, met inbegrip van Logboeken, batch verwerkt en gepusht om de 6 uur.
-- Voor alle oplossingen, andere informatie zoals de back-upitem, beleid, herstelpunten, opslag, enzovoort ten minste wordt gepusht *één keer per dag.*
-- Een wijziging in de back-upconfiguratie (zoals het wijzigen van beleid of het bewerken van beleid) wordt geactiveerd voor een push van alle gerelateerde back-upgegevens.
+- In alle oplossingen worden de ingebouwde waarschuwingen van de back-upservice gepusht zodra ze zijn gemaakt. Deze worden doorgaans weer gegeven in de Log Analytics-werk ruimte na 20 tot 30 minuten.
+- In alle oplossingen worden ad hoc-back-uptaken en herstel taken gepusht zodra deze zijn *voltooid*.
+- Voor alle oplossingen behalve SQL backup worden geplande back-uptaken gepusht zodra deze zijn *voltooid*.
+- Voor SQL backup, omdat logboek back-ups om de 15 minuten kunnen worden uitgevoerd, worden de gegevens voor alle voltooide geplande back-uptaken, inclusief logboeken, batches en elke 6 uur gepusht.
+- Voor alle oplossingen worden andere gegevens, zoals het back-upitem, het beleid, de herstel punten, de opslag, enzovoort, ten minste *één keer per dag* gepusht.
+- Een wijziging in de back-upconfiguratie (zoals het wijzigen van beleid of het bewerken van beleid) activeert een push van alle gerelateerde back-upgegevens.
 
-## <a name="using-the-recovery-services-vaults-activity-logs"></a>Met behulp van de Recovery Services-kluis-activiteitenlogboeken
+## <a name="using-the-recovery-services-vaults-activity-logs"></a>De activiteiten logboeken van Recovery Services kluis gebruiken
 
 > [!CAUTION]
-> De volgende stappen gelden alleen voor *back-ups van virtuele Azure-machine.* U kunt deze stappen niet gebruiken voor oplossingen zoals de Azure backup-agent, SQL-back-ups in Azure of Azure Files.
+> De volgende stappen zijn alleen van toepassing op *back-ups van Azure-vm's.* U kunt deze stappen niet gebruiken voor oplossingen zoals de Azure Backup-Agent, SQL-back-ups in azure of Azure Files.
 
-U kunt ook de activiteitenlogboeken gebruiken om op te halen van de melding voor gebeurtenissen, zoals back-up geslaagd. Volg deze stappen om te beginnen:
+U kunt ook activiteiten Logboeken gebruiken om een melding te ontvangen voor gebeurtenissen zoals het maken van een back-up. Voer de volgende stappen uit om te beginnen:
 
-1. Meld u aan bij de Azure-portal.
-1. Open de relevante Recovery Services-kluis. 
-1. Open in de eigenschappen van de kluis, de **activiteitenlogboek** sectie.
+1. Meld u aan bij de Azure Portal.
+1. Open de relevante Recovery Services kluis. 
+1. Open in de eigenschappen van de kluis de sectie **activiteiten logboek** .
 
-Om te bepalen het juiste logboek en een waarschuwing maken:
+Het juiste logboek identificeren en een waarschuwing maken:
 
-1. Controleer of dat u hebt ontvangen activiteitenlogboeken voor geslaagde back-ups met de filters weergegeven in de volgende afbeelding. Wijzig de **Timespan** waarde indien nodig om records weer te geven.
+1. Controleer of u activiteiten logboeken ontvangt voor geslaagde back-ups door de filters toe te passen die in de volgende afbeelding worden weer gegeven. Wijzig indien nodig de **time span** -waarde om records weer te geven.
 
-   ![Filteren activiteitenlogboeken vinden die voor back-ups van virtuele Azure-machine](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
+   ![Filteren om activiteiten logboeken te zoeken voor back-ups van Azure-VM'S](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-1. Selecteer de naam van de bewerking om de relevante details te bekijken.
-1. Selecteer **nieuwe waarschuwingsregel** openen de **maken regel** pagina. 
-1. Maken van een waarschuwing met de volgende stappen in [maken, weergeven en beheren van waarschuwingen voor activiteitenlogboeken via Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
+1. Selecteer de naam van de bewerking om de relevante gegevens weer te geven.
+1. Selecteer **nieuwe waarschuwings regel** om de pagina **regel maken** te openen. 
+1. Maak een waarschuwing door de stappen te volgen in [waarschuwingen voor activiteiten logboek maken, weer geven en beheren](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)met behulp van Azure monitor.
 
    ![Nieuwe waarschuwingsregel](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-De resource is hier de Recovery Services-kluis zelf. U moet dezelfde stappen herhalen voor alle van de kluizen waarin u wilt een melding via activiteitenlogboeken. De voorwaarde geen een drempelwaarde, punten of frequentie omdat deze waarschuwing is gebaseerd op gebeurtenissen. Zodra het relevante activiteitenlogboek wordt gegenereerd, wordt de waarschuwing wordt gegeven.
+Hier is de resource de Recovery Services kluis zelf. U moet dezelfde stappen herhalen voor alle kluizen waarin u een melding wilt ontvangen via activiteiten Logboeken. De voor waarde heeft geen drempel waarde, punt of frequentie omdat deze waarschuwing is gebaseerd op gebeurtenissen. Zodra het relevante activiteiten logboek wordt gegenereerd, wordt de waarschuwing geactiveerd.
 
-## <a name="using-log-analytics-to-monitor-at-scale"></a>Met behulp van Log Analytics om te controleren op schaal
+## <a name="using-log-analytics-to-monitor-at-scale"></a>Bewaken met behulp van Log Analytics op schaal
 
-U kunt alle waarschuwingen die zijn gemaakt op basis van activiteitenlogboeken en Log Analytics-werkruimten in Azure Monitor weergeven. Open meteen de **waarschuwingen** in het linkerdeelvenster.
+U kunt alle waarschuwingen weer geven die zijn gemaakt op basis van activiteiten logboeken en Log Analytics werk ruimten in Azure Monitor. Open het deel venster **waarschuwingen** aan de linkerkant.
 
-Hoewel u meldingen via activiteitenlogboeken ophalen kunt, sterk aangeraden Log Analytics in plaats van activiteitenlogboeken gebruiken voor bewaking op schaal. Dit is de reden:
+Hoewel u meldingen kunt ontvangen via activiteiten logboeken, raden we u ten zeerste aan gebruik te maken van Log Analytics in plaats van activiteiten logboeken voor bewaking op schaal. Dit is de reden:
 
-- **Beperkte scenario's**: Meldingen via activiteitenlogboeken gelden alleen voor back-ups van virtuele Azure-machine. De meldingen moeten worden ingesteld voor elke Recovery Services-kluis.
-- **Definitie past**: De geplande back-activiteit voldoen niet aan de meest recente definitie van activiteitenlogboeken. In plaats daarvan worden uitgelijnd met [diagnostische logboeken](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). Deze afstemming zorgt ervoor dat onverwachte effecten wanneer de gegevens die via de activiteit zich kanaalwijzigingen.
-- **Problemen met de activiteit log kanaal**: Activiteitenlogboeken die vanuit Azure Backup worden gepompt Volg een nieuw model in Recovery Services-kluizen. Helaas, is deze wijziging geldt voor het genereren van activiteitenlogboeken in Azure Government, Azure Duitsland en Azure China 21Vianet. Als gebruikers van deze cloudservices maken of configureren van waarschuwingen van activiteitenlogboeken in Azure Monitor, worden de waarschuwingen worden niet geactiveerd. Ook wordt in alle Azure openbare regio's, als een gebruiker [Recovery Services-activiteitenlogboeken in een werkruimte voor Log Analytics verzamelt](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), deze logboeken worden niet weergegeven.
+- **Beperkte scenario's**: Meldingen via activiteiten logboeken zijn alleen van toepassing op back-ups van Azure-VM'S. De meldingen moeten worden ingesteld voor elke Recovery Services kluis.
+- **Definitie aanpassen**: De geplande back-upactiviteit past niet op de nieuwste definitie van activiteiten Logboeken. In plaats daarvan wordt het uitgelijnd [](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs)met Diagnostische logboeken. Deze uitlijning veroorzaakt onverwachte effecten wanneer de gegevens die door het activiteiten logboek kanaal worden gewijzigd.
+- **Problemen met het activiteiten logboek kanaal**: In Recovery Services kluizen worden activiteiten logboeken die zijn gepompt van Azure Backup een nieuw model volgen. Helaas heeft deze wijziging gevolgen voor het genereren van activiteiten Logboeken in Azure Government, Azure Duitsland en Azure China 21Vianet. Als gebruikers van deze Cloud Services waarschuwingen van activiteiten Logboeken in Azure Monitor maken of configureren, worden de waarschuwingen niet geactiveerd. Als een gebruiker in alle open bare Azure-regio's ook [Recovery Services-activiteiten Logboeken in een log Analytics werkruimte verzamelt](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), worden deze logboeken niet weer gegeven.
 
-Gebruik een Log Analytics-werkruimte voor bewaking en waarschuwingen op schaal voor uw workloads die worden beveiligd door Azure Backup.
+Gebruik een Log Analytics-werk ruimte voor bewaking en waarschuwingen op schaal voor al uw workloads die worden beveiligd door Azure Backup.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor het maken van aangepaste query's, [Log Analytics-gegevensmodel](backup-azure-log-analytics-data-model.md).
+Zie [log Analytics gegevens model](backup-azure-log-analytics-data-model.md)voor het maken van aangepaste query's.

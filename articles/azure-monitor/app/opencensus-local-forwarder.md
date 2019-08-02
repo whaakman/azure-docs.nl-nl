@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights OpenCensus gedistribueerde tracering lokale doorstuurserver (Preview) | Microsoft docs
-description: OpenCensus gedistribueerd traceringen en reeksen van talen zoals Python en Go doorsturen naar Azure Application Insights
+title: Azure-toepassing Insights opentelling gedistribueerde tracering lokale doorstuur server (preview) | Micro soft docs
+description: Voorwaarts gedistribueerde traceringen en intervallen van de open telling van talen zoals python en ga naar Azure-toepassing Insights
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -12,77 +12,77 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa64755b636005f4ed8ea5c074ffaada51fb8dd9
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699319"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348151"
 ---
-# <a name="local-forwarder-preview"></a>Lokale doorstuurserver (Preview)
+# <a name="local-forwarder-preview"></a>Lokale doorstuur server (preview-versie)
 
-Lokale doorstuurserver is een agent die Application Insights verzamelt of [OpenCensus](https://opencensus.io/) telemetrie van een aantal SDK's en doorgestuurd naar Application Insights. Het is geschikt voor het uitvoeren onder Windows en Linux. Kunt u mogelijk ook deze uitvoeren met Mac OS, maar die wordt niet officieel ondersteund op dit moment.
+Lokale doorstuur server is een agent die de telemetrie van Application Insights of opentellingen verzamelt vanuit diverse Sdk's en deze naar Application Insights stuurt. [](https://opencensus.io/) Het kan worden uitgevoerd onder Windows en Linux. U kunt deze ook uitvoeren onder macOS, maar dit wordt op dit moment niet officieel ondersteund.
 
-## <a name="running-local-forwarder"></a>Lokale-doorstuurserver wordt uitgevoerd
+## <a name="running-local-forwarder"></a>Lokale doorstuur server wordt uitgevoerd
 
-Lokale doorstuurserver is een [open-SourceProject op GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). Er zijn tal van manieren om lokale doorstuurserver op meerdere platforms worden uitgevoerd.
+Lokale doorstuur server is een [open-source project op github](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). Er zijn verschillende manieren om een lokale doorstuur server uit te voeren op meerdere platforms.
 
 ### <a name="windows"></a>Windows
 
 #### <a name="windows-service"></a>Windows Service
 
-De eenvoudigste manier om lokale doorstuurserver die wordt uitgevoerd onder Windows is door het te installeren als een Windows-Service. De versie wordt geleverd met een Windows-Service kan worden uitgevoerd (*WindowsServiceHost/Microsoft.LocalForwarder.WindowsServiceHost.exe*) die eenvoudig kunnen worden geregistreerd met het besturingssysteem.
+De eenvoudigste manier om een lokale doorstuur server uit te voeren onder Windows is door deze te installeren als een Windows-service. De release wordt geleverd met een Windows-service-uitvoerbaar bestand (*WindowsServiceHost/Microsoft. LocalForwarder. WindowsServiceHost. exe*), dat eenvoudig kan worden geregistreerd bij het besturings systeem.
 
 > [!NOTE]
-> De lokale doorstuurserver minimaal .NET Framework 4.7 is vereist. Als u geen .NET Framework 4.7 de service wordt niet installeren, maar het gestart. Voor toegang tot de meest recente versie van .NET Framework **[gaat u naar de downloadpagina van .NET Framework](
+> Voor de lokale doorstuur server is mini maal .NET Framework 4,7 vereist. Als u niet beschikt over .NET Framework 4,7, wordt de service niet geïnstalleerd, maar wordt deze niet gestart. Voor toegang tot de meest recente versie van .NET Framework **[gaat u naar de downloadpagina van .NET Framework](
 https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)** .
 
-1. Download de LF. WindowsServiceHost.zip-bestand van de [lokale doorstuurserver release pagina](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) op GitHub.
+1. Down load het BF. WindowsServiceHost. zip-bestand van de pagina voor de [lokale doorstuur server](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) op github.
 
-    ![Schermafbeelding van de lokale doorstuurserver release-downloadpagina](./media/opencensus-local-forwarder/001-local-forwarder-windows-service-host-zip.png)
+    ![Scherm afbeelding van de download pagina van de lokale doorstuur server](./media/opencensus-local-forwarder/001-local-forwarder-windows-service-host-zip.png)
 
-2. In dit voorbeeld voor een eenvoudige demonstratie we alleen het ZIP-bestand naar het pad wordt uitgepakt `C:\LF-WindowsServiceHost`.
+2. In dit voor beeld wordt het zip-bestand gewoon uitgepakt naar het pad `C:\LF-WindowsServiceHost`.
 
-    De service registreren en configureert om te beginnen bij het opstarten vanaf de opdrachtregel als beheerder voert u het volgende:
+    Als u de service wilt registreren en deze wilt configureren om te starten bij het opstarten van het systeem, voert u het volgende uit vanaf de opdracht regel als Administrator:
 
     ```
     sc create "Local Forwarder" binpath="C:\LF-WindowsServiceHost\Microsoft.LocalForwarder.WindowsServiceHost.exe" start=auto
     ```
     
-    U ontvangt een reactie van:
+    U ontvangt een antwoord van het volgende:
     
     `[SC] CreateService SUCCESS`
     
-    Het onderzoeken van een nieuwe service via de Services GUI-type ``services.msc``
+    Om uw nieuwe service te controleren via het GUI-type voor services``services.msc``
         
-     ![Schermopname van het lokale-doorstuurserver](./media/opencensus-local-forwarder/002-services.png)
+     ![Scherm afbeelding van lokale doorstuur server](./media/opencensus-local-forwarder/002-services.png)
 
-3. **Met de rechtermuisknop op** de nieuwe lokale doorstuurserver en selecteer **Start**. Uw service voert nu een status running doorbrengt.
+3. **Klik** met de rechter muisknop op de nieuwe lokale doorstuur server en selecteer **starten**. Uw service voert nu een actieve status in.
 
-4. De service wordt standaard gemaakt zonder een herstelacties. U kunt **met de rechtermuisknop op** en selecteer **eigenschappen** > **Recovery** het configureren van automatische antwoorden op een service optreedt.
+4. De service wordt standaard zonder herstel acties gemaakt. U kunt met de **rechter muisknop op klikken** en **Eigenschappen** > **herstellen** selecteren om automatische antwoorden op een service fout te configureren.
 
-    Of als u liever automatische herstelopties instellen via een programma voor wanneer er fouten optreden, kunt u gebruiken:
+    Of als u de automatische herstel opties programmatisch wilt instellen voor wanneer er fouten optreden, kunt u het volgende gebruiken:
 
     ```
     sc failure "Local Forwarder" reset= 432000 actions= restart/1000/restart/1000/restart/1000
     ```
 
-5. Op dezelfde locatie bevinden als uw ``Microsoft.LocalForwarder.WindowsServiceHost.exe`` -bestand, dat in dit voorbeeld is ``C:\LF-WindowsServiceHost`` er is een bestand met de naam ``LocalForwarder.config``. Dit is een op basis van xml-bestand waarmee u de configuratie van uw localforwader aanpassen en geeft u de instrumentatiesleutel van de Application Insights-resource die u wilt dat uw gedistribueerde traceringsgegevens die worden doorgestuurd. 
+5. In dezelfde locatie als uw ``Microsoft.LocalForwarder.WindowsServiceHost.exe`` bestand, in dit ``C:\LF-WindowsServiceHost`` voor beeld is er een bestand met de naam ``LocalForwarder.config``. Dit is een XML-bestand waarmee u de configuratie van uw localforwader kunt aanpassen en de instrumentatie sleutel moet opgeven van de Application Insights resource waarvoor uw gedistribueerde tracerings gegevens moeten worden doorgestuurd. 
 
-    Na het bewerken van de ``LocalForwarder.config`` -bestand naar de instrumentatiesleutel toevoegen, moet u opnieuw de **lokale doorstuurserver** om toe te staan uw wijzigingen worden doorgevoerd.
+    Nadat u het ``LocalForwarder.config`` bestand hebt bewerkt om uw instrumentatie sleutel toe te voegen, moet u de **lokale doorstuur server** opnieuw starten om uw wijzigingen toe te passen.
     
-6. Om te bevestigen dat de gewenste instellingen voldaan is en dat de lokale doorstuurserver voor traceergegevens als verwachte selectievakje luistert de ``LocalForwarder.log`` bestand. Hier ziet u resultaten die vergelijkbaar is met de afbeelding hieronder aan de onderkant van het bestand:
+6. Om te bevestigen dat de gewenste instellingen aanwezig zijn en dat de lokale doorstuur server luistert naar traceer gegevens zoals verwacht, controleert ``LocalForwarder.log`` u het bestand. U ziet resultaten die vergelijkbaar zijn met de onderstaande afbeelding onder aan het bestand:
 
-    ![Schermafbeelding van LocalForwarder.log bestand](./media/opencensus-local-forwarder/003-log-file.png)
+    ![Scherm opname van het bestand LocalForwarder. log](./media/opencensus-local-forwarder/003-log-file.png)
 
-#### <a name="console-application"></a>Consoletoepassing
+#### <a name="console-application"></a>Console toepassing
 
-Voor bepaalde use-cases, is het mogelijk nuttig is om lokale doorstuurserver worden uitgevoerd als een consoletoepassing. De versie wordt geleverd met de volgende uitvoerbare versies van de consolehost:
-* een .NET Core framework-afhankelijke binaire */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. Het uitvoeren van deze binaire waarde is vereist een .NET Core runtime om te worden geïnstalleerd. verwijzen naar deze download [pagina](https://www.microsoft.com/net/download/dotnet-core/2.1) voor meer informatie.
+Voor bepaalde gebruiks gevallen kan het handig zijn om een lokale doorstuur server uit te voeren als een console toepassing. De release wordt geleverd met de volgende uitvoer bare versies van de console-host:
+* een Framework-afhankelijke .NET core binaire */ConsoleHost/Publish/Microsoft.LocalForwarder.ConsoleHost.dll*. Als u dit binaire bestand wilt uitvoeren, moet u een .NET core runtime installeren. Raadpleeg deze download [pagina](https://www.microsoft.com/net/download/dotnet-core/2.1) voor meer informatie.
   ```batchfile
   E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
   ```
-* een op zichzelf staand .NET Core set van binaire bestanden voor x86 en x64-platform. Hiervoor geen .NET Core runtime om uit te voeren. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
+* een op zichzelf staande, .NET core-set binaire bestanden voor x86-en x64-platforms. Hiervoor is geen .NET core runtime vereist om te worden uitgevoerd. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
   ```batchfile
   E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
   E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
@@ -90,26 +90,26 @@ Voor bepaalde use-cases, is het mogelijk nuttig is om lokale doorstuurserver wor
 
 ### <a name="linux"></a>Linux
 
-Net als bij Windows, is de versie wordt geleverd met de volgende uitvoerbare versies van de consolehost:
-* een .NET Core framework-afhankelijke binaire */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. Het uitvoeren van deze binaire waarde is vereist een .NET Core runtime om te worden geïnstalleerd. verwijzen naar deze download [pagina](https://www.microsoft.com/net/download/dotnet-core/2.1) voor meer informatie.
+Net als bij Windows wordt de release geleverd met de volgende uitvoer bare versies van de console-host:
+* een Framework-afhankelijke .NET core binaire */ConsoleHost/Publish/Microsoft.LocalForwarder.ConsoleHost.dll*. Als u dit binaire bestand wilt uitvoeren, moet u een .NET core runtime installeren. Raadpleeg deze download [pagina](https://www.microsoft.com/net/download/dotnet-core/2.1) voor meer informatie.
 
 ```batchfile
 dotnet Microsoft.LocalForwarder.ConsoleHost.dll
 ```
 
-* een op zichzelf staand .NET Core instellen van de binaire bestanden voor linux-64. Deze zijn vereist om .NET Core runtime om uit te voeren. */ConsoleHost/linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost*.
+* een op zichzelf staande .NET-hoofdset binaire bestanden voor Linux-64. Voor deze versie hoeft geen .NET core runtime te worden uitgevoerd. */ConsoleHost/linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost*.
 
 ```batchfile
 user@machine:~/ConsoleHost/linux-x64/publish$ sudo chmod +x Microsoft.LocalForwarder.ConsoleHost
 user@machine:~/ConsoleHost/linux-x64/publish$ ./Microsoft.LocalForwarder.ConsoleHost
 ```
 
-Veel Linux-gebruikers wilt lokale doorstuurserver als een daemon uitvoeren. Linux-systemen worden geleverd met tal van oplossingen voor beheer van de service, zoals Upstart, sysv of systemd. Ongeacht de specifieke versie is, kunt u deze lokale doorstuurserver uitvoeren op een manier die het meest geschikt is voor uw scenario.
+Veel Linux-gebruikers willen een lokale doorstuur server als daemon uitvoeren. Linux-systemen worden geleverd met diverse oplossingen voor Service Management, zoals upstart, sysv of gesystemed. Wat uw specifieke versie is, u kunt deze gebruiken om een lokale doorstuur server uit te voeren op een manier die het meest geschikt is voor uw scenario.
 
-Als voorbeeld gaan we een daemon-service maken met systemd. We gebruiken de afhankelijk zijn van het framework-versie, maar dezelfde kan worden gedaan voor een op zichzelf staand ook.
+U kunt bijvoorbeeld een daemon-service maken met behulp van systemed. We gebruiken de Framework-afhankelijke versie, maar dit kan ook worden gedaan voor een zelfstandig deel van het abonnement.
 
-* de volgende service-bestand met de naam *localforwarder.service* en plaats deze in */lib/systemd/system*.
-In dit voorbeeld wordt ervan uitgegaan dat uw gebruikersnaam SAMPLE_USER is en u hebt lokale doorstuurserver afhankelijk zijn van het framework binaire bestanden gekopieerd (van */ConsoleHost/publiceren*) naar */home/SAMPLE_USER/LOCALFORWARDER_DIR*.
+* Maak het volgende service bestand met de naam *localforwarder. service* en plaats het in */lib/systemd/System*.
+In dit voor beeld wordt ervan uitgegaan dat uw gebruikers naam SAMPLE_USER is en dat u lokale binaire bestanden voor doorstuur servers (van */ConsoleHost/Publish*) naar */Home/SAMPLE_USER/LOCALFORWARDER_DIR*hebt gekopieerd.
 
 ```
 # localforwarder.service
@@ -134,27 +134,27 @@ ExecStart=/usr/bin/env dotnet /home/SAMPLE_USER/LOCALFORWARDER_DIR/Microsoft.Loc
 WantedBy=multi-user.target
 ```
 
-* Voer de volgende opdracht om te instrueren systemd lokale doorstuurserver starten op elke keer opstarten
+* Voer de volgende opdracht uit om aan te geven dat de lokale doorstuur server op elke keer moet worden gestart
 
 ```
 systemctl enable localforwarder
 ```
 
-* Voer de volgende opdracht om te instrueren systemd lokale doorstuurserver onmiddellijk starten
+* Voer de volgende opdracht uit om ervoor te zorgen dat de lokale doorstuur server onmiddellijk wordt gestart
 
 ```
 systemctl start localforwarder
 ```
 
-* De service controleren door te inspecteren * *.log* bestanden in de map /home/SAMPLE_USER/LOCALFORWARDER_DIR.
+* Controleer de service door * *. log* -bestanden te controleren in de map/Home/SAMPLE_USER/LOCALFORWARDER_DIR.
 
 ### <a name="mac"></a>Mac
-Lokale doorstuurserver kan ook werken met Mac OS, maar het is momenteel niet officieel ondersteund.
+Lokale doorstuur servers werken mogelijk met macOS, maar deze worden momenteel niet officieel ondersteund.
 
-### <a name="self-hosting"></a>Zelf die als host fungeert
-Lokale doorstuurserver is ook gedistribueerd als een standaard .NET-NuGet-pakket, zodat u deze in uw eigen .NET-toepassing te hosten.
+### <a name="self-hosting"></a>Zelf hosting
+Lokale doorstuur servers worden ook gedistribueerd als een .NET Standard NuGet-pakket, zodat u het kunt hosten in uw eigen .NET-toepassing.
 
-```C#
+```csharp
 using Library;
 ...
 Host host = new Host();
@@ -167,19 +167,19 @@ host.Run(config, TimeSpan.FromSeconds(5));
 host.Stop();
 ```
 
-## <a name="configuring-local-forwarder"></a>Lokale doorstuurserver configureren
+## <a name="configuring-local-forwarder"></a>Lokale doorstuur server configureren
 
-* Bij het uitvoeren van een van de lokale van doorstuurserver eigen hosts (Consolehost of Host voor Windows-Service), vindt u **LocalForwarder.config** geplaatst naast het binaire bestand.
-* Als u zelf de lokale doorstuurserver NuGet host, de configuratie van dezelfde indeling moet worden opgegeven in de code (Zie de sectie op zelf die als host fungeert). Controleer voor de syntaxis van de configuratie van de [LocalForwarder.config](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/ConsoleHost/LocalForwarder.config) in de GitHub-opslagplaats. 
+* Bij het uitvoeren van een van de eigen hosts van de lokale doorstuur server (console host of Windows servicehost), vindt u **LocalForwarder. config** , dat naast het binaire bestand is geplaatst.
+* Bij het zelf hosten van de lokale doorstuur server NuGet, moet de configuratie van dezelfde indeling worden vermeld in code (Zie de sectie over zelf hosting). Voor de configuratie syntaxis controleert u de [LocalForwarder. config](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/ConsoleHost/LocalForwarder.config) in de GitHub-opslag plaats. 
 
 > [!NOTE]
-> Configuratie kan wijzigen release release, dus let op welke versie u gebruikt.
+> Configuratie kan veranderen van release naar release, dus let op de versie die u gebruikt.
 
-## <a name="monitoring-local-forwarder"></a>Bewaking van lokale doorstuurserver
+## <a name="monitoring-local-forwarder"></a>Lokale doorstuur server bewaken
 
-Traceringen worden geschreven naar het bestandssysteem naast het uitvoerbare bestand dat lokale-doorstuurserver wordt uitgevoerd (zoek naar * *.log* bestanden). U kunt een bestand met de naam plaatsen *NLog.config* naast het uitvoerbare bestand voor uw eigen configuratie in plaats van de standaardwaarde. Zie [documentatie](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) voor de beschrijving van de indeling.
+Traceringen worden naar het bestands systeem geschreven naast het uitvoer bare bestand dat de lokale doorstuur server uitvoert (zoeken naar * *. log* -bestanden). U kunt een bestand met de naam *NLog. config* naast het uitvoer bare programma plaatsen om uw eigen configuratie op te geven in plaats van de standaard instelling. Raadpleeg de [documentatie](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) voor de beschrijving van de indeling.
 
-Als er is geen configuratiebestand is opgegeven (dit is de standaardinstelling), lokale doorstuurserver zal worden gebruikt voor het gebruik van de standaardconfiguratie, die kan worden gevonden [hier](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config).
+Als er geen configuratie bestand wordt gegeven (dit is de standaard instelling), gebruikt de lokale doorstuur server de standaard configuratie die [hier](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config)kan worden gevonden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

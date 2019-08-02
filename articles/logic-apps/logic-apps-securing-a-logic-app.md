@@ -1,145 +1,163 @@
 ---
-title: Beveiligde toegang tot Azure Logic Apps
-description: Beveiliging toevoegen voor Azure Logic Apps, met inbegrip van triggers, invoer en uitvoer, parameters en andere services
+title: Beveiligde toegang en gegevens Azure Logic Apps
+description: Schakel parameter invoer, HTTP-aanvraag triggers, uitvoerings geschiedenis, logische app-bewerkingen en verbindingen met andere services in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: kevinlam1
-ms.author: klam
-ms.reviewer: estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/05/2019
-ms.openlocfilehash: 65369e5747f17c0e420d5775f1c5704cac9ca21b
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
-ms.translationtype: MT
+ms.date: 06/28/2019
+ms.openlocfilehash: f27dfd1f907d106ddb3b1b9dd7534d56380149c2
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341094"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385496"
 ---
-# <a name="secure-access-in-azure-logic-apps"></a>Beveiligde toegang in Azure Logic Apps
+# <a name="secure-access-and-data-in-azure-logic-apps"></a>Beveiligde toegang en gegevens in Azure Logic Apps
 
-Hier volgen de elementen in uw logische app waar u toegang kunt beveiligen:
+Voor het beheren van de toegang tot en het beveiligen van gegevens in Azure Logic Apps, kunt u de beveiliging op de volgende gebieden instellen:
 
-* [Aanvraag of Webhook-triggers](#secure-triggers)
-* [Bewerkingen zoals het beheren, bewerken of weergeven van](#secure-operations) uw logische app
-* [Invoer en uitvoer](#secure-run-history) geschiedenis van uw logische app uitvoeren
-* [Actieparameters en invoer](#secure-action-parameters)
-* [Services die aanvragen](#secure-requests) van uw logische app
+* [Toegang tot HTTP-aanvraag triggers](#secure-triggers)
+* [Toegang tot logische app-bewerkingen](#secure-operations)
+* [Toegang tot de invoer en uitvoer van de uitvoerings geschiedenis](#secure-run-history)
+* [Toegang tot parameter invoer](#secure-action-parameters)
+* [Toegang tot services en systemen die worden aangeroepen vanuit Logic apps](#secure-requests)
 
 <a name="secure-triggers"></a>
 
-## <a name="secure-access-to-request-triggers"></a>Beveiligde toegang tot aanvragen van triggers
+## <a name="access-to-http-request-triggers"></a>Toegang tot HTTP-aanvraag triggers
 
-Wanneer uw logische app maakt gebruik van een trigger met een HTTP-aanvraag, zoals de [aanvraag](../connectors/connectors-native-reqres.md) of [Webhook](../connectors/connectors-native-webhook.md) trigger, u kunt de toegang beperken zodat alleen geautoriseerde clients met uw logische app beginnen kunnen. Alle aanvragen zijn ontvangen door een logische app worden versleuteld en beveiligd met Secure Sockets Layer (SSL)-protocol. Hier zijn verschillende manieren kunt u toegang tot dit triggertype beveiligen:
+Wanneer uw logische app gebruikmaakt van een activering op basis van een HTTP-aanvraag, zoals de trigger [aanvraag](../connectors/connectors-native-reqres.md) of webhook, kunt u de toegang beperken zodat alleen geautoriseerde clients uw logische app kunnen starten. [](../connectors/connectors-native-webhook.md) Alle aanvragen die door een logische app worden ontvangen, zijn versleuteld en beveiligd met het Secure Sockets Layer-Protocol (SSL). 
 
-* [Handtekeningen voor gedeelde toegang genereren](#sas)
-* [Inkomende IP-adressen beperken](#restrict-incoming-ip-addresses)
+Hier volgen de manieren waarop u de toegang tot dit trigger type kunt beveiligen:
+
+* [Hand tekeningen voor gedeelde toegang genereren](#sas)
+* [Binnenkomende IP-adressen beperken](#restrict-incoming-ip-addresses)
 * [Azure Active Directory, OAuth of andere beveiliging toevoegen](#add-authentication)
 
 <a name="sas"></a>
 
-### <a name="generate-shared-access-signatures"></a>Handtekeningen voor gedeelde toegang genereren
+### <a name="generate-shared-access-signatures-sas"></a>Hand tekeningen voor gedeelde toegang (SAS) genereren
 
-Elke aanvraag voor het eindpunt op een logische app bevat een [Shared Access Signature (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) in van de eindpunt-URL. Elke URL bevat een `sp`, `sv`, en `sig` queryparameter:
+Elk aanvraag eindpunt op een logische app heeft een [Shared Access Signature (SAS)](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) in de URL van het eind punt, die de volgende indeling heeft:
 
-* `sp` Hiermee geeft u machtigingen die zijn toegewezen aan de HTTP-methoden toegestaan voor gebruik.
-* `sv` Hiermee geeft u de versie die wordt gebruikt voor het genereren van de handtekening.
-* `sig` wordt gebruikt voor het verifiëren van toegang tot de trigger.
+`https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`
 
-De handtekening is gegenereerd op basis van het algoritme SHA256 met een geheime toegangssleutel op de URL-paden en eigenschappen. De geheime sleutel wordt nooit beschikbaar worden gemaakt of gepubliceerd, en versleuteld en opgeslagen met de logische app wordt bewaard. Uw logische app machtigt alleen deze triggers die geen geldige handtekening die zijn gemaakt met de geheime sleutel bevatten. 
+Elke URL bevat een `sp`, `sv`-en `sig` een query parameter, zoals wordt beschreven in deze tabel:
 
-Hier volgt meer informatie over het beveiligen van toegang met Shared Access Signature:
+| Queryparameter | Description |
+|-----------------|-------------|
+| `sp` | Hiermee geeft u de machtigingen op voor het gebruik van de toegestane HTTP-methoden. |
+| `sv` | Hiermee geeft u de SAS-versie op die moet worden gebruikt voor het genereren van de hand tekening. |
+| `sig` | Hiermee geeft u de hand tekening op die moet worden gebruikt voor het verifiëren van de toegang tot de trigger. Deze hand tekening wordt gegenereerd met behulp van de SHA256-algoritme met een geheime toegangs sleutel voor alle URL-paden en eigenschappen. Nooit beschikbaar of gepubliceerd, deze sleutel wordt versleuteld bewaard en opgeslagen met de logische app. Uw logische app machtigt alleen de triggers die een geldige hand tekening bevatten die is gemaakt met de geheime sleutel. |
+|||
 
-* [Opnieuw genereren van toegangssleutels](#access-keys)
-* [Verlopende callback-URL's maken](#expiring-urls)
-* [URL's maken met de primaire of secundaire sleutel](#primary-secondary-key)
+Zie de volgende secties in dit onderwerp voor meer informatie over het beveiligen van de toegang met Shared Access Signature:
+
+* [Toegangs sleutels opnieuw genereren](#access-keys)
+* [Url's voor verlopende call back maken](#expiring-urls)
+* [Url's met een primaire of secundaire sleutel maken](#primary-secondary-key)
 
 <a name="access-keys"></a>
 
 #### <a name="regenerate-access-keys"></a>Toegangssleutels regenereren
 
-Als u wilt genereren op elk gewenst moment een nieuwe sleutel voor beveiligde toegang, gebruik de Azure REST API of Azure-portal. Alle URL's die de oude sleutel ongeldig worden gemaakt en zijn niet langer gemachtigd voor het activeren van de logische app eerder gegenereerd. De URL's die u na het opnieuw genereren zijn ondertekend met de nieuwe toegangssleutel ophalen.
+Als u op elk gewenst moment een nieuwe beveiligde toegangs sleutel wilt genereren, gebruikt u de Azure REST API of Azure Portal. Alle eerder gegenereerde Url's die gebruikmaken van de oude sleutel, zijn ongeldig en hebben geen autorisatie meer om de logische app te activeren. De Url's die u na het opnieuw genereren hebt opgehaald, worden ondertekend met de nieuwe toegangs sleutel.
 
-1. Open de logische app die beschikt over de sleutel die u wilt genereren in de Azure-portal.
+1. Open in de Azure Portal de logische app met de sleutel die u opnieuw wilt genereren.
 
-1. In het menu van de logische app onder **instellingen**, selecteer **toegangssleutels**.
+1. Selecteer **toegangs sleutels**onder **instellingen**in het menu van de logische app.
 
-1. Selecteer de sleutel die u wilt opnieuw genereren en het proces te voltooien.
+1. Selecteer de sleutel die u opnieuw wilt genereren en voltooi het proces.
 
 <a name="expiring-urls"></a>
 
-#### <a name="create-callback-urls-with-expiration-dates"></a>Callback-URL's maken met vervaldatums
+#### <a name="create-expiring-callback-urls"></a>Url's voor verlopende call back maken
 
-Als u een trigger op basis van een aanvraag-eindpunt-URL met anderen deelt, kunt u de callback-URL's met specifieke sleutels en vervaldatums zo nodig kunt genereren. U kunt vervolgens naadloos vorig sleutels of beperken van toegang voor het activeren van de logische app een bepaalde periode. U kunt een vervaldatum opgeven voor een URL met behulp van de [REST-API voor Logic Apps](https://docs.microsoft.com/rest/api/logic/workflowtriggers), bijvoorbeeld:
+Als u de eind punt-URL voor een activering op basis van een HTTP-aanvraag met andere partijen deelt, kunt u call back-Url's genereren die specifieke sleutels gebruiken en verloop datums hebben. Op die manier kunt u sleutels naadloos draaien of de toegang beperken tot het activeren van uw logische app op basis van een specifieke tijds duur. Als u een verval datum voor een URL wilt opgeven, gebruikt u de [Logic Apps rest API](https://docs.microsoft.com/rest/api/logic/workflowtriggers), bijvoorbeeld:
 
 ``` http
-POST 
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/listCallbackUrl?api-version=2016-06-01
+POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
 ```
 
-Opnemen in de hoofdtekst van de `NotAfter`eigenschap met een JSON-datum tekenreeks. Deze eigenschap retourneert een callback-URL die is geldig tot en met de `NotAfter` datum en tijd.
+Neem in de hoofd tekst de `NotAfter`eigenschap op met behulp van een JSON-datum teken reeks. Deze eigenschap retourneert een call back-URL die alleen geldig is `NotAfter` voor de datum en tijd.
 
 <a name="primary-secondary-key"></a>
 
-#### <a name="create-urls-with-primary-or-secondary-secret-key"></a>URL's maken met de primaire of secundaire geheime sleutel
+#### <a name="create-urls-with-primary-or-secondary-secret-key"></a>Url's met een primaire of secundaire sleutel maken
 
-Wanneer u genereren of lijst callback-URL's voor triggers op basis van een aanvraag, u kunt ook de sleutel te gebruiken voor het ondertekenen van de URL opgeven. U kunt een URL genereren die ondertekend door een specifieke sleutel met behulp van de [REST-API voor Logic Apps](https://docs.microsoft.com/rest/api/logic/workflowtriggers), bijvoorbeeld:
+Wanneer u call back-Url's voor op HTTP-aanvraag gebaseerde triggers genereert of lijsteert, kunt u de sleutel opgeven die moet worden gebruikt voor het ondertekenen van de URL. Als u een URL wilt genereren die is ondertekend met een specifieke sleutel, gebruikt u de [Logic Apps rest API](https://docs.microsoft.com/rest/api/logic/workflowtriggers), bijvoorbeeld:
 
 ``` http
-POST 
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/listCallbackUrl?api-version=2016-06-01
+POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
 ```
 
-Opnemen in de hoofdtekst van de `KeyType` eigenschap als `Primary` of `Secondary`. Deze eigenschap retourneert een URL die ondertekend door de opgegeven beveiligde sleutel.
+In de hoofd tekst, neemt `KeyType` u `Primary` de eigenschap op `Secondary`als of. Deze eigenschap retourneert een URL die is ondertekend met de opgegeven beveiligde sleutel.
 
 <a name="restrict-incoming-ip"></a>
 
-### <a name="restrict-incoming-ip-addresses"></a>Inkomende IP-adressen beperken
+### <a name="restrict-incoming-ip-addresses"></a>Binnenkomende IP-adressen beperken
 
-Samen met Shared Access Signature, is het raadzaam om te beperken van specifieke clients die uw logische app kunnen aanroepen.  
-Als u uw eindpunt aanvraag met Azure API Management beheren, kunt u bijvoorbeeld uw logische app voor het accepteren van aanvragen van de IP-adres van de API Management-instantie beperken. 
+Naast Shared Access Signature, wilt u mogelijk de specifieke clients beperken die uw logische app kunnen aanroepen. Als u bijvoorbeeld het eind punt van de aanvraag beheert met behulp van Azure API Management, kunt u de logische app beperken tot het accepteren van aanvragen van het IP-adres voor het API Management exemplaar.
 
-#### <a name="set-ip-ranges---azure-portal"></a>IP-adresbereiken instellen - Azure portal
+#### <a name="restrict-incoming-ip-ranges-in-azure-portal"></a>Binnenkomende IP-bereiken in Azure Portal beperken
 
-Als u deze beperking in de Azure-portal instelt, gaat u naar uw logische app-instellingen: 
+1. Open in de Azure Portal uw logische app in de ontwerp functie voor logische apps.
 
-1. Open uw logische app in de ontwerper van logische App in de Azure-portal. 
+1. Selecteer **werk stroom instellingen**onder **instellingen**in het menu van de logische app.
 
-1. In het menu van uw logische app onder **instellingen**, selecteer **Werkstroominstellingen**.
+1. Selecteer **specifieke IP-bereiken**onder **toegangs beheer configuratie** > **toegestane binnenkomende IP-adressen**.
 
-1. Onder **configuratie van de toegangscontrole** > 
-**toegestane inkomende IP-adressen**, selecteer **specifieke IP-adresbereiken**.
+1. Geef onder **IP-bereiken voor triggers**de IP-adresbereiken op die de trigger accepteert.
 
-1. Onder **IP-bereiken voor triggers**, geef het IP-adresbereiken die de trigger accepteert. Een geldig IP-bereik maakt gebruik van deze indelingen: *x.x.x.x/x* of *x.x.x.x-x.x.x.x* 
+   Een geldig IP-bereik maakt gebruik van de volgende indelingen: *x. x. x. x/x* of *x. x. x. x-x. x.* x. x
 
-Als u wilt dat uw logische app moet worden alleen als een geneste logische app wordt gestart vanuit de **toegestane inkomende IP-adressen** in de lijst met **alleen andere logische Apps**. Deze optie schrijft een lege matrix aan uw logische app-resource, zodat alleen aanroepen van de Logic Apps-service (bovenliggende logische apps) de geneste logische app kunnen activeren.
+Als u wilt dat uw logische app alleen als een geneste logische app wordt geactiveerd, selecteert u **alleen andere Logic apps**in de lijst **toegestane binnenkomende IP-adressen** . Met deze optie wordt een lege matrix naar de logische app-resource geschreven. Op die manier kunnen alleen aanroepen van de Logic Apps-service (bovenliggende Logic apps) de geneste logische app activeren.
 
 > [!NOTE]
-> Ongeacht de IP-adres, kunt u nog steeds een logische app met een trigger op basis van een aanvraag met behulp van uitvoeren `/triggers/{triggerName}/run` via de Azure REST API of via API Management. Echter nog steeds vereist verificatie bij de Azure REST API voor dit scenario en alle gebeurtenissen worden weergegeven in het auditlogboek van Azure. Zorg ervoor dat u beleid voor toegangsbeheer dienovereenkomstig ingesteld.
+> Ongeacht het IP-adres kunt u nog steeds een logische app uitvoeren die een op http-aanvraag gebaseerde activering `/triggers/<trigger-name>/run` heeft via de Azure-rest API of via API management. Voor dit scenario is echter nog steeds verificatie vereist voor de Azure-REST API. Alle gebeurtenissen worden weer gegeven in het controle logboek van Azure. Zorg ervoor dat u de beleids regels voor toegangs beheer dienovereenkomstig instelt.
 
-#### <a name="set-ip-ranges---logic-app-deployment-template"></a>IP-adresbereiken instellen - sjabloon voor logische app-implementatie
+#### <a name="restrict-incoming-ip-ranges-in-azure-resource-manager-template"></a>Binnenkomende IP-bereiken in Azure Resource Manager sjabloon beperken
 
-Als u een logische app-implementaties automatiseren met behulp van bent een [Azure Resource Manager-implementatiesjabloon](../logic-apps/logic-apps-create-deploy-template.md), u kunt de IP-adresbereiken instellen in de sjabloon, bijvoorbeeld:
+Als u implementaties van logische apps automatiseert met behulp van een [Azure Resource Manager sjabloon](../logic-apps/logic-apps-create-deploy-template.md), kunt u de IP- `accessControl` adresbereiken opgeven `triggers` met behulp van de sectie in de resource definitie van de logische app, bijvoorbeeld:
 
 ``` json
 {
-   "properties": {
-      "definition": {},
-      "parameters": {},
-      "accessControl": {
-         "triggers": {
-            "allowedCallerIpAddresses": [
-               {
-                  "addressRange": "192.168.12.0/23"
-               },
-               {
-                  "addressRange": "2001:0db8::/64"
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {},
+   "variables": {},
+   "resources": [
+      {
+         "name": "[parameters('LogicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('LogicAppLocation')]",
+         "tags": {
+            "displayName": "LogicApp"
+         },
+         "apiVersion": "2016-06-01",
+         "properties": {
+            "definition": {<workflow-definition>},
+            "parameters": {},
+            "accessControl": {
+               "triggers": {
+                  "allowedCallerIpAddresses": [
+                     {
+                        "addressRange": "192.168.12.0/23"
+                     },
+                     {
+                        "addressRange": "2001:0db8::/64"
+                     }
+                  ]
                }
-            ]
+            }
          }
       }
-   },
-   "type": "Microsoft.Logic/workflows",
+   ],
+   "outputs": {}
 }
 ```
 
@@ -147,88 +165,221 @@ Als u een logische app-implementaties automatiseren met behulp van bent een [Azu
 
 ### <a name="add-azure-active-directory-oauth-or-other-security"></a>Azure Active Directory, OAuth of andere beveiliging toevoegen
 
-Overweeg het gebruik van meer autorisatieprotocollen toevoegen aan uw logische app, [Azure API Management](https://azure.microsoft.com/services/api-management/). Deze service biedt uitgebreide bewaking, beveiliging, beleid en documentatie voor een willekeurig eindpunt en biedt u de mogelijkheid om uw logische app als een API beschikbaar te maken. API Management kan een openbare of particuliere eindpunt voor uw logische app, die vervolgens Azure Active Directory, OAuth, certificaat of andere beveiligingsstandaarden gebruiken kunt beschikbaar te maken. Als API Management een aanvraag ontvangt, verzendt de aanvraag door de service aan uw logische app, zodat ook alle benodigde transformaties en beperkingen weg. Zodat alleen API Management aan uw logische app activeren kunt u instellingen voor uw logische app binnenkomende IP-bereik. 
+Als u meer autorisatie protocollen wilt toevoegen aan uw logische app, kunt u overwegen [Azure API Management](../api-management/api-management-key-concepts.md)te gebruiken. Deze service biedt u de mogelijkheid om uw logische app beschikbaar te maken als een API en biedt uitgebreide bewaking, beveiliging, beleid en documentatie voor elk eind punt. API Management kunt een openbaar of persoonlijk eind punt beschikbaar maken voor uw logische app, die vervolgens Azure Active Directory, OAuth, certificaat of andere beveiligings standaarden kan gebruiken. Wanneer API Management een aanvraag ontvangt, stuurt de service de aanvraag naar uw logische app, worden ook de nodige trans formaties of beperkingen door lopen. Als u uw logische app alleen API Management activeren, kunt u de instellingen voor het binnenkomende IP-bereik van uw logische app gebruiken.
 
 <a name="secure-operations"></a>
 
-## <a name="secure-access-to-logic-app-operations"></a>Beveiligde toegang tot de logische appbewerkingen
+## <a name="access-to-logic-app-operations"></a>Toegang tot logische app-bewerkingen
 
-U kunt toegang op taken zoals het beheren, bewerken en weergeven van beperken zodat alleen bepaalde gebruikers of groepen die bewerkingen op uw logische app uitvoeren. Biedt ondersteuning voor Logic Apps [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md), die u kunt aanpassen of ingebouwde rollen toewijzen aan leden in uw abonnement, bijvoorbeeld:
+U kunt alleen specifieke gebruikers of groepen toestaan specifieke bewerkingen uit te voeren, zoals het beheren, bewerken en weer geven van logische apps. Als u de machtigingen wilt beheren, gebruikt u op [Azure Role gebaseerde Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) om aangepaste of ingebouwde rollen toe te wijzen aan leden in uw Azure-abonnement:
 
-* [Logische App-bijdrager](../role-based-access-control/built-in-roles.md#logic-app-contributor): Hiermee kunt u logische apps beheren, maar u kunt toegang voor hen niet wijzigen.
+* [Inzender voor logische apps](../role-based-access-control/built-in-roles.md#logic-app-contributor): Hiermee kunt u logische apps beheren, maar u kunt de toegang niet wijzigen.
 
-* [Logische App-Operator](../role-based-access-control/built-in-roles.md#logic-app-operator): Kunt u lezen, inschakelen en uitschakelen van logische apps, maar u niet kunt bewerken of bijwerken.
+* [Logische app-operator](../role-based-access-control/built-in-roles.md#logic-app-operator): Hiermee kunt u logische apps lezen, inschakelen en uitschakelen, maar u kunt ze niet bewerken of bijwerken.
 
-Om te voorkomen dat anderen wijzigen of verwijderen van uw logische app, kunt u [Azure Resourcevergrendeling](../azure-resource-manager/resource-group-lock-resources.md). Deze mogelijkheid kunt u voorkomen dat anderen wijzigen of verwijderen van productieresources.
+Als u wilt voor komen dat anderen uw logische app wijzigen of verwijderen, kunt u gebruikmaken van [Azure resource Lock](../azure-resource-manager/resource-group-lock-resources.md), waarmee wordt voor komen dat anderen productie resources kunnen wijzigen of verwijderen.
 
 <a name="secure-run-history"></a>
 
-## <a name="secure-access-to-logic-app-run-history"></a>Beveiligde toegang tot de logische app uitvoeringsgeschiedenis
+## <a name="access-to-run-history-data"></a>Toegang tot uitvoerings geschiedenis gegevens
 
-Ter bescherming van inhoud die wordt doorgegeven als invoer of uitvoer van eerdere uitvoeringen van logische app, kunt u toegang beperken tot specifieke IP-adresbereiken. Deze mogelijkheid biedt u meer toegangscontrole. Alle gegevens in een logische app uitvoeren worden versleuteld tijdens de overdracht en in rust. Wanneer u de uitvoeringsgeschiedenis van een logische app aanvraagt, Logic Apps worden geverifieerd dat verzoek en vindt u koppelingen naar de invoer en uitvoer van de aanvragen en antwoorden in de werkstroom van uw logische app. U kunt deze koppelingen kunt beveiligen, zodat alleen aanvragen van een specifiek IP-adres terug die inhoud. Bijvoorbeeld, kunt u ook opgeven een IP-adres zoals `0.0.0.0-0.0.0.0` waardoor niemand toegang heeft tot de invoer en uitvoer. Alleen een persoon met administrator-machtigingen kunt deze beperking verwijderen met de mogelijkheid voor 'just-in-time' toegang tot de inhoud van uw logische app.
+Tijdens de uitvoering van een logische app worden alle gegevens tijdens de overdracht en in rust versleuteld. Wanneer de logische app wordt uitgevoerd, kunt u de geschiedenis voor die uitvoering bekijken, met inbegrip van de stappen die samen met de status, duur, invoer en uitvoer voor elke actie worden uitgevoerd. Deze uitgebreide details bieden inzicht in hoe uw logische app wordt uitgevoerd en waar u kunt beginnen met het oplossen van problemen die zich voordoen.
 
-### <a name="set-ip-ranges---azure-portal"></a>IP-adresbereiken instellen - Azure portal
+Wanneer u de uitvoerings geschiedenis van de logische app opent, wordt uw toegang door Logic Apps geverifieerd en vindt u koppelingen naar de invoer en uitvoer van de aanvragen en antwoorden in de uitvoering van uw logische app. Voor acties waarbij wacht woorden, geheimen, sleutels of andere gevoelige informatie worden verwerkt, wilt u echter voor komen dat anderen deze gegevens kunnen weer geven en gebruiken. Als uw logische app bijvoorbeeld een geheim krijgt van [Azure Key Vault](../key-vault/key-vault-whatis.md) om te gebruiken bij het verifiëren van een http-actie, wilt u dat geheim verbergen in de weer gave.
 
-Als u deze beperking in de Azure-portal instelt, gaat u naar uw logische app-instellingen:
+Als u de toegang tot de invoer en uitvoer in de uitvoerings geschiedenis van de logische app wilt beheren, hebt u de volgende opties:
 
-1. Open uw logische app in de ontwerper van logische App in de Azure-portal. 
+* De [toegang beperken op basis van het IP-adres bereik](#restrict-ip).
 
-1. In het menu van uw logische app onder **instellingen**, selecteer **Werkstroominstellingen**.
+  Met deze optie kunt u de toegang tot de uitvoerings geschiedenis beveiligen op basis van de aanvragen van een specifiek IP-adres bereik.
 
-1. Onder **configuratie van de toegangscontrole** > 
-    **toegestane inkomende IP-adressen**, selecteer **specifieke IP-adresbereiken**.
+* [Gegevens uit de uitvoerings geschiedenis verbergen door gebruik te maken van een donkere weer gegeven](#obfuscate).
 
-1. Onder **IP-bereiken voor inhoud**, geef de IP-adresbereiken die toegang hebben tot inhoud van de invoer en uitvoer. 
-   Een geldig IP-bereik maakt gebruik van deze indelingen: *x.x.x.x/x* of *x.x.x.x-x.x.x.x* 
+  In veel triggers en acties kunt u de invoer, uitvoer of beide verbergen vanuit de uitvoerings geschiedenis van een logische app.
 
-### <a name="set-ip-ranges---logic-app-deployment-template"></a>IP-adresbereiken instellen - sjabloon voor logische app-implementatie
+<a name="restrict-ip"></a>
 
-Als u een logische app-implementaties automatiseren met behulp van bent een [Azure Resource Manager-implementatiesjabloon](../logic-apps/logic-apps-create-deploy-template.md), u kunt de IP-adresbereiken instellen in de sjabloon, bijvoorbeeld:
+### <a name="restrict-access-by-ip-address-range"></a>Toegang beperken op basis van IP-adres bereik
+
+U kunt de toegang tot de invoer en uitvoer in de uitvoerings geschiedenis van de logische app beperken zodat alleen aanvragen van specifieke IP-adresbereiken die gegevens kunnen weer geven. Als u bijvoorbeeld wilt blok keren dat iedereen toegang heeft tot invoer en uitvoer, geeft u een IP- `0.0.0.0-0.0.0.0`adres bereik op zoals. Alleen gebruikers met beheerders machtigingen kunnen deze beperking verwijderen. Dit biedt de mogelijkheid om just-in-time toegang te krijgen tot de gegevens van uw logische app. U kunt de IP-bereiken opgeven die u wilt beperken door gebruik te maken van de Azure Portal of in een Azure Resource Manager sjabloon die u gebruikt voor de implementatie van logische apps.
+
+#### <a name="restrict-ip-ranges-in-azure-portal"></a>IP-bereiken in Azure Portal beperken
+
+1. Open in de Azure Portal uw logische app in de ontwerp functie voor logische apps.
+
+1. Selecteer **werk stroom instellingen**onder **instellingen**in het menu van de logische app.
+
+1. Selecteer **specifieke IP-bereiken**onder **toegangs beheer configuratie** > **toegestane binnenkomende IP-adressen**.
+
+1. Geef onder **IP-adresbereiken voor inhoud**de IP-adresbereiken op die toegang hebben tot inhoud van invoer en uitvoer. 
+
+   Een geldig IP-bereik maakt gebruik van de volgende indelingen: *x. x. x. x/x* of *x. x. x. x-x. x.* x. x
+
+#### <a name="restrict-ip-ranges-in-azure-resource-manager-template"></a>IP-bereiken in Azure Resource Manager sjabloon beperken
+
+Als u implementaties van logische apps automatiseert met behulp van een [Azure Resource Manager sjabloon](../logic-apps/logic-apps-create-deploy-template.md), kunt u de IP- `accessControl` adresbereiken opgeven `contents` met behulp van de sectie in de resource definitie van de logische app, bijvoorbeeld:
 
 ``` json
 {
-   "properties": {
-      "definition": {},
-      "parameters": {},
-      "accessControl": {
-         "contents": {
-            "allowedCallerIpAddresses": [
-               {
-                  "addressRange": "192.168.12.0/23"
-               },
-               {
-                  "addressRange": "2001:0db8::/64"
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {},
+   "variables": {},
+   "resources": [
+      {
+         "name": "[parameters('LogicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('LogicAppLocation')]",
+         "tags": {
+            "displayName": "LogicApp"
+         },
+         "apiVersion": "2016-06-01",
+         "properties": {
+            "definition": {<workflow-definition>},
+            "parameters": {},
+            "accessControl": {
+               "contents": {
+                  "allowedCallerIpAddresses": [
+                     {
+                        "addressRange": "192.168.12.0/23"
+                     },
+                     {
+                        "addressRange": "2001:0db8::/64"
+                     }
+                  ]
                }
-            ]
+            }
          }
       }
-   },
-   "type": "Microsoft.Logic/workflows",
+   ],
+   "outputs": {}
 }
 ```
 
+<a name="obfuscate"></a>
+
+### <a name="hide-data-from-run-history-by-using-obfuscation"></a>Gegevens uit de uitvoerings geschiedenis verbergen door gebruik te maken van een donkere weer geven
+
+Veel triggers en acties hebben instellingen voor het verbergen van invoer, uitvoer of beide vanuit de uitvoerings geschiedenis van een logische app. Hier volgen enkele [aandachtspunten om te controleren](#obfuscation-considerations) wanneer u deze instellingen gebruikt om deze gegevens te beveiligen.
+
+#### <a name="secure-inputs-and-outputs-in-the-designer"></a>Invoer en uitvoer in de ontwerp functie beveiligen
+
+1. Als uw logische app niet al is geopend in de [Azure Portal](https://portal.azure.com), opent u de logische app in de ontwerp functie voor logische apps.
+
+   ![Voorbeeld logische app openen](media/logic-apps-securing-a-logic-app/sample-logic-app.png)
+
+1. Op de trigger of actie waar u gegevens wilt beveiligen, selecteert u de knop met weglatings tekens ( **...** ) en selecteert u vervolgens **instellingen**.
+
+   ![Instellingen openen](media/logic-apps-securing-a-logic-app/open-settings.png)
+
+1. Schakel **beveiligde invoer**, **beveiligde uitvoer**of beide in. Wanneer u klaar bent, selecteert u **Gereed**.
+
+   ![Veilige invoer of uitvoer inschakelen](media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs.png)
+
+   In de actie of de trigger wordt nu een vergrendelings pictogram weer gegeven in de titel balk.
+
+   ![Vergrendelings pictogram op de titel balk](media/logic-apps-securing-a-logic-app/title-bar-lock-icon.png)
+
+   Tokens die beveiligde uitvoer van vorige acties vertegenwoordigen, worden ook vergrendelings pictogrammen weer gegeven. Wanneer u bijvoorbeeld een dergelijke uitvoer van de lijst met dynamische inhoud selecteert die u wilt gebruiken in een actie, toont dat token een vergrendelings pictogram.
+
+   ![Uitvoer selecteren](media/logic-apps-securing-a-logic-app/select-secured-token.png)
+
+1. Wanneer de logische app wordt uitgevoerd, kunt u de geschiedenis voor die uitvoering weer geven.
+
+   1. Selecteer in het overzichts  venster van de logische app de uitvoering die u wilt weer geven.
+
+   1. Vouw in het deel venster voor het uitvoeren van de **logische app** de acties uit die u wilt controleren.
+
+      Als u ervoor kiest om zowel invoer als uitvoer te beveiligen, worden deze waarden nu verborgen weer gegeven.
+
+      ![Verborgen gegevens in de uitvoerings geschiedenis](media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
+
+<a name="secure-data-code-view"></a>
+
+#### <a name="secure-inputs-and-outputs-in-code-view"></a>Invoer en uitvoer in de code weergave beveiligen
+
+In de onderliggende trigger of actie definitie kunt u de `runtimeConfiguration.secureData.properties` matrix toevoegen of bijwerken met een van beide of beide van de volgende waarden:
+
+* `"inputs"`: Beveiligt invoer in uitvoerings geschiedenis.
+* `"outputs"`: Hiermee worden uitvoer in uitvoerings geschiedenis beveiligd.
+
+Hier volgen enkele [aandachtspunten om te controleren](#obfuscation-considerations) wanneer u deze instellingen gebruikt om deze gegevens te beveiligen.
+
+```json
+"<trigger-or-action-name>": {
+   "type": "<trigger-or-action-type>",
+   "inputs": {
+      <trigger-or-action-inputs>
+   },
+   "runtimeConfiguration": {
+      "secureData": {
+         "properties": [
+            "inputs",
+            "outputs"
+         ]
+      }
+   },
+   <other-attributes>
+}
+```
+
+<a name="obfuscation-considerations"></a>
+
+#### <a name="considerations-when-hiding-inputs-and-outputs"></a>Overwegingen bij het verbergen van invoer en uitvoer
+
+* Wanneer u de invoer of uitvoer van een trigger of actie beveiligt, verzendt Logic Apps de beveiligde gegevens niet naar Azure Log Analytics. U kunt ook geen [bijgehouden eigenschappen](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) toevoegen aan deze trigger of actie voor bewaking.
+
+* De [Logic apps-API voor het verwerken van de werk stroom geschiedenis](https://docs.microsoft.com/rest/api/logic/) retourneert geen beveiligde uitvoer.
+
+* In een actie waarbij u invoer beveiligt of die expliciet beveiligde uitvoer gebruikt, en deze actie een reactie retourneert met uitvoer die deze beveiligde gegevens bevat, moet u hand matig **beveiligde uitvoer** in deze actie inschakelen om deze uitvoer te beveiligen.
+
+* Zorg ervoor dat u **beveiligde invoer** of **beveiligde uitvoer** inschakelt in downstream-acties waarbij u verwacht dat de uitvoerings geschiedenis die gegevens beveiligt.
+
+  **Instelling voor beveiligde uitvoer**
+
+  Wanneer u **beveiligde uitvoer** in een trigger of actie hand matig inschakelt, Logic apps deze uitvoer in de uitvoerings geschiedenis beveiligen. Als een stroomafwaartse actie deze beveiligde uitvoer expliciet gebruikt als invoer, Logic Apps de invoer van deze actie in de uitvoerings geschiedenis verbergen, maar wordt de instelling **beveiligde invoer** van de actie *niet ingeschakeld* .
+
+  ![Beveiligde uitvoer als invoer en stroomafwaartse impact op de meeste acties](media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
+
+  De acties opstellen, parseren JSON en Response hebben alleen de instelling **beveiligde invoer** . Wanneer deze optie is ingeschakeld, worden de uitvoer van deze acties ook verborgen. Als deze acties expliciet gebruikmaken van de upstream beveiligde uitvoer als invoer, worden de invoer en uitvoer van deze acties door Logic Apps verborgen, maar worden de instelling **beveiligde invoer waarden** *niet ingeschakeld* . Als een stroomafwaartse actie expliciet gebruikmaakt van de verborgen uitvoer van de acties opstellen, parseren van JSON of respons als invoer, Logic Apps *de invoer of uitvoer van deze stroomafwaartse actie niet verbergen*.
+
+  ![Beveiligde uitvoer als invoer met downstream-impact op specifieke acties](media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
+
+  **Instelling voor beveiligde invoer**
+
+  Wanneer u **beveiligde invoer** in een trigger of actie hand matig inschakelt, Logic apps deze invoer in de uitvoerings geschiedenis beveiligen. Als een stroomafwaartse actie expliciet gebruikmaakt van de zicht bare uitvoer van die trigger of actie als invoer, Logic Apps de invoer van deze stroomafwaartse actie verbergen in de uitvoerings geschiedenis, maar worden *geen* **beveiligde invoer waarden** in deze actie ingeschakeld en wordt deze actie niet verborgen uitvoer.
+
+  ![Beveiligde invoer en downstream van invloed op de meeste acties](media/logic-apps-securing-a-logic-app/secure-inputs-flow.png)
+
+  Als de acties opstellen, JSON en respons maken expliciet gebruikmaken van de zicht bare uitvoer van de trigger of actie die de beveiligde invoer heeft, Logic Apps de invoer en uitvoer van deze acties verbergen, maar worden de **beveiligde invoer** van deze actie *niet ingeschakeld* stelt. Als een stroomafwaartse actie expliciet gebruikmaakt van de verborgen uitvoer van de acties opstellen, parseren van JSON of respons als invoer, Logic Apps *de invoer of uitvoer van deze stroomafwaartse actie niet verbergen*.
+
+  ![Beveiligde invoer en downstream-impact op specifieke acties](media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
+
 <a name="secure-action-parameters"></a>
 
-## <a name="secure-action-parameters-and-inputs"></a>Actieparameters en invoer beveiligen
+## <a name="access-to-parameter-inputs"></a>Toegang tot parameter invoer
 
-Wanneer u deze implementeert in verschillende omgevingen, is het raadzaam om te voorzien van bepaalde elementen in het definitie van de werkstroom van uw logische app. Op die manier kunt u informatie invoeren op basis van de omgevingen die u gebruikt en beveiligen van vertrouwelijke gegevens. Bijvoorbeeld, als u bij het verifiëren van HTTP-acties met [Azure Active Directory](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication), definiëren en beveiligt u de parameters die de client-ID en clientgeheim dat wordt gebruikt voor verificatie accepteren. Voor deze parameters, de definitie van uw logische app heeft een eigen `parameters` sectie.
-Voor toegang tot parameterwaarden tijdens runtime, kunt u de `@parameters('parameterName')` expressie die wordt geleverd door de [Werkstroomdefinitietaal](https://aka.ms/logicappsdocs). 
+Als u in verschillende omgevingen implementeert, kunt u de waarden in uw werk stroom definitie parameterizingen die variëren op basis van deze omgevingen. Op die manier kunt u een [Azure Resource Manager sjabloon](../azure-resource-manager/resource-group-authoring-templates.md#parameters) gebruiken om uw logische app te implementeren, gevoelige informatie te beschermen door de beveiligde para meters te definiëren en deze parameter invoer afzonderlijk via de para meters van de sjabloon te gebruiken met behulp van een [para meter bestand](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values).
 
-Ter bescherming van parameters en waarden die u niet dat wordt weergegeven wilt tijdens het bewerken van uw logische app of geschiedenis weergeven die worden uitgevoerd, kunt u parameters met de `securestring` typt en indien nodig-codering gebruiken. Parameters waarvoor dit type worden niet geretourneerd met de resourcedefinitie, en niet toegankelijk zijn bij het weergeven van de resource na de implementatie.
+Als u bijvoorbeeld HTTP-acties verifieert met [Azure Active Directory](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication), kunt u de para meters definiëren en beveiligen die de client-id en het client geheim accepteren dat voor verificatie wordt gebruikt. Als u deze para meters voor uw logische app wilt `parameters` definiëren, gebruikt u de sectie in de werk stroom definitie van de logische app. Als u parameter waarden wilt beveiligen die niet moeten worden weer gegeven bij het bewerken van de logische app of de weer gave van de `securestring` uitvoerings `secureobject` geschiedenis, definieert u de para meters met behulp van de-of-type-en-code ring. Para meters van dit type worden niet geretourneerd met de resource definitie en zijn niet toegankelijk wanneer de resource wordt weer gegeven na de implementatie. Als u tijdens runtime toegang wilt krijgen tot deze parameter `@parameters('<parameter-name>')` waarden, gebruikt u de expressie in de definitie van uw werk stroom. Deze expressie wordt alleen geëvalueerd tijdens runtime en wordt beschreven door de [taal van de werk stroom definitie](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
-> Als u een parameter in de headers of de hoofdtekst van een aanvraag gebruikt, kan deze parameter zichtbaar zijn bij het openen van de uitvoeringsgeschiedenis van uw logische app en uitgaande HTTP-aanvraag. Zorg ervoor dat u uw beleid voor toegang tot de inhoud ook dienovereenkomstig instellen.
-> Autorisatie-header zijn nooit zichtbaar via in- of uitvoer. Dus als een geheim er gebruikt wordt, is dit geheim niet worden opgehaald.
+> Als u een para meter in de headers of hoofd tekst van een HTTP-aanvraag gebruikt, is die para meter mogelijk zichtbaar wanneer u de uitvoerings geschiedenis van de logische app en de uitgaande HTTP-aanvraag weergeeft. Zorg ervoor dat u ook uw beleids regels voor inhouds toegang dienovereenkomstig instelt. Autorisatie headers worden nooit weer gegeven via invoer of uitvoer. Dus als er een geheim wordt gebruikt, kan dat geheim niet worden opgehaald.
 
-Zie voor meer informatie over het beveiligen van parameters in logic app-definities [Secure parameters in logic app-definities](#secure-parameters-workflow) hoger op deze pagina.
+Zie voor meer informatie [veilige para meters in werk stroom definities](#secure-parameters-workflow) verderop in dit onderwerp.
 
-Als u bij het automatiseren van implementaties met [sjablonen van Azure Resource Manager-implementatie](../azure-resource-manager/resource-group-authoring-templates.md#parameters), u kunt ook beveiligde parameters in deze sjablonen gebruiken. Bijvoorbeeld, kunt u parameters voor het ophalen van de KeyVault-geheimen bij het maken van uw logische app. De definitie van de implementatie sjabloon heeft een eigen `parameters` sectie, los van uw logische app `parameters` sectie. Zie voor meer informatie over het beveiligen van parameters in implementatiesjablonen [Secure parameters in implementatiesjablonen](#secure-parameters-deployment-template) hoger op deze pagina.
+Wanneer u implementaties automatiseert met [Azure Resource Manager sjablonen](../azure-resource-manager/resource-group-authoring-templates.md#parameters), kunt u de para meters voor beveiligde sjablonen definiëren die tijdens de implementatie worden `securestring` geëvalueerd `secureobject` met behulp van de-en-typen. Voor het definiëren van sjabloon parameters gebruikt u de sectie van `parameters` het hoogste niveau van uw sjabloon, die gescheiden is en anders `parameters` is dan de sectie van uw werk stroom definitie. Als u de waarden voor sjabloon parameters wilt opgeven, gebruikt u een afzonderlijk [parameter bestand](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values).
+
+Als u bijvoorbeeld geheimen gebruikt, kunt u de para meters voor beveiligde sjablonen definiëren en gebruiken om deze geheimen op te halen uit [Azure Key Vault](../key-vault/key-vault-whatis.md) tijdens de implementatie. U kunt vervolgens naar de sleutel kluis en het geheim in het parameter bestand verwijzen. Zie de volgende onderwerpen voor meer informatie:
+
+* [Azure Key Vault gebruiken om beveiligde parameter waarden door te geven tijdens de implementatie](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+* [Veilige para meters in azure Resource Manager sjablonen](#secure-parameters-deployment-template) verderop in dit onderwerp
 
 <a name="secure-parameters-workflow"></a>
 
-### <a name="secure-parameters-in-logic-app-definitions"></a>Beveiligen van parameters in logic app-definities
+### <a name="secure-parameters-in-workflow-definitions"></a>Veilige para meters in werk stroom definities
 
-Ter bescherming van gevoelige gegevens in uw definitie van de werkstroom van de logische app, beveiligde parameters te gebruiken, zodat deze gegevens niet worden weergegeven nadat u uw logische app hebt opgeslagen. Stel bijvoorbeeld dat u `Basic` verificatie in de definitie van een HTTP-actie. Dit voorbeeld bevat een `parameters` sectie waarmee de parameters voor de definitie van de actie gedefinieerd plus een `authentication` sectie dat accepteert `username` en `password` parameterwaarden. Om de waarden voor deze parameters opgeeft, kunt u een afzonderlijke parameterbestand, bijvoorbeeld:
+Als u gevoelige informatie in de werk stroom definitie van de logische app wilt beveiligen, gebruikt u beveiligde para meters zodat deze informatie niet zichtbaar is nadat u uw logische app hebt opgeslagen. Stel dat u voor een HTTP-actie basis verificatie nodig hebt, waarbij een gebruikers naam en wacht woord worden gebruikt. In de definitie van de werk `parameters` stroom definieert de `basicAuthPasswordParam` sectie `basicAuthUsernameParam` de en-para `securestring` meters met behulp van het type. De actie definitie verwijst vervolgens naar deze para meters in de `authentication` sectie.
 
 ```json
 "definition": {
@@ -241,18 +392,18 @@ Ter bescherming van gevoelige gegevens in uw definitie van de werkstroom van de 
             "uri": "https://www.microsoft.com",
             "authentication": {
                "type": "Basic",
-               "username": "@parameters('usernameParam')",
-               "password": "@parameters('passwordParam')"
+               "username": "@parameters('basicAuthUsernameParam')",
+               "password": "@parameters('basicAuthPasswordParam')"
             }
          },
          "runAfter": {}
       }
    },
    "parameters": {
-      "passwordParam": {
+      "basicAuthPasswordParam": {
          "type": "securestring"
       },
-      "userNameParam": {
+      "basicAuthUsernameParam": {
          "type": "securestring"
       }
    },
@@ -270,26 +421,36 @@ Ter bescherming van gevoelige gegevens in uw definitie van de werkstroom van de 
 }
 ```
 
-Als u geheimen gebruikt, kunt u deze geheimen downloaden tijdens de implementatie met behulp van [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md).
-
 <a name="secure-parameters-deployment-template"></a>
 
-### <a name="secure-parameters-in-azure-resource-manager-deployment-templates"></a>Parameters in de sjablonen van Azure Resource Manager-implementatie beveiligen
+### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Veilige para meters in Azure Resource Manager sjablonen
 
-In dit voorbeeld ziet u een sjabloon voor de implementatie van Resource Manager die gebruikmaakt van meer dan één Runtimeparameter met de `securestring` type:
+Een resource manager-sjabloon voor een logische app heeft `parameters` meerdere secties. Als u wacht woorden, sleutels, geheimen en andere gevoelige informatie wilt beveiligen, definieert u de beveiligde para meters op sjabloon niveau en op `securestring` het `secureobject` niveau van de werk stroom definitie met behulp van het of-type. U kunt deze waarden vervolgens opslaan in [Azure Key Vault](../key-vault/key-vault-whatis.md) en het [parameter bestand](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values) gebruiken om te verwijzen naar de sleutel kluis en het geheim. Uw sjabloon haalt vervolgens die informatie op tijdens de implementatie. Zie [Azure Key Vault gebruiken om beveiligde parameter waarden door te geven tijdens de implementatie](../azure-resource-manager/resource-manager-keyvault-parameter.md)voor meer informatie.
 
-* `armTemplatePasswordParam`, die wordt ingevoerd voor de logische app-definitie `logicAppWfParam` parameter
+Hier vindt u meer informatie over `parameters` deze secties:
 
-* `logicAppWfParam`, die wordt ingevoerd voor de HTTP-actie basisverificatie wordt gebruikt
+* Op het hoogste niveau van de sjabloon definieert `parameters` een sectie de para meters voor de waarden die de sjabloon gebruikt bij de *implementatie*. Deze waarden kunnen bijvoorbeeld verbindings reeksen bevatten voor een specifieke implementatie omgeving. U kunt deze waarden vervolgens opslaan in een afzonderlijk [parameter bestand](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values), waardoor het wijzigen van deze waarden eenvoudiger wordt.
 
-Dit voorbeeld bevat een binnenste `parameters` sectie, die tot de definitie van de werkstroom van uw logische app en een buitenste behoort `parameters` sectie, die deel uitmaakt van uw sjabloon voor de implementatie. De Omgevingswaarden voor parameters wilt opgeven, kunt u een afzonderlijke parameterbestand. 
+* In de resource definitie van uw logische app, maar buiten uw werk stroom definitie `parameters` , geeft een sectie de waarden voor de para meters van uw werk stroom definitie op. In deze sectie kunt u deze waarden toewijzen met behulp van sjabloon expressies die verwijzen naar de para meters van uw sjabloon. Deze expressies worden geëvalueerd tijdens de implementatie.
+
+* In de definitie van de werk `parameters` stroom definieert een sectie de para meters die door de logische app worden gebruikt tijdens runtime. U kunt vervolgens naar deze para meters in de werk stroom van de logische app verwijzen met behulp van definitie expressies voor werk stromen, die tijdens runtime worden geëvalueerd.
+
+Deze voorbeeld sjabloon met meerdere beveiligde parameter definities die gebruikmaken van het `securestring` type:
+
+| Parameternaam | Description |
+|----------------|-------------|
+| `TemplatePasswordParam` | Een sjabloon parameter die vervolgens een wacht woord accepteert dat vervolgens wordt door gegeven aan de `basicAuthPasswordParam` para meter van de werk stroom definitie |
+| `TemplatePasswordParam` | Een sjabloon parameter die vervolgens een gebruikers naam accepteert die vervolgens wordt door gegeven aan de `basicAuthUserNameParam` para meter van de werk stroom definitie |
+| `basicAuthPasswordParam` | Een para meter voor de werk stroom definitie die het wacht woord voor basis verificatie in een HTTP-actie accepteert |
+| `basicAuthUserNameParam` | Een para meter voor de werk stroom definitie die de gebruikers naam voor basis verificatie in een HTTP-actie accepteert |
+|||
 
 ```json
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
    "contentVersion": "1.0.0.0",
    "parameters": {
-      "logicAppName": {
+      "LogicAppName": {
          "type": "string",
          "minLength": 1,
          "maxLength": 80,
@@ -297,10 +458,13 @@ Dit voorbeeld bevat een binnenste `parameters` sectie, die tot de definitie van 
             "description": "Name of the Logic App."
          }
       },
-      "armTemplatePasswordParam": {
+      "TemplatePasswordParam": {
          "type": "securestring"
       },
-      "logicAppLocation": {
+      "TemplateUsernameParam": {
+         "type": "securestring"
+      },
+      "LogicAppLocation": {
          "type": "string",
          "defaultValue": "[resourceGroup().location]",
          "allowedValues": [
@@ -338,9 +502,9 @@ Dit voorbeeld bevat een binnenste `parameters` sectie, die tot de definitie van 
    "variables": {},
    "resources": [
       {
-         "name": "[parameters('logicAppName')]",
+         "name": "[parameters('LogicAppName')]",
          "type": "Microsoft.Logic/workflows",
-         "location": "[parameters('logicAppLocation')]",
+         "location": "[parameters('LogicAppLocation')]",
          "tags": {
             "displayName": "LogicApp"
          },
@@ -356,18 +520,18 @@ Dit voorbeeld bevat een binnenste `parameters` sectie, die tot de definitie van 
                         "uri": "https://www.microsoft.com",
                         "authentication": {
                            "type": "Basic",
-                           "username": "@parameters('usernameParam')",
-                           "password": "@parameters('logicAppWfParam')"
+                           "username": "@parameters('basicAuthUsernameParam')",
+                           "password": "@parameters('basicAuthPasswordParam')"
                         }
                      },
                   "runAfter": {}
                   }
                },
                "parameters": {
-                  "logicAppWfParam": {
+                  "basicAuthPasswordParam": {
                      "type": "securestring"
                   },
-                  "userNameParam": {
+                  "basicAuthUsernameParam": {
                      "type": "securestring"
                   }
                },
@@ -384,8 +548,11 @@ Dit voorbeeld bevat een binnenste `parameters` sectie, die tot de definitie van 
                "outputs": {}
             },
             "parameters": {
-               "logicAppWfParam": {
-                  "value": "[parameters('armTemplatePasswordParam')]"
+               "basicAuthPasswordParam": {
+                  "value": "[parameters('TemplatePasswordParam')]"
+               },
+               "basicAuthUsernameParam": {
+                  "value": "[parameters('TemplateUsernameParam')]"
                }
             }
          }
@@ -395,37 +562,39 @@ Dit voorbeeld bevat een binnenste `parameters` sectie, die tot de definitie van 
 }
 ```
 
-Als u geheimen gebruikt, kunt u deze geheimen downloaden tijdens de implementatie met behulp van [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md).
-
 <a name="secure-requests"></a>
 
-## <a name="secure-access-to-services-receiving-requests"></a>Beveiligde toegang tot services die zijn ontvangen van aanvragen
+## <a name="access-to-services-and-systems-called-from-logic-apps"></a>Toegang tot services en systemen die worden aangeroepen vanuit Logic apps
 
-Hier volgen enkele manieren waarop u een willekeurig eindpunt waar uw logische app toegang nodig heeft en verzendt aanvragen kunt beveiligen.
+Hier volgen enkele manieren waarop u eind punten kunt beveiligen waar uw logische app toegang moet hebben tot het verzenden van aanvragen:
 
-### <a name="add-authentication-on-outbound-requests"></a>Verificatie toevoegen aan uitgaande aanvragen
+* Verificatie voor uitgaande aanvragen toevoegen.
 
-Als u werkt met een HTTP-, HTTP + Swagger (Open API) of webhookactie, kunt u verificatie toevoegen aan de aanvraag is verzonden door uw logische app. U kunt bijvoorbeeld basisverificatie, verificatie via certificaat of Azure Active Directory-verificatie gebruiken. Zie voor meer informatie, [verifiëren triggers of acties](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+  Wanneer u werkt met een HTTP-, HTTP + Swagger (open API) of webhook-actie, kunt u verificatie toevoegen aan de aanvraag die wordt verzonden door uw logische app. U kunt bijvoorbeeld basis verificatie, certificaat verificatie of Azure Active Directory verificatie gebruiken. Zie [Triggers of acties verifiëren](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication)voor meer informatie.
 
-### <a name="restrict-access-to-logic-app-ip-addresses"></a>Toegang beperken tot IP-adressen voor logische app
+* Beperk de toegang tot IP-adressen van logische apps.
 
-Alle aanroepen vanuit logic apps is afkomstig van specifieke aangewezen IP-adressen op basis van regio. U kunt toevoegen die aanvragen van deze IP-adressen accepteert filteren. Zie voor deze IP-adressen, [limieten en configuratie voor Azure Logic Apps](logic-apps-limits-and-config.md#configuration).
+  Alle aanroepen naar eind punten van Logic apps zijn afkomstig van specifieke IP-adressen die zijn gebaseerd op de regio's van uw Logic apps. U kunt filters toevoegen die alleen aanvragen van deze IP-adressen accepteren. Zie [limieten en configuratie voor Azure Logic apps](logic-apps-limits-and-config.md#configuration)om deze IP-adressen op te halen.
 
-### <a name="secure-on-premises-connectivity"></a>Beveiligen van on-premises connectiviteit
+* Bronnen verifiëren en openen als beheerde identiteiten.
 
-Met Azure Logic Apps biedt integratie met deze services voor veilige en betrouwbare on-premises communicatie.
+  Om toegang te krijgen tot resources in andere Azure Active Directory (Azure AD)-tenants, kan uw logische app uw identiteit verifiëren zonder zich aan te melden met behulp van een beheerde identiteit (voorheen bekend als Managed Service Identity of MSI), in plaats van referenties of geheimen. Azure beheert deze identiteit voor u en helpt u bij het beveiligen van uw referenties omdat u geen geheimen hoeft op te geven of te draaien. Zie voor meer informatie over het instellen en gebruiken van een door het systeem toegewezen beheerde identiteit voor uw logische app het [verifiëren en openen van resources met beheerde identiteiten in azure Logic apps](../logic-apps/create-managed-service-identity.md).
 
-#### <a name="on-premises-data-gateway"></a>On-premises gegevensgateway
+* Beveiligde verbindingen met on-premises systemen.
 
-Veel beheerde connectors voor Azure Logic Apps bieden veilige verbindingen met on-premises systemen, zoals File System, SQL, SharePoint, DB2 en anderen. De gateway stuurt de gegevens van on-premises bronnen via versleutelde kanalen via de Azure Service Bus. Er is al het verkeer afkomstig als beveiligde uitgaand verkeer van de gateway-agent. Informatie over [de werking van de on-premises gegevensgateway](logic-apps-gateway-install.md#gateway-cloud-service).
+  Azure Logic Apps biedt integratie met deze services voor veilige en betrouw bare on-premises communicatie.
 
-#### <a name="azure-api-management"></a>Azure API Management
+  * On-premises gegevensgateway
 
-[Met Azure API Management](https://azure.microsoft.com/services/api-management/) biedt opties voor on-premises verbinding, zoals site-naar-site virtueel particulier netwerk en ExpressRoute-integratie voor beveiligde proxy en communicatie met on-premises systemen. In de Logic App Designer, kunt u een API beschikbaar worden gemaakt door API Management vanaf uw logische app-werkstroom, snelle toegang tot on-premises systemen.
+    Veel beheerde connectors in Azure Logic Apps bieden beveiligde verbindingen met on-premises systemen, zoals bestands systeem, SQL, share point en DB2. De Gateway verzendt gegevens via on-premises bronnen op versleutelde kanalen via de Azure Service Bus. Al het verkeer is afkomstig van het beveiligde uitgaande verkeer van de gateway-agent. Meer informatie [over de werking van de on-premises gegevens gateway](logic-apps-gateway-install.md#gateway-cloud-service).
+
+  * Verbinding maken via Azure API Management
+
+    [Azure API Management](../api-management/api-management-key-concepts.md) biedt opties voor on-premises verbindingen, zoals site-naar-site virtueel particulier netwerk en ExpressRoute-integratie voor beveiligde proxy en communicatie met on-premises systemen. Vanuit de werk stroom van uw logische app in de ontwerp functie voor logische apps kunt u een API selecteren die wordt weer gegeven door API Management, die snelle toegang biedt tot on-premises systemen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Een implementatiesjabloon maken](logic-apps-create-deploy-template.md)  
-* [Afhandeling van uitzonderingen](logic-apps-exception-handling.md)  
+* [Implementatie sjablonen maken](logic-apps-create-deploy-template.md)  
 * [Uw logische apps bewaken](logic-apps-monitor-your-logic-apps.md)  
-* [Fouten in logische Apps en problemen diagnosticeren](logic-apps-diagnosing-failures.md)  
+* [Fouten en problemen van logische apps diagnosticeren](logic-apps-diagnosing-failures.md)  
+* [Implementatie van logische apps automatiseren](logic-apps-azure-resource-manager-templates-overview.md)

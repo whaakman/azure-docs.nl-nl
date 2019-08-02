@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Spraak, Unity - spraakservices bootsen'
+title: 'Quickstart: Bewaak spraak, unit-Speech-Service'
 titleSuffix: Azure Cognitive Services
-description: Deze handleiding gebruiken om een Text to Speech-toepassing maken met Unity en de spraak-SDK voor Unity (bèta). Wanneer u klaar bent, kunt u spraak vanuit tekst in realtime op van uw apparaat spreker bootsen.
+description: Gebruik deze hand leiding voor het maken van een tekst-naar-spraak-toepassing met eenheid en de Speech SDK voor Unity (bèta). Wanneer u klaar bent, kunt u spraak van tekst in realtime op de spreker van uw apparaat bekunsten.
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -10,32 +10,32 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 6/26/2019
 ms.author: yinhew
-ms.openlocfilehash: 5240ea45097ce3c0ae7ccbc15a7f99b2f5990832
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 507ab9ef9bb3e482e5a33d2406424dfb9116de54
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467486"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553611"
 ---
-# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-unity-beta"></a>Quickstart: Bootsen spraak met de spraak-SDK voor Unity (bèta)
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-unity-beta"></a>Quickstart: Stem de spraak met de Speech SDK voor Unity (bèta)
 
-Snelstartgidsen zijn ook beschikbaar voor [spraakherkenning](quickstart-csharp-unity.md).
+Quick starts zijn ook beschikbaar voor [spraak herkenning](quickstart-csharp-unity.md).
 
-Gebruik deze handleiding voor het maken van een toepassing voor tekst naar spraak met [Unity](https://unity3d.com/) en de spraak-SDK voor Unity (bèta).
-Wanneer u klaar bent, kunt u spraak vanuit tekst in realtime op van uw apparaat spreker bootsen.
+Gebruik deze hand leiding voor het maken van een tekst-naar- [](https://unity3d.com/) spraak-toepassing met behulp van Unity en de Speech SDK voor Unity (bèta).
+Wanneer u klaar bent, kunt u spraak van tekst in realtime op de spreker van uw apparaat bekunsten.
 Als u niet bekend met Unity bent, is het raadzaam eerst de [gebruikershandleiding van Unity](https://docs.unity3d.com/Manual/UnityManual.html) te bestuderen voordat u begint met de ontwikkeling van uw toepassing.
 
 > [!NOTE]
 > De Speech-SDK voor Unity is momenteel alleen beschikbaar als bètaversie.
-> Ondersteunt Windows-bureaublad (x86 en x64) of Universal Windows Platform (x86, x64, ARM/ARM64) en Android (x86, ARM32/64).
+> Het ondersteunt Windows Desktop (x86 en x64) of Universeel Windows-platform (x86, x64, ARM/ARM64) en Android (x86, ARM32/64).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Als u dit project wilt voltooien, hebt u het volgende nodig:
 
-* [Unity 2018.3 of hoger](https://store.unity.com/) met [Unity 2019.1 ondersteuning toegevoegd voor UWP-ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
+* [Eenheid 2018,3 of hoger](https://store.unity.com/) met [Unit 2019,1 toevoegen van ondersteuning voor UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-     * Voor ondersteuning voor ARM64, installeert u de [optionele build-hulpprogramma's voor arm64 uit, en de Windows 10 SDK voor ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
+     * Voor ARM64-ondersteuning installeert u de [optionele build tools voor ARM64 en de Windows 10 SDK voor ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
 * Een abonnementssleutel voor de Speech Service. [Gratis downloaden](get-started.md).
 
 ## <a name="create-a-unity-project"></a>Een Unity-project maken
@@ -60,21 +60,21 @@ Als u dit project wilt voltooien, hebt u het volgende nodig:
 
 ## <a name="add-ui"></a>Gebruikersinterface toevoegen
 
-We toevoegen een minimale gebruikersinterface aan onze scène, die bestaan uit een invoerveld de tekst invoeren voor synthese, een knop voor spraaksynthese trigger en een nieuw veld om het resultaat weer te geven.
+We voegen een minimale gebruikers interface toe aan onze scène, bestaande uit een invoer veld voor het invoeren van de tekst voor synthese, een knop voor het activeren van een spraak synthese en een tekst veld om het resultaat weer te geven.
 
 * In [Hierarchy Window](https://docs.unity3d.com/Manual/Hierarchy.html) (standaard aan de linkerkant), wordt een voorbeeldscène weergegeven die in Unity bij het nieuwe project is gemaakt.
-* Klik op de **maken** aan de bovenkant van de hiërarchie-venster en selecteer **UI** > **invoer veld**.
-* Hiermee maakt u drie game objecten die u in het venster hiërarchie kunt zien: een **invoer veld** object genest binnen een **Canvas** -object, en een **EventSystem** object.
-* [De weergave scène navigeren](https://docs.unity3d.com/Manual/SceneViewNavigation.html) , zodat u beschikt over een goed beeld van het canvas en het invoerveld in de [scène weergave](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
-* Klik op de **invoer veld** object in de hiërarchie-venster om weer te geven van de instellingen in de [Inspector-venster](https://docs.unity3d.com/Manual/UsingTheInspector.html) (standaard aan de rechterkant).
-* Instellen de **Pos X** en **Pos Y** eigenschappen **0**, zodat het invoerveld wordt gecentreerd in het midden van het canvas.
-* Klik op de **maken** aan de bovenkant van het venster van de hiërarchie opnieuw en selecteer **UI** > **knop** om een knop te maken.
+* Klik op de knop **maken** boven aan het hiërarchie venster en selecteer**invoer veld**voor de **gebruikers interface** > .
+* Hiermee maakt u drie spel objecten die u kunt zien in het hiërarchie venster: een **invoer veld** object dat is  genest binnen een object canvas en een **Event System** -object.
+* [Navigeer door de scène weergave](https://docs.unity3d.com/Manual/SceneViewNavigation.html) zodat u een goede weer gave hebt van het canvas en het invoer veld in de [scène weergave](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
+* Klik op het object **invoer veld** in het hiërarchie venster om de instellingen weer te geven in het [venster Inspector](https://docs.unity3d.com/Manual/UsingTheInspector.html) (standaard aan de rechter kant).
+* Stel de eigenschappen **POS X** en **POS Y** in op **0**, zodat het invoer veld midden in het canvas wordt gecentreerd.
+* Klik opnieuw op de knop **maken** boven aan het hiërarchie venster en selecteer de knop **gebruikers interface** > **om een** knop te maken.
 * Klik op het object **Button** in het venster Hierarchy om de bijbehorende instellingen weer te geven in het inspectievenster [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (standaard aan de rechterkant).
-* Stelt de **Pos X** en **Pos Y** eigenschappen **0** en **-48**, en stel de **breedte** en **Hoogte** eigenschappen **160** en **30** om ervoor te zorgen dat de knop en het invoerveld niet overlappen.
-* Klik op de **maken** aan de bovenkant van het venster van de hiërarchie opnieuw en selecteer **UI** > **tekst** te maken van een tekstveld.
+* Stel de **Eigenschappen POS X** en **POS Y** in op **0** en **-48**en stel de eigenschappen **width** en **Height** in op **160** en **30** om ervoor te zorgen dat de knop en het invoer veld elkaar niet overlappen.
+* Klik opnieuw op de knop **maken** boven aan het hiërarchie venster en selecteer de**tekst** van de **gebruikers interface** > om een tekst veld te maken.
 * Klik op het object **Text** in het venster Hierarchy om de bijbehorende instellingen weer te geven in het inspectievenster [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (standaard aan de rechterkant).
-* Stelt de **Pos X** en **Pos Y** eigenschappen **0** en **80**, en stel de **breedte** en  **Hoogte** eigenschappen **320** en **80** om ervoor te zorgen dat het tekstveld en in het invoerveld niet overlappen.
-* Klik op de **maken** aan de bovenkant van het venster van de hiërarchie opnieuw en selecteer **Audio** > **audiobron** te maken van een audio-bron.
+* Stel de **Eigenschappen POS X** en **POS Y** in op **0** en **80**en stel de eigenschappen **width** en **Height** in op **320** en **80** om ervoor te zorgen dat het tekst veld en het invoer veld elkaar niet overlappen.
+* Klik opnieuw op de knop **maken** boven aan het hiërarchie venster en selecteer **Audio** > **audio bron** om een audio bron te maken.
 
 Als u hiermee klaar bent, ziet de gebruikersinterface er ongeveer als volgt uit:
 
@@ -93,7 +93,7 @@ Als u hiermee klaar bent, ziet de gebruikersinterface er ongeveer als volgt uit:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Zoek en vervang de tekenreeks `YourSubscriptionKey` met uw abonnementssleutel Speech Services.
+1. Zoek de teken reeks `YourSubscriptionKey` en vervang deze door uw abonnement sleutel voor spraak Services.
 
 1. Vervang de tekenreeks `YourServiceRegion` door de [regio](regions.md) die aan uw abonnement is gekoppeld. Als u bijvoorbeeld gebruikmaakt van de gratis proefversie, dan is `westus` de regio.
 
@@ -101,25 +101,25 @@ Als u hiermee klaar bent, ziet de gebruikersinterface er ongeveer als volgt uit:
 
 1. In de Unity-editor moet het script als onderdeel worden toegevoegd aan een van uw game-objecten.
 
-   * Klik op het object **Canvas** in het venster Hierarchy. Hiermee opent u de instelling in de [Inspector-venster](https://docs.unity3d.com/Manual/UsingTheInspector.html) (standaard aan de rechterkant).
+   * Klik op het object **Canvas** in het venster Hierarchy. Hiermee opent u de instelling in het [Inspector-venster](https://docs.unity3d.com/Manual/UsingTheInspector.html) (standaard aan de rechter kant).
    * Klik op de knop **Add Component** in het venster Inspector Window, zoek het HelloWorld-script dat we hierboven hebben gemaakt en voeg het toe.
-   * Houd er rekening mee dat het ' Hallo wereld '-onderdeel vier eigenschappen van niet-geïnitialiseerde heeft **uitvoertekst**, **invoer veld**, **knop spreken** en **Audio bron**, die overeenkomen met de openbare eigenschappen van de `HelloWorld` klasse.
+   * Houd er rekening mee dat het onderdeel Hallo wereld vier niet-geïnitialiseerde eigenschappen, **uitvoer tekst**, **invoer veld**, **knop voor spreken** en **audio bron**heeft die overeenkomen met open bare eigenschappen van de `HelloWorld` klasse.
      Om deze te koppelen, klikt u op Object Picker (het pictogram van een cirkeltje, rechts van de eigenschap) en kiest u de objecten die u eerder hebt gemaakt: Text en Button.
 
      > [!NOTE]
-     > Het invoerveld en de knop hebt ook een object met geneste tekst. Zorg ervoor dat u deze niet per ongeluk kiezen voor tekst uitvoer (of wijzig de naam van de SMS-objecten met behulp van het veld in het venster Inspector om verwarring te voorkomen dat).
+     > Het invoer veld en de knop hebben ook een genest object tekst. Zorg ervoor dat u deze niet per ongeluk voor tekst uitvoer hebt gekozen (of wijzig de naam van de tekst objecten in het veld naam in het Inspector-venster om die Verwar ring te voor komen).
 
 ## <a name="run-the-application-in-the-unity-editor"></a>De toepassing uitvoeren in de Unity-editor
 
 * Druk op de knop **Play** op de werkbalk van de Unity-editor (onder de menubalk).
 
-* Nadat de app wordt gestart, voer tekst in het invoerveld en klik op de knop. De tekst is verzonden naar de Services spraak en gemaakt naar-spraak, die op de spreker afgespeeld.
+* Nadat de app is gestart, voert u tekst in het invoer veld in en klikt u op de knop. Uw tekst wordt verzonden naar de spraak Services en gesynthesizerd op spraak, die op uw spreker wordt afgespeeld.
 
   [![Schermopname van de actieve quickstart in het Unity Game-venster](media/sdk/qs-tts-csharp-unity-output-inline.png)](media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
 
 * Controleer het consolevenster [Console Window](https://docs.unity3d.com/Manual/Console.html) op foutopsporingsberichten.
 
-* Wanneer u klaar bent met het stof voor de synthese spraak, klikt u op de **afspelen** knop in de werkbalk Unity-Editor om te stoppen van de app.
+* Wanneer u klaar bent met het maken van de spraak, klikt u op de knop **afspelen** in de werk balk van de eenheids editor om de app te stoppen.
 
 ## <a name="additional-options-to-run-this-application"></a>Extra opties voor het uitvoeren van deze toepassing
 
@@ -133,5 +133,5 @@ Raadpleeg onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples) in de ma
 
 ## <a name="see-also"></a>Zie ook
 
-- [Spraakstijlen aanpassen](how-to-customize-voice-font.md)
-- [Record voice-voorbeelden](record-custom-voice-samples.md)
+- [Spraak lettertypen aanpassen](how-to-customize-voice-font.md)
+- [Spraak voorbeelden vastleggen](record-custom-voice-samples.md)

@@ -1,7 +1,7 @@
 ---
-title: Versiebeheer
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Versies in LUIS, zijn vergelijkbaar met versies in traditionele programmeren. Elke versie is een momentopname in de tijd van de app. Voordat u wijzigingen in de app aanbrengt, maakt u een nieuwe versie. Het is eenvoudiger om terug te gaan naar de exacte app, klikt u vervolgens probeert te unpeel en het doel en de uitingen naar een eerdere status van de app.
+title: Versie beheer-LUIS
+titleSuffix: Azure Cognitive Services
+description: Versies, in LUIS, zijn vergelijkbaar met versies in traditioneel Program meren. Elke versie is een moment opname in de tijd van de app. Maak een nieuwe versie voordat u wijzigingen aanbrengt in de app. Het is eenvoudiger om terug te gaan naar de exacte app en vervolgens te proberen om de intentie van de app ongedaan te maken en te uitingen naar een eerdere status.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,61 +9,61 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 9da79e5b744f8ba70c0e265f0d1f0126b37eba49
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e13efa70d0344defeb306a92ac405439635e929
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60509678"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619696"
 ---
-# <a name="understand-how-and-when-to-use-a-luis-version"></a>Begrijpen hoe en wanneer een LUIS-versie te gebruiken
+# <a name="understand-how-and-when-to-use-a-luis-version"></a>Meer informatie over hoe en wanneer u een LUIS-versie gebruikt
 
-Versies in LUIS, zijn vergelijkbaar met versies in traditionele programmeren. Elke versie is een momentopname in de tijd van de app. Voordat u wijzigingen in de app aanbrengt, maakt u een nieuwe versie. Het is eenvoudiger om terug te gaan naar de exacte versie, en vervolgens om te proberen om intents en uitingen naar een eerdere status te verwijderen.
+Versies, in LUIS, zijn vergelijkbaar met versies in traditioneel Program meren. Elke versie is een moment opname in de tijd van de app. Maak een nieuwe versie voordat u wijzigingen aanbrengt in de app. Het is eenvoudiger om terug te gaan naar de exacte versie en vervolgens om te proberen de intenties en uitingen te verwijderen uit een eerdere status.
 
-Maken van verschillende modellen van dezelfde app met [versies](luis-how-to-manage-versions.md). 
+Maak verschillende modellen van dezelfde app met [versies](luis-how-to-manage-versions.md). 
 
 ## <a name="version-id"></a>Versie-ID
-De versie-ID bestaat uit tekens, cijfers of '.' en mag niet langer zijn dan 10 tekens.
+De versie-ID bestaat uit tekens, cijfers of '. ' en mag niet langer zijn dan 10 tekens.
 
-## <a name="initial-version"></a>Oorspronkelijke versie
-De oorspronkelijke versie (0,1) is de standaard-active-versie. 
+## <a name="initial-version"></a>Eerste versie
+De eerste versie (0,1) is de standaard versie die actief is. 
 
 ## <a name="active-version"></a>Actieve versie
-Naar [instellen van een versie](luis-how-to-manage-versions.md#set-active-version) als de actieve betekent dat momenteel wordt bewerkt en getest in de [LUIS](luis-reference-regions.md) website. Een versie instellen als actief toegang tot de gegevens, moet ook worden bijgewerkt, te testen en publiceren.
+Als u [een versie](luis-how-to-manage-versions.md#set-active-version) als actief wilt instellen, wordt deze momenteel bewerkt en getest op de [Luis](luis-reference-regions.md) -website. Een versie als actief instellen om toegang te krijgen tot de gegevens, updates te maken en deze te testen en te publiceren.
 
-De naam van de momenteel actieve versie wordt weergegeven in het deelvenster linkerbovenhoek na de naam van de app. 
+De naam van de momenteel actieve versie wordt weer gegeven in het bovenste deel venster links na de naam van de app. 
 
 [![Actieve versie wijzigen](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
-## <a name="versions-and-publishing-slots"></a>Versies en publicatie-sleuven
-U publiceren naar de fase en product sleuven. Elke site kan een andere versie of dezelfde versie hebben. Dit is handig voor het controleren van wijzigingen tussen modelversies via het eindpunt, is beschikbaar voor bots of andere LUIS aanroepen van toepassingen. 
+## <a name="versions-and-publishing-slots"></a>Versies en publicatie sleuven
+U publiceert naar het werk gebied en de product sleuven. Elke sleuf kan een andere versie of dezelfde versie hebben. Dit is handig voor het controleren van wijzigingen tussen model versies via het eind punt, dat beschikbaar is voor bots of andere toepassingen voor LUIS-aanroepen. 
 
 ## <a name="clone-a-version"></a>Een versie klonen
-Kloon een versie voor het maken van een kopie van een bestaande versie en sla deze op als een nieuwe versie. Kloon een versie voor het gebruik van dezelfde inhoud van de bestaande versie als een beginpunt voor de nieuwe versie. Wanneer u een versie klonen, de nieuwe versie wordt de **active** versie. 
+Een versie klonen om een kopie van een bestaande versie te maken en deze op te slaan als een nieuwe versie. Een versie klonen voor het gebruik van dezelfde inhoud van de bestaande versie als uitgangs punt voor de nieuwe versie. Wanneer u een versie kloont, wordt de nieuwe versie de **actieve** versie. 
 
-## <a name="import-and-export-a-version"></a>Importeren en exporteren van een versie
-U kunt een versie op het niveau van de app importeren. Deze versie wordt de actieve versie en gebruikt de versie-ID in de eigenschap 'versionId' van het app-bestand. U kunt ook op het versieniveau van de importeren in een bestaande app. De nieuwe versie wordt de actieve versie. 
+## <a name="import-and-export-a-version"></a>Een versie importeren en exporteren
+U kunt een versie importeren op het niveau van de app. Deze versie wordt de actieve versie en gebruikt de versie-ID in de eigenschap ' versionId ' van het app-bestand. U kunt ook op versie niveau importeren in een bestaande app. De nieuwe versie wordt de actieve versie. 
 
-U kunt een versie op het niveau van de app exporteren of u kunt een versie op het versieniveau van de. Het enige verschil is dat de geëxporteerde versie op app-niveau is de momenteel actieve versie terwijl op het versieniveau van de, kunt u elke versie om te exporteren op de **[instellingen](luis-how-to-manage-versions.md)** pagina. 
+U kunt een versie exporteren op het niveau van de app of u kunt een versie exporteren op versie niveau. Het enige verschil is dat de geëxporteerde versie op app-niveau de momenteel actieve versie is op versie niveau, u kunt een wille keurige versie kiezen die u wilt exporteren op de pagina **[instellingen](luis-how-to-manage-versions.md)** . 
 
-Het geëxporteerde bestand bevat geen informatie hebt geleerd van een machine omdat de app is retrained nadat deze zijn geïmporteerd. Het geëxporteerde bestand bevat geen deelnemers, moet u deze weer toe te voegen zodra de versie wordt geïmporteerd in de nieuwe app.
+Het geëxporteerde bestand bevat geen door de computer geleerde informatie omdat de app opnieuw wordt getraind nadat deze is geïmporteerd. Het geëxporteerde bestand bevat geen mede werkers--u moet deze terug toevoegen zodra de versie in de nieuwe app is geïmporteerd.
 
-## <a name="export-each-version-as-app-backup"></a>Elke versie als de back-up app exporteren
-Als u wilt back-up van uw LUIS-app, exporteert u elke versie op de **[instellingen](luis-how-to-manage-versions.md)** pagina.
+## <a name="export-each-version-as-app-backup"></a>Elke versie exporteren als app-back-up
+Als u een back-up van uw LUIS-app wilt maken, exporteert u elke versie op de pagina **[instellingen](luis-how-to-manage-versions.md)** .
 
 ## <a name="delete-a-version"></a>Een versie verwijderen
-U kunt alle versies, behalve de actieve versie verwijderen uit de lijst met versies op de pagina instellingen. 
+U kunt alle versies, met uitzonde ring van de actieve versie, verwijderen uit de lijst met versies op de pagina instellingen. 
 
-## <a name="version-availability-at-the-endpoint"></a>Beschikbaarheid van de versie van het eindpunt
-Getrainde versies zijn niet automatisch beschikbaar op uw app [eindpunt](luis-glossary.md#endpoint). U moet [publiceren](luis-how-to-publish-app.md) of een versie op zodat deze beschikbaar zijn op het eindpunt van uw app publiceren. U kunt publiceren naar **fasering** en **productie**, zodat u maximaal twee versies van de app beschikbaar is op het eindpunt. Als u meer versies van de app beschikbaar is op een eindpunt, moet u de versie exporteren en opnieuw importeren in een nieuwe app. De nieuwe app heeft een andere app-ID.
+## <a name="version-availability-at-the-endpoint"></a>Beschik baarheid van versie op het eind punt
+Getrainde versies zijn niet automatisch beschikbaar op het [eind punt](luis-glossary.md#endpoint)van uw app. U moet een versie [publiceren](luis-how-to-publish-app.md) of opnieuw publiceren zodat deze beschikbaar is op het eind punt van de app. U kunt publiceren naar **fase ring** en **productie**, zodat u Maxi maal twee versies van de app beschikbaar hebt op het eind punt. Als u meer versies van de app op een eind punt beschikbaar wilt stellen, moet u de versie exporteren en opnieuw importeren in een nieuwe app. De nieuwe app heeft een andere app-ID.
 
 ## <a name="collaborators"></a>Samenwerkers
-De eigenaar en alle [samenwerkers](luis-how-to-collaborate.md) hebben volledige toegang tot alle versies van de app.
+De eigenaar en alle [](luis-how-to-collaborate.md) deel nemers hebben volledige toegang tot alle versies van de app.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie how to add [versiebeheer](luis-how-to-manage-versions.md) op de pagina app-instellingen. 
+Zie [versie beheer](luis-how-to-manage-versions.md) toevoegen op de pagina app-instellingen. 
 
-Meer informatie over het ontwerpen van [intents](luis-concept-intent.md) in het model.
+Meer informatie over het [](luis-concept-intent.md) ontwerpen van intenties in het model.

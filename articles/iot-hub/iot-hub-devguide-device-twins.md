@@ -1,6 +1,6 @@
 ---
-title: Meer informatie over apparaatdubbels Azure IoT Hub | Microsoft Docs
-description: Handleiding voor ontwikkelaars - apparaatdubbels gebruiken om de status en configuratie van gegevens tussen IoT-Hub en uw apparaten te synchroniseren
+title: Meer informatie over Azure IoT Hub Device apparaatdubbels | Microsoft Docs
+description: 'Ontwikkelaars handleiding: gebruik apparaat apparaatdubbels om status-en configuratie gegevens te synchroniseren tussen IoT Hub en uw apparaten'
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -8,61 +8,61 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: fbc68b551db1f68fe253a833ad26c88de1b92f30
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f4db353e3c2f625478df6a547d1b67c5d074d18a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055367"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640626"
 ---
-# <a name="understand-and-use-device-twins-in-iot-hub"></a>Begrijpen en gebruiken van apparaatdubbels in IoT Hub
+# <a name="understand-and-use-device-twins-in-iot-hub"></a>Apparaat-apparaatdubbels in IoT Hub begrijpen en gebruiken
 
-*Apparaatdubbels* JSON-documenten waarin statusinformatie van apparaat met inbegrip van metagegevens, configuraties en voorwaarden zijn. Azure IoT Hub onderhoudt een apparaatdubbel voor elk apparaat dat u verbinding met IoT Hub maakt. 
+*Apparaatdubbels* zijn JSON-documenten die status informatie van een apparaat opslaan, inclusief meta gegevens, configuraties en voor waarden. Met Azure IoT Hub wordt een apparaat met twee onderhoudt voor elk apparaat waarmee u verbinding maakt met IoT Hub. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Dit artikel wordt beschreven:
 
-* De structuur van de apparaatdubbel: *tags*, *gewenste* en *gerapporteerde eigenschappen*.
-* De bewerkingen die apps op apparaten en back-ends op dubbele apparaten kunnen uitvoeren.
+* De structuur van het apparaat: *labels*, *gewenste* en gerapporteerde *Eigenschappen*.
+* De bewerkingen die apps en back-ends van apparaten kunnen uitvoeren op apparaat apparaatdubbels.
 
-Apparaatdubbels om te gebruiken:
+Apparaat apparaatdubbels gebruiken voor het volgende:
 
-* Store apparaatspecifieke metagegevens in de cloud. Bijvoorbeeld, de implementatielocatie van een Verkoopautomaat.
+* Sla apparaatspecifieke meta gegevens op in de Cloud. Bijvoorbeeld de locatie van de implementatie van een computer.
 
-* Rapport van informatie over de huidige status, zoals de beschikbare mogelijkheden en voorwaarden van uw apparaat-app. Bijvoorbeeld, een apparaat is verbonden met uw IoT-hub via mobiel of Wi-Fi.
+* Actuele status informatie rapporteren, zoals de beschik bare mogelijkheden en voor waarden van uw apparaat-app. Een apparaat is bijvoorbeeld verbonden met uw IoT-hub via mobiel of WiFi.
 
-* De status van langlopende werkstromen tussen apparaat-app en de back-end-app worden gesynchroniseerd. Wanneer de oplossing een back-end Hiermee geeft u de nieuwe firmwareversie te installeren en de verschillende stadia van het updateproces van de apparaat-app-rapporten.
+* Synchroniseer de status van langlopende werk stromen tussen de app van het apparaat en de back-end-app. Als de back-end van de oplossing bijvoorbeeld de nieuwe firmware versie aangeeft die moet worden geïnstalleerd, en de apparaat-app rapporteert de verschillende fasen van het update proces.
 
-* Query uitvoeren op de metagegevens van apparaten, de configuratie of de status.
+* Query's uitvoeren op de meta gegevens, configuratie of status van uw apparaat.
 
-Raadpleeg [richtlijnen voor communicatie van apparaat-naar-cloud](iot-hub-devguide-d2c-guidance.md) voor informatie over het gebruik van de gerapporteerde eigenschappen, apparaat-naar-cloud-berichten of bestand uploaden.
+Raadpleeg de [informatie over apparaat-naar-Cloud-communicatie](iot-hub-devguide-d2c-guidance.md) voor hulp bij het gebruik van gerapporteerde eigenschappen, apparaat-naar-Cloud-berichten of het uploaden van bestanden.
 
-Raadpleeg [Cloud-naar-apparaat communicatie richtlijnen](iot-hub-devguide-c2d-guidance.md) voor informatie over het gebruik van de gewenste eigenschappen, directe methoden of cloud-naar-apparaat-berichten.
+Raadpleeg de [communicatie richtlijnen van Cloud naar apparaat](iot-hub-devguide-c2d-guidance.md) voor hulp bij het gebruik van de gewenste eigenschappen, directe methoden of Cloud-naar-apparaat-berichten.
 
-## <a name="device-twins"></a>Apparaatdubbels
+## <a name="device-twins"></a>Apparaat apparaatdubbels
 
-Apparaatdubbels apparaatgerelateerde gegevens opslaan die:
+Apparaat-apparaatdubbels bevatten gerelateerde informatie die:
 
-* Apparaat- en back-ends kunnen gebruiken om te synchroniseren apparaat voorwaarden en de configuratie.
+* Apparaat-en back-ends kunnen worden gebruikt voor het synchroniseren van de voor waarden en configuratie van apparaten.
 
-* De back-end oplossing kunt gebruiken voor query- en doel langlopende bewerkingen.
+* De back-end van de oplossing kan worden gebruikt om query's uit te voeren en langlopende bewerkingen te bereiken.
 
-De levenscyclus van een apparaatdubbel is gekoppeld aan de bijbehorende [apparaat-id](iot-hub-devguide-identity-registry.md). Apparaatdubbels worden impliciet gemaakt en verwijderd wanneer een apparaat-id is gemaakt of verwijderd uit IoT Hub.
+De levens cyclus van een apparaat moet worden gekoppeld aan de bijbehorende [apparaat-id](iot-hub-devguide-identity-registry.md). Apparaat-apparaatdubbels worden impliciet gemaakt en verwijderd wanneer een apparaat-id wordt gemaakt of verwijderd in IoT Hub.
 
-Een apparaatdubbel is een JSON-document met:
+Een apparaat dubbele is een JSON-document met de volgende opties:
 
-* **Tags**. Een gedeelte van het JSON-document dat de back-end van de oplossing kan lezen en schrijven naar. Tags zijn niet zichtbaar voor apps op apparaten.
+* **Tags**. Een sectie van het JSON-document waarnaar de back-end van de oplossing kan lezen en waarnaar kan worden geschreven. Tags zijn niet zichtbaar voor apparaat-apps.
 
-* **Gewenste eigenschappen**. Dit wordt gebruikt, samen met de gerapporteerde eigenschappen om te synchroniseren apparaatconfiguratie of voorwaarden. De back-end oplossing gewenste eigenschappen kunt instellen en deze kan worden gelezen door de apparaat-app. De apparaat-app kan ook met het ontvangen van meldingen van wijzigingen in de gewenste eigenschappen.
+* **Gewenste eigenschappen**. Wordt samen met de gerapporteerde eigenschappen gebruikt voor het synchroniseren van apparaatconfiguratie of voor waarden. De back-end van de oplossing kan gewenste eigenschappen instellen en de apparaat-app kan deze lezen. De apparaat-app kan ook meldingen ontvangen over wijzigingen in de gewenste eigenschappen.
 
-* **Gerapporteerde eigenschappen**. Samen met de gewenste eigenschappen gebruikt om te synchroniseren apparaatconfiguratie of voorwaarden. De apparaat-app gerapporteerde eigenschappen kunt instellen, en de back-end oplossing kunt lezen en query's voor uitvoert.
+* **Gerapporteerde eigenschappen**. Wordt samen met de gewenste eigenschappen gebruikt voor het synchroniseren van apparaatconfiguratie of voor waarden. De apparaat-app kan gerapporteerde eigenschappen instellen en de back-end van de oplossing kan deze lezen en er query's op uitvoeren.
 
-* **Eigenschappen van apparaat-id**. De hoofdmap van het apparaat dubbele JSON-document bevat de alleen-lezen eigenschappen van de bijbehorende apparaat-id die zijn opgeslagen in de [id-register](iot-hub-devguide-identity-registry.md).
+* **Eigenschappen**van de apparaat-id. De hoofdmap van het apparaatonafhankelijke JSON-document van het apparaat bevat de alleen-lezen eigenschappen van de overeenkomende apparaat-id die is opgeslagen in het [identiteits register](iot-hub-devguide-identity-registry.md).
 
-![Schermopname van het apparaat](./media/iot-hub-devguide-device-twins/twin.png)
+![Scherm afbeelding van dubbele eigenschappen van het apparaat](./media/iot-hub-devguide-device-twins/twin.png)
 
-Het volgende voorbeeld ziet u een apparaatdubbel JSON-document:
+In het volgende voor beeld ziet u een dubbel JSON-document voor een apparaat:
 
 ```json
 {
@@ -108,20 +108,20 @@ Het volgende voorbeeld ziet u een apparaatdubbel JSON-document:
 }
 ```
 
-In het hoofdobject zijn de apparaat-id-eigenschappen en container-objecten voor `tags` , en beide `reported` en `desired` eigenschappen. De `properties` container bevat bepaalde onderdelen van de alleen-lezen (`$metadata`, `$etag`, en `$version`) die worden beschreven in de [dubbele Apparaatmetagegevens](iot-hub-devguide-device-twins.md#device-twin-metadata) en [optimistische gelijktijdigheid](iot-hub-devguide-device-twins.md#optimistic-concurrency) de secties.
+In het hoofd object zijn de eigenschappen van de apparaat-id en container `tags` objecten voor `reported` en `desired` beide en eigenschappen. De `properties` container bevat een aantal alleen-lezen elementen`$metadata`( `$etag`, en `$version`) die worden beschreven in de secties [Dubbele meta gegevens](iot-hub-devguide-device-twins.md#device-twin-metadata) en [optimistische gelijktijdigheid](iot-hub-devguide-device-twins.md#optimistic-concurrency) van het apparaat.
 
-### <a name="reported-property-example"></a>Voorbeeld van de gerapporteerde eigenschap
+### <a name="reported-property-example"></a>Voor beeld van een gerapporteerde eigenschap
 
-In het vorige voorbeeld de apparaatdubbel bevat een `batteryLevel` eigenschap die moet worden gerapporteerd door de apparaat-app. Deze eigenschap maakt het mogelijk is om te zoeken en op apparaten die zijn gebaseerd op de laatste gerapporteerde accu werkt. Andere voorbeelden zijn onder meer de apparaat-app-rapportage apparaatmogelijkheden of opties voor netwerkconnectiviteit.
+In het vorige voor beeld bevat het apparaat twee een `batteryLevel` eigenschap die wordt gerapporteerd door de apparaat-app. Met deze eigenschap kunnen apparaten op basis van het laatst gerapporteerde accu niveau worden opgevraagd en uitgevoerd. Andere voor beelden zijn de apparaat-en connectiviteits opties voor het rapporteren van Device-apps.
 
 > [!NOTE]
-> Gerapporteerde eigenschappen vereenvoudigen van scenario's waarin de back-end van de oplossing is geïnteresseerd in de laatste bekende waarde van een eigenschap. Gebruik [apparaat-naar-cloud-berichten](iot-hub-devguide-messages-d2c.md) als de back-end van de oplossing moet verwerken telemetrie van apparaten in de vorm van reeksen voorzien van een tijdstempel gebeurtenissen, zoals een tijdreeks.
+> De gerapporteerde eigenschappen vereenvoudigen scenario's waarbij de back-end van de oplossing relevant is voor de laatst bekende waarde van een eigenschap. Gebruik [apparaat-naar-Cloud-berichten](iot-hub-devguide-messages-d2c.md) als de back-end van de oplossing apparaat-telemetrie moet verwerken in de vorm van reeksen van tijds tempels, zoals een tijd reeks.
 
-### <a name="desired-property-example"></a>Voorbeeld van de gewenste eigenschap
+### <a name="desired-property-example"></a>Voor beeld van gewenste eigenschap
 
-In het vorige voorbeeld de `telemetryConfig` apparaatdubbel-gewenste en gerapporteerde eigenschappen worden gebruikt door de back-end van de oplossing en de apparaat-app om te synchroniseren van de configuratie van de telemetrie voor dit apparaat. Bijvoorbeeld:
+In het vorige voor beeld worden `telemetryConfig` het dubbele gewenste en gerapporteerde eigenschappen gebruikt door de back-end van de oplossing en de apparaat-app om de telemetrie-configuratie voor dit apparaat te synchroniseren. Bijvoorbeeld:
 
-1. De back-end oplossing Hiermee stelt u de gewenste eigenschap met de waarde van de gewenste configuratie. Dit is het gedeelte van het document met de gewenste eigenschap is ingesteld:
+1. Met de back-end van de oplossing stelt u de gewenste eigenschap in op de gewenste configuratie waarde. Hier is het gedeelte van het document met de gewenste eigenschap ingesteld:
 
    ```json
    "desired": {
@@ -132,7 +132,7 @@ In het vorige voorbeeld de `telemetryConfig` apparaatdubbel-gewenste en gerappor
    },
    ```
 
-2. De apparaat-app wordt op de hoogte gesteld van de wijziging onmiddellijk als verbonden of op de eerste opnieuw verbinding te maken. De apparaat-app vervolgens de bijgewerkte configuratie rapporten (of een fout voorwaarde met behulp van de `status` eigenschap). Dit is het gedeelte van de gerapporteerde eigenschappen:
+2. De apparaat-app wordt onmiddellijk op de hoogte gesteld wanneer deze is verbonden, of tijdens de eerste keer opnieuw verbinding maken. De app apparaat meldt vervolgens de bijgewerkte configuratie (of een fout voorwaarde met `status` behulp van de eigenschap). Hier volgt het gedeelte van de gerapporteerde eigenschappen:
 
    ```json
    "reported": {
@@ -144,21 +144,21 @@ In het vorige voorbeeld de `telemetryConfig` apparaatdubbel-gewenste en gerappor
    }
    ```
 
-3. De back-end oplossing kunt de resultaten van de configuratiebewerking bijhouden op veel apparaten door [uitvoeren van query's](iot-hub-devguide-query-language.md) dubbele apparaten.
+3. Met de back-end van de oplossing kunt u de resultaten van de configuratie bewerking op veel apparaten volgen door een [query](iot-hub-devguide-query-language.md) uit te sturen naar de apparaatdubbels van het apparaat.
 
 > [!NOTE]
-> De voorgaande fragmenten zijn voorbeelden, geoptimaliseerd voor de leesbaarheid van een manier om de configuratie van een apparaat en de status ervan te coderen. IoT Hub legt een specifieke schema voor het dubbele apparaat gewenst en eigenschappen in de dubbele apparaten gerapporteerde.
+> De voor gaande fragmenten zijn voor beelden die zijn geoptimaliseerd voor de Lees baarheid, van een manier om een apparaatconfiguratie en de status ervan te coderen. IoT Hub biedt geen specifiek schema voor het dubbele gewenste apparaat en de gerapporteerde eigenschappen in de apparaatdubbels van het apparaat.
 > 
 
-Dubbele kunt u langlopende bewerkingen zoals het firmware-updates synchroniseren. Zie voor meer informatie over het gebruik van eigenschappen voor het synchroniseren en een langdurige bewerking bijhouden op apparaten [gebruik gewenste eigenschappen om apparaten te configureren](tutorial-device-twins.md).
+U kunt apparaatdubbels gebruiken voor het synchroniseren van langlopende bewerkingen, zoals firmware-updates. Zie [gewenste eigenschappen gebruiken om apparaten te configureren](tutorial-device-twins.md)voor meer informatie over het gebruik van eigenschappen voor het synchroniseren en volgen van een langlopende bewerking op alle apparaten.
 
 ## <a name="back-end-operations"></a>Back-end-bewerkingen
 
-De back-end van de oplossing is van invloed op het dubbele apparaat met behulp van de volgende atomische bewerkingen, die toegankelijk is via HTTPS:
+De back-end van de oplossing werkt op het apparaat tussen het gebruik van de volgende atomische bewerkingen, beschikbaar gesteld via HTTPS:
 
-* **Ophalen van de apparaatdubbel op ID**. Met deze bewerking wordt het apparaat dubbele document, inclusief tags en eigenschappen van het gewenste en gerapporteerd.
+* Het **apparaat wordt opgehaald met de id**. Met deze bewerking wordt het dubbele document van het apparaat, inclusief tags en gewenste en gerapporteerde systeem eigenschappen, geretourneerd.
 
-* **Gedeeltelijk bijwerken apparaatdubbel**. Met deze bewerking kunt de back-end oplossing voor gedeeltelijk tags of in een apparaatdubbel-gewenste eigenschappen bijwerken. De gedeeltelijke update wordt uitgedrukt als een JSON-document dat een eigenschap bijgewerkt of toegevoegd. Eigenschappen ingesteld op `null` worden verwijderd. Het volgende voorbeeld wordt een nieuwe gewenste eigenschap met de waarde `{"newProperty": "newValue"}`, overschrijft de bestaande waarde van `existingProperty` met `"otherNewValue"`, en verwijdert u `otherOldProperty`. Er zijn geen andere wijzigingen zijn aangebracht aan de bestaande gewenste eigenschappen of labels:
+* **Apparaat is gedeeltelijk bijgewerkt**. Met deze bewerking kan de back-end van de oplossing de labels gedeeltelijk bijwerken of de gewenste eigenschappen van een apparaat dubbele. De gedeeltelijke update wordt uitgedrukt als een JSON-document waarmee elke eigenschap wordt toegevoegd of bijgewerkt. Eigenschappen die zijn `null` ingesteld op, worden verwijderd. In het volgende voor beeld wordt een nieuwe gewenste eigenschap `{"newProperty": "newValue"}`gemaakt met de waarde, wordt de bestaande `existingProperty` waarde `"otherNewValue"`van met vervangen `otherOldProperty`en wordt deze verwijderd. Er worden geen andere wijzigingen aangebracht in de bestaande gewenste eigenschappen of Tags:
 
    ```json
    {
@@ -174,31 +174,31 @@ De back-end van de oplossing is van invloed op het dubbele apparaat met behulp v
    }
    ```
 
-* **Gewenste eigenschappen vervangen**. Met deze bewerking kunt u de back-end oplossing voor het volledig overschrijft alle bestaande gewenste eigenschappen en vervangen door een nieuwe JSON-document voor `properties/desired`.
+* **Gewenste eigenschappen vervangen**. Met deze bewerking wordt de back-end van de oplossing in staat gesteld alle bestaande gewenste eigenschappen volledig te overschrijven `properties/desired`en een nieuw JSON-document voor te vervangen.
 
-* **Vervang tags**. Met deze bewerking kunt u de back-end oplossing voor het volledig overschrijft alle bestaande tags en vervangen door een nieuwe JSON-document voor `tags`.
+* **Tags vervangen**. Met deze bewerking kan de back-end van de oplossing alle bestaande Tags volledig overschrijven en vervangen door een `tags`nieuw JSON-document voor.
 
-* **Dubbele meldingen ontvangen**. Met deze bewerking kunt de back-end oplossing om te worden geïnformeerd wanneer het dubbele wordt gewijzigd. Om dit te doen, moet uw IoT-oplossing een route te maken en in te stellen de gegevensbron gelijk zijn aan *twinChangeEvents*. Standaard bestaat geen dergelijke routes vooraf, zodat er geen dubbele meldingen worden verzonden. Als de wijzigingssnelheid te hoog is, of om andere redenen, zoals interne fouten, worden de IoT-Hub slechts één melding alle wijzigingen bevat verzonden. Als uw toepassing moet betrouwbare controle en logboekregistratie van alle tussenliggende statussen, moet u apparaat-naar-cloud-berichten. Het meldingsbericht dubbele bevat eigenschappen en de hoofdtekst.
+* **Ontvang dubbele meldingen**. Met deze bewerking kan de back-end van de oplossing worden gewaarschuwd wanneer het dubbele wordt gewijzigd. Hiervoor moet uw IoT-oplossing een route maken en de gegevens bron instellen op *twinChangeEvents*. Standaard zijn er geen routes vooraf aanwezig, waardoor er geen dubbele meldingen worden verzonden. Als de wijzigings ratio te hoog is of om andere redenen, zoals interne fouten, kan de IoT Hub slechts één melding verzenden die alle wijzigingen bevat. Als uw toepassing bijvoorbeeld betrouw bare controle en logboek registratie van alle tussenliggende statussen vereist, moet u apparaat-naar-Cloud-berichten gebruiken. Het dubbele meldings bericht bevat eigenschappen en hoofd tekst.
 
-  - Properties
+  - properties
 
     | Name | Value |
     | --- | --- |
     $content-type | application/json |
-    $iothub-enqueuedtime |  Tijd waarop de melding is verzonden |
-    $iothub-bericht-bron | twinChangeEvents |
+    $iothub-enqueuedtime |  Tijdstip waarop de melding is verzonden |
+    $iothub-bericht bron | twinChangeEvents |
     $content-encoding | utf-8 |
     deviceId | ID van het apparaat |
     hubName | Naam van IoT Hub |
-    operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp van bewerking |
-    iothub-bericht-schema | deviceLifecycleNotification |
+    operationTimestamp | [Iso8601](https://en.wikipedia.org/wiki/ISO_8601) tijds tempel van bewerking |
+    iothub-Message-schema | deviceLifecycleNotification |
     opType | "replaceTwin" of "updateTwin" |
 
-    Systeemeigenschappen bericht worden voorafgegaan door de `$` symbool.
+    Eigenschappen van het berichten systeem worden voorafgegaan door `$` het symbool.
 
   - Hoofdtekst
         
-    Deze sectie bevat alle wijzigingen in de apparaatdubbel in een JSON-indeling. Het maakt gebruik van dezelfde indeling als een patch, met het verschil dat deze alle dubbele secties kan bevatten: labels, properties.reported, properties.desired en dat deze de elementen '$metadata bevat'. Bijvoorbeeld:
+    In deze sectie vindt u alle dubbele wijzigingen in een JSON-indeling. Er wordt gebruikgemaakt van dezelfde indeling als een patch, met het verschil dat deze alle dubbele secties kan bevatten: Tags, eigenschappen. gerapporteerd, eigenschappen. desired en de elementen $metadata bevatten. Bijvoorbeeld:
 
     ```json
     {
@@ -219,37 +219,37 @@ De back-end van de oplossing is van invloed op het dubbele apparaat met behulp v
     }
     ```
 
-Ondersteuning voor alle voorgaande bewerkingen [optimistische gelijktijdigheid](iot-hub-devguide-device-twins.md#optimistic-concurrency) en vereisen dat de **ServiceConnect** machtiging, zoals gedefinieerd in [beheren van toegang tot IoT Hub](iot-hub-devguide-security.md).
+Alle voor gaande bewerkingen ondersteunen [optimistische gelijktijdigheid](iot-hub-devguide-device-twins.md#optimistic-concurrency) en vereisen de **ServiceConnect** -machtiging, zoals is gedefinieerd in [toegang tot IOT hub beheren](iot-hub-devguide-security.md).
 
-Naast deze bewerkingen is de back-end oplossing kunt doen:
+Naast deze bewerkingen kan de back-end van de oplossing:
 
-* De dubbele apparaten met behulp van de SQL-achtige query [IoT Hub-querytaal](iot-hub-devguide-query-language.md).
+* Een query uitvoeren op de apparaatdubbels van het apparaat met behulp van de SQL-achtige [IOT hub query taal](iot-hub-devguide-query-language.md).
 
-* Bewerkingen uitvoeren op grote sets met behulp van apparaatdubbels [taken](iot-hub-devguide-jobs.md).
+* Bewerkingen uitvoeren op grote sets met apparaatdubbels met behulp van [taken](iot-hub-devguide-jobs.md).
 
-## <a name="device-operations"></a>Apparaatbewerkingen
+## <a name="device-operations"></a>Bewerkingen voor apparaten
 
-De apparaat-app is van invloed op het dubbele apparaat met behulp van de volgende atomische bewerkingen:
+De apparaat-app werkt op het apparaat tussen het gebruik van de volgende atomische bewerkingen:
 
-* **Ophalen van de apparaatdubbel**. Met deze bewerking wordt het apparaat dubbele-document (met inbegrip van de labels en gewenste en gerapporteerde eigenschappen) voor de momenteel verbonden apparaat.
+* **Ophalen van apparaat dubbele**. Met deze bewerking wordt het dubbele document van het apparaat (inclusief gewenste systeem eigenschappen) geretourneerd voor het apparaat dat momenteel is verbonden. (Tags zijn niet zichtbaar voor apparaat-apps.)
 
-* **Gedeeltelijk gerapporteerde eigenschappen bij te werken**. Met deze bewerking kunt het gedeeltelijke update van de gerapporteerde eigenschappen van de momenteel verbonden apparaat. Deze bewerking wordt de dezelfde JSON-update-indeling dat de oplossing back-end wordt gebruikt voor een gedeeltelijke update van gewenste eigenschappen.
+* De gerapporteerde **eigenschappen zijn gedeeltelijk bijgewerkt**. Met deze bewerking wordt de gedeeltelijke update van de gerapporteerde eigenschappen van het momenteel verbonden apparaat ingeschakeld. Deze bewerking maakt gebruik van dezelfde JSON-update-indeling als de back-end van de oplossing gebruikt voor een gedeeltelijke update van de gewenste eigenschappen.
 
-* **Gewenste eigenschappen observeren**. De momenteel verbonden apparaat kunt kiezen om te worden geïnformeerd over updates voor de gewenste eigenschappen wanneer ze zich voordoen. Het apparaat ontvangt de dezelfde vorm van update (gedeeltelijke of volledige vervanging) dat door de back-end van de oplossing wordt uitgevoerd.
+* **Bekijk de gewenste eigenschappen**. Het apparaat dat momenteel is verbonden, kan ervoor kiezen om op de hoogte te worden gesteld van updates voor de gewenste eigenschappen wanneer deze zich voordoen. Het apparaat ontvangt dezelfde vorm van update (gedeeltelijke of volledige vervanging) die wordt uitgevoerd door de back-end van de oplossing.
 
-De voorgaande behoeft de **DeviceConnect** machtiging, zoals gedefinieerd in [toegang tot IoT Hub regelen](iot-hub-devguide-security.md).
+Voor alle voor gaande bewerkingen is de machtiging **DeviceConnect** vereist, zoals is gedefinieerd in [toegang tot IOT hub beheren](iot-hub-devguide-security.md).
 
-De [Azure IoT device SDK's](iot-hub-devguide-sdks.md) gemakkelijk te gebruiken van de voorgaande bewerkingen van veel talen en platforms. Zie voor meer informatie over de details van IoT-Hub primitieven voor synchronisatie van de gewenste eigenschappen [apparaat opnieuw verbinden met flow](iot-hub-devguide-device-twins.md#device-reconnection-flow).
+De [sdk's van het Azure IOT-apparaat](iot-hub-devguide-sdks.md) maken het eenvoudig om de voor gaande bewerkingen uit vele talen en platforms te gebruiken. Zie voor meer informatie over de details van IoT Hub primitieven voor gewenste synchronisatie van het [apparaat de stroom](iot-hub-devguide-device-twins.md#device-reconnection-flow)voor het opnieuw verbinden van apparaten.
 
 ## <a name="tags-and-properties-format"></a>Indeling van tags en eigenschappen
 
-Labels en gewenste eigenschappen, gerapporteerde eigenschappen zijn JSON-objecten met de volgende beperkingen:
+Labels, gewenste eigenschappen en gerapporteerde eigenschappen zijn JSON-objecten met de volgende beperkingen:
 
-* Alle sleutels in JSON-objecten zijn hoofdlettergevoelig 64 bytes UNICODE UTF-8-tekenreeksen. Toegestane tekens uitsluiten Unicode-tekens (segmenten C0 en C1), en `.`, `$`, en SP
+* Alle sleutels in JSON-objecten zijn hoofdletter gevoelige 64 bytes UTF-8 UNICODE-teken reeksen. Toegestane tekens bevatten Unicode-besturings tekens (segmenten C0 en C1), `.`en `$`, en SP.
 
-* Alle waarden in de JSON-objecten van de volgende JSON-typen zijn: boolean, getal, string, object. Matrices zijn niet toegestaan. De maximale waarde voor gehele getallen is 4503599627370495 en de minimale waarde voor gehele getallen-4503599627370496 is.
+* Alle waarden in JSON-objecten kunnen van de volgende JSON-typen zijn: Boolean, Number, String, object. Matrices zijn niet toegestaan. De maximum waarde voor gehele getallen is 4503599627370495 en de minimum waarde voor gehele getallen is-4503599627370496.
 
-* Alle JSON-objecten in de gewenste en gerapporteerde eigenschappen-tags kunnen hebben een maximale diepte van 5. Bijvoorbeeld, geldt het volgende object:
+* Alle JSON-objecten in labels, gewenste en gerapporteerde eigenschappen kunnen een maximale diepte van 5 hebben. Het volgende object is bijvoorbeeld geldig:
 
    ```json
    {
@@ -271,19 +271,19 @@ Labels en gewenste eigenschappen, gerapporteerde eigenschappen zijn JSON-objecte
    }
    ```
 
-* Alle tekenreekswaarden kunnen maximaal 512 bytes lang zijn.
+* Alle teken reeks waarden kunnen Maxi maal 512 bytes lang zijn.
 
-## <a name="device-twin-size"></a>Grootte van de dubbele apparaat
+## <a name="device-twin-size"></a>Dubbele grootte van apparaat
 
-IoT Hub dwingt een beperking van de grootte van 8KB op elk van de respectieve totale waarden van `tags`, `properties/desired`, en `properties/reported`, met uitzondering van alleen-lezen-elementen.
+IOT hub dwingt een beperking van 8 kB af voor elk van de respectieve totale waarden `tags`van `properties/desired`,, `properties/reported`en, met uitzonde ring van alleen-lezen elementen.
 
-De grootte wordt berekend door het tellen van alle tekens, met uitzondering van Unicode-tekens (segmenten C0 en C1) en die zich buiten de tekenreeksconstanten.
+De grootte wordt berekend door alle tekens te tellen, met uitzonde ring van UNICODE-besturings tekens (segmenten C0 en C1) en spaties die zich buiten teken reeks constanten bevinden.
 
-IoT Hub is geweigerd door een fout. alle bewerkingen die de grootte van deze documenten boven de limiet wilt verhogen.
+IoT Hub weigert een fout bij alle bewerkingen die de grootte van deze documenten boven de limiet verg Roten.
 
-## <a name="device-twin-metadata"></a>Metagegevens van de dubbele apparaten
+## <a name="device-twin-metadata"></a>Dubbele meta gegevens van het apparaat
 
-IoT Hub onderhoudt de tijdstempel van de laatste update voor elk JSON-object in apparaatdubbel gewenst en gerapporteerde eigenschappen. De tijdstempels in UTC en gecodeerd in de [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) indeling `YYYY-MM-DDTHH:MM:SS.mmmZ`.
+IoT Hub onderhoudt de tijds tempel van de laatste update voor elk JSON-object in de dubbele gewenste en gerapporteerde eigenschappen van het apparaat. De tijds tempels zijn in UTC en worden gecodeerd in [](https://en.wikipedia.org/wiki/ISO_8601) de iso8601 `YYYY-MM-DDTHH:MM:SS.mmmZ`-indeling.
 
 Bijvoorbeeld:
 
@@ -332,55 +332,55 @@ Bijvoorbeeld:
 }
 ```
 
-Deze informatie wordt opgeslagen op elk niveau (niet alleen de knooppunten van de JSON-structuur) als u wilt behouden van updates die objectsleutels te verwijderen.
+Deze informatie wordt op elk niveau (niet alleen de bladeren van de JSON-structuur) bewaard om updates die object sleutels verwijderen te behouden.
 
 ## <a name="optimistic-concurrency"></a>Optimistische gelijktijdige uitvoering
 
-Tags, gewenste en gerapporteerde eigenschappen alle ondersteuning van optimistische gelijktijdigheid.
-Tags zijn een ETag volgens [RFC7232](https://tools.ietf.org/html/rfc7232), die de JSON-weergave van de tag vertegenwoordigt. U kunt ETags in voorwaardelijke bewerkingen van de back-end oplossing gebruiken om te zorgen voor consistentie.
+De labels, gewenste en gerapporteerde eigenschappen bieden ondersteuning voor optimistische gelijktijdigheid.
+Labels hebben een ETag, zoals per [RFC7232](https://tools.ietf.org/html/rfc7232), die de JSON-weer gave van de tag vertegenwoordigt. U kunt ETags gebruiken in bewerkingen voor voorwaardelijke updates van de back-end van de oplossing om consistentie te garanderen.
 
-Apparaatdubbel gewenst en gerapporteerde eigenschappen geen ETags, maar hebben een `$version` waarde die kan worden gegarandeerd incrementeel zijn. Op dezelfde manier naar een ETag, kan de versie worden gebruikt door de partij bijwerken voor het afdwingen van consistentie van updates. Bijvoorbeeld, een apparaat-app voor een gerapporteerde eigenschap of de back-end oplossing voor een gewenste eigenschap.
+Het dubbele gewenste apparaat en de gerapporteerde eigenschappen hebben geen ETags, `$version` maar hebben een waarde die gegarandeerd incrementeel is. Net als bij een ETag kan de versie worden gebruikt door de update partij om consistentie van updates af te dwingen. Bijvoorbeeld een apparaat-app voor een gerapporteerde eigenschap of de back-end van de oplossing voor een gewenste eigenschap.
 
-Versies zijn ook handig wanneer een observing agent (zoals de apparaat-app de gewenste eigenschappen geobserveerd) op elkaar stappen tussen het resultaat van een bewerking ophalen en een melding van updates afstemmen moet. De [apparaat opnieuw verbinden met flow sectie](iot-hub-devguide-device-twins.md#device-reconnection-flow) vindt u meer informatie.
+Versies zijn ook handig wanneer een waarneem bare agent (zoals de apparaat-app die de gewenste eigenschappen nadenkt), races moet afstemmen tussen het resultaat van een ophalen-bewerking en een update melding. De [sectie stroom](iot-hub-devguide-device-twins.md#device-reconnection-flow) voor het opnieuw verbinden van apparaten biedt meer informatie.
 
-## <a name="device-reconnection-flow"></a>Apparaat opnieuw verbinden met flow
+## <a name="device-reconnection-flow"></a>Stroom voor opnieuw verbinden van apparaat
 
-IoT Hub blijven niet behouden updatemeldingen gewenste eigenschappen voor niet-verbonden apparaten. Betekent dit dat het document volledige gewenste eigenschappen, naast het abonneren op updatemeldingen moet worden opgehaald door een apparaat dat verbinding maakt. Gezien de mogelijkheid van stappen tussen updatemeldingen en volledige ophalen, moet de volgende stroom worden gewaarborgd:
+De gewenste eigenschappen van updates voor niet-verbonden apparaten worden niet door IoT Hub bewaard. Het volgt dat een apparaat dat verbinding maakt, het volledige gewenste eigenschappen document moet ophalen naast het abonneren op update meldingen. Gezien de mogelijkheid van races tussen update meldingen en het volledig ophalen, moet de volgende stroom worden gegarandeerd:
 
 1. Apparaat-app maakt verbinding met een IoT-hub.
-2. Apparaat-app Hiermee abonneert u zich voor de gewenste eigenschappen updatemeldingen.
-3. Apparaat-app Hiermee haalt u het volledige document voor de gewenste eigenschappen.
+2. Apparaat-app wordt geabonneerd voor gewenste eigenschappen van meldingen bijwerken.
+3. Met Device App wordt het volledige document opgehaald voor gewenste eigenschappen.
 
-De apparaat-app kunt negeren alle meldingen met `$version` kleiner dan of gelijk is dan de versie van het volledige document opgehaald. Deze aanpak is mogelijk omdat de IoT Hub garandeert dat versies altijd verhogen.
+De apparaat-app kan alle meldingen negeren `$version` met minder of gelijk zijn aan de versie van het volledig opgehaalde document. Deze methode is mogelijk omdat IoT Hub garandeert dat de versies altijd worden verhoogd.
 
 > [!NOTE]
-> Deze logica wordt al geïmplementeerd de [Azure IoT device SDK's](iot-hub-devguide-sdks.md). Deze beschrijving is nuttig als de apparaat-app niet van Azure IoT device SDK's gebruiken en het MQTT-interface moet rechtstreeks programma.
+> Deze logica is al geïmplementeerd in de [Azure IOT-apparaat-sdk's](iot-hub-devguide-sdks.md). Deze beschrijving is alleen nuttig als de apparaat-app geen van de Azure IoT-apparaat-Sdk's kan gebruiken en de MQTT-interface rechtstreeks moet Program meren.
 > 
 
-## <a name="additional-reference-material"></a>Meer referentiemateriaal dat beschikbaar is
+## <a name="additional-reference-material"></a>Extra referentie materiaal
 
-Er zijn andere onderwerpen met naslaginformatie in de IoT Hub developer guide:
+Andere naslag onderwerpen in de IoT Hub ontwikkelaars handleiding zijn:
 
-* De [IoT Hub-eindpunten](iot-hub-devguide-endpoints.md) artikel beschrijft de verschillende eindpunten die elke IoT-hub voor runtime- en beheerbewerkingen toont.
+* In het artikel [IOT hub-eind](iot-hub-devguide-endpoints.md) punten worden de verschillende eind punten beschreven die elke IOT-hub beschikbaar maakt voor runtime-en beheer bewerkingen.
 
-* De [bandbreedtebeperking en quota's](iot-hub-devguide-quotas-throttling.md) artikel beschrijft de quota die betrekking hebben op de IoT Hub-service en de beperkingsgedrag u kunt verwachten wanneer u de service gebruiken.
+* In het artikel [beperking en quota's](iot-hub-devguide-quotas-throttling.md) worden de quota's beschreven die van toepassing zijn op de IOT hub-service en het beperkings gedrag dat u kunt verwachten wanneer u de service gebruikt.
 
-* De [apparaat en de service Azure IoT-SDK's](iot-hub-devguide-sdks.md) artikel geeft een lijst van de verschillende SDK's kunt u bij het ontwikkelen van apparaat- en service-apps die communiceren met IoT Hub-taal.
+* Het artikel [sdk's van Azure IOT-apparaat en-service](iot-hub-devguide-sdks.md) bevat een lijst met de diverse taal-sdk's die u kunt gebruiken bij het ontwikkelen van zowel apparaat-als service-apps die communiceren met IOT hub.
 
-* De [IoT Hub-querytaal voor apparaatdubbels, taken en berichtroutering](iot-hub-devguide-query-language.md) artikel beschrijft de IoT Hub-querytaal kunt u gegevens ophalen uit IoT Hub over uw apparaatdubbels en taken.
+* In de [IOT hub query taal voor apparaatdubbels, Jobs en bericht routering](iot-hub-devguide-query-language.md) wordt de IOT hub query taal beschreven die u kunt gebruiken om informatie op te halen van IOT hub over de apparaatdubbels en taken van uw apparaat.
 
-* De [IoT Hub MQTT-ondersteuning](iot-hub-mqtt-support.md) artikel vindt u meer informatie over IoT Hub-ondersteuning voor het MQTT-protocol.
+* Het [MQTT](iot-hub-mqtt-support.md) -ondersteunings artikel voor IOT hub biedt meer informatie over IOT hub ondersteuning voor het MQTT-protocol.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu hebt u geleerd over apparaatdubbels, bent u mogelijk geïnteresseerd in de volgende onderwerpen van IoT Hub developer guide:
+Nu u hebt geleerd over device apparaatdubbels, bent u mogelijk geïnteresseerd in de volgende IoT Hub onderwerpen over de ontwikkelaars handleiding:
 
-* [Begrijpen en gebruiken van moduledubbels in IoT Hub](iot-hub-devguide-module-twins.md)
+* [Module apparaatdubbels in IoT Hub begrijpen en gebruiken](iot-hub-devguide-module-twins.md)
 * [Een rechtstreekse methode aanroepen op een apparaat](iot-hub-devguide-direct-methods.md)
 * [Taken op meerdere apparaten plannen](iot-hub-devguide-jobs.md)
 
-Als u wilt uitproberen enkele concepten die in dit artikel wordt beschreven, Zie de volgende zelfstudies voor IoT Hub:
+Zie de volgende IoT Hub zelf studies voor het uitproberen van de concepten die in dit artikel worden beschreven:
 
-* [Het gebruik van de apparaatdubbel](iot-hub-node-node-twin-getstarted.md)
-* [Apparaatdubbeleigenschappen gebruiken](tutorial-device-twins.md)
-* [Apparaatbeheer met Azure IoT-hulpprogramma's voor VS Code](iot-hub-device-management-iot-toolkit.md)
+* [Het dubbele apparaat gebruiken](iot-hub-node-node-twin-getstarted.md)
+* [De dubbele eigenschappen van een apparaat gebruiken](tutorial-device-twins.md)
+* [Apparaatbeheer met Azure IoT-Hulpprogram Ma's voor VS code](iot-hub-device-management-iot-toolkit.md)

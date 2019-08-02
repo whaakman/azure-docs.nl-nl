@@ -1,7 +1,7 @@
 ---
-title: Exporteren en verwijderen van gegevens
+title: Gegevens exporteren & verwijderen-LUIS
 titleSuffix: Azure Cognitive Services
-description: Verwijderen van klantgegevens om ervoor te zorgen, privacy en naleving.
+description: Verwijder klant gegevens om te zorgen voor privacy en naleving.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,40 +11,40 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: a82452f4b41aee9c4ea6f269d92fbc91a5697d16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e234f88d6e735f33be253cacb373baef63c605c0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64916942"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559996"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exporteren en verwijderen van uw klantgegevens in Language Understanding (LUIS) in Cognitive Services
 
-Verwijderen van klantgegevens om ervoor te zorgen, privacy en naleving. 
+Verwijder klant gegevens om te zorgen voor privacy en naleving. 
 
 ## <a name="summary-of-customer-data-request-features"></a>Overzicht van de klant functies voor aanvraag
-Language Understanding Intelligent Service (LUIS) inhoud van de klant om de service blijft behouden, maar de gebruiker LUIS heeft volledige controle over het weergeven van, exporteren en verwijderen van hun gegevens. Dit kan worden gedaan via het web LUIS [portal](luis-reference-regions.md) of de [(ook wel bekend als programmatische) API's ontwerpen van LUIS](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
+Language Understanding Intelligent Service (LUIS) inhoud van de klant om de service blijft behouden, maar de gebruiker LUIS heeft volledige controle over het weergeven van, exporteren en verwijderen van hun gegevens. Dit kan worden gedaan via de LUIS- [](luis-reference-regions.md) webportal of de api's voor het [ontwerpen van Luis (ook wel bekend als programmatisch)](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 Inhoud van de klant is versleuteld opgeslagen in Microsoft regionale Azure storage en bevat:
 
 - Account-inhoud van gebruikers die zijn verzameld tijdens de registratie
-- Trainingsgegevens vereist voor het bouwen van modellen
-- Query's van gebruikers die worden gebruikt door het logboek geregistreerd [actief leren](luis-concept-review-endpoint-utterances.md) voor het verbeteren van het model
+- Trainings gegevens die nodig zijn voor het bouwen van de modellen
+- Geregistreerde gebruikers query's die worden gebruikt door [actief leren](luis-concept-review-endpoint-utterances.md) om het model te verbeteren
   - Gebruikers kunnen query logboekregistratie uitschakelen door toe te voegen `&log=false` aan de aanvraag om details [hier](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
 ## <a name="deleting-customer-data"></a>Verwijderen van klantgegevens
-LUIS-gebruikers hebben volledig beheer om een gebruiker inhoud via de LUIS-webportal of de LUIS ontwerpen (ook bekend als Programmatic)-API's te verwijderen. De volgende tabel bevat koppelingen ter ondersteuning van met beide:
+LUIS-gebruikers hebben volledige controle om gebruikers inhoud te verwijderen, hetzij via de LUIS-webportal of de LUIS authoring (ook wel programmatische-Api's). De volgende tabel bevat koppelingen ter ondersteuning van met beide:
 
-| | **Gebruikersaccount** | **Toepassing** | **Voorbeeld Utterance(s)** | **Query's door eindgebruikers** |
+| | **Gebruikersaccount** | **Toepassing** | **Voor beeld van Utterance (s)** | **Query's door eindgebruikers** |
 | --- | --- | --- | --- | --- |
-| **Portal** | [Link](luis-concept-data-storage.md#delete-an-account) | [Link](luis-how-to-start-new-app.md#delete-app) | [Link](luis-concept-data-storage.md#utterances-in-an-intent) | [Actief leren uitingen](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Logged Utterances](luis-concept-data-storage.md#disable-logging-utterances) |
+| **Portal** | [Link](luis-concept-data-storage.md#delete-an-account) | [Link](luis-how-to-start-new-app.md#delete-app) | [Link](luis-concept-data-storage.md#utterances-in-an-intent) | [Actieve Learning uitingen](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Geregistreerde uitingen](luis-concept-data-storage.md#disable-logging-utterances) |
 | **API's** | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 
 ## <a name="exporting-customer-data"></a>Exporteren van gegevens van de klant
-LUIS-gebruikers hebben volledig beheer tot de gegevens in de portal, maar deze moet worden geëxporteerd via de LUIS ontwerpen (ook wel bekend als programmatische) API's. De volgende tabel bevat koppelingen ter ondersteuning van met de uitvoer van de gegevens via het ontwerpen van LUIS (ook wel bekend als programmatische) API's:
+LUIS-gebruikers hebben volledige controle over het weer geven van de gegevens op de portal, maar moeten worden geëxporteerd via de Api's voor LUIS ontwerpen (ook wel bekend als programmatisch). De volgende tabel bevat koppelingen voor het exporteren van gegevens via de Api's van LUIS authoring (ook wel bekend als programmatisch):
 
 | | **Gebruikersaccount** | **Toepassing** | **Utterance(s)** | **Query's door eindgebruikers** |
 | --- | --- | --- | --- | --- |
@@ -52,39 +52,39 @@ LUIS-gebruikers hebben volledig beheer tot de gegevens in de portal, maar deze m
 
 ## <a name="location-of-active-learning"></a>Locatie van actief leren
 
-Om in te schakelen [actief leren](luis-how-to-review-endpoint-utterances.md#enable-active-learning), geregistreerde gebruikers uitingen, ontvangen op de gepubliceerde LUIS-eindpunten worden opgeslagen in de volgende Azure-regio's:
+Om [actief leren](luis-how-to-review-endpoint-utterances.md#enable-active-learning)in te scha kelen, worden de geregistreerde uitingen van gebruikers die zijn ontvangen op de gepubliceerde Luis-eind punten, opgeslagen in de volgende Azure-geografies:
 
 * [Europa](#europe)
 * [Australië](#australia)
 * [Verenigde Staten](#united-states)
 
-Met uitzondering van actief leren gegevens (hieronder beschreven), LUIS volgt de [data storage procedures voor regionale services](https://azuredatacentermap.azurewebsites.net/). 
+Met uitzonde ring van actieve leer gegevens (hieronder beschreven), volgt LUIS de [gegevensopslag methoden voor regionale Services](https://azuredatacentermap.azurewebsites.net/). 
 
 ### <a name="europe"></a>Europa
 
-De [eu.luis.ai](https://eu.luis.ai) portal en Europa ontwerpen (ook wel bekend als programmatische API's) worden gehost in Azure van Europa Geografie. Ondersteuning voor implementatie van de eindpunten aan de volgende Azure-geografieën de eu.luis.ai-portal en Europa ontwerpen (ook wel bekend als programmatische API's):
+De [EU.Luis.ai](https://eu.luis.ai) -Portal en Europa-ontwerping (ook wel programmatische api's genoemd) worden gehost in de Europa-wereld van Azure. De eu.luis.ai-Portal en Europa-ontwerp (ook wel programmatische Api's genoemd) ondersteunen de implementatie van eind punten naar de volgende Azure-geografi:
 
 * Europa
 * Frankrijk
 * Verenigd Koninkrijk
 
-Bij het implementeren van deze Azure-geografieën, wordt de uitingen ontvangen door het eindpunt van de eindgebruikers van uw app worden opgeslagen in Azure van Europa geografisch gebied voor actief leren. U kunt uitschakelen actief leren, Zie [uitschakelen actief leren](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Zie voor het beheren van opgeslagen uitingen [verwijderen utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+Wanneer u implementeert in deze Azure-grafieken, wordt de uitingen die door het eind punt van de eind gebruikers van uw app worden ontvangen, opgeslagen in de Europa-wereld van Azure voor actief onderwijs. U kunt actief leren uitschakelen. Zie voor het [uitschakelen van actief leren](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Zie [Utterance verwijderen](luis-how-to-review-endpoint-utterances.md#delete-utterance)om opgeslagen uitingen te beheren. 
 
 ### <a name="australia"></a>Australië
 
-De [au.luis.ai](https://au.luis.ai) portal en Australië ontwerpen (ook wel bekend als programmatische API's) worden gehost in Azure Australië Geografie. Ondersteuning voor implementatie van de eindpunten aan de volgende Azure-geografieën de au.luis.ai-portal en Australië ontwerpen (ook wel bekend als programmatische API's):
+De [au.Luis.ai](https://au.luis.ai) -Portal en Australië-ontwerping (ook wel programmatische api's genoemd) worden gehost in de geografische regio van Azure. De au.luis.ai-Portal en Australië-ontwerping (ook wel programmatische Api's genoemd) ondersteunen de implementatie van eind punten naar de volgende Azure-geografies:
 
 * Australië
 
-Bij het implementeren van deze Azure-geografieën, worden de uitingen ontvangen door het eindpunt van de eindgebruikers van uw app opgeslagen in de Azure Australië geografisch gebied voor actief leren. U kunt uitschakelen actief leren, Zie [uitschakelen actief leren](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Zie voor het beheren van opgeslagen uitingen [verwijderen utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+Wanneer u implementeert in deze Azure-grafieken, wordt de uitingen die door het eind punt van de eind gebruikers van uw app worden ontvangen, opgeslagen in de geografische regio van Azure voor actief onderwijs. U kunt actief leren uitschakelen. Zie voor het [uitschakelen van actief leren](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Zie [Utterance verwijderen](luis-how-to-review-endpoint-utterances.md#delete-utterance)om opgeslagen uitingen te beheren. 
 
 ### <a name="united-states"></a>Verenigde Staten
 
-De [luis.ai](https://www.luis.ai) portal en de Verenigde Staten ontwerpen (ook wel bekend als programmatische API's) worden gehost in Azure Verenigde Staten Geografie. Ondersteuning voor implementatie van de eindpunten aan de volgende Azure-geografieën de luis.ai-portal en de Verenigde Staten ontwerpen (ook wel bekend als programmatische API's):
+De [Luis.ai](https://www.luis.ai) -portal en Verenigde Staten-ontwerp (ook wel programmatische api's genoemd) worden gehost in de Verenigde Staten Geografie van Azure. De luis.ai-Portal en Verenigde Staten-ontwerp (ook wel programmatische Api's genoemd) ondersteunen de implementatie van eind punten naar de volgende Azure-geografi:
 
-* Azure-geografieën niet wordt ondersteund door de Europa of Australië regio's ontwerpen
+* Azure-geografi niet ondersteund door de ontwerp regio's Europa of Australië
 
-Bij het implementeren van deze Azure-geografieën, worden de uitingen ontvangen door het eindpunt van de eindgebruikers van uw app opgeslagen in de Verenigde Staten geografisch gebied van Azure voor actief leren. U kunt uitschakelen actief leren, Zie [uitschakelen actief leren](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Zie voor het beheren van opgeslagen uitingen [verwijderen utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+Wanneer u implementeert in deze Azure-grafieken, wordt de uitingen die door het eind punt van de eind gebruikers van uw app worden ontvangen, opgeslagen in de Verenigde Staten Geografie van Azure voor actief onderwijs. U kunt actief leren uitschakelen. Zie voor het [uitschakelen van actief leren](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Zie [Utterance verwijderen](luis-how-to-review-endpoint-utterances.md#delete-utterance)om opgeslagen uitingen te beheren. 
 
 
 ## <a name="next-steps"></a>Volgende stappen

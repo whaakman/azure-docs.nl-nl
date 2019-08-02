@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 885c877f219f59ab5049cf7b8e01243077d6d3eb
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 7fba9cbbaa15359e7e4dd95e66645dd5f4022431
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348399"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640781"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Virtuele VMware-machines migreren naar Azure (zonder agent)
 
@@ -41,7 +41,7 @@ U kunt virtuele VMware-machines migreren naar Azure met behulp van het hulp prog
 
 Als u wilt beslissen of u zonder agents of migratie op basis van een agent wilt gebruiken, raadpleegt u de volgende artikelen:
 
-- [Meer informatie over](server-migrate-overview.md) de werking van agentloze migratie en [de beperkingen](server-migrate-overview.md#agentless-migration-limitations).
+- [Meer informatie over](server-migrate-overview.md) de werking van agentloze migratie en het [vergelijken van migratie methoden](server-migrate-overview.md#compare-migration-methods).
 - [Lees dit artikel](tutorial-migrate-vmware-agent.md) als u de op de agent gebaseerde methode wilt gebruiken.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -93,7 +93,7 @@ Volg de instructies in [dit artikel](how-to-set-up-appliance-vmware.md) om het a
 
 Azure Migrate vereist enkele VM-wijzigingen om ervoor te zorgen dat Vm's kunnen worden gemigreerd naar Azure.
 
-- Voor sommige [besturings systemen](server-migrate-overview.md#agentless-migration-limitations)worden deze wijzigingen automatisch door Azure migrate aangebracht.
+- Voor sommige besturings systemen worden deze wijzigingen automatisch door Azure Migrate aangebracht. [Meer informatie](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)
 - Als u een virtuele machine met een van deze besturings systemen wilt migreren, volgt u de instructies om de virtuele machine voor te bereiden.
 - Het is belang rijk dat u deze wijzigingen aanbrengt voordat u begint met de migratie. Als u de virtuele machine migreert voordat u de wijziging aanbrengt, wordt de VM mogelijk niet opgestart in Azure.
 - Wijzigingen in de configuratie van on-premises Vm's worden gerepliceerd naar Azure nadat de replicatie voor de virtuele machine is ingeschakeld. Om ervoor te zorgen dat de wijzigingen worden gerepliceerd, moet u ervoor zorgen dat het herstel punt dat u migreert, later is dan het tijdstip waarop de configuratie wijzigingen on-premises zijn aangebracht.
@@ -157,9 +157,9 @@ Als de detectie is voltooid, kunt u beginnen met de replicatie van virtuele VMwa
     - Selecteer **Nee** als u Azure Hybrid Benefit niet wilt Toep assen. Klik op **Volgende**.
     - Selecteer **Ja** als u Windows Server-computers hebt die worden gedekt door actieve Software Assurance-of Windows Server-abonnementen en u het voor deel wilt Toep assen op de machines die u wilt migreren. Klik op **Volgende**.
 
-    ![Doel instellingen](./media/tutorial-migrate-vmware/target-settings.png)
+    ![Doelinstellingen](./media/tutorial-migrate-vmware/target-settings.png)
 
-8. Controleer in Compute de naam van de virtuele machine, de grootte, het schijf type van het besturings systeem en de beschikbaarheidsset. Vm's moeten voldoen aan de [vereisten van Azure](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
+8. Controleerin Compute de naam van de virtuele machine, de grootte, het schijf type van het besturings systeem en de beschikbaarheidsset. Vm's moeten voldoen aan de [vereisten van Azure](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
 
     - **VM-grootte**: Als u evaluatie aanbevelingen gebruikt, bevat de vervolg keuzelijst VM-grootte de aanbevolen grootte. Anders Azure Migrate een grootte gekozen op basis van het dichtstbijzijnde resultaat van het Azure-abonnement. U kunt ook een hand matige grootte kiezen in de **Azure VM-grootte**. 
     - **Besturingssysteem schijf**: Geef de opstart schijf van het besturings systeem voor de virtuele machine op. De besturingssysteem schijf is de schijf met de bootloader van het besturings systeem en het installatie programma. 
@@ -198,7 +198,7 @@ Als dit de eerste VM is die u repliceert in het Azure Migrate-project, worden de
 
 U kunt de taak status volgen in de portal meldingen.
 
-U kunt de replicatie status controleren door te  klikken op replicerende **servers in azure migrate: Server migratie**.
+U kunt de replicatie status controleren door te klikken op replicerende **servers in azure migrate: Server migratie**.
 ![Replicatie controleren](./media/tutorial-migrate-vmware/replicating-servers.png)
 
 
@@ -241,7 +241,7 @@ Nadat u hebt gecontroleerd of de test migratie werkt zoals verwacht, kunt u de o
     ![Servers repliceren](./media/tutorial-migrate-vmware/replicate-servers.png)
 
 2. Klik in **replicerende machines**met de rechter muisknop op de virtuele machine die > **migreren**.
-3. Selecteer  >  JaOKbijhet > migreren van**virtuele machines afsluiten en het uitvoeren van een geplande migratie zonder gegevens verlies**.
+3. Selecteer > JaOKbijhet > migreren van**virtuele machines afsluiten en het uitvoeren van een geplande migratie zonder gegevens verlies**. ****
     - Standaard Azure Migrate de on-premises VM afsluit en wordt een replicatie op aanvraag uitgevoerd om eventuele wijzigingen in de virtuele machine te synchroniseren sinds de laatste replicatie is uitgevoerd. Dit zorgt ervoor dat er geen gegevens verloren gaan.
     - Als u de virtuele machine niet wilt afsluiten, selecteert u **Nee**
 4. Er wordt een migratie taak gestart voor de virtuele machine. Volg de taak in azure Notifications.

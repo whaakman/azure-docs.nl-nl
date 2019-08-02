@@ -1,9 +1,9 @@
 ---
-title: Controlelijst voor Azure Service Fabric productie gereedheid | Microsoft Docs
-description: Bereid u voor uw Service Fabric-toepassing en cluster productie door de volgende aanbevolen procedures.
+title: Controle lijst voor productie voorbereiding voor Azure Service Fabric | Microsoft Docs
+description: Down load uw Service Fabric-toepassing en cluster productie gereed door de aanbevolen procedures te volgen.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: ''
 ms.assetid: ''
@@ -13,59 +13,59 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/05/2019
-ms.author: aljo
-ms.openlocfilehash: a75b02b8173507a28204a3ec2030ce7ed9838495
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 9e86f7306ee70bee2e084b967867e2a9be5b66e1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729866"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599355"
 ---
 # <a name="production-readiness-checklist"></a>Controlelijst voor productiegereedheid
 
-Uw toepassing en het cluster gereed is voor productieverkeer? Uitvoeren en testen van uw toepassing en het cluster noodzakelijkerwijs niet dat deze klaar is voor gebruik in productie. Houd uw toepassing en cluster die probleemloos werken door te gaan via de volgende controlelijst. Wij raden deze items om te worden ingeschakeld. U kunt uiteraard alternatieve oplossingen gebruiken voor een bepaalde regelitem (bijvoorbeeld uw eigen frameworks diagnostische gegevens).
+Is uw toepassing en cluster klaar om productie verkeer te nemen? Het uitvoeren en testen van uw toepassing en uw cluster betekent niet noodzakelijkerwijs dat deze klaar is om in productie te gaan. Zorg ervoor dat uw toepassing en cluster probleemloos werken door de volgende controle lijst te gebruiken. We raden u ten zeerste aan om al deze items uit te scha kelen. U kunt er natuurlijk voor kiezen om alternatieve oplossingen te gebruiken voor een bepaald regel item (bijvoorbeeld uw eigen diagnose raamwerken).
 
 
 ## <a name="prerequisites-for-production"></a>Vereisten voor productie
-1. Aanbevolen procedures van Azure Service Fabric: [Toepassingsontwerp](./service-fabric-best-practices-applications.md), [Security](./service-fabric-best-practices-security.md), [netwerken](./service-fabric-best-practices-networking.md), [capaciteitsplanning en schaling](./service-fabric-best-practices-capacity-scaling.md), [Infrastructure as Code](./service-fabric-best-practices-infrastructure-as-code.md), en [bewaking en diagnose](./service-fabric-best-practices-monitoring.md). 
-1. De beveiligingsconfiguratie Reliable Actors implementeren als de actoren programmeermodel
-1. Voor clusters met meer dan 20 kernen of 10 knooppunten, maakt u een toegewezen primaire knooppunttype van systeemservices. Voeg [plaatsingsbeperkingen](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) reserveren van het primaire knooppunttype van systeemservices.
-1. Gebruik een D2v2 of een hogere SKU voor het primaire knooppunttype. Het verdient aanbeveling een SKU kiezen met ten minste 50 GB harde schijfcapaciteit.
-1. Productieclusters moeten [beveiligde](service-fabric-cluster-security.md). Zie voor een voorbeeld van het instellen van een beveiligd cluster [clustersjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Gebruik algemene namen voor certificaten en Vermijd het gebruik van zelf ondertekende certificaten.
-1. Voeg [resource beperkingen met betrekking tot containers en services](service-fabric-resource-governance.md), zodat ze niet meer dan 75% van knooppunt resources verbruiken. 
-1. Inzicht in en stel de [duurzaamheidsniveau](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Zilver of hoger duurzaamheidsniveau wordt aanbevolen voor knooppunttypen met stateful werkbelastingen. Het primaire knooppunttype moet een duurzaamheidsniveau ingesteld op Silver of hoger hebben.
-1. Inzicht in en kies de [betrouwbaarheidsniveau](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) van het knooppunttype. Betrouwbaarheid van Silver- of hoger wordt aanbevolen.
-1. Laden en de schaal test uw werklasten identificeren [capaciteitsvereisten](service-fabric-cluster-capacity.md) voor uw cluster. 
-1. Uw services en toepassingen worden bewaakt en toepassingslogboeken worden gegenereerd en opgeslagen, met waarschuwingen. Zie bijvoorbeeld [logboekregistratie toevoegen aan uw Service Fabric-toepassing](service-fabric-how-to-diagnostics-log.md) en [bewaken van containers met Azure Monitor logboeken](service-fabric-diagnostics-oms-containers.md).
-1. Het cluster wordt bewaakt met waarschuwingen (bijvoorbeeld met [logboeken van Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)). 
-1. De onderliggende infrastructuur van virtual machine scale set wordt gecontroleerd met waarschuwingen (bijvoorbeeld met [logboeken van Azure Monitor](service-fabric-diagnostics-oms-agent.md).
-1. Het cluster heeft [primaire en secundaire certificaten](service-fabric-cluster-security-update-certs-azure.md) altijd (zodat u niet buitengesloten wordt uit).
-1. Onderhouden afzonderlijke clusters voor ontwikkeling, fasering en productie. 
-1. [Toepassingsupgrades](service-fabric-application-upgrade.md) en [upgrades van cluster](service-fabric-tutorial-upgrade-cluster.md) in ontwikkeling zijn getest en eerst staging-clusters. 
-1. Automatische upgrades in productieclusters uitschakelen en inschakelen voor ontwikkelings- en staging-clusters (rollback indien nodig). 
-1. Een Recovery Point Objective (RPO) voor uw service tot stand brengen en instellen van een [noodherstelprocedure](service-fabric-disaster-recovery.md) en testen.
-1. Plannen voor [schalen](service-fabric-cluster-scaling.md) uw cluster handmatig of programmatisch.
-1. Plannen voor [patches](service-fabric-patch-orchestration-application.md) uw clusterknooppunten. 
-1. Stel een CI/CD-pijplijn zodat de meest recente wijzigingen voortdurend worden getest. Bijvoorbeeld, met behulp van [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) of [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
-1. Test uw ontwikkeling- en staging-clusters onder belasting met de [Fault Analysis Service](service-fabric-testability-overview.md) en gecontroleerde veroorzaken [chaos](service-fabric-controlled-chaos.md). 
-1. Plannen voor [schalen](service-fabric-concepts-scalability.md) uw toepassingen. 
+1. Aanbevolen procedures voor Azure Service Fabric: [Toepassings ontwerp](./service-fabric-best-practices-applications.md), [beveiliging](./service-fabric-best-practices-security.md), [netwerken](./service-fabric-best-practices-networking.md), [capaciteits planning en schalen](./service-fabric-best-practices-capacity-scaling.md), [infra structuur als code](./service-fabric-best-practices-infrastructure-as-code.md)en [controle en diagnose](./service-fabric-best-practices-monitoring.md). 
+1. Implementeer de Reliable Actors-beveiligings configuratie als u het Actors-programmeer model gebruikt
+1. Voor clusters met meer dan 20 kernen of tien knoop punten maakt u een specifiek primair knooppunt type voor systeem services. Voeg [plaatsings beperkingen](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) toe om het primaire knooppunt type voor systeem services te reserveren.
+1. Gebruik een virtuele d2v2 of hogere SKU voor het primaire knooppunt type. U kunt het beste een SKU kiezen met ten minste 50 GB aan vaste schijf capaciteit.
+1. Productie clusters moeten [veilig](service-fabric-cluster-security.md)zijn. Zie deze [cluster sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG)voor een voor beeld van het instellen van een beveiligd cluster. Gebruik algemene namen voor certificaten en Vermijd het gebruik van zelf-ondertekende certificaten.
+1. Voeg [resource beperkingen toe aan containers en services](service-fabric-resource-governance.md), zodat ze niet meer dan 75% van knooppunt bronnen gebruiken. 
+1. Begrijp en stel het [duurzaamheids niveau](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)in. Het niveau van Silver of hogere duurzaamheid wordt aanbevolen voor knooppunt typen die stateful werk belastingen uitvoeren. Voor het primaire knooppunt type moet het niveau duurzaamheid worden ingesteld op zilver of hoger.
+1. Het [betrouwbaarheids niveau](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) van het knooppunt type begrijpen en kiezen. De betrouw baarheid van zilver of hoger wordt aanbevolen.
+1. Laad en schaal uw workloads om de capaciteits [vereisten](service-fabric-cluster-capacity.md) voor uw cluster te bepalen. 
+1. Uw services en toepassingen worden bewaakt en toepassings logboeken worden gegenereerd en opgeslagen, met waarschuwingen. Zie bijvoorbeeld [logboek registratie toevoegen aan uw service Fabric-toepassing](service-fabric-how-to-diagnostics-log.md) en [containers controleren met Azure monitor](service-fabric-diagnostics-oms-containers.md)-Logboeken.
+1. Het cluster wordt bewaakt met waarschuwingen (bijvoorbeeld met [Azure monitor](service-fabric-diagnostics-event-analysis-oms.md)-Logboeken). 
+1. De onderliggende infra structuur voor virtuele-machine schaal sets wordt bewaakt met waarschuwingen (bijvoorbeeld met [Azure monitor](service-fabric-diagnostics-oms-agent.md)-Logboeken.
+1. Het cluster heeft altijd [primaire en secundaire certificaten](service-fabric-cluster-security-update-certs-azure.md) (zodat u geen vergren deling krijgt).
+1. Afzonderlijke clusters onderhouden voor ontwikkeling, fase ring en productie. 
+1. [Toepassings upgrades](service-fabric-application-upgrade.md) en [cluster upgrades](service-fabric-tutorial-upgrade-cluster.md) worden eerst getest in ontwikkelings-en faserings clusters. 
+1. Schakel automatische upgrades in productie clusters uit en schakel deze in voor ontwikkelings-en faserings clusters (indien nodig terugdraaien). 
+1. Stel een beoogd herstel punt (RPO) in voor uw service en installeer een [nood herstel proces](service-fabric-disaster-recovery.md) en test het.
+1. Plan uw cluster hand matig of via een programma te [schalen](service-fabric-cluster-scaling.md) .
+1. Plan voor [](service-fabric-patch-orchestration-application.md) het patchen van uw cluster knooppunten. 
+1. Stel een CI/CD-pijp lijn in zodat uw meest recente wijzigingen continu worden getest. Bijvoorbeeld met behulp van [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) of [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+1. Test uw ontwikkeling & faserings clusters onder belasting met de [fout Analysis-Service](service-fabric-testability-overview.md) en stel beheerde [chaos](service-fabric-controlled-chaos.md). 
+1. Plan uw toepassingen te [schalen](service-fabric-concepts-scalability.md) . 
 
 
-Als u de Service Fabric Reliable Services of Reliable Actors-programmeermodel gebruikt, moeten de volgende items worden ingeschakeld:
-1. Upgrade uitvoeren van toepassingen tijdens de lokale ontwikkeling om te controleren dat de servicecode van uw naleven van de annulering token in de `RunAsync` methode en aangepaste communicatielisteners te sluiten.
-1. Vermijd [veel voorkomende valkuilen](service-fabric-work-with-reliable-collections.md) bij het gebruik van betrouwbare verzamelingen.
-1. De prestaties van het geheugen .NET CLR tellers bij het uitvoeren van belastingtesten en controleren op hoge frequenties van garbagecollection of overmatig heap groei bewaken.
-1. Offline back-up van onderhouden [Reliable Services en Reliable Actors](service-fabric-reliable-services-backup-restore.md) en testen van het herstelproces.
-1. Het primaire NodeType virtuele Machine-exemplaren in het ideale geval moet gelijk zijn aan het minimale aantal voor uw Clusters betrouwbaarheidslaag; voorwaarden wanneer dat nodig is meer dan de minimale laag bevat: tijdelijk als verticaal schalen van uw primaire NodeTypes Virtual Machine Scale de SKU.
+Als u de Service Fabric Reliable Services of Reliable Actors programmeer model gebruikt, moeten de volgende items worden uitgecheckt:
+1. Upgrade toepassingen tijdens de lokale ontwikkeling om te controleren of uw service code het annulerings token in de `RunAsync` methode en de aangepaste communicatie-listeners heeft geaccepteerd.
+1. Vermijd [veelvoorkomende Valk uilen](service-fabric-work-with-reliable-collections.md) wanneer u betrouw bare verzamelingen gebruikt.
+1. Bewaak de prestatie meter items voor .NET CLR-geheugen bij het uitvoeren van belasting tests en controleer op hoge frequenties van garbagecollection of overmatige heap-groei.
+1. Onderhoud van de offline back-up van [reliable Services en reliable actors](service-fabric-reliable-services-backup-restore.md) en het herstel proces testen.
+1. Het aantal primaire NodeType van de virtuele machine moet idea liter gelijk zijn aan het minimum voor de betrouwbaarheids categorie van uw clusters; de voor waarden die nodig zijn om de laag mini maal te overschrijden, zijn: tijdelijk bij het verticaal schalen van uw primaire NodeTypes voor de Schaalset van virtuele machines.
 
-## <a name="optional-best-practices"></a>Optionele procedures
+## <a name="optional-best-practices"></a>Optionele aanbevolen procedures
 
-De bovenstaande lijst zijn vereisten om te gaan naar de productie, moeten ook de volgende items worden beschouwd:
-1. Koppelen aan de [Service Fabric-statusmodel](service-fabric-health-introduction.md) voor het uitbreiden van de ingebouwde evalueren en te rapporteren.
-1. Implementeren van een aangepaste watchdog die wordt bewaakt door uw toepassing en de rapporten [laden](service-fabric-cluster-resource-manager-metrics.md) voor [bron-balancing](service-fabric-cluster-resource-manager-balancing.md). 
+Hoewel de bovenstaande lijsten vereisten zijn om in productie te gaan, moeten de volgende items ook worden beschouwd:
+1. Sluit u aan bij het [service Fabric status model](service-fabric-health-introduction.md) voor het uitbreiden van de ingebouwde status evaluatie en rapportage.
+1. Implementeer een aangepaste watchdog die uw toepassingen en rapporten bewaken die worden [geladen](service-fabric-cluster-resource-manager-metrics.md) voor [resource verdeling](service-fabric-cluster-resource-manager-balancing.md). 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Een Service Fabric Windows-cluster implementeren](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* [Een Linux Service Fabric-cluster implementeren](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+* [Een Service Fabric Linux-cluster implementeren](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 * Meer informatie over de [levenscyclus](service-fabric-application-lifecycle.md) van de Service Fabric-toepassing.

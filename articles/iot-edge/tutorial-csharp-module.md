@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie ontwikkelen C# -module voor Linux - Azure IoT Edge | Microsoft Docs
-description: Deze zelfstudie leert u over het maken van een IoT Edge-module met C# code en deze implementeren in een Linux IoT Edge-apparaat.
+title: Zelf studie C# ontwikkel module voor Linux-Azure IOT Edge | Microsoft Docs
+description: In deze zelf studie wordt uitgelegd hoe u een IoT Edge module C# maakt met code en deze implementeert op een Linux IOT edge-apparaat.
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -9,16 +9,16 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b9ced0b08ed26057a45959f759fb90cbd7efe2a5
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 305804682ede9833619837807d6f174ec670560e
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239795"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414258"
 ---
-# <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Zelfstudie: Ontwikkel een C# IoT Edge-module voor Linux-apparaten
+# <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Zelfstudie: Een C# IOT Edge-module ontwikkelen voor Linux-apparaten
 
-Visual Studio Code gebruiken voor het ontwikkelen van C# code en deze implementeren in een Linux-apparaat met Azure IoT Edge. 
+Gebruik Visual Studio code om code C# te ontwikkelen en te implementeren op een Linux-apparaat met Azure IOT Edge. 
 
 U kunt Azure IoT Edge-modules gebruiken voor het implementeren van code die uw bedrijfslogica rechtstreeks op uw IoT Edge-apparaten implementeert. In deze zelfstudie leert u een IoT Edge-module te maken die sensorgegevens filtert. U gebruikt het gesimuleerde IoT Edge-apparaat dat u hebt gemaakt in de quickstarts over het implementeren van Azure IoT Edge op een gesimuleerd apparaat in [Windows](quickstart.md) of [Linux](quickstart-linux.md). In deze zelfstudie leert u het volgende:    
 
@@ -32,35 +32,38 @@ De IoT Edge-module die u maakt in deze zelfstudie filtert de temperatuurgegevens
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Bereik van de oplossing
+## <a name="solution-scope"></a>Oplossings bereik
 
-In deze zelfstudie laat zien hoe u voor het ontwikkelen van een module in **C#** met behulp van **Visual Studio Code**, en hoe u implementeert een **Linux apparaat**. Als u modules voor Windows-apparaten ontwikkelt, gaat u naar [ontwikkelen een C# IoT Edge-module voor Windows-apparaten](tutorial-csharp-module-windows.md) in plaats daarvan.
+In deze zelf studie wordt gedemonstreerd hoe u **C#** een module ontwikkelt in **Visual Studio code**en hoe u deze implementeert op een **Linux-apparaat**. Als u modules voor Windows-apparaten ontwikkelt, gaat u in plaats daarvan naar [een C# IOT Edge module ontwikkelen voor Windows-apparaten](tutorial-csharp-module-windows.md) .
 
-Gebruik de volgende tabel om te begrijpen van de opties voor het ontwikkelen en implementeren van modules in C op Linux: 
+Gebruik de volgende tabel om inzicht te krijgen in de opties voor het ontwikkelen en implementeren van C-modules voor Linux: 
 
 | C# | Visual Studio Code | Visual Studio | 
 | -- | ------------------ | ------------- |
-| **Linux AMD64** | ![C#modules voor LinuxAMD64 in VS Code](./media/tutorial-c-module/green-check.png) | ![C#modules voor LinuxAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
-| **Linux ARM32** | ![C#modules voor LinuxARM32 in VS Code](./media/tutorial-c-module/green-check.png) | ![C#modules voor LinuxARM64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
+| **Linux AMD64** | ![C#modules voor LinuxAMD64 in VS code](./media/tutorial-c-module/green-check.png) | ![C#modules voor LinuxAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
+| **Linux ARM32** | ![C#modules voor LinuxARM32 in VS code](./media/tutorial-c-module/green-check.png) | ![C#modules voor LinuxARM64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
+
+>[!NOTE]
+>Ondersteuning voor Linux ARM64-apparaten is beschikbaar in de [open bare preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Zie voor meer informatie [ARM64-modules ontwikkelen en fouten opsporen IOT Edge in Visual Studio code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u deze zelfstudie begint, moet u zijn gebleven door middel van de vorige zelfstudie over het instellen van uw ontwikkelomgeving [ontwikkelen van een IoT Edge-module voor een Linux-apparaat](tutorial-develop-for-linux.md). Na het voltooien van deze zelfstudie, moet u al de volgende vereisten zijn: 
+Voordat u met deze zelf studie begint, moet u de vorige zelf studie hebben door lopen om uw ontwikkel omgeving in te stellen, [een IOT Edge module te ontwikkelen voor een Linux-apparaat](tutorial-develop-for-linux.md). Nadat u deze zelf studie hebt voltooid, moet u de volgende vereisten al hebben: 
 
 * Een gratis of standaard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure.
-* Een [Linux-apparaat met Azure IoT Edge](quickstart-linux.md).
-* Een containerregister, bijvoorbeeld [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio Code](https://code.visualstudio.com/) geconfigureerd met de [hulpprogramma's voor Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* [Docker CE](https://docs.docker.com/install/) geconfigureerd voor het uitvoeren van Linux-containers.
+* Een [Linux-apparaat met Azure IOT Edge](quickstart-linux.md).
+* Een container register, zoals [Azure container Registry](https://docs.microsoft.com/azure/container-registry/).
+* [Visual Studio-code](https://code.visualstudio.com/) die is geconfigureerd met de [Azure IOT-hulpprogram ma's](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [Docker CE](https://docs.docker.com/install/) is geconfigureerd voor het uitvoeren van Linux-containers.
 
-Als u wilt deze zelfstudies hebt voltooid, het voorbereiden van de volgende aanvullende vereisten op uw ontwikkelcomputer: 
+Voor het volt ooien van deze zelf studies moet u de volgende aanvullende vereisten op uw ontwikkel computer voorbereiden: 
 
 * [De extensie C# voor Visual Studio Code (van OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 
-## <a name="create-a-module-project"></a>Een module-project maken
+## <a name="create-a-module-project"></a>Een module project maken
 
-De volgende stappen maakt u een IoT Edge-module-project voor C# met behulp van Visual Studio Code en de hulpprogramma's voor Azure IoT-extensie. Zodra u een projectsjabloon gemaakt hebt, voegt u nieuwe code toe zodat de module berichten op basis van de gerapporteerde eigenschappen filtert. 
+Met de volgende stappen maakt u een IoT Edge module C# project voor met Visual Studio code en de uitbrei ding Azure IOT tools. Zodra u een project sjabloon hebt gemaakt, voegt u nieuwe code toe zodat de module berichten filtert op basis van de gerapporteerde eigenschappen. 
 
 ### <a name="create-a-new-project"></a>Een nieuw project maken
 
@@ -85,19 +88,19 @@ Maak een C#-oplossingssjabloon die u met uw eigen code kunt aanpassen.
 
 ### <a name="add-your-registry-credentials"></a>Uw registerreferenties toevoegen
 
-In het omgevingsbestand worden de referenties voor het containerregister opgeslagen. Deze referenties worden gedeeld met de IoT Edge-runtime. De runtime heeft deze referenties nodig om uw persoonlijke installatiekopieën naar het IoT Edge-apparaat te halen. Gebruik de referenties van de **toegangssleutels** sectie van uw Azure container registry. 
+In het omgevingsbestand worden de referenties voor het containerregister opgeslagen. Deze referenties worden gedeeld met de IoT Edge-runtime. De runtime heeft deze referenties nodig om uw persoonlijke installatiekopieën naar het IoT Edge-apparaat te halen. Gebruik de referenties uit de sectie **toegangs sleutels** van uw Azure container Registry. 
 
 1. Open in VS Code Explorer het bestand **.env**. 
-2. Werk de velden met de **gebruikersnaam** en **wachtwoord** waarden uit uw Azure container registry. 
+2. Werk de velden met de **gebruikers naam** en het **wacht woord** bij vanuit uw Azure container Registry. 
 3. Sla dit bestand op. 
 
-### <a name="select-your-target-architecture"></a>Selecteer uw doel-architectuur
+### <a name="select-your-target-architecture"></a>Selecteer uw doel architectuur
 
-Op dit moment kunt C-modules voor Linux AMD64- en Linux ARM32v7 apparaten ontwikkelen met Visual Studio Code. U moet selecteren welke architectuur die u hebt geconfigureerd met elke oplossing, omdat de container is gemaakt en uitgevoerd anders voor elk architectuurtype. De standaardwaarde is Linux AMD64. 
+Visual Studio code kan momenteel modules ontwikkelen C# voor linux amd64-en Linux ARM32v7-apparaten. U moet selecteren welke architectuur u wilt richten op elke oplossing, omdat de container is gebouwd en anders wordt uitgevoerd voor elk type architectuur. De standaard waarde is Linux AMD64. 
 
-1. Open het opdrachtenpalet en zoek **Azure IoT Edge: Doelplatform standaard ingesteld voor Edge-oplossing**, of Selecteer het pictogram van de snelkoppeling in de zijbalk aan de onderkant van het venster. 
+1. Open het opdracht palet en zoek naar **Azure IOT Edge: Stel het standaard doel platform voor rand**oplossing in of selecteer het snelkoppelings pictogram in de zijbalk aan de onderkant van het venster. 
 
-2. Selecteer de doel-architectuur in de lijst met opties in het opdrachtenpalet. Voor deze zelfstudie gebruiken we een virtuele Ubuntu-machine als de IoT Edge-apparaat, zodat de standaardwaarde wordt **amd64**. 
+2. Selecteer in het opdracht palet de doel architectuur in de lijst met opties. Voor deze zelf studie gebruiken we een virtuele machine van Ubuntu als het IoT Edge-apparaat, zodat de standaard **amd64**wordt bewaard. 
 
 ### <a name="update-the-module-with-custom-code"></a>De module bijwerken met aangepaste code
 
@@ -138,7 +141,7 @@ Op dit moment kunt C-modules voor Linux AMD64- en Linux ARM32v7 apparaten ontwik
     }
     ```
 
-5. Zoek de **Init** functie. Deze functie maakt en configureert een **ModuleClient** object, waardoor de module verbinding maken met de lokale Azure IoT Edge-runtime voor het verzenden en ontvangen van berichten. Nadat de **ModuleClient** is gemaakt, leest de code de waarde van **temperatureThreshold** uit de gewenste eigenschappen van de moduledubbel. De code registreert een aanroep om berichten van een IoT Edge-hub te ontvangen via het eindpunt **input1**. Vervang de methode **SetInputMessageHandlerAsync** door een nieuwe en voeg een methode **SetDesiredPropertyUpdateCallbackAsync** toe voor updates van de gewenste eigenschappen. Om deze wijziging aan te brengen, moet u de laatste regel van de methode **Init** vervangen door de volgende code:
+5. Zoek de functie **init** . Met deze functie wordt een **ModuleClient** -object gemaakt en geconfigureerd, waarmee de module verbinding kan maken met de lokale Azure IOT Edge runtime om berichten te verzenden en te ontvangen. Nadat de **ModuleClient** is gemaakt, leest de code de waarde van **temperatureThreshold** uit de gewenste eigenschappen van de moduledubbel. De code registreert een aanroep om berichten van een IoT Edge-hub te ontvangen via het eindpunt **input1**. Vervang de methode **SetInputMessageHandlerAsync** door een nieuwe en voeg een methode **SetDesiredPropertyUpdateCallbackAsync** toe voor updates van de gewenste eigenschappen. Om deze wijziging aan te brengen, moet u de laatste regel van de methode **Init** vervangen door de volgende code:
 
     ```csharp
     // Register a callback for messages that are received by the module.
@@ -260,31 +263,31 @@ Op dit moment kunt C-modules voor Linux AMD64- en Linux ARM32v7 apparaten ontwik
 11. Sla het bestand deployment.template.json op.
 
 
-## <a name="build-and-push-your-module"></a>Bouw en stuur uw module
+## <a name="build-and-push-your-module"></a>Uw module bouwen en pushen
 
-In de vorige sectie hebt u een oplossing die het IoT Edge en code toegevoegd aan de CSharpModule die filtert berichten waarin de gerapporteerde machine temperatuur hoger is binnen de aanvaardbare grenzen. Nu moet u de oplossing bouwen als een containerinstallatiekopie en deze naar het containerregister pushen.
+In de vorige sectie hebt u een IoT Edge oplossing gemaakt en code toegevoegd aan de CSharpModule waarmee berichten worden gefilterd waarbij de gerapporteerde machine temperatuur binnen de aanvaard bare limieten valt. Nu moet u de oplossing bouwen als een containerinstallatiekopie en deze naar het containerregister pushen.
 
 1. Open de met VS Code geïntegreerde terminal door **View** > **Terminal** te selecteren.
 
-1. Meld u aan Docker met de volgende opdracht in de terminal. Meld u aan met de gebruikersnaam, wachtwoord en aanmeldingsserver van het Azure container registry. U vindt deze waarden uit de **toegangssleutels** gedeelte van uw register in Azure portal.
+1. Meld u aan bij docker door de volgende opdracht in te voeren in de Terminal. Meld u aan met de gebruikers naam, het wacht woord en de aanmeldings server vanuit uw Azure container Registry. U kunt deze waarden ophalen uit de sectie **toegangs sleutels** van het REGI ster in de Azure Portal.
      
    ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   U ontvangt mogelijk een beveiligingswaarschuwing voor het gebruik van aanbevelen `--password-stdin`. Hoewel deze aanbevolen procedure wordt aanbevolen voor productiescenario's, valt buiten het bereik van deze zelfstudie. Zie voor meer informatie de [dockeraanmelding](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) verwijzing.
+   Mogelijk wordt een beveiligings waarschuwing weer gegeven waarin wordt aanbevolen het `--password-stdin`gebruik van te gebruiken. Hoewel dat best practice wordt aanbevolen voor productie scenario's, valt het buiten het bereik van deze zelf studie. Zie voor meer informatie de koppeling naar docker- [aanmelding](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
 
 2. Klik in VS Code Explorer met de rechtermuisknop op het bestand **deployment.template.json** en selecteer **Build and Push IoT Edge solution**.
 
-   De opdracht build- en push start drie bewerkingen. Eerst een nieuwe map wordt gemaakt in de oplossing met de naam **config** die de volledige implementatie oplossing voor het manifest, gebouwd om van gegevens in de sjabloon voor de implementatie en andere bestanden bevat. Ten tweede, deze wordt uitgevoerd `docker build` om de containerinstallatiekopie op basis van het dockerfile dat geschikt is voor uw doel-architectuur te bouwen. Vervolgens wordt deze uitgevoerd `docker push` naar de opslagplaats voor installatiekopieën pushen naar uw containerregister.
+   Met de opdracht build en push worden drie bewerkingen gestart. Eerst wordt een nieuwe map gemaakt in de oplossing **config** met het volledige implementatie manifest, gebaseerd op de gegevens in de implementatie sjabloon en andere oplossings bestanden. Ten tweede wordt `docker build` de container installatie kopie gemaakt op basis van de juiste dockerfile voor uw doel architectuur. Vervolgens wordt `docker push` de opslag plaats voor de installatie kopie naar het container register pusht.
 
 ## <a name="deploy-and-run-the-solution"></a>De oplossing implementeren en uitvoeren
 
-Gebruik de Verkenner van Visual Studio Code en de hulpprogramma's voor Azure IoT-extensie aan het project module implementeren in uw IoT Edge-apparaat. U hebt al een implementatie-manifest voorbereid voor uw scenario, de **deployment.json** bestand in de config-map. U hoeft nu alleen nog maar een apparaat te selecteren dat de implementatie moet ontvangen.
+Gebruik Visual Studio code Explorer en de uitbrei ding Azure IoT tools om het module project te implementeren op uw IoT Edge-apparaat. U hebt al een implementatie manifest voor bereid voor uw scenario, het bestand **Deployment. json** in de map Config. U hoeft nu alleen nog maar een apparaat te selecteren dat de implementatie moet ontvangen.
 
-Zorg ervoor dat uw IoT Edge-apparaat actief en werkend is.
+Zorg ervoor dat uw IoT Edge-apparaat actief is.
 
-1. Vouw in de Visual Studio Code explorer de **Azure IoT Hub-apparaten** sectie voor uw overzicht van IoT-apparaten.
+1. Vouw in Visual Studio code Explorer de sectie **Azure IOT Hub-apparaten** uit om uw lijst met IOT-apparaten weer te geven.
 
 2. Klik met de rechtermuisknop op de naam van het IoT Edge-apparaat en selecteer **Implementatie voor één apparaat maken**. 
 
@@ -298,43 +301,43 @@ Als u het implementatiemanifest op uw IoT Edge-apparaat toepast, verzamelt de Io
 
 U kunt de status van uw IoT Edge-apparaat bekijken via de sectie **Azure IoT Hub Devices** van de Visual Studio Code explorer. Vouw de details van uw apparaat uit voor een overzicht van de modules die worden geïmplementeerd en uitgevoerd.
 
-1. In de Visual Studio Code-Verkenner met de rechtermuisknop op de naam van uw IoT Edge-apparaat en selecteer **Start Monitoring ingebouwde gebeurtenis eindpunt**.
+1. Klik in Visual Studio code Explorer met de rechter muisknop op de naam van uw IoT Edge apparaat en selecteer controle van het **ingebouwde gebeurtenis-eind punt starten**.
 
-2. Bekijk de berichten die binnenkomen in uw IoT-Hub. Het duurt even voor de berichten binnenkomen, omdat het IoT Edge-apparaat moet de nieuwe implementatie ontvangen en alle modules te starten. We de wijzigingen in de code CModule wacht totdat de temperatuur machine 25 graden is bereikt voordat het verzenden van berichten. Het berichttype ook toegevoegd **waarschuwing** in de berichten die deze temperatuur drempelwaarde bereikt. 
+2. Bekijk de berichten die op uw IoT Hub arriveren. Het kan enige tijd duren voordat de berichten binnenkomen, omdat het IoT Edge apparaat de nieuwe implementatie moet ontvangen en alle modules kan starten. Vervolgens worden de wijzigingen die we hebben aangebracht in de CModule-code gewacht totdat de computer temperatuur 25 graden bereikt voordat berichten worden verzonden. Het bericht type **waarschuwing** wordt ook toegevoegd aan berichten die de drempel waarde voor de Tempe ratuur bereiken. 
 
-   ![Berichten weergeven die binnenkomen in IoT Hub](./media/tutorial-csharp-module/view-d2c-message.png)
+   ![Berichten weer geven die binnenkomen op IoT Hub](./media/tutorial-csharp-module/view-d2c-message.png)
  
-## <a name="edit-the-module-twin"></a>De moduledubbel bewerken
+## <a name="edit-the-module-twin"></a>De module twee bewerken
 
-We de moduledubbel CSharpModule in het manifest van de implementatie hebt gebruikt voor het instellen van de drempelwaarde voor de temperatuur op 25 graden. De moduledubbel kunt u de functionaliteit wijzigen zonder de code van de module bijwerken.
+We hebben de CSharpModule-module twee maal in het implementatie manifest gebruikt om de drempel waarde voor de Tempe ratuur op 25 graden in te stellen. U kunt de module twee gebruiken om de functionaliteit te wijzigen zonder dat u de module code hoeft bij te werken.
 
-1. Vouw de gegevens van uw IoT Edge-apparaat om te zien van de actieve modules in Visual Studio Code. 
+1. Vouw in Visual Studio code de details onder uw IoT Edge apparaat uit om de actieve modules weer te geven. 
 
-2. Met de rechtermuisknop op **CSharpModule** en selecteer **bewerken moduledubbel**. 
+2. Klik met de rechter muisknop op **CSharpModule** en selecteer **module bewerken**. 
 
-3. Zoek **TemperatureThreshold** in de gewenste eigenschappen. De waarde ervan wijzigen naar een nieuwe temperatuur 5 graden tot 10 graden hoger is dan de meest recente gemelde temperatuur. 
+3. Zoek **TemperatureThreshold** in de gewenste eigenschappen. Wijzig de waarde in een nieuwe Tempe ratuur van vijf graden tot 10 graden hoger dan de laatste gerapporteerde Tempe ratuur. 
 
-4. Sla het bestand van de dubbele module.
+4. Sla het dubbele bestand van de module op.
 
-5. Met de rechtermuisknop op een willekeurige plaats in het deelvenster en selecteer Bewerken moduledubbel **Update moduledubbel**. 
+5. Klik met de rechter muisknop op een wille keurige plaats in het deel venster module dubbel bewerken en selecteer **Update module**. 
 
-5. De binnenkomende berichten voor apparaat-naar-cloud bewaken. U ziet de berichten die niet meer totdat de nieuwe temperatuur drempelwaarde is bereikt. 
+5. Bewaak de binnenkomende apparaat-naar-Cloud-berichten. U ziet dat de berichten stoppen totdat de nieuwe temperatuur drempel is bereikt. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen 
 
 Als u van plan bent door te gaan met het volgende aanbevolen artikel, kunt u de resources en configuraties die u hebt gemaakt behouden en opnieuw gebruiken. U kunt ook hetzelfde IoT Edge-apparaat blijven gebruiken als een testapparaat. 
 
-Anders kunt u de lokale configuraties en de Azure-resources dat u in dit artikel gebruikt om kosten te vermijden verwijderen. 
+Anders kunt u de lokale configuraties en de Azure-resources die u in dit artikel hebt gebruikt, verwijderen om kosten te voor komen. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u een IoT Edge-module gemaakt die code bevat voor het filteren van onbewerkte gegevens die worden gegenereerd door uw IoT Edge-apparaat. Wanneer u gereed voor het bouwen van uw eigen modules bent, vindt u meer informatie over [ontwikkelen van uw eigen IoT Edge-modules](module-development.md) of hoe u [modules met Visual Studio Code ontwikkelen](how-to-vs-code-develop-module.md). U kunt doorgaan naar de volgende zelfstudies voor meer informatie over hoe Azure IoT Edge kunnen helpen bij het implementeren van Azure cloudservices om te verwerken en analyseren van gegevens aan de rand.
+In deze zelfstudie hebt u een IoT Edge-module gemaakt die code bevat voor het filteren van onbewerkte gegevens die worden gegenereerd door uw IoT Edge-apparaat. Wanneer u klaar bent om uw eigen modules te bouwen, kunt u meer te weten komen over [het ontwikkelen van uw eigen IOT Edge modules](module-development.md) of het [ontwikkelen van modules met Visual Studio code](how-to-vs-code-develop-module.md). U kunt door gaan met de volgende zelf studies om te leren hoe Azure IoT Edge u kan helpen bij de implementatie van Azure Cloud Services voor het verwerken en analyseren van gegevens aan de rand.
 
 > [!div class="nextstepaction"]
 > [Functies](tutorial-deploy-function.md)
-> [Stream Analytics](tutorial-deploy-stream-analytics.md)
-> [Machine Learning](tutorial-deploy-machine-learning.md)
-> [Custom Vision Service](tutorial-deploy-custom-vision.md)
+> [Stream Analytics](tutorial-deploy-stream-analytics.md)[](tutorial-deploy-custom-vision.md) [machine learning](tutorial-deploy-machine-learning.md)Custom Vision service
+> 
+> 

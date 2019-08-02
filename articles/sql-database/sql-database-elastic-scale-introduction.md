@@ -1,6 +1,6 @@
 ---
 title: Uitschalen met Azure SQL Database | Microsoft Docs
-description: Software als een Service (SaaS)-ontwikkelaars eenvoudig elastische schaalbare databases kunt maken in de cloud met behulp van deze hulpprogramma 's
+description: SaaS-ontwikkel aars (Software as a Service) kunnen eenvoudig elastische, schaal bare data bases in de Cloud maken met behulp van deze hulpprogram ma's
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,88 +10,87 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 59701c31e461bbd5d73ec708504139347f6075f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5ae56b2050243831f10863bbb4184a9e89f5911
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241859"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568396"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Uitbreiden met Azure SQL Database
-U kunt gemakkelijk schalen van Azure SQL-databases met behulp van de **Elastic Database** hulpprogramma's. Deze hulpprogramma's en functies, kunt u de bronnen van **Azure SQL Database** om oplossingen voor transactionele werkbelastingen en met name Software als een Service (SaaS)-toepassingen te maken. Functies voor elastische Database worden samengesteld uit de:
+U kunt Azure SQL-data bases eenvoudig uitschalen met behulp van de **Elastic database** -hulpprogram ma's. Met deze hulpprogram ma's en functies kunt u de database resources van **Azure SQL database** gebruiken om oplossingen te maken voor transactionele werk belastingen, en met name SaaS-toepassingen (Software as a Service). Elastic Database-functies bestaan uit het volgende:
 
-* [Clientbibliotheek voor elastic Database](sql-database-elastic-database-client-library.md): De clientbibliotheek is een functie waarmee u maken en onderhouden van shard-databases.  Zie [aan de slag met elastische Databasehulpprogramma's](sql-database-elastic-scale-get-started.md).
-* [Elastische Database-hulpprogramma voor splitsen en samenvoegen](sql-database-elastic-scale-overview-split-and-merge.md): verplaatst gegevens tussen de shard-databases. Dit hulpprogramma is nuttig voor het verplaatsen van gegevens uit een multitenant-database naar een één tenant-database (of omgekeerd). Zie [elastisch splitsen en samenvoegen hulpprogramma databasezelfstudie](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-* [Taken voor elastic Database](elastic-jobs-overview.md): Taken voor het beheren van grote aantallen Azure SQL-databases gebruiken. Gemakkelijk beheerwerkzaamheden uitvoeren zoals wijzigingen in het schema, beheren van referenties, bijwerken van verwijzingsgegevens, verzamelen van prestatiegegevens of verzamelen van telemetriegegevens tenants (klanten) met behulp van taken.
-* [Query voor elastic Database](sql-database-elastic-query-overview.md) (preview): Hiermee kunt u een Transact-SQL-query die meerdere databases omvat uit te voeren. Hiermee kunt verbinding met de hulpprogramma's voor rapportage, zoals Excel, Power BI, Tableau, enzovoort.
-* [Elastische transacties](sql-database-elastic-transactions-overview.md): Deze functie kunt u uitvoeren van transacties met betrekking meerdere databases in Azure SQL Database tot. Elastische transacties zijn beschikbaar voor .NET-toepassingen met behulp van ADO .NET en integreren met de vertrouwde programmering ervaring met de [System.Transaction klassen](https://msdn.microsoft.com/library/system.transactions.aspx).
+* [Elastic database-client bibliotheek](sql-database-elastic-database-client-library.md): De client bibliotheek is een functie waarmee u Shard-data bases kunt maken en onderhouden.  Zie [aan de slag met Elastic database-hulpprogram ma's](sql-database-elastic-scale-get-started.md).
+* [Elastic database hulp programma voor splitsen en samen voegen](sql-database-elastic-scale-overview-split-and-merge.md): verplaatst gegevens tussen Shard-data bases. Dit hulp programma is nuttig voor het verplaatsen van gegevens van een Data Base met meerdere tenants naar een Data Base met één Tenant (of andersom). Zie [zelf studie Elastic Data Base voor splitsen en samen voegen](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+* [Taak voor Elastic database](elastic-jobs-overview.md): Gebruik taken voor het beheren van grote aantallen Azure SQL-data bases. U kunt eenvoudig beheer bewerkingen uitvoeren zoals schema wijzigingen, referentie beheer, referentie gegevens updates, verzameling van prestatie gegevens of Tenant-telemetrie verzameling met behulp van taken.
+* [Elastic database query](sql-database-elastic-query-overview.md) (preview-versie): Hiermee kunt u een Transact-SQL-query uitvoeren die meerdere data bases omvat. Dit maakt het mogelijk om verbinding te maken met rapportage Programma's zoals Excel, Power BI, tableau, enzovoort.
+* [Elastische trans acties](sql-database-elastic-transactions-overview.md): Met deze functie kunt u trans acties uitvoeren die meerdere data bases omvatten in Azure SQL Database. Elastic data base-trans acties zijn beschikbaar voor .NET-toepassingen met behulp van ADO .NET en kunnen worden geïntegreerd met de bekende programmeer ervaring met behulp van de [System. Trans Action-klassen](https://msdn.microsoft.com/library/system.transactions.aspx).
 
-De volgende afbeelding toont een architectuur met de **functies voor elastische Database** ten opzichte van een verzameling van databases.
+In de volgende afbeelding ziet u een architectuur die de **Elastic database-functies** bevat ten opzichte van een verzameling data bases.
 
-In deze afbeelding vertegenwoordigen de kleuren van de database schema's. Databases met dezelfde kleur delen hetzelfde schema.
+In deze afbeelding vertegenwoordigen de kleuren van de data base schema's. Data bases met dezelfde kleur delen hetzelfde schema.
 
-1. Een set **Azure SQL-databases** wordt gehost op Azure met behulp van sharding-architectuur.
-2. De **Elastic Database-clientbibliotheek** wordt gebruikt voor het beheren van een shard-verzameling.
-3. Een subset van de databases wordt geplaatst in een **elastische pool**. (Zie [wat is een pool?](sql-database-elastic-pool.md)).
-4. Een **elastische taak** geplande of ad hoc T-SQL-scripts op alle databases wordt uitgevoerd.
-5. De **hulpprogramma voor splitsen en samenvoegen** wordt gebruikt voor het verplaatsen van gegevens uit één shard naar een andere.
-6. De **elastische databasequery** kunt u een query schrijven waarmee alle databases in de shard-set omvat.
-7. **Elastische transacties** kunt u uitvoeren van transacties met betrekking verschillende databases tot. 
+1. Een set **Azure SQL-data bases** wordt gehost op Azure met behulp van de sharding-architectuur.
+2. De **Elastic database-client bibliotheek** wordt gebruikt voor het beheren van een Shard-set.
+3. Een subset van de data bases wordt in een **elastische pool**geplaatst. (Zie [Wat is een pool?](sql-database-elastic-pool.md)).
+4. Met een **Elastic database taak** worden geplande of ad hoc T-SQL-scripts uitgevoerd voor alle data bases.
+5. Het **hulp programma splitsen** wordt gebruikt om gegevens van een Shard naar een andere te verplaatsen.
+6. Met de **Elastic database query** kunt u een query schrijven die alle data bases in de Shard-set omspant.
+7. Met **elastische trans acties** kunt u trans acties uitvoeren die meerdere data bases omvatten. 
 
 ![Hulpprogramma's voor elastische databases][1]
 
-## <a name="why-use-the-tools"></a>Waarom de hulpprogramma's gebruiken?
-Bereiken van flexibiliteit en schaalbaarheid voor cloud-Apps is eenvoudig voor VM's en blob-opslag - gewoon toevoegen of eenheden aftrekken of power verhogen. Maar er is een uitdaging voor stateful gegevensverwerking in relationele databases gebleven. Uitdagingen naar voren gekomen in deze scenario's:
+## <a name="why-use-the-tools"></a>Waarom zou u de hulpprogram ma's gebruiken?
+Het bereiken van de elasticiteit en schaal voor Cloud toepassingen is eenvoudig voor Vm's en Blob Storage. u hoeft alleen maar de eenheden toe te voegen of af te trekken, of de stroom te verg Roten. Maar er is wel een uitdaging voor het verwerken van stateful gegevens in relationele data bases. De uitdagingen in deze scenario's:
 
-* Vergroten en verkleinen capaciteit voor de relationele database die deel uitmaken van uw workload.
-* Het beheren van hotspots die kunnen ontstaan die betrekking hebben op een specifieke subset van gegevens -, zoals een bezet eindklant (tenant).
+* Groei en krimping van capaciteit voor het deel van de relationele data base van uw werk belasting.
+* Het beheren van HOTS pots die mogelijk van invloed zijn op een specifieke subset van gegevens, zoals een drukke eind gebruiker (Tenant).
 
-Traditioneel zijn scenario's zoals deze opgelost door te investeren in grotere database-servers voor de ondersteuning van de toepassing. Deze optie wordt echter beperkt in de cloud waar alle verwerking op vooraf gedefinieerde basishardware plaatsvindt. Distribueren van gegevens en -verwerking voor verschillende databases van dezelfde gestructureerde biedt (een scale-out-patroon 'sharding' genoemd) in plaats daarvan een alternatief voor traditionele omhoog benaderingen, zowel wat betreft de kosten en flexibiliteit.
+In de meeste gevallen zijn scenario's zoals deze beschreven door investeren in grotere database servers voor de ondersteuning van de toepassing. Deze optie is echter beperkt in de Cloud, waar alle verwerking plaatsvindt op vooraf gedefinieerde basishardware. In plaats daarvan is het distribueren van gegevens en verwerking in veel identieke gestructureerde data bases (een scale-out patroon bekend als ' sharding ') een alternatief voor traditionele scale-up benaderingen op het gebied van kosten en elasticiteit.
 
-## <a name="horizontal-and-vertical-scaling"></a>Horizontaal en verticaal schalen
-De volgende afbeelding toont de horizontale en verticale afmetingen van de schaal, dit zijn de manieren waarop die de elastische databases kunnen worden geschaald.
+## <a name="horizontal-and-vertical-scaling"></a>Horizon taal en verticaal schalen
+In de volgende afbeelding ziet u de horizontale en verticale afmetingen van schalen. Dit zijn de basis manieren waarop de elastische data bases kunnen worden geschaald.
 
-![Horizontale en verticale scale-out][2]
+![Horizon taal versus verticaal uitschalen][2]
 
-Horizontaal schalen verwijst naar het toevoegen of verwijderen van databases om te kunnen passen capaciteit of algehele prestaties, ook wel genoemd 'schaal' uit. Sharding, waarin de gegevens zijn gepartitioneerd over een verzameling van identieke gestructureerde databases, is een veelgebruikte manier voor het implementeren van horizontaal schalen.  
+Horizon taal schalen verwijst naar het toevoegen of verwijderen van data bases voor het aanpassen van de capaciteit of de algehele prestaties, ook wel ' uitschalen ' genoemd. Sharding, waarin gegevens worden gepartitioneerd over een verzameling van identieke gestructureerde data bases, is een gemeen schappelijke manier om horizon taal schalen te implementeren.  
 
-Verticaal schalen verwijst naar vergroten of verkleinen het berekenen van een individuele database, ook wel bekend als 'omhoog."
+Verticaal schalen verwijst naar het verg Roten of verkleinen van de reken grootte van een afzonderlijke Data Base, ook wel bekend als ' omhoog schalen '.
 
-De meeste toepassingen op cloudschaal database een combinatie van deze twee strategieën gebruiken. Bijvoorbeeld, kunt een Software als een servicetoepassing horizontaal schalen voor het inrichten van nieuwe end-klanten en verticaal schalen waarmee elke eindgebruiker database vergroten of verkleinen van resources, indien nodig door de werkbelasting.
+De meeste database toepassingen in de Cloud gebruiken een combi natie van deze twee strategieën. Een software als een service toepassing kan bijvoorbeeld horizon taal schalen gebruiken om nieuwe eind gebruikers en verticale schaling in te richten, zodat de data base van elke eind gebruiker de resources kan verg Roten of verkleinen als dat nodig is voor de werk belasting.
 
-* Horizontaal schalen wordt beheerd met behulp van de [Elastic Database-clientbibliotheek](sql-database-elastic-database-client-library.md).
-* Verticaal schalen is uitgevoerd met behulp van Azure PowerShell-cmdlets te wijzigen van de servicelaag of door databases in een elastische pool.
+* Horizon taal schalen wordt beheerd met behulp van de [Elastic database-client bibliotheek](sql-database-elastic-database-client-library.md).
+* Verticaal schalen wordt uitgevoerd met behulp van Azure PowerShell-cmdlets om de servicelaag te wijzigen of door data bases in een elastische pool te plaatsen.
 
 ## <a name="sharding"></a>Sharding
-*Sharding* is een techniek voor de distributie van grote hoeveelheden identiek gestructureerde gegevens over een aantal onafhankelijke databases. Het is met name populaire met cloudontwikkelaars die het maken van Software als een Service (SAAS)-aanbiedingen voor eindgebruikers of bedrijven. Deze end-klanten worden vaak aangeduid als 'huurder'. Sharding is mogelijk vereist voor een aantal oorzaken hebben:  
+*Sharding* is een techniek om grote hoeveel heden identieke, gestructureerde gegevens over een aantal onafhankelijke data bases te verdelen. Het is met name populair bij Cloud ontwikkelaars die software as a Service (SAAS)-aanbiedingen voor eind klanten of bedrijven maken. Deze eind klanten worden vaak ' tenants ' genoemd. Sharding kan om verschillende redenen vereist zijn:  
 
-* De totale hoeveelheid gegevens is te groot om te passen binnen de beperkingen van een individuele database
-* De transactiedoorvoer van de totale werklast groter is dan de mogelijkheden van een individuele database
-* Tenants mogelijk fysiek geïsoleerd van elkaar, zodat u afzonderlijke databases nodig zijn voor elke tenant
-* Verschillende secties van een database moet mogelijk bevinden zich in verschillende fysieke locaties voor naleving, prestaties of geopolitieke redenen.
+* De totale hoeveelheid gegevens is te groot om te passen binnen de beperkingen van een afzonderlijke data base
+* De trans actie-door Voer van de totale werk belasting overschrijdt de mogelijkheden van een afzonderlijke data base
+* Tenants kunnen fysieke isolatie van elkaar vereisen, zodat afzonderlijke data bases nodig zijn voor elke Tenant
+* Verschillende secties van een Data Base moeten mogelijk in verschillende geografische grafieken worden geplaatst om te voldoen aan de vereisten, de prestaties of de geopolitieke redenen.
 
-In andere scenario's, zoals de opname van gegevens van gedistribueerde apparaten kan sharding worden gebruikt om in te vullen van een set databases die tijdelijk zijn ingedeeld. Een aparte database kan bijvoorbeeld worden toegewezen aan elke dag of week. In dat geval kan de sharding-sleutel een geheel getal dat aangeeft van de datum (aanwezig zijn in alle rijen van de shard tabellen) en query's bij het ophalen van gegevens voor een bepaalde periode moeten worden gerouteerd van de toepassing naar de subset van databases die betrekking hebben op het desbetreffende bereik.
+In andere scenario's, zoals het opnemen van gegevens van gedistribueerde apparaten, kan sharding worden gebruikt voor het vullen van een set data bases die tijdelijk zijn geordend. Een afzonderlijke Data Base kan bijvoorbeeld worden toegewezen aan elke dag of week. In dat geval kan de sharding-sleutel een geheel getal zijn dat de datum vertegenwoordigt (aanwezig in alle rijen van de Shard-tabellen) en moeten query's die informatie ophalen voor een datum bereik door de toepassing worden gerouteerd naar de subset van data bases die het desbetreffende bereik hebben.
 
-Sharding werkt het beste als elke transactie in een toepassing beperkt tot één waarde van een sharding-sleutel worden kan. Dit zorgt ervoor dat alle transacties lokaal op een specifieke database worden.
+Sharding werkt het beste wanneer elke trans actie in een toepassing kan worden beperkt tot één waarde van een sharding-sleutel. Hiermee zorgt u ervoor dat alle trans acties lokaal zijn voor een specifieke data base.
 
-## <a name="multi-tenant-and-single-tenant"></a>Meerdere tenants en één tenant
-Sommige toepassingen gebruiken de eenvoudigste manier voor het maken van een aparte database voor elke tenant. Deze aanpak is het **één tenant sharding-patroon** die zorgt voor isolatie, back-up/herstel mogelijkheid en resource schalen zonder dat u de granulatie van de tenant. Met sharding van één tenant, elke database is gekoppeld aan een specifieke tenant-id-waarde (of waarde van de klant), maar deze sleutel moet niet altijd aanwezig zijn in de gegevens zelf. Het is de verantwoordelijkheid van de toepassing voor het routeren van elke aanvraag naar de juiste database - en deze kan worden vereenvoudigd door de clientbibliotheek.
+## <a name="multi-tenant-and-single-tenant"></a>Multi tenant en single-tenant
+Sommige toepassingen gebruiken de eenvoudigste benadering van het maken van een afzonderlijke Data Base voor elke Tenant. Deze benadering is het **sharding-patroon met één Tenant** dat isolatie, back-ups maken/herstellen en het schalen van resources biedt bij de granulatie van de Tenant. Bij één Tenant sharding wordt elke Data Base gekoppeld aan een specifieke Tenant-ID-waarde (of de waarde van de klant sleutel), maar deze sleutel hoeft niet altijd aanwezig te zijn in de gegevens zelf. Het is de verantwoordelijkheid van de toepassing om elke aanvraag te routeren naar de juiste data base en de client bibliotheek kan dit vereenvoudigen.
 
-![Één tenant ten opzichte van meerdere tenants][4]
+![Eén Tenant versus multi tenant][4]
 
-Andere scenario's voor meerdere tenants samen pack in de databases in plaats van ze te isoleren in afzonderlijke databases. Dit patroon is een typische **multitenant sharding-patroon** - en deze kan worden aangestuurd door het feit dat een toepassing een groot aantal kleine tenants beheert. In de sharding van meerdere tenants zijn de rijen in de databasetabellen ontworpen voor het uitvoeren van een sleutel voor het identificeren van de tenant-ID of de sharding-sleutel. Nogmaals, de toepassingslaag is verantwoordelijk voor de routering van een tenant-aanvraag naar de juiste database en dit kan worden ondersteund door de clientbibliotheek van elastische database. Bovendien beveiliging op rijniveau kan worden gebruikt om te filteren welke rijen toegang elke tenant - voor meer informatie tot hebben, Zie [multitenant-toepassingen met elastische Databasehulpprogramma's en beveiliging op rijniveau](sql-database-elastic-tools-multi-tenant-row-level-security.md). Opnieuw distribueren van gegevens tussen databases kan nodig zijn met het patroon sharding van meerdere tenants, en wordt mogelijk gemaakt door de elastic database-hulpprogramma voor splitsen en samenvoegen. Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische pools.
+Andere scenario's verpakken meerdere tenants in data bases in plaats van ze te isoleren in afzonderlijke data bases. Dit patroon is een typisch **sharding patroon met meerdere tenants** en kan worden aangestuurd door het feit dat een toepassing een groot aantal kleine tenants beheert. In multi tenant-sharding zijn de rijen in de database tabellen allemaal ontworpen om een sleutel te bieden voor het identificeren van de Tenant-ID of de sharding-sleutel. Daarnaast is de toepassingslaag verantwoordelijk voor het routeren van de aanvraag van een Tenant naar de juiste data base. Dit kan worden ondersteund door de client bibliotheek voor Elastic data base. Daarnaast kan beveiliging op rijniveau worden gebruikt om te filteren tot welke rijen elke Tenant toegang heeft. Zie [multi tenant-toepassingen met Elastic data base-hulpprogram ma's en beveiliging op rijniveau](sql-database-elastic-tools-multi-tenant-row-level-security.md)voor meer informatie. Het opnieuw distribueren van gegevens tussen data bases is mogelijk nodig met het sharding-patroon met meerdere tenants en wordt vergemakkelijkt door het Elastic data base-hulp programma voor splitsen en samen voegen. Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische pools.
 
-### <a name="move-data-from-multiple-to-single-tenancy-databases"></a>Verplaatsen van gegevens uit meerdere databases voor één-tenants
-Bij het maken van een SaaS-toepassing, is het typische potentiële klanten bieden een proefversie van de software. In dit geval is het rendabele gebruik van een multitenant-database voor de gegevens. Wanneer een kandidaat een klant wordt, is een database met één tenant echter beter omdat het levert betere prestaties. Als de klant gegevens tijdens de proefperiode is afgelopen gemaakt heeft, gebruikt u de [hulpprogramma voor splitsen en samenvoegen](sql-database-elastic-scale-overview-split-and-merge.md) de gegevens van meerdere tenants verplaatsen naar de nieuwe database met één tenant.
+### <a name="move-data-from-multiple-to-single-tenancy-databases"></a>Gegevens verplaatsen van meerdere naar single-pacht data bases
+Bij het maken van een SaaS-toepassing is het gebruikelijk om potentiële klanten een evaluatie versie van de software aan te bieden. In dit geval is het rendabel om een Data Base met meerdere tenants te gebruiken voor de gegevens. Wanneer een prospect echter een klant wordt, is een Data Base met één Tenant beter omdat deze betere prestaties levert. Als de klant tijdens de proef periode gegevens heeft gemaakt, gebruikt u het [hulp programma voor splitsen en samen voegen](sql-database-elastic-scale-overview-split-and-merge.md) om de gegevens van de multi tenant naar de nieuwe Data Base met één Tenant te verplaatsen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een voorbeeld-app die laat zien van de clientbibliotheek [aan de slag met elastische Databasehulpprogramma's](sql-database-elastic-scale-get-started.md).
+Zie [aan de slag met Elastic database-hulpprogram ma's](sql-database-elastic-scale-get-started.md)voor een voor beeld-app die de client bibliotheek laat zien.
 
-Als u wilt converteren van bestaande databases voor het gebruik van de hulpprogramma's, Zie [bestaande databases migreren voor uitschalen](sql-database-elastic-convert-to-use-elastic-tools.md).
+Zie [bestaande data bases migreren om uit](sql-database-elastic-convert-to-use-elastic-tools.md)te breiden voor het converteren van bestaande data bases om de hulpprogram ma's te gebruiken.
 
-Zie de details van de elastische pool [prijs- en Prestatieoverwegingen voor een elastische pool](sql-database-elastic-pool.md), of maak een nieuwe groep met [elastische pools](sql-database-elastic-pool-manage-portal.md).  
+Zie [prijs-en prestatie overwegingen voor een elastische pool](sql-database-elastic-pool.md)of een nieuwe groep maken met elastische Pools voor een overzicht van de Details [](sql-database-elastic-pool-manage-portal.md)van de elastische pool.  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Geavanceerde opties in het SAML-token voor vooraf geïntegreerde apps in Azure Active Directory voor Certificaatondertekening | Microsoft Docs
-description: Informatie over het gebruik van geavanceerde opties in het SAML-token voor vooraf geïntegreerde apps in Azure Active Directory voor Certificaatondertekening
+title: Geavanceerde opties voor het ondertekenen van SAML-token certificaten voor vooraf geïntegreerde Azure AD-apps | Microsoft Docs
+description: Meer informatie over het gebruik van geavanceerde opties voor certificaat ondertekening in het SAML-token voor vooraf geïntegreerde apps in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,64 +16,64 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a084ceb841ea35bc62d9851f2b6c4821f4acb6fd
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: ea99344399dbbbc17f0d7381e54ab68ae4bcc78f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807724"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381264"
 ---
-# <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Geavanceerde opties in het SAML-token voor galerie-apps in Azure Active Directory voor Certificaatondertekening
+# <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Geavanceerde opties voor certificaat ondertekening in het SAML-token voor galerij-apps in Azure Active Directory
 
-Vandaag nog Azure Active Directory (Azure AD) biedt ondersteuning voor duizenden vooraf geïntegreerde toepassingen in de App-galerie van Azure Active Directory. Meer dan 500 van de toepassingen bieden ondersteuning voor eenmalige aanmelding met de [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) 2.0-protocol, zoals de [NetSuite](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite) toepassing. Als een klant zich bij een toepassing via Azure AD verifieert met behulp van SAML, worden in Azure AD een token verzonden naar de toepassing (via een HTTP POST). De toepassing vervolgens valideert en gebruikt het token aan te melden bij de klant in plaats van dat u wordt gevraagd een gebruikersnaam en wachtwoord. Deze SAML-tokens zijn ondertekend met de unieke certificaat dat gegenereerd in Azure AD en door specifieke standard algoritmen.
+Vandaag Azure Active Directory (Azure AD) ondersteunt duizenden vooraf geïntegreerde toepassingen in de app-galerie van Azure Active Directory. Meer dan 500 van de toepassingen bieden ondersteuning voor eenmalige aanmelding met behulp van het [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) 2,0-protocol, zoals de toepassing Netsuite. [](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite) Wanneer een klant zich via Azure AD bij een toepassing verifieert met behulp van SAML, verzendt Azure AD een token naar de toepassing (via een HTTP POST). De toepassing valideert vervolgens het token om zich aan te melden bij de klant in plaats van een gebruikers naam en wacht woord op te vragen. Deze SAML-tokens zijn ondertekend met het unieke certificaat dat wordt gegenereerd in azure AD en aan specifieke standaard algoritmen.
 
-Azure AD maakt gebruik van enkele van de standaardinstellingen voor de galerietoepassingen. De standaardwaarden zijn ingesteld op basis van de vereisten van de toepassing.
+Azure AD gebruikt enkele van de standaard instellingen voor de galerie toepassingen. De standaard waarden worden ingesteld op basis van de vereisten van de toepassing.
 
-In Azure AD, kunt u opties voor Certificaatondertekening en het algoritme voor ondertekening certificaat instellen.
+In azure AD kunt u opties voor het ondertekenen van certificaten en het algoritme voor het ondertekenen van certificaten instellen.
 
 ## <a name="certificate-signing-options"></a>Opties voor certificaatondertekening
 
-Azure AD ondersteunt drie opties voor het ondertekenen van certificaat:
+Azure AD ondersteunt drie opties voor certificaat ondertekening:
 
-* **Meld u aan de SAML-verklaring**. Deze standaardoptie is ingesteld voor het merendeel van de galerietoepassingen. Als u deze optie selecteert, Azure AD als id-Provider (IdP) zich de SAML-verklaring en het certificaat met de [X.509](https://wikipedia.org/wiki/X.509) certificaat van de toepassing.
+* **SAML-bevestiging ondertekenen**. Deze standaard optie is ingesteld voor de meeste galerie toepassingen. Als u deze optie selecteert, ondertekent Azure AD als een id-provider (IdP) de SAML-bevestiging en het certificaat met het [X. 509](https://wikipedia.org/wiki/X.509) -certificaat van de toepassing.
 
-* **SAML-antwoord ondertekenen**. Als u deze optie selecteert, meldt de SAML-antwoord met de X.509-certificaat van de toepassing zich in Azure AD als een id-provider.
+* **SAML-respons ondertekenen**. Als u deze optie selecteert, ondertekent Azure AD als een IdP het SAML-antwoord met het X. 509-certificaat van de toepassing.
 
-* **SAML-antwoord en -bewering ondertekenen**. Als u deze optie selecteert, meldt de gehele SAML-token met het X.509-certificaat van de toepassing zich in Azure AD als een id-provider.
+* **SAML-respons en-bevestiging ondertekenen**. Als u deze optie selecteert, ondertekent Azure AD als een IdP het volledige SAML-token met het X. 509-certificaat van de toepassing.
 
-## <a name="certificate-signing-algorithms"></a>Algoritmen voor Certificaatondertekening
+## <a name="certificate-signing-algorithms"></a>Algoritmen voor certificaat ondertekening
 
-Azure AD biedt ondersteuning voor twee algoritmes voor ondertekening en veilige hash-algoritmen (SHA), het SAML-antwoord ondertekenen:
+Azure AD ondersteunt twee Ondertekeningsalgoritme, of algoritmen voor beveiligde hash-algoritmen, voor het ondertekenen van het SAML-antwoord:
 
-* **SHA-256**. Azure AD gebruikt deze standaardalgoritme voor het ondertekenen van de SAML-reactie. Het is de nieuwste algoritme en veiliger dan het SHA-1 is. De meeste van de toepassingen ondersteunen het algoritme SHA-256. Als een toepassing alleen SHA-1 als het algoritme voor ondertekening ondersteunt, kunt u het kunt wijzigen. Anders is het raadzaam dat u het SHA-256-algoritme gebruiken voor het ondertekenen van de SAML-reactie.
+* **SHA-256**. Azure AD gebruikt deze standaard algoritme voor het ondertekenen van het SAML-antwoord. Het is het nieuwste algoritme en veiliger dan SHA-1. De meeste toepassingen ondersteunen het SHA-256-algoritme. Als een toepassing alleen SHA-1 als het handtekening algoritme ondersteunt, kunt u deze wijzigen. Anders raden wij aan dat u de SHA-256-algoritme gebruikt voor het ondertekenen van het SAML-antwoord.
 
-* **SHA-1**. Dit algoritme is ouder en wordt dit beschouwd als minder veilig dan het SHA-256. Als een toepassing alleen dit algoritme voor ondertekening ondersteunt, kunt u deze optie in de **algoritme voor ondertekening** vervolgkeuzelijst. Azure AD vervolgens ondertekent het SAML-antwoord met het algoritme SHA-1.
+* **SHA-1**. Dit algoritme is ouder en wordt behandeld als minder veilig dan SHA-256. Als een toepassing alleen dit Ondertekeningsalgoritme ondersteunt, kunt u deze optie selecteren in de vervolg keuzelijst **handtekening algoritme** . Azure AD ondertekent vervolgens de SAML-respons met het algoritme SHA-1.
 
-## <a name="change-certificate-signing-options-and-signing-algorithm"></a>Opties voor ondertekening en handtekeningalgoritme-certificaat wijzigen
+## <a name="change-certificate-signing-options-and-signing-algorithm"></a>Opties voor certificaat ondertekening en handtekening algoritme wijzigen
 
-Als het SAML-certificaat van een toepassing opties voor ondertekening en het algoritme voor ondertekening certificaat wijzigen, selecteert u de betreffende toepassing:
+Als u de opties voor het ondertekenen van SAML-certificaten en het algoritme voor het ondertekenen van certificaten wilt wijzigen, selecteert u de betreffende toepassing:
 
-1. In de [Azure Active Directory-portal](https://aad.portal.azure.com/), aanmelden bij uw account. De **Azure Active Directory-beheercentrum** pagina wordt weergegeven.
-1. Selecteer in het linkerdeelvenster **Enterprise-toepassingen**. Er wordt een lijst weergegeven van de enterprise-toepassingen in uw account.
-1. Selecteer een toepassing. Een overzichtspagina voor de toepassing wordt weergegeven.
+1. Meld u aan bij uw account in de [Azure Active Directory Portal](https://aad.portal.azure.com/). De pagina **Azure Active Directory beheer centrum** wordt weer gegeven.
+1. Selecteer in het linkerdeelvenster **Enterprise-toepassingen**. Er wordt een lijst weer gegeven met de bedrijfs toepassingen in uw account.
+1. Selecteer een toepassing. Er wordt een overzichts pagina voor de toepassing weer gegeven.
 
-   ![Voorbeeld: De overzichtspagina van de toepassing](./media/certificate-signing-options/application-overview-page.png)
+   ![Voorbeeld: Pagina Toepassings overzicht](./media/certificate-signing-options/application-overview-page.png)
 
-Wijzig vervolgens het CSR-opties in het SAML-token voor de toepassing:
+Wijzig vervolgens de opties voor certificaat ondertekening in het SAML-token voor die toepassing:
 
-1. Selecteer in het linkerdeelvenster van de overzichtspagina van de toepassing, **eenmalige aanmelding**.
-1. Als de **instellen van eenmalige aanmelding met SAML - Preview** pagina wordt weergegeven, gaat u naar stap 5.
-1. Als de **selecteert u een methode voor eenmalige aanmelding** pagina niet wordt weergegeven, selecteert u **modi voor eenmalige aanmelding wijzigen** om weer te geven die pagina.
-1. In de **selecteert u een methode voor eenmalige aanmelding** pagina, selecteert u **SAML** indien beschikbaar. (Als **SAML** is niet beschikbaar is, de toepassing biedt geen ondersteuning voor SAML, en de rest van deze procedure over en artikel kunt u negeren.)
-1. In de **instellen van eenmalige aanmelding met SAML - Preview** pagina, zoek de **SAML-handtekeningcertificaat** kop en selecteer de **bewerken** pictogram (een potlood). De **SAML-handtekeningcertificaat** pagina wordt weergegeven.
+1. Selecteer **eenmalige aanmelding**in het linkerdeel venster van de overzichts pagina van de toepassing.
+1. Als de pagina **eenmalige aanmelding met SAML-preview instellen** wordt weer gegeven, gaat u naar stap 5.
+1. Als de pagina **Eén aanmeldings methode selecteren** niet wordt weer gegeven, selecteert u **modus voor eenmalige aanmelding wijzigen** om die pagina weer te geven.
+1. Selecteer op de pagina **Eén aanmeldings methode selecteren** de optie **SAML** indien beschikbaar. (Als **SAML** niet beschikbaar is, ondersteunt de toepassing geen SAML en kunt u de rest van deze procedure en dit artikel negeren.)
+1. Ga in de pagina **eenmalige aanmelding met SAML-preview instellen** naar de kop **SAML-handtekening certificaat** en selecteer het bewerkings pictogram (een potlood). De pagina **SAML-handtekening certificaat** wordt weer gegeven.
 
-   ![Voorbeeld: Pagina certificaat ondertekenen van SAML](./media/certificate-signing-options/saml-signing-page.png)
+   ![Voorbeeld: Pagina SAML-handtekening certificaat](./media/certificate-signing-options/saml-signing-page.png)
 
-1. In de **ondertekening optie** vervolgkeuzelijst Kies **aanmelding SAML-antwoord**, **aanmelding SAML-verklaring**, of **aanmelding SAML-antwoord en -bewering**. Beschrijvingen van deze opties worden weergegeven eerder in dit artikel in de [opties voor Certificaatondertekening](#certificate-signing-options).
-1. In de **algoritme voor ondertekening** vervolgkeuzelijst Kies **SHA-1** of **SHA-256**. Beschrijvingen van deze opties worden weergegeven eerder in dit artikel in de [algoritmen voor Certificaatondertekening](#certificate-signing-algorithms) sectie.
-1. Als u tevreden met uw keuzes bent, selecteert u **opslaan** om toe te passen van de nieuwe SAML-handtekeningcertificaten instellingen van het certificaat. Anders selecteert u de **X** om de wijzigingen te verwijderen.
+1. Kies in de vervolg keuzelijst **handtekening opties** de optie **SAML-respons ondertekenen**, **SAML-bevestiging ondertekenen**of **SAML-respons en-bevestiging ondertekenen**. Beschrijvingen van deze opties worden eerder in dit artikel weer gegeven in de [Opties voor certificaat ondertekening](#certificate-signing-options).
+1. Kies in de vervolg keuzelijst **handtekening algoritme** **SHA-1** of **SHA-256**. Beschrijvingen van deze opties worden eerder in dit artikel weer gegeven in de sectie algoritmen voor [certificaat ondertekening](#certificate-signing-algorithms) .
+1. Als u tevreden bent met uw keuzes, selecteert u **Opslaan** om de nieuwe instellingen voor het SAML-handtekening certificaat toe te passen. Anders selecteert u de **X** om de wijzigingen te negeren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Configureren van eenmalige aanmelding voor toepassingen die zich niet in de App-galerie van Azure Active Directory](configure-federated-single-sign-on-non-gallery-applications.md)
-* [Oplossen van SAML gebaseerde eenmalige aanmelding](../develop/howto-v1-debug-saml-sso-issues.md)
+* [Eenmalige aanmelding configureren voor toepassingen die zich niet in de Azure Active Directory app-galerie bevinden](configure-federated-single-sign-on-non-gallery-applications.md)
+* [Problemen met eenmalige aanmelding op basis van SAML oplossen](../develop/howto-v1-debug-saml-sso-issues.md)

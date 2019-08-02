@@ -1,45 +1,42 @@
 ---
-title: Het maken van een toepassing toegankelijk is met Azure Maps | Microsoft Docs
-description: Over het bouwen van een toegankelijke toepassing met behulp van Azure Maps
+title: Een toegankelijke toepassing maken met Azure Maps | Microsoft Docs
+description: Een toegankelijke toepassing bouwen met behulp van Azure Maps
 services: azure-maps
-keywords: ''
 author: chgennar
 ms.author: chgennar
-ms.date: 09/17/2018
-ms.topic: article
+ms.date: 07/29/2019
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
 manager: timlt
-ms.devlang: na
-ms.openlocfilehash: ef948b4dca3d3800a81ac52f3a73beee2558d21c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8865027c895be09150797608e43184f1fdefb267
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769699"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638787"
 ---
-# <a name="building-an-accessible-application"></a>Het bouwen van een toepassing toegankelijk is
+# <a name="building-an-accessible-application"></a>Een toegankelijke toepassing bouwen
 
-In dit artikel wordt beschreven hoe u een kaart toepassing bouwt die kan worden gebruikt door een schermlezer.
+In dit artikel wordt beschreven hoe u een kaart toepassing bouwt die kan worden gebruikt door een scherm lezer.
 
 ## <a name="understand-the-code"></a>De code begrijpen
 
-<iframe height='500' scrolling='no' title='Een toepassing toegankelijk maken' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>van een toepassing toegankelijk</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Een toegankelijke toepassing maken' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de pen <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>een toegankelijke toepassing maken</a> met behulp<a href='https://codepen.io/azuremaps'>@azuremaps</a>van Azure Maps () op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-De kaart bevat vooraf gedefinieerde met toegankelijkheidsfuncties. Gebruikers kunnen gaan, de kaart met het toetsenbord. Als een schermlezer wordt uitgevoerd, is de kaart, ontvangt de gebruiker van wijzigingen in de staat.
-Bijvoorbeeld, worden gebruikers geïnformeerd over wijzigingen in toewijzingen, wanneer de kaart wordt gepand of op schaal. Aanvullende informatie die wordt geplaatst op de basiskaart hebt bijbehorende tekstuele informatie voor gebruikers van schermlezers.
+De kaart is gebaseerd op de toegankelijkheids functies. Gebruikers kunnen met behulp van het toetsen bord door de kaart navigeren. Als er een scherm lezer wordt uitgevoerd, wordt de gebruiker op de hoogte gebracht van wijzigingen in de status van de kaart.
+Gebruikers worden bijvoorbeeld op de hoogte gebracht van de toewijzings wijzigingen wanneer de kaart wordt panned of ingezoomd. Aanvullende informatie die op de basis kaart wordt geplaatst, moet bijbehorende tekstuele informatie bevatten voor gebruikers van scherm lezers.
 
-Met behulp van [pop-upvenster](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) volgt één manier om dit te bereiken. In het bovenstaande voorbeeld van de zoekopdracht wordt een pop-upvenster met tekstuele informatie toegevoegd aan de kaart voor elke pincode die op de kaart is geplaatst. Met behulp van de [van pop-upvenster](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) [koppelen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#attach) methode kunt u het pop-upvenster kunnen worden bekeken door een schermlezer zonder dat het pop-upvenster visueel wordt weergegeven op de kaart.
+Het gebruik van [pop-up](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) is een manier om dit te doen. In het bovenstaande Zoek voorbeeld wordt een pop-upvenster met tekstuele informatie toegevoegd aan de kaart voor elke pincode die op de kaart wordt geplaatst. Met de methode bijvoegen [van pop-up](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) [](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#attach) kan de pop-up worden weer gegeven met een scherm lezer zonder dat de pop-up op de kaart visueel wordt weer gegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de pop-klasse en de bijbehorende methoden die in dit artikel wordt gebruikt:
+Meer informatie over de pop-upklasse en de methoden die in dit artikel worden gebruikt:
 
 > [!div class="nextstepaction"]
 > [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
-Bekijk meer voorbeelden van code in:
+Meer code voorbeelden bekijken:
 
 > [!div class="nextstepaction"]
-> [Voorbeeld-codetabel](https://aka.ms/AzureMapsSamples)
+> [Voorbeeld pagina voor code](https://aka.ms/AzureMapsSamples)

@@ -1,6 +1,6 @@
 ---
-title: OpenCensus gaat u traceren met Azure Application Insights | Microsoft Docs
-description: Biedt instructies voor het integreren van OpenCensus gaat u traceren met de lokale doorstuurserver en Application Insights
+title: Open tellingen bijhouden met Azure-toepassing inzichten | Microsoft Docs
+description: Biedt instructies voor het integreren van opentellingen met de lokale doorstuur server en Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
@@ -9,22 +9,22 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cdf01fbbcc8ef1f90b2e0f8973f59c46c5bf70f8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 56e66f17e9ce1d2482463f619e82dfd29d48f191
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60577790"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67990307"
 ---
-# <a name="collect-distributed-traces-from-go-preview"></a>Gedistribueerde traceringen verzameld vanuit Go (Preview)
+# <a name="collect-distributed-traces-from-go-preview"></a>Gedistribueerde traceringen van Go verzamelen (preview-versie)
 
-Application Insights nu ondersteunt tracering van Go-toepassingen door de integratie met gedistribueerde [OpenCensus](https://opencensus.io) en onze nieuwe [lokale doorstuurserver](./opencensus-local-forwarder.md). In dit artikel begeleidt u stapsgewijs door het proces van het instellen van OpenCensus voor Go en het ophalen van uw traceringsgegevens naar Application Insights.
+Application Insights ondersteunt nu gedistribueerde tracering van Go-toepassingen [](https://opencensus.io) via integratie met opentellingen en onze nieuwe [lokale doorstuur server](./opencensus-local-forwarder.md). Dit artikel begeleidt u stapsgewijs door het proces voor het instellen van opentellingen voor Go en het ophalen van uw tracerings gegevens naar Application Insights.
 
 ## <a name="prerequisites"></a>Vereisten
 
 - U hebt een Azure-abonnement nodig.
-- Ga naar moet worden geïnstalleerd, in dit artikel wordt de versie 1.11 [gaat downloaden](https://golang.org/dl/).
-- Volg de instructies voor het installeren van de [lokale doorstuurserver als een Windows-service](./opencensus-local-forwarder.md).
+- Go moet worden geïnstalleerd. in dit artikel wordt gebruikgemaakt van de versie 1,11 [Go Down load](https://golang.org/dl/).
+- Volg de instructies voor het installeren van de [lokale doorstuur server als Windows-service](./opencensus-local-forwarder.md).
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -32,32 +32,34 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-application-insights-resource"></a>Application Insights-resource maken
+## <a name="create-application-insights-resource"></a>Application Insights resource maken
 
-U moet eerst maken van een Application Insights-resource die een instrumentatiesleutel (ikey) wordt gegenereerd. De ikey wordt vervolgens gebruikt voor het configureren van de lokale doorstuurserver voor het verzenden van gedistribueerde traceringen van uw toepassing OpenCensus geïnstrumenteerd met Application Insights.   
+Eerst moet u een Application Insights resource maken waarmee een instrumentatie sleutel (Ikey) wordt gegenereerd. De iKey wordt vervolgens gebruikt om de lokale doorstuur server te configureren voor het verzenden van gedistribueerde traceringen van uw open-telling-toepassing naar Application Insights.   
 
-1. Selecteer **een resource maken** > **hulpprogramma's voor ontwikkelaars** > **Application Insights**.
+1. Selecteer **een resource** > maken**Ontwikkelhulpprogramma's** > **Application Insights**.
 
    ![Application Insights-resource toevoegen](./media/opencensus-Go/0001-create-resource.png)
+
+ > [!NOTE]
+   >Als dit de eerste keer is dat u een Application Insights resource maakt, kunt u meer informatie vinden op het artikel [een Application Insights-resource maken](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) .
 
    Er wordt een configuratiescherm weergegeven. Gebruik de volgende tabel om de invoervelden in te vullen.
 
     | Instellingen        | Waarde           | Beschrijving  |
    | ------------- |:-------------|:-----|
-   | **Naam**      | Globaal unieke waarde | Naam die de app beschrijft die u wilt controleren |
-   | **Toepassingstype** | Algemeen | Type app dat u wilt controleren |
+   | **Name**      | Globaal unieke waarde | Naam die de app beschrijft die u wilt controleren |
    | **Resourcegroep**     | myResourceGroup      | Naam voor de nieuwe resourcegroep waarin App Insights-gegevens worden gehost |
-   | **Location** | US - oost | Kies een locatie in uw buurt of in de buurt van waar de app wordt gehost |
+   | **Location** | East US | Kies een locatie in uw buurt of in de buurt van waar de app wordt gehost |
 
 2. Klik op **Create**.
 
-## <a name="configure-local-forwarder"></a>Lokale forwarder configureren
+## <a name="configure-local-forwarder"></a>Lokale doorstuur server configureren
 
 1. Selecteer **Overzicht** > **Essentials** > kopieer de **Instrumentatiesleutel** van uw toepassing.
 
-   ![Schermafbeelding van de instrumentatiesleutel](./media/opencensus-Go/0003-instrumentation-key.png)
+   ![Scherm opname van instrumentatie sleutel](./media/opencensus-Go/0003-instrumentation-key.png)
 
-2. Bewerk uw `LocalForwarder.config` bestand en voeg de instrumentatiesleutel toe. Als u de instructies in de gevolgd de [vereiste](./opencensus-local-forwarder.md) het bestand bevindt zich in `C:\LF-WindowsServiceHost`
+2. Bewerk het `LocalForwarder.config` bestand en voeg de instrumentatie sleutel toe. Als u de instructies in de [vereisten](./opencensus-local-forwarder.md) van het bestand hebt gevolgd, bevindt het zich op`C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -74,18 +76,18 @@ U moet eerst maken van een Application Insights-resource die een instrumentaties
     </LocalForwarderConfiguration>
     ```
 
-3. De toepassing opnieuw hebt gestart **lokale doorstuurserver** service.
+3. Start de **lokale doorstuur server** -service van de toepassing opnieuw.
 
-## <a name="opencensus-go-packages"></a>Ga naar OpenCensus pakketten
+## <a name="opencensus-go-packages"></a>Open telling-pakketten
 
-1. Installeer de pakketten Open telling voor Go vanaf de opdrachtregel:
+1. Installeer de open telling pakketten voor Go vanaf de opdracht regel:
 
     ```go
     go get -u go.opencensus.io
     go get -u contrib.go.opencensus.io/exporter/ocagent
     ```
 
-2. Voeg de volgende code toe aan een .go-bestand en vervolgens bouwen en uitvoeren. (In dit voorbeeld is afgeleid van de officiële OpenCensus richtlijnen met toegevoegde code die het mogelijk de integratie met de lokale doorstuurserver maakt)
+2. Voeg de volgende code toe aan een. go-bestand en bouw en voer deze uit. (Dit voor beeld is afgeleid van de officiële opentellings richtlijn met toegevoegde code die de integratie met de lokale doorstuur Server vereenvoudigt)
 
      ```go
         // Copyright 2018, OpenCensus Authors
@@ -184,45 +186,45 @@ U moet eerst maken van een Application Insights-resource die een instrumentaties
         }
      ```
 
-3. Wanneer de eenvoudige go-app wordt uitgevoerd navigeert u naar `http://localhost:50030`. Elke vernieuwing van de browser wordt de tekst "Hallo wereld" vergezeld gaan van overeenkomende reeks gegevens die wordt voortgezet op de lokale doorstuurserver gegenereerd.
+3. Zodra de eenvoudige Go-app wordt uitgevoerd, `http://localhost:50030`gaat u naar. Bij elke vernieuwing van de browser wordt de tekst "Hallo wereld" gegenereerd, vergezeld van overeenkomende gegevens die door de lokale doorstuur server worden opgehaald.
 
-4. Om te bevestigen dat de **lokale doorstuurserver** ophaalt van de controle traceringen het `LocalForwarder.config` bestand. Als u de stappen in de [vereiste](https://docs.microsoft.com/azure/application-insights/local-forwarder), deze bevindt zich `C:\LF-WindowsServiceHost`.
+4. Als u wilt bevestigen dat de **lokale doorstuur server** de traceringen ophaalt, `LocalForwarder.config` controleert u het bestand. Als u de stappen in de [vereiste](https://docs.microsoft.com/azure/application-insights/local-forwarder)hebt gevolgd, bevindt deze zich `C:\LF-WindowsServiceHost`in.
 
-    In onderstaande afbeelding van het logboekbestand, kunt u zien dat vóór het uitvoeren van het tweede script waar we een uitvoerder toegevoegd `OpenCensus input BatchesReceived` is 0. Zodra we begonnen met het bijgewerkte script is uitgevoerd `BatchesReceived` verhoogd gelijk is aan het aantal waarden dat we ingevoerd:
+    In de onderstaande afbeelding van het logboek bestand kunt u zien dat u voorafgaand aan het uitvoeren van het tweede script waarin we een `OpenCensus input BatchesReceived` exporteur hebben toegevoegd 0 is. Zodra we begonnen hebben met het uitvoeren `BatchesReceived` van het bijgewerkte script dat is verhoogd naar het aantal ingevoerde waarden:
     
     ![Nieuw App Insights-resourceformulier](./media/opencensus-go/0004-batches-received.png)
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Beginnen met controleren in Azure Portal
 
-1. U kunt nu opnieuw openen met de Application Insights **overzicht** pagina in de Azure-portal om weer te geven details over de toepassing die momenteel wordt uitgevoerd. Selecteer **metrische Stream Live**.
+1. U kunt de pagina **overzicht** van Application Insights nu opnieuw openen in het Azure Portal om details weer te geven over de toepassing die momenteel wordt uitgevoerd. Selecteer **Live metrische stroom**.
 
-   ![Schermopname van het overzichtsvenster met live, metrische gegevensstroom geselecteerd in een rood kader](./media/opencensus-go/0005-overview-live-metrics-stream.png)
+   ![Scherm opname van het deel venster overzicht met een live metrieke stroom die is geselecteerd in het rode vak](./media/opencensus-go/0005-overview-live-metrics-stream.png)
 
-2. Als u de tweede Go-app opnieuw uitvoeren en start de browser vernieuwen `http://localhost:50030`, ziet u live traceringsgegevens wanneer ze in Application Insights worden ontvangen van de lokale-doorstuurserver.
+2. Als u de tweede go-app opnieuw uitvoert en de browser voor `http://localhost:50030`hebt vernieuwd, worden er Live Trace-gegevens weer gegeven terwijl deze arriveren in Application Insights van de lokale doorstuur server.
 
-   ![Schermafbeelding van live, metrische gegevensstroom met prestatiegegevens weergegeven](./media/opencensus-go/0006-stream.png)
+   ![Scherm afbeelding van een live metrieke stroom met prestatie gegevens die worden weer gegeven](./media/opencensus-go/0006-stream.png)
 
-3. Ga terug naar de **overzicht** pagina en selecteer **Toepassingsoverzicht** voor een visueel overzicht van de afhankelijkheidsrelaties tussen en de timing van de oproep tussen onderdelen van uw toepassing.
+3. Ga terug naar de pagina **overzicht** en selecteer **toepassings overzicht** voor een visuele indeling van de afhankelijkheids relaties en roep timing tussen de onderdelen van uw toepassing aan.
 
-    ![Schermafbeelding van de basistoepassing toewijzing](./media/opencensus-go/0007-application-map.png)
+    ![Scherm opname van basis toepassings toewijzing](./media/opencensus-go/0007-application-map.png)
 
-    Omdat we alleen een methodeaanroep traceren zijn, is onze overzicht van de toepassing niet zo interessant. Maar overzicht van de toepassing kunt schalen om te visualiseren veel gedistribueerde toepassingen:
+    Omdat we slechts één methode aanroep traceren, is onze toepassings toewijzing niet zo interessant. Het is echter mogelijk dat toepassings overzicht kan worden geschaald om veel meer gedistribueerde toepassingen te visualiseren:
 
    ![Toepassingskaart](media/opencensus-go/application-map.png)
 
-4. Selecteer **prestaties onderzoeken** gedetailleerde prestatieanalyse uitvoeren en de hoofdoorzaak van trage prestaties vast.
+4. Selecteer **prestaties onderzoeken** om gedetailleerde prestatie analyses uit te voeren en de hoofd oorzaak van trage prestaties te bepalen.
 
-    ![Schermafbeelding van deelvenster prestaties](./media/opencensus-go/0008-performance.png)
+    ![Scherm afbeelding van het deel venster prestaties](./media/opencensus-go/0008-performance.png)
 
-5. Selecteren **voorbeelden** en vervolgens te klikken op een van de voorbeelden die worden weergegeven in het rechter deelvenster op de ervaring van de details van end-to-end-transactie wordt gestart. Hoewel onze voorbeeld-app ons slechts één gebeurtenis leert, zou een complexere toepassing kunt u de end-to-end-transactie op niveau van een afzonderlijke gebeurtenis aanroepstack verkennen.
+5. Door voor **beelden** te selecteren en vervolgens te klikken op een van de voor beelden die in het rechterdeel venster worden weer gegeven, wordt de end-to-end-transactie Details geopend. Hoewel in onze voor beeld-app slechts één gebeurtenis wordt weer gegeven, zou een complexere toepassing u in staat stellen de end-to-end-trans actie te verkennen tot het niveau van de aanroep stack van een afzonderlijke gebeurtenis.
 
-     ![Schermafbeelding van end-to-end-transactie-interface](./media/opencensus-go/0009-end-to-end-transaction.png)
+     ![Scherm opname van end-to-end trans actie-interface](./media/opencensus-go/0009-end-to-end-transaction.png)
 
-## <a name="opencensus-trace-for-go"></a>OpenCensus tracering voor Go
+## <a name="opencensus-trace-for-go"></a>Open tellingen traceren voor Go
 
-We alleen behandeld de basisbeginselen van het integreren van OpenCensus voor Go met de lokale doorstuurserver en Application Insights. De [officiële OpenCensus Go gebruiksrichtlijnen](https://godoc.org/go.opencensus.io) omvat meer geavanceerde onderwerpen.
+We hebben alleen de basis beginselen van het integreren van opentellingen voor Go met de lokale doorstuur server en Application Insights besproken. In de [officiële open-belasting gaat](https://godoc.org/go.opencensus.io) u meer over meer geavanceerde onderwerpen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Overzicht van de toepassing](./../../azure-monitor/app/app-map.md)
-* [End-to-end-prestaties controleren](./../../azure-monitor/learn/tutorial-performance.md)
+* [Toepassings overzicht](./../../azure-monitor/app/app-map.md)
+* [End-to-end prestatie bewaking](./../../azure-monitor/learn/tutorial-performance.md)

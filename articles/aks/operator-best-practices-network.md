@@ -1,6 +1,6 @@
 ---
-title: Operator aanbevolen procedures - verbinding met het netwerk in Azure Kubernetes Services (AKS)
-description: Meer over de best practices uit de cluster-operator voor virtuele-netwerkbronnen en connectiviteit in Azure Kubernetes Service (AKS)
+title: 'Aanbevolen procedures voor Opera tors: netwerk verbinding in azure Kubernetes Services (AKS)'
+description: Meer informatie over de aanbevolen procedures voor cluster operators voor virtuele netwerk bronnen en connectiviteit in azure Kubernetes service (AKS)
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,72 +8,72 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: mlearned
 ms.openlocfilehash: d1bc865b38b52c8a7c3ac6ec4dab6408a1d0430c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67614757"
 ---
-# <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor verbinding met het netwerk en beveiliging in Azure Kubernetes Service (AKS)
+# <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor netwerk connectiviteit en beveiliging in azure Kubernetes service (AKS)
 
-Bij het maken en beheren van clusters in Azure Kubernetes Service (AKS), kunt u verbinding met het netwerk opgeven voor uw knooppunten en toepassingen. Deze netwerkbronnen omvatten IP-adresbereiken, load balancers en ingress-controllers. Als u wilt een hoge kwaliteit van de service voor uw toepassingen behouden, moet u plannen en configureert u deze resources.
+Wanneer u clusters maakt en beheert in azure Kubernetes service (AKS), biedt u netwerk connectiviteit voor uw knoop punten en toepassingen. Deze netwerk bronnen zijn IP-adresbereiken, load balancers en ingangs controllers. Als u een hoge kwaliteit van de service voor uw toepassingen wilt behouden, moet u deze resources plannen en vervolgens configureren.
 
-Deze aanbevolen procedures voor richt zich op de verbinding met het netwerk en beveiliging voor clusteroperators. In dit artikel leert u het volgende:
+In deze best practices wordt het artikel gericht op netwerk connectiviteit en-beveiliging voor cluster operators. In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
-> * Vergelijk de kubenet en Azure CNI netwerk modi in AKS
-> * Plannen voor de vereiste IP-adressering en connectiviteit
-> * Distribueren van netwerkverkeer met load balancers, controllers voor inkomend verkeer of een web application Firewall (WAF)
-> * Veilig verbinding maken met de clusterknooppunten
+> * De kubenet-en Azure CNI-netwerk modi vergelijken in AKS
+> * Plan voor vereiste IP-adres sering en connectiviteit
+> * Verkeer distribueren met load balancers, ingangs controllers of een Web Application firewall (WAF)
+> * Veilig verbinding maken met cluster knooppunten
 
-## <a name="choose-the-appropriate-network-model"></a>Kies het juiste netwerk-model
+## <a name="choose-the-appropriate-network-model"></a>Kies het juiste netwerk model
 
-**Aanbevolen procedurerichtlijn** : voor integratie met bestaande virtuele netwerken of on-premises netwerken, Azure CNI netwerken gebruiken in AKS. Dit model netwerk kunt ook meer scheiding van resources en besturingselementen in een bedrijfsomgeving.
+**Richt lijnen voor best practices** : voor de integratie met bestaande virtuele netwerken of on-premises netwerken gebruikt u Azure cni-netwerken in AKS. Dit netwerk model maakt ook een grotere schei ding van resources en besturings elementen mogelijk in een bedrijfs omgeving.
 
-Virtuele netwerken bieden de basisconnectiviteit voor AKS-knooppunten en klanten toegang krijgen tot uw toepassingen. Er zijn twee verschillende manieren het implementeren van clusters van AKS in virtuele netwerken:
+Virtuele netwerken bieden de basis connectiviteit voor AKS-knoop punten en klanten om toegang te krijgen tot uw toepassingen. Er zijn twee verschillende manieren voor het implementeren van AKS-clusters in virtuele netwerken:
 
-* **Kubenet netwerken** -Azure beheert de resources van het virtuele netwerk als het cluster is geïmplementeerd en maakt gebruik van de [kubenet][kubenet] Kubernetes-invoegtoepassing.
-* **Netwerken van Azure CNI** - implementeert in een bestaand virtueel netwerk en maakt gebruik van de [Azure Container netwerken Interface (CNI)][cni-networking] Kubernetes-invoegtoepassing. Schillen ontvangen afzonderlijke IP-adressen die naar andere netwerkservices of on-premises bronnen doorsturen kunt.
+* **Kubenet-netwerken** : Azure beheert de virtuele netwerk resources wanneer het cluster is geïmplementeerd en maakt gebruik van de [Kubenet][kubenet] Kubernetes-invoeg toepassing.
+* **Azure cni-netwerken** : implementeert in een bestaand virtueel netwerk en maakt gebruik van de [Azure container Networking interface (cni) Kubernetes-][cni-networking] invoeg toepassing. Elk van de verschillende Ip's ontvangen die kunnen worden doorgestuurd naar andere netwerk services of on-premises bronnen.
 
-De Container netwerken Interface (CNI) is een neutrale-protocol waarmee de container-runtime-aanvragen versturen naar de provider van een netwerk. De Azure CNI IP-adressen toewijst aan schillen en knooppunten, en biedt IP-adres management (IPAM)-functies als u verbinding met bestaande virtuele Azure-netwerken maken. Elke resource-knooppunt en pod ontvangt een IP-adres in de Azure-netwerk en geen extra routering is nodig om te communiceren met andere resources of services.
+De container Networking interface (CNI) is een Vendor-neutraal protocol waarmee de container runtime aanvragen voor een netwerk provider kan indienen. De Azure CNI wijst IP-adressen toe aan de peulen en knoop punten en biedt functies voor IP-adres beheer (IPAM) wanneer u verbinding maakt met bestaande Azure Virtual Networks. Elk knoop punt en pod-resource ontvangt een IP-adres in het virtuele netwerk van Azure en er is geen verdere route ring nodig om te communiceren met andere resources of services.
 
-![Diagram van twee knooppunten met bruggen, elk met een enkel Azure-VNet verbinding maken](media/operator-best-practices-network/advanced-networking-diagram.png)
+![Diagram met twee knoop punten met bruggen die elk met één Azure VNet verbinden](media/operator-best-practices-network/advanced-networking-diagram.png)
 
-Voor de meeste implementaties van de productie, moet u Azure CNI netwerken. Dit model netwerk kunnen voor scheiding van controle en beheer van resources. Vanuit het beveiligingsoogpunt wilt u vaak verschillende teams beheren en beveiligen van deze resources. Azure CNI netwerken kunt die u verbinding met bestaande Azure-resources, on-premises bronnen of andere services rechtstreeks via IP-adressen toegewezen aan elke schil maken.
+Voor de meeste productie-implementaties moet u Azure CNI-netwerken gebruiken. Dit netwerk model maakt schei ding van beheer en beheer van resources mogelijk. Vanuit een beveiligings perspectief wilt u vaak dat verschillende teams deze bronnen beheren en beveiligen. Met Azure CNI-netwerken kunt u rechtstreeks verbinding maken met bestaande Azure-resources, on-premises resources of andere services via IP-adressen die zijn toegewezen aan elke pod.
 
-Wanneer u Azure CNI netwerken gebruikt, is de VM-resource in een afzonderlijke resource die u wilt het AKS-cluster. Overdragen van machtigingen voor de AKS-service-principal te openen en beheren van deze resources. De service-principal die worden gebruikt door het AKS-cluster moet minimaal beschikken over [Inzender voor netwerken](../role-based-access-control/built-in-roles.md#network-contributor) machtigingen op het subnet binnen uw virtuele netwerk. Als u wilt definiëren een [aangepaste rol](../role-based-access-control/custom-roles.md) in plaats van de ingebouwde rol van inzender voor netwerken, de volgende machtigingen zijn vereist:
+Wanneer u Azure CNI-netwerken gebruikt, bevindt de virtuele netwerk resource zich in een afzonderlijke resource groep voor het AKS-cluster. Delegeer machtigingen voor de Service-Principal AKS voor toegang tot en beheer van deze resources. De service-principal die wordt gebruikt door het AKS-cluster [](../role-based-access-control/built-in-roles.md#network-contributor) moet ten minste netwerkinzender machtigingen hebben voor het subnet binnen het virtuele netwerk. Als u een [aangepaste rol](../role-based-access-control/custom-roles.md) wilt definiëren in plaats van de ingebouwde rol netwerk bijdrager te gebruiken, zijn de volgende machtigingen vereist:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-Zie voor meer informatie over AKS-service-principal overdracht [toegang tot andere Azure-resources delegeren][sp-delegation].
+Zie [toegang tot andere Azure-resources][sp-delegation]delegeren voor meer informatie over delegering van AKS-Service-Principal.
 
-Als elk knooppunt en een schil ontvangt een eigen IP-adres, plant de adresbereiken voor de AKS-subnetten. Het subnet moet groot genoeg is voor IP-adressen voor elk knooppunt, schillen en netwerkbronnen die u implementeert. Een AKS-cluster moet worden geplaatst in een eigen subnet. Als u wilt toestaan dat de verbinding met on-premises of gekoppelde netwerken in Azure, gebruik geen IP-adresbereiken die overlappen met bestaande netwerkbronnen. Er gelden standaard beperkingen voor het aantal schillen dat elk knooppunt wordt uitgevoerd met kubenet zowel Azure CNI netwerken. Voor het afhandelen van schaal van gebeurtenissen of upgraden van clusters, moet u ook extra IP-adressen beschikbaar voor gebruik in het toegewezen subnet. Deze aanvullende adresruimte is vooral belangrijk als u Windows Server-containers (momenteel in preview in AKS), gebruiken zoals deze knooppuntgroepen een upgrade vereist naar de meest recente beveiligingspatches van toepassing. Zie voor meer informatie over Windows Server-knooppunten [een knooppuntgroep in AKS Upgrade][nodepool-upgrade].
+Plan de adresbereiken voor de AKS-subnetten, aangezien elk knoop punt en pod zijn eigen IP-adres ontvangen. Het subnet moet groot genoeg zijn om IP-adressen op te geven voor elk knoop punt, elk van beide en netwerk bronnen die u implementeert. Elk AKS-cluster moet in een eigen subnet worden geplaatst. Om verbinding te kunnen maken met on-premises of peered netwerken in azure, kunt u geen IP-adresbereiken gebruiken die overlappen met bestaande netwerk bronnen. Er zijn standaard limieten voor het aantal peulen dat elke knoop punt wordt uitgevoerd met zowel kubenet als Azure CNI-netwerken. Als u opschalende gebeurtenissen of cluster upgrades wilt verwerken, moet u ook extra IP-adressen beschikbaar voor gebruik in het toegewezen subnet. Deze extra adres ruimte is vooral belang rijk als u Windows Server-containers gebruikt (momenteel als preview-versie in AKS), omdat voor deze knooppunt groepen een upgrade moet worden uitgevoerd om de meest recente beveiligings patches toe te passen. Zie [een knooppunt groep bijwerken in AKS][nodepool-upgrade]voor meer informatie over Windows Server-knoop punten.
 
-Voor het berekenen van het IP-adres vereist, Zie [netwerken van Azure CNI configureren in AKS][advanced-networking].
+Zie [Azure cni-netwerken configureren in AKS][advanced-networking]voor het berekenen van het vereiste IP-adres.
 
-### <a name="kubenet-networking"></a>Kubenet netwerken
+### <a name="kubenet-networking"></a>Kubenet-netwerken
 
-Hoewel kubenet, u hoeft voor het instellen van de virtuele netwerken voordat het cluster wordt geïmplementeerd, kunnen er zijn nadelen:
+Hoewel u voor kubenet de virtuele netwerken niet hoeft in te stellen voordat het cluster wordt geïmplementeerd, zijn er nadelen:
 
-* Knooppunten en schillen worden geplaatst op verschillende IP-subnetten. De gebruiker gedefinieerde routering (UDR) en IP-doorsturen wordt gebruikt voor het routeren van verkeer tussen schillen en knooppunten. Deze extra routering kan de prestaties verminderen.
-* Verbindingen met bestaande on-premises netwerken of andere Azure-netwerk-peering kunnen lastig zijn.
+* Knoop punten en peulen worden op verschillende IP-subnetten geplaatst. Door de gebruiker gedefinieerde route ring (UDR) en door sturen via IP wordt gebruikt voor het routeren van verkeer tussen peulen en knoop punten. Deze extra route ring kan de netwerk prestaties verminderen.
+* Verbindingen met bestaande on-premises netwerken of peering met andere virtuele netwerken van Azure kunnen ingewikkeld zijn.
 
-Kubenet is geschikt voor kleine ontwikkelings- of -werkbelastingen, zoals u hoeft te maken van het virtuele netwerk en subnetten afzonderlijk van het AKS-cluster. Eenvoudige websites met weinig verkeer, of tot het lift- and -shift-workloads in containers, kunnen ook profiteren van de eenvoud van AKS-clusters die zijn geïmplementeerd met kubenet netwerken. Voor de meeste implementaties van de productie, moet u plannen en gebruiken van Azure CNI netwerken. U kunt ook [configureren van uw eigen IP-adresbereiken en virtuele netwerken met behulp van kubenet][aks-configure-kubenet-networking].
+Kubenet is geschikt voor kleine ontwikkel-en test werkbelastingen, omdat u het virtuele netwerk en de subnetten niet afzonderlijk van het AKS-cluster hoeft te maken. Eenvoudige websites met weinig verkeer of voor het optillen en verplaatsen van workloads in containers, kunnen ook profiteren van de eenvoud van AKS-clusters die zijn geïmplementeerd met kubenet-netwerken. Voor de meeste productie-implementaties moet u Azure CNI-netwerken plannen en gebruiken. U kunt ook [uw eigen IP-adresbereiken en virtuele netwerken configureren met behulp van kubenet][aks-configure-kubenet-networking].
 
-## <a name="distribute-ingress-traffic"></a>Inkomend verkeer verdelen
+## <a name="distribute-ingress-traffic"></a>Binnenkomend verkeer distribueren
 
-**Aanbevolen procedurerichtlijn** : als u wilt distribueren HTTP of HTTPS-verkeer naar uw toepassingen, gebruikt u inkomend verkeer resources en domeincontrollers. Inkomend verkeer controllers om extra functies te bieden via een gewone Azure load balancer en kunnen worden beheerd als systeemeigen Kubernetes-resources.
+**Richt lijnen voor best practices** : als u http-of HTTPS-verkeer naar uw toepassingen wilt distribueren, gebruikt u de bronnen en controllers van de ingang. Ingangs controllers bieden extra functies voor een gewone Azure-load balancer en kunnen worden beheerd als systeem eigen Kubernetes-resources.
 
-Een Azure load balancer klantenverkeer naar toepassingen in uw AKS-cluster kunt distribueren, maar deze beperkt in wat er van dat verkeer begrijpt. Een load balancer-resource werkt op laag 4 en verdeelt het verkeer op basis van het protocol of -poorten. De meeste webtoepassingen die gebruikmaken van HTTP of HTTPS moeten Kuberenetes inkomend resources en controllers, die op laag 7 werkt gebruiken. Inkomend verkeer kunt distribueren van verkeer op basis van de URL van de toepassing en verwerk TLS/SSL-beëindiging. Deze mogelijkheid vermindert ook het aantal IP-adressen die u beschikbaar maken en toewijzen. Met een load balancer moet elke toepassing doorgaans een openbaar IP-adres toegewezen en toegewezen aan de service in het AKS-cluster. Met een resource met inkomend verkeer, kunt één IP-adres distribueren van verkeer naar meerdere toepassingen.
+Een Azure-load balancer kan klant verkeer distribueren naar toepassingen in uw AKS-cluster, maar dit is beperkt in wat het verkeer begrijpt. Een load balancer resource werkt op laag 4 en distribueert verkeer op basis van protocollen of poorten. De meeste webtoepassingen die gebruikmaken van HTTP of HTTPS, moeten Kuberenetes inkomende bronnen en controllers gebruiken, die op laag 7 werken. Bij inkomend verkeer kunnen gegevens worden gedistribueerd op basis van de URL van de toepassing en worden de TLS/SSL-beëindiging afhandeld. Deze mogelijkheid vermindert ook het aantal IP-adressen dat u beschikbaar maakt en toewijst. Met een load balancer moet voor elke toepassing doorgaans een openbaar IP-adres zijn toegewezen en toegewezen aan de service in het AKS-cluster. Met een ingangs resource kan één IP-adres verkeer distribueren naar meerdere toepassingen.
 
-![Diagram van inkomend netwerkverkeer in een AKS-cluster](media/operator-best-practices-network/aks-ingress.png)
+![Diagram van ingangs verkeers stroom in een AKS-cluster](media/operator-best-practices-network/aks-ingress.png)
 
- Er zijn twee onderdelen voor inkomende gegevens:
+ Er zijn twee onderdelen voor inkomend verkeer:
 
- * Een inkomend *resource*, en
- * Een inkomend *controller*
+ * Een ingangs *bron*en
+ * Een ingangs *controller*
 
-De resource met inkomend verkeer is een YAML-manifest van `kind: Ingress` die de host, certificaten en regels definieert om verkeer te routeren voor services die worden uitgevoerd in uw AKS-cluster. Het volgende voorbeeld YAML-manifest zou distribueren van verkeer voor *myapp.com* op een van twee services *blogservice* of *storeservice*. De klant wordt omgeleid naar een service of de andere op basis van de URL die ze toegang krijgen tot.
+De ingangs resource is een yaml-manifest `kind: Ingress` van waarmee de host, certificaten en regels worden gedefinieerd voor het routeren van verkeer naar services die worden uitgevoerd in uw AKS-cluster. In het volgende voor beeld YAML-manifest wordt het verkeer voor *MyApp.com* gedistribueerd naar een van de twee services, *blogservice* of *storeservice*. De klant wordt omgeleid naar één service of het andere op basis van de URL waartoe ze toegang hebben.
 
 ```yaml
 kind: Ingress
@@ -99,38 +99,38 @@ spec:
          servicePort: 80
 ```
 
-Een controller voor binnenkomend verkeer is een daemon uit die wordt uitgevoerd op een AKS-knooppunt en controleert op binnenkomende aanvragen. Verkeer wordt dan gedistribueerd op basis van de regels die zijn gedefinieerd in de resource met inkomend verkeer. De meest voorkomende controller voor binnenkomend verkeer is gebaseerd op [NGINX]. AKS niet beperkt u naar een specifieke domeincontroller, zodat u andere domeincontrollers, zoals kunt [Contour][contour], [HAProxy][haproxy], of [Traefik][traefik].
+Een ingangs controller is een daemon die wordt uitgevoerd op een AKS-knoop punt en controleert op inkomende aanvragen. Verkeer wordt vervolgens gedistribueerd op basis van de regels die zijn gedefinieerd in de bron ingang. De meest voorkomende ingress-controller is gebaseerd op [NGINX]. AKS beperkt u niet tot een specifieke controller, zodat u andere controllers, zoals [Contour][contour], [HAProxy][haproxy]of [Traefik][traefik], kunt gebruiken.
 
-Inkomend verkeer controllers moeten worden gepland op een Linux-knooppunt. Windows Server-knooppunten (momenteel in preview in AKS) mag niet de controller voor binnenkomend verkeer uitvoeren. Een knooppunt selector in uw manifest YAML of de implementatie van de Helm-grafiek gebruiken om aan te geven dat de resource moet worden uitgevoerd op een knooppunt op basis van Linux. Zie voor meer informatie, [gebruiken knooppunt selectoren om te bepalen, waarbij schillen zijn gepland in AKS][concepts-node-selectors].
+Ingangs controllers moeten worden gepland op een Linux-knoop punt. Windows Server-knoop punten (momenteel in de preview-versie van AKS) mogen de ingangs controller niet uitvoeren. Gebruik een knooppunt kiezer in uw YAML-manifest of helm-grafiek implementatie om aan te geven dat de resource moet worden uitgevoerd op een Linux-knoop punt. Zie [knooppunt selectie vakjes gebruiken om te bepalen waar peulingen worden gepland in AKS][concepts-node-selectors]voor meer informatie.
 
-Er zijn veel scenario's voor inkomend verkeer, met inbegrip van de volgende handleidingen:
+Er zijn veel scenario's voor inkomend verkeer, met inbegrip van de volgende hand leidingen:
 
-* [Een eenvoudige ingangscontroller met verbinding met het externe netwerk maken][aks-ingress-basic]
-* [Een controller voor binnenkomend verkeer die gebruikmaakt van een privé-interne netwerken en IP-adres maken][aks-ingress-internal]
-* [Een controller voor binnenkomend verkeer die gebruikmaakt van uw eigen TLS-certificaten maken][aks-ingress-own-tls]
-* Een controller voor binnenkomend verkeer die gebruikmaakt van we gaan coderen voor het automatisch genereren van TLS-certificaten maken [met een dynamisch openbaar IP-adres][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
+* [Een eenvoudige ingangs controller met externe netwerk verbinding maken][aks-ingress-basic]
+* [Een ingangs controller maken die gebruikmaakt van een intern, privé netwerk en IP-adres][aks-ingress-internal]
+* [Een ingangs controller maken die gebruikmaakt van uw eigen TLS-certificaten][aks-ingress-own-tls]
+* Een ingangs controller maken die gebruikmaakt van een versleuteling om automatisch TLS-certificaten te genereren [met een dynamisch openbaar IP-adres][aks-ingress-tls] of [met een statisch openbaar IP-adres][aks-ingress-static-tls]
 
-## <a name="secure-traffic-with-a-web-application-firewall-waf"></a>Verkeer met een web application firewall (WAF) beveiligen
+## <a name="secure-traffic-with-a-web-application-firewall-waf"></a>Verkeer beveiligen met een Web Application Firewall (WAF)
 
-**Aanbevolen procedurerichtlijn** : als u wilt scannen van inkomend verkeer voor potentiële aanvallen, gebruikt u een web application firewall (WAF), zoals [Barracuda WAF voor Azure][barracuda-waf] of Azure Application Gateway. Deze geavanceerde netwerkbronnen kunnen ook worden gerouteerd verkeer dan alleen HTTP en HTTPS-verbindingen of basic SSL-beëindiging.
+**Richt lijnen voor best practices** : als u inkomend verkeer voor mogelijke aanvallen wilt scannen, gebruikt u een Web Application firewall (WAF) zoals [Barracuda WAF voor Azure][barracuda-waf] of Azure-toepassing gateway. Deze geavanceerde netwerk bronnen kunnen ook verkeer routeren naast HTTP-en HTTPS-verbindingen of basis SSL-beëindiging.
 
-Een controller voor binnenkomend verkeer dat wordt gedistribueerd naar de services en toepassingen is meestal een Kubernetes-bron in uw AKS-cluster. De controller wordt uitgevoerd als een daemon op een AKS-knooppunt, en sommige van de resources van het knooppunt, zoals CPU, geheugen en netwerkbandbreedte verbruikt. In grotere omgevingen wilt u meestal voor de offload van sommige van deze routering van verkeer of TLS-beëindiging met een netwerkbron buiten het AKS-cluster. U wilt dat ook voor het scannen van inkomend verkeer voor potentiële aanvallen.
+Een ingangs controller die verkeer naar Services en toepassingen distribueert, is doorgaans een Kubernetes-bron in uw AKS-cluster. De controller wordt uitgevoerd als een daemon op een AKS-knoop punt en verbruikt enkele bronnen van het knoop punt, zoals CPU, geheugen en netwerk bandbreedte. In grotere omgevingen wilt u vaak een deel van deze verkeers routering of TLS-beëindiging naar een netwerk bron buiten het AKS-cluster offloaden. U wilt ook inkomend verkeer scannen op mogelijke aanvallen.
 
-![Een web application firewall (WAF), zoals Azure App Gateway kan beveiligen en distribueren van verkeer voor uw AKS-cluster](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
+![Een Web Application Firewall (WAF) zoals Azure-app gateway kan verkeer voor uw AKS-cluster beveiligen en distribueren](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-Een web application firewall (WAF) biedt een extra laag van beveiliging door het filteren van het binnenkomende verkeer. De Open Web Application Security Project (OWASP) biedt een set regels om te bekijken van aanvallen zoals cross-site scripting of cookie aanvallen. [Azure Application Gateway][app-gateway] (momenteel in preview in AKS) is een WAF die kan worden geïntegreerd met AKS-clusters voor deze beveiligingsfuncties, voordat het verkeer uw AKS-cluster en toepassingen bereikt. Andere oplossingen van derden ook uitvoeren deze functies, zodat u kunt echter ook doorgaan met het bestaande investeringen expertise in een bepaald product.
+Een Web Application Firewall (WAF) biedt een extra beveiligingslaag door het binnenkomende verkeer te filteren. Het OWASP (open Web Application Security project) biedt een reeks regels om te controleren op aanvallen zoals cross-site scripting of cookie-vergiftiging. [Azure-toepassing gateway][app-gateway] (momenteel als preview-versie in AKS) is een WAF die kan worden geïntegreerd met AKS-clusters om deze beveiligings functies te bieden, voordat het verkeer uw AKS cluster en toepassingen bereikt. Andere oplossingen van derden voeren deze functies ook uit, zodat u bestaande investeringen of expertise in een bepaald product kunt blijven gebruiken.
 
-Load balancer of ingress resources blijven om uit te voeren in uw AKS-cluster om de distributie van verkeer verder te verfijnen. App-Gateway kan centraal worden beheerd als een controller voor binnenkomend verkeer met een resourcedefinitie. Aan de slag [maken van een Application Gateway-ingangscontroller][app-gateway-ingress].
+Load Balancer-of ingangs bronnen blijven actief in uw AKS-cluster om de distributie van verkeer verder te verfijnen. App gateway kan centraal worden beheerd als een ingangs controller met een resource definitie. [Maak een Application Gateway ingangs controller][app-gateway-ingress]om aan de slag te gaan.
 
-## <a name="control-traffic-flow-with-network-policies"></a>Controlestroom-verkeer met beleid voor netwerken
+## <a name="control-traffic-flow-with-network-policies"></a>Verkeers stroom beheren met netwerk beleid
 
-**Aanbevolen procedurerichtlijn** -netwerkbeleid wilt toestaan of weigeren van verkeer naar schillen gebruiken. Standaard wordt al het verkeer toegestaan tussen schillen binnen een cluster. Definieert de regels die pod communicatie beperken voor verbeterde beveiliging.
+**Richt lijnen voor best practices** : gebruik netwerk beleid om verkeer naar peul toe te staan of te weigeren. Standaard wordt al het verkeer toegestaan tussen een peulheid binnen een cluster. Voor een betere beveiliging definieert u regels die de pod-communicatie beperken.
 
-Beleid voor netwerken is een Kubernetes-functie waarmee u kunt de verkeersstroom tussen schillen beheren. U kunt toestaan of weigeren van verkeer op basis van de labels van de instellingen zoals die zijn toegewezen, naamruimte of verkeer poort. Het gebruik van netwerkbeleid profiteert van een cloud-eigen methode voor het beheren van de stroom van het verkeer. Nadat er schillen zijn dynamisch gemaakt in een AKS-cluster, kunnen het vereiste netwerkbeleid automatisch worden toegepast. Gebruik geen beveiligingsgroepen van Azure-netwerk wilt pod-pod-verkeer beheren, gebruikt u netwerkbeleid.
+Netwerk beleid is een Kubernetes-functie waarmee u de verkeers stroom tussen de peulen kunt beheren. U kunt ervoor kiezen om verkeer toe te staan of te weigeren op basis van instellingen, zoals toegewezen labels, de naam ruimte of de netwerk poort. Het gebruik van netwerk beleid biedt een Cloud-systeem eigen manier om de stroom van verkeer te beheren. Als het Peul dynamisch wordt gemaakt in een AKS-cluster, kunnen de vereiste netwerk beleidsregels automatisch worden toegepast. Gebruik Azure-netwerk beveiligings groepen niet om Pod-to-pod-verkeer te beheren. gebruik netwerk beleid.
 
-Als u wilt gebruiken, kan de functie moet worden ingeschakeld wanneer u een AKS-cluster maakt. U kunt beleid voor netwerken in een bestaand AKS-cluster niet inschakelen. Plan vooruit om ervoor te zorgen dat u netwerkbeleid op clusters inschakelen en deze indien nodig kunt gebruiken. Netwerkbeleid moet alleen worden gebruikt voor knooppunten op basis van Linux en schillen in AKS.
+Als u netwerk beleid wilt gebruiken, moet u de functie inschakelen wanneer u een AKS-cluster maakt. U kunt netwerk beleid niet inschakelen op een bestaand AKS-cluster. Plan vooruit om ervoor te zorgen dat u netwerk beleid inschakelt voor clusters en dit als nodig kunt gebruiken. Netwerk beleid mag alleen worden gebruikt voor Linux-knoop punten en een Peul in AKS.
 
-Een beleid voor netwerken wordt gemaakt als een Kubernetes-resource met behulp van een YAML-manifest. Het beleid wordt toegepast op de gedefinieerde schillen en vervolgens regels voor binnenkomende of uitgaande bepalen hoe het verkeer kan stromen. Het volgende voorbeeld wordt een beleid voor netwerken voor schillen met de *app: back-end* label toegepast. De regel voor inkomend verkeer vervolgens alleen verkeer toestaat van schillen met de *app: frontend* label:
+Er wordt een netwerk beleid gemaakt als een Kubernetes-bron met behulp van een YAML-manifest. De beleids regels worden toegepast op gedefinieerde peulen, vervolgens worden de inkomend of het uitgangs beleid bepalen hoe het verkeer kan stromen. In het volgende voor beeld wordt een netwerk beleid toegepast op peul met de *app:* het label back-end toegepast. De ingangs regel staat vervolgens alleen verkeer van Peul toe met de *app: frontend* -label:
 
 ```yaml
 kind: NetworkPolicy
@@ -148,21 +148,21 @@ spec:
           app: frontend
 ```
 
-Als u wilt aan de slag met beleid, Zie [beveiliging van verkeer tussen schillen met behulp van beleid voor netwerken in Azure Kubernetes Service (AKS)][use-network-policies].
+Om aan de slag te gaan met beleids regels, Zie [beveiligde verkeer tussen peulen met netwerk beleid in azure Kubernetes service (AKS)][use-network-policies].
 
-## <a name="securely-connect-to-nodes-through-a-bastion-host"></a>Veilig verbinding maken met knooppunten via een bastionhost
+## <a name="securely-connect-to-nodes-through-a-bastion-host"></a>Veilig verbinding maken met knoop punten via een bastion-host
 
-**Aanbevolen procedurerichtlijn** -geven geen externe verbindingen naar uw AKS-knooppunten. Maken van een bastionhost, of in een virtueel netwerk management vak gaan. Gebruik de bastionhost veilig om verkeer te routeren naar uw AKS-cluster aan taken van extern beheer.
+**Best Practice-instructies** : Maak geen externe verbinding met uw AKS-knoop punten beschikbaar. Maak een bastion-host of een Jump box in een virtueel beheer netwerk. Gebruik de bastion-host om verkeer veilig door te sturen naar uw AKS-cluster naar taken voor extern beheer.
 
-De meeste bewerkingen in AKS kunnen worden uitgevoerd met behulp van de Azure-beheerhulpprogramma's of via de Kubernetes API-server. AKS-knooppunten zijn niet verbonden met het openbare internet, en zijn alleen beschikbaar in een particulier netwerk. Als u verbinding maken met knooppunten en onderhoud uit te voeren of oplossen van problemen, uw verbindingen via een bastionhost routeren of jump-box. Deze host moet zich in een virtueel netwerk van afzonderlijke management die veilig is gekoppeld aan het virtuele netwerk voor AKS-cluster.
+De meeste bewerkingen in AKS kunnen worden voltooid met behulp van de Azure-beheer hulpprogramma's of via de Kubernetes-API-server. AKS-knoop punten zijn niet verbonden met het open bare Internet en zijn alleen beschikbaar in een particulier netwerk. Om verbinding te maken met knoop punten en onderhoud uit te voeren of problemen op te lossen, kunt u uw verbindingen routeren via een bastion-host of een Jump box. Deze host moet zich in een afzonderlijk beheer virtueel netwerk bevindt dat veilig is gekoppeld aan het virtuele netwerk van het AKS-cluster.
 
-![Verbinding maken met AKS-knooppunten met behulp van een bastionhost, of vak gaan](media/operator-best-practices-network/connect-using-bastion-host-simplified.png)
+![Verbinding maken met AKS-knoop punten met behulp van een bastion-host of een Jump box](media/operator-best-practices-network/connect-using-bastion-host-simplified.png)
 
-Het beheernetwerk voor de bastionhost moet worden beveiligd, te. Gebruik een [Azure ExpressRoute][expressroute] or [VPN gateway][vpn-gateway] verbinding maken met een on-premises netwerk en beheren van toegang met behulp van netwerkbeveiligingsgroepen.
+Het beheer netwerk voor de bastion-host moet ook worden beveiligd. Een [Azure ExpressRoute][expressroute] of [VPN-gateway][vpn-gateway] gebruiken om verbinding te maken met een on-premises netwerk en de toegang te beheren met netwerk beveiligings groepen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel gericht op de verbinding met het netwerk en beveiliging. Zie voor meer informatie over de basisprincipes van het netwerk in Kubernetes, [netwerk concepten voor toepassingen in Azure Kubernetes Service (AKS)][aks-concepts-network]
+Dit artikel is gericht op netwerk connectiviteit en beveiliging. Zie [netwerk concepten voor toepassingen in azure Kubernetes service (AKS)][aks-concepts-network] voor meer informatie over de basis principes van netwerken in Kubernetes.
 
 <!-- LINKS - External -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md

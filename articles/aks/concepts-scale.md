@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3230d85dfcf57bfd4e2e1684f4f5620600ec4e3a
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: c25bc316a345404c759b346b4fb877de42ee4d13
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424198"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561552"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Schaal opties voor toepassingen in azure Kubernetes service (AKS)
 
@@ -45,9 +45,9 @@ Zie pod [automatisch schalen in AKS][aks-hpa]om aan de slag te gaan met de horiz
 
 Als de horizontale pod autoscaleer de metrische gegevens-API elke 30 seconden controleert, is het mogelijk dat eerdere schaal gebeurtenissen niet zijn voltooid voordat een andere controle is uitgevoerd. Dit gedrag kan ertoe leiden dat de pod van de horizontale automatisch schalen het aantal replica's wijzigt voordat de vorige Scale-gebeurtenis de werk belasting van de toepassing kan ontvangen en de resource vereisten dienovereenkomstig aan te passen.
 
-Als u deze race gebeurtenissen wilt minimaliseren, kunt u cooldown of vertragings waarden instellen. Deze waarden bepalen hoe lang de pod moet wachten na een schaal gebeurtenis voordat een andere schaal gebeurtenis kan worden geactiveerd. Dit gedrag zorgt ervoor dat het nieuwe aantal replica's van kracht wordt en dat de metrische gegevens API de gedistribueerde werk belasting weer spie gelen. De vertraging voor het opschalen van gebeurtenissen is standaard drie minuten en de vertraging bij het omlaag schalen van gebeurtenissen is 5 minuten
+Als u deze race gebeurtenissen wilt minimaliseren, worden de waarden voor cooldown of delay ingesteld. Deze waarden bepalen hoe lang de pod moet wachten na een schaal gebeurtenis voordat een andere schaal gebeurtenis kan worden geactiveerd. Dit gedrag zorgt ervoor dat het nieuwe aantal replica's van kracht wordt en dat de metrische gegevens API de gedistribueerde werk belasting weer spie gelen. De vertraging voor het opschalen van gebeurtenissen is standaard drie minuten en de vertraging bij het omlaag schalen van gebeurtenissen is 5 minuten
 
-Mogelijk moet u deze cooldown-waarden afstemmen. De standaard waarden voor cooldown geven mogelijk de indruk dat de horizontale pod autoscaler het aantal replica's niet snel genoeg kan schalen. Als u bijvoorbeeld sneller het aantal gebruikte replica's wilt verg Roten, vermindert u de `--horizontal-pod-autoscaler-upscale-delay` bij het maken van de definitie van uw horizontale pod-automatisch schalen met. `kubectl`
+Op dit moment kunt u deze cooldown-waarden niet afstemmen op de standaard waarde.
 
 ## <a name="cluster-autoscaler"></a>Cluster automatisch schalen
 
@@ -93,7 +93,7 @@ Virtuele knoop punten worden geïmplementeerd naar een extra subnet in hetzelfde
 
 Om aan de slag te gaan met het schalen van toepassingen, volgt u eerst de [Snelstartgids om een AKS-cluster te maken met de Azure cli][aks-quickstart]. U kunt de toepassingen vervolgens hand matig of automatisch schalen in uw AKS-cluster:
 
-- Een [peul][aks-manually-scale-pods] hand matig schalen or [nodes][aks-manually-scale-nodes]
+- Peulen [][aks-manually-scale-pods] of [knoop punten][aks-manually-scale-nodes] hand matig schalen
 - De pod-functie voor [horizontale automatisch schalen][aks-hpa] gebruiken
 - De automatische [schaal][aks-cluster-autoscaler] functie van het cluster gebruiken
 

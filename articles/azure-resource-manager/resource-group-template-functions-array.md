@@ -1,29 +1,29 @@
 ---
-title: Azure Resource Manager-sjabloon functions - matrices en objecten | Microsoft Docs
-description: Beschrijft de functies te gebruiken in een Azure Resource Manager-sjabloon voor het werken met matrices en objecten.
+title: 'Azure Resource Manager-sjabloon functies: matrices en objecten | Microsoft Docs'
+description: Hierin worden de functies beschreven die u kunt gebruiken in een Azure Resource Manager sjabloon voor het werken met matrices en objecten.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 11/8/2018
+ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: e093cb65137576a725a7d23676e5b2288bb778a0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: ec671c8698676b237021352e963ba08e0ddfe47e
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206379"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698211"
 ---
-# <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Matrix- en -functies voor Azure Resource Manager-sjablonen
+# <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Matrix-en object functies voor Azure Resource Manager sjablonen
 
 Resource Manager biedt verschillende functies voor het werken met matrices en objecten.
 
 * [array](#array)
 * [coalesce](#coalesce)
 * [concat](#concat)
-* [contains](#contains)
+* [daarin](#contains)
 * [createArray](#createarray)
-* [empty](#empty)
-* [first](#first)
+* [gelaten](#empty)
+* [instantie](#first)
 * [intersection](#intersection)
 * [json](#json)
 * [last](#last)
@@ -32,10 +32,10 @@ Resource Manager biedt verschillende functies voor het werken met matrices en ob
 * [min](#min)
 * [range](#range)
 * [skip](#skip)
-* [take](#take)
+* [Houd](#take)
 * [union](#union)
 
-Als u een matrix van tekenreeksen gescheiden door een waarde, Zie [splitsen](resource-group-template-functions-string.md#split).
+Als u een matrix van teken reeks waarden wilt ophalen die door een waarde worden gescheiden, raadpleegt u [splitsen](resource-group-template-functions-string.md#split).
 
 <a id="array" />
 
@@ -44,13 +44,13 @@ Als u een matrix van tekenreeksen gescheiden door een waarde, Zie [splitsen](res
 ## <a name="array"></a>array
 `array(convertToArray)`
 
-De waarde omgezet in een matrix.
+Zet de waarde om in een matrix.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Ja |int, string, array of object |De waarde moet worden geconverteerd naar een matrix. |
+| convertToArray |Ja |int, string, array of object |De waarde die moet worden geconverteerd naar een matrix. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -58,7 +58,7 @@ Een matrix.
 
 ### <a name="example"></a>Voorbeeld
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/array.json) ziet u hoe u de functie array met verschillende typen.
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/array.json) ziet u hoe u de matrix functie kunt gebruiken met verschillende typen.
 
 ```json
 {
@@ -101,9 +101,9 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| intOutput | Matrix | [1] |
-| stringOutput | Matrix | ["efgh"] |
-| objectOutput | Matrix | [{"a": "b", "c": "d"}] |
+| intOutput | Array | [1] |
+| stringOutput | Array | ["efgh"] |
+| objectOutput | Array | [{"a": "b", "c": "d"}] |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -119,25 +119,25 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="coalesce" />
 
-## <a name="coalesce"></a>samenvoegen
+## <a name="coalesce"></a>Voeg
 `coalesce(arg1, arg2, arg3, ...)`
 
-Retourneert de eerste niet-null-waarde van de parameters. Lege tekenreeksen, lege matrices en lege objecten zijn niet null zijn.
+Retourneert de eerste waarde die niet null is van de para meters. Lege teken reeksen, lege matrices en lege objecten zijn niet null.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |int, string, array of object |De eerste waarde om te testen op null-waarden. |
-| aanvullende argumenten |Nee |int, string, array of object |Aanvullende waarden om te testen op null-waarden. |
+| arg1 |Ja |int, string, array of object |De eerste waarde die moet worden getest op null. |
+| aanvullende argumenten |Nee |int, string, array of object |Aanvullende waarden om te testen op null. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-De waarde van de eerste niet-null-parameters, dit kan een string, int, matrix of object. Null als alle parameters null zijn. 
+De waarde van de eerste niet-null-para meters, die een teken reeks, int, matrix of object kan zijn. Null als alle para meters null zijn. 
 
 ### <a name="example"></a>Voorbeeld
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) toont de uitvoer van verschillende maakt gebruik van samenvoegen.
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) ziet u de uitvoer van verschillende manieren van Coalesce.
 
 ```json
 {
@@ -187,11 +187,11 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| stringOutput | String | standaardinstelling |
+| stringOutput | Tekenreeks | standaardinstelling |
 | intOutput | Int | 1 |
-| objectOutput | Object | {'first': 'standaard'} |
-| arrayOutput | Matrix | [1] |
-| emptyOutput | Bool | True |
+| objectOutput | Object | {"eerste": "standaard"} |
+| arrayOutput | Array | [1] |
+| emptyOutput | Bool | Waar |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -210,23 +210,23 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="concat"></a>concat
 `concat(arg1, arg2, arg3, ...)`
 
-Combineert meerdere matrices en retourneert de samengevoegde matrix of combineert meerdere tekenreekswaarden en retourneert de samengevoegde tekenreeks. 
+Combineert meerdere matrices en retourneert de samengevoegde matrix, of combineert meerdere teken reeks waarden en retourneert de aaneengeschakelde teken reeks. 
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matrix of tekenreeks |De eerste matrix of tekenreeks voor samenvoeging. |
-| aanvullende argumenten |Nee |matrix of tekenreeks |Aanvullende matrices of tekenreeksen in opeenvolgende volgorde voor samenvoeging. |
+| arg1 |Ja |matrix of teken reeks |De eerste matrix of teken reeks voor samen voeging. |
+| aanvullende argumenten |Nee |matrix of teken reeks |Extra matrices of teken reeksen in sequentiële volg orde voor samen voeging. |
 
-Deze functie kan duren voordat een willekeurig aantal argumenten en tekenreeksen of matrices voor de parameters kan accepteren.
+Deze functie kan elk wille keurig aantal argumenten hebben en kan teken reeksen of matrices voor de para meters accepteren.
 
 ### <a name="return-value"></a>Retourwaarde
-Een tekenreeks of matrix met samengevoegde waarden.
+Een teken reeks of matrix van aaneengeschakelde waarden.
 
 ### <a name="example"></a>Voorbeeld
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) laat zien hoe u twee matrices combineren.
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) ziet u hoe u twee matrices kunt combi neren.
 
 ```json
 {
@@ -265,7 +265,7 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| terug | Matrix | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| opvragen | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -279,7 +279,7 @@ In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
 ```
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) laat zien hoe u het combineren van twee tekenreekswaarden en een samengevoegde tekenreeks te retourneren.
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) ziet u hoe u twee teken reeks waarden combineert en een samengevoegde teken reeks retourneert.
 
 ```json
 {
@@ -305,7 +305,7 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | Tekenreeks | prefix-5yj4yjf5mbg72 |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -324,22 +324,22 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="contains"></a>bevat
 `contains(container, itemToFind)`
 
-Controleert of een matrix een waarde bevat, een object een sleutel bevat of een tekenreeks een subtekenreeks. De vergelijking van gegevensreeksen is hoofdlettergevoelig. De vergelijking is echter niet-hoofdlettergevoelige bij het testen van als een object een sleutel bevat.
+Controleert of een matrix een waarde bevat, een object bevat een sleutel of een teken reeks bevat een subtekenreeks. De teken reeks vergelijking is hoofdletter gevoelig. Als er echter wordt getest of een object een sleutel bevat, is de vergelijking niet hoofdletter gevoelig.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| container |Ja |matrix of object tekenreeks |De waarde met de waarde om te zoeken. |
-| itemToFind |Ja |tekenreeks of int |De waarde om te zoeken. |
+| container |Ja |matrix, object of teken reeks |De waarde die de te zoeken waarde bevat. |
+| itemToFind |Ja |teken reeks of int |De waarde die moet worden gevonden. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-**De waarde True** als het item gevonden, anders is, **False**.
+**Waar** als het item is gevonden; anders **False**.
 
 ### <a name="example"></a>Voorbeeld
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) toont hoe u met verschillende typen bevat:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) ziet u hoe u deze kunt gebruiken met verschillende typen:
 
 ```json
 {
@@ -394,11 +394,11 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| stringTrue | Bool | True |
+| stringTrue | Bool | Waar |
 | stringFalse | Bool | False |
-| objectTrue | Bool | True |
+| objectTrue | Bool | Waar |
 | objectFalse | Bool | False |
-| arrayTrue | Bool | True |
+| arrayTrue | Bool | Waar |
 | arrayFalse | Bool | False |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
@@ -418,14 +418,14 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="createarray"></a>createarray
 `createArray (arg1, arg2, arg3, ...)`
 
-Maakt een matrix van de parameters.
+Hiermee wordt een matrix gemaakt op basis van de para meters.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |Tekenreeks, geheel getal, matrix of Object |De eerste waarde in de matrix. |
-| aanvullende argumenten |Nee |Tekenreeks, geheel getal, matrix of Object |Aanvullende waarden in de matrix. |
+| arg1 |Ja |Teken reeks, geheel getal, matrix of object |De eerste waarde in de matrix. |
+| aanvullende argumenten |Nee |Teken reeks, geheel getal, matrix of object |Aanvullende waarden in de matrix. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -433,7 +433,7 @@ Een matrix.
 
 ### <a name="example"></a>Voorbeeld
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json) ziet u hoe u createArray met verschillende typen:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json) ziet u hoe u createArray gebruikt met verschillende typen:
 
 ```json
 {
@@ -474,12 +474,12 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Name | Type | Value |
+| Name | Type | Waarde |
 | ---- | ---- | ----- |
-| stringArray | Matrix | ["a", "b", "c"] |
-| intArray | Matrix | [1, 2, 3] |
-| objectArray | Matrix | [{"een": "a", "2": "b", "drie": "c"}] |
-| arrayArray | Matrix | [["one", "two", "three"]] |
+| stringArray | Array | ["a", "b", "c"] |
+| intArray | Array | [1, 2, 3] |
+| objectArray | Array | [{"een": "a", "twee": "b", "drie": "c"}] |
+| arrayArray | Array | [[' een ', ' twee ', ' drie ']] |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -495,25 +495,25 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="empty" />
 
-## <a name="empty"></a>leeg zijn
+## <a name="empty"></a>Leeg
 
 `empty(itemToTest)`
 
-Bepaalt of een matrix, een object of een tekenreeks leeg is.
+Bepaalt of een matrix, een object of een teken reeks leeg is.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Ja |matrix of object tekenreeks |De waarde moet worden gecontroleerd als dit leeg zijn. |
+| itemToTest |Ja |matrix, object of teken reeks |De waarde die moet worden gecontroleerd als deze leeg is. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Retourneert **waar** als de waarde leeg, anders is, **False**.
+Retourneert **waar** als de waarde leeg is; anders **False**.
 
 ### <a name="example"></a>Voorbeeld
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) controleert of een matrix, het object en de tekenreeks leeg zijn.
+Met de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) wordt gecontroleerd of een matrix, een object en een teken reeks leeg zijn.
 
 ```json
 {
@@ -556,9 +556,9 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| arrayEmpty | Bool | True |
-| objectEmpty | Bool | True |
-| stringEmpty | Bool | True |
+| arrayEmpty | Bool | Waar |
+| objectEmpty | Bool | Waar |
+| stringEmpty | Bool | Waar |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -574,24 +574,24 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="first" />
 
-## <a name="first"></a>eerste
+## <a name="first"></a>instantie
 `first(arg1)`
 
-Retourneert het eerste element van de matrix of het eerste teken van de tekenreeks.
+Retourneert het eerste element van de matrix, of het eerste teken van de teken reeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matrix of tekenreeks |De waarde om op te halen van het eerste element of het teken. |
+| arg1 |Ja |matrix of teken reeks |De waarde voor het ophalen van het eerste element of teken. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Het type (string, int, matrix of object) van het eerste element in een matrix of het eerste teken van een tekenreeks.
+Het type (teken reeks, int, matrix of object) van het eerste element in een matrix of het eerste teken van een teken reeks.
 
 ### <a name="example"></a>Voorbeeld
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) ziet u hoe u de eerste functie met een matrix en een tekenreeks.
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) ziet u hoe u de eerste functie gebruikt met een matrix en teken reeks.
 
 ```json
 {
@@ -622,8 +622,8 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | String | één |
-| stringOutput | String | O |
+| arrayOutput | Tekenreeks | één |
+| stringOutput | Tekenreeks | O |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -639,26 +639,26 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="intersection" />
 
-## <a name="intersection"></a>snijpunt
+## <a name="intersection"></a>Snij punt
 `intersection(arg1, arg2, arg3, ...)`
 
-Retourneert een matrix of object met de algemene elementen van de parameters.
+Retourneert een enkele matrix of een object met de algemene elementen van de para meters.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matrix of één object |De eerste waarde te gebruiken voor het zoeken naar algemene elementen. |
-| arg2 |Ja |matrix of één object |De tweede waarde te gebruiken voor het zoeken naar algemene elementen. |
-| aanvullende argumenten |Nee |matrix of één object |Aanvullende waarden gebruiken voor het zoeken naar algemene elementen. |
+| arg1 |Ja |matrix of object |De eerste waarde die moet worden gebruikt voor het zoeken van algemene elementen. |
+| Arg2 |Ja |matrix of object |De tweede waarde die moet worden gebruikt voor het zoeken van algemene elementen. |
+| aanvullende argumenten |Nee |matrix of object |Aanvullende waarden die moeten worden gebruikt voor het zoeken van algemene elementen. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een matrix of een object met de algemene elementen.
+Een matrix of object met de algemene elementen.
 
 ### <a name="example"></a>Voorbeeld
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json) laat zien hoe u het gebruik van snijpunt met matrices en objecten:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json) ziet u hoe u het snij punt gebruikt met matrices en objecten:
 
 ```json
 {
@@ -701,8 +701,8 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | Object | {"een": "a", "3": "c"} |
-| arrayOutput | Matrix | ["twee", "drie"] |
+| objectOutput | Object | {"een": "a", "drie": "c"} |
+| arrayOutput | Array | ["twee", "drie"] |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -725,20 +725,20 @@ Retourneert een JSON-object.
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |string |De waarde te converteren naar JSON. |
+| arg1 |Ja |string |De waarde die moet worden geconverteerd naar JSON. |
 
 
 ### <a name="return-value"></a>Retourwaarde
 
-Het JSON-object van de opgegeven tekenreeks of een leeg object wanneer **null** is opgegeven.
+Het JSON-object van de opgegeven teken reeks of een leeg object wanneer **Null** is opgegeven.
 
 ### <a name="remarks"></a>Opmerkingen
 
-Als u een waarde voor de parameter of variabele opnemen in het JSON-object moet, gebruikt u de [concat](resource-group-template-functions-string.md#concat) functie voor het maken van de tekenreeks die u aan de functie doorgeeft.
+Als u een parameter waarde of variabele in het JSON-object moet toevoegen, gebruikt u [](resource-group-template-functions-string.md#concat) de functie concat om de teken reeks te maken die u aan de functie doorgeeft.
 
 ### <a name="example"></a>Voorbeeld
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) laat zien hoe u het gebruik van de json-functie met matrices en objecten:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) ziet u hoe u de json-functie gebruikt met matrices en objecten:
 
 ```json
 {
@@ -771,10 +771,10 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Name | Type | Value |
+| Name | Type | Waarde |
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
-| nullOutput | Boolean | True |
+| nullOutput | Boolean-waarde | Waar |
 | paramOutput | Object | {"a": "demo waarde"}
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
@@ -791,24 +791,24 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="last" />
 
-## <a name="last"></a>laatste
+## <a name="last"></a>duren
 `last (arg1)`
 
-Retourneert het laatste element van de matrix of laatste teken van de tekenreeks.
+Retourneert het laatste element van de matrix, of het laatste teken van de teken reeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matrix of tekenreeks |De waarde om op te halen van het laatste element of het teken. |
+| arg1 |Ja |matrix of teken reeks |De waarde voor het ophalen van het laatste element of teken. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Het type (string, int, matrix of object) van het laatste element in een matrix of het laatste teken van een tekenreeks.
+Het type (teken reeks, int, matrix of object) van het laatste element in een matrix of het laatste teken van een teken reeks.
 
 ### <a name="example"></a>Voorbeeld
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) ziet u hoe u de laatste functie met een matrix en een tekenreeks.
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) ziet u hoe u de laatste functie gebruikt met een matrix en teken reeks.
 
 ```json
 {
@@ -837,10 +837,10 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Name | Type | Value |
+| Name | Type | Waarde |
 | ---- | ---- | ----- |
-| arrayOutput | String | drie |
-| stringOutput | String | e |
+| arrayOutput | Tekenreeks | drie |
+| stringOutput | Tekenreeks | & |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -859,13 +859,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="length"></a>length
 `length(arg1)`
 
-Retourneert het aantal elementen in een matrix of tekens in een tekenreeks.
+Retourneert het aantal elementen in een matrix, tekens in een teken reeks of hoofd niveau-eigenschappen in een-object.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matrix of tekenreeks |De matrix te gebruiken voor het ophalen van het aantal elementen, of een tekenreeks te gebruiken voor het ophalen van het aantal tekens. |
+| arg1 |Ja |matrix, teken reeks of object |De matrix die moet worden gebruikt voor het ophalen van het aantal elementen, de teken reeks die moet worden gebruikt voor het ophalen van het aantal tekens of het object dat moet worden gebruikt voor het ophalen van het aantal eigenschappen op hoofd niveau. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -873,7 +873,7 @@ Een int.
 
 ### <a name="example"></a>Voorbeeld
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) ziet u hoe u de lengte van een matrix en een tekenreeks:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) ziet u hoe lengte met een matrix en teken reeks kan worden gebruikt:
 
 ```json
 {
@@ -891,6 +891,18 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
         "stringToTest": {
             "type": "string",
             "defaultValue": "One Two Three"
+        },
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "propA": "one",
+                "propB": "two",
+                "propC": "three",
+                "propD": {
+                    "propD-1": "sub",
+                    "propD-2": "sub"
+                }
+            }
         }
     },
     "resources": [],
@@ -902,6 +914,10 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
         "stringLength": {
             "type": "int",
             "value": "[length(parameters('stringToTest'))]"
+        },
+        "objectLength": {
+            "type": "int",
+            "value": "[length(parameters('objectToTest'))]"
         }
     }
 }
@@ -909,10 +925,11 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Name | Type | Value |
+| Name | Type | Waarde |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
+| objectLength | Int | 4 |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -926,7 +943,7 @@ In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
 ```
 
-U kunt deze functie met een matrix gebruiken om op te geven van het aantal iteraties bij het maken van resources. In het volgende voorbeeld wordt de parameter **siteNames** verwijzen naar een matrix van namen te gebruiken bij het maken van de websites.
+U kunt deze functie gebruiken met een matrix om het aantal iteraties op te geven bij het maken van resources. In het volgende voor beeld verwijst de para meter **siteNames** naar een matrix met namen die moeten worden gebruikt bij het maken van de websites.
 
 ```json
 "copy": {
@@ -935,28 +952,28 @@ U kunt deze functie met een matrix gebruiken om op te geven van het aantal itera
 }
 ```
 
-Zie voor meer informatie over het gebruik van deze functie met een matrix [meerdere exemplaren van resources maken in Azure Resource Manager](resource-group-create-multiple.md).
+Zie [meerdere exemplaren van resources maken in azure Resource Manager](resource-group-create-multiple.md)voor meer informatie over het gebruik van deze functie met een matrix.
 
 <a id="max" />
 
 ## <a name="max"></a>max
 `max(arg1)`
 
-Retourneert de maximumwaarde van een matrix met gehele getallen of een door komma's gescheiden lijst met gehele getallen.
+Retourneert de maximum waarde van een matrix met gehele getallen of een door komma's gescheiden lijst met gehele getallen.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matrix van gehele getallen of een door komma's gescheiden lijst met gehele getallen |De verzameling die de maximale waarde te halen. |
+| arg1 |Ja |matrix van gehele getallen of door komma's gescheiden lijst met gehele getallen |De verzameling om de maximum waarde op te halen. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een geheel getal die de maximale waarde vertegenwoordigt.
+Een geheel getal dat de maximum waarde vertegenwoordigt.
 
 ### <a name="example"></a>Voorbeeld
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) ziet u hoe u max met een matrix en een lijst met gehele getallen:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) ziet u hoe u Max kunt gebruiken met een matrix en een lijst met gehele getallen:
 
 ```json
 {
@@ -1003,24 +1020,24 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>min.
+## <a name="min"></a>min
 `min(arg1)`
 
-Retourneert de minimumwaarde van een matrix met gehele getallen of een door komma's gescheiden lijst met gehele getallen.
+Retourneert de minimum waarde van een matrix met gehele getallen of een door komma's gescheiden lijst met gehele getallen.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matrix van gehele getallen of een door komma's gescheiden lijst met gehele getallen |De verzameling om de minimale waarde. |
+| arg1 |Ja |matrix van gehele getallen of door komma's gescheiden lijst met gehele getallen |De verzameling om de minimum waarde op te halen. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een geheel getal die de minimale waarde vertegenwoordigt.
+Een geheel getal dat de minimum waarde vertegenwoordigt.
 
 ### <a name="example"></a>Voorbeeld
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) ziet u hoe u min met een matrix en een lijst met gehele getallen:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) ziet u hoe min met een matrix en een lijst met gehele getallen moet worden gebruikt:
 
 ```json
 {
@@ -1067,16 +1084,16 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="range" />
 
-## <a name="range"></a>Bereik
+## <a name="range"></a>bereik
 `range(startingInteger, numberOfElements)`
 
-Maakt een matrix van gehele getallen van een geheel getal vanaf en met een aantal items.
+Hiermee maakt u een matrix met gehele getallen van een begin-geheel getal dat een aantal items bevat.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Ja |int |De eerste integer in de matrix. |
+| startingInteger |Ja |int |Het eerste geheel getal in de matrix. |
 | numberofElements |Ja |int |Het aantal gehele getallen in de matrix. |
 
 ### <a name="return-value"></a>Retourwaarde
@@ -1085,7 +1102,7 @@ Een matrix met gehele getallen.
 
 ### <a name="example"></a>Voorbeeld
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/range.json) laat zien hoe u de bereikfunctie te gebruiken:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/range.json) ziet u hoe u de functie Range gebruikt:
 
 ```json
 {
@@ -1113,9 +1130,9 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Name | Type | Value |
+| Name | Type | Waarde |
 | ---- | ---- | ----- |
-| rangeOutput | Matrix | [5, 6, 7] |
+| rangeOutput | Array | [5, 6, 7] |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -1131,25 +1148,25 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="skip" />
 
-## <a name="skip"></a>Overslaan
+## <a name="skip"></a>overslaan
 `skip(originalValue, numberToSkip)`
 
-Retourneert een matrix met alle elementen na het opgegeven getal in de matrix of retourneert een tekenreeks waarbij alle tekens na het opgegeven getal in de tekenreeks.
+Retourneert een matrix met alle elementen na het opgegeven getal in de matrix, of retourneert een teken reeks met alle tekens na het opgegeven getal in de teken reeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Ja |matrix of tekenreeks |De ingevoerde matrix of tekenreeks die moet worden gebruikt voor het overslaan. |
-| numberToSkip |Ja |int |Het aantal elementen of tekens om over te slaan. Als deze waarde 0 of minder is, worden alle elementen of tekens in de waarde geretourneerd. Als dit groter is dan de lengte van de matrix of tekenreeks, wordt een lege matrix of tekenreeks geretourneerd. |
+| originalValue |Ja |matrix of teken reeks |De matrix of teken reeks die moet worden gebruikt voor het overs Laan. |
+| numberToSkip |Ja |int |Het aantal elementen of tekens dat moet worden overgeslagen. Als deze waarde 0 of kleiner is, worden alle elementen of tekens in de waarde geretourneerd. Als deze groter is dan de lengte van de matrix of teken reeks, wordt een lege matrix of teken reeks geretourneerd. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een matrix of tekenreeks.
+Een matrix of teken reeks.
 
 ### <a name="example"></a>Voorbeeld
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) slaat het opgegeven aantal elementen in de matrix, en het opgegeven aantal tekens in een tekenreeks.
+De volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) slaat het opgegeven aantal elementen in de matrix over en het opgegeven aantal tekens in een teken reeks.
 
 ```json
 {
@@ -1193,10 +1210,10 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Name | Type | Value |
+| Name | Type | Waarde |
 | ---- | ---- | ----- |
-| arrayOutput | Matrix | ["3"] |
-| stringOutput | String | twee drie |
+| arrayOutput | Array | ["drie"] |
+| stringOutput | Tekenreeks | 2 3 |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -1212,25 +1229,25 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="take" />
 
-## <a name="take"></a>toets maken
+## <a name="take"></a>Houd
 `take(originalValue, numberToTake)`
 
-Retourneert een matrix met het opgegeven aantal elementen vanaf het begin van de matrix of een tekenreeks zijn met het opgegeven aantal tekens vanaf het begin van de tekenreeks.
+Retourneert een matrix met het opgegeven aantal elementen vanaf het begin van de matrix, of een teken reeks met het opgegeven aantal tekens vanaf het begin van de teken reeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Ja |matrix of tekenreeks |De ingevoerde matrix of tekenreeks waaruit de elementen uit. |
-| numberToTake |Ja |int |Het aantal elementen of tekens op te nemen. Als deze waarde 0 of minder is, wordt een lege matrix of tekenreeks geretourneerd. Als dit groter is dan de lengte van de opgegeven matrix of tekenreeks, worden alle elementen in de matrix of tekenreeks worden geretourneerd. |
+| originalValue |Ja |matrix of teken reeks |De matrix of teken reeks waaruit de elementen moeten worden afgeleid. |
+| numberToTake |Ja |int |Het aantal elementen of tekens dat moet worden uitgevoerd. Als deze waarde 0 of kleiner is, wordt een lege matrix of teken reeks geretourneerd. Als deze groter is dan de lengte van de opgegeven matrix of teken reeks, worden alle elementen in de matrix of teken reeks geretourneerd. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een matrix of tekenreeks.
+Een matrix of teken reeks.
 
 ### <a name="example"></a>Voorbeeld
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) neemt van het opgegeven aantal elementen van de matrix en tekens uit een tekenreeks.
+De volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) haalt het opgegeven aantal elementen uit de matrix en tekens uit een teken reeks.
 
 ```json
 {
@@ -1276,8 +1293,8 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | Matrix | ["een", "twee"] |
-| stringOutput | String | op |
+| arrayOutput | Array | [' één ', ' twee '] |
+| stringOutput | Tekenreeks | op |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -1293,26 +1310,26 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="union" />
 
-## <a name="union"></a>Union
+## <a name="union"></a>union
 `union(arg1, arg2, arg3, ...)`
 
-Retourneert een matrix of object met alle elementen van de parameters. Dubbele waarden of sleutels zijn alleen één keer wordt opgenomen.
+Retourneert een enkele matrix of een object met alle elementen van de para meters. Dubbele waarden of sleutels zijn slechts eenmaal opgenomen.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matrix of één object |De eerste waarde te gebruiken om lid te worden elementen. |
-| arg2 |Ja |matrix of één object |De tweede waarde te gebruiken om lid te worden elementen. |
-| aanvullende argumenten |Nee |matrix of één object |Aanvullende waarden worden gebruikt om lid te worden elementen. |
+| arg1 |Ja |matrix of object |De eerste waarde die moet worden gebruikt voor het toevoegen van elementen. |
+| Arg2 |Ja |matrix of object |De tweede waarde die moet worden gebruikt voor het toevoegen van elementen. |
+| aanvullende argumenten |Nee |matrix of object |Aanvullende waarden die moeten worden gebruikt voor het toevoegen van elementen. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een matrix of één object.
+Een matrix of object.
 
 ### <a name="example"></a>Voorbeeld
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json) laat zien hoe u het gebruik van union met matrices en objecten:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json) ziet u hoe u Union gebruikt met matrices en objecten:
 
 ```json
 {
@@ -1355,8 +1372,8 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | Object | {"een": "a", "2": "b", "drie": "c2", "vier": "d", "vijf": "e"} |
-| arrayOutput | Matrix | ["een", "twee", "drie", "vier"] |
+| objectOutput | Object | {"One": "a", "twee": "b", "drie": "C2", "vier": "d", "vijf": "e"} |
+| arrayOutput | Array | [' één ', ' twee ', ' drie ', ' vier '] |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -1374,5 +1391,5 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 * Zie voor een beschrijving van de secties in een Azure Resource Manager-sjabloon, [Authoring Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).
 * U kunt meerdere sjablonen samenvoegen, Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
 * Op een opgegeven aantal keren herhalen bij het maken van een type resource, Zie [meerdere exemplaren van resources maken in Azure Resource Manager](resource-group-create-multiple.md).
-* Zie voor meer informatie over het implementeren van de sjabloon die u hebt gemaakt, [een toepassing implementeren met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
+* Zie [een toepassing implementeren met Azure Resource Manager sjabloon](resource-group-template-deploy.md)voor meer informatie over het implementeren van de sjabloon die u hebt gemaakt.
 

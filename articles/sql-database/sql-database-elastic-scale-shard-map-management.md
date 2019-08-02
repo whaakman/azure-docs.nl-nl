@@ -1,6 +1,6 @@
 ---
-title: Scale-out van een Azure SQL database | Microsoft Docs
-description: Het gebruik van de ShardMapManager, clientbibliotheek voor elastic database
+title: Een Azure-SQL database uitschalen | Microsoft Docs
+description: De ShardMapManager-client bibliotheek voor Elastic Data Base gebruiken
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,67 +10,66 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3e7e2294938179da83fb5ad03db177c1142ad096
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332319"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568330"
 ---
-# <a name="scale-out-databases-with-the-shard-map-manager"></a>Uitschalen-databases met de shard-Toewijzingsbeheer
+# <a name="scale-out-databases-with-the-shard-map-manager"></a>Data bases uitschalen met Shard-toewijzings beheer
 
-Eenvoudig opschalen databases op SQL Azure, een shard-Toewijzingsbeheer gebruiken De shard-Toewijzingsbeheer is een speciale database die wordt onderhouden door van algemene toewijzingsinformatie over alle shards (databases) in een shard-verzameling. De metagegevens kan een toepassing verbinding maakt met de juiste database op basis van de waarde van de **sharding-sleutel**. Bovendien elke shard in de set bevat kaarten die de lokale gegevens bijhouden (ook wel **shardlets**).
+Als u data bases eenvoudig wilt uitschalen op SQL Azure, gebruikt u een Shard-toewijzings beheer. Het Shard-toewijzings beheer is een speciale data base met algemene toewijzings informatie over alle Shards (data bases) in een Shard-set. Met de meta gegevens kan een toepassing verbinding maken met de juiste data base op basis van de waarde van de **sharding-sleutel**. Daarnaast bevat elke Shard in de set Maps voor het bijhouden van de lokale Shard-gegevens (ook wel **shardlets**genoemd).
 
-![Shard-Toewijzingsbeheer](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
+![Shard-toewijzings beheer](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
-Informatie over hoe deze kaarten zijn samengesteld is essentieel voor shard-Toewijzingsbeheer. Dit wordt gedaan met behulp van de klasse ShardMapManager ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)vindt u in de [Elastic Database-clientbibliotheek](sql-database-elastic-database-client-library.md) voor het beheren van shard-toewijzingen.  
+Meer informatie over hoe deze kaarten worden samengesteld, is essentieel voor Shard-toewijzings beheer. Dit wordt gedaan met behulp van de ShardMapManager-klasse ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager), gevonden in de [Elastic database-client bibliotheek](sql-database-elastic-database-client-library.md) voor het beheren van Shard-kaarten.  
 
-## <a name="shard-maps-and-shard-mappings"></a>Shard-toewijzingen en de shard-toewijzingen
+## <a name="shard-maps-and-shard-mappings"></a>Shard Maps-en Shard-toewijzingen
 
-Voor elke shard, moet u het type van de shard-toewijzing te maken. De keuze is afhankelijk van de database-architectuur:
+Voor elke Shard moet u het type Shard-toewijzing selecteren dat u wilt maken. De keuze is afhankelijk van de database architectuur:
 
-1. Met één tenant per database  
-2. Meerdere tenants per database (twee typen):
-   1. Toewijzing van de lijst
+1. Eén Tenant per data base  
+2. Meerdere tenants per data base (twee typen):
+   1. Lijst toewijzing
    2. Toewijzing van bereik
 
-Voor een model met één tenant, maakt u een **lijst-toewijzing** shard-toewijzing. Het model met één tenant wordt één database per tenant toegewezen. Dit is een doeltreffend model voor SaaS-ontwikkelaars omdat dit vereenvoudigt het beheer.
+Maak voor een model met één Tenant een Shard toewijzing **met lijst toewijzingen** . Het model met één Tenant wijst één data base per Tenant toe. Dit is een effectief model voor SaaS-ontwikkel aars waarmee het beheer wordt vereenvoudigd.
 
-![Toewijzing van de lijst][1]
+![Lijst toewijzing][1]
 
-Het model met meerdere tenants verschillende tenants toegewezen aan een afzonderlijke database (en u kunt groepen van tenants verdelen over meerdere databases). Dit model gebruiken wanneer u verwacht elke tenant dat hebben kleine Gegevensbehoeften. In dit model kunt u een bereik van tenants toewijzen voor het gebruik van een database **bereik toewijzing**.
+Het model met meerdere tenants wijst meerdere tenants toe aan een afzonderlijke data base (en u kunt groepen tenants distribueren over meerdere data bases). Gebruik dit model wanneer u verwacht dat elke Tenant kleine gegevens nodig heeft. Wijs in dit model een aantal tenants toe aan een Data Base met behulp van **bereik toewijzing**.
 
 ![Toewijzing van bereik][2]
 
-Of u kunt implementeren met een multitenant-database-model met een *lijst toewijzing* meerdere tenants toewijzen aan een afzonderlijke database. Bijvoorbeeld, DB1 wordt gebruikt voor het opslaan van informatie over de tenant-ID 1 en 5 en DB2 slaat gegevens voor de tenant 7- en 10.
+U kunt ook een multi tenant-database model implementeren met een *lijst toewijzing* om meerdere tenants toe te wijzen aan een afzonderlijke data base. DB1 wordt bijvoorbeeld gebruikt voor het opslaan van informatie over Tenant-ID 1 en 5, en de DB2-gegevens worden opgeslagen voor Tenant 7 en Tenant 10.
 
-![Meerdere tenants in één DB][3]
+![Meerdere tenants op één data base][3]
 
 ### <a name="supported-types-for-sharding-keys"></a>Ondersteunde typen voor sharding-sleutels
 
-Elastisch schalen ondersteuning van de volgende typen als sharding sleutels:
+Elastisch schalen ondersteunt de volgende typen als sharding-sleutels:
 
 | .NET | Java |
 | --- | --- |
-| geheel getal |geheel getal |
+| integer |integer |
 | lang |lang |
-| GUID |uuid |
+| guid |uuid |
 | byte[]  |byte[] |
 | datetime | timestamp |
-| timespan | Duur|
+| duur | duration|
 | datetimeoffset |offsetdatetime |
 
-### <a name="list-and-range-shard-maps"></a>Lijst met en het bereik-shard-kaarten
+### <a name="list-and-range-shard-maps"></a>Lijst-en bereik Shard Maps
 
-Shard-toewijzingen kunnen worden opgesteld met **lijsten met afzonderlijke sharding waarden sleutel**, of ze kunnen worden opgesteld met **bereiken van sharding-sleutel waarden**.
+Shard Maps kunnen worden samengesteld met behulp **van lijsten met afzonderlijke sharding-sleutel waarden**, of ze kunnen worden samengesteld met behulp **van bereiken van sharding-sleutel waarden**.
 
-### <a name="list-shard-maps"></a>Lijst-shard-kaarten
+### <a name="list-shard-maps"></a>Lijst met Shard-kaarten
 
-**Shards** bevatten **shardlets** en de toewijzing van shardlets naar shards wordt onderhouden door een shard-toewijzing. Een **lijst-shard-toewijzing** is een koppeling tussen de afzonderlijke sleutelwaarden die de shardlets identificeren en de databases die als shards fungeren.  **Lijst met toewijzingen** zijn de expliciete en verschillende sleutel waarden kunnen worden toegewezen aan dezelfde database. Bijvoorbeeld, waarde van sleutel 1 toegewezen aan een Database en sleutelwaarden 3 en 6 beide toegewezen aan Database B.
+**Shards** bevatten **shardlets** en de toewijzing van shardlets aan Shards wordt onderhouden door een Shard-kaart. Een **lijst Shard toewijzing** is een koppeling tussen de afzonderlijke sleutel waarden die de shardlets en de data bases identificeren die fungeren als Shards.  **Lijst toewijzingen** zijn expliciete en andere sleutel waarden kunnen worden toegewezen aan dezelfde data base. Bijvoorbeeld: sleutel waarde 1 wordt toegewezen aan data base A en de sleutel waarden 3 en 6 zijn beide toegewezen aan data base B.
 
-| Sleutel | Shard-locatie |
+| Sleutel | Locatie van Shard |
 | --- | --- |
 | 1 |Database_A |
 | 3 |Database_B |
@@ -78,13 +77,13 @@ Shard-toewijzingen kunnen worden opgesteld met **lijsten met afzonderlijke shard
 | 6 |Database_B |
 | ... |... |
 
-### <a name="range-shard-maps"></a>Bereik-shard-kaarten
+### <a name="range-shard-maps"></a>Bereik Shard Maps
 
-In een **bereik-shard-toewijzing**, het bereik van de sleutel wordt beschreven door een paar **[lage waarde, hoge waarde)** waar de *lage waarde* is de minimale sleutel in het bereik en de *hoog Waarde* is de eerste waarde die hoger is dan het bereik.
+In een **Shard-toewijzing**wordt het sleutel bereik beschreven met een paar **[lage waarde, hoge waarde)** , waarbij de *lage waarde* de minimum sleutel in het bereik is en de *hoogste waarde* de eerste waarde hoger is dan het bereik.
 
-Bijvoorbeeld, **[0, 100)** bestaat uit alle gehele getallen groter dan of gelijk zijn aan 0 en kleiner dan 100. Houd er rekening mee dat meerdere adresbereiken kunnen verwijzen naar dezelfde database en niet-aaneengesloten bereiken worden ondersteund (bijvoorbeeld [100,200) en [400,600) verwijzen beide naar Database C in het volgende voorbeeld.)
+Bijvoorbeeld: **[0, 100)** omvat alle gehele getallen die groter dan of gelijk zijn aan 0 en kleiner zijn dan 100. Houd er rekening mee dat meerdere bereiken naar dezelfde data base kunnen verwijzen en dat gescheiden bereiken worden ondersteund (bijvoorbeeld [100.200) en [400.600) naar Data Base C in het volgende voor beeld.)
 
-| Sleutel | Shard-locatie |
+| Sleutel | Locatie van Shard |
 | --- | --- |
 | [1,50) |Database_A |
 | [50,100) |Database_B |
@@ -92,23 +91,23 @@ Bijvoorbeeld, **[0, 100)** bestaat uit alle gehele getallen groter dan of gelijk
 | [400,600) |Database_C |
 | ... |... |
 
-Elk van de bovenstaande tabellen is een voorbeeld van een concept van een **ShardMap** object. Elke rij is een eenvoudig voorbeeld van een individu **PointMapping** (voor de lijst-shard-toewijzing) of **RangeMapping** (voor de bereik-shard-toewijzing) object.
+Elk van de hierboven weer gegeven tabellen is een conceptueel voor beeld van een **ShardMap** -object. Elke rij is een vereenvoudigd voor beeld van een afzonderlijke **PointMapping** (voor de lijst Shard kaart) of **RangeMapping** (voor het bereik Shard kaart object).
 
-## <a name="shard-map-manager"></a>Shard-Toewijzingsbeheer
+## <a name="shard-map-manager"></a>Shard-toewijzings beheer
 
-In de clientbibliotheek is de shard-Toewijzingsbeheer een verzameling van shard-toewijzingen. De gegevens die worden beheerd door een **ShardMapManager** exemplaar wordt opgeslagen op drie locaties:
+In de client bibliotheek is het Shard-toewijzings beheer een verzameling van Shard-kaarten. De gegevens die worden beheerd door een **ShardMapManager** -exemplaar, worden op drie locaties bewaard:
 
-1. **Globale Shard-toewijzing (GSM)** : U opgeven een database om te fungeren als de opslagplaats voor alle van de shard-toewijzingen en toewijzingen. Speciale tabellen en opgeslagen procedures worden automatisch gemaakt om de gegevens te beheren. Dit is doorgaans een kleine database en licht toegankelijk is, en mag niet worden gebruikt voor andere behoeften van de toepassing. De tabellen zijn in een speciale schema met de naam **__ShardManagement**.
-2. **Lokale Shard-toewijzing (LSM)** : Elke database die u opgeeft als een shard worden gewijzigd voor het aantal kleine tabellen en speciale opgeslagen procedures die bevatten en beheren van specifieke shard voor shard kaart informatie bevatten. Deze informatie is redundant zijn met de informatie in de GSM en hierdoor kan de toepassing in de cache shard-kaart om informatie te valideren zonder een elke belasting door op de GSM; worden geplaatst de toepassing gebruikt de LSM om te bepalen of er een toewijzing in de cache nog steeds geldig is. De tabellen die overeenkomt met de LSM op elke shard zich ook in het schema **__ShardManagement**.
-3. **Toepassingscache**: Elke toepassing exemplaar toegang tot een **ShardMapManager** object onderhoudt een lokale cache in het geheugen van de toewijzingen. Informatie over de routering die onlangs zijn opgehaald worden opgeslagen.
+1. **GSM (Global Shard map)** : U geeft een Data Base op die als opslag plaats fungeert voor alle Shard-kaarten en-toewijzingen. Speciale tabellen en opgeslagen procedures worden automatisch gemaakt voor het beheren van de informatie. Dit is normaal gesp roken een kleine data base en licht toegankelijk en mag niet worden gebruikt voor andere behoeften van de toepassing. De tabellen bevinden zich in een speciaal schema met de naam **__ShardManagement**.
+2. **Lokale Shard-toewijzing (LSM)** : Elke Data Base die u opgeeft als Shard is gewijzigd in een aantal kleine tabellen en speciale opgeslagen procedures die Shard kaart informatie bevatten en beheren die specifiek is voor die Shard. Deze informatie is redundant met de informatie in de GSM en maakt het mogelijk dat de toepassing de Shard-kaart gegevens in de cache valideert zonder dat ze een belasting op de GSM hoeven te plaatsen; de toepassing maakt gebruik van de LSM om te bepalen of een toewijzing in de cache nog geldig is. De tabellen die overeenkomen met de LSM op elke Shard bevinden zich ook in het schema **__ShardManagement**.
+3. **Toepassings cache**: Elk toepassings exemplaar dat toegang krijgt tot een **ShardMapManager** -object, houdt een lokale cache in het geheugen bij van de bijbehorende toewijzingen. De routerings gegevens die recent zijn opgehaald, worden opgeslagen.
 
-## <a name="constructing-a-shardmapmanager"></a>Maken van een ShardMapManager
+## <a name="constructing-a-shardmapmanager"></a>Een ShardMapManager maken
 
-Een **ShardMapManager** object is gemaakt met behulp van een factory ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory)) patroon. De **ShardMapManagerFactory.GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)) methode gebruikt de referenties (met inbegrip van de servernaam en databasenaam die de GSM) in de vorm van een **ConnectionString** en retourneert een exemplaar van een **ShardMapManager**.  
+Een **ShardMapManager** -object is gemaakt met behulp van een fabrieks patroon ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory)). De methode **ShardMapManagerFactory. GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)) maakt referenties (inclusief de server naam en database naam die de GSM houden) in de vorm van een **Connections Tring** en retourneert een exemplaar van een  **ShardMapManager**.  
 
-**Opmerking:** De **ShardMapManager** slechts één keer per app-domein, in de van initialisatiecode voor een toepassing moet worden gemaakt. Het maken van extra exemplaren van ShardMapManager in hetzelfde toepassingsdomein resulteert in meer geheugen en CPU-gebruik van de toepassing. Een **ShardMapManager** kan een onbeperkt aantal shard-toewijzingen bevatten. Het is mogelijk dat een enkele shard-toewijzing voldoende is voor veel toepassingen, maar er zijn tijden wanneer verschillende sets databases worden gebruikt voor een ander schema of voor unieke doeleinden; in deze gevallen kunnen de voorkeur worden meerdere shard-toewijzingen.
+**Opmerking:** De **ShardMapManager** moet slechts eenmaal per app-domein worden geïnstantieerd binnen de initialisatie code voor een toepassing. Het maken van extra instanties van ShardMapManager in hetzelfde app-domein resulteert in meer geheugen en CPU-gebruik van de toepassing. Een **ShardMapManager** kan een wille keurig aantal Shard-kaarten bevatten. Hoewel één Shard-kaart mogelijk voldoende is voor veel toepassingen, zijn er situaties waarin verschillende sets data bases worden gebruikt voor een ander schema of voor unieke doel einden. in deze gevallen is het mogelijk dat meerdere Shard-kaarten de voor keur hebben.
 
-In deze code wordt een toepassing probeert te openen met een bestaande **ShardMapManager** met de TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) methode. Als objecten die een globale **ShardMapManager** (GSM) nog niet bestaat in de database, de clientbibliotheek maakt met behulp van de CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.createsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) methode.
+In deze code probeert een toepassing een bestaande **ShardMapManager** te openen met de methode TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.trygetsqlshardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) . Als objecten die een Global **ShardMapManager** (GSM) vertegenwoordigen, nog niet in de data base bestaan, worden deze door de client bibliotheek gemaakt met de methode CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.createsqlshardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)).
 
 ```Java
 // Try to get a reference to the Shard Map Manager in the shardMapManager database.
@@ -154,11 +153,11 @@ else
 }
 ```
 
-U kunt PowerShell gebruiken om te maken van een nieuwe Shard-toewijzing voor de versie van .NET. Een voorbeeld is beschikbaar [hier](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Voor de .NET-versie kunt u Power shell gebruiken om een nieuw Shard-toewijzings beheer te maken. [Hier](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)vindt u een voor beeld.
 
 ## <a name="get-a-rangeshardmap-or-listshardmap"></a>Een RangeShardMap of ListShardMap ophalen
 
-Na het maken van een shard-Toewijzingsbeheer, krijgt u de RangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) of ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) met behulp van de TryGetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetrangeshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap)), de TryGetListShardMap ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetlistshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap)), of de GetShardMap ([ Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap)) methode.
+Nadat u een Shard-kaart beheer hebt gemaakt, kunt u de RangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) of ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.net) ophalen](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)met behulp van de TryGetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetrangeshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap)), de TryGetListShardMap ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetlistshardmap), [. NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap)) of de GetShardMap ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap))-methode.
 
 ```Java
 // Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
@@ -211,62 +210,62 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
 }
 ```
 
-### <a name="shard-map-administration-credentials"></a>Shard-kaart beheer van referenties
+### <a name="shard-map-administration-credentials"></a>Shard-toewijzings beheer referenties
 
-Toepassingen beheren en manipuleren van shard-toewijzingen zijn anders dan de opdrachten die gebruikmaken van de shard-toewijzingen op route-verbindingen.
+Toepassingen die Shard-kaarten beheren en manipuleren, verschillen van degene die gebruikmaken van de Shard-kaarten om verbindingen te routeren.
 
-Voor het beheer van shard-toewijzingen (toevoegen of wijzigen van shards, shard-toewijzingen, shard-toewijzingen, enz.) u moet exemplaar maken van de **ShardMapManager** met behulp van **lezen/schrijven referenties met bevoegdheden op zowel de GSM-database en op elk database die als een shard fungeert**. De referenties moeten toestaan voor schrijfbewerkingen ten opzichte van de tabellen in de GSM en LSM informatie voor shard-toewijzing is ingevoerd of gewijzigd, ook als u voor het maken van LSM tabellen op de nieuwe shards.  
+Voor het beheren van Shard Maps (toevoegen of wijzigen van Shards, Shard Maps, Shard toewijzingen, enzovoort) moet u de **ShardMapManager** instantiëren met behulp **van referenties met lees-/schrijfmachtigingen voor zowel de GSM-Data Base als voor elke Data Base die fungeert als een Shard**. De referenties moeten schrijf bewerkingen toestaan voor de tabellen in zowel de GSM-als de LSM als Shard-toewijzings gegevens worden ingevoerd of gewijzigd, en voor het maken van LSM-tabellen op nieuwe Shards.  
 
-Zie [referenties gebruikt voor toegang tot de clientbibliotheek voor Elastic Database](sql-database-elastic-scale-manage-credentials.md).
+Zie [de referenties die worden gebruikt voor toegang tot de Elastic database-client bibliotheek](sql-database-elastic-scale-manage-credentials.md).
 
-### <a name="only-metadata-affected"></a>Alleen de metagegevens die zijn beïnvloed
+### <a name="only-metadata-affected"></a>Alleen beïnvloede meta gegevens
 
-Methoden die worden gebruikt voor het invullen van of het wijzigen van de **ShardMapManager** gegevens de gegevens die zijn opgeslagen in de shards zelf niet wijzigen. Bijvoorbeeld, methoden, zoals **CreateShard**, **DeleteShard**, **UpdateMapping**, enz. de shard map metagegevens alleen van invloed zijn op. Ze niet verwijderen, toevoegen of wijzigen van de gebruikersgegevens in de shards. In plaats daarvan deze methoden zijn ontworpen om te worden gebruikt in combinatie met afzonderlijke bewerkingen die u uitvoeren als u wilt maken of verwijderen werkelijke databases, of die rijen uit een shard naar de andere verplaatsen opnieuw verdelen van een gedeelde omgeving.  (De **splitsen en samenvoegen** hulpprogramma dat wordt geleverd met hulpmiddelen voor elastic database maakt gebruik van deze API's, samen met het organiseren van de daadwerkelijke gegevensverplaatsing tussen shards.) Zie [schalen met het Elastic Database-hulpprogramma voor splitsen en samenvoegen](sql-database-elastic-scale-overview-split-and-merge.md).
+De methoden die worden gebruikt voor het vullen of wijzigen van de **ShardMapManager** -gegevens, wijzigen niet de gebruikers gegevens die zijn opgeslagen in de Shards zelf. Methoden zoals **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. beïnvloeden bijvoorbeeld alleen de meta gegevens van Shard-kaarten. Gebruikers gegevens in de Shards worden niet verwijderd, toegevoegd of gewijzigd. In plaats daarvan zijn deze methoden ontworpen om te worden gebruikt in combi natie met afzonderlijke bewerkingen die u uitvoert voor het maken of verwijderen van werkelijke data bases of het verplaatsen van rijen van de ene Shard naar een andere om een Shard-omgeving te herverdelen.  (Het hulp programma voor **splitsen en samen voegen** dat is opgenomen in hulpprogram ma's voor Elastic data bases maakt gebruik van deze api's samen met het organiseren van werkelijke gegevens verplaatsing tussen Shards.) Zie [schalen met behulp van het Elastic database hulp programma voor splitsen en samen voegen](sql-database-elastic-scale-overview-split-and-merge.md).
 
 ## <a name="data-dependent-routing"></a>Gegevensafhankelijke routering
 
-De shard-Toewijzingsbeheer wordt gebruikt in toepassingen waarvoor databaseverbindingen de bewerkingen van de app-specifieke gegevens uit te voeren. Deze verbindingen moeten worden gekoppeld aan de juiste database. Dit staat bekend als **gegevensafhankelijke routering**. Exemplaar maken van een object shard map manager van de gegevensfactory op basis van de referenties die alleen-lezen toegang op de GSM-database hebben voor deze toepassingen. Afzonderlijke aanvragen voor latere verbindingen opgeven de referenties die nodig zijn om verbinding te maken met de juiste shard-database.
+Het Shard-toewijzings beheer wordt gebruikt in toepassingen waarvoor database verbindingen zijn vereist om de app-specifieke gegevens bewerkingen uit te voeren. Deze verbindingen moeten worden gekoppeld aan de juiste data base. Dit wordt ook wel **gegevens afhankelijke route ring**genoemd. Voor deze toepassingen maakt u een instantie van een Shard-toewijzings beheer object vanuit de fabriek met referenties die alleen-lezen toegang hebben voor de GSM-data base. Afzonderlijke aanvragen voor latere verbindingen geven referenties op die nodig zijn om verbinding te maken met de juiste Shard-data base.
 
-Houd er rekening mee dat deze toepassingen (met behulp van **ShardMapManager** geopend met alleen-lezen referenties) geen wijzigingen aanbrengen in de kaarten of -toewijzingen. Voor deze behoeften maken met beheerdersrechten-specifieke toepassingen of PowerShell-scripts die hogere bevoegdheden van referenties, zoals eerder is besproken. Zie [referenties gebruikt voor toegang tot de clientbibliotheek voor Elastic Database](sql-database-elastic-scale-manage-credentials.md).
+Houd er rekening mee dat deze toepassingen (met **ShardMapManager** geopend met alleen-lezen referenties) geen wijzigingen kunnen aanbrengen in de toewijzingen of toewijzingen. Voor die behoeften kunt u administratieve specifieke toepassingen of Power shell-scripts maken die referenties met meer privileges bieden zoals eerder is besproken. Zie [de referenties die worden gebruikt voor toegang tot de Elastic database-client bibliotheek](sql-database-elastic-scale-manage-credentials.md).
 
-Zie voor meer informatie, [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md).
+Zie [gegevens afhankelijke route ring](sql-database-elastic-scale-data-dependent-routing.md)voor meer informatie.
 
-## <a name="modifying-a-shard-map"></a>Een shard-toewijzing wijzigen
+## <a name="modifying-a-shard-map"></a>Een Shard-kaart wijzigen
 
-Een shard-toewijzing kan op verschillende manieren worden gewijzigd. Alle van de volgende methoden de metagegevens met een beschrijving van de shards en hun toewijzingen, wijzigen, maar deze gegevens in de shards niet fysiek wijzigen, noch doen ze maken of verwijderen van de werkelijke databases.  Enkele van de bewerkingen op de shard-toewijzing die hieronder worden beschreven moet mogelijk worden gecoördineerd met beheeracties fysiek verplaatsen van gegevens of die toevoegen en verwijderen van databases die fungeren als shards.
+Een Shard-kaart kan op verschillende manieren worden gewijzigd. Met de volgende methoden worden de meta gegevens van de Shards en hun toewijzingen gewijzigd, maar de gegevens worden niet fysiek gewijzigd in de Shards, noch worden de daad werkelijke data bases gemaakt of verwijderd.  Sommige van de bewerkingen op de Shard-toewijzing die hieronder worden beschreven, moeten mogelijk worden gecoördineerd met beheer acties waarmee gegevens fysiek worden verplaatst of waarmee data bases worden toegevoegd en verwijderd die als Shards fungeren.
 
-Deze methoden samenwerken als de bouwstenen die beschikbaar zijn voor het wijzigen van de algehele verdeling van gegevens in uw omgeving shard-database.  
+Deze methoden werken samen als de bouw stenen die beschikbaar zijn voor het wijzigen van de algemene distributie van gegevens in uw Shard-database omgeving.  
 
-* Toevoegen of verwijderen van shards: Gebruik **CreateShard** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)) en **DeleteShard** ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.deleteshard), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard)) van de shardmap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap)) klasse.
+* Shards toevoegen of verwijderen: gebruik **CreateShard** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)) en **DeleteShard** ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.deleteshard), .net [](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard)) van de shardmap-klasse (Java [, .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap)).[](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap)
   
-    De server en database voor de doel-shard moeten al bestaan voor deze bewerkingen om uit te voeren. Deze methoden geen invloed heeft op de databases zelf, alleen op metagegevens in de shard-toewijzing.
-* Maken of verwijderen van punten of bereiken die zijn toegewezen aan de shards: Gebruik **CreateRangeMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.NET](https://docs.microsoft.com/previous-versions/azure/dn841993(v=azure.100))), **DeleteMapping** () [Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.deletemapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) van de RangeShardMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) klasse en **CreatePointMapping**  ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap.createpointmapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) van de ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) klasse.
+    De server en de data base die het doel-Shard vertegenwoordigen, moeten al bestaan voor het uitvoeren van deze bewerkingen. Deze methoden hebben geen invloed op de data bases zelf, alleen op meta gegevens in de Shard-kaart.
+* Punten of bereiken maken of verwijderen die zijn toegewezen aan de Shards: gebruik **CreateRangeMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.net](https://docs.microsoft.com/previous-versions/azure/dn841993(v=azure.100))), **DeleteMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.deletemapping), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) van de RangeShardMapping-klasse ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)), en **CreatePointMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap.createpointmapping), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) van de ListShardMap-klasse ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)).
   
-    Veel verschillende punten of bereiken kunnen worden toegewezen aan de dezelfde shard. Deze methoden zijn alleen van invloed op metagegevens: ze hebben geen invloed op alle gegevens die al aanwezig in shards. Als de gegevens moeten worden verwijderd uit de database om te worden consistent zijn met **DeleteMapping** bewerkingen u deze bewerkingen uitvoeren, afzonderlijk maar in combinatie met behulp van deze methoden.  
-* Bestaande bereiken splitsen in twee of aaneengesloten bereiken samenvoegen in één: Gebruik **SplitMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.splitmapping), [.NET](https://msdn.microsoft.com/library/azure/dn824205.aspx)) en **MergeMappings** () [Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.mergemappings), [.NET](https://msdn.microsoft.com/library/azure/dn824201.aspx)).  
+    Veel verschillende punten of bereiken kunnen worden toegewezen aan dezelfde Shard. Deze methoden zijn alleen van invloed op meta gegevens: ze hebben geen invloed op gegevens die mogelijk al aanwezig zijn in Shards. Als er gegevens moeten worden verwijderd uit de data base zodat deze consistent zijn met **DeleteMapping** -bewerkingen, voert u deze bewerkingen afzonderlijk uit, maar in combi natie met deze methoden.  
+* Om bestaande bereiken te splitsen in twee of aangrenzende bereiken samen voegen tot één: gebruik **SplitMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.splitmapping), [.net](https://msdn.microsoft.com/library/azure/dn824205.aspx)) en **MergeMappings** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.mergemappings), [.net](https://msdn.microsoft.com/library/azure/dn824201.aspx)).  
   
-    Houd er rekening mee dat splitsen en samenvoegen van bewerkingen **veranderen niet de shard waaraan sleutelwaarden zijn toegewezen**. Een splitsing een bestaand bereik opgesplitst in twee delen, maar blijft beide als toegewezen aan de dezelfde shard. Een samenvoeging van invloed op twee aaneengesloten bereiken die al zijn toegewezen aan de dezelfde shard, ze samenvoegen tot een enkel bereik.  De verplaatsing van punten of bereiken zelf tussen shards moet worden gecoördineerd met behulp van **UpdateMapping** in combinatie met de daadwerkelijke gegevensverplaatsing.  U kunt de **splitsen ensamenvoegen/** service deel uit van de hulpmiddelen voor elastic database voor de coördinatie van shard map wijzigingen met de gegevens worden verplaatst, wanneer verkeer nodig is.
-* Opnieuw toewijzen (of verplaatsen) afzonderlijke punten of bereiken aan verschillende shards: Gebruik **UpdateMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.updatemapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)).  
+    Houd er rekening mee dat splitsen en samen voegen **de Shard waaraan sleutel waarden worden toegewezen, niet wijzigen**. Een split breekt een bestaand bereik op in twee delen, maar blijft hetzelfde als toegewezen aan dezelfde Shard. Een samen voeging werkt op twee aangrenzende bereiken die al aan dezelfde Shard zijn toegewezen, en voegt deze toe aan één bereik.  De verplaatsing van punten of bereiken tussen Shards moet worden gecoördineerd met behulp van **UpdateMapping** in combi natie met de daad werkelijke gegevens verplaatsing.  U kunt de service voor **splitsen en samen voegen** gebruiken die deel uitmaakt van de hulpprogram ma's voor elastische data bases om Shard toe te voegen aan gegevens verplaatsing, wanneer de verplaatsing nodig is.
+* Afzonderlijke punten of bereiken opnieuw toewijzen (of verplaatsen) naar verschillende Shards: gebruik **UpdateMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.updatemapping), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)).  
   
-    Omdat gegevens mogelijk moet uit één shard worden verplaatst naar een andere om te worden consistent zijn met **UpdateMapping** bewerkingen, die u wilt uitvoeren die verkeer afzonderlijk maar in combinatie met behulp van deze methoden.
+    Omdat gegevens mogelijk moeten worden verplaatst van de ene Shard naar een andere zodat deze consistent zijn met **UpdateMapping** -bewerkingen, moet u die verplaatsing afzonderlijk uitvoeren, maar in combi natie met deze methoden.
 
-* Toewijzingen online en offline uitvoeren: Gebruik **MarkMappingOffline** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.markmappingoffline), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) en **MarkMappingOnline** ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.markmappingonline), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) voor het beheren van de online status van een toewijzing.
+* Toewijzingen online en offline halen: gebruik **MarkMappingOffline** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.markmappingoffline), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) en **MarkMappingOnline** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.markmappingonline), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) om de online status van een toewijzing te bepalen.
   
-    Bepaalde bewerkingen op de shard-toewijzingen zijn alleen toegestaan als een toewijzing 'offline' status is, met inbegrip van **UpdateMapping** en **DeleteMapping**. Wanneer een toewijzing offline is, wordt er een fout geretourneerd in een gegevens-afhankelijke aanvraag op basis van een sleutel die is opgenomen in de toewijzing. Bovendien wanneer een bereik eerst offline is gehaald, wordt alle verbindingen met de betrokken shard worden automatisch om te voorkomen dat inconsistente of onvolledige resultaten voor query's die zijn gericht tegen bereiken gewijzigd beëindigd.
+    Bepaalde bewerkingen op Shard-toewijzingen zijn alleen toegestaan wanneer een toewijzing de status offline heeft, inclusief **UpdateMapping** en **DeleteMapping**. Wanneer een toewijzing offline is, retourneert een gegevens afhankelijke aanvraag op basis van een sleutel die is opgenomen in die toewijzing een fout. Wanneer een bereik voor het eerst offline wordt genomen, worden alle verbindingen met de betrokken Shard automatisch afgebroken om inconsistente of onvolledige resultaten te voor komen voor query's die zijn gericht op bereiken die worden gewijzigd.
 
-Toewijzingen zijn onveranderd objecten in .net.  Alle methoden van het bovenstaande die toewijzingen wijzigen ook alle verwijzingen naar deze in uw code ongeldig te maken. Als u wilt maken het gemakkelijker om uit te voeren reeksen van bewerkingen die invloed op de status van een toewijzing, retourneert alle methoden die een toewijzing wijzigen een verwijzing voor nieuwe toewijzing, zodat bewerkingen kunnen worden gekoppeld. Bijvoorbeeld, als u wilt verwijderen van een bestaande toewijzing in shardmap sm dat de sleutel 25 bevat, kunt u uitvoeren de volgende:
+Toewijzingen zijn onveranderbare objecten in .net.  Met alle methoden hierboven die wijzigings toewijzingen worden de verwijzingen in uw code ook ongeldig gemaakt. Om het gemakkelijker te maken om reeksen bewerkingen uit te voeren die de status van een toewijzing wijzigen, retour neren alle methoden die een toewijzing wijzigen een nieuwe toewijzings verwijzing, waardoor bewerkingen kunnen worden gekoppeld. Als u bijvoorbeeld een bestaande toewijzing in shardmap SM wilt verwijderen die de sleutel 25 bevat, kunt u het volgende uitvoeren:
 
 ```
     sm.DeleteMapping(sm.MarkMappingOffline(sm.GetMappingForKey(25)));
 ```
 
-## <a name="adding-a-shard"></a>Een shard toevoegen
+## <a name="adding-a-shard"></a>Een Shard toevoegen
 
-Toepassingen moeten vaak om toe te voegen nieuwe shards voor het afhandelen van gegevens dat wordt verwacht van nieuwe sleutels of sleutelbereiken, voor een shard-toewijzing die al bestaat. Bijvoorbeeld, een shard toepassing door Tenant-ID mogelijk nodig hebt voor het inrichten van een nieuwe shard voor een nieuwe tenant of shard maandelijkse gegevens moet mogelijk een nieuwe shard ingericht vóór het begin van elke maand nieuwe.
+Toepassingen moeten vaak nieuwe Shards toevoegen voor het afhandelen van gegevens die worden verwacht van nieuwe sleutels of belang rijke bereiken, voor een Shard-kaart die al bestaat. Het is bijvoorbeeld mogelijk dat een toepassings Shard op basis van de Tenant-ID een nieuwe Shard moet inrichten voor een nieuwe Tenant, of dat de gegevens Shard maandelijks een nieuwe Shard moeten inrichten voor het begin van elke nieuwe maand.
 
-Als het nieuwe bereik van de sleutelwaarden die zijn nog geen deel uitmaakt van een bestaande toewijzing en geen gegevensverplaatsing nodig is, is het eenvoudig naar de nieuwe shard toevoegen en koppelen van de nieuwe sleutel of het bereik dat sharden. Zie voor meer informatie over het toevoegen van nieuwe shards [toe te voegen een nieuwe shard](sql-database-elastic-scale-add-a-shard.md).
+Als het nieuwe bereik met sleutel waarden niet al deel uitmaakt van een bestaande toewijzing en er geen gegevens verplaatsing nodig is, is het eenvoudig om het nieuwe Shard toe te voegen en de nieuwe sleutel of het bereik aan die Shard te koppelen. Zie [een nieuwe Shard toevoegen](sql-database-elastic-scale-add-a-shard.md)voor meer informatie over het toevoegen van nieuwe Shards.
 
-Voor scenario's waarvoor de verplaatsing van gegevens, is het hulpprogramma voor splitsen en samenvoegen echter vereist voor het indelen van de gegevensverplaatsing tussen shards in combinatie met de updates nodig shard-kaart. Zie voor meer informatie over het gebruik van het hulpprogramma voor splitsen en samenvoegen [overzicht van splitsen en samenvoegen](sql-database-elastic-scale-overview-split-and-merge.md)
+Voor scenario's waarvoor gegevens verplaatsing vereist is, is het hulp programma voor splitsen en samen voegen echter nodig om de gegevens verplaatsing tussen Shards in combi natie met de benodigde Shard-toewijzings updates te organiseren. Zie [overzicht van splitsen en samen](sql-database-elastic-scale-overview-split-and-merge.md) voegen voor meer informatie over het gebruik van het hulp programma Split-Merge
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

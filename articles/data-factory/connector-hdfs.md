@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: c528f37c8970380678a318ec2d63babd37f89501
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cac2b350da5ca8738e40f9a288ecf4059e81060
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65228032"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673909"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Gegevens uit HDFS met Azure Data Factory kopiëren
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -56,13 +56,13 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor HDFS gekoppelde service:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Hdfs**. | Ja |
 | url |URL naar het HDFS |Ja |
 | authenticationType | Toegestane waarden zijn: **Anonieme**, of **Windows**. <br><br> Gebruik **Kerberos-verificatie** voor HDFS-connector, raadpleegt u [in deze sectie](#use-kerberos-authentication-for-hdfs-connector) voor het instellen van uw on-premises omgeving dienovereenkomstig. |Ja |
 | userName |Gebruikersnaam voor Windows-verificatie. Geef voor Kerberos-verificatie, `<username>@<domain>.com`. |Ja (voor Windows-verificatie) |
-| password |Wachtwoord voor Windows-verificatie. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja (voor Windows-verificatie) |
+| password |Wachtwoord voor Windows-verificatie. Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory, of [verwijs naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja (voor Windows-verificatie) |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 **Voorbeeld: met behulp van anonieme verificatie**
@@ -120,7 +120,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Het kopiëren van gegevens uit HDFS in **Parquet of gescheiden tekstopmaak**, verwijzen naar [Parquet-indeling](format-parquet.md) en [gescheiden tekstopmaak](format-delimited-text.md) artikel op de gegevensset op basis van indeling en ondersteund Instellingen. De volgende eigenschappen worden ondersteund voor HDFS onder `location` instellingen in de indeling op basis van gegevensset:
 
-| Eigenschap   | Description                                                  | Vereist |
+| Eigenschap   | Description                                                  | Verplicht |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | De eigenschap type onder `location` in de gegevensset moet worden ingesteld op **HdfsLocation**. | Ja      |
 | folderPath | Het pad naar map. Als u wilt met jokertekens map filteren, deze instelling overslaan en geef in instellingen voor de bron. | Nee       |
@@ -159,7 +159,7 @@ Het kopiëren van gegevens uit HDFS in **Parquet of gescheiden tekstopmaak**, ve
 
 Het kopiëren van gegevens uit HDFS in **ORC/Avro/JSON/binaire indeling**, de volgende eigenschappen worden ondersteund:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **FileShare** |Ja |
 | folderPath | Pad naar de map. Filteren op jokerteken wordt ondersteund, jokertekens toegestaan zijn: `*` (komt overeen met nul of meer tekens) en `?` (komt overeen met nul of één teken); Gebruik `^` als escape voor als de bestandsnaam van uw werkelijke jokertekens of deze escape-teken in. <br/><br/>Voorbeelden: rootfolder/submap/meer voorbeelden in [mappen en bestanden filteren voorbeelden](#folder-and-file-filter-examples). |Ja |
@@ -215,7 +215,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Het kopiëren van gegevens uit HDFS in **Parquet of gescheiden tekstopmaak**, verwijzen naar [Parquet-indeling](format-parquet.md) en [gescheiden tekstopmaak](format-delimited-text.md) artikel op de bron voor kopiëren-indeling op basis van activiteit en ondersteunde instellingen. De volgende eigenschappen worden ondersteund voor HDFS onder `storeSettings` instellingen in de bron voor kopiëren-indeling op basis van:
 
-| Eigenschap                 | Description                                                  | Vereist                                      |
+| Eigenschap                 | Description                                                  | Verplicht                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | De eigenschap type onder `storeSettings` moet worden ingesteld op **HdfsReadSetting**. | Ja                                           |
 | recursive                | Geeft aan of de gegevens recursief worden gelezen uit de submappen of alleen voor de opgegeven map. Houd er rekening mee dat wanneer recursieve is ingesteld op true en de sink is een opslagplaats op basis van bestanden, een lege map of submap is niet gekopieerd of gemaakt in de sink. Toegestane waarden zijn **waar** (standaard) en **false**. | Nee                                            |
@@ -271,7 +271,7 @@ Het kopiëren van gegevens uit HDFS in **Parquet of gescheiden tekstopmaak**, ve
 
 Het kopiëren van gegevens uit HDFS in **ORC/Avro/JSON/binaire indeling**, de volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **HdfsSource** |Ja |
 | recursive | Geeft aan of de gegevens recursief worden gelezen uit de submappen of alleen voor de opgegeven map. Houd er rekening mee wanneer recursieve is ingesteld op true en sink is opslag op basis van bestanden, lege map/ondergeschikt-folder worden niet gekopieerd/gemaakt bij de sink.<br/>Toegestane waarden zijn: **waar** (standaard), **false** | Nee |
@@ -311,7 +311,7 @@ Deze sectie beschrijft het resulterende gedrag van de map pad en de naam met jok
 
 [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) is een systeemeigen Hadoop-opdrachtregelprogramma voor het gedistribueerde kopiëren in een Hadoop-cluster. Wanneer een opdracht Distcp uitvoert, wordt eerst alle bestanden worden gekopieerd, maakt u meerdere taken van de kaart in het Hadoop-cluster wordt een lijst, en elke kaart taak binaire kopie van bron naar het sink-doet.
 
-DistCp gebruiken om te kopiëren van bestanden als ondersteuning voor activiteit kopiëren-is in Azure Blob (met inbegrip van [gefaseerd kopiëren](copy-activity-performance.md) of Azure Data Lake Store, in welk geval het kan volledig benut de kracht van uw cluster in plaats van die worden uitgevoerd op de zelfgehoste Cloudintegratieruntime . Met name als uw cluster is een zeer krachtig en biedt betere doorvoer van de kopie. Op basis van uw configuratie in Azure Data Factory, kopieeractiviteit automatisch maken van een opdracht distcp indienen bij uw Hadoop-cluster en de kopiestatus controleren.
+DistCp gebruiken om te kopiëren van bestanden als ondersteuning voor activiteit kopiëren-is in Azure Blob (met inbegrip van [gefaseerd kopiëren](copy-activity-performance.md)) of Azure Data Lake Store, in welk geval het kan volledig benut de kracht van uw cluster in plaats van die worden uitgevoerd op de zelfgehoste Integration Runtime. Met name als uw cluster is een zeer krachtig en biedt betere doorvoer van de kopie. Op basis van uw configuratie in Azure Data Factory, kopieeractiviteit automatisch maken van een opdracht distcp indienen bij uw Hadoop-cluster en de kopiestatus controleren.
 
 ### <a name="prerequisites"></a>Vereisten
 

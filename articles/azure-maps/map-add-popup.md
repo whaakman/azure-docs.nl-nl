@@ -1,49 +1,49 @@
 ---
-title: Een pop-up met Azure-kaarten toevoegen | Microsoft Docs
-description: Een pop-up toevoegen aan Javascript-kaart
+title: Een pop-upvenster met Azure Maps toevoegen | Microsoft Docs
+description: Een pop-upvenster toevoegen aan java script-toewijzing
 author: jingjing-z
 ms.author: jinzh
-ms.date: 11/09/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: a6c8a8aa954379036ce566a205b8cb4e97952727
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 92d44ef3d0db8e93d4babd7441238c7fa105dbd5
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769546"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639004"
 ---
-# <a name="add-a-popup-to-the-map"></a>Een pop-up toevoegen aan de kaart
+# <a name="add-a-popup-to-the-map"></a>Een pop-upvenster toevoegen aan de kaart
 
-In dit artikel wordt beschreven hoe u een pop-upvenster toevoegen aan een punt op een kaart.
+In dit artikel wordt uitgelegd hoe u een pop-upvenster kunt toevoegen aan een punt op een kaart.
 
 ## <a name="understand-the-code"></a>De code begrijpen
 
 <a id="addAPopup"></a>
 
-<iframe height='500' scrolling='no' title='Een pop up toevoegen met behulp van Azure Maps' src='//codepen.io/azuremaps/embed/MPRPvz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/MPRPvz/'>oplopen een pop-server met behulp van Azure Maps</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Een pop-up toevoegen met Azure Maps' src='//codepen.io/azuremaps/embed/MPRPvz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de pen <a href='https://codepen.io/azuremaps/pen/MPRPvz/'>een pop-up toevoegen met Azure Maps</a> door Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In de bovenstaande code wordt het eerste vereiste blok van code een kaartobject. U kunt zien [maken van een kaart](./map-create.md) voor instructies. U maakt ook HTML-inhoud moet worden weergegeven in het pop-upvenster is.
+In de bovenstaande code maakt het eerste code blok een kaart object. U kunt [een overzicht maken](./map-create.md) voor instructies. Er wordt ook HTML-inhoud gemaakt die in de pop-up wordt weer gegeven.
 
-Het tweede codeblok maakt u een gegevensbron object via de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klasse. Een punt is een [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) van de [wijst](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) klasse. Een point-object met een naam en beschrijving van eigenschappen wordt vervolgens gemaakt en toegevoegd aan de gegevensbron.
+Met het tweede code blok wordt een gegevens bron object gemaakt met behulp van de klasse [Data Source](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) . Een punt is een [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) van de klasse [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) . Er wordt vervolgens een Point-object met de eigenschappen name en description gemaakt en toegevoegd aan de gegevens bron.
 
-Een [symbool laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) maakt gebruik van tekst of pictogrammen weergegeven op basis van een punt-gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als symbolen op de kaart.  Een symbool-laag wordt gemaakt in het derde blok van code. De gegevensbron wordt toegevoegd aan het symbool-laag, die wordt vervolgens toegevoegd aan de kaart.
+Een [symbool laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) maakt gebruik van tekst of pictogrammen voor het weer geven van op punten gebaseerde gegevens die in de [gegevens bron](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) zijn verpakt als symbolen op de kaart.  In het derde code blok wordt een symbool laag gemaakt. De gegevens bron wordt toegevoegd aan de Symbol-laag, die vervolgens wordt toegevoegd aan de kaart.
 
-De vierde blok van code maakt een [pop-upvenster object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) via `new atlas.Popup()`. Pop-upmenu eigenschappen zoals de positie en pixelOffset maken deel uit van [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions). PopupOptions kunnen worden gedefinieerd in het pop-upvenster constructor of via [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) functie van de klasse pop-upvenster. Een `mouseover` gebeurtenislistener voor de laag symbool wordt gemaakt.
+Het vierde code blok maakt een [pop](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) -upobject `new atlas.Popup()`via. Popup-eigenschappen, zoals position en pixelOffset, maken deel uit van [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions). PopupOptions kan worden gedefinieerd in pop-upconstructor of [](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) via setoptions van de pop-klasse. Er `mouseover` wordt vervolgens een gebeurtenislistener voor de symbool laag gemaakt.
 
-Het laatste blok van code maakt een functie die wordt geactiveerd door de `mouseover` gebeurtenislistener. Het instellen van de inhoud en eigenschappen van het pop-upvenster en het pop-object toegevoegd aan de kaart.
+Het laatste code blok maakt een functie die wordt geactiveerd door de `mouseover` gebeurtenislistener. De inhoud en eigenschappen van de pop-up worden ingesteld en het pop-upobject wordt toegevoegd aan de kaart.
 
-## <a name="reusing-a-popup-with-multiple-points"></a>Hergebruik van een pop-upvenster met meerdere punten
+## <a name="reusing-a-popup-with-multiple-points"></a>Een pop-upvenster met meerdere punten opnieuw gebruiken
 
-Wanneer u veel gegevenspunten hebt en alleen wilt weergeven van een pop-upvenster op een tijdstip, wordt de aanbevolen aanpak is het een pop-upvenster maken en deze in plaats van het maken van een pop-upvenster voor elke functie punt gebruiken. Op deze manier kunt het aantal DOM-elementen die zijn gemaakt door de toepassing aanzienlijk verminderd die voor betere prestaties zorgen. Hiermee maakt u eigenschappen van 3. Als u op een van deze klikt, wordt een pop-upvenster weergegeven met de inhoud voor deze functie punt.
+Wanneer u veel punten hebt en slechts één pop-up tegelijk wilt weer geven, is het raadzaam om één pop-up te maken en deze opnieuw te gebruiken in plaats van een pop-upvenster voor elke punt functie te maken. Op deze manier wordt het aantal DOM-elementen dat door de toepassing is gemaakt, aanzienlijk verminderd, waardoor betere prestaties kunnen worden geboden. In dit voor beeld worden drie punt functies gemaakt. Als u op een van deze functies klikt, wordt er een pop-upvenster weer gegeven met de inhoud voor die punt functie.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Hergebruik van pop-upvenster met meerdere pincodes' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>hergebruik van pop-upvenster met meerdere pincodes</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Opnieuw gebruiken van pop-up met meerdere pincodes' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Bekijk de pen met behulp van Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a> <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>met meerdere pincodes</a> .
 </iframe>
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -56,7 +56,7 @@ Meer informatie over de klassen en methoden die in dit artikel worden gebruikt:
 > [!div class="nextstepaction"]
 > [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions?view=azure-iot-typescript-latest)
 
-Zie de volgende fantastische artikelen voor volledige codevoorbeelden:
+Raadpleeg de volgende fantastische artikelen voor voor beelden van volledige code:
 
 > [!div class="nextstepaction"]
 > [Een symbool laag toevoegen](./map-add-pin.md)

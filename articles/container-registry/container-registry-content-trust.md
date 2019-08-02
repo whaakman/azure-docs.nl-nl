@@ -3,23 +3,24 @@ title: Inhoud vertrouwen in Azure Container Registry
 description: Meer informatie over het inschakelen van inhoud vertrouwen voor uw Azure-containerregister en ondertekende push- en pull-installatiekopieën.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: ca9ef32a830f56edb471256b3b9175ba0fbec51d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d2132f060076aefe6ae0eccb6d5300c78c96ece5
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65069232"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356543"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Inhoud vertrouwen in Azure Container Registry
 
-Azure Container Registry implementeert van Docker [inhoud vertrouwensrelatie] [ docker-content-trust] model, waardoor een pushen en pullen van installatiekopieën van ondertekende. In dit artikel helpt u op weg met het inschakelen van inhoud vertrouwen in uw container Registry.
+Azure Container Registry implementeert het vertrouwens [][docker-content-trust] model van de docker, waardoor het pushen en ophalen van ondertekende installatie kopieën mogelijk wordt. In dit artikel kunt u beginnen met het inschakelen van inhouds vertrouwen in uw container registers.
 
 > [!NOTE]
-> Inhoud vertrouwensrelatie is een functie van de [Premium-SKU](container-registry-skus.md) van Azure Container Registry.
+> Content Trust is een functie van de [Premium-SKU](container-registry-skus.md) van Azure container Registry.
 
 ## <a name="how-content-trust-works"></a>Hoe inhoud vertrouwen werkt
 
@@ -33,16 +34,16 @@ Inhoud vertrouwen werkt op basis van de **tags** in een opslagplaats. Installati
 
 ### <a name="signing-keys"></a>Ondertekeningssleutels
 
-Inhoud vertrouwen wordt beheerd met behulp van cryptografische ondertekeningssleutels. Deze sleutels zijn gekoppeld aan een specifieke opslagplaats in een register. Er zijn verschillende soorten ondertekeningssleutels die door Docker-clients en het register worden gebruikt bij het beheren van vertrouwensrelaties voor de tags in een opslagplaats. Wanneer u inhoud vertrouwen inschakelt en integreert in de publicatie- en verbruikspijplijn van uw container, moet u deze sleutels zorgvuldig beheren. Zie voor meer informatie [Sleutelbeheer](#key-management) verderop in dit artikel en [Manage keys for content trust][docker-manage-keys] (sleutels voor inhoud vertrouwen beheren) in de documentatie voor Docker.
+Inhoud vertrouwen wordt beheerd met behulp van cryptografische ondertekeningssleutels. Deze sleutels zijn gekoppeld aan een specifieke opslagplaats in een register. Er zijn verschillende soorten ondertekeningssleutels die door Docker-clients en het register worden gebruikt bij het beheren van vertrouwensrelaties voor de tags in een opslagplaats. Wanneer u inhoud vertrouwen inschakelt en integreert in de publicatie- en verbruikspijplijn van uw container, moet u deze sleutels zorgvuldig beheren. Zie voor meer informatie [sleutel beheer](#key-management) verderop in dit artikel en [sleutels voor het vertrouwen van inhoud beheren][docker-manage-keys] in de docker-documentatie.
 
 > [!TIP]
-> Dit is een zeer algemeen overzicht van het inhoud vertrouwen-model van Docker. Zie [Content trust in Docker][docker-content-trust] (inhoud vertrouwen in Docker) voor een uitgebreide beschrijving van inhoud vertrouwen.
+> Dit is een zeer algemeen overzicht van het inhoud vertrouwen-model van Docker. Zie [Content Trust in docker][docker-content-trust]voor een diep gaande bespreking van inhouds vertrouwen.
 
 ## <a name="enable-registry-content-trust"></a>Inhoud vertrouwen voor register inschakelen
 
 Uw eerste stap is het inschakelen van inhoud vertrouwen op het niveau van het register. Na het inschakelen kunnen clients (gebruikers of services) ondertekende installatiekopieën pushen naar uw register. Als u inhoud vertrouwen voor uw register inschakelt, wordt het gebruik van het register niet beperkt tot consumenten waarvoor inhoud vertrouwen is ingeschakeld. Ook gebruikers waarvoor inhoud vertrouwen niet is ingeschakeld, kunnen uw register gewoon blijven gebruiken. Gebruikers die inhoud vertrouwen op hun clients hebben ingeschakeld, kunnen echter *alleen* ondertekende installatiekopieën in uw register zien.
 
-Als u inhoud vertrouwen voor uw register wilt inschakelen, navigeert u eerst naar het register in Azure Portal. Onder **beleid**, selecteer **inhoud vertrouwen** > **ingeschakeld** > **opslaan**.
+Als u inhoud vertrouwen voor uw register wilt inschakelen, navigeert u eerst naar het register in Azure Portal. Selecteer onder **beleid**de optie **inhouds vertrouwensrelatie** > **ingeschakeld** > **Opslaan**.
 
 ![Inhoud vertrouwen voor een register inschakelen in Azure Portal][content-trust-01-portal]
 
@@ -73,7 +74,7 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 
 ## <a name="grant-image-signing-permissions"></a>Verleen machtigingen voor het ondertekenen van installatiekopieën
 
-Alleen de gebruikers of systemen die u daartoe hebt gemachtigd, kunnen vertrouwde installatiekopieën naar uw register pushen. Als u een gebruiker (of een systeem met een service-principal) machtigingen voor het pushen van vertrouwde installatiekopieën wilt verlenen, verleent u de rol `AcrImageSigner` aan hun Azure Active Directory-entiteiten. Dit is een aanvulling op de `AcrPush` (of gelijksoortige opdrachten) rol vereist zijn voor installatiekopieën pushen naar het register. Zie voor meer informatie, [Azure Container Registry-rollen en machtigingen](container-registry-roles.md).
+Alleen de gebruikers of systemen die u daartoe hebt gemachtigd, kunnen vertrouwde installatiekopieën naar uw register pushen. Als u een gebruiker (of een systeem met een service-principal) machtigingen voor het pushen van vertrouwde installatiekopieën wilt verlenen, verleent u de rol `AcrImageSigner` aan hun Azure Active Directory-entiteiten. Dit is een aanvulling op de `AcrPush` (of gelijkwaardige) rol die vereist is voor het pushen van installatie kopieën naar het REGI ster. Zie [Azure container Registry-rollen en-machtigingen](container-registry-roles.md)voor meer informatie.
 
 Detailinformatie over het verlenen van de rol `AcrImageSigner` in Azure Portal en de Azure-opdrachtregelinterface volgt later.
 
@@ -112,7 +113,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 
 De `<service principal ID>` kan de **appId**, **objectId** of een van de bijbehorende **servicePrincipalNames** van de service-principal zijn. Zie [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md) (Azure Container Registry-verificatie met service-principals) voor meer informatie over het werken met service-principals en Azure Container Registry.
 
-Na de rol wijzigen, uitvoeren `az acr login` vernieuwen van de lokale identiteit-token voor de Azure CLI, zodat de nieuwe functies van kracht.
+Nadat een rol is gewijzigd, `az acr login` voert u uit om het lokale identiteits token voor de Azure CLI te vernieuwen zodat de nieuwe rollen van kracht worden.
 
 ## <a name="push-a-trusted-image"></a>Een vertrouwde installatiekopie pushen
 
@@ -142,7 +143,7 @@ Na uw eerste `docker push` waarvoor inhoud vertrouwen is ingeschakeld, wordt voo
 
 ## <a name="pull-a-trusted-image"></a>Een vertrouwde installatiekopie ophalen
 
-Als u een vertrouwde installatiekopie wilt ophalen, schakelt u inhoud vertrouwen in en voert u de opdracht `docker pull` uit zoals normaal. Voor het ophalen van vertrouwde afbeeldingen, de `AcrPull` rol is voldoende voor normale gebruikers. Er is geen aanvullende functies, zoals een `AcrImageSigner` rollen zijn vereist. Consumenten waarvoor inhoud vertrouwen is ingeschakeld kunnen alleen installatiekopieën met ondertekende tags ophalen. Voorbeeld van het ophalen van een ondertekende tag:
+Als u een vertrouwde installatiekopie wilt ophalen, schakelt u inhoud vertrouwen in en voert u de opdracht `docker pull` uit zoals normaal. Voor het ophalen van vertrouwde installatie `AcrPull` kopieën is de rol voldoende voor normale gebruikers. Er zijn geen aanvullende functies `AcrImageSigner` zoals een rol vereist. Consumenten waarvoor inhoud vertrouwen is ingeschakeld kunnen alleen installatiekopieën met ondertekende tags ophalen. Voorbeeld van het ophalen van een ondertekende tag:
 
 ```console
 $ docker pull myregistry.azurecr.io/myimage:signed
@@ -163,7 +164,7 @@ No valid trust data for unsigned
 
 ### <a name="behind-the-scenes"></a>Achter de schermen
 
-Bij het uitvoeren van `docker pull` maakt de Docker-client gebruik van dezelfde bibliotheek als in de [Notary-opdrachtregelinterface][docker-notary-cli] om de tag-to-SHA-256-digest-toewijzing aan te vragen voor de tag die u wilt ophalen. Na het valideren van de handtekeningen voor de gegevens van de vertrouwensrelatie, laat de client de Docker-engine een 'pull by digest'-opdracht uitvoeren. Tijdens de pull-bewerking wordt de SHA-256-controlesom door de engine gebruikt als inhoudadres voor het aanvragen en valideren van het installatiekopie-manifest van het Azure-containerregister.
+Wanneer u uitvoert `docker pull`, gebruikt de docker-client dezelfde bibliotheek als in de [notaris cli][docker-notary-cli] om de toewijzing van de tag-naar-SHA-256 voor de tag die u ophaalt, aan te vragen. Na het valideren van de handtekeningen voor de gegevens van de vertrouwensrelatie, laat de client de Docker-engine een 'pull by digest'-opdracht uitvoeren. Tijdens de pull-bewerking wordt de SHA-256-controlesom door de engine gebruikt als inhoudadres voor het aanvragen en valideren van het installatiekopie-manifest van het Azure-containerregister.
 
 ## <a name="key-management"></a>Sleutelbeheer
 
@@ -173,13 +174,13 @@ Zoals vermeld in de uitvoer van `docker push`, is de hoofdsleutel uiterst belang
 ~/.docker/trust/private
 ```
 
-Maak een back-up van uw hoofd- en opslagplaatssleutels door deze te comprimeren in een archiefbestand en dat bestand veilig offline te bewaren (bijvoorbeeld op een USB-opslagapparaat). Bijvoorbeeld, in Bash:
+Maak een back-up van uw root-en opslagplaats sleutels door ze te comprimeren in een archief en deze op een veilige locatie op te slaan. Bijvoorbeeld, in Bash:
 
 ```bash
 umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; umask 022
 ```
 
-Wanneer u een vertrouwde installatiekopie pusht, worden - naast de lokaal gegenereerde hoofd- en opslagplaatssleutels - door Azure Container Registry nog enkele andere sleutels gegenereerd en opgeslagen. Zie [Manage keys for content trust][docker-manage-keys] (sleutels voor inhoud vertrouwen beheren) in de documentatie voor Docker voor een uitgebreide beschrijving van de verschillende sleutels in de implementatie van inhoud vertrouwen van Docker, inclusief aanvullende richtlijnen voor het beheer.
+Wanneer u een vertrouwde installatiekopie pusht, worden - naast de lokaal gegenereerde hoofd- en opslagplaatssleutels - door Azure Container Registry nog enkele andere sleutels gegenereerd en opgeslagen. Zie voor een gedetailleerde bespreking van de verschillende sleutels in de implementatie van content Trust van docker [sleutels beheren voor inhouds vertrouwen][docker-manage-keys] in de docker-documentatie.
 
 ### <a name="lost-root-key"></a>Verloren hoofdsleutel
 
@@ -188,13 +189,15 @@ Als de hoofdsleutel verloren gaat, hebt u geen toegang meer tot de ondertekende 
 > [!WARNING]
 > Door inhoud vertrouwen voor het register uit te schakelen en opnieuw in te schakelen, **verwijdert u alle gegevens van de vertrouwensrelatie voor alle ondertekende tags in elke opslagplaats in uw register**. Deze actie kan niet ongedaan worden gemaakt. Gegevens van vertrouwensrelaties kunnen nooit worden hersteld in Azure Container Registry. Bij het uitschakelen van inhoud vertrouwen worden de installatiekopieën zelf niet verwijderd.
 
-Als u inhoud vertrouwen voor uw register wilt uitschakelen, navigeert u naar het register in Azure Portal. Onder **beleid**, selecteer **inhoud vertrouwen** > **uitgeschakelde** > **opslaan**. U wordt gewaarschuwd dat hierdoor alle handtekeningen in het register verloren gaan. Selecteer **OK** om alle handtekeningen in het register permanent te verwijderen.
+Als u inhoud vertrouwen voor uw register wilt uitschakelen, navigeert u naar het register in Azure Portal. Onder **beleids regels**selecteert u **inhouds vertrouwensrelatie** > **uitgeschakeld** > **Opslaan**. U wordt gewaarschuwd dat hierdoor alle handtekeningen in het register verloren gaan. Selecteer **OK** om alle handtekeningen in het register permanent te verwijderen.
 
 ![Inhoud vertrouwen voor een register uitschakelen in Azure Portal][content-trust-03-portal]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie [inhoud vertrouwen in Docker] [ docker-content-trust] voor meer informatie over inhoud vertrouwen. In dit artikel zijn slechts de belangrijkste punten van inhoud vertrouwen behandeld. Een uitgebreide beschrijving van dit onderwerp vindt u in de documentatie voor Docker.
+* Zie [Content Trust in docker][docker-content-trust] voor meer informatie over de vertrouwens relatie van inhoud. In dit artikel zijn slechts de belangrijkste punten van inhoud vertrouwen behandeld. Een uitgebreide beschrijving van dit onderwerp vindt u in de documentatie voor Docker.
+
+* Raadpleeg de documentatie over [Azure-pijp lijnen](/azure/devops/pipelines/build/content-trust) voor een voor beeld van het gebruik van content Trust wanneer u een docker-installatie kopie bouwt en pusht.
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png

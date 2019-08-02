@@ -1,6 +1,6 @@
 ---
-title: Een toepassingsgateway maken met extern verkeer omleiden - Azure CLI | Microsoft Docs
-description: Informatie over het maken van een toepassingsgateway die interne internetverkeer omleidt naar de juiste groep met de Azure CLI.
+title: Een toepassings gateway met externe verkeers omleiding maken-Azure CLI | Microsoft Docs
+description: Meer informatie over het maken van een toepassings gateway die intern webverkeer omleidt naar de juiste pool met behulp van de Azure CLI.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1ddbc84004622c2a5fa9dc08d4396e1f300474f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1fb25a9d5bfe6538d081169d163d7b280733cc1
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133869"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382008"
 ---
-# <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Een toepassingsgateway maken met de externe omleiding met de Azure CLI
+# <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Een toepassings gateway met externe omleiding maken met behulp van de Azure CLI
 
-U kunt de Azure CLI gebruiken om te configureren [web verkeer omleiden](multiple-site-overview.md) bij het maken van een [toepassingsgateway](overview.md). In deze zelfstudie configureert u een listener en een regel waarmee webverkeer dat bij de application gateway naar een externe site binnenkomt.
+U kunt de Azure CLI gebruiken voor het [](multiple-site-overview.md) configureren van omleiding van webverkeer wanneer u een [toepassings gateway](overview.md)maakt. In deze zelf studie configureert u een listener en regel voor het omleiden van webverkeer dat bij de toepassings gateway op een externe site arriveert.
 
 In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Het netwerk instellen
-> * Maak een regel listener en -omleiding
+> * Een listener-en omleidings regel maken
 > * Een toepassingsgateway maken
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
@@ -91,9 +91,9 @@ Het kan enkele minuten duren voordat de toepassingsgateway is gemaakt. Nadat de 
 - *appGatewayFrontendIP*: hiermee wordt *myAGPublicIPAddress* aan *appGatewayHttpListener* toegewezen.
 - *rule1*: de standaardrouteringsregel die aan *appGatewayHttpListener* is gekoppeld.
 
-### <a name="add-the-redirection-configuration"></a>De configuratie van omleiding toevoegen
+### <a name="add-the-redirection-configuration"></a>De configuratie van de omleiding toevoegen
 
-Toevoegen van de configuratie van de omleiding waarmee verkeer van verzonden *www.consoto.org* voor de listener voor *www.contoso.com* aan de application gateway met [az network application-gateway Omleidings-config maken](/cli/azure/network/application-gateway/redirect-config).
+Voeg de omleidings configuratie toe die verkeer van *www\.-consoto.org* naar de listener verzendt *voor\.www-contoso.com* naar de Application Gateway met [AZ Network Application-Gateway redirect-config Create ](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -104,9 +104,9 @@ az network application-gateway redirect-config create \
   --target-url "https://bing.com"
 ```
 
-### <a name="add-a-listener-and-routing-rule"></a>Een listener en een regel voor doorsturen toevoegen
+### <a name="add-a-listener-and-routing-rule"></a>Een listener en routerings regel toevoegen
 
-Een listener is vereist voor het inschakelen van de toepassingsgateway het routeren van verkeer op de juiste wijze. Maken van de listener met behulp van [az network application-gateway http-listener maken](/cli/azure/network/application-gateway) met de frontend-poort die zijn gemaakt met [az network application-gateway frontend-port maken](/cli/azure/network/application-gateway). Een regel is vereist voor de listener weten waar ze om binnenkomend verkeer te verzenden. Maak een eenvoudige regel met de naam *redirectRule* met behulp van [az network application-gateway-regel maken](/cli/azure/network/application-gateway).
+Een listener is vereist om de toepassings gateway in staat te stellen het verkeer op de juiste wijze te routeren. De listener maken met [AZ Network Application-Gateway HTTP-listener maken](/cli/azure/network/application-gateway) met de frontend-poort die is gemaakt met [AZ Network Application-Gateway frontend-Port Create](/cli/azure/network/application-gateway). Een regel is vereist voor de listener om te weten waar binnenkomend verkeer moet worden verzonden. Maak een basis regel met de naam *redirectRule* met [AZ Network Application-Gateway Rule Create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -133,12 +133,12 @@ az network application-gateway rule create \
 
 Gebruik [az network public-ip show](/cli/azure/network/public-ip) om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
 
-U ziet *bing.com* worden weergegeven in uw browser.
+U ziet dat *Bing.com* worden weer gegeven in uw browser.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie heeft u het volgende geleerd:
 
 > * Het netwerk instellen
-> * Maak een regel listener en -omleiding
+> * Een listener-en omleidings regel maken
 > * Een toepassingsgateway maken

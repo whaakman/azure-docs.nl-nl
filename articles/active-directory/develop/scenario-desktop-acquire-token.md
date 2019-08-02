@@ -1,6 +1,6 @@
 ---
-title: Desktop-app die aanroepen van web-API's (ophalen van een token voor de app) - Microsoft identity-platform
-description: Informatie over het bouwen van een bureaublad-app die web-API's aanroept (ophalen van een token voor de app |)
+title: Bureau blad-app voor het aanroepen van web-Api's (het verkrijgen van een token voor de app)-micro soft Identity-platform
+description: Meer informatie over het bouwen van een bureau blad-app die web-Api's aanroept (een token voor de app aanschaffen |)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -11,27 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d84801d6368bcc29f08145f190c2a07c64050ced
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 6e952b011eb760ebc9dcf5fe7250cf56ec67465f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795087"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562343"
 ---
-# <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Desktop-app die web-API's - roept een token verkrijgen
+# <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Bureau blad-app die web-Api's aanroept-een Token ophalen
 
-Als u hebt gemaakt dat u `IPublicClientApplication`, gebruikt u deze voor het verkrijgen van een token dat u vervolgens gebruiken voor het aanroepen van een web-API.
+Nadat u u `IPublicClientApplication`hebt gemaakt, gebruikt u deze voor het verkrijgen van een token dat u gebruikt om een web-API aan te roepen.
 
 ## <a name="recommended-pattern"></a>Aanbevolen patroon
 
-De web-API wordt gedefinieerd door de `scopes`. Ongeacht de ervaring die u in uw toepassing opgeeft is voor het patroon dat u wilt gebruiken:
+De Web-API wordt gedefinieerd door `scopes`de. Ongeacht de ervaring die u in uw toepassing opgeeft, is het patroon dat u wilt gebruiken:
 
-- Systematisch bij het ophalen van een token uit de cache token door aan te roepen `AcquireTokenSilent`
-- Als deze aanroep is mislukt, gebruikt u de `AcquireToken` stroom die u wilt gebruiken (Hier wordt vertegenwoordigd door `AcquireTokenXX`)
+- Er wordt systematisch geprobeerd een token op te halen uit de token cache door aan te roepen`AcquireTokenSilent`
+- Als deze aanroep mislukt, gebruikt u `AcquireToken` de stroom die u wilt gebruiken (dit wordt aangeduid `AcquireTokenXX`door)
 
 ```CSharp
 AuthenticationResult result;
@@ -51,14 +51,14 @@ catch(MsalUiRequiredException ex)
 }
 ```
 
-Hier is nu de details van de verschillende manieren om te verkrijgen van tokens in een bureaubladtoepassing
+Hier volgt nu de details van de verschillende manieren om tokens te verkrijgen in een bureaublad toepassing
 
-## <a name="acquiring-a-token-interactively"></a>Ophalen van een token interactief
+## <a name="acquiring-a-token-interactively"></a>Een token interactief aanschaffen
 
-Het volgende voorbeeld ziet minimale code voor het interactief ophalen van een token voor het lezen van het gebruikersprofiel met Microsoft Graph.
+In het volgende voor beeld wordt de minimale code weer gegeven voor het interactief ophalen van een token voor het lezen van het profiel van de gebruiker met Microsoft Graph.
 
 ```CSharp
-string[] scopes = new string["user.read"];
+string[] scopes = new string[] {"user.read"};
 var app = PublicClientApplicationBuilder.Create(clientId).Build();
 var accounts = await app.GetAccountsAsync();
 AuthenticationResult result;
@@ -74,17 +74,17 @@ catch(MsalUiRequiredException)
 }
 ```
 
-### <a name="mandatory-parameters"></a>Verplichte parameters
+### <a name="mandatory-parameters"></a>Verplichte para meters
 
-`AcquireTokenInteractive` heeft slechts één verplichte parameter ``scopes``, bevat een opsomming van tekenreeksen die definiëren van de bereiken waarvoor een token vereist is. Als het token voor de Microsoft Graph is, kunnen de vereiste bereiken in api-verwijzing van de Microsoft graph API worden gevonden in de sectie met de naam 'Machtigingen'. Bijvoorbeeld [lijst van de gebruiker contactpersonen](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), het bereik 'User.Read","Contacts.Read"moet worden gebruikt. Zie ook [referentie voor Microsoft Graph-machtigingen](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive`heeft slechts één verplichte para ``scopes``meter, die een opsomming bevat van teken reeksen die de bereiken definiëren waarvoor een token is vereist. Als het token voor de Microsoft Graph is, kunt u de vereiste bereiken vinden in API-verwijzing van elke micro soft Graph API in de sectie met de naam ' permissions '. Als u bijvoorbeeld [de contact personen van de gebruiker wilt weer geven](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), moet de scope ' gebruiker. read ', ' Contacts. read ' worden gebruikt. Zie ook [Microsoft Graph permissions Reference](https://developer.microsoft.com/graph/docs/concepts/permissions_reference)(Engelstalig).
 
-Op Android, moet u ook opgeven de bovenliggende activiteit (met behulp van `.WithParentActivityOrWindow`, Zie hieronder) zodat de token terug opgehaald voor de betreffende bovenliggende activiteit na de interactie. Als u dit niet opgeeft, wordt een uitzondering gegenereerd bij het aanroepen van `.ExecuteAsync()`.
+Op Android moet u ook de bovenliggende activiteit opgeven (met behulp `.WithParentActivityOrWindow`van hieronder), zodat het token na de interactie terugkeert naar die bovenliggende activiteit. Als u deze niet opgeeft, wordt er een uitzonde ring gegenereerd `.ExecuteAsync()`bij het aanroepen van.
 
-### <a name="specific-optional-parameters"></a>Specifieke optionele parameters
+### <a name="specific-optional-parameters"></a>Specifieke optionele para meters
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 
-Interactief is, UI belangrijk. `AcquireTokenInteractive` heeft een specifieke optionele parameter om op te geven voor platforms ondersteunen het inschakelen van de bovenliggende gebruikersinterface. Wanneer gebruikt in een bureaubladtoepassing `.WithParentActivityOrWindow` heeft een ander type afhankelijk van het platform:
+Gebruikers interface is interactief, maar is belang rijk. `AcquireTokenInteractive`heeft één specifieke optionele para meter die het mogelijk maakt om op te geven voor platforms die het ondersteunen, de bovenliggende gebruikers interface. Bij gebruik in een bureaublad toepassing heeft `.WithParentActivityOrWindow` een ander type, afhankelijk van het platform:
 
 ```CSharp
 // net45
@@ -98,11 +98,11 @@ WithParentActivityOrWindow(NSWindow window)
 WithParentActivityOrWindow(object parent).
 ```
 
-Opmerking:
+Opmerkingen
 
-- Op .NET Standard, de verwachte `object` is een `Activity` op Android, een `UIViewController` in iOS, een `NSWindow` op de MAC, en een `IWin32Window` of `IntPr` op Windows.
-- Op Windows, moet u aanroepen `AcquireTokenInteractive` vanuit de gebruikersinterface-thread, zodat de ingesloten browser de juiste context van de UI-synchronisatie haalt.  Niet aanroepen vanuit de UI-thread, is het mogelijk dat berichten niet goed pomp en/of impasse van scenario's met de gebruikersinterface. Één manier om MSAL aanroepen vanuit de UI-thread als u op de UI-thread niet al is het gebruik van de `Dispatcher` op WPF.
-- Als u van WPF-, gebruikmaakt om op te halen van een venster van een besturingselement WPF, kunt u `WindowInteropHelper.Handle` klasse. De aanroep is vervolgens van een besturingselement WPF (`this`):
+- Op .NET Standard is de verwachte `object` een `Activity` op Android, a `UIViewController` op Ios, een `NSWindow` op Mac en een `IWin32Window` of `IntPr` op Windows.
+- In Windows moet u aanroepen `AcquireTokenInteractive` vanuit de UI-thread zodat de Inge sloten browser de juiste context voor de synchronisatie van gebruikers interface krijgt.  Het aanroepen van de UI-thread kan ertoe leiden dat berichten niet goed worden gepompt en/of deadlock met de gebruikers interface. Een manier om MSAL aan te roepen vanuit de UI-thread als u zich al op de UI-thread `Dispatcher` bevindt, is het gebruik van de op WPF.
+- Als u WPF gebruikt om een venster van een WPF-besturings element te krijgen, kunt u `WindowInteropHelper.Handle` klasse gebruiken. De aanroep is vervolgens van een WPF-besturings element`this`():
   
   ```CSharp
   result = await app.AcquireTokenInteractive(scopes)
@@ -112,21 +112,21 @@ Opmerking:
 
 #### <a name="withprompt"></a>WithPrompt
 
-`WithPrompt()` wordt gebruikt voor het beheren van de interactiviteit van de gebruiker door een Prompt op te geven
+`WithPrompt()`wordt gebruikt om de interactiviteit met de gebruiker te beheren door een prompt op te geven
 
 <img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
 
-De klasse definieert de volgende constanten toe:
+De klasse definieert de volgende constanten:
 
-- ``SelectAccount``: de STS om weer te geven van het dialoogvenster voor het selecteren van account met accounts waarvoor de gebruiker een sessie heeft wordt afgedwongen. Deze optie is handig wanneer ontwikkelaars van toepassingen zodat de gebruiker de keuze uit verschillende identiteiten wilt maken. Deze optie stations MSAL voor het verzenden van ``prompt=select_account`` met de id-provider. Deze optie is de standaardinstelling en het doet van goede taak van het leveren van de best mogelijke ervaring op basis van de beschikbare gegevens (account, aanwezigheid van een sessie voor de gebruiker, enzovoort. ...). Deze niet wijzigt, tenzij er een goede reden om dit te doen.
-- ``Consent``: kan de toepassing ontwikkelaar om af te dwingen van de gebruiker om toestemming gevraagd, zelfs als deze is toegestaan voordat. In dit geval MSAL verzendt `prompt=consent` met de id-provider. Deze optie kan worden gebruikt in sommige beveiligingstoepassingen zeer sterk gericht op waar de governance organisatie vereist dat de gebruiker wordt weergegeven het dialoogvenster telkens wanneer die de toepassing wordt gebruikt.
-- ``ForceLogin``: Hiermee kunt u de ontwikkelaar van de toepassing aan de gebruiker gevraagd om referenties door de service, zelfs als deze Gebruikersprompt wouldn't nodig hebt. Deze optie is handig als ophalen van een token is mislukt, zodat de gebruiker opnieuw-aanmelden-in. In dit geval MSAL verzendt `prompt=login` met de id-provider. We hebben ook gezien het wordt gebruikt in sommige beveiligingstoepassingen zeer sterk gericht op waar de governance organisatie vereist dat de gebruiker relogs in telkens wanneer ze toegang krijgen specifieke onderdelen van een toepassing tot.
-- ``Never`` (voor .NET 4.5 en WinRT alleen) de gebruiker geen melding, maar in plaats daarvan wordt geprobeerd de cookie die zijn opgeslagen in de verborgen ingesloten webweergave gebruiken (Zie hieronder: Webweergaven in MSAL.NET). Met deze optie kan mislukken, en in dat geval `AcquireTokenInteractive` genereert een uitzondering om aan te melden dat een UI-interactie nodig is en u moet gebruiken een andere `Prompt` parameter.
-- ``NoPrompt``: Wordt niet elke prompt niet verzenden naar de id-provider. Deze optie is alleen nuttig voor het beleid bewerken Azure AD B2C (Zie [B2C specificaties](https://aka.ms/msal-net-b2c-specificities)).
+- ``SelectAccount``: Hiermee wordt de STS gedwongen het dialoog venster voor account selectie te presen teren met accounts waarvoor de gebruiker een sessie heeft. Deze optie is handig wanneer ontwikkel aars van toepassingen willen laten kiezen uit verschillende identiteiten. Deze optie verstuurt MSAL ``prompt=select_account`` om naar de ID-provider te verzenden. Deze optie is de standaard instelling en het is een goede taak om de best mogelijke ervaring te bieden op basis van de beschik bare informatie (account, aanwezigheid van een sessie voor de gebruiker, enzovoort). ...). Wijzig deze alleen als u er geen goede reden voor hebt.
+- ``Consent``: Hiermee kan de ontwikkelaar van de toepassing afdwingen dat de gebruiker om toestemming wordt gevraagd, zelfs als toestemming werd verleend. In dit geval verzendt `prompt=consent` MSAL naar de ID-provider. Deze optie kan worden gebruikt in sommige toepassingen met een gerichte beveiliging waarbij het beheer van de organisatie vereist dat de gebruiker het dialoog venster voor toestemming wordt weer gegeven telkens wanneer de toepassing wordt gebruikt.
+- ``ForceLogin``: de ontwikkelaar van de toepassing kan de gebruiker door de service om referenties wordt gevraagd, zelfs als deze prompt niet nodig is. Deze optie kan nuttig zijn als het ophalen van een token mislukt, zodat de gebruiker zich opnieuw aanmeldt. In dit geval verzendt `prompt=login` MSAL naar de ID-provider. We hebben de IT-afdeling weer gegeven in sommige toepassingen met een gerichte beveiliging waarbij het beheer van de organisatie vereist dat de gebruiker zich opnieuw aanmeldt, telkens wanneer ze toegang hebben tot specifieke delen van een toepassing.
+- ``Never``(alleen voor .NET 4,5 en WinRT) wordt de gebruiker niet gevraagd, maar probeert in plaats daarvan de cookie te gebruiken die is opgeslagen in de verborgen Inge sloten webweergave (zie hieronder): Webweergaven in MSAL.NET). Het gebruik van deze optie kan mislukken en in dat `AcquireTokenInteractive` geval wordt een uitzonde ring gegenereerd om aan te geven dat een UI-interactie nodig is. u `Prompt` moet een andere para meter gebruiken.
+- ``NoPrompt``: Er wordt geen prompt verzonden naar de ID-provider. Deze optie is alleen nuttig voor het Azure AD B2C bewerken van profiel beleid (Zie [B2C-specifiek](https://aka.ms/msal-net-b2c-specificities)).
 
 #### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-Deze optie wordt gebruikt in een geavanceerd scenario waarin u wilt dat de gebruiker vooraf toestemming geven voor verschillende resources vooraf (en niet wilt gebruiken de incrementele toestemming, die normaal gesproken wordt gebruikt voor MSAL.NET / het v2.0 Microsoft identity-platform). Zie voor meer informatie [instructies: de gebruiker toestemming vooraf voor verschillende resources](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources).
+Deze optie wordt gebruikt in een geavanceerd scenario waarin u de gebruiker vooraf toestemming wilt geven voor verschillende bronnen (en niet de incrementele toestemming wilt gebruiken, die doorgaans wordt gebruikt met MSAL.NET/het micro soft Identity platform). Zie [How to: de gebruiker vooraf toestemming geven voor verschillende bronnen](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources)voor meer informatie.
 
 ```CSharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
@@ -136,20 +136,20 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 
 #### <a name="withcustomwebui"></a>WithCustomWebUi
 
-##### <a name="withcustomwebui-is-an-extensibility-point"></a>WithCustomWebUi is een uitbreidingspunt
+##### <a name="withcustomwebui-is-an-extensibility-point"></a>WithCustomWebUi is een uitbreidings punt
 
-`WithCustomWebUi` is een uitbreidingspunt waarmee dat u uw eigen gebruikersinterface in openbare clienttoepassingen opgeven en zodat de gebruiker via het /Authorize-eindpunt van de id-provider en laat ze zich aanmelden en toestemming geven. MSAL.NET kunt, vervolgens wisselen de verificatiecode op te geven en een token verkrijgen. Het wordt bijvoorbeeld in Visual Studio gebruikt dat elektronen toepassingen (bijvoorbeeld VS Feedback) bieden de tussenkomst van de web, maar laat deze MSAL.NET voor de meeste van het werk. U kunt deze ook gebruiken als u wilt bieden UI-automatisering. In de openbare clienttoepassingen, MSAL.NET maakt gebruik van de standaard PKCE ([RFC 7636 - bewijs-sleutel voor de Exchange-Code met OAuth openbare Clients](https://tools.ietf.org/html/rfc7636)) om ervoor te zorgen dat de beveiliging is voldaan: Alleen MSAL.NET kunt de code worden ingewisseld.
+`WithCustomWebUi`is een uitbreidings punt waarmee u uw eigen gebruikers interface kunt opgeven in open bare client toepassingen en waarmee de gebruiker het/authorize-eind punt van de ID-provider kan door lopen en zich kan aanmelden en toestemming kan geven. MSAL.NET kan, vervolgens de verificatie code inwisselen en een Token ophalen. Het is bijvoorbeeld in Visual Studio om electrons-toepassingen (voor instance-to-feedback) de webinteractie te bieden, maar laat MSAL.NET het meeste werk doen. U kunt deze ook gebruiken als u UI-automatisering wilt bieden. In open bare client toepassingen maakt MSAL.NET gebruik van de PKCE Standard ([RFC 7636-proef sleutel voor code Exchange door OAuth open bare clients](https://tools.ietf.org/html/rfc7636)) om ervoor te zorgen dat de beveiliging wordt geëerbiedigd: Alleen MSAL.NET kunnen de code inwisselen.
 
   ```CSharp
   using Microsoft.Identity.Client.Extensions;
   ```
 
-##### <a name="how-to-use-withcustomwebui"></a>Het gebruik van WithCustomWebUi
+##### <a name="how-to-use-withcustomwebui"></a>WithCustomWebUi gebruiken
 
-Als u wilt gebruiken `.WithCustomWebUI`, moet u:
+Als u wilt gebruiken `.WithCustomWebUI`, moet u het volgende doen:
   
-  1. Implementeer de `ICustomWebUi` interface (Zie [hier](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70). U moet in feite een methode implementeren `AcquireAuthorizationCodeAsync` back-de URL waarmee de id-provider wilt accepteren van de URL van de autorisatie-code (berekend door MSAL.NET), zodat de gebruiker via de interactie met de id-provider en vervolgens te retourneren zijn uw implementatie terug (inclusief de autorisatiecode) genoemd. Als u problemen hebt, uw implementatie moet genereren een `MsalExtensionException` uitzondering goed samenwerken met MSAL.
-  2. In uw `AcquireTokenInteractive` -aanroep kunt u `.WithCustomUI()` modifier doorgeven van het exemplaar van uw aangepaste web-UI
+  1. Implementeer de `ICustomWebUi` interface (Zie [hier](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70)). In principe moet u één methode `AcquireAuthorizationCodeAsync` implementeren die de URL van de autorisatie code accepteert (berekend door MSAL.net), zodat de gebruiker de interactie met de ID-provider kan door lopen en vervolgens terugkeert naar de URL waarmee de ID-provider zou het terugzetten van uw implementatie (inclusief de autorisatie code). Als u problemen ondervindt, moet uw implementatie `MsalExtensionException` een uitzonde ring genereren voor de samen werking met MSAL.
+  2. In uw `AcquireTokenInteractive` gesprek kunt u de wijzigings functie gebruiken `.WithCustomUI()` die het exemplaar van uw aangepaste webinterface door geven
 
      ```CSharp
      result = await app.AcquireTokenInteractive(scopes)
@@ -157,17 +157,17 @@ Als u wilt gebruiken `.WithCustomWebUI`, moet u:
                        .ExecuteAsync();
      ```
 
-##### <a name="examples-of-implementation-of-icustomwebui-in-test-automation---seleniumwebui"></a>Voorbeelden van de uitvoering van ICustomWebUi in test-automation - SeleniumWebUI
+##### <a name="examples-of-implementation-of-icustomwebui-in-test-automation---seleniumwebui"></a>Voor beelden van implementatie van ICustomWebUi in test Automation-SeleniumWebUI
 
-Het team van MSAL.NET hebben onze UI-tests als u wilt gebruikmaken van dit mechanisme voor uitbreidbaarheid herschreven. Als u geïnteresseerd bent u eens kunt hebben de [SeleniumWebUI](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/tests/Microsoft.Identity.Test.Integration/Infrastructure/SeleniumWebUI.cs#L15-L160) klasse in de broncode MSAL.NET
+Het MSAL.NET-team heeft onze UI-tests herschreven om gebruik te maken van dit uitbreidings mechanisme. Als u geïnteresseerd bent, kunt u de klasse [SeleniumWebUI](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/tests/Microsoft.Identity.Test.Integration/Infrastructure/SeleniumWebUI.cs#L15-L160) in de bron code MSAL.net bekijken
 
-#### <a name="other-optional-parameters"></a>Overige optionele parameters
+#### <a name="other-optional-parameters"></a>Andere optionele para meters
 
-Meer informatie over alle andere optionele parameters voor `AcquireTokenInteractive` uit de naslagdocumentatie voor [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
+Meer informatie over de andere optionele para meters `AcquireTokenInteractive` voor in de referentie documentatie voor [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="integrated-windows-authentication"></a>Geïntegreerde Windows-verificatie
 
-Als u wilt een domein-gebruiker aanmelden bij een domein of Azure AD machine toegevoegd, u wilt gebruiken:
+Als u zich wilt aanmelden voor een domein gebruiker op een domein of Azure AD-computer, moet u het volgende gebruiken:
 
 ```csharp
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
@@ -175,36 +175,36 @@ AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 
 ### <a name="constraints"></a>Beperkingen
 
-- AcquireTokenByIntegratedWindowsAuth (IWA) kan alleen worden gebruikt voor **federatieve** alleen gebruikers die is, wordt voor gebruikers in een Active Directory gemaakt en ondersteund door Azure Active Directory. Gebruikers die rechtstreeks in AAD, zonder back-ups van AD - gemaakt **beheerd** gebruikers - deze authenticatiestroom niet gebruiken. Deze beperking niet van invloed op de stroom van de gebruikersnaam en wachtwoord.
-- IWA is bedoeld voor apps die zijn geschreven voor .NET Framework-, .NET Core- en UWP-platforms
-- IWA komt niet overslaan voor MFA (Multi-factor authentication). Als MFA is geconfigureerd, kan IWA mislukken als een MFA-controle vereist is, omdat voor MFA tussenkomst van de gebruiker is vereist.
+- AcquireTokenByIntegratedWindowsAuth (IWA) is alleen bruikbaar voor **federatieve** gebruikers, dat wil zeggen, gebruikers die zijn gemaakt in een Active Directory en die worden ondersteund door Azure Active Directory. Gebruikers die rechtstreeks zijn gemaakt in AAD, zonder dat ze een AD- **back-up** kunnen maken, kunnen deze verificatie stroom niet gebruiken. Deze beperking heeft geen invloed op de gebruikers naam en het wacht woord.
+- IWA is bedoeld voor apps die zijn geschreven voor .NET Framework-, .NET core-en UWP-platforms
+- IWA niet overs laan van MFA (multi-factor Authentication). Als MFA is geconfigureerd, kan IWA mislukken als een MFA-Challenge vereist is, omdat MFA gebruikers interactie vereist.
   > [!NOTE]
-  > Dit is een lastige. IWA is niet-interactieve, maar 2FA interactie met de gebruiker vereist. U doet geen controle over wanneer de id-provider aanvraagt 2FA moet worden uitgevoerd, de tenant-beheerder heeft. Uit onze observaties is 2FA is vereist wanneer u zich vanaf een ander land als niet is verbonden via VPN met een bedrijfsnetwerk, en soms zelfs aanmeldt wanneer die zijn verbonden via VPN. Niet had verwacht een deterministische set regels, Azure Active Directory maakt gebruik van AI voor steeds meer als 2FA vereist is. U moet terugval naar een gebruiker krijgt (interactieve verificatie of het apparaat codestroom) als IWA is mislukt.
+  > Dit is een lastigheid. IWA is niet-interactief, maar MFA vereist een interactiviteit van de gebruiker. U kunt niet bepalen wanneer de identiteits provider MFA moet aanvragen om te worden uitgevoerd, de Tenant beheerder. Vanuit onze waarnemingen is MFA vereist wanneer u zich aanmeldt vanuit een ander land, wanneer er geen verbinding is via VPN met een bedrijfs netwerk, en soms zelfs wanneer verbinding via VPN. U verwacht geen deterministische set regels, Azure Active Directory gebruikt AI om voortdurend te leren of MFA vereist is. Als IWA mislukt, moet u een gebruikers prompt (interactieve verificatie of programma code stroom) terugvallen.
 
-- De instantie die wordt doorgegeven in de `PublicClientApplicationBuilder` moet zijn:
-  - tenant-ed (van het formulier `https://login.microsoftonline.com/{tenant}/` waar `tenant` is de guid die de tenant-ID of een domein dat is gekoppeld aan de tenant vertegenwoordigt.
-  - voor een werk- en schoolaccounts (`https://login.microsoftonline.com/organizations/`)
+- De certificerings instantie die `PublicClientApplicationBuilder` is door gegeven, moet zijn:
+  - tenants (van het formulier `https://login.microsoftonline.com/{tenant}/` waar `tenant` is de GUID die de Tenant-id vertegenwoordigt of een domein dat is gekoppeld aan de Tenant.
+  - voor elke werk-en school account`https://login.microsoftonline.com/organizations/`()
 
-  > Persoonlijke Microsoft-accounts worden niet ondersteund (u kunt geen met/Common of /consumers tenants)
+  > Persoonlijke micro soft-accounts worden niet ondersteund (u kunt geen/veelvoorkomende-of/consumers-tenants gebruiken)
 
-- Omdat geïntegreerde Windows-verificatie een stroom op de achtergrond is:
-  - de gebruiker van uw toepassing moet eerder zijn toegestaan dat de toepassing wordt gebruikt
-  - of de tenant-beheerder moet eerder hebben ingestemd met alle gebruikers in de tenant om het gebruik van de toepassing.
+- Geïntegreerde Windows-verificatie is een stille stroom:
+  - de gebruiker van uw toepassing moet eerder hebben ingestemd om de toepassing te gebruiken
+  - of de Tenant beheerder moet eerder toestemming hebben gegeven voor alle gebruikers in de Tenant om de toepassing te gebruiken.
   - Met andere woorden:
-    - kunt u als ontwikkelaar hebt gedrukt de **verlenen** knop op de Azure-portal voor uzelf.
-    - of een tenantbeheerder heeft gedrukt de **Grant/revoke-beheerderstoestemming voor {tenantdomein}** knop in de **API-machtigingen** tabblad van de registratie van de toepassing (Zie [machtigingen toevoegen toegang tot web-API's](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis))
-    - of u een manier om gebruikers toestemming geven voor de toepassing hebt opgegeven (Zie [aanvragen van toestemming van de individuele gebruiker](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent))
-    - of u een manier voor de tenantbeheerder toestemming voor de toepassing hebt opgegeven (Zie [beheerderstoestemming](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant))
+    - u als ontwikkelaar hebt op de knop **Grant** op het Azure portal voor uzelf gedrukt.
+    - of een Tenant beheerder heeft de knop **toestemming geven/ingetrokken beheerder voor {Tenant domein}** ingedrukt op het tabblad **API-machtigingen** van de registratie voor de toepassing (Zie [machtigingen toevoegen voor toegang tot Web-api's](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis))
+    - of u hebt een manier gegeven waarop gebruikers toestemming kunnen geven voor de toepassing (Zie [toestemming van individuele gebruiker aanvragen](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent))
+    - of u hebt een manier gegeven waarop de Tenant beheerder toestemming kan geven voor de toepassing (Zie toestemming van de [beheerder](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant))
 
-- Deze stroom is ingeschakeld voor .net-desktop-, .net core- en Windows Universal (UWP) Apps. Op .NET core is alleen de overbelasting houdend met de gebruikersnaam beschikbaar, zoals het .NET Core-platform geen vragen de gebruikersnaam voor het besturingssysteem stellen.
+- Deze stroom is ingeschakeld voor .net desktop-, .net core-en Windows universele (UWP)-apps. Op .NET Core is alleen de overbelasting van de gebruikers naam beschikbaar, omdat het .NET Core-platform de gebruikers naam niet kan vragen aan het besturings systeem.
   
-Zie voor meer informatie over toestemming [v2.0 machtigingen en toestemming](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
+Zie [machtigingen en toestemming van micro soft-identiteits platform](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) voor meer informatie over toestemming
 
 ### <a name="how-to-use-it"></a>Het gebruik ervan
 
-Normaal gesproken moet u slechts één parameter (`scopes`). Echter afhankelijk van de manier waarop de Windows-beheerder is het beleid, het is mogelijk dat toepassingen op uw windows-computer zijn niet toegestaan om te controleren of de gebruiker is aangemeld. In dat geval een tweede verificatiemethode gebruiken `.WithUsername()` en geef de gebruikersnaam van de gebruiker is aangemeld als een indeling voor UPN - `joe@contoso.com`.
+Normaal gesp roken hebt u slechts één`scopes`para meter () nodig. Afhankelijk van de manier waarop de Windows-beheerder het beleid heeft ingesteld, is het mogelijk dat toepassingen op uw Windows-computer de aangemelde gebruiker niet kunnen opzoeken. In dat geval gebruikt u een tweede methode `.WithUsername()` en geeft u de gebruikers naam van de aangemelde gebruiker door als UPN- `joe@contoso.com`indeling.
 
-Het volgende voorbeeld geeft de meest recente aanvraag, met uitleg van het type uitzonderingen die u kunt ophalen en de bijbehorende oplossingen
+In het volgende voor beeld ziet u het meest recente geval, met uitleg over het soort uitzonde ringen dat u kunt krijgen en de oplossingen
 
 ```CSharp
 static async Task GetATokenForGraph()
@@ -283,41 +283,41 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Zie voor een lijst van mogelijke parameters op AcquireTokenByIntegratedWindowsAuthentication, [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
+Zie [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods) voor de lijst met mogelijke para meters op AcquireTokenByIntegratedWindowsAuthentication.
 
-## <a name="username--password"></a>Gebruikersnaam / wachtwoord
+## <a name="username--password"></a>Gebruikers naam/wacht woord
 
-Hiervoor de gebruikersnaam en wachtwoord kunt u ook een token verkrijgen. Deze stroom is beperkt en wordt niet aanbevolen, maar er zijn nog steeds gebruiksvoorbeelden wanneer dit nodig is.
+U kunt ook een token verkrijgen door de gebruikers naam en het wacht woord op te geven. Deze stroom is beperkt en niet aanbevolen, maar er zijn nog steeds gebruik van gevallen waarin het nodig is.
 
 ### <a name="this-flow-isnt-recommended"></a>Deze stroom wordt niet aanbevolen
 
-Deze stroom is **niet aanbevolen** omdat uw toepassing een gebruiker wordt gevraagd hun wachtwoord niet beveiligd. Zie voor meer informatie over dit probleem [in dit artikel](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). De gewenste stroom voor het verkrijgen van een token op de achtergrond op Windows-domein-machines is [geïntegreerde Windows-verificatie](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Anders kunt u ook gebruiken [codestroom van apparaat](https://aka.ms/msal-net-device-code-flow)
+Deze stroom wordt **niet aanbevolen** omdat uw toepassing die een gebruiker vraagt om zijn of haar wacht woord niet veilig is. Zie [dit artikel](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/)voor meer informatie over dit probleem. De voorkeurs stroom voor het op de achtergrond verkrijgen van een token op computers die lid zijn van een Windows-domein is [geïntegreerde Windows-verificatie](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Anders kunt u ook de [code stroom](https://aka.ms/msal-net-device-code-flow) van het apparaat gebruiken
 
 > [!NOTE] 
-> Hoewel dit handig in sommige gevallen (DevOps-scenario's), is als u wilt gebruiken van gebruikersnaam en wachtwoord in interactieve scenario's waarin u uw onw gebruikersinterface hebt opgeven, moet u echt Denk na over hoe u afstappen van het. Met behulp van de gebruikersnaam en wachtwoord u worden geven tot een aantal dingen:
+> Hoewel dit in sommige gevallen handig is (DevOps-scenario's), als u gebruikers naam/wacht woord wilt gebruiken in interactieve scenario's waarin u uw ONW-gebruikers interface opgeeft, moet u nadenken over hoe u deze kunt verlaten. Door gebruik te maken van gebruikers naam/wacht woord worden een aantal dingen genoteerd:
 >
-> - Core-tenants van moderne identiteit: wachtwoord opgehaald gevangen, opnieuw afgespeeld. Omdat we dit concept van een share-geheim die kan worden onderschept hebben.
-> Dit is niet compatibel met de configuratie.
-> - gebruikers hoeven te doen MFA niet mogelijk om aan te melden (wat er geen tussenkomst van de is)
-> - Gebruikers niet mogelijk om u te eenmalige aanmelding
+> - kern tenants van moderne identiteit: wacht woord wordt gevist, opnieuw afgespeeld. Omdat we dit concept hebben van een share geheim dat kan worden onderschept.
+> Dit is niet compatibel met een wacht woord.
+> - gebruikers die MFA nodig hebben, kunnen zich niet aanmelden (omdat er geen interactie is)
+> - Gebruikers kunnen eenmalige aanmelding niet uitvoeren
 
 ### <a name="constraints"></a>Beperkingen
 
-Er gelden ook de volgende beperkingen:
+De volgende beperkingen zijn ook van toepassing:
 
-- De gebruikersnaam en wachtwoord-stroom is niet compatibel met voorwaardelijke toegang en verificatie met meerdere factoren: Als gevolg hiervan, als uw app wordt uitgevoerd in een Azure AD-tenant waar de tenantbeheerder is multi-factor authentication wordt vereist, niet u deze stroom gebruiken. Veel organisaties doen dat.
-- Dit werkt alleen voor werk en schoolaccounts (niet MSA)
-- De stroom is beschikbaar op het bureaublad van .net en .net core, maar niet voor UWP
+- De gebruikers naam/wacht woord stroom is niet compatibel met voorwaardelijke toegang en multi-factor Authentication: Als uw app wordt uitgevoerd in een Azure AD-Tenant waarvoor de Tenant beheerder multi-factor Authentication vereist, kunt u deze stroom niet gebruiken. Veel organisaties doen dat.
+- Het werkt alleen voor werk-en school accounts (niet MSA)
+- De stroom is beschikbaar op .net desktop en .net core, maar niet op UWP
 
-### <a name="b2c-specifics"></a>B2C-specificaties
+### <a name="b2c-specifics"></a>B2C-specifiek
 
 [Meer informatie over het gebruik van ROPC met B2C](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics#resource-owner-password-credentials-ropc-with-b2c).
 
-### <a name="how-to-use-it"></a>Hoe kan ik gebruiken?
+### <a name="how-to-use-it"></a>Hoe gebruikt u dit?
 
-`IPublicClientApplication`bevat de methode `AcquireTokenByUsernamePassword`
+`IPublicClientApplication`bevat de methode`AcquireTokenByUsernamePassword`
 
-Het volgende voorbeeld geeft een vereenvoudigde aanvraag
+In het volgende voor beeld wordt een vereenvoudigd geval weer gegeven
 
 ```CSharp
 static async Task GetATokenForGraph()
@@ -325,7 +325,7 @@ static async Task GetATokenForGraph()
  string authority = "https://login.microsoftonline.com/contoso.com";
  string[] scopes = new string[] { "user.read" };
  IPublicClientApplication app;
- app = PublicClientApplicationBuild.Create(clientId)
+ app = PublicClientApplicationBuilder.Create(clientId)
        .WithAuthority(authority)
        .Build();
  var accounts = await app.GetAccountsAsync();
@@ -358,7 +358,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Het volgende voorbeeld geeft de meest recente aanvraag, met uitleg van het type uitzonderingen die u kunt ophalen en de bijbehorende oplossingen
+In het volgende voor beeld ziet u het meest recente geval, met uitleg over het soort uitzonde ringen dat u kunt krijgen en de oplossingen
 
 ```CSharp
 static async Task GetATokenForGraph()
@@ -366,7 +366,7 @@ static async Task GetATokenForGraph()
  string authority = "https://login.microsoftonline.com/contoso.com";
  string[] scopes = new string[] { "user.read" };
  IPublicClientApplication app;
- app = PublicClientApplicationBuild.Create(clientId)
+ app = PublicClientApplicationBuilder.Create(clientId)
                                    .WithAuthority(authority)
                                    .Build();
  var accounts = await app.GetAccountsAsync();
@@ -520,37 +520,37 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Voor meer informatie over de parameters die kunnen worden toegepast op `AcquireTokenByUsernamePassword`, Zie [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
+Zie AcquireTokenByUsernamePasswordParameterBuilder voor meer informatie over alle wijzigingen die kunnen worden toegepast `AcquireTokenByUsernamePassword`op. [](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
 
-## <a name="command-line-tool-without-web-browser"></a>Opdrachtregel-hulpprogramma (zonder webbrowser)
+## <a name="command-line-tool-without-web-browser"></a>Opdracht regel programma (zonder webbrowser)
 
-### <a name="device-code-flow-why-and-how"></a>Apparaatcode flow waarom? en hoe u?
+### <a name="device-code-flow-why-and-how"></a>Toestel code stroom waarom? en hoe?
 
-Als u bij het schrijven van een opdrachtregelprogramma (die geen webbesturingselementen), en niet of niet wilt gebruiken van de vorige stromen, moet u gebruiken `AcquireTokenWithDeviceCode`.
+Als u een opdracht regel programma schrijft (dat geen Webbe sturings elementen heeft) en u de eerdere stromen niet wilt gebruiken, moet u gebruiken `AcquireTokenWithDeviceCode`.
 
-Interactieve verificatie met Azure AD is een webbrowser vereist (Zie voor meer informatie [gebruik van webbrowsers](https://aka.ms/msal-net-uses-web-browser)). Echter om gebruikers te verifiëren op apparaten of besturingssystemen die geen een webbrowser, kan de stroom van apparaat de gebruiker gebruikt een ander apparaat (bijvoorbeeld een andere computer of een mobiele telefoon) aan te melden interactief. Met behulp van de stroom van het apparaat, krijgt de toepassing tokens via een proces in twee stappen is speciaal ontworpen voor deze apparaten/OS. Voorbeelden van dergelijke toepassingen worden toepassingen die worden uitgevoerd op iOT, of met opdrachtregelprogramma's (CLI). Het idee is dat:
+Interactieve verificatie met Azure AD vereist een webbrowser (Zie het [gebruik van](https://aka.ms/msal-net-uses-web-browser)webbrowsers voor meer informatie). Om gebruikers te verifiëren op apparaten of besturings systemen die geen webbrowser bieden, kan de gebruiker met de programma code stroom echter een ander apparaat (bijvoorbeeld een andere computer of een mobiele telefoon) gebruiken om zich interactief aan te melden. Door gebruik te maken van de apparaatcode stroom haalt de toepassing tokens op via een proces met twee stappen dat speciaal is ontworpen voor deze apparaten/besturings systeem. Voor beelden van dergelijke toepassingen zijn toepassingen die worden uitgevoerd op iOT, of opdracht regel programma's (CLI). Het idee is dat:
 
-1. Wanneer de verificatie van de gebruiker is vereist, de app biedt een code en vraag de gebruiker om een ander apparaat (zoals een smartphone internetverbinding) gebruiken om te navigeren naar een URL (bijvoorbeeld `https://microsoft.com/devicelogin`), waarbij de gebruiker wordt gevraagd de code op te geven. Dat klaar, de webpagina de gebruiker via een normale verificatie-ervaring leidt, met inbegrip van toestemming wordt gevraagd en meervoudige verificatie, indien nodig.
+1. Wanneer gebruikers verificatie is vereist, biedt de app een code en wordt de gebruiker gevraagd om een ander apparaat (zoals een smartphone met Internet verbinding) te gebruiken om te navigeren naar een URL ( `https://microsoft.com/devicelogin`bijvoorbeeld), waarbij de gebruiker wordt gevraagd de code in te voeren. Dit heeft tot gevolg dat de webpagina een normale verificatie-ervaring krijgt, met inbegrip van toestemming prompts en multi-factor Authentication, indien nodig.
 
-2. Bij een geslaagde verificatie, de opdrachtregel-app ontvangt de vereiste tokens via een back-kanaal en gebruikt voor het uitvoeren van de web-API-aanroepen nodig is.
+2. Wanneer de verificatie is geslaagd, ontvangt de opdracht regel-app de vereiste tokens via een back-upkanaal en wordt deze gebruikt voor het uitvoeren van de Web-API.
 
 ### <a name="code"></a>Code
 
-`IPublicClientApplication`een methode met de naam bevat `AcquireTokenWithDeviceCode`
+`IPublicClientApplication`bevat een methode met de naam`AcquireTokenWithDeviceCode`
 
 ```CSharp
  AcquireTokenWithDeviceCode(IEnumerable<string> scopes,
                             Func<DeviceCodeResult, Task> deviceCodeResultCallback)
 ```
 
-Deze methode wordt gebruikt als parameters:
+Deze methode neemt de volgende para meters:
 
-- De `scopes` om aan te vragen van een toegangstoken voor
-- Een callbackfunctie die ontvangt de `DeviceCodeResult`
+- De `scopes` om een toegangs token aan te vragen voor
+- Een call back die de`DeviceCodeResult`
 
   ![image](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
 
-De volgende voorbeeldcode bevat de meest recente aanvraag, met uitleg van het type van de uitzonderingen die u kunt ophalen en hun risicobeperking.
+Met de volgende voorbeeld code wordt het meest recente geval weer gegeven, met uitleg over het soort uitzonde ringen dat u kunt krijgen en de oplossing.
 
 ```CSharp
 static async Task<AuthenticationResult> GetATokenForGraph()
@@ -633,39 +633,39 @@ static async Task<AuthenticationResult> GetATokenForGraph()
 }
 ```
 
-## <a name="file-based-token-cache"></a>Tokencache op basis van bestanden
+## <a name="file-based-token-cache"></a>Op bestanden gebaseerde token cache
 
-In MSAL.NET, wordt een token in-memory-cache standaard opgegeven.
+In MSAL.NET wordt standaard een token cache in het geheugen beschikbaar gesteld.
 
-### <a name="serialization-is-customizable-in-windows-desktop-apps-and-web-appsweb-apis"></a>Serialisatie kan worden aangepast in de Windows-bureaublad-apps en web apps/web-API 's
+### <a name="serialization-is-customizable-in-windows-desktop-apps-and-web-appsweb-apis"></a>Serialisatie kan worden aangepast in Windows-bureau blad-apps en web-apps/web-Api's
 
-In het geval van .NET Framework en .NET core, als u niets extra, doet de token in-memory-cache is geldig voor de duur van de toepassing. Om te begrijpen waarom serialisatie is geen opgegeven gebruiksklaar, houd er rekening mee MSAL .NET desktop/core-toepassingen kunnen worden-console of Windows-toepassingen (die toegang tot het bestandssysteem), **, maar ook** webtoepassingen of web-API. Deze Web-apps en web-API's kunnen sommige specifieke cache-mechanismen gebruiken, zoals databases, gedistribueerde cache, redis-caches enzovoort. Als u wilt een permanente tokencache-toepassing in .NET-Desktop- of Core, moet u de serialisatie aanpassen.
+In het geval van .NET Framework en .NET Core kunt u, als u dit niet doet, de token cache in het geheugen voor de duur van de toepassing. Houd er rekening mee dat MSAL .NET Desktop/core-toepassingen geen toegang hebben tot het bestands systeem, **maar ook** webtoepassingen of Web-API, om te begrijpen waarom de serialisatie niet uit het vak is opgelegd. Deze web-apps en Web-Api's kunnen gebruikmaken van bepaalde specifieke cache mechanismen zoals data bases, gedistribueerde caches, redis-caches enzovoort. Als u een permanente token cache-toepassing in .NET desktop of Core wilt hebben, moet u de serialisatie aanpassen.
 
-Klassen en interfaces die betrokken zijn bij tokencache serialisatie zijn de volgende typen:
+Klassen en interfaces die betrokken zijn bij de serialisatie van token-cache zijn de volgende typen:
 
-- ``ITokenCache``, waarmee wordt gedefinieerd gebeurtenissen abonneren op tokencache serialisatie aanvragen, evenals de methoden voor het serialiseren of deserialiseren van de cache in verschillende indelingen (ADAL v3.0, MSAL 2.x en MSAL 3.x = ADAL 5.0)
-- ``TokenCacheCallback`` een retouraanroep doorgegeven aan de gebeurtenissen zodat u de serialisatie kan verwerken. ze gaat worden aangeroepen met argumenten van het type ``TokenCacheNotificationArgs``.
-- ``TokenCacheNotificationArgs`` biedt alleen de ``ClientId`` van de toepassing en een verwijzing naar de gebruiker waarvoor het token beschikbaar is
+- ``ITokenCache``, waarmee gebeurtenissen worden gedefinieerd die worden geabonneerd op aanvragen voor token cache-serialisatie, evenals methoden voor het serialiseren of deserialiseren van de cache in verschillende indelingen (ADAL v 3.0, MSAL 2. x en MSAL 3. x = ADAL v 5.0)
+- ``TokenCacheCallback``is een call back aan de gebeurtenissen door gegeven, zodat u de serialisatie kunt afhandelen. ze worden aangeroepen met argumenten van het type ``TokenCacheNotificationArgs``.
+- ``TokenCacheNotificationArgs``biedt alleen de ``ClientId`` toepassing en een verwijzing naar de gebruiker waarvoor het token beschikbaar is
 
   ![image](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 
 > [!IMPORTANT]
-> MSAL.NET token caches voor u gemaakt en biedt u de `IToken` bij het aanroepen van een toepassing in de cache `GetUserTokenCache` en `GetAppTokenCache` methoden. U mag worden niet zelf de interface implementeren. Uw eigen verantwoordelijkheid, wanneer u een serialisatie aangepaste tokencache implementeren is:
+> MSAL.net maakt token caches voor u en biedt u de `IToken` cache wanneer u een `UserTokenCache` toepassing en `AppTokenCache` eigenschappen aanroept. U zou de interface niet zelf moeten implementeren. Uw verantwoordelijkheid, wanneer u een aangepaste token cache-serialisatie implementeert, is:
 >
-> - Reageren op `BeforeAccess` en `AfterAccess` "events" (of dat ze *asynchrone* equivalent). De`BeforeAccess` gemachtigde is verantwoordelijk voor het deserialiseren van de cache, terwijl de `AfterAccess` een is verantwoordelijk voor het serialiseren van de cache.
-> - Onderdeel van deze gebeurtenissen opslaan of -blobs, die de gebeurtenis-argument worden doorgegeven aan de opslag die u wilt laden.
+> - Reageren op `BeforeAccess` en `AfterAccess` "gebeurtenissen" (of de *asynchrone* tegen Hangers). De`BeforeAccess` gemachtigde is verantwoordelijk voor het deserialiseren van de cache, `AfterAccess` terwijl deze verantwoordelijk is voor het serialiseren van de cache.
+> - Onderdeel van deze gebeurtenissen Store of het laden van blobs, die door het gebeurtenis argument worden door gegeven aan de gewenste opslag.
 
-De strategieën zijn afhankelijk van verschillende als u een serialisatie-tokencache voor een openbare client-toepassing (Desktop) of een vertrouwelijke client-toepassing (web-app/web-API, daemon-app schrijft).
+De strategieën verschillen, afhankelijk van of u een token cache-serialisatie schrijft voor een open bare-client toepassing (Desktop) of een vertrouwelijke client toepassing (Web-app/Web-API, daemon-app).
 
-Sinds MSAL V2.x hebt u verschillende opties, afhankelijk van de als u wilt dat het serialiseren van de cache alleen naar de MSAL.NET-indeling (uniforme indeling cache die wordt gedeeld met MSAL, maar ook op de verschillende platformen), of als u ook wilt ondersteunen de [verouderde](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) Tokencache serialisatie van ADAL V3.
+Sinds MSAL v2. x hebt u verschillende opties, afhankelijk van of u de cache alleen wilt serialiseren naar de MSAL.NET-indeling (Unified Format cache die gebruikelijk is bij MSAL, maar ook op de platformen), of als u ook de verouderde [](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) token cache wilt ondersteunen serialisatie van ADAL v3.
 
-De aanpassing van Token-cache-serialisatie voor het delen van de status voor eenmalige aanmelding tussen ADAL.NET 3.x ADAL.NET 5.x en MSAL.NET in het onderdeel van het volgende voorbeeld wordt uitgelegd: [active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2)
+De aanpassing van de token cache-serialisatie voor het delen van de SSO-status tussen ADAL.NET 3. x, ADAL.NET 5. x en MSAL.NET wordt uitgelegd in een deel van het volgende voor beeld: [Active-Directory-DotNet-v1-naar-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2)
 
-### <a name="simple-token-cache-serialization-msal-only"></a>Eenvoudige tokencache serialisatie (alleen MSAL)
+### <a name="simple-token-cache-serialization-msal-only"></a>Eenvoudige token cache-serialisatie (alleen MSAL)
 
-Hieronder volgt een voorbeeld van een implementatie naïve van aangepaste serialisatie van een token cache voor pc-toepassingen. Hier volgen enkele van de gebruiker-tokencache in een bestand in dezelfde map als de toepassing.
+Hieronder ziet u een voor beeld van een Naïve-implementatie van aangepaste serialisatie van een token cache voor desktop toepassingen. Hier ziet u de token cache van de gebruiker in een bestand in dezelfde map als de toepassing.
 
-Nadat u de toepassing bouwt, u de serialisatie inschakelen door het aanroepen van ``TokenCacheHelper.EnableSerialization()`` doorgeven van de toepassing `UserTokenCache`
+Nadat u de toepassing hebt gemaakt, schakelt u de serialisatie in ``TokenCacheHelper.EnableSerialization()`` door het door geven van de toepassing aan te roepen`UserTokenCache`
 
 ```CSharp
 app = PublicClientApplicationBuilder.Create(ClientId)
@@ -673,7 +673,7 @@ app = PublicClientApplicationBuilder.Create(ClientId)
 TokenCacheHelper.EnableSerialization(app.UserTokenCache);
 ```
 
-Deze helperklasse lijkt op het volgende codefragment:
+Deze helperklasse ziet eruit als het volgende code fragment:
 
 ```CSharp
 static class TokenCacheHelper
@@ -723,14 +723,14 @@ static class TokenCacheHelper
  }
 ```
 
-Een voorbeeld van een product kwaliteit tokencache serializer op basis van bestanden voor openbare clienttoepassingen (voor bureaublad toepassingen die worden uitgevoerd op Windows, Mac en linux) beschikbaar via is de [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) Open-source-bibliotheek. U kunt opnemen in uw toepassingen uit de volgende nuget-pakket: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
+Een preview van een productkwaliteits token op basis van een op bestanden gebaseerde serialisatiefunctie voor open bare client toepassingen (voor bureaublad toepassingen die worden uitgevoerd op Windows, Mac en Linux) is beschikbaar in de open-source bibliotheek van [micro soft. Identity. client. Extensions. Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) . U kunt deze in uw toepassingen insluiten vanuit het volgende nuget-pakket: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
 > [!NOTE]
-> Disclaimer. De bibliotheek Microsoft.Identity.Client.Extensions.Msal is een uitbreiding op MSAL.NET. Klassen in deze bibliotheken mogelijk maken hun manier MSAL.NET in de toekomst als, of met belangrijke wijzigingen.
+> Uitsluiting. De bibliotheek micro soft. Identity. client. Extensions. Msal is een uitbrei ding van MSAL.NET. Klassen in deze bibliotheken kunnen in de toekomst worden MSAL.NET, zoals of met breuk wijzigingen.
 
-### <a name="dual-token-cache-serialization-msal-unified-cache--adal-v3"></a>Dual-tokencache serialisatie (MSAL unified cache + ADAL V3)
+### <a name="dual-token-cache-serialization-msal-unified-cache--adal-v3"></a>Dubbele token cache-serialisatie (MSAL Unified cache + ADAL v3)
 
-Als u wilt implementeren tokencache serialisatie in de cache met de gecombineerde indeling (gemeenschappelijk ADAL.NET 4.x en MSAL.NET 2.x gebruikt, en met andere MSALs van dezelfde generatie of ouder, op hetzelfde platform), u kunt laat u inspireren door de volgende code :
+Als u de token cache-serialisatie wilt implementeren met behulp van de Unified cache-indeling (gemeen schappelijk in ADAL.NET 4. x en MSAL.NET 2. x, en met andere MSALs van dezelfde generatie of ouder, op hetzelfde platform), kunt u inspiratie krijgen met de volgende code :
 
 ```CSharp
 string appLocation = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location;
@@ -747,7 +747,7 @@ FilesBasedTokenCacheHelper.EnableSerialization(app.UserTokenCache,
 
 ```
 
-Deze tijd de helperklasse ziet eruit zoals de volgende code:
+Deze keer ziet de helper class er als volgt uit:
 
 ```CSharp
 using System;
@@ -777,18 +777,12 @@ namespace CommonCacheMsalV3
   /// <returns></returns>
   public static void EnableSerialization(ITokenCache cache, string unifiedCacheFileName, string adalV3CacheFileName)
   {
-   usertokenCache = cache;
    UnifiedCacheFileName = unifiedCacheFileName;
    AdalV3CacheFileName = adalV3CacheFileName;
 
-   usertokenCache.SetBeforeAccess(BeforeAccessNotification);
-   usertokenCache.SetAfterAccess(AfterAccessNotification);
+   cache.SetBeforeAccess(BeforeAccessNotification);
+   cache.SetAfterAccess(AfterAccessNotification);
   }
-
-  /// <summary>
-  /// Token cache
-  /// </summary>
-  static ITokenCache usertokenCache;
 
   /// <summary>
   /// File path where the token cache is serialized with the unified cache format
@@ -880,4 +874,4 @@ namespace CommonCacheMsalV3
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Een web-API aanroepen vanuit de desktop-app](scenario-desktop-call-api.md)
+> [Een web-API aanroepen vanuit de bureau blad-app](scenario-desktop-call-api.md)

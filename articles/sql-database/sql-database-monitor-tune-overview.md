@@ -1,6 +1,6 @@
 ---
-title: Bewaking en het afstemmen van prestaties - Azure SQL Database | Microsoft Docs
-description: Tips voor het afstemmen in Azure SQL Database via evaluatie en verbetering van de prestaties.
+title: Bewaken & prestaties afstemmen-Azure SQL Database | Microsoft Docs
+description: Tips voor het afstemmen van de prestaties van Azure SQL Database door te evalueren en te verbeteren.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,118 +10,117 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2fa43fcd48736a3d044deb07ed690af580c3b987
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c52b41c4e6d0618b4df9b2aed985bbd22d89f419
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66416271"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567201"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Prestaties bewaken en afstemmen
 
-Azure SQL Database kunt u eenvoudig gebruik te bewaken, toevoegen of verwijderen van resources (CPU, geheugen, i/o), de mogelijke problemen en zoek de aanbevelingen die de prestaties van uw database kunnen verbeteren. Azure SQL-Database bevat veel functies die u kunnen automatisch los de problemen in uw databases als u wilt dat de database aan uw workloads aanpassen en automatisch prestaties te optimaliseren. Er zijn echter enkele aangepaste problemen die u mogelijk nodig hebt om op te lossen. In dit artikel wordt uitgelegd enkele aanbevolen procedures en hulpprogramma's die u kunt de prestatieproblemen oplossen.
+Azure SQL Database voorziet in hulpprogram ma's en methoden om eenvoudig gebruik te bewaken, resources toe te voegen of te verwijderen (CPU, geheugen, I/O), de mogelijke problemen op te lossen en aanbevelingen te vinden waarmee de prestaties van een Data Base kunnen worden verbeterd. Azure SQL Database heeft veel functies waarmee automatisch de problemen in de data bases kunnen worden opgelost waarmee een data base aan de werk belasting kan worden aangepast en de prestaties automatisch worden geoptimaliseerd. Er zijn echter enkele aangepaste problemen die mogelijk problemen moeten oplossen. In dit artikel worden enkele aanbevolen procedures en hulpprogram ma's beschreven die kunnen worden gebruikt om de prestatie problemen op te lossen.
 
-Er zijn twee belangrijkste activiteiten die u moet doen om ervoor te zorgen dat u de database wordt uitgevoerd zonder problemen:
-- [Databaseprestaties bewaken](#monitoring-database-performance) om ervoor te zorgen dat uw workload kunnen worden verwerkt door de resources die zijn toegewezen aan uw database. Als u ziet dat u de resource-limiet hebt bereikt, moet u om te bepalen van de belangrijkste resources verbruiken van query's en ze optimaliseren of meer resources toevoegen door te upgraden van de servicelaag.
-- [Problemen met prestaties](#troubleshoot-performance-issues) identificeren om te achterhalen waarom sommige potentiële probleem is opgetreden, de hoofdoorzaak van het probleem en de actie die het probleem wordt opgelost.
+Er zijn twee belang rijke activiteiten die moeten worden uitgevoerd om ervoor te zorgen dat een Data Base zonder problemen wordt uitgevoerd:
+- De prestaties van de [Data Base controleren](#monitoring-database-performance) om ervoor te zorgen dat de resources die aan de Data Base zijn toegewezen de werk belasting kunnen afhandelen. Als u ziet dat een Data Base de resource limieten aanwijst, moeten de meest voorkomende query's voor bronnen worden geïdentificeerd en geoptimaliseerd, of moeten er meer resources worden toegevoegd door de service tier bij te werken.
+- [Los problemen met de prestaties](#troubleshoot-performance-issues) op om te bepalen waarom er een probleem is opgetreden, Identificeer de hoofd oorzaak van het probleem en voer de actie uit waarmee het probleem wordt opgelost.
 
-## <a name="monitoring-database-performance"></a>Databaseprestaties bewaken
+## <a name="monitoring-database-performance"></a>Prestaties van de data base bewaken
 
-Het bewaken van de prestaties van een SQL-database in Azure begint met het bewaken van het resourcegebruik ten opzichte van het gekozen niveau van databaseprestaties. U moet voor het bewaken van de volgende bronnen:
- - **CPU-gebruik** -moet u controleren zijn u 100% van de CPU-gebruik in een langere periode bereikt. Dit kan betekenen dat u mogelijk een upgrade uitgevoerd of instantie of identificeren en afstemmen van de query's die van de meeste van de compute-kracht gebruikmaken.
- - **Wachtstatistieken** -moet u controleren wat waarom uw query's op bepaalde resources wachten. Queriesmig wacht tot de gegevens worden opgehaald of zijn opgeslagen in de databasebestanden, wachten omdat een resourcelimiet is bereikt, enzovoort.
- - **I/o-gebruik** -moet u controleren zijn bereikt de i/o-limieten van de onderliggende opslag.
- - **Geheugengebruik** -de hoeveelheid geheugen die beschikbaar is voor uw database of instantie in verhouding met het aantal vCores staat, en moet u controleren het genoeg is voor uw workload. Levensverwachting voor pagina is een van de parameters die kunnen duiden op de pagina's snel verwijderd uit het geheugen.
+Het bewaken van de prestaties van een SQL-database in Azure begint met het bewaken van het resourcegebruik ten opzichte van het gekozen niveau van databaseprestaties. De volgende resources moeten worden bewaakt voor hetzelfde:
+ - **CPU-gebruik** : Controleer of de data base gedurende lange tijd 100% van het CPU-gebruik bereikt. Dit kan erop duiden dat de data base of het exemplaar moet worden bijgewerkt naar een hogere servicelaag of dat de query's die het meren deel van de reken kracht gebruiken, moeten worden geïdentificeerd en afgestemd.
+ - **Wacht statistieken** : Controleer waarom query's wachten op resources. Query's wachten op gegevens die moeten worden opgehaald of opgeslagen in de database bestanden, omdat een resource limiet is bereikt, enzovoort.
+ - **I/o-gebruik** : Controleer of de data base de i/o-limieten van de onderliggende opslag bereikt.
+ - **Geheugen gebruik** : de hoeveelheid geheugen die beschikbaar is voor de data base of het exemplaar, is evenredig met het aantal vCores en controleer of dit voldoende is voor de werk belasting. Pagina duur verwachting is een van de para meters die kunnen aangeven hoe snel de pagina's uit het geheugen worden verwijderd.
 
-Azure SQL Database **biedt de adviezen per cheque die u kunnen helpen en mogelijke prestatieproblemen oplossen**. U kunt eenvoudig vaststellen kansen te verbeteren en optimaliseren van prestaties van query's zonder te hoeven wijzigen van resources aan de hand [aanbevelingen voor afstemming](sql-database-advisor.md). Ontbrekende indexen en onvoldoende geoptimaliseerde query's zijn veelvoorkomende redenen voor slechte databaseprestaties. U kunt deze aanbevelingen voor afstemming voor het verbeteren van de prestaties van uw workload kunt toepassen. U kunt ook laat Azure SQL database tot [automatisch de prestaties van uw query's optimaliseren](sql-database-automatic-tuning.md) door het toepassen van alle aanbevelingen en te controleren dat ze betere databaseprestaties geïdentificeerd.
+Azure SQL Database-service **bevat de hulpprogram ma's en bronnen om mogelijke prestatie problemen op te lossen en te**verhelpen. Verkoop kansen kunnen gemakkelijk worden geïdentificeerd om de query prestaties te verbeteren en te optimaliseren zonder bronnen te wijzigen door de aanbevelingen voor het afstemmen van [prestaties](sql-database-advisor.md)te controleren. Ontbrekende indexen en onvoldoende geoptimaliseerde query's zijn veelvoorkomende redenen voor slechte databaseprestaties. Deze afstemmings aanbevelingen kunnen worden toegepast om de prestaties van de werk belasting te verbeteren. We kunnen ook instellen dat Azure SQL database [automatisch de prestaties van de query's optimaliseert](sql-database-automatic-tuning.md) door alle geïdentificeerde aanbevelingen toe te passen en te controleren of de database prestaties zijn verbeterd.
 
-U hebt de volgende opties voor controle en probleemoplossing van de prestaties van de database:
+De volgende opties zijn beschikbaar voor het bewaken en oplossen van problemen met de Data Base:
 
-- In de [Azure-portal](https://portal.azure.com), klikt u op **SQL-databases**, selecteert u de database en gebruik vervolgens de controle grafiek om te zoeken naar resources hun maximale nadert. DTU-verbruik wordt standaard weergegeven. Klik op **bewerken** te wijzigen van het tijdsbereik en de waarden die worden weergegeven.
-- Hulpprogramma's zoals SQL Server Management Studio kunt u vele nuttige rapporten, zoals een [Prestatiedashboard](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017) waar u kunt het Resourcegebruik en bovenste die veel resources verbruiken van query's identificeren of [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed)waar u de query's met verminderde prestaties kunt identificeren.
-- Gebruik [Query Performance Insight](sql-database-query-performance.md) de [Azure-portal](https://portal.azure.com) in voor het identificeren van de query's die besteden aan het meest van resources. Deze functie is alleen beschikbaar in de individuele databases en elastische Pools.
-- Gebruik [SQL Database Advisor](sql-database-advisor-portal.md) om aanbevelingen voor het maken en verwijderen van indexen, parametriseren query's en schema-problemen oplossen weer te geven. Deze functie is alleen beschikbaar in de individuele databases en elastische Pools.
-- Gebruik [Intelligent Insights van Azure SQL](sql-database-intelligent-insights.md) voor de automatische bewaking van de databaseprestaties van uw. Zodra een prestatieprobleem wordt gedetecteerd, wordt een diagnostisch logboek gegenereerd met de details en Root oorzaak Analysis (RCA) van het probleem. Prestaties verbetering aanbeveling wordt geleverd, indien mogelijk.
-- [Automatisch instellen inschakelen](sql-database-automatic-tuning-enable.md) en laat Azure SQL database automatisch correctie geïdentificeerd prestatieproblemen kunnen voordoen.
-- Gebruik [dynamische beheerweergave (DMV's)](sql-database-monitoring-with-dmvs.md), [uitgebreid gebeurtenissen](sql-database-xevent-db-diff-from-svr.md), en de [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) voor meer het oplossen van prestatieproblemen.
+- Klik in de [Azure Portal](https://portal.azure.com)op **SQL-data bases**, selecteer de data base en gebruik vervolgens het bewakings diagram om te zoeken naar resources waarmee het maximale gebruik wordt bereikt. Het DTU-verbruik wordt standaard weer gegeven. Klik op **bewerken** om het tijds bereik en de weer gegeven waarden te wijzigen.
+- Hulpprogram ma's zoals SQL Server Management Studio bieden een groot aantal nuttige rapporten zoals een [dash board voor prestaties](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017) om het resource gebruik te bewaken en query's op de belangrijkste resources te identificeren, of [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed) om de query's met teruggedraaide te identificeren nemen.
+- Gebruik [query Performance Insight](sql-database-query-performance.md) in de [Azure Portal](https://portal.azure.com) om de query's te identificeren die de meeste resources best Eden. Deze functie is alleen beschikbaar in Individuele database en elastische Pools.
+- Gebruik [SQL database Advisor](sql-database-advisor-portal.md) om aanbevelingen weer te geven voor het maken en verwijderen van indexen, parameterizing query's en het oplossen van schema problemen. Deze functie is alleen beschikbaar in Individuele database en elastische Pools.
+- Gebruik [Azure SQL intelligent Insights](sql-database-intelligent-insights.md) voor het automatisch bewaken van de prestaties van de data base. Als er een prestatie probleem is gedetecteerd, wordt er een diagnostisch logboek gegenereerd met details en basis oorzaak analyse (RCA) van het probleem. Als dat mogelijk is, wordt aanbevolen om de prestaties te verbeteren.
+- [Schakel automatisch afstemmen in](sql-database-automatic-tuning-enable.md) en laat Azure SQL database automatisch vastgestelde prestatie problemen oplossen.
+- Gebruik [dynamische beheer weergaven (dmv's)](sql-database-monitoring-with-dmvs.md), [uitgebreide gebeurtenissen](sql-database-xevent-db-diff-from-svr.md)en de [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) voor meer gedetailleerde probleem oplossing van prestatie problemen.
 
 > [!TIP]
-> Zie [prestatierichtlijnen](sql-database-performance-guidance.md) technieken die u gebruiken kunt voor het verbeteren van de prestaties van Azure SQL Database na het identificeren van het prestatieprobleem met behulp van een of meer van de bovenstaande manieren vinden.
+> Raadpleeg de [richt lijnen voor prestaties](sql-database-performance-guidance.md) om technieken te vinden die u kunt gebruiken voor het verbeteren van de prestaties van Azure SQL database nadat u het prestatie probleem hebt geïdentificeerd met behulp van een of meer van de bovenstaande methoden.
 
 ## <a name="troubleshoot-performance-issues"></a>Prestatieproblemen oplossen
 
-Voor het opsporen en oplossen van prestatieproblemen, begint u inzicht hebt in de status van elke actieve query en de voorwaarden die relevant zijn voor de status van elke werkbelasting prestatieproblemen veroorzaken. Azure SQL Database om prestaties te verbeteren, te begrijpen dat elke actieve query-aanvraag vanuit uw toepassing in een die wordt uitgevoerd of in een wachtrij staat. Bij het oplossen van een prestatieprobleem in Azure SQL Database, houd rekening met als u in dit artikel kunt vaststellen en oplossen van prestatieproblemen Lees het volgende diagram.
+Om prestatie problemen vast te stellen en op te lossen, begint u met de status van elke actieve query en de voor waarden die prestatie problemen veroorzaken die relevant zijn voor de status van elke werk belasting. Als u de prestaties van Azure SQL Database wilt verbeteren, moet u weten dat elke actieve query aanvraag vanuit de toepassing een actief of wacht status heeft. Bij het oplossen van problemen met een prestatie probleem in Azure SQL Database houdt u rekening met het volgende in dit artikel voor informatie over het vaststellen en oplossen van prestatie problemen.
 
-![Statussen van de werkbelasting](./media/sql-database-monitor-tune-overview/workload-states.png)
+![Status van werk belasting](./media/sql-database-monitor-tune-overview/workload-states.png)
 
-Voor een werkbelasting met problemen met prestaties, het prestatieprobleem kan worden veroorzaakt door CPU conflicten (een **uitvoeren met betrekking tot** voorwaarde) of afzonderlijke query's zijn er wordt gewacht op iets (een **wachten met betrekking tot** voorwaarde ).
+Voor een werk belasting met prestatie problemen kan het prestatie probleem worden veroorzaakt door een CPU-conflict (een **uitvoerings** voorwaarde) of door afzonderlijke query's te wachten op iets (een voor waarde voor een **wacht** actie).
 
-De oorzaken of **uitvoeren met betrekking tot** problemen kunnen zijn:
-- **Compilatieproblemen** -SQL-queryoptimalisatieprogramma suboptimale plan vanwege verouderde statistieken, onjuist schatting van het aantal rijen dat wordt verwerkt, of de schatting van de vereiste geheugen kunnen produceren. Als u weet dat deze query is sneller uitgevoerd in het verleden of op andere exemplaar (Managed Instance of SQL Server-exemplaar), zijn nemen de daadwerkelijke uitvoering plannen en te vergelijken om te zien in het andere. Probeer queryhints of opnieuw worden opgebouwd statistieken of indexen om op te halen van de betere plan toe te passen. Schakel automatische abonnementcorrectie in Azure SQL Database om deze problemen automatisch te beperken.
-- **Uitvoeringsproblemen** : als het queryplan optimaal is en dit waarschijnlijk te met enkele resourcebeperkingen in de database zoals logboek schrijven-doorvoer maken is of deze mogelijk gebruik van gedefragmenteerde indexen die moeten opnieuw worden opgebouwd. Een groot aantal gelijktijdige query's die de resources zijn uitgaven mogelijk ook de oorzaak van problemen kan worden uitgevoerd. **Wachten met betrekking tot** problemen zijn in de meeste gevallen met betrekking tot de problemen worden uitgevoerd, omdat de query's die niet efficiënt worden uitgevoerd waarschijnlijk tot enkele resources wacht zijn.
+De oorzaken voor het **uitvoeren** van problemen zijn mogelijk:
+- **Compilatie problemen** : SQL query Optimizer kan een suboptimaal plan produceren vanwege verouderde statistieken, een onjuiste schatting van het aantal rijen dat wordt verwerkt of de schatting van het vereiste geheugen. Als we weten dat de query sneller is uitgevoerd in het verleden of op een ander exemplaar (ofwel een beheerd exemplaar of SQL Server exemplaar), neemt u de daad werkelijke uitvoerings plannen en vergelijkt u deze om te zien of ze verschillend zijn. Probeer query hints toe te passen of statistieken opnieuw op te bouwen of indexen opnieuw op te bouwen om het betere plan te krijgen. Schakel automatische correctie van plannen in Azure SQL Database in om deze problemen automatisch te verhelpen.
+- **Uitvoerings problemen** : als het query plan optimaal is, is het waarschijnlijk dat er een aantal resource limieten in de data base is, zoals schrijf doorvoer in het logboek of het gebruik van gedefragmenteerde indexen die opnieuw moeten worden opgebouwd. Een groot aantal gelijktijdige query's die de resources uitgeven, kan ook de oorzaak zijn van uitvoerings problemen. Er zijn in de meeste gevallen te maken met wachtende problemen die betrekking hebben op het uitvoeren van problemen, omdat de query's die niet efficiënt worden uitgevoerd, waarschijnlijk wachten op een aantal resources.
 
-De oorzaken of **wachten met betrekking tot** problemen kunnen zijn:
-- **Blokkeren** -één query kan de vergrendeling houdt op sommige objecten in de database terwijl anderen toegang probeert te krijgen van de dezelfde objecten. U kunt eenvoudig de blokkerende query's met behulp van DMV of controlehulpprogramma's identificeren.
-- **I/o-problemen** -query's mogelijk moet wachten tot de pagina's naar de gegevens of logboek-bestanden moeten worden geschreven. In dit geval ziet u `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, of `PAGEIOLATCH_*` statistieken in de DMV wachten.
-- **Problemen met TempDB** : als u van een groot aantal tijdelijke tabellen gebruikmaakt of er een groot aantal TempDB morsen in uw plannen voor uw query's die u mogelijk een probleem met het TempDB-doorvoer. 
-- **Geheugenproblemen** -kunt u wellicht niet voldoende geheugen voor uw workload zodat de levensverwachting voor pagina kan verwijderen, of uw query's minder geheugentoekenning krijgen dan nodig is. In sommige gevallen wordt de ingebouwde intelligentie in queryoptimalisatieprogramma deze problemen opgelost.
+De **oorzaken van de** volgende problemen kunnen optreden:
+- **Blok keren** : een query kan de vergren deling van sommige objecten in de Data Base bevatten, terwijl andere gebruikers toegang proberen te krijgen tot dezelfde objecten. Het blok keren van query's kan eenvoudig worden geïdentificeerd met behulp van DMV of controle hulpprogramma's.
+- **Io-problemen** : query's kunnen wachten tot de pagina's naar de gegevens of logboek bestanden zijn geschreven. In dit geval ziet `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`of `PAGEIOLATCH_*` wacht u de statistieken in de DMV.
+- **Problemen met Tempdb** : als de werk belasting veel tijdelijke tabellen gebruikt of als er sprake is van een groot aantal TempDB-overloop in de plannen, hebben de query's mogelijk een probleem met de door Voer van tempdb. 
+- **Problemen met betrekking** tot het geheugen-er is mogelijk onvoldoende geheugen beschikbaar voor de werk belasting, zodat de verwachting van de pagina mogelijk verloren gaat of de query's minder geheugen krijgen dan nodig is. In sommige gevallen worden deze problemen opgelost met ingebouwde intelligentie in query Optimizer.
  
-In de volgende secties wordt dit uitgelegd hoe u om te identificeren en oplossen van deze problemen.
+ In de volgende secties wordt uitgelegd hoe u een aantal van deze problemen kunt identificeren en oplossen.
 
-## <a name="running-related-performance-issues"></a>Problemen met prestaties met betrekking tot die wordt uitgevoerd
+## <a name="running-related-performance-issues"></a>Prestatie problemen met betrekking tot prestaties
 
-Als een algemene richtlijn als het CPU-gebruik is consistent op of boven 80%, hebt u een probleem met betrekking tot het uitvoeren. Als er een probleem met betrekking tot die wordt uitgevoerd, kan dit worden veroorzaakt door onvoldoende CPU-resources of het verband houden met een van de volgende voorwaarden:
+Als algemene richt lijn, als het CPU-gebruik consistent is op of meer dan 80%, is er een probleem met betrekking tot prestaties. Als er een probleem optreedt, kan dit worden veroorzaakt door onvoldoende CPU-bronnen of kan het zijn gerelateerd aan een van de volgende voor waarden:
 
-- Te veel actieve query 's
-- Te veel compileren query 's
-- Een of meer uitvoeren query's met behulp van een suboptimale queryplan
+- Te veel query's uitvoeren
+- Te veel query's voor het compileren
+- Een of meer query's die worden uitgevoerd, maken gebruik van een suboptimaal query plan
 
-Als u vaststelt dat er een prestatieprobleem is uitgevoerd met betrekking tot, wordt het doel is het identificeren van het exacte probleem met behulp van een of meer methoden. De meest voorkomende methoden voor het identificeren van problemen met betrekking tot actief zijn:
+Als wordt vastgesteld dat er sprake is van een probleem met betrekking tot prestaties, is het doel om het precieze probleem te identificeren met behulp van een of meer methoden. De meest voorkomende methoden voor het identificeren van uitvoerings problemen zijn:
 
-- Gebruik de [Azure-portal](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal) voor het bewaken van CPU-percentage gebruik.
-- Gebruik de volgende [dynamische beheerweergaven](sql-database-monitoring-with-dmvs.md):
+- Gebruik de [Azure Portal](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal) om het CPU-percentage gebruik te bewaken.
+- Gebruik de volgende [dynamische beheer weergaven](sql-database-monitoring-with-dmvs.md):
 
-  - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) verbruik van CPU, i/o en geheugen voor een Azure SQL Database-database geretourneerd. Er bestaat één rij voor elke 15 seconden, zelfs als er geen activiteit in de database. Historische gegevens worden bijgehouden voor één uur.
-  - [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) CPU-gebruik en de opslag-gegevens geretourneerd voor een Azure SQL-Database. De gegevens worden verzameld en samengevoegd binnen vijf minuten durende intervallen.
+  - [sys. DM _db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) retourneert CPU, I/O en geheugen verbruik voor een Azure SQL database. Er bestaat één rij voor elke interval van 15 seconden, zelfs als er geen activiteit in de data base is. Historische gegevens worden één uur bewaard.
+  - [sys. resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) retourneert het CPU-gebruik en de opslag gegevens voor een Azure SQL database. De gegevens worden binnen een interval van vijf minuten verzameld en geaggregeerd.
 
 > [!IMPORTANT]
-> Zie voor een verzameling een T-SQL-query's deze DMV's gebruiken voor het oplossen van problemen met het gebruik van de CPU, [prestatieproblemen identificeren CPU](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
+> Zie [CPU-prestatie problemen identificeren](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues)voor een set a T-SQL-query's met behulp van deze dmv's om problemen met het CPU-gebruik op te lossen.
 
-### <a name="ParamSniffing"></a> Query's met de parameter-gevoelige query uitvoering plan problemen oplossen
+### <a name="ParamSniffing"></a>Problemen met query's oplossen met parameter gevoelige query's uitvoerings plan problemen
 
-Probleem met de parameter gevoelige plan (PSP) verwijst naar een scenario waarbij het queryoptimalisatieprogramma genereert een plan voor het uitvoeren van query die is geoptimaliseerd voor een specifieke parameterwaarde (of een set waarden) en het in de cache-abonnement is niet optimaal zijn voor de parameterwaarden die worden gebruikt in opeenvolgende uitvoeringen. Plannen voor niet-optimale kunnen vervolgens leiden tot prestatieproblemen van query's en de algehele doorvoer verslechtering van de werkbelasting. Zie voor meer informatie over het bekijken van de parameter en de verwerking van query's, de [Query verwerken Architecture Guide](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing).
+Het PSP-probleem (parameter gevoelig plan) verwijst naar een scenario waarbij de query Optimizer een query-uitvoerings plan genereert dat optimaal is voor een specifieke parameter waarde (of een set waarden) en het schema in de cache niet optimaal is voor parameter waarden die worden gebruikt in opeenvolgende uitvoeringen. Niet-optimale plannen kunnen vervolgens leiden tot problemen met de query prestaties en de algehele door Voer van de werk belasting. Zie de [hand leiding](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing)voor het verwerken van query's voor meer informatie over parameter-sniffing en query verwerking.
 
-Er zijn verschillende oplossingen die worden gebruikt voor het oplossen van problemen, elk met een bijbehorende optimalisatie- en nadelen:
+Er zijn verschillende oplossingen die worden gebruikt om deze problemen te verhelpen, elk met bijbehorende compromissen en nadelen:
 
-- Gebruik de [COMPILEREN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) queryhint in elke query kan worden uitgevoerd. Deze tijdelijke oplossing wisselt lokale compilatietijd en hogere CPU voor een hogere kwaliteit van het abonnement. Met behulp van de `RECOMPILE` optie is vaak niet mogelijk voor workloads waarvoor een hoge doorvoer.
-- Gebruik de [optie (OPTIMALISEREN voor...) ](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) queryhint voor de onderdrukking van de feitelijke parameter-waarde met een typische parameterwaarde die een goed genoeg plan voor de meeste mogelijkheden voor parameter-waarde produceert.   Deze optie vereist een goed begrip van de optimale parameterwaarden en bijbehorende plan kenmerken.
-- Gebruik [optie (OPTIMALISEREN voor onbekend)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) queryhint voor de onderdrukking van de werkelijke parameterwaarde ruil met behulp van het gemiddelde van de vector dichtheid. Een andere manier om dit te doen is door de binnenkomende parameterwaarden vastleggen in lokale variabelen en vervolgens met behulp van de lokale variabelen binnen de predicaten in plaats van de parameters zelf. De gemiddelde dichtheid moet *goed genoeg* met deze specifieke oplossing.
-- Uitschakelen van de parameter bekijken met de [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) queryhint.
-- Gebruik de [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) queryhint om te voorkomen dat gecompileerd in de cache. Deze oplossing wordt ervan uitgegaan dat de *goede enough* algemene plan is al in de cache. U kunt ook automatisch bijwerken van statistieken uitschakelen om te kunnen verminderen de kans op het goede plan wordt verwijderd en een nieuw ongeldig plan wordt gecompileerd.
-- Afdwingen van het abonnement met behulp van expliciet [USE PLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) queryhint (door expliciet op te geven, door in te stellen van een specifiek plan met behulp van de Query Store of door in te schakelen [automatisch afstemmen](sql-database-automatic-tuning.md).
-- De enkele procedure vervangen door een geneste set procedures die kunnen worden gebruikt op basis van voorwaardelijke logica en de bijbehorende parameterwaarden.
-- Maak dynamische tekenreeks uitvoering alternatieven voor de proceduredefinitie van een statische.
+- De query [](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) Hint RECOMPILE gebruiken bij elke uitvoering van de query. Deze tijdelijke oplossing verhandelt compilatie tijd en verhoogde CPU voor een betere plan kwaliteit. Het gebruik `RECOMPILE` van de optie is vaak niet mogelijk voor werk belastingen die een hoge door Voer vereisen.
+- Gebruik de query Hint [optie (Optimize for...)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) om de werkelijke parameter waarde te overschrijven met een typische parameter waarde die een goed schema voor de meeste parameter waarden produceert.   Deze optie vereist een goed idee van de optimale parameter waarden en de bijbehorende plan kenmerken.
+- Gebruik de query Hint [(Optimize for UNknown)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) om de werkelijke parameter waarde in Exchange te overschrijven voor het gebruik van het gemiddelde dichtheids vector. Een andere manier om dit te doen, is door de inkomende parameter waarden vast te leggen in lokale variabelen en vervolgens de lokale variabelen binnen de predikaten te gebruiken in plaats van de para meters zelf te gebruiken. De gemiddelde densiteit moet *goed genoeg* zijn met deze specifieke oplossing.
+- Schakel para meter-sniffing volledig uit met behulp van de [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) -query hint.
+- Gebruik de [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) -query hint om opnieuw te compileren in de cache. Bij deze tijdelijke oplossing wordt ervan uitgegaan dat het *goede* algemene plan al in de cache staat. U kunt ook automatische updates naar statistieken uitschakelen om de kans te verkleinen dat het goede plan wordt verwijderd en een nieuw, beschadigd plan wordt gecompileerd.
+- Dwing het plan af door expliciet gebruik te maken van de query Hint [use plan](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) (door expliciet op te geven, door een specifiek plan in te stellen met behulp van query Store of door [automatisch afstemmen](sql-database-automatic-tuning.md)in te scha kelen.
+- Vervang de ene procedure door een geneste set procedures die elk kan worden gebruikt op basis van voorwaardelijke logica en de bijbehorende parameter waarden.
+- Alternatieven voor het uitvoeren van dynamische teken reeksen maken voor een statische procedure definitie.
 
 Zie voor meer informatie over het oplossen van dit soort problemen:
 
-- Dit [ik een parameter Pluk](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) blogbericht
-- Dit [dynamische sql ten opzichte van de kwaliteit van de planning voor query's met parameters](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) blogbericht
-- Dit [optimalisatietechnieken van SQL-Query in SQL Server: Parameter Sniffing](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/) blogbericht
+- [Ik ben een blog bericht van de para meter geur](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/)
+- Dit [dynamische SQL versus plan kwaliteit voor query's met para meters](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) blog post
+- Deze [optimalisatie technieken voor SQL-query's in SQL Server: ](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/) Blog bericht over parameter sniffing
 
-### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Het compileren activiteit vanwege onjuiste parameterisering oplossen
+### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Problemen met compilatie activiteiten oplossen vanwege onjuiste parameterisering
 
-Wanneer een query letterlijke waarden heeft, de database-engine kiest voor het automatisch voorzien van de instructie of een gebruiker kan deze expliciet voorzien om te reduceren aantal compileert. Een groot aantal compileert van een query met behulp van de hetzelfde patroon, maar andere letterlijke waarden kan leiden tot intensief CPU-gebruik. Op dezelfde manier als u een query die nog steeds letterlijke tekenreeksen zijn slechts gedeeltelijk voorzien, heeft de database-engine geen parameter van het verder.  Hieronder volgt een voorbeeld van een gedeeltelijk geparameteriseerde query:
+Wanneer een query letterlijke waarden bevat, kiest de data base-engine automatisch de instructie para meters of een gebruiker kan deze expliciet para meters om het aantal compilaties te verminderen. Een groot aantal compilaties van een query met hetzelfde patroon, maar met verschillende letterlijke waarden kan leiden tot een hoog CPU-gebruik. Als u een query slechts gedeeltelijk para meters met letterlijke waarden, wordt deze ook niet door de data base-engine para meters.  Hieronder ziet u een voor beeld van een gedeeltelijk Geparametriseerde query:
 
 ```sql
 SELECT * FROM t1 JOIN t2 ON t1.c1 = t2.c1
 WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
 ```
 
-In het voorgaande voorbeeld `t1.c1` duurt `@p1` maar `t2.c2` blijft houden GUID als letterlijke waarde. In dit geval, als u de waarde voor wijzigt `c2`, de query wordt beschouwd als een andere query en een nieuwe verzameling wordt uitgevoerd. De oplossing is ook voorzien van de GUID compilaties in het voorgaande voorbeeld, verminderen.
+In het voor gaande voor `t1.c1` beeld `@p1` `t2.c2` neemt de GUID als letterlijke waarde. Als u in dit geval de waarde wijzigt voor `c2`, wordt de query behandeld als een andere query en wordt er een nieuwe compilatie uitgevoerd. Om compilaties in het vorige voor beeld te verminderen, is de oplossing ook para meters de GUID.
 
-De volgende query geeft het aantal query's op queryhash om te bepalen als een query goed met parameters of niet:
+Met de volgende query wordt het aantal query's per query-hash weer gegeven om te bepalen of een query op de juiste wijze is para meters:
 
 ```sql
 SELECT  TOP 10  
@@ -143,99 +142,99 @@ WHERE
 GROUP BY q.query_hash
 ORDER BY count (distinct p.query_id) DESC
 ```
-### <a name="factors-influencing-query-plan-changes"></a>Factoren die invloed de wijzigingen in query
+### <a name="factors-influencing-query-plan-changes"></a>Factoren die van invloed zijn op de wijzigingen in het query plan
 
-Een query uitvoeren plan hercompilatie kan resulteren in een gegenereerde query-plan dat wijkt af van wat is oorspronkelijk in de cache opgeslagen. Er zijn diverse redenen waarom een bestaand plan in de oorspronkelijke automatisch kan worden gecompileerd:
-- Wijzigingen in het schema wordt verwezen door de query
-- Gegevens worden gewijzigd voor de tabellen waarnaar wordt verwezen door de query 
-- Wijzigingen in de context van queryopties 
+Een hercompilatie van een query plan kan leiden tot een gegenereerd query plan dat verschilt van wat oorspronkelijk in de cache is opgeslagen. Er zijn verschillende redenen waarom een bestaand oorspronkelijk schema mogelijk automatisch opnieuw wordt gecompileerd:
+- Wijzigingen in het schema waarnaar wordt verwezen door de query
+- Gegevens wijzigingen in de tabellen waarnaar wordt verwezen door de query 
+- Wijzigingen in de query context opties 
 
-Kan cache voor een aantal redenen, met inbegrip van exemplaar wordt opnieuw opgestart in een gecompileerde plan uitgeworpen, database-scoped configuratiewijzigingen geheugendruk en expliciete aanvragen om te wissen van de cache. Bovendien houdt met behulp van een hint RECOMPILE die dat een abonnement wordt niet in cache worden opgeslagen.
+Een gecompileerd plan kan om verschillende redenen uit de cache worden verwijderd, inclusief het opnieuw opstarten van het exemplaar, de configuratie wijzigingen van het database bereik, de geheugen belasting en expliciete aanvragen om de cache te wissen. Daarnaast betekent het gebruik van een RECOMPILE hint dat een plan niet in de cache wordt opgeslagen.
 
-Een hercompilatie (of nieuwe compilatie na verwijdering van de cache), kan nog steeds resulteren in het genereren van een plan voor dezelfde query kan worden uitgevoerd vanaf een oorspronkelijk waargenomen.  Als er echter wijzigingen aan het plan in vergelijking met het voorgaande of oorspronkelijke plan zijn, wordt hier volgen de meest voorkomende oorzaken van waarom een uitvoering queryplan gewijzigd:
+Een hercompilatie (of nieuwe compilatie na verwijdering van de cache) kan nog steeds leiden tot het genereren van een identiek uitvoerings plan voor query's dat oorspronkelijk werd geobserveerd.  Als er echter wijzigingen zijn in het abonnement vergeleken met het vorige of oorspronkelijke abonnement, is het volgende de meest voorkomende uitleg waarom een query-uitvoerings plan is gewijzigd:
 
-- **Fysieke ontwerp gewijzigd**. Bijvoorbeeld nieuwe indexen gemaakt dat effectiever cover die de vereisten van een query op een nieuwe verzameling kunnen worden gebruikt als het queryoptimalisatieprogramma dit besluit meer optimaal gebruikmaken van deze nieuwe index is dan met de gegevensstructuur oorspronkelijk hebt geselecteerd voor de eerste versie van de uitvoering van de query.  Fysieke wijzigingen in de objecten waarnaar wordt verwezen, kunnen resulteren in een nieuw plan keuze op het moment van compileren.
+- Het **fysieke ontwerp is gewijzigd**. Er zijn bijvoorbeeld nieuwe indexen gemaakt waarmee de vereisten van een query effectiever worden besproken. Deze kunnen worden gebruikt voor een nieuwe compilatie als het optimalisatie programma van de query ervoor heeft gekozen om deze nieuwe index optimaal te benutten dan de gegevens structuur die oorspronkelijk is geselecteerd voor de eerste versie van de uitvoering van de query.  Eventuele fysieke wijzigingen in de objecten waarnaar wordt verwezen, kunnen leiden tot een nieuwe plannings optie op het tijdstip van compilatie.
 
-- **Server resource verschillen**. In een scenario waarbij één plan op 'systeem A' en 'systeem B': de beschikbaarheid van resources, zoals het aantal beschikbare processors verschilt kunt bepalen welk abonnement wordt gegenereerd.  Als een systeem een hoger aantal processors heeft, kunnen een parallel plan bijvoorbeeld kan worden gekozen. 
+- **Verschillen tussen Server bronnen**. In een scenario waarbij één abonnement verschilt van ' systeem A ' versus ' systeem B ': de beschik baarheid van resources, zoals het aantal beschik bare processors, kan beïnvloeden welk plan wordt gegenereerd.  Als bijvoorbeeld één systeem een groter aantal processors heeft, kan een parallel abonnement worden gekozen. 
 
-- **Andere statistieken**. De statistieken die zijn gekoppeld aan de objecten waarnaar wordt verwezen, is gewijzigd of anders zijn opgebouwd uit de statistieken van het oorspronkelijke systeem.  Als de statistieken wijzigen en een recompile optreedt, wordt het queryoptimalisatieprogramma statistieken vanaf dat specifieke tijdstip gebruiken in de tijd. De herziene statistieken kan hebben aanzienlijk verschillende distributies en de frequentie die niet het geval is in de oorspronkelijke compilatie.  Deze wijzigingen worden gebruikt om te schatten kardinaliteit maakt een schatting van (aantal rijen naar verwachting in de querystructuur van de logische langs).  Wijzigingen in de kardinaliteit schattingen kunnen leiden dat ons verschillende fysieke operators en bijbehorende volgorde van bewerkingen te kiezen.  Zelfs kleine wijzigingen aan statistieken kunnen resulteren in een gewijzigde queryplan kan worden uitgevoerd.
+- **Verschillende statistieken**. De statistieken die zijn gekoppeld aan de objecten waarnaar wordt verwezen, zijn gewijzigd of zijn afhankelijk van de statistieken van het oorspronkelijke systeem.  Als de statistieken veranderen en een hercompilatie plaatsvindt, worden in de query Optimizer statistieken gebruikt voor het specifieke punt in de tijd. De herziene statistieken kunnen aanzienlijk verschillende gegevens distributies en-frequenties hebben die niet het geval zijn in de oorspronkelijke compilatie.  Deze wijzigingen worden gebruikt voor het schatten van kardinaliteit (aantal rijen dat wordt verwacht om door de logische query structuur te stromen).  Wijzigingen in de kardinaliteit kunnen leiden tot het kiezen van verschillende fysieke Opera tors en gekoppelde order bewerkingen.  Zelfs kleine wijzigingen in statistieken kunnen leiden tot een gewijzigd query-uitvoerings plan.
 
-- **Gewijzigde database compatibility niveau of de kardinaliteit estimator versie**.  Wijzigingen in het databasecompatibiliteitsniveau kunnen inschakelen voor nieuwe strategieën en functies die in een andere queryplan kan worden uitgevoerd resulteren kunnen.  Naast het databasecompatibiliteitsniveau query uit te schakelen of traceringsvlag 4199 inschakelen of wijzigen van de status van de databaseconfiguratie scoped QUERY_OPTIMIZER_HOTFIXES kunnen ook van invloed zijn op uitvoering plan opties op het moment van compileren.  Traceervlaggen 9481 (verouderde CE force) en 2312 (forceren standaard CE) zijn ook van plan bent die betrekking hebben op. 
+- Het **database compatibiliteits niveau of de kardinaliteit Estimator-versie is gewijzigd**.  Wijzigingen in het database compatibiliteits niveau kunnen nieuwe strategieën en functies inschakelen die kunnen leiden tot een ander uitvoerings plan voor query's.  Buiten het database compatibiliteits niveau, het in-of inschakelen van de tracerings vlag 4199 of het wijzigen van de status van de data base-scoped configuratie QUERY_OPTIMIZER_HOTFIXES kunnen ook de keuzes van het uitvoerings plan van de query op het tijdstip van compilatie beïnvloeden.  Tracerings vlaggen 9481 (geforceerd verouderd CE) en 2312 (standaard-CE afdwingen) zijn ook van invloed op de planning. 
 
-### <a name="resolve-problem-queries-or-provide-more-resources"></a>Opgelost probleem query's of geef andere bronnen
+### <a name="resolve-problem-queries-or-provide-more-resources"></a>Probleem query's oplossen of meer resources opgeven
 
-Wanneer u het probleem hebt geïdentificeerd, kunt u de probleem-query's af te stemmen of upgrade uitvoeren voor de compute-grootte of servicelaag om de capaciteit van uw Azure SQL-database te begrijpen van de CPU-vereisten te vergroten. Zie voor informatie over het schalen van resources voor individuele databases, [schalen van één database-resources in Azure SQL Database](sql-database-single-database-scale.md) en voor het schalen van resources voor elastische pools, Zie [resources voor elastische pool schalen in Azure SQL Database](sql-database-elastic-pool-scale.md). Zie voor meer informatie over het omhoog schalen van een beheerd exemplaar [resourcelimieten voor Instance-level](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+Zodra u het probleem hebt geïdentificeerd, kunt u de probleem query's afstemmen of de berekenings grootte of de servicelaag upgraden om de capaciteit van uw Azure-SQL database te verg Roten om de CPU-vereisten te absorberen. Zie voor meer informatie over het schalen van resources voor afzonderlijke data bases [schaal bare bronnen voor één data base schalen in Azure SQL database](sql-database-single-database-scale.md) en voor het schalen van resources voor elastische Pools raadpleegt u [bronnen voor elastische pools schalen in Azure SQL database](sql-database-elastic-pool-scale.md). Zie [resource limieten op exemplaar niveau](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits)voor meer informatie over het schalen van een beheerd exemplaar.
 
-### <a name="determine-if-running-issues-due-to-increase-workload-volume"></a>Bepalen of het uitvoeren van toepassingsproblemen vanwege een toename van de werkbelasting volume
+### <a name="determine-if-running-issues-due-to-increase-workload-volume"></a>Vaststellen of er problemen optreden als gevolg van een verg root hoeveelheid werk belasting volume
 
-Een toename in de toepassingsverkeer en werkbelasting kunt rekening voor hogere CPU-gebruik, maar u moet zorgvuldig om dit probleem goed vast te stellen. Beantwoord deze vragen om te bepalen als inderdaad een toename van de CPU veroorzaakt door de werkbelasting volume worden gewijzigd wordt in een hoog CPU-scenario:
+Een toename in het toepassings verkeer en de werk belasting kan het CPU-gebruik verhogen, maar u moet er wel voor zorgen dat dit probleem correct kan worden vastgesteld. In een scenario met een hoge CPU beantwoordt u deze vragen om te bepalen of een CPU-toename te wijten is aan het aantal wijzigingen in het werkbelasting volume:
 
-1. Zijn de query's van de toepassing de oorzaak van het hoge CPU-probleem?
-2. Voor de hoogste CPU verbruikt query's (die kunnen worden geïdentificeerd):
+1. Zijn de query's van de toepassing de oorzaak van het probleem met hoge CPU?
+2. Voor de top van CPU-verbruikte query's (die kunnen worden geïdentificeerd):
 
-   - Bepalen of er meerdere uitvoering plannen die zijn gekoppeld aan dezelfde query zijn. Als dit het geval is, te bepalen waarom.
-   - Bepaal voor query's met hetzelfde abonnement worden uitgevoerd, als de uitvoertijd consistent zijn en het aantal uitvoeringen verhoogd. Zo ja, zijn er waarschijnlijk prestatieproblemen vanwege een toename van de werkbelasting.
+   - Bepaal of er meerdere uitvoerings plannen zijn gekoppeld aan dezelfde query. Als dit het geval is, bepaalt u waarom.
+   - Bepaal voor query's met hetzelfde uitvoerings plan of de uitvoerings tijden consistent zijn en of het aantal uitvoeringen is verhoogd. Zo ja, dan zijn er waarschijnlijk prestatie problemen als gevolg van een verhoging van de werk belasting.
 
-Om samen te vatten, als het queryplan kan worden uitgevoerd anders niet uitvoeren, maar CPU-gebruik verhoogd samen met het aantal uitvoeringen, is er waarschijnlijk een probleem van de prestaties met betrekking tot toename van de werkbelasting.
+Als u wilt samenvatten, als het query-uitvoerings plan niet anders is uitgevoerd, maar het CPU-gebruik is verhoogd met het aantal uitvoeringen, is er waarschijnlijk een probleem met het verhogen van de werk belasting.
 
-Het is niet altijd eenvoudig te sluiten er is een wijziging voor het volume van werkbelasting die vraagt om een probleem met de CPU.   Factoren om te overwegen: 
+Het is niet altijd gemakkelijk om te concluderen dat er een wijziging in het workload-volume optreedt dat een CPU-probleem ondervindt.   Factoren om rekening mee te houden: 
 
-- **Resourcegebruik gewijzigd**
+- **Resource gebruik gewijzigd**
 
-  Neem bijvoorbeeld een scenario waarbij de CPU wordt verhoogd tot 80% voor een lange periode.  CPU-gebruik alleen betekent niet werkbelasting volume gewijzigd.  Uitvoeringsplan regressie en distributie van gegevenswijzigingen kunnen ook bijdragen aan meer Resourcegebruik zelfs als de toepassing exact dezelfde werkbelasting uitvoeren van is een query uitvoeren.
+  Denk bijvoorbeeld aan een scenario waarbij CPU gedurende lange tijd is verhoogd tot 80%.  Het gemiddelde van het CPU-gebruik is niet gewijzigd.  Wijzigingen in de regressies van het query plan en de gegevens distributie kunnen ook bijdragen aan meer resource gebruik, zelfs als de toepassing dezelfde werk belasting uitvoert.
 
-- **Nieuwe query wordt weergegeven**
+- **Nieuwe query verscheen**
 
-   Een toepassing kan een nieuwe set query's op verschillende tijdstippen station.
+   Een toepassing kan op verschillende tijdstippen een nieuwe set query's aansturen.
 
-- **Aantal aanvragen worden verhoogd of verlaagd**
+- **Aantal verg root of afgenomen aanvragen**
 
-   Dit scenario is de meest opvallende meting van de werkbelasting. Het aantal query's komt niet altijd in meer Resourcegebruik van de overeen. Met deze metriek is echter nog steeds een aanzienlijke signaal ervan uitgaande dat andere factoren zijn niet gewijzigd.
+   Dit scenario is de meest duidelijke maat staf voor de werk belasting. Het aantal query's komt niet altijd overeen met meer resource gebruik. Deze metriek is echter nog steeds een significant signaal, waarbij andere factoren ongewijzigd blijven.
 
-## <a name="waiting-related-performance-issues"></a>Problemen met prestaties met betrekking tot wachten
+## <a name="waiting-related-performance-issues"></a>Problemen met betrekking tot de prestaties
 
-Als u er zeker van bent dat u niet een hoge CPU, die wordt uitgevoerd met betrekking tot prestatieprobleem ondervindt, ondervindt u een probleem met betrekking tot wachten. Dat wil zeggen worden het CPU-resources niet gebruikt efficiënt omdat de CPU op een andere bron wacht. In dit geval worden de volgende stap is om te bepalen wat de CPU-bronnen wacht op. De meest voorkomende methoden voor het weergeven van de bovenkant wachten categorieën van het type:
+Wanneer u zeker weet dat u geen hoge prestaties hebt, hebt u een probleem met betrekking tot het prestatie probleem. Dat wil zeggen dat uw CPU-resources niet efficiënt worden gebruikt omdat de CPU op een andere resource wacht. In dit geval is de volgende stap het identificeren van de CPU-resources op. De meest voorkomende methoden voor het weer geven van de categorieën van het hoogste wacht type:
 
-- De [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) voorziet in statistieken per query Wacht na verloop van tijd. In Query Store, zijn wacht typen gecombineerd tot wacht categorieën. De toewijzing van de categorieën wait moet worden gewacht typen is beschikbaar in [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
-- [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) retourneert informatie over alle wacht geconfronteerd threads die tijdens de bewerking wordt uitgevoerd. Deze geaggregeerde weergave kunt u prestatieproblemen met Azure SQL Database en met specifieke query's en batches.
-- [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) retourneert informatie over de wachtrij wacht van taken die op een resource wachten.
+- Het [query archief](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) biedt gedurende een bepaalde periode wacht statistieken per query. In query Store worden wachtende typen gecombineerd in wachtende categorieën. De toewijzing van wachtende Categorieën op typen is beschikbaar in [sys. query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
+- [sys. DM _db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) retourneert informatie over alle wacht tijden die zijn aangetroffen door threads die worden uitgevoerd tijdens de bewerking. U kunt deze geaggregeerde weer gave gebruiken om prestatie problemen met Azure SQL Database op te sporen en ook met specifieke query's en batches.
+- [sys. DM _os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) retourneert informatie over de wacht wachtrij met taken die wachten op een bepaalde resource.
 
-In scenario's met hoge CPU, de Query Store en wacht statistieken zijn niet altijd aan de CPU-gebruik voor deze twee redenen:
+In scenario's met een hoge CPU weer spie gelen de query Store-en wait-statistieken niet altijd het CPU-gebruik om de volgende twee redenen:
 
-- Hoge CPU in beslag nemen query's mogelijk nog steeds uitgevoerd en de query's zijn nog niet klaar
-- De hoge CPU in beslag nemen query's worden uitgevoerd wanneer een failover is opgetreden
+- Query's met een hoog CPU-verbruik kunnen nog steeds worden uitgevoerd en de query's zijn nog niet voltooid
+- De query's met een hoog CPU-verbruik zijn actief toen een failover werd uitgevoerd
 
-Query Store en wacht statistieken bij te houden dynamische beheerweergaven alleen resultaten weergeven voor query's is voltooid en is een time-out en gegevens voor instructies dat momenteel wordt uitgevoerd (tot ze voltooid), worden niet weergegeven. De dynamische Beheerweergave [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) kunt u query's dat momenteel wordt uitgevoerd en de bijbehorende werknemer bijhouden.
+Query Store en wacht tijden bijhouden dynamische beheer weergaven geven alleen resultaten weer voor voltooide en time-out query's en geven geen gegevens weer voor de instructies die momenteel worden uitgevoerd (totdat ze zijn voltooid). Met de dynamische beheer weergave [sys. DM _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) kunt u momenteel uitgevoerde query's en de bijbehorende werk tijd volgen.
 
-Zoals u in het vorige diagram, zijn de meest voorkomende wacht:
+Zoals in de vorige grafiek wordt weer gegeven, zijn de meest voorkomende wacht tijden:
 
-- Vergrendelingen (blokkeren)
+- Vergren delingen (blok keren)
 - I/O
 - `tempdb`-gerelateerde conflicten
-- Wachten op het verlenen van geheugen
+- Wachten op geheugen toekenning
 
 > [!IMPORTANT]
-> Zie voor een verzameling een T-SQL-query's deze DMV's gebruiken voor het oplossen van deze problemen met betrekking tot wachten:
+> Zie voor een set a T-SQL-query's met behulp van deze Dmv's voor het oplossen van deze wachtende problemen:
 >
-> - [Identificeren van problemen met de i/o-prestaties](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
-> - [Identificeer `tempdb` prestatieproblemen](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
-> - [Wachten op het verlenen van geheugen identificeren](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)
-> - [TigerToolbox - wacht en vergrendelingen](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
+> - [I/O-prestatie problemen identificeren](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
+> - [Prestatie `tempdb` problemen identificeren](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
+> - [Wachten op geheugen toekenningen bepalen](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)
+> - [TigerToolbox-wacht tijden en Latches](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
 > - [TigerToolbox - usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
-## <a name="improving-database-performance-with-more-resources"></a>Verbetering van de prestaties van de database met andere bronnen
+## <a name="improving-database-performance-with-more-resources"></a>Database prestaties verbeteren met meer bronnen
 
-Ten slotte, als er geen bruikbare items die de prestaties van uw database kunnen verbeteren, kunt u de hoeveelheid beschikbare resources in Azure SQL Database. U kunt meer resources toewijzen door het veranderen van de [DTU-servicelaag](sql-database-service-tiers-dtu.md) van een individuele database of een toename van het aantal edtu's van een elastische pool op elk gewenst moment. U kunt ook als u de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md), kunt u de servicelaag wijzigen of de resources die zijn toegewezen aan uw database te verhogen.
+Ten slotte, als er geen actie kan worden uitgevoerd voor items die de prestaties van uw data base kunnen verbeteren, kunt u de hoeveelheid beschik bare resources in Azure SQL Database wijzigen. U kunt meer resources toewijzen door de [DTU-servicelaag](sql-database-service-tiers-dtu.md) van een enkele data base te wijzigen of door de edtu's van een elastische pool te verg Roten. Als u het [inkoop model op basis van vCore](sql-database-service-tiers-vcore.md)gebruikt, kunt u ook de servicelaag wijzigen of de resources die zijn toegewezen aan uw data base verg Roten.
 
-1. Voor individuele databases, kunt u [Servicelagen](sql-database-single-database-scale.md) of [rekenresources](sql-database-single-database-scale.md) on-demand om betere databaseprestaties.
-2. Overweeg het gebruik van meerdere databases, [elastische pools](sql-database-elastic-pool-guidance.md) bronnen automatisch schalen.
+1. Voor afzonderlijke data bases kunt u [service lagen wijzigen](sql-database-single-database-scale.md) of [bronnen](sql-database-single-database-scale.md) op aanvraag berekenen om de prestaties van de data base te verbeteren.
+2. Voor meerdere data bases kunt u gebruikmaken van [elastische Pools](sql-database-elastic-pool-guidance.md) om resources automatisch te schalen.
 
-## <a name="tune-and-refactor-application-or-database-code"></a>Afstemmen en herstructureren toepassing of databasecode
+## <a name="tune-and-refactor-application-or-database-code"></a>Toepassing of database code voor afstemmen en refactorie
 
-U kunt de code van de toepassing als u wilt meer optimaal gebruik van de database, wijzigen van indexen, geforceerd plannen of hints gebruiken om handmatig de database aan uw workload kunt wijzigen. Vindt u enkele richtlijnen en tips voor handmatige afstemmen en voor het herschrijven van de code in de [prestaties richtlijnen onderwerp](sql-database-performance-guidance.md) artikel.
+U kunt de toepassings code wijzigen in de data base optimaal te gebruiken, indexen te wijzigen, plannen af te dwingen of hints te gebruiken om de data base hand matig aan uw werk belasting toe te passen. Vind een aantal richt lijnen en tips voor hand matige afstemming en Herschrijf de code in het artikel [richt lijnen voor prestaties](sql-database-performance-guidance.md) .
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u wilt inschakelen automatisch afstemmen in Azure SQL Database en laat de functie voor automatisch afstemmen uw werkbelasting volledig te beheren, Zie [automatisch instellen inschakelen](sql-database-automatic-tuning-enable.md).
-- Voor het gebruik van handmatige afstemmen, kunt u bekijken [aanbevelingen in Azure-portal voor het afstemmen](sql-database-advisor-portal.md) en handmatig toe te passen degene die de prestaties van uw query's verbeteren.
-- Wijzigen van de resources die beschikbaar in uw database door het veranderen van zijn [Azure SQL Database-Servicelagen](sql-database-performance-guidance.md)
+- Als u automatisch afstemmen in Azure SQL Database wilt inschakelen en de werk belasting door automatische afstemming wilt laten beheren, raadpleegt u [automatisch afstemmen inschakelen](sql-database-automatic-tuning-enable.md).
+- Als u hand matige afstemming wilt gebruiken, kunt u afstemmings [aanbevelingen in azure Portal](sql-database-advisor-portal.md) bekijken en hand matig Toep assen om de prestaties van uw query's te verbeteren.
+- Resources die beschikbaar zijn in uw data base wijzigen door [Azure SQL database service lagen](sql-database-performance-guidance.md) te wijzigen

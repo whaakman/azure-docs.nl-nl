@@ -1,7 +1,7 @@
 ---
-title: Ophalen van gegevens
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Gegevens ophalen uit utterance tekst met intenties en entiteiten. Meer informatie over wat voor soort gegevens kan worden geëxtraheerd uit Language Understanding (LUIS).
+title: Gegevens extractie-LUIS
+titleSuffix: Azure Cognitive Services
+description: Gegevens uit utterance-tekst ophalen met intents en entiteiten. Meer informatie over wat voor soort gegevens kan worden geëxtraheerd uit Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,26 +9,26 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 055cd25f534de5d3cc3ccbe44df88e7111e101a3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65150683"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560758"
 ---
-# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Gegevens ophalen uit utterance tekst met intenties en entiteiten
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Gegevens uit utterance-tekst ophalen met intents en entiteiten
 LUIS biedt u de mogelijkheid informatie ophalen van natuurlijke taal-uitingen van een gebruiker. De informatie wordt opgehaald op een manier dat deze kan worden gebruikt door een programma, toepassing of bot chatten om actie te ondernemen. In de volgende secties meer informatie over welke gegevens worden geretourneerd door intenties en entiteiten met voorbeelden van JSON.
 
-De moeilijkst gegevens om op te halen zijn de gegevens hebt geleerd van een machine omdat dit een overeenkomst exact overeenkomende tekst niet. Ophalen van gegevens van de machine geleerd [entiteiten](luis-concept-entity-types.md) moet deel uitmaken van de [ontwerpen cyclus](luis-concept-app-iteration.md) totdat u bent er zeker van te zijn ontvangen van de gegevens die u verwacht.
+De hardste gegevens die u wilt extra heren, zijn de door de machine geleerde gegevens omdat het geen exacte tekst overeenkomst is. Gegevens extractie van de door de machine geleerde [entiteiten](luis-concept-entity-types.md) moet deel uitmaken van de [ontwerp cyclus](luis-concept-app-iteration.md) totdat u zeker weet dat u de verwachte gegevens ontvangt.
 
 ## <a name="data-location-and-key-usage"></a>Locatie en de sleutel gegevensgebruik
 LUIS, biedt de gegevens van de gepubliceerde [eindpunt](luis-glossary.md#endpoint). De **HTTPS-aanvraag** (POST of GET) bevat de utterance, evenals van sommige optionele configuraties, zoals fasering of productie-omgevingen.
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-De `appID` is beschikbaar op de **instellingen** pagina van uw LUIS-app als onderdeel van de URL (nadat `/apps/`) wanneer u die LUIS-app wilt bewerken. De `subscription-key` is de eindpuntsleutel die wordt gebruikt voor query's in uw app. U kunt de sleutel van uw gratis ontwerpen/starter gebruiken terwijl u LUIS leren, is het belangrijk om te wijzigen van de eindpuntsleutel in een sleutel die ondersteuning biedt voor uw [verwacht gebruik van LUIS](luis-boundaries.md#key-limits). De `timezoneOffset` eenheid minuten is.
+De `appID` is beschikbaar op de pagina **instellingen** van uw Luis-app, evenals een deel van de URL ( `/apps/`na) wanneer u die Luis-app bewerkt. De `subscription-key` is de eindpuntsleutel die wordt gebruikt voor query's in uw app. Hoewel u uw gratis versie van authoring/starter kunt gebruiken terwijl u LUIS Learning, is het belang rijk dat u de eindpunt sleutel wijzigt in een sleutel die het [verwachte Luis gebruik](luis-boundaries.md#key-limits)ondersteunt. De `timezoneOffset` eenheid minuten is.
 
 De **HTTPS-antwoord** bevat alle de intentie en entiteit informatie LUIS kunt bepalen op basis van de huidige gepubliceerde model van een eindpunt van de fasering of productie. Het eindpunt van de URL die is gevonden op de [LUIS](luis-reference-regions.md) website in de **beheren** sectie, op de **sleutels en eindpunten** pagina.
 
@@ -148,141 +148,15 @@ Bijvoorbeeld, in het Duits, het woord `das Bauernbrot` is tokenized in `das baue
 
 ## <a name="simple-entity-data"></a>Eenvoudige entiteitsgegevens
 
-Een [eenvoudige entiteit](luis-concept-entity-types.md) is een waarde hebt geleerd van een machine. Een woord of woordgroep kan het zijn.
-
-`Bob Jones wants 3 meatball pho`
-
-In de vorige utterance `Bob Jones` wordt aangeduid als een eenvoudige `Customer` entiteit.
-
-De gegevens die worden geretourneerd van het eindpunt bevat de naam van de entiteit, de gedetecteerde tekst van de utterance, de locatie van de gedetecteerde tekst en de score is:
-
-```JSON
-"entities": [
-  {
-  "entity": "bob jones",
-  "type": "Customer",
-  "startIndex": 0,
-  "endIndex": 8,
-  "score": 0.473899543
-  }
-]
-```
-
-|Data-object|De naam van de entiteit|Waarde|
-|--|--|--|
-|Eenvoudige entiteit|`Customer`|`bob jones`|
+Een [eenvoudige entiteit](reference-entity-simple.md) is een waarde hebt geleerd van een machine. Een woord of woordgroep kan het zijn.
 
 ## <a name="composite-entity-data"></a>Samengestelde entiteitsgegevens
-[Samengestelde](luis-concept-entity-types.md) entiteiten zijn machine geleerd en een woord of woordgroep kan bevatten. Neem bijvoorbeeld een samengestelde entiteit van het vooraf gedefinieerde `number` en `Location::ToLocation` met de volgende utterance:
 
-`book 2 tickets to paris`
-
-U ziet dat `2`, het aantal en `paris`, de ToLocation woorden tussen deze die geen deel uitmaken van een van de entiteiten hebben. De groene lijn, gebruikt in een gelabelde utterance in de [LUIS](luis-reference-regions.md) -website geeft aan dat een samengestelde entiteit.
-
-![Samengestelde entiteit](./media/luis-concept-data-extraction/composite-entity.png)
-
-Samengestelde entiteiten worden geretourneerd in een `compositeEntities` matrix en alle entiteiten in de samengestelde worden ook weergegeven in de `entities` matrix:
-
-```JSON
-
-"entities": [
-    {
-    "entity": "2 tickets to cairo",
-    "type": "ticketInfo",
-    "startIndex": 0,
-    "endIndex": 17,
-    "score": 0.67200166
-    },
-    {
-    "entity": "2",
-    "type": "builtin.number",
-    "startIndex": 0,
-    "endIndex": 0,
-    "resolution": {
-        "subtype": "integer",
-        "value": "2"
-    }
-    },
-    {
-    "entity": "cairo",
-    "type": "builtin.geographyV2",
-    "startIndex": 13,
-    "endIndex": 17
-    }
-],
-"compositeEntities": [
-    {
-    "parentType": "ticketInfo",
-    "value": "2 tickets to cairo",
-    "children": [
-        {
-        "type": "builtin.geographyV2",
-        "value": "cairo"
-        },
-        {
-        "type": "builtin.number",
-        "value": "2"
-        }
-    ]
-    }
-]
-```    
-
-|Data-object|De naam van de entiteit|Waarde|
-|--|--|--|
-|Vooraf gedefinieerde entiteit - nummer|"builtin.number"|"2"|
-|Vooraf gedefinieerde entiteit - GeographyV2|"Location::ToLocation"|"Parijs"|
+Een [samengestelde entiteit](reference-entity-composite.md) bestaat uit andere entiteiten, zoals vooraf gebouwde entiteiten, eenvoudige, reguliere expressies en lijst entiteiten. De afzonderlijke entiteiten vormen een hele entiteit. 
 
 ## <a name="list-entity-data"></a>Lijst met entiteitsgegevens
 
-Een [lijst](luis-concept-entity-types.md) entiteit is niet machine geleerd. Het is een overeenkomst exact overeenkomende tekst. Een lijst met vertegenwoordigt items in de lijst samen met synoniemen voor die items. LUIS markeert een overeenkomst aan een item in een lijst als een entiteit in het antwoord. Een synoniem kan zich in meer dan één lijst.
-
-Stel dat de app heeft een lijst met de naam `Cities`, zodat voor variaties in plaats van luchthaven (Sea-tac), luchthaven code (SEA), postcode (98101) en het netnummer telefoon (206) zoals plaatsnamen.
-
-|Lijstitem|Item synoniemen|
-|---|---|
-|`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
-|`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
-
-`book 2 tickets to paris`
-
-In de vorige utterance, het woord `paris` is toegewezen aan het item Parijs als onderdeel van de `Cities` lijst van de entiteit. De entiteit lijst komt overeen met zowel genormaliseerde naam van het item als het item synoniemen.
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 22,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
-
-Een ander voorbeeld-utterance, met behulp van een synoniem voor Parijs:
-
-`book 2 tickets to roissy`
-
-```JSON
-"entities": [
-  {
-    "entity": "roissy",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 23,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
+[Lijst entiteiten](reference-entity-list.md) vertegenwoordigen een vaste, gesloten set verwante woorden samen met hun synoniemen. LUIS detecteert geen aanvullende waarden voor de lijst met entiteiten. Gebruik de **raden** functie om te bekijken van suggesties voor nieuwe woorden op basis van de huidige lijst. Als er meer dan één lijst entiteit met dezelfde waarde, wordt elke entiteit in de query eindpunt geretourneerd. 
 
 ## <a name="prebuilt-entity-data"></a>Vooraf gemaakte entiteiten
 [Vooraf gedefinieerde](luis-concept-entity-types.md) entiteiten worden gedetecteerd op basis van een komt overeen met de reguliere expressie met behulp van de open-source [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text) project. Vooraf gemaakte entiteiten in de matrix entiteiten worden geretourneerd en gebruikt u de naam van het type voorafgegaan door `builtin::`. De volgende tekst is een voorbeeld-utterance met de geretourneerde vooraf gemaakte entiteiten:
@@ -369,56 +243,29 @@ Een ander voorbeeld-utterance, met behulp van een synoniem voor Parijs:
 ```
 
 ## <a name="regular-expression-entity-data"></a>Entiteitsgegevens reguliere expressie
-[Reguliere expressie](luis-concept-entity-types.md) entiteiten worden gedetecteerd op basis van een komt overeen met de reguliere expressie met behulp van een expressie die u opgeeft wanneer u de entiteit is gemaakt. Bij het gebruik van `kb[0-9]{6}` als de definitie van de reguliere expressie entiteit is het volgende JSON-antwoord een utterance voorbeeld met de entiteiten geretourneerde reguliere expressie voor de query `When was kb123456 published?`:
 
-```JSON
-{
-  "query": "when was kb123456 published?",
-  "topScoringIntent": {
-    "intent": "FindKBArticle",
-    "score": 0.933641255
-  },
-  "intents": [
-    {
-      "intent": "FindKBArticle",
-      "score": 0.933641255
-    },
-    {
-      "intent": "None",
-      "score": 0.04397359
-    }
-  ],
-  "entities": [
-    {
-      "entity": "kb123456",
-      "type": "KB number",
-      "startIndex": 9,
-      "endIndex": 16
-    }
-  ]
-}
-```
+Een [reguliere expressie-entiteit](reference-entity-regular-expression.md) extraheert een entiteit op basis van een reguliere expressie patroon dat u opgeeft.
 
 ## <a name="extracting-names"></a>Uitpakken van namen
-Namen ophalen uit een utterance is moeilijk, omdat een naam mag bestaan uit vrijwel elke combinatie van letters en woorden. Afhankelijk van welk type de naam die u uitpakken wilt, hebt u verschillende mogelijkheden. De volgende tips zijn geen regels, maar meer richtlijnen.
+Namen ophalen uit een utterance is moeilijk, omdat een naam mag bestaan uit vrijwel elke combinatie van letters en woorden. Afhankelijk van het type naam dat u uitpakt, hebt u verschillende opties. De volgende suggesties zijn geen regels, maar ook meer richt lijnen.
 
-### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Vooraf gedefinieerde PersonName en GeographyV2 entiteiten toevoegen
+### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Preconstrueerde persoons-en GeographyV2-entiteiten toevoegen
 
-[PersonName](luis-reference-prebuilt-person.md) en [GeographyV2](luis-reference-prebuilt-geographyV2.md) entiteiten zijn beschikbaar in bepaalde [taal culturen](luis-reference-prebuilt-entities.md). 
+[](luis-reference-prebuilt-person.md) De entiteiten persoons-en [GeographyV2](luis-reference-prebuilt-geographyV2.md) zijn beschikbaar in sommige [taal culturen](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Namen van personen
 
-De naam van mensen kan een lichte indeling, afhankelijk van de taal en cultuur hebben. Gebruik een van beide een vooraf gedefinieerde **[personName](luis-reference-prebuilt-person.md)** entiteit of een **[eenvoudige entiteit](luis-concept-entity-types.md#simple-entity)** met [rollen](luis-concept-roles.md) van de eerste en de achternaam. 
+De naam van mensen kan een lichte indeling, afhankelijk van de taal en cultuur hebben. Gebruik een vooraf gedefinieerde entiteit **[persoon](luis-reference-prebuilt-person.md)** of een **[eenvoudige entiteit](luis-concept-entity-types.md#simple-entity)** met [rollen](luis-concept-roles.md) van de voor-en achternaam. 
 
-Als u de eenvoudige entiteit gebruikt, zorg ervoor dat u voorbeelden gegeven die gebruikmaken van de naam van de eerste en laatste in de verschillende onderdelen van de utterance, in uitingen van verschillende lengtes en uitingen over alle intents, met inbegrip van de geen intentie. [Beoordeling](luis-how-to-review-endoint-utt.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld.
+Als u de eenvoudige entiteit gebruikt, moet u voor beelden opgeven die gebruikmaken van de voor-en achternaam in verschillende delen van de utterance, in uitingen met verschillende lengten en uitingen voor alle intenten, inclusief de geen intentie. [Beoordeling](luis-how-to-review-endoint-utt.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld.
 
 ### <a name="names-of-places"></a>Namen van plaatsen
 
-Locatienamen zijn ingesteld en bekend zijn, zoals steden, regio's, Staten, provincies en landen/regio's. De vooraf gedefinieerde entiteit **[geographyV2](luis-reference-prebuilt-geographyv2.md)** om locatie-informatie te extraheren.
+Locatie namen worden ingesteld en bekend, zoals steden, regio's, provincies, provincies en landen/regio's. Gebruik de vooraf samengestelde entiteit **[geographyV2](luis-reference-prebuilt-geographyv2.md)** om locatie gegevens te extra heren.
 
 ### <a name="new-and-emerging-names"></a>Nieuwe en opkomende namen
 
-Sommige apps moeten kunnen om nieuwe en opkomende namen, zoals producten of bedrijven te vinden. Deze typen namen zijn de moeilijkste type ophalen van gegevens. Beginnen met een **[eenvoudige entiteit](luis-concept-entity-types.md#simple-entity)** en voeg een [woordgroepenlijst](luis-concept-feature.md). [Beoordeling](luis-how-to-review-endoint-utt.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld.
+Sommige apps moeten kunnen om nieuwe en opkomende namen, zoals producten of bedrijven te vinden. Deze typen namen zijn het lastigste type gegevens extractie. Begin met een **[eenvoudige entiteit](luis-concept-entity-types.md#simple-entity)** en voeg een [woordgroepen lijst](luis-concept-feature.md)toe. [Beoordeling](luis-how-to-review-endoint-utt.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld.
 
 ## <a name="pattern-roles-data"></a>Patroon rollen gegevens
 Rollen zijn contextuele verschillen van entiteiten.
@@ -482,49 +329,8 @@ Rollen zijn contextuele verschillen van entiteiten.
 ```
 
 ## <a name="patternany-entity-data"></a>Entiteitsgegevens Pattern.any
-Pattern.any entiteiten zijn variabele lengte-entiteiten die worden gebruikt in de sjabloon-uitingen van een [patroon](luis-concept-patterns.md).
 
-```JSON
-{
-  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
-  "topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.999999464
-  },
-  "intents": [
-    {
-      "intent": "FindForm",
-      "score": 0.999999464
-    },
-    {
-      "intent": "GetEmployeeBenefits",
-      "score": 4.883697E-06
-    },
-    {
-      "intent": "None",
-      "score": 1.02040713E-06
-    },
-    {
-      "intent": "GetEmployeeOrgChart",
-      "score": 9.278342E-07
-    },
-    {
-      "intent": "MoveAssetsOrPeople",
-      "score": 9.278342E-07
-    }
-  ],
-  "entities": [
-    {
-      "entity": "understand your responsibilities as a member of the community",
-      "type": "FormName",
-      "startIndex": 18,
-      "endIndex": 78,
-      "role": ""
-    }
-  ]
-}
-```
-
+[Patroon. any](reference-entity-pattern-any.md) is een tijdelijke aanduiding met variabele lengte die alleen wordt gebruikt in de sjabloon van een patroon utterance om te markeren waar de entiteit begint en eindigt.  
 
 ## <a name="sentiment-analysis"></a>Sentimentanalyse
 Als u sentimentanalyse is geconfigureerd, bevat de json-antwoord van LUIS sentimentanalyse. Meer informatie over sentimentanalyse in de [Tekstanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) documentatie.
@@ -718,7 +524,7 @@ Het eindpunt LUIS kan dezelfde gegevens in verschillende entiteiten detecteren:
 }
 ```
 
-## <a name="data-matching-multiple-list-entities"></a>Gegevens die overeenkomen met meerdere lijst met entiteiten
+## <a name="data-matching-multiple-list-entities"></a>Gegevens die overeenkomen met meerdere lijst entiteiten
 
 Als een woord of woordgroep komt overeen met meer dan één entiteit van de lijst, retourneert de query eindpunt elke entiteit die lijst.
 
