@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/18/2019
+ms.date: 7/26/2019
 ms.author: raiye
-ms.openlocfilehash: 2dac76ef0d0d71c11291e63fdb3a7ce307638b50
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 9f796d4fe0edd1b6a944fc96e8045b1434d939f0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405551"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592412"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Guest OS releases en SDK Compatibility Matrix
 Voorziet in actuele informatie over de nieuwste versies van het Azure-gast besturingssysteem voor Cloud Services. Deze informatie helpt u bij het plannen van het upgradepad voordat een gast besturingssysteem wordt uitgeschakeld. Als u uw rollen configureert voor het gebruik van *automatische* updates van gast besturingssystemen zoals beschreven in de update-instellingen van het [Azure-gast besturingssysteem][Azure Guest OS Update Settings], is het niet belang rijk dat u deze pagina leest.
@@ -42,6 +42,9 @@ Voorziet in actuele informatie over de nieuwste versies van het Azure-gast bestu
 Weet u niet zeker hoe u uw gast besturingssysteem kunt bijwerken? Bekijk [Dit][cloud updates] uit.
 
 ## <a name="news-updates"></a>Nieuws updates
+
+###### <a name="july-26-2019"></a>**26 juli 2019**
+Het besturings systeem van juli wordt uitgebracht.
 
 ###### <a name="july-8-2019"></a>**8 juli 2019**
 Het besturings systeem van juni gast is uitgebracht.
@@ -98,8 +101,9 @@ Het besturings systeem september gast is uitgebracht.
 
 | Configuratie teken reeks | Uitgebracht op | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GUEST-OS-6,9 _201907-01 |26 juli 2019 |Post 6,11 |
 | WA-GUEST-OS-6.8_201906-01 |8 juli 2019 |Post 6,10 |
-| WA-GUEST-OS-6.7_201905-01 |6 juni 2019 |Post 6,9 |
+|~~WA-GUEST-OS-6,7 _201905-01~~ |6 juni 2019 |26 juli 2019 |
 |~~WA-GUEST-OS-6.6_201904-01~~ |7 mei 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-6.5_201903-01~~ |26 maart 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-6.4_201902-01~~ |12 maart 2019 |7 mei 2019 |
@@ -119,8 +123,9 @@ Het besturings systeem september gast is uitgebracht.
 
 | Configuratie teken reeks | Uitgebracht op | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GUEST-OS-5.33 _201907-01 |26 juli 2019 |Post 5,35 |  
 | WA-GUEST-OS-5.32_201906-01 |8 juli 2019 |Post 5,34 |
-| WA-GUEST-OS-5.31_201905-01 |6 juni 2019 |Post 5,33 |
+|~~WA-GUEST-OS-5.31 _201905-01~~ |6 juni 2019 |26 juli 2019 |
 |~~WA-GUEST-OS-5.30_201904-01~~ |7 mei 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-5.29_201903-01~~ |26 maart 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-5.28_201902-01~~ |12 maart 2019 |7 mei 2019 |
@@ -137,8 +142,9 @@ Het besturings systeem september gast is uitgebracht.
 
 | Configuratie teken reeks | Uitgebracht op | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GUEST-OS-4.68 _201907-01 | 26 juli 2019  |Post 4,70 |
 | WA-GUEST-OS-4.67_201906-01 |8 juli 2019 |Post 4,69 |
-| WA-GUEST-OS-4.66_201905-01 |6 juni 2019 |Post 4,68 |
+|~~WA-GUEST-OS-4.66 _201905-01~~ |6 juni 2019 |26 juli 2019 |
 |~~WA-GUEST-OS-4.65_201904-01~~ |7 mei 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-4.64_201903-01~~ |26 maart 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-4.63_201902-01~~ |12 maart 2019 |7 mei 2019 |
@@ -155,8 +161,9 @@ Het besturings systeem september gast is uitgebracht.
 
 | Configuratie teken reeks | Uitgebracht op | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GAST BESTURINGSSYSTEEM-3,75 _201907-01 | 26 juli 2019 |Post 3,77 |
 | WA-GUEST-OS-3.74_201906-01 |8 juli 2019 |Post 3,76 |
-| WA-GUEST-OS-3.73_201905-01 |6 juni 2019 |Post 3,75 |
+|~~WA-GUEST-OS-3.73 _201905-01~~ |6 juni 2019 |26 juli 2019 |
 |~~WA-GUEST-OS-3.72_201904-01~~ |7 mei 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-3.71_201903-01~~ |26 maart 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-3.70_201902-01~~ |12 maart 2019 |7 mei 2019 |
@@ -173,8 +180,9 @@ Het besturings systeem september gast is uitgebracht.
 
 | Configuratie teken reeks | Uitgebracht op | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GUEST-OS-2,88 _201907-01 | 26 juli 2019 |Post 2,90 |
 | WA-GUEST-OS-2.87_201906-01 |8 juli 2019 |Post 2,89 |
-| WA-GUEST-OS-2.86_201905-01 |6 juni 2019 |Post 2,88 |
+|~~WA-GUEST-OS-2.86 _201905-01~~ |6 juni 2019 |26 juli 2019 |
 |~~WA-GUEST-OS-2.85_201904-01~~ |7 mei 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-2.84_201903-01~~ |26 maart 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-2.83_201902-01~~ |12 maart 2019 |7 mei 2019 |
@@ -202,7 +210,7 @@ Hoewel het [pensionerings beleid voor de Azure SDK][retire policy sdk] aangeeft 
 ## <a name="guest-os-release-information"></a>Release-informatie voor het gast besturingssysteem
 Er zijn drie datums die belang rijk zijn voor de releases van gast besturingssystemen: **release** datum, **Uitgeschakelde** datum en **verval** datum. Een gast besturingssysteem wordt beschouwd als beschikbaar wanneer het zich in de portal bevindt en kan worden geselecteerd als het doel-gast besturingssysteem. Wanneer een gast besturingssysteem de **Uitgeschakelde** datum bereikt, wordt het verwijderd uit Azure. Elke Cloud service die gericht is op het gast besturingssysteem, blijft echter gewoon functioneren.
 
-In het venster tussen  de uitgeschakelde datum en de **verval** datum kunt u eenvoudig van het ene naar het andere gast besturingssysteem overstappen. Als u *automatisch* gebruikt als uw gast besturingssysteem, hebt u altijd de nieuwste versie en hoeft u zich geen zorgen te maken over het verlopen van het besturings systeem.
+In het venster tussen de uitgeschakelde datum en de **verval** datum kunt u eenvoudig van het ene naar het andere gast besturingssysteem overstappen. Als u *automatisch* gebruikt als uw gast besturingssysteem, hebt u altijd de nieuwste versie en hoeft u zich geen zorgen te maken over het verlopen van het besturings systeem.
 
 Wanneer de **verloop** datum wordt verstreken, wordt een Cloud service die nog steeds gebruikmaakt van dat gast besturingssysteem, gestopt, verwijderd of gedwongen bijgewerkt. U kunt [hier][retirepolicy]meer lezen over het pensionerings beleid.
 

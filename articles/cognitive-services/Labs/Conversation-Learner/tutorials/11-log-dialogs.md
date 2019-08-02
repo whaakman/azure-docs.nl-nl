@@ -1,7 +1,7 @@
 ---
-title: Hoe u zich aanmeldt dialoogvensters in een model Conversatiecursist - Microsoft Cognitive Services | Microsoft Docs
+title: Dialoog vensters in een Conversation Learner model vastleggen-Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Leer hoe u aan te melden dialoogvensters in een model Conversatiecursist.
+description: Meer informatie over het vastleggen van dialoog vensters in een Conversation Learner model.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,57 +10,58 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: f1e161fa05a77682d0b5eb1c6c21975ac87028a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 388942e8195048d7528a54e5a290f1724c8e876b
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387670"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703973"
 ---
-# <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Hoe u zich aanmeldt dialoogvensters in een model Conversatiecursist
+# <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Dialoog vensters in een Conversation Learner model vastleggen
 
-Deze zelfstudie wordt gedemonstreerd hoe Log-dialoogvensters werkzaam zijn beter modellen kunt trainen Conversatiecursist van geregistreerde interacties met gebruikers van de echte wereld werkt.
+In deze zelf studie ziet u hoe logboeken worden gebruikt om Conversation Learner modellen beter te trainen van vastgelegde interacties met gebruikers van de echte wereld.
 
 ## <a name="video"></a>Video
 
-[![Zelfstudie log dialoogvensters-Preview](https://aka.ms/cl_Tutorial_v3_LogDialogs_Preview)](https://aka.ms/cl_Tutorial_v3_LogDialogs)
+[![Preview van zelf studie voor logboeken](https://aka.ms/cl_Tutorial_v3_LogDialogs_Preview)](https://aka.ms/cl_Tutorial_v3_LogDialogs)
 
 ## <a name="requirements"></a>Vereisten
-In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd
+Voor deze zelf studie moet de bot van de algemene zelf studie worden uitgevoerd
 
     npm run tutorial-general
 
-en het weer-model in de vorige zelfstudies hebt gemaakt.
+en het weer model dat u in de vorige zelf studies hebt gemaakt.
 
 ## <a name="details"></a>Details
-Logboek-dialoogvensters zijn opgenomen logboeken van van uw bot interactie met eindgebruikers. U kunt entiteit labels en actie selecties voor het verbeteren van de prestaties van het model en de algehele systeemprestaties oplossen door gebruik te maken van deze Log-dialoogvensters.
+Dialoog vensters voor logboeken worden vastgelegd in Logboeken van de interactie van uw bot met eind gebruikers. Door deze logboeken te benutten, kunt u entiteits labels en actie selecties oplossen om de prestaties van het model en de algehele systeem prestaties te verbeteren.
 
 ## <a name="steps"></a>Stappen
 
-In de web-UI, klik op "Zelfstudies importeren" en selecteer het model met de naam '-zelfstudie-11-LogDialogs'.
+Klik in de webgebruikersinterface op zelf studies importeren en selecteer het model met de naam ' zelf studie-11-LogDialogs '.
 
-Dit Model bevat één entiteit met de naam 'plaats' en acties die zijn ontworpen om te reageren op query's over weer in die plaats. Twee trainen dialoogvensters zijn gebruikt voor het Model te trainen, zodat de prestatieverwachtingen enigszins laag zijn. Het Model wilt verbeteren met extra training en blootstelling aan de echte wereld gebruikersinteracties.
+Dit model bevat één entiteit met de naam City en acties die zijn ontworpen om te reageren op vragen over de weers omstandigheden in die stad. Er zijn twee trein dialoogvensters gebruikt om het model te trainen, waardoor prestatie verwachtingen enigszins laag zijn. Het model wordt verbeterd met extra training en bloot stelling aan echte gebruikers interacties van de wereld.
 
-### <a name="create-a-new-conversation"></a>Maak een nieuwe discussie
+### <a name="create-a-new-conversation"></a>Een nieuw gesprek maken
 
-1. Klik op "Log-dialoogvensters" en vervolgens de knop 'Dialoogvenster voor een nieuwe Log' in het linkerdeelvenster.
-2. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u 'Austin weather forecast'
-3. Klik op de knop 'Gedaan testen'.
-4. Klik op het dialoogvenster 'Austin weather forecast' log in de lijst.
-5. Klik op de utterance 'Austin weather forecast' in het deelvenster chat.
-6. Klik op 'Austin' en klik vervolgens op 'plaats' uit de lijst met entiteiten.
-7. Klik op de knop 'Wijzigingen verzenden'.
-    - Deze wijziging in de waarde van de entiteit veroorzaken downstream wijzigingen aan het gesprek, aangezien we hebben nieuwe entiteitswaarden in het geheugen. Latere acties zijn waarschijnlijk ongeldig geworden met name die met betrekking tot de entiteit 'plaats'.
-8. Klik op de "Welke plaats?" utterance in het deelvenster chat.
-9. Selecteer het antwoord, "het weer in Austin is waarschijnlijk zonnige."
-10. Klik op de knop 'Opslaan als Train dialoogvenster'.
+1. Klik in het linkerdeel venster op dialoog vensters logboeken en vervolgens op de knop nieuw logboek.
+2. In het deel venster chat, waar het bericht ' Typ uw boodschap... ', typt u ' Austin weer prognose '
+3. Klik op de knop testen is voltooid.
+4. Klik in de lijst op het dialoog venster "Austin weer geven".
+5. Klik in het chat venster op de utterance ' Austin weer Forecast '.
+6. Klik op Austin en klik vervolgens op plaats in de lijst met entiteiten.
+7. Klik op de knop Wijzigingen verzenden.
+    - Deze wijziging in de entiteits waarde veroorzaakt downstream wijzigingen aan de conversatie, omdat er nieuwe entiteits waarden in het geheugen zijn. Latere acties zijn waarschijnlijk ongeldig geworden met betrekking tot de ' City '-entiteit.
+8. Klik op de plaats ' welke stad? ' utterance in het chat venster.
+9. Selecteer de reactie: ' het weer in Austin is waarschijnlijk zonnig. '
+10. Klik op de knop Opslaan als trein venster.
     - Training wordt onmiddellijk gestart
 
 ![](../media/T11_logdialog.png)
 
-Een laatste notitie. Afhankelijk van de behoeften van uw bedrijf, kan de conversatie-functie voor logboekregistratie worden uitgeschakeld door te gaan naar de instellingen en -unchecking "Log gesprekken."
+Een laatste opmerking. Afhankelijk van de behoeften van uw bedrijf, kunt u de functie voor het registreren van gesp rekken uitschakelen door naar instellingen te gaan en conversaties vastleggen uit te scha kelen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Entiteit detectie terugbellen](./12-entity-detection-callback.md)
+> [Retour aanroep van entiteits detectie](./12-entity-detection-callback.md)

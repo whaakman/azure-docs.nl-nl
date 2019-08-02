@@ -1,6 +1,6 @@
 ---
-title: Meer informatie over Azure Security Center voor aanbevelingen voor beveiliging van IoT Preview | Microsoft Docs
-description: Meer informatie over het concept van aanbevelingen voor beveiliging en hoe ze worden gebruikt in Azure Security Center voor IoT.
+title: Meer informatie over Azure Security Center voor IoT-beveiligings aanbevelingen | Microsoft Docs
+description: Meer informatie over het concept van beveiligings aanbevelingen en hoe ze worden gebruikt in Azure Security Center voor IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,56 +13,58 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2019
+ms.date: 07/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 1ee71bbacdba7a14e94de41563a04be9c0f00d13
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 6f1efa365b4f3a1ab65cc89c84af57c88325e9d2
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618412"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597284"
 ---
 # <a name="security-recommendations"></a>Aanbevelingen voor beveiliging
 
-> [!IMPORTANT]
-> Azure Security Center voor IoT is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+Met Azure Security Center voor IoT worden uw Azure-resources en IoT-apparaten gescand en worden beveiligings aanbevelingen gegeven om uw kwets baarheid te beperken. Beveiligings aanbevelingen zijn maat regelen en zijn bedoeld om klanten te helpen bij het naleven van de best practices voor beveiliging.
 
-Azure Security Center (ASC) voor IoT scant uw Azure-resources en IoT-apparaten en aanbevelingen voor beveiliging te verminderen van uw kwetsbaarheid voor biedt. Aanbevelingen voor beveiliging zijn bruikbare en richt u op het helpen van klanten in die voldoet aan best practices voor beveiliging.
-
-In dit artikel vindt u een lijst met aanbevelingen die kan worden geactiveerd op uw IoT-Hub en/of IoT-apparaten.
+In dit artikel vindt u een lijst met aanbevelingen die kunnen worden geactiveerd op uw IoT Hub en/of IoT-apparaten.
 
 ## <a name="recommendations-for-iot-devices"></a>Aanbevelingen voor IoT-apparaten
 
-Apparaat aanbevelingen bieden inzicht en suggesties voor het apparaat het beveiligingspostuur verbeteren. 
+Aanbevelingen voor apparaten bieden inzichten en suggesties voor het verbeteren van de beveiliging van postuur. 
 
 | Severity | Name                                                      | Gegevensbron | Description                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Gemiddeld   | Poorten openen op apparaat                                      | Agent       | Een eindpunt luisteren is op het apparaat gevonden                                                                                                                                                          |
-| Gemiddeld   | Strikte firewall-beleid gevonden in een van de ketens. | Agent       | Firewall-beleid gevonden (INPUT/OUTPUT) toegestaan. Firewall-beleid moet al het verkeer standaard weigeren en definieer regels voor het vereiste communicatie naar/van het apparaat toestaan.                               |
-| Gemiddeld   | Strikte firewallregel in de invoer keten is gevonden     | Agent       | Een regel in de firewall is gebleken dat een ruime patroon voor een breed scala aan IP-adressen of -poorten bevat.                                                                                    |
-| Gemiddeld   | Strikte firewallregel in de uitvoer-keten is gevonden    | Agent       | Een regel in de firewall is gebleken dat een ruime patroon voor een breed scala aan IP-adressen of -poorten bevat.                                                                                   |
-| Gemiddeld   | Bewerking basislijn systeemvalidatie is mislukt           | Agent       | Apparaat voldoet niet aan [benchmarks van CIS-Linux](https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
+| Gemiddeld   | Poorten op het apparaat openen                                      | Agent       | Er is een luisterend eind punt gevonden op het apparaat.                                                                                                                                                        |
+| Gemiddeld   | Permissief firewall beleid gevonden in een van de ketens. | Agent       | Toegestaan firewall beleid gevonden (invoer/uitvoer). Het firewall beleid moet standaard al het verkeer weigeren en regels definiëren om de benodigde communicatie met/van het apparaat mogelijk te maken.                               |
+| Gemiddeld   | Er is een strikte firewall regel in de invoer keten gevonden     | Agent       | Er is een regel in de firewall gevonden die een soepel patroon bevat voor een breed scala aan IP-adressen of poorten.                                                                                    |
+| Gemiddeld   | Er is een strikte firewall regel in de uitvoer keten gevonden    | Agent       | Er is een regel in de firewall gevonden die een soepel patroon bevat voor een breed scala aan IP-adressen of poorten.                                                                                   |
+| Gemiddeld   | Validatie van de basislijn planning van het besturings systeem is mislukt           | Agent       | Het apparaat voldoet niet aan de [CIS Linux](https://www.cisecurity.org/cis-benchmarks/)-benchmarks.                                                                                                        |
 
 ### <a name="operational-recommendations-for-iot-devices"></a>Operationele aanbevelingen voor IoT-apparaten
 
-Operationele aanbevelingen bieden inzicht en suggesties voor het verbeteren van de beveiligingsconfiguratie voor de agent.
+Operationele aanbevelingen bieden inzichten en suggesties voor het verbeteren van de configuratie van de beveiligings agent.
 
 | Severity | Name                                    | Gegevensbron | Description                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
-| Laag      | Agent verzendt unutilized berichten          | Agent       | 10% of meer van de beveiligingsberichten zijn kleiner is dan 4kb tijdens de afgelopen 24 uur.  |
-| Laag      | Dubbele beveiligingsconfiguratie niet optimaal | Agent       | Dubbele beveiligingsconfiguratie is niet optimaal.                                        |
-| Laag      | Beveiliging dubbele configuratieconflict    | Agent       | Conflicten zijn gevonden in de beveiligingsconfiguratie van de apparaatdubbel.                           |
+| Laag      | Agent verzendt ongebruikte berichten          | Agent       | 10% of meer beveiligings berichten zijn in de afgelopen 24 uur kleiner dan 4 KB.  |
+| Laag      | Dubbele configuratie voor beveiliging niet optimaal | Agent       | De dubbele configuratie van beveiliging is niet optimaal.                                        |
+| Laag      | Conflict tussen beveiligings configuratie    | Agent       | Er zijn conflicten gevonden in de beveiligings-dubbele configuratie. |                          |
 
 
-## <a name="recommendations-for-iot-hub"></a>Aanbevelingen voor IoT-Hub
+## <a name="recommendations-for-iot-hub"></a>Aanbevelingen voor IoT Hub
 
-Aanbeveling waarschuwingen bieden inzicht en suggesties voor bewerkingen voor het verbeteren van de beveiligingsstatus van uw omgeving.  
+Aanbevelings waarschuwingen bieden inzicht en suggesties voor acties om de beveiliging postuur van uw omgeving te verbeteren.  
 
 | Severity | Name                                                     | Gegevensbron | Description                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Hoog     | Referenties voor dezelfde verificatie wordt gebruikt door meerdere apparaten | IoT Hub     | Referenties voor IoT Hub-verificatie worden gebruikt door meerdere apparaten. Dit kan duiden op een illegale apparaat door een legitieme apparaat te imiteren. Gebruik van dubbele referenties verhoogt het risico op imitatie bestaat apparaat door een kwaadwillende actor. |
-| Gemiddeld   | Standaardbeleid voor IP-filter moet weigeren                  | IoT Hub     | Filter-IP-configuratie moet hebben regels gedefinieerd voor verkeer toegestaan, en standaard moet, alle andere verkeer standaard weigeren.                                                                                                     |
-| Gemiddeld   | IP-filterregel bevat grote IP-adresbereik                   | IoT Hub     | Een IP-adresbereik voor toestaan IP-filter regel bron is te groot. Te ruime regels kunnen beschikbaar maken voor uw IoT-hub voor kwaadwillende actoren.                                                                                       |
-| Laag      | Diagnostische logboeken in IoT Hub inschakelen                       | IoT Hub     | Logboeken inschakelen en behouden voor maximaal een jaar. Behoud van Logboeken, kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd.                                       |
+| Hoog     | Identieke verificatie referenties die worden gebruikt door meerdere apparaten | IoT Hub     | IoT Hub authenticatie referenties worden gebruikt door meerdere apparaten. Dit kan duiden op een illegitimate-apparaat dat een legitiem apparaat imiteert. Dubbel referentie gebruik verhoogt het risico van imitatie van apparaten door een schadelijke actor. |
+| Gemiddeld   | Het standaard IP-filter beleid moet worden geweigerd                  | IoT Hub     | Voor de configuratie van de IP-filter moeten regels worden gedefinieerd voor het toegestane verkeer, en standaard moeten alle andere verkeer standaard worden geweigerd.                                                                                                     |
+| Gemiddeld   | De IP-filter regel bevat een groot IP-bereik                   | IoT Hub     | Een IP-adres bereik van de bron filter regel toestaan is te groot. Over de regel matig strikte regels kunnen uw IoT-hub beschikbaar maken voor kwaad aardige actors.                                                                                       |
+| Laag      | Diagnostische logboeken in IoT Hub inschakelen                       | IoT Hub     | Logboeken inschakelen en ze tot een jaar bewaren. Door Logboeken te behouden, kunt u de activiteiten sporen voor onderzoek doeleinden opnieuw maken wanneer er een beveiligings incident optreedt of uw netwerk is aangetast.                                       |
 |
+
+## <a name="next-steps"></a>Volgende stappen
+
+- [Overzicht](overview.md) van Azure Security Center voor IOT-service
+- Meer informatie over [het verkrijgen van toegang tot uw beveiligings gegevens](how-to-security-data-access.md)
+- Meer informatie over [het onderzoeken van een apparaat](how-to-investigate-device.md)

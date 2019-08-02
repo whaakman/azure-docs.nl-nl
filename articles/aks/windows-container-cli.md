@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
 ms.openlocfilehash: 305901007180cfb197cf5c0dfb338800449560a1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68382028"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Voor beeld: een Windows Server-container maken op een Azure Kubernetes service (AKS)-cluster met behulp van de Azure CLI
@@ -42,7 +42,7 @@ U moet een extra knooppunt groep toevoegen nadat u het cluster hebt gemaakt waar
 
 ### <a name="install-aks-preview-cli-extension"></a>AKS-preview CLI-extensie installeren
 
-Als u Windows Server-containers wilt gebruiken, hebt u de *AKS-preview cli-* extensie versie 0.4.1 of hoger nodig. Installeer de Azure cli *-extensie AKS-preview* met behulp van de opdracht [AZ extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] :
+Als u Windows Server-containers wilt gebruiken, hebt u de *AKS-preview cli-* extensie versie 0.4.1 of hoger nodig. Installeer de Azure CLI *-extensie AKS-preview* met behulp van de opdracht [AZ extension add][az-extension-add] en controleer vervolgens of er beschik bare updates zijn met behulp van de opdracht [AZ extension update][az-extension-update] ::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -120,7 +120,7 @@ In de volgende voorbeelduitvoer ziet u dat de resourcegroep is gemaakt:
 
 ## <a name="create-an-aks-cluster"></a>Een AKS-cluster maken
 
-Als u een AKS-cluster wilt uitvoeren dat knooppunt Pools ondersteunt voor Windows Server-containers, moet uw cluster gebruikmaken van een netwerk beleid dat gebruikmaakt van [Azure cni][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]. Gebruik de opdracht [AZ AKS Create][AZ-AKS-Create] om een AKS-cluster met de naam *myAKSCluster*te maken. Met deze opdracht worden de benodigde netwerk bronnen gemaakt als deze nog niet bestaan.
+Als u een AKS-cluster wilt uitvoeren dat knooppunt Pools ondersteunt voor Windows Server-containers, moet uw cluster gebruikmaken van een netwerk beleid dat gebruikmaakt van de invoeg toepassing [Azure cni][azure-cni-about] (Geavanceerd). Zie [Azure cni-netwerken configureren][use-advanced-networking]voor meer informatie over het plannen van de vereiste subnet bereiken en netwerk overwegingen. Gebruik de opdracht [AZ AKS Create][az-aks-create] om een AKS-cluster te maken met de naam *myAKSCluster*. Met deze opdracht worden de benodigde netwerk bronnen gemaakt als deze nog niet bestaan.
   * Het cluster is geconfigureerd met één knoop punt
   * De para meters *Windows-admin-password* en *Windows-admin-username* stellen de beheerders referenties in voor alle Windows Server-containers die op het cluster zijn gemaakt.
 
@@ -194,7 +194,7 @@ aksnpwin987654                      Ready    agent   108s   v1.14.1
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
-In een Kubernetes-manifestbestand wordt een gewenste status voor het cluster gedefinieerd, zoals welke containerinstallatiekopieën moeten worden uitgevoerd. In dit artikel wordt een manifest gebruikt om alle objecten te maken die nodig zijn om de voorbeeld toepassing ASP.NET uit te voeren in een Windows Server-container. Dit manifest bevat een [Kubernetes-implementatie][kubernetes-deployment] for the ASP.NET sample application and an external [Kubernetes service][kubernetes-service] voor toegang tot de toepassing via internet.
+In een Kubernetes-manifestbestand wordt een gewenste status voor het cluster gedefinieerd, zoals welke containerinstallatiekopieën moeten worden uitgevoerd. In dit artikel wordt een manifest gebruikt om alle objecten te maken die nodig zijn om de voorbeeld toepassing ASP.NET uit te voeren in een Windows Server-container. Dit manifest bevat een [Kubernetes-implementatie][kubernetes-deployment] voor de voorbeeld toepassing ASP.net en een externe [Kubernetes-service][kubernetes-service] voor toegang tot de toepassing vanaf internet.
 
 De voorbeeld toepassing ASP.NET wordt meegeleverd als onderdeel van de [.NET Framework][dotnet-samples] -voor beelden en wordt uitgevoerd in een Windows Server-container. AKS vereist dat Windows Server-containers worden gebaseerd op installatie kopieën van *Windows server 2019* of hoger. In het manifest bestand Kubernetes moet ook een [knooppunt kiezer][node-selector] worden gedefinieerd, zodat uw AKS-cluster de pod van uw ASP.net-voorbeeld toepassing uitvoert op een knoop punt waarop Windows Server-containers kunnen worden uitgevoerd.
 

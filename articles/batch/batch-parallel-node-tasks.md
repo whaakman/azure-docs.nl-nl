@@ -16,10 +16,10 @@ ms.date: 04/17/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc6a607da2227ecf9acd6209e31b7aa0ef1c62d8
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68323370"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Gelijktijdig taken uitvoeren om het gebruik van batch Compute-knoop punten te maximaliseren 
@@ -39,7 +39,7 @@ Als voor beeld van het illustreren van de voor delen van het uitvoeren van paral
 In plaats van gebruik\_te maken van standaard D1-knoop punten met 1 CPU-kern, kunt u [standaard\_D14](../cloud-services/cloud-services-sizes-specs.md) -knoop punten gebruiken met elke 16 kernen en de uitvoering van parallelle taken inschakelen. Daarom kunnen *16 keer minder knoop punten* worden gebruikt:--in plaats van 1.000-knoop punten, alleen 63 vereist. Als er bovendien grote toepassings bestanden of referentie gegevens voor elk knoop punt zijn vereist, zijn de duur en efficiëntie van de taak opnieuw verbeterd, omdat de gegevens slechts naar 63 knoop punten worden gekopieerd.
 
 ## <a name="enable-parallel-task-execution"></a>Uitvoering van parallelle taak inschakelen
-U kunt reken knooppunten voor het uitvoeren van parallelle taken configureren op het groeps niveau. Stel, met de batch .net-bibliotheek, het element [CloudPool. MaxTasksPerComputeNode][maxtasks_net] property when you create a pool. If you are using the Batch REST API, set the [maxTasksPerNode][rest_addpool] in de hoofd tekst van de aanvraag in tijdens het maken van de groep.
+U kunt reken knooppunten voor het uitvoeren van parallelle taken configureren op het groeps niveau. Stel in de batch .NET-bibliotheek de eigenschap [CloudPool. MaxTasksPerComputeNode][maxtasks_net] in wanneer u een pool maakt. Als u de batch-REST API gebruikt, stelt u het element [maxTasksPerNode][rest_addpool] in de hoofd tekst van de aanvraag in tijdens het maken van de groep.
 
 Met Azure Batch kunt u taken per knoop punt instellen op het aantal kern knooppunten. Als de pool bijvoorbeeld is geconfigureerd met knoop punten met de grootte ' groot ' (vier kernen), `maxTasksPerNode` kan deze worden ingesteld op 16. Ongeacht het aantal kernen dat het knoop punt heeft, kunt u niet meer dan 256 taken per knoop punt hebben. Zie [grootten voor Cloud Services](../cloud-services/cloud-services-sizes-specs.md)voor meer informatie over het aantal kernen voor elk van de groottes van knoop punten. Zie [quota's en limieten voor de Azure batch-service](batch-quota-limit.md)voor meer informatie over service limieten.
 
@@ -53,10 +53,10 @@ Wanneer de reken knooppunten in een pool gelijktijdig taken kunnen uitvoeren, is
 
 Met de eigenschap [CloudPool. TaskSchedulingPolicy][task_schedule] kunt u opgeven dat taken gelijkmatig moeten worden toegewezen op alle knoop punten in de pool (' sprei ding '). U kunt ook opgeven dat er zoveel mogelijk taken moeten worden toegewezen aan elk knoop punt voordat taken worden toegewezen aan een ander knoop punt in de pool (' verpakking ').
 
-Als voor beeld van hoe deze functie waardevol is, moet u rekening houden met de pool van [standaard\_D14](../cloud-services/cloud-services-sizes-specs.md) -knoop punten (in het bovenstaande voor beeld) die is geconfigureerd met een [CloudPool. MaxTasksPerComputeNode][maxtasks_net] value of 16. If the [CloudPool.TaskSchedulingPolicy][task_schedule] is geconfigureerd met een [ ComputeNodeFillType][Fill_type] van *Pack*: het gebruik van alle 16 kernen van elk knoop punt wordt gemaximaliseerd en een groep voor automatisch [schalen](batch-automatic-scaling.md) toestaan om ongebruikte knoop punten uit de groep te verwijderen (knoop punten zonder toegewezen taken). Hiermee wordt het resource gebruik geminimaliseerd en bespaart u geld.
+Als voor beeld van hoe deze functie waardevol is, moet u rekening houden met de pool van [standaard\_D14](../cloud-services/cloud-services-sizes-specs.md) -knoop punten (in het bovenstaande voor beeld) die is geconfigureerd met een [CloudPool. MaxTasksPerComputeNode][maxtasks_net] -waarde van 16. Als [CloudPool. TaskSchedulingPolicy][task_schedule] is geconfigureerd met een [ComputeNodeFillType][fill_type] *Pack*, wordt het gebruik van alle 16 kernen van elk knoop punt gemaximaliseerd en kan een groep voor automatisch [schalen](batch-automatic-scaling.md) ongebruikte knoop punten uit de groep weghalen (knoop punten zonder alle taken die zijn toegewezen). Hiermee wordt het resource gebruik geminimaliseerd en bespaart u geld.
 
 ## <a name="batch-net-example"></a>Batch .NET-voor beeld
-Deze [batch .net][api_net] API code snippet shows a request to create a pool that contains four nodes with a maximum of four tasks per node. It specifies a task scheduling policy that will fill each node with tasks prior to assigning tasks to another node in the pool. For more information on adding pools by using the Batch .NET API, see [BatchClient.PoolOperations.CreatePool][poolcreate_net].
+Dit code fragment voor [batch .net][api_net] API bevat een aanvraag voor het maken van een groep die vier knoop punten bevat met een maximum van vier taken per knoop punt. Hiermee wordt een beleid voor taak planning opgegeven waarmee elk knoop punt met taken wordt gevuld voordat taken worden toegewezen aan een ander knoop punt in de pool. Zie [BatchClient. pool Operations. CreatePool][poolcreate_net]voor meer informatie over het toevoegen van groepen met behulp van de batch .net-API.
 
 ```csharp
 CloudPool pool =
@@ -72,7 +72,7 @@ pool.Commit();
 ```
 
 ## <a name="batch-rest-example"></a>Batch REST-voor beeld
-Deze [batch rest][api_rest] API snippet shows a request to create a pool that contains two large nodes with a maximum of four tasks per node. For more information on adding pools by using the REST API, see [Add a pool to an account][rest_addpool].
+Het fragment van de [batch rest][api_rest] API bevat een aanvraag voor het maken van een groep die twee grote knoop punten bevat met een maximum van vier taken per knoop punt. Zie [een pool toevoegen aan een account][rest_addpool]voor meer informatie over het toevoegen van groepen met behulp van de rest API.
 
 ```json
 {
@@ -95,7 +95,7 @@ Deze [batch rest][api_rest] API snippet shows a request to create a pool that co
 >
 
 ## <a name="code-sample"></a>Codevoorbeeld
-De eigenschap [ParallelNodeTasks][parallel_tasks_sample] project on GitHub illustrates the use of the [CloudPool.MaxTasksPerComputeNode][maxtasks_net] .
+Het [ParallelNodeTasks][parallel_tasks_sample] -project op github illustreert het gebruik van de eigenschap [CloudPool. MaxTasksPerComputeNode][maxtasks_net] .
 
 Deze C# console toepassing maakt gebruik van de [batch .net][api_net] -bibliotheek om een groep te maken met een of meer reken knooppunten. Er wordt een configureerbaar aantal taken op deze knoop punten uitgevoerd om variabele belasting te simuleren. De uitvoer van de toepassing geeft aan welke knoop punten elke taak uitvoeren. De toepassing biedt ook een samen vatting van de taak parameters en-duur. Hieronder ziet u het overzicht van de uitvoer van twee verschillende uitvoeringen van de voorbeeld toepassing.
 

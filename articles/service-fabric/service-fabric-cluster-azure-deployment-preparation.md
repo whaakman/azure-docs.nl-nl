@@ -1,11 +1,10 @@
 ---
-title: Plan de implementatie van een Azure Service Fabric-cluster | Microsoft Docs
-description: Meer informatie over het plannen en voorbereiden voor een productie-implementatie van Service Fabric-cluster in Azure.
+title: Een Azure Service Fabric-cluster implementatie plannen | Microsoft Docs
+description: Meer informatie over het plannen en voorbereiden van een productie-Service Fabric cluster implementatie naar Azure.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: aljo
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,66 +12,66 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2019
-ms.author: aljo
-ms.openlocfilehash: 0f3a9010805ec1a18490f6f530f60d7a3c763398
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: a130e9bc8859360704c9be1c0a7fe066d2ed4567
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387856"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599997"
 ---
-# <a name="plan-and-prepare-for-a-cluster-deployment"></a>Plannen en voorbereiden voor de implementatie van een cluster
+# <a name="plan-and-prepare-for-a-cluster-deployment"></a>Plannen en voorbereiden voor een cluster implementatie
 
-Plannen en voorbereiden voor de implementatie van een productie-cluster is erg belangrijk.  Er zijn veel factoren om te overwegen.  In dit artikel leidt u door de stappen van de voorbereiding van de implementatie van uw cluster.
+Het plannen en voorbereiden van een productie cluster implementatie is zeer belang rijk.  Er zijn veel factoren waarmee u rekening moet houden.  Dit artikel begeleidt u stapsgewijs door de stappen voor het voorbereiden van de implementatie van uw cluster.
 
-## <a name="read-the-best-practices-information"></a>Lees de informatie voor aanbevolen procedures
-Voor het beheren van Azure Service Fabric-toepassingen en -clusters is, zijn er bewerkingen dat we dat u uitvoeren raden voor het optimaliseren van de betrouwbaarheid van uw productieomgeving.  Lees voor meer informatie, [aanbevolen procedures voor Service Fabric-toepassing en cluster](service-fabric-best-practices-overview.md).
+## <a name="read-the-best-practices-information"></a>Lees de informatie over best practices
+Voor het beheren van Azure Service Fabric-toepassingen en-clusters zijn er bewerkingen die u het beste kunt uitvoeren om de betrouw baarheid van uw productie omgeving te optimaliseren.  Lees [service Fabric aanbevolen procedures voor toepassingen en clusters](service-fabric-best-practices-overview.md)voor meer informatie.
 
-## <a name="select-the-os-for-the-cluster"></a>Selecteer het besturingssysteem voor het cluster
-Service Fabric kunt u het maken van Service Fabric-clusters op alle virtuele machines of computers waarop Windows Server of Linux wordt uitgevoerd.  Voordat u uw cluster implementeert, moet u het besturingssysteem kiezen:  Windows- of Linux.  Elk knooppunt (VM) in het cluster het hetzelfde besturingssysteem wordt uitgevoerd, Windows en Linux-VM's kunnen niet worden gecombineerd in hetzelfde cluster.
+## <a name="select-the-os-for-the-cluster"></a>Het besturings systeem voor het cluster selecteren
+Met Service Fabric kunt u Service Fabric-clusters maken op alle Vm's of computers met Windows Server of Linux.  Voordat u het cluster implementeert, moet u het besturings systeem kiezen:  Windows of Linux.  Elk knoop punt (virtuele machine) in het cluster voert hetzelfde besturings systeem uit. u kunt geen Windows-en Linux-Vm's in hetzelfde cluster combi neren.
 
 ## <a name="capacity-planning"></a>Capaciteitsplanning
-Voor een productie-implementatie is plannen van capaciteit een belangrijke stap. Hier volgen enkele aandachtspunten voor dat proces.
+Voor een productie-implementatie is capaciteits planning een belang rijke stap. Hier volgen enkele aandachtspunten voor dat proces.
 
-* Het oorspronkelijke aantal knooppunttypen voor uw cluster 
-* De eigenschappen van elk knooppunttype (grootte, het aantal exemplaren, primaire, internetgerichte, aantal VM's, enz.)
+* Het eerste aantal knooppunt typen voor uw cluster 
+* De eigenschappen van elk knooppunt type (grootte, aantal instanties, primair, Internet gericht, aantal Vm's, enzovoort)
 * De betrouwbaarheid en duurzaamheid van de clusterkenmerken
 
-### <a name="select-the-initial-number-of-node-types"></a>Selecteer het eerste aantal knooppunttypen
-Eerst moet u achterhalen wat het cluster die u maakt moet worden gebruikt voor er gebeurt. Welke soorten toepassingen die u van plan bent om te implementeren in dit cluster? Uw toepassing beschikt over meerdere services en moet een van deze openbare of internetservices zijn? Uw services (die gezamenlijk uw toepassing) beschikt over de infrastructuur voor verschillende behoeften, zoals meer RAM-geheugen of hogere CPU-cycli? Een Service Fabric-cluster kan bestaan uit meer dan één knooppunttype: een primaire knooppunttype en een of meer niet-primaire knooppunttypen. Elk knooppunttype is toegewezen aan een virtuele-machineschaalset. Elk knooppunttype kan dan onafhankelijk omhoog of omlaag worden geschaald, verschillende open poorten bevatten en diverse capaciteitsstatistieken hebben. [Eigenschappen van het knooppunt en plaatsingsbeperkingen] [ placementconstraints] kan worden ingesteld voor het beperken van specifieke services voor specifieke typen.  Lees voor meer informatie, [het nummer van uw cluster beginnen moet met knooppunttypen](service-fabric-cluster-capacity.md#the-number-of-node-types-your-cluster-needs-to-start-out-with).
+### <a name="select-the-initial-number-of-node-types"></a>Het eerste aantal knooppunt typen selecteren
+Eerst moet u nagaan wat het cluster is dat u maakt, wordt gebruikt voor. Welke soorten toepassingen wilt u in dit cluster implementeren? Heeft uw toepassing meerdere services en moeten ze openbaar of Internet zijn gericht? Hebben uw services (waaruit uw toepassing bestaan) verschillende vereisten voor de infra structuur, zoals meer RAM-geheugen of hogere CPU-cycli? Een Service Fabric cluster kan bestaan uit meer dan één knooppunt type: een primair knooppunt type en een of meer niet-primaire knooppunt typen. Elk knooppunt type wordt toegewezen aan een virtuele-machine schaalset. Elk knooppunttype kan dan onafhankelijk omhoog of omlaag worden geschaald, verschillende open poorten bevatten en diverse capaciteitsstatistieken hebben. [Knooppunt eigenschappen en plaatsings beperkingen][placementconstraints] kunnen worden ingesteld om specifieke services te beperken tot specifieke knooppunt typen.  Lees voor meer informatie [het aantal knooppunt typen dat door het cluster moet worden gestart](service-fabric-cluster-capacity.md#the-number-of-node-types-your-cluster-needs-to-start-out-with).
 
-### <a name="select-node-properties-for-each-node-type"></a>Selecteer het knooppunteigenschappen voor elk knooppunttype
-Knooppunttypen worden de VM-SKU, het aantal en de eigenschappen van de virtuele machines in de bijbehorende schaalset definiëren.
+### <a name="select-node-properties-for-each-node-type"></a>Knooppunt eigenschappen selecteren voor elk knooppunt type
+In knooppunt typen worden de SKU, het nummer en de eigenschappen van de virtuele machine van de virtuele machines in de bijbehorende schaalset gedefinieerd.
 
-De minimale grootte van virtuele machines voor elk knooppunttype wordt bepaald door de [duurzaamheidslaag] [ durability] u kiest voor het knooppunttype.
+De minimale grootte van Vm's voor elk knooppunt type wordt bepaald door de [duurzaamheids categorie][durability] die u hebt gekozen voor het knooppunt type.
 
-Het minimum aantal VM's voor het primaire knooppunttype wordt bepaald door de [betrouwbaarheidslaag] [ reliability] u kiest.
+Het minimale aantal Vm's voor het primaire knooppunt type wordt bepaald door de gekozen [betrouwbaarheids categorie][reliability] .
 
-Zie de minimumvereisten voor [primaire knooppunttypen](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), [stateful werkbelastingen op niet-primaire knooppunttypen](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads), en [staatloze werkbelastingen op niet-primaire knooppunttypen](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads). 
+Zie de minimale aanbevelingen voor [primaire knooppunt typen](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), [stateful werk belastingen op niet-primaire knooppunt](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)typen en [stateless workloads op niet-primaire knooppunt typen](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads). 
 
-Meer dan het minimum aantal knooppunten moet worden gebaseerd op het aantal replica's van de toepassing /-services die u wilt uitvoeren in dit knooppunttype.  [Capaciteitsplanning voor Service Fabric-toepassingen](service-fabric-capacity-planning.md) helpt u een schatting maken van de resources die u wilt uitvoeren van uw toepassingen. U kunt altijd de cluster omhoog of omlaag schalen later om aan te passen voor het wijzigen van de workload van toepassing. 
+Meer dan het minimum aantal knoop punten moet zijn gebaseerd op het aantal replica's van de toepassing/services dat u wilt uitvoeren in dit knooppunt type.  [Capaciteits planning voor service Fabric-toepassingen](service-fabric-capacity-planning.md) helpt u bij het schatten van de resources die u nodig hebt om uw toepassingen uit te voeren. U kunt het cluster altijd hoger of lager schalen om de werk belasting van de toepassing te wijzigen. 
 
-### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>Selecteer het niveau van duurzaamheid en betrouwbaarheid voor het cluster
-De duurzaamheidslaag wordt gebruikt om aan te geven aan het systeem de rechten van uw virtuele machines met de onderliggende Azure-infrastructuur. In het primaire knooppunttype kan deze bevoegdheid Service Fabric onderbreken van een virtuele machine op infrastructuur-aanvraag (zoals een VM opnieuw wordt opgestart, een virtuele machine terugzetten van een installatiekopie of een VM-migratie) die invloed hebben op de quorum-vereisten voor het systeem en de stateful services. In de knooppunttypen niet-primaire kan deze bevoegdheid Service Fabric onderbreken van een virtuele machine niveau infrastructuur aanvragen (zoals de VM opnieuw wordt opgestart, virtuele machine terugzetten van een installatiekopie en VM-migratie) die invloed hebben op de quorum-vereisten voor uw stateful services.  Voor de voordelen van de verschillende niveaus en aanbevelingen op welk niveau te gebruiken en wanneer, Zie [de duurzaamheid kenmerken van het cluster][durability].
+### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>De duurzaamheid en betrouwbaarheids niveaus voor het cluster selecteren
+De laag duurzaamheid wordt gebruikt om aan het systeem de bevoegdheden aan te geven die uw virtuele machines hebben met de onderliggende Azure-infra structuur. In het primaire knooppunt type kan met deze bevoegdheid Service Fabric elke infrastructuur aanvraag op VM-niveau onderbreken (zoals het opnieuw opstarten van een VM, een VM-installatie kopie of een VM-migratie) die van invloed is op de quorum vereisten voor de systeem services en uw stateful Services. In de niet-primaire knooppunt typen kan met deze bevoegdheid Service Fabric alle infrastructuur aanvragen op VM-niveau (zoals opnieuw opstarten van de VM, VM-installatie kopie en VM-migratie) onderbreken die van invloed zijn op de quorum vereisten voor uw stateful Services.  Zie [de duurzaamheids kenmerken van het cluster][durability]voor meer voor delen van de verschillende niveaus en aanbevelingen voor het niveau dat moet worden gebruikt en wanneer.
 
-De betrouwbaarheidslaag wordt gebruikt om het aantal replica's van de systeemservices die u wilt uitvoeren in dit cluster op het primaire knooppunttype instellen. De meer het aantal replica's, de betrouwbaarder zijn de systeemservices in uw cluster.  Voor de voordelen van de verschillende niveaus en aanbevelingen op welk niveau te gebruiken en wanneer, Zie [de betrouwbaarheidskenmerken van de van het cluster][reliability]. 
+De betrouwbaarheids categorie wordt gebruikt om het aantal replica's in te stellen van de systeem services die u wilt uitvoeren in dit cluster op het primaire knooppunt type. Hoe langer het aantal replica's, hoe betrouwbaarder de systeem services zijn in uw cluster.  Zie [de betrouw baarheids kenmerken van het cluster][reliability]voor meer voor delen van de verschillende niveaus en aanbevelingen voor het niveau dat moet worden gebruikt en wanneer. 
 
 ## <a name="enable-reverse-proxy-andor-dns"></a>Omgekeerde proxy en/of DNS inschakelen
-Services met elkaar verbinden in een cluster in het algemeen kunnen rechtstreeks toegang tot de eindpunten van andere services, omdat de knooppunten in een cluster zich op hetzelfde lokale netwerk. Als u wilt maken het gemakkelijker verbinding maken tussen services, biedt Service Fabric aanvullende services: Een [DNS-service](service-fabric-dnsservice.md) en een [reverse proxy-service](service-fabric-reverseproxy.md).  Beide services kunnen worden ingeschakeld wanneer u een cluster implementeert.
+Services die met elkaar in een cluster verbinding maken, hebben doorgaans rechtstreeks toegang tot de eind punten van andere services, omdat de knoop punten in een cluster zich op hetzelfde lokale netwerk bevinden. Service Fabric biedt extra services om het maken van verbinding tussen services gemakkelijker te maken: Een [DNS-service](service-fabric-dnsservice.md) en een reverse [Proxy service](service-fabric-reverseproxy.md).  Beide services kunnen worden ingeschakeld wanneer u een cluster implementeert.
 
-Omdat veel services, services, met name in containers, kan de naam van een bestaande URL hebt, kunt deze oplossen met behulp van de standaard DNS-protocol (in plaats van het protocol Naming-Service) is kunnen handig zijn, met name in toepassingsscenario's 'lift and shift'. Dit is precies wat de DNS-service heeft. Hiermee kunt u het DNS-namen worden toegewezen aan een servicenaam en kan daarom oplossen eindpunt IP-adressen.
+Omdat veel services, met name in container Services, een bestaande URL-naam kunnen hebben, kunt u deze omzetten met het standaard-DNS-protocol (in plaats van het Naming Service-Protocol), met name in de scenario's ' lift and Shift '. Dit is precies wat de DNS-service doet. Hiermee kunt u DNS-namen toewijzen aan een service naam en daarom IP-adres van het eind punt omzetten.
 
-De omgekeerde proxy adressen services in het cluster die beschikbaar maken van HTTP-eindpunten (inclusief HTTPS). De omgekeerde proxy vereenvoudigt het aanroepen van andere services door te geven van een specifieke URI-indeling.  De omgekeerde proxy ook oplossen door verwerkt, verbinding en probeer de stappen die nodig zijn voor een service om te communiceren met een andere.
+De services voor omgekeerde proxy adressen in het cluster die HTTP-eind punten (inclusief HTTPS) beschikbaar stellen. De omgekeerde proxy vereenvoudigt het aanroepen van andere services door een specifieke URI-indeling op te geven.  De omgekeerde proxy zorgt er ook voor dat de stappen voor probleem oplossing, verbinding maken en opnieuw proberen voor één service worden uitgevoerd om met elkaar te communiceren.
 
 ## <a name="prepare-for-disaster-recovery"></a>Voorbereiden voor herstel na noodgevallen
-Een belangrijk onderdeel van het leveren van hoge beschikbaarheid is ervoor te zorgen dat services verschillende typen fouten meer storingen kunnen doorstaan. Dit is vooral belangrijk voor fouten die niet-geplande zijn en buiten het besturingselement. [Voorbereiden voor herstel na noodgevallen](service-fabric-disaster-recovery.md) beschrijft enkele algemene foutmodi die rampen worden kunnen als niet gemodelleerd en goed beheerd. Hierin worden ook oplossingen en acties moet uitvoeren als er een ramp toch opgetreden.
+Een essentieel onderdeel van het leveren van hoge Beschik baarheid zorgt ervoor dat Services alle verschillende soorten storingen kunnen overlaten. Dit is vooral belang rijk voor storingen die ongepland zijn en buiten uw besturings element vallen. [Voor bereiding op herstel na nood gevallen](service-fabric-disaster-recovery.md) worden enkele veelvoorkomende fout modi beschreven die nood gevallen kunnen zijn als ze niet correct worden gemodelleerd en beheerd. Er worden ook oplossingen en acties beschreven die moeten worden uitgevoerd als er toch een nood geval is opgetreden.
 
 ## <a name="production-readiness-checklist"></a>Controlelijst voor productiegereedheid
-Uw toepassing en het cluster gereed is voor productieverkeer? Voordat u uw cluster implementeert naar productie, doorloopt u de [productie gereedheid controlelijst](service-fabric-production-readiness-checklist.md). Houd uw toepassing en cluster soepel door het uitvoeren van de items in deze controlelijst. Wij raden deze items om te worden ingeschakeld voordat u doorgaat naar de productie.
+Is uw toepassing en cluster klaar om productie verkeer te nemen? Voordat u uw cluster implementeert voor productie, voert u de [controle lijst voor productie gereedheids](service-fabric-production-readiness-checklist.md)uit. Zorg ervoor dat uw toepassing en cluster probleemloos werken door de items in deze controle lijst te door lopen. We raden u ten zeerste aan om al deze items uit te checken voordat u naar productie gaat.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Maken van een Service Fabric-cluster waarop Windows wordt uitgevoerd](service-fabric-best-practices-overview.md)
-* [Maken van een Service Fabric-cluster waarop Linux wordt uitgevoerd](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+* [Een Service Fabric cluster maken waarop Windows wordt uitgevoerd](service-fabric-best-practices-overview.md)
+* [Een Service Fabric cluster maken waarop Linux wordt uitgevoerd](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

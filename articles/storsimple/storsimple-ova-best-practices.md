@@ -1,6 +1,6 @@
 ---
-title: Aanbevolen procedures voor StorSimple Virtual Array | Microsoft Docs
-description: Beschrijft de aanbevolen procedures voor het implementeren en beheren van de StorSimple Virtual Array.
+title: Aanbevolen procedures voor de virtuele StorSimple-matrix | Microsoft Docs
+description: Hierin worden de aanbevolen procedures beschreven voor het implementeren en beheren van de virtuele StorSimple-matrix.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,277 +12,281 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/08/2018
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b5ffc16a7c9dacef3036ca5ce225265252dcdf5d
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630135"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516765"
 ---
-# <a name="storsimple-virtual-array-best-practices"></a>Aanbevolen procedures voor StorSimple Virtual Array
+# <a name="storsimple-virtual-array-best-practices"></a>Best practices voor StorSimple Virtual array
+
 ## <a name="overview"></a>Overzicht
-Microsoft Azure StorSimple Virtual Array is een geïntegreerde opslagaccountoplossing waarmee opslagtaken tussen een on-premises virtuele apparaat uitgevoerd in een hypervisor en Microsoft Azure-cloudopslag. StorSimple Virtual Array is een efficiënte en voordelige alternatief voor de fysieke 8000-serie-matrix. De virtuele matrix kan worden uitgevoerd op uw bestaande infrastructuur van de hypervisor, biedt ondersteuning voor de iSCSI- en de SMB-protocollen en is zeer geschikt voor scenario's voor externe kantoren/filialen office. Voor meer informatie over de StorSimple-oplossingen, gaat u naar [overzicht van Microsoft Azure StorSimple](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
 
-In dit artikel bevat informatie over de best practices geïmplementeerd tijdens de eerste configuratie, implementatie en beheer van de StorSimple Virtual Array. Deze aanbevolen procedures bieden gevalideerde richtlijnen voor het instellen en beheren van uw virtuele matrix. In dit artikel is gericht op de IT-beheerders die implementeren en beheren van de virtuele matrices in hun datacenters.
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-U wordt aangeraden een periodieke controle van de aanbevolen procedures om te zorgen voor dat uw apparaat is nog steeds in acht genomen wanneer wijzigingen worden aangebracht in de installatie- of operationele stroom. Moet u eventuele problemen optreden tijdens het implementeren van deze aanbevolen procedures op uw virtuele array [Neem contact op met Microsoft Support](storsimple-virtual-array-log-support-ticket.md) voor hulp.
+Microsoft Azure StorSimple Virtual array is een geïntegreerde opslag oplossing voor het beheer van opslag taken tussen een on-premises virtueel apparaat dat wordt uitgevoerd in een Hyper Visor en Microsoft Azure Cloud opslag. StorSimple Virtual array is een efficiënt, rendabel alternatief voor de fysieke matrix van de 8000-serie. De virtuele matrix kan worden uitgevoerd op uw bestaande Hyper Visor infrastructuur, ondersteunt zowel de iSCSI-als de SMB-protocollen en is geschikt voor externe Office-en filiaal scenario's. Ga naar [Microsoft Azure StorSimple-overzicht](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx)voor meer informatie over de StorSimple-oplossingen.
+
+In dit artikel worden de aanbevolen procedures besproken die zijn geïmplementeerd tijdens de eerste installatie, implementatie en het beheer van de virtuele StorSimple-matrix. Deze aanbevolen procedures bieden gevalideerde richt lijnen voor het instellen en beheren van uw virtuele matrix. Dit artikel is gericht op de IT-beheerders die de virtuele matrices in hun data centers implementeren en beheren.
+
+We raden u aan een periodieke beoordeling van de best practices uit te voeren om ervoor te zorgen dat uw apparaat nog steeds compatibel is wanneer er wijzigingen worden aangebracht in de installatie-of bewerkings stroom. Als u problemen ondervindt bij het implementeren van deze aanbevolen procedures voor uw virtuele array, [neemt u contact op met Microsoft ondersteuning](storsimple-virtual-array-log-support-ticket.md) voor hulp.
 
 ## <a name="configuration-best-practices"></a>Aanbevolen procedures voor configuratie
-Deze aanbevolen procedures hebben betrekking op de richtlijnen die moeten worden gevolgd tijdens de initiële installatie en implementatie van de virtuele matrices. Deze aanbevolen procedures bevatten die zijn gerelateerd aan het inrichten van de virtuele machine, instellingen voor Groepsbeleid, grootte, instellen van het netwerk, storage-accounts configureren en het maken van bestandsshares en volumes voor de virtuele matrix. 
+Deze aanbevolen procedures gelden voor de richt lijnen die moeten worden gevolgd tijdens de eerste installatie en implementatie van de virtuele matrices. Dit zijn de aanbevolen procedures voor het inrichten van de virtuele machine, groeps beleids instellingen, het instellen van het netwerk, het configureren van opslag accounts en het maken van shares en volumes voor de virtuele matrix. 
 
 ### <a name="provisioning"></a>Inrichten
-StorSimple Virtual Array is een virtuele machine (VM) die is ingericht op de hypervisor (Hyper-V of VMware) van de hostserver. Zorg ervoor dat de host kan besteden aan het voldoende bronnen zijn bij het inrichten van de virtuele machine. Ga voor meer informatie naar [minimale resourcevereisten](storsimple-virtual-array-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements) voor het inrichten van een matrix.
+StorSimple Virtual array is een virtuele machine (VM) die is ingericht op de Hyper Visor (Hyper-V of VMware) van uw hostserver. Wanneer u de virtuele machine inricht, moet u ervoor zorgen dat uw host voldoende bronnen kan toewijzen. Voor meer informatie gaat u naar [minimale resource vereisten](storsimple-virtual-array-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements) om een matrix in te richten.
 
 Implementeer de volgende aanbevolen procedures bij het inrichten van de virtuele matrix:
 
 |  | Hyper-V | VMware |
 | --- | --- | --- |
-| **Type virtuele machine** |**Generatie 2** VM voor gebruik met Windows Server 2012 of hoger en een *.vhdx* installatiekopie. <br></br> **Generatie 1** VM voor gebruik met een Windows Server 2008 of hoger en een *.vhd* installatiekopie. |Gebruik virtuele machine versie 8 bij het gebruik van *.vmdk* installatiekopie. |
-| **Geheugentype** |Configureren als **statisch geheugen**. <br></br> Gebruik niet de **dynamisch geheugen** optie. | |
-| **Schijf-gegevenstype** |Inrichten als **dynamisch uitbreidbare**.<br></br> **Vaste grootte** lang duurt. <br></br> Gebruik niet de **differentiërende** optie. |Gebruik de **dunne inrichting** optie. |
-| **Wijziging van de gegevens-schijf** |Breiden of te verkleinen is niet toegestaan. Een poging om u te doen, leidt tot het verlies van gegevens van alle lokale gegevens op het apparaat. |Breiden of te verkleinen is niet toegestaan. Een poging om u te doen, leidt tot het verlies van gegevens van alle lokale gegevens op het apparaat. |
+| **Type virtuele machine** |**Generatie 2** VM voor gebruik met Windows Server 2012 of hoger en een *. vhdx* -installatie kopie. <br></br> **Generatie 1** VM voor gebruik met een Windows Server 2008 of hoger en een *VHD* -installatie kopie. |Gebruik de versie 8 van de virtuele machine wanneer u een *VMDK* -afbeelding gebruikt. |
+| **Type geheugen** |Configureer als **statisch geheugen**. <br></br> Gebruik niet de optie **dynamisch geheugen** . | |
+| **Type gegevens schijf** |Inrichten als **dynamisch uitbreiden**.<br></br> De **vaste grootte** neemt veel tijd in beslag. <br></br> Gebruik niet de optie **differentiëring** . |Gebruik de optie voor **Thin** provisioning. |
+| **Wijziging van de gegevens schijf** |Uitbrei ding of krimpen is niet toegestaan. Als u dit toch doet, worden alle lokale gegevens op het apparaat verloren. |Uitbrei ding of krimpen is niet toegestaan. Als u dit toch doet, worden alle lokale gegevens op het apparaat verloren. |
 
 ### <a name="sizing"></a>Grootte aanpassen
-Wanneer de grootte van uw StorSimple Virtual Array, houd rekening met de volgende factoren:
+Houd bij het aanpassen van de grootte van de virtuele StorSimple-matrix rekening met de volgende factoren:
 
-* Lokale reservering voor volumes of shares. Ongeveer 12% van de ruimte wordt gereserveerd op de lokale laag voor elke betreffende gelaagde volume of share. 10% van de ruimte is ongeveer ook gereserveerd voor een lokaal vastgemaakt volume voor file system.
-* Snapshot-overhead. Ongeveer is 15% ruimte op de lokale laag gereserveerd voor momentopnamen.
-* U hoeft voor herstelbewerkingen. Als herstel als een nieuwe bewerking uitvoert, moet sizing account voor de ruimte die nodig zijn om te herstellen. Terugzetten is uitgevoerd op een share of het volume van dezelfde grootte.
-* Sommige buffer moet worden toegewezen voor eventuele onverwachte groei.
+* Lokale reserve ring voor volumes of shares. Ongeveer 12% van de ruimte wordt gereserveerd op de lokale laag voor elk ingericht volume of een gelaagde share. Ongeveer 10% van de ruimte wordt ook gereserveerd voor een lokaal vastgemaakt volume voor het bestands systeem.
+* Overhead van moment opnamen. Ongeveer 15% ruimte op de lokale laag is gereserveerd voor moment opnamen.
+* Moet worden hersteld. Als u herstellen als een nieuwe bewerking uitvoert, moet u de grootte van de ruimte die nodig is voor herstel wijzigen. De herstel bewerking wordt uitgevoerd op een share of een volume met dezelfde grootte.
+* Voor elke onverwachte groei moet een buffer worden toegewezen.
 
-Op basis van de voorgaande factoren, worden de vereisten voor volumegrootte vertegenwoordigd door de volgende vergelijking:
+Op basis van de voor gaande factoren kunnen de vereisten voor de grootte worden weer gegeven met de volgende vergelijking:
 
 `Total usable local disk size = (Total provisioned locally pinned volume/share size including space for file system) + (Max (local reservation for a volume/share) for all tiered volumes/share) + (Local reservation for all tiered volumes/shares)`
 
 `Data disk size = Total usable local disk size + Snapshot overhead + buffer for unexpected growth or new share or volume`
 
-De volgende voorbeelden laten zien hoe u kunt het formaat van een virtuele matrix op basis van uw vereisten.
+In de volgende voor beelden ziet u hoe u het formaat van een virtuele matrix kunt aanpassen op basis van uw vereisten.
 
 #### <a name="example-1"></a>Voorbeeld 1:
-Op uw virtuele array die u wilt mogelijk
+U kunt in uw virtuele matrix het beste
 
-* richt een 2 TB gelaagd volume of share.
-* richt een gelaagd volume 1 TB of de share.
-* richt een 300 GB van lokaal vastgemaakte volume of share.
+* richt een gelaagd volume of een share van 2 TB in.
+* richt een volume of share van 1 TB in de laag in.
+* richt een lokaal vastgemaakt volume of share in van 300 GB.
 
-Voor de voorgaande volumes of shares, de vrije ruimte nodig op de lokale laag om ons hierover te berekenen.
+Voor de voor gaande volumes of shares, laten we de ruimte vereisten op de lokale laag berekenen.
 
-Eerst, voor elke gelaagde volume/delen, lokale reservering zou gelijk zijn aan 12% van de grootte van de volume/bestandsshare. Lokale reservering is voor het lokaal vastgemaakte volume/delen, 10% van de grootte van de lokaal vastgemaakte volume/bestandsshare (naast de ingerichte grootte). In dit voorbeeld moet u
+Voor elke gelaagde volume/share is lokale reserve ring gelijk aan 12% van de grootte van het volume/de share. Voor de lokaal vastgemaakte volume/share is de lokale reserve ring 10% van de lokaal vastgemaakte volume/share grootte (naast de ingerichte grootte). In dit voor beeld hebt u het volgende nodig:
 
-* Lokale reservering 240 GB (voor een share/2 TB gelaagde volume)
-* Lokale reservering 120 GB (voor een share/1 TB gelaagde volume)
-* 330-GB voor lokaal vastgemaakte volume of share (10% van de lokale reservering toevoegen aan de grootte 300 GB ingericht)
+* 240-GB lokale reserve ring (voor een gelaagd volume/share van 2 TB)
+* 120-GB lokale reserve ring (voor een gelaagd volume/share van 1 TB)
+* 330-GB voor lokaal vastgemaakt volume of share (10% van lokale reserve ring toevoegen aan de ingerichte grootte van 300 GB)
 
-De totale ruimte vereist op de lokale laag tot nu toe is: 240 GB + 120 GB + 330 GB = 690 GB.
+De totale benodigde ruimte voor de lokale laag is tot nu toe: 240 GB + 120 GB + 330 GB = 690 GB.
 
-Ten tweede moet ten minste net zoveel ruimte op de lokale laag als de grootste één reservering. Deze extra hoeveelheid die wordt gebruikt als u wilt herstellen vanuit een cloudmomentopname. In dit voorbeeld is de grootste lokale reservering 330 GB (met inbegrip van de reservering voor file system), zodat u die aan de 690 GB toevoegen wilt: 690 GB + 330 GB = 1020 GB.
-Als we herstelt de volgende aanvullende uitgevoerd, kunnen we altijd de ruimte van de vorige herstelbewerking vrij.
+Ten tweede hebben we ten minste zoveel ruimte op de lokale laag als grootste enkele reserve ring nodig. Dit extra bedrag wordt gebruikt wanneer u een Cloud momentopname wilt herstellen. In dit voor beeld is de grootste lokale reserve ring 330 GB (inclusief reserve ring voor bestands systeem), zodat u deze toevoegt aan de 690 GB: 690 GB + 330 GB = 1020 GB.
+Als we verdere herstel bewerkingen hebben uitgevoerd, kunnen we de ruimte van de vorige terugzet bewerking altijd vrijmaken.
 
-Derde, moeten we 15% van uw totale lokale ruimte tot nu toe voor het opslaan van lokale momentopnamen, zodat alleen 85% van het beschikbaar is. In dit voorbeeld, dat zou zijn 1020 GB = 0.85&ast;ingerichte gegevensschijf TB. Dus de ingerichte gegevensschijf zou zijn (1020&ast;(1/0.85)) 1200 GB = 1,20 TB = ~ 1,25 TB (afronden naar de dichtstbijzijnde kwartiel)
+Ten derde hebben we 15% van uw totale lokale ruimte tot nu toe nodig voor het opslaan van lokale moment opnamen, zodat er slechts 85% van de schijf beschikbaar is. In dit voor beeld zou dat ongeveer 1020 GB = 0,85&ast;ingerichte gegevens schijf TB zijn. Daarom zou de ingerichte gegevens schijf (1020&ast;(1/0.85)) = 1200 GB = 1,20 TB ~ 1,25 TB (afronden op het dichtstbijzijnde kwartiel)
 
-Waarbij u rekening houdt onverwachte groei en de nieuwe herstelt, moet u een lokale schijf van rond inrichten 1,25-1,5 TB.
+Voor de factor in onverwachte groei en nieuwe herstel bewerkingen moet u een lokale schijf van circa 1,25-1,5 TB inrichten.
 
 > [!NOTE]
-> We raden u ook aan de lokale schijf is dun ingericht. Deze aanbeveling is omdat de restore-ruimte is alleen nodig als u wilt herstellen van gegevens die ouder zijn dan vijf dagen. Herstel op itemniveau kunt u gegevens herstellen voor de afgelopen vijf dagen zonder de extra ruimte om te herstellen.
+> We raden u ook aan om de lokale schijf Thin provisioned. Deze aanbeveling is omdat de herstel ruimte alleen nodig is wanneer u gegevens wilt herstellen die ouder zijn dan vijf dagen. Met herstel op item niveau kunt u gegevens voor de afgelopen vijf dagen herstellen zonder dat de extra ruimte nodig is om te herstellen.
 
 
 #### <a name="example-2"></a>Voorbeeld 2:
-Op uw virtuele array die u wilt mogelijk
+U kunt in uw virtuele matrix het beste
 
-* inrichten van een gelaagd volume 2 TB
-* inrichten van een lokaal vastgemaakt volume van 300 GB
+* een gelaagd volume van 2 TB inrichten
+* een lokaal vastgemaakt volume van 300 GB inrichten
 
-Op basis van 12% van de lokale ruimte gereserveerd gelaagde volumes/shares en 10% voor lokaal vastgemaakte volumes/shares, moeten we
+Op basis van 12% van lokale ruimte reservering voor gelaagde volumes/shares en 10% voor lokaal vastgemaakte volumes/shares, moeten we
 
-* Lokale reservering 240 GB (gelaagd volume of andere share voor 2 TB)
-* 330-GB voor lokaal vastgemaakte volume of share (10% van de lokale reservering toevoegen aan de ruimte 300 GB ingericht)
+* 240-GB lokale reserve ring (voor 2 TB gelaagd volume/share)
+* 330-GB voor lokaal vastgemaakt volume of share (10% van lokale reserve ring toevoegen aan de ingerichte ruimte van 300 GB)
 
-De totale ruimte vereist op de lokale laag is: 240 GB + 330 GB = 570 GB
+De totale benodigde ruimte voor de lokale laag is: 240 GB + 330 GB = 570 GB
 
-De minimale lokale ruimte die nodig zijn voor de terugzetbewerking is 330 GB.
+De minimale lokale schijf ruimte die nodig is voor herstel is 330 GB.
 
-15% van de totale schijf wordt gebruikt voor het opslaan van momentopnamen, zodat alleen 0.85 beschikbaar is. De schijfgrootte is dus (900&ast;(1/0.85)) 1,06 TB = ~ 1,25 TB (afronden naar de dichtstbijzijnde kwartiel)
+15% van de totale schijf wordt gebruikt om moment opnamen op te slaan, zodat er slechts 0,85 beschikbaar is. De schijf grootte is dus (900&ast;(1/0.85)) = 1,06 TB ~ 1,25 TB (afronden op het dichtstbijzijnde kwartiel)
 
-Waarbij u rekening houdt een eventuele onverwachte groei, kunt u een lokale schijf 1,25-1,5 TB inrichten.
+Factor in een onverwachte groei kunt u een lokale schijf van 1,25-1,5 TB inrichten.
 
 ### <a name="group-policy"></a>Groepsbeleid
-Groepsbeleid is een infrastructuur waarmee u specifieke configuraties voor gebruikers en computers te implementeren. Instellingen voor Groepsbeleid zijn opgenomen in groepsbeleidsobjecten (GPO's), die zijn gekoppeld aan de volgende Active Directory Domain Services (AD DS)-containers: sites, domeinen of organisatie-eenheden (OU's). 
+Groepsbeleid is een infra structuur waarmee u specifieke configuraties kunt implementeren voor gebruikers en computers. Groepsbeleid-instellingen zijn opgenomen in groepsbeleid objecten (Gpo's) die zijn gekoppeld aan de volgende Active Directory Domain Services (AD DS) containers: sites, domeinen of organisatie-eenheden (Ou's). 
 
-Als uw virtuele array domein is, kunnen groepsbeleidsobjecten worden toegepast op deze. Deze groepsbeleidsobjecten kunnen toepassingen, zoals de antivirussoftware dit negatieve voor de werking van de StorSimple Virtual Array gevolgen kan installeren.
+Als uw virtuele matrix lid is van een domein, kunnen groeps beleidsobjecten hierop worden toegepast. Met deze groeps beleidsobjecten kunnen toepassingen worden geïnstalleerd, zoals een antivirus software die de werking van de virtuele StorSimple-matrix kan beïnvloeden.
 
-Daarom raden wij aan dat u:
+Daarom wordt u aangeraden:
 
-* Zorg ervoor dat uw virtuele matrix in de eigen organisatie-eenheid (OE) voor Active Directory.
-* Zorg ervoor dat er geen groepsbeleidsobjecten (GPO's) worden toegepast op uw virtuele matrix. U kunt overnemen om ervoor te zorgen dat de virtuele matrix (onderliggend knooppunt) niet automatisch geen GPO's van de bovenliggende overgenomen is blokkeren. Ga voor meer informatie naar [overname blokkeren](https://technet.microsoft.com/library/cc731076.aspx).
+* Zorg ervoor dat uw virtuele matrix zich in een eigen organisatie-eenheid (OE) bevindt voor Active Directory.
+* Zorg ervoor dat er geen groeps beleidsobjecten (Gpo's) worden toegepast op uw virtuele matrix. U kunt overname blok keren om ervoor te zorgen dat de virtuele matrix (onderliggend knoop punt) geen Gpo's automatisch overneemt van het bovenliggende item. Ga voor meer informatie naar de [overname blok keren](https://technet.microsoft.com/library/cc731076.aspx).
 
 ### <a name="networking"></a>Netwerken
-De netwerkconfiguratie voor uw virtuele array wordt gedaan door de lokale webgebruikersinterface. Een virtuele netwerkinterface wordt ingeschakeld via de hypervisor waarin de virtuele matrix is ingericht. Gebruik de [netwerkinstellingen](storsimple-virtual-array-deploy3-fs-setup.md) pagina voor het configureren van het virtuele netwerkinterface IP-adres, het subnet en de gateway.  U kunt ook de primaire en secundaire DNS-server, de instellingen voor tijd en de optionele proxy-instellingen configureren voor uw apparaat. De meeste van de configuratie van het netwerk is een eenmalige installatie. Controleer de [StorSimple netwerkvereisten](storsimple-ova-system-requirements.md#networking-requirements) vóór de implementatie van de virtuele matrix.
+De netwerk configuratie voor uw virtuele matrix wordt uitgevoerd via de lokale webgebruikersinterface. Een virtuele netwerk interface wordt ingeschakeld via de Hyper Visor waarin de virtuele matrix is ingericht. Gebruik de pagina [netwerk instellingen](storsimple-virtual-array-deploy3-fs-setup.md) om het IP-adres, subnet en de gateway van de virtuele netwerk interface te configureren.  U kunt ook de primaire en secundaire DNS-server, tijd instellingen en optionele proxy-instellingen voor uw apparaat configureren. De meeste netwerk configuratie is een eenmalige installatie. Bekijk de [StorSimple-netwerk vereisten](storsimple-ova-system-requirements.md#networking-requirements) voordat u de virtuele matrix implementeert.
 
-Bij het implementeren van uw virtuele array wordt u aangeraden dat u deze aanbevolen procedures volgt:
+Wanneer u uw virtuele matrix implementeert, wordt u aangeraden deze aanbevolen procedures te volgen:
 
-* Zorg ervoor dat het netwerk waarin de virtuele matrix altijd is geïmplementeerd de capaciteit te reserveren voor 5 Mbps bandbreedte met Internet (of meer).
+* Zorg ervoor dat het netwerk waarin de virtuele matrix wordt geïmplementeerd, altijd de capaciteit heeft voor het toewijzen van 5 Mbps internet bandbreedte (of meer).
   
-  * Internet bandbreedte nodig zijn, is afhankelijk van de kenmerken van de werkbelasting en de wijzigingssnelheid van gegevens.
-  * De gegevenswijziging die kan worden verwerkt is rechtstreeks in verhouding met uw internetbandbreedte. Als u bijvoorbeeld bij het nemen van een back-up aankan een 5 Mbps bandbreedte een gegevenswijziging van ongeveer 18 GB in 8 uur. Met vier keer meer bandbreedte (Mbps 20), kunt u vier keer meer gegevens wijzigen (72 GB) verwerken.
-* Zorg ervoor dat de verbinding met Internet is altijd beschikbaar. Er kunnen sporadisch of onbetrouwbare Internet-verbindingen met de apparaten kunnen leiden tot verlies van toegang tot gegevens in de cloud en kunnen leiden tot een niet-ondersteunde configuratie.
-* Als u van plan bent uw apparaat als een iSCSI-server implementeren:
+  * De Internet bandbreedte moet variëren, afhankelijk van de kenmerken van de werk belasting en de frequentie waarmee gegevens worden gewijzigd.
+  * De gegevens wijziging die kan worden verwerkt, is rechtstreeks evenredig met uw Internet bandbreedte. Een voor beeld van het maken van een back-up is een 5 Mbps-band breedte die een gegevens wijziging van circa 18 GB in acht uur kan bevatten. Met vier maal meer band breedte (20 Mbps) kunt u vier keer zoveel gegevens wijziging afhandelen (72 GB).
+* Zorg ervoor dat de verbinding met Internet altijd beschikbaar is. Sporadische of onbetrouwbare Internet verbindingen met de apparaten kunnen leiden tot verlies van toegang tot gegevens in de Cloud. Dit kan leiden tot een niet-ondersteunde configuratie.
+* Als u van plan bent om uw apparaat te implementeren als een iSCSI-server:
   
-  * Het is raadzaam dat u CredSSP de **IP-adres automatisch ophalen** optie (DHCP).
-  * Statische IP-adressen configureren. U moet een primaire en secundaire DNS-server configureren.
-  * Als u meerdere netwerkinterfaces definieert op uw virtuele matrix, alleen de eerste netwerkinterface (deze interface is standaard **Ethernet**) de cloud kunt bereiken. Voor het beheren van het type verkeer, kunt u meerdere virtuele netwerkinterfaces maken op uw virtuele array (geconfigureerd als een iSCSI-server) en deze interfaces verbinden met verschillende subnetten.
-* Alleen de cloud-bandbreedte beperken (gebruikt door de virtuele matrix), beperkingen op de router of de firewall configureren. Als u de beperkingen in de hypervisor definieert, wordt het beperken van alle protocollen, waaronder iSCSI- en SMB in plaats van alleen de bandbreedte van de cloud.
-* Zorg ervoor dat tijdsynchronisatie voor hypervisors is ingeschakeld. Als u Hyper-V gebruikt, selecteert u uw virtuele array in de Hyper-V-beheer, gaat u naar **instellingen &gt; Integration Services**, en zorg ervoor dat de **tijdsynchronisatie** is ingeschakeld.
+  * We raden u aan de optie **automatisch IP-adres ophalen** (DHCP) uit te scha kelen.
+  * Statische IP-adressen configureren. U moet een primaire en een secundaire DNS-server configureren.
+  * Als u meerdere netwerk interfaces in uw virtuele matrix definieert, kan alleen de eerste netwerk interface (standaard deze interface is **Ethernet**) de Cloud bereiken. Als u het type verkeer wilt beheren, kunt u meerdere virtuele netwerk interfaces maken op uw virtuele array (geconfigureerd als een iSCSI-server) en die interfaces verbinden met verschillende subnetten.
+* Als u de Cloud bandbreedte alleen wilt beperken (gebruikt door de virtuele matrix), configureert u beperking op de router of de firewall. Als u een beperking in uw Hyper Visor definieert, worden alle protocollen met inbegrip van iSCSI en SMB beperkt in plaats van alleen de Cloud bandbreedte.
+* Zorg ervoor dat tijd synchronisatie voor Hyper Visor is ingeschakeld. Als u Hyper-v gebruikt, selecteert u uw virtuele matrix in de hyper-v-beheer, gaat u naar **instellingen &gt; integratie Services**en zorgt u ervoor dat de **tijd synchronisatie** wordt gecontroleerd.
 
 ### <a name="storage-accounts"></a>Opslagaccounts
-StorSimple Virtual Array kan worden gekoppeld aan één opslagaccount. Dit opslagaccount kan een automatisch gegenereerde storage-account, een account in hetzelfde abonnement als de service, of een opslagaccount met betrekking tot een ander abonnement. Zie voor meer informatie over het [opslagaccounts voor uw virtuele array beheren](storsimple-virtual-array-manage-storage-accounts.md).
+De virtuele StorSimple-matrix kan worden gekoppeld aan één opslag account. Dit opslag account kan een automatisch gegenereerd opslag account zijn, een account in hetzelfde abonnement als de service of een opslag account dat is gerelateerd aan een ander abonnement. Zie [opslag accounts beheren voor uw virtuele matrix](storsimple-virtual-array-manage-storage-accounts.md)voor meer informatie.
 
-Gebruik de volgende aanbevelingen voor storage-accounts die zijn gekoppeld aan uw virtuele matrix.
+Gebruik de volgende aanbevelingen voor opslag accounts die zijn gekoppeld aan uw virtuele matrix.
 
-* Bij het koppelen van meerdere virtuele matrices met een enkel opslagaccount, factor in de maximale capaciteit (64 TB) voor een virtuele matrix en de maximale grootte (500 TB) voor een opslagaccount. Dit beperkt het aantal op volledige grootte virtuele matrices die gekoppeld aan dit account naar ongeveer 7 worden kan.
-* Bij het maken van een nieuw opslagaccount
+* Wanneer u meerdere virtuele matrices met één opslag account koppelt, wordt de factor in de maximum capaciteit (64 TB) voor een virtuele matrix en de maximale grootte (500 TB) voor een opslag account. Hiermee wordt het aantal virtuele matrices met volledige grootte die aan dat opslag account kunnen worden gekoppeld, beperkt tot ongeveer 7.
+* Bij het maken van een nieuw opslag account
   
-  * Het is raadzaam dat u dit in de regio die het dichtst bij de externe kantoren/filialen office waar uw StorSimple Virtual Array wordt geïmplementeerd maken op de latentie te minimaliseren.
-  * Houd er rekening mee dat u kunt een storage-account niet tussen verschillende regio's verplaatsen. U kunt ook een service niet verplaatsen tussen abonnementen.
-  * Gebruik een opslagaccount waarmee de redundantie tussen de datacentra. Geografisch redundante opslag (GRS), Zone Redundant Storage (ZRS) en lokaal redundante opslag (LRS) worden alle ondersteund voor gebruik met uw virtuele matrix. Voor meer informatie over de verschillende typen opslagaccounts, gaat u naar [Azure storage-replicatie](../storage/common/storage-redundancy.md).
+  * We raden u aan deze te maken in de regio die het dichtst bij het externe kantoor/filiaal waar uw virtuele StorSimple-matrix wordt geïmplementeerd om latentie te minimaliseren.
+  * Houd er rekening mee dat u een opslag account niet over verschillende regio's kunt verplaatsen. U kunt ook geen service verplaatsen tussen abonnementen.
+  * Gebruik een opslag account dat redundantie tussen de data centers implementeert. Geografisch redundante opslag (GRS), zone-redundante opslag (ZRS) en lokaal redundante opslag (LRS) worden ondersteund voor gebruik met uw virtuele matrix. Ga naar [Azure storage-replicatie](../storage/common/storage-redundancy.md)voor meer informatie over de verschillende soorten opslag accounts.
 
 ### <a name="shares-and-volumes"></a>Shares en volumes
-U kunt voor uw StorSimple Virtual Array shares inrichten wanneer deze is geconfigureerd als een bestandsserver en de volumes uit wanneer geconfigureerd als een iSCSI-server. De aanbevolen procedures voor het maken van bestandsshares en volumes zijn gerelateerd aan de grootte en het type dat is geconfigureerd.
+U kunt voor uw virtuele StorSimple-matrix shares inrichten wanneer deze is geconfigureerd als een bestands server en volumes wanneer deze zijn geconfigureerd als een iSCSI-server. De aanbevolen procedures voor het maken van shares en volumes zijn gerelateerd aan de grootte en het type dat is geconfigureerd.
 
-#### <a name="volumeshare-size"></a>Grootte van de volume/bestandsshare
-U kunt op uw virtuele array shares inrichten wanneer deze is geconfigureerd als een bestandsserver en de volumes uit wanneer geconfigureerd als een iSCSI-server. De aanbevolen procedures voor het maken van bestandsshares en volumes hebben betrekking op de grootte en het type dat is geconfigureerd. 
+#### <a name="volumeshare-size"></a>Grootte van volume/share
+U kunt in uw virtuele matrix shares inrichten wanneer deze is geconfigureerd als een bestands server en volumes wanneer deze zijn geconfigureerd als een iSCSI-server. De aanbevolen procedures voor het maken van shares en volumes zijn gerelateerd aan de grootte en het type dat is geconfigureerd. 
 
-Houd rekening met de volgende aanbevolen procedures bij het inrichten van shares of volumes op uw virtuele apparaat.
+Let op de volgende aanbevolen procedures bij het inrichten van shares of volumes op het virtuele apparaat.
 
-* De bestandsgrootte ten opzichte van de ingerichte grootte van een gelaagde share kunnen de cloudlagen prestaties beïnvloeden. Werken met grote bestanden kan leiden tot een trage laag uitschalen. Als u werkt met grote bestanden, wordt u aangeraden het grootste bestand kleiner is dan 3% van de grootte van de bestandsshare is.
-* Maximaal 16 volumes/shares kan worden gemaakt voor de virtuele matrix. Voor de maximale grootte van de lokaal vastgemaakte als gelaagde volumes/shares, altijd verwijzen naar de [StorSimple Virtual Array beperkt](storsimple-ova-limits.md).
-* Bij het maken van een volume, rekening houden in de verwachte gegevensverbruik, evenals de toekomstige groei. Het volume kan niet later worden uitgebreid.
-* Als het volume eenmaal is gemaakt, kunt u de grootte van het volume op StorSimple niet verkleinen.
-* Bij het schrijven naar een gelaagd volume op StorSimple, wanneer de gegevens op het volume een bepaalde drempelwaarde (ten opzichte van de lokale ruimte die is gereserveerd voor het volume) bereikt, wordt de i/o beperkt. U verdergaat met het schrijven naar dit volume vertraagt de i/o aanzienlijk. Hoewel u kunt schrijven naar een gelaagd volume buiten de ingerichte capaciteit (we niet actief stopt de gebruiker schrijven buiten de ingerichte capaciteit), ziet u een waarschuwing naar het effect dat u hebt oversubscribed. Als u de waarschuwing ziet, is het van essentieel belang dat u corrigerende maatregelen, zoals verwijderen gegevens op het volume treffen (volume-uitbreiding is momenteel niet ondersteund).
-* Voor disaster recovery van use cases, zoals het aantal toegestane shares/volumes 16 is en het maximum aantal shares/volumes die parallel kunnen worden verwerkt ook 16 is, heeft het aantal shares/volumes geen invloed op uw RPO en RTO's ingezet.
+* De bestands grootte ten opzichte van de ingerichte grootte van een gelaagde share kan invloed hebben op de prestaties van de lagen. Het werken met grote bestanden kan resulteren in een langzame laag. Wanneer u werkt met grote bestanden, raden we aan dat het grootste bestand kleiner is dan 3% van de share grootte.
+* Er kunnen Maxi maal 16 volumes/shares worden gemaakt op de virtuele matrix. Voor de maximale grootte van de lokaal vastgemaakte en gelaagde volumes/shares raadpleegt u altijd de limieten voor de [virtuele StorSimple-matrix](storsimple-ova-limits.md).
+* Bij het maken van een volume moet u rekening houden met het verwachte gegevens verbruik en de toekomstige groei. Het volume kan niet later worden uitgebreid.
+* Zodra het volume is gemaakt, kunt u de grootte van het volume op StorSimple niet verkleinen.
+* Wanneer u naar een gelaagd volume op StorSimple schrijft en de volume gegevens een bepaalde drempel waarde bereiken (ten opzichte van de lokale ruimte die voor het volume is gereserveerd), wordt de i/o beperkt. Als u doorgaat met schrijven naar dit volume, wordt de IO aanzienlijk vertraagd. Hoewel u kunt schrijven naar een gelaagd volume dat groter is dan de ingerichte capaciteit (de gebruiker niet actief stopt met het schrijven van de ingerichte capaciteit), ziet u een waarschuwings melding over het effect dat u hebt geabonneerd. Zodra u de waarschuwing ziet, is het van cruciaal belang dat u de herstel maatregelen uitvoert, zoals het verwijderen van de volume gegevens (volume uitbreiding wordt momenteel niet ondersteund).
+* Voor use cases voor herstel na nood gevallen, omdat het aantal toegestane shares/volumes 16 is en het maximum aantal shares/volumes dat parallel kan worden verwerkt, ook 16 is, is het aantal shares/volumes geen invloed op uw RPO en Rto's.
 
-#### <a name="volumeshare-type"></a>Volume/sharetype
-StorSimple ondersteunt twee volume of andere share typen op basis van het gebruik: lokaal vastgemaakt en lagen. Lokaal vastgemaakte volumes/shares zijn compact ingericht dat de gelaagde volumes/shares zijn thin provisioning. Een lokaal vastgemaakt volume of een andere share kan niet worden geconverteerd naar gelaagde of *omgekeerd* eenmaal is gemaakt.
+#### <a name="volumeshare-type"></a>Type volume/share
+StorSimple ondersteunt twee typen volume/share op basis van het gebruik: lokaal vastgemaakt en gelaagd. Lokaal vastgemaakte volumes/shares zijn dik ingericht, terwijl gelaagde volumes/shares Thin-provisioned zijn. U kunt een lokaal vastgemaakt volume/gedeelde map niet converteren naar gelaagd of *vice versa* .
 
-U wordt aangeraden dat u de volgende aanbevolen procedures implementeren bij het configureren van StorSimple-volumes/shares:
+We raden u aan de volgende aanbevolen procedures te implementeren bij het configureren van StorSimple-volumes/-shares:
 
-* Geef het volume dat op basis van de werkbelastingen die u implementeren wilt voordat u een volume maken. Gebruik lokaal vastgemaakte volumes voor workloads waarvoor lokale garanties van gegevens (zelfs tijdens een storing in de cloud) en die de cloud met lage latentie vereisen. Als u een volume op uw virtuele array maakt, u kunt het volumetype niet wijzigen van lokaal vastgemaakt aan gelaagde of *omgekeerd*. Als u bijvoorbeeld lokaal vastgemaakte volumes maken bij het implementeren van de SQL-werkbelastingen of werkbelastingen hosten van virtuele machines (VM's); Gebruik gelaagde volumes voor file share werkbelastingen.
+* Bepaal het volume type op basis van de werk belastingen die u wilt implementeren voordat u een volume maakt. Lokaal vastgemaakte volumes gebruiken voor werk belastingen die lokale garanties van gegevens vereisen (zelfs tijdens een storing in de Cloud) en waarvoor lage Cloud latenties zijn vereist. Zodra u een volume op uw virtuele matrix hebt gemaakt, kunt u het volume type niet meer wijzigen van lokaal vastgemaakt naar gelaagd of *vice versa*. Maak een voor beeld van lokaal vastgemaakte volumes bij het implementeren van SQL-workloads of workloads die als host fungeren voor virtuele machines (Vm's). gebruik gelaagde volumes voor workloads voor bestands shares.
 
 
 #### <a name="volume-format"></a>Volume-indeling
-Nadat u StorSimple-volumes op de iSCSI-server, die u wilt initialiseren, koppelen en formatteren van de volumes. Met deze bewerking wordt uitgevoerd op de host verbonden is met uw StorSimple-apparaat. Bij koppelen en formatteren van volumes op de host StorSimple is het raadzaam om volgende aanbevolen procedures te volgen.
+Nadat u StorSimple-volumes op uw iSCSI-server hebt gemaakt, moet u de volumes initialiseren, koppelen en Format teren. Deze bewerking wordt uitgevoerd op de host die is verbonden met uw StorSimple-apparaat. De volgende aanbevolen procedures worden aanbevolen bij het koppelen en Format teren van volumes op de StorSimple-host.
 
-* Voer een snelle formattering uit op alle StorSimple-volumes.
-* Bij het opmaken van een StorSimple-volume, gebruikt u een grootte van toewijzingseenheid (AU's) van 64 KB (de standaardwaarde is 4 KB). De 64 KB AU's dat is gebaseerd op tests uitgevoerd intern voor StorSimple werkvolumesystemen en andere werkbelastingen.
-* Wanneer u de StorSimple Virtual Array geconfigureerd als een iSCSI-server, gebruik geen spanned volumes of dynamische schijven als deze volumes of schijven worden niet ondersteund door StorSimple.
+* Voer een snelle indeling uit op alle StorSimple-volumes.
+* Gebruik bij het format teren van een StorSimple-volume een Allocation Unit Size (AUS) van 64 KB (de standaard waarde is 4 KB). De 64 KB AUS is gebaseerd op het uitvoeren van tests die intern worden uitgevoerd voor veelvoorkomende StorSimple-workloads en andere workloads.
+* Wanneer u de virtuele StorSimple-matrix gebruikt die is geconfigureerd als een iSCSI-server, mag u geen spanned volumes of dynamische schijven gebruiken omdat deze volumes of schijven niet worden ondersteund door StorSimple.
 
-#### <a name="share-access"></a>Bestandsshare-toegang
-Bij het maken van shares op uw virtuele matrix-bestandsserver, volgt u deze richtlijnen:
+#### <a name="share-access"></a>Toegang delen
+Volg de volgende richt lijnen bij het maken van shares op de bestands server van de virtuele matrix:
 
-* Bij het maken van een share, moet u een gebruikersgroep toewijzen als de beheerder van een share in plaats van één gebruiker.
-* Nadat de share is gemaakt door de shares via Windows Verkenner te bewerken, kunt u de NTFS-machtigingen beheren.
+* Wanneer u een share maakt, moet u een gebruikers groep toewijzen als share beheerder in plaats van één gebruiker.
+* U kunt de NTFS-machtigingen beheren nadat de share is gemaakt door de shares te bewerken via Windows Verkenner.
 
-#### <a name="volume-access"></a>Volumetoegang
-Bij het configureren van de iSCSI-volumes op uw StorSimple Virtual Array, is het belangrijk om toegang te bepalen waar nodig. Om te bepalen welke hostservers toegang hebben tot de volumes, maken en koppelen van access control records (ACR's) met StorSimple-volumes.
+#### <a name="volume-access"></a>Volume toegang
+Bij het configureren van de iSCSI-volumes op uw virtuele StorSimple-matrix, is het belang rijk om de toegang te beheren waar nodig. Om te bepalen welke hostservers toegang hebben tot volumes, maakt en koppelt u Access Control records (ACRs) met StorSimple-volumes.
 
-Gebruik de volgende aanbevolen procedures bij het configureren van ACR's voor StorSimple-volumes:
+Gebruik de volgende aanbevolen procedures bij het configureren van ACRs voor StorSimple-volumes:
 
-* Altijd ten minste één ACR koppelen met een volume.
+* Koppel altijd ten minste één ACR aan een volume.
 
-* Bij het toewijzen van meer dan één ACR naar een volume, zorg ervoor dat het volume niet beschikbaar is in een manier waarbij gelijktijdig door meer dan één niet-geclusterde host kunnen worden geopend. Als u meerdere ACR's naar een volume, verschijnt een waarschuwingsbericht ter controle van uw configuratie.
+* Wanneer u meer dan een ACR aan een volume toewijst, moet u ervoor zorgen dat het volume niet wordt weer gegeven op een manier waar het gelijktijdig kan worden geopend door meer dan één niet-geclusterde host. Als u meerdere ACRs hebt toegewezen aan een volume, wordt er een waarschuwings bericht weer gegeven waarin u uw configuratie kunt controleren.
 
 ### <a name="data-security-and-encryption"></a>Gegevensbeveiliging en -versleuteling
-Uw StorSimple Virtual Array is beveiliging en versleuteling gegevensfuncties die ervoor zorgen de vertrouwelijkheid en integriteit van uw gegevens dat. Wanneer u deze functies gebruikt, wordt het aanbevolen dat u deze aanbevolen procedures volgt: 
+Uw virtuele StorSimple-matrix bevat functies voor gegevens beveiliging en-versleuteling die ervoor zorgen dat de vertrouwelijkheid en integriteit van uw gegevens worden gegarandeerd. Wanneer u deze functies gebruikt, is het raadzaam deze aanbevolen procedures te volgen: 
 
-* Definieer een coderingssleutel voor cloudopslag voor het genereren van AES-256-codering voordat de gegevens van uw virtuele array wordt verzonden naar de cloud. Deze sleutel is niet vereist als uw gegevens begint met is versleuteld. De sleutel kan worden gegenereerd en veilig met een sleutelbeheersysteem zoals bewaard [Azure sleutelkluis](../key-vault/key-vault-whatis.md).
-* Bij het configureren van de storage-account via de StorSimple Manager-service, zorg ervoor dat u de SSL-modus voor het maken van een beveiligd kanaal voor netwerkcommunicatie tussen uw StorSimple-apparaat en de cloud inschakelen.
-* Sleutels opnieuw genereren de voor uw storage-accounts (door het openen van de Azure Storage-service) periodiek naar rekening gehouden met eventuele wijzigingen voor toegang tot op basis van de gewijzigde lijst met beheerders.
-* Gegevens op uw virtuele array wordt gecomprimeerd en ontdubbeld voordat deze wordt verzonden naar Azure. U kunt beter geen de functieservice Gegevensontdubbeling op uw Windows Server-host.
+* Definieer een versleutelings sleutel voor de Cloud opslag om AES-256-versleuteling te genereren voordat de gegevens vanuit uw virtuele matrix naar de cloud worden verzonden. Deze sleutel is niet vereist als uw gegevens zijn versleuteld om te beginnen met. U kunt de sleutel genereren en veilig houden met behulp van een sleutel beheersysteem, zoals [Azure Key kluis](../key-vault/key-vault-whatis.md).
+* Wanneer u het opslag account via de StorSimple Manager-service configureert, moet u ervoor zorgen dat u de SSL-modus inschakelt om een beveiligd kanaal te maken voor netwerk communicatie tussen uw StorSimple-apparaat en de Cloud.
+* Genereer regel matig de sleutels voor uw opslag accounts (door de Azure Storage-service opnieuw te openen) om eventuele wijzigingen in toegang te krijgen op basis van de gewijzigde lijst met beheerders.
+* Gegevens in uw virtuele matrix worden gecomprimeerd en ontdubbeld voordat deze naar Azure worden verzonden. Het wordt niet aangeraden de functie Service Gegevensontdubbeling te gebruiken op uw Windows Server-host.
 
-## <a name="operational-best-practices"></a>Aanbevolen operationele procedures
-De aanbevolen procedures zijn richtlijnen die moeten worden gevolgd tijdens het dagelijkse beheer of de werking van de virtuele matrix. Deze procedures betrekking hebben op specifieke beheertaken zoals het maken van back-ups herstellen vanuit een back-upset, uitvoeren van een failover, deactiveren en verwijderen van de matrix, gebruik van het bestandssysteem en de status controleren en het uitvoeren van virus scant op uw virtuele matrix.
+## <a name="operational-best-practices"></a>Aanbevolen procedures voor operationeel
+De aanbevolen procedures voor het werk zijn richt lijnen die moeten worden gevolgd tijdens het dagelijks beheer of de werking van de virtuele matrix. Deze procedures beslaan specifieke beheer taken, zoals het maken van back-ups, het herstellen van een back-upset, het uitvoeren van een failover, het deactiveren en verwijderen van de matrix, het bewaken van het systeem gebruik en de status en het uitvoeren van virus scans op uw virtuele matrix.
 
 ### <a name="backups"></a>Back-ups
-De gegevens op uw virtuele array de back-up naar de cloud op twee manieren, een standaard automatische dagelijkse back-up van het hele apparaat starten om 22:30 of via een handmatige back-up op aanvraag. Standaard maakt het apparaat automatisch dagelijkse cloudmomentopnamen van alle gegevens die zich hierop bevindt. Ga voor meer informatie naar [maakt u een back-up van uw StorSimple Virtual Array](storsimple-virtual-array-backup.md).
+De gegevens in uw virtuele matrix worden op twee manieren in de cloud opgeslagen: een standaard geautomatiseerde dagelijkse back-up van het hele apparaat vanaf 22:30 of via een hand matige back-up op aanvraag. Standaard maakt het apparaat automatisch dagelijkse Cloud momentopnamen van alle gegevens die zich hierop bevinden. Ga voor meer informatie naar [een back-up van de virtuele StorSimple-matrix maken](storsimple-virtual-array-backup.md).
 
-De frequentie en de retentie die zijn gekoppeld aan de standaard back-ups kunnen niet worden gewijzigd, maar u kunt configureren dat de tijd waarop de dagelijkse back-ups dagelijks zijn gestart. Bij het configureren van de begintijd voor de automatische back-ups, raden wij aan dat:
+De frequentie en de retentie die zijn gekoppeld aan de standaard back-ups kunnen niet worden gewijzigd, maar u kunt de tijd configureren waarop de dagelijkse back-ups elke dag worden geïnitieerd. Bij het configureren van de begin tijd voor de automatische back-ups wordt aangeraden:
 
-* Uw back-ups plannen voor daluren. Begintijd back-up moet niet overeenkomen met talrijke i/o-host.
-* Start een handmatige back-up op aanvraag wanneer u wilt uitvoeren van een failover van het apparaat of vóór het onderhoudsvenster om de gegevens op uw virtuele array te beveiligen.
+* Plan uw back-ups voor daluren. De begin tijd van de back-up mag niet samen vallen met een groot aantal IO-bewerkingen.
+* Start een hand matige back-up op aanvraag wanneer u een failover van een apparaat of voorafgaand aan het onderhouds venster wilt uitvoeren om de gegevens op uw virtuele matrix te beveiligen.
 
 ### <a name="restore"></a>Herstellen
-U kunt herstellen vanuit een back-upset op twee manieren: terugzetten naar een ander volume of share of een herstel op itemniveau (alleen beschikbaar op een virtuele matrix die is geconfigureerd als een bestandsserver) uit te voeren. Herstel op itemniveau kunt u een gedetailleerde herstel van bestanden en mappen van een cloudback-up van alle shares op het StorSimple-apparaat. Ga voor meer informatie naar [herstellen vanaf een back-up](storsimple-virtual-array-clone.md).
+U kunt op twee manieren een back-upset herstellen: herstel op een ander volume of deel of voer een herstel op item niveau uit (alleen beschikbaar voor een virtuele matrix die is geconfigureerd als een bestands server). Met herstel op item niveau kunt u een gedetailleerd herstel van bestanden en mappen uitvoeren vanuit een Cloud back-up van alle shares op het StorSimple-apparaat. Ga voor meer informatie naar [herstellen vanuit een back-up](storsimple-virtual-array-clone.md).
 
-Bij het uitvoeren van een herstelpunt, houd rekening met de volgende richtlijnen:
+Houd bij het uitvoeren van een herstel bewerking de volgende richt lijnen in acht:
 
-* Uw StorSimple Virtual Array biedt geen ondersteuning voor in-place herstellen. Dit echter gemakkelijk kan worden bereikt door een proces in twee stappen: Maak ruimte op de virtuele matrix en vervolgens herstelt naar een ander volume of andere share.
-* Bij het herstellen van een lokaal volume, houd er rekening mee worden het terugzetten van een langdurige bewerking. Hoewel het volume kan snel online is, blijven de gegevens op de achtergrond worden gemigreerd.
-* Het volumetype blijft hetzelfde tijdens het herstelproces. Een gelaagd volume wordt hersteld naar een ander gelaagde volume en een lokaal vastgemaakt volume naar een ander lokaal vastgemaakt volume.
-* Wanneer u een volume of een share herstellen vanuit een back-up wilt instellen, als de hersteltaak is mislukt, een doelvolume of share nog steeds kan worden gemaakt in de portal. Het is belangrijk dat u deze niet-gebruikte doelvolume verwijderen of de share in de portal voor het minimaliseren van toekomstige problemen die ontstaan van dit element.
+* De virtuele StorSimple-matrix biedt geen ondersteuning voor in-place herstel bewerkingen. Dit kan echter worden gerealiseerd door een proces met twee stappen: Maak ruimte vrij op de virtuele matrix en herstel vervolgens naar een ander volume of een andere share.
+* Houd er rekening mee dat bij het herstellen van een lokaal volume een langlopende bewerking wordt uitgevoerd. Hoewel het volume snel online kan worden gebracht, worden de gegevens op de achtergrond blijvend gehydrateerd.
+* Het volume type blijft hetzelfde tijdens het herstel proces. Een gelaagd volume wordt hersteld naar een ander gelaagd volume en een lokaal vastgemaakt volume op een lokaal vastgemaakt volume.
+* Wanneer u probeert een volume of een share te herstellen vanuit een back-upset, kan het zijn dat er nog steeds een doel volume of-share in de portal is gemaakt als de herstel taak mislukt. Het is belang rijk dat u het ongebruikte doel volume of de share in de portal verwijdert om toekomstige problemen die voortvloeien uit dit element te minimaliseren.
 
-### <a name="failover-and-disaster-recovery"></a>Failover en herstel na noodgevallen
-Een failover van het apparaat kunt u uw gegevens migreert vanuit een *bron* apparaat in het datacenter naar de andere *doel* apparaat zich in hetzelfde of een andere geografische locatie. De failover van het apparaat is voor het hele apparaat. Tijdens de failover verandert de cloudgegevens voor het bronapparaat eigendom met die van het doelapparaat.
+### <a name="failover-and-disaster-recovery"></a>Failover en herstel na nood gevallen
+Met een failover van een apparaat kunt u uw gegevens van een *bron* apparaat in het Data Center migreren naar een ander *doel* apparaat dat zich op dezelfde of een andere geografische locatie bevindt. De failover van het apparaat is voor het hele apparaat. Tijdens de failover wijzigt de Cloud gegevens voor het bron apparaat het eigendom van het doel apparaat.
 
-Voor uw StorSimple Virtual Array, kunt u zich alleen failover naar een andere virtuele matrix beheerd door de dezelfde StorSimple Manager-service. Een failover naar een apparaat 8000-serie of een matrix beheerd door een andere StorSimple Manager-service (dan de versie van het bronapparaat) is niet toegestaan. Voor meer informatie over de failover-overwegingen, gaat u naar [vereisten voor de failover van het apparaat](storsimple-virtual-array-failover-dr.md).
+Voor uw virtuele StorSimple-matrix kunt u alleen een failover uitvoeren naar een andere virtuele matrix die wordt beheerd door dezelfde StorSimple Manager-service. Een failover naar een 8000 serie-apparaat of een matrix die wordt beheerd door een andere StorSimple Manager-service (dan die van het bron apparaat) is niet toegestaan. Ga naar [vereisten voor de failover van het apparaat](storsimple-virtual-array-failover-dr.md)voor meer informatie over de stappen voor de failover.
 
-Wanneer u een failover uitvoert via voor uw virtuele array, houd rekening met het volgende:
+Houd bij het uitvoeren van een failover voor uw virtuele matrix het volgende in acht:
 
-* Voor een geplande failover is een aanbevolen procedure te nemen van alle volumes/shares offline voordat de failover wordt gestart. De besturingssysteem-specifieke instructies voor de offline volumes/shares op de host eerst duren en vervolgens die offline zetten op het virtuele apparaat.
-* Voor een bestand managementserver na noodgeval (DR), wordt u aangeraden dat u het doelapparaat aan hetzelfde domein als de bron, toevoegen zodat de sharemachtigingen automatisch opgelost worden. Alleen de failover naar een doelapparaat in hetzelfde domein wordt ondersteund in deze release.
-* Nadat het herstel na Noodgevallen met succes is voltooid, wordt het bronapparaat automatisch verwijderd. Hoewel het apparaat niet meer beschikbaar is, wordt de virtuele machine die u hebt ingericht op het hostsysteem nog steeds resources verbruikt. Het is raadzaam dat u deze virtuele machine uit uw hostsysteem verwijderen om te voorkomen dat eventuele kosten oplopen.
-* Houd er rekening mee dat, zelfs als de failover mislukt is, **de gegevens in de cloud altijd veilig is**. Houd rekening met de volgende drie scenario's waarin de failover is niet voltooid:
+* Voor een geplande failover is het een aanbevolen best practice om alle volumes/shares offline te halen voordat de failover wordt gestart. Volg de specifieke instructies voor het besturings systeem om de volumes/shares eerst op de host offline te halen en deze vervolgens offline te zetten op het virtuele apparaat.
+* Voor een herstel na nood geval op een bestands server (DR) wordt u aangeraden het doel apparaat als bron toe te voegen aan hetzelfde domein, zodat de share machtigingen automatisch worden omgezet. In deze release wordt alleen de failover naar een doel apparaat in hetzelfde domein ondersteund.
+* Zodra de DR is voltooid, wordt het bron apparaat automatisch verwijderd. Hoewel het apparaat niet meer beschikbaar is, neemt de virtuele machine die u op het hostsysteem hebt ingericht nog steeds resources in beslag. We raden u aan deze virtuele machine te verwijderen van uw hostsysteem om te voor komen dat er kosten in rekening worden gebracht.
+* Houd er rekening mee dat zelfs als de failover is mislukt, **de gegevens altijd veilig zijn in de Cloud**. Houd rekening met de volgende drie scenario's waarin de failover niet is voltooid:
   
-  * Er is een fout opgetreden in de eerste fasen van de failover, zoals wanneer de voorcontroles voor het herstel na Noodgevallen worden uitgevoerd. In dit geval kan het doelapparaat nog steeds worden gebruikt. U kunt de failover op hetzelfde apparaat opnieuw proberen.
-  * Er is een fout opgetreden tijdens het werkelijke failover. In dit geval is het doelapparaat onbruikbaar gemarkeerd. U moet inrichten en een ander doel virtuele matrix configureren en gebruiken die voor failover.
-  * De failover is voltooid waarna het bronapparaat is verwijderd, maar het doelapparaat heeft problemen en u geen toegang tot gegevens. De gegevens in de cloud nog steeds veilig is en eenvoudig kan worden opgehaald door het maken van een andere virtuele matrix en vervolgens wordt gebruikt als een apparaat voor het herstel na Noodgevallen.
+  * Er is een fout opgetreden in de eerste fasen van de failover, zoals wanneer de pre-controles van DR worden uitgevoerd. In deze situatie is uw doel apparaat nog steeds bruikbaar. U kunt de failover opnieuw uitvoeren op hetzelfde doel apparaat.
+  * Er is een fout opgetreden tijdens het feitelijke failoverproces. In dit geval is het doel apparaat gemarkeerd als onbruikbaar. U moet een andere virtuele doel matrix inrichten en configureren en gebruiken voor failover.
+  * De failover is voltooid toen het bron apparaat werd verwijderd, maar het doel apparaat heeft problemen en u hebt geen toegang tot gegevens. De gegevens zijn nog steeds veilig in de Cloud en kunnen eenvoudig worden opgehaald door een andere virtuele matrix te maken en deze vervolgens als doel apparaat te gebruiken voor de DR.
 
-### <a name="deactivate"></a>deactiveren
-Wanneer u een StorSimple Virtual Array deactiveert, verbreekt u de verbinding tussen het apparaat en de bijbehorende StorSimple Manager-service. Deactivering is een **permanente** bewerking kan niet ongedaan worden gemaakt. Een gedeactiveerd apparaat kan niet opnieuw worden geregistreerd bij de StorSimple Manager-service. Ga voor meer informatie naar [deactiveren en verwijderen van uw StorSimple Virtual Array](storsimple-virtual-array-deactivate-and-delete-device.md).
+### <a name="deactivate"></a>Deactiveren
+Wanneer u een virtuele StorSimple-matrix deactiveert, verbreekt u de verbinding tussen het apparaat en de bijbehorende StorSimple Manager service. Deactivering is een **permanente** bewerking en kan niet ongedaan worden gemaakt. Een gedeactiveerd apparaat kan niet opnieuw worden geregistreerd bij de StorSimple Manager-service. Ga voor meer informatie naar deactiveren [en verwijder de virtuele StorSimple-matrix](storsimple-virtual-array-deactivate-and-delete-device.md).
 
-Houd er rekening mee met de volgende aanbevolen procedures bij het deactiveren van uw virtuele matrix:
+Houd bij het deactiveren van uw virtuele array de volgende aanbevolen procedures in acht:
 
-* Maakt u een cloudmomentopname van de gegevens voordat u een virtueel apparaat deactiveren. Wanneer u een virtuele matrix deactiveert, zijn alle gegevens van het lokale apparaat gaat verloren. Maken van een cloudmomentopname kunt u gegevens herstellen op een later tijdstip.
-* Voordat u een StorSimple Virtual Array deactiveert, beëindigt of verwijdert u clients en hosts die afhankelijk van dat apparaat zijn maken.
-* Een gedeactiveerd apparaat verwijderen als u niet langer gebruikt zodat deze kosten niet doorlopen.
+* Maak een Cloud momentopname van alle gegevens voordat u een virtueel apparaat deactiveert. Wanneer u een virtuele matrix deactiveert, gaan alle gegevens van het lokale apparaat verloren. Door een Cloud momentopname te maken, kunt u gegevens in een later stadium herstellen.
+* Voordat u een virtuele StorSimple-matrix deactiveert, moet u ervoor zorgen dat clients en hosts die afhankelijk zijn van dat apparaat, worden gestopt of verwijderd.
+* Een gedeactiveerd apparaat verwijderen als u niet meer gebruikt, zodat er geen kosten in rekening worden gebracht.
 
 ### <a name="monitoring"></a>Bewaking
-Om ervoor te zorgen dat uw StorSimple Virtual Array in een doorlopende status in orde is, moet u de matrix controleren en ervoor te zorgen dat u gegevens uit het systeem met inbegrip van waarschuwingen ontvangen. Implementeer de volgende aanbevolen procedures voor het controleren van de algemene status van de virtuele matrix:
+Om ervoor te zorgen dat uw virtuele StorSimple-matrix een voortdurende status heeft, moet u de matrix controleren en ervoor zorgen dat u informatie ontvangt van het systeem, inclusief waarschuwingen. Als u de algehele status van de virtuele matrix wilt bewaken, voert u de volgende aanbevolen procedures uit:
 
-* Bewaking voor het volgen van het schijfgebruik van de gegevensschijf van uw virtuele matrix, evenals de schijf met het besturingssysteem te configureren. Als Hyper-V wordt uitgevoerd, kunt u een combinatie van System Center Virtual Machine Manager (SCVMM) en System Center Operations Manager gebruiken voor het bewaken van uw virtualisatiehosts.
-* E-mailmeldingen configureren op uw virtuele array voor het verzenden van waarschuwingen op het gebruiksniveau van bepaalde.                                                                                                                                                                                                
+* Configureer bewaking om het schijf gebruik van de gegevens schijf van uw virtuele matrix en de besturingssysteem schijf bij te houden. Als Hyper-V wordt uitgevoerd, kunt u een combi natie van System Center Virtual Machine Manager (SCVMM) en System Center Operations Manager gebruiken om de virtualisatiehost te bewaken.
+* E-mail meldingen configureren voor uw virtuele matrix om waarschuwingen op bepaalde gebruiks niveaus te verzenden.                                                                                                                                                                                                
 
-### <a name="index-search-and-virus-scan-applications"></a>Zoeken op index en virus scan toepassingen
-Een StorSimple Virtual Array kan automatisch gegevens uit de lokale laag in de Microsoft Azure-cloud onderverdelen in lagen. Wanneer een toepassing zoals zoeken in een index of een virusscan wordt gebruikt voor het scannen van de gegevens die zijn opgeslagen op StorSimple, moet u om te zorgen dat de cloudgegevens niet ophalen geopend en terug naar de lokale laag worden opgehaald.
+### <a name="index-search-and-virus-scan-applications"></a>Index zoeken en virus scan toepassingen
+Met een virtuele StorSimple-matrix kunnen gegevens van de lokale laag automatisch worden gelaagd naar de Microsoft Azure Cloud. Wanneer een toepassing, zoals een index zoeken of een virus scan, wordt gebruikt voor het scannen van de gegevens die zijn opgeslagen op StorSimple, moet u ervoor zorgen dat de Cloud gegevens niet toegankelijk zijn en terugvallen op de lokale laag.
 
-U wordt aangeraden dat u de volgende aanbevolen procedures implementeren bij het configureren van de index zoeken of virus scan op uw virtuele matrix:
+U wordt aangeraden de volgende aanbevolen procedures te implementeren bij het configureren van de index zoekopdracht of virus scan in uw virtuele array:
 
-* Alle bewerkingen die worden automatisch geconfigureerde volledige scan uitschakelen.
-* Voor gelaagde volumes, de index zoeken of virus scan toepassing configureren voor een incrementele scannen. Dit zou scannen alleen de nieuwe gegevens waarschijnlijk die zich bevinden op de lokale laag. De gegevens die naar de cloud is gelaagd is niet geopend tijdens een incrementele bewerking.
-* Zorg ervoor dat de juiste zoekfilters en instellingen worden geconfigureerd zodat alleen de beoogde typen bestanden gescand ophalen. Bijvoorbeeld, afbeeldingsbestanden (JPEG, GIF- en TIFF-bestand) en technische tekeningen moet niet worden gecontroleerd tijdens de incrementele of volledige indexen.
+* Schakel alle automatisch geconfigureerde volledige scan bewerkingen uit.
+* Configureer voor gelaagde volumes de index-Zoek opdracht of virus scan toepassing om een incrementele scan uit te voeren. Hiermee worden alleen de nieuwe gegevens gescand die zich waarschijnlijk op de lokale laag bevinden. De gegevens die in de cloud worden gelaagd, zijn niet toegankelijk tijdens een incrementele bewerking.
+* Zorg ervoor dat de juiste Zoek filters en-instellingen zo zijn geconfigureerd dat alleen de beoogde bestands typen worden gescand. Afbeeldings bestanden (JPEG, GIF en TIFF) en technische tekeningen moeten bijvoorbeeld niet worden gescand tijdens het opnieuw opbouwen van de incrementele of volledige index.
 
-Als Windows process indexeren, volgt u deze richtlijnen:
+Als u Windows indexerings proces gebruikt, volgt u deze richt lijnen:
 
-* Gebruik de Windows-indexeerfunctie niet voor gelaagde volumes, zoals het grote hoeveelheden gegevens (TB) vanuit de cloud roept als de index moet vaak opnieuw worden opgebouwd. Opnieuw opbouwen van de index ophalen van alle bestandstypen wilt hun inhoud indexeren.
-* Gebruik de Windows-proces voor lokaal vastgemaakte volumes indexeren als dit alleen toegang gegevens op de lokale lagen om de index tot zou (de cloudgegevens wordt niet toegankelijk) te maken.
+* Gebruik de Windows-Indexeer functie voor gelaagde volumes niet als er grote hoeveel heden gegevens (TBs) worden teruggehaald uit de Cloud als de index vaak opnieuw moet worden opgebouwd. Als u de index opnieuw bouwt, worden alle bestands typen opgehaald om de inhoud ervan te indexeren.
+* Gebruik het Windows-indexerings proces voor lokaal vastgemaakte volumes, omdat hiermee alleen toegang wordt verkregen tot gegevens op de lokale lagen om de index te maken (de Cloud gegevens zijn niet toegankelijk).
 
-### <a name="byte-range-locking"></a>Vergrendelen van de byte-bereik
-Toepassingen kunnen vergrendelen van een opgegeven bereik van bytes binnen de bestanden. Als byte bereik vergrendeling is ingeschakeld op de toepassingen die zijn schrijven naar uw StorSimple, werkt klikt u vervolgens meerdere lagen niet op uw virtuele array. Voor de opslaglagen om te werken, moeten alle gebieden van de bestanden die benaderd worden ontgrendeld. Vergrendelen van de byte-bereik wordt met gelaagde volumes op uw virtuele array niet ondersteund.
+### <a name="byte-range-locking"></a>Vergren deling van byte bereik
+Toepassingen kunnen een opgegeven bereik aan bytes binnen de bestanden vergren delen. Als het vergren delen van het byte bereik is ingeschakeld voor de toepassingen die naar uw StorSimple schrijven, werkt de lagen niet in uw virtuele matrix. Als u wilt dat de lagen werken, moeten alle delen van de bestanden worden ontgrendeld. Het vergren delen van het bereik van bytes wordt niet ondersteund bij gelaagde volumes in uw virtuele matrix.
 
-Aanbevolen maatregelen te verlichten byte bereik vergrendelen zijn onder andere:
+De aanbevolen maat regelen om de vergrendeling van het bereik van bytes te beperken, zijn:
 
-* Bytebereik vergrendelen in uw toepassingslogica uitschakelen.
-* Gebruik lokaal vastgemaakt volumes (in plaats van lagen) voor de gegevens die zijn gekoppeld aan deze toepassing. Lokaal vastgemaakte volumes niet laag naar de cloud.
-* Wanneer met behulp van de volumes lokaal vastgemaakt met byte-bereik vergrendeling is ingeschakeld, kan het volume online komen voordat de herstelbewerking voltooid is. In dergelijke gevallen moet u wachten voor het terugzetten van worden voltooid.
+* Schakel de vergren deling van het byte bereik uit in uw toepassings logica.
+* Lokaal vastgemaakte volumes gebruiken (in plaats van gelaagd) voor de gegevens die zijn gekoppeld aan deze toepassing. Lokaal vastgemaakte volumes maken geen deel uit van de Cloud.
+* Bij het gebruik van lokaal vastgemaakte volumes met het vergren delen van het byte bereik is ingeschakeld, kan het volume online worden gezet voordat het herstel is voltooid. In deze gevallen moet u wachten tot de herstel bewerking is voltooid.
 
 ## <a name="multiple-arrays"></a>Meerdere matrices
-Meerdere virtuele matrices kunnen moet worden geïmplementeerd voor een account voor een groeiende werkset van gegevens die kunnen worden gelekt naar de cloud dus die betrekking hebben op de prestaties van het apparaat. In dergelijke gevallen is het is raadzaam op schaal apparaten terwijl de werkset groeit. Hiervoor moet een of meer apparaten moeten worden toegevoegd in de on-premises Datacenter. Bij het toevoegen van de apparaten, kunt u het volgende doen:
+Er moeten mogelijk meerdere virtuele matrices worden geïmplementeerd voor een groeiende werkset gegevens die de prestaties van het apparaat kunnen overlopen op de Cloud. In deze gevallen kunt u het beste apparaten schalen naarmate de werkset groeit. Hiervoor moeten een of meer apparaten worden toegevoegd in het on-premises Data Center. Wanneer u de apparaten toevoegt, kunt u het volgende doen:
 
-* De huidige set gegevens gesplitst.
-* Nieuwe werkbelastingen implementeert op nieuwe apparaten.
-* Als meerdere virtuele matrices implementeert, raden wij aan dat uit de taakverdeling perspectief van de matrix verdelen over verschillende hypervisorhosts.
-* Meerdere virtuele matrices (indien geconfigureerd als een bestandsserver of een iSCSI-server) kunnen worden geïmplementeerd in een Namespace Distributed File System. Ga voor gedetailleerde stappen naar [Distributed File System Namespace oplossing met Hybrid Cloud Storage Deployment Guide](https://www.microsoft.com/download/details.aspx?id=45507). Distributed File System Replication wordt momenteel niet aanbevolen voor gebruik met de virtuele matrix. 
+* De huidige gegevens verzameling splitsen.
+* Nieuwe werk belastingen implementeren op nieuwe apparaten.
+* Als u meerdere virtuele arrays implementeert, raden we u aan om de matrix te verdelen over verschillende Hyper Visor-hosts vanuit het perspectief voor taak verdeling.
+* Meerdere virtuele matrices (indien geconfigureerd als een bestands server of een iSCSI-server) kunnen worden geïmplementeerd in een Distributed File System naam ruimte. Ga voor gedetailleerde stappen naar [Distributed File System naam ruimte oplossing met de implementatie handleiding voor hybride Cloud opslag](https://www.microsoft.com/download/details.aspx?id=45507). Distributed File System replicatie wordt op dit moment niet aanbevolen voor gebruik met de virtuele matrix. 
 
 ## <a name="see-also"></a>Zie ook
-Meer informatie over het [beheren van uw StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md) via de StorSimple Manager-service.
+Meer informatie over het [beheren van uw StorSimple Virtual array](storsimple-virtual-array-manager-service-administration.md) via de StorSimple Manager-service.
 

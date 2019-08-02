@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 520e7fe953256e4c489e4c540493d9f74dda3aef
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 06194537a0c0cce3a52510e6f426a9c2904387b2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494361"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694345"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Een diep leer model implementeren voor demijnen met GPU
 
@@ -25,6 +25,9 @@ Detrainer of model Score is de fase waarin het geïmplementeerde model wordt geb
 
 > [!TIP]
 > Hoewel de code fragmenten in dit artikel een tensor flow-model usee, kunt u de gegevens Toep assen op elk machine learning Framework dat Gpu's ondersteunt.
+
+> [!NOTE]
+> De informatie in dit artikel is gebaseerd op de informatie in het artikel [Deploy to Azure Kubernetes service](how-to-deploy-azure-kubernetes-service.md) . Als dat artikel in het algemeen betrekking heeft op de implementatie van AKS, wordt in dit artikel een specifieke GPU-implementatie besproken.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -87,7 +90,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > In azure wordt u gefactureerd zolang het AKS-cluster bestaat. Zorg ervoor dat u uw AKS-cluster verwijdert wanneer u klaar bent.
 
-Voor meer informatie over het gebruik van de Azure Kubernetes-service met Azure Machine Learning-service raadpleegt [u hoe u implementeert en waar](how-to-deploy-and-where.md#deploy-aks).
+Zie [How to Deploy to Azure Kubernetes service](how-to-deploy-azure-kubernetes-service.md)(Engelstalig) voor meer informatie over het gebruik van AKS met Azure machine learning service.
 
 ## <a name="write-the-entry-script"></a>Het invoer script schrijven
 
@@ -162,7 +165,7 @@ gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
                                                     memory_gb=4)
 ```
 
-Zie de referentie documentatie voor [AksService. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none-)voor meer informatie.
+Zie de referentie documentatie voor [AksService. deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-)voor meer informatie.
 
 ## <a name="define-the-inference-configuration"></a>De configuratie voor het afstellen van interferentie definiëren
 

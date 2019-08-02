@@ -5,13 +5,13 @@ ms.author: rimman
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 1bfa7104425b5013f9cdf36ff3c1dd88107d3ec7
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.date: 08/01/2019
+ms.openlocfilehash: e80e548ceae2149fe7061da42c71ee8b61f00a72
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467862"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717557"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Partitioneren in Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Hieronder vindt u een goede richt lijn voor het kiezen van een partitie sleutel:
 
 * Eén logische partitie heeft een maximale limiet van 10 GB aan opslag ruimte.  
 
-* Azure Cosmos-containers hebben een minimale door Voer van 400 aanvraag eenheden per seconde (RU/s). Aanvragen naar dezelfde partitie sleutel kunnen niet groter zijn dan de door Voer die is toegewezen aan een partitie. Als aanvragen de toegewezen door Voer overschrijden, zijn aanvragen een beperkt aantal. Het is dus belang rijk om een partitie sleutel te kiezen die niet resulteert in ' hot spots ' in uw toepassing.
+* Azure Cosmos-containers hebben een minimale door Voer van 400 aanvraag eenheden per seconde (RU/s). Wanneer de door Voer is ingericht voor een Data Base, is het minimale RUs per container 100 aanvraag eenheden per seconde (RU/s). Aanvragen naar dezelfde partitie sleutel kunnen niet groter zijn dan de door Voer die is toegewezen aan een partitie. Als aanvragen de toegewezen door Voer overschrijden, zijn aanvragen een beperkt aantal. Het is dus belang rijk om een partitie sleutel te kiezen die niet resulteert in ' hot spots ' in uw toepassing.
 
 * Kies een partitie sleutel met een breed scala aan waarden en toegangs patronen die gelijkmatig over logische partities worden verdeeld. Zo kunt u de gegevens en de activiteit in uw container verspreiden over de set logische partities, zodat resources voor gegevens opslag en-door Voer kunnen worden gedistribueerd over de logische partities.
 

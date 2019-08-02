@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: yaya
 ms.openlocfilehash: 9dd336ef973b603108aad62c90e4dab385d20317
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67873885"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>De Azure SDK voor PHP downloaden
@@ -45,7 +45,7 @@ In de instructies in dit onderwerp wordt ervan uitgegaan dat u [php][install-php
 
 De PHP-client bibliotheken voor Azure bieden een interface voor het openen van Azure-functies, zoals gegevens beheer Services en Cloud Services, vanuit elk besturings systeem. Deze bibliotheken kunnen worden geïnstalleerd via de Composer.
 
-Voor informatie over het gebruik van de PHP-client bibliotheken voor Azure raadpleegt u [hoe u de BLOB-service][blob-service] , [How to Use the Table Service][table-service] gebruikt en [hoe u de]wachtrij Service Queue[-service]gebruikt.
+Voor informatie over het gebruik van de PHP-client bibliotheken voor Azure raadpleegt u [hoe u de BLOB-service gebruikt][blob-service], [hoe u de Table-service][table-service] gebruikt en [hoe u de Queue-service gebruikt][queue-service].
 
 ### <a name="install-via-composer"></a>Installeren via Composer
 

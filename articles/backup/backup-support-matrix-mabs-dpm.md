@@ -1,18 +1,18 @@
 ---
 title: Ondersteunings matrix voor Microsoft Azure Backup Server en System Center DPM
 description: Dit artikel bevat een overzicht van Azure Backup ondersteuning wanneer u Microsoft Azure Backup Server of System Center DPM gebruikt om een back-up te maken van on-premises en Azure VM-resources.
-author: rayne-wiselman
+author: dcurwin
 ms.service: backup
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.author: raynew
+ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 777d2286ed24123011e06edfb468d0f2db61715f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: c4d01c3c72669f7fbfd5b2d8df0678cc0675ccde
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464886"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639575"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Ondersteunings matrix voor back-up met Microsoft Azure Backup Server of System Center DPM
 

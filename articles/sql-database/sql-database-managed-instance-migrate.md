@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
-manager: craigg
 ms.date: 11/07/2019
-ms.openlocfilehash: 0fa65454702c67d4b0baeedc7f412ccec402ea46
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 19a7f749ffb1af4f712d23abcd52d91653ad4544
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302303"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567381"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migratie van SQL Server naar Azure SQL Database beheerde instantie
 
@@ -110,7 +109,7 @@ Het beheerde exemplaar ondersteunt de volgende database migratie opties (momente
 - Azure Database Migration Service-migratie met bijna nul uitval tijd,
 - Systeem `RESTORE DATABASE FROM URL` eigen-maakt gebruik van systeem eigen back-ups van SQL Server en vergt enige downtime.
 
-### <a name="azure-database-migration-service"></a>Azure Database Migration Service
+### <a name="azure-database-migration-service"></a>Azure Database Migration-service
 
 De [Azure database Migration service (DMS)](../dms/dms-overview.md) is een volledig beheerde service die is ontworpen om naadloze migraties van meerdere database bronnen naar Azure-gegevens platforms mogelijk te maken met minimale downtime. Deze service stroomlijnt de taken die nodig zijn om bestaande derden en SQL Server data bases naar Azure te verplaatsen. Implementatie-opties in open bare preview omvatten data bases in Azure SQL Database en SQL Server data bases in een virtuele machine van Azure. DMS is de aanbevolen migratie methode voor uw bedrijfs werkbelastingen.
 

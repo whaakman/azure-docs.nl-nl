@@ -1,6 +1,6 @@
 ---
-title: Met zoeken in Azure Application Insights | Microsoft Docs
-description: Zoeken en filteren onbewerkte telemetrie die is verzonden door uw web-app.
+title: Zoek functie gebruiken in Azure-toepassing Insights | Microsoft Docs
+description: Zoek en filter ruwe telemetriegegevens die zijn verzonden door uw web-app.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -10,160 +10,151 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 07/30/2019
 ms.author: mbullwin
-ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d08fd2ac6db63eee01c0653d2dbb1623fb1b51ed
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900063"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705408"
 ---
 # <a name="using-search-in-application-insights"></a>Zoeken in Application Insights gebruiken
-Search is een functie van [Application Insights](../../azure-monitor/app/app-insights-overview.md) waarmee u kunt vinden en afzonderlijk telemetrie-items, zoals paginaweergaven, uitzonderingen, verkennen of webaanvragen. En u kunt weergeven, logboektraceringen en gebeurtenissen die u hebt gecodeerd.
 
-(Voor complexere query's over uw gegevens, gebruikt u [Analytics](../../azure-monitor/log-query/get-started-portal.md).)
+Search is een functie van [Application Insights](../../azure-monitor/app/app-insights-overview.md) waarmee u afzonderlijke telemetriegegevens, zoals pagina weergaven, uitzonde ringen of webaanvragen, kunt zoeken en verkennen. En u kunt logboek traceringen en gebeurtenissen weer geven die u hebt gecodeerd.
 
-## <a name="where-do-you-see-search"></a>Waar kan u Search zien?
+(Voor complexere query's over uw gegevens gebruikt u [Analytics](../../azure-monitor/log-query/get-started-portal.md).)
+
+## <a name="where-do-you-see-search"></a>Waar ziet u zoeken?
 
 ### <a name="in-the-azure-portal"></a>In de Azure Portal
 
-U kunt diagnostische gegevens doorzoeken expliciet openen vanuit de blade overzicht van Application Insights van uw toepassing:
+U kunt Diagnostische Zoek opdrachten openen vanaf het tabblad Application Insights overzicht van uw toepassing (in de bovenste balk) of onder onderzoek aan de linkerkant.
 
-![Open diagnostische gegevens doorzoeken](./media/diagnostic-search/001.png)
+![Tabblad Zoeken](./media/diagnostic-search/view-custom-events.png)
 
-![Schermafbeelding van diagnostische gegevens doorzoeken grafieken](./media/diagnostic-search/002.png)
+Ga naar de vervolg keuzelijst gebeurtenis typen om een lijst met telemetriegegevens te bekijken: server aanvragen, pagina weergaven, aangepaste gebeurtenissen die u hebt gecodeerd, enzovoort. Boven aan de lijst met resultaten ziet u een overzichts grafiek met aantallen gebeurtenissen gedurende een bepaalde periode.
 
-De hoofdtekst van het doorzoeken van diagnostische gegevens wordt een lijst met pagina van de telemetrie-items: serveraanvragen, weergaven en aangepaste gebeurtenissen die u hebt gecodeerd. Aan de bovenkant van de lijst is een grafiek met samenvattingen van aantallen gebeurtenissen gedurende een periode weergegeven.
-
-Klik op Vernieuwen om nieuwe gebeurtenissen.
+Klik op het vervolg keuzemenu of op vernieuwen om nieuwe gebeurtenissen op te halen.
 
 ### <a name="in-visual-studio"></a>In Visual Studio
 
-In Visual Studio is er ook een Application Insights-zoekvenster. Dit is vooral nuttig zijn voor het weergeven van telemetriegebeurtenissen die worden gegenereerd door de toepassing waarmee u fouten opspoort. Maar het kan ook de gebeurtenissen die worden verzameld van de gepubliceerde app op de Azure-portal weergeven.
+In Visual Studio is er ook een Application Insights Zoek venster. Het is vooral nuttig voor het weer geven van telemetrie-gebeurtenissen die zijn gegenereerd door de toepassing die u wilt opsporen. Maar het kan ook de gebeurtenissen weer geven die zijn verzameld uit uw gepubliceerde app op het Azure Portal.
 
-Open het venster Zoeken in Visual Studio:
+Open het venster zoeken in Visual Studio:
 
-![Visual Studio Application Insights-zoekopdracht openen](./media/diagnostic-search/32.png)
+![Visual Studio Open Application Insights zoeken](./media/diagnostic-search/32.png)
 
-Het venster zoeken bevat functies die vergelijkbaar is met de web-portal:
+Het venster zoeken bevat functies die vergelijkbaar zijn met de webportal:
 
-![Visual Studio Application Insights-zoekvenster](./media/diagnostic-search/34.png)
+![Zoek venster van Visual Studio Application Insights](./media/diagnostic-search/34.png)
 
-Het tabblad bijhouden bewerking is alleen beschikbaar bij het openen van een aanvraag of een paginaweergave. Een ' bewerking ' is een reeks gebeurtenissen die is gekoppeld aan een enkele aanvraag of paginaweergave-weergave. Bijvoorbeeld, kunnen afhankelijkheidsaanroepen, uitzonderingen, logboeken met traceringen en aangepaste gebeurtenissen deel uitmaken van één bewerking. Het tabblad bijhouden bewerking worden grafisch weergegeven voor de timing en de duur van deze gebeurtenissen ten opzichte van de aanvraag of paginaweergave-weergave. 
+Het tabblad spoor bewerking is beschikbaar wanneer u een aanvraag of een pagina weergave opent. Een ' Operation ' is een reeks gebeurtenissen die aan een enkele aanvraag of pagina weergave is gekoppeld. Afhankelijkheids aanroepen, uitzonde ringen, traceer logboeken en aangepaste gebeurtenissen kunnen bijvoorbeeld deel uitmaken van één bewerking. Op het tabblad spoor bewerking worden de timing en duur van deze gebeurtenissen grafisch weer gegeven ten opzichte van de aanvraag of pagina weergave.
 
 ## <a name="inspect-individual-items"></a>Afzonderlijke items controleren
 
-Selecteer een telemetrie-item om te zien van de velden voor sleutels en verwante items.
+Selecteer een telemetrie-item om sleutel velden en gerelateerde items weer te geven.
 
-![Schermafbeelding van de aanvraag van een afzonderlijke afhankelijkheid](./media/diagnostic-search/003.png)
+![Scherm afbeelding van een afzonderlijke afhankelijkheids aanvraag](./media/diagnostic-search/telemetry-item.png)
 
-Hiermee wordt de end-to-end-transactie-detailweergave geopend:
+Hiermee wordt de weer gave end-to-end-transactie Details geopend.
 
-![Schermopname van de detailweergave van end-to-end-transactie.](./media/diagnostic-search/004.png)
+## <a name="filter-event-types"></a>Gebeurtenis typen filteren
 
-## <a name="filter-event-types"></a>Gebeurtenistypen filteren
-Open de blade Filter en kiest u de typen gebeurtenissen die u wilt zien. (Als u later herstellen van de filters waarmee u de blade geopend wilt, klikt u op opnieuw instellen.)
+Open de vervolg keuzelijst gebeurtenis typen en kies de gebeurtenis typen die u wilt weer geven. (Als u de filters later wilt herstellen, klikt u op opnieuw instellen.)
 
-![Kies Filter en selecteer de telemetrietypen](./media/diagnostic-search/02-filter-req.png)
+De gebeurtenis typen zijn:
 
-De gebeurtenistypen zijn:
+* Spoor - [Diagnostische logboeken](../../azure-monitor/app/asp-net-trace-logs.md) op, waaronder TrackTrace-, log4Net-, NLog-en System. Diagnostic. trace-aanroepen.
+* **Aanvraag** -HTTP-aanvragen die door uw server toepassing worden ontvangen, waaronder pagina's, scripts, afbeeldingen, stijl bestanden en gegevens. Deze gebeurtenissen worden gebruikt voor het maken van de aanvraag-en antwoord overzichts diagrammen.
+*  - De telemetrie van de pagina weergave die wordt[verzonden door de webclient](../../azure-monitor/app/javascript.md), die wordt gebruikt om pagina weergave rapporten te maken.
+* **Aangepaste gebeurtenis** : als u aanroepen naar track Event () hebt ingevoegd om het [gebruik te controleren](../../azure-monitor/app/api-custom-events-metrics.md), kunt u deze hier zoeken.
+* **Uitzonde ring** -niet-onderschepte [uitzonde ringen in de server](../../azure-monitor/app/asp-net-exceptions.md)en die u registreert met behulp van TrackException ().
+* Afhankelijkheids - [aanroepen van uw server toepassing](../../azure-monitor/app/asp-net-dependencies.md) naar andere services, zoals rest api's of data bases en Ajax-aanroepen vanuit uw [client code](../../azure-monitor/app/javascript.md).
+* **Beschik baarheid** -resultaten van [beschikbaarheids testen](../../azure-monitor/app/monitor-web-app-availability.md).
 
-* **Tracering** - [diagnostische logboeken](../../azure-monitor/app/asp-net-trace-logs.md) inclusief TrackTrace, log4Net, NLog en System.Diagnostic.Trace aanroepen.
-* **Aanvraag** -HTTP-aanvragen die zijn ontvangen door de server-toepassing, met inbegrip van pagina's, scripts, afbeeldingen, Stijlbestanden en gegevens. Deze gebeurtenissen worden gebruikt voor het maken van de aanvraag en respons overzichtsgrafieken.
-* **Paginaweergave** - [telemetrie wordt verzonden door de webclient](../../azure-monitor/app/javascript.md), die wordt gebruikt om pagina weergaverapporten te maken. 
-* **Aangepaste gebeurtenis** : als u aanroepen van TrackEvent() om ingevoegd [-gebruik controleren](../../azure-monitor/app/api-custom-events-metrics.md), kunt u deze hier zoeken.
-* **Uitzondering** - niet-onderschepte [uitzonderingen in de server](../../azure-monitor/app/asp-net-exceptions.md), en bronnen die u zich aanmeldt met behulp van TrackException().
-* **Afhankelijkheid** - [aanroepen vanuit de servertoepassing](../../azure-monitor/app/asp-net-dependencies.md) met andere services, zoals REST-API's of databases en AJAX-aanroepen van uw [clientcode](../../azure-monitor/app/javascript.md).
-* **Beschikbaarheid** -resultaten van [beschikbaarheidstests](../../azure-monitor/app/monitor-web-app-availability.md).
+## <a name="filter-on-property-values"></a>Filteren op eigenschaps waarden
 
-## <a name="filter-on-property-values"></a>Filteren op basis van eigenschapswaarden
-U kunt gebeurtenissen op de waarden van hun eigenschappen filteren. De beschikbare eigenschappen zijn afhankelijk van de typen gebeurtenissen die u hebt geselecteerd. 
+U kunt gebeurtenissen filteren op de waarden van hun eigenschappen. De beschik bare eigenschappen zijn afhankelijk van de gebeurtenis typen die u hebt geselecteerd. Klik op het filter pictogram ![Filter pictogram](./media/diagnostic-search/filter-icon.png) om te starten.
 
-Bijvoorbeeld aanvragen met een specifieke antwoordcode te kiezen. 
+Het kiezen van geen waarden van een bepaalde eigenschap heeft hetzelfde effect als het kiezen van alle waarden. Hiermee schakelt u het filteren van de eigenschap uit.
 
-![Vouw een eigenschap en een waarde kiezen](./media/diagnostic-search/03-response500.png)
-
-Er zijn geen waarden van een bepaalde eigenschap kiezen heeft hetzelfde effect als het kiezen van alle waarden. Het verandert filter voor die eigenschap uit.
-
-### <a name="narrow-your-search"></a>Verfijn uw zoekopdracht
-U ziet dat het aantal's aan de rechterkant van de filterwaarden tonen hoeveel exemplaren er zijn in de huidige gefilterde set. 
-
-In dit voorbeeld is het duidelijk dat de 'rapportkoptekst/werknemers' resultaten in de meeste van de '500-fouten aanvragen:
-
-![Vouw een eigenschap en een waarde kiezen](./media/diagnostic-search/04-failingReq.png)
+U ziet dat in het aantal rechts van de filter waarden wordt weer gegeven hoeveel exemplaren er in de huidige gefilterde set aanwezig zijn.
 
 ## <a name="find-events-with-the-same-property"></a>Gebeurtenissen met dezelfde eigenschap zoeken
-Alle items met dezelfde eigenschapswaarde voor zoeken:
 
-![Met de rechtermuisknop op een eigenschap](./media/diagnostic-search/12-samevalue.png)
+Als u alle items met dezelfde eigenschaps waarde wilt zoeken, typt u deze in de zoek balk of klikt u op het selectie vakje bij eigenschappen op het tabblad filter.
 
-## <a name="search-the-data"></a>Zoeken naar de gegevens
+![Klik op het selectie vakje van een eigenschap op het tabblad Filter](./media/diagnostic-search/filter-property.png)
+
+## <a name="search-the-data"></a>De gegevens zoeken
 
 > [!NOTE]
-> Voor het schrijven van complexe query's, open [ **Analytics** ](../../azure-monitor/log-query/get-started-portal.md) vanaf de bovenkant van de blade zoeken.
-> 
+> Als u complexere query's wilt schrijven, opent u [**Logboeken (Analytics)** ](../../azure-monitor/log-query/get-started-portal.md) aan de bovenkant van de Blade zoeken.
+>
 
-U kunt zoeken naar termen in een van de eigenschapswaarden. Dit is vooral handig als u hebt geschreven [aangepaste gebeurtenissen](../../azure-monitor/app/api-custom-events-metrics.md) met eigenschapswaarden. 
+U kunt zoeken naar termen in een van de eigenschaps waarden. Dit is handig als u [aangepaste gebeurtenissen](../../azure-monitor/app/api-custom-events-metrics.md) met eigenschaps waarden hebt geschreven.
 
-Het is raadzaam een bereik, zoekacties in een kortere bereik zijn sneller tijd in te stellen. 
+Mogelijk wilt u een tijds bereik instellen, omdat Zoek opdrachten in een kortere reeks sneller zijn.
 
-![Open diagnostische gegevens doorzoeken](./media/diagnostic-search/appinsights-311search.png)
+![Diagnostische zoek opdracht openen](./media/diagnostic-search/search-property.png)
 
-Zoeken naar volledige woorden, niet subtekenreeksen. Gebruik aanhalingstekens tussen de speciale tekens.
+Zoeken naar volledige woorden, geen subtekenreeksen. Gebruik aanhalings tekens voor het insluiten van speciale tekens.
 
-| string | is *niet* gevonden | maar deze vinden |
+| Tekenreeks | *Niet* gevonden | Gevonden |
 | --- | --- | --- |
-| HomeController.About |startpagina<br/>controller<br/>out | homecontroller<br/>over<br/>"homecontroller.about"|
-|Verenigde Staten|Uni<br/>Ted|Verenigde<br/>statussen<br/>Verenigde Staten en<br/>"VS"
+| HomeController.About |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
+|Verenigde Staten|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
 
-Hier volgen de uitdrukkingen zoeken die u kunt gebruiken:
+Dit zijn de zoek expressies die u kunt gebruiken:
 
-| Voorbeeldquery | Effect |
+| Voorbeeld query | Effect |
 | --- | --- |
-| `apple` |Alle gebeurtenissen niet vinden in het tijdsbereik waarvan de velden het woord 'apple bevatten' |
-| `apple AND banana` <br/>`apple banana` |Zoeken naar gebeurtenissen die beide woorden bevatten. Gebruik kapitaal 'en', niet 'en'. <br/>Verkorte vorm. |
-| `apple OR banana` |Gebeurtenissen die een woord bevatten vinden. Gebruik 'Of', niet 'of'. |
-| `apple NOT banana` |Zoeken naar gebeurtenissen die niet door de andere, maar één woord bevatten. |
+| `apple` |Alle gebeurtenissen zoeken in het tijds bereik waarvan de velden het woord ' Apple ' bevatten |
+| `apple AND banana` <br/>`apple banana` |Gebeurtenissen zoeken die beide woorden bevatten. Gebruik ' en ', niet ' en '. <br/>Verkorte vorm. |
+| `apple OR banana` |Gebeurtenissen zoeken die een van beide woorden bevatten. Gebruik ' of ', niet ' of '. |
+| `apple NOT banana` |Gebeurtenissen zoeken die één woord bevatten, maar niet de andere. |
 
 ## <a name="sampling"></a>Steekproeven
-Als uw app veel telemetrie genereert (en u de ASP.NET-SDK-versie 2.0.0-beta3 of hoger), de adaptieve steekproefmodule automatisch het volume dat naar de portal wordt verzonden door alleen een representatieve fractie van de gebeurtenissen sturen vermindert. Gebeurtenissen die gerelateerd zijn aan dezelfde aanvraag zijn echter geselecteerd of gedeselecteerd als een groep, zodat u tussen gerelateerde gebeurtenissen kunt navigeren. 
+
+Als uw app een grote hoeveelheid telemetrie genereert (en u de ASP.NET SDK-versie 2.0.0-beta3 of hoger gebruikt), beperkt de adaptieve steekproef module automatisch het volume dat naar de portal wordt verzonden door alleen een representatieve Fractie van gebeurtenissen te verzenden. Gebeurtenissen die betrekking hebben op dezelfde aanvraag, worden echter geselecteerd of als groep opgeheven, zodat u kunt navigeren tussen gerelateerde gebeurtenissen.
 
 [Meer informatie over steekproeven](../../azure-monitor/app/sampling.md).
 
 ## <a name="create-work-item"></a>Werkitem maken
-U kunt een bug in GitHub of Azure DevOps met de details van een telemetrie-item maken. 
 
-![Klik op Nieuw werkitem, bewerkt u de velden en klik vervolgens op OK.](./media/diagnostic-search/42.png)
+U kunt een bug in GitHub of Azure DevOps maken met de details van een telemetrie-item.
 
-De eerste keer dat u dit doet, moet u gevraagd het configureren van een koppeling naar uw Azure DevOps-organisatie en uw project.
+Ga naar de weer gave end-to-end trans actie-Details door te klikken op een telemetrie-item en vervolgens **werk item maken**te selecteren.
 
-![Vul de URL van uw Azure DevOps-Services en de naam van het Project en klik op autoriseren](./media/diagnostic-search/41.png)
+![Klik op nieuw werk item, bewerk de velden en klik vervolgens op OK.](./media/diagnostic-search/work-item.png)
 
-(U kunt ook de koppeling configureren op de blade werkitems.)
+De eerste keer dat u dit doet, wordt u gevraagd een koppeling naar uw Azure DevOps-organisatie en-project te configureren.
 
-## <a name="send-more-telemetry-to-application-insights"></a>Meer telemetrie wordt verzonden naar Application Insights
-Naast de out-of-the-box-telemetrie die is verzonden door Application Insights-SDK, kunt u het volgende doen:
+(U kunt ook de koppeling op het tabblad werk items configureren.)
 
-* Logboektraceringen vanuit uw favoriete framework voor logboekregistratie in vastleggen [.NET](../../azure-monitor/app/asp-net-trace-logs.md) of [Java](../../azure-monitor/app/java-trace-logs.md). Dit betekent dat u kunt uw logboektraceringen doorzoeken en correlaties met paginaweergaven, uitzonderingen en andere gebeurtenissen. 
-* [Code schrijven](../../azure-monitor/app/api-custom-events-metrics.md) om aangepaste gebeurtenissen, paginaweergaven en uitzonderingen te verzenden. 
+## <a name="send-more-telemetry-to-application-insights"></a>Meer telemetrie naar Application Insights verzenden
+
+Naast de out-of-the-box-telemetrie die wordt verzonden door Application Insights SDK, kunt u het volgende doen:
+
+* Logboek traceringen vastleggen vanuit uw favoriete Framework voor logboek registratie in [.net](../../azure-monitor/app/asp-net-trace-logs.md) of [Java](../../azure-monitor/app/java-trace-logs.md). Dit betekent dat u in uw logboek traceringen kunt zoeken en deze aan de hand van pagina weergaven, uitzonde ringen en andere gebeurtenissen moet correleren.
+* [Schrijf code](../../azure-monitor/app/api-custom-events-metrics.md) voor het verzenden van aangepaste gebeurtenissen, pagina weergaven en uitzonde ringen.
 
 [Meer informatie over het verzenden van Logboeken en aangepaste telemetrie naar Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
 
-## <a name="questions"></a>Q &AMP; A
-### <a name="limits"></a>Hoeveel gegevens worden bewaard?
+## <a name="questions"></a>Q & A
 
-Zie de [limieten samenvatting](../../azure-monitor/app/pricing.md#limits-summary).
+### <a name="limits"></a>Hoeveel gegevens worden er bewaard?
 
-### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Hoe kan ik POST-gegevens in mijn serveraanvragen bekijken?
-We niet de POST-gegevens automatisch vastleggen, maar u kunt [TrackTrace of log aanroepen](../../azure-monitor/app/asp-net-trace-logs.md). De POST-gegevens in de parameter bericht geplaatst. U kunt niet filteren op het bericht op dezelfde manier die u op Eigenschappen filteren kunt, maar de maximale grootte is langer.
+Zie de [limieten samen vatting](../../azure-monitor/app/pricing.md#limits-summary).
 
-## <a name="video"></a>Video
+### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Hoe kan ik POST gegevens in mijn server aanvragen zien?
 
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+De POST gegevens worden niet automatisch geregistreerd, maar u kunt wel [TrackTrace of logboek aanroepen](../../azure-monitor/app/asp-net-trace-logs.md)gebruiken. Plaats de POST-gegevens in de para meter Message. U kunt geen filter op het bericht uitvoeren op dezelfde manier als u op Eigenschappen filtert, maar de maximale grootte is langer.
 
 ## <a name="add"></a>Volgende stappen
-* [Schrijven van complexe query's in Analytics](../../azure-monitor/log-query/get-started-portal.md)
-* [Logboeken en aangepaste telemetrie verzenden naar Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
-* [Beschikbaarheid en reactiesnelheid tests instellen](../../azure-monitor/app/monitor-web-app-availability.md)
+
+* [Complexe query's schrijven in analyse](../../azure-monitor/log-query/get-started-portal.md)
+* [Logboeken en aangepaste telemetrie naar Application Insights verzenden](../../azure-monitor/app/asp-net-trace-logs.md)
+* [Testen van Beschik baarheid en reactie snelheid instellen](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Problemen oplossen](../../azure-monitor/app/troubleshoot-faq.md)

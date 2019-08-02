@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 50d91c03ac33c32577ddf3838ed6b10024133333
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: a91860e9ec8d503a01d079925466093d19bbbccf
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414536"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698609"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Een IoT Edge-apparaat om te fungeren als een transparante gateway configureren
 
@@ -50,8 +50,8 @@ De volgende stappen leiden u door het proces van het maken van de certificaten e
 ## <a name="prerequisites"></a>Vereisten
 
 Een Azure IoT Edge-apparaat configureren als een gateway. Gebruik de IoT Edge installatie stappen voor een van de volgende besturings systemen:
-  * [Windows](/how-to-install-iot-edge-windows.md)
-  * [Linux](/how-to-install-iot-edge-linux.md)
+  * [Windows](how-to-install-iot-edge-windows.md)
+  * [Linux](how-to-install-iot-edge-linux.md)
 
 Dit artikel verwijst naar de *hostnaam* van de gateway op verschillende punten. De hostnaam van de gateway wordt gedeclareerd in de para meter **hostname** van het bestand config. yaml op de IOT Edge gateway-apparaat. Het wordt gebruikt om de certificaten in dit artikel te maken en wordt verwezen naar de connection string van de downstream-apparaten. De hostnaam van de gateway moet kunnen worden omgezet in een IP-adres, hetzij met behulp van DNS of een bestands vermelding in de host.
 

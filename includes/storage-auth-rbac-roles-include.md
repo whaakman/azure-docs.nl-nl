@@ -5,25 +5,25 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 03/21/2019
+ms.date: 07/25/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 026717dff2b6883eb643497dec91226e4afe8133
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4f9a828e5233c88db2106bc648c07578927e0d29
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175709"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514872"
 ---
-Azure biedt de volgende ingebouwde RBAC-rollen voor het verlenen van toegang tot blob- en wachtrijservices gegevens met behulp van Azure AD en OAuth:
+Azure biedt de volgende ingebouwde RBAC-rollen voor het verlenen van toegang tot Blob-en wachtrij gegevens met behulp van Azure AD en OAuth:
 
-- [Storage Blob Gegevenseigenaar](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-owner): Eigendom instellen en beheren van POSIX-toegangsbeheer voor Azure Data Lake Storage Gen2 (preview). Zie voor meer informatie, [toegangsbeheer in Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-access-control.md).
-- [Gegevensbijdrager voor Blob](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Gebruiken om machtigingen voor lezen/schrijven/verwijderen naar Blob storage-resources te verlenen.
-- [Gegevenslezer voor Opslagblob](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-reader): Gebruiken om Blob storage-resources alleen-lezen machtigingen te verlenen.
-- [Gegevensbijdrager voor wachtrij](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Gebruiken om de machtigingen lezen, schrijven en verwijderen in Azure-wachtrijen te verlenen.
-- [Gegevenslezer voor Opslagwachtrij](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader): Gebruiken om Azure-wachtrijen alleen-lezen machtigingen te verlenen.
-- [Opslaggegevens wachtrij bericht Processor](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): Gebruiken om toegang te verlenen peek, ophalen en machtigingen voor het verwijderen naar berichten in wachtrijen van Azure Storage.
-- [Opslaggegevens wachtrij bericht afzender](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): Gebruiken om te verlenen machtigingen toevoegen aan berichten in wachtrijen van Azure Storage.
+- [Eigenaar van gegevens](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-owner)van de opslag-blob: Gebruik om het eigendom in te stellen en POSIX Access Control te beheren voor Azure Data Lake Storage Gen2. Zie [toegangs beheer in azure data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-access-control.md)voor meer informatie.
+- [Inzender voor Storage BLOB-gegevens](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Gebruiken om machtigingen voor lezen/schrijven/verwijderen te verlenen aan Blob Storage-resources.
+- [Gegevens lezer](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-reader)van de opslag-blob: Gebruiken om alleen-lezen-machtigingen te verlenen aan Blob Storage-resources.
+- [Inzender voor opslag wachtrij gegevens](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Gebruiken om machtigingen voor lezen/schrijven/verwijderen te verlenen aan Azure-wacht rijen.
+- [Gegevens lezer van de opslag wachtrij](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader): Gebruiken om alleen-lezen-machtigingen te verlenen aan Azure-wacht rijen.
+- [Processor voor gegevens berichten van de opslag wachtrij](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): Gebruiken om machtigingen voor weer geven, ophalen en verwijderen te verlenen aan berichten in Azure Storage wachtrijen.
+- [Afzender gegevens bericht van opslag wachtrij](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): Gebruik om machtigingen toe te kennen voor berichten in Azure Storage wacht rijen.
 
 > [!NOTE]
-> Houd er rekening mee dat RBAC-roltoewijzingen maximaal vijf minuten duurt worden doorgegeven.
+> Houd er rekening mee dat de toewijzing van RBAC-rollen tot vijf minuten kan duren.

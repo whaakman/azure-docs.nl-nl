@@ -1,6 +1,6 @@
 ---
-title: Beheren van historische gegevens analyseren in tijdelijke tabellen met beleid voor Gegevensretentie | Microsoft Docs
-description: Informatie over het gebruik van tijdelijke bewaarbeleid om historische gegevens onder uw beheer te houden.
+title: Historische gegevens in tijdelijke tabellen beheren met het Bewaar beleid | Microsoft Docs
+description: Meer informatie over het gebruik van een tijdelijk Bewaar beleid om historische gegevens onder uw beheer te houden.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,39 +10,38 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 62e88d912c55015f87cc00f21527010ad01ee00c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 72022510676548fad79031d4334a2c95571fc16d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615683"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566386"
 ---
-# <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Beheren van historische gegevens analyseren in tijdelijke tabellen met beleid voor Gegevensretentie
+# <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Historische gegevens in tijdelijke tabellen beheren met het Bewaar beleid
 
-Tijdelijke tabellen verhogen grootte van de database meer dan gewone tabellen, met name als u historische gegevens voor een langere periode bewaren. Bewaarbeleid voor historische gegevens is daarom een belangrijk aspect van plannen en beheren van de levenscyclus van elke tijdelijke tabel. Tijdelijke tabellen in Azure SQL Database worden geleverd met eenvoudig te gebruiken retentie-mechanisme waarmee u deze taak wordt uitgevoerd.
+Tijdelijke tabellen kunnen de omvang van de data base groterder zijn dan de reguliere tabellen, met name als u historische gegevens gedurende een langere periode behoudt. Daarom is het Bewaar beleid voor historische gegevens een belang rijk aspect van het plannen en beheren van de levens cyclus van elke tijdelijke tabel. Tijdelijke tabellen in Azure SQL Database worden geleverd met eenvoudig te gebruiken Bewaar mechanisme waarmee u deze taak kunt uitvoeren.
 
-Geschiedenis van tijdelijke inhouding kan worden geconfigureerd op het niveau van de afzonderlijke tabel, kunnen de gebruikers te maken van flexibele veroudering beleidsregels. Het toepassen van tijdelijke inhouding is eenvoudig: deze moet slechts één parameter worden ingesteld tijdens het maken of een schema wijzigen van de tabel.
+De retentie van de tijdelijke geschiedenis kan worden geconfigureerd op het niveau van de afzonderlijke tabel, waardoor gebruikers flexibele, verouderde policies kunnen maken. Het Toep assen van tijdelijke Bewaar periode is eenvoudig: er is slechts één para meter vereist voor het maken van tabellen of het wijzigen van het schema.
 
-Na het definiëren van beleid voor Gegevensretentie, start Azure SQL Database regelmatig te controleren of er zijn historische rijen die in aanmerking komen voor automatische opruimen. Identificatie van de overeenkomende rijen en hun verwijderen uit de geschiedenistabel optreden transparant, in de achtergrondtaak die is gepland en uitgevoerd door het systeem. Leeftijdsvoorwaarde voor de geschiedenis tabelrijen wordt gecontroleerd op basis van de kolom die het einde van SYSTEM_TIME-periode. Als de bewaarperiode, bijvoorbeeld is ingesteld op zes maanden, voldoen om op te schonen in aanmerking komende rijen aan de volgende voorwaarde:
+Nadat u het Bewaar beleid hebt gedefinieerd, wordt Azure SQL Database regel matig gecontroleerd als er historische rijen zijn die in aanmerking komen voor het automatisch opschonen van gegevens. Het identificeren van overeenkomende rijen en het verwijderen ervan in de tabel geschiedenis vindt op transparante wijze plaats in de achtergrond taak die door het systeem is gepland en uitgevoerd. De ouderdoms voorwaarde voor de geschiedenis tabel rijen wordt gecontroleerd op basis van de kolom die het einde van de SYSTEM_TIME periode vertegenwoordigt. Als de Bewaar periode bijvoorbeeld is ingesteld op zes maanden, kunnen tabel rijen die in aanmerking komen voor opschonen, voldoen aan de volgende voor waarde:
 
 ```
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
 ```
 
-In het voorgaande voorbeeld wordt ervan uitgegaan dat die **ValidTo** kolom komt overeen met het einde van SYSTEM_TIME-periode.
+In het vorige voor beeld wordt aangenomen dat de kolom **ValidTo** overeenkomt met het einde van de SYSTEM_TIME periode.
 
-## <a name="how-to-configure-retention-policy"></a>Het configureren van beleid voor Gegevensretentie
+## <a name="how-to-configure-retention-policy"></a>Bewaar beleid configureren
 
-Voordat u beleid voor het bewaren voor een tijdelijke tabel configureert, Controleer eerst of tijdelijke historische bewaarperiode is ingeschakeld *op databaseniveau*.
+Voordat u het Bewaar beleid voor een tijdelijke tabel configureert, controleert u eerst of tijdelijk historische Bewaar periode is ingeschakeld *op het database niveau*.
 
 ```
 SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ```
 
-De vlag database **is_temporal_history_retention_enabled** is standaard ingesteld op aan, maar gebruikers kunnen deze met de instructie ALTER DATABASE wijzigen. Het is ook automatisch ingesteld op OFF na [tijdstip](sql-database-recovery-using-backups.md) bewerking. Om in te schakelen tijdelijke geschiedenistabel retentieopschoning voor uw database, voert u de volgende instructie uit:
+Database vlag **is_temporal_history_retention_enabled** is standaard ingesteld op ingeschakeld, maar gebruikers kunnen deze wijzigen met de instructie ALTER data base. Het wordt ook automatisch ingesteld op uitgeschakeld na een herstel bewerking naar een bepaald [tijdstip](sql-database-recovery-using-backups.md) . Als u het opruimen van tijdelijke geschiedenis wilt inschakelen voor uw data base, voert u de volgende instructie uit:
 
 ```sql
 ALTER DATABASE <myDB>
@@ -50,9 +49,9 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 ```
 
 > [!IMPORTANT]
-> U kunt bewaren voor tijdelijke tabellen, zelfs als **is_temporal_history_retention_enabled** is uitgeschakeld, maar automatisch op te schonen voor verouderde rijen niet in dat geval wordt geactiveerd.
+> U kunt bewaren voor tijdelijke tabellen, zelfs als **is_temporal_history_retention_enabled** is uitgeschakeld, maar automatisch opschonen van verouderde rijen niet in dat geval wordt geactiveerd.
 
-Het bewaarbeleid is geconfigureerd tijdens het maken van de tabel door de waarde voor de parameter infinite op te geven:
+Het Bewaar beleid is geconfigureerd tijdens het maken van de tabel door een waarde op te geven voor de para meter HISTORY_RETENTION_PERIOD:
 
 ```sql
 CREATE TABLE dbo.WebsiteUserInfo
@@ -74,9 +73,9 @@ CREATE TABLE dbo.WebsiteUserInfo
  );
 ```
 
-Azure SQL Database kunt u bewaarperiode opgeven met behulp van verschillende tijdseenheden: DAGEN, weken, maanden en jaren. Als infinite wordt weggelaten, wordt uitgegaan van oneindige bewaarperiode. U kunt ook expliciet oneindige sleutelwoord gebruiken.
+Met Azure SQL Database kunt u de Bewaar periode opgeven met behulp van verschillende tijds eenheden: DAGEN, weken, maanden en jaren. Als HISTORY_RETENTION_PERIOD wordt wegge laten, wordt uitgegaan van een oneindige retentie. U kunt ook oneindig tref woord expliciet gebruiken.
 
-In sommige scenario's kunt u bewaren configureren nadat de tabel is gemaakt of als u wilt wijzigen, eerder geconfigureerde waarde. In dat geval gebruikt u ALTER TABLE-instructie:
+In sommige gevallen wilt u mogelijk Bewaar periode configureren nadat de tabel is gemaakt, of u kunt de eerder geconfigureerde waarde wijzigen. Gebruik in dat geval ALTER TABLE-instructie:
 
 ```sql
 ALTER TABLE dbo.WebsiteUserInfo
@@ -84,9 +83,9 @@ SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
 ```
 
 > [!IMPORTANT]
-> System_versioning instellen op OFF *blijven niet behouden* waarde voor de bewaarperiode. System_versioning instellen op ON zonder infinite expliciet resultaten in de bewaarperiode geen EINDDATUM opgegeven.
+> Als u SYSTEM_VERSIONING instelt op OFF, blijft de waarde voor de retentie periode *niet behouden* . Als u SYSTEM_VERSIONING instelt op ON zonder HISTORY_RETENTION_PERIOD opgegeven, wordt er expliciet een oneindige retentie tijd in beslag gegeven.
 
-Als u wilt controleren op huidige status van het bewaarbeleid, gebruik de volgende query die lid wordt van de tijdelijke inhouding activering vlag op het databaseniveau van de met bewaarperioden voor afzonderlijke tabellen:
+Als u de huidige status van het Bewaar beleid wilt controleren, gebruikt u de volgende query die de vlag voor tijdelijke Bewaar intentie op database niveau koppelt met Bewaar perioden voor afzonderlijke tabellen:
 
 ```sql
 SELECT DB.is_temporal_history_retention_enabled,
@@ -102,30 +101,30 @@ ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 ```
 
 
-## <a name="how-sql-database-deletes-aged-rows"></a>Hoe verouderde rijen in SQL-Database wordt verwijderd
+## <a name="how-sql-database-deletes-aged-rows"></a>Hoe SQL Database verouderde rijen verwijdert?
 
-Het opruimproces, is afhankelijk van de indexindeling van de geschiedenistabel. Het is belangrijk dat u ziet dat *alleen geschiedenis tabellen met een geclusterde index (B-tree- of columnstore) kunnen geen eindige bewaarbeleid geconfigureerd hebben*. Een achtergrondtaak wordt gemaakt voor het uitvoeren van verouderde gegevens opschonen voor alle tijdelijke tabellen met een eindige bewaarperiode.
-Schijfopruiming logica voor de geclusterde index van de rowstore (B-tree) Hiermee verwijdert u verouderde rij in kleinere chunks (maximaal 10 K) druk op de databaselogboek- en i/o-subsysteem worden geminimaliseerd. Hoewel opschonen logische maakt gebruik van vereiste B-tree-index, ordenen van verwijderingen voor de rijen die ouder zijn dan de bewaarperiode kan niet goed kan worden gegarandeerd. Daarom kan *eventuele afhankelijkheden worden pas van kracht op de volgorde van de opschoning in uw toepassingen*.
+Het opschonings proces is afhankelijk van de index indeling van de geschiedenis tabel. Het is belang rijk te onthouden dat *alleen voor geschiedenis tabellen met een geclusterde index (B-Tree of column Store) een eindig Bewaar beleid is geconfigureerd*. Er wordt een achtergrond taak gemaakt voor het opschonen van verouderde gegevens voor alle tijdelijke tabellen met een beperkte Bewaar periode.
+De logica voor het opruimen van de geclusterde index van de rowstore (B-Tree) verwijdert verouderde rij in kleinere segmenten (Maxi maal 10.000) tot een minimum aan druk op database logboek en IO-subsysteem. Hoewel bij het opruimen logica de vereiste B-structuur index wordt gebruikt, kan de volg orde van verwijderde items voor de rijen die ouder zijn dan de Bewaar periode niet stevig worden gegarandeerd. *Zorg er daarom voor dat u niet afhankelijk bent van de opschoon volgorde in uw toepassingen*.
 
-De taak opschonen voor de geclusterde columnstore verwijdert gehele [rij groepen](https://msdn.microsoft.com/library/gg492088.aspx) in één keer (meestal bevatten 1 miljoen rijen elke), die is zeer efficiënt, met name wanneer de historische gegevens wordt gegenereerd in een hoog tempo.
+Met de opschoon taak voor de geclusterde column Store worden hele [Rijg roepen](https://msdn.microsoft.com/library/gg492088.aspx) tegelijk verwijderd (meestal bevat 1.000.000 van de rijen). Dit is zeer efficiënt, vooral wanneer historische gegevens in een hoog tempo worden gegenereerd.
 
-![Geclusterde columnstore-retentie](./media/sql-database-temporal-tables-retention-policy/cciretention.png)
+![Geclusterde column Store-retentie](./media/sql-database-temporal-tables-retention-policy/cciretention.png)
 
-Uitstekende gegevenscompressie en efficiënte retentie opschonen wordt geclusterde columnstore-index een ideale keuze voor scenario's wanneer uw workload snel grote hoeveelheid historische gegevens wordt gegenereerd. Dit patroon is normaal voor intensieve [transactionele verwerking van workloads die gebruikmaken van tijdelijke tabellen](https://msdn.microsoft.com/library/mt631669.aspx) voor wijzigingen bijhouden en controle, trendanalyse of IoT-gegevensopname.
+Met uitstekende gegevens compressie en een efficiënte Bewaar periode is geclusterde column store-index een perfecte keuze voor scenario's wanneer uw werk belasting snel een hoge hoeveelheid historische gegevens genereert. Dit patroon is gebruikelijk voor intensieve werk belastingen voor transactionele [verwerking waarbij tijdelijke tabellen worden gebruikt voor het](https://msdn.microsoft.com/library/mt631669.aspx) bijhouden van wijzigingen en controles, trend analyses of IOT-gegevens opname.
 
-## <a name="index-considerations"></a>Overwegingen voor index
+## <a name="index-considerations"></a>Index overwegingen
 
-De taak opschonen voor tabellen met geclusterde rowstore-index moet index te beginnen met de kolom die het einde van SYSTEM_TIME-periode overeenkomt. Als de index bestaat, kunt u niet een eindige retentieperiode configureren:
+Voor de opschoon taak voor tabellen met rowstore geclusterde index moet index worden gestart met de kolom die overeenkomt met het einde van de SYSTEM_TIME-periode. Als een dergelijke index niet bestaat, kunt u een eindige Bewaar periode niet configureren:
 
-*Msg 13765, 16 niveau 1 staat <br> </br> geen eindige retentieperiode is mislukt voor de tijdelijke systeemversietabel 'temporalstagetestdb.dbo.WebsiteUserInfo', omdat de geschiedenistabel ' temporalstagetestdb.dbo.WebsiteUserInfoHistory' bevat geen vereiste geclusterde index. Houd rekening met het maken van een geclusterde columnstore- of B-tree-index die begint met de kolom die overeenkomt met het einde van SYSTEM_TIME period voor de geschiedenistabel.*
+*Msg 13765, niveau 16, beperkte Bewaar <br> periode voor het instellen van status 1 </br> is mislukt voor de tijdelijke systeem versie tabel temporalstagetestdb. dbo. WebsiteUserInfo omdat de geschiedenis tabel temporalstagetestdb. dbo. WebsiteUserInfoHistory bevat geen vereiste geclusterde index. U kunt een geclusterde column Store-of B-Tree-index maken die begint met de kolom die overeenkomt met het einde van de SYSTEM_TIME periode, in de geschiedenis tabel.*
 
-Het is belangrijk dat u ziet dat de standaard-geschiedenistabel die al zijn gemaakt door Azure SQL Database index, die voldoen aan het beleid voor het bewaarbeleid is geclusterd. Als u probeert te verwijderen die index op een tabel met een eindige retentieperiode, mislukt de bewerking met de volgende fout:
+Het is belang rijk te zien dat de standaard geschiedenis tabel die door Azure SQL Database is gemaakt, al een geclusterde index heeft, die compatibel is met het Bewaar beleid. Als u probeert die index te verwijderen voor een tabel met een beperkte Bewaar periode, mislukt de bewerking met de volgende fout:
 
-*Msg 13766, 16 niveau 1 staat <br> </br> kan de geclusterde index 'WebsiteUserInfoHistory.IX_WebsiteUserInfoHistory' niet verwijderen omdat deze wordt gebruikt voor het automatisch opschonen van verouderde gegevens. U kunt instellen op infinite history_retention_period voor de overeenkomende tijdelijke systeemversietabel als u wilt deze index verwijderen.*
+*Msg 13766, niveau 16, status 1 <br> </br> kan de geclusterde index ' WebsiteUserInfoHistory. IX_WebsiteUserInfoHistory ' niet verwijderen omdat deze wordt gebruikt voor het automatisch opschonen van verouderde gegevens. U kunt HISTORY_RETENTION_PERIOD instellen op oneindig in de bijbehorende tijdelijke systeem versie tabel als u deze index wilt verwijderen.*
 
-Het opruimen van de geclusterde columnstore-index werkt optimaal als historische rijen zijn ingevoegd in de oplopende volgorde (besteld op het einde van de kolom period), die altijd het geval is wanneer de geschiedenistabel uitsluitend door het mechanisme voor SYSTEM_VERSIONIOING is gevuld. Als rijen in de geschiedenistabel zijn niet geordend op het einde van de kolom period (die mogelijk het geval als u bestaande historische gegevens hebt gemigreerd), moet u opnieuw boven op de B-tree rowstore-index die goed zijn besteld, voor een optimale geclusterde columnstore-index maken prestaties.
+Opschonen van de geclusterde column store-index werkt optimaal als historische rijen worden ingevoegd in oplopende volg orde (gesorteerd op de kolom einde van de periode). Dit is altijd het geval wanneer de geschiedenis tabel uitsluitend wordt gevuld door het SYSTEM_VERSIONIOING-mechanisme. Als de rijen in de geschiedenis tabel niet worden gerangschikt op de kolom einde van de periode (dit kan het geval zijn als u bestaande historische gegevens hebt gemigreerd), moet u een geclusterde column store-index maken boven op de rowstore-index van de B-structuur die op de juiste manier is besteld, om optimaal te kunnen profiteren van nemen.
 
-Vermijd opnieuw opbouwen van geclusterde columnstore-index voor de geschiedenistabel met de geen eindige retentieperiode omdat deze kan worden gewijzigd in de Rijgroepen op natuurlijke wijze die zijn opgelegd door de bewerking versiebeheer door het systeem te bestellen. Als u opnieuw opbouwen van geclusterde columnstore-index voor de geschiedenistabel wilt, dit doen door opnieuw te maken op compatibele B-tree-index, ordenen in de Rijgroepen nodig om op te schonen regelmatig gegevens te behouden. Diezelfde aanpak moet worden uitgevoerd als u de tijdelijke tabel maken met bestaande geschiedenistabel met de geclusterde kolomindex zonder order gegarandeerde gegevens:
+Vermijd het opnieuw samen stellen van een geclusterde column store-index in de geschiedenis tabel met de eindige Bewaar periode, omdat deze de volg orde kan wijzigen in de Rijg roepen die op natuurlijke wijze door de systeem versie bewerking worden opgelegd. Als u een geclusterde column store-index opnieuw wilt maken in de geschiedenis tabel, doet u dat door deze opnieuw te maken op basis van de compatibele B-Tree-index, waarbij u de volg orde van de Rijg roepen nodig hebt voor het opschonen van gegevens. U moet dezelfde benadering hebben als u een tijdelijke tabel maakt met een bestaande geschiedenis tabel die een geclusterde kolom index zonder gegarandeerde gegevens order heeft:
 
 ```sql
 /*Create B-tree ordered by the end of period column*/
@@ -137,43 +136,43 @@ CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory ON WebsiteUserInfoH
 WITH (DROP_EXISTING = ON);
 ```
 
-Als geen eindige retentieperiode voor de geschiedenistabel met de geclusterde columnstore-index is geconfigureerd, kunt u geen aanvullende niet-geclusterde B-tree indexen maken voor deze tabel:
+Wanneer een beperkte Bewaar periode voor de geschiedenis tabel is geconfigureerd met de geclusterde column store-index, kunt u geen aanvullende niet-geclusterde B-Tree-indexen maken voor die tabel:
 
 ```sql
 CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
 ```
 
-Een poging om uit te voeren boven de instructie is mislukt met de volgende fout:
+Een poging om een instructie uit te voeren is mislukt met de volgende fout:
 
-*Msg 13772, 16 niveau 1 staat <br> </br> kan niet-geclusterde index maken op een tijdelijke geschiedenistabel 'WebsiteUserInfoHistory' omdat er geen eindige retentieperiode en geclusterde columnstore-index die zijn gedefinieerd.*
+*Msg 13772, niveau 16, status 1 <br> </br> kan geen niet-geclusterde index maken voor een tijdelijke geschiedenis tabel ' WebsiteUserInfoHistory ', omdat er een eindige retentie periode en een geclusterde column store-index zijn gedefinieerd.*
 
-## <a name="querying-tables-with-retention-policy"></a>Een query uitvoeren op tabellen met beleid voor Gegevensretentie
+## <a name="querying-tables-with-retention-policy"></a>Query's uitvoeren op tabellen met Bewaar beleid
 
-Alle query's op de tijdelijke tabel automatisch filteren historische rijen die overeenkomen met beperkte bewaarbeleid, om te voorkomen dat onvoorspelbaar en inconsistente resultaten, omdat de verouderde rijen kunnen worden verwijderd door de Schijfopruiming *op elk gewenst moment in de tijd en willekeurige volgorde*.
+Met alle query's in de tijdelijke tabel worden de historische rijen die overeenkomen met een eindig Bewaar beleid automatisch gefilterd, om onvoorspelbare en inconsistente resultaten te voor komen, omdat verouderde rijen kunnen worden verwijderd door de opschoon taak, *op elk gewenst moment en in een wille keurige volg orde*.
 
-De volgende afbeelding ziet u het queryplan voor een eenvoudige query:
+In de volgende afbeelding ziet u het query plan voor een eenvoudige query:
 
 ```sql
 SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
 ```
 
-Het queryplan bevat een extra filter toegepast op het einde van de kolom period (ValidTo) in de operator geclusterde Index scannen voor de geschiedenistabel (gemarkeerd). In dit voorbeeld wordt ervan uitgegaan dat één maand bewaarperiode is ingesteld op WebsiteUserInfo tabel.
+Het query plan bevat een extra filter dat is toegepast op de kolom end of period (ValidTo) in de geclusterde index scan operator in de geschiedenis tabel (gemarkeerd). In dit voor beeld wordt ervan uitgegaan dat er één maand Bewaar periode is ingesteld voor de tabel WebsiteUserInfo.
 
-![Retentie-queryfilter](./media/sql-database-temporal-tables-retention-policy/queryexecplanwithretention.png)
+![Bewaar query filter](./media/sql-database-temporal-tables-retention-policy/queryexecplanwithretention.png)
 
-Echter, als u een geschiedenistabel rechtstreeks query, ziet u mogelijk rijen die ouder dan de opgegeven bewaartermijn periode, maar zonder dat een garantie voor herhaalbare queryresultaten zijn. De volgende afbeelding ziet queryplan kan worden uitgevoerd voor de query voor de geschiedenistabel zonder extra filters toegepast:
+Als u echter direct een query voor de geschiedenis tabel uitvoert, ziet u mogelijk rijen die ouder zijn dan de opgegeven Bewaar periode, maar zonder enige garantie voor Herhaal bare query resultaten. In de volgende afbeelding ziet u het uitvoerings plan voor query's voor de query in de geschiedenis tabel zonder dat er extra filters worden toegepast:
 
-![Een query uitvoeren op geschiedenis zonder retentie-filter](./media/sql-database-temporal-tables-retention-policy/queryexecplanhistorytable.png)
+![Query uitvoeren op geschiedenis zonder Bewaar filter](./media/sql-database-temporal-tables-retention-policy/queryexecplanhistorytable.png)
 
-Vertrouw niet uw zakelijke logica voor het lezen van geschiedenistabel buiten de bewaarperiode zoals u inconsistente of onverwachte resultaten krijgt mogelijk. U wordt aangeraden dat u tijdelijke query's met FOR SYSTEM_TIME-component gebruiken voor het analyseren van gegevens in de tijdelijke tabellen.
+Vertrouw uw bedrijfs logica niet in de Lees geschiedenis tabel, omdat u mogelijk inconsistente of onverwachte resultaten krijgt. We raden u aan om tijdelijke query's met FOR SYSTEM_TIME-component te gebruiken voor het analyseren van gegevens in tijdelijke tabellen.
 
-## <a name="point-in-time-restore-considerations"></a>Punt in tijd herstel overwegingen
+## <a name="point-in-time-restore-considerations"></a>Aandachtspunten voor herstel naar een bepaald tijdstip
 
-Wanneer u een nieuwe database door maakt [bestaande database herstellen naar een bepaald punt in tijd](sql-database-recovery-using-backups.md), heeft tijdelijke inhouding uitgeschakeld op het databaseniveau van de. (**is_temporal_history_retention_enabled** vlag ingesteld op OFF). Deze functie kunt u het onderzoeken van alle historische rijen bij het herstellen, zonder u zorgen te maken dat verouderde rijen zijn verwijderd voordat u query's voor uitvoert. U kunt deze *inspecteren van historische gegevens buiten de geconfigureerde bewaarperiode*.
+Wanneer u een nieuwe Data Base maakt door [een bestaande Data Base te herstellen naar een specifiek punt in de tijd](sql-database-recovery-using-backups.md), is de tijdelijke Bewaar periode uitgeschakeld op het niveau van de data base. (**is_temporal_history_retention_enabled** -vlag is ingesteld op uit). Met deze functie kunt u alle historische rijen bekijken bij het herstellen, zonder dat u zich zorgen hoeft te maken dat verouderde rijen worden verwijderd voordat u deze opvraagt. U kunt deze gebruiken om *historische gegevens na de geconfigureerde Bewaar periode te controleren*.
 
-Stel dat een tijdelijke tabel één maand bewaarperiode opgegeven tijdsperiode heeft. Als uw database is gemaakt in Premium-servicelaag, zou u kunnen maken van database-exemplaar met de status van de database omhoog tot 35 dagen terug in het verleden zijn. Die effectief kunt u voor het analyseren van historische rijen die door het opvragen van de geschiedenistabel rechtstreeks maximaal 65 dagen oud.
+Stel dat er voor een tijdelijke tabel één maand een Bewaar periode is opgegeven. Als uw data base in een Premium-servicelaag is gemaakt, kunt u in het verleden een database kopie maken met de database status tot 35 dagen. Op die manier kunt u historische rijen die Maxi maal 65 dagen oud zijn, analyseren door de geschiedenis tabel rechtstreeks te doorzoeken.
 
-Als u activeren tijdelijke retentieopschoning wilt, voert u de volgende Transact-SQL-instructie na punt bepaald tijstip:
+Als u het opschonen van de tijdelijke Bewaar periode wilt activeren, moet u de volgende Transact-SQL-instructie uitvoeren na herstel naar een bepaald tijdstip:
 
 ```sql
 ALTER DATABASE <myDB>
@@ -182,8 +181,8 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk voor meer informatie over het gebruik van tijdelijke tabellen in uw toepassingen, [aan de slag met tijdelijke tabellen in Azure SQL Database](sql-database-temporal-tables.md).
+Raadpleeg aan de slag [met tijdelijke tabellen in Azure SQL database](sql-database-temporal-tables.md)voor meer informatie over het gebruik van tijdelijke tabellen in uw toepassingen.
 
-Ga naar Channel 9 graag een [Succesverhaal van een echte klant tijdelijke implementatie](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) en bekijk een [tijdelijke demonstratie live](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
+Ga naar Channel 9 om een [echte tijdelijke tekst](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) van de klant te horen en een [Live tijdelijke demonstratie](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016)te bekijken.
 
-Raadpleeg voor gedetailleerde informatie over tijdelijke tabellen [MSDN-documentatie](https://msdn.microsoft.com/library/dn935015.aspx).
+Raadpleeg de [MSDN-documentatie](https://msdn.microsoft.com/library/dn935015.aspx)voor gedetailleerde informatie over tijdelijke tabellen.

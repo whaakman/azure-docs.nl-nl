@@ -1,9 +1,9 @@
 ---
-title: Beheren van certificaten in een Azure Service Fabric-cluster | Microsoft Docs
-description: Beschrijft hoe u nieuwe certificaten, rollovercertificaat, toevoegen en verwijderen van certificaat naar of van een Service Fabric-cluster.
+title: Certificaten in een Azure Service Fabric-cluster beheren | Microsoft Docs
+description: Hierin wordt beschreven hoe u nieuwe certificaten, rollover certificaat en certificaat kunt toevoegen aan of verwijderen uit een Service Fabric-cluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
@@ -13,59 +13,59 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
-ms.author: aljo
-ms.openlocfilehash: f1998ec2fe82b9fd52547fbccb208542b22bc949
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: d84525e869d47fc609ee8aac7feb7feda36a5f23
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306917"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599953"
 ---
-# <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Toevoegen of verwijderen van certificaten voor een Service Fabric-cluster in Azure
-Het verdient aanbeveling dat u raken met het Service Fabric maakt gebruik van x.509-certificaten en vertrouwd met zijn de [clusterbeveiligingsscenario's](service-fabric-cluster-security.md). U moet begrijpen wat een clustercertificaat is en wat wordt gebruikt voor, voordat u verder gaat.
+# <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Certificaten voor een Service Fabric cluster in azure toevoegen of verwijderen
+Het is raadzaam om vertrouwd te raken met de manier waarop Service Fabric X. 509-certificaten gebruikt en dat u vertrouwd bent met de [beveiligings scenario's](service-fabric-cluster-security.md)voor het cluster. Voordat u verder gaat, moet u weten wat een cluster certificaat is en wat wordt gebruikt voor.
 
-Azure Service Fabrics SDK's standaard certificaat load gedrag, is het implementeren en gebruiken van een gedefinieerde certificaat met een vervaldatum verste weg in de toekomst; ongeacht de definitie van de primaire of secundaire configuratie. Terugvallen naar de klassieke gedrag wordt niet aanbevolen geavanceerde actie, en is vereist als de waarde van de parameter 'UseSecondaryIfNewer' instellen op false in de configuratie van uw Fabric.Code.
+De standaard instelling voor het laden van het certificaat van de SDK van Azure service fabrics is het implementeren en gebruiken van een gedefinieerd certificaat met een verlopende datum die het verst in de toekomst ligt. ongeacht de definitie van de primaire of secundaire configuratie. Terugvallen op het klassieke gedrag is een niet-aanbevolen geavanceerde actie. hiervoor moet de waarde van de para meter ' UseSecondaryIfNewer ' worden ingesteld op False in uw infra structuur. code configuratie.
 
-Service fabric kunt u twee clustercertificaten, een primaire en een secundaire opgeven bij het configureren van Certificaatbeveiliging tijdens het maken van een cluster, naast de clientcertificaten. Raadpleeg [het maken van een azure-cluster via de portal](service-fabric-cluster-creation-via-portal.md) of [het maken van een azure-cluster via Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) voor meer informatie over het instellen van deze clusters op voor het maken. Als u slechts één clustercertificaat opgeeft bij het maken, klikt u vervolgens die wordt gebruikt als het primaire certificaat voor. Na het maken van een cluster, kunt u een nieuw certificaat toevoegen als een secundaire.
+Met Service Fabric kunt u twee cluster certificaten, een primaire en een secundaire, opgeven wanneer u certificaat beveiliging configureert tijdens het maken van het cluster, naast client certificaten. Raadpleeg het [maken van een Azure-cluster via de portal](service-fabric-cluster-creation-via-portal.md) of [het maken van een Azure-cluster via Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) voor meer informatie over het instellen van de clusters tijdens het maken van een tijd. Als u per keer een cluster certificaat opgeeft, wordt dit gebruikt als het primaire certificaat. Nadat het cluster is gemaakt, kunt u een nieuw certificaat toevoegen als secundair.
 
 > [!NOTE]
-> Voor een beveiligd cluster moet altijd u ten minste één geldige (niet ingetrokken en niet verlopen)-cluster certificaat (primaire of secundaire) dat is geïmplementeerd (zo niet, de cluster-stopt werkt). 90 dagen voordat alle geldige certificaten verlopen, bereikt het systeem genereert een waarschuwing tracering en ook een statusgebeurtenis waarschuwing op het knooppunt. Er is momenteel geen e-mailadres of andere berichten die in dit artikel Service Fabric verzendt. 
+> Voor een beveiligd cluster hebt u altijd ten minste één geldig (niet ingetrokken en niet-verlopen) cluster certificaat (primair of secundair) geïmplementeerd (als dat niet het geval is, werkt het cluster niet meer). 90 dagen voordat alle geldige certificaten verlopen, genereert het systeem een waarschuwings tracering en ook een waarschuwings status gebeurtenis op het knoop punt. Er is momenteel geen e-mail bericht of andere meldingen die Service Fabric in dit artikel worden verzonden. 
 > 
 > 
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Toevoegen van een secundair clustercertificaat met behulp van de portal
-Secundair clustercertificaat kan niet worden toegevoegd via Azure portal, Azure powershell gebruiken. Het proces wordt verderop in dit document beschreven.
+## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Een secundair cluster certificaat toevoegen met behulp van de portal
+Het secundaire cluster certificaat kan niet worden toegevoegd via de Azure Portal, Azure Power shell gebruiken. Het proces wordt verderop in dit document beschreven.
 
-## <a name="remove-a-cluster-certificate-using-the-portal"></a>Verwijderen van een clustercertificaat met behulp van de portal
-Voor een beveiligd cluster moet u altijd ten minste één geldig (niet ingetrokken en niet verlopen)-certificaat. Het certificaat dat is geïmplementeerd met verst in de verlopende datum in de toekomst worden gebruikt en verwijdert het zorgt ervoor dat de werking van uw cluster stoppen; Zorg ervoor dat alleen verwijderen van het certificaat is verlopen of een niet-gebruikte certificaat dat de eerste aflopen verloopt.
+## <a name="remove-a-cluster-certificate-using-the-portal"></a>Een cluster certificaat verwijderen via de portal
+Voor een beveiligd cluster hebt u altijd Mini maal één geldig certificaat (niet ingetrokken en niet verlopen) nodig. Het certificaat dat het meest voor de volgende verval datum is geïmplementeerd, wordt in gebruik en de verwijdering van het cluster werkt niet meer. Zorg ervoor dat u alleen het certificaat verwijdert dat is verlopen of dat een ongebruikt certificaat dat het kortste verloopt.
 
-Een niet-gebruikte cluster security-certificaat, navigeer naar de sectie beveiliging verwijderen en selecteer de optie 'Delete' in het contextmenu op het ongebruikte certificaat.
+Als u een niet-gebruikt cluster beveiligings certificaat wilt verwijderen, gaat u naar de sectie Beveiliging en selecteert u de optie verwijderen in het context menu van het ongebruikte certificaat.
 
-Als uw bedoeling is om te verwijderen van het certificaat dat is gemarkeerd als primair, klikt u vervolgens moet u voor het implementeren van een secundair certificaat met een vervaldatum verder in de toekomst dan het primaire certificaat voor het inschakelen van het gedrag van automatische rollover; het primaire certificaat verwijderen nadat de automatische rollover is voltooid.
+Als u het certificaat dat is gemarkeerd als primair wilt verwijderen, moet u een secundair certificaat met een verlopende datum verder in de toekomst implementeren dan het primaire certificaat, waardoor het gedrag voor automatisch rollover wordt ingeschakeld. Verwijder het primaire certificaat nadat de automatische rollover is voltooid.
 
-## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Een secundair certificaat met behulp van Resource Manager Powershell toevoegen
+## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Een secundair certificaat toevoegen met behulp van Resource Manager Power shell
 > [!TIP]
-> Er is nu een manier beter en eenvoudiger om toe te voegen een secundair certificaat met de [toevoegen AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. U hoeft niet te volgen van de rest van de stappen in deze sectie.  Bovendien hoeft u niet de sjabloon die oorspronkelijk hebt gebruikt om te maken en implementeren van het cluster bij het gebruik van de [toevoegen AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
+> Er is nu een betere en eenvoudiger manier om een secundair certificaat toe te voegen met behulp van de cmdlet [add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) . U hoeft de overige stappen in deze sectie niet uit te voeren.  U hebt de sjabloon die oorspronkelijk is gebruikt voor het maken en implementeren van het cluster ook niet nodig bij gebruik van de cmdlet [add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) .
 
-Deze stappen wordt ervan uitgegaan dat u bekend bent met de werking van Resource Manager en ten minste één Service Fabric-cluster met behulp van Resource Manager-sjabloon hebt geïmplementeerd en de sjabloon die u hebt gebruikt voor het instellen van het cluster bij de hand hebt. Ook wordt ervan uitgegaan dat u ervaring hebt met JSON zijn.
+Bij deze stappen wordt ervan uitgegaan dat u bekend bent met het gebruik van Resource Manager en ten minste één Service Fabric cluster met een resource manager-sjabloon hebt geïmplementeerd. u hebt de sjabloon die u hebt gebruikt voor het instellen van het cluster. Ook wordt ervan uitgegaan dat u bent vertrouwd met JSON.
 
 > [!NOTE]
-> Als u een voorbeeldsjabloon en parameters die u gebruiken kunt om te volgen langs of als een beginpunt zoekt, klikt u vervolgens downloaden van dit [git-opslagplaats](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
+> Als u op zoek bent naar een voorbeeld sjabloon en para meters die u kunt gebruiken om samen te volgen of als uitgangs punt, downloadt u deze vanaf deze [Git-opslag plaats](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
 > 
 > 
 
 ### <a name="edit-your-resource-manager-template"></a>Uw Resource Manager-sjabloon bewerken
 
-Voorbeeld 5-VM-1-NodeTypes-Secure_Step2.JSON bevat gemakkelijker te maken van de volgende langs alle bewerkingen we brengen. het voorbeeld is beschikbaar op [git-opslagplaats](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
+Voor het gemak van de volgende stap, voor beeld 5-VM-1-NodeTypes-Secure_Step2. JSON bevat alle wijzigingen die we zullen door voeren. het voor beeld is beschikbaar op [Git-opslag plaats](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
 
-**Zorg ervoor dat u alle stappen**
+**Zorg ervoor dat u alle stappen hebt gevolgd**
 
-1. Open de Resource Manager-sjabloon waarmee u zich hebt u een Cluster implementeren. (Als u het voorbeeld van de voorgaande opslagplaats hebt gedownload, 5-VM-1-NodeTypes-Secure_Step1.JSON vervolgens gebruiken om een beveiligd cluster te implementeren en vervolgens opent u die sjabloon).
+1. Open de Resource Manager-sjabloon die u hebt gebruikt voor het implementeren van het cluster. (Als u het voor beeld hebt gedownload van de voor gaande opslag plaats, gebruikt u vervolgens 5-VM-1-NodeTypes-Secure_Step1. JSON om een beveiligd cluster te implementeren en vervolgens de sjabloon te openen).
 
-2. Voeg **twee nieuwe parameters** "secCertificateThumbprint" en "secCertificateUrlValue" van typt u 'tekenreeks' aan de sectie van uw sjabloon. U kunt het volgende codefragment kopiëren en deze toevoegen aan de sjabloon. Afhankelijk van de bron van de sjabloon, mogelijk hebt u al deze gedefinieerd, als u dus verplaatsen naar de volgende stap. 
+2. Voeg **twee nieuwe para meters** ' secCertificateThumbprint ' en ' secCertificateUrlValue ' van het type ' String ' toe aan de para meter-sectie van uw sjabloon. U kunt het volgende code fragment kopiëren en toevoegen aan de sjabloon. Afhankelijk van de bron van uw sjabloon hebt u deze mogelijk al gedefinieerd. als dat het geval is, gaat u verder met de volgende stap. 
  
     ```json
        "secCertificateThumbprint": {
@@ -83,7 +83,7 @@ Voorbeeld 5-VM-1-NodeTypes-Secure_Step2.JSON bevat gemakkelijker te maken van de
     
     ```
 
-3. Wijzigingen aanbrengen in de **Microsoft.ServiceFabric/clusters** resource - de resourcedefinitie 'Microsoft.ServiceFabric/clusters' niet vinden in de sjabloon. Onder de eigenschappen van deze definitie, vindt u "Certificate" JSON code, waarmee er ongeveer als de volgende JSON-fragment ziet:
+3. Wijzigingen aanbrengen in de resource van **micro soft. ServiceFabric/clusters** : Zoek de resource definitie ' micro soft. ServiceFabric/clusters ' in uw sjabloon. Onder eigenschappen van die definitie vindt u het JSON-label ' certificaat '. dit moet er ongeveer uitzien als in het volgende JSON-fragment:
    
     ```JSON
           "properties": {
@@ -93,9 +93,9 @@ Voorbeeld 5-VM-1-NodeTypes-Secure_Step2.JSON bevat gemakkelijker te maken van de
          }
     ``` 
 
-    Toevoegen van een nieuwe tag "thumbprintSecondary" en wijs hieraan een waarde '[parameters('secCertificateThumbprint')]'.  
+    Voeg een nieuwe tag ' thumbprintSecondary ' toe en geef deze de waarde ' [para meters (' secCertificateThumbprint ')].  
 
-    Nu de resourcedefinitie moet eruitzien als de volgende (afhankelijk van de bron van de sjabloon, mogelijk niet precies zoals het onderstaande codefragment). 
+    De resource definitie moet er nu als volgt uitzien (afhankelijk van de bron van de sjabloon, is dit mogelijk niet precies hetzelfde als het onderstaande fragment). 
 
     ```JSON
           "properties": {
@@ -106,7 +106,7 @@ Voorbeeld 5-VM-1-NodeTypes-Secure_Step2.JSON bevat gemakkelijker te maken van de
          }
     ``` 
 
-    Als u wilt **rollover van het certificaat**, geef het nieuwe certificaat als primaire en het verplaatsen van de huidige primaire als secundaire. Dit resulteert in de rollover van uw huidige primaire certificaat voor het nieuwe certificaat in één implementatiestap.
+    Als u **het certificaat wilt overnemen**, geeft u het nieuwe certificaat op als primair en verplaatst u de huidige primaire as secundair. Dit resulteert in de overschakeling van uw huidige primaire certificaat in één implementatie stap naar het nieuwe certificaat.
     
     ```JSON
           "properties": {
@@ -117,13 +117,13 @@ Voorbeeld 5-VM-1-NodeTypes-Secure_Step2.JSON bevat gemakkelijker te maken van de
          }
     ``` 
 
-4. Wijzigingen aanbrengen in **alle** de **Microsoft.Compute/virtualMachineScaleSets** resourcedefinities - Zoek de definitie van de resource Microsoft.Compute/virtualMachineScaleSets. Schuif naar de 'publisher': "Microsoft.Azure.ServiceFabric", onder 'virtualMachineProfile'.
+4. Breng wijzigingen aan in alle **micro soft. Compute/virtualMachineScaleSets** resource definities-Zoek de resource definitie micro soft. Compute/virtualMachineScaleSets. Ga naar ' Publisher ': ' Micro soft. Azure. ServiceFabric ', onder ' virtualMachineProfile '.
 
-    In de instellingen van de uitgever van Service Fabric ziet u er ongeveer als volgt.
+    In de instellingen voor de Service Fabric uitgever ziet u iets als in.
     
     ![Json_Pub_Setting1][Json_Pub_Setting1]
     
-    Het nieuwe certificaat vermeldingen toevoegen aan het
+    De nieuwe certificaat vermeldingen toevoegen
     
     ```json
                    "certificateSecondary": {
@@ -138,7 +138,7 @@ Voorbeeld 5-VM-1-NodeTypes-Secure_Step2.JSON bevat gemakkelijker te maken van de
     
     ![Json_Pub_Setting2][Json_Pub_Setting2]
     
-    Als u wilt **rollover van het certificaat**, geef het nieuwe certificaat als primaire en het verplaatsen van de huidige primaire als secundaire. Dit resulteert in de rollover van uw huidige certificaat naar het nieuwe certificaat in één implementatiestap.     
+    Als u **het certificaat wilt overnemen**, geeft u het nieuwe certificaat op als primair en verplaatst u de huidige primaire as secundair. Dit resulteert in de overschakeling van uw huidige certificaat in één implementatie stap naar het nieuwe certificaat.     
 
     ```json
                    "certificate": {
@@ -155,11 +155,11 @@ Voorbeeld 5-VM-1-NodeTypes-Secure_Step2.JSON bevat gemakkelijker te maken van de
     De eigenschappen moeten er nu als volgt uitzien    
     ![Json_Pub_Setting3][Json_Pub_Setting3]
 
-5. Wijzigingen aanbrengen in **alle** de **Microsoft.Compute/virtualMachineScaleSets** resourcedefinities - Zoek de definitie van de resource Microsoft.Compute/virtualMachineScaleSets. Blader naar het 'vaultCertificates':, onder 'OSProfile'. Dit ziet er ongeveer als volgt.
+5. Breng wijzigingen aan in alle **micro soft. Compute/virtualMachineScaleSets** resource definities-Zoek de resource definitie micro soft. Compute/virtualMachineScaleSets. Ga naar ' vaultCertificates ':, onder ' OSProfile '. Dit ziet er ongeveer als volgt uit.
 
     ![Json_Pub_Setting4][Json_Pub_Setting4]
     
-    De secCertificateUrlValue aan toevoegen. Gebruik het volgende codefragment:
+    Voeg het secCertificateUrlValue toe. Gebruik het volgende code fragment:
     
     ```json
                       {
@@ -168,19 +168,19 @@ Voorbeeld 5-VM-1-NodeTypes-Secure_Step2.JSON bevat gemakkelijker te maken van de
                       }
     
     ```
-    De resulterende Json moet nu ongeveer als volgt uitzien.
+    De resulterende JSON moet er nu ongeveer als volgt uitzien.
     ![Json_Pub_Setting5][Json_Pub_Setting5]
 
 
 > [!NOTE]
-> Zorg ervoor dat u stap 4 en 5 voor de definities voor de resource Nodetypes/Microsoft.Compute/virtualMachineScaleSets hebben herhaald in de sjabloon. Als u een van beide missen, wordt het certificaat niet geïnstalleerd op dat de virtuele-machineschaalset en u onvoorspelbare resultaten in het cluster hebt, met inbegrip van het cluster uitvalt (als u uiteindelijk geen geldige certificaten die het cluster voor beveiliging gebruiken kunt. Zo Controleer, voordat u doorgaat.
+> Zorg ervoor dat u stap 4 en 5 hebt herhaald voor alle Nodetypes/micro soft. Compute/virtualMachineScaleSets-resource definities in uw sjabloon. Als u een van deze opties mist, wordt het certificaat niet geïnstalleerd op de schaalset van die virtuele machine en hebt u onvoorspelbare resultaten in uw cluster, inclusief het cluster (als u er geen geldige certificaten voor hebt die het cluster kan gebruiken voor beveiliging. Controleer daarom dubbele controle voordat u doorgaat.
 > 
 > 
 
-### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>Bewerk het sjabloonbestand aanleiding van de nieuwe parameters die u hebt toegevoegd
-Als u het voorbeeld van de [git-opslagplaats](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) wilt volgen, kunt u beginnen met het aanbrengen van wijzigingen in het voorbeeld 5-VM-1-NodeTypes-Secure.parameters_Step2.JSON 
+### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>Bewerk uw sjabloon bestand om de nieuwe para meters weer te geven die u hierboven hebt toegevoegd
+Als u het voor beeld van het [Git-opslag plaats](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) gebruikt om samen te volgen, kunt u beginnen met het maken van wijzigingen in het voor beeld 5-VM-1-NodeTypes-Secure. PARAMETERS_STEP2. json 
 
-De parameter Resource Manager-sjabloon in het bestand bewerken, de twee nieuwe parameters voor secCertificateThumbprint en secCertificateUrlValue toevoegen. 
+Bewerk het parameter bestand voor de Resource Manager-sjabloon, voeg de twee nieuwe para meters voor secCertificateThumbprint en secCertificateUrlValue toe. 
 
 ```JSON
     "secCertificateThumbprint": {
@@ -192,10 +192,10 @@ De parameter Resource Manager-sjabloon in het bestand bewerken, de twee nieuwe p
 
 ```
 
-### <a name="deploy-the-template-to-azure"></a>De sjabloon implementeren in Azure
+### <a name="deploy-the-template-to-azure"></a>De sjabloon implementeren in azure
 
-- U bent nu klaar voor het implementeren van uw sjabloon naar Azure. Open de opdrachtprompt van een Azure-PS-versie 1 +.
-- Aanmelden bij uw Azure-Account en selecteer de specifieke azure-abonnement. Dit is een belangrijke stap voor mensen die toegang tot meer dan één azure-abonnement hebben.
+- U bent nu klaar om uw sjabloon te implementeren in Azure. Open een opdracht prompt van Azure PS versie 1 +.
+- Meld u aan bij uw Azure-account en selecteer het specifieke Azure-abonnement. Dit is een belang rijke stap voor mensen die toegang hebben tot meer dan één Azure-abonnement.
 
 ```powershell
 Connect-AzAccount
@@ -203,17 +203,17 @@ Select-AzSubscription -SubscriptionId <Subscription ID>
 
 ```
 
-Test de sjabloon voordat deze is geïmplementeerd. Gebruik dezelfde resourcegroep die uw cluster wordt momenteel geïmplementeerd in.
+Test de sjabloon voordat u deze implementeert. Gebruik dezelfde resource groep als waarin uw cluster momenteel is geïmplementeerd.
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 
 ```
 
-De sjabloon implementeren in uw resourcegroep. Gebruik dezelfde resourcegroep die uw cluster wordt momenteel geïmplementeerd in. Voer de opdracht New-AzResourceGroupDeployment. U hoeft niet om op te geven van de modus, omdat de standaardwaarde is **incrementele**.
+Implementeer de sjabloon in uw resource groep. Gebruik dezelfde resource groep als waarin uw cluster momenteel is geïmplementeerd. Voer de opdracht New-AzResourceGroupDeployment uit. U hoeft de modus niet op te geven, omdat de standaard waarde **Incrementeel**is.
 
 > [!NOTE]
-> Als u de modus op voltooid instellen, kunt u per ongeluk resources die zich niet in uw sjabloon verwijderen. Dus gebruik deze niet in dit scenario.
+> Als u de modus instelt op voltooid, kunt u per ongeluk resources verwijderen die zich niet in uw sjabloon bevinden. In dit scenario gebruikt u dit dus niet.
 > 
 > 
 
@@ -221,7 +221,7 @@ De sjabloon implementeren in uw resourcegroep. Gebruik dezelfde resourcegroep di
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 ```
 
-Hier volgt een voorbeeld van een ingevuld van de dezelfde powershell.
+Hier volgt een ingevuld voor beeld van dezelfde Power shell.
 
 ```powershell
 $ResourceGroup2 = "chackosecure5"
@@ -232,9 +232,9 @@ New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParame
 
 ```
 
-Zodra de implementatie voltooid is, verbinding maken met uw cluster met behulp van het nieuwe certificaat en enkele query's uit te voeren. Als u kunnen doen. Vervolgens kunt u het oude certificaat verwijderen. 
+Zodra de implementatie is voltooid, maakt u verbinding met het cluster met behulp van het nieuwe certificaat en voert u enkele query's uit. Als u dit kunt doen. Vervolgens kunt u het oude certificaat verwijderen. 
 
-Als u een zelfondertekend certificaat gebruikt, vergeet niet om te importeren in uw lokale TrustedPeople-certificaatarchief.
+Als u een zelfondertekend certificaat gebruikt, vergeet dan niet om deze te importeren in uw lokale TrustedPeople-certificaat archief.
 
 ```powershell
 ######## Set up the certs on your local box
@@ -242,7 +242,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FilePath c:\Mycertificates\chackdanTestCertificate9.pfx -Password (ConvertTo-SecureString -String abcd123 -AsPlainText -Force)
 
 ```
-Voor snelle naslag volgt de opdracht voor verbinding met een beveiligd cluster 
+Raadpleeg de opdracht om verbinding te maken met een beveiligd cluster voor naslag informatie 
 
 ```powershell
 $ClusterName= "chackosecure5.westus.cloudapp.azure.com:19000"
@@ -256,43 +256,43 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
     -StoreLocation CurrentUser `
     -StoreName My
 ```
-Voor snelle naslag volgt de opdracht voor het ophalen van de clusterstatus
+Raadpleeg de opdracht voor het ophalen van de cluster status voor naslag informatie
 
 ```powershell
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-client-certificates-to-the-cluster"></a>Clientcertificaten implementeren met het cluster.
+## <a name="deploying-client-certificates-to-the-cluster"></a>Client certificaten implementeren op het cluster.
 
-U kunt dezelfde stappen gebruiken zoals wordt beschreven in de voorgaande stap 5 om de certificaten die zijn geïmplementeerd in een Key Vault op de knooppunten. U moet alleen definiëren en gebruiken van verschillende parameters.
-
-
-## <a name="adding-or-removing-client-certificates"></a>Toevoegen of verwijderen van clientcertificaten
-
-Naast de clustercertificaten, kunt u clientcertificaten voor het uitvoeren van beheerbewerkingen op een Service Fabric-cluster toevoegen.
-
-U kunt twee soorten clientcertificaten - beheerder toevoegen of alleen-lezen. Deze kunnen vervolgens worden gebruikt voor het beheren van toegang tot de admin operations- en querybewerkingen op het cluster. Standaard worden de clustercertificaten toegevoegd aan de lijst met toegestane certificaten beheerder.
-
-u kunt een willekeurig aantal clientcertificaten opgeven. Elke toevoeging/verwijdering resulteert in een configuratie-update in de Service Fabric-cluster
+U kunt dezelfde stappen gebruiken als in de voor gaande stappen 5 om de certificaten te implementeren van een sleutel kluis naar de knoop punten. U hoeft alleen verschillende para meters te definiëren en te gebruiken.
 
 
-### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>Clientcertificaten - beheerder toe te voegen of alleen-lezen via de portal
+## <a name="adding-or-removing-client-certificates"></a>Client certificaten toevoegen of verwijderen
 
-1. Navigeer naar de sectie Beveiliging en selecteer de + verificatie knop boven op de Beveiligingssectie.
-2. Kies het 'verificatietype' - 'Alleen-lezen-client' of 'Admin client' in de sectie 'Verificatie toevoegen'
-3. Nu voor kiezen de autorisatiemethode. Hiermee geeft u aan Service Fabric of het opzoeken van dit certificaat met behulp van de onderwerpnaam of de vingerafdruk. Het is in het algemeen niet een goede gewoonte om de autorisatiemethode van de naam van het onderwerp te gebruiken. 
+Naast de cluster certificaten kunt u client certificaten toevoegen om beheer bewerkingen uit te voeren op een Service Fabric cluster.
 
-![Clientcertificaat toevoegen][Add_Client_Cert]
+U kunt twee soorten client certificaten toevoegen: beheerder of alleen-lezen. Deze kunnen vervolgens worden gebruikt om de toegang tot de beheer bewerkingen en query bewerkingen op het cluster te beheren. Standaard worden de cluster certificaten toegevoegd aan de lijst met toegestane beheerders certificaten.
 
-### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>Het verwijderen van clientcertificaten - beheerder of alleen-lezen met behulp van de portal
+u kunt een wille keurig aantal client certificaten opgeven. Elke toevoeging/verwijdering resulteert in een configuratie-update voor het Service Fabric cluster
 
-Verwijderen van een secundair certificaat worden gebruikt voor clusterbeveiliging, navigeer naar de sectie Beveiliging en de optie 'Verwijderen' selecteert in het contextmenu op de specifieke certificaat.
+
+### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>Client certificaten toevoegen-beheerder of alleen-lezen via Portal
+
+1. Ga naar de sectie Beveiliging en selecteer de knop + verificatie boven in het gedeelte Beveiliging.
+2. Kies in de sectie verificatie toevoegen de optie verificatie type-' alleen-lezen client ' of ' admin-client '.
+3. Kies nu de autorisatie methode. Dit geeft aan Service Fabric of dit certificaat moet worden opgezocht met behulp van de onderwerpnaam of de vinger afdruk. Over het algemeen is het geen goede beveiligings procedure om de autorisatie methode van de object naam te gebruiken. 
+
+![Client certificaat toevoegen][Add_Client_Cert]
+
+### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>Client certificaten verwijderen: beheerder of alleen-lezen via de portal
+
+Als u een secundair certificaat wilt verwijderen dat wordt gebruikt voor cluster beveiliging, gaat u naar de sectie Beveiliging en selecteert u de optie verwijderen in het context menu van het specifieke certificaat.
 
 ## <a name="next-steps"></a>Volgende stappen
-Lees deze artikelen voor meer informatie over het Clusterbeheer:
+Lees deze artikelen voor meer informatie over Cluster beheer:
 
-* [Het upgradeproces service Fabric-Cluster en de verwachtingen van u](service-fabric-cluster-upgrade.md)
-* [Toegang op basis van rollen voor clients instellen](service-fabric-cluster-security-roles.md)
+* [Upgrade proces en verwachtingen van de Cluster Service Fabric](service-fabric-cluster-upgrade.md)
+* [Op rollen gebaseerde toegang voor clients instellen](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->
 [Add_Client_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_13.PNG

@@ -1,66 +1,66 @@
 ---
-title: De afbeeldingslaag van een toevoegen aan Azure-kaarten | Microsoft Docs
-description: De laag van een afbeelding toevoegen aan de Javascript-kaart
+title: Een afbeelding slaag toevoegen aan Azure Maps | Microsoft Docs
+description: Een afbeelding slaag toevoegen aan de Java script-kaart
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/3/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5396fefca3a60dea7a503f8b4e84cc575753ea30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ea0f37e307196af4b27fd3f8fb1aa0d42443dfa
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769563"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638729"
 ---
-# <a name="add-an-image-layer-to-a-map"></a>De afbeeldingslaag van een toevoegen aan een kaart
+# <a name="add-an-image-layer-to-a-map"></a>Een afbeelding slaag toevoegen aan een kaart
 
-Dit artikel leest u hoe u een installatiekopie naar een vaste set coördinaten op de kaart kunt overlay. Er zijn veel scenario's waarin een installatiekopie van een bedrijfscontext op de kaart wordt uitgevoerd. Hier volgen enkele voorbeelden van het type afbeeldingen vaak overlay bekijken op kaarten;
+Dit artikel laat u zien hoe u een afbeelding kunt bedekken naar een vaste set coördinaten op de kaart. Er zijn veel scenario's waarin het bedekken van een afbeelding op de kaart is voltooid. Hier volgen enkele voor beelden van het type afbeeldingen dat vaak op kaarten wordt overlapt.
 
-* Installatiekopieën van drones.
-* Building floorplans.
-* Historische of andere speciale Kaartafbeeldingen.
-* Blauwdrukken van taak sites.
-* Installatiekopieën van weer werkt.
+* Installatie kopieën die zijn vastgelegd vanuit drones.
+* Floorplans bouwen.
+* Historische of andere gespecialiseerde kaart afbeeldingen.
+* Blauw drukken van taak sites.
+* Weers radar-afbeeldingen.
 
 > [!TIP]
-> Een [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) is een snelle een eenvoudige manier om een installatiekopie op een kaart bedekt. Echter, als de afbeelding te groot is, de browser mogelijk is het moeilijk om het te laden. In dit geval kunt u uw installatiekopie opgesplitst in tegels en deze worden geladen op de kaart als een [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest).
+> Een [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) is een snelle manier om een afbeelding op een kaart te bedekken. Als de afbeelding echter groot is, kan het moeilijk worden om deze te laden. In dit geval kunt u overwegen om uw afbeelding in tegels te verdelen en ze te laden in de kaart als een [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest).
 
 ## <a name="add-an-image-layer"></a>Een afbeeldingslaag toevoegen
 
-In dit voorbeeld laat zien hoe u een afbeelding van overlay een [toewijzing van één in New Jersey van 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) op de kaart.
+Dit voor beeld laat zien hoe u een afbeelding van een [kaart van Newark New Jersey](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) kunt bedekken vanaf 1922 op de kaart.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Eenvoudige installatiekopie laag' src='//codepen.io/azuremaps/embed/eQodRo/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/eQodRo/'>eenvoudige installatiekopie laag</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Laag met eenvoudige afbeeldingen' src='//codepen.io/azuremaps/embed/eQodRo/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Bekijk de <a href='https://codepen.io/azuremaps/pen/eQodRo/'>eenvoudige afbeelding slaag</a> van de pen door<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In de bovenstaande code wordt het eerste vereiste blok van code een kaartobject. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
+In de bovenstaande code maakt het eerste code blok een kaart object. U kunt [een overzicht maken](./map-create.md) voor instructies.
 
-In het tweede blok van code, een [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) wordt gemaakt door een URL wordt doorgegeven aan een afbeelding en coördinaten voor de hoeken in de indeling `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
+In het tweede code blok wordt een [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) gemaakt door een URL door te geven aan een afbeelding en een coördinaten voor de vier hoeken in de `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`notatie.
 
-## <a name="import-a-kml-ground-overlay"></a>Importeren van een KML grond overlay
+## <a name="import-a-kml-ground-overlay"></a>Een KML-wegdek-overlay importeren
 
-In dit voorbeeld laat zien hoe overlay KML grond Overlay informatie als de laag van een installatiekopie op de kaart. KML grond overlays bieden Noord, Zuid, Oost, en west-coördinaten en een linksom draaien, waar als de afbeelding laag wordt verwacht coördinaten voor elke hoek van de installatiekopie dat. De overlay KML volledig is ontwikkeld in dit voorbeeld is van de Chartres cathedral en Source van [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
+In dit voor beeld ziet u hoe u de KML-bedekkings gegevens als een afbeelding slaag op de kaart kunt bedekken. KML-bedekkingen bieden Noord-, Zuid-, Oost-en West-coördinaten en een rotatie linksom, waarbij de afbeelding slaag coördinaten voor elke hoek van de afbeelding verwacht. De KML-vlak bedekking in dit voor beeld is van de Chartres-Cathedral en gesourceeerd van [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 
 <br/>
 
-<iframe height='500' scrolling='no' title='KML grond Overlay als afbeeldingslaag' src='//codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/EOJgpj/'>KML gemalen Overlay als afbeeldingslaag</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='KML-oppervlak overlay als afbeelding slaag' src='//codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Bekijk de KML-bedekking van de pen <a href='https://codepen.io/azuremaps/pen/EOJgpj/'>als afbeelding slaag</a> door Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-De bovenstaande code wordt de statische `getCoordinatesFromEdges` functie van de [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) klasse voor het berekenen van de hoeken van de installatiekopie van het noorden, Zuid, Oost-west en rotatie gegevens uit de KML gemalen overlay.
+De bovenstaande code maakt gebruik van `getCoordinatesFromEdges` de statische functie van de klasse [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) om de vier hoeken van de afbeelding te berekenen op basis van de Noord-, Zuid-, Oost-, West-en rotatie gegevens van de KML-wegdek bedekking.
 
 
-## <a name="customize-an-image-layer"></a>De laag van een installatiekopie aanpassen
+## <a name="customize-an-image-layer"></a>Een afbeelding slaag aanpassen
 
-De installatiekopie-laag heeft veel opties voor stijl. Hier is een hulpprogramma voor ze kunt uitproberen.
+De afbeelding slaag heeft veel stijl opties. Hier volgt een hulp programma om het uit te proberen.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opties voor de laag afbeelding' src='//codepen.io/azuremaps/embed/RqOGzx/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/RqOGzx/'>Image opties voor Tegellaag</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opties voor afbeelding slaags' src='//codepen.io/azuremaps/embed/RqOGzx/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de <a href='https://codepen.io/azuremaps/pen/RqOGzx/'>laag opties</a> van de pen-afbeelding<a href='https://codepen.io/azuremaps'>@azuremaps</a>per Azure Maps () op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -73,7 +73,7 @@ Meer informatie over de klassen en methoden die in dit artikel worden gebruikt:
 > [!div class="nextstepaction"]
 > [ImageLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagelayeroptions?view=azure-iot-typescript-latest)
 
-Zie de volgende artikelen voor meer voorbeelden van code toevoegen aan uw kaarten:
+Raadpleeg de volgende artikelen voor meer code voorbeelden om toe te voegen aan uw kaarten:
 
 > [!div class="nextstepaction"]
-> [Een tegellaag toevoegen](./map-add-tile-layer.md)
+> [Een laag voor een tegel toevoegen](./map-add-tile-layer.md)

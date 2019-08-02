@@ -11,14 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbba3f1b753738de57aa311387e522bae1b7b523
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 57bc2ca38b5166cfba39fb20254e169ce016ea12
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499799"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706319"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Veelgestelde vragen over het beheer van apparaten Azure Active Directory
+
+## <a name="general-faq"></a>Algemene veelgestelde vragen
 
 ### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>V: Ik heb het apparaat onlangs geregistreerd. Waarom kan ik het apparaat niet zien onder mijn gebruikers gegevens in de Azure Portal? Of waarom is de eigenaar van het apparaat gemarkeerd als N/A voor Hybrid Azure Active Directory (Azure AD) gekoppelde apparaten?
 
@@ -39,6 +41,11 @@ Onder **gebruikers apparaten**worden alleen de volgende apparaten weer gegeven:
 
 - Voer uit `dsregcmd.exe /status`voor Windows 10-en Windows Server 2016-apparaten of hoger.
 - Voer uit `%programFiles%\Microsoft Workplace Join\autoworkplace.exe`voor eerdere versies van het besturings systeem.
+
+**A:** Raadpleeg de volgende artikelen voor informatie over het oplossen van problemen:
+- [Problemen met apparaten oplossen met de opdracht dsregcmd](troubleshoot-device-dsregcmd.md)
+- [Problemen oplossen met hybride Azure Active Directory die zijn toegevoegd aan Windows 10-en Windows Server 2016-apparaten](troubleshoot-hybrid-join-windows-current.md)
+- [Problemen oplossen met hybride Azure Active Directory gekoppelde apparaten op hetzelfde niveau](troubleshoot-hybrid-join-windows-legacy.md)
 
 ---
 
@@ -65,6 +72,8 @@ Hieronder ziet u hoe deze acties kunnen worden verholpen.
 **A:** Deze bewerking is standaard. In dit geval heeft het apparaat geen toegang tot resources in de Cloud. Beheerders kunnen deze actie uitvoeren voor verouderde, verloren of gestolen apparaten om onbevoegde toegang te voor komen. Als deze actie per ongeluk is uitgevoerd, moet u het apparaat opnieuw inschakelen of registreren, zoals hieronder wordt beschreven
 
 - Als het apparaat is uitgeschakeld in azure AD, kan een beheerder met voldoende machtigingen het inschakelen via de Azure AD-Portal  
+  > [!NOTE]
+  > Als u apparaten synchroniseert met Azure AD Connect, worden aan hybride Azure AD gekoppelde apparaten automatisch opnieuw ingeschakeld tijdens de volgende synchronisatie cyclus. Als u dus een hybride Azure AD-apparaat wilt uitschakelen, moet u dit uitschakelen in uw on-premises AD
 
  - Als het apparaat wordt verwijderd in azure AD, moet u het apparaat opnieuw registreren. Als u zich opnieuw wilt registreren, moet u een hand matige actie uitvoeren op het apparaat. Hieronder vindt u instructies voor het opnieuw registreren op basis van de Apparaatstatus. 
 
@@ -114,20 +123,30 @@ Hieronder ziet u hoe deze acties kunnen worden verholpen.
 
 **V: Waarom kan een gebruiker nog steeds toegang krijgen tot bronnen vanaf een apparaat dat ik heb uitgeschakeld in de Azure Portal?**
 
-**A:** Het duurt Maxi maal een uur voordat een intrekking wordt toegepast.
+**A:** Het duurt Maxi maal een uur voordat een intrekking wordt toegepast vanaf het moment dat het Azure AD-apparaat is gemarkeerd als uitgeschakeld.
 
 >[!NOTE] 
 >Voor geregistreerde apparaten wordt u aangeraden het apparaat te wissen om ervoor te zorgen dat gebruikers geen toegang hebben tot de resources. Zie [Wat is apparaat-inschrijving?](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)voor meer informatie. 
 
 ---
 
+### <a name="q-why-are-there-devices-marked-as-pending-under-the-registered-column-in-the-azure-portal"></a>V: Waarom zijn er apparaten gemarkeerd als ' in behandeling ' onder de kolom geregistreerd in het Azure Portal?
+
+**A**:  In behandeling geeft aan dat het apparaat niet is geregistreerd. Deze status geeft aan dat een apparaat is gesynchroniseerd met Azure AD Connect vanuit on-premises AD en gereed is voor apparaatregistratie. Voor dit apparaat is het JOIN-TYPE ingesteld op ' Hybrid Azure AD joind '. Meer informatie over het [plannen van uw hybride Azure Active Directory deelname-implementatie](hybrid-azuread-join-plan.md).
+
+>[!NOTE]
+>Een apparaat kan ook overschakelen van een geregistreerde status naar in behandeling
+>* Als een apparaat wordt verwijderd uit Azure AD en opnieuw wordt gesynchroniseerd vanuit on-premises AD.
+>* Als een apparaat wordt verwijderd uit een synchronisatie bereik op Azure AD Connect en weer is toegevoegd.
+>
+>In beide gevallen moet u het apparaat hand matig opnieuw registreren op elk van deze apparaten. Als u wilt controleren of het apparaat eerder is geregistreerd, kunt u [problemen oplossen met behulp van de dsregcmd-opdracht](troubleshoot-device-dsregcmd.md).
+
+---
 ## <a name="azure-ad-join-faq"></a>Veelgestelde vragen over Azure AD-deelname
 
 ### <a name="q-how-do-i-unjoin-an-azure-ad-joined-device-locally-on-the-device"></a>V: Hoe kan ik een lid van een Azure AD-apparaat lokaal op het apparaat ontkoppelen?
 
-**A:** 
-- Voor hybride Azure AD gekoppelde apparaten schakelt u automatische registratie uit. Vervolgens wordt het apparaat niet opnieuw geregistreerd door de geplande taak. Open vervolgens een opdracht prompt als beheerder en voer `dsregcmd.exe /debug /leave`in. Of voer deze opdracht uit als een script op meerdere apparaten, zodat deze bulksgewijs kan worden samengevoegd.
-- Zorg ervoor dat u een offline lokale Administrator-account hebt of een off line domein hebt gemaakt voor zuivere Azure AD-apparaten. U kunt zich niet aanmelden met Azure AD-gebruikers referenties. Ga vervolgens naar **instellingen** > **accounts** > **toegang tot werk of school**. Selecteer uw account en selecteer **verbinding verbreken**. Volg de aanwijzingen en geef de referenties van de lokale beheerder op wanneer u hierom wordt gevraagd. Start het apparaat opnieuw op om het ontkoppelings proces te volt ooien.
+**A:** Zorg ervoor dat u een offline lokale Administrator-account hebt of een off line domein hebt gemaakt voor zuivere Azure AD-apparaten. U kunt zich niet aanmelden met Azure AD-gebruikers referenties. Ga vervolgens naar **instellingen** > **accounts** > **toegang tot werk of school**. Selecteer uw account en selecteer **verbinding verbreken**. Volg de aanwijzingen en geef de referenties van de lokale beheerder op wanneer u hierom wordt gevraagd. Start het apparaat opnieuw op om het ontkoppelings proces te volt ooien.
 
 ---
 
@@ -223,6 +242,10 @@ Dit gedrag:
 
 ## <a name="hybrid-azure-ad-join-faq"></a>Veelgestelde vragen over hybride Azure AD-deelname
 
+### <a name="q-how-do-i-unjoin-a-hybrid-azure-ad-joined-device-locally-on-the-device"></a>V: Hoe kan ik een lid van een hybride Azure AD-apparaat lokaal op het apparaat ontkoppelen?
+
+**A:** Voor hybride Azure AD gekoppelde apparaten schakelt u automatische registratie uit. Vervolgens wordt het apparaat niet opnieuw geregistreerd door de geplande taak. Open vervolgens een opdracht prompt als beheerder en voer `dsregcmd.exe /debug /leave`in. Of voer deze opdracht uit als een script op meerdere apparaten, zodat deze bulksgewijs kan worden samengevoegd.
+
 ### <a name="q-where-can-i-find-troubleshooting-information-to-diagnose-hybrid-azure-ad-join-failures"></a>V: Waar vind ik informatie over het oplossen van problemen met het opsporen van fouten in hybride deelname aan Azure AD?
 
 **A:** Raadpleeg de volgende artikelen voor informatie over het oplossen van problemen:
@@ -234,7 +257,7 @@ Dit gedrag:
 
 **A:** Wanneer uw gebruikers hun accounts toevoegen aan apps op een apparaat dat lid is van een domein, kan het worden gevraagd **om een account toe te voegen aan Windows?** Als ze **Ja** op de prompt invoeren, wordt het apparaat geregistreerd bij Azure AD. Het vertrouwens type is gemarkeerd als Azure AD geregistreerd. Nadat u hybride Azure AD join hebt ingeschakeld in uw organisatie, wordt het apparaat ook toegevoegd aan hybride Azure AD. Vervolgens worden twee Apparaatstatus weer gegeven voor hetzelfde apparaat. 
 
-Hybride Azure AD-deelname heeft voor rang op de geregistreerde status van Azure AD. Uw apparaat wordt dus beschouwd als hybride Azure AD die is gekoppeld aan een evaluatie van de verificatie en voorwaardelijke toegang. U kunt de registratie van Azure AD-apparaten veilig verwijderen uit de Azure AD-Portal. Meer informatie over [het voor komen of opschonen van deze dubbele status op de Windows 10-computer](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
+Hybride Azure AD-deelname heeft voor rang op de geregistreerde status van Azure AD. Uw apparaat wordt dus beschouwd als hybride Azure AD die is gekoppeld aan een evaluatie van de verificatie en voorwaardelijke toegang. U kunt de registratie van Azure AD-apparaten veilig verwijderen uit de Azure AD-Portal. Meer informatie over [het voor komen of opschonen van deze dubbele status op de Windows 10-computer](hybrid-azuread-join-plan.md#review-things-you-should-know). 
 
 ---
 
@@ -258,10 +281,19 @@ Hybride Azure AD-deelname heeft voor rang op de geregistreerde status van Azure 
 
 ## <a name="azure-ad-register-faq"></a>Veelgestelde vragen over Azure AD-REGI ster
 
+### <a name="q-how-do-i-remove-an-azure-ad-registered-device-locally-on-the-device"></a>V: Hoe kan ik een geregistreerd Azure AD-apparaat lokaal op het apparaat verwijderen?
+
+**A:** 
+- Voor Windows 10 geregistreerde Azure ad-apparaten gaat u naar **instellingen** > **accounts** > **toegang tot werk of school**. Selecteer uw account en selecteer **verbinding verbreken**. Apparaatregistratie is per gebruikers profiel in Windows 10.
+- Voor IOS en Android kunt u het**apparaat** voor de Microsoft Authenticator toepassings **instellingen** > gebruiken en de registratie **van apparaat**opheffen selecteren.
+- Voor macOS kunt u de Microsoft Intune Bedrijfsportal toepassing gebruiken om de registratie van het apparaat ongedaan te maken bij het beheer en om eventuele gegevens te verwijderen. 
+
+---
 ### <a name="q-can-i-register-android-or-ios-byod-devices"></a>V: Kan ik Android-of iOS BYOD-apparaten registreren?
 
 **A:** Ja, maar alleen bij de registratie service voor Azure-apparaten en voor hybride klanten. Het wordt niet ondersteund door de on-premises Device Registration service in Active Directory Federation Services (AD FS).
 
+---
 ### <a name="q-how-can-i-register-a-macos-device"></a>V: Hoe kan ik een macOS-apparaat registreren?
 
 **A:** Voer de volgende stappen uit:
@@ -274,6 +306,7 @@ Hybride Azure AD-deelname heeft voor rang op de geregistreerde status van Azure 
 - De gebruikers die deel uitmaken van het beleid voor voorwaardelijke toegang, hebben een [ondersteunde versie van Office nodig voor macOS](../conditional-access/technical-reference.md#client-apps-condition) om toegang te krijgen tot bronnen. 
 - Tijdens de eerste keer dat u toegang probeert te krijgen, wordt uw gebruikers gevraagd het apparaat te registreren via de bedrijfs portal.
 
+---
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over [geregistreerde Azure ad-apparaten](concept-azure-ad-register.md)

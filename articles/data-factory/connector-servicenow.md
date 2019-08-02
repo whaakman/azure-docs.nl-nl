@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 234b78a97c2663121d0d585154695887a58b9522
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c9ffd5a173bcfae41e08babbadae1e67047ed452
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60203411"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725974"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Gegevens kopiëren van ServiceNow met Azure Data Factory
 
@@ -90,11 +90,12 @@ Om gegevens te kopiëren van ServiceNow, stel de eigenschap type van de gegevens
     "name": "ServiceNowDataset",
     "properties": {
         "type": "ServiceNowObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<ServiceNow linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -109,7 +110,7 @@ Om gegevens te kopiëren van ServiceNow, stelt u het brontype in de kopieeractiv
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **ServiceNowSource** | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **ServiceNowSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM Actual.alm_asset"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 Let op het volgende bij het opgeven van het schema en de kolom voor ServiceNow in de query en **verwijzen naar [tips voor betere prestaties](#performance-tips) op kopiëren prestaties implicatie**.
@@ -117,8 +118,8 @@ Let op het volgende bij het opgeven van het schema en de kolom voor ServiceNow i
 - **Schema:** Geef het schema als `Actual` of `Display` in de ServiceNow-query die u kunt dat nu als de parameter van `sysparm_display_value` als waar of onwaar bij het aanroepen van [ServiceNow restful-API's](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Kolom:** voor de werkelijke waarde onder de naam van de kolom `Actual` schema is `[column name]_value`, terwijl voor de weergegeven waarde onder `Display` schema is `[column name]_display_value`. Houd er rekening mee de kolomnaam moet toewijzen aan het schema wordt gebruikt in de query.
 
-**Voorbeeldquery:** 
-`SELECT col_value FROM Actual.alm_asset` OR 
+**Voorbeeld query:** 
+`SELECT col_value FROM Actual.alm_asset` OF 
 `SELECT col_display_value FROM Display.alm_asset`
 
 **Voorbeeld:**

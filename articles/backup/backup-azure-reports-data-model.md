@@ -1,18 +1,19 @@
 ---
 title: Gegevens model voor Azure Backup
 description: In dit artikel vindt u informatie over Power BI gegevens model voor Azure Backup-rapporten.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
-ms.author: adigan
-ms.openlocfilehash: 66245a25af000d999ded87c58e3ba225b373b101
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 53051c88d5723f61fa08e431bdf7ab531e88123e
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465601"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689154"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Gegevensmodel voor Azure Backup-rapporten
 In dit artikel wordt het Power BI gegevens model beschreven dat wordt gebruikt voor het maken van Azure Backup-rapporten. Met dit gegevens model kunt u bestaande rapporten filteren op basis van relevante velden en belang rijker rapporten maken met behulp van tabellen en velden in het model. 

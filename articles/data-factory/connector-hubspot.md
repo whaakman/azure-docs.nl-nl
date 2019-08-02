@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 86c38818ee1632bf2d2f3fb1e1240954f3267887
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce9a1d0fb9a5e8b242db26c433a08c2426df39d9
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123700"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720758"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Gegevens kopiëren van HubSpot met Azure Data Factory (Preview)
 
@@ -97,11 +97,12 @@ Om gegevens te kopiëren van HubSpot, stel de eigenschap type van de gegevensset
     "name": "HubspotDataset",
     "properties": {
         "type": "HubspotObject",
+        "typeProperties": {},
+        "schema": [],        
         "linkedServiceName": {
             "referenceName": "<Hubspot linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -116,7 +117,7 @@ Om gegevens te kopiëren van HubSpot, stelt u het brontype in de kopieeractivite
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **HubspotSource** | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **HubspotSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM Companies where Company_Id = xxx"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**

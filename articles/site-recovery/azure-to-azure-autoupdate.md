@@ -1,6 +1,6 @@
 ---
-title: Automatische update van de Mobility-service in herstel na noodgevallen van Azure naar Azure | Microsoft Docs
-description: Overzicht van automatische update van de Mobility-service bij het repliceren van virtuele Azure-machines met behulp van Azure Site Recovery.
+title: Automatische update van de Mobility-service in azure naar Azure nood herstel | Microsoft Docs
+description: Overzicht van de automatische update van de Mobility-service bij het repliceren van virtuele Azure-machines met behulp van Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
@@ -8,65 +8,65 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: rajanaki
-ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 92a46f7be116d0664b438c9039e311f802c873e5
+ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65922184"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68708083"
 ---
-# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatische update van de Mobility-service in de Azure-naar-Azure-replicatie
+# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatische update van de Mobility-service in azure-naar-Azure-replicatie
 
-Azure Site Recovery maakt gebruik van een maand worden uitgerold los eventuele problemen en verbeteren van functies voor bestaande of nieuwe toevoegen. Om te blijven met de service, moet u van plan bent voor de patch-implementatie per maand. Om te voorkomen dat is gekoppeld aan elke upgrade overhead, in plaats daarvan kunt u Site Recovery voor het beheren van updates van onderdelen.
+Azure Site Recovery maakt gebruik van een maandelijkse release-uitgebracht om eventuele problemen op te lossen en bestaande functies te verbeteren of nieuwe onderdelen toe te voegen. Als u actueel wilt blijven met de service, moet u elke maand een patch implementatie plannen. Als u overhead wilt voor komen die aan elke upgrade is gekoppeld, kunt u in plaats daarvan toestaan dat Site Recovery onderdeel updates beheert.
 
-Zoals vermeld in [disaster recovery-architectuur van Azure naar Azure](azure-to-azure-architecture.md), de Mobility-service is geïnstalleerd op alle Azure virtual machines (VM's) waarvoor replicatie is ingeschakeld, tijdens het repliceren van virtuele machines van de ene Azure-regio naar een andere. Wanneer u automatische updates, werkt elke nieuwe versie van de Mobility-service-extensie.
+Zoals vermeld in [Azure-to-Azure-nood herstel architectuur](azure-to-azure-architecture.md), wordt de Mobility-service geïnstalleerd op alle virtuele machines (vm's) van Azure waarvoor replicatie is ingeschakeld, terwijl virtuele machines van de ene Azure-regio naar een andere worden gerepliceerd. Wanneer u automatische updates gebruikt, werkt elke nieuwe release de Mobility service-extensie bij.
  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="how-automatic-updates-work"></a>Werking van automatische updates werk
+## <a name="how-automatic-updates-work"></a>Hoe werkt automatische updates?
 
-Wanneer u Site Recovery gebruiken om updates te beheren, implementeert u een globale runbook (gebruikt door Azure-services) via een automation-account hebt gemaakt in hetzelfde abonnement als de kluis. Elke kluis maakt gebruik van een automation-account. Het runbook wordt gecontroleerd op elke virtuele machine in een kluis voor actieve automatische-updates en upgrades van de Mobility-service-extensie als een nieuwere versie beschikbaar is.
+Wanneer u Site Recovery gebruikt voor het beheren van updates, implementeert het een globaal runbook (gebruikt door Azure-Services) via een Automation-account dat is gemaakt in hetzelfde abonnement als de kluis. Elke kluis gebruikt één Automation-account. Het runbook controleert voor elke virtuele machine in een kluis op actieve automatische updates en voert een upgrade uit van de Mobility service-extensie als er een nieuwere versie beschikbaar is.
 
-De standaardplanning van de runbook wordt herhaald voor elke dag om 12:00 uur in de tijdzone van de gerepliceerde VM geografische gebied. U kunt ook de planning voor runbook via het automation-account wijzigen.
+Het standaardrunbook-schema wordt dagelijks opnieuw ingesteld om 12:00 uur in de tijd zone van de geo van de gerepliceerde VM. U kunt het runbook-schema ook wijzigen via het Automation-account.
 
 > [!NOTE]
-> Beginnen met Update Rollup 35, kunt u een bestaand automation-account moet worden gebruikt voor updates kiezen. Voorafgaand aan deze update wordt met Site Recovery dit account standaard gemaakt. Deze optie is alleen beschikbaar wanneer u replicatie voor een virtuele machine inschakelt. Als u de instelling wijzigt, wordt deze van toepassing voor alle Azure-VM's in dezelfde kluis worden beveiligd.
+> Vanaf update pakket 35 kunt u een bestaand Automation-account kiezen dat u wilt gebruiken voor updates. Voordat deze update werd bijgewerkt, Site Recovery dit account standaard gemaakt. Deze optie is beschikbaar wanneer u replicatie voor een virtuele machine inschakelt. Als u de instelling wijzigt, wordt deze toegepast op alle virtuele Azure-machines die in dezelfde kluis worden beveiligd.
  
-> Inschakelen van automatische updates niet moet uw Azure VM's opnieuw worden opgestart of invloed hebben op de doorlopende replicatie.
+> Bij het inschakelen van automatische updates is het niet nodig om uw virtuele Azure-machines opnieuw op te starten of de actieve replicatie te beïnvloeden.
 
-> Taak facturering in het automation-account is gebaseerd op het aantal minuten voor taak-runtime die wordt gebruikt in een maand. 500 minuten zijn standaard opgenomen gratis eenheden voor een automation-account. Uitvoeren van taak duurt een paar seconden aan ongeveer een minuut elke dag en wordt behandeld als gratis eenheden.
+> De facturering van taken in het Automation-account is gebaseerd op het aantal taak runtime minuten dat in een maand is gebruikt. Standaard worden 500 minuten opgenomen als gratis eenheden voor een Automation-account. Het uitvoeren van de taak duurt een paar seconden tot ongeveer een minuut en wordt gedekt als gratis eenheden.
 
-| Inbegrepen gratis eenheden (per maand) | Prijs |
+| Gratis eenheden inbegrepen (elke maand) | Prijs |
 |---|---|
-| 500 minuten voor taakuitvoertijd | ₹0.14 / minuut
+| Taak runtime 500 minuten | ₹ 0.14/minuut
 
 ## <a name="enable-automatic-updates"></a>Automatische updates inschakelen
 
-U kunt Site Recovery voor het beheren van updates in de volgende manieren.
+U kunt Site Recovery op de volgende manieren toestaan om updates te beheren.
 
-### <a name="manage-as-part-of-the-enable-replication-step"></a>Beheren als onderdeel van de stap van de replicatie inschakelen
+### <a name="manage-as-part-of-the-enable-replication-step"></a>Beheren als onderdeel van de stap replicatie inschakelen
 
-Wanneer u replicatie inschakelt voor een virtuele machine te beginnen [uit de VM-weergave](azure-to-azure-quickstart.md) of [vanuit de recovery services-kluis](azure-to-azure-how-to-enable-replication.md), kunt u Site Recovery voor het beheren van updates voor de extensie voor Site Recovery te doen toestaan handmatig.
+Wanneer u replicatie voor een virtuele machine inschakelt [vanuit de VM-weer gave](azure-to-azure-quickstart.md) of [vanuit de Recovery Services-kluis](azure-to-azure-how-to-enable-replication.md), kunt u toestaan dat Site Recovery updates voor de site Recovery-extensie beheert of hand matig beheert.
 
 ![Extensie-instellingen](./media/azure-to-azure-autoupdate/enable-rep.png)
 
-### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Schakelen tussen de extensie-instellingen in de kluis bijwerken
+### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>De instellingen voor het bijwerken van de extensie in de kluis in-/uitschakelen
 
-1. In de kluis, gaat u naar **beheren** > **Site Recovery-infrastructuur**.
-2. Onder **voor Azure Virtual Machines** > **extensie Update-instellingen**, schakel de **toestaan van Site Recovery voor het beheren van** in-/ uitschakelen. Voor het beheren van handmatig, schakel u deze uit. 
+1. Ga in de kluis naar**site Recovery-infra structuur** **beheren** > .
+2. Schakel onder voor de update-instellingen **van de Azure virtual machines** > -**extensie**de optie **site Recovery toestaan om te beheren** in of uit. Als u hand matig wilt beheren, schakelt u deze uit. 
 3. Selecteer **Opslaan**.
 
-![Extensie-update-instellingen](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![Instellingen voor extensie-updates](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important]
-> Als u ervoor kiest **toestaan van Site Recovery voor het beheren van**, de instelling wordt toegepast op alle virtuele machines in de betreffende kluis.
+> Wanneer u **site Recovery toestaan wilt beheren**, wordt de instelling toegepast op alle virtuele machines in de bijbehorende kluis.
 
 
 > [!Note]
-> Een van beide opties hoogte gebracht van het automation-account gebruikt voor het beheren van updates. Als u deze functie in een kluis voor de eerste keer gebruikt, wordt standaard een nieuw automation-account gemaakt. U kunt ook de instelling aanpassen, en kies een bestaand automation-account. Alle volgende inschakelen replicaties in dezelfde kluis gebruikt u de eerder gemaakte.
+> Een van beide opties waarschuwt u voor het Automation-account dat wordt gebruikt voor het beheren van updates. Als u deze functie voor de eerste keer gebruikt in een kluis, wordt standaard een nieuw Automation-account gemaakt. U kunt de instelling ook aanpassen en een bestaand Automation-account kiezen. Alle volgende replicaties inschakelen in dezelfde kluis maken gebruik van het eerder gemaakte abonnement. Momenteel worden in de vervolg keuzelijst alleen Automation-accounts weer geven die zich in dezelfde resource groep bevinden als de kluis.  
 
-Voor een aangepaste automation-account, moet u het volgende script gebruiken:
+Voor een aangepast Automation-account gebruikt u het volgende script:
 
 ```azurepowershell
 param(
@@ -503,46 +503,46 @@ elseif($JobsCompletedSuccessList.Count -ne $ContainerMappingList.Count)
 Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -DisplayMessageToUser
 ```
 
-### <a name="manage-updates-manually"></a>Updates handmatig beheren
+### <a name="manage-updates-manually"></a>Updates hand matig beheren
 
-1. Als er nieuwe updates voor de Mobility-service geïnstalleerd op uw virtuele machines, ziet u de volgende melding: "De nieuwe agent bijwerken van Azure Site recovery-replicatie is beschikbaar. Klik om te installeren"
+1. Als er nieuwe updates zijn voor de Mobility-service die is geïnstalleerd op uw Vm's, ziet u de volgende melding: ' Er is een nieuwe update voor de site Recovery-replicatie agent beschikbaar. Klik om te installeren
 
      ![Venster gerepliceerde items](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
-2. Selecteer de melding om de virtuele machine selectie pagina te openen.
-3. Kies de virtuele machines die u wilt bijwerken, en selecteer vervolgens **OK**. De Update Mobility-service wordt gestart voor elke geselecteerde virtuele machine.
+2. Selecteer de melding om de pagina VM selecteren te openen.
+3. Kies de Vm's die u wilt bijwerken en selecteer vervolgens **OK**. De update Mobility-service wordt gestart voor elke geselecteerde VM.
 
-     ![Lijst met items voor VM gerepliceerd](./media/vmware-azure-install-mobility-service/update-okpng.png)
+     ![VM-lijst van gerepliceerde items](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 
-## <a name="common-issues-and-troubleshooting"></a>Veelvoorkomende problemen en probleemoplossing
+## <a name="common-issues-and-troubleshooting"></a>Veelvoorkomende problemen en probleem oplossing
 
-Als er een probleem met de automatische updates is, ziet u een foutmelding onder **configuratieproblemen** in het dashboard van de kluis.
+Als er een probleem is met de automatische updates, wordt er een fout melding weer geven onder **configuratie problemen** in het kluis dashboard.
 
-Als u automatische updates kan niet worden ingeschakeld, ziet u de volgende veelvoorkomende fouten en de aanbevolen acties:
+Als u automatische updates niet kunt inschakelen, raadpleegt u de volgende veelvoorkomende fouten en aanbevolen acties:
 
-- **Fout**: U bent niet gemachtigd voor het maken van een Azure uitvoeren als-account (service-principal) en de rol Inzender aan de service-principal te verlenen.
+- **Fout**: U hebt geen machtigingen om een Uitvoeren als-account voor Azure (service-principal) te maken en de rol Inzender aan de service-principal toe te wijzen.
 
-   **Aanbevolen actie**: Zorg ervoor dat het account aangemeld als Inzender is toegewezen en probeer het opnieuw. Raadpleeg het gedeelte van de vereiste machtigingen in [gebruikt de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) voor meer informatie over het toewijzen van machtigingen.
+   **Aanbevolen actie**: Zorg ervoor dat het aangemelde account is toegewezen als Inzender en probeer het opnieuw. Raadpleeg de sectie vereiste machtigingen in [de portal gebruiken om een Azure AD-toepassing en Service-Principal te maken die toegang hebben tot bronnen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) voor meer informatie over het toewijzen van machtigingen.
  
-   Als u wilt de meeste problemen oplossen als u automatische updates inschakelen, selecteert u **herstellen**. Als de knop herstellen niet beschikbaar is, ziet u het foutbericht dat wordt weergegeven in het deelvenster met extensie update-instellingen.
+   Als u de meeste problemen wilt verhelpen nadat u automatische updates hebt ingeschakeld, selecteert u **herstellen**. Als de knop herstellen niet beschikbaar is, raadpleegt u het fout bericht dat wordt weer gegeven in het deel venster instellingen voor het bijwerken van de extensie.
 
-   ![Site Recovery-service knop herstellen in de extensie update-instellingen](./media/azure-to-azure-autoupdate/repair.png)
+   ![Knop Site Recovery service herstellen in instellingen voor extensie-updates](./media/azure-to-azure-autoupdate/repair.png)
 
-- **Fout**: Uitvoeren als-account heeft geen toegangsrechten voor de recovery services-resource.
+- **Fout**: Het uitvoeren als-account heeft geen machtiging voor toegang tot de Recovery Services-resource.
 
-    **Aanbevolen actie**: Verwijderen en vervolgens [opnieuw uitvoeren als-account maken](https://docs.microsoft.com/azure/automation/automation-create-runas-account). Of zorg ervoor dat het Automation uitvoeren als-account van Azure Active Directory-toepassing toegang tot de recovery services-resource heeft.
+    **Aanbevolen actie**: Verwijder [het uitvoeren als-account en maak het vervolgens opnieuw](https://docs.microsoft.com/azure/automation/automation-create-runas-account). Of zorg ervoor dat de Azure Active Directory toepassing Automation uitvoeren als-account toegang heeft tot de Recovery Services-resource.
 
-- **Fout**: Uitvoeren als-account is niet gevonden. Een van deze is verwijderd of is niet gemaakt: Azure Active Directory-toepassing, Service-Principal, rol, Automation-certificaatasset, Automation-verbindingsasset- of de vingerafdruk is niet identiek certificaat en de verbinding. 
+- **Fout**: Run as-account is niet gevonden. Een van deze is verwijderd of niet gemaakt: Azure Active Directory toepassing, Service-Principal, rol, Automation-certificaat Asset, Automation-verbindings element, of de vinger afdruk is niet identiek aan het certificaat en de verbinding. 
 
-    **Aanbevolen actie**: Verwijderen en vervolgens [opnieuw uitvoeren als-account maken](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+    **Aanbevolen actie**: Verwijder [het uitvoeren als-account en maak het vervolgens opnieuw](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
--  **Fout**: Het Azure uitvoeren als-certificaat dat wordt gebruikt door het automation-account is bijna verlopen. 
+-  **Fout**: Het uitvoeren als-certificaat van Azure dat wordt gebruikt door het Automation-account is bijna verlopen. 
 
-    Het zelfondertekende certificaat dat is gemaakt voor het uitvoeren als-account verloopt één jaar na de aanmaakdatum. U kunt het certificaat op elk gewenst moment vernieuwen voordat het verloopt. Als u zich hebt aangemeld voor e-mailmeldingen, wordt u ook e-mailberichten ontvangen wanneer een actie vereist van uw kant is. Deze fout 2 maanden vóór de vervaldatum wordt weergegeven en wordt gewijzigd in een kritieke fout als het certificaat is verlopen. Zodra het certificaat is verlopen, automatisch bijwerken niet worden functionele totdat u dezelfde vernieuwen.
+    Het zelfondertekende certificaat dat voor het run as-account is gemaakt, verloopt één jaar na de aanmaak datum. U kunt het certificaat op elk gewenst moment vernieuwen voordat het verloopt. Als u zich hebt geregistreerd voor e-mail meldingen, ontvangt u ook e-mails wanneer een actie is vereist aan uw zijde. Deze fout wordt 2 maanden vóór de verval datum weer gegeven en wordt gewijzigd in een kritieke fout als het certificaat is verlopen. Zodra het certificaat is verlopen, werkt automatisch bijwerken niet meer. u kunt hetzelfde vernieuwen.
 
-   **Aanbevolen actie**: Klik op 'Herstellen' en klik vervolgens op certificaat vernieuwen om dit probleem te verhelpen.
+   **Aanbevolen actie**: Klik op herstellen en vervolgens op certificaat vernieuwen om dit probleem op te lossen.
     
-   ![vernieuwen van certificaat](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
+   ![renew-CERT](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
 
 > [!NOTE]
-> Nadat u het certificaat vernieuwen, vernieuw de pagina zodat de huidige status is bijgewerkt.
+> Nadat u het certificaat hebt vernieuwd, kunt u de pagina vernieuwen zodat de huidige status wordt bijgewerkt.

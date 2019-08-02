@@ -1,7 +1,7 @@
 ---
-title: Project akoestische Unity-integratie en implementatie
+title: Integratie en implementatie van unit-project akoestische eenheid
 titlesuffix: Azure Cognitive Services
-description: Deze procedures wordt uitgelegd integratie van het Project akoestische Unity-invoegtoepassing in uw Unity-project.
+description: In dit artikel wordt uitgelegd hoe u de integratie van de invoeg toepassing project akoestische unit-eenheid in uw Unity-project kunt zien.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,60 +10,61 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 2deddfd4e6c03b53306d8fbab3340dce464158b0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1a90f6102d35dc1a3bb97c840f2955b54f35bbad
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612725"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706643"
 ---
-# <a name="project-acoustics-unity-integration"></a>Project akoestische Unity-integratie
-Deze procedures wordt uitgelegd integratie van het Project akoestische Unity-invoegtoepassing in uw Unity-project.
+# <a name="project-acoustics-unity-integration"></a>Integratie van de eenheid project akoestische unit
+In dit artikel wordt uitgelegd hoe u de integratie van de invoeg toepassing project akoestische unit-eenheid in uw Unity-project kunt zien.
 
-Softwarevereisten:
+Software vereisten:
 * [Unity 2018.2 +](https://unity3d.com) voor Windows
-* [Project akoestische Unity-pakket](https://www.microsoft.com/download/details.aspx?id=57346)
+* [Eenheids pakket voor project akoestische](https://www.microsoft.com/download/details.aspx?id=57346)
 
-## <a name="import-the-plugin"></a>De invoegtoepassing te importeren
-Importeer de akoestische UnityPackage aan uw project. 
-* In Unity, gaat u naar **activa > pakket importeren > Custom Package...**
+## <a name="import-the-plugin"></a>De invoeg toepassing importeren
+Importeer de akoestische UnityPackage naar uw project. 
+* Ga in eenheid naar **activa > import pakket > aangepast pakket...**
 
-    ![Schermafbeelding van de eenheid van het pakket importeren menu](media/import-package.png)  
+    ![Scherm opname van het menu pakket eenheids import](media/import-package.png)  
 
-* Kies **ProjectAcoustics.unitypackage**
+* Kies **ProjectAcoustics. unitypackage**
 
-Als u de invoegtoepassing in een bestaand project importeert, het project mogelijk al een **mcs.rsp** bestand in de hoofdmap van het project, die Hiermee geeft u opties voor het C#-compileerprogramma. U moet de inhoud van het bestand met de mcs.rsp-bestand dat wordt geleverd met de invoegtoepassing Project akoestische samenvoegen.
+Als u de invoeg toepassing in een bestaand project importeert, heeft het project mogelijk al een **mcs. RSP** -bestand in de hoofdmap van het project, waarmee de C# opties voor de compiler worden opgegeven. U moet de inhoud van dat bestand samen voegen met het bestand mcs. RSP dat wordt meegeleverd met de invoeg toepassing voor project akoestische.
 
-## <a name="enable-the-plugin"></a>De invoegtoepassing inschakelen
-Het gedeelte bake van de toolkit akoestische vereist de scripting runtime-versie van .NET 4.x. Importeren van het pakket worden de instellingen voor de Unity-speler bijgewerkt. Start opnieuw op de eenheid voor deze instelling van kracht te laten worden.
+## <a name="enable-the-plugin"></a>De invoeg toepassing inschakelen
+Het maken-gedeelte van de akoestische Toolkit vereist de .NET 4. x Scripting runtime-versie. Bij het importeren van pakketten worden de instellingen voor Unity Player bijgewerkt. De eenheid moet opnieuw worden opgestart om deze instelling van kracht te laten worden.
 
-![Schermafbeelding van Unity-speler instellingenvenster](media/player-settings.png)
+![Scherm afbeelding van het deel venster instellingen voor Unity Player](media/player-settings.png)
 
-![Schermafbeelding van Unity-speler instellingenvenster met .NET 4.5 geselecteerd](media/net45.png)
+![Scherm afbeelding van het deel venster instellingen voor Unity Player met .NET 4,5 geselecteerd](media/net45.png)
 
 ## <a name="set-up-audio-dsp"></a>Audio-DSP instellen
-Project akoestische bevat audio runtime DSP die kan worden geïntegreerd in het kader van Unity-engine audio ruimtelijk. Dit omvat zowel HRTF gebaseerde en panning spatialization. Het Project akoestische DSP inschakelen door het openen van de audio Unity-instellingen met behulp van **bewerken > instellingen voor het Project > Audio**, vervolgens de optie **Project akoestische** als de **ruimtelijk-invoegtoepassing** voor uw project. Zorg ervoor dat de **DSP-buffergrootte** is ingesteld op de beste prestaties.
+De geluids fragmenten van het project omvatten audio runtime DSP die kan worden geïntegreerd in het spatializer Framework van unit-audio-engine. Het bevat zowel HRTF als gesleepte spatialization. Schakel de project akoestische DSP in door de instellingen voor unit-audio te openen met behulp van **> project instellingen > audio**en vervolgens de **geluids** fragmenten van het project te selecteren als de **Spatializer-invoeg toepassing** voor uw project. Zorg ervoor dat de **DSP-buffer grootte** is ingesteld op de beste prestaties.
 
-![Schermafbeelding van Unity-Project instellingenvenster](media/project-settings.png)  
+![Scherm afbeelding van het deel venster instellingen voor Unity-project](media/project-settings.png)  
 
-![Schermafbeelding van Unity ruimtelijk instellingenvenster met Project akoestische ruimtelijk geselecteerd](media/choose-spatializer.png)
+![Scherm afbeelding van het deel venster instellingen voor Unity Spatializer met project akoestische Spatializer geselecteerd](media/choose-spatializer.png)
 
-Open vervolgens de Audio-Mixer (**venster > Audio Mixer**). Zorg ervoor dat u hebt ten minste één Mixer met één groep. Als u dit niet doet, klikt u op de knop '+' aan de rechterkant van **Mixers**. Met de rechtermuisknop op de onderkant van de strook kanaal in de sectie effecten en voeg de **Project akoestische Mixer** effect. Houd er rekening mee dat er slechts één Project akoestische Mixer wordt ondersteund op een tijdstip.
+Open vervolgens de audio mixer (**Window > audio mixer**). Zorg ervoor dat u ten minste één mixer hebt, met één groep. Als dat niet het geval is, klikt u op de knop + rechtsvan mixers. Klik met de rechter muisknop op de onderkant van de kanaal strook in de sectie effecten en voeg het effect van het mixer voor het **project akoestische** toe. Houd er rekening mee dat er slechts één akoestische mixer voor het project tegelijk wordt ondersteund.
 
-![Schermafbeelding van Unity Audio Mixer die als host fungeert Project akoestische mixer](media/audio-mixer.png)
+![Scherm opname van unit-audio mixer die als host fungeert voor project akoestische mixer](media/audio-mixer.png)
 
-## <a name="enable-acoustics-on-sound-sources"></a>Akoestische op geluid bronnen inschakelen
-Maak een audiobron. Klik op het selectievakje aan de onderkant van van de AudioSource inspector deelvenster met de melding dat **Spatialize**. Zorg ervoor dat **ruimtelijke Blend** is ingesteld op de volledige 3D.  
+## <a name="enable-acoustics-on-sound-sources"></a>Akoestische geluids bronnen inschakelen
+Maak een audio bron. Klik op het selectie vakje onder aan het Inspector-deel venster van AudioSource dat **Spatialize**bevat. Zorg ervoor dat **ruimtelijke Blend** is ingesteld op volledige 3D.  
 
-![Schermafbeelding van de Unity-Audio bron deelvenster](media/audio-source.png)
+![Scherm opname van unit-audio bron paneel](media/audio-source.png)
 
 ## <a name="enable-acoustic-design"></a>Akoestische ontwerp inschakelen
-Koppelen van het script **AcousticsAdjust** met een goede bron in uw scène waarmee extra bron ontwerpparameters door te klikken op **onderdeel toevoegen** en het kiezen van **Scripts > akoestische aanpassen** :
+Koppel het script **AcousticsAdjust** aan een geluids bron in uw scène om aanvullende para meters voor de bron ontwerp in te scha kelen door te klikken op **onderdeel toevoegen** en scripts te kiezen **> geluids aanpassingen**:
 
-![Schermafbeelding van Unity AcousticsAdjust script](media/acoustics-adjust.png)
+![Scherm opname van Unity AcousticsAdjust-script](media/acoustics-adjust.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Een scène met akoestische voor Unity-Project maken](unity-baking.md)
-* [Azure Batch-account maken](create-azure-account.md) te maken van uw scène in de cloud
-* Verken de [Project akoestische Unity-ontwerpproces](unity-workflow.md).
+* [Maken uw scène met project akoestische voor Unity](unity-baking.md)
+* [Een Azure batch-account maken](create-azure-account.md) om uw scène in de cloud te maken
+* Verken het ontwerp proces voor het ontwikkelen van de [project akoestische eenheid](unity-workflow.md).
 

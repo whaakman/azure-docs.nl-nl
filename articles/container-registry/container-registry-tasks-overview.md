@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
 ms.openlocfilehash: 65debc8c65752150651d00d84eeff469cefbc268
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68311876"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Bouw en onderhoud van container installatie kopieën automatiseren met ACR-taken
@@ -50,7 +50,7 @@ De volgende tabel bevat enkele voor beelden van ondersteunde context locaties vo
 | Submap GitHub | Bestanden in een submap van een GitHub-opslag plaats. Voor beeld wordt een combi natie van een vertakking en submap opgegeven. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Externe tarball | Bestanden in een gecomprimeerd archief op een externe webserver. | `http://remoteserver/myapp.tar.gz` |
 
-ACR-taken is ontworpen als een levens cyclus voor containers. U kunt bijvoorbeeld ACR-taken integreren in uw CI/CD-oplossing. Door het uitvoeren van [AZ login][az-login] with a [service principal][az-login-service-principal]kan uw CI/cd-oplossing [AZ ACR build][AZ-ACR-build-] opdrachten verlenen om installatie kopieën te starten.
+ACR-taken is ontworpen als een levens cyclus voor containers. U kunt bijvoorbeeld ACR-taken integreren in uw CI/CD-oplossing. Door de opdracht [AZ login][az-login] met een [Service-Principal][az-login-service-principal]uit te voeren, kan uw CI/cd-oplossing [AZ ACR build][az-acr-build] -opdrachten verzenden om installatie kopieën te starten.
 
 Informatie over het gebruik van snelle taken in de eerste zelf studie over ACR-taken, [bouw container installatie kopieën in de Cloud met Azure container Registry taken](container-registry-tutorial-quick-task.md).
 
@@ -67,7 +67,7 @@ Meer informatie over het activeren van builds op basis van de bron code in de tw
 
 De kracht van ACR taken om de werk stroom voor het bouwen van containers echt te verbeteren, is van de mogelijkheid om een update naar een basis installatie kopie te detecteren. Wanneer de bijgewerkte basis installatie kopie naar het REGI ster wordt gepusht of een basis installatie kopie is bijgewerkt in een open bare opslag plaats, zoals in docker hub, kunnen ACR-taken automatisch eventuele installatie kopieën van toepassingen maken op basis van het bestand.
 
-Container installatie kopieën kunnen breed worden gecategoriseerd in *basis* installatie kopieën en *toepassings* installatie kopieën. Uw basis installatie kopieën bevatten doorgaans het besturings systeem en toepassings raamwerken waarop uw toepassing is gebouwd, samen met andere aanpassingen. Deze basis installatie kopieën zijn gewoonlijk gebaseerd op open bare upstream-installatie kopieën, bijvoorbeeld: [Alpine Linux][base-alpine], [Windows][base-windows], [.net][Base-DotNet]of [node. js][base-node]. Diverse installatie kopieën van uw toepassing kunnen een gemeen schappelijke basis installatie kopie delen.
+Container installatie kopieën kunnen breed worden gecategoriseerd in *basis* installatie kopieën en *toepassings* installatie kopieën. Uw basis installatie kopieën bevatten doorgaans het besturings systeem en toepassings raamwerken waarop uw toepassing is gebouwd, samen met andere aanpassingen. Deze basis installatie kopieën zijn gewoonlijk gebaseerd op open bare upstream-installatie kopieën, bijvoorbeeld: [Alpine Linux][base-alpine], [Windows][base-windows], [.net][base-dotnet]of [node. js][base-node]. Diverse installatie kopieën van uw toepassing kunnen een gemeen schappelijke basis installatie kopie delen.
 
 Wanneer een installatie kopie van een besturings systeem of app-Framework wordt bijgewerkt door de upstream-Maintainer, bijvoorbeeld met een kritieke beveiligings patch voor het besturings systeem, moet u ook uw basis installatie kopieën bijwerken om de essentiële oplossing op te nemen. Elke toepassings installatie kopie moet vervolgens ook opnieuw worden opgebouwd om deze upstream-oplossingen op te nemen die nu zijn opgenomen in uw basis installatie kopie.
 

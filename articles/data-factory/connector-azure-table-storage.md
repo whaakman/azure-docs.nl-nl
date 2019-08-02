@@ -1,6 +1,6 @@
 ---
-title: Gegevens kopiëren naar en van Azure Table storage met behulp van Data Factory | Microsoft Docs
-description: Informatie over het kopiëren van gegevens van ondersteunde bron winkels Azure Table Storage, of van Table storage voor ondersteunde sink-stores, met behulp van Data Factory.
+title: Gegevens kopiëren van en naar Azure-tabel opslag met behulp van Data Factory | Microsoft Docs
+description: Informatie over het kopiëren van gegevens van ondersteunde bron archieven naar Azure-tabel opslag of van tabel opslag naar ondersteunde Sink-archieven met behulp van Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,50 +10,50 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 7ef8f80f44c921cc1f2524351c8acb78ebd713bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4ea3c93daac1ebb88bae2b8cb01485d955be2bb
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153559"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726197"
 ---
-# <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Gegevens kopiëren naar en van Azure Table storage met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
+# <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Azure-tabel opslag met behulp van Azure Data Factory
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-azure-table-connector.md)
 > * [Huidige versie](connector-azure-table-storage.md)
 
-In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren naar en van Azure Table storage. Dit is gebaseerd op de [overzicht van Kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de Kopieeractiviteit.
+In dit artikel wordt beschreven hoe u de Kopieer activiteit in Azure Data Factory kunt gebruiken om gegevens te kopiëren van en naar Azure-tabel opslag. Dit is gebaseerd op de [overzicht van Kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de Kopieeractiviteit.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens uit een ondersteund brongegevensarchief kopiëren naar Table storage. U kunt ook gegevens uit Table storage kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als gegevensbronnen of PUT voor de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens uit elk ondersteund brongegevens archief kopiëren naar de tabel opslag. U kunt ook gegevens uit de tabel opslag kopiëren naar elk ondersteund Sink-gegevens archief. Zie voor een lijst met gegevensarchieven die worden ondersteund als gegevensbronnen of PUT voor de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
-Deze Azure Table-connector ondersteunt het kopiëren van gegevens met behulp van sleutel en de service gedeeld name access signature-verificatie.
+Met name deze Azure Table-connector ondersteunt het kopiëren van gegevens met behulp van verificatie van de account sleutel en de service voor gedeelde toegang.
 
 ## <a name="get-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar Table storage.
+De volgende secties bevatten informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory entiteiten die specifiek zijn voor tabel opslag.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
-### <a name="use-an-account-key"></a>Een account-sleutel
+### <a name="use-an-account-key"></a>Een account sleutel gebruiken
 
-U kunt een gekoppelde Azure Storage-service maken met behulp van de accountsleutel. Het biedt de data factory met wereldwijde toegang tot opslag. De volgende eigenschappen worden ondersteund.
+U kunt een Azure Storage gekoppelde service maken met behulp van de account sleutel. Het biedt de data factory wereld wijde toegang tot opslag. De volgende eigenschappen worden ondersteund.
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **AzureTableStorage**. |Ja |
-| connectionString | Geef de informatie die nodig zijn voor het verbinding maken met opslag voor de connectionString-eigenschap. <br/>Dit veld markeert als een SecureString Bewaar deze zorgvuldig in Data Factory. U kunt ook accountsleutel plaatsen in Azure Key Vault en pull de `accountKey` configuratie buiten de verbindingsreeks. Raadpleeg de volgende voorbeelden en [referenties Store in Azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. |Ja |
-| connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt Azure Integration Runtime of zelfgehoste Cloudintegratieruntime gebruiken (als het gegevensarchief bevindt zich in een particulier netwerk). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
+| connectionString | Geef de informatie die nodig zijn voor het verbinding maken met opslag voor de connectionString-eigenschap. <br/>Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory. U kunt ook account sleutel in azure Key Vault plaatsen en de `accountKey` configuratie uit de Connection String halen. Raadpleeg de volgende voor beelden en [Sla referenties op in azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. |Ja |
+| connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt Azure Integration Runtime of zelf-hostende Integration Runtime gebruiken (als uw gegevens archief zich in een particulier netwerk bevindt). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 >[!NOTE]
->Als u "AzureStorage" type gekoppelde service zijn gebruikt, wordt deze nog steeds ondersteund als-is, terwijl u het gebruik van deze nieuwe 'AzureTableStorage"gekoppeld servicetype voortaan worden voorgesteld.
+>Als u de gekoppelde service van het type ' opslag ' gebruikt, wordt deze nog steeds ondersteund als-is. u wordt aangeraden dit nieuwe ' AzureTableStorage ' gekoppelde Service Type vooruit te gebruiken.
 
 **Voorbeeld:**
 
@@ -76,7 +76,7 @@ U kunt een gekoppelde Azure Storage-service maken met behulp van de accountsleut
 }
 ```
 
-**Voorbeeld: accountsleutel opslaan in Azure Key Vault**
+**Voor beeld: account sleutel opslaan in Azure Key Vault**
 
 ```json
 {
@@ -105,11 +105,11 @@ U kunt een gekoppelde Azure Storage-service maken met behulp van de accountsleut
 }
 ```
 
-### <a name="use-shared-access-signature-authentication"></a>Shared access signature-verificatie gebruiken
+### <a name="use-shared-access-signature-authentication"></a>Verificatie van de Shared Access-hand tekening gebruiken
 
-U kunt ook een gekoppelde Storage-service met behulp van een shared access signature maken. Het biedt de data factory met beperkte/tijdsgebonden toegang tot alle of naar een specifiek resources in de opslag.
+U kunt ook een gekoppelde opslag service maken met behulp van een hand tekening voor gedeelde toegang. Het biedt de data factory met beperkte/gebonden toegang tot alle/specifieke resources in de opslag.
 
-Een shared access signature biedt gedelegeerde toegang tot resources in uw opslagaccount. U kunt deze gebruiken op een client beperkte machtigingen voor objecten in uw storage-account gedurende een opgegeven periode en met een opgegeven set machtigingen verlenen. U hebt geen delen van de toegangssleutels van uw account. De shared access signature is een URI die in de queryparameters alle informatie die nodig zijn voor geverifieerde toegang tot een opslagresource omvat. Voor toegang tot de storage-resources met de shared access signature, moet de client alleen worden doorgegeven in de handtekening voor gedeelde toegang tot de juiste constructor of methode. Zie voor meer informatie over handtekeningen voor gedeelde toegang, [handtekeningen voor gedeelde toegang: Inzicht in het shared access signature-model](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Een shared access signature biedt gedelegeerde toegang tot resources in uw opslagaccount. U kunt het gebruiken om een bepaalde en een opgegeven set machtigingen toe te kennen aan een client met beperkte machtigingen voor objecten in uw opslag account. U hebt geen delen van de toegangssleutels van uw account. De shared access signature is een URI die in de queryparameters alle informatie die nodig zijn voor geverifieerde toegang tot een opslagresource omvat. Voor toegang tot de storage-resources met de shared access signature, moet de client alleen worden doorgegeven in de handtekening voor gedeelde toegang tot de juiste constructor of methode. Zie [Shared Access signatures (Engelstalig) voor meer informatie over hand tekeningen voor gedeelde toegang: Meer informatie over het model](../storage/common/storage-dotnet-shared-access-signature-part-1.md)voor de Shared Access-hand tekening.
 
 > [!NOTE]
 > Data Factory ondersteunt nu zowel **service gedeelde toegangshandtekeningen** en **account gedeelde toegangshandtekeningen**. Zie voor meer informatie over deze twee typen en hoe u een van deze [typen handtekeningen voor gedeelde toegang](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
@@ -119,16 +119,16 @@ Een shared access signature biedt gedelegeerde toegang tot resources in uw opsla
 > `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
-Voor het gebruik van shared access signature-verificatie, worden de volgende eigenschappen ondersteund.
+De volgende eigenschappen worden ondersteund om verificatie van de Shared Access-hand tekening te gebruiken.
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **AzureTableStorage**. |Ja |
-| sasUri | Geef de SAS-URI van de shared access signature URI naar de tabel. <br/>Dit veld markeert als een SecureString Bewaar deze zorgvuldig in Data Factory. U kunt ook SAS-token plaatsen in Azure Key Vault gebruikmaken van automatisch draaien en het token gedeelte verwijderen. Raadpleeg de volgende voorbeelden en [referenties Store in Azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. | Ja |
+| sasUri | Geef de SAS-URI van de URI van de Shared Access-hand tekening op in de tabel. <br/>Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory. U kunt ook SAS-token in Azure Key Vault plaatsen om automatisch te draaien en het token gedeelte te verwijderen. Raadpleeg de volgende voor beelden en [Sla referenties op in azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. | Ja |
 | connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de Azure Integration Runtime of de zelfgehoste Cloudintegratieruntime gebruiken (als het gegevensarchief bevindt zich in een particulier netwerk). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 >[!NOTE]
->Als u "AzureStorage" type gekoppelde service zijn gebruikt, wordt deze nog steeds ondersteund als-is, terwijl u het gebruik van deze nieuwe 'AzureTableStorage"gekoppeld servicetype voortaan worden voorgesteld.
+>Als u de gekoppelde service van het type ' opslag ' gebruikt, wordt deze nog steeds ondersteund als-is. u wordt aangeraden dit nieuwe ' AzureTableStorage ' gekoppelde Service Type vooruit te gebruiken.
 
 **Voorbeeld:**
 
@@ -151,7 +151,7 @@ Voor het gebruik van shared access signature-verificatie, worden de volgende eig
 }
 ```
 
-**Voorbeeld: accountsleutel opslaan in Azure Key Vault**
+**Voor beeld: account sleutel opslaan in Azure Key Vault**
 
 ```json
 {
@@ -184,18 +184,18 @@ Wanneer u een shared access signature URI maakt, moet u de volgende punten overw
 
 - Geschikt voor lezen/schrijven-machtigingen instellen voor objecten die zijn gebaseerd op hoe de gekoppelde service (lezen, schrijven, lezen/schrijven) wordt gebruikt in uw data factory.
 - Stel **verlooptijd** op de juiste wijze. Zorg ervoor dat de toegang tot de Storage-objecten niet binnen een actieve periode van de pijplijn verloopt.
-- De URI moet worden gemaakt op het niveau van de rechtertabel op basis van de behoeften.
+- De URI moet op het juiste tabel niveau worden gemaakt op basis van de nood zaak.
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de Azure Table-gegevensset.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. In deze sectie vindt u een lijst met eigenschappen die worden ondersteund door de Azure Table-gegevensset.
 
-Om gegevens te kopiëren naar en van Azure Table, stel de eigenschap type van de gegevensset in **AzureTable**. De volgende eigenschappen worden ondersteund.
+Als u gegevens wilt kopiëren van en naar de Azure-tabel, stelt u de eigenschap type van de gegevensset in op **AzureTable**. De volgende eigenschappen worden ondersteund.
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de gegevensset moet worden ingesteld op **AzureTable**. |Ja |
-| tableName |De naam van de tabel in de tabel storage database-instantie waarnaar de gekoppelde service naar verwijst. |Ja |
+| type | De eigenschap type van de DataSet moet worden ingesteld op **AzureTable**. |Ja |
+| tableName |De naam van de tabel in het data base-exemplaar van Table-opslag waarnaar de gekoppelde service verwijst. |Ja |
 
 **Voorbeeld:**
 
@@ -205,12 +205,13 @@ Om gegevens te kopiëren naar en van Azure Table, stel de eigenschap type van de
     "properties":
     {
         "type": "AzureTable",
+        "typeProperties": {
+            "tableName": "MyTable"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Table storage linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "MyTable"
         }
     }
 }
@@ -218,56 +219,56 @@ Om gegevens te kopiëren naar en van Azure Table, stel de eigenschap type van de
 
 ### <a name="schema-by-data-factory"></a>Schema door Data Factory
 
-Data Factory bepaalt voor winkels schemavrije gegevens, zoals Azure-tabel, het schema in een van de volgende manieren:
+Voor gegevens archieven zonder schema, zoals Azure-tabel, wordt het schema door Data Factory op een van de volgende manieren afleiden:
 
-* Als u de structuur van gegevens met behulp van de **structuur** eigenschap in de definitie van de Data Factory zich houdt aan deze structuur als het schema. In dit geval, als een rij geen waarde voor een kolom bevat, wordt een null-waarde opgegeven voor deze.
-* Als u de structuur van de gegevens niet via opgeeft de **structuur** eigenschap in de definitie van de Data Factory bepaalt welk schema met behulp van de eerste rij in de gegevens. Als de eerste rij niet het volledige schema bevat, worden sommige kolommen in dit geval ontbreekt in het resultaat van de kopieerbewerking.
+* Als u de structuur van gegevens met behulp van de **structuur** eigenschap in de definitie van de Data Factory zich houdt aan deze structuur als het schema. Als in dit geval een rij geen waarde voor een kolom bevat, wordt er een null-waarde voor gegeven.
+* Als u de structuur van gegevens niet opgeeft met behulp van de eigenschap **structure** in de definitie van de gegevensset, wordt het schema door Data Factory afgeleid van de eerste rij in de gegevens. Als in dit geval de eerste rij niet het volledige schema bevat, worden sommige kolommen gemist in het resultaat van de Kopieer bewerking.
 
-Voor gegevensbronnen zonder schema, de aanbevolen procedure is om op te geven van de structuur van gegevens met behulp van de **structuur** eigenschap.
+Voor gegevens bronnen met een schema hoeft de best practice de structuur van de gegevens op te geven met behulp van de eigenschap **structure** .
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de Azure Table-bron en sink.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. In deze sectie vindt u een lijst met eigenschappen die worden ondersteund door de Azure Table-bron en Sink.
 
-### <a name="azure-table-as-a-source-type"></a>Azure-tabel als een brontype
+### <a name="azure-table-as-a-source-type"></a>Azure-tabel als bron type
 
-Voor het kopiëren van gegevens uit Azure-tabel, stelt u het brontype in de kopieeractiviteit naar **AzureTableSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie.
+Als u gegevens wilt kopiëren uit een Azure-tabel, stelt u het bron type in de Kopieer activiteit in op **AzureTableSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie.
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **AzureTableSource**. |Ja |
-| azureTableSourceQuery |Gebruik de aangepaste Table storage-query om gegevens te lezen. Zie de voorbeelden in de volgende sectie. |Nee |
-| azureTableSourceIgnoreTableNotFound |Hiermee wordt aangegeven of de uitzondering van de tabel niet bestaat.<br/>Toegestane waarden zijn **waar** en **False** (standaard). |Nee |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet zijn ingesteld op **AzureTableSource**. |Ja |
+| azureTableSourceQuery |Gebruik de aangepaste Table-opslag query om gegevens te lezen. Zie de voor beelden in de volgende sectie. |Nee |
+| azureTableSourceIgnoreTableNotFound |Hiermee wordt aangegeven of de uitzonde ring van de tabel mag worden toegestaan.<br/>Toegestane waarden zijn **waar** en **False** (standaard). |Nee |
 
-### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery-voorbeelden
+### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery-voor beelden
 
-Als de Azure Table-kolom van het type datum/tijd:
+Als de kolom van de Azure-tabel van het type datum/tijd is:
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime gt datetime'2017-10-01T00:00:00' and LastModifiedTime le datetime'2017-10-02T00:00:00'"
 ```
 
-Als de Azure Table-kolom van het tekenreekstype:
+Als de kolom van de Azure-tabel van het teken reeks type is:
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime ge '201710010000_0000' and LastModifiedTime le '201710010000_9999'"
 ```
 
-Als u de pijplijnparameter gebruikt, cast-conversie de datum / tijdwaarde naar de juiste indeling op basis van de vorige voorbeelden.
+Als u de para meter pijplijn gebruikt, moet u de datum-/tijdwaarde casten naar de juiste notatie volgens de voor gaande voor beelden.
 
-### <a name="azure-table-as-a-sink-type"></a>Azure-tabel als een sink-type
+### <a name="azure-table-as-a-sink-type"></a>Azure-tabel als Sink-type
 
-Om gegevens te kopiëren naar Azure-tabel, stelt u het sink-type in de kopieeractiviteit naar **AzureTableSink**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **sink** sectie.
+Als u gegevens wilt kopiëren naar de Azure-tabel, stelt u het sink-type in de Kopieer activiteit in op **AzureTableSink**. De volgende eigenschappen worden ondersteund in het gedeelte **sink** van de Kopieer activiteit.
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op **AzureTableSink**. |Ja |
-| azureTableDefaultPartitionKeyValue |De standaard partitiesleutelwaarde die kan worden gebruikt door de sink. |Nee |
-| azureTablePartitionKeyName |Geef de naam van de kolom waarvan de waarden worden gebruikt als partitiesleutels. Als niet is opgegeven, wordt 'AzureTableDefaultPartitionKeyValue' gebruikt als de partitiesleutel. |Nee |
-| azureTableRowKeyName |Geef de naam van de kolom waarvan de kolomwaarden worden gebruikt als de recordsleutel. Als niet is opgegeven, gebruikt u een GUID voor elke rij. |Nee |
-| azureTableInsertType |De modus voor het invoegen van gegevens in Azure-tabel. Deze eigenschap bepaalt of bestaande rijen in de uitvoertabel met de bijbehorende partitie-en recordsleutels hebben hun waarden vervangen of samenvoegen. <br/><br/>Toegestane waarden zijn **samenvoegen** (standaard) en **vervangen**. <br/><br> Deze instelling is van toepassing op het rijniveau van de niet het tabelniveau van de. Geen van beide optie verwijdert rijen in de uitvoertabel die niet zijn opgenomen in de invoer. Zie voor meer informatie over de werking van de instellingen voor samenvoegen en vervangen, [entiteit invoegen of samenvoegen](https://msdn.microsoft.com/library/azure/hh452241.aspx) en [invoegen of vervangen van entiteit](https://msdn.microsoft.com/library/azure/hh452242.aspx). |Nee |
-| writeBatchSize |Voegt de gegevens in Azure-tabel wanneer writeBatchSize of writeBatchTimeout is bereikt.<br/>Toegestane waarden zijn gehele getallen (aantal rijen). |Nee (de standaardinstelling is 10.000) |
-| writeBatchTimeout |Voegt de gegevens in Azure-tabel wanneer writeBatchSize of writeBatchTimeout is bereikt.<br/>Toegestane waarden zijn timespan. Een voorbeeld hiervan is "00: 20:00" (20 minuten). |Nee (de standaardwaarde is 90 seconden, standaardtime-out van de opslagclient) |
+| type | De eigenschap type van de Sink voor kopieer activiteiten moet worden ingesteld op **AzureTableSink**. |Ja |
+| azureTableDefaultPartitionKeyValue |De standaard waarde voor de partitie sleutel die door de Sink kan worden gebruikt. |Nee |
+| azureTablePartitionKeyName |Geef de naam op van de kolom waarvan de waarden worden gebruikt als partitie sleutels. Als u niets opgeeft, wordt ' AzureTableDefaultPartitionKeyValue ' gebruikt als de partitie sleutel. |Nee |
+| azureTableRowKeyName |Geef de naam op van de kolom waarvan de kolom waarden worden gebruikt als de rij-sleutel. Als u deze niet opgeeft, gebruikt u een GUID voor elke rij. |Nee |
+| azureTableInsertType |De modus om gegevens in de Azure-tabel in te voegen. Met deze eigenschap bepaalt u of bestaande rijen in de uitvoer tabel met overeenkomende partitie-en rijlabels hun waarden vervangen of samengevoegd hebben. <br/><br/>Toegestane waarden zijn **samen voegen** (standaard) en **vervangen**. <br/><br> Deze instelling is van toepassing op het niveau van de rij, niet op het tabel niveau. Geen van beide opties verwijdert rijen in de uitvoer tabel die niet voor komen in de invoer. Zie [entiteit invoegen of samen voegen](https://msdn.microsoft.com/library/azure/hh452241.aspx) en [entiteit invoegen of vervangen](https://msdn.microsoft.com/library/azure/hh452242.aspx)voor meer informatie over het werken met de instellingen voor samen voegen en vervangen. |Nee |
+| writeBatchSize |Voegt gegevens in de Azure-tabel in wanneer writeBatchSize of writeBatchTimeout wordt bereikt.<br/>Toegestane waarden zijn integer (aantal rijen). |Nee (de standaard waarde is 10.000) |
+| writeBatchTimeout |Voegt gegevens in de Azure-tabel in wanneer writeBatchSize of writeBatchTimeout wordt bereikt.<br/>Toegestane waarden zijn time span. Een voor beeld is ' 00:20:00 ' (20 minuten). |Nee (de standaard waarde is 90 seconden, standaard time-out van de opslaglaag van de client) |
 
 **Voorbeeld:**
 
@@ -304,9 +305,9 @@ Om gegevens te kopiëren naar Azure-tabel, stelt u het sink-type in de kopieerac
 
 ### <a name="azuretablepartitionkeyname"></a>azureTablePartitionKeyName
 
-Een bronkolom toewijzen aan een doelkolom met behulp van de **"translator"** eigenschap voordat u de doelkolom als azureTablePartitionKeyName kunt gebruiken.
+Wijs een bron kolom toe aan een doel kolom met behulp van de eigenschap **Translator** voordat u de doel kolom als azureTablePartitionKeyName kunt gebruiken.
 
-In het volgende voorbeeld is de bronkolom DivisionID toegewezen aan de doelkolom DivisionID:
+In het volgende voor beeld wordt bron kolom DivisionID toegewezen aan de doel kolom DivisionID:
 
 ```json
 "translator": {
@@ -315,7 +316,7 @@ In het volgende voorbeeld is de bronkolom DivisionID toegewezen aan de doelkolom
 }
 ```
 
-'DivisionID' is opgegeven als de partitiesleutel.
+' DivisionID ' is opgegeven als de partitie sleutel.
 
 ```json
 "sink": {
@@ -324,22 +325,22 @@ In het volgende voorbeeld is de bronkolom DivisionID toegewezen aan de doelkolom
 }
 ```
 
-## <a name="data-type-mapping-for-azure-table"></a>De gegevenstypetoewijzing voor Azure-tabel
+## <a name="data-type-mapping-for-azure-table"></a>Toewijzing van gegevens type voor Azure-tabel
 
-Wanneer u gegevens van en naar Azure-tabel kopiëren, worden de volgende toewijzingen van Azure Table-gegevenstypen gebruikt om Data Factory tussentijdse gegevenstypen. Zie voor meer informatie over hoe de kopieerbewerking het schema en de gegevens van een brontype aan de sink toegewezen, [Schema en gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md).
+Wanneer u gegevens kopieert vanuit en naar een Azure-tabel, worden de volgende toewijzingen gebruikt vanuit gegevens typen van Azure-tabel om tussenliggende gegevens typen te Data Factory. Zie [schema en gegevens type toewijzingen](copy-activity-schema-and-type-mapping.md)voor meer informatie over hoe de Kopieer activiteit het bron schema en het gegevens type aan de Sink toewijst.
 
-Wanneer u gegevens wilt verplaatsen naar en van Azure Table, de volgende [toewijzingen die zijn gedefinieerd door Azure Table](https://msdn.microsoft.com/library/azure/dd179338.aspx) worden gebruikt vanaf Azure tabel OData typen .NET-type en vice versa.
+Wanneer u gegevens naar en van een Azure-tabel verplaatst, worden de volgende toewijzingen die zijn [gedefinieerd door Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) Table, gebruikt vanuit de Azure Table OData-typen naar .net-type en vice versa.
 
-| Azure Table-gegevenstype | Data Factory tussentijdse gegevenstype | Details |
+| Gegevens type van Azure-tabel | Data Factory tussentijdse gegevenstype | Details |
 |:--- |:--- |:--- |
-| Edm.Binary |byte[] |Een matrix van bytes maximaal 64 KB. |
+| Edm.Binary |byte[] |Een byte matrix van Maxi maal 64 KB. |
 | Edm.Boolean |bool |Een Booleaanse waarde. |
-| Edm.DateTime |DateTime |Een 64-bits waarde wordt uitgedrukt als Coordinated Universal Time (UTC). Het ondersteunde bereik voor de datum/tijd begint middernacht, 1 januari 1601 A.D. (C.E.), UTC. Het bereik eindigt en met 31 December 9999. |
-| Edm.Double |double |Een 64-bits drijvende-kommawaarde. |
-| Edm.Guid |Guid |Een globaal unieke id van 128-bits. |
-| Edm.Int32 |Int32 |Een 32-bits geheel getal zijn. |
-| Edm.Int64 |Int64 |Een 64-bits geheel getal zijn. |
-| Edm.String |String |Een waarde UTF-16-codering. Tekenreekswaarden mag maximaal 64 KB. |
+| Edm.DateTime |Datetime |Een waarde van 64 bits, uitgedrukt als Coordinated Universal Time (UTC). Het ondersteunde DateTime-bereik begint middernacht, 1 januari 1601 n. (C.E.), UTC. Het bereik eindigt op 31 december 9999. |
+| Edm.Double |double |Een 64-bits drijvende-komma waarde. |
+| Edm.Guid |Guid |Een 128-bits Globally Unique Identifier. |
+| Edm.Int32 |Int32 |Een 32-bits geheel getal. |
+| Edm.Int64 |Int64 |Een 64-bits geheel getal. |
+| Edm.String |Tekenreeks |Een UTF-16-gecodeerde waarde. Teken reeks waarden kunnen Maxi maal 64 KB groot zijn. |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

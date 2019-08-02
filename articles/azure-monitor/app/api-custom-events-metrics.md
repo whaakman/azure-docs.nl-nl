@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2ec3b620138c4ae0487c29e38062c044a5210572
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 9bedb74f4e882ac6e4206ee7fef676c94dc2422d
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314793"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717455"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
@@ -54,7 +54,7 @@ Als u nog geen verwijzing hebt over Application Insights SDK:
   * [Java-project](../../azure-monitor/app/java-get-started.md)
   * [Node. js-project](../../azure-monitor/app/nodejs.md)
   * [Java script in elke webpagina](../../azure-monitor/app/javascript.md) 
-* In uw apparaat-of webservercode neemt u het volgende op:
+* Neem in uw apparaat- of webservercode het volgende op:
 
     *C#:* `using Microsoft.ApplicationInsights;`
 
@@ -163,8 +163,6 @@ Als er [steek proeven](../../azure-monitor/app/sampling.md) worden uitgevoerd, w
 *C#*
 
 ```csharp
-#pragma warning disable CA1716  // Namespace naming
-
 namespace User.Namespace.Example01
 {
     using System;
@@ -300,7 +298,7 @@ De telemetrie is beschikbaar in `customMetrics` de tabel in [Application Insight
 * `valueSum`-Dit is de som van de metingen. Delen door `valueCount`om de gemiddelde waarde op te halen.
 * `valueCount`-Het aantal metingen dat is geaggregeerd in deze `trackMetric(..)` aanroep.
 
-## <a name="page-views"></a>Pagina weergaven
+## <a name="page-views"></a>Paginaweergaven
 
 In een apparaat-of webpagina-app wordt de telemetrie van de pagina weergave standaard verzonden wanneer elk scherm of elke pagina wordt geladen. Maar u kunt dit wijzigen om pagina weergaven op extra of verschillende tijdstippen bij te houden. In een app waarin tabbladen of Blades worden weer gegeven, kunt u bijvoorbeeld een pagina bijhouden wanneer de gebruiker een nieuwe blade opent.
 
@@ -433,7 +431,7 @@ De items die binnen een bereik van de bewerking zijn gerapporteerd, worden ' kin
 
 In de zoek actie wordt de context van de bewerking gebruikt voor het maken van de lijst **Verwante items** :
 
-![Verwante items](./media/api-custom-events-metrics/21.png)
+![Gerelateerde items](./media/api-custom-events-metrics/21.png)
 
 Zie [aangepaste bewerkingen bijhouden met Application Insights .NET SDK](../../azure-monitor/app/custom-operations-tracking.md) voor meer informatie over het bijhouden van aangepaste bewerkingen.
 

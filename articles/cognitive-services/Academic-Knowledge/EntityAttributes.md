@@ -1,7 +1,7 @@
 ---
-title: Entiteitkenmerken Academic Graph - Academic Knowledge API
+title: Entiteits kenmerken voor academische grafiek-Academic Knowledge API
 titlesuffix: Azure Cognitive Services
-description: Meer informatie over de kenmerken van de entiteit die kunt u met de Academic Graph in de Academic Knowledge API.
+description: Meer informatie over de entiteits kenmerken die u kunt gebruiken met de academische grafiek in de Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
 manager: nitinme
@@ -10,31 +10,32 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 485775660ecfdf2291365ab98c9188295ea2cbde
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 596ce35a0d744691edd75d6071d4758691e0031b
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61340176"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705021"
 ---
-# <a name="entity-attributes"></a>Entiteitkenmerken
+# <a name="entity-attributes"></a>Entiteits kenmerken
 
-De academic graph van 7 typen entiteit bestaat. Alle entiteiten hebben een entiteits-ID en een entiteitstype.
+Het academische diagram bestaat uit 7 typen entiteit. Alle entiteiten hebben een entiteit-ID en een entiteits type.
 
-## <a name="common-entity-attributes"></a>Algemene entiteitskenmerken
-Name    |Description                |Type       | Bewerkingen
+## <a name="common-entity-attributes"></a>Algemene entiteits kenmerken
+Name    |Description                |type       | Bewerkingen
 ------- | ------------------------- | --------- | ----------------------------
-Id      |Entiteit-ID                  |Int64      |Is gelijk aan
+ID      |Entiteits-id                  |Int64      |Is gelijk aan
 Ty      |Entiteitstype                |enum   |Is gelijk aan
 
-## <a name="entity-type-enum"></a>Entiteit type enum
+## <a name="entity-type-enum"></a>Enum van entiteits type
 Name                                                            |value
 ----------------------------------------------------------------|-----
 [Publicatie](PaperEntityAttributes.md)                               |0
 [Auteur](AuthorEntityAttributes.md)                             |1
 [Tijdschrift](JournalEntityAttributes.md)                           |2
-[Conferentiereeks](JournalEntityAttributes.md)                 |3
-[Conferentie](ConferenceInstanceEntityAttributes.md)    |4
+[Reeks vergaderingen](JournalEntityAttributes.md)                 |3
+[Conference-instantie](ConferenceInstanceEntityAttributes.md)    |4
 [Relatie](AffiliationEntityAttributes.md)                   |5
-[Onderzoeksgebied](FieldsOfStudyEntityAttributes.md)                      |6
+[Veld van studie](FieldsOfStudyEntityAttributes.md)                      |6
 

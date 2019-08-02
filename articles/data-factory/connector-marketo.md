@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: d6d6517a85997265021573b2f9d481c81283c216
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37634a76b0c8e08d7a4688a7ba3fd913391cd408
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61400454"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726137"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Gegevens kopiëren van Marketo met Azure Data Factory (Preview)
 
@@ -33,7 +33,7 @@ U kunt gegevens uit Marketo kopiëren naar een ondersteunde sink-gegevensopslag.
 Azure Data Factory biedt een ingebouwde stuurprogramma als connectiviteit wilt inschakelen, dus hoeft u stuurprogramma voor gebruik van deze connector handmatig installeren.
 
 >[!NOTE]
->Deze connector Marketo is gebaseerd op de Marketo REST-API. Houd er rekening mee dat de Marketo heeft [limiet voor gelijktijdige aanvraag](https://developers.marketo.com/rest-api/) op servicezijde. Als u fouten zeggen bereikt "Fout bij het gebruik van REST-API: Max. frequentie overschreden '100' met in-20' seconden (606) ' of ' Fout bij het gebruik van REST-API: Gelijktijdige toegang beperken via '10' (615 kan) bereikt ", overwegen om te beperken van de uitvoeringen van de activiteit gelijktijdige kopiëren als u wilt verkleinen het aantal aanvragen naar de service.
+>Deze connector Marketo is gebaseerd op de Marketo REST-API. Houd er rekening mee dat de Marketo heeft [limiet voor gelijktijdige aanvraag](https://developers.marketo.com/rest-api/) op servicezijde. Als er fouten optreden bij het gebruik van REST API: De maximale frequentie limiet van 100 is overschreden met de waarde ' 20 ' seconden (606) ' of ' fout bij het gebruik van REST API: Limiet voor gelijktijdige toegang ' 10 ' bereikt (615) ', overweeg om de uitvoering van de activiteit voor gelijktijdige kopieën te verminderen om het aantal aanvragen voor de service te verminderen.
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -92,11 +92,12 @@ Als u wilt kopiëren van gegevens uit Marketo, stel de eigenschap type van de ge
     "name": "MarketoDataset",
     "properties": {
         "type": "MarketoObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Marketo linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -111,7 +112,7 @@ Als u wilt kopiëren van gegevens uit Marketo, stelt u het brontype in de kopiee
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **MarketoSource** | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **MarketoSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM Activitiy_Types"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**

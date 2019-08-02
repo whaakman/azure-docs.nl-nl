@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: dimart
 ms.custom: mvc
-ms.openlocfilehash: fd502a308d6298dc2941461632a2832ac336c45c
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: fe24ab21a9a7d227d58e50c58f9aff2bd91e767f
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849874"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598552"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>KEUR Volledige CI/CD-pijp lijn voor het implementeren van een toepassing met meerdere containers op Azure Container Service met de ACS-engine en de docker Swarm-modus met behulp van Azure DevOps
 
@@ -80,7 +80,7 @@ Stel een verbinding in tussen uw Azure DevOps-project en uw Azure-account.
 Stel een verbinding in tussen uw Azure DevOps-project en uw GitHub-account.
 
 1. Klik aan de linkerkant op **nieuw service-eind punt** > **github**.
-2. Als u Azure DevOps wilt machtigen voor gebruik met uw GitHub-  account, klikt u op autoriseren en volgt u de procedure in het venster dat wordt geopend.
+2. Als u Azure DevOps wilt machtigen voor gebruik met uw GitHub- account, klikt u op autoriseren en volgt u de procedure in het venster dat wordt geopend.
 
     ![Azure DevOps-GitHub autoriseren](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github.png)
 
@@ -199,7 +199,7 @@ Met Azure DevOps kunt u [releases in meerdere omgevingen beheren](https://www.vi
 
 1. Als u een release pijplijn wilt maken, klikt u op **releases** > en**release**
 
-2. Als u de artefact bron wilt configureren  > , klikt u op artefacten om**een artefact bron te koppelen**. Koppel deze nieuwe release pijplijn aan de build die u in de vorige stap hebt gedefinieerd. Daarna is het docker-Compose. yml-bestand beschikbaar in het release proces.
+2. Als u de artefact bron wilt configureren > , klikt u op artefacten om**een artefact bron te koppelen**. Koppel deze nieuwe release pijplijn aan de build die u in de vorige stap hebt gedefinieerd. Daarna is het docker-Compose. yml-bestand beschikbaar in het release proces.
 
     ![Azure DevOps-release-artefacten](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-artefacts.png) 
 
@@ -251,6 +251,6 @@ Nu u klaar bent met de configuratie, is het tijd om deze nieuwe CI/CD-pijp lijn 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over CI/CD met Azure DevOps vindt u in het [overzicht van Azure DevOps-build](https://www.visualstudio.com/docs/build/overview).
+* Voor meer informatie over CI/CD met Azure DevOps raadpleegt u het artikel over [Azure pipelines](/azure/devops/pipelines/?view=azure-devops) .
 * Zie de [ACS-engine github opslag plaats](https://github.com/Azure/acs-engine)voor meer informatie over de ACS-engine.
 * Zie het overzicht van de [docker Swarm-modus](https://docs.docker.com/engine/swarm/)voor meer informatie over de modus docker Swarm.

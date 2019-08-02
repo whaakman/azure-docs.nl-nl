@@ -10,14 +10,14 @@ ms.author: tsikiksr
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 07/23/2019
-ms.openlocfilehash: 7c7d90d4ca1625edecc9d84e1ff7beec50032884
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 30dc731efdb6016f505b7a16860e0cb9c6480333
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444758"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716586"
 ---
-# <a name="tutorial-train-and-deploy-a-classification-model-with-automated-machine-learning-in-the-azure-portal-preview"></a>Zelfstudie: Een classificatie model trainen en implementeren met geautomatiseerde machine learning in het Azure Portal (preview)
+# <a name="tutorial-use-automated-machine-learning-to-train-and-deploy-your-first-classification-model-preview"></a>Zelfstudie: Automatische machine learning gebruiken om uw eerste classificatie model te trainen en te implementeren (preview)
 
 In deze zelf studie leert u hoe u uw eerste geautomatiseerde machine learning experiment maakt in de Azure Portal. In dit voor beeld wordt een classificatie model gemaakt om te voors pellen of een client zich abonneert op een termijn storting met de Bank. 
 
@@ -72,7 +72,7 @@ In deze zelfstudie leert u het volgende:
 
 1. Op het tabblad **Preview** kunnen we onze gegevens voor dit experiment verder configureren.
 
-    Op het tabblad voor beeld geeft u aan dat de gegevens kopteksten bevatten. De service is standaard ingesteld op het opnemen van alle functies (columns) voor training. Voor dit voor beeld schuift u naar rechts  en negeert u de functie **day_of_week** .
+    Op het tabblad voor beeld geeft u aan dat de gegevens kopteksten bevatten. De service is standaard ingesteld op het opnemen van alle functies (columns) voor training. Voor dit voor beeld schuift u naar rechts en negeert u de functie **day_of_week** .
 
     ![Tabblad preview-configuratie](media/tutorial-1st-experiment-automated-ml/preview-tab-config.gif)
 
@@ -86,7 +86,7 @@ In deze zelfstudie leert u het volgende:
 
 1. Vouw de **Geavanceerde instellingen** uit en vul de velden als volgt in.
 
-    Geavanceerde instellingen|Waarde
+    Geavanceerde instellingen|Value
     ------|------
     Primaire metriek| AUC_weighted 
     Afsluit criteria| Wanneer aan een van deze criteria wordt voldaan, wordt de trainings taak beëindigd voordat deze volledig is voltooid. <br> *Tijd trainings taak (minuten)* : 5  <br> *Maximum aantal herhalingen*: 10 
@@ -143,7 +143,7 @@ Implementatie bestanden zijn groter dan gegevens en experimenteer bestanden, zod
 
 Verwijder alleen het implementatie-exemplaar van de Azure Portal als u de resource groep en-werk ruimte wilt blijven gebruiken voor andere zelf studies en verkennen. 
 
-1. Ga naar het deel venster **assets** aan de linkerkant en Selecteer implementaties. 
+1. Ga naar het deel venster **assets** aan de linkerkant enSelecteer implementaties. 
 
 1. Selecteer de implementatie die u wilt verwijderen en selecteer **verwijderen**. 
 

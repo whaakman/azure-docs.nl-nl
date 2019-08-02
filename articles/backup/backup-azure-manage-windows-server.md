@@ -1,22 +1,22 @@
 ---
 title: Azure Recovery Services-kluizen en-servers beheren
 description: Beheer taken en waarschuwingen in een Azure Recovery Services kluis.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: raynew
-ms.openlocfilehash: 5876ce4a511617d8465cdf008ea0ce14b3ad15d4
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 4ce6ef67c24bd623a4162329442693ed1628dae2
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466357"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639877"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services-kluizen beheren en controleren
 
-In dit artikel wordt uitgelegd hoe u het **overzichts** dashboard van Recovery Services kluis kunt gebruiken om uw Recovery Services kluizen te controleren en te beheren. Wanneer u een Recovery Services kluis in de lijst opent, wordt  het overzichts dashboard voor de geselecteerde kluis geopend. Het dash board biedt verschillende details over de kluis. Er zijn *tegels* die worden weer gegeven: de status van kritieke en waarschuwings meldingen, taken in uitvoering en mislukte back-ups en de hoeveelheid lokaal redundante opslag (LRS) en geo redundante opslag (GRS). Als u een back-up maakt van virtuele Azure-machines in de kluis, worden in de [tegel **status van back-up** voor het controleren alle kritieke items weer gegeven](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/). De volgende afbeelding is het **overzichts** dashboard voor **Contoso-kluis**. Op de tegel **back-** upitems ziet u dat er negen items zijn geregistreerd bij de kluis.
+In dit artikel wordt uitgelegd hoe u het **overzichts** dashboard van Recovery Services kluis kunt gebruiken om uw Recovery Services kluizen te controleren en te beheren. Wanneer u een Recovery Services kluis in de lijst opent, wordt het overzichts dashboard voor de geselecteerde kluis geopend. Het dash board biedt verschillende details over de kluis. Er zijn *tegels* die worden weer gegeven: de status van kritieke en waarschuwings meldingen, taken in uitvoering en mislukte back-ups en de hoeveelheid lokaal redundante opslag (LRS) en geo redundante opslag (GRS). Als u een back-up maakt van virtuele Azure-machines in de kluis, worden in de [tegel **status van back-up** voor het controleren alle kritieke items weer gegeven](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/). De volgende afbeelding is het **overzichts** dashboard voor **Contoso-kluis**. Op de tegel **back-** upitems ziet u dat er negen items zijn geregistreerd bij de kluis.
 
 ![Recovery Services-kluis dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -47,7 +47,7 @@ Open de kluis om waarschuwingen te controleren of beheer gegevens over een Recov
 
 ## <a name="monitor-backup-jobs-and-alerts"></a>Back-uptaken en waarschuwingen bewaken
 
-Het overzichts  dashboard Recovery Services kluis bevat tegels voor controle-en gebruiks informatie. De tegels in de bewakings sectie tonen kritieke en waarschuwings meldingen en taken in uitvoering en mislukt. Klik op een bepaalde waarschuwing of taak om het menu met back-upwaarschuwingen of back-uptaken te openen, gefilterd op die taak of waarschuwing.
+Het overzichts dashboard Recovery Services kluis bevat tegels voor controle-en gebruiks informatie. De tegels in de bewakings sectie tonen kritieke en waarschuwings meldingen en taken in uitvoering en mislukt. Klik op een bepaalde waarschuwing of taak om het menu met back-upwaarschuwingen of back-uptaken te openen, gefilterd op die taak of waarschuwing.
 
 ![Back-updashboard taken](./media/backup-azure-manage-windows-server/monitor-dashboard-tiles-warning.png)
 

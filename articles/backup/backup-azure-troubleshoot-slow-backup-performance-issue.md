@@ -1,18 +1,19 @@
 ---
 title: Problemen met langzame back-ups van bestanden en mappen in Azure Backup
 description: Biedt richt lijnen voor probleem oplossing waarmee u de oorzaak van Azure Backup prestatie problemen kunt vaststellen
-author: saurabhsensharma
-manager: saurabhsensharma
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.author: saurse
-ms.openlocfilehash: 3a39d39412c8b64d1851ea0fc9511d116f3b232a
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.author: dacurwin
+ms.openlocfilehash: 16a8eb4eea4e5e1e3bb49049c49d73adb99eef55
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/31/2019
-ms.locfileid: "68465347"
+ms.locfileid: "68688624"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Problemen met langzame back-ups van bestanden en mappen in Azure Backup
 Dit artikel bevat richt lijnen voor probleem oplossing waarmee u de oorzaak van trage back-upprestaties voor bestanden en mappen kunt vaststellen wanneer u Azure Backup gebruikt. Wanneer u de Azure Backup-agent gebruikt voor het maken van back-ups van bestanden, kan het back-upproces langer duren dan verwacht. Deze vertraging kan een of meer van de volgende oorzaken hebben:

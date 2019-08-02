@@ -1,7 +1,7 @@
 ---
-title: Trainen en Chainer modellen registreren
+title: Keten modellen trainen en registreren
 titleSuffix: Azure Machine Learning service
-description: Dit artikel leest u hoe te trainen en een Chainer-model met behulp van Azure Machine Learning-service te registreren.
+description: Dit artikel laat u zien hoe u een Chainer-model kunt trainen en registreren met behulp van Azure Machine Learning-service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,46 +10,46 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 06/15/2019
-ms.openlocfilehash: 8ecefccbdf5f02652e935858b6ae8fb4cdfde640
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 7cf5650708cd951e872e3df6ea533a62bde0389d
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840040"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618341"
 ---
-# <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Trainen en Chainer modellen op schaal registreren met Azure Machine Learning-service
+# <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Keten modellen trainen en registreren op schaal met Azure Machine Learning-service
 
-Dit artikel leest u hoe te trainen en een Chainer-model met behulp van Azure Machine Learning-service te registreren. Hierbij de populaire [MNIST gegevensset](http://yann.lecun.com/exdb/mnist/) voor het classificeren van handgeschreven cijfers met behulp van een deep neural network (DNN) die zijn gemaakt met de [Chainer Python-bibliotheek](https://Chainer.org) uitgevoerd boven [numpy](https://www.numpy.org/).
+Dit artikel laat u zien hoe u een Chainer-model kunt trainen en registreren met behulp van Azure Machine Learning-service. De populaire MNIST- [gegevensset](http://yann.lecun.com/exdb/mnist/) wordt gebruikt om handgeschreven cijfers te classificeren met behulp van een diepe Neural Network (DNN) die is gebouwd met behulp van de [python-bibliotheek](https://Chainer.org) van de keten die op [numpy](https://www.numpy.org/)wordt uitgevoerd.
 
-Chainer is een op hoog niveau neural network API kan worden uitgevoerd op de hoogte van andere populaire DNN-frameworks om ontwikkeling te vereenvoudigen. Met Azure Machine Learning-service, kunt u snel met behulp van flexibele cloud-rekenresources trainingstaken uitschalen. U kunt ook bijhouden uw trainingsuitvoeringen, de versie-modellen implementeren van modellen en nog veel meer.
+Chainer is een Neural netwerk-API op hoog niveau die op andere populaire DNN-Frameworks kan worden uitgevoerd om de ontwikkeling te vereenvoudigen. Met Azure Machine Learning-service kunt u trainings taken snel uitschalen met behulp van elastische Cloud Compute-resources. U kunt ook uw trainings uitvoeringen, versie modellen, implementatie modellen en nog veel meer volgen.
 
-Of u een Chainer-model van de grond-up ontwikkelt of u een bestaand model naar de cloud brengen, kunt Azure Machine Learning-service u gereed is voor productie-modellen bouwen.
+Of u nu een ketting model ontwikkelt of een bestaand model in de Cloud brengt, Azure Machine Learning-service kan u helpen bij het bouwen van modellen die gereed zijn voor productie.
 
 Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze code in elk van deze omgevingen worden uitgevoerd:
+Voer deze code uit in een van de volgende omgevingen:
 
-- Azure Machine Learning-Notebook VM - geen downloads of installatie nodig
+- Azure Machine Learning-notebook-VM-geen down loads of installatie vereist
 
-    - Voltooid de [cloud-gebaseerde notebook snelstartgids](quickstart-run-cloud-notebook.md) maken een toegewezen notebookserver vooraf geladen met de SDK en de opslagplaats met voorbeelden.
-    - Zoeken in de map samples op de notebookserver, een voltooide laptop- en bestanden in de **how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer** map.  De notebook bevat uitgebreide secties die betrekking hebben op intelligente hyperparameter afstemmen, modelimplementatie en laptop widgets.
+    - Voltooi de [Snelstartgids](quickstart-run-cloud-notebook.md) in de cloud om een toegewezen notebook server te maken vooraf geladen met de SDK en de voor beeld-opslag plaats.
+    - Zoek in de map met voor beelden op de notebook server een voltooide notebook en bestanden in de map **How-to-use-azureml/training-with-diepe-Learning/Train-afstemming-Tune-Deploy-with-Chainer** .  Het notitie blok bevat uitgebreide secties die betrekking hebben op intelligent afstemming tuning, model implementatie en notebook widgets.
 
-- Uw eigen Jupyter-Notebook-server
+- Uw eigen Jupyter Notebook-server
 
-    - [De Azure Machine Learning-SDK voor Python installeren](setup-create-workspace.md#sdk)
-    - [Het configuratiebestand van een werkruimte maken](setup-create-workspace.md#write-a-configuration-file)
-    - Download het script-voorbeeldbestand [chainer_mnist.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py)
-     - U vindt hier ook een voltooide [Jupyter-Notebook versie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb) van deze handleiding op de pagina met GitHub-voorbeelden. De notebook bevat uitgebreide secties die betrekking hebben op intelligente hyperparameter afstemmen, modelimplementatie en laptop widgets.
+    - [De Azure Machine Learning SDK voor python installeren](setup-create-workspace.md#sdk)
+    - [Een configuratie bestand voor een werk ruimte maken](setup-create-workspace.md#write-a-configuration-file)
+    - Down load het voorbeeld script bestand [chainer_mnist. py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py)
+     - U kunt ook een voltooide [Jupyter notebook versie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb) van deze hand leiding vinden op de pagina met github-voor beelden. Het notitie blok bevat uitgebreide secties die betrekking hebben op intelligent afstemming tuning, model implementatie en notebook widgets.
 
-## <a name="set-up-the-experiment"></a>Instellen van het experiment
+## <a name="set-up-the-experiment"></a>Het experiment instellen
 
-In deze sectie stelt u het trainingsexperiment door het laden van de vereiste python-pakketten, het initialiseren van een werkruimte, een experiment maken en uploaden van de trainingsgegevens en trainingsscripts.
+In deze sectie wordt het trainings experiment opgesteld door het laden van de vereiste Python-pakketten, het initialiseren van een werk ruimte, het maken van een experiment en het uploaden van de trainings gegevens en trainings scripts.
 
 ### <a name="import-packages"></a>Pakketten importeren
 
-Importeer eerst de azureml.core Python-bibliotheek ad weergave het versienummer.
+Importeer eerst de python-bibliotheek van azureml. Core en geef het versie nummer weer.
 
 ```
 # Check core SDK version number
@@ -58,18 +58,18 @@ import azureml.core
 print("SDK version:", azureml.core.VERSION)
 ```
 
-### <a name="initialize-a-workspace"></a>Een werkruimte initialiseren
+### <a name="initialize-a-workspace"></a>Een werk ruimte initialiseren
 
-De [werkruimte van Azure Machine Learning-service](concept-workspace.md) is de resource op het hoogste niveau voor de service. Het biedt u met een centrale locatie voor het werken met alle artefacten die u maakt. In de Python-SDK, opent u de werkruimte-artefacten met het maken van een [ `workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) object.
+De [werk ruimte](concept-workspace.md) van de Azure machine learning-service is de resource op het hoogste niveau voor de service. Het biedt u een centrale locatie voor het werken met alle artefacten die u maakt. In de python-SDK hebt u toegang tot de werkruimte artefacten door een [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) object te maken.
 
-Maken van een werkruimteobject uit de `config.json` bestand dat is gemaakt de [sectie vereisten](#prerequisites).
+Maak een werkruimte object door het `config.json` bestand te lezen dat is gemaakt in de [sectie vereisten](#prerequisites):
 
 ```Python
 ws = Workspace.from_config()
 ```
 
-### <a name="create-a-project-directory"></a>Maak een projectmap
-Maak een map waarin u de benodigde code van uw lokale computer die u toegang hebben tot op de externe resource moet. Dit omvat het trainingsscript en eventuele aanvullende bestanden afhankelijk van uw trainingsscript.
+### <a name="create-a-project-directory"></a>Een projectmap maken
+Maak een map die alle benodigde code bevat van uw lokale computer waartoe u toegang moet hebben op de externe bron. Dit omvat het trainings script en eventuele extra bestanden waarop uw trainings script van toepassing is.
 
 ```
 import os
@@ -78,13 +78,15 @@ project_folder = './chainer-mnist'
 os.makedirs(project_folder, exist_ok=True)
 ```
 
-### <a name="prepare-training-script"></a>Trainingsscript voorbereiden
+### <a name="prepare-training-script"></a>Trainings script voorbereiden
 
-In deze zelfstudie, het trainingsscript **chainer_mnist.py** reeds wordt geboden voor u. In de praktijk moet u een aangepaste trainingsscript meenemen en uitvoeren met Azure ML zonder uw code te wijzigen.
+In deze zelf studie is het trainings script **chainer_mnist. py** al voor u ingevuld. In de praktijk moet u een aangepast trainings script kunnen uitvoeren zoals dat is en dit kan worden uitgevoerd met Azure ML zonder dat u de code hoeft te wijzigen.
 
-Als u het bijhouden en de mogelijkheden voor metrische gegevens van Azure ML, moet u een kleine hoeveelheid Azure ML-code in uw trainingsscript toevoegen.  Het trainingsscript **chainer_mnist.py** laat zien hoe u aan te melden sommige metrische gegevens over uw Azure ML worden uitgevoerd. Om dit te doen, u toegang tot de Azure ML `Run` object in het script.
+Als u de mogelijkheden voor bijhouden en metrische gegevens van Azure ML wilt gebruiken, voegt u een kleine hoeveelheid Azure ML-code toe in uw trainings script.  In het trainings script **chainer_mnist. py** ziet u hoe u bepaalde metrische gegevens registreert bij uw Azure ml `Run` -uitvoering met behulp van het-object in het script.
 
-Kopieer het trainingsscript **chainer_mnist.py** in uw projectmap.
+In het meegeleverde trainings script worden voorbeeld gegevens van de Chainer `datasets.mnist.get_mnist` -functie gebruikt.  Voor uw eigen gegevens moet u mogelijk stappen zoals [gegevensset uploaden en scripts](how-to-train-keras.md#upload-dataset-and-scripts) gebruiken om gegevens beschikbaar te maken tijdens de training.
+
+Kopieer het trainings script **chainer_mnist. py** in de projectmap.
 
 ```
 import shutil
@@ -94,7 +96,7 @@ shutil.copy('chainer_mnist.py', project_folder)
 
 ### <a name="create-an-experiment"></a>Een experiment maken
 
-Een experiment en een map voor het opslaan van uw trainingsscripts maken. In dit voorbeeld maakt u een experiment met de naam 'chainer-mnist'.
+Een experiment maken. In dit voor beeld maakt u een experiment met de naam ' Chainer-mnist '.
 
 ```
 from azureml.core import Experiment
@@ -104,11 +106,11 @@ experiment = Experiment(ws, name=experiment_name)
 ```
 
 
-## <a name="create-or-get-a-compute-target"></a>Maken of ophalen van een compute-doel
+## <a name="create-or-get-a-compute-target"></a>Een reken doel maken of ophalen
 
-U moet een [compute-doel](concept-compute-target.md) voor het trainen van uw model. In deze zelfstudie gebruikt u Azure ML beheerd compute (AmlCompute) voor uw externe training compute-resource.
+U hebt een [berekenings doel](concept-compute-target.md) nodig voor het trainen van uw model. In dit voor beeld gebruikt u Azure ML Managed Compute (AmlCompute) voor uw externe trainings Compute-resource.
 
-**Het maken van AmlCompute duurt ongeveer 5 minuten**. Als de AmlCompute met die naam al in uw werkruimte is, slaat deze code over het aanmaakproces.  
+Het **maken van AmlCompute duurt ongeveer 5 minuten**. Als de AmlCompute met die naam al in uw werk ruimte staat, slaat deze code het aanmaak proces over.  
 
 ```Python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -134,13 +136,13 @@ except ComputeTargetException:
 print(compute_target.get_status().serialize())
 ```
 
-Zie voor meer informatie over de compute-doelen, de [wat is er een compute-doel](concept-compute-target.md) artikel.
+Zie voor meer informatie over Compute-doelen het artikel [Wat is een reken doel](concept-compute-target.md) .
 
-## <a name="create-a-chainer-estimator"></a>Maken van een estimator Chainer
+## <a name="create-a-chainer-estimator"></a>Een Estimator maken
 
-De [Chainer estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) biedt een eenvoudige manier van Chainer trainingstaken op uw compute-doel starten.
+De [Chainer Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) biedt een eenvoudige manier om de trainings taken voor Chainer te starten op uw reken doel.
 
-De Chainer estimator wordt geïmplementeerd via de algemene [ `estimator` ](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klasse, die kan worden gebruikt voor de ondersteuning van elk gewenst framework. Zie voor meer informatie over het trainen van modellen met behulp van de algemene estimator [trainen van modellen met Azure Machine Learning met behulp van estimator](how-to-train-ml-models.md)
+De Chainer Estimator wordt geïmplementeerd via de algemene [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klasse, die kan worden gebruikt ter ondersteuning van een Framework. Voor meer informatie over trainings modellen die gebruikmaken van de algemene Estimator, raadpleegt [u modellen met Azure machine learning met behulp van Estimator](how-to-train-ml-models.md)
 
 ```Python
 from azureml.train.dnn import Chainer
@@ -159,48 +161,57 @@ estimator = Chainer(source_directory=project_folder,
                     use_gpu=True)
 ```
 
-## <a name="submit-a-run"></a>Een uitvoering verzenden
+## <a name="submit-a-run"></a>Een run verzenden
 
-De [object uitvoeren](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) biedt de interface voor de uitvoeringsgeschiedenis terwijl de taak wordt uitgevoerd en wanneer deze is voltooid.
+Het [object run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) biedt de interface voor de uitvoerings geschiedenis terwijl de taak wordt uitgevoerd en nadat deze is voltooid.
 
 ```Python
 run = exp.submit(est)
 run.wait_for_completion(show_output=True)
 ```
 
-Als de uitvoering wordt uitgevoerd, er wordt de volgende fasen:
+Wanneer de uitvoering wordt uitgevoerd, worden de volgende fasen door lopen:
 
-- **Voorbereiden van**: Een docker-installatiekopie wordt gemaakt op basis van de Chainer estimator. De afbeelding is geüpload naar het containerregister van de werkruimte en hoger wordt uitgevoerd in de cache opgeslagen. Logboeken ook worden gestreamd naar de uitvoeringsgeschiedenis en kunnen worden weergegeven om voortgang te controleren.
+- **Voorbereiden**: Een docker-installatie kopie wordt gemaakt volgens de Chainer Estimator. De afbeelding wordt geüpload naar het container register van de werk ruimte en opgeslagen in de cache voor latere uitvoeringen. Logboeken worden ook gestreamd naar de uitvoerings geschiedenis en kunnen worden weer gegeven om de voortgang te bewaken.
 
-- **Schalen**: Het cluster probeert om omhoog te schalen als de Batch AI-cluster meer knooppunten vereist voor het uitvoeren van de uitvoering dan er op dit moment beschikbaar zijn.
+- **Schalen**: Het cluster probeert omhoog te schalen als het Batch AI-cluster meer knoop punten nodig heeft om de uitvoering uit te voeren dan momenteel beschikbaar zijn.
 
-- **Uitvoeren**: Alle scripts in de scriptmap worden geüpload naar de compute-doel, data-archieven worden gekoppeld of worden gekopieerd en de entry_script wordt uitgevoerd. Uitvoer van stdout en. / map logboeken worden gestreamd naar de uitvoeringsgeschiedenis en kan worden gebruikt voor het bewaken van de uitvoering.
+- **Uitvoeren**: Alle scripts in de map script worden geüpload naar het Compute-doel, gegevens archieven worden gekoppeld of gekopieerd en de entry_script wordt uitgevoerd. Uitvoer van stdout en de map./logs worden gestreamd naar de uitvoerings geschiedenis en kunnen worden gebruikt om de uitvoering te bewaken.
 
-- **Nabewerken**: De. / map van de uitvoering is gekopieerd naar de uitvoeringsgeschiedenis levert.
+- **Nabewerken**: De map./outputs van de uitvoering wordt gekopieerd naar de uitvoerings geschiedenis.
 
-## <a name="save-and-register-the-model"></a>Opslaan en Registreer het model
+## <a name="save-and-register-the-model"></a>Het model opslaan en registreren
 
-Nadat u het model hebt getraind, kunt u deze kunt opslaan en deze aan uw werkruimte te registreren. Registratie van het model kunt u store en versie uw modellen in de werkruimte voor het vereenvoudigen van [model voor beheer en de implementatie](concept-model-management-and-deployment.md).
+Zodra u het model hebt getraind, kunt u het opslaan en registreren in uw werk ruimte. Met model registratie kunt u uw modellen in uw werk ruimte opslaan en versieren om het [model beheer en de implementatie](concept-model-management-and-deployment.md)te vereenvoudigen.
 
-Voeg de volgende code naar uw trainingsscript **chainer_mnist.py**, om op te slaan van het model. 
 
-``` Python
-    serializers.save_npz(os.path.join(args.output_dir, 'model.npz'), model)
-```
-
-Registreer het model aan uw werkruimte met de volgende code.
+Nadat de model training is voltooid, registreert u het model in uw werk ruimte met de volgende code.  
 
 ```Python
 model = run.register_model(model_name='chainer-dnn-mnist', model_path='outputs/model.npz')
 ```
 
+> [!TIP]
+> Als er een fout bericht wordt weer gegeven dat het model niet wordt gevonden, geeft u het een minuut en probeert u het opnieuw.  Soms is er sprake van een lichte vertraging tussen het einde van de uitvoering van de training en de beschik baarheid van het model in de uitvoer Directory.
 
+U kunt ook een lokale kopie van het model downloaden. Dit kan handig zijn om een extra model validatie lokaal te kunnen uitvoeren. In het trainings script `chainer_mnist.py`bewaart een beveiligings-object het model naar een lokale map (lokaal naar het Compute-doel). U kunt het object run gebruiken om een kopie te downloaden uit de gegevens opslag.
+
+```Python
+# Create a model folder in the current directory
+os.makedirs('./model', exist_ok=True)
+
+for f in run.get_file_names():
+    if f.startswith('outputs/model'):
+        output_file_path = os.path.join('./model', f.split('/')[-1])
+        print('Downloading from {} to {} ...'.format(f, output_file_path))
+        run.download_file(name=f, output_file_path=output_file_path)
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u een model Chainer op Azure Machine Learning-service getraind. 
+In dit artikel hebt u een ketting model getraind op Azure Machine Learning service. 
 
-* Als u wilt weten hoe u een model implementeren, gaat u naar onze [deployment model](how-to-deploy-and-where.md) artikel.
+* Ga verder met ons [model implementatie](how-to-deploy-and-where.md) artikel voor meer informatie over het implementeren van een model.
 
 * [Afstemmen van hyperparameters](how-to-tune-hyperparameters.md)
 

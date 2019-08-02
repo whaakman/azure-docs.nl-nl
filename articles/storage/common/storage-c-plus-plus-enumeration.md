@@ -1,47 +1,46 @@
 ---
-title: Lijst met Azure Storage-resources met de Storage-clientbibliotheek voor C++ | Microsoft Docs
-description: Informatie over het gebruik van de aanbieding API's in Microsoft Azure Storage-clientbibliotheek voor C++ wilt inventariseren containers, blobs, wachtrijen, tabellen en entiteiten.
-services: storage
+title: Azure Storage resources weer geven met de Storage-client C++ bibliotheek voor | Microsoft Docs
+description: Meer informatie over het gebruik van de vermelding-Api's in Microsoft Azure Storage C++ -client bibliotheek voor het inventariseren van containers, blobs, wacht rijen, tabellen en entiteiten.
 author: mhopkins-msft
-ms.service: storage
-ms.topic: article
-ms.date: 01/23/2017
 ms.author: mhopkins
-ms.reviewer: dineshm
+ms.date: 01/23/2017
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: edf50b97ff25a67b41bad266df9236145f288409
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: dineshm
+ms.openlocfilehash: 3a87e39c9435ba02357b4b655e95e96666242b71
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146882"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721922"
 ---
-# <a name="list-azure-storage-resources-in-c"></a>Azure Storage-resources in C++ weergeven
-Bewerkingen voor de aanbieding zijn sleutel te veel ontwikkelscenario's met Azure Storage. In dit artikel wordt beschreven hoe u zo efficiënt mogelijk het inventariseren van objecten in Azure Storage met behulp van de aanbieding beschikbaar in de Microsoft Azure Storage-clientbibliotheek voor C++ API's.
+# <a name="list-azure-storage-resources-in-c"></a>Azure Storage resources weer geven inC++
+
+De bewerkings bewerkingen zijn essentieel voor een groot aantal ontwikkel scenario's met Azure Storage. In dit artikel wordt beschreven hoe u de meeste efficiënte objecten in Azure Storage kunt opsommen met behulp van de vermeldingen C++in de Microsoft Azure Storage-client bibliotheek voor.
 
 > [!NOTE]
-> Deze handleiding is gericht op de Azure Storage-clientbibliotheek voor C++ versie 2.x, die beschikbaar is via [NuGet](https://www.nuget.org/packages/wastorage) of [GitHub](https://github.com/Azure/azure-storage-cpp).
-> 
-> 
+> Deze hand leiding is gericht op de Azure Storage C++ -client bibliotheek voor versie 2. x, die beschikbaar is via [NuGet](https://www.nuget.org/packages/wastorage) of [github](https://github.com/Azure/azure-storage-cpp).
 
-De Opslagclientbibliotheek biedt verschillende methoden om de lijst of query objecten in Azure Storage. In dit artikel komen de volgende scenario's:
+De Storage-client bibliotheek biedt diverse methoden voor het weer geven of doorzoeken van objecten in Azure Storage. Dit artikel heeft betrekking op de volgende scenario's:
 
-* Lijst met containers in een account
-* Lijst met blobs in een container of blob virtuele map
-* Lijst met wachtrijen in een account
-* Lijst met tabellen in een account
-* Query-entiteiten in een tabel
+* Containers in een account weer geven
+* Blobs in een container of virtuele BLOB-map weer geven
+* Wacht rijen in een account weer geven
+* Tabellen in een account weer geven
+* Entiteiten in een tabel opvragen
 
-Elk van deze methoden wordt weergegeven met behulp van verschillende overloads voor verschillende scenario's.
+Elk van deze methoden wordt weer gegeven met verschillende overbelastingen voor verschillende scenario's.
 
-## <a name="asynchronous-versus-synchronous"></a>Asynchrone en synchrone
-Omdat de Storage-clientbibliotheek voor C++ is gebouwd boven de [C++ REST bibliotheek](https://github.com/Microsoft/cpprestsdk), we inherent asynchrone bewerkingen ondersteunen met behulp van [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Bijvoorbeeld:
+## <a name="asynchronous-versus-synchronous"></a>Asynchroon versus synchroon
+
+Omdat de Storage-client bibliotheek C++ voor is gebouwd boven op de [ C++ rest-bibliotheek](https://github.com/Microsoft/cpprestsdk), ondersteunen we asynchrone bewerkingen nu met behulp van [pplx:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Bijvoorbeeld:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
 ```
 
-Synchrone bewerkingen inpakken de overeenkomende asynchrone bewerkingen:
+Met synchrone bewerkingen worden de bijbehorende asynchrone bewerkingen gepakt:
 
 ```cpp
 list_blob_item_segment list_blobs_segmented(const continuation_token& token) const
@@ -50,19 +49,20 @@ list_blob_item_segment list_blobs_segmented(const continuation_token& token) con
 }
 ```
 
-Als u met meerdere threads toepassingen of services werkt, wordt u aangeraden dat u het async-API's rechtstreeks in plaats van het maken van een thread wilt gebruiken voor het aanroepen van de synchronisatie-API's, die aanzienlijk heeft gevolgen voor de prestaties van uw.
+Als u met meerdere threading-toepassingen of-Services werkt, raden we u aan om de async-Api's rechtstreeks te gebruiken in plaats van een thread te maken om de synchronisatie-Api's aan te roepen, waardoor de prestaties aanzienlijk worden beïnvloed.
 
-## <a name="segmented-listing"></a>Gesegmenteerde aanbieding
-De schaal van opslag in de cloud vereist gesegmenteerde aanbieding. U kunt bijvoorbeeld via een miljoen blobs in een Azure blob-container of een miljard entiteiten in een Azure-tabel hebben. Dit zijn geen theoretische getallen, maar bestaande klanten gebruik gevallen.
+## <a name="segmented-listing"></a>Gesegmenteerde vermelding
 
-Daarom is het niet praktisch is om alle objecten in één antwoord weer te geven. In plaats daarvan kunt u objecten met behulp van wisselbestand weergeven. Elk van de API's van de aanbieding heeft een *gesegmenteerd* overbelasten.
+Voor de schaal van Cloud opslag is gesegmenteerde vermeldingen vereist. U kunt bijvoorbeeld meer dan een miljoen blobs in een Azure Blob-container of meer dan een miljard entiteiten in een Azure-tabel hebben. Dit zijn niet theoretische getallen, maar werkelijke gebruiks gevallen van klanten.
 
-Het antwoord voor de bewerking van een gesegmenteerde aanbieding bevat:
+Daarom is het niet praktisch om alle objecten in één antwoord weer te geven. In plaats daarvan kunt u objecten weer geven met behulp van paginering. Elk van de vermeldings-Api's heeft een gesegmenteerde overbelasting.
 
-* <i>_Segment</i>, die de set resultaten geretourneerd voor een eenmalige aanroep naar de API van de aanbieding bevat.
-* *continuation_token*, die wordt doorgegeven aan de volgende aanroep om op te halen van de volgende pagina van de resultaten. Als er geen verdere resultaten moeten worden geretourneerd, wordt het vervolgtoken null is.
+De reactie voor een gesegmenteerde vermelding omvat het volgende:
 
-Bijvoorbeeld, kan een typische aanroep van alle blobs in een container te vermelden lijken op het volgende codefragment. De code is beschikbaar in onze [voorbeelden](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
+* *_segment*, die de set resultaten bevat die voor één aanroep naar de listing-API wordt geretourneerd.
+* *continuation_token*, dat wordt door gegeven aan de volgende aanroep om de volgende pagina met resultaten te krijgen. Wanneer er geen resultaten meer zijn om te retour neren, is het vervolg token null.
+
+Zo kan een typische aanroep voor het weer geven van een lijst met alle blobs in een container eruitzien zoals in het volgende code fragment. De code is beschikbaar in onze voor [beelden](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
 
 ```cpp
 // List blobs in the blob container
@@ -87,7 +87,7 @@ do
 while (!token.empty());
 ```
 
-Houd er rekening mee dat het aantal resultaten in een pagina kan worden beheerd door de parameter *max_results* in de overbelasting van elke API, bijvoorbeeld:
+Houd er rekening mee dat het aantal geretourneerde resultaten op een pagina kan worden bepaald door de para meter *max_results* in de overbelasting van elke API, bijvoorbeeld:
 
 ```cpp
 list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing,
@@ -95,14 +95,15 @@ list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, boo
     const blob_request_options& options, operation_context context)
 ```
 
-Als u geen opgeeft de *max_results* parameter, de standaard maximale waarde van maximaal 5.000 resultaten wordt geretourneerd in één pagina.
+Als u de para meter *max_results* niet opgeeft, wordt de standaard waarde van maxi maal 5000 resultaten geretourneerd op één pagina.
 
-Let ook op dat een query op Azure Table storage geen records, of minder dan de waarde van retourneren kan de *max_results* parameter die u hebt opgegeven, zelfs als het vervolgtoken niet leeg zijn is. Eén reden kan zijn dat de query kan niet worden voltooid in de vijf seconden. Zolang het vervolgtoken niet leeg is, de query moet blijven en uw code moet niet ervan uitgaan dat de grootte van het resultaat van een segment.
+Het is ook mogelijk dat een query op Azure Table Storage geen records retourneert, of dat er minder records zijn dan de waarde van de *max_results* -para meter die u hebt opgegeven, zelfs als het vervolg token niet leeg is. Een mogelijke reden is dat de query niet binnen vijf seconden kan worden voltooid. Zolang het vervolg token niet leeg is, moet de query worden voortgezet en mag de code niet de grootte van de segment resultaten aannemen.
 
-De aanbevolen codering patroon voor de meeste scenario's wordt gesegmenteerd worden vermeld, waarmee u expliciete voortgang van de aanbieding of uitvoeren van query's en hoe de service reageert op elke aanvraag. Met name voor C++-toepassingen of services kunt op lager niveau controle over de voortgang van de aanbieding besturingselement geheugen en prestaties.
+Het aanbevolen coderings patroon voor de meeste scenario's is een gesegmenteerde vermelding, die een expliciete voortgang van de vermelding of het uitvoeren van query's biedt, en hoe de service op elke aanvraag reageert. Met name C++ voor toepassingen of services kan de controle op lagere niveaus van de voortgang van de vermelding helpen het geheugen en de prestaties te bepalen.
 
-## <a name="greedy-listing"></a>Greedy aanbieding
-Eerdere versies van de Storage-clientbibliotheek voor C++ (Preview-versie 0.5.0 en eerder) opgenomen van niet-gesegmenteerde aanbieding API's voor tabellen en wachtrijen, zoals in het volgende voorbeeld:
+## <a name="greedy-listing"></a>Greedy-aanbieding
+
+Eerdere versies van de Storage-client bibliotheek C++ voor (versies 0.5.0 Preview en eerder) bevatten niet-gesegmenteerde vermelding-api's voor tabellen en wacht rijen, zoals in het volgende voor beeld:
 
 ```cpp
 std::vector<cloud_table> list_tables(const utility::string_t& prefix) const;
@@ -110,13 +111,13 @@ std::vector<table_entity> execute_query(const table_query& query) const;
 std::vector<cloud_queue> list_queues() const;
 ```
 
-Deze methoden zijn geïmplementeerd als wrappers gesegmenteerde API's. Voor elke reactie van gesegmenteerde aanbieding, wordt de code de resultaten toegevoegd aan een vector en alle resultaten geretourneerd nadat de volledige containers zijn gescand.
+Deze methoden zijn geïmplementeerd als wrappers van gesegmenteerde Api's. Voor elke reactie van een gesegmenteerde vermelding voegt de code de resultaten toe aan een vector en worden alle resultaten geretourneerd nadat de volledige containers zijn gescand.
 
-Deze benadering werkt mogelijk wanneer het storage-account of de tabel een klein aantal objecten bevat. Echter met een toename van het aantal objecten, kan het geheugen dat nodig verhogen zonder beperking, omdat alle resultaten in het geheugen gebleven. Een aanbieding-bewerking kan al lange tijd gedurende welke de aanroeper geen informatie over de voortgang heeft duren.
+Deze benadering kan worden gebruikt als het opslag account of de tabel een klein aantal objecten bevat. Met een toename van het aantal objecten kan het vereiste geheugen echter zonder limiet worden verhoogd, omdat alle resultaten in het geheugen aanwezig zijn. Eén vermelding kan enige tijd in beslag nemen, waarbij de aanroeper geen informatie over de voortgang heeft.
 
-Deze greedy aanbieding API's in de SDK niet aanwezig zijn in C#, Java of de JavaScript-Node.js-omgeving. Om te voorkomen dat de potentiële problemen van het gebruik van deze greedy API's, wordt deze verwijderd in versie 0.6.0 Preview-versie.
+Deze Greedy-weer gegeven Api's in de SDK bestaan niet C#in, Java of de Java script node. js-omgeving. We hebben deze in versie 0.6.0 Preview verwijderd om te voor komen dat er problemen zijn met het gebruik van deze Greedy-Api's.
 
-Als uw code deze greedy API's roept:
+Als uw code deze Greedy-Api's aanroept:
 
 ```cpp
 std::vector<azure::storage::table_entity> entities = table.execute_query(query);
@@ -126,7 +127,7 @@ for (auto it = entities.cbegin(); it != entities.cend(); ++it)
 }
 ```
 
-Vervolgens wijzigt u de code voor het gebruik van de gesegmenteerde aanbieding API's:
+Vervolgens moet u uw code wijzigen voor het gebruik van de gesegmenteerde vermelding-Api's:
 
 ```cpp
 azure::storage::continuation_token token;
@@ -142,22 +143,23 @@ do
 } while (!token.empty());
 ```
 
-Door op te geven de *max_results* parameter van het segment, u kunt in balans brengen tussen het aantal aanvragen en het geheugengebruik om te voldoen aan de prestatie-overwegingen voor uw toepassing.
+Door de para meter *max_results* van het segment op te geven, kunt u balanceren tussen het aantal aanvragen en het geheugen gebruik om te voldoen aan de prestatie overwegingen voor uw toepassing.
 
-Bovendien, als u gesegmenteerde aanbieding API's gebruikt, maar de gegevens opslaan in een lokale verzameling in een 'greedy' stijl, ook wordt aangeraden dat u uw code voor het afhandelen van het opslaan van gegevens in een lokale verzameling zorgvuldig op schaal herstructureren.
+Als u gebruikmaakt van gesegmenteerde vermeldings-Api's, maar de gegevens in een lokale verzameling opslaat in een ' Greedy-stijl, raden we u ook ten zeerste aan uw code te herwaarderen om het opslaan van gegevens in een lokale verzameling zorgvuldig op schaal te verwerken.
 
-## <a name="lazy-listing"></a>Vertraagde aanbieding
-Hoewel greedy aanbieding gegenereerd potentiële problemen, is het handig als er niet te veel objecten in de container.
+## <a name="lazy-listing"></a>Luie vermelding
 
-Als u ook van C# of Oracle Java-SDK's gebruikmaakt, moet u bekend bent met het Invoeroverzicht programming model, deze een vertraagde--stijl worden vermeld biedt, waar de gegevens op een bepaalde offset alleen worden opgehaald als dit vereist is zijn. In C++ kunt biedt de sjabloon op basis van een iterator ook een soortgelijke benadering.
+Hoewel Greedy een lijst met mogelijke problemen heeft gegenereerd, is het handig als er niet te veel objecten in de container staan.
 
-Een typische vertraagde aanbieding-API met behulp van **list_blobs** bijvoorbeeld ziet er als volgt:
+Als u ook of Oracle C# Java sdk's gebruikt, moet u bekend zijn met het inkomend programmeer model, dat een lijst met luie stijlen biedt, waarbij de gegevens bij een bepaalde offset alleen worden opgehaald als dat vereist is. In C++biedt de op iterator gebaseerde sjabloon ook een soort gelijke benadering.
+
+Een typische API voor een luie lijst met behulp van **list_blobs** als voor beeld ziet er als volgt uit:
 
 ```cpp
 list_blob_item_iterator list_blobs() const;
 ```
 
-Een typische codefragment die gebruikmaakt van het patroon vertraagde aanbieding uitzien als volgt:
+Een typisch code fragment dat gebruikmaakt van het vertraagde vermelding patroon kan er als volgt uitzien:
 
 ```cpp
 // List blobs in the blob container
@@ -175,27 +177,28 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 }
 ```
 
-Houd er rekening mee dat vertraagde aanbieding alleen beschikbaar in synchrone modus is.
+Houd er rekening mee dat Lazy list alleen beschikbaar is in de synchrone modus.
 
-Vergeleken met greedy aanbieding, haalt vertraagde aanbieding gegevens alleen indien nodig. Op de achtergrond, worden deze gegevens opgehaald uit Azure Storage alleen wanneer de volgende iterator is verplaatst naar de volgende segment. Daarom geheugengebruik wordt beheerd met een begrensde grootte en de bewerking is snel.
+Vergeleken met de vermelding Greedy haalt de luie lijst alleen gegevens op als dat nodig is. Onder de kaften worden gegevens uit Azure Storage alleen opgehaald wanneer de volgende iterator wordt verplaatst naar het volgende segment. Het geheugen gebruik wordt daarom geregeld met een beperkte grootte en de bewerking is snel.
 
-Vertraagde aanbieding API's zijn opgenomen in de Storage-clientbibliotheek voor C++ in versie 2.2.0.
+In de Storage-client bibliotheek voor versie 2.2.0 zijn de C++ API voor Lazy-vermeldingen opgenomen.
 
 ## <a name="conclusion"></a>Conclusie
-In dit artikel wordt besproken verschillende overloads voor het aanbieden van API's voor verschillende objecten in de Storage-clientbibliotheek voor C++. Samenvatting:
 
-* Asynchrone APIs zijn sterk aanbevolen in scenario's met meerdere threads.
-* Gesegmenteerde aanbieding wordt aanbevolen voor de meeste scenario's.
-* Vertraagde aanbieding is beschikbaar in de bibliotheek als een handige wrapper in synchrone scenario's.
-* Greedy aanbieding wordt niet aanbevolen en is verwijderd uit de bibliotheek.
+In dit artikel hebben we verschillende Overloads voor het weer geven van Api's voor verschillende objecten in de Storage- C++ client bibliotheek voor beschreven. Samenvatten:
+
+* Asynchrone Api's worden sterk aanbevolen onder meerdere threading-scenario's.
+* Een gesegmenteerde vermelding wordt aanbevolen voor de meeste scenario's.
+* De vertraagde vermelding is in de bibliotheek opgenomen als een handige wrapper in synchrone scenario's.
+* De Greedy-aanbieding wordt niet aanbevolen en is uit de bibliotheek verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende bronnen voor meer informatie over Azure Storage en -clientbibliotheek voor C++.
 
-* [Het Blob Storage gebruiken met C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [Hoe u kunt Table Storage gebruiken met C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [Hoe u Queue Storage gebruiken met C++](../storage-c-plus-plus-how-to-use-queues.md)
-* [Azure Storage-clientbibliotheek voor C++ API-documentatie.](https://azure.github.io/azure-storage-cpp/)
+Zie de volgende bronnen voor meer informatie over Azure Storage C++en de client bibliotheek voor.
+
+* [Blob Storage gebruiken vanuitC++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [Table Storage gebruiken vanuitC++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
+* [Queue Storage gebruiken vanuitC++](../storage-c-plus-plus-how-to-use-queues.md)
+* [Azure Storage-client bibliotheek C++ voor API-documentatie.](https://azure.github.io/azure-storage-cpp/)
 * [Blog van het Azure Storage-team](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Documentatie bij Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-

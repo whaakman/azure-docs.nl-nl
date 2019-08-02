@@ -1,7 +1,7 @@
 ---
-title: API aanroepen vanuit een browser - Custom Decision Service
+title: API aanroepen vanuit een browser-Custom Decision Service
 titlesuffix: Azure Cognitive Services
-description: Klik hier voor meer informatie over het optimaliseren van een webpagina rechtstreeks vanuit een browser door API-aanroepen naar de Custom Decision Service.
+description: Een webpagina optimaliseren door API-aanroepen rechtstreeks vanuit een browser naar het Custom Decision Service te maken.
 services: cognitive-services
 author: slivkins
 manager: nitinme
@@ -10,20 +10,21 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: slivkins
-ms.openlocfilehash: 2b356e2f0fe9235d49dffa7417cd3894059f9caf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 28ad4681242765bf2da9b1f13dc828e23cce1794
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829154"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707271"
 ---
 # <a name="call-api-from-a-browser"></a>API aanroepen vanuit een browser
 
-Dit artikel helpt u aanroepen naar de Azure Custom Decision Service API's rechtstreeks vanuit een browser.
+Dit artikel helpt u bij het rechtstreeks aanroepen van de Azure Custom Decision Service Api's vanuit een browser.
 
-Zorg ervoor dat u [uw toepassing registreren](custom-decision-service-get-started-register.md), eerste.
+Zorg ervoor dat u [uw toepassing](custom-decision-service-get-started-register.md)eerst registreert.
 
-Aan de slag. Uw toepassing is gemodelleerd als bestaande uit een front-pagina die is gekoppeld aan meerdere pagina's het artikel. De front-pagina wordt Custom Decision Service om op te geven de volgorde van de artikelpagina's die worden gebruikt. Voeg de volgende code in de HTML-kop van de front-pagina:
+Aan de slag. Uw toepassing is gemodelleerd als een front page die aan verschillende artikel pagina's is gekoppeld. Op de front page wordt Custom Decision Service gebruikt om de volg orde van de artikel pagina's op te geven. Voeg de volgende code toe aan de HTML-kop van de front page:
 
 ```html
 // Define the "callback function" to render UI
@@ -33,9 +34,9 @@ Aan de slag. Uw toepassing is gemodelleerd als bestaande uit een front-pagina di
 <script src="https://ds.microsoft.com/api/v2/<appId>/rank/<actionSetId>" async></script>
 ```
 
-De `data` argument bevat de volgorde van URL's moet worden gerenderd. Voor meer informatie, Zie de verwijzing [API](custom-decision-service-api-reference.md).
+Het `data` argument bevat de rang schikking van url's die moeten worden weer gegeven. Zie de referentie- [API](custom-decision-service-api-reference.md)voor meer informatie.
 
-Bellen met de volgende code op de front-pagina voor het afhandelen van een gebruiker-Klik op de best gewaardeerd artikel:
+Als u een gebruiker wilt afhandelen, klikt u op het bovenste artikel en roept u de volgende code aan op de front page:
 
 ```javascript
 // call Reward API to report a click
@@ -45,9 +46,9 @@ $.ajax({
     contentType: "application/json" })
 ```
 
-Hier `data` is het argument voor de `callback()` functie. Een voorbeeld van de implementatie vindt u in deze [zelfstudie](custom-decision-service-tutorial-news.md#use-the-apis).
+Hier is het argument voor de `callback()` functie. `data` In deze [zelf studie](custom-decision-service-tutorial-news.md#use-the-apis)vindt u een voor beeld van de implementatie.
 
-Tot slot moet u de actie ingesteld API, die resulteert in de lijst met artikelen (acties) worden beschouwd door Custom Decision Service opgeven. Implementeer deze API als een RSS-feed, zoals hier wordt weergegeven:
+Ten slotte moet u de Actions set API opgeven, waarmee de lijst met artikelen (acties) wordt geretourneerd die door Custom Decision Service worden overwogen. Implementeer deze API als een RSS-feed, zoals hier wordt weer gegeven:
 
 ```xml
 <rss version="2.0">
@@ -64,9 +65,9 @@ Tot slot moet u de actie ingesteld API, die resulteert in de lijst met artikelen
 </rss>
 ```
 
-Hier, elk op het hoogste niveau `<item>` element een artikel wordt beschreven. De `<link>` is verplicht en als een actie-ID wordt gebruikt door Custom Decision Service. Geef `<date>` (in een standaard RSS-indeling) hebt u meer dan 15 artikelen. De meest recente 15 artikelen worden gebruikt. De `<title>` is optioneel en wordt gebruikt voor het maken van tekst-gerelateerde functies voor het artikel.
+Hier wordt voor elk element op `<item>` het hoogste niveau een artikel beschreven. De `<link>` is verplicht en wordt gebruikt als actie-id door Custom decision service. Geef `<date>` (in een standaard-RSS-indeling) op als u meer dan 15 artikelen hebt. De 15 meest recente artikelen worden gebruikt. De `<title>` is optioneel en wordt gebruikt voor het maken van tekst-gerelateerde functies voor het artikel.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Doorloop een [zelfstudie](custom-decision-service-tutorial-news.md) voor een voorbeeld van een meer diepgaande.
-* Raadpleeg de [API](custom-decision-service-api-reference.md) voor meer informatie over de functionaliteit van de opgegeven.
+* Gebruik een [zelf studie](custom-decision-service-tutorial-news.md) voor een uitgebreidere voor beeld.
+* Raadpleeg de verwijzings- [API](custom-decision-service-api-reference.md) voor meer informatie over de beschik bare functionaliteit.

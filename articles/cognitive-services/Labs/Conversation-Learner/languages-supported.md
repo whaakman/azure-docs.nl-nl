@@ -1,5 +1,5 @@
 ---
-title: 'Conversatie Learner talen die worden ondersteund: Microsoft Cognitive Services | Microsoft Docs'
+title: Ondersteunde Conversation Learner talen-Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: ''
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: cecf7185a46abc0d37118f6045da585824ac2aaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7870a12ba1338579b02e077d00d365c200ebac1c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66385403"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705211"
 ---
 # <a name="supported-languages"></a>Ondersteunde talen
 
@@ -23,4 +24,4 @@ Conversatiecursist ondersteunt momenteel de volgende talen en landen/regio's.
 
 |Ondersteunde talen| Landinstelling|
 |-----|----|
-|Nederlands|NL-ons|
+|Engels|nl-NL|

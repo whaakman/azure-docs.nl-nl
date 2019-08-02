@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d2f06b054e433c0320019548c56539d102beaad
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 25ac894db42b2b5ee2612e2e3b2906bc2bffcc4c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386497"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717386"
 ---
 # <a name="set-up-security-info-to-use-a-security-key-preview"></a>Beveiligings gegevens voor het gebruik van een beveiligings sleutel instellen (preview-versie)
 
@@ -30,26 +30,26 @@ U kunt beveiligings sleutels gebruiken als een aanmeldings methode zonder wacht 
 
 ## <a name="what-is-a-security-key"></a>Wat is een beveiligings sleutel?
 
-Momenteel worden verschillende ontwerpen en providers van beveiligings sleutels ondersteund met behulp van de [Fido (Fast Identity online](https://fidoalliance.org/fido2/) ) (FIDO2)-verificatie methode met een wacht woord. Met deze methode kunt u zich één keer aanmelden bij uw werk-of school account om toegang te krijgen tot alle cloud resources en ondersteunde browsers van uw organisatie.
+Momenteel worden verschillende ontwerpen en providers van beveiligings sleutels ondersteund met behulp van de [Fido (Fast Identity online](https://fidoalliance.org/fido2/) ) (FIDO2) verificatie protocollen met een wacht woord. Met deze sleutels kunt u zich aanmelden bij uw werk-of school account om toegang te krijgen tot de cloud resources van uw organisatie op een ondersteund apparaat en webbrowser.
 
 Uw beheerder of uw organisatie verstrekt u een beveiligings sleutel als deze nodig is voor uw werk-of school account. Er zijn verschillende soorten beveiligings sleutels die u kunt gebruiken, bijvoorbeeld een USB-sleutel die u aansluit op uw apparaat of een NFC-sleutel die u op een NFC-lezer tikt. Raadpleeg de documentatie van de fabrikant voor meer informatie over de beveiligings sleutel, zoals wat het geval is.
 
 > [!Note]
-> Als u geen FIDO2-beveiligings sleutel kunt gebruiken, zijn er andere verificatie methoden met een wacht woord, zoals de Microsoft Authenticator app of Windows hello. Zie [Wat is de Microsoft Authenticator-app?](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview)voor meer informatie over de app Microsoft Authenticator. Zie [overzicht van Windows hello](https://www.microsoft.com/windows/windows-hello)voor meer informatie over Windows hello.
+> Als u geen FIDO2-beveiligings sleutel kunt gebruiken, zijn er andere verificatie methoden met een wacht woord, zoals de Microsoft Authenticator app of Windows hello. Zie [Wat is de Microsoft Authenticator-app?](user-help-auth-app-overview.md)voor meer informatie over de app Microsoft Authenticator. Zie [overzicht van Windows hello](https://www.microsoft.com/windows/windows-hello)voor meer informatie over Windows hello.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Controleer voordat u begint met het registreren van uw beveiligings sleutel of:
+Voordat u uw beveiligings sleutel kunt registreren, moet aan de volgende voor waarden worden voldaan:
 
 - Uw beheerder heeft deze functie ingeschakeld voor gebruik binnen uw organisatie.
 
-- U bevindt zich op een apparaat met ten minste Windows 10, versie 1903 en gebruikt de micro soft Edge-browser.
+- U bevindt zich op een apparaat waarop de Windows 2019 10-update wordt uitgevoerd en die een ondersteunde browser gebruikt.
 
-- U hebt een fysieke beveiligings sleutel van uw beheerder of uw organisatie ontvangen. Uw beveiligings sleutel moet zowel FIDO2 als micro soft-compatibel zijn. Als u vragen hebt over uw beveiligings sleutel en of deze compatibel zijn, neemt u contact op met de Help Desk van uw organisatie.
+- U hebt een fysieke beveiligings sleutel die is goedgekeurd door uw beheerder of uw organisatie. Uw beveiligings sleutel moet zowel FIDO2 als micro soft-compatibel zijn. Als u vragen hebt over uw beveiligings sleutel en of deze compatibel zijn, neemt u contact op met de Help Desk van uw organisatie.
 
 ## <a name="register-your-security-key"></a>Uw beveiligingssleutel registreren
 
-U moet uw beveiligings sleutel voorbereiden om te werken met Windows en een unieke pincode voordat u zich met de sleutel kunt aanmelden bij uw werk-of school account.
+U moet uw beveiligings sleutel maken en deze een unieke pincode geven voordat u zich kunt aanmelden bij uw werk-of school account met behulp van de-sleutel. U kunt Maxi maal 10 sleutels registreren die bij uw account zijn geregistreerd. 
 
 1. Ga naar de pagina **Mijn profiel** op https://myprofile.microsoft.com en meld u aan als u dat nog niet hebt gedaan.
 
@@ -96,7 +96,7 @@ U moet uw beveiligings sleutel voorbereiden om te werken met Windows en een unie
 
 ## <a name="delete-a-security-key-from-your-security-info"></a>Een beveiligings sleutel verwijderen uit uw beveiligings gegevens
 
-Als je je beveiligings sleutel niet meer wilt gebruiken, kun je de sleutel uit je beveiligings gegevens verwijderen. Hierdoor wordt de beveiligings sleutel niet meer gebruikt voor uw werk-of school account, dan blijft de beveiligings sleutel uw gegevens en referentie gegevens opslaan. Als u uw gegevens en referentie gegevens uit de beveiligings sleutel zelf wilt verwijderen, moet u de instructies in de sectie [een micro soft-compatibele beveiligings sleutel opnieuw instellen](#reset-your-security-key) in dit artikel volgen.
+Als u een beveiligings sleutel niet meer wilt of niet meer wilt gebruiken, kunt u de sleutel uit uw beveiligings gegevens verwijderen. Hierdoor wordt de beveiligings sleutel niet meer gebruikt voor uw werk-of school account, dan blijft de beveiligings sleutel uw gegevens en referentie gegevens opslaan. Als u uw gegevens en referentie gegevens uit de beveiligings sleutel zelf wilt verwijderen, moet u de instructies in de sectie [een micro soft-compatibele beveiligings sleutel opnieuw instellen](#reset-your-security-key) in dit artikel volgen.
 
 1. Selecteer de koppeling **verwijderen** uit de beveiligings sleutel die u wilt verwijderen.
 
@@ -105,7 +105,7 @@ Als je je beveiligings sleutel niet meer wilt gebruiken, kun je de sleutel uit j
     Uw beveiligings sleutel is verwijderd en u kunt deze niet meer gebruiken om u aan te melden bij uw werk-of school account.
 
 >[!Important]
->Als u deze beveiligings sleutel per ongeluk hebt verwijderd, moet u deze opnieuw registreren met behulp van de instructies in de sectie [uw beveiligings sleutel registreren](#register-your-security-key) in dit artikel.
+>Als u per ongeluk een beveiligings sleutel verwijdert, kunt u deze opnieuw registreren met behulp van de instructies in de sectie [uw beveiligings sleutel registreren](#register-your-security-key) in dit artikel.
 
 ## <a name="manage-your-security-key-settings-from-windows-settings"></a>Uw beveiligings sleutel instellingen beheren vanuit Windows-instellingen
 
@@ -138,29 +138,19 @@ U kunt een nieuwe pincode voor de beveiligings sleutel maken voor uw beveiliging
 
 1. Open de Windows-instellingen-app, selecteer **accounts**, selecteer **aanmeldings opties**, selecteer **beveiligings sleutel**en selecteer vervolgens **beheren**.
 
-2. Plaats uw beveiligings sleutel in de USB-poort of tik op uw NFC-lezer om uw identiteit te verifiëren. 5
+2. Plaats uw beveiligings sleutel in de USB-poort of tik op uw NFC-lezer om uw identiteit te verifiëren.
 3. Selecteer **toevoegen** in het gebied **pincode van beveiligings sleutel** , typ en bevestig uw nieuwe pincode voor de beveiligings sleutel en selecteer vervolgens **OK**.
 
-    De beveiligings sleutel wordt bijgewerkt met de nieuwe pincode van de beveiligings sleutel voor gebruik met uw werk-of school account. Als u besluit om uw pincode opnieuw te wijzigen, kunt u de knop **wijzigen** selecteren. 6
+     De beveiligings sleutel wordt bijgewerkt met de nieuwe pincode van de beveiligings sleutel voor gebruik met uw werk-of school account. Als u besluit om uw pincode opnieuw te wijzigen, kunt u de knop **wijzigen** selecteren.
 4. Selecteer **sluiten** om het scherm **beheren** te sluiten.
 
 ## <a name="additional-security-info-methods"></a>Aanvullende beveiligings gegevens methoden
 
-U hebt extra opties voor het controleren van uw identiteit door uw organisatie, op basis van wat you're u probeert te doen. De opties zijn:
-
-- **Verificator-app.** Down load en gebruik een verificator-app om een goedkeurings melding of een wille keurig gegenereerde goedkeurings code te verkrijgen voor verificatie in twee stappen of het opnieuw instellen van wacht woorden. Zie [beveiligings informatie instellen voor het gebruik van een verificator-app](security-info-setup-auth-app.md)voor stapsgewijze instructies voor het instellen en gebruiken van de app Microsoft Authenticator.
-
-- **Tekst van mobiel apparaat.** Voer het nummer van uw mobiele apparaat in en ontvang een tekst die u gebruikt voor verificatie in twee stappen of het opnieuw instellen van wacht woorden. Voor stapsgewijze instructies over het verifiëren van uw identiteit met een SMS-bericht, Zie [beveiligings informatie instellen voor het gebruik van tekst berichten (SMS)](security-info-setup-text-msg.md).
-
-- **Mobiel apparaat of telefoon nummer van werk.** Voer het nummer van uw mobiele apparaat in en ontvang een telefoon oproep voor verificatie in twee stappen of het opnieuw instellen van wacht woorden. Zie [beveiligings informatie instellen voor het gebruik van telefoon gesprekken](security-info-setup-phone-number.md)voor stapsgewijze instructies over het verifiëren van uw identiteit met een telefoon nummer.
-
-- **E-mail adres.** Voer het e-mail adres van uw werk of school in om een e-mail te ontvangen voor het opnieuw instellen van wacht woorden. Deze optie is niet beschikbaar voor verificatie in twee stappen. Zie [beveiligings informatie instellen voor het gebruik van e-mail](security-info-setup-email.md)voor stapsgewijze instructies voor het instellen van uw e-mail adres.
-
-- **Beveiligings vragen.** Beantwoord enkele beveiligings vragen die door uw beheerder voor uw organisatie zijn gemaakt. Deze optie is alleen beschikbaar voor het opnieuw instellen van wacht woorden en niet voor verificatie in twee stappen. Voor stapsgewijze instructies over het instellen van uw beveiligings vragen raadpleegt u het artikel [beveiligings vragen instellen voor het gebruik](security-info-setup-questions.md) van beveiligings problemen.
+Als u een beveiligings sleutel wilt registreren, moet u ten minste één aanvullende methode voor beveiligings verificatie hebben geregistreerd. Zie de [sectie Overzicht](security-info-add-update-methods-overview.md) voor meer informatie. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Lees voor meer informatie over verificatie methoden met een wacht woord de [open bare preview-versie van de FIDO2-beveiligings sleutels van micro soft, het inschakelen van blogs met een wacht woord](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) en het lezen van [wat is de Microsoft Authenticator-app?](https://docs.microsoft.com/azure/active-directory/user-help8user-help-auth-app-overview) en [ Overzichts artikelen van Windows hello](https://www.microsoft.com/windows/windows-hello) .
+- Lees voor meer informatie over verificatie methoden met een wacht woord de [open bare preview-versie van de FIDO2-beveiligings sleutels van micro soft, het inschakelen van blogs met een wacht woord](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) en het lezen van [wat is de Microsoft Authenticator-app?](user-help-auth-app-overview.md) en [ Overzichts artikelen van Windows hello](https://www.microsoft.com/windows/windows-hello) .
 
 - Voor meer informatie over [beveiligings sleutels die compatibel zijn met micro soft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 

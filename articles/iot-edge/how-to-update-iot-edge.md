@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: b6b4cd38ce5f591d43f27f735a48993cc1a1ab63
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 27f0ebab1fd87eb1870c5a8be21c4f80be4132f1
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414463"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698591"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>De IoT Edge security-daemon en runtime bijwerken
 
@@ -24,14 +24,6 @@ Wanneer de IoT Edge-service nieuwe versies uitbrengt, moet u uw IoT Edge-apparat
 Twee onderdelen van een IoT Edge-apparaat moeten worden bijgewerkt als u wilt verplaatsen naar een nieuwere versie. De eerste is de beveiligings-daemon die op het apparaat wordt uitgevoerd en de runtime modules start wanneer het apparaat wordt gestart. De daemon voor beveiliging op dit moment kan alleen van het apparaat zelf worden bijgewerkt. Het tweede onderdeel is de runtime, bestaande uit de modules IoT Edge hub en IoT Edge agent. Afhankelijk van hoe u uw implementatie structureren, kan de runtime van het apparaat of extern worden bijgewerkt. 
 
 De nieuwste versie van Azure IoT Edge, Zie [releases van Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
-
->[!IMPORTANT]
->Als u Azure IoT Edge uitvoert op een Windows-apparaat, moet u niet bijwerken naar versie 1.0.5 als een van de volgende van toepassing is op uw apparaat: 
->* U hebt uw apparaat niet bijgewerkt naar Windows Build 17763. IoT Edge versie 1.0.5 biedt geen ondersteuning voor Windows-builds die ouder zijn dan 17763.
->* U voert Java of node. js-modules uit op uw Windows-apparaat. Sla versie 1.0.5 over, zelfs als u uw Windows-apparaat hebt bijgewerkt naar de nieuwste versie. 
->
->Zie [1.0.5 Release Notes](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5)(Engelstalig) voor meer informatie over IOT Edge versie 1.0.5. Raadpleeg [de IOT Developer Blog](https://devblogs.microsoft.com/iotdev/)voor meer informatie over hoe u kunt voor komen dat uw ontwikkel hulpprogramma's worden bijgewerkt naar de nieuwste versie.
-
 
 ## <a name="update-the-security-daemon"></a>Update de daemon voor beveiliging
 

@@ -8,22 +8,25 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: 2030496548df312b4f4cfab60c216d5f332c7ac2
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 3050a52da4d39657bd7b2fb38e235b9bd418faf4
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310394"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619878"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Toegang tot een Azure container Registry beperken met behulp van een virtueel netwerk of een firewall-regel van Azure
 
 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) biedt veilige, persoonlijke netwerken voor uw Azure-en on-premises resources. Door de toegang tot uw persoonlijke Azure-container register te beperken vanuit een virtueel Azure-netwerk, zorgt u ervoor dat alleen bronnen in het virtuele netwerk toegang hebben tot het REGI ster. Voor cross-premises scenario's kunt u ook firewall regels configureren om alleen toegang tot het REGI ster vanuit specifieke IP-adressen toe te staan.
 
-In dit artikel vindt u twee scenario's voor het beperken van de toegang tot een Azure container Registry: van een virtuele machine die is geïmplementeerd in een virtueel netwerk of van het open bare IP-adres van een VM.
+Dit artikel bevat twee scenario's voor het configureren van binnenkomende regels voor netwerk toegang op een container register: van een virtuele machine die is geïmplementeerd in een virtueel netwerk of van het open bare IP-adres van een VM.
 
 > [!IMPORTANT]
 > Deze functie is momenteel beschikbaar als preview-versie en er [zijn enkele beperkingen van toepassing](#preview-limitations). Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden][terms-of-use]. Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
 >
+
+Zie [regels configureren voor toegang tot een Azure-container register achter een firewall](container-registry-firewall-access-rules.md)als u in plaats daarvan toegangs regels wilt instellen voor bronnen om een container register van achter een firewall te bereiken.
+
 
 ## <a name="preview-limitations"></a>Preview-beperkingen
 
@@ -39,7 +42,7 @@ In dit artikel vindt u twee scenario's voor het beperken van de toegang tot een 
 
 * Als u de stappen van Azure CLI in dit artikel wilt gebruiken, is Azure CLI-versie 2.0.58 of later vereist. Zie [Azure CLI installeren][azure-cli] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
-* Als u nog geen container register hebt, maakt u er een (Premium SKU vereist) en pusht u een voorbeeld `hello-world` installatie kopie, zoals van docker hub. Gebruik bijvoorbeeld de [Azure Portal][quickstart-portal] or the [Azure CLI][quickstart-cli] om een REGI ster te maken. 
+* Als u nog geen container register hebt, maakt u er een (Premium SKU vereist) en pusht u een voorbeeld `hello-world` installatie kopie, zoals van docker hub. Gebruik bijvoorbeeld de [Azure Portal][quickstart-portal] of de [Azure cli][quickstart-cli] om een REGI ster te maken. 
 
 * Als u de toegang tot het REGI ster wilt beperken met behulp van een virtueel netwerk in een ander Azure-abonnement, moet u de resource provider registreren voor Azure Container Registry in dat abonnement. Bijvoorbeeld:
 
@@ -61,7 +64,7 @@ Als u toegang wilt toestaan vanaf een subnet in een virtueel netwerk, moet u een
 
 Multi tenant Services, zoals Azure Container Registry, gebruiken één set IP-adressen voor alle klanten. Een service-eind punt wijst een eind punt toe voor toegang tot een REGI ster. Dit eind punt geeft een optimale route naar de resource via het Azure-backbone-netwerk. De identiteit van het virtuele netwerk en het subnet worden ook verzonden bij elke aanvraag.
 
-### <a name="firewall-rules"></a>Firewall-regels
+### <a name="firewall-rules"></a>Firewallregels
 
 Geef voor IP-netwerk regels toegestane Internet adresbereiken op met behulp van CIDR-notatie, zoals *16.17.18.0/24* , of een afzonderlijke IP-adressen, zoals *16.17.18.19*. IP-netwerk regels zijn alleen toegestaan voor *open bare* Internet-IP-adressen. IP-adresbereiken die zijn gereserveerd voor particuliere netwerken (zoals gedefinieerd in RFC 1918) zijn niet toegestaan in IP-regels.
 

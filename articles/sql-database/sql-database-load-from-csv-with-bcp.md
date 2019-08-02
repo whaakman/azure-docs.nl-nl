@@ -1,5 +1,5 @@
 ---
-title: Gegevens uit CSV-bestand laden in Azure SQL Database (bcp) | Microsoft Docs
+title: Gegevens uit een CSV-bestand laden in Azure SQL Database (BCP) | Microsoft Docs
 description: Maak bij een kleine gegevensomvang gebruik van bcp om gegevens in de Azure SQL-database te importeren.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6c35d51c1029c0305c86cefd786e60b6547e0dee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b3dff4e100d3859978667ad0df7d895a24ca8a8d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799886"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567829"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Gegevens vanuit een CSV-bestand laden in een Azure SQL-database (platte bestanden)
 
@@ -27,9 +26,9 @@ U kunt het opdrachtregelhulpprogramma bcp gebruiken om gegevens uit een csv-best
 
 ### <a name="prerequisites"></a>Vereisten
 
-Als u wilt de stappen in dit artikel hebt voltooid, hebt u het volgende nodig:
+U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 
-* Een Azure SQL Database-server en -database
+* Een Azure SQL Database-Server en-data base
 * Het opdrachtregelprogramma BCP (moet zijn geïnstalleerd)
 * Het opdrachtregelprogramma SQLCMD (moet zijn geïnstalleerd)
 

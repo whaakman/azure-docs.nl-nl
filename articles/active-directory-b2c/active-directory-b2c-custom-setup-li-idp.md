@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9f854e1771eec1d02fd14e040510688bf33c59c8
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 9465c1991418c7ebef8c4eed825affc7b1d93492
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442430"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693331"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Aanmelden met een LinkedIn-account instellen met behulp van aangepast beleid in Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ In dit artikel wordt beschreven hoe u aanmelden voor gebruikers vanaf een Linked
 
 - Voer de stappen in aan de [slag met aangepast beleid in azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - LinkedIn-account: als u dit nog niet hebt, [maakt u een account](https://www.linkedin.com/start/join).
-- LinkedIn-pagina: u hebt een [LinkedIn-pagina](https://www.linkedin.com/company/setup/new/) nodig om te koppelen aan de LinkedIn-toepassing die u in de volgende sectie maakt.
+- LinkedIn-pagina: u hebt een [LinkedIn-pagina](https://www.linkedin.com/help/linkedin/answer/710/creating-a-linkedin-company-page) nodig om te koppelen aan de LinkedIn-toepassing die u in de volgende sectie maakt.
 
 ## <a name="create-an-application"></a>Een app maken
 
@@ -133,7 +133,7 @@ Definieer een LinkedIn-account als een claim provider door het toe te voegen aan
 
 Voor het technische profiel LinkedIn moeten de **ExtractGivenNameFromLinkedInResponse** -en **ExtractSurNameFromLinkedInResponse** -claim transformaties worden toegevoegd aan de lijst met ClaimsTransformations. Als er geen **ClaimsTransformations** -element in uw bestand is gedefinieerd, voegt u de bovenliggende XML-elementen toe zoals hieronder wordt weer gegeven. De claim transformaties hebben ook een nieuw claim type gedefinieerd met de naam **nullStringClaim**.
 
-Voeg het  element BuildingBlocks toe aan de bovenkant van het bestand *TrustFrameworkExtensions. XML* . Zie *TrustFrameworkBase. XML* voor een voor beeld.
+Voeg het element BuildingBlocks toe aan de bovenkant van het bestand *TrustFrameworkExtensions. XML* . Zie *TrustFrameworkBase. XML* voor een voor beeld.
 
 ```XML
 <BuildingBlocks>
@@ -251,7 +251,7 @@ Werk in het bestaande **META** gegevenselement van de **TechnicalProfile**de vol
 <Item Key="scope">r_emailaddress r_basicprofile</Item>
 ```
 
-T/m:
+Aan:
 
 ```XML
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
@@ -277,7 +277,7 @@ Werk in de bestaande **OutputClaims** van de **TechnicalProfile**de volgende **o
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
 ```
 
-T/m:
+Aan:
 
 ```XML
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
@@ -297,7 +297,7 @@ Voeg in het **OutputClaimsTransformations** van de **TechnicalProfile**de volgen
 
 In de laatste stap hebt u nieuwe claim transformaties toegevoegd die moeten worden gedefinieerd. Als u de claim transformaties wilt definiëren, voegt u deze toe aan de lijst met **ClaimsTransformations**. Als er geen **ClaimsTransformations** -element in uw bestand is gedefinieerd, voegt u de bovenliggende XML-elementen toe zoals hieronder wordt weer gegeven. De claim transformaties hebben ook een nieuw claim type gedefinieerd met de naam **nullStringClaim**.
 
-Het  element BuildingBlocks moet aan de bovenkant van het bestand worden toegevoegd. Zie *TrustframeworkBase. XML* als voor beeld.
+Het element BuildingBlocks moet aan de bovenkant van het bestand worden toegevoegd. Zie *TrustframeworkBase. XML* als voor beeld.
 
 ```XML
 <BuildingBlocks>

@@ -1,19 +1,18 @@
 ---
 title: De Azurite open-source-emulator gebruiken voor het ontwikkelen en testen van Blob-opslag (preview)
 description: De Azurite open-source emulator (preview) biedt een gratis lokale omgeving voor het testen van uw Azure Blob-opslag toepassingen.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: article
-ms.date: 06/12/2019
 ms.author: mhopkins
+ms.date: 06/12/2019
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 2ccb19253c762bad69875a7b7bba7cd11d46e132
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.topic: conceptual
+ms.openlocfilehash: ebecd6cf9af5395e4da2b395ca9b2ff974a75409
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869792"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721704"
 ---
 # <a name="use-the-azurite-open-source-emulator-for-blob-storage-development-and-testing-preview"></a>De Azurite open-source-emulator gebruiken voor het ontwikkelen en testen van Blob-opslag (preview)
 
@@ -252,7 +251,7 @@ De eenvoudigste manier om verbinding te maken met Azurite vanuit uw toepassing i
 
 Zie [Azure Storage-verbindings reeksen configureren](storage-configure-connection-string.md)voor meer informatie.
 
-### <a name="storage-explorer"></a>Opslagverkenner
+### <a name="storage-explorer"></a>Storage Explorer
 
 In Azure Storage Explorer maakt u verbinding met Azurite door op het pictogram **account toevoegen** te klikken en vervolgens **koppelen aan een lokale emulator te** selecteren. Klik vervolgens op **verbinding maken**.
 

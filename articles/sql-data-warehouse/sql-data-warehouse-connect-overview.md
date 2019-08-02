@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 71f5c8ca56bc188c0664604a78c38a05be3c3b01
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68479736"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Verbinding maken met Azure SQL Data Warehouse
@@ -31,7 +31,7 @@ De naam van de server in het volgende voor beeld is samplesvr.database.windows.n
     ![Volledige servernaam][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Ondersteunde stuurprogramma's en verbindingsreeksen
-Azure SQL Data Warehouse ondersteunt [ADO.net][ADO.NET], [ODBC][ODBC], [php][php]en [JDBC][JDBC]. Klik op een van de voor gaande Stuur Programma's om de meest recente versie en documentatie te vinden. Als u automatisch de connection string wilt genereren voor het stuur programma dat u gebruikt vanuit de Azure Portal, klikt u op de **verbindings reeksen Data Base weer geven** in het vorige voor beeld. Hier volgen ook enkele voorbeelden van hoe een verbindingsreeks er voor elk stuurprogramma uitziet.
+Azure SQL Data Warehouse biedt ondersteuning voor [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] en [JDBC][JDBC]. Klik op een van de voor gaande Stuur Programma's om de meest recente versie en documentatie te vinden. Als u automatisch de connection string wilt genereren voor het stuur programma dat u gebruikt vanuit de Azure Portal, klikt u op de **verbindings reeksen Data Base weer geven** in het vorige voor beeld. Hier volgen ook enkele voorbeelden van hoe een verbindingsreeks er voor elk stuurprogramma uitziet.
 
 > [!NOTE]
 > Overweeg de verbindingstime-out in te stellen op 300 seconden. De verbinding blijft dan in stand tijdens korte perioden van niet-beschikbaarheid.
@@ -69,7 +69,7 @@ SQL Data Warehouse standaardiseert enkele instellingen tijdens het maken van de 
 | [DATEFIRST][DATEFIRST] |7 |
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [Query's uitvoeren met Visual Studio][Query with Visual Studio]. To learn more about authentication options, see [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse]als u verbinding wilt maken en Query's wilt uitvoeren met Visual Studio.
+Zie [Query’s uitvoeren bij Visual Studio][Query with Visual Studio] als u verbinding wilt maken en een query wilt uitvoeren met Visual Studio. Zie [Verificatie met Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] voor meer informatie over verificatieopties.
 
 <!--Articles-->
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md

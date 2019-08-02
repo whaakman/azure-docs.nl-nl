@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell en CLI: Schakel SQL TDE - met Azure Key Vault: Breng uw eigen sleutel - Azure SQL Database | Microsoft Docs'
-description: Informatie over het configureren van een Azure SQL Database en datawarehouse voor het starten van transparante gegevensversleuteling (TDE) gebruiken voor versleuteling-at-rest met behulp van PowerShell of CLI.
+title: 'Power shell en CLI: Schakel SQL-TDE in met Azure Key Vault uw eigen sleutel te halen Azure SQL Database | Microsoft Docs'
+description: Meer informatie over het configureren van een Azure SQL Database en een Data Warehouse om Transparent Data Encryption (TDE) te gebruiken voor versleuteling-at-rest met behulp van Power shell of CLI.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,42 +10,41 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: c42c6175512105de38a29be260c370851e152137
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f191a9f589f54bdd657c017060f501b176a8647d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60330870"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596718"
 ---
-# <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell en CLI: Transparent Data Encryption inschakelen met de klant beheerde sleutel uit Azure Key Vault
+# <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>Power shell en CLI: Transparent Data Encryption met door de klant beheerde sleutel inschakelen vanuit Azure Key Vault
 
-Dit artikel helpt bij het gebruik van een sleutel uit Azure Key Vault voor transparante gegevensversleuteling (TDE) op een SQL-Database of het datawarehouse. Voor meer informatie over de TDE met integratie van Azure Key Vault - ondersteuning voor Bring Your Own Key (BYOK), gaat u naar [TDE met de klant beheerde sleutels in Azure Key Vault](transparent-data-encryption-byok-azure-sql.md). 
+In dit artikel wordt beschreven hoe u een sleutel gebruikt uit Azure Key Vault voor Transparent Data Encryption (TDE) in een SQL Database of Data Warehouse. Voor meer informatie over de TDE met ondersteuning voor Azure Key Vault Integration-Bring Your Own Key (BYOK), gaat u naar [TDe met door de klant beheerde sleutels in azure Key Vault](transparent-data-encryption-byok-azure-sql.md). 
 
-## <a name="prerequisites-for-powershell"></a>Vereisten voor PowerShell
+## <a name="prerequisites-for-powershell"></a>Vereisten voor Power shell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
+> De Power shell-Azure Resource Manager module wordt nog steeds ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module AZ. SQL. Zie [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)voor deze cmdlets. De argumenten voor de opdrachten in de module AZ en in de AzureRm-modules zijn aanzienlijk identiek.
 
-- U moet een Azure-abonnement hebt en een beheerder zijn op dat aan het abonnement.
-- [Aanbevolen maar niet vereist] Een hardware security module (HSM) of de lokale sleutel opslaan voor het maken van een lokale kopie van het sleutelmateriaal TDE-beveiliging hebben.
-- Azure PowerShell installeren en uitvoeren, moet u hebben. 
-- Maak een Azure Key Vault en de sleutel moet worden gebruikt voor TDE.
-  - [PowerShell-instructies uit Key Vault](../key-vault/key-vault-overview.md)
-  - [Instructies voor het gebruik van een hardware security module (HSM) en Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
-    - De key vault moet beschikken over de volgende eigenschap moet worden gebruikt voor TDE:
-  - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
+- U moet een Azure-abonnement hebben en een beheerder van dat abonnement zijn.
+- [Aanbevolen, maar optioneel] Een HSM (Hardware Security module) of een lokaal sleutel archief hebben voor het maken van een lokale kopie van het TDE-beveiligings sleutel materiaal.
+- Azure PowerShell moet zijn geïnstalleerd en worden uitgevoerd. 
+- Maak een Azure Key Vault en een sleutel om te gebruiken voor TDE.
+  - [Power shell-instructies van Key Vault](../key-vault/quick-create-powershell.md)
+  - [Instructies voor het gebruik van een Hardware Security module (HSM) en Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
+    - De sleutel kluis moet de volgende eigenschap hebben die moet worden gebruikt voor TDE:
+  - [zacht verwijderen](../key-vault/key-vault-ovw-soft-delete.md) en beveiliging opschonen
   - [De Key Vault-functie voor voorlopig verwijderen gebruiken met PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
-- De sleutel moet de volgende kenmerken moet worden gebruikt voor TDE hebben:
-   - Er is geen vervaldatum
+- De sleutel moet de volgende kenmerken hebben om te kunnen worden gebruikt voor TDE:
+   - Geen verval datum
    - Niet uitgeschakeld
-   - Kan uitvoeren *ophalen*, *sleutel inpakken*, *sleutel uitpakken* bewerkingen
+   - Kan de *Get*-, *Terugloop*-, *sleutel* bewerking uitpakken
 
-## <a name="step-1-assign-an-azure-ad-identity-to-your-server"></a>Stap 1. Een Azure AD-identiteit toewijzen aan uw server 
+## <a name="step-1-assign-an-azure-ad-identity-to-your-server"></a>Stap 1. Een Azure AD-identiteit aan uw server toewijzen 
 
-Als u een bestaande server hebt, gebruikt u de volgende in een Azure AD-identiteit toevoegen aan uw server:
+Als u een bestaande server hebt, gebruikt u het volgende om een Azure AD-identiteit toe te voegen aan uw server:
 
    ```powershell
    $server = Set-AzSqlServer `
@@ -54,7 +53,7 @@ Als u een bestaande server hebt, gebruikt u de volgende in een Azure AD-identite
    -AssignIdentity
    ```
 
-Als u een server maakt, gebruikt u de [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) cmdlet met de tag-identiteit van een Azure AD-identiteit toevoegen tijdens het maken van de server:
+Als u een server maakt, gebruikt u de cmdlet [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) met de tag-Identity om een Azure AD-identiteit toe te voegen tijdens het maken van de server:
 
    ```powershell
    $server = New-AzSqlServer `
@@ -66,9 +65,9 @@ Als u een server maakt, gebruikt u de [New-AzSqlServer](/powershell/module/az.sq
    -AssignIdentity 
    ```
 
-## <a name="step-2-grant-key-vault-permissions-to-your-server"></a>Stap 2. Key Vault-machtigingen verlenen aan uw server
+## <a name="step-2-grant-key-vault-permissions-to-your-server"></a>Stap 2. Key Vault machtigingen verlenen aan uw server
 
-Gebruik de [Set AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet uw servertoegang verlenen tot de sleutel voordat u een sleutel van het voor TDE-kluis.
+Gebruik de cmdlet [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) om uw server toegang te geven tot de sleutel kluis voordat u een sleutel van de-service gebruikt voor TDe.
 
    ```powershell
    Set-AzKeyVaultAccessPolicy  `
@@ -77,18 +76,20 @@ Gebruik de [Set AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkey
    -PermissionsToKeys get, wrapKey, unwrapKey
    ```
 
-## <a name="step-3-add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Stap 3. De Key Vault-sleutel toevoegen aan de server en stel de TDE-beveiliging
+## <a name="step-3-add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Stap 3. Voeg de Key Vault sleutel toe aan de server en stel de TDE-beveiliging in
 
-- Gebruik de [toevoegen AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) cmdlet om toe te voegen van de sleutel van de Key Vault met de server.
-- Gebruik de [Set AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet om in te stellen van de sleutel als de TDE-beveiliging voor alle serverresources.
-- Gebruik de [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet om te bevestigen dat de TDE-beveiliging is geconfigureerd zoals bedoeld.
+
+- Gebruik de cmdlet [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey?view=azps-2.4.0) om de sleutel-id op te halen uit de sleutel kluis
+- Gebruik de cmdlet [add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) om de sleutel van de Key Vault toe te voegen aan de-server.
+- Gebruik de cmdlet [set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) om de sleutel in te stellen als de TDe-Protector voor alle Server bronnen.
+- Gebruik de cmdlet [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) om te controleren of de TDe-Protector is geconfigureerd zoals bedoeld.
 
 > [!Note]
-> De gecombineerde lengte voor de key vault-naam en de naam mag maximaal 94 tekens bevatten.
+> De gecombineerde lengte van de naam van de sleutel kluis en de naam van de sleutel mag niet langer zijn dan 94 tekens.
 > 
 
 >[!Tip]
->Een voorbeeld KeyId uit Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+>Een voor beeld van een KeyId van Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
 >
 
    ```powershell
@@ -113,7 +114,7 @@ Gebruik de [Set AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkey
 
 ## <a name="step-4-turn-on-tde"></a>Stap 4. TDE inschakelen 
 
-Gebruik de [Set AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet TDE inschakelen.
+Gebruik de cmdlet [set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) om TDe in te scha kelen.
 
    ```powershell
    Set-AzSqlDatabaseTransparentDataEncryption `
@@ -123,11 +124,11 @@ Gebruik de [Set AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sq
    -State "Enabled"
    ```
 
-De database of het datawarehouse is nu TDE is ingeschakeld met een versleutelingssleutel in Key Vault.
+Nu is in de data base of het Data Warehouse TDE ingeschakeld met een versleutelings sleutel in Key Vault.
 
-## <a name="step-5-check-the-encryption-state-and-encryption-activity"></a>Stap 5. Controleer de status van de versleuteling en versleuteling activiteit
+## <a name="step-5-check-the-encryption-state-and-encryption-activity"></a>Stap 5. De versleutelings status en versleutelings activiteit controleren
 
-Gebruik de [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) om op te halen van de status van de versleuteling en de [Get-AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) om de voortgang van de versleuteling voor een database te controleren of het datawarehouse.
+Gebruik [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) om de versleutelings status en [Get-AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) te krijgen om de versleutelings voortgang voor een Data Base of Data Warehouse te controleren.
 
    ```powershell
    # Get the encryption state
@@ -143,9 +144,9 @@ Gebruik de [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sq
    -DatabaseName <DatabaseName>  
    ```
 
-## <a name="other-useful-powershell-cmdlets"></a>Andere nuttige PowerShell-cmdlets
+## <a name="other-useful-powershell-cmdlets"></a>Andere handige Power shell-cmdlets
 
-- Gebruik de [Set AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet TDE uitschakelen.
+- Gebruik de cmdlet [set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) om TDe uit te scha kelen.
 
    ```powershell
    Set-AzSqlDatabaseTransparentDataEncryption `
@@ -155,7 +156,7 @@ Gebruik de [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sq
    -State "Disabled”
    ```
  
-- Gebruik de [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet om te retourneren van de lijst met Key Vault sleutels die zijn toegevoegd aan de server.
+- Gebruik de cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) om de lijst met Key Vault sleutels te retour neren die zijn toegevoegd aan de server.
 
    ```powershell
    <# KeyId is an optional parameter, to return a specific key version #>
@@ -164,7 +165,7 @@ Gebruik de [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sq
    -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
  
-- Gebruik de [Remove-AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) te verwijderen van een Key Vault-sleutel van de server.
+- Gebruik [Remove-AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) om een Key Vault sleutel van de server te verwijderen.
 
    ```powershell
    <# The key set as the TDE Protector cannot be removed. #>
@@ -177,37 +178,37 @@ Gebruik de [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sq
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 Controleer het volgende als er een probleem optreedt:
-- Als de key vault kan niet worden gevonden, controleert u of u bent in het juiste abonnement met de [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet.
+- Als de sleutel kluis niet kan worden gevonden, controleert u of u zich in het juiste abonnement bevindt met de cmdlet [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) .
 
    ```powershell
    Get-AzSubscription `
    -SubscriptionId <SubscriptionId>
    ```
 
-- Als de nieuwe sleutel kan niet worden toegevoegd aan de server of de nieuwe sleutel als de TDE-beveiliging kan niet worden bijgewerkt, controleert u het volgende:
-   - De sleutel mag geen hebben een vervaldatum
-   - De sleutel moet de *ophalen*, *sleutel inpakken*, en *sleutel uitpakken* bewerkingen die zijn ingeschakeld.
+- Als de nieuwe sleutel niet kan worden toegevoegd aan de server, of als de nieuwe sleutel niet kan worden bijgewerkt als de TDE-Protector, controleert u het volgende:
+   - De sleutel mag geen verval datum hebben
+   - Voor de sleutel moet de bewerking *Get*, *wrap*en uitpakken van *sleutel* bewerkingen zijn ingeschakeld.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de TDE-beveiliging van een server om te voldoen aan de beveiligingsvereisten draaien: [De Transparent Data Encryption protector met behulp van PowerShell draaien](transparent-data-encryption-byok-azure-sql-key-rotation.md).
-- Meer informatie over het verwijderen van een potentieel aangetast TDE-beveiliging in het geval van een veiligheidsrisico inhouden: [Verwijderen van een potentieel aangetast sleutel](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md). 
+- Meer informatie over het draaien van de TDE-Protector van een server om te voldoen aan de beveiligings vereisten: [De transparent Data Encryption-Protector draaien met behulp van Power shell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
+- In het geval van een beveiligings risico leert u hoe u een mogelijk aangetast TDE-Protector kunt verwijderen: [Verwijder een mogelijk beschadigde sleutel](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md). 
 
-## <a name="prerequisites-for-cli"></a>Vereisten voor de CLI
+## <a name="prerequisites-for-cli"></a>Vereisten voor CLI
 
-- U moet een Azure-abonnement hebt en een beheerder zijn op dat aan het abonnement.
-- [Aanbevolen maar niet vereist] Een hardware security module (HSM) of de lokale sleutel opslaan voor het maken van een lokale kopie van het sleutelmateriaal TDE-beveiliging hebben.
-- Opdrachtregelinterface versie 2.0 of hoger. Zie voor het installeren van de meest recente versie en verbinding maken met uw Azure-abonnement, [installeren en configureren van de Azure platformoverschrijdende opdrachtregelinterface 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
-- Maak een Azure Key Vault en de sleutel moet worden gebruikt voor TDE.
-  - [Beheren van Key Vault met behulp van CLI 2.0](../key-vault/key-vault-manage-with-cli2.md)
-  - [Instructies voor het gebruik van een hardware security module (HSM) en Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
-    - De key vault moet beschikken over de volgende eigenschap moet worden gebruikt voor TDE:
+- U moet een Azure-abonnement hebben en een beheerder van dat abonnement zijn.
+- [Aanbevolen, maar optioneel] Een HSM (Hardware Security module) of een lokaal sleutel archief hebben voor het maken van een lokale kopie van het TDE-beveiligings sleutel materiaal.
+- Opdracht regel interface versie 2,0 of hoger. Zie [de Azure-opdracht regel 2,0 interface voor meerdere platforms installeren en configureren](https://docs.microsoft.com/cli/azure/install-azure-cli)voor meer informatie over het installeren van de nieuwste versie en het maken van een verbinding met uw Azure-abonnement. 
+- Maak een Azure Key Vault en een sleutel om te gebruiken voor TDE.
+  - [Key Vault beheren met CLI 2,0](../key-vault/key-vault-manage-with-cli2.md)
+  - [Instructies voor het gebruik van een Hardware Security module (HSM) en Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
+    - De sleutel kluis moet de volgende eigenschap hebben die moet worden gebruikt voor TDE:
   - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
   - [De Key Vault-functie voor voorlopig verwijderen gebruiken met CLI](../key-vault/key-vault-soft-delete-cli.md) 
-- De sleutel moet de volgende kenmerken moet worden gebruikt voor TDE hebben:
-   - Er is geen vervaldatum
+- De sleutel moet de volgende kenmerken hebben om te kunnen worden gebruikt voor TDE:
+   - Geen verval datum
    - Niet uitgeschakeld
-   - Kan uitvoeren *ophalen*, *sleutel inpakken*, *sleutel uitpakken* bewerkingen
+   - Kan de *Get*-, *Terugloop*-, *sleutel* bewerking uitpakken
    
 ## <a name="step-1-create-a-server-with-an-azure-ad-identity"></a>Stap 1. Een server maken met een Azure AD-identiteit
       cli
@@ -217,10 +218,10 @@ Controleer het volgende als er een probleem optreedt:
  
  
 >[!Tip]
->Voorkomen dat de "principalID" maken van de server, is de object-id die is gebruikt voor het toewijzen van key vault-machtigingen in de volgende stap
+>Behoud de ' principalID ' van het maken van de server, het is de object-id die wordt gebruikt voor het toewijzen van sleutel kluis machtigingen in de volgende stap
 >
  
-## <a name="step-2-grant-key-vault-permissions-to-the-logical-sql-server"></a>Stap 2. Key Vault-machtigingen verlenen aan de logische sql-server
+## <a name="step-2-grant-key-vault-permissions-to-the-logical-sql-server"></a>Stap 2. Key Vault machtigingen verlenen aan de logische SQL-Server
       cli
       # create key vault, key and grant permission
        az keyvault create --name <kvname> --resource-group <rgname> --location <location> --enable-soft-delete true
@@ -229,11 +230,11 @@ Controleer het volgende als er een probleem optreedt:
 
 
 >[!Tip]
->Houd de key URI of keyID van de nieuwe sleutel voor de volgende stap, bijvoorbeeld: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+>Behoud de sleutel-URI of keyID van de nieuwe sleutel voor de volgende stap, bijvoorbeeld: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
 >
  
        
-## <a name="step-3-add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Stap 3. De Key Vault-sleutel toevoegen aan de server en stel de TDE-beveiliging
+## <a name="step-3-add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Stap 3. Voeg de Key Vault sleutel toe aan de server en stel de TDE-beveiliging in
   
      cli
      # add server key and update encryption protector
@@ -242,7 +243,7 @@ Controleer het volgende als er een probleem optreedt:
 
         
   > [!Note]
-> De gecombineerde lengte voor de key vault-naam en de naam mag maximaal 94 tekens bevatten.
+> De gecombineerde lengte van de naam van de sleutel kluis en de naam van de sleutel mag niet langer zijn dan 94 tekens.
 > 
 
   
@@ -252,9 +253,9 @@ Controleer het volgende als er een probleem optreedt:
       az sql db tde set --database <dbname> --server <servername> --resource-group <rgname> --status Enabled 
       
 
-De database of het datawarehouse is nu TDE is ingeschakeld met een door de klant beheerde versleutelingssleutel in Azure Key Vault.
+De data base of het Data Warehouse heeft nu TDE ingeschakeld met een door de klant beheerde versleutelings sleutel in Azure Key Vault.
 
-## <a name="step-5-check-the-encryption-state-and-encryption-activity"></a>Stap 5. Controleer de status van de versleuteling en versleuteling activiteit
+## <a name="step-5-check-the-encryption-state-and-encryption-activity"></a>Stap 5. De versleutelings status en versleutelings activiteit controleren
 
      cli
       # get encryption scan progress
@@ -263,7 +264,7 @@ De database of het datawarehouse is nu TDE is ingeschakeld met een door de klant
       # get whether encryption is on or off
       az sql db tde show --database <dbname> --server <servername> --resource-group <rgname> 
 
-## <a name="sql-cli-references"></a>Verwijzingen van de SQL-CLI
+## <a name="sql-cli-references"></a>Naslag informatie over SQL CLI
 
 https://docs.microsoft.com/cli/azure/sql 
 

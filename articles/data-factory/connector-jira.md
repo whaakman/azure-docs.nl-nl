@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: cbb18212f70343d8b9933bd2c787ce6aae8b145d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61cdcb98fc5c0947a25954161676c55ebf902688
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61400948"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720730"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>Gegevens kopiëren van Jira met Azure Data Factory (Preview)
 
@@ -91,11 +91,12 @@ Om gegevens te kopiëren van Jira, stel de eigenschap type van de gegevensset in
     "name": "JiraDataset",
     "properties": {
         "type": "JiraObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Jira linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -110,7 +111,7 @@ Om gegevens te kopiëren van Jira, stelt u het brontype in de kopieeractiviteit 
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **JiraSource** | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **JiraSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM MyTable"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**

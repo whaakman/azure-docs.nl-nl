@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 08/01/2019
 ms.author: aahi
-ms.openlocfilehash: b78d19841bdca100211378f71e45a41dd37aad28
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 59a4d79cc68c57faf54bde3d42370fb17a317325
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639340"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725562"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>Quickstart: Anomalie detectie client bibliotheek voor python
 
@@ -77,13 +77,13 @@ Deze code fragmenten laten zien hoe u het volgende kunt doen met de anomalie det
 * [Afwijkingen in de volledige gegevensset detecteren](#detect-anomalies-in-the-entire-data-set) 
 * [De afwijkings status van het laatste gegevens punt detecteren](#detect-the-anomaly-status-of-the-latest-data-point)
 
-### <a name="authenticate-the-client"></a>De client verifiëren
+## <a name="authenticate-the-client"></a>De client verifiëren
 
 Voeg uw Azure-locatie variabele toe aan het eind punt en verificatie van de client met uw sleutel.
 
 [!code-python[Client authentication](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=client)]
 
-### <a name="load-time-series-data-from-a-file"></a>Time Series-gegevens uit een bestand laden
+## <a name="load-time-series-data-from-a-file"></a>Time Series-gegevens uit een bestand laden
 
 Down load de voorbeeld gegevens voor deze Quick Start van [github](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv):
 1. Klik in uw browser met de rechter muisknop op **RAW**.
@@ -100,13 +100,13 @@ Maak een [aanvraag](https://docs.microsoft.com/python/api/azure-cognitiveservice
 
 [!code-python[Create the request object](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=request)]
 
-### <a name="detect-anomalies-in-the-entire-data-set"></a>Afwijkingen in de volledige gegevensset detecteren 
+## <a name="detect-anomalies-in-the-entire-data-set"></a>Afwijkingen in de volledige gegevensset detecteren 
 
 Roep de API aan om afwijkingen te detecteren via de volledige tijdreeks gegevens met behulp van de [entire_detect ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#entire-detect-body--custom-headers-none--raw-false----operation-config-) -methode van de client. Sla het geretourneerde [EntireDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) -object op. De `is_anomaly` lijst van het antwoord herhalen en de index van alle `true` waarden afdrukken. Deze waarden komen overeen met de index van afwijkende gegevens punten, als deze zijn gevonden.
 
 [!code-python[Batch anomaly detection sample](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=detectAnomaliesBatch)]
 
-### <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>De afwijkings status van het laatste gegevens punt detecteren
+## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>De afwijkings status van het laatste gegevens punt detecteren
 
 Roep de anomalie detectie-API aan om te bepalen of uw laatste gegevens punt afwijkt met behulp van de [last_detect ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-) -methode van de client en sla het geretourneerde [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) -object op. De waarde van `is_anomaly` het antwoord is een Boolean die de afwijkings status van het punt opgeeft.  
 

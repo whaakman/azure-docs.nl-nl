@@ -14,18 +14,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a1dafb8e4c16a59bfed51016ce9ccb0ec3eb7d6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 460ea15b0827ea307d64d1bd92d9bd14d5919d73
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754763"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704380"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Eventhubs - Geo-noodherstel 
 
 Wanneer volledige Azure-regio's of datacenters (als er geen [beschikbaarheidszones](../availability-zones/az-overview.md) worden gebruikt) treedt downtime, is het essentieel is voor de verwerking van gegevens om te kunnen blijven werken in een andere regio of het datacenter. Als zodanig *Geo-noodherstel* en *Geo-replicatie* zijn belangrijke functies voor dat elke onderneming. Azure Event Hubs biedt ondersteuning voor geo-noodherstel en geo-replicatie, op het niveau van de naamruimte. 
 
-De functie van het herstel bij Geo-gerelateerde noodgevallen is wereldwijd beschikbaar is voor Event Hubs standaard en SKU toegewezen. Houd er rekening mee dat u alleen geo-paar naamruimten in dezelfde laag van de SKU kunt. Bijvoorbeeld, hebt u een naamruimte in een cluster dat alleen in onze SKU toegewezen aangeboden wordt, kan deze alleen worden gekoppeld met een naamruimte in een ander cluster. 
+De functie voor het opnieuw gebruiken van geo-nood herstel is wereld wijd beschikbaar voor zowel Event Hubs Standard-als speciale SKU. Houd er rekening mee dat u alleen geo-paar naam ruimten in dezelfde laag van de SKU kunt vinden. Als u bijvoorbeeld een naam ruimte in een cluster hebt die alleen in onze specifieke SKU wordt aangeboden, kan deze alleen worden gekoppeld aan een naam ruimte in een ander cluster. 
 
 ## <a name="outages-and-disasters"></a>Uitval en noodgevallen afhandelen
 
@@ -41,13 +41,13 @@ De functie van het herstel na noodgevallen noodherstel metagegevens geïmplement
 
 De volgende termen worden gebruikt in dit artikel:
 
--  *Alias*: De naam van een configuratie die u hebt ingesteld. De alias bevat een enkele stabiel volledig FULLY Qualified Domain Name ()-verbindingsreeks. Deze verbindingsreeks alias toepassingen gebruiken voor verbinding met een naamruimte. 
+-  *Alias*: De naam voor een nood herstel configuratie die u hebt ingesteld. De alias bevat een enkele stabiel volledig FULLY Qualified Domain Name ()-verbindingsreeks. Deze verbindingsreeks alias toepassingen gebruiken voor verbinding met een naamruimte. 
 
--  *Primaire/secundaire naamruimte*: De naamruimten die met de alias overeenkomen. De primaire naamruimte ' actief ' en ontvangt berichten (dit kan een bestaande of nieuwe naamruimte zijn). De secundaire naamruimte is 'passieve' en ontvangt geen berichten. De metagegevens tussen beide is synchroon, zodat beide berichten zonder toepassing code of connection string wijzigingen aan te kunnen naadloos worden geaccepteerd. Om ervoor te zorgen dat alleen de actieve naamruimte berichten ontvangt, moet u de alias. 
+-  *Primaire/secundaire naam ruimte*: De naam ruimten die overeenkomen met de alias. De primaire naamruimte ' actief ' en ontvangt berichten (dit kan een bestaande of nieuwe naamruimte zijn). De secundaire naamruimte is 'passieve' en ontvangt geen berichten. De metagegevens tussen beide is synchroon, zodat beide berichten zonder toepassing code of connection string wijzigingen aan te kunnen naadloos worden geaccepteerd. Om ervoor te zorgen dat alleen de actieve naamruimte berichten ontvangt, moet u de alias. 
 
--  *Metadata*: Entiteiten zoals eventhubs en consumentengroepen; en de bijbehorende eigenschappen van de service die gekoppeld aan de naamruimte zijn. Houd er rekening mee dat alleen de entiteiten en de bijbehorende instellingen automatisch worden gerepliceerd. Berichten en gebeurtenissen worden niet gerepliceerd. 
+-  *Meta gegevens*: Entiteiten zoals Event hubs en consumenten groepen; en hun eigenschappen van de service die aan de naam ruimte zijn gekoppeld. Houd er rekening mee dat alleen de entiteiten en de bijbehorende instellingen automatisch worden gerepliceerd. Berichten en gebeurtenissen worden niet gerepliceerd. 
 
--  *Failover*: Het proces van het activeren van de secundaire naamruimte.
+-  *Failover*: Het proces voor het activeren van de secundaire naam ruimte.
 
 ## <a name="setup-and-failover-flow"></a>Installatie en failover-stroom
 
@@ -84,7 +84,7 @@ Als u een fout hebt; gemaakt bijvoorbeeld, u de verkeerde regio's tijdens de eer
 
 ## <a name="samples"></a>Voorbeelden
 
-De [op GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) laat zien hoe u instellen en een failover worden gestart. In dit voorbeeld ziet u de volgende concepten:
+De [op GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) laat zien hoe u instellen en een failover worden gestart. In dit voorbeeld ziet u de volgende concepten:
 
 - Instellingen voor het gebruik van Azure Resource Manager met Event Hubs in Azure Active Directory vereist. 
 - Stappen die nodig zijn voor het uitvoeren van de voorbeeldcode. 
@@ -104,10 +104,10 @@ Houd rekening met de volgende punten moet rekening houden met deze release:
 
 ## <a name="availability-zones"></a>Beschikbaarheidszones 
 
-Biedt ondersteuning voor de Event Hubs standaard-SKU [Beschikbaarheidszones](../availability-zones/az-overview.md), bieden foutgeïsoleerde locaties binnen een Azure-regio. 
+De Event Hubs standaard-SKU biedt ondersteuning voor [Beschikbaarheidszones](../availability-zones/az-overview.md), waardoor fout geïsoleerde locaties binnen een Azure-regio worden geboden. 
 
 > [!NOTE]
-> De ondersteuning voor Beschikbaarheidszones voor Azure Event Hubs standaard is alleen beschikbaar in [Azure-regio's](../availability-zones/az-overview.md#services-support-by-region) waar beschikbaarheidszones aanwezig zijn.
+> De Beschikbaarheidszones ondersteuning voor Azure Event Hubs Standard is alleen beschikbaar in [Azure-regio's](../availability-zones/az-overview.md#services-support-by-region) waar beschikbaarheids zones aanwezig zijn.
 
 U kunt Beschikbaarheidszones inschakelen op nieuwe naamruimten, met behulp van de Azure portal. Eventhubs biedt geen ondersteuning voor migratie van bestaande naamruimten. U kunt zoneredundantie niet uitschakelen nadat deze is ingeschakeld op uw naamruimte.
 
@@ -115,7 +115,7 @@ U kunt Beschikbaarheidszones inschakelen op nieuwe naamruimten, met behulp van d
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* De [op GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) doorloopt een eenvoudige werkstroom die u maakt een geo-koppeling en start een failover voor een noodherstelscenario.
+* De [op GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) doorloopt een eenvoudige werkstroom die u maakt een geo-koppeling en start een failover voor een noodherstelscenario.
 * De [REST API-verwijzing](/rest/api/eventhub/disasterrecoveryconfigs) API's voor het uitvoeren van de Geo-noodherstelconfiguratie beschrijft.
 
 Voor meer informatie over Event Hubs gaat u naar de volgende koppelingen:

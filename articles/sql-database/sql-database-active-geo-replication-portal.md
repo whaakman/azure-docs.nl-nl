@@ -1,6 +1,6 @@
 ---
-title: 'Azure Portal: Geo-replicatie van SQL Database | Microsoft Docs'
-description: Geo-replicatie voor een enkele of gegroepeerde database in Azure SQL Database met behulp van de Azure-portal en initiëren failover configureren
+title: 'Azure Portal: Geo-replicatie SQL Database | Microsoft Docs'
+description: Geo-replicatie configureren voor één of gegroepeerde Data base in Azure SQL Database met behulp van de Azure Portal en failover initiëren
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,90 +10,89 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 058afdbc4aa134b5b3c4c8cc5e9e2f2ae6f53084
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60864057"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569644"
 ---
-# <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Actieve geo-replicatie configureren voor Azure SQL Database in Azure portal en failover initiëren
+# <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Actieve geo-replicatie configureren voor Azure SQL Database in de Azure Portal en failover initiëren
 
-Dit artikel leest u hoe het configureren van [actieve geo-replicatie voor één en gepoolde databases](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) in Azure SQL Database met behulp van de [Azure-portal](https://portal.azure.com) en het starten van failover.
+In dit artikel wordt beschreven hoe u [actieve geo-replicatie kunt configureren voor één en gegroepeerde Data bases](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) in Azure SQL database met behulp van de [Azure Portal](https://portal.azure.com) en om failover te initiëren.
 
-Zie voor meer informatie over automatische failover-groepen met één en gepoolde databases [aanbevolen procedures van het gebruik van failover-groepen met één en gepoolde databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Zie voor meer informatie over automatische failover-groepen met beheerde instanties (preview) [aanbevolen procedures van het gebruik van failover-groepen met beheerde instanties](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
+Zie [Aanbevolen procedures voor het gebruik van failover-groepen met één en gegroepeerde Data bases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools)voor meer informatie over groepen van automatische failovers met één en gepoolde data base. Zie [Aanbevolen procedures voor het gebruik van failover-groepen met beheerde exemplaren](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances)voor informatie over groepen voor automatische failovers met beheerde instanties (preview).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Actieve geo-replicatie configureren met behulp van Azure portal, moet u de volgende bronnen:
+Als u actieve geo-replicatie wilt configureren met behulp van de Azure Portal, hebt u de volgende resource nodig:
 
-* Een Azure SQL database: De primaire database die u wilt repliceren naar een andere geografische regio.
+* Een Azure-SQL database: De primaire data base die u naar een andere geografische regio wilt repliceren.
 
 > [!Note]
-> Wanneer u Azure portal gebruikt, kunt u alleen een secundaire database binnen hetzelfde abonnement als de primaire maken. Als de secundaire database is vereist om te worden in een ander abonnement, gebruikt u [Database REST-API maken](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) of [ALTER DATABASE Transact-SQL-API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
+> Wanneer u Azure Portal gebruikt, kunt u alleen een secundaire data base maken binnen hetzelfde abonnement als het primaire. Als de secundaire data base verplicht moet zijn in een ander abonnement, gebruikt u [Create data base rest API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) of [ALTER data base Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
 
-## <a name="add-a-secondary-database"></a>Een secundaire database toevoegen
+## <a name="add-a-secondary-database"></a>Een secundaire data base toevoegen
 
-De volgende stappen maakt u een nieuwe secundaire database in een partnerschap geo-replicatie.  
+Met de volgende stappen maakt u een nieuwe secundaire data base in een partner verband met geo-replicatie.  
 
-Als u wilt toevoegen van een secundaire database, moet u de abonnement-eigenaar of mede-eigenaar zijn.
+Als u een secundaire Data Base wilt toevoegen, moet u de eigenaar van het abonnement of mede-eigenaar zijn.
 
-De secundaire database heeft dezelfde naam als de primaire database en dezelfde service-laag en grootte compute is standaard. De secundaire database is een individuele database of een gegroepeerde-database. Zie voor meer informatie, [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
-Nadat de secundaire server is gemaakt en seeding, begint de gegevens die van de primaire database worden gerepliceerd naar de nieuwe secundaire database.
+De secundaire data base heeft dezelfde naam als de primaire data base en heeft standaard dezelfde servicelaag en berekenings grootte. De secundaire data base kan één data base of een gegroepeerde Data Base zijn. Zie voor meer informatie [het op DTU gebaseerde aankoop model](sql-database-service-tiers-dtu.md) en [vCore aankoop model](sql-database-service-tiers-vcore.md).
+Nadat de secundaire data base is gemaakt en geseedd, begint de gegevens van de hoofd database naar de nieuwe secundaire data base.
 
 > [!NOTE]
-> Als de partnerdatabase al bestaat (bijvoorbeeld, als gevolg van een vorige geo-replicatierelatie beëindigen) mislukt de opdracht.
+> Als de partner database al bestaat (bijvoorbeeld als gevolg van het beëindigen van een eerdere geo-replicatie relatie), mislukt de opdracht.
 
-1. In de [Azure-portal](https://portal.azure.com), blader naar de database die u wilt instellen voor geo-replicatie.
-2. Selecteer op de pagina SQL-database **geo-replicatie**, en selecteer vervolgens de regio voor het maken van de secundaire database. U kunt elke regio selecteren dan de regio die als host fungeert voor de primaire database, maar het is raadzaam de [gekoppelde regio](../best-practices-availability-paired-regions.md).
+1. Blader in het [Azure Portal](https://portal.azure.com)naar de data base die u wilt instellen voor geo-replicatie.
+2. Selecteer **geo-replicatie**op de pagina SQL database en selecteer vervolgens de regio om de secundaire data base te maken. U kunt een andere regio selecteren dan de regio die als host fungeert voor de primaire data base, maar we raden u aan om de [gekoppelde regio](../best-practices-availability-paired-regions.md)te kiezen.
 
     ![Geo-replicatie configureren](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
-3. Selecteer of configureer de server en de prijscategorie voor de secundaire database.
+3. Selecteer of configureer de server en prijs categorie voor de secundaire data base.
 
-    ![Secundaire configureren](./media/sql-database-geo-replication-portal/create-secondary.png)
-4. U kunt eventueel een secundaire database toevoegen aan een elastische pool. Klik op om de secundaire database in een pool **elastische pool** en selecteer een groep op de doelserver. Een pool moet al bestaan op de doelserver. Deze werkstroom worden niet gemaakt voor een groep.
-5. Klik op **maken** om toe te voegen van de secundaire server.
-6. De secundaire database wordt gemaakt en het seeden wordt gestart.
+    ![Secundair configureren](./media/sql-database-geo-replication-portal/create-secondary.png)
+4. Desgewenst kunt u een secundaire data base toevoegen aan een elastische pool. Als u de secundaire data base in een groep wilt maken, klikt u op **elastische pool** en selecteert u een pool op de doel server. Er moet al een groep bestaan op de doel server. Met deze werk stroom wordt geen groep gemaakt.
+5. Klik op **maken** om de secundaire toe te voegen.
+6. De secundaire data base wordt gemaakt en het seeding proces begint.
 
-    ![Secundaire configureren](./media/sql-database-geo-replication-portal/seeding0.png)
-7. Wanneer de seeding proces voltooid is, wordt de status ervan weergegeven in de secundaire database.
+    ![Secundair configureren](./media/sql-database-geo-replication-portal/seeding0.png)
+7. Wanneer het seeding proces is voltooid, wordt de status van de secundaire Data Base weer gegeven.
 
     ![Seeding voltooid](./media/sql-database-geo-replication-portal/seeding-complete.png)
 
-## <a name="initiate-a-failover"></a>Initieer een failover
+## <a name="initiate-a-failover"></a>Een failover initiëren
 
-De secundaire database kunt om te worden van de primaire worden overgeschakeld.  
+De secundaire data base kan worden verwisseld om de primaire te worden.  
 
-1. In de [Azure-portal](https://portal.azure.com), blader naar de primaire database in de samenwerking met geo-replicatie.
-2. Selecteer op de blade SQL Database **alle instellingen** > **geo-replicatie**.
-3. In de **secundaire DATABASES** , selecteert u de database die u wilt worden van de nieuwe primaire en klikt u op **Failover**.
+1. Blader in het [Azure Portal](https://portal.azure.com)naar de primaire data base in het samenwerkings verband met geo-replicatie.
+2. Selecteer op de Blade SQL database **alle instellingen** > **geo-replicatie**.
+3. Selecteer in de lijst met **secundaire** zones de data base die u wilt de nieuwe primaire en klik op **failover**.
 
-    ![Failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
-4. Klik op **Ja** om te beginnen met de failover.
+    ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
+4. Klik op **Ja** om de failover te starten.
 
-De opdracht wordt onmiddellijk de secundaire database in de primaire rol. Dit proces moet normaal gesproken voltooid binnen 30 seconden of minder.
+De opdracht schakelt de secundaire data base onmiddellijk over naar de primaire rol. Dit proces moet normaal gesp roken binnen 30 seconden worden voltooid.
 
-Er is een korte periode gedurende welke beide databases niet beschikbaar (orde van grootte seconden van 0 tot en met 25 zijn) terwijl de rollen zijn overgeschakeld. Als de primaire database meerdere secundaire databases heeft, configureert de andere secundaire replica's verbinding maken met de nieuwe primaire automatisch door de opdracht opnieuw. De gehele bewerking duurt minder dan een minuut in beslag onder normale omstandigheden.
+Er is een korte periode waarin beide data bases niet beschikbaar zijn (in de volg orde van 0 tot 25 seconden) terwijl de rollen worden overgeschakeld. Als de primaire data base meerdere secundaire data bases heeft, configureert de opdracht automatisch de andere gegevens in een verbinding met de nieuwe primaire. Het duurt minder dan een minuut om de gehele bewerking uit te voeren onder normale omstandigheden.
 
 > [!NOTE]
-> Met deze opdracht is ontworpen voor snel herstel van de database in het geval van een storing. Dit activeert failover zonder synchronisatie van gegevens (geforceerde failover).  Als de primaire online is en vastleggen van transacties als gegevens verloren gaan door de opdracht is gegeven optreden.
+> Deze opdracht is ontworpen voor snelle herstel van de data base in het geval van een storing. Er wordt een failover geactiveerd zonder gegevens synchronisatie (geforceerde failover).  Als de primaire online is en trans acties worden doorgevoerd wanneer de opdracht wordt uitgegeven, kan er gegevens verlies optreden.
 
-## <a name="remove-secondary-database"></a>Secundaire database verwijderen
+## <a name="remove-secondary-database"></a>Secundaire data base verwijderen
 
-Deze bewerking permanent wordt de replicatie naar de secundaire database beëindigd en de rol van de secundaire server wordt gewijzigd in een normale lezen / schrijven-database. Als de verbinding met de secundaire database verbroken is, wordt de opdracht is geslaagd maar wordt de secundaire kiest, wordt er niet wordt lezen / schrijven pas na de verbinding wordt hersteld.  
+Met deze bewerking wordt de replicatie permanent beëindigd en wordt de rol van de secundaire data base gewijzigd in een normale Lees-write-data base. Als de verbinding met de secundaire data base is verbroken, wordt de opdracht uitgevoerd, maar de secundaire wordt niet lezen-schrijven totdat de verbinding is hersteld.  
 
-1. In de [Azure-portal](https://portal.azure.com), blader naar de primaire database in de samenwerking met geo-replicatie.
-2. Selecteer op de pagina SQL-database **geo-replicatie**.
-3. In de **secundaire DATABASES** , selecteert u de database die u wilt verwijderen uit het partnerschap geo-replicatie.
-4. Klik op **replicatie stoppen**.
+1. Blader in het [Azure Portal](https://portal.azure.com)naar de primaire data base in het samenwerkings verband met geo-replicatie.
+2. Selecteer **geo-replicatie**op de pagina SQL database.
+3. Selecteer in de lijst met **secundaire** zones de data base die u wilt verwijderen uit het relatie tussen geo-replicatie.
+4. Klik op **Replicatie stoppen**.
 
     ![Secundaire verwijderen](./media/sql-database-geo-replication-portal/remove-secondary.png)
-5. Er wordt een bevestigingsvenster geopend. Klik op **Ja** naar de database verwijderen uit het partnerschap geo-replicatie. (Dit instellen op een alleen-lezen database geen deel uit van replicatie.)
+5. Er wordt een bevestigings venster geopend. Klik op **Ja** om de data base te verwijderen uit het samenwerkings verband met geo-replicatie. (Stel de eigenschap in op een Data Base voor lezen/schrijven die geen deel uitmaakt van een replicatie.)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over actieve geo-replicatie, [actieve geo-replicatie](sql-database-active-geo-replication.md).
-* Zie voor meer informatie over automatische failover-groepen, [automatische failover-groepen](sql-database-auto-failover-group.md)
-* Zie voor een overzicht voor zakelijke continuïteit en scenario's, [overzicht voor zakelijke continuïteit](sql-database-business-continuity.md).
+* Zie [actieve geo-replicatie](sql-database-active-geo-replication.md)voor meer informatie over actieve geo-replicatie.
+* Zie [groepen met automatische failover](sql-database-auto-failover-group.md) voor meer informatie over groepen voor automatische failover
+* Zie [overzicht van bedrijfs continuïteit](sql-database-business-continuity.md)voor een overzicht en scenario's voor bedrijfs continuïteit.

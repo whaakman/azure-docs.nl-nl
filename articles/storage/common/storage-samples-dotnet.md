@@ -1,214 +1,212 @@
 ---
-title: Voorbeelden van Azure Storage met .NET | Microsoft Docs
-description: Weergeven, downloaden en uitvoeren van toepassingen voor Azure Storage en voorbeeldcode. Ontdek aan de slag-voorbeelden voor blobs, wachtrijen, tabellen en bestanden, met behulp van de opslagclientbibliotheken voor .NET.
-services: storage
+title: Voor beelden Azure Storage met .NET | Microsoft Docs
+description: Voorbeeld code en toepassingen voor Azure Storage weer geven, downloaden en uitvoeren. Ontdek aan de slag met voor beelden voor blobs, wacht rijen, tabellen en bestanden, met behulp van de .NET Storage-client bibliotheken.
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: dotnet
-ms.topic: article
-ms.date: 05/03/2019
 ms.author: mhopkins
+ms.date: 05/03/2019
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: df7c14f1ee83015303657f9a0babde3d60c92292
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: sample
+ms.openlocfilehash: cec6b0498adf55428fade7ae00db6550496a20bd
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209696"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721857"
 ---
-# <a name="azure-storage-samples-using-net"></a>Voorbeelden van Azure Storage met .NET
+# <a name="azure-storage-samples-using-net"></a>Voor beelden Azure Storage met .NET
 
-## <a name="net-sample-index"></a>Index van de .NET-voorbeeld
+## <a name="net-sample-index"></a>.NET-voorbeeld index
 
-De volgende tabel bevat een overzicht van onze opslagplaats met voorbeelden en de scenario's in elk voorbeeld behandeld. Klik op de koppelingen om weer te geven van de bijbehorende voorbeeldcode in GitHub.
+De volgende tabel bevat een overzicht van onze voor beelden van opslag plaatsen en de scenario's die in elk voor beeld worden behandeld. Klik op de koppelingen om de bijbehorende voorbeeld code in GitHub weer te geven.
 
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Eindpunt</th><th style="font-size:110%">Scenario</th><th style="font-size:110%">Voorbeeldcode</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
-<td>Toevoeg-Blob</td> 
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144">Aan de slag met Blobs</a></td> 
+<td>Blob toevoegen</td> 
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144">Aan de slag met blobs</a></td> 
 </tr> 
 <tr> 
-<td>Blok-Blob</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage Photo Gallery Web-App</a></td>
+<td>Blok-blob</td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Webtoepassing voor Azure Blob Storage Photo Gallery</a></td>
 </tr> 
 <tr> 
 <td>Clientversleuteling</td>
-<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/EncryptionSamples/BlobGettingStarted/Program.cs">Voorbeelden van BLOB-versleuteling</a></td>
+<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/EncryptionSamples/BlobGettingStarted/Program.cs">Voor beelden van BLOB-versleuteling</a></td>
 </tr> 
 <tr> 
 <td>Blob kopiëren</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Aan de slag met Blobs</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Aan de slag met blobs</a></td>
 </tr> 
 <tr> 
 <td>Container maken</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage Photo Gallery Web-App</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Webtoepassing voor Azure Blob Storage Photo Gallery</a></td>
 </tr> 
 <tr> 
 <td>Blob verwijderen</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage Photo Gallery Web-App</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Webtoepassing voor Azure Blob Storage Photo Gallery</a></td>
 </tr> 
 <tr> 
 <td>Container verwijderen</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Aan de slag met Blobs</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Aan de slag met blobs</a></td>
 </tr> 
 <tr> 
-<td>BLOB-metagegevens/eigenschappen/Stats</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Aan de slag met Blobs</a></td>
+<td>Meta gegevens/eigenschappen/statistieken voor blobs</td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Aan de slag met blobs</a></td>
 </tr> 
 <tr> 
-<td>ACL/metagegevens/eigenschappen van de container</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage Photo Gallery Web-App</a></td>
+<td>Container-ACL/meta gegevens/eigenschappen</td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Webtoepassing voor Azure Blob Storage Photo Gallery</a></td>
 </tr> 
 <tr> 
-<td>Get Page-bereiken</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Aan de slag met Blobs</a></td>
+<td>Paginabereiken ophalen</td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Aan de slag met blobs</a></td>
 </tr> 
 <tr> 
-<td>Lease-Blob/Container</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Aan de slag met Blobs</a></td>
+<td>BLOB/container lease</td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Aan de slag met blobs</a></td>
 </tr> 
 <tr> 
-<td>Blob/Container vermelden</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">Aan de slag met Blobs</a></td>
+<td>BLOB/container weer geven</td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">Aan de slag met blobs</a></td>
 </tr> 
 <tr> 
-<td>Pagina-blobs</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">Aan de slag met Blobs</a></td>
+<td>Pagina-blob</td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">Aan de slag met blobs</a></td>
 </tr>
 <tr> 
-<td>SAS</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Aan de slag met Blobs</a></td>
+<td>GEBASEERD</td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Aan de slag met blobs</a></td>
 </tr>   
 <tr> 
 <td>Service-eigenschappen</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Aan de slag met Blobs</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Aan de slag met blobs</a></td>
 </tr>           
 <tr> 
-<td>Momentopname maken van Blob</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">Back-up Azure VM-schijven met incrementele momentopnamen</a></td>
+<td>Moment opname-BLOB</td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">Back-ups maken van Azure virtual machine-schijven met incrementele moment opnamen</a></td>
 </tr> 
 <tr> 
 <td rowspan="9"><b>File</b></td>
-<td>Shares/mappen/bestanden maken</td> 
-<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage/Program.cs">Azure Storage .NET-voorbeeldbestand voor opslag</a></td> 
+<td>Shares/Directory's/bestanden maken</td> 
+<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage/Program.cs">Azure Storage .NET File Storage-voor beeld</a></td> 
 </tr>
 <tr> 
 <td>Shares/mappen/bestanden verwijderen</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/master/FileStorage/GettingStarted.cs">Aan de slag met Azure File-Service in .NET</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/master/FileStorage/GettingStarted.cs">Aan de slag met Azure File Service in .NET</a></td> 
 </tr> 
 <tr> 
-<td>Directory eigenschappen/metagegevens</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Azure Storage .NET-voorbeeldbestand voor opslag</a></td> 
+<td>Mapeigenschappen/meta gegevens</td> 
+<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Azure Storage .NET File Storage-voor beeld</a></td> 
 </tr> 
 <tr> 
 <td>Bestanden downloaden</td> 
-<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage/Program.cs">Azure Storage .NET-voorbeeldbestand voor opslag</a></td> 
+<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage/Program.cs">Azure Storage .NET File Storage-voor beeld</a></td> 
 </tr> 
 <tr> 
-<td>Bestand eigenschappen/metagegevens/metrische gegevens</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Azure Storage .NET-voorbeeldbestand voor opslag</a></td> 
+<td>Bestands eigenschappen/meta gegevens/statistieken</td> 
+<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Azure Storage .NET File Storage-voor beeld</a></td> 
 </tr> 
 <tr> 
-<td>File Service Properties</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Azure Storage .NET-voorbeeldbestand voor opslag</a></td> 
+<td>Eigenschappen van bestands service</td> 
+<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Azure Storage .NET File Storage-voor beeld</a></td> 
 </tr> 
 <tr> 
-<td>Lijst met mappen en bestanden</td> 
-<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage/Program.cs">Azure Storage .NET-voorbeeldbestand voor opslag</a></td> 
+<td>Mappen en bestanden weer geven</td> 
+<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage/Program.cs">Azure Storage .NET File Storage-voor beeld</a></td> 
 </tr>
 <tr> 
-<td>Lijst met Shares</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Azure Storage .NET-voorbeeldbestand voor opslag</a></td> 
+<td>Shares weer geven</td> 
+<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Azure Storage .NET File Storage-voor beeld</a></td> 
 </tr>
 <tr> 
-<td>Delen van eigenschappen/metagegevens/Stats</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Azure Storage .NET-voorbeeldbestand voor opslag</a></td> 
+<td>Eigenschappen/meta gegevens/statistieken delen</td> 
+<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Azure Storage .NET File Storage-voor beeld</a></td> 
 </tr>
 <tr> 
-<td rowspan="8"><b>wachtrij</b></td>
+<td rowspan="8"><b>Wachtrij</b></td>
 <td>Bericht toevoegen</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Aan de slag met Azure Queue-Service in .NET</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Aan de slag met Azure Queue service in .NET</a></td> 
 </tr> 
 <tr> 
 <td>Clientversleuteling</td> 
-<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/EncryptionSamples/QueueGettingStarted/Program.cs">Azure Storage .NET wachtrij Client-Side-versleuteling</a></td> 
+<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/EncryptionSamples/QueueGettingStarted/Program.cs">Versleuteling van de .NET-wachtrij aan client zijde Azure Storage</a></td> 
 </tr> 
 <tr> 
-<td>Wachtrijen maken</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Aan de slag met Azure Queue-Service in .NET</a></td> 
+<td>Wacht rijen maken</td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Aan de slag met Azure Queue service in .NET</a></td> 
 </tr> 
 <tr> 
 <td>Bericht/wachtrij verwijderen</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Aan de slag met Azure Queue-Service in .NET</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Aan de slag met Azure Queue service in .NET</a></td> 
 </tr> 
 <tr> 
 <td>Bericht bekijken</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Aan de slag met Azure Queue-Service in .NET</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Aan de slag met Azure Queue service in .NET</a></td> 
 </tr> 
 <tr> 
-<td>Wachtrij ACL/metagegevens/Stats</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs">Aan de slag met Azure Queue-Service in .NET</a></td> 
+<td>Wachtrij-ACL/meta gegevens/statistieken</td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs">Aan de slag met Azure Queue service in .NET</a></td> 
 </tr> 
 <tr> 
-<td>Eigenschappen van de Queue-Service</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs">Aan de slag met Azure Queue-Service in .NET</a></td> 
+<td>Eigenschappen van Queue-service</td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs">Aan de slag met Azure Queue service in .NET</a></td> 
 </tr> 
 <tr> 
 <td>Bericht bijwerken</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Aan de slag met Azure Queue-Service in .NET</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Aan de slag met Azure Queue service in .NET</a></td> 
 </tr> 
 <tr> 
 <td rowspan="7"><b>Tabel</b></td>
 <td>Tabel maken</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Met behulp van Azure Storage - voorbeeldtoepassing gelijktijdigheid beheren</a></td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Gelijktijdigheid beheren met Azure Storage-voorbeeld toepassing</a></td> 
 </tr> 
 <tr> 
 <td>Entiteit/tabel verwijderen</td> 
 <td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs">Aan de slag met Azure Table Storage in .NET</a></td> 
 </tr> 
 <tr> 
-<td>De entiteit invoegen/Merge/vervangen</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Met behulp van Azure Storage - voorbeeldtoepassing gelijktijdigheid beheren</a></td> 
+<td>Entiteit invoegen/samen voegen/vervangen</td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Gelijktijdigheid beheren met Azure Storage-voorbeeld toepassing</a></td> 
 </tr> 
 <tr> 
 <td>Entiteiten opvragen</td> 
 <td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs">Aan de slag met Azure Table Storage in .NET</a></td> 
 </tr> 
 <tr> 
-<td>Querytabellen</td> 
+<td>Query tabellen</td> 
 <td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs">Aan de slag met Azure Table Storage in .NET</a></td> 
 </tr> 
 <tr> 
-<td>Tabeleigenschappen ACL</td> 
+<td>Tabel-ACL/eigenschappen</td> 
 <td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/AdvancedSamples.cs">Aan de slag met Azure Table Storage in .NET</a></td> 
 </tr> 
 <tr> 
-<td>Een entiteit bijgewerkt</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Met behulp van Azure Storage - voorbeeldtoepassing gelijktijdigheid beheren</a></td> 
+<td>Entiteit bijwerken</td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Gelijktijdigheid beheren met Azure Storage-voorbeeld toepassing</a></td> 
 </tr> 
 </tbody> 
 </table>
 <br/>
 
-## <a name="azure-code-samples-library"></a>Azure-codevoorbeelden-bibliotheek
+## <a name="azure-code-samples-library"></a>Bibliotheek voor Azure-code voorbeelden
 
-Als u het volledige voorbeeld van een bibliotheek, gaat u naar de [Azure-codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=storage) bibliotheek, waaronder voorbeelden voor Azure-opslag die u kunt downloaden en lokaal uitvoeren. De bibliotheek met voorbeeld wordt een voorbeeldcode in .zip-indeling. U kunt ook bladeren en kloon de GitHub-opslagplaats voor elk voorbeeld.
+Als u de volledige voorbeeld bibliotheek wilt weer geven, gaat u naar de [Azure code samples](https://azure.microsoft.com/resources/samples/?service=storage) -bibliotheek, die voor beelden bevat voor Azure Storage die u lokaal kunt downloaden en uitvoeren. De voorbeeld bibliotheek code bevat voorbeeld code in. zip-indeling. U kunt ook bladeren en de GitHub-opslag plaats voor elk voor beeld klonen.
 
 [!INCLUDE [storage-dotnet-samples-include](../../../includes/storage-dotnet-samples-include.md)]
 
-## <a name="getting-started-guides"></a>Introductiehandleidingen
+## <a name="getting-started-guides"></a>Aan de slag-hand leidingen
 
-Bekijk de volgende handleidingen in als u op zoek bent voor instructies over het installeren en aan de slag met de Azure Storage-clientbibliotheken.
+Bekijk de volgende hand leidingen als u op zoek bent naar instructies voor het installeren en aan de slag met de Azure Storage-client bibliotheken.
 
-* [Aan de slag met Azure Blob-Service in .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
-* [Aan de slag met Azure Queue-Service in .NET](../storage-dotnet-how-to-use-queues.md)
-* [Aan de slag met Azure Table-Service in .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
-* [Aan de slag met Azure File-Service in .NET](../storage-dotnet-how-to-use-files.md)
+* [Aan de slag met Azure Blob service in .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [Aan de slag met Azure Queue service in .NET](../storage-dotnet-how-to-use-queues.md)
+* [Aan de slag met Azure Table service in .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
+* [Aan de slag met Azure File Service in .NET](../storage-dotnet-how-to-use-files.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor informatie over voorbeelden voor andere talen:
+Voor informatie over voor beelden voor andere talen:
 
 * Java: [Azure Storage-voorbeelden met behulp van Java](storage-samples-java.md)
-* Alle andere talen: [Azure Storage-voorbeelden](../storage-samples.md)
+* Alle andere talen: [Azure Storage-voor beelden](../storage-samples.md)

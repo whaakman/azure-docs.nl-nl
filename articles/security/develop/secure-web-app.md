@@ -9,18 +9,19 @@ manager: barbkess
 editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security
+ms.subservice: security-develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 66719d43db277e6c82d89ee17c602309d16140f8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 0683c065285a6ddf8d966bbd3d22e88c39b34d5c
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489976"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728805"
 ---
 # <a name="develop-a-secure-web-app"></a>Een beveiligde web-app ontwikkelen
 
@@ -137,7 +138,7 @@ Als u de toepassing wilt uitvoeren, moet u deze hulpprogram ma's installeren:
 - [Git](https://git-scm.com/) op uw systeem. Git wordt gebruikt om de bron code lokaal te klonen.
 - [JQ](https://stedolan.github.io/jq/), een UNIX-hulp programma voor het uitvoeren van QUERY'S in JSON op een gebruiks vriendelijke manier.
 
-U hebt een Azure-abonnement nodig om de resources van de voor beeld-app te implementeren. Als u geen Azure-abonnement hebt, kunt u [een gratis account maken](https://azure.microsoft.com/en-us/free/) om de voor beeld-app te testen.
+U hebt een Azure-abonnement nodig om de resources van de voor beeld-app te implementeren. Als u geen Azure-abonnement hebt, kunt u [een gratis account maken](https://azure.microsoft.com/free/) om de voor beeld-app te testen.
 
 Na de installatie van deze hulpprogram ma's bent u klaar om de app te implementeren in Azure.
 
@@ -353,7 +354,7 @@ Zie [SSL-connectiviteit configureren in azure database for PostgreSQL](https://d
 Een basis certificaat is opgenomen in de container. De stappen voor het verkrijgen van het certificaat zijn:
 
 1. Down load het certificaat bestand van de [certificerings instantie](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
-2. [Down load en installeer openssl op uw computer](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security#download-and-install-openssl-on-your-machine).
+2. [Down load en installeer openssl op uw computer](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security).
 3. Uw certificaat bestand decoderen:
 
    ```powershell

@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: e319356d555f26354ea29dc7be068bf6168abb17
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fef5cd38461fec67790fb67faf8e466d46b247fc
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67455155"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669608"
 ---
 ## <a name="local-settings-file"></a>Lokale instellingsbestand
 
-Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en -instellingen die door de hulpprogramma's voor lokale ontwikkeling. Instellingen in het bestand local.settings.json worden alleen gebruikt wanneer die lokaal wordt uitgevoerd. De lokale instellingen-bestand heeft de volgende structuur:
+In het bestand local. settings. json worden de app-instellingen, verbindings reeksen en instellingen opgeslagen die worden gebruikt door de lokale ontwikkelingsprogram ma's. Instellingen in het bestand local. settings. json worden alleen gebruikt wanneer u projecten lokaal uitvoert. Het lokale instellingen bestand heeft deze structuur:
 
 ```json
 {
@@ -35,16 +35,16 @@ Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en
 }
 ```
 
-De volgende instellingen worden ondersteund bij lokale uitvoering:
+Deze instellingen worden ondersteund wanneer u projecten lokaal uitvoert:
 
 | Instelling      | Description                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Als de waarde `true`, alle waarden zijn versleuteld met behulp van de sleutel van een lokale computer. Gebruikt in combinatie met `func settings` opdrachten. Standaardwaarde is `false`. |
-| **`Values`** | Matrix van instellingen van toepassingen en verbindingsreeksen gebruikt bij het lokaal worden uitgevoerd. Deze sleutel-waarde (tekenreeks-tekenreeks)-paren overeenkomen met toepassingsinstellingen in uw functie-app in Azure, zoals [ `AzureWebJobsStorage` ]. Veel triggers en bindingen hebben een eigenschap die naar een appinstelling voor de verbindingsreeks, zoals verwijst `Connection` voor de [Blob storage-trigger](../articles/azure-functions/functions-bindings-storage-blob.md#trigger---configuration). Voor deze eigenschappen, moet u een toepassingsinstelling gedefinieerd in de `Values` matrix. <br/>[`AzureWebJobsStorage`] is een vereiste app instellen voor triggers dan HTTP. <br/>Versie 2.x van de Functions-runtime moet de [`FUNCTIONS_WORKER_RUNTIME`]-instelling, die wordt gegenereerd voor uw project door Core Tools. <br/> Wanneer u hebt de [Azure-opslagemulator](../articles/storage/common/storage-use-emulator.md) lokaal is geïnstalleerd, kunt u instellen [ `AzureWebJobsStorage` ] naar `UseDevelopmentStorage=true` en Core Tools maakt gebruik van de emulator. Dit is handig tijdens het ontwikkelen, maar u moet testen met een verbinding van de werkelijke opslag vóór de implementatie.<br/> Waarden moeten tekenreeksen en geen JSON-objecten of matrices zijn. Instellen van namen mogen niet voorkomen een dubbele punt (`:`) of een dubbele onderstreping (`__`); deze zijn gereserveerd door de runtime.  |
-| **`Host`** | Instellingen in deze sectie aanpassen hostproces van de functies bij lokale uitvoering. Dit zijn gescheiden van de instellingen host.json, die ook van toepassing wanneer die wordt uitgevoerd in Azure. |
-| **`LocalHttpPort`** | Hiermee stelt u de standaardpoort gebruikt bij het uitvoeren van de lokale host van de functies (`func host start` en `func run`). De `--port` opdrachtregeloptie te gebruiken heeft voorrang op deze waarde. |
-| **`CORS`** | Definieert de oorsprongen toegestaan voor [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Oorsprongen zijn opgegeven als een door komma's gescheiden lijst zonder spaties. Het jokerteken (\*) wordt ondersteund, waarmee aanvragen van een oorsprong. |
-| **`CORSCredentials`** |  Instellen op true opdat `withCredentials` aanvragen. |
-| **`ConnectionStrings`** | Gebruik deze verzameling niet voor de verbindingsreeksen die worden gebruikt door uw functiebindingen. Deze verzameling wordt alleen gebruikt door frameworks die doorgaans downloadt verbindingsreeksen uit de `ConnectionStrings` gedeelte van een configuratie-bestand, zoals [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Verbindingsreeksen in dit object zijn toegevoegd aan de omgeving van het providertype [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Items in deze verzameling zijn niet gepubliceerd naar Azure met andere app-instellingen. U moet expliciet toevoegen met deze waarden naar de `Connection strings` verzameling van de instellingen van uw functie-app. Als u maakt een [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) in uw functiecode aan te geven, moet u de connection string-waarde in opslaan **toepassingsinstellingen** in de portal aan met uw andere verbindingen. |
+| **`IsEncrypted`** | Als deze instelling is ingesteld op `true`, worden alle waarden versleuteld met een lokale computer sleutel. Wordt gebruikt `func settings` met opdrachten. De standaard waarde `false`is. |
+| **`Values`** | Matrix van toepassings instellingen en verbindings reeksen die worden gebruikt wanneer een project lokaal wordt uitgevoerd. Deze combi natie van sleutel waarden (string-string) komt overeen met de toepassings instellingen in uw functie-app [`AzureWebJobsStorage`]in azure, zoals. Veel triggers en bindingen hebben een eigenschap die verwijst naar een Connection String app-instelling, `Connection` zoals voor de [Blob Storage-trigger](../articles/azure-functions/functions-bindings-storage-blob.md#trigger---configuration). Voor deze eigenschappen hebt u een toepassings instelling nodig die in de `Values` matrix is gedefinieerd. <br/>[`AzureWebJobsStorage`]is een vereiste app-instelling voor andere triggers dan HTTP. <br/>Versie 2. x van de functions runtime vereist de`FUNCTIONS_WORKER_RUNTIME`instelling [], die voor uw project wordt gegenereerd door kern hulpprogramma's. <br/> Wanneer u de [Azure Storage-emulator](../articles/storage/common/storage-use-emulator.md) lokaal hebt geïnstalleerd en hebt [`AzureWebJobsStorage`] ingesteld `UseDevelopmentStorage=true`op, maakt de kern hulpprogramma's gebruik van de emulator. De emulator is handig tijdens de ontwikkeling, maar u moet eerst een echte opslag verbinding testen voordat u de implementatie kunt uitvoeren.<br/> Waarden moeten teken reeksen en geen JSON-objecten of matrices zijn. Namen van instellingen mogen geen dubbele punt`:`() of een dubbel onderstrepen`__`() bevatten. Deze tekens zijn gereserveerd door de runtime.  |
+| **`Host`** | Met de instellingen in deze sectie wordt het hostproces voor functies aangepast wanneer u projecten lokaal uitvoert. Deze instellingen zijn gescheiden van de host. json-instellingen, die ook van toepassing zijn wanneer u projecten in azure uitvoert. |
+| **`LocalHttpPort`** | Hiermee stelt u de standaard poort in die wordt gebruikt voor het`func host start` uitvoeren `func run`van de lokale functions-host (en). De `--port` opdracht regel optie heeft voor rang op deze instelling. |
+| **`CORS`** | Hiermee worden de oorsprong gedefinieerd die zijn toegestaan voor het [delen van cross-Origin-resources (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Oorsprongen worden geleverd als een door komma's gescheiden lijst zonder spaties. De waarde van het\*Joker teken () wordt ondersteund, waardoor aanvragen van elke oorsprong worden toegestaan. |
+| **`CORSCredentials`** |  Als deze is `true`ingesteld op `withCredentials` , worden aanvragen toegestaan. |
+| **`ConnectionStrings`** | Een verzameling. Gebruik deze verzameling niet voor de verbindings reeksen die worden gebruikt door uw functie bindingen. Deze verzameling wordt alleen gebruikt door frameworks die meestal verbindings reeksen ophalen uit de `ConnectionStrings` sectie van een configuratie bestand, zoals [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Verbindings reeksen in dit object worden toegevoegd aan de omgeving met het provider type [System. data. SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Items in deze verzameling worden niet naar Azure gepubliceerd met andere app-instellingen. U moet deze waarden expliciet toevoegen aan de `Connection strings` verzameling van de instellingen van de functie-app. Als u een [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) in uw functie code maakt, moet u de Connection String waarde opslaan met uw andere verbindingen in **Toepassings instellingen** in de portal. |
 
 [`AzureWebJobsStorage`]: ../articles/azure-functions/functions-app-settings.md#azurewebjobsstorage

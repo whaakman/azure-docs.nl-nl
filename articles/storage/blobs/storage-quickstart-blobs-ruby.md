@@ -1,20 +1,18 @@
 ---
 title: 'Azure-snelstart: een blob maken in objectopslag met Ruby | Microsoft Docs'
 description: In deze snelstart maakt u een opslagaccount en een container in object(blob)-opslag. Vervolgens gebruikt u de opslagclientbibliotheek voor Ruby om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 11/14/2018
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 77e8e3dd8c32545b24230512ded00e335108d802
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 11/14/2018
+ms.service: storage
+ms.subservice: blobs
+ms.topic: quickstart
+ms.openlocfilehash: 8c24c5f043d17b5f0e54ca1c2c6cf41a0d3fe9bc
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150432"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726354"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Quickstart: blobs downloaden, uploaden en vermelden met behulp van Ruby
 
@@ -115,7 +113,7 @@ blob_client.set_container_acl(container_name, "container")
 
 Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. Omdat blok-blobs het meest worden gebruikt, worden ze in deze Quick Start gebruikt.  
 
-Als u een bestand naar een blob wilt uploaden, hebt u het volledige pad van het bestand nodig dat u vindt door de naam van de map en de bestandsnaam op uw lokale schijf samen te voegen. Vervolgens kunt u het bestand uploaden naar het opgegeven pad met behulp van de methode**create\_block\_blob()**. 
+Als u een bestand naar een blob wilt uploaden, hebt u het volledige pad van het bestand nodig dat u vindt door de naam van de map en de bestandsnaam op uw lokale schijf samen te voegen. Vervolgens kunt u het bestand uploaden naar het opgegeven pad met behulp van de methode**create\_block\_blob()** . 
 
 Met de voorbeeldcode wordt een lokaal bestand gemaakt voor het uploaden en downloaden, waarmee het bestand dat moet worden geüpload als **file\_path\_to\_file** en de naam van de blob als **local\_file\_name** wordt opgeslagen. In het volgende voorbeeld wordt het bestand geüpload naar de container met de naam **quickstartblobs**.
 
@@ -141,7 +139,7 @@ Gebruik de methode **create\_block\_list()** om een gedeeltelijke update van de 
 
 ### <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
-U kunt een lijst met bestanden ophalen in de container met behulp van de methode **list\_blobs()**. Met de volgende code wordt de lijst met blobs opgehaald en doorlopen, waarbij de namen van de blobs worden weergegeven die in een container zijn aangetroffen.  
+U kunt een lijst met bestanden ophalen in de container met behulp van de methode **list\_blobs()** . Met de volgende code wordt de lijst met blobs opgehaald en doorlopen, waarbij de namen van de blobs worden weergegeven die in een container zijn aangetroffen.  
 
 ```ruby
 # List the blobs in the container
@@ -158,7 +156,7 @@ end
 
 ### <a name="download-the-blobs"></a>De blobs downloaden
 
-Download blobs naar uw lokale schijf met de methode **get\_blob()**. Met de volgende code wordt een blob gedownload die in een vorige sectie is geüpload. '_DOWNLOADED' wordt toegevoegd als achtervoegsel aan de naam van de blob, zodat u beide bestanden op de lokale schijf kunt zien. 
+Download blobs naar uw lokale schijf met de methode **get\_blob()** . Met de volgende code wordt een blob gedownload die in een vorige sectie is geüpload. '_DOWNLOADED' wordt toegevoegd als achtervoegsel aan de naam van de blob, zodat u beide bestanden op de lokale schijf kunt zien. 
 
 ```ruby
 # Download the blob(s).
@@ -171,7 +169,7 @@ File.open(full_path_to_file2,"wb") {|f| f.write(content)}
 ```
 
 ### <a name="clean-up-resources"></a>Resources opschonen
-Als u de blobs die in deze snelstartgids zijn geüpload niet langer nodig hebt, kunt u de volledige container verwijderen met behulp van de methode **delete\_container()**. Als de bestanden die zijn gemaakt niet meer nodig zijn, gebruikt u de methode **delete\_blob()** om ze te verwijderen.
+Als u de blobs die in deze snelstartgids zijn geüpload niet langer nodig hebt, kunt u de volledige container verwijderen met behulp van de methode **delete\_container()** . Als de bestanden die zijn gemaakt niet meer nodig zijn, gebruikt u de methode **delete\_blob()** om ze te verwijderen.
 
 ```ruby
 # Clean up resources. This includes the container and the temp files

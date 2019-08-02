@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5fa8e54a6a665b1bad91a87ca8e58f873df1ae8a
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: da3cb81eaeaa3b1609ffe67b2aea92a69b6bb47a
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672319"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726254"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Vereisten voor Azure Disk Encryption (vorige versie)
 
@@ -24,7 +24,7 @@ Voordat u Azure Disk Encryption op Azure IaaS Virtual Machines voor de ondersteu
 
 > [!WARNING]
 > - Bepaalde aanbevelingen verhogen gegevens-, netwerk- of computerresources, wat resulteert in extra kosten in licentie of abonnement. U moet een geldige actief Azure-abonnement om resources te maken in Azure in de ondersteunde regio's hebben.
-> - Als u eerder hebt gebruikt [Azure Disk Encryption met Azure AD-app](azure-security-disk-encryption-prerequisites-aad.md) voor het versleutelen van deze virtuele machine hebt uitgevoerd, om door te gaan met deze optie gebruiken voor het versleutelen van uw virtuele machine. U kunt geen gebruiken [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) op deze versleutelde VM als dit niet een ondersteund scenario betekenis overschakelen van AAD-toepassing voor deze virtuele machine versleuteld wordt niet ondersteund nog. 
+> - Als u eerder Azure Disk Encryption hebt gebruikt [met Azure AD-App](azure-security-disk-encryption-prerequisites-aad.md) voor het versleutelen van deze VM, moet u deze optie blijven gebruiken om uw virtuele machine te versleutelen. U kunt [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) op deze versleutelde VM niet gebruiken omdat dit geen ondersteund scenario is, wat betekent dat het uitschakelen van de Aad-toepassing voor deze versleutelde virtuele machine niet wordt ondersteund. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -33,56 +33,56 @@ Voordat u Azure Disk Encryption op Azure IaaS Virtual Machines voor de ondersteu
 ### <a name="windows"></a>Windows
 
 - Windows-client: Windows 8 en hoger.
-- Windows Server: Windows Server 2008 R2 en hoger.  
+- Windows Server: Windows Server 2008 R2 of hoger.  
  
 > [!NOTE] 
-> Windows Server 2008 R2 moet het .NET Framework 4.5 zijn geïnstalleerd om versleuteling; Installeer de aanmeldhulp vanaf Windows bijwerken met de optionele update voor Microsoft .NET Framework 4.5.2 voor Windows Server 2008 R2 x64 64-systemen ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
+> Voor Windows Server 2008 R2 moet .NET Framework 4,5 zijn geïnstalleerd voor versleuteling. Installeer het van Windows Update met de optionele update Microsoft .NET Framework 4.5.2 voor Windows Server 2008 R2 x64-systemen ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
 >  
-> Core van Windows Server 2012 R2 en Windows Server 2016 Core moet het bdehdcfg onderdeel dat moet worden geïnstalleerd op de virtuele machine voor versleuteling.
+> Windows Server 2012 R2 core en Windows Server 2016 core vereist dat het onderdeel bdehdcfg op de virtuele machine wordt geïnstalleerd voor versleuteling.
 
 ### <a name="linux"></a>Linux 
 
-Azure Disk Encryption wordt ondersteund op een subset van de [door Azure onderschreven Linux-distributies](../virtual-machines/linux/endorsed-distros.md), die is zelf een subset van alle Linux-server mogelijk distributies.
+Azure Disk Encryption wordt ondersteund op een subset van de door [Azure goedgekeurde Linux-distributies](../virtual-machines/linux/endorsed-distros.md). Dit is een subset van alle mogelijke distributies van Linux server.
 
-![Venn-Diagram van de Linux-server-distributies die ondersteuning bieden voor Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+![Venn-diagram van Linux-server distributies die ondersteuning bieden voor Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
 
-Linux-distributies voor server die niet zijn goedgekeurd door Azure bieden geen ondersteuning voor Azure Disk Encryption en die zijn goedgekeurd, alleen de volgende distributies en versies ondersteuning voor Azure Disk Encryption:
+Linux-server distributies die niet zijn goedgekeurd door Azure, bieden geen ondersteuning voor Azure Disk Encryption en, van degenen die worden goedgekeurd, alleen de volgende distributies en versies ondersteunen Azure Disk Encryption:
 
 | Linux-distributie | Versie | Volumetype wordt ondersteund voor versleuteling|
 | --- | --- |--- |
-| Ubuntu | 18.04| Besturingssysteem- en schijf |
+| Ubuntu | 18,04| Besturingssysteem- en schijf |
 | Ubuntu | 16.04| Besturingssysteem- en schijf |
-| Ubuntu | 14.04.5</br>[met Azure afgestemd op de kernel bijgewerkt naar 4.15 of hoger](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Besturingssysteem- en schijf |
-| RHEL | 7.6 | Besturingssysteem- en -schijf (Zie opmerking hieronder) |
-| RHEL | 7.5 | Besturingssysteem- en -schijf (Zie opmerking hieronder) |
-| RHEL | 7.4 | Besturingssysteem- en -schijf (Zie opmerking hieronder) |
-| RHEL | 7.3 | Besturingssysteem- en -schijf (Zie opmerking hieronder) |
-| RHEL | 7.2 | Besturingssysteem- en -schijf (Zie opmerking hieronder) |
-| RHEL | 6.8 | Gegevensschijf (Zie opmerking hieronder) |
-| RHEL | 6.7 | Gegevensschijf (Zie opmerking hieronder) |
-| CentOS | 7.6 | Besturingssysteem- en schijf |
+| Ubuntu | 14.04.5</br>[met een afgestemde kernel van Azure bijgewerkt tot 4,15 of hoger](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Besturingssysteem- en schijf |
+| RHEL | 7,6 | Besturings systeem en gegevens schijf (zie opmerking hieronder) |
+| RHEL | 7.5 | Besturings systeem en gegevens schijf (zie opmerking hieronder) |
+| RHEL | 7.4 | Besturings systeem en gegevens schijf (zie opmerking hieronder) |
+| RHEL | 7.3 | Besturings systeem en gegevens schijf (zie opmerking hieronder) |
+| RHEL | 7.2 | Besturings systeem en gegevens schijf (zie opmerking hieronder) |
+| RHEL | 6.8 | Gegevens schijf (zie opmerking hieronder) |
+| RHEL | 6.7 | Gegevens schijf (zie opmerking hieronder) |
+| CentOS | 7,6 | Besturingssysteem- en schijf |
 | CentOS | 7.5 | Besturingssysteem- en schijf |
 | CentOS | 7.4 | Besturingssysteem- en schijf |
 | CentOS | 7.3 | Besturingssysteem- en schijf |
 | CentOS | 7.2n | Besturingssysteem- en schijf |
 | CentOS | 6.8 | Gegevensschijf |
-| openSUSE | 42.3 | Gegevensschijf |
+| openSUSE | 42,3 | Gegevensschijf |
 | SLES | 12-SP4 | Gegevensschijf |
 | SLES | 12-SP3 | Gegevensschijf |
 
 > [!NOTE]
-> De nieuwe ADE-implementatie wordt ondersteund voor RHEL-besturingssysteem en de gegevensschijf voor RHEL7 betalen per gebruik-installatiekopieën. ADE wordt momenteel niet ondersteund voor installatiekopieën van RHEL Bring-Your-Own-abonnement (BYOS). Zie [Azure Disk Encryption voor Linux](azure-security-disk-encryption-linux.md) voor meer informatie.
+> De nieuwe ADE-implementatie wordt ondersteund voor RHEL-besturings systeem en gegevens schijf voor RHEL7 betalen per gebruik-installatie kopieën. ADE wordt momenteel niet ondersteund voor RHEL (BYOS)-installatie kopieën van uw eigen abonnement. Zie [Azure Disk Encryption voor Linux](azure-security-disk-encryption-linux.md) voor meer informatie.
 
 - Azure Disk Encryption is vereist dat uw sleutelkluis en de virtuele machines zich in de dezelfde Azure-regio en het abonnement bevinden. Configureren van de resources in verschillende regio's, zorgt ervoor dat een fout opgetreden bij het inschakelen van de Azure Disk Encryption-functie.
 
-#### <a name="additional-prerequisites-for-linux-iaas-vms"></a>Aanvullende vereisten voor Linux IaaS-VM 's 
+#### <a name="additional-prerequisites-for-linux-iaas-vms"></a>Aanvullende vereisten voor virtuele Linux IaaS-machines 
 
-- Azure Disk Encryption is vereist voor de dm-crypt en vfat modules moet aanwezig zijn op het systeem. Verwijderen of uitschakelen van vfat van de standaardinstallatiekopie wordt voorkomen dat het systeem na het lezen van het volume van de sleutel en het verkrijgen van de sleutel die nodig zijn voor het ontgrendelen van de schijven op de volgende opnieuw wordt opgestart. Systeem-beveiligingsstappen die de module vfat uit het systeem verwijderen zijn niet compatibel met Azure Disk Encryption. 
-- Voordat u versleuteling inschakelt, moeten de gegevensschijven moeten worden versleuteld goed worden weergegeven in/etc/fstab. Gebruik een permanente blok apparaatnaam op voor deze vermelding als apparaat namen in de indeling '/ dev/sdX' kunnen niet worden gebruikt om te worden gekoppeld aan dezelfde schijf tijdens opnieuw opstarten, met name als versleuteling wordt toegepast. Zie voor meer informatie over dit gedrag: [Wijzigingen van de apparaatnaam Linux-VM oplossen](../virtual-machines/linux/troubleshoot-device-names-problems.md)
+- Azure Disk Encryption vereist dat de DM-cryptografie-en vfat-modules aanwezig zijn op het systeem. Als u vfat uit de standaard installatie kopie verwijdert of uitschakelt, wordt het sleutel volume niet door het systeem gelezen en wordt de benodigde sleutel voor het ontgrendelen van de schijven bij de volgende keer opnieuw opstarten voor komen. De stappen voor het beveiligen van het systeem die de vfat-module van het systeem verwijderen, zijn niet compatibel met Azure Disk Encryption. 
+- Voordat u versleuteling inschakelt, moeten de gegevensschijven moeten worden versleuteld goed worden weergegeven in/etc/fstab. Gebruik een permanente blok apparaatnaam op voor deze vermelding als apparaat namen in de indeling '/ dev/sdX' kunnen niet worden gebruikt om te worden gekoppeld aan dezelfde schijf tijdens opnieuw opstarten, met name als versleuteling wordt toegepast. Zie voor meer informatie over dit gedrag: [Naam wijzigingen van Linux VM-apparaat oplossen](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - Zorg ervoor dat de/etc/fstab-instellingen juist zijn geconfigureerd voor koppelen. Deze instellingen configureren, uitvoeren van de opdracht mount- of opnieuw opstarten van de virtuele machine en activeren van de beschadigingsgebeurtenissen op die manier. Zodra dat is voltooid, controleert u de uitvoer van de opdracht lsblk om te controleren dat de schijf nog steeds is gekoppeld. 
   - Als het bestand/etc/fstab niet naar behoren het station koppelen voordat versleuteling is ingeschakeld, kunnen Azure Disk Encryption correct koppelen niet mogelijk.
   - De Azure Disk Encryption-proces worden de mount-gegevens uit/etc/fstab en in een eigen configuratiebestand als onderdeel van het versleutelingsproces verplaatst. Geen worden zorgen om te zien van de vermelding ontbreekt in/etc/fstab nadat gegevens stationsversleuteling is voltooid.
-  - Voordat het starten van versleuteling, moet u stoppen alle services en processen die naar schrijven kunnen gegevensschijven gekoppeld en uitschakelen, zodat ze niet opnieuw automatisch na het opnieuw opstarten opstarten. Deze kunnen bestanden op deze partities te voorkomen dat de versleuteling procedure als u wilt koppelen, veroorzaakt door uitval van de versleuteling is geopend houden. 
+  - Voordat u begint met het versleutelen, moet u alle services en processen die kunnen schrijven naar gekoppelde gegevens schijven stoppen en uitschakelen, zodat ze niet automatisch opnieuw worden opgestart na het opnieuw opstarten. Hierdoor blijven bestanden geopend op deze partities, waardoor de versleutelings procedure niet opnieuw kan worden gekoppeld, waardoor de versleuteling mislukt. 
   - Het duurt na opnieuw opstarten, tijd voor de Azure Disk Encryption-proces om de zojuist versleutelde schijven te koppelen. Ze zijn niet meteen beschikbaar na het opnieuw opstarten. Het proces tijd om te beginnen, ontgrendelen en koppel vervolgens de versleutelde schijven voordat deze beschikbaar is voor andere processen voor toegang tot nodig heeft. Dit proces duurt langer dan een minuut na opnieuw opstarten, afhankelijk van de kenmerken van het systeem.
 
 Een voorbeeld van de opdrachten die kan worden gebruikt om de gegevensschijven koppelen en de benodigde/etc/fstab-vermeldingen te maken kunt u vinden [regels 244-248 van dit scriptbestand](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248). 
@@ -111,14 +111,14 @@ Een voorbeeld van de opdrachten die kan worden gebruikt om de gegevensschijven k
 **Groepsbeleid:**
  - De Azure Disk Encryption-oplossing maakt gebruik van de externe BitLocker-sleutelbeveiliging voor Windows IaaS-VM's. Voor virtuele machines van een domein, niet een Groepsbeleid TPM beveiligingstoepassingen afdwingen pushen. Zie voor meer informatie over het groepsbeleid voor "Toestaan BitLocker zonder een compatibele TPM" [BitLocker Group Policy Reference](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
--  BitLocker-Groepsbeleid op virtuele machines van een domein voor de aangepaste moet zijn onder andere de volgende instelling: [Configureren van opslag van de gebruiker van BitLocker-herstelgegevens > toestaan 256-bits herstelsleutel](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption mislukt wanneer u aangepaste instellingen voor Groepsbeleid voor BitLocker niet compatibel zijn. Het nieuwe beleid toepassen op virtuele machines die niet de juiste instelling hebben, en vervolgens opnieuw te starten is mogelijk vereist afdwingen dat het nieuwe beleid om bij te werken (gpupdate.exe/Force).  
+-  Het BitLocker-beleid voor virtuele machines die lid zijn van een domein met aangepast groeps beleid moet de volgende instelling bevatten: [Gebruikers opslag configureren van BitLocker-herstel gegevens-> 256-bits herstel sleutel toestaan](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption mislukt wanneer aangepaste groeps beleids instellingen voor BitLocker incompatibel zijn. Het nieuwe beleid toepassen op virtuele machines die niet de juiste instelling hebben, en vervolgens opnieuw te starten is mogelijk vereist afdwingen dat het nieuwe beleid om bij te werken (gpupdate.exe/Force).  
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
-[Azure PowerShell](/powershell/azure/overview) biedt een set cmdlets die gebruikmaakt van de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) model voor het beheren van uw Azure-resources. U kunt deze gebruiken in uw browser met [Azure Cloud Shell](../cloud-shell/overview.md), of kunt u deze installeren op uw lokale computer met behulp van de onderstaande instructies om te worden gebruikt in een PowerShell-sessie. Als u al deze lokaal geïnstalleerd hebt, zorg er dan voor dat u de meest recente versie van Azure PowerShell gebruiken om te configureren van Azure Disk Encryption.
+[Azure PowerShell](/powershell/azure/overview) biedt een set cmdlets die gebruikmaakt van de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) model voor het beheren van uw Azure-resources. U kunt deze gebruiken in uw browser met [Azure Cloud Shell](../cloud-shell/overview.md), of kunt u deze installeren op uw lokale computer met behulp van de onderstaande instructies om te worden gebruikt in een PowerShell-sessie. Als u het lokaal al hebt geïnstalleerd, moet u ervoor zorgen dat u de meest recente versie van Azure PowerShell gebruikt voor het configureren van Azure Disk Encryption.
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Azure PowerShell installeren voor gebruik op uw lokale computer (optioneel):  
-1. [Azure PowerShell installeren en configureren](/powershell/azure/install-az-ps). 
+1. [Installeer en configureer Azure PowerShell](/powershell/azure/install-az-ps). 
 
 2. Installeer de [Azure Active Directory PowerShell-module](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module). 
 
@@ -131,7 +131,7 @@ Een voorbeeld van de opdrachten die kan worden gebruikt om de gegevensschijven k
       Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path
       Get-Module AzureAD -ListAvailable | Select-Object -Property Name,Version,Path
       ```
-4. Aanmelden bij Azure met de [Connect AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+4. Meld u aan bij Azure met de cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) .
      
      ```powershell
      Connect-AzAccount
@@ -183,7 +183,7 @@ De [Azure CLI 2.0](/cli/azure) is een opdrachtregelprogramma voor het beheren va
 
 ## <a name="prerequisite-workflow-for-key-vault-and-the-azure-ad-app"></a>Vereiste werkstroom voor Key Vault en de Azure AD-app
 
-Als u al bekend met de Key Vault en Azure AD-vereisten voor Azure Disk Encryption bent, kunt u de [PowerShell script met vereisten voor Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Zie voor meer informatie over het gebruik van het script met vereisten voor de [een snelstartgids van Virtual machines versleutelen](quick-encrypt-vm-powershell.md) en de [Azure Disk Encryption bijlage](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
+Als u al bekend met de Key Vault en Azure AD-vereisten voor Azure Disk Encryption bent, kunt u de [PowerShell script met vereisten voor Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Zie voor meer informatie over het gebruik van het vereisten script de [Azure Disk Encryption bijlage](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
 
 1. Een sleutelkluis maken. 
 2. Instellen van een Azure AD-toepassing en service-principal.
@@ -200,17 +200,17 @@ Azure Disk Encryption is geïntegreerd met [Azure Key Vault](https://azure.micro
 
 ### <a name="bkmk_KVPSH"></a> Een sleutelkluis maken met PowerShell
 
-U kunt een sleutelkluis maken met het gebruik van Azure PowerShell de [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault) cmdlet. Zie voor aanvullende cmdlets voor Key Vault [Az.KeyVault](/powershell/module/az.keyvault/). 
+U kunt een sleutel kluis maken met Azure PowerShell met behulp van de cmdlet [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault) . Zie [AZ. sleutel kluis](/powershell/module/az.keyvault/)voor extra cmdlets voor Key Vault. 
 
 1. Indien nodig, [verbinding maken met uw Azure-abonnement](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH). 
-2. Maak een nieuwe resourcegroep, indien nodig, met [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup).  Lijst met locaties voor data center, gebruikt [Get-AzLocation](/powershell/module/az.resources/get-azlocation). 
+2. Maak indien nodig een nieuwe resource groep met [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup).  Gebruik [Get-AzLocation](/powershell/module/az.resources/get-azlocation)om de locaties van data centers weer te geven. 
      
      ```azurepowershell-interactive
      # Get-AzLocation 
      New-AzResourceGroup –Name 'MyKeyVaultResourceGroup' –Location 'East US'
      ```
 
-3. Maak een nieuwe sleutelkluis met [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault)
+3. Een nieuwe sleutel kluis maken met [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault)
     
       ```azurepowershell-interactive
      New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
@@ -254,7 +254,7 @@ Wanneer u versleuteling wordt ingeschakeld op een actieve virtuele machine in Az
 Voor het uitvoeren van de volgende opdrachten, halen en gebruik de [Azure AD PowerShell-module](/powershell/azure/active-directory/install-adv2). 
 
 1. Indien nodig, [verbinding maken met uw Azure-abonnement](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH).
-2. Gebruik de [New-AzADApplication](/powershell/module/az.resources/new-azadapplication) PowerShell-cmdlet voor het maken van een Azure AD-toepassing. MyApplicationHomePage en de MyApplicationUri mag geen waarden die u wilt.
+2. Gebruik de Power shell [-cmdlet New-AzADApplication](/powershell/module/az.resources/new-azadapplication) om een Azure AD-toepassing te maken. MyApplicationHomePage en de MyApplicationUri mag geen waarden die u wilt.
 
      ```azurepowershell
      $aadClientSecret = "My AAD client secret"
@@ -268,7 +268,7 @@ Voor het uitvoeren van de volgende opdrachten, halen en gebruik de [Azure AD Pow
 
 ### <a name="bkmk_ADappCLI"></a> Instellen van een Azure AD-app en service principal met de Azure CLI
 
-U kunt uw service-principals met Azure CLI met beheren de [az ad sp](/cli/azure/ad/sp) opdrachten. Zie voor meer informatie, [een Azure-service-principal maken](/cli/azure/create-an-azure-service-principal-azure-cli).
+U kunt uw service-principals met Azure CLI met beheren de [az ad sp](/cli/azure/ad/sp) opdrachten. Zie [een Azure-service-principal maken](/cli/azure/create-an-azure-service-principal-azure-cli)voor meer informatie.
 
 1. Indien nodig, [verbinding maken met uw Azure-abonnement](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
 2. Maak een nieuwe serviceprincipal.
@@ -285,18 +285,18 @@ Gebruik de stappen bij het [portal gebruiken voor het maken van een Azure Active
 2. [Een Azure Active Directory-toepassing maken](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - U kunt een willekeurige naam gebruiken en aanmeldings-URL die u dat wilt bij het maken van de toepassing.
 3. [De toepassings-ID en de verificatiesleutel](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in). 
-     - De verificatiesleutel is het clientgeheim en wordt gebruikt als de AadClientSecret voor Set-AzVMDiskEncryptionExtension. 
+     - De verificatie sleutel is het client geheim en wordt gebruikt als de AadClientSecret voor set-AzVMDiskEncryptionExtension. 
         - De verificatiesleutel wordt gebruikt door de toepassing als een referentie zich aanmeldt bij Azure AD. Dit geheim wordt aangeroepen sleutels in de Azure-portal, maar heeft geen relatie tot sleutelkluizen. Dit geheim op de juiste manier beveiligen. 
-     - De toepassings-ID wordt later gebruikt als de AadClientId voor Set-AzVMDiskEncryptionExtension en als de ServicePrincipalName voor Set-AzKeyVaultAccessPolicy. 
+     - De toepassings-ID wordt later gebruikt als AadClientId voor set-AzVMDiskEncryptionExtension en als ServicePrincipalName voor set-AzKeyVaultAccessPolicy. 
 
 ## <a name="bkmk_KVAP"></a> Het toegangsbeleid voor key vault voor de Azure AD-app instellen
 Azure Disk Encryption moet encryption geheimen worden geschreven naar een opgegeven Key Vault, de Client-ID en het Clientgeheim van de Azure Active Directory-toepassing met machtigingen voor geheimen schrijven naar de Key Vault. 
 
 > [!NOTE]
-> Azure Disk Encryption moet u het volgende toegangsbeleid naar uw Azure AD-clienttoepassing configureren: _Sleutel inpakken_ en _ingesteld_ machtigingen.
+> Azure Disk Encryption moet u het volgende toegangs beleid configureren voor uw Azure AD-client toepassing: _WrapKey_ en _Stel_ machtigingen in.
 
 ### <a name="bkmk_KVAPPSH"></a> Instellen van het toegangsbeleid voor key vault voor de Azure AD-app met Azure PowerShell
-Uw Azure AD-toepassing moet de rechten voor toegang tot de sleutels of geheimen in de kluis. Gebruik de [Set AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet voor het verlenen van machtigingen voor de toepassing, met behulp van de client-ID (die is gegenereerd toen de toepassing is geregistreerd) als de _– ServicePrincipalName_ parameterwaarde. Zie voor meer informatie het blogbericht [Azure Key Vault - stap voor stap](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). 
+Uw Azure AD-toepassing moet de rechten voor toegang tot de sleutels of geheimen in de kluis. Gebruik de cmdlet [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) om machtigingen toe te kennen aan de toepassing, met behulp van de client-id (die is gegenereerd toen de toepassing is geregistreerd) als de parameter waarde _– ServicePrincipalName_ . Zie voor meer informatie het blogbericht [Azure Key Vault - stap voor stap](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). 
 
 1. Indien nodig, [verbinding maken met uw Azure-abonnement](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH).
 2. Het toegangsbeleid voor key vault voor de AD-toepassing met PowerShell instellen.
@@ -335,21 +335,21 @@ Gebruik [az keyvault-beleid instellen](/cli/azure/keyvault#az-keyvault-set-polic
 Het Azure-platform moet toegang hebben tot de sleutels of geheimen in uw key vault zodat ze beschikbaar voor de virtuele machine voor opstarten en ontsleutelen van de volumes. Schijf-versleuteling inschakelen voor de sleutelkluis of implementaties mislukken.  
 
 ### <a name="bkmk_KVperPSH"></a> Sleutelkluis set geavanceerde toegangsbeleid met Azure PowerShell
- Gebruik de key vault PowerShell-cmdlet [Set AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) om in te schakelen schijfversleuteling voor de key vault.
+ Gebruik de sleutel kluis Power shell [-cmdlet Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) om schijf versleuteling in te scha kelen voor de sleutel kluis.
 
-  - **Key Vault voor schijfversleuteling inschakelen:** EnabledForDiskEncryption is vereist voor Azure Disk encryption.
+  - **Key Vault voor schijf versleuteling inschakelen:** EnabledForDiskEncryption is vereist voor Azure Disk Encryption.
       
      ```azurepowershell-interactive 
      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDiskEncryption
      ```
 
-  - **Key Vault inschakelen voor implementatie, indien nodig:** Kan de Microsoft.Compute-resourceprovider geheimen ophalen uit deze key vault wanneer deze sleutelkluis wordt verwezen in de resources worden gemaakt, bijvoorbeeld bij het maken van een virtuele machine.
+  - **Schakel Key Vault in voor implementatie, indien nodig:** Hiermee kan de micro soft. Compute-resource provider geheimen ophalen van deze sleutel kluis wanneer er naar deze sleutel kluis wordt verwezen bij het maken van een virtuele machine.
 
      ```azurepowershell-interactive
       Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDeployment
      ```
 
-  - **Key Vault inschakelen voor sjabloonimplementatie, indien nodig:** Hiermee kunt Azure Resource Manager geheimen ophalen uit deze key vault wanneer deze sleutelkluis wordt verwezen in de sjabloonimplementatie van een.
+  - **Schakel Key Vault voor sjabloon implementatie in, indien nodig:** Hiermee kunnen Azure Resource Manager geheimen van deze sleutel kluis ophalen wanneer naar deze sleutel kluis wordt verwezen in een sjabloon implementatie.
 
      ```azurepowershell-interactive             
      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForTemplateDeployment
@@ -358,18 +358,18 @@ Het Azure-platform moet toegang hebben tot de sleutels of geheimen in uw key vau
 ### <a name="bkmk_KVperCLI"></a> Sleutelkluis set geavanceerde toegangsbeleid met de Azure CLI
 Gebruik [az keyvault update](/cli/azure/keyvault#az-keyvault-update) om in te schakelen schijfversleuteling voor de key vault. 
 
- - **Key Vault voor schijfversleuteling inschakelen:** Ingeschakeld-voor-schijf-versleuteling is vereist. 
+ - **Key Vault voor schijf versleuteling inschakelen:** Ingeschakeld-voor-schijf versleuteling is vereist. 
 
      ```azurecli-interactive
      az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-disk-encryption "true"
      ```  
 
- - **Key Vault inschakelen voor implementatie, indien nodig:** Zodat virtuele Machines om op te halen van certificaten die zijn opgeslagen als geheimen van de kluis.
+ - **Schakel Key Vault in voor implementatie, indien nodig:** Hiermee staat u toe dat Virtual Machines certificaten kunt ophalen die zijn opgeslagen als geheimen van de kluis.
      ```azurecli-interactive
      az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-deployment "true"
      ``` 
 
- - **Key Vault inschakelen voor sjabloonimplementatie, indien nodig:** Toestaan dat Resource Manager geheimen ophalen uit de kluis.
+ - **Schakel Key Vault voor sjabloon implementatie in, indien nodig:** Resource Manager mag geheimen uit de kluis ophalen.
      ```azurecli-interactive  
      az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-template-deployment "true"
      ```
@@ -386,9 +386,9 @@ Gebruik [az keyvault update](/cli/azure/keyvault#az-keyvault-update) om in te sc
 
 
 ## <a name="bkmk_KEK"></a> Instellen van een sleutel van versleutelingssleutel (optioneel)
-Als u wilt een sleutel key-versleuteling (KEK) te gebruiken voor een extra beveiligingslaag voor versleutelingssleutels, moet u een KEK-sleutel toevoegen aan uw key vault. Gebruik de [toevoegen AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet voor het maken van een sleutel van versleutelingssleutel in de key vault. U kunt ook een KEK-sleutel van uw on-premises Sleutelbeheer HSM importeren. Zie voor meer informatie, [Key Vault-documentatie](../key-vault/key-vault-hsm-protected-keys.md). Wanneer een sleutel van versleutelingssleutel is opgegeven, gebruikt Azure Disk Encryption die sleutel het verpakken van de geheimen van de versleuteling voor het schrijven naar de Key Vault. 
+Als u wilt een sleutel key-versleuteling (KEK) te gebruiken voor een extra beveiligingslaag voor versleutelingssleutels, moet u een KEK-sleutel toevoegen aan uw key vault. Gebruik de cmdlet [add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) om een sleutel versleutelings sleutel te maken in de sleutel kluis. U kunt ook een KEK-sleutel van uw on-premises Sleutelbeheer HSM importeren. Zie voor meer informatie, [Key Vault-documentatie](../key-vault/key-vault-hsm-protected-keys.md). Wanneer een sleutel van versleutelingssleutel is opgegeven, gebruikt Azure Disk Encryption die sleutel het verpakken van de geheimen van de versleuteling voor het schrijven naar de Key Vault. 
 
-* Bij het genereren van sleutels, gebruikt u een type van de RSA-sleutel. Azure Disk Encryption ondersteunt geen nog met behulp van elliptische-sleutels.
+* Gebruik een RSA-sleutel type bij het genereren van sleutels. Azure Disk Encryption biedt nog geen ondersteuning voor het gebruik van elliptische curve toetsen.
 
 * Uw key vault-geheim en de KEK-sleutel-URL's moeten worden bijgehouden. Azure wordt deze beperking van versiebeheer afgedwongen. Zie de volgende voorbeelden voor geldige geheim en KEK-sleutel-URL's:
 

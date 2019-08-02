@@ -1,7 +1,7 @@
 ---
-title: Wanneer u ENUM entiteiten en acties van de entiteit ingesteld met een Model van de cursist conversatie - Azure Cognitive Services | Microsoft Docs
+title: Wanneer u ENUM-entiteiten wilt gebruiken en ENTITEITs acties wilt instellen met een Conversation Learner model-Azure Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Informatie over wanneer het is geschikt voor gebruik in ENUM entiteiten en acties van de entiteit ingesteld met een Model van de cursist conversatie.
+description: Leer wanneer het nodig is om ENUM-entiteiten te gebruiken en ENTITEITs acties in te stellen met een Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,155 +10,156 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nolachar
-ms.openlocfilehash: ed18d30a0c3f5d51cb3a07b8948863cdda16c1ae
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5443b97febd6bf3831690531bceb540181e7676c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845951"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706980"
 ---
-# <a name="when-to-use-enum-entities-and-set-entity-actions"></a>Wanneer u een ENUM-entiteiten en acties van de entiteit instellen
+# <a name="when-to-use-enum-entities-and-set-entity-actions"></a>Wanneer u ENUM-entiteiten gebruikt en ENTITEITs acties INSTELT
 
-In deze zelfstudie wordt uitgelegd wanneer u ENUM (opsomming) entiteiten en SET_ENTITY acties moet gebruiken.
+In deze zelf studie wordt uitgelegd wanneer u ENUM-entiteiten (inventarisatie) en SET_ENTITY-acties moet gebruiken.
 
 ## <a name="video"></a>Video
 
-[![Entiteit zelfstudie Preview-versie instellen](https://aka.ms/cl_Tutorial_v3_SetEntity_Preview)](https://aka.ms/cl_Tutorial_v3_SetEntity)
+[![Preview-versie van de zelf studie voor entiteiten instellen](https://aka.ms/cl_Tutorial_v3_SetEntity_Preview)](https://aka.ms/cl_Tutorial_v3_SetEntity)
 
 
 
-## <a name="what-is-covered"></a>Wat wordt er behandeld
+## <a name="what-is-covered"></a>Wat wordt gedekt
 
-In deze zelfstudie worden twee nieuwe functies geïntroduceerd. Een nieuw type entiteit ENUM (kort voor opsomming) genoemd en een nieuw type actie SET_ENTITY, die kunnen verwijzen naar een van deze enum-waarden, zoals de naam al aangeeft, wordt de entiteit op deze waarde ingesteld. Als u leert onder, deze nieuwe functies samen worden gebruikt en wordt uitgelegd wat ze zijn en hoe u deze hieronder. Voordat we de gegevens krijgen, is het belangrijk om te weten welk probleem deze functies op te lossen.
+In deze zelf studie worden twee nieuwe functies geïntroduceerd. Een nieuw type entiteit met de naam ENUM (kort voor opsomming) en een nieuw type actie, met de naam SET_ENTITY, die kan verwijzen naar een van deze Enum-waarden, en als de naam al aangeeft, wordt de entiteit ingesteld op deze waarde. Zoals hieronder wordt beschreven, worden deze nieuwe functies samen gebruikt en wordt uitgelegd wat ze zijn en hoe u ze hieronder kunt gebruiken. Voordat we de details weer geven, is het belang rijk om te begrijpen welk probleem deze functies kunnen oplossen.
 
 ![enum_entity_type.png](../media/tutorial-enum-set-entity/enum_entity_type.png)
 ![action_set_entity_type.png](../media/tutorial-enum-set-entity/action_set_entity_type.png)
 
 ## <a name="problem"></a>Probleem
 
-Er zijn gevallen in gesprekken waarin de betekenis van woorden is afhankelijk van de context.  Normaal gesproken de gelabelde sleutel woorden worden geleerd en geëxtraheerd met behulp van een language understanding-service, maar in deze gevallen deze systemen kunnen niet mogelijk om te leren met gelabelde voorbeelden.
+Er zijn gevallen in discussies waarbij de betekenis van woorden afhankelijk is van de context.  Normaal gesp roken worden de gelabelde sleutel woorden geleerd en geëxtraheerd met behulp van een language Standing service, maar in deze gevallen is het mogelijk dat deze systemen geen gebruik kunnen maken van voor beelden met een label.
 
-Stel dat u deel uit van een gesprek tussen mensen in de buurt overhear en hoort u alleen het woord "Ja". U zou niet weet wat de "Ja" is akkoord te gaan of bevestigen omdat u de vraag hebt niet gereageerd gevraagd. De vraag gevraagd voordat de context, waardoor betekenis om het antwoord is. Op dezelfde manier sinds "Ja" is een algemene reactie op veel verschillende vragen het niet kan worden geleerd door Hiermee worden voorbeelden gegeven net zoals u met doen zou [aangepaste getrainde](04-introduction-to-entities.md) entiteiten omdat vervolgens deze zou leert u hoe om te labelen elke 'Ja' als die entiteit.
+Stel dat u deelneemt aan een gesprek tussen mensen in de buurt en dat u alleen het woord ' ja ' hoort. U weet niet wat het ' ja ' is om te bevestigen of te controleren omdat u de vraag niet hebt gedaan. De vraag wordt gevraagd voordat de context is. Dit is het antwoord. En omdat ' ja ' een veelvoorkomende reactie op veel verschillende vragen is, kan het niet worden geleerd door voor beelden te bieden zoals u dat zou doen met [aangepaste](04-introduction-to-entities.md) getrainde entiteiten. vervolgens zou het label ' ja ' moeten worden weer gegeven als die entiteit.
 
 ### <a name="example"></a>Voorbeeld
 
-We gaan verder verduidelijken met het volgende voorbeeld:
+Laten we verder verduidelijken met het volgende voor beeld:
 
-Bot: U dat Azure Cognitive Services?
-Gebruiker: Ja Bot: U dat ijs?
+Tape Als Azure Cognitive Services?
+Gebruiker: Ja-bot: Bent u tevreden over Ice room?
 Gebruiker: Ja
 
-In de vorige zelfstudies is bekeken [aangepaste getrainde](04-introduction-to-entities.md) entiteiten en uw eerste thought mogelijk te maken van een entiteit met de naam 'likesCogServices' en de eerste 'Ja' als deze entiteit te labelen.  Echter, zou de tweede ook 'Ja' label het systeem. Wanneer wordt geprobeerd om op te lossen van het label van de tweede 'Ja' op "likesIceCream", we maakt dan een conflict van twee dezelfde invoer "Ja" betekenis verschillende dingen en zou zijn vastgelopen.
+In de vorige zelf studies hebben we gekeken naar [aangepaste](04-introduction-to-entities.md) getrainde entiteiten. het is ook mogelijk om een entiteit met de naam "likesCogServices" te maken en de eerste "ja" als deze entiteit te labelen.  Het systeem zou echter ook het tweede ' ja ' labelen. Wanneer we hebben geprobeerd om het label van de tweede ' ja ' te corrigeren op ' likesIceCream ', maken we een conflict van twee dezelfde invoer ' ja ', wat een afwijkend dingen is en die achterblijven.
 
-Het is in dergelijke gevallen die u nodig hebt om ENUM entiteiten en SET_ENTITY acties te gebruiken.
+In deze gevallen moet u ENUM-entiteiten en SET_ENTITY-acties gebruiken.
 
-## <a name="when-to-use-enums-or-setentity-actions"></a>Wanneer u een Enum-waarden of SET_ENTITY acties
+## <a name="when-to-use-enums-or-setentity-actions"></a>Wanneer u ENUMs of SET_ENTITY-acties wilt gebruiken
 
-Gebruik deze onderstaande regels om te weten wanneer u een ENUM-entiteiten en SET_ENTITY acties:
+Gebruik deze regels hieronder om te weten wanneer u ENUM-entiteiten en SET_ENTITY-acties moet gebruiken:
 
-- Detectie of de instelling van de entiteit is afhankelijk van context
-- Het aantal mogelijke waarden is opgelost (Ja en Nee zou twee waarden)
+- De detectie of instelling van de entiteit is context afhankelijk
+- Aantal mogelijke waarden is vast (Ja en Nee is twee waarden)
 
-Met andere woorden, gebruiken voor het sluiten beëindigd prompts zoals bevestiging vragen die altijd in Ja of Nee resulteren.
+Met andere woorden, u kunt deze gebruiken voor eventuele gesloten prompts, zoals bevestigings vragen die altijd resulteren in Ja of Nee.
 
 > [!NOTE]
-> Momenteel hebben we de beperking van maximaal 5 per entiteit enum-waarden. Een van de sleuven in de huidige limiet van 64 maakt gebruik van elke waarde. Zie [cl-waarden-en-grenzen](../cl-values-and-boundaries.md)
+> Er is momenteel een beperking van Maxi maal vijf waarden per Enum-entiteit. Elke waarde gebruikt een van de sleuven in de huidige limiet van 64. Zie [cl-waarden en-grenzen](../cl-values-and-boundaries.md)
 
-Voorbeeld: Bot: Uw order juist is?
+Voorbeeld: Tape Is uw bestelling correct?
 Gebruiker: Ja
 
-Wanneer de mogelijke waarden van de entiteit Open en niet opgelost zijn, moet u wilt gebruiken, zoals een andere functie [verwacht entiteit](05-expected-entity.md).
+Wanneer de mogelijke waarden van de entiteit open-beëindigd zijn en niet zijn opgelost, moet u een alternatieve functie gebruiken, zoals een [verwachte entiteit](05-expected-entity.md).
 
-Voorbeeld: Bot: Hoe heet u?
-Gebruiker: Matt Bot: Wat is uw favoriete kleur?
+Voorbeeld: Tape Hoe heet u?
+Gebruiker: Matt-bot: Wat is uw favoriete kleur?
 Gebruiker: Zilver
 
-Deze vraag worden beschouwd als open omdat ze met willekeurige waarden kunnen worden beantwoord.
+Deze prompts worden beschouwd als open beëindigd omdat ze kunnen worden beantwoord met wille keurige waarden.
 
 ## <a name="what"></a>Wat
 
-### <a name="enum-entities"></a>ENUM-entiteiten
+### <a name="enum-entities"></a>Entiteiten opsommen
 
-ENUM entiteiten worden net als bij de andere entiteiten gemaakt. Net als bij "programmatische" entiteiten, kan niet u woorden labelen als deze entiteiten. Ze kunnen in plaats daarvan moeten worden ingesteld via programmacode of SET_ENTITY acties.
+ENUM-entiteiten worden net als de andere entiteiten gemaakt. Net als bij een ' programmatische ' entiteit, kunt u geen woorden als deze entiteiten labelen. In plaats daarvan moeten ze worden ingesteld via code-of SET_ENTITY-acties.
 
 ![enum_entity_creation.png](../media/tutorial-enum-set-entity/enum_entity_creation.png)
 
-### <a name="set-entity-actions"></a>Acties van de entiteit instellen
+### <a name="set-entity-actions"></a>Entiteits acties instellen
 
-Zoals eerder vermeld, stelt 'Entiteit ingesteld' acties een entiteit op een bekende enum-waarde. U kunt dezelfde resultaten kan realiseren door het maken van een actie van de callback API en het gebruik van het geheugenbeheer om in te stellen van de entiteit op een waarde. Bijvoorbeeld `memory.Set(entityName, entityValue)`. Met deze code schrijven en maken van deze acties zou worden omslachtig en moeilijk te beheren - zodat Conversatiecursist speciale handelingen te vergemakkelijken dit werk en deze acties automatisch genereren wanneer deze worden gebruikt. Met deze als onafhankelijke acties, behoudt de mogelijkheid voor het opstellen van deze zonder wordt gecombineerd met andere acties of de code in uw bot.
+Zoals hierboven vermeld, worden de acties ' entiteit instellen ' eenvoudigweg ingesteld op een bekende Enum-waarde. U kunt dezelfde resultaten krijgen door een API-call back-actie te maken en met behulp van het geheugen beheer de entiteit in te stellen op een waarde. Bijvoorbeeld `memory.Set(entityName, entityValue)`. Als u deze code wilt schrijven en deze acties wilt maken, worden deze gelastig en moeilijk te beheren, dus Conversation Learner heeft speciale acties om dit werk te vergemakkelijken en deze acties automatisch te genereren wanneer ze worden gebruikt. Als er onafhankelijke acties worden uitgevoerd, blijft de mogelijkheid om deze op te stellen zonder te zijn gekoppeld aan andere acties of code in uw bot.
 
-- Acties voor instellen-entiteit kunnen alleen worden gemaakt met betrekking tot een waarde van een entiteit enum daarom moet u eerst een enum-entiteit maken.
-- Set entiteitacties zijn ook 'niet-await' omdat ze geen zichtbare uitvoer en worden gevolgd door een actie moeten 'wacht' de gebruiker kan zien.
-- Acties voor instellen-entiteit zijn onveranderbare wat betekent dat u deze niet bewerken nadat is gemaakt.
+- Entiteits acties instellen kan alleen worden gemaakt wanneer wordt verwezen naar een waarde van een Enum-entiteit, dus u moet eerst een Enum-entiteit maken.
+- Het instellen van entiteits acties is ook ' niet-await ' omdat deze geen zicht bare uitvoer hebben en moeten worden opgevolgd door een actie die de gebruiker kan zien.
+- Het instellen van entiteits acties is onveranderlijk omdat u deze niet kunt bewerken nadat ze zijn gemaakt.
 
 ![action_set_entity_creation.png](../media/tutorial-enum-set-entity/action_set_entity_creation.png)
 
-### <a name="automatic-action-generation"></a>Automatische actie genereren
+### <a name="automatic-action-generation"></a>Automatisch actie genereren
 
-Als een enum-entiteit in uw model bestaat, wordt Conversatiecursist acties voor elk van de mogelijke waarden voor tijdelijke aanduiding maken en deze beschikbaar om te selecteren tijdens de training. Bij het selecteren, worden de actie wordt automatisch voor u gemaakt.
+Als er in uw model een Enum-entiteit bestaat, maakt Conversation Learner tijdelijke acties voor elk van de mogelijke waarden en maakt u deze beschikbaar om te selecteren tijdens de training. Bij selectie wordt de actie automatisch voor u gemaakt.
 
-Bijvoorbeeld, als ik een enum-entiteit maken met de waarden "Ja" en "Nee":
+Als ik bijvoorbeeld een Enum-entiteit Maak met de waarden ' ja ' en ' nee ':
 
 ![enum_entity_order_confirmation.png](../media/tutorial-enum-set-entity/enum_entity_order_confirmation.png)
 
-Zelfs zonder expliciet het maken van acties voor deze nieuwe enum ziet u twee nieuwe acties die beschikbaar zijn tijdens de training:
+Zelfs zonder expliciete acties voor deze nieuwe enum te maken, ziet u twee nieuwe acties die beschikbaar zijn tijdens de training:
 
 ![action_set_entity_sample.png](../media/tutorial-enum-set-entity/action_set_entity_sample.png)
 
 
-## <a name="create-a-bot-using-these-new-features"></a>Maken van een Bot met behulp van deze nieuwe functies
+## <a name="create-a-bot-using-these-new-features"></a>Een bot maken met behulp van deze nieuwe functies
 
 ### <a name="requirements"></a>Vereisten
 
-In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd
+Voor deze zelf studie moet de bot van de algemene zelf studie worden uitgevoerd
 
     npm run tutorial-general
 
-We gaan een bot om te simuleren fast food bestellen maken. Er discrete waarden voor de grootten van drank en fries (klein/gemiddeld/groot) en bevestiging vragen met Ja / geen antwoorden. Beide van deze entiteiten voldoen aan de regels van de twee hierboven worden contextafhankelijke antwoorden en vaste waarden.
+We gaan een bot maken voor het simuleren van een snelle voedsel-bestelling. Het heeft discrete waarden voor de grootte van drank en Fries (klein/gemiddeld/groot), en bevestigings vragen met Ja/nee-antwoorden. Beide entiteiten voldoen aan de twee regels hierboven dan context afhankelijke antwoorden en vaste waarden.
 
 ### <a name="create-the-model"></a>Het model maken
 
-1. In de web-UI, klikt u op 'Import'
-2. Selecteer de zelfstudie met de naam '-zelfstudie-Enum-Set-entiteit'
+1. Klik in de Web-UI op importeren
+2. Selecteer de zelf studie met de naam ' zelf studie-Enum-set-entity '
 
-Dit, u gaat u naar de pagina met het model management.
-U ziet dat het model bevat al een paar enum-entiteiten en entiteitacties ingesteld.
+Hiermee gaat u naar de pagina model beheer.
+U ziet dat het model al een aantal inventarisatie-entiteiten bevat en entiteits acties instellen.
 
-### <a name="create-the-first-dialog"></a>Het eerste dialoogvenster maken
+### <a name="create-the-first-dialog"></a>Het eerste dialoog venster maken
 
-1. In het navigatievenster aan de linkerkant "Train-dialoogvensters", klik op de knop 'Nieuwe Train dialoogvenster'.
-2. Als het gebruikerstype in, 'Hallo, ik wil een cokes en de fries.'.
-3. Klik op de knop 'Score acties'
+1. Klik in het navigatie venster aan de linkerkant op ' dialoog vensters trainen ' en klik vervolgens op de knop Nieuw trainen dialoog venster.
+2. Als gebruiker typt u in, "Hallo, ik wil graag een cokes best Ellen en Fries".
+3. Klik op de knop Score acties
 
-   > De gebruiker nog niet is opgegeven grootten voor de drank of fries dus moeten we hierover.
+   > De gebruiker heeft geen grootten voor de drank of het Fries opgegeven. Daarom moeten ze worden gevraagd.
 
-4. Selecteer de actie met de reactie: 'Welke grootte drank wilt u dat?'
-5. Als de gebruiker typt, "grote"
-6. Klik op de knop 'Score acties'
-7. Selecteer de actie SET_ENTITY - ' drinkSize: GROTE"
-8. Selecteer de actie met de reactie: "Wat is het formaat fries wilt u?"
-9. Als het type gebruikt in 'Um, moet u deze een medium.
-10. Klik op de knop 'Score acties'
-11. Selecteer de actie SET_ENTITY - ' friesSize: GEMIDDELD'
-12. Selecteer de actie met de reactie: "Wilt u alle kruiden?"
-13. Als het type gebruiken in "Ja"
-14. Klik op de knop 'Score acties'
-15. Selecteer de actie SET_ENTITY - ' condimentsConfirmation: JA"
-16. Selecteer de actie met de reactie: 'Oké, ik heb een bestelling voor een grote drank en gemiddeld fries. Klopt dat?'
-17. Als het type gebruiken in "Ja"
-18. Klik op de knop 'Score acties'
-19. Selecteer de actie SET_ENTITY - ' orderConfirmation: JA"
-20. Selecteer de actie met de reactie: "Het ordernummer van uw is ok, 58. Wacht hier."
-21. Klik op 'Opslaan' om het dialoogvenster te sluiten
+4. Selecteer de actie met reactie: "Welke drank wilt u graag?"
+5. Als gebruiker typt u in, "groot"
+6. Klik op de knop Score acties
+7. Selecteer de actie SET_ENTITY-"drinkSize: LANGE
+8. Selecteer de actie met reactie: "Welk formaat Fries wilt u graag?"
+9. Als het gebruik type in, moet u ' um ' dit een medium maken.
+10. Klik op de knop Score acties
+11. Selecteer de actie SET_ENTITY-"friesSize: DRAGER
+12. Selecteer de actie met reactie: "Wilt u uw kruiden zien?"
+13. Als het gebruik type in, "ja"
+14. Klik op de knop Score acties
+15. Selecteer de actie SET_ENTITY-"condimentsConfirmation: KLIKT
+16. Selecteer de actie met reactie: "OK, ik heb een bestelling voor een groot drank-en gemiddeld Fries. Is dat klopt? '
+17. Als het gebruik type in, "ja"
+18. Klik op de knop Score acties
+19. Selecteer de actie SET_ENTITY-"orderConfirmation: KLIKT
+20. Selecteer de actie met reactie: "OK, uw bestel nummer is 58. Een ogen blik geduld...
+21. Klik op Opslaan om het dialoog venster te sluiten
 
-U hebt zojuist uw eerste dialoogvenster met ENUM-entiteiten en SET_ENTITY acties gemaakt. U kunt veel meer combinaties van de gebruiker gedeeltelijke informatie op te geven of te experimenteren met andere soorten vragen sluiten beëindigd.
+U hebt zojuist uw eerste dialoog venster gemaakt met de acties INVENTARISeren en SET_ENTITY. U kunt veel meer combi Naties van de gebruiker om gedeeltelijke informatie op te geven of te experimenteren met andere typen meerkeuze vragen.
 
 > [!NOTE]
-> Tijdens de training, ziet u tijdelijke aanduidingen voor de SET_ENTITY acties zoals
+> Tijdens de training worden tijdelijke aanduidingen weer geven voor de SET_ENTITY-acties, zoals
 >
 > ![action_set_entity_training.png](../media/tutorial-enum-set-entity/action_set_entity_training.png)
 >
-> maar als het maken van dialoogvensters of met behulp van geïmplementeerd bots niet zichtbaar voor gebruikers deze.
+> maar bij het maken van logboek dialoogvensters of het gebruik van geïmplementeerde bots kunnen ze niet worden weer geven.
 
 ## <a name="next-steps"></a>Volgende stappen
 

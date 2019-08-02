@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 70ce03834910447e92f0272fc67034caa59c43f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6548f4add8a794276bd4e7f7fa3c0bd7e24a2d5c
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074071"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726011"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>Gegevens kopiëren van Salesforce Marketing Cloud met Azure Data Factory (Preview)
 
@@ -30,10 +30,10 @@ In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in 
 
 U kunt gegevens uit Salesforce Marketing Cloud kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
-De Salesforce Marketing Cloud-connector biedt ondersteuning voor OAuth 2-verificatie. Het is gebouwd boven de [Salesforce Marketing Cloud REST-API](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
+De Sales Force marketing Cloud connector ondersteunt OAuth 2-verificatie. Het is gebouwd op basis van de [Sales Force marketing Cloud rest API](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
 
 >[!NOTE]
->Deze connector biedt geen ondersteuning voor het ophalen van aangepaste objecten of extensies voor aangepaste gegevens.
+>Deze connector biedt geen ondersteuning voor het ophalen van aangepaste objecten of aangepaste gegevens extensies.
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -49,7 +49,7 @@ De volgende eigenschappen worden ondersteund voor Salesforce Marketing Cloud gek
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **SalesforceMarketingCloud** | Ja |
 | clientId | De client-ID die is gekoppeld aan de Salesforce Marketing Cloud-toepassing.  | Ja |
-| clientSecret | Het clientgeheim die zijn gekoppeld aan de Salesforce Marketing Cloud-toepassing. U kunt dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord opslaan in Azure Key Vault en laat ADF activiteit pull van daaruit kopiëren, bij het uitvoeren van het kopiëren van gegevens: meer informatie uit [referenties Store in Key Vault](store-credentials-in-key-vault.md). | Ja |
+| clientSecret | Het clientgeheim die zijn gekoppeld aan de Salesforce Marketing Cloud-toepassing. U kunt dit veld markeren als SecureString om het veilig op te slaan in ADF, of het wacht woord op te slaan in Azure Key Vault en de ADF-Kopieer activiteit uit te voeren tijdens het uitvoeren van de gegevens kopie: meer informatie over [referenties voor opslaan in Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Hiermee geeft u op of de eindpunten van de gegevensbron zijn versleuteld met behulp van HTTPS. De standaardwaarde is true.  | Nee |
 | useHostVerification | Hiermee geeft u op of de hostnaam van de in het certificaat van de server zodat deze overeenkomen met de hostnaam van de server wanneer u verbinding maakt via SSL vereist. De standaardwaarde is true.  | Nee |
 | usePeerVerification | Hiermee geeft u op of u wilt controleren of de identiteit van de server wanneer u verbinding maakt via SSL. De standaardwaarde is true.  | Nee |
@@ -94,11 +94,12 @@ Als u wilt kopiëren van gegevens uit Salesforce Marketing Cloud, stel de eigens
     "name": "SalesforceMarketingCloudDataset",
     "properties": {
         "type": "SalesforceMarketingCloudObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SalesforceMarketingCloud linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -113,7 +114,7 @@ Als u wilt kopiëren van gegevens uit Salesforce Marketing Cloud, stelt u het br
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **SalesforceMarketingCloudSource** | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **SalesforceMarketingCloudSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM MyTable"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**

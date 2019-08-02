@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
 ms.openlocfilehash: 09610782f211b4cfb80a1291b73ab543328376a3
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68424192"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Voor beeld: een cluster automatisch schalen om te voldoen aan de toepassings vereisten van de Azure Kubernetes-service (AKS)
@@ -32,7 +32,7 @@ Voor dit artikel moet u de Azure CLI-versie 2.0.65 of hoger uitvoeren. Voer `az 
 
 ### <a name="install-aks-preview-cli-extension"></a>AKS-preview CLI-extensie installeren
 
-Als u de automatische cluster uitbreiding wilt gebruiken, hebt u de *AKS-preview cli-* extensie versie 0.4.4 of hoger nodig. Installeer de Azure cli *-extensie AKS-preview* met behulp van de opdracht [AZ extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] :
+Als u de automatische cluster uitbreiding wilt gebruiken, hebt u de *AKS-preview cli-* extensie versie 0.4.4 of hoger nodig. Installeer de Azure CLI *-extensie AKS-preview* met behulp van de opdracht [AZ extension add][az-extension-add] en controleer vervolgens of er beschik bare updates zijn met behulp van de opdracht [AZ extension update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension

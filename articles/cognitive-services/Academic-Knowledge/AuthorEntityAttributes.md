@@ -1,7 +1,7 @@
 ---
-title: De auteur van entiteitskenmerken - Academic Knowledge API
+title: Entiteits kenmerken van auteur-Academic Knowledge API
 titlesuffix: Azure Cognitive Services
-description: Meer informatie over de kenmerken die u met de auteur van entiteit in de Academic Knowledge API gebruiken kunt.
+description: Meer informatie over de kenmerken die u kunt gebruiken met de entiteit auteur in de Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
 manager: nitinme
@@ -10,29 +10,30 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: d4b33c06ab023023aadf403cf0ef0b08c2bafc5f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: e63e9d3f8f17a2473caf3d31b83e318ddb132b43
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609749"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705095"
 ---
-# <a name="author-entity"></a>De auteur van entiteit
-<sub> * De volgende kenmerken zijn specifiek voor de auteur van entiteit. (Ty = '1') </sub>
+# <a name="author-entity"></a>Entiteit Auteur
+<sub>* De volgende kenmerken zijn specifiek voor de auteur-entiteit. (Ty = ' 1 ')</sub>
 
-Name    |Description                            |Type       | Bewerkingen
+Name    |Description                            |type       | Bewerkingen
 ------- | ------------------------------------- | --------- | ----------------------------
-Id      |Entiteit-ID                              |Int64      |Is gelijk aan
-AuN     |Genormaliseerde naam van auteur                 |String     |Is gelijk aan
-DAuN    |Weergavenaam van de auteur                    |String     |Geen
-CC      |Totale citaat aantal van auteur            |Int32      |Geen  
-ECC     |Totale geschatte citaat aantal van auteur  |Int32      |Geen
-E       |Uitgebreide metagegevens (Zie tabel "Uitgebreide metagegevens kenmerken")  |String     |Geen  
+ID      |Entiteits-id                              |Int64      |Is gelijk aan
+AuN     |Genormaliseerde naam schrijven                 |Reeks     |Is gelijk aan
+DAuN    |Weergave naam van auteur                    |Tekenreeks     |geen
+CC      |Totaal aantal bron vermeldingen van auteur            |Int32      |geen  
+ECC     |Totaal aantal geschatte bron vermeldingen van auteur  |Int32      |geen
+E       |Uitgebreide meta gegevens (Zie de tabel uitgebreide meta-kenmerken)  |Tekenreeks     |geen  
 
 
-## <a name="extended-metadata-attributes"></a>Uitgebreide metagegevens kenmerken ##
+## <a name="extended-metadata-attributes"></a>Uitgebreide meta gegevens kenmerken ##
 
 Name    | Description               
 --------|---------------------------    
-LKA. Afn     | de weergavenaam van de relatie die is gekoppeld aan de auteur van de  
-LKA.AfId        | van de relatie die is gekoppeld aan de auteur van de entiteit-ID
+LKA. Afn     | weergave naam van de relatie die aan de auteur is gekoppeld  
+LKA. AfId        | Entiteits-ID van relatie gekoppeld aan de auteur

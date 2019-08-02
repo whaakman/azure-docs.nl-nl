@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 2c1013829a7e6e94712e22ae235a47490c8c5eaa
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3e56792673c33ac641ce23213f2b3662b889ec2a
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677663"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725663"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Zelfstudie: De JavaScript-clientbibliotheek van Azure Time Series Insights ontdekken
 
@@ -40,14 +40,14 @@ Meld u aan voor een [gratis Azure-abonnement](https://azure.microsoft.com/free/)
 
 * In deze zelf studie wordt de functie **Ontwikkelhulpprogramma's** van uw browser gebruikt. Moderne webbrowsers ([micro soft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/)en anderen) bieden doorgaans toegang tot de **weer gave weboverzicht** via de F12-sneltoets op het toetsen bord. Een andere manier om de weer gave te openen, is door met de rechter muisknop op een webpagina te klikken en vervolgens **element controleren**te selecteren.
 
-## <a name="video"></a>Video
+## <a name="review-video"></a>Video bekijken
 
 In deze video introduceren we de open source Time Series Insights java script SDK:
 <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
 
-## <a name="time-series-insights-sample-application"></a>Time Series Insights-voorbeeldtoepassing
+## <a name="sample-application"></a>Voorbeeldtoepassing
 
 In deze zelf studie gebruiken we een gratis, gehoste Time Series Insights voor beeld-app om de bron code achter de toepassing te verkennen en de Time Series Insights java script-client bibliotheek te verkennen. Als u de voor beeld-app gebruikt, leert u hoe u kunt communiceren met Time Series Insights in Java script en gegevens kunt visualiseren via grafieken en grafieken.
 
@@ -100,7 +100,7 @@ Eerst gaan we de [HTML-en Java script-bron code](https://github.com/Microsoft/ts
 
    [![Hoofd script](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png#lightbox)
 
-## <a name="time-series-insights-javascript-client-library-concepts"></a>Concepten van Time Series Insights java script-client bibliotheek
+## <a name="javascript-client-library"></a>Java script-client bibliotheek
 
 De Time Series Insights-client bibliotheek (*tsiclient. js*) biedt abstracties voor twee belang rijke java script-functies:
 
@@ -231,7 +231,7 @@ De drie grafieken worden als volgt weergegeven:
 
 [![Multiple Chart Types From The Same Data](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png)](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png#lightbox)
 
-## <a name="advanced-features"></a>Geavanceerde functies
+## <a name="learn-about-advanced-features"></a>Meer informatie over geavanceerde functies
 
 De Time Series Insights-client bibliotheek heeft verschillende aanvullende functies die u kunt gebruiken om gegevens visualisaties op een creatieve wijze te implementeren.
 

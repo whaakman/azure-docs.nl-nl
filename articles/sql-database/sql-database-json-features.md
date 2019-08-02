@@ -1,6 +1,6 @@
 ---
 title: Werken met JSON-gegevens in Azure SQL Database | Microsoft Docs
-description: Azure SQL Database kunt u om te parseren, query- en de gegevens opmaken in JavaScript Object Notation (JSON)-notatie.
+description: Met Azure SQL Database kunt u gegevens in de JavaScript Object Notation (JSON)-notatie parseren, opvragen en opmaken.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,26 +10,25 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 77f6125980c43817230b8a8d4beb32757f23e6c2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a09fba3f01eec6c712bad67ef10b8b5c55fb33e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60702954"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567845"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Aan de slag met JSON-functies in Azure SQL Database
-Azure SQL Database kunt u parseren en query uitvoeren op gegevens die worden weergegeven in JavaScript Object Notation [(JSON)](https://www.json.org/) formatteren en exporteren van uw relationele gegevens als JSON-tekst. De volgende JSON-scenario's zijn beschikbaar in Azure SQL Database:
-- [Opmaak van relationele gegevens in JSON-indeling](#formatting-relational-data-in-json-format) met behulp van `FOR JSON` component.
+Met Azure SQL Database kunt u gegevens parseren en opvragen die worden weer gegeven in de indeling van JavaScript Object Notation [(JSON)](https://www.json.org/) en uw relationele gegevens exporteren als JSON-tekst. De volgende JSON-scenario's zijn beschikbaar in Azure SQL Database:
+- De [opmaak van relationele gegevens in JSON-indeling](#formatting-relational-data-in-json-format) met behulp `FOR JSON` van-component.
 - [Werken met JSON-gegevens](#working-with-json-data)
-- [JSON-gegevens opvragen](#querying-json-data) met behulp van JSON-functies.
-- [JSON transformeren in tabelvorm](#transforming-json-into-tabular-format) met behulp van `OPENJSON` functie.
+- [JSON-gegevens opvragen](#querying-json-data) met SCALAIRe JSON-functies.
+- De [JSON wordt omgezet in een tabel indeling](#transforming-json-into-tabular-format) met behulp van `OPENJSON` de functie.
 
-## <a name="formatting-relational-data-in-json-format"></a>Opmaak van relationele gegevens in JSON-indeling
-Als u een webservice die neemt gegevens uit de database-laag en biedt een antwoord in de JSON-indeling of client-side JavaScript-frameworks en bibliotheken die gegevens accepteren die zijn opgemaakt als JSON hebt, kunt u de inhoud van uw database opmaken als JSON rechtstreeks in een SQL-query. U niet meer nodig om de toepassingscode die resultaten van Azure SQL Database als JSON opmaakt of bevatten sommige serialisatiebibliotheek JSON converteren tabellaire queryresultaten en vervolgens serialiseren objecten naar de JSON-indeling. In plaats daarvan kunt u de FOR JSON-component SQL-queryresultaten opmaken als JSON in Azure SQL Database en deze rechtstreeks in uw toepassing gebruiken.
+## <a name="formatting-relational-data-in-json-format"></a>Relationele gegevens in JSON-indeling opmaken
+Als u een webservice hebt die gegevens uit de data base-laag haalt, een reactie in JSON-indeling geeft, of Java script-frameworks of-bibliotheken aan de client zijde die gegevens accepteren die zijn ingedeeld als JSON, kunt u de inhoud van uw data base als JSON rechtstreeks in een SQL-query opmaken. U hoeft niet langer een toepassings code te schrijven die de resultaten van Azure SQL Database als JSON opmaakt, of u kunt een JSON-serialisatie bibliotheek bevatten om tabellaire query resultaten te converteren en vervolgens objecten te serialiseren naar JSON-indeling. In plaats daarvan kunt u de component FOR JSON gebruiken om SQL-query resultaten op te maken als JSON in Azure SQL Database en deze rechtstreeks in uw toepassing te gebruiken.
 
-In het volgende voorbeeld worden rijen uit de tabel Sales.Customer opgemaakt als JSON met behulp van de component FOR JSON:
+In het volgende voor beeld worden rijen uit de tabel sales. Customer opgemaakt als JSON met behulp van de FOR JSON-component:
 
 ```
 select CustomerName, PhoneNumber, FaxNumber
@@ -37,7 +36,7 @@ from Sales.Customers
 FOR JSON PATH
 ```
 
-De resultaten van de query de component FOR JSON PATH opgemaakt als JSON-tekst. De namen van kolommen worden gebruikt als sleutels, terwijl de celwaarden worden gegenereerd als JSON-waarden:
+Met de component FOR JSON-pad worden de resultaten van de query opgemaakt als JSON-tekst. Kolom namen worden gebruikt als sleutels, terwijl de celwaarden worden gegenereerd als JSON-waarden:
 
 ```
 [
@@ -47,9 +46,9 @@ De resultaten van de query de component FOR JSON PATH opgemaakt als JSON-tekst. 
 ]
 ```
 
-De resultatenset wordt opgemaakt als een JSON-matrix waarbij elke rij is opgemaakt als een afzonderlijk JSON-object.
+De resultatenset wordt opgemaakt als een JSON-matrix waarbij elke rij wordt opgemaakt als een afzonderlijk JSON-object.
 
-PAD geeft aan dat u de indeling van de uitvoer van uw JSON-resultaat met puntnotatie in Kolomaliassen kunt aanpassen. De volgende query wordt de naam van de sleutel "Klantnaam" in de uitvoer-JSON-indeling en phone-en faxnummer plaatst in het onderliggende object 'Neem contact op met':
+PAD geeft aan dat u de uitvoer indeling van het JSON-resultaat kunt aanpassen met behulp van de punt notatie in kolom aliassen. Met de volgende query wordt de naam van de sleutel ' customername ' in de uitvoer JSON-indeling gewijzigd en worden telefoon-en faxnummers in het SubObject ' contact persoon ' geplaatst:
 
 ```
 select CustomerName as Name, PhoneNumber as [Contact.Phone], FaxNumber as [Contact.Fax]
@@ -58,7 +57,7 @@ where CustomerID = 931
 FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
 ```
 
-De uitvoer van deze query ziet er zo uit:
+De uitvoer van deze query ziet er als volgt uit:
 
 ```
 {
@@ -70,9 +69,9 @@ De uitvoer van deze query ziet er zo uit:
 }
 ```
 
-In dit voorbeeld wordt een JSON-object in plaats van een matrix geretourneerd door op te geven de [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) optie. U kunt deze optie gebruiken als u weet dat u een enkel object als gevolg van de query wilt retourneren.
+In dit voor beeld hebben we één JSON-object geretourneerd in plaats van een matrix door de [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) -optie op te geven. U kunt deze optie gebruiken als u weet dat u een enkel object retourneert als resultaat van een query.
 
-De belangrijkste waarde van de FOR JSON-component is dat Hiermee kunt u complexe hiërarchische gegevens geretourneerd uit de database die is opgemaakt als een geneste JSON-objecten of -matrices. Het volgende voorbeeld laat zien hoe om op te nemen van de rijen uit de `Orders` tabel die deel uitmaken van de `Customer` als een geneste matrix met `Orders`:
+De belangrijkste waarde van de FOR JSON-component is dat u ingewikkelde hiërarchische gegevens uit uw data base kunt ophalen die zijn opgemaakt als geneste JSON-objecten of-matrices. In het volgende voor beeld ziet u hoe u de rijen `Orders` opneemt uit de `Customer` tabel die horen bij de `Orders`as a geneste matrix van:
 
 ```
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,
@@ -85,7 +84,7 @@ FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
 
 ```
 
-In plaats van afzonderlijke query's waarmee gegevens van de klant en vervolgens om op te halen een lijst van gerelateerde Orders, krijgt u de benodigde gegevens met een eenvoudige query uitvoeren, zoals wordt weergegeven in de volgende voorbeelduitvoer:
+In plaats van afzonderlijke query's te verzenden om klant gegevens op te halen en vervolgens een lijst met gerelateerde orders op te halen, kunt u alle benodigde gegevens ophalen met één query, zoals wordt weer gegeven in de volgende voorbeeld uitvoer:
 
 ```
 {
@@ -101,9 +100,9 @@ In plaats van afzonderlijke query's waarmee gegevens van de klant en vervolgens 
 ```
 
 ## <a name="working-with-json-data"></a>Werken met JSON-gegevens
-Als u geen strikt gestructureerde gegevens, hebt u complexe onderliggende objecten, matrices of hiërarchische gegevens, of als uw gegevensstructuren verloop van tijd, kan de JSON-indeling u helpen te vertegenwoordigen de structuur van een complexe gegevens.
+Als u geen strikt gestructureerde gegevens hebt, kunt u, als u complexe subobjecten, matrices of hiërarchische gegevens hebt, of als uw gegevens structuren zich in de loop van de tijd ontwikkelen, de JSON-indeling helpen om een complexe gegevens structuur te vertegenwoordigen.
 
-JSON is een tekstuele indeling die kan worden gebruikt als een andere tekenreekstype in Azure SQL Database. U kunt verzenden of JSON-gegevens worden opgeslagen als een standaard NVARCHAR:
+JSON is een tekstuele indeling die kan worden gebruikt als elk ander type teken reeks in Azure SQL Database. U kunt JSON-gegevens verzenden of opslaan als een standaard-NVARCHAR:
 
 ```
 CREATE TABLE Products (
@@ -119,18 +118,18 @@ AS BEGIN
 END
 ```
 
-De JSON-gegevens die in dit voorbeeld wordt weergegeven met behulp van het type NVARCHAR(MAX). JSON kan worden ingevoegd in deze tabel of opgegeven als een argument van de opgeslagen procedure met behulp van standaard Transact-SQL-syntaxis zoals weergegeven in het volgende voorbeeld:
+De JSON-gegevens die in dit voor beeld worden gebruikt, worden weer gegeven met het type NVARCHAR (MAX). JSON kan worden ingevoegd in deze tabel of als een argument van de opgeslagen procedure met behulp van de standaard Transact-SQL-syntaxis, zoals wordt weer gegeven in het volgende voor beeld:
 
 ```
 EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","children","games"]}'
 ```
 
-Elke client-side-taal of bibliotheek die met het gegevenstype in Azure SQL Database werkt werkt ook met JSON-gegevens. JSON kan worden opgeslagen in een tabel die ondersteuning biedt voor het type NVARCHAR, zoals een tabel geoptimaliseerd voor geheugen of een systeemversietabel. JSON heeft niet tot een beperking in de client-side-code of in de databaselaag.
+Elke taal of bibliotheek aan de client zijde die werkt met teken reeks gegevens in Azure SQL Database, werkt ook met JSON-gegevens. JSON kan worden opgeslagen in elke tabel die ondersteuning biedt voor het type NVARCHAR, zoals een tabel die is geoptimaliseerd voor geheugen of een tabel met systeem versies. JSON introduceert geen enkele beperking in de code aan de client zijde of in de data base-laag.
 
-## <a name="querying-json-data"></a>Een query uitvoeren op JSON-gegevens
-Hebt u gegevens die zijn opgemaakt als JSON die zijn opgeslagen in Azure SQL-tabellen, kunnen JSON-functies u deze gegevens in een SQL-query.
+## <a name="querying-json-data"></a>JSON-gegevens opvragen
+Als u gegevens hebt opgemaakt als JSON die zijn opgeslagen in Azure SQL-tabellen, kunt u deze gegevens in een SQL-query gebruiken met JSON-functies.
 
-JSON-functies die beschikbaar in Azure SQL database kunt zijn u gegevens die zijn opgemaakt als JSON als een ander SQL-gegevenstype behandelen. U kunt eenvoudig waarden ophalen uit de JSON-tekst en JSON-gegevens in elke query gebruiken:
+Met de JSON-functies die beschikbaar zijn in Azure SQL database, kunt u gegevens als JSON behandelen als elk ander SQL-gegevens type. U kunt eenvoudig waarden uit de JSON-tekst extra heren en JSON-gegevens gebruiken in een wille keurige query:
 
 ```
 select Id, Title, JSON_VALUE(Data, '$.Color'), JSON_QUERY(Data, '$.tags')
@@ -142,13 +141,13 @@ set Data = JSON_MODIFY(Data, '$.Price', 60)
 where Id = 1
 ```
 
-De functie JSON_VALUE haalt een waarde uit die zijn opgeslagen in de kolom in de JSON-tekst. Deze functie maakt gebruik van een JavaScript-achtige pad om te verwijzen naar een waarde in JSON-tekst om op te halen. De opgehaalde waarde kan worden gebruikt in een deel van de SQL-query.
+De functie JSON_VALUE haalt een waarde op uit JSON-tekst die is opgeslagen in de gegevens kolom. Deze functie maakt gebruik van een Java script-soortgelijk pad om te verwijzen naar een waarde in JSON-tekst die moet worden geëxtraheerd. De geëxtraheerde waarde kan worden gebruikt in elk deel van een SQL-query.
 
-De functie JSON_QUERY is vergelijkbaar met JSON_VALUE. In tegenstelling tot JSON_VALUE pakt deze functie complexe subobject zoals matrices of objecten die worden geplaatst in JSON-tekst.
+De functie JSON_QUERY is vergelijkbaar met JSON_VALUE. In tegens telling tot JSON_VALUE haalt deze functie een complex SubObject op, zoals matrices of objecten die in JSON-tekst zijn geplaatst.
 
-De functie JSON_MODIFY kunt u het pad van de waarde opgeven in de JSON-tekst die moet worden bijgewerkt, evenals een nieuwe waarde die de oude versie wordt overschreven. Op deze manier die kunt u eenvoudig JSON-tekst zonder de volledige structuur reparsing bijwerken.
+Met de functie JSON_MODIFY kunt u het pad opgeven van de waarde in de JSON-tekst die moet worden bijgewerkt, evenals een nieuwe waarde die de oude overschrijft. Op deze manier kunt u JSON-tekst eenvoudig bijwerken zonder de volledige structuur opnieuw te parseren.
 
-Omdat JSON worden opgeslagen in een standaardtekst, zijn er geen garanties dat de waarden die zijn opgeslagen in tekstkolommen correct zijn opgemaakt. U kunt controleren of de tekst die is opgeslagen in JSON-kolom is correct opgemaakt met behulp van standaard check-beperkingen voor Azure SQL Database en de functie ISJSON:
+Omdat JSON is opgeslagen in een standaard tekst, is er geen garantie dat de waarden die zijn opgeslagen in tekst kolommen, goed zijn opgemaakt. U kunt controleren of de tekst die in de JSON-kolom is opgeslagen, juist is ingedeeld met behulp van de standaard Azure SQL Database check-beperkingen en de functie ISJSON:
 
 ```
 ALTER TABLE Products
@@ -156,18 +155,18 @@ ALTER TABLE Products
         CHECK (ISJSON(Data) > 0)
 ```
 
-Als de invoertekst is juist opgemaakt JSON, de functie ISJSON retourneert de waarde 1. Deze beperking wordt bij elke invoegen of bijwerken van JSON-kolom of nieuwe tekstwaarde is onjuist gevormd JSON.
+Als de invoer tekst de JSON-indeling heeft, retourneert de functie ISJSON de waarde 1. Bij elke invoeg-of update van een JSON-kolom, wordt met deze beperking gecontroleerd of de nieuwe tekst waarde geen ongeldige JSON is.
 
-## <a name="transforming-json-into-tabular-format"></a>JSON transformeren in tabelvorm
-Azure SQL-Database kunt u JSON-verzamelingen in tabelvorm indeling en belasting of query JSON-gegevens te transformeren.
+## <a name="transforming-json-into-tabular-format"></a>JSON transformeren naar tabellaire indeling
+Met Azure SQL Database kunt u JSON-verzamelingen ook transformeren in tabellaire indeling en JSON-gegevens laden of opvragen.
 
-OPENJSON is een tabelwaarde functie die wordt geparseerd JSON-tekst, wordt gezocht naar een matrix met JSON-objecten, doorloopt de elementen van de matrix en retourneert één rij in het resultaat van de uitvoer voor elk element van de matrix.
+Openjson is een functie voor tabel waarden waarmee JSON-tekst wordt geparseerd, een matrix van JSON-objecten wordt gezocht, de elementen van de matrix worden herhaald en een rij wordt geretourneerd in het uitvoer resultaat voor elk element van de matrix.
 
-![JSON in tabelvorm](./media/sql-database-json-features/image_2.png)
+![In tabel vorm JSON](./media/sql-database-json-features/image_2.png)
 
-In het bovenstaande voorbeeld kunnen we opgeven waar u de JSON-matrix die moet worden geopend (in de $. Orders pad), welke kolommen moeten worden geretourneerd als resultaat en waar u kunt de JSON-waarden die worden geretourneerd als cellen vinden.
+In het bovenstaande voor beeld kunnen we opgeven waar de JSON-matrix wordt gezocht die moet worden geopend (in $. Pad naar orders), welke kolommen moeten worden geretourneerd als resultaat en waar de JSON-waarden worden gevonden die als cellen worden geretourneerd.
 
-We kunt gebruiken om een JSON-matrix in de @orders variabele in een set van rijen, deze resultatenset analyseren of invoegen van rijen in een standard tabel:
+We kunnen een JSON-matrix in de @orders variabele omzetten in een set rijen, deze resultaatset analyseren of rijen invoegen in een standaard tabel:
 
 ```
 CREATE PROCEDURE InsertOrders(@orders nvarchar(max))
@@ -185,14 +184,14 @@ AS BEGIN
 
 END
 ```
-De verzameling van orders opgemaakt als een JSON-matrix en die als een parameter voor de opgeslagen procedure kan worden geparseerd en ingevoegd in de tabel Orders wordt verstrekt.
+De verzameling orders die is opgemaakt als een JSON-matrix en die als een para meter voor de opgeslagen procedure wordt gegeven, kan worden geparseerd en ingevoegd in de tabel Orders.
 
 ## <a name="next-steps"></a>Volgende stappen
-Voor informatie over het integreren van JSON in uw toepassing, kunt u deze resources:
+Raadpleeg de volgende bronnen voor meer informatie over het integreren van JSON in uw toepassing:
 
 * [TechNet Blog](https://blogs.technet.microsoft.com/dataplatforminsider/20../../json-in-sql-server-2016-part-1-of-4/)
 * [MSDN-documentatie](https://msdn.microsoft.com/library/dn921897.aspx)
 * [Channel 9-video](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 
-Zie voor meer informatie over verschillende scenario's voor het integreren van JSON in uw toepassing, de demo's in deze [Channel 9-video](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) of zoeken van een scenario dat overeenkomt met uw use-case in [JSON blogberichten](https://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
+Als u meer wilt weten over de verschillende scenario's voor het integreren van JSON in uw toepassing, raadpleegt u de demo's in deze [kanaal 9-video](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) of zoekt u een scenario dat overeenkomt met uw use-case in [JSON-blog berichten](https://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
 

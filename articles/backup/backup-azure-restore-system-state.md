@@ -1,18 +1,19 @@
 ---
 title: 'Azure Backup: Systeem status herstellen naar een Windows-Server'
 description: Stapsgewijze uitleg over het herstellen van de systeem status van Windows Server vanuit een back-up in Azure.
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
-ms.author: saurse
-ms.openlocfilehash: 48eb9fce7b9863c84518546270a6566bb0cec711
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 6dc478f569b94450921e56c05b148bae357fef8e
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465653"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689132"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Systeem status herstellen naar Windows Server
 
@@ -46,7 +47,7 @@ In de volgende stappen wordt uitgelegd hoe u de configuratie van uw Windows-Serv
 
 5. Selecteer een herstel punt in de agenda in het deel venster **volume en datum selecteren** .
 
-    U kunt herstellen vanaf een herstel punt in de tijd. Vetgedrukte  datums geven de beschik baarheid van ten minste één herstel punt aan. Wanneer u een datum selecteert en er meerdere herstel punten beschikbaar zijn, kiest u het specifieke herstel punt in het vervolg keuzemenu **tijd** .
+    U kunt herstellen vanaf een herstel punt in de tijd. Vetgedrukte datums geven de beschik baarheid van ten minste één herstel punt aan. Wanneer u een datum selecteert en er meerdere herstel punten beschikbaar zijn, kiest u het specifieke herstel punt in het vervolg keuzemenu **tijd** .
 
     ![Volume en datum](./media/backup-azure-restore-system-state/select-date.png)
 
@@ -94,7 +95,7 @@ De terminologie die in deze stappen wordt gebruikt, omvat:
 
     ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
-8. Selecteer een herstel punt in de agenda in het deel venster **volume en datum selecteren** . U kunt herstellen vanaf een herstel punt in de tijd. Vetgedrukte  datums geven de beschik baarheid van ten minste één herstel punt aan. Wanneer u een datum selecteert en er meerdere herstel punten beschikbaar zijn, kiest u het specifieke herstel punt in het vervolg keuzemenu **tijd** .
+8. Selecteer een herstel punt in de agenda in het deel venster **volume en datum selecteren** . U kunt herstellen vanaf een herstel punt in de tijd. Vetgedrukte datums geven de beschik baarheid van ten minste één herstel punt aan. Wanneer u een datum selecteert en er meerdere herstel punten beschikbaar zijn, kiest u het specifieke herstel punt in het vervolg keuzemenu **tijd** .
 
     ![Items zoeken](./media/backup-azure-restore-system-state/select-date.png)
 

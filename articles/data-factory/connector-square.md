@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: f22311af277f860c1501287b5be0f5dc149880b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a88c58bd52ea816aaef1c628913ccbd7fcf1cd35
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462357"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720639"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Gegevens kopiëren van een vierkant met Azure Data Factory (Preview)
 
@@ -44,11 +44,11 @@ De volgende eigenschappen worden ondersteund voor vierkante gekoppelde service:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op: **Vierkant** | Ja |
+| type | De eigenschap type moet worden ingesteld op: **Wortel** | Ja |
 | host | De URL van het vierkant exemplaar. (dat wil zeggen mystore.mysquare.com)  | Ja |
 | clientId | De client-ID die is gekoppeld aan uw vierkante toepassing.  | Ja |
 | clientSecret | Het clientgeheim die zijn gekoppeld aan uw vierkante toepassing. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| redirectUri | De omleidings-URL in het vierkante dashboard hebt toegewezen. (dat wil zeggen http:\//localhost:2500)  | Ja |
+| redirectUri | De omleidings-URL in het vierkante dashboard hebt toegewezen. (http:\//localhost: 2500)  | Ja |
 | useEncryptedEndpoints | Hiermee geeft u op of de eindpunten van de gegevensbron zijn versleuteld met behulp van HTTPS. De standaardwaarde is true.  | Nee |
 | useHostVerification | Hiermee geeft u op of de hostnaam van de in het certificaat van de server zodat deze overeenkomen met de hostnaam van de server wanneer u verbinding maakt via SSL vereist. De standaardwaarde is true.  | Nee |
 | usePeerVerification | Hiermee geeft u op of u wilt controleren of de identiteit van de server wanneer u verbinding maakt via SSL. De standaardwaarde is true.  | Nee |
@@ -91,11 +91,12 @@ Om gegevens te kopiëren van een vierkant, stel de eigenschap type van de gegeve
     "name": "SquareDataset",
     "properties": {
         "type": "SquareObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Square linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -110,7 +111,7 @@ Om gegevens te kopiëren van een vierkant, stelt u het brontype in de kopieeract
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **SquareSource** | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **SquareSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM Business"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**

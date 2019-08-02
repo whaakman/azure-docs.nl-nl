@@ -1,37 +1,35 @@
 ---
-title: Over het maken van een blob in Azure Storage met behulp van de clientbibliotheek voor Node.js v2
-description: Maak een opslagaccount en een container in object(Blob)-opslag. Vervolgens gebruiken de Azure Storage-clientbibliotheek voor Node.js v2 voor een blob uploaden naar Azure Storage, een blob downloaden en de blobs in een container te vermelden.
-services: storage
+title: Een BLOB maken in Azure Storage met behulp van de client bibliotheek voor node. js v2
+description: Maak een opslagaccount en een container in object(Blob)-opslag. Gebruik vervolgens de Azure Storage-client bibliotheek voor node. js v2 om een BLOB te uploaden naar Azure Storage, een BLOB te downloaden en de blobs in een container weer te geven.
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: conceptual
-ms.date: 02/04/2019
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 7ca1eacd1add7453833b4b9ad1d4bd0fbef13ca7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/04/2019
+ms.service: storage
+ms.subservice: blobs
+ms.topic: conceptual
+ms.openlocfilehash: 89dbd6cc9a03398427b157fa207adb898d3bfc56
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149422"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721974"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Het uploaden, downloaden en met behulp van de clientbibliotheek voor Node.js v2 blobs te vermelden
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Blobs uploaden, downloaden en vermelden met behulp van de client bibliotheek voor node. js v2
 
-In deze handleiding leert u hoe u met de clientbibliotheek voor Node.js-v2 te uploaden, downloaden en lijst met blobs met Azure Blob storage.
+In deze hand leiding vindt u informatie over het gebruik van de client bibliotheek voor node. js v2 om blobs te uploaden, te downloaden en weer te geven met Azure Blob Storage.
 
 > [!TIP]
-> De meest recente versie van de Azure Storage-clientbibliotheek voor Node.js is v10. Microsoft raadt aan dat u de meest recente versie van de clientbibliotheek indien mogelijk. Om te beginnen met behulp van v10, Zie [Quick Start: Uploaden, downloaden, vermelden en verwijderen van blobs met behulp van Azure Storage-clientbibliotheek voor JavaScript v10 (preview)](storage-quickstart-blobs-nodejs-v10.md).
+> De meest recente versie van de Azure Storage-client bibliotheek voor node. js is V10 toevoegen. U wordt aangeraden de nieuwste versie van de client bibliotheek te gebruiken wanneer dat mogelijk is. Om aan de slag te gaan met [V10 toevoegen, raadpleegt u Quick Start: U kunt blobs uploaden, downloaden, weer geven en verwijderen met Azure Storage-client bibliotheek voor Java script](storage-quickstart-blobs-nodejs-v10.md)V10 toevoegen (preview).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Maak een Azure storage-account in de [Azure-portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Zie voor meer informatie over het maken van het account [Een opslagaccount maken](../common/storage-quickstart-create-account.md).
+Maak een Azure-opslag account in de [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Zie voor meer informatie over het maken van het account [Een opslagaccount maken](../common/storage-quickstart-create-account.md).
 
 ## <a name="download-the-sample-application"></a>De voorbeeldtoepassing downloaden
 
-De [voorbeeldtoepassing](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) is een eenvoudige Node.js-consoletoepassing. Kloon om te beginnen de opslagplaats naar uw computer met de volgende opdracht:
+De [voorbeeld toepassing](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) is een eenvoudige node. js-console toepassing. Kloon om te beginnen de opslagplaats naar uw computer met de volgende opdracht:
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
@@ -78,7 +76,7 @@ Container "demo" is deleted
 Done
 ```
 
-Als u een nieuw opslagaccount voor dit voorbeeld gebruikt, wordt u niet de namen van alle containers die worden vermeld onder het label ziet mogelijk "*Containers*'.
+Als u een nieuw opslag account voor dit voor beeld gebruikt, ziet u mogelijk geen container namen die worden vermeld onder het label "*containers*".
 
 ## <a name="understanding-the-code"></a>De code begrijpen
 De eerste expressie wordt gebruikt om waarden in de omgevingsvariabelen te laden.
@@ -100,7 +98,7 @@ Dit is het doel van de modules:
 
 bestand met naam *.env* naar de huidige uitvoeringscontext
 - *path* is vereist om het absolute pad van het bestand te bepalen voor uploaden naar blob-opslag
-- *Azure-opslag* is de [Azure Storage-clientbibliotheek](https://docs.microsoft.com/javascript/api/azure-storage) -module voor Node.js
+- *Azure-Storage* is de [Azure Storage-client bibliotheek](https://docs.microsoft.com/javascript/api/azure-storage) module voor node. js
 
 Vervolgens wordt de variabele **blobService** geïnitialiseerd als nieuw exemplaar van de Azure Blobservice.
 
@@ -359,7 +357,7 @@ Zie de volgende aanvullende bronnen voor Node.js-ontwikkeling met Blob-opslag:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel ziet u hoe u een bestand uploadt tussen een lokale schijf en Azure Blob-opslag met behulp van Node.js. Voor meer informatie over het werken met Blobopslag, gaat u naar de GitHub-opslagplaats.
+In dit artikel wordt beschreven hoe u een bestand kunt uploaden tussen een lokale schijf en Azure Blob-opslag met behulp van node. js. Voor meer informatie over het werken met Blobopslag, gaat u naar de GitHub-opslagplaats.
 
 > [!div class="nextstepaction"]
-> [Microsoft Azure Storage SDK voor Node.js en JavaScript voor Browsers](https://github.com/Azure/azure-storage-node)
+> [Microsoft Azure Storage SDK voor node. js en Java script voor browsers](https://github.com/Azure/azure-storage-node)

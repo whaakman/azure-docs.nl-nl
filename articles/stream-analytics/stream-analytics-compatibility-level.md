@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/2/2019
-ms.openlocfilehash: 8e3ae84242a1a9b76fbb18a8d8164c97a62a97d9
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: a6e5cd69a0655bf8235bf5755ab596ca2bde0387
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68003918"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716165"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Compatibiliteitsniveau voor Azure Stream Analytics-taken
 
@@ -90,6 +90,12 @@ Het gedrag van de upsert wordt *ingevoegd of vervangen*.
 **Eerdere niveaus:** De waarden zijn afgekapt op basis van het doel type.
 
 **niveau van 1,2:** Waarden die niet in het doel type passen, worden afgehandeld op basis van het uitvoer fout beleid.
+
+### <a name="record-and-array-serialization-when-writing-to-sql-output"></a>Serialisatie van records en matrices bij het schrijven naar SQL-uitvoer
+
+**Eerdere niveaus:** Records zijn geschreven als ' record ' en matrices zijn geschreven als ' matrix '.
+
+**niveau van 1,2:** Records en matrices worden geserialiseerd in JSON-indeling.
 
 ### <a name="strict-validation-of-prefix-of-functions"></a>Strikte validatie van het voor voegsel van functies
 

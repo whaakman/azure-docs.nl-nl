@@ -1,7 +1,7 @@
 ---
-title: App Service-plan overzicht - Azure | Microsoft Docs
-description: Lees hoe App Service-plannen voor Azure App Service, en hoe ze profiteren van uw ervaring.
-keywords: appservice, azure appservice, schaal, schaalbaar, schaalbaarheid, app service-plan, kosten app service
+title: Overzicht van App Service plan-Azure | Microsoft Docs
+description: Meer informatie over het App Service plannen voor Azure App Service werk en hoe deze uw beheer ervaring voor u bieden.
+keywords: app service, Azure app service, schaal, schaalbaar, schaal baarheid, app service-plan, kosten van app service
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -16,109 +16,109 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ab04d1288eb3a851774128b8aaaae03868c2ffa7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fef509d705d0b904586a86b7dc58decc54e7023d
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60839008"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716642"
 ---
-# <a name="azure-app-service-plan-overview"></a>Overzicht van Azure App Service-plan
+# <a name="azure-app-service-plan-overview"></a>Overzicht van Azure App Service plan
 
-In App Service wordt een app uitgevoerd in een _App Service-plan_. Een App Service-plan definieert een set rekenresources waarmee een web-app kan worden uitgevoerd. Deze compute-resources zijn vergelijkbaar met de [ _serverfarm_ ](https://wikipedia.org/wiki/Server_farm) in conventionele webhosting. Een of meer apps kunnen worden geconfigureerd om te worden uitgevoerd op de dezelfde computerbronnen (of in hetzelfde App Service-plan).
+In App Service wordt een app uitgevoerd in een _App Service-plan_. Een App Service-plan definieert een set rekenresources waarmee een web-app kan worden uitgevoerd. Deze reken bronnen zijn vergelijkbaar met de [_server farm_](https://wikipedia.org/wiki/Server_farm) in conventionele webhosting. Een of meer apps kunnen worden geconfigureerd om te worden uitgevoerd op dezelfde computer bronnen (of in hetzelfde App Service-abonnement).
 
-Wanneer u een App Service-plan in een bepaalde regio (bijvoorbeeld, West-Europa) maakt, wordt een set van compute-resources gemaakt voor het abonnement in deze regio. Welke apps u in deze App Service-plan op deze instanties uitgevoerd plaatsen compute-resources zoals gedefinieerd door uw App Service-plan. Elke App Service-plan definieert:
+Wanneer u in een bepaalde regio een App Service plan maakt (bijvoorbeeld Europa-west), wordt er een set reken bronnen gemaakt voor dat plan in die regio. De apps die u in dit App Service plan plaatst, worden uitgevoerd op deze reken resources, zoals gedefinieerd in uw App Service plan. Elk App Service plan definieert:
 
 - Regio (VS-West, VS-Oost, etc.)
 - Aantal VM-exemplaren
-- Grootte van VM-exemplaren (klein, middelgroot, groot)
-- Prijscategorie (Free, Shared, Basic, Standard, Premium, PremiumV2, geïsoleerd, verbruik)
+- Grootte van VM-exemplaren (klein, normaal, groot)
+- Prijs categorie (gratis, gedeeld, Basic, Standard, Premium, PremiumV2, geïsoleerd, verbruik)
 
-De _prijscategorie_ van een App Service plan bepaalt van welke App Service-functies die u aan en hoeveel u betaalt voor het abonnement. Er zijn enkele categorieën worden ondergebracht van Prijscategorieën:
+De _prijs categorie_ van een app service plan bepaalt welke app service functies u krijgt en hoeveel u betaalt voor het abonnement. Er zijn een aantal categorie prijs Categorieën:
 
-- **Gedeelde compute**: **Gratis** en **gedeelde**, de twee basis-lagen, wordt een app op dezelfde Azure-VM als andere App Service-apps, met inbegrip van apps van andere klanten. Deze lagen toewijzen CPU quota's voor elke app die wordt uitgevoerd op de gedeelde resources en de resources niet opschalen.
-- **Toegewezen compute**: De **Basic**, **Standard**, **Premium**, en **PremiumV2** lagen apps uitvoeren op de toegewezen virtuele machines van Azure. Alleen de apps in hetzelfde App Service-plan, delen de dezelfde compute-resources. Hoe hoger de laag de meer VM-exemplaren zijn beschikbaar voor scale-out.
-- **Geïsoleerde**: Deze laag wordt toegewezen virtuele machines van Azure uitgevoerd op specifieke Azure Virtual Networks, waarmee u netwerkisolatie boven op compute isolatie aan uw apps. De maximale uitbreidbare mogelijkheden biedt.
-- **Verbruik**: Deze laag is alleen beschikbaar voor [functie-apps](../azure-functions/functions-overview.md). Deze functies dynamisch, afhankelijk van de werkbelasting kan worden geschaald. Zie voor meer informatie, [Azure Functions vergelijking van hostingabonnementen](../azure-functions/functions-scale.md).
+- **Gedeelde Compute**: **Gratis** en **gedeeld**, de twee basis lagen, voert een app op dezelfde Azure-VM uit als andere app service-apps, waaronder apps van andere klanten. Deze lagen wijzen CPU-quota toe aan elke app die wordt uitgevoerd op de gedeelde bronnen, en de resources kunnen niet worden uitgeschaald.
+- **Toegewezen reken kracht**: Met de lagen **Basic**, **Standard**, **Premium**en **PremiumV2** worden apps op toegewezen Azure-vm's uitgevoerd. Alleen apps in hetzelfde App Service plan delen dezelfde reken resources. Hoe hoger de laag is, hoe meer VM-exemplaren er beschikbaar zijn voor uitschalen.
+- **Geïsoleerd**: Deze laag voert specifieke Azure-Vm's uit op specifieke virtuele netwerken van Azure, waarmee netwerk isolatie wordt geboden naast reken isolatie voor uw apps. Het biedt de maximale schaal mogelijkheden.
+- **Verbruik**: Deze laag is alleen beschikbaar voor het [werken met apps](../azure-functions/functions-overview.md). De functies worden dynamisch geschaald, afhankelijk van de werk belasting. Zie [Azure functions-hosting plannen](../azure-functions/functions-scale.md)voor meer informatie.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Elke laag biedt ook een specifieke subset van de App Service-functies. Deze functies omvatten aangepaste domeinen en SSL-certificaten, automatisch schalen, implementatiesleuven, back-ups, Traffic Manager-integratie en meer. Hoe hoger de laag, meer functies zijn beschikbaar. Als u wilt weten welke functies worden ondersteund in elke prijscategorie, Zie [App Service-plan details](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Elke laag biedt ook een specifieke subset van App Service-functies. Deze functies omvatten aangepaste domeinen en SSL-certificaten, automatisch schalen, implementatie sleuven, back-ups, Traffic Manager-integratie en meer. Hoe hoger de laag, hoe meer functies beschikbaar zijn. Zie [app service plan Details](https://azure.microsoft.com/pricing/details/app-service/plans/)als u wilt weten welke functies worden ondersteund in elke prijs categorie.
 
 <a name="new-pricing-tier-premiumv2"></a>
 
 > [!NOTE]
-> De nieuwe **PremiumV2** prijscategorie biedt [Dv2-serie VM's](../virtual-machines/windows/sizes-general.md#dv2-series) met snellere processoren, SSD-opslag en twee keer zoveel geheugen-kernverhouding per **Standard** laag. **PremiumV2** ondersteunt ook grotere schalen dankzij een verhoogd aantal Instances terwijl het toch alle geavanceerde mogelijkheden bevat die in de Standard-abonnement. Alle functies die beschikbaar zijn in de bestaande **Premium** laag zijn opgenomen in **PremiumV2**.
+> De nieuwe prijs categorie **PremiumV2** voorziet in [dv2-serie vm's](../virtual-machines/windows/sizes-general.md#dv2-series) met snellere processors, SSD-opslag en dubbele geheugen-naar-core-verhouding ten opzichte van de **Standard** -laag. **PremiumV2** biedt ook ondersteuning voor een hogere schaal via een verhoogd aantal instanties, terwijl alle geavanceerde mogelijkheden van het Standard-abonnement nog steeds beschikbaar zijn. Alle beschik bare functies in de bestaande **Premium** -laag zijn opgenomen in **PremiumV2**.
 >
-> Net als bij andere speciale lagen, drie VM-grootten zijn beschikbaar voor deze laag:
+> Net als bij andere toegewezen lagen zijn er drie VM-grootten beschikbaar voor deze laag:
 >
-> - Klein (één CPU-core, 3,5 GiB geheugen) 
+> - Klein (één CPU-kern, 3,5 GiB geheugen) 
 > - Gemiddeld (twee CPU-kernen, 7 GiB geheugen) 
 > - Groot (vier CPU-kernen, 14 GiB geheugen)  
 >
-> Voor **PremiumV2** informatie over de prijzen, Zie [prijzen voor App Service](https://azure.microsoft.com/pricing/details/app-service/).
+> Zie [app service prijzen](https://azure.microsoft.com/pricing/details/app-service/)voor PremiumV2e prijs informatie.
 >
-> Aan de slag met de nieuwe **PremiumV2** prijscategorie, Zie [configureren PremiumV2-laag voor App Service](app-service-configure-premium-tier.md).
+> Zie [PremiumV2 laag configureren voor app service](app-service-configure-premium-tier.md)om aan de slag te gaan met de nieuwe prijs categorie **PremiumV2** .
 
-## <a name="how-does-my-app-run-and-scale"></a>Hoe mijn app uitvoeren en schalen?
+## <a name="how-does-my-app-run-and-scale"></a>Hoe wordt mijn app uitgevoerd en geschaald?
 
-In de **gratis** en **gedeelde** lagen, een app ontvangt CPU minuten op een gedeelde VM-exemplaar en niet opschalen. In de andere lagen, een app wordt uitgevoerd en kan worden geschaald als volgt.
+In de lagen **gratis** en **gedeeld** ontvangt een app CPU-minuten op een gedeeld VM-exemplaar en kan niet worden uitgeschaald. In andere lagen wordt een app als volgt uitgevoerd en geschaald.
 
-Wanneer u een app in App Service maakt, wordt deze geplaatst in een App Service-plan. Wanneer de app wordt uitgevoerd, wordt deze uitgevoerd op alle VM-exemplaren die worden geconfigureerd in de App Service-plan. Als meerdere apps zich in hetzelfde App Service-plan, delen ze allemaal dezelfde VM-instanties. Als u meerdere implementatiesites gebruiken voor een app hebt, wordt de implementatiesites voor alle ook uitvoeren op dezelfde VM-instanties. Als u logboeken met diagnostische gegevens inschakelen, back-ups uitvoeren of WebJobs worden uitgevoerd, ze ook gebruiken CPU-cycli en het geheugen op deze VM-instanties.
+Wanneer u een app in App Service maakt, wordt deze in een App Service plan geplaatst. Wanneer de app wordt uitgevoerd, wordt deze uitgevoerd op alle VM-exemplaren die in het App Service plan zijn geconfigureerd. Als meerdere apps zich in hetzelfde App Service plan bevinden, delen ze allemaal dezelfde VM-exemplaren. Als u meerdere implementatie sites voor een app hebt, worden alle implementatie sleuven ook uitgevoerd op dezelfde VM-exemplaren. Als u Diagnostische logboeken inschakelt, back-ups uitvoert of webjobs uitvoert, worden er ook CPU-cycli en geheugen gebruikt voor deze VM-exemplaren.
 
-De App Service-plan is op deze manier kunnen de schaaleenheid van de App Service-apps. Als het plan is geconfigureerd voor het uitvoeren van vijf VM-instanties, en vervolgens alle apps in het abonnement worden uitgevoerd op alle vijf exemplaren. Het plan is geconfigureerd voor automatisch schalen, en vervolgens alle apps in het plan samen worden geschaald op basis van de instellingen voor automatisch schalen.
+Op deze manier is het App Service plan de schaal eenheid van de App Service apps. Als het plan is geconfigureerd voor het uitvoeren van vijf VM-exemplaren, worden alle apps in het abonnement uitgevoerd op alle vijf de instanties. Als het plan is geconfigureerd voor automatisch schalen, worden alle apps in het plan samengebracht op basis van de instellingen voor automatisch schalen.
 
-Zie voor meer informatie over een app uitschalen [aantal exemplaren handmatig of automatisch schalen](../monitoring-and-diagnostics/insights-how-to-scale.md).
+Zie [aantal exemplaren hand matig of automatisch schalen](../monitoring-and-diagnostics/insights-how-to-scale.md)voor meer informatie over het schalen van een app.
 
 <a name="cost"></a>
 
-## <a name="how-much-does-my-app-service-plan-cost"></a>Wat kost mijn App Service-plan?
+## <a name="how-much-does-my-app-service-plan-cost"></a>Wat kost mijn App Service?
 
-Deze sectie wordt beschreven hoe App Service-apps worden in rekening gebracht. Zie voor gedetailleerde, regio-specifieke informatie over de prijzen, [prijzen voor App Service](https://azure.microsoft.com/pricing/details/app-service/).
+In deze sectie wordt beschreven hoe App Service-apps worden gefactureerd. Zie [app service prijzen](https://azure.microsoft.com/pricing/details/app-service/)voor gedetailleerde, specifieke prijs informatie.
 
-Met uitzondering van **gratis** laag, een App Service-plan wordt een uurtarief voor de compute-resources die worden gebruikt.
+Met uitzonde ring van de laag **gratis** geldt een app service plan een uurtarief op basis van de reken resources die worden gebruikt.
 
-- In de **gedeelde** laag, elke app ontvangt een quotum van CPU-minuten, dus _elke app_ wordt in rekening gebracht per uur voor het CPU-quotum.
-- In de compute-lagen (**Basic**, **Standard**, **Premium**, **PremiumV2**), het App Service-plan definieert het aantal virtuele machine exemplaren van de apps worden geschaald, zodat _elk VM-exemplaar_ in de App Service-plan heeft een uurtarief. Deze VM-exemplaren worden in rekening gebracht de hetzelfde, ongeacht hoeveel apps zijn die daarop worden uitgevoerd. Om te voorkomen van onverwachte kosten, Zie [opschonen van een App Service-plan](app-service-plan-manage.md#delete).
-- In de **geïsoleerd** laag, de App Service-omgeving bepaalt het aantal van de geïsoleerde werknemers die uw apps worden uitgevoerd en _elke werknemer_ per uur in rekening wordt gebracht. Er is bovendien een base uurtarief voor de actieve App Service Environment zelf. 
-- (Alleen voor azure Functions) De **verbruik** laag dynamisch toegewezen VM-exemplaren te reserveren voor een functie-app werkbelasting en dynamisch wordt berekend per seconde door Azure. Zie voor meer informatie, [prijzen van Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+- In de **gedeelde** laag ontvangt elke app een QUOTUM van CPU-minuten, zodat _elke app elk_ uur in rekening wordt gebracht voor het CPU-quotum.
+- In de toegewezen reken lagen (**Basic**, **Standard**, **Premium**, **PremiumV2**) wordt met het app service plan het aantal VM-exemplaren gedefinieerd waarmee de apps worden geschaald, zodat _elk VM-exemplaar_ in het app service plan over een uurtarief in rekening wordt gebracht. Deze VM-exemplaren worden op dezelfde manier in rekening gebracht, ongeacht het aantal apps dat erop wordt uitgevoerd. Zie [een app service plan](app-service-plan-manage.md#delete)opschonen om onverwachte kosten te voor komen.
+- In de **geïsoleerde** laag definieert het app service Environment het aantal geïsoleerde werk rollen waarop uw apps worden uitgevoerd, en _elke werk nemer_ wordt per uur in rekening gebracht. Daarnaast zijn er kosten per uur voor het uitvoeren van de App Service Environment zelf. 
+- (Alleen Azure Functions) De laag **verbruik** wijst dynamisch VM-exemplaren toe om de werk belasting van een functie-app te verwerken en wordt dynamisch berekend per seconde door Azure. Zie voor meer informatie, [prijzen van Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
-U niet in rekening gebracht voor het gebruik van de App Service-functies die beschikbaar zijn voor u (configureren van aangepaste domeinen, SSL-certificaten, implementatiesleuven, back-ups, enz.). De uitzonderingen zijn:
+Er worden geen kosten in rekening gebracht voor het gebruik van de App Service functies die voor u beschikbaar zijn (het configureren van aangepaste domeinen, SSL-certificaten, implementatie sleuven, back-ups, enz.). De uitzonde ringen zijn:
 
-- App Service-domeinen - betaalt u bij de aankoop in Azure en wanneer u deze verlengt elk jaar.
-- App Service-certificaten - betaalt u bij de aankoop in Azure en wanneer u deze verlengt elk jaar.
-- SSL-verbindingen op basis van IP - er zijn een uurtarief voor elke IP gebaseerde SSL-verbinding, maar sommige de **Standard** laag of hoger beschikt u over een IP-gebaseerd SSL verbinding gratis. Op basis van SNI SSL-verbindingen zijn gratis.
+- App Service domeinen: u betaalt wanneer u er een aanschaft in Azure en wanneer u het jaarlijks vernieuwt.
+- App Service certificaten: u betaalt wanneer u er een aanschaft in Azure en wanneer u het jaarlijks vernieuwt.
+- SSL-verbindingen op basis van IP: er worden per uur kosten in rekening gebracht voor elke SSL-verbinding op basis van IP, maar voor sommige **Standard** -laag of hoger hebt u één SSL-verbinding op basis van IP. SSL-verbindingen op basis van SNI zijn gratis.
 
 > [!NOTE]
-> Als u App Service met andere Azure-service integreren, moet u mogelijk rekening houden met de kosten van deze andere services. Bijvoorbeeld, als u Azure Traffic Manager voor het schalen van uw app geografisch, Azure Traffic Manager ook kosten in rekening gebracht gebruiken u op basis van uw gebruik. Zie voor een schatting van uw kosten cross-services in Azure, [prijscalculator](https://azure.microsoft.com/pricing/calculator/). 
+> Als u App Service integreert met een andere Azure-service, moet u mogelijk rekening houden met de kosten van deze andere services. Als u bijvoorbeeld Azure Traffic Manager gebruikt om uw app geografisch te schalen, worden er door Azure Traffic Manager ook kosten in rekening gebracht op basis van uw gebruik. Zie [prijs calculator](https://azure.microsoft.com/pricing/calculator/)voor informatie over het schatten van de kosten voor meerdere services in Azure. 
 >
 >
 
-## <a name="what-if-my-app-needs-more-capabilities-or-features"></a>Wat gebeurt er als mijn app meer mogelijkheden of functies nodig?
+## <a name="what-if-my-app-needs-more-capabilities-or-features"></a>Wat moet ik doen als mijn app meer mogelijkheden of functies nodig heeft?
 
-Uw App Service-plan kan op elk gewenst moment omhoog of omlaag worden geschaald. Het is net zo eenvoudig als de prijscategorie van het abonnement wilt wijzigen. U kunt een lagere prijscategorie in eerste instantie kiezen en later opschalen als u meer App Service-functies nodig hebt.
+Uw App Service-abonnement kan op elk gewenst moment omhoog of omlaag worden geschaald. Het is net zo eenvoudig als het wijzigen van de prijs categorie van het plan. U kunt eerst een lagere prijs categorie kiezen en deze later omhoog schalen wanneer u meer App Service functies nodig hebt.
 
-U kunt bijvoorbeeld starten voor het testen van uw web-app in een **gratis** App Service plannen en betaal niets. Als u wilt toevoegen de [aangepaste DNS-naam](app-service-web-tutorial-custom-domain.md) naar de web-app alleen opgeschaald uw plan zodat **gedeelde** laag. Later, wanneer u wilt toevoegen een [aangepast SSL-certificaat](app-service-web-tutorial-custom-ssl.md), opgeschaald zodat uw plan **Basic** laag. Als u wilt hebben [faseringsomgevingen](deploy-staging-slots.md), opgeschaald zodat **Standard** laag. Als u meer kernen, geheugen of opslag, kan worden uitgebreid naar een grotere VM-grootte in dezelfde laag.
+U kunt bijvoorbeeld beginnen met het testen van uw web-app in een **gratis** app service plan en niets betalen. Wanneer u uw [aangepaste DNS-naam](app-service-web-tutorial-custom-domain.md) wilt toevoegen aan de web-app, schaalt u uw plan naar een **gedeelde** laag. Wanneer u later een [aangepast SSL-certificaat](app-service-web-tutorial-custom-ssl.md)wilt toevoegen, schaalt u uw abonnement op de **Basic** -laag. Wanneer u [faserings omgevingen](deploy-staging-slots.md)wilt, schaalt u omhoog naar de laag **standaard** . Wanneer u meer kernen, geheugen of opslag ruimte nodig hebt, kunt u omhoog schalen naar een grotere VM-grootte in dezelfde laag.
 
-De dezelfde werkt in de omgekeerde volgorde. Als u denkt dat u niet meer nodig hebt van de functies of onderdelen van een hogere laag, u omlaag kunt schalen naar een lagere laag, waarmee u aanzienlijk bespaart.
+Hetzelfde werkt in de omgekeerde volg orde. Wanneer u denkt dat u de mogelijkheden of functies van een hogere laag niet meer nodig hebt, kunt u omlaag schalen naar een lagere laag, waardoor u geld bespaart.
 
-Zie voor informatie over het omhoog schalen van de App Service-plan, [opschalen van een app in Azure](web-sites-scale.md).
+Zie [een app omhoog schalen in azure](web-sites-scale.md)voor meer informatie over het omhoog schalen van het app service plan.
 
-Als uw app zich in hetzelfde App Service-plan met andere apps, kunt u van de app om prestaties te verbeteren door te isoleren van de compute-resources. U kunt dit doen door het verplaatsen van de app naar een afzonderlijke App Service-plan. Zie voor meer informatie, [verplaatsen van een app naar een andere App Service-plan](app-service-plan-manage.md#move).
+Als uw app zich in hetzelfde App Service plan bevindt met andere apps, wilt u mogelijk de prestaties van de app verbeteren door de reken resources te isoleren. U kunt dit doen door de app te verplaatsen naar een afzonderlijk App Service plan. Zie [een app naar een andere app service plan verplaatsen](app-service-plan-manage.md#move)voor meer informatie.
 
-## <a name="should-i-put-an-app-in-a-new-plan-or-an-existing-plan"></a>Moet ik een app in een nieuw abonnement of een bestaand plan plaatsen?
+## <a name="should-i-put-an-app-in-a-new-plan-or-an-existing-plan"></a>Moet ik een app in een nieuw abonnement of een bestaand abonnement plaatsen?
 
-Aangezien u voor de rekenbronnen uw App Service-plan betaalt kan worden toegewezen (Zie [wat kost mijn Appservice-plan?](#cost)), kunt u mogelijk geld besparen door meerdere apps in een App Service-plan te brengen. U kunt apps toevoegen aan een bestaand plan zolang het plan heeft onvoldoende resources om de belasting te verwerken. Echter, houd er rekening mee dat rekenresources apps in hetzelfde App Service-plan dat alle delen dezelfde. Om te bepalen dat of de nieuwe app om de benodigde bronnen heeft, moet u weten wat de capaciteit van de bestaande App Service-plan en de verwachte belasting voor de nieuwe app. Een App Service-plan overbelasting kan mogelijk leiden tot uitvaltijd voor uw nieuwe en bestaande apps.
+Omdat u betaalt voor de computer resources die uw App Service plan toewijst (zie hoeveel [kosten mijn app service plan?](#cost)), kunt u geld besparen door meerdere apps in één app service plan te plaatsen. U kunt apps blijven toevoegen aan een bestaand abonnement, zolang het plan voldoende bronnen heeft om de belasting te verwerken. Houd er echter rekening mee dat apps in hetzelfde App Service plan alle dezelfde reken resources delen. Als u wilt weten of de nieuwe app over de benodigde bronnen beschikt, moet u de capaciteit van het bestaande App Service plan begrijpen en de verwachte belasting voor de nieuwe app. Het overbelasting van een App Service plan kan leiden tot uitval tijd voor uw nieuwe en bestaande apps.
 
-Kan worden geïsoleerd uw app in een nieuw App Service-plan wanneer:
+Isoleer uw app in een nieuw App Service plan wanneer:
 
-- De app is resource-intensieve.
-- Wilt u de app onafhankelijk van andere apps schalen het bestaande plan.
-- De app moet een resource in een andere geografische regio.
+- De app is resource-intensief.
+- U wilt de app onafhankelijk van de andere apps in het bestaande abonnement schalen.
+- De app heeft resources nodig in een andere geografische regio.
 
-Op deze manier kunt u een nieuwe set met resources toewijzen voor uw app en bovendien profiteren van meer controle over uw apps.
+Op deze manier kunt u een nieuwe set resources toewijzen voor uw app en meer controle krijgen over uw apps.
 
-## <a name="manage-an-app-service-plan"></a>Beheren van een App Service-plan
+## <a name="manage-an-app-service-plan"></a>Een App Service-abonnement beheren
 
 > [!div class="nextstepaction"]
-> [Beheren van een App Service-plan](app-service-plan-manage.md)
+> [Een App Service-abonnement beheren](app-service-plan-manage.md)

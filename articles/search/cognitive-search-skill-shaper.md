@@ -1,6 +1,6 @@
 ---
-title: Shaper cognitief zoeken vaardigheid - Azure Search
-description: Metagegevens en gestructureerde informatie onttrekken aan niet-gestructureerde gegevens en vorm te geven als een complex type in een Azure Search verrijking-pijplijn.
+title: Shaper cognitieve Zoek vaardigheid-Azure Search
+description: Haal meta gegevens en gestructureerde informatie op uit ongestructureerde gegevens en vorm deze als een complex type in een Azure Search verrijkings pijplijn.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,41 +11,34 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a970bb2c33db1ad78dca088b7d9b2430984df96
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540834"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698866"
 ---
-#   <a name="shaper-cognitive-skill"></a>Shaper cognitieve vaardigheden
+#   <a name="shaper-cognitive-skill"></a>Shaper cognitieve vaardigheid
 
-De **Shaper** vaardigheid consolideert verschillende invoer in een [complexe type](search-howto-complex-data-types.md) die later in de pijplijn verrijking kan worden verwezen. De **Shaper** vaardigheden kunt u in feite een structuur maken, het definiëren van de naam van de leden van die structuur en het waarden toewijzen aan elk lid. Voorbeelden van geconsolideerde velden nuttig bij het zoeken in scenario's zijn de naam van een eerste en laatste combineren in een enkele structuur, plaats en staat in een enkele structuur, of een naam en geboortedatum in een enkele structuur tot stand brengen van de unieke id.
+De **shaper** -vaardigheid consolideert diverse invoer in een [complex type](search-howto-complex-data-types.md) waarnaar later in de verrijkings pijplijn kan worden verwezen. Met de **shaper** -vaardigheid kunt u in wezen een structuur maken, de naam van de leden van die structuur definiëren en waarden aan elk lid toewijzen. Voor beelden van geconsolideerde velden die handig zijn in zoek scenario's zijn onder andere het combi neren van een voor-en achternaam in één structuur, plaats en provincie in één structuur, of naam en geboorte datum in één structuur om unieke identiteiten te bepalen.
 
-De API-versie, bepaalt de diepte van het vormgeven van u kan bereiken. 
+Daarnaast voegt de **shaper** -vaardigheid die in [scenario 3](#nested-complex-types) wordt geïllustreerd, een optionele eigenschap *sourceContext* toe aan de invoer. De *bron* -en *sourceContext* -eigenschappen sluiten elkaar wederzijds uit. Als de invoer zich in de context van de vaardigheid bevindt, hoeft u alleen *bron*te gebruiken. Als de invoer zich in een *andere* context bevindt dan de context van de kwalificatie, gebruikt u de *sourceContext*. De *sourceContext* vereist dat u een geneste invoer definieert met het specifieke element dat als bron wordt behandeld. 
 
-| API-versie | Gedrag vormgeven | 
-|-------------|-------------------|
-| 2019-05-06-preview-versie van de REST-API (.NET-SDK wordt niet ondersteund) | Complexe objecten, meerdere niveaus diep in een **Shaper** vaardigheid definitie. |
-| 2019-05-06 ** (algemeen beschikbaar), 2017-11-11-Preview| Complexe objecten, één niveau diep. Een vorm van meerdere niveaus vereist verschillende shaper stappen samen-koppeling.|
-
-Geleverd door `api-version=2019-05-06-Preview`, wordt de **Shaper** vaardigheid geïllustreerd in [scenario 3](#nested-complex-types) voegt een nieuwe optionele *sourceContext* eigenschap in op de invoer. De *bron* en *sourceContext* eigenschappen zijn sluiten elkaar wederzijds uit. Als de invoer in de context van de kwalificatie is, gebruik *bron*. Als de invoer naar een *verschillende* context dan de kwalificatie context, gebruik de *sourceContext*. De *sourceContext* , moet u voor het definiëren van een geneste invoer met de specifieke element als de bron wordt behandeld. 
-
-In het antwoord, voor alle API-versies, is de naam van de uitvoer altijd 'uitvoeren'. De pijplijn kunt intern, een andere naam, zoals 'analyzedText' toewijzen, zoals wordt weergegeven in de onderstaande voorbeelden, maar de **Shaper** vaardigheid zelf wordt 'uitvoer' in het antwoord geretourneerd. Dit kan belangrijk zijn als u foutopsporing verrijkt documenten en u ziet de naamgevingsconventie afwijking, of als u een aangepaste vaardigheden ontwikkelen en zijn structureren van het antwoord zelf.
+De uitvoer naam is altijd "uitvoer". Intern kan de pijp lijn een andere naam toewijzen, zoals ' analyzedText ', zoals wordt weer gegeven in de onderstaande voor beelden, maar de **shaper** -vaardigheid zelf retourneert ' output ' in het antwoord. Dit kan belang rijk zijn als u fouten opspoort in verrijkte documenten en u merkt dat de naam verschilt, of als u een aangepaste vaardigheid bouwt en het antwoord zelf structureert.
 
 > [!NOTE]
-> De **Shaper** kwalificatie is niet gebonden aan een Cognitive Services-API en u niet worden in rekening gebracht voor het gebruik ervan. U moet nog steeds [een Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md), echter overschrijven de **gratis** resource-optie waarmee u een klein aantal dagelijkse enrichments per dag wordt beperkt.
+> De **shaper** -vaardigheid is niet gebonden aan een COGNITIVE Services-API en er worden geen kosten in rekening gebracht voor het gebruik ervan. U moet nog steeds [een Cognitive Services resource koppelen](cognitive-search-attach-cognitive-services.md)om de optie **gratis** resource te overschrijven, waardoor u een klein aantal dagelijkse verrijkingen per dag beperkt.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="scenario-1-complex-types"></a>Scenario 1: complexe typen
 
-U hebt een scenario waarin u wilt maken van een structuur genaamd *analyzedText* waarvoor twee leden: *tekst* en *sentiment*, respectievelijk. In een Azure Search-index, een meerdelige doorzoekbaar veld heet een *complexe type* en dit wordt vaak gemaakt wanneer de brongegevens heeft een bijbehorende complexe structuur die is toegewezen aan deze.
+Overweeg een scenario waarin u een structuur wilt maken met de naam *analyzedText* die twee leden bevat: respectievelijk *Text* en *sentiment*. In een Azure Search index wordt een veld dat kan worden doorzocht, een *complex type* genoemd. het wordt vaak gemaakt wanneer bron gegevens een bijbehorende complexe structuur hebben die hieraan toewijst.
 
-Een andere benadering voor het maken van complexe typen is echter via de **Shaper** kwalificatie. Door deze vaardigheid te nemen in een set vaardigheden, kunnen de bewerkingen in het geheugen tijdens de verwerking van de vaardigheden uitvoer gegevensshapes met geneste structuren, die vervolgens kunnen worden toegewezen aan een complex type in de index. 
+Een andere benadering voor het maken van complexe typen is echter via de **shaper** -vaardigheid. Door deze vaardigheid op te nemen in een vaardig heden, kunnen de in-Memory bewerkingen tijdens de kwalificatieset-verwerking gegevensshapes uitvoeren met geneste structuren, die vervolgens kunnen worden toegewezen aan een complex type in uw index. 
 
-De volgende definitie van de voorbeeld-kwalificatie bevat het lid namen als invoer. 
+In het volgende voor beeld van de vaardigheids definitie worden de lidnamen als invoer opgegeven. 
 
 
 ```json
@@ -71,9 +64,9 @@ De volgende definitie van de voorbeeld-kwalificatie bevat het lid namen als invo
 }
 ```
 
-### <a name="sample-index"></a>Index van voorbeeld
+### <a name="sample-index"></a>Voor beeld-index
 
-Een set vaardigheden wordt aangeroepen door een indexeerfunctie en een indexeerfunctie moet een index. Een weergave complexe veld in uw index uitzien als in het volgende voorbeeld. 
+Een vaardig heden wordt aangeroepen door een Indexeer functie en voor een Indexeer functie is een index vereist. Een weer gave met complexe velden in uw index kan eruitzien als in het volgende voor beeld. 
 
 ```json
 
@@ -98,9 +91,9 @@ Een set vaardigheden wordt aangeroepen door een indexeerfunctie en een indexeerf
                 },
 ```
 
-### <a name="skill-input"></a>Kwalificatie invoer
+### <a name="skill-input"></a>Vaardigheids invoer
 
-Een binnenkomende JSON-document bieden van bruikbare invoer voor deze **Shaper** vaardigheid kan zijn:
+Een binnenkomend JSON-document dat bruikbare invoer biedt voor deze **shaper** -vaardigheid kan het volgende zijn:
 
 ```json
 {
@@ -117,9 +110,9 @@ Een binnenkomende JSON-document bieden van bruikbare invoer voor deze **Shaper**
 ```
 
 
-### <a name="skill-output"></a>Kwalificatie uitvoer
+### <a name="skill-output"></a>Vaardigheids uitvoer
 
-De **Shaper** vaardigheid genereert een nieuwe element met de naam *analyzedText* met de combinatie van elementen van *tekst* en *sentiment*. Deze uitvoer voldoet aan het indexschema. Deze worden geïmporteerd en geïndexeerd in een Azure Search-index.
+De **shaper** -vaardigheid genereert een nieuw element met de naam *analyzedText* met de gecombineerde elementen van *Text* en *sentiment*. Deze uitvoer voldoet aan het index schema. Het wordt geïmporteerd en geïndexeerd in een Azure Search index.
 
 ```json
 {
@@ -141,9 +134,9 @@ De **Shaper** vaardigheid genereert een nieuwe element met de naam *analyzedText
 
 ## <a name="scenario-2-input-consolidation"></a>Scenario 2: invoer consolidatie
 
-Een ander voorbeeld: Stel die in verschillende stadia van de pipeline-verwerking, u hebt uitgepakt de titel van een boek en hoofdstuktitels op verschillende pagina's van het rapport. U kunt nu een enkele structuur bestaat uit deze verschillende invoer maken.
+Een ander voor beeld: Stel dat u in verschillende stadia van pijplijn verwerking de titel van een boek hebt geëxtraheerd en hoofdstuk titels op verschillende pagina's van het boek hebt. U kunt nu één structuur maken die bestaat uit de volgende verschillende invoer.
 
-De **Shaper** vaardigheid definitie voor dit scenario kan er uitzien als in het volgende voorbeeld:
+De **shaper** -vaardigheids definitie voor dit scenario kan er als volgt uitzien:
 
 ```json
 {
@@ -168,8 +161,8 @@ De **Shaper** vaardigheid definitie voor dit scenario kan er uitzien als in het 
 }
 ```
 
-### <a name="skill-output"></a>Kwalificatie uitvoer
-In dit geval de **Shaper** worden alle hoofdstuktitels voor het maken van een matrix samengevoegd. 
+### <a name="skill-output"></a>Vaardigheids uitvoer
+In dit geval worden alle hoofdstuk titels door de **shaper** afgevlakt om één matrix te maken. 
 
 ```json
 {
@@ -193,14 +186,11 @@ In dit geval de **Shaper** worden alle hoofdstuktitels voor het maken van een ma
 
 <a name="nested-complex-types"></a>
 
-## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Scenario 3: invoer consolidatie van geneste contexten
+## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Scenario 3: invoer consolidatie vanuit geneste contexten
 
-> [!NOTE]
-> Geneste structuren die worden ondersteund in de [2019 in de REST-API-versie-05-06-Preview](search-api-preview.md) kan worden gebruikt in een [kennis store](knowledge-store-concept-intro.md) of in een Azure Search-index.
+Stel dat u de titel, de hoofd stukken en de inhoud van een boek hebt en dat u entiteits herkenning en sleutel zinnen op de inhoud hebt uitgevoerd en nu de resultaten van de verschillende vaardig heden in één vorm kunt samen voegen met de hoofdstuk naam, entiteiten en sleutel zinnen.
 
-Stel dat u over de titel, de hoofdstukken en de inhoud van een boek en hebben op de inhoud op entiteit erkenning en de sleutel zinnen uitgevoerd en moet nu cumulatieve resultaten van de verschillende vaardigheden in een enkele vorm met de naam van de hoofdstuk, entiteiten en belangrijke zinnen.
-
-De **Shaper** vaardigheid definitie voor dit scenario kan er uitzien als in het volgende voorbeeld:
+De **shaper** -vaardigheids definitie voor dit scenario kan er als volgt uitzien:
 
 ```json
 {
@@ -236,8 +226,8 @@ De **Shaper** vaardigheid definitie voor dit scenario kan er uitzien als in het 
 }
 ```
 
-### <a name="skill-output"></a>Kwalificatie uitvoer
-In dit geval de **Shaper** maakt u een complex type. Deze structuur bestaat in het geheugen. Als u opslaan in een winkel kennis wilt, moet u een projectie maken in uw vaardigheden uit waarin de kenmerken van opslag.
+### <a name="skill-output"></a>Vaardigheids uitvoer
+In dit geval maakt de **shaper** een complex type. Deze structuur bevindt zich in het geheugen. Als u het wilt opslaan in een [Knowledge Store](knowledge-store-concept-intro.md), moet u een projectie maken in uw vaardig heden die opslag kenmerken definieert.
 
 ```json
 {
@@ -261,8 +251,8 @@ In dit geval de **Shaper** maakt u een complex type. Deze structuur bestaat in h
 
 ## <a name="see-also"></a>Zie ook
 
-+ [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md)
-+ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)
-+ [Het gebruik van complexe typen](search-howto-complex-data-types.md)
-+ [Kennis store overzicht](knowledge-store-concept-intro.md)
-+ [Aan de slag met kennis store](knowledge-store-howto.md)
++ [Vooraf gedefinieerde vaardig heden](cognitive-search-predefined-skills.md)
++ [Een vaardig heden definiëren](cognitive-search-defining-skillset.md)
++ [Complexe typen gebruiken](search-howto-complex-data-types.md)
++ [Overzicht van kennis winkels](knowledge-store-concept-intro.md)
++ [Aan de slag met kennis archief](knowledge-store-howto.md)

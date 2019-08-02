@@ -1,18 +1,19 @@
 ---
 title: Gegevens herstellen in azure naar een Windows-Server of Windows-computer
 description: Informatie over het herstellen van gegevens die zijn opgeslagen in azure naar een Windows-Server of Windows-computer.
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
-ms.author: saurse
-ms.openlocfilehash: e22db587c698594170c3b08ea04ff6699b6a61c8
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: c8e0ddb788d5e155bfaa511b1012cc8d8e62aab5
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465684"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689093"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Bestanden herstellen naar Windows met behulp van het Azure Resource Manager-implementatie model
 
@@ -58,7 +59,7 @@ Als u een bestand per ongeluk hebt verwijderd en op dezelfde computer wilt herst
 
 5. Selecteer op de pagina **volume en datum selecteren** het volume dat de bestanden en mappen bevat die u wilt herstellen.
 
-    Selecteer een herstel punt in de agenda. Vetgedrukte  datums geven de beschik baarheid van ten minste één herstel punt aan. Als er meerdere herstel punten beschikbaar zijn binnen één datum, kiest u het specifieke herstel punt in de vervolg keuzelijst **tijd** .
+    Selecteer een herstel punt in de agenda. Vetgedrukte datums geven de beschik baarheid van ten minste één herstel punt aan. Als er meerdere herstel punten beschikbaar zijn binnen één datum, kiest u het specifieke herstel punt in de vervolg keuzelijst **tijd** .
 
     ![Scherm afbeelding van de wizard gegevens herstellen Selecteer de pagina volume en datum](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
 
@@ -81,7 +82,7 @@ Als u een bestand per ongeluk hebt verwijderd en op dezelfde computer wilt herst
     ![Scherm afbeelding van de wizard gegevens herstellen pagina bladeren en bestanden herstellen](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Als u niet ontkoppelen selecteert, blijft het herstel volume gedurende 6 uur vanaf het moment waarop het is gekoppeld. De koppel tijd wordt echter Maxi maal 24 uur verlengd in het geval van een doorlopende bestands kopie. Er worden geen back-upbewerkingen uitgevoerd terwijl het volume is gekoppeld. Elke back-upbewerking die is gepland om te worden uitgevoerd op het moment dat het volume wordt gekoppeld, wordt uitgevoerd nadat het herstel volume is ontkoppeld.
+    > Als u niet ontkoppelenselecteert, blijft het herstel volume gedurende 6 uur vanaf het moment waarop het is gekoppeld. De koppel tijd wordt echter Maxi maal 24 uur verlengd in het geval van een doorlopende bestands kopie. Er worden geen back-upbewerkingen uitgevoerd terwijl het volume is gekoppeld. Elke back-upbewerking die is gepland om te worden uitgevoerd op het moment dat het volume wordt gekoppeld, wordt uitgevoerd nadat het herstel volume is ontkoppeld.
     >
 
 
@@ -127,7 +128,7 @@ Deze stappen omvatten de volgende terminologie:
 
 8. Selecteer op de pagina **volume en datum selecteren** het volume dat de bestanden en mappen bevat die u wilt herstellen.
 
-    Selecteer een herstel punt in de agenda. Vetgedrukte  datums geven de beschik baarheid van ten minste één herstel punt aan. Als er meerdere herstel punten beschikbaar zijn binnen één datum, kiest u het specifieke herstel punt in de vervolg keuzelijst **tijd** .
+    Selecteer een herstel punt in de agenda. Vetgedrukte datums geven de beschik baarheid van ten minste één herstel punt aan. Als er meerdere herstel punten beschikbaar zijn binnen één datum, kiest u het specifieke herstel punt in de vervolg keuzelijst **tijd** .
 
     ![Scherm afbeelding van de wizard gegevens herstellen Selecteer de pagina volume en datum](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
 
@@ -146,7 +147,7 @@ Deze stappen omvatten de volgende terminologie:
     ![Scherm afbeelding van de wizard gegevens herstellen pagina bladeren en bestanden herstellen](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Als u niet ontkoppelen selecteert, blijft het herstel volume gedurende 6 uur vanaf het moment waarop het is gekoppeld. De koppel tijd wordt echter Maxi maal 24 uur verlengd in het geval van een doorlopende bestands kopie. Er worden geen back-upbewerkingen uitgevoerd terwijl het volume is gekoppeld. Elke back-upbewerking die is gepland om te worden uitgevoerd op het moment dat het volume wordt gekoppeld, wordt uitgevoerd nadat het herstel volume is ontkoppeld.
+    > Als u niet ontkoppelenselecteert, blijft het herstel volume gedurende 6 uur vanaf het moment waarop het is gekoppeld. De koppel tijd wordt echter Maxi maal 24 uur verlengd in het geval van een doorlopende bestands kopie. Er worden geen back-upbewerkingen uitgevoerd terwijl het volume is gekoppeld. Elke back-upbewerking die is gepland om te worden uitgevoerd op het moment dat het volume wordt gekoppeld, wordt uitgevoerd nadat het herstel volume is ontkoppeld.
     >
 
 ## <a name="next-steps"></a>Volgende stappen

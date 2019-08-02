@@ -1,5 +1,5 @@
 ---
-title: 'Azure CLI-script: schaal aanpassen voor Azure Database for PostgreSQL'
+title: Azure CLI-script-schalen en bewaken Azure Database for PostgreSQL
 description: "Azure CLI-voorbeeldscript: de schaal van een Azure Database for PostgreSQL-server aanpassen naar een ander prestatieniveau na het uitvoeren van query's op de metrische gegevens."
 author: rachel-msft
 ms.author: raagyema
@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 04/05/2018
-ms.openlocfilehash: 65958eb1e2d7cc4492e0437b24db77f00ebc7eba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 08/01/2019
+ms.openlocfilehash: 6e1b6e5b09a3b9f3da5760fc50c531ee524dc8d4
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66154529"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728765"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Eén PostgreSQL-server bewaken en de schaal ervan aanpassen met Azure CLI
-Met dit CLI-voorbeeldscript wordt de schaal van één Azure Database for PostgreSQL-server aangepast naar een ander prestatieniveau na het uitvoeren van query's op de metrische gegevens. 
+Met dit CLI-voorbeeld script worden reken-en opslag ruimte voor één Azure Database for PostgreSQL Server geschaald nadat een query op de metrische gegevens is doorzocht. 
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -36,11 +36,12 @@ Dit script maakt gebruik van de opdrachten die in de volgende tabel worden weerg
 | **Opdracht** | **Opmerkingen** |
 |---|---|
 | [az group create](/cli/azure/group) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
-| [az postgres server create](/cli/azure/postgres/server) | Hiermee wordt een PostgreSQL-server gemaakt waar de SQL-database wordt gehost. |
+| [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) | Hiermee wordt een PostgreSQL-server gemaakt waar de SQL-database wordt gehost. |
+| [AZ post gres Server Update](/cli/azure/postgres/server#az-postgres-server-update) | Hiermee worden de eigenschappen van de PostgreSQL-server bijgewerkt. |
 | [az monitor metrics list](/cli/azure/monitor/metrics) | Geeft de metrische waarde weer voor de resources. |
 | [az group delete](/cli/azure/group) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over Azure CLI: [Azure CLI-documentatie](/cli/azure)
+- Meer informatie over [Azure database for PostgreSQL Compute en opslag](../concepts-pricing-tiers.md)
 - Aanvullende scripts proberen: [Azure CLI-voorbeelden voor Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
-- Meer informatie over schalen: [Servicelagen](../concepts-service-tiers.md) en [Rekeneenheden en opslageenheden](../concepts-compute-unit-and-storage.md)
+- Meer informatie over de [Azure cli](/cli/azure)

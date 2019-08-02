@@ -1,18 +1,19 @@
 ---
 title: Azure direct Restore-mogelijkheid
 description: Azure direct Restore-mogelijkheid en veelgestelde vragen over VM-back-upstack, implementatie model van Resource Manager
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: sogup
-ms.openlocfilehash: 8bbf24fdd05fa0d70bcadae4f21e599dc8bef3a5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 0f31320a638dd4741d940d0b459575b66149b829
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465095"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698411"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Profiteer van verbeterde prestaties voor back-up en herstel met Azure Backup functie voor direct terugzetten
 
@@ -25,7 +26,8 @@ Het nieuwe model voor direct terugzetten biedt de volgende functie verbeteringen
 * Hiermee vermindert u de back-up-en herstel tijden door moment opnamen lokaal te bewaren, voor twee dagen standaard. Deze standaard waarde voor het bewaren van moment opnamen kan worden geconfigureerd voor elke waarde tussen 1 en 5 dagen.
 * Ondersteunt schijf grootten tot 4 TB. Het wijzigen van de grootte van de schijf wordt niet aanbevolen door Azure Backup.
 * Ondersteunt Standard-SSD schijven samen met Standard-HDD schijven en Premium-SSD schijven.
-*   De mogelijkheid om de oorspronkelijke opslag accounts (per schijf) van niet-beheerde VM'S te gebruiken bij het herstellen. Deze mogelijkheid bestaat zelfs wanneer de virtuele machine schijven heeft die over verschillende opslag accounts worden gedistribueerd. Het versnelt de herstel bewerkingen voor een groot aantal verschillende VM-configuraties.
+* De mogelijkheid om een niet-beheerde virtuele machine te gebruiken oorspronkelijke opslag accounts (per schijf) bij het herstellen. Deze mogelijkheid bestaat zelfs wanneer de virtuele machine schijven heeft die over verschillende opslag accounts worden gedistribueerd. Het versnelt de herstel bewerkingen voor een groot aantal verschillende VM-configuraties.
+* Voor back-ups van virtuele machines die gebruikmaken van Premium Storage, kunt u met direct terugzetten *50%* beschik bare ruimte toewijzen aan de totale toegewezen opslag ruimte. Dit is **alleen** vereist voor de eerste back-up. De 50% beschik bare ruimte is geen vereiste voor back-ups nadat de eerste back-up is voltooid.
 
 
 ## <a name="whats-new-in-this-feature"></a>Wat is er nieuw in deze functie
@@ -103,4 +105,4 @@ Als het herstel type ' moment opname en kluis ' is, wordt de herstel bewerking a
 Het nieuwe model staat het verwijderen van het herstel punt (Tier2) niet toe, tenzij de moment opname (Tier1) is verwijderd. Het is raadzaam om de Bewaar periode voor herstel punten (Tier2) te plannen die groter is dan de Bewaar periode voor de moment opname.
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Waarom is mijn moment opname na de ingestelde Bewaar periode in back-upbeleid al aanwezig?
-Als het herstel punt een moment opname heeft en de meest recente RP beschikbaar is, wordt deze bewaard tot het moment dat er een volgende geslaagde back-up is gemaakt. Dit is nu volgens het ontwerp van het ontworpen GC-beleid dat ten minste één laatste RP vereist om altijd aanwezig te zijn in het geval dat alle back-ups verder mislukken als gevolg van een probleem in de virtuele machine. In normale scenario's worden RPs Maxi maal 24 uur na verloop van tijd opgeruimd.
+Als het herstel punt een moment opname heeft en de meest recente RP beschikbaar is, wordt deze bewaard tot het moment dat er een volgende geslaagde back-up is gemaakt. Dit is een voor beeld van het ontworpen beleid voor garbage collection (GC) dat ten minste één laatste RP verplicht is om altijd aanwezig te zijn in het geval dat alle back-ups verder mislukken als gevolg van een probleem in de virtuele machine. In normale scenario's worden RPs Maxi maal 24 uur na verloop van tijd opgeruimd.

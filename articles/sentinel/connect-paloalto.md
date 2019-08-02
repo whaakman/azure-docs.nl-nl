@@ -1,6 +1,6 @@
 ---
-title: Palo Alto Networks-gegevens verbinden met Azure Sentinel Preview | Microsoft Docs
-description: Informatie over het verbinden met Azure Sentinel Palo Alto Networks-gegevens.
+title: Palo Alto Networks-gegevens verbinden met Azure Sentinel preview | Microsoft Docs
+description: Meer informatie over het verbinden van gegevens van Palo Alto-netwerken met Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,125 +13,98 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/31/2019
 ms.author: rkarlin
-ms.openlocfilehash: bcc9c9db3a89b5bd088f4c546a3415dba4f295e3
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5860e1b1b817985aafd95f6f63d39553489482b9
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611367"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679219"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Verbinding maken met uw Palo Alto Networks-apparaat
 
 > [!IMPORTANT]
-> Azure Sentinel is momenteel in openbare preview.
+> Azure Sentinel is momenteel beschikbaar als open bare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-U kunt Azure Sentinel verbinden met een Palo Alto Networks-apparaat door op te slaan van de logboekbestanden als Syslog CEF. De integratie met Azure Sentinel kunt u gemakkelijk uitvoeren op analytics en query's voor gegevens van het logboekbestand van Palo Alto Networks. Zie voor meer informatie over hoe Azure Sentinel gegevens op CEF neemt. [CEF verbinding maken met apparaten](connect-common-event-format.md).
+U kunt Azure Sentinel verbinden met elk Palo Alto-netwerk apparaat door de logboek bestanden op te slaan als de algemene fout indeling syslog (CEF). Dankzij de integratie met Azure Sentinel kunt u eenvoudig analyses en query's uitvoeren op de gegevens van het logboek bestand vanuit Palo Alto-netwerken. Zie [verbinding maken met CEF-apparaten](connect-common-event-format.md)voor meer informatie over de manier waarop Azure Sentinel CEF-gegevens opneemt.
 
 > [!NOTE]
-> Gegevens worden opgeslagen in de geografische locatie van de werkruimte waarop u werkt met Azure Sentinel.
+> Gegevens worden opgeslagen in de geografische locatie van de werk ruimte waarop u Azure Sentinel uitvoert.
 
-## <a name="step-1-connect-your-palo-alto-networks-appliance-using-an-agent"></a>Stap 1: Verbinding maken met uw Palo Alto Networks-apparaat met behulp van een agent
+## <a name="step-1-connect-your-palo-alto-networks-appliance-using-an-agent"></a>Stap 1: Uw Palo Alto Networks-apparaat verbinden met een agent
 
-Als u wilt verbinden met uw Palo Alto Networks-apparaat Azure Sentinel, moet u een agent op een specifieke virtuele machine implementeren (virtuele machine of on-premises) om de communicatie tussen het apparaat en de Azure-Sentinel te ondersteunen. U kunt de agent automatisch of handmatig implementeren. Automatische implementatie is alleen beschikbaar als uw toegewezen machine is een nieuwe virtuele machine die u in Azure maken wilt. 
+Als u uw Palo Alto Networks-apparaat wilt verbinden met Azure Sentinel, moet u een agent implementeren op een toegewezen machine (VM of on-premises) ter ondersteuning van de communicatie tussen het apparaat en de Azure-Sentinel. 
 
-U kunt ook kunt u de agent handmatig op een bestaande VM in Azure, op een virtuele machine in een andere cloud of op een on-premises machine implementeren.
+U kunt de agent ook hand matig implementeren op een bestaande Azure-VM, op een virtuele machine in een andere Cloud of op een on-premises machine.
 
-Zie voor een diagram van een van beide opties [verbinding maken met gegevensbronnen](connect-data-sources.md#agent-options).
+> [!NOTE]
+> Zorg ervoor dat u de beveiliging van de computer configureert op basis van het beveiligings beleid van uw organisatie. U kunt bijvoorbeeld uw netwerk zodanig configureren dat het wordt uitgelijnd met het beveiligings beleid van uw bedrijfs netwerk en de poorten en protocollen in de daemon wijzigen om af te stemmen op uw vereisten. 
+
+Zie [verbinding maken met gegevens bronnen](connect-data-sources.md#agent-options)om een netwerk diagram van beide opties weer te geven.
 
 
-### <a name="deploy-the-agent-in-azure"></a>De agent in Azure implementeren
+### <a name="deploy-the-agent"></a>De agent implementeren 
 
-1. Klik in de portal voor Azure Sentinel **gegevensconnectors** en selecteer het apparaattype. 
+1. Klik in de Azure-Sentinel Portal op **Data connectors** en selecteer **Palo Alto Networks** en open vervolgens connector- **pagina**. 
 
-1. Onder **Linux Syslog-agentconfiguratie**:
-   - Kies **automatische implementatie** als u maken van een nieuwe machine die vooraf is geïnstalleerd met de Azure-Sentinel-agent en bevat alle configuratie nodig wilt, zoals hierboven is beschreven. Selecteer **automatische implementatie** en klikt u op **automatische agentimplementatie**. Hiermee gaat u naar de pagina kopen voor een specifieke virtuele machine die automatisch is verbonden met uw werkruimte, is. De virtuele machine is een **standard D2s v3 (2 vcpu's, 8 GB geheugen)** en heeft een openbaar IP-adres.
-      1. In de **aangepaste implementatie** pagina, geef de details en kiest u een gebruikersnaam en wachtwoord en als u akkoord met de voorwaarden en bepalingen gaat, koopt u de virtuele machine.
-      1. Configureer uw apparaat voor het verzenden van logboeken met behulp van de instellingen die worden vermeld in de pagina. Gebruik deze instellingen voor de algemene Common Event Format-connector:
-         - Protocol = UDP
-         - Poort 514 =
-         - Faciliteit = Local-4
-         - Indeling CEF =
-   - Kies **handmatige implementatie** als u wilt gebruiken van een bestaande virtuele machine als de specifieke Linux-machine waarop de agent Azure Sentinel moet worden geïnstalleerd. 
-      1. Onder **de Syslog-agent downloaden en installeren**, selecteer **virtuele Azure Linux-machine**. 
-      1. In de **virtuele machines** scherm dat wordt geopend, selecteert u de computer die u wilt gebruiken en klikt u op **Connect**.
-      1. In het scherm connector onder **en Syslog doorsturen configureren**, instellen of uw Syslog-daemon is **rsyslog.d** of **syslog-ng het volgende**. 
-      1. Kopieer deze opdrachten en voer ze uit op uw apparaat:
-          - Als u rsyslog.d hebt geselecteerd:
+1. Onder **de syslog-agent downloaden en installeren**, selecteert u het type computer, ofwel Azure ofwel on-premises. 
+1. Selecteer in het scherm **virtuele machines** dat wordt geopend de computer die u wilt gebruiken en klik op **verbinden**.
+1. Als u **agent voor virtuele Azure Linux-machines downloaden en installeren**kiest, selecteert u de computer en klikt u op **verbinding maken**. Als u ervoor kiest **om de agent te downloaden en te installeren voor niet-Azure Linux virtuele machines**, voert u in het scherm **direct agent** het script uit onder **down load en onboarding-agent voor Linux**.      1. Stel in het scherm connector onder **syslog configureren en door sturen**in of uw syslog-daemon **rsyslog. d** of **syslog-ng**is. 
+1. Kopieer deze opdrachten en voer deze uit op uw apparaat:
+     - Als u rsyslog hebt geselecteerd. d:
               
-            1. Laat de Syslog-daemon op faciliteit local_4 luisteren en de Syslog-berichten te verzenden naar de Azure-Sentinel agent met behulp van poort 25226. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
+       1. Vertel de syslog-daemon om te Luis teren naar de faciliteit local_4 en om de syslog-berichten te verzenden naar de Azure Sentinel-agent met behulp van poort 25226. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
             
-            2. Download en installeer de [security_events configuratiebestand](https://aka.ms/asi-syslog-config-file-linux) die configureert u de Syslog-agent om te luisteren op poort 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Waar {0} moet worden vervangen door de GUID van uw werkruimte.
+       2. Down load en installeer het [security_events-configuratie bestand](https://aka.ms/asi-syslog-config-file-linux) dat de syslog-agent configureert om te Luis teren op poort 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`Waar {0} moet worden vervangen door de GUID van uw werk ruimte.
             
-            1. De syslog-daemon opnieuw starten `sudo service rsyslog restart`
+       1. De syslog-daemon opnieuw starten`sudo service rsyslog restart`
              
-          - Als u syslog-ng het volgende hebt geselecteerd:
+    - Als u syslog-aardgas hebt geselecteerd:
 
-              1. Laat de Syslog-daemon op faciliteit local_4 luisteren en de Syslog-berichten te verzenden naar de Azure-Sentinel agent met behulp van poort 25226. `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
-              2. Download en installeer de [security_events configuratiebestand](https://aka.ms/asi-syslog-config-file-linux) die configureert u de Syslog-agent om te luisteren op poort 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Waar {0} moet worden vervangen door de GUID van uw werkruimte.
+         1. Vertel de syslog-daemon om te Luis teren naar de faciliteit local_4 en om de syslog-berichten te verzenden naar de Azure Sentinel-agent met behulp van poort 25226. `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
+         2. Down load en installeer het [security_events-configuratie bestand](https://aka.ms/asi-syslog-config-file-linux) dat de syslog-agent configureert om te Luis teren op poort 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`Waar {0} moet worden vervangen door de GUID van uw werk ruimte.
 
-              3. De syslog-daemon opnieuw starten `sudo service syslog-ng restart`
-      2. Start opnieuw op de Syslog-agent met de volgende opdracht: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
-      1. Bevestig dat er geen fouten in het logboek van de agent zijn door het uitvoeren van deze opdracht: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
-
-### <a name="deploy-the-agent-on-an-on-premises-linux-server"></a>De agent op een op lokale Linux-server implementeren
-
-Als u Azure niet gebruikt, moet u handmatig de agent Azure Sentinel om uit te voeren op een eigen Linux-server implementeren.
+         3. De syslog-daemon opnieuw starten`sudo service syslog-ng restart`
+ 1. Start de syslog-agent opnieuw met behulp van deze opdracht:`sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
+ 1. Controleer of er geen fouten zijn in het Agent logboek door de volgende opdracht uit te voeren:`tail /var/opt/microsoft/omsagent/log/omsagent.log`
 
 
-1. Klik in de portal voor Azure Sentinel **gegevensconnectors** en selecteer het apparaattype.
-1. Maken van een specifieke Linux-VM, onder **Linux Syslog-agentconfiguratie** Kies **handmatige implementatie**.
-   1. Onder **de Syslog-agent downloaden en installeren**, selecteer **niet-Azure Linux-machine**. 
-   1. In de **Direct agent** scherm die wordt geopend, selecteert **-Agent voor Linux** om te downloaden van de agent of voer deze opdracht uit om het te downloaden op uw Linux-machine:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`
-      1. In het scherm connector onder **en Syslog doorsturen configureren**, instellen of uw Syslog-daemon is **rsyslog.d** of **syslog-ng het volgende**. 
-      1. Kopieer deze opdrachten en voer ze uit op uw apparaat:
-         - Als u rsyslog hebt geselecteerd:
-           1. Laat de Syslog-daemon op faciliteit local_4 luisteren en de Syslog-berichten te verzenden naar de Azure-Sentinel agent met behulp van poort 25226. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
-            
-           2. Download en installeer de [security_events configuratiebestand](https://aka.ms/asi-syslog-config-file-linux) die configureert u de Syslog-agent om te luisteren op poort 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Waar {0} moet worden vervangen door de GUID van uw werkruimte.
-           3. De syslog-daemon opnieuw starten `sudo service rsyslog restart`
-         - Als u syslog-ng het volgende hebt geselecteerd:
-            1. Laat de Syslog-daemon op faciliteit local_4 luisteren en de Syslog-berichten te verzenden naar de Azure-Sentinel agent met behulp van poort 25226. `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
-            2. Download en installeer de [security_events configuratiebestand](https://aka.ms/asi-syslog-config-file-linux) die configureert u de Syslog-agent om te luisteren op poort 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Waar {0} moet worden vervangen door de GUID van uw werkruimte.
-            3. De syslog-daemon opnieuw starten `sudo service syslog-ng restart`
-      1. Start opnieuw op de Syslog-agent met de volgende opdracht: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
-      1. Bevestig dat er geen fouten in het logboek van de agent zijn door het uitvoeren van deze opdracht: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
-## <a name="step-2-forward-palo-alto-networks-logs-to-the-syslog-agent"></a>Stap 2: Palo Alto Networks-logboeken doorsturen naar de Syslog-agent
+## <a name="step-2-forward-palo-alto-networks-logs-to-the-syslog-agent"></a>Stap 2: Palo Alto Networks-logboeken door sturen naar de syslog-agent
 
-Palo Alto Networks voor het doorsturen van Syslog-berichten in CEF-indeling naar uw Azure-werkruimte via de Syslog-agent configureren:
-1.  Ga naar [Common Event Format (CEF) Configuratiehandleidingen](https://docs.paloaltonetworks.com/resources/cef) en download het PDF-bestand voor uw apparaattype. Alle de instructies in de handleiding bij het instellen van uw Palo Alto Networks-apparaat voor het verzamelen van gebeurtenissen voor CEF. 
+Configureer Palo Alto-netwerken om syslog-berichten in de CEF-indeling door te sturen naar uw Azure-werk ruimte via de syslog-agent:
+1.  Ga naar [CEF-configuratie handleidingen (common Event Format)](https://docs.paloaltonetworks.com/resources/cef) en down load de PDF voor uw type apparaat. Volg alle instructies in de hand leiding om uw Palo Alto Networks-apparaat in te stellen voor het verzamelen van CEF-gebeurtenissen. 
 
-1.  Ga naar [Syslog configureren-bewaking](https://aka.ms/asi-syslog-paloalto-forwarding) en volg de stappen 2 en 3 om CEF event forwarding van uw Palo Alto Networks-apparaat naar Azure Sentinel te configureren.
+1.  Ga naar [syslog-bewaking configureren](https://aka.ms/asi-syslog-paloalto-forwarding) en volg stap 2 en 3 om CEF Event forwarding te configureren van uw Palo Alto Networks-apparaat naar Azure Sentinel.
 
-    1. Zorg ervoor dat u stelt de **indeling voor Syslog-server** naar **BSD**.
-    1. Zorg ervoor dat u de **faciliteit nummer** op dezelfde waarde die u in de Syslog-agent instelt.
+    1. Zorg ervoor dat u de **syslog-server indeling** instelt op **BSD**.
+    1. Zorg ervoor dat u het **faciliteit nummer** instelt op dezelfde waarde die u hebt ingesteld in de syslog-agent.
 
-> [!NOTE]
-> Het kopiëren/plakken van het PDF-bestand kunnen de tekst wijzigen en voeg willekeurige tekens. Om dit te voorkomen, Kopieer de tekst naar een teksteditor en verwijder alle tekens die defect de logboekindeling raken kunnen voordat te plakken, zoals u in dit voorbeeld kunt zien.
+       > [!NOTE]
+       > De kopieer-en plak bewerkingen van de PDF kunnen de tekst wijzigen en wille keurige tekens invoegen. Om dit te voor komen, kopieert u de tekst naar een editor en verwijdert u alle tekens die de logboek indeling kunnen verstoren voordat u deze plakt, zoals u kunt zien in dit voor beeld.
  
-  ![Probleem met het CEF tekst kopiëren](./media/connect-cef/paloalto-text-prob1.png)
+        ![CEF-probleem met tekst kopiëren](./media/connect-cef/paloalto-text-prob1.png)
 
-6. Zoek voor het gebruik van de relevante schema in Log Analytics voor de Palo Alto Networks-gebeurtenissen, **CommonSecurityLog**.
+2. Als u het relevante schema in Log Analytics voor de gebeurtenissen van het Palo Alto-netwerken wilt gebruiken, zoekt u naar **CommonSecurityLog**.
 
-## <a name="step-3-validate-connectivity"></a>Stap 3: Verbinding valideren
+## <a name="step-3-validate-connectivity"></a>Stap 3: Connectiviteit valideren
 
-Het duurt al twintig minuten tot de logboeken in Log Analytics wordt weergegeven. 
+Het kan 20 minuten duren voordat uw logboeken in Log Analytics worden weer gegeven. 
 
-1. Zorg ervoor dat u de juiste functie gebruikt. De functie moet hetzelfde zijn in uw apparaat en in Azure Sentinel. U kunt controleren welke faciliteit bestand dat u gebruikt in Azure Sentinel en wijzig dit in het bestand `security-config-omsagent.conf`. 
+1. Zorg ervoor dat u de juiste functie gebruikt. De faciliteit moet hetzelfde zijn in uw apparaat en in azure Sentinel. U kunt controleren welk faciliteit bestand u gebruikt in azure Sentinel en dit wijzigen in het bestand `security-config-omsagent.conf`. 
 
-2. Zorg ervoor dat uw logboeken zijn ophalen met de juiste poort in de Syslog-agent. Voer deze opdracht uit op de computer van de Syslog-agent: `tcpdump -A -ni any  port 514 -vv` Met deze opdracht ziet u de logboeken die gegevensstromen van het apparaat naar de Syslog-machine. Zorg ervoor dat Logboeken zijn ontvangen van de bron-apparaat op de juiste poort en de juiste faciliteit.
+2. Zorg ervoor dat uw logboeken de juiste poort in de syslog-agent krijgen. Voer deze opdracht uit op de computer van de syslog-agent: `tcpdump -A -ni any  port 514 -vv`Met deze opdracht wordt de logboeken weer gegeven die van het apparaat naar de syslog-machine worden gestreamd. Zorg ervoor dat Logboeken worden ontvangen van het bron apparaat op de juiste poort en de juiste faciliteit.
 
-3. Zorg ervoor dat de logboeken die u verzendt aan de voldoet [RFC 5424](https://tools.ietf.org/html/rfc542).
+3. Zorg ervoor dat de logboeken die u verzendt, voldoen aan [RFC 3164](https://tools.ietf.org/html/rfc3164).
 
-4. Op de computer waarop de Syslog-agent wordt uitgevoerd, zorg ervoor dat deze poorten 514, 25226 zijn open en luistert, met de opdracht `netstat -a -n:`. Zie voor meer informatie over het gebruik van deze opdracht [netstat(8) - pagina voor Linux-man](https://linux.die.net/man/8/netstat). Als het goed luistert, ziet u dit:
+4. Op de computer waarop de syslog-agent wordt uitgevoerd, moet u ervoor zorgen dat deze poorten 514, 25226 zijn geopend `netstat -a -n:`en Luis teren met behulp van de opdracht. Meer informatie over het gebruik van deze opdracht vindt u op de [pagina netstat (8)-Linux-man](https://linux.die.net/man/8/netstat). Als de service goed luistert, ziet u dit:
 
-   ![Azure Sentinel poorten](./media/connect-cef/ports.png) 
+   ![Azure-Sentinel-poorten](./media/connect-cef/ports.png) 
 
-5. Zorg ervoor dat de daemon is ingesteld om te luisteren op poort 514, waarop u de logboeken verzenden.
-    - Voor rsyslog het volgende:<br>Zorg ervoor dat het bestand `/etc/rsyslog.conf` deze configuratie omvat:
+5. Zorg ervoor dat de daemon is ingesteld om te Luis teren op poort 514, waarop u de logboeken verzendt.
+    - Voor rsyslog:<br>Zorg ervoor dat het bestand `/etc/rsyslog.conf` de volgende configuratie bevat:
 
            # provides UDP syslog reception
            module(load="imudp")
@@ -141,22 +114,22 @@ Het duurt al twintig minuten tot de logboeken in Log Analytics wordt weergegeven
            module(load="imtcp")
            input(type="imtcp" port="514")
 
-      Zie voor meer informatie, [imudp: UDP-Syslog-Module voor invoer](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module) en [imtcp: TCP-invoer van de Syslog-Module](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module)
+      Zie [voor meer informatie imudp: Invoer module](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module) voor UDP syslog [en imtcp: Invoer module voor TCP syslog](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module)
 
-   - Voor syslog-ng het volgende:<br>Zorg ervoor dat het bestand `/etc/syslog-ng/syslog-ng.conf` deze configuratie omvat:
+   - Voor syslog-aardgas:<br>Zorg ervoor dat het bestand `/etc/syslog-ng/syslog-ng.conf` de volgende configuratie bevat:
 
            # source s_network {
             network( transport(UDP) port(514));
              };
-     Zie voor meer informatie [imudp: UDP-Syslog-invoer Module] (Zie voor meer informatie de [syslog-ng het volgende Open Source Edition 3,16 - Administration Guide](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455).
+     Zie [syslog-ng Open Source Edition 3,16-Administration Guide (Engelstalig](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455)) voor meer informatie.
 
-1. Controleer of er communicatie tussen de Syslog-daemon en de agent. Voer deze opdracht uit op de computer van de Syslog-agent: `tcpdump -A -ni any  port 25226 -vv` Met deze opdracht ziet u de logboeken die gegevensstromen van het apparaat naar de Syslog-machine. Zorg ervoor dat de logboeken ook op de agent ontvangen worden.
+1. Controleer of er communicatie is tussen de syslog-daemon en de agent. Voer deze opdracht uit op de computer van de syslog-agent: `tcpdump -A -ni any  port 25226 -vv`Met deze opdracht wordt de logboeken weer gegeven die van het apparaat naar de syslog-machine worden gestreamd. Zorg ervoor dat de logboeken ook worden ontvangen op de agent.
 
-6. Als beide van deze opdrachten geslaagde resultaten hebt opgegeven, controleert u Log Analytics om te zien als uw logboeken binnenkomen. Alle gebeurtenissen die worden gestreamd vanaf deze apparaten worden weergegeven in onbewerkte vorm in Log Analytics onder `CommonSecurityLog` type.
+6. Als bij beide opdrachten geslaagde resultaten worden weer gegeven, controleert u Log Analytics om te zien of uw logboeken arriveren. Alle gebeurtenissen die vanaf deze apparaten worden gestreamd, worden in onbewerkte vorm in log Analytics onder `CommonSecurityLog` type weer gegeven.
 
-7. Controleer of er fouten zijn of als de logboeken worden niet binnenkomen, kijkt u in `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`. Als deze aangeeft er zijn fouten in het verschil indeling dat, gaat u naar `/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` en bekijk het bestand `security_events.conf`en zorg ervoor dat uw logboeken overeenkomt met de regex-indeling die u in dit bestand ziet.
+7. Als u wilt controleren of er fouten zijn of als de logboeken niet arriveren, kijkt u in `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`. Als wordt aangegeven dat er fouten in de logboek indeling niet overeenkomen, gaat u `/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` naar het bestand `security_events.conf`en kijkt u of uw logboeken overeenkomen met de regex-indeling die u ziet in dit bestand.
 
-8. Zorg ervoor dat de standaardgrootte van uw Syslog-bericht beperkt tot 2048 bytes (2KB is). Als u Logboeken zijn te lang, werkt u de security_events.conf met de volgende opdracht: `message_length_limit 4096`
+8. Zorg ervoor dat de standaard grootte van het syslog-bericht is beperkt tot 2048 bytes (2 KB). Als de logboeken te lang zijn, werkt u het security_events. conf bij met behulp van de volgende opdracht:`message_length_limit 4096`
 
 
 
@@ -166,7 +139,7 @@ Het duurt al twintig minuten tot de logboeken in Log Analytics wordt weergegeven
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit document hebt u geleerd hoe u kunt Azure Sentinel van Palo Alto Networks-apparaten verbinden. Zie voor meer informatie over Azure Sentinel, de volgende artikelen:
-- Meer informatie over het [Krijg inzicht in uw gegevens en mogelijke bedreigingen](quickstart-get-visibility.md).
-- Aan de slag [detecteren van bedreigingen met Azure Sentinel](tutorial-detect-threats.md).
+In dit document hebt u geleerd hoe u Palo Alto Networks-apparaten verbindt met Azure Sentinel. Raadpleeg de volgende artikelen voor meer informatie over Azure Sentinel:
+- Meer informatie over hoe u [inzicht krijgt in uw gegevens en mogelijke bedreigingen](quickstart-get-visibility.md).
+- Ga aan de slag [met het detecteren van bedreigingen met Azure Sentinel](tutorial-detect-threats.md).
 

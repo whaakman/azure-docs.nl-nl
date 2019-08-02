@@ -1,6 +1,6 @@
 ---
-title: Voorwaardelijke toegang - Azure SQL Database en datawarehouse | Microsoft Docs
-description: Informatie over het configureren van voorwaardelijke toegang voor Azure SQL Database en Data Warehouse.
+title: Voorwaardelijke toegang-Azure SQL Database en Data Warehouse | Micro soft doc
+description: Meer informatie over het configureren van voorwaardelijke toegang voor Azure SQL Database en het Data Warehouse.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,50 +10,49 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-manager: craigg
 ms.date: 03/29/2019
-ms.openlocfilehash: 2b2a4a8f7de7e23997b2d8ba0c1c35dfd97f2541
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b7000138c4dfc42b774969c1b971d969064b78f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118768"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569310"
 ---
-# <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Voorwaardelijke toegang (MFA) met Azure SQL Database en datawarehouse  
+# <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Voorwaardelijke toegang (MFA) met Azure SQL Database en Data Warehouse  
 
-Azure [SQL-Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md), en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) ondersteuning voor voorwaardelijke toegang van Microsoft. 
+Azure [SQL database](sql-database-technical-overview.md), een [beheerd exemplaar](sql-database-managed-instance.md)en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) ondersteunen micro soft voorwaardelijke toegang. 
 
 > [!NOTE]
 > Dit onderwerp is van toepassing op Azure SQL-servers en op SQL Database- en SQL Data Warehouse-databases die op deze Azure SQL-servers worden gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
 
-De volgende stappen laten zien hoe SQL Database configureren voor het afdwingen van beleid voor voorwaardelijke toegang.  
+De volgende stappen laten zien hoe u SQL Database kunt configureren voor het afdwingen van beleid voor voorwaardelijke toegang.  
 
 ## <a name="prerequisites"></a>Vereisten  
-- U moet uw SQL-Database of SQL Data Warehouse ter ondersteuning van Azure Active Directory-verificatie configureren. Zie voor specifieke stappen [configureren en beheren van Azure Active Directory-verificatie met SQL-Database of SQL Data Warehouse](sql-database-aad-authentication-configure.md).  
-- Wanneer multi-factor authentication is ingeschakeld, moet u verbinding maken met op ondersteunde hulpprogramma, zoals de nieuwste SSMS. Zie voor meer informatie, [Azure SQL-Database configureren multi-factor authentication voor SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
+- U moet uw SQL Database of SQL Data Warehouse configureren voor de ondersteuning van Azure Active Directory-verificatie. Zie [Azure Active Directory authenticatie configureren en beheren met SQL database of SQL Data Warehouse](sql-database-aad-authentication-configure.md)voor specifieke stappen.  
+- Als multi-factor Authentication is ingeschakeld, moet u verbinding maken met met een ondersteund hulp programma, zoals de laatste SSMS. Zie [Azure SQL database multi-factor Authentication configureren voor SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md)voor meer informatie.  
 
 ## <a name="configure-ca-for-azure-sql-dbdw"></a>CA configureren voor Azure SQL DB/DW  
-1. Meld u aan bij de Portal, selecteer **Azure Active Directory**, en selecteer vervolgens **voorwaardelijke toegang**. Zie voor meer informatie, [technische documentatie voor Azure Active Directory voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
-   ![Blade voor voorwaardelijke toegang](./media/sql-database-conditional-access/conditional-access-blade.png) 
+1. Meld u aan bij de portal, selecteer **Azure Active Directory**en selecteer vervolgens **voorwaardelijke toegang**. Zie [Azure Active Directory technische Naslag informatie voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
+   ![Blade voorwaardelijke toegang](./media/sql-database-conditional-access/conditional-access-blade.png) 
      
-2. In de **beleid voor voorwaardelijke toegang** blade, klikt u op **nieuw beleid**, Geef een naam op en klik vervolgens op **regels configureren**.  
-3. Onder **toewijzingen**, selecteer **gebruikers en groepen**, Controleer **gebruikers en groepen selecteren**, en selecteer vervolgens de gebruiker of groep voor voorwaardelijke toegang. Klik op **Selecteer**, en klik vervolgens op **gedaan** te accepteren van uw selectie.  
-   ![Gebruikers en groepen selecteren](./media/sql-database-conditional-access/select-users-and-groups.png)  
+2. Klik op de Blade **voorwaardelijke toegang-beleids regels** op **Nieuw beleid**, geef een naam op en klik vervolgens op **regels configureren**.  
+3. Onder **toewijzingen**selecteert u **gebruikers en groepen**, **selecteert u gebruikers en groepen selecteren**en selecteert u vervolgens de gebruiker of groep voor voorwaardelijke toegang. Klik op **selecteren**en klik vervolgens op **gereed** om uw selectie te accepteren.  
+   ![gebruikers en groepen selecteren](./media/sql-database-conditional-access/select-users-and-groups.png)  
 
-4. Selecteer **Cloud-apps**, klikt u op **apps selecteren**. Ziet u alle beschikbare apps voor voorwaardelijke toegang. Selecteer **Azure SQL Database**, klik onderaan op **Selecteer**, en klik vervolgens op **gedaan**.  
-   ![SQL-Database selecteren](./media/sql-database-conditional-access/select-sql-database.png)  
-   Als u niet kunt vinden **Azure SQL Database** wordt vermeld in de volgende schermafbeelding van de derde, de volgende stappen uitvoeren:   
-   - Aanmelden bij uw Azure SQL DB/DW-exemplaar met behulp van SSMS met een AAD-beheerdersaccount.  
-   - Voer `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
-   - Aanmelden bij AAD en controleer of dat Azure SQL Database en datawarehouse worden weergegeven in de toepassingen in uw AAD.  
+4. Selecteer **Cloud-apps**, klik op **apps selecteren**. U ziet alle apps die beschikbaar zijn voor voorwaardelijke toegang. Selecteer **Azure SQL database**, klik onderaan op **selecteren**en klik vervolgens op **gereed**.  
+   ![SQL Database selecteren](./media/sql-database-conditional-access/select-sql-database.png)  
+   Als **Azure SQL database** niet wordt weer gegeven in de volgende derde scherm afbeelding, voert u de volgende stappen uit:   
+   - Meld u aan bij uw Azure SQL DB/DW-exemplaar met behulp van SSMS met een AAD-beheerders account.  
+   - Uitvoeren `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
+   - Meld u aan bij AAD en controleer of Azure SQL Database en Data Warehouse worden weer gegeven in de toepassingen in uw AAD.  
 
-5. Selecteer **besturingselementen voor toegang**, selecteer **verlenen**, en controleer vervolgens of het beleid dat u wilt toepassen. In dit voorbeeld selecteren we **meervoudige verificatie vereisen**.  
+5. Selecteer **toegangs beheer**, selecteer **toekennen**en controleer vervolgens het beleid dat u wilt Toep assen. Voor dit voor beeld selecteren we **multi-factor Authentication vereisen**.  
    ![Selecteer toegang verlenen](./media/sql-database-conditional-access/grant-access.png)  
 
 ## <a name="summary"></a>Samenvatting  
-De geselecteerde toepassing (Azure SQL Database) verbinding naar Azure SQL DB/DW met behulp van Azure AD Premium, zodat wordt nu afgedwongen voor het geselecteerde beleid voor voorwaardelijke toegang, **vereist meervoudige verificatie.**  
-Als u vragen hebt over Azure SQL Database en Data Warehouse met betrekking tot verificatie met meerdere factoren, neem contact op met MFAforSQLDB@microsoft.com.  
+De geselecteerde toepassing (Azure SQL Database) waarmee verbinding kan worden gemaakt met Azure SQL data base/DW via Azure AD Premium, nu het geselecteerde beleid voor voorwaardelijke toegang afdwingt, **vereiste multi-factor Authentication.**  
+Voor vragen over Azure SQL Database en data warehouse met betrekking tot multi-factor Authentication MFAforSQLDB@microsoft.com, neemt u contact op met.  
 
 ## <a name="next-steps"></a>Volgende stappen  
 
-Zie voor een zelfstudie [beveiligen van uw Azure SQL Database](sql-database-security-tutorial.md).
+Zie [uw Azure SQL database beveiligen](sql-database-security-tutorial.md)voor een zelf studie.

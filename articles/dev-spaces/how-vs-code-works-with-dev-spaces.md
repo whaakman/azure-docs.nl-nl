@@ -9,12 +9,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 description: Hoe Visual Studio code werkt met Azure dev Spaces
 keywords: Azure dev Spaces, dev Spaces, docker, Kubernetes, azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: 0d80643b366b6d7313f24e73258056e492eb56fc
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 7809f0215137b0c473e13143404a031497906ebf
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297858"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725817"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Hoe Visual Studio code werkt met Azure dev Spaces
 
@@ -41,7 +41,7 @@ Nadat u de assets voor uw project hebt gegenereerd, kunt u uw Java-, node. js-en
 
 U moet uw AKS-cluster maken en Azure-ontwikkel ruimten in uw cluster buiten Visual Studio code inschakelen. U kunt bijvoorbeeld de Azure CLI of de Azure Portal gebruiken om deze installatie uit te voeren. U kunt bestaande Dockerfiles-, helm-grafieken en `azds.yaml` bestanden die buiten Visual Studio code zijn gemaakt, hergebruiken, zoals de `azds prep`activa die worden gegenereerd door uit te voeren. Als u activa opnieuw wilt gebruiken die buiten Visual Studio code zijn gegenereerd, hebt u nog steeds `.vscode` een map nodig. Deze `.vscode` map kan opnieuw worden gegenereerd door Visual Studio code en de Azure dev Spaces-extensie en uw bestaande assets worden niet overschreven.
 
-Voor .net core-projecten installed to run your .NET service from Visual Studio Code. Also for Java projects using Maven, you must have the [Java Debugger for Azure Dev Spaces extension][java-extension] moet de [ C# uitbrei ding][csharp-extension] zijn geïnstalleerd, evenals [maven geïnstalleerd en geconfigureerd][maven] voor het uitvoeren van uw Java-service vanuit Visual Studio code.
+Voor .net core-projecten moet u de [ C# extensie][csharp-extension] hebben geïnstalleerd om uw .net-service vanuit Visual Studio code uit te voeren. Voor Java-projecten met maven moet u ook de [Java-fout opsporingsprogramma voor Azure dev Spaces-extensie][java-extension] installeren [en Maven geïnstalleerd en geconfigureerd][maven] om uw Java-service vanuit Visual Studio code uit te voeren.
 
 ## <a name="debug-your-service-in-aks"></a>Fout opsporing voor uw service in AKS
 
@@ -52,9 +52,9 @@ Nadat u uw project hebt gestart, kunt u fouten opsporen in uw Java-, node. js-en
 
 U kunt Visual Studio code en de Azure dev Spaces-extensie in de volgende Quick starts gebruiken met Azure dev Spaces:
 
-* [Ontwikkelen met Java][quickstart-java]
-* [Ontwikkelen met .NET][quickstart-netcore]
-* [Ontwikkelen met node. js][quickstart-node]
+* [Snel herhalen en fouten opsporen met Visual Studio code en Java][quickstart-java]
+* [Snel herhalen en fouten opsporen met Visual Studio code en .NET][quickstart-netcore]
+* [Snel herhalen en fouten opsporen met Visual Studio code en node. js][quickstart-node]
 
 [azds-extension]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azds-yaml]: how-dev-spaces-works.md#prepare-your-code

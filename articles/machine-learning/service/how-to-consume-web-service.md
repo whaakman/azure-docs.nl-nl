@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 070dd07aa6705e97a532bdc5f53a08a9abe0f83d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 7799b62b2c330610663e361bbb3930340b1ebdaf
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361007"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726283"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Een Azure Machine Learning-model dat is geïmplementeerd als een webservice gebruiken
 
@@ -37,8 +37,10 @@ De algemene werk stroom voor het maken van een client die gebruikmaakt van een m
 
 De klasse [azureml. core. webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) bevat de informatie die u nodig hebt voor het maken van een-client. De volgende `Webservice` eigenschappen zijn handig voor het maken van een client toepassing:
 
-* `auth_enabled` -Als verificatie is ingeschakeld, `True`; anders `False`.
+* `auth_enabled`-Als de sleutel verificatie is ingeschakeld `True`, anders, `False`.
+* `token_auth_enabled`-Als token verificatie is ingeschakeld, `True`anders,. `False`
 * `scoring_uri` -De REST-API-adres.
+
 
 Er zijn een drie manieren om op te halen van deze informatie voor de geïmplementeerde webservices:
 
@@ -67,7 +69,15 @@ Er zijn een drie manieren om op te halen van deze informatie voor de geïmplemen
     print(service.scoring_uri)
     ```
 
-### <a name="authentication-key"></a>Verificatiesleutel
+### <a name="authentication-for-services"></a>Verificatie voor services
+
+Azure Machine Learning biedt twee manieren om de toegang tot uw webservices te beheren. 
+
+|Verificatiemethode|ACI|AKS|
+|---|---|---|
+|Sleutel|Standaard uitgeschakeld| Standaard ingeschakeld|
+|Token| Niet beschikbaar| Standaard uitgeschakeld |
+#### <a name="authentication-with-keys"></a>Verificatie met sleutels
 
 Wanneer u verificatie voor een implementatie inschakelt, maakt u automatisch verificatie sleutels.
 
@@ -85,6 +95,26 @@ print(primary)
 
 > [!IMPORTANT]
 > Als u een sleutel opnieuw genereren wilt, gebruikt u [ `service.regen_key` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
+
+
+#### <a name="authentication-with-tokens"></a>Verificatie met tokens
+
+Wanneer u token verificatie inschakelt voor een webservice, moet een gebruiker een Azure Machine Learning JWT-token voor de webservice opgeven om deze te openen. 
+
+* Token verificatie is standaard uitgeschakeld wanneer u implementeert in azure Kubernetes service.
+* Token authenticatie wordt niet ondersteund wanneer u implementeert naar Azure Container Instances.
+
+Als u de verificatie van tokens `token_auth_enabled` wilt beheren, gebruikt u de para meter bij het maken of bijwerken van een implementatie.
+
+Als token verificatie is ingeschakeld, kunt u de methode `get_token` gebruiken om een Bearer-token op te halen en de verval tijd van tokens:
+
+```python
+token, refresh_by = service.get_tokens()
+print(token)
+```
+
+> [!IMPORTANT]
+> U moet een nieuw token aanvragen na de tijd van `refresh_by` de token. 
 
 ## <a name="request-data"></a>Gegevens van aanvragen
 

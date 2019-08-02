@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 35d494702673d59290a0073c55135138f533b8bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2464332727b0ef1e616c04a975df5ac475a7b19
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956690"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610288"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Disk Encryption
 
@@ -34,9 +34,9 @@ Deze fout kan optreden als de OS-schijfversleuteling is geprobeerd op een omgevi
 - Schijven worden recursief gekoppeld onder de map /mnt/ of elke andere (bijvoorbeeld /mnt/data1, /mnt/data2, /data3 + /data3/data4).
 - Andere Azure Disk Encryption [vereisten](azure-security-disk-encryption-prerequisites.md) voor Linux worden niet voldaan.
 
-## <a name="bkmk_Ubuntu14"></a> Bijwerken van de standaard-kernel voor Ubuntu 14.04 TNS
+## <a name="bkmk_Ubuntu14"></a>De standaard-kernel voor Ubuntu 14,04 LTS bijwerken
 
-De Ubuntu 14.04 LTS-installatiekopie wordt geleverd met een standaardversie voor de kernel van 4.4. Deze kernelversie is een bekend probleem waarbij van geheugen Killer niet goed wordt beëindigd de opdracht dd tijdens het versleutelingsproces OS. Deze fout is opgelost in de meest recente Azure afgestemd op de Linux-kernel. Om te voorkomen dat deze fout, vóór het inschakelen van versleuteling op de installatiekopie bijwerken naar de [Azure afgestemd op de kernel 4.15](https://packages.ubuntu.com/trusty/linux-azure) of met behulp van de volgende opdrachten:
+De Ubuntu 14,04 LTS-installatie kopie wordt geleverd met een standaard versie van de kernel van 4,4. Deze kernel-versie heeft een bekend probleem waarbij onvoldoende geheugen-Killer de opdracht DD tijdens het versleutelings proces van het besturings systeem niet correct beëindigt. Deze bug is opgelost in de meest recente Azure-afgestemde Linux-kernel. Als u deze fout wilt voor komen, moet u, voordat u versleuteling inschakelt voor de installatie kopie, bijwerken naar de door [Azure afgestemde kernel 4,15](https://packages.ubuntu.com/trusty/linux-azure) of later met de volgende opdrachten:
 
 ```
 sudo apt-get update
@@ -44,27 +44,27 @@ sudo apt-get install linux-azure
 sudo reboot
 ```
 
-Nadat de virtuele machine opnieuw is opgestart in de nieuwe kernel, kan de nieuwe kernelversie worden bevestigd met behulp van:
+Nadat de VM opnieuw is opgestart in de nieuwe kernel, kan de nieuwe versie van de kernel worden bevestigd met:
 
 ```
 uname -a
 ```
 
-## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Azure Virtual Machineagent en -extensies met versie bijwerken
+## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>De versie van de Azure virtual machine-agent en-extensie bijwerken
 
-Azure Disk Encryption-bewerkingen mislukken mogelijk bij de installatiekopieën van virtuele machines met een niet-ondersteunde versie van de Azure VM-Agent. Linux-installatiekopieën met agent-versies ouder dan 2.2.38 moeten worden bijgewerkt voordat versleuteling werd ingeschakeld. Zie voor meer informatie, [het bijwerken van de Azure Linux Agent op een virtuele machine](../virtual-machines/extensions/update-linux-agent.md) en [minimaal versie-ondersteuning voor agents van de virtuele machine in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+Azure Disk Encryption bewerkingen kunnen mislukken op installatie kopieën van virtuele machines met niet-ondersteunde versies van de virtuele machine agent van Azure. Linux-installatie kopieën met eerdere agent versies dan 2.2.38 moeten worden bijgewerkt voordat u versleuteling inschakelt. Zie [How to update the Azure Linux agent](../virtual-machines/extensions/update-linux-agent.md) (Engelstalig) voor meer informatie over het bijwerken van een [virtuele machine en de minimale versie van de ondersteuning van](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)de VM-agents in Azure.
 
-De juiste versie van de Microsoft.Azure.Security.AzureDiskEncryption of Microsoft.Azure.Security.AzureDiskEncryptionForLinux guest agent-extensie is ook vereist. Extensie-versies worden onderhouden en automatisch wordt bijgewerkt door het platform als Azure virtuele Machine agent vereisten is voldaan en er een ondersteunde versie van de virtuele machine-agent wordt gebruikt.
+De juiste versie van de extensie micro soft. Azure. Security. AzureDiskEncryption of micro soft. Azure. Security. AzureDiskEncryptionForLinux Guest agent is ook vereist. Extensie versies worden automatisch onderhouden en bijgewerkt door het platform wanneer aan de vereisten van de Azure virtual machine-agent wordt voldaan en er een ondersteunde versie van de Virtual Machine agent wordt gebruikt.
 
-De extensie Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux is afgeschaft en wordt niet meer ondersteund.  
+De extensie micro soft. OSTCExtensions. AzureDiskEncryptionForLinux is afgeschaft en wordt niet meer ondersteund.  
 
-## <a name="unable-to-encrypt-linux-disks"></a>Kan niet voor het versleutelen van Linux-schijven
+## <a name="unable-to-encrypt-linux-disks"></a>Kan Linux-schijven niet versleutelen
 
 In sommige gevallen kan is de Linux-schijfversleuteling lijkt te zijn vastgelopen bij 'OS-schijf versleuteling aan de slag'- en SSH uitgeschakeld. De versleuteling van 3-16 uur eindigen op een afbeelding voorraad kan duren. Als multi-terabyte-formaat gegevensschijven worden toegevoegd, kan dit proces kan dagen duren.
 
 De volgorde van Linux-besturingssysteem schijf versleuteling losgekoppeld tijdelijk van de besturingssysteemschijf. Blok-voor-blokverificatie versleuteling van een schijf met het volledige besturingssysteem, wordt vervolgens uitgevoerd voordat deze het remounts in de versleutelde status. In tegenstelling tot Azure Disk Encryption op Windows kunnen Linux-schijfversleuteling geen voor gelijktijdige gebruik van de virtuele machine terwijl de versleuteling uitgevoerd wordt. De prestatiekenmerken van de virtuele machine kunnen maken van een aanzienlijk verschil zijn in de tijd die nodig is om versleuteling te voltooien. Deze kenmerken zijn de grootte van de schijf en of het opslagaccount is standard of premium (SSD)-opslag.
 
-Vragen om te controleren of de status voor schijfversleuteling, de **ProgressMessage** veld geretourneerd door de [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) opdracht. Terwijl de OS-schijf wordt versleuteld, wordt de virtuele machine wordt de status onderhoud ingeschakeld en schakelt SSH om te voorkomen dat een onderbreking van het continue proces. De **EncryptionInProgress** rapporten voor het merendeel van de tijd weergegeven terwijl de versleuteling uitgevoerd wordt. Enkele uren later een **VMRestartPending** bericht u vraagt om de virtuele machine opnieuw opstarten. Bijvoorbeeld:
+Als u de versleutelings status wilt controleren, controleert u het veld **ProgressMessage** dat wordt geretourneerd door de opdracht [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) . Terwijl de OS-schijf wordt versleuteld, wordt de virtuele machine wordt de status onderhoud ingeschakeld en schakelt SSH om te voorkomen dat een onderbreking van het continue proces. De **EncryptionInProgress** rapporten voor het merendeel van de tijd weergegeven terwijl de versleuteling uitgevoerd wordt. Enkele uren later een **VMRestartPending** bericht u vraagt om de virtuele machine opnieuw opstarten. Bijvoorbeeld:
 
 
 ```azurepowershell
@@ -97,10 +97,10 @@ Network security groepsinstellingen die worden toegepast moeten wel wilt toestaa
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault achter een firewall
 
-Als versleuteling wordt ingeschakeld met [Azure AD-referenties](azure-security-disk-encryption-prerequisites-aad.md), de doel-VM moet een verbinding met Azure Active Directory-eindpunten én Key Vault-eindpunten toestaan. Huidige eindpunten voor Azure Active Directory-verificatie worden bijgehouden in secties 56 en 59 van de [Office 365-URL's en IP-adresbereiken](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) documentatie. Key Vault-instructies vindt u in de documentatie over hoe u [toegang tot Azure Key Vault achter een firewall](../key-vault/key-vault-access-behind-firewall.md).
+Wanneer versleuteling wordt ingeschakeld met [Azure AD-referenties](azure-security-disk-encryption-prerequisites-aad.md), moet de doel-VM verbinding kunnen maken met zowel Azure Active Directory-eind punten als Key Vault-eind punten. De huidige Azure Active Directory-verificatie-eind punten worden onderhouden in de secties 56 en 59 van de documentatie voor [Office 365-url's en IP-](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) adresbereiken. Key Vault instructies vindt u in de documentatie over het [verkrijgen van toegang tot Azure Key Vault achter een firewall](../key-vault/key-vault-access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
-De virtuele machine moet toegang hebben tot de [Azure Instance Metadata service](../virtual-machines/windows/instance-metadata-service.md) eindpunt dat gebruikmaakt van een bekende niet-routeerbare IP-adres (`169.254.169.254`) die kunnen worden gebruikt alleen de virtuele machine.  Configuraties van webproxy's die gevolgen hebben voor lokale HTTP-verkeer naar dit adres (bijvoorbeeld verhoging van een koptekst X doorgestuurd voor) worden niet ondersteund.
+De virtuele machine moet toegang hebben tot het [meta gegevens service](../virtual-machines/windows/instance-metadata-service.md) -eind punt van Azure, dat gebruikmaakt van een bekende niet-Routeer bare IP-adres (`169.254.169.254`) die alleen vanuit de virtuele machine kan worden geopend.  Proxy configuraties waarmee lokaal HTTP-verkeer naar dit adres wordt gewijzigd (bijvoorbeeld het toevoegen van een X-doorgestuurd-for-header) worden niet ondersteund.
 
 ### <a name="linux-package-management-behind-a-firewall"></a>Linux-Pakketbeheer achter een firewall
 
@@ -146,17 +146,17 @@ DISKPART> list vol
 If the expected encryption state does not match what is being reported in the portal, see the following support article:
 [Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) --> 
 
-## <a name="troubleshooting-encryption-status"></a>Versleutelingsstatus van probleemoplossing 
+## <a name="troubleshooting-encryption-status"></a>Problemen met de versleutelings status oplossen 
 
-De portal mogelijk een schijf weergegeven als gecodeerde zelfs nadat deze niet-versleutelde binnen de virtuele machine is.  Dit kan gebeuren wanneer op laag niveau opdrachten worden gebruikt om rechtstreeks decoderen: u moet de schijf uit vanuit de virtuele machine, in plaats van het hogere niveau Azure Disk Encryption-opdrachten voor beheer.  Het hogere niveau opdrachten niet alleen decoderen: u moet de schijf uit vanuit de virtuele machine, maar buiten de virtuele machine ze ook bijwerken: versleuteling op bestandsniveau belangrijk platform en extensie-instellingen die zijn gekoppeld aan de virtuele machine.  Als deze niet in overeenstemming worden gehouden, wordt het platform wordt pas weer versleutelingsstatus rapporteren of de virtuele machine correct inrichten.   
+De portal kan een schijf weer geven als versleuteld, zelfs nadat deze is ontsleuteld in de virtuele machine.  Dit kan gebeuren wanneer opdrachten op laag niveau worden gebruikt om de schijf rechtstreeks van de virtuele machine te ontsleutelen, in plaats van de Azure Disk Encryption beheer opdrachten op een hoger niveau te gebruiken.  Met de opdrachten op een hoger niveau wordt de schijf niet alleen ontsleuteld vanuit de virtuele machine, maar buiten de virtuele machine worden ook belang rijke versleutelings instellingen en extensie-instellingen van het platform bijgewerkt die zijn gekoppeld aan de virtuele machine.  Als deze niet in de uitlijning worden bewaard, kan het platform geen versleutelings status rapporteren of de virtuele machine op de juiste wijze inrichten.   
 
-Als u wilt uitschakelen Azure Disk Encryption met PowerShell, gebruikt u [uitschakelen AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) gevolgd door [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Remove-AzVMDiskEncryptionExtension wordt uitgevoerd voordat de versleuteling is uitgeschakeld, mislukt.
+Als u Azure Disk Encryption wilt uitschakelen met Power shell, gebruikt u [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) gevolgd door [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Het uitvoeren van Remove-AzVMDiskEncryptionExtension voordat de versleuteling is uitgeschakeld, mislukt.
 
-Schakel Azure Disk Encryption met CLI gebruiken [az vm encryption uitschakelen](/cli/azure/vm/encryption). 
+Gebruik [AZ VM Encryption Disable](/cli/azure/vm/encryption)om Azure Disk Encryption uit te scha KELEN met cli. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In dit document hebt u geleerd informatie over enkele veelvoorkomende problemen in Azure Disk Encryption en hoe deze problemen op te lossen. Zie voor meer informatie over deze service en de mogelijkheden ervan, de volgende artikelen:
 
 - [Schijfversleuteling in Azure Security Center toepassen](../security-center/security-center-apply-disk-encryption.md)
-- [Azure gegevensversleuteling in rust](azure-security-encryption-atrest.md)
+- [Azure gegevensversleuteling in rust](fundamentals/encryption-atrest.md)

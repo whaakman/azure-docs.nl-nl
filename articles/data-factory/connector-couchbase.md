@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 27f327493fbf3d7856b9488ecd0dd2509976ccfc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c3cd734380e2a3e3fbf35439ff807738c549a086
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60533964"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726151"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Gegevens kopiëren van Couchbase met Azure Data Factory (Preview)
 
@@ -45,7 +45,7 @@ De volgende eigenschappen worden ondersteund voor Couchbase gekoppelde service:
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Couchbase** | Ja |
-| connectionString | Een ODBC-verbindingsreeks verbinding maken met het Couchbase. <br/>Dit veld markeert als een SecureString Bewaar deze zorgvuldig in Data Factory. U kunt ook referentietekenreeks plaatsen in Azure Key Vault en pull de `credString` configuratie buiten de verbindingsreeks. Raadpleeg de volgende voorbeelden en [referenties Store in Azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. | Ja |
+| connectionString | Een ODBC-verbindingsreeks verbinding maken met het Couchbase. <br/>Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory. U kunt ook de referentie teken reeks in azure Key Vault plaatsen en `credString` de configuratie uit de Connection String halen. Raadpleeg de volgende voor beelden en [Sla referenties op in azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. | Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 **Voorbeeld:**
@@ -69,7 +69,7 @@ De volgende eigenschappen worden ondersteund voor Couchbase gekoppelde service:
 }
 ```
 
-**Voorbeeld: referentietekenreeks opslaan in Azure Key Vault**
+**Voor beeld: referentie teken reeks opslaan in Azure Key Vault**
 
 ```json
 {
@@ -117,11 +117,12 @@ Om gegevens te kopiëren van Couchbase, stel de eigenschap type van de gegevenss
     "name": "CouchbaseDataset",
     "properties": {
         "type": "CouchbaseTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Couchbase linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -136,7 +137,7 @@ Om gegevens te kopiëren van Couchbase, stelt u het brontype in de kopieeractivi
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **CouchbaseSource** | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **CouchbaseSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM MyTable"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**

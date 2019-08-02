@@ -1,27 +1,25 @@
 ---
-title: Selecteer een schijftype voor virtuele Azure IaaS Windows-machines - beheerde schijven
-description: Meer informatie over de beschikbare Azure-schijftypes voor Windows virtuele machines, inclusief ultra SSD's, premium SSD's, standard-SSD's en HDD's van Standard.
-services: virtual-machines-windows,storage
+title: Selecteer een schijf type voor virtuele Azure IaaS-schijven die worden beheerd met Windows.
+description: Meer informatie over de beschik bare Azure-schijf typen voor virtuele Windows-machines, waaronder Ultra Ssd's, Premium Ssd's, Standard Ssd's en Standard Hdd's.
 author: roygara
 ms.author: rogarana
 ms.date: 05/10/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: windows
 ms.subservice: disks
-ms.openlocfilehash: 74dbe12a2df07218fbb369097b566a9dad4921c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99337c633f2bce9ed7b41b36cb54037d4c201a78
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539515"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698721"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 
-Als u beginnen met behulp van ultra SSD's wilt, raadpleegt u ons artikel over dit onderwerp: [Inschakelen van Azure ultra SSD's](disks-enable-ultra-ssd.md).
+Als u met ultra Ssd's wilt beginnen, raadpleegt u ons artikel over het onderwerp: [Azure Ultra Ssd's inschakelen](disks-enable-ultra-ssd.md).
 
 [!INCLUDE [virtual-machines-managed-disks-types-ga](../../../includes/virtual-machines-managed-disks-types-ga.md)]
 
-Zie de sectie voor meer informatie over momentopnamen van momentopnamen in de [beheerde schijf overzicht](managed-disks-overview.md).
+Zie de sectie over moment opnamen in het [overzicht Managed Disk](managed-disks-overview.md)voor meer informatie over moment opnamen.
 
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-billing-and-fees.md)]
