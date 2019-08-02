@@ -2,28 +2,28 @@
 title: Meer informatie over uw Azure-factuur
 description: Meer informatie over het gebruik en de factuur voor uw Azure-abonnement.
 author: bandersmsft
-manager: jureid
+manager: dougeby
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/22/2019
+ms.date: 07/28/2019
 ms.author: banders
-ms.openlocfilehash: 69659e700ee47c8961ec21f0fb23573e13d72588
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 51143644a62a77a61c4540d9f2ad3dce401c496b
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383628"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610134"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Meer informatie over uw Microsoft Azure factuur
 Om inzicht te krijgen in uw Azure-factuur, vergelijkt u uw factuur met het gedetailleerde dagelijks gebruiks bestand en met rapporten voor kosten beheer in de Azure Portal.
 
-Dit artikel is niet van toepassing op Azure-klanten met een Enterprise Agreement (EA-klanten). Als u een EA-klant bent, raadpleegt u [uw factuur voor Azure-klanten begrijpen met een Enterprise Agreement](billing-understand-your-bill-ea.md).
-
-Dit artikel is niet van toepassing op Azure-klanten met een [klant overeenkomst van micro soft](#check-access-to-a-microsoft-customer-agreement). Als u een micro soft-klant overeenkomst hebt, raadpleegt u [de Azure-kosten op uw factuur voor micro soft-klanten overeenkomst begrijpen](billing-mca-understand-your-bill.md).
+Dit artikel is niet van toepassing op de volgende klanten:
+- Azure-klanten met een Enterprise Agreement (EA-klanten). Als u een EA-klant bent, raadpleegt u [uw factuur voor Azure-klanten begrijpen met een Enterprise Agreement](billing-understand-your-bill-ea.md).
+- Azure-klanten met een [micro soft-klant overeenkomst](#check-access-to-a-microsoft-customer-agreement). Als u een micro soft-klant overeenkomst hebt, raadpleegt u [de Azure-kosten op uw factuur voor micro soft-klanten overeenkomst begrijpen](billing-mca-understand-your-bill.md).
 
 Zie [overzicht van Azure CSP-facturering](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/)voor een uitleg over de werking van facturering in het Azure Cloud Solution Provider-programma (Azure CSP), met inbegrip van de facturerings cyclus, prijzen en het gebruik.
 
@@ -62,7 +62,7 @@ Ga naar de sectie **dagelijks gebruik** van het CSV-bestand om een dagelijkse ui
 
 ![De sectie dagelijks gebruik in het CSV-bestand](./media/billing-understand-your-bill/3.png)
 
-Als u de kosten per dag wilt berekenen,  vermenigvuldigt u de verbruikte bedragen met de waarde voor het *aantal* uit de sectie **overzicht** .
+Als u de kosten per dag wilt berekenen, vermenigvuldigt u de verbruikte bedragen met de waarde voor het *aantal* uit de sectie **overzicht** .
 
 Voor meer informatie zie:
 
@@ -88,7 +88,7 @@ Zie [onverwachte kosten voor komen met Azure billing and cost management](billin
 
 ## <a name="external"></a>Externe services worden afzonderlijk gefactureerd
 
-Externe services, of kosten voor Marketplace, zijn voor resources die zijn gemaakt door software leveranciers van derden. Deze resources zijn beschikbaar voor gebruik vanuit Azure Marketplace. Een Barracuda-firewall is bijvoorbeeld een Azure Marketplace-resource die wordt aangeboden door een derde partij. Alle kosten voor de firewall en de bijbehorende meters worden als externe service kosten weer gegeven.
+Externe services of Marketplace-kosten zijn voor resources die zijn gemaakt door software leveranciers van derden. Deze resources zijn beschikbaar voor gebruik vanuit Azure Marketplace. Een Barracuda-firewall is bijvoorbeeld een Azure Marketplace-resource die wordt aangeboden door een derde partij. Alle kosten voor de firewall en de bijbehorende meters worden als externe service kosten weer gegeven.
 
 Kosten voor externe services worden afzonderlijk in rekening gebracht. De kosten worden niet weer gegeven op uw Azure-factuur. Zie [inzicht krijgen in de kosten van uw Azure externe service](billing-understand-your-azure-marketplace-charges.md)voor meer informatie.
 
@@ -130,7 +130,7 @@ Als u de status van uw betaling wilt controleren, [maakt u een ondersteunings ti
   - [Azure-prijs calculator](https://azure.microsoft.com/pricing/calculator/)
   - [Totale eigendoms kosten calculator](https://aka.ms/azure-tco-calculator)
   - [Gedetailleerde prijs informatie voor elke service](https://azure.microsoft.com/pricing/)
-- [Controleer uw gebruik en de kosten regel matig in de Azure Portal](billing-getting-started.md#costs).
+- [Controleer uw gebruik en de kosten regel matig in de Azure Portal](billing-getting-started.md#costs)
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Toegang tot een micro soft-klant overeenkomst controleren
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

@@ -1,64 +1,64 @@
 ---
-title: Style-functies van Azure Maps toewijzen | Microsoft Docs
-description: Meer informatie over Azure Maps stijl gerelateerde functies.
+title: Stijl functionaliteiten toewijzen in Azure Maps | Microsoft Docs
+description: Meer informatie over de functionaliteit van Azure Maps stijl.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/08/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ffed12b9184c7b6a690c30db9826f031fe6c9f9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52936b14264bd4fe1846ae365e1de447d594b612
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60795897"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639057"
 ---
-# <a name="choose-a-map-style-in-azure-maps"></a>Kies een stijl kaart op Azure-kaarten
+# <a name="choose-a-map-style-in-azure-maps"></a>Kies een kaart stijl in Azure Maps
 
-Azure Maps heeft vier verschillende maps stijlen om uit te kiezen. Zie voor meer informatie over de kaartstijlen [kaartstijlen ondersteund in Azure Maps](./supported-map-styles.md). Dit artikel leest hoe u de functies met betrekking tot stijl voor een stijl instellen bij het laden van de kaart, de stijl van een nieuwe instellen en gebruiken van een besturingselement voor het kiezen van de stijl.
+Azure Maps heeft vier verschillende stijlen voor kaarten waaruit u kunt kiezen. Zie [ondersteunde kaart stijlen in azure Maps](./supported-map-styles.md)voor meer informatie over het toewijzen van stijlen. In dit artikel wordt beschreven hoe u de stijl gerelateerde functies gebruikt om een stijl in te stellen voor het laden van kaarten, een nieuwe stijl instellen en het besturings element stijl kiezer te gebruiken.
 
-## <a name="set-style-on-map-load"></a>Set-stijl bij het laden van de kaart
+## <a name="set-style-on-map-load"></a>Stijl instellen voor toewijzings belasting
 
-<iframe height='500' scrolling='no' title='De stijl instellen bij het laden van de kaart' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>de stijl instellen bij het laden van de kaart</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Stijl instellen voor toewijzings belasting' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de pen <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>instellen van de stijl van de kaart belasting</a> door<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Het bovenstaande codeblok Hiermee stelt u de abonnementssleutel en maakt een kaart-object met de stijl van ingesteld op grayscale_dark. Zie [maken van een kaart](./map-create.md) voor instructies over het maken van een kaart.
+Met het bovenstaande code blok wordt de abonnements sleutel ingesteld en een kaart object gemaakt, waarbij de stijl is ingesteld op grayscale_dark. Zie [een overzicht maken](./map-create.md) voor instructies over het maken van een kaart.
 
 ## <a name="update-the-style"></a>De stijl bijwerken
 
-<iframe height='500' scrolling='no' title='De stijl bijwerken' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>bijwerken van de stijl</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='De stijl bijwerken' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de pen <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>het profiel bijwerken</a> met Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Het bovenstaande codeblok Hiermee stelt u de abonnementssleutel en maakt u een kaartobject zonder vooraf instellen van de stijl. Zie [maken van een kaart](./map-create.md) voor instructies over het maken van een kaart.
+In het bovenstaande code blok wordt de abonnements sleutel ingesteld en er wordt een kaart object gemaakt zonder de stijl vooraf in te stellen. Zie [een overzicht maken](./map-create.md) voor instructies over het maken van een kaart.
 
-Het tweede codeblok maakt gebruik van de kaart [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) methode om in te stellen van de stijl van de kaart naar satelliet.
+Het tweede code blok maakt gebruik van de methode [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) van de kaart om de kaart stijl in te stellen op satelliet.
 
-## <a name="add-the-style-picker"></a>De Stijlkiezer toevoegen
+## <a name="add-the-style-picker"></a>De stijl kiezer toevoegen
 
-<iframe height='500' scrolling='no' title='De Stijlkiezer toevoegen' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>toe te voegen de Stijlkiezer</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='De stijl kiezer toevoegen' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de pen <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>de stijl kiezer toevoegen</a> door Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Het eerste codeblok in de bovenstaande code stelt de abonnementssleutel en maakt u een kaartobject, de stijl van de kaart is vooraf ingesteld op grayscale_dark. Zie [maken van een kaart](./map-create.md) voor instructies over het maken van een kaart.
+Met het eerste code blok in de bovenstaande code wordt de abonnements sleutel ingesteld en een kaart object gemaakt, de kaart stijl is vooraf ingesteld op grayscale_dark. Zie [een overzicht maken](./map-create.md) voor instructies over het maken van een kaart.
 
-Het tweede codeblok vormt een stijl selector met behulp van de atlas [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) constructor.
+Met het tweede code blok wordt een stijl kiezer gemaakt met behulp van de Atlas [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) -constructor.
 
-Een stijl kiezen kunt stijl selectie voor de kaart. Het derde codeblok wordt de Stijlkiezer toegevoegd aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) methode. De stijl selector is binnen de kaart **gebeurtenislistener** om ervoor te zorgen dat deze wordt geladen nadat de kaart volledig is geladen.
+Een stijl kiezer maakt stijl selectie voor de kaart mogelijk. Het derde code blok voegt de stijl kiezer aan de kaart toe met behulp van de [besturings elementen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) van de kaart. de methode Add. De stijl kiezer bevindt zich in de map **event listener** om er zeker van te zijn dat deze wordt geladen nadat de kaart volledig is geladen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Voor meer informatie over de klassen en methoden die in dit artikel worden gebruikt:
 
 > [!div class="nextstepaction"]
-> [Kaart](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Diagram](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Besturingselement voor toevoegen aan uw kaarten:
-
-> [!div class="nextstepaction"]
-> [Kaart-besturingselementen toevoegen](./map-add-controls.md)
-
-Voeg een kaart pincode:
+Besturings element toevoegen aan uw kaarten:
 
 > [!div class="nextstepaction"]
-> [Toevoegen van een pincode](./map-add-pin.md)
+> [Kaart besturings elementen toevoegen](./map-add-controls.md)
+
+Een toewijzings pincode toevoegen:
+
+> [!div class="nextstepaction"]
+> [Een pincode toevoegen](./map-add-pin.md)

@@ -1,6 +1,6 @@
 ---
-title: Een toepassingsgateway maken met meerdere sites hosten - Azure CLI | Microsoft Docs
-description: Informatie over het maken van een application gateway die als host fungeert voor meerdere sites met de Azure CLI.
+title: Een toepassings gateway met meerdere site-hosting maken-Azure CLI | Microsoft Docs
+description: Meer informatie over het maken van een toepassings gateway die als host fungeert voor meerdere sites met behulp van de Azure CLI.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -12,23 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 5508a1dbd105fc47a4ed7b3484f55532904956ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce5701d4125123798c6b6a654e4fa4a4887778a3
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407117"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717272"
 ---
-# <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Een toepassingsgateway maken met het hosten van meerdere sites met de Azure CLI
+# <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Een toepassings gateway met meerdere site-hosting maken met behulp van de Azure CLI
 
-U kunt de Azure CLI gebruiken om te configureren [hosting van meerdere websites](application-gateway-multi-site-overview.md) bij het maken van een [toepassingsgateway](application-gateway-introduction.md). In deze zelfstudie maakt u back endpools met behulp van schaalsets voor virtuele machines. Vervolgens configureert u listeners en regels op basis van domeinen waarvan u eigenaar bent om er zeker van te zijn dat webverkeer bij de juiste servers in de pools binnenkomen. In deze zelfstudie wordt ervan uitgegaan dat u eigenaar bent van meerdere domeinen en voorbeelden gebruikt van *www.contoso.com* en *www.fabrikam.com*.
+U kunt de Azure CLI gebruiken om [hosting van meerdere websites](application-gateway-multi-site-overview.md) te configureren wanneer u een [toepassings gateway](application-gateway-introduction.md)maakt. In deze zelf studie maakt u back-endservers met virtuele machines schaal sets. Vervolgens configureert u listeners en regels op basis van domeinen waarvan u eigenaar bent om er zeker van te zijn dat webverkeer bij de juiste servers in de pools binnenkomen. In deze zelfstudie wordt ervan uitgegaan dat u eigenaar bent van meerdere domeinen en voorbeelden gebruikt van *www.contoso.com* en *www.fabrikam.com*.
 
 In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Het netwerk instellen
 > * Een toepassingsgateway maken
-> * Listeners en routeringsregels maken
+> * Listeners en routerings regels maken
 > * Schaalsets voor virtuele machines maken met de back-endpools
 > * Een CNAME-record in uw domein maken
 
@@ -102,7 +102,7 @@ Het kan enkele minuten duren voordat de toepassingsgateway is gemaakt. Nadat de 
 
 ### <a name="add-the-backend-pools"></a>Back-endpools toevoegen
 
-Toevoegen van de back endadresgroepen met de naam *contosoPool* en *fabrikamPool* die nodig zijn voor de back-end-servers met behulp van [az network application-gateway address-pool maken](/cli/azure/network/application-gateway).
+Voeg de back-endservers met de naam *contosoPool* en *fabrikamPool* toe die nodig zijn om de back-endservers te bevatten met [AZ Network Application-Gateway address-pool Create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -119,7 +119,7 @@ az network application-gateway address-pool create \
 
 Als u de toepassingsgateway wilt inschakelen om het verkeer op de juiste manier naar de back-endpool te routeren, is een listener vereist. In deze zelfstudie maakt u twee listeners voor de twee domeinen. In dit voorbeeld worden listeners gemaakt voor de domeinen van *www.contoso.com* en *www.fabrikam.com*. 
 
-Toevoegen van de listeners met de naam *contosoListener* en *fabrikamListener* die nodig zijn voor het routeren van verkeer met behulp van [az network application-gateway http-listener maken](/cli/azure/network/application-gateway).
+Voeg de listeners met de naam *contosoListener* en *fabrikamListener* toe die nodig zijn om verkeer te routeren met [AZ Network Application-Gateway HTTP-listener Create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -140,7 +140,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-routing-rules"></a>Routeringsregels toevoegen
 
-Regels worden verwerkt in de volgorde waarin ze zijn gemaakt en verkeer wordt omgeleid naar de application gateway met behulp van de eerste regel die overeenkomt met de URL verzonden. Als u bijvoorbeeld een regel hebt die van een basislistener gebruikmaakt en een regel die via dezelfde poort van een listener voor meerdere sites gebruikmaakt, moet de regel voor de listener voor meerdere sites vermeld worden vóór de regel met de basislistener, opdat de regel voor meerdere sites kan functioneren zoals het hoort. 
+Regels worden verwerkt in de volg orde waarin ze worden gemaakt en verkeer wordt omgeleid met behulp van de eerste regel die overeenkomt met de URL die wordt verzonden naar de toepassings gateway. Als u bijvoorbeeld een regel hebt die van een basislistener gebruikmaakt en een regel die via dezelfde poort van een listener voor meerdere sites gebruikmaakt, moet de regel voor de listener voor meerdere sites vermeld worden vóór de regel met de basislistener, opdat de regel voor meerdere sites kan functioneren zoals het hoort. 
 
 In dit voorbeeld maakt u twee nieuwe regels en verwijdert u de standaardregel die is gemaakt toen u de toepassingsgateway maakte. U kunt de regel toevoegen met [az network application-gateway rule create](/cli/azure/network/application-gateway).
 
@@ -227,7 +227,7 @@ Het gebruik van A-records wordt niet aanbevolen, omdat de VIP kan veranderen wan
 
 ## <a name="test-the-application-gateway"></a>Toepassingsgateway testen
 
-Voer uw domeinnaam in de adresbalk van de browser in. Bijvoorbeeld http://www.contoso.com.
+Voer uw domeinnaam in de adresbalk van de browser in. Zoals http\://www.contoso.com.
 
 ![Contoso-site testen in toepassingsgateway](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 
@@ -242,7 +242,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > [!div class="checklist"]
 > * Het netwerk instellen
 > * Een toepassingsgateway maken
-> * Listeners en routeringsregels maken
+> * Listeners en routerings regels maken
 > * Schaalsets voor virtuele machines maken met de back-endpools
 > * Een CNAME-record in uw domein maken
 

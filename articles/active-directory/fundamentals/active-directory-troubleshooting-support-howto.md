@@ -3,7 +3,7 @@ title: Hulp en open een ondersteuningsticket - Azure Active Directory | Microsof
 description: Instructies over het Help-informatie en een ondersteuningsticket maken voor Azure Active Directory.
 services: active-directory
 documentationcenter: na
-author: eross-msft
+author: msaburnley
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.subservice: fundamentals
 ms.workload: identity
 ms.date: 08/28/2017
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22bf80c13ef3b18ab3119b6b35e529c8ad32f504
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9dce9b93dfe4ddfca370d1d3131d1d12cb6f121d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248059"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561759"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Hulp zoeken en openen van een ondersteuningsticket voor Azure Active Directory
 Microsoft biedt wereldwijde technische, voorverkoop, facturering en ondersteuning voor abonnementen voor Azure Active Directory (Azure AD). Ondersteuning is online en telefonisch voor Microsoft Azure betaalde en proefabonnementen beschikbaar. Telefonische ondersteuning en Onlineondersteuning facturering zijn beschikbaar in extra talen. 
@@ -31,7 +31,7 @@ Bekijk voordat u een ondersteuningsticket maakt, de volgende bronnen voor antwoo
 
 * Zie voor inhoud, zoals instructies of voorbeelden van code voor IT-professionals en ontwikkelaars de [technische documentatie op docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/).
 
-* De [technische Microsoft-Community](https://techcommunity.microsoft.com/) is de plaats voor onze IT pro-partners en klanten samenwerken, delen en meer. De [Microsoft Technical Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) wordt gebruikt voor meldingen, blogberichten, vragen-ik-alles (AMA) interacties met experts en meer. U kunt ook [deelnemen aan de community om uw ideeën](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
+* De [technische community van micro soft](https://techcommunity.microsoft.com/) is de plaats waar onze IT-partners en klanten kunnen samen werken, delen en leren. Het [micro soft Technical Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) wordt gebruikt voor aankondigingen, blog berichten, vraag-me-iets (AMA)-interacties met experts en nog veel meer. U kunt ook [deelnemen aan de community om uw ideeën](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
 
 ## <a name="open-a-support-ticket"></a>Open een ondersteuningsticket
@@ -41,7 +41,7 @@ Als u geen antwoorden kunt vinden met behulp van bronnen voor zelfhulp, kunt u e
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>Hoe u een ondersteuningsticket maken voor Azure AD in Azure portal
 
 > [!NOTE]
-> Voor problemen met facturering en abonnementen, moet u de [Microsoft 365-beheercentrum](https://admin.microsoft.com).
+> Voor facturerings-of abonnements problemen moet u het [Microsoft 365-beheer centrum](https://admin.microsoft.com)gebruiken.
 > 
 
 1. Aanmelden bij [de Azure-portal](https://portal.azure.com) en open **Azure Active Directory**.
@@ -52,25 +52,25 @@ Als u geen antwoorden kunt vinden met behulp van bronnen voor zelfhulp, kunt u e
    
 4. Voor **Service**, selecteer **Azure Active Directory**, en selecteer vervolgens **volgende**.
 
-5. Op de **probleem** blade, selecteer een [ernst](https://azure.microsoft.com/support/plans/response/).
+5. Selecteer op de Blade **probleem** een [Ernst](https://azure.microsoft.com/support/plans/response/).
   
 6. Selecteer een **probleemtype**, en selecteer vervolgens een **categorie** voor dat type. Op dit moment krijgt u Help-informatie ook voor de probleemcategorie van uw.
   
 7. De rest van de informatie over uw probleem toevoegen en klik op **volgende**.
   
 8. Geef uw contactgegevens en selecteer **maken**.
-  ![probleem categorie zelfhulp-schermafbeelding](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
+  ![Scherm opname van de Help voor de probleem categorie](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 
-### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Hoe u een ondersteuningsticket maken voor Azure AD in het Microsoft 365-beheercentrum
+### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Een ondersteunings ticket openen voor Azure AD in het Microsoft 365-beheer centrum
 
 > [!NOTE]
-> Ondersteuning voor Azure AD in de [Microsoft 365-beheercentrum](https://admin.microsoft.com) alleen voor beheerders wordt aangeboden. 
+> Ondersteuning voor Azure AD in het [Microsoft 365-beheer centrum](https://admin.microsoft.com) wordt alleen aangeboden voor beheerders. 
 
-1. Aanmelden bij de [Microsoft 365-beheercentrum](https://admin.microsoft.com) met een account met een Enterprise Mobility + Security (EMS)-licentie.
+1. Meld u aan bij het [Microsoft 365-beheer centrum](https://admin.microsoft.com) met een account met een Enterprise Mobility + Security-licentie (EMS).
 
-2. Op de **ondersteuning** tegel, selecteer **nieuwe serviceaanvraag**:
+2. Selecteer **nieuwe service aanvraag**op de tegel **ondersteuning** :
 
-3. Op de **overzicht van** weergeeft, schakelt **identiteitsbeheer** of **beheer van gebruikers en domein**:
+3. Op de pagina **overzicht van ondersteuning** selecteert u identiteits **beheer** of **gebruikers-en domein beheer**:
 
 4. Voor **functie**, selecteert u de Azure AD-functie waarvoor u ondersteuning wilt.
 

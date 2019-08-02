@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
 ms.openlocfilehash: 9cd62c378270da31079a38f89b040985105a4218
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68326040"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Omgevings variabelen instellen in container instanties
@@ -33,7 +33,7 @@ Als u geheimen als omgevings variabelen wilt door geven, ondersteunt Azure Conta
 
 ## <a name="azure-cli-example"></a>Voor beeld van Azure CLI
 
-Als u de standaard uitvoer van de [ACI-WordCount][aci-wordcount] container, run it first with this [az container create][az-container-create] -opdracht wilt zien (er zijn geen omgevings variabelen opgegeven):
+Als u de standaard uitvoer van de [ACI-WordCount-][aci-wordcount] container wilt weer geven, voert u deze eerst uit met deze opdracht [AZ container Create][az-container-create] (er zijn geen omgevings variabelen opgegeven):
 
 ```azurecli-interactive
 az container create \
@@ -54,7 +54,7 @@ az container create \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
 
-Zodra de status van beide containers wordt weer gegeven als *beëindigd* (gebruik [AZ container show][az-container-show] to check state), display their logs with [az container logs][az-container-logs] om de uitvoer weer te geven).
+Als de status van beide containers wordt weer gegeven als *beëindigd* (gebruik [AZ container show][az-container-show] om state te controleren), geeft u de logboeken weer met [AZ container logs][az-container-logs] om de uitvoer te bekijken.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
@@ -88,7 +88,7 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
 
 Het instellen van omgevings variabelen in Power shell is vergelijkbaar met de CLI `-EnvironmentVariable` , maar gebruikt het opdracht regel argument.
 
-Open eerst de [ACI-WordCount][aci-wordcount] container in its default configuration with this [New-AzContainerGroup][new-Azcontainergroup] -opdracht:
+Start eerst de container [ACI-WordCount][aci-wordcount] in de standaard configuratie met de opdracht [New-AzContainerGroup][new-Azcontainergroup] :
 
 ```azurepowershell-interactive
 New-AzContainerGroup `

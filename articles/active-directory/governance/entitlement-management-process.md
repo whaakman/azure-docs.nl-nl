@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ad17f4c4d338e1d0b8118c1a172e0aaad7118e
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: eb5f322d8bc974274f7f2da7811b124499224635
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489106"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678130"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Aanvraag proces en e-mail meldingen in het beheer van rechten van Azure AD (preview-versie)
 
@@ -42,12 +42,12 @@ Een gebruiker die toegang tot een toegangs pakket nodig heeft, kan een toegangs 
 
 | Status | Description |
 | --- | --- |
-| Verzonden | Gebruiker een aanvraag indient. |
+| Ingediend | Gebruiker een aanvraag indient. |
 | Wachten op goedkeuring | Als voor het beleid voor een toegangs pakket goed keuring is vereist, wordt een aanvraag verplaatst naar wachtende goed keuring. |
 | Vervallen | Als geen goed keurders een aanvraag binnen de time-out van de goedkeurings aanvraag goed keuren, verloopt de aanvraag. Als u het opnieuw wilt proberen, moet de gebruiker de aanvraag opnieuw verzenden. |
 | Toegang geweigerd | Goed keurder weigert een aanvraag. |
 | Goedgekeurd | Goed keurder keurt een aanvraag goed. |
-| Afleveren | Aan de gebruiker is **geen** toegang toegewezen tot alle resources in het toegangs pakket. Als dit een externe gebruiker is, heeft de gebruiker nog geen toegang tot de resource directory en de machtigings prompt geaccepteerd. |
+| Afleveren | Aan de gebruiker is **geen** toegang toegewezen tot alle resources in het toegangs pakket. Als dit een externe gebruiker is, heeft de gebruiker mogelijk nog geen toegang tot de resource directory en heeft hij de toestemming prompt geaccepteerd. |
 | Afgeleverd | Aan de gebruiker is toegang toegewezen tot alle resources in het toegangs pakket. |
 | Toegang uitgebreid | Als de uitbrei dingen in het beleid zijn toegestaan, wordt de toewijzing door de gebruiker uitgebreid. |
 | Toegang is verlopen | De toegang van de gebruiker tot het toegangs pakket is verlopen. Als u opnieuw toegang wilt krijgen, moet de gebruiker een aanvraag indienen. |

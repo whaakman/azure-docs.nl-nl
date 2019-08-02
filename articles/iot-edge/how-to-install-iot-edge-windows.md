@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 7f20e04fa65d0266d9e77b8bbcf2e2c4b1fd9eab
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 1af6ed2743807f75e96bed0ae67d0070aa55c0ef
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227455"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677451"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installeer de Azure IoT Edge runtime op Windows
 
@@ -142,23 +142,21 @@ In het volgende voor beeld ziet u een automatische installatie met Windows-conta
 
 1. Op dit moment kunnen IoT-kern apparaten automatisch opnieuw worden opgestart. Op andere Windows 10-of Windows Server-apparaten wordt u mogelijk gevraagd om opnieuw op te starten. Als dit het geval is, start u het apparaat nu opnieuw op. Zodra het apparaat klaar is, voert u Power shell als beheerder opnieuw uit.
 
-1. De **initialisatie-IoTEdge-** opdracht configureert de IOT Edge runtime op de computer. De opdracht wordt standaard ingesteld op hand matig inrichten met Windows-containers. Gebruik de `-Dps` markering om de Device Provisioning Service te gebruiken in plaats van hand matig inrichten.
+1. De **initialisatie-IoTEdge-** opdracht configureert de IOT Edge runtime op de computer. De opdracht wordt standaard ingesteld op hand matig inrichten met Windows-containers. Gebruik de `-Dps` markering om de Device Provisioning Service te gebruiken in plaats van hand matig inrichten. Vervang `{scope ID}` door de scope-id van uw Device Provisioning `{registration ID}` service en met de registratie-id van het apparaat, die u in stap 1 zou moeten ophalen.
 
    Gebruik de opdracht **initialiseren-IoTEdge** om DPS te gebruiken met TPM-Attestation:
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID}
    ```
 
    Gebruik de opdracht **initialiseren-IoTEdge** om DPS te gebruiken met symmetrische sleutel Attestation. Vervang `{symmetric key}` door een apparaatcode.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -SymmetricKey {symmetric key}
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
    ```
-
-1. Wanneer u hierom wordt gevraagd, geeft u de scope-ID van uw Device Provisioning Service en de registratie-ID van uw apparaat op, die u in stap 1 zou moeten ophalen.
 
 1. Volg de stappen in [verifiëren geslaagde installatie](#verify-successful-installation) om de status van IOT Edge op het apparaat te controleren. 
 
@@ -282,10 +280,10 @@ Met de opdracht Deploy-IoTEdge worden de IoT Edge Security daemon en de bijbehor
 | Parameter | Geaccepteerde waarden | Opmerkingen |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** of **Linux** | Als er geen container besturings systeem is opgegeven, is Windows de standaard waarde.<br><br>Voor Windows-containers maakt IoT Edge gebruik van de Moby-container engine die is opgenomen in de installatie. Voor Linux-containers moet u een container Engine installeren voordat u de installatie start. |
-| **Webtoepassingsproxy** | Proxy-URL | Neem deze para meter op als uw apparaat een proxy server moet door lopen om het Internet te bereiken. Zie voor meer informatie, [een IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md). |
-| **OfflineInstallationPath** | Mappad | Als deze para meter is opgenomen, controleert het installatie programma de vermelde map voor de IoT Edge cab-en VC runtime-bestanden die nodig zijn voor de installatie. Bestanden die niet in de map zijn gevonden, worden gedownload. Als beide bestanden zich in de map bevinden, kunt u IoT Edge installeren zonder een Internet verbinding. U kunt deze para meter ook gebruiken om een specifieke versie te gebruiken. |
+| **Webtoepassingsproxy** | URL van proxy | Neem deze para meter op als uw apparaat een proxy server moet door lopen om het Internet te bereiken. Zie voor meer informatie, [een IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md). |
+| **OfflineInstallationPath** | Adreslijstpad | Als deze para meter is opgenomen, controleert het installatie programma de vermelde map voor de IoT Edge cab-en VC runtime-bestanden die nodig zijn voor de installatie. Bestanden die niet in de map zijn gevonden, worden gedownload. Als beide bestanden zich in de map bevinden, kunt u IoT Edge installeren zonder een Internet verbinding. U kunt deze para meter ook gebruiken om een specifieke versie te gebruiken. |
 | **InvokeWebRequestParameters** | Hashtabel van para meters en waarden | Tijdens de installatie worden er diverse webaanvragen gedaan. Gebruik dit veld om para meters in te stellen voor deze webaanvragen. Deze para meter is handig voor het configureren van referenties voor proxy servers. Zie voor meer informatie, [een IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md). |
-| **RestartIfNeeded** | Geen | Met deze vlag kan het implementatie script de computer opnieuw opstarten zonder te vragen, indien nodig. |
+| **RestartIfNeeded** | geen | Met deze vlag kan het implementatie script de computer opnieuw opstarten zonder te vragen, indien nodig. |
 
 ### <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
@@ -297,7 +295,7 @@ De initialisatie-IoTEdge-opdracht configureert IoT Edge met uw apparaat connecti
 | **Dps** | Geen | **Switch-para meter**. Als er geen inrichtings type is opgegeven, is hand matig de standaard waarde.<br><br>Declareert dat u een DPS-scope-ID (Device Provisioning Service) opgeeft en de registratie-ID van uw apparaat moet worden ingericht via DPS.  |
 | **DeviceConnectionString** | Een connection string van een IoT Edge apparaat dat is geregistreerd in een IoT Hub, in enkele aanhalings tekens | **Vereist** voor hand matige installatie. Als u geen connection string in de script parameters opgeeft, wordt u tijdens de installatie gevraagd om er een te maken. |
 | **ScopeId** | Een bereik-ID van een instantie van Device Provisioning Service die is gekoppeld aan uw IoT Hub. | **Vereist** voor de installatie van DPS. Als u geen bereik-ID in de script parameters opgeeft, wordt u tijdens de installatie gevraagd om er een te maken. |
-| **RegistrationId** | Een registratie-ID die is gegenereerd door uw apparaat | **Vereist** voor de installatie van DPS. Als u geen registratie-ID in de script parameters opgeeft, wordt u tijdens de installatie gevraagd om er een te maken. |
+| **RegistrationId** | Een registratie-ID die is gegenereerd door uw apparaat | **Vereist** voor de installatie van DPS. |
 | **SymmetricKey** | De symmetrische sleutel die wordt gebruikt om de IoT Edge apparaat-id in te richten wanneer DPS wordt gebruikt | **Vereist** voor de installatie van DPS als gebruikmaakt van symmetrische sleutel Attestation. |
 | **ContainerOs** | **Windows** of **Linux** | Als er geen container besturings systeem is opgegeven, is Windows de standaard waarde.<br><br>Voor Windows-containers maakt IoT Edge gebruik van de Moby-container engine die is opgenomen in de installatie. Voor Linux-containers moet u een container Engine installeren voordat u de installatie start. |
 | **InvokeWebRequestParameters** | Hashtabel van para meters en waarden | Tijdens de installatie worden er diverse webaanvragen gedaan. Gebruik dit veld om para meters in te stellen voor deze webaanvragen. Deze para meter is handig voor het configureren van referenties voor proxy servers. Zie voor meer informatie, [een IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md). |
@@ -310,17 +308,17 @@ De initialisatie-IoTEdge-opdracht configureert IoT Edge met uw apparaat connecti
 | Parameter | Geaccepteerde waarden | Opmerkingen |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** of **Linux** | Als er geen container besturingssysteem is opgegeven, is Windows de standaard waarde. Voor Windows-containers wordt een container engine opgenomen in de installatie. Voor Linux-containers moet u een container Engine installeren voordat u de installatie start. |
-| **Webtoepassingsproxy** | Proxy-URL | Neem deze para meter op als uw apparaat een proxy server moet door lopen om het Internet te bereiken. Zie voor meer informatie, [een IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md). |
+| **Webtoepassingsproxy** | URL van proxy | Neem deze para meter op als uw apparaat een proxy server moet door lopen om het Internet te bereiken. Zie voor meer informatie, [een IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md). |
 | **InvokeWebRequestParameters** | Hashtabel van para meters en waarden | Tijdens de installatie worden er diverse webaanvragen gedaan. Gebruik dit veld om para meters in te stellen voor deze webaanvragen. Deze para meter is handig voor het configureren van referenties voor proxy servers. Zie voor meer informatie, [een IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md). |
-| **OfflineInstallationPath** | Mappad | Als deze para meter is opgenomen, controleert het installatie programma de vermelde map voor de IoT Edge cab-en VC runtime-bestanden die nodig zijn voor de installatie. Bestanden die niet in de map zijn gevonden, worden gedownload. Als beide bestanden zich in de map bevinden, kunt u IoT Edge installeren zonder een Internet verbinding. U kunt deze para meter ook gebruiken om een specifieke versie te gebruiken. |
-| **RestartIfNeeded** | Geen | Met deze vlag kan het implementatie script de computer opnieuw opstarten zonder te vragen, indien nodig. |
+| **OfflineInstallationPath** | Adreslijstpad | Als deze para meter is opgenomen, controleert het installatie programma de vermelde map voor de IoT Edge cab-en VC runtime-bestanden die nodig zijn voor de installatie. Bestanden die niet in de map zijn gevonden, worden gedownload. Als beide bestanden zich in de map bevinden, kunt u IoT Edge installeren zonder een Internet verbinding. U kunt deze para meter ook gebruiken om een specifieke versie te gebruiken. |
+| **RestartIfNeeded** | geen | Met deze vlag kan het implementatie script de computer opnieuw opstarten zonder te vragen, indien nodig. |
 
 ### <a name="uninstall-iotedge"></a>Uninstall-IoTEdge
 
 | Parameter | Geaccepteerde waarden | Opmerkingen |
 | --------- | --------------- | -------- |
-| **Force** | Geen | Met deze vlag wordt de verwijdering afgedwongen als de vorige poging om te verwijderen is mislukt. 
-| **RestartIfNeeded** | Geen | Met deze vlag kan het uninstall-script de computer opnieuw opstarten zonder te vragen, indien nodig. |
+| **Force** | geen | Met deze vlag wordt de verwijdering afgedwongen als de vorige poging om te verwijderen is mislukt. 
+| **RestartIfNeeded** | geen | Met deze vlag kan het uninstall-script de computer opnieuw opstarten zonder te vragen, indien nodig. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

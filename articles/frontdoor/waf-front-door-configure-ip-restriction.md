@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 611a52f43b5b0e076ae37df9df86479ec894c6f4
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: a610a2c01a1e935c55942b621e5b3799cb002fc0
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849152"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698648"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>Een IP-beperkings regel configureren met een Web Application Firewall voor de Azure front-deur service
 In dit artikel wordt beschreven hoe u IP-beperkings regels configureert in een Web Application Firewall (WAF) voor de Azure front-deur-service met behulp van de Azure CLI, Azure PowerShell of een Azure Resource Manager sjabloon.
@@ -40,7 +40,7 @@ Maak een Azure front-deur service profiel door de instructies te volgen [die wor
 
 ### <a name="create-a-waf-policy"></a>Een WAF-beleid maken
 
-Maak een WAF-beleid met behulp van de opdracht [AZ Network WAF-Policy Create](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-create) . Vervang in het volgende voor beeld de beleids naam *IPAllowPolicyExampleCLI* door een unieke beleids naam.
+Maak een WAF-beleid met behulp van de opdracht [AZ Network WAF-Policy Create](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-create) . Vervang in het volgende voor beeld de beleids naam *IPAllowPolicyExampleCLI* door een unieke beleids naam.
 
 ```azurecli-interactive 
 az network waf-policy create \
@@ -50,7 +50,7 @@ az network waf-policy create \
   ```
 ### <a name="add-a-custom-ip-access-control-rule"></a>Een aangepaste regel voor IP-toegangs beheer toevoegen
 
-Gebruik de opdracht [AZ Network WAF-Policy Custom-Rule Create](/cli/azure/ext/front-door/network/waf-policy/custom-rule?view=azure-cli-latest#ext-front-door-az-network-waf-policy-custom-rule-create) om een aangepaste IP-toegangs beheer regel toe te voegen voor het WAF-beleid dat u zojuist hebt gemaakt.
+Gebruik de opdracht [AZ Network WAF-Policy Custom-Rule Create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create) om een aangepaste IP-toegangs beheer regel toe te voegen voor het WAF-beleid dat u zojuist hebt gemaakt.
 
 In de volgende voor beelden:
 -  Vervang *IPAllowPolicyExampleCLI* door uw unieke beleid dat u eerder hebt gemaakt.
@@ -82,7 +82,7 @@ az network waf-policy custom-rule create \
 ```
     
 ### <a name="find-the-id-of-a-waf-policy"></a>De ID van een WAF-beleid zoeken 
-Zoek naar de ID van een WAF-beleid met behulp van de opdracht [AZ Network WAF-Policy show](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-show) . Vervang *IPAllowPolicyExampleCLI* in het volgende voor beeld met uw unieke beleid dat u eerder hebt gemaakt.
+Zoek naar de ID van een WAF-beleid met behulp van de opdracht [AZ Network WAF-Policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show) . Vervang *IPAllowPolicyExampleCLI* in het volgende voor beeld met uw unieke beleid dat u eerder hebt gemaakt.
 
    ```azurecli
    az network waf-policy show \

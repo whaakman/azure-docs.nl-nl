@@ -1,6 +1,6 @@
 ---
-title: Hulpprogramma's voor het werken met Azure Storage | Microsoft Docs
-description: Een lijst met hulpprogramma's waarmee u kunt bekijken en hiermee werken met uw Azure Storage-gegevens.
+title: Hulp middelen voor het werken met Azure Storage | Microsoft Docs
+description: Een lijst met hulpprogram ma's waarmee u uw Azure Storage gegevens kunt weer geven/gebruiken.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,30 +9,30 @@ ms.date: 09/06/2017
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 6d80bc71c01d0f1c887d9161edee5516d6b0925b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 14cbc076f4c9eebd2647cd667acc856b393e4d93
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443689"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68665737"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage Client Tools
-Gebruikers van Azure Storage wilt vaak kunnen bekijken en hiermee werken met hun gegevens met behulp van een Azure Storage-clienthulpprogramma. In de onderstaande tabellen lijst we een aantal hulpprogramma's waarmee u kunt dit doen. We zetten een 'X' in elk blok als de mogelijkheid biedt tot een inventariseren en/of toegang tot de abstractie van de gegevens. De tabel ziet u ook de hulpprogramma's is gratis of niet. 'Proefversie' geeft aan dat er een gratis proefversie is, maar het volledige product niet gratis is. ' J/N' geeft aan dat een versie beschikbaar gratis, is terwijl een andere versie beschikbaar voor aankoop is.
+Gebruikers van Azure Storage vaak hun gegevens willen weer geven of ermee kunnen communiceren met behulp van een Azure Storage-client programma. In de onderstaande tabellen worden een aantal hulpprogram ma's weer gegeven waarmee u dit kunt doen. We zetten in elk blok een ' X ' in als het de mogelijkheid biedt om de gegevens abstractie te inventariseren en/of te openen. De tabel geeft ook aan of de hulpprogram ma's gratis zijn of niet. ' Proef versie ' geeft aan dat er een gratis proef versie is, maar het volledige product is niet gratis. ' Y/N ' geeft aan dat een versie gratis beschikbaar is, terwijl er een andere versie beschikbaar is voor aankoop.
 
-We hebben alleen een momentopname van de beschikbare hulpprogramma's voor Azure Storage-client geleverd. Deze hulpprogramma's kunnen blijven zich ontwikkelen en laten groeien in de functionaliteit. Als er correcties of updates, plaatst u een opmerking laat ons weten. Hetzelfde geldt dat als u kent van hulpprogramma's die moeten worden hier weergegeven - zou we zijn blij zijn te toe te voegen.
+Er is alleen een moment opname van de beschik bare Azure Storage-client hulpprogramma's gegeven. Deze hulpprogram ma's kunnen blijven ontwikkelen en groeien in de functionaliteit. Als er correcties of updates zijn, laat u een opmerking achter om ons te laten weten. Hetzelfde geldt als u weet welke hulpprogram ma's u hier moet volgen. we zullen ze graag graag toevoegen.
 
-**Microsoft Azure Storage-clienthulpprogramma 's**
+**Microsoft Azure Storage-client Hulpprogramma's**
 
 <table>
   <tr>
-    <th rowspan="2">Azure Storage-clienthulpprogramma</th>
-    <th rowspan="2">Blok-Blob</th>
-    <th rowspan="2">Pagina-blobs</th>
-    <th rowspan="2">Toevoeg-Blob</th>
+    <th rowspan="2">Azure Storage-client hulpprogramma</th>
+    <th rowspan="2">Blok-blob</th>
+    <th rowspan="2">Pagina-blob</th>
+    <th rowspan="2">Blob toevoegen</th>
     <th rowspan="2">Tabellen</th>
     <th rowspan="2">Wachtrijen</th>
     <th rowspan="2">Bestanden</th>
-    <th rowspan="2">Gratis</th>
+    <th rowspan="2">Free</th>
     <th colspan="4">Platform</th>
   </tr>
   <tr>
@@ -70,7 +70,7 @@ We hebben alleen een momentopname van de beschikbare hulpprogramma's voor Azure 
     <td>X</td>
   </tr>
   <tr>
-    <td><a href="https://www.visualstudio.com/features/azure-tools-vs.aspx">Microsoft Visual Studio Server Explorer</a></td>
+    <td><a href="https://www.visualstudio.com/features/azure-tools-vs.aspx">Micro soft Visual Studio Server Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -85,20 +85,20 @@ We hebben alleen een momentopname van de beschikbare hulpprogramma's voor Azure 
   </tr>
 </table>
 
-**Externe Azure Storage-clienthulpprogramma 's**
+**Client Hulpprogramma's van derden Azure Storage**
 
-We zijn niet geverifieerd de functionaliteit of kwaliteit geclaimd door de volgende hulpprogramma's van derden en hun aanbieding impliceert niet endosseert Microsoft.
+De functionaliteit of kwaliteit die door de volgende hulpprogram ma's van derden werd geclaimd, is niet geverifieerd en er is geen verklaring van micro soft.
 
 <table>
   <tr>
-    <th rowspan="2">Azure Storage-clienthulpprogramma</th>
-    <th rowspan="2">Blok-Blob</th>
-    <th rowspan="2">Pagina-blobs</th>
-    <th rowspan="2">Toevoeg-Blob</th>
+    <th rowspan="2">Azure Storage-client hulpprogramma</th>
+    <th rowspan="2">Blok-blob</th>
+    <th rowspan="2">Pagina-blob</th>
+    <th rowspan="2">Blob toevoegen</th>
     <th rowspan="2">Tabellen</th>
     <th rowspan="2">Wachtrijen</th>
     <th rowspan="2">Bestanden</th>
-    <th rowspan="2">Gratis</th>
+    <th rowspan="2">Free</th>
     <th colspan="4">Platform</th>
   </tr>
   <tr>
@@ -115,14 +115,14 @@ We zijn niet geverifieerd de functionaliteit of kwaliteit geclaimd door de volge
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td>Proefversie</td>
+    <td>Proef</td>
     <td></td>
     <td>X</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
-    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgate: Azure Explorer</a></td>
+    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgate Azure Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -136,16 +136,16 @@ We zijn niet geverifieerd de functionaliteit of kwaliteit geclaimd door de volge
     <td></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/sebagomez/azurestorageexplorer">Azure-Web-Opslagverkenner</a></td>
+    <td><a href="https://github.com/sebagomez/azurestorageexplorer">Azure Web Storage Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
     <td>X</td>
     <td>X</td>
-    <td></td>
+    <td>X</td>
     <td>J</td>
-    <td></td>
     <td>X</td>
+    <td></td>
     <td></td>
     <td></td>
   </tr>
@@ -164,14 +164,14 @@ We zijn niet geverifieerd de functionaliteit of kwaliteit geclaimd door de volge
     <td></td>
   </tr>
   <tr>
-    <td><a href="https://www.gapotchenko.com/cloudcombine">Cloud combineren</a></td>
+    <td><a href="https://www.gapotchenko.com/cloudcombine">Cloud combi neren</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
     <td>X</td>
     <td>X</td>
     <td></td>
-    <td>Proefversie</td>
+    <td>Proef</td>
     <td></td>
     <td>X</td>
     <td></td>
@@ -199,7 +199,7 @@ We zijn niet geverifieerd de functionaliteit of kwaliteit geclaimd door de volge
     <td></td>
     <td></td>
     <td></td>
-    <td>Proefversie</td>
+    <td>Proef</td>
     <td></td>
     <td>X</td>
     <td></td>

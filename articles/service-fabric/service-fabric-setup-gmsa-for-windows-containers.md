@@ -1,9 +1,9 @@
 ---
-title: GMSA voor services van Azure Service Fabric-container instellen | Microsoft Docs
-description: Ontdek hoe u gMSA voor een container die wordt uitgevoerd in Azure Service Fabric instellen.
+title: GMSA instellen voor Azure Service Fabric container Services | Microsoft Docs
+description: Meer informatie over het instellen van gMSA voor een container die wordt uitgevoerd in azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2019
 ms.author: subramar
-ms.openlocfilehash: b4aa08c10cef91b3bf2eef4c87967a74524f6500
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 09994c7676de8470efff1707598ddf32a48e41a0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621797"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599181"
 ---
-# <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>GMSA instellen voor Windows-containers die worden uitgevoerd in Service Fabric
+# <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>GMSA instellen voor Windows-containers die worden uitgevoerd op Service Fabric
 
-Voor het instellen van gMSA (groep beheerde serviceaccounts), een referentie-specificatiebestand (`credspec`) op alle knooppunten in het cluster is geplaatst. Het bestand kan worden gekopieerd op alle knooppunten met behulp van een VM-extensie.  De `credspec` bestand moet bevatten de gegevens van de gMSA-account. Voor meer informatie over de `credspec` bestand, Zie [maken van een referentie-specificatie](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts#create-a-credential-spec). De referentie-specificatie en de `Hostname` tag zijn opgegeven in het toepassingsmanifest. De `Hostname` tag moet overeenkomen met de naam van het gMSA-account dat de container wordt uitgevoerd onder.  De `Hostname` tag kunt u de container om zichzelf te verifiëren bij andere services in het domein met behulp van Kerberos-verificatie.  Een voorbeeld voor het opgeven van de `Hostname` en de `credspec` in de toepassing het manifest wordt weergegeven in het volgende codefragment:
+Voor het instellen van gMSA (door een groep beheerde service accounts), wordt een`credspec`referentie-specificatie bestand () op alle knoop punten in het cluster geplaatst. Het bestand kan worden gekopieerd op alle knoop punten met behulp van een VM-extensie.  Het `credspec` bestand moet de gMSA-account gegevens bevatten. Zie `credspec` [een referentie specificatie maken](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts#create-a-credential-spec)voor meer informatie over het bestand. De referentie specificatie en de `Hostname` -tag worden opgegeven in het manifest van de toepassing. Het `Hostname` label moet overeenkomen met de naam van het gMSA-account dat de container wordt uitgevoerd.  Met `Hostname` de tag kan de container zichzelf verifiëren bij andere services in het domein met behulp van Kerberos-verificatie.  In het volgende code fragment `Hostname` wordt een `credspec` voor beeld gegeven voor het opgeven en de in het manifest van de toepassing:
 
 ```xml
 <Policies>
@@ -32,7 +32,7 @@ Voor het instellen van gMSA (groep beheerde serviceaccounts), een referentie-spe
   </ContainerHostPolicies>
 </Policies>
 ```
-Lees de volgende stap, de volgende artikelen:
+Lees de volgende artikelen als volgende stap:
 
-* [Een Windows-container implementeren in Service Fabric in Windows Server 2016](service-fabric-get-started-containers.md)
-* [Een Docker-container implementeren in Service Fabric in Linux](service-fabric-get-started-containers-linux.md)
+* [Een Windows-container implementeren voor het Service Fabric op Windows Server 2016](service-fabric-get-started-containers.md)
+* [Een docker-container implementeren voor Service Fabric op Linux](service-fabric-get-started-containers-linux.md)

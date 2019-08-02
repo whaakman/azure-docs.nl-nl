@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f39c914bce3fbc47775a76f1c3a1fb64de560505
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: ade107f51fabb133e8e4046bf645f4dff284102b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498337"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565115"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -28,7 +28,7 @@ Zie [de lijst met bekende problemen](resource-known-issues.md) voor meer informa
 ### <a name="azure-machine-learning-sdk-for-python-v1053"></a>Azure Machine Learning SDK voor python v-1.0.53
 
 + **Nieuwe functies**
-    + Automatische Machine Learning ondersteunt nu ONNX modellen voor training op het externe Compute-doel
+  + Automatische Machine Learning ondersteunt nu ONNX modellen voor training op het externe Compute-doel
   + Azure Machine Learning biedt nu de mogelijkheid om de training te hervatten vanuit een eerder uitgevoerde, controle punt-of model bestand.
     + Meer informatie over het [gebruik van schattingen om de training van een vorige uitvoering te hervatten](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
 
@@ -80,9 +80,6 @@ Zie [de lijst met bekende problemen](resource-known-issues.md) voor meer informa
     + De model beschrijving kan nu na de registratie op de juiste wijze worden bijgewerkt
     + Het model en de installatie kopie bieden nu meer informatie over de upstream-objecten die afhankelijk zijn van de items die ervoor zorgen dat het verwijderen mislukt
     + Het resource gebruik van externe uitvoeringen verbeteren met behulp van azureml. mlflow.
-  + **azureml-dataprep**
-    + Gegevensstroom objecten kunnen nu worden herhaald, waardoor er een reeks records wordt geproduceerd.
-    + Voeg `_summarize_each` als experimentele functie toe `azureml.dataprep.Dataflow`aan.
   + **azureml-explain-model**
     + Argument voor vaste trans formaties voor de licht gewicht uitleg van de onbewerkte functie in het contrib-uitleg-model pakket
     + scipy sparse-ondersteuning voor LimeExplainer toevoegen
@@ -115,6 +112,15 @@ Zie [de lijst met bekende problemen](resource-known-issues.md) voor meer informa
   + **azureml-train-core**
     + Teken reeksen worden nu geaccepteerd als Compute target voor automatische afstemming-afstemming
     + De niet-gebruikte RunConfiguration-instelling auto_prepare_environment is gemarkeerd als afgeschaft.
+
+### <a name="azure-machine-learning-data-prep-sdk-v119"></a>Azure Machine Learning data prep SDK v 1.1.9
+
++ **Nieuwe functies**
+  + Er is ondersteuning toegevoegd voor het lezen van een bestand rechtstreeks vanuit een HTTP-of HTTPS-URL.
+
++ **Oplossingen en verbeteringen voor oplossingen**
+  + Er is een verbeterd fout bericht bij het lezen van een Parquet-gegevensset van een externe bron (die momenteel niet wordt ondersteund).
+  + Er is een fout opgelost bij het schrijven naar de Parquet-bestands indeling in ADLS gen 2, en het bijwerken van de naam van de ADLS gen 2-container in het pad.
 
 ## <a name="2019-07-09"></a>2019-07-09
 
@@ -765,7 +771,7 @@ De Azure-portal voor de Azure Machine Learning-service heeft de volgende updates
 ### <a name="azure-machine-learning-sdk-for-python-v0174"></a>Azure Machine Learning-SDK voor Python v0.1.74
 
 + **Belangrijke wijzigingen** 
-  * \* Werk ruimte. compute_targets, gegevens opslag, experimenten, afbeeldingen, modellen en  webservices zijn eigenschappen in plaats van methoden. Vervang bijvoorbeeld *Workspace.compute_targets()* met *Workspace.compute_targets*.
+  * \* Werk ruimte. compute_targets, gegevens opslag, experimenten, afbeeldingen, modellen en webservices zijn eigenschappen in plaats van methoden. Vervang bijvoorbeeld *Workspace.compute_targets()* met *Workspace.compute_targets*.
   * *Run.get_context* Hiermee wordt vervangen *Run.get_submitted_run*. De laatste methode wordt verwijderd in toekomstige releases.
   * *PipelineData* klasse verwacht nu een datastore-object als een parameter in plaats van datastore_name. Op deze manier *pijplijn* default_datastore in plaats van default_datastore_name accepteert.
 

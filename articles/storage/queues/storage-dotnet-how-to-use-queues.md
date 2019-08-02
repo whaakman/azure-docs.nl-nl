@@ -1,21 +1,19 @@
 ---
-title: Aan de slag met Azure Queue storage met .NET - Azure Storage
+title: Aan de slag met Azure Queue Storage met .NET-Azure Storage
 description: Azure Queues biedt betrouwbare, asynchrone uitwisseling van berichten tussen toepassingsonderdelen. Met Cloud Messaging kunnen onderdelen van uw toepassing onafhankelijk van elkaar worden opgeschaald.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 05/21/2019
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 05/21/2019
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 59995715ab42b4682befa7d1512b14427740dea2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: aa92b72b09ed28b41d85ac7c7605077761657d40
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446846"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721566"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Aan de slag met Azure Queue Storage met .NET
 
@@ -36,8 +34,8 @@ Deze zelfstudie laat zien hoe u .NET-code kunt schrijven voor een aantal algemen
 ### <a name="prerequisites"></a>Vereisten
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure Storage algemene-clientbibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-* [Azure Storage-wachtrij-clientbibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
+* [Algemene client bibliotheek voor .NET Azure Storage](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+* [Client bibliotheek voor Azure Storage wachtrij voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
 * [Azure Configuration Manager voor .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 * Een [Azure Storage-account](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
@@ -51,38 +49,38 @@ Vervolgens stelt u in Visual Studio uw ontwikkelomgeving in, zodat u de codevoor
 
 ### <a name="create-a-windows-console-application-project"></a>Een Windows-consoletoepassingsproject maken
 
-Maak in Visual Studio een nieuwe Windows-consoletoepassing. De volgende stappen laten zien hoe u een consoletoepassing maakt in Visual Studio 2019. De stappen zijn nagenoeg gelijk in andere versies van Visual Studio.
+Maak in Visual Studio een nieuwe Windows-consoletoepassing. De volgende stappen laten zien hoe u een console toepassing maakt in Visual Studio 2019. De stappen zijn nagenoeg gelijk in andere versies van Visual Studio.
 
 1. Selecteer **Bestand** > **Nieuw** > **Project**
-2. Selecteer **Platform** > **Windows**
+2. **Platform** > **Vensters** selecteren
 3. Selecteer **Consoletoepassing (.NET Framework)**
 4. Selecteer **Volgende**
-5. In de **projectnaam** en voer een naam voor uw toepassing
+5. Voer in het veld **project naam** een naam in voor uw toepassing
 6. Selecteer **Maken**
 
-Alle codevoorbeelden in deze zelfstudie kunnen worden toegevoegd aan de **Main()** methode van de consoletoepassing **Program.cs** bestand.
+Alle code voorbeelden in deze zelf studie kunnen worden toegevoegd aan de methode **Main ()** van het **Program.cs** -bestand van uw console toepassing.
 
-U kunt de Azure Storage-clientbibliotheken in elk type .NET-toepassing, met inbegrip van een Azure-cloud-service of web-app, en desktop- en mobiele toepassingen gebruiken. In deze gids gebruiken we een consoletoepassing voor de eenvoud.
+U kunt de Azure Storage-client bibliotheken gebruiken in elk type .NET-toepassing, waaronder een Azure-Cloud service of web-app, en desktop-en mobiele toepassingen. In deze gids gebruiken we een consoletoepassing voor de eenvoud.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>NuGet gebruiken om de vereiste pakketten te installeren
 
-U moet verwijzen naar de volgende drie pakketten in uw project om deze zelfstudie te voltooien:
+U moet verwijzen naar de volgende drie pakketten in uw project om deze zelf studie te volt ooien:
 
-* [Microsoft Azure Storage algemene-clientbibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Dit pakket biedt programmatisch toegang tot gegevensbronnen in uw opslagaccount.
-* [Microsoft Azure Storage-wachtrij-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): Deze clientbibliotheek kunnen werken met de Microsoft Azure Storage Queue-service voor het opslaan van berichten die kunnen worden geopend door een client.
+* [Microsoft Azure Storage algemene client bibliotheek voor .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Dit pakket biedt programmatisch toegang tot gegevensbronnen in uw opslagaccount.
+* [Microsoft Azure Storage wachtrij bibliotheek voor .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): Met deze client bibliotheek kunt u werken met de Microsoft Azure Storage Queue-service om berichten op te slaan die toegankelijk zijn voor een client.
 * [Microsoft Azure Configuration Manager-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): dit pakket biedt een klasse voor het parseren van een verbindingsreeks in een configuratiebestand, ongeacht waar de toepassing wordt uitgevoerd.
 
-NuGet kunt u deze pakketten verkrijgen. Volg deze stappen:
+U kunt NuGet gebruiken om deze pakketten te verkrijgen. Volg deze stappen:
 
 1. Klik met de rechtermuisknop op het project in **Solution Explorer** en kies **NuGet-pakketten beheren**.
-2. Selecteer **bladeren**
-3. Zoek online naar 'Microsoft.Azure.Storage.Queue' en selecteer **installeren** voor het installeren van de Storage-clientbibliotheek en de bijbehorende afhankelijkheden. Hiermee installeert u ook de Microsoft.Azure.Storage.Common-bibliotheek een afhankelijkheid van de wachtrij-bibliotheek is.
-4. Zoek online naar 'Microsoft.Azure.ConfigurationManager' en selecteer **installeren** voor het installeren van Azure Configuration Manager.
+2. **Bladeren** selecteren
+3. Zoek online naar ' micro soft. Azure. storage. Queue ' en selecteer **installeren** om de Storage-client bibliotheek en de afhankelijkheden ervan te installeren. Hiermee wordt ook de bibliotheek micro soft. Azure. storage. common geïnstalleerd. Dit is een afhankelijkheid van de wachtrij bibliotheek.
+4. Zoek online naar ' micro soft. Azure. ConfigurationManager ' en selecteer **installeren** om de Azure Configuration Manager te installeren.
 
 > [!NOTE]
-> De Storage client-bibliotheken pakketten zijn ook opgenomen in de [Azure SDK voor .NET](https://azure.microsoft.com/downloads/). We raden echter aan dat u de opslagclientbibliotheken ook via NuGet om ervoor te zorgen installeren dat u altijd de meest recente versies hebben.
+> De pakketten voor Storage-client bibliotheken zijn ook opgenomen in de [Azure SDK voor .net](https://azure.microsoft.com/downloads/). We raden u echter aan om ook de Storage-client bibliotheken van NuGet te installeren, zodat u altijd over de nieuwste versies beschikt.
 >
-> De ODataLib-afhankelijkheden in de opslagclientbibliotheken voor .NET worden opgelost door de ODataLib-pakketten beschikbaar zijn op NuGet, en niet vanuit WCF Data Services. U kunt de ODataLib-bibliotheken rechtstreeks downloaden of u kunt er via NuGet in uw codeproject naar verwijzen. De specifieke ODataLib-pakketten die worden gebruikt door de Storage-clientbibliotheken zijn [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/), en [Spatial](https://nuget.org/packages/System.Spatial/). Hoewel deze bibliotheken door de Azure Table-Opslagklassen worden gebruikt, zijn ze onderling vereiste afhankelijkheden voor het programmeren met de Storage-clientbibliotheken.
+> De ODataLib-afhankelijkheden in de Storage-client bibliotheken voor .NET worden opgelost door de ODataLib-pakketten die beschikbaar zijn op NuGet, niet van WCF Data Services. U kunt de ODataLib-bibliotheken rechtstreeks downloaden of u kunt er via NuGet in uw codeproject naar verwijzen. De specifieke ODataLib-pakketten die worden gebruikt door de opslag-client bibliotheken zijn [OData](https://nuget.org/packages/Microsoft.Data.OData/), [EDM](https://nuget.org/packages/Microsoft.Data.Edm/)en [ruimtelijke](https://nuget.org/packages/System.Spatial/). Hoewel deze bibliotheken worden gebruikt door de Azure Table-opslag klassen, zijn ze vereist afhankelijkheden voor het Program meren met de-client bibliotheken voor opslag.
 
 ### <a name="determine-your-target-environment"></a>De doelomgeving bepalen
 
@@ -98,14 +96,14 @@ Als u een opslagaccount in de cloud wilt gebruiken, kopieert u de primaire toega
 
 ### <a name="configure-your-storage-connection-string"></a>De opslagverbindingsreeks configureren
 
-De Azure Storage-clientbibliotheken voor .NET-ondersteuning met behulp van een opslagverbindingsreeks om eindpunten en referenties voor toegang tot opslagservices te configureren. De beste manier om de opslagverbindingsreeks te onderhouden, is met een configuratiebestand.
+De Azure Storage-client bibliotheken voor .NET-ondersteuning met behulp van een opslag connection string voor het configureren van eind punten en referenties voor toegang tot opslag Services. De beste manier om de opslagverbindingsreeks te onderhouden, is met een configuratiebestand.
 
 Zie [Azure Storage-verbindingsreeksen configureren](../common/storage-configure-connection-string.md) voor meer informatie over verbindingsreeksen.
 
 > [!NOTE]
 > De sleutel van uw opslagaccount is vergelijkbaar met het hoofdwachtwoord voor uw opslagaccount. Zorg dat de sleutel van uw opslagaccount altijd is beveiligd. Geef deze niet aan andere gebruikers en bewaar of noteer de sleutel op een veilige manier en plaats. Genereer een nieuwe sleutel via de Azure-portal als er mogelijk inbreuk op de sleutel heeft plaatsgevonden.
 
-Als u wilt de verbindingsreeks configureren, opent u de **app.config** bestand vanuit Solution Explorer in Visual Studio. Toevoegen van de inhoud van de **\<appSettings\>** element hieronder wordt weergegeven. Vervang *-accountnaam* met de naam van uw opslagaccount en *-accountsleutel* door de toegangssleutel voor uw account:
+Als u uw connection string wilt configureren, opent u het bestand **app. config** vanuit Solution Explorer in Visual Studio. Voeg de inhoud van het  **\<element\> appSettings** toe dat hieronder wordt weer gegeven. Vervang de *account naam* door de naam van uw opslag account en de *account sleutel* met de toegangs sleutel van uw account:
 
 ```xml
 <configuration>

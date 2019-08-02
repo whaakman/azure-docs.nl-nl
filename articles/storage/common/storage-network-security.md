@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: cc0ba80f7aef53568e048b8285800982c818b004
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 3a49681c5c5fa081157e1264f3e9f757c3ee0e6c
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334601"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516965"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-firewalls en virtuele netwerken configureren
 
@@ -348,19 +348,20 @@ Om te helpen bij dit type service werken zoals bedoeld, kunt u de set vertrouwde
 
 Als u inschakelt de **vertrouwde Microsoft-services toestaan...**  uitzondering, de volgende services (indien geregistreerd in uw abonnement), krijgen toegang tot het opslagaccount:
 
-|Service|Resource-providernaam|Doel|
-|:------|:---------------------|:------|
-|Azure Backup|Microsoft.RecoveryServices|Back-ups en herstelbewerkingen van niet-beheerde schijven in virtuele machines van IAAS uitvoeren. (niet vereist voor beheerde schijven). [Meer informatie](/azure/backup/backup-introduction-to-azure-backup).|
-|Azure Data Box|Microsoft.DataBox|Hiermee kunt u gegevens importeren naar Azure met behulp van Data Box. [Meer informatie](/azure/databox/data-box-overview).|
-|Azure DevTest Labs|Microsoft.DevTestLab|Aangepaste installatiekopie maken en artefact installatie. [Meer informatie](/azure/devtest-lab/devtest-lab-overview).|
-|Azure Event Grid|Microsoft.EventGrid|Gebeurtenispublicatie Blob-opslag inschakelen en toestaan van Event Grid om te publiceren naar storage-wachtrijen. Meer informatie over [blob-opslaggebeurtenissen](/azure/event-grid/event-sources) en [publiceren naar wachtrijen](/azure/event-grid/event-handlers).|
-|Azure Event Hubs|Microsoft.EventHub|Gegevens met Event Hubs Capture archiveren. [Meer informatie](/azure/event-hubs/event-hubs-capture-overview).|
-| Azure File Sync| Microsoft.StorageSync| Hiermee kunt u uw on-premises Bestands server transformeren naar een cache voor Azure-bestands shares. Het toestaan van synchronisatie op meerdere locaties, snelle herstel na nood gevallen en back-ups aan de Cloud zijde. [Meer informatie](../files/storage-sync-files-planning.md)|
-|Azure HDInsight|Microsoft.HDInsight|Richt de oorspronkelijke inhoud in van het standaard bestandssysteem voor een nieuw HDInsight-cluster. [Meer informatie](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).|
-|Azure Monitor|Microsoft.Insights|Kan het schrijven van gegevens naar een beveiligde storage-account te controleren [meer](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
-|Azure-netwerken|Microsoft.Network|Store en netwerk-verkeerslogboeken te analyseren. [Meer informatie](/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Site Recovery|Microsoft.SiteRecovery |Herstel na noodgevallen configureren door het inschakelen van replicatie voor virtuele machines van Azure IaaS. Dit is vereist als u de cache-opslagaccount firewall is ingeschakeld of bron storage-account of doelopslagaccount.  [Meer informatie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
-|Azure SQL Data Warehouse|Microsoft.Sql|Hiermee kunt u scenario's voor het importeren en exporteren van specifieke SQL-data base-instanties met poly base. [Meer informatie](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
+| Service                  | Resource-providernaam     | Doel                                                                                                                                                                                                                                                                                                                      |
+|:-------------------------|:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure Backup             | Microsoft.RecoveryServices | Back-ups en herstelbewerkingen van niet-beheerde schijven in virtuele machines van IAAS uitvoeren. (niet vereist voor beheerde schijven). [Meer informatie](/azure/backup/backup-introduction-to-azure-backup).                                                                                                                                                     |
+| Azure Data Box           | Microsoft.DataBox          | Hiermee kunt u gegevens importeren naar Azure met behulp van Data Box. [Meer informatie](/azure/databox/data-box-overview).                                                                                                                                                                                                                              |
+| Azure DevTest Labs       | Microsoft.DevTestLab       | Aangepaste installatiekopie maken en artefact installatie. [Meer informatie](/azure/devtest-lab/devtest-lab-overview).                                                                                                                                                                                                                      |
+| Azure Event Grid         | Microsoft.EventGrid        | Gebeurtenispublicatie Blob-opslag inschakelen en toestaan van Event Grid om te publiceren naar storage-wachtrijen. Meer informatie over [blob-opslaggebeurtenissen](/azure/event-grid/event-sources) en [publiceren naar wachtrijen](/azure/event-grid/event-handlers).                                                                                                     |
+| Azure Event Hubs         | Microsoft.EventHub         | Gegevens met Event Hubs Capture archiveren. [Meer informatie](/azure/event-hubs/event-hubs-capture-overview).                                                                                                                                                                                                                           |
+| Azure File Sync          | Microsoft.StorageSync      | Hiermee kunt u uw on-premises Bestands server transformeren naar een cache voor Azure-bestands shares. Het toestaan van synchronisatie op meerdere locaties, snelle herstel na nood gevallen en back-ups aan de Cloud zijde. [Meer informatie](../files/storage-sync-files-planning.md)                                                                                                       |
+| Azure HDInsight          | Microsoft.HDInsight        | Richt de oorspronkelijke inhoud in van het standaard bestandssysteem voor een nieuw HDInsight-cluster. [Meer informatie](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).                                                                                                                                    |
+| Azure Monitor            | Microsoft.Insights         | Kan het schrijven van gegevens naar een beveiligde storage-account te controleren [meer](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).                                                                                                                                                                        |
+| Azure-netwerken         | Microsoft.Network          | Store en netwerk-verkeerslogboeken te analyseren. [Meer informatie](/azure/network-watcher/network-watcher-packet-capture-overview).                                                                                                                                                                                                        |
+| Azure Site Recovery      | Microsoft.SiteRecovery     | Herstel na noodgevallen configureren door het inschakelen van replicatie voor virtuele machines van Azure IaaS. Dit is vereist als u de cache-opslagaccount firewall is ingeschakeld of bron storage-account of doelopslagaccount.  [Meer informatie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
+| Azure SQL Data Warehouse | Microsoft.Sql              | Hiermee kunt u scenario's voor het importeren en exporteren van specifieke SQL-data base-instanties met poly base. [Meer informatie](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).                                                                                                                                                 |
+| Azure Stream Analytics   | Microsoft.StreamAnalytics  | Hiermee staat u toe dat gegevens van een streaming-taak naar de Blob-opslag worden geschreven. Deze functie is momenteel beschikbaar als preview-versie. [Meer informatie](../../stream-analytics/blob-output-managed-identity.md).                                                                                                                                        |
 
 ### <a name="storage-analytics-data-access"></a>Toegang tot gegevens van Storage analytics
 

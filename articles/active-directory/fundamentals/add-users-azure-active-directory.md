@@ -2,32 +2,32 @@
 title: Toevoegen of verwijderen van gebruikers - Azure Active Directory | Microsoft Docs
 description: Instructies over hoe u nieuwe gebruikers toevoegen of verwijderen van bestaande gebruikers met Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a8b436fbdb0d70318e6820d3f59f1e198c639e5a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60247765"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561693"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Toevoegen of verwijderen van gebruikers met Azure Active Directory
-Nieuwe gebruikers toevoegen of verwijderen van bestaande gebruikers van uw organisatie Azure Active Directory (Azure AD).
+Voeg nieuwe gebruikers toe of verwijder bestaande gebruikers uit uw Azure Active Directory-organisatie (Azure AD).
 
 ## <a name="add-a-new-user"></a>Een nieuwe gebruiker toevoegen
 U kunt een nieuwe gebruiker met behulp van de Azure Active Directory-portal maken.
 
 ### <a name="to-add-a-new-user"></a>Een nieuwe gebruiker toe te voegen
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als de Gebruikersbeheerder van een voor de organisatie.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) als een gebruikers beheerder voor de organisatie.
 
 2. Selecteer **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **nieuwe gebruiker**.
 
@@ -47,7 +47,7 @@ U kunt een nieuwe gebruiker met behulp van de Azure Active Directory-portal make
 
    - **Groepen.** U kunt eventueel de gebruiker toevoegen aan een of meer bestaande groepen. U kunt ook de gebruiker toevoegen aan groepen op een later tijdstip. Zie voor meer informatie over het toevoegen van gebruikers aan groepen [hoe u een basisgroep maken en leden toevoegen](active-directory-groups-create-azure-portal.md).
 
-   - **Directory-rol.** U kunt eventueel de gebruiker toevoegen aan de rol van een Azure AD-beheerder. U kunt de gebruiker moet een globale beheerder of een of meer van de beperkte beheerdersrollen in Azure AD. Zie voor meer informatie over het toewijzen van rollen [rollen toewijzen aan gebruikers](active-directory-users-assign-role-azure-portal.md).
+   - **Directory-rol.** Desgewenst kunt u de gebruiker toevoegen aan een Azure AD-beheerdersrol. U kunt de gebruiker toewijzen als globale beheerder of een of meer van de beperkte beheerders rollen in azure AD. Zie voor meer informatie over het toewijzen van rollen [rollen toewijzen aan gebruikers](active-directory-users-assign-role-azure-portal.md).
 
 4. Kopieer de automatisch gegenereerde wachtwoord opgegeven in de **wachtwoord** vak. U moet dit wachtwoord geven aan de gebruiker voor de initiële aanmeldingsproces.
 
@@ -62,7 +62,7 @@ Als u een omgeving met zowel Azure Active Directory (cloud) en Windows Server Ac
 U kunt een bestaande gebruiker met behulp van Azure Active Directory-portal verwijderen.
 
 ### <a name="to-delete-a-user"></a>Een gebruiker verwijderen
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met behulp van een gebruiker administrator-account voor de organisatie.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) met behulp van een gebruikers beheerders account voor de organisatie.
 
 2. Selecteer **Azure Active Directory**, selecteer **gebruikers**, en vervolgens zoekt en selecteert u de gebruiker die u wilt verwijderen uit uw Azure AD-tenant. Bijvoorbeeld, _Mary Parker_.
 
@@ -70,7 +70,7 @@ U kunt een bestaande gebruiker met behulp van Azure Active Directory-portal verw
 
     ![Gebruikers - pagina voor alle gebruikers met gebruiker verwijderen gemarkeerd](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
 
-    De gebruiker wordt verwijderd en niet meer wordt weergegeven op de **gebruikers: alle gebruikers** pagina. De gebruiker kan worden weergegeven in de **verwijderde gebruikers** pagina voor de komende 30 dagen en gedurende deze tijd kunnen worden hersteld. Zie voor meer informatie over het herstellen van een gebruiker [herstellen of permanent verwijderen van een onlangs verwijderde gebruiker](active-directory-users-restore.md). Wanneer een gebruiker wordt verwijderd, worden alle licenties die worden gebruikt door de gebruiker beschikbaar voor andere gebruikers om te worden verbruikt gemaakt.
+    De gebruiker wordt verwijderd en niet meer wordt weergegeven op de **gebruikers: alle gebruikers** pagina. De gebruiker kan worden weergegeven in de **verwijderde gebruikers** pagina voor de komende 30 dagen en gedurende deze tijd kunnen worden hersteld. Zie voor meer informatie over het herstellen van een gebruiker [herstellen of permanent verwijderen van een onlangs verwijderde gebruiker](active-directory-users-restore.md). Wanneer een gebruiker wordt verwijderd, worden alle licenties die door de gebruiker worden gebruikt, beschikbaar gesteld voor andere gebruikers die moeten worden gebruikt.
 
     >[!Note]
     >U moet Windows Server Active Directory gebruiken om bij te werken van de identiteit, contactgegevens of taakgegevens voor waarvan u de bron van de instantie Windows Server Active Directory is-gebruikers. Nadat u de update hebt voltooid, moet u de volgende synchronisatiecyclus uitvoeren voordat u de wijzigingen ziet wachten.

@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: a85ced787529db7e6d607665d81632ab1c450dfe
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68466978"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Taak voorbereiding en taak release taken uitvoeren op batch Compute-knoop punten
@@ -31,7 +31,7 @@ Voordat de taken van een taak worden uitgevoerd, wordt de taak voorbereiding uit
 
 Taak voorbereiding en release taken bieden vertrouwde batch-taak functies, zoals het downloaden van bestanden ([bron bestanden][net_job_prep_resourcefiles]), verhoogde uitvoering, aangepaste omgevings variabelen, maximale uitvoerings duur, aantal nieuwe pogingen en bewaar tijd voor bestanden.
 
-In de volgende gedeelten leert u hoe u de [JobPreparationTask][net_job_prep] and [JobReleaseTask][net_job_release] -klassen kunt gebruiken die in de [batch .net][api_net] -bibliotheek worden gevonden.
+In de volgende gedeelten leert u hoe u de klassen [JobPreparationTask][net_job_prep] en [JobReleaseTask][net_job_release] kunt gebruiken die worden gevonden in de [batch .net][api_net] -bibliotheek.
 
 > [!TIP]
 > Taak voorbereiding en release taken zijn vooral nuttig in omgevingen met gedeelde groepen, waarin een pool van reken knooppunten persistent is tussen taak uitvoeringen en wordt gebruikt door veel taken.
@@ -64,7 +64,7 @@ Voordat de taken van een taak worden uitgevoerd, voert batch de taak voorbereidi
 De taak voor het voorbereiden van taken wordt alleen uitgevoerd op knoop punten waarop een taak is gepland. Hiermee wordt voor komen dat een voorbereidings taak onnodig wordt uitgevoerd als er geen taak aan een knoop punt is toegewezen. Dit kan gebeuren wanneer het aantal taken voor een taak kleiner is dan het aantal knoop punten in een pool. Dit geldt ook wanneer [gelijktijdige taak uitvoering](batch-parallel-node-tasks.md) is ingeschakeld, waardoor enkele knoop punten niet-actief blijven als het aantal taken lager is dan het totale aantal mogelijke gelijktijdige taken. Door de taak voorbereidings taak niet uit te voeren op niet-actieve knoop punten, kunt u minder geld best Eden aan de kosten voor gegevens overdracht.
 
 > [!NOTE]
-> [JobPreparationTask][net_job_prep_cloudjob] differs from [CloudPool.StartTask][pool_starttask] in die JobPreparationTask wordt aan het begin van elke taak uitgevoerd, terwijl StartTask alleen wordt uitgevoerd wanneer een reken knooppunt eerst lid wordt van een groep of opnieuw wordt opgestart.
+> [JobPreparationTask][net_job_prep_cloudjob] wijkt af van [CloudPool. StartTask][pool_starttask] in dat JobPreparationTask aan het begin van elke taak wordt uitgevoerd, terwijl StartTask alleen wordt uitgevoerd wanneer een reken knooppunt eerst aan een groep wordt toegevoegd of opnieuw wordt opgestart.
 > 
 > 
 
@@ -79,7 +79,7 @@ Taak release taken kunnen Maxi maal 15 minuten worden uitgevoerd voordat de batc
 > 
 
 ## <a name="job-prep-and-release-tasks-with-batch-net"></a>Taak voorbereiding en release taken met batch .NET
-Als u een taak voorbereidings taak wilt gebruiken, wijst u een eigenschap [JobPreparationTask][net_job_prep] object to your job's [CloudJob.JobPreparationTask][net_job_prep_cloudjob] toe. Initialiseer op soort gelijke wijze een [JobReleaseTask]-[net_job_release] en wijs deze toe aan de eigenschap [eigenschap cloudjob. JobReleaseTask][net_job_prep_cloudjob] van uw taak om de release taak van de taak in te stellen.
+Wijs een [JobPreparationTask][net_job_prep] -object toe aan de eigenschap [eigenschap cloudjob. JobPreparationTask][net_job_prep_cloudjob] van uw taak om een taak voorbereidings taak te gebruiken. U kunt ook een [JobReleaseTask][net_job_release] initialiseren en toewijzen aan de eigenschap [eigenschap cloudjob. JobReleaseTask][net_job_prep_cloudjob] van uw taak om de release taak van de taak in te stellen.
 
 In dit code fragment `myBatchClient` is een instantie van [BatchClient][net_batch_client]en `myPool` is een bestaande pool binnen het batch-account.
 
@@ -107,7 +107,7 @@ myJob.JobReleaseTask =
 await myJob.CommitAsync();
 ```
 
-Zoals eerder vermeld, wordt de release taak uitgevoerd wanneer een taak wordt beëindigd of verwijderd. Een taak beëindigen met [JobOperations. TerminateJobAsync][net_job_terminate]. Delete a job with [JobOperations.DeleteJobAsync][net_job_delete]. Gewoonlijk beëindigt of verwijdert u een taak wanneer de taken zijn voltooid of wanneer er een time-out is bereikt die u hebt gedefinieerd.
+Zoals eerder vermeld, wordt de release taak uitgevoerd wanneer een taak wordt beëindigd of verwijderd. Een taak beëindigen met [JobOperations. TerminateJobAsync][net_job_terminate]. Een taak verwijderen met [JobOperations. DeleteJobAsync][net_job_delete]. Gewoonlijk beëindigt of verwijdert u een taak wanneer de taken zijn voltooid of wanneer er een time-out is bereikt die u hebt gedefinieerd.
 
 ```csharp
 // Terminate the job to mark it as Completed; this will initiate the

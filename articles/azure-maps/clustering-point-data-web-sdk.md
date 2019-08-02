@@ -1,28 +1,28 @@
 ---
-title: Gegevens van Azure Maps clustering | Microsoft Docs
-description: Hoe u gegevens van cluster in de Web-SDK
+title: Clustering Point-gegevens in Azure Maps | Microsoft Docs
+description: Cluster Point-gegevens in de Web-SDK
 author: rbrundritt
 ms.author: richbrun
-ms.date: 03/27/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 6dbd4461e7b8382ec3c4075b9688de59678f98f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 69e95a9e6c76da5d502314a7190e99fc10e968f7
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957329"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639078"
 ---
-# <a name="clustering-point-data"></a>Gegevens van clusters
+# <a name="clustering-point-data"></a>Clustering Point-gegevens
 
-Bij het visualiseren van veel gegevenspunten op de kaart, gegevenspunten elkaar overlappen, de toewijzing eruitziet rommelige en wordt het moeilijk is om te zien en gebruiken. Clusters van gegevens kan worden gebruikt om deze gebruikerservaring te verbeteren. Gegevens van clustering is het proces van het combineren van gegevens die zich dicht bij elkaar en op de kaart als één geclusterde gegevenspunt vertegenwoordigen. Als de gebruiker in-/ op de kaart uitzoomen, splitst de clusters in hun afzonderlijke gegevenspunten.
+Wanneer een groot aantal gegevens punten op de kaart wordt gevisualiseerd, overlappen punten elkaar, de kaart lijkt overzichtelijker en wordt deze moeilijk te zien en te gebruiken. Het clusteren van punt gegevens kan worden gebruikt om deze gebruikers ervaring te verbeteren. Clustering Point-gegevens zijn het proces van het samen voegen van punt gegevens die zich in de buurt van elkaar bevinden en als één geclusterd gegevens punt vertegenwoordigen. Wanneer de gebruiker inzoomt op de kaart, worden de clusters in hun afzonderlijke gegevens punten gesplitst.
 
-## <a name="enabling-clustering-on-a-data-source"></a>Inschakelen van clusters op een gegevensbron
+## <a name="enabling-clustering-on-a-data-source"></a>Clustering inschakelen op een gegevens bron
 
-Clustering kan eenvoudig worden ingeschakeld op de `DataSource` klasse door in te stellen de `cluster` optie op ' True '. Bovendien de straal pixels om te selecteren in de buurt punten om te combineren in een cluster kan worden ingesteld met behulp van de `clusterRadius` en een zoomniveau kan worden opgegeven waarmee om uit te schakelen de clustering logica met behulp van de `clusterMaxZoom` optie. Hier volgt een voorbeeld van het inschakelen van clusters in een gegevensbron.
+Clustering kan eenvoudig worden ingeschakeld op de `DataSource` klasse door de `cluster` optie in te stellen op True. Daarnaast kan de RADIUS van pixels in nabijgelegen punten die in een cluster moeten worden gecombineerd worden ingesteld met `clusterRadius` behulp van de en kan er een zoom niveau worden opgegeven om de cluster logica uit `clusterMaxZoom` te scha kelen met behulp van de optie. Hier volgt een voor beeld van het inschakelen van clustering in een gegevens bron.
 
 ```javascript
 //Create a data source and enable clustering.
@@ -40,73 +40,73 @@ var datasource = new atlas.source.DataSource(null, {
 ```
 
 > [!TIP]
-> Als twee gegevenspunten dicht bij elkaar op de grond, is het mogelijk dat het cluster wordt nooit splitsen, ongeacht hoe dicht zoomt van een gebruiker in. Om dit op te lossen, kunt u instellen de `clusterMaxZoom` optie van de gegevensbron die Hiermee geeft u op het zoomniveau uitschakelen van de logica voor clustering en alles gewoon worden weergegeven.
+> Als twee gegevens punten dicht bij elkaar staan, is het mogelijk dat het cluster nooit gesplitst is, ongeacht hoe dicht de gebruiker in-/uitzoomen. Om dit op te lossen, kunt `clusterMaxZoom` u de optie van de gegevens bron instellen, die op het zoom niveau opgeeft om de cluster logica uit te scha kelen en alleen alles weer te geven.
 
-De `DataSource` klasse heeft ook de volgende methoden met betrekking tot het cluster:
+De `DataSource` klasse heeft ook de volgende methoden die betrekking hebben op clustering:
 
-| Methode | Retourtype | Description |
+| Methode | Retour type | Description |
 |--------|-------------|-------------|
-| getClusterChildren(clusterId: number) | Promise&lt;matrix&lt;functie&lt;geometrie, eventuele&gt; \| vorm&gt;&gt; | Hiermee haalt u de onderliggende objecten van het opgegeven cluster op de volgende zoomniveau. Deze onderliggende items kunnen bestaan uit een combinatie van vormen en subclusters. De subclusters worden functies met eigenschappen die overeenkomen met ClusteredProperties. |
-| getClusterExpansionZoom(clusterId: number) | Promise&lt;getal&gt; | Berekent een zoomniveau waarmee het cluster wordt gestart uitbreiden of splitsen. |
-| getClusterLeaves (clusterId: aantal, limiet: getal, offset: getal) | Promise&lt;matrix&lt;functie&lt;geometrie, eventuele&gt; \| vorm&gt;&gt; | Hiermee haalt u alle punten in een cluster. Stelt de `limit` te retourneren van een subset van de punten en gebruik de `offset` naar pagina door de punten. |
+| getClusterChildren (clusterId: getal) | Geometrie&lt;van&lt;defunctie&lt;toezeggings&gt; matrix, een wille keurige \| vorm&gt;&gt; | Hiermee worden de onderliggende items van het opgegeven cluster op het volgende zoom niveau opgehaald. Deze onderliggende elementen kunnen bestaan uit een combi natie van vormen en subclusteren. De subclusteren zijn functies met eigenschappen die overeenkomen met ClusteredProperties. |
+| getClusterExpansionZoom (clusterId: getal) | Promisenummer&lt;&gt; | Hiermee wordt een zoom niveau berekend waarmee het cluster wordt uitgebreid of gesplitst. |
+| getClusterLeaves (clusterId: aantal, limiet: aantal, verschuiving: getal) | Geometrie&lt;van&lt;defunctie&lt;toezeggings&gt; matrix, een wille keurige \| vorm&gt;&gt; | Haalt alle punten in een cluster op. Stel de `limit` in om een subset van de punten te retour neren en `offset` gebruik de naar-pagina door de punten. |
 
-## <a name="display-clusters-using-a-bubble-layer"></a>Clusters met behulp van een laag bel weergeven
+## <a name="display-clusters-using-a-bubble-layer"></a>Clusters weer geven met behulp van een Bubble Layer
 
-Een bel-laag is een uitstekende manier om de geclusterde punten weergegeven zoals u kunt eenvoudig schalen van de radius en de kleur die ze op basis van het aantal punten in het cluster met behulp van een expressie wijzigen. Clusters met behulp van de laag van een bel om weer te geven, moet u ook een afzonderlijke laag gebruiken voor het renderen van geclusterde gegevenspunten. Het is vaak handig om te ook in staat om weer te geven van de grootte van het cluster boven op de bellen zijn. Een symbool laag met tekst en er geen pictogram kan worden gebruikt om dit gedrag bewerkstelligen. 
-
-<br/>
-
-<iframe height="500" style="width: 100%;" scrolling="no" title="Bel Basic-laag clustering" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zie de Pen <a href='https://codepen.io/azuremaps/pen/qvzRZY/'>Basic Bel laag clustering</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-## <a name="display-clusters-using-a-symbol-layer"></a>Clusters met behulp van een laag symbool weergeven
-
-Bij het visualiseren van de gegevens met behulp van de laag symbool standaard die worden deze automatisch verborgen symbolen die elkaar overlappen elkaar samenwerken om een schoner aan die conferenties, maar dit niet mogelijk de gewenste ervaring als u wilt zien van de dichtheid van gegevens op de kaart verwijst. Instellen van de `allowOverlap` optie van de lagen symbool `iconOptions` eigenschap `true` deze ervaring wordt uitgeschakeld, maar zal leiden tot alle symbolen die worden weergegeven. Met behulp van clustering, kunt u de dichtheid van alle gegevens zien tijdens het maken van een mooie schone gebruikerservaring. In dit voorbeeld wordt de aangepaste symbolen voor clusters en afzonderlijke gegevenspunten worden gebruikt.
+Een Bubble-laag is een uitstekende manier om geclusterde punten te renderen, omdat u de RADIUS eenvoudig kunt schalen en de kleur wijzigt op basis van het aantal punten in het cluster met behulp van een expressie. Bij het weer geven van clusters met behulp van een tekenlaag moet u ook een afzonderlijke laag gebruiken voor het weer geven van niet-geclusterde gegevens punten. Het is vaak handig om ook de grootte van het cluster boven op de bellen weer te geven. Een symbool laag met tekst en er kan geen pictogram worden gebruikt om dit gedrag te vertonen. 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Geclusterde symbool laag" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zie de Pen <a href='https://codepen.io/azuremaps/pen/Wmqpzz/'>geclusterde symbool laag</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Basis clusters voor bellen lagen" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Zie de pen <a href='https://codepen.io/azuremaps/pen/qvzRZY/'>Basic Bubble Layer clustering</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="clustering-and-the-heat-maps-layer"></a>Clustering en de heatmap toegewezen laag
+## <a name="display-clusters-using-a-symbol-layer"></a>Clusters weer geven met behulp van een symbool-laag
 
-Warmte-kaarten zijn een uitstekende manier om de dichtheid van gegevens op de kaart weer te geven. Deze visualisatie kan een groot aantal gegevenspunten in een eigen verwerken, maar er kan nog meer gegevens worden verwerkt als de gegevenspunten zijn geclusterd en de grootte van het cluster wordt gebruikt als het gewicht van de heatmap. Stel de `weight` optie van de heatmap kaartLaag aan `['get', 'point_count']` om dit te bereiken. Als de radius van de cluster klein is, wordt de heatmap ziet eruit bijna identiek aan die een heatmap met behulp van de geclusterde gegevenspunten maar veel betere prestaties. Echter de kleinere radius van de cluster, hoe nauwkeuriger de heatmap worden maar met minder van een prestaties profiteren.
+Wanneer de punt gegevens worden gevisualiseerd met behulp van de symbool-laag, worden de symbolen die elkaar overlappen, standaard automatisch verborgen om een overzichtelijke ervaring te creëren. Dit is echter niet de gewenste ervaring als u de densiteit van gegevens punten op de kaart wilt zien. Als u `allowOverlap` `iconOptions` deoptievandeeigenschapSymbolLayersinstelt,wordtdezeervaringuitgeschakeld,maarwordenalle`true` symbolen weer gegeven. Met clustering kunt u de dichtheid van alle gegevens bekijken tijdens het maken van een goed gereinigde gebruikers ervaring. In dit voor beeld worden aangepaste symbolen gebruikt om clusters en afzonderlijke gegevens punten weer te geven.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Cluster gewogen Heat Map" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zie de Pen <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>Cluster gewogen Heat Map</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Laag geclusterde symbolen" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Zie de <a href='https://codepen.io/azuremaps/pen/Wmqpzz/'>laag geclusterde symbool Layer</a> by Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="mouse-events-on-clustered-data-points"></a>Muisgebeurtenissen op geclusterde gegevenspunten
+## <a name="clustering-and-the-heat-maps-layer"></a>Clustering en de laag met hitte kaarten
 
-Wanneer muisgebeurtenissen worden uitgevoerd in een laag die geclusterde gegevenspunten bevatten, worden de geclusterde gegevenspunt geretourneerd naar de gebeurtenis als een object GeoJSON point-functie. Deze functie punt wordt de volgende eigenschappen hebben:
+Hitte kaarten zijn een uitstekende manier om de densiteit van gegevens op de kaart weer te geven. Deze visualisatie kan een groot aantal gegevens punten op zichzelf verwerken, maar kan nog meer gegevens verwerken als de gegevens punten geclusterd zijn en de cluster grootte wordt gebruikt als het gewicht van de heatmap. Stel de `weight` optie van de heatmap van de hitte `['get', 'point_count']` in op om dit te verzorgen. Wanneer de RADIUS van het cluster klein is, ziet de heatmap er bijna hetzelfde uit als een heatmap met behulp van de niet-geclusterde gegevens punten. Hoe kleiner de cluster RADIUS, des te nauw keuriger de heatmap, maar met minder prestatie voordelen.
 
-| Naam van eigenschap | Type | Description |
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Heatmap voor cluster met gewicht" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Zie het overzicht van de <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>gewogen heatmap</a> van het pen-<a href='https://codepen.io/azuremaps'>@azuremaps</a>cluster door Azure Maps () op <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="mouse-events-on-clustered-data-points"></a>Muis gebeurtenissen op geclusterde gegevens punten
+
+Wanneer er muis gebeurtenissen optreden op een laag die geclusterde gegevens punten bevat, wordt het geclusterde gegevens punt geretourneerd naar de gebeurtenis als een functie object van een geojson-punt. Deze punt functie heeft de volgende eigenschappen:
+
+| Naam van eigenschap | type | Description |
 |---------------|------|-------------|
-| Cluster | booleaans | Hiermee wordt aangegeven als functie staat voor een cluster. |
-| cluster_id | string | Een unieke ID voor het cluster dat kan worden gebruikt met de gegevensbron `getClusterExpansionZoom`, `getClusterChildren`, en `getClusterLeaves` methoden. |
-| point_count | getal | Het aantal punten die het cluster bevat. |
-| point_count_abbreviated | string | Een tekenreeks is die beperkt de `point_count` waarde op als het lang is. (bijvoorbeeld 4.000 wordt voor 4K) |
+| cluster | boolean | Hiermee wordt aangegeven of de functie een cluster vertegenwoordigt. |
+| cluster_id | string | Een unieke id voor het cluster die kan worden gebruikt met de data `getClusterExpansionZoom`source `getClusterChildren`-, `getClusterLeaves` en-methoden. |
+| point_count | nummer | Het aantal punten dat het cluster bevat. |
+| point_count_abbreviated | string | Een teken reeks die de `point_count` waarde verkort als deze lang is. (4.000 wordt bijvoorbeeld 4.000) |
 
-In dit voorbeeld wordt een bel laag die cluster punten wordt weergegeven en voegt een gebeurtenis die wanneer ze worden geactiveerd, berekenen en de kaart Inzoomen op het volgende zoomniveau waarmee het cluster worden verbroken elkaar met behulp van de `getClusterExpansionZoom` -methode van de `DataSource` klasse en de `cluster_id` eigenschap van het aantal malen aangeklikt geclusterde gegevenspunt. 
+In dit voor beeld wordt een Bubble laag gebruikt waarmee cluster punten worden gerenderd en een Click-gebeurtenis wordt toegevoegd waarmee de kaart wordt geactiveerd, berekend en ingezoomd op het volgende zoom niveau waarbij het cluster wordt `getClusterExpansionZoom` gesplitst met de `DataSource` methode van de-klasse en de `cluster_id` eigenschap van het geklikte geclusterde gegevens punt. 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Cluster getClusterExpansionZoom" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zie de Pen <a href='https://codepen.io/azuremaps/pen/moZWeV/'>Cluster getClusterExpansionZoom</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Cluster-getClusterExpansionZoom" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Zie de Azure Maps <a href='https://codepen.io/azuremaps/pen/moZWeV/'>getClusterExpansionZoom</a> (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) van het pen-cluster op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="display-cluster-area"></a>Cluster weergavegebied 
+## <a name="display-cluster-area"></a>Cluster gebied weer geven 
 
-De gegevens van die staat voor een cluster is verspreid over een gebied. In dit voorbeeld wanneer de muis is muisaanwijzer erover beweegt een cluster, de afzonderlijke gegevens punten bevat (bladeren) wordt gebruikt voor het berekenen van een convexe voorzien en weergegeven op de kaart om weer te geven van het gebied. Alle punten die deel uitmaken van een cluster kunnen worden opgehaald uit de gegevensbron via de `getClusterLeaves` methode. Een convexe voorzien is een veelhoek die de wrap vormt een set punten, zoals een band elastisch en kan worden berekend met behulp van de `atlas.math.getConvexHull` methode.
+De punt gegevens die een cluster vertegenwoordigt, worden verdeeld over een gebied. In dit voor beeld wanneer de muis aanwijzer zich boven een cluster bevindt, worden de afzonderlijke gegevens punten die het bevat (bladeren) gebruikt voor het berekenen van een convexe romp en weer gegeven op de kaart om het gebied weer te geven. Alle punten die deel uitmaken van een cluster kunnen worden opgehaald uit de gegevens bron `getClusterLeaves` met behulp van de methode. Een convexe-romp is een veelhoek die een set punten omregelt zoals een elastische band en kan worden berekend `atlas.math.getConvexHull` met behulp van de methode.
 
 <br/>
 
- <iframe height="500" style="width: 100%;" scrolling="no" title="Cluster gebied convexe voorzien" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zie de Pen <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>Cluster gebied convexe voorzien</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+ <iframe height="500" style="width: 100%;" scrolling="no" title="Cluster gebied convexe romp" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Zie het cluster gebied van de pen <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>convexe romp</a> per<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -114,21 +114,21 @@ Zie de Pen <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>Cluster gebied con
 Meer informatie over de klassen en methoden die in dit artikel worden gebruikt:
 
 > [!div class="nextstepaction"]
-> [DataSource-klasse](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)
+> [Gegevens bron klasse](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [DataSourceOptions object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions?view=azure-iot-typescript-latest)
+> [DataSourceOptions-object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [atlas.Math naamruimte](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math?view=azure-iot-typescript-latest)
+> [naam ruimte van Atlas. math](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math?view=azure-iot-typescript-latest)
 
-Zie de codevoorbeelden functionaliteit toevoegen aan uw app:
+Zie code voorbeelden om functionaliteit toe te voegen aan uw app:
 
 > [!div class="nextstepaction"]
-> [Een bellendiagram laag toevoegen](map-add-bubble-layer.md)
+> [Een Bubble laag toevoegen](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
 > [Een symbool laag toevoegen](map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Een kaartLaag heatmap toevoegen](map-add-heat-map-layer.md)
+> [Een hitte kaart laag toevoegen](map-add-heat-map-layer.md)

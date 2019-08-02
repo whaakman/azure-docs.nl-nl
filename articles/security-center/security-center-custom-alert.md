@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 984bd4d5db210679884655721be0cbcdac8c1705
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8845cb0a91edefa0350558f35488519ec37d064d
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485282"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663574"
 ---
-# <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regels voor aangepaste waarschuwingen in Azure Security Center (Preview)
-In dit document leest u hoe u regels voor aangepaste waarschuwingen maakt in Azure Security Center.
+# <a name="custom-alert-rules-in-azure-security-center-retired"></a>Aangepaste waarschuwings regels in Azure Security Center (buiten gebruik gesteld)
+Dit document helpt u bij het maken van aangepaste waarschuwings regels (preview) in Azure Security Center.
 
 > [!NOTE]
-> Aangepaste waarschuwingen is buiten gebruik gesteld vanuit Security Center. 
+> Aangepaste waarschuwingen zijn op 30 juni 2019 van Azure Security Center buiten gebruik gesteld. 
 
-## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Buiten gebruik stellen van waarschuwing aangepaste regels in Azure Security Center
+## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Buiten gebruik stellen van aangepaste waarschuwings regels in Azure Security Center
 
-De ervaring voor aangepaste waarschuwingen is buiten gebruik gesteld op 30 juni 2019 vanwege buiten gebruik stellen van de onderliggende infrastructuur die wordt vertrouwd. aangepaste waarschuwingen gedefinieerd vóór retriement zijn niet gaat en er worden geen beveiligingswaarschuwingen op basis van deze regels voor aangepaste waarschuwingen gegenereerd. U kunt nog steeds uw regels voor aangepaste waarschuwingen-query's weergeven in Security Center om te opnieuw te maken in de hieronder vermelde alternatieven:
+De aangepaste waarschuwings ervaring is op 30 juni 2019 buiten gebruik gesteld vanwege de buiten gebruiks telling van de onderliggende infra structuur. Aangepaste waarschuwingen die zijn gedefinieerd vóór retriement, worden niet doorgevoerd en beveiligings waarschuwingen op basis van deze aangepaste waarschuwings regels worden niet gegenereerd. U kunt nog steeds de query's van uw aangepaste waarschuwings regels weer geven in Security Center om ze opnieuw te maken in de hieronder genoemde alternatieven:
 
-Gebruikers wordt aangeraden om:
-- Inschakelen [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) en gebruik de ingebouwde [analytics](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) functionaliteit opnieuw maken hun waarschuwingsregels
-- De waarschuwingen met waarschuwingen voor Azure Monitor opnieuw maken
+Gebruikers worden geadviseerd om:
+- [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) inschakelen en de ingebouwde [analyse](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) functionaliteit gebruiken om hun waarschuwings regels opnieuw te maken
+- Hun waarschuwingen opnieuw maken met Azure Monitor logboek waarschuwingen
                                      
-Als u wilt behouden van uw bestaande waarschuwingen en ze opnieuw maken in Azure Sentinel, kunt u [start Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Selecteer de werkruimte waar uw aangepaste waarschuwingen worden opgeslagen als eerste stap en selecteer vervolgens het menu-item 'Analytics' voor het instellen van uw regels voor aangepaste waarschuwingen. Ga naar de [documentatie](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) voor meer informatie.
+Als u uw bestaande waarschuwingen wilt blijven gebruiken en deze opnieuw wilt maken in azure Sentinel, [start u Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Als eerste stap selecteert u de werk ruimte waar uw aangepaste waarschuwingen worden opgeslagen en selecteert u vervolgens het menu-item Analytics om uw aangepaste waarschuwings regels in te stellen. Raadpleeg de [documentatie](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) voor meer informatie.
 
 > [!NOTE]
-> Aangepaste waarschuwingen via [zoeken](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) of [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) instructies query's worden niet ondersteund in Azure Sentinel. Bewerk deze waarschuwingen voordat u de migratie uitvoert.
+> Aangepaste waarschuwingen met behulp van [Zoek](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) -of [samenvoeg](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) instructie query's worden niet ondersteund in azure Sentinel. Wijzig deze waarschuwingen voordat u de migratie uitvoert.
 
-Voor het opnieuw maken van uw waarschuwingen met behulp van Azure Monitor-logboekwaarschuwingen, Zie: [Maken, weergeven en beheren van waarschuwingen met behulp van Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) voor instructies over het maken van waarschuwingen. Voor een algemeen overzicht van waarschuwingen in Azure Monitor, klikt u op [hier](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
+Zie [logboek waarschuwingen maken, weer geven en beheren met Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)voor meer informatie over het opnieuw maken van waarschuwingen met behulp van Azure monitor logboek waarschuwingen. Zie [waarschuwingen registreren in azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)voor een algemeen overzicht.
 
 ## <a name="what-are-custom-alert-rules-in-security-center"></a>Wat zijn regels voor aangepaste waarschuwingen in Security Center?
 
@@ -49,7 +49,7 @@ Security Center bevat een set vooraf gedefinieerde [beveiligingswaarschuwingen](
 In Security Center kunt u met behulp van regels voor aangepaste waarschuwingen nieuwe beveiligingswaarschuwingen definiëren op basis van gegevens die al zijn verzameld voor uw omgeving. U kunt query's maken en het resultaat van deze query's als criteria gebruiken voor de aangepaste regel. Zodra wordt voldaan aan deze criteria, wordt de regel uitgevoerd. U kunt aangepaste query's maken aan de hand van beveiligingsgebeurtenissen op computers, beveiligingslogboeken van partneroplossingen of gegevens die zijn opgenomen via een API.
 
 > [!NOTE]
-> Aangepaste waarschuwingen worden niet ondersteund in Security Center [onderzoeksfunctie](security-center-investigation.md).
+> Aangepaste waarschuwingen worden niet ondersteund in de [onderzoek functie](security-center-investigation.md)van de Security Center.
 >
 >
 
@@ -70,10 +70,10 @@ Open het dashboard van **Security Center** en volg deze stappen om een regel voo
 5.  Typ in het veld **Beschrijving** een korte beschrijving die de bedoeling van deze regel aangeeft.
 6.  Selecteer in het veld **Ernst** het ernstniveau (Hoog, Gemiddeld, Laag) dat aansluit bij uw behoeften.
 7.  Selecteer in het veld **Abonnement** het abonnement waarin deze regel van toepassing is.
-8.  Selecteer de werkruimte die u wilt controleren met deze regel in de **werkruimte** veld, en klik in de **zoekquery** veld, de query die u wilt gebruiken om de resultaten te verkrijgen.
+8.  Selecteer de werk ruimte die u met deze regel wilt bewaken in het **werkruimte** veld en in het veld **Zoek query** , de query die u wilt gebruiken om de resultaten te verkrijgen.
 
     > [!NOTE]
-    > U moet de machtiging schrijven in de werkruimte die u selecteert voor het opslaan van uw aangepaste waarschuwing.
+    > U hebt schrijf machtigingen nodig in de werk ruimte die u hebt geselecteerd om uw aangepaste waarschuwing op te slaan.
     >
     >
 

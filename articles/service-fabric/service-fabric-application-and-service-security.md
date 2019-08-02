@@ -1,9 +1,9 @@
 ---
 title: Meer informatie over de beveiliging van Azure Service Fabric-toepassingen | Microsoft Docs
-description: Een overzicht van hoe u veilig microservices-toepassingen uitvoeren op Service Fabric. Informatie over het uitvoeren van services en opstarten script onder verschillende beveiligingsaccounts, verifiëren en autoriseren van gebruikers, toepassingsgeheimen beheren, beveiligde servicecommunicatie, gebruikt u een API-gateway en veilige toepassingsgegevens in rust.
+description: Een overzicht van hoe u op een veilige manier micro Services-toepassingen kunt uitvoeren op Service Fabric. Meer informatie over het uitvoeren van services en opstart scripts onder verschillende beveiligings accounts, het verifiëren en autoriseren van gebruikers, het beheren van toepassings geheimen, het beveiligen van service communicatie, het gebruiken van een API-gateway en het beveiligen van toepassings gegevens in rust.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
@@ -13,90 +13,90 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
-ms.author: aljo
-ms.openlocfilehash: cb0f750f4049a1ce652c829f43928a95f30e6973
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 75a82a0915414d24ab9c58ea15d3fdc9c1922c63
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302246"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68600073"
 ---
-# <a name="service-fabric-application-and-service-security"></a>Service Fabric-toepassing en service-beveiliging
-Een architectuur met microservices kunt brengen [veel voordelen](service-fabric-overview-microservices.md). Beheren van de beveiliging van microservices, is echter een uitdaging en anders dan de traditionele monolithische toepassingen beveiliging beheren. 
+# <a name="service-fabric-application-and-service-security"></a>Beveiliging van toepassingen en Services Service Fabric
+Een micro service architectuur kan [veel voor delen](service-fabric-overview-microservices.md)bieden. Het beheren van de beveiliging van micro Services is echter een uitdaging en wijkt af van het beheer van traditionele monolithische-toepassingen. 
 
-De toepassing wordt doorgaans uitgevoerd op een of meer servers in een netwerk met een zichzelf en is het eenvoudiger om de blootgestelde poorten en API's en IP-adres te identificeren. Er is vaak een perimeternetwerk of grens en een database om te beveiligen. Als dit systeem is geknoeid vanwege een schending van de beveiliging of een aanval, is het waarschijnlijk dat alles in het systeem beschikbaar voor de aanvaller zijn. Met microservices is het systeem complexer.  Services zijn gedecentraliseerde en verdeeld over een groot aantal hosts en migreren van host naar de host.  Met de juiste beveiliging kan u een de bevoegdheden die de aanvaller krijgt en de hoeveelheid gegevens die beschikbaar zijn in een één-aanval beperken door inbreuk op één service.  Communicatie is geen interne, maar er gebeurt via een netwerk, en er zijn veel blootgestelde poorten en interacties tussen services. Weten wat deze service-interacties zijn en wanneer ze zich voordoen is essentieel voor de beveiliging van uw toepassingen.
+Met een op wordt de toepassing meestal uitgevoerd op een of meer servers in een netwerk en is het eenvoudiger om de weer gegeven poorten en Api's en het IP-adres te identificeren. Er is vaak één verbinding of grens en één data base die u kunt beveiligen. Als dat systeem is aangetast vanwege een schending van de beveiliging of aanvallen, is het waarschijnlijk dat alles binnen het systeem beschikbaar is voor de aanvaller. Met micro Services is het systeem complexer.  Services worden gedecentraliseerd en gedistribueerd op veel hosts en kunnen worden gemigreerd van de host naar de host.  Met de juiste beveiliging beperkt u de bevoegdheden die een aanvaller kan krijgen en de hoeveelheid gegevens die beschikbaar zijn in één aanval door een service te schenden.  Communicatie is niet intern, maar gebeurt via een netwerk en er zijn veel weer gegeven poorten en interacties tussen services. Als u weet wat deze service-interacties zijn en wanneer deze zich voordoen, is de beveiliging van uw toepassing van cruciaal belang.
 
-In dit artikel is geen handleiding en microservices security, er zijn veel van deze bronnen online beschikbaar, maar hierin wordt beschreven hoe verschillende aspecten van beveiliging kunnen worden uitgevoerd in Service Fabric.
+Dit artikel is geen hand leiding voor micro Services-beveiliging. er zijn veel van deze resources online beschikbaar, maar hier wordt beschreven hoe verschillende aspecten van de beveiliging kunnen worden uitgevoerd in Service Fabric.
 
 ## <a name="authentication-and-authorization"></a>Verificatie en autorisatie
-Het is vaak nodig zijn voor resources en API's die worden weergegeven door een service moeten worden beperkt tot bepaalde vertrouwde gebruikers of -clients. Verificatie is het proces van het op betrouwbare wijze vaststelling van de identiteit van een gebruiker.  Autorisatie is het proces dat kunt u API's of services beschikbaar zijn voor sommige geverifieerd, maar niet voor andere gebruikers.
+Het is vaak nodig dat bronnen en Api's die door een service worden weer gegeven, beperkt blijven tot bepaalde vertrouwde gebruikers of clients. Verificatie is het proces van het betrouwbaar vaststellen van de identiteit van een gebruiker.  Autorisatie is het proces dat Api's of services beschikbaar maakt voor sommige geverifieerde gebruikers, maar niet voor anderen.
 
-### <a name="authentication"></a>Verificatie
-De eerste stap bij het nemen van beslissingen voor API-niveau vertrouwensrelatie is verificatie. Verificatie is het proces van het op betrouwbare wijze vaststelling van de identiteit van een gebruiker.  In scenario's microservices, verificatie, wordt doorgaans afgehandeld Centraal. Als u een API-Gateway gebruikt, kunt u [verificatie-offload](/azure/architecture/patterns/gateway-offloading) naar de gateway. Als u deze methode gebruikt, zorg ervoor dat de afzonderlijke services rechtstreeks (zonder de API-Gateway) kunnen niet worden bereikt, tenzij de extra beveiliging is ingesteld om berichten te verifiëren of ze afkomstig zijn van de gateway of niet.
+### <a name="authentication"></a>Authentication
+De eerste stap voor het maken van vertrouwens beslissingen op API-niveau is verificatie. Verificatie is het proces van het betrouwbaar vaststellen van de identiteit van een gebruiker.  In micro service-scenario's wordt de verificatie doorgaans centraal afgehandeld. Als u een API-gateway gebruikt, kunt u de [verificatie](/azure/architecture/patterns/gateway-offloading) naar de gateway offloaden. Als u deze methode gebruikt, moet u ervoor zorgen dat de afzonderlijke services niet rechtstreeks kunnen worden bereikt (zonder de API-gateway), tenzij er extra beveiliging aanwezig is om berichten te verifiëren, ongeacht of ze afkomstig zijn van de gateway of niet.
 
-Als services kunnen rechtstreeks worden geopend, wordt een authentication-service zoals Azure Active Directory of een toegewezen verificatie microservice die fungeert als een security token service (STS) kan worden gebruikt om gebruikers te verifiëren. Beslissingen voor de vertrouwensrelatie worden gedeeld tussen services met beveiligingstokens of cookies. 
+Als services rechtstreeks toegankelijk zijn, kan een verificatie service, zoals Azure Active Directory of een speciale verificatie-micro service die fungeert als een beveiligings token service (STS) worden gebruikt om gebruikers te verifiëren. Vertrouwens beslissingen worden gedeeld tussen services met beveiligings tokens of cookies. 
 
-Voor ASP.NET Core, het primaire mechanisme voor [verifiëren van gebruikers](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) is het lidmaatschapssysteem van ASP.NET Core-identiteit. ASP.NET Core-identiteit slaat gebruikersgegevens (zoals aanmeldingsgegevens, rollen en claims) in een gegevensarchief dat is geconfigureerd door de ontwikkelaar. ASP.NET Core-identiteit biedt ondersteuning voor verificatie met twee factoren.  Externe verificatieproviders worden ook ondersteund, zodat gebruikers kunnen zich aanmelden met behulp van bestaande verificatieprocessen die van leveranciers zoals Microsoft, Google, Facebook of Twitter.
+Voor ASP.NET Core is het primaire mechanisme voor het [verifiëren van gebruikers](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) het ASP.net core identiteits lidmaatschaps systeem. Met ASP.NET Core identiteit worden gebruikers gegevens (inclusief aanmeldings gegevens, rollen en claims) opgeslagen in een gegevens archief dat door de ontwikkelaar is geconfigureerd. ASP.NET Core identiteit ondersteunt twee ledige verificatie.  Externe verificatie providers worden ook ondersteund, zodat gebruikers zich kunnen aanmelden met behulp van bestaande verificatie processen van providers zoals micro soft, Google, Facebook of Twitter.
 
-### <a name="authorization"></a>Autorisatie
-Na verificatie services moeten gebruikerstoegang verlenen of kunt vaststellen wat een gebruiker kan doen. Dit proces staat een service voor het maken van API's beschikbaar voor geverifieerde gebruikers, maar niet voor alle. Autorisatie is een rechthoekige en onafhankelijk van verificatie, het proces is van de vaststelling van wie een gebruiker is. Verificatie kan een of meer id's voor de huidige gebruiker maken.
+### <a name="authorization"></a>Authorization
+Na verificatie moeten Services gebruikers toegang verlenen of bepalen wat een gebruiker kan doen. Met dit proces kan een service Api's beschikbaar maken voor sommige geverifieerde gebruikers, maar niet op alle. Autorisatie is een orthogonale en onafhankelijk van verificatie. Dit is het proces van het vaststellen van de gebruikers. Verificatie kan een of meer identiteiten maken voor de huidige gebruiker.
 
-[ASP.NET Core-autorisatie](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications) kan worden gedaan op basis van gebruikers, rollen of op basis van aangepaste beleid, waaronder het inspecteren van claims of andere methodiek.
+[ASP.net core autorisatie](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications) kan worden uitgevoerd op basis van rollen van gebruikers of op basis van aangepast beleid, zoals het inspecteren van claims of andere heuristiek.
 
-## <a name="restrict-and-secure-access-using-an-api-gateway"></a>Beperk en veilige toegang met behulp van een API-gateway
-Cloudtoepassingen hebben meestal een gateway in de front-end nodig om een centraal ingangspunt te bieden voor gebruikers, apparaten of andere toepassingen. Een [API-gateway](/azure/architecture/microservices/gateway) tussen clients en -services en is het toegangspunt voor alle services die uw toepassing kan leveren. Het fungeert als een omgekeerde proxy routeren van aanvragen van clients met services. Er kan ook verschillende algemene taken, zoals verificatie en autorisatie, SSL-beëindiging en gelden enkele beperkingen uitvoeren. Als u een gateway niet implementeert, moeten clients aanvragen verzenden rechtstreeks aan de front-end-services.
+## <a name="restrict-and-secure-access-using-an-api-gateway"></a>Toegang beperken en beveiligen met behulp van een API-gateway
+Cloudtoepassingen hebben meestal een gateway in de front-end nodig om een centraal ingangspunt te bieden voor gebruikers, apparaten of andere toepassingen. Een [API-gateway](/azure/architecture/microservices/gateway) bevindt zich tussen clients en services en is het toegangs punt voor alle services die uw toepassing levert. Het fungeert als een omgekeerde proxy, routerings aanvragen van clients naar Services. Het kan ook verschillende cross-snij taken uitvoeren, zoals verificatie en autorisatie, SSL-beëindiging en frequentie beperking. Als u geen gateway implementeert, moeten clients aanvragen rechtstreeks naar de front-end-services verzenden.
 
-In Service Fabric, een gateway kan worden elke stateless service, zoals een [ASP.NET Core-toepassing](service-fabric-reliable-services-communication-aspnetcore.md), of een andere service die is ontworpen voor inkomend verkeer, zoals [Traefik](https://docs.traefik.io/), [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT-Hub](https://docs.microsoft.com/azure/iot-hub/), of [Azure API Management](https://docs.microsoft.com/azure/api-management).
+In Service Fabric kan een gateway een stateless service zoals een [ASP.net core-toepassing](service-fabric-reliable-services-communication-aspnetcore.md)zijn, of een andere service die is ontworpen voor binnenkomend verkeer, zoals [Traefik](https://docs.traefik.io/), [Event hubs](https://docs.microsoft.com/azure/event-hubs/), [IOT hub](https://docs.microsoft.com/azure/iot-hub/)of [Azure-API Management](https://docs.microsoft.com/azure/api-management).
 
-API Management wordt rechtstreeks geïntegreerd met Service Fabric, zodat u kunt voor het publiceren van API's met een uitgebreide set regels voor doorsturen naar uw back-end-Service Fabric-services.  U kunt beveiligde toegang tot de back-endservices, DOS-aanvallen te voorkomen dat met behulp van de beperking of Controleer of de API-sleutels, JWT-tokens, certificaten, en andere referenties. Voor meer informatie lezen [Service Fabric met Azure API Management-overzicht](service-fabric-api-management-overview.md).
+API Management kan rechtstreeks worden geïntegreerd met Service Fabric, zodat u Api's kunt publiceren met een uitgebreide set routerings regels voor uw back-end-Service Fabric Services.  U kunt de toegang tot back-end-services beveiligen, DOS-aanvallen voor komen door beperking te gebruiken of om API-sleutels, JWT-tokens, certificaten en andere referenties te controleren. Lees [service fabric met Azure API Management Overview](service-fabric-api-management-overview.md)voor meer informatie.
 
 ## <a name="manage-application-secrets"></a>Toepassingsgeheimen beheren
-Geheimen kunnen gevoelige informatie, zoals storage-verbindingsreeksen, wachtwoorden, of andere waarden die niet moeten worden verwerkt als tekst zonder opmaak zijn. In dit artikel maakt gebruik van Azure Key Vault om sleutels en geheimen te beheren. Echter, *met behulp van* geheimen in een toepassing is cloud platform-agnostische om toe te staan van toepassingen op een cluster die overal gehost kunnen worden geïmplementeerd.
+Geheimen kunnen gevoelige informatie zijn, zoals verbindings reeksen voor opslag, wacht woorden of andere waarden die niet in tekst zonder opmaak moeten worden verwerkt. In dit artikel wordt gebruikgemaakt van Azure Key Vault voor het beheren van sleutels en geheimen. Het *gebruik* van geheimen in een toepassing is echter het Cloud platform-neutraal zodat toepassingen kunnen worden geïmplementeerd in een cluster dat overal wordt gehost.
 
-De aanbevolen manier voor het beheren van configuratie-instellingen is via [service configuratiepakketten][config-package]. Configuratiepakketten zijn samengesteld en bij te werken via beheerde rolling upgrades met health-validatie en automatisch ongedaan maken. Dit is voorkeur aan de globale configuratie vermindert de kans op een wereldwijde service-onderbreking. Versleutelde geheimen zijn geen uitzondering. Service Fabric heeft ingebouwde functies voor het versleutelen en ontsleutelen van waarden in een pakket Settings.xml configuratiebestand met behulp van certificaatversleuteling.
+De aanbevolen manier om service configuratie-instellingen te beheren is via [Service configuratie pakketten][config-package]. Configuratie pakketten zijn versie en kunnen worden bijgewerkt via beheerde rolling upgrades met status validatie en automatisch terugdraaien. Dit verdient de voor keur aan globale configuratie, omdat hiermee de kans op een globale service storing wordt gereduceerd. Versleutelde geheimen zijn geen uitzonde ringen. Service Fabric heeft ingebouwde functies voor het versleutelen en ontsleutelen van waarden in een XML-bestand met configuratie pakket instellingen met behulp van certificaat versleuteling.
 
-Het volgende diagram illustreert de basisprincipes voor geheimenbeheer in een Service Fabric-toepassing:
+In het volgende diagram ziet u de basis stroom voor het beheer van geheimen in een Service Fabric-toepassing:
 
-![overzicht van geheimenbeheer][overview]
+![overzicht van het beheer van geheimen][overview]
 
-Er zijn vier belangrijke stappen in deze stroom:
+Er zijn vier belang rijke stappen in deze stroom:
 
-1. Een versleutelingscertificaat gegevens verkrijgen.
+1. Een certificaat voor gegevens versleuteling ophalen.
 2. Installeer het certificaat in uw cluster.
-3. Versleutelen van geheime waarden bij het implementeren van een toepassing met het certificaat en injecteren van een service Settings.xml-configuratiebestand.
-4. Versleutelde waarden buiten het Settings.xml lezen door te ontsleutelen met de dezelfde versleutelingscertificaat. 
+3. Versleutel de geheime waarden bij het implementeren van een toepassing met het certificaat en Injecteer deze in het configuratie bestand instellingen. XML van een service.
+4. Versleutelde waarden uit instellingen. XML lezen door te ontsleutelen met hetzelfde coderings certificaat. 
 
-[Azure Key Vault] [ key-vault-get-started] wordt hier gebruikt als een locatie voor de veilige opslag voor certificaten en als een manier om certificaten zijn geïnstalleerd op de Service Fabric-clusters in Azure. Als u niet naar Azure implementeert, hoeft u geen Key Vault gebruikt om geheimen in Service Fabric-toepassingen te beheren.
+[Azure Key Vault][key-vault-get-started] wordt hier gebruikt als een veilige opslag locatie voor certificaten en als manier om certificaten te verkrijgen die zijn geïnstalleerd op service Fabric clusters in Azure. Als u niet in azure implementeert, hoeft u Key Vault niet te gebruiken om geheimen in Service Fabric toepassingen te beheren.
 
-Zie voor een voorbeeld [toepassingsgeheimen beheren](service-fabric-application-secret-management.md).
+Zie [toepassings geheimen beheren](service-fabric-application-secret-management.md)voor een voor beeld.
 
-## <a name="secure-the-hosting-environment"></a>De hosting-omgeving beveiligen
-Met behulp van Azure Service Fabric, kunt u toepassingen die worden uitgevoerd in het cluster onder verschillende gebruikersaccounts beveiligen. Service Fabric helpt ook bij het beveiligen van de resources die worden gebruikt door toepassingen op het moment van implementatie onder de gebruikersaccounts, bijvoorbeeld, bestanden, mappen en certificaten. Hierdoor actieve toepassingen, zelfs in een gedeelde omgeving, beter te beveiligen van elkaar.
+## <a name="secure-the-hosting-environment"></a>De hosting omgeving beveiligen
+Door Azure Service Fabric te gebruiken, kunt u toepassingen die in het cluster worden uitgevoerd, beveiligen onder verschillende gebruikers accounts. Service Fabric helpt ook bij het beveiligen van de bronnen die worden gebruikt door toepassingen op het moment van de implementatie onder de gebruikers accounts, bijvoorbeeld bestanden, directory's en certificaten. Dit maakt het uitvoeren van toepassingen, zelfs in een gedeelde gehoste omgeving, veiliger van elkaar.
 
-Het toepassingsmanifest verklaart de beveiligings-principals (gebruikers en groepen) vereist uitvoeren van de service (s) en beveiligde bronnen.  Deze beveiliging principals wordt verwezen in het beleid, bijvoorbeeld het run as,-eindpunt binden, het pakket delen of toegang beveiligingsbeleid.  Beleid wordt vervolgens toegepast op service-resources in de **ServiceManifestImport** gedeelte van het toepassingsmanifest.
+Het toepassings manifest declareert de beveiligings-principals (gebruikers en groepen) die vereist zijn om de service (s) uit te voeren en beveiligde bronnen.  Er wordt naar deze beveiligings-principals verwezen in beleids regels, zoals het uitvoeren als, het binden van eind punten, het delen van pakketten of het beleid voor beveiligings toegang.  Beleids regels worden vervolgens toegepast op service resources in de sectie **ServiceManifestImport** van het toepassings manifest.
 
-Bij het melden van beveiligings-principals, kunt u ook definiëren en gebruikersgroepen maken, zodat een of meer gebruikers kunnen worden toegevoegd aan elke groep samen worden beheerd. Dit is handig als er meerdere gebruikers voor verschillende toegangspunten zijn en moeten bepaalde algemene rechten die beschikbaar op het groepeerniveau van de zijn hebt.
+Bij het declareren van principals kunt u ook gebruikers groepen definiëren en maken, zodat een of meer gebruikers aan elke groep kunnen worden toegevoegd om samen te worden beheerd. Dit is handig wanneer er meerdere gebruikers zijn voor verschillende service toegangs punten en er bepaalde algemene bevoegdheden moeten zijn die op het groeps niveau beschikbaar zijn.
 
-Standaard wordt Service Fabric-toepassingen uitvoeren onder het account dat de Fabric.exe-proces wordt uitgevoerd onder. Service Fabric biedt tevens de mogelijkheid om uit te voeren toepassingen onder een lokaal gebruikersaccount of het lokale systeemaccount gebruikt, die is opgegeven in het manifest van de toepassing. Zie voor meer informatie, [een service uitvoeren als een lokale gebruikersaccount of local system-account](service-fabric-application-runas-security.md).  U kunt ook [een opstartscript service uitgevoerd als een lokale gebruiker of systeemaccount](service-fabric-run-script-at-service-startup.md).
+Service Fabric toepassingen worden standaard uitgevoerd onder het account waaronder het Fabric. exe-proces wordt uitgevoerd. Service Fabric biedt ook de mogelijkheid om toepassingen uit te voeren onder een lokaal gebruikers account of lokaal systeem account, dat is opgegeven in het manifest van de toepassing. Zie [een service uitvoeren als een lokaal gebruikers account of lokaal systeem account](service-fabric-application-runas-security.md)voor meer informatie.  U kunt [een service-opstart script ook uitvoeren als een lokale gebruiker of systeem account](service-fabric-run-script-at-service-startup.md).
 
-Wanneer u Service Fabric op een zelfstandige cluster van Windows uitvoert, kunt u een service onder uitvoeren [Active Directory-domeinaccounts](service-fabric-run-service-as-ad-user-or-group.md) of [groep beheerde serviceaccounts](service-fabric-run-service-as-gmsa.md).
+Wanneer u Service Fabric uitvoert op een zelfstandige Windows-cluster, kunt u een service uitvoeren onder [Active Directory domein accounts](service-fabric-run-service-as-ad-user-or-group.md) of door de [groep beheerde service accounts](service-fabric-run-service-as-gmsa.md).
 
 ## <a name="secure-containers"></a>Beveiligde containers
-Service Fabric biedt een mechanisme voor services binnen een container voor toegang tot een certificaat dat is geïnstalleerd op de knooppunten in een Windows- of Linux-cluster (versie 5.7 of hoger). Dit PFX-certificaat kan worden gebruikt voor het verifiëren van de toepassing of service of beveiligde communicatie met andere services. Zie voor meer informatie, [een certificaat importeren in een container](service-fabric-securing-containers.md).
+Service Fabric biedt een mechanisme voor services binnen een container om toegang te krijgen tot een certificaat dat op de knoop punten in een Windows-of Linux-cluster (versie 5,7 of hoger) is geïnstalleerd. Dit PFX-certificaat kan worden gebruikt voor het verifiëren van de toepassing of service of het beveiligen van communicatie met andere services. Zie [een certificaat in een container importeren](service-fabric-securing-containers.md)voor meer informatie.
 
-Service Fabric ondersteunt bovendien ook gMSA (group Managed Service Accounts) voor Windows-containers. Zie voor meer informatie, [gMSA instellen voor Windows-containers](service-fabric-setup-gmsa-for-windows-containers.md).
+Daarnaast ondersteunt Service Fabric ook gMSA (Managed Service accounts voor groepen) voor Windows-containers. Zie [gMSA voor Windows-containers instellen](service-fabric-setup-gmsa-for-windows-containers.md)voor meer informatie.
 
-## <a name="secure-service-communication"></a>Beveiligde servicecommunicatie
-In Service Fabric, een service wordt uitgevoerd ergens in een Service Fabric-cluster, meestal verdeeld over meerdere virtuele machines. Service Fabric biedt verschillende opties voor het beveiligen van uw service-communicatie.
+## <a name="secure-service-communication"></a>Service communicatie beveiligen
+In Service Fabric wordt een service ergens in een Service Fabric cluster uitgevoerd, meestal verdeeld over meerdere Vm's. Service Fabric biedt verschillende opties voor het beveiligen van uw service communicatie.
 
-Kunt u HTTPS-eindpunten in uw [ASP.NET Core- of Java](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) webservices.
+U kunt HTTPS-eind punten inschakelen in uw [ASP.net core of Java](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) -webservices.
 
-U kunt beveiligde verbinding tussen de reverse proxy- en -services, waardoor u een beveiligd kanaal voor end-to-end maken. Verbinding maken met veilige services wordt alleen ondersteund als omgekeerde proxy is geconfigureerd om te luisteren op HTTPS. Lees voor informatie over het configureren van de omgekeerde proxy [omgekeerde proxy in Azure Service Fabric](service-fabric-reverseproxy.md).  [Verbinding maken met een beveiligd service](service-fabric-reverseproxy-configure-secure-communication.md) staat beschreven hoe u beveiligde verbinding tussen de reverse proxy- en -services.
+U kunt een beveiligde verbinding tot stand brengen tussen de omgekeerde proxy en services, waardoor een end-to-end beveiligd kanaal kan worden ingeschakeld. Verbinding maken met beveiligde services wordt alleen ondersteund als omgekeerde proxy is geconfigureerd om te Luis teren op HTTPS. Lees voor meer informatie over het configureren van de omgekeerde proxy een [omgekeerde proxy in Azure service Fabric](service-fabric-reverseproxy.md).  [Verbinding maken met een beveiligde service](service-fabric-reverseproxy-configure-secure-communication.md) hierin wordt beschreven hoe u een beveiligde verbinding tot stand brengt tussen de omgekeerde proxy en services.
 
-Het framework van de toepassing betrouwbare Services biedt een aantal vooraf gedefinieerde communicatie-stacks en hulpprogramma's die u gebruiken kunt om beveiliging te verbeteren. Meer informatie over de beveiliging te verbeteren wanneer u externe toegang tot service (in [ C# ](service-fabric-reliable-services-secure-communication.md) of [Java](service-fabric-reliable-services-secure-communication-java.md)) of met behulp van [WCF](service-fabric-reliable-services-secure-communication-wcf.md).
+Het Reliable Services-toepassings raamwerk bevat enkele vooraf ontwikkelde communicatie stacks en hulpprogram ma's die u kunt gebruiken om de beveiliging te verbeteren. Meer informatie over het verbeteren van de beveiliging wanneer u service Remoting (in [C#](service-fabric-reliable-services-secure-communication.md) of [Java](service-fabric-reliable-services-secure-communication-java.md)) of [WCF](service-fabric-reliable-services-secure-communication-wcf.md)gebruikt.
 
-## <a name="encrypt-application-data-at-rest"></a>Toepassingsgegevens in rust versleutelen
-Elke [knooppunttype](service-fabric-cluster-nodetypes.md) in een Service Fabric-cluster worden uitgevoerd in Azure wordt ondersteund door een [virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). U kunt met behulp van een Azure Resource Manager-sjabloon gegevensschijven koppelen aan de schaalsets die gezamenlijk het Service Fabric-cluster vormen.  Als uw services worden gegevens opslaan in een gekoppelde schijf, kunt u [die gegevensschijven versleutelen](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) om de toepassingsgegevens van uw te beveiligen.
+## <a name="encrypt-application-data-at-rest"></a>Toepassings gegevens in rust versleutelen
+Elk [knooppunt type](service-fabric-cluster-nodetypes.md) in een service Fabric cluster dat in azure wordt uitgevoerd, wordt ondersteund door een schaalset voor [virtuele machines](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). U kunt met behulp van een Azure Resource Manager-sjabloon gegevensschijven koppelen aan de schaalsets die gezamenlijk het Service Fabric-cluster vormen.  Als uw Services gegevens opslaan op een gekoppelde gegevens schijf, kunt u [deze gegevens schijven](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) versleutelen om uw toepassings gegevens te beveiligen.
 
 <!--TO DO: Enable BitLocker on Windows standalone clusters?
 TO DO: Encrypt disks on Linux clusters?-->
@@ -104,10 +104,10 @@ TO DO: Encrypt disks on Linux clusters?-->
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen
-* [Voer een installatiescript uit bij het opstarten van de service](service-fabric-run-script-at-service-startup.md)
-* [Resources specificeren in een servicemanifest](service-fabric-service-manifest-resources.md)
+* [Een installatie script uitvoeren bij het starten van de service](service-fabric-run-script-at-service-startup.md)
+* [Resources opgeven in een service manifest](service-fabric-service-manifest-resources.md)
 * [Een app implementeren](service-fabric-deploy-remove-applications.md)
-* [Meer informatie over clusterbeveiliging](service-fabric-cluster-security.md)
+* [Meer informatie over cluster beveiliging](service-fabric-cluster-security.md)
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/key-vault-overview.md

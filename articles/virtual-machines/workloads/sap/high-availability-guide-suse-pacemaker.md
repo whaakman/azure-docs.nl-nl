@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: cd377e78abe328814795bb1f75465b090a13e456
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 551f140c22677bea363ad5d8f43bf9670f783a1d
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228350"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725610"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Pacemaker op SUSE Linux Enterprise Server in Azure instellen
 
@@ -35,14 +35,14 @@ ms.locfileid: "68228350"
 
 Er zijn twee opties voor het instellen van een cluster Pacemaker in Azure. U kunt een agent de eerste optie, die zorgt dat er opnieuw starten van een knooppunt via de Azure API's gebruiken of kunt u een apparaat SBD.
 
-De SBD vereist ten minste één extra virtuele machine die fungeert als een iSCSI-doelserver en biedt een SBD-apparaat. Deze iSCSI-doelservers kunnen echter worden gedeeld met andere Pacemaker-clusters. Het voordeel van het gebruik van een apparaat SBD is een snellere failover en, als u SBD apparaten on-premises niet vereist dat alle wijzigingen in hoe u het cluster pacemaker werken. U kunt maximaal drie SBD apparaten voor een cluster Pacemaker gebruiken om toe te staan een SBD-apparaat niet meer beschikbaar zijn, bijvoorbeeld tijdens het patchen van het besturingssysteem van de iSCSI-doelserver. Als u meer dan één SBD apparaat per Pacemaker gebruiken wilt, moet u het implementeren van meerdere iSCSI-doelservers en verbinding maken met een SBD van elke iSCSI-doelserver. Het is raadzaam om met behulp van één SBD apparaat of drie. Pacemaker zich niet op een clusterknooppunt automatisch omheining als u slechts twee SBD apparaten configureren en een van beide niet beschikbaar is. Als u wilt dat omheining wanneer een iSCSI-doelserver niet actief is, hebt u drie SBD apparaten en daarom de drie iSCSI-doelservers gebruiken.
+De SBD vereist ten minste één extra virtuele machine die fungeert als een iSCSI-doelserver en biedt een SBD-apparaat. Deze iSCSI-doelservers kunnen echter worden gedeeld met andere Pacemaker-clusters. Het voor deel van het gebruik van een SBD-apparaat is een snellere failover-tijd en als u gebruikmaakt van SBD-apparaten on-premises, hoeven er geen wijzigingen te worden aangebracht in de manier waarop u het pacemaker-cluster gebruikt. U kunt maximaal drie SBD apparaten voor een cluster Pacemaker gebruiken om toe te staan een SBD-apparaat niet meer beschikbaar zijn, bijvoorbeeld tijdens het patchen van het besturingssysteem van de iSCSI-doelserver. Als u meer dan één SBD apparaat per Pacemaker gebruiken wilt, moet u het implementeren van meerdere iSCSI-doelservers en verbinding maken met een SBD van elke iSCSI-doelserver. Het is raadzaam om met behulp van één SBD apparaat of drie. Pacemaker zich niet op een clusterknooppunt automatisch omheining als u slechts twee SBD apparaten configureren en een van beide niet beschikbaar is. Als u wilt dat omheining wanneer een iSCSI-doelserver niet actief is, hebt u drie SBD apparaten en daarom de drie iSCSI-doelservers gebruiken.
 
-Als u niet investeren in één extra virtuele machine wilt, kunt u ook de omheining Azure-agent. Het nadeel is dat een failover tussen 10 tot 15 minuten duren kan als een resource stoppen is mislukt of als de clusterknooppunten kunnen niet worden gecommuniceerd die elkaar meer.
+Als u niet wilt investeren in één extra virtuele machine, kunt u ook de Azure Fence-agent gebruiken. Het nadeel is dat een failover tussen 10 tot 15 minuten duren kan als een resource stoppen is mislukt of als de clusterknooppunten kunnen niet worden gecommuniceerd die elkaar meer.
 
 ![Pacemaker op SLES-overzicht](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> Bij het plannen en implementeren van Linux Pacemaker knooppunten en SBD apparaten geclusterde, is het essentieel is voor de algehele betrouwbaarheid van de volledige clusterconfiguratie die de routering tussen de virtuele machines die betrokken zijn en de VM (s) die als host fungeert voor de apparaten SBD wordt niet doorgegeven via alle andere apparaten, zoals [NVA's](https://azure.microsoft.com/solutions/network-appliances/). Anders, problemen en onderhoudsgebeurtenissen met de NVA kunnen een nadelige invloed op de stabiliteit en betrouwbaarheid van de algehele clusterconfiguratie hebben. Om te voorkomen dat dergelijke obstakels, regels voor doorsturen van NVA's niet bepalen of [gebruiker gedefinieerde routeringsregels](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) die verkeer routeren tussen geclusterde knooppunten en SBD apparaten via de NVA's en vergelijkbare apparaten bij het plannen en implementeren van Linux Pacemaker geclusterde knooppunten en SBD apparaten. 
+> Bij het plannen en implementeren van Linux Pacemaker knooppunten en SBD apparaten geclusterde, is het essentieel is voor de algehele betrouwbaarheid van de volledige clusterconfiguratie die de routering tussen de virtuele machines die betrokken zijn en de VM (s) die als host fungeert voor de apparaten SBD wordt niet doorgegeven via alle andere apparaten, zoals [NVA's](https://azure.microsoft.com/solutions/network-appliances/). Anders, problemen en onderhoudsgebeurtenissen met de NVA kunnen een nadelige invloed op de stabiliteit en betrouwbaarheid van de algehele clusterconfiguratie hebben. Om dergelijke obstakels te voor komen, definieert u geen routerings regels van Nva's of door de [gebruiker gedefinieerde routerings regels](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) die verkeer routeren tussen geclusterde knoop punten en SBD-apparaten via nva's en vergelijk bare apparaten bij het plannen en implementeren van Linux pacemaker geclusterde knoop punten en SBD-apparaten. 
 >
 
 ## <a name="sbd-fencing"></a>De eerste optie SBD
@@ -53,7 +53,7 @@ Volg deze stappen als u wilt een SBD-apparaat gebruiken voor de eerste optie.
 
 U moet eerst de iSCSI-doel-virtuele machines maken. iSCSI-doelservers kunnen worden gedeeld met meerdere Pacemaker-clusters.
 
-1. Implementeer nieuwe SLES 12 SP1 of hoger virtuele machines en maak er verbinding mee via ssh. De machines hoeft niet te groot. De grootte van een virtuele machine, zoals Standard_E2s_v3 of Standard_D2s_v3 is voldoende. Zorg ervoor dat u de besturingssysteemschijf van de Premium-opslag.
+1. Implementeer nieuwe SLES 12 SP1 of hoger virtuele machines en maak er verbinding mee via ssh. De machines hoeven niet groot te zijn. De grootte van een virtuele machine, zoals Standard_E2s_v3 of Standard_D2s_v3 is voldoende. Zorg ervoor dat u de besturingssysteemschijf van de Premium-opslag.
 
 Voer de volgende opdrachten uit op alle **iSCSI-doel-virtuele machines**.
 
@@ -398,6 +398,28 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    <pre><code>sudo zypper install fence-agents
    </code></pre>
 
+   >[!IMPORTANT]
+   > Als SuSE Linux Enter prise server voor SAP 15 wordt gebruikt, moet u er rekening mee houden dat u aanvullende module wilt activeren en extra onderdelen wilt installeren. Dit is de vereiste voor het gebruik van de Azure Fence-agent. Voor meer informatie over SUSE-modules en-extensies raadpleegt u de [uitleg over modules en extensies](https://www.suse.com/documentation/sles-15/singlehtml/art_modules/art_modules.html). Volg de instructies onderstaande om Azure python SDK te installeren. 
+
+   De volgende instructies voor het installeren van de Azure python SDK zijn alleen van toepassing op SuSE Enter prise server voor SAP **15**.  
+
+    - Als u gebruikmaakt van uw eigen abonnement, volgt u deze instructies  
+
+    <pre><code>
+    #Activate module PackageHub/15/x86_64
+    sudo SUSEConnect -p PackageHub/15/x86_64
+    #Install Azure Python SDK
+    sudo zypper in python3-azure-sdk
+    </code></pre>
+
+     - Als u gebruikmaakt van betalen per gebruik-abonnement, volgt u deze instructies  
+
+    <pre><code>#Activate module PackageHub/15/x86_64
+    zypper ar https://download.opensuse.org/repositories/openSUSE:/Backports:/SLE-15/standard/ SLE15-PackageHub
+    #Install Azure Python SDK
+    sudo zypper in python3-azure-sdk
+    </code></pre>
+
 1. **[A]**  Omzetten van de hostnaam instellen
 
    U kunt een DNS-server gebruiken of aanpassen van de/etc/hosts op alle knooppunten. In dit voorbeeld laat zien hoe u het bestand/etc/hosts gebruikt.
@@ -443,12 +465,12 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    <pre><code>sudo passwd hacluster
    </code></pre>
 
-1. **[A]**  Corosync voor het gebruik van andere transport en nodelist toevoegen configureren. Cluster werkt niet anders.
+1. **[A]**  Corosync voor het gebruik van andere transport en nodelist toevoegen configureren. Het cluster werkt anders niet.
 
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   De volgende vet inhoud toevoegen aan het bestand als de waarden niet er of een ander. Zorg ervoor dat u het token 30000 waarmee onderhoud met statusbehoud geheugen wijzigen. Zie [dit artikel voor Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance]voor meer informatie. Zorg ervoor dat u de parameter-mcastaddr verwijderen.
+   De volgende vet inhoud toevoegen aan het bestand als de waarden niet er of een ander. Zorg ervoor dat u het token 30000 waarmee onderhoud met statusbehoud geheugen wijzigen. Zie [dit artikel voor Linux][virtual-machines-linux-maintenance] of [Windows][virtual-machines-windows-maintenance]voor meer informatie. Zorg ervoor dat u de parameter-mcastaddr verwijderen.
 
    <pre><code>[...]
      <b>token:          30000
@@ -510,7 +532,7 @@ Het stonith instellen-apparaat maakt gebruik van een Service-Principal te autori
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Een aangepaste rol maken voor de agent omheining
 
-De Service-Principal heeft geen machtigingen voor toegang tot uw Azure-resources standaard. U hoeft op te geven van de Service-Principal machtigingen voor starten en stoppen (toewijzing ongedaan maken) alle virtuele machines van het cluster. Als u de aangepaste rol die niet al hebt gemaakt, kunt u maken met behulp van [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) of [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
+De service-principal heeft standaard geen machtigingen voor toegang tot uw Azure-resources. U hoeft op te geven van de Service-Principal machtigingen voor starten en stoppen (toewijzing ongedaan maken) alle virtuele machines van het cluster. Als u de aangepaste rol die niet al hebt gemaakt, kunt u maken met behulp van [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) of [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 
 Gebruik de volgende inhoud voor het invoerbestand. U moet de inhoud voor uw abonnementen die is aangepast, c276fc76-9cd4-44c9-99a7-4fd71546436e en e91d47c4-76f3-4271-a796-21b4ecfe3624 vervangen door de id's van uw abonnement. Als u slechts één abonnement hebt, verwijdert u de tweede vermelding in AssignableScopes.
 
@@ -536,7 +558,7 @@ Gebruik de volgende inhoud voor het invoerbestand. U moet de inhoud voor uw abon
 
 ### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** de aangepaste rol toewijzen aan de Service-Principal
 
-De aangepaste rol 'Linux omheining Agent rol' die is gemaakt in het vorige hoofdstuk aan de Service-Principal toewijzen. De rol van eigenaar niet meer gebruiken.
+De aangepaste rol 'Linux omheining Agent rol' die is gemaakt in het vorige hoofdstuk aan de Service-Principal toewijzen. Gebruik de rol owner niet meer.
 
 1. Ga naar[https://portal.azure.com](https://portal.azure.com)
 1. Open de blade alle resources

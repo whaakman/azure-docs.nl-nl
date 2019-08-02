@@ -1,18 +1,19 @@
 ---
 title: Problemen met SQL Server database back-up oplossen met behulp van Azure Backup | Microsoft Docs
 description: Informatie over het oplossen van back-ups van SQL Server-data bases die worden uitgevoerd op virtuele machines van Azure met Azure Backup.
-author: anuragm
-manager: sivan
+ms.reviewer: anuragm
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
-ms.author: anuragm
-ms.openlocfilehash: c601ecb6997834aa216de094e2809670833dd9cb
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 849065460acda36426f8a594a984ad1cc8590c34
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464919"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688822"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Problemen met SQL Server database back-up oplossen met behulp van Azure Backup
 

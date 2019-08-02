@@ -1,82 +1,82 @@
 ---
-title: Inzicht in digitale dubbels objectmodellen en ruimtelijke intelligence graph | Microsoft Docs
+title: Meer informatie over Digital Apparaatdubbels-object modellen en ruimtelijke Intelligence-grafiek | Microsoft Docs
 description: Gebruik Azure Digital Twins om relaties tussen mensen, plaatsen en apparaten te modelleren
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 07/29/2019
 ms.author: alinast
-ms.openlocfilehash: e7efe1a8632643e2a299b6c9a1b1407414deee4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bb7309ae452b2885be279d1ab38b8467397f2f8
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60925828"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638492"
 ---
-# <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Inzicht in digitale dubbels objectmodellen en ruimtelijke intelligence graph
+# <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Meer informatie over Digital Apparaatdubbels-object modellen en ruimtelijke Intelligence-grafiek
 
-Azure van digitale dubbels is een Azure IoT-service die wordt gebruikt door de uitgebreide virtuele representaties van fysieke omgevingen en bijbehorende apparaten, sensoren en personen. Dit verbetert de ontwikkeling door het organiseren van domeinspecifieke concepten in nuttige modellen. De modellen worden vervolgens in een grafiek ruimtelijke intelligence gelegen. Deze begrippen model zonder de relaties en interacties tussen mensen, spaties en apparaten.
+Azure Digital Apparaatdubbels is een Azure IoT-service die voorziet in uitgebreide virtuele representaties van fysieke omgevingen en gekoppelde apparaten, Sens oren en personen. Het verbetert de ontwikkeling door domein-specifieke concepten te organiseren in nuttige modellen. De modellen bevinden zich vervolgens in een ruimtelijke Intelligence-grafiek. Deze concepten zijn een getrouw model van de relaties en interacties tussen personen, ruimten en apparaten.
 
-Digitale dubbels objectmodellen beschrijven domeinspecifieke concepten, categorieën en eigenschappen. Modellen zijn vooraf gedefinieerd door gebruikers die willen aanpassen van de oplossing voor hun specifieke behoeften. Samen vormen deze vooraf gedefinieerde digitale dubbels objectmodellen gezamenlijk een _ontologie_. Een slimme gebouwen ontologie beschrijving van regio's, evenementen, verdiepingen, kantoren, zones, conferentieruimten en focus ruimten. Een raster energie ontologie beschrijving van verschillende power stations, substations, energiebronnen en klanten. Met digitale dubbels objectmodellen en anthologieën, kunnen diverse scenario's en behoeften worden aangepast.
+Digital Apparaatdubbels-object modellen beschrijven domein-specifieke concepten, categorieën en eigenschappen. Modellen zijn vooraf gedefinieerd door gebruikers die de oplossing willen aanpassen aan hun specifieke behoeften. Deze vooraf gedefinieerde Digital Apparaatdubbels-object modellen vormen samen een _Ontology_. In de Ontology van een slimme build worden regio's, locaties, vloeren, kant oren, zones, Vergader ruimten en focus kamers beschreven. Een Energy grid Ontology beschrijft verschillende stroom stations, substationen, energie bronnen en klanten. Met Digital Apparaatdubbels-object modellen en-Ontologies kunnen diverse scenario's en behoeften worden aangepast.
 
-U kunt vullen met digitale dubbels objectmodellen en een ontologie op locatie, een _ruimtelijke graph_. Ruimtelijke grafieken zijn virtuele representaties van de vele relaties tussen spaties, apparaten en mensen die relevant voor een IoT-oplossing zijn. In dit diagram toont een voorbeeld van een ruimtelijke grafiek die gebruikmaakt van een slimme gebouwen ontologie.
+Met Digital Apparaatdubbels-object modellen en een Ontology op locatie kunt u een _ruimtelijke grafiek_vullen. Ruimtelijke grafieken zijn virtuele voors tellingen van de vele relaties tussen ruimten, apparaten en personen die relevant zijn voor een IoT-oplossing. Dit diagram toont een voor beeld van een ruimtelijke grafiek die gebruikmaakt van de Ontology van een slimme build.
 
-![Digitale dubbels ruimtelijke grafiek samenstellen][1]
+![Digital Apparaatdubbels Spatial Graph built][1]
 
 <a id="model"></a>
 
-De ruimtelijke grafiek combineert spaties, apparaten, sensoren en gebruikers. Elk gekoppeld is op een manier die de echte wereld-modellen. In dit voorbeeld heeft venue 43 vier verdiepingen, elk met veel verschillende gebieden. Gebruikers zijn die zijn gekoppeld aan hun werkstation en toegang krijgen tot gedeelten van de grafiek. Een beheerder heeft de rechten wijzigingen aanbrengen aan de ruimtelijke grafiek, terwijl een bezoeker heeft rechten om alleen bepaalde gebouw-gegevens weer te geven.
+Het ruimtelijke diagram brengt spaties, apparaten, Sens oren en gebruikers samen. Elk wordt aan elkaar gekoppeld op een manier die de echte wereld modelt. In dit voor beeld heeft de locatie 43 vier etages, elk met veel verschillende gebieden. Gebruikers zijn gekoppeld aan hun werk station en hebben toegang tot delen van de grafiek. Een beheerder heeft de rechten om wijzigingen aan te brengen in de ruimtelijke grafiek, terwijl een bezoeker rechten heeft om bepaalde bouw gegevens te bekijken.
 
-## <a name="digital-twins-object-models"></a>Digitale dubbels objectmodellen
+## <a name="digital-twins-object-models"></a>Digital Apparaatdubbels-object modellen
 
-Digitale dubbels objectmodellen ondersteunen deze hoofdcategorieën van objecten:
+Digital Apparaatdubbels-object modellen ondersteunen deze hoofd categorieën van objecten:
 
-- **Opslagruimten** zijn virtuele of fysieke locaties, bijvoorbeeld `Tenant`, `Customer`, `Region`, en `Venue`.
-- **Apparaten** zijn virtuele of fysieke stukjes apparatuur, bijvoorbeeld `AwesomeCompany Device` en `Raspberry Pi 3`.
-- **Sensoren** zijn objecten die detecteren van gebeurtenissen, bijvoorbeeld `AwesomeCompany Temperature Sensor` en `AwesomeCompany Presence Sensor`.
-- **Gebruikers** personen en hun kenmerken te identificeren.
+- **Ruimten** `Tenant`zijn virtuele of fysieke locaties, zoals `Customer` `Region` `Venue`,, en.
+- **Apparaten** zijn virtuele machines of fysieke onderdelen, bijvoorbeeld `AwesomeCompany Device` en. `Raspberry Pi 3`
+- **Sens oren** zijn objecten die gebeurtenissen detecteren, bijvoorbeeld `AwesomeCompany Temperature Sensor` en. `AwesomeCompany Presence Sensor`
+- **Gebruikers** identificeren inzittenden en hun kenmerken.
 
-Er zijn andere categorieën van objecten:
+Andere categorieën objecten zijn:
 
-- **Resources** zijn gekoppeld aan een spatie en vertegenwoordigen meestal Azure-resources moet worden gebruikt door objecten in de ruimtelijke grafiek, bijvoorbeeld `IoTHub`.
-- **BLOBs** zijn gekoppeld aan objecten (zoals spaties, apparaten, sensoren en gebruikers). Ze worden gebruikt als bestanden met mime-type en metagegevens, bijvoorbeeld `maps`, `pictures`, en `manuals`.
-- **Uitgebreide typen** zijn extensible inventarisaties die de ervaring van entiteiten met specifieke kenmerken, bijvoorbeeld `SpaceType` en `SpaceSubtype`.
-- **Anthologieën** vertegenwoordigt een set uitgebreide typen, bijvoorbeeld `Default`, `Building`, `BACnet`, en `EnergyGrid`.
-- **Sleutels en waarden** zijn aangepaste kenmerken van opslagruimten, apparaten, sensoren en gebruikers. Ze kunnen worden gebruikt samen met ingebouwde kenmerken, bijvoorbeeld `DeltaProcessingRefreshTime` als sleutel en `10` als waarde.
-- **Rollen** sets met machtigingen worden toegewezen aan gebruikers en apparaten in de ruimtelijke grafiek, bijvoorbeeld `Space Administrator`, `User Administrator`, en `Device Administrator`.
-- **Roltoewijzingen** zijn de koppeling tussen een rol en een object in de ruimtelijke grafiek. Bijvoorbeeld kan een gebruiker of een service-principal worden gemachtigd voor het beheren van een spatie in de grafiek voor ruimtelijke.
-- **Security key winkels** de sleutels voor alle apparaten in de hiërarchie onder een bepaalde ruimte-object waarmee het apparaat veilig communiceren met digitale dubbels bieden.
-- **De gebruiker gedefinieerde functies** (UDF's) toestaan aanpasbare sensor telemetrie verwerken binnen de ruimtelijke grafiek. Bijvoorbeeld, een UDF kunt doen:
-  - Stel de waarde van een sensor.
-  - Aangepaste logica op basis van sensorwaarden, serverlogs, uitvoeren en stel de uitvoer van een spatie.
-  - Metagegevens koppelen aan een spatie.
-  - Meldingen verzenden wanneer een vooraf gedefinieerde voorwaarden wordt voldaan. Op dit moment kunnen UDF's worden geschreven in JavaScript.
-- **Vergelijkingsprogramma voor** objecten om te welke UDF's bepalen worden uitgevoerd voor een bepaalde telemetrieberichten zijn.
-- **Eindpunten** zijn de locaties waar berichten over Telemetrie en gebeurtenissen van digitale dubbels kunnen worden gerouteerd, bijvoorbeeld `Event Hub`, `Service Bus`, en `Event Grid`.
+- **Resources** zijn gekoppeld aan een ruimte en vertegenwoordigen doorgaans Azure-resources die worden gebruikt door objecten in de ruimtelijke grafiek, bijvoorbeeld `IoTHub`.
+- **Blobs** zijn gekoppeld aan objecten (zoals spaties, apparaten, Sens oren en gebruikers). Ze worden gebruikt als bestanden met MIME-type en meta gegevens, bijvoorbeeld `maps` `pictures`,, en `manuals`.
+- **Uitgebreide typen** zijn uitbreid bare opsommingen waarmee entiteiten met specifieke kenmerken, bijvoorbeeld `SpaceType` en `SpaceSubtype`, worden uitgebreid.
+- **Ontologies** `Default`vertegenwoordigen een set uitgebreide typen, bijvoorbeeld `Building` `BACnet` `EnergyGrid`,, en.
+- **Eigenschaps sleutels en-waarden** zijn aangepaste kenmerken van ruimten, apparaten, Sens oren en gebruikers. Ze kunnen worden gebruikt in combi natie met ingebouwde kenmerken, bijvoorbeeld `DeltaProcessingRefreshTime` als sleutel en `10` als waarde.
+- **Rollen** zijn sets machtigingen die zijn toegewezen aan gebruikers en apparaten in de ruimtelijke grafiek, bijvoorbeeld `Space Administrator` `User Administrator`,, en `Device Administrator`.
+- **Roltoewijzingen** zijn de koppeling tussen een rol en een object in de ruimtelijke grafiek. U kunt bijvoorbeeld een gebruiker of een Service-Principal machtigen voor het beheren van een ruimte in het ruimtelijke diagram.
+- **Beveiligings sleutel archieven** bieden de beveiligings sleutels voor alle apparaten in de hiërarchie onder een bepaald ruimte-object, zodat het apparaat veilig kan communiceren met Digital apparaatdubbels.
+- Door de **gebruiker gedefinieerde functies** (UDFs) Hiermee kunt u de verwerking van de telemetrie-sensor aanpassen binnen het ruimtelijke diagram. Een UDF kan bijvoorbeeld:
+  - Stel een sensor waarde in.
+  - Voer aangepaste logica uit op basis van sensor-Lees bewerkingen en stel de uitvoer in op een spatie.
+  - Meta gegevens koppelen aan een ruimte.
+  - Meldingen verzenden wanneer wordt voldaan aan vooraf gedefinieerde voor waarden. Op dit moment kunnen Udf's worden geschreven in Java script.
+- **Matchers** zijn objecten die bepalen welke udf's worden uitgevoerd voor een gegeven telemetrie-bericht.
+- **Eind punten** zijn de locaties waar telemetrie-berichten en digitale apparaatdubbels-gebeurtenissen kunnen worden gerouteerd, bijvoorbeeld `Event Hub` `Service Bus`,, en `Event Grid`.
 
 <a id="graph"></a>
 
 ## <a name="spatial-intelligence-graph"></a>Grafiek voor ruimtelijke intelligentie
 
-Ruimtelijke graph is de hiërarchische grafiek van opslagruimten, apparaten en mensen die zijn gedefinieerd in het digitale Twins-objectmodel. De ruimtelijke grafiek biedt ondersteuning voor overname, filteren, doorlopen, schaalbaarheid en uitbreidbaarheid. U kunt beheren en manipuleren van uw ruimtelijke graph met een verzameling van REST-API's.
+Ruimtelijke grafiek is het hiërarchische diagram van ruimten, apparaten en personen die in het object model Digital Apparaatdubbels zijn gedefinieerd. De ruimtelijke grafiek ondersteunt overname, filteren, door lopen, schalen en uitbreiden. U kunt uw ruimtelijke grafiek beheren en gebruiken met een verzameling REST-Api's.
 
-Als u een digitale Twins-service in uw abonnement implementeert, worden u globale beheerder van het hoofdknooppunt. U hebt volledige toegang tot de volledige structuur vervolgens automatisch verleend. Spaties in de grafiek inrichten met behulp van de ruimte-API. Services inrichten met behulp van de apparaat-API en sensoren met behulp van de Sensor-API. [Open source-hulpprogramma's](https://github.com/Azure-Samples/digital-twins-samples-csharp) zijn ook beschikbaar voor het inrichten van de grafiek in één bulkbewerking.
+Als u een Digital Apparaatdubbels-service in uw abonnement implementeert, wordt u de globale beheerder van het hoofd knooppunt. Vervolgens krijgt u automatisch volledige toegang tot de volledige structuur. Ruimten in de grafiek inrichten met behulp van de Space-API. Services inrichten met behulp van de API en Sens oren van het apparaat met behulp van de sensor-API. [Open-source-hulpprogram ma's](https://github.com/Azure-Samples/digital-twins-samples-csharp) zijn ook beschikbaar om de grafiek in bulk in te richten.
 
-**Graph-overname**. Overname is van toepassing op de machtigingen en de eigenschappen die het resultaat van een bovenliggend knooppunt alle knooppunten eronder. Wanneer een rol is toegewezen aan een gebruiker op een bepaald knooppunt, heeft de gebruiker van die rol machtigingen voor het knooppunt en elk knooppunt eronder. Elke sleutel en het uitgebreide type gedefinieerd voor een bepaald knooppunt wordt overgenomen door alle knooppunten onder dat knooppunt.
+De **grafiek overname**. Overname is van toepassing op de machtigingen en eigenschappen die aflopend van een bovenliggend knoop punt naar alle onderliggende knoop punten. Wanneer een rol bijvoorbeeld wordt toegewezen aan een gebruiker op een bepaald knoop punt, heeft de gebruiker die rol machtigingen voor het opgegeven knoop punt en elk knoop punt daaronder. Elke eigenschaps sleutel en een uitgebreid type die voor een bepaald knoop punt zijn gedefinieerd, worden overgenomen door alle knoop punten onder dat knoop punt.
 
-**Grafiek filteren**. Filteren wordt gebruikt voor het verfijnen van resultaten van de aanvraag. U kunt filteren op id, naam, typen, subtypen, bovenliggende ruimte en bijbehorende opslagruimten. U ook kunt filteren op de sensor-gegevenstypen, sleutels en waarden, *passeren*, *minLevel*, *maxLevel*, en andere parameters OData-filter.
+**Filteren van grafieken**. Filteren wordt gebruikt om de aanvraag resultaten te beperken. U kunt filteren op Id's, naam, typen, subtypen, bovenliggende ruimte en gekoppelde spaties. U kunt ook filteren op sensor gegevens typen, eigenschaps sleutels en waarden, *Bladeren*, *minLevel*, *maxLevel*en andere OData-filter parameters.
 
-**Grafiek doorlopen**. U kunt de ruimtelijke graph via de diepgang en uitgebreidheid passeren. Voor diepte, door u de graaf boven naar beneden of beneden gaan met behulp van de parameters *passeren*, *minLevel*, en *maxLevel*. Door de graaf om op te halen van knooppunten op hetzelfde niveau die rechtstreeks zijn gekoppeld aan een bovenliggende ruimte of een van de afgeleiden ervan voor breedte gaan. Wanneer u een object opvraagt, krijgt u alle gerelateerde objecten waarvoor relaties voor het object met behulp van de *bevat* parameter van de ophalen-API's.
+De **grafiek**wordt gepasseerd. U kunt de ruimtelijke grafiek passeren door de diepte en breedte. Voor diepte kunt u de grafiek in de bovenste of onderste naar beneden bladeren met behulp van de para meters *Traverse*, *minLevel*en *maxLevel*. Blader door de grafiek om alle knoop punten op hetzelfde niveau rechtstreeks aan een bovenliggende ruimte of een van de afgeleide elementen voor breedte op te halen. Wanneer u een query op een object uitvoert, kunt u alle verwante objecten ophalen die relaties met het object hebben met behulp van de para meter includes van de Get-api's.
 
-**Graph-schaalbaarheid**. Digitale dubbels garandeert graph schaalbaarheid, zodat uw echte workloads kunnen worden verwerkt. Digitale dubbels kunnen worden gebruikt voor grote portfolio van onroerend goed, infrastructuur, apparaten, sensoren, Telemetrie en meer.
+**Schaal baarheid van grafieken**. Met Digital Apparaatdubbels wordt de schaal baarheid van grafieken gegarandeerd, zodat deze uw reële werk belastingen kan verwerken. Digital Apparaatdubbels kan worden gebruikt om grote portefeuilles van onroerend goed, infra structuur, apparaten, Sens oren, telemetrie en meer weer te geven.
 
-**Graph-uitbreidbaarheid**. Uitbreidbaarheid gebruiken voor het aanpassen van de onderliggende digitale dubbels objectmodellen met nieuwe typen en anthologieën. De gegevens van uw digitale dubbels kunnen ook worden uitgebreid met extensible eigenschappen en waarden.
+**Grafiek uitbreid baarheid**. Gebruik uitbreid baarheid om de onderliggende Digital Apparaatdubbels-object modellen aan te passen met nieuwe typen en Ontologies. Uw digitale Apparaatdubbels gegevens kunnen ook worden verrijkt met uitbreid bare eigenschappen en waarden.
 
-### <a name="spatial-intelligence-graph-management-apis"></a>Ruimtelijke intelligence graph Management-API 's
+### <a name="spatial-intelligence-graph-management-apis"></a>Beheer-Api's van ruimtelijk Intelligence-grafiek
 
-Nadat u hebt geïmplementeerd digitale dubbels uit de [Azure-portal](https://portal.azure.com), wordt de [Swagger](https://swagger.io/tools/swagger-ui/) URL van de beheer-API's wordt automatisch gegenereerd. Deze wordt weergegeven in de Azure portal in de **overzicht** sectie met de volgende indeling.
+Nadat u Digital Apparaatdubbels hebt geïmplementeerd vanuit de [Azure Portal](https://portal.azure.com), wordt de [Swagger](https://swagger.io/tools/swagger-ui/) -URL van de beheer-api's automatisch gegenereerd. Deze wordt weer gegeven in de Azure Portal in de sectie **overzicht** met de volgende indeling.
 
 ```plaintext
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
@@ -87,25 +87,25 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 | YOUR_INSTANCE_NAME | De naam van uw Digital Twins-exemplaar |
 | YOUR_LOCATION | De serverregio waarin het exemplaar wordt gehost |
 
- De volledige URL-indeling wordt weergegeven in deze afbeelding.
+ De volledige URL-indeling wordt weer gegeven in deze afbeelding.
 
-![Digitale dubbels portal Management-API][2]
+![Digital Apparaatdubbels Portal Management API][2]
 
-Voor meer informatie over het gebruik van ruimtelijke intelligence grafieken, gaat u naar de Azure-API voor het beheer van digitale dubbels eerst te zien.
+Ga naar de preview-versie van Azure Digital Apparaatdubbels Management Api's alvast voor meer informatie over het gebruik van ruimtelijke Intelligence-grafieken.
 
 > [!TIP]
-> Een voorbeeld van Swagger eerst wordt geleverd ter illustratie van de API-functie instellen.
-> Deze wordt gehost op [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
+> Er wordt een Swagger alvast preview opgegeven om de API-functieset te demonstreren.
+> Het wordt gehost op [docs.westcentralus.azuresmartspaces.net/Management/Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
-Meer informatie over [over het gebruik van Swagger](how-to-use-swagger.md).
+Meer informatie over [het gebruik van Swagger](how-to-use-swagger.md).
 
-Alle API-aanroepen moeten worden geverifieerd met behulp van [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). Volgt u de API's [Microsoft REST API-richtlijnen conventies](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Ondersteuning voor de meeste van de API's die resulteren in verzamelingen [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) system-opties voor query's.
+Alle API-aanroepen moeten worden geverifieerd met behulp van [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). De Api's volgen de [richt lijnen conventies voor micro soft rest API](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). De meeste Api's die verzamelingen retour neren ondersteunen opties voor [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) -systeem query's.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Lees meer over de connectiviteit van apparaten en hoe u berichten over telemetrie verzendt naar digitale dubbels [Azure digitale dubbele apparaat connectiviteit en telemetrie inkomend](concepts-device-ingress.md).
+- Lees voor meer informatie over de connectiviteit van apparaten en het verzenden van telemetrie-berichten naar Digital Apparaatdubbels de [Azure Digital apparaatdubbels-verbinding en](concepts-device-ingress.md)inkomend telemetrie-apparaten.
 
-- Lees voor meer informatie over API Management-beperkingen en vertragingen, [Azure digitale dubbels API management en beperkingen](concepts-service-limits.md).
+- Lees [Azure Digital APPARAATDUBBELS API management en beperkingen](concepts-service-limits.md)voor meer informatie over beperkingen en beperkingen voor beheer-api's.
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png

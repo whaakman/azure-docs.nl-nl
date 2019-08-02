@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ee10f3d1b9db79eff199581a67c40196315b73f6
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: bebbb3d053db37a9716230dfbb14372696dd4936
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67872056"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570533"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Herstel na nood gevallen voor een SaaS-toepassing met meerdere tenants met behulp van geo-replicatie voor de data base
 
@@ -230,7 +229,7 @@ Wanneer het herstel proces is voltooid, zijn de toepassing en alle tenants volle
 
 1. Zodra de weer gave in het Power shell-console venster aangeeft dat alle tenants worden hersteld, moet u de Events hub vernieuwen.  De tenants worden allemaal online weer gegeven, met inbegrip van de nieuwe Tenant, Hawthorn Hall.
 
-    ![Herstelde en nieuwe tenants in de Events hub](media/saas-dbpertenant-dr-geo-replication/events-hub-with-hawthorn-hall.png)
+    ![herstelde en nieuwe tenants in de Events hub](media/saas-dbpertenant-dr-geo-replication/events-hub-with-hawthorn-hall.png)
 
 2. Open de lijst met resource groepen in het [Azure Portal](https://portal.azure.com).  
     * U ziet de resource groep die u hebt geïmplementeerd, plus de resource groep herstellen met het achtervoegsel _-Recovery_ .  De resource groep voor herstel bevat alle resources die zijn gemaakt tijdens het herstel proces, plus nieuwe resources die zijn gemaakt tijdens de onderbreking.  

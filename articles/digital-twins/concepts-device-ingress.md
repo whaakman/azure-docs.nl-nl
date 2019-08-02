@@ -1,45 +1,45 @@
 ---
-title: De connectiviteit en telemetriegegevens verzamelt apparaat met digitale dubbels Azure | Microsoft Docs
-description: Overzicht van hoe u een apparaat voorbereiden met Azure digitale dubbels mee te brengen
+title: Connectiviteit en telemetrie van apparaten met Azure Digital Apparaatdubbels | Microsoft Docs
+description: Overzicht van het gebruik van een apparaat onboarding met Azure Digital Apparaatdubbels
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 07/29/2019
 ms.author: alinast
-ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a3a5555bf163aedd9b41a9c9aa363a883deb4cb8
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60925866"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638520"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Apparaatconnectiviteit en inkomende telemetriegegevens
 
-De telemetriegegevens die zijn verzonden door apparaten en sensoren vormen de ruggengraat van een IoT-oplossing. Hoe u deze verschillende resources geven en deze beheren via de context van een locatie zijn chief opmerkingen kunnen in de ontwikkeling van IoT-Apps. Azure van digitale dubbels vereenvoudigt het proces van het ontwikkelen van IoT-oplossingen door samenvoeging van apparaten en sensoren met een ruimtelijke intelligence-grafiek.
+De telemetriegegevens die worden verzonden door apparaten en Sens oren vormen de backbone van een IoT-oplossing. Als u deze verschillende resources wilt weer geven en deze wilt beheren in de context van een locatie, zijn de belangrijkste problemen in de IoT-app-ontwikkeling. Azure Digital Apparaatdubbels vereenvoudigt het proces van het ontwikkelen van IoT-oplossingen door apparaten en Sens oren te voorzien van een ruimtelijke Intelligence-grafiek.
 
-Om te beginnen, maakt u een Azure IoT Hub-resource in de hoofdmap van de ruimtelijke grafiek. De resource van de IoT Hub kunt u alle apparaten onder de hoofdmap ruimte om berichten te verzenden. Nadat de IoT-Hub is gemaakt, kunt u apparaten registreren met sensoren binnen het digitale Twins-exemplaar. De apparaten gegevens kunnen verzenden naar een digitale Twins-service via de [Azure IoT device-SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
+Als u aan de slag wilt gaan, maakt u een Azure IoT Hub-resource aan de basis van de ruimtelijke grafiek. Met de IoT Hub resource kunnen alle apparaten onder de hoofd ruimte berichten verzenden. Nadat de IoT Hub is gemaakt, registreert u apparaten met Sens oren binnen het digitale Apparaatdubbels-exemplaar. De apparaten kunnen via de [Azure IOT Device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks)gegevens verzenden naar een Digital apparaatdubbels-service.
 
-Zie voor een stapsgewijze handleiding voor het toevoegen van apparaten onboarden, de [zelfstudie om te implementeren en configureren van digitale dubbels](tutorial-facilities-setup.md). In een oogopslag zijn de stappen:
+Raadpleeg de [zelf studie voor het implementeren en configureren van digitale apparaatdubbels](tutorial-facilities-setup.md)voor een stapsgewijze hand leiding voor het maken van apparaten op de onboarding. In één oogopslag zijn de stappen:
 
-- Implementeren van een digitale Twins-exemplaar van de [Azure-portal](https://portal.azure.com).
-- Opslagruimten maken in de grafiek.
-- De resource van een IoT-Hub maken en toewijzen aan een spatie in de grafiek.
-- Apparaten en sensoren in uw grafiek maken en deze toewijzen aan de spaties in de vorige stappen hebt gemaakt.
-- Maak een matcher om te filteren op basis van voorwaarden berichten over telemetrie.
-- Maak een [de gebruiker gedefinieerde functie](concepts-user-defined-functions.md), en deze toewijzen aan een spatie in de grafiek voor aangepaste verwerking van berichten over uw telemetrie.
-- Een rol waarmee de gebruiker gedefinieerde functie voor toegang tot de grafiekgegevens toewijzen.
-- De IoT Hub apparaat-verbindingsreeks ophalen uit de digitale dubbels Management API's.
-- Configureer de apparaatverbindingsreeks op het apparaat met de Azure IoT-device-SDK.
+- Implementeer een Digital Apparaatdubbels-exemplaar vanuit het [Azure Portal](https://portal.azure.com).
+- Maak ruimten in uw grafiek.
+- Maak een IoT Hub resource en wijs deze toe aan een ruimte in uw grafiek.
+- Maak apparaten en Sens oren in uw grafiek en wijs deze toe aan de ruimten die u in de vorige stappen hebt gemaakt.
+- Maak een Matcher om telemetrie-berichten te filteren op basis van voor waarden.
+- Maak een door de [gebruiker gedefinieerde functie](concepts-user-defined-functions.md)en wijs deze toe aan een ruimte in de grafiek voor aangepaste verwerking van uw telemetrie-berichten.
+- Wijs een rol toe om de door de gebruiker gedefinieerde functie toe te staan om toegang te krijgen tot de grafiek gegevens.
+- Haal de IoT Hub apparaat connection string van de Digital Apparaatdubbels Management-Api's.
+- Configureer het apparaat connection string op het apparaat met de Azure IoT Device SDK.
 
-In de volgende gedeelten leert u hoe u de IoT Hub-verbindingsreeks ophalen uit de API voor beheer van digitale dubbels. U leert ook hoe u de berichtindeling voor telemetrie van IoT Hub gebruiken om op basis van een sensor telemetrie te verzenden. Digitale dubbels is vereist voor elk onderdeel van de telemetrie die wordt ontvangen om te worden gekoppeld aan een sensor binnen de ruimtelijke grafiek. Deze vereiste zorgt ervoor de gegevens worden verwerkt en gerouteerd binnen het juiste ruimtelijke context.
+In de volgende secties vindt u informatie over het ophalen van de IoT Hub apparaat connection string van de Digital Apparaatdubbels Management API. U leert ook hoe u de IoT Hub indeling voor telemetrie-berichten kunt gebruiken voor het verzenden van telemetrie op basis van Sens oren. Digital Apparaatdubbels vereist elk stukje telemetrie dat het wordt gekoppeld aan een sensor binnen de ruimtelijke grafiek. Deze vereiste zorgt ervoor dat de gegevens worden verwerkt en gerouteerd binnen de juiste ruimtelijke context.
 
-## <a name="get-the-iot-hub-device-connection-string-from-the-management-api"></a>De IoT Hub-verbindingsreeks ophalen uit de beheer-API
+## <a name="get-the-iot-hub-device-connection-string-from-the-management-api"></a>De IoT Hub apparaat-connection string ophalen uit de beheer-API
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-Voer een GET-aanroep van de apparaat-API met een `includes=ConnectionString` parameter om op te halen van de verbindingsreeks van de IoT Hub-apparaat. Filteren op het apparaat GUID of de hardware-ID om te bepalen van het opgegeven apparaat.
+Haal een Get-aanroep op de apparaat-API `includes=ConnectionString` met een para meter om de IOT hub apparaat Connection String op te halen. Filter op de GUID van het apparaat of de hardware-ID om het opgegeven apparaat te zoeken.
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
@@ -50,34 +50,34 @@ YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 | *YOUR_DEVICE_GUID* | De apparaat-ID |
 
 ```plaintext
-YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
+YOUR_MANAGEMENT_API_URL/devices?HardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
 ```
 
 | Parameterwaarde | Vervangen door |
 | --- | --- |
 | *YOUR_DEVICE_HARDWARE_ID* | De hardware-ID van het apparaat |
 
-Kopieer in de nettolading van de reactie van het apparaat **connectionString** eigenschap. U dit gebruiken wanneer u de Azure IoT-device-SDK om gegevens te verzenden naar digitale dubbels aanroepen.
+In de nettolading van de reactie kopieert u de eigenschap **Connections Tring** van het apparaat. U gebruikt deze wanneer u de Azure IoT Device SDK aanroept om gegevens naar Digital Apparaatdubbels te verzenden.
 
-## <a name="device-to-cloud-message"></a>Apparaat-naar-cloud bericht
+## <a name="device-to-cloud-message"></a>Apparaat-naar-Cloud-bericht
 
-U kunt aanpassen van uw apparaat berichtindeling en -nettolading aanpassen aan de behoeften van uw oplossing. Gebruik een gegevensovereenkomst die kan worden geserialiseerd in een bytematrix of een stroom die wordt ondersteund door de [bericht (byteArray byte []) van Azure IoT Device Client Message klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). Het bericht is een aangepaste binaire indeling van uw keuze, zolang u de opdracht gegevens in een bijbehorende door de gebruiker gedefinieerde functie decoderen. Er is slechts één vereiste voor een apparaat-naar-cloud-bericht. U moet een set eigenschappen om te controleren of dat uw bericht op de juiste wijze wordt doorgestuurd naar de engine voor gebeurtenisverwerking behouden.
+U kunt de bericht indeling en payload van uw apparaat aanpassen aan de behoeften van uw oplossing. Gebruik een wille keurig gegevens contract dat kan worden geserialiseerd in een byte matrix of-stroom die wordt ondersteund door de [Azure IOT Device client bericht klasse, Message (byte [] byte array)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). Het bericht kan een aangepaste binaire indeling van uw keuze zijn, zolang u het gegevens contract in een bijbehorende door de gebruiker gedefinieerde functie hebt gedecodeerd. Er is slechts één vereiste voor een apparaat-naar-Cloud-bericht. Een set eigenschappen onderhouden om ervoor te zorgen dat uw bericht correct wordt gerouteerd naar de verwerkings engine.
 
 ### <a name="telemetry-properties"></a>Telemetrie-eigenschappen
 
- De nettolading van de inhoud van een **bericht** willekeurige gegevens mag maximaal 256 KB groot. Er zijn enkele vereisten verwacht voor eigenschappen van de [ `Message.Properties` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) type. De tabel bevat de vereiste en optionele eigenschappen die worden ondersteund door het systeem.
+ De inhoud van de nettolading van een **bericht** kan wille keurige gegevens tot 256 KB groot zijn. Er zijn enkele vereisten voor eigenschappen van het [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) type verwacht. De tabel bevat de vereiste en optionele eigenschappen die door het systeem worden ondersteund.
 
 | Naam van eigenschap | Value | Vereist | Description |
 |---|---|---|---|
-| **DigitalTwins-Telemetry** | 1.0 | Ja | Een constante waarde die een bericht op het systeem wordt geïdentificeerd. |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | Ja | Een unieke id van de sensor die verzendt de **bericht**. Deze waarde moet overeenkomen met een object **HardwareId** eigenschap voor het systeem te verwerken. Bijvoorbeeld `00FF0643BE88-CO2`. |
-| **CreationTimeUtc** | `string` | Nee | Een [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) opgemaakt datumtekenreeks waarmee de steekproeven tijd van de nettolading. Bijvoorbeeld `2018-09-20T07:35:00.8587882-07:00`. |
-| **CorrelationId** | `string` | Nee | Een UUID die is gebruikt om te traceringsgebeurtenissen in het systeem. Bijvoorbeeld `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
+| **DigitalTwins-Telemetry** | 1.0 | Ja | Een constante waarde die een bericht identificeert aan het systeem. |
+| **DigitalTwins-SensorHardwareId** | `string(72)` | Ja | Een unieke id van de sensor die het **bericht**verzendt. Deze waarde moet overeenkomen met de eigenschap **HardwareId** van een object voor het systeem om het te verwerken. Bijvoorbeeld `00FF0643BE88-CO2`. |
+| **CreationTimeUtc** | `string` | Nee | Een datum reeks in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) -notatie waarmee de steekproef tijd van de nettolading wordt geïdentificeerd. Bijvoorbeeld `2018-09-20T07:35:00.8587882-07:00`. |
+| **CorrelationId** | `string` | Nee | Een UUID die wordt gebruikt voor het traceren van gebeurtenissen in het systeem. Bijvoorbeeld `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
 
-### <a name="send-your-message-to-digital-twins"></a>Uw bericht verzenden naar digitale dubbels
+### <a name="send-your-message-to-digital-twins"></a>Uw bericht verzenden naar Digital Apparaatdubbels
 
-Gebruik de DeviceClient [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.sendeventasync?view=azure-dotnet) of [SendEventBatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.sendeventbatchasync?view=azure-dotnet) aanroep van uw bericht te verzenden naar digitale dubbels.
+Gebruik de aanroep DeviceClient [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.sendeventasync?view=azure-dotnet) of [SendEventBatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.sendeventbatchasync?view=azure-dotnet) om uw bericht naar Digital apparaatdubbels te verzenden.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Lees voor meer informatie over Azure digitale dubbels gegevensverwerking en mogelijkheden van de gebruiker gedefinieerde functies, [Azure digitale dubbele gegevens verwerken en de gebruiker gedefinieerde functies](concepts-user-defined-functions.md).
+- Lees [Azure Digital apparaatdubbels data processing en door de gebruiker gedefinieerde functies](concepts-user-defined-functions.md)voor meer informatie over de mogelijkheden van Azure Digital apparaatdubbels data processing en door de gebruiker gedefinieerde functies.

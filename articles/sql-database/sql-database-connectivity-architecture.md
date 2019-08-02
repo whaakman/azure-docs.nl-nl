@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-manager: craigg
 ms.date: 07/02/2019
-ms.openlocfilehash: 9dfc22be45b68ba4ff59d88810435db35bafc8b6
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 0e9bdb22baed74ef948f369f9259784900486860
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494972"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569091"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architectuur van Azure SQL-connectiviteit
 
@@ -55,7 +54,7 @@ Als u verbinding maakt vanuit buiten Azure, hebben uw verbindingen standaard een
 
 ![architectuur overzicht](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
-## <a name="azure-sql-database-gateway-ip-addresses"></a>IP-adressen van Azure SQL Database gateway
+## <a name="azure-sql-database-gateway-ip-addresses"></a>IP-adressen van Azure SQL Database-gateway
 
 In de volgende tabel worden de IP-adressen van gateways per regio weer gegeven. Als u verbinding wilt maken met een Azure SQL Database, moet u netwerk verkeer toestaan & van **alle** gateways voor de regio.
 

@@ -6,16 +6,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 07/30/2019
 ms.author: menchi
-ms.openlocfilehash: 428f13c1c70171404da4cbb6f731d95056813914
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 2c388ff86e782c916916bfb08c7a55ec5c845b13
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402361"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667919"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Aan de slag met de identiteit en module van de IoT Hub module, met behulp van python back-end en python-apparaat
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Aan de slag met IoT Hub module identiteit en module dubbele (python)
+
+[!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
 > [Module-id's en moduledubbels](iot-hub-devguide-module-twins.md) zijn vergelijkbaar met Azure IoT Hub-apparaat-id's en apparaatdubbels, maar bieden een hogere granulariteit. Met een Azure IoT Hub-apparaat-id en apparaatdubbel kan een apparaat worden geconfigureerd via de back-endtoepassing en kunt u inzicht krijgen in de toestand van een apparaat. Een module-id en moduledubbel bieden deze mogelijkheden voor afzonderlijke onderdelen van een apparaat. Op apparaten met meerdere onderdelen, zoals apparaten met een besturingssysteem of firmware, kunt u afzonderlijke configuraties en voorwaarden voor elk onderdeel instellen.
@@ -27,15 +29,11 @@ Aan het einde van deze zelf studie hebt u twee python-apps:
 
 * **UpdateModuleTwinReportedProperties**: deze toepassing verzendt bijgewerkte gerapporteerde eigenschappen van de moduledubbel naar uw IoT Hub.
 
-> [!NOTE]
-> Voor informatie over de Azure IoT-Sdk's die u kunt gebruiken om beide toepassingen te bouwen die op apparaten kunnen worden uitgevoerd en de back-end van uw oplossing, raadpleegt u [Azure IOT sdk's](iot-hub-devguide-sdks.md).
->
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
+Hier volgen de installatie-instructies voor de vereisten.
 
-* Een actief Azure-account. (Als u geen account hebt, kunt u in slechts een paar minuten een [gratis account](https://azure.microsoft.com/pricing/free-trial/) maken.)
-
-* Installeer de meest recente [python-SDK](https://github.com/Azure/azure-iot-sdk-python).
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 

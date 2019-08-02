@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2019
+ms.date: 07/31/2019
 ms.author: cherylmc
-ms.openlocfilehash: 331a554332db8c05d4ece1a1df5d6557d6e86906
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: b31a7c1cbd0f4f6cadc4ac139777d2cc3c451bcb
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310367"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706464"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
 
@@ -28,22 +28,28 @@ ms.locfileid: "68310367"
 > * [Providers per locatie](expressroute-locations-providers.md)
 
 
-In de tabellen in dit artikel vindt u informatie over ExpressRoute-connectiviteitsproviders, geografische dekking van ExpressRoute, Microsoft Cloud-services die via ExpressRoute worden ondersteund en Expressroute SI's (System Integrator).
+De tabellen in dit artikel bevatten informatie over ExpressRoute geografische dekking en locaties, ExpressRoute-connectiviteits providers en ExpressRoute-systeem integrators (SIs).
 
-## <a name="partners"></a>ExpressRoute-connectiviteitsproviders
-ExpressRoute wordt ondersteund in alle Azure-regio's en -locaties. De volgende kaart bevat een lijst van Azure-regio's en ExpressRoute-locaties. ExpressRoute-locaties zijn locaties waarop Microsoft samenwerkt met verschillende serviceproviders.
+> [!Note]
+> Azure-regio's en ExpressRoute-locaties zijn twee verschillende concepten, en het verschil tussen de twee is van cruciaal belang voor het verkennen van een Azure Hybrid Networking-verbinding. 
+>
+>
 
-![Locatiekaart][0]
+## <a name="azure-regions"></a>Azure-regio's
+Azure-regio's zijn wereld wijde data centers waar Azure compute-, netwerk-en opslag bronnen zich bevinden. Bij het maken van een Azure-resource moet een klant een resource locatie selecteren. De resource locatie bepaalt in welk Azure-Data Center (of beschikbaarheids zone) de resource wordt gemaakt.
+
+## <a name="expressroute-locations"></a>ExpressRoute locaties
+ExpressRoute-locaties (soms ook wel peering-locaties of Vergader locaties genoemd) zijn co-locatie faciliteiten waar micro soft Enter prise Edge (MSEE)-apparaten zich bevinden. ExpressRoute locaties zijn het ingangs punt naar het netwerk van micro soft, en zijn wereld wijd gedistribueerd, waardoor klanten de mogelijkheid hebben om verbinding te maken met het netwerk van micro soft over de hele wereld. Deze locaties zijn waar ExpressRoute partners en ExpressRoute direct-klanten cross-connections naar het netwerk van micro soft verlenen. Over het algemeen hoeft de ExpressRoute-locatie niet overeen te komen met de Azure-regio. Een klant kan bijvoorbeeld een ExpressRoute-circuit maken met de resource locatie *VS-Oost*, op de vestiging *Seattle* peering.
 
 U hebt toegang tot Azure-services in alle regio's binnen een geopolitieke regio als u bent verbonden met ten minste één ExpressRoute-locatie in die geopolitieke regio. 
 
-### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Azure-regio's naar ExpressRoute-locaties binnen een geopolitieke regio
+## <a name="locations"></a>Azure-regio's naar ExpressRoute-locaties binnen een geopolitieke regio
 In de volgende tabel vindt u een toewijzing van Azure-regio's aan ExpressRoute-locaties binnen een geopolitieke regio.
 
 | **Geopolitieke regio** | **Zone** | **Azure-regio's** | **ExpressRoute-locaties** |
 | --- | --- | --- | --- |
 | **Australië - overheid** | 1 | Australië Centraal, Australië Centraal 2 |Canberra, Canberra2 |
-| **Europa** | 1 |Frankrijk - centraal, Frankrijk - zuid, Europa - noord, Europa - west, VK - west, VK - zuid |Amsterdam, Amsterdam2, Dublin, Frankfurt, Londen, London2, Marseille, Newport (Wales), Parijs, Zürich |
+| **Europa** | 1 |Frankrijk - centraal, Frankrijk - zuid, Europa - noord, Europa - west, VK - west, VK - zuid |Amsterdam, Amsterdam2, kopen Hagen, Dublin, Frankfurt, Londen, London2, Marseille, Newport (Wales), Parijs, Stockholm, Zürich |
 | **Noord-Amerika** | 1 |US - oost, US - west, US - oost 2, US - west 2, US - centraal, US - zuid-centraal, US - noord-centraal, US - west-centraal, Canada Centraal, Canada Oost |Atlanta, Chicago, Amsterdam, Denver, Las Miami, Los Angeles,, New York, San Antonio, Seattle, Silicon dal, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec, Amsterdam |
 | **Azië** | 2 |Azië - oost, Azië - zuidoost |Hong Kong SAR, Kuala Lumpur, Singapore, Singapore2, Taipei |
 | **India** | 2 |India - west, India - centraal, India - zuid |Chennai, Chennai2, Mumbai, Mumbai2 |
@@ -54,7 +60,7 @@ In de volgende tabel vindt u een toewijzing van Azure-regio's aan ExpressRoute-l
 | **Zuid-Afrika** | 3 |Zuid-Afrika-west, Zuid-Afrika-noord |Kaapstad, Johannesburg |
 | **Zuid-Amerika** | 3 |Brazilië - zuid |Sao Paulo |
 
-### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regio's en geopolitieke grenzen voor nationale clouds
+## <a name="azure-regions-and-geopolitical-boundaries-for-national-clouds"></a>Azure-regio's en geopolitieke grenzen voor nationale Clouds
 De volgende tabel bevat informatie over regio's en geopolitieke grenzen voor nationale clouds.
 
 | **Geopolitieke regio** | **Azure-regio's** | **ExpressRoute-locaties** |
@@ -66,9 +72,9 @@ De volgende tabel bevat informatie over regio's en geopolitieke grenzen voor nat
 
 Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de standaard ExpressRoute-SKU. U moet de invoegtoepassing ExpressRoute Premium inschakelen voor ondersteuning van globale connectiviteit. Connectiviteit met nationale cloudomgevingen wordt niet ondersteund. U kunt met uw connectiviteitsprovider samenwerken als de noodzaak daartoe zich voordoet.
 
-## <a name="locations"></a>Locaties van connectiviteitsproviders
+## <a name="partners"></a>ExpressRoute-connectiviteitsproviders
 
-De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor elke locatie weer. Als u serviceproviders en de locaties waarvoor zij deze service kunnen bieden, wilt bekijken, raadpleegt u [Locaties per serviceprovider](expressroute-locations.md#locations). 
+De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor elke locatie weer. Als u serviceproviders en de locaties waarvoor zij deze service kunnen bieden, wilt bekijken, raadpleegt u [Locaties per serviceprovider](expressroute-locations.md). 
 
 **Lokale Azure-regio's** zijn degene die [ExpressRoute lokaal](expressroute-faqs.md) op elke peering-locatie hebben. **n.v.t.** geeft aan dat ExpressRoute lokaal niet beschikbaar is op die peering-locatie.
 
@@ -79,22 +85,23 @@ De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor e
 | **Amsterdam** | Equinix | Europa -west | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
 | **Amsterdam2** | Interxion | Europa -west | CenturyLink Cloud Connect, DE-CIX, Interxion, Vodafone |
 | **Atlanta** | Equinix | N.v.t. | Equinix, Megaport |
-| **Auckland** | Vocus groep NZ | N.v.t. | Devoli, Kordia, Mega Port, Vocus Group NZ |
+| **Auckland** | Vocus groep NZ | N.v.t. | Devoli, Kordia, Mega Port, Spark NZ, Vocus groep NZ |
 | **Busan** |LG CNS | Korea - zuid | LG CNS |
 | **Canberra** | CDC | Australië - centraal | CDC |
 | **Canberra2** | CDC | Australië - centraal 2| CDC |
-| **Kaapstad** | Teraco | Zuid-Afrika (west) | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
+| **Kaapstad** | Teraco | Zuid-Afrika - west | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Chennai** | Tata Communications | India - zuid | Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chennai2** | Airtel | India - zuid | Airtel |
 | **Chicago** | Equinix | US - noord-centraal | Aryaka Networks, AT & T netbond, CenturyLink Cloud Connect, Cologix, Comcast, CoreSite, Equinix, intercloud, Internet2, Level 3 Communications, Mega Port, PacketFabric, PCCW Global Limited, Sprint, Telia Carrier, Verizon, Zayo |
+| **Kopen** | Interxion | N.v.t. | Interxion |
 | **Dallas** | Equinix | N.v.t. | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
 | **Denver** | CoreSite | US - west-centraal | CoreSite, Megaport, Zayo |
-| **Dubai** | Etisalat VAE | VAE - noord | Etisalat VAE |
-| **Dubai2** | du datamena | VAE - noord | du datamena, Orixcom |
+| **Dubai** | Etisalat VAE | UAE - noord | Etisalat VAE |
+| **Dubai2** | du datamena | UAE - noord | du datamena, Orixcom |
 | **Dublin** | Equinix | Europa - noord | Colt, eir, Equinix, Interxion, Megaport |
 | **Frankfurt** | Interxion | N.v.t. | DE-CIX, Interxion |
 | **Hong Kong SAR** | Equinix | Azië - oost | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, Equinix, Mega Port, NTT Communications, oranje, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon |
-| **Johannesburg** | Teraco | Zuid-Afrika (noord) | British Telecom, Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
+| **Johannesburg** | Teraco | Zuid-Afrika - noord | British Telecom, Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Kuala Lumpur** | TIME dotCom | N.v.t. | TIME dotCom |
 | **Las Vegas** | Switch | N.v.t. | CenturyLink Cloud Connect, Megaport |
 | **Londen** | Equinix | Verenigd Koninkrijk Zuid | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
@@ -116,10 +123,11 @@ De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor e
 | **Sao Paulo** | Equinix | Brazilië - zuid | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
 | **Seattle** | Equinix | US - west 2 | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Telus, Zayo |
 | **Seoul** | KINX | Korea - centraal | KINX, LG CNS, Sejong Telecom |
-| **Silicon Valley** | Equinix | US - west | Aryaka Networks, AT & T netbond, British Telecom, CenturyLink Cloud Connect, Comcast, CoreSite, Equinix, intercloud, IX REACH, pakket, PacketFabric, Level 3 Communications, Mega Port, oranje, Sprint, Tata Communications, Verizon, Zayo |
+| **Silicon Valley** | Equinix | US - west | Aryaka Networks, AT & T netbond, British Telecom, CenturyLink Cloud Connect, Comcast, CoreSite, Equinix, intercloud, IX REACH, pakket, PacketFabric, Level 3 Communications, Mega Port, oranje, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
 | **Silicon Valley2** | Coresite | US - west | Coresite | 
 | **Singapore** | Equinix | Azië - zuidoost | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
 | **Singapore2** | Global Switch | Azië - zuidoost | Colt, Epsilon Global Communications, Megaport, SingTel |
+| **Akte** | Equinix | N.v.t. | Telia-Carrier |
 | **Sydney** | Equinix | Australië - oost | AARNet, op & T netbond, British Telecom, Devoli, Equinix, Kordia, Mega Port, NEXTDC, NTT Communications, Optus, oranje, Spark NZ, Telstra Corporation, TPG Telecom, Verizon, Vocus groep NZ |
 | **Taipei** | Chief Telecom | N.v.t. | Chief telecom municatie, FarEasTone |
 | **Tokio** | Equinix | Japan - oost | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |

@@ -9,14 +9,14 @@ services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
-ms.openlocfilehash: b1aa8f2ce7d271187657d57993032069639ca9c7
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: d3e4e0f4e7b1f8d3e100b3f1b3446907cfd587c5
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404099"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716938"
 ---
-# <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Cloud-naar-apparaat-berichten verzenden met IoT Hub (knoop punt)
+# <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Cloud-naar-apparaat-berichten verzenden met IoT Hub (node. js)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
@@ -41,7 +41,7 @@ Aan het einde van deze zelf studie voert u twee node. js-console-apps uit:
 * **SendCloudToDeviceMessage**, waarmee een Cloud-naar-apparaat-bericht naar de gesimuleerde apparaat-app wordt verzonden via IOT hub, waarna de ontvangst bevestiging wordt ontvangen.
 
 > [!NOTE]
-> IoT Hub heeft SDK-ondersteuning voor veel platformen en talen (waaronder C, Java en Java script) via Azure IoT-apparaat-Sdk's. Zie het [Azure IOT-ontwikkelaars centrum](https://azure.microsoft.com/develop/iot)voor stapsgewijze instructies voor het verbinden van uw apparaat met de code van deze zelf studie en over het algemeen tot Azure IOT hub.
+> IoT Hub heeft SDK-ondersteuning voor veel platformen en talen (waaronder C, Java, python en Java script) via Azure IoT-apparaat-Sdk's. Zie het [Azure IOT-ontwikkelaars centrum](https://azure.microsoft.com/develop/iot)voor stapsgewijze instructies voor het verbinden van uw apparaat met de code van deze zelf studie en over het algemeen tot Azure IOT hub.
 >
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
@@ -53,33 +53,26 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 In deze sectie wijzigt u de gesimuleerde apparaat-app die u hebt gemaakt in telemetrie [van een apparaat naar een IOT-hub verzenden](quickstart-send-telemetry-node.md) om Cloud-naar-apparaat-berichten van de IOT-hub te ontvangen.
 
-1. Open het bestand SimulatedDevice. js met behulp van een tekst editor.
+1. Open het bestand **SimulatedDevice. js** met behulp van een tekst editor. Dit bestand bevindt zich in de map **IOT-hub\Quickstarts\simulated-Device** van de hoofdmap van de node. js-voorbeeld code die u hebt gedownload in de Quick- [verzen ding van een apparaat naar een IOT hub](quickstart-send-telemetry-node.md) -Snelstartgids.
 
-2. Wijzig de functie **connectCallback** voor het afhandelen van berichten die vanuit IOT hub worden verzonden. In dit voor beeld roept het apparaat altijd de **volledige** functie aan om IOT hub te melden dat het bericht is verwerkt. De nieuwe versie van de functie **connectCallback** ziet eruit als in het volgende code fragment:
+2. Registreer een handler met de apparaatclient om berichten te ontvangen die vanaf IoT Hub zijn verzonden. Voeg de aanroep toe `client.on` aan net na de regel die de apparaatclient maakt, zoals in het volgende code fragment:
 
     ```javascript
-    var connectCallback = function (err) {
-      if (err) {
-        console.log('Could not connect: ' + err);
-      } else {
-        console.log('Client connected');
-        client.on('message', function (msg) {
-          console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
-          client.complete(msg, printResultFor('completed'));
-        });
-        // Create a message and send it to the IoT Hub every second
-        setInterval(function(){
-            var temperature = 20 + (Math.random() * 15);
-            var humidity = 60 + (Math.random() * 20);
-            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
-            var message = new Message(data);
-            message.properties.add('temperatureAlert', (temperature > 30) ? 'true' : 'false');
-            console.log("Sending message: " + message.getData());
-            client.sendEvent(message, printResultFor('send'));
-        }, 1000);
-      }
-    };
+    var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
+
+    client.on('message', function (msg) {
+      console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
+      client.complete(msg, function (err) {
+        if (err) {
+          console.error('complete error: ' + err.toString());
+        } else {
+          console.log('complete sent');
+        }
+      });
+    });
     ```
+
+    In dit voor beeld roept het apparaat de **volledige** functie aan om IOT hub te melden dat het bericht is verwerkt. De aanroep voor **volt ooien** is niet vereist als u MQTT Trans Port gebruikt en kan worden wegge laten. Dit is vereist voor HTTPS en AMQP.
   
    > [!NOTE]
    > Als u HTTPS gebruikt in plaats van MQTT of AMQP als Trans Port, controleert het **DeviceClient** -exemplaar voor berichten van IOT hub niet regel matig (minder dan elke 25 minuten). Raadpleeg de [IOT hub ontwikkelaars handleiding](iot-hub-devguide-messaging.md)voor meer informatie over de verschillen tussen MQTT, AMQP en HTTPS-ondersteuning en IOT hub beperking.
@@ -173,7 +166,7 @@ In deze sectie maakt u een node. JS-Console-app die Cloud-naar-apparaat-berichte
 
 U kunt nu de toepassingen gaan uitvoeren.
 
-1. Voer bij de opdracht prompt in de map **simulateddevice** de volgende opdracht uit om telemetrie te verzenden naar IOT hub en om te Luis teren naar Cloud-naar-apparaat-berichten:
+1. Voer bij de opdracht prompt in de map gesimuleerde **apparaten** de volgende opdracht uit om telemetrie te verzenden naar IOT hub en om te Luis teren naar Cloud-naar-apparaat-berichten:
 
     ```shell
     node SimulatedDevice.js

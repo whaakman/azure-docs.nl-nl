@@ -1,60 +1,64 @@
 ---
-title: Maken en beheren van Azure Database voor MySQL-VNet-service-eindpunten en regels met behulp van de Azure portal | Microsoft Docs
-description: Maken en beheren van Azure Database voor MySQL-VNet-service-eindpunten en regels met behulp van de Azure portal
+title: Azure Database for MySQL VNet-service-eind punten en-regels maken en beheren met behulp van de Azure Portal | Microsoft Docs
+description: Azure Database for MySQL VNet-service-eind punten en-regels maken en beheren met behulp van de Azure Portal
 author: bolzmj
 ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: b932ad3148bb1f5ddd229c2674f8a20bbfe1afa8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e5f70a806160355f02ecb649343857c28b9484f
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61458530"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610028"
 ---
-# <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Maken en beheren van Azure Database voor MySQL-VNet-service-eindpunten en VNet-regels met behulp van Azure portal
-Virtueel netwerk (VNet) services-eindpunten en regels uitbreiden privé-adresruimte van een Virtueelnetwerk met uw Azure Database voor MySQL-server. Zie voor een overzicht van Azure Database voor MySQL-VNet-service-eindpunten, met inbegrip van beperkingen, [Azure Database for MySQL-Server VNet-service-eindpunten](concepts-data-access-and-security-vnet.md). VNet-service-eindpunten zijn beschikbaar in alle ondersteunde regio's voor Azure Database for MySQL.
+# <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Azure Database for MySQL VNet-service-eind punten en VNet-regels maken en beheren met behulp van de Azure Portal
+Service-eindpunten en -regels voor virtuele netwerken (VNets) breiden de privé-adresruimte van een virtueel netwerk uit naar uw Azure Database for MySQL-server. Zie [Azure database for mysql server VNet-service-eind punten](concepts-data-access-and-security-vnet.md)voor een overzicht van Azure database for MySQL VNet-service-eind punten, met inbegrip van beperkingen. VNet-service-eind punten zijn beschikbaar in alle ondersteunde regio's voor Azure Database for MySQL.
 
 > [!NOTE]
 > Ondersteuning voor VNet-service-eindpunten is alleen voor algemeen gebruik en geoptimaliseerd voor geheugen-servers.
-> In het geval van VNet-peering wordt als verkeer via een gemeenschappelijke VNet-Gateway met service-eindpunten stroomt en moet worden overgebracht naar de peer, maak een ACL/VNet-regel voor het toestaan van Azure Virtual Machines in het VNet-Gateway voor toegang tot de Azure Database for MySQL-server.
+> In het geval van VNet-peering, als verkeer via een gemeen schappelijke VNet-gateway met Service-eind punten stroomt en naar de peer moet stromen, moet u een ACL/VNet-regel maken om Azure Virtual Machines in de gateway-VNet toegang te geven tot de Azure Database for MySQL-server.
 
-## <a name="create-a-vnet-rule-and-enable-service-endpoints-in-the-azure-portal"></a>Een VNet-regel maken en inschakelen van service-eindpunten in Azure portal
 
-1. Op de pagina van de MySQL-server onder de instellingen voor kop, klikt u op **verbindingsbeveiliging** de beveiliging van de verbinding om deelvenster te openen voor Azure Database voor MySQL. 
+## <a name="create-a-vnet-rule-and-enable-service-endpoints-in-the-azure-portal"></a>Een VNet-regel maken en service-eind punten inschakelen in de Azure Portal
 
-2. Zorg ervoor dat de toegang tot beheer van Azure-services toestaan is ingesteld op **OFF**.
+1. Klik op de pagina MySQL-server, onder de kop instellingen, op **verbindings beveiliging** om het deel venster verbindings beveiliging te openen voor Azure database for MySQL. 
+
+2. Zorg ervoor dat het besturings element toegang tot Azure-Services toestaan is ingesteld op **uit**.
 
 > [!Important]
-> Als u het besturingselement instellen op ON laat, accepteert uw Azure MySQL-Database-server-communicatie van elk subnet. Het besturingselement instellen op ON verlaten mogelijk overmatige toegang vanuit het oogpunt van een security. De functie Microsoft Azure Virtual Network-service-eindpunt, in combinatie met de functie van de regel virtueel netwerk van Azure Database voor MySQL, kunt samen het gebied van beveiliging beperken.
+> Als u het besturings element instelt op aan, accepteert uw Azure MySQL-database server communicatie vanuit elk subnet. Het is mogelijk dat het besturings element dat is ingesteld op aan, overmatig toegankelijk is vanuit het beveiligings oogpunt van de weer gave. Met de functie Microsoft Azure Virtual Network Service-eind punt, in combi natie met de regel functie voor virtuele netwerken van Azure Database for MySQL, kan uw beveiligings surface area worden verminderd.
 
-3. Klik op **+ bestaand virtueel netwerk toevoegen**. Als u een bestaand VNet niet hebt, kunt u **+ nieuw virtueel netwerk maken** een te maken. Zie [Quickstart: Een virtueel netwerk met behulp van de Azure portal maken](../virtual-network/quick-create-portal.md)
+3. Klik vervolgens op **+ bestaand virtueel netwerk toevoegen**. Als u geen bestaand VNet hebt, kunt u op **+ nieuw virtueel netwerk maken** klikken om er een te maken. Zie [Quickstart: Een virtueel netwerk maken met behulp van de Azure Portal](../virtual-network/quick-create-portal.md)
 
-   ![Azure-portal: klik op de beveiliging van de verbinding](./media/howto-manage-vnet-using-portal/1-connection-security.png)
+   ![Azure Portal-Klik op verbindings beveiliging](./media/howto-manage-vnet-using-portal/1-connection-security.png)
 
-4. Voer de naam van een VNet-regel, selecteer het abonnement, virtueel netwerk en subnetnaam en klik vervolgens op **inschakelen**. Hierdoor automatisch VNet-service-eindpunten op het subnet met behulp van de **Microsoft.SQL** servicetag.
+4. Voer een naam in voor de VNet-regel, selecteer de naam van het abonnement, het virtuele netwerk en het subnet en klik vervolgens op **inschakelen**. Hiermee worden de VNet-service-eind punten in het subnet automatisch ingeschakeld met behulp van het label **micro soft. SQL** -service.
 
-   ![Azure portal - VNet configureren](./media/howto-manage-vnet-using-portal/2-configure-vnet.png)
+   ![Azure Portal-VNet configureren](./media/howto-manage-vnet-using-portal/2-configure-vnet.png)
 
-   Het account moet de vereiste machtigingen om het maken van een virtueel netwerk en de service-eindpunt hebben.
+   Het account moet de benodigde machtigingen hebben voor het maken van een virtueel netwerk en een service-eind punt.
 
-   Service-eindpunten kunnen afzonderlijk worden geconfigureerd op de virtuele netwerken, door een gebruiker met schrijftoegang tot het virtuele netwerk.
+   Service-eind punten kunnen afzonderlijk op virtuele netwerken worden geconfigureerd door een gebruiker met schrijf toegang tot het virtuele netwerk.
     
-   Voor het Azure-serviceresources aan een VNet, moet de gebruiker machtiging voor 'Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/' voor de subnetten die worden toegevoegd. Deze machtiging is standaard opgenomen in de ingebouwde service-beheerdersrollen en kan worden gewijzigd door aangepaste rollen te maken.
+   Als u Azure-service resources wilt beveiligen met een VNet, moet de gebruiker over de machtiging ' micro soft. Network/virtualNetworks/subnets/joinViaServiceEndpoint/' beschikken voor de subnetten die worden toegevoegd. Deze machtiging is standaard opgenomen in de ingebouwde service-beheerdersrollen en kan worden gewijzigd door aangepaste rollen te maken.
     
    Meer informatie over [ingebouwde rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) en het toewijzen van specifieke machtigingen voor [aangepaste rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
     
-   VNets en Azure-serviceresources kunnen in hetzelfde abonnement of in verschillende abonnementen zitten. Als het VNet en Azure-serviceresources in verschillende abonnementen zitten, moeten de resources onder dezelfde Active Directory (AD)-tenant.
+   VNets en Azure-serviceresources kunnen in hetzelfde abonnement of in verschillende abonnementen zitten. Als de VNet-en Azure-service resources zich in verschillende abonnementen bevinden, moeten de resources onder dezelfde Active Directory (AD)-Tenant vallen. Zorg ervoor dat de **micro soft. SQL** -resource provider is geregistreerd voor beide abonnementen. Raadpleeg [Resource-Manager-registratie][resource-manager-portal] voor meer informatie
 
    > [!IMPORTANT]
-   > Het is raadzaam om te lezen in dit artikel over de service-eindpunt configuraties en overwegingen voor het configureren van service-eindpunten. **Virtual Network service-eindpunt:** Een [service-eindpunt voor Virtueelnetwerk](../virtual-network/virtual-network-service-endpoints-overview.md) is een subnet met eigenschappen die een of meer formele Azure-service typenamen bevatten. VNet-services-eindpunten gebruikt u de naam van de service type **Microsoft.Sql**, die verwijst naar de Azure-service met de naam SQL-Database. Deze servicetag geldt ook voor de Azure SQL Database, Azure Database for PostgreSQL en MySQL-services. Het is belangrijk te weten bij het toepassen van de **Microsoft.Sql** servicetag naar een VNet-service-eindpunt configureert het verkeer van de service-eindpunt voor alle Azure-Database-services, met inbegrip van Azure SQL Database, Azure Database for PostgreSQL en Azure Database for MySQL-servers op het subnet. 
+   > Het is raadzaam om dit artikel te lezen over service-eindpunt configuraties en overwegingen voordat u service-eind punten configureert. **Service-eind punt Virtual Network:** Een [Virtual Network Service-eind punt](../virtual-network/virtual-network-service-endpoints-overview.md) is een subnet waarvan de eigenschaps waarden een of meer formele namen van Azure-service typen bevatten. VNet-service-eind punten gebruiken de service type naam **micro soft. SQL**, die verwijst naar de Azure-service met de naam SQL database. Deze servicetag is ook van toepassing op de Azure SQL Database, Azure Database for PostgreSQL en MySQL-Services. Het is belang rijk te weten wanneer u de code van het **micro soft. SQL** -service toepast op een VNet-service-eind punt, waarbij service-eindpunt verkeer wordt geconfigureerd voor alle Azure Data Base-Services, waaronder Azure SQL Database, Azure database for PostgreSQL en Azure Data Base voor MySQL-servers in het subnet. 
    > 
 
-5. Eenmaal is ingeschakeld, klikt u op **OK** en u ziet dat de VNet-service-eindpunten zijn ingeschakeld, samen met een VNet-regel.
+5. Als deze functie is ingeschakeld, klikt u op **OK** . u ziet dat de vnet-service-eind punten zijn ingeschakeld in combi natie met een VNet-regel.
 
-   ![VNet-service-eindpunten ingeschakeld en VNet-regel gemaakt](./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
+   ![De VNet-service-eind punten zijn ingeschakeld en de VNet-regel is gemaakt](./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-- Op dezelfde manier, u kunt een script op [inschakelen VNet service-eindpunten en een VNET-regel maken voor Azure Database voor MySQL met behulp van Azure CLI](howto-manage-vnet-using-cli.md).
-- Zie voor hulp bij het verbinding maken met een Azure Database for MySQL-server, [verbindingsbibliotheken voor Azure Database for MySQL](./concepts-connection-libraries.md)
+- Op dezelfde manier kunt u scripts [gebruiken om vnet-service-eind punten in te scha kelen en een VNet-regel voor Azure database for MySQL te maken met behulp van Azure cli](howto-manage-vnet-using-cli.md).
+- Zie voor hulp bij het maken van verbinding met een Azure Database for MySQL-server [verbindings bibliotheken voor Azure database for MySQL](./concepts-connection-libraries.md)
+
+<!-- Link references, to text, Within this same GitHub repo. --> 
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md

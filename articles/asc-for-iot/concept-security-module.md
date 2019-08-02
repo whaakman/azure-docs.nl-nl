@@ -1,6 +1,6 @@
 ---
-title: Inzicht in Azure Security Center voor IoT-beveiligingsmodule dubbels Preview | Microsoft Docs
-description: Meer informatie over het concept van moduledubbels security en hoe ze worden gebruikt in Azure Security Center voor IoT.
+title: Meer informatie over Azure Security Center voor IoT Security module apparaatdubbels | Microsoft Docs
+description: Meer informatie over het concept van de Security module apparaatdubbels en hoe deze worden gebruikt in Azure Security Center voor IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,41 +13,38 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 07/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 8f964fd2b121c6232081673666f5babb160e1721
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: ab3b6e740e644a1ed1495eb776045888be448047
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618316"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596496"
 ---
 # <a name="security-module"></a>Beveiligingsmodule
 
-> [!IMPORTANT]
-> Azure Security Center voor IoT is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-In dit artikel wordt uitgelegd hoe Azure Security Center (ASC) voor IoT gebruikt apparaatdubbels en modules. 
+In dit artikel wordt uitgelegd hoe Azure Security Center voor IoT gebruikmaakt van apparaatdubbels en modules van het apparaat. 
 
-## <a name="device-twins"></a>Apparaatdubbels
+## <a name="device-twins"></a>Apparaat apparaatdubbels
 
-Apparaatdubbels spelen voor IoT-oplossingen die zijn gemaakt in Azure, een belangrijke rol in Apparaatbeheer en automatisering van bedrijfsprocessen.  
+Voor IoT-oplossingen die zijn ingebouwd in azure, speelt apparaatdubbels een belang rijke rol in Apparaatbeheer en proces automatisering.  
 
-ASC voor IoT biedt volledige integratie met uw bestaande IoT platform voor Apparaatbeheer, zodat u kunt de beveiligingsstatus van uw apparaat te beheren en maken gebruik van bestaande mogelijkheden voor toegangsbeheer van apparaat. Integratie wordt bereikt met behulp van de IoT-Hub twin mechanisme.  
+Azure Security Center voor IoT biedt volledige integratie met uw bestaande IoT Device Management-platform, zodat u de beveiligings status van uw apparaat kunt beheren en ook de mogelijkheden van bestaande apparaten beheert. Integratie wordt bereikt door gebruik te maken van de IoT Hub dubbele methode.  
 
-Meer informatie over het concept van [apparaatdubbels](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) in Azure IoT Hub. 
+Meer informatie over het concept van [device apparaatdubbels](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) in azure IOT hub. 
 
-## <a name="security-module-twins"></a>Beveiliging moduledubbels
+## <a name="security-module-twins"></a>Beveiligings module apparaatdubbels
 
-ASC voor IoT onderhoudt een moduledubbel beveiliging voor elk apparaat in de service.
-De moduledubbel beveiliging bevat alle informatie die relevant zijn voor de beveiliging voor elk apparaat voor specifieke apparaten in uw oplossing.
-Beveiliging van apparaateigenschappen worden bijgehouden in een speciale moduledubbel voor veiliger communicatie en voor het inschakelen van updates en onderhoud waarvoor minder bronnen.  
+Azure Security Center voor IoT onderhoudt een beveiligings module voor elk apparaat in de service.
+De beveiligings module bevat alle informatie die relevant is voor de beveiliging van apparaten voor elk specifiek apparaat in uw oplossing.
+Beveiligings eigenschappen van apparaten worden onderhouden in een speciale beveiligings module, met als gevolg dat er een veiliger communicatie is en voor het inschakelen van updates en onderhoud waarvoor minder resources nodig zijn.  
 
-Zie [maken security moduledubbel](quickstart-create-security-twin.md) en [security-agents configureren](how-to-agent-configuration.md) voor informatie over het maken, aanpassen en het dubbele configureren. Zie [informatie over moduledubbels](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) voor meer informatie over het concept van moduledubbels in IoT Hub. 
+Zie [Security-module](quickstart-create-security-twin.md) configureren, en [Configureer beveiligings agenten](how-to-agent-configuration.md) voor meer informatie over het maken, aanpassen en configureren van de dubbele. Zie [Wat is module apparaatdubbels](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) ? voor meer informatie over het concept van module apparaatdubbels in IOT hub. 
  
 
 ## <a name="see-also"></a>Zie ook
-- [ASC voor IoT-Preview](overview.md)
-- [Beveiliging-agents implementeren](how-to-deploy-agent.md)
-- [Security agent verificatiemethoden](concept-security-agent-authentication-methods.md)
+- [Overzicht van Azure Security Center voor IoT](overview.md)
+- [Beveiligings agenten implementeren](how-to-deploy-agent.md)
+- [Verificatie methoden voor beveiligings agenten](concept-security-agent-authentication-methods.md)

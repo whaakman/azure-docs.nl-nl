@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 7440a08bd8ceb85cc569e1bb6d7c4ee1e52178a4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f6a9e31b6b1869496e499cb7d6f02b55f495adfb
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60405899"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720671"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Gegevens kopiëren van Oracle Responsys met Azure Data Factory (Preview)
 
@@ -47,7 +47,7 @@ De volgende eigenschappen worden ondersteund voor Oracle-Responsys gekoppelde se
 | type | De eigenschap type moet worden ingesteld op: **Responsys** | Ja |
 | endpoint | Het eindpunt van de server Respopnsys  | Ja |
 | clientId | De client-ID die is gekoppeld aan de toepassing Responsys.  | Ja |
-| clientSecret | Het clientgeheim die zijn gekoppeld aan de toepassing Responsys. U kunt dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord opslaan in Azure Key Vault en laat ADF activiteit pull van daaruit kopiëren, bij het uitvoeren van het kopiëren van gegevens: meer informatie uit [referenties Store in Key Vault](store-credentials-in-key-vault.md). | Ja |
+| clientSecret | Het clientgeheim die zijn gekoppeld aan de toepassing Responsys. U kunt dit veld markeren als SecureString om het veilig op te slaan in ADF, of het wacht woord op te slaan in Azure Key Vault en de ADF-Kopieer activiteit uit te voeren tijdens het uitvoeren van de gegevens kopie: meer informatie over [referenties voor opslaan in Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Hiermee geeft u op of de eindpunten van de gegevensbron zijn versleuteld met behulp van HTTPS. De standaardwaarde is true.  | Nee |
 | useHostVerification | Hiermee geeft u op of de hostnaam van de in het certificaat van de server zodat deze overeenkomen met de hostnaam van de server wanneer u verbinding maakt via SSL vereist. De standaardwaarde is true.  | Nee |
 | usePeerVerification | Hiermee geeft u op of u wilt controleren of de identiteit van de server wanneer u verbinding maakt via SSL. De standaardwaarde is true.  | Nee |
@@ -93,11 +93,12 @@ Om gegevens te kopiëren van Oracle Responsys, stel de eigenschap type van de ge
     "name": "OracleResponsysDataset",
     "properties": {
         "type": "ResponsysObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Oracle Responsys linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 
@@ -113,7 +114,7 @@ Om gegevens te kopiëren van Oracle Responsys, stelt u het brontype in de kopiee
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **ResponsysSource** | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **ResponsysSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM MyTable"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**

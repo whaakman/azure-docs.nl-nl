@@ -1,6 +1,6 @@
 ---
-title: Toewijzen en beheerder rollen toewijzing met Azure PowerShell - Azure Active Directory verwijderen | Microsoft Docs
-description: Voor diegenen die vaak roltoewijzingen beheren, kunt u nu leden van een Azure AD-beheerdersrol met Azure PowerShell beheren.
+title: Toewijzing van Administrator rollen toewijzen en verwijderen met Azure PowerShell-Azure Active Directory | Microsoft Docs
+description: Voor degenen die regel matig roltoewijzingen beheren, kunt u nu leden van een Azure AD-beheerdersrol beheren met Azure PowerShell.
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,36 +8,36 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 07/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6877c3e547d625cf58129a546dae798b37a24ae
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa4bddf84720265afe361dff665f10ff8184f6f6
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60469091"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706489"
 ---
-# <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>Met behulp van PowerShell van Azure Active Directory-beheerdersrollen toewijzen
+# <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>Azure Active Directory beheerdersrol toewijzen met behulp van Power shell
 
-U kunt automatiseren hoe u rollen toewijzen aan gebruikersaccounts met behulp van Azure PowerShell. In dit artikel wordt de [Azure Active Directory PowerShell versie 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module.
+U kunt automatiseren hoe u rollen toewijst aan gebruikers accounts met behulp van Azure PowerShell. In dit artikel wordt gebruikgemaakt van de [Azure Active Directory module Power shell versie 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) .
 
-## <a name="prepare-powershell"></a>Voorbereiden van PowerShell
+## <a name="prepare-powershell"></a>Power shell voorbereiden
 
-Eerst moet u [downloaden van de Azure AD PowerShell-module](https://www.powershellgallery.com/packages/AzureAD/).
+Eerst moet u [de Azure AD Power shell-module downloaden](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="install-the-azure-ad-powershell-module"></a>De Azure AD PowerShell-module installeren
 
-Gebruik de volgende opdrachten voor het installeren van de Azure AD PowerShell-module:
+Als u de Azure AD Power shell-module wilt installeren, gebruikt u de volgende opdrachten:
 
 ```powershell
 install-module azuread
 import-module azuread
 ```
 
-Om te controleren dat de module kan worden gebruikt, gebruik de volgende opdracht:
+Als u wilt controleren of de module gereed is voor gebruik, gebruikt u de volgende opdracht:
 
 ```powershell
 get-module azuread
@@ -46,15 +46,15 @@ get-module azuread
   Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 ```
 
-U kunt nu beginnen met de cmdlets in de module. Raadpleeg voor een volledige beschrijving van de cmdlets in de Azure AD-module, de online documentatie voor [Azure Active Directory PowerShell versie 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles).
+U kunt nu beginnen met het gebruik van de cmdlets in de module. Raadpleeg de online-referentie documentatie voor [Azure Active Directory Power shell-versie 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles)voor een volledige beschrijving van de cmdlets in de Azure ad-module.
 
-## <a name="permissions-required"></a>Machtigingen die vereist zijn
+## <a name="permissions-required"></a>Vereiste machtigingen
 
-Verbinding maken met uw Azure AD-tenant met behulp van een account voor globale beheerders voor het toewijzen of verwijderen van rollen.
+Maak verbinding met uw Azure AD-Tenant met behulp van een algemeen beheerders account om rollen toe te wijzen of te verwijderen.
 
-## <a name="assign-a-single-role"></a>Een enkele rol toewijzen
+## <a name="assign-a-single-role"></a>Een afzonderlijke rol toewijzen
 
-Als u wilt een rol toewijzen, moet u eerst de weergavenaam en de naam van de rol die u toewijst verkrijgen. Wanneer u de weergavenaam van het account en de naam van de rol, moet u de volgende cmdlets gebruiken de rol toewijzen aan de gebruiker.
+Als u een rol wilt toewijzen, moet u eerst de weergave naam en de naam van de rol die u toewijst verkrijgen. Wanneer u de weergave naam van het account en de naam van de rol hebt, gebruikt u de volgende cmdlets om de rol aan de gebruiker toe te wijzen.
 
 ``` PowerShell
 # Fetch user to assign to role
@@ -80,9 +80,9 @@ Add-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -RefObjectId $roleMember
 Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 ```
 
-## <a name="assign-a-role-to-a-service-principal"></a>Een rol toewijzen aan een service-principal
+## <a name="assign-a-role-to-a-service-principal"></a>Een rol toewijzen aan een Service-Principal
 
-Voorbeeld van een service-principal toewijzen aan een rol.
+Voor beeld van het toewijzen van een service-principal aan een rol.
 
 ```powershell
 # Fetch a service principal to assign to role
@@ -103,7 +103,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADServicePrin
 
 ## <a name="multiple-role-assignments"></a>Meervoudige roltoewijzingen
 
-Voorbeelden van toe te wijzen en meerdere functies tegelijk verwijderen.
+Voor beelden van het toewijzen en verwijderen van meerdere rollen tegelijk.
 
 ```powershell
 #File name
@@ -141,7 +141,7 @@ for ($i=2; $i -le $count; $i++)
 
 ## <a name="remove-a-role-assignment"></a>Roltoewijzing verwijderen
 
-In dit voorbeeld wordt een roltoewijzing voor de opgegeven gebruiker verwijderd.
+In dit voor beeld wordt een roltoewijzing voor de opgegeven gebruiker verwijderd.
 
 ```powershell
 # Fetch user to assign to role
@@ -149,20 +149,20 @@ $roleMember = Get-AzureADUser -ObjectId "username@contoso.com"
 
 #Fetch list of all directory roles with object id
 Get-AzureADDirectoryRole
- 
+
 # Fetch a directory role by id
 $role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543"
- 
+
 # Remove user from role
 Remove-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -MemberId $roleMember.ObjectId 
 
 # Fetch role membership for role to confirm
 Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
- 
+
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* U kunt delen met ons op de [forum van Azure AD-beheerdersrollen](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Zie voor meer informatie over de functies en de toewijzing van de rol beheerder [beheerdersrollen toewijzen](directory-assign-admin-roles.md).
-* Zie voor gedetailleerde bevoegdheden voor standaard een [vergelijking van de standaard Gast en lid gebruikersmachtigingen](../fundamentals/users-default-permissions.md).
+* U kunt graag delen met ons op het [forum van Azure AD-beheerders](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+* Zie [beheerders rollen toewijzen](directory-assign-admin-roles.md)voor meer informatie over functies en de toewijzing van beheerdersrol.
+* Zie voor standaard gebruikers machtigingen een [vergelijking van de standaard machtigingen voor gast-en gebruikers rechten](../fundamentals/users-default-permissions.md).

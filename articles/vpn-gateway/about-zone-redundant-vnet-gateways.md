@@ -1,6 +1,6 @@
 ---
-title: Zone-redundante virtuele netwerkgateways in Azure-Beschikbaarheidszones | Microsoft Docs
-description: Meer informatie over VPN-Gateway en ExpressRoute-gateways in Beschikbaarheidszones.
+title: Over zone-redundante virtuele netwerk gateways in Azure-beschikbaarheidszones | Microsoft Docs
+description: Meer informatie over VPN Gateway-en ExpressRoute-gateways in Beschikbaarheidszones.
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
@@ -8,40 +8,40 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0ba818ef3c24d0e88e662adf87b22cc938fe5fab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d076e2b0057f0ba666fa47ffd0b3d7d1fcc14631
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391045"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725587"
 ---
-# <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Zone-redundante virtuele netwerkgateways in Azure-Beschikbaarheidszones
+# <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Over zone-redundante virtuele netwerk gateways in Azure-beschikbaarheidszones
 
-U kunt VPN en ExpressRoute-gateways in implementeren [Azure Availability Zones](../availability-zones/az-overview.md). Dit zorgt voor tolerantie, schaalbaarheid en hogere mate van beschikbaarheid naar virtuele netwerkgateways. Implementeren van gateways in Azure-Beschikbaarheidszones fysiek en logisch, scheidt gateways binnen een regio, terwijl u uw on-premises netwerkconnectiviteit naar Azure beveiligt tegen storingen van de zone-niveau.
+U kunt VPN-en ExpressRoute-gateways implementeren in [Azure-beschikbaarheidszones](../availability-zones/az-overview.md). Dit brengt tolerantie, schaal baarheid en hogere Beschik baarheid voor virtuele netwerk gateways. Het implementeren van gateways in Azure-beschikbaarheidszones fysiek en logisch scheidt gateways binnen een regio, terwijl uw on-premises netwerk connectiviteit met Azure wordt beschermd tegen storingen op zone niveau.
 
 ### <a name="zrgw"></a>Zone-redundante gateways
 
-Voor het automatisch implementeren van uw virtuele netwerkgateways in meerdere beschikbaarheidszones, kunt u zone-redundante virtuele netwerkgateways. Met zone-redundante gateways, kunt u profiteren van zoneflexibiliteit voor toegang tot uw essentiële, schaalbare services op Azure.
+Als u uw virtuele netwerk gateways automatisch wilt implementeren in beschikbaarheids zones, kunt u zone-redundante virtuele netwerk gateways gebruiken. Met zone-redundante gateways kunt u profiteren van zone tolerantie om toegang te krijgen tot uw essentiële, schaal bare Services op Azure.
 
 <br>
 <br>
 
-![afbeelding van de zone-redundante gateways](./media/create-zone-redundant-vnet-gateway/zonered.png)
+![grafische zone-redundante gateways](./media/create-zone-redundant-vnet-gateway/zonered.png)
 
-### <a name="zgw"></a>Zonegebonden gateways
+### <a name="zgw"></a>Zonegebonden-gateways
 
-U kunt zonegebonden gateways gebruiken voor het implementeren van gateways in een specifieke zone. Wanneer u een zonegebonden gateway implementeert, worden alle exemplaren van de gateway in dezelfde Beschikbaarheidszone geïmplementeerd.
+Als u gateways in een specifieke zone wilt implementeren, kunt u zonegebonden-gateways gebruiken. Wanneer u een zonegebonden-gateway implementeert, worden alle exemplaren van de gateway geïmplementeerd in dezelfde beschikbaarheids zone.
 
 <br>
 <br>
 
-![afbeelding van zonegebonden gateways](./media/create-zone-redundant-vnet-gateway/zonal.png)
+![afbeelding van zonegebonden-gateways](./media/create-zone-redundant-vnet-gateway/zonal.png)
 
 ## <a name="gwskus"></a>Gateway-SKU's
 
-Zone-redundante en zonegebonden gateways zijn beschikbaar als nieuwe gateway-SKU's. We hebben nieuwe virtuele netwerkgateway-SKU's toegevoegd in de AZ Azure-regio's. Deze SKU's zijn vergelijkbaar met de bijbehorende bestaande SKU's voor ExpressRoute en VPN-Gateway, behalve dat ze specifiek voor de zone-redundante en zonegebonden gateways zijn.
+Zone-redundante en zonegebonden-gateways zijn beschikbaar als nieuwe gateway-Sku's. Er zijn nieuwe virtuele netwerk gateway-Sku's toegevoegd in azure AZ-regio's. Deze Sku's zijn vergelijkbaar met de bijbehorende bestaande Sku's voor ExpressRoute en VPN Gateway, behalve dat ze specifiek zijn voor zone-redundante en zonegebonden gateways.
 
-De nieuwe gateway SKU's zijn:
+De nieuwe gateway-Sku's zijn:
 
 ### <a name="vpn-gateway"></a>VPN Gateway
 
@@ -55,46 +55,46 @@ De nieuwe gateway SKU's zijn:
 * ErGw2AZ
 * ErGw3AZ
 
-## <a name="pipskus"></a>Openbare IP-SKU 's
+## <a name="pipskus"></a>Open bare IP-Sku's
 
-Zone-redundante gateways en zonegebonden gateways beide zijn afhankelijk van de Azure openbare IP-adresresource *Standard* SKU. De configuratie van de Azure openbare IP-adresresource wordt bepaald of de gateway die u implementeert zone-redundante of zonegebonden. Als u een openbare IP-resource met maakt een *Basic* SKU, de gateway heeft geen eventuele zoneredundantie en de gateway-resources worden regionale.
+Zone-redundant gateways en zonegebonden gateways zijn beide afhankelijk van de *standaard* -SKU van de open bare IP van Azure. De configuratie van de open bare IP-resource van Azure bepaalt of de gateway die u implementeert zone-redundant of zonegebonden is. Als u een open bare IP-resource met een *basis* -SKU maakt, heeft de gateway geen zone redundantie en zijn de gateway bronnen regionaal.
 
 ### <a name="pipzrg"></a>Zone-redundante gateways
 
-Wanneer u een openbaar IP-adres met maakt de **Standard** openbare IP-SKU zonder een zone op te geven, het gedrag verschilt, afhankelijk van of de gateway een VPN-gateway of een ExpressRoute-gateway is. 
+Wanneer u een openbaar IP-adres maakt met behulp van de **standaard** open bare IP-SKU zonder een zone op te geven, verschilt het gedrag, afhankelijk van het feit of de gateway een VPN-gateway of een ExpressRoute-gateway is. 
 
-* Voor een VPN-gateway, wordt de twee gateway-instanties worden geïmplementeerd in elke 2 buiten deze drie zones om zone-redundantie te verlenen. 
-* Voor een ExpressRoute-gateway, omdat er meer dan twee instanties, kunt de gateway overbruggen alle drie zones.
+* Voor een VPN-gateway worden de twee gateway-exemplaren geïmplementeerd in elke 2 van deze drie zones om zone-redundantie te bieden. 
+* Voor een ExpressRoute-gateway kan het voor komen dat de gateway meer dan twee exemplaren kan beslaan in alle drie de zones.
 
-### <a name="pipzg"></a>Zonegebonden gateways
+### <a name="pipzg"></a>Zonegebonden-gateways
 
-Wanneer u een openbaar IP-adres met maakt de **Standard** openbare IP-SKU en geef de Zone (1, 2 of 3), alle gatewayexemplaren wordt geïmplementeerd in dezelfde regio.
+Wanneer u een openbaar IP-adres maakt met behulp van de **standaard** open bare IP-SKU en de zone (1, 2 of 3) opgeeft, worden alle instanties van de gateway in dezelfde zone geïmplementeerd.
 
 ### <a name="piprg"></a>Regionale gateways
 
-Wanneer u een openbaar IP-adres met maakt de **Basic** openbare IP-SKU, de gateway wordt geïmplementeerd als een regionale gateway en hoeft niet elke zone-redundantie ingebouwd in de gateway.
+Wanneer u een openbaar IP-adres maakt met behulp van de **algemene** open bare IP-SKU, wordt de gateway geïmplementeerd als een regionale gateway en heeft deze geen zone-redundantie ingebouwd in de gateway.
 
 ## <a name="faq"></a>Veelgestelde vragen
 
-### <a name="what-will-change-when-i-deploy-these-new-skus"></a>Wat verandert er wanneer ik deze nieuwe SKU's implementeren?
+### <a name="what-will-change-when-i-deploy-these-new-skus"></a>Wat verandert er wanneer ik deze nieuwe Sku's Implementeer?
 
-U kunt uw gateways met zone-redundantie implementeren vanuit het perspectief. Dit betekent dat alle exemplaren van de gateways worden geïmplementeerd in Azure-Beschikbaarheidszones en elke Beschikbaarheidszone een ander fout- en -domein is. Dit maakt uw gateways betrouwbare, beschikbare en flexibele op fouten van de zone.
+Vanuit uw perspectief kunt u uw gateways implementeren met zone-redundantie. Dit betekent dat alle exemplaren van de gateways worden geïmplementeerd over Azure-beschikbaarheidszones en elke beschikbaarheids zone is een ander fout-en update domein. Dit maakt het mogelijk dat uw gateways betrouwbaarder, beschikbaar en robuust zijn voor zone storingen.
 
-### <a name="can-i-use-the-azure-portal"></a>Kan ik de Azure-portal gebruiken?
+### <a name="can-i-use-the-azure-portal"></a>Kan ik de Azure Portal gebruiken?
 
-Ja, kunt u de Azure-portal naar de nieuwe SKU's implementeren. Echter, ziet u deze nieuwe SKU's alleen in de Azure-regio's waarvoor Azure-Beschikbaarheidszones.
+Ja, u kunt de Azure Portal gebruiken om de nieuwe Sku's te implementeren. Deze nieuwe Sku's worden echter alleen in die Azure-regio's met Azure-beschikbaarheidszones weer geven.
 
-### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Welke regio's zijn beschikbaar voor de nieuwe SKU's worden gebruikt?
+### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Welke regio's zijn er beschikbaar voor mij om de nieuwe Sku's te gebruiken?
 
-De nieuwe SKU's zijn beschikbaar in Azure-regio's waarvoor Azure Availability Zones - VS centraal, Frankrijk-centraal, Noord-Europa, West-Europa en VS-West 2-regio's. In de toekomst zullen maken we zone-redundante gateways beschikbaar wilt voor u in andere openbare Azure-regio.
+De nieuwe Sku's zijn beschikbaar in azure-regio's met Azure-beschikbaarheidszones-centrale Amerikaanse, Frankrijk-centraal, Europa-noord, Europa-west en VS-West 2 regio's, VS-Oost, VS-Oost 2, Zuidoost-Azië, Japan-Oost, UK-zuid. In de toekomst zullen we zone-redundante gateways voor u beschikbaar maken in andere open bare Azure-regio's.
 
-### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Kan ik wijzigen/migreren/upgrade mijn bestaande virtuele netwerkgateways met zone-redundante of zonegebonden-gateways?
+### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Kan ik mijn bestaande virtuele netwerk gateways wijzigen/migreren/upgraden naar zone-redundante of zonegebonden-gateways?
 
-Migreren van uw bestaande virtuele netwerkgateways met zone-redundante of zonegebonden gateways wordt momenteel niet ondersteund. U kunt echter uw bestaande gateway verwijderen en opnieuw maken van een zone-redundante of zonegebonden-gateway.
+Het migreren van uw bestaande virtuele netwerk gateways naar zone-redundante of zonegebonden-gateways wordt momenteel niet ondersteund. U kunt echter uw bestaande gateway verwijderen en een zone-redundante of zonegebonden-Gateway opnieuw maken.
 
-### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>Kan ik een VPN- en Expressroute-gateways in hetzelfde virtuele netwerk implementeren?
+### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>Kan ik zowel VPN-als Express route gateways in hetzelfde virtuele netwerk implementeren?
 
-Meerdere VPN- en Expressroute-gateways in hetzelfde virtuele netwerk wordt ondersteund. U moet echter een/27 reserveren IP-adresbereik voor het gatewaysubnet.
+Zowel VPN-als Express route-gateways in hetzelfde virtuele netwerk worden ondersteund. U moet echter een/27 IP-adres bereik reserveren voor het gateway-subnet.
 
 ## <a name="next-steps"></a>Volgende stappen
 

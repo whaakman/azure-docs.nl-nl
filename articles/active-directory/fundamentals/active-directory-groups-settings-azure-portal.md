@@ -2,23 +2,23 @@
 title: Bewerk de groepsgegevens van uw - Azure Active Directory | Microsoft Docs
 description: Instructies over het bewerken van uw groep informatie met behulp van Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 691f705574050b15869a0ac8b7d128507e5aae10
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dc06abca08b2522ac57552e85f7c1bac3ef854af
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248831"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561872"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Bewerk de groepsgegevens van uw met behulp van Azure Active Directory
 
@@ -39,7 +39,7 @@ Met behulp van Azure Active Directory (Azure AD), kunt u de instellingen van een
 
 4. Selecteer de groep **MDM-beleid - West**, en selecteer vervolgens **eigenschappen** uit de **beheren** gebied.
 
-    ![Overzichtspagina van de groep met de optie lid en gemarkeerde gegevens](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![De pagina overzicht van groepen, met de optie en de gemarkeerde informatie](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
 5. Update de **algemene instellingen** gegevens naar behoefte, waaronder:
 
@@ -51,7 +51,7 @@ Met behulp van Azure Active Directory (Azure AD), kunt u de instellingen van een
 
     - **Het type groep.** U kunt het type van de groep niet wijzigen nadat deze is gemaakt. Wijzigen van de **groepstype**, moet u de groep verwijderen en een nieuwe maken.
     
-    - **Lidmaatschapstype.** Het lidmaatschapstype wijzigen. Zie voor meer informatie over de verschillende beschikbare lidmaatschap typen [het: Een eenvoudige groep maken en toevoegen van leden met behulp van de Azure Active Directory-portal](active-directory-groups-create-azure-portal.md).
+    - **Lidmaatschapstype.** Het lidmaatschapstype wijzigen. Zie [How to: (Engelstalig) voor meer informatie over de verschillende beschik bare typen lidmaatschappen. Maak een basis groep en voeg leden toe met behulp](active-directory-groups-create-azure-portal.md)van de Azure Active Directory Portal.
     
     - **Object-ID.** U kunt de Object-ID niet wijzigen, maar u kunt deze gebruiken in uw PowerShell-opdrachten voor de groep kopiëren. Zie voor meer informatie over het gebruik van PowerShell-cmdlets [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](../users-groups-roles/groups-settings-v2-cmdlets.md).
 

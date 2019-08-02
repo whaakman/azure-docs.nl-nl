@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e5674ffb4325eb27af8d0673b2d6ad5ba3a6195e
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 9a5e5dc414d487efd5f6762c89cecb77da74e3d5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854344"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592054"
 ---
 # <a name="expressroute-faq"></a>Veelgestelde vragen ExpressRoute
 
@@ -139,7 +139,7 @@ U kunt hoge beschikbaarheid bereiken via een ExpressRoute-circuits in verschille
 
 U moet het *lokale voorkeurs* kenmerk op uw router (s) implementeren om ervoor te zorgen dat het pad van on-premises naar Azure altijd de voor keur heeft voor uw ExpressRoute-circuit (s).
 
-Zie [hier](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-of-microsoft-and-public-peerings) voor meer informatie over het selecteren van BGP-paden en algemene router configuraties. 
+Zie [hier](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-on-microsoft-and-public-peerings) voor meer informatie over het selecteren van BGP-paden en algemene router configuraties. 
 
 ### <a name="onep2plink"></a>Als ik geen CO-locatie op een cloudexchange ben en mijn serviceprovider point-to-point-verbinding biedt, heb ik nodig om twee fysieke verbindingen tussen mijn on-premises netwerk en Microsoft?
 

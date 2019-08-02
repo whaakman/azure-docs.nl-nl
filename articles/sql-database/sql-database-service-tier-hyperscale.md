@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 707f7f47b050d22d0bd225cf412181902ae84f50
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: ce6fc5d32fc9e17499a56cec7f4db2849370a1ec
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67974467"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566719"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Grootschalige-servicelaag voor Maxi maal 100 TB
 
 Azure SQL Database is gebaseerd op SQL Server data base engine-architectuur die is aangepast voor de cloud omgeving om 99,99% Beschik baarheid te garanderen, zelfs in het geval van infrastructuur fouten. Er zijn drie architectuur modellen die worden gebruikt in Azure SQL Database:
 - Algemeen/standaard 
--  Hyperscale
+-  Grootschalig
 -  Business Critical/Premium
 
 De grootschalige van de servicelaag in Azure SQL Database is de nieuwste servicelaag in het op vCore gebaseerde aankoop model. Deze servicelaag is een zeer schaal bare laag voor opslag en reken prestaties die gebruikmaakt van de Azure-architectuur voor het uitschalen van de opslag en de reken resources voor een Azure SQL Database die groter zijn dan de limieten die beschikbaar zijn voor de Algemeen en de onderneming Kritieke service lagen.
@@ -170,7 +169,7 @@ De laag Azure SQL Database grootschalige is momenteel beschikbaar in de volgende
 - Korea - zuid
 - US - noord-centraal
 - Europa - noord
-- Zuid-Afrika (noord)
+- Zuid-Afrika - noord
 - US - zuid-centraal
 - Azië - zuidoost
 - Verenigd Koninkrijk Zuid
@@ -199,13 +198,13 @@ De mogelijkheid om grootschalige-data bases te maken in niet-vermelde regio's aa
 
 1. Klik op **Details opgeven**
 
-    ![Details van probleem](media/sql-database-service-tier-hyperscale/whitelist-request-screen-2.png)
+    ![Probleemdetails](media/sql-database-service-tier-hyperscale/whitelist-request-screen-2.png)
 
 8. **SQL database quotum type**kiezen: **Andere quotum aanvraag**
 
 9. Vul de volgende sjabloon in:
 
-    ![Details van quotum](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
+    ![Quotumgegevens](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
 
     Geef de volgende informatie op in de sjabloon
 

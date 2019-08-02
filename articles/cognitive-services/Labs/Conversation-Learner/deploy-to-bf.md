@@ -1,7 +1,7 @@
 ---
-title: Over het implementeren van een bot Conversatiecursist - Microsoft Cognitive Services | Microsoft Docs
+title: Een Conversation Learner-bot implementeren-Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Informatie over het implementeren van een bot Conversatiecursist.
+description: Meer informatie over het implementeren van een Conversation Learner bot.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,26 +10,27 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 5522f762f3893f1d67cd3755b1e022f0118cc004
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 05fd83506aac26df33f18bec83dcadac8dee2d90
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66385323"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705274"
 ---
-# <a name="how-to-deploy-a-conversation-learner-bot"></a>Over het implementeren van een bot Conversatiecursist
+# <a name="how-to-deploy-a-conversation-learner-bot"></a>Een Conversation Learner-bot implementeren
 
-Dit document wordt uitgelegd hoe u een bot Conversatiecursist--hetzij lokaal of in Azure implementeren.
+In dit document wordt uitgelegd hoe u een Conversation Learner bot, lokaal of in azure implementeert.
 
-## <a name="prerequisite-determine-the-model-id"></a>Voorwaarde: bepalen de model-ID 
+## <a name="prerequisite-determine-the-model-id"></a>Vereisten: de model-ID bepalen 
 
-Als u wilt een bot buiten de gebruikersinterface van de cursist conversatie uitvoeren, moet u de Conversatiecursist model-ID die de bot gebruiken wilt, dat wil zeggen, de ID van de machine learning-model in de cloud Conversatiecursist instellen.  (Daarentegen bij het uitvoeren van de bot via de gebruikersinterface van de cursist conversatie, de gebruikersinterface kiest welk model-id).  
+Als u een bot buiten de Conversation Learner gebruikers interface wilt uitvoeren, moet u de Conversation Learner model-ID instellen die door de bot wordt gebruikt. Dit is de ID van het machine learning model in de Conversation Learner Cloud.  (Door daarentegen de bot via de Conversation Learner gebruikers interface uit te voeren, kiest de gebruikers interface welke model-ID.).  
 
-Dit is het verkrijgen van de model-ID:
+U kunt als volgt de model-ID ophalen:
 
-1. Start uw bot en de gebruikersinterface van de cursist conversatie.  Zie de handleiding voor volledige instructies; Samenvatting:
+1. Start uw bot en de Conversation Learner-gebruikers interface.  Raadpleeg de Snelstartgids voor volledige instructies. samenvatten:
 
-    In een opdrachtvenster:
+    In één opdracht Venster:
 
     ```
     [open a command window]
@@ -37,7 +38,7 @@ Dit is het verkrijgen van de model-ID:
     npm start
     ```
 
-    In het opdrachtvenster andere
+    In het opdracht venster Anther
 
     ```bash
     [open second command prompt window]
@@ -45,27 +46,27 @@ Dit is het verkrijgen van de model-ID:
     npm run ui
     ```
 
-2. Open de browser naar `http://localhost:5050` 
+2. Open browser om`http://localhost:5050` 
 
-3. Klik op het Conversatiecursist model dat u wilt ophalen van de ID voor
+3. Klik op het Conversation Learner model waarvan u de ID wilt ophalen
 
-4. Klik op 'Instellingen' in de navigatiebalk aan de linkerkant.
+4. Klik op instellingen in de navigatie balk aan de linkerkant.
 
-5. De GUID "Model-ID" wordt aan de bovenkant van de pagina weergegeven.
+5. De GUID ' model ID ' wordt weer gegeven in de buurt van de bovenkant van de pagina.
 
-## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>Optie 1: Implementatie van een bot Conversatiecursist lokaal uitvoeren
+## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>Optie 1: Een Conversation Learner-bot implementeren om lokaal uit te voeren
 
-Dit implementeert een bot op uw lokale computer en laat zien hoe u het kunt openen met behulp van de emulator van de Bot Framework.
+Hiermee implementeert u een bot op uw lokale machine en ziet u hoe u deze kunt openen met behulp van de bot Framework emulator.
 
-### <a name="configure-your-bot-for-access-outside-the-conversation-learner-ui"></a>Configureren van uw bot voor toegang tot buiten de gebruikersinterface van de cursist gesprek
+### <a name="configure-your-bot-for-access-outside-the-conversation-learner-ui"></a>Uw bot configureren voor toegang buiten de Conversation Learner gebruikers interface
 
-Wanneer een bot lokaal uitvoert, het toevoegen van de toepassings-ID aan van de bot `.env` bestand:
+Wanneer u een bot lokaal uitvoert, voegt u de toepassings-id toe `.env` aan het bestand van de bot:
 
     ```
     CONVERSATION_LEARNER_MODEL_ID=<YOUR_MODEL_ID>
     ```
 
-Start uw bot:
+Start vervolgens uw bot:
 
     ```
     [open a command window]
@@ -73,9 +74,9 @@ Start uw bot:
     npm start
     ```
 
-De bot wordt nu lokaal uitgevoerd.  U kunt openen met de emulator Bot Framework.
+De bot is nu lokaal actief.  U kunt deze openen met de bot Framework emulator.
 
-### <a name="download-and-install-the-emulator"></a>Download en installeer de emulator
+### <a name="download-and-install-the-emulator"></a>De emulator downloaden en installeren
 
     ```
     git clone https://github.com/Microsoft/BotFramework-Emulator
@@ -84,45 +85,45 @@ De bot wordt nu lokaal uitgevoerd.  U kunt openen met de emulator Bot Framework.
     npm start
     ```
 
-### <a name="connect-the-emulator-to-your-bot"></a>Verbinding maken met de emulator van uw bot
+### <a name="connect-the-emulator-to-your-bot"></a>De emulator verbinden met uw bot
 
-1. In de linkerbovenhoek van de emulator in het vak 'Voer uw eindpunt-URL', voer `http://127.0.0.1:3978/api/messages`.  De andere velden leeg laat, en klik op 'Verbinding maken'.
+1. Voer `http://127.0.0.1:3978/api/messages`in de linkerbovenhoek van de emulator in het vak ' Voer uw eind punt-URL in ' in.  Laat de overige velden leeg en klik op verbinden.
 
-2. U bent nu discussiëren met uw bot.
+2. U bent nu bezig met het bespreken van uw bot.
 
 ## <a name="option-2-deploy-to-azure"></a>Optie 2: Implementeren in Azure
 
-Publiceer uw bot Conversatiecursist die vergelijkbaar is met dezelfde manier als die u een andere bot wilt publiceren. Op hoog niveau, uw code te uploaden naar een gehoste website, de juiste configuratie-waarden instellen en vervolgens de bot registreren met verschillende kanalen. Gedetailleerde instructies vindt u in deze video waarin wordt getoond hoe uw bot met behulp van Azure Bot Service publiceren.
+Publiceer uw Conversation Learner-bot op dezelfde manier als u een andere bot publiceert. Op hoog niveau uploadt u uw code naar een gehoste website, stelt u de juiste configuratie waarden in en registreert u de bot met verschillende kanalen. Gedetailleerde instructies vindt u in deze video waarin wordt getoond hoe u uw bot publiceert met Azure Bot Service.
 
-Zodra de bot wordt geïmplementeerd en uitgevoerd u verschillende kanalen verbinding mee, zoals Facebook, Teams, Skype enzovoort maken kan. met behulp van een Azure Bot kanaal te registreren. Voor documentatie over dit proces Zie: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
+Zodra de bot is geïmplementeerd en wordt uitgevoerd, kunt u verschillende kanalen koppelen, zoals Facebook, teams, Skype, enzovoort. een Azure bot-kanaal registratie gebruiken. Zie voor documentatie over dat proces: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
-Hieronder vindt u stapsgewijze instructies voor het implementeren van een cursist conversatie Bot naar Azure.  Deze instructies wordt ervan uitgegaan dat uw bot-bron is beschikbaar via een cloud-gebaseerde bron, zoals Azure DevOps-Services, GitHub, BitBucket of OneDrive, configureert u uw bot voor continue implementatie.
+Hieronder vindt u stapsgewijze instructies voor het implementeren van een Conversation Learner bot naar Azure.  In deze instructies wordt ervan uitgegaan dat uw bot-bron beschikbaar is vanuit een Cloud bron, zoals Azure DevOps Services, GitHub, BitBucket of OneDrive, en hoe u uw bot configureert voor continue implementatie.
 
-1. Meld u aan bij Azure portal op https://portal.azure.com
+1. Meld u aan bij de Azure Portal op https://portal.azure.com
 
-2. Maak een nieuwe 'Web App-Bot'-resource 
+2. Een nieuwe resource voor web-app-bot maken 
 
-    1. Geef een naam op voor de bot
-    2. Op 'Bot sjabloon', 'Node.js' kiest, kies 'Basic', en vervolgens klikt u op de knop 'Selecteren'
-    3. Klik op 'maken' voor het maken van de Web-App-Bot.
-    4. Wacht tot de Web App-Bot-bron moet worden gemaakt.
+    1. De bot een naam geven
+    2. Klik op ' bot-sjabloon ', kies ' node. js ', kies ' Basic ' en klik vervolgens op de knop ' selecteren '
+    3. Klik op maken om de web-app-bot te maken.
+    4. Wacht tot de web-app-bot-resource is gemaakt.
 
-3. Bewerk de Web App-Bot-resource die u zojuist hebt gemaakt in de Azure-portal.
+3. Bewerk in de Azure Portal de web-app-bot die u zojuist hebt gemaakt.
 
-   1. Klik op 'Instellingen' nav item aan de linkerkant
-   1. Schuif omlaag naar het gedeelte 'App-instellingen'
-   2. Voeg deze instellingen toe:
+   1. Klik op het NAV-item ' toepassings instellingen ' aan de linkerkant
+   1. Schuif omlaag naar de sectie app-instellingen
+   2. Deze instellingen toevoegen:
 
        Omgevingsvariabele | value
        --- | --- 
        CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-       CONVERSATION_LEARNER_MODEL_ID      | Aanvraag-Id-GUID, verkregen via de gebruikersinterface van de cursist conversatie onder 'instellingen' voor het model >
-       LUIS_AUTHORING_KEY               | LUIS-sleutel voor dit model ontwerpen
-       LUIS_SUBSCRIPTION_KEY            | Niet vereist, maar aanbevolen voor gepubliceerde bots om te voorkomen dat met behulp van uw quotum ontwerpen.
+       CONVERSATION_LEARNER_MODEL_ID      | De GUID van de toepassings-id die is verkregen via de Conversation Learner gebruikers interface onder de instellingen voor het model >
+       LUIS_AUTHORING_KEY               | LUIS-ontwerp sleutel voor dit model
+       LUIS_SUBSCRIPTION_KEY            | Niet vereist, maar wordt aanbevolen voor gepubliceerde bots om te voor komen dat uw ontwerp quotum wordt gebruikt.
     
-   4. Klik op 'Opslaan' aan de bovenkant van de pagina
-   5. Open 'Build' nav-item aan de linkerkant
-   6. Klik op "Continue implementatie configureren" 
-   7. Klik op het pictogram 'Instellen' onder implementaties
-   8. Klik op 'Instellingen vereist'
-   9. Selecteer de bron waar de code van uw bot beschikbaar is en configureer de bron.
+   4. Klik op opslaan in de buurt van de bovenkant van de pagina
+   5. Het NAV-item ' Build ' aan de linkerkant openen
+   6. Klik op "continue implementatie configureren" 
+   7. Klik op het pictogram installatie onder implementaties
+   8. Klik op vereiste instellingen
+   9. Selecteer de bron waar uw bot-code beschikbaar is en configureer de bron.

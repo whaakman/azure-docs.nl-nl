@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: 00ca474a6cb32c7ad3e47aef750126e958e43501
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: bbbec680cd2575cc63761c9fbe1335d548ec4d3b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372444"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640784"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Ondersteuningsmatrix voor VMware-evaluatie en -migratie
 
-U kunt de [Azure migrate-service](migrate-overview.md) gebruiken voor het beoordelen en migreren van machines naar de Microsoft Azure Cloud. In dit artikel vindt u een overzicht van de ondersteunings instellingen en beperkingen voor het beoordelen en migreren van on-premises VMware-Vm's.
+U kunt [Azure migrate](migrate-overview.md) gebruiken om machines te beoordelen en te migreren naar de Microsoft Azure Cloud. In dit artikel vindt u een overzicht van de ondersteunings instellingen en beperkingen voor het beoordelen en migreren van on-premises VMware-Vm's.
 
 
 ## <a name="vmware-scenarios"></a>VMware-scenario's
@@ -27,35 +27,32 @@ De tabel bevat een overzicht van de ondersteunde scenario's voor virtuele VMware
 **Implementatie** | **Details**
 --- | ---
 **On-premises VMware-Vm's evalueren** | [Stel](tutorial-prepare-vmware.md) uw eerste beoordeling in.<br/><br/> [Voer](scale-vmware-assessment.md) een grootschalige evaluatie uit.
-**Virtuele VMware-machines migreren** | U kunt migreren met behulp van agentloze migratie, met enkele beperkingen, of een migratie op basis van een agent gebruiken. [Meer informatie](server-migrate-overview.md)
+**Virtuele VMware-machines migreren** | U kunt migreren met behulp van agentloze migratie of een migratie op basis van een agent gebruiken. [Meer informatie](server-migrate-overview.md)
 
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate projecten
 
 **Ondersteuning** | **Details**
 --- | ---
-Azure-machtigingen | U hebt machtigingen voor Inzender of eigenaar nodig in het abonnement om een Azure Migrate project te maken.
-VMware-beperkingen  | Evalueer Maxi maal 35.000 VMware-Vm's in één project.
+**Azure-machtigingen** | U hebt machtigingen voor Inzender of eigenaar nodig in het abonnement om een Azure Migrate project te maken.
+**VMware-beperkingen**  | Evalueer Maxi maal 35.000 VMware-Vm's in één project. U kunt meerdere projecten maken in een Azure-abonnement.
+**Project limieten** | Een project kan zowel virtuele VMware-machines als virtuele Hyper-V-machines bevatten, tot aan de evaluatie limieten.
+**Geografie** | U kunt een Azure Migrate project maken in een aantal geographs. Hoewel u alleen projecten in deze geografi kunt maken, kunt u machines voor andere doel locaties evalueren of migreren. De Geografie van het project wordt alleen gebruikt om de gedetecteerde meta gegevens op te slaan.
 
-Een project kan zowel virtuele VMware-machines als virtuele Hyper-V-machines bevatten, tot aan de evaluatie limieten.
-
-**Geografie** Er zijn een aantal geographs waarin een Azure Migrate project kan worden gemaakt. Hoewel u alleen projecten in deze geografische gebieden kunt maken, kunt u uw machines nog steeds evalueren of migreren voor andere doel locaties. De Geografie van het project wordt alleen gebruikt om de gedetecteerde meta gegevens op te slaan.
-
-
- **Geografie** | **Opslag locatie van meta gegevens**
- --- | ---
- Azure Government | VS (overheid) - Virginia
- Azië en Stille Oceaan | Zuidoost-Azië of Azië-oost
- Europa | Zuid-Europa of Europa-west
- Verenigd Koninkrijk | UK-zuid of UK-west
- Verenigde Staten | VS-midden, VS-West 2
+**Geografie** | **Opslag locatie van meta gegevens**
+--- | ---
+Azure Government | VS (overheid) - Virginia
+Azië en Stille Oceaan | Zuidoost-Azië of Azië-oost
+Europa | Zuid-Europa of Europa-west
+Verenigd Koninkrijk | UK-zuid of UK-west
+Verenigde Staten | VS-midden, VS-West 2
 
 
  > [!NOTE]
  > Ondersteuning voor Azure Government is momenteel alleen beschikbaar voor de [oudere versie](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) van Azure Migrate.
 
 
-## <a name="assessment-vmware-server-requirements"></a>Evaluatie-vereisten voor VMware-Server
+## <a name="assessment-vcenter-server-requirements"></a>Beoordeling-vCenter Server vereisten
 
 Deze tabel geeft een overzicht van de evaluatie-ondersteuning en beperkingen voor VMware Virtualization-servers.
 
@@ -65,12 +62,15 @@ Deze tabel geeft een overzicht van de evaluatie-ondersteuning en beperkingen voo
 
 ## <a name="assessment-vcenter-server-permissions"></a>Beoordeling-vCenter Server machtigingen
 
-Alleen voor beoordeling hebt u een alleen-lezen-account nodig voor de vCenter Server.
+Voor evaluatie hebt u een alleen-lezen-account nodig voor de vCenter Server.
 
 ## <a name="assessment-appliance-requirements"></a>Beoordeling-vereisten voor apparaten
 
+Het Azure Migrate-apparaat voor VMware wordt geïmplementeerd met behulp van een eicellen-sjabloon die in vCenter Server is geïmporteerd.
+
 **Ondersteuning** | **Details**
 --- | ---
+**vCenter Server** | U hebt voldoende resources op de vCenter Server nodig om een virtuele machine toe te wijzen met 32 GB geheugen, 4 Vcpu's en een externe virtuele switch.<br/><br/> Voor het apparaat is toegang tot internet vereist, hetzij rechtstreeks hetzij via een proxy.
 **ESXi** | De toestel-VM moet worden geïmplementeerd op een ESXi-host waarop versie 5,5 of hoger wordt uitgevoerd.
 **Azure Migrate project** | Een apparaat kan worden gekoppeld aan een enkel project.
 **vCenter Server** | Een apparaat kan tot 10.000 VMware-Vm's detecteren op een vCenter Server.<br/> Een apparaat kan verbinding maken met één vCenter Server.
@@ -81,7 +81,7 @@ Alleen voor beoordeling hebt u een alleen-lezen-account nodig voor de vCenter Se
 Het Azure Migrate-apparaat heeft Internet verbinding met internet nodig.
 
 - Wanneer u het apparaat implementeert, controleert Azure Migrate een connectiviteits controle op de Url's die in de onderstaande tabel worden samenvatten.
-- Als u een firewall op basis van een URL gebruikt. proxy, toegang tot deze Url's toestaan, zodat alle CNAME-records worden omgezet die zijn ontvangen tijdens het opzoeken van de Url's.
+- Als u een op URL gebaseerde proxy gebruikt om verbinding te maken met internet, toegang tot deze Url's toestaan, zodat de proxy alle CNAME-records verhelpt die zijn ontvangen tijdens het opzoeken van de Url's.
 
 **URL** | **Details**  
 --- | --- |
@@ -94,14 +94,14 @@ dc.services.visualstudio.com | App-logboeken uploaden die worden gebruikt voor i
 *.servicebus.windows.net | Communicatie tussen het apparaat en de Azure Migrate service.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Verbinding maken met Azure Migrate service-Url's.
 *.blob.core.windows.net | Gegevens uploaden naar opslag accounts.
-
+http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Wordt gebruikt voor Azure Migrate apparaat-updates.
 
 ## <a name="assessment-port-requirements"></a>Beoordeling-poort vereisten
 
 **Apparaatconfiguratie** | **verbinding**
 --- | ---
-Apparaat | Binnenkomende verbindingen op TCP-poort 3389 om extern bureau blad-verbindingen met het apparaat toe te staan.<br/> Binnenkomende verbindingen op poort 44368 voor externe toegang tot de app voor het beheren van apparaten met behulp van de URL: https://< apparaat-IP-of-name >: 44368 <br/>Uitgaande verbindingen op poort 443 voor het verzenden van meta gegevens voor detectie en prestaties naar Azure Migrate.
-vCenter-server | Binnenkomende verbindingen op TCP-poort 443 zodat het apparaat configuratie-en prestatie-meta gegevens voor evaluaties kan verzamelen. <br/> Het apparaat maakt standaard verbinding met vCenter op poort 443. Als de vCenter-Server op een andere poort luistert, kunt u de poort wijzigen bij het instellen van detectie.
+Apparaat | Binnenkomende verbindingen op TCP-poort 3389 om extern bureau blad-verbindingen met het apparaat toe te staan.<br/><br/> Binnenkomende verbindingen op poort 44368 voor externe toegang tot de app voor het beheren van apparaten met behulp van de URL:```https://<appliance-ip-or-name>:44368``` <br/><br/>Uitgaande verbindingen op poort 443 voor het verzenden van meta gegevens voor detectie en prestaties naar Azure Migrate.
+vCenter-server | Binnenkomende verbindingen op TCP-poort 443 zodat het apparaat configuratie-en prestatie-meta gegevens voor evaluaties kan verzamelen. <br/><br/> Het apparaat maakt standaard verbinding met vCenter op poort 443. Als de vCenter-Server op een andere poort luistert, kunt u de poort wijzigen bij het instellen van detectie.
 
 
 ## <a name="agentless-migration-vmware-server-requirements"></a>Migratie zonder agent-vereisten voor VMware-Server
@@ -110,7 +110,8 @@ Deze tabel geeft een overzicht van de evaluatie-ondersteuning en beperkingen voo
 
 **Ondersteuning** | **Details**
 --- | ---
-**vCenter-server** | VMware-Vm's die u met een migratie zonder agent migreert, moeten worden beheerd door een of meer vCenter-servers met 5,5, 6,0, 6,5 of 6,7.
+vCenter Server | Versie 5,5, 6,0, 6,5 of 6,7.
+VMware vSphere | Versie 5,5, 6,0, 6,5 of 6,7,
 
 ## <a name="agentless-migration-vcenter-server-permissions"></a>Migratie zonder agent-vCenter Server machtigingen
 
@@ -134,10 +135,20 @@ Virtuele machine. interactie. uit | Toestaan dat de VM wordt uitgeschakeld tijde
 **Vereiste wijzigingen voor Azure** | Voor sommige Vm's zijn mogelijk wijzigingen vereist zodat ze kunnen worden uitgevoerd in Azure. Azure Migrate worden deze wijzigingen automatisch aangebracht voor de volgende besturings systemen:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> Voor andere besturings systemen moet u hand matig aanpassingen maken voordat u de migratie uitvoert. De relevante artikelen bevatten instructies over hoe u dit doet.
 **Linux-opstart** | Als/boot zich op een toegewezen partitie bevindt, moet deze zich op de besturingssysteem schijf bevinden en niet over meerdere schijven worden verspreid.<br/> Als/boot deel uitmaakt van de hoofd partitie (/), moet de partitie '/' zich op de besturingssysteem schijf bevindt en niet over andere schijven beschikken.
 **UEFI-opstart** | Vm's met UEFI-opstart bewerkingen worden niet ondersteund voor migratie.
+**Schijf grootte** | 2 TB besturingssysteem schijf; 4 TB voor gegevens schijven.
+**Schijf limieten** |  Maxi maal 60 schijven per VM.
 **Versleutelde schijven/volumes** | Vm's met versleutelde schijven/volumes worden niet ondersteund voor migratie.
+**Gedeeld schijf cluster** | Wordt niet ondersteund.
+**Onafhankelijke schijven** | Wordt niet ondersteund.
 **RDM/passthrough-schijven** | Als Vm's een RDM-of passthrough-schijf hebben, worden deze schijven niet gerepliceerd naar Azure.
 **NFS** | NFS-volumes die zijn gekoppeld als volumes op de Vm's, worden niet gerepliceerd.
-**Doel schijf** | Vm's kunnen alleen worden gemigreerd naar Managed disks (Standard HHD, Premium SSD) in Azure.
+**iSCSI-doelen** | Vm's met iSCSI-doelen worden niet ondersteund voor migratie zonder agent.
+**Multipath IO** | Wordt niet ondersteund.
+**Storage vMotion** | Wordt niet ondersteund. De replicatie wordt niet uitgevoerd als een virtuele machine gebruikmaakt van Storage vMotion.
+**Team kaarten** | Wordt niet ondersteund.
+**Ipconfiguration** | Wordt niet ondersteund.
+**Doel schijf** | Vm's kunnen alleen worden gemigreerd naar Managed disks (standaard HDD, Premium SSD) in Azure.
+**Gelijktijdige replicatie** | 100 Vm's per vCenter Server. Als u meer hebt, migreert u deze in batches van 100.
 
 
 ## <a name="agentless-migration-appliance-requirements"></a>Migratie zonder agent-vereisten voor apparaat
@@ -148,14 +159,14 @@ Virtuele machine. interactie. uit | Toestaan dat de VM wordt uitgeschakeld tijde
 **ESXi** | De toestel-VM moet worden geïmplementeerd op een ESXi-host waarop versie 5,5 of hoger wordt uitgevoerd.
 **Azure Migrate project** | Een apparaat kan worden gekoppeld aan een enkel project.
 **vCenter Server** | Een apparaat kan tot 10.000 VMware-Vm's detecteren op een vCenter Server.<br/> Een apparaat kan verbinding maken met één vCenter Server.
-**VDDK** | Als u een migratie zonder agent uitvoert met Azure Migrate server migratie, moet de VMware vSphere Virtual Disk Development Kit (VDDK) zijn geïnstalleerd op de apparaat-VM.
+**VDDK** | Als u een migratie zonder agent uitvoert met Azure Migrate server migratie, moet de VMware vSphere VDDK zijn geïnstalleerd op de apparaat-VM.
 
 ## <a name="agentless-migration-url-access-requirements"></a>Migratie van zonder agents-URL-toegang
 
 Het Azure Migrate-apparaat heeft Internet verbinding met internet nodig.
 
 - Wanneer u het apparaat implementeert, controleert Azure Migrate een connectiviteits controle op de Url's die in de onderstaande tabel worden samenvatten.
-- Als u een firewall op basis van een URL gebruikt. proxy, toegang tot deze Url's toestaan, zodat alle CNAME-records worden omgezet die zijn ontvangen tijdens het opzoeken van de Url's.
+- Als u een proxy op basis van een URL gebruikt, verleent u toegang tot deze Url's, zodat de proxy alle CNAME-records kan omzetten die zijn ontvangen tijdens het opzoeken van de Url's.
 
 **URL** | **Details**  
 --- | ---
@@ -166,16 +177,17 @@ management.azure.com | Maak Active Directory apps voor het apparaat om te commun
 dc.services.visualstudio.com | App-logboeken uploaden die worden gebruikt voor interne bewaking.
 *.vault.azure.net | Geheimen beheren in de Azure Key Vault.
 *.servicebus.windows.net | Communicatie tussen het apparaat en de Azure Migrate service.
-*.discoverysrv.windowsazure.com<br/> *.migration.windowsazure.com<br/> *.hypervrecoverymanager.windowsazure.com | Verbinding maken met Azure Migrate service-Url's.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Verbinding maken met Azure Migrate service-Url's.
 *.blob.core.windows.net | Gegevens uploaden naar opslag accounts.
+http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Wordt gebruikt voor Azure Migrate apparaat-updates.
 
 
 ## <a name="agentless-migration-port-requirements"></a>Migratie zonder agent-poort vereisten
 
 **Apparaatconfiguratie** | **verbinding**
 --- | ---
-Apparaat | Uitgaande TCP-poort 3389 voor het uploaden van gerepliceerde gegevens naar Azure en om te communiceren met Azure Migrate voor replicatie en migratie.
-vCenter-server | Binnenkomende verbindingen op TCP-poort 443 om het apparaat in staat te stellen replicatie te organiseren-moment opnamen maken, gegevens kopiëren, moment opnamen van release
+Apparaat | Uitgaande verbindingen op poort 443 voor het uploaden van gerepliceerde gegevens naar Azure en om te communiceren met Azure Migrate services die replicatie en migratie coördineren.
+vCenter-server | Binnenkomende verbindingen op poort 443 om het apparaat in staat te stellen de replicatie te organiseren-moment opnamen maken, gegevens kopiëren, moment opnamen van de release
 vSphere/EXSI-host | Inkomend op TCP-poort 902 voor het apparaat om gegevens van moment opnamen te repliceren.
 
 
@@ -185,36 +197,12 @@ Deze tabel geeft een overzicht van de evaluatie-ondersteuning en beperkingen voo
 
 **Ondersteuning** | **Details**
 --- | ---
-**vCenter Server-ESXI** | VMware-Vm's die u migreert, moeten worden beheerd door een of meer vCenter-servers met 5,5, 6,0, 6,5 of 6,7, of worden uitgevoerd op een ESXI-host met vSphere versie 5,5, 6,0, 6,5 of 6,7.
+vCenter Server | Versie 5,5, 6,0, 6,5 of 6,7.
+VMware vSphere | Versie 5,5, 6,0, 6,5 of 6,7.
 
 ### <a name="agent-based-migration-vcenter-server-permissions"></a>Migratie op basis van agents-vCenter Server machtigingen
 
-**Machtigingen** | **Details**
---- | ---
-Datastore.AllocateSpace | Ruimte toewijzing in een gegevens opslag voor een VM, moment opname, kloon of virtuele schijf toestaan.
-Datastore.Browse | Bladeren door VM-logboek bestanden toestaan om problemen met het maken en verwijderen van moment opnamen op te lossen.
-Datastore.LowLevelFileOperations | Bewerkingen voor lezen, schrijven, verwijderen en naam wijzigen in de Data Store-browser toestaan om problemen met het maken of verwijderen van moment opnamen op te lossen.
-Data Store. UpdateVirtualMachineFiles | Het bijwerken van paden naar VM-bestanden in een gegevens archief toestaan nadat het gegevens archief opnieuw is ondertekend.
-Netwerk. AssignNetwork | Toewijzing van een netwerk aan een VM-resource toestaan.
-AssignVirtualMachineToResourcePool | Toewijzing van een virtuele machine aan een resource groep toestaan.
-Resource.MigratePoweredOffVirtualMachine | Migratie van een uitgeschakelde VM naar een andere resource groep of host toestaan.
-Resource.MigratePoweredOnVirtualMachine | Migratie met behulp van vMotion, van een ingeschakelde VM naar een andere resource groep of host toestaan.
-Taken. CreateTask | Een uitbrei ding toestaan om een door de gebruiker gedefinieerde taak te maken.
-Tasks.UpdateTask | Een uitbrei ding toestaan om een door de gebruiker gedefinieerde taak bij te werken.
-VirtualMachine.Configuration. | Configureren van VM-opties en-apparaten toestaan.
-Virtual Machine. interactie. AnswerQuestion | Oplossen van problemen met VM-status overgangen of-runtime fouten toestaan.
-Virtual Machine. interactie. DeviceConnection | Het wijzigen van de verbindings status van de virtuele apparaten die kunnen worden verbonden met een VM, toestaan.
-Virtual Machine. interactie. ConfigureCDMedia | Configuratie van een virtueel DVD-of CD-ROM-apparaat toestaan.
-Virtual Machine. interactie. ConfigureFloppyMedia | Configuratie van een virtueel diskette apparaat toestaan.
-Virtual Machine. interactie. uitgeschakeld | Hiermee kan de virtuele machine worden uitgeschakeld tijdens de migratie naar Azure.
-Virtual Machine. interactie. PowerOn | Schakel energie beheer in voor een uitgeschakelde virtuele machine en hervat een onderbroken VM.
-Virtual Machine.Interaction.VMwareToolsInstall | Hiermee staat u het koppelen en ontkoppelen van het installatie programma voor VMware-Hulpprogram Ma's voor het gast besturingssysteem toe.
-VirtualMachine. Inventory. CreateNew | Het maken van een VM en toewijzing van vereiste resources toestaan.
-VirtualMachine. Inventory. REGI ster | Toevoegen van een bestaande virtuele machine aan een vCenter Server of host-inventaris toestaan.
-VirtualMachine. Inventory. registratie ongedaan maken | Sta het ongedaan maken van de registratie van een VMe van een vCenter Server of host-inventaris toe.
-VirtualMachine.Provisioning.AllowVirtualMachineFilesUpload | Schrijf bewerkingen toestaan voor bestanden die zijn gekoppeld aan een virtuele machine, waaronder vmx, schijven, logboeken en NVRAM.
-VirtualMachine.Provisioning.AllowVirtualMachineDownload | Lees bewerkingen toestaan voor bestanden die zijn gekoppeld aan een virtuele machine om de logboeken te downloaden voor probleem oplossing.
-VirtualMachine. SnapshotManagement. RemoveSnapshot | Het verwijderen van een moment opname uit de momentopname geschiedenis toestaan.
+Een alleen-lezen account voor vCenter Server.
 
 ## <a name="agent-based-migration-replication-appliance-requirements"></a>Migratie op basis van een agent-vereisten voor replicatie-apparaat
 
@@ -228,8 +216,8 @@ De vereisten voor het [replicatie apparaat](migrate-replication-appliance.md) da
 **Onderdeel** | **Vereiste**
 --- | ---
  | **VMware-instellingen** (VMware VM-apparaat)
-**PowerCLI** | [PowerCLI-versie 6,0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) moet worden geïnstalleerd als het replicatie apparaat wordt uitgevoerd op een virtuele VMWare-machine.
-**NIC-type** | VMXNET3 (als het apparaat een VMware-VM is)
+PowerCLI | [PowerCLI-versie 6,0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) moet worden geïnstalleerd als het replicatie apparaat wordt uitgevoerd op een virtuele VMWare-machine.
+NIC-type | VMXNET3 (als het apparaat een VMware-VM is)
  | **Hardware-instellingen**
 CPU-kernen | 8
 RAM | 16 GB
@@ -242,10 +230,10 @@ Landinstelling van het besturingssysteem | Engels (en-us)
 TLS | TLS 1,2 moet zijn ingeschakeld.
 .NET Framework | .NET Framework 4,6 of hoger moet zijn geïnstalleerd op de computer (waarbij sterke crypto grafie is ingeschakeld.
 MySQL | MySQL moet op het apparaat worden geïnstalleerd.<br/> MySQL moet worden geïnstalleerd. U kunt hand matig installeren of Site Recovery kunt dit installeren tijdens de implementatie van het apparaat.
-Andere apps | U moet geen andere apps uitvoeren op het replicatie apparaat.
+Andere apps | Voer geen andere apps uit op het replicatie apparaat.
 Windows Server-functies | Deze rollen niet inschakelen: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
 Groeps beleid | Dit groeps beleid niet inschakelen: <br> -Toegang tot de opdracht prompt voor komen. <br> -Toegang tot register bewerkings Programma's verhinderen. <br> -Logica vertrouwen voor bestands bijlagen. <br> -Schakel uitvoering van script in. <br> [Meer informatie](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | -Geen vooraf bestaande standaard website <br> -Geen bestaande website/toepassing die luistert op poort 443 <br>- [Anonieme verificatie](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) inschakelen <br> - [Fastcgi](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) -instelling inschakelen
+IIS | -Geen vooraf bestaande standaard website <br> -Geen vooraf bestaande website/toepassing die luistert op poort 443 <br>- [Anonieme verificatie](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) inschakelen <br> - [Fastcgi](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) -instelling inschakelen
 **Netwerk instellingen** |
 Type IP-adres | Statisch
 Poorten | 443 (Orchestration-besturingselement)<br>9443 (Gegevenstransport)
@@ -273,11 +261,11 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 
 MySQL kan worden geïnstalleerd op het replicatie apparaat met een van deze methoden.
 
-**Installeren** | **Details**
+**Methode** | **Details**
 --- | ---
 Hand matig downloaden en installeren | Down load MySQL-toepassing & plaats deze in de map C:\Temp\ASRSetup en installeer hand matig.<br/> Bij het instellen van het apparaat MySQL wordt weer gegeven dat het al is geïnstalleerd.
-Niet online downloaden | Plaats de MySQL-installatie toepassing in de map C:\Temp\ASRSetup. Wanneer u het apparaat installeert en klikt om MySQL te downloaden en te installeren, wordt het installatie programma gebruikt dat u hebt toegevoegd.
-Downloaden van Azure Migrate | Wanneer u het apparaat installeert en wordt gevraagd naar MySQL, selecteert u **downloaden en installeren**.
+Zonder online downloaden | Plaats de MySQL-installatie toepassing in de map C:\Temp\ASRSetup. Wanneer u het apparaat installeert en klikt om MySQL te downloaden en te installeren, wordt het installatie programma gebruikt dat u hebt toegevoegd.
+Downloaden en installeren in Azure Migrate | Wanneer u het apparaat installeert en wordt gevraagd naar MySQL, selecteert u **downloaden en installeren**.
 
 
 
@@ -291,16 +279,30 @@ Downloaden van Azure Migrate | Wanneer u het apparaat installeert en wordt gevra
 **Netwerk/opslag** | Raadpleeg de vereisten voor het [netwerk](../site-recovery/vmware-physical-azure-support-matrix.md#network) en de [opslag](../site-recovery/vmware-physical-azure-support-matrix.md#storage) voor site Recovery voor de meest recente informatie. Azure Migrate biedt identieke netwerk-en opslag vereisten.
 **Azure-vereisten** | Bekijk de vereisten voor het Azure- [netwerk](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), de [opslag](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)en de [reken kracht](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) voor site Recovery voor de meest recente informatie. Azure Migrate heeft identieke vereisten voor VMware-migratie.
 **Mobility-service** | De Mobility Service-agent moet zijn geïnstalleerd op elke virtuele machine die u wilt migreren.
-**Doel schijf** | Vm's kunnen alleen worden gemigreerd naar Managed disks (Standard HHD, Premium SSD) in Azure.
+**UEFI-opstart** | De gemigreerde VM in azure wordt automatisch geconverteerd naar een BIOS-opstart-VM.<br/><br/> De besturingssysteem schijf moet Maxi maal vier partities hebben en volumes moeten worden geformatteerd met NTFS.
+**Doel schijf** | Vm's kunnen alleen worden gemigreerd naar Managed disks (standaard HDD, Premium SSD) in Azure.
+**Schijf grootte** | 2 TB besturingssysteem schijf; 8 TB voor gegevens schijven.
+**Schijf limieten** |  Maxi maal 63 schijven per VM.
+**Versleutelde schijven/volumes** | Vm's met versleutelde schijven/volumes worden niet ondersteund voor migratie.
+**Gedeeld schijf cluster** | Wordt niet ondersteund.
+**Onafhankelijke schijven** | Ondersteund.
+**Passthrough-schijven** | Ondersteund.
+**NFS** | NFS-volumes die zijn gekoppeld als volumes op de Vm's, worden niet gerepliceerd.
+iSCSI-doelen | Vm's met iSCSI-doelen worden niet ondersteund voor migratie zonder agent.
+**Multipath IO** | Wordt niet ondersteund.
+**Storage vMotion** | Ondersteund
+**Team kaarten** | Wordt niet ondersteund.
+**Ipconfiguration** | Wordt niet ondersteund.
+
 
 
 
 ## <a name="agent-based-migration-url-access-requirements"></a>Migratie op basis van een agent-vereisten voor URL-toegang
 
-De Mobility-service die wordt uitgevoerd op VMware-Vm's, heeft Internet verbinding met internet nodig.
+De Mobility-service die wordt uitgevoerd op VMware-Vm's, heeft Internet verbinding nodig.
 
-- Wanneer u de Mobility-service implementeert, wordt er een connectiviteits controle voor de Url's in de onderstaande tabel beschreven.
-- Als u een firewall op basis van een URL gebruikt. proxy, toegang tot deze Url's toestaan, zodat alle CNAME-records worden omgezet die zijn ontvangen tijdens het opzoeken van de Url's.
+Wanneer u de Mobility-service implementeert, wordt er een connectiviteits controle voor de Url's in de onderstaande tabel beschreven.
+
 
 **URL** | **Details**  
 --- | ---
@@ -318,7 +320,7 @@ dc.services.visualstudio.com | App-logboeken uploaden die worden gebruikt voor i
 
 **Apparaatconfiguratie** | **verbinding**
 --- | ---
-VM's | De Mobility-service die wordt uitgevoerd op Vm's communiceert met de on-premises configuratie server op poort HTTPS 443 inkomend voor replicatie beheer.<br/><br/> Vm's verzenden replicatie gegevens naar de proces server (die wordt uitgevoerd op de computer van de configuratie server) op poort HTTPS 9443-binnenkomend. Deze poort kan worden gewijzigd.
+VM's | De Mobility-service die wordt uitgevoerd op Vm's communiceert met het on-premises replicatie apparaat (configuratie server) op poort HTTPS 443 inkomend voor replicatie beheer.<br/><br/> Vm's verzenden replicatie gegevens naar de proces server (die wordt uitgevoerd op de computer van de configuratie server) op poort HTTPS 9443-binnenkomend. Deze poort kan worden gewijzigd.
 Replicatie apparaat | Het replicatie apparaat organiseert de replicatie met Azure via poort HTTPS 443 uitgaand.
 Processerver | De proces server ontvangt replicatie gegevens, optimaliseert en versleutelt deze en verzendt deze naar Azure Storage via poort 443 uitgaand.<br/> Standaard wordt de proces server uitgevoerd op het replicatie apparaat.
 
@@ -339,7 +341,7 @@ Gedeelde VHD | Wordt niet ondersteund. | De controle is mislukt als dit niet wor
 FC-schijf | Wordt niet ondersteund. | De controle is mislukt als dit niet wordt ondersteund.
 BitLocker | Wordt niet ondersteund. | BitLocker moet worden uitgeschakeld voordat u replicatie voor een machine inschakelt.
 VM-naam | Van 1 tot 63 tekens.<br/> Alleen letters, cijfers en afbreekstreepjes.<br/><br/> De naam van de computer moet beginnen en eindigen met een letter of cijfer. |  Werk de waarde in de computer eigenschappen in Site Recovery bij.
-Verbinding maken na migratie-Windows | Verbinding maken met virtuele Azure-machines na de migratie:<br/> -Voordat de migratie RDP op de on-premises virtuele machine inschakelt. Zorg dat TCP- en UDP-regels zijn toegevoegd voor het profiel **Openbaar** en dat RDP is toegestaan in **Windows Firewall** > **Toegestane apps** voor alle profielen.<br/> Schakel voor site-naar-site-VPN-toegang RDP in en sta RDP toe in **Windows Firewall** -> **toegestane apps en functies** voor **domein-en particuliere** netwerken. Controleer bovendien of het SAN-beleid van het besturings systeem is ingesteld op **OnlineAll**. [Meer informatie](https://support.microsoft.com/kb/3031135). |
+Verbinding maken na migratie-Windows | Verbinding maken met virtuele Azure-machines na de migratie:<br/> -Voordat de migratie RDP op de on-premises VM maakt. Zorg dat TCP- en UDP-regels zijn toegevoegd voor het profiel **Openbaar** en dat RDP is toegestaan in **Windows Firewall** > **Toegestane apps** voor alle profielen.<br/> Schakel voor site-naar-site-VPN-toegang RDP in en sta RDP toe in **Windows Firewall** -> **toegestane apps en functies** voor **domein-en particuliere** netwerken. Controleer bovendien of het SAN-beleid van het besturings systeem is ingesteld op **OnlineAll**. [Meer informatie](https://support.microsoft.com/kb/3031135). |
 Verbinding maken na migratie-Linux | Verbinding maken met virtuele Azure-machines na de migratie met SSH:<br/> Controleer voordat u de migratie op de on-premises computer controleert of de Secure shell-service is ingesteld op Start en of de firewall regels een SSH-verbinding toestaan.<br/> Nadat de failover is uitgevoerd op de Azure-VM, moet u binnenkomende verbindingen met de SSH-poort toestaan voor de regels voor de netwerk beveiligings groep op de virtuele machine die is mislukt en voor het Azure-subnet waarmee deze is verbonden. Voeg bovendien een openbaar IP-adres voor de virtuele machine toe. |  
 
 

@@ -1,92 +1,99 @@
 ---
-title: Instellen van een transformatie sink in de functie gegevensstroom toewijzing van Azure Data Factory
-description: Meer informatie over het instellen van een transformatie sink in de toewijzing van gegevensstroom.
+title: Stel een Sink-trans formatie in bij de functie gegevens stroom toewijzen van Azure Data Factory
+description: Meer informatie over het instellen van een Sink-trans formatie in de stroom voor het toewijzen van gegevens.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 4341cbb0e24330d535f5211c088f0068eab33af7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b228dfd92fe389d196a65f7152ef22751842f4bb
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596262"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640277"
 ---
-# <a name="sink-transformation-for-a-data-flow"></a>Sink-transformatie voor een gegevensstroom
+# <a name="sink-transformation-for-a-data-flow"></a>Sink-trans formatie voor een gegevens stroom
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Nadat u uw gegevensstroom transformeren, kunt u de gegevens naar een bestemming gegevensset sink. Kies in de sink-transformatie, de gegevenssetdefinitie van een voor de uitvoergegevens van de bestemming. U kunt hebben als veel transformaties sink als de gegevensstroom is vereist.
+Nadat u uw gegevens stroom hebt getransformeerd, kunt u de gegevens in een doel-gegevensset opvangen. Kies in de Sink-trans formatie een definitie van de gegevensset voor de doel uitvoer gegevens. U kunt zoveel Sink-trans formaties hebben als uw gegevens stroom vereist.
 
-Aan het account voor schema drift en wijzigingen in de binnenkomende gegevens sink van de uitvoergegevens naar een map zonder een schema opgegeven in de uitvoergegevensset. U kunt ook rekening gehouden met kolom wijzigingen in uw bronnen hiervoor **toestaan schema drift** in de bron. Vervolgens velden automatisch toewijzen alle in de sink.
+Om rekening te houden met schema drift en wijzigingen in binnenkomende gegevens, moet u de uitvoer gegevens opvangen naar een map zonder een gedefinieerd schema in de uitvoer gegevensset. U kunt ook account voor kolom wijzigingen in uw bronnen instellen door **schema-drift toestaan** in de bron te selecteren. Vervolgens worden alle velden in de Sink Automap.
 
-![Opties op het tabblad Sink, met inbegrip van de optie automatisch toewijzen](media/data-flow/sink1.png "sink-1")
+![Opties op het tabblad sink, met inbegrip van de optie automatisch toewijzen](media/data-flow/sink1.png "sink 1")
 
-Sink-alle binnenkomende velden, schakel **toewijzing automatisch**. Als u de velden om op te vangen naar de bestemming of te wijzigen van de namen van de velden op de bestemming, uit te schakelen **toewijzing automatisch**. Open vervolgens de **toewijzing** tabblad uitvoervelden toe te wijzen.
+Als u alle binnenkomende velden wilt opvangen, schakelt u **automatische toewijzing**in. Als u de velden wilt selecteren die moeten worden gefilterd op de bestemming, of als u de namen van de velden op de bestemming wilt wijzigen, schakelt u **automatisch toewijzen**uit. Open vervolgens het tabblad **toewijzing** om uitvoer velden toe te wijzen.
 
-![Opties op het tabblad toewijzing](media/data-flow/sink2.png "sink-2")
+![Opties op het tabblad toewijzing](media/data-flow/sink2.png "sink 2")
 
-## <a name="output"></a>Uitvoer 
-Voor Azure Blob storage of Data Lake Storage-sink typen, voert u de getransformeerde gegevens naar een map. Spark genereert gepartitioneerde gegevens uitvoerbestanden op basis van het partitieschema die gebruikmaakt van de sink-transformatie. 
+## <a name="output"></a>Output 
+Voor Azure Blob Storage-of Data Lake Storage Sink-typen voert u de getransformeerde gegevens uit naar een map. Spark genereert gepartitioneerde uitvoer gegevens bestanden op basis van het partitie schema dat door de Sink-trans formatie wordt gebruikt. 
 
-U kunt instellen dat het partitieschema van de **optimaliseren** tabblad. Als u Data Factory voor het samenvoegen van de uitvoer in een enkel bestand, selecteer **één partitie**.
+U kunt het partitie schema instellen op het tabblad **optimaliseren** . Als u wilt dat Data Factory uw uitvoer in één bestand samenvoegt, selecteert u **één partitie**.
 
 ![Opties op het tabblad optimaliseren](media/data-flow/opt001.png "sink-opties")
 
-## <a name="field-mapping"></a>Veldtoewijzing
-
-Op de **toewijzing** tabblad van de sink-transformatie, kunt u de binnenkomende kolommen aan de linkerkant toewijzen aan de bestemmingen aan de rechterkant. Wanneer u sink-gegevensstromen naar bestanden, wordt Data Factory altijd nieuwe bestanden schrijven naar een map. Wanneer u aan een database-gegevensset toewijst, kunt u een nieuwe tabel die gebruikmaakt van dit schema door in te stellen genereren **beleid opslaan** naar **overschrijven**. Of nieuwe rijen in een bestaande tabel invoegen en vervolgens de velden toewijzen aan de bestaande schema's. 
+## <a name="field-mapping"></a>Veld toewijzing
+Op het tabblad **toewijzing** van de Sink-trans formatie kunt u de binnenkomende kolommen aan de linkerkant toewijzen aan de doelen aan de rechter kant. Wanneer u gegevens stromen naar bestanden sinkt, worden er door Data Factory altijd nieuwe bestanden naar een map geschreven. Wanneer u toewijst aan een Data Base-gegevensset, kiest u bewerkings opties voor database tabellen om in te voegen, bij te werken, te upsert of te verwijderen.
 
 ![Het tabblad toewijzing](media/data-flow/sink2.png "Sinks")
 
-In de tabel met toewijzingen kunt u meervoudige selectie voor het koppelen van meerdere kolommen, loskoppelen van meerdere kolommen of meerdere rijen worden toegewezen aan de naam van de dezelfde kolom.
+U kunt in de tabel toewijzing meerdere kolommen koppelen, meerdere kolommen ontkoppelen of meerdere rijen aan dezelfde kolom naam toewijzen.
 
-Altijd de binnenkomende set velden toewijzen aan een doel, zoals ze zijn en volledig accepteren flexibele schemadefinities, selecteer **toestaan schema drift**.
+Selecteer **schema-drift toestaan**om de binnenkomende set van velden altijd toe te wijzen aan een doel, en om flexibele schema definities volledig te accepteren.
 
-![Het tabblad toewijzing met velden die zijn toegewezen aan kolommen in de gegevensset](media/data-flow/multi1.png "meerdere opties")
+![Het tabblad toewijzing met de velden die zijn toegewezen aan de kolommen in de gegevensset](media/data-flow/multi1.png "meerdere opties")
 
-Als u uw kolomtoewijzingen herstellen, selecteert u **opnieuw toewijzen**.
+Als u de kolom toewijzingen opnieuw wilt instellen, selecteert u **opnieuw toewijzen**.
 
-![Het tabblad Sink](media/data-flow/sink1.png "een Sink")
+![Het tabblad Sink](media/data-flow/sink1.png "Eén Sink")
 
-Selecteer **valideren schema** de sink mislukken als het schema wordt gewijzigd.
+Selecteer **schema valideren** om de sink te laten mislukken als het schema wordt gewijzigd.
 
-Selecteer **schakelt u de map** afkappen van de inhoud van de sink-map voor het schrijven van de doel-bestanden in die map.
+Selecteer **de map wissen** om de inhoud van de map Sink af te kappen voordat u de doel bestanden in die doelmap schrijft.
 
-## <a name="file-name-options"></a>Opties voor bestandsnamen
+## <a name="rule-based-mapping"></a>Toewijzing op basis van een regel
+Wanneer u automatische toewijzing uitschakelt, hebt u de mogelijkheid om een op kolom gebaseerde toewijzing (vaste toewijzing) of toewijzing op basis van een regel toe te voegen. Met op regels gebaseerde toewijzing kunt u expressies met patroon matching schrijven. 
 
-Instellen van het benoemen van bestanden: 
+![Toewijzing op basis van een regel](media/data-flow/rules4.png "Toewijzing op basis van een regel")
 
-   * **Standaard**: Spark op de naam van bestanden op basis van standaardinstellingen voor onderdeel toestaan.
-   * **Patroon**: Geef een patroon voor de uitvoerbestanden. Bijvoorbeeld, **leningen [n]** maakt loans1.csv, loans2.csv, enzovoort.
-   * **Per partitie**: Geef een bestandsnaam per partitie.
-   * **Als gegevens in de kolom**: Het uitvoerbestand ingesteld op de waarde van een kolom.
-   * **Uitvoer naar een enkel bestand**: Met deze optie wordt ADF de gepartitioneerde uitvoerbestanden combineren tot één bestand met de naam. Als u wilt deze optie gebruikt, moet uw gegevensset worden omgezet naar een mapnaam. Ook, houd er rekening mee dat deze samenvoeging kan mogelijk niet op basis van de grootte van knooppunt.
+Wanneer u op regels gebaseerde toewijzing kiest, geeft u de ADF de opdracht om de overeenkomende expressie te evalueren zodat deze overeenkomt met de regels voor binnenkomende patronen en de uitgaande veld namen te definiëren. U kunt een combi natie van zowel veld-als op regels gebaseerde toewijzingen toevoegen. Veld namen worden vervolgens gegenereerd tijdens runtime via ADF op basis van binnenkomende meta gegevens van de bron. U kunt de namen van de gegenereerde velden weer geven tijdens fout opsporing en het deel venster gegevens voorbeeld gebruiken.
 
-> [!NOTE]
-> Start operations bestand alleen als u de gegevensstroom uitvoeren activiteit uitvoert. Ze starten in modus gegevens Flow foutopsporing niet.
+Meer informatie over patroon vergelijking vindt u in de documentatie van het [kolom patroon](concepts-data-flow-column-pattern.md).
 
-## <a name="database-options"></a>Opties voor de database
+## <a name="file-name-options"></a>Opties voor bestands namen
 
-Database-instellingen kiezen:
+Bestands namen instellen: 
 
-* **Werk de methode bij**: De standaardwaarde is om te kunnen worden ingevoegd. Schakel **toestaan insert** als u wilt stoppen met het invoegen van nieuwe rijen vanuit de bron. Als u wilt bijwerken, upsert, of verwijderen van rijen, moet u eerst een transformatie alter-rij toevoegen aan de rijen van de code voor deze acties. 
-* **Opnieuw maken van tabel**: Niet verwijderen of uw doeltabel maken voordat de gegevensstroom is voltooid.
-* **Afkappen tabel**: Alle rijen uit de doeltabel verwijderen voordat de gegevensstroom is voltooid.
-* **Batchgrootte**: Voer een getal en bucket schrijfbewerkingen in segmenten. Gebruik deze optie voor grote hoeveelheden gegevens geladen. 
-* **Faseringsmodus inschakelen**: PolyBase gebruiken wanneer u Azure Data Warehouse als de sink-gegevensset laden.
-
-![Het tabblad instellingen met de SQL-sink-opties die](media/data-flow/alter-row2.png "SQL-opties")
+   * **Standaard**: Spark toestaan om bestanden een naam te geven op basis van de standaard waarden van een deel.
+   * **Patroon**: Voer een patroon in voor uw uitvoer bestanden. Bijvoorbeeld: **leningen [n]** maken loans1. CSV, loans2. CSV, enzovoort.
+   * **Per partitie**: Voer één bestands naam per partitie in.
+   * **Als gegevens in kolom**: Het uitvoer bestand instellen op de waarde van een kolom.
+   * **Uitvoer naar één bestand**: Met deze optie worden de gepartitioneerde uitvoer bestanden in de ADF gecombineerd tot één bestand met een naam. Als u deze optie wilt gebruiken, moet uw gegevensset worden omgezet in een mapnaam. Houd er ook rekening mee dat deze samenvoeg bewerking mogelijk niet kan worden uitgevoerd op basis van de knooppunt grootte.
 
 > [!NOTE]
-> In de gegevensstroom, kunt u Data Factory te maken van een nieuwe definitie van de tabel in de doeldatabase sturen. Voor het maken van de definitie van de tabel, stelt u een gegevensset in de sink-transformatie die de naam van een nieuwe tabel heeft. Selecteer in de SQL-gegevensset, onder de naam van de tabel **bewerken** en voer de naam van een nieuwe tabel. In de sink-transformatie, schakelt u **toestaan schema drift**. Stel **schema importeren** naar **geen**.
+> Bestands bewerkingen worden alleen gestart wanneer u de activiteit gegevens stroom uitvoeren uitvoert. Ze worden niet gestart in de modus voor fout opsporing van gegevens stromen.
 
-![SQL-gegevensset-instellingen, die laat zien waar de tabelnaam bewerken](media/data-flow/dataset2.png "SQL-Schema")
+## <a name="database-options"></a>Database opties
+
+Data base-instellingen kiezen:
+
+* **Update methode**: De standaard instelling is invoegen toestaan. Schakel **Invoegen toestaan** uit als u wilt stoppen met het invoegen van nieuwe rijen uit uw bron. Als u rijen wilt bijwerken, upsert of verwijderen, moet u eerst een trans formatie met gewijzigde rijen toevoegen aan de labels voor deze acties. 
+* **Tabel opnieuw maken**: De doel tabel neerzetten of maken voordat de gegevens stroom is voltooid.
+* **Tabel afkappen**: Verwijder alle rijen uit de doel tabel voordat de gegevens stroom is voltooid.
+* **Batch grootte**: Voer een getal in om schrijf bewerkingen naar segmenten te buckeren. Gebruik deze optie voor het laden van grote hoeveel heden gegevens. 
+* **Fase ring inschakelen**: Gebruik poly base wanneer u Azure data warehouse als uw Sink-gegevensset laadt.
+
+![Het tabblad instellingen met de SQL-Sink-opties](media/data-flow/alter-row2.png "SQL-opties")
 
 > [!NOTE]
-> Als u bijwerken of verwijderen van rijen in de database-sink, moet u de sleutelkolom instellen. Deze instelling kan de transformatie alter-rij om te bepalen van de unieke rij in de bibliotheek voor gegevensverplaatsing (DML).
+> In gegevens stroom kunt u Data Factory omleiden om een nieuwe tabel definitie in de doel database te maken. Als u de tabel definitie wilt maken, stelt u een gegevensset in de Sink-trans formatie in die een nieuwe tabel naam heeft. Selecteer in de SQL-gegevensset onder de tabel naam **bewerken** en voer een nieuwe tabel naam in. Schakel vervolgens in de Sink-trans formatie **Allow schema drift toestaan**in. Stel **import schema** in op **geen**.
+
+![Instellingen van SQL-gegevensset, waarmee wordt aangegeven waar de tabel naam moet worden bewerkt](media/data-flow/dataset2.png "SQL-schema")
+
+> [!NOTE]
+> Wanneer u rijen in de data base-Sink bijwerkt of verwijdert, moet u de sleutel kolom instellen. Met deze instelling kan de Alter-Row trans formatie de unieke rij in de gegevens verplaatsings bibliotheek (DML) bepalen.
 
 ## <a name="next-steps"></a>Volgende stappen
-
-Nu dat u de gegevensstroom hebt gemaakt, Voeg een [gegevensstroom activiteit aan uw pijplijn](concepts-data-flow-overview.md).
+Nu u de gegevens stroom hebt gemaakt, voegt u een [gegevens stroom activiteit toe aan uw pijp lijn](concepts-data-flow-overview.md).

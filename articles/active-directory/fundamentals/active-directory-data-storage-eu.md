@@ -2,9 +2,9 @@
 title: Identiteit gegevensopslag voor Europese klanten - Azure Active Directory | Microsoft Docs
 description: Meer informatie over waar identiteit gerelateerde gegevens in Azure Active Directory worden opgeslagen voor de Europese klanten.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
-ms.author: lizross
+ms.author: ajburnle
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
@@ -12,31 +12,33 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93ac5ef5f03f800a8f90259db3e382b3bc5c5e2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33704c3392726ccd12ca0fd74f26465a54697e11
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235167"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722132"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identiteit gegevensopslag voor Europese klanten in Azure Active Directory
-Id-gegevens wordt opgeslagen door Azure AD in een geografische locatie gebaseerd op het adres dat is geleverd door uw organisatie bij het abonneren op een Microsoft Online service, zoals Office 365 en Azure. Voor informatie over waar de identiteitsgegevens van uw worden opgeslagen, kunt u de [waar zijn uw gegevens zich?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) gedeelte van het Microsoft Trust Center.
+Identiteits gegevens worden opgeslagen door Azure AD op een geografische locatie op basis van het adres van uw organisatie bij het abonneren op een micro soft online service, zoals Office 365 en Azure. Voor informatie over waar uw identiteits gegevens worden opgeslagen, kunt u de sectie [waar bevinden zich uw gegevens?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) in het micro soft vertrouwens centrum gebruiken.
 
-Voor klanten die voorzien van een adres in Europa, houdt de Azure AD de meeste van de identiteitsgegevens in Europese datacenters. Dit document bevat informatie over alle gegevens die zijn opgeslagen buiten Europa door Azure AD-services.
+Voor klanten die een adres in Europa hebben geleverd, houdt Azure AD de meeste identiteits gegevens binnen de Europese data centers. Dit document bevat informatie over alle gegevens die buiten Europa door Azure AD Services zijn opgeslagen.
 
-## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure multi-factor authentication (MFA)
+## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Multi-factor Authentication (MFA) Microsoft Azure
     
-- Alle tweeledige verificatie met behulp van telefoongesprekken of SMS-afkomstig zijn uit de Amerikaanse datacentra en ook door leveranciers worden gerouteerd.
-- Pushmeldingen verzenden met behulp van de Microsoft Authenticator app afkomstig zijn van ons datacenters. Apparaat de leverancier van specifieke services kunnen bovendien ook afkomstig zijn in de play en deze services mogelijk buiten Europa.
+- Alle twee ledige verificatie met behulp van telefoon gesprekken of SMS afkomstig van Amerikaanse data centers en worden ook gerouteerd door wereld wijde providers.
+- Push meldingen met behulp van de Microsoft Authenticator-app, afkomstig van Amerikaanse data centers. Daarnaast kunnen specifieke services van apparaten ook worden afgespeeld en deze services zijn mogelijk buiten Europa.
 - OATH-codes worden altijd gevalideerd in de Verenigde Staten. 
+
+Voor meer informatie over welke gebruikers gegevens worden verzameld door Azure multi-factor Authentication-Server (MFA server) en Azure MFA in de Cloud, raadpleegt u [Azure multi-factor Authentication-gebruikers gegevens verzameling](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection).
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 
-Azure AD B2C-beleid-configuratiegegevens en -sleutelcontainers worden opgeslagen in Amerikaanse datacentra. Deze bevatten geen persoonlijke gegevens van elke gebruiker. Zie voor meer informatie over configuraties voor beleid voor de [Azure Active Directory B2C: Ingebouwd beleid](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) artikel.
+Azure AD B2C-beleids configuratie gegevens en sleutel containers worden opgeslagen in de data centers van de VS. Deze bevatten geen persoonlijke gegevens van de gebruiker. Voor meer informatie over beleids configuraties raadpleegt u [de Azure Active Directory B2C: Het artikel ingebouwde beleids](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) regels.
 
 ## <a name="microsoft-azure-active-directory-b2b-azure-ad-b2b"></a>Microsoft Azure Active Directory B2B (Azure AD B2B) 
     
-Azure AD B2B-winkels uitnodigingen met verzilveren koppelen en Omleidings-URL-gegevens in Amerikaanse datacentra. Bovendien worden de e-mailadres van gebruikers die af voor B2B uitnodigingen ontvangen ook opgeslagen in Amerikaanse datacentra.
+Azure AD B2B slaat uitnodigingen met Verwissel-en omleidings-URL-informatie op in de VS-data centers. Daarnaast worden e-mail adressen van gebruikers die zich afmelden voor het ontvangen van B2B-uitnodigingen ook opgeslagen in de data centers in de VS.
 
 ## <a name="microsoft-azure-active-directory-domain-services-azure-ad-ds"></a>Microsoft Azure Active Directory Domain Services (Azure AD DS)
 
@@ -44,12 +46,12 @@ Azure Active Directory Domain Services slaat gebruikersgegevens op dezelfde loca
 
 ## <a name="other-considerations"></a>Andere overwegingen
 
-Services en toepassingen die kunnen worden geïntegreerd met Azure AD hebt toegang tot identiteitsgegevens. Elke service en toepassing die u gebruikt om te bepalen hoe identiteitsgegevens worden verwerkt door die specifieke service en de toepassing en of ze voldoen aan vereisten voor gegevensopslag van uw bedrijf evalueren.
+Services en toepassingen die met Azure AD worden geïntegreerd, hebben toegang tot identiteits gegevens. Evalueer elke service en toepassing die u gebruikt om te bepalen hoe identiteits gegevens worden verwerkt door die specifieke service en toepassing en of ze voldoen aan de vereisten voor gegevens opslag van uw bedrijf.
 
 Zie de sectie [Waar bevinden uw gegevens zich?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) van het Microsoft Trust Center voor meer informatie over de gegevenslocatie van Microsoft-services.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende artikelen voor meer informatie over een van de functies en functionaliteit die hierboven worden beschreven:
+Zie de volgende artikelen voor meer informatie over de functies en functionaliteit die hierboven worden beschreven:
 - [Wat is Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
 
 - [Azure Active Directory Self-Service Password Reset](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)

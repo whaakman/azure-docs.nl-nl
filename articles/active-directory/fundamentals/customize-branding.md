@@ -2,23 +2,23 @@
 title: Huisstijl van uw organisatie aanmelden pagina - Azure Active Directory toevoegen | Microsoft Docs
 description: Instructies over het toevoegen van de huisstijl van uw organisatie op de aanmeldingspagina van Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bef3960e5c117a131b59a65196214c51e01bd3c8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 3ae329bd031a2a57ea4fc2eec9cde1e532439bb4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204579"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561701"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Huisstijl van uw organisatie Azure Active Directory-aanmelden pagina toevoegen
 Het logo en de aangepaste kleurenschema's van uw organisatie gebruiken om een consistent uiterlijk-en-werking op uw Azure Active Directory (Azure AD) aanmeldingspagina's. Uw aanmeldingspagina's worden weergegeven wanneer gebruikers zich aanmelden bij uw organisatie op basis van een web-apps, zoals Office 365, dat gebruikmaakt van Azure AD als id-provider.
@@ -29,7 +29,7 @@ Het logo en de aangepaste kleurenschema's van uw organisatie gebruiken om een co
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Uw Azure AD-aanmeldingspagina aanpassen
 U kunt uw Azure AD-aanmelden pagina's aanpassen, die worden weergegeven wanneer gebruikers zich aanmelden bij apps van de tenant-specifieke van uw organisatie, zoals [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), of als een domeinvariabele, zoals wordtdoorgegeven[ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
-Uw aangepaste huisstijl niet onmiddellijk weergegeven wanneer uw gebruikers gaat u naar sites zoals www\.office.com. In plaats daarvan wordt de gebruiker heeft om aan te melden voordat uw aangepaste huisstijl weergegeven.
+Uw aangepaste huis stijl wordt niet onmiddellijk weer gegeven wanneer uw gebruikers naar sites gaan,\.zoals www-Office.com. In plaats daarvan wordt de gebruiker heeft om aan te melden voordat uw aangepaste huisstijl weergegeven.
 
 > [!NOTE]
 > Alle huisstijl elementen zijn optioneel. Als u een logo in banner met geen afbeelding opgeeft, wordt de aanmeldingspagina uw logo met een standaardinstallatiekopie van achtergrond van de doelsite (bijvoorbeeld Office 365) weergegeven.<br><br>Bovendien branding-aanmeldingspagina niet meegenomen naar persoonlijke Microsoft-accounts. Als uw gebruikers- of zakelijke gasten zich hebt aangemeld met een persoonlijk Microsoft-account, wordt niet de aanmeldingspagina doorgevoerd in de huisstijl van uw organisatie.
@@ -58,7 +58,7 @@ Uw aangepaste huisstijl niet onmiddellijk weergegeven wanneer uw gebruikers gaat
 
         - **Standaardvaandel logo.** Selecteer een PNG- of jpg-versie van het logo op de aanmeldingspagina wordt weergegeven nadat de gebruiker een gebruikersnaam typt en op de **mijn Apps** portal-pagina.
             
-            De installatiekopie mag niet langer dan 60 pixels of breder dan 280 pixels. U wordt aangeraden een transparante afbeelding gebruikt, omdat de achtergrond mogelijk niet overeen met de achtergrond van het logo. Het beste ook niet toe te voegen opvulling rond de afbeelding of het ervoor kan zorgen dat uw logo kleine zoeken.
+            De afbeelding mag niet groter zijn dan 60 pixels of breder zijn dan 280 pixels. U wordt aangeraden een transparante afbeelding gebruikt, omdat de achtergrond mogelijk niet overeen met de achtergrond van het logo. Het beste ook niet toe te voegen opvulling rond de afbeelding of het ervoor kan zorgen dat uw logo kleine zoeken.
 
         - **Hint voor gebruikersnaam.** Typ de tekst van de hint die voor gebruikers wordt weergegeven als ze hun gebruikersnaam bent vergeten. Deze tekst moet Unicode, zonder koppelingen of code, en mag maximaal 64 tekens bevatten. Als gasten zich aanmelden bij uw app, het is raadzaam deze hint niet toevoegen.
 
@@ -70,7 +70,7 @@ Uw aangepaste huisstijl niet onmiddellijk weergegeven wanneer uw gebruikers gaat
 
         - **De achtergrondkleur van de aanmeldingspagina.** De hexadecimale kleur opgeven (bijvoorbeeld wit is #FFFFFF) die wordt weergegeven in plaats van uw achtergrondafbeelding in situaties met een lage bandbreedte verbinding. We raden u aan met behulp van de primaire kleur van uw logo in banner of de kleur van uw organisatie.
 
-        - **Afbeelding met vierkant logo.** Selecteer een PNG (bij voorkeur) of JPG-afbeelding van het logo van uw organisatie worden weergegeven aan gebruikers tijdens de installatieprocedure voor de nieuwe Windows 10 Enterprise-apparaten. Deze installatiekopie wordt alleen gebruikt voor Windows-verificatie en wordt alleen weergegeven op tenants die gebruikmaken van [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) voor implementatie of voor wachtwoordinvoer pagina's in andere Windows-10-ervaringen. In sommige gevallen kan deze ook weergegeven in het dialoogvenster.
+        - **Afbeelding met vierkant logo.** Selecteer een PNG (bij voorkeur) of JPG-afbeelding van het logo van uw organisatie worden weergegeven aan gebruikers tijdens de installatieprocedure voor de nieuwe Windows 10 Enterprise-apparaten. Deze installatiekopie wordt alleen gebruikt voor Windows-verificatie en wordt alleen weergegeven op tenants die gebruikmaken van [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) voor implementatie of voor wachtwoordinvoer pagina's in andere Windows-10-ervaringen. In sommige gevallen kan het ook worden weer gegeven in het dialoog venster voor toestemming.
         
             De installatiekopie mag niet groter zijn dan 240 x 240 pixels groot en een bestandsgrootte van minder dan 10 KB als ze beschikken. U wordt aangeraden een transparante afbeelding gebruikt, omdat de achtergrond mogelijk niet overeen met de achtergrond van het logo. Het beste ook niet toe te voegen opvulling rond de afbeelding of het ervoor kan zorgen dat uw logo kleine zoeken.
     

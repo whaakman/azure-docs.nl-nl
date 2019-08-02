@@ -1,6 +1,6 @@
 ---
-title: Gegevens van de klant functies in Azure Time Series Insights aanvragen | Microsoft Docs
-description: Overzicht van functies voor aanvraag klant Azure Time Series Insights.
+title: Functies voor het aanvragen van klant gegevens in Azure Time Series Insights | Microsoft Docs
+description: Samen vatting van Azure Time Series Insights functies voor gegevens aanvragen van de klant.
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
@@ -9,67 +9,67 @@ ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: f99a54f5623100e057e0c02249f5886f46656a21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a67e716300254b7ae73cf5c608e4ab9177638456
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66355934"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677907"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Overzicht van de klant functies voor aanvraag
 
-Azure Time Series Insights is een beheerde cloudservice met opslag, analyse en visualisatie waarmee u eenvoudig opnemen, opslaan, verkennen en analyseren van miljarden gebeurtenissen tegelijkertijd.
+Azure Time Series Insights is een beheerde Cloud service met opslag-, analyse-en visualisatie onderdelen waarmee u gemakkelijk miljarden gebeurtenissen tegelijkertijd kunt opnemen, opslaan, verkennen en analyseren.
 
 [!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
 
-Als u wilt weergeven, exporteren en verwijderen van persoonlijke gegevens die zijn mogelijk onderhevig aan een aanvraag voor onderwerp, kunt een tenantbeheerder van Azure Time Series Insights Azure portal of de REST API's gebruiken. Met behulp van Azure portal data subject aanvragen, biedt een minder gecompliceerde methode voor het uitvoeren van deze bewerkingen die de meeste gebruikers liever.
+Voor het weer geven, exporteren en verwijderen van persoonlijke gegevens die kunnen worden onderhevig aan een aanvraag voor een gegevens certificaat, kan een Azure Time Series Insights Tenant beheerder de Azure Portal of de REST-Api's gebruiken. Met behulp van de Azure Portal voor het uitvoeren van aanvragen voor service gegevens, biedt een minder complexe methode om deze bewerkingen uit te voeren die de meeste gebruikers prefereren.
 
-## <a name="identifying-customer-data"></a>Identificeren van klantgegevens
+## <a name="identifying-customer-data"></a>Klant gegevens identificeren
 
-Azure Time Series Insights beschouwt persoonlijke gegevens worden gegevens die zijn gekoppeld aan beheerders en gebruikers van Time Series Insights. Time Series Insights slaat de Azure Active Directory-object-ID in van gebruikers met toegang tot de omgeving. De Azure-portal wordt weergegeven voor gebruiker e-mailadressen, maar deze e-mailadressen zijn niet opgeslagen in Time Series Insights, ze dynamisch worden bekeken met behulp van de Azure Active Directory-object-ID in Azure Active Directory.
+Azure Time Series Insights persoons gegevens worden beschouwd als gegevens die zijn gekoppeld aan beheerders en gebruikers van Time Series Insights. Time Series Insights slaat de Azure Active Directory object-ID van de gebruikers die toegang hebben tot de omgeving. In het Azure Portal worden e-mail adressen van gebruikers weer gegeven, maar deze e-mail adressen worden niet opgeslagen in Time Series Insights. ze worden dynamisch gezocht met behulp van de Azure Active Directory object-ID in Azure Active Directory.
 
 ## <a name="deleting-customer-data"></a>Verwijderen van klantgegevens
 
-Een tenantbeheerder kan gegevens van de klant via Azure portal verwijderen.
+Een Tenant beheerder kan klant gegevens verwijderen met behulp van de Azure Portal.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Voordat u gegevens van de klant via de portal verwijdert, moet u het toegangsbeleid van de gebruiker verwijderen uit de Time Series Insights-omgeving in Azure portal. Zie voor meer informatie, [gegevenstoegang verlenen tot een Time Series Insights-omgeving met behulp van Azure portal](time-series-insights-data-access.md).
+Voordat u echter klant gegevens verwijdert via de portal, moet u het toegangs beleid van de gebruiker verwijderen uit de Time Series Insights omgeving binnen de Azure Portal. Zie [granting Data Access to a time series Insights environment using Azure Portal](time-series-insights-data-access.md)(Engelstalig) voor meer informatie.
 
-U kunt ook de delete-bewerkingen op beleidsregels voor toegang met behulp van de REST-API uitvoeren. Zie voor meer informatie, [toegangsbeleid - verwijderen](/rest/api/time-series-insights/management/accesspolicies/delete).
+U kunt ook delete-bewerkingen uitvoeren op toegangs beleid met behulp van de REST API. Zie [Access policies-Delete (](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/delete)Engelstalig) voor meer informatie.
 
-Time Series Insights is geïntegreerd met de beleid-blade in Azure portal. Time Series Insights zowel de blade beleid kunnen u bekijken, exporteren en verwijderen van gegevens van de gebruiker die zijn opgeslagen in de service. Een verwijderen actie op die in de blade beleid van de Azure portal leidt tot de verwijdering van gebruikersgegevens binnen de Time Series Insights. Bijvoorbeeld, als een gebruiker een opgeslagen query een persoonlijke heeft, is deze query permanent verwijderd uit de Verkenner van Time Series Insights. Als de gebruiker een opgeslagen gedeelde query heeft, wordt de query blijft bestaan, maar de gebruikersinformatie is definitief verwijderd. De opmerking hieronder bevat instructies over het uitvoeren van deze taken.
+Time Series Insights is geïntegreerd met de Blade beleid in de Azure Portal. Zowel Time Series Insights als de Blade beleid kunt u gebruiken om gebruikers gegevens weer te geven, te exporteren en te verwijderen die zijn opgeslagen in de service. Alle verwijderings acties die zijn uitgevoerd op de Blade beleid van de Azure Portal resulteert in het verwijderen van gebruikers gegevens in Time Series Insights. Als een gebruiker bijvoorbeeld een opgeslagen persoonlijke query heeft, wordt die query permanent verwijderd uit de Time Series Insights Explorer. Als de gebruiker een opgeslagen gedeelde query heeft, blijft de query behouden, maar worden de gebruikers gegevens definitief verwijderd. De volgende notitie bevat instructies voor het uitvoeren van deze taken.
 
 ## <a name="exporting-customer-data"></a>Exporteren van gegevens van de klant
 
-Op dezelfde manier voor het verwijderen van gegevens, kan een tenantbeheerder weergeven en exporteren van gegevens die zijn opgeslagen in Time Series Insights op de blade beleid in Azure portal.
+Net als bij het verwijderen van gegevens kan een Tenant beheerder gegevens die zijn opgeslagen in Time Series Insights bekijken en exporteren vanuit de Blade beleid in de Azure Portal.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Als u een tenantbeheerder bent, kunt u beleid voor gegevenstoegang binnen de Time Series Insights-omgeving bekijken in Azure portal. Zie voor meer informatie, [gegevenstoegang verlenen tot een Time Series Insights-omgeving met behulp van Azure portal](time-series-insights-data-access.md).
+Als u een Tenant beheerder bent, kunt u het beleid voor gegevens toegang weer geven in de Time Series Insights omgeving van de Azure Portal. Zie [granting Data Access to a time series Insights environment using Azure Portal](time-series-insights-data-access.md)(Engelstalig) voor meer informatie.
 
-Het is ook mogelijk om uit te voeren van uitvoer-bewerkingen op beleidsregels voor toegang met behulp van de bewerking 'lijst met omgeving' in de opgegeven REST-API. Zie voor meer informatie, [toegangsbeleid - lijst door omgeving](/rest/api/time-series-insights/management/accesspolicies/listbyenvironment).
+Het is ook mogelijk om export bewerkingen uit te voeren op toegangs beleid met behulp van de bewerking ' lijst op omgeving ' in de gegeven REST API. Zie [toegangs beleid-lijst per omgeving](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/listbyenvironment)voor meer informatie.
 
-## <a name="to-delete-data-stored-within-time-series-insights"></a>Gegevens die zijn opgeslagen in Time Series Insights verwijderen
+## <a name="to-delete-data-stored-within-time-series-insights"></a>Gegevens verwijderen die zijn opgeslagen in Time Series Insights
 
-Persoonlijke gegevens mogelijk maakt eraan Time Series Insights-opslag, een ander scenario van gebruiker en gegevens van de beheerder. Als u rekening houden met de gegevens die zijn opgeslagen in Time Series Insights als persoonlijke gegevens, kunt u die kunt exporteren en verwijderen van die gegevens met behulp van de volgende stappen uit:
+Persoonlijke gegevens kunnen worden omgezet in Time Series Insights opslag, een ander scenario van gebruikers-en beheerder gegevens. Als u rekening houdt met de gegevens die zijn opgeslagen in Time Series Insights als persoons gegevens, kunt u die gegevens exporteren en verwijderen met behulp van de volgende stappen:
 
-**Weergeven en exporteren van gegevens**
+**Gegevens weer geven en exporteren**
 
-Als u wilt weergeven en exporteren van gegevens die zijn opgeslagen in Time Series Insights, moet u zoeken naar gegevens. U kunt de Time Series Insights explorer of de Time Series Insights-query's gebruiken voor het weergeven en exporteren van gegevens. Als u wilt weergeven en exporteren van gegevens met behulp van de Verkenner van Time Series Insights, eerst zoeken naar de om gebruikersgegevens te vinden in kwestie. Na het zoeken, met de rechtermuisknop op de grafiek en selecteer **gebeurtenissen onderzoeken**. Het raster gebeurtenissen wordt weergegeven en biedt opties voor het exporteren van de gegevens als CSV en JSON.
+Als u gegevens wilt weer geven en exporteren die zijn opgeslagen in Time Series Insights, moet u zoeken naar die gegevens. U kunt de Time Series Insights Explorer-of Time Series Insights query-Api's gebruiken om gegevens weer te geven en te exporteren. Als u gegevens wilt weer geven en exporteren met behulp van de Time Series Insights Explorer, zoekt u eerst naar de betreffende gebruikers gegevens. Klik na het zoeken met de rechter muisknop op de grafiek en selecteer **gebeurtenissen verkennen**. Het raster gebeurtenissen wordt weer gegeven en toont opties voor het exporteren van de gegevens als CSV en JSON.
 
-Zie voor meer informatie, [Azure Time Series Insights explorer](time-series-insights-explorer.md).
+Zie [Azure time series Insights Explorer](time-series-insights-explorer.md)voor meer informatie.
 
 **Gegevens verwijderen**
 
-Time Series Insights biedt momenteel geen ondersteuning voor nauwkeurige verwijdering van gegevens. Time Series Insights biedt echter de mogelijkheid om te verwijderen die zijn opgeslagen in Time Series Insights door te configureren voor het bewaren van gegevens van de klant. U kunt de bewaarperiode van de gehele Time Series Insights-omgeving naar een willekeurig aantal dagen voor de ondersteuning van uw vereisten verwijdering aanpassen.
+Op dit moment ondersteunt Time Series Insights geen gedetailleerde verwijdering van gegevens. Time Series Insights biedt echter de mogelijkheid om klant gegevens te verwijderen die zijn opgeslagen in Time Series Insights door het configureren van Bewaar beleid. U kunt de Bewaar periode van de hele Time Series Insights omgeving aanpassen tot een wille keurig aantal dagen om uw verwijderings vereisten te ondersteunen.
 
-Zie voor meer informatie, [configuratie van de bewaartermijn in Time Series Insights](time-series-insights-how-to-configure-retention.md).
+Zie retentie [configureren in time series Insights](time-series-insights-how-to-configure-retention.md)voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [verlenen van toegang tot gegevens in uw omgeving TSI](./time-series-insights-data-access.md).
+* Meer informatie over [het verlenen van toegang tot gegevens aan uw TSI-omgeving](./time-series-insights-data-access.md).
 
-* Weergave de [Azure Time Series Insights explorer](time-series-insights-explorer.md).
+* Bekijk de [Azure time series Insights Explorer](time-series-insights-explorer.md).
 
-* Meer informatie over [configuratie van de bewaartermijn in Time Series Insights](time-series-insights-how-to-configure-retention.md).
+* Meer informatie over het [configureren van Bewaar periode in time series Insights](time-series-insights-how-to-configure-retention.md).

@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
 ms.openlocfilehash: 3511655d220ee85ce6b5744612e5d6fddafbe877
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309740"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>De status van een Azure container Registry controleren
 
 Wanneer u een Azure container Registry gebruikt, kunnen er af en toe problemen optreden. Het is bijvoorbeeld mogelijk dat u geen container installatie kopie kunt ophalen vanwege een probleem met docker in uw lokale omgeving. Het is ook mogelijk dat een netwerk probleem geen verbinding kan maken met het REGI ster. 
 
-Als eerste diagnostische stap voert u de [AZ ACR check-Health][az-acr-check-health] command to get information about the health of the environment and optionally access to a target registry. This command is available in Azure CLI version 2.0.67 or later. If you need to install or upgrade, see [Install Azure CLI][azure-cli]uit.
+Als eerste diagnostische stap voert u de opdracht [AZ ACR check-Health][az-acr-check-health] uit om informatie over de status van de omgeving en eventueel toegang tot een doel register te verkrijgen. Deze opdracht is beschikbaar in azure CLI-versie 2.0.67 of hoger. Zie [Azure CLI installeren][azure-cli] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="run-az-acr-check-health"></a>Uitvoeren AZ ACR check-Health
 

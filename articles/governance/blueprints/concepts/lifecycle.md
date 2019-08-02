@@ -1,104 +1,114 @@
 ---
 title: Informatie over de levenscyclus van een blauwdruk
-description: Meer informatie over de levenscyclus van een blauwdruk doorloopt en details over elke fase.
+description: Meer informatie over de levens cyclus die een blauw druk doorloopt en informatie over elke fase.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 07/30/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: a57085fa37efd56a46b740d8cbc4278dc53cf39f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6112f6f2834f02cec970af886360844c5314150d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60683186"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678993"
 ---
-# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Informatie over de levenscyclus van een Azure-blauwdruk
+# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Inzicht in de levens cyclus van een Azure Blueprint
 
-Net als veel resources in Azure heeft een blauwdruk in Azure blauwdrukken een typische en natuurlijke levenscyclus. Ze zijn gemaakt, geïmplementeerd en ten slotte verwijderd wanneer het niet meer nodig of nuttig.
-Blauwdrukken ondersteunt standaard levenscyclusbewerkingen. Het bouwt vervolgens bij om extra niveaus van de status van die ondersteuning bieden voor algemene continue integratie en continue implementatie pijplijnen voor organisaties die hun infrastructuur als Code – een belangrijk element bij DevOps beheren.
+Net als bij veel resources binnen Azure heeft een blauw druk in azure-blauw drukken een typische en natuurlijke levens cyclus. Ze worden gemaakt, geïmplementeerd en definitief verwijderd wanneer ze niet meer nodig of relevant zijn.
+Blauw drukken ondersteunt standaard levenscyclus bewerkingen. Vervolgens wordt er een build gemaakt om aanvullende status niveaus te bieden voor de ondersteuning van gang bare, continue integratie en doorlopende implementatie pijplijnen voor organisaties die hun infra structuur als code beheren: een belang rijk element in DevOps.
 
-Om volledig te begrijpen een blauwdruk en fasen, aan bod de levensduur van een standaard:
+We bieden een standaard levenscyclus voor het volledig begrijpen van een blauw druk en de stadia:
 
 > [!div class="checklist"]
-> - Het maken en bewerken van een blauwdruk
-> - De blauwdruk publiceren
-> - Het maken en bewerken van een nieuwe versie van de blauwdruk
-> - Een nieuwe versie van de blauwdruk publiceren
-> - Verwijderen van een specifieke versie van de blauwdruk
-> - De blauwdruk verwijderen
+> - Een blauw druk maken en bewerken
+> - De blauw druk publiceren
+> - Een nieuwe versie van de blauw druk maken en bewerken
+> - Een nieuwe versie van de blauw druk publiceren
+> - Een specifieke versie van de blauw druk verwijderen
+> - De blauw druk verwijderen
 
-## <a name="creating-and-editing-a-blueprint"></a>Het maken en bewerken van een blauwdruk
+## <a name="creating-and-editing-a-blueprint"></a>Een blauw druk maken en bewerken
 
-Wanneer het maken van een blauwdruk toevoegen artefacten, opslaan in een beheergroep of het abonnement en een unieke naam en een unieke versie opgegeven. De blauwdruk is nu in een **Draft** modus en nog kan niet worden toegewezen. Terwijl de **Draft** modus, die u kunt doorgaan moet worden bijgewerkt en gewijzigd.
+Wanneer u een blauw druk maakt, voegt u er artefacten aan toe, slaat u deze op in een beheer groep of abonnement en hebt u een unieke naam en een unieke versie gegeven. De blauw druk is nu in een **concept** modus en kan nog niet worden toegewezen. In de **concept** modus kan het blijven worden bijgewerkt en gewijzigd.
 
-Een blauwdruk in nooit gepubliceerd **Draft** modus wordt een ander pictogram weergegeven op de **Blauwdrukdefinities** pagina dan de wijzigingsaanvragen die zijn **gepubliceerd**. De **meest recente versie** wordt weergegeven als **Draft** voor deze blauwdrukken nooit gepubliceerd.
+Een niet-gepubliceerde blauw druk in de **concept** modus bevat een ander pictogram op de pagina met sjablonen voor **blauw** drukken dan de pagina's die zijn **gepubliceerd**. De **meest recente versie** wordt weer gegeven als **concept** voor deze nooit gepubliceerde blauw drukken.
 
-Maken en bewerken van een blauwdruk met de [Azure-portal](../create-blueprint-portal.md#create-a-blueprint) of [REST-API](../create-blueprint-rest-api.md#create-a-blueprint).
+Een blauw druk maken en bewerken met de [Azure Portal](../create-blueprint-portal.md#create-a-blueprint) of [rest API](../create-blueprint-rest-api.md#create-a-blueprint).
 
-## <a name="publishing-a-blueprint"></a>Een blauwdruk publiceren
+## <a name="publishing-a-blueprint"></a>Een blauw druk publiceren
 
-Zodra alle geplande wijzigingen zijn aangebracht aan een blauwdruk in **Draft** modus, kan het zijn **gepubliceerd** en beschikbaar gesteld voor toewijzing. De **gepubliceerd** versie van de blauwdruk kan niet worden gewijzigd.
-Eenmaal **gepubliceerd**, de blauwdruk wordt weergegeven met een ander pictogram dan **Draft** blauwdrukken en wordt de opgegeven versie in de **meest recente versie** kolom.
+Zodra alle geplande wijzigingen zijn aangebracht in een blauw druk in de **concept** modus, kan deze worden **gepubliceerd** en beschikbaar worden gemaakt voor toewijzing. De **gepubliceerde** versie van de blauw druk kan niet worden gewijzigd.
+Na **publicatie**wordt de blauw druk weer gegeven met een ander pictogram dan **concept** blauw drukken en wordt het gegeven versie nummer weer gegeven in de kolom **meest recente versie** .
 
-Publiceren van een blauwdruk met de [Azure-portal](../create-blueprint-portal.md#publish-a-blueprint) of [REST-API](../create-blueprint-rest-api.md#publish-a-blueprint).
+Een blauw druk publiceren met de [Azure Portal](../create-blueprint-portal.md#publish-a-blueprint) of [rest API](../create-blueprint-rest-api.md#publish-a-blueprint).
 
-## <a name="creating-and-editing-a-new-version-of-the-blueprint"></a>Het maken en bewerken van een nieuwe versie van de blauwdruk
+## <a name="creating-and-editing-a-new-version-of-the-blueprint"></a>Een nieuwe versie van de blauw druk maken en bewerken
 
-Een **gepubliceerd** versie van een blauwdruk kan niet worden gewijzigd. Een nieuwe versie van de blauwdruk kan echter worden toegevoegd aan de bestaande blauwdruk en naar wens aanpassen. Breng wijzigingen aan een bestaande blauwdruk door deze te bewerken. Wanneer de nieuwe wijzigingen worden opgeslagen, heeft de blauwdruk nu **niet-gepubliceerde wijzigingen**. Deze wijzigingen zijn een nieuwe **Draft** versie van de blauwdruk.
+Een **gepubliceerde** versie van een blauw druk kan niet worden gewijzigd. Een nieuwe versie van de blauw druk kan echter worden toegevoegd aan de bestaande blauw druk en zo nodig worden gewijzigd. Wijzigingen aanbrengen in een bestaande blauw druk door deze te bewerken. Wanneer de nieuwe wijzigingen worden opgeslagen, heeft de blauw druk nu niet- **gepubliceerde wijzigingen**. Deze wijzigingen zijn een nieuwe **concept** versie van de blauw druk.
 
-Een blauwdruk met bewerken de [Azure-portal](../create-blueprint-portal.md#edit-a-blueprint).
+Een blauw druk bewerken met de [Azure Portal](../create-blueprint-portal.md#edit-a-blueprint).
 
-## <a name="publishing-a-new-version-of-the-blueprint"></a>Een nieuwe versie van de blauwdruk publiceren
+## <a name="publishing-a-new-version-of-the-blueprint"></a>Een nieuwe versie van de blauw druk publiceren
 
-Elke bewerkte versie van een blauwdruk moet **gepubliceerd** voordat deze kan worden toegewezen. Wanneer **niet-gepubliceerde wijzigingen** zijn aangebracht aan een blauwdruk, maar niet **gepubliceerd**, wordt de **blauwdruk publiceren** knop is beschikbaar op de pagina van de blauwdruk bewerken. Als de knop niet zichtbaar is, de blauwdruk is al **gepubliceerd** en heeft geen **niet-gepubliceerde wijzigingen**.
-
-> [!NOTE]
-> Een enkele blauwdruk kunt hebben meerdere **gepubliceerd** versies die elk afzonderlijk kunnen worden toegewezen aan abonnementen.
-
-Voor het publiceren van een blauwdruk met **niet-gepubliceerde wijzigingen**, gebruikt u dezelfde stappen voor het publiceren van een nieuwe blauwdruk.
-
-## <a name="deleting-a-specific-version-of-the-blueprint"></a>Verwijderen van een specifieke versie van de blauwdruk
-
-Elke versie van een blauwdruk is een unieke object en kan afzonderlijk worden **gepubliceerd**. Elke versie van een blauwdruk kan daarom ook worden verwijderd. Als u een versie van een blauwdruk verwijdert geen dit van invloed is op andere versies van deze blauwdruk.
+Elke bewerkte versie van een blauw druk moet worden **gepubliceerd** voordat deze kan worden toegewezen. Wanneer niet- **gepubliceerde wijzigingen** zijn aangebracht in een blauw druk, maar niet zijn **gepubliceerd**, is de knop **blauw** drukken beschikbaar op de pagina blauw drukken bewerken. Als de knop niet zichtbaar is, is de blauw druk al **gepubliceerd** en heeft deze geen niet- **gepubliceerde wijzigingen**.
 
 > [!NOTE]
-> Het is niet mogelijk om te verwijderen van een blauwdruk die actieve toewijzingen heeft. Verwijder eerst de toewijzingen en verwijder vervolgens de versie die u wilt verwijderen.
+> Eén blauw druk kan meerdere **gepubliceerde** versies hebben die elk aan abonnementen kunnen worden toegewezen.
+
+Als u een blauw druk wilt publiceren met niet- **gepubliceerde wijzigingen**, gebruikt u dezelfde stappen voor het publiceren van een nieuwe blauw druk.
+
+## <a name="deleting-a-specific-version-of-the-blueprint"></a>Een specifieke versie van de blauw druk verwijderen
+
+Elke versie van een blauw druk is een uniek object dat afzonderlijk kan worden **gepubliceerd**. Als zodanig kan elke versie van een blauw druk ook worden verwijderd. Het verwijderen van een versie van een blauw druk heeft geen invloed op andere versies van die blauw drukken.
+
+> [!NOTE]
+> Het is niet mogelijk om een blauw druk met actieve toewijzingen te verwijderen. Verwijder eerst de toewijzingen en verwijder vervolgens de versie die u wilt verwijderen.
 
 1. Selecteer **Alle services** in het linkerdeelvenster. Zoek en selecteer **Blauwdrukken**.
 
-1. Selecteer **blauwdruk definities** op de pagina aan de linkerkant en gebruik het filter te vinden van de blauwdruk die u wilt verwijderen van een versie van de opties. Klik op de pagina bewerken te openen.
+1. Selecteer op de pagina links **blauw** drukken en gebruik de filter opties om de blauw druk te vinden waarvan u een versie van wilt verwijderen. Klik erop om de pagina bewerken te openen.
 
-1. Klik op de **gepubliceerde versies** tabblad en zoek de versie die u wilt verwijderen.
+1. Klik op het tabblad **gepubliceerde versies** en zoek de versie die u wilt verwijderen.
 
-1. Met de rechtermuisknop op de versie die u wilt verwijderen en selecteer **deze versie verwijderen**.
+1. Klik met de rechter muisknop op de versie die u wilt verwijderen en selecteer **deze versie verwijderen**.
 
-## <a name="deleting-the-blueprint"></a>De blauwdruk verwijderen
+## <a name="deleting-the-blueprint"></a>De blauw druk verwijderen
 
-De blauwdruk core kan ook worden verwijderd. Het verwijderen van de blauwdruk core verwijdert ook de blauwdruk versies van deze blauwdruk, met inbegrip van beide **Draft** en **gepubliceerd** blauwdrukken. Als met het verwijderen van een versie van een blauwdruk verwijdert de blauwdruk core niet de bestaande toewijzing van een van de blauwdruk-versies.
+De basis blauw druk kan ook worden verwijderd. Als u de primaire blauw druk verwijdert, worden ook alle blauw drukken-versies van deze blauw druk verwijderd, inclusief het **concept** en de **publicatie** . Net als bij het verwijderen van een versie van een blauw druk wordt met het verwijderen van de primaire blauw druk de bestaande toewijzingen van de versies van de blauw druk niet verwijderd.
 
 > [!NOTE]
-> Het is niet mogelijk om te verwijderen van een blauwdruk die actieve toewijzingen heeft. Verwijder eerst de toewijzingen en verwijder vervolgens de versie die u wilt verwijderen.
+> Het is niet mogelijk om een blauw druk met actieve toewijzingen te verwijderen. Verwijder eerst de toewijzingen en verwijder vervolgens de versie die u wilt verwijderen.
 
-Verwijderen van een blauwdruk met de [Azure-portal](../create-blueprint-portal.md#delete-a-blueprint) of [REST-API](../create-blueprint-rest-api.md#delete-a-blueprint).
+Een blauw druk verwijderen met de [Azure Portal](../create-blueprint-portal.md#delete-a-blueprint) of [rest API](../create-blueprint-rest-api.md#delete-a-blueprint).
 
 ## <a name="assignments"></a>Toewijzingen
 
-Is er verschillende punten tijdens de levenscyclus van die een blauwdruk kan worden toegewezen aan een abonnement. Wanneer de modus van een versie van de blauwdruk is **gepubliceerd**, en vervolgens die versie kan worden toegewezen aan een abonnement. Deze levenscyclus beheren kunt versies van een blauwdruk worden gebruikt en actief toegewezen terwijl een nieuwere versie is ontwikkeld.
+Er zijn verschillende punten tijdens de levens cyclus die een blauw druk kan worden toegewezen aan een abonnement. Wanneer de modus van een blauw druk wordt **gepubliceerd**, kan die versie worden toegewezen aan een abonnement. Met deze levens cyclus kunnen versies van een blauw druk worden gebruikt en actief worden toegewezen terwijl er een nieuwere versie wordt ontwikkeld.
 
-Als de versies van blauwdrukken zijn toegewezen, is het belangrijk om te weten waar ze zijn toegewezen en met welke parameters hebben zij is toegewezen met. De parameters kunnen statisch of dynamisch zijn. Zie voor meer informatie, [statische en dynamische parameters](parameters.md).
+Als versies van blauw drukken worden toegewezen, is het belang rijk om te begrijpen waar ze zijn toegewezen en met welke para meters ze zijn toegewezen. De para meters kunnen statisch of dynamisch zijn. Zie [statische en dynamische para meters](parameters.md)voor meer informatie.
 
 ### <a name="updating-assignments"></a>Toewijzingen bijwerken
 
-Wanneer een blauwdruk wordt toegewezen, kan de toewijzing kan worden bijgewerkt. Er zijn diverse redenen voor het bijwerken van een bestaande toewijzing, met inbegrip van:
+Wanneer een blauw druk is toegewezen, kan de toewijzing worden bijgewerkt. Er zijn verschillende redenen voor het bijwerken van een bestaande toewijzing, waaronder:
 
-- Toevoegen of verwijderen [resource vergrendelen](resource-locking.md)
-- Wijzig de waarde van [dynamische parameters](parameters.md#dynamic-parameters)
-- De toewijzing van een upgrade uitvoert naar een nieuwere **gepubliceerd** versie van de blauwdruk
+- [Resource vergrendeling](resource-locking.md) toevoegen of verwijderen
+- De waarde van [dynamische para meters](parameters.md#dynamic-parameters) wijzigen
+- De toewijzing upgraden naar een nieuwere, **gepubliceerde** versie van de blauw druk
 
-Voor meer informatie Zie [bijwerken, bestaande toewijzingen](../how-to/update-existing-assignments.md).
+Zie [bestaande toewijzingen bijwerken](../how-to/update-existing-assignments.md)voor meer informatie.
+
+### <a name="unassigning-assignments"></a>Toewijzing van toewijzingen opheffen
+
+Als de blauw druk niet meer nodig is, kan deze niet meer worden toegewezen aan de beheer groep of het abonnement. Tijdens de niet-toewijzing van de blauw druk gebeurt het volgende:
+
+- Verwijderen van [blauw druk-resource vergrendeling](resource-locking.md)
+- Het verwijderen van de blauw druk toewijzings object
+- Waarden Als een door het **systeem toegewezen beheerde identiteit** is gebruikt, wordt deze ook verwijderd
+
+> [!NOTE]
+> Alle resources die worden geïmplementeerd door de blauw druk-toewijzing, blijven aanwezig, maar worden niet langer beveiligd door Azure-blauw drukken.
 
 ## <a name="next-steps"></a>Volgende stappen
 

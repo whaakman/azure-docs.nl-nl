@@ -1,175 +1,285 @@
 ---
-title: Maken en beheren van integratieaccounts voor oplossingen voor B2B - Azure Logic Apps | Microsoft Docs
-description: Maken, koppelen, verplaatsen en verwijderen van integratieaccounts voor bedrijfsintegratie en B2B-oplossingen met Azure Logic Apps
+title: Integratie accounts voor B2B-oplossingen maken en beheren-Azure Logic Apps
+description: Integratie accounts maken, koppelen, verplaatsen en verwijderen voor zakelijke integratie-en B2B-oplossingen met behulp van Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.service: logic-apps
 ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
-ms.topic: article
-ms.date: 04/30/2018
+ms.suite: integration
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: 43ecdafac4f0a5cdc9e619537cdbe2a42ff7fe1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: carmonm
+ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
+ms.topic: conceptual
+ms.date: 07/26/2019
+ms.openlocfilehash: cffcfe53cf30d8fc34fdb27e50ef74e71700125a
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60999487"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607011"
 ---
-# <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Maken en beheren van integratieaccounts voor B2B-oplossingen met logic apps
+# <a name="create-and-manage-integration-accounts-for-b2b-solutions-by-using-azure-logic-apps"></a>Integratie accounts voor B2B-oplossingen maken en beheren met behulp van Azure Logic Apps
 
-Voordat u kunt bouwen [bedrijfsintegratie en B2B-oplossingen](../logic-apps/logic-apps-enterprise-integration-overview.md) met [Azure Logic Apps](../logic-apps/logic-apps-overview.md), u moet eerst een integratieaccount, dit is waar u maken, opslaan en beheren van B2B-artefacten, zoals hebben handel partners, overeenkomsten, kaarten, schema's, certificaten, enzovoort. Voordat uw logische app kunt met de artefacten in uw integratie-account werken en de logische Apps B2B-connectors, zoals XML-validatie gebruiken, moet u [uw integratieaccount koppelen](#link-account) aan uw logische app. Om ze te koppelen, beide uw integratie-account en logica voor de app moet de *dezelfde* Azure-locatie of regio.
+Voordat u [bedrijfs integratie-en B2B-oplossingen](../logic-apps/logic-apps-enterprise-integration-overview.md) kunt bouwen met behulp van [Azure Logic apps](../logic-apps/logic-apps-overview.md), moet u een integratie account maken. Dit is een afzonderlijke Azure-resource die een veilige, schaal bare en beheersbare container biedt voor de integratie artefacten die u definieert en gebruikt met uw logische app-werk stromen.
 
-In dit artikel laat zien hoe u deze taken uit te voeren:
+U kunt B2B-artefacten bijvoorbeeld maken, opslaan en beheren, zoals handels partners, overeenkomsten, kaarten, schema's, certificaten en batch configuraties. Voordat uw logische app met deze artefacten kan werken en de Logische apps B2B-connectors gebruikt, moet u ook [uw integratie account koppelen](#link-account) aan uw logische app. Het integratie account en de logische app moeten zich op *dezelfde* locatie of regio bevinden.
 
-* Uw integratieaccount maken.
-* Uw integratieaccount koppelen aan een logische app.
-* Uw integratie-account verplaatsen naar een andere Azure-resourcegroep of abonnement.
-* Uw integratieaccount verwijderen.
+> [!TIP]
+> Zie [integratie accounts maken in een ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)voor meer informatie over het maken van een integratie account in een [integratie service omgeving](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
-Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>.
+In dit onderwerp wordt beschreven hoe u deze taken uitvoert:
 
-## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+* Maak uw integratie account.
+* Koppel uw integratie account aan een logische app.
+* Wijzig de prijs categorie voor uw integratie account.
+* Uw integratie account ontkoppelen van een logische app.
+* Verplaats uw integratie account naar een andere Azure-resource groep of-abonnement.
+* Verwijder het integratie account.
 
-Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
+## <a name="prerequisites"></a>Vereisten
 
-## <a name="create-integration-account"></a>integratie-account maken
+* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, [registreer u dan nu voor een gratis Azure-account](https://azure.microsoft.com/free/).
 
-1. Selecteer in het hoofdmenu van Azure **alle services**. Typ in het zoekvak 'integratieaccounts' als filter en selecteer **integratieaccounts**.
+## <a name="create-integration-account"></a>Integratie account maken
 
-   ![Integratieaccounts zoeken](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
+Voor deze taak kunt u de Azure Portal gebruiken door de stappen in deze sectie, [Azure PowerShell](https://docs.microsoft.com//powershell/module/azurerm.logicapp/New-AzureRmIntegrationAccount)of [Azure cli](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-create)uit te voeren.
 
-2. Onder **integratieaccounts**, kiest u **toevoegen**.
+1. Gebruik de referenties van uw Azure-account om u aan melden bij het [Azure Portal](https://portal.azure.com).
 
-   ![Kies "Toevoegen" integratie-account maken](./media/logic-apps-enterprise-integration-create-integration-account/add-integration-account.png)
+1. Selecteer **Een resource maken** in het hoofdmenu van Azure. Voer in het zoekvak ' integratie account ' in als uw filter en selecteer **integratie account**.
 
-3. Bevatten informatie over de integratie-account: 
+   ![Nieuw integratie account maken](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
 
-   ![Geef details op voor uw integratie-account](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
+1. Onder **integratie account**selecteert u **maken**.
 
-   | Eigenschap | Vereist | Voorbeeldwaarde | Description | 
-   |----------|----------|---------------|-------------|
-   | Name | Ja | test-integration-account | De naam voor uw integratie-account. Gebruik de opgegeven naam voor dit voorbeeld. | 
-   | Abonnement | Ja | <*Azure-subscription-name*> | De naam van het Azure-abonnement gebruiken | 
-   | Resourcegroep | Ja | test-integration-account-rg | De naam voor de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) gebruikt om verwante resources te organiseren. In dit voorbeeld maakt u een nieuwe resourcegroep met de opgegeven naam. | 
-   | Prijscategorie | Ja | Gratis | De prijscategorie die u wilt gebruiken. Selecteer voor dit voorbeeld **gratis**, maar voor meer informatie, Zie [Logic Apps-limieten en configuratie](../logic-apps/logic-apps-limits-and-config.md) en [prijzen voor Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). | 
-   | Locatie | Ja | US - west | De regio waar de gegevens van uw integratie-account wordt opgeslagen. Selecteer dezelfde locatie als uw logische app of een logische app maken in dezelfde locatie als uw integratie-account. | 
-   | Log Analytics-werkruimte | Nee | Uit | Behoud de instelling **Uit** voor het vastleggen van diagnostische gegevens. | 
-   ||||| 
+   ![Kies toevoegen om een integratie account te maken](./media/logic-apps-enterprise-integration-create-integration-account/add-integration-account.png)
 
-4. Als u klaar bent, selecteert u **Vastmaken aan dashboard** en kiest u **Maken**.
+1. Geef deze informatie over uw integratie account op:
 
-   Nadat Azure uw integratie-account heeft geïmplementeerd op de geselecteerde locatie, die meestal is voltooid binnen één minuut, wordt uw integratie-account in Azure geopend.
+   ![Details van het integratie account opgeven](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   ![Azure wordt geopend uw integratie-account](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-created.png)
+   | Eigenschap | Vereist | Value | Beschrijving |
+   |----------|----------|-------|-------------|
+   | **Name** | Ja | <*integratie-account-naam*> | De naam voor uw integratie account, bijvoorbeeld "fabrikam-integratie" |
+   | **Abonnement** | Ja | <*Azure-subscription-name*> | De naam van uw Azure-abonnement |
+   | **Resourcegroep** | Ja | <*Azure-resource-group-name*> | De naam voor de [Azure-resource groep](../azure-resource-manager/resource-group-overview.md) die moet worden gebruikt voor het ordenen van verwante resources. Voor dit voor beeld maakt u een nieuwe resource groep met de naam ' FabrikamIntegration-RG '. |
+   | **Prijscategorie** | Ja | <*prijs niveau*> | De prijs categorie voor het integratie account, dat u later kunt wijzigen. Voor dit voor beeld selecteert u **gratis**. Zie de volgende onderwerpen voor meer informatie: <p>- [Logic Apps prijs model](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Logic Apps limieten en configuratie](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Logic Apps prijzen](https://azure.microsoft.com/pricing/details/logic-apps/) |
+   | **Location** | Ja | <*Azure-regio*> | De regio waar de meta gegevens van uw integratie account moeten worden opgeslagen. Selecteer dezelfde locatie als uw logische app of maak uw Logic apps op dezelfde locatie als uw integratie account. Gebruik voor dit voor beeld ' vs-West '. <p>**Opmerking**: Als u een integratie account in een [Integration service Environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)wilt maken, selecteert u die ISE als de locatie. Zie [integratie accounts maken in een ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)voor meer informatie. |
+   | **Log Analytics** | Nee | Uit, op | Laat de instelling **uitgeschakeld** voor dit voor beeld. |
+   |||||
 
-Voordat uw logische app uw integratieaccount gebruiken kunt, moet u nu de integratie-account koppelen aan uw logische app.
+1. Wanneer u klaar bent, selecteert u **maken**.
+
+   Nadat de implementatie is voltooid, opent Azure uw integratie account.
+
+   ![Azure opent een integratie account](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-created.png)
+
+1. Voordat uw logische app uw integratie account kan gebruiken, volgt u de volgende stappen om uw integratie account en logische app samen te koppelen.
 
 <a name="link-account"></a>
 
-## <a name="link-to-logic-app"></a>Koppelen aan de logische app
+## <a name="link-to-logic-app"></a>Koppeling naar logische app
 
-Uw logic apps om toegang te verlenen aan een integratieaccount waarin uw B2B-artefacten, zoals trading partners, overeenkomsten, toewijzingen en schema's, moet u uw integratie-account koppelen aan uw logische app. 
+Om uw Logic apps toegang te geven tot een integratie account dat uw B2B-artefacten bevat, moet u eerst uw integratie account koppelen aan uw logische app. Zowel de logische app als het integratie account moeten zich in dezelfde regio bevinden. Voor deze taak kunt u de Azure Portal gebruiken door de stappen in deze sectie te volgen.
 
-> [!NOTE]
-> Uw integratie-account en de logische app moet zich in dezelfde regio bevinden.
+1. Zoek en open uw logische app in de Azure Portal.
 
-1. In de Azure-portal, zoeken en openen van uw logische app.
+1. Open in de [Azure Portal](https://portal.azure.com)een bestaande logische app of maak een nieuwe logische app.
 
-2. In het menu van uw logische app onder **instellingen**, selecteer **Werkstroominstellingen**. In de **selecteert u een integratieaccount** , selecteert u de integratie-account te koppelen aan uw logische app.
+1. Selecteer **werk stroom instellingen**onder **instellingen**in het menu van de logische app. Open de lijst **Selecteer een integratie account** onder **integratie account**. Selecteer het integratie account dat u wilt koppelen aan uw logische app.
 
-   ![Selecteer uw integratieaccount](./media/logic-apps-enterprise-integration-create-integration-account/linkaccount-2.png)
+   ![Het integratie account selecteren](./media/logic-apps-enterprise-integration-create-integration-account/select-integration-account.png)
 
-3. Kies voor het voltooien van koppelen, **opslaan**.
+1. Selecteer **Opslaan**om de koppeling te volt ooien.
 
-   ![Selecteer uw integratieaccount](./media/logic-apps-enterprise-integration-create-integration-account/linkaccount-3.png)
+   ![Het integratie account selecteren](./media/logic-apps-enterprise-integration-create-integration-account/save-link.png)
 
-   Als uw integratie-account is gekoppeld, wordt in Azure een bevestigingsbericht weergegeven. 
+   Nadat het integratie account is gekoppeld, wordt er een bevestigings bericht weer gegeven in Azure.
 
-   ![Azure geslaagd koppeling wordt bevestigd](./media/logic-apps-enterprise-integration-create-integration-account/linkaccount-5.png)
+   ![Azure bevestigt een geslaagde koppeling](./media/logic-apps-enterprise-integration-create-integration-account/link-confirmation.png)
 
-Uw logische app kan nu alle de artefacten in uw integratieaccount plus de B2B-connectors, zoals XML-validatie en platte bestanden coderen of decoderen gebruiken.  
+Uw logische app kan nu gebruikmaken van de artefacten in uw integratie account plus de B2B-connectors, zoals XML-validatie en platte bestands codering of-decodering.  
 
-## <a name="unlink-from-logic-app"></a>Ontkoppelen van de logische app
+<a name="change-pricing-tier"></a>
 
-Als u wilt uw logische app koppelen aan een andere integratie-account of een integratieaccount niet meer gebruiken met uw logische app, verwijdert u de koppeling via Azure Resource Explorer.
+## <a name="change-pricing-tier"></a>Prijscategorie wijzigen
 
-1. Ga in uw browser naar <a href="https://resources.azure.com" target="_blank">Azure Resource Explorer (https://resources.azure.com)</a>. Zorg ervoor dat u bent aangemeld met de dezelfde Azure-referenties.
+Als u de [limieten](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) voor een integratie account wilt verhogen, kunt u [een upgrade uitvoeren naar een hogere prijs categorie](#upgrade-pricing-tier), indien beschikbaar. U kunt bijvoorbeeld een upgrade uitvoeren van de gratis laag naar de laag basis of de laag standaard. U kunt ook [downgrade naar een lagere laag](#downgrade-pricing-tier), indien beschikbaar. Zie de volgende onderwerpen voor meer informatie over de prijs informatie:
+
+* [Prijzen voor Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/)
+* [Logic Apps prijs model](../logic-apps/logic-apps-pricing.md#integration-accounts)
+
+<a name="upgrade-pricing-tier"></a>
+
+### <a name="upgrade-pricing-tier"></a>Prijs categorie bijwerken
+
+Als u deze wijziging wilt aanbrengen, kunt u de Azure Portal gebruiken door de stappen in deze sectie of de [Azure cli](#upgrade-tier-azure-cli)te volgen.
+
+#### <a name="azure-portal"></a>Azure Portal
+
+1. Gebruik de referenties van uw Azure-account om u aan melden bij het [Azure Portal](https://portal.azure.com).
+
+1. In het hoofd venster van Azure Search voert u "integratie accounts" in als uw filter en selecteert u **integratie accounts**.
+
+   ![Integratie account zoeken](./media/logic-apps-enterprise-integration-create-integration-account/find-integration-account.png)
+
+   In Azure worden alle integratie accounts in uw Azure-abonnementen weer gegeven.
+
+1. Onder **integratie accounts**selecteert u het integratie account dat u wilt verplaatsen. Selecteer **overzicht**in het menu integratie account.
+
+   ![Selecteer overzicht in het menu integratie account](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
+
+1. Selecteer in het deel venster Overzicht de optie **prijs categorie bijwerken**, waarin alle beschik bare hogere lagen worden weer gegeven. Wanneer u een laag selecteert, wordt de wijziging onmiddellijk van kracht.
+
+<a name="upgrade-tier-azure-cli"></a>
+
+#### <a name="azure-cli"></a>Azure-CLI
+
+1. Als u dit nog niet hebt gedaan, [installeert u de vereisten voor Azure cli](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+
+1. Open de Azure [**Cloud shell**](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) -omgeving In de Azure Portal.
+
+   ![Azure Cloud Shell openen](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
+
+1. Voer bij de opdracht prompt de opdracht [ **AZ resource** ](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update)in en stel `skuName` in op de gewenste hogere laag.
+
+   ```Azure CLI
+   az resource update --resource-group {ResourceGroupName} --resource-type Microsoft.Logic/integrationAccounts --name {IntegrationAccountName} --subscription {AzureSubscriptionID} --set sku.name={SkuName}
+   ```
+  
+   Als u bijvoorbeeld de laag basis hebt, kunt u het `skuName` `Standard`volgende instellen:
+
+   ```Azure CLI
+   az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Standard
+   ```
+
+<a name="downgrade-pricing-tier"></a>
+
+### <a name="downgrade-pricing-tier"></a>Prijs categorie downgrade
+
+Als u deze wijziging wilt aanbrengen, gebruikt u de [Azure cli](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+
+1. Als u dit nog niet hebt gedaan, [installeert u de vereisten voor Azure cli](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+
+1. Open de Azure [**Cloud shell**](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) -omgeving In de Azure Portal.
+
+   ![Azure Cloud Shell openen](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
+
+1. Voer bij de opdracht prompt de opdracht [ **AZ resource** ](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update) in en stel `skuName` in op de lagere laag die u wilt.
+
+   ```Azure CLI
+   az resource update --resource-group <resourceGroupName> --resource-type Microsoft.Logic/integrationAccounts --name <integrationAccountName> --subscription <AzureSubscriptionID> --set sku.name=<skuName>
+   ```
+  
+   Als u bijvoorbeeld de laag standaard hebt, kunt u het `skuName` `Basic`volgende instellen:
+
+   ```Azure CLI
+   az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Basic
+   ```
+
+## <a name="unlink-from-logic-app"></a>Ontkoppelen van logische app
+
+Als u uw logische app wilt koppelen aan een ander integratie account of als u een integratie account niet meer wilt gebruiken met uw logische app, verwijdert u de koppeling met behulp van Azure Resource Explorer.
+
+1. Open uw browser venster en ga naar [Azure resource Explorer (https://resources.azure.com)](https://resources.azure.com). Meld u aan met dezelfde referenties voor het Azure-account.
 
    ![Azure Resource Explorer](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer.png)
 
-2. In het zoekvak, typ de naam van uw logische app, en zoek en selecteer uw logische app.
+1. Voer in het zoekvak de naam van de logische app in, zodat u uw logische app kunt vinden en selecteren.
 
-   ![Zoek en selecteer de logische app](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-find-logic-app.png)
+   ![Logische app zoeken en selecteren](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-find-logic-app.png)
 
-3. Kies op de titelbalk explorer **lezen/schrijven**.
+1. Selecteer **lezen/schrijven**op de titel balk van Explorer.
 
-   ![' Lezen/schrijven'-modus inschakelen](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-choose-read-write-mode.png)
+   ![Modus lezen/schrijven inschakelen](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-select-read-write.png)
 
-4. Op de **gegevens** tabblad **bewerken**.
+1. Selecteer **bewerken**op het tabblad **gegevens** .
 
-   ![Kies op het tabblad 'Data', 'Bewerken'](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-choose-edit.png)
+   ![Selecteer op het tabblad gegevens de optie bewerken.](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-select-edit.png)
 
-5. Zoek in de editor de `integrationAccount` eigenschap voor de integratie-account en het verwijderen van deze eigenschap, die deze indeling heeft:
+1. Zoek het `integrationAccount` object in de editor en verwijder deze eigenschap. deze heeft de volgende indeling:
 
    ```json
-   "integrationAccount": {
-      "name": "<integration-account-name>",
-      "id": "<integration-account-resource-ID>",
-      "type": "Microsoft.Logic/integrationAccounts"  
+   {
+      // <other-attributes>
+      "integrationAccount": {
+         "name": "<integration-account-name>",
+         "id": "<integration-account-resource-ID>",
+         "type": "Microsoft.Logic/integrationAccounts"  
    },
    ```
 
    Bijvoorbeeld:
 
-   ![Definitie van de eigenschap "integrationAccount" zoeken](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
+   ![Object ' Integration account ' zoeken](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 
-6. Op de **gegevens** tabblad **plaatsen** uw wijzigingen op te slaan. 
+1. Selecteer op het tabblad **gegevens** de optie **put** om uw wijzigingen op te slaan.
 
-   ![Kies 'Plaats' om wijzigingen hebt opgeslagen](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-save-changes.png)
+   ![Als u de wijzigingen wilt opslaan, selecteert u ' put '](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-save-changes.png)
 
-7. In de Azure-portal onder uw logische app **Werkstroominstellingen**, controleert u of de **integratieaccount** eigenschap is nu leeg.
+1. Zoek en selecteer uw logische app in de Azure Portal. Controleer onder **werk stroom instellingen**van uw app of de eigenschap **integratie account** nu leeg wordt weer gegeven.
 
-   ![Controleer dat integratie-account niet is gekoppeld](./media/logic-apps-enterprise-integration-create-integration-account/unlinked-account.png)
+   ![Controleer of het integratie account niet is gekoppeld](./media/logic-apps-enterprise-integration-create-integration-account/unlinked-account.png)
 
-## <a name="move-integration-account"></a>Integratie-account verplaatsen
+## <a name="move-integration-account"></a>Integratie account verplaatsen
 
-U kunt uw integratie-account verplaatsen naar een andere Azure-abonnement of resourcegroep groep.
+U kunt uw integratie account verplaatsen naar een andere Azure-resource groep of een Azure-abonnement. Wanneer u resources verplaatst, worden er nieuwe resource-Id's gemaakt in Azure. Zorg er dus voor dat u de nieuwe Id's gebruikt en eventuele scripts of hulpprogram ma's die zijn gekoppeld aan de verplaatste resources, bijwerkt. Als u het abonnement wilt wijzigen, moet u ook een bestaande of nieuwe resource groep opgeven.
 
-1. Selecteer in het hoofdmenu van Azure **alle services**. Typ in het zoekvak 'integratieaccounts' als filter en selecteer **integratieaccounts**.
+Voor deze taak kunt u de Azure Portal gebruiken door de stappen in deze sectie of de [Azure cli](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-move)uit te voeren.
 
-   ![Uw integratie-account zoeken](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
+1. Gebruik de referenties van uw Azure-account om u aan melden bij het [Azure Portal](https://portal.azure.com).
 
-2. Onder **integratieaccounts**, selecteer het integratieaccount dat u wilt verplaatsen. Op uw integratie-account in het menu onder **instellingen**, kiest u **eigenschappen**.
+1. In het hoofd venster van Azure Search voert u "integratie accounts" in als uw filter en selecteert u **integratie accounts**.
 
-   ![Kies onder 'Instellingen', 'Eigenschappen'](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-properties.png)
+   ![Integratie account zoeken](./media/logic-apps-enterprise-integration-create-integration-account/find-integration-account.png)
 
-3. De Azure-resourcegroep of een abonnement voor uw integratie-account wijzigen.
+   In Azure worden alle integratie accounts in uw Azure-abonnementen weer gegeven.
 
-   ![Kies 'Resourcegroep wijzigen' of "Abonnement wijzigen"](./media/logic-apps-enterprise-integration-create-integration-account/change-resource-group-subscription.png)
+1. Onder **integratie accounts**selecteert u het integratie account dat u wilt verplaatsen. Selecteer **overzicht**in het menu integratie account.
 
-4. Wanneer u klaar bent, zorg ervoor dat u alle scripts met de nieuwe resource-id's voor uw artefacten bijwerken.  
+   ![Selecteer overzicht in het menu integratie account](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
 
-## <a name="delete-integration-account"></a>Integratieaccount verwijderen
+1. Naast de **resource groep** of de **naam**van het abonnement selecteert u **wijzigen**.
 
-1. Selecteer in het hoofdmenu van Azure **alle services**. Typ in het zoekvak 'integratieaccounts' als filter en selecteer **integratieaccounts**.
+   ![Resource groep of-abonnement wijzigen](./media/logic-apps-enterprise-integration-create-integration-account/change-resource-group-subscription.png)
 
-   ![Uw integratie-account zoeken](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
+1. Selecteer alle gerelateerde resources die u ook wilt verplaatsen.
 
-2. Onder **integratieaccounts**, selecteer het integratieaccount dat u wilt verwijderen. Kies in het menu van de account integratie **overzicht**, en kies vervolgens **verwijderen**. 
+1. Voer de volgende stappen uit op basis van uw selectie om de resource groep of het abonnement te wijzigen:
 
-   ![Integratie-account selecteren. Kies op de pagina 'Overzicht', 'Verwijderen'](./media/logic-apps-enterprise-integration-create-integration-account/delete-integration-account.png)
+   * Resourcegroep: Selecteer de doel resource groep in de lijst **resource groep** . Als u een andere resource groep wilt maken, selecteert u **een nieuwe resource groep maken**.
 
-3. Om te bevestigen dat u wilt verwijderen van uw integratie-account, kies **Ja**.
+   * Abonnement: Selecteer in de lijst **abonnement** het doel abonnement. Selecteer de doel resource groep in de lijst **resource groep** . Als u een andere resource groep wilt maken, selecteert u **een nieuwe resource groep maken**.
 
-   ![Als u wilt verwijderen te bevestigen, kiest u 'Ja'](./media/logic-apps-enterprise-integration-create-integration-account/confirm-delete.png)
+1. Als u wilt weten dat scripts of hulpprogram ma's die zijn gekoppeld aan de verplaatste resources, niet werken totdat u ze bijwerkt met de nieuwe resource-Id's, selecteert u het bevestigings venster en selecteert u **OK**.
+
+1. Wanneer u klaar bent, moet u alle scripts bijwerken met de nieuwe resource-Id's voor de verplaatste resources.  
+
+## <a name="delete-integration-account"></a>Integratie account verwijderen
+
+Voor deze taak kunt u de Azure Portal gebruiken door de stappen in deze sectie, [Azure cli](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete)of [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/Remove-AzureRmIntegrationAccount)te volgen.
+
+1. Gebruik de referenties van uw Azure-account om u aan melden bij het [Azure Portal](https://portal.azure.com).
+
+1. In het hoofd venster van Azure Search voert u "integratie accounts" in als uw filter en selecteert u **integratie accounts**.
+
+   ![Integratie account zoeken](./media/logic-apps-enterprise-integration-create-integration-account/find-integration-account.png)
+
+   In Azure worden alle integratie accounts in uw Azure-abonnementen weer gegeven.
+
+1. Onder **integratie accounts**selecteert u het integratie account dat u wilt verwijderen. Selecteer **overzicht**in het menu integratie account.
+
+   ![Selecteer overzicht in het menu integratie account](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
+
+1. Selecteer **verwijderen**in het deel venster Overzicht.
+
+   ![Selecteer verwijderen in het deel venster Overzicht.](./media/logic-apps-enterprise-integration-create-integration-account/delete-integration-account.png)
+
+1. Selecteer **Ja**om te bevestigen dat u uw integratie account wilt verwijderen.
+
+   ![Selecteer Ja om het verwijderen te bevestigen](./media/logic-apps-enterprise-integration-create-integration-account/confirm-delete.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Handelspartners maken](../logic-apps/logic-apps-enterprise-integration-partners.md)
-* [Overeenkomsten maken](../logic-apps/logic-apps-enterprise-integration-agreements.md)
+* [Handels partners maken in uw integratie account](../logic-apps/logic-apps-enterprise-integration-partners.md)
+* [Overeenkomsten tussen partners maken in uw integratie account](../logic-apps/logic-apps-enterprise-integration-agreements.md)

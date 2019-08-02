@@ -1,6 +1,6 @@
 ---
-title: Gegevens kopiëren van/naar SAP-Cloud voor klanten met Azure Data Factory | Microsoft Docs
-description: Meer informatie over het kopiëren van gegevens van SAP-Cloud voor klant ondersteunde sink-gegevensopslag (of) van de ondersteunde bron-gegevensopslag naar SAP-Cloud voor klanten met behulp van Data Factory.
+title: Gegevens kopiëren van/naar SAP-Cloud voor klant met Azure Data Factory | Microsoft Docs
+description: Meer informatie over het kopiëren van gegevens uit de SAP-Cloud voor klant naar ondersteunde Sink-gegevens archieven (of) van ondersteunde brongegevens archieven naar SAP-Cloud voor klanten door gebruik te maken van Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,45 +10,45 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 08/01/2018
 ms.author: jingwang
-ms.openlocfilehash: e4625b934f9e1cf98254f3dee59f9c26e8e16fb5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 30025499ae3073a04863d711423bd9556e7fc6c4
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578705"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726040"
 ---
-# <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Kopiëren van gegevens van SAP-Cloud voor klant (C4C) met behulp van Azure Data Factory
+# <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Gegevens kopiëren uit de SAP-Cloud voor de klant (C4C) met behulp van Azure Data Factory
 
-In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van/naar SAP-Cloud voor klant (C4C). Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel wordt beschreven hoe u de Kopieer activiteit in Azure Data Factory kunt gebruiken om gegevens te kopiëren van/naar SAP-Cloud voor klant (C4C). Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens kopiëren van SAP-Cloud voor klanten met een ondersteunde sink-gegevensarchief of gegevens kopiëren van een ondersteund brongegevensarchief naar SAP-Cloud voor klanten. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens uit de SAP-Cloud voor de klant kopiëren naar een ondersteunde Sink-gegevens opslag of gegevens kopiëren van elk ondersteund bron gegevens archief naar een SAP-Cloud voor de klant. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
-Deze connector kunnen met name Azure Data Factory om gegevens te kopiëren van/naar SAP-Cloud voor klanten met inbegrip van de SAP-Cloud voor verkoop, SAP-Cloud voor de Service en SAP-Cloud voor sociale Engagement oplossingen.
+Met name Azure Data Factory maakt deze connector het mogelijk om gegevens te kopiëren van/naar SAP-Cloud voor klanten, waaronder de SAP-Cloud voor verkoop, SAP Cloud for service en SAP-Cloud voor sociale oplossingen.
 
 ## <a name="getting-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar SAP-Cloud voor de klant-connector.
+De volgende secties bevatten informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory entiteiten die specifiek zijn voor de SAP-Cloud voor de klant connector.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
-De volgende eigenschappen worden ondersteund voor SAP-Cloud voor de service van de klant die is gekoppeld:
+De volgende eigenschappen worden ondersteund voor SAP-Cloud voor door de klant gekoppelde service:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **SapCloudForCustomer**. | Ja |
 | url | De URL van de SAP C4C OData-service. | Ja |
-| username | Geef de naam van de gebruiker verbinding maken met de SAP-C4C. | Ja |
-| password | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| username | Geef de gebruikers naam op om verbinding te maken met de SAP-C4C. | Ja |
+| password | Geef het wacht woord op voor het gebruikers account dat u hebt opgegeven voor de gebruikers naam. Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory, of [verwijs naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Als niet is opgegeven, wordt de standaard Azure Integration Runtime. | Nee voor bron, Ja voor sink |
 
 >[!IMPORTANT]
->Om gegevens te kopiëren naar SAP-Cloud voor klanten, expliciet [maken van een Azure IR](create-azure-integration-runtime.md#create-azure-ir) met een locatie in de buurt van uw SAP-Cloud voor klanten en koppelen in de gekoppelde service als in het volgende voorbeeld:
+>Als u gegevens wilt kopiëren naar een SAP-Cloud voor de klant, maakt u expliciet [een Azure IR](create-azure-integration-runtime.md#create-azure-ir) met een locatie in de buurt van uw SAP-Cloud voor klant en koppelt u deze aan de gekoppelde service als in het volgende voor beeld:
 
 **Voorbeeld:**
 
@@ -75,14 +75,14 @@ De volgende eigenschappen worden ondersteund voor SAP-Cloud voor de service van 
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door SAP-Cloud voor de gegevensset van de klant.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. In deze sectie vindt u een lijst met eigenschappen die worden ondersteund door de SAP-Cloud voor de gegevensset van de klant.
 
-Om gegevens te kopiëren vanuit SAP-Cloud voor klanten, stel de eigenschap type van de gegevensset in **SapCloudForCustomerResource**. De volgende eigenschappen worden ondersteund:
+Als u gegevens wilt kopiëren uit de SAP-Cloud voor de klant, stelt u de eigenschap type van de gegevensset in op **SapCloudForCustomerResource**. De volgende eigenschappen worden ondersteund:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **SapCloudForCustomerResource** |Ja |
-| path | Geef het pad van de SAP C4C OData-entiteit. |Ja |
+| path | Geef het pad op van de SAP C4C OData-entiteit. |Ja |
 
 **Voorbeeld:**
 
@@ -94,6 +94,7 @@ Om gegevens te kopiëren vanuit SAP-Cloud voor klanten, stel de eigenschap type 
         "typeProperties": {
             "path": "<path e.g. LeadCollection>"
         },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP C4C linked service>",
             "type": "LinkedServiceReference"
@@ -104,18 +105,18 @@ Om gegevens te kopiëren vanuit SAP-Cloud voor klanten, stel de eigenschap type 
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door SAP-Cloud voor de bron van de klant.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. In deze sectie vindt u een lijst met eigenschappen die worden ondersteund door de SAP-Cloud voor de klant bron.
 
-### <a name="sap-c4c-as-source"></a>SAP-C4C als bron
+### <a name="sap-c4c-as-source"></a>SAP C4C als bron
 
-Om gegevens te kopiëren vanuit SAP-Cloud voor klanten, stelt u het brontype in de kopieeractiviteit naar **SapCloudForCustomerSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
+Als u gegevens wilt kopiëren uit de SAP-Cloud voor de klant, stelt u het bron type in de Kopieer activiteit in op **SapCloudForCustomerSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **SapCloudForCustomerSource**  | Ja |
-| query | Geef de aangepaste OData-query voor het lezen van gegevens. | Nee |
+| query | Geef de aangepaste OData-query op om gegevens te lezen. | Nee |
 
-Voorbeeld-query om gegevens te verkrijgen voor een specifieke dag: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
+Voorbeeld query om gegevens op te halen voor een specifieke dag:`"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
 **Voorbeeld:**
 
@@ -149,15 +150,15 @@ Voorbeeld-query om gegevens te verkrijgen voor een specifieke dag: `"query": "$f
 ]
 ```
 
-### <a name="sap-c4c-as-sink"></a>SAP-C4C als sink
+### <a name="sap-c4c-as-sink"></a>SAP-C4C als Sink
 
-Om gegevens te kopiëren naar SAP-Cloud voor klanten, stelt u het sink-type in de kopieeractiviteit naar **SapCloudForCustomerSink**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **sink** sectie:
+Als u gegevens wilt kopiëren naar een SAP-Cloud voor de klant, stelt u het sink-type in de Kopieer activiteit in op **SapCloudForCustomerSink**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **sink** sectie:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **SapCloudForCustomerSink**  | Ja |
-| writeBehavior | Het gedrag van het schrijven van de bewerking. Kan worden 'Insert', 'Update'. | Nee. Standaard 'Insert'. |
-| writeBatchSize | De batchgrootte van de schrijfbewerking. De batchgrootte om de beste prestaties kan mogelijk verschillen voor andere tabel of de server. | Nee. Standaard 10. |
+| writeBehavior | Het schrijf gedrag van de bewerking. Kan ' Insert ', ' update ' zijn. | Nee. Standaard invoegen. |
+| writeBatchSize | De Batch grootte van de schrijf bewerking. De Batch grootte voor het verkrijgen van de beste prestaties kan verschillen voor de verschillende tabellen of servers. | Nee. Standaard 10. |
 
 **Voorbeeld:**
 
@@ -198,19 +199,19 @@ Om gegevens te kopiëren naar SAP-Cloud voor klanten, stelt u het sink-type in d
 ]
 ```
 
-## <a name="data-type-mapping-for-sap-cloud-for-customer"></a>Gegevenstypetoewijzing voor SAP-Cloud voor klanten
+## <a name="data-type-mapping-for-sap-cloud-for-customer"></a>Toewijzing van gegevens type voor SAP-Cloud voor klant
 
-Bij het kopiëren van gegevens van SAP-Cloud voor klanten, worden de volgende toewijzingen gebruikt vanuit SAP-Cloud voor gegevenstypen van de klant op Azure Data Factory tussentijdse gegevenstypen. Zie [Schema en gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe copy activity in het schema en de gegevens van een brontype aan de sink toegewezen.
+Bij het kopiëren van gegevens uit de SAP-Cloud voor de klant, worden de volgende toewijzingen gebruikt vanuit de SAP-Cloud voor klant gegevens typen voor het Azure Data Factory van tussenliggende gegevens typen. Zie [Schema en gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe copy activity in het schema en de gegevens van een brontype aan de sink toegewezen.
 
-| SAP C4C OData-gegevenstype | Data factory tussentijdse gegevenstype |
+| SAP C4C OData-gegevens type | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | Edm.Binary | Byte[] |
 | Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
-| Edm.DateTime | DateTime |
+| Edm.DateTime | Datetime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Double |
-| Edm.Single | Single |
+| EDM. single | Single |
 | Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |

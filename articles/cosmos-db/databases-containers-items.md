@@ -4,15 +4,15 @@ description: In dit artikel wordt beschreven hoe u data bases, containers en ite
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/26/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 277564208a5e4a209aecf8f976aca6b35ab17781
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 9c8460380755c6057f7507443d0b564e85c2ff86
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467754"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598496"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Werken met data bases, containers en items in Azure Cosmos DB
 
@@ -124,6 +124,9 @@ Elk Azure Cosmos-item heeft de volgende door het systeem gedefinieerde eigenscha
 |\_Online | Door het systeem gegenereerd | Adresseerbare URI van het item | Ja | Nee | Nee | Nee | Nee |
 |id | Een van beide | Door de gebruiker gedefinieerde unieke naam in een logische partitie. Als de gebruiker de ID niet opgeeft, wordt er automatisch een door het systeem gegenereerd. | Ja | Ja | Ja | Ja | Ja |
 |Willekeurige, door de gebruiker gedefinieerde eigenschappen | Door de gebruiker gedefinieerde routes | Door de gebruiker gedefinieerde eigenschappen die worden weer gegeven in API-native representatie (waaronder JSON, BSON en CQL) | Ja | Ja | Ja | Ja | Ja |
+
+> [!NOTE]
+> De uniekheid van `id` de eigenschap wordt alleen afgedwongen binnen elke logische partitie. Meerdere documenten kunnen dezelfde `id` eigenschap hebben met andere partitie sleutel waarden.
 
 ### <a name="operations-on-items"></a>Bewerkingen op items
 

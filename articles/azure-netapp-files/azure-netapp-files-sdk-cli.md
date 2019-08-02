@@ -1,6 +1,6 @@
 ---
-title: SDK's voor Azure NetApp-bestanden | Microsoft Docs
-description: Geeft een lijst van de SDK's die door Azure NetApp bestanden worden ondersteund.
+title: Azure NetApp Files Sdk's | Microsoft Docs
+description: Een lijst met de Sdk's die door Azure NetApp Files worden ondersteund.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,32 +12,33 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 07/29/2019
 ms.author: b-juche
-ms.openlocfilehash: 44cacc388b8cb9977bdf36d4d1a86f8d15211608
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 499f9d14a20f665f545f5fdc3b31015cb57c193c
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957878"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667498"
 ---
 # <a name="azure-netapp-files-sdks"></a>SDK's voor Azure NetApp Files
 
-In dit artikel geeft een lijst van de SDK's die door Azure NetApp bestanden worden ondersteund.
+In dit artikel vindt u een lijst met de Sdk's die door Azure NetApp Files worden ondersteund.
 
-## <a name="supported-sdks"></a>Ondersteunde SDK 's 
+## <a name="supported-sdks"></a>Ondersteunde Sdk's 
 
-De volgende tabel bevat de ondersteunde SDK's.  U vindt meer informatie over de ondersteunde SDK's op hun gepubliceerde locaties in GitHub.  
+De volgende tabel bevat de ondersteunde Sdk's.  Meer informatie over de ondersteunde Sdk's vindt u op hun gepubliceerde locaties in GitHub.  
 
-|    Taal    |    SDK gepubliceerd locatie    |
+|    Taal    |    Gepubliceerde locatie van SDK    |
 |------------------|--------------------------------------------------------------------------------------------|
-|    [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/)    |    `https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/NetApp`    |
-|    [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-mgmt-netapp)    |    `https://github.com/Azure/azure-sdk-for-python/tree/master/azure-mgmt-netapp`    |
+|    [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |    `https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp`    |
+|    [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |    `https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp`    |
 |    [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)    |    `https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp`       |
+|    [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/netapp/resource-manager) | `https://github.com/Azure/azure-sdk-for-java/tree/master/netapp/resource-manager` |
 |    [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |    `https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp`    |
 |    [Ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |    `https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp`    |
 
 <!-- ## Command-line tools -->
 
 ## <a name="next-steps"></a>Volgende stappen   
- [Azure SDK's downloaden](https://azure.microsoft.com/downloads/)
+ [Azure-Sdk's downloaden](https://azure.microsoft.com/downloads/)

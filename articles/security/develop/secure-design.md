@@ -1,322 +1,323 @@
 ---
-title: Ontwerpen van veilige toepassingen op Microsoft Azure
-description: In dit artikel wordt beschreven aanbevolen procedures overwegen tijdens de fasen van de vereiste en het ontwerp van uw web application-project.
+title: Veilige toepassingen ontwerpen op Microsoft Azure
+description: In dit artikel worden aanbevolen procedures besproken die u moet overwegen tijdens de vereisten-en ontwerp fasen van uw Web Application project.
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
 ms.date: 06/11/2019
 ms.topic: article
 ms.service: security
+ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 12b9793cabb261368c437bd2ae2dbb39cf078bef
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 67687e217372c17b007982ef99bf1f80c3e6be5f
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653282"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728705"
 ---
-# <a name="design-secure-applications-on-azure"></a>Beveiligde toepassingen ontwerpen in Azure
-In dit artikel geven we beveiligingsactiviteiten en besturingselementen om te overwegen bij het ontwerpen van toepassingen voor de cloud. Trainingsresources samen met vragen over de beveiliging en concepten kunt u tijdens de vereisten en ontwerpen van de fasen van de Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) vallen. Het doel is voor het definiëren van activiteiten en Azure-services die u gebruiken kunt om een beter beveiligde toepassing te ontwerpen.
+# <a name="design-secure-applications-on-azure"></a>Veilige toepassingen ontwerpen in azure
+In dit artikel bieden we beveiligings activiteiten en-controles waarmee u rekening moet houden bij het ontwerpen van toepassingen voor de Cloud. Trainings bronnen samen met beveiligings vragen en concepten die u kunt overwegen tijdens de vereisten en ontwerp fasen van micro soft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) , worden gedekt. Het doel is om u te helpen bij het definiëren van activiteiten en Azure-Services die u kunt gebruiken om een veiligere toepassing te ontwerpen.
 
-De volgende fasen van de SDL worden in dit artikel besproken:
+In dit artikel komen de volgende SDL-fasen aan bod:
 
 - Training
 - Vereisten
-- Ontwerp
+- Ontwerpen
 
 ## <a name="training"></a>Training
-Voordat u begint met het ontwikkelen van uw cloudtoepassing, even duren om te begrijpen van de beveiliging en privacy in Azure. Door deze stap duurt, kunt u het aantal en de ernst van kwetsbaarheden exploiteerbaar beperken in uw toepassing. U zult beter voorbereid om te reageren op de juiste wijze aan de voortdurend veranderende bedreigingen.
+Voordat u begint met het ontwikkelen van uw Cloud toepassing, is het tijd om inzicht te krijgen in de beveiliging en privacy van Azure. Als u deze stap uitvoert, kunt u het aantal en de ernst van de zwakke plekken in uw toepassing beperken. U bent er meer voor bereid om op de juiste manier te reageren op de steeds veranderende bedreigings breedte.
 
-Gebruik de volgende bronnen in de fase training om vertrouwd te raken met de Azure-services die beschikbaar voor ontwikkelaars zijn en aanbevolen procedures voor beveiliging op Azure:
+Gebruik de volgende resources tijdens de trainings fase om vertrouwd te raken met de Azure-Services die beschikbaar zijn voor ontwikkel aars en met best practices voor beveiliging op Azure:
 
-  - [Ontwikkelaarshandleiding voor Azure](https://azure.microsoft.com/campaigns/developer-guide/) ziet u hoe u aan de slag met Azure. De handleiding wordt beschreven welke services kunt u uw toepassingen uitvoeren, opslaan van uw gegevens, intelligence opnemen, IoT-apps ontwikkelen en implementeren van uw oplossingen op een meer efficiënte en veilige manier.
+  - In [de hand leiding voor ontwikkel aars van Azure](https://azure.microsoft.com/campaigns/developer-guide/) ziet u hoe u aan de slag kunt gaan met Azure. De hand leiding laat zien welke services u kunt gebruiken om uw toepassingen uit te voeren, uw gegevens op te slaan, intelligentie op te nemen, IoT-apps te bouwen en uw oplossingen op een efficiënte en veilige manier te implementeren.
 
-  - [Introductiehandleiding voor Azure-ontwikkelaars](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide) biedt essentiële informatie voor ontwikkelaars die op zoek bent naar aan de slag met het Azure-platform voor hun ontwikkeling.
+  - De [aan de slag-hand leiding voor Azure-ontwikkel aars](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide) biedt essentiële informatie voor ontwikkel aars die aan de slag willen gaan met het Azure-platform voor hun ontwikkelings behoeften.
 
-  - [SDK's en hulpprogramma's](https://docs.microsoft.com/azure/index#pivot=sdkstools) beschrijft de hulpprogramma's die beschikbaar op Azure zijn.
+  - [Sdk's en hulpprogram ma's](https://docs.microsoft.com/azure/index#pivot=sdkstools) beschrijft de hulpprogram ma's die beschikbaar zijn in Azure.
 
-  - [Azure DevOps-Services](https://docs.microsoft.com/azure/devops/) ontwikkeling biedt hulpprogramma's voor samenwerking. De hulpprogramma's omvatten krachtige pijplijnen, gratis Git-opslagplaatsen, configureerbare kanbanborden en uitgebreide geautomatiseerde en cloud-gebaseerde belastingtests uitvoeren.
-    De [DevOps Resource Center](https://docs.microsoft.com/azure/devops/learn/) combineert onze bronnen voor het leren van DevOps procedures, Git versiebeheer, flexibele methoden, hoe we met DevOps bij Microsoft werken en hoe u de voortgang van uw eigen DevOps kunt beoordelen.
+  - [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) biedt ontwikkel samenwerkings hulpmiddelen. De hulpprogram ma's zijn hoogwaardige pijp lijnen, gratis Git-opslag plaatsen, Configureer bare Kanban boards en uitgebreide geautomatiseerde belasting tests op basis van de Cloud.
+    In het [DevOps Resource Center](https://docs.microsoft.com/azure/devops/learn/) worden onze resources gecombineerd voor het leren van DevOps-procedures, Git-versie beheer, agile-methoden, hoe we werken met DevOps bij micro soft en hoe u uw eigen DevOps-voortgang kunt beoordelen.
 
-  - [Top 5 security rekening mee moet houden voordat u naar productie pusht](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) ziet u hoe u uw webtoepassingen op Azure beveiligen en beschermen van uw apps het meest voorkomende en gevaarlijke toepassing tegen aanvallen via Internet.
+  - De [belangrijkste 5 beveiligings items die u moet overwegen voordat u naar productie pusht](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) , laten zien hoe u uw webtoepassingen op Azure kunt beveiligen en uw apps tegen de meest voorkomende en gevaarlijke webtoepassingen moet beveiligen.
 
-  - [Secure DevOps Kit voor Azure](https://azsk.azurewebsites.net/index.html) is een verzameling van scripts, hulpprogramma's, extensies en automatische die caters naar de uitgebreide Azure-abonnement en resourcegroep beveiligingsbehoeften van DevOps-teams die gebruikmaken van uitgebreide automation. De Secure DevOps Kit voor Azure kunt laten zien hoe u beveiliging naadloos integreren in uw eigen DevOps-werkstromen. De kit adressen hulpprogramma's zoals security verificatietests uitvoeren (SVTs), waarmee ontwikkelaars kunnen veilige code schrijven en testen van de veilige configuratie van hun cloud-toepassingen in de fasen van de ontwikkeling van code en vroege.
+  - [Secure DevOps Kit voor Azure](https://azsk.azurewebsites.net/index.html) is een verzameling scripts, hulpprogram ma's, uitbrei dingen en automaters die zijn voorzien van het uitgebreide Azure-abonnement en de vereisten voor resource beveiliging van DevOps-teams die gebruikmaken van uitgebreide automatisering. Met de Secure DevOps Kit voor Azure kunt u zien hoe u de beveiliging probleemloos integreert in uw systeem eigen DevOps-werk stromen. De kit bevat hulpprogram ma's zoals beveiligings verificatie tests (SVTs), waarmee ontwikkel aars beveiligde code kunnen schrijven en de veilige configuratie van hun Cloud toepassingen in de fase ring en vroege ontwikkeling moeten testen.
 
-  - [Aanbevolen beveiligingsprocedures voor Azure-oplossingen](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) biedt een verzameling van security best practices te gebruiken als u ontwerpen, implementeren en beheren van uw cloudoplossingen met behulp van Azure.
+  - De [Aanbevolen procedures voor beveiliging voor Azure-oplossingen](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) bieden een aantal aanbevolen beveiligings procedures voor het ontwerpen, implementeren en beheren van uw cloud oplossingen met behulp van Azure.
 
 ## <a name="requirements"></a>Vereisten
-De fase van de definitie van vereisten is een belangrijke stap bij het definiëren van wat er in uw toepassing is en wat er gebeurt wanneer dit wordt uitgebracht. De fase van de vereisten is ook een tijd om na te denken over de besturingselementen voor de beveiliging die u in uw toepassing bouwt. Tijdens deze fase moet u ook de stappen die u gedurende de SDL onderneemt om ervoor te zorgen dat u de release en beveiligde toepassingen implementeren begint.
+De definitie fase van vereisten is een belang rijke stap bij het definiëren van wat uw toepassing is en wat er gebeurt wanneer deze wordt uitgebracht. De fase vereisten is ook een tijd om u te bedenken over de beveiligings controles die u in uw toepassing gaat maken. Tijdens deze fase gaat u ook aan de hand van de stappen die u in de hele SDL gaat uitvoeren om ervoor te zorgen dat u een veilige toepassing vrijgeeft en implementeert.
 
-### <a name="consider-security-and-privacy-issues"></a>Houd rekening met beveiliging en privacy
-Deze fase is het beste moment om te overwegen fundamentele beveiliging en privacy-problemen. Aanvaardbaar niveau van beveiliging en privacy aan het begin van een project te definiëren, kunt een team:
+### <a name="consider-security-and-privacy-issues"></a>Beveiligings-en privacy-problemen overwegen
+Deze fase is de beste manier om basis problemen met de beveiliging en privacy te voor komen. Het definiëren van een acceptabel beveiligings niveau en privacy aan het begin van een project helpt een team:
 
-- Krijg inzicht in risico's die zijn gekoppeld aan beveiligingsproblemen met zich mee.
-- Opsporen en oplossen van fouten die beveiliging tijdens de ontwikkeling.
-- Van toepassing tot stand gebrachte niveaus van beveiliging en privacy in de gehele project.
+- Meer informatie over Risico's die zijn gekoppeld aan beveiligings problemen.
+- Identificeer en los beveiligings fouten op tijdens de ontwikkeling.
+- Pas in het hele project bestaande niveaus van beveiliging en privacy toe.
 
-Bij het schrijven van de vereisten voor uw toepassing, moet u rekening houden met beveiligingsmaatregelen waarmee uw toepassing en gegevens veilig worden bewaard.
+Wanneer u de vereisten voor uw toepassing schrijft, moet u rekening houden met beveiligings controles waarmee u uw toepassing en gegevens veilig kunt houden.
 
-### <a name="ask-security-questions"></a>Stel vragen over de beveiliging
-Stel vragen over de beveiliging, zoals:
+### <a name="ask-security-questions"></a>Beveiligings vragen stellen
+Vraag beveiligings vragen als:
 
   - Bevat mijn toepassing gevoelige gegevens?
 
-  - Wordt mijn toepassing verzamelen of opslaan van gegevens die is vereist om te voldoen aan de industrienormen en nalevingsprogramma's, zoals de [federale financiële instelling onderzoek Raad (FFIEC)](https://docs.microsoft.com/azure/security/blueprints/ffiec-analytics-overview) of de [Payment Card Industry Data Security Standards (PCI DSS)](https://docs.microsoft.com/azure/security/blueprints/pcidss-analytics-overview)?
+  - Verzamelt of slaat mijn toepassing gegevens op die mij nodig heeft om te voldoen aan de industrie normen en nalevings Programma's zoals de [Federal Financial Instituut onderzoeksbureau (FFIEC)](https://docs.microsoft.com/azure/security/blueprints/ffiec-analytics-overview) of de [Payment Card Industry Data Security standards (PCI DSS) ](https://docs.microsoft.com/azure/security/blueprints/pcidss-analytics-overview)?
 
-  - Mijn toepassing verzamelen of gevoelige gegevens voor persoonlijke of klant die kan worden gebruikt, op een eigen of met andere informatie te identificeren, neem contact op met, of één persoon vinden?
+  - Verzamelt mijn toepassing gevoelige persoonlijke of klant gegevens die kunnen worden gebruikt, hetzij zelf, hetzij met andere informatie, om een persoon te identificeren, contact op te nemen of te vinden.
 
-  - Mijn toepassing verzamelen of gegevens die kunnen worden gebruikt voor toegang tot een persoon medisch, onderwijs, financiële of dienst informatie bevatten? Identificeren van de vertrouwelijkheid van uw gegevens tijdens de fase van de vereisten, kunt u uw gegevens classificeren en de methode voor gegevensbeveiliging die u voor uw toepassing gebruiken wilt te identificeren.
+  - Verzamelt mijn toepassing gegevens die kunnen worden gebruikt om toegang te krijgen tot de medische, onderwijs, financiële of dienst informatie van een persoon? Het identificeren van de gevoeligheid van uw gegevens tijdens de vereisten fase helpt u bij het classificeren van uw gegevens en het identificeren van de gegevens beveiligings methode die u voor uw toepassing gaat gebruiken.
 
-  - Waar en hoe worden mijn gegevens dan opgeslagen? Houd rekening met hoe u de storage-services die uw toepassing wordt gebruikt voor eventuele onverwachte wijzigingen (zoals tragere responstijden) worden gecontroleerd. Wordt u mogelijk logboekregistratie naar meer gedetailleerde gegevens verzamelen en analyseren van een probleem in de diepte van invloed zijn op?
+  - Waar en hoe worden mijn gegevens opgeslagen? Denk na over hoe u de opslag services bewaken die door uw toepassing worden gebruikt voor onverwachte wijzigingen (zoals tragere reactie tijden). Kunt u de logboek registratie zodanig beïnvloeden dat er gedetailleerdere gegevens worden verzameld en een probleem dieper kan worden geanalyseerd?
 
-  - Worden mijn toepassing beschikbaar is voor de openbare (op het internet) zijn of intern alleen? Als uw toepassing openbaar beschikbaar is, hoe beveiligt u de gegevens die worden gebruikt in de verkeerde manier kunnen worden verzameld? Als uw toepassing beschikbaar intern alleen, kunt u die in uw organisatie toegang tot de toepassing moet hebben en hoe lang ze toegang moeten hebben.
+  - Is mijn toepassing beschikbaar voor het publiek (op Internet) of alleen intern? Als uw toepassing voor het publiek beschikbaar is, hoe beveiligt u de gegevens die kunnen worden verzameld op de verkeerde manier? Als uw toepassing alleen intern beschikbaar is, kunt u overwegen wie in uw organisatie toegang moet hebben tot de toepassing en hoelang ze toegang moeten hebben.
 
-  - Begrijpt u het identiteitsmodel van uw voordat u begint met het ontwerpen van uw toepassing? Hoe bepaalt u dat gebruikers zijn wie ze beweren te zijn en wat een gebruiker is gemachtigd om u te doen?
+  - Begrijpt u uw identiteits model voordat u begint met het ontwerpen van uw toepassing? Hoe kunt u bepalen wie de gebruikers zijn die ze zeggen en wat een gebruiker mag doen?
 
-  - Mijn toepassing gevoelige of belangrijke taken (zoals het overbrengen van geld, deuren ontgrendelen of leveren van medicijnen) uitvoeren?
-    Houd rekening met hoe u dat de gebruiker een gevoelige taak die is gemachtigd om uit te voeren van de taak wordt gevalideerd en hoe u verifieert dat de persoon is wie ze beweren te zijn. Autorisatie (AuthZ) is de handeling van het verlenen van een geverifieerde principal beveiligingsmachtiging om iets te doen. Verificatie (AuthN) is de handeling van een partij voor legitieme referenties lastig.
+  - Voert mijn toepassing gevoelige of belang rijke taken uit (zoals het overdragen van geld, het ontgrendelen van deuren of het leveren van medicijnen)?
+    Denk na over hoe u controleert of de gebruiker die een gevoelige taak uitvoert, gemachtigd is om de taak uit te voeren en hoe u zich verifieert dat de persoon die het heeft gedicteerd. Authorization (AuthZ) is het verlenen van een geverifieerde beveiligingsprincipal-machtiging om iets te doen. Verificatie (authn) is de handeling van een feestje voor legitieme referenties.
 
-  - Voert geen riskante software-activiteiten, zoals het toestaan van gebruikers om te uploaden of downloaden van bestanden of andere gegevens uit door mijn toepassing? Als uw toepassing riskante activiteiten uitvoeren, kunt u overwegen hoe uw toepassing gebruikers zullen beschermen tegen schadelijke bestanden of gegevens verwerken.
+  - Voert mijn toepassing eventuele Risk ante software activiteiten uit, zoals toestaan dat gebruikers bestanden of andere gegevens uploaden of downloaden? Als uw toepassing Risk ante activiteiten uitvoert, kunt u overwegen hoe uw toepassing gebruikers zal beschermen tegen het afhandelen van schadelijke bestanden of gegevens.
 
-### <a name="review-owasp-top-10"></a>Beoordeling OWASP top 10
-Houd rekening met het controleren van de [ <span class="underline">OWASP Top 10 toepassing beveiligingsrisico's</span>](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
-De OWASP Top 10 adressen kritieke beveiligingsrisico's voor web-apps.
-Kennis van deze beveiligingsrisico's kunt u de vereiste en ontwerp beslissingen te nemen die deze risico's in uw toepassing te minimaliseren.
+### <a name="review-owasp-top-10"></a>OWASP Top 10 controleren
+Bekijk de [<span class="underline">OWASP Top 10-beveiligings Risico's voor toepassingen</span>](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
+De OWASP Top 10 heeft betrekking op kritieke beveiligings Risico's voor webtoepassingen.
+Het bewustzijn van deze beveiligings Risico's kan u helpen om vereisten en ontwerp beslissingen te nemen die deze Risico's in uw toepassing minimaliseren.
 
-Nadenken over beveiligingsmaatregelen om te voorkomen dat schendingen is belangrijk.
-Echter, wilt u ook [wordt ervan uitgegaan dat er inbreuk wordt gepleegd](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/security-in-devops) wordt uitgevoerd. Ervan uitgaande dat er inbreuk wordt gepleegd kunt beantwoorden van enkele belangrijke vragen over de beveiliging van tevoren verkrijgt, zodat ze niet hoeven te worden beantwoord in geval van nood:
+Het is belang rijk dat u op de hoogte bent van beveiligings controles om inbreuken te voor komen.
+U wilt echter ook [aannemen dat er](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/security-in-devops) sprake is van een schending. Uitgaande van een inbreuk kunnen enkele belang rijke vragen over beveiliging vooraf worden beantwoord, zodat deze niet in nood gevallen hoeven te worden beantwoord:
 
-  - Hoe wordt ik een aanval detecteren?
+  - Hoe kan ik een aanval detecteren?
 
-  - Wat wordt ik doen als er een aanval of inbreuk op?
+  - Wat moet ik doen als er een aanval of schending is?
 
-  - Hoe ga ik om te herstellen van de aanval, zoals gegevens lekken en onrechtmatig gebruik?
+  - Hoe kan ik de aanval herstellen, zoals gegevens lekken of knoeien?
 
-## <a name="design"></a>Ontwerp
+## <a name="design"></a>Ontwerpen
 
-De ontwerpfase is essentieel voor het tot stand brengen van aanbevolen procedures voor het ontwerpen en functionele specificaties. Het is ook essentieel voor het uitvoeren van een risicoanalyse die verhelpen van problemen met beveiliging en privacy in een project.
+De ontwerp fase is essentieel voor het opstellen van aanbevolen procedures voor ontwerp-en functionele specificaties. Het is ook essentieel voor het uitvoeren van een risico analyse waardoor beveiligings-en privacy-problemen in een project worden verholpen.
 
-Wanneer u beschikken over vereisten voor beveiliging en veilig ontwerpconcepten gebruiken, kunt u voorkomen of minimaliseren mogelijkheden voor een beveiligingsfout. Een beveiligingsfout is een toezicht in het ontwerp van de toepassing die mogelijk een gebruiker kan schadelijke of onverwachte acties uitvoeren nadat u uw toepassing wordt vrijgegeven.
+Wanneer u beveiligings vereisten hebt en gebruik maakt van beveiligde ontwerp concepten, kunt u de kansen voor een beveiligings probleem voor komen of minimaliseren. Een beveiligings fout is een toezicht op het ontwerp van de toepassing waardoor een gebruiker schadelijke of onverwachte acties kan uitvoeren nadat de toepassing is uitgebracht.
 
-Tijdens de ontwerpfase ook nadenken over hoe u beveiliging in lagen; kunt toepassen Eén niveau van bescherming niet noodzakelijkerwijs genoeg. Wat gebeurt er als een aanvaller het verleden web application firewall (WAF)? Wilt u een andere beveiligingscontrole om te zetten voor bescherming tegen deze aanvallen.
+Tijdens de ontwerp fase moet u ook nadenken over hoe u beveiliging in lagen kunt Toep assen. Eén verdedigings niveau is niet noodzakelijkerwijs genoeg. Wat gebeurt er als een aanvaller voorbij uw Web Application Firewall (WAF) komt? U wilt een ander beveiligings beheer hebben om te beschermen tegen die aanval.
 
-Met dat gegeven in gedachte bespreken we de volgende concepten voor veilig ontwerp en de beveiligingsbesturingselementen die u rekening moet houden bij het ontwerpen van veilige toepassingen:
+Daarom bespreken we de volgende beveiligde ontwerp concepten en de beveiligings maatregelen die u moet aanpakken wanneer u veilige toepassingen ontwerpt:
 
-- Gebruik een bibliotheek met veilige codering en een softwareframework.
-- De scan voor kwetsbare onderdelen.
-- Gebruik threat modeling tijdens het ontwerpen van de toepassing.
-- Verminder de kwetsbaarheid voor aanvallen.
-- Een beleid van de identiteit als de primaire beveiligingsperimeter nemen.
-- Hernieuwde verificatie vereisen voor belangrijke transacties.
-- Een oplossing voor sleutelbeheer gebruiken voor het beveiligen van sleutels, referenties en andere geheimen.
-- Gevoelige gegevens beveiligen.
-- Implementeer failsafe metingen.
-- Profiteer van de fout en de afhandeling van uitzonderingen.
-- Gebruik logboekregistratie en waarschuwingen.
+- Gebruik een beveiligde coderings bibliotheek en een software raamwerk.
+- Scannen op kwets bare onderdelen.
+- Gebruik bedreigingen modellering tijdens het ontwerpen van toepassingen.
+- Verminder de kwets baarheid voor aanvallen.
+- Een beleid met identiteit als de primaire beveiligings verbinding wordt aangenomen.
+- Nieuwe verificatie vereisen voor belang rijke trans acties.
+- Gebruik een oplossing voor sleutel beheer om sleutels, referenties en andere geheimen te beveiligen.
+- Beveilig gevoelige gegevens.
+- Implementeer fout veilige maat regelen.
+- Profiteer van de afhandeling van fouten en uitzonde ringen.
+- Gebruik logboek registratie en waarschuwingen.
 
-### <a name="use-a-secure-coding-library-and-a-software-framework"></a>Een bibliotheek met veilige codering en een softwareframework gebruiken
+### <a name="use-a-secure-coding-library-and-a-software-framework"></a>Een beveiligde coderings bibliotheek en een software raamwerk gebruiken
 
-Voor ontwikkeling, een bibliotheek met veilige codering en een softwareframework dat is ingesloten security te gebruiken. Ontwikkelaars kunnen gebruiken bestaande functies (versleuteling, riolering invoer, uitvoercodering, sleutels of verbindingsreeksen en zaken die kan worden gezien als een beveiligingscontrole) een bewezen oplossing in plaats van het ontwikkelen van beveiligingsmaatregelen helemaal. Dit zorgt voor de bescherming tegen beveiligingsgerelateerde ontwerp en implementatie-fouten.
+Gebruik voor ontwikkeling een beveiligde coderings bibliotheek en een software raamwerk met geïntegreerde beveiliging. Ontwikkel aars kunnen bestaande, bewezen functies (versleuteling, invoer-, uitvoer-of-teken codering, sleutels of verbindings reeksen en alle andere die worden beschouwd als een beveiligings controle) gebruiken in plaats van een volledig nieuwe beveiligings besturings elementen te ontwikkelen. Zo kunt u zich beschermen tegen beveiligings problemen met betrekking tot het ontwerp en de implementatie.
 
-Zorg ervoor dat u de meest recente versie van uw framework en de beveiligingsfuncties die beschikbaar in het kader zijn. Microsoft biedt een uitgebreide [set ontwikkeltools](https://azure.microsoft.com/product-categories/developer-tools/) voor alle ontwikkelaars, op elk platform of taal, voor het leveren van cloud-Apps. U kunt de code met de taal van uw keuze door te kiezen uit verschillende [SDK's](https://azure.microsoft.com/downloads/).
-U kunt profiteren van de complete geïntegreerde ontwikkelingsomgevingen (IDE's) en editors dat zijn geavanceerde mogelijkheden voor foutopsporing en geïntegreerde ondersteuning van Azure.
+Zorg ervoor dat u de nieuwste versie van uw Framework gebruikt en alle beveiligings functies die beschikbaar zijn in het Framework. Micro soft biedt een uitgebreide [set ontwikkel tools](https://azure.microsoft.com/product-categories/developer-tools/) voor alle ontwikkel aars die op elk platform of elke taal werken om Cloud toepassingen te leveren. U kunt code met de taal van uw keuze door kiezen uit verschillende [sdk's](https://azure.microsoft.com/downloads/).
+U kunt profiteren van Ide's (Full-complete Integrated Development Environments) en editors met geavanceerde mogelijkheden voor fout opsporing en ingebouwde ondersteuning voor Azure.
 
-Microsoft biedt diverse [programmeertalen, frameworks en hulpprogramma's](https://docs.microsoft.com/azure/index#pivot=sdkstools&panel=sdkstools-all) waarmee u kunt het ontwikkelen van toepassingen op Azure. Een voorbeeld is [Azure voor .NET en .NET Core-ontwikkelaars](https://docs.microsoft.com/dotnet/azure/). Voor elke taal en het framework dat we bieden, vindt u snelstartgidsen, zelfstudies en API-verwijzingen om u snel aan de slag te helpen.
+Micro soft biedt diverse [talen, frameworks en hulpprogram ma's](https://docs.microsoft.com/azure/index#pivot=sdkstools&panel=sdkstools-all) die u kunt gebruiken om toepassingen te ontwikkelen in Azure. Een voor beeld is [Azure voor .net-en .net core-ontwikkel aars](https://docs.microsoft.com/dotnet/azure/). Voor elke taal en elk Framework dat we bieden, vindt u Quick starts, zelf studies en API-verwijzingen waarmee u snel aan de slag kunt.
 
-Azure biedt tal van services die kunt u websites en webtoepassingen om toepassingen te hosten. Deze services kunt u ontwikkelen in uw favoriete taal, ongeacht of het nu .NET, .NET Core, Java, Ruby, Node.js, PHP of Python.
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (Web-Apps) is een van deze services.
+Azure biedt tal van services die u kunt gebruiken voor het hosten van websites en webtoepassingen. Met deze services kunt u ontwikkelen in uw favoriete taal, of dat nu .NET, .NET core, Java, Ruby, node. js, PHP of python is.
+[Azure App Service web apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (Web Apps) is een van deze services.
 
-De kracht van Microsoft Azure Web Apps toegevoegd aan uw toepassing. Het bevat beveiliging, taakverdeling, automatisch schalen en geautomatiseerd beheer. U kunt ook profiteren van DevOps-mogelijkheden in Web-Apps, zoals Pakketbeheer, staging-omgevingen, aangepaste domeinen, SSL/TLS-certificaten en continue implementatie vanuit Azure DevOps, GitHub, Docker Hub en andere bronnen.
+Web Apps voegt de kracht van Microsoft Azure toe aan uw toepassing. Het bevat beveiliging, taak verdeling, automatisch schalen en geautomatiseerd beheer. U kunt ook profiteren van de DevOps-mogelijkheden in Web Apps, zoals pakket beheer, faserings omgevingen, aangepaste domeinen, SSL/TLS-certificaten en doorlopende implementatie vanuit Azure DevOps, GitHub, docker hub en andere bronnen.
 
-Azure biedt andere services die u websites en webtoepassingen om toepassingen te hosten kunt. Voor de meeste scenario's is Web Apps de beste keuze. Voor een servicearchitectuur micro-, kunt u overwegen [Azure Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).
+Azure biedt andere services die u kunt gebruiken voor het hosten van websites en webtoepassingen. Voor de meeste scenario's is Web Apps de beste keuze. Voor een micro service-architectuur kunt u [Azure service Fabric](https://azure.microsoft.com/documentation/services/service-fabric)overwegen.
 Als u meer controle wilt over de virtuele machines waarop uw code wordt uitgevoerd, kunt u [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/) overwegen.
-Zie voor meer informatie over hoe u kiest tussen deze Azure-services, een [vergelijking van Azure App Service, virtuele Machines, Service Fabric en Cloud Services](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm).
+Zie een [vergelijking van Azure app service, virtual machines, service Fabric en Cloud Services](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)voor meer informatie over het kiezen van deze Azure-Services.
 
-### <a name="apply-updates-to-components"></a>Updates toepassen op onderdelen
+### <a name="apply-updates-to-components"></a>Updates Toep assen op onderdelen
 
-Om te voorkomen dat zwakke plekken, moet u zowel de client en server-side onderdelen (bijvoorbeeld, frameworks en bibliotheken) en hun afhankelijkheden voor updates continu inventariseren. Beveiligingsproblemen van de nieuwe en bijgewerkte softwareversies worden continu vrijgegeven. Zorg ervoor dat u een voortdurend plan bewaken hebt, sorteren en toepassen van updates of configuratiewijzigingen naar de bibliotheken en -onderdelen die u wilt gebruiken.
+Om beveiligings problemen te voor komen, moet u zowel uw onderdelen aan client zijde als server zijde (bijvoorbeeld frameworks en bibliotheken) en hun afhankelijkheden voor updates continu inventariseren. Nieuwe beveiligings problemen en bijgewerkte software versies worden continu vrijgegeven. Zorg ervoor dat u beschikt over een actief plan voor het bewaken, sorteren en Toep assen van updates of configuratie wijzigingen in de bibliotheken en onderdelen die u gebruikt.
 
-Zie de [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page) op pagina [componenten gebruiken met bekende beveiligingsproblemen](https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities) voor hulpprogramma suggesties. U kunt ook abonneren op e-mailwaarschuwingen voor beveiligingsproblemen die betrekking hebben op de onderdelen die u wilt gebruiken.
+Zie de pagina [OWASP (Web Application Security project) openen](https://www.owasp.org/index.php/Main_Page) voor het [gebruik van componenten met bekende beveiligings problemen](https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities) voor suggesties voor het hulp programma. U kunt zich ook abonneren op e-mail waarschuwingen voor beveiligings problemen die betrekking hebben op onderdelen die u gebruikt.
 
-### <a name="use-threat-modeling-during-application-design"></a>Threat modeling tijdens het ontwerpen van de toepassing gebruiken
+### <a name="use-threat-modeling-during-application-design"></a>Threatisatie modellen gebruiken tijdens het ontwerpen van toepassingen
 
-Risicomodel is het proces van potentiële beveiligingsrisico's op uw bedrijf en de toepassing te identificeren en vervolgens hebt gecontroleerd of de juiste oplossingen voldaan is. De SDL geeft aan dat teams threat modeling tijdens de ontwerpfase, wanneer het oplossen van mogelijke problemen relatief eenvoudig en kosteneffectief is moeten bezighouden. Met behulp van threat modellen in de ontwerpfase total cost of ontwikkeling drastisch kan verlagen.
+Bedreigings modellering is het proces van het identificeren van mogelijke beveiligings Risico's voor uw bedrijf en toepassing en zorgt ervoor dat de juiste oplossingen worden uitgevoerd. SDL specificeert dat teams tijdens de ontwerp fase een bedreigings model moeten nemen, wanneer het oplossen van potentiële problemen relatief eenvoudig en rendabel is. Met het gebruik van bedreigings modellen in de ontwerp fase kunt u de totale ontwikkelings kosten aanzienlijk verlagen.
 
-We ontworpen om te vergemakkelijken de threat modeling proces, de [SDL Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) met niet-beveiligingsexperts in gedachten. Dit hulpprogramma eenvoudiger risicomodel voor alle ontwikkelaars door op te geven informatie over het maken en bedreigingsmodellen analyseren.
+Ter ondersteuning van het proces van bedreigings modellering hebben we de [sdl-Threat Modeling tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) ontworpen met niet-beveiligings experts. Met dit hulp programma kunnen alle ontwikkel aars de bedreigings modellen vereenvoudigen door duidelijke richt lijnen te bieden voor het maken en analyseren van bedreigingen.
 
-Ontwerp van de toepassing modelleren en inventariseren van [STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) bedreigingen-Spoofing, Tampering, Repudiation, openbaarmaking van informatie, denial of Service en Elevation of Privilege — in alle vertrouwen de grenzen van een effectieve manier heeft bewezen om af te vangen ontwerpfouten vroegtijdig op. De volgende tabel geeft een lijst van de STRIDE-bedreigingen en biedt enkele voorbeeld-oplossingen die gebruikmaken van functies die worden geleverd door Azure. Deze oplossingen werkt in elk geval niet.
+Het ontwerpen van het toepassings ontwerp en het opsommen van [STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) -dreigingen, spoofing, manipulatie, afwijzing, openbaar making van informatie, denial of service en uitbrei ding van bevoegdheden: in alle vertrouwens grenzen is een efficiënte manier bewezen om ontwerp fouten te ondervangen vroeg op. De volgende tabel geeft een lijst van de STRIDE-bedreigingen en biedt enkele voor beelden van oplossingen die gebruikmaken van de functies van Azure. Deze oplossingen werken niet in elke situatie.
 
-| Bedreiging | De beveiligingseigenschap | Mogelijke Azure-platform risicobeperking |
+| Bestaat | Beveiligings eigenschap | Potentieel beperking van het Azure-platform |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Adresvervalsing (spoofing)               | Authentication        | [HTTPS-verbindingen vereisen](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
-| Manipulatie              | Gegevensintegriteit             | Valideren van SSL/TLS-certificaten. Toepassingen die gebruikmaken van SSL/TLS moeten de X.509-certificaten van de entiteiten die ze verbinding met maken volledig controleren. Azure Key Vault-certificaten te gebruiken [beheren van uw x509 certificaten](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
-| Afwijzing            | Niet-afwijzing       | Inschakelen van Azure [controle en diagnose](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).|
-| Openbaarmaking van informatie | Vertrouwelijkheid       | Versleutelen van gevoelige gegevens [at-rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) en [in-transit](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |
-| Denial of service (DoS)      | Beschikbaarheid          | Prestatiegegevens voor mogelijke denial of service-voorwaarden controleren. Verbindingsfilters implementeren. [Azure DDoS protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), gecombineerd met aanbevolen procedures voor ontwerp van toepassingen, biedt beveiliging tegen DDoS-aanvallen.|
-| Verhoging van bevoegdheden | Authorization         | Gebruik van Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
+| Spoofing               | Authentication        | [HTTPS-verbindingen vereisen](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
+| Manipulatie              | Gegevensintegriteit             | SSL/TLS-certificaten valideren. Toepassingen die gebruikmaken van SSL/TLS moeten de X. 509-certificaten van de entiteiten waarmee ze verbinding maken, volledig controleren. Gebruik Azure Key Vault certificaten om [uw x509-certificaten te beheren](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
+| Ging            | Geen weerlegbaarheid       | [Bewaking en diagnose](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)van Azure inschakelen.|
+| Openbaarmaking van informatie | Aard       | Versleutel gevoelige gegevens in [rust](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) en [onderweg](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |
+| Denial of service (DoS)      | Beschikbaarheid          | Bewaak de prestatie gegevens voor mogelijke denial of service-voor waarden. Verbindings filters implementeren. [Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), gecombineerd met aanbevolen procedures voor het ontwerpen van toepassingen, biedt bescherming tegen DDoS-aanvallen.|
+| Verhoging van bevoegdheden | Authorization         | Gebruik Azure Active Directory <span class="underline"></span> [privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
 
-### <a name="reduce-your-attack-surface"></a>Uw kwetsbaarheid voor aanvallen verminderen
+### <a name="reduce-your-attack-surface"></a>Kwetsbaarheid verminderen
 
-Een kwetsbaarheid voor aanvallen is de totale som van waar mogelijke beveiligingsproblemen optreden. In dit artikel, we ons richten op de kwetsbaarheid voor aanvallen van een toepassing.
-De focus zich op een toepassing te beveiligen tegen aanvallen. Een snel en eenvoudig manier om te minimaliseren uw kwetsbaarheid voor aanvallen is het niet-gebruikte resources en code van uw toepassing te verwijderen. De kleinste uw toepassing, de kleinere uw kwetsbaarheid voor aanvallen. Bijvoorbeeld verwijderen:
+Een kwets bare kwets baarheid is de totale som van de mogelijke problemen die zich kunnen voordoen. In dit artikel richten we ons op de kwets baarheid van een toepassing.
+Het is de focus om een toepassing te beschermen tegen aanvallen. Een eenvoudige en snelle manier om uw kwets baarheid te minimaliseren, is het verwijderen van ongebruikte resources en code uit uw toepassing. Hoe kleiner uw toepassing, hoe kleiner uw kwets baarheid. Verwijder bijvoorbeeld:
 
-- Code voor de functies die u nog niet hebt vrijgegeven.
-- Ondersteuningscode voor foutoplossing.
-- Netwerkinterfaces en protocollen die niet worden gebruikt of die zijn afgeschaft.
-- Virtuele machines en andere bronnen die u niet gebruikt.
+- Code voor functies die nog niet zijn vrijgegeven.
+- Fout opsporings code.
+- Netwerk interfaces en protocollen die niet worden gebruikt of die zijn afgeschaft.
+- Virtuele machines en andere resources die u niet gebruikt.
 
-Uitvoeren van reguliere opschonen van uw resources en ervoor te zorgen dat u niet-gebruikte code verwijderen zijn goede manieren om te zorgen dat er minder mogelijkheden voor kwaadwillende actoren voor aanvallen.
+U kunt regel matig uw resources opschonen en ervoor zorgen dat ongebruikte code op een goede manier wordt gebruikt om te garanderen dat er minder mogelijkheden zijn voor kwaad aardige aanvallen.
 
-Er is een meer gedetailleerde en uitgebreide manier om uw kwetsbaarheid voor aanvallen verminderen om uit te voeren van de analyse van een aanval. Analyse van een aanval kunt u de onderdelen van een systeem dat moet worden gecontroleerd en getest voor beveiligingsproblemen worden toegewezen.
+Een meer gedetailleerde en diep gaande manier om de kwets baarheid voor aanvallen te verminderen is door een kwets baarheid voor aanvallen te volt ooien. Een kwets baarheid voor aanvallen helpt u bij het toewijzen van de onderdelen van een systeem die moeten worden beoordeeld en getest op beveiligings problemen.
 
-Het doel van een analyse van aanval is om te begrijpen van de gebieden van de risico's in een toepassing, zodat ontwikkelaars en beveiligingsspecialisten zich bewust zijn van welke onderdelen van de toepassing worden geopend om aan te vallen. Vervolgens vindt u manieren om te minimaliseren van deze mogelijke, bijhouden hoe en wanneer de kwetsbaarheid voor aanvallen verandert en wat dit betekent dat vanuit het oogpunt van de risico's.
+Het doel van een analyse van een kwets baarheid is om inzicht te krijgen in de risico gebieden in een toepassing, zodat ontwikkel aars en beveiligings specialisten weten welke onderdelen van de toepassing zijn geopend voor aanvallen. Vervolgens vindt u de manieren om dit mogelijk te minimaliseren, te volgen wanneer en hoe de kwets baarheid wordt gewijzigd en wat dit van invloed is op een risico perspectief.
 
-Analyse van een aanval kunt u identificeren:
+Met een kwets baarheid voor aanvallen kunt u het volgende identificeren:
 
-- Functies en onderdelen van het systeem moet u om te controleren en te testen op beveiligingsproblemen.
-- Met een hoog risico gebieden van code die moeten ingrijpende beveiliging (delen van het systeem die u nodig hebt om te beschermen).
-- Wanneer u de kwetsbaarheid voor aanvallen alter en moet vernieuwen van een beoordeling van bedreigingen.
+- Functies en onderdelen van het systeem die u moet controleren en testen op beveiligings problemen.
+- Gebieden met een hoog risico voor code die ingrijpende beveiliging vereisen (onderdelen van het systeem dat u moet verdedigen).
+- Wanneer u de kwets baarheid wijzigt en een bedreigings beoordeling moet vernieuwen.
 
-Mogelijkheden voor aanvallers een potentiële zwakke plek of een beveiligingsprobleem verminderen, moet u zorgvuldig analyseren van uw toepassing algehele kwetsbaarheid voor aanvallen. Dit omvat ook het uitschakelen of beperken van toegang tot systeemservices, toepassen van het principe van minimale bevoegdheden, en die gebruikmaakt van een gelaagde bescherming mogelijk.
+Als u de mogelijkheden van aanvallers wilt beperken om misbruik te maken van een mogelijke zwakke plek of beveiligingslek, moet u de algehele kwets baarheid van uw toepassing grondig analyseren. Het omvat ook het uitschakelen of beperken van de toegang tot systeem services, het Toep assen van het principe van minimale bevoegdheden en waar mogelijk gelaagde verdediging.
 
-We bespreken [uitvoeren van een aanval surface beoordeling](secure-develop.md#conduct-attack-surface-review) tijdens de verificatie-fase van de SDL.
-
-> [!NOTE]
-> **Wat is het verschil tussen risicomodel en analyse van aanval?**
-Risicomodel is het proces van het identificeren van mogelijke bedreigingen voor uw toepassing en ervoor te zorgen dat de juiste oplossingen tegen de bedreigingen in plaats zijn. Analyse van aanval wordt aangeduid met een hoog risico gebieden van code die zijn geopend om aan te vallen. Dit omvat het zoeken naar manieren om u te beschermen met een hoog risico gebieden van uw toepassing en controleren en deze gebieden van de code te testen voordat u de toepassing implementeert.
-
-### <a name="adopt-a-policy-of-identity-as-the-primary-security-perimeter"></a>Een beleid van de identiteit als de primaire beveiligingsperimeter nemen
-
-Bij het ontwerpen van cloud-toepassingen, is het belangrijk om uit te breiden focus van de perimeter van een netwerk gebaseerde aanpak een identiteit gerichte aanpak. In het verleden was het beveiligingsperimeter primair on-premises netwerk van een organisatie. De meeste on-premises beveiliging ontwerpen gebruiken het netwerk als de primaire beveiliging pivot. Voor cloud-toepassingen, u betere dienstverlening door de identiteit als de primaire beveiligingsperimeter rekening te houden.
-
-Wat u kunt doen voor het ontwikkelen van een identiteit gebaseerde benadering voor het ontwikkelen van webtoepassingen:
-
-- Multi-factor authentication voor gebruikers afdwingen.
-- Sterke verificatie en autorisatie platforms te gebruiken.
-- Het principe van minimale bevoegdheden van toepassing.
-- Just-in-time-toegang implementeren.
-
-#### <a name="enforce-multi-factor-authentication-for-users"></a>Multi-factor authentication voor gebruikers afdwingen
-
-Gebruik verificatie met twee factoren. Verificatie met twee factoren is de huidige standaard voor verificatie en autorisatie omdat wordt voorkomen dat de beveiliging zwakke punten die inherent aan de gebruikersnaam en wachtwoord typen verificatie zijn. Toegang tot de Azure management-interfaces (Azure portal/externe PowerShell) en klantgerichte services moet worden ontworpen en geconfigureerd voor het gebruik van [Azure multi-factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication).
-
-#### <a name="use-strong-authentication-and-authorization-platforms"></a>Sterke verificatie en autorisatie platforms te gebruiken
-
-Platform opgegeven verificatie en autorisatie-mechanismen gebruiken in plaats van aangepaste code. Dit komt doordat het ontwikkelen van aangepaste verificatiecode op te geven kunt foutgevoelig zijn. Commerciële code (bijvoorbeeld van Microsoft) vaak wordt uitgebreid beoordeeld voor beveiliging. [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) de Azure-oplossing voor identiteits-en toegang. Deze Azure AD-hulpprogramma's en services kunt u helpen met veilige ontwikkeling:
-
-- [Azure AD identity-platform (Azure AD voor ontwikkelaars)](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) is een identiteitsservice in de cloud waarmee ontwikkelaars apps maken waarmee gebruikers veilig aanmelden. Azure AD biedt ondersteuning voor ontwikkelaars die één tenant, line-of-business (LOB)-apps bouwen en ontwikkelaars die behoefte hebben aan het ontwikkelen van apps met meerdere tenants. Naast eenvoudige aanmelding, worden de apps die zijn gebouwd met behulp van Azure AD kunnen aanroepen Microsoft APIs en aangepaste API's die zijn gebouwd op de Azure AD-platform. Het Azure AD identity-platform biedt ondersteuning voor standaardprotocollen zoals OAuth 2.0 en OpenID Connect.
-
-- [Azure Active Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/) is een identity management-service die u kunt aanpassen en beheren hoe klanten zich registreren, aanmelden en hun profielen beheren wanneer ze uw toepassingen. Dit omvat toepassingen die zijn ontwikkeld voor iOS, Android en .NET, onder andere. Azure AD B2C kunt deze acties tijdens het beveiligen van de klantidentiteiten.
-
-#### <a name="apply-the-principle-of-least-privilege"></a>Het principe van minimale bevoegdheden toepassen
-
-Het concept van [minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) betekent dat gebruikers de precieze niveau van toegang tot en beheer ze moeten gaan doen van hun taken en niets meer te geven.
-
-Een software-ontwikkelaar zou hebt domeinbeheerdersrechten nodig? Moet een administratief medewerker toegang tot beheerfuncties op hun pc? Evaluatie van toegang tot software is niet anders. Als u [op rollen gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) zodat gebruikers verschillende mogelijkheden en -instantie in uw toepassing u iedereen wouldn't geeft toegang tot alles. Door het beperken van toegang tot wat vereist voor elke rol is, beperkt u het risico van een security probleem optreedt.
-
-Zorg ervoor dat uw toepassing dwingt [minimale bevoegdheden](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) gedurende de patronen voor databasetoegang.
+We bespreken het [uitvoeren van een kwets baarheid voor een aanval](secure-develop.md#conduct-attack-surface-review) tijdens de verificatie fase van de SDL.
 
 > [!NOTE]
->  De regels van minimale bevoegdheden nodig om toe te passen op de software en de personen die het maken van de software. Software-ontwikkelaars kunnen een grote risico's voor IT-beveiliging worden als ze zijn te veel toegang krijgen. De gevolgen zijn ernstige als een ontwikkelaar kwade bedoelingen heeft of te veel toegang wordt verleend. U wordt aangeraden dat de regels van minimale bevoegdheden worden toegepast op ontwikkelaars gedurende de ontwikkelingscyclus.
+> **Wat is het verschil tussen bedreigings modellering en kwets baarheid voor aanvallen?**
+Bedreigings modellering is het proces van het identificeren van mogelijke beveiligings Risico's voor uw toepassing en ervoor zorgen dat de juiste oplossingen tegen de bedreigingen aanwezig zijn. Analyse van kwets baarheid duidt op gebieden met een hoog risico van code die open zijn om aan te vallen. Het omvat het vinden van manieren voor het beschermen van gebieden met een hoog risico voor uw toepassing en het controleren en testen van deze code gebieden voordat u de toepassing implementeert.
+
+### <a name="adopt-a-policy-of-identity-as-the-primary-security-perimeter"></a>Een beleid met identiteit als de primaire beveiligings verbinding aannemen
+
+Wanneer u Cloud toepassingen ontwerpt, is het belang rijk dat u de focus van de beveiligings omgeving uitbreidt van een netwerk gerichte benadering tot een identiteits gerichte aanpak. In het verleden was de primaire on-premises beveiligings verbinding het netwerk van een organisatie. De meeste on-premises beveiligings ontwerpen gebruiken het netwerk als de primaire beveiligings Pivot. Voor Cloud toepassingen is het beter om de identiteit als de primaire beveiligings verbinding te beschouwen.
+
+Dingen die u kunt doen om een identiteits gerichte aanpak te ontwikkelen voor het ontwikkelen van webtoepassingen:
+
+- Multi-factor Authentication afdwingen voor gebruikers.
+- Gebruik krachtige platformen voor verificatie en autorisatie.
+- Pas het principe van minimale bevoegdheden toe.
+- Implementeer just-in-time-toegang.
+
+#### <a name="enforce-multi-factor-authentication-for-users"></a>Multi-factor Authentication afdwingen voor gebruikers
+
+Gebruik twee ledige verificatie. Verificatie met twee factoren is de huidige standaard voor verificatie en autorisatie, omdat hiermee wordt voor komen dat de zwakke plekken in de beveiliging van gebruikers naam en wacht woord worden geauthenticeerd. Toegang tot de Azure-beheer interfaces (Azure Portal/Remote Power shell) en aan klant gerichte services moeten zijn ontworpen en geconfigureerd voor gebruik van [Azure multi-factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication).
+
+#### <a name="use-strong-authentication-and-authorization-platforms"></a>Sterke verificatie-en autorisatie platforms gebruiken
+
+Gebruik platform verificatie-en autorisatie mechanismen in plaats van aangepaste code. Dit komt doordat het ontwikkelen van aangepaste verificatie code gevoelig voor fouten kan zijn. Commerciële code (bijvoorbeeld van micro soft) wordt vaak uitgebreid gecontroleerd op beveiliging. [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is de Azure-oplossing voor identiteits-en toegangs beheer. Deze Azure AD-hulpprogram ma's en-services helpen bij veilige ontwikkeling:
+
+- [Azure AD Identity platform (Azure AD voor ontwikkel aars)](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) is een Cloud-identiteits service die ontwikkel aars gebruiken om apps te bouwen waarmee gebruikers zich veilig kunnen aanmelden. Azure AD helpt ontwikkel aars die een LOB-app (line-of-Business) en ontwikkel aars van één Tenant bouwen die apps voor meerdere tenants willen ontwikkelen. Naast de eenvoudige aanmelding kunnen apps die zijn gebouwd met behulp van Azure AD, micro soft-Api's en aangepaste Api's aanroepen die zijn gebouwd op het Azure AD-platform. Het Azure AD-identiteits platform ondersteunt industrie-standaard protocollen zoals OAuth 2,0 en OpenID Connect Connect.
+
+- [Azure Active Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/) is een service voor identiteits beheer die u kunt gebruiken voor het aanpassen en bepalen van de manier waarop gebruikers zich aanmelden, aanmelden en hun profielen beheren wanneer ze uw toepassingen gebruiken. Dit geldt ook voor toepassingen die zijn ontwikkeld voor iOS, Android en .NET, onder andere. Azure AD B2C maakt deze acties mogelijk tijdens het beveiligen van de identiteiten van klanten.
+
+#### <a name="apply-the-principle-of-least-privilege"></a>Het principe van minimale bevoegdheden Toep assen
+
+Het concept van de [minimale bevoegdheid](https://en.wikipedia.org/wiki/Principle_of_least_privilege) betekent dat gebruikers het nauw keurige toegangs niveau en het beheer kunnen geven dat ze nodig hebben om hun taken uit te voeren en niets meer te doen.
+
+Moet een software ontwikkelaar domein beheerders rechten hebben? Moet een administratief mede werker toegang hebben tot de besturings elementen voor beheer op hun personal computer? Het evalueren van de toegang tot de software is niet anders. Als u gebruikmaakt [van op rollen gebaseerd toegangs beheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) om gebruikers verschillende vaardig heden en instanties in uw toepassing te geven, geeft u iedereen geen toegang tot alles. Door de toegang te beperken tot wat vereist is voor elke rol, beperkt u het risico van een beveiligings probleem dat optreedt.
+
+Zorg ervoor dat uw toepassing [minimale bevoegdheden](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) afdwingt in de bijbehorende toegangs patronen.
+
+> [!NOTE]
+>  De regels van de minimale bevoegdheid moeten worden toegepast op de software en aan de personen die de software maken. Software ontwikkelaars kunnen een zeer risico op IT-beveiliging zijn als ze te veel toegang krijgen. De gevolgen kunnen ernstig zijn als een ontwikkelaar kwaad aardige intentie heeft of te veel toegang heeft gekregen. We raden aan dat de regels van de minimale bevoegdheid worden toegepast op ontwikkel aars tijdens de ontwikkelings levenscyclus.
 
 #### <a name="implement-just-in-time-access"></a>Just-in-time-toegang implementeren
 
-Implementeer *just-in-time* (JIT) toegang tot de blootstellingstijd van bevoegdheden verder te verlagen. Gebruik [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#stage-3-build-visibility-and-take-full-control-of-admin-activity) aan:
+Implementeer just *-in-time* -toegang (JIT) om de belichtings tijd van bevoegdheden verder te verlagen. Gebruik [Azure AD privileged Identity Management](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#stage-3-build-visibility-and-take-full-control-of-admin-activity) voor het volgende:
 
-- Geef gebruikers de machtigingen die ze nodig hebben alleen JIT.
-- Rollen toewijzen voor een kortere duur met vertrouwen dat de bevoegdheden automatisch worden ingetrokken.
+- Geef gebruikers de machtigingen die ze alleen JIT nodig hebben.
+- Wijs rollen toe voor een verkorte duur met vertrouwen dat de bevoegdheden automatisch worden ingetrokken.
 
-### <a name="require-re-authentication-for-important-transactions"></a>Hernieuwde verificatie vereist is voor belangrijke transacties
+### <a name="require-re-authentication-for-important-transactions"></a>Nieuwe verificatie vereisen voor belang rijke trans acties
 
-[Aanvraag voor cross-site kunnen worden vervalst](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (ook wel bekend als *XSRF* of *CSRF*) is een aanval tegen waarin een schadelijke web-app is van invloed op de interactie tussen de browser van een client en een web-gehoste web-apps de App dat die browser vertrouwt. Aanvraag voor cross-site kunnen worden vervalst aanvallen zijn mogelijk omdat webbrowsers bepaalde typen verificatietokens automatisch met elke aanvraag naar een website verzenden.
-Deze vorm van misbruik wordt ook wel een *aanval met één muisklik* of *sessie hing* omdat de aanval gebruik van maakt de eerder sessie is geverifieerd voor de gebruiker.
+[Aanvraag vervalsing op meerdere sites](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (ook wel bekend als *XSRF* of *CSRF*) is een aanval tegen webhosten waarvoor een kwaadwillende Web-App de interactie beïnvloedt tussen een client browser en een web-app die die browser vertrouwt. Aanvallen op aanvraag vervalsing op meerdere sites zijn mogelijk omdat webbrowsers sommige typen verificatie tokens automatisch laten verzenden met elke aanvraag naar een website.
+Deze vorm van exploitatie is ook bekend als een aanval of *sessie* met *één klik* , omdat de aanval de eerder geauthenticeerde sessie van de gebruiker benut.
 
-De beste manier om te zetten voor bescherming tegen dit soort aanval is te vragen de gebruiker iets dat alleen de gebruiker voor elk belangrijk transactie, zoals een aankoop, account deactiveren of een wachtwoordwijziging bieden kan. U mogelijk vraagt de gebruiker het wachtwoord opnieuw invoeren of een captcha volledig of dien een token voor geheim die alleen de gebruiker kan hebben. De meest voorkomende aanpak is het token voor geheim.
+De beste manier om dit soort aanvallen te tegen komen, is door de gebruiker te vragen om iets dat alleen de gebruiker kan opgeven vóór elke belang rijke trans actie, zoals een aankoop, het deactiveren van accounts of het wijzigen van een wacht woord. U kunt de gebruiker vragen om het wacht woord opnieuw in te voeren, een CAPTCHA te volt ooien of een geheim token in te dienen dat alleen de gebruiker zou hebben. De meest voorkomende benadering is het geheime token.
 
-### <a name="use-a-key-management-solution-to-secure-keys-credentials-and-other-secrets"></a>Een oplossing voor sleutelbeheer gebruiken voor het beveiligen van sleutels, referenties en andere geheimen
+### <a name="use-a-key-management-solution-to-secure-keys-credentials-and-other-secrets"></a>Een oplossing voor sleutel beheer gebruiken om sleutels, referenties en andere geheimen te beveiligen
 
-Verlies van sleutels en referenties is een veelvoorkomend probleem. Het enige wat slechter dan een onbevoegde partij verlies van uw sleutels en referenties heeft er toegang toe hebben. Aanvallers kunnen profiteren van automatische en handmatige technieken om sleutels en geheimen die zijn opgeslagen in broncodeopslagruimte zoals GitHub te vinden. Geen sleutels en geheimen plaats in deze openbare opslagplaatsen voor codes of op een andere server.
+Het verlies van sleutels en referenties is een veelvoorkomend probleem. Het enige wat u nog ergert dan het verlies van uw sleutels en referenties is dat een niet-geautoriseerde partij er toegang toe krijgt. Aanvallers kunnen gebruikmaken van geautomatiseerde en hand matige technieken om sleutels en geheimen te vinden die zijn opgeslagen in code opslagplaatsen zoals GitHub. Plaats geen sleutels en geheimen in deze open bare code opslagplaatsen of op een andere server.
 
-Plaats uw sleutels, certificaten, geheimen en verbindingsreeksen altijd in een oplossing voor sleutelbeheer. U kunt een gecentraliseerde oplossing waarin sleutels en geheimen worden opgeslagen in hardware security modules (HSM's) gebruiken. Azure voorziet u van een HSM in de cloud met [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis).
+Plaats altijd uw sleutels, certificaten, geheimen en verbindings reeksen in een oplossing voor sleutel beheer. U kunt een gecentraliseerde oplossing gebruiken waarin sleutels en geheimen worden opgeslagen in Hardware Security modules (Hsm's). Azure biedt u een HSM in de Cloud met [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis).
 
-Key Vault is een *geheime store*: Er is een gecentraliseerde cloudservice voor het opslaan van toepassingsgeheimen. Key Vault uw vertrouwelijke gegevens houdt veilig door toepassingsgeheimen bewaren in één centrale locatie en beveiligde toegang, machtigingenbeheer en -logboekregistratie te leveren.
+Key Vault is een *geheim archief*: het is een gecentraliseerde Cloud service voor het opslaan van toepassings geheimen. Key Vault uw vertrouwelijke gegevens veilig houdt door toepassings geheimen op één centrale locatie te bewaren en beveiligde toegang, machtigings beheer en logboek registratie van toegang te bieden.
 
-Geheimen worden opgeslagen in afzonderlijke *kluizen*. Elke kluis heeft een eigen configuratie- en beveiligingsbeleid om toegang te beheren. U krijgt tot uw gegevens via een REST-API of een client-SDK die beschikbaar is voor de meeste moderne programmeertalen.
+Geheimen worden opgeslagen in afzonderlijke *kluizen*. Elke kluis heeft zijn eigen configuratie-en beveiligings beleid om de toegang te beheren. U krijgt toegang tot uw gegevens via een REST API of via een client-SDK die beschikbaar is voor de meeste programmeer talen.
 
 > [!IMPORTANT]
-> Azure Key Vault is ontworpen voor het opslaan van configuratie-geheimen voor servertoepassingen. Het niet bedoeld voor het opslaan van gegevens die deel uitmaakt van app-gebruikers. Dit wordt weergegeven in de prestatiekenmerken, API en kostenmodel.
+> Azure Key Vault is ontworpen om configuratie geheimen voor server toepassingen op te slaan. Het is niet bedoeld voor het opslaan van gegevens die bij app-gebruikers horen. Dit wordt weer gegeven in de prestatie kenmerken, API en het kosten model.
 >
-> Gebruikersgegevens moeten elders, worden opgeslagen in een Azure SQL Database-exemplaar waarvoor transparante gegevensversleuteling (TDE) of in een opslagaccount die gebruikmaakt van Azure Storage-Serviceversleuteling. Geheimen die door uw toepassing worden gebruikt voor toegang tot deze gegevensarchieven kunnen worden bewaard in Azure Key Vault.
+> Gebruikers gegevens moeten elders worden opgeslagen, zoals in een Azure SQL Database-exemplaar met Transparent Data Encryption (TDE) of in een opslag account dat gebruikmaakt van Azure Storage-service versleuteling. Geheimen die door uw toepassing worden gebruikt voor toegang tot deze gegevens archieven, kunnen worden bewaard in Azure Key Vault.
 
 ### <a name="protect-sensitive-data"></a>Gevoelige gegevens beveiligen
 
-Beveiligen van gegevens is een essentieel onderdeel van uw beveiligingsstrategie.
-Classificatie van uw gegevens en het identificeren van de beveiliging van uw gegevens moet helpt u bij het ontwerpen van uw app met beveiliging van gegevens in gedachten. Gegevens classificeren (categoriseren) worden opgeslagen door gevoeligheid en impact op bedrijf helpt ontwikkelaars bepalen van de risico's die gekoppeld aan gegevens zijn.
+Het beveiligen van gegevens is een essentieel onderdeel van uw beveiligings strategie.
+Het classificeren van uw gegevens en het identificeren van uw behoeften voor gegevens beveiliging helpt u bij het ontwerpen van uw app met gegevens beveiliging. Het classificeren (categoriseren) van opgeslagen gegevens door middel van gevoeligheid en bedrijfs impact helpt ontwikkel aars bij het bepalen van de Risico's die aan gegevens zijn gekoppeld.
 
-Alle toepasselijke gegevens labelen als gevoelig bij het ontwerpen van de opmaak van uw gegevens. Zorg ervoor dat de toepassing de gegevens van toepassing als gevoelig beschouwd. Deze procedures kunt u uw gevoelige gegevens te beschermen:
+Voorzie alle toepasselijke gegevens als vertrouwelijk wanneer u uw gegevens indelingen ontwerpt. Zorg ervoor dat de toepassing de toepasselijke gegevens als vertrouwelijk behandelt. Deze procedures kunnen u helpen bij het beveiligen van uw gevoelige gegevens:
 
 - Versleuteling gebruiken.
-- Vermijd codeert geheimen zoals sleutels en wachtwoorden.
-- Zorg ervoor dat besturingselementen voor toegang en controle voldaan is.
+- Vermijd het gebruik van geheime code ringen, zoals sleutels en wacht woorden.
+- Zorg ervoor dat toegangs beheer en controle zijn geïmplementeerd.
 
 #### <a name="use-encryption"></a>Versleuteling gebruiken
 
-Beveiligen van gegevens, moet een essentieel onderdeel van uw beveiligingsstrategie.
-Als uw gegevens worden opgeslagen in een database of als heen en weer tussen locaties verplaatst, gebruikt u versleuteling van [data-at-rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) (Hoewel in de database) en versleuteling van [gegevens die onderweg zijn](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit) (onderweg naar en van de gebruiker de database, een API of service-eindpunt). U wordt aangeraden dat u altijd SSL/TLS-protocollen gebruikt voor het uitwisselen van gegevens. Zorg dat u de nieuwste versie van TLS voor versleuteling gebruikt (op dit moment is dit versie 1.2).
+Het beveiligen van gegevens moet een essentieel onderdeel zijn van uw beveiligings strategie.
+Als uw gegevens worden opgeslagen in een Data Base of als deze tussen locaties worden teruggezet, gebruikt u versleuteling van [gegevens in rust](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) (in de data base) en versleuteling van [gegevens die onderweg](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit) zijn (op de manier van en naar de gebruiker, de data base, een API of service-eind punt). U wordt aangeraden altijd SSL/TLS-protocollen te gebruiken om gegevens uit te wisselen. Zorg ervoor dat u de meest recente versie van TLS gebruikt voor versleuteling (momenteel is dit versie 1,2).
 
-#### <a name="avoid-hard-coding"></a>Codeert voorkomen
+#### <a name="avoid-hard-coding"></a>Geen vaste code
 
-Wat u mag nooit hardgecodeerd in de software. Enkele voorbeelden zijn hostnamen of IP-adressen, URL's, e-mailadressen, gebruikersnamen, wachtwoorden, sleutels voor het opslagaccount en andere cryptografische sleutels. Overweeg de implementatie van eisen op aan wat kan of kunnen niet worden vastgelegd in uw code, inclusief in de secties Opmerking van uw code.
+Sommige dingen mogen nooit in uw software worden vastgelegd. Enkele voor beelden zijn hostnamen of IP-adressen, Url's, e-mail adressen, gebruikers namen, wacht woorden, sleutels voor het opslag account en andere cryptografische sleutels. Overweeg de implementatie van vereisten om te bepalen wat er in uw code kan of niet kan worden vastgelegd, zoals in de sectie opmerkingen van uw code.
 
-Als u opmerkingen in uw code plaatsen, zorg ervoor dat u gevoelige informatie niet opslaan. Dit omvat de e-mailadres, wachtwoorden, verbindingsreeksen, informatie over uw toepassing zou alleen bekend zijn door iemand in uw organisatie en iets anders dat een aanvaller een voordeel in uw toepassing of de organisatie is een aanval mogelijk geven .
+Als u opmerkingen in uw code plaatst, moet u ervoor zorgen dat u geen gevoelige informatie opslaat. Dit geldt ook voor uw e-mail adres, wacht woorden, verbindings reeksen, informatie over uw toepassing die alleen bekend zijn bij iemand in uw organisatie, en alles wat een aanvaller kan geven om uw toepassing of organisatie aan te vallen .
 
-In principe wordt ervan uitgegaan dat alles in uw project voor de ontwikkeling openbare kennis wordt worden als deze is geïmplementeerd. Vermijd het gebruik van gevoelige gegevens van welke aard dan ook in het project.
+In principe wordt ervan uitgegaan dat alles in uw ontwikkelings project openbaar kennis is wanneer het is geïmplementeerd. Vermijd het opnemen van gevoelige gegevens van elk soort in het project.
 
-Eerder besproken [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis). U kunt Key Vault gebruiken voor het opslaan van geheimen zoals sleutels en wachtwoorden in plaats van hard-coding ze. Wanneer u Key Vault in combinatie met beheerde identiteiten voor Azure-resources gebruiken, uw Azure-web-app toegang tot geheime configuratiewaarden eenvoudig en veilig zonder dat er geheimen opslaan in uw broncodebeheer of configuratie. Zie voor meer informatie, [geheimen in uw server-apps met Azure Key Vault beheren](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
+Eerder zijn we besproken [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis). U kunt Key Vault gebruiken om geheimen zoals sleutels en wacht woorden op te slaan in plaats van ze vast te schrijven. Wanneer u Key Vault gebruikt in combi natie met beheerde identiteiten voor Azure-resources, kan uw Azure-web-app eenvoudig en veilig toegang krijgen tot geheime configuratie waarden zonder geheimen in uw bron beheer of configuratie op te slaan. Zie [geheimen beheren in uw server-apps met Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/)voor meer informatie.
 
-### <a name="implement-fail-safe-measures"></a>Failsafe maatregelen
+### <a name="implement-fail-safe-measures"></a>Fout veilige maat regelen implementeren
 
-Uw toepassing moet overweg kan met [fouten](https://docs.microsoft.com/dotnet/standard/exceptions/) die optreden tijdens het uitvoeren op een consistente manier. De toepassing moet catch alle fouten en een failover veilige of gesloten.
+Uw toepassing moet in staat zijn om [fouten](https://docs.microsoft.com/dotnet/standard/exceptions/) die tijdens de uitvoering optreden, op een consistente manier te verwerken. De toepassing moet alle fouten opvangen en een veilige of gesloten fout hebben.
 
-U moet er ook voor zorgen dat er fouten worden vastgelegd met voldoende context van de gebruiker voor het identificeren van verdachte of schadelijke activiteiten. Logboeken worden bewaard voor een voldoende tijd voor het toestaan van vertraagde forensische analyse. Logboeken moeten zich in een indeling die eenvoudig kan worden gebruikt door een oplossing logboekbeheer. Zorg ervoor dat waarschuwingen voor fouten die betrekking op security hebben worden geactiveerd. Onvoldoende logboekregistratie en bewaking kan aanvallers verder aanvallen op systemen en onderhouden van persistentie.
+U moet er ook voor zorgen dat fouten worden geregistreerd met voldoende gebruikers context om verdachte of schadelijke activiteiten te identificeren. Logboeken moeten voldoende tijd worden bewaard om vertraagde forensische-analyse mogelijk te maken. Logboeken moeten een indeling hebben die eenvoudig kan worden gebruikt met een oplossing voor logboek beheer. Zorg ervoor dat er waarschuwingen worden gegenereerd voor fouten die betrekking hebben op beveiliging. Door ontoereikende logboek registratie en controle kunnen aanvallers systemen verder aanvallen en persistentie onderhouden.
 
-### <a name="take-advantage-of-error-and-exception-handling"></a>Profiteer van de fout en de afhandeling van uitzonderingen
+### <a name="take-advantage-of-error-and-exception-handling"></a>Profiteer van de afhandeling van fouten en uitzonde ringen
 
-Implementatie van de fout en [afhandeling van uitzonderingen](https://docs.microsoft.com/dotnet/standard/exceptions/best-practices-for-exceptions) is een belangrijk onderdeel van het coderen van verdediging. Fout- en afhandeling van uitzonderingen zijn essentieel voor het maken van een systeem, betrouwbaar en veilig. Fouten in foutafhandeling kunnen leiden tot verschillende soorten beveiligingsproblemen, zoals het lekken van gegevens voor aanvallen en helpt meer informatie over het platform en het ontwerp aanvallers.
+Het implementeren van de juiste fout-en uitzonderings [afhandeling](https://docs.microsoft.com/dotnet/standard/exceptions/best-practices-for-exceptions) is een belang rijk onderdeel van de code voor verdediging. Het verwerken van fouten en uitzonde ringen is van cruciaal belang om een systeem betrouwbaar en beveiligd te maken. Fouten bij het afhandelen van fouten kunnen leiden tot verschillende soorten beveiligings problemen, zoals het lekken van informatie aan kwaadwillende personen en het helpen van kwaadwillende personen meer inzicht te krijgen in uw platform en ontwerp.
 
 Zorg ervoor dat:
 
-- Voor het verwerken van de uitzonderingen in een gecentraliseerde manier om te voorkomen dat dubbele [try/catch blokken](https://docs.microsoft.com/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions) in de code.
+- U kunt uitzonde ringen op een gecentraliseerde manier afhandelen om dubbele [try/catch-blokken](https://docs.microsoft.com/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions) in de code te voor komen.
 
-- Alle onverwachte gebeurtenissen worden verwerkt in de toepassing.
+- Alle onverwachte gedragingen worden in de toepassing afgehandeld.
 
-- Berichten die worden weergegeven aan gebruikers geen kritieke gegevens lekken, maar beschikken over voldoende informatie voor een uitleg van het probleem.
+- Berichten die voor gebruikers worden weer gegeven, lekken geen essentiële gegevens maar bieden wel voldoende informatie om het probleem te verklaren.
 
-- Uitzonderingen worden vastgelegd en die ze leveren voldoende informatie voor forensische of incident response teams om te onderzoeken.
+- Uitzonde ringen worden vastgelegd en er wordt voldoende informatie geboden voor forensische of reacties op incidenten die kunnen worden onderzocht.
 
-[Met Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) biedt een eersteklas ervaring voor [afhandeling van fouten en uitzonderingen](https://docs.microsoft.com/azure/logic-apps/logic-apps-exception-handling) die worden veroorzaakt door afhankelijke systemen. Logic Apps kunt u werkstromen maken om te automatiseren van taken en processen die kunnen worden geïntegreerd apps, gegevens, systemen en services voor bedrijven en organisaties.
+[Azure Logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) biedt een eersteklas ervaring voor het afhandelen van [fouten en uitzonde ringen](https://docs.microsoft.com/azure/logic-apps/logic-apps-exception-handling) die worden veroorzaakt door afhankelijke systemen. U kunt Logic Apps gebruiken om werk stromen te maken voor het automatiseren van taken en processen die apps, gegevens, systemen en services integreren in ondernemingen en organisaties.
 
-### <a name="use-logging-and-alerting"></a>Gebruik logboekregistratie en waarschuwingen
+### <a name="use-logging-and-alerting"></a>Logboek registratie en waarschuwingen gebruiken
 
-[Logboek](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1) uw beveiligingsproblemen voor onderzoek, beveiliging en trigger waarschuwingen over problemen om ervoor te zorgen dat gebruikers weten over problemen tijdig. Inschakelen van controle en logboekregistratie op alle onderdelen. De logboeken voor controle moeten gebruikerscontext vastleggen en identificeren van alle belangrijke gebeurtenissen.
+[Registreer](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1) uw beveiligings problemen voor beveiligings onderzoeken en activeer waarschuwingen over problemen om ervoor te zorgen dat mensen tijdig op de hoogte zijn van problemen. Schakel controle en logboek registratie in voor alle onderdelen. In controle logboeken moet de gebruikers context worden vastgelegd en alle belang rijke gebeurtenissen worden geïdentificeerd.
 
-Controleer of u geen gevoelige gegevens die is ingediend door een gebruiker zich bij uw site. Voorbeelden van gevoelige gegevens zijn:
+Controleer of u geen gevoelige gegevens in het logboek registreert die een gebruiker naar uw site verzendt. Voor beelden van gevoelige gegevens zijn:
 
-- De referenties van gebruiker
-- Sociaal-fiscale nummers bevatten of andere identificerende gegevens
-- Creditcardnummers of andere financiële gegevens
-- Gegevens over de servicestatus
-- Persoonlijke sleutels of andere gegevens die kunnen worden gebruikt om versleutelde gegevens te ontsleutelen
-- Systeem- of gegevens die kan worden gebruikt voor de toepassing effectiever aanvallen
+- Gebruikers referenties
+- Sofi-nummers of andere identificerende informatie
+- Creditcard nummers of andere financiële gegevens
+- Status informatie
+- Persoonlijke sleutels of andere gegevens die kunnen worden gebruikt voor het ontsleutelen van versleutelde informatie
+- Systeem-of toepassings informatie die kan worden gebruikt om de toepassing effectiever te aanvallen
 
-Zorg ervoor dat de toepassing gebruiker management gebeurtenissen, zoals geslaagde en mislukte aanmeldingen, wachtwoord opnieuw instellen van wachtwoorden, wijzigen van wachtwoorden, accountvergrendeling en gebruikersregistratie bewaakt. Logboekregistratie voor deze gebeurtenissen kunt u detecteren en reageren op mogelijk verdacht gedrag. U kunt er ook voor het verzamelen van operationele gegevens, zoals wie de toepassing.
+Zorg ervoor dat de toepassing gebruikers beheer gebeurtenissen bewaakt, zoals geslaagde en mislukte gebruikers aanmeldingen, wacht woorden opnieuw instellen, wachtwoord wijzigingen, account vergrendeling en gebruikers registratie. Logboek registratie voor deze gebeurtenissen helpt u mogelijk verdacht gedrag te detecteren en hierop te reageren. U kunt hiermee ook operationele gegevens verzamelen, zoals wie toegang heeft tot de toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
-In de volgende artikelen, is het raadzaam beveiligingsmaatregelen en activiteiten waarmee u kunnen ontwikkelen en implementeren van veilige toepassingen.
+In de volgende artikelen raden wij aan beveiligings maatregelen en activiteiten te gebruiken die u kunnen helpen bij het ontwikkelen en implementeren van veilige toepassingen.
 
-- [Beveiligde toepassingen ontwikkelen](secure-develop.md)
-- [Beveiligde toepassingen implementeren](secure-deploy.md)
+- [Veilige toepassingen ontwikkelen](secure-develop.md)
+- [Veilige toepassingen implementeren](secure-deploy.md)

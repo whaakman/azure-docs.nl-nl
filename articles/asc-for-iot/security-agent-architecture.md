@@ -1,6 +1,6 @@
 ---
-title: Inzicht in Azure Security Center voor IoT-agent beveiligingsarchitectuur Preview | Microsoft Docs
-description: Meer informatie over de beveiligingsarchitectuur van agent voor agents die worden gebruikt in de Azure Security Center voor IoT-service.
+title: Informatie over de Azure Security Center voor IoT-architectuur voor beveiligings agenten | Microsoft Docs
+description: Inzicht in de architectuur van de beveiligings agent voor de agents die worden gebruikt in de Azure Security Center voor IoT-service.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,58 +13,54 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f4ca9a2689ab9e09b4ebff903e757f5c352b556
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 998aeab197931a75579fc39b28e3a248b85fc57b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616570"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596904"
 ---
-# <a name="security-agent-reference-architecture"></a>Security agent-referentiearchitectuur
+# <a name="security-agent-reference-architecture"></a>Referentie architectuur beveiligings agent
 
-> [!IMPORTANT]
-> Azure Security Center voor IoT is momenteel in openbare preview.
-> Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+Azure Security Center voor IoT biedt referentie architectuur voor beveiligings agenten waarmee beveiligings gegevens via IoT Hub kunnen worden geregistreerd, verwerkt, geaggregeerd en verzonden.
 
+Beveiligings agenten zijn ontworpen om te werken in een beperkte IoT-omgeving en zijn zeer aanpasbaar in termen van waarden die ze bieden in vergelijking met de resources die ze gebruiken.
 
-Azure Security Center (ASC) voor IoT biedt referentiearchitectuur voor beveiliging-agents die zich, verwerken, samenvoegen en verzenden van beveiligingsgegevens via IoT hub.
+Beveiligings agenten bieden ondersteuning voor de volgende functies:
 
-Beveiligingsagenten zijn ontworpen voor gebruik in een omgeving met beperkte IoT en hoge mate aanpasbaar in termen van waarden die ze bieden in vergelijking tot de bronnen die waarvan ze gebruikmaken.
+- Onbewerkte beveiligings gebeurtenissen van het onderliggende besturings systeem (Linux, Windows) verzamelen. Zie [Azure Security Center voor IOT-agent configuratie voor](how-to-agent-configuration.md)meer informatie over beschik bare beveiligings gegevens verzamelaars.
 
-Beveiligingsagenten ondersteunen de volgende functies:
+- Verdeel onbewerkte beveiligings gebeurtenissen in berichten die via IoT Hub worden verzonden.
 
-- Onbewerkte beveiligingsgebeurtenissen verzamelen van het onderliggende besturingssysteem (Linux, Windows). Zie voor meer informatie over beschikbare beveiligingsupdates gegevens collectors, [ASC voor de configuratie van de agent IoT](how-to-agent-configuration.md).
+- Verifieer met de bestaande apparaat-id of een toegewezen module-identiteit. Zie [verificatie methoden voor beveiligings agenten](concept-security-agent-authentication-methods.md) voor meer informatie.
 
-- Cumulatieve onbewerkte beveiligingsgebeurtenissen in berichten die worden verzonden via IoT hub.
+- Configureer op afstand via het gebruik van de **azureiotsecurity** -module dubbele. Zie Configure a [Azure Security Center for IOT agent](how-to-agent-configuration.md)(Engelstalig) voor meer informatie.
 
-- Verifiëren met het bestaande apparaat-id of een specifieke module-identiteit. Zie [Security agent verificatiemethoden](concept-security-agent-authentication-methods.md) voor meer informatie.
+Azure Security Center voor IoT-beveiligings agenten zijn ontwikkeld als open-source projecten en zijn verkrijgbaar via GitHub: 
 
-- Op afstand configureren door het gebruik van de **azureiotsecurity** moduledubbel. Zie voor meer informatie, [een ASC voor IoT-agent configureren](how-to-agent-configuration.md).
+- [Azure Security Center voor IoT C-agent](https://github.com/Azure/Azure-IoT-Security-Agent-C) 
+- [Azure Security Center voor IoT C#-agent](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
 
-ASC voor IoT-beveiliging agents als open-source-projecten zijn ontwikkeld en zijn beschikbaar via GitHub: 
+## <a name="agent-supported-platforms"></a>Door agents ondersteunde platforms
 
-- [ASC op basis van IoT C-agent](https://github.com/Azure/Azure-IoT-Security-Agent-C) 
-- [ASC voor IoT C#-op basis van agent](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
+Azure Security Center voor IoT biedt verschillende installatie agenten voor 32-en 64-bits Windows en hetzelfde voor 32-en 64-bits Linux. Zorg ervoor dat u het juiste installatie programma voor de agent hebt voor elk van uw apparaten volgens de volgende tabel:
 
-## <a name="agent-supported-platforms"></a>Agent die wordt ondersteund platforms
-
-ASC voor IoT biedt verschillende installer-agents voor 32-bits en 64-bits Windows- en hetzelfde voor 32-bits en 64-bits Linux. Zorg ervoor dat u het juiste agent-installatieprogramma voor elk van uw apparaten op basis van de volgende tabel:
-
-| 32- of 64-bits | Linux | Windows |    Details|
+| Architectuur | Linux | Windows |    Details|
 |----------|----------------------------------------------|-------------|-------------------------------------------|
-| 32-bits  | C  | C#  ||
-| 64-bits  | C#of C           | C#      | De C-agent gebruiken voor apparaten met minimale resources|
+| 32  | C  | C#  ||
+| 64  | C#of C           | C#      | We raden u aan om de C-agent te gebruiken voor apparaten met meer beperkte of minimale bronnen van apparaten.|
+|
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd over ASC voor IoT-beveiligingsarchitectuur agent en installatieprogramma's van het beschikbaar.
+In dit artikel hebt u geleerd over Azure Security Center voor de architectuur van de IoT-beveiligings agent en de beschik bare installatie Programma's.
 
-Gebruik de volgende artikelen om door te gaan aan de slag met ASC voor IoT-implementatie:
+Als u aan de slag wilt gaan met Azure Security Center voor IoT-implementatie, gebruikt u de volgende artikelen:
 
-- Inzicht in [Security agent verificatiemethoden](concept-security-agent-authentication-methods.md)
-- Selecteer en implementeer een [security-agent](how-to-deploy-agent.md)
-- Bekijk de ASC voor IoT [vereisten-Service](service-prerequisites.md)
-- Meer informatie over het [ASC inschakelen voor IoT-service in uw IoT-Hub](quickstart-onboard-iot-hub.md)
-- Meer informatie over de service van de [ASC voor veelgestelde vragen over IoT](resources-frequently-asked-questions.md)
+- Meer informatie over [verificatie methoden voor beveiligings agenten](concept-security-agent-authentication-methods.md)
+- Een [beveiligings agent](how-to-deploy-agent.md) selecteren en implementeren
+- Bekijk de Azure Security Center voor vereisten voor IoT- [Services](service-prerequisites.md)
+- Meer informatie over het [inschakelen van Azure Security Center voor IOT-service in uw IOT hub](quickstart-onboard-iot-hub.md)
+- Meer informatie over de service vindt u in de [Veelgestelde vragen over Azure Security Center voor IOT](resources-frequently-asked-questions.md)

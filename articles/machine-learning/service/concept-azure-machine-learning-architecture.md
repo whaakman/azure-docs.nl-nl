@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 887c27c765855424dbfb9a77f0b452da0f5de647
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 82d3656e0adc03157de57b700f8f0be6bde1f2ee
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868865"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663476"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>De werking van Azure Machine Learning-service: Architectuur en concepten
 
@@ -73,7 +73,7 @@ Gebruik deze hulpprogram ma's voor Azure Machine Learning:
 > Hoewel in dit artikel voor waarden en concepten worden gedefinieerd die worden gebruikt door Azure Machine Learning service, worden er geen termen en concepten voor het Azure-platform gedefinieerd. Zie de [Microsoft Azure verklarende woorden lijst](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)voor meer informatie over de terminologie van het Azure-platform.
 
 
-### <a name="workspaces"></a>Workspaces
+### <a name="workspaces"></a>Werkruimten
 
 [De werk ruimte](concept-workspace.md) is de resource op het hoogste niveau voor Azure machine learning service. Het biedt een centrale locatie voor het werken met alle artefacten die u maakt wanneer u Azure Machine Learning-service gebruikt.
 
@@ -126,7 +126,7 @@ Zie bijvoorbeeld configuraties [selecteren en een compute-doel gebruiken om uw m
 
 Gegevens sets bieden methoden voor het werken met in populaire indelingen, zoals het `from_delimited_files()` gebruik `to_pandas_dataframe()`van of.
 
-Zie [Azure machine learning gegevens sets maken en registreren](how-to-create-register-datasets.md)voor meer informatie.  Raadpleeg de [voorbeeld notitieblokken](https://aka.ms/dataset-tutorial)voor meer voor beelden met behulp van gegevens sets.
+Zie [Azure machine learning gegevens sets maken en registreren](how-to-create-register-datasets.md)voor meer informatie.  Raadpleeg de [voorbeeld notitieblokken](https://github.com/Azure/MachineLearningNotebooks/tree/master/work-with-data/datasets)voor meer voor beelden met behulp van gegevens sets.
 
 Een **gegevens archief** is een opslag abstractie van een Azure-opslag account. De gegevens opslag kan ofwel een Azure Blob-container ofwel een Azure-bestands share als de back-end-opslag gebruiken. Elke werk ruimte heeft een standaard gegevens opslag en u kunt aanvullende gegevens opslag registreren. Gebruik de python SDK API of de Azure Machine Learning CLI om bestanden op te slaan en op te halen uit de gegevens opslag.
 

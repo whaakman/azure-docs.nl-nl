@@ -1,6 +1,6 @@
 ---
-title: Gegevens kopiëren naar Search-index met behulp van Azure Data Factory | Microsoft Docs
-description: Meer informatie over het pushen of gegevens kopiëren naar een Azure search-index met behulp van de Kopieeractiviteit in een Azure Data Factory-pijplijn.
+title: Gegevens kopiëren naar zoek index met behulp van Azure Data Factory | Microsoft Docs
+description: Meer informatie over het pushen of kopiëren van gegevens naar een Azure search-index met behulp van de Kopieer activiteit in een Azure Data Factory-pijp lijn.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,46 +10,46 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: faf0cab55ec0cef034638d218f2172f3676ff39b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: edf475ac11168c33a6b11ccda3482ac44579e8d8
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245110"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726224"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Gegevens kopiëren naar een Azure Search-index met behulp van Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-azure-search-connector.md)
 > * [Huidige versie](connector-azure-search.md)
 
-In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren in Azure Search-index. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel wordt beschreven hoe u de Kopieer activiteit in Azure Data Factory kunt gebruiken om gegevens te kopiëren naar Azure Search index. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens uit een ondersteund brongegevensarchief kopiëren naar Azure Search-index. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens uit elk ondersteund brongegevens archief kopiëren naar Azure Search index. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
 ## <a name="getting-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar Azure Search-connector.
+De volgende secties bevatten informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory entiteiten die specifiek zijn voor Azure Search-connector.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
-De volgende eigenschappen worden ondersteund voor de gekoppelde Azure-Search-service:
+De volgende eigenschappen worden ondersteund voor Azure Search gekoppelde service:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **AzureSearch** | Ja |
 | url | De URL voor de Azure Search-service. | Ja |
-| key | Administrator-code voor de Azure Search-service. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| key | De beheerders sleutel voor de Azure Search-service. Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory, of [verwijs naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt Azure Integration Runtime of zelfgehoste Cloudintegratieruntime gebruiken (als het gegevensarchief bevindt zich in een particulier netwerk). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 > [!IMPORTANT]
-> Bij het kopiëren van gegevens uit een cloudgegevensopslag in Azure Search-index in Azure Search gekoppelde service, moet u een Azure Integration Runtime met expliciete-regio's in connactVia verwijzen. Instellen van de regio als het account dat uw Azure Search zich bevindt. Meer informatie uit [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
+> Wanneer u gegevens uit een gegevens archief in de Cloud naar Azure Search index kopieert, moet u in Azure Search gekoppelde service een Azure Integration Runtime met een expliciete regio in connactVia. Stel de regio in als uw Azure Search zich bevindt. Meer informatie vindt u in [Azure Integration runtime](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Voorbeeld:**
 
@@ -75,14 +75,14 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde Azure-Search-ser
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie het artikel gegevenssets voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Azure Search-gegevensset.
+Zie het artikel gegevenssets voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die door Azure Search DataSet worden ondersteund.
 
-Als u wilt kopiëren van gegevens in Azure Search, worden de volgende eigenschappen ondersteund:
+De volgende eigenschappen worden ondersteund voor het kopiëren van gegevens naar Azure Search:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **AzureSearchIndex** | Ja |
-| indexName | De naam van de Azure Search-index. Data Factory maakt niet de index. De index moet bestaan in Azure Search. | Ja |
+| indexName | De naam van de Azure Search index. Data Factory maakt de index niet. De index moet bestaan in Azure Search. | Ja |
 
 **Voorbeeld:**
 
@@ -91,12 +91,13 @@ Als u wilt kopiëren van gegevens in Azure Search, worden de volgende eigenschap
     "name": "AzureSearchIndexDataset",
     "properties": {
         "type": "AzureSearchIndex",
+        "typeProperties" : {
+            "indexName": "products"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Search linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties" : {
-            "indexName": "products"
         }
    }
 }
@@ -104,32 +105,32 @@ Als u wilt kopiëren van gegevens in Azure Search, worden de volgende eigenschap
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Azure Search-bron.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die door Azure Search bron worden ondersteund.
 
-### <a name="azure-search-as-sink"></a>Azure Search als sink
+### <a name="azure-search-as-sink"></a>Azure Search als Sink
 
-Om gegevens te kopiëren in Azure Search, stelt u het brontype in de kopieeractiviteit naar **AzureSearchIndexSink**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **sink** sectie:
+Als u gegevens wilt kopiëren naar Azure Search, stelt u het bron type in de Kopieer activiteit in op **AzureSearchIndexSink**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **sink** sectie:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **AzureSearchIndexSink** | Ja |
-| writeBehavior | Hiermee geeft u op of u wilt samenvoegen of vervangen wanneer een document al in de index bestaat. Zie de [WriteBehavior eigenschap](#writebehavior-property).<br/><br/>Toegestane waarden zijn: **Samenvoegen** (standaard), en **uploaden**. | Nee |
-| writeBatchSize | Wanneer de buffergrootte writeBatchSize bereikt, uploadt u gegevens in de Azure Search-index. Zie de [WriteBatchSize eigenschap](#writebatchsize-property) voor meer informatie.<br/><br/>Toegestane waarden zijn: geheel getal van 1 naar 1000; standaardwaarde is 1000. | Nee |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **AzureSearchIndexSink** | Ja |
+| writeBehavior | Hiermee geeft u op of u wilt samen voegen of vervangen wanneer een document al aanwezig is in de index. Zie de [eigenschap WriteBehavior](#writebehavior-property).<br/><br/>Toegestane waarden zijn: **Samen voegen** (standaard) en **uploaden**. | Nee |
+| writeBatchSize | Hiermee worden gegevens geüpload naar de Azure Search-index wanneer de buffer grootte writeBatchSize bereikt. Zie de [eigenschap WriteBatchSize](#writebatchsize-property) voor meer informatie.<br/><br/>Toegestane waarden zijn: integer 1 tot 1.000; de standaard waarde is 1000. | Nee |
 
-### <a name="writebehavior-property"></a>De eigenschap WriteBehavior
+### <a name="writebehavior-property"></a>Eigenschap WriteBehavior
 
-AzureSearchSink upsert-bewerking bij het schrijven van gegevens. Bij het schrijven van een document, als de documentsleutel al in de Azure Search-index bestaat, werkt Azure Search met andere woorden, het bestaande document in plaats van die een conflict uitzondering veroorzaakt.
+AzureSearchSink upsert bij het schrijven van gegevens. Met andere woorden, wanneer u een document schrijft en de document sleutel al aanwezig is in de index van de Azure Search, Azure Search het bestaande document bijwerken in plaats van een conflict uitzondering uit te voeren.
 
-De AzureSearchSink biedt de volgende twee upsert gedrag (met behulp van SDK AzureSearch):
+De AzureSearchSink biedt de volgende twee upsert-gedragingen (met behulp van AzureSearch SDK):
 
-- **Samenvoegen**: alle kolommen in het nieuwe document met de bestaande combineren. Voor kolommen met een null-waarde in het nieuwe document, wordt de waarde in het bestaande bestand behouden.
-- **Uploaden**: Het nieuwe document wordt het bestaande bestand vervangen. Voor de kolommen is niet opgegeven in het nieuwe document, wordt de waarde ingesteld op null of er een niet-null-waarde in het bestaande document of niet is.
+- **Samen voegen**: alle kolommen in het nieuwe document combi neren met de bestaande. Voor kolommen met een null-waarde in het nieuwe document, blijft de waarde in de bestaande.
+- **Uploaden**: Het nieuwe document vervangt de bestaande. Voor kolommen die niet in het nieuwe document zijn opgegeven, wordt de waarde ingesteld op NULL, ongeacht of er een andere waarde dan Null is in het bestaande document of niet.
 
-Het standaardgedrag **samenvoegen**.
+Het standaard gedrag is **samen voegen**.
 
-### <a name="writebatchsize-property"></a>De eigenschap WriteBatchSize
+### <a name="writebatchsize-property"></a>Eigenschap WriteBatchSize
 
-Azure Search-service ondersteunt documenten schrijven als een batch. Een batch kan 1 naar 1000 acties bevatten. Een actie verwerkt één document als het uploaden/merge-bewerking wilt uitvoeren.
+Azure Search-service ondersteunt het schrijven van documenten als een batch. Een batch kan 1 tot 1.000 acties bevatten. Een actie behandelt één document om de upload/samenvoeg bewerking uit te voeren.
 
 **Voorbeeld:**
 
@@ -163,13 +164,13 @@ Azure Search-service ondersteunt documenten schrijven als een batch. Een batch k
 ]
 ```
 
-### <a name="data-type-support"></a>Ondersteuning voor gegevenstype
+### <a name="data-type-support"></a>Ondersteuning voor gegevens typen
 
-De volgende tabel geeft aan of een Azure Search-gegevenstype of niet wordt ondersteund.
+In de volgende tabel wordt aangegeven of een Azure Search gegevens type wordt ondersteund.
 
-| Azure Search-gegevenstype | Ondersteund in Azure Search-Sink |
+| Azure Search gegevens type | Ondersteund in Azure Search Sink |
 | ---------------------- | ------------------------------ |
-| String | J |
+| Tekenreeks | J |
 | Int32 | J |
 | Int64 | J |
 | Double | J |

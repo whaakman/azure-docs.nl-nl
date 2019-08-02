@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 68c83809cba0585d99751760c0e4f51893806170
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8cb7458deddc95f33fa5e4582ffa7c25c3c64e6
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257201"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619810"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Bulksgewijs executor Java-clientbibliotheek gebruiken om te bulksgewijs bewerkingen uitvoeren op Azure Cosmos DB-gegevens
 
 In deze zelfstudie vindt u instructies over het gebruik van de Azure Cosmos DB bulksgewijs executor Java-bibliotheek voor het importeren en bijwerken van Azure Cosmos DB-documenten. Zie voor meer informatie over het bulksgewijs executor-bibliotheek en hoe Hiermee kunt u gebruikmaken van de enorme doorvoer en opslag, [bulk-overzicht van de bibliotheek executor](bulk-executor-overview.md) artikel. In deze zelfstudie, u een Java-toepassing die wordt gegenereerd willekeurige documenten maken en ze zijn bulksgewijs geïmporteerd in een Azure Cosmos DB-container. Na het importeren wordt u bulksgewijs sommige eigenschappen van een document bij te werken. 
 
-Bulksgewijs executor-bibliotheek wordt momenteel ondersteund door Azure Cosmos DB SQL API en Gremlin-API-accounts. In dit artikel wordt beschreven hoe u bulksgewijs executor .NET-clientbibliotheek gebruiken met SQL API-accounts. Zie voor meer informatie over het gebruik van grote hoeveelheden executor .NET-bibliotheek met Gremlin-API, [bulksgewijs bewerkingen uitvoeren in Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md).
+Op dit moment wordt de bibliotheek voor bulksgewijs uitvoering alleen ondersteund door Azure Cosmos DB-API-accounts voor SQL-API'S en Gremlin. In dit artikel wordt beschreven hoe u een bulk-uitvoerder Java-bibliotheek met SQL API-accounts gebruikt. Zie voor meer informatie over het gebruik van grote hoeveelheden executor .NET-bibliotheek met Gremlin-API, [bulksgewijs bewerkingen uitvoeren in Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.  
 
-* [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen. Of u kunt de [Azure Cosmos DB-Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) met de `https://localhost:8081` eindpunt. De primaire sleutel wordt gegeven in [Aanvragen verifiëren](local-emulator.md#authenticating-requests).  
+* U kunt [Azure Cosmos DB gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, gratis en toezeg gingen. U kunt ook de Azure Cosmos DB- [emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) gebruiken met het `https://localhost:8081` eind punt. De primaire sleutel wordt gegeven in [Aanvragen verifiëren](local-emulator.md#authenticating-requests).  
 
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)  
   - Voer op Ubuntu `apt-get install default-jdk` uit om de JDK te installeren.  
@@ -37,7 +37,7 @@ Bulksgewijs executor-bibliotheek wordt momenteel ondersteund door Azure Cosmos D
   
   - Op Ubuntu kunt u `apt-get install maven` uitvoeren om Maven te installeren.
 
-* Een Azure Cosmos DB SQL API-account maken met behulp van de stappen in [-databaseaccount maken](create-sql-api-java.md#create-a-database-account) gedeelte van het Java-quickstart-artikel.
+* Maak een Azure Cosmos DB SQL-API-account met behulp van de stappen die worden beschreven in de sectie [Database account maken](create-sql-api-java.md#create-a-database-account) van het artikel Java Quick Start.
 
 ## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
@@ -118,7 +118,7 @@ De gekloonde opslagplaats bevat twee voorbeelden "bulkimport" en "bulkupdate" te
    |int getNumberOfDocumentsImported()  |   Het totale aantal documenten die zijn geïmporteerd uit de documenten die zijn opgegeven voor het bulksgewijs importeren API-aanroep.      |
    |dubbele getTotalRequestUnitsConsumed()   |  Het totaal aantal aanvragen van aanvraageenheden (RU) die worden gebruikt door de bulksgewijs importeren API-aanroep.       |
    |Duur getTotalTimeTaken()   |    De totale tijd die door de bulkimport API-aanroep uitgevoerd.     |
-   |Lijst met\<uitzondering > getErrors() |  Hiermee haalt u de lijst met fouten als bepaalde documenten in de batch doorgegeven aan de bulksgewijs importeren API-aanroep kan niet worden ingevoegd ophalen.       |
+   |Uitzonde ring > getErrors () weer geven\< |  Hiermee haalt u de lijst met fouten als bepaalde documenten in de batch doorgegeven aan de bulksgewijs importeren API-aanroep kan niet worden ingevoegd ophalen.       |
    |List\<Object> getBadInputDocuments()  |    De lijst met slechte indeling documenten die zijn niet geïmporteerd in de bulksgewijs importeren API-aanroep. Gebruiker moet de geretourneerde documenten los en probeer het opnieuw importeren. -Ongeldige indeling of meer documenten waarvan u de id-waarde geen tekenreeks is (null of een andere gegevenstype is als ongeldig wordt beschouwd).     |
 
 5. Nadat u de bulksgewijs importeren van de toepassing gereed hebt, bouw het opdrachtregelprogramma van bron met de opdracht 'mvn opschonen pakket'. Met deze opdracht wordt een jar-bestand gegenereerd in de doelmap:  
@@ -182,7 +182,7 @@ U kunt bestaande documenten met behulp van de API BulkUpdateAsync bijwerken. In 
    |int getNumberOfDocumentsUpdated()  |   Het totale aantal documenten die zijn bijgewerkt uit de documenten die is opgegeven voor de Bulkupdate-API-aanroep.      |
    |dubbele getTotalRequestUnitsConsumed() |  Het totale aantal aanvraageenheden (RU) die worden gebruikt door de bulk-update-API-aanroep.       |
    |Duur getTotalTimeTaken()  |   De totale tijd die door de bulksgewijs bijwerken API-aanroep uitgevoerd.      |
-   |Lijst met\<uitzondering > getErrors()   |    Hiermee haalt u de lijst met fouten als bepaalde documenten in de batch is opgegeven voor de bulk-update API-aanroep kan niet worden ingevoegd ophalen.      |
+   |Uitzonde ring > getErrors () weer geven\<   |    Hiermee haalt u de lijst met fouten als bepaalde documenten in de batch is opgegeven voor de bulk-update API-aanroep kan niet worden ingevoegd ophalen.      |
 
 3. Nadat u het grootste deel bij het bijwerken van de toepassing gereed hebt, bouw het opdrachtregelprogramma van bron met de opdracht 'mvn opschonen pakket'. Met deze opdracht wordt een jar-bestand gegenereerd in de doelmap:  
 

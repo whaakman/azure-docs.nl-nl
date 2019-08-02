@@ -1,18 +1,19 @@
 ---
 title: Problemen met Azure Backup Server oplossen
 description: Problemen met de installatie, registratie van Azure Backup Server en back-up en herstel van werk belastingen van toepassingen oplossen.
-author: srinathvasireddy
-manager: sivan
+ms.reviewer: srinathv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: srinathv
-ms.openlocfilehash: f601901ed0cb90421dbf7254d657ef80e1769541
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: c08acaf65cd42abd9db97fab1267ce5628595b78
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466095"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689276"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Problemen met Azure Backup Server oplossen
 
@@ -48,7 +49,7 @@ U wordt aangeraden de onderstaande validatie uit te voeren voordat u begint met 
 
 | Bewerking | Details van fout | Tijdelijke oplossing |
 | --- | --- | --- |
-| Back-up | Een of meer online herstelpunten zijn niet gemaakt | **Fout bericht**: Er kan geen moment opname van het geselecteerde volume worden gemaakt met Windows Azure Backup Agent. <br> **Tijdelijke oplossing**: Probeer de ruimte in replica en herstel punt volume te verg Roten.<br> <br> **Fout bericht**: De Windows Azure Backup-Agent kan geen verbinding maken met de OBEngine-service <br> **Tijdelijke oplossing**: Controleer of de OBEngine bestaat in de lijst met actieve services op de computer. Als de OBEngine-service niet wordt uitgevoerd, gebruikt u de opdracht ' net start OBEngine ' om de OBEngine-service te starten. <br> <br> **Fout bericht**: De wachtwoordzin voor versleuteling voor deze server is niet ingesteld. Configureer een wachtwoordzin voor versleuteling. <br> **Tijdelijke oplossing**: Probeer een wachtwoordzin voor versleuteling te configureren. Als dit mislukt, voert u de volgende stappen uit: <br> <ol><li>Controleer of de Scratch locatie bestaat. Dit is de locatie die wordt vermeld in het REGI ster **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config**, met de naam **ScratchLocation** moet bestaan.</li><li> Als de Scratch locatie bestaat, kunt u opnieuw registreren met de oude wachtwoordzin. *Wanneer u een wachtwoordzin voor versleuteling configureert, kunt u deze op een veilige locatie opslaan.*</li><ol>|
+| Back-up | Een of meer online herstelpunten zijn niet gemaakt | **Foutbericht**: Er kan geen moment opname van het geselecteerde volume worden gemaakt met Windows Azure Backup Agent. <br> **Tijdelijke oplossing**: Probeer de ruimte in replica en herstel punt volume te verg Roten.<br> <br> **Foutbericht**: De Windows Azure Backup-Agent kan geen verbinding maken met de OBEngine-service <br> **Tijdelijke oplossing**: Controleer of de OBEngine bestaat in de lijst met actieve services op de computer. Als de OBEngine-service niet wordt uitgevoerd, gebruikt u de opdracht ' net start OBEngine ' om de OBEngine-service te starten. <br> <br> **Foutbericht**: De wachtwoordzin voor versleuteling voor deze server is niet ingesteld. Configureer een wachtwoordzin voor versleuteling. <br> **Tijdelijke oplossing**: Probeer een wachtwoordzin voor versleuteling te configureren. Als dit mislukt, voert u de volgende stappen uit: <br> <ol><li>Controleer of de Scratch locatie bestaat. Dit is de locatie die wordt vermeld in het REGI ster **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config**, met de naam **ScratchLocation** moet bestaan.</li><li> Als de Scratch locatie bestaat, kunt u opnieuw registreren met de oude wachtwoordzin. *Wanneer u een wachtwoordzin voor versleuteling configureert, kunt u deze op een veilige locatie opslaan.*</li><ol>|
 
 ## <a name="the-vault-credentials-provided-are-different-from-the-vault-the-server-is-registered"></a>De beschik bare kluis referenties verschillen van de kluis waarop de server is geregistreerd
 

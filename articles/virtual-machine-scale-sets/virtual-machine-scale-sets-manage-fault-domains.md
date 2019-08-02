@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: drewm
-ms.openlocfilehash: f97c7e6971fb9c58a3f08959c00c84e64e160916
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: d6207a1a77ff00ff36fe6b3b748c3f8f7279b62d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871943"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639955"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Het juiste aantal fout domeinen voor de schaalset van de virtuele machine kiezen
-Virtuele-machine schaal sets worden standaard gemaakt met vijf fout domeinen in azure-regio's zonder zones. Voor de regio's die zonegebonden-implementatie van virtuele-machine schaal sets ondersteunen, is de standaard waarde van het aantal fout domeinen 1 voor elk van de zones. FD = 1 in dit geval impliceert dat de VM-exemplaren die deel uitmaken van de schaalset, worden verdeeld over veel racks op basis van de beste inspanningen.
+Virtuele-machine schaal sets worden standaard gemaakt met vijf fout domeinen in azure-regio's zonder zones. Voor de regio's die ondersteuning bieden voor zonegebonden-implementatie van schaal sets voor virtuele machines en deze optie is geselecteerd, is de standaard waarde van het aantal fout domeinen 1 voor elk van de zones. FD = 1 in dit geval impliceert dat de VM-exemplaren die deel uitmaken van de schaalset, worden verdeeld over veel racks op basis van de beste inspanningen.
 
 U kunt ook overwegen het aantal fout domeinen met schaal sets af te stemmen met het aantal Managed Disks fout domeinen. Deze uitlijning kan helpen voor komen dat quorum verloren gaat als een volledig Managed Disks fout domein wordt uitgeschakeld. Het aantal FD kan worden ingesteld op minder dan of gelijk aan het aantal Managed Disks fout domeinen dat in elk van de regio's beschikbaar is. Raadpleeg dit [document](../virtual-machines/windows/manage-availability.md) voor meer informatie over het aantal Managed disks fout domeinen per regio.
 

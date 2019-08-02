@@ -3,20 +3,20 @@ title: Problemen met de gedegradeerde status op Azure Traffic Manager oplossen
 description: Problemen met Traffic Manager profielen oplossen wanneer deze worden weer gegeven als gedegradeerde status.
 services: traffic-manager
 documentationcenter: ''
-author: chadmath
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: genli
-ms.openlocfilehash: 19a654215377ba0fac7dacf800bf87a3481679c0
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: rohink
+ms.openlocfilehash: f8f457623dff7840ca839ef57580b744a4d916c7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357223"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565863"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Oplossen van problemen met een gedegradeerde status op Azure Traffic Manager
 
@@ -30,8 +30,8 @@ Als in de status van uw Traffic Manager een **inactieve** status wordt weer gege
 
 ## <a name="understanding-traffic-manager-probes"></a>Wat is Traffic Manager tests?
 
-* Traffic Manager beschouwt een eind punt alleen ONLINE als de test een HTTP 200-antwoord ontvangt van het pad naar de test. Een ander niet-200-antwoord is een fout.
-* Een 30x beter worden-omleiding mislukt, zelfs als de omgeleide URL een 200 retourneert.
+* Traffic Manager beschouwt een eind punt alleen ONLINE als de test een HTTP 200-antwoord ontvangt van het pad naar de test. Als u een andere HTTP-antwoord code retourneert, moet u die antwoord code toevoegen aan de [verwachte status codes](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) van uw Traffic Manager profiel.
+* Een 30x beter worden-omleidings antwoord wordt behandeld als een fout, tenzij u dit als een geldige antwoord code hebt opgegeven in de [verwachte status codes](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) van uw Traffic Manager-profiel. Het omleidings doel wordt niet door Traffic Manager getest.
 * Voor HTTPs-tests worden certificaat fouten genegeerd.
 * De werkelijke inhoud van het pad naar de test is niet van belang, zolang een 200 wordt geretourneerd. Het zoeken naar een URL naar bepaalde statische inhoud, zoals '/favicon.ico ', is een gang bare techniek. Dynamische inhoud, zoals de ASP-pagina's, retourneert niet altijd 200, zelfs als de toepassing in orde is.
 * Een best practice bestaat uit het instellen van het probe-pad naar iets dat voldoende logica heeft om te bepalen of de site al dan niet actief is. In het vorige voor beeld, door het pad in te stellen op '/favicon.ico ', moet u alleen testen of W3wp. exe reageert. Deze test geeft mogelijk niet aan dat uw webtoepassing in orde is. Een betere optie is het instellen van een pad naar een iets zoals '/probe.aspx ' die logica heeft om de status van de site te bepalen. U kunt bijvoorbeeld prestatie meter items gebruiken om het CPU-gebruik te bepalen of het aantal mislukte aanvragen te meten. U kunt ook proberen om toegang te krijgen tot database bronnen of sessie status om ervoor te zorgen dat de webtoepassing werkt.

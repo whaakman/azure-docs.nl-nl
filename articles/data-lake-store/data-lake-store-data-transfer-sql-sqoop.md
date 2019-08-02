@@ -1,144 +1,142 @@
 ---
-title: Azure Data Lake Storage Gen1 en Azure SQL-database met behulp van Sqoop kopiëren | Microsoft Docs
-description: Sqoop gebruiken om te kopiëren van gegevens tussen Azure SQL Database en Azure Data Lake Storage Gen1
+title: Gegevens kopiëren tussen Azure Data Lake Storage Gen1 en Azure SQL database met behulp van Sqoop | Microsoft Docs
+description: Gebruik Sqoop om gegevens te kopiëren tussen Azure SQL Database en Azure Data Lake Storage Gen1
 services: data-lake-store
-documentationcenter: ''
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 3f914b2a-83cc-4950-b3f7-69c921851683
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2018
+ms.date: 07/30/2019
 ms.author: twooley
-ms.openlocfilehash: 7d3283b03d15278d1f7fd42a72b154dab1a442b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22789deca0934a9d4e88d587cd24aacacc9b12c6
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60878763"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620004"
 ---
-# <a name="copy-data-between-azure-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Azure Data Lake Storage Gen1 en Sqoop met Azure SQL-database kopiëren
-Leer hoe u Apache Sqoop gebruiken om te importeren en exporteren van gegevens tussen Azure SQL Database en Azure Data Lake Storage Gen1.
+# <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Gegevens kopiëren tussen Data Lake Storage Gen1 en Azure SQL Database met behulp van Sqoop
+
+Meer informatie over het gebruik van Apache Sqoop voor het importeren en exporteren van gegevens tussen Azure SQL Database en Azure Data Lake Storage Gen1.
 
 ## <a name="what-is-sqoop"></a>Wat is Sqoop?
-BIG data-toepassingen zijn een logische keuze voor de verwerking van ongestructureerde en semi-gestructureerde gegevens, zoals Logboeken en -bestanden. Er kan ook wel nodig voor het verwerken van gestructureerde gegevens die zijn opgeslagen in relationele databases.
 
-[Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) is een hulpprogramma dat is ontworpen voor het overbrengen van gegevens tussen relationele databases en een big data-opslagplaats, zoals Data Lake Storage Gen1. U kunt deze gebruiken om gegevens te importeren uit een relationeel databasebeheersysteem (RDBMS), zoals Azure SQL Database in Data Lake Storage Gen1. U kunt vervolgens transformeren en analyseren van de gegevens met behulp van big data-workloads en vervolgens de gegevens weer geëxporteerd naar een RDBMS. In deze zelfstudie kunt u een Azure SQL Database als uw relationele database importeren/exporteren uit.
+Big Data-toepassingen zijn een natuurlijke keuze voor het verwerken van ongestructureerde en semi-gestructureerde gegevens, zoals Logboeken en bestanden. Het is echter ook mogelijk dat u gestructureerde gegevens moet verwerken die zijn opgeslagen in relationele data bases.
+
+[Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) is een hulp programma dat is ontworpen om gegevens over te dragen tussen relationele data bases en een Big data opslag plaats, zoals data Lake Storage gen1. U kunt deze gebruiken voor het importeren van gegevens uit een relationele Database Management System (RDBMS), zoals Azure SQL Database in Data Lake Storage Gen1. U kunt de gegevens vervolgens transformeren en analyseren met behulp van big data workloads en vervolgens de gegevens weer exporteren naar een RDBMS. In dit artikel gebruikt u een Azure SQL database als uw relationele data base die u wilt importeren/exporteren.
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
+
+Voordat u begint, moet u het volgende hebben:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
-* **Een account met Azure Data Lake Storage Gen1**. Zie voor instructies over het maken van een [aan de slag met Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
-* **Azure HDInsight-cluster** met toegang tot een Gen1 van Data Lake Storage-account. Zie [een HDInsight-cluster maken met Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). In dit artikel wordt ervan uitgegaan dat u een HDInsight Linux-cluster met Data Lake Storage Gen1 toegang hebt.
-* **Azure SQL-database**. Zie voor instructies over het maken van een [maken van een Azure SQL database](../sql-database/sql-database-get-started.md)
+* **Een Azure data Lake Storage gen1-account**. Zie [aan de slag met Azure data Lake Storage gen1](data-lake-store-get-started-portal.md) voor instructies over het maken van het account.
+* **Azure HDInsight-cluster** met toegang tot een Data Lake Storage gen1-account. Zie [een HDInsight-cluster met data Lake Storage gen1 maken](data-lake-store-hdinsight-hadoop-use-portal.md). In dit artikel wordt ervan uitgegaan dat u een HDInsight Linux-cluster hebt met Data Lake Storage Gen1 toegang.
+* **Azure SQL-database**. Zie [een Azure-SQL database maken](../sql-database/sql-database-get-started.md) voor instructies over het maken van een account.
 
-## <a name="do-you-learn-fast-with-videos"></a>Leert u snel met video's?
-[Bekijk deze video](https://mix.office.com/watch/1butcdjxmu114) over het kopiëren van gegevens tussen Azure Storage-Blobs en Data Lake Storage Gen1 DistCp gebruiken.
+## <a name="create-sample-tables-in-the-azure-sql-database"></a>Voorbeeld tabellen maken in de Azure SQL database
 
-## <a name="create-sample-tables-in-the-azure-sql-database"></a>Van voorbeeldtabellen in de Azure SQL-Database maken
-1. Te beginnen met twee tabellen maken in de Azure SQL-Database. Gebruik [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) of Visual Studio dat verbinding maken met de Azure SQL Database en voer de volgende query's.
+1. Als u wilt beginnen, maakt u twee voorbeeld tabellen in Azure SQL database. Gebruik [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) of Visual Studio om verbinding te maken met de data base en voer vervolgens de volgende query's uit.
 
-    **Tabel1 maken**
+    **Maken Tabel1**
 
-        CREATE TABLE [dbo].[Table1](
-        [ID] [int] NOT NULL,
-        [FName] [nvarchar](50) NOT NULL,
-        [LName] [nvarchar](50) NOT NULL,
-         CONSTRAINT [PK_Table_1] PRIMARY KEY CLUSTERED
-            (
-                   [ID] ASC
-            )
-        ) ON [PRIMARY]
-        GO
+       CREATE TABLE [dbo].[Table1](
+       [ID] [int] NOT NULL,
+       [FName] [nvarchar](50) NOT NULL,
+       [LName] [nvarchar](50) NOT NULL,
+        CONSTRAINT [PK_Table_1] PRIMARY KEY CLUSTERED
+           (
+                  [ID] ASC
+           )
+       ) ON [PRIMARY]
+       GO
 
-    **Table2 maken**
+    **Tabel2 maken**
 
-        CREATE TABLE [dbo].[Table2](
-        [ID] [int] NOT NULL,
-        [FName] [nvarchar](50) NOT NULL,
-        [LName] [nvarchar](50) NOT NULL,
-         CONSTRAINT [PK_Table_2] PRIMARY KEY CLUSTERED
-            (
-                   [ID] ASC
-            )
-        ) ON [PRIMARY]
-        GO
-2. In **Tabel1**, enkele voorbeeldgegevens toevoegen. Laat **Table2** leeg zijn. We het importeren van gegevens van **Tabel1** in Data Lake Storage Gen1. Er wordt vervolgens gegevens exporteren uit Data Lake Storage Gen1 in **Table2**. Voer het volgende codefragment.
+       CREATE TABLE [dbo].[Table2](
+       [ID] [int] NOT NULL,
+       [FName] [nvarchar](50) NOT NULL,
+       [LName] [nvarchar](50) NOT NULL,
+        CONSTRAINT [PK_Table_2] PRIMARY KEY CLUSTERED
+           (
+                  [ID] ASC
+           )
+       ) ON [PRIMARY]
+       GO
 
-        INSERT INTO [dbo].[Table1] VALUES (1,'Neal','Kell'), (2,'Lila','Fulton'), (3, 'Erna','Myers'), (4,'Annette','Simpson');
+1. Voer de volgende opdracht uit om een aantal voorbeeld gegevens toe te voegen aan **Tabel1**. Laat de instelling **tabel2** empty leeg. Later importeert u gegevens van **Tabel1** in data Lake Storage gen1. Vervolgens exporteert u gegevens van Data Lake Storage Gen1 naar **tabel2**.
 
+       INSERT INTO [dbo].[Table1] VALUES (1,'Neal','Kell'), (2,'Lila','Fulton'), (3, 'Erna','Myers'), (4,'Annette','Simpson');
 
-## <a name="use-sqoop-from-an-hdinsight-cluster-with-access-to-data-lake-storage-gen1"></a>Sqoop gebruiken vanuit een HDInsight-cluster met toegang op Data Lake Storage Gen1
-Een HDInsight-cluster heeft al de Sqoop-pakketten beschikbaar. Als u het HDInsight-cluster voor het gebruik van Data Lake Storage Gen1 als extra opslag hebt geconfigureerd, kunt u Sqoop gebruiken (zonder eventuele configuratiewijzigingen) te importeren/exporteren van gegevens tussen een relationele database (in dit voorbeeld wordt een Azure SQL Database) en een Data Lake Gen1 opslagaccount.
+## <a name="use-sqoop-from-an-hdinsight-cluster-with-access-to-data-lake-storage-gen1"></a>Sqoop gebruiken vanuit een HDInsight-cluster met toegang tot Data Lake Storage Gen1
 
-1. Voor deze zelfstudie veronderstellen we dat u een Linux-cluster hebt gemaakt, zodat u SSH verbinding maken met het cluster moet gebruiken. Zie [verbinding maken met een Linux gebaseerde HDInsight-cluster](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
-2. Controleer of u toegang het Data Lake Storage Gen1 account uit het cluster tot kunt. Voer de volgende opdracht uit vanaf de SSH-prompt:
+De Sqoop-pakketten van An HDInsight cluster zijn al beschikbaar. Als u het HDInsight-cluster hebt geconfigureerd voor het gebruik van Data Lake Storage Gen1 als extra opslag, kunt u Sqoop (zonder configuratie wijzigingen) gebruiken om gegevens te importeren/exporteren tussen een relationele data base, zoals Azure SQL Database, en een Data Lake Storage Gen1-account .
 
-        hdfs dfs -ls adl://<data_lake_storage_gen1_account>.azuredatalakestore.net/
+1. Voor dit artikel wordt ervan uitgegaan dat u een Linux-cluster hebt gemaakt, zodat u SSH moet gebruiken om verbinding te maken met het cluster. Zie [verbinding maken met een HDInsight-cluster op basis van Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
-    Dit moet een lijst van bestanden/mappen in het Data Lake Storage Gen1-account opgeven.
+1. Controleer of u toegang hebt tot het Data Lake Storage Gen1-account vanuit het cluster. Voer de volgende opdracht uit vanaf de SSH-prompt:
 
-### <a name="import-data-from-azure-sql-database-into-data-lake-storage-gen1"></a>Gegevens importeren uit een Azure SQL Database in Data Lake Storage Gen1
-1. Ga naar de map waar Sqoop pakketten beschikbaar zijn. Meestal dit is op `/usr/hdp/<version>/sqoop/bin`.
-2. Importeer de gegevens van **Tabel1** bij het Gen1 van Data Lake Storage-account. Gebruik de volgende syntaxis:
+       hdfs dfs -ls adl://<data_lake_storage_gen1_account>.azuredatalakestore.net/
 
-        sqoop-import --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table1 --target-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1
+   Met deze opdracht geeft u een lijst van bestanden/mappen in het Data Lake Storage Gen1-account.
 
-    Houd er rekening mee dat **sql-database-server-name** tijdelijke aanduiding vertegenwoordigt de naam van de server waarop de Azure SQL-database wordt uitgevoerd. **naam van een SQL-database** tijdelijke aanduiding voor de naam van de werkelijke vertegenwoordigt.
+### <a name="import-data-from-azure-sql-database-into-data-lake-storage-gen1"></a>Gegevens importeren van Azure SQL Database naar Data Lake Storage Gen1
 
-    Bijvoorbeeld:
+1. Navigeer naar de map waar Sqoop-pakketten beschikbaar zijn. Normaal gesp roken is `/usr/hdp/<version>/sqoop/bin`deze locatie.
 
+1. Importeer de gegevens van **Tabel1** in het data Lake Storage gen1-account. Gebruik de volgende syntaxis:
 
-        sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
+       sqoop-import --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table1 --target-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
-1. Controleer of dat de gegevens is overgebracht naar het Data Lake Storage Gen1-account. Voer de volgende opdracht uit:
+   De **SQL-Data Base-Server naam** tijdelijke aanduiding vertegenwoordigt de naam van de server waarop de Azure-SQL database wordt uitgevoerd. **SQL-data base-naam** tijdelijke aanduiding staat voor de werkelijke database naam.
 
-        hdfs dfs -ls adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/
+   Bijvoorbeeld:
 
-    Hier ziet u de volgende uitvoer.
+       sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
+1. Controleer of de gegevens zijn overgedragen naar het Data Lake Storage Gen1-account. Voer de volgende opdracht uit:
 
-        -rwxrwxrwx   0 sshuser hdfs          0 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/_SUCCESS
-        -rwxrwxrwx   0 sshuser hdfs         12 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00000
-        -rwxrwxrwx   0 sshuser hdfs         14 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00001
-        -rwxrwxrwx   0 sshuser hdfs         13 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00002
-        -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
+       hdfs dfs -ls adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/
 
-    Elke **onderdeel-m -** * bestand komt overeen met een rij in de brontabel **Tabel1**. U kunt de inhoud van het onderdeel - m - weergeven * bestanden om te controleren.
+   De volgende uitvoer wordt weer geven.
 
+       -rwxrwxrwx   0 sshuser hdfs          0 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/_SUCCESS
+       -rwxrwxrwx   0 sshuser hdfs         12 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00000
+       -rwxrwxrwx   0 sshuser hdfs         14 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00001
+       -rwxrwxrwx   0 sshuser hdfs         13 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00002
+       -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
 
-### <a name="export-data-from-data-lake-storage-gen1-into-azure-sql-database"></a>Gegevens exporteren uit Data Lake Storage Gen1 naar Azure SQL Database
-1. De gegevens exporteren uit het Gen1 van Data Lake Storage-account naar de lege tabel **Table2**, in de Azure SQL-Database. Gebruik de volgende syntaxis.
+   Elk **deel-m-*-** bestand komt overeen met een rij in de bron tabel, **Tabel1**. U kunt de inhoud van de deel-m-*-bestanden weer geven om te controleren.
 
-        sqoop-export --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table2 --export-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
+### <a name="export-data-from-data-lake-storage-gen1-into-azure-sql-database"></a>Gegevens exporteren van Data Lake Storage Gen1 naar Azure SQL Database
 
-    Bijvoorbeeld:
+1. Exporteer de gegevens uit het Data Lake Storage Gen1-account naar de lege tabel, **tabel2**, in de Azure SQL database. Gebruik de volgende syntaxis.
 
+       sqoop-export --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table2 --export-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
 
-        sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
+   Bijvoorbeeld:
 
-1. Controleer of de gegevens daadwerkelijk is geüpload naar de SQL-databasetabel. Gebruik [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) of Visual Studio dat verbinding maken met de Azure SQL Database en voer de volgende query uit.
+       sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
 
-        SELECT * FROM TABLE2
+1. Controleer of de gegevens zijn geüpload naar de tabel SQL Database. Gebruik [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) of Visual Studio om verbinding te maken met de Azure SQL database en voer vervolgens de volgende query uit.
 
-    Dit moet de volgende uitvoer hebben.
+       SELECT * FROM TABLE2
 
-         ID  FName   LName
-        ------------------
-        1    Neal    Kell
-        2    Lila    Fulton
-        3    Erna    Myers
-        4    Annette    Simpson
+   Deze opdracht moet de volgende uitvoer hebben.
 
-## <a name="performance-considerations-while-using-sqoop"></a>Prestatie-overwegingen bij het Sqoop gebruiken
+        ID  FName    LName
+       -------------------
+       1    Neal     Kell
+       2    Lila     Fulton
+       3    Erna     Myers
+       4    Annette  Simpson
 
-Zie voor uw taak Sqoop om gegevens te kopiëren naar Data Lake Storage Gen1 afstemmen van prestaties, [Sqoop prestaties document](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/).
+## <a name="performance-considerations-while-using-sqoop"></a>Prestatie overwegingen bij het gebruik van Sqoop
 
-## <a name="see-also"></a>Zie ook
-* [Gegevens kopiëren van Azure Storage-Blobs naar Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+Zie het [blog bericht](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)over de Sqoop-prestaties voor informatie over het afstemmen van de prestaties van uw Sqoop-taak om gegevens te kopiëren naar Data Lake Storage gen1.
+
+## <a name="next-steps"></a>Volgende stappen
+
+* [Gegevens kopiëren van Azure Storage-blobs naar Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics gebruiken met Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight gebruiken met Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

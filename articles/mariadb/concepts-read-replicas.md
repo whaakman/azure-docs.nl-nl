@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: e6bbe15727a6f989d8c16c67591d39d7870d5708
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 8d4a7a1b176a0c232c4461c7a8cfc2b1e3faddd6
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874899"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638374"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Replica's in Azure Database for MariaDB lezen
 
-Met de functie replica lezen kunt u gegevens van een Azure Database for MariaDB server repliceren naar een alleen-lezen server. U kunt van de hoofd server naar Maxi maal vijf replica's repliceren. Replica's worden asynchroon bijgewerkt met behulp van de MariaDB-engine van het binaire logboek bestand (binlog) met de globale trans actie-ID (GTID). Zie het [overzicht van binlog-replicatie](https://mariadb.com/kb/en/library/replication-overview/)voor meer informatie over binlog-replicatie.
+Met de functie replica lezen kunt u gegevens van een Azure Database for MariaDB server repliceren naar een alleen-lezen server. U kunt van de hoofdserver naar maximaal vijf replica's repliceren. Replica's worden asynchroon bijgewerkt met behulp van de MariaDB-engine van het binaire logboek bestand (binlog) met de globale trans actie-ID (GTID). Zie het [overzicht van binlog-replicatie](https://mariadb.com/kb/en/library/replication-overview/)voor meer informatie over binlog-replicatie.
 
 > [!IMPORTANT]
 > U kunt een lees replica maken in dezelfde regio als uw hoofd server of in andere Azure-regio's van uw keuze. Het lezen van replica's (dezelfde regio en kruis regio) bevindt zich momenteel in de open bare preview.
@@ -114,7 +114,7 @@ Wanneer een master server wordt verwijderd, wordt replicatie gestopt voor alle r
 
 Gebruikers op de hoofd server worden gerepliceerd naar de Lees replica's. U kunt alleen verbinding maken met een lees replica met behulp van de beschik bare gebruikers accounts op de master server.
 
-### <a name="server-parameters"></a>Server parameters
+### <a name="server-parameters"></a>Serverparameters
 
 Om te voor komen dat gegevens kunnen worden gesynchroniseerd en om mogelijke gegevens verlies of-beschadiging te voor komen, worden bepaalde server parameters vergrendeld bij het gebruik van replica's voor lezen.
 
@@ -133,3 +133,4 @@ De [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over [het maken en beheren van Lees replica's met behulp van de Azure Portal](howto-read-replicas-portal.md)
+- Meer informatie over [het maken en beheren van Lees replica's met behulp van Azure cli](howto-read-replicas-cli.md)

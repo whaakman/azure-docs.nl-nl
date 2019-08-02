@@ -1,45 +1,43 @@
 ---
-title: Over het maken van een blob in Azure Storage met behulp van de clientbibliotheek voor Java-versie 7 | Microsoft Docs
-description: Maak een opslagaccount en een container in object(Blob)-opslag. Vervolgens gebruiken de Azure Storage-clientbibliotheek voor Java-versie 7 voor een blob uploaden naar Azure Storage, een blob downloaden en de blobs in een container te vermelden.
-services: storage
+title: Een BLOB maken in Azure Storage met behulp van de client bibliotheek voor Java-V7 | Microsoft Docs
+description: Maak een opslagaccount en een container in object(Blob)-opslag. Gebruik vervolgens de Azure Storage-client bibliotheek voor Java V7 om een BLOB te uploaden naar Azure Storage, een BLOB te downloaden en de blobs in een container weer te geven.
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: conceptual
-ms.date: 02/04/2019
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: f7cae5b3c7b0a7da6420674635ff9c3420a6436a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/04/2019
+ms.service: storage
+ms.subservice: blobs
+ms.topic: conceptual
+ms.openlocfilehash: 8cb9a9c6dd2e84318cd4d05bf6e67e127fc39ce3
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154418"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726366"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Het uploaden, downloaden en blobs weergeven met behulp van de clientbibliotheek voor Java-versie 7
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Blobs uploaden, downloaden en vermelden met behulp van de client bibliotheek voor Java V7
 
-In deze handleiding leert u hoe u met de clientbibliotheek voor Java-versie 7 om te uploaden, downloaden en lijst met blok-blobs in een container in Azure Blob-opslag.
+In deze hand leiding vindt u informatie over het gebruik van de client bibliotheek voor Java V7 voor het uploaden, downloaden en weer geven van blok-blobs in een container in Azure Blob Storage.
 
 > [!TIP]
-> De meest recente versie van de Azure Storage-clientbibliotheek voor Java is v10. Microsoft raadt aan dat u de meest recente versie van de clientbibliotheek indien mogelijk. Om te beginnen met behulp van v10, Zie [Quick Start: Blobs uploaden, downloaden, en lijst met behulp van de Java-opslag-SDK V10](storage-quickstart-blobs-java-v10.md).
+> De meest recente versie van de Azure Storage-client bibliotheek voor Java is V10 toevoegen. U wordt aangeraden de nieuwste versie van de client bibliotheek te gebruiken wanneer dat mogelijk is. Om aan de slag te gaan met [V10 toevoegen, raadpleegt u Quick Start: U kunt blobs uploaden, downloaden en vermelden met behulp van de V10 toevoegen](storage-quickstart-blobs-java-v10.md)van de Java-opslag-SDK.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Maak ook een Azure storage-account in de [Azure-portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Zie voor meer informatie over het maken van het account [Een opslagaccount maken](../common/storage-quickstart-create-account.md).
+Maak ook een Azure-opslag account in de [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Zie voor meer informatie over het maken van het account [Een opslagaccount maken](../common/storage-quickstart-create-account.md).
 
-Zorg ervoor dat u hebt de volgende vereisten:
+Zorg ervoor dat u beschikt over de volgende vereisten:
 
 * Een IDE met Maven-integratie installeren.
 
 * U kunt Maven ook installeren en configureren voor gebruik vanaf de opdrachtregel.
 
-Maakt gebruik van deze handleiding [Eclipse](https://www.eclipse.org/downloads/) met de configuratie 'Eclipse IDE for Java Developers'.
+In deze hand leiding wordt gebruikgemaakt van [eclips](https://www.eclipse.org/downloads/) met de configuratie ' eclips IDE for Java Developers '.
 
 ## <a name="download-the-sample-application"></a>De voorbeeldtoepassing downloaden
 
-De [voorbeeldtoepassing](https://github.com/Azure-Samples/storage-blobs-java-quickstart) is een basisconsoletoepassing.  
+De [voorbeeld toepassing](https://github.com/Azure-Samples/storage-blobs-java-quickstart) is een basis console toepassing.  
 
 Gebruik [git](https://git-scm.com/) om een kopie van de toepassing naar uw ontwikkelomgeving te downloaden. 
 
@@ -134,7 +132,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 ### <a name="upload-blobs-to-the-container"></a>Blobs uploaden naar de container
 
-Als u wilt een bestand uploaden naar een blok-blob, krijgt u een verwijzing naar de blob in de doelcontainer. Zodra u de blobverwijzing hebt, kunt u er gegevens naar uploaden met behulp van [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload). Met deze bewerking wordt de blob gemaakt als deze nog niet bestaat, of overschreven als deze wel al bestaat.
+Als u een bestand wilt uploaden naar een blok-blob, haalt u een verwijzing op naar de BLOB in de doel container. Zodra u de blobverwijzing hebt, kunt u er gegevens naar uploaden met behulp van [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload). Met deze bewerking wordt de blob gemaakt als deze nog niet bestaat, of overschreven als deze wel al bestaat.
 
 Met de voorbeeldcode wordt een lokaal bestand gemaakt voor het uploaden en downloaden, waarmee het bestand dat moet worden geüpload als **bron** en de naam van de blob in **blob** worden opgeslagen. In het volgende voorbeeld wordt het bestand geüpload naar de container met de naam **quickstartcontainer**.
 
@@ -186,7 +184,7 @@ blob.downloadToFile(downloadedFile.getAbsolutePath());
 
 ### <a name="clean-up-resources"></a>Resources opschonen
 
-Als u de blobs die u hebt geüpload niet langer nodig hebt, u kunt de volledige container verwijderen met behulp [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists). Met deze methode worden ook de bestanden in de container verwijderd.
+Als u de blobs die u hebt geüpload niet meer nodig hebt, kunt u de volledige container verwijderen met [CloudBlobContainer. DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists). Met deze methode worden ook de bestanden in de container verwijderd.
 
 ```java
 try {
@@ -210,6 +208,6 @@ sourceFile.deleteOnExit();
 In dit artikel hebt u geleerd hoe u bestanden overbrengt tussen een lokale schijf en Azure Blob-opslag met behulp van Java. Voor meer informatie over het werken met Java gaat u verder naar onze opslagplaats van GitHub-broncode.
 
 > [!div class="nextstepaction"]
-> [Microsoft Azure Storage-SDK v10 voor Java](https://github.com/azure/azure-storage-java) 
-> [Java API-naslaginformatie](https://docs.microsoft.com/java/azure/)
-> [voorbeelden voor Java-Code](../common/storage-samples-java.md)
+> [V10 toevoegen SDK-voor](https://github.com/azure/azure-storage-java) 
+> beelden voor Java[Java API-referentie](https://docs.microsoft.com/java/azure/)
+> [code voor Java](../common/storage-samples-java.md) Microsoft Azure Storage

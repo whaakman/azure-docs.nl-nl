@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: af1b331836cd025bbe15665aa03faee000e7c4f0
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 8c6013e5bda2bec1c8a09fd9f2434cdd477eed01
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404234"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618518"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Cloud-naar-apparaat-berichten verzenden met IoT Hub (iOS)
 
@@ -37,7 +37,7 @@ Aan het einde van dit artikel voert u twee snelle iOS-projecten uit:
 * voor **beeld-service**: Hiermee wordt een Cloud-naar-apparaat-bericht naar de gesimuleerde apparaat-app verzonden via IOT hub, waarna de ontvangst bevestiging wordt ontvangen.
 
 > [!NOTE]
-> IoT Hub heeft SDK-ondersteuning voor veel platformen en talen (waaronder C, Java en Java script) via Azure IoT-apparaat-Sdk's. Zie het [Azure IOT-ontwikkelaars centrum](https://www.azure.com/develop/iot)voor stapsgewijze instructies voor het verbinden van uw apparaat met de code van deze zelf studie en over het algemeen tot Azure IOT hub.
+> IoT Hub heeft SDK-ondersteuning voor veel platformen en talen (waaronder C, Java, python en Java script) via Azure IoT-apparaat-Sdk's. Zie het [Azure IOT-ontwikkelaars centrum](https://www.azure.com/develop/iot)voor stapsgewijze instructies voor het verbinden van uw apparaat met de code van deze zelf studie en over het algemeen tot Azure IOT hub.
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 

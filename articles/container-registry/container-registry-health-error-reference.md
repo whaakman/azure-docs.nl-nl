@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
-ms.openlocfilehash: 672d446fa8dc27612c7b046cac109bfa4ca5fec5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 4585749c83432c19b6e62f57c1d954b3afc5ee33
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309378"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608392"
 ---
 # <a name="health-check-error-reference"></a>Naslag informatie voor status controle fout
 
@@ -63,7 +63,7 @@ Deze fout betekent dat de DNS voor de opgegeven register aanmeldings server is g
 
 ## <a name="connectivityforbiddenerror"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-Deze fout houdt in dat het controle-eind punt voor het opgegeven REGI ster heeft gereageerd met een 403 verboden HTTP-status. Deze fout betekent dat gebruikers geen toegang hebben tot het REGI ster, waarschijnlijk vanwege een configuratie van een virtueel netwerk.
+Deze fout houdt in dat het controle-eind punt voor het opgegeven REGI ster heeft gereageerd met een 403 verboden HTTP-status. Deze fout betekent dat gebruikers geen toegang hebben tot het REGI ster, waarschijnlijk vanwege een configuratie van een virtueel netwerk. Als u de momenteel geconfigureerde firewall regels wilt `az acr show --query networkRuleSet --name <registry>`zien, voert u uit.
 
 *Mogelijke oplossingen*: Verwijder de regels voor het virtuele netwerk of Voeg het huidige IP-adres van de client toe aan de lijst met toegestane clients.
 

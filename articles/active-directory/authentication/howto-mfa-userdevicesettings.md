@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3152dead04510078dd475b611afbfc30264e58f7
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: d500f6c74bb62322a5e14ce3c489e8dba11dc2f2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297636"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68555769"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gebruikers instellingen beheren met Azure multi-factor Authentication in de Cloud
 
@@ -31,6 +31,10 @@ Als beheerder kunt u de volgende gebruikers-en apparaatinstellingen beheren:
 Als beheerder die de rol authenticatie beheerder toegewezen, kunt u vereisen dat gebruikers hun wacht woord opnieuw instellen, zich opnieuw registreren voor MFA of bestaande MFA-sessies intrekken vanuit hun gebruikers object.
 
 ![Verificatie methoden beheren vanuit de Azure Portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
+
+1. Wacht woord opnieuw instellen stelt het wacht woord van de gebruiker opnieuw in en wijst een tijdelijk wacht woord toe dat moet worden gewijzigd bij de volgende aanmelding.
+2. Vereisen dat het opnieuw registreren van MFA vereist is zodat wanneer de gebruiker de volgende keer aanmeldt, wordt gevraagd om een nieuwe MFA-verificatie methode in te stellen.
+3. Met MFA-sessies intrekken worden de MFA-sessies van de gebruiker gewist en moeten ze MFA de volgende keer worden uitgevoerd door het beleid op het apparaat.
 
 ## <a name="require-users-to-provide-contact-methods-again"></a>Gebruikers moeten opnieuw contact methoden opgeven
 

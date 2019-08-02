@@ -1,6 +1,6 @@
 ---
 title: Runbooks in Azure Automation beheren
-description: In dit artikel wordt beschreven hoe u runbooks in Azure Automation beheren.
+description: In dit artikel wordt beschreven hoe u runbooks beheert in Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,34 +9,34 @@ ms.author: robreed
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4519991f8ce3c8b4f99e1d7fb62295f3c0ece3a2
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 5a477811e46d97375d4dce4d83072dda60ca797c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478275"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717218"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Runbooks in Azure Automation beheren
 
-U kunt een runbook toevoegen aan Azure Automation door [het maken van een nieuwe](#create-a-runbook) of een bestaand runbook importeren uit een bestand of de [Runbookgalerie](automation-runbook-gallery.md). In dit artikel bevat informatie over het maken en runbooks importeren uit een bestand.  Krijgt u alle details over de toegang tot community runbooks en modules in [Runbook- en galerieën voor Azure Automation](automation-runbook-gallery.md).
+U kunt een runbook toevoegen aan Azure Automation door [een nieuwe te maken](#create-a-runbook) of door een bestaand runbook te importeren uit een bestand of de [runbook-galerie](automation-runbook-gallery.md). Dit artikel bevat informatie over het maken en importeren van runbooks vanuit een bestand.  U kunt alle details over het openen van Community-runbooks en-modules in [Runbook en module galerieën voor Azure Automation](automation-runbook-gallery.md)krijgen.
 
 ## <a name="create-a-runbook"></a>Een runbook maken
 
-U kunt een nieuw runbook maken in Azure Automation met behulp van een van de Azure Portal of de Windows PowerShell. Zodra het runbook is gemaakt, kunt u bewerken met behulp van informatie in [PowerShell Workflow leren kennen](automation-powershell-workflow.md) en [grafisch ontwerpen in Azure Automation](automation-graphical-authoring-intro.md).
+U kunt een nieuw runbook maken in Azure Automation met behulp van een van de Azure-portals of Windows Power shell. Zodra het runbook is gemaakt, kunt u het bewerken met behulp van informatie in de [Power shell-werk stroom](automation-powershell-workflow.md) voor het leren en [grafisch ontwerpen in azure Automation](automation-graphical-authoring-intro.md).
 
-### <a name="create-a-runbook-in-the-azure-portal"></a>Een runbook maken in Azure portal
+### <a name="create-a-runbook-in-the-azure-portal"></a>Een runbook maken in de Azure Portal
 
 1. Open uw Automation-account in Azure Portal.
-2. Selecteer in de Hub, **Runbooks** om de lijst van runbooks te openen.
-3. Klik op de **toevoegen van een runbook** knop en vervolgens **een nieuw runbook maken**.
-4. Typ een **naam** voor het runbook en selecteer de [Type](automation-runbook-types.md). De runbooknaam moet beginnen met een letter en kan hebben letters, cijfers, onderstrepingstekens en streepjes bevatten.
-5. Klik op **maken** te maken van het runbook en de editor te openen.
+2. Selecteer in de hub **Runbooks** om de lijst met Runbooks te openen.
+3. Klik op de knop **een Runbook toevoegen** en **Maak een nieuw runbook**.
+4. Typ een **naam** voor het runbook en selecteer het bijbehorende [type](automation-runbook-types.md). De runbooknaam moet beginnen met een letter en kan hebben letters, cijfers, onderstrepingstekens en streepjes bevatten.
+5. Klik op **maken** om het runbook te maken en de editor te openen.
 
-### <a name="create-a-runbook-with-powershell"></a>Een runbook maken met PowerShell
+### <a name="create-a-runbook-with-powershell"></a>Een runbook maken met Power shell
 
-U kunt de [New-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/new-azurermautomationrunbook) cmdlet voor het maken van een lege [PowerShell Workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks). Gebruik de **Type** parameter opgeven voor een van de vier runbooktypen.
+U kunt de cmdlet [New-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/new-azurermautomationrunbook) gebruiken om een leeg [Power shell workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks)te maken. Gebruik de para meter **type** om een van de vier typen runbook op te geven.
 
-De volgende voorbeeldopdrachten laten zien hoe u een nieuw, leeg runbook maken.
+De volgende voorbeeld opdrachten laten zien hoe u een nieuw leeg runbook maakt.
 
 ```azurepowershell-interactive
 New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
@@ -45,36 +45,37 @@ New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Een runbook importeren
 
-U kunt een nieuw runbook in Azure Automation maken door het importeren van een PowerShell-script of PowerShell-werkstroom (.ps1-extensie), een geëxporteerde een grafisch runbook (.graphrunbook) of een script Python 2 (met de extensie .py).  Moet u de [type runbook](automation-runbook-types.md) die is gemaakt tijdens het importeren, rekening houdend met de volgende overwegingen.
+U kunt een nieuw runbook maken in Azure Automation door een Power shell-script of Power shell-werk stroom (. ps1-extensie), een geëxporteerd grafisch runbook (. graphrunbook) of een python 2-script (. py-extensie) te importeren.  U moet het [type runbook](automation-runbook-types.md) opgeven dat tijdens het importeren wordt gemaakt, waarbij rekening wordt gehouden met de volgende overwegingen.
 
-* Een `.graphrunbook` bestand kan alleen worden geïmporteerd in een nieuwe [grafisch runbook](automation-runbook-types.md#graphical-runbooks), en grafische runbooks kunnen alleen worden gemaakt op basis van een `.graphrunbook` bestand.
-* Een `.ps1` -bestand met een PowerShell-werkstroom kan alleen worden geïmporteerd in een [PowerShell Workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks).  Als het bestand meerdere PowerShell-werkstromen bevat, klikt u vervolgens mislukt het importeren. U moet elke werkstroom opslaan in een eigen bestand en importeer elk afzonderlijk.
-* Een `.ps1` -bestand dat een werkstroom bevat niet kan worden geïmporteerd in ofwel een [PowerShell-runbook](automation-runbook-types.md#powershell-runbooks) of een [PowerShell Workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks).  Als deze wordt geïmporteerd in een PowerShell Workflow-runbook, klikt u vervolgens het wordt geconverteerd naar een werkstroom en opmerkingen zijn opgenomen in het runbook op te geven de wijzigingen die zijn aangebracht.
+* Een `.graphrunbook` bestand kan alleen worden geïmporteerd in een nieuw [grafisch runbook](automation-runbook-types.md#graphical-runbooks)en grafische runbooks kunnen alleen worden gemaakt op basis van `.graphrunbook` een bestand.
+* Een `.ps1` bestand met een Power shell-werk stroom kan alleen in een [Power shell workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks)worden geïmporteerd. Als het bestand meerdere Power shell-werk stromen bevat, mislukt het importeren. U moet elke werk stroom opslaan in een eigen bestand en deze afzonderlijk importeren.
+* Een `.ps1` bestand met een Power shell-werk stroom moet niet in een [Power shell-runbook](automation-runbook-types.md#powershell-runbooks)worden geïmporteerd, omdat het niet kan worden herkend door de Power shell-script engine.
+* Een `.ps1` bestand dat geen werk stroom bevat, kan worden geïmporteerd in een [Power shell-runbook](automation-runbook-types.md#powershell-runbooks) of een [Power shell workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks).  Als de app wordt geïmporteerd in een Power shell workflow-runbook, wordt deze geconverteerd naar een werk stroom en worden opmerkingen opgenomen in het runbook waarin de wijzigingen zijn opgegeven die zijn aangebracht.
 
-### <a name="to-import-a-runbook-from-a-file-with-the-azure-portal"></a>Een runbook importeren uit een bestand met de Azure-portal
+### <a name="to-import-a-runbook-from-a-file-with-the-azure-portal"></a>Een runbook importeren uit een bestand met de Azure Portal
 
-De volgende procedure kunt u een scriptbestand importeren in Azure Automation.  
+U kunt de volgende procedure gebruiken om een script bestand te importeren in Azure Automation.
 
 > [!NOTE]
-> Houd er rekening mee dat u alleen een ps1-bestand kunt importeren in een PowerShell Workflow-runbook met behulp van de portal.
+> Houd er rekening mee dat u alleen een. ps1-bestand kunt importeren in een Power shell workflow-runbook met behulp van de portal.
 
 1. Open uw Automation-account in Azure Portal.
-2. Selecteer in de Hub, **Runbooks** om de lijst van runbooks te openen.
-3. Klik op de **toevoegen van een runbook** knop en vervolgens **importeren**.
-4. Klik op **Runbook-bestand** om te selecteren van het bestand te importeren
-5. Als de **naam** veld is ingeschakeld, wordt u hebt de mogelijkheid om deze te wijzigen.  De runbooknaam moet beginnen met een letter en kan hebben letters, cijfers, onderstrepingstekens en streepjes bevatten.
-6. De [runbooktype](automation-runbook-types.md) wordt automatisch geselecteerd, maar u kunt het type wijzigen nadat de beperkingen van toepassing in aanmerking nemen. 
-7. Het nieuwe runbook wordt weergegeven in de lijst met runbooks voor het Automation-Account.
-8. U moet [het runbook publiceren](#publish-a-runbook) voordat u deze kunt uitvoeren.
+2. Selecteer in de hub **Runbooks** om de lijst met Runbooks te openen.
+3. Klik op de knop **een Runbook toevoegen** en vervolgens op **importeren**.
+4. Klik op **Runbook-bestand** om het bestand te selecteren dat u wilt importeren
+5. Als het veld **naam** is ingeschakeld, hebt u de mogelijkheid om deze te wijzigen.  De runbooknaam moet beginnen met een letter en kan hebben letters, cijfers, onderstrepingstekens en streepjes bevatten.
+6. Het [runbook-type](automation-runbook-types.md) wordt automatisch geselecteerd, maar u kunt het type wijzigen nadat u de toepasselijke beperkingen in het account hebt genomen.
+7. Het nieuwe runbook wordt weer gegeven in de lijst met runbooks voor het Automation-account.
+8. U moet [het runbook publiceren](#publish-a-runbook) voordat u het kunt uitvoeren.
 
 > [!NOTE]
-> Nadat u een grafisch runbook of een grafische PowerShell workflow-runbook importeren, hebt u de optie moet worden geconverteerd naar het andere type als gewenst. U converteren niet naar een tekstuele runbook.
+> Nadat u een grafisch runbook of een grafisch Power shell-werk stroom runbook hebt geïmporteerd, hebt u de mogelijkheid om naar het andere type te converteren, indien gewenst. U kunt niet converteren naar een tekst runbook.
 
-### <a name="to-import-a-runbook-from-a-script-file-with-windows-powershell"></a>Een runbook importeren uit een scriptbestand met Windows PowerShell
+### <a name="to-import-a-runbook-from-a-script-file-with-windows-powershell"></a>Een runbook importeren vanuit een script bestand met Windows Power shell
 
-U kunt de [Import-AzureRMAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/import-azurermautomationrunbook) cmdlet voor het importeren van een scriptbestand opgeven als een concept PowerShell Workflow-runbook. Als het runbook al bestaat, het importeren mislukt, tenzij u de *-Force* parameter.
+U kunt de cmdlet [import-AzureRMAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/import-azurermautomationrunbook) gebruiken om een script bestand te importeren als een concept Power shell workflow-runbook. Als het runbook al bestaat, mislukt het importeren tenzij u de para meter *-Force* gebruikt.
 
-De volgende voorbeeldopdrachten laten zien hoe een scriptbestand importeren in een runbook.
+De volgende voorbeeld opdrachten laten zien hoe u een script bestand importeert in een runbook.
 
 ```azurepowershell-interactive
 $automationAccountName =  "AutomationAccount"
@@ -89,33 +90,33 @@ Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## <a name="test-a-runbook"></a>Een runbook testen
 
-Wanneer u een runbook test de [conceptversie](#publish-a-runbook) wordt uitgevoerd en de acties die worden uitgevoerd zijn voltooid. Er wordt geen Taakgeschiedenis wordt gemaakt, maar de [uitvoer](automation-runbook-output-and-messages.md#output-stream) en [waarschuwings- en](automation-runbook-output-and-messages.md#message-streams) stromen worden weergegeven in de Test deelvenster Uitvoer. Berichten naar de [uitgebreide Stream](automation-runbook-output-and-messages.md#message-streams) worden weergegeven in het deelvenster Uitvoer alleen als de [variabele $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) is ingesteld om verder te gaan.
+Wanneer u een runbook test, wordt de [concept versie](#publish-a-runbook) uitgevoerd en de acties die worden uitgevoerd, worden voltooid. Er is geen taak geschiedenis gemaakt, maar de [uitvoer](automation-runbook-output-and-messages.md#output-stream) -en [waarschuwings-en fout](automation-runbook-output-and-messages.md#message-streams) stromen worden weer gegeven in het deel venster test uitvoer. Berichten naar de [uitgebreide stroom](automation-runbook-output-and-messages.md#message-streams) worden alleen weer gegeven in het deel venster uitvoer als de [variabele $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) is ingesteld op door gaan.
 
-Hoewel de conceptversie wordt uitgevoerd, wordt het runbook nog steeds normaal uitgevoerd en worden eventuele acties op basis van resources in de omgeving wordt uitgevoerd. Daarom moet u alleen runbooks op niet-productiebronnen testen.
+Hoewel de concept versie wordt uitgevoerd, wordt het runbook nog steeds normaal uitgevoerd en worden alle acties uitgevoerd voor resources in de omgeving. Daarom moet u runbooks alleen testen op niet-productie resources.
 
-De procedure voor het testen van elke [type runbook](automation-runbook-types.md) is hetzelfde, en er geen verschil in testen tussen de teksteditor en de grafische editor in Azure portal het.  
+De procedure voor het testen [van elk type runbook](automation-runbook-types.md) is hetzelfde, en er is geen verschil in het testen tussen de tekst editor en de grafische editor in de Azure Portal.
 
-1. De conceptversie van het runbook te openen in een de [teksteditor](automation-edit-textual-runbook.md) of [grafische editor](automation-graphical-authoring-intro.md).
-1. Klik op de **Test** knop om de Test-pagina te openen.
-1. Als het runbook parameters heeft, wordt deze weergegeven in het linkerdeelvenster waarin u de waarden die moeten worden gebruikt voor de test kunt opgeven.
-1. Als u de test uitvoeren wilt op een [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), wijzig de **instellingen uitvoeren** naar **Hybrid Worker** en selecteer de naam van de doelgroep.  Anders de standaardwaarde **Azure** om uit te voeren van de test in de cloud.
-1. Klik op de **Start** knop om de test te starten.
-1. Als het runbook is [PowerShell-werkstroom](automation-runbook-types.md#powershell-workflow-runbooks) of [grafisch](automation-runbook-types.md#graphical-runbooks), kunt u stoppen of deze onderbreken terwijl deze wordt getest met de knoppen onder het deelvenster Uitvoer. Wanneer u het runbook onderbreekt, wordt de huidige activiteit voltooid voordat het wordt onderbroken. Zodra het runbook wordt onderbroken, kunt u voorkomen dat deze of het programma opnieuw.
-1. Inspecteer de uitvoer van het runbook in het deelvenster Uitvoer.
+1. Open de concept versie van het runbook in de [tekst editor](automation-edit-textual-runbook.md) of [grafische editor](automation-graphical-authoring-intro.md).
+1. Klik op de knop **testen** om de pagina test te openen.
+1. Als het runbook para meters heeft, worden deze in het linkerdeel venster weer gegeven, waar u de waarden kunt opgeven die u voor de test wilt gebruiken.
+1. Als u de test wilt uitvoeren op een [Hybrid Runbook worker](automation-hybrid-runbook-worker.md), wijzigt u de **instellingen** voor het uitvoeren van een **Hybrid worker** en selecteert u de naam van de doel groep.  Als dat niet het geval is, moet u de test in de Cloud uitvoeren met de standaard **Azure** .
+1. Klik op de knop **Start** om de test te starten.
+1. Als het runbook [Power shell-werk stroom](automation-runbook-types.md#powershell-workflow-runbooks) of [grafische afbeelding](automation-runbook-types.md#graphical-runbooks)is, kunt u deze stoppen of onderbreken terwijl het wordt getest met de knoppen onder het deel venster uitvoer. Wanneer u het runbook onderbreekt, wordt de huidige activiteit voltooid voordat het wordt onderbroken. Zodra het runbook wordt onderbroken, kunt u voorkomen dat deze of het programma opnieuw.
+1. Controleer de uitvoer van het runbook in het deel venster uitvoer.
 
 ## <a name="publish-a-runbook"></a>Een runbook publiceren
 
-Wanneer u maakt of een nieuw runbook importeren, moet u het publiceren voordat u deze kunt uitvoeren.  Elk runbook in Automation heeft een ontwerpversie en een gepubliceerde versie. Alleen de gepubliceerde versie is beschikbaar om te worden uitgevoerd, en alleen de conceptversie kan worden bewerkt. De gepubliceerde versie wordt niet beïnvloed door wijzigingen in de conceptversie. Wanneer de conceptversie beschikbaar moet worden gesteld, publiceert u deze, die wordt de gepubliceerde versie door de conceptversie overschreven.
+Wanneer u een nieuw runbook maakt of importeert, moet u het publiceren voordat u het kunt uitvoeren.  Elk runbook in Automation heeft een concept en een gepubliceerde versie. Alleen de gepubliceerde versie is beschikbaar om te worden uitgevoerd, en alleen de conceptversie kan worden bewerkt. De gepubliceerde versie wordt niet beïnvloed door wijzigingen in de conceptversie. Wanneer de concept versie beschikbaar moet worden gemaakt, publiceert u deze, waardoor de gepubliceerde versie wordt overschreven door de concept versie.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Open het runbook in Azure portal.
-2. Klik op de **bewerken** knop.
-3. Klik op de **publiceren** knop en vervolgens **Ja** in het bevestigingsbericht.
+1. Open het runbook in de Azure Portal.
+2. Klik op de knop **bewerken** .
+3. Klik op de knop **publiceren** en vervolgens op **Ja** in het bevestigings bericht.
 
 ### <a name="powershell"></a>PowerShell
 
-U kunt de [publiceren-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/publish-azurermautomationrunbook) cmdlet om een runbook met Windows PowerShell te publiceren. De volgende voorbeeldopdrachten laten zien hoe u een voorbeeldrunbook publiceert.
+U kunt de cmdlet [Publish-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/publish-azurermautomationrunbook) gebruiken om een runbook te publiceren met Windows Power shell. De volgende voorbeeld opdrachten laten zien hoe u een voor beeld-runbook publiceert.
 
 ```azurepowershell-interactive
 $automationAccountName =  "AutomationAccount"
@@ -128,6 +129,6 @@ Publish-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName `
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over hoe u van het Runbook en de galerie met PowerShell-Module profiteren kunt, [Runbook- en galerieën voor Azure Automation](automation-runbook-gallery.md)
-* Zie voor meer informatie over het bewerken van PowerShell en PowerShell Workflow-runbooks met een teksteditor, [tekstrunbooks in Azure Automation bewerken](automation-edit-textual-runbook.md)
-* Zie voor meer informatie over het ontwerpen van een grafisch runbook, [grafisch ontwerpen in Azure Automation](automation-graphical-authoring-intro.md)
+* Zie [runbook-en module galerieën voor Azure Automation voor](automation-runbook-gallery.md) meer informatie over hoe u kunt profiteren van de galerie met runbook-en Power shell-modules.
+* Zie voor meer informatie over het bewerken van Power shell-en Power shell-werk stroom runbooks met een tekst editor [tekst Runbooks bewerken in azure Automation](automation-edit-textual-runbook.md)
+* Zie voor meer informatie over het ontwerpen van een grafisch runbook [grafisch ontwerpen in azure Automation](automation-graphical-authoring-intro.md)

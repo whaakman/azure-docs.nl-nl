@@ -1,6 +1,6 @@
 ---
-title: Schaalbare clouddatabases bouwen | Microsoft Docs
-description: Bouw schaalbare apps van .NET-database met de clientbibliotheek van elastische database
+title: Schaal bare Cloud databases bouwen | Microsoft Docs
+description: Schaal bare .NET Data base-apps bouwen met de client bibliotheek voor Elastic data base
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,66 +10,65 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 1c6e77f3afc90a8c018296db80253d8b9a22159e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24b7f769be3f4db3c36412e162b5cda40e3ca959
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234107"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568705"
 ---
 # <a name="building-scalable-cloud-databases"></a>Schaalbare clouddatabases bouwen
 
-Uitschalen databases kan gemakkelijk worden gedaan met behulp van schaalbare hulpmiddelen en functies voor Azure SQL Database. In het bijzonder, kunt u de **Elastic Database-clientbibliotheek** naar uitgeschaalde databases maken en beheren. Deze functie kunt u eenvoudig ontwikkelen shard-toepassingen met honderden, of zelfs duizenden — van Azure SQL-databases.
+Het schalen van data bases kan eenvoudig worden gerealiseerd met schaal bare hulp middelen en functies voor Azure SQL Database. Met name kunt u de Elastic Database- **client bibliotheek** gebruiken om uitgeschaalde data bases te maken en te beheren. Met deze functie kunt u eenvoudig Shard-toepassingen ontwikkelen met honderden, of zelfs duizenden, van Azure SQL-data bases.
 
 Downloaden:
 
-* De Java-versie van de bibliotheek, Zie [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
-* De .NET-versie van de bibliotheek, Zie [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+* De Java-versie van de-bibliotheek, Zie [maven Central repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools)(Engelstalig).
+* Zie [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)voor de .net-versie van de bibliotheek.
 
 ## <a name="documentation"></a>Documentatie
 
 1. [Aan de slag met tools voor Elastic Database](sql-database-elastic-scale-get-started.md)
-2. [Functies voor elastische Database](sql-database-elastic-scale-introduction.md)
+2. [Elastic Database functies](sql-database-elastic-scale-introduction.md)
 3. [Shard-toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md)
-4. [Bestaande databases migreren voor uitschalen](sql-database-elastic-convert-to-use-elastic-tools.md)
+4. [Bestaande data bases migreren om uit te schalen](sql-database-elastic-convert-to-use-elastic-tools.md)
 5. [Gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md)
-6. [Multi-shard query 's](sql-database-elastic-scale-multishard-querying.md)
-7. [Een shard met behulp van hulpprogramma's voor elastische databases toevoegen](sql-database-elastic-scale-add-a-shard.md)
-8. [Multitenant-toepassingen met elastische Databasehulpprogramma's en beveiliging op rijniveau](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-9. [Upgrade uitvoeren voor client-bibliotheek apps](sql-database-elastic-scale-upgrade-client-library.md) 
-10. [Elastische query's-overzicht](sql-database-elastic-query-overview.md)
+6. [Query's voor meerdere Shard](sql-database-elastic-scale-multishard-querying.md)
+7. [Een Shard toevoegen met behulp van Elastic Database-hulpprogram ma's](sql-database-elastic-scale-add-a-shard.md)
+8. [Multi tenant-toepassingen met Elastic data base-hulpprogram ma's en beveiliging op rijniveau](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+9. [Client bibliotheek-apps bijwerken](sql-database-elastic-scale-upgrade-client-library.md) 
+10. [Overzicht van elastische query's](sql-database-elastic-query-overview.md)
 11. [Woordenlijst voor hulpprogramma's voor Elastic Database](sql-database-elastic-scale-glossary.md)
-12. [Elastische Database-clientbibliotheek met Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
-13. [Clientbibliotheek voor elastic database met Dapper](sql-database-elastic-scale-working-with-dapper.md)
-14. [Hulpprogramma voor splitsen en samenvoegen](sql-database-elastic-scale-overview-split-and-merge.md)
+12. [Client bibliotheek Elastic Database met Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
+13. [Client bibliotheek voor Elastic data base met dapper](sql-database-elastic-scale-working-with-dapper.md)
+14. [Hulp programma voor splitsen en samen voegen](sql-database-elastic-scale-overview-split-and-merge.md)
 15. [Prestatiemeteritems voor shard-toewijzingsbeheer](sql-database-elastic-database-client-library.md) 
-16. [Veelgestelde vragen over de hulpmiddelen voor Elastic database](sql-database-elastic-scale-faq.md)
+16. [Veelgestelde vragen over hulpprogram ma's voor Elastic data base](sql-database-elastic-scale-faq.md)
 
-## <a name="client-capabilities"></a>Client-mogelijkheden
+## <a name="client-capabilities"></a>Client mogelijkheden
 
-Toepassingen die gebruikmaken van uitschalen *sharding* geeft uitdagingen voor zowel de ontwikkelaar als de beheerder. De clientbibliotheek vereenvoudigt de beheertaken dankzij de hulpprogramma's waarmee zowel ontwikkelaars en beheerders uitgeschaalde databases beheren. In een typisch voorbeeld zijn er veel databases, bekend als "shards," om te beheren. Klanten in dezelfde database zich bevindt en er is één database per klant (een schema voor één tenant). De clientbibliotheek omvat de volgende functies:
+Door toepassingen te schalen met behulp van *sharding* presenteert u uitdagingen voor zowel de ontwikkelaar als de beheerder. De client bibliotheek vereenvoudigt de beheer taken door hulpprogram ma's te bieden waarmee zowel ontwikkel aars als beheerders uitgeschaalde data bases kunnen beheren. In een typisch voor beeld zijn er veel data bases, ook wel ' Shards ', die u kunt beheren. Klanten bevinden zich in dezelfde data base en er is één data base per klant (een schema met één Tenant). De client bibliotheek bevat de volgende functies:
 
-- **Shard-Toewijzingsbeheer**: Een speciale database met de naam van de 'shard-Toewijzingsbeheer' wordt gemaakt. Shard-Toewijzingsbeheer is de mogelijkheid voor een toepassing voor het beheren van metagegevens over de shards. Ontwikkelaars kunnen deze functionaliteit gebruiken voor het registreren van databases als shards, beschrijven toewijzingen van afzonderlijke sharding sleutels of sleutelbereiken aan die databases en onderhouden van deze metagegevens als het getal en samenstelling van de databases als gevolg van wijzigingen van de capaciteit zich verder ontwikkelt. Zonder de clientbibliotheek van elastische database moet u besteden veel tijd aan de beheer-code te schrijven bij het implementeren van sharding. Zie voor meer informatie, [Shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md).
+- **Shard-toewijzings beheer**: Er wordt een speciale data base met de naam ' Shard-toewijzings beheer ' gemaakt. Shard-toewijzings beheer is de mogelijkheid voor een toepassing om meta gegevens over de Shards te beheren. Ontwikkel aars kunnen deze functie gebruiken om data bases als Shards te registreren, toewijzingen van afzonderlijke sharding sleutels of sleutel bereik te beschrijven naar deze data bases, en deze meta gegevens te behouden als het aantal en de samen stelling van data bases zich ontwikkelen om de capaciteits wijzigingen weer te geven. Zonder de client bibliotheek voor Elastic data base moet u veel tijd best Eden aan het schrijven van de beheer code bij het implementeren van sharding. Zie [Shard-toewijzings beheer](sql-database-elastic-scale-shard-map-management.md)voor meer informatie.
 
-- **Gegevensafhankelijke routering**: Stel dat een aanvraag die afkomstig zijn in de toepassing. Op basis van het waarde van de sharding-sleutel van de aanvraag, moet de toepassing om te bepalen van de juiste database op basis van de sleutelwaarde. Deze opent vervolgens een verbinding met de database om de aanvraag te verwerken. Gegevensafhankelijke routering biedt de mogelijkheid om te openen van verbindingen met één eenvoudig aanroep in de shard-toewijzing van de toepassing. Gegevensafhankelijke routering is een ander aspect van infrastructuurcode die nu wordt gedekt door functionaliteit in de clientbibliotheek van elastische database. Zie voor meer informatie, [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md).
-- **Multi-shard query's (MSQ)** : Meerdere shards uitvoeren van query's werkt wanneer een aanvraag verschillende (of alle) shards omvat. De dezelfde T-SQL-code een multi-shard query uitgevoerd op alle shards of een set met shards. De resultaten van de deelnemende shards worden samengevoegd in een algemene resultatenset via semantiek voor UNION ALL. De functionaliteit, die toegankelijk is via de clientbibliotheek handelt vele taken, met inbegrip van: beheer, thread management afhandeling van fouten en tussenliggende resultaten verwerken. MSQ kunnen honderden shards opvragen. Zie voor meer informatie, [meerdere shards uitvoeren van query's](sql-database-elastic-scale-multishard-querying.md).
+- **Gegevens afhankelijke route ring**: Stel dat er een aanvraag wordt verzonden naar de toepassing. Op basis van de sharding-sleutel waarde van de aanvraag moet de toepassing de juiste data base bepalen op basis van de sleutel waarde. Vervolgens wordt er een verbinding met de data base geopend om de aanvraag te verwerken. Met gegevens afhankelijke route ring kunt u verbindingen met één eenvoudige aanroep in de Shard-toewijzing van de toepassing openen. Gegevens afhankelijke route ring is een ander gebied met een infrastructuur code die nu wordt gedekt door de functionaliteit van de client bibliotheek voor Elastic data base. Zie [gegevens afhankelijke route ring](sql-database-elastic-scale-data-dependent-routing.md)voor meer informatie.
+- **Query's voor meerdere Shard (MSQ)** : Query's met meerdere Shard werken wanneer een aanvraag meerdere (of alle) Shards omvat. Een multi-Shard-query voert dezelfde T-SQL-code uit op alle Shards of een set Shards. De resultaten van de deelnemende Shards worden samengevoegd in een algemene resultatenset met behulp van UNION alle semantiek. De functionaliteit die wordt weer gegeven via de client bibliotheek, behandelt veel taken, waaronder: verbindings beheer, thread beheer, fout afhandeling en tussentijdse resultaten verwerking. MSQ kan Maxi maal honderden Shards opvragen. Zie [multi-Shard query's](sql-database-elastic-scale-multishard-querying.md)voor meer informatie.
 
-Klanten die gebruikmaken van hulpprogramma's voor elastische databases kunnen in het algemeen verwachten volledige T-SQL-functionaliteit ophalen bij het indienen van shard-lokale bewerkingen in plaats van over meerdere shards bewerkingen die hun eigen heeft.
+Over het algemeen kunnen klanten die gebruikmaken van Elastic data base-hulpprogram ma's, de volledige T-SQL-functionaliteit krijgen bij het verzenden van Shard-lokale bewerkingen, in tegens telling tot Shard-bewerkingen die hun eigen semantiek hebben.
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Clientbibliotheek voor elastic Database ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.NET](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) - voor **downloaden** de bibliotheek.
+- Elastic Database-client bibliotheek ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.net](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)): voor het **downloaden** van de bibliotheek.
 
-- [Aan de slag met elastische Databasehulpprogramma's](sql-database-elastic-scale-get-started.md) - om te proberen de **voorbeeldapp** die clientfuncties laat zien.
+- Aan de [slag met hulpprogram ma's voor Elastic data base](sql-database-elastic-scale-get-started.md) : om de voor **beeld-app** te proberen die client functies demonstreert.
 
-- GitHub ([Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md), [.NET](https://github.com/Azure/elastic-db-tools)): als u wilt bijdragen te leveren aan de code.
-- [Overzicht van Azure SQL Database elastische query](sql-database-elastic-query-overview.md) : gebruik elastische query's.
+- GitHub ([Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md), [.net](https://github.com/Azure/elastic-db-tools)): om bijdragen aan de code aan te brengen.
+- [Overzicht](sql-database-elastic-query-overview.md) van elastische query's voor Azure SQL database-voor het gebruik van Elastic queries.
 
-- [Gegevens verplaatsen tussen uitgeschaalde clouddatabases](sql-database-elastic-scale-overview-split-and-merge.md) - voor instructies over het gebruik van de **hulpprogramma voor splitsen en samenvoegen**.
+- [Gegevens verplaatsen tussen uitgeschaalde Cloud databases](sql-database-elastic-scale-overview-split-and-merge.md) : voor instructies over het gebruik van het **hulp programma voor splitsen en samen voegen**.
 
 
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: b65bcfa5252a150c8101322eaf6d84ce46eef755
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 33c73bffc6c8ddac3a6465093d1994fcbfe14a9b
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60546349"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726075"
 ---
 # <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Gegevens kopiëren van Oracle-Service-Cloud met Azure Data Factory (Preview)
 
@@ -47,7 +47,7 @@ De volgende eigenschappen worden ondersteund voor Oracle-Servicecloud gekoppelde
 | type | De eigenschap type moet worden ingesteld op: **OracleServiceCloud** | Ja |
 | host | De URL van de Cloud voor Oracle-Service-exemplaar.  | Ja |
 | username | De gebruikersnaam die u gebruikt voor toegang tot Oracle-Service-Cloud-server.  | Ja |
-| password | Het wachtwoord dat overeenkomt met de naam van de gebruiker die u hebt opgegeven in de gebruikersnaam-sleutel. U kunt dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord opslaan in Azure Key Vault en laat ADF activiteit pull van daaruit kopiëren, bij het uitvoeren van het kopiëren van gegevens: meer informatie uit [referenties Store in Key Vault](store-credentials-in-key-vault.md). | Ja |
+| password | Het wachtwoord dat overeenkomt met de naam van de gebruiker die u hebt opgegeven in de gebruikersnaam-sleutel. U kunt dit veld markeren als SecureString om het veilig op te slaan in ADF, of het wacht woord op te slaan in Azure Key Vault en de ADF-Kopieer activiteit uit te voeren tijdens het uitvoeren van de gegevens kopie: meer informatie over [referenties voor opslaan in Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Hiermee geeft u op of de eindpunten van de gegevensbron zijn versleuteld met behulp van HTTPS. De standaardwaarde is true.  | Nee |
 | useHostVerification | Hiermee geeft u op of de hostnaam van de in het certificaat van de server zodat deze overeenkomen met de hostnaam van de server wanneer u verbinding maakt via SSL vereist. De standaardwaarde is true.  | Nee |
 | usePeerVerification | Hiermee geeft u op of u wilt controleren of de identiteit van de server wanneer u verbinding maakt via SSL. De standaardwaarde is true.  | Nee |
@@ -93,11 +93,12 @@ Om gegevens te kopiëren van Oracle-Servicecloud, stel de eigenschap type van de
     "name": "OracleServiceCloudDataset",
     "properties": {
         "type": "OracleServiceCloudObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<OracleServiceCloud linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 
@@ -113,7 +114,7 @@ Om gegevens te kopiëren van Oracle-Servicecloud, stelt u het brontype in de kop
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **OracleServiceCloudSource** | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **OracleServiceCloudSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM MyTable"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**

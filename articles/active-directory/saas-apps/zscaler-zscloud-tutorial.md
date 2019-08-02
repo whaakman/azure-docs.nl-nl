@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Zscaler ZSCloud | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Zscaler ZSCloud.
+title: 'Zelfstudie: Azure Active Directory integratie met Zscaler ZSCloud | Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Zscaler ZSCloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: f83fdf1b30e3b9d2a8dea9a4fe3c820e15a3ca39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43d7e58f0c267afe8a22c217d9800abb041df8cb
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67085839"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68723060"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Zelfstudie: Azure Active Directory-integratie met Zscaler ZSCloud
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Zelfstudie: Integratie met Zscaler ZSCloud Azure Active Directory
 
-In deze zelfstudie leert u hoe u Zscaler ZSCloud integreren met Azure Active Directory (Azure AD).
-Zscaler ZSCloud integreren met Azure AD biedt u de volgende voordelen:
+In deze zelf studie leert u hoe u Zscaler ZSCloud integreert met Azure Active Directory (Azure AD).
+Het integreren van Zscaler ZSCloud met Azure AD biedt de volgende voor delen:
 
-* U kunt beheren in Azure AD die toegang tot Zscaler ZSCloud heeft.
-* U kunt uw gebruikers worden automatisch aangemeld Zscaler ZSCloud (Single Sign-On) inschakelen met hun Azure AD-accounts.
-* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* U kunt beheren in azure AD die toegang heeft tot Zscaler ZSCloud.
+* U kunt ervoor zorgen dat uw gebruikers automatisch worden aangemeld bij Zscaler ZSCloud (eenmalige aanmelding) met hun Azure AD-accounts.
+* U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Zscaler ZSCloud, moet u de volgende items:
+Als u Azure AD-integratie met Zscaler ZSCloud wilt configureren, hebt u de volgende items nodig:
 
-* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, krijgt u een [gratis account](https://azure.microsoft.com/free/)
-* Eenmalige aanmelding Zscaler ZSCloud ingeschakeld abonnement
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u een [gratis account](https://azure.microsoft.com/free/) aanvragen
+* Abonnement voor Zscaler ZSCloud-eenmalige aanmelding
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
 In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-* Biedt ondersteuning voor Zscaler ZSCloud **SP** gestart door SSO
+* Zscaler ZSCloud ondersteunt door **SP** GEÏNITIEERDe SSO
 
-* Biedt ondersteuning voor Zscaler ZSCloud **Just In Time** inrichten van gebruikers
+* Zscaler ZSCloud ondersteunt **just-in-time** -gebruikers inrichting
 
-## <a name="adding-zscaler-zscloud-from-the-gallery"></a>Zscaler ZSCloud uit de galerie toe te voegen
+## <a name="adding-zscaler-zscloud-from-the-gallery"></a>Zscaler ZSCloud toevoegen vanuit de galerie
 
-Voor het configureren van de integratie van Zscaler ZSCloud in Azure AD, moet u Zscaler ZSCloud uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Als u de integratie van Zscaler ZSCloud wilt configureren in azure AD, moet u Zscaler ZSCloud van de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Zscaler ZSCloud uit de galerie, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om Zscaler ZSCloud toe te voegen uit de galerie:**
 
 1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -63,37 +63,37 @@ Voor het configureren van de integratie van Zscaler ZSCloud in Azure AD, moet u 
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+    ![De knop nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Zscaler ZSCloud**, selecteer **Zscaler ZSCloud** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ **Zscaler ZSCloud**in het zoekvak, selecteer **Zscaler ZSCloud** in het deel venster resultaten en klik vervolgens op de knop **toevoegen** om de toepassing toe te voegen.
 
      ![Zscaler ZSCloud in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Zscaler ZSCloud op basis van een testgebruiker met de naam **Britta Simon**.
-Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Zscaler ZSCloud tot stand worden gebracht.
+In deze sectie kunt u eenmalige aanmelding voor Azure AD configureren en testen met Zscaler ZSCloud op basis van een test gebruiker met de naam **Julia Simon**.
+Voor een goede werking van eenmalige aanmelding moet er een koppelings relatie tussen een Azure AD-gebruiker en de bijbehorende gebruiker in Zscaler ZSCloud tot stand worden gebracht.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Zscaler ZSCloud, moet u de volgende bouwstenen voltooien:
+Als u eenmalige aanmelding voor Azure AD wilt configureren en testen met Zscaler ZSCloud, moet u de volgende bouw stenen volt ooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Configureer Zscaler ZSCloud Single Sign-On](#configure-zscaler-zscloud-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Maken van de testgebruiker Zscaler ZSCloud](#create-zscaler-zscloud-test-user)**  : als u wilt een equivalent van Britta Simon in Zscaler ZSCloud die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Eenmalige aanmelding voor Zscaler ZSCloud configureren](#configure-zscaler-zscloud-single-sign-on)** : Hiermee configureert u de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Maak een Zscaler ZSCloud-test gebruiker](#create-zscaler-zscloud-test-user)** -om een equivalent van Julia Simon in Zscaler ZSCloud te hebben dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-Voor het configureren van Azure AD eenmalige aanmelding met Zscaler ZSCloud, moet u de volgende stappen uitvoeren:
+Voer de volgende stappen uit om eenmalige aanmelding voor Azure AD met Zscaler ZSCloud te configureren:
 
-1. In de [Azure-portal](https://portal.azure.com/)op de **Zscaler ZSCloud** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+1. Selecteer in de [Azure Portal](https://portal.azure.com/)op de pagina **Zscaler ZSCloud** Application Integration de optie **eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
+    ![Koppeling voor eenmalige aanmelding configureren](common/select-sso.png)
 
 2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
@@ -105,18 +105,18 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zscaler ZSCloud, moe
 
 4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    ![Zscaler ZSCloud domein en URL's, eenmalige aanmelding informatie](common/sp-signonurl.png)
+    ![Informatie over eenmalige aanmelding voor Zscaler ZSCloud domein en Url's](common/sp-signonurl.png)
 
-    In de **aanmeldings-URL** tekstvak, typ de URL moet worden gebruikt door uw gebruikers aan te melden bij uw toepassing ZScaler ZSCloud.
+    Typ in het tekstvak **URL voor aanmelding** de URL die door uw gebruikers wordt gebruikt om u aan te melden bij uw ZScaler ZSCloud-toepassing.
 
     > [!NOTE]
-    > U moet de waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Zscaler ZSCloud Client ondersteuningsteam](https://help.zscaler.com/) om de waarde. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > U moet de waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met het ondersteunings [team van Zscaler ZSCloud](https://help.zscaler.com/) om de waarde op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-5. Uw toepassing Zscaler ZSCloud wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram  **Bewerken**  om het dialoogvenster  **Gebruikerskenmerken**  te openen.
+5. Uw Zscaler ZSCloud-toepassing verwacht de SAML-beweringen in een specifieke indeling. hiervoor moet u aangepaste kenmerk toewijzingen toevoegen aan de configuratie van uw SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op pictogram **bewerken** om het dialoog venster **gebruikers kenmerken** te openen.
 
     ![image](common/edit-attribute.png)
 
-6. Bovendien hierboven verwacht Zscaler ZSCloud toepassing paar meer kenmerken moeten worden doorgegeven in SAML-antwoord. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
+6. Daarnaast verwacht Zscaler ZSCloud toepassing nog maar weinig kenmerken die kunnen worden door gegeven in het SAML-antwoord. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
     
     | Name | Bronkenmerk |
     | ---------| ------------ |
@@ -143,9 +143,9 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zscaler ZSCloud, moe
 
 7. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![De link om het certificaat te downloaden](common/certificatebase64.png)
+    ![De downloadkoppeling certificaat](common/certificatebase64.png)
 
-8. Op de **Zscaler ZSCloud instellen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
+8. Kopieer de gewenste URL ('s) volgens uw vereiste in het gedeelte **Zscaler ZSCloud instellen** .
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
@@ -153,19 +153,19 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zscaler ZSCloud, moe
 
     b. Azure AD-id
 
-    c. Afmeldings-URL
+    c. URL voor afmelden
 
-### <a name="configure-zscaler-zscloud-single-sign-on"></a>Configureer Zscaler ZSCloud Single Sign-On
+### <a name="configure-zscaler-zscloud-single-sign-on"></a>Eenmalige aanmelding voor Zscaler ZSCloud configureren
 
-1. Voor het automatiseren van de configuratie in Zscaler ZSCloud, die u wilt installeren **mijn Apps beveiligde aanmelding browserextensie** door te klikken op **de extensie installeren**.
+1. Als u de configuratie wilt automatiseren in Zscaler ZSCloud, moet u de **uitbrei ding mijn apps Secure Sign-in browser** installeren door te klikken op **de uitbrei ding installeren**.
 
-    ![Mijn apps-extensie](common/install-myappssecure-extension.png)
+    ![Uitbrei ding voor mijn apps](common/install-myappssecure-extension.png)
 
-2. Na het toevoegen van uitbreiding naar de browser, klikt u op **Setup Zscaler ZSCloud** wordt u doorgeleid naar de Zscaler ZSCloud-toepassing. Geef de referenties van de beheerder zich aanmelden bij Zscaler ZSCloud daar. De browserextensie wordt automatisch configureren van de toepassing voor u en stap 3-6 automatiseren.
+2. Nadat u de extensie aan de browser hebt toegevoegd, klikt u op **Setup Zscaler ZSCloud** gaat u naar de Zscaler ZSCloud-toepassing. Geef de beheerders referenties op om u aan te melden bij Zscaler ZSCloud. Met de browser uitbreiding wordt de toepassing automatisch voor u geconfigureerd en wordt stap 3-6 geautomatiseerd.
 
-    ![Eenmalige aanmelding instellen](common/setup-sso.png)
+    ![SSO instellen](common/setup-sso.png)
 
-3. Als u Zscaler ZSCloud handmatig instellen wilt, opent u een nieuw browservenster en meld u in uw site van het bedrijf Zscaler ZSCloud als beheerder en voer de volgende stappen uit:
+3. Als u Zscaler ZSCloud hand matig wilt instellen, opent u een nieuw webbrowser venster en meldt u zich aan bij uw Zscaler ZSCloud-bedrijfs site als beheerder en voert u de volgende stappen uit:
 
 4. Ga naar **Beheer > Verificatie > Verificatie-instellingen** en voer de volgende stappen uit:
    
@@ -224,7 +224,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zscaler ZSCloud, moe
 
     a. Selecteer **Een proxyserver voor uw LAN-netwerk gebruiken**.
 
-    b. Typ in het tekstvak adres **gateway. Zscaler ZSCloud.net**.
+    b. Typ in het tekstvak adres de tekst **gateway. Zscaler ZSCloud.net**.
 
     c. Typ **80** in het tekstvak Poort.
 
@@ -234,7 +234,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zscaler ZSCloud, moe
 
 6. Klik op **OK** om het dialoogvenster **Internetopties** te sluiten.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD 
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -252,7 +252,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In de **gebruikersnaam** veldtype brittasimon@yourcompanydomain.extension. Bijvoorbeeld: BrittaSimon@contoso.com
+    b. Typbrittasimon@yourcompanydomain.extensionin het veld **gebruikers naam** . Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
@@ -260,13 +260,13 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Zscaler ZSCloud.
+In deze sectie schakelt u Julia Simon in voor het gebruik van eenmalige aanmelding van Azure door toegang te verlenen tot Zscaler ZSCloud.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Zscaler ZSCloud**.
+1. Selecteer in het Azure Portal **bedrijfs toepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Zscaler ZSCloud**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **Zscaler ZSCloud**.
+2. Selecteer in de lijst toepassingen de optie **Zscaler ZSCloud**.
 
     ![De koppeling Zscaler ZSCloud in de lijst met toepassingen](common/all-applications.png)
 
@@ -276,7 +276,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+    ![Het deelvenster toewijzing toevoegen](common/add-assign-user.png)
 
 5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst en klik op de knop **Selecteren** onder aan het scherm.
 
@@ -291,20 +291,20 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
     ![image](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_assign.png)
 
     >[!NOTE]
-    >Standaardrol toegang wordt niet ondersteund omdat hierdoor wordt de inrichting, zodat de rol die standaard bij het toewijzen van de gebruiker kan niet worden geselecteerd.
+    >De standaard-Access-rol wordt niet ondersteund, omdat dit de inrichting verbreekt, zodat de standaard rol niet kan worden geselecteerd tijdens het toewijzen van een gebruiker.
 
-### <a name="create-zscaler-zscloud-test-user"></a>Zscaler ZSCloud testgebruiker maken
+### <a name="create-zscaler-zscloud-test-user"></a>Zscaler ZSCloud-test gebruiker maken
 
-In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in Zscaler ZSCloud. Zscaler ZSCloud biedt ondersteuning voor just-in-time-gebruikersinrichting, dat standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet in Zscaler ZSCloud bestaat, wordt een nieuw gemaakt nadat verificatie.
+In deze sectie wordt een gebruiker met de naam Julia Simon gemaakt in Zscaler ZSCloud. Zscaler ZSCloud ondersteunt just-in-time-gebruikers inrichting, dat standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker zich nog niet in Zscaler ZSCloud bevindt, wordt er na verificatie een nieuwe gemaakt.
 
 >[!Note]
->Als u maken van een gebruiker handmatig wilt, neem dan contact op met [Zscaler ZSCloud ondersteuningsteam](https://help.zscaler.com/).
+>Als u hand matig een gebruiker moet maken, neemt u contact op met het ondersteunings [team van Zscaler ZSCloud](https://help.zscaler.com/).
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel Zscaler ZSCloud in het toegangsvenster, moet u worden automatisch aangemeld bij de Zscaler ZSCloud waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u op de tegel Zscaler ZSCloud in het toegangs venster klikt, moet u automatisch worden aangemeld bij de Zscaler ZSCloud waarvoor u SSO hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

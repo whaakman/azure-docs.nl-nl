@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: hrasheed
 ms.openlocfilehash: 1828efb410849677e859d341e4e16e4f5d4ca681
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68405990"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Beschik baarheid en betrouw baarheid van Apache Hadoop clusters in HDInsight
@@ -112,7 +112,7 @@ Er kan een reeks pictogrammen naast een service worden weer gegeven om de status
 
 De volgende waarschuwingen helpen bij het bewaken van de beschik baarheid van een cluster:
 
-| Naam van waarschuwing                               | Description                                                                                                                                                                                  |
+| Naam van de waarschuwing                               | Description                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Status van metrische monitor                    | Deze waarschuwing geeft de status van het bewakings proces voor metrische gegevens aan, zoals bepaald door het controle status script.                                                                                   |
 | Heartbeat van de Ambari-agent                   | Deze waarschuwing wordt geactiveerd als de server contact met een agent heeft verloren.                                                                                                                        |
@@ -247,7 +247,7 @@ Selecteer in de Ambari-webgebruikersinterface de service waarvoor u logboeken wi
 
 De grootte van een knoop punt kan alleen worden geselecteerd tijdens het maken van het cluster. Op de [pagina met hdinsight-prijzen](https://azure.microsoft.com/pricing/details/hdinsight/)vindt u een overzicht van de verschillende VM-grootten die beschikbaar zijn voor hdinsight.
 
-Wanneer u een cluster maakt, kunt u de grootte van de knoop punten opgeven. De volgende informatie bevat richt lijnen voor het opgeven van de grootte met behulp van de [Azure Portal][preview-portal], [Azure PowerShell module Az][azure-powershell]en de [Azure cli][Azure-cli]:
+Wanneer u een cluster maakt, kunt u de grootte van de knoop punten opgeven. De volgende informatie bevat richt lijnen voor het opgeven van de grootte met behulp van de [Azure Portal][preview-portal], [Azure PowerShell module AZ][azure-powershell]en de [Azure cli][azure-cli]:
 
 * **Azure Portal**: Wanneer u een cluster maakt, kunt u de grootte van de knoop punten instellen die door het cluster worden gebruikt:
 

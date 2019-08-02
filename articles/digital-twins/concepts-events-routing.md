@@ -1,57 +1,57 @@
 ---
-title: Routering gebeurtenissen en berichten met Azure digitale dubbels | Microsoft Docs
-description: Overzicht van de routering van gebeurtenissen en berichten naar de service-eindpunten met Azure digitale dubbels
+title: Gebeurtenissen en berichten routeren met Azure Digital Apparaatdubbels | Microsoft Docs
+description: Overzicht van de route ring van gebeurtenissen en berichten naar service-eind punten met Azure Digital Apparaatdubbels
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 07/29/2019
 ms.author: alinast
-ms.openlocfilehash: 7dfda00aca403f7f95f0c56d1db28c3c609bebd2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a013525109fe85ad70e5aaa5895da20f5abc3237
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080660"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638531"
 ---
 # <a name="routing-events-and-messages"></a>Routering van gebeurtenissen en berichten
 
-IoT-oplossingen aandragen vaak verschillende krachtige services met opslag, analyse en meer. In dit artikel wordt beschreven hoe u Azure digitale dubbels apps verbinden met Azure analytics, AI en storage-services zodat ze diepere inzichten en functionaliteiten.
+IoT-oplossingen zijn vaak een aantal krachtige services die opslag, analyses en meer omvatten. In dit artikel wordt beschreven hoe u Azure Digital Apparaatdubbels-apps verbindt met Azure Analytics-, AI-en Storage-services om hen meer inzicht en functionaliteit te bieden.
 
-## <a name="route-types"></a>Route-typen  
+## <a name="route-types"></a>Route typen  
 
-Azure van digitale dubbels biedt twee manieren aansluiten van IoT-gebeurtenissen met andere Azure-services of -business-toepassingen:
+Azure Digital Apparaatdubbels biedt twee manieren om IoT-gebeurtenissen te verbinden met andere Azure-Services of zakelijke toepassingen:
 
-* **Routering Azure digitale dubbels gebeurtenissen**: Een object in de ruimtelijke grafiek die wijzigingen, telemetrische gegevens die worden ontvangen, of een gebruiker gedefinieerde functie waarmee een melding op basis van vooraf gedefinieerde voorwaarden Azure digitale dubbels gebeurtenissen kunt activeren. Gebruikers kunnen deze gebeurtenissen te verzenden [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus-onderwerpen](https://azure.microsoft.com/services/service-bus/), of [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) voor verdere verwerking.
+* **Azure Digital apparaatdubbels-gebeurtenissen routeren**: Een object in de ruimtelijke grafiek dat wijzigingen aanbrengt, de ontvangen telemetriegegevens of een door de gebruiker gedefinieerde functie die een melding maakt op basis van vooraf gedefinieerde voor waarden kan gebeurtenissen van het Azure Digital Apparaatdubbels activeren. Gebruikers kunnen deze gebeurtenissen verzenden naar [Azure Event hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus onderwerpen](https://azure.microsoft.com/services/service-bus/)of [Azure Event grid](https://azure.microsoft.com/services/event-grid/) voor verdere verwerking.
 
-* **Routering apparaattelemetrie**: Naast de routering van gebeurtenissen, kunnen Azure digitale dubbels ook niet-gecodeerd apparaat telemetrieberichten routeren naar Event Hubs voor meer inzichten en analyses. Deze typen berichten worden niet verwerkt door Azure digitale dubbels. En ze alleen bent doorgestuurd naar de event hub.
+* Telemetrie van **routerings apparaat**: Azure Digital Apparaatdubbels kan naast routerings gebeurtenissen ook telemetrie-berichten van onbewerkte apparaten routeren naar Event Hubs voor meer inzichten en analyses. Deze typen berichten worden niet verwerkt door Azure Digital Apparaatdubbels. En ze worden alleen doorgestuurd naar de Event Hub.
 
-Gebruikers kunnen een of meer uitgaande-eindpunten voor het verzenden van gebeurtenissen of doorsturen van berichten opgeven. Gebeurtenissen en berichten zal worden verzonden naar de eindpunten op basis van deze vooraf gedefinieerde routering voorkeuren. Met andere woorden, kunnen gebruikers een bepaalde eindpunt voor het ontvangen van gebeurtenissen voor graph-bewerking, een ander apparaat telemetriegebeurtenissen ontvangen, enzovoort opgeven.
+Gebruikers kunnen een of meer uitstaande eind punten opgeven voor het verzenden van gebeurtenissen of het door sturen van berichten. Gebeurtenissen en berichten worden verzonden naar de eind punten volgens deze vooraf gedefinieerde routerings voorkeuren. Met andere woorden, gebruikers kunnen een bepaald eind punt opgeven om grafiek bewerkings gebeurtenissen te ontvangen, een andere voor het ontvangen van telemetrie-gebeurtenissen van apparaten, enzovoort.
 
-![Azure digitale dubbels gebeurtenissen routering][1]
+![Route ring van Azure Digital Apparaatdubbels-gebeurtenissen][1]
 
-Routering naar Event Hubs, houdt de volgorde waarin berichten over telemetrie wordt verzonden. Ze dus binnenkomen op het eindpunt in dezelfde volgorde die oorspronkelijk zijn ontvangen. Event Grid en Service Bus garanderen niet dat eindpunten gebeurtenissen ontvangen in dezelfde volgorde als ze opgetreden. Het gebeurtenissenschema bevat echter een timestamp die kan worden gebruikt voor het identificeren van de volgorde nadat de gebeurtenissen op het eindpunt plaatsvinden.
+Route ring naar Event Hubs houdt de volg orde bij waarin telemetrie-berichten worden verzonden. Ze arriveren op het eind punt in dezelfde volg orde als waarin ze oorspronkelijk werden ontvangen. Event Grid en Service Bus niet garanderen dat eind punten gebeurtenissen ontvangen in dezelfde volg orde als waarin ze zijn opgetreden. Het gebeurtenis schema bevat echter een tijds tempel dat kan worden gebruikt om de volg orde te identificeren nadat de gebeurtenissen op het eind punt arriveren.
 
 ## <a name="route-implementation"></a>Route-implementatie
 
-De digitale dubbels Azure-service ondersteunt momenteel de volgende **EndpointTypes**:
+De Azure Digital Apparaatdubbels-service ondersteunt momenteel de volgende **EndpointTypes**:
 
-* **Event hub** eindpunt tekenreeks voor de Event Hubs is.
-* **Service Bus** is de tekenreeks-eindpunt van de Service Bus-verbinding.
-* **EventGrid** eindpunt tekenreeks voor de Event Grid is.
+* **EventHub** is het event hubs Connection String eind punt.
+* **ServiceBus** is het service bus connection string eind punt.
+* **EventGrid** is het event grid Connection String eind punt.
 
-Op dit moment ondersteunt de volgende Azure digitale dubbels **eigenschap EventTypes** die wordt verzonden naar het eindpunt van de gekozen:
+Azure Digital Apparaatdubbels ondersteunt momenteel de volgende **EventTypes** die naar het gekozen eind punt worden verzonden:
 
-* **DeviceMessages** zijn telemetrieberichten van apparaten van de gebruiker verzonden en doorgestuurd door het systeem.
-* **TopologyOperation** is een bewerking waarmee de grafiek of de metagegevens van de grafiek wordt gewijzigd. Een voorbeeld is toevoegen of verwijderen van een entiteit, zoals een spatie.
-* **SpaceChange** is een wijziging in de berekende waarde van een adresruimte die het resultaat is van een apparaat telemetrie-bericht.
-* **SensorChange** is een wijziging in de berekende waarde van een sensor die het resultaat is van een apparaat telemetrie-bericht.
+* **DeviceMessages** zijn telemetriegegevens die van de apparaten van de gebruiker worden verzonden en door het systeem worden doorgestuurd.
+* **TopologyOperation** is een bewerking waarmee de grafiek of de meta gegevens van de grafiek worden gewijzigd. Een voor beeld is het toevoegen of verwijderen van een entiteit, zoals een spatie.
+* **SpaceChange** is een wijziging in de berekende waarde van een Space die het resultaat is van een telemetrie-bericht van een apparaat.
+* **SensorChange** is een wijziging in de berekende waarde van een sensor die het resultaat is van een telemetrie van een apparaat.
 * **UdfCustom** is een aangepaste melding van een door de gebruiker gedefinieerde functie.
 
 > [!IMPORTANT]  
-> Niet alle **EndpointTypes** ondersteunen alle **eigenschap EventTypes**.
-> Zie de volgende tabel voor de **eigenschap EventTypes** die zijn toegestaan voor elke **EndpointType**.
+> Niet alle **EndpointTypes** ondersteunen alle **EventTypes**.
+> Zie de volgende tabel voor de **EventTypes** die zijn toegestaan voor elke **EndpointType**.
 
 |             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
 | ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
@@ -60,13 +60,13 @@ Op dit moment ondersteunt de volgende Azure digitale dubbels **eigenschap EventT
 | EventGrid|               |         X         |     X       |      X       |   X       |
 
 >[!NOTE]  
->Zie voor meer informatie over het maken van eindpunten en voorbeelden van het schema van de gebeurtenissen [uitgaand verkeer en eindpunten](how-to-egress-endpoints.md).
+>Zie [uitgangen en eind punten](how-to-egress-endpoints.md)voor meer informatie over het maken van eind punten en voor beelden van het schema van gebeurtenissen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over Azure digitale dubbels preview limieten, [Servicelimieten voor openbare preview-versie](concepts-service-limits.md).
+- Zie limieten voor [open bare Preview-Service](concepts-service-limits.md)voor meer informatie over de limieten voor Azure Digital apparaatdubbels preview.
 
-- Als u wilt uitproberen een voorbeeld van Azure digitale Twins, Zie de [Snelstartgids voor het vinden van beschikbare ruimten](quickstart-view-occupancy-dotnet.md).
+- Als u een Azure Digital Apparaatdubbels-voor beeld wilt uitproberen, raadpleegt [u de Quick Start om beschik bare kamers te vinden](quickstart-view-occupancy-dotnet.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-events-routing.png

@@ -1,7 +1,7 @@
 ---
-title: Over het gebruik van Negatable entiteiten met een Model van de cursist conversatie - Microsoft Cognitive Services | Microsoft Docs
+title: Het gebruik van Negatiable-entiteiten met een Conversation Learner model-Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Informatie over het gebruik van Negatable entiteiten met een Model van de cursist conversatie.
+description: Meer informatie over het gebruik van Negatiable-entiteiten met een Conversation Learner model.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,91 +10,92 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 2c758d1dd5d4d1e7ab25faccd5280963211181d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4edbfc396d4ab32b991b084a7b738f04b5205418
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388809"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704109"
 ---
-# <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Over het gebruik van Negatable entiteiten met een Model van de cursist gesprek
+# <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Negatie-entiteiten gebruiken met een Conversation Learner model
 
-In deze zelfstudie ziet u de eigenschap "Negatable" van entiteiten.
+In deze zelf studie wordt de eigenschap ' Negatiable ' van entiteiten gedemonstreerd.
 
 ## <a name="video"></a>Video
 
-[![Zelfstudie negatable entiteiten-Preview](https://aka.ms/cl_Tutorial_v3_NegatableEntities_Preview)](https://aka.ms/cl_Tutorial_v3_NegatableEntities)
+[![Preview van zelf studie voor negatie-entiteiten](https://aka.ms/cl_Tutorial_v3_NegatableEntities_Preview)](https://aka.ms/cl_Tutorial_v3_NegatableEntities)
 
 ## <a name="requirements"></a>Vereisten
-In deze zelfstudie is vereist dat de algemene zelfstudie Bot wordt uitgevoerd
+Voor deze zelf studie moet de bot van de algemene zelf studie worden uitgevoerd
 
     npm run tutorial-general
 
 ## <a name="details"></a>Details
-De eigenschap 'Negatable' van een entiteit kunt u beide normaal (positief) een label en negatieve exemplaren van de entiteit, leren op basis van positieve en negatieve modellen en schakelt u de waarde van een bestaande entiteit. Entiteiten met een set van de eigenschap 'Negatable' worden Negatable entiteiten in de conversatie Leaner genoemd.
+Met de eigenschap ' Negatiable ' van een entiteit kunt u een label maken van zowel normale (positieve) als negatieve exemplaren van de entiteit, op basis van positieve en negatieve modellen en de waarde van een bestaande entiteit wissen. Entiteiten waarvoor de eigenschap ' Negatiable ' is ingesteld, worden genegeerde entiteiten genoemd in de conversatie-leaner.
 
 ## <a name="steps"></a>Stappen
 
-Start op de startpagina in de Web-UI.
+Start op de start pagina in de gebruikers interface van het web.
 
-### <a name="create-the-model"></a>Het Model maken
+### <a name="create-the-model"></a>Het model maken
 
-1. Selecteer **nieuw Model**.
-2. Voer **NegatableEntity** voor **naam**.
+1. Selecteer **Nieuw model**.
+2. Voer **NegatableEntity** in als **naam**.
 3. Selecteer **Maken**.
 
 ### <a name="entity-creation"></a>Entiteit maken
 
-1. Selecteer **entiteiten** in het linker deelvenster, klikt u vervolgens **nieuwe entiteit**.
-2. Selecteer **aangepaste getraind** voor **entiteitstype**.
-3. Voer **naam** voor **entiteitnaam**.
-4. Controleer **Negatable** zodat gebruikers kunnen de entiteitswaarde van een opgeven, of Stel dat er is iets *niet* een entiteit waarde waardoor de overeenkomstige entiteitswaarde verwijderen.
+1. Selecteer **entiteiten** in het linkerdeel venster en vervolgens **nieuwe entiteit**.
+2. Selecteer **aangepast** getraind voor **entiteits type**.
+3. Voer een **naam** in voor de naam van de **entiteit**.
+4. Controleer **negatie** om gebruikers in staat te stellen een entiteits waarde op te geven of iets anders is dan de waarde van een entiteit, waardoor de overeenkomende entiteits *waarde wordt verwijderd* .
 5. Selecteer **Maken**.
 
 ![](../media/T06_entity_create.png)
 
 ### <a name="create-the-first-action"></a>De eerste actie maken
 
-1. Selecteer **acties** in het linker deelvenster, klikt u vervolgens **nieuwe actie**.
-2. Voer **ik weet niet uw naam.** voor **van Bot-antwoord...** .
-3. Voer **naam** voor **diskwalificeren voorziet**.
+1. Selecteer **acties** in het linkerdeel venster en vervolgens op **nieuwe actie**.
+2. Voer **de naam in die ik niet weet.** **reactie van bot...** .
+3. Voer een **naam** in voor diskwalificerende recht.
 4. Selecteer **Maken**.
 
 ![](../media/T06_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>De tweede actie maken
 
-1. Selecteer **acties** in het linker deelvenster, klikt u vervolgens **nieuwe actie**.
-2. Voer **ik weet dat uw naam. Het is $name.** voor **van Bot-antwoord...** .
+1. Selecteer **acties** in het linkerdeel venster en vervolgens op **nieuwe actie**.
+2. Voer **de naam in die ik weet. Het is $name.** **reactie van bot...** .
 3. Selecteer **Maken**.
 
 > [!NOTE]
-> De **naam** entiteit is automatisch toegevoegd als een **vereist entiteiten** verwezen in de reactie utterance.
+> De **naam** entiteit is automatisch toegevoegd als **vereiste entiteiten** op referentie in het antwoord utterance.
 
 U hebt nu twee acties.
 
 ![](../media/T06_action_create_2.png)
 
-### <a name="train-the-model"></a>Het Model te trainen
+### <a name="train-the-model"></a>Het model trainen
 
-1. Selecteer **Train-dialoogvensters** in het linker deelvenster, klikt u vervolgens **nieuwe dialoogvenster van de trein**.
-2. Voer **hello** voor utterance van de gebruiker in het deelvenster links chat.
+1. Selecteer **dialoog vensters trainen** in het linkerpaneel en klik vervolgens op **Nieuw trein dialoog venster**.
+2. Voer **Hallo** in voor de utterance van de gebruiker in het linkerdeel venster.
 3. Selecteer **Score acties**.
-4. Selecteer **ik weet niet uw naam.** uit de lijst met acties. Het percentiel is 100% als de enige geldige actie op basis van de beperkingen.
-5. Voer **mijn naam is Frank** voor utterance van de gebruiker in het deelvenster links chat.
-6. Markeer **Frank** Selecteer **+ naam**. Negatable entiteiten hebben twee instanties: (+) plus wordt toegevoegd of overschrijft de waarde; (-) min Hiermee verwijdert u de waarde.
-7. Selecteer **Score acties**. De **naam** nu entiteit wordt gedefinieerd als **Frank** in het geheugen van het Model, waardoor de **ik weet dat uw naam. Het is $name** actie beschikbaar is.
-8. Selecteer **ik weet dat uw naam. Het is $name.** uit de lijst met acties.
-9. Voer **mijn naam is geen Frank.** voor utterance van de gebruiker in het deelvenster links chat.
-10. Markeer **Frank** Selecteer **-naam** om te wissen van de waarde van de **naam** entiteit.
+4. Selecteer **Ik heb uw naam niet kennen.** uit de lijst met acties. Het percentiel is 100% als de enige geldige actie op basis van de beperkingen.
+5. **Mijn naam invoeren is Frank** voor de utterance van de gebruiker in het linkerdeel venster.
+6. Markeer **Frank** en selecteer vervolgens **+ naam**. Niet-verwerkte entiteiten hebben twee instanties: (+) plus de waarde wordt toegevoegd of overschreven. (-) min de waarde wordt verwijderd.
+7. Selecteer **Score acties**. De **naam** entiteit is nu gedefinieerd als **Frank** in het geheugen van het model **, dus ik weet uw naam. Het is $name** actie beschikbaar is.
+8. Selecteer **ik ken je naam toe. Het is $name.** uit de lijst met acties.
+9. **Mijn naam invoeren is niet Frank.** voor de utterance van de gebruiker in het linkerdeel venster.
+10. Markeer **Frank** then select **-name** om de waarde van de entiteit **name** te wissen.
 11. Selecteer **Score acties**.
-12. Selecteer **ik weet niet uw naam.** uit de lijst met acties.
-13. Voer **Susan, Mijn naam is.** voor de derde utterance van de gebruiker in het deelvenster links chat.
-14. Markeer **Susan** vervolgens **+ naam** 
+12. Selecteer **Ik heb uw naam niet kennen.** uit de lijst met acties.
+13. Voer **Mijn naam in als Susan.** voor de derde utterance van de gebruiker in het linkerdeel venster.
+14. Selecteer **Susan** en **naam** 
 
 ![](../media/T06_training.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Entiteiten van meerdere waarden](./07-multi-value-entities.md)
+> [Entiteiten met meerdere waarden](./07-multi-value-entities.md)

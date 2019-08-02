@@ -1,7 +1,7 @@
 ---
 title: Visuele interface
 titleSuffix: Azure Machine Learning service
-description: Meer informatie over de voorwaarden, de concepten en de werkstroom die gezamenlijk de visuele interface (preview) voor Azure Machine Learning-service.
+description: Meer informatie over de voor waarden, concepten en werk stromen voor de Visual Interface (preview) voor Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,72 +9,71 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: be07e0f3438ea93312d4eb440e7e63b8f98e11b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1cb56386f52d1c7b1ec357b912c648c1961b4c1d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077382"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677988"
 ---
-# <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Wat is de visuele interface voor Azure Machine Learning-service? 
+# <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Wat is de visuele interface voor Azure Machine Learning service? 
 
-De visuele interface (preview) voor Azure Machine Learning-service kunt u gegevens voorbereiden, trainen, testen, implementeren, beheren en bijhouden van machine learning-modellen zonder code te schrijven.
+Met de Visual Interface (preview) voor Azure Machine Learning service kunt u gegevens voorbereiden, machine learning modellen trainen, testen, implementeren, beheren en bijhouden zonder code te schrijven.
 
-Er is niets te programmeren, visueel verbinding [gegevenssets](#dataset) en [modules](#module) te maken van uw model.
+Er is geen programmering vereist. u kunt [gegevens sets](#dataset) en [modules](#module) visueel verbinden om uw model samen te stellen.
 
-Uw Azure Machine Learning-service maakt gebruik van de visuele interface [werkruimte](concept-workspace.md) aan:
+De Visual Interface gebruikt uw Azure Machine Learning service- [werk ruimte](concept-workspace.md) om het volgende te doen:
 
-+ Artefacten van schrijven [experimenteren](#experiment) wordt uitgevoerd in de werkruimte.
-+ Toegang tot [gegevenssets](#dataset).
-+ Gebruik de [rekenresources](#compute) in de werkruimte om uit te voeren van het experiment. 
-+ Registreren [modellen](concept-azure-machine-learning-architecture.md#models).
-+ [Implementeer](#deployment) modellen als webservices op-resources in de werkruimte COMPUTE.
++ Schrijf artefacten van [experiment](#experiment) -uitvoeringen in de werk ruimte.
++ Access- [gegevens sets](#dataset).
++ Gebruik de [reken resources](#compute) in de werk ruimte om het experiment uit te voeren. 
++ [Modellen](concept-azure-machine-learning-architecture.md#models)registreren.
++ [Implementeer](#deployment) modellen als webservices op reken resources in de werk ruimte.
 
 ![Overzicht van de visuele interface](media/ui-concept-visual-interface/overview.png)
 
 ## <a name="workflow"></a>Werkstroom
 
-De visuele interface biedt een interactieve, visuele canvas snel bouwen, testen, en ze opnieuw testen op een model. 
+De visuele interface biedt u een interactief, visueel canvas om snel een model te bouwen, te testen en te herhalen. 
 
-+ U slepen en neerzetten [modules](#module) naar het canvas.
-+ De modules met elkaar verbinden om een [experimenteren](#experiment).
-+ Voer het experiment met behulp van de compute-resource van de Service Machine Learning-werkruimte.
-+ Uw modelontwerp herhalen door het experiment bewerken en nogmaals uit te voeren.
-+ Wanneer u klaar bent, zet uw **trainingsexperiment** naar een **Voorspellend experiment**.
-+ [Implementeer](#deployment) de Voorspellend experiment als een web-service zodat het model kan worden geopend door anderen.
++ U kunt [modules](#module) slepen en neerzetten op het canvas.
++ Verbind de modules samen om een [experiment](#experiment)te vormen.
++ Voer het experiment uit met behulp van de reken resource van de werk ruimte Machine Learning service.
++ Herhaal het ontwerp van het model door het experiment te bewerken en het opnieuw uit te voeren.
++ Wanneer u klaar bent, kunt u uw **trainings experiment** converteren naar een voorspellend **experiment**.
++ [Implementeer](#deployment) het voorspellende experiment als een webservice, zodat het model door anderen kan worden geopend.
 
 ## <a name="experiment"></a>Experiment
 
-Een experiment maken vanaf het begin of een bestaand voorbeeldexperiment als sjabloon gebruiken.  Telkens wanneer die u een experiment uitvoert worden artefacten opgeslagen in uw werkruimte.
+Maak een volledig experiment of gebruik een bestaand voorbeeld experiment als sjabloon.  Telkens wanneer u een experiment uitvoert, worden artefacten opgeslagen in uw werk ruimte.
 
-Een experiment bestaat uit gegevenssets en analytische modules, die u met elkaar verbinden in een model. Een geldig experiment heeft de volgende kenmerken:
+Een experiment bestaat uit gegevens sets en analytische modules, waarmee u samen verbinding maakt om een model te maken. Een geldig experiment heeft de volgende kenmerken:
 
-* Gegevenssets mogen alleen worden verbonden met modules.
-* Modules mogen worden verbonden met gegevenssets of andere modules.
-* Alle ingangspoorten voor modules moeten een verbinding met de gegevensstroom hebben.
-* Alle vereiste parameters voor elke module moeten worden ingesteld.
+* Gegevens sets kunnen alleen worden verbonden met modules.
+* Modules kunnen worden verbonden met gegevens sets of andere modules.
+* Alle invoer poorten voor modules moeten een verbinding met de gegevens stroom hebben.
+* Alle vereiste para meters voor elke module moeten worden ingesteld.
 
-Zie voor een voorbeeld van een eenvoudig experiment [Quick Start: Voorbereiden en visualiseren van gegevens zonder code te schrijven in Azure Machine Learning](ui-quickstart-run-experiment.md).
 
-Zie voor een volledig overzicht van een predictive analytics-oplossing, [zelfstudie: Auto's prijs op met de visuele interface voorspellen](ui-tutorial-automobile-price-train-score.md).
+Zie [zelf studie voor meer informatie over hoe u aan de slag kunt gaan met de visuele interface: Prijs voor auto Mobile voor speld met](ui-tutorial-automobile-price-train-score.md)de visuele interface.
 
 ## <a name="dataset"></a>Gegevensset
 
-Een gegevensset bestaat uit gegevens die is geüpload naar de visuele interface te gebruiken in het modelleringsproces. Er zijn een aantal voorbeeldgegevenssets opgenomen om te experimenteren met en u kunt meer gegevenssets uploaden als u deze nodig hebt.
+Een gegevensset is gegevens die zijn geüpload naar de visuele interface voor gebruik in het model proces. Er zijn een aantal voorbeeld gegevens sets voor u opgenomen waarmee u kunt experimenteren met, en het uploaden van meer gegevens sets wanneer u ze nodig hebt.
 
 ## <a name="module"></a>Module
 
-Een module is een algoritme dat u met uw gegevens kunt uitvoeren. De visuele interface heeft een aantal modules, variërend van ingress-functies voor training, beoordeling en van validatieprocessen.
+Een module is een algoritme dat u met uw gegevens kunt uitvoeren. De visuele interface bevat een aantal modules, variërend van de functies voor het inkomen van gegevens tot trainings-, Score-en validatie processen.
 
-Een module kan een reeks parameters hebben waarmee u de interne algoritmen van de module kunt configureren. Wanneer u een module op het canvas selecteert, worden de parameters van de module weergegeven in het deelvenster met eigenschappen aan de rechterkant van het canvas. U kunt de parameters in dit deelvenster wijzigen om het model af te stemmen.
+Een module kan een reeks parameters hebben waarmee u de interne algoritmen van de module kunt configureren. Wanneer u een module op het canvas selecteert, worden de para meters van de module weer gegeven in het deel venster Eigenschappen rechts van het canvas. U kunt de parameters in dit deelvenster wijzigen om het model af te stemmen.
 
-![Module-eigenschappen](media/ui-concept-visual-interface/properties.png)
+![Eigenschappen van module](media/ui-concept-visual-interface/properties.png)
 
-Zie voor hulp bij het navigeren door de bibliotheek met machine learning-algoritmen, [overzicht van algoritmen en modules](../algorithm-module-reference/module-reference.md)
+Zie voor meer informatie over de beschik bare bibliotheek met machine learning algoritmen [overzicht van algoritme & module](../algorithm-module-reference/module-reference.md)
 
-## <a name="compute"></a> COMPUTE-resources
+## <a name="compute"></a>Reken resources
 
-Gebruik de rekenresources van uw werkruimte om uit te voeren van uw experiment of de host-uw geïmplementeerde modellen als webservices. De ondersteunde compute-doelen zijn:
+Gebruik reken resources van uw werk ruimte om uw experiment uit te voeren of uw geïmplementeerde modellen als webservices te hosten. De ondersteunde compute-doelen zijn:
 
 
 | COMPUTE-doel | Training | Implementatie |
@@ -82,22 +81,22 @@ Gebruik de rekenresources van uw werkruimte om uit te voeren van uw experiment o
 | Azure Machine Learning-Computing | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-COMPUTE-doelen zijn gekoppeld aan uw Machine Learning [werkruimte](concept-workspace.md). Beheren van uw compute-doelen in uw werkruimte in de [Azure-portal](https://portal.azure.com).
+Reken doelen zijn gekoppeld aan uw Machine Learning- [werk ruimte](concept-workspace.md). U beheert uw reken doelen in uw werk ruimte in de [Azure Portal](https://portal.azure.com).
 
 ## <a name="deployment"></a>Implementatie
 
-Wanneer uw predictive analytics-model klaar is, kunt u deze implementeren als een webservice rechtstreeks vanuit de visuele interface.
+Zodra uw predictive analytics model klaar is, implementeert u dit als een webservice rechtstreeks vanuit de visuele interface.
 
-De webservices bieden een interface tussen een toepassing en het scoring-model. Een externe toepassing kan communiceren met de scoremodel in realtime. Een aanroep van een webservice retourneert voorspellingsresultaten naar een externe toepassing. Tijdens een aanroep aan een webservice wordt een API-sleutel doorgegeven die is gemaakt tijdens de implementatie van de webservice. De webservice is gebaseerd op REST, een populaire architectuur voor webprogrammering.
+De webservices bieden een interface tussen een toepassing en uw score model. Een externe toepassing kan in real-time communiceren met het score model. Een aanroep van een webservice retourneert Voorspellings resultaten naar een externe toepassing. Tijdens een aanroep aan een webservice wordt een API-sleutel doorgegeven die is gemaakt tijdens de implementatie van de webservice. De webservice is gebaseerd op REST, een populaire architectuur keuze voor webprogrammeer projecten.
 
-Zie voor meer informatie over het implementeren van uw model, [zelfstudie: Implementeren van een machine learning-model met de visuele interface](ui-tutorial-automobile-price-deploy.md).
+Zie [zelf studie voor meer informatie over het implementeren van uw model: Implementeer een machine learning model met de visuele interface](ui-tutorial-automobile-price-deploy.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Leer de basisprincipes van voorspellende analyses en machine learning met [Quick Start: Voorbereiden en visualiseren van gegevens zonder code te schrijven in Azure Machine Learning](ui-quickstart-run-experiment.md).
-* Gebruik een van de voorbeelden en aanpassen met suite uw behoeften:
-    * [Voorbeeld 1: regressie: Prijs voorspellen](ui-sample-regression-predict-automobile-price-basic.md)
-    * [Voorbeeld 2: regressie: Prijs voorspellen en algoritmen te vergelijken](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-    * [Voorbeeld 3 - indeling: Kredietrisico voorspellen](ui-sample-classification-predict-credit-risk-basic.md)
-    * [Voorbeeld 4 - classificatie: Kredietrisico (kosten gevoelige) voorspellen](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-    * [Voorbeeld 5 - indeling: Verloop, appetency en up-selling te voorspellen](ui-sample-classification-predict-churn.md)
+* Leer de basis beginselen van Predictive Analytics en machine learning [met de zelf studie: Prijs voor auto Mobile voors pellen met de visuele interface](ui-tutorial-automobile-price-train-score.md)
+* Gebruik een van de voor beelden en wijzig uw behoeften:
+    * [Voor beeld 1-regressie: Prijs voors pellen](ui-sample-regression-predict-automobile-price-basic.md)
+    * [Voor beeld 2-regressie: Prijs voors pellen en algoritmen vergelijken](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+    * [Voor beeld 3-classificatie: Krediet risico voors pellen](ui-sample-classification-predict-credit-risk-basic.md)
+    * [Voor beeld 4-classificatie: Voor speld krediet risico (kosten gevoelig)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+    * [Voor beeld 5-classificatie: Verloop, verlangen en up-sell voors pellen](ui-sample-classification-predict-churn.md)

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 45208b5c6538ea523a7b87d6dbdeb99e792783ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b4f1cfe4dbd15f25b4fab92a4bd3b7aee309cb2
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61261992"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720841"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>Gegevens kopiëren van Amazon Marketplace Web Service met behulp van Azure Data Factory (Preview)
 
@@ -98,11 +98,12 @@ Om gegevens te kopiëren van Amazon Marketplace Web Service, stel de eigenschap 
     "name": "AmazonMWSDataset",
     "properties": {
         "type": "AmazonMWSObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<AmazonMWS linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 
@@ -118,7 +119,7 @@ Om gegevens te kopiëren van Amazon Marketplace Web Service, stelt u het brontyp
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **AmazonMWSSource** | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **AmazonMWSSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**

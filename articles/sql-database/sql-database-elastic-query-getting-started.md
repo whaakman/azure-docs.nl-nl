@@ -1,6 +1,6 @@
 ---
-title: Rapport over uitgeschaalde clouddatabases (horizontale partitionering) | Microsoft Docs
-description: Databaseoverschrijdende database query's naar rapport gebruiken voor meerdere databases.
+title: Rapport over uitgeschaalde Cloud databases (horizontale partitionering) | Microsoft Docs
+description: Data base query's tussen meerdere data bases gebruiken om te rapporteren over verschillende data bases.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,58 +10,57 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a73938c98ebaea310875f0db8b665d0f1aed55e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cc59d7cb1ce09aad834130818e5af533719e04c1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556227"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568612"
 ---
-# <a name="report-across-scaled-out-cloud-databases-preview"></a>Rapportage voor meerdere uitgeschaalde clouddatabases (preview)
+# <a name="report-across-scaled-out-cloud-databases-preview"></a>Rapport over uitgeschaalde Cloud databases (preview-versie)
 
-U kunt rapporten maken van meerdere Azure SQL-databases vanuit een enkele verbinding punt met een [elastische query](sql-database-elastic-query-overview.md). De databases worden horizontaal gepartitioneerd (ook bekend als 'shard').
+U kunt met behulp van een [elastische query](sql-database-elastic-query-overview.md)rapporten maken op basis van meerdere Azure SQL-data bases vanaf één verbindings punt. De data bases moeten horizon taal zijn gepartitioneerd (ook wel ' Shard ' genoemd).
 
-Als u een bestaande database hebt, raadpleegt u [bestaande databases migreren naar uitgeschaalde databases](sql-database-elastic-convert-to-use-elastic-tools.md).
+Als u een bestaande Data Base hebt, raadpleegt u [bestaande data bases migreren naar uitgeschaalde data bases](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Zie voor meer informatie over de SQL-objecten die nodig zijn om op te vragen, [Query met een horizontaal gepartitioneerde databases](sql-database-elastic-query-horizontal-partitioning.md).
+Zie [query voor Horizon taal gepartitioneerde data bases](sql-database-elastic-query-horizontal-partitioning.md)voor meer informatie over de SQL-objecten die nodig zijn voor het uitvoeren van query's.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Downloaden en uitvoeren van de [aan de slag met hulpprogramma's elastische Database voor klantorders](sql-database-elastic-scale-get-started.md).
+Down load en voer het [voor beeld aan de slag met Elastic database-hulpprogram ma's](sql-database-elastic-scale-get-started.md).
 
-## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Een shard-Toewijzingsbeheer met behulp van de voorbeeld-app maken
-Hier maakt u een shard-toewijzing manager samen met verschillende shards, gevolgd door het invoegen van gegevens in de shards. Als u al shards installatie met behulp van gedeelde gegevens erin hebt, kunt u de volgende stappen overslaan en naar de volgende sectie gaan.
+## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Een Shard-toewijzings beheer maken met behulp van de voor beeld-app
+Hier maakt u een Shard-toewijzings beheer samen met verschillende Shards, gevolgd door het invoegen van gegevens in de Shards. Als er al een Shards-instelling is met Shard-gegevens, kunt u de volgende stappen overs Laan en door gaan naar de volgende sectie.
 
-1. Bouwen en uit de **aan de slag met elastische Databasehulpprogramma's** voorbeeldtoepassing. Volg de stappen tot stap 7 in de sectie [downloaden en uitvoeren van de voorbeeld-app](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Aan het einde van stap 7 ziet u de volgende opdrachtprompt:
+1. Bouw en voer de voorbeeld toepassing aan de slag **met Elastic database-hulpprogram ma's** . Volg de stappen tot en met stap 7 in het gedeelte [de voor beeld-app downloaden en uitvoeren](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Aan het einde van stap 7 wordt de volgende opdracht prompt weer gegeven:
 
-    ![opdrachtprompt][1]
-2. Typ in het opdrachtvenster "1" en druk op **Enter**. Dit maakt de shard-Toewijzingsbeheer en twee shards toevoegen aan de server. Vervolgens typt u '3' en druk op **Enter**; de actie vier keer herhalen. Dit voorbeeldrijen met gegevens in uw shards ingevoegd.
-3. De [Azure-portal](https://portal.azure.com) drie nieuwe databases in de server moet worden weergegeven:
+    ![opdracht prompt][1]
+2. Typ ' 1 ' in het opdracht venster en druk op **Enter**. Hiermee wordt het Shard-toewijzings beheer gemaakt en worden twee Shards toegevoegd aan de server. Typ "3" en druk op **Enter**; Herhaal de actie vier keer. Hiermee worden de rijen met voorbeeld gegevens in uw Shards ingevoegd.
+3. De [Azure Portal](https://portal.azure.com) moet drie nieuwe data bases in uw server weer geven:
 
    ![Visual Studio-bevestiging][2]
 
-   Query's die databaseoverschrijdend zijn op dit moment ondersteund via de Elastic Database-clientbibliotheken. Gebruik bijvoorbeeld optie 4 in het opdrachtvenster. De resultaten van een query meerdere shards zijn altijd een **UNION ALL** van de resultaten van alle shards.
+   Op dit moment worden query's tussen data bases ondersteund via de Elastic Database-client bibliotheken. Gebruik bijvoorbeeld optie 4 in het opdracht venster. De resultaten van een query met meerdere Shard zijn altijd een **samen voeging van alle** resultaten van alle Shards.
 
-   In de volgende sectie maken we een voorbeeld van database-eindpunt die ondersteuning biedt voor uitgebreidere opvragen van de gegevens van meerdere shards.
+   In de volgende sectie maken we een voor beeld-data base-eind punt dat ondersteuning biedt voor rijkere query's van de gegevens in Shards.
 
-## <a name="create-an-elastic-query-database"></a>Een query voor elastic database maken
-1. Open de [Azure-portal](https://portal.azure.com) en zich aanmeldt.
-2. Maak een nieuwe Azure SQL-database op dezelfde server als de shard-configuratie. Naam van de database "ElasticDBQuery."
+## <a name="create-an-elastic-query-database"></a>Een elastische query database maken
+1. Open de [Azure Portal](https://portal.azure.com) en meld u aan.
+2. Maak een nieuwe Azure-SQL database op dezelfde server als de Shard-installatie. Geef de data base de naam ' ElasticDBQuery '.
 
-    ![Azure portal en de prijscategorie][3]
+    ![Azure Portal en prijs categorie][3]
 
     > [!NOTE]
-    > u kunt een bestaande database gebruiken. Als u dit doen kunt, moet het niet een van de shards die u uw query's uitvoeren wilt op zijn. Deze database wordt gebruikt voor het maken van de van metagegevensobjecten voor een elastische database-query.
+    > u kunt een bestaande Data Base gebruiken. Als u dit wel kunt doen, mag dit niet een van de Shards zijn waarop u uw query's wilt uitvoeren. Deze data base wordt gebruikt voor het maken van de meta gegevens objecten voor een Elastic data base-query.
     >
 
-## <a name="create-database-objects"></a>Database-objecten maken
-### <a name="database-scoped-master-key-and-credentials"></a>Hoofdsleutel databasebereik en referenties
-Deze worden gebruikt verbinding maken met de shard-Toewijzingsbeheer en de shards:
+## <a name="create-database-objects"></a>Database objecten maken
+### <a name="database-scoped-master-key-and-credentials"></a>Data base-scoped hoofd sleutel en referenties
+Deze worden gebruikt om verbinding te maken met de Shard-kaart Manager en de Shards:
 
 1. Open SQL Server Management Studio of SQL Server Data Tools in Visual Studio.
-2. Verbinding maken met database ElasticDBQuery en voer de volgende T-SQL-opdrachten uit:
+2. Maak verbinding met de ElasticDBQuery-data base en voer de volgende T-SQL-opdrachten uit:
 
         CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
 
@@ -69,10 +68,10 @@ Deze worden gebruikt verbinding maken met de shard-Toewijzingsbeheer en de shard
         WITH IDENTITY = '<username>',
         SECRET = '<password>';
 
-    notatie 'gebruikersnaam' en 'wachtwoord' moeten gelijk zijn aan de aanmeldingsgegevens die zijn gebruikt in stap 6 van [downloaden en uitvoeren van de voorbeeld-app](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) in [aan de slag met elastische Databasehulpprogramma's](sql-database-elastic-scale-get-started.md).
+    gebruikers naam en wacht woord moeten hetzelfde zijn als de aanmeldings gegevens die worden gebruikt in stap 6 van [downloaden en de voor beeld-app uitvoeren](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) in [aan de slag met Elastic data base-hulpprogram ma's](sql-database-elastic-scale-get-started.md).
 
 ### <a name="external-data-sources"></a>Externe gegevensbronnen
-Voor het maken van een externe gegevensbron dan de volgende opdracht op de database ElasticDBQuery:
+Als u een externe gegevens bron wilt maken, voert u de volgende opdracht uit op de ElasticDBQuery-Data Base:
 
     CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
       (TYPE = SHARD_MAP_MANAGER,
@@ -82,10 +81,10 @@ Voor het maken van een externe gegevensbron dan de volgende opdracht op de datab
        SHARD_MAP_NAME = 'CustomerIDShardMap'
     ) ;
 
- "CustomerIDShardMap" is de naam van de shard-toewijzing, als u de shard-toewijzing en de shard-Toewijzingsbeheer met behulp van het voorbeeld van de hulpprogramma's elastische database hebt gemaakt. Echter, als u uw aangepaste instellingen voor dit voorbeeld gebruikt, klikt u vervolgens het moet de naam van de shard-toewijzing die u hebt gekozen in uw toepassing.
+ ' CustomerIDShardMap ' is de naam van de Shard-toewijzing als u de Shard-kaart en het Shard-toewijzings beheer hebt gemaakt met behulp van het Elastic Data Base-voor beeld. Als u echter de aangepaste installatie voor dit voor beeld hebt gebruikt, moet dit de naam zijn van de Shard-kaart die u in uw toepassing hebt gekozen.
 
 ### <a name="external-tables"></a>Externe tabellen
-Maak een externe tabel die overeenkomt met de tabel klanten over de shards door het uitvoeren van de volgende opdracht op ElasticDBQuery database:
+Maak een externe tabel die overeenkomt met de tabel klanten op het Shards door de volgende opdracht uit te voeren in de ElasticDBQuery-Data Base:
 
     CREATE EXTERNAL TABLE [dbo].[Customers]
     ( [CustomerId] [int] NOT NULL,
@@ -96,46 +95,46 @@ Maak een externe tabel die overeenkomt met de tabel klanten over de shards door 
       DISTRIBUTION = SHARDED([CustomerId])
     ) ;
 
-## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Een voorbeeld elastische database T-SQL-query uitvoeren
-Nadat u uw externe gegevensbron en uw externe tabellen die u kunt nu volledige T-SQL gebruiken via uw externe tabellen hebt gedefinieerd.
+## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Een voor beeld van een Elastic data base-T-SQL-query uitvoeren
+Wanneer u uw externe gegevens bron en uw externe tabellen hebt gedefinieerd, kunt u nu volledige T-SQL gebruiken voor uw externe tabellen.
 
-Voer deze query uit op de database ElasticDBQuery:
+Deze query uitvoeren op de ElasticDBQuery-Data Base:
 
     select count(CustomerId) from [dbo].[Customers]
 
-U ziet dat de query cumuleert de resultaten van alle shards en de volgende uitvoer biedt:
+U ziet dat de query de resultaten van alle Shards samenvoegt en de volgende uitvoer levert:
 
 ![Uitvoergegevens][4]
 
-## <a name="import-elastic-database-query-results-to-excel"></a>Queryresultaten voor elastische database importeren in Excel
- U kunt de resultaten van een query naar een Excel-bestand importeren.
+## <a name="import-elastic-database-query-results-to-excel"></a>Query resultaten voor Elastic data base importeren in Excel
+ U kunt de resultaten van een query importeren in een Excel-bestand.
 
 1. Start Excel 2013.
-2. Navigeer naar de **gegevens** lint.
-3. Klik op **van andere bronnen** en klikt u op **van SQL Server**.
+2. Navigeer naar het **gegevens** lint.
+3. Klik **in andere bronnen** op en klik op **van SQL Server**.
 
    ![Excel importeren uit andere bronnen][5]
-4. In de **Wizard Gegevensverbinding** typt u de referenties voor de servernaam en aanmeldingsgegevens. Klik op **Volgende**.
-5. In het dialoogvenster **selecteert u de database met de gegevens die u wilt dat**, selecteer de **ElasticDBQuery** database.
-6. Selecteer de **klanten** tabel in de lijstweergave en klikt u op **volgende**. Klik vervolgens op **voltooien**.
-7. In de **importgegevens** formulier, onder **selecteert u hoe u wilt weergeven van deze gegevens in uw werkmap**, selecteer **tabel** en klikt u op **OK**.
+4. Typ in de **wizard gegevens verbinding** de server naam en aanmeldings referenties. Klik op **Volgende**.
+5. **Selecteer de data base die de gewenste gegevens bevat**in het dialoog venster, selecteer de **ElasticDBQuery** -data base.
+6. Selecteer de tabel **klanten** in de lijst weergave en klik op **volgende**. Klik vervolgens op **volt ooien**.
+7. Selecteer in het formulier **gegevens importeren** onder **Selecteer hoe u deze gegevens wilt weer geven in uw werkmap** **tabel** en klik vervolgens op **OK**.
 
-Alle rijen uit **klanten** tabel, die zijn opgeslagen in verschillende shards de Excel-werkblad vullen.
+Alle rijen uit de tabel **klanten** , die zijn opgeslagen in verschillende Shards, vullen het Excel-werk blad.
 
-U kunt nu Excel van krachtige visualisatie-functies gebruiken. U kunt de verbindingsreeks met de servernaam, databasenaam en referenties verbinding maken met uw gegevens en BI-integratie-hulpprogramma's van de query's in elastic database. Zorg ervoor dat SQL Server wordt ondersteund als een gegevensbron voor het hulpprogramma. U kunt verwijzen naar de query's in elastic database en de externe tabellen net als elke andere SQL Server-database en SQL Server-tabellen waarmee u verbinding met uw hulpprogramma maken wilt.
+U kunt nu de krachtige functies van gegevens visualisatie van Excel gebruiken. U kunt de connection string met de server naam, de database naam en de referenties gebruiken om uw BI-en gegevens integratie hulpprogramma's te verbinden met de Elastic query-data base. Zorg ervoor dat SQL Server wordt ondersteund als gegevens bron voor uw hulp programma. U kunt naar de elastische query database en externe tabellen verwijzen net als andere SQL Server Data Base-en SQL Server tabellen waarmee u verbinding met uw hulp programma zou maken.
 
 ### <a name="cost"></a>Kosten
-Er is geen extra kosten in rekening gebracht voor het gebruik van de Query voor Elastic Database-functie.
+Er worden geen extra kosten in rekening gebracht voor het gebruik van de functie voor Elastic Database Query's.
 
-Zie voor informatie over de prijzen [prijsinformatie voor SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+Zie [SQL database prijs](https://azure.microsoft.com/pricing/details/sql-database/)informatie voor prijzen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een overzicht van elastische query [elastische query overzicht](sql-database-elastic-query-overview.md).
-* Zie voor een verticale partitionering zelfstudie [aan de slag met query van meerdere databases (verticale partitionering)](sql-database-elastic-query-getting-started-vertical.md).
-* Zie voor een voorbeeld en de syntaxis van query's voor verticaal gepartitioneerde gegevens [opvragen van verticaal gepartitioneerde gegevens)](sql-database-elastic-query-vertical-partitioning.md)
-* Zie voor een voorbeeld en de syntaxis van query's voor horizontaal gepartitioneerde gegevens [gegevens opvragen horizontaal gepartitioneerd)](sql-database-elastic-query-horizontal-partitioning.md)
-* Zie [sp\_uitvoeren \_externe](https://msdn.microsoft.com/library/mt703714) voor een opgeslagen procedure die een Transact-SQL-instructie op een één externe SQL-Database van Azure of een set van databases die fungeren als shards in een horizontale partitionering wordt uitgevoerd.
+* Zie [overzicht van elastische query's](sql-database-elastic-query-overview.md)voor een overzicht van elastische query's.
+* Zie aan de slag [met query's tussen data bases (verticaal partitioneren)](sql-database-elastic-query-getting-started-vertical.md)voor een verticaal gepartitioneerde zelf studie.
+* Zie query's [uitvoeren op verticaal gepartitioneerde gegevens](sql-database-elastic-query-vertical-partitioning.md) voor syntaxis-en voorbeeld query's voor verticaal gepartitioneerde gegevens)
+* Zie query's [uitvoeren in horizon taal gepartitioneerde gegevens](sql-database-elastic-query-horizontal-partitioning.md) voor syntaxis-en voorbeeld query's voor Horizon taal gepartitioneerde gegevens)
+* Zie [extern\_ uitvoeren\_van SP](https://msdn.microsoft.com/library/mt703714) voor een opgeslagen procedure waarmee een Transact-SQL-instructie wordt uitgevoerd op één externe Azure SQL database of een set met data bases die fungeren als Shards in een horizon taal partitie schema.
 
 
 <!--Image references-->

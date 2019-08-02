@@ -1,213 +1,213 @@
 ---
-title: Azure Migrate toestel-architectuur | Microsoft Docs
-description: Biedt een overzicht van het apparaat Azure Migrate
+title: Architectuur van Azure Migrate apparaat | Microsoft Docs
+description: Biedt een overzicht van het Azure Migrate apparaat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: c2c9ca3082aa9c2067a63f8d6304e8a229dac14a
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 6537bfe5df8de298593428fb21448181ad8075fc
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811451"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663467"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-apparaat
 
-Dit artikel wordt beschreven voor het apparaat Azure Migrate. U kunt het apparaat implementeren als u hulpprogramma's voor Azure Migrate-evaluatie en migratie gebruiken om te ontdekken, beoordelen en apps, infrastructuur en workloads migreren naar Microsoft Azure. 
+In dit artikel wordt het Azure Migrate apparaat beschreven. U implementeert het apparaat wanneer u Azure Migrate-hulpprogram ma's voor evaluatie en migratie gebruikt om apps, infra structuur en werk belastingen te detecteren, te evalueren en te migreren naar Microsoft Azure. 
 
-[Azure Migrate](migrate-services-overview.md) biedt een centraal punt voor het volgen van detectie, beoordeling en migratie van uw on-premises toepassingen en workloads en persoonlijke/openbare cloud, virtuele machines naar Azure. De hub biedt hulpprogramma's voor Azure Migrate voor evaluatie en migratie, evenals van derden independent software vendor (ISV)-aanbiedingen.
+[Azure migrate](migrate-services-overview.md) biedt een centrale hub voor het bijhouden van detectie, evaluatie en migratie van uw on-premises apps en werk belastingen, en persoonlijke/open bare Cloud-Vm's naar Azure. De hub biedt Azure Migrate-hulpprogram ma's voor evaluatie en migratie, evenals onafhankelijke ISV'S-aanbiedingen (Independent Software Vendor) van derden.
 
 
 
-## <a name="appliance-overview"></a>Overzicht van apparaat
+## <a name="appliance-overview"></a>Overzicht van apparaten
 
-De Azure Migrate toestel typen en het gebruik zijn.
+De typen apparaten en het gebruik van Azure Migrate zijn als volgt.
 
 **Geïmplementeerd als** | **Gebruikt voor** | **Details**
 --- | --- |  ---
-Virtuele VMware-machine | De evaluatie van de VMware-VM met het hulpprogramma Azure Migrate-evaluatie.<br/><br/> Zonder agent VMware-VM-migratie met het hulpprogramma voor migratie van Azure-Server migreren | OVA-sjabloon downloaden en importeren met vCenter-Server te maken van de virtuele machine van het apparaat.
-Hyper-V-VM | De evaluatie van de Hyper-V-VM met het hulpprogramma Azure Migrate-evaluatie. | ZIP VHD downloaden en importeren in Hyper-V naar de VM-toepassing maken.
+VMware-VM | VMware VM-evaluatie met het hulp programma voor het evalueren van Azure Migrate.<br/><br/> VMware VM zonder agent migratie met het hulp programma voor migratie van Azure Migrate-server | Down load de eicellen-sjabloon en importeer deze naar vCenter Server om de apparaat-VM te maken.
+Virtuele Hyper-V-machine | De Hyper-V-VM-evaluatie met het hulp programma voor het evalueren van Azure Migrate. | Down load de gezipte VHD en importeer deze naar Hyper-V om de apparaat-VM te maken.
 
-## <a name="appliance-access"></a>Apparaat-toegang
+## <a name="appliance-access"></a>Toegang tot het apparaat
 
-Nadat u het apparaat hebt geconfigureerd, kunt u de virtuele machine van het apparaat op afstand openen via TCP-poort 3389. U kunt ook op afstand toegang tot de web-app voor het apparaat, op poort 44368 met URL: ``` https://<appliance-ip-or-name>:44368 ```.
+Nadat u het apparaat hebt geconfigureerd, kunt u op afstand toegang krijgen tot de VM van het apparaat via TCP-poort 3389. U kunt ook op afstand toegang krijgen tot de web management-app voor het apparaat, op poort `https://<appliance-ip-or-name>:44368`44368 met URL:.
 
-## <a name="appliance-license"></a>Apparaat-licentie
-Het apparaat wordt geleverd met een licentie van de evaluatie van Windows Server 2016, die 180 dagen geldig is. Als de evaluatieperiode bijna verlopen is, raden wij u downloaden en implementeren van een nieuw toestel of u de licentie van het besturingssysteem van de virtuele machine van het apparaat te activeren.
+## <a name="appliance-license"></a>Toestel licentie
+Het apparaat wordt geleverd met een evaluatie licentie voor Windows Server 2016, die voor 180 dagen geldig is. Als de evaluatie periode bijna is verlopen, raden wij aan dat u een nieuw apparaat downloadt en implementeert, of dat u de licentie voor het besturings systeem van de apparaat-VM activeert.
 
-## <a name="appliance-agents"></a>Apparaat-agents
-Het apparaat heeft deze agents zijn geïnstalleerd.
+## <a name="appliance-agents"></a>Toestel agenten
+Deze agents zijn geïnstalleerd op het apparaat.
 
 **Agent** | **Details**
 --- | ---
-Serverdetectie-agent | Verzamelt configuratiegegevens van on-premises VM's.
-Evaluatie van de agent | Profielen voor de on-premises omgeving voor het verzamelen van prestatiegegevens van de virtuele machine.
-Migratie-adapter | Regelt de replicatie van virtuele machines en coördineert de communicatie tussen virtuele machines en Azure.
-Migratie van gateway | VM-gegevens verzendt gerepliceerd naar Azure.
+Detectieagent | Verzamelt configuratie gegevens van on-premises Vm's.
+Beoordelingsagent | Profielen de on-premises omgeving voor het verzamelen van prestatie gegevens van de virtuele machine.
+Migratie adapter | Organiseert de replicatie van de virtuele machine en coördineert de communicatie tussen Vm's en Azure.
+Migratie gateway | Hiermee worden gerepliceerde VM-gegevens naar Azure verzonden.
 
 
-## <a name="appliance-deployment-requirements"></a>Vereisten voor implementatie van apparaat
+## <a name="appliance-deployment-requirements"></a>Vereisten voor de implementatie van het apparaat
 
-- [Beoordeling](migrate-support-matrix-vmware.md#assessment-appliance-requirements) voor een VMware-apparaat en de URL's die het apparaat moet toegang hebben tot de vereisten voor de implementatie.
-- [Beoordeling](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) voor een Hyper-V-apparaat en de URL's die het apparaat moet toegang hebben tot de vereisten voor de implementatie.
+- [Bekijk](migrate-support-matrix-vmware.md#assessment-appliance-requirements) de implementatie vereisten voor een VMware-apparaat en de url's waartoe het apparaat toegang moet hebben.
+- [Controleer](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) de implementatie vereisten voor een Hyper-V-apparaat en de url's waartoe het apparaat toegang moet hebben.
 
 
-## <a name="collected-performance-data-vmware"></a>De prestaties van de verzamelde gegevens-VMware
+## <a name="collected-performance-data-vmware"></a>Verzamelde prestatie gegevens-VMware
 
-Hier volgt de prestatiegegevens van VMware-VM die het apparaat worden verzameld en verzonden naar Azure.
+Dit zijn de prestatie gegevens van de VMware-VM die door het apparaat worden verzameld en naar Azure worden verzonden.
 
-**Gegevens** | **Teller** | **Evaluatie van de impact**
+**Gegevens** | **Item** | **Beoordelings impact**
 --- | --- | ---
-CPU-gebruik | cpu.usage.average | Aanbevolen VM-grootte/kosten
-Geheugengebruik | mem.usage.average | Aanbevolen VM-grootte/kosten
-Schijf lezen doorvoer (MB per seconde) | virtualDisk.read.average | Berekening van de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
-Schijf schrijven-doorvoer (MB per seconde) | virtualDisk.write.average | Berekening van de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
-Schijf lezen-bewerkingen per seconde | virtualDisk.numberReadAveraged.average | Berekening van de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
-Schijf schrijven per seconde | virtualDisk.numberWriteAveraged.average  | Berekening van de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
-NIC doorvoer (MB per seconde) lezen | NET.Received.Average | Voor een VM-grootte
-NIC-schrijfbewerkingen (MB per seconde) | net.transmitted.average  |Voor een VM-grootte
+CPU-gebruik | CPU. usage. Average | Aanbevolen VM-grootte/kosten
+Geheugengebruik | mem. usage. Average | Aanbevolen VM-grootte/kosten
+Lees doorvoer schijf (MB per seconde) | virtualDisk.read.average | Berekening voor schijf grootte, opslag kosten, VM-grootte
+Schrijf doorvoer schijf (MB per seconde) | virtualDisk. write. Average | Berekening voor schijf grootte, opslag kosten, VM-grootte
+Lees bewerkingen op de schijf per seconde | virtualDisk.numberReadAveraged.average | Berekening voor schijf grootte, opslag kosten, VM-grootte
+Schrijf bewerkingen per seconde van schijf | virtualDisk.numberWriteAveraged.average  | Berekening voor schijf grootte, opslag kosten, VM-grootte
+Lees doorvoer van NIC (MB per seconde) | net. received. Average | Berekening voor VM-grootte
+Schrijf doorvoer van NIC (MB per seconde) | net. verzonden. gemiddeld  |Berekening voor VM-grootte
 
 
-## <a name="collected-metadata-vmware"></a>Verzamelde metagegevens-VMware
+## <a name="collected-metadata-vmware"></a>Verzamelde meta gegevens-VMware
 
-Hier is de volledige lijst van de metagegevens van de VMware-VM die het apparaat worden verzameld en verzonden naar Azure.
+Hier ziet u de volledige lijst met virtuele VMware-VM-meta gegevens die door het apparaat worden verzameld en naar Azure worden verzonden.
 
-**Gegevens** | **Teller**
+**Gegevens** | **Item**
 --- | --- 
-**MachineDetails** | 
+**Computer Details** | 
 VM-ID | vm.Config.InstanceUuid 
 VM-naam | vm.Config.Name
 vCenter Server-ID | VMwareClient.Instance.Uuid
-Beschrijving van de virtuele machine | vm.Summary.Config.Annotation
-De naam van de licentie-product | vm.Client.ServiceContent.About.LicenseProductName
-Besturingssysteemtype | vm.SummaryConfig.GuestFullName
+VM-beschrijving | vm.Summary.Config.Annotation
+Licentie product naam | vm.Client.ServiceContent.About.LicenseProductName
+Type besturings systeem | vm.SummaryConfig.GuestFullName
 Opstarttype | vm.Config.Firmware
 Aantal kerngeheugens | vm.Config.Hardware.NumCPU
 Geheugen (MB) | vm.Config.Hardware.MemoryMB
-Aantal schijven | virtuele machine. Config.Hardware.Device.ToList(). FindAll(x => is VirtualDisk).count
-Lijst met schijven grootte | virtuele machine. Config.Hardware.Device.ToList(). FindAll (x = > is VirtualDisk)
-Lijst met netwerkadapters | virtuele machine. Config.Hardware.Device.ToList(). FindAll(x => is VirtualEthernet).count
-CPU-gebruik | cpu.usage.average
-Geheugengebruik |mem.usage.average
-**Per details van schijf** | 
-De sleutelwaarde schijf | schijf. Sleutel
-Dikunit getal | schijf. UnitNumber
-Schijf-controller-sleutelwaarde | disk.ControllerKey.Value
-Gigabytes ingericht | virtualDisk.DeviceInfo.Summary
-Schijfnaam | De waarde die wordt gegenereerd met behulp van de schijf. UnitNumber, schijf. Sleutel, schijf. ControllerKey.VAlue
-Leesbewerkingen per seconde | virtualDisk.numberReadAveraged.average
-Schrijfbewerkingen per seconde | virtualDisk.numberWriteAveraged.average
-Doorvoer (MB per seconde) lezen | virtualDisk.read.average
-Doorvoer (MB per seconde) schrijven | virtualDisk.write.average
-**Per NIC-details** | 
-Naam van de netwerkadapter | nic.Key
+Aantal schijven | VM. Config. hardware. device. ToList (). FindAll (x = > is VirtualDisk). Count
+Lijst met schijf grootte | VM. Config. hardware. device. ToList (). FindAll (x = > is VirtualDisk)
+Lijst met netwerk adapters | VM. Config. hardware. device. ToList (). FindAll (x = > is VirtualEthernet). Count
+CPU-gebruik | CPU. usage. Average
+Geheugengebruik |mem. usage. Average
+**Details per schijf** | 
+Waarde van schijf sleutel | schijf. Prestatie
+Dikunit-nummer | schijf. UnitNumber
+Sleutel waarde van schijf controller | disk.ControllerKey.Value
+Gigabytes ingericht | virtualDisk. DeviceInfo. summary
+Schijf naam | De waarde die is gegenereerd met de schijf. UnitNumber, schijf. Sleutel, schijf. ControllerKey. waarde
+Lees bewerkingen per seconde | virtualDisk.numberReadAveraged.average
+Schrijf bewerkingen per seconde | virtualDisk.numberWriteAveraged.average
+Lees doorvoer (MB per seconde) | virtualDisk.read.average
+Schrijf doorvoer (MB per seconde) | virtualDisk. write. Average
+**Details van de NIC** | 
+Naam van netwerk adapter | adapter. Prestatie
 MAC-adres | ((VirtualEthernetCard)nic).MacAddress
 IPv4-adressen | vm.Guest.Net
 IPv6-adressen | vm.Guest.Net
-Doorvoer (MB per seconde) lezen | NET.Received.Average
-Doorvoer (MB per seconde) schrijven | net.transmitted.average
-**Inventarisgegevens van pad** | 
+Lees doorvoer (MB per seconde) | net. received. Average
+Schrijf doorvoer (MB per seconde) | net. verzonden. gemiddeld
+**Details van configuratiepad** | 
 Name | container.GetType().Name
-Het type onderliggend object | container.ChildType
-Details van verwijzing | container.MoRef
-Details van de bovenliggende | Container.Parent
-Details van een map per VM | ((Folder)container).ChildEntity.Type
-Datacenter-details per VM | ((Datacenter)container).VmFolder
-Details van het datacenter per host-map | ((Datacenter)container).HostFolder
-Clusterdetails per host | ((ClusterComputeResource)container).Host
-Details van de host per VM | ((HostSystem) container). VIRTUELE MACHINE
+Type onderliggend object | verpakking. ChildType
+Referentie Details | verpakking. MoRef
+Details van bovenliggend item | Container.Parent
+Details van map per VM | ((Folder)container).ChildEntity.Type
+Details van Data Center per VM | ((Datacenter)container).VmFolder
+Details van Data Center per host-map | (Container (Data Center)). HostFolder
+Cluster Details per host | ((ClusterComputeResource) container). Hostsite
+Details van host per VM | ((HostSystem) container). VM
 
 
 
-## <a name="collected-performance-data-hyper-v"></a>De prestaties van de verzamelde gegevens-Hyper-V
+## <a name="collected-performance-data-hyper-v"></a>Verzamelde prestatie gegevens-Hyper-V
 
-Hier volgt de prestatiegegevens van VMware-VM die het apparaat worden verzameld en verzonden naar Azure.
+Dit zijn de prestatie gegevens van de VMware-VM die door het apparaat worden verzameld en naar Azure worden verzonden.
 
-**Klasse Prestatiemeter** | **Teller** | **Evaluatie van de impact**
+**Klasse prestatie meter** | **Item** | **Beoordelings impact**
 --- | --- | ---
-Virtuele Hyper-V-Hypervisor-Processor | % Gastuitvoeringstijd | Aanbevolen VM-grootte/kosten
-Dynamisch geheugen voor Hyper-V virtuele machine | Huidige druk (%)<br/> Gast zichtbaar fysiek geheugen (MB) | Aanbevolen VM-grootte/kosten
-Hyper-V virtuele opslagapparaat | Gelezen Bytes per seconde | Berekening van de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
-Hyper-V virtuele opslagapparaat | Geschreven Bytes per seconde | Berekening van de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
-Hyper-V virtuele netwerkadapter | Bytes ontvangen per seconde | Voor een VM-grootte
-Hyper-V virtuele netwerkadapter | Bytes verzonden per seconde | Voor een VM-grootte
+Virtuele processor van Hyper-V Hyper Visor | % Gast-uitvoerings tijd | Aanbevolen VM-grootte/kosten
+Hyper-V-dynamisch geheugen VM | Huidige belasting (%)<br/> Zichtbaar fysiek geheugen voor gast (MB) | Aanbevolen VM-grootte/kosten
+Virtuele Hyper-V-opslag apparaat | Gelezen bytes per seconde | Berekening voor schijf grootte, opslag kosten, VM-grootte
+Virtuele Hyper-V-opslag apparaat | Geschreven bytes per seconde | Berekening voor schijf grootte, opslag kosten, VM-grootte
+Virtual Network Adapter voor Hyper-V | Ontvangen bytes per seconde | Berekening voor VM-grootte
+Virtual Network Adapter voor Hyper-V | Verzonden bytes per seconde | Berekening voor VM-grootte
 
-- CPU-gebruik is de som van alle gebruik, voor alle virtuele processors die zijn gekoppeld aan een virtuele machine.
-- Geheugengebruik is (zware belasting op het huidige * Gast zichtbaar fysiek geheugen) / 100.
-- Schijf- en -gebruik waarden worden verzameld van de vermelde Hyper-V-prestatiemeteritems.
+- CPU-gebruik is de som van alle gebruik voor alle virtuele processors die zijn gekoppeld aan een virtuele machine.
+- Geheugen gebruik is (huidige druk * gast zichtbaar fysiek geheugen)/100.
+- De waarden voor de schijf-en netwerk gebruik worden verzameld uit de vermelde Hyper-V-prestatie meter items.
 
-## <a name="collected-metadata-hyper-v"></a>Verzamelde metagegevens-Hyper-V
+## <a name="collected-metadata-hyper-v"></a>Verzamelde meta gegevens-Hyper-V
 
-Hier is de volledige lijst van de metagegevens van de Hyper-V-VM die het apparaat worden verzameld en verzonden naar Azure.
+Hier vindt u de volledige lijst met meta gegevens van Hyper-V-VM'S die het apparaat verzamelt en verzendt naar Azure.
 
 **Gegevens** | **WMI-klasse** | **WMI-klasse-eigenschap**
 --- | --- | ---
-**MachineDetails** | 
-Serienummer van BIOS _ Msvm_BIOSElement | BIOSSerialNumber
-VM-type (Gen 1 of 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
-Weergavenaam van de virtuele machine | Msvm_VirtualSystemSettingData | ElementName
+**Computer Details** | 
+Serie nummer van BIOS _ Msvm_BIOSElement | BIOSSerialNumber
+VM-type (gen 1 of 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
+Weergave naam van VM | Msvm_VirtualSystemSettingData | ElementName
 VM-versie | Msvm_ProcessorSettingData | VirtualQuantity
 Geheugen (bytes) | Msvm_MemorySettingData | VirtualQuantity
-Maximale hoeveelheid geheugen die kan worden gebruikt door de virtuele machine | Msvm_MemorySettingData | Limiet
-Dynamisch geheugen is ingeschakeld | Msvm_MemorySettingData | DynamicMemoryEnabled
-Besturingssysteem naam/versie/FQDN | Msvm_KvpExchangeComponent | De naam van de GuestIntrinsciExchangeItems gegevens
-Energiestatus | Msvm_ComputerSystem | EnabledState
-**Per details van schijf** | 
-Schijf-ID | Msvm_VirtualHardDiskSettingData | VirtualDiskId
+Maximale hoeveelheid geheugen die kan worden gebruikt door VM | Msvm_MemorySettingData | Limiet
+Dynamisch geheugen ingeschakeld | Msvm_MemorySettingData | DynamicMemoryEnabled
+Naam/versie/FQDN van het besturings systeem | Msvm_KvpExchangeComponent | Naam gegevens GuestIntrinsicExchangeItems
+Energie status van de VM | Msvm_ComputerSystem | EnabledState
+**Details per schijf** | 
+Schijf-id | Msvm_VirtualHardDiskSettingData | VirtualDiskId
 Type virtuele harde schijf | Msvm_VirtualHardDiskSettingData | type
 Grootte van virtuele harde schijf | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 Bovenliggende virtuele harde schijf | Msvm_VirtualHardDiskSettingData | ParentPath
-**Per NIC-details** | 
-IP-adressen (synthetische NIC's) | Msvm_GuestNetworkAdapterConfiguration | IPAddresses
-DHCP ingeschakeld (synthetische NIC's) | Msvm_GuestNetworkAdapterConfiguration | DHCPEnabled
-NIC-ID (synthetische NIC's) | Msvm_SyntheticEthernetPortSettingData | InstanceID
-NIC-MAC-adres (synthetische NIC's) | Msvm_SyntheticEthernetPortSettingData | Adres
-NIC-ID (oude NIC's) | MsvmEmulatedEthernetPortSetting gegevens | InstanceID
-ID van de MAC NIC (oude NIC's) | MsvmEmulatedEthernetPortSetting gegevens | Adres
+**Details van de NIC** | 
+IP-adressen (synthetische Nic's) | Msvm_GuestNetworkAdapterConfiguration | IP-adressen
+DHCP ingeschakeld (synthetische Nic's) | Msvm_GuestNetworkAdapterConfiguration | DHCPEnabled
+NIC-ID (synthetische Nic's) | Msvm_SyntheticEthernetPortSettingData | InstanceID
+MAC-adres van NIC (synthetische Nic's) | Msvm_SyntheticEthernetPortSettingData | Adres
+NIC-ID (verouderde Nic's) | MsvmEmulatedEthernetPortSetting-gegevens | InstanceID
+MAC-ID van NIC (verouderde Nic's) | MsvmEmulatedEthernetPortSetting-gegevens | Adres
 
 
 
 
-## <a name="discovery-and-collection-process"></a>Detectie-en-verzameling
+## <a name="discovery-and-collection-process"></a>Detectie-en verzamelings proces
 
-Het apparaat communiceert met de vCenter-Servers en Hyper-V-hosts/cluster met behulp van de volgende procedure.
+Het apparaat communiceert met vCenter-servers en Hyper-V-hosts/cluster met behulp van het volgende proces.
 
 
-1. **Detecteren starten**:
-    - Wanneer u de detectie op de Hyper-V-apparaat begint, wordt deze communiceert met de Hyper-V-hosts op WinRM poort 5985 (HTTP) en 5986 (HTTPS).
-    - Wanneer u detectie van het toestel VMware start, wordt deze communiceert met de vCenter-server op TCP-poort 443 standaard. Als de vCenter-server op een andere poort luistert, kunt u deze configureren in de web-app van het apparaat.
-2. **Metagegevens-en prestatiegegevens verzamelen**:
-    - Het apparaat maakt gebruik van een sessie Common Information Model (CIM) voor het verzamelen van gegevens van de Hyper-V-VM van de Hyper-V-host op poort 5985 en 5986.
-    - Het apparaat communiceert met poort 443 wordt standaard voor het verzamelen van VMware-VM-gegevens van de vCenter-Server.
-3. **Gegevens verzenden**: Het apparaat verzendt de verzamelde gegevens naar Azure Migrate-Server-evaluatie en migratie van Azure-Server migreren via SSL-poort 443.
-    - Het apparaat verzamelt prestatiegegevens, realtime gebruiksgegevens.
-        - Prestatiegegevens worden verzameld voor elke 20 seconden voor VMware en elke 30 seconden voor Hyper-V, voor elke metrische gegevens voor prestaties.
-        - De verzamelde gegevens worden samengevoegd tot één gegevenspunt voor tien minuten maken.
-        - De piekwaarde voor het gebruik is geselecteerd in alle van de 20/30 tweede gegevenspunten en verzonden naar Azure voor de evaluatie van de berekening.
-        - Op basis van de percentielwaarde die is opgegeven in de evaluatie-eigenschappen (50e/90e/95th/99th), de tien minuten durende punten worden gesorteerd in oplopende volgorde en de juiste percentielwaarde wordt gebruikt voor het berekenen van de evaluatie
-    - Voor de migratie van servers, het apparaat begint met het verzamelen van gegevens van de virtuele machine en repliceert dit naar Azure.
-4. **Evalueren en migreren**: U kunt nu evaluatie maken van de metagegevens die zijn verzameld door het apparaat met behulp van Azure Migrate-Server-evaluatie. U kunt bovendien ook starten voor het migreren van virtuele VMware-machines met behulp van Azure Migrate-servermigratie om zonder agent VM-replicatie.
+1. **Detectie starten**:
+    - Wanneer u de detectie op het Hyper-V-apparaat start, communiceert deze met de Hyper-V-hosts op WinRM-poorten 5985 (HTTP) en 5986 (HTTPS).
+    - Wanneer u detectie op het VMware-apparaat start, communiceert het met de vCenter-Server op TCP-poort 443 standaard. Als de vCenter-Server op een andere poort luistert, kunt u deze configureren in de Web-App van het apparaat.
+2. **Meta gegevens en prestatie gegevens verzamelen**:
+    - Het apparaat maakt gebruik van een Common Information Model (CIM) om Hyper-V VM-gegevens te verzamelen van de Hyper-V-host op de poorten 5985 en 5986.
+    - Het apparaat communiceert standaard met poort 443 om VMware-VM-gegevens van de vCenter Server te verzamelen.
+3. **Gegevens verzenden**: Het apparaat verzendt de verzamelde gegevens naar Azure Migrate server-evaluatie en Azure Migrate server migratie via SSL-poort 443.
+    - Het apparaat verzamelt gegevens over realtime gebruik voor prestatie gegevens.
+        - De prestatie gegevens worden elke 20 seconden voor VMware verzameld, en elke 30 seconden voor Hyper-V, voor elke prestatie metriek.
+        - De verzamelde gegevens worden samengevouwen om één gegevens punt gedurende tien minuten te maken.
+        - De waarde piek gebruik wordt geselecteerd voor alle gegevens punten van 20/30 tweede en verzonden naar Azure voor evaluatie berekening.
+        - Op basis van de percentiel waarde die is opgegeven in de eigenschappen van de beoordeling (50e/negen/95e/99e), worden de tien-minuten punten in oplopende volg orde gesorteerd en wordt de juiste percentiel waarde gebruikt voor het berekenen van de evaluatie
+    - Voor server migratie begint het apparaat met het verzamelen van VM-gegevens en repliceert het naar Azure.
+4. **Evalueren en migreren**: U kunt nu evaluaties maken op basis van de meta gegevens die door het apparaat worden verzameld met behulp van Azure Migrate server Assessment. Daarnaast kunt u ook beginnen met het migreren van virtuele VMware-machines met Azure Migrate server migratie om replicatie zonder agents te organiseren.
 
 
 ![Architectuur](./media/migrate-appliance/architecture.png)
 
 
-## <a name="appliance-upgrades"></a>Upgrades van apparaat
+## <a name="appliance-upgrades"></a>Toestel-upgrades
 
-Het apparaat is bijgewerkt als de Azure Migrate-agents die worden uitgevoerd op het apparaat zijn bijgewerkt.
+Het apparaat wordt bijgewerkt wanneer de Azure Migrate agents die op het apparaat worden uitgevoerd, worden bijgewerkt.
 
-- Dit gebeurt automatisch omdat het automatisch bijwerken is standaard ingeschakeld op het apparaat.
-- U kunt deze standaardinstelling de agents handmatig bijwerken.
-- Automatische updates uitschakelen, stelt u registersleutel apparaat automatisch bijwerken, in HKLM\SOFTWAREMicrosoft\Azure.
+- Dit gebeurt automatisch omdat de automatische update standaard is ingeschakeld op het apparaat.
+- U kunt deze standaard instelling wijzigen om de agents hand matig bij te werken.
+- Als u automatische updates wilt uitschakelen, stelt u de automatische update van de register sleutel in op HKLM\SOFTWAREMicrosoft\Azure.
 
-### <a name="set-agent-updates-to-manual"></a>Agent-updates ingesteld op handmatig
+### <a name="set-agent-updates-to-manual"></a>Agent updates instellen op hand matig
 
-Voor handmatige updates, zorg ervoor dat de agents op het apparaat bij te werken op hetzelfde moment, met behulp van de **bijwerken** knop voor elke verouderde agent op het apparaat. U kunt de instelling van de update Ga terug naar de automatische updates op elk gewenst moment.
+Voor hand matige updates moet u ervoor zorgen dat u alle agents op het apparaat tegelijk bijwerkt met behulp van de knop **bijwerken** voor elke verouderde agent op het apparaat. U kunt de instelling van de update op elk gewenst moment naar automatische updates overschakelen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Informatie over hoe](tutorial-assess-vmware.md#set-up-the-appliance-vm) kunt u het apparaat instellen voor VMware.
-[Informatie over hoe](tutorial-assess-hyper-v.md#set-up-the-appliance-vm) het instellen van het apparaat voor Hyper-V.
+[Meer informatie over](tutorial-assess-vmware.md#set-up-the-appliance-vm) het instellen van het apparaat voor VMware.
+[Meer informatie over](tutorial-assess-hyper-v.md#set-up-the-appliance-vm) het instellen van het apparaat voor Hyper-V.
 

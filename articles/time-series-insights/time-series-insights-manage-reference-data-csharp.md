@@ -1,6 +1,6 @@
 ---
-title: Referentiegegevens beheren in Azure Time Series Insights-omgeving met C# | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u referentiegegevens voor een Azure Time Series Insights-omgeving beheren door het maken van een aangepaste toepassing die is geschreven in de C# (c-sharp) .NET-taal.
+title: Referentie gegevens in Azure Time Series Insights omgeving beheren met C# | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u referentie gegevens voor een Azure Time Series Insights omgeving beheert door een aangepaste toepassing te maken C# die is geschreven in de .net-taal (c-sharp).
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -12,37 +12,37 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a482ae44c796e1519ffad0a604510166b1ac63c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4f2bb4a6d10f9e45a27b8b5e082b3cbec475b531
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165610"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677820"
 ---
-# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>GA referentiegegevens voor een Azure Time Series Insights-omgeving beheren met behulp vanC#
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>GA referentie gegevens beheren voor een Azure Time Series Insights omgeving met behulp vanC#
 
-Dit artikel wordt een voorbeeld van C#-project kunt u compileren voor het beheren van referentiegegevens voor een Azure Time Series Insights-omgeving beschreven.
+In dit artikel wordt een C# voorbeeld project beschreven dat u kunt compileren om referentie gegevens voor een Azure time series Insights omgeving te beheren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-De volgende stappen voltooien voordat u compileren en uitvoeren van de voorbeeldcode:
+Voer de volgende stappen uit voordat u de voorbeeld code compileert en uitvoert:
 
-1. [Een referentiegegevensset maken](time-series-insights-add-reference-data-set.md).
+1. [Een set met referentie gegevens maken](time-series-insights-add-reference-data-set.md).
 
-1. Configureer het autorisatie-toegangstoken voor de toepassing. Zorg ervoor dat het token is verkregen via de Azure Active Directory-API. U moet deze wordt doorgegeven token in de `Authorization` -header van elke API-queryaanvraag.
+1. Configureer het toegangs token voor verificatie voor de toepassing. Zorg ervoor dat het token wordt verkregen via de Azure Active Directory-API. U moet dit token door geven in `Authorization` de koptekst van elke query-API-aanvraag.
 
-   Zie voor meer informatie over het instellen van niet-interactieve toepassingen [verificatie en autorisatie](time-series-insights-authentication-and-authorization.md).
+   Zie [verificatie en autorisatie](time-series-insights-authentication-and-authorization.md)voor meer informatie over het instellen van niet-interactieve toepassingen.
 
-1. De voorbeeldcode ter vervanging van de voorbeeld-constanten, aangewezen op bewerken **DUMMY #** , in de buurt van het begin van de code.
+1. Bewerk de voorbeeld code om de voorbeeld constanten te vervangen die zijn opgegeven op **#DUMMY #** , aan het begin van de code.
 
 > [!NOTE]
-> De voorbeeldcode voor algemene beschikbaarheid aan weergeven [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+> Bekijk de GA voorbeeld code op [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
-## <a name="project-dependencies"></a>Afhankelijkheden van project
+## <a name="project-dependencies"></a>Project afhankelijkheden
 
-NuGet-pakketten toevoegen `Microsoft.IdentityModel.Clients.ActiveDirectory` en `Newtonsoft.Json` voor dit voorbeeld.
+Voeg NuGet- `Microsoft.IdentityModel.Clients.ActiveDirectory` pakketten `Newtonsoft.Json` en voor dit voor beeld toe.
 
-## <a name="c-sample-code"></a>C#-voorbeeldcode
+## <a name="c-sample-code"></a>C#voorbeeld code
 
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
@@ -247,4 +247,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Lees de [verwijzen naar gegevens API](/rest/api/time-series-insights/ga-reference-data-api).
+- Lees de [referentie gegevens-API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).

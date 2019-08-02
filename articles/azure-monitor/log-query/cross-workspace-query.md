@@ -1,6 +1,6 @@
 ---
-title: Query voor resources met Azure Monitor | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u kunt een query naar resources van meerdere werkruimten en Application Insights-app in uw abonnement.
+title: Query's uitvoeren op resources met Azure Monitor | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u een query kunt uitvoeren op resources uit meerdere werk ruimten en app Insights-app in uw abonnement.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,82 +13,82 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 5e411182a26e370ef82a20e67ee18cedd5d96d86
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 597944d03e685a9a2933a04847f78c9d54f3ea36
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296114"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722709"
 ---
-# <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Meerdere bronnen logboeken-query's uitvoeren in Azure Monitor  
+# <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Query's tussen bronnen en logboeken uitvoeren in Azure Monitor  
 
-Eerder met Azure Monitor, u kunt gegevens alleen analyseren in de huidige werkruimte en deze kunt gebruiken om query's beperkt in meerdere werkruimten die zijn gedefinieerd in uw abonnement.  Bovendien kunt u alleen telemetrie-items die worden verzameld van uw webtoepassing met Application Insights rechtstreeks in Application Insights of vanuit Visual Studio zoeken. Dit ook dat het een uitdaging voor het systeemeigen analyseren van operationele en toepassingsgegevens samen.
+Azure Monitor voorheen kon u alleen gegevens uit de huidige werk ruimte analyseren, maar u kunt ook een query uitvoeren op meerdere werk ruimten die in uw abonnement zijn gedefinieerd.  Daarnaast kunt u alleen vanuit uw webtoepassing verzamelde telemetriegegevens doorzoeken met Application Insights rechtstreeks in Application Insights of vanuit Visual Studio. Hierdoor is het ook een uitdaging om operationele en toepassings gegevens samen te analyseren.
 
-U kunt nu een query niet alleen over meerdere Log Analytics-werkruimten, maar ook gegevens uit een specifieke Application Insights-app in dezelfde resourcegroep, een andere resourcegroep of een ander abonnement. Dit biedt u een systeembreed overzicht van uw gegevens. U kunt alleen uitvoeren met deze typen query's in [Log Analytics](portals.md).
+U kunt nu niet alleen een query uitvoeren op meerdere Log Analytics-werk ruimten, maar ook gegevens uit een specifieke Application Insights-app in dezelfde resource groep, een andere resource groep of een ander abonnement. Dit geeft u een overzicht van uw gegevens op het hele systeem. U kunt deze typen query's alleen uitvoeren in [log Analytics](portals.md).
 
-## <a name="cross-resource-query-limits"></a>Limieten voor meerdere bronnen query 
+## <a name="cross-resource-query-limits"></a>Limieten voor meerdere bron query's 
 
-* Het nummer van Application Insights-resources en Log Analytics-werkruimten die u in één query opnemen kunt is beperkt tot 100.
-* Meerdere bronnen query wordt niet ondersteund in de ontwerper. U kunt een query in Log Analytics maken en vastmaken aan Azure-dashboard op [visualiseren van een query voor](../learn/tutorial-logs-dashboards.md). 
-* De query meerdere bronnen in de waarschuwingen wordt ondersteund in de nieuwe [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Azure Monitor gebruikt standaard de [verouderde Log Analytics-waarschuwing API](../platform/api-alerts.md) voor het maken van nieuwe logboek waarschuwingsregels van Azure-portal, tenzij u van overschakelt [verouderde Log waarschuwingen API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Na de switch, de nieuwe API wordt de standaardwaarde voor nieuwe regels voor waarschuwingen in Azure portal en u kunt meerdere bronnen query log regels waarschuwingen maken. U kunt meerdere bronnen querylogboek waarschuwingsregels maken zonder de overstap maken met behulp van de [Azure Resource Manager-sjabloon voor API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) –, maar deze waarschuwingsregel wordt al beheerd [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) en niet vanuit Azure portal.
+* Het aantal Application Insights resources en Log Analytics werk ruimten die u in één query kunt toevoegen, is beperkt tot 100.
+* Query op meerdere resources wordt niet ondersteund in de ontwerp functie voor weer gaven. U kunt een query in Log Analytics ontwerpen en deze vastmaken aan Azure dash board om [een logboek query](../learn/tutorial-logs-dashboards.md)te visualiseren. 
+* Er wordt een query voor meerdere resources in logboek waarschuwingen ondersteund in de nieuwe [scheduledQueryRules-API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Azure Monitor maakt standaard gebruik van de [verouderde log Analytics waarschuwings-API](../platform/api-alerts.md) voor het maken van nieuwe logboek waarschuwings regels van Azure Portal, tenzij u overschakelt van verouderde [API voor logboek waarschuwingen](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Na de switch wordt de nieuwe API de standaard instelling voor nieuwe waarschuwings regels in Azure Portal en kunt u regels voor het maken van query logboek waarschuwingen voor meerdere resources. U kunt waarschuwings regels voor het query logboek voor meerdere resources maken zonder de switch te maken met behulp van de [Azure Resource Manager-sjabloon voor scheduledQueryRules-API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) , maar deze waarschuwings regel kan wel worden beheerd met [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) en niet vanuit Azure Portal .
 
 
-## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Uitvoeren van query's in Log Analytics-werkruimten en Application Insights
-Om te verwijzen naar een andere werkruimte in uw query, gebruikt u de [ *werkruimte* ](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) -id, en voor een app uit de Application Insights, gebruikt u de [ *app* ](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression)id.  
+## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Query's uitvoeren voor Log Analytics-werk ruimten en van Application Insights
+Als u wilt verwijzen naar een andere werk ruimte in uw query, gebruikt u de [*werk ruimte*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) -id en gebruikt u voor een app uit Application Insights de [*app*](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression) -id.  
 
-### <a name="identifying-workspace-resources"></a>Werkruimteresources identificeren
-De volgende voorbeelden ziet u query's in Log Analytics-werkruimten om terug te keren samengevatte tellingen van Logboeken van de tabel bijwerken in een werkruimte met de naam *contosoretail it*. 
+### <a name="identifying-workspace-resources"></a>Werkruimte resources identificeren
+In de volgende voor beelden ziet u query's over Log Analytics werk ruimten voor het retour neren van het aantal logboeken dat is opgegeven in de update tabel van een werk ruimte met de naam *contosoretail*. 
 
-Identificeren van een werkruimte kan worden uitgevoerd op verschillende manieren:
+Het identificeren van een werk ruimte kan op een van de volgende manieren worden uitgevoerd:
 
-* De resourcenaam van de - is een leesbare naam van de werkruimte, ook wel genoemd *onderdeelnaam*. 
+* Resource naam: is een door een mens lees bare naam van de werk ruimte, ook wel *onderdeel naam*genoemd. 
 
     `workspace("contosoretail-it").Update | count`
- 
-    >[!NOTE]
-    >Identificeren van een werkruimte met de naam wordt ervan uitgegaan dat uniekheid voor alle toegankelijke abonnementen. Hebt u meerdere toepassingen met de opgegeven naam, de query is mislukt vanwege een dubbelzinnigheid. In dit geval moet u een van de andere id.
 
-* Gekwalificeerde naam - is de 'volledige naam' van de werkruimte, die bestaat uit de naam van abonnement, resourcegroep en Onderdeelnaam in deze indeling: *resourceGroup-subscriptionName/componentName*. 
+* Gekwalificeerde naam: is de volledige naam van de werk ruimte, die bestaat uit de naam van het abonnement, de resource groep en de naam van het onderdeel in deze indeling, zoals *subscriptionname/resourceGroup/* naam van onderdeel. 
 
     `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
     >[!NOTE]
-    >Omdat Azure-abonnementnamen zijn niet uniek is, is het mogelijk dat deze id niet eenduidig. 
+    >Omdat namen van Azure-abonnementen niet uniek zijn, is deze id mogelijk dubbel zinnig. 
     >
 
-* Werkruimte-ID - een werkruimte-ID is de unieke, onveranderbare, id toegewezen aan elke werkruimte weergegeven als een globally unique identifier (GUID).
+* Werk ruimte-ID: een werk ruimte-ID is de unieke, onveranderlijke id die is toegewezen aan elke werk ruimte die wordt weer gegeven als een Globally Unique Identifier (GUID).
 
     `workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update | count`
 
-* Azure Resource-ID: de Azure gedefinieerde unieke id van de werkruimte. U gebruikt de Resource-ID als naam van de resource niet eenduidig is.  Voor werkruimten, de indeling is: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft. OperationalInsights/werkruimten/componentName*.  
+* Azure-Resource-ID: de door Azure gedefinieerde unieke identiteit van de werk ruimte. U gebruikt de resource-ID als de resource naam dubbel zinnig is.  Voor werk ruimten is de indeling: */Subscriptions/subscriptionId/ResourceGroups/resourceGroup/providers/Microsoft. OperationalInsights/werk ruimten/onderdeelnaam*.  
 
     Bijvoorbeeld:
     ``` 
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
 
-### <a name="identifying-an-application"></a>Een toepassing te identificeren
-Retourneren samengevatte aantal aanvragen voor een app met de naam van de volgende voorbeelden *fabrikamapp* in Application Insights. 
+### <a name="identifying-an-application"></a>Een toepassing identificeren
+De volgende voor beelden geven een samen vatting van het aantal aanvragen dat is gemaakt voor een app met de naam *fabrikamapp* in Application Insights. 
 
-Identificeren van een toepassing in Application Insights kan worden bewerkstelligd met de *app(Identifier)* expressie.  De *id* argument geeft u de app met een van de volgende:
+Het identificeren van een toepassing in Application Insights kan worden uitgevoerd met de *app-expressie (id)* .  Met het argument *id* geeft u de app op met behulp van een van de volgende opties:
 
-* De resourcenaam van de - is een mens leesbaar naam van de app, soms aangeduid als de *onderdeelnaam*.  
+* Resource naam: is een door de mens lees bare naam van de app, ook wel de naam van het *onderdeel*genoemd.  
 
     `app("fabrikamapp")`
 
-* Gekwalificeerde naam - is de 'volledige naam' van de app, die bestaat uit de naam van abonnement, resourcegroep en Onderdeelnaam in deze indeling: *resourceGroup-subscriptionName/componentName*. 
+    >[!NOTE]
+    >Als u de naam van een toepassing identificeert, wordt ervan uitgegaan dat deze uniek is voor alle toegankelijke abonnementen. Als u meerdere toepassingen met de opgegeven naam hebt, mislukt de query vanwege de dubbel zinnigheid. In dit geval moet u een van de andere id's gebruiken.
+
+* Gekwalificeerde naam: is de volledige naam van de app, die bestaat uit de naam van het abonnement, de resource groep en de naam van het onderdeel in deze indeling, zoals *subscriptionname/resourceGroup/* naam van onderdeel. 
 
     `app("AI-Prototype/Fabrikam/fabrikamapp").requests | count`
 
      >[!NOTE]
-    >Omdat Azure-abonnementnamen zijn niet uniek is, is het mogelijk dat deze id niet eenduidig. 
+    >Omdat namen van Azure-abonnementen niet uniek zijn, is deze id mogelijk dubbel zinnig. 
     >
 
-* ID - de app-GUID van de toepassing.
+* ID: de app-GUID van de toepassing.
 
     `app("b459b4f6-912x-46d5-9cb1-b43069212ab4").requests | count`
 
-* Azure Resource-ID - de Azure gedefinieerde unieke id van de app. U gebruikt de Resource-ID als naam van de resource niet eenduidig is. De indeling is: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft. OperationalInsights/onderdelen/componentName*.  
+* Azure-Resource-ID: de door Azure gedefinieerde unieke identiteit van de app. U gebruikt de resource-ID als de resource naam dubbel zinnig is. De indeling is: */Subscriptions/subscriptionId/ResourceGroups/resourceGroup/providers/Microsoft. OperationalInsights/onderdelen/onderdeelnaam*.  
 
     Bijvoorbeeld:
     ```
@@ -96,9 +96,9 @@ Identificeren van een toepassing in Application Insights kan worden bewerkstelli
     ```
 
 ### <a name="performing-a-query-across-multiple-resources"></a>Een query uitvoeren op meerdere resources
-U kunt meerdere resources een query uit een van de resource-exemplaren, deze werkruimten en apps kunnen worden gecombineerd.
+U kunt een query uitvoeren op meerdere resources uit een van uw resource-exemplaren. dit kunnen werk ruimten en apps zijn.
     
-Voorbeeld voor de query in twee werkruimten:    
+Voor beeld voor query's in twee werk ruimten:    
 
 ```
 union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
@@ -107,10 +107,10 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 | summarize dcount(Computer) by Classification
 ```
 
-## <a name="using-cross-resource-query-for-multiple-resources"></a>Met behulp van meerdere bronnen query voor meerdere bronnen
-Als u meerdere bronnen query's voor het correleren van gegevens uit meerdere Log Analytics-werkruimten en Application Insights-resources, wordt de query kan worden complex en moeilijk te onderhouden. U moet gebruikmaken van [functies in Azure Monitor query's bijgehouden](functions.md) het scheiden van de querylogica van het bereik van de query-resources, waardoor de querystructuur eenvoudiger. Het volgende voorbeeld ziet u hoe u kunt meerdere Application Insights-resources controleren en visualiseren van het aantal mislukte aanvragen met de toepassingsnaam. 
+## <a name="using-cross-resource-query-for-multiple-resources"></a>Query's voor meerdere bronnen gebruiken voor meer resources
+Bij het gebruik van query's tussen meerdere bronnen voor het correleren van gegevens uit verschillende Log Analytics werk ruimten en Application Insights resources, kan de query complex en lastig worden onderhouden. U moet gebruikmaken van [functies in azure monitor-logboek query's](functions.md) om de query logica te scheiden van het bereik van de query resources, waardoor de query structuur wordt vereenvoudigd. In het volgende voor beeld ziet u hoe u meerdere Application Insights resources kunt bewaken en het aantal mislukte aanvragen op toepassings naam visualiseren. 
 
-Een query als volgt die verwijst naar het bereik van Application Insights-resources maken. De `withsource= SourceApp` opdracht voegt een kolom die de toepassingsnaam Hiermee wordt aangegeven dat het logboek verzonden. [De query opslaan als functie](functions.md#create-a-function) met de alias _applicationsScoping_.
+Maak een query zoals de volgende waarmee wordt verwezen naar het bereik van Application Insights-resources. De `withsource= SourceApp` opdracht voegt een kolom toe die de naam van de toepassing aanduidt die het logboek heeft verzonden. [Sla de query op als functie](functions.md#create-a-function) met de alias _applicationsScoping_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -124,7 +124,7 @@ app('Contoso-app5').requests
 
 
 
-U kunt nu [Gebruik deze functie](../../azure-monitor/log-query/functions.md#use-a-function) in een query meerdere bronnen, zoals hieronder. De functiealias _applicationsScoping_ retourneert de samenvoeging van de tabel ' requests ' van de gedefinieerde toepassingen. De query en filters voor mislukte aanvragen en de trends visualiseert door toepassing. De _parseren_ operator is optioneel in dit voorbeeld. Pakt deze de naam van de toepassing van _SourceApp_ eigenschap.
+U kunt [deze functie nu gebruiken](../../azure-monitor/log-query/functions.md#use-a-function) in een query voor meerdere resources, zoals in de volgende. De functie alias _applicationsScoping_ retourneert de samen voeging van de tabel aanvragen van alle gedefinieerde toepassingen. De query filtert vervolgens op mislukte aanvragen en visualiseert de trends op basis van de toepassing. In dit voor beeld is de operator _parse_ optioneel. De naam van de toepassing wordt geëxtraheerd uit de eigenschap _SourceApp_ .
 
 ```Kusto
 applicationsScoping 
@@ -134,9 +134,9 @@ applicationsScoping
 | summarize count() by applicationName, bin(timestamp, 1h) 
 | render timechart
 ```
-![tijdgrafiek](media/cross-workspace-query/chart.png)
+![Timechart](media/cross-workspace-query/chart.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Beoordeling [analyseren logboekgegevens in Azure Monitor](log-query-overview.md) voor een overzicht van Logboeken-query's en de structuur van logboekgegevens van Azure Monitor.
-- Beoordeling [logboeken-query's van Azure Monitor](query-language.md) om alle resources voor Azure Monitor logboeken-query's weer te geven.
+- Bekijk [logboek gegevens analyseren in azure monitor](log-query-overview.md) voor een overzicht van logboek query's en hoe Azure monitor logboek gegevens zijn gestructureerd.
+- Bekijk [Azure monitor-logboek query's](query-language.md) om alle resources voor Azure monitor-logboek query's weer te geven.

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Data Warehouse opmerkingen bij de Release van juni 2018 | Microsoft Docs
-description: Opmerkingen bij de release voor Azure SQL Data Warehouse.
+title: Azure SQL Data Warehouse release opmerkingen 2018 juni | Microsoft Docs
+description: Release opmerkingen bij Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -11,21 +11,21 @@ ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 4348a634fd5b2b33f36d8e79f28caf659b82ccf4
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67626154"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Juni 2018
-Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in juni 2018. 
+Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. In dit artikel worden de nieuwe functies en wijzigingen beschreven die zijn geïntroduceerd in juni 2018. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="user-defined-restore-points"></a>Herstelpunten gedefinieerd door de gebruiker
-SQL Data Warehouse maakt automatisch momentopnamen van uw datawarehouse om de 8 uur een acht uur beoogd herstelpunt (RPO) te garanderen. Deze momentopnamen eenvoudig op het werk te verrichten van het uitvoeren van uw datawarehouse geautomatiseerd, maar er is behoefte aan momentopnamen op kritieke perioden, op basis van uw zakelijke behoeften. Bijvoorbeeld: maken van een momentopname aan vóór de belasting van een aanzienlijke hoeveelheid gegevens of de implementatie van nieuwe scripts in de datawarehouse om in te schakelen van een herstelpunt aan vóór het opnieuw. 
+## <a name="user-defined-restore-points"></a>Door de gebruiker gedefinieerde herstel punten
+SQL Data Warehouse maakt automatisch moment opnamen van uw data warehouse om de acht uur dat een RPO-Recovery Point Objective (8 uur) wordt gegarandeerd. Hoewel deze automatische moment opnamen de beheer last van het uitvoeren van uw data warehouse vereenvoudigen, is het nood zakelijk om moment opnamen te maken op kritieke tijdstippen op basis van uw bedrijfs behoeften. U kunt bijvoorbeeld een moment opname maken voor een belang rijke gegevens belasting of de implementatie van nieuwe scripts in het Data Warehouse om een herstel punt voor de bewerking in te scha kelen. 
 
-SQL Data Warehouse nu ondersteunt [herstelpunten die door de gebruiker gedefinieerde](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) via de [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet.
+SQL Data Warehouse ondersteunt nu door de [gebruiker gedefinieerde herstel punten](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) via de cmdlet [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) .
 
 ```powershell
 New-AzSqlDatabaseRestorePoint
@@ -35,10 +35,10 @@ New-AzSqlDatabaseRestorePoint
     -RestorePointLabel $RestorePointName
 ```
 
-## <a name="column-level-security"></a>Beveiliging op kolom
-Het beheren van toegang tot gegevens en beveiliging in uw datawarehouse is essentieel is voor het bouwen van de vertrouwensrelatie met uw klanten en partners. SQL Data Warehouse [biedt nu ondersteuning voor beveiliging op kolomniveau (CLS)](https://azure.microsoft.com/blog/column-level-security-is-now-supported-in-azure-sql-data-warehouse/) waarmee u machtigingen voor het weergeven van gevoelige gegevens, door het beperken van toegang tot specifieke kolommen in de tabellen voor gebruikers zonder te hoeven ontwerpen van uw datawarehouse aanpassen.
+## <a name="column-level-security"></a>Beveiliging op kolom niveau
+Het beheren van de toegang en beveiliging van gegevens in uw data warehouse is van cruciaal belang voor het ontwikkelen van vertrouwen met uw klanten en partners. SQL Data Warehouse [ondersteunt nu beveiliging op kolom niveau (CLS)](https://azure.microsoft.com/blog/column-level-security-is-now-supported-in-azure-sql-data-warehouse/) waarmee u machtigingen kunt aanpassen voor het weer geven van gevoelige gegevens door de gebruikers toegang tot specifieke kolommen in uw tabellen te beperken zonder dat u uw data warehouse opnieuw hoeft te ontwerpen.
 
-CLS kunt u voor het beheren van toegang tot de kolommen in de tabel op basis van de uitvoeringscontext van de gebruiker of hun groepslidmaatschap met behulp van standaard [verlenen](https://docs.microsoft.com/azure/sql-data-warehouse/column-level-security) T-SQL-instructie. De logica van de beperking van toegang bevindt zich in de databaselaag zelf in plaats van weg van de gegevens in een andere toepassing, de implementatie van de algehele beveiliging te vereenvoudigen.
+Met CLS kunt u de toegang tot tabel kolommen beheren op basis van de uitvoerings context van de gebruiker of het groepslid maatschap met [de Standard-](https://docs.microsoft.com/azure/sql-data-warehouse/column-level-security) T-SQL-instructie. De logica van de toegangs beperking bevindt zich in de database tier zelf in plaats van de gegevens in een andere toepassing, waardoor de algemene beveiligings implementatie wordt vereenvoudigd.
 
 
 ```sql
@@ -52,7 +52,7 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 ```
 
 ## <a name="objectschemaname"></a>OBJECT_SCHEMA_NAME
-De [OBJECT_SCHEMA_NAME()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) functie retourneert de naam van de database-schema voor schema-objecten. Deze functie is gebruikelijk in ETL-hulpprogramma's geworden als schemavalidatie-object. 
+De functie [OBJECT_SCHEMA_NAME ()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) retourneert de naam van het database schema voor objecten met een schema bereik. Deze functie is gebruikelijk geworden in ETL-hulpprogram ma's wanneer validatie van object schema wordt uitgevoerd. 
 
 ```sql
 SELECT
@@ -62,7 +62,7 @@ FROM
     [sys].[tables];
 ```
 
-**Van voorbeeldresultaten**
+**Voorbeeld resultaten**
 ```
 table_schema    | table_name
 -----------------------------
@@ -72,14 +72,14 @@ dbo               nation
 dbo               orders
 ```
 
-## <a name="support-for-the-systimezoneinfo-view"></a>Ondersteuning voor de weergave sys.time_zone_info
-De [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) weergave retourneert informatie over de ondersteunde tijdzones in Azure SQL Data Warehouse.
+## <a name="support-for-the-systimezoneinfo-view"></a>Ondersteuning voor de weer gave sys. time_zone_info
+De [sys. time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) -weer gave retourneert informatie over de ondersteunde tijd zones in Azure SQL Data Warehouse.
 
 ```sql
 SELECT * FROM [sys].[time_zone_info];
 ```
 
-**Van voorbeeldresultaten**
+**Voorbeeld resultaten**
 ```
 name                            | current_utc_offset | is_currently_dst
 -------------------------------------------------------------------------
@@ -89,9 +89,9 @@ Mountain Standard Time (Mexico)   -06:00               1
 Central Standard Time             -05:00               1
 ```
 
-## <a name="auto-stats-operations-appear-in-sysdmpdwexecrequests-behavior-change"></a>Automatische statistieken bewerkingen worden weergegeven in sys.dm_pdw_exec_requests (gedrag wijzigen)
+## <a name="auto-stats-operations-appear-in-sysdmpdwexecrequests-behavior-change"></a>De bewerkingen voor automatische statistieken worden weer gegeven in sys. DM _pdw_exec_requests (gedrags wijziging)
 
-Dankzij de introductie van [automatisch Create Statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic), Azure SQL Data Warehouse genereert statistieken voor het uitvoeren van query's optimaliseren. De release van juni 2018 voegt de mogelijkheid om te controleren wanneer statistieken automatisch gegenereerd worden door het toevoegen van een record in de [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) weergeven als een [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) bewerking wordt uitgevoerd.
+Met de introductie van [automatisch gemaakte statistieken](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic)genereert Azure SQL Data Warehouse statistieken voor het optimaliseren van de uitvoering van query's. De release van juni 2018 voegt de mogelijkheid toe om te controleren wanneer de statistieken automatisch worden gegenereerd door een record toe te voegen aan de _pdw_exec_requests-weer gave [sys. DM](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) wanneer een bewerking voor het [maken van statistieken](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) wordt uitgevoerd.
 
 ```sql
 SELECT
@@ -103,7 +103,7 @@ FROM
 WHERE
     [command] LIKE 'CREATE STATISTICS _WA_Sys%';
 ```
-**Van voorbeeldresultaten**
+**Voorbeeld resultaten**
 ```
 start_time                | end_time                | command
 ------------------------------------------------------------------------------------------------------------------------------
@@ -111,7 +111,7 @@ start_time                | end_time                | command
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [maken van een SQL Data Warehouse][create a SQL Data Warehouse] . If you are new to Azure, you may find the [Azure glossary][Azure glossary] handig zijn bij het opzoeken van nieuwe terminologie. U kunt ook enkele andere SQL Data Warehouse-resources bekijken.  
+Nu u een beetje weet over SQL Data Warehouse, kunt u leren hoe u snel [een SQL Data Warehouse maakt][create a SQL Data Warehouse]. Als u niet bekend bent met Azure, kan de [Azure-woordenlijst][Azure glossary] handig zijn bij het opzoeken van nieuwe terminologie. U kunt ook enkele andere SQL Data Warehouse-resources bekijken.  
 
 * [Succesverhalen van klanten]
 * [Blogs]

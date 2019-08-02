@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: e844fbe542e0517ffe1f99b550544e6eaca22885
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 28d01f1acbc6d9ff033567b10efc801925752191
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402378"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618496"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Cloud-naar-apparaat-berichten verzenden met IoT Hub (Java)
 
@@ -41,7 +41,7 @@ Aan het einde van deze zelf studie voert u twee Java Console-apps uit:
 * **Send-C2D: berichten**, waarmee een Cloud-naar-apparaat-bericht wordt verzonden naar de gesimuleerde apparaat-app via IOT hub, en vervolgens de ontvangst bevestiging ontvangt.
 
 > [!NOTE]
-> IoT Hub heeft SDK-ondersteuning voor veel platformen en talen (waaronder C, Java en Java script) via Azure IoT-apparaat-Sdk's. Zie het [Azure IOT-ontwikkelaars centrum](https://azure.microsoft.com/develop/iot)voor stapsgewijze instructies voor het verbinden van uw apparaat met de code van deze zelf studie en over het algemeen tot Azure IOT hub.
+> IoT Hub heeft SDK-ondersteuning voor veel platformen en talen (waaronder C, Java, python en Java script) via Azure IoT-apparaat-Sdk's. Zie het [Azure IOT-ontwikkelaars centrum](https://azure.microsoft.com/develop/iot)voor stapsgewijze instructies voor het verbinden van uw apparaat met de code van deze zelf studie en over het algemeen tot Azure IOT hub.
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
@@ -59,7 +59,7 @@ In deze sectie wijzigt u de gesimuleerde apparaat-app die u hebt gemaakt in tele
 
 1. Open het bestand simulated-device\src\main\java\com\mycompany\app\App.java met een teksteditor.
 
-2. Voeg de volgende **MessageCallback** -klasse toe als een geneste klasse binnen de **app** -klasse. De  methode Execute wordt aangeroepen wanneer het apparaat een bericht ontvangt van IOT hub. In dit voor beeld ontvangt het apparaat altijd een melding van de IoT-hub dat het bericht is voltooid:
+2. Voeg de volgende **MessageCallback** -klasse toe als een geneste klasse binnen de **app** -klasse. De methode Execute wordt aangeroepen wanneer het apparaat een bericht ontvangt van IOT hub. In dit voor beeld ontvangt het apparaat altijd een melding van de IoT-hub dat het bericht is voltooid:
 
     ```java
     private static class AppMessageCallback implements MessageCallback {
@@ -109,7 +109,7 @@ In deze sectie maakt u een Java-Console-app die Cloud-naar-apparaat-berichten na
 
 2. Ga bij de opdracht prompt naar de nieuwe map Send-C2D-messages.
 
-3. Open met een tekst editor het bestand pom. XML in de map Send-C2D-messages en voeg de volgende afhankelijkheid toe  aan het knoop punt afhankelijkheden. Door de afhankelijkheid toe te voegen, kunt u het **iothub-Java-service-client-** pakket in uw toepassing gebruiken om te communiceren met uw IOT hub-service:
+3. Open met een tekst editor het bestand pom. XML in de map Send-C2D-messages en voeg de volgende afhankelijkheid toe aan het knoop punt afhankelijkheden. Door de afhankelijkheid toe te voegen, kunt u het **iothub-Java-service-client-** pakket in uw toepassing gebruiken om te communiceren met uw IOT hub-service:
 
     ```xml
     <dependency>

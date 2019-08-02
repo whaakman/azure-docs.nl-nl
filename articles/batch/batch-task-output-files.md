@@ -14,10 +14,10 @@ ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: c113521a1828a27ce9454ea142cb1708b7c5a1b6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68322846"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Taak gegevens persistent maken voor Azure Storage met de API voor de batch-service
@@ -178,7 +178,7 @@ Als u in een andere taal dan C#wilt ontwikkelen, moet u de bestands conventies s
 
 ## <a name="code-sample"></a>Codevoorbeeld
 
-De [PersistOutputs][github_persistoutputs] sample project is one of the [Azure Batch code samples][github_samples] op github. In deze Visual Studio-oplossing ziet u hoe u de batch-client bibliotheek voor .NET gebruikt om de uitvoer van taken naar duurzame opslag te behouden. Voer de volgende stappen uit om het voor beeld uit te voeren:
+Het [PersistOutputs][github_persistoutputs] -voorbeeld project is een van de [Azure batch code voorbeelden][github_samples] op github. In deze Visual Studio-oplossing ziet u hoe u de batch-client bibliotheek voor .NET gebruikt om de uitvoer van taken naar duurzame opslag te behouden. Voer de volgende stappen uit om het voor beeld uit te voeren:
 
 1. Open het project in **Visual Studio 2019**.
 2. Voeg uw batch-en opslag **account referenties** toe aan **AccountSettings. settings** in het project micro soft. Azure. batch. samples. common.

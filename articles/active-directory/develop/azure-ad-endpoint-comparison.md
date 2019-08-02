@@ -1,6 +1,6 @@
 ---
-title: Waarom werken met Microsoft identity-platform (v2.0) | Azure
-description: De verschillen tussen het eindpunt van de Microsoft identity-platform (v2.0) en het eindpunt van de Azure Active Directory (Azure AD) v1.0 weten en informatie over de voordelen van het bijwerken naar versie 2.0.
+title: Waarom bijwerken naar micro soft Identity platform (v 2.0) | Azure
+description: Ken de verschillen tussen het micro soft Identity platform (v 2.0)-eind punt en het Azure Active Directory (Azure AD) v 1.0-eind punt, en ontdek de voor delen van het bijwerken naar v 2.0.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -10,66 +10,66 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/07/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22f3e4cde892a70ec331523524508a50008a4073
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: df12b0db397656f639275f6a3f9697109985ea35
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483010"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722175"
 ---
-# <a name="why-update-to-microsoft-identity-platform-v20"></a>Waarom werken met Microsoft identity-platform (v2.0)?
+# <a name="why-update-to-microsoft-identity-platform-v20"></a>Waarom bijwerken naar micro soft Identity platform (v 2.0)?
 
-Wanneer u een nieuwe toepassing ontwikkelt, is het belangrijk te weten van de verschillen tussen de Microsoft identity-platform (v2.0) en Azure Active Directory (v1.0)-eindpunten. In dit artikel bevat informatie over de belangrijkste verschillen tussen de eindpunten en enkele bestaande beperkingen voor Microsoft identity-platform.
+Wanneer u een nieuwe toepassing ontwikkelt, is het belang rijk dat u weet wat de verschillen zijn tussen de micro soft Identity platform (v 2.0) en de Azure Active Directory (v 1.0)-eind punten. In dit artikel worden de belangrijkste verschillen beschreven tussen de eind punten en enkele bestaande beperkingen van micro soft Identity platform.
 
 > [!NOTE]
-> Het eindpunt van de Microsoft identity-platform biedt geen ondersteuning voor alle Azure AD-scenario's en onderdelen. Meer informatie over om te bepalen als u het eindpunt van de Microsoft identity-platform moet gebruiken, [beperkingen van het Microsoft identity platform](#limitations).
+> Het micro soft Identity platform-eind punt biedt geen ondersteuning voor alle Azure AD-scenario's en-functies. Lees over [micro soft Identity platform-beperkingen](#limitations)om te bepalen of u het micro soft Identity platform-eind punt moet gebruiken.
 
-## <a name="who-can-sign-in"></a>Wie zich kan aanmelden
+## <a name="who-can-sign-in"></a>Wie kan zich aanmelden
 
-![Wie kan zich aanmelden met v1.0 en v2.0-eindpunten](media/azure-ad-endpoint-comparison/who-can-sign-in.svg)
+![Wie kan zich aanmelden met eind punten van de v 1.0 en v 2.0](media/azure-ad-endpoint-comparison/who-can-sign-in.svg)
 
-* Het eindpunt v1.0 kan alleen werk- en schoolaccounts accounts aanmelden bij uw toepassing (Azure AD)
-* Het eindpunt van de Microsoft identity-platform kunt werk en schoolaccounts van Azure AD en persoonlijke Microsoft-accounts (MSA), zoals hotmail.com, outlook.com en msn.com, aan te melden.
-* Beide eindpunten ook accepteren aanmeldingen van *[gastgebruikers](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* van een Azure AD-directory voor toepassingen die zijn geconfigureerd als *[één tenant](single-and-multi-tenant-apps.md)* of voor *multitenant* toepassingen die zijn geconfigureerd om te verwijzen naar het eindpunt van de tenant-specifieke (`https://login.microsoftonline.com/{TenantId_or_Name}`).
+* Met het eind punt v 1.0 kunnen alleen werk-en school accounts worden aangemeld bij uw toepassing (Azure AD)
+* Met het micro soft Identity platform-eind punt kunnen werk-en school accounts van Azure AD en persoonlijke micro soft-accounts (MSA), zoals hotmail.com, outlook.com en msn.com, worden aangemeld.
+* Beide eind punten accepteren ook aanmeldingen van *[gast gebruikers](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* van een Azure AD-Directory voor toepassingen die zijn geconfigureerd als *[single tenant](single-and-multi-tenant-apps.md)* of voor *multi tenant* -toepassingen die zijn geconfigureerd om naar het Tenant-`https://login.microsoftonline.com/{TenantId_or_Name}`specifieke eind punt () te verwijzen.
 
-Het eindpunt van de Microsoft identity-platform kunt u apps die aanmeldingen vanaf persoonlijke Microsoft-accounts en werk-en schoolaccounts accepteren schrijven. Dit biedt u de mogelijkheid om uw app volledig account-agnostische. Bijvoorbeeld, als uw app roept de [Microsoft Graph](https://graph.microsoft.io), enkele aanvullende functionaliteit en de gegevens is beschikbaar voor accounts, zoals hun SharePoint-sites of de directory-gegevens werken. Maar voor veel bewerkingen, zoals [van een gebruiker e-mail lezen](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_messages), dezelfde code toegang krijgen tot de e-mail voor zowel persoonlijke en werk-en schoolaccounts.
+Met het micro soft Identity platform-eind punt kunt u apps schrijven die aanmeldingen accepteren van persoonlijke micro soft-accounts en werk-en school accounts. Dit biedt u de mogelijkheid om uw app volledig account-neutraal te schrijven. Als uw app bijvoorbeeld de [Microsoft Graph](https://graph.microsoft.io)aanroept, zijn er extra functies en gegevens beschikbaar voor werk accounts, zoals hun share point-sites of Directory gegevens. Maar voor veel acties, zoals het [lezen van de e-mail van een gebruiker](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_messages), heeft dezelfde code toegang tot het e-mail bericht voor zowel privé-als werk-en school accounts.
 
-Voor het eindpunt voor Microsoft identity-platform, kunt u de Microsoft Authentication Library (MSAL) om te krijgen van toegang tot de consumenten, onderwijs, en enterprise werelden. Het eindpunt van de Azure AD v1.0 accepteert aanmeldingen vanaf werk en school-accounts.
+Voor het micro soft Identity platform-eind punt kunt u de micro soft Authentication Library (MSAL) gebruiken om toegang te krijgen tot de consument, het onderwijs en de zakelijke wereld. Het Azure AD v 1.0-eind punt accepteert alleen aanmeldingen van werk-en school accounts.
 
 ## <a name="incremental-and-dynamic-consent"></a>Incrementele en dynamische toestemming
 
-Apps met behulp van het eindpunt van de Azure AD v1.0 zijn vereist om op te geven hun vereiste OAuth 2.0-machtigingen van tevoren verkrijgt, bijvoorbeeld:
+Apps die gebruikmaken van het Azure AD v 1.0-eind punt zijn vereist om de vereiste OAuth 2,0-machtigingen vooraf op te geven, bijvoorbeeld:
 
-![Voorbeeld van de gebruikersinterface van de registratie van machtigingen](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
+![Voor beeld van de gebruikers interface voor machtigingen registratie](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
 
-De machtigingen rechtstreeks op de registratie van de toepassing worden **statische**. Terwijl statische machtigingen van de app die is gedefinieerd in de Azure-portal de code leuk en eenvoudig houden, geeft het aantal mogelijke problemen voor ontwikkelaars:
+De machtigingen die rechtstreeks op de registratie van de toepassing zijn ingesteld, zijn **statisch**. Hoewel statische machtigingen van de app die zijn gedefinieerd in de Azure Portal de code mooi en eenvoudig laten staan, worden er enkele mogelijke problemen voor ontwikkel aars weer gegeven:
 
-* De app moet de machtigingen die ooit moet de eerste aanmelden van de gebruiker bij een aanvragen. Dit kan leiden tot een lange lijst met machtigingen die ontmoedigt eindgebruikers van de app-toegang op de eerste aanmelding goed te keuren.
+* De app moet alle machtigingen aanvragen die deze ooit nodig had bij de eerste aanmelding van de gebruiker. Dit kan leiden tot een lange lijst met machtigingen waarmee eind gebruikers de toegang tot de app kunnen goed keuren bij de eerste aanmelding.
 
-* De app moet weten van alle resources, dan ooit tevoren zijn toegankelijk. Het is moeilijk om apps die toegang een willekeurig aantal resources tot te maken.
+* In de app moeten alle resources worden genoteerd die voorheen eerder toegang zouden hebben. Het is lastig om apps te maken die een wille keurig aantal resources kunnen benaderen.
 
-Met het eindpunt van Microsoft identity-platform, kunt u negeren de statische machtigingen die zijn gedefinieerd in de registratiegegevens van de app in de Azure portal en aanvraag machtigingen incrementeel in plaats daarvan, wat betekent dat voor een bare minimale set machtigingen kosten vooraf en groeiende meer na verloop van tijd als de klant extra app-functies gebruikt. Om dit te doen, kunt u de bereiken die uw app op elk gewenst moment moet door te nemen van de nieuwe scopes in de `scope` parameter bij het aanvragen van een toegangstoken - zonder de noodzaak voor het definiëren van deze vooraf in de registratiegegevens van de toepassing. Als de gebruiker nog niet nog ingestemd met de nieuwe scopes toegevoegd aan de aanvraag, wordt ze gevraagd toe te staan alleen de nieuwe machtigingen. Zie voor meer informatie, [machtigingen en toestemming scopes](v2-permissions-and-consent.md).
+Met het micro soft Identity platform-eind punt kunt u de statische machtigingen die zijn gedefinieerd in de registratie gegevens van de app in de Azure Portal negeren en in plaats daarvan de machtigingen stapsgewijs aanvragen. Dit betekent dat u wordt gevraagd om een bare minimale set machtigingen vooraf en meer tijd in beslag nemen naarmate de klant extra app-functies gebruikt. Hiervoor kunt u de bereiken die uw app nodig heeft op elk gewenst moment opgeven door de nieuwe scopes in de `scope` para meter op te nemen bij het aanvragen van een toegangs token, zonder dat u deze hoeft vooraf in te stellen in de registratie gegevens van de toepassing. Als de gebruiker nog niet is gemachtigd om nieuwe scopes toe te voegen aan de aanvraag, wordt u gevraagd om alleen toestemming te geven aan de nieuwe machtigingen. Zie [machtigingen, toestemming en bereiken](v2-permissions-and-consent.md)voor meer informatie.
 
-Een app voor aanvullende machtigingen dynamisch via zodat de `scope` parameter biedt ontwikkelaars volledige controle over uw gebruikerservaring. U kunt ook front-load uw toestemming optreden en vraagt u om alle machtigingen in een eerste autorisatie-aanvraag. Als uw app nodig een groot aantal machtigingen heeft, kunt u verzamelen deze machtigingen van de gebruiker stapsgewijs bij het gebruik van bepaalde functies van de app na verloop van tijd.
+Het toestaan van een app om machtigingen dynamisch aan `scope` te vragen via de para meter geeft ontwikkel aars de volledige controle over de ervaring van uw gebruikers. U kunt ook de voor keur geven aan de bestemmings ervaring en vragen om alle machtigingen in één initiële autorisatie aanvraag. Als uw app een groot aantal machtigingen vereist, kunt u de machtigingen van de gebruiker stapsgewijs verzamelen, omdat ze gedurende een periode proberen bepaalde functies van de app te gebruiken.
 
-Toestemming van een beheerder namens een organisatie gereed is nog steeds vereist voor de statische machtigingen die zijn geregistreerd voor de app, zodat u de juiste machtigingen voor apps in de portal voor app-registratie instellen moet als u een beheerder moet toestemming geven voor de hele organisatie. Dit vermindert de cycli vereist door de beheerder van de organisatie voor het instellen van de toepassing.
+Toestemming van de beheerder die namens een organisatie wordt uitgevoerd, vereist nog steeds de statische machtigingen die voor de app zijn geregistreerd. Daarom moet u deze machtigingen voor apps in de app-registratie Portal instellen als u een beheerder nodig hebt om toestemming te geven namens de hele organisatie. Dit reduceert de cycli die de organisatie beheerder nodig heeft om de toepassing in te stellen.
 
 ## <a name="scopes-not-resources"></a>Bereiken, geen resources
 
-Voor apps met behulp van het eindpunt v1.0, een app kan functioneren als een **resource**, of een ontvanger van tokens. Een resource kan een aantal definiëren **scopes** of **oAuth2Permissions** die wordt begrepen, zodat de clientcomputers apps om aan te vragen van tokens van die bron voor een bepaalde set bereiken. Houd rekening met de Azure AD Graph-API als een voorbeeld van een resource:
+Voor apps die gebruikmaken van het v 1.0-eind punt kan een app zich gedragen als een **resource**of een ontvanger van tokens. Een resource kan een aantal **bereiken** of **oAuth2Permissions** definiëren die het begrijpt, zodat client-apps tokens van die bron kunnen aanvragen voor een bepaalde reeks bereiken. Houd rekening met de Azure AD-Graph API als voor beeld van een resource:
 
-* Resource-id of `AppID URI`: `https://graph.windows.net/`
+* Resource-id of `AppID URI`:`https://graph.windows.net/`
 * Bereiken, of `oAuth2Permissions`: `Directory.Read`, `Directory.Write`, enzovoort.
 
-Dit geldt voor het eindpunt van de Microsoft identity-platform. Een app nog steeds kan functioneren als een resource bereiken definiëren en worden aangeduid met een URI. Client-apps kunnen nog steeds aanvragen voor toegang tot deze bereiken. Echter, de manier waarop dat een client een aanvraag doet deze machtigingen zijn gewijzigd.
+Dit geldt voor het micro soft Identity platform-eind punt. Een app kan zich nog steeds gedragen als een resource, scopes definiëren en worden geïdentificeerd met een URI. Client-apps kunnen nog steeds toegang tot deze bereiken aanvragen. De manier waarop een client die machtigingen aanvraagt, is echter gewijzigd.
 
-Voor het eindpunt v1.0, een OAuth 2.0 autoriseren kan de aanvraag naar Azure AD hebt gezien, zoals:
+Voor het eind punt van de v 1.0 kan een OAuth 2,0-aanvraag voor het machtigen van Azure AD er als volgt uitzien:
 
 ```text
 GET https://login.microsoftonline.com/common/oauth2/authorize?
@@ -78,9 +78,9 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Hier de **resource** parameter aangegeven welke resource autorisatie wordt aangevraagd door de client-app. Azure AD berekend de machtigingen die vereist zijn voor de app op basis van statische configuratie in Azure portal en uitgegeven tokens dienovereenkomstig.
+Hier geeft de **resource** parameter op welke resource de client-app autorisatie aanvraagt. Azure AD heeft de vereiste machtigingen voor de app berekend op basis van de statische configuratie in het Azure Portal en de uitgegeven tokens dienovereenkomstig.
 
-De dezelfde OAuth 2.0 autoriseren voor toepassingen met behulp van het eindpunt van de Microsoft identity-platform, aanvraag er ongeveer zo uitziet zoals:
+Voor toepassingen die gebruikmaken van het micro soft Identity platform-eind punt, ziet dezelfde OAuth 2,0-machtigings aanvraag er als volgt uit:
 
 ```text
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -89,109 +89,112 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Hier de **bereik** parameter geeft aan welke resource en de machtigingen voor de app vraagt autorisatie. De gewenste resource nog steeds aanwezig is in de aanvraag - deze opgenomen in elk van de waarden van de scope-parameter. Met behulp van de bereikparameter op deze manier kunt het eindpunt van Microsoft identity platform meer voldoet aan de OAuth 2.0-specificatie en beter aansluit bij de algemene procedures voor de bedrijfstak. Bovendien kunnen apps willen [incrementele toestemming](#incremental-and-dynamic-consent) - alleen machtigingen aanvragen wanneer de toepassing een ze niet nodig.
+Hier geeft de **bereik** parameter aan welke resource en machtigingen de app autorisatie aanvraagt. De gewenste resource is nog steeds aanwezig in de aanvraag. deze is opgenomen in elk van de waarden van de bereik parameter. Als u de bereik parameter op deze manier gebruikt, is het micro soft Identity platform-eind punt beter compatibel met de OAuth 2,0-specificatie en wordt nauw keuriger afgestemd op de algemene branche praktijken. Daarnaast kunnen apps [incrementele toestemming](#incremental-and-dynamic-consent) verlenen-alleen machtigingen aanvragen wanneer de toepassing deze vereist in plaats van de voor grond.
 
 ## <a name="well-known-scopes"></a>Bekende bereiken
 
 ### <a name="offline-access"></a>Offline toegang
 
-Apps met behulp van het eindpunt van de Microsoft identity-platform mogelijk het gebruik van een nieuwe bekende machtiging voor apps - de `offline_access` bereik. Alle apps moeten deze machtiging aanvragen als ze nodig hebben voor toegang tot resources namens een gebruiker voor een langere periode, zelfs wanneer de gebruiker niet actief de app gebruikt mogelijk. De `offline_access` bereik weergegeven voor de gebruiker in dialoogvensters als **toegang tot uw gegevens op elk gewenst moment**, die de gebruiker moet instemmen. Aanvragen van de `offline_access` machtiging wordt uw web-app voor het ontvangen van OAuth 2.0-refresh_tokens van het eindpunt van Microsoft identity-platform inschakelen. Vernieuwen van tokens worden lange levensduur hebben en kunnen worden uitgewisseld voor nieuwe OAuth 2.0-toegangstokens gedurende langere perioden van toegang.
+Apps die gebruikmaken van het micro soft Identity platform-eind punt, kunnen het gebruik van een nieuwe goed bekende machtiging `offline_access` voor apps vereisen. het bereik. Alle apps moeten deze machtiging aanvragen als ze voor een langdurige periode toegang moeten krijgen tot bronnen namens een gebruiker, zelfs wanneer de gebruiker de app niet actief mag gebruiken. Het `offline_access` bereik wordt weer gegeven aan de gebruiker in dialoog vensters met toestemming als **toegang tot uw gegevens op elk gewenst moment**, waar de gebruiker mee moet instemmen. Als u `offline_access` de machtiging aanvraagt, kan uw web-app OAuth 2,0 refresh_tokens ontvangen van het micro soft Identity platform-eind punt. Vernieuwings tokens worden lang bewaard en kunnen worden uitgewisseld voor nieuwe OAuth 2,0-toegangs tokens voor langere Peri Oden van toegang.
 
-Als uw app geen aanvragen de `offline_access` bereik, het ontvangt geen vernieuwingstokens. Dit betekent dat wanneer u een autorisatiecode in de OAuth 2.0-autorisatiecodestroom inwisselen, alleen u weer een toegangstoken van ontvangt de `/token` eindpunt. Die toegang krijgen tot token blijven geldig voor een korte periode (doorgaans één uur), maar uiteindelijk verlopen. Op dat punt in tijd, uw app wilt omleiden van de gebruiker terug naar de `/authorize` eindpunt naar een nieuwe autorisatiecode ophalen. Tijdens deze omleiding, wordt de gebruiker kan of mogelijk niet naar hun referenties opnieuw invoeren of reconsent machtigingen, afhankelijk van het type app.
+Als uw app het `offline_access` bereik niet opvraagt, ontvangt deze geen vernieuwings tokens. Dit betekent dat wanneer u een autorisatie code inwisselt in de OAuth 2,0-autorisatie code stroom, u alleen een toegangs token van het `/token` eind punt ontvangt. Dat toegangs token blijft geldig gedurende een korte periode (meestal één uur), maar zal uiteindelijk verlopen. Op dat moment moet uw app de gebruiker weer omleiden naar het `/authorize` eind punt om een nieuwe autorisatie code op te halen. Tijdens deze omleiding is het mogelijk dat de gebruiker de referenties niet opnieuw moet invoeren of dat er toestemming moet worden gegeven voor machtigingen, afhankelijk van het type app.
 
-Voor meer informatie over OAuth 2.0, `refresh_tokens`, en `access_tokens`, bekijk de [protocolnaslaginformatie voor Microsoft identity-platform](active-directory-v2-protocols.md).
+Voor meer informatie over OAuth 2,0, `refresh_tokens`en `access_tokens`raadpleegt u de naslag informatie voor het [micro soft Identity platform-protocol](active-directory-v2-protocols.md).
 
-### <a name="openid-profile-and-email"></a>OpenID, het profiel en e-mailadres
+### <a name="openid-profile-and-email"></a>OpenID Connect, profile en e-mail
 
-In het verleden was het meest eenvoudige OpenID Connect-aanmeldingsstroom met Microsoft identity-platform biedt veel informatie over de gebruiker in de resulterende *id_token*. De claims in een id_token kunnen opnemen van de gebruiker de naam, gewenste gebruikersnaam, e-mailadres, object-ID en meer.
+De meest eenvoudige OpenID Connect voor het verbinden van verbindingen met het micro soft Identity-platform bieden een grote hoeveelheid informatie over de gebruiker in de resulterende *id_token*. De claims in een id_token kunnen bestaan uit de naam van de gebruiker, de voorkeurs gebruikersnaam, het e-mail adres, de object-ID en meer.
 
-De informatie die de `openid` bereik kan uw app is nu toegang tot beperkte toegang. De `openid` bereik wordt alleen uw app en meld u aan de gebruiker ontvangt een app-specifieke id voor de gebruiker toestaan. Als u ophalen van persoonlijke gegevens over de gebruiker in uw app wilt, wordt uw app moet voor aanvullende machtigingen van de gebruiker. Twee nieuwe scopes, `email` en `profile`, kunt u extra machtigingen aanvragen.
+De gegevens die door `openid` de scope worden geboden, hebben nu beperkte toegang tot de app. De `openid` Scope staat alleen toe dat uw app zich aanmeldt bij de gebruiker en een app-specifieke id voor de gebruiker ontvangt. Als u persoonlijke gegevens over de gebruiker in uw app wilt ophalen, moet uw app aanvullende machtigingen voor de gebruiker aanvragen. Met twee nieuwe bereiken `email` en `profile`kunt u aanvullende machtigingen aanvragen.
 
-* De `email` bereik maakt het mogelijk de toegang tot uw Apps naar de primaire e-mailadres van de gebruiker via de `email` claim in de id_token, ervan uitgaande dat de gebruiker heeft een adresseerbare e-mailadres.
-* De `profile` bereik kan uw apptoegang tot alle andere algemene informatie over de gebruiker, zoals hun naam, de gewenste gebruikersnaam, object-ID, enzovoort, in de id_token.
+* Met `email` de scope kan uw app toegang krijgen tot het primaire e-mail adres `email` van de gebruiker via de claim in het id_token, ervan uitgaande dat de gebruiker een adresseerbaar e-mail adres heeft.
+* Het `profile` bereik biedt uw app toegang tot alle andere basis informatie over de gebruiker, zoals de naam, de voorkeurs gebruikersnaam, de object-id, enzovoort, in de id_token.
 
-Deze bereiken kunnen u uw app op een manier vrijgeven van minimale code, zodat u kunt alleen de gebruiker vragen voor de set met informatie die uw app nodig heeft om zijn werk te doen. Zie voor meer informatie over deze scopes [de bereikverwijzing van Microsoft identity-platform](v2-permissions-and-consent.md).
+Deze bereiken bieden u de mogelijkheid om uw app in een minimale verschaffings modus in te stellen, zodat u alleen de gebruiker kunt vragen voor de set informatie die uw app nodig heeft om de taak uit te voeren. Zie voor meer informatie over deze bereiken [de referentie voor het micro soft Identity platform-bereik](v2-permissions-and-consent.md).
 
 ## <a name="token-claims"></a>Token claims
 
-Het eindpunt van de Microsoft identity-platform problemen met een kleiner aantal claims in de tokens standaard klein te houden nettoladingen. Als u apps en services die afhankelijk zijn van een specifieke claim in een token v1.0 niet langer standaard in een token van Microsoft identity-platform aangeboden wordt hebt, kunt u overwegen de [optionele claims](active-directory-optional-claims.md) functie om op te nemen die claim.
+Met het micro soft Identity platform-eind punt wordt standaard een kleinere set claims in de tokens uitgegeven om payloads klein te blijven. Als u beschikt over apps en services die afhankelijk zijn van een bepaalde claim in een v 1.0-token dat niet meer standaard wordt geleverd in een micro soft Identity platform-token, kunt u overwegen de [optionele claim](active-directory-optional-claims.md) functie te gebruiken om die claim op te nemen.
+
+> [!IMPORTANT]
+> v 1.0 en v 2.0-tokens kunnen worden uitgegeven door de eind punten v 1.0 en v 2.0. id_tokens komen *altijd* overeen met het eind punt waarvoor ze zijn aangevraagd, en toegangs tokens komen *altijd* overeen met de indeling die wordt verwacht door de Web-API die door de client wordt gebruikt.  Dus als uw app gebruikmaakt van de v 2.0 eind punt verbinding om een token op te halen voor het aanroepen van Microsoft Graph, waarbij de toegangs tokens voor de indeling van v 1.0 worden verwacht, ontvangt uw app een token in de indeling v 1.0.  
 
 ## <a name="limitations"></a>Beperkingen
 
-Er zijn enkele beperkingen rekening mee moet houden bij het gebruik van Microsoft identity-platform.
+Er zijn enkele beperkingen waarmee u rekening moet houden bij het gebruik van micro soft Identity platform.
 
-Wanneer u toepassingen die zijn geïntegreerd met het Microsoft identity-platform bouwt, moet u bepalen of de Microsoft identity-platform-eindpunt en verificatieprotocollen voldoen aan uw behoeften. De v1.0 eindpunt en het platform wordt nog steeds volledig ondersteund en is in sommige opzichten meer uitgebreide functionaliteit dan Microsoft identity-platform. Echter, Microsoft identity-platform [kennismaakt met aanzienlijke voordelen](azure-ad-endpoint-comparison.md) voor ontwikkelaars.
+Wanneer u toepassingen bouwt die worden geïntegreerd met het micro soft-identiteits platform, moet u beslissen of het micro soft Identity platform-eind punt en de verificatie protocollen voldoen aan uw behoeften. Het eind punt van de v 1.0 en het platform worden nog steeds volledig ondersteund en, in sommige opzichten, is meer functionaliteit uitgebreid dan het micro soft Identity-platform. Micro soft Identity platform [introduceert echter aanzienlijke voor delen](azure-ad-endpoint-comparison.md) voor ontwikkel aars.
 
-Dit is een vereenvoudigde aanbeveling voor ontwikkelaars nu:
+Dit is nu een vereenvoudigde aanbeveling voor ontwikkel aars:
 
-* Als u wilt of moet ondersteuning bieden voor persoonlijke Microsoft-accounts in uw toepassing, of u een nieuwe toepassing schrijft, gebruikt u Microsoft identity-platform. Maar voordat u dit doet, zorg ervoor dat de beperkingen die in dit artikel worden besproken.
-* Als u migreert of bijwerken van een toepassing die is gebaseerd op SAML, kunt u Microsoft identity-platform niet gebruiken. In plaats daarvan verwijzen naar de [handleiding voor Azure AD-v1.0](v1-overview.md).
+* Als u persoonlijke micro soft-accounts in uw toepassing wilt of moeten ondersteunen, of als u een nieuwe toepassing schrijft, gebruikt u micro soft Identity platform. Maar voordat u dit doet, moet u de beperkingen begrijpen die in dit artikel worden besproken.
+* Als u een toepassing die afhankelijk is van SAML, migreert of bijwerkt, kunt u micro soft Identity platform niet gebruiken. In plaats daarvan raadpleegt u de [hand leiding voor Azure AD v 1.0](v1-overview.md).
 
-Het eindpunt van de Microsoft identity-platform wordt ontwikkelen om te voorkomen van de beperkingen die hier worden vermeld, zodat u moet altijd maar het eindpunt van de Microsoft identity-platform gebruiken. In de tussentijd Gebruik dit artikel om te bepalen of het eindpunt van de Microsoft identity-platform bij u past. We blijven werken in dit artikel om de huidige status van het eindpunt van de Microsoft identity platform weer te geven. Controleer terug Evalueer uw vereisten op basis van de mogelijkheden van Microsoft identity platform.
+Het micro soft Identity platform-eind punt gaat verder met het elimineren van de beperkingen die hier worden vermeld, zodat u het micro soft Identity platform-eind punt nooit hoeft te gebruiken. In de tussen tijd gebruikt u dit artikel om te bepalen of het micro soft Identity platform-eind punt geschikt is voor u. We blijven dit artikel bijwerken zodat dit overeenkomt met de huidige status van het micro soft Identity platform-eind punt. Ga terug om uw vereisten te evalueren op basis van de mogelijkheden van micro soft Identity platform.
 
 ### <a name="restrictions-on-app-registrations"></a>Beperkingen voor app-registraties
 
-Voor elke app die u wilt integreren met het eindpunt van de Microsoft identity-platform, kunt u de registratie van een app maken in de nieuwe [ **App-registraties** ervaring](https://aka.ms/appregistrations) in Azure portal. Bestaande apps van Microsoft-account zijn niet compatibel met de portal, maar alle Azure AD-apps zijn, ongeacht of het moment waarop ze zijn geregistreerd.
+Voor elke app die u wilt integreren met het micro soft Identity platform-eind punt, kunt u een app-registratie maken in de nieuwe [ **app-registraties** ervaring](https://aka.ms/appregistrations) in de Azure Portal. Bestaande Microsoft-account-apps zijn niet compatibel met de portal, maar alle Azure AD-apps zijn, ongeacht waar of wanneer ze zijn geregistreerd.
 
-App-registraties die ondersteuning bieden voor werk en schoolaccounts en persoonlijke accounts hebben het volgende voorbehoud:
+App-registraties die ondersteuning bieden voor werk-en school accounts en persoonlijke accounts, hebben de volgende voor behoud:
 
-* Twee appgeheimen zijn toegestaan per toepassings-ID.
-* Een toepassing die niet is geregistreerd in een tenant kan alleen worden beheerd door de account die geregistreerd. Het kan niet worden gedeeld met andere ontwikkelaars. Dit is het geval is bij de meeste apps die zijn geregistreerd met behulp van een persoonlijk Microsoft-account in de Portal voor App-registratie. Als u wilt delen van de registratie van uw app met meerdere ontwikkelaars, de toepassing registreren in een tenant met behulp van de nieuwe **App-registraties** sectie van de Azure portal.
-* Er zijn enkele beperkingen op de indeling van de omleidings-URL die is toegestaan. Zie de volgende sectie voor meer informatie over Omleidings-URL.
+* Er zijn slechts twee app-geheimen per toepassings-ID toegestaan.
+* Een toepassing die niet is geregistreerd in een Tenant, kan alleen worden beheerd door het account waarmee het is geregistreerd. Het kan niet worden gedeeld met andere ontwikkel aars. Dit is het geval voor de meeste apps die zijn geregistreerd met behulp van een persoonlijke Microsoft-account in de app registratie-Portal. Als u de registratie van uw app met meerdere ontwikkel aars wilt delen, registreert u de toepassing in een Tenant met behulp van de nieuwe **app-registraties** sectie van de Azure Portal.
+* Er zijn verschillende beperkingen voor de indeling van de omleidings-URL die is toegestaan. Zie de volgende sectie voor meer informatie over omleidings-URL.
 
-### <a name="restrictions-on-redirect-urls"></a>Beperkingen van de omleidings-URL 's
+### <a name="restrictions-on-redirect-urls"></a>Beperkingen voor omleidings-Url's
 
-Apps die zijn geregistreerd voor Microsoft identity-platform zijn beperkt tot een beperkt aantal waarden Omleidings-URL. De omleidings-URL voor web-apps en services met het schema beginnen moet `https`, en alle waarden van de omleidings-URL moeten één DNS-domein delen.  Het registratiesysteem vergelijkt de volledige DNS-naam van de bestaande Omleidings-URL naar de DNS-naam van de omleidings-URL die u wilt toevoegen. `http://localhost` wordt ook ondersteund als een Omleidings-URL.  
+Apps die zijn geregistreerd voor het micro soft-identiteits platform, zijn beperkt tot een beperkt aantal omleidings-URL-waarden. De omleidings-URL voor web-apps en-services `https`moet beginnen met het schema en alle omleidings-URL-waarden moeten één DNS-domein delen.  Het registratie systeem vergelijkt de volledige DNS-naam van de bestaande omleidings-URL naar de DNS-naam van de omleidings-URL die u wilt toevoegen. `http://localhost`wordt ook ondersteund als een omleidings-URL.  
 
 De aanvraag voor het toevoegen van de DNS-naam mislukt als aan een van de volgende voorwaarden wordt voldaan:  
 
-* De volledige DNS-naam van de nieuwe Omleidings-URL komt niet overeen met de DNS-naam van de bestaande Omleidings-URL.
-* De volledige DNS-naam van de nieuwe Omleidings-URL is niet een subdomein van de bestaande Omleidings-URL.
+* De volledige DNS-naam van de nieuwe omleidings-URL komt niet overeen met de DNS-naam van de bestaande omleidings-URL.
+* De volledige DNS-naam van de nieuwe omleidings-URL is geen subdomein van de bestaande omleidings-URL.
 
 #### <a name="example-1"></a>Voorbeeld 1
 
-Als de app een Omleidings-URL van heeft `https://login.contoso.com`, kunt u een Omleidings-URL waar de DNS-naam precies overeen, zoals wordt weergegeven in het volgende voorbeeld toevoegen:
+Als de app een omleidings- `https://login.contoso.com`URL van heeft, kunt u een omleidings-URL toevoegen waarbij de DNS-naam precies overeenkomt, zoals wordt weer gegeven in het volgende voor beeld:
 
 `https://login.contoso.com/new`
 
-Of u kunt verwijzen naar een DNS-subdomein van login.contoso.com, zoals wordt weergegeven in het volgende voorbeeld:
+U kunt ook verwijzen naar een DNS-subdomein van login.contoso.com, zoals wordt weer gegeven in het volgende voor beeld:
 
 `https://new.login.contoso.com`
 
 #### <a name="example-2"></a>Voorbeeld 2
 
-Als u wilt een app hebt die is `login-east.contoso.com` en `login-west.contoso.com` als Omleidings-URL's, moet u de omleidings-URL's in de volgende volgorde toevoegen:
+Als u een app wilt hebben met `login-east.contoso.com` en `login-west.contoso.com` omleidings-url's, moet u deze omleidings-url's in de volgende volg orde toevoegen:
 
 `https://contoso.com`  
 `https://login-east.contoso.com`  
 `https://login-west.contoso.com`  
 
-U kunt de laatste twee toevoegen, omdat ze subdomeinen van de eerste Omleidings-URL, contoso.com.
+U kunt de laatste twee toevoegen omdat deze subdomeinen zijn van de eerste omleidings-URL, contoso.com.
 
-U kunt maximaal 20 antwoord-URL's voor een bepaalde toepassing - deze limiet geldt voor alle app-typen of de registratie (toepassing met één pagina (SPA), native client, web-app en service) ondersteunt.  
+U kunt slechts 20 antwoord-Url's voor een bepaalde toepassing hebben: deze limiet geldt voor alle app-typen die door de registratie worden ondersteund (een toepassing met één pagina, SPA), systeem eigen client, Web-app en service.  
 
-Zie voor meer informatie over het registreren van een app voor gebruik met Microsoft identity-platform, [registreren van een app met behulp van de nieuwe ervaring voor de App-registraties](quickstart-register-app.md).
+Zie [een app registreren met de nieuwe app-registraties-ervaring](quickstart-register-app.md)voor meer informatie over het registreren van een app voor gebruik met micro soft Identity platform.
 
-### <a name="restrictions-on-libraries-and-sdks"></a>Beperkingen voor bibliotheken en SDK 's
+### <a name="restrictions-on-libraries-and-sdks"></a>Beperkingen voor bibliotheken en Sdk's
 
-Ondersteuning voor clientbibliotheek voor het eindpunt van de Microsoft identity-platform is momenteel beperkt. Als u het eindpunt van de Microsoft identity-platform gebruiken in een productietoepassing wilt, hebt u deze opties:
+Momenteel is de ondersteuning van tape wisselaars voor het micro soft Identity platform-eind punt beperkt. Als u het micro soft Identity platform-eind punt in een productie toepassing wilt gebruiken, hebt u de volgende opties:
 
-* Als u een webtoepassing bouwt, kunt u veilig de algemeen beschikbare server-side-middleware voor aanmelden en tokenvalidatie gebruiken. Hieronder vallen de OpenID Connect OWIN-middleware voor ASP.NET en de Node.js Passport-invoegtoepassing. Zie voor voorbeelden van code die gebruikmaken van Microsoft-middleware, de [identiteitsplatform van Microsoft aan de slag](v2-overview.md#getting-started) sectie.
-* Als u een desktop- of mobiele toepassing bouwt nu, kunt u een van de Microsoft Authentication Libraries (MSAL). Deze bibliotheken in het algemeen beschikbaar zijn of in een productie-ondersteunde preview, dus het is veilig om ze te gebruiken in productietoepassingen. U kunt meer lezen over de voorwaarden van de Preview-versie en de beschikbare bibliotheken in [verificatie-bibliotheken verwijzing](reference-v2-libraries.md).
-* Voor platforms die niet wordt gedekt door Microsoft-bibliotheken, kunt u integreren met het eindpunt van de Microsoft identity-platform door rechtstreeks verzenden en ontvangen van protocolberichten in uw toepassingscode. De OpenID Connect en OAuth-protocollen [expliciet worden gedocumenteerd](active-directory-v2-protocols.md) kunt u een dergelijke integreren.
-* Ten slotte kunt u open source-bibliotheken voor OpenID Connect en OAuth om te integreren met het eindpunt van de Microsoft identity-platform. Het eindpunt van de Microsoft identity-platform moet compatibel zijn met veel open-source-protocol bibliotheken zonder wijzigingen. De beschikbaarheid van dit soort bibliotheken varieert per taal en platform. De [OpenID Connect](https://openid.net/connect/) en [OAuth 2.0](https://oauth.net/2/) websites een lijst met populaire implementaties bijhouden. Zie voor meer informatie, [Microsoft identity platform en de verificatie-bibliotheken](reference-v2-libraries.md), en de lijst met open source-clientbibliotheken en voorbeelden die zijn getest met het eindpunt van de Microsoft identity-platform.
-* Voor een verwijzing naar de `.well-known` -eindpunt voor het Microsoft identity-platform-eindpunt voor algemene `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Vervang `common` door uw tenant-ID op specifieke gegevens ophalen in uw tenant.  
+* Als u een webtoepassing bouwt, kunt u veilig de algemeen beschik bare middleware aan de server zijde gebruiken om u aan te melden en de validatie van tokens te valideren. Dit zijn onder andere de OWIN OpenID Connect Connect middleware voor ASP.NET en de node. js Pass Port-invoeg toepassing. Voor code voorbeelden die gebruikmaken van micro soft middleware, zie de sectie [micro soft Identity platform Getting Started](v2-overview.md#getting-started) .
+* Als u een desktop-of mobiele toepassing bouwt, kunt u een van de micro soft-verificatie bibliotheken (MSAL) gebruiken. Deze bibliotheken zijn algemeen beschikbaar of worden ondersteund in een preview-versie, zodat u ze veilig kunt gebruiken in productie toepassingen. U vindt meer informatie over de voor waarden van de preview-versie en de beschik bare bibliotheken in [verificatie bibliotheken](reference-v2-libraries.md).
+* Voor platforms die niet onder micro soft-bibliotheken vallen, kunt u integreren met het micro soft Identity platform-eind punt door rechtstreeks protocol berichten te verzenden en ontvangen in de code van uw toepassing. De OpenID Connect Connect-en OAuth-protocollen [zijn expliciet gedocumenteerd](active-directory-v2-protocols.md) om u een dergelijke integratie te bieden.
+* Ten slotte kunt u open-source OpenID Connect Connect en OAuth-bibliotheken gebruiken om te integreren met het micro soft Identity platform-eind punt. Het micro soft Identity platform-eind punt moet compatibel zijn met veel open-source protocol bibliotheken zonder wijzigingen. De beschik baarheid van dit soort bibliotheken is afhankelijk van de taal en het platform. De [OpenID Connect Connect](https://openid.net/connect/) -en [OAuth 2,0](https://oauth.net/2/) -websites onderhouden een lijst met populaire implementaties. Zie voor meer informatie [micro soft Identity-platform en verificatie bibliotheken](reference-v2-libraries.md)en de lijst met open source-client bibliotheken en-voor beelden die zijn getest met het micro soft Identity platform-eind punt.
+* Ter referentie: het `.well-known` eind punt voor het micro soft Identity platform common `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`-eind punt is. Vervang `common` door uw Tenant-id om gegevens op te halen die specifiek zijn voor uw Tenant.  
 
 ### <a name="protocol-changes"></a>Protocol wijzigingen
 
-Het eindpunt van de Microsoft identity-platform biedt geen ondersteuning voor SAML of WS-Federation; het ondersteunt alleen OpenID Connect en OAuth 2.0.  De opvallende wijzigingen in de OAuth 2.0-protocollen van het eindpunt v1.0 zijn: 
+Het micro soft Identity platform-eind punt biedt geen ondersteuning voor SAML of WS-Federation. OpenID Connect Connect en OAuth 2,0 worden alleen ondersteund.  De belangrijkste wijzigingen in de OAuth 2,0-protocollen van het eind punt van de v 1.0 zijn: 
 
-* De `email` claim wordt geretourneerd als een optionele claim is geconfigureerd **of** bereik = e-mailbericht is opgegeven in de aanvraag. 
-* De `scope` parameter wordt nu ondersteund in plaats van de `resource` parameter.  
-* Veel antwoorden zijn gewijzigd zodat ze meer compatibel zijn met het OAuth 2.0-specificatie, bijvoorbeeld correct retourneren `expires_in` als een geheel getal in plaats van een tekenreeks.  
+* De `email` claim wordt geretourneerd als een optionele claim is geconfigureerd **of** Scope = e-mail is opgegeven in de aanvraag. 
+* De `scope` para meter wordt nu ondersteund in plaats van `resource` de para meter.  
+* Veel reacties zijn gewijzigd om ze beter te laten voldoen aan de OAuth 2,0-specificatie, bijvoorbeeld correct retourneert `expires_in` als een int in plaats van een teken reeks.  
 
-Zie voor meer informatie over het bereik van protocol-functionaliteit in het eindpunt van de Microsoft identity-platform wordt ondersteund, [OpenID Connect en OAuth 2.0-protocol verwijzing](active-directory-v2-protocols.md).
+Zie [OpenID Connect Connect and OAuth 2,0 protocol Reference](active-directory-v2-protocols.md)(Engelstalig) voor meer informatie over het bereik van de protocol functionaliteit die wordt ondersteund in het micro soft Identity platform-eind punt.
 
 #### <a name="saml-restrictions"></a>SAML-beperkingen
 
-Als u Active Directory Authentication Library (ADAL) in Windows-toepassingen hebt gebruikt, hebt u mogelijk gebruikmaken van geïntegreerde Windows-verificatie, dat gebruikmaakt van de Security Assertion Markup Language (SAML) verklaring toekenning geleid. Met deze machtiging federatieve gebruikers van Azure AD tenants kunnen op de achtergrond verifiëren met hun on-premises Active Directory-exemplaar zonder referenties in te voeren. De SAML-verklaring toekenning wordt niet ondersteund op het eindpunt van de Microsoft identity-platform.
+Als u Active Directory Authentication Library (ADAL) in Windows-toepassingen hebt gebruikt, hebt u mogelijk geprofiteerd van geïntegreerde Windows-authenticatie, die gebruikmaakt van de toekenning van de Security Assertion Markup Language (SAML). Met deze toekenning kunnen gebruikers van federatieve Azure AD-tenants zich op de achtergrond verifiëren met hun lokale Active Directory exemplaar zonder referenties in te voeren. De toekenning van SAML-verklaringen wordt niet ondersteund op het micro soft Identity platform-eind punt.

@@ -8,14 +8,14 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 07/31/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4c60cb78c01d7e18801cbe43c8b767f622ef4b39
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3a504fe4475cee8e2949ee121c632b792f349758
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68473096"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694290"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Verwerking van geolocatie en IP-adres
 
@@ -83,8 +83,8 @@ Als u het gedrag voor een enkele Application Insights resource alleen hoeft te w
 
     ![In de scherm afbeelding wordt een komma toegevoegd na ' IbizaAIExtension ' en een nieuwe regel toegevoegd onder ' DisableIpMasking ': True](media/ip-collection/save.png)
 
-    > [!NOTE]
-    > Als er een fout optreedt met de volgende tekst: _De resource groep bevindt zich op een locatie die niet wordt ondersteund door een of meer resources in de sjabloon. Kies een andere resource groep._ Selecteer tijdelijk een andere resource groep in de vervolg keuzelijst en selecteer vervolgens de oorspronkelijke resource groep om de fout op te lossen.
+    > [!WARNING]
+    > Als er een fout optreedt met de volgende tekst: **_De resource groep bevindt zich op een locatie die niet wordt ondersteund door een of meer resources in de sjabloon. Kies een andere resource groep._** Selecteer tijdelijk een andere resource groep in de vervolg keuzelijst en selecteer vervolgens de oorspronkelijke resource groep om de fout op te lossen.
 
 5. Selecteer **Ik ga akkoord** > met**aankopen**. 
 
@@ -92,7 +92,7 @@ Als u het gedrag voor een enkele Application Insights resource alleen hoeft te w
 
     In dit geval wordt er niets nieuw gekocht, maar wordt alleen de configuratie van de bestaande Application Insights resource bijgewerkt.
 
-6. Zodra de implementatie is voltooid, worden de nieuwe telemetriegegevens opgenomen met de eerste drie octetten die zijn gevuld met het IP-adres en het laatste octet van nul.
+6. Zodra de implementatie is voltooid, worden er nieuwe telemetriegegevens opgenomen met de eerste drie octetten die zijn gevuld met het IP-adres en het laatste octet van nul.
 
     Als u een sjabloon opnieuw wilt selecteren en bewerken, zou u alleen de standaard sjabloon zien en de zojuist toegevoegde eigenschap en de bijbehorende waarde niet zien. Als u geen IP-adres gegevens ziet en wilt bevestigen dat `"DisableIpMasking": true` deze is ingesteld. Voer de volgende Power shell uit: (Vervang `Fabrikam-dev` door de naam van de juiste resource en resource groep.)
     
@@ -130,10 +130,11 @@ Content-Length: 54
 
 Als u het volledige IP-adres moet vastleggen in plaats van alleen de eerste drie octetten, kunt u een [initialisatie functie](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) voor telemetrie gebruiken om het IP-adres te kopiëren naar een aangepast veld dat niet wordt gemaskeerd.
 
-### <a name="aspnetaspnet-core"></a>ASP.NET/ASP.NET-kern
+### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 
 namespace MyWebApp
@@ -142,15 +143,20 @@ namespace MyWebApp
     {
         public void Initialize(ITelemetry telemetry)
         {
-            if(!string.IsNullOrEmpty(telemetry.Context.Location.Ip))
+            ISupportProperties propTelemetry = telemetry as ISupportProperties;
+
+            if (propTelemetry !=null && !propTelemetry.Properties.ContainsKey("client-ip"))
             {
-                telemetry.Context.Properties["client-ip"] = telemetry.Context.Location.Ip;
+                string clientIPValue = telemetry.Context.Location.Ip;
+                propTelemetry.Properties.Add("client-ip", clientIPValue);
             }
         }
-    }
-
+    } 
 }
 ```
+
+> [!NOTE]
+> Als u geen toegang hebt tot `ISupportProperties`, controleert u of u de laatste stabiele versie van de Application Insights SDK uitvoert. `ISupportProperties`zijn bedoeld voor hoge kardinaliteit waarden, maar `GlobalProperties` zijn geschikter voor lage kardinaliteit waarden, zoals regio naam, omgevings naam, enzovoort. 
 
 ### <a name="enable-telemetry-initializer-for-aspnet"></a>Schakel de initialisatie functie voor telemetrie in voor. ASP.NET
 

@@ -1,27 +1,27 @@
 ---
-title: Uw organisatie - Azure Active Directory registreren | Microsoft Docs
+title: Uw organisatie registreren-Azure Active Directory | Microsoft Docs
 description: Instructies over het registreren van uw organisatie het gebruik van Azure en Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bec4385b77ce44e87ed1f947a5a7a3e3d0d52fc6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb306e1ecbbdf2142d88b837b9750bbd2166cfda
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60246904"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561616"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Uw organisatie aanmelden bij Azure Active Directory gebruiken
-Meld u aan voor Azure Active Directory (Azure AD) of een nieuw Microsoft Azure-abonnement, met behulp van:
+Meld u aan voor Azure Active Directory (Azure AD) of een nieuw Microsoft Azure-abonnement met behulp van:
 
 - **Microsoft-account.** Gebruik uw persoonlijke Microsoft-account voor het ophalen van de toegang tot Azure en alle consumenten gerichte Microsoft-producten en cloudservices, zoals Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE of Office 365. Automatisch aanmelden voor een Outlook.com-postvak, maakt een Microsoft-account. Zie voor meer informatie, [overzicht van Microsoft-account](https://account.microsoft.com/account).
 

@@ -1,7 +1,7 @@
 ---
-title: Project-URL-voorbeeld-eindpunt
+title: Voor beeld-eind punt project-URL
 titlesuffix: Azure Cognitive Services
-description: Samenvatting van het eindpunt van de URL-voorbeeld.
+description: Samen vatting van het URL-preview-eind punt.
 services: cognitive-services
 author: mikedodaro
 manager: nitinme
@@ -10,19 +10,20 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 43254db734a48f3e7aaa5a26a7fbf3981c9e9d87
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3ef5ebd4ec88deac8c49430f36956d3711c8c535
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592872"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706939"
 ---
-# <a name="project-url-preview-endpoint"></a>Project-URL-voorbeeld-eindpunt
+# <a name="project-url-preview-endpoint"></a>Voor beeld-eind punt project-URL
 
-De API van de voorbeeld-URL bevat één eindpunt.
+De URL-preview-API bevat één eind punt.
 
 ## <a name="endpoint"></a>Eindpunt
-Als u een URL-voorbeeld, een aanvraag te verzenden naar het volgende eindpunt. De URL-parameters en headers gebruiken voor andere specificaties.
+Als u een URL-voor beeld wilt ophalen, verzendt u een aanvraag naar het volgende eind punt. Gebruik de para meters headers en URL voor andere specificaties.
 
 GET:
 ```
@@ -31,14 +32,14 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 ```
 
 ### <a name="query-parameters"></a>Queryparameters
-|Name|Value|Type|Vereist|  
+|Name|Waarde|type|Vereist|  
 |----------|-----------|----------|--------------|  
-|q|URL om een voorbeeld van|String |Ja|
-|veilig zoeken|Ongeldige inhoud voor volwassenen, of illegale inhoud, is geblokkeerd met foutcode 400, en de *isFamilyFriendly* vlag wordt niet geretourneerd. <p>Voor juridische inhoud voor volwassenen, ziet hieronder u het gedrag. Statuscode 200 wordt geretourneerd en de *isFamilyFriendly* vlag is ingesteld op false.<ul><li>safeSearch=strict: Titel, beschrijving, URL en afbeelding wordt niet geretourneerd.</li><li>veilig zoeken = gemiddeld; Titel, URL en beschrijving, maar niet de beschrijvende afbeelding ophalen</li><li>veilig zoeken = uit; Krijg alle antwoord objecten/elementen: titel, URL, beschrijving en afbeelding.</li></ul> |String|Niet vereist. </br> Standaard ingesteld op safeSearch = strikte.| 
+|q|URL voor preview|Reeks |Ja|
+|safeSearch|Illegale inhoud voor volwassenen, of illegale inhoud, is geblokkeerd met fout code 400 en de vlag *isFamilyFriendly* wordt niet geretourneerd. <p>Voor juridische inhoud voor volwassenen is hieronder het gedrag. De status code retourneert 200 en de vlag *isFamilyFriendly* is ingesteld op false.<ul><li>safeSearch = strict: Titel, beschrijving, URL en afbeelding worden niet geretourneerd.</li><li>safeSearch = gemiddeld; Titel, URL en beschrijving ophalen, maar niet de beschrijvende afbeelding.</li><li>safeSearch = uit; Alle antwoord objecten/elementen – titel, URL, beschrijving en afbeelding ophalen.</li></ul> |Tekenreeks|Niet vereist. </br> De standaard waarde is safeSearch = strict.| 
 
 ## <a name="response-object"></a>Responsobject
 
-Het antwoord bevat HTTP-headers en webpagina-object met de kenmerken, zoals wordt weergegeven in het volgende voorbeeld: `name`, `url`, `description`, `isFamilyFriendly`, en `primaryImageOfPage`.
+Het antwoord bevat HTTP-headers en een webpagina-object met kenmerken, zoals wordt weer `name`gegeven in `description`het `isFamilyFriendly`volgende voor `primaryImageOfPage`beeld:, `url`,, en.
 
 ```
 BingAPIs-TraceId: 15AFE52A97AA422F960433A94803F6CE

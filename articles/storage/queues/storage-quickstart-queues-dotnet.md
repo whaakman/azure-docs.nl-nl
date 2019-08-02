@@ -1,20 +1,19 @@
 ---
 title: 'Quickstart: .NET gebruiken om een wachtrij te creëren in Azure Storage'
 description: In deze quickstart leert u hoe u de Azure Storage-clientbibliotheek voor .NET kunt gebruiken om een wachtrij te maken en er berichten aan toe te voegen. Vervolgens leert u hoe u berichten uit de wachtrij kunt lezen en verwerken.
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 02/06/2018
 ms.author: mhopkins
+ms.date: 02/06/2018
+ms.service: storage
+ms.subservice: queues
+ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.openlocfilehash: c3743c62dcbdccc2a119cfec570df96c622390c7
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: d3706f8585c2644a31bf1f418f5425e0fa58d2a0
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540317"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721261"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Quickstart: .NET gebruiken om een wachtrij te creëren in Azure Storage
 
@@ -187,9 +186,9 @@ Console.WriteLine();
 
 Vervolgens voegt het voorbeeld een bericht achteraan de wachtrij toe. 
 
-Een bericht moet in een formaat zijn dat kan worden opgenomen in een XML-aanvraag met UTF-8-codering, en mag maximaal 64 KB groot zijn. Als een bericht bevat de binaire gegevens, raden wij aan dat u met Base64 coderen het bericht.
+Een bericht moet in een formaat zijn dat kan worden opgenomen in een XML-aanvraag met UTF-8-codering, en mag maximaal 64 KB groot zijn. Als een bericht binaire gegevens bevat, is het raadzaam om het bericht met base64 te coderen.
 
-Standaard is de maximale time-to-live voor een bericht ingesteld op 7 dagen. U kunt een positief getal voor de time-to-live bericht opgeven.
+Standaard is de maximale time-to-live voor een bericht ingesteld op 7 dagen. U kunt elk wille keurig positief getal voor de time-to-Live-bericht opgeven.
 
 ```csharp
 // Create a message and add it to the queue. Set expiration time to 14 days.
@@ -201,7 +200,7 @@ Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToStrin
 Console.WriteLine();
 ```
 
-U kunt een bericht dat niet verloopt toevoegen met `Timespan.FromSeconds(-1)` in de aanroep van [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+Gebruik `Timespan.FromSeconds(-1)` in de aanroep van [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync)om een bericht toe te voegen dat niet verloopt.
 
 ```csharp
 await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
@@ -263,8 +262,8 @@ Zie de volgende aanvullende bronnen voor .NET-ontwikkeling met Azure-wachtrijen:
 
 ### <a name="binaries-and-source-code"></a>Binaire bestanden en broncode
 
-- Download het NuGet-pakketten voor de meest recente versie van de [Azure Storage-clientbibliotheek voor .NET](/dotnet/api/overview/azure/storage/client)
-    - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+- Down load de NuGet-pakketten voor de nieuwste versie van de [Azure Storage-client bibliotheek voor .net](/dotnet/api/overview/azure/storage/client)
+    - [Algemene](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
     - [wachtrijen](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Bekijk de [broncode van de .NET-clientbibliotheek](https://github.com/Azure/azure-storage-net) op GitHub.
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Backup gebruiken om back-ups van SQL Server data bases te herstellen op een Azure-VM | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u SQL Server-data bases herstelt die worden uitgevoerd op een virtuele Azure-machine en waarvan een back-up is gemaakt met Azure Backup.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: raynew
-ms.openlocfilehash: f6bd9ea70a3334fbf3843a6b5d44d10a929e20ae
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 71867e520d9c98b4af4d4f18f3d08c9e8cc4a8c4
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467203"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639546"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>SQL Server data bases herstellen op virtuele Azure-machines
 

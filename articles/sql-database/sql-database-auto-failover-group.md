@@ -10,21 +10,20 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: bd68909f51ff6cead8484ae4ab9f2557e9d6554e
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 5d79edc4db07a2c5916725efc312d9f94fe985dc
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443325"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640102"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Gebruik groepen voor automatische failover om transparante en gecoördineerde failover van meerdere data bases mogelijk te maken
 
 Groepen voor automatische failover is een SQL Database functie waarmee u replicatie en failover kunt beheren van een groep data bases op een SQL Database-Server of voor alle data bases in een beheerd exemplaar naar een andere regio. Het is een declaratieve abstractie boven op de bestaande [actieve geo-replicatie](sql-database-active-geo-replication.md) functie, ontworpen om de implementatie en het beheer van geo-gerepliceerde data bases op schaal te vereenvoudigen. U kunt failover hand matig initiëren of u kunt deze overdragen aan de SQL Database-service op basis van een door de gebruiker gedefinieerd beleid. Met deze laatste optie kunt u automatisch meerdere gerelateerde data bases in een secundaire regio herstellen na een onherstelbare fout of een andere niet-geplande gebeurtenis waardoor het volledige of gedeeltelijke verlies van de beschik baarheid van de SQL Database-Service in de primaire regio wordt veroorzaakt. Een failover-groep kan een of meer data bases bevatten, die meestal worden gebruikt door dezelfde toepassing. Daarnaast kunt u de Lees bare secundaire data bases gebruiken om werk belastingen met alleen-lezen query's te offloaden. Omdat voor groepen voor automatische failover meerdere data bases zijn vereist, moeten deze data bases worden geconfigureerd op de primaire server. De primaire en secundaire servers voor de data bases in de failovergroep moeten zich in hetzelfde abonnement bevinden. Automatische failover-groepen ondersteunen replicatie van alle data bases in de groep naar slechts één secundaire server in een andere regio.
 
 > [!NOTE]
-> Wanneer u werkt met één of gegroepeerde Data bases op een SQL Database Server en u meerdere secundaire zones in dezelfde of verschillende regio's wilt, gebruikt u [actieve geo-replicatie](sql-database-active-geo-replication.md).
+> Wanneer u werkt met één of gegroepeerde Data bases op een SQL Database Server en u meerdere secundaire zones in dezelfde of verschillende regio's wilt, gebruikt u [actieve geo-replicatie](sql-database-active-geo-replication.md). 
 
 Als u gebruikmaakt van groepen voor automatische failover met automatische failoverbeleid, wordt een storing die van invloed is op een of meer van de data bases in de groep, in automatische failover veroorzaakt. Daarnaast bieden automatische-failover-groepen alleen-lezen-en alleen-lezen listener-eind punten die ongewijzigd blijven tijdens failovers. Ongeacht of u hand matige of automatische failover hebt geactiveerd, schakelt failover alle secundaire data bases in de groep over naar primair. Nadat de data base-failover is voltooid, wordt de DNS-record automatisch bijgewerkt om de eind punten om te leiden naar de nieuwe regio. Zie [overzicht van bedrijfs continuïteit](sql-database-business-continuity.md)voor de specifieke RPO-en RTO-gegevens.
 
@@ -256,14 +255,14 @@ De bovenstaande configuratie zorgt ervoor dat de automatische failover geen verb
 
 ## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Geo-replicatie tussen beheerde instanties en hun VNets inschakelen
 
-Wanneer u een failovergroep instelt tussen de primaire en secundaire beheerde instanties in twee verschillende regio's, wordt elk exemplaar geïsoleerd met een onafhankelijk VNet. Als u replicatie verkeer tussen deze VNets wilt toestaan, moet u ervoor zorgen dat aan deze vereisten wordt voldaan:
+Wanneer u een failovergroep instelt tussen de primaire en secundaire beheerde instanties in twee verschillende regio's, wordt elk exemplaar geïsoleerd met behulp van een onafhankelijk virtueel netwerk. Als u replicatie verkeer tussen deze VNets wilt toestaan, moet u ervoor zorgen dat aan deze vereisten wordt voldaan:
 
 1. De twee beheerde exemplaren moeten zich in verschillende Azure-regio's bevindt.
-2. Uw secundaire moet leeg zijn (geen gebruikers databases).
-3. De primaire en secundaire beheerde exemplaren moeten zich in dezelfde resource groep bevindt.
-4. De VNets waarvan de beheerde instanties deel uitmaken, moeten worden verbonden via een [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Globale VNet-peering wordt niet ondersteund.
-5. De twee VNets van het beheerde exemplaar kunnen geen overlappende IP-adressen hebben.
-6. U moet uw netwerk beveiligings groepen (NSG) zodanig instellen dat de poorten 5022 en het bereik 11000 ~ 12000 zijn geopend als inkomend en uitgaand voor verbindingen van het andere beheerde subnet. Dit is om replicatie verkeer tussen de instanties toe te staan
+1. De twee beheerde exemplaren moeten dezelfde servicelaag hebben en dezelfde opslag grootte hebben. 
+1. Uw secundaire beheerde exemplaar moet leeg zijn (geen gebruikers databases).
+1. De virtuele netwerken die worden gebruikt door de beheerde instanties moeten worden verbonden via een [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) of Express route. Wanneer twee virtuele netwerken verbinding maken via een on-premises netwerk, zorg er dan voor dat er geen firewall regel is die poorten 5022 en 11000-11999 blokkeert. Globale VNet-peering wordt niet ondersteund.
+1. De twee VNets van het beheerde exemplaar kunnen geen overlappende IP-adressen hebben.
+1. U moet uw netwerk beveiligings groepen (NSG) zodanig instellen dat de poorten 5022 en het bereik 11000 ~ 12000 zijn geopend als inkomend en uitgaand voor verbindingen van het andere beheerde subnet. Dit is om replicatie verkeer tussen de instanties toe te staan
 
    > [!IMPORTANT]
    > Onjuist geconfigureerde NSG-beveiligings regels leiden tot vastgelopen database Kopieer bewerkingen.
@@ -369,9 +368,9 @@ Zoals eerder besproken, kunnen automatische failover-groepen en actieve geo-repl
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor voorbeeld scripts:
-  - [PowerShell gebruiken voor het configureren van actieve geo-replicatie voor één Azure SQL-database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [PowerShell gebruiken voor het configureren van actieve geo-replicatie voor een Azure SQL-pooldatabase](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-  - [Een failovergroep configureren en een failover uitvoeren voor een individuele database](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
+  - [Power shell gebruiken voor het configureren van actieve geo-replicatie voor één data base in Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+  - [Power shell gebruiken voor het configureren van actieve geo-replicatie voor een gegroepeerde Data base in Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+  - [Power shell gebruiken om een Azure SQL Database afzonderlijke data base toe te voegen aan een failovergroep](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - Zie [overzicht van bedrijfs continuïteit](sql-database-business-continuity.md) voor een overzicht en scenario's voor bedrijfs continuïteit
 - Zie [SQL database automatische back-ups](sql-database-automated-backups.md)voor meer informatie over Azure SQL database automatische back-ups.
 - Zie [een Data Base herstellen vanuit de door de service geïnitieerde back-ups](sql-database-recovery-using-backups.md)voor meer informatie over het gebruik van automatische back-ups voor herstel.

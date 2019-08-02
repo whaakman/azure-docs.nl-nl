@@ -9,25 +9,27 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 7d216a3706c13a5fff312850e244a521ab22ae9e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9e62dd25c3ff16e280eda1ad11053ef520a85e4d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386536"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706529"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Azure Resource Manager sjablonen maken voor het automatiseren van de implementatie voor Azure Logic Apps
 
 In dit artikel worden de manieren beschreven waarop u een [Azure Resource Manager sjabloon](../azure-resource-manager/resource-group-overview.md) voor uw logische app kunt maken om het maken en implementeren van uw logische app te automatiseren. Zie [overzicht: voor een overzicht van de structuur en syntaxis voor een sjabloon die uw werk stroom definitie bevat en andere resources die nodig zijn voor implementatie. Implementatie voor Logic apps automatiseren met Azure Resource Manager sjablonen](logic-apps-azure-resource-manager-templates-overview.md).
 
-Azure Logic Apps biedt een [vooraf gemaakte Logic apps Azure Resource Manager sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) die u opnieuw kunt gebruiken, niet alleen voor het maken van logische apps, maar ook voor het definiëren van de resources en para meters die moeten worden gebruikt voor de implementatie. U kunt deze sjabloon gebruiken voor uw eigen bedrijfs scenario's of de sjabloon aanpassen aan uw vereisten. Zie de volgende onderwerpen voor meer informatie over Azure Resource Manager sjablonen:
+Azure Logic Apps biedt een [vooraf gemaakte logische app Azure Resource Manager sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) die u opnieuw kunt gebruiken, niet alleen voor het maken van logische apps, maar ook voor het definiëren van de resources en para meters die moeten worden gebruikt voor de implementatie. U kunt deze sjabloon gebruiken voor uw eigen bedrijfs scenario's of de sjabloon aanpassen aan uw vereisten.
+
+> [!IMPORTANT]
+> Zorg ervoor dat de verbindingen in uw sjabloon gebruikmaken van dezelfde Azure-resource groep en-locatie als uw logische app.
+
+Zie de volgende onderwerpen voor meer informatie over Azure Resource Manager sjablonen:
 
 * [Structuur en syntaxis van Azure Resource Manager sjabloon](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Azure Resource Manager sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Azure Resource Manager-sjablonen voor consistentie van de cloud ontwikkelen](../azure-resource-manager/templates-cloud-consistency.md)
-
-> [!IMPORTANT]
-> Verbindingen in uw sjabloon moeten dezelfde Azure-resource groep en-locatie gebruiken als uw logische app.
 
 <a name="visual-studio"></a>
 
@@ -47,6 +49,13 @@ Door uw logische app te downloaden, krijgt u een sjabloon die de definities voor
 U kunt Resource Manager-sjablonen maken met behulp van Azure PowerShell met de [module LogicAppTemplate](https://github.com/jeffhollan/LogicAppTemplateCreator). Deze open-source module evalueert eerst uw logische app en alle verbindingen die de logische app gebruikt. De module genereert vervolgens sjabloon resources met de vereiste para meters voor implementatie.
 
 Stel bijvoorbeeld dat u een logische app hebt die een bericht ontvangt van een Azure Service Bus wachtrij en gegevens uploadt naar een Azure-SQL database. De module behoudt alle Orchestration Logic en parameterizes de verbindings reeksen SQL en Service Bus, zodat u deze waarden kunt opgeven en wijzigen op basis van uw implementatie behoeften.
+
+Deze voor beelden laten zien hoe u logische apps maakt en implementeert met behulp van Azure Resource Manager sjablonen, Azure-pijp lijnen in azure DevOps en Azure PowerShell:
+
+* [Voorbeeld: Verbinding maken met Azure Service Bus wachtrijen vanuit Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Voorbeeld: Verbinding maken met Azure Storage accounts vanuit Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Voorbeeld: Een actie voor een functie-app instellen voor Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Voorbeeld: Verbinding maken met een integratie account vanuit Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 ### <a name="install-powershell-modules"></a>Power shell-modules installeren
 

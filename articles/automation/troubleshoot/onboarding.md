@@ -1,6 +1,6 @@
 ---
-title: Oplossen van fouten onboarding updatebeheer, wijzigingen bijhouden en inventaris
-description: Meer informatie over het oplossen van fouten met de updatebeheer, wijzigingen bijhouden en inventaris oplossingen onboarding
+title: Problemen oplossen met onboarding van Updatebeheer, Wijzigingen bijhouden en inventaris
+description: Meer informatie over het oplossen van fouten met onboarding met de oplossingen voor Updatebeheer, Wijzigingen bijhouden en inventaris
 services: automation
 author: bobbytreed
 ms.author: robreed
@@ -8,24 +8,55 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 3687a2fdcba9c2078bbbd9344089b5a22467682c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8b4ee999bb23abdcea3411720bde244b2da4e89f
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477483"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516401"
 ---
-# <a name="troubleshoot-errors-when-onboarding-solutions"></a>Problemen oplossen bij het onboarding-oplossingen
+# <a name="troubleshoot-errors-when-onboarding-solutions"></a>Problemen oplossen bij het voorbereiden van oplossingen
 
-Fouten kunnen optreden tijdens het onboarding-oplossingen zoals updatebeheer of wijzigingen bijhouden en inventaris. In dit artikel beschrijft de verschillende fouten die optreden en hoe ze op te lossen.
+Er kunnen fouten optreden bij het voorbereiden van oplossingen zoals Updatebeheer of Wijzigingen bijhouden en de inventaris. In dit artikel worden de verschillende fouten beschreven die zich kunnen voordoen en hoe u deze kunt oplossen.
 
-## <a name="general-errors"></a>Algemene fouten
+## <a name="known-issues"></a>Bekende problemen
 
-### <a name="missing-write-permissions"></a>Scenario: Onboarding is mislukt met het bericht: de oplossing kan niet worden ingeschakeld
+### <a name="node-rename"></a>Omstandigheden Voor het wijzigen van de naam van een geregistreerd knoop punt moet u de registratie/registratie opnieuw uitvoeren
 
 #### <a name="issue"></a>Probleem
 
-U ontvangen een van de volgende berichten wanneer u te onboarden een virtuele machine naar een oplossing probeert:
+Een knoop punt is geregistreerd bij Azure Automation en vervolgens wordt de naam van het besturings systeem gewijzigd.  Rapporten van het knoop punt worden nog steeds weer gegeven met de oorspronkelijke naam.
+
+#### <a name="cause"></a>Oorzaak
+
+Bij het wijzigen van de naam van geregistreerde knoop punten wordt de knooppunt naam in Azure Automation niet bijgewerkt.
+
+#### <a name="resolution"></a>Oplossing
+
+Hef de registratie van het knoop punt uit de configuratie van Azure Automation status op en registreer dit vervolgens opnieuw.  Rapporten die worden gepubliceerd naar de service vóór dat moment, zijn niet meer beschikbaar.
+
+
+### <a name="resigning-cert"></a>Omstandigheden Het opnieuw ondertekenen van certificaten via een HTTPS-proxy wordt niet ondersteund
+
+#### <a name="issue"></a>Probleem
+
+Klanten hebben gerapporteerd dat bij het maken van verbinding via een proxy-oplossing die HTTPS-verkeer beëindigt en vervolgens verkeer opnieuw versleutelt met een nieuw certificaat, de service de verbinding niet toestaat.
+
+#### <a name="cause"></a>Oorzaak
+
+Azure Automation biedt geen ondersteuning voor het opnieuw ondertekenen van certificaten die worden gebruikt voor het versleutelen van verkeer.
+
+#### <a name="resolution"></a>Oplossing
+
+Er is geen oplossing voor dit probleem.
+
+## <a name="general-errors"></a>Algemene fouten
+
+### <a name="missing-write-permissions"></a>Omstandigheden Onboarding mislukt met het bericht-de oplossing kan niet worden ingeschakeld
+
+#### <a name="issue"></a>Probleem
+
+U ontvangt een van de volgende berichten wanneer u probeert een virtuele machine op een oplossing uit te voeren:
 
 ```error
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
@@ -37,17 +68,17 @@ The solution cannot be enabled on this VM because the permission to read the wor
 
 #### <a name="cause"></a>Oorzaak
 
-Deze fout wordt veroorzaakt door onjuiste of ontbrekende machtigingen op de virtuele machine, de werkruimte, of voor de gebruiker.
+Deze fout wordt veroorzaakt door onjuiste of ontbrekende machtigingen voor de virtuele machine, de werk ruimte of de gebruiker.
 
 #### <a name="resolution"></a>Oplossing
 
-Zorg ervoor dat u hebt juiste machtigingen voor de Onboarding van de virtuele machine. Controleer de [machtigingen die nodig zijn voor Onboarding van machines](../automation-role-based-access-control.md#onboarding) en probeer zorgen voor onboarding de oplossing voor het opnieuw. Als u de foutmelding `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, zorg ervoor dat u hebt de `Microsoft.OperationalInsights/workspaces/read` toestemming om te kunnen vinden als de virtuele machine toegevoegd aan een werkruimte is.
+Zorg ervoor dat u over de juiste machtigingen beschikt om de virtuele machine onboarding te kunnen uitvoeren. Bekijk de [machtigingen die nodig zijn voor](../automation-role-based-access-control.md#onboarding) het onboarden van machines en probeer het opnieuw. Als u het fout `The solution cannot be enabled on this VM because the permission to read the workspace is missing`bericht ontvangt, moet u ervoor zorgen dat u `Microsoft.OperationalInsights/workspaces/read` gemachtigd bent om te kunnen vinden of de virtuele machine onboarded is voor een werk ruimte.
 
-### <a name="diagnostic-logging"></a>Scenario: Onboarding is mislukt met het bericht - Automation-Account configureren voor registratie in diagnoselogboek is mislukt
+### <a name="diagnostic-logging"></a>Omstandigheden Onboarding mislukt met het bericht-het configureren van het Automation-account voor diagnostische logboek registratie is mislukt
 
 #### <a name="issue"></a>Probleem
 
-U ontvangt het volgende bericht wanneer u te onboarden een virtuele machine naar een oplossing probeert:
+Het volgende bericht wordt weer gegeven wanneer u probeert een virtuele machine op een oplossing uit te voeren:
 
 ```error
 Failed to configure automation account for diagnostic logging
@@ -55,53 +86,53 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>Oorzaak
 
-Deze fout kan worden veroorzaakt als de prijscategorie komt niet overeen met het factureringsmodel van het abonnement. Zie voor meer informatie, [gebruik en geschatte kosten in Azure Monitor bewaken](https://aka.ms/PricingTierWarning).
+Deze fout kan optreden als de prijs categorie niet overeenkomt met het facturerings model van het abonnement. Zie [verbruik en geschatte kosten in azure monitor bewaken](https://aka.ms/PricingTierWarning)voor meer informatie.
 
 #### <a name="resolution"></a>Oplossing
 
-Handmatig maken van uw Log Analytics-werkruimte en herhaal het onboarding-proces om te selecteren van de werkruimte hebt gemaakt.
+Maak uw Log Analytics-werk ruimte hand matig en herhaal het voorbereidings proces om de werk ruimte te selecteren die u hebt gemaakt.
 
-### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
+### <a name="computer-group-query-format-error"></a>Omstandigheden ComputerGroupQueryFormatError
 
 #### <a name="issue"></a>Probleem
 
-Deze foutcode betekent dat de opgeslagen zoekopdracht computer groepsquery gebruikt om u te richten op de oplossing is niet juist opgemaakt. 
+Deze fout code geeft aan dat de query voor de opgeslagen Zoek computer groep die is gebruikt om de oplossing te richten, niet op de juiste wijze is ingedeeld. 
 
 #### <a name="cause"></a>Oorzaak
 
-U hebt de query gewijzigd, of door het systeem zijn gewijzigd.
+Mogelijk hebt u de query gewijzigd of is deze door het systeem gewijzigd.
 
 #### <a name="resolution"></a>Oplossing
 
-U kunt de query voor deze oplossing en de oplossing, wordt de query reonboard verwijderen. De query worden gevonden in uw werkruimte onder **opgeslagen zoekopdrachten**. De naam van de query is **MicrosoftDefaultComputerGroup**, en de categorie van de query is de naam van de oplossing die is gekoppeld aan deze query. Als meerdere oplossingen zijn ingeschakeld, de **MicrosoftDefaultComputerGroup** meerdere keren weergegeven onder **opgeslagen zoekopdrachten**.
+U kunt de query voor deze oplossing verwijderen en de oplossing onboarden, waardoor de query opnieuw wordt gemaakt. De query kan worden gevonden in uw werk ruimte, onder **opgeslagen Zoek opdrachten**. De naam van de query is **MicrosoftDefaultComputerGroup**en de categorie van de query is de naam van de oplossing die is gekoppeld aan deze query. Als er meerdere oplossingen zijn ingeschakeld, wordt in de **MicrosoftDefaultComputerGroup** meerdere keren weer gegeven onder **opgeslagen Zoek opdrachten**.
 
-### <a name="policy-violation"></a>Scenario: PolicyViolation
+### <a name="policy-violation"></a>Omstandigheden PolicyViolation
 
 #### <a name="issue"></a>Probleem
 
-Deze foutcode betekent dat de implementatie is mislukt vanwege schending van een of meer beleidsregels.
+Deze fout code geeft aan dat de implementatie is mislukt vanwege een schending van een of meer beleids regels.
 
 #### <a name="cause"></a>Oorzaak 
 
-Een beleid is dat wordt geblokkeerd door de bewerking niet voltooien.
+Er is een beleid aanwezig dat de bewerking niet kan volt ooien.
 
 #### <a name="resolution"></a>Oplossing
 
-De oplossing implementeren, moet u rekening houden met het wijzigen van het opgegeven beleid. Er zijn veel verschillende soorten beleid die kunnen worden gedefinieerd, is de specifieke wijzigingen nodig zijn afhankelijk van het beleid dat is geschonden. Bijvoorbeeld, als er een beleid is gedefinieerd in een resourcegroep die geen toestemming hebben voor het wijzigen van de inhoud van bepaalde typen resources in die resourcegroep, kunt u bijvoorbeeld doen van de volgende:
+Als u de oplossing wilt implementeren, moet u overwegen om het aangegeven beleid te wijzigen. Omdat er veel verschillende soorten beleids regels kunnen worden gedefinieerd, zijn de specifieke wijzigingen vereist, afhankelijk van het beleid dat is geschonden. Als er bijvoorbeeld een beleid is gedefinieerd voor een resource groep die geen toestemming heeft gekregen om de inhoud van bepaalde typen resources in die resource groep te wijzigen, kunt u bijvoorbeeld een van de volgende handelingen uitvoeren:
 
-* Verwijder het beleid kan worden overgeslagen.
-* Probeer te onboarden naar een andere resourcegroep.
-* Wijzig het beleid door, bijvoorbeeld:
-  * Opnieuw die gericht is op het beleid op een specifieke bron (bijvoorbeeld bij een specifieke Automation-account).
-  * Wijzigen van de set van resources dat beleid is geconfigureerd om te weigeren.
+* Verwijder het beleid samen.
+* Probeer uit te proberen voor een andere resource groep.
+* Wijzig het beleid, bijvoorbeeld:
+  * Het beleid opnieuw instellen op een specifieke resource (zoals een specifiek Automation-account).
+  * Het wijzigen van de set resources waarvan het beleid is geconfigureerd om te weigeren.
 
-Controleer de meldingen in de rechterbovenhoek van de Azure-portal of Ga naar de resourcegroep waarin uw automation-account en selecteer **implementaties** onder **instellingen** om de mislukte weer te geven de implementatie. Voor meer informatie over Azure Policy gaat u naar: [Overzicht van Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+Controleer de meldingen in de rechter bovenhoek van de Azure Portal of navigeer naar de resource groep die uw Automation-account bevat en selecteer **implementaties** onder **instellingen** om de mislukte implementatie te bekijken. Voor meer informatie over Azure Policy gaat u naar: [Overzicht van Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
-### <a name="unlink"></a>Scenario: Fouten opgetreden bij het ontkoppelen van een werkruimte
+### <a name="unlink"></a>Omstandigheden Fouten bij het ontkoppelen van een werk ruimte
 
 #### <a name="issue"></a>Probleem
 
-U ontvangt de volgende fout bij het ontkoppelen van een werkruimte:
+U ontvangt de volgende fout wanneer u een werk ruimte probeert te ontkoppelen:
 
 ```error
 The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
@@ -109,41 +140,41 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 #### <a name="cause"></a>Oorzaak
 
-Deze fout treedt op wanneer u hebt nog steeds oplossingen active in uw Log Analytics-werkruimte die afhankelijk zijn van uw Automation-Account en Log Analytics-werkruimte wordt gekoppeld.
+Deze fout treedt op wanneer er nog steeds oplossingen actief zijn in uw Log Analytics-werk ruimte, afhankelijk van uw Automation-account en de analyse-werk ruimte die is gekoppeld aan het logboek.
 
 ### <a name="resolution"></a>Oplossing
 
-U kunt dit oplossen moet u de volgende oplossingen verwijderen uit uw werkruimte als u deze gebruikt:
+Als u dit wilt oplossen, moet u de volgende oplossingen uit de werk ruimte verwijderen als u deze gebruikt:
 
 * Updatebeheer
 * Tracering wijzigen
 * VM's starten/stoppen buiten kantooruren
 
-Wanneer u de oplossingen verwijdert kunt u uw werkruimte ontkoppelen. Het is belangrijk om alle bestaande artefacten van deze oplossingen ook vanuit uw werkruimte en het Automation-Account op te schonen.  
+Wanneer u de oplossingen hebt verwijderd, kunt u uw werk ruimte ontkoppelen. Het is belang rijk dat u eventuele bestaande artefacten uit deze oplossingen opschoont vanuit uw werk ruimte en het Automation-account.  
 
 * Updatebeheer
-  * Update-implementaties (schema's) van uw Automation-Account verwijderen
+  * Update-implementaties (Schema's) verwijderen uit uw Automation-account
 * VM's starten/stoppen buiten kantooruren
-  * Verwijderen van alle vergrendelingen op oplossingsonderdelen in uw Automation-Account onder **instellingen** > **vergrendelingen**.
-  * Voor extra stappen voor het verwijderen van de VM's starten/stoppen buiten kantooruren oplossing ziet, [verwijderen van de VM starten/stoppen buiten kantooruren oplossing](../automation-solution-vm-management.md##remove-the-solution).
+  * Verwijder alle vergren delingen van oplossings onderdelen in uw Automation-account onder **instellingen** > **vergrendelingen**.
+  * Voor aanvullende stappen voor het verwijderen van de Vm's starten/stoppen buiten kantoor uren raadpleegt u [de virtuele machine starten/stoppen buiten kantoor uren](../automation-solution-vm-management.md##remove-the-solution).
 
-## <a name="mma-extension-failures"></a>MMA-extensies oplossen
+## <a name="mma-extension-failures"></a>MMA-extensie fouten
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Bij het implementeren van een oplossing voor een verscheidenheid aan gerelateerde resources worden geïmplementeerd. Een van deze resources is de Microsoft Monitoring Agent-extensie of Log Analytics-agent voor Linux. Dit zijn geïnstalleerd door de virtuele machine-Gastagent die verantwoordelijk is voor communicatie met de geconfigureerde Log Analytics-werkruimte, ten behoeve van hoger coördinatie van het downloaden van de binaire bestanden extensies voor virtuele machines en andere bestanden die de oplossing voor u onboarding afhankelijk van wanneer de uitvoering wordt gestart.
-U doorgaans eerst op de hoogte van de MMA of Log Analytics-agent voor Linux-installatiefouten vanaf een melding wordt weergegeven in Notification hubs. Te klikken op de melding dat biedt meer informatie over de specifieke fout. Navigatie naar de resource resourcegroepen, en vervolgens naar het element implementaties binnen het bevat ook informatie over de fouten bij de implementatie die zijn opgetreden.
-Installatie van de MMA of Log Analytics-agent voor Linux kan om verschillende redenen mislukken en de stappen voor het oplossen van deze fouten zijn afhankelijk van het probleem. Specifieke stappen volgt.
+Bij het implementeren van een oplossing worden er diverse gerelateerde resources geïmplementeerd. Een van deze resources is de uitbrei ding voor micro soft monitoring agent of Log Analytics agent voor Linux. Dit zijn de extensies voor virtuele machines die zijn geïnstalleerd door de gast agent van de virtuele machine die verantwoordelijk is voor de communicatie met de geconfigureerde Log Analytics-werk ruimte, voor het doel van een latere coördinatie van het downloaden van binaire bestanden en andere de oplossing die u voorbereidt, is afhankelijk van de uitvoering.
+Normaal gesp roken wordt u eerst op de hoogte van MMA-of Log Analytics agent voor Linux-installatie fouten van een melding die wordt weer gegeven in de notification hub. Als u op deze melding klikt, krijgt u meer informatie over de specifieke fout. Navigatie naar de resource groepen resource en vervolgens naar het element implementaties in het bestand bevat ook informatie over de implementatie fouten die zijn opgetreden.
+De installatie van de MMA-of Log Analytics-agent voor Linux kan om verschillende redenen mislukken en de stappen die u moet ondernemen om deze fouten te verhelpen, zijn afhankelijk van het probleem. De specifieke stappen voor probleem oplossing volgen.
 
-De volgende sectie worden verschillende problemen beschreven die u kunt tijdens het onboarding die ertoe leiden dat een fout opgetreden bij de implementatie van de MMA-extensie.
+In de volgende sectie worden verschillende problemen beschreven die u kunt voordoen bij het voorbereiden van een storing in de implementatie van de MMA-uitbrei ding.
 
-### <a name="webclient-exception"></a>Scenario: Er is een uitzondering opgetreden tijdens een WebClient-aanvraag
+### <a name="webclient-exception"></a>Omstandigheden Er is een uitzonde ring opgetreden tijdens een webclient-aanvraag
 
-De MMA-extensie op de virtuele machine is kan niet communiceren met externe bronnen en de implementatie mislukt.
+De MMA-extensie op de virtuele machine kan niet communiceren met externe resources en de implementatie mislukt.
 
 #### <a name="issue"></a>Probleem
 
-Hier volgen enkele voorbeelden van foutberichten die worden geretourneerd:
+Hier volgen enkele voor beelden van fout berichten die worden geretourneerd:
 
 ```error
 Please verify the VM has a running VM agent, and can establish outbound connections to Azure storage.
@@ -155,23 +186,23 @@ Please verify the VM has a running VM agent, and can establish outbound connecti
 
 #### <a name="cause"></a>Oorzaak
 
-Er zijn enkele mogelijke oorzaken voor deze fout:
+Enkele mogelijke oorzaken van deze fout zijn:
 
-* Er is een proxy is geconfigureerd in de virtuele machine, waarmee alleen bepaalde poorten.
+* Er is een proxy geconfigureerd in de VM, waarbij alleen specifieke poorten zijn toegestaan.
 
-* Een firewallinstelling is toegang tot de vereiste poorten en -adressen geblokkeerd.
+* Een firewall instelling heeft de toegang tot de vereiste poorten en adressen geblokkeerd.
 
 #### <a name="resolution"></a>Oplossing
 
-Zorg ervoor dat u de juiste poorten hebt en adressen voor communicatie openen. Zie voor een lijst met poorten en -adressen, [plannen van uw netwerk](../automation-hybrid-runbook-worker.md#network-planning).
+Zorg ervoor dat u de juiste poorten en adressen voor communicatie hebt geopend. Zie [uw netwerk plannen](../automation-hybrid-runbook-worker.md#network-planning)voor een lijst met poorten en adressen.
 
-### <a name="transient-environment-issue"></a>Scenario: De installatie is mislukt vanwege een tijdelijke omgevingsproblemen
+### <a name="transient-environment-issue"></a>Omstandigheden De installatie is mislukt vanwege problemen met de tijdelijke omgeving
 
-De installatie van de Microsoft Monitoring Agent-extensie is tijdens de implementatie is mislukt vanwege een andere installatie of blokkeren van de installatie van de actie
+De installatie van de micro soft Monitoring Agent-extensie is mislukt tijdens de implementatie vanwege een andere installatie of actie die de installatie blokkeert
 
 #### <a name="issue"></a>Probleem
 
-Hier volgen enkele voorbeelden van foutberichten kunnen worden geretourneerd:
+Hier volgen enkele voor beelden van fout berichten die kunnen worden weer gegeven:
 
 ```error
 The Microsoft Monitoring Agent failed to install on this machine. Please try to uninstall and reinstall the extension. If the issue persists, please contact support.
@@ -187,22 +218,22 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 
 #### <a name="cause"></a>Oorzaak
 
-Er zijn enkele mogelijke oorzaken voor deze fout:
+Enkele mogelijke oorzaken van deze fout zijn:
 
-* Een andere installatie wordt uitgevoerd
-* Het systeem wordt opnieuw opstarten tijdens de sjabloonimplementatie van de geactiveerd
+* Er wordt een andere installatie uitgevoerd
+* Het systeem wordt geactiveerd om opnieuw op te starten tijdens het implementeren van de sjabloon
 
 #### <a name="resolution"></a>Oplossing
 
-Deze fout is een tijdelijke fout in de natuur. De implementatie voor het installeren van de extensie opnieuw probeert.
+Deze fout is een tijdelijke fout. Voer de implementatie opnieuw uit om de extensie te installeren.
 
-### <a name="installation-timeout"></a>Scenario: Time-out voor installatie
+### <a name="installation-timeout"></a>Omstandigheden Time-out voor installatie
 
 De installatie van de MMA-extensie is niet voltooid vanwege een time-out.
 
 #### <a name="issue"></a>Probleem
 
-Het volgende voorbeeld heeft een foutbericht die kan worden geretourneerd:
+In het volgende voor beeld wordt een fout bericht weer gegeven dat kan worden geretourneerd:
 
 ```error
 Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
@@ -210,16 +241,16 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 #### <a name="cause"></a>Oorzaak
 
-Deze fout treedt op omdat de virtuele machine wordt zwaar belast tijdens de installatie.
+Deze fout treedt op omdat de virtuele machine tijdens de installatie intensief wordt belast.
 
 ### <a name="resolution"></a>Oplossing
 
-Poging tot de MMA-extensie installeren wanneer de virtuele machine minder belast wordt.
+Probeer de MMA-extensie te installeren wanneer de virtuele machine minder wordt geladen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u uw probleem niet zien of u niet kunt oplossen van uw probleem, gaat u naar een van de volgende kanalen voor ondersteuning van meer:
+Als u het probleem niet ziet of als u het probleem niet kunt oplossen, gaat u naar een van de volgende kanalen voor meer ondersteuning:
 
 * Krijg antwoorden van Azure-experts op [Azure-Forums](https://azure.microsoft.com/support/forums/)
 * Maak verbinding met [@AzureSupport](https://twitter.com/azuresupport), het officiële Microsoft Azure-account voor het verbeteren van de gebruikerservaring door de Azure-community in contact te brengen met de juiste resources: antwoorden, ondersteuning en experts.
-* Als u meer hulp nodig hebt, kunt u een Azure-ondersteuning-incident indienen. Ga naar de [ondersteuning van Azure site](https://azure.microsoft.com/support/options/) en selecteer **ophalen ondersteunen**.
+* Als u meer hulp nodig hebt, kunt u een ondersteunings incident voor Azure opslaan. Ga naar de [ondersteunings site van Azure](https://azure.microsoft.com/support/options/) en selecteer **ondersteuning verkrijgen**.

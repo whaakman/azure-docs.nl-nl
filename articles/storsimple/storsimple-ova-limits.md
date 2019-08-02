@@ -1,6 +1,6 @@
 ---
-title: StorSimple Virtual Array limieten | Microsoft Docs
-description: Beschrijving van systeemlimieten en aanbevolen grootten voor de Microsoft Azure StorSimple Virtual Array onderdelen en verbindingen.
+title: Limieten voor StorSimple virtuele array | Microsoft Docs
+description: Hierin worden systeem limieten en aanbevolen grootten voor de Microsoft Azure StorSimple virtuele matrix onderdelen en verbindingen beschreven.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,21 +12,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/15/2017
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43e8134ede0735c40b18be739f58b7b69e88fce1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1fe6b614aa05ab3e774aa2f946b78cabbc9f1a3b
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127859"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516734"
 ---
-# <a name="what-are-storsimple-virtual-array-limits"></a>Wat zijn de limieten StorSimple Virtual Array?
+# <a name="what-are-storsimple-virtual-array-limits"></a>Wat zijn StorSimple virtuele-matrix limieten?
 
 ## <a name="overview"></a>Overzicht
-Rekening houden deze limieten bij het plannen, implementeren en uw Microsoft Azure StorSimple Virtual Array werken. De volgende tabel beschrijft deze limieten voor het virtuele apparaat.
 
-## <a name="storsimple-virtual-array-limits"></a>StorSimple Virtual Array limieten
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
+Houd rekening met deze limieten bij het plannen, implementeren en beheren van uw Microsoft Azure StorSimple virtuele matrix. In de volgende tabel worden deze limieten voor het virtuele apparaat beschreven.
+
+## <a name="storsimple-virtual-array-limits"></a>Limieten voor StorSimple virtuele matrix
 [!INCLUDE [storsimple-virtual-array-limits](../../includes/storsimple-virtual-array-limits.md)]
 

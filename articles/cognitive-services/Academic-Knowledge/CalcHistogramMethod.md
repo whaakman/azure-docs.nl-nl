@@ -1,7 +1,7 @@
 ---
-title: Methode CalcHistogram - Academic Knowledge API
+title: Methode CalcHistogram-Academic Knowledge API
 titlesuffix: Azure Cognitive Services
-description: Gebruik de methode CalcHistogram voor het berekenen van de verdeling van kenmerkwaarden voor een set met document-entiteiten.
+description: Gebruik de methode CalcHistogram om de verdeling van kenmerk waarden voor een set papier entiteiten te berekenen.
 services: cognitive-services
 author: alch-msft
 manager: nitinme
@@ -10,19 +10,20 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: a228c5b90e47c9c24c5da70484a1a28f9a3054b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9e84b1ad37b3224ec5553d0a66ba0fc84bc88f55
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60498827"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705072"
 ---
 # <a name="calchistogram-method"></a>Methode CalcHistogram
 
-De **calchistogram** REST-API wordt gebruikt voor het berekenen van de verdeling van kenmerkwaarden voor een set met document-entiteiten.          
+De **calchistogram** -rest API wordt gebruikt om de verdeling van kenmerk waarden voor een set papier entiteiten te berekenen.          
 
 
-**REST-eindpunt:**
+**REST-eind punt:**
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 ``` 
@@ -32,47 +33,47 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 
 Name  |Value | Vereist?  |Description
 -----------|----------|--------|----------
-**expr**    |Tekenreeks met tekst | Ja  |Een query-expressie waarmee de entiteiten die voor het berekenen van histogrammen.
-**model** |Tekenreeks met tekst | Nee |Selecteer de naam van het model dat u wilt zoeken.  Op dit moment wordt de standaardwaarde aan *nieuwste*.
-**attributes** | Tekenreeks met tekst | Nee<br>Standaard: | Een door komma's gescheiden lijst die Hiermee geeft u de kenmerkwaarden weer die zijn opgenomen in het antwoord. Kenmerknamen zijn hoofdlettergevoelig.
-**count** |Aantal | Nee<br>Standaard: 10 |Het aantal resultaten dat moet worden geretourneerd.
-**offset**  |Aantal | Nee<br>Standaard: 0 |De index van het eerste resultaat om terug te keren.
-**Time-out**  |Aantal | Nee<br>Standaard: 1000 |Time-out in milliseconden. Alleen interpretaties gevonden voordat de time-out is verstreken, worden geretourneerd.
+**expr**    |Tekst teken reeks | Ja  |Een query-expressie die de entiteiten specificeert waarvoor histogrammen moeten worden berekend.
+**model** |Tekst teken reeks | Nee |Selecteer de naam van het model dat u wilt doorzoeken.  Op dit moment wordt de waarde standaard ingesteld op *meest recente*.
+**eigenschappen** | Tekst teken reeks | Nee<br>prijs | Een door komma's gescheiden lijst waarin de kenmerk waarden worden opgegeven die in het antwoord zijn opgenomen. Kenmerk namen zijn hoofdletter gevoelig.
+**count** |Number | Nee<br>Standaard: 10 |Het aantal resultaten dat moet worden geretourneerd.
+**offset**  |Number | Nee<br>Standaard: 0 |Index van het eerste resultaat dat moet worden geretourneerd.
+**out**  |Number | Nee<br>Standaard: 1000 |Time-out in milliseconden. Alleen interpretaties die zijn gevonden voordat de time-out is verstreken, worden geretourneerd.
 
 ## <a name="response-json"></a>Antwoord (JSON)
 
 Name | Description
 --------|---------
-**expr**  |De markering-parameter van de aanvraag.
+**expr**  |De expr para meter van de aanvraag.
 **num_entities** | Totaal aantal overeenkomende entiteiten.
-**histograms** |  Een matrix van histogrammen, één voor elk kenmerk dat is opgegeven in de aanvraag.
-**histograms[x].attribute** | De naam van het kenmerk waarover het histogram is berekend.
-**.distinct_values histogrammen [x]** | Het aantal distinctieve waarden tussen die overeenkomen met entiteiten voor dit kenmerk.
-**histograms[x].total_count** | Totaal aantal instanties van de waarde tussen die overeenkomen met entiteiten voor dit kenmerk.
-**histograms[x].histogram** | Histogramgegevens voor dit kenmerk.
-**histogrammen [.histogram [j] .value x]** |  Een waarde voor het kenmerk.
-**histograms[x].histogram[y].logprob**  |Totaal aantal natuurlijke logboek waarschijnlijkheid die overeenkomen met entiteiten met de waarde van dit kenmerk.
-**histograms[x].histogram[y].count**  |Het aantal overeenkomende entiteiten met de waarde van dit kenmerk.
-**afgebroken** | Waar, als de aanvraag is een time-out.
+**histograms** |  Een matrix met histogrammen, één voor elk kenmerk dat is opgegeven in de aanvraag.
+**histogrammen [x]. kenmerk** | De naam van het kenmerk waarover het histogram is berekend.
+**histogrammen [x]. distinct_values** | Aantal afzonderlijke waarden tussen overeenkomende entiteiten voor dit kenmerk.
+**histograms[x].total_count** | Totaal aantal waarde-instanties tussen overeenkomende entiteiten voor dit kenmerk.
+**histogrammen [x]. histogram** | Histogram gegevens voor dit kenmerk.
+**histogrammen [x]. histogram [y]. waarde** |  Een waarde voor het kenmerk.
+**histogrammen [x]. histogram [y]. logprob**  |Totale natuurlijke logboek kans van overeenkomende entiteiten met deze kenmerk waarde.
+**histogrammen [x]. histogram [y]. Count**  |Aantal overeenkomende entiteiten met deze kenmerk waarde.
+**afgebroken** | Waar als er een time-out is opgetreden voor de aanvraag.
 
 
 #### <a name="example"></a>Voorbeeld:
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4
 ```
-<br>In dit voorbeeld om een histogram van de telling van publicaties lange per jaar van een bepaalde schrijver sinds 2010, we kunnen eerst genereren de query-expressie met de **interpreteren** API met query-tekenreeks: *papers door Jaime teevan na 2012*.
+<br>In dit voor beeld, om een histogram te genereren van het aantal publicaties per jaar voor een bepaalde auteur sinds 2010, kunnen we eerst de query-expressie genereren met behulp van de API interpreteren met de query reeks: *papers by Jaime teevan na 2012*.
 
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime teevan after 2012
 ```
-<br>De expressie in de eerste interpretatie die wordt geretourneerd vanaf de interpreteren API is *en (samengestelde (AA. AuN == 'jaime teevan'), Y > 2012)* .
-<br>Deze waarde van de expressie wordt vervolgens doorgegeven aan de **calchistogram** API. De *attributes=Y,F.FN* parameter geeft aan dat de verdeling van document telt bijvoorbeeld op jaar en veld onderzoek moeten zijn:
+<br>De expressie in de eerste interpretatie die wordt geretourneerd door de API interpreteren is *en (composiet (AA). AuN = = ' Jaime teevan '), Y > 2012)* .
+<br>Deze expressie waarde wordt vervolgens door gegeven aan de **calchistogram** -API. Met de para meter *Attributes = Y, F. FN* wordt aangegeven dat de distributies van het papier moeten worden verdeeld op jaar en veld van studie, bijvoorbeeld:
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4
 ```
-<br>Het antwoord op deze aanvraag eerst geeft aan dat er 37 documenten die overeenkomen met de query-expressie.  Voor de *jaar* kenmerk, er zijn 3 verschillende waarden, één voor elk jaar na 2012 (dat wil zeggen 2013, 2014 en 2015) zoals opgegeven in de query.  Het totale aantal gedurende de 3 afzonderlijke waarden is 37.  Voor elk *jaar*, het histogram geeft de waarde, totale natuurlijke logboek kans en aantal die overeenkomen met entiteiten.     
+<br>De reactie op deze aanvraag geeft eerst aan dat er 37 documenten zijn die overeenkomen met de query-expressie.  Voor het kenmerk *Year* zijn er drie afzonderlijke waarden: één voor elk jaar na 2012 (bijvoorbeeld 2013, 2014 en 2015) zoals opgegeven in de query.  Het totale aantal vellen voor de 3 afzonderlijke waarden is 37.  In het histogram worden voor elk *jaar*de waarde, de totale natuurlijke logboek kans en het aantal overeenkomende entiteiten weer gegeven.     
 
-Het histogram voor *veld bestuderen* geeft aan dat 34 verschillende velden van het onderzoek. Als een document gekoppeld aan meerdere velden van het onderzoek worden kan, kan het totale aantal (53) groter zijn dan het aantal overeenkomende entiteiten.  Hoewel er afzonderlijke waarden 34 zijn, bevat het antwoord alleen de top 4 vanwege de *count = 4* parameter.
+In het histogram voor het *veld van onderzoek* blijkt dat er 34 afzonderlijke studie velden zijn. Als een papier kan worden gekoppeld aan meerdere studie velden, kan het totale aantal (53) groter zijn dan het aantal overeenkomende entiteiten.  Hoewel er 34 afzonderlijke waarden zijn, bevat het antwoord alleen de hoogste 4 als gevolg van de para meter *Count = 4* .
 
 ```JSON
 {

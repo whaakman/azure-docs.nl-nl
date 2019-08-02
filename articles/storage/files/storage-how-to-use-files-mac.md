@@ -1,19 +1,18 @@
 ---
 title: Een Azure-bestandsshare koppelen via SMB met macOS | Microsoft Docs
 description: Informatie over het koppelen van een Azure-bestandsshare via SMB met macOS.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7f2abbb355513c175329d01b9d5ed8884f2c27ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bd696ce5a314b0c849256311d0629b917036ea2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64715949"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699537"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Een Azure-bestandsshare koppelen via SMB met macOS
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen aan het SMB 3-protocol (industrienorm) worden gekoppeld met macOS El Capitan 10.11+. Dit artikel behandelt twee verschillende manieren om een Azure-bestandsshare te koppelen op macOS: met de Finder-gebruikersinterface en met Terminal.

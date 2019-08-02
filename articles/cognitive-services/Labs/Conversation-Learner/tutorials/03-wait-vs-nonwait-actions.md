@@ -1,7 +1,7 @@
 ---
-title: Wacht even en niet-wait-acties gebruiken met een model Conversatiecursist - Microsoft Cognitive Services | Microsoft Docs
+title: Wacht tijden en acties zonder wacht tijd gebruiken met een Conversation Learner model-Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Informatie over het gebruik van wacht even en niet-wait-acties met een Conversatiecursist-model.
+description: Meer informatie over het gebruik van wachtende en niet-wacht acties met een Conversation Learner model.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,77 +10,78 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 57a58b008792130c82a86ff4a5801f4bb39aabad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5d9a67f0b413b624baec369a219547cf18e9dbd2
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387909"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705604"
 ---
-# <a name="wait-and-non-wait-actions"></a>Wacht even en acties voor niet-wait
+# <a name="wait-and-non-wait-actions"></a>Wacht tijden en acties zonder wacht tijd
 
-Deze zelfstudie leert het verschil tussen wacht acties en niet-wait-acties in de Conversatiecursist.
+In deze zelf studie wordt het verschil weer gegeven tussen wacht acties en acties zonder wacht tijd in de Conversation Learner.
 
 ## <a name="video"></a>Video
 
-[![Wacht versus Preview van niet-Wait-zelfstudie](https://aka.ms/cl_Tutorial_v3_WaitnonWait_Preview)](https://aka.ms/cl_Tutorial_v3_WaitnonWait)
+[![Wachten op voor beeld van niet-wachtende zelf studie](https://aka.ms/cl_Tutorial_v3_WaitnonWait_Preview)](https://aka.ms/cl_Tutorial_v3_WaitnonWait)
 
 ## <a name="requirements"></a>Vereisten
-In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd
+Voor deze zelf studie moet de bot van de algemene zelf studie worden uitgevoerd
 
     npm run tutorial-general
 
 ## <a name="details"></a>Details
 
-- Wachten op actie: Nadat het systeem heeft een actie 'wait', wordt niet meer acties en wachten op invoer van de gebruiker.
-- Niet-wait-actie: Nadat het systeem heeft een actie 'niet-wait', wordt deze onmiddellijk nog een actie kiezen (zonder te wachten op invoer van de gebruiker).
+- Wacht actie: Nadat het systeem een actie ' wait ' heeft uitgevoerd, worden er geen acties meer uitgevoerd en wachten op invoer van de gebruiker.
+- Niet-wachtende actie: Nadat het systeem de actie ' niet-wachten ' heeft uitgevoerd, wordt er onmiddellijk een andere actie gekozen (zonder te wachten op invoer van de gebruiker).
 
 ## <a name="steps"></a>Stappen
 
 ### <a name="create-a-new-model"></a>Een nieuw model maken
 
-1. Klik op Nieuw Model in de Web-UI
-2. In het veld 'Name', ' wachten Non-Wait ' typt, drukt u op of klik op de knop 'Maken'.
+1. Klik in de gebruikers interface van de web op nieuw model
+2. Typ in het veld naam ' wacht woord niet wachten ', druk op ENTER of klik op de knop maken.
 
 ### <a name="create-the-first-two-wait-actions"></a>De eerste twee wacht acties maken
 
-1. Klik op 'Acties' en vervolgens de knop 'Nieuwe actie' in het linkerdeelvenster.
-2. Veld, typt u 'welke pizza wilt u dat?' in de 'van de Bot response...'.
-    - Dit is een actie wachten, dus laat het selectievakje 'Wacht voor Response' is ingeschakeld.
-3. Klik op de knop 'Maken'.
-4. Deze stappen te herhalen, maak nog een actie met "Pizza op de manier waarop!" Als het antwoord van de Bot.
+1. Klik in het linkerdeel venster op acties en vervolgens op de knop nieuwe actie.
+2. In het antwoord van de bot... typt u ' wat pizza wilt u bevinden? '.
+    - Dit is een wacht actie, dus zorg ervoor dat het selectie vakje wachten op antwoord is ingeschakeld.
+3. Klik op de knop maken.
+4. Herhaal deze stappen, maak een andere actie met ' pizza op de manier! ' Als reactie van de bot.
 
-### <a name="train-using-those-wait-actions"></a>Trainen met behulp van deze acties wachten
+### <a name="train-using-those-wait-actions"></a>Train het gebruik van deze acties
 
-1. In het linkerdeelvenster klikt u op "Train-dialoogvensters" en vervolgens de knop 'Nieuwe Train dialoogvenster'.
-2. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u 'Hi'. 
-    - Dit simuleert de kant van de gebruiker van de conversatie.
-3. Klik op de knop 'Acties Score'.
-4. Selecteer het antwoord, "welke pizza wilt u?".
-5. Als de gebruiker reageren met 'Margherita'.
-6. Klik op de knop 'Acties Score'.
-7. Selecteer het antwoord, "Pizza op de manier waarop!".
-8. Klik op de knop 'Opslaan'.
+1. Klik in het linkerdeel venster op ' dialoog vensters trainen ' en vervolgens op de knop Nieuw trainen dialoog venster.
+2. In het deel venster chat, waar het bericht ' Typ uw boodschap... ', typt u ' hi '. 
+    - Hiermee wordt de kant van de gebruiker van de conversatie gesimuleerd.
+3. Klik op de knop ' Score acties '.
+4. Selecteer de reactie ' wat pizza wilt u bevallen? '.
+5. Reageer als gebruiker op ' Margherita '.
+6. Klik op de knop ' Score acties '.
+7. Selecteer de reactie "pizza op de manier!".
+8. Klik op de knop Opslaan.
 
-### <a name="create-a-non-wait-action-while-training"></a>Maken van een niet-Wait-actie tijdens het trainen
-Hoewel u kunt de niet-Wait-actie maken kan, zoals u eerder hebt gedaan, kunt u het ook binnen een trainingssessie maken.
-1. Klik op de knop 'Nieuwe Train dialoogvenster'.
-2. Als het type van de gebruiker in "Hallo".
-3. Klik op de knop 'Acties Score'.
-4. Klik op het "+ actie" knop. 
-    - Hiermee gaat u naar de bekend in het dialoogvenster 'Een actie maken'.
-5. Typ in het antwoord van de Bot als "Welkom bij Pizza Bot!"
-6. Schakel het selectievakje 'Wacht voor Response'.
-7. Klik op de knop 'Maken'.
-    - U ziet dat de Bot reageert onmiddellijk met 'Welkom bij Pizza-Bot." en dat u opnieuw bent gevraagd om een ander Bot-antwoord. Dit is omdat het antwoord van de Bot is de niet-Wait-actie die we zojuist hebben gemaakt.
-9. Selecteer het antwoord, "welke pizza wilt u?".
-10. Als de gebruiker reageren met 'Margherita'.
-11. Klik op de knop 'Acties Score'.
-12. Selecteer het antwoord, "Pizza op de manier waarop!".
-13. Klik op de knop 'Opslaan'.
+### <a name="create-a-non-wait-action-while-training"></a>Een niet-wacht actie maken tijdens de training
+Hoewel u de niet-wacht actie zoals eerder hebt gemaakt, kunt u deze ook in een trainings sessie maken.
+1. Klik op de knop Nieuw trainen dialoog venster.
+2. Als het gebruikers type in, "Hallo".
+3. Klik op de knop ' Score acties '.
+4. Klik op de knop + actie. 
+    - Hiermee gaat u naar het vertrouwde ' actie maken ' in het dialoog venster.
+5. Typ de reactie van de bot als ' Welkom bij de pizza-bot! '
+6. Schakel het selectie vakje ' wachten op antwoord ' uit.
+7. Klik op de knop maken.
+    - U ziet dat de bot direct reageert met, ' Welkom bij de pizza-bot! ' en dat u opnieuw wordt gevraagd naar een andere bot-reactie. Dit komt doordat de reactie van de bot de niet-wacht actie is die we zojuist hebben gemaakt.
+9. Selecteer de reactie ' wat pizza wilt u bevallen? '.
+10. Reageer als gebruiker op ' Margherita '.
+11. Klik op de knop ' Score acties '.
+12. Selecteer de reactie "pizza op de manier!".
+13. Klik op de knop Opslaan.
 
 > [!NOTE]
-> De volgorde van de bot antwoorden met betrekking tot wachten en acties voor niet-wait.
+> De volg orde van de bot-antwoorden met betrekking tot wachtende en niet-wacht acties.
 
 ## <a name="next-steps"></a>Volgende stappen
 

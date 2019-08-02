@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 235d29c876616948516bbe4309ddd630bc3f6dca
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 1bb88d6f74ab4b93e226fe8630f07f0a96f4ba47
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67852586"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567039"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Planning voor Azure-onderhouds gebeurtenissen in Azure SQL Database
 
@@ -39,7 +38,7 @@ Bij elke client productie toepassing die verbinding maakt met een Cloud database
 
 Gemiddeld worden de 1,7 geplande onderhouds gebeurtenissen elke maand uitgevoerd.
 
-## <a name="resource-health"></a>Status van resources
+## <a name="resource-health"></a>Resourcestatus
 
 Als uw SQL database aanmeldings fouten ondervindt, controleert u het [resource Health](../service-health/resource-health-overview.md#get-started) venster in de [Azure Portal](https://portal.azure.com) voor de huidige status. De sectie status geschiedenis bevat de downtime-reden voor elke gebeurtenis (indien beschikbaar).
 

@@ -2,32 +2,32 @@
 title: 'Verwijderen van een groep: Azure Active Directory | Microsoft Docs'
 description: Instructies over het verwijderen van een groep met behulp van Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9543908aafbb4ecd8f642f766f656f780706a36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bdba55e0655a13e65e403f5da73fcb69db5dbca5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60249153"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561921"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>Een groep met behulp van Azure Active Directory verwijderen
 U kunt een groep Azure Active Directory (Azure AD) voor een aantal redenen verwijderen, maar meestal dit is omdat u:
 
-- Onjuist ingestelde de **groepstype** aan de verkeerde optie.
+- Het groeps **type** is onjuist ingesteld op de verkeerde optie.
 
-- De verkeerde of een dubbele groep per ongeluk hebt gemaakt. 
+- Er is per ongeluk een onjuiste of dubbele groep gemaakt. 
 
-- De groep niet meer nodig.
+- De groep is niet meer nodig.
 
 ## <a name="to-delete-a-group"></a>Een groep verwijderen
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com) met het account van een globale administrator voor de map.

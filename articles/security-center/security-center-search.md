@@ -1,6 +1,6 @@
 ---
-title: Zoeken in Azure Security Center | Microsoft Docs
-description: Meer informatie over hoe Azure Security Center maakt gebruik van Azure Monitor zoeken in Logboeken om te halen en je beveiligingsgegevens te analyseren.
+title: Azure Security Center zoeken | Microsoft Docs
+description: Meer informatie over het gebruik van Azure Security Center Azure Monitor logboeken zoeken om uw beveiligings gegevens op te halen en te analyseren.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,58 +14,58 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 90dbb33fa516d3a831d4e60969ac6b6c8312d539
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c88e2025444aa2fd83e05fdff97ea640ceefaa04
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574154"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662912"
 ---
-# <a name="azure-security-center-search"></a>Zoeken in Azure Security Center
+# <a name="azure-security-center-search-retired"></a>Azure Security Center zoeken (buiten gebruik gesteld)
 
 > [!NOTE]
-> Search-dashboard van Security Center wordt beëindigd op 31 juli 2019. Zie voor meer informatie en andere services, [buiten gebruik stellen van Security Center-functies (juli 2019)](security-center-features-retirement-july2019.md#menu_search).
+> Het zoek Dashboard van Security Center is op 31 juli 2019 buiten gebruik gesteld. Zie voor meer informatie en alternatieve Services de [buiten gebruiks telling van Security Center-functies (2019 juli)](security-center-features-retirement-july2019.md#menu_search).
 
-Azure Security Center maakt gebruik van [Azure Monitor-logboeken zoeken](../log-analytics/log-analytics-log-searches.md) ophalen en uw beveiligingsgegevens te analyseren. Logboeken in Azure Monitor omvat een querytaal snel ophalen en samenvoegen van gegevens. Vanuit Security Center, kunt u gebruikmaken van Azure Monitor logboeken zoeken voor het samenstellen van query's en verzamelde gegevens te analyseren.
+Azure Security Center gebruikt [Azure monitor logboeken zoeken](../log-analytics/log-analytics-log-searches.md) om uw beveiligings gegevens op te halen en te analyseren. Azure Monitor-logboeken bevatten een query taal om snel gegevens op te halen en samen te voegen. Vanuit Security Center kunt u Azure Monitor logboeken zoeken gebruiken om query's te maken en verzamelde gegevens te analyseren.
 
-Search is beschikbaar in de gratis laag en de prijscategorie Standard van Security Center.  De gegevens beschikbaar zijn in uw zoekopdrachten is afhankelijk van het niveau van de laag toegepast op uw werkruimte.  Zie het Security Center [pagina met prijzen](../security-center/security-center-pricing.md) voor meer informatie.
+Zoeken is beschikbaar in de lagen gratis en standaard van Security Center.  De gegevens die beschikbaar zijn in de Zoek opdrachten van het logboek, zijn afhankelijk van het niveau dat op uw werk ruimte wordt toegepast.  Zie de [pagina met prijzen](../security-center/security-center-pricing.md) voor Security Center voor meer informatie.
 
 
 > [!NOTE]
-> Security Center worden beveiligingsgegevens voor een werkruimte onder de gratis laag niet opgeslagen. U kunt verschillende logboeken verzenden naar een werkruimte onder de gratis laag en een zoekopdracht op die gegevens, maar bevatten de zoekresultaten niet gegevens uit Security Center. Security Center worden gegevens alleen opgeslagen naar een werkruimte onder de Standard-laag.
+> Security Center slaat geen beveiligings gegevens op voor een werk ruimte in de gratis laag. U kunt verschillende logboeken naar een werk ruimte in de gratis laag verzenden en op die gegevens zoeken, maar de zoek resultaten bevatten geen gegevens van Security Center. Met Security Center worden alleen gegevens opgeslagen in een werk ruimte in de laag standaard.
 >
 >
 
 ## <a name="access-search"></a>Toegang zoeken
-1. Selecteer in het hoofdmenu van Security Center de optie **zoeken**.
+1. Selecteer in het hoofd menu van Security Center **zoeken**.
 
-   ![Selecteer zoeken in Logboeken][1]
+   ![Selecteer logboek zoeken][1]
 
-2. Security Center geeft een lijst van alle werkruimten onder uw Azure-abonnementen. Selecteer een werkruimte. (Als u slechts één werkruimte hebt, deze werkruimteselector niet weergegeven.)
+2. Security Center worden alle werk ruimten onder uw Azure-abonnementen weer gegeven. Selecteer een werkruimte. (Als u slechts één werk ruimte hebt, wordt deze werkruimte kiezer niet weer gegeven.)
 
-   ![Selecteer een werkruimte][2]
+   ![Een werkruimte selecteren][2]
 
-3. **Zoeken in logboeken** wordt geopend. Voer om te vragen voor meer gegevens onder de geselecteerde werkruimte, in dit voorbeeld van een query:
+3. **Zoeken** in Logboeken wordt geopend. Voer de volgende voorbeeld query in om een query uit te voeren voor meer gegevens onder de geselecteerde werk ruimte:
 
-   SecurityEvent | wanneer gebeurtenis-id == 4625 | count() by TargetAccount samenvatten
+   SecurityEvent | waarbij gebeurtenis-naam = = 4625 | aantal samenvatten () op TargetAccount
 
-   Resultaat bevat alle accounts die kunnen niet aanmelden (gebeurtenis 4625).
+   Hiermee worden alle accounts weer gegeven waarvoor het aanmelden is mislukt (gebeurtenis 4625).
 
    ![Zoekresultaten][3]
 
-Zie [Kusto-querytaal](../log-analytics/log-analytics-search-reference.md) voor meer informatie over query's uitvoeren voor gegevens onder de geselecteerde werkruimte.
+Zie [Kusto-query taal](../log-analytics/log-analytics-search-reference.md) voor meer informatie over het uitvoeren van een query op gegevens onder de geselecteerde werk ruimte.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe u toegang tot zoekopdracht in Security Center. Security Center maakt gebruik van Azure Monitor logboeken zoeken. Zie voor meer informatie over Azure Monitor logboeken zoeken:
+In dit artikel hebt u geleerd hoe u toegang kunt krijgen tot zoeken in Security Center. Security Center gebruikt Azure Monitor logboeken zoeken. Zie voor meer informatie over het zoeken naar Azure Monitor logboeken:
 
-- [Wat is Azure Monitor Logboeken?](../log-analytics/log-analytics-overview.md) – Overzicht van Azure Monitor-Logboeken
-- [Understanding zoekopdrachten in Logboeken van Azure Monitor](../log-analytics/log-analytics-log-search-new.md) : hierin wordt beschreven hoe zoekopdrachten in Logboeken van Azure Monitor worden gebruikt en concepten die moet worden geïnterpreteerd voor het maken van een zoeken in Logboeken
-- [Zoeken naar gegevens met behulp van zoekopdrachten in Logboeken van Azure Monitor](../log-analytics/log-analytics-log-searches.md) – zelfstudie over het gebruik van zoeken in Logboeken
-- [Verwijzing naar de Kusto](../log-analytics/log-analytics-search-reference.md) : Beschrijving van de querytaal in Azure Monitor-Logboeken
+- [Wat is Azure Monitor logboeken?](../log-analytics/log-analytics-overview.md) – Overzicht van Azure Monitor-logboeken
+- [Zoek opdrachten in Logboeken in azure monitor logboeken](../log-analytics/log-analytics-log-search-new.md) : beschrijft hoe zoek opdrachten in Logboeken worden gebruikt in azure monitor logboeken en biedt concepten die moeten worden begrepen voordat een logboek zoekactie kan worden gemaakt
+- [Gegevens zoeken met Zoek opdrachten in Logboeken in azure monitor](../log-analytics/log-analytics-log-searches.md) -logboeken: zelf studie over het gebruik van zoeken in Logboeken
+- [Naslag informatie voor Kusto](../log-analytics/log-analytics-search-reference.md) : hierin wordt de query taal in azure monitor Logboeken beschreven
 
 Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
 
-- [Overzicht van Security Center](security-center-intro.md) – beschrijft Security Center de belangrijkste mogelijkheden
+- [Overzicht van Security Center](security-center-intro.md) : beschrijft de belangrijkste mogelijkheden van Security Center
 
 <!--Image references-->
 [1]: ./media/security-center-search/search.png

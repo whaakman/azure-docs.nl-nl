@@ -1,20 +1,20 @@
 ---
 title: Azure Backup Server installeren op Azure Stack | Microsoft Docs
 description: Gebruik Azure Backup Server voor het beveiligen of maken van een back-up van werk belastingen in Azure Stack.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: raynew
-ms.openlocfilehash: 77f418a37c47850cf8a763dc399109d86925feff
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: da941d0234fe78791f9a1c2f2a7d01122247534c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465262"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639858"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Backup Server installeren op Azure Stack
 
@@ -345,7 +345,7 @@ Zodra de verbinding met Azure is hersteld naar het Azure Backup Server, bepaalt 
 
 Het is mogelijk om een Azure-abonnement te wijzigen van de status *verlopen* of niet- *ingericht* naar *actief* . De status van het abonnement is niet *actief*:
 
-- Terwijl een abonnement wordt *verwijderd, gaat*de functionaliteit verloren. Als u het abonnement terugzet op actief, wordt de functionaliteit voor back-up/herstel opnieuw *geactiveerd*. Als er back-upgegevens op de lokale schijf werden bewaard met een voldoende Bewaar periode, kunnen de back-upgegevens worden opgehaald. Back-upgegevens in azure zijn echter IRRETRIEVABLY kwijt wanneer het abonnement de  status van oningerichte heeft ingevoerd.
+- Terwijl een abonnement wordt *verwijderd, gaat*de functionaliteit verloren. Als u het abonnement terugzet op actief, wordt de functionaliteit voor back-up/herstel opnieuw *geactiveerd*. Als er back-upgegevens op de lokale schijf werden bewaard met een voldoende Bewaar periode, kunnen de back-upgegevens worden opgehaald. Back-upgegevens in azure zijn echter IRRETRIEVABLY kwijt wanneer het abonnement de status van oningerichte heeft ingevoerd.
 - Wanneer een abonnement is *verlopen*, verliest dit de functionaliteit. Geplande back-ups worden niet uitgevoerd terwijl een abonnement is *verlopen*.
 
 ## <a name="troubleshooting"></a>Problemen oplossen

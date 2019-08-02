@@ -1,6 +1,6 @@
 ---
-title: Aanpassen van de beveiligingsconfiguraties OS in Azure Security Center (Preview) | Microsoft Docs
-description: In dit artikel ziet u hoe u security center-evaluaties aanpassen
+title: Beveiligings configuraties van het besturings systeem aanpassen in Azure Security Center (preview) | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u Security Center-evaluaties aanpast
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,112 +14,112 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7095992253fbbe5aafce1eab889965250f5d59a8
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 8216aee1c27fd5bcb722648aa6380044e1431452
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551378"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662478"
 ---
-# <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Aanpassen van de beveiligingsconfiguraties OS in Azure Security Center (Preview)
+# <a name="customize-os-security-configurations-in-azure-security-center-retired"></a>Beveiligings configuraties van besturings systemen in Azure Security Center aanpassen (buiten gebruik gesteld)
 
-In dit scenario laat zien hoe het aanpassen van OS-configuratie worden uitgevoerd in Azure Security Center.
+In deze walkthrough wordt gedemonstreerd hoe u de evaluatie van de beveiligings configuratie van het besturings systeem (preview) kunt aanpassen in Azure Security Center.
 
 > [!NOTE]
-> De mogelijkheid om aan te passen van OS-beveiligingsconfiguraties stopgezet op 31 juli 2019. Zie voor meer informatie en andere services, [buiten gebruik stellen van Security Center-functies (juli 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
+> De mogelijkheid om de beveiligings configuraties van het besturings systeem (preview-functie) aan te passen, is op 31 juli 2019 buiten gebruik gesteld. Zie voor meer informatie en alternatieve Services de [buiten gebruiks telling van Security Center-functies (2019 juli)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
 
-## <a name="what-are-os-security-configurations"></a>Wat zijn de OS-beveiligingsconfiguraties?
+## <a name="what-are-os-security-configurations"></a>Wat zijn de beveiligings configuraties van het besturings systeem?
 
 Azure Security Center controleert beveiligingsconfiguraties door een set van [meer dan 150 aanbevolen regels](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) toe te passen voor beveiliging van het besturingssysteem, met inbegrip van regels voor firewalls, controle, wachtwoordbeleid en meer. Als er wordt geconstateerd dat een computer een kwetsbare configuratie heeft, wordt er door Security Center een beveiligingsaanbeveling gegenereerd.
 
-Aanpassen van de regels, kunnen organisaties bepalen welke opties zijn meer geschikt is voor hun omgeving. U kunt een evaluatie van aangepaste beleid instellen en vervolgens toepassen op alle computers die van toepassing in het abonnement.
+Door de regels aan te passen, kunnen organisaties bepalen welke configuratie opties geschikter zijn voor hun omgeving. U kunt een aangepast beoordelings beleid instellen en dit vervolgens Toep assen op alle toepasselijke computers in het abonnement.
 
 > [!NOTE]
-> - Aanpassing van de OS-beveiligingsconfiguratie is momenteel beschikbaar voor Windows Server 2008, 2008 R2, 2012, 2012 R2 en 2016-versies alleen besturingssystemen.
-> - De configuratie is van toepassing op alle virtuele machines en computers die zijn verbonden met alle werkruimten onder het geselecteerde abonnement.
-> - Aanpassing van het besturingssysteem beveiliging-configuratie is alleen beschikbaar op de prijscategorie standard van Security Center.
+> - Momenteel is aanpassing van de besturingssysteem beveiligings configuratie alleen beschikbaar voor de besturings systemen Windows Server versie 2008, 2008 R2, 2012, 2012 R2 en 2016.
+> - De configuratie is van toepassing op alle Vm's en computers die zijn verbonden met alle werk ruimten onder het geselecteerde abonnement.
+> - De aanpassing van de besturingssysteem beveiligings configuratie is alleen beschikbaar op de laag Security Center Standard.
 >
 >
 
-U kunt de regels voor beveiligingsconfiguratie OS aanpassen door het inschakelen en uitschakelen van een specifieke regel, de gewenste instelling voor een bestaande regel te wijzigen of toevoegen van een nieuwe regel die gebaseerd op de ondersteunde typen (register, beleid voor beveiligingscontrole en beveiligingsbeleid). De gewenste instelling moet op dit moment een exacte waarde.
+U kunt de regels voor de beveiligings configuratie van het besturings systeem aanpassen door een specifieke regel in te scha kelen, de gewenste instelling voor een bestaande regel te wijzigen of een nieuwe regel toe te voegen die is gebaseerd op de ondersteunde regel typen (REGI ster, controle beleid en beveiligings beleid). Op dit moment moet de gewenste instelling een exacte waarde zijn.
 
-Nieuwe regels moeten zich in dezelfde indeling en dezelfde structuur als andere bestaande regels die van hetzelfde type.
+Nieuwe regels moeten dezelfde indeling en structuur hebben als andere bestaande regels van hetzelfde type.
 
 > [!NOTE]
-> Voor het aanpassen van OS-beveiligingsconfiguraties, moet u zijn toegewezen de rol van *Abonnementhouder*, *Inzender*, of *beveiligingsbeheerder*.
+> Als u beveiligings configuraties voor het besturings systeem wilt aanpassen, moet u de rol van *abonnements eigenaar*, *abonnements bijdrager*of *beveiligings beheerder*toewijzen.
 >
 >
 
-## <a name="customize-the-default-os-security-configuration"></a>De standaard OS-beveiligingsconfiguratie aanpassen
+## <a name="customize-the-default-os-security-configuration"></a>De standaard beveiligings configuratie van het besturings systeem aanpassen
 
-Voor het aanpassen van de standaard OS-beveiligingsconfiguratie in Security Center, het volgende doen:
+Ga als volgt te werk om de standaard beveiligings configuratie van het besturings systeem in Security Center aan te passen:
 
 1.  Open het dashboard van **Security Center**.
 
-2.  Selecteer in het linkerdeelvenster **prijzen & stellingen**.
+2.  Selecteer in het linkerdeel venster de optie **prijzen & instellingen**.
 
-    ![Lijst met beveiligingsbeleid](media/security-center-customize-os-security-config/manual-provision.png)
+    ![Lijst met beveiligings beleid](media/security-center-customize-os-security-config/manual-provision.png)
 
-4. Selecteer het betreffende abonnement en selecteer **beveiligingsconfiguraties bewerken**.  
+4. Selecteer het betreffende abonnement en selecteer **beveiligings configuraties bewerken**.  
 
-    ![Het venster 'Beveiligingsconfiguraties bewerken'](media/security-center-customize-os-security-config/blade.png)
+    ![Het venster beveiligings configuraties bewerken](media/security-center-customize-os-security-config/blade.png)
 
-5. Volg de stappen om te downloaden, bewerken en het gewijzigde bestand uploaden.
+5. Volg de stappen om het gewijzigde bestand te downloaden, te bewerken en te uploaden.
 
    > [!NOTE]
-   > Het configuratiebestand dat u hebt gedownload is standaard *json* indeling. Ga voor instructies over het wijzigen van dit bestand naar [het configuratiebestand aanpassen](#customize-the-configuration-file).
+   > Standaard wordt het configuratie bestand dat u hebt gedownload in *JSON* -indeling. Ga voor instructies over het wijzigen van dit bestand naar [het aanpassen van het configuratie bestand](#customize-the-configuration-file).
    >
 
-6. Selecteer voor het doorvoeren van de wijziging, **opslaan**. Anders wordt wordt het beleid niet opgeslagen.
+6. Selecteer **Opslaan**om de wijziging door te voeren. Anders wordt het beleid niet opgeslagen.
 
     ![De knop Opslaan](media/security-center-customize-os-security-config/save-successfully.png)
 
-   Nadat u het bestand hebt opgeslagen, wordt de configuratie wordt toegepast op alle virtuele machines en computers die zijn verbonden met de werkruimten onder het abonnement. Het proces is meestal duurt een paar minuten maar duurt langer, afhankelijk van de grootte van de infrastructuur.
+   Nadat u het bestand hebt opgeslagen, wordt de configuratie toegepast op alle Vm's en computers die zijn verbonden met de werk ruimten onder het abonnement. Het proces duurt doorgaans enkele minuten, maar kan langer duren, afhankelijk van de grootte van de infra structuur.
 
-U kunt op elk gewenst moment de configuratie van het huidige beleid opnieuw op de standaardstatus heeft. Om dit te doen in de **regels voor beveiligingsconfiguratie bewerken OS** venster **opnieuw**. Deze optie om te bevestigen **Ja** in het pop-upvenster bevestiging.
+U kunt op elk gewenst moment de huidige beleids configuratie opnieuw instellen op de standaard status. Hiertoe selecteert u **opnieuw instellen**in het venster **regels voor beveiligings configuratie van besturings systeem bewerken** . Bevestig deze optie door **Ja** te selecteren in het pop-upvenster met de bevestiging.
 
-![Het bevestigingsvenster opnieuw instellen](media/security-center-customize-os-security-config/edit-alert.png)
+![Het bevestigings venster opnieuw instellen](media/security-center-customize-os-security-config/edit-alert.png)
 
-## <a name="customize-the-configuration-file"></a>Het configuratiebestand aanpassen
+## <a name="customize-the-configuration-file"></a>Het configuratie bestand aanpassen
 
-In het aanpassingsbestand heeft elke ondersteunde versie van het besturingssysteem een set regels of ruleset. Elke ruleset heeft een eigen naam en de unieke ID, zoals aangegeven in het volgende voorbeeld:
+In het aanpassings bestand heeft elke ondersteunde versie van het besturings systeem een set regels, of ruleset. Elke ruleset heeft een eigen naam en unieke ID, zoals wordt weer gegeven in het volgende voor beeld:
 
-![Het ruleset-naam en ID](media/security-center-customize-os-security-config/custom-file.png)
+![De ruleset-naam en-ID](media/security-center-customize-os-security-config/custom-file.png)
 
 > [!NOTE]
-> In dit voorbeeld van een bestand is bewerkt in Visual Studio, maar u kunt ook Kladblok gebruiken als u de JSON-Viewer invoegtoepassing geïnstalleerd hebt.
+> Dit voorbeeld bestand is bewerkt in Visual Studio, maar u kunt ook Klad blok gebruiken als u de JSON-Viewer-invoeg toepassing hebt geïnstalleerd.
 >
 >
 
-Wanneer u de aanpassingsbestand hebt bewerkt, kunt u een regel of alle mappen wijzigen. Elke ruleset bevat een *regels* sectie die wordt onderverdeeld in drie categorieën: Register, beleid voor beveiligingscontrole en beveiligingsbeleid, zoals hier wordt weergegeven:
+Wanneer u het aanpassings bestand bewerkt, kunt u een of meer regels wijzigen. Elke ruleset bevat een *regel* sectie die is onderverdeeld in drie categorieën: REGI ster, controle beleid en beveiligings beleid, zoals hier wordt weer gegeven:
 
-![Drie ruleset-categorieën](media/security-center-customize-os-security-config/rules-section.png)
+![Drie categorieën regelset](media/security-center-customize-os-security-config/rules-section.png)
 
 Elke categorie heeft een eigen set kenmerken. U kunt de volgende kenmerken wijzigen:
 
-- **expectedValue**: Het gegevenstype veld van dit kenmerk moet overeenkomen met de ondersteunde waarden per *regeltype*, bijvoorbeeld:
+- **expectedValue**: Het veld gegevens type van dit kenmerk moet overeenkomen met de ondersteunde waarden per *regel type*, bijvoorbeeld:
 
-  - **baselineRegistryRules**: De waarde moet overeenkomen met de [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) die gedefinieerd in die regel.
+  - **baselineRegistryRules**: De waarde moet overeenkomen met de [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) die in die regel is gedefinieerd.
 
-  - **baselineAuditPolicyRules**: Gebruik een van de volgende tekenreekswaarden:
+  - **baselineAuditPolicyRules**: Gebruik een van de volgende teken reeks waarden:
 
     - *Geslaagd en mislukt*
 
-    - *Geslaagd*
+    - *Geleverd*
 
-  - **baselineSecurityPolicyRules**: Gebruik een van de volgende tekenreekswaarden:
+  - **baselineSecurityPolicyRules**: Gebruik een van de volgende teken reeks waarden:
 
     - *Niemand*
 
-    - Lijst met toegestane gebruikersgroepen, bijvoorbeeld: *Beheerders*, *back-upoperators*
+    - Lijst met toegestane gebruikers groepen, bijvoorbeeld: *Beheerders*, *back-* upoperators
 
--   **status**: De tekenreeks mag de opties *uitgeschakelde* of *ingeschakeld*. Voor deze release zijn de tekenreeks is hoofdlettergevoelig.
+-   **status**: De teken reeks kan de opties *uitgeschakeld* of *ingeschakeld*bevatten. De teken reeks voor deze versie is hoofdletter gevoelig.
 
-Dit zijn alleen de velden die kunnen worden geconfigureerd. Als u de indeling of de grootte schenden, kunt u zich niet de wijziging op te slaan. U ontvangt een foutmelding weergegeven die u moet een geldig JSON-configuratiebestand uploaden.
+Dit zijn de enige velden die kunnen worden geconfigureerd. Als u de bestands indeling of de grootte schendt, kunt u de wijziging niet opslaan. U krijgt een fout melding dat u een geldig JSON-configuratie bestand moet uploaden.
 
-Zie voor een lijst van andere mogelijke fouten, [foutcodes](#error-codes).
+Zie [fout codes](#error-codes)voor een lijst met andere mogelijke fouten.
 
-De volgende drie secties bevatten voorbeelden van de vorige regels. De *expectedValue* en *status* kenmerken kunnen worden gewijzigd.
+De volgende drie secties bevatten voor beelden van de voor gaande regels. De kenmerken *expectedValue* en *State* kunnen worden gewijzigd.
 
 **baselineRegistryRules**
 ```json
@@ -179,44 +179,44 @@ De volgende drie secties bevatten voorbeelden van de vorige regels. De *expected
     }
 ```
 
-Sommige regels worden voor de verschillende typen besturingssystemen gedupliceerd. Dubbele regels hebben dezelfde *originalId* kenmerk.
+Er zijn enkele regels gedupliceerd voor de verschillende typen besturings systemen. Dubbele regels hebben hetzelfde *originalId* -kenmerk.
 
 ## <a name="create-custom-rules"></a>Aangepaste regels maken
 
-U kunt ook nieuwe regels maken. Voordat u een nieuwe regel maakt, houd rekening met de volgende beperkingen:
+U kunt ook nieuwe regels maken. Houd bij het maken van een nieuwe regel de volgende beperkingen in acht:
 
--   Schemaversie, *baselineId* en *baselineName* kan niet worden gewijzigd.
+-   Schema versie, *baselineId* en *baselinenaam* kunnen niet worden gewijzigd.
 
 -   RuleSet kan niet worden verwijderd.
 
--   RuleSet kan niet worden toegevoegd.
+-   De ruleset kan niet worden toegevoegd.
 
--   Het maximum aantal regels dat is toegestaan (met inbegrip van standaardregels) is 1000.
+-   Het maximum aantal regels dat is toegestaan (met inbegrip van de standaard regels) is 1000.
 
-Nieuwe aangepaste regels worden gemarkeerd met een nieuwe aangepaste bron (! = "Microsoft"). De *ruleId* veld kan niet null of leeg zijn. Als deze leeg is, genereert Microsoft een. Als deze niet leeg is, moet een geldige GUID die is uniek voor alle regels (standaard en aangepaste) hebben. Bekijk de volgende beperkingen voor de velden core:
+Nieuwe aangepaste regels worden gemarkeerd met een nieuwe aangepaste bron (! = "micro soft"). Het veld *ruleId* kan null of leeg zijn. Als deze leeg is, wordt er een gegenereerd. Als deze niet leeg is, moet het een geldige GUID hebben die uniek is voor alle regels (standaard en aangepast). Bekijk de volgende beperkingen voor de belangrijkste velden:
 
--   **originalId**: Kan niet null of leeg zijn. Als *originalId* is niet leeg is, moet dit een geldige GUID zijn.
+-   **originalId**: Kan null of leeg zijn. Als *originalId* niet leeg is, moet dit een geldige GUID zijn.
 
--   **cceId**: Kan niet null of leeg zijn. Als *cceId* is niet leeg is, deze moet uniek zijn.
+-   **cceId**: Kan null of leeg zijn. Als *cceId* niet leeg is, moet het uniek zijn.
 
--   **ruleType**: (Selecteer een optie) register, AuditPolicy of SecurityPolicy.
+-   **ruleType**: (Selecteer één) REGI ster, Auditpolicy of SecurityPolicy.
 
--   **Ernst**: (Selecteer een optie) onbekend, kritiek, waarschuwing of ter informatie.
+-   **Ernst**: (Selecteer één) onbekend, kritiek, waarschuwing of informatief.
 
--   **analyzeOperation**: Moet *gelijk is aan*.
+-   **analyzeOperation**: Moet *gelijk zijn aan*.
 
 -   **auditPolicyId**: Moet een geldige GUID zijn.
 
--   **regValueType**: (Selecteer een optie) Int, Long, String en MultipleString.
+-   **regValueType**: (Selecteer één) int, Long, String of MultipleString.
 
 > [!NOTE]
-> Hive moet *LocalMachine /* .
+> Hive moet *LocalMachine*zijn.
 >
 >
 
-Voorbeeld van een nieuwe aangepaste regel:
+Voor beeld van een nieuwe aangepaste regel:
 
-**Register**:
+**REGI ster**:
 ```json
     {
     "hive": "LocalMachine",
@@ -233,7 +233,7 @@ Voorbeeld van een nieuwe aangepaste regel:
     "state": "Enabled"
     }
 ```
-**Beveiligingsbeleid**:
+**Beveiligings beleid**:
 ```json
    {
    "sectionName": "Privilege Rights",
@@ -248,7 +248,7 @@ Voorbeeld van een nieuwe aangepaste regel:
    "state": "Enabled"
    }
 ```
-**Controlebeleid**:
+**Controle beleid**:
 ```json
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
@@ -262,59 +262,59 @@ Voorbeeld van een nieuwe aangepaste regel:
    }
 ```
 
-## <a name="file-upload-failures"></a>Fouten bij het uploaden van bestand
+## <a name="file-upload-failures"></a>Fouten bij uploaden van bestanden
 
-Als het opgegeven configuratiebestand ongeldig vanwege fouten in waarden of de opmaak is, een fout wordt weergegeven, zoals **Opslagactie is mislukt**. U kunt een rapport met gedetailleerde fouten CSV te herstellen en corrigeer de fouten voordat u een gecorrigeerde configuratiebestand opnieuw downloaden.
+Als het ingediende configuratie bestand ongeldig is vanwege fouten in waarden of opmaak, wordt een fout bericht weer gegeven, zoals de **actie opslaan is mislukt**. U kunt een gedetailleerd rapport met fouten. csv downloaden om de fouten te herstellen en op te lossen voordat u een gecorrigeerd configuratie bestand opnieuw verzendt.
 
-Voorbeeld van een fout bij het bestand:
+Voor beeld van een fout bestand:
 
-![Voorbeeld van een fout](media/security-center-customize-os-security-config/errors-file.png)
+![Voor beeld van fout bestand](media/security-center-customize-os-security-config/errors-file.png)
 
 ## <a name="error-codes"></a>Foutcodes
 
-Alle mogelijke fouten worden weergegeven in de volgende tabel:
+Alle mogelijke fouten worden weer gegeven in de volgende tabel:
 
-| **Fout**                                | **Beschrijving**                                                                                                                              |
+| **Optreedt**                                | **Beschrijving**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfigurationSchemaVersionError  | De eigenschap *schemaVersion* is ongeldig of leeg zijn gevonden. De waarde moet worden ingesteld op *{0}* .                                                         |
-| BaselineInvalidStringError               | De eigenschap *{0}* mag niet  *\\n*.                                                                                                         |
-| BaselineNullRuleError                    | Lijst met de regels van de basislijn-configuratie bevat een regel met de waarde *null*.                                                                         |
-| BaselineRuleCceIdNotUniqueError          | De CCE-ID *{0}* is niet uniek.                                                                                                                  |
-| BaselineRuleEmptyProperty                | De eigenschap *{0}* is ongeldig of ontbreekt.                                                                                                       |
-| BaselineRuleIdNotInDefault               | De regel is een broneigenschap *Microsoft* , maar het is niet gevonden in de regelset van de standaard Microsoft.                                                   |
+| BaselineConfigurationSchemaVersionError  | De eigenschap *schemaVersion* is ongeldig of leeg. De waarde moet worden ingesteld op *{0}* .                                                         |
+| BaselineInvalidStringError               | De eigenschap *{0}* mag geen  *\\n*bevatten.                                                                                                         |
+| BaselineNullRuleError                    | De lijst basislijn configuratie regels bevat een regel met de waarde *Null*.                                                                         |
+| BaselineRuleCceIdNotUniqueError          | De CCE-id *{0}* is niet uniek.                                                                                                                  |
+| BaselineRuleEmptyProperty                | De eigenschap *{0}* ontbreekt of is ongeldig.                                                                                                       |
+| BaselineRuleIdNotInDefault               | De regel heeft de eigenschap source van *micro soft* maar deze is niet gevonden in de micro soft-standaard-regelset.                                                   |
 | BaselineRuleIdNotUniqueError             | De regel-id is niet uniek.                                                                                                                       |
-| BaselineRuleInvalidGuid                  | De eigenschap *{0}* ongeldig is gevonden. De waarde is geen geldige GUID.                                                                             |
-| BaselineRuleInvalidHive                  | De component moet LocalMachine /.                                                                                                                   |
-| BaselineRuleNameNotUniqueError           | Naam van de regel is niet uniek.                                                                                                                 |
-| BaselineRuleNotExistInConfigError        | De regel is niet gevonden in de nieuwe configuratie. Regel kan niet worden verwijderd.                                                                     |
-| BaselineRuleNotFoundError                | De regel is niet gevonden in standaard basislijn ruleset.                                                                                        |
-| BaselineRuleNotInPlace                   | De regel komt overeen met een standaard-regel met het type {0} en wordt vermeld in {1} lijst.                                                                       |
-| BaselineRulePropertyTooLong              | De eigenschap *{0}* is te lang. Maximaal toegestane lengte: {1}.                                                                                        |
-| BaselineRuleRegTypeInvalidError          | De verwachte waarde *{0}* komt niet overeen met het type van registerwaarde die is gedefinieerd.                                                              |
-| BaselineRulesetAdded                     | Het ruleset met de id *{0}* is niet gevonden in de standaardconfiguratie. Het ruleset kan niet worden toegevoegd.                                               |
-| BaselineRulesetIdMustBeUnique            | Het ruleset basislijn *{0}* moet uniek zijn.                                                                                           |
-| BaselineRulesetNotFound                  | Het ruleset met id *{0}* en de naam *{1}* is niet gevonden in de opgegeven configuratie. Het ruleset kan niet worden verwijderd.                                |
-| BaselineRuleSourceNotMatch               | De regel met de id *{0}* is al gedefinieerd.                                                                                                       |
-| BaselineRuleTypeDoesntMatch              | Het regeltype is *{0}* .                                                                                                              |
-| BaselineRuleTypeDoesntMatchError         | Het werkelijke type van de regel is *{0}* , maar de *ruleType* eigenschap *{1}* .                                                                          |
-| BaselineRuleUnpermittedChangesError      | Alleen *expectedValue* en *status* eigenschappen kunnen worden gewijzigd.                                                                       |
-| BaselineTooManyRules                     | Het maximum aantal toegestane aangepaste regels is {0} regels. De opgegeven configuratie bevat {1} regels, {2} standaardregels, en {3} aangepaste regels. |
-| ErrorNoConfigurationStatus               | Er is geen configuratie-status is gevonden. Status van de van gewenste configuratiestatus: *Standaard* of *aangepaste*.                                    |
-| ErrorNonEmptyRulesetOnDefault            | De status van de configuratie is ingesteld op standaard. De *BaselineRulesets* lijst moet null of leeg zijn.                                                          |
-| ErrorNullRulesetsPropertyOnCustom        | De status van de opgegeven configuratie *aangepaste* , maar de *baselineRulesets* eigenschap is null of leeg zijn.                                             |
-| ErrorParsingBaselineConfig               | De opgegeven configuratie is ongeldig. Een of meer van de gedefinieerde waarden hebben een null-waarde of een ongeldig type.                                  |
-| ErrorParsingIsDefaultProperty            | De opgegeven *configurationStatus* waarde *{0}* is ongeldig. De waarde mag alleen *standaard* of *aangepaste*.                                         |
-| InCompatibleViewVersion                  | De weergaveversie *{0}* is *niet* ondersteund op dit werkruimtetype.                                                                                   |
-| InvalidBaselineConfigurationGeneralError | De configuratie van de basislijn is gevonden met een of meer validatiefouten van het type.                                                          |
-| ViewConversionError                      | De weergave is een oudere versie dan de werkruimte wordt ondersteund. Weergeven van de conversie is mislukt: {0}.                                                                 |
+| BaselineRuleInvalidGuid                  | De eigenschap *{0}* is ongeldig. De waarde is geen geldige GUID.                                                                             |
+| BaselineRuleInvalidHive                  | De Hive moet LocalMachine zijn.                                                                                                                   |
+| BaselineRuleNameNotUniqueError           | De regel naam is niet uniek.                                                                                                                 |
+| BaselineRuleNotExistInConfigError        | De regel is niet gevonden in de nieuwe configuratie. De regel kan niet worden verwijderd.                                                                     |
+| BaselineRuleNotFoundError                | De regel is niet gevonden in de standaardsorteervolgorde van de basis lijn.                                                                                        |
+| BaselineRuleNotInPlace                   | De regel komt overeen met een standaard regel {0} van het type en {1} wordt weer gegeven in de lijst.                                                                       |
+| BaselineRulePropertyTooLong              | De eigenschap *{0}* is te lang. Maxi maal toegestane lengte {1}:.                                                                                        |
+| BaselineRuleRegTypeInvalidError          | De verwachte waarde *{0}* komt niet overeen met het type register waarde dat is gedefinieerd.                                                              |
+| BaselineRulesetAdded                     | De ruleset met de *{0}* id is niet gevonden in de standaard configuratie. De ruleset kan niet worden toegevoegd.                                               |
+| BaselineRulesetIdMustBeUnique            | De opgegeven regelset *{0}* van de basislijn naam moet uniek zijn.                                                                                           |
+| BaselineRulesetNotFound                  | De ruleset met *{0}* id en *{1}* naam is niet gevonden in de opgegeven configuratie. De ruleset kan niet worden verwijderd.                                |
+| BaselineRuleSourceNotMatch               | De regel met de *{0}* id is al gedefinieerd.                                                                                                       |
+| BaselineRuleTypeDoesntMatch              | Het standaard regel type is *{0}* .                                                                                                              |
+| BaselineRuleTypeDoesntMatchError         | Het werkelijke type van de regel is *{0}* , maar de eigenschap *ruleType* is *{1}* .                                                                          |
+| BaselineRuleUnpermittedChangesError      | Alleen *expectedValue* en *status* eigenschappen mogen worden gewijzigd.                                                                       |
+| BaselineTooManyRules                     | Het Maxi maal toegestane aantal aangepaste regels is {0} regels. De opgegeven configuratie bevat {1} regels, {2} standaard regels en {3} aangepaste regels. |
+| ErrorNoConfigurationStatus               | Er is geen configuratie status gevonden. Status van de gewenste configuratie status: *Standaard* of *aangepast*.                                    |
+| ErrorNonEmptyRulesetOnDefault            | De configuratie status is ingesteld op standaard. De *BaselineRulesets* -lijst moet null of leeg zijn.                                                          |
+| ErrorNullRulesetsPropertyOnCustom        | De opgegeven configuratie status is *aangepast* , maar de eigenschap *baselineRulesets* is null of leeg.                                             |
+| ErrorParsingBaselineConfig               | De opgegeven configuratie is ongeldig. Een of meer gedefinieerde waarden hebben een null-waarde of een ongeldig type.                                  |
+| ErrorParsingIsDefaultProperty            | De opgegeven *configurationStatus* - *{0}* waarde is ongeldig. De waarde kan alleen *standaard* of *aangepast*zijn.                                         |
+| InCompatibleViewVersion                  | De weergave versie *{0}* wordt *niet* ondersteund voor dit type werk ruimte.                                                                                   |
+| InvalidBaselineConfigurationGeneralError | De opgegeven basislijn configuratie is gevonden met een of meer type validatie fouten.                                                          |
+| ViewConversionError                      | De weer gave is een oudere versie dan de werk ruimte ondersteunt. Conversie van weer gave {0}is mislukt:.                                                                 |
 
-Als u niet voldoende machtigingen hebt, krijgt u mogelijk een algemene fout is opgetreden, zoals hier wordt weergegeven:
+Als u niet voldoende machtigingen hebt, krijgt u mogelijk een algemene fout fout, zoals hier wordt weer gegeven:
 
-!['Opslaan actie is mislukt"foutbericht](media/security-center-customize-os-security-config/general-failure-error.png)
+![Fout bericht ' actie opslaan is mislukt '](media/security-center-customize-os-security-config/general-failure-error.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel besproken over het aanpassen van OS-configuratie worden uitgevoerd in Security Center. Zie voor meer informatie over de van configuratieregels en herstel:
+In dit artikel wordt beschreven hoe u evaluaties van de besturingssysteem beveiliging kunt aanpassen in Security Center. Zie voor meer informatie over de configuratie regels en herstel:
 
-- [Security Center common configuration identifiers en baseline rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
-- Unieke id's toewijzen aan configuratieregels gebruikt Security Center common configuration enumeration (CCE). Zie voor meer informatie, [CCE](https://nvd.nist.gov/config/cce/index).
-- Raadpleeg beveiligingsproblemen oplossen wanneer de configuratie van het besturingssysteem komt niet overeen met de aanbevolen configuratie van beveiligingsregels [beveiligingsconfiguraties herstellen](security-center-remediate-os-vulnerabilities.md).
+- [Algemene configuratie-id's en basislijn regels Security Center](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
+- Security Center maakt gebruik van algemene configuratie-inventarisatie (CCE) om unieke id's toe te wijzen aan configuratie regels. Zie [CCE](https://nvd.nist.gov/config/cce/index)voor meer informatie.
+- Zie [beveiligings configuraties herstellen](security-center-remediate-os-vulnerabilities.md)voor meer informatie over het oplossen van beveiligings problemen wanneer de configuratie van uw besturings systeem niet overeenkomt met de aanbevolen beveiligings configuratie regels.

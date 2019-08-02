@@ -1,6 +1,6 @@
 ---
-title: Beheerd exemplaar van openbare eindpunten - Azure SQL-Database beveiligen beheerd exemplaar | Microsoft Docs
-description: Veilig gebruik van openbare eindpunten in Azure met een beheerd exemplaar
+title: Open bare eind punten van beveiligd beheerd exemplaar-Azure SQL Database beheerd exemplaar | Microsoft Docs
+description: Open bare eind punten veilig gebruiken in azure met een beheerd exemplaar
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,49 +9,48 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 05/08/2019
-ms.openlocfilehash: f06677b66c8f6586fec8cc5dfe97b1515b741e9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7f57a636e95bb137dd4285b8f9ce8343b27d2a0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65470281"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567373"
 ---
-# <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Veilig gebruik van een beheerd exemplaar voor Azure SQL Database met openbare eindpunten
+# <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Een Azure SQL Database beheerd exemplaar veilig met open bare eind punten gebruiken
 
-Azure SQL Database beheerde exemplaren u een gebruiker verbinding via krijgt [openbare eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md). In dit artikel wordt uitgelegd hoe u deze configuratie beter te beveiligen.
+Azure SQL Database beheerde instanties kunnen gebruikers connectiviteit bieden via [open bare eind punten](../virtual-network/virtual-network-service-endpoints-overview.md). In dit artikel wordt uitgelegd hoe u deze configuratie beter kunt beveiligen.
 
 ## <a name="scenarios"></a>Scenario's
 
-Een beheerd exemplaar van SQL Database biedt een persoonlijke eindpunt om toe te staan de connectiviteit van binnen het virtuele netwerk. Er is de standaardoptie om maximale isolatie te bieden. Er zijn echter scenario's waar u nodig hebt voor een openbaar eindpunt verbinding:
+Een SQL Database Managed instance biedt een persoonlijk eind punt om connectiviteit binnen het virtuele netwerk toe te staan. De standaard optie is om maximale isolatie te bieden. Er zijn echter scenario's waarin u een open bare eindpunt verbinding moet opgeven:
 
-- Het beheerde exemplaar moet integreren met meerdere-tenant alleen-platform-as-a-service (PaaS)-aanbiedingen.
-- U moet een hogere doorvoer van het uitwisselen van gegevens dan mogelijk is wanneer u een VPN-verbinding.
-- Bedrijfsbeleid verbieden PaaS binnen bedrijfsnetwerken.
+- Het beheerde exemplaar moet worden geïntegreerd met PaaS-aanbiedingen (platform-as-a-Service) met meerdere tenants.
+- U hebt een hogere door Voer van gegevens uitwisseling nodig dan mogelijk is wanneer u een VPN gebruikt.
+- Met het bedrijfs beleid wordt PaaS in bedrijfs netwerken niet toegestaan.
 
-## <a name="deploy-a-managed-instance-for-public-endpoint-access"></a>Een beheerd exemplaar voor openbaar eindpunt toegang implementeren
+## <a name="deploy-a-managed-instance-for-public-endpoint-access"></a>Een beheerd exemplaar implementeren voor toegang tot open bare eind punten
 
-Hoewel niet verplicht is, wordt het algemene implementatiemodel voor een beheerd exemplaar met een openbaar eindpunt toegang is het maken van het exemplaar in een speciale geïsoleerd virtual network. In deze configuratie, wordt het virtuele netwerk alleen gebruikt voor isolatie virtueel cluster. Het maakt niet uit als het beheerde exemplaar IP-adresruimte met een bedrijfsnetwerk IP-adresruimte overlapt.
+Hoewel dit niet verplicht is, is het algemene implementatie model voor een beheerd exemplaar met open bare eindpunt toegang het exemplaar te maken in een speciaal geïsoleerd virtueel netwerk. In deze configuratie wordt het virtuele netwerk alleen gebruikt voor isolatie van virtuele clusters. Het maakt niet uit of de IP-adres ruimte van het beheerde exemplaar overlapt met de IP-adres ruimte van een bedrijfs netwerk.
 
-## <a name="secure-data-in-motion"></a>Bescherm uw gegevens in beweging
+## <a name="secure-data-in-motion"></a>Gegevens in beweging beveiligen
 
-Beheerd exemplaar gegevensverkeer worden altijd versleuteld als versleuteling biedt ondersteuning voor het clientstuurprogramma. Gegevens die worden verzonden tussen het beheerde exemplaar en andere virtuele machines van Azure of Azure-services blijven nooit van Azure-backbone. Als er een verbinding tussen het beheerde exemplaar en een on-premises netwerk is, raden wij dat u Azure ExpressRoute gebruiken met Microsoft-peering. ExpressRoute kunt u voorkomen verplaatsen van gegevens via het openbare internet. Voor beheerd exemplaar particuliere verbindingen, kan alleen persoonlijke peering worden gebruikt.
+Gegevens verkeer van beheerde exemplaren wordt altijd versleuteld als het client stuur programma versleuteling ondersteunt. Gegevens die worden verzonden tussen het beheerde exemplaar en andere virtuele machines van Azure of Azure-Services, verlaten nooit de backbone van Azure. Als er een verbinding is tussen het beheerde exemplaar en een on-premises netwerk, raden we u aan Azure ExpressRoute te gebruiken met micro soft-peering. ExpressRoute helpt u bij het verplaatsen van gegevens via het open bare Internet te voor komen. Voor privé-communicatie met een beheerd exemplaar kan alleen privé-peering worden gebruikt.
 
-## <a name="lock-down-inbound-and-outbound-connectivity"></a>Binnenkomende en uitgaande connectiviteit vergrendelen
+## <a name="lock-down-inbound-and-outbound-connectivity"></a>Binnenkomende en uitgaande verbindingen vergren delen
 
-Het volgende diagram toont de aanbevolen beveiligingsconfiguraties:
+In het volgende diagram ziet u de aanbevolen beveiligings configuraties:
 
-![Beveiligingsconfiguraties voor binnenkomende en uitgaande connectiviteit te vergrendelen](media/sql-database-managed-instance-public-endpoint-securely/managed-instance-vnet.png)
+![Beveiligings configuraties voor het vergren delen van binnenkomende en uitgaande verbindingen](media/sql-database-managed-instance-public-endpoint-securely/managed-instance-vnet.png)
 
-Een beheerd exemplaar heeft een [specifiek adres openbaar eindpunt](sql-database-managed-instance-find-management-endpoint-ip-address.md). In de uitgaande client-side-firewall en in de regels voor netwerkbeveiligingsgroepen, stelt u dit openbare eindpunt-IP-adres aan de uitgaande connectiviteit beperken.
+Een beheerd exemplaar heeft een [toegewezen openbaar eindpunt adres](sql-database-managed-instance-find-management-endpoint-ip-address.md). Stel in de uitgaande firewall aan de client zijde en in de regels voor de netwerk beveiligings groep het IP-adres van dit open bare eind punt in om de uitgaande connectiviteit te beperken.
 
-Om te controleren of verkeer naar het beheerde exemplaar is afkomstig van betrouwbare bronnen, wordt u aangeraden verbinding te maken van bronnen met bekende IP-adressen. Een netwerkbeveiligingsgroep gebruiken om te beperken van toegang tot het beheerde exemplaar openbare eindpunt op poort 3342.
+Om ervoor te zorgen dat verkeer naar het beheerde exemplaar afkomstig is van betrouw bare bronnen, raden we aan om verbinding te maken vanuit bronnen met bekende IP-adressen. Gebruik een netwerk beveiligings groep om de toegang tot het open bare eind punt van het beheerde exemplaar op poort 3342 te beperken.
 
-Wanneer u clients wilt initiëren een verbinding van een on-premises netwerk, zorg er dan voor dat het oorspronkelijke adres wordt omgezet naar een bekende set IP-adressen. Als u geen (bijvoorbeeld mobiele werknemers wordt een typisch scenario), raden wij aan u [punt-naar-site VPN-verbindingen en een persoonlijke eindpunt](sql-database-managed-instance-configure-p2s.md).
+Wanneer clients een verbinding vanuit een on-premises netwerk moeten initiëren, moet u ervoor zorgen dat het adres van de bron wordt omgezet in een bekende set IP-adressen. Als u dit niet kunt doen (bijvoorbeeld een mobiel personeel dat een typisch scenario is), raden we u aan om [punt-naar-site-VPN-verbindingen en een persoonlijk eind punt](sql-database-managed-instance-configure-p2s.md)te gebruiken.
 
-Als verbindingen van Azure worden gestart, raden wij aan dat verkeer afkomstig zijn van een bekende toegewezen [virtuele IP-adres](../virtual-network/virtual-networks-reserved-public-ip.md) (bijvoorbeeld een virtuele machine). Als u wilt beheren van virtuele IP-adres (VIP)-adressen gemakkelijker, wilt u mogelijk gebruiken [openbare IP-adresvoorvoegsels](../virtual-network/public-ip-address-prefix.md).
+Als er verbindingen worden gestart vanuit Azure, raden we aan dat verkeer afkomstig is van een bekend toegewezen [virtueel IP-adres](../virtual-network/virtual-networks-reserved-public-ip.md) (bijvoorbeeld een virtuele machine). Als u het beheer van virtuele IP-adressen (VIP) eenvoudiger wilt maken, kunt u gebruikmaken van [open bare IP-adres voorvoegsels](../virtual-network/public-ip-address-prefix.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het configureren van openbare eindpunt voor de exemplaren beheren: [Openbare eindpunt configureren](sql-database-managed-instance-public-endpoint-configure.md)
+- Meer informatie over het configureren van een openbaar eind punt voor het beheren van instanties: [Openbaar eind punt configureren](sql-database-managed-instance-public-endpoint-configure.md)

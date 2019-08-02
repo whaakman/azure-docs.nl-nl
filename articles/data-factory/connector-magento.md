@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: cecdb9f9af9c5194eb56cfefd63b31348f111980
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 424a2c28176813abc10011c030971047ea50e3da
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61400727"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726112"
 ---
 # <a name="copy-data-from-magento-using-azure-data-factory-preview"></a>Gegevens kopiëren van Magento met Azure Data Factory (Preview)
 
@@ -90,11 +90,12 @@ Om gegevens te kopiëren van Magento, stel de eigenschap type van de gegevensset
     "name": "MagentoDataset",
     "properties": {
         "type": "MagentoObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Magento linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -109,7 +110,7 @@ Om gegevens te kopiëren van Magento, stelt u het brontype in de kopieeractivite
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **MagentoSource** | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **MagentoSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM Customers"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**

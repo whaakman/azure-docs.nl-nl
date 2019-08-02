@@ -1,6 +1,6 @@
 ---
 title: Uitgebreide gebeurtenissen in SQL Database | Microsoft Docs
-description: Beschrijving van extended events (XEvents) in Azure SQL Database, en hoe gebeurtenissessies enigszins afwijken van de event-sessies in Microsoft SQL Server.
+description: Hierin worden uitgebreide gebeurtenissen (XEvents) in Azure SQL Database beschreven en wordt uitgelegd hoe gebeurtenis sessies enigszins afwijken van gebeurtenis sessies in Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -10,27 +10,26 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 7f742b094575b78f453fb735b23cc5319a27fa7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9af487e2eb35e7dc94e1b70945d5c03ffdde2ba
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65206659"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566070"
 ---
-# <a name="extended-events-in-sql-database"></a>Uitgebreide gebeurtenissen in SQL-Database
+# <a name="extended-events-in-sql-database"></a>Uitgebreide gebeurtenissen in SQL Database
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-In dit onderwerp wordt uitgelegd hoe de implementatie van uitgebreide gebeurtenissen in Azure SQL Database is enigszins in vergelijking met uitgebreide gebeurtenissen in Microsoft SQL Server.
+In dit onderwerp wordt uitgelegd hoe de implementatie van uitgebreide gebeurtenissen in Azure SQL Database iets verschilt ten opzichte van uitgebreide gebeurtenissen in Microsoft SQL Server.
 
-- SQL Database V12 opgedaan de functie voor uitgebreide gebeurtenissen in de tweede helft van de agenda 2015.
+- SQL Database V12 heeft de functie Extended Events gewonnen in de tweede helft van Calendar 2015.
 - SQL Server heeft uitgebreide gebeurtenissen sinds 2008.
-- De functieset uitgebreide gebeurtenissen op SQL-Database is een robuuste subset van de functies van SQL Server.
+- De functieset met uitgebreide gebeurtenissen op SQL Database is een robuuste subset van de functies op SQL Server.
 
-*XEvents* is een informeel bijnaam die soms wordt gebruikt voor 'uitgebreide gebeurtenissen' in de blogs en andere informele locaties.
+*XEvents* is een informele bijnaam die soms wordt gebruikt voor ' Extended Events ' in blogs en andere informele locaties.
 
-Meer informatie over uitgebreide gebeurtenissen voor Azure SQL Database en Microsoft SQL Server, is beschikbaar op:
+Meer informatie over Extended Events, voor Azure SQL Database en Microsoft SQL Server, is beschikbaar op:
 
 - [Quick Start: Uitgebreide gebeurtenissen in SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
 - [Uitgebreide gebeurtenissen](https://msdn.microsoft.com/library/bb630282.aspx)
@@ -39,77 +38,77 @@ Meer informatie over uitgebreide gebeurtenissen voor Azure SQL Database en Micro
 
 In dit onderwerp wordt ervan uitgegaan dat u al enige kennis hebt van:
 
-- [Azure SQL Database-service](https://azure.microsoft.com/services/sql-database/).
+- [Azure SQL database-service](https://azure.microsoft.com/services/sql-database/).
 - [Uitgebreide gebeurtenissen](https://msdn.microsoft.com/library/bb630282.aspx) in Microsoft SQL Server.
 
-- Het grootste deel van onze documentatie over uitgebreide gebeurtenissen geldt voor zowel SQL Server en SQL-Database.
+- Het meren deel van onze documentatie over Extended Events is van toepassing op zowel SQL Server als SQL Database.
 
-Eerdere blootstelling aan de volgende items is handig bij het kiezen van de gebeurtenisbestand als de [doel](#AzureXEventsTargets):
+Voorafgaande bloot stelling aan de volgende items is handig bij het kiezen van het gebeurtenis bestand als [doel](#AzureXEventsTargets):
 
 - [Azure Storage-service](https://azure.microsoft.com/services/storage/)
 
 
 - PowerShell
-    - [Azure PowerShell gebruiken met Azure Storage](../storage/common/storage-powershell-guide-full.md) -bevat uitgebreide informatie over PowerShell en de Azure Storage-service.
+    - Het [gebruik van Azure PowerShell met Azure Storage](../storage/common/storage-powershell-guide-full.md) -bevat uitgebreide informatie over Power shell en de Azure Storage service.
 
 ## <a name="code-samples"></a>Codevoorbeelden
 
-Verwante onderwerpen bieden twee voorbeelden van code:
+Verwante onderwerpen bieden twee voor beelden van code:
 
 
-- [Doelcode ringbuffer voor uitgebreide gebeurtenissen in SQL-Database](sql-database-xevent-code-ring-buffer.md)
-    - Korte eenvoudige Transact-SQL-script.
-    - We in het code-voorbeeld-onderwerp dat, wanneer u klaar bent met een doel ringbuffer, u de bronnen vrijgeven moet door het uitvoeren van een alter neerzetten benadrukken `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` instructie. U kunt later een ander exemplaar van ringbuffer door toevoegen `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
+- [Doel code ring buffer voor uitgebreide gebeurtenissen in SQL Database](sql-database-xevent-code-ring-buffer.md)
+    - Kort eenvoudig Transact-SQL-script.
+    - We benadrukken in het onderwerp code voorbeeld. Als u klaar bent met een ring buffer doel, moet u de resources vrijgeven door een instructie ALTER-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` uit te voeren. Later kunt u een andere instantie van ring buffer toevoegen `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`door.
 
 
-- [Doelcode gebeurtenisbestand voor uitgebreide gebeurtenissen in SQL-Database](sql-database-xevent-code-event-file.md)
-    - Fase 1 is PowerShell voor het maken van een Azure Storage-container.
+- [Doel code van gebeurtenis bestand voor uitgebreide gebeurtenissen in SQL Database](sql-database-xevent-code-event-file.md)
+    - Fase 1 is Power shell om een Azure Storage-container te maken.
     - Fase 2 is Transact-SQL die gebruikmaakt van de Azure Storage-container.
 
 ## <a name="transact-sql-differences"></a>Verschillen Transact-SQL
 
 
-- Wanneer u uitvoert het [maken GEBEURTENIS sessie](https://msdn.microsoft.com/library/bb677289.aspx) opdracht op de SQL Server, gebruikt u de **op SERVER** component. Maar op de SQL-Database die u gebruikt de **op DATABASE** component in plaats daarvan.
+- Wanneer u de opdracht [gebeurtenis sessie maken](https://msdn.microsoft.com/library/bb677289.aspx) op SQL Server uitvoert, gebruikt u de component **on server** . Maar op SQL Database u in plaats daarvan de component **on-data base** gebruiken.
 
 
-- De **op DATABASE** component is ook van toepassing op de [ALTER GEBEURTENIS sessie](https://msdn.microsoft.com/library/bb630368.aspx) en [neerzetten GEBEURTENIS sessie](https://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL-opdrachten.
+- De component **on data base** is ook van toepassing op de opdrachten [ALTER Event Session](https://msdn.microsoft.com/library/bb630368.aspx) en [Drop Event Session](https://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL.
 
 
-- Er is een best practice om op te nemen van de gebeurtenissessieoptie van **STARTUP_STATE = ON** in uw **maken GEBEURTENIS sessie** of **ALTER GEBEURTENIS sessie** instructies.
-    - De **= ON** waarde biedt ondersteuning voor automatisch opnieuw opstarten na een herconfiguratie van de logische-database vanwege een failover.
+- Een best practice is het toevoegen van de optie voor gebeurtenis sessies van **STARTUP_STATE = aan** in uw **gebeurtenis sessie maken** of instructies voor **gebeurtenis sessies wijzigen** .
+    - De **= on** -waarde ondersteunt een automatische herstart na een herconfiguratie van de logische data base vanwege een failover.
 
-## <a name="new-catalog-views"></a>Nieuwe catalogusweergaven
+## <a name="new-catalog-views"></a>Nieuwe catalogus weergaven
 
-De uitgebreide gebeurtenissen-functie wordt ondersteund door verschillende [weergaven van catalogus](https://msdn.microsoft.com/library/ms174365.aspx). Catalogusweergaven vertellen u *metagegevens of definities* van de gebruiker gemaakte event-sessies in de huidige database. De weergaven retourneren geen informatie over exemplaren van actieve gebeurtenissessies.
+De functie Extended Events wordt ondersteund door verschillende [catalogus weergaven](https://msdn.microsoft.com/library/ms174365.aspx). Catalogus weergaven geven informatie over *meta gegevens of definities* van door gebruikers gemaakte gebeurtenis sessies in de huidige data base. De weer gaven retour neren geen informatie over exemplaren van actieve gebeurtenis sessies.
 
-| Naam van<br/>Catalogusweergave | Description |
+| Naam van<br/>Catalogus weergave | Description |
 |:--- |:--- |
-| **sys.database_event_session_actions** |Retourneert een rij voor elke actie die bij elke gebeurtenis van een event-sessie. |
-| **sys.database_event_session_events** |Retourneert een rij voor elke gebeurtenis in een event-sessie. |
-| **sys.database_event_session_fields** |Retourneert een rij voor elke aanpassen kan kolom die expliciet is ingesteld op gebeurtenissen en -doelen. |
-| **sys.database_event_session_targets** |Retourneert een rij voor elke gebeurtenisdoel voor de gebeurtenissessie van een. |
-| **sys.database_event_sessions** |Retourneert een rij voor elke gebeurtenissessie in de database van SQL-Database. |
+| **sys.database_event_session_actions** |Retourneert een rij voor elke actie op elke gebeurtenis van een gebeurtenis sessie. |
+| **sys.database_event_session_events** |Retourneert een rij voor elke gebeurtenis in een gebeurtenis sessie. |
+| **sys.database_event_session_fields** |Retourneert een rij voor elke kolom die kan worden aangepast en die expliciet is ingesteld op gebeurtenissen en doelen. |
+| **sys.database_event_session_targets** |Retourneert een rij voor elk gebeurtenis doel voor een gebeurtenis sessie. |
+| **sys.database_event_sessions** |Retourneert een rij voor elke gebeurtenis sessie in de SQL Database-data base. |
 
-In Microsoft SQL Server, vergelijkbare catalogusweergaven hebben namen die zijn *.server\_*  in plaats van *.database\_* . Het naampatroon is, zoals **sys.server_event_%** .
+In Microsoft SQL Server hebben vergelijk bare catalogus weergaven namen die *. server\_*  bevatten in plaats van *.\_data base*. Het naam patroon is als **sys. server_event_%** .
 
-## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Nieuwe dynamische beheerweergaven [(DMV's)](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Nieuwe dynamische beheer weergaven [(dmv's)](https://msdn.microsoft.com/library/ms188754.aspx)
 
-Azure SQL-Database heeft [dynamische beheerweergave (DMV's)](https://msdn.microsoft.com/library/bb677293.aspx) die ondersteuning bieden voor uitgebreide gebeurtenissen. DMV's vertellen u *active* event-sessies.
+Azure SQL Database heeft [dynamische beheer weergaven (dmv's)](https://msdn.microsoft.com/library/bb677293.aspx) die ondersteuning bieden voor uitgebreide gebeurtenissen. Dmv's vertelt u over *actieve* gebeurtenis sessies.
 
-| Naam van de DMV | Description |
+| Naam van DMV | Description |
 |:--- |:--- |
-| **sys.dm_xe_database_session_event_actions** |Retourneert informatie over gebeurtenisacties sessie. |
-| **sys.dm_xe_database_session_events** |Retourneert informatie over sessiegebeurtenissen. |
-| **sys.dm_xe_database_session_object_columns** |Geeft de configuratiewaarden voor objecten die zijn gebonden aan een sessie. |
-| **sys.dm_xe_database_session_targets** |Retourneert informatie over de sessie-doelen. |
-| **sys.dm_xe_database_sessions** |Retourneert een rij voor elke gebeurtenissessie die is afgestemd op de huidige database. |
+| **sys.dm_xe_database_session_event_actions** |Hiermee wordt informatie over gebeurtenis sessie acties geretourneerd. |
+| **sys.dm_xe_database_session_events** |Retourneert informatie over sessie gebeurtenissen. |
+| **sys.dm_xe_database_session_object_columns** |Toont de configuratie waarden voor objecten die aan een sessie zijn gebonden. |
+| **sys.dm_xe_database_session_targets** |Retourneert informatie over sessie doelen. |
+| **sys.dm_xe_database_sessions** |Retourneert een rij voor elke gebeurtenis sessie die binnen het bereik van de huidige data base valt. |
 
-In Microsoft SQL Server, catalogusweergaven vergelijkbaar zijn met de naam zonder de  *\_database* gedeelte van de naam, zoals:
+In Microsoft SQL Server worden vergelijk bare catalogus weergaven benoemd zonder het  *\_data base* -gedeelte van de naam, zoals:
 
-- **sys.dm_xe_sessions**, in plaats van naam<br/>**sys.dm_xe_database_sessions**.
+- **sys. DM _xe_sessions**, in plaats van naam<br/>**sys.dm_xe_database_sessions**.
 
-### <a name="dmvs-common-to-both"></a>Zowel DMV 's
-Er zijn aanvullende DMV's die gemeenschappelijk voor zowel de Azure SQL Database en de Microsoft SQL Server zijn voor uitgebreide gebeurtenissen:
+### <a name="dmvs-common-to-both"></a>Gemeen schappelijk Dmv's voor beide
+Voor uitgebreide gebeurtenissen zijn er extra Dmv's die gemeen schappelijk zijn voor zowel Azure SQL Database als Microsoft SQL Server:
 
 - **sys.dm_xe_map_values**
 - **sys.dm_xe_object_columns**
@@ -118,9 +117,9 @@ Er zijn aanvullende DMV's die gemeenschappelijk voor zowel de Azure SQL Database
 
   <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
-## <a name="find-the-available-extended-events-actions-and-targets"></a>Zoek de beschikbare uitgebreide gebeurtenissen, acties en doelen
+## <a name="find-the-available-extended-events-actions-and-targets"></a>De beschik bare uitgebreide gebeurtenissen, acties en doelen zoeken
 
-U kunt een eenvoudige SQL uitvoeren **Selecteer** verkrijgen van een lijst van de beschikbare gebeurtenissen, acties en doel.
+U kunt een eenvoudige SQL- **selectie** uitvoeren om een lijst met de beschik bare gebeurtenissen, acties en doel items te verkrijgen.
 
 ```sql
 SELECT
@@ -145,66 +144,66 @@ SELECT
 
 <a name="AzureXEventsTargets" id="AzureXEventsTargets"></a> &nbsp;
 
-## <a name="targets-for-your-sql-database-event-sessions"></a>Doelen voor uw SQL-Database-event-sessies
+## <a name="targets-for-your-sql-database-event-sessions"></a>Doelen voor uw SQL Database-gebeurtenis sessies
 
-Hier vindt u doelen die de resultaten van de event-sessies op SQL-Database kunnen vastleggen:
+Hier vindt u doelen die resultaten kunnen vastleggen vanuit uw gebeurtenis sessies op SQL Database:
 
-- [Doelringbuffer](https://msdn.microsoft.com/library/ff878182.aspx) -kort bevat gebeurtenisgegevens in het geheugen.
-- [Gebeurtenis teller doel](https://msdn.microsoft.com/library/ff878025.aspx) -telt alle gebeurtenissen die zich tijdens een sessie met uitgebreide gebeurtenissen voordoen.
-- [Doelgebeurtenisbestand](https://msdn.microsoft.com/library/ff878115.aspx) -volledige buffers schrijft naar een Azure Storage-container.
+- [Ring buffer doel](https://msdn.microsoft.com/library/ff878182.aspx) -bevat kort gebeurtenis gegevens in het geheugen.
+- [Doel van gebeurtenis teller](https://msdn.microsoft.com/library/ff878025.aspx) : telt alle gebeurtenissen die optreden tijdens een Extended Events-sessie.
+- [Gebeurtenis bestand doel](https://msdn.microsoft.com/library/ff878115.aspx) : Hiermee worden volledige buffers geschreven naar een Azure storage-container.
 
-De [Event Tracing voor Windows (ETW)](https://msdn.microsoft.com/library/ms751538.aspx) API is niet beschikbaar voor uitgebreide gebeurtenissen op SQL-Database.
+De API voor [Event Tracing for Windows (etw)](https://msdn.microsoft.com/library/ms751538.aspx) is niet beschikbaar voor uitgebreide gebeurtenissen op SQL database.
 
 ## <a name="restrictions"></a>Beperkingen
 
-Er zijn een paar beveiligingsgerelateerde verschillen befitting de cloudomgeving van SQL Database:
+Er zijn een aantal beveiligings verschillen befitting de cloud omgeving van SQL Database:
 
-- Uitgebreide gebeurtenissen zijn gevonden op het isolatiemodel met één tenant. De gebeurtenissessie van een in de ene database geen toegang tot gegevens of gebeurtenissen uit een andere database.
-- U kunt geen opdracht een **maken GEBEURTENIS sessie** -instructie in de context van de **master** database.
+- Uitgebreide gebeurtenissen zijn gebaseerd op het isolatie model met één Tenant. Een gebeurtenis sessie in de ene data base heeft geen toegang tot gegevens of gebeurtenissen vanuit een andere data base.
+- U kunt geen instructie **create event Session** uitgeven in de context van de **hoofd** database.
 
-## <a name="permission-model"></a>Machtigingsmodel
+## <a name="permission-model"></a>Machtigings model
 
-U moet hebben **besturingselement** machtiging voor de database om uit te geven een **maken GEBEURTENIS sessie** instructie. De database-eigenaar (dbo) heeft **besturingselement** machtiging.
+U moet de machtiging **beheer** hebben voor de data base om een instructie **create event Session** te kunnen geven. De data base-eigenaar (dbo) heeft machtiging voor **beheer** .
 
-### <a name="storage-container-authorizations"></a>Storage-container autorisaties
+### <a name="storage-container-authorizations"></a>Autorisaties voor opslag container
 
-De SAS-token genereren voor uw Azure Storage-container moet opgeven **rwl** voor de machtigingen. De **rwl** waarde biedt de volgende machtigingen:
+Het SAS-token dat u voor de Azure Storage-container hebt gegenereerd, moet **RWL** voor de machtigingen opgeven. De waarde **RWL** biedt de volgende machtigingen:
 
 - Lezen
 - Schrijven
-- Lijst
+- List
 
 ## <a name="performance-considerations"></a>Prestatieoverwegingen
 
-Er zijn scenario's waarbij intensief gebruik van uitgebreide gebeurtenissen meer actieve geheugen verzamelen dan voor het algehele systeem in orde is. Daarom de Azure SQL Database-systeem dynamisch wordt ingesteld en beperkingen met betrekking tot het bedrag van het actieve geheugen die kan worden samengevoegd door een gebeurtenissessie past. Veel factoren gaat u naar de dynamische berekening.
+Er zijn scenario's waarin intensief gebruik van uitgebreide gebeurtenissen meer actief geheugen kan oplopen dan in orde is voor het hele systeem. Daarom stelt het Azure SQL Database systeem dynamisch limieten in voor de hoeveelheid actief geheugen die kan worden gecumuleerd met een gebeurtenis sessie. Veel factoren gaan in de dynamische berekening.
 
-Als u een foutmelding krijgen dat een maximum geheugen is afgedwongen ontvangt, zijn sommige corrigerende acties die u kunt uitvoeren:
+Als er een fout bericht wordt weer gegeven met de melding dat er een geheugen maximum is afgedwongen, kunt u het volgende doen:
 
-- Minder gelijktijdige event-sessies worden uitgevoerd.
-- Via uw **maken** en **ALTER** -instructies voor sessies van evenementen, verminderen de hoeveelheid geheugen die u opgeeft op de **MAX\_geheugen** component.
+- Voer minder gelijktijdige gebeurtenis sessies uit.
+- Via uw **Create** -en **ALTER** -instructies voor gebeurtenis sessies vermindert u de hoeveelheid geheugen die u opgeeft in de component **Max\_Memory** .
 
 ### <a name="network-latency"></a>Netwerklatentie
 
-De **gebeurtenisbestand** doel tegenkomen netwerklatentie of fouten tijdens het vastleggen van gegevens naar Azure Storage-blobs. Andere gebeurtenissen in SQL-Database kunnen zijn vertraagd, terwijl ze wachten tot de netwerkcommunicatie om te voltooien. Deze vertraging kan vertragen uw workload.
+Het **gebeurtenis bestand** doel kan netwerk latentie of storingen ondervinden tijdens het persistent maken van gegevens naar Azure Storage blobs. Andere gebeurtenissen in SQL Database worden mogelijk vertraagd wanneer er wordt gewacht tot de netwerk communicatie is voltooid. Deze vertraging kan uw werk belasting vertragen.
 
-- Als u wilt deze prestaties risico te voorkomen dat de instelling de **EVENT_RETENTION_MODE** optie naar **NO_EVENT_LOSS** in de definities van de event-sessie.
+- U kunt dit prestatie risico beperken door de optie **EVENT_RETENTION_MODE** in te stellen op **NO_EVENT_LOSS** in uw gebeurtenis sessie definities.
 
 ## <a name="related-links"></a>Verwante koppelingen
 
 - [Azure PowerShell gebruiken met Azure Storage](../storage/common/storage-powershell-guide-full.md).
-- [Azure Storage-Cmdlets](https://docs.microsoft.com/powershell/module/Azure.Storage)
-- [Azure PowerShell gebruiken met Azure Storage](../storage/common/storage-powershell-guide-full.md) -bevat uitgebreide informatie over PowerShell en de Azure Storage-service.
-- [Het Blob storage gebruiken met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+- [Azure Storage-cmdlets](https://docs.microsoft.com/powershell/module/Azure.Storage)
+- Het [gebruik van Azure PowerShell met Azure Storage](../storage/common/storage-powershell-guide-full.md) -bevat uitgebreide informatie over Power shell en de Azure Storage service.
+- [Blob-opslag gebruiken met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
-- [Jonathan Kehayias blogberichten over uitgebreide gebeurtenissen in Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+- [Blog berichten van Jonathan Kehayias over Extended Events in Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
-- De Azure *Service-Updates* webpagina teruggebracht door parameter naar Azure SQL Database:
+- De webpagina Azure- *service-updates* , beperkt door de para meter voor Azure SQL database:
     - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
 
 
-Andere onderwerpen voor het voorbeeld van code voor uitgebreide gebeurtenissen zijn beschikbaar op de volgende koppelingen. U moet echter routinematig voorbeelden om te zien of het voorbeeld is gericht op Microsoft SQL Server en Azure SQL Database controleren. U kunt vervolgens beslissen of kleine wijzigingen nodig zijn om uit te voeren van het voorbeeld.
+Andere onderwerpen over voorbeeld code voor uitgebreide gebeurtenissen vindt u op de volgende koppelingen. U moet echter regel matig een voor beeld controleren om te zien of de voor beeld-doelen Microsoft SQL Server versus Azure SQL Database. Vervolgens kunt u bepalen of er kleine wijzigingen nodig zijn om het voor beeld uit te voeren.
 
 <!--
 ('lock_acquired' event.)

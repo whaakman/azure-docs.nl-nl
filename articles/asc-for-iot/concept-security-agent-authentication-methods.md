@@ -1,6 +1,6 @@
 ---
-title: Verificatiemethoden voor Azure Security Center voor IoT-Preview | Microsoft Docs
-description: Meer informatie over de diverse verificatiemethoden die beschikbaar is bij het gebruik van de Azure Security Center voor IoT-service.
+title: Verificatie methoden voor Azure Security Center voor IoT | Microsoft Docs
+description: Meer informatie over de verschillende verificatie methoden die beschikbaar zijn bij het gebruik van de Azure Security Center voor IoT-service.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,79 +13,74 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: d5701ae37d64e25fba981cd85deed2c4e4d87a15
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 16f7f91e02d118d9f9a295ebb79a6cd0187dd9fd
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618344"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596469"
 ---
-# <a name="security-agent-authentication-methods"></a>Security agent verificatiemethoden 
+# <a name="security-agent-authentication-methods"></a>Verificatie methoden voor beveiligings agenten 
 
-> [!IMPORTANT]
-> Azure Security Center voor IoT is momenteel in openbare preview.
-> Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+In dit artikel worden de verschillende verificatie methoden beschreven die u met de AzureIoTSecurity-agent kunt gebruiken om te verifiëren met de IoT Hub.
 
-In dit artikel wordt uitgelegd dat de diverse verificatiemethoden die u met de agent AzureIoTSecurity gebruiken kunt om te verifiëren met de IoT-Hub.
-
-Een beveiligingsmodule is vereist voor de onboarding voor elk apparaat naar Azure Security Center (ASC) voor IoT in de IoT-Hub. Voor de verificatie van het apparaat heeft kunt ASC voor IoT gebruiken een van twee methoden. Kies de methode die geschikt is voor uw bestaande IoT-oplossing. 
+Een beveiligings module is vereist voor elk apparaat waarvoor Azure Security Center voor IoT in de IoT Hub is geïnstalleerd. Om het apparaat te verifiëren, kunnen Azure Security Center voor IoT een van de volgende twee methoden gebruiken. Kies de methode die het beste werkt voor uw bestaande IoT-oplossing. 
 
 > [!div class="checklist"]
-> * Module-optie voor beveiliging
-> * Apparaat-optie
+> * SecurityModule optie
+> * Optie apparaat
 
 ## <a name="authentication-methods"></a>Verificatiemethoden
 
-De twee methoden voor de agent AzureIoTSecurity verificatie uitvoeren:
+De twee methoden voor de AzureIoTSecurity-agent om verificatie uit te voeren:
 
- - **Module** -verificatiemodus<br>
-   De Module wordt geverifieerd onafhankelijk van het dubbele apparaat.
-   Gebruik dit verificatietype als u de beveiligingsagent op een toegewezen verificatiemethode via security module (alleen symmetrische sleutel) te gebruiken.
+ - **SecurityModule** -verificatie modus<br>
+   De agent wordt geverifieerd met behulp van de identiteit van de beveiligings module, onafhankelijk van de apparaat-id.
+   Gebruik dit verificatie type als u wilt dat de beveiligings agent een specifieke verificatie methode gebruikt via de beveiligings module (alleen symmetrische sleutel).
         
- - **Apparaat** -verificatiemodus<br>
-    Bij deze methode is de security-agent eerst worden geverifieerd aan de apparaat-id. Na de initiële verificatie de ASC voor IoT-agent wordt uitgevoerd een **REST** aanroepen naar de IoT-Hub met behulp van de REST-API met de verificatiegegevens van het apparaat. De ASC voor IoT-agent vervolgens vraagt u de verificatiemethode voor netwerkbeveiliging module en de gegevens van de IoT-Hub. In de laatste stap voert de ASC voor IoT-agent een verificatie op basis van de ASC voor IoT-module.
+ - Verificatie modus **apparaat**<br>
+    In deze methode verifieert de beveiligings agent eerst met de apparaat-id. Na de initiële verificatie voert de Azure Security Center voor IoT-agent een **rest** -aanroep naar de IOT hub met behulp van de rest API met de verificatie gegevens van het apparaat. De Azure Security Center voor de IoT-agent vraagt vervolgens de verificatie methode van de beveiligings module en de gegevens van de IoT Hub. In de laatste stap voert de Azure Security Center voor IoT-agent een verificatie uit op basis van de Azure Security Center voor IoT-module.
     
-    Gebruik dit verificatietype als u de beveiligingsagent als u een bestaande verificatiemethode voor het apparaat opnieuw wilt (zelfondertekend certificaat of de symmetrische sleutel). 
+    Gebruik dit verificatie type als u wilt dat de beveiligings agent een bestaande verificatie methode voor apparaten (zelfondertekend certificaat of symmetrische sleutel) opnieuw gebruikt. 
 
-Zie [Security agent installatieparameters](#security-agent-installation-parameters) voor meer informatie over het configureren van.
+Zie [para meters voor de beveiligings agent installeren](#security-agent-installation-parameters) voor meer informatie over het configureren van.
                                 
-## <a name="authentication-methods-known-limitations"></a>Bekende beperkingen verificatiemethoden
+## <a name="authentication-methods-known-limitations"></a>Bekende beperkingen van de verificatie methoden
 
-- **Module** verificatiemodus biedt alleen ondersteuning voor verificatie met een symmetrische sleutel.
-- Door CA ondertekend certificaat wordt niet ondersteund door **apparaat** -verificatiemodus.  
+- De **SecurityModule** -verificatie modus ondersteunt alleen symmetrische sleutel verificatie.
+- CA-ondertekend certificaat wordt niet ondersteund door de verificatie modus van het **apparaat** .  
 
-## <a name="security-agent-installation-parameters"></a>Installatieparameters Security-agent
+## <a name="security-agent-installation-parameters"></a>Beveiligings agent-installatie parameters
 
-Wanneer [implementeren van een beveiligingsagent](how-to-deploy-agent.md), details van de verificatie moeten worden opgegeven als argumenten.
+Wanneer u [een beveiligings agent implementeert](how-to-deploy-agent.md), moeten de verificatie gegevens als argumenten worden gegeven.
 Deze argumenten worden beschreven in de volgende tabel.
 
 
-|Parameter|Description|Opties|
-|---------|---------------|---------------|
-|**identity**|Verificatiemodus| **Module** of **apparaat**|
-|**type**|Verificatietype|**SymmetricKey** of **SelfSignedCertificate**|
-|**filePath**|Absolute volledige pad naar het bestand met het certificaat of de symmetrische sleutel| |
-|**gatewayHostname**|FQDN-naam van de IoT-Hub|Voorbeeld: ContosoIotHub.azure-devices.net|
-|**deviceId**|Apparaat-id|Voorbeeld: MyDevice1|
-|**certificateLocationKind**|Opslaglocatie van certificaat|**LokaalBestand** of **Store**|
+|Naam van Linux-para meter | Naam van Windows-para meter | Steno parameter |Description|Opties|
+|---------------------|---------------|---------|---------------|---------------|
+|verificatie-identiteit|AuthenticationIdentity|aui|Verificatie-identiteit| **SecurityModule** of **apparaat**|
+|verificatie-methode|Authentic|aum|Verificatiemethode|**SymmetricKey** of **SelfSignedCertificate**|
+|bestandspad|Bestandspad|ls|Absoluut volledig pad voor het bestand met het certificaat of de symmetrische sleutel| |
+|hostnaam|Hostnaam|hn|FQDN-namen van de IoT Hub|Voorbeeld: ContosoIotHub.azure-devices.net|
+|apparaat-id|DeviceId|di|Apparaat-id|Voorbeeld: MyDevice1|
+|certificaat locatie-soort|CertificateLocationKind|cl|Opslag locatie van certificaat|**Lokaal** bestand of **Archief**|
+|
 
 
-Wanneer u het installatiescript van de security-agent gebruikt, wordt de volgende configuratie wordt automatisch uitgevoerd.
+Wanneer u het script voor de installatie van de beveiligings agent gebruikt, wordt de volgende configuratie automatisch uitgevoerd. Bewerk het configuratie bestand om de verificatie van de beveiligings agent hand matig te bewerken. 
 
-Als u wilt de beveiligingsverificatie van de agent handmatig bewerken, bewerken de config-bestand. 
+## <a name="change-authentication-method-after-deployment"></a>Verificatie methode na implementatie wijzigen
 
-## <a name="change-authentication-method-after-deployment"></a>Verificatiemethode wijzigen na de implementatie
+Wanneer u een beveiligings agent met een installatie script implementeert, wordt automatisch een configuratie bestand gemaakt.
 
-Bij het implementeren van een beveiligingsagent met een script voor installatie, wordt er automatisch een configuratiebestand gemaakt.
-
-Als u wilt wijzigen verificatiemethoden na de implementatie, is bij handmatig bewerken van het configuratiebestand vereist.
+Als u verificatie methoden na de implementatie wilt wijzigen, is hand matig bewerken van het configuratie bestand vereist.
 
 
-### <a name="c-based-security-agent"></a>C#-op basis van de security-agent
+### <a name="c-based-security-agent"></a>C#gebaseerde beveiligings agent
 
-Bewerken _Authentication.config_ met de volgende parameters:
+Bewerk _Authentication. config_ met de volgende para meters:
 
 ```xml
 <Authentication>
@@ -98,9 +93,9 @@ Bewerken _Authentication.config_ met de volgende parameters:
 </Authentication>
 ```
 
-### <a name="c-based-security-agent"></a>Beveiliging op basis van de C agent
+### <a name="c-based-security-agent"></a>Op C gebaseerde beveiligings agent
 
-Bewerken _LocalConfiguration.json_ met de volgende parameters:
+Bewerk _LocalConfiguration. json_ met de volgende para meters:
 
 ```json
 "Authentication" : {
@@ -113,6 +108,6 @@ Bewerken _LocalConfiguration.json_ met de volgende parameters:
 ```
 
 ## <a name="see-also"></a>Zie ook
-- [Beveiligingsoverzicht van agents](security-agent-architecture.md)
-- [Security-agent implementeren](how-to-deploy-agent.md)
-- [Toegang tot onbewerkte security gegevens](how-to-security-data-access.md)
+- [Overzicht van beveiligings agenten](security-agent-architecture.md)
+- [Beveiligings agent implementeren](how-to-deploy-agent.md)
+- [Toegang tot onbewerkte beveiligings gegevens](how-to-security-data-access.md)

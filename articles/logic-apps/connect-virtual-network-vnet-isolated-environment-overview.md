@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/19/2019
-ms.openlocfilehash: 3e14604955a64c7a146a947c5c320b42ea3ebcba
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 07/26/2019
+ms.openlocfilehash: 831a1457d865429fd53af1887a14c363b806300c
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325410"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516608"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Toegang tot Azure Virtual Network resources vanuit Azure Logic Apps met behulp van integratie service omgevingen (ISEs)
 
@@ -44,7 +44,7 @@ In dit overzicht vindt u meer informatie over hoe een ISE uw Logic apps en integ
 
 ## <a name="isolated-versus-global"></a>Geïsoleerd versus wereld wijd
 
-Wanneer u een geïntegreerde service omgeving (ISE) in azure maakt, kunt u het virtuele Azure-netwerk selecteren waar u uw  ISE wilt injecteren. Azure voert vervolgens een privé-exemplaar van de Logic Apps-service in uw virtuele netwerk in of implementeert deze. Met deze actie wordt een geïsoleerde omgeving gemaakt waarin u uw Logic apps op toegewezen resources kunt maken en uitvoeren. Wanneer u uw logische app maakt, selecteert u uw ISE als de locatie van uw app, waardoor uw logische app direct toegang heeft tot uw virtuele netwerk en de bronnen in dat netwerk.
+Wanneer u een geïntegreerde service omgeving (ISE) in azure maakt, kunt u het virtuele Azure-netwerk selecteren waar u uw ISE wilt injecteren. Azure voert vervolgens een privé-exemplaar van de Logic Apps-service in uw virtuele netwerk in of implementeert deze. Met deze actie wordt een geïsoleerde omgeving gemaakt waarin u uw Logic apps op toegewezen resources kunt maken en uitvoeren. Wanneer u uw logische app maakt, selecteert u uw ISE als de locatie van uw app, waardoor uw logische app direct toegang heeft tot uw virtuele netwerk en de bronnen in dat netwerk.
 
 Logic apps in een ISE bieden dezelfde gebruikers ervaringen en vergelijk bare mogelijkheden als de algemene Logic Apps service. U kunt niet alleen dezelfde ingebouwde triggers, ingebouwde acties en connectors van de Global Logic Apps-service gebruiken, maar u kunt ook ISE-specifieke connectors gebruiken. Dit zijn bijvoorbeeld enkele standaard connectoren die versies aanbieden die in een ISE worden uitgevoerd:
 
@@ -80,7 +80,22 @@ Wanneer u uw ISE maakt, kunt u de Developer SKU of Premium SKU selecteren. Dit z
 
   Biedt een ISE die u kunt gebruiken voor productie en die SLA-ondersteuning, ingebouwde triggers en acties, standaard connectors, zakelijke connectors, een [standaard-laag](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integratie account, opties voor het schalen van capaciteit en redundantie tijdens recycling voor een vaste maandelijkse prijs.
 
+> [!IMPORTANT]
+> De SKU-optie is alleen beschikbaar bij het maken van ISE en kan later niet worden gewijzigd.
+
 Zie [Logic apps prijzen](https://azure.microsoft.com/pricing/details/logic-apps/)voor prijs tarieven. Zie het [Logic apps-prijs model](../logic-apps/logic-apps-pricing.md#fixed-pricing)voor meer informatie over de prijzen en facturerings werkzaamheden voor ISEs.
+
+<a name="endpoint-access"></a>
+
+## <a name="ise-endpoint-access"></a>Toegang tot ISE-eind punt
+
+Wanneer u uw ISE maakt, kunt u kiezen of u interne of Externe toegangs punten wilt gebruiken. Deze eind punten bepalen of de aanvraag of webhook triggers op Logic apps in uw ISE kan ontvangen van buiten uw virtuele netwerk. Deze eind punten zijn ook van invloed op de toegang tot invoer en uitvoer in de geschiedenis van de run Logic-app.
+
+* **Intern**: Persoonlijke eind punten die aanroepen naar Logic apps in uw ISE plus toegang tot invoer en uitvoer in de uitvoerings geschiedenis alleen *vanuit uw virtuele netwerk*
+* **Extern**: Open bare eind punten die aanroepen naar Logic apps in uw ISE plus toegang tot invoer en uitvoer in de uitvoerings geschiedenis *van buiten uw virtuele netwerk*
+
+> [!IMPORTANT]
+> De optie voor het toegangs punt is alleen beschikbaar bij het maken van ISE en kan later niet worden gewijzigd.
 
 <a name="on-premises"></a>
 
@@ -106,6 +121,8 @@ U kunt integratie accounts gebruiken met Logic apps binnen een Integration servi
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het [maken van verbinding met virtuele netwerken van Azure vanuit geïsoleerde Logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Verbinding maken met virtuele netwerken van Azure vanuit geïsoleerde Logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Artefacten toevoegen aan integratie service omgevingen](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+* [Integratie service omgevingen beheren](../logic-apps/ise-manage-integration-service-environment.md)
 * Meer informatie over [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 * Meer informatie over de [integratie van virtuele netwerken voor Azure-Services](../virtual-network/virtual-network-for-azure-services.md)

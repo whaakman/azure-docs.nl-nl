@@ -1,6 +1,6 @@
 ---
-title: Controle en het verwerken van beveiligingsgebeurtenissen in Azure Security Center | Microsoft Docs
-description: Lees hoe u gebeurtenissendashboard van Security Center kunt gebruiken om beveiligingsgebeurtenissen van uw Azure-VM's en niet-Azure-computers te bekijken.
+title: Beveiligings gebeurtenissen bewaken en verwerken in Azure Security Center | Microsoft Docs
+description: Meer informatie over hoe u het dash board gebeurtenissen van Security Center kunt gebruiken om beveiligings gebeurtenissen van uw Azure-Vm's en niet-Azure-computers te bekijken.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,121 +14,119 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: bc0fd83bd45e7c5c671b387d124cdddc75244ade
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 389aaee621251890cd3f75744a94b9c9b29c5695
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573520"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662400"
 ---
-# <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Controle en het verwerken van beveiligingsgebeurtenissen in Azure Security Center
-Het dashboard gebeurtenissen bevat een overzicht van het aantal beveiligingsgebeurtenissen verzameld voor tijd en een lijst van gebeurtenissen die aandacht vereisen die uw aandacht nodig hebben.  
+# <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Beveiligings gebeurtenissen in Azure Security Center bewaken en verwerken
+Het Events-dash board biedt een overzicht van het aantal beveiligings gebeurtenissen dat gedurende een bepaalde periode is verzameld en een lijst met belang rijke gebeurtenissen die uw aandacht kunnen vereisen.  
 
 > [!NOTE]
-> Gebeurtenissen-Security-dashboard wordt beëindigd op 31 juli 2019. Zie voor meer informatie en andere services, [buiten gebruik stellen van Security Center-functies (juli 2019)](security-center-features-retirement-july2019.md#menu_events).
+> Het dash board voor beveiligings gebeurtenissen is op 31 juli 2019 buiten gebruik gesteld. Zie voor meer informatie en alternatieve Services de [buiten gebruiks telling van Security Center-functies (2019 juli)](security-center-features-retirement-july2019.md#menu_events).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
-## <a name="what-is-a-security-event"></a>Wat is een beveiligingsgebeurtenis?
-Security Center maakt gebruik van de Microsoft Monitoring Agent voor het verzamelen van verschillende aan beveiliging gerelateerde configuraties en gebeurtenissen van uw machines en slaat deze gebeurtenissen in uw werkruimte(n). Voorbeelden van dergelijke gegevens zijn: besturingssysteemlogboeken (Windows-gebeurtenislogboeken), uitvoeren van processen en gebeurtenissen van beveiligingsoplossingen die zijn geïntegreerd met Security Center. De Microsoft Monitoring Agent kopieert ook crashdumpbestanden naar uw werkruimte(n).
+## <a name="what-is-a-security-event"></a>Wat is een beveiligings gebeurtenis?
+Security Center gebruikt de micro soft Monitoring Agent voor het verzamelen van verschillende aan beveiliging gerelateerde configuraties en gebeurtenissen van uw computers en slaat deze gebeurtenissen op in uw werk ruimte (n). Voor beelden van dergelijke gegevens zijn: Logboeken van het besturings systeem (Windows-gebeurtenis Logboeken), actieve processen en gebeurtenissen van beveiligings oplossingen die zijn geïntegreerd met Security Center. De Microsoft Monitoring Agent kopieert ook crashdumpbestanden naar uw werkruimte(n).
 
 ## <a name="requirements"></a>Vereisten
-Deze functie wilt gebruiken, moet uw werkruimte Log Analytics versie 2 actief zijn en moet op Security Center Standard-laag. Zie het Security Center [pagina met prijzen](security-center-pricing.md) voor meer informatie over de Standard-laag.
+Als u deze functie wilt gebruiken, moet op uw werk ruimte Log Analytics versie 2 worden uitgevoerd en de standaardlaag van Security Center zijn. Zie de [pagina met prijzen](security-center-pricing.md) voor Security Center voor meer informatie over de Standard-laag.
 
-## <a name="events-processed-dashboard"></a>Verwerkte gebeurtenissen-dashboard
-U hebt tot de **gebeurtenissen** dashboard van de in het hoofdmenu van Security Center of de Security Center **overzicht** blade.  
+## <a name="events-processed-dashboard"></a>Verwerkte gebeurtenissen in het dash board
+U opent het dash board **gebeurtenissen** vanuit het hoofd menu van Security Center of de Blade **overzicht** Security Center.  
 
-![Verwerkte gebeurtenissen-dashboard][1]
+![Verwerkte gebeurtenissen in het dash board][1]
 
-De **gebeurtenissen** tegel onder **Security Center** geeft het aantal gebeurtenissen die worden doorgestuurd naar Security Center van uw Azure-VM's en niet-Azure-computers.
+De tegel **gebeurtenissen** onder **Security Center** geeft het aantal gebeurtenissen weer dat in Security Center van uw Azure-Vm's en niet-Azure-computers loopt.
 
-De **gebeurtenissendashboard** biedt een overzicht van het aantal verwerkte gebeurtenissen-overuren en een lijst van gebeurtenissen.
+Het **Events-dash board** biedt een overzicht van het aantal verwerkte gebeurtenissen en een lijst met gebeurtenissen.
 
  ![Dashboard][2]
 
- Het bovenste gedeelte van het dashboard trends alle gebeurtenissen verwerkt in de afgelopen week. De onderste helft van het dashboard geeft een lijst van gebeurtenissen die aandacht vereisen en alle gebeurtenissen per type:
+ In het bovenste gedeelte van het dash board worden alle gebeurtenissen die in de afgelopen week zijn verwerkt, trends doorgevoerd. In de onderste helft van het dash board vindt u een overzicht van belang rijke gebeurtenissen en alle gebeurtenissen op type:
 
- - **Gebeurtenissen die aandacht vereisen** event-query's die Security Center biedt en gebeurtenis-query's die u maakt en toevoegt. Het dashboard biedt ook snel inzicht krijgt in de telling van elke gebeurtenis die aandacht vereist.
- - **Alle gebeurtenissen per type** bevat de typen gebeurtenissen die worden ontvangen en een telling voor elk type. Voorbeelden van het gebeurtenistype zijn SecurityEvent, CommonSecurityLog, WindowsFirewall en W3CIISLog.
+ - Belang rijke **gebeurtenissen** zijn onder andere gebeurtenis query's die Security Center levert en gebeurtenis query's die u maakt en toevoegt. Het dash board biedt ook een snel overzicht van de telling van elke belang rijke gebeurtenis.
+ - **Alle gebeurtenissen op type** toont de gebeurtenis typen die worden ontvangen en een telling voor elk type. Voor beelden van gebeurtenis typen zijn SecurityEvent, CommonSecurityLog, WindowsFirewall en W3CIISLog.
 
 > [!NOTE]
-> Gebeurtenissen die aandacht vereisen opnemen [web baseline assessment](https://docs.microsoft.com/azure/operations-management-suite/oms-security-web-baseline-assessment). Het doel van de evaluatie van de webbasislijn is om mogelijk kwetsbare webserverinstellingen te vinden.
+> Belang rijke gebeurtenissen zijn onder andere [evaluatie](https://docs.microsoft.com/azure/operations-management-suite/oms-security-web-baseline-assessment)van de webbasislijn. Het doel van de evaluatie van de webbasislijn is om mogelijk kwetsbare webserverinstellingen te vinden.
 
-## <a name="view-processed-event-details"></a>Details van verwerkte gebeurtenissen weergeven
-1. Onder de **Security Center** hoofdmenu, selecteer **gebeurtenissen**.
-2. De **gebeurtenissendashboard** werkruimteselector kan worden geopend. Als u slechts één werkruimte hebt, wordt deze werkruimteselector niet weergegeven. Als u meer dan één werkruimte hebt, moet u Selecteer een werkruimte om de details van de verwerkte gebeurtenis weer te geven. Selecteer een werkruimte in de lijst hebt u meer dan één werkruimte.
+## <a name="view-processed-event-details"></a>Details van verwerkte gebeurtenis weer geven
+1. Selecteer in het hoofd menu van Security Center **gebeurtenissen**.
+2. De **dash board** -werk ruimte van de gebeurtenissen kan worden geopend. Als u slechts één werk ruimte hebt, wordt deze werkruimte kiezer niet weer gegeven. Als u meer dan één werk ruimte hebt, moet u een werk ruimte selecteren om de verwerkte gebeurtenis details weer te geven. Selecteer een werk ruimte in de lijst als u meer dan één werk ruimte hebt.
 
-   ![Lijst met werkruimten][3]
+   ![Werkruimte lijst][3]
 
-3. De **gebeurtenissendashboard** wordt geopend met de details van de gebeurtenis voor de geselecteerde werkruimte. U kunt de gebeurtenissen die aandacht vereisen en alle gebeurtenissen per type weergeven.  In dit voorbeeld wordt geselecteerd **gebeurtenissen die aandacht vereisen**.
+3. Het **dash board gebeurtenissen** wordt geopend met de details van de gebeurtenis voor de geselecteerde werk ruimte. U kunt de belangrijkste gebeurtenissen en alle gebeurtenissen per type weer geven.  In dit voor beeld hebben we een opvallende **gebeurtenis**geselecteerd.
 
    ![Gebeurtenis die aandacht vereist][4]
 
-4. U kunt een query voor meer gegevens onder de werkruimte door een gebeurtenistype te selecteren. In dit voorbeeld wordt geselecteerd **SecurityEvent**.
+4. U kunt een query uitvoeren op meer gegevens in de werk ruimte door een gebeurtenis type te selecteren. In dit voor beeld hebben we **SecurityEvent**geselecteerd.
 
-   ![Een gebeurtenistype selecteren][5]
+   ![Een gebeurtenis type selecteren][5]
 
-5. **Zoeken in logboeken** wordt geopend met aanvullende informatie over het gebeurtenistype.
+5. **Zoeken** in Logboeken wordt geopend met aanvullende details over het gebeurtenis type.
 
    ![Zoekopdrachten in logboeken][6]
 
-## <a name="add-a-notable-event"></a>Een gebeurtenis die aandacht vereist toevoegen
-Security Center biedt gebeurtenissen die aandacht vereisen voor out-of-the-box. U kunt gebeurtenissen die aandacht vereisen op basis van uw eigen query met toevoegen de [Kusto-querytaal](../log-analytics/log-analytics-search-reference.md). Wordt geretourneerd en wordt naar de **gebeurtenissendashboard** om toe te voegen een gebeurtenis die aandacht vereist.
+## <a name="add-a-notable-event"></a>Een belang rijke gebeurtenis toevoegen
+Security Center voorziet in out-of-the-box belang rijke gebeurtenissen. U kunt belang rijke gebeurtenissen toevoegen op basis van uw eigen query met behulp van de [Kusto-query taal](../log-analytics/log-analytics-search-reference.md). We gaan terug naar het **Events-dash board** om een belang rijke gebeurtenis toe te voegen.
 
-1. Selecteer **gebeurtenis die aandacht vereist toevoegen**.
+1. Selecteer een opvallende **gebeurtenis toevoegen**.
 
-   ![Een gebeurtenis die aandacht vereist toevoegen][7]
+   ![Een belang rijke gebeurtenis toevoegen][7]
 
-2. **Aangepaste gebeurtenis die aandacht vereist toevoegen** wordt geopend.  Onder **weergavenaam**, voer een naam voor de gebeurtenis die aandacht vereist. Onder **zoekquery**, voer de query voor de gebeurtenis.
+2. **Aangepaste gebeurtenis toevoegen** wordt geopend.  Voer onder **weergave naam**een naam in voor uw belang rijke gebeurtenis. Voer onder **Zoek query**uw query in voor de gebeurtenis.
 
-   ![Voer uw query][8]
+   ![Voer uw query in][8]
 
 4. Selecteer **OK**.
 
-## <a name="update-your-workspace-for-events-processing"></a>Bijwerken van uw werkruimte voor verwerking van gebeurtenissen
-Uw werkruimte moet worden uitgevoerd van versie 2 van Log Analytics en moet op de standaardlaag van Security Center gebruik van de verwerking van gebeurtenissen in Security Center. De **gebeurtenissendashboard** werkruimteselector identificeert werkruimten die niet voldoen aan deze vereisten.
+## <a name="update-your-workspace-for-events-processing"></a>Uw werk ruimte bijwerken voor het verwerken van gebeurtenissen
+Voor uw werk ruimte moet Log Analytics versie 2 worden uitgevoerd en moet de laag standaard van Security Center zijn voor het gebruik van gebeurtenis verwerking in Security Center. De **gebeurtenissen dashboard** werkruimte selectie identificeert werk ruimten die niet aan deze vereisten voldoen.
 
-![Werkruimte voldoet niet aan vereisten][9]
+![De werk ruimte voldoet niet aan de vereisten][9]
 
-Als de rij van de werkruimte:
+Als de rij met de werk ruimte:
 
-- Bevat **vereist UPDATE** -u moet uw werkruimte bijwerken naar Log Analytics versie 2
-- Bevat **UPGRADE abonnement** : u moet uw werkruimte upgraden naar Security Center Standard-laag
-- Is blanco - voldoet aan uw werkruimte en een werkruimte selecteren, gaat u naar het dashboard
+- Bevat **updates vereist** : u moet uw werk ruimte bijwerken naar log Analytics versie 2
+- Bevat een **upgrade plan** : u moet uw werk ruimte upgraden naar de Standard-laag van Security Center
+- Is leeg: uw werk ruimte voldoet aan de vereisten en door een werk ruimte te selecteren gaat u naar het dash board
 
 > [!NOTE]
-> Onder **gebeurtenissendashboard**, wordt de **gebeurtenissen** kolom wordt aangegeven hoeveel gebeurtenissen in elke werkruimte.  Deze kolom is leeg voor een aantal werkruimten, omdat de gratis laag van Security Center wordt toegepast op deze werkruimte. Onder de gratis laag, Security Center verzamelt gebeurtenissen, maar de gebeurtenissen worden niet opgeslagen in Azure Monitor-logboeken en zijn niet beschikbaar in het dashboard.
+> Onder **gebeurtenissen-dash board**geeft de kolom **gebeurtenissen** de hoeveelheid gebeurtenissen in elke werk ruimte aan.  Deze kolom is leeg voor sommige werk ruimten omdat de gratis laag van Security Center wordt toegepast op die werk ruimte. Onder de laag gratis verzamelt Security Center gebeurtenissen, maar de gebeurtenissen worden niet opgeslagen in Azure Monitor logboeken en zijn niet beschikbaar in het dash board.
 >
 >
 
-## <a name="update-workspace-to-log-analytics-version-2"></a>Werkruimte bijwerken naar Log Analytics versie 2
-1. Selecteer een werkruimte die **moet worden bijgewerkt**.
-2. **Upgrade zoeken** wordt geopend. Selecteer **nu een upgrade uitvoeren**.
+## <a name="update-workspace-to-log-analytics-version-2"></a>Werk ruimte bijwerken naar Log Analytics versie 2
+1. Selecteer een werk ruimte die **moet worden bijgewerkt**.
+2. **Zoek upgrade** wordt geopend. Selecteer **Nu bijwerken**.
 
    ![Nu upgraden][10]
 
-## <a name="upgrade-to-security-centers-standard-tier"></a>Een upgrade uitvoert naar Standard-laag van Security Center
-1. Selecteer een werkruimte met **UPGRADE abonnement**.
-2. **Gebeurtenissendashboard** wordt geopend. Selecteer **gebeurtenissendashboard proberen**.
+## <a name="upgrade-to-security-centers-standard-tier"></a>Upgrade uitvoeren naar de Standard-laag van Security Center
+1. Selecteer een werk ruimte met een **upgrade plan**.
+2. Het **dash board gebeurtenissen** wordt geopend. Selecteer **dash board gebeurtenissen try**.
 
-   ![Probeer het dashboard][11]
+   ![Dash board uitproberen][11]
 
-3. Onder **Onboarding naar geavanceerde beveiliging**, selecteer de werkruimte die u wilt bijwerken.
-4. Onder **prijzen**, selecteer **Standard**.
+3. Onder **onboarding naar geavanceerde beveiliging**selecteert u de werk ruimte die u wilt bijwerken.
+4. Selecteer onder **prijzen**de optie **standaard**.
 5. Selecteer **Opslaan**.
 
-   ![Een upgrade uitvoert naar Standard-laag][12]
+   ![Upgrade uitvoeren naar Standard-laag][12]
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe u Event-dashboard van Security Center bevinden. Zie voor meer informatie over de werking van het dashboard en het schrijven van uw eigen query's van gebeurtenis:
+In dit artikel hebt u geleerd hoe u het gebeurtenis Dashboard van Security Center kunt gebruiken. Zie voor meer informatie over de werking van het dash board en het schrijven van uw eigen gebeurtenis query's:
 
-- [Wat is Azure Monitor Logboeken?](../log-analytics/log-analytics-overview.md) – Overzicht van Azure Monitor-Logboeken
-- [Understanding zoekopdrachten in Logboeken in Kusto](../log-analytics/log-analytics-log-search-new.md) : hierin wordt beschreven hoe zoekopdrachten in Logboeken van Azure Monitor worden gebruikt en concepten die moet worden geïnterpreteerd voor het maken van een zoeken in Logboeken
-- [Verwijzing naar de Kusto](../log-analytics/log-analytics-search-reference.md) : informatie over het schrijven van uw eigen event-query's met behulp van de querytaal in logboek
+- [Wat is Azure Monitor logboeken?](../log-analytics/log-analytics-overview.md) – Overzicht van Azure Monitor-logboeken
+- [Zoek opdrachten in Logboeken in Kusto](../log-analytics/log-analytics-log-search-new.md) : beschrijft hoe logboek zoekopdrachten in azure monitor logboeken worden gebruikt en biedt concepten die moeten worden begrepen voordat een zoek opdracht in het logboek wordt gemaakt.
+- [Naslag](../log-analytics/log-analytics-search-reference.md) informatie voor Kusto: Leer hoe u uw eigen gebeurtenis query's schrijft met behulp van de query taal in het logboek
 
 Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
 
-- [Overzicht van Security Center](security-center-intro.md) – beschrijft Security Center de belangrijkste mogelijkheden
+- [Overzicht van Security Center](security-center-intro.md) : beschrijft de belangrijkste mogelijkheden van Security Center
 
 <!--Image references-->
 [1]: ./media/security-center-events-dashboard/events-processed.png

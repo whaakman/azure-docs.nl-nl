@@ -1,6 +1,6 @@
 ---
-title: Een Azure SQL-database herstellen vanuit een back-up | Microsoft Docs
-description: Meer informatie over Point-in-Time-Restore, waarmee u terug moet brengen een Azure SQL Database naar een eerder punt in tijd (maximaal 35 dagen).
+title: Een Azure-SQL database herstellen vanuit een back-up | Microsoft Docs
+description: Meer informatie over tijdstippen herstellen, waarmee u een Azure SQL Database naar een eerder tijdstip kunt terugdraaien (tot 35 dagen).
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -10,140 +10,139 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 04/30/2019
-ms.openlocfilehash: 80d01a360a2f80749bd7fbe7a9aadb9dda1189c6
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 55d60ec332515fcfa3deb565a4a770027681537a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706993"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566976"
 ---
-# <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database met behulp van geautomatiseerde databaseback-ups herstellen
+# <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure-SQL database herstellen met behulp van automatische database back-ups
 
-Back-ups van SQL-Database worden standaard opgeslagen in geo-replicatie blob-opslag (RA-GRS). De volgende opties zijn beschikbaar voor het gebruik van de database recovery [automatische databaseback-ups](sql-database-automated-backups.md):
+SQL Database back-ups worden standaard opgeslagen in Blob-opslag met geo-replicatie (RA-GRS). De volgende opties zijn beschikbaar voor database herstel met behulp van [geautomatiseerde database back-ups](sql-database-automated-backups.md):
 
-- Maak een nieuwe database op dezelfde SQL-Database-server hersteld naar een opgegeven punt in tijd binnen de bewaarperiode liggen.
-- Maak een database op dezelfde SQL-Database-server op het tijdstip van verwijdering van een verwijderde database kunt herstellen.
-- Maak een nieuwe database op elke SQL-Database-server in dezelfde regio hersteld tot het tijdstip waarop de meest recente back-ups.
-- Maak een nieuwe database op elke SQL-Database-server in een andere regio op het punt van de meest recente gerepliceerde back-ups kunt herstellen.
+- Maak een nieuwe Data Base op dezelfde SQL Database Server die binnen de retentie periode is hersteld naar een bepaald tijdstip.
+- Maak op dezelfde SQL Database Server een Data Base die is hersteld naar de verwijderings tijd voor een verwijderde data base.
+- Maak een nieuwe Data Base op een SQL Database Server in dezelfde regio die is hersteld naar het punt van de meest recente back-ups.
+- Maak een nieuwe Data Base op een SQL Database Server in een andere regio die is hersteld naar het punt van de meest recente gerepliceerde back-ups.
 
-Als u hebt geconfigureerd [back-up maken met een langetermijnbewaarperiode](sql-database-long-term-retention.md), u kunt ook een nieuwe database maken van alle LTR back-up op elke SQL-Database-server.
+Als u [back-up lange termijn](sql-database-long-term-retention.md)retentie hebt geconfigureerd, kunt u ook een nieuwe data base maken van een LTR-back-up op een SQL database server.
 
 > [!IMPORTANT]
-> U kunt een bestaande database tijdens het terugzetten niet overschrijven.
+> U kunt een bestaande data base niet overschrijven tijdens het terugzetten.
 
-Bij het gebruik van Standard of Premium-servicelaag, maakt een herstelde database een kosten extra opslagruimte in de volgende omstandigheden:
+Wanneer u de service laag Standard of Premium gebruikt, maakt een herstelde data base een extra opslag kosten in de volgende omstandigheden:
 
-- Herstellen van P11-P15 S4-S12 of P1 – P6 als de maximale databasegrootte groter is dan 500 GB.
-- Herstellen van P1 – P6 voor S4-S12 als de maximale grootte van de database groter dan 250 GB is.
+- Herstellen van P11 – P15 naar S4-S12 of P1-P6 als de maximale grootte van de data base groter is dan 500 GB.
+- Herstellen van P1 – P6 naar S4-S12 als de maximale grootte van de data base groter is dan 250 GB.
 
-De extra kosten zijn icurred wanneer de maximale grootte van de herstelde database groter is dan de hoeveelheid opslag die is opgenomen met de doel-database-servicelaag en het prestatieniveau serviceniveau. De extra opslagruimte die boven de inbegrepen hoeveelheid is extra kosten verbonden. Informatie over prijzen van extra opslagruimte, Zie de [pagina met prijzen van SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/). Als de werkelijke hoeveelheid gebruikte ruimte kleiner dan de hoeveelheid opslag die is opgenomen, kunt u voorkomen dat dit extra kosten door de maximale databasegrootte op de hoeveelheid bij inbegrepen.
+De extra kosten zijn icurred wanneer de maximale grootte van de herstelde data base groter is dan de hoeveelheid opslag die is opgenomen in de servicelaag en het prestatie niveau van de doel database. De extra opslag ruimte die boven de inbegrepen hoeveelheid is ingericht, wordt extra in rekening gebracht. Zie de [pagina met prijzen voor SQL database](https://azure.microsoft.com/pricing/details/sql-database/)voor meer informatie over de prijs van extra opslag. Als de daad werkelijke hoeveelheid gebruikte ruimte kleiner is dan de hoeveelheid inbegrepen opslag, kunt u deze extra kosten voor komen door de maximale database grootte in te stellen op de opgenomen hoeveelheid.
 
 > [!NOTE]
-> [Automatische databaseback-ups](sql-database-automated-backups.md) worden gebruikt bij het maken van een [kopiëren van de database](sql-database-copy.md).
+> [Automatische database back-ups](sql-database-automated-backups.md) worden gebruikt wanneer u een [kopie van een Data Base](sql-database-copy.md)maakt.
 
-## <a name="recovery-time"></a>Hersteltijd
+## <a name="recovery-time"></a>Herstel tijd
 
-De hersteltijd om terug te zetten van een database met behulp van geautomatiseerde databaseback-ups wordt beïnvloed door diverse factoren:
+De herstel tijd voor het herstellen van een Data Base met behulp van automatische database back-ups wordt beïnvloed door verschillende factoren:
 
-- De grootte van de database
-- De compute-grootte van de database
-- Het aantal betrokken transactielogboeken
-- De hoeveelheid activiteit die moet opnieuw worden afgespeeld om te herstellen naar het herstelpunt
-- De bandbreedte van het netwerk als het herstellen naar een andere regio
-- Het aantal gelijktijdige restore-aanvragen worden verwerkt in de doelregio
+- De grootte van de data base
+- De reken grootte van de data base
+- Het aantal transactie logboeken dat betrokken is
+- De hoeveelheid activiteit die opnieuw moet worden afgespeeld om het herstel punt te herstellen
+- De netwerk bandbreedte als het terugzetten naar een andere regio gaat
+- Het aantal gelijktijdige herstel aanvragen dat wordt verwerkt in de doel regio
 
-Voor een grote en/of zeer actief-database, kan het terugzetten van enkele uren duren. Als er langdurige storing in een regio, is het mogelijk dat er grote aantallen geo-restore-aanvragen worden verwerkt door een andere regio's zijn. Wanneer er veel aanvragen, verhogen de hersteltijd voor databases in deze regio. De meeste worden voltooid in minder dan 12 uur hersteld.
+Voor een grote en/of zeer actieve Data Base kan het herstellen enkele uren duren. Als er sprake is van langdurige onderbreking in een regio, is het mogelijk dat er een groot aantal aanvragen voor geo-herstel wordt verwerkt door andere regio's. Wanneer er veel aanvragen zijn, kan de herstel tijd worden verhoogd voor data bases in die regio. De meeste data base-herstel bewerkingen zijn in minder dan 12 uur voltooid.
 
-Voor één abonnement zijn er beperkingen met betrekking tot het aantal gelijktijdige terugzetten aanvragen.  Deze beperkingen van toepassing op een willekeurige combinatie van punt in tijd herstelbewerkingen, geo-herstellen en terugzetten van langetermijnbewaarperiode):
+Voor één abonnement gelden beperkingen voor het aantal gelijktijdige herstel aanvragen.  Deze beperkingen zijn van toepassing op een wille keurige combi natie van herstel op tijdstippen, geo-herstel en herstel bewerkingen van back-ups voor lange termijn retentie):
 
-| | **Maximum aantal gelijktijdige aanvragen worden verwerkt** | **Maximum aantal gelijktijdige aanvragen worden ingediend** |
+| | **Maximum aantal gelijktijdige aanvragen dat wordt verwerkt** | **Maximum aantal gelijktijdige aanvragen dat wordt verzonden** |
 | :--- | --: | --: |
-|Individuele database (per abonnement)|10|60|
+|Eén data base (per abonnement)|10|60|
 |Elastische pool (per groep)|4|200|
 ||||
 
-Er is momenteel niet geen ingebouwde methode om de hele server te herstellen. De [Azure SQL Database: Volledige Serverherstelproces](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is een voorbeeld van hoe u deze taak kunt uitvoeren.
+Momenteel is er geen ingebouwde methode om de volledige server te herstellen. De [Azure SQL database: Volledig server herstel](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is een voor beeld van hoe u deze taak kunt uitvoeren.
 
 > [!IMPORTANT]
-> Als u wilt herstellen met behulp van geautomatiseerde back-ups, moet u lid zijn van de rol Inzender voor SQL Server in het abonnement of raadpleegt u de eigenaar van de abonnement - [RBAC: Ingebouwde rollen](../role-based-access-control/built-in-roles.md). U kunt herstellen met behulp van Azure Portal, PowerShell of de REST-API. U kunt Transact-SQL niet gebruiken.
+> Als u wilt herstellen met behulp van geautomatiseerde back-ups, moet u lid zijn van de rol SQL Server Inzender in het abonnement of de [eigenaar van het abonnement zijn. Zie RBAC: Ingebouwde rollen](../role-based-access-control/built-in-roles.md). U kunt herstellen met behulp van Azure Portal, PowerShell of de REST-API. U kunt Transact-SQL niet gebruiken.
 
 ## <a name="point-in-time-restore"></a>Terugzetten naar eerder tijdstip
 
-U kunt een zelfstandige, gegroepeerd, herstellen of instantie-database naar een eerder tijdstip met behulp van de Azure-portal [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), of de [REST-API](https://docs.microsoft.com/rest/api/sql/databases). De aanvraag kunt opgeven van een servicelaag of compute-grootte voor de herstelde database. Zorg ervoor dat er voldoende bronnen op de server waarop u de database wilt herstellen. Als u klaar bent, wordt een nieuwe database op dezelfde server als de oorspronkelijke database worden gemaakt. De herstelde database wordt gefactureerd tegen normale tarieven op basis van de servicelaag en de rekencapaciteit. U doet geen kosten in rekening totdat het herstellen van de database is voltooid.
+U kunt een zelfstandige, gepoolde of exemplaar database herstellen naar een eerder tijdstip met behulp van de Azure Portal, [Power shell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)of de [rest API](https://docs.microsoft.com/rest/api/sql/databases). De aanvraag kan een servicelaag of reken grootte voor de herstelde data base opgeven. Zorg ervoor dat u voldoende resources hebt op de server waarop u de Data Base wilt herstellen. Zodra het proces is voltooid, wordt er een nieuwe data base gemaakt op dezelfde server als de oorspronkelijke data base. De herstelde data base wordt in rekening gebracht tegen normale tarieven op basis van de servicelaag en de reken grootte. Er worden geen kosten in rekening gebracht totdat het herstellen van de data base is voltooid.
 
-U kunt in het algemeen een database herstellen naar een eerder tijdstip voor herstel voor. U kunt de herstelde database behandelen als vervanging voor de oorspronkelijke database of bijwerken van de oorspronkelijke database gebruiken als een bron van gegevens.
+Over het algemeen herstelt u een Data Base naar een eerder tijdstip voor herstel doeleinden. U kunt de herstelde data base behandelen als een vervanging voor de oorspronkelijke data base of als bron gegevens gebruiken om de oorspronkelijke Data Base bij te werken.
 
-- **Vervanging van de database**
+- **Database vervanging**
 
-  Als de herstelde database is bedoeld als vervanging voor de oorspronkelijke database, moet u de oorspronkelijke database compute grootte en de servicelaag. U kunt vervolgens Wijzig de naam van de oorspronkelijke database en de herstelde database geven de oorspronkelijke naam met behulp van de [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) opdracht in T-SQL.
+  Als de herstelde data base is bedoeld als vervanging voor de oorspronkelijke Data Base, moet u de reken grootte en de servicelaag van de oorspronkelijke data base opgeven. U kunt de naam van de oorspronkelijke data base wijzigen en de herstelde data base de oorspronkelijke naam geven met behulp van de opdracht [ALTER data base](/sql/t-sql/statements/alter-database-azure-sql-database) in T-SQL.
 
-- **Herstel van gegevens**
+- **Gegevens herstellen**
 
-  Als u van plan bent voor het ophalen van gegevens uit de herstelde database te herstellen van een gebruiker of toepassing fout, moet u om te schrijven en uitvoeren van een script voor het herstel van gegevens die haalt gegevens uit de herstelde database en is van toepassing op de oorspronkelijke database. Hoewel de herstelbewerking lang duren kan om uit te voeren, is het herstellen van de database is zichtbaar in de lijst van de database tijdens het herstelproces. Als u de database tijdens de terugzetbewerking verwijdert, wordt de herstelbewerking geannuleerd en voor de database die is niet voltooid voor het herstellen wordt er geen kosten in rekening gebracht.
+  Als u van plan bent om gegevens op te halen uit de herstelde data base om te herstellen van een gebruiker of toepassings fout, moet u een gegevens herstel script schrijven en uitvoeren waarmee gegevens uit de herstelde data base worden geëxtraheerd en toegepast op de oorspronkelijke data base. Hoewel het herstellen van de herstel bewerking veel tijd kan duren, is de data base herstellen tijdens het herstel proces zichtbaar in de lijst met data bases. Als u de data base verwijdert tijdens het herstellen, wordt de herstel bewerking geannuleerd en worden er geen kosten in rekening gebracht voor de data base die het herstellen niet heeft voltooid.
 
-Om te herstellen van een enkele, gegroepeerd, of database naar een eerder tijdstip met behulp van de Azure-portal-exemplaar, open de pagina voor uw database en klik op **herstellen** op de werkbalk.
+Als u een enkele, gepoolde of exemplaar database wilt herstellen naar een bepaald tijdstip met behulp van de Azure Portal, opent u de pagina voor uw data base en klikt u op de werk balk op **herstellen** .
 
 ![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 > [!IMPORTANT]
-> Programmatisch database herstellen vanuit een back-up, Zie [via een programma uitvoeren recovery met behulp van geautomatiseerde back-ups](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
+> Zie [programmatisch herstel uitvoeren met automatische back-ups](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups) om een Data Base programmatisch te herstellen via een back-up
 
-## <a name="deleted-database-restore"></a>Verwijderde database herstellen
+## <a name="deleted-database-restore"></a>Het terugzetten van de data base is verwijderd
 
-U kunt een verwijderde database herstellen naar het tijdstip van verwijdering of een eerder tijdstip tijdstip op dezelfde SQL-Database-server met behulp van Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), of de [REST (createMode = terugzetten)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). U kunt [verwijderde database herstellen in het beheerde exemplaar met behulp van PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance). 
+U kunt een verwijderde data base herstellen naar de verwijderings tijd of een eerder tijdstip op dezelfde SQL Database Server met behulp van de Azure Portal, [Power shell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)of de [rest (CreateMode = Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). U kunt [Verwijderde data base op een beheerd exemplaar herstellen met behulp van Power shell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance). 
 
 > [!TIP]
-> Zie voor een voorbeeld van PowerShell-script waarin wordt getoond hoe een verwijderde database herstellen, [herstellen van een SQL-database met behulp van PowerShell](scripts/sql-database-restore-database-powershell.md).
+> Zie [een SQL database herstellen met Power shell](scripts/sql-database-restore-database-powershell.md)voor een voor beeld van een Power shell-script dat laat zien hoe u een verwijderde data base kunt herstellen.
 > [!IMPORTANT]
-> Als u een Azure SQL Database server-exemplaar verwijdert, worden alle bijbehorende databases worden ook verwijderd en kunnen niet worden hersteld. Er is momenteel geen ondersteuning voor het herstellen van een verwijderde server.
+> Als u een Azure SQL Database Server exemplaar verwijdert, worden alle bijbehorende data bases ook verwijderd en kunnen ze niet worden hersteld. Er is momenteel geen ondersteuning voor het herstellen van een verwijderde server.
 
-### <a name="deleted-database-restore-using-the-azure-portal"></a>Verwijderde database herstellen met behulp van de Azure portal
+### <a name="deleted-database-restore-using-the-azure-portal"></a>De data base is verwijderd met behulp van de Azure Portal
 
-Als u wilt herstellen van een verwijderde database met behulp van de Azure portal, open de pagina voor uw server en in de Operations-gebied, klikt u op **verwijderde databases**.
+Als u een verwijderde data base wilt herstellen met behulp van de Azure Portal, opent u de pagina voor uw server en klikt u in het gebied bewerkingen op **Verwijderde data bases**.
 
 ![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
 ![deleted-database-restore-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
 
 > [!IMPORTANT]
-> Als u programmatisch een verwijderde database herstellen, Zie [via een programma uitvoeren recovery met behulp van geautomatiseerde back-ups](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
+> Zie [programmatisch herstel uitvoeren met automatische back-ups](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups) om een verwijderde data base programmatisch te herstellen
 
 ## <a name="geo-restore"></a>Geo-herstel
 
-U kunt een SQL-database op elke server in een Azure-regio van de meest recente geo-replicatie back-ups herstellen. Geo-herstel maakt gebruik van een geo-replicatie back-up als de bron. Het kan worden aangevraagd, zelfs als de database of het datacenter niet toegankelijk als gevolg van een storing is.
+U kunt een SQL database op elke server in een Azure-regio herstellen vanuit de meest recente geo-gerepliceerde back-ups. Geo-Restore maakt gebruik van een geo-gerepliceerde back-up als bron. Dit kan ook worden aangevraagd als de data base of het Data Center niet toegankelijk is vanwege een storing.
 
-Geo-restore is de standaardoptie voor herstel wanneer de database niet beschikbaar vanwege een incident in de regio van de host is. U kunt de database herstellen naar een server in een andere regio. Er is een vertraging tussen wanneer een back-up is gemaakt en wanneer het zich geo-replicatie naar een Azure blob in een andere regio. Als gevolg hiervan mag de herstelde database maximaal één uur achter de bestaande database. De volgende afbeelding ziet het herstellen van de database van de laatste beschikbare back-up in een andere regio.
+Geo-Restore is de standaard herstel optie wanneer uw data base niet beschikbaar is vanwege een incident in de hosting regio. U kunt de data base herstellen naar een server in een andere regio. Er is een vertraging tussen het moment waarop een back-up wordt gemaakt en wanneer deze geo-gerepliceerd wordt naar een Azure-Blob in een andere regio. Als gevolg hiervan kan de herstelde data base Maxi maal één uur achter de orignal-Data Base zijn. In de volgende afbeelding ziet u het herstellen van de data base van de laatste beschik bare back-up in een andere regio.
 
-![geo-restore](./media/sql-database-geo-restore/geo-restore-2.png)
+![Geo-herstel](./media/sql-database-geo-restore/geo-restore-2.png)
 
 > [!TIP]
-> Zie voor een voorbeeld van PowerShell-script waarin wordt getoond hoe om uit te voeren van een geo-restore, [herstellen van een SQL-database met behulp van PowerShell](scripts/sql-database-restore-database-powershell.md).
+> Zie [een SQL database herstellen met Power shell](scripts/sql-database-restore-database-powershell.md)voor een voor beeld van een Power shell-script dat laat zien hoe u geo-herstel uitvoert.
 
-Point-in-time terugzetten op een secundaire geo-server is momenteel niet ondersteund. Point-in-time restore kan alleen op een primaire database worden uitgevoerd. Zie voor gedetailleerde informatie over het gebruik van geo-herstel te herstellen na een storing [herstellen na een storing](sql-database-disaster-recovery.md).
+Herstel naar een bepaald tijdstip op een geo-secundair wordt momenteel niet ondersteund. Herstel naar een bepaald tijdstip kan alleen worden uitgevoerd op een primaire data base. Zie [herstellen vanaf een storing](sql-database-disaster-recovery.md)voor gedetailleerde informatie over het gebruik van geo-Restore om te herstellen na een storing.
 
 > [!IMPORTANT]
-> Geo-restore is de meest eenvoudige oplossing voor noodherstel beschikbaar zijn in SQL Database. Er wordt gebruikgemaakt van back-ups via geo-replicatie automatisch gemaakt met RPO = 1 uur en de geschatte hersteltijd van maximaal 12 uur. Er is geen garantie dat de doelregio capaciteit voor uw database (s) niet herstellen na een regionale ourage omdat een sharp toename van de aanvraag waarschijnlijk zal hebben. Geo-restore is voor kritieke toepassing niet zakelijke die gebruikmaken van relatief kleine databases, oplossing voor een juiste noodherstel. Voor bedrijfskritieke toepassingen die gebruikmaken van grote databases en bedrijfscontinuïteit te waarborgen, moet u [automatische failovergroepen](sql-database-auto-failover-group.md). Het biedt een veel lager RPO en RTO en de capaciteit is altijd gegarandeerd. Zie voor meer informatie over opties voor bedrijfscontinuïteit, [overzicht van bedrijfscontinuïteit](sql-database-business-continuity.md).
+> Geo-Restore is de meest eenvoudige oplossing voor herstel na nood gevallen die beschikbaar is in SQL Database. Hierbij wordt gebruikgemaakt van automatisch gemaakte geo-gerepliceerde back-ups met RPO = 1 uur en de geschatte herstel tijd van Maxi maal 12 uur. Het biedt geen garantie dat de doel regio de capaciteit heeft om uw data base (s) na een regionale ourage te herstellen, omdat een sterke toename van de vraag waarschijnlijk is. Voor niet-bedrijfs kritieke toepassingen die gebruikmaken van relatief kleine data bases is geo-Restore een geschikte oplossing voor herstel na nood gevallen. Voor bedrijfskritische toepassingen die gebruikmaken van grote data bases en die bedrijfs continuïteit moeten garanderen, moet u [groepen voor automatische failover](sql-database-auto-failover-group.md)gebruiken. Het biedt een veel lager RPO en RTO en de capaciteit is altijd gegarandeerd. Zie [overzicht van bedrijfs continuïteit](sql-database-business-continuity.md)voor meer informatie over de mogelijkheden voor bedrijfs continuïteit.
 
-### <a name="geo-restore-using-the-azure-portal"></a>Geo-herstellen met behulp van de Azure-portal
+### <a name="geo-restore-using-the-azure-portal"></a>Geo-herstel met behulp van de Azure Portal
 
-Voor geo-restore a database tijdens de [bewaarperiode op basis van DTU-model](sql-database-service-tiers-dtu.md) of [bewaarperiode op vCore gebaseerde model](sql-database-service-tiers-vcore.md) met behulp van de Azure-portal, open de pagina SQL-Databases en klik vervolgens op **toevoegen** . In de **bron selecteren** in het tekstvak, selecteer **back-up**. Geef de back-up van waaruit het herstel wilt uitvoeren in de regio en op de server van uw keuze.
+Als u geografisch een Data Base wilt herstellen tijdens de retentie periode voor het [DTU-model](sql-database-service-tiers-dtu.md) of een [vCore op basis](sql-database-service-tiers-vcore.md) van de Azure Portal, opent u de pagina SQL-data bases en klikt u vervolgens op **toevoegen**. Selecteer in het tekstvak **bron selecteren** de optie **back-up**. Geef de back-up op van waaruit het herstel moet worden uitgevoerd in de regio en op de server van uw keuze.
 
 > [!Note]
-> Geo-herstellen met behulp van de Azure-portal is niet beschikbaar in het beheerde exemplaar. Gebruik in plaats daarvan PowerShell.
+> Geo-Restore met behulp van de Azure Portal is niet beschikbaar in een beheerd exemplaar. Gebruik in plaats daarvan Power shell.
 
-## <a name="programmatically-performing-recovery-using-automated-backups"></a>Herstel met behulp van geautomatiseerde back-ups uitvoeren via een programma
+## <a name="programmatically-performing-recovery-using-automated-backups"></a>Programmatisch herstel uitvoeren met behulp van automatische back-ups
 
-Zoals eerder is besproken, naast de Azure portal, kan databaseherstel worden uitgevoerd via een programma met behulp van Azure PowerShell of de REST-API. De volgende tabellen beschrijven de reeks opdrachten die beschikbaar zijn.
+Zoals eerder besproken, kan database herstel naast het Azure Portal ook programmatisch worden uitgevoerd met behulp van Azure PowerShell of de REST API. De volgende tabellen bevatten een beschrijving van de beschik bare opdrachten.
 
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
+> De Power shell-Azure Resource Manager module wordt nog steeds ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module AZ. SQL. Zie [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)voor deze cmdlets. De argumenten voor de opdrachten in de module AZ en in de AzureRm-modules zijn aanzienlijk identiek.
 
-- Als u een zelfstandige of gegroepeerde-database herstellen, Zie [terugzetten AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
+- Als u een zelfstandige of gegroepeerde Data Base wilt herstellen, raadpleegt u [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
   | Cmdlet | Description |
   | --- | --- |
@@ -153,37 +152,37 @@ Zoals eerder is besproken, naast de Azure portal, kan databaseherstel worden uit
   | [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) |Hiermee herstelt u een SQL-database. |
 
   > [!TIP]
-  > Zie voor een voorbeeld van PowerShell-script waarin wordt getoond hoe om uit te voeren van een point-in-time-terugzetten van een database, [herstellen van een SQL-database met behulp van PowerShell](scripts/sql-database-restore-database-powershell.md).
+  > Zie [een SQL database herstellen met Power shell](scripts/sql-database-restore-database-powershell.md)voor een voor beeld van een Power shell-script dat laat zien hoe u een herstel bewerking naar een bepaald tijdstip uitvoert.
 
-- Als u een beheerd exemplaar in de database herstellen, Zie [terugzetten AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
+- Zie [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)voor informatie over het herstellen van een beheerde exemplaar database.
 
   | Cmdlet | Description |
   | --- | --- |
-  | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |Hiermee haalt u een of meer beheerde exemplaren. |
-  | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | Hiermee haalt u een exemplaar van databases. |
-  | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase) |Een exemplaar in de database herstelt. |
+  | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |Hiermee worden een of meer beheerde exemplaren opgehaald. |
+  | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | Hiermee haalt u een exemplaar database op. |
+  | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase) |Hiermee wordt een exemplaar database hersteld. |
 
 ### <a name="rest-api"></a>REST-API
 
-Een enkele of gegroepeerde om database te herstellen met behulp van de REST-API:
+Een enkele of gegroepeerde Data Base herstellen met behulp van de REST API:
 
 | API | Description |
 | --- | --- |
-| [REST (createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Hiermee herstelt u een database |
-| [Get maken of bijwerken van de Status van Database](https://docs.microsoft.com/rest/api/sql/operations) |De status geretourneerd tijdens een herstelbewerking |
+| [REST (createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Hiermee herstelt u een Data Base |
+| [Database status van maken of bijwerken ophalen](https://docs.microsoft.com/rest/api/sql/operations) |Hiermee wordt de status geretourneerd tijdens een herstel bewerking |
 
 ### <a name="azure-cli"></a>Azure-CLI
 
-- Zie voor het herstellen van een enkele of gegroepeerde database met behulp van Azure CLI, [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
-- Zie voor het herstellen van een beheerd exemplaar met behulp van Azure CLI, [az sql DEELB herstellen](/cli/azure/sql/midb#az-sql-midb-restore)
+- Zie [AZ SQL DB Restore](/cli/azure/sql/db#az-sql-db-restore)voor meer informatie over het herstellen van een enkele of gegroepeerde Data Base met behulp van Azure cli.
+- Zie [AZ SQL DEELB Restore](/cli/azure/sql/midb#az-sql-midb-restore) voor meer informatie over het herstellen van een beheerd exemplaar met behulp van Azure cli
 
 ## <a name="summary"></a>Samenvatting
 
-Automatische back-ups beveiligen uw databases van gebruiker en toepassingsfouten, per ongeluk database verwijderen en langdurige uitval. Deze ingebouwde mogelijkheid is beschikbaar voor alle service-lagen en compute-grootten.
+Met automatische back-ups worden uw data bases beschermd tegen gebruikers-en toepassings fouten, onbedoeld verwijderen van een Data Base en langdurige uitval. Deze ingebouwde mogelijkheid is beschikbaar voor alle service lagen en reken grootten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een overzicht voor zakelijke continuïteit en scenario's, [overzicht voor zakelijke continuïteit](sql-database-business-continuity.md).
-- Voor meer informatie over Azure SQL Database geautomatiseerde back-ups, Zie [geautomatiseerde back-ups van SQL-Database](sql-database-automated-backups.md).
-- Zie voor meer informatie over met een langetermijnbewaarperiode, [langetermijnretentie](sql-database-long-term-retention.md).
-- Zie voor meer informatie over opties voor sneller herstel, [actieve geo-replicatie](sql-database-active-geo-replication.md) of [automatische failovergroepen](sql-database-auto-failover-group.md).
+- Zie [overzicht van bedrijfs continuïteit](sql-database-business-continuity.md)voor een overzicht en scenario's voor bedrijfs continuïteit.
+- Zie [SQL database automatische back-ups](sql-database-automated-backups.md)voor meer informatie over Azure SQL database automatische back-ups.
+- Zie [lange termijn](sql-database-long-term-retention.md)retentie voor meer informatie over lange termijn retentie.
+- Zie [actieve geo-replicatie](sql-database-active-geo-replication.md) of [groepen voor automatische failover](sql-database-auto-failover-group.md)voor meer informatie over snellere herstel opties.

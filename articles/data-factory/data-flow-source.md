@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: f6aed5d2ac1c4672d8d8868fe127ead053512e42
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 974ece9cd035ae29ada38f34b7933d86f682194f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314841"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696236"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Bron transformatie voor het toewijzen van gegevens stroom 
 
@@ -28,9 +28,13 @@ Voor elke gegevens stroom is ten minste één bron transformatie vereist. Voeg z
 
 Koppel uw gegevens stroom bron transformatie met precies één Data Factory gegevensset. De gegevensset definieert de vorm en locatie van de gegevens waarnaar u wilt schrijven of waaruit u wilt lezen. U kunt joker tekens en bestands lijsten in uw bron gebruiken om met meer dan één bestand tegelijk te werken.
 
-## <a name="data-flow-staging-areas"></a>Faserings gebieden van gegevens stroom
+Met behulp van een **Joker patroon** optie geeft u aan dat elke overeenkomende map en elk bestand in één bron transformatie moet worden herhaald. Dit is een zeer efficiënte manier om meerdere bestanden binnen één stroom te verwerken. Als u de bestands naam wilt bijhouden die momenteel wordt verwerkt, stelt u een veld naam in voor het veld "kolom voor het opslaan van de bestands naam" in de bron opties.
 
-De gegevens stroom werkt  met faserings gegevens sets die allemaal in azure zijn. Gebruik deze gegevens sets voor fase ring wanneer u uw gegevens transformeert. 
+> [!NOTE]
+> Stel meerdere Joker teken patronen in met het plus teken naast uw bestaande Joker teken om meer Joker regels toe te voegen.
+
+## <a name="data-flow-staging-areas"></a>Faserings gebieden van gegevens stroom
+De gegevens stroom werkt met faserings gegevens sets die allemaal in azure zijn. Gebruik deze gegevens sets voor fase ring wanneer u uw gegevens transformeert. 
 
 Data Factory heeft toegang tot bijna 80 systeem eigen connectors. Als u gegevens uit deze andere bronnen in uw gegevens stroom wilt toevoegen, gebruikt u het hulp programma voor het kopiëren van de activiteit om de gegevens in een van de faserings ruimte van de gegevensstroom gegevensset te stageren.
 
@@ -101,13 +105,23 @@ Voor beelden van joker tekens:
 
 Er moet een container worden opgegeven in de gegevensset. Het pad naar uw Joker teken moet daarom ook uw mappad van de hoofdmap bevatten.
 
+* Basispad: Als u gepartitioneerde mappen hebt in de bestands bron van ```key=value``` een indeling (bijvoorbeeld Year = 2019), kunt u een ADF stellen om het hoogste niveau van die partitie mappen structuur toe te wijzen aan een kolom naam in de gegevens stroom van de gegevensstroom.
+
+Stel eerst een Joker teken in om alle paden op te nemen van de gepartitioneerde mappen plus de blad bestanden die u wilt lezen.
+
+![Bron Bestands instellingen] voor partitioneren (media/data-flow/partfile2.png "Instelling voor partitie bestand")
+
+Gebruik nu de instelling basis pad van partitie om ADF te laten zien wat het hoogste niveau van de mappen structuur is. Wanneer u nu de inhoud van uw gegevens bekijkt, ziet u dat de opgeloste partities in elk van uw mapniveau worden toegevoegd.
+
+Basispad voor ![partitie](media/data-flow/partfile1.png "Voor beeld van basispad")
+
 * **Lijst met bestanden**: Dit is een bestandenset. Maak een tekst bestand met een lijst met relatieve padgegevens die moeten worden verwerkt. Wijs dit tekst bestand aan.
 * **Kolom voor het opslaan van de bestands naam**: Sla de naam van het bron bestand op in een kolom in uw gegevens. Voer hier een nieuwe naam in om de teken reeks voor de bestands naam op te slaan.
 * **Na voltooiing**: U kunt niets doen met het bron bestand nadat de gegevens stroom is uitgevoerd, het bron bestand te verwijderen of het bron bestand te verplaatsen. De paden voor de verplaatsing zijn relatief.
 
 Als u bron bestanden naar een andere locatie wilt verplaatsen, selecteert u eerst verplaatsen voor bestands bewerking. Stel vervolgens de map uit. Als u geen joker tekens gebruikt voor uw pad, is de instelling van ' van ' dezelfde map als de bronmap.
 
-Als u een bronpad van een Joker teken hebt, bijvoorbeeld:
+Als u een bronpad met Joker teken hebt, ziet uw syntaxis er als volgt uit:
 
 ```/data/sales/20??/**/*.csv```
 
@@ -119,7 +133,7 @@ En "aan" als
 
 ```/backup/priorSales```
 
-In dit geval worden alle submappen onder/Data/Sales die zijn gebrond, relatief verplaatst ten opzichte van/backup/priorSales.
+In dit geval worden alle bestanden die zijn gebrond onder/Data/Sales verplaatst naar/backup/priorSales.
 
 ### <a name="sql-datasets"></a>SQL-gegevens sets
 
@@ -152,8 +166,7 @@ U kunt de kolom gegevens typen wijzigen in een latere afgeleide-kolom transforma
 ![Instellingen voor standaard gegevens indelingen](media/data-flow/source2.png "Standaard indelingen")
 
 ### <a name="add-dynamic-content"></a>Dynamische inhoud toevoegen
-
-Wanneer u in het deel venster instellingen op velden klikt, wordt er een Hyper link weer geven voor ' dynamische inhoud toevoegen '. Wanneer u hier klikt, wordt de opbouw functie voor expressies gestart. Hier kunt u waarden voor instellingen dynamisch instellen met behulp van expressies, statische letterlijke waarden of para meters.
+Wanneer u in het deel venster instellingen op velden klikt, wordt er een Hyper link weer geven voor ' dynamische inhoud toevoegen '. Wanneer u selecteert om de opbouw functie voor expressies te starten, worden waarden dynamisch ingesteld met behulp van expressies, statische letterlijke waarden of para meters.
 
 ![Parameters](media/data-flow/params6.png "Parameters")
 

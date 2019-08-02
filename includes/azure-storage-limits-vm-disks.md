@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: ef9c46c0b55f97b8931f16d751f1b1e6099e6c9d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 8b25d2395811a2197aff6d653c5038a4380021e9
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328601"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669616"
 ---
 U kunt een aantal gegevens schijven koppelen aan een virtuele machine van Azure. Op basis van de schaalbaarheids-en prestatie doelen voor de gegevens schijven van een virtuele machine kunt u het aantal en type schijf bepalen dat u nodig hebt om te voldoen aan de prestatie-en capaciteits vereisten.
 
@@ -18,13 +18,13 @@ U kunt een aantal gegevens schijven koppelen aan een virtuele machine van Azure.
 
 **Voor Azure Managed disks:**
 
-In de volgende tabel ziet u de standaard-en maximum limieten van het aantal resources per regio per abonnement
+In de volgende tabel ziet u de standaard-en maximum limieten van het aantal resources per regio per abonnement. Er is geen limiet voor het aantal Managed Disks, moment opnamen en installatie kopieën per resource groep.  
 
 > | Resource | Standaardlimiet  | Maximumaantal |
 > | --- | --- | --- |
 > | Standard Managed disks | 50,000 | 50,000 |
-> | Beheerde schijven Standard-SSD | 50,000 | 50,000 |
-> | Premium Managed disks | 50,000 | 50,000 |
+> | Managed Disks - Standard - SSD | 50,000 | 50,000 |
+> | Beheerde Premium-schijven | 50,000 | 50,000 |
 > | Standard_LRS-moment opnamen | 50,000 | 50,000 |
 > | Standard_ZRS-moment opnamen | 50,000 | 50,000 |
 > | Beheerde installatie kopie | 50,000 | 50,000 |

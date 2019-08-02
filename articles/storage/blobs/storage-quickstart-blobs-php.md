@@ -1,20 +1,18 @@
 ---
 title: 'Azure-snelstart: een blob maken in objectopslag met PHP | Microsoft Docs'
 description: Snel leren om objecten over te dragen naar/van Azure Blob-opslag met PHP
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: php
-ms.topic: quickstart
-ms.date: 11/14/2018
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 790c6a372021542daa1098e94209c91b7bcecfd5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 11/14/2018
+ms.service: storage
+ms.subservice: blobs
+ms.topic: quickstart
+ms.openlocfilehash: 0453d7465479fb1410d1436cc3fa53914633ece5
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149463"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726396"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Objecten overdragen naar/van Azure Blob-opslag met PHP
 In deze snelstart leert u hoe u PHP kunt gebruiken om blok-bobs te uploaden, te downloaden en weer te geven in een container in Azure Blob-opslag. 
@@ -124,7 +122,7 @@ In dit gedeelte gaat u een exemplaar maken van de Azure-opslagclient, een exempl
 
 Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. Omdat blok-blobs het meest worden gebruikt, worden ze in deze Quick Start gebruikt.  
 
-Als u een bestand naar een blob wilt uploaden, hebt u het volledige pad van het bestand nodig dat u vindt door de naam van de map en de bestandsnaam op uw lokale schijf samen te voegen. Vervolgens kunt u het bestand uploaden naar het opgegeven pad met behulp van de methode **createBlockBlob()**. 
+Als u een bestand naar een blob wilt uploaden, hebt u het volledige pad van het bestand nodig dat u vindt door de naam van de map en de bestandsnaam op uw lokale schijf samen te voegen. Vervolgens kunt u het bestand uploaden naar het opgegeven pad met behulp van de methode **createBlockBlob()** . 
 
 De voorbeeldcode maakt gebruik van een lokaal bestand en uploadt dat naar Azure. Het bestand wordt in de code opgeslagen als **myfile** en de naam van de blob als **fileToUpload**. In het volgende voorbeeld wordt het bestand geüpload naar de container met de naam **quickstartblobs**.
 
@@ -147,7 +145,7 @@ Gebruik de methode **createblocklist()** om een gedeeltelijke update van de inho
 
 ### <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
-U kunt een lijst met bestanden in de container ophalen met behulp van de methode **listBlobs()**. Met de volgende code wordt de lijst met blobs opgehaald en doorlopen, waarbij de namen van de blobs worden weergegeven die in een container zijn aangetroffen.  
+U kunt een lijst met bestanden in de container ophalen met behulp van de methode **listBlobs()** . Met de volgende code wordt de lijst met blobs opgehaald en doorlopen, waarbij de namen van de blobs worden weergegeven die in een container zijn aangetroffen.  
 
 ```PHP
     $listBlobsOptions = new ListBlobsOptions();
@@ -168,7 +166,7 @@ U kunt een lijst met bestanden in de container ophalen met behulp van de methode
 
 ### <a name="get-the-content-of-your-blobs"></a>De inhoud van uw blobs ophalen
 
-Haal de inhoud van uw blobs op met behulp van de **getBlob()**-methode. Met de volgende code wordt de inhoud weergegeven van de blob die in een vorige sectie is geüpload.
+Haal de inhoud van uw blobs op met behulp van de **getBlob()** -methode. Met de volgende code wordt de inhoud weergegeven van de blob die in een vorige sectie is geüpload.
 
 ```PHP
     $blob = $blobClient->getBlob($containerName, $fileToUpload);
@@ -176,7 +174,7 @@ Haal de inhoud van uw blobs op met behulp van de **getBlob()**-methode. Met de v
 ```
 
 ### <a name="clean-up-resources"></a>Resources opschonen
-Als u de blobs die in deze snelstart zijn geüpload niet langer nodig hebt, kunt u de volledige container verwijderen met behulp van de methode **deletecontainer()**. Als de bestanden die zijn gemaakt niet meer nodig zijn, gebruikt u de methode **deleteblob()** om ze te verwijderen.
+Als u de blobs die in deze snelstart zijn geüpload niet langer nodig hebt, kunt u de volledige container verwijderen met behulp van de methode **deletecontainer()** . Als de bestanden die zijn gemaakt niet meer nodig zijn, gebruikt u de methode **deleteblob()** om ze te verwijderen.
 
 ```PHP
     // Delete blob.

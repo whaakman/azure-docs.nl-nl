@@ -1,49 +1,49 @@
 ---
-title: Vereisten voor het beheren van accounts in de Cloud Partner-Portal | Azure Marketplace
-description: Vereisten voor het beheren van Azure Marketplace-accounts in de Cloud Partner-Portal.
+title: Vereisten voor het beheren van accounts op het Cloud Partner-portal | Azure Marketplace
+description: Vereisten voor het beheren van Azure Marketplace-accounts op de Cloud Partner-portal.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 8c32043d9bf3ca68563ae01d415bdc0e1f6993f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62269490355414a6b75759361cd574ac7e90e162
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258130"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598682"
 ---
-# <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Vereisten voor het beheren van accounts in de Cloud Partner-Portal 
+# <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Vereisten voor het beheren van accounts op het Cloud Partner-portal 
 
-Voordat u kunt de [Cloud Partner-Portal](https://cloudpartner.azure.com/) voor elke functie, zoals het beheren van accounts, moet u een reeks stappen voor het registreren van technologiebeheer samen met hun organisatie Microsoft cloud uitgevers volgen.
-
-
-## <a name="account-terms-and-guidelines"></a>Richtlijnen en voorwaarden van account
-
-Zorgvuldig door uw rechten en -verantwoordelijkheden onder de [Microsoft-Servicesovereenkomst](https://www.microsoft.com/servicesagreement) en de [Microsoft Terms](https://www.microsoft.com/legal/intellectualproperty/copyright) voordat u een account maken.  
-
-Kies de accountnaam van uw zorgvuldig.  Deze aansluit bij uw organisatie, zodat deze mag niet de woorden of controversieel auteursrechtelijk beschermd.  Bijvoorbeeld Microsoft zijn niet toegestaan op het gebruik van het auteursrechtelijk beschermde termen, zoals 'Azure' en 'Microsoft', in accountnamen.  Zie voor meer informatie, [richtlijnen voor Azure Marketplace](https://docs.microsoft.com/azure/marketplace/guidelines)
+Voordat u de [Cloud Partner-Portal](https://cloudpartner.azure.com/) voor elke functie kunt gebruiken, met inbegrip van het beheer van accounts, moet u een reeks stappen volgen om zichzelf en hun organisatie als micro soft-Cloud-Publishers te registreren.
 
 
-## <a name="registration-steps"></a>Stappen voor inschrijving
+## <a name="account-terms-and-guidelines"></a>Account voorwaarden en richt lijnen
 
-De volgende tabel bevat de stappen die nodig zijn voor het volledig registreren als de uitgever van een Microsoft-cloud.  Zie voor volledige instructies [geworden van een Cloud-Marketplace-uitgever](https://docs.microsoft.com/azure/marketplace/become-publisher
-). 
+Controleer zorgvuldig uw rechten en verantwoordelijkheden op het [Microsoft-servicesovereenkomst](https://www.microsoft.com/servicesagreement) en de [gebruiksrecht overeenkomst van micro soft](https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx) voordat u een account maakt.  
+
+Kies uw account naam zorgvuldig.  Het vertegenwoordigt uw organisatie, dus mag het geen auteurs rechtelijk beschermde of contentiouse woorden bevatten.  Micro soft verbiedt bijvoorbeeld het gebruik van de voor waarden van copyright, zoals ' Azure ' en ' micro soft ', in account namen.  Zie [richt lijnen voor Azure Marketplace](https://docs.microsoft.com/azure/marketplace/guidelines) voor meer informatie.
+
+
+## <a name="registration-steps"></a>Registratie stappen
+
+De volgende tabel bevat de stappen die nodig zijn voor het volledig registreren als een micro soft-Cloud Uitgever.  Zie [een Cloud Marketplace-Uitgever](https://docs.microsoft.com/azure/marketplace/become-publisher
+)worden voor volledige instructies. 
 
 
 |                   Stap                   |  Resulterende registratie of resource                     |
 |                  ------                  |  -----------------------------------                    |
 | 1. Registreren in Microsoft Partner Network |  Een Microsoft Partner Network-ID voor uw organisatie |
-| 2. Maak een Microsoft-account *           |  Een Microsoft-account, gecontroleerd, hebben die eindigt op @outlook.com, @live.com, enzovoort. |
-| 3. Het registratieformulier marketplace verzenden | De account van een uitgever in de Cloud Partner-Portal      |
-| 4. Meld u aan bij de Cloud Partner-Portal        | Instantie maken en publiceren van aanbiedingen, beheren van gebruikers, metrische gegevens verzamelen marketplace, enzovoort. |
-| 5. Registreren in Microsoft Developer Center * | Een geverifieerde Dev Center-account; instantie voor het uitvoeren van marketplace-transacties  |
+| 2. Een Microsoft-account maken *           |  Een geverifieerde Microsoft-account, eindigend @live.comop @outlook.com, enzovoort. |
+| 3. Het registratie formulier voor Marketplace verzenden | Een uitgevers account op het Cloud Partner-portal      |
+| 4. Aanmelden bij Cloud Partner-portal        | Instantie voor het maken en publiceren van aanbiedingen, het beheren van gebruikers, het verzamelen van metrische gegevens voor Marketplace, enzovoort. |
+| 5. Registreren in het micro soft Developer Center * | Een geverifieerd ontwikkelaars centrum-account; bevoegdheid om Marketplace-trans acties uit te voeren  |
 |   |   |
 
-\* Deze stappen zijn vereist voor Azure Marketplace transact aanbiedingen, maar ten zeerste aangeraden alle aanbiedingen.  Nadat u een Microsoft-account maken en meld u aan als een Microsoft Developer, kunt u toegang tot aanvullende Microsoft-klant- en developer bronnen, evenals de optionele partner aanbiedingen.  
+\*Deze stappen zijn vereist voor aanbiedingen van Azure Marketplace-trans acties, maar worden nadrukkelijk aanbevolen voor alle aanbiedingen.  Zodra u een Microsoft-account hebt ingesteld en u zich hebt geregistreerd als een micro soft-ontwikkelaar, hebt u toegang tot extra micro soft-klanten en-bronnen voor ontwikkel aars, evenals optionele partner aanbiedingen.  
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nadat u de registratiestappen hebt voltooid, moet u kunnen aan te melden bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/).  U kunt deze portal gebruiken en beheren van profielen van de uitgever en beheren van gebruikersaccounts.
+Nadat u de registratie stappen hebt voltooid, moet u zich kunnen aanmelden bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/).  U kunt deze portal gebruiken om Publisher-profielen te beheren en gebruikers accounts te beheren.

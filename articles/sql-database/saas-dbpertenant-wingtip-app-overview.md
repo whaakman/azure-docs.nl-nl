@@ -1,6 +1,6 @@
 ---
-title: Azure SQL-Database app voor meerdere tenants voorbeeld - Wingtip SaaS | Microsoft Docs
-description: Informatie over met behulp van een voorbeeld van multitenant-toepassing die gebruikmaakt van Azure SQL Database, het Wingtip SaaS-voorbeeld
+title: Azure SQL Database voor beeld van multi tenant-app-Wingtip SaaS | Microsoft Docs
+description: Meer informatie over het gebruik van een voor beeld van een multi tenant-toepassing die gebruikmaakt van Azure SQL Database, het Wingtip SaaS-voor beeld
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -10,50 +10,49 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 1c16ea44418d99ee1f80a7d0ef7a3e5b3f118f46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f4bb946af4720a327a8755c6bf9187f3b71ba6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61485190"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570350"
 ---
-# <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Inleiding tot een multitenant SaaS-app die gebruikmaakt van het patroon van de database-per-tenant met SQL Database
+# <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Inleiding tot een multi tenant SaaS-app die gebruikmaakt van het data base-per-Tenant patroon met SQL Database
 
-De Wingtip SaaS-toepassing is een voorbeeld-app voor meerdere tenants. De app maakt gebruik van de SaaS-toepassingspatroon database-per-tenant voor meerdere tenants. De app worden gepresenteerd functies van Azure SQL Database die SaaS-scenario's met behulp van verschillende ontwerp- en -beheerpatronen voor SaaS. Als u wilt snel aan de slag, wordt de Wingtip SaaS-app geïmplementeerd in minder dan vijf minuten.
+De Wingtip SaaS-toepassing is een voor beeld van een multi tenant-app. De app maakt gebruik van het SaaS-toepassings patroon data base-per-Tenant om meerdere tenants te onderhouden. De app biedt een overzicht van de functies van Azure SQL Database waarmee SaaS-scenario's kunnen worden ingeschakeld met behulp van verschillende SaaS-ontwerp-en beheer patronen. Om snel aan de slag te gaan, implementeert de Wingtip SaaS-app in minder dan vijf minuten.
 
-Toepassing source code en scripts zijn beschikbaar in de [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub-opslagplaats. Voordat u begint, Zie de [algemene richtlijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor stappen voor het downloaden en de blokkering opheffen van de Wingtip Tickets-management-scripts.
+Broncode-en beheer scripts van de toepassings bron zijn beschikbaar in de [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) github opslag plaats. Voordat u begint, raadpleegt u de [algemene richt lijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor de stappen voor het downloaden en deblokkeren van de Wingtip tickets-beheer scripts.
 
 ## <a name="application-architecture"></a>Toepassingsarchitectuur
 
-De Wingtip SaaS-app maakt gebruik van de database-per-tenant-model. Elastische SQL-groepen wordt gebruikt voor een maximale efficiency. Voor het inrichten en de toewijzing van tenants tot hun gegevens, wordt een catalogusdatabase gebruikt. De belangrijkste Wingtip SaaS-toepassing maakt gebruik van een pool met drie voorbeeldtenants, plus de catalogusdatabase. De catalogus en tenant-servers zijn ingericht met DNS-aliassen. Deze aliassen worden gebruikt voor het onderhouden van een verwijzing naar de actieve resources die worden gebruikt door de Wingtip-toepassing. Deze aliassen zijn bijgewerkt om te verwijzen naar de recovery-resources in de disaster recovery-zelfstudies. Voltooien van veel van de resultaten van de Wingtip SaaS-zelfstudies in uitbreidingen op de eerste implementatie. Invoegtoepassingen, zoals analytische databases en tussen databases Schemabeheer zijn geïntroduceerd.
+De Wingtip SaaS-app maakt gebruik van het model data base-per-Tenant. Het maakt gebruik van elastische SQL-Pools om de efficiëntie te maximaliseren. Voor het inrichten en toewijzen van tenants aan hun gegevens wordt een catalogus database gebruikt. De kern Wingtip SaaS-toepassing maakt gebruik van een pool met drie voor beelden van tenants, plus de catalogus database. De catalogus-en Tenant servers zijn ingericht met DNS-aliassen. Deze aliassen worden gebruikt voor het onderhouden van een verwijzing naar de actieve resources die worden gebruikt door de Wingtip-toepassing. Deze aliassen worden bijgewerkt naar herstel bronnen in de zelf studies voor herstel na nood gevallen. Het volt ooien van veel van de Wingtip SaaS-zelf studies resulteert in invoeg toepassingen voor de eerste implementatie. Invoeg toepassingen, zoals analytische data bases en schema's voor het beheer van meerdere data bases, worden geïntroduceerd.
 
 
 ![Wingtip SaaS-architectuur](media/saas-dbpertenant-wingtip-app-overview/app-architecture.png)
 
 
-Als u de zelfstudies doorlopen en met de app werken, zich richten op de SaaS-patronen zoals ze betrekking op de gegevenslaag hebben. Met andere woorden, richt u op de gegevenslaag en de app zelf geen overanalyze. Inzicht krijgen in de implementatie van deze SaaS-patronen is essentieel voor het implementeren van deze patronen in uw toepassingen. U kunt ook welke wijzigingen nodig zijn voor uw specifieke zakelijke vereisten.
+Als u de zelf studies doorloopt en met de app werkt, kunt u zich richten op de SaaS-patronen die betrekking hebben op de gegevenslaag. Met andere woorden, focus op de gegevenslaag en de app zelf niet te deanalyseren. Meer informatie over de implementatie van deze SaaS-patronen is essentieel voor het implementeren van deze patronen in uw toepassingen. Houd ook rekening met de nodige wijzigingen voor uw specifieke bedrijfs vereisten.
 
-## <a name="sql-database-wingtip-saas-tutorials"></a>SQL Database Wingtip SaaS-zelfstudies
+## <a name="sql-database-wingtip-saas-tutorials"></a>SQL Database Wingtip SaaS-zelf studies
 
-Nadat u de app hebt geïmplementeerd, bekijk de volgende zelfstudies die op de eerste implementatie voortbouwen. Deze zelfstudies verkennen veelvoorkomende SaaS-patronen die van ingebouwde functies van SQL Database, Azure SQL Data Warehouse en andere Azure-services gebruikmaken. Zelfstudies zijn PowerShell-scripts met gedetailleerde uitleg. De uitleg vereenvoudigen begrijpen en de implementatie van de dezelfde SaaS-beheerpatronen in uw toepassingen.
+Nadat u de app hebt geïmplementeerd, moet u de volgende zelf studies voor het maken van de eerste implementatie verkennen. Deze zelf studies verkennen algemene SaaS-patronen die gebruikmaken van ingebouwde functies van SQL Database, Azure SQL Data Warehouse en andere Azure-Services. Zelf studies bevatten Power shell-scripts met gedetailleerde uitleg. De uitleg vereenvoudigt de inzichten en implementatie van dezelfde SaaS-beheer patronen in uw toepassingen.
 
 
 | Zelfstudie | Description |
 |:--|:--|
-| [Richtlijnen en tips voor het SQL-Database multitenant SaaS-app-voorbeeld](saas-tenancy-wingtip-app-guidance-tips.md) | Downloaden en uitvoeren van PowerShell-scripts om voor te bereiden van onderdelen van de toepassing. |
-|[De Wingtip SaaS-toepassing implementeren en verkennen](saas-dbpertenant-get-started-deploy.md)|  Implementeren en verkennen van de Wingtip SaaS-toepassing met uw Azure-abonnement. |
-|[Tenants inrichten en catalogiseren](saas-dbpertenant-provision-and-catalog.md)| Meer informatie over hoe de toepassing verbinding maakt met tenants met behulp van een catalogusdatabase, en hoe tenants in de catalogus worden toegewezen aan hun gegevens. |
-|[Prestaties controleren en beheren](saas-dbpertenant-performance-monitoring.md)| Informatie over het gebruik controlefuncties van SQL-Database en waarschuwingen kunt instellen wanneer drempelwaarden worden overschreden. |
-|[Bewaken met Azure Monitor-Logboeken](saas-dbpertenant-log-analytics.md) | Meer informatie over het gebruik van [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md) voor het bewaken van grote hoeveelheden van resources in meerdere pools. |
-|[Een enkele tenant herstellen](saas-dbpertenant-restore-single-tenant.md)| Leer hoe u een tenantdatabase herstellen naar een eerdere in-time. U leert ook hoe u herstellen met een parallelle database, die de database van de bestaande tenant online verlaat. |
-|[Database-tenantschema beheren](saas-tenancy-schema-management.md)| Informatie over het schema en het bijwerken van referentiegegevens in alle tenantdatabases. |
-|[Cross-tenant gedistribueerde query's uitvoeren](saas-tenancy-cross-tenant-reporting.md) | Maken van een ad-hoc analytics-database, en realtime gedistribueerde query's uitvoeren voor alle tenants.  |
-|[Analyses uitvoeren op gegevens van de uitgepakte tenant](saas-tenancy-tenant-analytics.md) | Extraheer de gegevens van de tenant naar een analytics-database of het datawarehouse voor offline analysequery's. |
+| [Richt lijnen en tips voor het SQL Database voor beeld van multi tenant SaaS-apps](saas-tenancy-wingtip-app-guidance-tips.md) | Down load en voer Power shell-scripts uit om delen van de toepassing voor te bereiden. |
+|[De Wingtip SaaS-toepassing implementeren en verkennen](saas-dbpertenant-get-started-deploy.md)|  Implementeer en verken de Wingtip SaaS-toepassing met uw Azure-abonnement. |
+|[Tenants inrichten en catalogiseren](saas-dbpertenant-provision-and-catalog.md)| Meer informatie over hoe de toepassing verbinding maakt met tenants met behulp van een catalogus database en hoe de catalogus tenants aan hun gegevens toewijst. |
+|[Prestaties bewaken en beheren](saas-dbpertenant-performance-monitoring.md)| Meer informatie over het gebruik van controle functies van SQL Database en het instellen van waarschuwingen wanneer prestatie drempels worden overschreden. |
+|[Controleren met Azure Monitor-logboeken](saas-dbpertenant-log-analytics.md) | Meer informatie over het gebruik van [Azure monitor logboeken](../log-analytics/log-analytics-overview.md) voor het bewaken van grote hoeveel heden resources in meerdere groepen. |
+|[Een enkele tenant herstellen](saas-dbpertenant-restore-single-tenant.md)| Meer informatie over hoe u een Tenant database herstelt naar een eerder tijdstip. Meer informatie over het herstellen naar een parallelle data base, waardoor de bestaande Tenant database online blijft. |
+|[Tenant database schema beheren](saas-tenancy-schema-management.md)| Meer informatie over het bijwerken van schema en het bijwerken van referentie gegevens in alle Tenant databases. |
+|[Met cross-Tenant gedistribueerde query's uitvoeren](saas-tenancy-cross-tenant-reporting.md) | Maak een ad hoc Analytics-Data Base en voer realtime gedistribueerde query's uit op alle tenants.  |
+|[Analyses uitvoeren op geëxtraheerde Tenant gegevens](saas-tenancy-tenant-analytics.md) | Tenant gegevens uitpakken naar een Analytics-Data Base of Data Warehouse voor offline analyse query's. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Algemene richtlijnen en tips voor wanneer u implementeert en gebruik het voorbeeld van Wingtip Tickets SaaS-app](saas-tenancy-wingtip-app-guidance-tips.md)
+- [Algemene richt lijnen en tips voor het implementeren en gebruiken van het voor beeld van de SaaS-app Wingtip tickets](saas-tenancy-wingtip-app-guidance-tips.md)
 - [De Wingtip SaaS-toepassing implementeren](saas-dbpertenant-get-started-deploy.md)

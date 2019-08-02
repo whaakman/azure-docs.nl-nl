@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 5d0b41344f4a77f3205799be7c30526e2a150523
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: bb2d5733704b0b31dc010cec2a90e99e1be07b56
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479929"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592030"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection voor Azure Storage
 
@@ -37,7 +37,7 @@ Geavanceerde bedreigings beveiliging voor Azure Storage opname van Diagnostische
 2. Ga naar de configuratie pagina van het Azure Storage account dat u wilt beveiligen. Selecteer op de pagina **instellingen** de optie **geavanceerde beveiliging tegen bedreigingen**.
 
 3. In de Blade **geavanceerde beveiliging tegen bedreigingen** configureren
-    * Advanced  *Threat Protection* inschakelen
+    * Advanced *Threat Protection* inschakelen
     * Klik op **Opslaan** om het nieuwe of bijgewerkte geavanceerde beveiligings beleid voor bedreigingen op te slaan. (Prijzen in de afbeelding zijn alleen bedoeld als voor beeld.)
 
 ![Azure Storage Advanced Threat Protection inschakelen](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
@@ -46,7 +46,7 @@ Geavanceerde bedreigings beveiliging voor Azure Storage opname van Diagnostische
 
 Wanneer u zich abonneert op de Standard-laag in Azure Security Center, wordt geavanceerde beveiliging tegen bedreigingen automatisch ingesteld op al uw opslag accounts. U kunt de geavanceerde beveiliging tegen bedreigingen voor uw opslag accounts onder een specifiek abonnement als volgt in-of uitschakelen:
 
-1. Start **Azure Security Center** in het [Azure Portal]([https://portal.azure.com).
+1. Start **Azure Security Center** in het [Azure Portal](https://portal.azure.com).
 1. Klik in het hoofd menu op **prijzen & instellingen**.
 1. Klik op het abonnement dat u wilt in-of uitschakelen bedreigings beveiliging voor de bijbehorende opslag accounts.
 

@@ -1,34 +1,32 @@
 ---
-title: Schaalbaarheids- en prestatiedoelen voor VM-schijven op Linux - Microsoft Azure | Microsoft Docs
-description: Meer informatie over de schaalbaarheids- en prestatiedoelen voor VM-schijven die zijn gekoppeld aan virtuele machines waarop Linux wordt uitgevoerd.
-services: virtual-machines-linux,storage
+title: Schaalbaarheids-en prestatie doelen voor VM-schijven op Linux-Microsoft Azure | Microsoft Docs
+description: Meer informatie over de schaalbaarheids-en prestatie doelen voor virtuele machine schijven die zijn gekoppeld aan Vm's waarop Linux wordt uitgevoerd.
 author: roygara
 ms.author: rogarana
 ms.date: 11/15/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 39e0a36b50a9e222e6016140967336ccda167514
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c1bdecdfc755db530be71a09b18542ade4519c5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771631"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695887"
 ---
-# <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Schaalbaarheids- en prestatiedoelen voor VM-schijven op Linux
+# <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Schaalbaarheids-en prestatie doelen voor VM-schijven in Linux
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
-Zie [Linux VM-grootten](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie.
+Zie [VM](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) -grootten voor Linux voor meer informatie.
 
-## <a name="managed-virtual-machine-disks"></a>Beheerde virtuele machine-schijven
+## <a name="managed-virtual-machine-disks"></a>Beheerde schijven van virtuele machines
 
-Grootte die is gemarkeerd met een sterretje zijn momenteel in preview. Zie onze [Veelgestelde vragen over](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) voor meer informatie over welke regio's ze zijn beschikbaar in.
+Groottes die worden aangeduid met een sterretje, zijn momenteel beschikbaar als preview-versie. Zie onze [Veelgestelde vragen](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) voor meer informatie over de regio's waar ze beschikbaar zijn.
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
 
-## <a name="unmanaged-virtual-machine-disks"></a>Niet-beheerde VM-schijven
+## <a name="unmanaged-virtual-machine-disks"></a>Niet-beheerde schijven van virtuele machines
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../../includes/azure-storage-limits-vm-disks-standard.md)]
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]

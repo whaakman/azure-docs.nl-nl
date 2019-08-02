@@ -1,18 +1,18 @@
 ---
 title: Back-ups maken van VMware-Vm's met Azure Backup Server
 description: Gebruik Azure Backup Server om een back-up te maken van virtuele VMware-machines die op een VMware vCenter/ESXi-server worden uitgevoerd.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: raynew
-ms.openlocfilehash: adb8cb6a5740b7d09848c792093ea62f69f521a7
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: c53e2c383739b717a5ce94c872b4616bbd1b3f26
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466797"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639937"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Back-ups maken van VMware-Vm's met Azure Backup Server
 
@@ -63,7 +63,7 @@ Stel als volgt een beveiligd kanaal in:
 
 4. Sla het bestand op de Azure Backup Server machine op met de extensie. zip.
 
-5. Klik met de rechter muisknop op **down load. zip** > **extract**. Het zip-bestand extraheert de inhoud naar de  map certs, die de volgende bevat:
+5. Klik met de rechter muisknop op **down load. zip** > **extract**. Het zip-bestand extraheert de inhoud naar de map certs, die de volgende bevat:
    - Het basis certificaat bestand met een extensie die begint met een genummerde reeks, zoals 0 en 1.
    - Het CRL-bestand heeft een extensie die begint met een Sequence zoals. R0 of. R1. Het CRL-bestand is gekoppeld aan een certificaat.
 

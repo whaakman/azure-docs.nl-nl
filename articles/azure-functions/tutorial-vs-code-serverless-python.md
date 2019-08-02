@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: 587d8040039080e15c61292279c5e5637d296b08
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: f5591a3e0ca73649b1ffc51c75aa95e86e286768
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68351487"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639089"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Python implementeren voor Azure Functions met Visual Studio code
 
@@ -253,7 +253,7 @@ In deze stappen gebruikt u de extensie functions om een functie-app in azure te 
 1. De uitbrei ding voert de volgende acties uit, die u kunt bekijken in Visual Studio code Popup-berichten en het **uitvoer** venster (het proces duurt een paar minuten):
 
     - Een resource groep maken met de naam die u hebt opgegeven (afbreek streepjes verwijderen).
-    - Maak in die resource groep het opslag account, het hosting plan en de functie-app. Standaard wordt een [verbruiks abonnement](functions-scale.md#consumption-plan) gemaakt. Als u uw functies in een speciaal plan wilt uitvoeren, moet u [publiceren met geavanceerde opties voor maken inschakelen](functions-develop-vs-code.md#enabled-publishing-with-advanced-create-options).
+    - Maak in die resource groep het opslag account, het hosting plan en de functie-app. Standaard wordt een [verbruiks abonnement](functions-scale.md#consumption-plan) gemaakt. Als u uw functies in een speciaal plan wilt uitvoeren, moet u [publiceren met geavanceerde opties voor maken inschakelen](functions-develop-vs-code.md).
     - Implementeer uw code in de functie-app.
 
     **Azure: In** functions Explorer wordt ook de voortgang weer gegeven:

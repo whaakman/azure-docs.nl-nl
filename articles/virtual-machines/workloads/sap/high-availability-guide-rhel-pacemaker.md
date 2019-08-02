@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: cd56df8e88a84f52933e5ee43fecd598252ba6c0
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: bffb92e37ccddd43c2a64466282084bb6226c338
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479758"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570569"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Pacemaker instellen voor Red Hat Enterprise Linux in azure
 
@@ -39,8 +39,6 @@ ms.locfileid: "68479758"
 
 [virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
-> [!TIP]
-> Pacemaker op Red Hat Enterprise Linux maakt gebruik van de Azure Fence-agent om indien nodig een cluster knooppunt te omheiningen. Er is een nieuwe versie van de Azure Fence-agent beschikbaar. de failover neemt niet langer tijd in beslag, als een stop van een resource mislukt of de cluster knooppunten niet meer kunnen communiceren. Lees voor meer informatie [Azure VM, die wordt uitgevoerd als een RHEL-lid van een cluster met hoge Beschik baarheid, een zeer lange tijd om te worden geomheining of een uitvulling mislukt of afbreken voordat de VM wordt afgesloten](https://access.redhat.com/solutions/3408711)
 
 Lees eerst de volgende SAP-opmerkingen en-documenten:
 

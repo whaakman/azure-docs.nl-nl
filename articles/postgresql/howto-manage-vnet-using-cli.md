@@ -1,33 +1,34 @@
 ---
-title: Maken en beheren van VNet-service-eindpunten en regels voor Azure Database voor PostgreSQL - één Server met behulp van Azure CLI
-description: In dit artikel wordt beschreven hoe u maken en beheren van VNet-service-eindpunten en regels voor Azure Database voor PostgreSQL met behulp van Azure CLI-opdrachtregel.
+title: VNet-service-eind punten en-regels maken en beheren voor Azure Database for PostgreSQL-één server met behulp van Azure CLI
+description: In dit artikel wordt beschreven hoe u VNet-service-eind punten en-regels voor Azure Database for PostgreSQL maakt en beheert met behulp van de Azure CLI-opdracht regel.
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: df2af0240852b23203e504d8233de4af48475438
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 0b683b2d745f13b0bbccd5ed8b4033652e7a9609
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067571"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609962"
 ---
-# <a name="create-and-manage-vnet-service-endpoints-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Maken en beheren van VNet-service-eindpunten voor Azure Database voor PostgreSQL - één Server met behulp van Azure CLI
-Virtueel netwerk (VNet) services-eindpunten en regels uitbreiden privé-adresruimte van een Virtueelnetwerk met uw Azure Database for PostgreSQL-server. Met behulp van handige opdrachten van Azure-opdrachtregelinterface (CLI), kunt u maken, bijwerken, verwijderen, lijst en VNet-service-eindpunten en regels voor het beheren van uw server weergeven. Zie voor een overzicht van Azure Database voor PostgreSQL-VNet-service-eindpunten, met inbegrip van beperkingen, [Azure Database for PostgreSQL-Server VNet-service-eindpunten](concepts-data-access-and-security-vnet.md). VNet-service-eindpunten zijn beschikbaar in alle ondersteunde regio's voor Azure Database for PostgreSQL.
+# <a name="create-and-manage-vnet-service-endpoints-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>VNet-service-eind punten maken en beheren voor Azure Database for PostgreSQL-één server met behulp van Azure CLI
+Virtual Network-Services (VNet)-eind punten en-regels breiden de privé-adres ruimte van een Virtual Network naar uw Azure Database for PostgreSQL-server uit. Met de handige CLI-opdrachten (opdracht regel Interface) van Azure kunt u VNet-service-eind punten en-regels maken, bijwerken, verwijderen en weer geven om uw server te beheren. Zie [Azure database for postgresql server VNet-service-eind punten](concepts-data-access-and-security-vnet.md)voor een overzicht van Azure database for PostgreSQL VNet-service-eind punten, met inbegrip van beperkingen. VNet-service-eind punten zijn beschikbaar in alle ondersteunde regio's voor Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Vereisten
-Als u wilt in deze gebruiksaanwijzing kunt doorlopen, hebt u het volgende nodig:
-- Installeer [de Azure CLI](/cli/azure/install-azure-cli) of de Azure Cloud Shell gebruiken in de browser.
-- Een [Azure Database for PostgreSQL-server en database](quickstart-create-server-database-azure-cli.md).
+Als u deze hand leiding wilt door lopen, hebt u het volgende nodig:
+- Installeer [de Azure cli](/cli/azure/install-azure-cli) of gebruik de Azure Cloud shell in de browser.
+- Een [Azure database for postgresql-server en-data base](quickstart-create-server-database-azure-cli.md).
 
 > [!NOTE]
 > Ondersteuning voor VNet-service-eindpunten is alleen voor algemeen gebruik en geoptimaliseerd voor geheugen-servers.
-> In het geval van VNet-peering wordt als verkeer via een gemeenschappelijke VNet-Gateway met service-eindpunten stroomt en moet worden overgebracht naar de peer, maak een ACL/VNet-regel voor het toestaan van Azure Virtual Machines in het VNet-Gateway voor toegang tot de Azure Database for PostgreSQL-server.
+> In het geval van VNet-peering, als verkeer via een gemeen schappelijke VNet-gateway met Service-eind punten stroomt en naar de peer moet stromen, moet u een ACL/VNet-regel maken om Azure Virtual Machines in de gateway-VNet toegang te geven tot de Azure Database for PostgreSQL-server.
 
-## <a name="configure-vnet-service-endpoints-for-azure-database-for-postgresql"></a>Vnet-service-eindpunten configureren voor Azure Database for PostgreSQL
-De [az network vnet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) opdrachten worden gebruikt om virtuele netwerken te configureren.
+
+## <a name="configure-vnet-service-endpoints-for-azure-database-for-postgresql"></a>Vnet-service-eind punten voor Azure Database for PostgreSQL configureren
+De opdracht [AZ Network vnet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) wordt gebruikt voor het configureren van virtuele netwerken.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -42,24 +43,27 @@ az login
 
 Als u meerdere abonnementen hebt, kiest u het juiste abonnement waarin de resource moet worden gefactureerd. Selecteer de specifieke abonnements-id in uw account met de opdracht [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set). Gebruik de **id**-eigenschap uit de **az login**-uitvoer voor uw abonnement in de tijdelijke aanduiding voor de abonnement-id.
 
-- Het account moet de vereiste machtigingen om het maken van een virtueel netwerk en de service-eindpunt hebben.
+- Het account moet de benodigde machtigingen hebben voor het maken van een virtueel netwerk en een service-eind punt.
 
-Service-eindpunten kunnen afzonderlijk worden geconfigureerd op de virtuele netwerken, door een gebruiker met schrijftoegang tot het virtuele netwerk.
+Service-eind punten kunnen afzonderlijk op virtuele netwerken worden geconfigureerd door een gebruiker met schrijf toegang tot het virtuele netwerk.
 
-Voor het Azure-serviceresources aan een VNet, moet de gebruiker machtiging voor 'Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/' voor de subnetten die worden toegevoegd. Deze machtiging is standaard opgenomen in de ingebouwde service-beheerdersrollen en kan worden gewijzigd door aangepaste rollen te maken.
+Als u Azure-service resources wilt beveiligen met een VNet, moet de gebruiker over de machtiging ' micro soft. Network/virtualNetworks/subnets/joinViaServiceEndpoint/' beschikken voor de subnetten die worden toegevoegd. Deze machtiging is standaard opgenomen in de ingebouwde service-beheerdersrollen en kan worden gewijzigd door aangepaste rollen te maken.
 
 Meer informatie over [ingebouwde rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) en het toewijzen van specifieke machtigingen voor [aangepaste rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
-VNets en Azure-serviceresources kunnen in hetzelfde abonnement of in verschillende abonnementen zitten. Als het VNet en Azure-serviceresources in verschillende abonnementen zitten, moeten de resources onder dezelfde Active Directory (AD)-tenant.
+VNets en Azure-serviceresources kunnen in hetzelfde abonnement of in verschillende abonnementen zitten. Als de VNet-en Azure-service resources zich in verschillende abonnementen bevinden, moeten de resources onder dezelfde Active Directory (AD)-Tenant vallen. Zorg ervoor dat de **micro soft. SQL** -resource provider is geregistreerd voor beide abonnementen. Raadpleeg [Resource-Manager-registratie][resource-manager-portal] voor meer informatie
 
 > [!IMPORTANT]
-> Het is raadzaam om te lezen in dit artikel over de service-eindpunt configuraties en overwegingen voordat u het voorbeeldscript uitvoert of het configureren van service-eindpunten. **Virtual Network service-eindpunt:** Een [service-eindpunt voor Virtueelnetwerk](../virtual-network/virtual-network-service-endpoints-overview.md) is een subnet met eigenschappen die een of meer formele Azure-service typenamen bevatten. VNet-services-eindpunten gebruikt u de naam van de service type **Microsoft.Sql**, die verwijst naar de Azure-service met de naam SQL-Database. Deze servicetag geldt ook voor de Azure SQL Database, Azure Database for PostgreSQL en MySQL-services. Het is belangrijk te weten bij het toepassen van de **Microsoft.Sql** servicetag naar een VNet-service-eindpunt configureert het verkeer van de service-eindpunt voor alle Azure-Database-services, met inbegrip van Azure SQL Database, Azure Database for PostgreSQL en Azure Database for MySQL-servers op het subnet. 
+> Lees dit artikel over service-eindpunt configuraties en overwegingen voordat u het onderstaande voorbeeld script uitvoert of service-eind punten configureert. **Service-eind punt Virtual Network:** Een [Virtual Network Service-eind punt](../virtual-network/virtual-network-service-endpoints-overview.md) is een subnet waarvan de eigenschaps waarden een of meer formele namen van Azure-service typen bevatten. VNet-service-eind punten gebruiken de service type naam **micro soft. SQL**, die verwijst naar de Azure-service met de naam SQL database. Deze servicetag is ook van toepassing op de Azure SQL Database, Azure Database for PostgreSQL en MySQL-Services. Het is belang rijk te weten wanneer u de code van het **micro soft. SQL** -service toepast op een VNet-service-eind punt, waarbij service-eindpunt verkeer wordt geconfigureerd voor alle Azure Data Base-Services, waaronder Azure SQL Database, Azure database for PostgreSQL en Azure Data Base voor MySQL-servers in het subnet. 
 > 
 
-### <a name="sample-script-to-create-an-azure-database-for-postgresql-database-create-a-vnet-vnet-service-endpoint-and-secure-the-server-to-the-subnet-with-a-vnet-rule"></a>Voorbeeld van een script voor het maken van een Azure Database for PostgreSQL-database, een VNet, VNet-service-eindpunt maken en beveiligen van de server met het subnet met een VNet-regel
-Wijzig in dit voorbeeldscript de gemarkeerde regels om de gebruikersnaam en het wachtwoord van de beheerder aan te passen. Vervang de abonnement-id die wordt gebruikt de `az account set --subscription` opdracht met uw eigen abonnement-id.
+### <a name="sample-script-to-create-an-azure-database-for-postgresql-database-create-a-vnet-vnet-service-endpoint-and-secure-the-server-to-the-subnet-with-a-vnet-rule"></a>Voorbeeld script voor het maken van een Azure Database for PostgreSQL-data base, het maken van een VNet-, VNet-service-eind punt en het beveiligen van de server met het subnet met een VNet-regel
+Wijzig in dit voorbeeldscript de gemarkeerde regels om de gebruikersnaam en het wachtwoord van de beheerder aan te passen. Vervang de SubscriptionID die in de `az account set --subscription` opdracht wordt gebruikt door uw eigen abonnement-id.
 [!code-azurecli-interactive[main](../../cli_scripts/postgresql/create-postgresql-server-vnet/create-postgresql-server.sh?highlight=5,20 "Create an Azure Database for PostgreSQL, VNet, VNet service endpoint, and VNet rule.")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt om de resourcegroep en alle resources die er aan zijn gekoppeld te verwijderen.
 [!code-azurecli-interactive[main](../../cli_scripts/postgresql/create-postgresql-server-vnet/delete-postgresql.sh "Delete the resource group.")]
+
+<!-- Link references, to text, Within this same GitHub repo. --> 
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md

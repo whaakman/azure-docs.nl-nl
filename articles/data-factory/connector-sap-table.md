@@ -1,6 +1,6 @@
 ---
 title: Gegevens uit een SAP-tabel kopiëren met behulp van Azure Data Factory | Microsoft Docs
-description: Meer informatie over het kopiëren van gegevens uit een SAP-tabel naar ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
+description: Informatie over het kopiëren van gegevens uit een SAP-tabel naar ondersteunde Sink-gegevens archieven door gebruik te maken van een Kopieer activiteit in een Azure Data Factory-pijp lijn.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,82 +10,82 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 08/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 9216f5c00cbdac273b562736abdd1c812d172237
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 18b5b941716fd2c6664c37f9e7c1ab2a37d07a88
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827759"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720649"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Gegevens uit een SAP-tabel kopiëren met behulp van Azure Data Factory
 
-In dit artikel bevat een overzicht over het gebruik van de kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit een SAP-tabel. Zie voor meer informatie, [overzicht Kopieeractiviteit](copy-activity-overview.md).
+In dit artikel wordt beschreven hoe u de Kopieer activiteit in Azure Data Factory kunt gebruiken om gegevens uit een SAP-tabel te kopiëren. Zie [overzicht van Kopieer activiteiten](copy-activity-overview.md)voor meer informatie.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens uit een SAP-tabel naar een ondersteunde sink-gegevensopslag kopiëren. Zie voor een lijst van de gegevensarchieven die worden ondersteund als gegevensbronnen of PUT voor de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens uit een SAP-tabel kopiëren naar elk ondersteund Sink-gegevens archief. Zie de tabel [ondersteunde gegevens archieven](copy-activity-overview.md#supported-data-stores-and-formats) voor een lijst met gegevens archieven die worden ondersteund als bronnen of sinks op basis van de Kopieer activiteit.
 
-Deze tabel SAP connector ondersteunt name:
+Deze SAP-tabel connector ondersteunt met name:
 
-- Kopiëren van gegevens uit een SAP-tabel in:
+- Gegevens uit een SAP-tabel kopiëren in:
 
-  - SAP ERP centraal onderdeel (SAP ECC) versie 7.01 of hoger (in een recente SAP ondersteuning voor pakket-Stack die zijn uitgebracht na 2015).
-  - SAP Business Warehouse (SAP BW) versie 7.01 of hoger.
+  - SAP ERP Central component (SAP ECC) versie 7,01 of hoger (in een recente SAP-ondersteunings pakket stack uitgebracht na 2015).
+  - SAP Business Warehouse (SAP BW) versie 7,01 of hoger.
   - SAP S/4HANA.
-  - Andere producten in SAP Business Suite 7.01 of hoger.
+  - Andere producten in SAP Business Suite versie 7,01 of hoger.
 
-- Kopiëren van gegevens uit zowel een transparante SAP-tabel, een gegroepeerde tabel een geclusterde tabel en een weergave.
-- Kopiëren van gegevens met behulp van basisverificatie of Secure Network Communications (SNC), als SNC is geconfigureerd.
-- Verbinding maken met een SAP-toepassingsserver of SAP-berichtenserver.
+- Het kopiëren van gegevens uit een SAP transparante tabel, een gegroepeerde tabel, een geclusterde tabel en een weer gave.
+- Kopiëren van gegevens met behulp van basis verificatie of beveiligde netwerk communicatie (SNC), als SNC is geconfigureerd.
+- Verbinding maken met een SAP-toepassings server of SAP-berichten server.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het gebruik van deze connector SAP-tabel, moet u naar:
+Als u deze SAP-tabel connector wilt gebruiken, moet u het volgende doen:
 
-- Instellen van een zelf-hostende integratieruntime (versie 3.17 of hoger). Zie voor meer informatie, [maken en configureren van een zelf-hostende integratieruntime](create-self-hosted-integration-runtime.md).
+- Stel een zelf-hostende Integration runtime (versie 3,17 of hoger) in. Zie [een zelf-hostende Integration runtime maken en configureren](create-self-hosted-integration-runtime.md)voor meer informatie.
 
-- Download de 64-bits [SAP-Connector voor Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) van de SAP-website, en installeer deze op de zelf-hostende integration runtime-machine. Tijdens de installatie, zorg ervoor dat u selecteert de **assembly's installeren in GAC** optie in de **optionele installatiestappen uit** venster.
+- Down load de 64-bits [SAP connector voor Microsoft .NET 3,0](https://support.sap.com/en/product/connectors/msnet.html) van de SAP-website en installeer deze op de zelf-hostende Integration runtime-computer. Zorg er tijdens de installatie voor dat u de optie **Assembly's installeren naar GAC** selecteert in het venster **optionele installatie stappen** .
 
-  ![SAP-Connector installeren voor .NET](./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
+  ![SAP-connector voor .NET installeren](./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
 
-- De SAP-gebruiker die wordt gebruikt in de Data Factory SAP-connector voor tabel moet de volgende machtigingen hebben:
+- De SAP-gebruiker die wordt gebruikt in de Data Factory SAP-tabel connector moet de volgende machtigingen hebben:
 
-  - Autorisatie voor het gebruik van de externe functie aanroepen (RFC) bestemmingen.
-  - Machtigingen voor de activiteit uitvoeren van het S_SDSAUTH autorisatie-object.
+  - Autorisatie voor het gebruik van externe functie aanroepen (RFC)-doelen.
+  - Machtigingen voor het uitvoeren van de activiteit van het S_SDSAUTH-autorisatie object.
 
 ## <a name="get-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van de specifieke Data Factory-entiteiten met de connector SAP-tabel.
+De volgende secties bevatten informatie over eigenschappen die worden gebruikt voor het definiëren van de Data Factory entiteiten die specifiek zijn voor de SAP-tabel connector.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
-De volgende eigenschappen worden ondersteund voor de SAP BW Open Hub gekoppelde service:
+De volgende eigenschappen worden ondersteund voor de SAP BW open hub gekoppelde service:
 
-| Eigenschap | Description | Verplicht |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | `type` | De `type` eigenschap moet worden ingesteld op `SapTable`. | Ja |
-| `server` | De naam van de server waarop de SAP-instantie zich bevindt.<br/>Gebruiken om te verbinden met een SAP-toepassingsserver. | Nee |
-| `systemNumber` | Het systeemnummer van de SAP-systeem.<br/>Gebruiken om te verbinden met een SAP-toepassingsserver.<br/>Toegestane waarde: Een decimaal getal van twee cijfers weergegeven als een tekenreeks. | Nee |
-| `messageServer` | De hostnaam van de SAP-berichtenserver.<br/>Verbinding maken met een SAP-berichtenserver gebruiken. | Nee |
-| `messageServerService` | De servicenaam van de of de poort van de berichtenserver.<br/>Verbinding maken met een SAP-berichtenserver gebruiken. | Nee |
-| `systemId` | De ID van de SAP-systeem waarin de tabel zich bevindt.<br/>Verbinding maken met een SAP-berichtenserver gebruiken. | Nee |
-| `logonGroup` | De groep van de aanmelding voor de SAP-systeem.<br/>Verbinding maken met een SAP-berichtenserver gebruiken. | Nee |
-| `clientId` | De ID van de client in de SAP-systeem.<br/>Toegestane waarde: Een decimaal getal van drie cijfers wordt weergegeven als een tekenreeks. | Ja |
-| `language` | De taal die gebruikmaakt van de SAP-systeem.<br/>Standaardwaarde is `EN`.| Nee |
-| `userName` | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
-| `password` | Het wachtwoord voor de gebruiker. Markeer dit veld met de `SecureString` type voor het veilig opslaan in de Data Factory of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| `sncMode` | De SNC activering indicator voor toegang tot de SAP-server waar de tabel zich bevindt.<br/>Als u wilt gebruiken van SNC verbinding maken met de SAP-server gebruiken.<br/>Toegestane waarden zijn `0` (uitgeschakeld, de standaardinstelling) of `1` (aan). | Nee |
-| `sncMyName` | SNC-naam van de initiator voor toegang tot de SAP-server waar de tabel zich bevindt.<br/>Is van toepassing wanneer `sncMode` is ingeschakeld. | Nee |
-| `sncPartnerName` | De SNC-naam van de communicatie-partner toegang tot de SAP-server waar de tabel zich bevindt.<br/>Is van toepassing wanneer `sncMode` is ingeschakeld. | Nee |
-| `sncLibraryPath` | Van het product van de externe beveiliging-bibliotheek voor toegang tot de SAP-server waar de tabel zich bevindt.<br/>Is van toepassing wanneer `sncMode` is ingeschakeld. | Nee |
-| `sncQop` | Het niveau van de kwaliteit van bescherming SNC om toe te passen.<br/>Is van toepassing wanneer `sncMode` is ingeschakeld. <br/>Toegestane waarden zijn `1` (verificatie), `2` (integriteit), `3` (Privacy), `8` (standaard), `9` (Maximum). | Nee |
-| `connectVia` | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Een zelf-hostende integratieruntime is vereist, zoals eerder in vermeld [vereisten](#prerequisites). |Ja |
+| `server` | De naam van de server waarop het SAP-exemplaar zich bevindt.<br/>Gebruiken om verbinding te maken met een SAP-toepassings server. | Nee |
+| `systemNumber` | Het systeem nummer van het SAP-systeem.<br/>Gebruiken om verbinding te maken met een SAP-toepassings server.<br/>Toegestane waarde: Een decimaal getal van twee cijfers dat wordt weer gegeven als een teken reeks. | Nee |
+| `messageServer` | De hostnaam van de SAP-berichten server.<br/>Gebruiken om verbinding te maken met een SAP-berichten server. | Nee |
+| `messageServerService` | De service naam of het poort nummer van de berichten server.<br/>Gebruiken om verbinding te maken met een SAP-berichten server. | Nee |
+| `systemId` | De ID van het SAP-systeem waarin de tabel zich bevindt.<br/>Gebruiken om verbinding te maken met een SAP-berichten server. | Nee |
+| `logonGroup` | De aanmeldings groep voor het SAP-systeem.<br/>Gebruiken om verbinding te maken met een SAP-berichten server. | Nee |
+| `clientId` | De ID van de client in het SAP-systeem.<br/>Toegestane waarde: Een decimaal getal met drie cijfers dat wordt weer gegeven als een teken reeks. | Ja |
+| `language` | De taal die het SAP-systeem gebruikt.<br/>De standaard waarde `EN`is.| Nee |
+| `userName` | De naam van de gebruiker die toegang heeft tot de SAP-server. | Ja |
+| `password` | Het wachtwoord voor de gebruiker. Markeer dit veld met het `SecureString` type om het veilig op te slaan in Data Factory, of om te [verwijzen naar een geheim dat is opgeslagen in azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| `sncMode` | De activerings indicator SNC voor toegang tot de SAP-server waarop de tabel zich bevindt.<br/>Gebruik deze als u SNC wilt gebruiken om verbinding te maken met de SAP-server.<br/>Toegestane waarden zijn `0` (uit, de standaard instelling) `1` of (aan). | Nee |
+| `sncMyName` | De SNC naam van de initiator om toegang te krijgen tot de SAP-server waarop de tabel zich bevindt.<br/>Van toepassing `sncMode` wanneer is ingeschakeld. | Nee |
+| `sncPartnerName` | De SNC naam van de communicatie partner om toegang te krijgen tot de SAP-server waarop de tabel zich bevindt.<br/>Van toepassing `sncMode` wanneer is ingeschakeld. | Nee |
+| `sncLibraryPath` | De bibliotheek van het externe beveiligings product voor toegang tot de SAP-server waarop de tabel zich bevindt.<br/>Van toepassing `sncMode` wanneer is ingeschakeld. | Nee |
+| `sncQop` | De SNC kwaliteit van het beveiligings niveau dat moet worden toegepast.<br/>Van toepassing `sncMode` wanneer is ingeschakeld. <br/>Toegestane waarden zijn `1` (authenticatie) `2` , (integriteit) `3` , (privacy) `8` , (standaard) `9` , (maximum). | Nee |
+| `connectVia` | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Een zelf-hostende Integration runtime is vereist, zoals eerder is vermeld in [vereisten](#prerequisites). |Ja |
 
-**Voorbeeld 1: Verbinding maken met een SAP-toepassingsserver**
+**Voor beeld 1: Verbinding maken met een SAP-toepassings server**
 
 ```json
 {
@@ -110,7 +110,7 @@ De volgende eigenschappen worden ondersteund voor de SAP BW Open Hub gekoppelde 
 }
 ```
 
-### <a name="example-2-connect-to-an-sap-message-server"></a>Voorbeeld 2: Verbinding maken met een SAP-berichtenserver
+### <a name="example-2-connect-to-an-sap-message-server"></a>Voorbeeld 2: Verbinding maken met een SAP-berichten server
 
 ```json
 {
@@ -169,14 +169,14 @@ De volgende eigenschappen worden ondersteund voor de SAP BW Open Hub gekoppelde 
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie voor een volledige lijst van de secties en de eigenschappen voor het definiëren van gegevenssets, [gegevenssets](concepts-datasets-linked-services.md). De volgende sectie bevat een lijst van de eigenschappen die worden ondersteund door de SAP-table-gegevensset.
+Zie [gegevens sets](concepts-datasets-linked-services.md)voor een volledige lijst van de secties en eigenschappen voor het definiëren van gegevens sets. De volgende sectie bevat een lijst met de eigenschappen die worden ondersteund door de SAP-tabel gegevensset.
 
-Als u wilt kopiëren van gegevens van en naar de service SAP BW Hub openen die is gekoppeld, worden de volgende eigenschappen worden ondersteund:
+De volgende eigenschappen worden ondersteund voor het kopiëren van gegevens van en naar de gekoppelde SAP BW hub-service:
 
-| Eigenschap | Description | Verplicht |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | `type` | De `type` eigenschap moet worden ingesteld op `SapTableResource`. | Ja |
-| `tableName` | De naam van de SAP-tabel om te kopiëren van gegevens uit. | Ja |
+| `tableName` | De naam van de SAP-tabel waaruit de gegevens moeten worden gekopieerd. | Ja |
 
 ### <a name="example"></a>Voorbeeld
 
@@ -185,12 +185,13 @@ Als u wilt kopiëren van gegevens van en naar de service SAP BW Hub openen die i
     "name": "SAPTableDataset",
     "properties": {
         "type": "SapTableResource",
+        "typeProperties": {
+            "tableName": "<SAP table name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP table linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "<SAP table name>"
         }
     }
 }
@@ -198,33 +199,33 @@ Als u wilt kopiëren van gegevens van en naar de service SAP BW Hub openen die i
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst van de secties en de eigenschappen voor het definiëren van activiteiten, [pijplijnen](concepts-pipelines-activities.md). De volgende sectie bevat een lijst van de eigenschappen die worden ondersteund door de bron van de SAP-tabel.
+Voor een volledige lijst van de secties en eigenschappen voor het definiëren van activiteiten raadpleegt u [pijp lijnen](concepts-pipelines-activities.md). De volgende sectie bevat een lijst met de eigenschappen die worden ondersteund door de SAP-tabel bron.
 
-### <a name="sap-table-as-a-source"></a>SAP-tabel als een bron
+### <a name="sap-table-as-a-source"></a>SAP-tabel als bron
 
-Om gegevens te kopiëren uit een SAP-tabel, worden de volgende eigenschappen worden ondersteund:
+Als u gegevens wilt kopiëren uit een SAP-tabel, worden de volgende eigenschappen ondersteund:
 
-| Eigenschap                         | Description                                                  | Verplicht |
+| Eigenschap                         | Description                                                  | Vereist |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | `type`                             | De `type` eigenschap moet worden ingesteld op `SapTableSource`.         | Ja      |
-| `rowCount`                         | Het aantal rijen moeten worden opgehaald.                              | Nee       |
-| `rfcTableFields`                   | De velden (kolommen) om te kopiëren uit de SAP-tabel. Bijvoorbeeld `column0, column1`. | Nee       |
-| `rfcTableOptions`                  | De opties voor het filteren van de rijen in een SAP-tabel. Bijvoorbeeld `COLUMN0 EQ 'SOMEVALUE'`. Zie ook de tabel van SAP-query-operator verderop in dit artikel. | Nee       |
-| `customRfcReadTableFunctionModule` | Een aangepaste functie module voor RFC die kan worden gebruikt om gegevens te lezen uit een SAP-tabel.<br>U kunt een aangepaste module voor de RFC-functie gebruiken om te definiëren hoe de gegevens worden opgehaald uit uw SAP-systeem en geretourneerd naar de Data Factory. De module voor aangepaste functies moet beschikken over een interface geïmplementeerd (import, export, tabellen) die vergelijkbaar is met `/SAPDS/RFC_READ_TABLE2`, dit is de standaard-interface die door Data Factory worden gebruikt. | Nee       |
-| `partitionOption`                  | Het mechanisme voor partitie te lezen uit een SAP-tabel. De ondersteunde opties zijn onder andere: <ul><li>`None`</li><li>`PartitionOnInt` (normaal geheel getal of een gehele getallen met nul opvulling aan de linkerkant, zoals `0000012345`)</li><li>`PartitionOnCalendarYear` (4 cijfers in de indeling "YYYY")</li><li>`PartitionOnCalendarMonth` (6 cijfers in de notatie "JJJJMM")</li><li>`PartitionOnCalendarDate` (8 cijfers in de notatie "JJJJMMDD")</li></ul> | Nee       |
+| `rowCount`                         | Het aantal rijen dat moet worden opgehaald.                              | Nee       |
+| `rfcTableFields`                   | De velden (kolommen) die vanuit de SAP-tabel moeten worden gekopieerd. Bijvoorbeeld `column0, column1`. | Nee       |
+| `rfcTableOptions`                  | De opties voor het filteren van de rijen in een SAP-tabel. Bijvoorbeeld `COLUMN0 EQ 'SOMEVALUE'`. Zie ook de SAP-query operator tabel verderop in dit artikel. | Nee       |
+| `customRfcReadTableFunctionModule` | Een aangepaste RFC-functie module die kan worden gebruikt om gegevens uit een SAP-tabel te lezen.<br>U kunt een aangepaste RFC-functie module gebruiken om te bepalen hoe de gegevens worden opgehaald uit uw SAP-systeem en worden geretourneerd naar Data Factory. Voor de aangepaste functie module moet een interface zijn geïmplementeerd (import, export, Tables) die vergelijkbaar is `/SAPDS/RFC_READ_TABLE2`met, de standaard interface die wordt gebruikt door Data Factory. | Nee       |
+| `partitionOption`                  | Het partitie mechanisme om te lezen uit een SAP-tabel. De ondersteunde opties zijn onder andere: <ul><li>`None`</li><li>`PartitionOnInt`(normale waarden voor geheel getal of geheel getal met een opvulling van nul aan `0000012345`de linkerkant, zoals)</li><li>`PartitionOnCalendarYear`(4 cijfers in de notatie "YYYY")</li><li>`PartitionOnCalendarMonth`(6 cijfers in de notatie "YYYYMM")</li><li>`PartitionOnCalendarDate`(8 cijfers in de notatie "JJJMMDD")</li></ul> | Nee       |
 | `partitionColumnName`              | De naam van de kolom die wordt gebruikt voor het partitioneren van de gegevens.                | Nee       |
-| `partitionUpperBound`              | De maximale waarde van de kolom die is opgegeven `partitionColumnName` dat wordt gebruikt om door te gaan met partities. | Nee       |
-| `partitionLowerBound`              | De minimumwaarde van de kolom die is opgegeven `partitionColumnName` dat wordt gebruikt om door te gaan met partities. | Nee       |
-| `maxPartitionsNumber`              | Het maximale aantal partities splitsen van de gegevens in.     | Nee       |
+| `partitionUpperBound`              | De maximum waarde van de kolom die is `partitionColumnName` opgegeven in die wordt gebruikt om door te gaan met partitioneren. | Nee       |
+| `partitionLowerBound`              | De minimum waarde van de kolom die is `partitionColumnName` opgegeven in die wordt gebruikt om door te gaan met partitioneren. | Nee       |
+| `maxPartitionsNumber`              | Het maximum aantal partities waarop de gegevens moeten worden gesplitst.     | Nee       |
 
 >[!TIP]
->Als uw SAP-tabel een groot volume aan gegevens, zoals meerdere miljard rijen heeft, gebruikt u `partitionOption` en `partitionSetting` wilt de gegevens opsplitsen in kleinere partities. In dit geval de gegevens worden gelezen per partitie en elke partitie wordt opgehaald uit uw SAP-server via één RFC-aanroep.<br/>
+>Als uw SAP-tabel een grote hoeveelheid gegevens bevat, zoals meerdere miljard rijen, gebruikt `partitionOption` en `partitionSetting` om de gegevens te splitsen in kleinere partities. In dit geval worden de gegevens per partitie gelezen en elke gegevens partitie wordt opgehaald van uw SAP-server via één RFC-aanroep.<br/>
 <br/>
->Duurt `partitionOption` als `partitionOnInt` bijvoorbeeld het aantal rijen in elke partitie met deze formule wordt berekend: (totaal aantal rijen die zich tussen `partitionUpperBound` en `partitionLowerBound`) /`maxPartitionsNumber`.<br/>
+>`maxPartitionsNumber` `partitionLowerBound` `partitionUpperBound` Als voor beeld wordt het aantal rijen in elke partitie berekend met de volgende formule: (totaal aantal rijen tussen en)/. `partitionOption` `partitionOnInt`<br/>
 <br/>
->Als u wilt partities om te kopiëren versnellen parallel worden uitgevoerd, wordt aangeraden maken `maxPartitionsNumber` een veelvoud zijn van de waarde van de `parallelCopies` eigenschap. Zie voor meer informatie, [kopie parallelle](copy-activity-performance.md#parallel-copy).
+>Als u partities parallel wilt uitvoeren om het kopiëren te versnellen, raden we `maxPartitionsNumber` u ten zeerste aan een veelvoud `parallelCopies` van de waarde van de eigenschap te maken. Zie [parallelle kopie](copy-activity-performance.md#parallel-copy)voor meer informatie.
 
-In `rfcTableOptions`, kunt u de volgende algemene SAP standaardoperators voor query's voor het filteren van de rijen:
+In `rfcTableOptions`kunt u de volgende algemene SAP-query operators gebruiken om de rijen te filteren:
 
 | Operator | Description |
 | :------- | :------- |
@@ -234,7 +235,7 @@ In `rfcTableOptions`, kunt u de volgende algemene SAP standaardoperators voor qu
 | `LE` | Kleiner dan of gelijk aan |
 | `GT` | Groter dan |
 | `GE` | Groter dan of gelijk aan |
-| `LIKE` | As in `LIKE 'Emma%'` |
+| `LIKE` | Zoals in`LIKE 'Emma%'` |
 
 ### <a name="example"></a>Voorbeeld
 
@@ -274,21 +275,21 @@ In `rfcTableOptions`, kunt u de volgende algemene SAP standaardoperators voor qu
 ]
 ```
 
-## <a name="data-type-mappings-for-an-sap-table"></a>Toewijzingen voor de tabel van een SAP-gegevenstype
+## <a name="data-type-mappings-for-an-sap-table"></a>Toewijzing van gegevens typen voor een SAP-tabel
 
-Wanneer u gegevens uit een SAP-tabel kopieert, worden de volgende toewijzingen uit de gegevenstypen van de SAP-tabel gebruikt om de Azure Data Factory tussentijdse gegevenstypen. Zie voor meer informatie hoe de kopieerbewerking het schema en de gegevens van een brontype toegewezen aan de sink [Schema en gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md).
+Wanneer u gegevens uit een SAP-tabel kopieert, worden de volgende toewijzingen gebruikt vanuit de gegevens typen van de SAP-tabel naar het Azure Data Factory tussenliggende gegevens typen. Zie [schema en gegevens type toewijzingen](copy-activity-schema-and-type-mapping.md)voor meer informatie over hoe de Kopieer activiteit het bron schema en het gegevens type aan de Sink koppelt.
 
-| SAP ABAP-Type | Data Factory tussentijdse gegevenstype |
+| SAP ABAP-type | Data Factory tussentijdse gegevenstype |
 |:--- |:--- |
-| `C` (String) | `String` |
-| `I` (Geheel getal) | `Int32` |
-| `F` (Gegevenstype met drijvende komma) | `Double` |
-| `D` (Datum) | `String` |
-| `T` (Tijd) | `String` |
-| `P` (BCD verpakt, valuta, decimaal, hoeveelheid) | `Decimal` |
-| `N` (Numeriek) | `String` |
-| `X` (Binaire en onbewerkte) | `String` |
+| `C`Tekenreeksexpressie | `String` |
+| `I`Geheeltallige | `Int32` |
+| `F`Float | `Double` |
+| `D`Vallen | `String` |
+| `T`Tegelijk | `String` |
+| `P`(Door BCD verpakt, valuta, decimaal, hoeveelheid) | `Decimal` |
+| `N`443 | `String` |
+| `X`(Binair en onbewerkt) | `String` |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor een lijst van de gegevensarchieven die door de kopieeractiviteit in Azure Data Factory ondersteund als bronnen en sinks, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
+Zie [ondersteunde gegevens archieven](copy-activity-overview.md#supported-data-stores-and-formats)voor een lijst met gegevens archieven die worden ondersteund als bronnen en sinks op basis van de Kopieer activiteit in azure Data Factory.

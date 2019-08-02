@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 55def52d248babd439227cdcd4170c0a3ca91bb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 476bdd50a56b953585a8a4e9cea05975c9922e0f
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569820"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662959"
 ---
-# <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Incidenten en waarschuwingen onderzoeken in Azure Security Center (Preview)
-In dit document wordt uitgelegd hoe u de onderzoeksfunctie van Azure Security Center gebruikt voor het onderzoeken van beveiligingsincidenten en waarschuwingen.
+# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Incidenten en waarschuwingen onderzoeken in Azure Security Center (buiten gebruik gesteld)
+Dit document helpt u bij het gebruik van de functie voor onderzoek (preview) in Azure Security Center om beveiligings incidenten en-waarschuwingen te onderzoeken.
 
 > [!NOTE]
-> De ervaring voor het onderzoeken waarschuwingen en incidenten wordt beëindigd op 31 juli 2019. Zie voor meer informatie en andere services, [buiten gebruik stellen van Security Center-functies (juli 2019)](security-center-features-retirement-july2019.md#menu_investigate).
+> De ervaring voor het onderzoeken van waarschuwingen en incidenten (preview) is op 31 juli 2019 ingetrokken. Zie voor meer informatie en alternatieve Services de [buiten gebruiks telling van Security Center-functies (2019 juli)](security-center-features-retirement-july2019.md#menu_investigate).
 
 ## <a name="what-is-investigation-in-security-center"></a>Wat is onderzoek in Security Center?
 Met de onderzoeksfunctie in Security Center kunt u potentiële [beveiligingsincidenten](https://docs.microsoft.com/azure/security-center/security-center-incident) sorteren, kijken wat voor gevolgen ze hebben en de hoofdoorzaak van een probleem opsporen.
@@ -34,8 +34,8 @@ De bedoeling is om het onderzoek te vereenvoudigen door alle entiteiten ([beveil
 
 
 > [!NOTE]
-> * [Aangepaste waarschuwingen](security-center-custom-alert.md) worden niet ondersteund in de onderzoeksfunctie van Security Center bevinden.
-> * Onderzoek wordt alleen ondersteund voor waarschuwingen op basis van gegevens die worden verzameld van Windows-servers.
+> * [Aangepaste waarschuwingen](security-center-custom-alert.md) worden niet ondersteund in de onderzoek functie van de Security Center.
+> * Onderzoek wordt alleen ondersteund voor waarschuwingen op basis van gegevens die zijn verzameld van Windows-servers.
 
 
 ## <a name="how-investigation-works"></a>Hoe werkt de onderzoeksfunctie?
@@ -99,7 +99,7 @@ De volgende items worden weergegeven ongeacht het geselecteerde tijdsbereik:
 
 ## <a name="how-to-perform-an-investigation"></a>Een onderzoek uitvoeren
 
-U kunt een onderzoek starten vanuit een beveiligingsincident of vanuit een waarschuwing, afhankelijk van uw behoeften. De volgende stappen worden gebruikt voor een onderzoek starten vanuit een waarschuwing:
+U kunt een onderzoek starten vanuit een beveiligingsincident of vanuit een waarschuwing, afhankelijk van uw behoeften. De volgende stappen worden gebruikt om een onderzoek vanuit een waarschuwing te starten:
 
 1.  Open het dashboard **Security Center**.
 2.  Klik op **Beveiligingswaarschuwingen** en selecteer het incident dat u wilt onderzoeken.

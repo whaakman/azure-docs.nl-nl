@@ -10,10 +10,10 @@ ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 502f178b66e7ba233552d7db4e095363c8bb8628
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325563"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementeren in Azure Container Instances van Azure Container Registry
@@ -50,7 +50,7 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 U moet nu een service-principal maken en de referenties ervan opslaan in uw sleutelkluis.
 
-De volgende opdracht maakt gebruik van [AZ AD SP create-for-RBAC][az-ad-sp-create-for-rbac] to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] om het **wacht woord** van de Service-Principal op te slaan in de kluis.
+De volgende opdracht maakt gebruik [van AZ AD SP create-for-RBAC][az-ad-sp-create-for-rbac] om de service-principal te maken en [AZ sleutel kluis Secret set][az-keyvault-secret-set] om het **wacht woord** van de Service-Principal op te slaan in de kluis.
 
 ```azurecli
 # Create service principal, store its password in AKV (the registry *password*)

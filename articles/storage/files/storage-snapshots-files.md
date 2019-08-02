@@ -1,91 +1,90 @@
 ---
-title: Overzicht van share-momentopnamen voor Azure Files | Microsoft Docs
-description: Momentopname van een share is een alleen-lezen versie van een Azure-bestandsshare die moet worden uitgevoerd op een punt in tijd, als een manier om back-up van de share.
-services: storage
+title: Overzicht van moment opnamen van shares voor Azure Files | Microsoft Docs
+description: Een moment opname van een share is een alleen-lezen versie van een Azure Files share die op een bepaald moment wordt gemaakt, als een manier om een back-up van de share te maken.
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d83cf20c856d37d337f4eb22c30ee9b6823d096b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3cbf740016a4c162c63343be4cb9cd577f85935
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235813"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699356"
 ---
-# <a name="overview-of-share-snapshots-for-azure-files"></a>Overzicht van share-momentopnamen voor Azure Files 
-Azure Files biedt de mogelijkheid voor share-momentopnamen van bestandsshares. Momentopnamen vastleggen van de status van de share op dat punt in tijd delen. In dit artikel wordt beschreven welke mogelijkheden bieden voor momentopnamen van shares en hoe u kunt profiteren van deze in uw aangepaste situatie.
+# <a name="overview-of-share-snapshots-for-azure-files"></a>Overzicht van moment opnamen van shares voor Azure Files 
+Azure Files biedt de mogelijkheid om moment opnamen van shares van bestands shares te maken. Met moment opnamen delen wordt de status van de share op dat moment vastgelegd. In dit artikel wordt beschreven welke mogelijkheden moment opnamen delen bieden en hoe u deze kunt gebruiken in uw aangepaste use-case.
 
-## <a name="when-to-use-share-snapshots"></a>Wanneer u momentopnamen van shares
+## <a name="when-to-use-share-snapshots"></a>Wanneer moet u moment opnamen van shares gebruiken?
 
-### <a name="protection-against-application-error-and-data-corruption"></a>Bescherming tegen beschadiging van fout- en gegevens van toepassing
-Toepassingen die gebruikmaken van bestandsshares uitvoeren bewerkingen zoals schrijven, lezen, opslag, overdracht en verwerking. Als een toepassing is onjuist geconfigureerd of als een onbedoelde bug wordt geïntroduceerd, kan per ongeluk overschrijven of schade plaatsvinden bij enkele blokken. Ter bescherming tegen deze scenario's, kunt u een share-momentopname uitvoeren voordat u nieuwe code van de toepassing implementeert. Als er een fout bug of toepassing wordt toegevoegd met de nieuwe implementatie, kunt u teruggaan naar een eerdere versie van uw gegevens op deze bestandsshare. 
+### <a name="protection-against-application-error-and-data-corruption"></a>Bescherming tegen toepassings fout en gegevens beschadiging
+Toepassingen die gebruikmaken van bestands shares voeren bewerkingen uit, zoals schrijven, lezen, opslag, verzen ding en verwerking. Als een toepassing onjuist is geconfigureerd of als er een onbedoelde fout is geïntroduceerd, kunnen er onbedoelde overschrijvingen of schade optreden in enkele blokken. Om u te helpen bij het beveiligen van deze scenario's, kunt u een moment opname van een share maken voordat u nieuwe toepassings code implementeert. Als er een bug-of toepassings fout is geïntroduceerd in de nieuwe implementatie, kunt u teruggaan naar een eerdere versie van uw gegevens op die bestands share. 
 
-### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Bescherming tegen onbedoelde verwijderingen of onbedoelde wijzigingen
-Stel dat u in een tekstbestand in een bestandsshare werkt. Nadat het tekstbestand is gesloten, verliest u de mogelijkheid om uw wijzigingen ongedaan te maken. In dergelijke gevallen moet u vervolgens een vorige versie van het bestand herstellen. U kunt momentopnamen van shares gebruiken om te herstellen van eerdere versies van het bestand als deze per ongeluk is gewijzigd of verwijderd.
+### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Bescherming tegen onbedoeld verwijderen of onbedoelde wijzigingen
+Stel dat u werkt met een tekst bestand in een bestands share. Wanneer het tekst bestand is gesloten, verliest u de mogelijkheid om uw wijzigingen ongedaan te maken. In deze gevallen moet u een vorige versie van het bestand herstellen. U kunt moment opnamen van shares gebruiken om eerdere versies van het bestand te herstellen als de naam per ongeluk is gewijzigd of verwijderd.
 
 ### <a name="general-backup-purposes"></a>Algemene back-updoeleinden
-Nadat u een bestandsshare maakt, kunt u periodiek een share-momentopname van de bestandsshare te gebruiken voor de back-up maken. Een momentopname, wanneer er periodiek gemaakt share kunt onderhouden van vorige versies van gegevens die kunnen worden gebruikt voor toekomstige controle vereisten of herstel na noodgevallen.
+Nadat u een bestands share hebt gemaakt, kunt u regel matig een moment opname van de share van de bestands share maken om deze te gebruiken voor gegevens back-up. Als u regel matig een moment opname van een share maakt, kunt u de vorige versies van de gegevens behouden die kunnen worden gebruikt voor toekomstige controle vereisten of herstel na nood gevallen.
 
-## <a name="capabilities"></a>Functionaliteit
-Momentopname van een share is een point-in-time, alleen-lezen kopie van uw gegevens. U kunt maken, verwijderen en momentopnamen beheren met behulp van de REST-API. Dezelfde mogelijkheden zijn ook beschikbaar in de client-bibliotheek, Azure CLI en Azure portal. 
+## <a name="capabilities"></a>Mogelijkheden
+Een moment opname van een share is een alleen-lezen kopie van uw gegevens. U kunt moment opnamen maken, verwijderen en beheren met behulp van de REST API. Dezelfde mogelijkheden zijn ook beschikbaar in de client bibliotheek, Azure CLI en Azure Portal. 
 
-U kunt momentopnamen van een share weergeven met behulp van de REST-API en de SMB. U kunt de lijst met versies van de map of het bestand ophalen en u kunt een specifieke versie rechtstreeks als een station koppelen (alleen beschikbaar op Windows - Zie [limieten](#limits)). 
+U kunt moment opnamen van een share weer geven door zowel de REST API als SMB te gebruiken. U kunt de lijst met versies van de map of het bestand ophalen en u kunt een specifieke versie rechtstreeks koppelen als een station (alleen beschikbaar voor Windows-Zie [limieten](#limits)). 
 
-Nadat een share-momentopname is gemaakt, kan deze worden gelezen, gekopieerd, of verwijderd, maar niet gewijzigd. U kunt een hele share-momentopname niet kopiëren naar een ander opslagaccount. U moet doen dat door bestand, met behulp van AzCopy of andere mechanismen voor kopiëren.
+Nadat een moment opname van een share is gemaakt, kan deze worden gelezen, gekopieerd of verwijderd, maar niet worden gewijzigd. U kunt een volledige share-moment opname niet kopiëren naar een ander opslag account. U moet dat bestand doen op bestand met behulp van AzCopy of andere Kopieer mechanismen.
 
-Share-momentopname-functie aangeboden op het niveau van delen. Het ophalen van wordt geleverd op afzonderlijke bestandsniveau, om toe te staan voor het herstellen van afzonderlijke bestanden. U kunt een volledige bestandsshare herstellen met behulp van SMB, de REST-API, de portal, de client-bibliotheek of PowerShell/CLI-hulpprogramma's.
+De functionaliteit van de moment opname van shares wordt op bestands share niveau gegeven. Ophalen wordt op afzonderlijke bestands niveau gegeven, zodat afzonderlijke bestanden kunnen worden teruggezet. U kunt een volledige bestands share herstellen met behulp van SMB, de REST API, de portal, de client bibliotheek of het Power shell/CLI-hulp programma.
 
-Een share-momentopname van een bestandsshare is identiek aan de basis-bestandsshare. Het enige verschil is dat een **datum-/** waarde wordt toegevoegd aan de share URI om aan te geven van de tijd waarop de share-momentopname is gemaakt. Bijvoorbeeld, als een bestandsshare-URI is http://storagesample.core.file.windows.net/myshare, de share-momentopname URI vergelijkbaar met is:
+Een moment opname van een share van een bestands share is identiek aan de basis bestands share. Het enige verschil is dat een **datum/tijd** -waarde wordt toegevoegd aan de share-URI om het tijdstip aan te geven waarop de moment opname van de share is gemaakt. Als de URI van een bestands share bijvoorbeeld is http://storagesample.core.file.windows.net/myshare, is de URI van de moment opname van de share gelijk aan:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
-Momentopnamen van shares blijft actief totdat ze expliciet worden verwijderd. Momentopname van een share kan niet de basis-bestandsshare outlive. U kunt de momentopnamen die zijn gekoppeld aan de basis-bestandsshare om bij te houden van uw huidige momentopnamen opsommen. 
+Moment opnamen delen die blijven bestaan totdat ze expliciet worden verwijderd. Een moment opname van de share kan de basis bestands share niet uitmaken. U kunt de moment opnamen die zijn gekoppeld aan de basis bestands share opsommen om uw huidige moment opnamen bij te houden. 
 
-Wanneer u een share-momentopname van een bestandsshare maakt, worden de bestanden in de eigenschappen van de share gekopieerd naar de momentopname met dezelfde waarden. De bestanden en metagegevens van de bestandsshare zijn ook gekopieerd naar de momentopname, tenzij u opgeeft dat afzonderlijke metagegevens voor de share wanneer u deze maakt de momentopname.
+Wanneer u een moment opname van een share van een bestands share maakt, worden de bestanden in de systeem eigenschappen van de share gekopieerd naar de moment opname van de share met dezelfde waarden. De basis bestanden en de meta gegevens van de bestands share worden ook gekopieerd naar de moment opname van de share, tenzij u afzonderlijke meta gegevens voor de moment opname van de share opgeeft wanneer u deze maakt.
 
-U kunt een share met momentopnamen van shares, tenzij u eerst alle momentopnamen van shares verwijderen niet verwijderen.
+U kunt een share met share-moment opnamen delen alleen verwijderen als u eerst alle moment opnamen van shares verwijdert.
 
-## <a name="space-usage"></a>Gebruik van schijfruimte 
-Momentopnamen van shares zijn incrementele van aard. Alleen de gegevens die zijn gewijzigd nadat een momentopname van de meest recente share is opgeslagen. Hierdoor minimaliseert de tijd die nodig is om de share-momentopname te maken en bespaart op kosten voor opslag. Een schrijfbewerking naar het object of eigenschap of metagegevens updatebewerking wordt geteld naar "gewijzigde inhoud" en wordt opgeslagen in een momentopname van de share. 
+## <a name="space-usage"></a>Ruimte gebruik 
+Moment opnamen van shares zijn incrementeel. Alleen de gegevens die zijn gewijzigd na de moment opname van de meest recente share, worden opgeslagen. Dit minimaliseert de tijd die nodig is om de moment opname van de share te maken en bespaart opslag kosten. Elke schrijf bewerking naar het object of de update bewerking van de meta gegevens wordt geteld bij ' gewijzigde inhoud ' en wordt opgeslagen in de moment opname van de share. 
 
-Om meer ruimte, kunt u de share-momentopname verwijderen voor de periode wanneer het verloop hoogste is.
+Als u ruimte wilt besparen, kunt u de moment opname van de share verwijderen voor de periode waarin het verloop het hoogste is.
 
-Hoewel momentopnamen van shares incrementeel zijn opgeslagen, moet u ook alleen de meest recente momentopname behouden om te kunnen herstellen van de share. Wanneer u een momentopname van een share verwijdert, wordt alleen de gegevens die uniek is voor die share-momentopname verwijderd. Actieve momentopnamen bevatten alle informatie die u nodig hebt om te bladeren en uw gegevens te herstellen (vanaf het moment dat de share-momentopname is gemaakt) naar de oorspronkelijke locatie of een alternatieve locatie. U kunt herstellen op itemniveau.
+Hoewel share-moment opnamen incrementeel worden opgeslagen, moet u alleen de meest recente moment opname van de share behouden om de share te herstellen. Wanneer u een moment opname van een share verwijdert, worden alleen de gegevens verwijderd die uniek zijn voor die share-moment opname. Actieve moment opnamen bevatten alle informatie die u nodig hebt om uw gegevens te zoeken en te herstellen (vanaf het moment dat de moment opname van de share is gemaakt) naar de oorspronkelijke locatie of een alternatieve locatie. U kunt herstellen op item niveau.
 
-Momentopnamen tellen niet mee voor uw limiet van 5 TB delen. Er is geen limiet voor hoeveel ruimte momentopnamen in totaal in beslag nemen. Opslagaccountlimieten nog steeds van toepassing.
+Moment opnamen tellen niet mee voor uw share limiet van 5 TB. Er is geen limiet voor het totale aantal moment opnamen van de ruimte share. De limieten van het opslag account zijn nog steeds van toepassing.
 
-## <a name="limits"></a>Limits
-Het maximum aantal momentopnamen van shares die Azure Files vandaag kunnen is 200. Nadat 200 momentopnamen hebt u oudere momentopnamen van shares verwijderen om het nieuwe te maken. 
+## <a name="limits"></a>Limieten
+Het maximum aantal moment opnamen van shares dat Azure Files vandaag toestaat, is 200. Na 200 moment opnamen delen, moet u oudere moment opnamen van shares verwijderen om nieuwe te kunnen maken. 
 
-Er is geen limiet voor de gelijktijdige aanroepen voor het maken van momentopnamen van shares. Er is geen limiet voor de hoeveelheid ruimte die share momentopnamen van een bepaalde bestandsshare kunnen gebruiken. 
+Er is geen limiet voor de gelijktijdige aanroepen voor het maken van moment opnamen van shares. Er is geen limiet voor de hoeveelheid ruimte die moment opnamen van een bepaalde bestands share delen kan gebruiken. 
 
-Het is vandaag de dag niet mogelijk om te koppelen van momentopnamen van shares op Linux. Dit komt doordat de Linux SMB-client biedt geen ondersteuning voor momentopnamen koppelen, zoals Windows biedt.
+Momenteel is het niet mogelijk om moment opnamen van shares te koppelen aan linux. Dit komt doordat de Linux SMB-client geen ondersteuning biedt voor het koppelen van moment opnamen zoals Windows wel.
 
-## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Kopiëren van gegevens naar een share vanuit een momentopname van bestandsshare
-Kopieerbewerkingen die betrekking hebben op bestanden en momentopnamen van bestandsshares volgt u deze regels:
+## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>De gegevens worden terug gekopieerd naar een share vanuit een share-moment opname
+Kopieer bewerkingen die betrekking hebben op bestanden en moment opnamen delen, gelden deze regels:
 
-U kunt afzonderlijke bestanden in een momentopname van bestandsshare via kopiëren naar de base share of een andere locatie. U kunt herstellen van een eerdere versie van een bestand of de volledige bestandsshare herstellen door het bestand kopiëren vanuit een momentopname van de share. De momentopname is niet worden gepromoveerd naar base delen. 
+U kunt afzonderlijke bestanden in een moment opname van een bestands share kopiëren naar het basis share of een andere locatie. U kunt een eerdere versie van een bestand herstellen of de volledige bestands share herstellen door bestand te kopiëren op bestand van de moment opname van de share. De moment opname van de share wordt niet gepromoveerd naar een basis share. 
 
-Een momentopname van de share blijft behouden nadat u hebt gekopieerd, maar de basis-bestandsshare wordt overschreven met een kopie van de gegevens die beschikbaar in de momentopname was. Alle herstelde bestanden tellen mee voor 'gewijzigde inhoud."
+De moment opname van de share blijft intact na het kopiëren, maar de basis bestands share wordt overschreven met een kopie van de gegevens die beschikbaar waren in de moment opname van de share. Alle herstelde bestanden tellen mee naar gewijzigde inhoud.
 
-U kunt een bestand kopiëren in een momentopname van een share naar een bestemming met een andere naam. Het resulterende doelbestand is een beschrijfbare bestands- en niet de momentopname van een share.
+U kunt een bestand in een moment opname van een share kopiëren naar een doel met een andere naam. Het resulterende doel bestand is een schrijfbaar bestand en geen moment opname van de share.
 
-Wanneer een doelbestand met behulp van een kopie overschreven, zijn alle momentopnamen die zijn gekoppeld aan het oorspronkelijke doelbestand blijven intact.
+Wanneer een doel bestand wordt overschreven door een kopie, blijven de moment opnamen van shares die zijn gekoppeld aan het oorspronkelijke doel bestand intact.
 
 ## <a name="general-best-practices"></a>Algemene aanbevolen procedures 
-Wanneer u infrastructuur op Azure uitvoert, automatiseren, back-ups voor gegevensherstel indien mogelijk. Automatische acties zijn betrouwbaarder dan handmatige processen, helpt de beveiliging van gegevens en herstelmogelijkheden te verbeteren. U kunt de REST-API, SDK van de Client of het uitvoeren van scripts voor automatisering.
+Wanneer u een infra structuur uitvoert op Azure, moet u, indien mogelijk, back-ups automatiseren voor gegevens herstel. Geautomatiseerde acties zijn betrouwbaarder dan hand matige processen, waardoor gegevens bescherming en herstel baarheid worden verbeterd. U kunt de REST API, de client-SDK of scripts gebruiken voor Automation.
 
-Voordat u de share-momentopname scheduler implementeert, moet u zorgvuldig overwegen de frequentie van de share-momentopname en instellingen voor het bewaren om onnodige kosten te besparen.
+Voordat u de planner voor delen van snap shots implementeert, moet u de instellingen voor moment opnamen van delen en de Bewaar periode zorgvuldig overwegen om onnodige kosten te vermijden.
 
-Momentopnamen van shares bieden alleen op bestandsniveau beveiliging. Momentopnamen van shares voorkomen niet fat-vinger verwijderingen op een share of storage account. Om u te helpen een storage-account te beveiligen tegen onbedoelde verwijderingen, vergrendelt u het opslagaccount of de resourcegroep.
+Moment opnamen delen bieden alleen beveiliging op bestands niveau. Moment opnamen delen verhinderen niet dat FAT-Finger wordt verwijderd op een bestands share of opslag account. Als u een opslag account wilt helpen beveiligen tegen onbedoeld verwijderen, kunt u het opslag account of de resource groep vergren delen.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Werken met momentopnamen van shares in:
+- Werken met moment opnamen van shares in:
     - [PowerShell](storage-how-to-use-files-powershell.md)
     - [CLI](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
-    - [Veelgestelde vragen over momentopname delen](storage-files-faq.md#share-snapshots)
+    - [Veelgestelde vragen over delen van moment opnamen](storage-files-faq.md#share-snapshots)

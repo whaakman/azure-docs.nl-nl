@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 70f300d83d904537aab61b95de876f4ac2edb66c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e795e1de32ce51d80062d30d6880abbca37f9386
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808992"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720267"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Gegevens kopiëren van Zoho met Azure Data Factory (Preview)
 
@@ -87,11 +87,12 @@ Om gegevens te kopiëren van Zoho, stel de eigenschap type van de gegevensset in
     "name": "ZohoDataset",
     "properties": {
         "type": "ZohoObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Zoho linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -106,7 +107,7 @@ Om gegevens te kopiëren van Zoho, stelt u het brontype in de kopieeractiviteit 
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **ZohoSource** | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **ZohoSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM Accounts"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**

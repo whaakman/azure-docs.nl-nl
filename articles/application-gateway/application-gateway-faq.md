@@ -1,6 +1,6 @@
 ---
-title: Veelgestelde vragen over Azure Application Gateway
-description: Vind antwoorden op veelgestelde vragen over Azure Application Gateway.
+title: Veelgestelde vragen over Azure-toepassing gateway
+description: Vind antwoorden op veelgestelde vragen over Azure-toepassing gateway.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,209 +8,209 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 71f1beb68171613fe926ba4d87a13ef58cac1edf
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: dc3b9cceda10ae1ff648306236d5ac4868b5b426
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655282"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722160"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Veelgestelde vragen over Application Gateway
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Hier volgen algemene vragen over Azure Application Gateway.
+Hier volgen enkele veelgestelde vragen over Azure-toepassing gateway.
 
 ## <a name="general"></a>Algemeen
 
 ### <a name="what-is-application-gateway"></a>Wat is Application Gateway?
 
-Azure Application Gateway biedt application delivery controller (ADC) als een service. Het biedt verschillende layer 7 load balancing mogelijkheden voor uw toepassingen. Deze service is maximaal beschikbare, schaalbare en volledig beheerd door Azure.
+Azure-toepassing gateway biedt een ADC (Application Delivery controller) als een service. Het biedt diverse Layer 7-functies voor taak verdeling voor uw toepassingen. Deze service is Maxi maal beschikbaar en schaalbaar en volledig beheerd door Azure.
 
-### <a name="what-features-does-application-gateway-support"></a>Welke functies biedt ondersteuning voor Application Gateway?
+### <a name="what-features-does-application-gateway-support"></a>Welke functies ondersteunt Application Gateway?
 
-Application Gateway biedt ondersteuning voor automatisch schalen, SSL-offloading, en end-to-end SSL, een web application firewall (WAF), cookies gebaseerde sessieaffiniteit, URL-pad gebaseerde routering, meerdere locaties die als host fungeert, en andere functies. Zie voor een volledige lijst van ondersteunde functies, [Inleiding tot Application Gateway](application-gateway-introduction.md).
+Application Gateway ondersteunt automatisch schalen, SSL-offloading en end-to-end SSL, een Web Application Firewall (WAF), sessie affiniteit op basis van cookies, op URL-pad gebaseerde route ring, hosting van meerdere sites en andere functies. Zie [Inleiding tot Application Gateway](application-gateway-introduction.md)voor een volledige lijst met ondersteunde functies.
 
 ### <a name="how-do-application-gateway-and-azure-load-balancer-differ"></a>Hoe verschillen Application Gateway en Azure Load Balancer?
 
-Application Gateway is een layer 7 load balancer, wat betekent dat het werkt alleen met webverkeer (HTTP, HTTPS, WebSocket en HTTP/2). Deze mogelijkheden, zoals SSL-beëindiging, sessieaffiniteit op basis van een cookie en round robin ondersteunt voor de taakverdeling verkeer. Load Balancer taakverdelingen van verkeer op laag 4 (TCP of UDP).
+Application Gateway is een laag 7-load balancer, wat betekent dat het alleen werkt met webverkeer (HTTP, HTTPS, WebSocket en HTTP/2). Het ondersteunt mogelijkheden als SSL-beëindiging, sessie affiniteit op basis van cookies en round robin voor verkeer voor taak verdeling. Load Balancer load-balanceert het verkeer op laag 4 (TCP of UDP).
 
-### <a name="what-protocols-does-application-gateway-support"></a>Welke protocollen ondersteunt Application Gateway?
+### <a name="what-protocols-does-application-gateway-support"></a>Welke protocollen Application Gateway ondersteunen?
 
-Application Gateway biedt ondersteuning voor HTTP, HTTPS, HTTP/2 en WebSocket.
+Application Gateway ondersteunt HTTP, HTTPS, HTTP/2 en WebSocket.
 
-### <a name="how-does-application-gateway-support-http2"></a>Hoe biedt Application Gateway ondersteuning voor HTTP/2?
+### <a name="how-does-application-gateway-support-http2"></a>Hoe ondersteunt Application Gateway HTTP/2?
 
-Zie [ondersteuning voor HTTP/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
+Zie [http/2-ondersteuning](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
 
-### <a name="what-resources-are-supported-as-part-of-a-backend-pool"></a>Welke bronnen worden ondersteund als onderdeel van een back-endpool?
+### <a name="what-resources-are-supported-as-part-of-a-backend-pool"></a>Welke resources worden ondersteund als onderdeel van een back-end-groep?
 
-Zie [ondersteund back-endresources](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pools).
+Bekijk de [ondersteunde back-end-bronnen](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pools).
 
-### <a name="in-what-regions-is-application-gateway-available"></a>In welke regio's is de Application Gateway beschikbaar?
+### <a name="in-what-regions-is-application-gateway-available"></a>In welke regio's is Application Gateway beschikbaar?
 
-Application Gateway is beschikbaar in alle regio's van de globale Azure. Het is ook beschikbaar in [Azure China 21Vianet](https://www.azure.cn/) en [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
+Application Gateway is beschikbaar in alle regio's van wereld wijd Azure. Het is ook beschikbaar in [Azure China 21vianet](https://www.azure.cn/) en [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
 
-### <a name="is-this-deployment-dedicated-for-my-subscription-or-is-it-shared-across-customers"></a>Deze implementatie toegewezen voor mijn abonnement is, of is deze gedeeld met klanten?
+### <a name="is-this-deployment-dedicated-for-my-subscription-or-is-it-shared-across-customers"></a>Is deze implementatie specifiek voor mijn abonnement of wordt deze gedeeld door klanten?
 
-Application Gateway is een specifieke implementatie in uw virtuele netwerk.
+Application Gateway is een speciale implementatie in uw virtuele netwerk.
 
-### <a name="does-application-gateway-support-http-to-https-redirection"></a>Application Gateway biedt ondersteuning voor omleiding van HTTP naar HTTPS?
+### <a name="does-application-gateway-support-http-to-https-redirection"></a>Ondersteunt Application Gateway HTTP-naar-HTTPS-omleiding?
 
-Omleiding wordt ondersteund. Zie [overzicht van Application Gateway redirect](application-gateway-redirect-overview.md).
+Omleiding wordt ondersteund. Zie [Application Gateway omleidings overzicht](application-gateway-redirect-overview.md).
 
-### <a name="in-what-order-are-listeners-processed"></a>In welke volgorde worden listeners verwerkt?
+### <a name="in-what-order-are-listeners-processed"></a>In welke volg orde worden listeners verwerkt?
 
-Zie de [volgorde van listener voor de verwerking van](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners).
+Bekijk de [volg orde van de verwerking van de listener](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners).
 
-### <a name="where-do-i-find-the-application-gateway-ip-and-dns"></a>Waar vind ik de Application Gateway-IP- en DNS?
+### <a name="where-do-i-find-the-application-gateway-ip-and-dns"></a>Waar vind ik de Application Gateway IP en DNS?
 
-Als u een openbaar IP-adres als een eindpunt gebruikt, vindt u de IP-adres en DNS-informatie over de openbare IP-adresresource. Of vinden in de portal, op de overzichtspagina voor de toepassingsgateway. Als u interne IP-adressen, moet u de gegevens op de overzichtspagina vinden.
+Als u een openbaar IP-adres gebruikt als een eind punt, vindt u de IP-en DNS-informatie over de open bare IP-adres resource. U kunt deze ook vinden in de portal, op de pagina overzicht voor de toepassings gateway. Als u interne IP-adressen gebruikt, vindt u de informatie op de pagina overzicht.
 
-### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Wat zijn de instellingen voor Keep-Alive-out en time-out voor inactiviteit van TCP?
+### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Wat zijn de instellingen voor Keep-Alive time-out en TCP-time-out voor inactiviteit?
 
- In de Application Gateway v1-SKU is de time-out voor de Keep-Alive 120 seconden. De Keep-Alive-out voor de v2-SKU is 75 seconden. De time-out voor inactiviteit TCP is standaard 4 minuten op de front-end virtuele IP-adres (VIP) van Application Gateway.
+ In de SKU van Application Gateway v1 is de Keep-Alive-time-out 120 seconden. De time-out voor Keep-Alive voor de v2-SKU is 75 seconden. De time-out voor TCP-inactiviteit is een standaard waarde van 4 minuten voor het virtuele frontend-IP-adres (VIP) van Application Gateway.
 
-### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>Wordt het IP- of DNS-naam gewijzigd gedurende de levensduur van de application gateway?
+### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>Verandert de IP-of DNS-naam gedurende de levens duur van de toepassings gateway?
 
-Het VIP kunt wijzigen als u stopt en de toepassingsgateway start. Maar de DNS-naam die is gekoppeld aan de toepassingsgateway niet gewijzigd tijdens de levensduur van de gateway. Omdat de DNS-naam niet wijzigen, moet u een CNAME-alias gebruiken en wijs het DNS-adres van de toepassingsgateway.
+Het VIP kan worden gewijzigd als u de toepassings gateway stopt en start. Maar de DNS-naam die aan de toepassings gateway is gekoppeld, wordt niet gewijzigd gedurende de levens duur van de gateway. Omdat de DNS-naam niet wordt gewijzigd, moet u een CNAME-alias gebruiken en deze verwijzen naar het DNS-adres van de toepassings gateway.
 
-### <a name="does-application-gateway-support-static-ip"></a>Application Gateway biedt ondersteuning voor statische IP-adres?
+### <a name="does-application-gateway-support-static-ip"></a>Ondersteunt Application Gateway statisch IP-adres?
 
-Ja, de v2-SKU van Application Gateway biedt ondersteuning voor statische openbare IP-adressen. De v1-SKU biedt ondersteuning voor statische interne IP-adressen.
+Ja, de SKU van Application Gateway v2 ondersteunt statische open bare IP-adressen. De V1-SKU ondersteunt statische interne Ip's.
 
-### <a name="does-application-gateway-support-multiple-public-ips-on-the-gateway"></a>Application Gateway ondersteunt de meerdere openbare IP-adressen op de gateway?
+### <a name="does-application-gateway-support-multiple-public-ips-on-the-gateway"></a>Ondersteunt Application Gateway meerdere open bare IP-adressen op de gateway?
 
-Een application gateway biedt ondersteuning voor slechts één openbaar IP-adres.
+Een toepassings gateway ondersteunt slechts één openbaar IP-adres.
 
-### <a name="how-large-should-i-make-my-subnet-for-application-gateway"></a>Hoe groot ik moet mijn subnet voor Application Gateway?
+### <a name="how-large-should-i-make-my-subnet-for-application-gateway"></a>Hoe groot moet ik mijn subnet voor Application Gateway maken?
 
-Zie [overwegingen bij de grootte van de Application Gateway-subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet).
+Zie [Application Gateway de grootte](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet)van het subnet.
 
-### <a name="can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>Kan ik meer dan één Application Gateway-resource met één subnet implementeren?
+### <a name="can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>Kan ik meer dan één Application Gateway resource op één subnet implementeren?
 
-Ja. U kunt een andere unieke Application Gateway-resource aan een bestaand subnet met een andere resource van Application Gateway inrichten naast meerdere exemplaren van een bepaalde implementatie van de toepassingsgateway.
+Ja. Naast meerdere exemplaren van een bepaalde Application Gateway-implementatie, kunt u een andere unieke Application Gateway resource inrichten voor een bestaand subnet dat een andere Application Gateway resource bevat.
 
-Één subnet kan niet ondersteunen zowel Standard_v2 als standaard Application-Gateway samen.
+Eén subnet ondersteunt niet zowel Standard_v2 als standaard Application Gateway samen.
 
-### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway biedt ondersteuning voor x doorgestuurd voor headers?
+### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Ondersteunt Application Gateway x-doorgestuurd-voor kopteksten?
 
-Ja. Zie [wijzigingen in een aanvraag](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request).
+Ja. Zie [wijzigingen aan een aanvraag](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request).
 
-### <a name="how-long-does-it-take-to-deploy-an-application-gateway-will-my-application-gateway-work-while-its-being-updated"></a>Hoe lang duurt het implementeren van een application gateway? Werkt mijn toepassingsgateway terwijl deze wordt bijgewerkt?
+### <a name="how-long-does-it-take-to-deploy-an-application-gateway-will-my-application-gateway-work-while-its-being-updated"></a>Hoe lang duurt het om een toepassings gateway te implementeren? Werkt mijn toepassings gateway terwijl deze wordt bijgewerkt?
 
-Nieuwe Application Gateway v1-SKU-implementaties kunnen maximaal 20 minuten duren om in te richten. Wijzigingen voor de instantiegrootte of aantal verstorende niet en de gateway blijft actief gedurende deze tijd.
+Het kan Maxi maal 20 minuten duren voordat nieuwe SKU-implementaties van Application Gateway v1 beschikbaar zijn. Wijzigingen in de exemplaar grootte of het aantal zijn niet verstoord en de gateway blijft actief gedurende deze periode.
 
-Implementaties die gebruikmaken van de v2-SKU kunnen tot 6 minuten duren om in te richten.
+Implementaties die gebruikmaken van de v2-SKU kunnen tot wel zes minuten duren.
 
-### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Kan ik Exchange-Server gebruiken als een back-end met Application Gateway?
+### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Kan ik Exchange Server gebruiken als een back-end met Application Gateway?
 
-Nee. Application Gateway biedt geen ondersteuning voor protocollen zoals SMTP- en IMAP POP3-e-mailbericht. 
+Nee. Application Gateway biedt geen ondersteuning voor e-mail protocollen zoals SMTP, IMAP en POP3. 
 
 ## <a name="performance"></a>Prestaties
 
-### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>Hoe ondersteunt Application Gateway hoge beschikbaarheid en schaalbaarheid?
+### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>Hoe ondersteunt Application Gateway hoge Beschik baarheid en schaal baarheid?
 
-De v1-SKU van Application Gateway biedt ondersteuning voor scenario's voor hoge beschikbaarheid tijdens de implementatie van twee of meer exemplaren. Deze instanties verdeelt Azure over update- en foutdomeinen domeinen om ervoor te zorgen dat exemplaren niet alle fouten op hetzelfde moment. De v1-SKU biedt ondersteuning voor schaalbaarheid door meerdere exemplaren van dezelfde gateway voor het delen van de belasting toe te voegen.
+De Application Gateway v1-SKU ondersteunt scenario's met hoge Beschik baarheid wanneer u twee of meer exemplaren hebt geïmplementeerd. Azure distribueert deze instanties over update-en fout domeinen om ervoor te zorgen dat de exemplaren niet allemaal op hetzelfde moment worden uitgevoerd. De V1-SKU ondersteunt schaal baarheid door meerdere exemplaren van dezelfde gateway toe te voegen om de belasting te delen.
 
-De v2-SKU zorgt automatisch voor dat nieuwe exemplaren worden verdeeld over foutdomeinen en updatedomeinen. Als u zoneredundantie kiest, worden ook de nieuwste exemplaren verdeeld in meerdere beschikbaarheidszones zonegebonden fout tolerantie bieden.
+De v2-SKU zorgt er automatisch voor dat nieuwe instanties worden verspreid over fout domeinen en update domeinen. Als u zone redundantie kiest, worden de nieuwste instanties ook verspreid over de beschik bare zones om zonegebonden-fout tolerantie aan te bieden.
 
-### <a name="how-do-i-achieve-a-dr-scenario-across-datacenters-by-using-application-gateway"></a>Hoe kan ik een herstel na noodgevallen in datacenters met behulp van Application Gateway?
+### <a name="how-do-i-achieve-a-dr-scenario-across-datacenters-by-using-application-gateway"></a>Hoe kan ik een DR-scenario in data centers behaalt met behulp van Application Gateway?
 
-Traffic Manager gebruiken voor het verkeer verdelen over meerdere Toepassingsgateways in verschillende datacenters.
+Gebruik Traffic Manager om verkeer te verdelen over meerdere toepassings gateways in verschillende data centers.
 
-### <a name="does-application-gateway-support-autoscaling"></a>Application Gateway biedt ondersteuning voor automatisch schalen?
+### <a name="does-application-gateway-support-autoscaling"></a>Ondersteunt Application Gateway automatisch schalen?
 
-Ja, de v2-SKU van Application Gateway biedt ondersteuning voor automatisch schalen. Zie voor meer informatie, [automatisch schalen en zoneredundante toepassingsgateway](application-gateway-autoscaling-zone-redundant.md).
+Ja, de SKU van Application Gateway v2 ondersteunt automatisch schalen. Zie voor meer informatie automatisch [schalen en zone-redundante Application Gateway](application-gateway-autoscaling-zone-redundant.md).
 
-### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>Handmatig schalen wordt omhoog of omlaag oorzaak downtime schalen?
+### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>Leidt hand matig omhoog of omlaag schalen tot uitval tijd?
 
-Nee. Exemplaren worden verdeeld over upgrade-domeinen en domeinen met fouten.
+Nee. Instanties worden gedistribueerd over upgrade domeinen en fout domeinen.
 
-### <a name="does-application-gateway-support-connection-draining"></a>Application Gateway ondersteunt verwerkingsstop?
+### <a name="does-application-gateway-support-connection-draining"></a>Ondersteunt Application Gateway verbindings afvoer?
 
-Ja. U kunt de verwerkingsstop van verbindingen als u wilt wijzigen van de leden in een back endpool zonder onderbreking instellen. Deze instelling kunt u doorgaan met het verzenden van bestaande verbindingen op hun vorige bestemming totdat de verbinding wordt gesloten of een configureerbare time-out is verlopen. Er wacht een verwerkingsstop voor verbindingen voor alleen actieve die onderweg zijn verbindingen om te voltooien. Application Gateway is niet op de hoogte van de status van de toepassing-sessie.
+Ja. U kunt de verbinding verbreken instellen om leden binnen een back-end-groep zonder onderbreking te wijzigen. Met deze installatie kunt u bestaande verbindingen naar hun vorige bestemming blijven verzenden totdat de verbinding wordt gesloten of een Configureer bare time-out verloopt. Er wordt gewacht tot er alleen huidige verbindingen in de vlucht zijn voltooid. Application Gateway is niet op de hoogte van de sessie status van de toepassing.
 
-### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Kan ik instantiegrootte van middelgrote tot grote zonder onderbreking wijzigen?
+### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Kan ik de instantie grootte wijzigen van gemiddeld in groot, zonder onderbreking?
 
-Ja. Azure verdeeld exemplaren over update- en foutdomeinen domeinen om ervoor te zorgen dat exemplaren niet alle op hetzelfde moment mislukken. Application Gateway biedt ondersteuning voor schalen door meerdere exemplaren van dezelfde gateway voor het delen van de belasting toe te voegen.
+Ja. Azure distribueert exemplaren in update-en fout domeinen om ervoor te zorgen dat de exemplaren niet allemaal op hetzelfde moment worden uitgevoerd. Application Gateway ondersteunt schalen door meerdere exemplaren van dezelfde gateway toe te voegen om de belasting te delen.
 
 ## <a name="configuration"></a>Configuratie
 
-### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Application Gateway altijd geïmplementeerd in een virtueel netwerk?
+### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Wordt Application Gateway altijd geïmplementeerd in een virtueel netwerk?
 
-Ja. Application Gateway wordt altijd geïmplementeerd in een subnet van een virtueel netwerk. Dit subnet kan alleen Toepassingsgateways bevatten. Zie voor meer informatie, [virtuele netwerk en subnet vereisten](https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet).
+Ja. Application Gateway wordt altijd geïmplementeerd in een subnet van een virtueel netwerk. Dit subnet kan alleen toepassings gateways bevatten. Zie [vereisten voor virtuele netwerken en subnetten](https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet)voor meer informatie.
 
-### <a name="can-application-gateway-communicate-with-instances-outside-of-its-virtual-network-or-outside-of-its-subscription"></a>Kan Application Gateway communiceren met instanties buiten het virtuele netwerk of buiten het abonnement?
+### <a name="can-application-gateway-communicate-with-instances-outside-of-its-virtual-network-or-outside-of-its-subscription"></a>Kan Application Gateway communiceren met exemplaren buiten het virtuele netwerk of buiten het bijbehorende abonnement?
 
-Als u IP-connectiviteit hebt, kan Application Gateway communiceren met instanties buiten het virtuele netwerk dat deel uitmaakt van. Application Gateway kan ook communiceren met instanties buiten het abonnement dat deel uitmaakt. Als u van plan bent om te gebruiken van interne IP-adressen als back-endpoolleden, gebruikt u [peering op virtueel netwerk](../virtual-network/virtual-network-peering-overview.md) of [Azure VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Als u een IP-verbinding hebt, kan Application Gateway communiceren met exemplaren buiten het virtuele netwerk waarin het zich bevindt. Application Gateway kunt ook communiceren met exemplaren buiten het abonnement waarin deze zich bevinden. Als u interne Ip's als back-endadresgroep wilt gebruiken, gebruik dan [virtuele netwerk peering](../virtual-network/virtual-network-peering-overview.md) of [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>Kan ik iets anders in het subnet van de gateway implementeren?
+### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>Kan ik iets anders in het subnet van de toepassings Gateway implementeren?
 
-Nee. Maar u kunt andere Toepassingsgateways in het subnet implementeren.
+Nee. Maar u kunt ook andere toepassings gateways implementeren in het subnet.
 
-### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Worden netwerkbeveiligingsgroepen op het subnet van de gateway ondersteund?
+### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Worden netwerk beveiligings groepen ondersteund op het subnet van de toepassings gateway?
 
-Zie [Netwerkbeveiligingsgroepen in het subnet voor Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet).
+Zie [netwerk beveiligings groepen in het Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet).
 
-### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>Het subnet van de gateway biedt ondersteuning voor gebruiker gedefinieerde routes?
+### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>Ondersteunt het subnet van de toepassings gateway door de gebruiker gedefinieerde routes?
 
-Zie [gebruiker gedefinieerde routes die worden ondersteund in de Application Gateway-subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet).
+Zie door [de gebruiker gedefinieerde routes die worden ondersteund in het Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet).
 
-### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Wat zijn de limieten in Application Gateway? Kan ik deze limieten verhogen?
+### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Wat zijn de limieten voor Application Gateway? Kan ik deze limieten verhogen?
 
-Zie [Application Gateway beperkt](../azure-subscription-service-limits.md#application-gateway-limits).
+Zie [Application Gateway limieten](../azure-subscription-service-limits.md#application-gateway-limits).
 
-### <a name="can-i-simultaneously-use-application-gateway-for-both-external-and-internal-traffic"></a>Kan ik Application Gateway tegelijkertijd gebruiken voor interne en externe verkeer?
+### <a name="can-i-simultaneously-use-application-gateway-for-both-external-and-internal-traffic"></a>Kan ik Application Gateway gelijktijdig gebruiken voor zowel extern als intern verkeer?
 
-Ja. Application Gateway biedt ondersteuning voor een interne IP-adres en één extern IP-adres per toepassingsgateway.
+Ja. Application Gateway ondersteunt één intern IP-adres en één extern IP-adres per toepassings gateway.
 
-### <a name="does-application-gateway-support-virtual-network-peering"></a>Application Gateway ondersteunt peering op virtueel netwerk?
+### <a name="does-application-gateway-support-virtual-network-peering"></a>Ondersteunt Application Gateway peering voor virtuele netwerken?
 
-Ja. Peering op virtueel netwerk kunt verdelen verkeer in andere virtuele netwerken.
+Ja. Met peering voor virtuele netwerken kunt u verkeer verdelen in andere virtuele netwerken.
 
-### <a name="can-i-talk-to-on-premises-servers-when-theyre-connected-by-expressroute-or-vpn-tunnels"></a>Kan ik vragen stellen met on-premises servers wanneer ze zijn verbonden met ExpressRoute of VPN-tunnels?
+### <a name="can-i-talk-to-on-premises-servers-when-theyre-connected-by-expressroute-or-vpn-tunnels"></a>Kan ik praten met on-premises servers wanneer ze zijn verbonden via ExpressRoute of VPN-tunnels?
 
-Ja, zolang er verkeer is toegestaan.
+Ja, zolang verkeer is toegestaan.
 
-### <a name="can-one-backend-pool-serve-many-applications-on-different-ports"></a>Kan een back-endpool fungeren voor veel toepassingen op verschillende poorten?
+### <a name="can-one-backend-pool-serve-many-applications-on-different-ports"></a>Kan één back-end-pool veel toepassingen op verschillende poorten gebruiken?
 
-Microservice-architectuur wordt ondersteund. Als u wilt testen op verschillende poorten, moet u meerdere HTTP-instellingen configureren.
+Micro service-architectuur wordt ondersteund. Als u op verschillende poorten wilt testen, moet u meerdere HTTP-instellingen configureren.
 
-### <a name="do-custom-probes-support-wildcards-or-regex-on-response-data"></a>Aangepaste tests bieden ondersteuning jokertekens of reguliere expressie op antwoordgegevens?
+### <a name="do-custom-probes-support-wildcards-or-regex-on-response-data"></a>Ondersteunen aangepaste tests joker tekens of regex op antwoord gegevens?
 
 Nee. 
 
-### <a name="how-are-routing-rules-processed-in-application-gateway"></a>Hoe worden de regels voor doorsturen in Application Gateway verwerkt?
+### <a name="how-are-routing-rules-processed-in-application-gateway"></a>Hoe worden routerings regels verwerkt in Application Gateway?
 
-Zie [volgorde van de regels worden verwerkt](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules).
+Zie [volg orde van verwerkings regels](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules).
 
-### <a name="for-custom-probes-what-does-the-host-field-signify"></a>Voor aangepaste tests, wat het veld Host overheen?
+### <a name="for-custom-probes-what-does-the-host-field-signify"></a>Wat is het veld host voor aangepaste tests?
 
-Het Host-veld geeft de naam voor het verzenden van de test om te wanneer u hebt geconfigureerd met meerdere sites op Application Gateway. Gebruik anders '127.0.0.1'. Deze waarde verschilt van de hostnaam van de virtuele machine. De indeling \<protocol\>://\<host\>:\<poort\>\<pad\>.
+In het veld host geeft u de naam op voor het verzenden van de test wanneer u meerdere locaties op Application Gateway hebt geconfigureerd. Gebruik anders ' 127.0.0.1 '. Deze waarde wijkt af van de hostnaam van de virtuele machine. De indeling is \<protocol\>://\<host\>:\<poort\>pad.\>\<
 
-### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Kan ik Application Gateway toegang tot slechts enkele bron IP-adressen toestaan?
+### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Kan ik Application Gateway toegang tot slechts enkele bron-IP-adressen toestaan?
 
-Ja. Zie [toegang beperken tot specifieke bron-IP-adressen](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
+Ja. Zie [toegang tot specifieke bron-ip's beperken](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
 
-### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>Kan ik dezelfde poort gebruiken voor zowel openbare als persoonlijke gerichte listeners?
+### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>Kan ik dezelfde poort gebruiken voor zowel open bare als privé gerichte listeners?
 
 Nee.
 
-### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Is er aanwijzingen die beschikbaar zijn voor het migreren van de v1-SKU op de v2-SKU?
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Zijn er richt lijnen beschikbaar om te migreren van de V1-SKU naar de v2-SKU?
 
-Ja. Zie voor meer informatie, [migreren Azure Application Gateway en Web Application Firewall van v1 in v2](migrate-v1-v2.md).
+Ja. Voor meer informatie raadpleegt u [Azure-toepassing gateway en Web Application firewall van v1 naar v2](migrate-v1-v2.md).
 
 
-## <a name="configuration---ssl"></a>Configuratie - SSL
+## <a name="configuration---ssl"></a>Configuratie-SSL
 
-### <a name="what-certificates-does-application-gateway-support"></a>Welke certificaten biedt ondersteuning voor Application Gateway?
+### <a name="what-certificates-does-application-gateway-support"></a>Welke certificaten ondersteunt Application Gateway?
 
-Application Gateway biedt ondersteuning voor zelfondertekende certificaten, certificaten van certificeringsinstanties (CA), uitgebreide validatie (VW)-certificaten en jokertekens-certificaten.
+Application Gateway ondersteunt zelfondertekende certificaten, certificaten van CERTIFICERINGs instanties, certificaten voor uitgebreide validatie (EV) en Joker certificaten.
 
-### <a name="what-cipher-suites-does-application-gateway-support"></a>Welke versleutelingssuites Application Gateway biedt ondersteuning voor?
+### <a name="what-cipher-suites-does-application-gateway-support"></a>Welke coderings suites ondersteunt Application Gateway?
 
-Application Gateway ondersteunt de volgende coderingssuites. 
+Application Gateway ondersteunt de volgende coderings suites. 
 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
@@ -241,19 +241,19 @@ Application Gateway ondersteunt de volgende coderingssuites.
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
-Zie voor meer informatie over het aanpassen van SSL-opties [SSL configureren voor versies en coderingssuites in Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
+Zie [SSL-beleids versies en coderings suites configureren op Application Gateway](application-gateway-configure-ssl-policy-powershell.md)voor meer informatie over het aanpassen van SSL-opties.
 
-### <a name="does-application-gateway-support-reencryption-of-traffic-to-the-backend"></a>Application Gateway biedt ondersteuning voor versleuteling van het verkeer naar de back-end?
+### <a name="does-application-gateway-support-reencryption-of-traffic-to-the-backend"></a>Ondersteunt Application Gateway het opnieuw versleutelen van verkeer naar de back-end?
 
-Ja. Application Gateway ondersteunt SSL-offload en end-to-end SSL, waarmee u verkeer naar de back-end.
+Ja. Application Gateway ondersteunt SSL-offload en end-to-end SSL, waarmee het verkeer wordt opnieuw versleuteld naar de back-end.
 
-### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>Kan ik een SSL-beleid voor het besturingselement SSL-protocolversies configureren?
+### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>Kan ik SSL-beleid configureren om SSL-protocol versies te beheren?
 
-Ja. U kunt Application Gateway voor het weigeren van TLS1.0 TLS1.1 en TLS1.2 configureren. Standaard worden SSL 2.0 en 3.0 zijn al uitgeschakeld en niet kunnen worden geconfigureerd.
+Ja. U kunt Application Gateway zodanig configureren dat TLS 1.0, TLS 1.1 en TLS 1.2 worden geweigerd. SSL 2,0 en 3,0 zijn standaard al uitgeschakeld en kunnen niet worden geconfigureerd.
 
-### <a name="can-i-configure-cipher-suites-and-policy-order"></a>Kan ik coderingssuites en beleidsvolgorde configureren?
+### <a name="can-i-configure-cipher-suites-and-policy-order"></a>Kan ik coderings suites en beleids volgorde configureren?
 
-Ja. In Application Gateway, kunt u [coderingssuites configureren](application-gateway-ssl-policy-overview.md). Voor het definiëren van een aangepast beleid, moet u ten minste één van de volgende versleutelingssuites inschakelen. 
+Ja. In Application Gateway kunt u coderings [suites configureren](application-gateway-ssl-policy-overview.md). Schakel ten minste één van de volgende coderings suites in om een aangepast beleid te definiëren. 
 
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
@@ -262,106 +262,110 @@ Ja. In Application Gateway, kunt u [coderingssuites configureren](application-ga
 * TLS_RSA_WITH_AES_256_CBC_SHA256
 * TLS_RSA_WITH_AES_128_CBC_SHA256
 
-Application Gateway maakt gebruik van SHA256 op voor het beheer van back-end.
+Application Gateway maakt gebruik van SHA256 voor back-end-beheer.
 
-### <a name="how-many-ssl-certificates-does-application-gateway-support"></a>Het aantal SSL-certificaten biedt ondersteuning voor Application Gateway?
+### <a name="how-many-ssl-certificates-does-application-gateway-support"></a>Hoeveel SSL-certificaten ondersteunt Application Gateway?
 
-Application Gateway biedt ondersteuning voor maximaal 100 SSL-certificaten.
+Application Gateway ondersteunt Maxi maal 100 SSL-certificaten.
 
-### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>Het aantal verificatiecertificaten voor back-end versleuteling biedt ondersteuning voor Application Gateway?
+### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>Hoeveel authenticatie certificaten voor back-end versleuteling Application Gateway ondersteuning?
 
-Application Gateway ondersteunt maximaal 10 verificatiecertificaten. De standaardwaarde is 5.
+Application Gateway ondersteunt Maxi maal 10 verificatie certificaten. De standaard waarde is 5.
 
-### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>Werkt de Application Gateway systeemeigen integratie met Azure Key Vault?
+### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>Biedt Application Gateway systeem eigen integratie met Azure Key Vault?
 
-Ja, de v2-SKU van Application Gateway biedt ondersteuning voor Key Vault. Zie voor meer informatie, [SSL-beëindiging met Key Vault-certificaten](key-vault-certs.md).
+Ja, de SKU van Application Gateway v2 ondersteunt Key Vault. Zie [SSL-beëindiging met Key Vault certificaten](key-vault-certs.md)voor meer informatie.
 
-### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>Hoe configureer ik HTTP-luisteraars voor .com en .net sites? 
+### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>HTTPS-listeners Hoe kan ik configureren voor. com-en .net-sites? 
 
-Voor meerdere op basis van een domein (op een host gebaseerde) routering, kunt u maken met meerdere sites listeners, zet listeners die HTTPS als het protocol gebruiken en de listeners koppelen aan de regels voor doorsturen. Zie voor meer informatie, [meerdere sites hosten met behulp van Application Gateway](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview). 
+Voor meerdere op een domein gebaseerde (op een host gebaseerde) route ring kunt u multi site-listeners maken, listeners instellen die HTTPS gebruiken als protocol en de listeners koppelen aan de routerings regels. Zie voor meer informatie [meerdere sites hosten met behulp van Application Gateway](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview). 
 
-## <a name="configuration---web-application-firewall-waf"></a>Configuratie - de web application firewall (WAF)
+## <a name="configuration---web-application-firewall-waf"></a>Configuratie-Web Application Firewall (WAF)
 
 ### <a name="does-the-waf-sku-offer-all-the-features-available-in-the-standard-sku"></a>Biedt de WAF-SKU alle functies die beschikbaar zijn in de standaard-SKU?
 
-Ja. WAF ondersteunt alle functies in de standaard-SKU.
+Ja. WAF biedt ondersteuning voor alle functies in de standaard-SKU.
 
-### <a name="which-crs-versions-does-application-gateway-support"></a>Welke versies CRS biedt ondersteuning voor Application Gateway?
+### <a name="which-crs-versions-does-application-gateway-support"></a>Welke CRS-versies ondersteunt Application Gateway?
 
-Application Gateway ondersteunt CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) en CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30).
+Application Gateway ondersteunt CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) en CRS [3,0](application-gateway-crs-rulegroups-rules.md#owasp30).
 
-### <a name="how-do-i-monitor-waf"></a>Hoe controleer ik WAF?
+### <a name="how-do-i-monitor-waf"></a>WAF Hoe kan ik controleren?
 
-Monitor WAF via registratie in diagnoselogboek. Zie voor meer informatie, [diagnostische logboeken en metrische gegevens voor Application Gateway](application-gateway-diagnostics.md).
+Bewaak WAF via diagnostische logboek registratie. Zie [Diagnostische logboek registratie en metrische gegevens voor Application Gateway](application-gateway-diagnostics.md)voor meer informatie.
 
-### <a name="does-detection-mode-block-traffic"></a>Blokkeert detectiemodus verkeer?
+### <a name="does-detection-mode-block-traffic"></a>Blokkeert de detectie modus verkeer?
 
-Nee. Detectiemodus legt alleen verkeer dat een WAF-regel wordt geactiveerd.
+Nee. In de detectie modus wordt alleen verkeer geregistreerd dat een WAF-regel activeert.
 
-### <a name="can-i-customize-waf-rules"></a>Kan ik de WAF-regels aanpassen?
+### <a name="can-i-customize-waf-rules"></a>Kan ik WAF-regels aanpassen?
 
-Ja. Zie voor meer informatie, [regels en regelgroepen van WAF aanpassen](application-gateway-customize-waf-rules-portal.md).
+Ja. Zie [WAF-regel groepen en-regels aanpassen](application-gateway-customize-waf-rules-portal.md)voor meer informatie.
 
 ### <a name="what-rules-are-currently-available-for-waf"></a>Welke regels zijn momenteel beschikbaar voor WAF?
 
-Op dit moment ondersteunt CRS WAF [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) en [3.0](application-gateway-crs-rulegroups-rules.md#owasp30). Deze regels bieden basislijn beveiliging tegen de meeste van de top 10 zwakke plekken die Open Web Application Security Project (OWASP) identificeert: 
+WAF biedt momenteel ondersteuning voor CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) en [3,0](application-gateway-crs-rulegroups-rules.md#owasp30). Deze regels bieden basis beveiliging tegen de meeste van de Top-10 beveiligings problemen die OWASP (Web Application Security project) identificeren: 
 
 * Beveiliging tegen SQL-injecties
-* Beveiliging tegen cross-site scripting
-* Bescherming tegen algemene aanvallen via Internet, zoals opdracht injectie, HTTP-aanvraag smokkelen, HTTP-antwoorden en extern bestand opgenomen aanval
+* Beveiliging voor cross-site scripting
+* Bescherming tegen veelvoorkomende webaanvalen, zoals het injecteren van opdrachten, HTTP-aanvragen smuggling, het splitsen van HTTP-antwoorden en insluiting van externe bestanden
 * Beveiliging tegen schendingen van het HTTP-protocol
 * Beveiliging tegen afwijkingen van het HTTP-protocol, zoals een gebruikersagent voor de host en Accept-headers die ontbreken
 * Beveiliging tegen bots, crawlers en scanners
-* Detectie van veelvoorkomende onjuiste configuraties van toepassingen (dat wil zeggen, Apache, IIS, enzovoort)
+* Detectie van veelvoorkomende onjuiste configuraties van toepassingen (dat wil zeggen Apache, IIS, enzovoort)
 
-Zie voor meer informatie, [OWASP top 10 beveiligingslekken](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013).
+Zie [OWASP Top-10-beveiligings problemen](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)voor meer informatie.
 
-### <a name="does-waf-support-ddos-protection"></a>Ondersteunt WAF DDoS protection?
+### <a name="does-waf-support-ddos-protection"></a>Biedt WAF ondersteuning voor DDoS-beveiliging?
 
-Ja. DDoS-beveiliging op het virtuele netwerk waar de application gateway is geïmplementeerd, kunt u inschakelen. Deze instelling zorgt ervoor dat de service Azure DDoS Protection ook de application gateway virtueel IP-adres (VIP beveiligt).
+Ja. U kunt DDoS-beveiliging inschakelen voor het virtuele netwerk waarin de toepassings gateway is geïmplementeerd. Met deze instelling zorgt u ervoor dat de Azure DDoS Protection-Service ook de virtuele IP-adressen van de toepassings gateway (VIP) beveiligt.
 
-### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Is er aanwijzingen die beschikbaar zijn voor het migreren van de v1-SKU op de v2-SKU?
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Zijn er richt lijnen beschikbaar om te migreren van de V1-SKU naar de v2-SKU?
 
-Ja. Zie voor meer informatie, [migreren Azure Application Gateway en Web Application Firewall van v1 in v2](migrate-v1-v2.md).
+Ja. Voor meer informatie raadpleegt u [Azure-toepassing gateway en Web Application firewall van v1 naar v2](migrate-v1-v2.md).
+
+### <a name="does-waf-support-non-utf-8-encoding"></a>Ondersteunt WAF niet UTF-8-code ring?
+
+Nee. WAF ondersteunt momenteel alleen UTF-8-code ring.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostische gegevens en logboekregistratie
 
-### <a name="what-types-of-logs-does-application-gateway-provide"></a>Welke typen logboeken biedt Application Gateway?
+### <a name="what-types-of-logs-does-application-gateway-provide"></a>Welke typen logboeken bevat Application Gateway?
 
 Application Gateway biedt drie logboeken: 
 
-* **ApplicationGatewayAccessLog**: De toegang tot het logboek bevat elke aanvraag verzonden naar de frontend van de application gateway. De gegevens bevat en afmelden van de oproepende functie IP, URL aangevraagd, wachttijd van het antwoord, retourcode en bytes. Het toegangslogboek worden verzameld om de 300 seconden. Het bevat één record per toepassingsgateway.
-* **ApplicationGatewayPerformanceLog**: Het logboekbestand voor prestaties bevat informatie over de prestaties voor elke application gateway. Informatie omvat de doorvoer in bytes, totaal aantal aanvragen dat plaatsvindt, aantal mislukte aanvragen en in orde is en niet in orde back-end-exemplaren.
-* **ApplicationGatewayFirewallLog**: Voor application gateways die u met WAF configureert, bevat de firewall-logboek aanvragen die zijn geregistreerd via de detectiemodus of preventiemodus.
+* **ApplicationGatewayAccessLog**: Het toegangs logboek bevat elke aanvraag die wordt verzonden naar het front-end van de toepassings gateway. De gegevens omvatten het IP-adres van de beller, de aangevraagde URL, reactie latentie, retour code en bytes in en uit. Het toegangs logboek wordt elke 300 seconden verzameld. Het bevat één record per toepassings gateway.
+* **ApplicationGatewayPerformanceLog**: In het prestatie logboek worden prestatie gegevens voor elke toepassings gateway vastgelegd. De informatie omvat de door Voer in bytes, totaal aantal geleverde aanvragen, aantal mislukte aanvragen en een gezonde en slechte back-end van een backend-exemplaar.
+* **ApplicationGatewayFirewallLog**: Voor toepassings gateways die u configureert met WAF, bevat het logboek van de firewall aanvragen die zijn geregistreerd via de detectie modus of de preventie modus.
 
-Zie voor meer informatie, [back-end-status, diagnostische logboeken en metrische gegevens voor Application Gateway](application-gateway-diagnostics.md).
+Zie voor meer informatie [back-end status, Diagnostische logboeken en metrische gegevens voor Application Gateway](application-gateway-diagnostics.md).
 
-### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Hoe weet ik of Mijn back-endpoolleden in orde zijn?
+### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Hoe kan ik weet of de leden van de back-endadresgroep in orde zijn?
 
-Status controleren met behulp van de PowerShell-cmdlet `Get-AzApplicationGatewayBackendHealth` of de portal. Zie voor meer informatie, [Application Gateway diagnostics](application-gateway-diagnostics.md).
+Controleer de status met behulp van `Get-AzApplicationGatewayBackendHealth` de Power shell-cmdlet of de portal. Zie [Application Gateway Diagnostics](application-gateway-diagnostics.md)(diagnostische gegevens) voor meer informatie.
 
-### <a name="whats-the-retention-policy-for-the-diagnostic-logs"></a>Wat is het bewaarbeleid voor de diagnostische logboeken?
+### <a name="whats-the-retention-policy-for-the-diagnostic-logs"></a>Wat is het Bewaar beleid voor de diagnostische logboeken?
 
-De stroom van de logboeken met diagnostische gegevens naar het storage-account van de klant. Klanten kunnen het bewaarbeleid op basis van hun voorkeur instellen. Logboeken met diagnostische gegevens kunnen ook worden verzonden naar een event hub of Azure Monitor-Logboeken. Zie voor meer informatie, [Application Gateway diagnostics](application-gateway-diagnostics.md).
+Diagnostische logboeken stroomt naar het opslag account van de klant. Klanten kunnen het Bewaar beleid instellen op basis van hun voor keur. Diagnostische logboeken kunnen ook worden verzonden naar een Event Hub-of Azure Monitor-Logboeken. Zie [Application Gateway Diagnostics](application-gateway-diagnostics.md)(diagnostische gegevens) voor meer informatie.
 
-### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>Hoe krijg ik auditlogboeken voor Application Gateway?
+### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>Hoe kan ik audit logboeken voor Application Gateway ophalen?
 
-Selecteer in de portal op het menu-blade van een toepassingsgateway **activiteitenlogboek** voor toegang tot het auditlogboek. 
+Selecteer in de portal op de menu-Blade van een toepassings gateway het **activiteiten logboek** voor toegang tot het controle logboek. 
 
-### <a name="can-i-set-alerts-with-application-gateway"></a>Kan ik waarschuwingen kunt instellen met Application Gateway?
+### <a name="can-i-set-alerts-with-application-gateway"></a>Kan ik waarschuwingen instellen met Application Gateway?
 
-Ja. Waarschuwingen worden in Application Gateway geconfigureerd op de metrische gegevens. Zie voor meer informatie, [metrische gegevens over Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#metrics) en [meldingen van waarschuwingen ontvangen](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Ja. In Application Gateway worden waarschuwingen voor metrische gegevens geconfigureerd. Zie [Application Gateway metrische gegevens](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#metrics) en [waarschuwings meldingen ontvangen](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)voor meer informatie.
 
-### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Hoe ik verkeer statistische gegevens analyseren voor Application Gateway?
+### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Hoe kan ik verkeers statistieken voor Application Gateway analyseren?
 
-U kunt bekijken en analyseren van Logboeken op verschillende manieren openen. Gebruik Azure Monitor-Logboeken, Excel, Power BI, enzovoort.
+U kunt toegangs logboeken op verschillende manieren weer geven en analyseren. Gebruik Azure Monitor-logboeken, Excel, Power BI, enzovoort.
 
-U kunt ook een Resource Manager-sjabloon die wordt geïnstalleerd en wordt uitgevoerd de populaire [GoAccess](https://goaccess.io/) melden analyzer voor Application Gateway-Logboeken. GoAccess biedt waardevolle HTTP-verkeer-statistieken, zoals het unieke bezoekers, aangevraagde bestanden, hosts, besturingssystemen, browsers en HTTP-statuscodes. Zie voor meer informatie in GitHub, de [Leesmij-bestand in de sjabloonmap van de Resource Manager-](https://aka.ms/appgwgoaccessreadme).
+U kunt ook een resource manager-sjabloon gebruiken waarmee de populaire [GoAccess](https://goaccess.io/) log analyzer voor Application Gateway Access-Logboeken wordt geïnstalleerd en uitgevoerd. GoAccess biedt waardevolle statistieken voor HTTP-verkeer, zoals unieke bezoekers, aangevraagde bestanden, hosts, besturings systemen, browsers en HTTP-status codes. Voor meer informatie, in GitHub, raadpleegt u het [Leesmij-bestand in de map Resource Manager-sjabloon](https://aka.ms/appgwgoaccessreadme).
 
-### <a name="what-could-cause-backend-health-to-return-an-unknown-status"></a>Wat kan leiden tot back-endstatus om terug te keren een onbekende status?
+### <a name="what-could-cause-backend-health-to-return-an-unknown-status"></a>Wat kan ertoe leiden dat de status van de back-end wordt weer gegeven?
 
-Meestal het geval is, ziet u een onbekende status wanneer toegang tot de back-end wordt geblokkeerd door een netwerkbeveiligingsgroep (NSG), aangepaste DNS- of (UDR) gebruiker gedefinieerde routering op het subnet van de gateway. Zie voor meer informatie, [back-end-status, de logboekregistratie van diagnostische gegevens en metrische gegevens voor Application Gateway](application-gateway-diagnostics.md).
+Normaal gesp roken ziet u een onbekende status wanneer de toegang tot de back-end wordt geblokkeerd door een netwerk beveiligings groep (NSG), aangepaste DNS of door de gebruiker gedefinieerde route ring (UDR) op het toepassings gateway-subnet. Zie voor meer informatie [status van back-end, diagnostische logboek registratie en metrische gegevens voor Application Gateway](application-gateway-diagnostics.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Application Gateway, [wat is Azure Application Gateway?](overview.md).
+Zie [Wat is Azure-toepassing gateway?](overview.md)voor meer informatie over Application Gateway.

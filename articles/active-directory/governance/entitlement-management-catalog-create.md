@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e563d86abe3817e4c77cc0d5c8df928e41563f8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 1654e0a8cd11ac1c7a2f4ef0667d0e99187c2374
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489076"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618326"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Een catalogus maken en beheren in azure AD-rechts beheer (preview-versie)
 
@@ -34,7 +34,7 @@ ms.locfileid: "68489076"
 
 Een catalogus is een container met resources en toegangs pakketten. U maakt een catalogus wanneer u gerelateerde resources en toegangs pakketten wilt groeperen. Degene die de catalogus maakt, wordt de eerste eigenaar van de catalogus. Een catalogus eigenaar kan extra catalogus eigenaren toevoegen.
 
-**Vereiste rol:** Gebruikers beheerder of catalogus Maker
+**Vereiste rol:** Globale beheerder, gebruikers beheerder of maker van catalogus
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
@@ -102,7 +102,7 @@ U kunt resources verwijderen uit een catalogus. Een resource kan alleen uit een 
 
 U kunt de naam en beschrijving voor een catalogus bewerken. Gebruikers zien deze informatie in de details van een toegangs pakket.
 
-**Vereiste rol:** Gebruikers beheerder of catalogus eigenaar
+**Vereiste rol:** Globale beheerder, gebruikers beheerder of catalogus eigenaar
 
 1. Klik in de Azure Portal op **Azure Active Directory** en klik vervolgens op **Identity governance**.
 
@@ -118,7 +118,7 @@ U kunt de naam en beschrijving voor een catalogus bewerken. Gebruikers zien deze
 
 U kunt een catalogus verwijderen, maar alleen als deze geen toegangs pakketten heeft.
 
-**Vereiste rol:** Gebruikers beheerder of catalogus eigenaar
+**Vereiste rol:** Globale beheerder, gebruikers beheerder of catalogus eigenaar
 
 1. Klik in de Azure Portal op **Azure Active Directory** en klik vervolgens op **Identity governance**.
 

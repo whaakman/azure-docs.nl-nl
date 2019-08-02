@@ -1,6 +1,6 @@
 ---
-title: SQL Database-Herstelanalyses | Microsoft Docs
-description: Informatie over richtlijnen en aanbevolen procedures voor het uitvoeren van analyses voor noodherstel met Azure SQL Database.
+title: SQL Database oefeningen voor herstel na nood gevallen | Microsoft Docs
+description: Meer informatie over de richt lijnen en aanbevolen procedures voor het gebruik van Azure SQL Database voor het uitvoeren van herstel na nood gevallen.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,65 +10,64 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 5d754ae558d485036a9a55f573a3f40162ed9f84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2923ae8b9b25932ae214cfa45780dffb8780dd39
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725428"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568848"
 ---
-# <a name="performing-disaster-recovery-drill"></a>Dr-Herstelanalyse uitvoeren
+# <a name="performing-disaster-recovery-drill"></a>Nood herstel analyse uitvoeren
 
-Het verdient aanbeveling dat validatie van de gereedheid van de toepassing voor herstelwerkstroom regelmatig wordt uitgevoerd. Verifiëren van de werking van de toepassing en de gevolgen van het verlies van gegevens en/of de onderbreking omvat het dat de failover is een goede gewoonte engineering. Het is ook een vereiste door de meeste industrienormen als onderdeel van zakelijke continuïteit-certificering.
+U kunt het beste de validatie van de gereedheid van de toepassing voor de herstel werk stroom periodiek uitvoeren. Het controleren van het gedrag van de toepassing en de implicaties van gegevens verlies en/of de onderbreking van de failover is een goede technische praktijk. Het is ook een vereiste voor de meeste industrie normen als onderdeel van de certificering voor bedrijfs continuïteit.
 
-Een Dr-herstelanalyse uitvoeren bestaat uit:
+Het uitvoeren van een nood herstel analyse bestaat uit:
 
-* Simulating uitval van laag
+* De stroom onderbreking van de gegevenslaag simuleren
 * Herstellen
-* Valideren van de toepassing integriteit na herstel
+* Controleren op toepassings integriteit na herstel
 
-Afhankelijk van hoe u [ontworpen van uw toepassing voor zakelijke continuïteit](sql-database-business-continuity.md), de werkstroom voor het uitvoeren van de analyse kan variëren. Dit artikel beschrijft de aanbevolen procedures voor het uitvoeren van een Dr-herstelanalyse in de context van Azure SQL Database.
+Afhankelijk van hoe u [uw toepassing voor bedrijfs continuïteit hebt ontworpen](sql-database-business-continuity.md), kan de werk stroom voor het uitvoeren van de analyse variëren. In dit artikel worden de aanbevolen procedures beschreven voor het uitvoeren van een nood herstel analyse in de context van Azure SQL Database.
 
 ## <a name="geo-restore"></a>Geo-herstel
 
-Uitvoeren om te voorkomen dat het verlies van gegevens als een Dr-herstelanalyse uitvoeren, met behulp van een testomgeving door het maken van een kopie van de productie-omgeving en deze om te verifiëren van de toepassing de werkstroom van de analyse.
+Als u wilt voor komen dat er gegevens verloren gaan tijdens het uitvoeren van een nood herstel analyse, voert u de analyse uit met een test omgeving door een kopie van de productie omgeving te maken en deze te gebruiken om de werk stroom van de failover van de toepassing te controleren.
 
-### <a name="outage-simulation"></a>Simulatie van de serviceonderbreking
+### <a name="outage-simulation"></a>Simulatie van uitval
 
-Als u wilt de storing simuleren, kunt u de naam van de brondatabase wijzigen. Deze wijziging zorgt ervoor dat de toepassing-verbindingsfouten.
-
-### <a name="recovery"></a>Herstel
-
-* De geo-herstel van de database in een andere server uitvoeren, zoals wordt beschreven [hier](sql-database-disaster-recovery.md).
-* Wijzigen van de configuratie van de toepassing als u wilt verbinding maken met de herstelde database en volg de [configureren van een database na het herstel](sql-database-disaster-recovery.md) handleiding om het herstel te voltooien.
-
-### <a name="validation"></a>Validatie
-
-Voltooien van de analyse door te controleren of de toepassing integriteit na herstel (inclusief verbindingsreeksen, aanmeldingen, het testen van de basisfunctionaliteit of andere validaties deel van de standaardtoepassing ondertekeningen procedures).
-
-## <a name="failover-groups"></a>Failover-groepen
-
-Voor een database die wordt beveiligd met behulp van failover-groepen, moet u de oefening inzoomen geplande failover naar de secundaire server. De geplande failover zorgt ervoor dat de primaire en secundaire databases in de failovergroep gesynchroniseerd blijven wanneer de rollen zijn overgeschakeld. In tegenstelling tot de niet-geplande failover leidt met deze bewerking niet tot verlies van gegevens, zodat de analyse kan worden uitgevoerd in de productieomgeving.
-
-### <a name="outage-simulation"></a>Simulatie van de serviceonderbreking
-
-Als u wilt de storing simuleren, kunt u de web-App of de virtuele machine verbonden met de database uitschakelen. Deze onderbreking simulatie resulteert in de fouten in de netwerkconnectiviteit voor de webclients.
+Als u de storing wilt simuleren, kunt u de naam van de bron database wijzigen. Deze naamswijziging veroorzaakt verbindings fouten van toepassingen.
 
 ### <a name="recovery"></a>Herstel
 
-* Zorg ervoor dat de toepassingsconfiguratie in de DR-regio naar de vorige secundaire, wordt de nieuwe primaire voor volledige toegang.
-* Initiëren [geplande failover](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) van de failovergroep vanaf de secundaire server.
-* Ga als volgt de [configureren van een database na het herstel](sql-database-disaster-recovery.md) handleiding om het herstel te voltooien.
+* Voer de geo-herstel bewerking van de data base uit naar een andere server, zoals [hier](sql-database-disaster-recovery.md)wordt beschreven.
+* Wijzig de configuratie van de toepassing om verbinding te maken met de herstelde data base en volg de gids [een Data Base configureren na herstel](sql-database-disaster-recovery.md) om het herstel te volt ooien.
 
 ### <a name="validation"></a>Validatie
 
-Voltooien van de analyse door te controleren of de toepassing integriteit na herstel (met inbegrip van de verbinding, het basisfunctionaliteit testen en verdere controles die vereist zijn voor de ondertekeningen inzoomen).
+Voer de analyse uit door de controle van de toepassings integriteit te controleren (inclusief verbindings reeksen, aanmeldingen, testen van basis functies of andere validaties van signoffs procedures voor de standaard toepassing).
+
+## <a name="failover-groups"></a>Failovergroepen
+
+Voor een Data Base die wordt beveiligd met behulp van failover-groepen, omvat de analyse oefening een geplande failover naar de secundaire server. De geplande failover zorgt ervoor dat de primaire en secundaire data bases in de failover-groep synchroon blijven wanneer de rollen worden overgeschakeld. In tegens telling tot de niet-geplande failover resulteert deze bewerking niet in gegevens verlies, waardoor de analyse kan worden uitgevoerd in de productie omgeving.
+
+### <a name="outage-simulation"></a>Simulatie van uitval
+
+U kunt de storing simuleren door de webtoepassing of virtuele machine die is verbonden met de data base, uit te scha kelen. Deze uitval simulatie resulteert in de verbindings fouten voor de web-clients.
+
+### <a name="recovery"></a>Herstel
+
+* Zorg ervoor dat de configuratie van de toepassing in de DR-regio verwijst naar de vorige secundaire, die de volledig toegankelijke nieuwe primaire versie wordt.
+* [Geplande failover](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) van de failovergroep initiëren vanaf de secundaire server.
+* Volg de hand leiding [Configure Data Base after recovery](sql-database-disaster-recovery.md) om het herstel te volt ooien.
+
+### <a name="validation"></a>Validatie
+
+Voer de analyse uit door het na herstel van de toepassings integriteit te controleren (inclusief connectiviteit, basis functionaliteits tests of andere validaties die vereist zijn voor de analyse signoffs).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over zakelijke continuïteit-scenario's, [scenario's voor bedrijfscontinuïteit](sql-database-business-continuity.md).
-* Voor meer informatie over Azure SQL Database geautomatiseerde back-ups, Zie [geautomatiseerde back-ups van SQL-Database](sql-database-automated-backups.md)
-* Zie voor meer informatie over het gebruik van geautomatiseerde back-ups voor herstel, [een database herstellen vanuit back-ups service geïnitieerde](sql-database-recovery-using-backups.md).
-* Zie voor meer informatie over opties voor sneller herstel, [actieve geo-replicatie](sql-database-active-geo-replication.md) en [automatische failovergroepen](sql-database-auto-failover-group.md).
+* Zie [continuïteits scenario's](sql-database-business-continuity.md)voor meer informatie over scenario's voor bedrijfs continuïteit.
+* Zie [SQL database automatische back-ups](sql-database-automated-backups.md) voor meer informatie over Azure SQL database automatische back-ups
+* Zie [een Data Base herstellen vanuit de door de service geïnitieerde back-ups](sql-database-recovery-using-backups.md)voor meer informatie over het gebruik van automatische back-ups voor herstel.
+* Zie [actieve geo-replicatie](sql-database-active-geo-replication.md) en [groepen voor automatische failover](sql-database-auto-failover-group.md)voor meer informatie over snellere herstel opties.

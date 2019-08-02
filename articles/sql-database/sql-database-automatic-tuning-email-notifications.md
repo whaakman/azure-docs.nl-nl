@@ -1,6 +1,6 @@
 ---
-title: Automatisch afstemmen e-mailmeldingen gebruiksaanwijzing - Azure SQL Database | Microsoft Docs
-description: E-mailmeldingen voor Azure SQL Database automatisch query afstemmen inschakelen.
+title: Hand leiding voor automatische afstemming e-mail meldingen-Azure SQL Database | Microsoft Docs
+description: Schakel e-mail meldingen in voor Azure SQL Database automatisch afstemmen van query's.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,81 +10,80 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: 0050745ea9d624adb6b7a28d5db91924d1c54b0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df9390c00c34fce82de8cc17efb5cc3bce2e4e3d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479447"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569439"
 ---
-# <a name="email-notifications-for-automatic-tuning"></a>E-mailmeldingen voor automatisch afstemmen
+# <a name="email-notifications-for-automatic-tuning"></a>E-mail meldingen voor automatisch afstemmen
 
-SQL Database aanbevelingen voor afstemming worden gegenereerd door Azure SQL Database [automatisch afstemmen](sql-database-automatic-tuning.md). Deze oplossing wordt continu bewaakt en analyseert workloads van het leveren van de SQL-Databases aangepaste aanbevelingen voor elke afzonderlijke database met betrekking tot het maken van een index, index verwijderen en optimalisatie van de query-uitvoering plannen voor het afstemmen.
+SQL Database afstemmings aanbevelingen worden gegenereerd door Azure SQL Database [automatisch afstemmen](sql-database-automatic-tuning.md). Deze oplossing bewaakt en analyseert voortdurend werk belastingen van SQL-data bases die aangepaste aanpassings aanbevelingen bieden voor elke afzonderlijke Data Base met betrekking tot het maken van indexen, het verwijderen van indexen en het optimaliseren van plannen voor het uitvoeren van query's.
 
-SQL Database automatisch afstemmen aanbevelingen kunnen worden weergegeven in de [Azure-portal](sql-database-advisor-portal.md), met de opgehaalde [REST-API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) aanroept, of met behulp van [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) en [ PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) opdrachten. In dit artikel is gebaseerd op een PowerShell-script gebruiken om op te halen van de aanbevelingen voor automatische afstemming.
+SQL Database automatische afstemmings aanbevelingen kunnen worden weer gegeven in de [Azure Portal](sql-database-advisor-portal.md), opgehaald met [rest API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) -aanroepen of met behulp van [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) -en [Power shell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) -opdrachten. Dit artikel is gebaseerd op het gebruik van een Power shell-script om aanbevelingen voor automatische afstemming op te halen.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
+> De Power shell-Azure Resource Manager module wordt nog steeds ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module AZ. SQL. Zie [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)voor deze cmdlets. De argumenten voor de opdrachten in de module AZ en in de AzureRm-modules zijn aanzienlijk identiek.
 
-## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>E-mailmeldingen voor aanbevelingen voor automatische afstemming automatiseren
+## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>E-mail meldingen voor automatische afstemmings aanbevelingen automatiseren
 
-De volgende oplossing automatiseert het verzenden van e-mailmeldingen met aanbevelingen voor automatische afstemming. De oplossing beschreven bestaat uit het automatiseren van de uitvoering van een PowerShell-script voor het ophalen van de aanbevelingen voor afstemming met behulp van [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro), en automatisering van het plannen van e-levering met behulp van taak [Microsoft Flow ](https://flow.microsoft.com).
+Met de volgende oplossing wordt het verzenden van e-mail meldingen met aanbevelingen voor automatisch afstemmen geautomatiseerd. De oplossing die wordt beschreven, bestaat uit het automatiseren van de uitvoering van een Power shell-script voor het ophalen van afstemmings aanbevelingen met behulp van [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)en de automatisering van het plannen van e-mail met behulp van [Microsoft flow](https://flow.microsoft.com)
 
-## <a name="create-azure-automation-account"></a>Azure Automation-account maken
+## <a name="create-azure-automation-account"></a>Azure Automation account maken
 
-Voor het gebruik van Azure Automation, is de eerste stap het maken van een automation-account en te configureren met Azure-resources te gebruiken voor de uitvoering van het PowerShell-script. Zie voor meer informatie over Azure Automation en de mogelijkheden ervan, [aan de slag met Azure automation](https://docs.microsoft.com/azure/automation/automation-offering-get-started).
+Als u Azure Automation wilt gebruiken, is de eerste stap het maken van een Automation-account en het configureren van Azure-resources voor het uitvoeren van het Power shell-script. Zie aan de slag [met Azure Automation](https://docs.microsoft.com/azure/automation/automation-offering-get-started)voor meer informatie over Azure Automation en de mogelijkheden ervan.
 
-Volg deze stappen voor het maken van Azure Automation-Account via de methode te selecteren en configureren van Automation-app vanuit de Marketplace:
+Volg deze stappen om Azure Automation-account te maken via de methode voor het selecteren en configureren van de Automation-app vanuit Marketplace:
 
-- Meld u aan bij de Azure-portal
-- Klik op ' **+ een resource maken**' in de linkerbovenhoek
-- Zoeken naar "**Automation**' (druk op enter)
-- Klik op de Automation-app in de lijst met zoekresultaten
+- Meld u aan bij de Azure Portal
+- Klik in de linkerbovenhoek op ' **+ een resource maken**'
+- Zoeken naar '**Automation**' (druk op ENTER)
+- Klik in de zoek resultaten op de app Automation
 
-![Toevoegen van Azure automation](./media/sql-database-automatic-tuning-email-notifications/howto-email-01.png)
+![Azure Automation toevoegen](./media/sql-database-automatic-tuning-email-notifications/howto-email-01.png)
 
-- Eenmaal in het deelvenster 'Een Automation-Account maken', klik op '**maken**"
-- Vul de vereiste gegevens: Voer een naam in voor dit automation-account, selecteert u uw Azure-abonnement-ID en het Azure-resources moet worden gebruikt voor de uitvoering van het PowerShell-script
-- Voor de '**Azure uitvoeren als-account maken**"optie, selecteer **Ja** het configureren van het type van welke PowerShell script wordt uitgevoerd met behulp van Azure Automation-account. Zie voor meer informatie over accounttypen [uitvoeren als-account](https://docs.microsoft.com/azure/automation/automation-create-runas-account)
-- Het maken van het automation-account sluiten door te klikken op **maken**
+- Klik in het deel venster ' een Automation-account maken ' op '**maken**'
+- Vul de vereiste gegevens in: Voer een naam in voor dit Automation-account, selecteer uw Azure-abonnements-ID en Azure-resources die moeten worden gebruikt voor het uitvoeren van het Power shell-script
+- Voor de optie '**Azure uitvoeren als-account maken**' selecteert u **Ja** om het type account te configureren waarmee het Power shell-script wordt uitgevoerd met de Help van Azure Automation. Zie [Run as-account](https://docs.microsoft.com/azure/automation/automation-create-runas-account) voor meer informatie over account typen
+- Het maken van het Automation-account volt ooien door te klikken op **maken**
 
 > [!TIP]
-> Uw Azure Automation-accountnaam, de abonnements-ID en de resources (zoals kopiëren en plakken in Kladblok) precies hetzelfde als de opgegeven tijdens het maken van de Automation-app te registreren. U hebt deze informatie later nodig.
+> Noteer de naam van uw Azure Automation-account, abonnements-ID en resources (zoals kopiëren en plakken naar een Klad blok) precies zoals deze zijn ingevoerd tijdens het maken van de Automation-app. U hebt deze gegevens later nodig.
 >
 
-Als u meerdere Azure-abonnementen waarvoor u wilt de dezelfde buildautomatisering hebt, moet u dit proces herhalen voor uw andere abonnementen.
+Als u meerdere Azure-abonnementen hebt waarvoor u dezelfde automatisering wilt maken, moet u dit proces herhalen voor uw andere abonnementen.
 
 ## <a name="update-azure-automation-modules"></a>Azure Automation-modules bijwerken
 
-Maakt gebruik van het PowerShell-script om op te halen voor automatisch afstemmen aanbeveling [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) en [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) -opdrachten voor welke Azure-Module versie 4 of hoger is vereist.
+Het Power shell-script voor het ophalen van de aanbeveling voor automatisch afstemmen maakt gebruik van [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) en [Get-AzSqlDatabaseRecommendedAction-](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) opdrachten waarvoor Azure-module versie 4 en hoger is vereist.
 
-- Als uw Azure-Modules moeten worden bijgewerkt, Zie [Az-module-ondersteuning in Azure Automation](../automation/az-modules.md).
+- Als uw Azure-modules moeten worden bijgewerkt, raadpleegt u [AZ module support in azure Automation](../automation/az-modules.md).
 
-## <a name="create-azure-automation-runbook"></a>Azure Automation-Runbook maken
+## <a name="create-azure-automation-runbook"></a>Azure Automation Runbook maken
 
-De volgende stap is het maken van een Runbook in Azure Automation waarbinnen het PowerShell-script voor het ophalen van de aanbevelingen voor het afstemmen zich bevindt.
+De volgende stap is het maken van een Runbook in Azure Automation waarin het Power shell-script voor het ophalen van afstemmings aanbevelingen zich bevindt.
 
-Volg deze stappen voor het maken van een nieuw Azure Automation-runbook:
+Voer de volgende stappen uit om een nieuw Azure Automation runbook te maken:
 
 - Toegang tot het Azure Automation-account dat u in de vorige stap hebt gemaakt
-- Eenmaal in het deelvenster met automation-account, klik op de '**Runbooks**"menu-item aan de linkerkant naar een nieuw Azure Automation-runbook maken met het PowerShell-script. Zie voor meer informatie over het maken van automation-runbooks, [het maken van een nieuw runbook](../automation/manage-runbooks.md#create-a-runbook).
-- Als u wilt een nieuw runbook toevoegen, klikt u op de ' **+ toevoegen van een runbook**"menu-optie en klik vervolgens op de '**snel maken: een nieuw runbook maken**'.
-- Typ in het Runbook de naam van uw runbook (ten behoeve van dit voorbeeld '**AutomaticTuningEmailAutomation**' wordt gebruikt), selecteer het type van runbook als **PowerShell** en een beschrijving van schrijven Dit runbook om te beschrijven van het doel.
-- Klik op de **maken** om een nieuw runbook maken voltooien
+- Klik in het deel venster Automation-account op de menu opdracht "**Runbooks**" aan de linkerkant om een nieuw Azure Automation runbook te maken met het Power shell-script. Zie [een nieuw Runbook maken](../automation/manage-runbooks.md#create-a-runbook)voor meer informatie over het maken van Automation-runbooks.
+- Als u een nieuw runbook wilt toevoegen, klikt u op de menu optie **+ een Runbook toevoegen**en klikt u vervolgens op het**snelle maken – een nieuw runbook maken**.
+- Typ in het deel venster Runbook de naam van uw Runbook (voor het doel van dit voor beeld wordt '**AutomaticTuningEmailAutomation**' gebruikt), selecteer het type Runbook als **Power shell** en schrijf een beschrijving van dit runbook om het doel ervan te beschrijven.
+- Klik op de knop **maken** om het maken van een nieuw runbook te volt ooien
 
-![Azure automation-runbook toevoegen](./media/sql-database-automatic-tuning-email-notifications/howto-email-03.png)
+![Azure Automation-runbook toevoegen](./media/sql-database-automatic-tuning-email-notifications/howto-email-03.png)
 
-Volg deze stappen voor het laden van een PowerShell-script in het runbook gemaakt:
+Volg deze stappen om een Power shell-script te laden in het runbook dat is gemaakt:
 
-- In de '**PowerShell-Runbook bewerken**'venster'**RUNBOOKS**' in het menu structuur en de weergave uitvouwen tot u de naam van uw runbook (in dit voorbeeld ' **AutomaticTuningEmailAutomation**'). Selecteer dit runbook.
-- Op de eerste regel van de 'PowerShell-Runbook bewerken' (te beginnen met het getal 1), kopiëren en plakken de code van het volgende PowerShell-script. Dit PowerShell-script wordt geleverd als-is aan de slag te gaan. Wijzig het script met suite uw behoeften.
+- In het deel venster**Power shell-Runbook bewerken**selecteert u**RUNBOOKS**in de menu structuur en vouwt u de weer gave uit totdat u de naam van uw Runbook ziet (in dit voor beeld "**AutomaticTuningEmailAutomation**"). Selecteer dit runbook.
+- Kopieer de volgende Power shell-script code op de eerste regel van het Power shell-Runbook bewerken (te beginnen met het nummer 1). Dit Power shell-script wordt meegeleverd als-is om aan de slag te gaan. Wijzig het script in uw behoeften.
 
-In de header van het opgegeven PowerShell-script, moet u vervangen `<SUBSCRIPTION_ID_WITH_DATABASES>` met uw Azure-abonnement-ID. Zie voor informatie over het ophalen van uw Azure-abonnement-ID, [aan uw Azure-abonnement-GUID](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/).
+In de koptekst van het Power shell-script moet u vervangen `<SUBSCRIPTION_ID_WITH_DATABASES>` door de id van uw Azure-abonnement. Zie [de GUID van uw Azure-abonnement ophalen](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/)voor meer informatie over het ophalen van uw Azure-abonnements-id.
 
-In het geval van verschillende abonnementen, kunt u hen toevoegen als door komma's gescheiden met de eigenschap '$subscriptions' in de header van het script.
+In het geval van verschillende abonnementen kunt u ze als door komma's gescheiden toevoegen aan de eigenschap $subscriptions in de header van het script.
 
 ```powershell
 # PowerShell script to retrieve Azure SQL Database Automatic tuning recommendations.
@@ -171,86 +170,86 @@ $table = $results | Format-List
 Write-Output $table
 ```
 
-Klik op de '**opslaan**"knop in de rechterbovenhoek om op te slaan van het script. Wanneer u tevreden met het script bent, klikt u op de '**publiceren**"knop om dit runbook te publiceren.
+Klik in de rechter bovenhoek op de knop**Opslaan**om het script op te slaan. Wanneer u tevreden bent met het script, klikt u op de knop**publiceren**om dit runbook te publiceren.
 
-In het deelvenster belangrijkste runbook kunt u op de '**Start**"knop **testen** het script. Klik op de '**uitvoer**' om weer te geven resultaten van het script dat wordt uitgevoerd. Deze uitvoer is het verstandig om de inhoud van uw e-mailadres. Voorbeeld van uitvoer van het script te zien in de volgende schermafbeelding.
+In het hoofd venster van runbook kunt u klikken op de knop**starten**om het script te **testen** . Klik op de**uitvoer**om de resultaten van het uitgevoerde script weer te geven. Deze uitvoer wordt de inhoud van uw e-mail bericht. De voorbeeld uitvoer van het script kan worden weer gegeven in de volgende scherm afbeelding.
 
-![Weergave automatische aanbevelingen met Azure Automation voor het afstemmen van Run](./media/sql-database-automatic-tuning-email-notifications/howto-email-04.png)
+![Aanbevelingen voor automatische afstemming uitvoeren met Azure Automation](./media/sql-database-automatic-tuning-email-notifications/howto-email-04.png)
 
-Zorg ervoor dat de inhoud aanpassen door het PowerShell-script op uw behoeften aanpassen.
+Zorg ervoor dat u de inhoud aanpast door het Power shell-script aan uw behoeften aan te passen.
 
-De PowerShell-script voor het ophalen van de aanbevelingen voor automatische afstemming is geladen met de bovenstaande stappen in Azure Automation. De volgende stap is om te automatiseren en de e-mail delivery-taak plannen.
+Met de bovenstaande stappen wordt het Power shell-script voor het ophalen van aanbevelingen voor automatisch afstemmen geladen in Azure Automation. De volgende stap is het automatiseren en plannen van de verzend taak voor e-mail.
 
-## <a name="automate-the-email-jobs-with-microsoft-flow"></a>De e-taken met Microsoft Flow te automatiseren
+## <a name="automate-the-email-jobs-with-microsoft-flow"></a>De e-mail taken met Microsoft Flow automatiseren
 
-Voor het voltooien van de oplossing, als de laatste stap wordt een automation-gegevensstroom te maken in Microsoft Flow die bestaat uit drie acties (taken):
+Voor het volt ooien van de oplossing kunt u als laatste stap een automatiserings stroom maken in Microsoft Flow die bestaat uit drie acties (taken):
 
-1. "**Azure Automation - taak maken**": wordt gebruikt voor het uitvoeren van de PowerShell-script om op te halen voor automatisch afstemmen van de aanbevelingen in Azure Automation-runbook
-2. "**Azure Automation - Get-taakuitvoer**": wordt gebruikt voor het ophalen van uitvoer van de uitgevoerde PowerShell-script
-3. "**Office 365 Outlook: een e-mail verzenden**": wordt gebruikt voor het verzenden van e-mail. E-mailberichten worden verzonden met behulp van de Office 365-account van de persoon die het maken van de stroom.
+1. '**Azure Automation-taak maken**': wordt gebruikt om het Power shell-script uit te voeren om aanbevelingen voor automatisch afstemmen binnen het Azure Automation runbook op te halen
+2. '**Azure Automation taak uitvoer ophalen**': wordt gebruikt om de uitvoer op te halen uit het uitgevoerde Power shell-script
+3. "**Office 365 Outlook: een E-mail verzenden**": wordt gebruikt om e-mail te verzenden. E-mail berichten worden verzonden met behulp van het Office 365-account van de persoon die de stroom maakt.
 
-Zie voor meer informatie over de mogelijkheden van Microsoft Flow, [aan de slag met Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
+Zie aan de slag [met Microsoft flow](https://docs.microsoft.com/flow/getting-started)voor meer informatie over Microsoft flow mogelijkheden.
 
-Vereiste voor deze stap is voor het aanmelden bij [Microsoft Flow](https://flow.microsoft.com) account en om aan te melden. Eenmaal in de oplossing, volg deze stappen voor het instellen van een **nieuwe stroom**:
+De vereiste voor deze stap is om u aan te melden voor [Microsoft flow](https://flow.microsoft.com) -account en u aan te melden. Voer de volgende stappen uit om een **nieuwe stroom**in te stellen in de oplossing:
 
-- Toegang "**mijn stromen**" menu-item
-- In mijn stromen, selecteert u de ' **+ maken met een lege App**' koppelen aan de bovenkant van de pagina
-- Klik op de koppeling '**honderden connectors en triggers zoeken naar**' aan de onderkant van de pagina
-- In het veld Zoektype "**terugkeerpatroon**', en selecteer '**planning - terugkeerpatroon**' in de zoekresultaten voor het plannen van de taak e-mail delivery om uit te voeren.
-- Selecteer in het deelvenster terugkeerpatroon in het veld frequentie de planning frequentie voor deze stroom wilt uitvoeren, zoals geautomatiseerde verzenden per e-mail elke minuut, uur, dag, Week, enzovoort.
+- Menu-item '**mijn stromen**' openen
+- Selecteer in mijn stromen de koppeling ' **+ geen lege**pagina ' boven aan de pagina
+- Klik op de koppeling**Zoek naar honderden connectors en triggers**onder aan de pagina
+- Typ in het zoek veld '**recurrence**' en selecteer '**schema-recurrence**' in de zoek resultaten om de taak voor het uitvoeren van e-mail berichten te plannen.
+- Selecteer in het deel venster terugkeer patroon in het veld frequentie de plannings frequentie voor deze stroom die moet worden uitgevoerd, zoals automatische e-mail verzenden per minuut, uur, dag, week enzovoort.
 
-De volgende stap is het toevoegen van drie taken (create, get-uitvoer en verzendt een e-mail) naar de zojuist gemaakte terugkerende stroom. U doet de vereiste taken toe te voegen aan de stroom door de volgende stappen uit:
+De volgende stap bestaat uit het toevoegen van drie taken (maken, ophalen en verzenden van e-mail) naar de zojuist gemaakte terugkerende stroom. Voer de volgende stappen uit om de vereiste taken aan de stroom toe te voegen:
 
-1. Actie voor het uitvoeren van PowerShell-script voor het ophalen van de aanbevelingen voor afstemming maken
+1. Maak een actie om het Power shell-script uit te voeren voor het ophalen van de aanbevelingen
 
-   - Selecteer " **+ nieuwe stap**', gevolgd door'**een actie toevoegen**' in het deelvenster van de stroom terugkeerpatroon
-   - In het veld Zoektype "**automation**'en selecteer'**Azure Automation-taak maken**' in de zoekresultaten
-   - In het deelvenster van de taak maken door de taakeigenschappen te configureren. Voor deze configuratie, moet u de details van uw Azure-abonnement-ID, resourcegroep en het Automation-Account **eerder opgenomen** op de **Automation-Account deelvenster**. Zie voor meer informatie over de opties die beschikbaar zijn in deze sectie, [Azure Automation - taak maken](https://docs.microsoft.com/connectors/azureautomation/#create-job).
-   - Voltooi het maken van deze actie door te klikken op '**stroom opslaan**"
+   - Selecteer **+ nieuwe stap**, gevolgd door**een actie toevoegen**in het deel venster terugkeer patroon
+   - Typ ' Automation ' inhet zoek veld en selecteer in de zoek resultaten**Azure Automation-taak maken**
+   - Configureer de taak eigenschappen in het deel venster taak maken. Voor deze configuratie hebt u details nodig van uw Azure-abonnements-ID, resource groep en Automation-account dat **eerder is vastgelegd** in het **deel venster Automation-account**. Zie voor meer informatie over de beschik bare opties in deze sectie [Azure Automation-taak maken](https://docs.microsoft.com/connectors/azureautomation/#create-job).
+   - U voltooit deze actie door te klikken op**stroom opslaan**
 
-2. Actie voor het ophalen van uitvoer van de uitgevoerde PowerShell-script maken
+2. Maak een actie om de uitvoer op te halen uit het uitgevoerde Power shell-script
 
-   - Selecteer " **+ nieuwe stap**', gevolgd door'**een actie toevoegen**' in het deelvenster van de stroom terugkeerpatroon
-   - In het zoekvak ingediend type "**automation**'en selecteer'**Azure Automation: Get-taakuitvoer**' in de zoekresultaten. Zie voor meer informatie over de opties die beschikbaar zijn in deze sectie, [Azure Automation: Get-taakuitvoer](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
-   - Vullen velden vereist (vergelijkbaar met het maken van de vorige taak): het vullen van uw Azure-abonnement-ID, resourcegroep, en het Automation-Account (zoals opgegeven in het deelvenster met Automation-Account)
-   - Klik in het veld '**taak-ID**' voor de '**dynamische inhoud**"menu wordt weergegeven. In dit menu, selecteer de optie '**taak-ID**'.
-   - Voltooi het maken van deze actie door te klikken op '**stroom opslaan**"
+   - Selecteer **+ nieuwe stap**, gevolgd door**een actie toevoegen**in het deel venster terugkeer patroon
+   - In de zoek actie type**Automation**en selecteer**Azure Automation-taak uitvoer ophalen**uit de zoek resultaten. Zie [Azure Automation-taak uitvoer ophalen](https://docs.microsoft.com/connectors/azureautomation/#get-job-output)voor meer informatie over de beschik bare opties in deze sectie.
+   - Velden invullen die vereist zijn (vergelijkbaar met het maken van de vorige taak): Vul uw Azure-abonnements-ID, resource groep en Automation-account in (zoals ingevoerd in het deel venster Automation-account)
+   - Klik in het veld**taak-id**voor het menu**dynamische inhoud**om weer te geven. Selecteer in dit menu de optie**taak-id**.
+   - U voltooit deze actie door te klikken op**stroom opslaan**
 
-3. Actie voor het verzenden van e-mail met behulp van Office 365-integratie maken
+3. Actie maken om e-mail te verzenden met behulp van Office 365-integratie
 
-   - Selecteer " **+ nieuwe stap**', gevolgd door'**een actie toevoegen**' in het deelvenster van de stroom terugkeerpatroon
-   - In het zoekvak ingediend type "**een e-mailbericht verzenden**'en selecteer'**Office 365 Outlook: een e-mail verzenden**' in de zoekresultaten
-   - In de '**naar**"veldtype in het e-mailadres waarnaar u wilt de e-mailmelding verzenden
-   - In de '**onderwerp**"veldtype in het onderwerp van uw e-mailadres, bijvoorbeeld"automatisch aanbevelingen voor afstemming e-mailmelding"
-   - Klik in het veld '**hoofdtekst**' voor de '**dynamische inhoud**"menu wordt weergegeven. Uit binnen dit menu onder '**ophalen taakuitvoer**", selecteer"**inhoud**"
-   - Voltooi het maken van deze actie door te klikken op '**stroom opslaan**"
+   - Selecteer **+ nieuwe stap**, gevolgd door**een actie toevoegen**in het deel venster terugkeer patroon
+   - Typ in het veld Zoek opdracht '**een e-mail verzenden**' en selecteer '**Office 365 Outlook-een e-mail verzenden**' in de zoek resultaten
+   - Typ in het veld**aan**in het e-mail adres waarnaar u het e-mail bericht wilt verzenden
+   - In het veld**onderwerp**typt u het onderwerp van uw e-mail adres, bijvoorbeeld ' automatische afstemming aanbevelingen voor e-mail berichten '
+   - Klik in het veld**hoofd tekst**voor het menu**dynamische inhoud**om weer te geven. Selecteer in dit menu onder '**taak uitvoer ophalen**' de optie '**inhoud**'
+   - U voltooit deze actie door te klikken op**stroom opslaan**
 
 > [!TIP]
-> Voor het verzenden van automatische e-mailberichten naar andere ontvangers, afzonderlijke stromen te maken. In deze aanvullende stromen de geadresseerde e-mailadres in het veld 'Aan' en de regel voor het onderwerp van e-mailadres in het veld 'Onderwerp' te wijzigen. Het maken van nieuwe runbooks in Azure Automation met aangepaste PowerShell-scripts (zoals bij wijziging van de Azure-abonnement-ID) kunt verder aanpassen van geautomatiseerde scenario's, zoals bijvoorbeeld afzonderlijke ontvangers voor automatisch afstemmen is mailen aanbevelingen voor de afzonderlijke abonnementen.
+> Als u geautomatiseerd e-mail berichten wilt verzenden naar verschillende ontvangers, maakt u afzonderlijke stromen. In deze extra stromen wijzigt u het e-mail adres van de ontvanger in het veld aan en de onderwerpregel van het e-mail bericht in het veld onderwerp. Door nieuwe runbooks te maken in Azure Automation met aangepaste Power shell-scripts (zoals de wijziging van de Azure-abonnements-ID) kunt u geautomatiseerde scenario's verder aanpassen, zoals het verzenden van afzonderlijke ontvangers bij automatische afstemming aanbevelingen voor afzonderlijke abonnementen.
 >
 
-De bovenstaande concludeert vereiste stappen voor het configureren van de werkstroom voor e-mail delivery-taak. De hele stroom die bestaat uit drie acties die zijn ingebouwd wordt in de volgende afbeelding weergegeven.
+In het bovenstaande worden de stappen voor het configureren van de werk stroom voor het verzenden van e-mail berichten beschreven. De volledige stroom die bestaat uit drie acties die zijn gebouwd, wordt weer gegeven in de volgende afbeelding.
 
-![De functie automatisch afstemmen van e-mailmeldingen stroom weergeven](./media/sql-database-automatic-tuning-email-notifications/howto-email-05.png)
+![Berichten stroom voor automatisch afstemmen weer geven](./media/sql-database-automatic-tuning-email-notifications/howto-email-05.png)
 
-Als u wilt de stroom testen, klikt u op '**nu uitvoeren**' in de rechterbovenhoek in het deelvenster van de stroom.
+Als u de stroom wilt testen, klikt u in de rechter bovenhoek van het deel venster stroom op**nu uitvoeren**.
 
-Statistieken van het uitvoeren van de geautomatiseerde taken, met succes van e-mailmeldingen verzonden, kunt u zien door het deelvenster van de stroom analyse.
+De statistieken voor het uitvoeren van de geautomatiseerde taken, weer geven van geslaagde e-mail meldingen die worden verzonden, kunnen worden weer gegeven in het deel venster stroom analyse.
 
-![Uitvoeren van de stroom voor automatisch afstemmen e-mailmeldingen](./media/sql-database-automatic-tuning-email-notifications/howto-email-06.png)
+![Actieve stroom voor het automatisch afstemmen van e-mail meldingen](./media/sql-database-automatic-tuning-email-notifications/howto-email-06.png)
 
-De stroomanalyse is nuttig voor het bewaken van het succes van taakuitvoeringen, en indien nodig voor het oplossen van problemen.  In het geval van het oplossen van problemen ook raadzaam om te controleren van de PowerShell-script mobiel uitvoeringslogboek toegankelijk zijn via Azure Automation-app.
+De stroom analyse is handig voor het bewaken van het succes van taak uitvoeringen, en indien nodig voor het oplossen van problemen.  In het geval van het oplossen van problemen kunt u het Power shell-script voor uitvoerings logboeken ook bekijken via Azure Automation-app.
 
-De uiteindelijke uitvoer van de geautomatiseerde e-mailbericht lijkt op het volgende e-mailbericht ontvangen nadat het bouwen en uitvoeren van deze oplossing:
+De uiteindelijke uitvoer van het geautomatiseerde e-mail bericht ziet er ongeveer uit als het volgende e-mail bericht wordt ontvangen nadat u deze oplossing hebt gebouwd en uitgevoerd:
 
-![Voorbeeld e-mailadres van de uitvoer van automatisch afstemmen e-mailmeldingen](./media/sql-database-automatic-tuning-email-notifications/howto-email-07.png)
+![Voorbeeld e-mail uitvoer van e-mail meldingen automatisch afstemmen](./media/sql-database-automatic-tuning-email-notifications/howto-email-07.png)
 
-Door het aanpassen van het PowerShell-script, kunt u de uitvoer en de opmaak van de geautomatiseerde e-mailbericht aan uw behoeften aanpassen.
+Door het Power shell-script aan te passen, kunt u de uitvoer en de opmaak van het geautomatiseerde e-mail bericht aanpassen aan uw behoeften.
 
-U kunt de oplossing voor het bouwen van e-mailmeldingen op basis van een bepaalde gebeurtenis afstemmen en naar meerdere ontvangers, voor meerdere abonnementen of -databases, afhankelijk van uw aangepaste scenario's mogelijk verder aanpassen.
+U kunt de oplossing verder aanpassen om e-mail meldingen op te bouwen op basis van een specifieke afstemmings gebeurtenis en voor meerdere ontvangers, voor meerdere abonnementen of data bases, afhankelijk van uw aangepaste scenario's.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Leer meer over hoe automatisch afstemmen, kunt u betere databaseprestaties, Zie [automatisch afstemmen in Azure SQL Database](sql-database-automatic-tuning.md).
-- Inschakelen van automatisch afstemmen in Azure SQL Database voor het beheren van uw workload [automatisch instellen inschakelen](sql-database-automatic-tuning-enable.md).
-- Zie voor het handmatig controleren en automatisch aanbevelingen voor het afstemmen van toepassing, [zoeken en toepassen van aanbevelingen voor prestaties](sql-database-advisor-portal.md).
+- Meer informatie over hoe automatisch afstemmen u kan helpen de prestaties van de data base te verbeteren, vindt u [in Azure SQL database automatisch afstemmen](sql-database-automatic-tuning.md).
+- Als u het automatisch afstemmen van Azure SQL Database wilt inschakelen voor het beheren van uw werk belasting, raadpleegt u [automatisch afstemmen inschakelen](sql-database-automatic-tuning-enable.md).
+- Zie [aanbevelingen voor prestaties zoeken en](sql-database-advisor-portal.md)Toep assen om de aanbevelingen voor automatisch afstemmen hand matig te controleren en toe te passen.

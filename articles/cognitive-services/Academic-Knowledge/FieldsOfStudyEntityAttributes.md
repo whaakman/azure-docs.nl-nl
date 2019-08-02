@@ -1,7 +1,7 @@
 ---
-title: Entiteitkenmerken veld van studie - Academic Knowledge API
+title: Veld met kenmerken van de studie-entiteit-Academic Knowledge API
 titlesuffix: Azure Cognitive Services
-description: Meer informatie over de kenmerken die u met de entiteit veld van onderzoek in de Academic Knowledge API gebruiken kunt.
+description: Meer informatie over de kenmerken die u kunt gebruiken met het veld van de studie entiteit in de Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
 manager: nitinme
@@ -10,26 +10,27 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: e9d6badf76efd03c0520a728af7b3e47b25f200a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: d54f3c72462e6702b09068092b7c18ea50f12048
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61339582"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704997"
 ---
-# <a name="field-of-study-entity"></a>Veld van het onderzoek naar entiteit
+# <a name="field-of-study-entity"></a>Veld van de studie entiteit
 
-<sub> * De volgende kenmerken zijn specifiek voor het veld van het onderzoek entiteit. (Ty = '6') </sub>
+<sub>* De volgende kenmerken zijn specifiek voor het veld van de Study-entiteit. (Ty = '6') </sub>
 
-Name    |Description                            |Type       | Bewerkingen
+Name    |Description                            |type       | Bewerkingen
 ------- | ------------------------------------- | --------- | ----------------------------
-Id      |Entiteit-ID                              |Int64      |Is gelijk aan
-FN      |Veld van genormaliseerde studie-naam         |String     |Is gelijk aan
-DFN     |Veld studie-weergavenaam            |String     |Geen
-CC      |Veld van het onderzoek totale citaat aantal    |Int32      |Geen  
-ECC     |Veld van het aantal totale geschatte citaat|Int32      |Geen
-FL      |Velden van de hiërarchie studie-niveau     |Int32      |Is gelijk aan, <br/>IsBetween
-FP.FN   |Bovenliggende veld van de naam van het onderzoek             |String     |Is gelijk aan
-FP.FId  |Bovenliggende veld van de ID van het onderzoek               |Int64      |Is gelijk aan
-FC.FN   |Onderliggende veld van de naam van het onderzoek              |String     |Is gelijk aan
-FC.FId  |Onderliggende veld van de ID van het onderzoek                |Int64      |Is gelijk aan
+ID      |Entiteits-id                              |Int64      |Is gelijk aan
+FN      |Veld van genormaliseerde studie naam         |Tekenreeks     |Is gelijk aan
+DFN     |Veld met de weergave naam voor het onderzoek            |Tekenreeks     |geen
+CC      |Veld van het totale aantal citaten van studie    |Int32      |geen  
+ECC     |Veld van totaal aantal geschatte citaten|Int32      |geen
+FL      |Niveau in velden van de studie hiërarchie     |Int32      |Gelijk is aan <br/>IsBetween
+FP.FN   |Bovenliggend veld van studie naam             |Tekenreeks     |Is gelijk aan
+FP.FId  |Bovenliggend veld van studie-ID               |Int64      |Is gelijk aan
+FC.FN   |Onderliggend veld van studie naam              |Tekenreeks     |Is gelijk aan
+FC.FId  |Onderliggend veld van studie-ID                |Int64      |Is gelijk aan

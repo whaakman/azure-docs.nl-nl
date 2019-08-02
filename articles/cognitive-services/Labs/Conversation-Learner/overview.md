@@ -1,7 +1,7 @@
 ---
 title: Wat is Conversatiecursist? -Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Meer informatie over Conversatiecursist en hoe het werkt.
+description: Meer informatie over Conversation Learner en hoe deze werkt.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,38 +10,39 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: f8bc7590f2d7a622b4b1ffb21bfeccef89691fd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 725a1d3628fb320a58e073fe2d825af23b02c0bd
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389503"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707020"
 ---
 # <a name="what-is-conversation-learner"></a>Wat is Conversatiecursist?
 
-Conversatiecursist kunt u voor het bouwen en te leren van de conversatie-interfaces die meer van de voorbeeld-interacties. 
+Met Conversation Learner kunt u gespreks interfaces bouwen en leren die leren van voorbeeld interacties. 
 
-In tegenstelling tot traditionele benaderingen, Conversatiecursist rekening gehouden met de end-to-end-context van een dialoog antwoorden te verbeteren en meer aantrekkelijke gebruikerservaringen bieden. Een breed scala aan taakgerichte spanning use-cases, Conversatiecursist van de toepassing machine learning achter de schermen om bots en intelligente agents minder waarschijnlijk frustrerend kan zijn voor gebruikers, extra customer servicekosten in rekening en stimuleren informatietechnologie meer intuïtieve benadering interacties te maken.
+In tegens telling tot traditionele benaderingen neemt Conversation Learner de end-to-end context van een dialoog om de reacties te verbeteren en de gebruikers ervaring aantrekkelijker te kunnen leveren. Door een grote set taken gerichte use cases uit te voeren, wordt Conversation Learner machine learning achter de schermen toegepast om botsingen en intelligente agents minder kans te maken op gebruikers, waardoor er extra kosten in rekening worden gebracht voor klanten service, en Spur meer intuïtieve interacties.
 
-Ontwikkelaars starten door in te voeren prototypische dialoogvensters die ze willen imiteren. Het Model leert meer dialoogvensters zijn ingevoerd. Zodra het Model goed werkt is, kan de Bot kan worden geïmplementeerd voor eindgebruikers. Conversatiecursist registreert gesprekken met gebruikers en de ontwikkelaar ze kunt bekijken. Als er fouten worden gevonden, de ontwikkelaar een correctie op plaatse kunt maken en het model wordt onmiddellijk retrained en beschikbaar voor gebruik.
+Ontwikkel aars beginnen met het invoeren van prototypen dialoog vensters die ze willen imiteren. Het model leert naarmate er meer dialoog vensters worden ingevoerd. Zodra het model goed werkt, kan de bot worden geïmplementeerd voor eind gebruikers. Conversation Learner registreert gesp rekken met gebruikers en de ontwikkelaar kan deze bekijken. Als er fouten zijn spotted, kan de ontwikkelaar een correctie op de vlek uitvoeren en wordt het model opnieuw getraind en beschikbaar voor gebruik direct.
 
-Deze aanpak vermindert handmatige code van de dialoog besturingselement logica en kan eigenaren van bedrijven of domein experts om bij te dragen aan een conversatie interface zonder voorafgaande machine learning-kennis. Of deze geïmplementeerd als onderdeel van een bot, slimme apparaat of een intelligente agent, kan de Conversatiecursist herhalen snel nieuwe vaardigheden, gedrag of competenties en snel de kwaliteit te verbeteren. 
+Deze aanpak vermindert hand matige code ring van de logica van het besturings element en stelt zakelijke eigen aars of domein experts in staat om een conversatie-interface te leveren zonder voorafgaande machine learning kennis. Of het nu wordt geïmplementeerd als onderdeel van een bot, Smart Device of intelligente agent, kan in Conversation Learner snel nieuwe vaardig heden, gedragingen of competenties door lopen en snel hun kwaliteit verbeteren. 
 
-Conversatiecursist kan ontwikkelaars snelheid-to-market en station geslaagde dialogen verhogen via meerdere conversatie kanalen via Microsoft Bot Framework of zelfstandige met behulp van hun eigen infrastructuur.
+Conversation Learner biedt ontwikkel aars de mogelijkheid om de snelheid-to-market te verhogen en geslaagde dialogen over meerdere conversatie kanalen te stimuleren via het micro soft bot Framework of zelfstandig met behulp van hun eigen infra structuur.
 
-Overzicht en belangrijke functies:
+Samen vatting en aandachtspunten:
 
-- Conversatiecursist is een manier om AI-first taakgerichte bots te ontwikkelen.
+- Conversation Learner is een AI-eerste manier om een taak gericht bots te bouwen.
 
-- Dit is afhankelijk van een end-to-end terugkerende neuraal netwerk (LSTM) en leert rechtstreeks vanuit meerdere inschakelen voorbeelden van conversaties. 
+- Het is afhankelijk van een end-to-end Neural-netwerk (LSTM) en maakt rechtstreeks kennis van de voor beelden van gesp rekken via meerdere zetten. 
 
-- Ontwerpers, ontwikkelaars, zakelijke gebruikers en call center werknemers te bouwen en onderhouden van bots kunnen. 
+- Stelt ontwerpers, ontwikkel aars, zakelijke gebruikers en Call Center-werk nemers in staat om bots te bouwen en te onderhouden. 
 
-- Biedt de mogelijkheid om uit te drukken bedrijfsregels en gezond verstand in code.
+- Biedt de mogelijkheid om bedrijfs regels en gemeen schappelijke betekenis in code te drukken.
 
-- Tijdens het onderwijs sessies, het model neurale netwerk gebruikt om de volgende set van verwachte acties te beoordelen in de conversatie. De ontwikkelaar van de bot kan vervolgens selecteert u de juiste actie en trainen van het netwerk naar het juiste antwoord geven.
+- Tijdens de leer sessies wordt het Neural-netwerk model gebruikt om de volgende reeks verwachte acties in de conversatie te scoren. De bot-ontwikkelaar kan vervolgens de juiste actie selecteren en het netwerk trainen om het juiste antwoord te geven.
  
-- Nadat training voltooid is, kunnen de ontwikkelaar de dialoogvensters logboek van de interactie van gebruikers kunt gebruiken om correcties aan bot antwoorden en opnieuw trainen het model. 
+- Nadat de training is voltooid, kan de ontwikkelaar de logboeken van de gebruikers interacties gebruiken voor het aanbrengen van correcties in bot-reacties en het opnieuw trainen van het model. 
 
-- Domeinspecifieke en externe API's voor het voltooien van taken kan worden aangeroepen.
+- Kan domeingebonden en Api's van derden aanroepen om taken uit te voeren.
 

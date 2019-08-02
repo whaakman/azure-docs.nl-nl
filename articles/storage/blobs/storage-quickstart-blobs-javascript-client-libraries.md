@@ -1,22 +1,19 @@
 ---
 title: 'Azure-snelstart: een blob maken in objectopslag met JavaScript en HTML in de browser'
 description: Leer hoe u een exemplaar van BlobService gebruikt voor het uploaden, vermelden en verwijderen van blobs met behulp van JavaScript op een HTML-pagina.
-services: storage
 keywords: opslag, javascript, html
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
 ms.author: mhopkins
-ms.reviewer: seguler
 ms.date: 11/14/2018
-ms.topic: quickstart
+ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: df697ab31875c8f806456c1e60820e7e8d752539
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.topic: quickstart
+ms.openlocfilehash: c9951a5fcfb30ed229b2bc7286b6d274649e6136
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149579"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722068"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -39,7 +36,7 @@ In de volgende tabel worden alle CORS-instellingen beschreven en de waarden voor
 
 |Instelling  |Waarde  | Description |
 |---------|---------|---------|
-| Toegestane oorsprongen | * | Accepteert een door komma's gescheiden lijst met domeinen die als acceptabele oorsprongen zijn ingesteld. Als de waarde wordt ingesteld op `*`, hebben alle domeinen toegang tot het opslagaccount. |
+| Toegestane oorsprong | * | Accepteert een door komma's gescheiden lijst met domeinen die als acceptabele oorsprongen zijn ingesteld. Als de waarde wordt ingesteld op `*`, hebben alle domeinen toegang tot het opslagaccount. |
 | Toegestane bewerkingen     | delete, get, head, merge, post, options en put | Vermeldt de HTTP-bewerkingen die zijn toegestaan om voor het opslagaccount te worden uitgevoerd. Voor deze snelstart selecteert u alle beschikbare opties. |
 | Toegestane headers | * | Definieert een lijst met aanvraagheaders (inclusief headers met een voorvoegsel) die door het opslagaccount zijn toegestaan. Als de waarde wordt ingesteld op `*`, hebben alle headers toegang. |
 | Weergegeven headers | * | Vermeldt de door het account toegestane antwoordheaders. Als de waarde wordt ingesteld op `*`, kan het account elke header verzenden.  |
@@ -79,7 +76,7 @@ az storage account generate-sas
 ```
 Mogelijk vindt u de reeks waarden na elke parameter wat cryptisch. Deze parameterwaarden zijn afkomstig van de eerste letter van hun respectieve machtiging. In de volgende tabel wordt uitgelegd waar de waarden vandaan komen: 
 
-| Parameter        | Value   | Description  |
+| Parameter        | Waarde   | Description  |
 |------------------|---------|---------|
 | *machtigingen*    | racwdl  | Deze SAS staat de mogelijkheden *read*, *append*, *create*, *write*, *delete* en *list* toe. |
 | *resource-types* | sco     | De resources die waar de SAS invloed op heeft, zijn *service*, *container* en *object*. |

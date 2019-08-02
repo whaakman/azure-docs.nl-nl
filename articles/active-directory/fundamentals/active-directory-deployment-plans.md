@@ -2,22 +2,22 @@
 title: Implementatieplannen voor - Azure Active Directory | Microsoft Docs
 description: End-to-end-richtlijnen over het implementeren van de vele mogelijkheden van Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/08/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f695d9f0240f8c27ea0bedba7e532d37a177752
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: a19c78efb7d81dcdcd3c221f58d4e4cc7be5ccd1
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304749"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722196"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory-implementatieplannen
 Bent u op zoek naar end-to-end-richtlijnen over het implementeren van sommige mogelijkheden van Azure Active Directory (Azure AD)? De volgende implementatieplannen geven richtlijnen bij de vereiste bedrijfswaarde, planningsoverwegingen, het ontwerp en de operationele procedures voor de implementatie van enkele algemene mogelijkheden van Azure AD. 
@@ -69,3 +69,4 @@ Rollen kunnen de volgende zijn:
 |[Azure AD-toepassingsproxy](https://aka.ms/deploymentplans/appproxy)|De huidige werknemer wil overal, op elke plek en op elk apparaat productief kunnen zijn. Hij of zij wil op het eigen apparaat werken, of dat nu een tablet, telefoon of laptop is. En een werknemer verwacht dat hij toegang heeft tot al zijn toepassingen, zowel SaaS-apps in cloud als on-premises, zakelijke apps. Voorheen was bij het toegang bieden tot on-premises toepassingen een VPN (Virtual Private Network) of een DMZ (gedemilitariseerde zone) nodig. Dit is niet alleen ingewikkeld en moeilijk te beveiligen, maar het instellen en beheren ervan is duur. Er is een betere manier. - Azure AD-toepassingsproxy|
 |[Inrichten van gebruikers](https://aka.ms/UserProvisioningDPDownload)|Met Azure AD kunt u het maken, onderhouden en verwijderen van gebruikers-id's in cloud(SaaS)-toepassingen als Dropbox, Salesforce, ServiceNow en andere, automatiseren.|
 |[Inrichten van WorkDay gebaseerde inkomende gebruikers](https://aka.ms/WorkdayDeploymentPlan)|WorkDay gebaseerde inkomende inrichten van gebruikers naar Active Directory maakt u een basis voor lopende identiteitsbestuur, en verbetert de kwaliteit van zakelijke processen die afhankelijk van de gezaghebbende identiteitsgegevens zijn. Met deze functie kunt u naadloos beheren de levenscyclus van de identiteit van werknemers en voorwaardelijke werknemers door regels die binding-Mover-Leaver processen (zoals nieuwe werven, beëindigen, overdracht) aan IT inrichting acties (zoals het maken, inschakelen toewijzen, te configureren Uitschakelen, accounts verwijderen).|
+|[Rapportage en bewaking](https://aka.ms/deploymentplans/reporting)| Het ontwerp van uw Azure AD-oplossing voor rapportage en bewaking is afhankelijk van uw wettelijke, beveiligings-en operationele vereisten, evenals uw bestaande omgeving en processen. In dit artikel vindt u de verschillende ontwerp opties en wordt u begeleid bij de juiste implementatie strategie.|

@@ -1,6 +1,6 @@
 ---
-title: Instellen van waarschuwingen en meldingen met behulp van Azure portal | Microsoft Docs
-description: De Azure portal gebruiken voor het maken van waarschuwingen van de SQL-Database, die meldingen of automatisering activeren kunnen wanneer de door u opgegeven voorwaarden wordt voldaan.
+title: Waarschuwingen en meldingen instellen met behulp van Azure Portal | Microsoft Docs
+description: Gebruik de Azure Portal om SQL Database-waarschuwingen te maken, waarmee meldingen of automatisering kan worden geactiveerd wanneer aan de opgegeven voor waarden wordt voldaan.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -10,114 +10,113 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: 93337e39a117c1f8d38f24dc416ff8ae95513a34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9468dbd71ee8da88cbabc3ca9f76c77d47adc221
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61035982"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567929"
 ---
-# <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Waarschuwingen maken voor Azure SQL Database en Data Warehouse met behulp van Azure portal
+# <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Waarschuwingen voor Azure SQL Database en Data Warehouse maken met behulp van Azure Portal
 
 ## <a name="overview"></a>Overzicht
-In dit artikel leest u hoe het instellen van Azure SQL Database en Data Warehouse waarschuwingen via Azure portal. Waarschuwingen kunnen u een e-mail verzenden of een webhook aanroepen wanneer bepaalde metrische gegevens (bijvoorbeeld de grootte van de database of de CPU-gebruik) de drempel bereikt. Dit artikel bevat ook aanbevolen procedures voor het instellen van waarschuwingen perioden.    
+Dit artikel laat u zien hoe u Azure SQL Database-en Data Warehouse-waarschuwingen kunt instellen met behulp van de Azure Portal. Waarschuwingen kunnen u een e-mail sturen of een webhook aanroepen wanneer bepaalde metrische gegevens (zoals de grootte van de data base of het CPU-gebruik) de drempel waarde hebben bereikt. Dit artikel bevat ook aanbevolen procedures voor het instellen van waarschuwings perioden.    
 
 > [!IMPORTANT]
-> Deze functie is nog niet beschikbaar in het beheerde exemplaar. Als alternatief kunt u SQL-Agent kunt gebruiken voor het verzenden van e-mailwaarschuwingen voor sommige metrische gegevens op basis van [dynamische beheerweergaven](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+> Deze functie is nog niet beschikbaar in het beheerde exemplaar. Als alternatief kunt u SQL Agent gebruiken om e-mail waarschuwingen te verzenden voor bepaalde metrische gegevens op basis van [dynamische beheer weergaven](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
-U kunt een waarschuwing op basis van bewaking metrische gegevens voor of gebeurtenissen op uw Azure-services kunt ontvangen.
+U kunt een waarschuwing ontvangen op basis van metrische bewakings gegevens voor of gebeurtenissen op uw Azure-Services.
 
-* **Metrische waarden** -de waarschuwing wordt geactiveerd wanneer de waarde van een opgegeven metrische gegevens van een drempel die u in beide richtingen toewijst overschrijden. Dat wil zeggen, deze beide wordt geactiveerd wanneer eerst aan de voorwaarde is voldaan en klik daarna als die voorwaarde is niet meer wordt voldaan aan.    
-* **Gebeurtenissen in het activiteitenlogboek** -een waarschuwing kunt activeren op *elke* gebeurtenis of alleen wanneer een bepaald aantal gebeurtenissen optreden.
+* **Metrische waarden** : de waarschuwing wordt geactiveerd wanneer de waarde van een opgegeven metriek een drempel overschrijdt die u in een van beide richtingen toewijst. Dat wil zeggen dat het wordt geactiveerd wanneer aan de voor waarde wordt voldaan en daarna wanneer aan deze voor waarde niet meer wordt voldaan.    
+* **Activiteiten logboek gebeurtenissen** : een waarschuwing kan worden geactiveerd bij *elke* gebeurtenis of, alleen wanneer er een bepaald aantal gebeurtenissen optreedt.
 
-Een waarschuwing als u wilt de volgende handelingen uit wanneer deze wordt geactiveerd, kunt u configureren:
+U kunt een waarschuwing configureren om het volgende te doen wanneer deze wordt geactiveerd:
 
-* e-mailmeldingen verzenden naar de servicebeheerder en medebeheerders
-* e-mail verzenden naar extra e-mailadressen die u opgeeft.
-* Een webhook aanroepen
+* e-mail meldingen verzenden naar de service beheerder en mede beheerders
+* e-mail verzenden naar extra e-mail berichten die u opgeeft.
+* een webhook aanroepen
 
-U kunt configureren en informatie over met behulp van regels voor waarschuwingen
+U kunt informatie over waarschuwings regels configureren en ophalen met behulp van
 
-* [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Azure-portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
-* [Opdrachtregelinterface (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
+* [opdracht regel interface (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Een waarschuwingsregel maken op een metrische waarde met de Azure-portal
-1. In de [portal](https://portal.azure.com/), zoek de resource die u geïnteresseerd bent in controle en selecteer deze.
-2. Selecteer **waarschuwingen (klassiek)** onder de sectie bewaking. De tekst en het pictogram kunnen verschillen voor verschillende resources.  
+## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Een waarschuwings regel maken op basis van een metriek met de Azure Portal
+1. Zoek in de [Portal](https://portal.azure.com/)de resource die u wilt bewaken en selecteer deze.
+2. Selecteer **waarschuwingen (klassiek)** in het gedeelte bewaking. De tekst en het pictogram kunnen enigszins verschillen voor verschillende resources.  
    
      ![Bewaking](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **ALLEEN SQL DW**: Klik op de **DWU-gebruik** graph. Selecteer **klassieke waarschuwingen weergeven**
+   - **ALLEEN SQL DW**: Klik op de **DWU-gebruiks** grafiek. **Klassieke waarschuwingen weer geven** selecteren
 
-3. Selecteer de **metrische waarschuwing toevoegen (klassiek)** knop en vul de velden in.
+3. Selecteer de knop **metrische waarschuwing toevoegen (klassiek)** en vul de velden in.
    
     ![Waarschuwing toevoegen](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
-4. **Naam** de waarschuwing regel en kies een **beschrijving**, die ook weergegeven in e-mailmeldingen.
-5. Selecteer de **Metric** u wilt controleren, en kies vervolgens een **voorwaarde** en **drempelwaarde** waarde voor de metrische gegevens. Ook voor kiezen de **periode** van de tijd waarop de regel voor metrische gegevens moet worden voldaan voordat de waarschuwing triggers. Bijvoorbeeld als u de periode 'PT5M' en de waarschuwing voor CPU ziet er uit meer dan 80%, de waarschuwing wordt geactiveerd wanneer de **gemiddelde** CPU gedurende vijf minuten meer dan 80% is geweest. Nadat de eerste trigger is het geval is, wordt deze opnieuw geactiveerd wanneer de gemiddelde CPU lager dan 80% meer dan vijf minuten is. De meting van CPU doet zich voor elke minuut. Raadpleeg de onderstaande tabel voor ondersteunde tijdvensters en typt u de aggregatie die elke waarschuwing gebruikt en niet alle waarschuwingen de gemiddelde waarde gebruiken.   
-6. Controleer **e-eigenaren...**  als u wilt dat beheerders en medebeheerders moet worden verzonden wanneer de waarschuwing wordt geactiveerd.
-7. Als u aanvullende e-mailberichten wilt die een melding ontvangen wanneer de waarschuwing wordt geactiveerd, voegt u ze op in de **beheerder email(s)** veld. Meerdere e-mailberichten gescheiden door puntkomma's - *e\@contoso.com;email2\@contoso.com*
-8. Plaats in een geldige URI in de **Webhook** veld als u wilt dat deze wordt aangeroepen wanneer de waarschuwing wordt geactiveerd.
-9. Selecteer **OK** wanneer u klaar bent om de waarschuwing te genereren.   
+4. Geef uw waarschuwings regel een **naam** en kies een **Beschrijving**die ook in e-mail meldingen wordt weer gegeven.
+5. Selecteer de **metrische gegevens** die u wilt bewaken en kies vervolgens een voor **waarde** en **drempel** waarde voor de metriek. Kies ook de tijds **periode** waaraan de metrische regel moet voldoen voordat de waarschuwing wordt geactiveerd. Als u bijvoorbeeld de periode ' PT5M ' gebruikt en uw waarschuwing zoekt naar een CPU van meer dan 80%, wordt de waarschuwing geactiveerd wanneer de **gemiddelde** CPU gedurende vijf minuten meer dan 80% is geweest. Zodra de eerste trigger plaatsvindt, wordt deze opnieuw geactiveerd wanneer de gemiddelde CPU onder 80% meer dan vijf minuten is. De CPU-meting vindt elke 1 minuut plaats. Raadpleeg de onderstaande tabel voor ondersteunde tijd Vensters en het samenvoegings type dat elke waarschuwing gebruikt: niet alle waarschuwingen gebruiken de gemiddelde waarde.   
+6. **E-mail eigenaren controleren...** als u wilt dat beheerders en mede beheerders een e-mail ontvangen wanneer de waarschuwing wordt geactiveerd.
+7. Als u wilt dat extra e-mails een melding ontvangen wanneer de waarschuwing wordt geactiveerd, voegt u deze toe in het veld **extra beheerder e-mail (s)** . Meerdere e-mail berichten scheiden met punt komma's *:\@e-mail contoso. com;\@email2 contoso.com*
+8. Plaats een geldige URI in het veld **webhook** als u wilt dat deze wordt aangeroepen wanneer de waarschuwing wordt geactiveerd.
+9. Selecteer **OK** wanneer u klaar bent om de waarschuwing te maken.   
 
-Binnen een paar minuten, wordt de waarschuwing is actief en wordt geactiveerd als eerder beschreven.
+Binnen een paar minuten is de waarschuwing actief en worden triggers zoals eerder beschreven.
 
 ## <a name="managing-your-alerts"></a>Uw waarschuwingen beheren
-Als u een waarschuwing hebt gemaakt, kunt u dit selecteren en:
+Zodra u een waarschuwing hebt gemaakt, kunt u deze selecteren en:
 
-* Bekijk een grafiek weer met de drempelwaarde voor metrische gegevens en de werkelijke waarden van de vorige dag.
-* Bewerken of te verwijderen.
-* **Uitschakelen** of **inschakelen** als u wilt tijdelijk stoppen of doorgaan met het ontvangen van meldingen voor deze waarschuwing.
+* Een grafiek weer geven met de metrische drempel waarde en de werkelijke waarden van de vorige dag.
+* Bewerk of verwijder deze.
+* **Schakel deze optie** **in** of uit als u het ontvangen van meldingen voor die waarschuwing tijdelijk wilt stoppen of hervatten.
 
 
-## <a name="sql-database-alert-values"></a>Waarschuwing waarden SQL-Database
+## <a name="sql-database-alert-values"></a>SQL Database waarschuwings waarden
 
-| Resourcetype | Naam van meetwaarde | Beschrijvende naam | Aggregatietype | Minimale waarschuwing tijdvenster|
+| Resourcetype | Naam van meetwaarde | Beschrijvende naam | Aggregatietype | Venster minimale waarschuwings tijd|
 | --- | --- | --- | --- | --- |
-| SQL-database | cpu_percent | CPU-percentage | Gemiddeld | 5 minuten |
-| SQL-database | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddeld | 5 minuten |
-| SQL-database | log_write_percent | Logboek-IO-percentage | Gemiddeld | 5 minuten |
-| SQL-database | dtu_consumption_percent | DTU-percentage | Gemiddeld | 5 minuten |
-| SQL-database | opslag | Totale databasegrootte | Maximum | 30 minuten |
+| SQL-database | cpu_percent | Processorpercentage | Average | 5 minuten |
+| SQL-database | physical_data_read_percent | Percentage gegevens-IO | Average | 5 minuten |
+| SQL-database | log_write_percent | Percentage logboek-IO | Average | 5 minuten |
+| SQL-database | dtu_consumption_percent | DTU-percentage | Average | 5 minuten |
+| SQL-database | opslag | Totale database grootte | Maximum | 30 minuten |
 | SQL-database | connection_successful | Geslaagde verbindingen | Totaal | 10 minuten |
 | SQL-database | connection_failed | Mislukte verbindingen | Totaal | 10 minuten |
-| SQL-database | blocked_by_firewall | Geblokkeerd door Firewall | Totaal | 10 minuten |
-| SQL-database | Impasse | Deadlocks | Totaal | 10 minuten |
+| SQL-database | blocked_by_firewall | Geblokkeerd door de firewall | Totaal | 10 minuten |
+| SQL-database | constateer | Deadlocks | Totaal | 10 minuten |
 | SQL-database | storage_percent | Databaseomvangpercentage | Maximum | 30 minuten |
-| SQL-database | xtp_storage_percent | In-Memory OLTP-opslag percent(Preview) | Gemiddeld | 5 minuten |
-| SQL-database | workers_percent | Percentage van de werknemers | Gemiddeld | 5 minuten |
-| SQL-database | sessions_percent | Sessies procent | Gemiddeld | 5 minuten |
-| SQL-database | dtu_limit | DTU-limiet | Gemiddeld | 5 minuten |
-| SQL-database | dtu_used | DTU gebruikt | Gemiddeld | 5 minuten |
+| SQL-database | xtp_storage_percent | Percentage OLTP-opslag in het geheugen (preview-versie) | Average | 5 minuten |
+| SQL-database | workers_percent | Werknemerspercentage | Average | 5 minuten |
+| SQL-database | sessions_percent | Percentage sessies | Average | 5 minuten |
+| SQL-database | dtu_limit | DTU-limiet | Average | 5 minuten |
+| SQL-database | dtu_used | DTU gebruikt | Average | 5 minuten |
 ||||||
-| Elastische pool | cpu_percent | CPU-percentage | Gemiddeld | 10 minuten |
-| Elastische pool | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddeld | 10 minuten |
-| Elastische pool | log_write_percent | Logboek-IO-percentage | Gemiddeld | 10 minuten |
-| Elastische pool | dtu_consumption_percent | DTU-percentage | Gemiddeld | 10 minuten |
-| Elastische pool | storage_percent | Opslagpercentage | Gemiddeld | 10 minuten |
-| Elastische pool | workers_percent | Percentage van de werknemers | Gemiddeld | 10 minuten |
-| Elastische pool | eDTU_limit | eDTU-limiet | Gemiddeld | 10 minuten |
-| Elastische pool | storage_limit | Limiet voor opslag | Gemiddeld | 10 minuten |
-| Elastische pool | eDTU_used | eDTU gebruikt | Gemiddeld | 10 minuten |
-| Elastische pool | storage_used | Gebruikte opslag | Gemiddeld | 10 minuten |
+| Elastische pool | cpu_percent | Processorpercentage | Average | 10 minuten |
+| Elastische pool | physical_data_read_percent | Percentage gegevens-IO | Average | 10 minuten |
+| Elastische pool | log_write_percent | Percentage logboek-IO | Average | 10 minuten |
+| Elastische pool | dtu_consumption_percent | DTU-percentage | Average | 10 minuten |
+| Elastische pool | storage_percent | Opslag percentage | Average | 10 minuten |
+| Elastische pool | workers_percent | Werknemerspercentage | Average | 10 minuten |
+| Elastische pool | eDTU_limit | eDTU-limiet | Average | 10 minuten |
+| Elastische pool | storage_limit | Opslag limiet | Average | 10 minuten |
+| Elastische pool | eDTU_used | eDTU gebruikt | Average | 10 minuten |
+| Elastische pool | storage_used | Opslag gebruikt | Average | 10 minuten |
 ||||||               
-| SQL datawarehouse | cpu_percent | CPU-percentage | Gemiddeld | 10 minuten |
-| SQL datawarehouse | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddeld | 10 minuten |
-| SQL datawarehouse | connection_successful | Geslaagde verbindingen | Totaal | 10 minuten |
-| SQL datawarehouse | connection_failed | Mislukte verbindingen | Totaal | 10 minuten |
-| SQL datawarehouse | blocked_by_firewall | Geblokkeerd door Firewall | Totaal | 10 minuten |
-| SQL datawarehouse | service_level_objective | De servicelaag van de database | Totaal | 10 minuten |
-| SQL datawarehouse | dwu_limit | dwu-limiet | Maximum | 10 minuten |
-| SQL datawarehouse | dwu_consumption_percent | DWU-percentage | Gemiddeld | 10 minuten |
-| SQL datawarehouse | dwu_used | Gebruikte DWU | Gemiddeld | 10 minuten |
+| SQL data warehouse | cpu_percent | Processorpercentage | Average | 10 minuten |
+| SQL data warehouse | physical_data_read_percent | Percentage gegevens-IO | Average | 10 minuten |
+| SQL data warehouse | connection_successful | Geslaagde verbindingen | Totaal | 10 minuten |
+| SQL data warehouse | connection_failed | Mislukte verbindingen | Totaal | 10 minuten |
+| SQL data warehouse | blocked_by_firewall | Geblokkeerd door de firewall | Totaal | 10 minuten |
+| SQL data warehouse | service_level_objective | Servicelaag van de data base | Totaal | 10 minuten |
+| SQL data warehouse | dwu_limit | limiet voor dwu | Maximum | 10 minuten |
+| SQL data warehouse | dwu_consumption_percent | Percentage DWU | Average | 10 minuten |
+| SQL data warehouse | dwu_used | DWU gebruikt | Average | 10 minuten |
 ||||||
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Bekijk een overzicht van Azure-bewaking](../monitoring-and-diagnostics/monitoring-overview.md) met inbegrip van de typen gegevens die u kunt verzamelen en controleren.
-* Meer informatie over [configureren van webhooks in waarschuwingen](../azure-monitor/platform/alerts-webhooks.md).
-* Krijgen een [overzicht van diagnostische logboeken](../azure-monitor/platform/diagnostic-logs-overview.md) en verzamelen van gedetailleerde metrische gegevens voor hoge frequentie op uw service.
-* Krijgen een [overzicht van metrische gegevens verzameling](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) om ervoor te zorgen dat uw service beschikbaar is en reageert.
+* [Bekijk een overzicht van Azure-bewaking](../monitoring-and-diagnostics/monitoring-overview.md) , inclusief de typen gegevens die u kunt verzamelen en controleren.
+* Meer informatie over het [configureren van webhooks in waarschuwingen](../azure-monitor/platform/alerts-webhooks.md).
+* Bekijk een [overzicht van Diagnostische logboeken](../azure-monitor/platform/diagnostic-logs-overview.md) en verzamel gedetailleerde metrische gegevens over hoge frequentie voor uw service.
+* Bekijk een [overzicht van de verzameling metrische gegevens](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) om te controleren of uw service beschikbaar is en reageert.

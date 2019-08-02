@@ -1,39 +1,39 @@
 ---
-title: Optimaliseren aanvraageenheden en de kosten voor het uitvoeren van query's in Azure Cosmos DB
-description: Informatie over het evalueren van de kosten van de aanvraag unit voor een query en de query in termen van prestaties en kosten te optimaliseren.
+title: De aanvraag eenheden en kosten voor het uitvoeren van query's in Azure Cosmos DB optimaliseren
+description: Meer informatie over het evalueren van de kosten voor aanvraag eenheden voor een query en het optimaliseren van de query in termen van prestaties en kosten.
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/01/2019
 ms.author: rimman
-ms.openlocfilehash: 2d1ac054abf4bb8228bdb5cc20d79cb751af7a33
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bdf223e60015c4e5d96416f95c410854a057c02c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967436"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717007"
 ---
-# <a name="optimize-query-cost-in-azure-cosmos-db"></a>Kosten van de query in Azure Cosmos DB optimaliseren
+# <a name="optimize-query-cost-in-azure-cosmos-db"></a>Query kosten optimaliseren in Azure Cosmos DB
 
-Azure Cosmos DB biedt een uitgebreide set databasebewerkingen, waaronder relationele en hiërarchische query's die worden uitgevoerd op de items in een container. De kosten die gepaard gaan met elk van deze bewerkingen varieert op basis van de CPU, IO en geheugen die nodig is om de bewerking te voltooien. In plaats van nadenken over en beheren van hardware, kunt u een aanvraageenheid (RU) als één maateenheid voor de resources die nodig zijn om uit te voeren van de verschillende databasebewerkingen om van dienst van een aanvraag te zien. In dit artikel wordt beschreven hoe u aanvraag eenheid kosten voor een query evalueren en de query in termen van prestaties en kosten te optimaliseren. 
+Azure Cosmos DB biedt een uitgebreide set database bewerkingen, waaronder relationele en hiërarchische query's die worden uitgevoerd op de items in een container. De kosten die aan elk van deze bewerkingen zijn gekoppeld, zijn afhankelijk van de CPU, IO en het geheugen die nodig zijn om de bewerking te volt ooien. In plaats van te denken over en het beheren van hardwarebronnen, kunt u een aanvraag eenheid (RU) beschouwen als een enkele maat eenheid voor de resources die nodig zijn om verschillende database bewerkingen uit te voeren om een aanvraag te behandelen. In dit artikel wordt beschreven hoe u de kosten voor aanvraag eenheden voor een query kunt evalueren en de query kunt optimaliseren in termen van prestaties en kosten. 
 
-Query's in Azure Cosmos DB zijn doorgaans gerangschikt op de snelste/meest efficiënt te trager/minder efficiënte in termen van doorvoer als volgt:  
+Query's in Azure Cosmos DB meestal worden besteld van snelst/meest efficiënte naar trage/minder efficiënte manier van door Voer als volgt:  
 
-* GET-bewerking op een enkele partitiesleutel en Itemsleutel.
+* GET-bewerking op één partitie sleutel en item sleutel.
 
-* Query's uitvoeren met een filterclausule op één partitiesleutel.
+* Query met een filter component binnen één partitie sleutel.
 
-* Een query uitvoeren zonder een filtercomponent gelijkheid of het bereik op een eigenschap.
+* Query zonder een gelijkheids-of bereik filter component voor een eigenschap.
 
-* Een query zonder filters.
+* Query zonder filters.
 
-Query's die gegevens uit een of meer partities lezen in rekening worden gebracht hogere latentie en hoe hoger de waarde van aanvraageenheden gebruiken. Aangezien elke partitie automatische indexering voor alle eigenschappen heeft, kan de query efficiënt worden uitgevoerd in de index. U kunt query's die gebruikmaken van meerdere partities sneller met behulp van de opties voor parallelle uitvoering. Zie voor meer informatie over partitionering en partitiesleutels [partitionering in Azure Cosmos DB](partitioning-overview.md).
+Query's waarmee gegevens van een of meer partities worden gelezen, hebben een hogere latentie en nemen een hoger aantal aanvraag eenheden in beslag. Omdat elke partitie automatische indexering voor alle eigenschappen heeft, kan de query efficiënt vanuit de index worden bediend. U kunt query's die gebruikmaken van meerdere partities sneller maken met behulp van de parallelle opties. Zie voor meer informatie over partitionering en partitiesleutels [partitionering in Azure Cosmos DB](partitioning-overview.md).
 
-## <a name="evaluate-request-unit-charge-for-a-query"></a>Kosten voor aanvraag-eenheden voor een query evalueren
+## <a name="evaluate-request-unit-charge-for-a-query"></a>De kosten voor aanvraag eenheden voor een query evalueren
 
-Zodra u sommige gegevens in uw Azure Cosmos-containers hebt opgeslagen, kunt u de Data Explorer in Azure portal te maken en uw query's uitvoeren. U kunt ook de kosten van de query's ophalen met behulp van data explorer. Deze methode geeft u een idee van de werkelijke kosten in rekening gebracht bij normale query's en bewerkingen die ondersteuning biedt voor uw systeem.
+Zodra u enkele gegevens in uw Azure Cosmos-containers hebt opgeslagen, kunt u de Data Explorer in de Azure Portal gebruiken om uw query's te maken en uit te voeren. U kunt de kosten van de query's ook ophalen met behulp van Data Explorer. Deze methode geeft u een idee van de werkelijke kosten die worden betrokken bij typische query's en bewerkingen die uw systeem ondersteunt.
 
-U kunt ook de kosten van query's via een programma ophalen met behulp van de SDK's. Voor het meten van de overhead van elke bewerking zoals zoals het maken, bijwerken of verwijderen controleren de `x-ms-request-charge` header bij het gebruik van REST-API. Als u de .NET of de Java SDK, de `RequestCharge` eigenschap is de eigenschap gelijk aan de aanvraag kosten in rekening gebracht en deze eigenschap is aanwezig in de ResourceResponse of FeedResponse.
+U kunt de kosten van query's ook programmatisch ophalen met behulp van de Sdk's. Als u de overhead van elke bewerking wilt meten, zoals maken, bijwerken of verwijderen, `x-ms-request-charge` moet u de koptekst controleren bij gebruik van rest API. Als u .net of de Java SDK gebruikt, is de `RequestCharge` eigenschap de equivalente eigenschap om de aanvraag kosten op te halen en deze eigenschap is aanwezig in de ResourceResponse of FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -51,15 +51,15 @@ while (queryable.HasMoreResults)
      }
 ```
 
-## <a name="factors-influencing-request-unit-charge-for-a-query"></a>Factoren die invloed op verzoek-eenheid in rekening gebracht voor een query
+## <a name="factors-influencing-request-unit-charge-for-a-query"></a>Factoren die van invloed zijn op de kosten voor aanvraag eenheden voor een query
 
-Aanvraageenheden voor query's zijn afhankelijk van een aantal factoren. Bijvoorbeeld, het aantal items van Azure Cosmos geladen/geretourneerd, het aantal lookups op basis van de index, het opstellen van query tijd, enz. meer informatie. Azure Cosmos DB garandeert dat dezelfde query bij het op dezelfde gegevens altijd hetzelfde aantal aanvraageenheden zelfs met herhalingen uitvoeringen wordt verbruikt. De query-profiel met behulp van de query uitvoering van metrische gegevens biedt u een goed inzicht in hoe de basis van aanvraageenheden worden gebruikt.  
+Aanvraag eenheden voor query's zijn afhankelijk van een aantal factoren. Bijvoorbeeld het aantal Azure Cosmos-items dat is geladen/geretourneerd, het aantal lookups op basis van de index, de compilatie tijd van de query etc. Details. Azure Cosmos DB garandeert dat bij het uitvoeren van dezelfde query altijd hetzelfde aantal aanvraag eenheden wordt gebruikt, zelfs bij herhalingen. Het query profiel met metrische gegevens voor query uitvoering geeft u een goed beeld van de manier waarop de aanvraag eenheden worden uitgegeven.  
 
-In sommige gevallen ziet u een reeks van 200 en 429 antwoorden en variabele aanvraageenheden in een resultatenpagina's uitvoering van query's, omdat de query's zo snel mogelijk op basis van de beschikbare ru's worden uitgevoerd. Mogelijk ziet u de uitvoering van een query op te splitsen in meerdere pagina's / retouren tussen server en client. Bijvoorbeeld kunnen 10.000 items worden geretourneerd als meerdere pagina's, elk in rekening gebracht op basis van de berekening uitgevoerd voor die pagina. Als u op deze pagina's telt, krijgt u moet hetzelfde aantal ru's, u voor de hele query krijgt.  
+In sommige gevallen ziet u mogelijk een reeks van 200-en 429-reacties en variabele-aanvraag eenheden in een wissel bare uitvoering van query's, dat wil zeggen dat query's zo snel mogelijk worden uitgevoerd op basis van het beschik bare RUs. Mogelijk wordt het uitvoeren van een query met meerdere pagina's of afrondingen tussen de server en de client weer geven. 10.000-items kunnen bijvoorbeeld worden geretourneerd als meerdere pagina's, waarbij elke kosten worden berekend op basis van de berekening die voor die pagina is uitgevoerd. Wanneer u de som van deze pagina's opneemt, moet u hetzelfde aantal RUs ophalen als voor de hele query.  
 
 ## <a name="metrics-for-troubleshooting"></a>Metrische gegevens voor het oplossen van problemen
 
-De prestaties en de doorvoer die voornamelijk worden gebruikt door query's, gebruiker gedefinieerde functies (UDF's), is afhankelijk van de hoofdtekst van de functie. De eenvoudigste manier om erachter te komen hoeveel tijd van de uitvoering van de query in de UDF en het aantal ru's die worden gebruikt, is door in te schakelen van de Query metrische gegevens. Als u de .NET SDK gebruikt, moet u dit voorbeeld query metrische gegevens die wordt geretourneerd door de SDK zijn:
+De prestaties en de door Voer die worden gebruikt door query's, door de gebruiker gedefinieerde functies (Udf's), zijn grotendeels afhankelijk van de functie hoofd tekst. De eenvoudigste manier om erachter te komen hoe lang de uitvoering van de query wordt uitgevoerd in de UDF en hoeveel RUs wordt verbruikt, is door de metrische gegevens van de query in te scha kelen. Als u de .NET SDK gebruikt, ziet u hier de metrische gegevens van de voorbeeld query die door de SDK worden geretourneerd:
 
 ```bash
 Retrieved Document Count                 :               1              
@@ -85,30 +85,30 @@ Total Query Execution Time               :   �
     Request Charge                       :            3.19 RUs  
 ```
 
-## <a name="best-practices-to-cost-optimize-queries"></a>Aanbevolen procedures om de kosten te optimaliseren van query 's 
+## <a name="best-practices-to-cost-optimize-queries"></a>Aanbevolen procedures voor het optimaliseren van query's 
 
 Houd rekening met de volgende aanbevolen procedures bij het optimaliseren van query's voor kosten:
 
-* **Meerdere Entiteitstypen plaatsen**
+* **Meerdere entiteits typen selecteren**
 
-   Probeer meerdere Entiteitstypen binnen een enkele of kleinere aantal containers plaatsen. Deze methode voordelen niet alleen vanuit het oogpunt van de prijzen, maar ook voor het uitvoeren van query's en transacties. Query's zijn gericht op een enkele container; en atomische transacties via meerdere records via opgeslagen procedures/triggers worden afgestemd op een partitiesleutel binnen een enkele container. Entiteiten in dezelfde container plaatsen kunt verminderen het aantal netwerk retouren om op te lossen relaties voor records. Dus dit verhoogt de end-to-end-prestaties, kunt atomische transacties via meerdere records voor een grotere gegevensset en verlaagt de kosten als gevolg hiervan. Als meerdere Entiteitstypen binnen een enkele of kleinere aantal containers plaatsen moeilijk voor uw scenario, meestal omdat u een bestaande toepassing migreert en u niet wilt aanbrengen van codewijzigingen - u moet vervolgens kunt u inrichting doorvoer op het databaseniveau van de.  
+   Probeer meerdere entiteits typen te verplaatsen binnen één of een kleiner aantal containers. Deze methode levert niet alleen voor delen op uit een prijs perspectief, maar ook voor het uitvoeren van query's en trans acties. Query's zijn binnen het bereik van één container; en atomische trans acties ten opzichte van meerdere records via opgeslagen procedures/triggers bevinden zich binnen één container op een partitie sleutel. Het verplaatsen van entiteiten binnen dezelfde container kan het aantal netwerk round trips voor het oplossen van relaties tussen records verminderen. Hierdoor worden de end-to-end-prestaties verhoogd, kunnen atomische trans acties worden uitgevoerd via meerdere records voor een grotere gegevensset, en als gevolg hiervan worden de kosten verlaagd. Als het deel nemen van meerdere entiteits typen binnen één of kleiner aantal containers moeilijk is voor uw scenario, meestal omdat u een bestaande toepassing migreert en u geen code wijzigingen wilt aanbrengen, moet u overwegen om in te richten door Voer op database niveau.  
 
-* **Meet en af te stemmen voor lagere aanvraag aanvraageenheden/seconde gebruik**
+* **Meten en afstemmen voor lagere aanvraag eenheden/tweede gebruik**
 
-   De complexiteit van een query heeft gevolgen voor het aantal aanvraageenheden (ru's) worden gebruikt voor een bewerking. Het aantal predikaten, aard van de predikaten, aantal UDF's en de grootte van de bron-gegevensset. Al deze factoren van invloed zijn op de kosten van querybewerkingen. 
+   De complexiteit van een query is van invloed op het aantal aanvraag eenheden (RUs) dat voor een bewerking wordt gebruikt. Het aantal predikaten, de aard van de predikaten, het aantal Udf's en de grootte van de bron gegevensverzameling. Al deze factoren beïnvloeden de kosten van de query bewerkingen. 
 
-   Aanvraag kosten in rekening gebracht die worden geretourneerd in de aanvraagheader geeft de kosten van een bepaalde query. Bijvoorbeeld, als een query 1000 1 KB-artikelen retourneert, is de kosten van de bewerking 1000. Binnen één seconde houdt de server daarom slechts twee dergelijke aanvragen voordat de volgende aanvragen beperken. Zie voor meer informatie, [aanvraageenheden](request-units.md) artikel en de aanvraag eenheid calculator. 
+   In de aanvraag header worden de kosten van een bepaalde query geretourneerd. Als een query bijvoorbeeld 1000 1 KB-items retourneert, zijn de kosten van de bewerking 1000. Binnen één seconde voldoet de server slechts twee aanvragen voordat de volgende aanvragen worden beperkt. Zie het artikel [aanvraag eenheden](request-units.md) en de Calculator van de aanvraag eenheid voor meer informatie. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Vervolgens kunt u doorgaan naar meer informatie over kostenoptimalisatie in Azure Cosmos DB met de volgende artikelen:
+Daarna kunt u meer te weten komen over cost Optimization in Azure Cosmos DB met de volgende artikelen:
 
-* Meer informatie over [hoe Azure Cosmos prijzen](how-pricing-works.md)
-* Meer informatie over [optimaliseren voor de ontwikkeling en testen](optimize-dev-test.md)
-* Meer informatie over [informatie over uw factuur voor Azure Cosmos DB](understand-your-bill.md)
-* Meer informatie over [doorvoer kosten optimaliseren](optimize-cost-throughput.md)
-* Meer informatie over [opslagkosten te optimaliseren](optimize-cost-storage.md)
-* Meer informatie over [optimaliseren van de kosten van lees- en schrijfbewerkingen](optimize-cost-reads-writes.md)
-* Meer informatie over [optimaliseren van de kosten van Azure Cosmos-accounts voor meerdere regio's](optimize-cost-regions.md)
+* Meer informatie over [hoe prijzen voor Azure Cosmos werken](how-pricing-works.md)
+* Meer informatie over het [optimaliseren voor ontwikkeling en testen](optimize-dev-test.md)
+* Meer informatie over [uw Azure Cosmos DB factuur](understand-your-bill.md)
+* Meer informatie over het [optimaliseren van doorvoer kosten](optimize-cost-throughput.md)
+* Meer informatie over het [optimaliseren van opslag kosten](optimize-cost-storage.md)
+* Meer informatie over [het optimaliseren van de kosten van lees-en schrijf bewerkingen](optimize-cost-reads-writes.md)
+* Meer informatie over [het optimaliseren van de kosten voor Azure Cosmos-accounts met meerdere regio's](optimize-cost-regions.md)
 * Meer informatie over [Azure Cosmos DB gereserveerde capaciteit](cosmos-db-reserved-capacity.md)
 

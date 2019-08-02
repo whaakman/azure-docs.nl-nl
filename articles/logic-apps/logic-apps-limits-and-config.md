@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: b649ea1c69f82840a663cf32391e4c74ac6cc33e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: dd4eef7998b83c7a527738762379d0d3e720d70f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68319513"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699821"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limieten en configuratie-informatie voor Azure Logic Apps
 
@@ -175,7 +175,7 @@ Dit zijn de limieten voor aangepaste connectors die u kunt maken op basis van we
 
 Elk Azure-abonnement heeft deze limieten voor het integratie account:
 
-* Eén integratie account voor de [gratis laag](../logic-apps/logic-apps-pricing.md#integration-accounts)
+* Eén integratie account voor de [gratis laag](../logic-apps/logic-apps-pricing.md#integration-accounts) per Azure-regio
 
 * 1\.000 totaal aantal integratie accounts, met inbegrip van integratie accounts in een [ISE (Integration service Environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) voor zowel [ontwikkel aars als Premium-sku's](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
@@ -198,22 +198,22 @@ Dit zijn de limieten voor het aantal artefacten voor elke laag van de integratie
 > [!NOTE]
 > Gebruik de laag gratis alleen voor experimentele scenario's, niet voor productie scenario's. Deze laag beperkt de door Voer en het gebruik en heeft geen SLA (Service Level Agreement).
 
-| Werp | Free | Basic | Standard |
+| Artefact | Free | Basic | Standard |
 |----------|------|-------|----------|
 | EDI-handels overeenkomsten | 10 | 1 | 1000 |
 | EDI-handels partners | 25 | 2 | 1000 |
 | Kaarten | 25 | 500 | 1000 |
-| Schema 's | 25 | 500 | 1000 |
+| Schema's | 25 | 500 | 1000 |
 | Assembly's | 10 | 25 | 1000 |
 | Certificaten | 25 | 2 | 500 |
-| Batch configuraties | 5 | 1 | 50 |
+| Batchconfiguraties | 5 | 1 | 50 |
 ||||
 
 <a name="artifact-capacity-limits"></a>
 
 ### <a name="artifact-capacity-limits"></a>Capaciteits limieten artefacten
 
-| Werp | Limiet | Opmerkingen |
+| Artefact | Limiet | Opmerkingen |
 | -------- | ----- | ----- |
 | Assembly | 8 MB | Als u bestanden wilt uploaden die groter zijn dan 2 MB, gebruikt u een [Azure-opslag account en een BLOB-container](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 | Kaart (XSLT-bestand) | 8 MB | Als u bestanden wilt uploaden die groter zijn dan 2 MB, gebruikt u de [Azure Logic apps-rest API-kaarten](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). |
@@ -253,9 +253,9 @@ Wanneer u een logische app verwijdert, worden geen nieuwe uitvoeringen gemaakt. 
 
 ## <a name="firewall-configuration-ip-addresses"></a>Firewallconfiguratie: IP-adressen
 
-Alle Logic apps in dezelfde regio gebruiken dezelfde IP-adresbereiken. Ter ondersteuning van de aanroepen die uw Logic apps rechtstreeks aanbrengt met [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)en andere HTTP-aanvragen, stelt u uw firewalls in met *alle* [inkomende](#inbound) *en* [uitgaande](#outbound) IP-adressen die worden gebruikt door de Logic apps-service op basis van de regio's waar uw Logic apps bestaan. Deze adressen worden weer gegeven  onder de kopteksten binnenkomend en uitgaand in deze sectie en worden per regio gesorteerd.
+Alle Logic apps in dezelfde regio gebruiken dezelfde IP-adresbereiken. Ter ondersteuning van de aanroepen die uw Logic apps rechtstreeks aanbrengt met [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)en andere HTTP-aanvragen, stelt u uw firewalls in met *alle* [inkomende](#inbound) *en* [uitgaande](#outbound) IP-adressen die worden gebruikt door de Logic apps-service op basis van de regio's waar uw Logic apps bestaan. Deze adressen worden weer gegeven onder de kopteksten binnenkomend en uitgaand in deze sectie en worden per regio gesorteerd.
 
-Om de aanroepen te ondersteunen die door [micro soft beheerde connectors](../connectors/apis-list.md) worden gemaakt, stelt u uw firewall in met *alle* [uitgaande](#outbound) IP-adressen die door deze connectors worden gebruikt, op basis van de regio's waar uw Logic apps bestaan. Deze adressen worden weer gegeven  onder de kop uitgaand in deze sectie en worden per regio gesorteerd.
+Om de aanroepen te ondersteunen die door [micro soft beheerde connectors](../connectors/apis-list.md) worden gemaakt, stelt u uw firewall in met *alle* [uitgaande](#outbound) IP-adressen die door deze connectors worden gebruikt, op basis van de regio's waar uw Logic apps bestaan. Deze adressen worden weer gegeven onder de kop uitgaand in deze sectie en worden per regio gesorteerd.
 
 Voor [Azure Government](../azure-government/documentation-government-overview.md) en [Azure China 21vianet](https://docs.microsoft.com/azure/china/)zijn gereserveerde IP-adressen voor connectors momenteel niet beschikbaar.
 
