@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: 35a4c7410b36e9716d2ee9625ed98fcc34043e58
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 0921a1ac7aa1192fae78f168c2eb51ee3e74e24a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742466"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774611"
 ---
 # <a name="what-is-azure-private-dns"></a>Wat is privé-DNS in Azure?
 
@@ -71,10 +71,11 @@ De volgende items zijn bekende bugs en problemen in de preview-versie:
 
 Azure DNS heeft de volgende beperkingen:
 
-* Een specifiek virtueel netwerk kan aan slechts één privé zone worden gekoppeld alsof automatische registratie van VM-DNS-records is ingeschakeld. U kunt echter meerdere virtuele netwerken koppelen aan één DNS-zone.
+* Een specifiek virtueel netwerk kan aan slechts één privé zone worden gekoppeld als automatische registratie van VM-DNS-records is ingeschakeld. U kunt echter meerdere virtuele netwerken koppelen aan één DNS-zone.
 * Omgekeerde DNS werkt alleen voor particuliere IP-ruimte in het gekoppelde virtuele netwerk
 * Omgekeerde DNS voor een persoonlijk IP-adres voor een gekoppeld virtueel netwerk retourneert "internal.cloudapp.net" als het standaard achtervoegsel voor de virtuele machine. Voor virtuele netwerken die zijn gekoppeld aan een privé zone waarvoor registratie is ingeschakeld, retourneert reverse DNS voor een privé-IP 2 FQDN-namen, een met het standaard achtervoegsel *Internal.cloudapp.net* en een andere met het achtervoegsel van de privé zone.
-* Voorwaardelijk door sturen wordt op het moment niet standaard ondersteund. Om omzetting tussen Azure-en on-premises netwerken mogelijk te maken. Zie [naam omzetting voor vm's en rolinstanties](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+* Voorwaardelijk door sturen wordt op het moment niet standaard ondersteund. Zie [naam omzetting voor vm's en rolinstanties](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)om omzetting tussen Azure-en on-premises netwerken mogelijk te maken.
+
  
 ## <a name="pricing"></a>Prijzen
 

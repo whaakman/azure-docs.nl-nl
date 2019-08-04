@@ -1,7 +1,7 @@
 ---
-title: Taalondersteuning - Translator Text-API
+title: Taal ondersteuning-Translator Text-API
 titleSuffix: Azure Cognitive Services
-description: Een lijst van natuurlijke talen die worden ondersteund door de Translator Text-API.
+description: Een lijst met natuurlijke talen die worden ondersteund door de Translator Text-API.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,133 +10,133 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 14ab1988f28de214036fa80fa36a4006a3359f30
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6ab500fe6a7f288bcfbdc9168ada8bdad5bdb6ea
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435886"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772954"
 ---
-# <a name="language-and-region-support-for-the-translator-text-api"></a>Ondersteuning voor taal en regio voor de Translator Text-API
+# <a name="language-and-region-support-for-the-translator-text-api"></a>Ondersteuning van talen en regio's voor de Translator Text-API
 
-De Translator Text-API ondersteunt de volgende talen voor tekst naar tekst converteren. Neurale machinevertalingen (NMT) is de nieuwe standaard voor AI aangestuurde automatische vertalingen van hoge kwaliteit en is beschikbaar als de standaard met V3 van de Translator Text-API wanneer een neurale systeem beschikbaar is.
+De Translator Text-API ondersteunt de volgende talen voor tekst vertaling. Neural machine translation (NMT) is de nieuwe standaard voor automatische vertalingen van een hoge kwaliteit en is beschikbaar als de standaard waarde met behulp van v3 van de Translator Text-API wanneer er een Neural-systeem beschikbaar is.
 
-[Meer informatie over de werking van automatische vertaling](https://www.microsoft.com/translator/mt.aspx)
+[Meer informatie over hoe automatische vertaling werkt](https://www.microsoft.com/translator/mt.aspx)
 
-## <a name="translation"></a>Omzetting
+## <a name="translation"></a>Vertaling
 
-**V2-Translator API**
-
-> [!NOTE]
-> V2 werd op 30 April 2018 afgeschaft. Migreer uw toepassingen om te profiteren van nieuwe functionaliteit die beschikbaar zijn in V3 uitsluitend V3.
-
-* Statistisch: Er is geen neurale system is beschikbaar voor deze taal.
-* Neurale beschikbaar: Er is een neurale systeem beschikbaar. Gebruik de parameter `category=generalnn` toegang tot het neurale systeem.
-* Neurale standaard: Neurale is de vertaling van het systeem. Gebruik de parameter `category=smt` voor toegang tot de statistische systeem voor gebruik met de Microsoft Translator-Hub.
-* Neurale alleen: Alleen neurale vertalingen is beschikbaar.
-
-**V3-API van Translator** de Translator-API V3 is standaard neurale en statistische systemen zijn alleen beschikbaar wanneer geen neurale systeem bestaat.
+**V2 Translator-API**
 
 > [!NOTE]
-> Op dit moment een subset van de neurale talen zijn beschikbaar in aangepaste Translator en er nieuwe zijn in geleidelijk worden toegevoegd. [Talen die momenteel beschikbaar in aangepaste Translator weergeven](#customization).
+> V2 is op 30 april 2018 afgeschaft. Migreer uw toepassingen naar v3 om te kunnen profiteren van de nieuwe functionaliteit die alleen beschikbaar is in v3.
+
+* Alleen statistisch: Er is geen Neural systeem beschikbaar voor deze taal.
+* Neural beschikbaar: Er is een Neural-systeem beschikbaar. Gebruik de para `category=generalnn` meter om toegang te krijgen tot het Neural-systeem.
+* Neural standaard: Neural is het standaard Vertaal systeem. Gebruik de para `category=smt` meter om toegang te krijgen tot het statistische systeem voor gebruik met de micro soft Translator-hub.
+* Alleen Neural: Alleen Neural-omzetting is beschikbaar.
+
+**V3 Translator-API** De V3 Translator-API is Neural standaard en statistische systemen zijn alleen beschikbaar als er geen Neural-systeem bestaat.
+
+> [!NOTE]
+> Momenteel is een subset van de Neural-talen beschikbaar in het aangepaste conversie programma en worden er geleidelijk extra toegevoegd. [Talen weer geven die momenteel beschikbaar zijn in het aangepaste conversie programma](#customization).
 
 |Taal|  Taalcode|  V2 API| V3 API|
 |:-----|:-----:|:-----|:-----|
 |Afrikaans| `af`    |Alleen statistisch|  Neuraal|
-|Arabisch|    `ar`    |Neurale beschikbaar|  Neuraal|
-|Bengalees|    `bn`    |Neurale beschikbaar|  Neuraal|
-|Bosnisch (Latijns)|   `bs`    |Neurale beschikbaar|  Neuraal|
-|Bulgaars| `bg`    |Neurale beschikbaar|  Neuraal|
-|Kantonees (Traditioneel)|   `yue`   |Alleen statistisch|  Statistische|
-|Catalaans|   `ca`    |Alleen statistisch|  Statistische|
-|Vereenvoudigd Chinees|    `zh-Hans`   |Neurale standaard |Neuraal|
-|Traditioneel Chinees|   `zh-Hant`   |Neurale standaard |Neuraal|
-|Kroatisch|  `hr`    |Neurale beschikbaar|  Neuraal|
-|Tsjechisch| `cs`    |Neurale beschikbaar|  Neuraal|
-|Deens|    `da`    |Neurale beschikbaar   |Neuraal|
-|Nederlands| `nl`    |Neurale beschikbaar|  Neuraal|
-|Nederlands|   `en`    |Neurale beschikbaar|  Neuraal|
-|Estisch|  `et`    |Neurale beschikbaar|  Neuraal|
-|Fiji|    `fj`    |Alleen statistisch|  Statistische|
-|Filipijns|  `fil`   |Alleen statistisch|  Statistische|
-|Fins|   `fi`    |Neurale beschikbaar|  Neuraal|
-|Frans|    `fr`    |Neurale beschikbaar|  Neuraal|
-|Duits|    `de`    |Neurale beschikbaar|  Neuraal|
-|Grieks| `el`    |Neurale beschikbaar|  Neuraal|
-|Haïtiaans|    `ht`    |Alleen statistisch   |Statistische|
-|Hebreeuws |`he`   |Neurale beschikbaar   |Neuraal|
-|Hindi| `hi`    |Neurale standaard|    Neuraal|
-|Hmong Daw| `mww`   |Alleen statistisch|  Statistische|
-|Hongaars| `hu`    |Neurale beschikbaar|  Neuraal|
-|IJslands| `is`    |Alleen Neurale|   Neuraal|
-|Indonesisch|    `id`    |Alleen statistisch|  Statistische|
-|Italiaans|   `it`    |Neurale beschikbaar|  Neuraal|
-|Japans|  `ja`    |Neurale beschikbaar|  Neuraal|
-|Swahili| `sw`    |Alleen statistisch|  Statistische|
-|Klingon|   `tlh`   |Alleen statistisch|  Statistische|
-|Klingon (plqaD)|   `tlh-Qaak`  |Alleen statistisch|  Statistische|
-|Koreaans |`ko`   |Neurale beschikbaar|  Neuraal|
-|Lets|   `lv`    |Neurale beschikbaar|  Neuraal|
-|Litouws|    `lt`    |Neurale beschikbaar|  Neuraal|
-|Malagassische|  `mg`    |Alleen statistisch|  Statistische|
-|Maleis| `ms`    |Alleen statistisch   |Statistische|
-|Maltees|   `mt`    |Alleen statistisch|  Statistische|
-|Noors| `nb`    |Neurale beschikbaar|  Neuraal|
-|Perzisch|   `fa`    |Alleen statistisch|  Statistische|
-|Pools|    `pl`    |Neurale beschikbaar|  Neuraal|
-|Portugees|    `pt`    |Neurale beschikbaar|  Neuraal|
-|Queretaro Otomi|   `otq`   |Alleen statistisch|  Statistische|
-|Roemeens|  `ro`    |Neurale beschikbaar|  Neuraal|
-|Russisch|   `ru`    |Neurale beschikbaar|  Neuraal|
-|Samoaanse|    `sm`    |Alleen statistisch|  Statistische|
-|Servisch (Cyrillisch)|    `sr-Cyrl`   |Alleen statistisch|  Statistische|
-|Servisch (Latijns)|   `sr-Latn`   |Alleen statistisch   |Statistische|
-|Slowaaks|    `sk`    |Neurale beschikbaar|  Neuraal|
-|Sloveens| `sl`    |Neurale beschikbaar|  Neuraal|
-|Spaans|   `es`    |Neurale beschikbaar|  Neuraal|
-|Zweeds|   `sv`    |Neurale beschikbaar   |Neuraal|
-|Tahitian|  `ty`    |Alleen statistisch|  Statistische|
-|Tamil| `ta`    |Alleen statistisch|  Statistische|
-|Telugu|    `te`    |Alleen Neurale|   Neuraal|
-|Thais|  `th`    |Neurale beschikbaar|  Neuraal|
-|Tongan|    `to`    |Alleen statistisch|  Statistische|
-|Turks|   `tr`    |Neurale beschikbaar   |Neuraal|
-|Oekraïens| `uk`    |Neurale beschikbaar|  Neuraal|
-|Urdu|  `ur`    |Alleen statistisch|  Statistische|
-|Vietnamees|    `vi`    |Neurale beschikbaar|  Neuraal|
-|Welsh| `cy`    |Neurale beschikbaar|  Neuraal|
-|Yucatec Maya|  `yua`   |Alleen statistisch|  Statistische|
+|Arabisch|    `ar`    |Neural beschikbaar|  Neuraal|
+|Bengalees|    `bn`    |Neural beschikbaar|  Neuraal|
+|Bosnisch (Latijns)|   `bs`    |Neural beschikbaar|  Neuraal|
+|Bulgaars| `bg`    |Neural beschikbaar|  Neuraal|
+|Kantonees (Traditioneel)|   `yue`   |Alleen statistisch|  Statische|
+|Catalaans|   `ca`    |Alleen statistisch|  Statische|
+|Vereenvoudigd Chinees|    `zh-Hans`   |Neural standaard |Neuraal|
+|Traditioneel Chinees|   `zh-Hant`   |Neural standaard |Neuraal|
+|Kroatisch|  `hr`    |Neural beschikbaar|  Neuraal|
+|Tsjechisch| `cs`    |Neural beschikbaar|  Neuraal|
+|Deens|    `da`    |Neural beschikbaar   |Neuraal|
+|Nederlands| `nl`    |Neural beschikbaar|  Neuraal|
+|Engels|   `en`    |Neural beschikbaar|  Neuraal|
+|Estisch|  `et`    |Neural beschikbaar|  Neuraal|
+|Fiji|    `fj`    |Alleen statistisch|  Statische|
+|Filipijns|  `fil`   |Alleen statistisch|  Statische|
+|Fins|   `fi`    |Neural beschikbaar|  Neuraal|
+|Frans|    `fr`    |Neural beschikbaar|  Neuraal|
+|Duits|    `de`    |Neural beschikbaar|  Neuraal|
+|Grieks| `el`    |Neural beschikbaar|  Neuraal|
+|Haïtiaans|    `ht`    |Alleen statistisch   |Statische|
+|Hebreeuws |`he`   |Neural beschikbaar   |Neuraal|
+|Hindi| `hi`    |Neural standaard|    Neuraal|
+|Hmong Daw| `mww`   |Alleen statistisch|  Statische|
+|Hongaars| `hu`    |Neural beschikbaar|  Neuraal|
+|IJslands| `is`    |Alleen Neural|   Neuraal|
+|Indonesisch|    `id`    |Alleen statistisch|  Statische|
+|Italiaans|   `it`    |Neural beschikbaar|  Neuraal|
+|Japans|  `ja`    |Neural beschikbaar|  Neuraal|
+|Swahili| `sw`    |Alleen statistisch|  Statische|
+|Klingon|   `tlh`   |Alleen statistisch|  Statische|
+|Klingon (plqaD)|   `tlh-Qaak`  |Alleen statistisch|  Statische|
+|Koreaans |`ko`   |Neural beschikbaar|  Neuraal|
+|Lets|   `lv`    |Neural beschikbaar|  Neuraal|
+|Litouws|    `lt`    |Neural beschikbaar|  Neuraal|
+|Malagassische|  `mg`    |Alleen statistisch|  Statische|
+|Maleis| `ms`    |Alleen statistisch   |Statische|
+|Maltees|   `mt`    |Alleen statistisch|  Statische|
+|Noors| `nb`    |Neural beschikbaar|  Neuraal|
+|Perzisch|   `fa`    |Neural beschikbaar|  Neuraal|
+|Pools|    `pl`    |Neural beschikbaar|  Neuraal|
+|Portugees|    `pt`    |Neural beschikbaar|  Neuraal|
+|Queretaro Otomi|   `otq`   |Alleen statistisch|  Statische|
+|Roemeens|  `ro`    |Neural beschikbaar|  Neuraal|
+|Russisch|   `ru`    |Neural beschikbaar|  Neuraal|
+|Samoaanse|    `sm`    |Alleen statistisch|  Statische|
+|Servisch (Cyrillisch)|    `sr-Cyrl`   |Alleen statistisch|  Statische|
+|Servisch (Latijns)|   `sr-Latn`   |Alleen statistisch   |Statische|
+|Slowaaks|    `sk`    |Neural beschikbaar|  Neuraal|
+|Sloveens| `sl`    |Neural beschikbaar|  Neuraal|
+|Spaans|   `es`    |Neural beschikbaar|  Neuraal|
+|Zweeds|   `sv`    |Neural beschikbaar   |Neuraal|
+|Tahitian|  `ty`    |Alleen statistisch|  Statische|
+|Tamil| `ta`    |Alleen statistisch|  Statische|
+|Telugu|    `te`    |Alleen Neural|   Neuraal|
+|Thais|  `th`    |Neural beschikbaar|  Neuraal|
+|Tongan|    `to`    |Alleen statistisch|  Statische|
+|Turks|   `tr`    |Neural beschikbaar   |Neuraal|
+|Oekraïens| `uk`    |Neural beschikbaar|  Neuraal|
+|Urdu|  `ur`    |Alleen statistisch|  Statische|
+|Vietnamees|    `vi`    |Neural beschikbaar|  Neuraal|
+|Welsh| `cy`    |Neural beschikbaar|  Neuraal|
+|Yucatec Maya|  `yua`   |Alleen statistisch|  Statische|
 
 ## <a name="transliteration"></a>Transliteratie
 
-De methode Transliterate ondersteunt de volgende talen. In de 'naar/van", '<>--' geeft aan dat de taal, kan worden getranscribeerd van of naar een van de scripts die worden vermeld. De '-->' geeft aan dat de taal kan alleen worden, getranscribeerd van één script naar de andere.
+De methode transtranscrib ondersteunt de volgende talen. In de ' aan/van ', ' <-> ' geeft aan dat de taal kan worden getranscribeerd van of naar een van de vermelde scripts. De '--> ' geeft aan dat de taal alleen kan worden getranscribeerd van het ene script naar het andere.
 
-| Taal    | Taalcode | Script | Aan/uit | Script|
+| Taal    | Taalcode | Script | Naar/van | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
-| Arabisch | `ar` | Arabisch `Arab` | <--> | Latijns `Latn` |
-|Bengalees  | `bn` | Bengali `Beng` | <--> | Latijns `Latn` |
-| Chinees (vereenvoudigd) | `zh-Hans` | Vereenvoudigd Chinees `Hans`| <--> | Latijns `Latn` |
-| Chinees (vereenvoudigd) | `zh-Hans` | Vereenvoudigd Chinees `Hans`| <--> | Traditioneel Chinees `Hant`|
-| Chinees (traditioneel) | `zh-Hant` | Traditioneel Chinees `Hant`| <--> | Latijns `Latn` |
-| Chinees (traditioneel) | `zh-Hant` | Traditioneel Chinees `Hant`| <--> | Vereenvoudigd Chinees `Hans` |
-| Gujarati | `gu`  | Gujarati `Gujr` | --> | Latijns `Latn` |
-| Hebreeuws | `he` | Hebreeuws `Hebr` | <--> | Latijns `Latn` |
-| Hindi | `hi` | Devanagari `Deva` | <--> | Latijns `Latn` |
-| Japans | `ja` | Japans `Jpan` | <--> | Latijns `Latn` |
-| Kanarees | `kn` | Kannada `Knda` | --> | Latijns `Latn` |
-| Malayalam | `ml` | Malayalam `Mlym` | --> | Latijns `Latn` |
-| Marathi | `mr` | Devanagari `Deva` | --> | Latijns `Latn` |
-| Oriya | `or` | Oriya `Orya` | <--> | Latijns `Latn` |
-| Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latijns `Latn`  |
-| Servisch (Cyrillisch) | `sr-Cyrl` | Cyrillisch `Cyrl`  | --> | Latijns `Latn` |
-| Servisch (Latijns) | `sr-Latn` | Latijns `Latn` | --> | Cyrillisch `Cyrl`|
-| Tamil | `ta` | Tamil `Taml` | --> | Latijns `Latn` |
-| Telugu | `te` | Telugu `Telu` | --> | Latijns `Latn` |
-| Thais | `th` | Thais `Thai` | <--> | Latijns `Latn` |
+| Arabisch | `ar` | Arabisch`Arab` | <--> | Latijnse`Latn` |
+|Bengalees  | `bn` | Bengali `Beng` | <--> | Latijnse`Latn` |
+| Chinees (vereenvoudigd) | `zh-Hans` | Vereenvoudigd Chinees`Hans`| <--> | Latijnse`Latn` |
+| Chinees (vereenvoudigd) | `zh-Hans` | Vereenvoudigd Chinees`Hans`| <--> | Traditioneel Chinees`Hant`|
+| Chinees (traditioneel) | `zh-Hant` | Traditioneel Chinees`Hant`| <--> | Latijnse`Latn` |
+| Chinees (traditioneel) | `zh-Hant` | Traditioneel Chinees`Hant`| <--> | Vereenvoudigd Chinees`Hans` |
+| Gujarati | `gu`  | Gujarati `Gujr` | --> | Latijnse`Latn` |
+| Hebreeuws | `he` | Hebreeuws`Hebr` | <--> | Latijnse`Latn` |
+| Hindi | `hi` | Devanagari `Deva` | <--> | Latijnse`Latn` |
+| Japans | `ja` | Japans`Jpan` | <--> | Latijnse`Latn` |
+| Kanarees | `kn` | Kannada `Knda` | --> | Latijnse`Latn` |
+| Malayalam | `ml` | Malajalam`Mlym` | --> | Latijnse`Latn` |
+| Marathi | `mr` | Devanagari `Deva` | --> | Latijnse`Latn` |
+| Odia | `or` | Odia`Orya` | <--> | Latijnse`Latn` |
+| Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latijnse`Latn`  |
+| Servisch (Cyrillisch) | `sr-Cyrl` | Cyrillisch`Cyrl`  | --> | Latijnse`Latn` |
+| Servisch (Latijns) | `sr-Latn` | Latijnse`Latn` | --> | Cyrillisch`Cyrl`|
+| Tamil | `ta` | Tamil`Taml` | --> | Latijnse`Latn` |
+| Telugu | `te` | Telugu `Telu` | --> | Latijnse`Latn` |
+| Thais | `th` | Thais`Thai` | <--> | Latijnse`Latn` |
 
 ## <a name="dictionary"></a>Woordenlijst
 
-De woordenlijst ondersteunt de volgende talen naar of van Engels met behulp van de opzoek- en voorbeeldmethoden.
+De woorden lijst ondersteunt de volgende talen in of vanuit het Engels met behulp van de methoden voor zoeken en voor beelden.
 
 | Taal    | Taalcode |
 |:----------- |:-------------:|
@@ -193,18 +193,18 @@ De woordenlijst ondersteunt de volgende talen naar of van Engels met behulp van 
 
 ## <a name="detect"></a>Detect
 
-Translator Text-API detecteert alle beschikbare talen voor vertalingen en vele.
+Translator Text-API detecteert alle talen die beschikbaar zijn voor vertaal-en vele.
 
 
-## <a name="access-the-translator-text-api-language-list-programmatically"></a>Via een programma toegang krijgen tot de lijst van de taal Translator Text-API
+## <a name="access-the-translator-text-api-language-list-programmatically"></a>Programmatisch toegang tot de lijst met Translator Text-API talen
 
-U kunt een lijst met ondersteunde talen voor de Translator Text-API-v3.0 met behulp van de methode talen ophalen. U kunt de lijst met door de functie, taal, evenals de naam van de taal weergeven in het Engels of een andere ondersteunde taal. Deze lijst wordt automatisch bijgewerkt door de Microsoft Translator-service wanneer nieuwe talen beschikbaar worden gesteld.
+U kunt een lijst met ondersteunde talen voor de Translator Text-API v 3.0 ophalen met behulp van de talen methode. U kunt de lijst weer geven op functie, taal code en de taal naam in het Engels of een andere ondersteunde taal. Deze lijst wordt automatisch bijgewerkt door de micro soft Translator-service wanneer er nieuwe talen beschikbaar worden gesteld.
 
-[Bekijk de naslagdocumentatie van talen bewerking](reference/v3-0-languages.md)
+[Documentatie voor het bewerkings overzicht van talen weer geven](reference/v3-0-languages.md)
 
 ## <a name="customization"></a>Aanpassing
 
-De volgende talen zijn beschikbaar voor aanpassing naar of van het gebruik van de Engelse [aangepaste Translator](https://aka.ms/CustomTranslator).
+De volgende talen zijn beschikbaar voor aanpassing in of vanuit het Engels met [aangepaste vertaler](https://aka.ms/CustomTranslator).
 
 | Taal    | Taalcode |
 |:----------- |:-------------:|
@@ -253,8 +253,8 @@ De volgende talen zijn beschikbaar voor aanpassing naar of van het gebruik van d
 | Vietnamees      | `vi`          |
 | Welsh | `cy` |
 
-## <a name="access-the-list-on-the-microsoft-translator-website"></a>Toegang tot de lijst op de website van Microsoft Translator
+## <a name="access-the-list-on-the-microsoft-translator-website"></a>Toegang tot de lijst op de website van micro soft Translator
 
-Voor een kort overzicht van de talen ziet u de website van Microsoft Translator-alle talen die worden ondersteund door de Translator tekst en spraak-API's. Deze lijst bevat geen developer-specifieke informatie zoals taalcodes.
+Voor een beknopt overzicht van de talen bevat de micro soft Translator-website alle talen die worden ondersteund door de Translator Text-en spraak-Api's. Deze lijst bevat geen informatie die specifiek is voor de ontwikkelaar, zoals taal codes.
 
-[Zie de lijst met talen](https://www.microsoft.com/translator/languages.aspx)
+[Bekijk de lijst met talen](https://www.microsoft.com/translator/languages.aspx)

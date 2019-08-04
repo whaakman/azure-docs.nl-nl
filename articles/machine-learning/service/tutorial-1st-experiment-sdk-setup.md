@@ -1,7 +1,7 @@
 ---
 title: 'Zelfstudie: Omgeving en werk ruimte instellen.'
 titleSuffix: Azure Machine Learning service
-description: In deze zelf studie voltooit u de end-to-end-stappen om aan de slag te gaan met de Azure Machine Learning python SDK die wordt uitgevoerd in Jupyter-notebooks.
+description: In deze zelfstudie reeks voltooit u de end-to-end-stappen om aan de slag te gaan met de Azure Machine Learning python SDK die wordt uitgevoerd in Jupyter-notebooks.  Deel één voor het maken van een Cloud notebook server-omgeving en het maken van een werk ruimte voor het beheren van uw experimenten en machine learning modellen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: e17d9286453aeb5c7eac688555177c2c42faad21
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: baeb175c57573e557d298ff3197394ab619434ff
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668628"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772638"
 ---
 # <a name="tutorial-setup-environment-and-workspace"></a>Zelfstudie: Omgeving en werk ruimte instellen
 
@@ -25,7 +25,7 @@ In deze zelfstudie hebt u:
 
 > [!div class="checklist"]
 > * Maak een machine learning-werk ruimte voor gebruik in de volgende zelf studie.
-> * Maak een Cloud notebook server-omgeving.
+> * Maak een notebook-VM, een op de cloud gebaseerde Jupyter-notebook server met Azure Machine Learning python SDK vooraf geïnstalleerd en vooraf geconfigureerd.
 
 ## <a name="prerequisites"></a>Vereisten
 

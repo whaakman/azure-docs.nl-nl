@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: a164276d41d182c5b439efc691d80693f1ac831e
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2bc036fcde7ac541dbf7d8511f82080e52135777
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360124"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772620"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Wat is er gebeurd met Azure Machine Learning Workbench?
 
@@ -120,8 +120,8 @@ De domeinpakketten voor Computer Vision, tekstanalyse en prognose kunnen niet wo
 
 Meer informatie over de [meest recente architectuur voor Azure Machine Learning Service](concept-azure-machine-learning-architecture.md). 
 
-Zie [Wat is Azure Machine Learning Service?](overview-what-is-azure-ml.md) voor een overzicht van de service.
+Lees [Wat is Azure machine learning service?](overview-what-is-azure-ml.md)voor een overzicht van de service.
 
-Voor een Snelstartgids waarin wordt getoond hoe u een script uitvoert en de uitvoerings geschiedenis van het script bekijkt met de nieuwste versie van Azure Machine Learning service, kunt u aan de [slag met Azure machine learning-service](quickstart-run-cloud-notebook.md).
+Maak uw eerste experiment met de tweedelige zelf studie voor het [instellen van omgeving en werk ruimte](tutorial-1st-experiment-sdk-setup.md) en [Train uw eerste model](tutorial-1st-experiment-sdk-train.md)
 
 Voor een uitgebreid overzicht van deze werkstroom volgt u de [volledige zelfstudie](tutorial-train-models-with-aml.md), met gedetailleerde stappen voor het trainen en implementeren van modellen met Azure Machine Learning service. 

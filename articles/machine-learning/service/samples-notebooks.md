@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7fdf9c52df502bc94519ab6c65be2e9fb546ce48
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e5088cfa417c76933be6785188f2b173b7b461d0
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699142"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772577"
 ---
 # <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>Azure Machine Learning-Service verkennen met Jupyter-notebooks
 
@@ -35,7 +35,7 @@ In dit artikel wordt beschreven hoe u toegang kunt krijgen tot de opslag plaats 
 <a name="notebookvm"></a>
 ## <a name="get-samples-on-azure-machine-learning-notebook-vm"></a>Voor beelden van Azure Machine Learning notebook-VM ophalen
 
-De eenvoudigste manier om aan de slag te gaan met de voor beelden is het volt ooien van de Snelstartgids voor het [op de cloud gebaseerde notitie blok](quickstart-run-cloud-notebook.md). Zodra u klaar bent, hebt u een vooraf geladen notebook server met de SDK en de voor beeld-opslag plaats. Geen down loads of installatie vereist.
+De eenvoudigste manier om aan de slag te gaan met de voor beelden [is om de zelf studie te volt ooien: Omgeving en werk ruimte](tutorial-1st-experiment-sdk-setup.md)instellen. Zodra u klaar bent, hebt u een vooraf geladen notebook server met de SDK en de voor beeld-opslag plaats. Geen down loads of installatie vereist.
 
 <a name="byo"></a>
 

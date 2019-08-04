@@ -10,12 +10,12 @@ ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3087f0ac69126c6d509eee77abe15cc35319dfb
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: eda457747a6a3e374e7fdea571f64446e15ded21
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693925"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774180"
 ---
 # <a name="what-is-azure-active-directory"></a>What is Azure Active Directory? (Engelstalig)
 
@@ -33,7 +33,7 @@ Azure AD is bedoeld voor:
 
 - **IT-beheerders** Als IT-beheerder kunt u Azure AD gebruiken om de toegang tot uw apps en app-resources te beheren op basis van uw bedrijfsvereisten. U kunt bijvoorbeeld Azure AD gebruiken als u meervoudige verificatie wilt gebruiken bij het openen van belangrijke resources in de organisatie. Ook kunt u Azure AD gebruiken voor het automatisch laten inrichten van gebruikers tussen uw bestaande Windows Server AD en uw cloud-apps, waaronder Office 365. Ten slotte beschikt u met Azure AD over krachtige hulpprogramma's waarmee u automatisch gebruikersidentiteiten en -referenties kunt beveiligen en aan de vereisten voor toegangsbeheer te voldoen. U kunt aan de slag als u zich aanmeldt voor een [gratis proefversie van Azure Active Directory Premium van dertig dagen](https://azure.microsoft.com/trial/get-started-active-directory/).
 
-- **App-ontwikkelaars.** Als app-ontwikkelaar hebt u met Azure AD een op standaarden gebaseerde benadering voor het toevoegen van eenmalige aanmelding (SSO) aan uw app, zodat deze kan werken met de al bestaande referenties van gebruikers. Azure AD biedt ook Api's die u kunnen helpen om persoonlijke app-ervaringen te bouwen met behulp van bestaande organisatie gegevens. U kunt aan de slag als u zich aanmeldt voor een [gratis proefversie van Azure Active Directory Premium van dertig dagen](https://azure.microsoft.com/trial/get-started-active-directory/). Voor meer informatie kunt u ook [Azure Active Directory voor ontwikkelaars](../develop/index.yml) raadplegen.
+- **App-ontwikkelaars.** Als app-ontwikkelaar kunt u Azure AD gebruiken als een op standaarden gebaseerde aanpak voor het toevoegen van eenmalige aanmelding (SSO) aan uw app, zodat deze kan worden gebruikt met de bestaande referenties van een gebruiker. Azure AD biedt ook Api's die u kunnen helpen om persoonlijke app-ervaringen te bouwen met behulp van bestaande organisatie gegevens. U kunt aan de slag als u zich aanmeldt voor een [gratis proefversie van Azure Active Directory Premium van dertig dagen](https://azure.microsoft.com/trial/get-started-active-directory/). Voor meer informatie kunt u ook [Azure Active Directory voor ontwikkelaars](../develop/index.yml) raadplegen.
 
 - **Abonnees van Microsoft 365, Office 365, Azure of Dynamics CRM Online.** Als abonnee gebruikt u al Azure AD. Elke tenant van Microsoft 365, Office 365, Azure en Dynamics CRM Online is automatisch een tenant van Azure AD. U kunt meteen beginnen met het beheren van de toegang tot uw geïntegreerde cloud-apps.
 
