@@ -87,6 +87,8 @@
       items:
         - name: Sjabloon maken
           href: how-to-create-template.md
+        - name: Naam en type van onderliggende resource
+          href: child-resource-name-type.md
         - name: Resourcegroepen en resources in het abonnement maken
           displayName: subscription level deployment
           href: deploy-to-subscription.md

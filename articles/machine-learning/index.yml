@@ -36,6 +36,26 @@ sections:
           - html: <a href="service/quickstart-run-local-notebook">Een experiment met behulp van een lokale notebookserver uitvoeren</a> (lokale SDK-installatie)
         style: unordered
         type: list
+      - text: '<b>Zelfstudie: Uw eerste geautomatiseerde ML-model in de Azure-portal trainen en implementeren:</b>'
+        type: paragraph
+      - items:
+          - html: <a href="service/tutorial-first-experiment-automated-ml">Geautomatiseerde machine learning gebruiken om uw eerste classificatiemodel te trainen en implementeren</a>
+        style: unordered
+        type: list
+      - text: '<b>Zelfstudie: Train uw eerste ML-model met SDK:</b>'
+        type: paragraph
+      - items:
+          - html: 'Deel 1: <a href="service/tutorial-1st-experiment-sdk-setup">Omgeving en werkruimte instellen</a>'
+          - html: 'Deel 2: <a href="service/tutorial-1st-experiment-sdk-train">Uw eerste model trainen</a>'
+        style: unordered
+        type: list
+      - text: '<b>Zelfstudie: Het eerste experiment trainen en implementeren met behulp van de visuele interface:</b>'
+        type: paragraph
+      - items:
+          - html: 'Deel 1: <a href="service/ui-tutorial-automobile-price-train-score">Regressiemodel trainen</a>'
+          - html: 'Deel 2: <a href="service/ui-tutorial-automobile-price-deploy">Model implementeren</a>'
+        style: unordered
+        type: list
       - text: '<b>Zelfstudie: Afbeeldingsclassificatie van MNIST-gegevens met SDK:</b>'
         type: paragraph
       - items:

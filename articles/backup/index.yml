@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentatie over Azure Backup
+title: Documentatie voor de Azure Backup-service
 metadata:
   title: 'Documentatie voor Azure Backup - zelfstudies, API-verwijzing | Microsoft Docs'
   description: 'Met Azure Backup kunt u een back-up maken van de gegevens van on-premises servers, virtuele machines, gevirtualiseerde workloads, SQL-server, SharePoint-server, en meer. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u een back-up maakt van uw gegevens en deze herstelt.'

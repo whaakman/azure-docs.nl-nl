@@ -43,6 +43,8 @@
       href: security-center-incident.md
     - name: Reageren op incidenten
       href: security-center-incident-response.md
+    - name: Beheer in meerdere tenants
+      href: security-center-cross-tenant-management.md
 - name: Handleidingen
   items:
     - name: Uw secure score verbeteren
@@ -81,6 +83,8 @@
       items:
         - name: Wat zijn aanbevelingen voor beveiliging?
           href: security-center-recommendations.md
+        - name: Aanbevelingen doorvoeren
+          href: security-center-remediate-recommendations.md
         - name: Beveiligingspostuur verbeteren
           href: security-center-monitoring.md
         - name: Uw machines en apps beschermen

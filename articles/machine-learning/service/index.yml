@@ -43,6 +43,9 @@ sections:
       - type: list
         style: unordered
         items:
+          - html: 'Aan de slag: Uw eerste geautomatiseerde ML-model in de Azure-portal <a href="tutorial-first-experiment-automated-ml">trainen en implementeren</a>.'
+          - html: 'Aan de slag: <a href="tutorial-1st-experiment-sdk-setup">Ontwikkelomgeving instellen</a> en <a href="tutorial-1st-experiment-sdk-train">uw eerste ML-model trainen</a> met behulp van een Jupyter-notebook (<b>tweedelige reeks</b>).'
+          - html: 'Aan de slag: Uw eerste ML-experiment <a href="ui-tutorial-automobile-price-train-score">trainen</a> en <a href="ui-tutorial-automobile-price-deploy">implementeren</a> met de visuele interface voor slepen en neerzetten (<b>tweedelige reeks</b>).'
           - html: Modellen voor de classificatie van afbeeldingen <a href="tutorial-train-models-with-aml">trainen</a> en <a href="tutorial-deploy-models-with-aml">implementeren</a> (<b>tweedelige reeks</b>).
           - html: <a href="tutorial-data-prep">Gegevens voorbereiden</a> en <a href="tutorial-auto-train-models">automatische leerprocessen gebruiken</a> om regressiemodellen te trainen en af te stemmen (<b>tweedelige reeks</b>).
           - html: <a href="ui-tutorial-automobile-price-train-score">Prijzen van auto's voorspellen</a> met de visuele interface en het regressiemodel <a href="ui-tutorial-automobile-price-deploy">implementeren</a>.

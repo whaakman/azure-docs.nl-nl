@@ -56,6 +56,8 @@
       maintainContext: true
     - name: Problemen oplossen
       items:
+        - name: Aanmelden bij het HDInsight-cluster is niet mogelijk
+          href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
         - name: Kan geen knooppunten toevoegen aan het HDInsight-cluster
           href: ./hdinsight-troubleshoot-unable-add-nodes.md
         - name: 'InvalidNetworkSecurityGroupSecurityRules: het maken van een cluster mislukt'

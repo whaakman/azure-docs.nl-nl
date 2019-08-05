@@ -68,6 +68,8 @@
       items:
         - name: Een SQL Server-database migreren
           href: virtual-machines-windows-migrate-sql.md
+        - name: VM naar een nieuwe regio
+          href: virtual-machines-windows-sql-move-different-region.md
     - name: Hoge beschikbaarheid configureren
       items:
         - name: Azure Storage gebruiken voor back-up en herstel
