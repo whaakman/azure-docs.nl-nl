@@ -1,6 +1,6 @@
 ---
-title: Azure Quick Start Sentinel - aan de slag met Azure Sentinel Preview | Microsoft Docs
-description: Azure Quick Start Sentinel - aan de slag met Azure Sentinel
+title: 'Azure Sentinel Snelstartgids: aan de slag met Azure Sentinel preview | Microsoft Docs'
+description: 'Azure Sentinel Snelstartgids: aan de slag met Azure Sentinel'
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -16,88 +16,88 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 75bfdce02313ab7e799f6535f247407c239653b8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: c6434b4f5808c349d5e0ab04dafc5233f6ec63ac
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619812"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780469"
 ---
-# <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Quickstart: Aan de slag met Azure Sentinel Preview
+# <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Quickstart: Aan de slag met Azure Sentinel preview
 
 > [!IMPORTANT]
-> Azure Sentinel is momenteel in openbare preview.
+> Azure Sentinel is momenteel beschikbaar als open bare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 
-In deze snelstartgids leert u hoe u snel om te kunnen geven en te controleren wat er gebeurt in uw omgeving met behulp van Azure Sentinel. Nadat u uw gegevensbronnen hebt verbonden met Azure Sentinel, krijgt u direct visualisatie en analyse van gegevens zodat u weet wat er gebeurt in uw verbonden gegevensbronnen. Azure Sentinel biedt u dashboards die u voorzien van de volledige kracht van hulpprogramma's die al beschikbaar in zowel Azure als tabellen en grafieken die zijn ingebouwd in zodat u kunt met analytics voor uw logboeken en query's. U kunt ingebouwde dashboards gebruiken of u kunt eenvoudig een nieuw dashboard maken van nieuwe of op basis van een bestaand dashboard. 
+In deze Quick Start leert u hoe u snel kunt zien wat er in uw omgeving gebeurt met Azure Sentinel. Nadat u uw gegevens bronnen aan Azure Sentinel hebt gekoppeld, krijgt u een snelle visualisatie en analyse van de gegevens, zodat u kunt zien wat er gebeurt in al uw verbonden gegevens bronnen. Azure Sentinel biedt u Dash boards waarmee u beschikt over de volledige kracht van hulpprogram ma's die al beschikbaar zijn in azure, evenals tabellen en grafieken die zijn ingebouwd om u te voorzien van analyses voor uw logboeken en query's. U kunt ingebouwde Dash boards gebruiken of een nieuw dash board eenvoudig maken, helemaal zelf of op basis van een bestaand dash board. 
 
 ## <a name="get-visualization"></a>Visualisatie ophalen
 
-Om te visualiseren en analyseren van wat in uw omgeving gebeurt er, eerst eens in het Overzichtsdashboard voor een beter beeld van de beveiligingsstatus van uw organisatie. U kunt klikken op elk element van deze tegels om te zoomen op de onbewerkte gegevens waarin ze zijn gemaakt. Om te helpen u ruis verlagen en Beperk het aantal waarschuwingen dat u hebt om te controleren en onderzoeken, Azure Sentinel een techniek fusion gebruikt om waarschuwingen in gevallen correleren. **Gevallen** zijn groepen van gerelateerde waarschuwingen die samen een bruikbare incident die u kunt onderzoeken en oplossen van maken.
+Bekijk eerst het overzichts dashboard om een idee te krijgen van de beveiligings postuur van uw organisatie voor het visualiseren en ophalen van analyses van wat er gebeurt in uw omgeving. U kunt op elk element van deze tegels klikken om in te zoomen op de onbewerkte gegevens van waaruit ze zijn gemaakt. Om het geluid te verminderen en het aantal waarschuwingen dat u moet beoordelen en te minimaliseren, gebruikt Azure Sentinel een fusie techniek om waarschuwingen in incidenten te correleren. **incidenten** zijn groepen gerelateerde waarschuwingen die samen een actie kunnen ondernemen die u kunt onderzoeken en oplossen.
 
-- In de Azure-portal, selecteer Azure Sentinel en selecteer vervolgens de werkruimte die u wilt bewaken.
+- Selecteer in de Azure Portal Azure Sentinel en selecteer vervolgens de werk ruimte die u wilt bewaken.
 
-  ![Overzicht van Azure Sentinel](./media/qs-get-visibility/overview.png)
+  ![Overzicht van Azure-Sentinel](./media/qs-get-visibility/overview.png)
 
-- De werkbalk aan de bovenzijde ziet u hoeveel gebeurtenissen die u hebt verkregen via de geselecteerde periode en het vergelijkt deze met de voorgaande 24 uur. De werkbalk vertelt u van deze gebeurtenissen en waarschuwingen die zijn geactiveerd (het kleine aantal vertegenwoordigt wijzigen in de afgelopen 24 uur), krijgt u voor deze gebeurtenissen, hoeveel zijn geopend, wordt uitgevoerd en gesloten. Controleer dat er een aanzienlijke toename niet zien of verwijderen in het aantal gebeurtenissen. Als er een afname, kan het zijn dat een verbinding naar Azure Sentinel rapportage gestopt. Als er een toename, mogelijk iets verdacht is. Controleer of er nieuwe waarschuwingen.
+- De werk balk aan de bovenkant geeft aan hoeveel gebeurtenissen u tijdens de geselecteerde periode hebt geselecteerd en vergelijkt deze met de voor gaande 24 uur. Op de werk balk wordt u van deze gebeurtenissen verteld, de waarschuwingen die zijn geactiveerd (het kleine getal vertegenwoordigt een wijziging in de afgelopen 24 uur), en vervolgens wordt u op de hoogte gebracht van die gebeurtenissen, hoeveel openstaan, in uitvoering en gesloten. Controleer of het aantal gebeurtenissen geen aanzienlijke toename of drop heeft. Als er een drop is, kan het zijn dat een verbinding is gestopt met het melden van Azure Sentinel. Als er een verhoging is, is er mogelijk een verdacht probleem opgetreden. Controleer of er nieuwe waarschuwingen zijn.
 
    ![Azure Sentinel trechter](./media/qs-get-visibility/funnel.png)
 
-De hoofdtekst van de overzichtspagina biedt inzicht in één oogopslag in de beveiligingsstatus van uw werkruimte:
+De hoofd tekst van de overzichts pagina geeft inzicht in de beveiligings status van uw werk ruimte:
 
-- **Gebeurtenissen en waarschuwingen gedurende een periode**: Geeft een lijst van het aantal gebeurtenissen en hoeveel waarschuwingen van de gebeurtenissen die zijn gemaakt. Als u een piek die ongebruikelijke, dat moet u waarschuwingen voor het - zien als er is ongewone activiteit waarbij er bevindt zich een piek in gebeurtenissen, maar er geen waarschuwingen ziet, is het mogelijk oorzaak zouden kunnen gaan maken.
+- **Gebeurtenissen en waarschuwingen in**de loop van de tijd: Hier wordt het aantal gebeurtenissen weer gegeven en hoeveel waarschuwingen zijn gemaakt op basis van deze gebeurtenissen. Als er sprake is van een ongebruikelijke piek, ziet u er waarschuwingen voor. als er iets ongebruikelijk is waarbij er sprake is van een Prikker, maar u geen waarschuwingen ziet, kan dit de oorzaak van het probleem zijn.
 
-- **Potentiële schadelijke gebeurtenissen**: Wanneer netwerkverkeer wordt gedetecteerd van bronnen die bekend is dat deze schadelijke, waarschuwt Azure Sentinel u op de kaart. Als u oranje ziet, is het binnenkomende verkeer: iemand probeert toegang tot uw organisatie van een bekende schadelijke IP-adres. Als u uitgaande (rood) activiteit ziet, betekent dit dat de gegevens van uw netwerk worden gestreamd buiten uw organisatie naar een bekende schadelijke IP-adres.
+- **Mogelijke schadelijke gebeurtenissen**: Wanneer er verkeer wordt gedetecteerd van bronnen waarvan bekend is dat ze schadelijk zijn, wordt u door Azure Sentinel gewaarschuwd op de kaart. Als oranje wordt weer geven, is het inkomend verkeer: iemand probeert toegang te krijgen tot uw organisatie vanaf een bekend schadelijk IP-adres. Als de activiteit uitgaand (rood) wordt weer gegeven, betekent dit dat de gegevens van uw netwerk worden gestreamd uit uw organisatie naar een bekend schadelijk IP-adres.
 
-   ![Azure Sentinel-kaart](./media/qs-get-visibility/map.png)
-
-
-- **Recente gevallen**: Om weer te geven uw recente cases, hun ernst en het aantal waarschuwingen die zijn gekoppeld aan de aanvraag. Als u als plotselinge piek in een specifiek type waarschuwing ziet, kan dit betekenen dat er een actieve aanval die momenteel actief is. Bijvoorbeeld, als u een plotselinge piek van 20 Pass-the-hash-gebeurtenissen uit Azure ATP hebt, is het mogelijk dat iemand op dit moment probeert u aanvallen.
-
-- **Gegevensbron afwijkingen**: Gegevensanalisten Microsofts gemaakt modellen die continu zoeken naar de gegevens van uw gegevensbronnen op afwijkingen. Als er geen eventuele afwijkingen, wordt niets weergegeven. Als er worden afwijkingen gedetecteerd, moet u uitgebreide informatie over deze om te zien wat is er gebeurd. Bijvoorbeeld, klik op de piek in de Azure-activiteit. U kunt klikken op **grafiek** om te zien wanneer de piek is er gebeurd en filter vervolgens voor activiteiten die tijdens die periode om te zien wat de oorzaak van de piek.
-
-   ![Azure Sentinel-kaart](./media/qs-get-visibility/anomolies.png)
-
-## Ingebouwde dashboards gebruiken<a name="dashboards"></a>
-
-Ingebouwde dashboards bevatten geïntegreerde gegevens van uw verbonden gegevensbronnen waarmee u uitgebreide Duik in de gebeurtenissen die worden gegenereerd in deze services. De ingebouwde dashboards bevatten-ID voor Azure, Azure activiteitsgebeurtenissen, en on-premises, die gegevens van Windows-gebeurtenissen van servers, vanuit het eerste partij waarschuwingen, van derden worden kunnen, waaronder logboeken over webverkeer firewall, Office 365 en onbeveiligde protocollen op basis van Windows gebeurtenissen.
-
-1. Onder **instellingen**, selecteer **Dashboards**. Onder **geïnstalleerde**, ziet u alle geïnstalleerde dashboards. Onder **alle** ziet u de hele galerie met ingebouwde dashboards die beschikbaar voor installatie zijn. 
-2. Zoeken naar een specifiek dashboard om te zien van de volledige lijst en de beschrijving van wat elke biedt. 
-3. Ervan uitgaande dat u het gebruik van Azure AD, aan de slag kunt en uitvoeren met Azure Sentinel, wordt aangeraden dat u ten minste de volgende dashboards installeert:
-   - **Azure AD**: Een of beide van de volgende gebruiken:
-       - **Azure AD-aanmeldingen** analyseert aanmeldingen na verloop van tijd om te zien of er afwijkingen. Dit dashboard geeft mislukte aanmeldingen door toepassingen, apparaten en locaties, zodat u, in een oogopslag zien kunt als iets vreemds gebeurt. Let op meerdere mislukte aanmeldingen. 
-       - **Azure AD-auditlogboeken** analyseert admin-activiteiten, zoals wijzigingen in gebruikers (toevoegen, verwijderen, enzovoort), het maken van beveiligingsgroepen en wijzigingen.  
-
-   - Een dashboard voor uw firewall toevoegen. Bijvoorbeeld, de Palo Alto-dashboard toevoegen. Het dashboard kunt u uw firewall verkeer, zodat u correlaties tussen uw firewall-gebeurtenissen van gegevens en bedreigingen, analyseren en markeert u verdachte gebeurtenissen binnen verschillende entiteiten. Dashboards vindt u informatie over trends in uw verkeer en kunt u inzoomen op en resultaten te filteren. 
-
-      ![PAL Alto dashboard](./media/qs-get-visibility/palo-alto-week-query.png)
+   ![Azure-Sentinel-toewijzing](./media/qs-get-visibility/map.png)
 
 
-U kunt de dashboards aanpassen door het bewerken van de belangrijkste query ![knop](./media/qs-get-visibility/edit-query-button.png). U kunt klikken op de knop ![knop](./media/qs-get-visibility/go-to-la-button.png) naar [Log Analytics voor het bewerken van de query er](../azure-monitor/log-query/get-started-portal.md), en selecteer het weglatingsteken (...) en selecteer **tegelgegevens aanpassen**, waarmee u kunt het belangrijkste tijdfilter bewerken of verwijderen van de specifieke tegels vanuit het dashboard.
+- **Recente incidenten**: Om uw recente incidenten, hun ernst en het aantal waarschuwingen dat is gekoppeld aan het incident, weer te geven. Als u de onverwachte piek in een specifiek type waarschuwing ziet, kan dit betekenen dat er momenteel een actieve aanval actief is. Als u bijvoorbeeld een plotselinge piek van 20 Pass-the-hash-gebeurtenissen van Azure ATP hebt, is het mogelijk dat iemand een aanval uitvoert.
 
-Zie voor meer informatie over het werken met query's [zelfstudie: Visuele gegevens in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+- **Afwijkingen van de gegevens bron**: De gegevens analisten van micro soft hebben modellen gemaakt die de gegevens van uw gegevens bronnen voortdurend doorzoeken op afwijkingen. Als er geen afwijkingen zijn, wordt er niets weer gegeven. Als er afwijkingen worden gedetecteerd, moet u zich diep vinden om te zien wat er is gebeurd. Klik bijvoorbeeld op de Prikker in azure activity. U kunt klikken op de **grafiek** om te zien wanneer de Prikker zich voordeed en vervolgens filteren op activiteiten die tijdens die periode zijn opgetreden om te zien wat de oorzaak van de Prikker heeft.
+
+   ![Azure-Sentinel-toewijzing](./media/qs-get-visibility/anomolies.png)
+
+## Ingebouwde Dash boards gebruiken<a name="dashboards"></a>
+
+Ingebouwde Dash boards bieden geïntegreerde gegevens van uw verbonden gegevens bronnen, zodat u de gebeurtenissen die in deze services worden gegenereerd, kunt verdiepen. De ingebouwde Dash boards zijn onder andere Azure-ID, gebeurtenissen voor Azure-activiteiten en on-premises. dit kunnen gegevens zijn van Windows-gebeurtenissen van servers, van de eerste partij, van derden, waaronder firewall verkeers logboeken, Office 365 en onveilige protocollen op basis van Windows evenementen.
+
+1. Selecteer onder **instellingen**de optie **Dash boards**. Onder **geïnstalleerd**ziet u alle geïnstalleerde Dash boards. Onder **Alles** ziet u de volledige galerie met ingebouwde Dash boards die beschikbaar zijn voor installatie. 
+2. Zoek een specifiek dash board om de hele lijst en de beschrijving van de aanbiedingen te bekijken. 
+3. Als u Azure AD gebruikt om aan de slag te gaan met Azure Sentinel, raden we u aan ten minste de volgende Dash boards te installeren:
+   - **Azure AD**: Gebruik een van de volgende of beide:
+       - Met **Azure AD-** aanmeldingen worden aanmeldingen in de loop van de tijd geanalyseerd om te zien of er afwijkingen zijn. Dit dash board biedt mislukte aanmeldingen per toepassing, apparaat en locatie, zodat u in één oogopslag kunt zien of er iets ongebruikelijk is. Let op meerdere mislukte aanmeldingen. 
+       - Met **Azure AD-controle logboeken** worden beheer activiteiten geanalyseerd, zoals wijzigingen in gebruikers (toevoegen, verwijderen, enz.), het maken van groepen en het wijzigen van wijzigingen.  
+
+   - Voeg een dash board toe voor uw firewall. Voeg bijvoorbeeld het Palo Alto-dash board toe. Het dash board analyseert het verkeer van uw firewall, met correlaties tussen uw firewall gegevens en bedreigings gebeurtenissen en verlicht verdachte gebeurtenissen tussen entiteiten. Dash boards biedt u informatie over trends in uw verkeer en kunt u inzoomen op en filteren op resultaten. 
+
+      ![PAL Alto-dash board](./media/qs-get-visibility/palo-alto-week-query.png)
+
+
+U kunt de Dash boards aanpassen door de knop ![](./media/qs-get-visibility/edit-query-button.png)hoofd query te bewerken. U kunt klikken op de ![knop](./media/qs-get-visibility/go-to-la-button.png) om naar [log Analytics te gaan om de query daar te bewerken](../azure-monitor/log-query/get-started-portal.md), en u kunt het weglatings teken (...) selecteren en **tegel gegevens aanpassen**selecteren, zodat u het filter voor de hoofdtijden kan bewerken of verwijderen. specifieke tegels van het dash board.
+
+Zie [zelf studie voor meer informatie over het werken met query's: Visuele gegevens in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
 ### <a name="add-a-new-tile"></a>Een nieuwe tegel toevoegen
 
-Als u een nieuwe tegel toevoegen wilt, kunt u deze toevoegen aan een bestaand dashboard, een die u maakt of een ingebouwde Azure Sentinel-dashboard. 
-1. Maak in Log Analytics, een tegel met behulp van de instructies in [zelfstudie: Visuele gegevens in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
-2. Nadat de tegel is gemaakt, onder **pincode**, selecteer het dashboard waarin u wilt dat de tegel wordt weergegeven.
+Als u een nieuwe tegel wilt toevoegen, kunt u deze toevoegen aan een bestaand dash board, dat u hebt gemaakt of een Azure Sentinel ingebouwd dash board. 
+1. Maak in log Analytics een tegel met behulp van de instructies [in de zelf studie: Visuele gegevens in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
+2. Nadat de tegel is gemaakt, selecteert u onder **pincode**het dash board waarin u de tegel wilt weer geven.
 
-## <a name="create-new-dashboards"></a>Nieuwe dashboards maken
-U kunt maken van een nieuw dashboard maken of een ingebouwde dashboard gebruiken als basis voor uw nieuwe dashboard.
+## <a name="create-new-dashboards"></a>Nieuwe Dash boards maken
+U kunt een volledig nieuw dash board maken of een ingebouwd dash board gebruiken als basis voor uw nieuwe dash board.
 
-1. Voor het maken van een nieuw dashboard helemaal selecteert **Dashboards** en vervolgens **+ nieuw dashboard**.
-2. Selecteer het abonnement dat het dashboard is gemaakt in en geef deze een beschrijvende naam. Elk dashboard is een Azure-resource, zoals elk ander en u kunt deze rollen (RBAC) om te definiëren en beperken aan wie toegang heeft tot toewijzen. 
-3. U hebt zodat het wordt weergegeven in uw dashboards zodat u visualisaties vastmaken aan om deze te delen. Klik op **Share** en vervolgens **gebruikers beheren**. 
+1. Als u een nieuw dash board wilt maken, selecteert u **Dash boards** en vervolgens **+ Nieuw dash board**.
+2. Selecteer het abonnement waarin het dash board is gemaakt en geef het een beschrijvende naam. Elk dash board is een Azure-resource, zoals andere, en u kunt IT-rollen (RBAC) toewijzen om te bepalen wie toegang heeft. 
+3. Als u wilt dat deze wordt weer gegeven in uw Dash boards om visualisaties vast te maken, moet u deze delen. Klik op **delen** en vervolgens op **gebruikers beheren**. 
  
-1. Gebruik de **toegang controleren** en **roltoewijzingen** zoals u zou voor een andere Azure-resource doen. Zie voor meer informatie, [Share Azure-dashboards met behulp van RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
+1. Gebruik de **optie toegang** en **roltoewijzingen** controleren, net zoals u zou doen voor andere Azure-resources. Zie [Azure-Dash boards delen](../azure-portal/azure-portal-dashboard-share-access.md)met behulp van RBAC voor meer informatie.
 
 
-## <a name="new-dashboard-examples"></a>Nieuwe dashboard-voorbeelden
+## <a name="new-dashboard-examples"></a>Nieuwe voor beelden van Dash boards
 
-De volgende voorbeeldquery kunt u trends van verkeer van weken met elkaar vergelijken. U kunt gemakkelijk overschakelen welke leverancier en de gegevensbron waarmee u de query uitvoeren op. In dit voorbeeld SecurityEvent van Windows gebruikt, kunt u functies op AzureActivity of CommonSecurityLog uitgevoerd op een andere firewall.
+Met de volgende voorbeeld query kunt u trends van verkeer tussen weken vergelijken. U kunt eenvoudig overschakelen naar de leverancier en gegevens bron van het apparaat waarop u de query uitvoert. In dit voor beeld maakt gebruik van SecurityEvent van Windows. u kunt deze switch zo wijzigen dat deze wordt uitgevoerd op AzureActivity of CommonSecurityLog op elke andere firewall.
 
      |where DeviceVendor = = "Palo Alto Networks":
       // week over week query
@@ -107,7 +107,7 @@ De volgende voorbeeldquery kunt u trends van verkeer van weken met elkaar vergel
       | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
 
 
-Het is raadzaam om een query waarin gegevens uit meerdere bronnen te maken. U kunt een query maken die kijkt naar Azure Active Directory-auditlogboeken voor nieuwe gebruikers die alleen zijn gemaakt en controles van uw Azure-Logboeken om te zien als de gebruiker gestart rol binnen 24 uur na het maken van wijzigingen aan toewijzingen van maken. Dat verdachte activiteiten op dit dashboard weergegeven zou:
+Mogelijk wilt u een query maken die gegevens uit meerdere bronnen bevat. U kunt een query maken om Azure Active Directory audit logboeken te bekijken voor nieuwe gebruikers die zojuist zijn gemaakt. vervolgens controleert u de logboeken van uw Azure om na te gaan of de gebruiker is begonnen met het wijzigen van de roltoewijzing binnen 24 uur na het maken van de toewijzing. Deze verdachte activiteit zou op dit dash board worden weer gegeven:
 
     AuditLogs
     | where OperationName == "Add user"
@@ -117,26 +117,26 @@ Het is raadzaam om een query waarin gegevens uit meerdere bronnen te maken. U ku
     | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
     | project-away user1
 
-U kunt verschillende dashboards op basis van de rol van de persoon kijken naar de gegevens en wat ze nodig hebt. U kunt bijvoorbeeld een dashboard maken voor de beheerder van uw netwerk met de gegevens van de firewall. U kunt ook dashboards die zijn gebaseerd op hoe vaak u bekijken, wilt of er dingen die u wilt bekijken dagelijks maken en andere items die u wilt eenmaal per uur controleren, bijvoorbeeld, kunt u uw Azure AD-aanmeldingen kijken met elk uur om te zoeken naar anomali ES. 
+U kunt verschillende Dash boards maken op basis van de rol van persoon die de gegevens bekijkt en wat ze zoeken. U kunt bijvoorbeeld een dash board maken voor uw netwerk beheerder die de firewall gegevens bevat. U kunt ook Dash boards maken op basis van hoe vaak u deze wilt bekijken, of u nu dagelijks wilt controleren en andere items die u eenmaal per uur wilt controleren. u kunt bijvoorbeeld elk uur uw Azure AD-aanmeldingen bekijken om te zoeken naar Anomali s. 
 
-## <a name="create-new-detections"></a>Maken van nieuwe detecties
+## <a name="create-new-detections"></a>Nieuwe detecties maken
 
-Genereren van detecties op de [gegevensbronnen waarmee u Azure Sentinel verbonden](connect-data-sources.md) voor het onderzoeken van bedreigingen in uw organisatie.
+Genereer detecties op de [gegevens bronnen die u hebt verbonden met Azure Sentinel](connect-data-sources.md) om bedreigingen in uw organisatie te onderzoeken.
 
-Wanneer u een nieuwe detectie maakt, gebruikmaken van de ingebouwde detecties samengesteld door beveiligingsonderzoekers van Microsoft die zijn toegesneden op de gegevensbronnen die u verbonden.
+Wanneer u een nieuwe detectie maakt, moet u gebruikmaken van de ingebouwde detecties die zijn gemaakt door micro soft-beveiligings onderzoekers die zijn afgestemd op de gegevens bronnen die u hebt verbonden.
 
-1. [In de GitHub-community](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) Ga naar de **detecties** map en selecteer de relevante mappen.
+1. Ga [in de GitHub-Community](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) naar de map **detecties** en selecteer de relevante mappen.
    ![relevante mappen](./media/qs-get-visibility/detection-folders.png)
  
-3.  Ga naar de **Analytics** tabblad en selecteer **toevoegen**.
+3.  Ga naar het tabblad **Analytics** en selecteer **toevoegen**.
    ![regel maken in Log Analytics](./media/qs-get-visibility/query-params.png)
 
-3.  Kopieert u alle parameters naar de regel en klikt u op **maken**.
-   ![Waarschuwingsregel maken](./media/qs-get-visibility/create-alert-rule.png)
+3.  Kopieer alle para meters naar de regel en klik op **maken**.
+   ![waarschuwings regel maken](./media/qs-get-visibility/create-alert-rule.png)
 
  
 ## <a name="next-steps"></a>Volgende stappen
-In deze snelstartgids hebt u geleerd hoe u aan de slag met Azure Sentinel. Ga verder met de zelfstudie voor [het vaststellen van bedreigingen](tutorial-detect-threats.md).
+In deze Snelstartgids hebt u geleerd hoe u aan de slag kunt met Azure Sentinel. Ga door naar de zelf studie voor [het detecteren van bedreigingen](tutorial-detect-threats.md).
 > [!div class="nextstepaction"]
-> [Detectie van bedreigingen](tutorial-detect-threats.md) voor het automatiseren van uw antwoorden op bedreigingen.
+> [Spoor bedreigingen](tutorial-detect-threats.md) op om uw reacties op bedreigingen te automatiseren.
 

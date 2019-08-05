@@ -29,7 +29,7 @@
         - name: Wat zijn Azure AD Connect en Connect Health?
           href: whatis-azure-ad-connect.md
         - name: De juiste verificatie kiezen
-          href: 'https://docs.microsoft.com/azure/security/azure-ad-choose-authn'
+          href: 'https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn'
         - name: Tolerantie voor synchronisatie- en duplicatiekenmerken identificeren
           href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
     - name: Synchronisatie van wachtwoord-hashes

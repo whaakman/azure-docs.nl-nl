@@ -209,10 +209,6 @@
           href: /azure/active-directory/saas-apps/
     - name: Concepten
       items:
-        - name: Initiële inrichtingssynchronisatie
-          href: user-provisioning.md
-        - name: Incrementele inrichtingssynchronisatie
-          href: user-provisioning.md
         - name: Automatisch inrichten voor apps die SCIM ondersteunen
           href: use-scim-to-provision-users-and-groups.md
     - name: Handleidingen

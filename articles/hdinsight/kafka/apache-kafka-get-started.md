@@ -1,5 +1,5 @@
 ---
-title: Instellen van Apache Kafka in HDInsight met behulp van Azure portal - snelstartgids
+title: Apache Kafka op HDInsight instellen met behulp van Azure Portal-Quick Start
 description: In deze quickstart leert u hoe u met Azure Portal een Apache Kafka-cluster maakt in Azure HDInsight. Er wordt ook aandacht besteed aan Kafka-onderwerpen, -abonnees en -consumenten.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -7,14 +7,14 @@ ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 61ae6cdf7c31c9a6e40860eb1dc4628bb2d37496
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 9fa6ad3c52e9b01fe9a62a2de52f62b1b1a95aa8
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150881"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779526"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Quickstart: Apache Kafka-cluster maken in Azure HDInsight met behulp van Azure portal
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Quickstart: Apache Kafka cluster maken in azure HDInsight met behulp van Azure Portal
 
 Apache Kafka is een open-source, gedistribueerd streamingplatform. Het wordt vaak gebruikt als een berichtenbroker, omdat het een functionaliteit biedt die vergelijkbaar is met een publicatie-/abonnementswachtrij voor berichten. 
 
@@ -36,7 +36,7 @@ Gebruik de volgende stappen om een Apache Kafka-cluster te maken in HDInsight:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. In het menu links, gaat u naar **+ een resource maken** > **Analytics** > **HDInsight**.
+2. Ga in het menu links naar **+ een resource** > **Analytics** > **HDInsight**maken.
    
     ![Een HDInsight-cluster maken](./media/apache-kafka-get-started/create-hdinsight.png)
 
@@ -51,14 +51,14 @@ Gebruik de volgende stappen om een Apache Kafka-cluster te maken in HDInsight:
    
    ![Basisconfiguratie van Apache Kafka-cluster in HDInsight](./media/apache-kafka-get-started/custom-basics-kafka.png)
 
-4. Van __clusterconfiguratie__, selecteert u de volgende waarden:
+4. Selecteer bij __cluster configuratie__de volgende waarden:
 
     | Instelling | Waarde |
     | --- | --- |
     | Clustertype | Kafka |
     | Version | Kafka 1.1.0 (HDI 3.6) |
 
-    Selecteer **Selecteer** opslaan van het cluster-instellingen en gaat u terug naar __basisbeginselen__.
+    Selecteer **selecteren** om de instellingen voor het cluster type op te slaan en terug te keren naar __basis beginselen__.
 
     ![Clustertype selecteren](./media/apache-kafka-get-started/kafka-cluster-type.png)
 
@@ -78,7 +78,7 @@ Gebruik de volgende stappen om een Apache Kafka-cluster te maken in HDInsight:
 
    ![Abonnement selecteren](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
-    Selecteer __volgende__ om eenvoudige configuratie te voltooien.
+    Selecteer __volgende__ om de basis configuratie te volt ooien.
 
 6. Laat voor deze snelstart de standaardbeveiligingsinstellingen staan. Ga naar [Een HDInsight-cluster configureren met Enterprise Security Package met behulp van Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md) voor meer informatie over Enterprise Security Package. Ga naar [Bring Your Own Key voor Apache Kafka in Azure HDInsight](apache-kafka-byok.md) voor meer informatie over het gebruik van uw eigen sleutel voor Apache Kafka-schijfversleuteling
 
@@ -122,7 +122,7 @@ Gebruik de volgende stappen om een Apache Kafka-cluster te maken in HDInsight:
 
     Zodra er verbinding is gemaakt, ziet u informatie die er ongeveer als volgt uitziet:
     
-    ```text
+    ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
     
@@ -140,7 +140,6 @@ Gebruik de volgende stappen om een Apache Kafka-cluster te maken in HDInsight:
     Welcome to Apache Kafka on HDInsight.
     
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-    ssuhuser@hn0-mykafk:~$
     ```
 
 ## <a id="getkafkainfo"></a>Informatie over de Apache Zookeeper- en Broker-hosts ophalen
@@ -149,33 +148,33 @@ Als u met Kafka werkt, moet u de *Zookeeper*- en *Broker*-hosts kennen. Deze hos
 
 In deze sectie vraagt u de hostgegevens op uit de Apache Ambari REST API in het cluster.
 
-1. Installeer [jq](https://stedolan.github.io/jq/), een opdrachtregelprogramma JSON-processor. Dit hulpprogramma wordt gebruikt voor het parseren van JSON-documenten, en is handig bij het parseren van de informatie over de host. Van de SSH-verbinding openen, voert u de volgende opdracht uit om te installeren `jq`:
+1. Installeer [JQ](https://stedolan.github.io/jq/), een JSON-processor op de opdracht regel. Dit hulp programma wordt gebruikt voor het parseren van JSON-documenten en is handig bij het parseren van de hostgegevens. Voer bij de open SSH-verbinding de volgende opdracht in `jq`die u wilt installeren:
    
     ```bash
     sudo apt -y install jq
     ```
 
-2. Omgevingsvariabelen instellen. Vervang `PASSWORD` en `CLUSTERNAME` naam respectievelijk met het wachtwoord voor clusteraanmelding en cluster, voert u de opdracht:
+2. Omgevings variabelen instellen. Vervang `PASSWORD` en`CLUSTERNAME` door respectievelijk het cluster aanmeldings wachtwoord en de cluster naam, en voer vervolgens de volgende opdracht in:
 
     ```bash
     export password='PASSWORD'
     export clusterNameA='CLUSTERNAME'
     ```
 
-3. De naam van cluster extract correct-indeling. De werkelijke behuizing van de naam van het cluster is mogelijk anders dan u verwacht, afhankelijk van hoe het cluster is gemaakt. Met deze opdracht wordt het werkelijke hoofdlettergebruik verkrijgen, opslaan in een variabele en vervolgens de naam van de juiste omhuld en de naam die u eerder hebt opgegeven, worden weergegeven. Voer de volgende opdracht in:
+3. Haal de juiste cluster naam op. De daad werkelijke behuizing van de cluster naam kan anders zijn dan verwacht, afhankelijk van hoe het cluster is gemaakt. Met deze opdracht wordt de daad werkelijke behuizing opgehaald, in een variabele opgeslagen en vervolgens de naam die u eerder hebt gegeven weer gegeven. Voer de volgende opdracht in:
 
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     echo $clusterName, $clusterNameA
     ```
 
-4. Gebruik de onderstaande opdracht om een omgevingsvariabele met hostinformatie van Zookeeper. De opdracht haalt alle Zookeeper-hosts en retourneert alleen de eerste twee vermeldingen. De reden hiervoor is dat u een bepaalde mate van redundantie wilt voor het geval één host onbereikbaar is.
+4. Als u een omgevings variabele met Zookeeper-hostgegevens wilt instellen, gebruikt u de onderstaande opdracht. Met de opdracht worden alle Zookeeper-hosts opgehaald en worden alleen de eerste twee vermeldingen geretourneerd. De reden hiervoor is dat u een bepaalde mate van redundantie wilt voor het geval één host onbereikbaar is.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    Met deze opdracht wordt rechtstreeks een query uitgevoerd op de Ambari-service op het hoofdknooppunt van het cluster. U kunt ook openen via het openbare adres van Ambari `https://$CLUSTERNAME.azurehdinsight.net:80/`. Sommige netwerkconfiguraties kunnen de toegang tot het openbare adres voorkomen. Dit is bijvoorbeeld het geval als er een netwerkbeveiligingsgroep (NSG) wordt gebruikt om de toegang tot HDInsight in een virtueel netwerk te beperken.
+    Met deze opdracht wordt rechtstreeks een query uitgevoerd op de Ambari-service op het hoofdknooppunt van het cluster. U kunt ook toegang krijgen tot Ambari met behulp `https://$CLUSTERNAME.azurehdinsight.net:80/`van het open bare adres van. Sommige netwerkconfiguraties kunnen de toegang tot het openbare adres voorkomen. Dit is bijvoorbeeld het geval als er een netwerkbeveiligingsgroep (NSG) wordt gebruikt om de toegang tot HDInsight in een virtueel netwerk te beperken.
 
 5. Gebruik de volgende opdracht om te controleren of de omgevingsvariabele juist is ingesteld:
 

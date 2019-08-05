@@ -1,5 +1,5 @@
 ---
-title: Instellen van Apache Kafka in HDInsight met behulp van Azure Resource Manager - snelstartgids
+title: Apache Kafka op HDInsight instellen met behulp van Azure Resource Manager-Quick Start
 description: In deze quickstart leert u hoe u met Azure Portal een Apache Kafka-cluster maakt in Azure HDInsight. Er wordt ook aandacht besteed aan Kafka-onderwerpen, -abonnees en -consumenten.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -7,18 +7,18 @@ ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 5f2a959bcea533174feedb324cecf20ca12bd39b
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 75b774a59d3a2a94f1f1132a79c26dcca7b4b6f7
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137204"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780786"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Quickstart: Apache Kafka-cluster maken in Azure HDInsight met behulp van Resource Manager-sjabloon
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Quickstart: Apache Kafka cluster maken in azure HDInsight met behulp van Resource Manager-sjabloon
 
 [Apache Kafka](https://kafka.apache.org/) is een open-source, gedistribueerd streamingplatform. Het wordt vaak gebruikt als een berichtenbroker, omdat het een functionaliteit biedt die vergelijkbaar is met een publicatie-/abonnementswachtrij voor berichten. 
 
-In deze snelstartgids leert u hoe u met een sjabloon van Azure Resource Manager een [Apache Kafka](https://kafka.apache.org)-cluster maakt. U leert ook hoe u de inbegrepen hulpprogramma's gebruikt voor het verzenden en ontvangen van berichten via Kafka. Dezelfde sjablonen kunnen worden weergegeven op [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). De sjabloonverwijzing vindt u [hier](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
+In deze snelstartgids leert u hoe u met een sjabloon van Azure Resource Manager een [Apache Kafka](https://kafka.apache.org)-cluster maakt. U leert ook hoe u de inbegrepen hulpprogramma's gebruikt voor het verzenden en ontvangen van berichten via Kafka. Vergelijk bare sjablonen kunnen worden bekeken in [Azure Quick](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)start-sjablonen. De sjabloonverwijzing vindt u [hier](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -40,9 +40,9 @@ Een SSH-client. Zie voor meer informatie [Verbinding maken met HDInsight (Apache
 
     | Eigenschap | Value |
     | --- | --- |
-    | Abonnement | Uw Azure-abonnement. |
-    | Resourcegroep | De resourcegroep waarin het cluster wordt gemaakt. |
-    | Locatie | De Azure-regio waarin het cluster wordt gemaakt. |
+    | Subscription | Uw Azure-abonnement. |
+    | Resource group | De resourcegroep waarin het cluster wordt gemaakt. |
+    | Location | De Azure-regio waarin het cluster wordt gemaakt. |
     | Clusternaam | De naam van het Kafka-cluster. |
     | Gebruikersnaam voor clusteraanmelding | De accountnaam die wordt gebruikt voor aanmelden bij op HTTPs gebaseerde services die worden gehost in het cluster. |
     | Wachtwoord voor clusteraanmelding | Het wachtwoord voor de gebruikersnaam voor aanmelden. |
@@ -67,7 +67,7 @@ Een SSH-client. Zie voor meer informatie [Verbinding maken met HDInsight (Apache
 
     Zodra er verbinding is gemaakt, ziet u informatie die er ongeveer als volgt uitziet:
     
-    ```text
+    ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
     
@@ -85,7 +85,6 @@ Een SSH-client. Zie voor meer informatie [Verbinding maken met HDInsight (Apache
     Welcome to Kafka on HDInsight.
     
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-    ssuhuser@hn0-mykafk:~$
     ```
 
 ## <a id="getkafkainfo"></a>Informatie over de Apache Zookeeper- en Broker-hosts ophalen
@@ -108,7 +107,7 @@ In deze sectie gaat u de hostgegevens opvragen met de Ambari REST-API in het clu
 
     Wanneer u daarom wordt gevraagd, typt u de naam van het Kafka-cluster.
 
-3. Gebruik de onderstaande opdracht om een omgevingsvariabele met hostinformatie van Zookeeper. De opdracht haalt alle Zookeeper-hosts en retourneert alleen de eerste twee vermeldingen. De reden hiervoor is dat u een bepaalde mate van redundantie wilt voor het geval één host onbereikbaar is.
+3. Als u een omgevings variabele met Zookeeper-hostgegevens wilt instellen, gebruikt u de onderstaande opdracht. Met de opdracht worden alle Zookeeper-hosts opgehaald en worden alleen de eerste twee vermeldingen geretourneerd. De reden hiervoor is dat u een bepaalde mate van redundantie wilt voor het geval één host onbereikbaar is.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 28e85f2e9caacc0cc30dcc1a073414c34bc2ab0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0ee4a1129246cedd7899056359144cab75f9475
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064335"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782440"
 ---
 # <a name="what-is-azure-security-center"></a>Wat is Azure Security Center?
 
@@ -34,7 +34,7 @@ Azure Security Center biedt een oplossing voor de drie dringendste beveiligingsp
 
 -   **Aanvallen die steeds geavanceerder worden** : overal waar u de workloads uitvoert, worden de aanvallen steeds geavanceerder. U moet uw workloads in de openbare cloud beveiligen. Dit zijn immers workloads die gebruikmaken van internet, zodat u nog kwetsbaarder bent als u zich niet houdt aan de best practices voor beveiliging.
 
--   **Beveiligingsspecialisten zijn schaars** : het aantal beveiligingswaarschuwingen en waarschuwingssystemen is veel groter dan het aantal beheerders met de benodigde achtergrond en ervaring die ervoor kunnen zorgen dat uw omgevingen goed zijn beveiligd. Het is een hele uitdaging om constant op de hoogte te blijven van de meest recente aanvallen. Stilstand is geen optie in de wereld van de beveiliging die altijd in beweging is.
+-   **Beveiligings vaardigheden bevinden zich in de korte voeding** . het aantal beveiligings waarschuwingen en waarschuwings systemen dat in handen is, is het aantal beheerders met de benodigde achtergrond en ervaring om ervoor te zorgen dat uw omgevingen worden beschermd. Het is een hele uitdaging om constant op de hoogte te blijven van de meest recente aanvallen. Stilstand is geen optie in de wereld van de beveiliging die altijd in beweging is.
 
 Met Security Center kunt u zich tegen deze bedreigingen beveiligen. Het biedt namelijk hulpprogramma's waarmee u het volgende kunt doen:
 
@@ -126,13 +126,13 @@ Security Center zorgt ervoor dat u minder wordt blootgesteld aan beveiligingsaan
 
 Security Center beschikt over mogelijkheden waarmee u de gegevens in Azure SQL automatisch kunt classificeren. U kunt ook beoordelingen krijgen van mogelijke beveiligingsproblemen in Azure SQL- en Azure Storage-services en aanbevelingen ontvangen voor de wijze waarop u deze kunt verhelpen.
 
-### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>Bescherming van IoT- en hybride cloud-workloads (Preview)
+### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>IoT-en hybride Cloud werkbelastingen beveiligen (preview)
 
-Azure Security Center voor IoT (Internet of Things) vereenvoudigt hybride workload protection door het leveren van geïntegreerde zichtbaarheid en controle, geavanceerde bedreigingen te voorkomen, en intelligente detectie van bedreigingen en antwoord verschillende workloads die worden uitgevoerd in Microsoft edge, on-premises in Azure, en in andere clouds. Zie voor meer informatie, [Azure Security Center voor IoT (Preview)](https://docs.microsoft.com/azure/asc-for-iot/).
+Azure Security Center voor IoT (Internet of Things) vereenvoudigt de bescherming van hybride werk belastingen door eenvormige zicht baarheid en controle, adaptieve preventie van bedreigingen en detectie van intelligente bedreigingen en respons te bieden voor werk belastingen die op Edge, on-premises worden uitgevoerd, in Azure en in andere Clouds. Zie [Azure Security Center voor IOT (preview)](https://docs.microsoft.com/azure/asc-for-iot/)voor meer informatie.
 
 ## <a name="get-secure-faster"></a>Uw infrastructuur sneller beveiligen
 
-Systeemeigen integratie van Azure (met inbegrip van Logboeken voor Azure Policy en Azure Monitor) gecombineerd met naadloze integratie met andere beveiligingsoplossingen van Microsoft, zoals Microsoft Cloud App Security en Windows Defender Advanced Threat Protection ervoor te zorgen dat uw beveiligingsoplossing is uitgebreid, evenals eenvoudige zorgen voor onboarding en worden uitgerold.
+Systeem eigen Azure-integratie (inclusief Azure Policy-en Azure Monitor-Logboeken) in combi natie met naadloze integratie met andere micro soft-beveiligings oplossingen, zoals Microsoft Cloud App Security en Windows Defender Advanced Threat Protection helpen ervoor te zorgen dat uw de beveiligings oplossing is uitgebreid, maar ook eenvoudig te implementeren en uit te breiden.
 
 Bovendien kunt u de volledige oplossing tot buiten Azure uitbreiden naar workloads die worden uitgevoerd in andere clouds en on-premises datacenters.
 
