@@ -71,7 +71,7 @@ Stel de **authenticationType** eigenschap **Basic**, **Digest**, of **Windows**.
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | userName | De gebruikersnaam gebruiken voor toegang tot het HTTP-eindpunt. | Ja |
-| password | Het wachtwoord voor de gebruiker (de **gebruikersnaam** waarde). Dit veld als markeert een **SecureString** type voor het veilig opslaan in Data Factory. U kunt ook [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| password | Het wachtwoord voor de gebruiker (de **userName** waarde). Dit veld als markeert een **SecureString** type voor het veilig opslaan in Data Factory. U kunt ook [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Voorbeeld**
 
