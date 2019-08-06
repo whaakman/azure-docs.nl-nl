@@ -13,7 +13,7 @@
   items:
     - name: Verdachte bedreigingen detecteren
       href: tutorial-detect-threats.md
-    - name: Cases onderzoeken
+    - name: Incidenten onderzoeken
       href: tutorial-investigate-cases.md
     - name: Op bedreigingen reageren
       href: tutorial-respond-threats-playbook.md
