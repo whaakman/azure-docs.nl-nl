@@ -183,7 +183,7 @@ Het kopiëren van gegevens van MongoDB, worden de volgende toewijzingen van Mong
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |String |
-| Reeks |String |
+| String |String |
 | UUID |Guid |
 | Object |Renormalized afvlakken in kolommen met '_' als geneste scheidingsteken |
 
