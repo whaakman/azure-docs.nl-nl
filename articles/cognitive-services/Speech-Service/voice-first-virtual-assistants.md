@@ -21,7 +21,7 @@ ms.locfileid: "68552539"
 
 Met aangepaste virtuele assistenten die gebruikmaken van Azure speech Services kunnen ontwikkel aars natuurlijke, menselijke-achtige gespreks interfaces maken voor hun toepassingen en ervaringen. Het directe-lijn spraak kanaal van het bot-Framework verbetert deze mogelijkheden door een gecoördineerd, georganisatied ingangs punt te bieden aan een compatibele bot waarmee gesp roken communicatie mogelijk is met lage latentie en hoge betrouw baarheid. Deze bots kunnen gebruikmaken van de Language Understanding (LUIS) van micro soft voor interactie in natuurlijke taal. Direct line speech is toegankelijk via apparaten met de speech Software Development Kit (SDK).
 
-   ![Conceptueel diagram van de service stroom van de directe lijn spraak] indeling (media/voice-first-virtual-assistants/overview.png "De stroom van het spraak kanaal")
+   ![Conceptueel diagram van de service stroom van de directe lijn spraak indeling](media/voice-first-virtual-assistants/overview.png "De stroom van het spraak kanaal")
 
 
 Direct line speech en de bijbehorende functionaliteit voor aangepaste spraak-eerste virtuele assistenten zijn een ideale aanvulling op de [Virtual assistent-oplossing en de ondernemings sjabloon](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Hoewel directe lijn spraak kan worden gebruikt met een compatibele bot, bieden deze resources een herbruikbare basis lijn voor gesp roken ervaringen van hoge kwaliteit, evenals algemene ondersteunende vaardig heden en modellen om snel aan de slag te gaan.

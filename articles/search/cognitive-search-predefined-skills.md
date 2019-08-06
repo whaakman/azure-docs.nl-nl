@@ -47,7 +47,7 @@ Verschillende vaardig heden zijn flexibel in wat ze gebruiken of produceren. Ove
 | [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | Maakt uitbreid baarheid van cognitieve Zoek pijplijn mogelijk door een HTTP-aanroep naar een aangepaste web-API te maken |
 
 
-Zie [ [een aangepaste interface definiëren](cognitive-search-custom-skill-interface.md) voor meer informatie over het maken van een [aangepaste vaardigheid](cognitive-search-custom-skill-web-api.md): Een aangepaste vaardigheid maken voor cognitieve Zoek](cognitive-search-create-custom-skill-example.md)opdrachten.
+Zie [een aangepaste interface definiëren](cognitive-search-custom-skill-interface.md) voor meer informatie over het maken van een [aangepaste vaardigheid](cognitive-search-custom-skill-web-api.md) [: Een aangepaste vaardigheid maken voor cognitieve Zoek](cognitive-search-create-custom-skill-example.md)opdrachten.
 
 ## <a name="see-also"></a>Zie ook
 
