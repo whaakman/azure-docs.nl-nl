@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 031367a8a05defad475ae077f9b38b7294837460
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ac3cb1d637eae1b4ee0a7db59efe631c7eb1ac6f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559403"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815257"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Taal-en regio ondersteuning voor de spraak Services
 
@@ -31,12 +31,12 @@ Zowel de micro soft Speech Recognition SDK als de REST API ondersteunen de volge
  ar-bijvoorbeeld | Arabisch (Egypte), moderne standard | Nee | Ja | Nee
  CA-ES | Catalaans | Nee | Nee | Nee
  da-DK | Deens (Denemarken) | Nee | Nee | Nee
- de-DE | Duits (Duitsland) | Ja | Ja | Nee
- en-AU | Engels (Australië) | Nee | Ja | Ja
- NL-CA | Engels (Canada) | Nee | Ja | Ja
- en-GB | Engels (Verenigd Koninkrijk) | Nee | Ja | Ja
- NL-IN | English (India) | Ja | Ja | Ja
- NL-NZ | Engels (Nieuw-Zeeland) | Nee | Ja | Ja  
+ de-DE | Duits (Duitsland) | Ja | Ja | Ja
+ en-AU | Engels (Australië) | Nee | Ja | Nee
+ NL-CA | Engels (Canada) | Nee | Ja | Nee
+ en-GB | Engels (Verenigd Koninkrijk) | Nee | Ja | Nee
+ NL-IN | English (India) | Ja | Ja | Nee
+ NL-NZ | Engels (Nieuw-Zeeland) | Nee | Ja | Nee 
  en-US | Engels (Verenigde Staten) | Ja | Ja | Ja
  es-ES | Spaans (Spanje) | Ja | Ja | Nee
  es-MX | Spaans (Mexico) | Nee | Ja | Nee
