@@ -1,26 +1,26 @@
 ---
-title: Voorbeelden van Azure Application Gateway-PowerShell
-description: Voorbeelden van Azure Application Gateway-PowerShell
+title: Azure PowerShell-voor beelden voor Azure-toepassing gateway
+description: Azure PowerShell-voor beelden voor Azure-toepassing gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 6/18/2019
+ms.topic: sample
+ms.date: 08/07/2019
 ms.author: victorh
-ms.openlocfilehash: ce86a97f8f565c7917c8f71b8910acf8ceffbede
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2fb809026e8b604ddf25a8160774972eae99411a
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164643"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824345"
 ---
-# <a name="azure-application-gateway-powershell-samples"></a>Voorbeelden van Azure Application Gateway-PowerShell
+# <a name="azure-powershell-examples-for-azure-application-gateway"></a>Azure PowerShell-voor beelden voor Azure-toepassing gateway
 
-De volgende tabel bevat koppelingen naar voorbeelden van de Azure PowerShell-scripts die Toepassingsgateways maken.
+De volgende tabel bevat koppelingen naar Azure PowerShell script voorbeelden voor Azure-toepassing gateway.
 
 | | |
 |---|---|
 | [Webverkeer beheren](./scripts/create-vmss-powershell.md) | Hiermee maakt u een Application Gateway en alle gerelateerde resources.|
-| [Webverkeer beperken](./scripts/create-vmss-waf-powershell.md) | Hiermee maakt u een toepassingsgateway die met behulp van OWASP-regels verkeer beperkt.|
-|[Aangepaste regels voor WAF-v2](scripts/waf-custom-rules-powershell.md)|Hiermee maakt een Application Gateway Web Application Firewall v2 met aangepaste regels.
+| [Webverkeer beperken](./scripts/create-vmss-waf-powershell.md) | Hiermee maakt u een Application Gateway die verkeer beperkt met OWASP-regels.|
+|[Aangepaste regels voor WAF v2](scripts/waf-custom-rules-powershell.md)|Hiermee maakt u een Application Gateway Web Application Firewall versie 2 met aangepaste regels.
 | | |

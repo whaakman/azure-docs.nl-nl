@@ -1,6 +1,6 @@
 ---
-title: Wat is er dubbele OPC - Azure | Microsoft Docs
-description: Overzicht van de OPC-Twin
+title: 'Wat is OPC: twee Azure | Microsoft Docs'
+description: Overzicht van OPC, twee
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,38 +8,38 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d58dc18d5513259d5c01f7ddcc54736796e5c824
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c0d824e23a98aa14081fbd21bd6a9fbec5d583e0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603630"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815937"
 ---
-# <a name="what-is-opc-twin"></a>Wat is de OPC-Twin?
+# <a name="what-is-opc-twin"></a>Wat is OPC twee?
 
-OPC-Twin bestaat uit microservices die Azure IoT Edge en IoT-Hub gebruiken om de cloud en het netwerk factory. OPC-Twin voorziet in detectie, registratie en beheer op afstand van industriële apparaten via REST API's. Een OPC Unified-architectuur (OPC UA) SDK, taalneutraal is programmeren en kan worden opgenomen in een serverloze werkstroom vereist OPC dubbele niet. Dit artikel beschrijft de verschillende OPC-dubbele van use cases.
+OPC twee bestaat uit micro services die gebruikmaken van Azure IoT Edge en IoT Hub om verbinding te maken met de Cloud en het Factory-netwerk. OPC twee biedt detectie, registratie en extern beheer van industriële apparaten via REST-Api's. OPC dubbele vereist geen OPC-UA-SDK (Unified Architecture), is programmeer taal neutraal en kan worden opgenomen in een serverloze werk stroom. In dit artikel worden verschillende OPC-twee-use cases beschreven.
 
 ## <a name="discovery-and-control"></a>Detectie en beheer
-U kunt OPC dubbele gebruiken voor eenvoudige voor detectie en registratie.
+U kunt OPC-twee gebruiken voor eenvoudig detectie en registratie.
 
 ### <a name="simple-discovery-and-registration"></a>Eenvoudige detectie en registratie
-OPC-Twin kunt factory operators om te scannen op het netwerk factory zodat OPC UA-servers kunnen worden gedetecteerd en geregistreerd. Als alternatief kunnen factory operators OPC UA-apparaten met behulp van een bekende detectie-URL ook handmatig registreren. Bijvoorbeeld, voor verbinding met alle apparaten van de OPC UA nadat de IoT Edge-gateway met een dubbele OPC-module is geïnstalleerd op de werkvloer, kan de operator factory op afstand activeren een scan van het netwerk en visueel Zie alle OPC UA-servers. 
+OPC twee biedt fabrieks operators de mogelijkheid om het fabrieks netwerk te scannen, zodat OPC UA-servers kunnen worden gedetecteerd en geregistreerd. Als alternatief kunnen Factory-Opera tors ook niet hand matig OPC UA-apparaten registreren met behulp van een bekende detectie-URL. Als u bijvoorbeeld verbinding wilt maken met alle OPC UA-apparaten nadat de IoT Edge gateway met een OPC-dubbele module op de fabriek is geïnstalleerd, kan de fabrieks operator een scan van het netwerk op afstand activeren en de OPC UA-servers visueel weer geven. 
 
 ### <a name="simple-control"></a>Eenvoudig beheer
-OPC-Twin kunt factory operators om te reageren op gebeurtenissen en hun factory floor machines vanuit de cloud automatisch of handmatig op elk gewenst moment te configureren. OPC-Twin biedt REST-API's voor het aanroepen van services op de OPC UA-server, bladert u ook de adresruimte te lezen/schrijven variabelen en methoden uitvoeren. Een cv gebruikt bijvoorbeeld de temperatuur KPI voor het beheren van de productielijn. De temperatuursensor publiceert de wijziging in de gegevens met behulp van OPC Publisher. De operator factory ontvangt de waarschuwing dat de temperatuur van de drempelwaarde is bereikt. De productielijn koelt omlaag automatisch via OPC dubbel. De operator factory is een melding van de coolbar omlaag.
+Met OPC dubbele kunnen Factory-Opera tors reageren op gebeurtenissen en hun fabrieks machines automatisch of hand matig opnieuw configureren vanuit de Cloud. OPC twee biedt REST Api's voor het aanroepen van services op de OPC UA-server, blader door de adres ruimte en lees/schrijf variabelen en voer methoden uit. Een ketel maakt bijvoorbeeld gebruik van een temperatuur KPI om de productie lijn te beheren. De temperatuur sensor publiceert de wijziging in gegevens met behulp van de OPC-Uitgever. De fabrieks operator ontvangt de waarschuwing dat de Tempe ratuur de drempel waarde heeft bereikt. De productie lijn wordt automatisch uitgelicht via OPC dubbele. De fabrieks operator wordt op de hoogte gesteld van de afkoelen.
 
 ## <a name="authentication"></a>Authentication
-U kunt OPC-Twin gebruiken voor eenvoudige voor verificatie en voor een eenvoudige ontwikkelaarservaring.
+U kunt OPC-twee gebruiken om eenvoudig te authenticeren voor verificatie en voor een eenvoudige ervaring voor ontwikkel aars.
 
 ### <a name="simple-authentication"></a>Eenvoudige authenticatie 
-OPC-Twin maakt gebruik van Azure Active Directory (AAD) gebaseerde verificatie- en controleniveaus end tot einde. OPC-Twin kan bijvoorbeeld de toepassing worden gebouwd op de OPC-Twin om te bepalen wat een operator op een virtuele machine is uitgevoerd. Het is aan de machine via OPC UA-controle. Het is aan de cloud via het opslaan van een controlelogboek onveranderbare client en de AAD-verificatie op de REST-API.
+OPC twee maakt gebruik van Azure Active Directory (AAD)-verificatie en controles van end-to-end. Zo kan OPC twee bijvoorbeeld de toepassing boven op OPC twee maken om te bepalen wat een operator op een computer heeft uitgevoerd. Aan de kant van de computer wordt gepaard met OPC UA auditing. Aan de Cloud zijde wordt een onveranderlijk client audit logboek en AAD-verificatie opgeslagen op de REST API.
 
-### <a name="simple-developer-experience"></a>Eenvoudige ontwikkelervaring 
-OPC-Twin kan worden gebruikt met toepassingen die zijn geschreven in elke programmeertaal via REST API's. Als ontwikkelaars een OPC UA-client in een oplossing integreren, is kennis van de OPC UA-SDK niet nodig. OPC-Twin kunt naadloos integreren in stateless, serverloze architecturen. Bijvoorbeeld, een volledige stack webontwikkelaar bent die een toepassing ontwikkelt voor een waarschuwing en gebeurtenis-dashboard de logica om te reageren op gebeurtenissen in JavaScript- of TypeScript met OPC-Twin zonder de kennis van C, kunt schrijven C#, of de volledige implementatie van de OPC UA-stack. 
+### <a name="simple-developer-experience"></a>Eenvoudige ervaring voor ontwikkel aars 
+OPC dubbele kan worden gebruikt met toepassingen die zijn geschreven in een programmeer taal via REST-Api's. Omdat ontwikkel aars een OPC UA-client integreren in een oplossing, is kennis van de OPC UA SDK niet nodig. OPC twee kan naadloos worden geïntegreerd in stateless, serverloze architecturen. Zo kan een volledige stack webontwikkelaar die een toepassing ontwikkelt voor een alarm en een gebeurtenis dashboard, de logica schrijven om te reageren op gebeurtenissen in Java script of type script met behulp van OPC, zonder C#de kennis van C, of de volledige OPC UA-stack implementatie. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd over OPC dubbel en zijn gebruikt, volgt de voorgestelde volgende stap:
+Nu u over OPC en het gebruik ervan hebt geleerd, is dit de voorgestelde volgende stap:
 
 > [!div class="nextstepaction"]
-> [Wat is de OPC-kluis](overview-opc-twin-architecture.md)
+> [Wat is OPC kluis?](overview-opc-vault.md)

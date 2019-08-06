@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 02/23/2019
-ms.openlocfilehash: bd8fa10ca0a9809891efc67ff930ab01d502eda9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1ee5a8d5f55422c9f8a0f20f3c6eb039f080dc2d
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60640953"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815731"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plugin"></a>Implementeren in Azure Functions met behulp van de invoegtoepassing Jenkins Azure Functions
 
@@ -50,12 +50,6 @@ In de volgende stappen kunt u zien hoe u een Java-functie maakt met de Azure CLI
     ```cli
     az functionapp create --resource-group <resource_group> --consumption-plan-location eastus --name <function_app> --storage-account <storage_account>
     ```
-    
-1. Werk bij tot versie 2.x runtime en vervang de tijdelijke aanduidingen door de desbetreffende waarden.
-
-    ```cli
-    az functionapp config appsettings set --name <function_app> --resource-group <resource_group> --settings FUNCTIONS_EXTENSION_VERSION=~2
-    ```
 
 ## <a name="prepare-jenkins-server"></a>Jenkins-server voorbereiden
 
@@ -89,9 +83,9 @@ In de volgende stappen wordt uitgelegd hoe de Jenkins-server wordt voorbereid:
 
 1. Voeg met behulp van de Azure-service-principal een Microsoft Azure-service-principal-referentietype aan Jenkins toe. Zie de zelfstudie [Deploy to Azure App Service](./tutorial-jenkins-deploy-web-app-azure-app-service.md#add-service-principal-to-jenkins) (Implementeren in Azure App Service).
 
-## <a name="fork-the-sample-github-repo"></a>De voorbeeld-GitHub-repo splitsen
+## <a name="fork-the-sample-github-repo"></a>Splits het voor beeld GitHub opslag plaats
 
-1. [Meld u aan het GitHub-opslagplaats voor de oneven of zelfs de voorbeeld-app](https://github.com/VSChina/odd-or-even-function.git).
+1. [Meld u aan bij de GitHub-opslag plaats voor de voor beeld-app voor oneven of nog eens](https://github.com/VSChina/odd-or-even-function.git).
 
 1. Kies **Fork** in de rechterbovenhoek in GitHub.
 
@@ -115,7 +109,7 @@ In deze sectie maakt u de [Jenkins-pijplijn](https://jenkins.io/doc/book/pipelin
     
 1. Selecteer in de sectie **Pipeline->Definition** de optie **Pipeline script from SCM**.
 
-1. Voer uw GitHub-fork-URL en het script pad (' doc/resources/jenkins/JenkinsFile") te gebruiken de [JenkinsFile voorbeeld](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile).
+1. Voer de URL en het scriptpad (doc/resources/Jenkins/JenkinsFile) van uw GitHub Fork in om te gebruiken in het [JenkinsFile-voor beeld](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile).
 
    ```
    node {

@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/13/2019
+ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c20256fb712d9381ba2adc90e2e68ce4fdc8911a
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: d4ca21ecf7ad0707ad33220a8e8c2700638f8e25
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382776"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824803"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Uw beveiligingsgegevens (preview) instellen vanaf de opdrachtprompt voor de aanmeldingspagina
 
@@ -75,7 +75,7 @@ Volg deze stappen voor het instellen van uw beveiligingsgegevens voor uw werk- o
 
 8. Keur de melding in de Microsoft Authenticator-app goed en selecteer vervolgens **Volgende**.
 
-    ![Melding van geslaagd, met verbinding van de app en uw account](media/security-info/securityinfo-prompt-auth-app-success.png).
+    ![Melding van geslaagd, met verbinding van de app en uw account](media/security-info/securityinfo-prompt-auth-app-success.png)
 
     Uw beveiligingsgegevens zijn bijgewerkt voor het standaard gebruik van de Microsoft Authenticator-app om uw identiteit te verifiëren bij het gebruik van verificatie in twee stappen of opnieuw instellen van het wachtwoord.
 
@@ -98,6 +98,40 @@ Volg deze stappen voor het instellen van uw beveiligingsgegevens voor uw werk- o
 12. Bekijk de pagina **Succes** om te controleren dat u zowel de Microsoft Authenticator-app als een telefoonmethode (sms-bericht of telefonische oproep) heeft ingesteld voor uw beveiligingsgegevens en selecteer vervolgens **Gereed**.
 
     ![Pagina Wizard is voltooid](media/security-info/securityinfo-prompt-setup-success.png)
+
+    >[!Note]
+    >Als uw organisatie vereist dat u app-wacht woorden gebruikt, ziet u mogelijk een extra sectie in deze wizard, waar u deze kunt instellen. Als er een derde sectie met de naam **app-wacht woorden**wordt weer geven, moet u deze invullen voordat u de wizard kunt volt ooien. Zie de sectie [uw app-wacht woorden beheren](#manage-your-app-passwords) in dit artikel voor instructies over het toevoegen van een app-wacht woord.
+
+### <a name="manage-your-app-passwords"></a>Uw app-wacht woorden beheren
+
+Bepaalde apps, zoals Outlook 2010, bieden geen ondersteuning voor verificatie in twee stappen. Dit gebrek aan ondersteuning betekent dat als u verificatie in twee stappen in uw organisatie gebruikt, de app niet werkt. Om dit probleem op te lossen, kunt u een automatisch gegenereerd wacht woord maken voor gebruik met elke niet-browser-app, gescheiden van uw normale wacht woord.
+
+>[!Note]
+>Als deze optie niet wordt weer geven in de wizard, betekent dit dat uw beheerder deze niet heeft ingesteld. Als dit niet is ingesteld, maar u weet dat u app-wacht woorden moet gebruiken, kunt u de stappen volgen in de [pagina app-wacht woorden instellen op het tabblad beveiligings gegevens (preview)](security-info-app-passwords.md).
+
+Wanneer u app-wacht woorden gebruikt, is het belang rijk om het volgende te onthouden:
+
+- App-wacht woorden worden automatisch gegenereerd en eenmaal per app ingevoerd.
+
+- Er is een limiet van 40 wacht woorden per gebruiker. Als u later een van deze limieten probeert te maken, wordt u gevraagd een bestaand wacht woord te verwijderen voordat u de nieuwe kunt maken.
+
+- Gebruik één app-wacht woord per apparaat, niet per app. U kunt bijvoorbeeld één wacht woord maken voor alle apps op uw laptop en vervolgens een ander wacht woord voor alle apps op uw bureau blad.
+
+#### <a name="to-add-app-passwords-in-the-sign-in-wizard"></a>App-wacht woorden toevoegen in de wizard Aanmelden
+
+1. Nadat u de vorige secties van de wizard hebt voltooid, selecteert u **volgende** en voltooit u de sectie **app-wacht woord** .
+
+2. Typ bijvoorbeeld `Outlook 2010`de naam van de app waarvoor het wacht woord nodig is, en selecteer vervolgens **volgende**.
+
+    ![De naam van het app-wacht woord toevoegen in de wizard](media/security-info/app-password-app-password.png)
+
+3. Kopieer de wachtwoord code uit het scherm voor het **app-wacht woord** en plak deze in het **wachtwoord** gebied van de app (in dit voor beeld Outlook 2010).
+
+    ![De pagina app-wacht woord, met een wacht woord voor kopiëren](media/security-info/app-password-copy-password.png)
+
+4. Nadat u het wacht woord hebt gekopieerd en in de app hebt geplakt, keert u terug naar deze wizard om ervoor te zorgen dat alle gegevens van uw aanmeldings methode nauw keurig zijn en selecteert u **gereed**.
+
+    ![Pagina app-wacht woord met voltooiings kennisgeving](media/security-info/app-password-complete.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

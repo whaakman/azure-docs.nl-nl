@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 05/02/2019
+ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1ec9db2b026dd1853eceb1f110878d6b2beb4d4
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 5323c996b8d974c9db11a508503f767cfee80301
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678033"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828104"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Wat is de Azure Machine Learning-service?
 
@@ -29,7 +29,7 @@ Prognoses of voorspellingen op basis van machine learning kunnen apps en apparat
 
 ## <a name="what-is-azure-machine-learning-service"></a>Wat is de Azure Machine Learning-service?
 
-Azure Machine Learning Service biedt een omgeving in de cloud die u kunt gebruiken om machine learning-modellen te trainen, testen, implementeren, beheren en volgen en er gegevens voor voor te bereiden. Start training op uw lokale machine en schaal vervolgens naar de Cloud. De service biedt volledige ondersteuning voor open-source technologieën zoals PyTorch, tensor flow en scikit-Learn en kan worden gebruikt voor elk soort machine learning, van klassieke ml tot diep gaande lessen, onder Super visie en zonder toezicht. 
+Azure Machine Learning Service biedt een omgeving in de cloud die u kunt gebruiken om machine learning-modellen te trainen, testen, implementeren, beheren en volgen en er gegevens voor voor te bereiden. Start training op uw lokale machine en schaal vervolgens naar de Cloud. De service biedt volledige ondersteuning voor open-source technologieën zoals PyTorch, tensor flow en scikit-Learn en kan worden gebruikt voor elk soort machine learning, van klassieke ml tot diep gaande lessen, onder Super visie en zonder toezicht.
 
 Verken en bereid gegevens op, Train en test modellen en implementeer ze met uitgebreide hulpprogram ma's zoals:
 + Een [visuele interface](ui-tutorial-automobile-price-train-score.md) waarin u modules kunt slepen en neerzetten om uw experimenten te ontwikkelen en vervolgens modellen te implementeren
@@ -55,20 +55,25 @@ U kunt [model training en-aanpassing ook automatiseren](tutorial-auto-train-mode
 Voor code-Free training kunt u het volgende proberen:
 
 + De visuele interface voor het experimenteren en implementeren met slepen en neerzetten
-    
+
     ![Visual-Interface voor de Azure Machine Learning-service](media/overview-what-is-azure-ml/visual-interface.png)
 
 + De optie Azure Portal voor automatische ML experimenten
 
 ### <a name="operationalization-mlops"></a>Uitoefening (MLOps)
 
-Wanneer u het juiste model hebt, kunt u het eenvoudig gebruiken in een webservice, op een IoT-apparaat of in Power BI. Zie het artikel [Hoe implementeren en waar](how-to-deploy-and-where.md) voor meer informatie. 
+Wanneer u het juiste model hebt, kunt u het eenvoudig gebruiken in een webservice, op een IoT-apparaat of in Power BI. Zie het artikel [Hoe implementeren en waar](how-to-deploy-and-where.md) voor meer informatie.
 
-Daarna kunt u uw geïmplementeerde modellen beheren met de [Azure Machine Learning SDK voor Python](https://aka.ms/aml-sdk) of [Azure Portal](https://portal.azure.com/). 
+Daarna kunt u uw geïmplementeerde modellen beheren met de [Azure Machine Learning SDK voor Python](https://aka.ms/aml-sdk) of [Azure Portal](https://portal.azure.com/).
 
 Deze modellen kunnen worden gebruikt en voor spellingen in [realtime](how-to-consume-web-service.md) of [asynchroon](how-to-run-batch-predictions.md) in grote hoeveel heden gegevens worden geretourneerd.
 
-En met geavanceerde [machine learning pijp lijnen](concept-ml-pipelines.md)kunt u samen werken aan elke stap van het voorbereiden van gegevens, het model leren en evalueren van een cursus, via implementatie.
+En met geavanceerde [machine learning pijp lijnen](concept-ml-pipelines.md)kunt u samen werken aan elke stap van het voorbereiden van gegevens, het model leren en evalueren van een cursus, via implementatie. Met pijp lijnen kunt u het volgende doen:
+
+* het end-to-end-machine learning proces automatiseren in de Cloud
+* onderdelen hergebruiken en alleen stappen opnieuw uitvoeren wanneer dat nodig is
+* in elke stap verschillende reken bronnen gebruiken
+* batch Score taken uitvoeren
 
 Bekijk [Volgende stappen](#next-steps) om te beginnen met de Azure Machine Learning-service.
 
@@ -86,7 +91,7 @@ Hier volgt een snelle vergelijking.
 |Modules voor Interface| Allerlei | Initiële set populaire modules|
 |Doelen van de trainings compute| Eigen reken doel, alleen CPU-ondersteuning| Ondersteunt Azure Machine Learning compute, GPU of CPU.<br/>(Andere reken processen die worden ondersteund in SDK)|
 |Doelen voor implementatie compute| De indeling van de oorspronkelijke webservice, niet aanpasbaar | Beveiligings opties voor ondernemingen & Azure Kubernetes-service. <br/>([Andere reken](how-to-deploy-and-where.md) processen die worden ondersteund in SDK) |
-|Automatische model training en afstemming tuning | Nee | Nog niet in de visuele interface. <br/> (Ondersteund in de SDK en Azure Portal.) | 
+|Automatische model training en afstemming tuning | Nee | Nog niet in de visuele interface. <br/> (Ondersteund in de SDK en Azure Portal.) |
 
 Probeer de Visual Interface (preview) uit met [de zelf studie: Prijs voor auto Mobile voor speld met](ui-tutorial-automobile-price-train-score.md)de visuele interface.
 
@@ -103,8 +108,8 @@ U ontvangt tegoed wat u kunt uitgeven aan Azure-services. Als uw tegoed op is, k
 
 - [Maak een machine learning service-werk ruimte](setup-create-workspace.md) om aan de slag te gaan.
 
-- Volg de volledige zelfstudies: 
-  + [Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md) 
+- Volg de volledige zelfstudies:
+  + [Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md)
   + [Gegevens voorbereiden en geautomatiseerde machine learning gebruiken om een regressiemodel automatisch te trainen](tutorial-data-prep.md)
 
 - Leer meer over [Machine Learning-pijplijnen](/azure/machine-learning/service/concept-ml-pipelines) om uw Machine Learning-scenario’s te bouwen, te optimaliseren en te beheren.

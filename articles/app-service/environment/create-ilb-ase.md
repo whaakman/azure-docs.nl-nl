@@ -11,34 +11,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/28/2019
+ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5b05755502ad5836a21080a122d2e1721825f10c
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 4b41772a4e904603309f45244cf4df22af876a32
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734692"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812742"
 ---
-# <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Maken en gebruiken van een interne Load Balancer App Service Environment 
+# <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Een interne Load Balancer maken en gebruiken App Service Environment 
 
-De Azure App Service-omgeving is een implementatie van Azure App Service in een subnet in een Azure-netwerk (VNet). Er zijn twee manieren om een Azure App Service-omgeving (ASE) te implementeren: 
+De Azure App Service Environment is een implementatie van Azure App Service in een subnet in een virtueel netwerk van Azure (VNet). Er zijn twee manieren om een Azure App Service-omgeving (ASE) te implementeren: 
 
 - Met een VIP-adres op een extern IP-adres, vaak aangeduid als Externe AS-omgeving.
 - Met een VIP-adres op een intern IP-adres, vaak aangeduid als een ILB AS-omgeving omdat het interne eindpunt een ILB (Internal Load Balancer) is. 
 
-In dit artikel wordt uitgelegd hoe u een ILB AS-omgeving maakt. Zie [Introduction to App Service Environments][Intro] voor een overzicht van de ASE. Zie [Create an External ASE][MakeExternalASE] (Een Externe AS-omgeving maken) voor informatie over het maken van een Externe AS-omgeving.
+In dit artikel wordt uitgelegd hoe u een ILB AS-omgeving maakt. Zie [Inleiding tot app service omgevingen][Intro]voor een overzicht van de ASE. Zie [een externe ASE maken][MakeExternalASE]voor meer informatie over het maken van een externe ASE.
 
 ## <a name="overview"></a>Overzicht 
 
-U kunt een AS-omgeving implementeren met een eindpunt dat toegankelijk is via internet of met een IP-adres in uw VNet. De AS-omgeving moet zijn geïmplementeerd met een ILB om het IP-adres in te stellen op een VNet-adres. Wanneer u uw ASE met een ILB implementeert, moet u de naam van de as-omgeving opgeven. De naam van de as-omgeving wordt gebruikt in het domeinachtervoegsel voor de apps in de as-omgeving.  Het domeinachtervoegsel voor uw ILB as-omgeving is &lt;as-omgeving de naam&gt;. appservicewebsites.net. Apps die zijn aangebracht in een ILB as-omgeving, worden niet in de openbare DNS-server geplaatst. 
+U kunt een AS-omgeving implementeren met een eindpunt dat toegankelijk is via internet of met een IP-adres in uw VNet. De AS-omgeving moet zijn geïmplementeerd met een ILB om het IP-adres in te stellen op een VNet-adres. Wanneer u uw ASE implementeert met een ILB, moet u de naam van uw ASE opgeven. De naam van uw ASE wordt gebruikt in het domein achtervoegsel voor de apps in uw ASE.  Het domein achtervoegsel voor uw ILB ASE is &lt;ASE name&gt;. appservicewebsites.net. Apps die zijn gemaakt in een ILB-ASE, worden niet in de open bare DNS geplaatst. 
 
-Eerdere versies van de ILB as-omgeving vereist dat u voor het domeinachtervoegsel van een en een standaardcertificaat voor HTTPS-verbindingen. Het domeinachtervoegsel niet meer worden verzameld tijdens het maken van ILB as-omgeving en een standaardcertificaat worden ook niet meer verzameld. Wanneer u nu een ILB as-omgeving maakt, wordt het standaard-certificaat wordt geleverd door Microsoft en wordt vertrouwd door de browser. U bent nog steeds kunnen aangepaste domeinnamen voor apps in de as-omgeving instellen en instellen van certificaten voor deze aangepaste domeinnamen. 
+Eerdere versies van de ILB-ASE vereisen dat u een domein achtervoegsel en een standaard certificaat voor HTTPS-verbindingen opgeeft. Het domein achtervoegsel wordt niet meer verzameld bij het maken van ILB ASE en er wordt ook geen standaard certificaat meer verzameld. Wanneer u nu een ILB-ASE maakt, wordt het standaard certificaat door micro soft verzorgd en wordt dit vertrouwd door de browser. U kunt nog steeds aangepaste domein namen instellen voor apps in uw ASE en certificaten instellen voor die aangepaste domein namen. 
 
-Met een ILB as-omgeving, kunt u bijvoorbeeld dingen doen:
+Met een ILB-ASE kunt u dingen doen, zoals:
 
--   Host intranettoepassingen veilig op in de cloud, waartoe u toegang hebt via een site-naar-site- of ExpressRoute.
+-   Host intranet toepassingen veilig in de Cloud, die u kunt gebruiken via een site-naar-site-of ExpressRoute.
 -   Apps beveiligen met een WAF-apparaat
 -   Apps die niet worden vermeld op openbare DNS-servers, hosten in de cloud.
 -   Back-end-apps met internetisolatie maken, waarmee front-end-apps veilig kunnen worden geïntegreerd.
@@ -61,27 +61,27 @@ Ga als volgt te werk om een ILB AS-omgeving te maken:
 
 3. Selecteer of maak een resourcegroep.
 
-4. Voer de naam van uw App Service Environment.
+4. Voer de naam van uw App Service Environment in.
 
-5. Interne virtuele IP-type selecteren.
+5. Selecteer het virtuele IP-type van intern.
 
     ![ASE maken](media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase.png)
 
 6. Netwerken selecteren
 
-7. Selecteer of maak een Virtueelnetwerk. Als u hier een nieuw VNet maakt, wordt deze met een adresbereik van 192.168.250.0/23 worden gedefinieerd. Voor het maken van een VNet met een ander adresbereik of in een andere resourcegroep dan de as-omgeving, moet u de Azure Virtual Network maken-portal gebruiken. 
+7. Selecteer of maak een Virtual Network. Als u hier een nieuw VNet maakt, wordt dit gedefinieerd met een adres bereik van 192.168.250.0/23. Als u een VNet wilt maken met een ander adres bereik of in een andere resource groep dan het ASE, gebruikt u de Azure Virtual Network-Portal maken. 
 
-8. Selecteer of maak een lege een subnet. Als u wilt een subnet selecteren, is het moet leeg zijn en niet overgedragen. De grootte van het gatewaysubnet kan niet worden gewijzigd nadat de as-omgeving is gemaakt. We raden een grootte aan van `/24`. Dit formaat bevat 256 adressen en kan de grootst mogelijke AS-omgeving verwerken en voldoen aan alle schaalbehoeften. 
+8. Selecteer of maak een leeg subnet. Als u een subnet wilt selecteren, moet dit leeg zijn en niet worden overgedragen. De grootte van het subnet kan niet worden gewijzigd nadat de ASE is gemaakt. We raden een grootte aan van `/24`. Dit formaat bevat 256 adressen en kan de grootst mogelijke AS-omgeving verwerken en voldoen aan alle schaalbehoeften. 
 
     ![ASE-netwerken][1]
 
-7. Selecteer **bekijken en maken** Selecteer **maken**.
+7. Selecteer **controleren en maken en** Selecteer vervolgens **maken**.
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>Een app maken in een ILB AS-omgeving ##
 
 Het maken van een app in een ILB AS-omgeving werkt hetzelfde als het maken van een app in een AS-omgeving.
 
-1. Selecteer in de Azure portal, **een resource maken** > **Web** > **Web-App**.
+1. Selecteer in de Azure Portal **een resource** > maken**Web** > **Web app**.
 
 1. Voer de naam van de app in.
 
@@ -89,52 +89,52 @@ Het maken van een app in een ILB AS-omgeving werkt hetzelfde als het maken van e
 
 1. Selecteer of maak een resourcegroep.
 
-1. Selecteer uw publiceren, Runtime-Stack en besturingssysteem.
+1. Selecteer uw publicatie, runtime stack en besturings systeem.
 
-1. Selecteer een locatie waar de locatie een bestaande ILB as-omgeving is.  U kunt ook een nieuwe ASE maken tijdens het maken van apps door te selecteren van een geïsoleerde App Service-plan. Als u maken van een nieuwe ASE wilt, selecteert u de regio die u wilt dat de as-omgeving worden gemaakt.
+1. Selecteer een locatie waar de locatie een bestaande ILB-ASE is.  U kunt ook een nieuwe ASE maken tijdens het maken van een app door een geïsoleerd App Service-abonnement te selecteren. Als u een nieuwe ASE wilt maken, selecteert u de regio waarin u wilt dat de ASE wordt gemaakt.
 
 1. Selecteer of maak een App Service-plan. 
 
-1. Selecteer **bekijken en maken** Selecteer **maken** wanneer u klaar bent.
+1. Selecteer **controleren en maken en** Selecteer vervolgens **maken** wanneer u klaar bent.
 
 ### <a name="web-jobs-functions-and-the-ilb-ase"></a>WebJobs, Functions en de ILB AS-omgeving 
 
-Een ILB AS-omgeving biedt ondersteuning voor zowel Functions als WebJobs. Als u echter met deze wilt werken via de portal, hebt u netwerktoegang tot de SCM-site nodig.  Dit betekent dat de host van de browser zich in het virtuele netwerk moet bevinden of ermee moet zijn verbonden. Als uw ILB as-omgeving een domeinnaam die eindigt niet heeft op *appserviceenvironment.net*, moet u uw browser naar het HTTPS-certificaat wordt gebruikt door uw scm-site vertrouwt.
+Een ILB AS-omgeving biedt ondersteuning voor zowel Functions als WebJobs. Als u echter met deze wilt werken via de portal, hebt u netwerktoegang tot de SCM-site nodig.  Dit betekent dat de host van de browser zich in het virtuele netwerk moet bevinden of ermee moet zijn verbonden. Als uw ILB-ASE een domein naam heeft die niet eindigt op *appserviceenvironment.net*, moet u uw browser zo instellen dat het HTTPS-certificaat dat wordt gebruikt door uw SCM-site wordt vertrouwd.
 
 ## <a name="dns-configuration"></a>DNS-configuratie 
 
-Wanneer u een extern VIP-adres gebruikt, wordt de DNS-server beheerd met Azure. Elke app die is gemaakt in de AS-omgeving wordt automatisch toegevoegd aan Azure DNS, wat een openbaar DNS is. In een ILB AS-omgeving moet u uw eigen DNS beheren. Het domeinachtervoegsel gebruikt in combinatie met een ILB as-omgeving, is afhankelijk van de naam van de as-omgeving. Het domeinachtervoegsel is  *&lt;as-omgeving de naam&gt;. appserviceenvironment.net*. Het IP-adres voor uw ILB is in de portal onder **IP-adressen**. 
+Wanneer u een extern VIP-adres gebruikt, wordt de DNS-server beheerd met Azure. Elke app die is gemaakt in de AS-omgeving wordt automatisch toegevoegd aan Azure DNS, wat een openbaar DNS is. In een ILB AS-omgeving moet u uw eigen DNS beheren. Het domein achtervoegsel dat wordt gebruikt met een ILB-ASE is afhankelijk van de naam van de ASE. Het domein achtervoegsel is  *&lt;ASE name&gt;. appserviceenvironment.net*. Het IP-adres voor uw ILB bevindt zich in de portal onder **IP-adressen**. 
 
-Het configureren van uw DNS:
+Uw DNS configureren:
 
-- Maak een zone voor  *&lt;as-omgeving de naam&gt;. appserviceenvironment.net*
-- een A-record maken in de zone die verwijst * naar de ILB IP-adres 
-- Maak een zone in  *&lt;as-omgeving de naam&gt;. scm.appserviceenvironment.net* met de naam scm
-- een A-record maken in de scm-zone die naar het ILB IP-adres verwijst
+- Maak een zone voor  *&lt;ASE name&gt;. appserviceenvironment.net*
+- een A-record in die zone maken die verwijst naar * naar het IP-adres van de ILB 
+- Maak een zone in  *&lt;ASE name&gt;. appserviceenvironment.net* met de naam SCM
+- een A-record in de SCM-zone maken die verwijst naar het IP-adres van de ILB
 
 ## <a name="publish-with-an-ilb-ase"></a>Publiceren met een ILB AS-omgeving
 
-Elke app die wordt gemaakt, heeft twee eindpunten. In een ILB as-omgeving, hebt u *&lt;appnaam&gt;.&lt; Domein voor ILB as-omgeving&gt;* en  *&lt;appnaam&gt;.scm.&lt; Domein voor ILB as-omgeving&gt;* . 
+Elke app die wordt gemaakt, heeft twee eindpunten. In een ILB-ASE hebt  *&lt;u de app&gt;-&lt; naam. ILB ASE-&gt; domein* en  *&lt;app&gt;-naam.&lt; SCM. ILB ASE-&gt;domein*. 
 
-De SCM-sitenaam leidt naar de Kudu-console, genaamd de **Geavanceerde portal**, binnen Azure Portal. Met behulp van de Kudu-console kunt u omgevingsvariabelen bekijken, de schijf verkennen, een console gebruiken, en nog veel meer. Zie [Kudu-console voor Azure App Service][Kudu] voor meer informatie. 
+De SCM-sitenaam leidt naar de Kudu-console, genaamd de **Geavanceerde portal**, binnen Azure Portal. Met behulp van de Kudu-console kunt u omgevingsvariabelen bekijken, de schijf verkennen, een console gebruiken, en nog veel meer. Zie [kudu-console voor Azure app service][Kudu]voor meer informatie. 
 
 Op internet gebaseerde CI-systemen, zoals GitHub en Azure DevOps, werken nog steeds met een ILB AS-omgeving, als de buildagent toegankelijk is via internet en zich op hetzelfde netwerk bevindt als de ILB AS-omgeving. Als de buildagent dus, in het geval van Azure DevOps, is gemaakt in hetzelfde VNET als de ILB AS-omgeving (verschillende subnetten vormen geen probleem), kan met deze agent code worden opgehaald uit Azure DevOps-git en worden geïmplementeerd in de ILB AS-omgeving. Als u niet zelf een buildagent wilt maken, moet u een CI-systeem met een pull-model gebruiken, zoals Dropbox.
 
-De publicatie-eindpunten voor apps in een ILB AS-omgeving maken gebruik van het domein waarmee de ILB AS-omgeving is gemaakt. Dit domein wordt weergegeven in het publicatieprofiel van de app en in de portalblade van de app (**Overzicht** > **Essentials** en ook **Eigenschappen**). Als u een ILB as-omgeving met het domeinachtervoegsel hebt  *&lt;as-omgeving de naam&gt;. appserviceenvironment.net*, en een app met de naam *mytest*, gebruikt u *mytest.&lt; De naam van de as-omgeving&gt;. appserviceenvironment.net* voor FTP en *mytest.scm.contoso.net* voor webimplementatie.
+De publicatie-eindpunten voor apps in een ILB AS-omgeving maken gebruik van het domein waarmee de ILB AS-omgeving is gemaakt. Dit domein wordt weergegeven in het publicatieprofiel van de app en in de portalblade van de app (**Overzicht** > **Essentials** en ook **Eigenschappen**). Als u een ILB-ASE hebt met het domein achtervoegsel  *&lt;ASE&gt;name. appserviceenvironment.net*en een app met de naam *mytest*, gebruikt u *&lt; mytest. ASE name&gt;. appserviceenvironment.net* voor FTP en *mytest.scm.contoso.net* voor webimplementatie.
 
-## <a name="configure-an-ilb-ase-with-a-waf-device"></a>Een ILB as-omgeving configureren met een WAF-apparaat ##
+## <a name="configure-an-ilb-ase-with-a-waf-device"></a>Een ILB-ASE met een WAF-apparaat configureren ##
 
-U kunt een web application firewall (WAF) apparaat combineren met uw ILB as-omgeving alleen blootstellen de apps dat u wilt dat met het internet en de overige alleen toegankelijk is vanaf in het VNet te houden. Hiermee kunt u aan het bouwen van veilige toepassingen met meerdere lagen onder andere.
+U kunt een Web Application Firewall-apparaat (WAF) combi neren met uw ILB-ASE om alleen de apps weer te geven die u nodig hebt via internet en de rest alleen toegankelijk vanuit het VNet beschikbaar te houden. Zo kunt u beveiligde toepassingen met meerdere lagen bouwen onder andere.
 
-Zie voor meer informatie over het configureren van uw ILB as-omgeving met een WAF-apparaat, [een web application firewall configureren met uw App Service environment][ASEWAF]. In dit artikel leest u hoe u een virtueel Barracuda-apparaat gebruikt met de AS-omgeving. Een andere optie is het gebruik van Azure Application Gateway. Application Gateway maakt gebruik van de OWASP-kernregels om alle toepassingen te beveiligen die erachter zijn geplaatst. Zie [Introduction to the Azure web application firewall][AppGW] (Inleiding tot de WAF (Web Application Firewall) in Azure) voor meer informatie over Application Gateway.
+Zie [Configure a Web Application Firewall with your app service Environment][ASEWAF](Engelstalig) voor meer informatie over het configureren van uw ILB-ASE met een WAF-apparaat. In dit artikel leest u hoe u een virtueel Barracuda-apparaat gebruikt met de AS-omgeving. Een andere optie is het gebruik van Azure Application Gateway. Application Gateway maakt gebruik van de OWASP-kernregels om alle toepassingen te beveiligen die erachter zijn geplaatst. Zie [Introduction to the Azure Web Application firewall][AppGW]voor meer informatie over Application Gateway.
 
-## <a name="ilb-ases-made-before-may-2019"></a>ILB as-omgevingen voor mei 2019 uitgevoerd
+## <a name="ilb-ases-made-before-may-2019"></a>ILB as gemaakt vóór 2019 mei
 
-ILB as-omgevingen die zijn gemaakt voordat mei 2019 vereist dat u het domeinachtervoegsel instellen tijdens het maken van as-omgeving. Ze ook vereist dat u voor het uploaden van een standaardcertificaat dat is gebaseerd op die het domeinachtervoegsel. Ook met een oudere ILB as-omgeving uitvoeren u niet single sign-on bij de Kudu-console met apps in die ILB as-omgeving. Bij het configureren van DNS voor een oudere ILB as-omgeving, moet u het jokerteken A-record in een zone die overeenkomt met het achtervoegsel van uw domein instellen. 
+ILB as die zijn gemaakt vóór 2019, moest u het domein achtervoegsel instellen tijdens het maken van ASE. U moet ook een standaard certificaat uploaden dat is gebaseerd op het achtervoegsel van dat domein. Met een oudere ILB-ASE kunt u ook eenmalige aanmelding niet uitvoeren op de kudu-console met apps in die ILB ASE. Bij het configureren van DNS voor een oudere ILB-ASE moet u het Joker teken A-record instellen in een zone die overeenkomt met uw domein achtervoegsel. 
 
 ## <a name="get-started"></a>Aan de slag ##
 
-* Zie [Introduction to App Service environments][Intro] (Inleiding tot App Service-omgevingen) om aan de slag te gaan met AS-omgevingen. 
+* Zie [Introduction to app service environments][Intro](Engelstalig) om aan de slag te gaan met as. 
 
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png

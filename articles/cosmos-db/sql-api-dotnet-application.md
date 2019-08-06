@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: sngun
-ms.openlocfilehash: 85d9cbe7d0807ca0e7951e1e12d1edbbf7c921db
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b1d8d2539ae89dfdb8feb2e38f00bf4440411d8a
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67985906"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815149"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Zelfstudie: Een ASP.NET Core MVC-webtoepassing met Azure Cosmos DB ontwikkelen met behulp van .NET SDK 
 
@@ -219,24 +219,7 @@ Allereerst moet u een klasse toevoegen die de logica bevat voor de verbinding me
 
 1. In hetzelfde bestand definiëren we de **InitializeCosmosClientInstanceAsync**, waarmee de configuratie wordt gelezen en de client wordt geïnitialiseerd.
 
-    ```csharp
-    private static async Task<CosmosDbService> InitializeCosmosClientInstanceAsync(IConfigurationSection configurationSection)
-    {
-        string databaseName = configurationSection.GetSection("DatabaseName").Value;
-        string containerName = configurationSection.GetSection("ContainerName").Value;
-        string account = configurationSection.GetSection("Account").Value;
-        string key = configurationSection.GetSection("Key").Value;
-        CosmosClientBuilder clientBuilder = new CosmosClientBuilder(account, key);
-        CosmosClient client = clientBuilder
-                            .WithConnectionModeDirect()
-                            .Build();
-        CosmosDbService cosmosDbService = new CosmosDbService(client, databaseName, containerName);
-        Database database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
-        await database.CreateContainerIfNotExistsAsync(containerName, "/id");
-
-        return cosmosDbService;
-    }
-    ```
+    [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)] 
 
 1. De configuratie wordt gedefinieerd in het bestand **appSettings. json** van het project. Open het en voeg een sectie toe met de naam **CosmosDb**:
 

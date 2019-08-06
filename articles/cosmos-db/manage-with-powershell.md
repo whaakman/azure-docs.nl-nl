@@ -1,58 +1,58 @@
 ---
-title: Maken en beheren van Azure Cosmos DB met behulp van PowerShell
-description: Gebruik Azure Powershell beheren van uw Azure Cosmos DB-accounts, databases, containers en doorvoer.
+title: Azure Cosmos DB maken en beheren met Power shell
+description: Gebruik Azure Power shell om uw Azure Cosmos DB accounts, data bases, containers en door voer te beheren.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/09/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: b61c7bbc06d8d265e5dd5dddd31aceadce1f623b
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 79302fc0f9addc70461d21c03b02416d15a6fa6c
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797043"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814942"
 ---
-# <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Beheer van Azure Cosmos DB SQL API-resources met behulp van PowerShell
+# <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Azure Cosmos DB SQL-API-resources beheren met Power shell
 
-De volgende handleiding wordt beschreven hoe u PowerShell gebruiken voor het script en automatiseren van beheer van Azure Cosmos DB-resources, zoals account, database, -container en doorvoer. Beheer van Azure Cosmos DB wordt verwerkt door de cmdlet AzResource rechtstreeks bij de resourceprovider van Azure Cosmos DB. Alle eigenschappen die kunnen worden beheerd met behulp van PowerShell voor de resourceprovider van Azure Cosmos DB Zie [providerschema voor Azure Cosmos DB-resource](/azure/templates/microsoft.documentdb/allversions)
+In de volgende hand leiding wordt beschreven hoe u Power shell gebruikt voor het uitvoeren van scripts en het automatiseren van het beheer van Azure Cosmos DB resources, waaronder account, Data Base, container en door voer. Het beheer van Azure Cosmos DB wordt rechtstreeks door de AzResource-cmdlet aan de Azure Cosmos DB resource Provider verwerkt. Als u alle eigenschappen wilt weer geven die kunnen worden beheerd met behulp van Power shell voor de resource provider van Azure Cosmos DB, raadpleegt u [Azure Cosmos DB resource provider-schema](/azure/templates/microsoft.documentdb/allversions)
 
-Voor het beheer van meerdere platformen van Azure Cosmos DB, kunt u [Azure CLI](manage-with-cli.md), wordt de [REST-API][rp-rest-api], of de [Azure-portal](create-sql-api-dotnet.md#create-account).
+Voor meerdere platform beheer van Azure Cosmos DB kunt u [Azure cli](manage-with-cli.md), de [REST API][rp-rest-api]of de [Azure Portal](create-sql-api-dotnet.md#create-account)gebruiken.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="getting-started"></a>Aan de slag
 
-Volg de instructies in [hoe u Azure PowerShell installeren en configureren][powershell-install-configure] te installeren en meld u aan bij uw Azure-account in Powershell.
+Volg de instructies in het [installeren en configureren van Azure PowerShell][powershell-install-configure] om uw Azure-account in Power shell te installeren en u aan te melden.
 
 * Als u wilt de volgende opdrachten uitvoeren zonder bevestiging van de gebruiker, toevoegen de `-Force` vlag aan de opdracht.
 * De volgende opdrachten worden synchroon.
 
-## <a name="azure-cosmos-accounts"></a>Azure Cosmos-Accounts
+## <a name="azure-cosmos-accounts"></a>Azure Cosmos-accounts
 
-De volgende secties laten zien hoe u voor het beheren van de Azure Cosmos-account, met inbegrip van:
+In de volgende secties ziet u hoe u het Azure Cosmos-account kunt beheren, met inbegrip van:
 
 * [Een Azure Cosmos-account maken](#create-account)
 * [Een Azure Cosmos-account bijwerken](#update-account)
-* [Alle Azure-Cosmos-accounts in een abonnement weergeven](#list-accounts)
-* [Maak een Azure Cosmos-account](#get-account)
+* [Alle Azure Cosmos-accounts in een abonnement weer geven](#list-accounts)
+* [Een Azure Cosmos-account ophalen](#get-account)
 * [Een Azure Cosmos-account verwijderen](#delete-account)
-* [Bijwerken van tags voor een Azure Cosmos-account](#update-tags)
-* [Een lijst met sleutels voor een Azure Cosmos-account](#list-keys)
-* [Sleutels opnieuw genereren voor een Azure Cosmos-account](#regenerate-keys)
-* [Lijst met verbindingsreeksen voor een Azure Cosmos-account](#list-connection-strings)
-* [Failover-prioriteit voor een Azure Cosmos-account wijzigen](#modify-failover-priority)
+* [Tags voor een Azure Cosmos-account bijwerken](#update-tags)
+* [Sleutels voor een Azure Cosmos-account weer geven](#list-keys)
+* [Sleutels voor een Azure Cosmos-account opnieuw genereren](#regenerate-keys)
+* [Verbindings reeksen weer geven voor een Azure Cosmos-account](#list-connection-strings)
+* [De failover-prioriteit voor een Azure Cosmos-account wijzigen](#modify-failover-priority)
 
-### <a id="create-account"></a> Een Azure Cosmos-account maken
+### <a id="create-account"></a>Een Azure Cosmos-account maken
 
-Deze opdracht maakt u een Azure Cosmos DB-databaseaccount met [meerdere-regio's][distribute-data-globally], gebonden veroudering [consistentie beleid](consistency-levels.md).
+Met deze opdracht wordt een Azure Cosmos DB database account gemaakt met [consistentie beleid](consistency-levels.md)met [meerdere regio's][distribute-data-globally], afhankelijk van de veroudering.
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos Account for Core (SQL) API
 $resourceGroupName = "myResourceGroup"
 $location = "West US 2"
-$accountName = "mycosmosaccount" # must be lower case.
+$accountName = "mycosmosaccount" # must be lowercase and < 31 characters .
 
 $locations = @(
     @{ "locationName"="West US 2"; "failoverPriority"=0 },
@@ -77,17 +77,17 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-* `$accountName` De naam voor de Azure Cosmos-account. Moet een kleine letter, alfanumerieke accepteert en de '-' teken, en tussen de 3 en 31 tekens bevatten.
-* `$location` De locatie voor de resource van Azure Cosmos-account.
-* `$locations` De replica-regio's voor het account van de database. Er moet een regio voor schrijfbewerkingen per databaseaccount met de prioriteit van een failover van 0.
-* `$consistencyPolicy` Het standaardconsistentieniveau van het Azure Cosmos-account. Zie voor meer informatie, [Consistentieniveaus in Azure Cosmos DB](consistency-levels.md).
-* `$CosmosDBProperties` De eigenschapswaarden doorgegeven aan de Cosmos DB Azure Resource Manager-Provider voor het inrichten van het account.
+* `$accountName`De naam voor het Azure Cosmos-account. Moet kleine letters, alfanumerieke tekens en het teken '-' en tussen de 3 en 31 tekens bevatten.
+* `$location`De locatie voor de Azure Cosmos-account bron.
+* `$locations`De replica regio's voor het database account. Er moet één schrijf regio per database account zijn met een failover-prioriteits waarde van 0.
+* `$consistencyPolicy`Het standaard consistentie niveau van het Azure Cosmos-account. Zie voor meer informatie, [Consistentieniveaus in Azure Cosmos DB](consistency-levels.md).
+* `$CosmosDBProperties`De eigenschaps waarden die zijn door gegeven aan de provider van het Cosmos DB Azure Resource Manager om het account in te richten.
 
-Azure Cosmos accounts kunnen worden geconfigureerd met IP-Firewall, evenals Virtual Network service-eindpunten. Zie voor meer informatie over het configureren van de IP-Firewall voor Azure Cosmos DB [IP-Firewall configureren](how-to-configure-firewall.md).  Zie voor meer informatie over het inschakelen van service-eindpunten voor Azure Cosmos DB [toegang van virtuele netwerken configureren](how-to-configure-vnet-service-endpoint.md).
+Azure Cosmos-accounts kunnen worden geconfigureerd met IP-firewall en Virtual Network Service-eind punten. Zie [Configure IP firewall](how-to-configure-firewall.md)(Engelstalig) voor meer informatie over het configureren van de IP-firewall voor Azure Cosmos db.  Zie [toegang vanaf virtuele netwerken configureren](how-to-configure-vnet-service-endpoint.md)voor meer informatie over het inschakelen van service-eind punten voor Azure Cosmos db.
 
-### <a id="list-accounts"></a> Alle Azure-Cosmos-accounts in een abonnement weergeven
+### <a id="list-accounts"></a>Alle Azure Cosmos-accounts in een abonnement weer geven
 
-Met deze opdracht kunt u om alle Azure-Cosmos-account in een abonnement weer te geven.
+Met deze opdracht kunt u een lijst met alle Azure Cosmos-accounts in een abonnement.
 
 ```azurepowershell-interactive
 # List Azure Cosmos Accounts
@@ -95,9 +95,9 @@ Met deze opdracht kunt u om alle Azure-Cosmos-account in een abonnement weer te 
 Get-AzResource -ResourceType Microsoft.DocumentDb/databaseAccounts | ft
 ```
 
-### <a id="get-account"></a> Hiermee worden de eigenschappen van een Azure Cosmos-account
+### <a id="get-account"></a>De eigenschappen van een Azure Cosmos-account ophalen
 
-Met deze opdracht kunt u Hiermee worden de eigenschappen van een bestaand Azure-Cosmos-account.
+Met deze opdracht kunt u de eigenschappen van een bestaand Azure Cosmos-account ophalen.
 
 ```azurepowershell-interactive
 # Get the properties of an Azure Cosmos Account
@@ -110,19 +110,19 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName | Select-Object Properties
 ```
 
-### <a id="update-account"></a> Een Azure Cosmos-account bijwerken
+### <a id="update-account"></a>Een Azure Cosmos-account bijwerken
 
-Met deze opdracht kunt u de eigenschappen van uw Azure Cosmos DB-database bijwerken. Eigenschappen die kunnen worden bijgewerkt, zijn onder andere:
+Met deze opdracht kunt u de eigenschappen van uw Azure Cosmos DB-database bijwerken. Eigenschappen die kunnen worden bijgewerkt zijn onder andere het volgende:
 
-* Toevoegen of verwijderen van regio 's
-* Standaardbeleid voor consistentie wijzigen
-* Failover-beleid wijzigen
-* IP-adresfilter van bereik wijzigen
-* Configuraties van het Virtueelnetwerk wijzigen
-* Meerdere masters inschakelen
+* Regio's toevoegen of verwijderen
+* Standaard consistentie beleid wijzigen
+* Beleid voor failover wijzigen
+* IP-bereik filter wijzigen
+* Virtual Network configuraties wijzigen
+* Multi-Master inschakelen
 
 > [!NOTE]
-> Met deze opdracht kunt u toevoegen en verwijderen van regio's, maar staat niet toe dat u failover-prioriteiten wijzigen. Zie voor het wijzigen van failover-prioriteit [failover-prioriteit voor een Azure Cosmos-account wijzigen](#modify-failover-priority).
+> Met deze opdracht kunt u toevoegen en verwijderen van regio's, maar staat niet toe dat u failover-prioriteiten wijzigen. Zie [prioriteit van failover voor een Azure Cosmos-account wijzigen](#modify-failover-priority)als u de prioriteit van failover wilt wijzigen.
 
 ```azurepowershell-interactive
 # Update an Azure Cosmos Account and set Consistency level to Session
@@ -143,9 +143,9 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-### <a id="delete-account"></a> Een Azure Cosmos-account verwijderen
+### <a id="delete-account"></a>Een Azure Cosmos-account verwijderen
 
-Met deze opdracht kunt u een bestaand Azure-Cosmos-account verwijderen.
+Met deze opdracht kunt u een bestaand Azure Cosmos-account verwijderen.
 
 ```azurepowershell-interactive
 # Delete an Azure Cosmos Account
@@ -157,9 +157,9 @@ Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName
 ```
 
-### <a id="update-tags"></a> Bijwerken van Tags van een Azure Cosmos-account
+### <a id="update-tags"></a>Tags van een Azure Cosmos-account bijwerken
 
-Het volgende voorbeeld wordt beschreven hoe u om in te stellen [Azure resourcetags][azure-resource-tags] voor een Azure Cosmos-account.
+In het volgende voor beeld wordt beschreven hoe u [Azure-resource Tags][azure-resource-tags] instelt voor een Azure Cosmos-account.
 
 > [!NOTE]
 > Met deze opdracht kan worden gecombineerd met de opdrachten maken of bijwerken door toe te voegen de `-Tags` markering op in de bijbehorende parameter.
@@ -214,9 +214,9 @@ $keys = Invoke-AzResourceAction -Action listConnectionStrings `
 Select-Object $keys
 ```
 
-### <a id="regenerate-keys"></a> Accountsleutels opnieuw genereren
+### <a id="regenerate-keys"></a>Account sleutels opnieuw genereren
 
-Toegangssleutels aan een Azure Cosmos-account moeten periodiek opnieuw gegenereerd om ervoor te zorgen dat verbindingen beter te beveiligen. Een primaire en secundaire sleutels zijn toegewezen aan het account. Hiermee kunnen clients om toegang te behouden terwijl de andere is opnieuw gegenereerd. Er zijn vier soorten sleutels voor een Azure Cosmos-account (primair, secundair, PrimaryReadonly en SecondaryReadonly)
+Toegangs sleutels voor een Azure Cosmos-account moeten periodiek opnieuw worden gegenereerd om de verbindingen veiliger te houden. Een primaire en secundaire toegangs sleutel worden toegewezen aan het account. Hierdoor kunnen clients toegang behouden terwijl de andere opnieuw wordt gegenereerd. Er zijn vier soorten sleutels voor een Azure Cosmos-account (primair, secundair, PrimaryReadonly en SecondaryReadonly)
 
 ```azurepowershell-interactive
 # Regenerate the primary key for an Azure Cosmos Account
@@ -233,14 +233,14 @@ $keys = Invoke-AzResourceAction -Action regenerateKey `
 Select-Object $keys
 ```
 
-### <a id="modify-failover-priority"></a> Failover-prioriteit wijzigen
+### <a id="modify-failover-priority"></a>Prioriteit van failover wijzigen
 
-Voor databaseaccounts voor meerdere regio's, kunt u de volgorde waarin een Cosmos-account wordt overgeschakeld secundaire lezen-replica's moet een regionale failover op de primaire schrijven replica plaatsvinden. Wanneer de regio met `failoverPriority=0` is gewijzigd, kan met deze opdracht ook starten een Dr-herstelanalyse als u wilt testen van de planning voor noodherstel gaat worden gebruikt.
+Voor database accounts met meerdere regio's kunt u de volg orde wijzigen waarin een Cosmos-account secundaire Lees-replica's onderneemt, anders moet er een regionale failover optreden op de primaire schrijf replica. Wanneer de regio met `failoverPriority=0` wordt gewijzigd, kan deze opdracht ook worden gebruikt om een nood herstel analyse te initiëren om planning van nood herstel te testen.
 
-Voor het volgende voorbeeld wordt ervan uitgegaan dat het account heeft een huidige failover-prioriteit van westus = 0 en eastus = 1 en het spiegelen van de regio's.
+In het onderstaande voor beeld wordt ervan uitgegaan dat het account een huidige failover-prioriteit van westus = 0 en Oost-US = 1 heeft en de regio's spie gelen.
 
 > [!CAUTION]
-> Wijzigen van `locationName` voor `failoverPriority=0` een handmatige failover voor een Azure Cosmos-account wordt geactiveerd. Andere wijzigingen met prioriteit wordt niet geactiveerd voor een failover.
+> Als `locationName` u `failoverPriority=0` wijzigt voor, wordt een hand matige failover geactiveerd voor een Azure Cosmos-account. Bij eventuele andere wijzigingen van de prioriteit wordt geen failover geactiveerd.
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
@@ -258,18 +258,18 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
     -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
 ```
 
-## <a name="azure-cosmos-database"></a>Azure Cosmos-Database
+## <a name="azure-cosmos-database"></a>Azure Cosmos-data base
 
-De volgende secties laten zien hoe u voor het beheren van de Azure Cosmos-database, met inbegrip van:
+De volgende secties laten zien hoe u de Azure Cosmos-Data Base kunt beheren, met inbegrip van:
 
-* [Een Azure Cosmos-database maken](#create-db)
-* [Een Azure Cosmos-database maken met gedeelde doorvoer](#create-db-ru)
-* [Ophalen van de doorvoer van een Azure Cosmos-database](#get-db-ru)
-* [Lijst van alle Azure-Cosmos-databases in een account](#list-db)
-* [Ophalen van een individuele Azure-Cosmos-database](#get-db)
-* [Een Azure Cosmos-database verwijderen](#delete-db)
+* [Een Azure Cosmos-data base maken](#create-db)
+* [Een Azure Cosmos-data base maken met een gedeelde door Voer](#create-db-ru)
+* [De door Voer van een Azure Cosmos-data base ophalen](#get-db-ru)
+* [Alle Azure Cosmos-data bases in een account weer geven](#list-db)
+* [Eén Azure Cosmos-data base ophalen](#get-db)
+* [Een Azure Cosmos-data base verwijderen](#delete-db)
 
-### <a id="create-db"></a>Een Azure Cosmos-database maken
+### <a id="create-db"></a>Een Azure Cosmos-data base maken
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos database
@@ -287,7 +287,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $DataBaseProperties
 ```
 
-### <a id="create-db-ru"></a>Een Azure Cosmos-database maken met gedeelde doorvoer
+### <a id="create-db-ru"></a>Een Azure Cosmos-data base maken met een gedeelde door Voer
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -305,7 +305,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $DataBaseProperties
 ```
 
-### <a id="get-db-ru"></a>Ophalen van de doorvoer van een Azure Cosmos-database
+### <a id="get-db-ru"></a>De door Voer van een Azure Cosmos-data base ophalen
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -320,7 +320,7 @@ Get-AzResource -ResourceType $databaseThroughputResourceType `
     -Name $databaseThroughputResourceName  | Select-Object Properties
 ```
 
-### <a id="list-db"></a>Alle Azure-Cosmos-databases in een account ophalen
+### <a id="list-db"></a>Alle Azure Cosmos-data bases in een account ophalen
 
 ```azurepowershell-interactive
 # Get all databases in an Azure Cosmos account
@@ -333,7 +333,7 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName  | Select-Object Properties
 ```
 
-### <a id="get-db"></a>Ophalen van een individuele Azure-Cosmos-database
+### <a id="get-db"></a>Eén Azure Cosmos-data base ophalen
 
 ```azurepowershell-interactive
 # Get a single database in an Azure Cosmos account
@@ -347,7 +347,7 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName | Select-Object Properties
 ```
 
-### <a id="delete-db"></a>Een Azure Cosmos-database verwijderen
+### <a id="delete-db"></a>Een Azure Cosmos-data base verwijderen
 
 ```azurepowershell-interactive
 # Delete a database in an Azure Cosmos account
@@ -359,20 +359,20 @@ Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/data
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $resourceName
 ```
 
-## <a name="azure-cosmos-container"></a>Azure Cosmos-Container
+## <a name="azure-cosmos-container"></a>Azure Cosmos-container
 
-De volgende secties laten zien hoe u voor het beheren van de Azure Cosmos-container, met inbegrip van:
+In de volgende secties wordt beschreven hoe u de Azure Cosmos-container beheert, met inbegrip van:
 
 * [Een Azure Cosmos-container maken](#create-container)
-* [Een Azure Cosmos-container maken met een grote partitiesleutel](#create-container-big-pk)
-* [De doorvoer van een Azure Cosmos-container ophalen](#get-container-ru)
-* [Een Azure Cosmos-container maken met gedeelde doorvoer](#create-container-ru)
-* [Een Azure Cosmos-container maken met aangepast indexeringsbeleid](#create-container-custom-index)
-* [Een Azure Cosmos-container maken met de indexering uitgeschakeld](#create-container-no-index)
+* [Een Azure Cosmos-container maken met een grote partitie sleutel](#create-container-big-pk)
+* [De door Voer van een Azure Cosmos-container ophalen](#get-container-ru)
+* [Een Azure Cosmos-container maken met gedeelde door Voer](#create-container-ru)
+* [Een Azure Cosmos-container maken met aangepaste indexering](#create-container-custom-index)
+* [Een Azure Cosmos-container maken waarvoor indexeren is uitgeschakeld](#create-container-no-index)
 * [Een Azure Cosmos-container maken met een unieke sleutel en TTL](#create-container-unique-key-ttl)
-* [Een Azure Cosmos-container maken met conflictoplossing](#create-container-lww)
-* [Lijst van alle Azure-Cosmos-containers in een database](#list-containers)
-* [Een enkele Azure-Cosmos-container in een database ophalen](#get-container)
+* [Een Azure Cosmos-container maken met conflict oplossing](#create-container-lww)
+* [Alle Azure Cosmos-containers in een Data Base weer geven](#list-containers)
+* [Eén Azure Cosmos-container in een Data Base ophalen](#get-container)
 * [Een Azure Cosmos-container verwijderen](#delete-container)
 
 ### <a id="create-container"></a>Een Azure Cosmos-container maken
@@ -401,7 +401,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="create-container-big-pk"></a>Een Azure Cosmos-container maken met een grote partitie sleutelgrootte
+### <a id="create-container-big-pk"></a>Een Azure Cosmos-container maken met een grote partitie sleutel grootte
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos container with a large partition key value (version = 2)
@@ -428,7 +428,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="get-container-ru"></a>De doorvoer van een Azure Cosmos-container ophalen
+### <a id="get-container-ru"></a>De door Voer van een Azure Cosmos-container ophalen
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -443,7 +443,7 @@ Get-AzResource -ResourceType $containerThroughputResourceType `
     -Name $containerThroughputResourceName  | Select-Object Properties
 ```
 
-### <a id="create-container-ru"></a>Een Azure Cosmos-container maken met gedeelde doorvoer
+### <a id="create-container-ru"></a>Een Azure Cosmos-container maken met gedeelde door Voer
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -468,7 +468,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties 
 ```
 
-### <a id="create-container-custom-index"></a>Een Azure Cosmos-container maken met aangepaste index beleid
+### <a id="create-container-custom-index"></a>Een Azure Cosmos-container maken met aangepast index beleid
 
 ```azurepowershell-interactive
 # Create a container with a custom indexing policy
@@ -504,7 +504,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="create-container-no-index"></a>Een Azure Cosmos-container maken met de indexering uitgeschakeld
+### <a id="create-container-no-index"></a>Een Azure Cosmos-container maken waarvoor indexeren is uitgeschakeld
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos container with no indexing
@@ -533,7 +533,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="create-container-unique-key-ttl"></a>Een Azure Cosmos-container maken met unieke sleutels, beleid en TTL
+### <a id="create-container-unique-key-ttl"></a>Een Azure Cosmos-container maken met uniek sleutel beleid en een TTL
 
 ```azurepowershell-interactive
 # Create a container with a unique key policy and TTL
@@ -576,9 +576,9 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="create-container-lww"></a>Een Azure Cosmos-container maken met conflictoplossing
+### <a id="create-container-lww"></a>Een Azure Cosmos-container maken met conflict oplossing
 
-Als u een conflict resolutie beleid voor het gebruik van een opgeslagen procedure, stelt u `"mode"="custom"` en het pad van het probleem zou moeten instellen als de naam van de opgeslagen procedure `"conflictResolutionPath"="myResolverStoredProcedure"`. Instellen voor alle conflicten schrijven naar de ConflictsFeed en afzonderlijk te verwerken, `"mode"="custom"` en `"conflictResolutionPath"=""`
+Als u een beleid voor conflict oplossing wilt maken voor het gebruik van `"mode"="custom"` een opgeslagen procedure, stelt u het pad voor de oplossing in en `"conflictResolutionPath"="myResolverStoredProcedure"`stelt u dit in als de naam van de opgeslagen procedure. Als u alle conflicten naar de ConflictsFeed wilt schrijven en afzonderlijk wilt `"mode"="custom"` afhandelen, stelt u`"conflictResolutionPath"=""`
 
 ```azurepowershell-interactive
 # Create container with last-writer-wins conflict resolution policy
@@ -608,7 +608,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="list-containers"></a>Lijst van alle Azure-Cosmos-containers in een database
+### <a id="list-containers"></a>Alle Azure Cosmos-containers in een Data Base weer geven
 
 ```azurepowershell-interactive
 # List all Azure Cosmos containers in a database
@@ -622,7 +622,7 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName | Select-Object Properties
 ```
 
-### <a id="get-container"></a>Een enkele Azure-Cosmos-container in een database ophalen
+### <a id="get-container"></a>Eén Azure Cosmos-container in een Data Base ophalen
 
 ```azurepowershell-interactive
 # Get a single Azure Cosmos container in a database
@@ -653,10 +653,10 @@ Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/data
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Alle voorbeelden van PowerShell](powershell-samples.md)
+* [Alle Power shell-voor beelden](powershell-samples.md)
 * [Azure Cosmos-account beheren](how-to-manage-database-account.md)
 * [Een Azure Cosmos-container maken](how-to-create-container.md)
-* [Configureren van de time-to-live in Azure Cosmos DB](how-to-time-to-live.md)
+* [Time-to-Live configureren in Azure Cosmos DB](how-to-time-to-live.md)
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 

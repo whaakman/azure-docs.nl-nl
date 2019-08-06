@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9f4e001909fb739aa368e5201649e85cce9906d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 110dcb1531390b207ae741af07fe0ad18964aae1
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910558"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816137"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Quickstart: Linux-computers naar Azure Security Center onboarden
-Nadat u de onboarding van uw Azure-abonnementen hebt uitgevoerd, kunt u Security Center inschakelen voor Linux-resources die buiten Azure worden uitgevoerd, bijvoorbeeld on-premises of in andere clouds, door de Linux-agent in te richten.
+Nadat u uw Azure-abonnementen hebt opgedaan, kunt u Security Center inschakelen voor Linux-resources die buiten Azure worden uitgevoerd, bijvoorbeeld on-premises of in andere Clouds, door een agent in te richten. De agent wordt micro soft Monitoring Agent (MMA) genoemd, maar deze wordt ook wel de OMS-agent genoemd.
 
-Deze snelstartgids laat zien hoe u de Linux-agent op een Linux-computer kunt installeren.
+In deze Quick start ziet u hoe u de agent op een Linux-computer installeert.
 
 ## <a name="prerequisites"></a>Vereisten
 U moet over een abonnement op Microsoft Azure beschikken om met Security Center aan de slag te gaan. Als u geen abonnement hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/pricing/free-trial/).
@@ -57,7 +57,7 @@ U moet u zich in de Standard-prijscategorie van Security Center bevinden voordat
 
    ![De agent installeren][5]
 
-De logboeken voor de Security Center-Agent voor Linux kunnen u vinden op: */var/opt/microsoft/omsagent/\<werkruimte-id > /log/*
+De logboeken voor de agent vindt u op: */var/opt/Microsoft/omsagent/\<werk ruimte-id >/log/*
 
   ![Logboeken voor agent][6]
 

@@ -1,24 +1,24 @@
 ---
-title: 'Quickstart: een query uitvoeren op gegevens met behulp van de Python-bibliotheek voor Azure Data Explorer'
-description: In deze snelstart leert u hoe u query's uitvoert op gegevens in Azure Data Explorer met behulp van Python.
+title: een query uitvoeren op gegevens met behulp van de Python-bibliotheek voor Azure Data Explorer
+description: In dit artikel leert u hoe u gegevens kunt opvragen uit Azure Data Explorer met behulp van python.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/16/2018
-ms.openlocfilehash: 253629bab6b0985ab8f540c653f3671c49e6d278
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.topic: conceptual
+ms.date: 08/05/2019
+ms.openlocfilehash: 2c32e67bb2b47a24036a341ea4e1b83037abbaee
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360232"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827528"
 ---
-# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Quickstart: een query uitvoeren op gegevens met behulp van de Python-bibliotheek voor Azure Data Explorer
+# <a name="query-data-using-the-azure-data-explorer-python-library"></a>een query uitvoeren op gegevens met behulp van de Python-bibliotheek voor Azure Data Explorer
 
-Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt een [gegevens-clientbibliotheek voor Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Met behulp van deze bibliotheek kunt u gegevens doorzoeken vanuit uw code. In deze quickstart maakt u verbinding met een tabel op het *helpcluster* dat we hebben ingesteld voor studiedoeleinden. U voert vervolgens een query uit op dat cluster, waarna de resultaten worden geretourneerd.
+Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt een [gegevens-clientbibliotheek voor Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Met behulp van deze bibliotheek kunt u gegevens doorzoeken vanuit uw code. In dit artikel maakt u verbinding met een tabel in het *Help-cluster* die u hebt ingesteld voor hulp bij het leren. U voert vervolgens een query uit op dat cluster, waarna de resultaten worden geretourneerd.
 
-Deze snelstart is ook beschikbaar als een [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
+Dit artikel is ook beschikbaar als [Azure-notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -98,4 +98,4 @@ Als het goed is, worden de bovenste tien resultaten uit de tabel StormEvents wee
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Snelstart: Gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer](python-ingest-data.md)
+> [Gegevens opnemen met behulp van de Azure Data Explorer python-bibliotheek](python-ingest-data.md)

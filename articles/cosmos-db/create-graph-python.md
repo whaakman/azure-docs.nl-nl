@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: lbosq
-ms.openlocfilehash: 18f54e64498c7809e662ceb71d1e497a0f275ad6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 545f679b11295485567a817d144225b361a262ce
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480445"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815236"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Quickstart: een grafiekdatabase maken in Azure Cosmos DB met behulp van Python en de Azure-portal
 
@@ -49,7 +49,7 @@ Voordat u een grafiekdatabase kunt maken, moet u een Gremlin-databaseaccount (Gr
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Een graaf toevoegen
+## <a name="add-a-graph"></a>Een grafiek toevoegen
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -173,13 +173,13 @@ Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in d
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Voorbeeldgegevens bekijken en toevoegen
 
-U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegevoegd aan de grafiek. Ook kunt u extra hoekpunten toevoegen.
+Nadat de hoek punten en randen zijn ingevoegd, kunt u nu teruggaan naar Data Explorer en de hoek punten zien die aan de grafiek zijn toegevoegd en extra gegevens punten toevoegen.
 
 1. Klik op **Data Explorer**, vouw **sample-graph** uit, en klik achtereenvolgens op **Grafiek** en op **Filter toepassen**. 
 
    ![Nieuwe documenten maken in Data Explorer in de Azure Portal](./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png)
 
-2. In de lijst met **resultaten** ziet u de nieuwe gebruikers die zijn toegevoegd aan de grafiek. Selecteer **ben** en u ziet dat ze zijn verbonden met robin. U kunt de hoekpunten verplaatsen via slepen en neerzetten, in- en uitzoomen door te scrollen met het muiswiel en de grafiek uitvouwen met de dubbele pijl. 
+2. In de lijst met **resultaten** ziet u dat er drie nieuwe gebruikers worden toegevoegd aan de grafiek. U kunt de hoekpunten verplaatsen via slepen en neerzetten, in- en uitzoomen door te scrollen met het muiswiel en de grafiek uitvouwen met de dubbele pijl. 
 
    ![Nieuwe hoekpunten in de grafiek in Data Explorer in Azure Portal](./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png)
 
@@ -193,6 +193,7 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
 
     key|waarde|Opmerkingen
     ----|----|----
+    PK|/pk| 
     id|ashley|De unieke id voor het hoekpunt. Als u geen id opgeeft, wordt er een id voor u gegenereerd.
     geslacht|vrouwelijk| 
     technisch | java | 
@@ -210,6 +211,7 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
 
     key|waarde|Opmerkingen
     ----|----|----
+    PK|/pk| 
     id|rakesh|De unieke id voor het hoekpunt. Als u geen id opgeeft, wordt er een id voor u gegenereerd.
     geslacht|man| 
     school|MIT| 

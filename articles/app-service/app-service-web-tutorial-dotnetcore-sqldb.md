@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core met SQL Database - Azure App Service | Microsoft Docs
+title: ASP.NET Core met SQL Database-Azure App Service | Microsoft Docs
 description: Informatie over het verkrijgen van een .NET Core-app die in Azure App Service werkt, met verbinding aan een SQL-database.
 services: app-service\web
 documentationcenter: dotnet
@@ -11,17 +11,17 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad211eef673731a856c4db99fe0b4712217b23e5
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 800454c3a8037d4562ae80d1093519733472c89c
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808482"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824599"
 ---
-# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Zelfstudie: Een ASP.NET Core en SQL Database-app in Azure App Service maken
+# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Zelfstudie: Een ASP.NET Core-en SQL Database-app bouwen in Azure App Service
 
 > [!NOTE]
 > In dit artikel gaat u een app implementeren in App Service onder Windows. Zie [Een .NET Core- en SQL Database-app maken in Azure App Service op Linux](./containers/tutorial-dotnetcore-sqldb-app.md) als u naar App Service wilt implementeren op _Linux_.
@@ -131,7 +131,7 @@ Wanneer de logische SQL Database-server wordt gemaakt, toont de Azure CLI inform
 Maak een [firewallregel op Azure SQL Database-serverniveau](../sql-database/sql-database-firewall-configure.md) met de opdracht [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create). Als zowel het IP-beginadres als het IP-eindadres zijn ingesteld op 0.0.0.0, wordt de firewall alleen geopend voor andere Azure-resources. 
 
 ```azurecli-interactive
-az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!TIP] 
@@ -168,11 +168,11 @@ In deze stap implementeert u de met SQL Database verbonden .NET Core-app met App
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
-### <a name="create-a-web-app"></a>Een webtoepassing maken
+### <a name="create-a-web-app"></a>Een web-app maken
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 
-### <a name="configure-an-environment-variable"></a>Een omgevingsvariabele configureren
+### <a name="configure-connection-string"></a>connection string configureren
 
 Als u verbindingsreeksen voor de Azure-app wilt instellen, gebruikt u de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell. In de volgende opdracht vervangt u *\<app name>* en de parameter *\<connection_string>* door de eerder gemaakte verbindingsreeks.
 
@@ -180,13 +180,21 @@ Als u verbindingsreeksen voor de Azure-app wilt instellen, gebruikt u de opdrach
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
 ```
 
-Vervolgens stelt u de instelling voor de app `ASPNETCORE_ENVIRONMENT` in op _Productie_. Deze instelling betekent dat u de app in Azure uitvoert omdat u SQLite gebruikt voor uw lokale ontwikkelomgeving en SQL Database voor uw Azure-omgeving.
+In ASP.net Core kunt u deze benoemde Connection String (`MyDbConnection`) gebruiken met het standaard patroon, zoals een Connection String dat is opgegeven in *appSettings. json*. In dit geval `MyDbConnection` wordt ook gedefinieerd in het bestand *appSettings. json*. Bij het uitvoeren van App Service heeft de connection string die in App Service gedefinieerd, voor rang op de connection string die is gedefinieerd in het bestand *appSettings. json*. De code gebruikt de waarde *appSettings. json* tijdens de lokale ontwikkeling en dezelfde code gebruikt de app service waarde wanneer deze wordt geïmplementeerd.
+
+Zie [verbinding maken met SQL database in productie](#connect-to-sql-database-in-production)om te zien hoe de Connection String in uw code wordt verwezen.
+
+### <a name="configure-environment-variable"></a>Omgevings variabele configureren
+
+Vervolgens stelt u de instelling voor de app `ASPNETCORE_ENVIRONMENT` in op _Productie_. Met deze instelling kunt u zien of u in azure werkt, omdat u SQLite gebruikt voor uw lokale ontwikkel omgeving en SQL Database voor uw Azure-omgeving.
 
 In het volgende voorbeeld wordt de app-instelling `ASPNETCORE_ENVIRONMENT` in de Azure-app geconfigureerd. Vervang de tijdelijke aanduiding *\<app_name>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
 ```
+
+Zie [verbinding maken met SQL database in productie](#connect-to-sql-database-in-production)om te zien hoe de omgevings variabele in uw code wordt verwezen.
 
 ### <a name="connect-to-sql-database-in-production"></a>Verbinding maken met SQL Database in productie
 
@@ -212,9 +220,9 @@ else
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
 ```
 
-Als met deze code wordt gedetecteerd dat deze in productie wordt uitgevoerd (wat op de Azure-omgeving wijst), wordt de verbindingsreeks gebruikt die u hebt geconfigureerd om verbinding te maken met SQL Database.
+Als deze code detecteert dat deze in productie wordt uitgevoerd (wat de Azure-omgeving aanduidt), gebruikt deze de connection string die u hebt geconfigureerd om verbinding te maken met de SQL Database.
 
-De aanroep `Database.Migrate()` helpt u wanneer deze in Azure wordt uitgevoerd, omdat automatisch de database wordt gemaakt die nodig is voor de NET Core-app, op basis van de migratieconfiguratie. 
+De `Database.Migrate()` aanroep helpt u wanneer deze wordt uitgevoerd in azure, omdat deze automatisch de data bases maakt die uw .net core-app nodig heeft, op basis van de migratie configuratie. 
 
 > [!IMPORTANT]
 > Voor productie-apps die u wilt uitbreiden, volgt u de best practices in [toepassen van migraties in productie](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
@@ -361,11 +369,11 @@ git commit -m "added done field"
 git push azure master
 ```
 
-Zodra `git push` is voltooid, gaat u naar de App Service-app en probeert u de nieuwe functionaliteit uit.
+Zodra het `git push` is voltooid, gaat u naar uw app service-app en probeert u een taak item toe tevoegen en te controleren.
 
 ![Azure-app na Code First Migration](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
-Alle bestaande taakitems worden nog steeds weergegeven. Als u de .NET Core-app opnieuw publiceert, blijven bestaande gegevens in SQL Database behouden. En met Entity Framework Core Migrations wordt alleen het gegevensschema gewijzigd. De bestaande gegevens blijven ongewijzigd.
+Alle bestaande taakitems worden nog steeds weergegeven. Wanneer u uw .NET core-app opnieuw publiceert, gaan bestaande gegevens in uw SQL Database verloren. En met Entity Framework Core Migrations wordt alleen het gegevensschema gewijzigd. De bestaande gegevens blijven ongewijzigd.
 
 ## <a name="stream-diagnostic-logs"></a>Diagnostische logboeken streamen
 
@@ -374,9 +382,9 @@ Terwijl uw ASP.NET Core-app wordt uitgevoerd in Azure App Service, kunt u de con
 Het voorbeeldproject volgt al de instructies in [ASP.NET Core-logboekregistratie in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider) met twee configuratiewijzigingen:
 
 - Bevat een verwijzing naar `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
-- Roept `loggerFactory.AddAzureWebAppDiagnostics()` aan in *Startup.cs*.
+- Aanroepen `loggerFactory.AddAzureWebAppDiagnostics()` in *Program.cs*.
 
-Om het [logboekniveau](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) van ASP.NET Core in App Service te wijzigen van het standaardniveau `Warning` in `Information`, gebruikt u de opdracht [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) in de Cloud Shell.
+Om het [logboekniveau](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) van ASP.NET Core in App Service te wijzigen van het standaardniveau `Error` in `Information`, gebruikt u de opdracht [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) in de Cloud Shell.
 
 ```azurecli-interactive
 az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information
@@ -394,7 +402,7 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 Nadat logboekstreaming is gestart, vernieuwt u de Azure-app in de browser om wat webverkeer te genereren. U kunt nu zien dat consolelogboeken worden doorgegeven aan de terminal. Als u de consolelogboeken niet meteen ziet, probeert u het opnieuw na 30 seconden.
 
-Typ `Ctrl`+`C` om op elk gewenst moment te stoppen met logboekstreaming.
+Als u het streamen van Logboeken op `Ctrl`elk gewenst moment wilt stoppen, typt + `C`u.
 
 Zie [Logboekregistratie in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging) voor meer informatie over het aanpassen van de ASP.NET Core-logboeken.
 

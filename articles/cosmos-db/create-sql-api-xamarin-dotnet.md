@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 079f25cf9333b7ca090b5a3390d193b757117c1c
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 3c2e9ad080c3b3f54040db9a57897847f4c5a52a
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67986389"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828045"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Quickstart: een taken-app maken met Xamarin met behulp van een SQL API-account van Azure Cosmos DB
 
@@ -120,7 +120,7 @@ Laten we nog eens kort bekijken hoe de app met Azure Cosmos DB communiceert.
 * Het NuGet-pakket [Microsoft.Azure.DocumentDb.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) moet aan alle projecten worden toegevoegd.
 * De klasse `ToDoItem` in de map azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Models staat model voor de documenten in de verzameling **Items** die hierboven is gemaakt. Houd er rekening mee dat de namen van eigenschappen hoofdlettergevoelig zijn.
 * De klasse `CosmosDBService` in de map azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Services bevat de communicatie met Azure Cosmos DB.
-* Binnen de klasse `CosmosDBService` bevindt zich een variabele van het type `DocumentClient`. De `DocumentClient` wordt gebruikt om aanvragen te configureren en uit te voeren op het Azure Cosmos DB-account en wordt geïnstantieerd op regel 31:
+* Binnen de klasse `CosmosDBService` bevindt zich een variabele van het type `DocumentClient`. De `DocumentClient` wordt gebruikt voor het configureren en uitvoeren van aanvragen voor het Azure Cosmos DB-account en wordt geïnstantieerd:
 
     ```csharp
     docClient = new DocumentClient(new Uri(APIKeys.CosmosEndpointUrl), APIKeys.CosmosAuthKey);
@@ -128,26 +128,7 @@ Laten we nog eens kort bekijken hoe de app met Azure Cosmos DB communiceert.
 
 * Tijdens het uitvoeren van query's op een verzameling documenten wordt de methode `DocumentClient.CreateDocumentQuery<T>` gebruikt, zoals hier wordt weergegeven in de functie `CosmosDBService.GetToDoItems`:
 
-    ```csharp
-    public async static Task<List<ToDoItem>> GetToDoItems()
-    {
-        var todos = new List<ToDoItem>();
-
-        var todoQuery = docClient.CreateDocumentQuery<ToDoItem>(
-                                UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-                                .Where(todo => todo.Completed == false)
-                                .AsDocumentQuery();
-
-        while (todoQuery.HasMoreResults)
-        {
-            var queryResults = await todoQuery.ExecuteNextAsync<ToDoItem>();
-
-            todos.AddRange(queryResults);
-        }
-
-        return todos;
-    }
-    ```
+   [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=GetToDoItems)] 
 
     De `CreateDocumentQuery<T>` maakt gebruikt van een URI die verwijst naar de verzameling die in het vorige gedeelte is gemaakt. U kunt ook LINQ-operators opgeven, zoals een `Where`-component. In dit geval worden alleen taken die niet zijn voltooid, geretourneerd.
 
@@ -158,46 +139,23 @@ Laten we nog eens kort bekijken hoe de app met Azure Cosmos DB communiceert.
 > [!TIP]
 > Verschillende functies die op Azure Cosmos DB-verzamelingen en -documenten worden uitgevoerd, gebruiken een URI als een parameter die het adres van de verzameling of het document opgeeft. Deze URI is opgesteld met de klasse `URIFactory`. URI's voor databases, verzamelingen en documenten kunnen allemaal met deze klasse worden gemaakt.
 
-* De functie `ComsmosDBService.InsertToDoItem` op regel 107 laat zien hoe u een nieuw document invoegt:
+* De `ComsmosDBService.InsertToDoItem` functie laat zien hoe u een nieuw document kunt invoegen:
 
-    ```csharp
-    public async static Task InsertToDoItem(ToDoItem item)
-    {
-        ...
-        await docClient.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), item);
-        ...
-    }
-    ```
+   [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=InsertToDoItem)] 
 
     Zowel de URI voor documentverzameling als het item dat moet worden ingevoegd, zijn opgegeven.
 
-* De functie `CosmosDBService.UpdateToDoItem` op regel 124 laat zien hoe u een bestaand document door een nieuwe vervangt:
+* De `CosmosDBService.UpdateToDoItem` functie laat zien hoe u een bestaand document vervangt door een nieuw bestand:
 
-    ```csharp
-    public async static Task UpdateToDoItem(ToDoItem item)
-    {
-        ...
-        var docUri = UriFactory.CreateDocumentUri(databaseName, collectionName, item.Id);
-
-        await docClient.ReplaceDocumentAsync(docUri, item);
-    }
-    ```
+   [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=UpdateToDoItem)] 
 
     Hier is een nieuwe Uri vereist om het te vervangen document uniek te identificeren en dit te verkrijgen door `UriFactory.CreateDocumentUri` de data base en verzamelings namen en de id van het document door te geven.
 
     De `DocumentClient.ReplaceDocumentAsync` vervangt het document dat door de URI is geïdentificeerd door het document dat als parameter is opgegeven.
 
-* Het verwijderen van een item wordt getoond met de functie `CosmosDBService.DeleteToDoItem` op regel 115:
+* Het verwijderen van een item wordt getoond `CosmosDBService.DeleteToDoItem` met de functie:
 
-    ```csharp
-    public async static Task DeleteToDoItem(ToDoItem item)
-    {
-        ...
-        var docUri = UriFactory.CreateDocumentUri(databaseName, collectionName, item.Id);
-
-        await docClient.DeleteDocumentAsync(docUri);
-    }
-    ```
+   [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=DeleteToDoItem)] 
 
     Let op de unieke document-URI die wordt gemaakt en doorgegeven aan de functie `DocumentClient.DeleteDocumentAsync`.
 

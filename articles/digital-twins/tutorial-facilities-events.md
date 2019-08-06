@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/18/2018
+ms.date: 08/05/2019
 ms.author: alinast
-ms.openlocfilehash: 2b84fa2fd8053ca4dc7ef0ad246d29b2bba3dae5
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 30d43831b73edc52b461512faecac369f6bf00b0
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484698"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827814"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Zelfstudie: Meldingen ontvangen uit uw Azure Digital Twins-ruimten met behulp van Logic Apps
 
@@ -85,7 +85,7 @@ In deze sectie stelt u een [Event Grid](../event-grid/overview.md) in voor het v
 
 1. Vervang de tijdelijke aanduiding `<Secondary connection string for your Event Grid>` door de waarde van **YOUR_KEY_2**.
 
-1. Vervang de tijdelijke aanduiding voor **pad** met het pad van de event grid-onderwerp. Haal dit pad op door **https://** en de daarop volgende resourcepaden uit de URL van het **Eindpunt onderwerp** te verwijderen. Het moet er uitzien zoals deze indeling: *yourEventGridName.yourLocation.eventgrid.azure.net*.
+1. Vervang de tijdelijke aanduiding voor het **pad** door het pad naar het event grid-onderwerp. Haal dit pad op door **https://** en de daarop volgende resourcepaden uit de URL van het **Eindpunt onderwerp** te verwijderen. Het moet er uitzien zoals deze indeling: *yourEventGridName.yourLocation.eventgrid.azure.net*.
 
     > [!IMPORTANT]
     > Voer alle waarden in zonder aanhalingstekens. Zorg dat de dubbele punten in het YAML-bestand worden gevolgd door minstens één spatie. U kunt de inhoud van het YAML-bestand ook valideren met behulp van een YAML-onlinevalidatie, zoals met [dit hulpprogramma](https://onlineyamltools.com/validate-yaml).
@@ -114,7 +114,7 @@ Met de [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-service kunt u g
 
 1. Open de resource voor Logic Apps wanneer deze is geïmplementeerd en open vervolgens het deelvenster **Ontwerper van logische app**. 
 
-1. Selecteer de **wanneer een Event Grid-resourcegebeurtenis optreedt** trigger. Meld u aan bij uw tenant met uw Azure-account wanneer hierom wordt gevraagd. Selecteer **toegang toestaan** voor uw Event Grid als u hierom wordt gevraagd. Selecteer **Doorgaan**.
+1. Selecteer de trigger **Wanneer een event grid bron gebeurtenis plaatsvindt** . Meld u aan bij uw tenant met uw Azure-account wanneer hierom wordt gevraagd. Selecteer **toegang toestaan** voor uw event grid resource als u hierom wordt gevraagd. Selecteer **Doorgaan**.
 
 1. In het venster **Wanneer een resourcegebeurtenis optreedt (Preview)** : 
    

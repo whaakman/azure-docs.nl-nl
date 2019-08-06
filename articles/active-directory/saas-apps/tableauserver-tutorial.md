@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Tableau Server | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Tableau Server.
+title: 'Zelfstudie: Integratie met tableau-server Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en tableau server.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,43 +15,43 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: ed8e63a49702e8ba951990f8d7ff19b8f058fa74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9ef179c1a93d8b2f97c47eb4c68d0312d55d3d1
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089391"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825977"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Zelfstudie: Azure Active Directory-integratie met Tableau Server
+# <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Zelfstudie: Integratie met tableau-server Azure Active Directory
 
-In deze zelfstudie leert u hoe u Tableau Server integreren met Azure Active Directory (Azure AD).
-Tableau Server integreren met Azure AD biedt u de volgende voordelen:
+In deze zelf studie leert u hoe u tableau server kunt integreren met Azure Active Directory (Azure AD).
+De integratie van tableau server met Azure AD biedt de volgende voor delen:
 
-* U kunt beheren in Azure AD die toegang tot Tableau Server heeft.
-* U kunt uw gebruikers worden automatisch aangemeld met Tableau Server (Single Sign-On) inschakelen met hun Azure AD-accounts.
-* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* U kunt beheren in azure AD die toegang heeft tot de tableau-server.
+* U kunt ervoor zorgen dat uw gebruikers automatisch worden aangemeld bij de tableau-server (eenmalige aanmelding) met hun Azure AD-accounts.
+* U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Tableau Server, moet u de volgende items:
+Als u Azure AD-integratie met tableau-server wilt configureren, hebt u de volgende items nodig:
 
-* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, krijgt u een [gratis account](https://azure.microsoft.com/free/)
-* Tableau Server eenmalige aanmelding ingeschakeld abonnement
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u een [gratis account](https://azure.microsoft.com/free/) aanvragen
+* Abonnement voor eenmalige aanmelding van tableau-server
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
 In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-* Tableau Server ondersteunt **SP** gestart door SSO
+* Tableau-server ondersteunt door **SP** GEÏNITIEERDe SSO
 
-## <a name="adding-tableau-server-from-the-gallery"></a>Tableau Server uit de galerie toevoegen
+## <a name="adding-tableau-server-from-the-gallery"></a>De tableau-server toevoegen vanuit de galerie
 
-Voor het configureren van de integratie van Tableau Server in Azure AD, moet u Tableau Server uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Als u de integratie van tableau-server in azure AD wilt configureren, moet u tableau-server uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Tableau Server uit de galerie, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om tableau-server toe te voegen vanuit de galerie:**
 
 1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -61,37 +61,37 @@ Voor het configureren van de integratie van Tableau Server in Azure AD, moet u T
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+    ![De knop nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Tableau Server**, selecteer **Tableau Server** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ **tableau server**in het zoekvak, selecteer **tableau server** van result panel en klik vervolgens op knop **toevoegen** om de toepassing toe te voegen.
 
-    ![Tableau Server in de lijst met resultaten](common/search-new-app.png)
+    ![Tableau-server in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Tableau Server op basis van een testgebruiker met de naam **Britta Simon**.
-Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Tableau Server tot stand worden gebracht.
+In deze sectie kunt u eenmalige aanmelding voor Azure AD configureren en testen met tableau-server op basis van een test gebruiker met de naam **Julia Simon**.
+Als u eenmalige aanmelding wilt gebruiken, moet er een koppelings relatie tussen een Azure AD-gebruiker en de bijbehorende gebruiker in tableau-server tot stand worden gebracht.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Tableau Server, moet u de volgende bouwstenen voltooien:
+Als u eenmalige aanmelding voor Azure AD wilt configureren en testen met tableau-server, moet u de volgende bouw stenen volt ooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Tableau Server Single Sign-On configureren](#configure-tableau-server-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Tableau Server testgebruiker maken](#create-tableau-server-test-user)**  : als u wilt een equivalent van Britta Simon in Tableau Server die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Eenmalige aanmelding voor tableau server configureren](#configure-tableau-server-single-sign-on)** : Hiermee configureert u de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Maak een tableau-server test gebruiker](#create-tableau-server-test-user)** -om een equivalent van Julia Simon te hebben in tableau-server dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-Voor het configureren van Azure AD eenmalige aanmelding met Tableau Server, moet u de volgende stappen uitvoeren:
+Voer de volgende stappen uit om eenmalige aanmelding voor Azure AD met tableau-server te configureren:
 
-1. In de [Azure-portal](https://portal.azure.com/)op de **Tableau Server** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+1. Selecteer in de [Azure Portal](https://portal.azure.com/)op de pagina **tableau server** Application Integration de optie **eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
+    ![Koppeling voor eenmalige aanmelding configureren](common/select-sso.png)
 
 2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
@@ -103,26 +103,26 @@ Voor het configureren van Azure AD eenmalige aanmelding met Tableau Server, moet
 
 4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    ![Tableau serverdomein en URL's, eenmalige aanmelding informatie](common/sp-identifier-reply.png)
+    ![Informatie over eenmalige aanmelding voor tableau-Server domein en Url's](common/sp-identifier-reply.png)
 
     a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://azure.<domain name>.link`
 
     b. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://azure.<domain name>.link`
 
-    c. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
+    c. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
 
     > [!NOTE]
-    > De bovenstaande waarden zijn niet echt waarden. Werk de waarden bij met de werkelijke URL en de id van de configuratiepagina Tableau Server, die later in de zelfstudie wordt uitgelegd.
+    > De voor gaande waarden zijn geen echte waarden. Werk de waarden bij met de werkelijke URL en id van de tableau-server configuratie pagina die verderop in de zelf studie wordt beschreven.
 
-5. Tableau Server-toepassing wordt verwacht dat een aangepaste claim **gebruikersnaam** die moet worden gedefinieerd als hieronder. Dit wordt gebruikt als gebruikers-id in plaats van unieke gebruikers-id claim. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken en claims** op de integratiepagina van de toepassing-beheren. Klik op **bewerken** te openen **gebruikerskenmerken en Claims** dialoogvenster.
+5. Tableau-server toepassing verwacht een aangepaste claim **gebruikersnaam** die hieronder moet worden gedefinieerd. Dit wordt gebruikt als gebruikers-id in plaats van een unieke claim voor de gebruikers-id. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken en claims** op de integratiepagina van de toepassing-beheren. Klik op de knop **bewerken** om **gebruikers kenmerken** te openen & dialoog venster claims.
 
     ![image](common/edit-attribute.png)
 
-6. In de **gebruikersclaims** sectie op de **gebruikerskenmerken en Claims** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de bovenstaande afbeelding en voer de volgende stappen uit:
+6. Configureer in de sectie **gebruikers claims** van het dialoog venster **gebruikers kenmerken & claims** het kenmerk SAML-token, zoals wordt weer gegeven in de bovenstaande installatie kopie en voer de volgende stappen uit:
 
     | Name | Bronkenmerk | Naamruimte |
     | ---------------| --------------- | ----------- |
-    | username | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | userName | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | | |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
@@ -133,7 +133,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Tableau Server, moet
 
     b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-    c. Voer de **Namespace** waarde.
+    c. Voer de waarde van de **naam ruimte** in.
 
     d. Selecteer Bron bij **Kenmerk**.
 
@@ -145,9 +145,9 @@ Voor het configureren van Azure AD eenmalige aanmelding met Tableau Server, moet
 
 7. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![De link om het certificaat te downloaden](common/metadataxml.png)
+    ![De downloadkoppeling certificaat](common/metadataxml.png)
 
-8. Op de **Tableau Server instellen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
+8. Kopieer op de sectie **tableau-server instellen** de gewenste URL ('s) volgens uw vereiste.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
@@ -155,40 +155,40 @@ Voor het configureren van Azure AD eenmalige aanmelding met Tableau Server, moet
 
     b. Azure AD-id
 
-    c. Afmeldings-URL
+    c. URL voor afmelden
 
-### <a name="configure-tableau-server-single-sign-on"></a>Tableau Server eenmalige aanmelding configureren
+### <a name="configure-tableau-server-single-sign-on"></a>Eenmalige aanmelding voor de tableau-server configureren
 
-1. Als u eenmalige aanmelding configureren voor uw toepassing, moet u zich aanmeldt bij uw tenant Tableau Server als beheerder.
+1. Als u SSO wilt ophalen die voor uw toepassing is geconfigureerd, moet u zich bij uw tableau-server Tenant aanmelden als beheerder.
 
-2. Op de **configuratie** tabblad **gebruiker Identity & Access**, en selecteer vervolgens de **verificatie** methode tabblad.
+2. Op het tabblad **configuratie** selecteert u **gebruikers identiteit & toegang**en selecteert u vervolgens het tabblad **verificatie** methode.
 
     ![Eenmalige aanmelding configureren](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
 
-3. Op de **configuratie** pagina, voert u de volgende stappen uit:
+3. Voer de volgende stappen uit op de pagina **configuratie** :
 
     ![Eenmalige aanmelding configureren](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
 
-    a. Voor **verificatiemethode**, SAML selecteren.
+    a. Selecteer voor **verificatie methode**de optie SAML.
 
-    b. Schakel het selectievakje in van **SAML-verificatie inschakelen voor de server**.
+    b. Schakel het selectie vakje in **voor het inschakelen van SAML-verificatie voor de-server**.
 
-    c. Tableau Server URL geretourneerd: de URL die Tableau Server-gebruikers toegang, zoals tot krijgen <http://tableau_server>. Met behulp van `http://localhost` wordt niet aanbevolen. Met behulp van een URL met een slash (bijvoorbeeld `http://tableau_server/`) wordt niet ondersteund. Kopie **Tableau Server return URL** en plak deze in op **aanmelding URL** -tekstvak in **SAML-basisconfiguratie** sectie in Azure portal
+    c. Tableau server-retour-URL: de URL van tableau Server-gebruikers die toegang krijgen <http://tableau_server>, zoals. Gebruiken `http://localhost` wordt niet aanbevolen. Het gebruik van een URL met een slash (bijvoorbeeld `http://tableau_server/`) wordt niet ondersteund. Kopieer de URL van de **tableau-server** en plak deze in om het **URL** -tekstvak op te geven in de sectie **basis configuratie van SAML** in de Azure Portal
 
-    d. SAML-entiteit-ID, de entiteit-ID is uniek voor uw Tableau Server-installatie voor de id-provider. Hier geeft u de URL van uw Tableau Server opnieuw, indien gewenst, maar dit hoeft niet te worden van de URL van uw Tableau Server. Kopie **SAML entiteit-ID** en plak deze in op **id** -tekstvak in **SAML-basisconfiguratie** sectie in Azure portal
+    d. SAML-entiteit-ID: de entiteit-ID is een unieke aanduiding voor uw tableau-server installatie naar de IdP. U kunt de URL van uw tableau-server hier hier opgeven, maar dit is niet uw tableau-server-URL. Kopieer de ID van de **SAML-entiteit** en plak deze in het tekstvak **id** in de sectie **basis configuratie van SAML** in de Azure Portal
 
-    e. Klik op de **downloaden XML-bestand met metagegevens** en opent u het in de toepassing van de editor voor tekst. Ga naar de URL van de Bevestigingsconsumerservice met Http Post en Index 0 en kopieer de URL. Plak deze in op nu **antwoord-URL** -tekstvak in **SAML-basisconfiguratie** sectie in Azure portal
+    e. Klik op het **XML-bestand met meta gegevens downloaden** en open het in de toepassing tekst editor. Zoek de URL van de service voor de bewerings verbruiker met http post en index 0 en kopieer de URL. Plak het in het tekstvak **antwoord URL** in het gedeelte **basis configuratie van SAML** in de Azure Portal
 
-    f. Ga naar uw Federatiemetagegevens van bestand gedownload vanuit Azure portal en upload het in de **Idp SAML-metagegevensbestand**.
+    f. Zoek het bestand met federatieve meta gegevens dat is gedownload van Azure Portal en upload het naar het bestand met de **SAML IDP-meta gegevens**.
 
-    g. Geef de naam voor de kenmerken die gebruikmaakt van de IdP houdt de gebruikersnamen, weergavenamen en e-mailadressen.
+    g. Voer de namen in voor de kenmerken die de IdP gebruikt om de gebruikers namen, weergave namen en e-mail adressen op te slaan.
 
     h. Klik op **Opslaan**
 
     > [!NOTE]
-    > Klant hebben om een certificaat in de Tableau Server SAML SSO-configuratie te uploaden en deze in de stroom SSO ophalen genegeerd. Als u nodig hebt helpen SAML op Tableau Server configureren, Raadpleeg dit artikel [configureren SAML](https://onlinehelp.tableau.com/v2018.2/server/en-us/saml_config_steps_tsm_ui.htm).
+    > De klant moet een certificaat uploaden in de SAML SSO-configuratie van de tableau-server en wordt genegeerd in de SSO-stroom. Als u hulp nodig hebt bij het configureren van SAML op tableau server, raadpleegt u dit artikel [SAML configureren](https://help.tableau.com/current/server/en-gb/saml_config_steps_tsm_ui.htm).
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -206,7 +206,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In de **gebruikersnaam** veldtype `brittasimon@yourcompanydomain.extension`  
+    b. Typ in het veld **gebruikers naam**`brittasimon@yourcompanydomain.extension`  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -215,15 +215,15 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Tableau Server.
+In deze sectie schakelt u Julia Simon in om de eenmalige aanmelding van Azure te gebruiken door toegang te verlenen aan de tableau-server.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Tableau Server**.
+1. Selecteer in het Azure Portal **bedrijfs toepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **tableau server**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **Tableau Server**.
+2. Selecteer in de lijst toepassingen de optie **tableau server**.
 
-    ![De koppeling Tableau Server in de lijst met toepassingen](common/all-applications.png)
+    ![De koppeling van de tableau-server in de lijst met toepassingen](common/all-applications.png)
 
 3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
@@ -239,20 +239,20 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-### <a name="create-tableau-server-test-user"></a>Tableau Server testgebruiker maken
+### <a name="create-tableau-server-test-user"></a>Test gebruiker voor tableau-server maken
 
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Tableau Server. U moet alle gebruikers in de Tableau server inrichten.
+Het doel van deze sectie is het maken van een gebruiker met de naam Julia Simon in tableau-server. U moet alle gebruikers op de tableau-server inrichten.
 
-Die gebruikersnaam van de gebruiker moet overeenkomen met de waarde die u hebt geconfigureerd in de aangepaste Azure AD-kenmerk van **gebruikersnaam**. Met de juiste toewijzing moet de integratie van Azure AD configureren Single Sign-On werken.
+De gebruikers naam van de gebruiker moet overeenkomen met de waarde die u hebt geconfigureerd in het aangepaste Azure AD-kenmerk van de **gebruikers naam**. Met de juiste toewijzing moet de integratie werken met het configureren van eenmalige aanmelding voor Azure AD.
 
 > [!NOTE]
-> Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact op met de beheerder Tableau Server in uw organisatie.
+> Als u hand matig een gebruiker moet maken, moet u contact opnemen met de beheerder van de tableau-server in uw organisatie.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel Tableau Server in het toegangsvenster, moet u worden automatisch aangemeld bij de Tableau Server waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u op de tegel tableau server in het toegangs venster klikt, moet u automatisch worden aangemeld bij de tableau-server waarvoor u SSO hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

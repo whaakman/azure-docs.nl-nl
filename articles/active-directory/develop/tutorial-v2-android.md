@@ -3,7 +3,7 @@ title: Aan de slag met Android-micro soft-identiteits platform | Azure
 description: Hoe een Android-app een toegangs token kan verkrijgen en Microsoft Graph API of Api's aanroept waarvoor toegangs tokens van micro soft Identity platform zijn vereist.
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: tylermsft
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bd19b6094d68277130916b5cda565ba9e633c59
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 76547fd708f880bdf5167d71db121e69fc5b1d30
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334122"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823795"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Gebruikers aanmelden en de Microsoft Graph aanroepen vanuit een Android-app
 
@@ -172,7 +172,7 @@ In deze zelf studie wordt een nieuw project gemaakt. Als u in plaats daarvan de 
 ### <a name="add-msal-to-your-project"></a>MSAL toevoegen aan uw project
 
 1. Navigeer in het venster Android Studio project naar **app** > **src** > **Build. gradle**.
-2. Plak het volgende onder afhankelijkheden:
+2. Plakhet volgende onder afhankelijkheden:
 
     ```gradle  
     implementation 'com.android.volley:volley:1.1.1'
@@ -531,7 +531,7 @@ Bouw en implementeer de app op een test apparaat of emulator. U moet zich kunnen
 
 Nadat u zich hebt aangemeld, worden in de app de gegevens weer gegeven die `/me` door het Microsoft Graph-eind punt zijn geretourneerd.
 
-### <a name="consent"></a>Vergunning
+### <a name="consent"></a>Akkoord
 
 De eerste keer dat een gebruiker zich bij uw app aanmeldt, wordt de micro soft-identiteit gevraagd om toestemming te geven voor de aangevraagde machtigingen.  Hoewel de meeste gebruikers kunnen worden gemachtigd, hebben sommige Azure AD-tenants de toestemming van de gebruiker uitgeschakeld. hiervoor moeten beheerders toestemming geven namens alle gebruikers. Als u dit scenario wilt ondersteunen, moet u de scopes van uw app registreren in de Azure Portal.
 

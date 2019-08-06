@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 989a5689edf7b071d9afe06b1554fdbb0d7d2ebc
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 7312821320084c766f5b3357fe64c061df83673b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737212"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827640"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Over SQL Server-back-ups in virtuele Azure-machines
 
@@ -25,7 +25,7 @@ Deze oplossing maakt gebruik van de SQL Native Api's om back-ups te maken van uw
 * Wanneer u de SQL Server virtuele machine hebt opgegeven die u wilt beveiligen en query's wilt uitvoeren voor de data bases erin, Azure backup service een back-upextensie voor werk belasting `AzureBackupWindowsWorkload`op de VM installeren door de  extensie.
 * Deze uitbrei ding bestaat uit een coördinator en een SQL-invoeg toepassing. Hoewel de coördinator verantwoordelijk is voor het activeren van werk stromen voor verschillende bewerkingen, zoals het configureren van back-ups, back-ups maken en herstellen, is de invoeg toepassing verantwoordelijk voor de werkelijke gegevens stroom.
 * Om data bases op deze VM te kunnen detecteren, maakt Azure Backup het `NT SERVICE\AzureWLBackupPluginSvc`account. Dit account wordt gebruikt voor back-up en herstel en vereist SQL sysadmin-machtigingen. Azure backup maakt gebruik van `NT AUTHORITY\SYSTEM`het account voor database detectie/-informatie, zodat dit account een open bare aanmelding voor SQL moet zijn. Als u de SQL Server VM niet hebt gemaakt op de Azure Marketplace, kunt u een fout **UserErrorSQLNoSysadminMembership**ontvangen. Als dit gebeurt, [volgt u deze instructies](backup-azure-sql-database.md).
-* Zodra u de beveiliging configureren voor de geselecteerde data bases hebt geactiveerd, stelt de back-upservice de coördinator in met de back-upschemaën en andere beleids Details, die de uitbrei ding lokaal op de virtuele machine opslaat. 
+* Zodra u de beveiliging configureren voor de geselecteerde data bases hebt geactiveerd, stelt de back-upservice de coördinator in met de back-upschemaën en andere beleids Details, die de uitbrei ding lokaal op de virtuele machine opslaat.
 * Op het geplande tijdstip communiceert de coördinator met de invoeg toepassing en begint deze met het streamen van de back-upgegevens van de SQL Server met VDI.  
 * De invoeg toepassing verzendt de gegevens rechtstreeks naar de Recovery Services-kluis, waardoor er geen staging-locatie nodig is. De gegevens worden versleuteld en opgeslagen door de Azure Backup-service in opslag accounts.
 * Wanneer de gegevens overdracht is voltooid, bevestigt de coördinator de door Voer met de back-upservice.
@@ -45,7 +45,7 @@ Voordat u begint, controleert u het onderstaande:
 **Ondersteuning** | **Details**
 --- | ---
 **Ondersteunde implementaties** | SQL Marketplace Azure-VM's en niet-Marketplace-VM's (SQL Server handmatig geïnstalleerd) worden ondersteund.
-**Ondersteunde geografische gebieden** | Australië-Zuid-Oost (ASE), Oost-Australië (AE) <br> Brazilië - zuid (BRS)<br> Canada-centraal (CNC), Canada-oost (CE)<br> Zuid-Azië-oost (zee), Azië-oost (EA) <br> VS-Oost (EUS), VS-Oost 2 (EUS2), VS-West-Centraal (WCUS), VS-West (WUS); VS-West 2 (WUS 2) Noord-Centraal VS (NCUS) centraal VS (CUS) Zuid-Centraal (SCUS) <br> India-centraal (INC), India-Zuid (invoeg toepassingen) <br> Japan-Oost (JPE), Japan-West (JPW) <br> Korea-centraal (KRC), Korea-zuid (KRS) <br> Europa-noord (NE), Europa-west <br> UK-zuid (UKS), UK-west (UKW)
+**Ondersteunde geografische gebieden** | Australië-Zuid-Oost (ASE), Oost-Australië (AE) <br> Brazilië - zuid (BRS)<br> Canada-centraal (CNC), Canada-oost (CE)<br> Zuid-Azië-oost (zee), Azië-oost (EA) <br> VS-Oost (EUS), VS-Oost 2 (EUS2), VS-West-Centraal (WCUS), VS-West (WUS); VS-West 2 (WUS 2) Noord-Centraal VS (NCUS) centraal VS (CUS) Zuid-Centraal (SCUS) <br> India-centraal (INC), India-Zuid (invoeg toepassingen) <br> Japan-Oost (JPE), Japan-West (JPW) <br> Korea-centraal (KRC), Korea-zuid (KRS) <br> Europa-noord (NE), Europa-west <br> UK-zuid (UKS), UK-west (UKW) <br> US Gov-Arizona, US Gov-Virginia, US Gov-Texas, US DoD-centraal, US DoD-oost
 **Ondersteunde besturingssystemen** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux wordt momenteel niet ondersteund.
 **Ondersteunde SQL Server-versies** | SQL Server 2017, zoals [hier](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017)wordt beschreven, SQL Server 2016 en SPS, zoals [hier](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack)wordt beschreven, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Ondersteunde .NET-versies** | .NET Framework 4.5.2 en hoger geïnstalleerd op de VM

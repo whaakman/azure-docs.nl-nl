@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 8b89f5572ae94986590fe76096daeb0ad088fe59
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 66a0c625d300a74787e3640992675d5a3f31610c
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668614"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828533"
 ---
 # <a name="tutorial-train-your-first-model"></a>Zelfstudie: Uw eerste model trainen
 
@@ -111,7 +111,7 @@ Nadat de training is voltooid, roept u `experiment` de variabele aan om een kopp
 experiment
 ```
 
-<table style="width:100%"><tr><th>Name</th><th>Werkruimte</th><th>Rapport pagina</th><th>Pagina docs</th></tr><tr><td>diabetes-experiment</td><td>uw-werkruimte naam</td><td><a href="" target="_blank" rel="noopener">Koppeling naar Azure Portal</a></td><td><a href="" target="_blank" rel="noopener">Koppeling naar documentatie</a></td></tr></table>
+<table style="width:100%"><tr><th>Name</th><th>Werkruimte</th><th>Rapport pagina</th><th>Pagina docs</th></tr><tr><td>diabetes-experiment</td><td>uw-werkruimte naam</td><td>Koppeling naar Azure Portal</td><td>Koppeling naar documentatie</td></tr></table>
 
 ## <a name="view-training-results-in-portal"></a>Trainings resultaten weer geven in Portal
 
@@ -181,7 +181,7 @@ Als u een Cloud notebook server hebt gebruikt, stopt u de virtuele machine wanne
 
 1. Selecteer in uw werk ruimte de optie **laptop vm's**.
 
-   ![De VM-server stoppen](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![De VM-server stoppen](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. Selecteer de VM in de lijst.
 

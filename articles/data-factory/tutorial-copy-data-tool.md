@@ -11,25 +11,24 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: a4d5941091c3cf6516380c4d6384951d886e0e7f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: a99f319c25613f811b48923c734b77b135b677bc
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640336"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827940"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Gegevens kopiëren van Azure Blob Storage naar een SQL-database met behulp van het hulpprogramma Copy Data
 > [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Huidige versie](tutorial-copy-data-tool.md)
 
-In deze zelfstudie gebruikt u Azure Portal om een gegevensfactory te maken. Vervolgens gebruikt u het hulpprogramma Copy Data om een pijplijn te maken waarmee gegevens uit Azure Blob Storage worden gekopieerd naar een SQL-database.
+In deze zelfstudie gebruikt u Azure Portal om een gegevensfactory te maken. Vervolgens gebruikt u het hulp programma Gegevens kopiëren om een pijp lijn te maken waarmee gegevens worden gekopieerd van Azure Blob-opslag naar een SQL database.
 
 > [!NOTE]
 > Zie [Inleiding tot Azure Data Factory](introduction.md) als u niet bekend bent met Azure Data Factory.
 
 In deze zelfstudie voert u de volgende stappen uit:
-
 > [!div class="checklist"]
 > * Een data factory maken.
 > * Het hulpprogramma Copy Data gebruiken om een pijplijn te maken.
@@ -54,7 +53,7 @@ Bereid uw Blob-opslag en de SQL-database voor voor gebruik tijdens de zelfstudie
     Jane|Doe
     ```
 
-1. Maak een container met de naam **adfv2tutorial** en upload het bestand inputEmp.txt naar de container. U kunt verschillende hulpprogramma's gebruiken om deze taken uit te voeren, zoals [Azure Storage Explorer](https://storageexplorer.com/).
+1. Maak een container met de naam **adfv2tutorial** en upload het bestand inputEmp.txt naar de container. U kunt de Azure Portal of verschillende hulpprogram ma's zoals [Azure Storage Explorer](https://storageexplorer.com/) gebruiken om deze taken uit te voeren.
 
 #### <a name="create-a-sink-sql-table"></a>Een SQL-sink-tabel maken
 
@@ -76,16 +75,14 @@ Bereid uw Blob-opslag en de SQL-database voor voor gebruik tijdens de zelfstudie
 
 ## <a name="create-a-data-factory"></a>Data factory maken
 
-1. Selecteer in het linkermenu **+ Nieuw** > **Gegevens en analyses** > **Data Factory**:
+1. Selecteer in het menu links de optie **een resource** > **Analytics** > -**Data Factory**maken:
     
-    ![Nieuwe data factory maken](./media/tutorial-copy-data-tool/new-azure-data-factory-menu.png)
+    ![Nieuwe data factory maken](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Voer op de pagina **Nieuwe data factory** **ADFTutorialDataFactory** in bij **Naam**.
-    
-    ![Nieuwe data factory](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
 
     De naam van de data factory moet _wereldwijd uniek_ zijn. Mogelijk wordt het volgende foutbericht weergegeven:
     
-    ![Foutbericht nieuwe data factory](./media/tutorial-copy-data-tool/name-not-available-error.png)
+    ![Foutbericht nieuwe data factory](./media/doc-common-process/name-not-available-error.png)
 
     Als u een foutbericht ontvangt dat betrekking heeft op de waarde die bij de naam is ingevuld, voert u een andere naam in voor de data factory. Gebruik bijvoorbeeld de naam _**uwnaam**_ **ADFTutorialDataFactory**. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
 1. Selecteer het Azure-**abonnement** waarin u de nieuwe data factory wilt maken.
@@ -99,37 +96,27 @@ Bereid uw Blob-opslag en de SQL-database voor voor gebruik tijdens de zelfstudie
 
 1. Selecteer bij **Versie** de optie **V2** als de versie.
 1. Selecteer bij **Locatie** de locatie voor de data factory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensarchieven (bijvoorbeeld Azure Storage en SQL Database) en -berekeningen (bijvoorbeeld Azure HDInsight) die door uw data factory worden gebruikt, kunnen zich in andere locaties of regio's bevinden.
-1. Selecteer **Vastmaken aan dashboard**.
 1. Selecteer **Maken**.
-1. Op het dashboard wordt op de tegel **Data Factory implementeren** de processtatus weergegeven.
 
-    ![Tegel Data Factory implementeren](media/tutorial-copy-data-tool/deploying-data-factory.png)
 1. Nadat de data factory is gemaakt, wordt de startpagina **Data Factory** weergegeven.
     
-    ![Startpagina van de gegevensfactory](./media/tutorial-copy-data-tool/data-factory-home-page.png)
+    ![Startpagina van de gegevensfactory](./media/doc-common-process/data-factory-home-page.png)
 1. Selecteer de tegel **Author & Monitor** om de gebruikersinterface (UI) van Azure Data Factory te openen in een afzonderlijk tabblad.
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Het hulpprogramma Copy Data gebruiken om een pijplijn te maken
 
 1. Selecteer op de pagina **Aan de slag** de tegel **Copy Data** om het hulpprogramma Copy Data te starten.
 
-    ![De tegel Copy Data-hulpprogramma](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
+    ![De tegel Copy Data-hulpprogramma](./media/doc-common-process/get-started-page.png)
 1. Op de pagina **Eigenschappen** bij **Taaknaam**, voert u **CopyFromBlobToSqlPipeline** in. Selecteer vervolgens **Volgende**. De gebruikersinterface van Data Factory maakt een pijplijn met de opgegeven taaknaam.
 
-    ![De pagina Eigenschappen](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
 1. Voltooi op de pagina **Brongegevensarchief** de volgende stappen:
 
     a. Klik op **+ Nieuwe verbinding maken** om een verbinding toe te voegen
 
-    ![Nieuwe aan de bron gekoppelde service](./media/tutorial-copy-data-tool/new-source-linked-service.png)
-
-    b. Selecteer in de galerie de optie **Azure Blob Storage**. Selecteer vervolgens **Volgende**.
-
-    ![Blob-bron selecteren](./media/tutorial-copy-data-tool/select-blob-source.png)
+    b. Selecteer **Azure-Blob Storage** in de galerie en selecteer vervolgens **door gaan**.
 
     c. Selecteer op de pagina **Nieuwe gekoppelde service** uw opslagaccount in de lijst **Naam van opslagaccount** en selecteer **Voltooien**.
-
-    ![Azure Storage configureren](./media/tutorial-copy-data-tool/configure-azure-storage.png)
 
     d. Selecteer de zojuist gemaakte gekoppelde service als bron. Klik vervolgens op **Volgende**.
 
@@ -138,8 +125,6 @@ Bereid uw Blob-opslag en de SQL-database voor voor gebruik tijdens de zelfstudie
 1. Voltooi op de pagina **Invoerbestand of invoermap kiezen** de volgende stappen:
     
     a. Klik op **Bladeren** om naar de map **adfv2tutorial/input** te gaan en selecteer het bestand **inputEmp.txt**. Klik vervolgens op **Kiezen**.
-
-    ![Kies het invoerbestand of invoermap.](./media/tutorial-copy-data-tool/specify-source-path.png)
 
     b. Klik op **Volgende** om verder te gaan met de volgende stap.
 
@@ -150,11 +135,7 @@ Bereid uw Blob-opslag en de SQL-database voor voor gebruik tijdens de zelfstudie
 
     a. Klik op **+ Nieuwe verbinding maken** om een verbinding toe te voegen
 
-    ![Nieuwe aan sink gekoppelde service](./media/tutorial-copy-data-tool/new-sink-linked-service.png)
-
-    b. Selecteer in de galerie de optie **Azure SQL Database**. Selecteer vervolgens **Volgende**.
-
-    ![Azure SQL DB selecteren](./media/tutorial-copy-data-tool/select-azure-sql-db.png)
+    b. Selecteer **Azure SQL database** in de galerie en selecteer vervolgens **door gaan**.
 
     c. Selecteer op de pagina **Nieuwe gekoppelde Service** uw servernaam en databasenaam in de vervolgkeuzelijst en geef de gebruikersnaam en wachtwoord op. Selecteer vervolgens **Voltooien**.
 
@@ -166,29 +147,21 @@ Bereid uw Blob-opslag en de SQL-database voor voor gebruik tijdens de zelfstudie
 
 1. Selecteer op de pagina **Tabeltoewijzing** de tabel **[dbo].[emp]** en selecteer vervolgens **Volgende**.
 
-    ![Tabeltoewijzing](./media/tutorial-copy-data-tool/table-mapping.png)
 1. Op de pagina **Schematoewijzing** ziet u dat de eerste en tweede kolom in het invoerbestand zijn toegewezen aan de kolommen **FirstName** en **LastName** van de tabel **emp**. Selecteer **Volgende**.
 
     ![De pagina Schematoewijzing](./media/tutorial-copy-data-tool/schema-mapping.png)
 1. Selecteer op de pagina **Instellingen** de optie **Volgende**.
 1. Bekijk op de **Overzichtspagina** de waarden voor alle instellingen en selecteer vervolgens **Volgende**.
-
-    ![Overzichtspagina](./media/tutorial-copy-data-tool/summary-page.png)
 1. Selecteer op de pagina **Implementatie** de optie **Controleren** om de pijplijn of taak te controleren.
-
-    ![De pagina Implementatie](./media/tutorial-copy-data-tool/deployment-page.png)
 1. U ziet dat het tabblad **Controleren** aan de linkerkant automatisch wordt geselecteerd. De kolom **Acties** bevat onder andere koppelingen om details van de uitvoering van activiteiten te bekijken en de pijplijn opnieuw uit te voeren. Selecteer **Vernieuwen** om de lijst te vernieuwen.
 
-    ![Pijplijnuitvoeringen controleren](./media/tutorial-copy-data-tool/pipeline-monitoring.png)
-1. Uitvoeringen van de activiteit die aan de pijplijn zijn gekoppeld, kunt u bekijken door de koppeling **Uitvoeringen van activiteit weergeven** in de kolom **Acties** te selecteren. Selecteer de koppeling **Details** (pictogram van een bril) in de kolom **Acties** om details over de kopieerbewerking te zien. Als u wilt terugkeren naar de weergave**Pijplijnuitvoeringen**, klikt u op de koppeling **Pijplijnen** bovenaan. Selecteer **Vernieuwen** om de weergave te vernieuwen.
+1. Uitvoeringen van de activiteit die aan de pijplijn zijn gekoppeld, kunt u bekijken door de koppeling **Uitvoeringen van activiteit weergeven** in de kolom **Acties** te selecteren. Selecteer de koppeling **Details** (pictogram van een bril) in de kolom **Acties** om details over de kopieerbewerking te zien. Als u wilt terugkeren naar de weer gave pijplijn uitvoeringen, selecteert u de koppeling **pijplijn uitvoeringen** bovenaan. Selecteer **Vernieuwen** om de weergave te vernieuwen.
 
     ![Uitvoering van activiteiten controleren](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
-    ![Details van kopieeractiviteit](./media/tutorial-copy-data-tool/copy-execution-details.png)
 
 1. Controleer of de gegevens zijn opgenomen in de tabel **emp** in uw SQL-database.
 
-    ![SQL-uitvoer verifiëren](./media/tutorial-copy-data-tool/verify-sql-output.png)
 
 1. Selecteer het tabblad **Auteur** aan de linkerkant om over te schakelen naar de bewerkingsmodus. U kunt de gekoppelde services, gegevenssets en pijplijnen die zijn gemaakt met het hulpprogramma, bijwerken met behulp van de editor. Bekijk [de Azure Portal-versie van deze tutorial](tutorial-copy-data-portal.md) voor details over het bewerken van entiteiten in de Data Factory-UI.
 
@@ -202,5 +175,5 @@ In dit voorbeeld kopieert de pijplijn gegevens vanuit Blob Storage naar een SQL-
 
 Ga verder met de volgende zelfstudie als u wilt weten hoe u on-premises gegevens kopieert naar de cloud:
 
-> [!div class="nextstepaction"]
+>[!div class="nextstepaction"]
 >[On-premises gegevens kopiëren naar de cloud](tutorial-hybrid-copy-data-tool.md)

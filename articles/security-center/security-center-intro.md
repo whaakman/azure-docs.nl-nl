@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: f0ee4a1129246cedd7899056359144cab75f9475
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 7bd18ab0cedf94f0ecc08c3523a608a8d554e6b2
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782440"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827915"
 ---
 # <a name="what-is-azure-security-center"></a>Wat is Azure Security Center?
 
@@ -126,9 +126,9 @@ Security Center zorgt ervoor dat u minder wordt blootgesteld aan beveiligingsaan
 
 Security Center beschikt over mogelijkheden waarmee u de gegevens in Azure SQL automatisch kunt classificeren. U kunt ook beoordelingen krijgen van mogelijke beveiligingsproblemen in Azure SQL- en Azure Storage-services en aanbevelingen ontvangen voor de wijze waarop u deze kunt verhelpen.
 
-### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>IoT-en hybride Cloud werkbelastingen beveiligen (preview)
+### <a name="protect-iot-and-hybrid-cloud-workloads"></a>IoT-en hybride Cloud-workloads beveiligen
 
-Azure Security Center voor IoT (Internet of Things) vereenvoudigt de bescherming van hybride werk belastingen door eenvormige zicht baarheid en controle, adaptieve preventie van bedreigingen en detectie van intelligente bedreigingen en respons te bieden voor werk belastingen die op Edge, on-premises worden uitgevoerd, in Azure en in andere Clouds. Zie [Azure Security Center voor IOT (preview)](https://docs.microsoft.com/azure/asc-for-iot/)voor meer informatie.
+Azure Security Center voor IoT (Internet of Things) vereenvoudigt de bescherming van hybride werk belastingen door eenvormige zicht baarheid en controle, adaptieve preventie van bedreigingen en detectie van intelligente bedreigingen en respons te bieden voor werk belastingen die op Edge, on-premises worden uitgevoerd, in Azure en in andere Clouds. Zie [Azure Security Center voor IOT voor](https://docs.microsoft.com/azure/asc-for-iot/)meer informatie.
 
 ## <a name="get-secure-faster"></a>Uw infrastructuur sneller beveiligen
 

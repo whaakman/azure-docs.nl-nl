@@ -1,55 +1,55 @@
 ---
-title: Een virtuele Windows-bureaublad preview host van toepassingen voor het valideren van service-updates - Azure maken
-description: Het maken van een pool van de host validatie voor het controleren van service-updates voordat u updates uitgebracht voor productie.
+title: Een hostgroep voor virtuele Windows-Bureau bladen maken voor het valideren van service-updates-Azure
+description: Een groep met validatie-hosts maken om service-updates te bewaken voordat updates voor productie worden uitgevoerd.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
-ms.author: v-chjenk
-ms.openlocfilehash: c9b2a593a6943fe2e9577acc61b1d5a7bcd98607
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: helohr
+ms.openlocfilehash: a23d9fe932556b0a685b373b060901d2c7fb8c85
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070663"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816457"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Zelfstudie: Een hostpool voor het valideren van service-updates maken
 
-Host-pools zijn een verzameling van een of meer identieke virtuele machines in Windows Virtual Desktop Preview tenant omgevingen. Voordat u implementeert pools van host naar uw productieomgeving, raden wij dat u een pool van de host validatie maakt. Updates worden eerst toegepast op validatie host opslaggroepen, zodat u kunt bewaken van service-updates voordat uitrollen naar uw productieomgeving. Zonder een pool van de host validatie ontdekt u mogelijk geen wijzigingen die fouten, wat tot uitvaltijd voor gebruikers in uw productieomgeving leiden kunnen.
+Hostgroepen zijn een verzameling van een of meer identieke virtuele machines in Windows Virtual Desktop-Preview-Tenant omgevingen. Voordat u hostgroepen in uw productie omgeving implementeert, raden we u ten zeerste aan een groep met validatie-hosts te maken. Updates worden eerst toegepast op groepen met validatie-hosts, zodat u service-updates kunt bewaken voordat deze naar uw productie omgeving worden uitgevouwen. Zonder een validatie groep detecteert u mogelijk geen wijzigingen die fouten introduceren. Dit kan leiden tot uitval tijd voor gebruikers in uw productie omgeving.
 
-Om te zorgen dat uw apps werken met de meest recente updates, moet de validatie van host-toepassingen als die vergelijkbaar is met de host van toepassingen in uw productieomgeving mogelijk. Gebruikers moeten verbinding maken met net zo vaak aan de groep van de host validatie als aan de groep van de host productie. Als u hebt automatisch testen op uw host-pool, moet u het geautomatiseerd testen op de host validatie groep opnemen.
+Om ervoor te zorgen dat uw apps samen werken met de nieuwste updates, moet de groep met validatie-hosts net zo vergelijkbaar zijn als de hostgroepen in uw productie omgeving. Gebruikers moeten net zo vaak verbinding maken met de groep met validatie-hosts als voor de hostgroep voor productie. Als u automatische tests voor uw hostgroep hebt, moet u geautomatiseerde tests voor de groep met validatie-hosts toevoegen.
 
-U kunt fouten opsporen van problemen in de groep van de host validatie in beide gevallen [de functie voor diagnostische gegevens](diagnostics-role-service.md) of de [virtuele Windows-bureaublad artikelen over probleemoplossing](https://docs.microsoft.com/Azure/virtual-desktop/troubleshoot-set-up-overview).
+U kunt problemen met de validatie hostgroep oplossen met behulp van [de diagnostische functie](diagnostics-role-service.md) of de Windows-procedure voor het [oplossen van problemen met virtueel bureau blad](https://docs.microsoft.com/Azure/virtual-desktop/troubleshoot-set-up-overview).
 
 >[!NOTE]
-> Het is raadzaam dat u de groep van de host validatie intact laten voor het testen van alle toekomstige updates.
+> U wordt aangeraden de groep validatie-host te verlaten om alle toekomstige updates te testen.
 
-Voordat u begint, [downloaden en importeren van de Windows virtuele bureaublad PowerShell-module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview), als u dat nog niet gedaan hebt.
+Voordat u begint, moet u [de Power shell-module van Windows virtueel bureau blad downloaden en importeren](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview), als u dat nog niet hebt gedaan.
 
-## <a name="create-your-host-pool"></a>Uw host-pool maken
+## <a name="create-your-host-pool"></a>Uw hostgroep maken
 
-U kunt een host-pool maken door de instructies in een van deze artikelen:
-- [Zelfstudie: Een host-pool maken met Azure Marketplace](create-host-pools-azure-marketplace.md)
-- [Een host-pool maken met een Azure Resource Manager-sjabloon](create-host-pools-arm-template.md)
-- [Een host-pool maken met PowerShell](create-host-pools-powershell.md)
+U kunt een hostgroep maken door de instructies in een van deze artikelen te volgen:
+- [Zelfstudie: Een hostgroep maken met Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Een hostgroep met een Azure Resource Manager-sjabloon maken](create-host-pools-arm-template.md)
+- [Een hostgroep maken met Power shell](create-host-pools-powershell.md)
 
-## <a name="define-your-host-pool-as-a-validation-host-pool"></a>Uw host-pool definiëren als een groep van de host validatie
+## <a name="define-your-host-pool-as-a-validation-host-pool"></a>Uw hostgroep definiëren als een groep met validatie-hosts
 
-Voer de volgende PowerShell-cmdlets voor het definiëren van de nieuwe pool voor de host als een groep van de host validatie. Vervang de waarden in de aanhalingstekens door de waarden die relevant zijn voor uw sessie:
+Voer de volgende Power shell-cmdlets uit om de nieuwe hostgroep te definiëren als een groep met validatie-hosts. Vervang de waarden tussen aanhalings tekens door de waarden die relevant zijn voor uw sessie:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Set-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv $true
 ```
 
-Voer de volgende PowerShell-cmdlet om te bevestigen dat de validatie-eigenschap is ingesteld. Vervang de waarden tussen aanhalingstekens door de waarden die relevant zijn voor uw sessie.
+Voer de volgende Power shell-cmdlet uit om te controleren of de validatie-eigenschap is ingesteld. Vervang de waarden tussen aanhalings tekens door de waarden die relevant zijn voor uw sessie.
 
 ```powershell
 Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv $true
 ```
 
-De resultaten van de cmdlet moeten naar deze uitvoer als volgt uitzien:
+De resultaten van de cmdlet moeten er ongeveer als volgt uitzien:
 
 ```
     TenantName          : contoso 
@@ -65,13 +65,13 @@ De resultaten van de cmdlet moeten naar deze uitvoer als volgt uitzien:
     Ring                :
 ```
 
-## <a name="update-schedule"></a>Planning bijwerken
+## <a name="update-schedule"></a>Schema bijwerken
 
-In de Preview-versie optreden service-updates ongeveer een maandelijkse uitgebracht. Als er ernstige problemen, essentiële updates ontvangt een vaker uitgebracht.
+In de preview-periode vinden service-updates ongeveer een maandelijks uitgebracht. Als er sprake is van grote problemen, worden essentiële updates op een vaker uitgebracht weer gegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u een pool van de host validatie hebt gemaakt, leert u over het implementeren en verbinding maken met een hulpprogramma voor het beheren van virtuele bureaublad van Microsoft-resources.
+Nu u een groep met validatie-hosts hebt gemaakt, kunt u meer informatie over het implementeren en verbinden met een beheer programma voor het beheer van micro soft-resources voor virtuele Bureau bladen.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: een hulpprogramma management implementeren](./manage-resources-using-ui.md)
+> [Zelf studie een beheer programma implementeren](./manage-resources-using-ui.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Bouw een AI-verrijkt index in Azure portal - Azure Search'
-description: Ophalen van gegevens, natuurlijke taal en afbeeldingsverwerking vaardigheden in een Azure Search-indexering portal met behulp van de Azure portal en sample van gegevens.
+title: 'Quickstart: Een AI-verrijkte index in Azure Portal-Azure Search maken'
+description: Gegevens extractie, natuurlijke taal en vaardig heden voor afbeeldings verwerking in een Azure Search indexerings Portal, met behulp van de Azure Portal en de voorbeeld gegevens.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,19 +8,18 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 07/09/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 8f3a1dadaddb423a83f4c3691a4b5747a5196d2a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 0801f62bf48b5eae8eab056916334529eed5d1c1
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795336"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828412"
 ---
-# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>Quickstart: Een AI-pijplijn indexeren met cognitieve vaardigheden in Azure Search
+# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>Quickstart: Een AI-indexerings pijplijn maken met behulp van cognitieve vaardig heden in Azure Search
 
-Azure Search kan worden geïntegreerd met [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), uitpakken van inhoud, natuurlijke taalverwerking (NLP) en afbeelding verwerking vaardigheden toe te voegen aan een Azure Search indexeren pijplijn, waardoor unsearchable of ongestructureerde inhoud meer doorzoekbaar. 
+Azure Search kan worden geïntegreerd met [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), het toevoegen van inhoud, het door voeren van een natuurlijke taal (NLP) en de vaardig heden van installatie kopieën aan een Azure Search Indexing-pijp lijn, waardoor er geen Doorzoek bare of ongestructureerde inhoud meer kan worden doorzocht. 
 
-Veel bronnen voor Cognitive Services - zoals [OCR](cognitive-search-skill-ocr.md), [taaldetectie](cognitive-search-skill-language-detection.md), [entiteit erkenning](cognitive-search-skill-entity-recognition.md) om de naam van een paar - kan worden gekoppeld aan een indexeringsproces worden geautomatiseerd. De AI-algoritmen van Cognitive Services worden gebruikt om patronen, functies en kenmerken in brongegevens te vinden en structuren en tekstuele inhoud te retourneren voor gebruik in oplossingen voor zoekopdrachten in volledige tekst op basis van Azure Search.
+Veel Cognitive Services resources, zoals [OCR](cognitive-search-skill-ocr.md), [taal detectie](cognitive-search-skill-language-detection.md), het [herkennen van entiteiten](cognitive-search-skill-entity-recognition.md) om een aantal te noemen, kunnen worden gekoppeld aan een indexerings proces. De AI-algoritmen van Cognitive Services worden gebruikt om patronen, functies en kenmerken in brongegevens te vinden en structuren en tekstuele inhoud te retourneren voor gebruik in oplossingen voor zoekopdrachten in volledige tekst op basis van Azure Search.
 
 Maak in deze snelstart uw eerste verrijkingspijplijn in [Azure Portal](https://portal.azure.com) voordat u ook maar één regel code schrijft:
 
@@ -30,28 +29,28 @@ Maak in deze snelstart uw eerste verrijkingspijplijn in [Azure Portal](https://p
 > * Voer de wizard uit (een entiteitsvaardigheid detecteert mensen, locatie en organisaties)
 > * Gebruik [**Search Explorer**](search-explorer.md) om query's op de verrijkte gegevens uit te voeren
 
-Deze snelstartgids wordt uitgevoerd op de gratis service, maar het aantal gratis transacties is beperkt tot 20 documenten per dag. Als u wilt uitvoeren in deze Quick Start van meer dan eenmaal per dag, gebruikt een kleiner bestand instellen, zodat u in meer uitvoeringen past.
+Deze Snelstartgids wordt uitgevoerd op de gratis service, maar het aantal gratis trans acties is beperkt tot 20 documenten per dag. Als u deze Snelstartgids meer dan eenmaal per dag wilt uitvoeren, gebruikt u een kleinere set bestanden zodat u in meer uitvoeringen kunt passen.
 
 > [!NOTE]
-> Als u bereik uitbreiden door het verhogen van de frequentie van de verwerking, meer documenten toe te voegen of toe te voegen meer AI-algoritmen, u moet [een factureerbare Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md). Kosten toenemen bij het aanroepen van API's in Cognitive Services en voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken in Azure Search. Er zijn geen kosten voor het ophalen van de tekst van documenten.
+> Als u het bereik uitbreidt door de verwerkings frequentie te verhogen, meer documenten toe te voegen of meer AI-algoritmen toe te voegen, moet u [een factureer bare Cognitive Services resource koppelen](cognitive-search-attach-cognitive-services.md). Er worden kosten in rekening gebracht bij het aanroepen van Api's in Cognitive Services en voor het ophalen van afbeeldingen als onderdeel van de fase voor het kraken van documenten in Azure Search. Er worden geen kosten in rekening gebracht voor het ophalen van tekst uit documenten.
 >
-> Uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/). Afbeelding extractie prijzen wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400).
+> De uitvoering van ingebouwde vaardig heden wordt in rekening gebracht op basis van de bestaande [Cognitive Services betalen naar](https://azure.microsoft.com/pricing/details/cognitive-services/)gebruik-prijs. Prijzen voor Image extractie worden beschreven op de [pagina met Azure Search prijzen](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-[Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze Quick Start.
+[Een Azure Search-service maken](search-create-service-portal.md) of [een bestaande service vinden](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) onder uw huidige abonnement. U kunt een gratis service voor deze Quick Start gebruiken.
 
-[Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) biedt de AI. In deze quickstart bevat stappen voor het toevoegen van deze resources in de regel, bij het opgeven van de pijplijn. Het is niet nodig voor het vooraf instellen van accounts.
+[Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) levert de AI. In deze Quick Start vindt u de stappen voor het toevoegen van deze resources, wanneer u de pijp lijn opgeeft. Het is niet nodig om accounts vooraf in te stellen.
 
-Azure-services zijn vereist voor de invoer voor de pijplijn voor indexering. U kunt elke willekeurige gegevensbron wordt ondersteund door [Azure Search-indexeerfuncties](search-indexer-overview.md) , met uitzondering van Azure Table Storage, die niet wordt ondersteund voor AI-indexering. Deze snelstartgids maakt gebruik van [Azure Blob-opslag](https://azure.microsoft.com/services/storage/blobs/) als een container voor de bronbestanden van gegevens. 
+Azure-Services zijn vereist voor het leveren van de invoer voor de indexerings pijplijn. U kunt alle gegevens bronnen gebruiken die worden ondersteund door [Azure Search-Indexeer functies](search-indexer-overview.md) , met uitzonde ring van Azure Table Storage. dit wordt niet ondersteund voor AI-indexering. Deze Snelstartgids maakt gebruik van [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) als een container voor brongegevens bestanden. 
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob service instellen en voorbeeldgegevens laden
 
 1. [Download de voorbeeldgegevens](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) die bestaan uit een kleine set van verschillende typen bestanden. 
 
-1. [Aanmelden voor Azure Blob-opslag](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), een opslagaccount maken, opent u de services Blob's en een container maken.  De storage-account maken in dezelfde regio als de Azure Search.
+1. [Meld u aan voor Azure Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), maak een opslag account, open de pagina's van de BLOB Services en maak een container.  Maak het opslag account in dezelfde regio als Azure Search.
 
 1. Klik in de container die u hebt gemaakt op **Uploaden** om de voorbeeldbestanden te uploaden die u in een vorige stap hebt gedownload.
 
@@ -168,11 +167,11 @@ Tot slot hebt u geleerd dat u resultaten kunt bekijken door query's in de index 
 
 ## <a name="clean-up"></a>Opruimen
 
-Wanneer u in uw eigen abonnement werkt, is het een goed idee aan het einde van een project om te bepalen of u moet nog steeds de resources die dat u hebt gemaakt. Resources naar links wordt uitgevoerd kan kosten u geld. U kunt afzonderlijke resources verwijderen of verwijder de resourcegroep als u wilt verwijderen van de volledige set van resources.
+Wanneer u in uw eigen abonnement werkt, is het een goed idee aan het einde van een project om te bepalen of u nog steeds de resources nodig hebt die u hebt gemaakt. Resources die actief zijn, kunnen kosten in rekening worden. U kunt resources afzonderlijk verwijderen of de resource groep verwijderen om de volledige set resources te verwijderen.
 
-U kunt zoeken en beheren van resources in de portal, met behulp van de **alle resources** of **resourcegroepen** koppeling in het deelvenster navigatie aan de linkerkant.
+U kunt resources vinden en beheren in de portal met behulp van de koppeling **alle resources** of **resource groepen** in het navigatie deel venster aan de linkerkant.
 
-Als u van een gratis service gebruikmaakt, houd er rekening mee dat u beperkt tot drie indexen, Indexeerfuncties en gegevensbronnen bent. U kunt afzonderlijke items in de portal om te blijven onder de limiet verwijderen. 
+Als u een gratis service gebruikt, moet u er rekening mee houden dat u bent beperkt tot drie indexen, Indexeer functies en gegevens bronnen. U kunt afzonderlijke items in de Portal verwijderen om de limiet te blijven. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

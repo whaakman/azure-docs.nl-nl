@@ -1,23 +1,22 @@
 ---
-title: 'Quickstart: Maken, laden en query uitvoeren in een index met behulp van Azure portal - Azure Search'
-description: Gebruik de wizard gegevens importeren in Azure portal maken, laden en query uitvoeren op uw eerste Azure Search-index.
+title: "Quickstart: Een index maken, laden en er query's op uitvoeren met behulp van Azure Portal-Azure Search"
+description: Gebruik de wizard gegevens importeren in Azure Portal om uw eerste index in Azure Search te maken, te laden en op te vragen.
 author: lobrien
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
-ms.topic: tutorial
+ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: laobri
-ms.custom: seodec2018
-ms.openlocfilehash: 2a4d7435383f740dc386a740062e66cd2d3585b0
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: e8baa2ae5f60926f46be577a02d3c23ad6b77b79
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798919"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828460"
 ---
-# <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Quickstart: Een Azure Search-index met behulp van de Azure portal maken
+# <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Quickstart: Een Azure Search-index maken met behulp van de Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-get-started-powershell.md)
@@ -34,13 +33,13 @@ Probeer de ingebouwde hulpprogramma's in Azure Portal als u snel vertrouwd wilt 
 > * Bekijk een bestaande index en opties om deze te wijzigen
 > * Probeer zoekopdrachten in volledige tekst, filters, facetten, fuzzy zoekopdrachten en geosearch met **Search Explorer**
 
-Als u de hulpprogramma's zijn te beperken, kunt u overwegen een [code gebaseerde Inleiding tot het programmeren van Azure Search in .NET](search-howto-dotnet-sdk.md) of gebruik [Postman voor het maken van de REST API-aanroepen](search-get-started-postman.md). U kunt ook een 6 minuten durende demonstratie bekijken van de stappen in deze zelfstudie. De demonstratie begint na ongeveer drie minuten in deze [Azure Search-overzichtsvideo](https://channel9.msdn.com/Events/Connect/2016/138).
+Als de hulpprogram ma's te beperkt zijn, kunt u een [op code gebaseerde inleiding voor het Program meren van Azure Search in .net](search-howto-dotnet-sdk.md) beschouwen of postman gebruiken [voor het maken van rest API](search-get-started-postman.md)-aanroepen. U kunt ook een 6 minuten durende demonstratie bekijken van de stappen in deze zelfstudie. De demonstratie begint na ongeveer drie minuten in deze [Azure Search-overzichtsvideo](https://channel9.msdn.com/Events/Connect/2016/138).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-[Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze Quick Start. 
+[Een Azure Search-service maken](search-create-service-portal.md) of [een bestaande service vinden](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) onder uw huidige abonnement. U kunt een gratis service voor deze Quick Start gebruiken. 
 
 ### <a name="check-for-space"></a>Controleren of er voldoende ruimte is
 
@@ -62,7 +61,7 @@ Voor deze zelfstudie gebruiken we een ingebouwde gegevensset die met behulp van 
 
    ![Opdracht Gegevens importeren](media/search-get-started-portal/import-data-cmd.png)
 
-2. In de wizard, klikt u op **verbinding maken met uw gegevens** > **voorbeelden** > **hotels-sample**. Deze gegevensbron is ingebouwd. Als u uw eigen gegevensbron zou maken, zou u een naam, het type en de verbindingsgegevens moeten opgeven. Zodra de gegevensbron is gemaakt, wordt deze een bestaande gegevensbron genoemd die opnieuw kan worden gebruikt voor andere bewerkingen.
+2. Klik in de wizard op **verbinding maken met uw gegevens** > **voorbeelden** > **hotels-voor beeld**. Deze gegevensbron is ingebouwd. Als u uw eigen gegevensbron zou maken, zou u een naam, het type en de verbindingsgegevens moeten opgeven. Zodra de gegevensbron is gemaakt, wordt deze een bestaande gegevensbron genoemd die opnieuw kan worden gebruikt voor andere bewerkingen.
 
    ![Voorbeeldgegevensset selecteren](media/search-get-started-portal/import-datasource-sample.png)
 
@@ -79,7 +78,7 @@ Deze stap slaan we nu even over en we gaan naar **Doelindex aanpassen**.
    ![Stap voor cognitieve vaardigheden overslaan](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
-> U kunt stap voor stap door een voorbeeld van AI-indexering in een [snelstartgids](cognitive-search-quickstart-blob.md) of [zelfstudie](cognitive-search-tutorial-blob.md).
+> U kunt een voor beeld van een AI-indexering door lopen in een [Snelstartgids](cognitive-search-quickstart-blob.md) of [zelf studie](cognitive-search-tutorial-blob.md).
 
 ### <a name="step-3---configure-index"></a>Stap 3: index configureren
 
@@ -87,7 +86,7 @@ Het maken van een index is meestal een op code gebaseerde oefening die is voltoo
 
 Velden bevatten gegevenstypen en kenmerken. De selectievakjes bovenaan zijn *indexkenmerken* die bepalen hoe het veld wordt gebruikt.
 
-* **Ophalen mogelijk** betekent dat dit veld wordt weergegeven in de lijst met zoekresultaten. U kunt afzonderlijke velden als ontoegankelijk voor zoekresultaten markeren door dit selectievakje in, bijvoorbeeld voor velden die worden gebruikt alleen in filterexpressies uit te schakelen.
+* **Ophalen mogelijk** betekent dat dit veld wordt weergegeven in de lijst met zoekresultaten. U kunt afzonderlijke velden markeren als uitstel voor de zoek resultaten door dit selectie vakje uit te scha kelen, bijvoorbeeld voor velden die alleen worden gebruikt in filter expressies.
 * **Sleutel** is de unieke id van het document. Het is altijd een tekenreeks en deze is vereist.
 * Met de kenmerken **Filterbaar**, **Sorteerbaar** en **Geschikt voor facetten** bepaalt u of velden in een filter, een sorteervolgorde of een facetnavigatiestructuur worden gebruikt.
 * **Doorzoekbaar** betekent dat een veld is opgenomen in een zoekopdracht in volledige tekst. Tekenreeksen zijn doorzoekbaar. Numerieke velden en Booleaanse waarden zijn vaak gemarkeerd als niet doorzoekbaar.
@@ -98,9 +97,9 @@ Standaard wordt met de wizard de gegevensbron gescand op unieke id's als basis v
 
 1. Accepteer de standaardwaarden. 
 
-   Als u de wizard opnieuw met behulp van een bestaande gegevensbron van hotels nogmaals uitvoeren, kan de index wordt niet worden geconfigureerd met standaardkenmerken. Voor toekomstige importbewerkingen moet u de kenmerken handmatig selecteren. 
+   Als u de wizard een tweede keer opnieuw start met behulp van een bestaande hotels-gegevens bron, wordt de index niet geconfigureerd met de standaard kenmerken. Voor toekomstige importbewerkingen moet u de kenmerken handmatig selecteren. 
 
-   ![Index hotels gegenereerde](media/search-get-started-portal/hotelsindex.png)
+   ![Index gegenereerde hotels](media/search-get-started-portal/hotelsindex.png)
 
 2. Ga door naar de volgende pagina.
 
@@ -114,7 +113,7 @@ Dit object definieert een uitvoerbaar proces. U kunt een terugkerend schema inst
 
 Klik op **Verzenden** om de indexeerfunctie te maken en tegelijkertijd uit te voeren.
 
-  ![Hotels indexeerfunctie](media/search-get-started-portal/hotels-indexer.png)
+  ![Indexeer functie voor hotels](media/search-get-started-portal/hotels-indexer.png)
 
 ## <a name="monitor-progress"></a>Voortgang controleren
 
@@ -130,7 +129,7 @@ De belangrijkste servicepagina bevat koppelingen naar de resources die in uw Azu
 
    ![Lijst met indexen op het servicedashboard](media/search-get-started-portal/indexes-list.png)
 
-In deze lijst, kunt u klikken op de *hotels-sample* index die u zojuist hebt gemaakt, het indexschema weergeven. en eventueel nieuwe velden toevoegen. 
+In deze lijst kunt u op de voor *beeld-* index van hotels klikken die u zojuist hebt gemaakt, het index schema weer geven. en eventueel nieuwe velden toevoegen. 
 
 Op het tabblad **Velden** wordt het indexschema getoond. Scroll naar de onderkant van de lijst om een nieuw veld in te voeren. In de meeste gevallen kunt u geen bestaande velden wijzigen. Bestaande velden hebben een fysieke weergave in Azure Search en kunnen daarom niet worden gewijzigd, zelfs niet in code. Als u een bestaand veld fundamenteel wilt wijzigen, maakt u een nieuwe index en verwijdert u het oorspronkelijke veld.
 
@@ -154,7 +153,7 @@ U zou nu een zoekindex moeten hebben die klaar is om query’s uit te voeren met
 
    ![Opdracht Search Explorer](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. Uit de **Index** vervolgkeuzelijst kiezen *hotels-sample*. Klik op de **API-versie** vervolgkeuzelijst, om te zien welke REST-API's beschikbaar zijn. Gebruik voor onderstaande query's de algemeen beschikbare versie (2019-05-06).
+2. Kies in de vervolg keuzelijst **index** de optie *hotels-voor beeld*. Klik op de vervolg keuzelijst **API-versie** om te zien welke rest api's beschikbaar zijn. Gebruik de algemeen beschik bare versie (2019-05-06) voor de onderstaande query's.
 
    ![Index- en API-opdrachten](media/search-get-started-portal/search-explorer-changeindex.png)
 
@@ -170,19 +169,19 @@ U kunt termen en zinnen invoeren, vergelijkbaar met wat u in een zoekopdracht in
 
 #### <a name="example-string-query-searchspa"></a>Voorbeeld (tekenreeks): `search=spa`
 
-* De **zoeken** parameter wordt gebruikt voor het invoeren van een zoekopdracht voor zoeken in volledige tekst, in dit geval Hotelgegevens geretourneerd voor degenen met *beveiligd-wachtwoordverificatie* in elk doorzoekbaar veld van het document.
+* De **Zoek** parameter wordt gebruikt om een zoek opdracht voor zoeken in volledige tekst in te voeren, in dit geval het retour neren van Hotel gegevens voor degenen met *beveiligd-wachtwoord* verificatie in een doorzoekbaar veld in het document.
 
 * Met **Search Explorer** worden resultaten geretourneerd in JSON. Deze indeling is uitgebreid en moeilijk te lezen als documenten een compacte structuur hebben. Dit is opzettelijk; dat het hele document zichtbaar is, is belangrijk voor ontwikkeldoeleinden, vooral tijdens het testen. Voor een betere gebruikerservaring moet u code schrijven waarmee [zoekresultaten](search-pagination-page-layout.md) belangrijke elementen weergeven.
 
-* Documenten bestaan uit alle velden die zijn gemarkeerd als ‘Ophalen mogelijk’ in de index. Als u wilt weergeven indexkenmerken in de portal, klikt u op *hotels-sample* in de **indexen** lijst.
+* Documenten bestaan uit alle velden die zijn gemarkeerd als ‘Ophalen mogelijk’ in de index. Als u index kenmerken wilt weer geven in de portal, klikt u op *hotels-voor beeld* in de lijst **indexen** .
 
 #### <a name="example-parameterized-query-searchspacounttruetop10"></a>Voorbeeld (geparameteriseerde query): `search=spa&$count=true&$top=10`
 
 * Het symbool **&** wordt gebruikt om zoekparameters toe te voegen. Deze kunnen in willekeurige volgorde worden opgegeven.
 
-* De **$count = true** parameter retourneert het totale aantal geretourneerde documenten. Deze waarde verschijnt bovenaan de zoekresultaten. U kunt filterquery's controleren door de wijzigingen te controleren die door **$count=true** worden gerapporteerd. Lage aantallen geven aan dat uw filter werkt.
+* De para meter **$Count = True** retourneert het totale aantal geretourneerde documenten. Deze waarde verschijnt bovenaan de zoekresultaten. U kunt filterquery's controleren door de wijzigingen te controleren die door **$count=true** worden gerapporteerd. Lage aantallen geven aan dat uw filter werkt.
 
-* De **$top = 10** retourneert de hoogst scorende documenten in 10 totaal. Standaard retourneert Azure Search de 50 beste resultaten. U kunt dit aantal vergroten of verkleinen via **$top**.
+* De **$Top = 10** retourneert de hoogst geclassificeerde tien documenten uit het totaal. Standaard retourneert Azure Search de 50 beste resultaten. U kunt dit aantal vergroten of verkleinen via **$top**.
 
 ### <a name="filter-query"></a>De query filteren
 
@@ -190,7 +189,7 @@ Filters zijn opgenomen in de zoekopdrachten wanneer u de parameter **$filter** t
 
 #### <a name="example-filtered-searchbeachfilterrating-gt-4"></a>Voorbeeld (gefilterd): `search=beach&$filter=Rating gt 4`
 
-* De parameter **$filter** retourneert resultaten die voldoen aan de criteria die u hebt opgegeven. In dit geval classificaties groter is dan 4.
+* De parameter **$filter** retourneert resultaten die voldoen aan de criteria die u hebt opgegeven. In dit geval zijn de classificaties groter dan 4.
 
 * Filtersyntaxis is een OData-constructie. Zie [OData-syntaxis filteren](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) voor meer informatie.
 
@@ -200,18 +199,18 @@ Facetfilters zijn opgenomen in zoekopdrachten. U kunt de facetparameter gebruike
 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Voorbeeld (gefacetteerd met bereikvermindering): `search=*&facet=Category&$top=2`
 
-* **search=** * is een lege zoekopdracht. Met een lege zoekopdracht wordt naar alles gezocht. Eén reden om een lege query in te dienen, is om de hele set documenten te filteren of als facet te gebruiken. U wilt bijvoorbeeld een facetnavigatiestructuur die bestaat uit alle hotels in de index.
-* **facet** retourneert een navigatiestructuur die u kunt doorgeven aan een UI-besturingselement. Deze retourneert categorieën en een aantal. In dit geval zijn categorieën gebaseerd op een veld met de naam gemakkelijk *categorie*. Er is geen aggregatie in Azure Search, maar u kunt een geschatte aggregatie bepalen via `facet`, dat het aantal documenten in elke categorie retourneert.
+* **search=** * is een lege zoekopdracht. Met een lege zoekopdracht wordt naar alles gezocht. Eén reden om een lege query in te dienen, is om de hele set documenten te filteren of als facet te gebruiken. U wilt bijvoorbeeld dat een facet navigatie structuur bestaat uit alle hotels in de index.
+* **facet** retourneert een navigatiestructuur die u kunt doorgeven aan een UI-besturingselement. Deze retourneert categorieën en een aantal. In dit geval zijn categorieën gebaseerd op een veld dat gemakkelijk een *categorie*wordt genoemd. Er is geen aggregatie in Azure Search, maar u kunt een geschatte aggregatie bepalen via `facet`, dat het aantal documenten in elke categorie retourneert.
 
 * **$top=2** retourneert twee documenten, om te illustreren dat u `top` kunt gebruiken om het aantal resultaten te verlagen of te verhogen.
 
-#### <a name="example-facet-on-numeric-values-searchspafacetrating"></a>Voorbeeld (facet op basis van numerieke waarden): `search=spa&facet=Rating`
+#### <a name="example-facet-on-numeric-values-searchspafacetrating"></a>Voor beeld (facet op numerieke waarden):`search=spa&facet=Rating`
 
-* Deze query is facet voor classificatie, op een tekstuele zoekopdracht naar *beveiligd-wachtwoordverificatie*. De term *waardering* kan worden opgegeven als een facet, omdat het veld is gemarkeerd als ophaalbaar, Filterbaar en geschikt voor facetten in de index en de waarden die het bevat (numeriek, 1 tot en met 5), zijn geschikt voor het categoriseren van vermeldingen in groepen.
+* Deze query is facet voor classificatie, in een tekst zoekopdracht naar *beveiligd-wachtwoord*verificatie. De term *classificatie* kan worden opgegeven als een facet, omdat het veld is gemarkeerd als ophaalbaar, filterbaar en bruikbaar in de index. de waarden die het bevat (numeriek, 1 tot en met 5), zijn geschikt voor het categoriseren van vermeldingen in groepen.
 
 * Alleen filterbare velden kunnen als facet worden gebruikt. Alleen ophaalbare velden kunnen in de resultaten worden geretourneerd.
 
-* De *waardering* veld is de drijvende komma dubbele precisie en de groepering is door de exacte waarde. Voor meer informatie over groeperen per interval (bijvoorbeeld: "3 sterwaarderingen," '4 sterwaarderingen', enzovoort), Zie [facetnavigatie implementeren in Azure Search](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* Het veld *classificatie* is een drijvende komma met dubbele precisie en de groepering is nauw keurige waarde. Zie [facet navigatie implementeren in azure Search](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range)voor meer informatie over groeperen op interval (bijvoorbeeld ' 3 ster beoordelingen ', ' 4 ster waarderingen ' enzovoort).
 
 
 ### <a name="highlight-query"></a> Zoekresultaten markeren
@@ -220,17 +219,17 @@ Markeren betekent het toevoegen van opmaak aan tekst die overeenkomt met het tre
 
 #### <a name="example-highlighter-searchbeachhighlightdescription"></a>Voorbeeld (gemarkeerd): `search=beach&highlight=Description`
 
-* In dit voorbeeld wordt het opgemaakte woord *strand* gemakkelijker te zien is in het omschrijvingsveld.
+* In dit voor beeld is het geopgemaakte woord *strand* makkelijker te herkennen in het veld Beschrijving.
 
 #### <a name="example-linguistic-analysis-searchbeacheshighlightdescription"></a>Voorbeeld (taalkundige analyse): `search=beaches&highlight=Description`
 
-* Zoeken in volledige tekst herkent basic variaties in woorden. In dit geval bevatten zoekresultaten gemarkeerde tekst 'strand"hotels die die dit woord in hun doorzoekbare velden, in reactie op een zoekopdracht op 'stranden hebben'. De resultaten kunnen verschillende vormen van hetzelfde woord bevatten vanwege taalkundige analyse. 
+* Zoek opdracht in volledige tekst herkent basis variaties in Word-formulieren. In dit geval bevatten de zoek resultaten gemarkeerde tekst voor het "strand" voor hotels die dat woord in hun Doorzoek bare velden hebben, in antwoord op een zoek opdracht naar tref woorden op "stranden". De resultaten kunnen verschillende vormen van hetzelfde woord bevatten vanwege taalkundige analyse. 
 
 * Azure Search ondersteunt 56 analyzers van Lucene en Microsoft. Standaard wordt Lucene Analyzer gebruikt voor Azure Search.
 
 ### <a name="fuzzy-search"></a> Fuzzy zoekopdrachten uitproberen
 
-Standaard gespeld querytermen, zoals *seatle* voor "Seattle", geen overeenkomsten in standaardzoekopdrachten retourneren. Het volgende voorbeeld retourneert geen resultaten.
+Standaard worden onjuist gespelde query termen, zoals *Seatle* voor "Seattle", niet in de normale zoek opdracht geretourneerd. Het volgende voorbeeld retourneert geen resultaten.
 
 #### <a name="example-misspelled-term-unhandled-searchseatle"></a>Voorbeeld (verkeerd gespelde term, niet verwerkt): `search=seatle`
 
@@ -238,7 +237,7 @@ U kunt fuzzy zoekopdrachten gebruiken om spelfouten te omzeilen. Fuzzy zoekopdra
 
 #### <a name="example-misspelled-term-handled-searchseatlequerytypefull"></a>Voorbeeld (verkeerd gespelde term, verwerkt): `search=seatle~&queryType=full`
 
-In dit voorbeeld retourneert nu documenten die overeenkomsten op "Seattle" bevatten.
+In dit voor beeld worden documenten geretourneerd die overeenkomen met overeenkomsten op ' Seattle '.
 
 Als **queryType** niet is opgegeven, wordt standaard de eenvoudige queryparser gebruikt. De eenvoudige queryparser is sneller, maar als u gebruik wilt maken van fuzzy zoeken, reguliere expressies, zoeken op nabijheid of andere geavanceerde typen query's, dan hebt u de volledige syntaxis nodig.
 
@@ -254,7 +253,7 @@ Georuimtelijk zoeken wordt ondersteund door het [gegevenstype edm.GeographyPoint
 
 Met dit voorbeeld worden alle resultaten voor positionele gegevens gefilterd die minder dan 5 kilometer zijn verwijderd van een opgegeven punt (opgegeven als coördinaten voor lengte- en breedtegraad). Door **$count** toe te voegen, kunt u zien hoeveel resultaten er worden geretourneerd als u de afstand of de coördinaten wijzigt.
 
-Georuimtelijk zoeken is handig als uw zoektoepassing een functie 'in mijn buurt zoeken' heeft of gebruikmaakt van kaartnavigatie. Dit is echter niet een zoekopdracht in volledige tekst. Als u gebruikersvereisten voor zoeken op een plaats of een land/regio met de naam, voegt u velden met namen van stad of land/regio, naast coördinaten toe.
+Georuimtelijk zoeken is handig als uw zoektoepassing een functie 'in mijn buurt zoeken' heeft of gebruikmaakt van kaartnavigatie. Dit is echter niet een zoekopdracht in volledige tekst. Als u gebruikers vereisten hebt om op naam te zoeken in een stad of land/regio, voegt u naast coördinaten ook velden toe met de namen stad of land/regio.
 
 ## <a name="takeaways"></a>Opgedane kennis
 
@@ -268,11 +267,11 @@ U hebt ook geleerd hoe u in de portal kunt zoeken naar indexen, indexeerfuncties
 
 ## <a name="clean-up"></a>Opruimen
 
-Wanneer u in uw eigen abonnement werkt, is het een goed idee aan het einde van een project om te bepalen of u moet nog steeds de resources die dat u hebt gemaakt. Resources naar links wordt uitgevoerd kan kosten u geld. U kunt afzonderlijke resources verwijderen of verwijder de resourcegroep als u wilt verwijderen van de volledige set van resources.
+Wanneer u in uw eigen abonnement werkt, is het een goed idee aan het einde van een project om te bepalen of u nog steeds de resources nodig hebt die u hebt gemaakt. Resources die actief zijn, kunnen kosten in rekening worden. U kunt resources afzonderlijk verwijderen of de resource groep verwijderen om de volledige set resources te verwijderen.
 
-U kunt zoeken en beheren van resources in de portal, met behulp van de **alle resources** of **resourcegroepen** koppeling in het deelvenster navigatie aan de linkerkant.
+U kunt resources vinden en beheren in de portal met behulp van de koppeling **alle resources** of **resource groepen** in het navigatie deel venster aan de linkerkant.
 
-Als u van een gratis service gebruikmaakt, houd er rekening mee dat u beperkt tot drie indexen, Indexeerfuncties en gegevensbronnen bent. U kunt afzonderlijke items in de portal om te blijven onder de limiet verwijderen. 
+Als u een gratis service gebruikt, moet u er rekening mee houden dat u bent beperkt tot drie indexen, Indexeer functies en gegevens bronnen. U kunt afzonderlijke items in de Portal verwijderen om de limiet te blijven. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

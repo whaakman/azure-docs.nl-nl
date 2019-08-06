@@ -4,14 +4,14 @@ description: Informatie over het beheren van conflicten in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 06/25/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 96171d4729187ca03f1e9529551a7fb6a26c6976
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 77fb0e195cee03405c4a601fe8c57d4a2690a4b2
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360374"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815068"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Conflictoplossingsbeleid beheren in Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Als er meerdere regio's worden geschreven, kunnen er conflicten optreden wanneer
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Het conflictoplossingsbeleid 'last writer wins' maken
 
-Deze voorbeelden laten zien hoe u een container kunt instellen met het conflictoplossingsbeleid 'last writer wins'. Het standaardpad voor de laatste schrijver: WINS is het tijds tempel veld of de `_ts` eigenschap. Dit kan ook worden ingesteld op een door de gebruiker gedefinieerd pad voor een numeriek type. Bij een conflict wordt de hoogste waarde wint. Als het pad niet is ingesteld of ongeldig is, wordt standaard ingesteld `_ts`op. Conflicten die met dit beleid zijn opgelost, worden niet weer gegeven in de feed conflict. Dit beleid kan door alle Api's worden gebruikt.
+Deze voorbeelden laten zien hoe u een container kunt instellen met het conflictoplossingsbeleid 'last writer wins'. Het standaardpad voor de laatste schrijver: WINS is het tijds tempel veld of de `_ts` eigenschap. Voor SQL-API kan dit ook worden ingesteld op een door de gebruiker gedefinieerd pad met een numeriek type. Bij een conflict wordt de hoogste waarde wint. Als het pad niet is ingesteld of ongeldig is, wordt standaard ingesteld `_ts`op. Conflicten die met dit beleid zijn opgelost, worden niet weer gegeven in de feed conflict. Dit beleid kan door alle Api's worden gebruikt.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK V2
 
@@ -114,7 +114,6 @@ Opgeslagen procedures voor het oplossen van aangepaste conflicten moeten worden 
 
 > [!IMPORTANT]
 > Net als bij elke opgeslagen procedure heeft een aangepaste procedure voor het oplossen van conflicten toegang tot alle gegevens met dezelfde partitie sleutel en kan een invoeg-, update-of verwijder bewerking worden uitgevoerd om conflicten op te lossen.
-
 
 Met deze voor beeld van een opgeslagen procedure worden conflicten opgelost door de laagste `/myCustomId` waarde van het pad te selecteren.
 
@@ -273,7 +272,6 @@ udp_collection = self.try_create_document_collection(
 
 Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
 
-
 ## <a name="create-a-custom-conflict-resolution-policy"></a>Aangepast conflictoplossingsbeleid maken
 
 Deze voorbeelden laten zien hoe u een container kunt instellen met aangepast conflictoplossingsbeleid. Deze conflicten worden weergegeven in de conflictfeed.
@@ -428,10 +426,10 @@ while conflict:
 
 Meer informatie over de volgende Azure Cosmos DB-concepten:
 
-* [Wereld wijde distributie: onder de motorkap](global-dist-under-the-hood.md)
-* [Multi-Master configureren in uw toepassingen](how-to-multi-master.md)
-* [Clients configureren voor multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
-* [Regio's toevoegen aan of verwijderen uit uw Azure Cosmos DB-account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [Meerdere masters configureren in uw toepassingen](how-to-multi-master.md).
-* [Partitionering en gegevensdistributie](partition-data.md)
-* [Indexering in Azure Cosmos DB](indexing-policies.md)
+- [Wereld wijde distributie: onder de motorkap](global-dist-under-the-hood.md)
+- [Multi-Master configureren in uw toepassingen](how-to-multi-master.md)
+- [Clients configureren voor multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
+- [Regio's toevoegen aan of verwijderen uit uw Azure Cosmos DB-account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+- [Meerdere masters configureren in uw toepassingen](how-to-multi-master.md).
+- [Partitionering en gegevensdistributie](partition-data.md)
+- [Indexering in Azure Cosmos DB](indexing-policies.md)

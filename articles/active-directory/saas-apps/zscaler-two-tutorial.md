@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Zscaler twee | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Zscaler twee.
+title: 'Zelfstudie: Azure Active Directory integratie met Zscaler twee | Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Zscaler twee.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 45ef7c61cadbf38c2f106e1fdc087f801dbefb4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ea4eecd5c27b6a9f14bc358c7db61da544e7530
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67085892"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825092"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Zelfstudie: Azure Active Directory-integratie met twee Zscaler
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Zelfstudie: Azure Active Directory integratie met Zscaler twee
 
-In deze zelfstudie leert u hoe u twee Zscaler integreren met Azure Active Directory (Azure AD).
-Twee Zscaler integreren met Azure AD biedt u de volgende voordelen:
+In deze zelf studie leert u hoe u Zscaler kunt integreren met Azure Active Directory (Azure AD).
+Het integreren van Zscaler twee met Azure AD biedt u de volgende voor delen:
 
-* U kunt beheren in Azure AD die toegang tot twee Zscaler heeft.
-* U kunt uw gebruikers worden automatisch aangemeld twee Zscaler (Single Sign-On) inschakelen met hun Azure AD-accounts.
-* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* U kunt beheren in azure AD die toegang heeft tot Zscaler twee.
+* U kunt ervoor zorgen dat uw gebruikers automatisch worden aangemeld voor Zscaler twee (eenmalige aanmelding) met hun Azure AD-accounts.
+* U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Zscaler twee, moet u de volgende items:
+Als u Azure AD-integratie met Zscaler twee wilt configureren, hebt u de volgende items nodig:
 
-* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, krijgt u een [gratis account](https://azure.microsoft.com/free/)
-* Twee Zscaler eenmalige aanmelding ingeschakeld abonnement
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u een [gratis account](https://azure.microsoft.com/free/) aanvragen
+* Zscaler twee abonnementen ingeschakeld voor eenmalige aanmelding
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
 In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-* Biedt ondersteuning voor twee Zscaler **SP** gestart door SSO
+* Zscaler twee ondersteunt door **SP** GEÏNITIEERDe SSO
 
-* Biedt ondersteuning voor twee Zscaler **Just In Time** inrichten van gebruikers
+* Zscaler twee ondersteunt **just-in-time** -gebruikers inrichting
 
-## <a name="adding-zscaler-two-from-the-gallery"></a>Toe te voegen Zscaler twee uit de galerie
+## <a name="adding-zscaler-two-from-the-gallery"></a>Zscaler twee toevoegen vanuit de galerie
 
-Voor het configureren van de integratie van twee Zscaler in Azure AD, moet u twee Zscaler toevoegen uit de galerie aan de lijst met beheerde SaaS-apps.
+Als u de integratie van Zscaler twee wilt configureren in azure AD, moet u Zscaler twee van de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt Zscaler twee uit de galerie toevoegen, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om Zscaler twee van de galerie toe te voegen:**
 
 1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -63,37 +63,37 @@ Voor het configureren van de integratie van twee Zscaler in Azure AD, moet u twe
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+    ![De knop nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Zscaler twee**, selecteer **Zscaler twee** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak **Zscaler twee**, selecteer **Zscaler twee** in het resultaten paneel en klik vervolgens op knop **toevoegen** om de toepassing toe te voegen.
 
      ![Twee Zscaler in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Zscaler twee op basis van een testgebruiker met de naam **Britta Simon**.
-Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Zscaler twee tot stand worden gebracht.
+In deze sectie kunt u eenmalige aanmelding voor Azure AD configureren en testen met Zscaler twee op basis van een test gebruiker met de naam **Julia Simon**.
+Voor een goede werking van eenmalige aanmelding moet een koppelings relatie tussen een Azure AD-gebruiker en de bijbehorende gebruiker in Zscaler twee worden ingesteld.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Zscaler twee, moet u de volgende bouwstenen voltooien:
+Als u eenmalige aanmelding voor Azure AD wilt configureren en testen met Zscaler twee, moet u de volgende bouw stenen volt ooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Configureer Zscaler twee Single Sign-On](#configure-zscaler-two-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Maak twee Zscaler testgebruiker](#create-zscaler-two-test-user)**  : als u wilt een equivalent van Britta Simon in Zscaler twee die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Zscaler twee eenmalige aanmelding configureren](#configure-zscaler-two-single-sign-on)** : Hiermee configureert u de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Maak Zscaler twee test gebruiker](#create-zscaler-two-test-user)** : als u een equivalent van Julia Simon in Zscaler twee wilt hebben dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-Voor het configureren van Azure AD eenmalige aanmelding met Zscaler twee, moet u de volgende stappen uitvoeren:
+Voer de volgende stappen uit om eenmalige aanmelding voor Azure AD met Zscaler twee te configureren:
 
-1. In de [Azure-portal](https://portal.azure.com/)op de **Zscaler twee** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+1. Selecteer in de [Azure Portal](https://portal.azure.com/)op de pagina twee toepassings integratie **Zscaler** de optie **eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
+    ![Koppeling voor eenmalige aanmelding configureren](common/select-sso.png)
 
 2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
@@ -105,18 +105,18 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zscaler twee, moet u
 
 4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    ![Zscaler twee domein en URL's, eenmalige aanmelding informatie](common/sp-signonurl.png)
+    ![Zscaler twee domein-en URL-gegevens voor eenmalige aanmelding](common/sp-signonurl.png)
 
-    Typ in het tekstvak aanmeldings-URL de URL die wordt gebruikt door uw gebruikers aan te melden bij uw toepassing ZScaler twee.
+    Typ in het tekstvak URL voor aanmelding de URL die door uw gebruikers wordt gebruikt om u aan te melden bij uw ZScaler-twee toepassing.
 
     > [!NOTE]
-    > U werkt de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Zscaler twee Client ondersteuningsteam](https://www.zscaler.com/company/contact) om de waarde. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > U werkt de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Zscaler twee ondersteunings team voor clients](https://www.zscaler.com/company/contact) om de waarde op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-5. Uw toepassing Zscaler twee wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram  **Bewerken**  om het dialoogvenster  **Gebruikerskenmerken**  te openen.
+5. Uw Zscaler-toepassingen verwacht de SAML-beweringen in een specifieke indeling. hiervoor moet u aangepaste kenmerk toewijzingen toevoegen aan de configuratie van uw SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op pictogram **bewerken** om het dialoog venster **gebruikers kenmerken** te openen.
 
     ![image](common/edit-attribute.png)
 
-6. Twee Zscaler toepassing verwacht met bovenstaande bovendien enkele meer kenmerken moeten worden doorgegeven in SAML-antwoord. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
+6. Daarnaast verwacht Zscaler twee toepassingen nog maar weinig kenmerken om te worden door gegeven in het SAML-antwoord. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
     
     | Name | Bronkenmerk |
     | ---------| ------------ |
@@ -143,9 +143,9 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zscaler twee, moet u
 
 7. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![De link om het certificaat te downloaden](common/certificatebase64.png)
+    ![De downloadkoppeling certificaat](common/certificatebase64.png)
 
-8. Op de **instellen Zscaler twee** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
+8. Kopieer de gewenste URL ('s) volgens uw vereiste in het gedeelte **Stel Zscaler twee** in.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
@@ -153,19 +153,19 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zscaler twee, moet u
 
     b. Azure AD-id
 
-    c. Afmeldings-URL
+    c. URL voor afmelden
 
-### <a name="configure-zscaler-two-single-sign-on"></a>Configureer Zscaler twee Single Sign-On
+### <a name="configure-zscaler-two-single-sign-on"></a>Zscaler twee eenmalige aanmelding configureren
 
-1. Voor het automatiseren van de configuratie in twee Zscaler, die u wilt installeren **mijn Apps beveiligde aanmelding browserextensie** door te klikken op **de extensie installeren**.
+1. Als u de configuratie binnen Zscaler twee wilt automatiseren, moet u de **uitbrei ding mijn apps Secure Sign-in browser** installeren door te klikken op **de uitbrei ding installeren**.
 
-    ![Mijn apps-extensie](common/install-myappssecure-extension.png)
+    ![Uitbrei ding voor mijn apps](common/install-myappssecure-extension.png)
 
-2. Na het toevoegen van uitbreiding naar de browser, klikt u op **Setup Zscaler twee** wordt u doorgeleid naar de twee Zscaler toepassing. Geef de beheerdersreferenties aan te melden bij twee Zscaler daar. De browserextensie wordt automatisch configureren van de toepassing voor u en stap 3-6 automatiseren.
+2. Nadat u een uitbrei ding aan de browser hebt toegevoegd, klikt u op **Setup Zscaler twee** wordt u doorgestuurd naar de Zscaler-toepassing. Geef de beheerders referenties op om u aan te melden bij Zscaler twee. Met de browser uitbreiding wordt de toepassing automatisch voor u geconfigureerd en wordt stap 3-6 geautomatiseerd.
 
-    ![Eenmalige aanmelding instellen](common/setup-sso.png)
+    ![SSO instellen](common/setup-sso.png)
 
-3. Als u setup wilt Zscaler twee handmatig, open een nieuw browservenster en meld u in uw Zscaler twee bedrijf site als een beheerder en voer de volgende stappen uit:
+3. Als u Zscaler twee hand matig wilt instellen, opent u een nieuw webbrowser venster en meldt u zich aan bij uw Zscaler-bedrijfs site als beheerder en voert u de volgende stappen uit:
 
 4. Ga naar **Beheer > Verificatie > Verificatie-instellingen** en voer de volgende stappen uit:
    
@@ -224,7 +224,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zscaler twee, moet u
 
     a. Selecteer **Een proxyserver voor uw LAN-netwerk gebruiken**.
 
-    b. Typ in het tekstvak adres **gateway. Zscaler Two.net**.
+    b. Typ in het tekstvak adres de tekst **gateway. Zscaler Two.net**.
 
     c. Typ **80** in het tekstvak Poort.
 
@@ -234,7 +234,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zscaler twee, moet u
 
 6. Klik op **OK** om het dialoogvenster **Internetopties** te sluiten.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD 
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -252,7 +252,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In de **gebruikersnaam** veldtype `brittasimon@yourcompanydomain.extension`. Bijvoorbeeld: BrittaSimon@contoso.com
+    b. Typ`brittasimon@yourcompanydomain.extension`in het veld **gebruikers naam** . Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
@@ -260,15 +260,15 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan twee Zscaler.
+In deze sectie schakelt u Julia Simon in om eenmalige aanmelding van Azure te gebruiken door toegang te verlenen aan Zscaler twee.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Zscaler twee**.
+1. Selecteer in het Azure Portal **bedrijfs toepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Zscaler twee**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **Zscaler twee**.
+2. Selecteer in de lijst toepassingen de optie **Zscaler twee**.
 
-    ![De twee Zscaler koppeling in de lijst met toepassingen](common/all-applications.png)
+    ![De koppeling Zscaler twee in de lijst met toepassingen](common/all-applications.png)
 
 3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
@@ -276,7 +276,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+    ![Het deelvenster toewijzing toevoegen](common/add-assign-user.png)
 
 5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst en klik op de knop **Selecteren** onder aan het scherm.
 
@@ -290,18 +290,18 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![image](./media/zscaler-two-tutorial/tutorial_zscalertwo_assign.png)
 
-### <a name="create-zscaler-two-test-user"></a>Twee Zscaler testgebruiker maken
+### <a name="create-zscaler-two-test-user"></a>Zscaler twee test gebruiker maken
 
-In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in twee Zscaler. Twee Zscaler biedt ondersteuning voor just-in-time-gebruikersinrichting, dat standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet in twee Zscaler bestaat, wordt een nieuw gemaakt nadat verificatie.
+In deze sectie wordt een gebruiker met de naam Julia Simon in Zscaler Two gemaakt. Zscaler twee ondersteunt just-in-time-gebruikers inrichting, die standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker zich nog niet in Zscaler twee bevindt, wordt er na verificatie een nieuwe gemaakt.
 
 >[!Note]
->Als u maken van een gebruiker handmatig wilt, neem dan contact op met [Zscaler twee ondersteuningsteam](https://www.zscaler.com/company/contact).
+>Als u hand matig een gebruiker moet maken, neemt u contact op met [Zscaler twee ondersteunings team](https://www.zscaler.com/company/contact).
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de twee Zscaler tegel in het toegangsvenster, moet u worden automatisch aangemeld bij de waarvoor u een SSO instellen van het type Zscaler twee. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u op de Zscaler twee tegels in het toegangs venster klikt, moet u automatisch worden aangemeld bij de Zscaler waarvoor u SSO hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

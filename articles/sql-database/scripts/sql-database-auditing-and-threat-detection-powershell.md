@@ -1,6 +1,6 @@
 ---
-title: PowerShell-voorbeeld-controle-detectie van bedreigingen-Azure SQL Database | Microsoft Docs
-description: Voorbeeldscript van Azure PowerShell voor het configureren van controle en detectie van bedreigingen in een Azure SQL-database
+title: Power shell-voor beeld van controle en geavanceerde beveiliging tegen bedreigingen-Azure SQL Database | Microsoft Docs
+description: Azure PowerShell voorbeeld script voor het configureren van controle en geavanceerde beveiliging tegen bedreigingen in een Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,18 +9,18 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: ronitr
 ms.author: ronitr
-ms.reviewer: carlrab
-ms.date: 03/12/2019
-ms.openlocfilehash: c0293cd8f06a1988d89e9a88d9b03f71f1181765
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.reviewer: carlrab, vanto
+ms.date: 08/05/2019
+ms.openlocfilehash: f9ef894f4c4d1d0ad0ab43b538c984f9cf5b2d01
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570041"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816683"
 ---
-# <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>PowerShell gebruiken om controle en detectie van bedreigingen in SQL Database te configureren
+# <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Power shell gebruiken voor het configureren van SQL Database controle en geavanceerde bedreigingen beveiliging
 
-Met dit PowerShell-voorbeeldscript wordt controle en detectie van bedreigingen in SQL Database geconfigureerd.
+Met dit Power shell-voorbeeld script worden SQL Database controle en geavanceerde beveiliging tegen bedreigingen geconfigureerd.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -51,7 +51,7 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Hiermee maakt u een enkele database of elastische pool. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Hiermee maakt u een opslagaccount. |
 | [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing) | Hiermee wordt het controlebeleid voor een database ingesteld. |
-| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | Hiermee wordt een beleid voor detectie van bedreigingen in een database ingesteld. |
+| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | Hiermee stelt u een geavanceerd beveiligings beleid voor bedreigingen in voor een Data Base. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 |||
 

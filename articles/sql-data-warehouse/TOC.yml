@@ -287,8 +287,6 @@
       items:
         - name: Upgraden naar Gen2
           href: upgrade-to-latest-generation.md
-        - name: Uw datawarehouse herstellen
-          href: sql-data-warehouse-restore.md
         - name: Uw workload bewaken - Portal
           href: sql-data-warehouse-monitor-workload-portal.md
         - name: Uw workload bewaken - DMV's

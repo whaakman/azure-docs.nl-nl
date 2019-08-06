@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0abeb3235f296e2dc873bcfe88910cdd12555d71
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a5ba45fce2870b44a6ebb1be43cc1f36b3cda311
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476220"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815164"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Een Azure Cosmos-account beheren
 
-Dit artikel wordt beschreven hoe u voor het beheren van verschillende taken in een Azure Cosmos-account met behulp van de Azure portal, Azure PowerShell, Azure CLI en Azure Resource Manager-sjablonen.
+In dit artikel wordt beschreven hoe u verschillende taken beheert in een Azure Cosmos-account met behulp van de Azure Portal-, Azure PowerShell-, Azure CLI-en Azure Resource Manager-sjablonen.
 
 ## <a name="create-an-account"></a>Een account maken
 
@@ -28,7 +28,7 @@ Dit artikel wordt beschreven hoe u voor het beheren van verschillende taken in e
 ```azurecli-interactive
 # Create an account
 $resourceGroupName = 'myResourceGroup'
-$accountName = 'myaccountname' # must be lower case.
+$accountName = 'myaccountname' # must be lower case and < 31 characters
 
 az cosmosdb create \
    --name $accountName \
@@ -45,7 +45,7 @@ az cosmosdb create \
 # Create an Azure Cosmos account for Core (SQL) API
 $resourceGroupName = "myResourceGroup"
 $location = "West US"
-$accountName = "mycosmosaccount" # must be lower case.
+$accountName = "mycosmosaccount" # must be lower case and < 31 characters
 
 $locations = @(
     @{ "locationName"="West US"; "failoverPriority"=0 },
@@ -70,9 +70,9 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager-sjabloon
+### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager sjabloon
 
-Deze Azure Resource Manager-sjabloon wordt een Azure Cosmos-account maken voor elke ondersteunde API die is geconfigureerd met twee regio's en opties voor het consistentieniveau, automatische failover en meerdere masters selecteren. Deze sjabloon te implementeren, te klikken op Deploy to Azure op de pagina met Leesmij-bestand [maken Azure Cosmos-account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)
+Met deze Azure Resource Manager sjabloon wordt een Azure Cosmos-account gemaakt voor elke ondersteunde API die is geconfigureerd met twee regio's en opties om consistentie niveau, automatische failover en multi-master te selecteren. Als u deze sjabloon wilt implementeren, klikt u op implementeren in azure op de pagina README, maakt u een [Azure Cosmos-account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Regio's toevoegen aan of verwijderen uit uw databaseaccount
 
@@ -80,9 +80,9 @@ Deze Azure Resource Manager-sjabloon wordt een Azure Cosmos-account maken voor e
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com). 
 
-1. Ga naar uw Azure Cosmos-account en open de **gegevens globaal repliceren** menu.
+1. Ga naar uw Azure Cosmos-account en open het **wereld wijde menu gegevens repliceren** .
 
-1. Selecteer de Zeshoeken op de kaart met regio's toevoegen, de **+** label dat overeenkomt met de gewenste regio('s). U kunt ook om toe te voegen een regio, selecteer de **+ toevoegen regio** optie en kiest u een regio in de vervolgkeuzelijst.
+1. Als u regio's wilt toevoegen, selecteert u de zeshoeken op de **+** kaart met het label dat overeenkomt met de gewenste regio (s). Als u een regio wilt toevoegen, selecteert u de optie **+ regio toevoegen** en kiest u een regio in de vervolg keuzelijst.
 
 1. Als u regio's wilt verwijderen, wist u een of meer regio's van de kaart door de blauwe zeshoeken met vinkjes te selecteren. Of selecteer het prullenbakpictogram (🗑) rechts van de regio.
 
@@ -90,15 +90,15 @@ Deze Azure Resource Manager-sjabloon wordt een Azure Cosmos-account maken voor e
 
    ![Menu Regio's toevoegen of verwijderen](./media/how-to-manage-database-account/add-region.png)
 
-Schrijf in één regio modus, dat kunt u de schrijfregio niet verwijderen. U moet een failover naar een andere regio voordat u de huidige schrijfregio kunt verwijderen.
+In een schrijf modus met één regio kunt u de schrijf regio niet verwijderen. U moet een failover naar een andere regio uitvoeren voordat u de huidige schrijf regio kunt verwijderen.
 
-In een meerdere regio's schrijven modus, u kunt toevoegen of verwijderen van elke gewenste regio, hebt u ten minste één regio.
+In een schrijf modus met meerdere regio's kunt u een regio toevoegen of verwijderen als u ten minste één regio hebt.
 
 ### <a id="add-remove-regions-via-cli"></a>Azure CLI
 
 ```azurecli-interactive
 $resourceGroupName = 'myResourceGroup'
-$accountName = 'myaccountname'
+$accountName = 'myaccountname' # must be lower case and <31 characters
 
 # Create an account with 1 region
 az cosmosdb create --name $accountName --resource-group $resourceGroupName --locations regionName=westus failoverPriority=0 isZoneRedundant=False
@@ -116,7 +116,7 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName --loc
 # Create an account with 1 region
 $resourceGroupName = "myResourceGroup"
 $location = "West US"
-$accountName = "mycosmosaccount" # must be lower case.
+$accountName = "mycosmosaccount" # must be lower case and <31 characters
 
 $locations = @( @{ "locationName"="West US"; "failoverPriority"=0 } )
 $consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
@@ -162,16 +162,16 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-## <a id="configure-multiple-write-regions"></a>Meerdere schrijven-regio's configureren
+## <a id="configure-multiple-write-regions"></a>Meerdere schrijf regio's configureren
 
 ### <a id="configure-multiple-write-regions-portal"></a>Azure-portal
 
-Open de **gegevens globaal repliceren** tabblad en selecteer **inschakelen** om in te schakelen van schrijfbewerkingen in meerdere regio's. Nadat u de schrijfbewerkingen in meerdere regio's hebt ingeschakeld, wordt de leesregio's die u momenteel voor het account hebt wordt worden lezen en schrijven van regio's. 
+Open het tabblad **gegevens globaal repliceren** en selecteer **inschakelen** om schrijf bewerkingen in meerdere regio's in te scha kelen. Wanneer u meerdere regio's schrijft, worden de regio's die u momenteel op het account hebt gelezen, gelezen en geschreven. 
 
 > [!NOTE]
-> Nadat u de schrijfbewerkingen in meerdere regio's hebt ingeschakeld, kunt u deze niet uitschakelen. 
+> Nadat u de schrijf bewerkingen voor meerdere regio's hebt ingeschakeld, kunt u deze niet uitschakelen. 
 
-![Azure Cosmos-account configureert met meerdere masters schermafbeelding](./media/how-to-manage-database-account/single-to-multi-master.png)
+![Een Azure Cosmos-account configureert een scherm opname van meerdere masters](./media/how-to-manage-database-account/single-to-multi-master.png)
 
 Neem contact op met de askcosmosdb@microsoft.com alias voor aanvullende vragen over deze functie. 
 
@@ -201,7 +201,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager-sjabloon
 
-Een account kan worden gemigreerd van single-master naar meerdere masters door het implementeren van de Resource Manager-sjabloon gebruikt voor het maken van het account en de instelling `enableMultipleWriteLocations: true`. De volgende Azure Resource Manager-sjabloon is een absoluut minimum sjabloon waarmee een Azure Cosmos-account voor SQL-API wordt geïmplementeerd met een enkele regio en meerdere masters ingeschakeld.
+Een account kan worden gemigreerd van een Single-Master naar meerdere masters door de Resource Manager-sjabloon te implementeren die wordt gebruikt om `enableMultipleWriteLocations: true`het account en de instelling te maken. De volgende Azure Resource Manager sjabloon is een Maxi maal bare sjabloon waarmee een Azure Cosmos-account voor SQL-API met twee regio's en meerdere schrijf locaties kan worden geïmplementeerd.
 
 ```json
 {
@@ -214,6 +214,18 @@ Een account kan worden gemigreerd van single-master naar meerdere masters door h
         "location": {
             "type": "String",
             "defaultValue": "[resourceGroup().location]"
+        },
+        "primaryRegion":{
+            "type":"string",
+            "metadata": {
+                "description": "The primary replica region for the Cosmos DB account."
+            }
+        },
+        "secondaryRegion":{
+            "type":"string",
+            "metadata": {
+              "description": "The secondary replica region for the Cosmos DB account."
+          }
         }
     },
     "resources": [
@@ -227,10 +239,15 @@ Een account kan worden gemigreerd van single-master naar meerdere masters door h
             "properties": {
                 "databaseAccountOfferType": "Standard",
                 "consistencyPolicy": { "defaultConsistencyLevel": "Session" },
-                "locations": [
+                "locations":
+                [
                     {
-                        "locationName": "[parameters('location')]",
+                        "locationName": "[parameters('primaryRegion')]",
                         "failoverPriority": 0
+                    },
+                    {
+                        "locationName": "[parameters('secondaryRegion')]",
+                        "failoverPriority": 1
                     }
                 ],
                 "enableMultipleWriteLocations": true
@@ -242,11 +259,11 @@ Een account kan worden gemigreerd van single-master naar meerdere masters door h
 
 ## <a id="automatic-failover"></a>Automatische failover inschakelen voor uw Azure Cosmos-account
 
-De automatische failover-optie kunt u Azure Cosmos DB failover naar de regio met de hoogste prioriteit failover met gebruiker moet een regio niet beschikbaar. Wanneer automatische failover is ingeschakeld, kan de regio prioriteit kan worden gewijzigd. Account beschikken over twee of meer regio's om in te schakelen, automatische failover.
+Met de optie voor automatische failover kunnen Azure Cosmos DB een failover naar de regio met de hoogste failover-prioriteit zonder actie van de gebruiker, omdat een regio niet meer beschikbaar is. Als automatische failover is ingeschakeld, kan de prioriteit van de regio worden gewijzigd. Het account moet twee of meer regio's hebben om automatische failover mogelijk te maken.
 
 ### <a id="enable-automatic-failover-via-portal"></a>Azure-portal
 
-1. Open in uw Azure Cosmos-account, de **gegevens globaal repliceren** deelvenster.
+1. Open in uw Azure Cosmos-account het deel venster **gegevens globaal repliceren** .
 
 2. Selecteer bovenin het deelvenster de knop **Automatische failover**.
 
@@ -288,14 +305,14 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>Failoverprioriteiten instellen voor uw Azure Cosmos-account
 
-Nadat een Cosmos-account is geconfigureerd voor automatische failover, kan de failover-prioriteit voor regio's worden gewijzigd.
+Nadat een Cosmos-account is geconfigureerd voor automatische failover, kunnen de failover-prioriteit voor regio's worden gewijzigd.
 
 > [!IMPORTANT]
-> U kunt de schrijfregio (failover-prioriteit gelijk is aan nul) niet wijzigen wanneer het account is geconfigureerd voor automatische failover. Als u wilt wijzigen van de schrijfregio, moet u het uitschakelen van automatische failover en voer een handmatige failover.
+> U kunt de schrijf regio (failover-prioriteit nul) niet wijzigen wanneer het account is geconfigureerd voor automatische failover. Als u de schrijf regio wilt wijzigen, moet u automatische failover uitschakelen en een hand matige failover uitvoeren.
 
 ### <a id="set-failover-priorities-via-portal"></a>Azure-portal
 
-1. Open in uw Azure Cosmos-account, de **gegevens globaal repliceren** deelvenster.
+1. Open in uw Azure Cosmos-account het deel venster **gegevens globaal repliceren** .
 
 2. Selecteer bovenin het deelvenster de knop **Automatische failover**.
 
@@ -337,19 +354,19 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
     -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
 ```
 
-## <a id="manual-failover"></a>Handmatige failover uitvoeren op een Azure Cosmos-account
+## <a id="manual-failover"></a>Hand matige failover uitvoeren op een Azure Cosmos-account
 
 > [!IMPORTANT]
-> De Azure Cosmos-account moet worden geconfigureerd voor handmatige failover voor deze bewerking te voltooien.
+> Het Azure Cosmos-account moet worden geconfigureerd voor een hand matige failover zodat deze bewerking kan worden voltooid.
 
-Het proces voor het uitvoeren van een handmatige failover omvat het wijzigen van de account van de schrijfregio (failover-prioriteit = 0) naar een andere regio geconfigureerd voor het account.
+Het proces voor het uitvoeren van een hand matige failover omvat het wijzigen van de schrijf regio van het account (failover priority = 0) naar een andere regio die is geconfigureerd voor het account.
 
 > [!NOTE]
-> Meerdere masters accounts kunnen niet handmatig een failover. Voor toepassingen met de Azure Cosmos-SDK, de SDK wordt gedetecteerd wanneer een regio niet beschikbaar, en vervolgens automatisch wordt omgeleid naar de volgende dichtstbijzijnde regio als met multihoming-API in de SDK.
+> U kunt niet hand matig een failover uitvoeren voor Multi-Master accounts. Voor toepassingen die gebruikmaken van de Azure Cosmos SDK detecteert de SDK wanneer een regio niet meer beschikbaar is en wordt automatisch omgeleid naar de dichtstbijzijnde regio als u gebruikmaakt van de multi-multihoming-API in de SDK.
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure-portal
 
-1. Ga naar uw Azure Cosmos-account en open de **gegevens globaal repliceren** menu.
+1. Ga naar uw Azure Cosmos-account en open het **wereld wijde menu gegevens repliceren** .
 
 2. Selecteer bovenaan het menu de optie **Handmatige failover**.
 
@@ -399,7 +416,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees de volgende artikelen voor meer informatie en voorbeelden over het beheren van de Azure Cosmos-account, evenals de database en de containers:
+Lees de volgende artikelen voor meer informatie en voor beelden over het beheren van het Azure Cosmos-account, de data base en containers:
 
-* [Azure Cosmos DB met behulp van Azure PowerShell beheren](manage-with-powershell.md)
-* [Azure Cosmos DB met behulp van Azure CLI beheren](manage-with-cli.md)
+* [Azure Cosmos DB beheren met Azure PowerShell](manage-with-powershell.md)
+* [Azure Cosmos DB beheren met behulp van Azure CLI](manage-with-cli.md)

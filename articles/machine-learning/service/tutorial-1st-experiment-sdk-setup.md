@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: baeb175c57573e557d298ff3197394ab619434ff
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: b3fdcfbb9869c0199c91f5bbc6ca1f02fec996cf
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772638"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828678"
 ---
 # <a name="tutorial-setup-environment-and-workspace"></a>Zelfstudie: Omgeving en werk ruimte instellen
 
@@ -49,14 +49,12 @@ Vanuit uw werk ruimte maakt u een Cloud resource om aan de slag te gaan met Jupy
 
 1. Selecteer **+ Nieuw** om een VM van een notebook te maken.
 
-     ![Nieuwe VM selecteren](./media/quickstart-run-cloud-notebook/add-workstation.png)
+     ![Nieuwe VM selecteren](./media/tutorial-1st-experiment-sdk-setup/add-workstation.png)
 
 1. Geef een naam op voor de virtuele machine. Selecteer vervolgens **Maken**.
 
     > [!NOTE]
     > De naam van de VM van uw notebook moet tussen 2 en 16 tekens lang zijn. Geldige tekens zijn letters, cijfers en het teken.  De naam moet ook uniek zijn binnen uw Azure-abonnement.
-
-    ![Een nieuwe virtuele machine maken](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Wacht totdat de status wordt gewijzigd in **wordt uitgevoerd**.
 
@@ -66,7 +64,7 @@ Nadat de virtuele machine is uitgevoerd, gebruikt u de sectie voor **laptop-vm's
 
 1. Selecteer **Jupyter** in de kolom **URI** voor uw VM.
 
-    ![De Jupyter-notebook server starten](./media/quickstart-run-cloud-notebook/start-server.png)
+    ![De Jupyter-notebook server starten](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
 
     Met de koppeling wordt uw notebook server gestart en wordt de Jupyter-notebook-webpagina geopend in een nieuw browser tabblad.  Deze koppeling werkt alleen voor de persoon die de virtuele machine heeft gemaakt. Elke gebruiker van de werk ruimte moet een eigen VM maken.
 
@@ -87,7 +85,7 @@ Als u een Cloud notebook server hebt gebruikt, stopt u de virtuele machine wanne
 
 1. Selecteer in uw werk ruimte de optie **laptop vm's**.
 
-   ![De VM-server stoppen](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![De VM-server stoppen](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. Selecteer de VM in de lijst.
 

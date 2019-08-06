@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 38c9c97af0be77bf9ad4bea2d24676c7448b3aea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5174b46bae5bbcc18f5a2575fb68cce1305507a3
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625710"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68826689"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Gegevens kopiëren van Azure Blob-opslag naar een SQL database met Azure Data Factory
 In deze zelfstudie maakt u een data factory met behulp van de Azure Data Factory-gebruikersinterface. Met de pijplijn in deze data factory worden gegevens gekopieerd van Azure Blob-opslag naar een SQL database. Het configuratiepatroon in deze zelfstudie geldt voor het kopiëren van een gegevensarchief op basis van bestanden naar een relationeel gegevensarchief. Zie de tabel [Ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) voor een lijst met gegevensarchieven die worden ondersteund als bron en als sink.
@@ -71,29 +71,21 @@ Voer nu de volgende stappen uit om uw blobopslag en SQL database voor te bereide
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. Geef Azure-services toegang tot SQL Server. Zorg ervoor dat **Toegang tot Azure-services toestaan** is **ingeschakeld** voor SQL Server, zodat Data Factory gegevens naar SQL Server kan schrijven. Voer de volgende stappen uit om dit te controleren en de instelling in te schakelen:
+1. Geef Azure-services toegang tot SQL Server. Zorg ervoor dat **Toegang tot Azure-services toestaan** is **ingeschakeld** voor SQL Server, zodat Data Factory gegevens naar SQL Server kan schrijven. Om deze instelling te controleren en in te scha kelen, gaat u naar de > overzicht van Azure SQL Server > Set Server Firewall > Stel de optie **toegang tot Azure-Services toestaan** **in op aan**.
 
-    a. Selecteer aan de linkerkant **Meer services** > **SQL-servers**.
-
-    b. Selecteer uw server en klik onder **INSTELLINGEN** op **Firewall**.
-
-    c. Op de pagina **Firewallinstellingen** schakelt u **Toegang tot Azure-services toestaan** **in**.
-
-## <a name="create-a-data-factory"></a>Een gegevensfactory maken
+## <a name="create-a-data-factory"></a>Data factory maken
 In deze stap maakt u een data factory en start u de Data Factory-gebruikersinterface om een pijplijn te maken in de data factory. 
 
 1. Open **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
-2. Selecteer in het menu links **een resource maken** > **gegevens en analyses** > **Data Factory**: 
+2. Selecteer in het menu links de optie **een resource** > **Analytics** > -**Data Factory**maken: 
   
-   ![Selectie van Data Factory in het deelvenster Nieuw](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![Selectie van Data Factory in het deelvenster Nieuw](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 3. Voer op de pagina **Nieuwe data factory** **ADFTutorialDataFactory** in bij **Naam**. 
-      
-     ![Nieuwe data factory](./media/tutorial-copy-data-portal/new-azure-data-factory.png)
  
-   De naam van de Azure-gegevensfactory moet *wereldwijd uniek* zijn. Als het volgende foutbericht wordt weergegeven voor het naamveld, wijzigt u de naam van de data factory (bijvoorbeeld uwnaamADFTutorialDataFactory). Zie [Data Factory naming rules](naming-rules.md) (Naamgevingsregels Data Factory) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
-  
-   ![Foutbericht](./media/tutorial-copy-data-portal/name-not-available-error.png)
+   De naam van de Azure-gegevensfactory moet *wereldwijd uniek* zijn. Als u een foutbericht ontvangt dat betrekking heeft op de waarde die bij de naam is ingevuld, voert u een andere naam in voor de data factory. (bijvoorbeeld Uwnaamadftutorialdatafactory). Zie [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+        
+     ![Nieuwe data factory](./media/doc-common-process/name-not-available-error.png)
 4. Selecteer het Azure-**abonnement** waarin u de data factory wilt maken. 
 5. Voer een van de volgende stappen uit voor **Resourcegroep**:
      
@@ -104,15 +96,10 @@ In deze stap maakt u een data factory en start u de Data Factory-gebruikersinter
     Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie. 
 6. Selecteer **V2** onder **Versie**.
 7. Selecteer onder **Locatie** een locatie voor de data factory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensarchieven (bijvoorbeeld Azure Storage en SQL Database) en berekenservices (bijvoorbeeld Azure HDInsight) die door de data factory worden gebruikt, kunnen zich in andere regio's bevinden.
-8. Selecteer **Vastmaken aan dashboard**. 
-9. Selecteer **Maken**. 
-10. Op het dashboard ziet u de volgende tegel met de status: **Data Factory implementeren**: 
+8. Selecteer **Maken**. 
+9. Nadat het maken is voltooid, ziet u de melding in meldingen centrum. Selecteer **naar resource gaan** om naar de pagina Data Factory te gaan.
+10. Selecteer de tegel **Maken en controleren** om de Data Factory-gebruikersinterface te openen op een afzonderlijk tabblad.
 
-    ![Tegel Data Factory implementeren](media/tutorial-copy-data-portal/deploying-data-factory.png)
-1. Na het maken ziet u de pagina **Data factory** zoals hieronder wordt weergegeven.
-   
-    ![Startpagina van de gegevensfactory](./media/tutorial-copy-data-portal/data-factory-home-page.png)
-1. Selecteer de tegel **Maken en controleren** om de Data Factory-gebruikersinterface te openen op een afzonderlijk tabblad.
 
 ## <a name="create-a-pipeline"></a>Een pijplijn maken
 In deze stap maakt u een pijplijn met kopieeractiviteit in de data factory. De kopieeractiviteit kopieert gegevens van de blobopslag naar SQL Database. In de [Quickstart](quickstart-create-data-factory-portal.md) hebt u een pijplijn gemaakt met de volgende stappen:
@@ -125,50 +112,32 @@ In deze zelfstudie begint u met het maken van de pijplijn. Vervolgens maakt u ge
 
 1. Selecteer op de pagina **Aan de slag** de optie **Pijplijn maken**. 
 
-   ![Pijplijn maken](./media/tutorial-copy-data-portal/create-pipeline-tile.png)
+   ![Pijplijn maken](./media/doc-common-process/get-started-page.png)
 1. Voer op het tabblad **Algemeen** voor de pijplijn **CopyPipeline** in voor de **Naam** van de pijplijn.
 
-1. Breid in de werkset **Activiteiten** de categorie **Verplaatsen en transformeren** uit. Sleep de activiteit **Gegevens kopiëren** uit de werkset en zet deze neer op het ontwerpoppervlak voor pijplijnen. Geef **CopyFromBlobToSql** op bij **Naam**.
+1. Vouw in het dialoog venster **activiteiten** de categorie **verplaatsen en transformeren** uit en sleep de **gegevens kopiëren** activiteit van het vak naar het ontwerp oppervlak voor pijp lijnen. Geef **CopyFromBlobToSql** op bij **Naam**.
 
-    ![Kopieeractiviteit](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
+    ![Activiteit kopiëren](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
 
 ### <a name="configure-source"></a>Bron configureren
 
 1. Ga naar het tabblad **Bron**. Selecteer **+Nieuw** om een brongegevensset te maken. 
 
-1. Selecteer in het venster **Nieuwe gegevensset** de optie **Azure Blob-opslag** en selecteer vervolgens **Voltooien**. De brongegevens bevinden zich in een blobopslag, daarom selecteert u **Azure Blob-opslag** voor de brongegevensset. 
+1. Selecteer in het dialoog venster **nieuwe gegevensset** de optie **Azure Blob Storage**en selecteer vervolgens **door gaan**. De brongegevens bevinden zich in een blobopslag, daarom selecteert u **Azure Blob-opslag** voor de brongegevensset. 
 
-    ![Opslagselectie](./media/tutorial-copy-data-portal/select-azure-blob-dataset.png)
+1. Kies in het dialoog venster **indeling selecteren** het notatie type van uw gegevens en selecteer vervolgens **door gaan**.
 
-1. Er wordt nu een nieuw tabblad geopend voor de blob-gegevensset. Voer op het tabblad **Algemeen** onder in het venster **Eigenschappen** **SourceBlobDataset** in bij **Naam**.
+    ![Type gegevens indeling](./media/doc-common-process/select-data-format.png)
 
-    ![Naam van de gegevensset](./media/tutorial-copy-data-portal/dataset-name.png)
+1. Voer in het dialoog venster **set** -eigenschappen **SourceBlobDataset** in als naam. Klik naast het tekstvak **Gekoppelde service** op **+Nieuw**. 
+    
+1. Voer in het dialoog venster **nieuwe gekoppelde service (Azure Blob Storage)** **AzureStorageLinkedService** als naam in, selecteer uw opslag account in de lijst naam van het **opslag account** . Test de verbinding en selecteer vervolgens **volt ooien** om de gekoppelde service te implementeren.
 
-1. Ga naar het tabblad **Verbinding** van het venster **Eigenschappen**. Klik naast het tekstvak **Gekoppelde service** op **+Nieuw**. 
+1. Nadat de gekoppelde service is gemaakt, wordt deze teruggestuurd naar de pagina **Eigenschappen instellen** . Selecteer naast **Bestandspad** de knop **Bladeren**.
 
-    ![Knop Nieuwe gekoppelde service](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
+1. Navigeer naar de map **adftutorial/input**, selecteer het bestand **emp.txt** en klik vervolgens op **Voltooien**.
 
-1. Voer in het venster **Nieuwe gekoppelde service** **AzureStorageLinkedService** in als naam, selecteer uw opslagaccount in de lijst met **opslagaccountnamen** en selecteer vervolgens **Opslaan** om de gekoppelde service te implementeren.
-
-    ![Nieuwe gekoppelde service](./media/tutorial-copy-data-portal/new-azure-storage-linked-service.png)
-
-1. Nadat de gekoppelde service is gemaakt, gaat u terug naar de gegevenssetinstellingen. Selecteer naast **Bestandspad** de knop **Bladeren**.
-
-    ![Knop Bladeren voor bestandspad](./media/tutorial-copy-data-portal/file-browse-button.png)
-
-1. Navigeer naar de map **adftutorial/input**, selecteer het bestand **emp.txt** en klik vervolgens op **Voltooien**. 
-
-    ![Invoerbestand selecteren](./media/tutorial-copy-data-portal/select-input-file.png)
-
-1. Controleer of **Bestandsindeling** is ingesteld op **Tekstindeling** en dat **Kolomscheidingsteken** is ingesteld op **Komma (`,`)**. Als het bronbestand gebruikmaakt van andere rij- en kolomscheidingstekens, kunt u **Tekstindeling detecteren** selecteren voor **Bestandsindeling**. Het hulpprogramma Copy Data detecteert de bestandsindeling en scheidingstekens automatisch voor u. U kunt deze waarden nog steeds overschrijven. Selecteer **Gegevens vooraf bekijken** om een voorbeeld van de gegevens op deze pagina te bekijken.
-
-    ![De tekstopmaak detecteren](./media/tutorial-copy-data-portal/detect-text-format.png)
-
-1. Ga in het venster **Eigenschappen** naar het tabblad **Schema** en selecteer **Schema importeren**. U ziet dat de toepassing twee kolommen detecteert in het bronbestand. U kunt hier het schema importeren zodat u kolommen uit de gegevensopslag van de bron aan de sink-gegevensopslag kunt toewijzen. Als u geen kolommen hoeft toe te wijzen, kunt u deze stap overslaan. Importeer het schema voor deze tutorial.
-
-    ![Het schema van de gegevensbron detecteren](./media/tutorial-copy-data-portal/detect-source-schema.png)  
-
-1. Ga nu terug naar de pijplijn -> het tabblad **Bron**, bevestig of **SourceBlobDataset** is geselecteerd. Selecteer **Gegevens vooraf bekijken** om een voorbeeld van de gegevens op deze pagina te bekijken. 
+1. Er wordt automatisch naar de pijplijn pagina genavigeerd. Controleer op het tabblad **bron** of **SourceBlobDataset** is geselecteerd. Selecteer **Gegevens vooraf bekijken** om een voorbeeld van de gegevens op deze pagina te bekijken. 
     
     ![Brongegevensset](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 
@@ -176,17 +145,11 @@ In deze zelfstudie begint u met het maken van de pijplijn. Vervolgens maakt u ge
 
 1. Ga naar het tabblad **Sink** en selecteer **+Nieuw** om een sink-gegevensset te maken. 
 
-    ![Sink-gegevensset](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
-1. In de **nieuwe gegevensset** venster 'SQL' in het zoekvak om de connectoren filteren en selecteer vervolgens de invoer **Azure SQL Database**, en selecteer vervolgens **voltooien**. In deze zelfstudie kopieert u gegevens naar een SQL database. 
+1. In het dialoog venster **nieuwe gegevensset** voert u in het zoekvak de invoer ' SQL ' in om de connectors te filteren, selecteert u **Azure SQL database**en selecteert u vervolgens **door gaan**. In deze zelfstudie kopieert u gegevens naar een SQL database. 
 
-    ![SQL database selecteren](./media/tutorial-copy-data-portal/select-azure-sql-dataset.png)
-1. Op het tabblad **Algemeen** van het venster **Eigenschappen** geeft u **OutputSqlDataset** op als **Naam**. 
-    
-    ![Naam Uitvoergegevensset](./media/tutorial-copy-data-portal/output-dataset-name.png)
-1. Ga naar het tabblad **Verbinding** en selecteer naast **Gekoppelde service** de optie **+Nieuw**. Een gegevensset moet worden gekoppeld aan een gekoppelde service. De gekoppelde service beschikt over de verbindingsreeks die door Data Factory wordt gebruikt om tijdens runtime een verbinding met de SQL-database tot stand te brengen. De dataset geeft informatie over de container, map en het bestand (optioneel) met de brongegevens. 
-    
-    ![Gekoppelde service](./media/tutorial-copy-data-portal/new-azure-sql-database-linked-service-button.png)       
-1. Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit: 
+1. Voer in het dialoog venster **set** -eigenschappen **OutputSqlDataset** in als naam. Klik naast het tekstvak **Gekoppelde service** op **+Nieuw**. Een gegevensset moet worden gekoppeld aan een gekoppelde service. De gekoppelde service beschikt over de verbindingsreeks die door Data Factory wordt gebruikt om tijdens runtime een verbinding met de SQL-database tot stand te brengen. De dataset geeft informatie over de container, map en het bestand (optioneel) met de brongegevens. 
+      
+1. Voer in het dialoog venster **nieuwe gekoppelde service (Azure SQL database)** de volgende stappen uit: 
 
     a. Geef **AzureSqlDatabaseLinkedService** op als **Naam**.
 
@@ -200,68 +163,53 @@ In deze zelfstudie begint u met het maken van de pijplijn. Vervolgens maakt u ge
 
     f. Als u de verbinding wilt testen, selecteert u **Verbinding testen**.
 
-    g. Selecteer **Opslaan** om de gekoppelde service op te slaan. 
+    g. Selecteer **volt ooien** om de gekoppelde service te implementeren. 
     
     ![Nieuwe gekoppelde service opslaan](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-1. Selecteer bij **Tabel** **[dbo].[emp]**. 
+1. Er wordt automatisch naar het dialoog venster **Eigenschappen instellen** genavigeerd. Selecteer bij **Tabel** **[dbo].[emp]** . Selecteer vervolgens **Voltooien**.
 
-    ![Tabel](./media/tutorial-copy-data-portal/select-emp-table.png)
-1. Ga naar het tabblad **Schema** en selecteer **Schema importeren**. 
-
-    ![Schema importeren selecteren](./media/tutorial-copy-data-portal/import-destination-schema.png)
-1. Selecteer de kolom **Id** en vervolgens **Verwijderen**. De kolom **Id** is een identiteitskolom in de SQL database, zodat de kopieeractiviteit geen gegevens hoeft in te voegen in deze kolom.
-
-    ![De kolom ID verwijderen](./media/tutorial-copy-data-portal/delete-id-column.png)
 1. Ga naar het tabblad met de pijplijn en controleer bij **Sink-gegevensset** of **OutputSqlDataset** is geselecteerd.
 
-    ![Tabblad Pijplijn](./media/tutorial-copy-data-portal/pipeline-tab-2.png)        
-
-### <a name="configure-mapping"></a>Toewijzingen configureren
-
-Ga naar het tabblad **Toewijzing** onder in het venster **Eigenschappen** en selecteer **Schema's importeren**. U ziet dat de eerste en tweede kolom in het bronbestand zijn toegewezen aan **FirstName** en **LastName** in de SQL database.
-
-![Schema's toewijzen](./media/tutorial-copy-data-portal/map-schemas.png)
-
+    ![Tabblad Pijplijn](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
 ## <a name="validate-the-pipeline"></a>De pijplijn valideren
 Selecteer in de werkbalk **Valideren** om de pijplijn te valideren.
  
-U ziet de JSON-code die is gekoppeld aan de pijplijn door te klikken op **Code** in de rechterbovenhoek.
+U ziet de JSON-code die is gekoppeld aan de pijp lijn door te klikken op **code** in de rechter bovenhoek.
 
 ## <a name="debug-and-publish-the-pipeline"></a>Fouten opsporen in de pijplijn en de pijplijn publiceren
 U kunt fouten opsporen in een pijplijn voordat u artefacten (gekoppelde services, gegevenssets en pijplijn) publiceert naar Data Factory of uw eigen Azure Repos Git-opslagplaats. 
 
 1. Selecteer **Fouten opsporen** om fouten op te sporen in de pijplijn. De status van de pijplijnuitvoering wordt weergegeven op het tabblad **Uitvoer** onder in het venster. 
 
-1. Zodra de pijplijn is, in de bovenste werkbalk uitvoeren kunt selecteert **Alles publiceren**. Met deze actie publiceert u entiteiten (gegevenssets en pijplijnen) die u hebt gemaakt met Data Factory.
-
-    ![Publiceren](./media/tutorial-copy-data-portal/publish-button.png)
+1. Zodra de pijp lijn kan worden uitgevoerd, selecteert u in de bovenste werk balk **Alles publiceren**. Met deze actie publiceert u entiteiten (gegevenssets en pijplijnen) die u hebt gemaakt met Data Factory.
 
 1. Wacht tot u het bericht **Gepubliceerd** ziet. Om meldingsberichten te zien, klikt u op **Meldingen weergeven** rechts bovenin (belknop). 
 
 ## <a name="trigger-the-pipeline-manually"></a>De pijplijn handmatig activeren
 In deze stap moet u handmatig de pijplijn activeren, die u in de vorige stap heeft gepubliceerd. 
 
-1. Selecteer op de werkbalk de optie **Activeren** en selecteer vervolgens **Nu activeren**. Klik op de pagina **Pijplijnuitvoering** op **Voltooien**.  
+1. Selecteer **trigger toevoegen** op de werk balk en selecteer **nu activeren**. Klik op de pagina **Pijplijnuitvoering** op **Voltooien**.  
 
 1. Ga naar het tabblad **Controleren** aan de linkerkant. U ziet een pijplijn die wordt geactiveerd door een handmatige trigger. U kunt via de links in de kolom **Acties** details van de activiteiten bekijken en de pijplijn opnieuw uitvoeren.
 
     ![Pijplijnuitvoeringen controleren](./media/tutorial-copy-data-portal/monitor-pipeline.png)
-1. Selecteer de link **Uitvoeringen van activiteit weergeven** in de kolom **Acties** om de activiteituitvoeringen te zien die zijn gekoppeld aan de pijplijnuitvoering. Omdat er in dit voorbeeld slechts één activiteit in de pijplijn is, ziet u slechts één vermelding in de lijst. Selecteer de koppeling **Details** (pictogram van een bril) in de kolom **Acties** om details over de kopieerbewerking te zien. Als u wilt terugkeren naar de weergave**Pijplijnuitvoeringen**, selecteert u **Pijplijnen** bovenaan. Selecteer **Vernieuwen** om de weergave te vernieuwen.
+
+1. Selecteer de link **Uitvoeringen van activiteit weergeven** in de kolom **Acties** om de activiteituitvoeringen te zien die zijn gekoppeld aan de pijplijnuitvoering. In dit voor beeld is er slechts één activiteit, zodat er slechts één vermelding in de lijst wordt weer gegeven. Selecteer de koppeling **Details** (pictogram van een bril) in de kolom **Acties** om details over de kopieerbewerking te zien. Selecteer de **pijp lijn wordt** aan de bovenkant uitgevoerd om terug te gaan naar de weer gave pijplijn uitvoeringen. Selecteer **Vernieuwen** om de weergave te vernieuwen.
 
     ![Uitvoering van activiteiten controleren](./media/tutorial-copy-data-portal/view-activity-runs.png)
+
 1. Controleer of er twee extra rijen zijn toegevoegd aan de **emp**-tabel in de SQL database. 
 
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>De pijplijn activeren volgens een schema
-In dit schema maakt u een planningstrigger voor de pijplijn. De trigger voert de pijplijn uit volgens de opgegeven planning, bijvoorbeeld elk uur of dagelijks. In dit voorbeeld stelt u de trigger in om elke minuut tot en met de opgegeven einddatum/-tijd te worden uitgevoerd. 
+In dit schema maakt u een planningstrigger voor de pijplijn. De trigger voert de pijplijn uit volgens de opgegeven planning, bijvoorbeeld elk uur of dagelijks. Hier stelt u de trigger zo in dat deze elke minuut wordt uitgevoerd tot de opgegeven eind datum. 
 
 1. Ga naar het tabblad **Auteur** links boven op het tabblad Monitor. 
 
-1. Ga naar uw pijplijn, klik op **Activeren** in de werkbalk en selecteer **Nieuw/Bewerken**. 
+1. Ga naar uw pijp lijn, klik op **trigger toevoegen** op de werk balk en selecteer **Nieuw/bewerken**. 
 
-1. Selecteer in het venster **Triggers toevoegen** de optie **Trigger kiezen** en selecteer vervolgens **+Nieuw**. 
+1. Selecteer in het dialoog venster **triggers toevoegen** de optie **+ Nieuw** voor het **trigger gebied kiezen** .
 
-    ![Knop Nieuw](./media/tutorial-copy-data-portal/add-trigger-new-button.png)
 1. Voer in het venster **Nieuwe trigger** de volgende stappen uit: 
 
     a. Geef **RunEveryMinute** op bij **Naam**.
@@ -272,15 +220,13 @@ In dit schema maakt u een planningstrigger voor de pijplijn. De trigger voert de
 
     d. Selecteer de optie **Huidige dag**. De dag is standaard ingesteld op de volgende dag.
 
-    e. Update het gedeelte **minuten** naar een paar minuten na de huidige datum/tijd. De trigger wordt pas geactiveerd nadat u de wijzigingen publiceert. Als u beide slechts enkele minuten uit elkaar instelt en u voor die tijd niet publiceert, ziet u geen triggeruitvoering.
+    e. Werk het deel van de **eind tijd** bij tot een paar minuten na de huidige datum/tijd. De trigger wordt pas geactiveerd nadat u de wijzigingen publiceert. Als u deze slechts enkele minuten uit elkaar instelt en u deze niet publiceert, ziet u geen trigger uitvoering.
 
     f. Selecteer **Toepassen**. 
 
-    ![Trigger-eigenschappen](./media/tutorial-copy-data-portal/set-trigger-properties.png)
+    g. Selecteer bij **geactiveerd** de optie **Ja**. 
 
-    g. Selecteer de optie **Geactiveerd**. U kunt deze deactiveren en deze later activeren met behulp van dit selectievakje.
-
-    h. Selecteer **Next**.
+    h. Selecteer **Volgende**.
 
     ![Knop Geactiveerd](./media/tutorial-copy-data-portal/trigger-activiated-next.png)
 
@@ -288,19 +234,16 @@ In dit schema maakt u een planningstrigger voor de pijplijn. De trigger voert de
     > Er zijn kosten verbonden aan elke pijplijnuitvoering, dus stel een geschikte einddatum in. 
 1. Lees de waarschuwing op de pagina **Parameters voor pijplijnuitvoeringen** en selecteer vervolgens **Voltooien**. De pijplijn in dit voorbeeld gebruikt geen parameters. 
 
-    ![Parameters voor pijplijnuitvoeringen](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-
 1. Klik op **Alles publiceren** om de wijziging te publiceren. 
 
 1. Ga naar het tabblad **Controleren** aan de linkerkant om de geactiveerde pijplijnuitvoeringen te bekijken. 
 
-    ![Geactiveerde pijplijnuitvoeringen](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    
-1. Als u wilt overschakelen van de weergave **Pijplijnuitvoeringen** naar de weergave **Triggeruitvoeringen**, selecteert u **Pijplijnuitvoeringen** en vervolgens **Triggeruitvoeringen**.
-    
-    ![Triggeruitvoeringen](./media/tutorial-copy-data-portal/trigger-runs-menu.png)
+    ![Geactiveerde pijplijnuitvoeringen](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)   
+ 
+1. Als u wilt overschakelen van de weer gave **pijplijn uitvoeringen** naar de weer gave **trigger uitvoeringen** , selecteert u **trigger uitvoeringen** boven aan het venster.
+
 1. U ziet de triggeruitvoeringen in een lijst. 
 
-    ![Lijst Triggeruitvoeringen](./media/tutorial-copy-data-portal/trigger-runs-list.png)
 1. Controleer of er twee rijen per minuut (voor elke pijplijnuitvoering) tot de opgegeven eindtijd in de **emp**-tabel worden ingevoegd. 
 
 ## <a name="next-steps"></a>Volgende stappen

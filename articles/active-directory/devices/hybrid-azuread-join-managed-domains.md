@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7781651536275eba60bfde49e00a450dde6d3e1
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 787900918035dc8b14d3a173496ab1a23b0f93bb
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357042"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68813091"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Zelfstudie: Hybride Azure Active Directory-deelname configureren voor beheerde domeinen
 
@@ -74,6 +74,8 @@ Als u geen gebruik maakt van WPAD en proxy-instellingen op uw computer moet conf
 > Als u proxy-instellingen op uw computer configureert met behulp van WinHTTP-instellingen, kunnen computers die geen verbinding kunnen maken met de geconfigureerde proxy, geen verbinding maken met internet.
 
 Als uw organisatie toegang tot internet via een geverifieerde uitgaande proxy vereist, moet u ervoor zorgen dat uw Windows 10-computers kunnen worden geverifieerd bij de uitgaande proxy. Omdat Windows 10-computers apparaatregistratie worden uitgevoerd met behulp van machine context, moet u uitgaande proxy verificatie configureren met behulp van machine context. Vraag uw provider van de uitgaande proxy naar de configuratievereisten.
+
+Als u wilt controleren of het apparaat toegang heeft tot de bovenstaande micro soft-resources onder het systeem account, kunt u het verbindings script voor het [registreren van apparaten](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) gebruiken.
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Hybride Azure AD-koppeling configureren
 
