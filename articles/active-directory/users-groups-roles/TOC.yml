@@ -138,8 +138,6 @@
               href: roles-view-assignments.md
             - name: Rollen toewijzen in Azure AD-beheercentrum
               href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-            - name: Aangepaste rollen toewijzen in Graph API
-              href: roles-assign-graph.md
             - name: Aangepaste rollen toewijzen in PowerShell
               href: roles-assign-powershell.md
             - name: Machtigingen voor preview van aangepaste rollen

@@ -1,36 +1,36 @@
 ---
-title: VMware-oplossing door CloudSimple - Azure openbaar IP-adres
-description: Meer informatie over openbare IP-adressen en hun voordelen op VMware-oplossing door CloudSimple
+title: VMware-oplossing door CloudSimple-openbaar IP-adres van Azure
+description: Meer informatie over open bare IP-adressen en hun voor delen op VMware-oplossing door CloudSimple
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f57b7397f4a2d288cd2b8b55cf23b2d635aa5f8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29d2bdb75a7f4409e6b3ffee2608cfe7adde6b1f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209553"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812519"
 ---
-# <a name="cloudsimple-public-ip-address-overview"></a>Overzicht van CloudSimple openbare IP-adres
+# <a name="cloudsimple-public-ip-address-overview"></a>Overzicht van open bare IP-adressen CloudSimple
 
-Een openbaar IP-adres kunt resources op internet om te communiceren inkomend, in de privécloud bronnen op een privé IP-adres. Het privé IP-adres is een virtuele machine of een software load balancer. Het privé IP-adres is op de vCenter-privécloud. Het openbare IP-adres kunt u services die worden uitgevoerd op uw privécloud naar internet blootstellen.
+Met een openbaar IP-adres kunnen Internet bronnen binnenkomende, persoonlijke cloud resources op een privé-IP-adres communiceren. Het privé-IP-adres is een virtuele machine of een software-load balancer. Het privé-IP-adres bevindt zich in uw privécloud. Met het open bare IP-adres kunt u de services die in uw privécloud worden uitgevoerd, beschikbaar maken op internet.
 
-Het openbare IP-adres is toegewezen aan het privé IP-adres, totdat u deze toewijzing ongedaan maken. Een openbaar IP-adres kan alleen worden toegewezen aan één privé IP-adres.
+Het open bare IP-adres is toegewezen aan het privé-IP-adres totdat u de toewijzing ervan ongedaan maakt. Een openbaar IP-adres kan alleen worden toegewezen aan één privé-IP-adres.
 
-Het openbare IP-adres een resource die is gekoppeld aan een openbaar IP-adres altijd gebruikt voor toegang tot internet. Alleen uitgaande internettoegang is standaard toegestaan op een openbaar IP-adres.  Verkeer dat binnenkomt op het openbare IP-adres wordt geweigerd.  Als u wilt dat inkomend verkeer, een firewallregel voor het openbare IP-adres op de specifieke poort te maken.
+Een resource die is gekoppeld aan een openbaar IP-adres maakt altijd gebruik van het open bare IP-adres voor Internet toegang. Standaard is alleen uitgaande internet toegang toegestaan op een openbaar IP-adres.  Binnenkomend verkeer op het open bare IP-adres wordt geweigerd.  Als u inkomend verkeer wilt toestaan, maakt u een firewall regel voor het open bare IP-adres voor de specifieke poort.
 
 ## <a name="benefits"></a>Voordelen
 
-Een openbaar IP-adres gebruiken om te communiceren inkomende biedt:
+Het gebruik van een openbaar IP-adres om inkomende communicatie te geven biedt:
 
-* Distributed Denial of service (DDoS) aanvallen om te voorkomen. Deze beveiliging is automatisch ingeschakeld voor het openbare IP-adres.
-* Verkeer altijd risicobeperking bewakings- en realtime van algemene op netwerkniveau aanvallen. Deze beveiliging zijn de dezelfde beveiliging die wordt gebruikt door Microsoft online services.
-* De volledige omvang van het wereldwijde netwerk van Azure. Het netwerk kan worden gebruikt om te distribueren en te verhelpen aanval verkeer tussen regio's.  
+* Preventie van DDoS-aanvallen (Distributed Denial of service). Deze beveiliging wordt automatisch ingeschakeld voor het open bare IP-adres.
+* Controle van het verkeer en real-time beperking van veelvoorkomende aanvallen op netwerk niveau. Deze verdedigingen zijn dezelfde verdedigings die worden gebruikt door micro soft onlineservices.
+* De volledige schaal van het wereld wijde Azure-netwerk. Het netwerk kan worden gebruikt om het aanvals verkeer tussen regio's te distribueren en te verhelpen.  
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het [openbaar IP-adres toewijzen](https://docs.azure.cloudsimple.com/public-ips/)
+* Meer informatie over het [toewijzen van een openbaar IP-adres](https://docs.azure.cloudsimple.com/public-ips/)
