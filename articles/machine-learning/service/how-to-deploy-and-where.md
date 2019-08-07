@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/08/2019
+ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: c7c2ba104b4d528cd3f8443e6f5615aa6ab3e672
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7e88b99cf0ecede64d75b36eafdcc88798e2e4a4
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720377"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840456"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -130,7 +130,7 @@ Het script bevat twee functies die het model laden en uitvoeren:
 
 * `run(input_data)`: Deze functie maakt gebruik van het model voor het voors pellen van een waarde op basis van de invoer gegevens. Invoer en uitvoer van de run worden meestal JSON gebruikt voor serialisatie en deserialisatie. U kunt ook werken met onbewerkte binaire gegevens. U kunt de gegevens transformeren voordat u deze naar het model verzendt, of voordat u terugkeert naar de client.
 
-#### <a name="what-is-getmodelpath"></a>Wat is get_model_path?
+#### <a name="what-is-get_model_path"></a>Wat is get_model_path?
 
 Wanneer u een model registreert, geeft u een model naam op die wordt gebruikt voor het beheren van het model in het REGI ster. U gebruikt deze naam voor het [model. Get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) om het pad van het model bestand (en) op het lokale bestands systeem op te halen. Als u een map of een verzameling bestanden registreert, retourneert deze API het pad naar de map waarin zich de bestanden bevinden.
 
@@ -142,7 +142,7 @@ In het onderstaande voor beeld wordt een pad geretourneerd naar één bestand `s
 model_path = Model.get_model_path('sklearn_mnist')
 ```
 
-#### <a name="optional-automatic-swagger-schema-generation"></a>Beschrijving Automatische Swagger-schema's genereren
+#### <a name="optional-automatic-schema-generation"></a>Beschrijving Automatisch schema genereren
 
 Als u automatisch een schema voor uw webservice wilt genereren, geeft u een voor beeld van de invoer en/of uitvoer in de constructor voor een van de gedefinieerde type-objecten. het type en het voor beeld wordt gebruikt om automatisch het schema te maken. Azure Machine Learning-service maakt vervolgens een [OpenAPI](https://swagger.io/docs/specification/about/) -specificatie (Swagger) voor de webservice tijdens de implementatie.
 
@@ -153,9 +153,10 @@ De volgende typen worden momenteel ondersteund:
 * `pyspark`
 * Standard python-object
 
-Als u schema generatie wilt gebruiken, `inference-schema` neemt u het pakket op in uw Conda-omgevings bestand. In het volgende voor `[numpy-support]` beeld wordt gebruikgemaakt van het gebruik van een numpy-parameter type: 
+Als u schema generatie wilt gebruiken, `inference-schema` neemt u het pakket op in uw Conda-omgevings bestand.
 
-#### <a name="example-dependencies-file"></a>Voor beeld van afhankelijkheids bestand
+##### <a name="example-dependencies-file"></a>Voor beeld van afhankelijkheids bestand
+
 De volgende YAML is een voor beeld van een Conda-afhankelijkheids bestand voor ingrijpen.
 
 ```YAML
@@ -168,14 +169,11 @@ dependencies:
     - inference-schema[numpy-support]
 ```
 
-Als u automatische schema generatie wilt gebruiken, **moet** uw invoer script de `inference-schema` pakketten importeren. 
+Als u automatische schema generatie wilt gebruiken, **moet** uw invoer script de `inference-schema` pakketten importeren.
 
 Definieer de voorbeeld indelingen voor invoer en uitvoer in `input_sample` de `output_sample` variabelen en, die de aanvraag-en antwoord indelingen voor de webservice vertegenwoordigen. Gebruik deze voor beelden in de functie voor invoer en uitvoer op de `run()` functie. Het scikit-voor beeld hieronder maakt gebruik van schema generatie.
 
-> [!TIP]
-> Nadat de service is geïmplementeerd, gebruikt `swagger_uri` u de eigenschap om het schema-JSON-document op te halen.
-
-#### <a name="example-entry-script"></a>Voorbeeld script
+##### <a name="example-entry-script"></a>Voorbeeld script
 
 In het volgende voor beeld ziet u hoe u JSON-gegevens kunt accepteren en retour neren:
 
@@ -216,9 +214,7 @@ def run(data):
         return error
 ```
 
-#### <a name="example-script-with-dictionary-input-support-consumption-from-power-bi"></a>Voorbeeld script met woordenlijst invoer (ondersteunings verbruik van Power BI)
-
-In het volgende voor beeld ziet u hoe u invoer gegevens definieert als < sleutel: waarde > woorden lijst met behulp van data frame. Deze methode wordt ondersteund voor het gebruik van de geïmplementeerde webservice van Power BI (meer informatie over het[gebruiken van de webservice van Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
+In het volgende voor beeld ziet u hoe u de invoer gegevens definieert `<key: value>` als een woorden lijst, met behulp van een data frame. Deze methode wordt ondersteund voor het gebruik van de geïmplementeerde webservice van Power BI (meer informatie over het[gebruiken van de webservice van Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
 
 ```python
 import json
@@ -266,6 +262,7 @@ def run(data):
         error = str(e)
         return error
 ```
+
 Zie de volgende voor beelden voor meer voorbeeld scripts:
 
 * Pytorch[https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
@@ -369,6 +366,9 @@ Zie [implementeren naar Azure Kubernetes service](how-to-deploy-azure-kubernetes
 Elke geïmplementeerde webservice biedt een REST API, zodat u client toepassingen kunt maken in verschillende programmeer talen. Als u sleutel verificatie voor uw service hebt ingeschakeld, moet u een service sleutel opgeven als een token in de aanvraag header.
 Als u token verificatie voor uw service hebt ingeschakeld, moet u een Azure Machine Learning JWT-token opgeven als Bearer-token in de aanvraag header.
 
+> [!TIP]
+> Nadat de service is geïmplementeerd, kunt u het JSON-document van het schema ophalen. Gebruik de [eigenschap swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) van de geïmplementeerde webservice, zoals `service.swagger_uri`, om de URI naar het Swagger-bestand van de lokale webservice op te halen.
+
 ### <a name="request-response-consumption"></a>Aanvraag-antwoord verbruik
 
 Hier volgt een voor beeld van het aanroepen van uw service in Python:
@@ -399,6 +399,147 @@ print(response.json())
 
 Zie [client toepassingen maken om webservices te gebruiken](how-to-consume-web-service.md)voor meer informatie.
 
+### <a name="web-service-schema-openapi-specification"></a>Web Service-schema (OpenAPI-specificatie)
+
+Als u het automatisch genereren van schema's met de implementatie hebt gebruikt, kunt u het adres van de OpenAPI-specificatie voor de service ophalen met behulp van de [eigenschap swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri). Bijvoorbeeld `print(service.swagger_uri)`. Gebruik een GET-aanvraag (of open de URI in een browser) om de specificatie op te halen.
+
+Het volgende JSON-document is een voor beeld van een schema (OpenAPI-specificatie) dat is gegenereerd voor een implementatie:
+
+```json
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "myservice",
+        "description": "API specification for the Azure Machine Learning service myservice",
+        "version": "1.0"
+    },
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": "For example: Bearer abc123"
+        }
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "operationId": "ServiceHealthCheck",
+                "description": "Simple health check endpoint to ensure the service is up at any given point.",
+                "responses": {
+                    "200": {
+                        "description": "If service is up and running, this response will be returned with the content 'Healthy'",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "application/json": "Healthy"
+                        }
+                    },
+                    "default": {
+                        "description": "The service failed to execute due to an error.",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/score": {
+            "post": {
+                "operationId": "RunMLService",
+                "description": "Run web service's model and get the prediction output",
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "serviceInputPayload",
+                        "in": "body",
+                        "description": "The input payload for executing the real-time machine learning service.",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The service processed the input correctly and provided a result prediction, if applicable.",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceOutput"
+                        }
+                    },
+                    "default": {
+                        "description": "The service failed to execute due to an error.",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ServiceInput": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                }
+            },
+            "example": {
+                "data": [
+                    [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ]
+                ]
+            }
+        },
+        "ServiceOutput": {
+            "type": "array",
+            "items": {
+                "type": "number",
+                "format": "double"
+            },
+            "example": [
+                3726.995
+            ]
+        },
+        "ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "status_code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
+```
+
+Zie voor meer informatie over de specificatie de [open API-specificatie](https://swagger.io/specification/).
+
+Zie [Swagger-CodeGen](https://github.com/swagger-api/swagger-codegen)voor een hulp programma waarmee client bibliotheken kunnen worden gemaakt op basis van de specificatie.
 
 ### <a id="azuremlcompute"></a>Batch-deinterferentie
 Azure Machine Learning Compute-doelen worden gemaakt en beheerd door de Azure Machine Learning-service. Ze kunnen worden gebruikt voor batch voorspelling van Azure Machine Learning pijp lijnen.

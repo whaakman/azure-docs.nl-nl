@@ -1,85 +1,85 @@
 ---
-title: Verbindingen van extern bureaublad-client in Windows virtueel bureaublad - Azure
-description: Over het oplossen van problemen bij het instellen van clientverbindingen in een omgeving met virtuele Windows-bureaublad tenants.
+title: Client verbindingen in virtueel bureau blad van Windows Extern bureaublad-Azure
+description: Problemen oplossen bij het instellen van client verbindingen in een Windows Virtual Desktop-Tenant omgeving.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
-ms.author: v-chjenk
-ms.openlocfilehash: b7a6daa791e44227fd146c9c328a939560ebb3b1
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.author: helohr
+ms.openlocfilehash: 9cd754b1810595c3ae82a7e4edfd9a3abe145b3f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605301"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816414"
 ---
 # <a name="remote-desktop-client-connections"></a>Clientverbindingen met extern bureaublad
 
-Gebruik dit artikel voor het oplossen van problemen met virtuele Windows-bureaublad-clientverbindingen.
+Gebruik dit artikel voor het oplossen van problemen met Windows-client verbindingen met virtueel bureau blad.
 
 ## <a name="provide-feedback"></a>Feedback geven
 
-We zijn niet op dit moment kwesties duurt zolang virtuele Windows-bureaublad in preview. Ga naar de [Windows virtuele bureaublad Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) bespreken van de virtuele Windows-bureaublad-service met het productteam en actieve communityleden.
+Er worden momenteel geen ondersteunings kwesties in rekening gebracht terwijl het virtuele bureau blad van Windows in preview is. Ga naar de [technische community van Windows virtueel bureau blad](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) voor het bespreken van de Windows Virtual Desktop-service met het product team en de actieve leden van de community.
 
-## <a name="you-cant-open-a-web-client"></a>U kunt een webclient niet openen
+## <a name="you-cant-open-a-web-client"></a>U kunt geen webclient openen
 
-Controleer of er is verbinding met internet via een andere website. bijvoorbeeld, [www.Bing.com](https://www.bing.com).
+Controleer of de Internet verbinding is door een andere website te openen. bijvoorbeeld [www.Bing.com](https://www.bing.com).
 
-Gebruik **nslookup** om te bevestigen DNS de FQDN-naam kunt oplossen:
+**Nslookup** gebruiken om te controleren of DNS de FQDN kan omzetten:
 
 ```cmd
 nslookup rdweb.wvd.microsoft.com
 ```
 
-Probeer verbinding te maken met een andere client, zoals Extern bureaublad-client voor Windows 7 of Windows 10 en controle om te zien als u de webclient kunt openen.
+Probeer verbinding te maken met een andere client, bijvoorbeeld Extern bureaublad-client voor Windows 7 of Windows 10, en controleer of u de webclient kunt openen.
 
-### <a name="error-opening-another-site-fails"></a>Fout: Openen van een andere site mislukt
+### <a name="error-opening-another-site-fails"></a>Fout: Het openen van een andere site mislukt
 
-**Oorzaak:** Netwerkproblemen en/of storingen.
+**Wordt** Netwerk problemen en/of storingen.
 
-**Fix:** Neem contact op met ondersteuning voor netwerken.
+**Fix:** Neem contact op met de netwerk ondersteuning.
 
 ### <a name="error-nslookup-cannot-resolve-the-name"></a>Fout: Nslookup kan de naam niet omzetten
 
-**Oorzaak:** Netwerkproblemen en/of storingen.
+**Wordt** Netwerk problemen en/of storingen.
 
-**Fix:** Neem contact op met ondersteuning voor netwerken
+**Fix:** Contact opnemen met netwerk ondersteuning
 
-### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>Fout: Andere clients verbinding kunnen maken, maar u geen verbinding maken
+### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>Fout: U kunt geen verbinding maken, maar andere clients kunnen verbinding maken
 
-**Oorzaak:** De browser zich niet gedraagt als verwacht en gestopt werken.
+**Wordt** De browser werkt niet zoals verwacht en werkt niet meer.
 
-**Fix:** Volg deze instructies voor het oplossen van de browser.
+**Fix:** Volg deze instructies voor het oplossen van problemen met de browser.
 
-1. De browser opnieuw te starten.
-2. Browsercookies wissen. Zie [verwijderen van cookiebestanden in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-3. Wis de browsercache. Zie [Wis de browsercache van de voor uw browser](https://binged.it/2RKyfdU).
-4. Geopende browservenster in de privémodus.
+1. Start de browser opnieuw.
+2. Wis browser cookies. Zie [cookie bestanden verwijderen in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
+3. Wis de browsercache. Zie [browser cache wissen voor uw browser](https://binged.it/2RKyfdU).
+4. Open de browser in de persoonlijke modus.
 
-## <a name="web-client-stops-responding-or-disconnects"></a>Web-client niet meer reageert of de verbinding verbreekt
+## <a name="web-client-stops-responding-or-disconnects"></a>Webclient reageert niet meer of de verbinding wordt verbroken
 
-Probeer verbinding te maken met behulp van een andere browser of de client.
+Probeer verbinding te maken met behulp van een andere browser of client.
 
-### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>Fout: Andere browsers en de clients ook niet goed of is niet te openen
+### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>Fout: Andere browsers en clients kunnen ook niet worden geopend
 
-**Oorzaak:** Problemen met het netwerk en/of bewerking systeem of stroomonderbrekingen
+**Wordt** Problemen met netwerk-en/of bewerkings systemen of storingen
 
-**Fix:** Neem contact op met voor ondersteuningsteams.
+**Fix:** Neem contact op met de ondersteunings teams.
 
-## <a name="web-client-keeps-prompting-for-credentials"></a>Web-client blijft vragen om referenties
+## <a name="web-client-keeps-prompting-for-credentials"></a>Webclient vraagt om referenties
 
-Als de webclient om referenties vragen blijft, volgt u deze instructies.
+Als de webclient om referenties wordt gevraagd, volgt u deze instructies.
 
-1. Controleer of de dat web client-URL juist is.
-2. Bevestig dat de referenties voor de virtuele Windows-bureaublad-omgeving is gebonden aan de URL zijn.
-3. Browsercookies wissen. Zie [verwijderen van cookiebestanden in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-4. Wis de browsercache. Zie [Wis de browsercache van de voor uw browser](https://binged.it/2RKyfdU).
-5. Geopende browservenster in de privémodus.
+1. Controleer of de URL van de webclient juist is.
+2. Controleer of de referenties voor de Windows Virtual Desktop-omgeving zijn gekoppeld aan de URL.
+3. Wis browser cookies. Zie [cookie bestanden verwijderen in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
+4. Wis de browsercache. Zie [browser cache wissen voor uw browser](https://binged.it/2RKyfdU).
+5. Open de browser in de persoonlijke modus.
 
-## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Extern-bureaubladclient voor Windows 7 of Windows 10 niet meer reageert of kan niet worden geopend
+## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Extern bureaublad-client voor Windows 7 of Windows 10 reageert niet meer of kan niet worden geopend
 
-Gebruik de volgende PowerShell-cmdlets voor het opschonen van de out-of-band (OOB)-client registers.
+Gebruik de volgende Power shell-cmdlets om out-of-band-client registers (OOB) op te schonen.
 
 ```PowerShell
 Remove-ItemProperty 'HKCU:\Software\Microsoft\Terminal Server Client\Default' - Name FeedURLs
@@ -91,38 +91,38 @@ Remove-Item 'HKCU:\Software\Microsoft\RdClientRadc' -Recurse
 Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
 ```
 
-Navigeer naar **%AppData%\RdClientRadc** en alle inhoud verwijderen.
+Ga naar **%AppData%\RdClientRadc** en verwijder alle inhoud.
 
-Verwijderen en opnieuw installeren van extern bureaublad-client voor Windows 7 en Windows 10.
+Verwijder Extern bureaublad-client voor Windows 7 en Windows 10 en installeer deze opnieuw.
 
-## <a name="troubleshooting-end-user-connectivity"></a>Oplossen van problemen met connectiviteit voor eindgebruikers
+## <a name="troubleshooting-end-user-connectivity"></a>Problemen met de connectiviteit van eind gebruikers oplossen
 
-Soms gebruikers kunnen toegang krijgen tot hun feed en lokale bronnen, maar nog steeds configuratie, de beschikbaarheid of prestatieproblemen die verhinderen dat ze toegang tot externe bronnen. In deze gevallen wordt ontvangt de gebruiker berichten die vergelijkbaar is met deze:
+Soms hebben gebruikers toegang tot hun feed en lokale resources, maar ze hebben nog steeds configuratie-, beschik baarheids-of prestatie problemen die verhinderen dat ze toegang krijgen tot externe bronnen. In dergelijke gevallen ontvangt de gebruiker berichten die er ongeveer als volgt uitzien:
 
-![Foutbericht voor extern bureaublad-verbinding.](media/eb76b666808bddb611448dfb621152ce.png)
+![Verbinding met extern bureaublad fout bericht.](media/eb76b666808bddb611448dfb621152ce.png)
 
-![Kan geen verbinding maken met het foutbericht van de gateway.](media/a8fbb9910d4672147335550affe58481.png)
+![Kan geen verbinding maken met het fout bericht van de gateway.](media/a8fbb9910d4672147335550affe58481.png)
 
-Volg deze instructies voor algemene probleemoplossing voor de client verbinding-foutcodes.
+Volg deze algemene instructies voor het oplossen van problemen met fout codes voor client verbindingen.
 
-1. Controleer of de gebruikersnaam en het tijdstip waarop het probleem is opgetreden.
-2. Open **PowerShell** en verbinding maken met de virtuele Windows-bureaublad-tenant waar het probleem is gerapporteerd.
-3. Controleer of de verbinding met de juiste tenant met **Get-RdsTenant.**
-4. Met behulp van **Get-RdsHostPool** en **Get-RdsSessionHost** cmdlets, bevestig dat probleemoplossing is wordt uitgevoerd op de juiste host-groep.
-5. Voer de volgende opdracht om een lijst van alle mislukte activiteiten van het type verbinding voor het opgegeven tijdvenster:
+1. Bevestig de gebruikers naam en het tijdstip waarop het probleem is opgetreden.
+2. Open **Power shell** en breng verbinding tot stand met de Windows Virtual Desktop-Tenant waar het probleem is gerapporteerd.
+3. Controleer de verbinding met de juiste Tenant met **Get-RdsTenant.**
+4. Controleer met **Get-RdsHostPool** en **Get-RdsSessionHost-** cmdlets of de probleem oplossing wordt uitgevoerd voor de juiste hostgroep.
+5. Voer de onderstaande opdracht uit om een lijst op te halen met alle mislukte activiteiten van het type verbinding voor het opgegeven tijd venster:
 
     ```PowerShell
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
-6. Met behulp van de **ActivityId** uit de vorige cmdlet-uitvoer, de onderstaande opdracht uitvoeren:
+6. Voer de volgende opdracht uit met behulp van de **ActivityId** uit de vorige uitvoer van de cmdlet:
 
     ```PowerShell
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
-7. De opdracht geeft een resultaat vergelijkbaar met de uitvoer die hieronder wordt weergegeven. Gebruik **ErrorCodeSymbolic** en **ErrorMessage** om op te lossen de hoofdoorzaak te achterhalen.
+7. De opdracht produceert uitvoer zoals hieronder wordt weer gegeven. Gebruik **ErrorCodeSymbolic** en **errorMessage** om de hoofd oorzaak op te lossen.
 
     ```PowerShell
     ErrorSource       : <Source>
@@ -135,45 +135,45 @@ Volg deze instructies voor algemene probleemoplossing voor de client verbinding-
     Time              : <Timestampt>
     ```
 
-### <a name="error-oaddusertogroupfailed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32errornosuchmember"></a>Fout: O_ADD_USER_TO_GROUP_FAILED / gebruiker toevoegen is mislukt = ≤username≥ aan groep = Remote Desktop Users. Reden: Win32.ERROR_NO_SUCH_MEMBER
+### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>Fout: O_ADD_USER_TO_GROUP_FAILED/kan gebruiker niet toevoegen = ≤ gebruikers naam ≥ aan groep = Extern bureaublad gebruikers. Reden: Win32.ERROR_NO_SUCH_MEMBER
 
-**Oorzaak:** Virtuele machine is niet toegevoegd aan het domein waarin de gebruikersobject zich.
+**Wordt** De VM is niet toegevoegd aan het domein waarin het gebruikers object zich bevindt.
 
-**Fix:** VM toevoegen aan het juiste domein. Zie [een Windows Server-machine toevoegen aan een beheerd domein](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
+**Fix:** Voeg de virtuele machine toe aan het juiste domein. Zie [een virtuele Windows Server-machine toevoegen aan een beheerd domein](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 
 ### <a name="error-nslookup-cannot-resolve-the-name"></a>Fout: Nslookup kan de naam niet omzetten
 
-**Oorzaak:** Netwerkproblemen of stroomonderbrekingen.
+**Wordt** Netwerk problemen of-storingen.
 
-**Fix:** Neem contact op met ondersteuning voor netwerken
+**Fix:** Contact opnemen met netwerk ondersteuning
 
 ### <a name="error-connectionfailedclientprotocolerror"></a>Fout: ConnectionFailedClientProtocolError
 
-**Oorzaak:** Virtuele machines die gebruiker probeert verbinding maken met zijn niet toegevoegd aan een domein.
+**Wordt** Vm's waarmee de gebruiker probeert verbinding te maken, zijn geen lid van een domein.
 
-**Fix:** Neem deel aan alle virtuele machines die deel van een groep host van de domeincontroller uitmaken.
+**Fix:** Voeg alle virtuele machines die deel uitmaken van een hostgroep toe aan de domein controller.
 
-## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>Gebruiker verbinding maakt, maar er niets wordt weergegeven (Er is geen invoer)
+## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>Gebruiker maakt verbinding, maar er wordt niets weer gegeven (geen feed)
 
-Een gebruiker kunt beginnen met extern bureaublad-clients en is geverifieerd, maar de gebruiker geen pictogrammen in de web-detectie-feed niet zien.
+Een gebruiker kan Extern bureaublad-clients starten en kan worden geverifieerd, maar de gebruiker ziet geen pictogrammen in de feed voor webdetectie.
 
-Bevestig dat de gebruiker die de problemen melden is toegewezen aan groepen met behulp van deze vanaf de opdrachtregel:
+Controleer of de gebruiker die de problemen rapporteert, is toegewezen aan toepassings groepen met behulp van deze opdracht regel:
 
 ```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 
-Bevestig dat de gebruiker met de juiste referenties aanmeldt zich.
+Controleer of de gebruiker zich aanmeldt met de juiste referenties.
 
-Als de WebClient wordt gebruikt, controleert u of er zijn geen referenties in de cache-problemen.
+Als de WebClient wordt gebruikt, controleert u of er geen problemen met de referenties in de cache zijn.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een overzicht over het oplossen van virtuele Windows-bureaublad en de sporen escalatie [overzicht, feedback en ondersteuning voor probleemoplossing](troubleshoot-set-up-overview.md).
-- Zie voor het oplossen van problemen tijdens het maken van een tenant en host-pool in een omgeving met virtuele Windows-bureaublad, [Tenant en de host een pool maken](troubleshoot-set-up-issues.md).
-- Zie voor het oplossen van problemen tijdens het configureren van een virtuele machine (VM) in virtuele Windows-bureaublad, [Session host Virtuele-machineconfiguratie](troubleshoot-vm-configuration.md).
-- Zie voor het oplossen van problemen bij het gebruik van PowerShell met virtuele Windows-bureaublad, [Windows virtuele bureaublad PowerShell](troubleshoot-powershell.md).
-- Zie voor meer informatie over de Preview-service, [Windows Desktop Preview-omgeving](https://docs.microsoft.com/azure/virtual-desktop/environment-setup?).
-- Als u wilt u een zelfstudie voor problemen oplossen, Zie [zelfstudie: Problemen met sjabloonimplementaties van Resource Manager-oplossen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- Zie voor meer informatie over het controleren van acties, [bewerkingen controleren met Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- Zie voor meer informatie over acties voor het bepalen van de fouten tijdens de implementatie, [implementatiebewerkingen bekijken](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- Zie [probleemoplossings overzicht, feedback en ondersteuning](troubleshoot-set-up-overview.md)voor een overzicht van het oplossen van problemen met het virtuele bureau blad van Windows en de escalatie trajecten.
+- Zie [Tenant en hostgroep maken](troubleshoot-set-up-issues.md)voor informatie over het oplossen van problemen bij het maken van een Tenant en een hostgroep in een virtueel-bureaublad omgeving van Windows.
+- Zie voor het oplossen van problemen bij het configureren van een virtuele machine (VM) in Windows virtueel bureau blad de [virtuele machine configuratie](troubleshoot-vm-configuration.md)van de host.
+- Zie [Windows Virtual Desktop Power shell](troubleshoot-powershell.md)(Engelstalig) voor informatie over het oplossen van problemen met het gebruik van Power shell met Windows virtueel bureau blad.
+- Zie [Windows Desktop Preview Environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup?)(Engelstalig) voor meer informatie over de preview-service.
+- Zie [zelf studie voor het oplossen van problemen met de zelf studie: Problemen oplossen met implementaties](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)van Resource Manager-sjablonen.
+- Zie [bewerkingen controleren met Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)voor meer informatie over controle acties.
+- Zie [implementatie bewerkingen weer geven](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)voor meer informatie over acties om de fouten te bepalen tijdens de implementatie.

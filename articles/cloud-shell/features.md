@@ -1,6 +1,6 @@
 ---
 title: Azure Cloud Shell-functies | Microsoft Docs
-description: Overzicht van de functies van Bash in Azure Cloud Shell
+description: Overzicht van functies in Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: maertendMSFT
@@ -14,85 +14,85 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 6b5f0e96b90ee0515c0a86f41c6ee2161d6c54a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1354f7befd8c38537a555e17733f431dd488cf60
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752712"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742060"
 ---
-# <a name="features--tools-for-azure-cloud-shell"></a>Functies en hulpprogramma's voor Azure Cloud Shell
+# <a name="features--tools-for-azure-cloud-shell"></a>Functies &-hulpprogram ma's voor Azure Cloud Shell
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
-Azure Cloud Shell wordt uitgevoerd op `Ubuntu 16.04 LTS`.
+Azure Cloud Shell wordt uitgevoerd `Ubuntu 16.04 LTS`op.
 
 ## <a name="features"></a>Functies
 
 ### <a name="secure-automatic-authentication"></a>Automatische verificatie beveiligen
 
-Cloudshell veilig en automatisch toegang tot het worden geverifieerd voor de Azure CLI en Azure PowerShell.
+Cloud Shell veilig en automatisch account toegang verifiëren voor de Azure CLI en Azure PowerShell.
 
-### <a name="home-persistence-across-sessions"></a>$HOME persistentie in verschillende sessies
+### <a name="home-persistence-across-sessions"></a>$HOME persistentie over sessies
 
-Als u wilt bestanden in verschillende sessies persistent, helpt Cloud Shell u bij het koppelen van een Azure-bestandsshare op de eerste keer opstarten.
-Als voltooid, Cloud Shell automatisch uw opslag koppelt (gekoppeld als `$HOME\clouddrive`) voor alle toekomstige sessies.
-Bovendien uw `$HOME` directory worden opgeslagen als een .img in uw Azure-bestandsshare.
-Bestanden buiten `$HOME` en status van de machine zijn niet blijven behouden tussen sessies. Gebruik de aanbevolen procedures bij het opslaan van geheimen zoals SSH-sleutels. Services, zoals [Azure Key Vault-zelfstudies voor setup hebt](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
+Cloud Shell begeleidt u bij het koppelen van een Azure-bestands share bij de eerste start om bestanden in verschillende sessies te behouden.
+Zodra dit is voltooid Cloud shell, wordt uw opslag (gekoppeld als `$HOME\clouddrive`) automatisch gekoppeld voor alle toekomstige sessies.
+Bovendien wordt uw `$HOME` Directory persistent gemaakt als. img in uw Azure-bestands share.
+Bestanden buiten `$HOME` en computer status blijven niet behouden in sessies. Gebruik aanbevolen procedures voor het opslaan van geheimen zoals SSH-sleutels. Services als [Azure Key Vault hebben zelf studies voor Setup](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
-[Meer informatie over het behoud van bestanden in de Cloud Shell.](persisting-shell-storage.md)
+[Meer informatie over het persistent maken van bestanden in Cloud Shell.](persisting-shell-storage.md)
 
 ### <a name="azure-drive-azure"></a>Azure-station (Azure:)
 
-PowerShell in Cloud Shell start u in Azure-station (`Azure:`).
-De Azure-station kunt u eenvoudige detectie en navigatie van Azure-resources, zoals Compute, netwerk, opslag enz. die vergelijkbaar is met het bestandssysteem navigatie.
-U kunt echter ook doorgaan met de vertrouwde [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure) voor het beheren van deze resources, ongeacht het station dat u zich in.
-Eventuele wijzigingen in de Azure-resources, hetzij rechtstreeks in Azure portal of via Azure PowerShell-cmdlets, worden weerspiegeld in de Azure-station.  U kunt uitvoeren `dir -Force` vernieuwen van uw resources.
+Power shell in Cloud Shell begint u in azure drive`Azure:`().
+Het Azure-station biedt eenvoudige detectie en navigatie van Azure-resources, zoals compute, netwerk, opslag, enzovoort, vergelijkbaar met de navigatie van het bestands systeem.
+U kunt de vertrouwde [Azure PowerShell](https://docs.microsoft.com/powershell/azure) -cmdlets blijven gebruiken om deze bronnen te beheren, ongeacht het station waarin u zich bevindt.
+Wijzigingen die zijn aangebracht in de Azure-resources, direct in Azure Portal of via Azure PowerShell-cmdlets, worden weer gegeven in het Azure-station.  U kunt uitvoeren `dir -Force` om uw resources te vernieuwen.
 
 ![](media/features-powershell/azure-drive.png)
 
 ### <a name="manage-exchange-online"></a>Exchange Online beheren
 
-PowerShell in Cloud Shell bevat een persoonlijke build van de Exchange Online-module.  Voer `Connect-EXOPSSession` om op te halen van uw Exchange-cmdlets.
+Power shell in Cloud Shell bevat een persoonlijke build van de module Exchange Online.  Voer `Connect-EXOPSSession` uit om uw Exchange-cmdlets op te halen.
 
 ![](media/features-powershell/exchangeonline.png)
 
  Voer `Get-Command -Module tmp_*` uit.
 > [!NOTE]
-> De modulenaam moet beginnen met `tmp_`, als u modules met hetzelfde voorvoegsel hebt geïnstalleerd, wordt ook de cmdlets worden opgehaald. 
+> De module naam moet beginnen met `tmp_`, als u modules met hetzelfde voor voegsel hebt geïnstalleerd, worden de bijbehorende cmdlets ook weer gegeven. 
 
 ![](media/features-powershell/exchangeonlinecmdlets.png)
 
-### <a name="deep-integration-with-open-source-tooling"></a>Diepe integratie met open source-programma 's
+### <a name="deep-integration-with-open-source-tooling"></a>Diep gaande integratie met open source-hulp programma
 
-Cloudshell bevat vooraf geconfigureerde verificatie voor open-source hulpprogramma's zoals Terraform, Ansible en Chef inspectie mogelijk. Probeer het nu uit de voorbeeld-scenario's.
+Cloud Shell bevat vooraf geconfigureerde authenticatie voor open source-hulpprogram ma's, zoals terraform, Ansible en chef-specificatie. Probeer het uit in de voorbeeld scenario's.
 
 ## <a name="tools"></a>Hulpprogramma's
 
-|Category   |Name   |
+|Categorie   |Name   |
 |---|---|
-|Hulpprogramma's voor Linux            |Bash<br> zsh<br> Sh<br> tmux<br> graven<br>               |
-|Azure-hulpprogramma 's            |[Azure CLI](https://github.com/Azure/azure-cli) en [Azure klassieke CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Service Fabric-CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
-|Teksteditors           |code (Cloud Shell-editor)<br> vim<br> nano<br> emacs    |
-|Broncodebeheer         |git                    |
-|Hulpprogramma's bouwen            |Maken<br> maven<br> npm<br> pip         |
+|Linux-hulpprogram ma's            |bash<br> zsh<br> &<br> tmux<br> graven<br>               |
+|Azure-hulpprogramma 's            |[Azure cli](https://github.com/Azure/azure-cli) en [Azure Classic cli](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Azure Functions CLI](https://github.com/Azure/azure-functions-core-tools)<br> [Service Fabric-CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
+|Tekst editors           |code (Cloud Shell-editor)<br> vim<br> nano<br> emacs    |
+|Broncode beheer         |git                    |
+|Build-hulpprogram ma's            |geven<br> maven<br> npm<br> gooien         |
 |Containers             |[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |Databases              |MySQL-client<br> PostgreSql-client<br> [sqlcmd Utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Overige                  |iPython Client<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef inspectie mogelijk](https://www.chef.io/inspec/)|
+|Overige                  |iPython-client<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef inspectie mogelijk](https://www.chef.io/inspec/)<br> [Puppet-flits](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
 
 ## <a name="language-support"></a>Taalondersteuning
 
 |Taal   |Version   |
 |---|---|
 |.NET Core  |2.0.0       |
-|Aan de slag         |1.9        |
+|Start         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
 |PowerShell |[6.2.0](https://github.com/PowerShell/powershell/releases)       |
-|Python     |2.7 en 3.5 (standaard)|
+|Python     |2,7 en 3,5 (standaard)|
 
 ## <a name="next-steps"></a>Volgende stappen
-[Bash in Cloud Shell-snelstartgids](quickstart.md) <br>
-[PowerShell in Cloud Shell-snelstartgids](quickstart-powershell.md) <br>
+[Bash in Cloud Shell Quick Start](quickstart.md) <br>
+[Power shell in Cloud Shell Quick Start](quickstart-powershell.md) <br>
 [Meer informatie over Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
 [Meer informatie over Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

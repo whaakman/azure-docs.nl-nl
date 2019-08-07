@@ -5,14 +5,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 08/06/2019
 ms.author: banders
-ms.openlocfilehash: c63447ff0a3329e0cc0dc0605984ae4f26e9c25f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2e595fbee90b710ec6b8090a770d93e688a04818
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359226"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839994"
 ---
 # <a name="what-are-azure-reservations"></a>Wat zijn Azure-reserveringen?
 
@@ -38,7 +38,7 @@ Voor virtuele Windows-machines en SQL Database, kunt u de licentie kosten met [A
 
 Als u een plan wilt kopen, moet u een rol voor abonnements eigenaar hebben in een Enter prise (MS-AZR-0017P-of MS-AZR-0148P) of betalen per gebruik-abonnement (MS-AZR-003P of MS-AZR-0023P). Cloud solution providers kunnen de Azure portal of het [partner centrum](/partner-center/azure-reservations) gebruiken om Azure Reservations te kopen.
 
-Enterprise Agreement (EA)-klanten kunnen aankopen beperken tot EA-beheerders. Dit doet u door de optie **gereserveerde instanties toevoegen** uit te scha kelen in de EA-Portal. EA-beheerders moeten een eigenaar van het abonnement zijn voor ten minste één EA-abonnement voor het aanschaffen van een reserve ring. De optie is handig voor bedrijven die willen dat een gecentraliseerd team reserve ringen voor verschillende kosten plaatsen kan aanschaffen. Na de aankoop kunnen gecentraliseerde teams eigen aren van kosten plaatsen toevoegen aan de reserve ringen. Eigen aren kunnen vervolgens de reserve ring op hun abonnementen bereiken. Het centrale team hoeft geen eigenaar van het abonnement te hebben waar de reserve ring wordt aangeschaft.
+Enterprise Agreement (EA)-klanten kunnen aankopen beperken tot EA-beheerders door de optie **gereserveerde instanties toevoegen** uit te scha kelen in de EA-Portal. EA-beheerders moeten een eigenaar van het abonnement zijn voor ten minste één EA-abonnement voor het aanschaffen van een reserve ring. De optie is handig voor bedrijven die willen dat een gecentraliseerd team reserve ringen voor verschillende kosten plaatsen kan aanschaffen. Na de aankoop kunnen gecentraliseerde teams eigen aren van kosten plaatsen toevoegen aan de reserve ringen. Eigen aren kunnen vervolgens de reserve ring op hun abonnementen bereiken. Het centrale team hoeft geen eigenaar van het abonnement te hebben waar de reserve ring wordt aangeschaft.
 
 Een reserverings korting geldt alleen voor resources die zijn gekoppeld aan abonnementen die zijn aangeschaft via Enter prise, Cloud Solution Provider (CSP) en individuele abonnementen met betalen naar gebruik-tarieven.
 
@@ -136,7 +136,7 @@ Service plannen:
 
 Afhankelijk van hoe u betaalt voor uw Azure-abonnement, sturen we de reserverings meldingen naar de volgende gebruikers in uw organisatie. Er worden meldingen verzonden voor verschillende gebeurtenissen, waaronder:
 
-- Kopen
+- Aanschaffen
 - Verval datum van de geplande reserve ring
 - Expiry
 - Verlenging

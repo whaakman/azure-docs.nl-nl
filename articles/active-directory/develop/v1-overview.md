@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory voor ontwikkelaars (v1.0)-overzicht
-description: In dit artikel biedt een overzicht van aanmelding bij Microsoft werken en schoolaccounts met behulp van de Azure Active Directory v1.0 eindpunt en het platform.
+title: Overzicht van Azure Active Directory voor ontwikkel aars (v 1.0)
+description: Dit artikel bevat een overzicht van het aanmelden bij micro soft-werk-en school accounts met behulp van het eind punt en platform van Azure Active Directory v 1.0.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,7 +9,7 @@ ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/24/2018
@@ -17,19 +17,19 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13cc5c7ae428f74f2892e6066dfdcd7efb73efbb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91f406198418571ec0d2c4d488909d3baaa494b1
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545234"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834667"
 ---
-# <a name="azure-active-directory-for-developers-v10-overview"></a>Azure Active Directory voor ontwikkelaars (v1.0)-overzicht
+# <a name="azure-active-directory-for-developers-v10-overview"></a>Overzicht van Azure Active Directory voor ontwikkel aars (v 1.0)
 
 Azure Active Directory (Azure AD) is een identiteitsservice in de cloud waarmee ontwikkelaars apps kunnen maken die ervoor zorgen dat elke gebruiker met een Microsoft-werkaccount of -schoolaccount zich veilig kan aanmelden. Azure AD biedt ondersteuning voor ontwikkelaars die Line-Of-Business-apps met één tenant maken en voor ontwikkelaars die apps met meerdere tenants willen ontwikkelen. Naast eenvoudige aanmelding maakt Azure AD ook mogelijk dat apps Microsoft-API's zoals [Microsoft Graph](https://docs.microsoft.com/graph/overview) en aangepaste API's die zijn gemaakt op het Azure AD-platform aanroepen. In deze documentatie wordt beschreven hoe u Azure AD-ondersteuning aan uw app kunt toevoegen met standaardprotocollen zoals OAuth 2.0 en OpenID Connect.
 
 > [!NOTE]
-> De meeste van de inhoud op deze pagina is gericht op de v1.0 eindpunt en platform, die ondersteuning biedt voor alleen Microsoft werk- of schoolaccount. Als u wilt aan te melden bij de consument of persoonlijke Microsoft-accounts, raadpleegt u de informatie op de [v2.0-eindpunt en platform](v2-overview.md). Het v2.0-eindpunt biedt een uniforme ervaring voor ontwikkelaars voor apps die u wilt aan te melden bij alle Microsoft-identiteiten.
+> De meeste inhoud op deze pagina is gericht op het v 1.0-eind punt en het platform, dat alleen micro soft-werk-of school accounts ondersteunt. Als u zich wilt aanmelden bij consumenten-of persoonlijke micro soft-accounts, raadpleegt u de informatie op het [v 2.0-eind punt en-platform](v2-overview.md). Het v 2.0-eind punt biedt een uniforme ontwikkelaars ervaring voor apps die zich willen aanmelden bij alle micro soft-identiteiten.
 
 | | |
 | --- | --- |
@@ -39,11 +39,11 @@ Azure Active Directory (Azure AD) is een identiteitsservice in de cloud waarmee 
 
 ## <a name="get-started"></a>Aan de slag
 
-De v1.0 snelstartgidsen en zelfstudies leert u hoe het bouwen van een app op uw gewenste platform met behulp van de Azure AD Authentication Library (ADAL) SDK. Zie de **v1.0 snelstartgidsen** en **v1.0 zelfstudies** in [identiteitsplatform van Microsoft (Azure Active Directory voor ontwikkelaars)](index.yml) aan de slag.
+De Snelstartgids en zelf studies voor v 1.0 begeleiden u bij het bouwen van een app op uw favoriete platform met behulp van de Azure AD Authentication Library (ADAL) SDK. Raadpleeg de zelf studies **v 1.0 quicks** en **v 1.0** in [micro soft Identity platform (Azure Active Directory voor ontwikkel aars)](index.yml) om aan de slag te gaan.
 
 ## <a name="how-to-guides"></a>Handleidingen
 
-Zie de **v1.0 instructies begeleidt** voor gedetailleerde informatie en scenario's van de meest algemene taken in Azure AD.
+Raadpleeg de **hand leidingen voor v 1.0** voor gedetailleerde informatie en instructies van de meest voorkomende taken in azure AD.
 
 ## <a name="reference-topics"></a>Onderwerpen met naslaginformatie
 

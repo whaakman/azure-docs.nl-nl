@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: absha
-ms.openlocfilehash: 2d808548ef91ed416f27b0dbb3e3e93d79ade30c
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ae1ac3df3da4e5c25e5538f0e8cc4cd12f9186c6
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382055"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774778"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Certificaten maken om de back-end met Azure-toepassing gateway toe te staan
 
@@ -73,7 +73,7 @@ Exporteer vanuit uw SSL-certificaat het bestand met de open bare sleutel. CER (n
 
 ## <a name="export-trusted-root-certificate-for-v2-sku"></a>Vertrouwd basis certificaat exporteren (voor v2-SKU)
 
-Een vertrouwd basis certificaat is vereist voor het toestaan van back-end-exemplaren in Application Gateway v2-SKU. Het basis certificaat is een base-64 Encoded X. 509 (. CER) basis certificaat van de back-end-server certificaten. In dit voor beeld gebruikt u een SSL-certificaat voor het back-end-certificaat en exporteert u de open bare sleutel. Vervolgens exporteert u het basis certificaat van de vertrouwde certificerings instantie uit de open bare sleutel in base64-gecodeerde indeling om het vertrouwde basis certificaat te verkrijgen. 
+Het vertrouwde basis certificaat is vereist voor het white list van back-end-instanties in de app Application Gateway v2. Het basis certificaat is een base-64 Encoded X. 509 (. CER) basis certificaat van de back-end-server certificaten. In dit voor beeld gebruiken we een SSL-certificaat voor het back-end-certificaat, exporteert u de open bare sleutel en exporteert u vervolgens het basis certificaat van de vertrouwde certificerings instantie uit de open bare sleutel in base64-gecodeerde indeling om het vertrouwde basis certificaat te verkrijgen. De tussenliggende certificaten moeten worden gebundeld met het server certificaat en moeten worden geïnstalleerd op de back-endserver.
 
 Met de volgende stappen kunt u het. cer-bestand voor uw certificaat exporteren:
 
@@ -105,4 +105,5 @@ Met de volgende stappen kunt u het. cer-bestand voor uw certificaat exporteren:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt nu het verificatie certificaat/het vertrouwde basis certificaat in base-64 Encoded X. 509 (. CER)-indeling. U kunt deze toevoegen aan de toepassings gateway zodat uw back-endservers end-to-end SSL-versleuteling. Zie [end-to-end SSL-versleuteling configureren](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+U hebt nu het verificatie certificaat/het vertrouwde basis certificaat in base-64 Encoded X. 509 (. CER)-indeling. U kunt dit toevoegen aan de toepassings gateway om uw back-endservers te White listen voor end-to-end SSL-versleuteling. Zie [end-to-end SSL-versleuteling configureren](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+

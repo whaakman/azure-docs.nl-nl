@@ -1,6 +1,6 @@
 ---
-title: Bash in de Snelstartgids voor Azure Cloud Shell | Microsoft Docs
-description: Snelstartgids voor Bash in Cloudshell
+title: Azure Cloud Shell Snelstartgids | Microsoft Docs
+description: Quick start voor Azure Cloud Shell
 services: ''
 documentationcenter: ''
 author: maertendMSFT
@@ -14,91 +14,91 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: b8f96de7214a46c9e38182c141343a46c0e28139
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8151013f263c6cf2f90e89fa1c3b0b3025f2ea38
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199581"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741990"
 ---
-# <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Snelstartgids voor Bash in Azure Cloudshell
+# <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Quick start voor bash in Azure Cloud Shell
 
-Dit document wordt uitgelegd hoe het gebruik van Bash in Azure Cloud Shell in de [Azure-portal](https://ms.portal.azure.com/).
+Dit document bevat informatie over het gebruik van bash in Azure Cloud Shell in het [Azure Portal](https://ms.portal.azure.com/).
 
 > [!NOTE]
-> Een [PowerShell in Azure Cloud Shell](quickstart-powershell.md) Quick Start is ook beschikbaar.
+> Er is ook een [Power shell in azure Cloud shell](quickstart-powershell.md) Quick Start beschikbaar.
 
-## <a name="start-cloud-shell"></a>Cloudshell starten
-1. Start **Cloud Shell** via de bovenste navigatiebalk van de Azure-portal. <br>
+## <a name="start-cloud-shell"></a>Cloud Shell starten
+1. Start **Cloud shell** vanaf de bovenste navigatie van het Azure Portal. <br>
 ![](media/quickstart/shell-icon.png)
 
-2. Selecteer een abonnement om een opslagaccount te maken en delen van Microsoft Azure-bestanden.
-3. Selecteer 'Opslag maken'
+2. Selecteer een abonnement om een opslag account en Microsoft Azure bestands share te maken.
+3. Selecteer opslag maken
 
 > [!TIP]
-> U bent automatisch geverifieerd voor Azure CLI in elke sessie.
+> U wordt in elke sessie automatisch geverifieerd voor Azure CLI.
 
-### <a name="select-the-bash-environment"></a>Selecteer de Bash-omgeving
-Controleer of de omgeving vervolgkeuzelijst aan de linkerkant van de shell-venster zegt `Bash`. <br>
+### <a name="select-the-bash-environment"></a>De bash omgeving selecteren
+Controleer of de vervolg keuzelijst omgeving van de linkerkant van het shell venster `Bash`wordt vermeld. <br>
 ![](media/quickstart/env-selector.png)
 
 ### <a name="set-your-subscription"></a>Uw abonnement instellen
-1. Lijst met abonnementen u toegang tot hebt.
+1. Abonnementen weer geven waartoe u toegang hebt.
    ```azurecli-interactive
    az account list
    ```
 
-2. Stel het gewenste abonnement: <br>
+2. Stel uw voorkeurs abonnement in: <br>
 ```azurecli-interactive
 az account set --subscription 'my-subscription-name'
 ```
 
 > [!TIP]
-> Uw abonnement worden opgeslagen voor toekomstige sessies met behulp van `/home/<user>/.azure/azureProfile.json`.
+> Uw abonnement wordt onthouden voor toekomstige sessies met `/home/<user>/.azure/azureProfile.json`.
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
-Maak een nieuwe resourcegroep in VS West met de naam 'MyRG'.
+Maak een nieuwe resource groep in Westus met de naam ' MyRG '.
 ```azurecli-interactive
 az group create --location westus --name MyRG
 ```
 
 ### <a name="create-a-linux-vm"></a>Een Linux-VM maken
-Een Ubuntu-VM maken in uw nieuwe resourcegroep. De Azure CLI wordt SSH-sleutels maken en instellen van de virtuele machine met hen. <br>
+Maak een Ubuntu-VM in de nieuwe resource groep. Met de Azure CLI worden SSH-sleutels gemaakt en wordt de virtuele machine ingesteld. <br>
 
 ```azurecli-interactive
 az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
 ```
 
 > [!NOTE]
-> Met behulp van `--generate-ssh-keys` Hiermee geeft u Azure CLI voor het maken en instellen van openbare en persoonlijke sleutels in uw virtuele machine en `$Home` directory. Sleutels worden standaard geplaatst in de Cloud Shell op `/home/<user>/.ssh/id_rsa` en `/home/<user>/.ssh/id_rsa.pub`. Uw `.ssh` map blijft behouden in de gekoppelde bestandsshare 5 GB-installatiekopie die wordt gebruikt om vast te leggen `$Home`.
+> Met `--generate-ssh-keys` het gebruik van Azure cli kunt u open bare en persoonlijke sleutels maken en instellen in `$Home` uw VM en Directory. Standaard sleutels worden in Cloud shell geplaatst op `/home/<user>/.ssh/id_rsa` en. `/home/<user>/.ssh/id_rsa.pub` De `.ssh` map wordt opgeslagen in de bestands share van 5 GB die wordt gebruikt om de installatie kopie `$Home`te behouden.
 
-Uw gebruikersnaam op deze virtuele machine is de gebruikersnaam die wordt gebruikt in de Cloud Shell ($User@Azure:).
+Uw gebruikers naam op deze VM is uw gebruikers naam die wordt gebruikt inUser@Azure:Cloud shell ($).
 
 ### <a name="ssh-into-your-linux-vm"></a>SSH in uw virtuele Linux-machine
-1. Zoeken naar de naam van uw virtuele machine in de Azure portal zoekbalk.
-2. Klik op 'Connect' als u uw VM-naam en het openbare IP-adres. <br>
+1. Zoek de naam van uw virtuele machine in de zoek balk Azure Portal.
+2. Klik op verbinding maken om de naam van uw virtuele machine en het open bare IP-adres op te halen. <br>
    ![](media/quickstart/sshcmd-copy.png)
 
-3. SSH in uw virtuele machine met de `ssh` cmd.
+3. SSH in uw virtuele machine met `ssh` de Cmd.
    ```
    ssh username@ipaddress
    ```
 
-Bij het maken van de SSH-verbinding, ziet u de Welkom Ubuntu-prompt. <br>
+Wanneer u de SSH-verbinding tot stand brengt, wordt de welkomst prompt van Ubuntu weer gegeven. <br>
 ![](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Opschonen 
-1. Sluit uw ssh sessie.
+1. Sluit uw SSH-sessie af.
    ```azurecli-interactive
    exit
    ```
 
-2. Verwijder de resourcegroep en alle resources daarin.
+2. Verwijder de resource groep en alle resources hierin.
    ```azurecli-interactive
    az group delete -n MyRG
    ```
 
 ## <a name="next-steps"></a>Volgende stappen
-[Meer informatie over het behoud van bestanden voor Bash in Cloud Shell](persisting-shell-storage.md) <br>
+[Meer informatie over het persistent maken van bestanden voor bash in Cloud Shell](persisting-shell-storage.md) <br>
 [Meer informatie over Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
-[Meer informatie over Azure File storage](../storage/files/storage-files-introduction.md) <br>
+[Meer informatie over Azure Files opslag](../storage/files/storage-files-introduction.md) <br>

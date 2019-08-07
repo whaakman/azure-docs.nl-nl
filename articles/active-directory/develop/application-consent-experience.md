@@ -12,17 +12,17 @@ ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac9d278053f05f9041a002b1c6ef3f873b0d9efb
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 012a79969f2fa72589ba6b70aa5398b6f4e7e811
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324851"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835245"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Inzicht in ervaringen met Azure AD-toepassingtoestemming
 
@@ -50,7 +50,7 @@ Het volgende diagram en deze tabel bevatten informatie over de bouw stenen van d
 | 1 | Gebruikers-id | Deze id vertegenwoordigt de gebruiker die de client toepassing heeft aangevraagd om toegang te krijgen tot beveiligde bronnen namens. |
 | 2 | Titel | De titel wordt gewijzigd op basis van het feit of de gebruikers de toestemming stroom van de gebruiker of beheerder door lopen. In de machtigings stroom van de gebruiker wordt de titel ' machtigingen aangevraagd ' weer gegeven in de stroom van de beheerder toestemming de titel heeft een extra regel ' accepteren voor uw organisatie '. |
 | 3 | App-logo | Deze installatie kopie zou gebruikers kunnen helpen een visuele indicatie te krijgen van de vraag of deze app de app is die ze wilde gebruiken. Deze installatie kopie wordt verzorgd door toepassings ontwikkelaars en het eigendom van deze installatie kopie wordt niet gevalideerd. |
-| 4 | Naam van app | Deze waarde moet de gebruikers op de hoogte stellen van de toegang tot de gegevens van de toepassing. Opmerking Deze naam wordt verschaft door de ontwikkel aars en het eigendom van deze app-naam wordt niet gevalideerd. |
+| 4 | App-naam | Deze waarde moet de gebruikers op de hoogte stellen van de toegang tot de gegevens van de toepassing. Opmerking Deze naam wordt verschaft door de ontwikkel aars en het eigendom van deze app-naam wordt niet gevalideerd. |
 | 5 | Uitgeversdomein | Deze waarde moet gebruikers hebben van een domein dat ze mogelijk kunnen evalueren voor betrouw baarheid. Dit domein wordt door de ontwikkel aars verschaft en het eigendom van dit domein van de uitgever wordt gevalideerd. |
 | 6 | Machtigingen | Deze lijst bevat de machtigingen die worden aangevraagd door de client toepassing. Gebruikers moeten altijd de typen machtigingen die worden aangevraagd, evalueren om te begrijpen welke gegevens de client toepassing voor hun naam mag gebruiken als ze deze accepteren. Als ontwikkelaar van toepassingen is het het beste om toegang aan te vragen bij de machtigingen met de minste bevoegdheden. |
 | 7 | Beschrijving van machtiging | Deze waarde wordt verschaft door de service die de machtigingen weergeeft. Als u de beschrijvingen van machtigingen wilt zien, moet u de punt haken naast de machtiging scha kelen. |

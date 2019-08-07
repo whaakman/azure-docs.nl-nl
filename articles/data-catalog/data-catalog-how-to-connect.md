@@ -1,65 +1,63 @@
 ---
-title: Verbinding maken met gegevensbronnen in Azure Data Catalog
-description: Verbinding maken met gegevensbronnen die zijn gedetecteerd met Azure Data Catalog markeren artikel met instructies.
-services: data-catalog
+title: Verbinding maken met gegevens bronnen in Azure Data Catalog
+description: Instructies voor het maken van een verbinding met gegevens bronnen die zijn gedetecteerd met Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: c64340491dba11870364610a6c2ff62e25c1328a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: c91c09da31e4ecf42257b8f9c86f25c6ec39b9df
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001801"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734645"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Verbinding maken met gegevensbronnen
 ## <a name="introduction"></a>Inleiding
-**Microsoft Azure Data Catalog** is een volledig beheerde cloudservice die als registratiesysteem en detectiesysteem voor zakelijke gegevensbronnen fungeert. Met andere woorden, **Azure Data Catalog** draait helpt mensen detecteren, begrijpen en gebruiken van gegevensbronnen en waarmee organisaties meer waarde halen uit hun bestaande gegevens. Een belangrijk aspect van dit scenario wordt met behulp van de gegevens, wanneer een gebruiker een gegevensbron detecteert en het doel begrijpt, de volgende stap is het verbinding maken met de gegevensbron om de gegevens te gebruiken.
+**Microsoft Azure Data Catalog** is een volledig beheerde Cloud service die fungeert als registratie systeem en detectie systeem voor zakelijke gegevens bronnen. Met andere woorden, het **Azure Data Catalog** is alles wat helpt mensen bij het detecteren, begrijpen en gebruiken van gegevens bronnen, en helpt organisaties bij het verkrijgen van meer waarde dan hun bestaande gegevens. Een belang rijk aspect van dit scenario is het gebruik van de gegevens: wanneer een gebruiker een gegevens bron detecteert en het doel ervan begrijpt, is de volgende stap om verbinding te maken met de gegevens bron om de gegevens te gebruiken.
 
 ## <a name="data-source-locations"></a>Gegevensbronnen
-Tijdens de registratie van gegevensbron, **Azure Data Catalog** ontvangt metagegevens over de gegevensbron. Deze metagegevens bevat de details van de locatie van de gegevensbron. De details van de locatie van de gegevensbron met gegevensbron verschilt, maar bevat altijd de informatie die nodig is om verbinding te maken. De locatie voor een SQL Server-tabel bevat er bijvoorbeeld voor dat de servernaam, databasenaam, naam van het schema en de tabelnaam van de, terwijl de locatie voor een SQL Server Reporting Services-rapport de naam van de server en het pad naar het rapport bevat. Andere typen gegevensbronnen heeft locaties die overeenkomen met de structuur en de mogelijkheden van het bronsysteem.
+Tijdens de registratie van de gegevens bron ontvangt **Azure Data Catalog** meta gegevens over de gegevens bron. Deze meta gegevens bevatten de details van de locatie van de gegevens bron. De details van de locatie variëren van de gegevens bron tot de gegevens bron, maar bevatten altijd de informatie die nodig is om verbinding te maken. De locatie voor een SQL Server tabel bevat bijvoorbeeld de server naam, de database naam, de schema naam en de tabel naam, terwijl de locatie van een SQL Server Reporting Services rapport de server naam en het pad naar het rapport bevat. Andere gegevens bron typen hebben locaties die de structuur en mogelijkheden van het bron systeem weer spie gelen.
 
-## <a name="integrated-client-tools"></a>Geïntegreerde clienthulpprogramma 's
-De eenvoudigste manier om verbinding maken met een gegevensbron is met de ' Open in... " in het menu in de **Azure Data Catalog** portal. Dit menu geeft een lijst van opties voor het verbinden met de geselecteerde gegevensasset.
-Wanneer u de standaardweergave van de tegel, is dit menu is beschikbaar op de elke tegel.
+## <a name="integrated-client-tools"></a>Geïntegreerde client hulpprogramma's
+De eenvoudigste manier om verbinding te maken met een gegevens bron is met behulp van de ' openen in... ' in de **Azure Data Catalog** Portal. Dit menu bevat een lijst met opties voor het maken van verbinding met de geselecteerde gegevensasset.
+Wanneer u de standaard tegel weergave gebruikt, is dit menu beschikbaar op elke tegel.
 
- ![Een SQL Server-tabel in Excel te openen vanaf de tegel van de asset gegevens](./media/data-catalog-how-to-connect/data-catalog-how-to-connect1.png)
+ ![Een SQL Server tabel in Excel openen vanuit de tegel gegevens element](./media/data-catalog-how-to-connect/data-catalog-how-to-connect1.png)
 
-Wanneer u de lijstweergave gebruikt, wordt het menu in de zoekbalk boven aan het portalvenster beschikbaar is.
+Wanneer u de lijst weergave gebruikt, is het menu beschikbaar in de zoek balk bovenin het portal-venster.
 
- ![Een SQL Server Reporting Services-rapport openen in Report Manager in de zoekbalk](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+ ![Een SQL Server Reporting Services-rapport openen in Report Manager vanuit de zoek balk](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
-## <a name="supported-client-applications"></a>Ondersteunde Client-toepassingen
-Bij het gebruik van de ' Open in... " menu voor gegevensbronnen in de Azure Data Catalog-portal, de juiste clienttoepassing moet worden geïnstalleerd op de clientcomputer.
+## <a name="supported-client-applications"></a>Ondersteunde client toepassingen
+Bij gebruik van de ' openen in... ' voor gegevens bronnen in de Azure Data Catalog Portal moet de juiste client toepassing op de client computer zijn geïnstalleerd.
 
-| Open in de toepassing | Bestandsextensie / -protocol | Ondersteunde toepassingsversies |
+| In toepassing openen | Bestands extensie/Protocol | Ondersteunde toepassings versies |
 | --- | --- | --- |
-| Excel |.odc |Excel 2010 of hoger |
-| Excel (Top 1000) |.odc |Excel 2010 of hoger |
-| Power Query |.xlsx |Excel 2016 of Excel 2010 of Excel 2013 met de Power Query voor Excel-invoegtoepassing geïnstalleerd |
+| Excel |. ODC |Excel 2010 of hoger |
+| Excel (top 1000) |. ODC |Excel 2010 of hoger |
+| Power Query |. xlsx |Excel 2016 of Excel 2010 of Excel 2013 met de Power Query voor Excel-invoeg toepassing geïnstalleerd |
 | Power BI Desktop |.pbix |Power BI Desktop juli 2016 of hoger |
-| SQL Server Data Tools |vsweb:// |Visual Studio 2013 Update 4 of hoger met SQL Server-hulpprogramma's geïnstalleerd |
-| Rapportbeheer |http:// |Zie [Browservereisten voor het SQL Server Reporting Services](https://technet.microsoft.com/library/ms156511.aspx) |
+| SQL Server Data Tools |vsweb:// |Visual Studio 2013 update 4 of hoger met SQL Server tool is geïnstalleerd |
+| Report Manager |http:// |Zie [browser vereisten voor SQL Server Reporting Services](https://technet.microsoft.com/library/ms156511.aspx) |
 
-## <a name="your-data-your-tools"></a>Uw gegevens, uw hulpprogramma 's
-De beschikbare opties in het menu is afhankelijk van het type van de geselecteerde gegevensasset. Natuurlijk niet alle mogelijke hulpprogramma's worden opgenomen in de "openen in..." menu, maar is nog wel eenvoudig verbinding maken met de gegevensbron met behulp van een clienthulpprogramma. Wanneer een gegevensasset is geselecteerd in de **Azure Data Catalog** portal, de volledige locatie wordt weergegeven in het deelvenster met eigenschappen.
+## <a name="your-data-your-tools"></a>Uw gegevens, uw hulp middelen
+De opties die beschikbaar zijn in het menu, zijn afhankelijk van het type gegevens activum dat momenteel is geselecteerd. Niet alle mogelijke hulpprogram ma's worden uiteraard opgenomen in de ' openen in... ' , maar het is nog steeds eenvoudig om verbinding te maken met de gegevens bron met behulp van elk client programma. Wanneer een gegevensasset is geselecteerd in de **Azure Data Catalog** Portal, wordt de volledige locatie weer gegeven in het deel venster Eigenschappen.
 
- ![Verbindingsgegevens voor een SQL Server-tabel](./media/data-catalog-how-to-connect/data-catalog-how-to-connect3.png)
+ ![Verbindings gegevens voor een SQL Server tabel](./media/data-catalog-how-to-connect/data-catalog-how-to-connect3.png)
 
-De details van de verbinding informatie wijkt af van het gegevensbrontype voor gegevensbrontype, maar de informatie die is opgenomen in de portal krijgt u alles wat die u moet verbinding maken met de gegevensbron in een clienthulpprogramma. Gebruikers kunnen de gegevens van de verbinding voor de gegevensbronnen die ze hebben gedetecteerd met behulp van kopiëren **Azure Data Catalog**, waardoor ze werken met de gegevens in een hulpprogramma naar keuze.
+De gegevens van de verbindings informatie verschillen van het gegevens bron type tot het gegevens bron type, maar met de informatie in de portal krijgt u alles wat u nodig hebt om verbinding te maken met de gegevens bron in elk client programma. Gebruikers kunnen de verbindings gegevens kopiëren voor de gegevens bronnen die ze hebben gedetecteerd met behulp van **Azure Data Catalog**, waardoor ze kunnen werken met de gegevens in het hulp programma van de keuze.
 
-## <a name="connecting-and-data-source-permissions"></a>Machtigingen voor de bron verbinding te maken en gegevens
-Hoewel **Azure Data Catalog** maakt gegevensbronnen kunnen worden gedetecteerd, toegang tot de gegevens zelf blijft onder het beheer van de eigenaar van de bron van gegevens of de beheerder. Detectie van een gegevensbron in **Azure Data Catalog** geeft geen een gebruiker geen machtigingen voor toegang tot de gegevensbron zelf.
+## <a name="connecting-and-data-source-permissions"></a>Verbinding maken en gegevens bron machtigingen
+Hoewel **Azure Data Catalog** gegevens bronnen detecteerbaar maakt, blijft de toegang tot de gegevens zelf onder controle van de gegevens bron eigenaar of beheerder. Het detecteren van een gegevens bron in **Azure Data Catalog** geeft geen gebruiker machtigingen voor toegang tot de gegevens bron zelf.
 
-Als u wilt maken het gemakkelijker voor gebruikers die een gegevensbron detecteren, maar u bent niet gemachtigd voor toegang tot de gegevens, kunnen gebruikers gegevens in de eigenschap verzoeken tot toegang opgeven wanneer aantekeningen maken bij een gegevensbron. Informatie die hier beschikbaar zijn, inclusief koppelingen naar het proces of contactpunt voor het verkrijgen van toegang tot de gegevensbron: wordt weergegeven naast de locatie van de gegevensbroninformatie in de portal.
+Om het eenvoudiger te maken voor gebruikers die een gegevens bron hebben gedetecteerd, maar geen toegang hebben tot de gegevens van de gebruiker, kunnen gebruikers informatie opgeven in de eigenschap toegang aanvragen wanneer ze een gegevens bron aantekent. Informatie die hier wordt weer gegeven, inclusief koppelingen naar het proces of contact punt voor het verkrijgen van toegang tot gegevens bronnen – wordt gepresenteerd naast de gegevens bron locatie-informatie in de portal.
 
- ![Gegevens van de verbinding met de aanvraag voor toegang tot instructies](./media/data-catalog-how-to-connect/data-catalog-how-to-connect4.png)
+ ![Verbindings gegevens met instructies voor het opvragen van de toegang](./media/data-catalog-how-to-connect/data-catalog-how-to-connect4.png)
 
 ## <a name="summary"></a>Samenvatting
-Het registreren van een gegevensbron met **Azure Data Catalog** maakt die gegevens kunnen worden gedetecteerd door te kopiëren van de structurele en beschrijvende metagegevens uit de gegevensbron in de Catalog-service. Zodra een gegevensbron is geregistreerd en gedetecteerd, gebruikers verbinding kunnen maken met de gegevensbron van de **Azure Data Catalog** portal ' Open in... "" menu of met behulp van hun hulpprogramma's voor gegevens van keuze.
+Als u een gegevens bron registreert met **Azure Data Catalog** , kunnen de gegevens worden gedetecteerd door structurele en beschrijvende meta gegevens te kopiëren van de gegevens bron naar de catalogus service. Nadat een gegevens bron is geregistreerd en gedetecteerd, kunnen gebruikers verbinding maken met de gegevens bron vanuit het **Azure Data Catalog** portal ' openen in... ' menu's of gebruiken van de gewenste gegevens hulpprogramma's.
 
 ## <a name="see-also"></a>Zie ook
-* [Aan de slag met Azure Data Catalog](data-catalog-get-started.md) zelfstudies voor stapsgewijze informatie over hoe u verbinding maakt met gegevensbronnen.
+* [Aan de slag met Azure Data Catalog](data-catalog-get-started.md) -zelf studie voor stapsgewijze informatie over het maken van verbinding met gegevens bronnen.

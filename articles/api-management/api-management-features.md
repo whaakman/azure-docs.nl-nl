@@ -1,6 +1,6 @@
 ---
-title: Vergelijking van de Azure API Management-lagen op basis van functie | Microsoft Docs
-description: In dit artikel worden vergeleken op basis van de functies van API Management-categorieën.
+title: Vergelijking op basis van functies van de Azure API Management-lagen | Microsoft Docs
+description: In dit artikel worden API Management lagen vergeleken op basis van de functies die ze bieden.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,34 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: apimpm
-ms.openlocfilehash: a57f8e44d19432f82abe4fa5e7bafce900db3394
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c06e297d3d81623b7224082cb66f8faa6879205d
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448015"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774955"
 ---
-# <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Vergelijking van de Azure API Management-lagen op basis van functie
+# <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Vergelijking op basis van functies van de Azure API Management-lagen
 
-Elke API Management [prijscategorie](https://aka.ms/apimpricing) vindt u een afzonderlijke set met functies en per eenheid [capaciteit](api-management-capacity.md). De volgende tabel geeft een overzicht van de belangrijkste functies die beschikbaar zijn in elk van de lagen. Sommige functies mogelijk werken anders of hebt verschillende mogelijkheden, afhankelijk van de laag. In dergelijke gevallen zijn de verschillen genoemd in de documentatieartikelen met een beschrijving van deze afzonderlijke functies.
+>[!IMPORTANT]
+> Let op: de Developer-laag is voor niet-productie gebruik en evaluaties. Het biedt geen SLA. 
 
-| Functie                                                                                      | Verbruik | Developer      | Basic          | Standard       | Premium        |
+Elke API Management [prijs categorie](https://aka.ms/apimpricing) biedt een afzonderlijke set functies en per eenheids [capaciteit](api-management-capacity.md). De volgende tabel bevat een overzicht van de belangrijkste functies die beschikbaar zijn in elk van de lagen. Sommige functies werken mogelijk anders of hebben verschillende mogelijkheden, afhankelijk van de laag. In dergelijke gevallen worden de verschillen genoemd in de documentatie artikelen waarin deze afzonderlijke functies worden beschreven.
+
+| Functie                                                                                      | Verbruik | Ontwikkelaar      | Basic          | Standard       | Premium        |
 | -------------------------------------------------------------------------------------------- | ----------------------------- | -------------- | -------------- | -------------- | -------------- |
 | Azure AD-integratie<sup>1</sup>                                                             | Nee                            | Ja            | Nee             | Ja            | Ja            |
 | Ondersteuning voor Virtual Network (VNet)                                                               | Nee                            | Ja            | Nee             | Nee             | Ja            |
 | Implementatie in meerdere regio's                                                                      | Nee                            | Nee             | Nee             | Nee             | Ja            |
 | Meerdere aangepaste domeinnamen                                                                 | Nee                            | Nee             | Nee             | Nee             | Ja            |
-| Portal voor ontwikkelaars<sup>2</sup>                                                                 | Nee                            | Ja            | Ja            | Ja            | Ja            |
+| Ontwikkelaars Portal<sup>2</sup>                                                                 | Nee                            | Ja            | Ja            | Ja            | Ja            |
 | Ingebouwde cache                                                                               | Nee                            | Ja            | Ja            | Ja            | Ja            |
 | Ingebouwde analytics                                                                           | Nee                            | Ja            | Ja            | Ja            | Ja            |
 | [SSL-instellingen](api-management-howto-manage-protocols-ciphers.md)                             | Ja                            | Ja            | Ja            | Ja            | Ja            |
 | [Externe cache](https://aka.ms/apimbyoc)                                                    | Ja                           | Ja            | Ja            | Ja            | Ja            |
-| [Verificatie van clientcertificaten](api-management-howto-mutual-certificates-for-clients.md) | Ja                | Ja            | Ja            | Ja            | Ja            |
+| [Verificatie van client certificaten](api-management-howto-mutual-certificates-for-clients.md) | Ja                | Ja            | Ja            | Ja            | Ja            |
 | [Back-up en herstel](api-management-howto-disaster-recovery-backup-restore.md)               | Nee                            | Ja            | Ja            | Ja            | Ja            |
-| [Management via Git](api-management-configuration-repository-git.md)                        | Nee                            | Ja            | Ja            | Ja            | Ja            |
-| Direct beheer API                                                                        | Nee                            | Ja            | Ja            | Ja            | Ja            |
-| Azure Monitor-logboeken en metrische gegevens                                                               | Nee                | Ja            | Ja            | Ja            | Ja            |
+| [Beheer via git](api-management-configuration-repository-git.md)                        | Nee                            | Ja            | Ja            | Ja            | Ja            |
+| API voor direct beheer                                                                        | Nee                            | Ja            | Ja            | Ja            | Ja            |
+| Logboeken en metrische gegevens Azure Monitor                                                               | Nee                | Ja            | Ja            | Ja            | Ja            |
 | Statisch IP-adres                                                               | Nee                | Ja            | Ja            | Ja            | Ja            |
 
-<sup>1</sup> maakt het gebruik van Azure AD (en Azure AD B2C) als de identiteit van een provider voor de gebruiker aanmelden bij de portal voor ontwikkelaars.<br/>
-<sup>2</sup> met inbegrip van verwante functionaliteit bijvoorbeeld gebruikers, groepen, problemen, toepassingen en e-mailsjablonen en meldingen.<br/>
+<sup>1</sup> Hiermee maakt u het gebruik van Azure AD (en Azure AD B2C) als een id-provider voor gebruikers aanmelding op de ontwikkelaars Portal.<br/>
+<sup>2</sup> inclusief gerelateerde functionaliteit, zoals gebruikers, groepen, problemen, toepassingen en e-mail sjablonen en-meldingen.<br/>

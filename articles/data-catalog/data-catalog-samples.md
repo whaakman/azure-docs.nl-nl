@@ -1,36 +1,51 @@
 ---
-title: Azure Data Catalog-voorbeelden voor ontwikkelaars
-description: In dit artikel biedt een overzicht van de beschikbare developer-voorbeelden voor de REST-API van Data Catalog.
-services: data-catalog
+title: Voor beelden van Azure Data Catalog-ontwikkel aars
+description: Dit artikel bevat een overzicht van de beschik bare voor beelden voor ontwikkel aars voor de Data Catalog REST API.
+ms.service: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 0dc23edd-04d8-49fc-841e-d132fb109ce7
-ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 1f62a5583b7beef2dc535065a6c0d3bcb34fe7b4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/01/2019
+ms.openlocfilehash: cdf90029d02680de4ce55e33b3ed0fe810d70b4c
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60582717"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775248"
 ---
-# <a name="data-catalog-developer-samples"></a>Voorbeelden voor ontwikkelaars van Data Catalog
-Aan de slag met behulp van de REST-API van Data Catalog Data Catalog-apps ontwikkelen. De REST-API van Data Catalog is een op REST gebaseerde API die programmatische toegang tot Data Catalog-resources om te registreren biedt en annoteren van en zoeken naar gegevensassets via een programma.
+# <a name="azure-data-catalog-developer-samples"></a>Voor beelden van Azure Data Catalog-ontwikkel aars
 
-Hier volgen de voorbeelden op GitHub:
+Ga aan de slag met het ontwikkelen van Azure Data Catalog-apps met behulp van de Data Catalog REST API. De Data Catalog REST API is een op REST gebaseerde API die programmatische toegang biedt tot Data Catalog bronnen om gegevensassets programmatisch te registreren, aantekeningen te maken en te doorzoeken.
 
-* [Aan de slag met Azure Data Catalog](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-get-started/)
+Dit zijn de voor beelden op GitHub:
+
+* [Aan de slag met Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/)
   
-  Een voorbeeld dat wordt beschreven hoe u verificatie met Azure AD om te registreren, zoeken en verwijderen van een gegevensasset met behulp van de REST-API van Data Catalog.
-* [Bulksgewijs registreren en annoteren van](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-excel-register-data-assets/)
+   In het voor beeld aan de slag ziet u hoe u kunt verifiëren met Azure AD om een gegevensasset te registreren, te zoeken en te verwijderen met behulp van de Data Catalog REST API.
+   
+* [Aan de slag met Azure Data Catalog met behulp van de Service-Principal](https://github.com/Azure-Samples/data-catalog-dotnet-service-principal-get-started/)
+
+   In dit voor beeld ziet u hoe u een gegevensasset kunt registreren, zoeken en verwijderen met behulp van de Data Catalog REST API. In dit voor beeld wordt de Service-Principal-verificatie gebruikt.
+
+* [Hulp programma voor importeren/exporteren voor Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-import-export/)
+
+   Dit voor beeld laat zien hoe u de Data Catalog REST API kunt gebruiken om assets van de Azure Data Catalog op te halen en deze in een bestand te serialiseren. Er wordt ook gedemonstreerd hoe u een set activa kunt serialiseren als JSON en deze naar de catalogus kunt pushen. Het ondersteunt het exporteren van een subset van de catalogus met behulp van een zoek query.
+
+* [Bulksgewijs registreren en aantekeningen maken in Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-excel-register-data-assets/)
   
-  Een voorbeeld waarin wordt uitgelegd hoe u bulksgewijs registreert gegevensassets uit een Excel-werkmap met behulp van REST-API van Data Catalog en Open XML.
-* [Hulpprogramma voor importeren/exporteren](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-import-export/)
+   Dit voor beeld laat zien hoe u gegevensassets bulksgewijs kunt registreren vanuit een Excel-werkmap met behulp van Data Catalog REST API en open XML.
   
-  Een voorbeeld hoe u activa ophalen uit de Azure Data Catalog en ze te serialiseren in een bestand met de REST-API van Data Catalog. U ziet ook hoe u een set voorzieningen geserialiseerd als JSON en push ze naar de catalogus. Het ondersteunt een subset van de catalogus met behulp van een zoekopdracht exporteren.
+* [Termen in de woorden lijst bulksgewijs importeren in Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-bulk-import-glossary/)
 
-* [Bulksgewijs importeren Woordenlijsttermen](https://azure.microsoft.com/resources/samples/data-catalog-bulk-import-glossary/)
+   In dit voor beeld ziet u hoe u de termen van een woorden lijst uit CSV-bestanden importeert in ADC-woorden lijst.
 
-    In dit voorbeeld laat zien hoe u Woordenlijsttermen importeren uit CSV-bestanden naar ADC-woordenlijst.
+* [Relaties bulksgewijs importeren in Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-bulk-import-relationship/)
 
+   In dit voor beeld ziet u hoe u via programma code relatie gegevens vanuit een CSV-bestand kunt importeren in een gegevens catalogus.
+
+* [Relaties publiceren in Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-publish-relationships/)
+
+   Dit voor beeld laat zien hoe u via programma code relatie gegevens kunt publiceren naar een gegevens catalogus.
+   
+## <a name="next-steps"></a>Volgende stappen
+[Naslag informatie over Azure Data Catalog REST API](/rest/api/datacatalog/)

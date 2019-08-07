@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 6dc8fcc32d7f05063da15eb6ca6bf7a7d69baebb
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: f4d3a4d9a5785ae350874c400384477da1a6c22e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663123"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774717"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Logboek waarschuwingen maken, weer geven en beheren met behulp van Azure Monitor
 
@@ -58,7 +58,7 @@ Gedetailleerde volgende stapsgewijze instructies voor het gebruik van logboek wa
 
    > [!NOTE]
    > 
-   > In waarschuwings lijsten kunnen analyse query's worden geïmporteerd als signaal type- **logboek (opgeslagen query)** , zoals in de bovenstaande afbeelding wordt weer gegeven. Gebruikers kunnen uw query in de analyse verbeteren en deze vervolgens opslaan voor toekomstig gebruik in waarschuwingen-meer informatie over het gebruik van de query opslaan [in de logboek query in azure monitor](../log-query/log-query-overview.md) of een [gedeelde query in Application Insights Analytics](../log-query/log-query-overview.md).
+   > In waarschuwings lijsten kunnen analyse query's worden geïmporteerd als signaal type- **logboek (opgeslagen query)** , zoals in de bovenstaande afbeelding wordt weer gegeven. Gebruikers kunnen uw query in de analyse verbeteren en deze vervolgens opslaan voor toekomstig gebruik in waarschuwingen-meer informatie over het gebruik van de query opslaan [in de logboek query in azure monitor](../log-query/log-query-overview.md) of een [gedeelde query in Application Insights Analytics](../app/app-insights-overview.md).
 
 1. *Logboek waarschuwingen*: Als deze functie is geselecteerd, kan de query voor waarschuwingen worden opgegeven in het **Zoek query** veld; Als de query syntaxis onjuist is, wordt in het veld de fout rood weer gegeven. Als de query syntaxis juist is: voor referentie gegevens van de vermelde query wordt weer gegeven als een grafiek met de optie om het tijd venster van de laatste zes uur tot de vorige week te verfijnen.
 

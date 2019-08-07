@@ -4,14 +4,14 @@ description: Beschrijft de functies in een Azure Resource Manager-sjabloon gebru
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 07/31/2019
+ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7548b75f201c896e3a5248cb9d0154a9a676a86f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2ec6e58438e7be953e1f672fb815ff3f68a7f252
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698203"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839252"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Functies van de resource voor Azure Resource Manager-sjablonen
 
@@ -342,8 +342,8 @@ Retourneert een object waarmee de runtimestatus van een resource.
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceName of resourceIdentifier |Ja |string |Naam of de unieke id van een resource. |
-| apiVersion |Nee |string |API-versie van de opgegeven resource. Deze parameter opgeeft als de bron is niet in dezelfde sjabloon ingericht. Normaal gesproken in de indeling, **jjjj-mm-dd**. |
+| resourceName of resourceIdentifier |Ja |string |Naam of de unieke id van een resource. Wanneer u verwijst naar een resource in de huidige sjabloon, geef de naam van de resource als parameter. Wanneer u verwijst naar een eerder geïmplementeerde resource, geeft u de resource-ID op. |
+| apiVersion |Nee |string |API-versie van de opgegeven resource. Deze parameter opgeeft als de bron is niet in dezelfde sjabloon ingericht. Normaal gesproken in de indeling, **jjjj-mm-dd**. Zie voor een geldige API-versie voor uw resource [sjabloon verwijzing](/azure/templates/). |
 | 'Volledige' |Nee |string |De waarde die aangeeft of het volledige resource-object te retourneren. Als u geen opgeeft `'Full'`, alleen het object voor eigenschappen van de resource wordt geretourneerd. De volledige-object bevat waarden, zoals de resource-ID en de locatie. |
 
 ### <a name="return-value"></a>Retourwaarde
@@ -352,17 +352,7 @@ Elk resourcetype geeft als resultaat van de verschillende eigenschappen voor de 
 
 ### <a name="remarks"></a>Opmerkingen
 
-De functie verwijzing haalt de runtimestatus van een eerder geïmplementeerde resource of een resource in de huidige sjabloon wordt geïmplementeerd. In dit artikel ziet u voorbeelden voor beide scenario's. Wanneer u verwijst naar een resource in de huidige sjabloon, geef de naam van de resource als parameter. Wanneer u verwijst naar een eerder geïmplementeerde resource, bieden u de resource-ID en een API-versie voor de resource. U kunt geldige API-versies bepalen voor uw resource in de [sjabloonverwijzing](/azure/templates/).
-
-De referentie-functie kan alleen worden gebruikt in de eigenschappen van de resourcedefinitie van een en de uitvoersectie van een sjabloon of de implementatie. In combi natie met [eigenschaps herhaling](resource-group-create-multiple.md#property-iteration)kunt u de functie Reference gebruiken `input` voor omdat de expressie wordt toegewezen aan de resource-eigenschap. U kunt dit `count` niet gebruiken omdat het aantal moet worden bepaald voordat de verwijzings functie wordt opgelost.
-
-U kunt de functie Reference niet gebruiken in de uitvoer van een [geneste sjabloon](resource-group-linked-templates.md#nested-template) om een resource te retour neren die u in de geneste sjabloon hebt geïmplementeerd. Gebruik in plaats daarvan een [gekoppelde sjabloon](resource-group-linked-templates.md#external-template-and-external-parameters).
-
-Met behulp van de referentie-functie, declareert u impliciet dat een resource afhankelijk van een andere resource is als de bron waarnaar wordt verwezen, is ingericht in dezelfde sjabloon en u naar de resource met de naam (geen resource-ID verwijst). U hoeft niet te gebruiken ook de eigenschap DEPENDSON te maken. De functie wordt niet geëvalueerd totdat de resource waarnaar wordt verwezen, de implementatie is voltooid.
-
-Als u de functie **Reference** gebruikt in een resource die voorwaardelijk wordt geïmplementeerd, wordt de functie geëvalueerd, zelfs als de resource niet is geïmplementeerd.  Er **wordt** een fout bericht weer geven als de verwijzings functie verwijst naar een resource die niet bestaat. Gebruik de functie **als** om te controleren of de functie alleen wordt geëvalueerd wanneer de resource wordt geïmplementeerd. Zie de [functie als](resource-group-template-functions-logical.md#if) voor een voorbeeld sjabloon die gebruikmaakt van if en verwijst naar een voorwaardelijk geïmplementeerde resource.
-
-Als u wilt zien de namen van eigenschappen en waarden voor een resourcetype, een sjabloon die wordt geretourneerd van het object in de uitvoersectie te maken. Als u een bestaande resource van dat type hebt, retourneert de sjabloon voor het object zonder nieuwe resources te implementeren. 
+De functie verwijzing haalt de runtimestatus van een eerder geïmplementeerde resource of een resource in de huidige sjabloon wordt geïmplementeerd. In dit artikel ziet u voorbeelden voor beide scenario's.
 
 Meestal gebruikt u de **verwijzing** functie voor het retourneren van een bepaalde waarde van een object, zoals het eindpunt van blob-URI of de volledig gekwalificeerde domeinnaam.
 
@@ -403,7 +393,45 @@ Gebruik `'Full'` wanneer u waarden in de resource die geen deel uitmaken van het
     ...
 ```
 
-Zie voor het complete voorbeeld van de voorgaande sjabloon [Windows naar Key Vault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). Een voorbeeld van een soortgelijke is beschikbaar voor [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
+### <a name="valid-uses"></a>Geldige toepassingen
+
+De referentie-functie kan alleen worden gebruikt in de eigenschappen van de resourcedefinitie van een en de uitvoersectie van een sjabloon of de implementatie. In combi natie met [eigenschaps herhaling](resource-group-create-multiple.md#property-iteration)kunt u de functie Reference gebruiken `input` voor omdat de expressie wordt toegewezen aan de resource-eigenschap. U kunt dit `count` niet gebruiken omdat het aantal moet worden bepaald voordat de verwijzings functie wordt opgelost.
+
+U kunt de functie Reference niet gebruiken in de uitvoer van een [geneste sjabloon](resource-group-linked-templates.md#nested-template) om een resource te retour neren die u in de geneste sjabloon hebt geïmplementeerd. Gebruik in plaats daarvan een [gekoppelde sjabloon](resource-group-linked-templates.md#external-template-and-external-parameters).
+
+Als u de functie **Reference** gebruikt in een resource die voorwaardelijk wordt geïmplementeerd, wordt de functie geëvalueerd, zelfs als de resource niet is geïmplementeerd.  Er **wordt** een fout bericht weer geven als de verwijzings functie verwijst naar een resource die niet bestaat. Gebruik de functie **als** om te controleren of de functie alleen wordt geëvalueerd wanneer de resource wordt geïmplementeerd. Zie de [functie als](resource-group-template-functions-logical.md#if) voor een voorbeeld sjabloon die gebruikmaakt van if en verwijst naar een voorwaardelijk geïmplementeerde resource.
+
+### <a name="implicit-dependency"></a>Impliciete afhankelijkheid
+
+Met behulp van de referentie-functie, declareert u impliciet dat een resource afhankelijk van een andere resource is als de bron waarnaar wordt verwezen, is ingericht in dezelfde sjabloon en u naar de resource met de naam (geen resource-ID verwijst). U hoeft niet te gebruiken ook de eigenschap DEPENDSON te maken. De functie wordt niet geëvalueerd totdat de resource waarnaar wordt verwezen, de implementatie is voltooid.
+
+### <a name="resource-name-or-identifier"></a>Resource naam of-id
+
+Wanneer u verwijst naar een resource die in dezelfde sjabloon is geïmplementeerd, geeft u de naam van de resource op.
+
+```json
+"value": "[reference(parameters('storageAccountName'))]"
+```
+
+Wanneer u verwijst naar een resource die niet in dezelfde sjabloon is geïmplementeerd, geeft u de resource-ID op.
+
+```json
+"value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
+```
+
+U kunt een volledig gekwalificeerde resource naam opgeven om te voor komen dat u dubbel zinnigheid weet over welke resource u verwijst.
+
+```json
+"value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')))]"
+```
+
+Bij het samen stellen van een volledig gekwalificeerde verwijzing naar een resource is de volg orde voor het combi neren van segmenten van het type en naam niet gewoon een samen voeging van de twee. Gebruik in plaats daarvan een reeks van *type-en naam* paren van minst specifieke voor de meest specifieke kenmerken:
+
+**{resource-Provider-namespace}/{Parent-resource-type}/{Parent-resource-name} [/{Child-resource-type}/{Child-resource-name}]**
+
+Bijvoorbeeld:
+
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt`is correct `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` is niet juist
 
 ### <a name="example"></a>Voorbeeld
 
@@ -539,7 +567,9 @@ Het geretourneerde object is in de volgende indeling:
 {
   "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
   "name": "{resourceGroupName}",
+  "type":"Microsoft.Resources/resourceGroups",
   "location": "{resourceGroupLocation}",
+  "managedBy": "{identifier-of-managing-resource}",
   "tags": {
   },
   "properties": {
@@ -547,6 +577,8 @@ Het geretourneerde object is in de volgende indeling:
   }
 }
 ```
+
+De eigenschap **managedBy** wordt alleen geretourneerd voor resource groepen die resources bevatten die worden beheerd door een andere service. Voor beheerde toepassingen, Databricks en AKS is de waarde van de eigenschap de resource-ID van de beheer bron.
 
 ### <a name="remarks"></a>Opmerkingen
 
@@ -592,6 +624,7 @@ Het vorige voorbeeld retourneert een object in de volgende indeling:
 {
   "id": "/subscriptions/{subscription-id}/resourceGroups/examplegroup",
   "name": "examplegroup",
+  "type":"Microsoft.Resources/resourceGroups",
   "location": "southcentralus",
   "properties": {
     "provisioningState": "Succeeded"

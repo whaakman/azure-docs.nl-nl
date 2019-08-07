@@ -11,20 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f939811bec312baa1f4c37f0f915d2e881121af
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 1640511c2f97865f5026f9f977ed0e4a9c03e338
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334073"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774378"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Aan de slag met Azure Active Directory Identity Protection en Microsoft Graph
 
-Microsoft Graph is het micro soft Unified API-eind punt en de start van [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) -api's. Er zijn drie Api's die informatie over Risk ante gebruikers en aanmeldingen beschikbaar maken. De eerste API, **identityRiskEvents**, stelt u in staat om Microsoft Graph te zoeken naar een lijst met [risico gebeurtenissen](../reports-monitoring/concept-risk-events.md) en bijbehorende informatie. De tweede API, **riskyUsers**, stelt u in staat om Microsoft Graph te zoeken naar informatie over gebruikers identiteits beveiliging die als risico is gedetecteerd. De derde API, **signIn**, stelt u in staat om Microsoft Graph te zoeken naar informatie over Azure AD-aanmeldingen met specifieke eigenschappen die betrekking hebben op risico status, Details en niveau. In dit artikel wordt u aan de slag met het maken van verbinding met de Microsoft Graph en het uitvoeren van query's op deze Api's. Zie de [Microsoft Graph-site](https://graph.microsoft.io/) of de specifieke referentie documentatie voor deze api's voor een uitgebreide inleiding, volledige documentatie en toegang tot de Graph Explorer:
+Microsoft Graph is het micro soft Unified API-eind punt en de start van [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) -api's. Er zijn vier Api's die informatie over Risk ante gebruikers en aanmeldingen beschikbaar maken. Met de eerste API, **riskDetection**, kunt u een query uitvoeren op Microsoft Graph voor een lijst van zowel de gebruiker als de aanmelding en de bijbehorende informatie over de detectie. De tweede API, **riskyUsers**, stelt u in staat om Microsoft Graph te zoeken naar informatie over gebruikers identiteits beveiliging die als risico is gedetecteerd. De derde API, **signIn**, stelt u in staat om Microsoft Graph te zoeken naar informatie over Azure AD-aanmeldingen met specifieke eigenschappen die betrekking hebben op risico status, Details en niveau. Met de vierde API, **identityRiskEvents**, kunt u Microsoft Graph een lijst met [risico gebeurtenissen](../reports-monitoring/concept-risk-events.md) en bijbehorende informatie opvragen. In dit artikel wordt u aan de slag met het maken van verbinding met de Microsoft Graph en het uitvoeren van query's op deze Api's. Zie de [Microsoft Graph-site](https://graph.microsoft.io/) of de specifieke referentie documentatie voor deze api's voor een uitgebreide inleiding, volledige documentatie en toegang tot de Graph Explorer:
 
-* [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
+* [riskDetection-API](https://docs.microsoft.com/graph/api/resources/riskdetection?view=graph-rest-beta)
 * [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
 * [signIn API](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
+* [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
 
 ## <a name="connect-to-microsoft-graph"></a>Verbinding maken met micro soft Graph
 
@@ -194,6 +195,14 @@ Voeg gewoon uw client-ID, de geheime sleutel en het Tenant domein toe.
 ## <a name="query-the-apis"></a>Query's uitvoeren op de Api's
 
 Deze drie Api's bieden een groot aantal mogelijkheden om informatie op te halen over Risk ante gebruikers en aanmeldingen in uw organisatie. Hieronder vindt u enkele veelvoorkomende use cases voor deze Api's en de bijbehorende voorbeeld aanvragen. U kunt deze query's uitvoeren met behulp van de voorbeeld code hierboven of met [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+
+### <a name="get-all-of-the-offline-risk-detections-riskdetection-api"></a>Alle offline-risico detecties ophalen (riskDetection API)
+
+Met het beleid voor aanmeldings Risico's voor identiteits beveiliging kunt u voor waarden Toep assen wanneer er in realtime een risico wordt gedetecteerd. Maar hoe zit het met detecties die offline (of niet in realtime) worden gedetecteerd? Als u wilt weten welke detecties offline zijn, en dus het beleid voor aanmeldings Risico's niet hebben geactiveerd, kunt u een query uitvoeren op de riskDetection-API.
+
+```
+GET https://graph.microsoft.com/beta/riskDetections?$filter=detectionTimingType eq 'offline'
+```
 
 ### <a name="get-the-high-risk-and-medium-risk-events-identityriskevents-api"></a>De gebeurtenissen met een hoog risico en een middel groot risico ophalen (identityRiskEvents-API)
 

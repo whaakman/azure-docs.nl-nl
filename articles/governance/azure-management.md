@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: 520b84722d9434b309d3eb6da0baa3c1e4da33d0
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 958f82ef94a08adaf2bbae1ef8ceefae5db289ea
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608187"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780800"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Overzicht van beheer Services in azure
 
@@ -40,7 +40,7 @@ Automatisering van deze taken kunt u redundantie, minimaliseert de tijd en moeit
 ## <a name="govern"></a>Governance
 
 Governance biedt mechanismen en processen om de controle over uw toepassingen en resources in Azure te behouden. Dat omvat het plannen van initiatieven en het stellen van strategische prioriteiten.
-Governance in Azure wordt hoofdzakelijk geïmplementeerd via twee services. [Azure Policy](./policy/overview.md) kunt u maken, toewijzen en beheren van beleidsdefinities om af te dwingen van regels voor uw resources. Deze functie blijft deze resources voldoen aan uw bedrijfsnormen. [Azure Cost Management by Cloudyn](../cost-management/overview.md) kunt u voor het bijhouden van gebruik van de cloud en de uitgaven voor uw Azure-resources en andere cloudproviders.
+Governance in Azure wordt hoofdzakelijk geïmplementeerd via twee services. [Azure Policy](./policy/overview.md) kunt u maken, toewijzen en beheren van beleidsdefinities om af te dwingen van regels voor uw resources. Deze functie blijft deze resources voldoen aan uw bedrijfsnormen. Met [Azure Cost Management](../cost-management/overview-cost-mgt.md) kunt u het Cloud gebruik en-uitgaven bijhouden voor uw Azure-resources en andere cloud providers.
 
 ## <a name="secure"></a>Beveiligen
 

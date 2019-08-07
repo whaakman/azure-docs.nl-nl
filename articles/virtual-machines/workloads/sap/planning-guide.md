@@ -18,10 +18,10 @@ ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 11a54dee653bcfa6c94a861e483183ac39f465bf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/06/2019
 ms.locfileid: "67710187"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planning en implementatie voor SAP net-Weaver
@@ -1959,7 +1959,7 @@ Hier volgen twee voor beelden van een volledige SAP NetWeaver HA-architectuur in
 Alleen niet-beheerde schijven: De concepten zoals hieronder uitgelegd, moeten mogelijk een beetje worden aangetast wanneer u veel SAP-systemen implementeert en het aantal geïmplementeerde Vm's overschrijdt de maximum limiet van opslag accounts per abonnement. In dergelijke gevallen moeten Vhd's met virtuele machines in één opslag account worden gecombineerd. Dit doet u meestal door Vhd's van SAP Application Layer-Vm's van verschillende SAP-systemen te combi neren.  We hebben ook verschillende Vhd's van verschillende DBMS-Vm's van verschillende SAP-systemen gecombineerd in één Azure Storage-account. De IOPS-limieten van Azure Storage accounts in acht houden<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>()
 
 
-##### <a name="windowslogowindows-ha-on-windows"></a>![Windows][Logo_Windows] HA op Windows
+##### <a name="windowslogo_windows-ha-on-windows"></a>![Windows][Logo_Windows] HA op Windows
 
 ![Architectuur van de Application HA van SAP net-Weaver met SQL Server in azure IaaS][planning-guide-figure-3200]
 
@@ -1981,7 +1981,7 @@ In de volgende afbeelding ziet u hetzelfde landschap met Managed Disks.
 
 ![Architectuur van de Application HA van SAP net-Weaver met SQL Server in azure IaaS][planning-guide-figure-3201]
 
-##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] HA op Linux
+##### <a name="linuxlogo_linux-ha-on-linux"></a>![Linux][Logo_Linux] HA op Linux
 
 De architectuur voor SAP HA onder Linux op Azure is in principe hetzelfde als voor Windows zoals hierboven beschreven. Raadpleeg SAP Note [1928533] voor een lijst met ondersteunde oplossingen met hoge Beschik baarheid.
 

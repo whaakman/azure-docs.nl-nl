@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0602de13fefbf105e69ba42651216fb479c4c86
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 733b0d7650d68bddae60cf524947590c2b689968
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477131"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779365"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Een implementatie van eenmalige aanmelding plannen
 
@@ -95,7 +95,7 @@ Vanuit het oogpunt van aanmelding zijn toepassingen met gedeelde accounts niet a
 
 Het kiezen van de juiste verificatie methode is een cruciaal eerste beslissing bij het instellen van een Azure AD hybride identiteits oplossing. Implementeer de verificatie methode die is geconfigureerd met behulp van Azure AD Connect, waarmee ook gebruikers in de cloud worden ingericht.
 
-Als u een verificatie methode wilt kiezen, moet u rekening houden met de tijd, de bestaande infra structuur, de complexiteit en de kosten van de implementatie van uw keuze. Deze factoren zijn voor elke organisatie verschillend en kunnen in de loop van de tijd veranderen. U moet de naam kiezen die het meest overeenkomt met uw specifieke scenario. Zie [de juiste verificatie methode kiezen voor uw Azure Active Directory hybride identiteits oplossing](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)voor meer informatie.
+Als u een verificatie methode wilt kiezen, moet u rekening houden met de tijd, de bestaande infra structuur, de complexiteit en de kosten van de implementatie van uw keuze. Deze factoren zijn voor elke organisatie verschillend en kunnen in de loop van de tijd veranderen. U moet de naam kiezen die het meest overeenkomt met uw specifieke scenario. Zie [de juiste verificatie methode kiezen voor uw Azure Active Directory hybride identiteits oplossing](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)voor meer informatie.
 
 ## <a name="plan-your-security-and-governance"></a>De beveiliging en governance plannen 
 

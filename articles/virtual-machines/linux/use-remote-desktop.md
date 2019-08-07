@@ -1,6 +1,6 @@
 ---
-title: Met een virtuele Linux-machine via Extern bureaublad gebruiken in Azure | Microsoft Docs
-description: Meer informatie over het installeren en configureren van extern bureaublad (xrdp) verbinding maken met een Linux-VM in Azure met behulp van de grafische hulpprogramma 's
+title: Extern bureaublad gebruiken voor een virtuele Linux-machine in azure | Microsoft Docs
+description: Meer informatie over het installeren en configureren van Extern bureaublad (xrdp) om verbinding te maken met een virtuele Linux-machine in azure met grafische hulpprogram ma's
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,131 +14,131 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 63f66d345b88984a49b8eb18b02fd79fb0603022
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 64f287a98af6cb353117ec1de1f9f0d55b367085
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695507"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774363"
 ---
-# <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installeren en configureren van extern bureaublad verbinding maken met een Linux-VM in Azure
-Linux virtuele machines (VM's) in Azure worden meestal beheerd vanaf de opdrachtregel met behulp van een secure shell (SSH)-verbinding. Wanneer er nieuwe voor Linux, of om snel oplossen van problemen met scenario's, kan het gebruik van extern bureaublad eenvoudiger zijn. Dit artikel wordt uitgelegd hoe u kunt installeren en configureren van een bureaublad-omgeving ([xfce](https://www.xfce.org)) en extern bureaublad ([xrdp](https://www.xrdp.org)) voor uw Linux-VM met het Resource Manager-implementatiemodel.
+# <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Extern bureaublad installeren en configureren om verbinding te maken met een virtuele Linux-machine in azure
+Virtuele Linux-machines (Vm's) in Azure worden meestal beheerd vanaf de opdracht regel met behulp van een SSH-verbinding (Secure Shell). Wanneer u geen ervaring hebt met Linux of voor snelle probleemoplossings scenario's, is het gebruik van extern bureau blad mogelijk eenvoudiger. In dit artikel wordt beschreven hoe u een desktop-omgeving ([xfce](https://www.xfce.org)) en extern bureau blad ([xrdp](https://www.xrdp.org)) installeert en configureert voor uw virtuele Linux-machine met behulp van het Resource Manager-implementatie model.
 
 
 ## <a name="prerequisites"></a>Vereisten
-In dit artikel gebruikmaken van een bestaande Ubuntu 16.04 LTS-VM in Azure. Als u een virtuele machine maken wilt, gebruikt u een van de volgende methoden:
+Voor dit artikel is een bestaande Ubuntu 16,04 LTS-VM vereist in Azure. Als u een virtuele machine wilt maken, gebruikt u een van de volgende methoden:
 
-- De [Azure CLI](quick-create-cli.md)
+- De [Azure cli](quick-create-cli.md)
 - [Azure Portal](quick-create-portal.md)
 
 
-## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Een desktopomgeving installeren op uw Linux-VM
-De meeste Linux-VM's in Azure beschikt niet over een desktopomgeving standaard geïnstalleerd. Linux-VM's worden meestal beheerd met behulp van SSH-verbindingen in plaats van een bureaublad-omgeving. Er zijn verschillende desktopomgevingen in Linux die u kunt kiezen. Afhankelijk van uw keuze van desktopomgeving, kan het één tot en met 2 GB aan schijfruimte in beslag nemen en 5 tot 10 minuten installeren en configureren van de vereiste pakketten.
+## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Een desktop omgeving installeren op uw virtuele Linux-machine
+Voor de meeste Linux-Vm's in Azure is geen bureaublad omgeving standaard geïnstalleerd. Virtuele Linux-machines worden vaak beheerd met SSH-verbindingen in plaats van een desktop omgeving. Er zijn verschillende desktop omgevingen in Linux die u kunt kiezen. Afhankelijk van uw keuze van de bureaublad omgeving, kan het één tot 2 GB aan schijf ruimte verbruiken en vijf tot tien minuten duren om alle vereiste pakketten te installeren en te configureren.
 
-Het volgende voorbeeld installeert de lightweight [xfce4](https://www.xfce.org/) desktopomgeving op een Ubuntu 16.04 LTS-VM. Opdrachten voor andere distributies enigszins verschillen (Gebruik `yum` op Red Hat Enterprise Linux installeren en configureren juiste `selinux` regels, of gebruik `zypper` te installeren op SUSE, bijvoorbeeld).
+In het volgende voor beeld wordt de licht gewicht [xfce4](https://www.xfce.org/) Desktop Environment geïnstalleerd op een Ubuntu 16,04 LTS-VM. Opdrachten voor andere distributies variëren enigszins `yum` per Red Hat Enterprise Linux, configureren van de juiste `selinux` regels of gebruiken `zypper` om te installeren op Suse, bijvoorbeeld).
 
-Eerste, SSH verbinding met uw virtuele machine. Het volgende voorbeeld maakt verbinding met de virtuele machine met de naam *myvm.westus.cloudapp.azure.com* met de gebruikersnaam van *azureuser*. Gebruik uw eigen waarden:
+Eerst SSH naar uw VM. In het volgende voor beeld wordt verbinding gemaakt met de virtuele machine met de naam *myvm.westus.cloudapp.Azure.com* met de gebruikers naam van *azureuser*. Gebruik uw eigen waarden:
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-Als u van Windows gebruikmaakt en meer informatie over het gebruik van SSH nodig hebt, raadpleegt u [over het gebruik van SSH-sleutels met Windows](ssh-from-windows.md).
+Zie [SSH-sleutels gebruiken met Windows](ssh-from-windows.md)als u Windows gebruikt en meer informatie wilt over het gebruik van SSH.
 
-Vervolgens installeert u met behulp van xfce `apt` als volgt:
+Installeer vervolgens xfce met behulp van `apt` de volgende opties:
 
 ```bash
 sudo apt-get update
 sudo apt-get install xfce4
 ```
 
-## <a name="install-and-configure-a-remote-desktop-server"></a>Installeren en configureren van een extern bureaublad-server
-Nu dat u een desktop-omgeving is geïnstalleerd hebt, configureert u een extern bureaublad-services om te luisteren naar binnenkomende verbindingen. [xrdp](http://xrdp.org) is een open-source Remote Desktop Protocol (RDP)-server die is beschikbaar in de meeste Linux-distributies en werkt goed met xfce. Installeer xrdp op uw Ubuntu-VM als volgt:
+## <a name="install-and-configure-a-remote-desktop-server"></a>Een extern bureau blad-server installeren en configureren
+Nu u een bureaublad omgeving hebt geïnstalleerd, configureert u een extern bureau blad-service om te Luis teren naar binnenkomende verbindingen. [xrdp](http://xrdp.org) is een open source Remote Desktop Protocol (RDP)-server die beschikbaar is in de meeste Linux-distributies en goed werkt met xfce. Installeer xrdp op uw Ubuntu-VM als volgt:
 
 ```bash
-sudo apt-get install xrdp
+sudo apt-get install xrdp=0.6.1-2
 sudo systemctl enable xrdp
 ```
 
-Vertel xrdp welke desktopomgeving moet worden gebruikt wanneer u uw sessie starten. Xrdp voor het gebruik van xfce als uw desktopomgeving als volgt configureren:
+Vertel xrdp welke bureaublad omgeving moet worden gebruikt wanneer u uw sessie start. Configureer xrdp als volgt om xfce als uw bureaublad omgeving te gebruiken:
 
 ```bash
 echo xfce4-session >~/.xsession
 ```
 
-Start de service xrdp voor de wijzigingen worden doorgevoerd als volgt:
+Start de xrdp-service opnieuw om de wijzigingen van kracht te laten worden door de volgende:
 
 ```bash
 sudo service xrdp restart
 ```
 
 
-## <a name="set-a-local-user-account-password"></a>Stel het wachtwoord van een lokale gebruikersaccount
-Als u een wachtwoord voor uw gebruikersaccount gemaakt tijdens het maken van uw virtuele machine, moet u deze stap overslaan. Als u alleen gebruik van verificatie van SSH-sleutel en het wachtwoord van een lokaal account instellen, een wachtwoord opgeven voordat u xrdp gebruiken om aan te melden bij uw virtuele machine niet hebt. xrdp kan geen SSH-sleutels voor verificatie accepteren. Het volgende voorbeeld geeft u een wachtwoord voor het gebruikersaccount *azureuser*:
+## <a name="set-a-local-user-account-password"></a>Een wacht woord voor een lokale gebruikers account instellen
+Als u een wacht woord hebt gemaakt voor uw gebruikers account tijdens het maken van de VM, slaat u deze stap over. Als u alleen SSH-sleutel verificatie gebruikt en geen wacht woord voor een lokale account hebt ingesteld, geeft u een wacht woord op voordat u xrdp gebruikt om u aan te melden bij uw VM. xrdp kan geen SSH-sleutels voor verificatie accepteren. In het volgende voor beeld wordt een wacht woord voor het gebruikers account *azureuser*opgegeven:
 
 ```bash
 sudo passwd azureuser
 ```
 
 > [!NOTE]
-> Een wachtwoord op te geven, wordt de configuratie van uw SSHD zodanig aanmelding met een wachtwoord als die op dit moment niet bestaat niet bijgewerkt. Vanuit het oogpunt van veiligheid kunt u wilt verbinden met uw virtuele machine met een SSH-tunnel met behulp van verificatie op basis van een sleutel en maak verbinding met xrdp. Als dit het geval is, slaat u de volgende stap voor het maken van een regel voor de netwerkbeveiligingsgroep voor het toestaan van verkeer van extern bureaublad.
+> Als u een wacht woord opgeeft, wordt uw SSHD-configuratie niet bijgewerkt om wachtwoord aanmeldingen mogelijk te maken als dat niet het geval is. Vanuit het oogpunt van beveiliging kunt u verbinding maken met uw virtuele machine via een SSH-tunnel met behulp van verificatie op basis van een sleutel en vervolgens verbinding maken met xrdp. Als dit het geval is, slaat u de volgende stap over voor het maken van een netwerk beveiligings groep regel om extern bureau blad-verkeer toe te staan.
 
 
-## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Maak een regel voor Netwerkbeveiligingsgroep voor verkeer van extern bureaublad
-Voor extern bureaublad-verkeer tot uw Linux-VM, een netwerkbeveiligingsgroep kunt groep regel moet worden gemaakt die TCP op poort 3389 uw virtuele machine kan bereiken. Zie voor meer informatie over de regels voor netwerkbeveiligingsgroepen [wat is er een netwerkbeveiligingsgroep?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) U kunt ook [de Azure portal gebruiken voor het maken van een regel voor netwerkbeveiligingsgroep](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Een regel voor de netwerk beveiligings groep voor Extern bureaublad verkeer maken
+Als u wilt toestaan dat Extern bureaublad verkeer uw virtuele Linux-machine bereikt, moet er een regel voor de netwerk beveiligings groep worden gemaakt waarmee TCP op poort 3389 uw virtuele machine kan bereiken. Zie [Wat is een netwerk beveiligings groep?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie over regels voor netwerk beveiligings groepen. U kunt ook [de Azure Portal gebruiken om een regel voor een netwerk beveiligings groep te maken](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Het volgende voorbeeld wordt een netwerkbeveiligingsgroepregel met [az vm open-port](/cli/azure/vm#az-vm-open-port) op poort *3389*. Vanuit de Azure CLI niet de SSH-sessie met uw virtuele machine, opent u de volgende regel voor netwerkbeveiligingsgroep:
+In het volgende voor beeld wordt een regel voor een netwerk beveiligings groep gemaakt met [AZ VM Open-Port](/cli/azure/vm#az-vm-open-port) op poort *3389*. Open vanuit de Azure CLI, niet de SSH-sessie naar uw virtuele machine, de volgende regel voor de netwerk beveiligings groep:
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 ```
 
 
-## <a name="connect-your-linux-vm-with-a-remote-desktop-client"></a>Verbind uw Linux-VM met een extern bureaublad-client
-Open uw lokale extern-bureaubladclient en verbinding maken met het IP-adres of de DNS-naam van uw Linux-VM. Voer de gebruikersnaam en wachtwoord voor het gebruikersaccount op de virtuele machine als volgt:
+## <a name="connect-your-linux-vm-with-a-remote-desktop-client"></a>Uw virtuele Linux-machine verbinden met een Extern bureaublad-client
+Open uw lokale extern bureau blad-client en maak verbinding met het IP-adres of de DNS-naam van uw virtuele Linux-machine. Voer de gebruikers naam en het wacht woord voor het gebruikers account op uw virtuele machine als volgt in:
 
-![Verbinding maken met xrdp met behulp van de extern bureaublad-client](./media/use-remote-desktop/remote-desktop-client.png)
+![Verbinding maken met xrdp met behulp van uw Extern bureaublad-client](./media/use-remote-desktop/remote-desktop-client.png)
 
-Na verificatie, wordt de desktopomgeving xfce laden en het volgende voorbeeld als volgt uitzien:
+Nadat de verificatie is gelukt, wordt de xfce-desktop omgeving geladen en ziet deze er ongeveer uit zoals in het volgende voor beeld:
 
-![xfce desktopomgeving via xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
+![xfce desktop environment via xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
 
-Als uw lokale RDP-client gebruikmaakt van verificatie op netwerkniveau (NLA), moet u mogelijk om uit te schakelen die instelling. XRDP biedt momenteel geen ondersteuning voor NLA. U kunt ook zoeken op alternatieve RDP-oplossingen die ondersteuning voor NLA, zoals bieden [FreeRDP](https://www.freerdp.com).
+Als uw lokale RDP-client gebruikmaakt van verificatie op netwerk niveau (NLA), moet u deze verbindings instelling mogelijk uitschakelen. XRDP biedt momenteel geen ondersteuning voor NLA. U kunt ook zoeken naar alternatieve RDP-oplossingen die NLA ondersteunen, zoals [FreeRDP](https://www.freerdp.com).
 
 
 ## <a name="troubleshoot"></a>Problemen oplossen
-Als u geen verbinding met uw Linux-VM met behulp van een extern bureaublad-client maken, gebruikt u `netstat` op uw Linux-VM om te controleren of dat uw virtuele machine voor RDP-verbindingen als volgt luistert:
+Als u geen verbinding kunt maken met uw virtuele Linux-machine met behulp van een extern bureaublad-client, gebruikt `netstat` u de virtuele Linux-machine om te controleren of uw virtuele machine op de volgende wijze naar RDP-verbindingen luistert:
 
 ```bash
 sudo netstat -plnt | grep rdp
 ```
 
-Het volgende voorbeeld ziet u de virtuele machine die luistert op TCP-poort 3389 zoals verwacht:
+In het volgende voor beeld ziet u dat de VM naar behoren luistert op TCP-poort 3389:
 
 ```bash
 tcp     0     0      127.0.0.1:3350     0.0.0.0:*     LISTEN     53192/xrdp-sesman
 tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
 ```
 
-Als de *xrdp sesman* service niet wordt geluisterd, op een Ubuntu-VM Start de service als volgt:
+Als de *xrdp-sesman-* service niet luistert, start u op een Ubuntu-VM de service als volgt opnieuw op:
 
 ```bash
 sudo service xrdp restart
 ```
 
-Beoordeling aanmeldt */var/log* op uw Ubuntu-VM aanwijzingen over waarom de service reageert niet. U kunt ook de syslog controleren tijdens een poging verbinding met extern bureaublad om eventuele fouten weer te geven:
+Bekijk de logboeken in */var/log* op uw Ubuntu-VM voor aanwijzingen over waarom de service mogelijk niet reageert. U kunt ook de syslog controleren tijdens een verbinding met een extern bureau blad om fouten te bekijken:
 
 ```bash
 tail -f /var/log/syslog
 ```
 
-Andere Linux-distributies zoals Red Hat Enterprise Linux en SUSE mogelijk verschillende manieren voor het opnieuw opstarten van services en de locatie van alternatieve logboekbestanden om te controleren.
+Andere Linux-distributies zoals Red Hat Enterprise Linux en SUSE kunnen verschillende manieren hebben om services en andere locaties van het logboek bestand om te controleren.
 
-Als u geen een reactie in uw extern bureaublad-client ontvangt en alle gebeurtenissen in het systeemlogboek niet ziet, wordt dit gedrag geeft aan dat de virtuele machine niet verkeer van extern bureaublad bereiken kan. Controleer uw regels voor netwerkbeveiligingsgroepen om ervoor te zorgen dat u een regel hebt om TCP op poort 3389. Zie voor meer informatie, [oplossen van problemen met de netwerkverbinding van de toepassing](../windows/troubleshoot-app-connection.md).
+Als er geen antwoord wordt ontvangen in uw extern bureau blad-client en er geen gebeurtenissen in het systeem logboek worden weer gegeven, betekent dit gedrag dat extern bureau blad-verkeer de virtuele machine niet kan bereiken. Controleer de regels voor de netwerk beveiligings groep om ervoor te zorgen dat u een regel hebt voor het toestaan van TCP op poort 3389. Zie problemen [met toepassings connectiviteit oplossen](../windows/troubleshoot-app-connection.md)voor meer informatie.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het maken en gebruiken van SSH-sleutels met Linux-VM's, [SSH-sleutels maken voor virtuele Linux-machines in Azure](mac-create-ssh-keys.md).
+Zie [SSH-sleutels voor Linux-Vm's maken in azure](mac-create-ssh-keys.md)voor meer informatie over het maken en gebruiken van SSH-sleutels met virtuele Linux-machines.
 
-Zie voor meer informatie over het gebruik van SSH van Windows [over het gebruik van SSH-sleutels met Windows](ssh-from-windows.md).
+Zie [SSH-sleutels gebruiken met Windows](ssh-from-windows.md)voor meer informatie over het gebruik van SSH vanuit Windows.
 

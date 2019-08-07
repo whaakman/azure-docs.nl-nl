@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7799b62b2c330610663e361bbb3930340b1ebdaf
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a007e3adb72148cfde1590e996f7df9082159445
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726283"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840496"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Een Azure Machine Learning-model dat is geïmplementeerd als een webservice gebruiken
 
@@ -29,6 +29,9 @@ De algemene werk stroom voor het maken van een client die gebruikmaakt van een m
 1. Gebruik de SDK om de verbindings gegevens op te halen.
 1. Bepaal het type aanvraag gegevens dat door het model wordt gebruikt.
 1. Maak een toepassing die de webservice aanroept.
+
+> [!TIP]
+> De voor beelden in dit document zijn hand matig gemaakt zonder de specificaties voor het gebruik van OpenAPI (Swagger). Als u een OpenAPI-specificatie hebt ingeschakeld voor uw implementatie, kunt u hulpprogram ma's zoals [Swagger-CodeGen](https://github.com/swagger-api/swagger-codegen) gebruiken om client bibliotheken voor uw service te maken.
 
 ## <a name="connection-information"></a>Verbindingsgegevens
 

@@ -1,176 +1,176 @@
 ---
-title: Veelgestelde vragen - VMware-oplossing door CloudSimple
-description: Veelgestelde vragen over Azure VMware-oplossing door CloudSimple
+title: Veelgestelde vragen-VMware-oplossing per CloudSimple
+description: Veelgestelde vragen over de Azure VMware-oplossing per CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 05/24/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e187a4a75a27e206a632388f1e20a94da032eb08
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 80380a1c33927029e000e59a5834f297340f5be3
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595348"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816239"
 ---
-# <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Veelgestelde vragen over de oplossing VMware door CloudSimple
+# <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Veelgestelde vragen over VMware-oplossing per CloudSimple
 
-Veelgestelde vragen en antwoorden over Azure VMware-oplossing door CloudSimple waarmee u inzicht in de service en het gebruik ervan. De vragen en antwoorden zijn gerangschikt in de volgende categorieën:
+Veelgestelde vragen en antwoorden over de Azure VMware-oplossing door CloudSimple, waarmee u de service kunt begrijpen en hoe u deze kunt gebruiken. De vragen en antwoorden zijn ingedeeld in de volgende categorieën:
 
-* CloudSimple service
+* CloudSimple-service
 * Connectiviteit
 * Netwerken
 * Beveiliging
 * Compute
 * Storage
 * VMware
-* Integratie van Azure
+* Azure-integratie
  
-## <a name="cloudsimple-service"></a>CloudSimple service
+## <a name="cloudsimple-service"></a>CloudSimple-service
 
-**Wat is Azure VMware oplossing door CloudSimple?**
+**Wat is de Azure VMware-oplossing op CloudSimple?**
 
-Azure VMware-oplossing door CloudSimple transformeert en breidt de VMware-workloads naar persoonlijke, exclusieve clouds op Azure in enkele minuten. De oplossing inricht, beheert de infrastructuur en werkbelasting tussen on-premises en Azure regelt. Omdat uw apps worden uitgevoerd exact de dezelfde on-premises en in Azure, wordt u profiteren van de elasticiteit en services van de cloud zonder de complexiteit van uw apps opnieuw modelleren. CloudSimple wordt verlaagd van uw totale eigendomskosten met een cloud-verbruik model waarmee u op aanvraag inrichten, betaal-als-u-groeit en capaciteitsoptimalisatie van. Zie voor functies, voordelen en scenario's, [wat is Azure VMware oplossing door CloudSimple?](cloudsimple-vmware-solutions-overview.md).
+Met de Azure VMware-oplossing van CloudSimple worden VMware-workloads in enkele minuten getransformeerd en uitgebreid naar persoonlijke, specifieke Clouds op Azure. De oplossings voorzieningen, beheert de-infra structuur en organiseert de werk belastingen tussen on-premises en Azure. Omdat uw apps precies dezelfde on-premises en in Azure worden uitgevoerd, kunt u profiteren van de elasticiteit en de services van de Cloud, zonder de complexiteit van het opnieuw ontwerpen van uw apps. CloudSimple verlaagt uw total cost of ownership met een model voor Cloud verbruik dat op aanvraag voorziet van inrichtingen, betalen per gebruik en capaciteits optimalisatie. Zie [Wat is Azure VMware-oplossing door CloudSimple?](cloudsimple-vmware-solutions-overview.md)voor functies, voor delen en scenario's.
 
-**Wat is een privécloud CloudSimple?**
+**Wat is een CloudSimple-privécloud?**
 
-U richt in een persoonlijke, exclusieve cloud die uit een hoogwaardige computer-, opslag- en netwerkomgeving zijn geïmplementeerd op Microsoft Azure-infrastructuur (hardware- en datacenter-ruimte) in Azure-locaties bestaat. De privécloud biedt een systeemeigen VMware-platform als een service. In termen van VMware bevat elke privécloud precies één exemplaar van de vCenter-Server. De vCenter Server beheert meerdere ESXi-knooppunten die zijn opgenomen in een of meer vSphere-hostclusters, samen met de bijbehorende virtuele SAN-opslag. Een service CloudSimple kan bevatten meerdere persoonlijke clouds in uw Azure-abonnement. Zie voor meer informatie over privéclouds [privécloud overzicht](cloudsimple-private-cloud.md).
+U richt een persoonlijke, specifieke Cloud in die bestaat uit een hoogwaardige compute-, opslag-en netwerk omgeving die is geïmplementeerd op Microsoft Azure infrastructuur (hardware-en datacenter ruimte) in azure-locaties. De privécloud biedt een systeem eigen VMware-platform als een service. In VMware-voor waarden bevat elke privécloud precies één exemplaar van de vCenter Server. De vCenter Server beheert meerdere ESXi-knoop punten in een of meer vSphere-clusters, samen met de bijbehorende vSAN-opslag. Een CloudSimple-service kan meerdere persoonlijke Clouds in uw Azure-abonnement bevatten. Zie [overzicht van privécloud](cloudsimple-private-cloud.md)voor meer informatie over persoonlijke Clouds.
 
-**Waar is de service CloudSimple beschikbaar?**
+**Waar is de CloudSimple-service beschikbaar?**
 
-CloudSimple is beschikbaar in regio's VS-Oost en VS-West.
+CloudSimple is beschikbaar in de regio's VS-Oost en VS-West.
 
 **Hoe kan ik mijn abonnement voor CloudSimple inschakelen?**
 
-Neem contact op met uw Microsoft-accountvertegenwoordiger op [ azurevmwaresales@microsoft.com ](mailto:azurevmwaresales@microsoft.com) om in te schakelen van uw abonnement voor de service CloudSimple. Geef uw abonnements-ID in het e-mailadres waarvoor u wilt dat CloudSimple-service is ingeschakeld. 
+Neem contact op met uw [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) Microsoft-account-vertegenwoordiger om uw abonnement voor de CloudSimple-service in te scha kelen. Geef uw abonnements-ID op in het e-mail adres waarvoor u de CloudSimple-service wilt inschakelen. 
 
-**Hoe krijg ik toegang tot de portal CloudSimple?**
+**Hoe kan ik toegang tot de CloudSimple-Portal?**
 
-U toegang tot de portal CloudSimple vanuit Azure portal. Zie voor meer informatie over hoe u toegang tot de portal CloudSimple [toegang krijgen tot de VMware-oplossing door CloudSimple portal vanuit de Azure-portal](https://docs.azure.cloudsimple.com/access-cloudsimple-portal).
+U hebt toegang tot de CloudSimple-portal via de Azure Portal. Zie voor meer informatie over het openen van de CloudSimple-Portal [toegang tot de VMware-oplossing door CloudSimple portal van de Azure Portal](https://docs.azure.cloudsimple.com/access-cloudsimple-portal).
 
-**Hoe ik de capaciteit voor een privécloud vergroten?**
+**Hoe kan ik capaciteit voor een privécloud verg Roten?**
 
-U knooppunten van de Azure-portal in te richten en uitbreiden van uw privécloud vanuit de portal CloudSimple. U kunt uw persoonlijke cloud uitbreiden door toe te voegen knooppunten aan een bestaand vSphere-cluster of een nieuwe vSphere-cluster maken. Zie voor informatie over de procedure [uitbreiden van een privécloud CloudSimple](https://docs.azure.cloudsimple.com/expand-private-cloud).
+U richt knooppunten in vanuit de Azure Portal en breidt uw privécloud uit vanuit de CloudSimple-Portal. U kunt uw privécloud uitbreiden door knoop punten toe te voegen aan een bestaand vSphere-cluster of door een nieuw vSphere-cluster te maken. Zie [een CloudSimple-Privécloud uitbreiden](https://docs.azure.cloudsimple.com/expand-private-cloud)voor meer informatie over de procedure.
 
-**Wat gebeurt er met mijn persoonlijke cloud tijdens onderhoud?**
+**Wat gebeurt er met mijn privécloud tijdens het onderhoud?**
 
-CloudSimple biedt dagen van de periodieke meldingen voor gepland onderhoud. Onderhoud wordt uitgevoerd op een ongestoord manier om te controleren of de beschikbaarheid van uw privécloud. Onderhoud kan van de volgende typen zijn:
+CloudSimple biedt periodieke meldingen dagen voor gepland onderhoud. Onderhoud vindt plaats op een ononderbroken manier om de beschik baarheid van uw privécloud te garanderen. Onderhoud kan van de volgende typen zijn:
 
-- **CloudSimple infrastructuur**: De infrastructuur CloudSimple is zo ontworpen dat maximaal beschikbaar. Tijdens het onderhoud, wordt connectiviteit en de beschikbaarheid van uw privécloud gegarandeerd door bij te werken redundante onderdelen één bewerking tegelijk zonder enige gevolgen. U moet toegang tot uw persoonlijke cloud vCenter, alle virtuele machines, internetverbinding van uw privécloud en verbindingen met on-premises of Azure.
-- **CloudSimple portal**: Tijdens onderhoud bepaalde functies op de portal CloudSimple mogelijk niet toegankelijk of is mogelijk uitgeschakeld. De onderhoudsmelding bevat informatie over wat kan worden gedaan in de portal.
+- **CloudSimple-infra structuur**: De CloudSimple-infra structuur is ontworpen om Maxi maal beschikbaar te zijn. Tijdens het onderhoud wordt de connectiviteit en beschik baarheid van uw privécloud gegarandeerd door het bijwerken van redundante onderdelen één op een tijdstip zonder enige impact. U hebt toegang tot uw persoonlijke Cloud-vCenter, alle virtuele machines, Internet verbinding vanuit uw privécloud en verbindingen met on-premises of Azure.
+- **CloudSimple-Portal**: Tijdens het onderhoud zijn sommige functies van de CloudSimple-Portal mogelijk niet toegankelijk of worden deze mogelijk uitgeschakeld. De onderhouds melding bevat informatie over wat er op de portal kan worden uitgevoerd.
 
 ## <a name="connectivity"></a>Connectiviteit
 
-**Wat zijn mijn verbindingsopties met mijn regio CloudSimple netwerk?**
+**Wat zijn mijn connectiviteits opties voor mijn CloudSimple Region-netwerk?**
 
-CloudSimple biedt drie verschillende connectiviteitsopties verbinding maken met uw netwerk CloudSimple-regio. Alle drie de opties kunnen samen worden gebruikt:
+CloudSimple biedt drie verschillende connectiviteits opties om verbinding te maken met uw CloudSimple-regio netwerk. Alle drie de opties kunnen samen worden gebruikt:
 
-- Azure ExpressRoute-verbinding van uw on-premises datacenter met CloudSimple regio netwerk: Een privékoppeling met hoge snelheid met lage latentie beveiligde persoonlijke verbinding die voor de verbinding van uw on-premises ExpressRoute-circuit met uw CloudSimple ExpressRoute-circuit met behulp van globaal bereik. Als u de verbinding instelt, Zie [verbinding maken met on-premises CloudSimple met behulp van ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection).
-- ExpressRoute-verbinding van uw Azure-netwerk met het netwerk van de regio CloudSimple: Een hoge en lage latentie beveiligde persoonlijke verbinding die voor de verbinding van uw virtuele netwerk in Azure met uw CloudSimple ExpressRoute-circuit met behulp van de virtuele netwerkgateways. Als u de verbinding instelt, Zie [uw CloudSimple privécloud-omgeving met de Azure-netwerk verbinden met behulp van ExpressRoute](https://docs.azure.cloudsimple.com/azure-expressroute-connection).
-- Site-naar-site VPN-verbinding vanaf uw on-premises datacenter met het netwerk van de regio CloudSimple: Een beveiligd virtueel particulier netwerk van uw on-premises VPN-apparaat bij uw persoonlijke cloud CloudSimple regio. Als u de verbinding instelt, Zie [instellen van een VPN-verbinding tussen uw on-premises netwerk en de privécloud CloudSimple](https://docs.azure.cloudsimple.com/set-up-vpn).
+- Azure ExpressRoute-verbinding van uw on-premises Data Center naar CloudSimple Region Network: Een beveiligde persoonlijke particuliere verbinding met hoge snelheid met lage latentie die uw on-premises ExpressRoute-circuit met uw CloudSimple ExpressRoute-circuit vastbrugt met behulp van Global Reach. Zie [verbinding maken vanaf on-premises naar CloudSimple met behulp van ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection)om de verbinding in te stellen.
+- ExpressRoute-verbinding van uw virtuele Azure-netwerk naar uw CloudSimple regio netwerk: Een veilige persoonlijke particuliere verbinding met hoge snelheid en lage latentie waarmee uw virtuele netwerk op Azure wordt gebrugd met uw CloudSimple ExpressRoute-circuit met behulp van virtuele netwerk gateways. Zie [uw CloudSimple Private Cloud Environment verbinden met het virtuele Azure-netwerk met behulp van ExpressRoute](https://docs.azure.cloudsimple.com/azure-expressroute-connection)om de verbinding in te stellen.
+- Site-naar-site-VPN-verbinding van uw on-premises Data Center naar uw CloudSimple Region-netwerk: Een beveiligd virtueel particulier netwerk van uw on-premises VPN-apparaat naar uw CloudSimple Private Cloud-regio. Zie [een VPN-verbinding instellen tussen uw on-premises netwerk en de privécloud van CloudSimple](https://docs.azure.cloudsimple.com/set-up-vpn)voor meer informatie over het instellen van de verbinding.
 
-**Hoe maak ik verbinding naar een privécloud?**
+**Hoe kan ik verbinding maken met een privécloud?**
 
-U kunt details van uw privécloud weergeven in de portal CloudSimple. Als u wilt verbinding maken met de vCenter-die overeenkomt met uw privécloud, zorg dat een netwerkverbinding tot stand is gebracht via site-naar-site, punt-naar-site of ExpressRoute. Vervolgens start u de portal CloudSimple vanuit Azure portal. Selecteer **vSphere-Client starten** op de startpagina of op de pagina met details van de privécloud.
+U kunt de details van uw privécloud weer geven in de CloudSimple-Portal. Als u verbinding wilt maken met de vCenter die overeenkomt met uw privécloud, controleert u of er een netwerk verbinding tot stand is gebracht met behulp van site-naar-site-, punt-naar-site-of ExpressRoute. Start vervolgens de CloudSimple-Portal vanuit de Azure Portal. Selecteer **vSphere-client starten** op de start pagina of op de pagina met details van de privécloud.
 
-**Wat is het voordeel van een ExpressRoute-circuit?**
+**Wat is het voor deel van een ExpressRoute-circuit?**
 
-Een Azure ExpressRoute-circuit biedt een beveiligde verbinding privékoppeling met hoge snelheid en lage latentie. CloudSimple biedt een speciaal ExpressRoute-circuit per regio per klant. Dit circuit gebruikt, kunt u beveiligde verbinding tussen on-premises en uw Azure-abonnement maken.
+Een Azure ExpressRoute-circuit voorziet in een snelle en lage latentie veilige verbinding. CloudSimple biedt een speciaal ExpressRoute circuit per regio per klant. Met dit circuit kunt u een veilige verbinding tot stand brengen vanuit een on-premises en uw Azure-abonnement.
 
-**Wat zijn de kosten voor netwerkverkeer naar en van CloudSimple verbinding? Zijn er kosten voor uitgaand verkeer naar en van CloudSimple naar Azure? Zijn er kosten voor uitgaand verkeer tussen regio's?**
+**Wat zijn de netwerk kosten om verbinding te maken met en van CloudSimple? Zijn er kosten voor uitgaand verkeer naar en van CloudSimple naar Azure? Zijn er uitstaande kosten in rekening gebracht voor regio's?**
 
-Er zijn geen kosten voor uitgaand netwerkverkeer. Azure standard-tarieven van toepassing op al het uitgaande verkeer vanuit uw virtuele netwerk of vanuit een on-premises ExpressRoute-circuit.
+Er worden geen kosten in rekening gebracht voor netwerk uitgaand verkeer. De standaard tarieven van Azure gelden voor elk uitgaand verkeer van uw virtuele netwerk of van een on-premises ExpressRoute-circuit.
 
 ## <a name="networking"></a>Netwerken
 
-**Welke netwerkfuncties zijn beschikbaar voor mijn persoonlijke cloud?**
+**Welke netwerk functies zijn beschikbaar voor mijn privécloud?**
 
-U kunt VLAN's en hun subnetten en firewall-tabellen inrichten. U kunt openbare IP-adressen toewijzen en toewijzen aan een virtuele machine die wordt uitgevoerd in uw privécloud. Zie voor meer informatie, [VLAN's en subnetten overzicht](cloudsimple-vlans-subnets.md), [tabellen firewalloverzicht](cloudsimple-firewall-tables.md), en [openbare IP-adres overzicht](cloudsimple-public-ip-address.md).
+U kunt VLAN'S en hun subnetten en firewall tabellen inrichten. U kunt open bare IP-adressen toewijzen en toewijzen aan een virtuele machine die wordt uitgevoerd in uw privécloud. Zie voor meer informatie [vlan's en subnetten Overview](cloudsimple-vlans-subnets.md), overzicht van [firewall tabellen](cloudsimple-firewall-tables.md)en overzicht van [open bare IP-adressen](cloudsimple-public-ip-address.md).
 
-**Hoe kan ik Stel verschillende subnetten voor mijn toepassingen in mijn privécloud?**
+**Hoe kan ik verschillende subnetten instellen voor mijn toepassingen in mijn privécloud?**
 
-U kunt VLAN's in uw persoonlijke cloud maken vanuit de portal van uw CloudSimple. Nadat u het VLAN maakt, kunt u een poortgroep gedistribueerde op de vCenter-privécloud maken met behulp van het VLAN en virtuele machines die zijn verbonden met de gedistribueerde poortgroep maken. U kunt een tabel firewall inschakelen voor de VLAN of het subnet en firewall-regels voor het beveiligen van netwerkverkeer definiëren.
+U kunt VLAN'S maken op uw privécloud vanuit uw CloudSimple-Portal. Nadat u het VLAN hebt gemaakt, kunt u een gedistribueerde poort groep maken op uw privécloud met behulp van het VLAN en virtuele machines maken die zijn verbonden met de gedistribueerde poort groep. U kunt een firewall tabel inschakelen voor het VLAN of subnet en firewall regels definiëren om netwerk verkeer te beveiligen.
 
-**Welke firewall-instellingen zijn beschikbaar voor mijn persoonlijke clouds?**
+**Welke firewall instellingen zijn beschikbaar voor mijn persoonlijke Clouds?**
 
-U kunt regels voor Noord-Zuid en Oost-west-verkeer configureren. De regels zijn gedefinieerd in een tabel met firewall. De tabel firewall kan worden gekoppeld aan de VLAN's op uw privécloud. Zie voor de installatieprocedure [firewall tabellen en regels voor persoonlijke clouds instellen](https://docs.azure.cloudsimple.com/firewall).
+U kunt regels voor Noord-Zuid-en Oost-West-verkeer configureren. De regels worden gedefinieerd in een firewall tabel. De firewall tabel kan worden gekoppeld aan VLAN'S in uw privécloud. Zie voor de installatie procedure [firewall tabellen en regels voor persoonlijke Clouds instellen](https://docs.azure.cloudsimple.com/firewall).
 
-**Kan ik openbare IP-adressen toewijzen voor virtuele machines in Mijn persoonlijke cloudomgeving?**
+**Kan ik open bare IP-adressen voor Vm's toewijzen in mijn privécloud?**
 
-U kunt eenvoudig een nieuwe openbare IP-adres toewijzen en deze koppelen aan een privé IP-adres van uw virtuele machine of een apparaat in de portal CloudSimple. U kunt ook nieuwe firewallregels maken of bestaande firewallregels zodat verkeer van bepaalde poorten en specifieke sets met IP-adressen in de portal van toepassing. Zie voor de installatieprocedure [openbare IP-adressen toewijzen voor een persoonlijke cloudomgeving](https://docs.azure.cloudsimple.com/public-ips).
+In de CloudSimple-Portal kunt u eenvoudig een nieuw openbaar IP-adres toewijzen en dit koppelen aan een privé-IP-adres van uw virtuele machine of een apparaat. U kunt ook nieuwe firewall regels maken of bestaande firewall regels Toep assen om verkeer toe te staan van specifieke poorten en specifieke sets IP-adressen in de portal. Zie voor de installatie procedure [open bare IP-adressen toewijzen voor een privécloud](https://docs.azure.cloudsimple.com/public-ips).
 
 ## <a name="security"></a>Beveiliging
 
-**Wat zijn mijn beveiligingsopties op CloudSimple?**
+**Wat zijn mijn beveiligings opties voor CloudSimple?**
 
-Een privécloud CloudSimple biedt de volgende beveiligingsfuncties voor het beveiligen van uw persoonlijke cloudomgeving:
+Een CloudSimple-privécloud biedt de volgende beveiligings functies voor het beveiligen van uw privécloud:
 
-- **Data-at-rest versleuteling:** U kunt data-at-rest. Deze bevindt zich op een virtueel SAN-opslag in uw privécloud versleutelen. virtueel SAN biedt ondersteuning voor een externe sleutel beheerserver, die kan worden geïmplementeerd in uw Azure virtual network of on-premises-omgeving. Zie voor meer informatie, [configureren virtueel SAN-versleuteling voor uw privécloud CloudSimple](https://docs.azure.cloudsimple.com/vsan-encryption).
-- **Netwerkbeveiliging:** Besturingselement voor netwerkverkeer van en naar uw privécloud van het internet, on-premises en in de subnetten van uw persoonlijke cloud met behulp van firewallregels.
-- **Veilige, particuliere verbinding:** Veilige, particuliere verbinding tussen uw on-premises netwerk en uw Azure-abonnement.
+- **Data-at-rest versleuteling:** U kunt gegevens in rust versleutelen die zich in vSAN-opslag in uw privécloud bevinden. vSAN biedt ondersteuning voor een externe sleutel beheer server, die kan worden geïmplementeerd in uw virtuele Azure-netwerk of in een on-premises omgeving. Zie [vSAN-versleuteling voor uw CloudSimple-Privécloud configureren](https://docs.azure.cloudsimple.com/vsan-encryption)voor meer informatie.
+- **Netwerk beveiliging:** Beheer netwerk verkeer van en naar uw privécloud vanuit het Internet, on-premises en binnen de subnetten van uw privécloud door gebruik te maken van firewall regels.
+- **Beveiligde, particuliere verbinding:** Veilige, particuliere verbinding tussen uw on-premises netwerk en uw Azure-abonnement.
 
 ## <a name="compute"></a>Compute
 
-**Wat voor soort hosts zijn beschikbaar?**
+**Wat voor soort hosts zijn er beschikbaar?**
 
-CloudSimple biedt twee hosttypen:
+CloudSimple biedt twee typen host:
 
-* **CS28 knooppunt**: CPU:2 x 2.2 GHz, totale 28 kernen, 48 HT. RAM: 256 GB. Storage: 1600 GB NVMe-Cache, 5760 GB aan gegevens (All-Flash). Netwerk: 2x25Gbe NIC.
-* **CS36 knooppunt**: CPU 2 x 2,3 GHz, totale 36 kernen, 72 HT. RAM: 512 GB. Storage: 3200 GB NVMe Cache 11,520 GB aan gegevens (All-Flash). Netwerk: 2x25Gbe NIC.
+* **CS28-knoop punt**: CPU: 2x 2,2 GHz, totaal 28 kern geheugens, 48 HT. RAM: 256 GB. Storage: 1600-GB NVMe-cache, 5760-GB gegevens (alle-Flash). Netwerk 2x25Gbe NIC.
+* **CS36-knoop punt**: CPU 2x 2,3 GHz, totale 36 kern geheugens 72 HT. RAM: 512 GB. Storage: 3200-GB NVMe cache 11.520-GB gegevens (alle-Flash). Netwerk 2x25Gbe NIC.
 
-**Hoe kan ik problemen met hardware verwerkt?**
+**Hoe worden hardwarestoringen afgehandeld?**
 
-Alle CloudSimple infrastructuur wordt continu bewaakt door het platform CloudSimple en de service operations-teams. Als een hardwarefout wordt gedetecteerd, wordt een nieuw knooppunt toegevoegd aan uw privécloud. Het knooppunt wordt verwijderd om ervoor te zorgen de hoge beschikbaarheid van uw privécloud.
+Alle CloudSimple-infra structuur wordt voortdurend bewaakt door het CloudSimple-platform en de bijbehorende Service Operations-teams. Als er een hardwarefout wordt gedetecteerd, wordt een nieuw knoop punt toegevoegd aan uw privécloud. Het knoop punt is niet verwijderd om te zorgen voor hoge Beschik baarheid van uw privécloud.
 
 ## <a name="storage"></a>Storage
 
-**Wat voor soort opslag wordt ondersteund op een privécloud?**
+**Welk type opslag wordt ondersteund op een privécloud?**
 
-CloudSimple biedt **All-flash VMware virtuele SAN-opslag** met elke privécloud. Elke vSphere wordt gemaakt met een eigen gegevensarchief virtueel SAN. Zie voor meer informatie, [onderdelen in de privécloud-VMware - virtuele SAN-opslag](https://docs.azure.cloudsimple.com/vmware-components/#vsan-storage).
+CloudSimple biedt **alle-Flash VMware vSAN-opslag** met elke privécloud. Elke vSphere wordt gemaakt met een eigen vSAN-gegevens opslag. Zie voor meer informatie [Private Cloud VMware-onderdelen-vSAN-opslag](https://docs.azure.cloudsimple.com/vmware-components/#vsan-storage).
 
-**Is de versleuteling van gegevens die worden ondersteund?**
-Ja. U kunt instellen van de virtueel SAN-opslag in uw privécloud een key management server (KMS), die on-premises geïmplementeerd gebruiken of op Azure voor het versleutelen van gegevens die zijn opgeslagen op een virtueel SAN.
+**Wordt versleuteling van gegevens ondersteund?**
+Ja. U kunt de vSAN-opslag in uw privécloud instellen om een KMS (Key Management Server) te gebruiken, die on-premises of op Azure wordt geïmplementeerd voor het versleutelen van gegevens die zijn opgeslagen op vSAN.
 
-**Hoe worden de schijven verwerkt?**
+**Hoe worden defecte schijven afgehandeld?**
 
-Alle hardware-onderdelen van de privécloud CloudSimple bewaking continu worden bewaakt. Als schijf storing wordt gedetecteerd of een schijf als mislukken op basis van heuristiek wordt geïdentificeerd, wordt een nieuw knooppunt automatisch toegevoegd aan de privécloud. Het knooppunt met een beschadigde schijf wordt verwijderd uit de privécloud.
+CloudSimple-bewaking bewaakt voortdurend alle hardwareonderdelen van de privécloud. Als er een schijf fout wordt gedetecteerd of een schijf wordt geïdentificeerd als mislukt op basis van heuristiek, wordt er automatisch een nieuw knoop punt toegevoegd aan de privécloud. Het knoop punt met een mislukte of niet-werkende schijf wordt verwijderd uit de privécloud.
 
 ## <a name="vmware"></a>VMware
 
-**Hoe voer ik uploaden van grote schaal en de migratie van toepassingen en gegevens van on-premises?**
+**Hoe kan ik een grootschalige upload en migratie van toepassingen en gegevens van on-premises uitvoeren?**
 
-CloudSimple biedt een systeemeigen VMware vSphere-oplossing. Een hulpprogramma voor migratie van grote hoeveelheden gegevens kan worden gebruikt met een privécloud CloudSimple. Enkele van de beschikbare opties zijn:
+CloudSimple biedt een systeem eigen VMware vSphere oplossing. Elk hulp programma dat wordt gebruikt voor bulk gegevens migratie kan worden gebruikt met een CloudSimple-privécloud. Enkele van de beschik bare opties zijn:
 
-- VMware HCX voor bulksgewijs migratie van gegevens.
-- Koude migratie van gegevens met behulp van Storage vMotion van on-premises naar CloudSimple.
+- VMware HCX voor het bulksgewijs migreren van gegevens.
+- Een koude migratie van gegevens met behulp van Storage vMotion van on-premises naar CloudSimple.
 
-**Kan ik een VMware-hulpprogramma's installeren?**
+**Kan ik VMware-hulpprogram ma's installeren?**
 
-CloudSimple biedt een systeemeigen VMware vSphere-oplossing. Een hulpprogramma dat wordt gebruikt voor het beheren van een on-premises kunnen worden gebruikt op CloudSimple vSphere-omgeving. CloudSimple ondersteunt een bring-your-own-license (BYOL)-model voor het installeren van VMware-hulpprogramma's.
+CloudSimple biedt een systeem eigen VMware vSphere oplossing. Elk hulp programma dat wordt gebruikt om on-premises vSphere-omgeving te beheren, kan worden gebruikt op CloudSimple. CloudSimple biedt ondersteuning voor een BYOL-model (inbreng uw eigen licentie) voor het installeren van VMware-hulpprogram ma's.
 
 **Hoe worden updates en upgrades beheerd?**
 
-CloudSimple beheert en alle onderdelen van de infrastructuur van uw privécloud-updates in een naadloze ongestoord manier. Een update of de beveiligingspatch vrijgegeven door leveranciers van VMware of infrastructure is gepland voor update zodra deze gekwalificeerd door CloudSimple.
+CloudSimple beheert en werkt alle infrastructuur onderdelen van uw privécloud op een naadloze, ononderbroken manier toe. Alle updates of beveiligings patches die zijn uitgegeven door VMware of infrastructuur leveranciers, worden gepland voor een update zodra deze is gekwalificeerd door CloudSimple.
 
-CloudSimple uitvoeren niet voor upgrades of updates van toepassingen worden geïnstalleerd op de privécloud.
+CloudSimple voert geen upgrades of updates van toepassingen uit die zijn geïnstalleerd in de privécloud.
 
-## <a name="azure-integration"></a>Integratie van Azure
+## <a name="azure-integration"></a>Azure-integratie
 
-**Welke Azure-services worden ondersteund?**
+**Welke Azure-Services worden ondersteund?**
 
-CloudSimple biedt Azure ExpressRoute-verbinding met uw abonnement op Azure. Alle services die worden uitgevoerd in uw abonnement op het netwerk verbonden zijn met uw persoonlijke cloud en verbinding kunnen maken met uw persoonlijke cloud. Voorbeelden:
+CloudSimple biedt Azure ExpressRoute-verbinding met uw abonnement op Azure. Alle services die worden uitgevoerd in uw abonnement, hebben een netwerk verbinding met uw privécloud en kunnen verbinding maken met uw privécloud. Voorbeelden:
 
-- **Azure Active Directory**: Gebruik Azure Active Directory als de identiteitsbron van een voor uw vCenter CloudSimple.
-- **Azure Storage**: Storage gebruiken voor het opslaan van back-ups, afbeeldingen en andere gegevens van uw privécloud.
-- **Hybride toepassingen**: Toepassingsarchitectuur die openbare en privéclouds omvat, kunt u maken. Bijvoorbeeld, kunt u webservers in Azure die toegang tot toepassingen en de database-servers in een privécloud CloudSimple.
-- **Azure Monitor** en **Azure Security Center**: Werkbelasting die wordt uitgevoerd op VMware kunt bewaken en Security Center gebruiken voor logboekregistratie, metrische gegevens voor prestaties en beveiligingsbeheer.
+- **Azure Active Directory**: Gebruik Azure Active Directory als een id-bron voor uw CloudSimple vCenter.
+- **Azure Storage**: Gebruik opslag om back-ups, afbeeldingen en andere gegevens op te slaan vanuit uw privécloud.
+- **Hybride toepassingen**: U kunt een toepassings architectuur maken die open bare en persoonlijke Clouds omspant. U kunt bijvoorbeeld webservers maken in azure die toegang hebben tot toepassings-en database servers in een CloudSimple-privécloud.
+- **Azure monitor** en **Azure Security Center**: De werk belasting die wordt uitgevoerd op VMware kan monitor en Security Center gebruiken voor logboek registratie, metrische gegevens over prestaties en beveiligings beheer.
 
-**Hoe ik mijn tenants voor VMware naar Azure toewijzen?**
+**Hoe kan ik mijn VMware-tenants aan Azure toe te wijzen?**
 
-CloudSimple biedt de unieke mogelijkheid voor het beheren van uw virtuele VMware-machines in een privécloud van Azure portal. Een vCenter-resourcegroep geconfigureerd met de resourcebeperkingen die u wilt dat door de globale beheerder kunnen worden toegewezen aan uw abonnement. 
+CloudSimple biedt de unieke mogelijkheid om uw VMware-Vm's te beheren op een privécloud vanuit het Azure Portal. Een vCenter-resource groep die is geconfigureerd met de resource beperkingen die u wilt, kunnen worden toegewezen aan uw abonnement door de globale beheerder. 
 
-**Welke licentievoordelen krijg ik met Azure?**
+**Welke licentie voordelen krijg ik bij Azure?**
 
-Met CloudSimple, kunt u profiteren van Azure Hybrid Benefit en tot 90 procent besparen op licenties voor het behouden van uw investering in Microsoft-licenties en verlaag uw totale eigendomskosten in vergelijking met andere clouds. U kunt beveiligingsupdates ook ophalen uitgebreid voor Windows Server 2008 en Microsoft SQL Server 2008. Houd de kosten voor de laag met BYOL naar de cloud voor veelgebruikte apps, zoals Veeam, Zerto en anderen. 
+Met CloudSimple kunt u profiteren van de Azure Hybrid Benefit en bespaart u tot 90 procent op licenties om uw investering in micro soft-licenties te bewaren en uw total cost of ownership te verlagen ten opzichte van andere Clouds. U krijgt ook uitgebreide beveiligings updates voor Windows Server 2008 en Microsoft SQL Server 2008. Blijf uw kosten laag met BYOL naar de Cloud voor algemene apps zoals Veeam, Zerto en anderen. 

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: 87362b785ecbb17c5a49a8c087b6a70715480877
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d0e24d7621218ccac23842072a5f08be94c80d9d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679381"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840584"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van Azure-VM's van de ene naar de andere regio
 
@@ -117,7 +117,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 14,04 LTS | 9,25 | 3.13.0-24-algemeen naar 3.13.0-169-generic,<br/>3.16.0-25-generic naar 3.16.0-77-generic,<br/>3.19.0-18-generic naar 3.19.0-80-generic,<br/>4.2.0-18-generic naar 4.2.0-42-generic,<br/>4.4.0-21-generic naar 4.4.0-146-generic,<br/>4.15.0-1023-Azure naar 4.15.0-1042-Azure |
 14,04 LTS | 9,24 | 3.13.0-24-generic naar 3.13.0-167-generic,<br/>3.16.0-25-generic naar 3.16.0-77-generic,<br/>3.19.0-18-generic naar 3.19.0-80-generic,<br/>4.2.0-18-generic naar 4.2.0-42-generic,<br/>4.4.0-21-algemeen naar 4.4.0-143-generic,<br/>4.15.0-1023-Azure naar 4.15.0-1040-Azure |
 |||
-16,04 LTS | 9,27 | 4.4.0-21-generic naar 4.4.0-154-generic,<br/>4.8.0-34-generic naar 4.8.0-58-generic,<br/>4.10.0-14-generic naar 4.10.0-42-generic<br/>4.11.0-13-algemeen naar 4.11.0-14-generic,<br/>4.13.0-16-generic naar 4.13.0-45-generic,<br/>4.15.0-13-algemeen tot 4.15.0-54-algemeen<br/>4.11.0-1009-Azure naar 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-Azure <br/>4.15.0-1012-Azure naar 4.15.0-1050-Azure|
+16,04 LTS | 9,27 | 4.4.0-21-generic naar 4.4.0-154-generic,<br/>4.8.0-34-generic naar 4.8.0-58-generic,<br/>4.10.0-14-generic naar 4.10.0-42-generic<br/>4.11.0-13-algemeen naar 4.11.0-14-generic,<br/>4.13.0-16-generic naar 4.13.0-45-generic,<br/>4.15.0-13-algemeen naar 4.15.0-55-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-Azure <br/>4.15.0-1012-Azure naar 4.15.0-1051-Azure|
 16,04 LTS | 9,26 | 4.4.0-21-generic naar 4.4.0-148-generic,<br/>4.8.0-34-generic naar 4.8.0-58-generic,<br/>4.10.0-14-generic naar 4.10.0-42-generic<br/>4.11.0-13-algemeen naar 4.11.0-14-generic,<br/>4.13.0-16-generic naar 4.13.0-45-generic,<br/>4.15.0-13-algemeen tot 4.15.0-50-algemeen<br/>4.11.0-1009-Azure naar 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-Azure <br/>4.15.0-1012-Azure naar 4.15.0-1045-Azure|
 16,04 LTS | 9,25 | 4.4.0-21-generic naar 4.4.0-146-generic,<br/>4.8.0-34-generic naar 4.8.0-58-generic,<br/>4.10.0-14-generic naar 4.10.0-42-generic,<br/>4.11.0-13-algemeen naar 4.11.0-14-generic,<br/>4.13.0-16-generic naar 4.13.0-45-generic,<br/>4.15.0-13-algemeen tot 4.15.0-48-algemeen<br/>4.11.0-1009-Azure naar 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-Azure <br/>4.15.0-1012-Azure naar 4.15.0-1042-Azure|
 16,04 LTS | 9,24 | 4.4.0-21-algemeen naar 4.4.0-143-generic,<br/>4.8.0-34-generic naar 4.8.0-58-generic,<br/>4.10.0-14-generic naar 4.10.0-42-generic,<br/>4.11.0-13-algemeen naar 4.11.0-14-generic,<br/>4.13.0-16-generic naar 4.13.0-45-generic,<br/>4.15.0-13-algemeen tot 4.15.0-46-algemeen<br/>4.11.0-1009-Azure naar 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-Azure <br/>4.15.0-1012-Azure naar 4.15.0-1040-Azure|
@@ -136,7 +136,7 @@ Debian 8 | 9,24 | 3.16.0-4-amd64 tot 3.16.0-7-amd64, 4.9.0 -0. bpo. 4-amd64 tot 
 
 **Heffing** | **Mobility Service-versie** | **Kernelversie** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,27 | SP1 3.12.49-11: standaard ingesteld op 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-standaard ingesteld op 3.12.74-60.64.115-standaard</br></br> SP2 4.4.21-69-standaard ingesteld op 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-standaard voor 4.4.121-92.114-default</br></br>SP3 4.4.73-5-standaard ingesteld op 4.4.180-94.97-default</br></br>SP3 4.4.138-4.7-Azure-naar-4.4.180-4.31-Azure</br></br>SP4 4.12.14-94.41-standaard ingesteld op 4.12.14-95.19-default</br>SP4 4.12.14-6.3-Azure naar 4.12.14-6.15-Azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,27 | SP1 3.12.49-11: standaard ingesteld op 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-standaard ingesteld op 3.12.74-60.64.115-standaard</br></br> SP2 4.4.21-69-standaard ingesteld op 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-standaard voor 4.4.121-92.117-default</br></br>SP3 4.4.73-5-standaard ingesteld op 4.4.180-94.97-default</br></br>SP3 4.4.138-4.7-Azure-naar-4.4.180-4.31-Azure</br></br>SP4 4.12.14-94.41-standaard ingesteld op 4.12.14-95.24-default</br>SP4 4.12.14-6.3-Azure naar 4.12.14-6.18-Azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,26 | SP1 3.12.49-11: standaard ingesteld op 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-standaard ingesteld op 3.12.74-60.64.110-standaard</br></br> SP2 4.4.21-69-standaard ingesteld op 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-standaard voor 4.4.121-92.109-default</br></br>SP3 4.4.73-5-standaard ingesteld op 4.4.178-94.91-default</br></br>SP3 4.4.138-4.7-Azure naar 4.4.178-4.28-Azure</br></br>SP4 4.12.14-94.41-standaard ingesteld op 4.12.14-95.16-default</br>SP4 4.12.14-6.3-Azure naar 4.12.14-6,9-Azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,25 | SP1 3.12.49-11: standaard ingesteld op 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-standaard ingesteld op 3.12.74-60.64.107-standaard</br></br> SP2 4.4.21-69-standaard ingesteld op 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-standaard voor 4.4.121-92.104-default</br></br>SP3 4.4.73-5-standaard ingesteld op 4.4.176-94.88-default</br></br>SP3 4.4.138-4.7-Azure naar 4.4.176-4,25-Azure</br></br>SP4 4.12.14-94.41-standaard ingesteld op 4.12.14-95.13-default</br>SP4 4.12.14-6.3-Azure naar 4.12.14-6,9-Azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,24 | SP1 3.12.49-11: standaard ingesteld op 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-standaard ingesteld op 3.12.74-60.64.107-standaard</br></br> SP2 4.4.21-69-standaard ingesteld op 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-standaard voor 4.4.121-92.104-default</br></br>SP3 4.4.73-5-standaard ingesteld op 4.4.176-94.88-default</br></br>SP4 4.12.14-94.41-standaard ingesteld op 4.12.14-95.13-default |
@@ -197,7 +197,7 @@ Redundantie | LRS en GRS worden ondersteund.<br/><br/> ZRS wordt niet ondersteun
 Coole en warme opslag | Niet ondersteund | VM-schijven worden niet ondersteund in coole en warme opslag
 Opslag ruimten | Ondersteund |
 Versleuteling op rest (SSE) | Ondersteund | SSE is de standaard instelling voor opslag accounts.   
-Azure Disk Encryption (ADE) voor Windows-besturings systeem | Vm's die zijn ingeschakeld voor [versleuteling met Azure AD-App](https://aka.ms/ade-aad-app) worden ondersteund |
+Azure Disk Encryption (ADE) voor Windows-besturings systeem | Ondersteund |
 Azure Disk Encryption (ADE) voor Linux-besturings systeem | Niet ondersteund |
 Hot add | Ondersteund | Het inschakelen van replicatie voor een gegevens schijf die u toevoegt aan een gerepliceerde Azure-VM wordt ondersteund voor virtuele machines die gebruikmaken van beheerde schijven.
 Hot Remove-schijf | Niet ondersteund | Als u de gegevens schijf op de virtuele machine verwijdert, moet u de replicatie uitschakelen en de replicatie opnieuw inschakelen voor de virtuele machine.

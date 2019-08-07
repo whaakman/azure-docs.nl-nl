@@ -1,8 +1,8 @@
 ---
-title: 'Azure AD Connect: Pass through-verificatie | Microsoft Docs'
-description: Dit artikel wordt beschreven voor Pass through-verificatie voor Azure Active Directory (Azure AD) en hoe Azure AD-aanmeldingen kunt door te valideren op basis van on-premises Active Directory-wachtwoorden van gebruikers.
+title: 'Azure AD Connect: Pass-Through-verificatie | Microsoft Docs'
+description: In dit artikel wordt de Pass-Through-verificatie van Azure Active Directory (Azure AD) beschreven en wordt uitgelegd hoe Azure AD-aanmeldingen worden toegestaan door gebruikers wachtwoorden te valideren voor on-premises Active Directory.
 services: active-directory
-keywords: Wat is Azure AD Connect Pass through-verificatie, Active Directory installeren, vereiste onderdelen voor Azure AD, SSO, Single Sign-on
+keywords: Wat is Azure AD Connect Pass-Through-verificatie, installeer Active Directory, vereiste onderdelen voor Azure AD, SSO, eenmalige aanmelding
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -16,67 +16,67 @@ ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb5733f43a2b2800d5eb5031dddaaeb7d59aadc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 814c81b6092c4af3778617e165a0bdbce09d71d7
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109424"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779109"
 ---
-# <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Aanmelden van gebruikers met Azure Active Directory Pass through-verificatie
+# <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Aanmelding van gebruikers met Azure Active Directory Pass Through-verificatie
 
-## <a name="what-is-azure-active-directory-pass-through-authentication"></a>Wat is Azure Active Directory Pass through-verificatie?
+## <a name="what-is-azure-active-directory-pass-through-authentication"></a>Wat is Azure Active Directory Pass-Through-verificatie?
 
-Azure Active Directory (Azure AD) Pass through-verificatie kunnen uw gebruikers zich aanmelden bij zowel on-premises en cloud-toepassingen die gebruikmaken van dezelfde wachtwoorden. Deze functie biedt een betere gebruikerservaring (een wachtwoord minder te onthouden) en het vermindert de kosten voor de IT-helpdesk omdat gebruikers minder vaak een wachtwoord vergeten. Wanneer gebruikers zich aanmelden met behulp van Azure AD, evalueert deze functie rechtstreeks in uw on-premises Active Directory-wachtwoorden van gebruikers.
+Met Pass-Through-verificatie van Azure Active Directory (Azure AD) kunnen uw gebruikers zich aanmelden bij zowel lokale als Cloud toepassingen met dezelfde wacht woorden. Deze functie biedt een betere gebruikerservaring (een wachtwoord minder te onthouden) en het vermindert de kosten voor de IT-helpdesk omdat gebruikers minder vaak een wachtwoord vergeten. Wanneer gebruikers zich aanmelden met Azure AD, valideert deze functie de wacht woorden van gebruikers rechtstreeks op uw on-premises Active Directory.
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Deze functie is een alternatief voor [Azure AD-wachtwoord-Hashsynchronisatie](how-to-connect-password-hash-synchronization.md), waarmee u dezelfde voordelen van cloud-verificatie voor organisaties. Bepaalde organisaties die willen om af te dwingen van hun on-premises Active Directory-beveiliging en het wachtwoordbeleid voor kan echter kiezen in plaats daarvan Pass through-verificatie gebruiken. Beoordeling [in deze handleiding](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) voor een vergelijking van de verschillende Azure AD aanmelden methoden en hoe u de methode rechts aanmelding voor uw organisatie te kiezen.
+Deze functie is een alternatief voor [Azure AD-wachtwoord hash-synchronisatie](how-to-connect-password-hash-synchronization.md), waarmee u hetzelfde voor deel van Cloud verificatie voor organisaties kunt bieden. Bepaalde organisaties die hun on-premises Active Directory beveiligings-en wachtwoord beleid willen afdwingen, kunnen er echter voor kiezen om in plaats daarvan Pass-Through-verificatie te gebruiken. Raadpleeg [deze hand leiding](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) voor een vergelijking van de verschillende aanmeldings methoden van Azure AD en het kiezen van de juiste aanmeldings methode voor uw organisatie.
 
-![Azure AD Pass-through-verificatie](./media/how-to-connect-pta/pta1.png)
+![Pass-Through-verificatie van Azure AD](./media/how-to-connect-pta/pta1.png)
 
-U kunt combineren Pass through-verificatie met de [naadloze eenmalige aanmelding](how-to-connect-sso.md) functie. Op deze manier wanneer uw gebruikers toegang hebben tot toepassingen op hun zakelijke computers binnen uw bedrijfsnetwerk ze hoeft te typen in hun wachtwoord aan te melden.
+U kunt Pass-Through-verificatie combi neren met de functie [naadloze eenmalige aanmelding](how-to-connect-sso.md) . Op deze manier hoeft u niet in hun wacht woord in te voeren als uw gebruikers toegang hebben tot toepassingen op hun bedrijfs computers binnen uw bedrijfs netwerk.
 
-## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Belangrijkste voordelen van het gebruik van Azure AD Pass-through-verificatie
+## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Belangrijkste voor delen van het gebruik van Pass-Through-verificatie van Azure AD
 
 - *Goede gebruikerservaring*
-  - Gebruikers gebruiken dezelfde wachtwoorden aan te melden bij zowel on-premises en cloudtoepassingen.
-  - Gebruikers besteden aan het minder tijd communicatie met de IT-helpdesk herleidende wachtwoord-problemen.
-  - Gebruikers kunnen worden voltooid [selfservice wachtwoordbeheer](../authentication/active-directory-passwords-overview.md) taken in de cloud.
-- *Eenvoudig te implementeren en beheren*
-  - U hoeft voor complexe on-premises implementaties of de configuratie van het netwerk.
-  - Moet alleen een lichtgewicht agent geïnstalleerd on-premises moet worden.
-  - Er is geen beheer-overhead. De agent krijgt automatisch verbeteringen en oplossingen voor problemen.
+  - Gebruikers gebruiken dezelfde wacht woorden om zich aan te melden bij on-premises en Cloud toepassingen.
+  - Gebruikers best Eden minder tijd aan de IT-Help Desk om problemen met wacht woorden op te lossen.
+  - Gebruikers kunnen [self-service voor wachtwoord beheer](../authentication/active-directory-passwords-overview.md) uitvoeren in de Cloud.
+- *Eenvoudig te implementeren & beheren*
+  - Er zijn geen complexe on-premises implementaties of netwerk configuratie nodig.
+  - Vereist alleen een licht gewicht agent voor on-premises installatie.
+  - Geen beheer overhead. De agent ontvangt automatisch verbeteringen en oplossingen voor problemen.
 - *Beveiligen*
-  - On-premises wachtwoorden worden nooit opgeslagen in de cloud in welke vorm.
-  - Beschermt u uw gebruikersaccounts te werken naadloos met [Azure AD voorwaardelijke toegangsbeleid](../active-directory-conditional-access-azure-portal.md), met inbegrip van multi-factor Authentication (MFA), [blokkeren van verouderde](../conditional-access/conditions.md) en door [ gefilterd op wachtwoord beveiligingsaanvallen](../authentication/howto-password-smart-lockout.md).
-  - De agent maakt alleen uitgaande verbindingen in uw netwerk. Daarom is er geen vereiste voor het installeren van de agent in een perimeternetwerk, ook wel een DMZ.
-  - De communicatie tussen een agent en de Azure AD wordt beveiligd met behulp van verificatie op basis van certificaten. Deze certificaten worden jaarlijks automatisch elke paar maanden vernieuwd door Azure AD.
-- *Hoge beschikbaarheid*
-  - Extra agents kunnen worden geïnstalleerd op meerdere on-premises servers voor maximale beschikbaarheid van aanmeldingsaanvragen.
+  - On-premises wacht woorden worden nooit in een wille keurige vorm opgeslagen in de Cloud.
+  - Beveiligt uw gebruikers accounts door naadloos samen te werken met [beleid voor voorwaardelijke toegang van Azure AD](../active-directory-conditional-access-azure-portal.md), waaronder multi-factor Authentication (MFA), het [blok keren](../conditional-access/conditions.md) van verouderde verificatie en het filteren van aanvallen op basis van [wacht woorden van brute kracht](../authentication/howto-password-smart-lockout.md).
+  - De agent maakt alleen uitgaande verbindingen vanuit uw netwerk. Daarom is er geen vereiste voor het installeren van de agent in een perimeter netwerk, ook wel bekend als een DMZ.
+  - De communicatie tussen een agent en Azure AD is beveiligd met verificatie op basis van certificaten. Deze certificaten worden elke paar maanden automatisch door Azure AD verlengd.
+- *Maxi maal beschikbaar*
+  - Er kunnen extra agents op meerdere on-premises servers worden geïnstalleerd om te voorzien in hoge Beschik baarheid van aanmeldings aanvragen.
 
 ## <a name="feature-highlights"></a>Functie hoogtepunten
 
-- Biedt ondersteuning voor aanmelden van gebruikers in alle web browser gebaseerde toepassingen en in de Microsoft Office-clienttoepassingen die gebruikmaken van [moderne verificatie](https://aka.ms/modernauthga).
-- Aanmelden gebruikersnamen mag ofwel de standaardgebruikersnaam van on-premises (`userPrincipalName`) of een ander kenmerk in Azure AD Connect hebt geconfigureerd (ook wel `Alternate ID`).
-- De functie werkt naadloos samen met [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md) functies zoals multi-factor Authentication (MFA) om te helpen beveiligen van uw gebruikers.
-- Geïntegreerd met cloud-gebaseerde [selfservice wachtwoordbeheer](../authentication/active-directory-passwords-overview.md), waaronder wachtwoord terugschrijven naar on-premises Active Directory en wachtwoordbeveiliging door uitsluiting veelgebruikte wachtwoorden.
-- Omgevingen met meerdere forests worden ondersteund als er forestvertrouwensrelaties tussen uw AD-forests en als naamachtervoegsels correct is geconfigureerd.
-- Het is een gratis functie en hoeft u betaald edities van Azure AD om deze te gebruiken.
-- Kan worden ingeschakeld via [Azure AD Connect](whatis-hybrid-identity.md).
-- Maakt gebruik van een lichtgewicht on-premises-agent die luistert naar en reageert op aanvragen van wachtwoord-validatie.
-- Installatie van meerdere agents biedt hoge beschikbaarheid van aanmeldingsaanvragen.
-- Deze [beveiligt](../authentication/howto-password-smart-lockout.md) uw on-premises-accounts tegen brute force-aanvallen wachtwoord in de cloud.
+- Biedt ondersteuning voor aanmelding door gebruikers in alle webtoepassingen en Microsoft Office client toepassingen die [moderne verificatie](https://aka.ms/modernauthga)gebruiken.
+- Gebruikers namen voor aanmelden kunnen de on-premises standaard gebruikersnaam (`userPrincipalName`) of een ander kenmerk zijn dat is geconfigureerd in azure AD Connect (ook wel bekend als `Alternate ID`).
+- De functie werkt probleemloos met functies voor [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md) zoals multi-factor Authentication (MFA) om uw gebruikers te helpen beveiligen.
+- Geïntegreerd met [wacht woord beheer](../authentication/active-directory-passwords-overview.md)op basis van de Cloud, inclusief het terugschrijven van wacht woorden naar on-premises Active Directory en wachtwoord beveiliging door gang bare verbieden.
+- Omgevingen met meerdere forests worden ondersteund als er forest-vertrouwens relaties tussen uw AD-forests bestaan en als de route ring van het naam achtervoegsel correct is geconfigureerd.
+- Het is een gratis functie en u hebt geen betaalde versies van Azure AD nodig om deze te gebruiken.
+- Het kan worden ingeschakeld via [Azure AD Connect](whatis-hybrid-identity.md).
+- Er wordt gebruikgemaakt van een Lightweight on-premises agent die luistert naar en reageert op aanvragen voor wachtwoord validatie.
+- Het installeren van meerdere agents biedt een hoge Beschik baarheid van aanmeldings aanvragen.
+- Uw on-premises accounts worden [beschermd](../authentication/howto-password-smart-lockout.md) tegen beveiligings aanvallen met een felle aanval in de Cloud.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Snel aan de slag](how-to-connect-pta-quick-start.md) : aan de slag en Azure AD Pass-through-verificatie wordt uitgevoerd.
-- [Migreren van AD FS naar Pass-through-verificatie](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) -een uitgebreide handleiding voor het migreren van AD FS (of andere technologieën voor federatie) naar Pass-through-verificatie.
-- [Vergrendeling van het smart](../authentication/howto-password-smart-lockout.md) -mogelijkheid Smart Lockout configureren op uw tenant om te beveiligen van gebruikersaccounts.
-- [Huidige beperkingen](how-to-connect-pta-current-limitations.md) -informatie over welke scenario's worden ondersteund en welke niet.
-- [Technische details](how-to-connect-pta-how-it-works.md) -te begrijpen hoe deze functie werkt.
-- [Veelgestelde vragen over](how-to-connect-pta-faq.md) -antwoorden op veelgestelde vragen.
-- [Problemen oplossen](tshoot-connect-pass-through-authentication.md) -informatie over het oplossen van veelvoorkomende problemen met de functie.
-- [Grondig onderzoek van beveiliging](how-to-connect-pta-security-deep-dive.md) -meer uitgebreide technische informatie over de functie.
-- [Azure AD naadloze eenmalige aanmelding](how-to-connect-sso.md) -meer informatie over deze aanvullende functie.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - voor de nieuwe functieaanvragen in te dienen.
+- [Quick Start](how-to-connect-pta-quick-start.md) : Ontvang Azure AD Pass-Through-verificatie en voer deze uit.
+- [Migratie van AD FS naar Pass-](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) through-verificatie: een gedetailleerde hand leiding voor het migreren van AD FS (of andere Federatie technologieën) naar Pass-Through-verificatie.
+- [Slimme vergren deling](../authentication/howto-password-smart-lockout.md) : Configureer slimme vergrendelings mogelijkheden voor uw Tenant om gebruikers accounts te beveiligen.
+- [Huidige beperkingen](how-to-connect-pta-current-limitations.md) : informatie over welke scenario's worden ondersteund en wat niet.
+- [Technisch diep gaande](how-to-connect-pta-how-it-works.md) kennis van de werking van deze functie.
+- [Veelgestelde vragen](how-to-connect-pta-faq.md) : antwoorden op veelgestelde vragen.
+- [Problemen oplossen](tshoot-connect-pass-through-authentication.md) : informatie over het oplossen van veelvoorkomende problemen met de functie.
+- [Uitgebreide](how-to-connect-pta-security-deep-dive.md) kennis van beveiliging: extra diep gaande technische informatie over de functie.
+- [Azure AD naadloze SSO](how-to-connect-sso.md) -meer informatie over deze complementaire functie.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) -voor het indienen van nieuwe functie aanvragen.

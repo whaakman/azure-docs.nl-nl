@@ -10,20 +10,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 08/01/2019
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5638710c4c01d361d108cfef69869fad1a7dad1a
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: a01ebde09517cbe7f093dd56a8a4116e76e64e38
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304378"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736756"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Accounts delen met Azure AD
+
 ## <a name="overview"></a>Overzicht
+
 Soms moeten organisaties één gebruikers naam en wacht woord voor meerdere personen gebruiken. dit gebeurt meestal in twee gevallen:
 
 * Bij het openen van toepassingen waarvoor een unieke aanmelding en een uniek wacht woord is vereist voor elke gebruiker, ongeacht of deze on-premises apps of Cloud Services van de consument zijn (bijvoorbeeld zakelijke sociale media-accounts).
@@ -40,15 +42,16 @@ Het traditionele model voor delen heeft verschillende nadelen:
 * Wanneer u de toegang tot een toepassing wilt verwijderen, moet u de referenties bijwerken en opnieuw distribueren naar iedereen die toegang tot die toepassing nodig heeft.
 
 ## <a name="azure-active-directory-account-sharing"></a>Azure Active Directory account delen
+
 Azure AD biedt een nieuwe benadering voor het gebruik van gedeelde accounts die deze nadelen elimineren.
 
 De Azure AD-beheerder configureert welke toepassingen een gebruiker kan openen met behulp van het toegangs venster en kiest het type eenmalige aanmelding dat het meest geschikt is voor die toepassing. Een van deze typen, *op wacht woord gebaseerde eenmalige aanmelding*, laat Azure AD Act als een soort ' Broker ' tijdens het aanmeldings proces voor die app.
 
-Gebruikers kunnen zich eenmaal aanmelden met hun organisatie account. Dit account is hetzelfde als het wordt regel matig gebruikt om toegang te krijgen tot hun bureau blad of e-mail adres. Ze kunnen alleen de toepassingen detecteren en openen die aan hen zijn toegewezen. Bij gedeelde accounts kan deze lijst met toepassingen een wille keurig aantal gedeelde referenties bevatten. De eind gebruiker hoeft de verschillende accounts die mogelijk worden gebruikt, niet te onthouden of te noteren.
+Gebruikers melden zich aan met hun organisatie account. Dit account is hetzelfde als het wordt regel matig gebruikt om toegang te krijgen tot hun bureau blad of e-mail adres. Ze kunnen alleen de toepassingen detecteren en openen die aan hen zijn toegewezen. Bij gedeelde accounts kan deze lijst met toepassingen een wille keurig aantal gedeelde referenties bevatten. De eind gebruiker hoeft de verschillende accounts die mogelijk worden gebruikt, niet te onthouden of te noteren.
 
 Gedeelde accounts verhogen niet alleen het toezicht en verbeteren de bruikbaarheid van uw veiligheid. Gebruikers met machtigingen voor het gebruik van de referenties zien het gedeelde wacht woord niet, maar krijgen wel machtigingen om het wacht woord te gebruiken als onderdeel van een georganisatiede verificatie stroom. Daarnaast biedt sommige SSO-toepassingen voor eenmalige aanmelding u de mogelijkheid om met behulp van Azure AD regel matig rollover (update)-wacht woorden te gebruiken. Het systeem maakt gebruik van grote, complexe wacht woorden die de beveiliging van het account verhogen. De beheerder kan eenvoudig toegang tot een toepassing verlenen of intrekken, weet wie toegang heeft tot het account en wie het in het verleden heeft bezocht.
 
-Azure AD biedt ondersteuning voor gedeelde accounts voor een Enter prise Mobility Suite (EMS), Premium of Basic-gelicentieerde gebruikers in alle typen wacht woord-toepassingen voor eenmalige aanmelding. U kunt accounts delen voor duizenden vooraf geïntegreerde toepassingen in de toepassings galerie en u kunt uw eigen toepassing voor wachtwoord verificatie toevoegen met [aangepaste SSO-apps](../manage-apps/configure-single-sign-on-portal.md).
+Azure AD biedt ondersteuning voor gedeelde accounts voor een Enter prise Mobility Suite (EMS) of Azure AD Premium licentie abonnement, in alle typen wacht woord-toepassingen voor eenmalige aanmelding. U kunt accounts delen voor duizenden vooraf geïntegreerde toepassingen in de toepassings galerie en u kunt uw eigen toepassing voor wachtwoord verificatie toevoegen met [aangepaste SSO-apps](../manage-apps/configure-single-sign-on-portal.md).
 
 Azure AD-functies die het delen van accounts mogelijk maken omvatten:
 
@@ -62,6 +65,7 @@ Azure AD-functies die het delen van accounts mogelijk maken omvatten:
 * [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## <a name="sharing-an-account"></a>Een account delen
+
 Als u Azure AD wilt gebruiken om een account te delen, moet u het volgende doen:
 
 * Een app- [Galerie](https://azure.microsoft.com/marketplace/active-directory/) voor toepassingen of een [aangepaste toepassing](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/) toevoegen
@@ -70,7 +74,8 @@ Als u Azure AD wilt gebruiken om een account te delen, moet u het volgende doen:
 
 U kunt uw gedeelde account ook veiliger maken met multi-factor Authentication (MFA) (meer informatie over het [beveiligen van toepassingen met Azure AD](../authentication/concept-mfa-whichversion.md)) en u kunt de mogelijkheid om te beheren met toegang tot de toepassing delegeren met behulp van [Azure AD self-service ](groups-self-service-management.md)groeps beheer.
 
-## <a name="related-articles"></a>Verwante artikelen:
+## <a name="next-steps"></a>Volgende stappen
+
 * [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md) (Toepassingsbeheer in Azure Active Directory)
 * [Apps beveiligen met voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md)
 * [Self-service voor groeps beheer/SSAA](groups-self-service-management.md)

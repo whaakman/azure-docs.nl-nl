@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/22/2019
+ms.date: 08/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 96a312630c92048f36f79e3bec18f83ed5a445ff
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: e1fca1532352c4955f478df70f818ee3151053c1
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414132"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742210"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Azure Monitor voor containers: overzicht
 
@@ -40,9 +40,11 @@ Azure Monitor voor containers biedt een uitgebreide bewakings ervaring met behul
 * Waarschuwingen configureren om u proactief op de hoogte te stellen of te registreren wanneer het CPU-en geheugen gebruik op knoop punten of containers uw drempel waarden overschrijdt.
 * Integreer met [Prometheus](https://prometheus.io/docs/introduction/overview/) om de metrische gegevens van de toepassing en werk belasting weer te geven die worden verzameld van knoop punten en Kubernetes met behulp van [query's](container-insights-log-search.md) om aangepaste waarschuwingen, Dash boards en gedetailleerde gedetailleerde analyses te maken.
 
->[!NOTE]
->De ondersteuning voor Prometheus is op dit moment een functie in open bare preview.
->
+    >[!NOTE]
+    >De ondersteuning voor Prometheus is op dit moment een functie in open bare preview.
+    >
+
+* Bewaak de werkbelastingen van containers [die zijn geïmplementeerd op AKS-engine](https://github.com/microsoft/OMS-docker/tree/aks-engine).
 
 Bekijk de volgende video over een dieper niveau waarmee u meer informatie kunt over het bewaken van uw AKS-cluster met Azure Monitor voor containers.
 

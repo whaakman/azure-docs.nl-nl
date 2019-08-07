@@ -1,6 +1,6 @@
 ---
-title: Azure voordeur Service - ondersteuning voor HTTP2 | Microsoft Docs
-description: Dit artikel helpt u meer informatie over HTTP/2-ondersteuning in Azure voordeur Service
+title: Azure front-deur service-HTTP2-ondersteuning | Microsoft Docs
+description: Dit artikel helpt u meer te weten te komen over HTTP/2-ondersteuning in de Azure front-deur service
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,36 +11,39 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 33e738f31be493d5890fc972ec71e7c6cd733bf4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3c1721454c0b3c96071c685a764f34d4fa540b9
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736444"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775256"
 ---
-# <a name="http2-support-in-azure-front-door-service"></a>HTTP/2-ondersteuning in Azure voordeur Service
-HTTP/2 is een belangrijke revisie voor HTTP/1.1. Het biedt sneller webprestaties, verminderde reactietijd, en verbeterde gebruikerservaring, behoud van de vertrouwde HTTP-methoden, -statuscodes en semantiek. Hoewel HTTP/2 is ontworpen voor gebruik met HTTP en HTTPS, ondersteunen veel client webbrowsers alleen HTTP/2 via Transport Layer Security (TLS).
+# <a name="http2-support-in-azure-front-door-service"></a>HTTP/2-ondersteuning in de Azure front-deur service
 
-### <a name="http2-benefits"></a>HTTP/2-voordelen
+Momenteel is HTTP/2-ondersteuning actief voor alle front-deur configuraties. Er is geen verdere actie vereist van klanten.
 
-De voordelen van HTTP/2 zijn:
+HTTP/2 is een belang rijke revisie van HTTP/1.1. Het biedt snellere webprestaties, gereduceerde reactie tijd en verbeterde gebruikers ervaring, terwijl de vertrouwde HTTP-methoden, status codes en semantiek behouden blijven. Hoewel HTTP/2 is ontworpen om te werken met HTTP en HTTPS, ondersteunen veel webbrowsers van de client alleen HTTP/2 via Transport Layer Security (TLS).
+
+### <a name="http2-benefits"></a>HTTP/2-voor delen
+
+De voor delen van HTTP/2 zijn onder andere:
 
 *   **Multiplexing en gelijktijdigheid**
 
-    Met behulp van HTTP 1.1, meerdere aanvragen van de resource is vereist voor meerdere TCP-verbindingen en elke verbinding heeft prestatieoverhead die ermee verbonden zijn. HTTP/2 kunnen meerdere resources op één TCP-verbinding worden aangevraagd.
+    Als u HTTP 1,1 gebruikt, zijn er meerdere TCP-verbindingen vereist voor het maken van meerdere bron aanvragen. Met HTTP/2 kunnen meerdere resources worden aangevraagd op één TCP-verbinding.
 
-*   **Headercompressie**
+*   **Header compressie**
 
-    Door het comprimeren van de HTTP-headers voor aangeboden resources tijd op de kabel aanzienlijk verminderd.
+    Door de HTTP-headers voor de geleverde resources te comprimeren, wordt de tijd op de kabel aanzienlijk verminderd.
 
-*   **Stream-afhankelijkheden**
+*   **Stroom afhankelijkheden**
 
-    Stream-afhankelijkheden dat de client om aan te geven op de server welke resources prioriteit hebben.
+    Met stroom afhankelijkheden kan de client aangeven dat de server een prioriteit heeft.
 
 
-## <a name="http2-browser-support"></a>Ondersteuning voor HTTP/2-browser
+## <a name="http2-browser-support"></a>Ondersteuning voor HTTP/2-browsers
 
-Alle belangrijke browsers hebt ondersteuning voor HTTP/2 geïmplementeerd in hun huidige versies. Niet-ondersteunde browsers automatisch terugval naar HTTP/1.1.
+Alle belang rijke browsers hebben ondersteuning voor HTTP/2 geïmplementeerd in hun huidige versies. Niet-ondersteunde browsers worden automatisch teruggevallen op HTTP/1.1.
 
 |Browser|Minimale versie|
 |-------------|------------|
@@ -50,15 +53,11 @@ Alle belangrijke browsers hebt ondersteuning voor HTTP/2 geïmplementeerd in hun
 |Opera| 32|
 |Safari| 9|
 
-## <a name="enabling-http2-support-in-azure-front-door-service"></a>HTTP/2-ondersteuning in Azure voordeur Service in te schakelen
-
-Op dit moment is HTTP/2-ondersteuning voor alle configuraties met voordeur actief. Is geen verdere actie vereist van klanten.
-
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor meer informatie over HTTP/2, gaat u naar de volgende bronnen:
+Raadpleeg de volgende bronnen voor meer informatie over HTTP/2:
 
-- [Startpagina voor HTTP/2-specificatie](https://http2.github.io/)
-- [Officiële HTTP/2 Veelgestelde vragen](https://http2.github.io/faq/)
+- [Start pagina voor HTTP/2-specificaties](https://http2.github.io/)
+- [Officiële Veelgestelde vragen over HTTP/2](https://http2.github.io/faq/)
 - Lees hoe u [een Front Door maakt](quickstart-create-front-door.md).
 - Lees [hoe Front Door werkt](front-door-routing-architecture.md).

@@ -1,5 +1,5 @@
 ---
-title: Azure Backup-offline back-up of initiële seeding met behulp van de Azure import/export-service
+title: Offline back-up seeding met behulp van de Azure Backup import/export-service
 description: Meer informatie over hoe u met behulp van Azure Backup gegevens via het netwerk kunt verzenden met de Azure import/export-service. In dit artikel wordt uitgelegd hoe u de offline seeding van de eerste back-upgegevens maakt met behulp van de Azure import-export service.
 ms.reviewer: saurse
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: dacurwin
-ms.openlocfilehash: 2c628b94879e54616f294e4c5f349f241fbbb98b
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: a59cff3b2edc4d5b94cc0a44472665c95652f868
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689481"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736677"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Werkstroom voor offline back-ups maken in Azure Backup
 Azure Backup heeft verschillende ingebouwde efficiency waarmee netwerk-en opslag kosten worden bespaard tijdens de eerste volledige back-ups van gegevens naar Azure. Bij eerste volledige back-ups worden grote hoeveel heden gegevens overgebracht en is er meer netwerk bandbreedte nodig in vergelijking met de volgende back-ups die alleen de Deltas/toenames overdragen. Dankzij het proces van offline seeding kan Azure Backup schijven gebruiken om de offline back-upgegevens te uploaden naar Azure.

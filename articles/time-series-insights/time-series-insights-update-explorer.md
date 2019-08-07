@@ -8,226 +8,226 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/03/2019
+ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c4f3053063ce33d2777387da2c53effd61b05f1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33e485e4fcee665e810c42bca6b38aac065ff668
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399859"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841443"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Gegevens visualiseren in de Preview-versie van de Verkenner
 
-Dit document beschrijft de gebruikersinterface en functies voor de gebruikerservaring en interface van de Azure Time Series Insights Preview [demo-web-app](https://insights.timeseries.azure.com/preview/demo). Specifiek, wordt de indeling van de gehoste voorbeeld, opties voor het aanpassen van interface en navigatie door de opgegeven demo beschreven.
+In dit document worden de functies en interface van de gebruikers interface en de gebruikers ervaring beschreven van de preview- [Web-app](https://insights.timeseries.azure.com/preview/demo)voor het Azure time series Insights voorbeeld. In het bijzonder wordt de indeling besproken van het gehoste voor beeld, opties voor het aanpassen van de interface en navigatie door de gegeven demo.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt beginnen met de Verkenner van Azure Time Series Insights Preview, moet u:
+Om aan de slag te gaan met de Azure Time Series Insights preview Explorer, moet u:
 
-* Een Time Series Insights-omgeving instellen hebt. Voor meer informatie over het inrichten van een exemplaar, probeert de [Azure Time Series Insights Preview](./time-series-insights-update-create-environment.md) zelfstudie.
-* [Gegevenstoegang bieden](./time-series-insights-data-access.md) aan de Time Series Insights-omgeving die u hebt gemaakt voor het account. U kunt toegang tot andere ook over uzelf opgeven.
-* Een gebeurtenisbron toevoegen aan de Time Series Insights-omgeving om gegevens te pushen naar de omgeving:
-  * Informatie over [verbinding maken met een event hub](./time-series-insights-how-to-add-an-event-source-eventhub.md).
-  * Informatie over [verbinding maken met een IoT-hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
+* Een Time Series Insights-omgeving instellen hebt. Als u meer wilt weten over het inrichten van een exemplaar, probeert u de [Azure time series Insights preview](./time-series-insights-update-create-environment.md) -zelf studie.
+* [Gegevens toegang bieden](./time-series-insights-data-access.md) tot de time series Insights omgeving die u voor het account hebt gemaakt. U kunt toegang tot andere ook over uzelf opgeven.
+* Voeg een gebeurtenis bron toe aan de Time Series Insights omgeving om gegevens naar de omgeving te pushen:
+  * Meer informatie [over hoe u verbinding maakt met een event hub](./time-series-insights-how-to-add-an-event-source-eventhub.md).
+  * Meer informatie [over het maken van verbinding met een IOT-hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
-## <a name="learn-about-the-preview-explorer"></a>Meer informatie over de Preview-explorer
+## <a name="learn-about-the-preview-explorer"></a>Meer informatie over de preview Explorer
 
 De Verkenner van Azure Time Series Insights Preview bestaat uit de volgende elementen:
 
-[![Het Verkenner-weergave](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
+[![De Verkenner-weer gave](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
 
-- <a href="#environment-drop-down-list">Omgeving deelvenster</a>: Uw Azure Time Series Insights-omgevingen weergegeven.
-- <a href="#navigation-menu">Navigatiemenu</a>: Gebruiken om te schakelen tussen de **analyseren** en **Model** pagina's.
-- <a href="#hierarchy-tree">Hiërarchiestructuur</a>: Gebruik deze om te selecteren van bepaalde elementen in model en de gegevens weer te geven.
-- <a href="#preview-well">Time series en</a>: Geeft de momenteel geselecteerde gegevenselementen in de tabelindeling met kleurcodering.
-- <a href="#preview-chart">Grafiek deelvenster</a>: Uw huidige werkmap-grafiek weergegeven.
-- <a href="#time-editor-panel">Tijdlijn</a>: Gebruik dit voor het wijzigen van de tijdspanne werken.
-- <a href="#navigation-panel">App-balk</a>: De gebruikersbeheeropties, zoals de huidige tenant bevat. U kunt het thema-en taalinstellingen wijzigen.
+- <a href="#environment-drop-down-list">Omgevings paneel</a>: Hiermee worden uw Azure Time Series Insights omgevingen weer gegeven.
+- <a href="#navigation-menu">Navigatie menu</a>: Gebruik deze optie om te scha kelen tussen de pagina's **analyseren** en **model** .
+- <a href="#hierarchy-tree">Hiërarchie structuur</a>: Gebruik deze optie om specifiek model en gegevens elementen te selecteren die moeten worden gediagrameerd.
+- <a href="#preview-well">Goed tijd reeks</a>: Hiermee worden de momenteel geselecteerde gegevens elementen weer gegeven in tabel indeling met kleur codering.
+- <a href="#preview-chart">Deel venster grafiek</a>: Hiermee wordt uw huidige werk grafiek weer gegeven.
+- <a href="#time-editor-panel">Tijd lijn</a>: Gebruik dit om uw werk periode te wijzigen.
+- <a href="#navigation-panel">App-balk</a>: Bevat uw opties voor gebruikers beheer, zoals de huidige Tenant. U kunt deze gebruiken om het thema en de taal instellingen te wijzigen.
 
-## <a name="environment-drop-down-list"></a>De vervolgkeuzelijst omgeving
+## <a name="environment-drop-down-list"></a>Vervolg keuzelijst omgeving
 
-De vervolgkeuzelijst omgeving wordt weergegeven van alle Time Series Insights-omgevingen die u toegang tot hebt. De lijst bevat betalen per gebruik omgevingen, zoals de Preview van Time Series Insights. De lijst bevat ook een S1/S2-omgevingen, die algemeen beschikbaar zijn.
+In de vervolg keuzelijst omgeving worden alle Time Series Insights omgevingen weer gegeven waartoe u toegang hebt. De lijst bevat omgevingen met betalen per gebruik, zoals de preview-versie van Time Series Insights. De lijst bevat ook een S1/S2-omgeving, die algemeen beschikbaar is.
 
-1. Selecteer de pijl omlaag naast uw omgeving weergegeven.
+1. Selecteer de vervolg keuze pijl naast de weer gegeven omgeving.
 
-   [![Het Configuratiescherm](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
+   [![Het configuratie scherm](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
 
 1. Selecteer vervolgens de gewenste omgeving.
 
 ## <a name="navigation-menu"></a>Navigatiemenu
 
-  [![Het navigatiemenu](media/v2-update-explorer/explorer-three.png)](media/v2-update-explorer/explorer-three.png#lightbox)
+  [![Het navigatie menu](media/v2-update-explorer/explorer-three.png)](media/v2-update-explorer/explorer-three.png#lightbox)
 
-Gebruik het navigatiemenu om te kiezen tussen twee weergaven:
+Gebruik het navigatie menu om twee weer gaven te selecteren:
 
-* **Analyseren**: Gebruik dit voor de grafiek en gedetailleerde analyses uitvoeren op de gemodelleerde of unmodeled time series-gegevens.
-* **Model**: Gebruik dit voor push nieuwe Time Series Insights Preview typen, hiërarchieën en exemplaren aan uw Time Series Insights-model.
+* **Analyseren**: Gebruik dit diagram om uitgebreide analyses uit te voeren op uw gemodelleerde of niet-gemodelleerde tijdreeks gegevens.
+* **Model**: Gebruik it om nieuwe Time Series Insights preview-typen,-hiërarchieën en-instanties naar uw Time Series Insights model te pushen.
 
-## <a name="hierarchy-tree"></a>Hiërarchiestructuur
+## <a name="hierarchy-tree"></a>Hiërarchie structuur
 
-De hiërarchische structuur worden geselecteerde gegevenselementen met modellen, specifieke apparaten en sensoren op uw apparaten weergegeven.
+In de hiërarchie structuur worden geselecteerde gegevens elementen weer gegeven, waaronder modellen, specifieke apparaten en Sens oren op uw apparaten.
 
-### <a name="model-search-panel"></a>Paneel voor zoeken van model
+### <a name="model-search-panel"></a>Het zoek paneel model
 
-Het deelvenster model zoeken kunt u eenvoudig zoeken naar en navigeer naar uw hiërarchie Time Series-Model om te vinden van de specifieke tijd series-instanties die u wilt weergeven in de grafiek. Nadat u uw instanties selecteert, worden ze ook op zowel de huidige grafiek en de gegevens toegevoegd.
+U kunt het deel venster voor het zoeken naar modellen gebruiken om eenvoudig uw time series-model hiërarchie te doorzoeken en te navigeren om de specifieke time series-exemplaren te vinden die u wilt weer geven in uw grafiek. Nadat u uw instanties hebt geselecteerd, worden deze toegevoegd aan zowel de huidige grafiek als de gegevens bron.
 
-  [![Het deelvenster model zoeken](media/v2-update-explorer/explorer-four.png)](media/v2-update-explorer/explorer-four.png#lightbox)
+  [![Het zoek paneel van de model](media/v2-update-explorer/explorer-four.png)](media/v2-update-explorer/explorer-four.png#lightbox)
 
-### <a name="model-authoring"></a>Ontwerpen van het model
+### <a name="model-authoring"></a>Model ontwerpen
 
-De Azure Time Series Insights Preview ondersteunt volledige maken, lezen, bijwerken en verwijderen (CRUD)-bewerkingen op uw Time Series-Model.
+De Azure Time Series Insights preview ondersteunt volledige bewerkingen voor maken, lezen, bijwerken en verwijderen van uw time series-model.
 
-* **Time Series-Model type**: U kunt typen van Time Series Insights gebruiken om variabelen of formules voor het uitvoeren van berekeningen te definiëren. Ze zijn gekoppeld aan een bepaalde Time Series Insights-exemplaar. Een type kan een of meer variabelen hebben.
-* **Time Series-Model hiërarchie**: Hiërarchieën zijn systematische organisaties van uw gegevens. Hiërarchieën weer de relaties tussen verschillende entiteiten in uw Time Series Insights-gegevens.
-* **Time Series-Model exemplaar**: -Exemplaren zijn de tijdreeksen zelf. In de meeste gevallen zijn de **DeviceID** of **AssetID**, dit is de unieke id van de activa in de omgeving.
+* **Type time series-model**: U kunt Time Series Insights typen gebruiken om variabelen of formules te definiëren voor het uitvoeren van berekeningen. Ze zijn gekoppeld aan een bepaald Time Series Insights exemplaar. Een type kan een of meer variabelen hebben.
+* **Hiërarchie van Time Series-model**: Hiërarchieën zijn systematische organisaties van uw gegevens. Hiërarchieën weer de relaties tussen verschillende entiteiten in uw Time Series Insights-gegevens.
+* **Exemplaar van de time series-model**: Exemplaren zijn de tijd reeks zelf. In de meeste gevallen zijn het **DeviceID** of **AssetID**, de unieke id van de asset in de omgeving.
 
 Zie voor meer informatie over de Time Series-Model, [tijden reeks modellen](./time-series-insights-update-tsm.md).
 
-## <a name="preview-well"></a>Preview-versie en
+## <a name="preview-well"></a>Bron voorbeeld
 
-De bron weergeven-instantievelden en andere metagegevens die zijn gekoppeld aan de geselecteerde exemplaren van de Time Series Insights Als u de selectievakjes in aan de rechterkant selecteert, kunt u specifieke exemplaren van de huidige grafiek weergeven of verbergen. U kunt ook specifieke gegevenselementen in uw huidige gegevens verwijderen door het selecteren van de rode **verwijderen** (Prullenbak) besturingselement aan de linkerkant van het element.
+Op de juiste weer gave worden exemplaar velden en andere meta gegevens gekoppeld aan geselecteerde Time Series Insights exemplaren. Door de selectie vakjes aan de rechter kant in te scha kelen, kunt u specifieke exemplaren verbergen of weer geven in de huidige grafiek. U kunt ook specifieke gegevens elementen uit uw huidige gegevens bron verwijderen door het besturings element rood **verwijderen** (prullenbak kan) aan de linkerkant van het element te selecteren.
 
-  [![De Preview-versie en](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
+  [![De preview-versie](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
 
-Opnieuw configureren van de indeling van uw **analyseren** grafiek pagina, selecteer het pictogram weglatingstekens in de rechterbovenhoek:
+Als u de lay-out van de pagina **analyse** grafiek opnieuw wilt configureren, selecteert u het pictogram met het weglatings teken in de rechter bovenhoek:
 
   [![Opties voor telemetrie-indeling](media/v2-update-explorer/explorer-six.png)](media/v2-update-explorer/explorer-six.png#lightbox)
 
 > [!NOTE]
-> Als u het volgende bericht ziet, geen exemplaar van de gegevens tijdens de periode die is geselecteerd. Los het probleem, de tijdspanne vergroten of bevestigen dat het exemplaar van gegevens pushen.
+> Als het volgende bericht wordt weer gegeven, heeft het exemplaar geen gegevens tijdens de geselecteerde tijds periode. Om het probleem op te lossen, verg root u de tijds Panne of bevestigt u dat het exemplaar gegevens pusht.
 >
-> ![Geen melding gegevens](media/v2-update-explorer/explorer-seven.png)
+> ![Geen gegevens melding](media/v2-update-explorer/explorer-seven.png)
 
-## <a name="preview-chart"></a>Voorbeeld van grafiek
+## <a name="preview-chart"></a>Voorbeeld grafiek
 
-U kunt de Time Series Insights-exemplaren als regels weergeven met het diagram. U kunt het deelvenster van de omgeving, gegevensmodel en tijd van span het Configuratiescherm samenvouwen door te selecteren van de webbesturingselementen op de grafiek groter maken.
+Met de grafiek kunt u Time Series Insights instanties als regels weer geven. U kunt het deel venster omgeving, het gegevens model en het configuratie scherm samen vouwen door de Web-besturings elementen te selecteren om de grafiek groter te maken.
 
-  [![Overzicht van de Preview-grafiek](media/v2-update-explorer/explorer-eight.png)](media/v2-update-explorer/explorer-eight.png#lightbox)
+  [![Overzicht van voorbeeld grafiek](media/v2-update-explorer/explorer-eight.png)](media/v2-update-explorer/explorer-eight.png#lightbox)
 
-- **Geselecteerde datumbereik**: Hiermee wordt bepaald welke elementen beschikbaar voor visualisatie zijn.
+- **Geselecteerd datum bereik**: Hiermee wordt bepaald welke gegevens elementen beschikbaar zijn voor visualisatie.
 
-- **Binnenste datum bereik schuifregelaar**: De twee endpoint-besturingselementen door ze te slepen gedurende de periode die u wilt gebruiken.
+- Schuif knop voor het **binnenste datum bereik**: Gebruik de twee eindpunt besturings elementen door ze over de gewenste tijds duur te slepen.
 
-- **Tijd van span samenvouwen besturingselement**: Samengevouwen en breidt de tijd span Configuratiescherm-editor.
+- **Besturings element voor het samen vouwen van tijds duur**: Hiermee vouwt u de editor van het tijd paneel samen en breidt u deze uit.
 
-- **Besturingselement voor y-as opmaken**: Bladeren door de opties voor de y-as beschikbaar:
+- **Besturings element voor de indeling van de Y-as**: De beschik bare opties voor de y-as weer geven:
 
-    * `Default`: Elke regel is een afzonderlijke y-as.
-    * `Stacked`: Gebruik dit voor meerdere regels op de dezelfde y-as-stack met de y-as gegevens wijzigen op basis van de geselecteerde regel.
-    * `Shared`: Alle y-as-gegevens samen weergegeven.
+    * `Default`: Elke regel heeft een afzonderlijke y-as.
+    * `Stacked`: Gebruik deze om meerdere lijnen op dezelfde y-as te stapelen, waarbij de y-as wordt gewijzigd op basis van de geselecteerde regel.
+    * `Shared`: Alle gegevens van de y-as worden samen weer gegeven.
 
-- **Huidige gegevenselement**: Het geselecteerde element en de bijbehorende gegevens.
+- **Huidig gegevens element**: Het momenteel geselecteerde gegevens element en de bijbehorende details.
 
-Om in te zoomen verder in een specifieke gegevenssegment, met de linkermuisknop op een gegevenspunt in de huidige grafiek en sleep het geselecteerde gebied naar het eindpunt van uw keuze. Met de rechtermuisknop op het grijze gebied van de geselecteerde en selecteer **zoomen**, zoals in dit volgende afbeelding:
+Als u verder wilt inzoomen op een specifiek gegevens segment, klikt u met de rechter muisknop op een gegevens punt in de huidige grafiek en sleept u het geselecteerde gebied naar het eind punt van uw keuze. Klik met de rechter muisknop op het grijze geselecteerde gebieden selecteer inzoomen, zoals wordt weer gegeven in de volgende afbeelding:
 
-  [![Inzoomen op Preview-grafiek](media/v2-update-explorer/explorer-nine.png)](media/v2-update-explorer/explorer-nine.png#lightbox)
+  [![Zoom diagram bekijken](media/v2-update-explorer/explorer-nine.png)](media/v2-update-explorer/explorer-nine.png#lightbox)
 
-Na het uitvoeren van de **zoomen** actie, ziet u de geselecteerde gegevens instellen. Selecteer het besturingselement van de y-as-indeling doorloopt u de drie weergaven van de y-as van uw Time Series Insights-gegevens.
+Nadat u de **Zoom** actie hebt uitgevoerd, ziet u de geselecteerde gegevensset. Selecteer het besturings element voor de indeling van de y-as om de drie weer gaven van uw Time Series Insights gegevens op de y-as te door lopen.
 
-  [![Preview-versie grafiek y-as](media/v2-update-explorer/explorer-ten.png)](media/v2-update-explorer/explorer-ten.png#lightbox)
+  [![Voorbeeld grafiek y-as](media/v2-update-explorer/explorer-ten.png)](media/v2-update-explorer/explorer-ten.png#lightbox)
 
-Hier ziet u een voorbeeld van gedeelde Y-assen:
+Hier ziet u een voor beeld van gedeelde Y-assen:
 
-  [![Preview-versie gedeeld Y-assen](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
+  [![Gedeelde Y-assen vooraf bekijken](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
 
-## <a name="time-editor-panel"></a>Deelvenster van editor tijd
+## <a name="time-editor-panel"></a>Tijds editor paneel
 
-Als u met Time Series Insights Preview werkt, selecteert u eerst een tijdsduur. De gegevensset die beschikbaar is voor het omgaan met de Time Series Insights Preview widgets Hiermee bepaalt u de geselecteerde periode. De volgende webbesturingselementen zijn beschikbaar in Time Series Insights Preview voor het selecteren van de tijdspanne werken:
+Als u met Time Series Insights Preview werkt, selecteert u eerst een tijdsduur. Het geselecteerde tijds bereik bepaalt de gegevensset die beschikbaar is voor manipulatie met de Time Series Insights preview-objecten. De volgende Webbe sturings elementen zijn beschikbaar in Time Series Insights Preview voor het selecteren van de tijds periode van uw werk:
 
-  [![Deelvenster tijd selecteren](media/v2-update-explorer/explorer-twelve.png)](media/v2-update-explorer/explorer-twelve.png#lightbox)
+  [![Deel venster tijd selectie](media/v2-update-explorer/explorer-twelve.png)](media/v2-update-explorer/explorer-twelve.png#lightbox)
 
-1. **Binnenste datum bereik schuifregelaar**: De twee endpoint-besturingselementen door ze te slepen gedurende de periode die u wilt gebruiken. Deze interne datumbereik wordt beperkt door de schuifregelaar datum buitenste bereik.
+1. Schuif knop voor het **binnenste datum bereik**: Gebruik de twee eindpunt besturings elementen door ze over de gewenste tijds duur te slepen. Dit binnenste datum bereik wordt beperkt door de schuif regelaar voor het buitenste datum bereik.
 
-1. **Vergroot of verklein de knoppen voor datumbereik**: Vergroten of verkleinen van de tijdspanne door een van de knoppen voor het interval dat u wilt selecteren.
+1. **Knoppen voor het datum bereik verg Roten of verkleinen**: Verg root of verklein uw tijds Panne door een van de knoppen voor het gewenste interval te selecteren.
 
-1. **Tijd van span samenvouwen besturingselement**: Dit webbesturingselement kunt u de besturingselementen, met uitzondering van de schuifregelaar van binnenste datum bereik verbergen.
+1. **Besturings element voor het samen vouwen van tijds duur**: Met dit Webbe sturings element kunt u alle besturings elementen verbergen, met uitzonde ring van de binnenste schuif regelaar van het bereik.
 
-1. **Buitenste bereik schuifregelaar datumbesturingselement**: Gebruik de eindpunt-besturingselementen om te selecteren van de buitenste datumbereik, die beschikbaar zijn voor uw interne datumbesturingselement bereik.
+1. **Besturings element voor de schuif regelaar voor de buitenste datum bereik**: Gebruik de besturings elementen voor het eind punt om het buitenste datum bereik te selecteren dat beschikbaar is voor het besturings element binnen het bereik van datums.
 
-1. **Snelle tijden datumbereik vervolgkeuzelijst**: Gebruiken om te snel schakelen tussen span selecties vooraf ingestelde tijd, zoals de laatste **30 minuten**, wordt de **afgelopen 12 uur**, of een **aangepast datumbereik**. Als u deze waarde wijzigt, wijzigt ook de beschikbare interval bereiken die worden beschreven in de schuifregelaar voor grootte-interval.
+1. **Vervolg keuzelijst datum-bereik met snelle tijden**: Gebruik deze functie om snel te scha kelen tussen vooraf ingestelde tijdgebonden selecties, zoals de laatste **30 minuten**, de **laatste 12 uur**of een **aangepast bereik**. Als u deze waarde wijzigt, wijzigt ook de beschikbare interval bereiken die worden beschreven in de schuifregelaar voor grootte-interval.
 
-1. **Intervalgrootte schuifregelaar**: Gebruik deze om in te zoomen en afmelden bij intervallen via de dezelfde periode. Deze actie biedt meer controle over verkeer tussen grote segmenten van de tijd. Vloeiend trends op segmenten zo klein is als een milliseconde wordt weergegeven. U kunt deze gebruiken om te zien met hoge resolutie, gedetailleerde delen van uw gegevens. Startpunt van de schuifregelaar-standaard is ingesteld als de meest optimale weergave van de gegevens van uw selectie, waardoor resolutie, de snelheid van de query en de granulatie.
+1. **Schuif regelaar voor interval grootte**: Gebruik deze functie om in en uit te zoomen op dezelfde tijds duur. Deze actie biedt meer controle over verkeer tussen grote segmenten van de tijd. Het geeft vloeiende trends weer op segmenten van minder dan een milliseconde. U kunt deze gebruiken om nauw keurige delen van uw gegevens met hoge resolutie te bekijken. Startpunt van de schuifregelaar-standaard is ingesteld als de meest optimale weergave van de gegevens van uw selectie, waardoor resolutie, de snelheid van de query en de granulatie.
 
-1. **Besturingselement voor bereik naar en van web**: Met dit webbesturingselement, kunt u eenvoudig de datum en tijd bereiken die u wilt selecteren. U kunt ook het besturingselement gebruiken om over te schakelen tussen de verschillende tijdzones. Nadat u de wijzigingen toe te passen op de huidige werkruimte, selecteert u **opslaan**.
+1. **Besturings element voor datum bereik tot en met Web**: Met dit Webbe sturings element kunt u eenvoudig de gewenste datum en tijd selecteren. U kunt ook het besturingselement gebruiken om over te schakelen tussen de verschillende tijdzones. Nadat u de wijzigingen hebt aangebracht die u wilt Toep assen op uw huidige werk ruimte, selecteert u **Opslaan**.
 
-   [![Naar en van deelvenster selecteren](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
+   [![Van en naar selectie paneel](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
 
-## <a name="navigation-panel"></a>Navigatiepaneel
+## <a name="navigation-panel"></a>Navigatie paneel
 
-Het navigatiepaneel Time Series Insights Preview-versie wordt weergegeven aan de bovenkant van uw Time Series Insights-app. De volgende functies biedt.
+Het navigatie venster Time Series Insights Preview wordt boven aan uw Time Series Insights app weer gegeven. Het biedt de volgende functies.
 
 ### <a name="current-session-share-link-control"></a>Huidige bestandsshare koppeling sessiebeheer
 
-  [![Pictogram voor delen](media/v2-update-explorer/explorer-fifteen.png)](media/v2-update-explorer/explorer-fifteen.png#lightbox)
+  [![Pictogram delen](media/v2-update-explorer/explorer-fifteen.png)](media/v2-update-explorer/explorer-fifteen.png#lightbox)
 
-Selecteer de nieuwe **delen** pictogram voor het delen van een URL-koppeling met uw team.
+Selecteer het pictogram nieuwe **share** om een URL-koppeling met uw team te delen.
 
-  [![De URL van uw instantie delen](media/v2-update-explorer/url-share.png)](media/v2-update-explorer/url-share.png#lightbox)
+  [![Uw exemplaar-URL delen](media/v2-update-explorer/url-share.png)](media/v2-update-explorer/url-share.png#lightbox)
 
 ### <a name="tenant-section"></a>Sectie tenant
 
-  [![Selectie van de tenant](media/v2-update-explorer/explorer-sixteen.png)](media/v2-update-explorer/explorer-sixteen.png#lightbox)
+  [![Tenant selectie](media/v2-update-explorer/explorer-sixteen.png)](media/v2-update-explorer/explorer-sixteen.png#lightbox)
 
-* Uw huidige Time Series Insights aanmeldingsaccount informatie weergegeven.
-* Gebruik dit om over te schakelen tussen de beschikbare Time Series Insights-thema's.
-* Gebruiken om te bekijken van de Preview-versie [demo-web-app](https://insights.timeseries.azure.com/preview/demo).
+* Hier worden de gegevens van uw huidige Time Series Insights aanmeldings account weer gegeven.
+* Gebruik deze optie om te scha kelen tussen de beschik bare Time Series Insights-Thema's.
+* Gebruik het om de preview- [demo-web-app](https://insights.timeseries.azure.com/preview/demo)weer te geven.
 
 ### <a name="theme-selection"></a>Thema selecteren
 
-Als u wilt een nieuw thema selecteren, selecteert u het pictogram van uw profiel zich in de rechterbovenhoek. Selecteer **thema wijzigen**.
+Als u een nieuw thema wilt selecteren, selecteert u het profiel pictogram in de rechter bovenhoek. Selecteer vervolgens **thema wijzigen**.
 
   [![Thema selecteren](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
 
 > [!TIP]
-> Taal selecteren is ook beschikbaar door uw profiel-pictogram te selecteren.
+> Taal selectie is ook beschikbaar door uw profiel pictogram te selecteren.
 
 Azure Time Series Insights Preview ondersteunt twee thema's:
 
-* **Licht thema**: Het standaardthema dat wordt weergegeven in dit document.
-* **Donker thema**: Hiermee maakt u de explorer, zoals hier wordt weergegeven:
+* **Licht thema**: Het standaard thema dat in dit document wordt weer gegeven.
+* **Donker thema**: Hiermee wordt de Explorer weer gegeven zoals hier:
 
-  [![Geselecteerde donker thema](media/v2-update-explorer/explorer-seventeen.png)](media/v2-update-explorer/explorer-seventeen.png#lightbox)
+  [![Geselecteerd donker thema](media/v2-update-explorer/explorer-seventeen.png)](media/v2-update-explorer/explorer-seventeen.png#lightbox)
 
 ## <a name="s1s2-environment-controls"></a>Besturingselementen voor S1/S2-omgeving
 
-### <a name="preview-terms-panel"></a>Paneel voor Preview-voorwaarden
+### <a name="preview-terms-panel"></a>Voorbeeld venster voor waarden
 
-In deze sectie geldt alleen voor bestaande S1/S2-omgevingen wordt geprobeerd de explorer gebruiken in de bijgewerkte gebruikersinterface. Mogelijk wilt u het product algemeen beschikbaar is en de Preview-versie gebruiken in combinatie. Er is bepaalde functionaliteit van de bestaande gebruikersinterface aan de bijgewerkte explorer toegevoegd, maar krijgt u de volledige gebruikersinterface-ervaring voor S1/S2-omgeving in de bestaande Time Series Insights-Verkenner. 
+In deze sectie geldt alleen voor bestaande S1/S2-omgevingen wordt geprobeerd de explorer gebruiken in de bijgewerkte gebruikersinterface. Mogelijk wilt u het algemeen beschik bare product en de preview-versie gebruiken in combi natie. Er is bepaalde functionaliteit van de bestaande gebruikersinterface aan de bijgewerkte explorer toegevoegd, maar krijgt u de volledige gebruikersinterface-ervaring voor S1/S2-omgeving in de bestaande Time Series Insights-Verkenner. 
 
-In plaats van de hiërarchie ziet u het deelvenster Time Series Insights termen, waar u query's in uw omgeving definiëren. Gebruik deze om uw gegevens op basis van een predicaat te filteren.
+In plaats van de hiërarchie ziet u het deel venster Time Series Insights voor waarden, waarin u query's in uw omgeving definieert. Gebruik dit om uw gegevens te filteren op basis van een predikaat.
 
-  [![Deelvenster waar query](media/v2-update-explorer/explorer-eighteen.png)](media/v2-update-explorer/explorer-eighteen.png#lightbox)
+  [![Where-query paneel](media/v2-update-explorer/explorer-eighteen.png)](media/v2-update-explorer/explorer-eighteen.png#lightbox)
 
 Het deelvenster met Time Series Insights Preview-voorwaarden editor bevat de volgende parameters:
 
-**Where**: Gebruik waar u de component snel uw om gebeurtenissen te filteren met behulp van de set met operanden die worden vermeld in de volgende tabel. Als u een zoekopdracht uitvoeren door een operand selecteren, wordt het predicaat automatisch bijgewerkt op basis van die zoekopdracht. Ondersteunde Operandtypen zijn onder andere:
+**Where**: Gebruik de component WHERE om snel uw gebeurtenissen te filteren met behulp van de set operands die in de volgende tabel worden weer gegeven. Als u een zoekopdracht uitvoeren door een operand selecteren, wordt het predicaat automatisch bijgewerkt op basis van die zoekopdracht. Ondersteunde Operandtypen zijn onder andere:
 
 | Bewerking | Ondersteunde typen   | Opmerkingen |
 | --- | --- | --- |
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan NULL |
 | `IN` | String, Bool, Double, DateTime, TimeSpan NULL | Alle operands moeten zijn van hetzelfde type of NULL-constante. |
-| `HAS` | String | Alleen constante letterlijke tekenreeksen zijn toegestaan aan de rechterkant. Lege tekenreeks en NULL zijn niet toegestaan. |
+| `HAS` | Tekenreeks | Aan de rechter kant zijn alleen letterlijke teken reeksen met constanten toegestaan. Lege teken reeks en NULL zijn niet toegestaan. |
 
-Zie voor meer informatie over ondersteunde querybewerkingen en gegevenstypen, [Time Series-expressie (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx).
+Zie de [Time Series-expressie (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx)voor meer informatie over ondersteunde query bewerkingen en gegevens typen.
 
-### <a name="examples-of-where-clauses"></a>Voorbeelden van de locatie waar de EU
+### <a name="examples-of-where-clauses"></a>Voor beelden van WHERE-componenten
 
-  [![Waar component-voorbeelden](media/v2-update-explorer/explorer-nineteen.png)](media/v2-update-explorer/explorer-nineteen.png#lightbox)
+  [![Voor beelden van WHERE-clausule](media/v2-update-explorer/explorer-nineteen.png)](media/v2-update-explorer/explorer-nineteen.png#lightbox)
 
-**Meting**: Een vervolgkeuzelijst die wordt weergegeven de numerieke kolommen (**verdubbelt**) u kunt gebruiken als elementen voor de huidige grafiek.
+**Meting**: Een vervolg keuzelijst met alle numerieke kolommen (**dubbel**) die u kunt gebruiken als elementen voor uw huidige grafiek.
 
-**Splitsen op basis van**: Deze vervolgkeuzelijst wordt weergegeven van alle beschikbare categorische kolommen (tekenreeksen) in uw model dat u kunt uw gegevens door te groeperen. U kunt maximaal vijf voorwaarden om weer te geven op de dezelfde x-as toevoegen. Geef de parameters die u wilt en selecteer vervolgens **toevoegen** om toe te voegen een nieuwe term.
+**Splitsen op**: In deze vervolg keuzelijst worden alle beschik bare categorische-kolommen (teken reeksen) in uw model weer gegeven waarop u uw gegevens kunt groeperen. U kunt Maxi maal vijf termen toevoegen die op dezelfde x-as worden weer gegeven. Voer de gewenste para meters in en selecteer **toevoegen** om een nieuwe term toe te voegen.
 
-  [![Aangevraagde en gefilterde weergave een](media/v2-update-explorer/explorer-twenty.png)](media/v2-update-explorer/explorer-twenty.png#lightbox)
+  [![Er is een query uitgevoerd en gefilterde weer gave 1](media/v2-update-explorer/explorer-twenty.png)](media/v2-update-explorer/explorer-twenty.png#lightbox)
 
-U kunt weergeven en verbergen van elementen in het deelvenster grafiek door de zichtbaar pictogram te selecteren, zoals wordt weergegeven in de volgende afbeelding. Om volledig te verwijderen query's, selecteer de rode **X**.
+U kunt elementen weer geven en verbergen in het deel venster grafiek door het zicht bare pictogram te selecteren, zoals wordt weer gegeven in de volgende afbeelding. Als u query's volledig wilt verwijderen, selecteert u de rode **X**.
 
-  [![Aangevraagde en gefilterde weergave twee](media/v2-update-explorer/explorer-twenty-one.png)](media/v2-update-explorer/explorer-twenty-one.png#lightbox)
+  [![Opgevraagde en gefilterde weer gave twee](media/v2-update-explorer/explorer-twenty-one.png)](media/v2-update-explorer/explorer-twenty-one.png#lightbox)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [opslag- en uitgangsclaims](./time-series-insights-update-storage-ingress.md) in Azure Time Series Insights Preview.
-- Lees het document Time Series Insights Preview op [gegevensmodellering](./time-series-insights-update-tsm.md).
-- Informatie over [hoe u problemen vaststellen en oplossen](./time-series-insights-update-how-to-troubleshoot.md) uw Time Series Insights-exemplaar.
+- Meer informatie over [opslag en](./time-series-insights-update-storage-ingress.md) inkomend verkeer in de preview-versie van Azure time series Insights.
+- Lees het Time Series Insights preview-document in [gegevens modellering](./time-series-insights-update-tsm.md).
+- Meer informatie [over het vaststellen en oplossen van problemen met](./time-series-insights-update-how-to-troubleshoot.md) uw time series Insights-exemplaar.

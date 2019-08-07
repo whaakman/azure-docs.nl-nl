@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met web kaartbesturingselement in Azure Maps | Microsoft Docs
-description: Informatie over het gebruik van de Map Control van Azure Maps-client-side Javascript-bibliotheek.
+title: Aan de slag met het besturings element web map in Azure Maps | Microsoft Docs
+description: Meer informatie over het gebruik van de Azure Maps kaart besturings element java script-bibliotheek.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2018
@@ -8,44 +8,44 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: aa923fa7e2d5e673e6a2db2b349e54d433d1817b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fdbd8092abcc51fc03e8b00106b7e25ec4be905
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957271"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839371"
 ---
-# <a name="use-the-azure-maps-map-control"></a>Azure Maps Map Control gebruiken
+# <a name="use-the-azure-maps-map-control"></a>Het Azure Maps kaart besturings element gebruiken
 
-De Map Control-client-side Javascript-bibliotheek kunt u voor rendering van kaarten en ingesloten Azure kaarten-functionaliteit in uw web- of mobiele toepassing.
+Met de Map Control java script-bibliotheek aan de client zijde kunt u kaarten en Inge sloten Azure Maps functionaliteit weer geven in uw web-of mobiele toepassing.
 
-## <a name="create-a-new-map-in-a-web-page"></a>Een nieuwe map maken in een webpagina
+## <a name="create-a-new-map-in-a-web-page"></a>Een nieuwe kaart maken op een webpagina
 
-U kunt een kaart insluiten in webpagina's met behulp van de Map Control-client-side Javascript-bibliotheek.
+U kunt een kaart insluiten in een webpagina met behulp van de Map Control java script-bibliotheek aan de client zijde.
 
-1. Maak een nieuwe HTML-bestand.
+1. Maak een nieuw HTML-bestand.
 
-2. In de Web-SDK van Azure kaarten worden geladen. Dit kan worden gedaan met behulp van een van twee opties.
+2. Laden in de Azure Maps Web-SDK. U kunt dit doen met een van de twee opties;
 
-    a. Gebruik de wereldwijd gehoste CDN-versie van Azure Maps Web SDK door de URL-eindpunten toe te voegen aan de verwijzingen stylesheet en het script in de `<head>` element van het bestand:
+    a. Gebruik de wereld wijd gehoste CDN-versie van de Azure Maps Web-SDK door de URL-eind punten toe te voegen aan het opmaak model en de script verwijzingen in het `<head>` element van het bestand:
 
     ```HTML
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
-    b. U kunt ook laden van de Web-SDK van Azure kaarten-broncode lokaal via de [azure-kaarten-control](https://www.npmjs.com/package/azure-maps-control) NPM verpakt en hosten van de App met uw app. Dit pakket bevat ook TypeScript-definities.
+    b. U kunt ook de Azure Maps Web SDK-bron code lokaal laden met behulp van het [Azure-Maps-Control NPM-](https://www.npmjs.com/package/azure-maps-control) pakket en deze hosten met uw app. Dit pakket bevat ook type script definities.
 
-    > npm install azure-kaarten-besturingselement
+    > NPM Azure-Maps-beheer installeren
 
-    Voeg deze verwijzingen naar de Azure-kaarten stylesheet en script bron verwijzingen naar de `<head>` element van het bestand:
+    Voeg vervolgens verwijzingen naar het Azure Maps opmaak model en de script bron verwijzingen `<head>` naar het element van het bestand toe:
 
     ```HTML
     <link rel="stylesheet" href="node_modules/azure-maps-control/dist/css/atlas.min.css" type="text/css">
     <script src="node_modules/azure-maps-control/dist/js/atlas.min.js"></script>
     ```
 
-3. Voor het renderen van de kaart zodat deze de volledige hoofdtekst van de pagina vult, voeg de volgende `<style>` element op de `<head>` element.
+3. Als u de kaart zo wilt genereren dat de volledige hoofd tekst van de pagina wordt gevuld, `<style>` voegt u het `<head>` volgende element toe aan het-element.
 
     ```HTML
     <style>
@@ -60,7 +60,7 @@ U kunt een kaart insluiten in webpagina's met behulp van de Map Control-client-s
     </style>
     ```
 
-4. Voeg in de hoofdtekst van de pagina, een `<div>` element en wijs hieraan een `id` van **myMap**.
+4. Voeg in de hoofd tekst van de pagina een `<div>` element toe en geef `id` het de naam **myMap**.
 
     ```HTML
     <body>
@@ -68,7 +68,7 @@ U kunt een kaart insluiten in webpagina's met behulp van de Map Control-client-s
     </body>
     ```
 
-5. Voor het initialiseren van het kaartbesturingselement, definieert een nieuwe sectie in de HTML-tekst en een script maken. Doorgeven de `id` van de kaart `<div>` of een `HTMLElement` (bijvoorbeeld `document.getElementById('myMap')`) als de eerste parameter bij het maken van een exemplaar van de `Map` klasse. Uw eigen sleutel voor Azure kaarten-account of Azure Active Directory (AAD)-referenties gebruiken om te verifiëren van de kaart met behulp [verificatieopties](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Als u nodig hebt voor het maken van een account of het vinden van uw sleutel, Zie [over het beheren van uw Azure kaarten-account en sleutels](how-to-manage-account-keys.md). De **taal** optie geeft u de taal die moet worden gebruikt voor Kaartlabels en besturingselementen. Zie voor meer informatie over ondersteunde talen [ondersteunde talen](supported-languages.md). Als een abonnementssleutel voor verificatie.
+5. Als u het kaart besturings element wilt initialiseren, definieert u een nieuwe sectie in de HTML-hoofd tekst en maakt u een script. `HTMLElement` `<div>` `Map` Geef de naam `document.getElementById('myMap')`van de kaart of een (bijvoorbeeld) door als de eerste para meter bij het maken van een instantie van `id` de klasse. Gebruik uw eigen Azure Maps account sleutel of certificerings Azure Active Directory (AAD) om de kaart te verifiëren met behulp van [verificatie opties](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Zie [uw Azure Maps account en sleutels beheren](how-to-manage-account-keys.md)als u een account wilt maken of uw sleutel wilt zoeken. De **taal** optie geeft u de taal op die moet worden gebruikt voor labels en besturings elementen toewijzen. Zie [ondersteunde talen](supported-languages.md)voor meer informatie over ondersteunde talen. Als u een abonnements sleutel gebruikt voor verificatie.
 
     ```HTML
     <script type="text/javascript">
@@ -84,7 +84,7 @@ U kunt een kaart insluiten in webpagina's met behulp van de Map Control-client-s
     </script>
     ```
 
-    Als u met behulp van Azure Active Directory (AAD) voor verificatie:
+    Als u Azure Active Directory (AAD) gebruikt voor verificatie:
 
     ```HTML
     <script type="text/javascript">
@@ -102,9 +102,9 @@ U kunt een kaart insluiten in webpagina's met behulp van de Map Control-client-s
     </script>
     ```
 
-    Zie voor meer informatie, [verificatie met Azure Maps](azure-maps-authentication.md) voor meer informatie.
+    Zie [verificatie met Azure Maps](azure-maps-authentication.md) voor meer informatie.
 
-6. (Optioneel) wellicht vindt u de volgende elementen van de meta-tag toe te voegen aan de kop van de pagina die handig zijn:
+6. U kunt eventueel de volgende metatag elementen toevoegen aan het hoofd van de pagina:
 
     ```HTML
     <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
@@ -114,7 +114,7 @@ U kunt een kaart insluiten in webpagina's met behulp van de Map Control-client-s
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
-7. Dit alles ziet uw HTML-bestand er ongeveer als de volgende code:
+7. Het samen stellen van uw HTML-bestand moet er ongeveer als volgt uitzien:
 
     ```HTML
     <!DOCTYPE html>
@@ -164,19 +164,53 @@ U kunt een kaart insluiten in webpagina's met behulp van de Map Control-client-s
     </html>
     ```
 
-8. Open het bestand in uw webbrowser en de gerenderde kaart weergeven. Deze moet de volgende code uitzien:
+8. Open het bestand in uw webbrowser en Bekijk de weer gegeven kaart. Het moet er ongeveer uitzien als de volgende code:
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="Map control gebruiken" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Zie de Pen <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>over het gebruik van het kaartbesturingselement</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+    <iframe height="700" style="width: 100%;" scrolling="no" title="Het kaart besturings element gebruiken" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Zie de pen <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>How to use the map control</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>().
     </iframe>
+
+## <a name="localizing-the-map"></a>De kaart lokaliseren
+
+Azure Maps biedt twee verschillende manieren om de taal en de regionale weer gave van de kaart in te stellen. De eerste optie is om deze informatie toe te voegen `atlas` aan de globale naam ruimte, wat resulteert in alle instanties van de kaart besturing in uw app die standaard worden ingesteld op deze instellingen. Hiermee stelt u de taal in op Frans ("fr-FR") en de regionale weer gave op ' auto ':
+
+```javascript
+atlas.setLanguage('fr-FR');
+atlas.setView('auto');
+```
+
+De tweede optie is om deze informatie door te geven aan de kaart opties bij het laden van de kaart zoals:
+
+```javascript
+map = new atlas.Map('myMap', {
+    language: 'fr-FR',
+    view: 'auto',
+
+    authOptions: {
+        authType: 'aad',
+        clientId: '<Your AAD Client Id>',
+        aadAppId: '<Your AAD App Id>',
+        aadTenant: 'msft.ccsctp.net'
+    }
+});
+```
+
+> [!Note]
+> Met de Web-SDK is het mogelijk meerdere toewijzings exemplaren op dezelfde pagina te laden met andere taal-en regio-instellingen. Deze instellingen kunnen bovendien worden bijgewerkt nadat de kaart is geladen met behulp van `setStyle` de functie van de kaart. 
+
+Hier volgt een voor beeld van Azure Maps waarbij de taal is ingesteld op "fr-FR" en de regionale weer gave ingesteld op ' auto '.
+
+![Kaart afbeelding met labels in het Frans](./media/how-to-use-map-control/websdk-localization.png)
+
+Een volledige lijst met ondersteunde talen en regionale weer gaven wordt [hier](supported-languages.md)beschreven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Informatie over het maken van en interactie met een kaart:
+Meer informatie over het maken en gebruiken van een kaart:
 
 > [!div class="nextstepaction"]
 > [Een kaart maken](map-create.md)
 
-Meer informatie over voor de stijl van een kaart:
+Meer informatie over het opmaken van een kaart:
 
 > [!div class="nextstepaction"]
-> [Kies een stijl kaart](choose-map-style.md)
+> [Een kaart stijl kiezen](choose-map-style.md)

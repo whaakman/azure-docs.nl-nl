@@ -11,19 +11,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3daf44ee29a2f7b29eec9215876ca6edc18a5800
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 59a2cc971fbc1df967bc2655c672ab8f419eef71
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325049"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835513"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedure: Migreren vanuit de Azure Access Control Service
 
@@ -205,7 +205,7 @@ Op hoog niveau *is Azure Active Directory waarschijnlijk de beste keuze voor uw 
 | WS-Trust | Ondersteund | Niet ondersteund |
 | **Token indelingen** | | |
 | JWT | Ondersteund in bèta | Ondersteund |
-| SAML 1,1 | Ondersteund | Preview |
+| SAML 1.1 | Ondersteund | Preview |
 | SAML 2.0 | Ondersteund | Ondersteund |
 | SWT | Ondersteund | Niet ondersteund |
 | **Aanpassingen** | | |
@@ -256,7 +256,7 @@ In de volgende tabel worden de functies van Access Control vergeleken die releva
 | WS-Trust | Ondersteund | Niet ondersteund |
 | **Token indelingen** | | |
 | JWT | Ondersteund in bèta | Ondersteund |
-| SAML 1,1 | Ondersteund | Niet ondersteund |
+| SAML 1.1 | Ondersteund | Niet ondersteund |
 | SAML 2.0 | Ondersteund | Niet ondersteund |
 | SWT | Ondersteund | Niet ondersteund |
 | **Aanpassingen** | | |
@@ -325,7 +325,7 @@ U kunt ook Azure AD gebruiken voor server-naar-Server-verificatie met behulp van
 | Een webservice registreren | Een Relying Party maken in de Access Control Beheer Portal | Een Azure AD-webtoepassing maken in de Azure Portal |
 | Een client registreren | Een service-identiteit maken in Access Control Beheer Portal | Een andere Azure AD-webtoepassing maken in de Azure Portal |
 | Gebruikte protocol |-OAuth-TERUGLOOP Protocol<br />-OAuth 2,0 Draft 13-client referenties toewijzen | Referenties voor OAuth 2.0-client verlenen |
-| Client verificatie methoden |-Eenvoudig wacht woord<br />-Ondertekende SWT<br />-SAML-token van een federatieve id-provider |-Eenvoudig wacht woord<br />-Ondertekende JWT |
+| Methoden voor clientverificatie |-Eenvoudig wacht woord<br />-Ondertekende SWT<br />-SAML-token van een federatieve id-provider |-Eenvoudig wacht woord<br />-Ondertekende JWT |
 | Token indelingen |- JWT<br />-SAML 1,1<br />-SAML 2,0<br />-SWT<br /> | Alleen JWT |
 | Token transformatie |-Aangepaste claims toevoegen<br />-Eenvoudig als-dan claim de uitgifte logica | Aangepaste claims toevoegen | 
 | Configuratie-en beheer taken automatiseren | Ondersteund via Access Control Management-service | Ondersteund via Microsoft Graph en Azure AD Graph API |

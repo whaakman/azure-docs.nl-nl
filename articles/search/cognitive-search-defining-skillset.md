@@ -9,17 +9,17 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: eb85c4c56d8464d4078564c707efabf60dc5aa99
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.subservice: cognitive-search
+ms.openlocfilehash: 560bc7a7dc30dd1ed55727c4bcc3831a771ff69e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501461"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841253"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Een vakkennisset maken in een verrijkings pijplijn
 
-Met de cognitieve zoek functie worden gegevens geëxtraheerd en verrijkt om deze doorzoekbaar te maken in Azure Search. De *stappen voor*het ophalen en verrijken van informatie worden geadviseerd, gecombineerd tot een *vaardig* heden waarnaar wordt verwezen tijdens het indexeren. Een vaardig heden kan [ingebouwde vaardig heden](cognitive-search-predefined-skills.md) of aangepaste vaardig heden gebruiken (Zie [voor beeld: Een aangepaste vaardigheid maken voor cognitieve Zoek](cognitive-search-create-custom-skill-example.md) opdrachten voor meer informatie).
+Met de cognitieve zoek functie worden gegevens geëxtraheerd en verrijkt om deze doorzoekbaar te maken in Azure Search. De stappen voor het ophalen en verrijken van informatie worden geadviseerd, gecombineerd tot een *vaardig* heden waarnaar wordt verwezen tijdens het indexeren. Een vaardig heden kan [ingebouwde vaardig heden](cognitive-search-predefined-skills.md) of aangepaste vaardig heden gebruiken (Zie [voor beeld: Een aangepaste vaardigheid maken voor cognitieve Zoek](cognitive-search-create-custom-skill-example.md) opdrachten voor meer informatie).
 
 In dit artikel leert u hoe u een verrijkings pijplijn kunt maken voor de vaardig heden die u wilt gebruiken. Een vakkennisset is gekoppeld aan een Azure Search [indexer](search-indexer-overview.md). Een deel van het pijplijn ontwerp, dat in dit artikel wordt besproken, is de vaardig heden zelf maken. 
 

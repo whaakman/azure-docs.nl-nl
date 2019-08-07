@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 546abdae5d7c03bb0d4b49f9485fe06b521fdc1d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 82638e3e102f7b8e39cd797960a11f3193132bc1
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722228"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779395"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Aangepaste beheerders rollen in Azure Active Directory (preview-versie)
 
@@ -72,7 +72,11 @@ Een roldefinitie of rol is een verzameling machtigingen. Met een roldefinitie wo
 
 ### <a name="scope"></a>Scope
 
-Een bereik is de beperking van toegestane acties voor een bepaalde Azure AD-resource. Wanneer u een rol toewijst, kunt u de rol aanpassen om de toegestane acties van de beheerder te beperken door het bepalen van het bereik van de actie. Als uw ontwikkel aars bijvoorbeeld geen volledig beheer van alle toepassingen nodig hebben, kunt u aangepaste Azure AD-rollen gebruiken om te voor komen dat ze alleen app-registraties beheren.
+Een bereik is de beperking van toegestane acties voor een bepaalde Azure AD-resource. Wanneer u een rol toewijst, kunt u een bereik opgeven dat de toegestane acties van de beheerder beperkt tot een specifieke resource. Als u bijvoorbeeld een ontwikkelaar een aangepaste rol wilt verlenen, maar alleen een bepaalde toepassings registratie wilt beheren, kunt u de specifieke toepassings registratie als bereik in de roltoewijzing toevoegen.
+
+  > [!Note]
+  > Aangepaste rollen kunnen worden toegewezen in het bereik van de map en het resource bereik. Ze kunnen nog niet worden toegewezen in het bereik van de beheer eenheid.
+  > Ingebouwde rollen kunnen worden toegewezen in het bereik van de map en in sommige gevallen beheer eenheden. Ze kunnen nog niet worden toegewezen in het object bereik.
 
 ## <a name="required-license-plan"></a>Vereist licentie plan
 

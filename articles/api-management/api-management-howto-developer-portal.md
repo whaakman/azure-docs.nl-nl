@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: d902a65c4e36ff698e486e2af899d055de1afca0
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2756444db010e23f7114e99f474de9ce6614aaee
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638552"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68837918"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>De nieuwe ontwikkelaars Portal openen en aanpassen in azure API Management
 
@@ -77,6 +77,10 @@ Ja, het wordt afgeschaft nadat het nieuwe item algemeen beschikbaar wordt. Als u
 Het doel van algemene Beschik baarheid is een functie pariteit op basis van scenario's te bieden met de oude Portal. Tot dat kan de preview-versie mogelijk geen geselecteerde onderdelen bevatten.
 
 De uitzonde ringen zijn de *toepassingen* en *problemen* van de oude Portal, die niet beschikbaar zijn in de nieuwe portal. Als u *problemen* in de oude Portal gebruikt en deze nodig hebt, plaatst u een opmerking in [een specifiek github-probleem](https://github.com/Azure/api-management-developer-portal/issues/122).
+
+### <a name="ive-found-bugs-andor-id-like-to-request-a-feature"></a>Ik heb fouten gevonden en/of ik wil een functie aanvragen.
+
+Goed gedaan. U kunt ons feedback geven, een functie aanvraag indienen of een fouten rapport verzenden via [de sectie problemen van de GitHub-opslag plaats](https://github.com/Azure/api-management-developer-portal/issues). U bent er ook zeker van dat u feedback hebt over de problemen die met het `community` label zijn gemarkeerd.
 
 ### <a name="i-want-to-move-the-content-of-the-new-portal-between-environments-how-can-i-do-that-and-do-i-need-to-go-with-the-self-hosted-version"></a>Ik wil de inhoud van de nieuwe portal verplaatsen tussen omgevingen. Hoe kan ik dat doen en moet ik met de zelf-hostende versie gaan?
 

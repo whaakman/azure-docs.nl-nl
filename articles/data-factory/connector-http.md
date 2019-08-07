@@ -1,6 +1,6 @@
 ---
 title: Gegevens kopiëren van een HTTP-bron met behulp van Azure Data Factory | Microsoft Docs
-description: Leer hoe u gegevens kopiëren van een HTTP-cloud of on-premises bron naar een ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
+description: Informatie over het kopiëren van gegevens uit een Cloud of een on-premises HTTP-bron naar ondersteunde Sink-gegevens archieven door gebruik te maken van een Kopieer activiteit in een Azure Data Factory-pijp lijn.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,47 +10,47 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: a668bb2e0e3381abefaac93a0fb63f0d33bac5a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d6cc131c0c2baf7cc0a6600946870615d99e030
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234058"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839803"
 ---
-# <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Gegevens kopiëren van een HTTP-eindpunt met behulp van Azure Data Factory
+# <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Gegevens kopiëren van een HTTP-eind punt met behulp van Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-http-connector.md)
 > * [Huidige versie](connector-http.md)
 
-In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van een HTTP-eindpunt. Het artikel is gebaseerd op [Kopieeractiviteit in Azure Data Factory](copy-activity-overview.md), die een algemeen overzicht van Kopieeractiviteit geeft.
+In dit artikel wordt beschreven hoe u de Kopieer activiteit in Azure Data Factory kunt gebruiken om gegevens van een HTTP-eind punt te kopiëren. Het artikel is gebaseerd op [Kopieeractiviteit in Azure Data Factory](copy-activity-overview.md), die een algemeen overzicht van Kopieeractiviteit geeft.
 
-Het verschil tussen deze HTTP-connector, de [REST-connector](connector-rest.md) en de [Web-connector voor tabel](connector-web-table.md) zijn:
+Het verschil tussen deze HTTP-connector, de [rest-connector](connector-rest.md) en de [Web Table-connector](connector-web-table.md) zijn:
 
-- **REST-connector** specifiek ondersteuning kopiëren van gegevens uit RESTful-API's; 
-- **HTTP-connector** is generiek gegevens ophalen van een HTTP-eindpunt, bijvoorbeeld om bestand te downloaden. Voordat de REST-connector beschikbaar is, kan het geval zijn de HTTP-connector gebruiken om gegevens te kopiëren van RESTful-API, die wordt ondersteund, maar minder functionele vergelijken met de REST-connector.
-- **Web-connector voor tabel** extraheert inhoud van de webpagina van een HTML-tabel.
+- **Rest-connector** biedt specifiek ondersteuning voor het kopiëren van gegevens uit rest-api's; 
+- **Http-connector** is algemeen om gegevens op te halen uit een http-eind punt, bijvoorbeeld om het bestand te downloaden. Voordat REST-connector beschikbaar wordt, kunt u de HTTP-connector gebruiken om gegevens te kopiëren van de REST-API, die wordt ondersteund, maar minder functioneel is vergeleken met de REST-connector.
+- Met **Web Table connector** wordt tabel inhoud geëxtraheerd van een HTML-webpagina.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens kopiëren van een HTTP-bron naar elke ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevens opslaat of Kopieeractiviteit als bronnen en sinks ondersteunt, [ondersteunde gegevensarchieven en indelingen](copy-activity-overview.md#supported-data-stores-and-formats).
+U kunt gegevens van een HTTP-bron kopiëren naar elk ondersteund Sink-gegevens archief. Zie voor een lijst met gegevens opslaat of Kopieeractiviteit als bronnen en sinks ondersteunt, [ondersteunde gegevensarchieven en indelingen](copy-activity-overview.md#supported-data-stores-and-formats).
 
-U kunt deze HTTP-connector te gebruiken:
+U kunt deze HTTP-connector gebruiken voor het volgende:
 
-- Gegevens ophalen uit een HTTP/S-eindpunt met behulp van de HTTP **ophalen** of **POST** methoden.
-- Gegevens ophalen met behulp van een van de volgende verificaties: **Anonieme**, **Basic**, **Digest**, **Windows**, of **ClientCertificate**.
-- Het HTTP-antwoord als kopiëren-is of met behulp van parseren [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md).
+- Gegevens ophalen van een HTTP/S-eind punt met behulp van de HTTP **Get** -of **post** -methoden.
+- Gegevens ophalen met behulp van een van de volgende authenticaties: **Anoniem**, **basis**, **Digest**, **Windows**of **ClientCertificate**.
+- Kopieer het HTTP-antwoord alsof het is of Parset het met behulp van [ondersteunde bestands indelingen en compressie](supported-file-formats-and-compression-codecs.md)-codecs.
 
 > [!TIP]
-> Als u wilt testen een HTTP-aanvraag voor het ophalen van gegevens voordat u de HTTP-connector in Data Factory configureert, meer informatie over de API-specificatie voor de koptekst en hoofdtekst van de vereisten. U kunt hulpprogramma's zoals Postman of een webbrowser gebruiken om te valideren.
+> Als u een HTTP-aanvraag voor het ophalen van gegevens wilt testen voordat u de HTTP-connector in Data Factory configureert, kunt u meer informatie vinden over de API-specificatie voor vereisten voor koptekst en hoofd tekst. U kunt de hulpprogram ma's zoals postman of een webbrowser gebruiken om te valideren.
 
 ## <a name="get-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten meer informatie over eigenschappen die u gebruiken kunt voor het definiëren van Data Factory-entiteiten die specifiek voor de HTTP-connector zijn.
+De volgende secties bevatten informatie over eigenschappen die u kunt gebruiken voor het definiëren van Data Factory entiteiten die specifiek zijn voor de HTTP-connector.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
@@ -58,19 +58,19 @@ De volgende eigenschappen worden ondersteund voor de HTTP-gekoppelde service:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De **type** eigenschap moet worden ingesteld op **HttpServer**. | Ja |
+| type | De eigenschap **type** moet worden ingesteld op **HttpServer**. | Ja |
 | url | De basis-URL naar de webserver. | Ja |
-| enableServerCertificateValidation | Geef op of validatie van het servercertificaat SSL in te schakelen wanneer u verbinding met een HTTP-eindpunt maakt. Als uw HTTPS-server een zelfondertekend certificaat gebruikt, deze eigenschap instellen op **false**. | Nee<br /> (de standaardwaarde is **waar**) |
-| authenticationType | Hiermee geeft u het verificatietype. Toegestane waarden zijn **anoniem**, **Basic**, **Digest**, **Windows**, en **ClientCertificate**. <br><br> Zie de secties die volgen van deze tabel voor meer eigenschappen en JSON-voorbeelden voor deze verificatietypen. | Ja |
-| connectVia | De [Integration Runtime](concepts-integration-runtime.md) gebruiken om te verbinden met het gegevensarchief. U kunt de Azure Integration Runtime of een zelf-hostende integratie-Runtime gebruiken (als het gegevensarchief bevindt zich in een particulier netwerk). Indien niet opgegeven, wordt deze eigenschap gebruikt de standaard Azure Integration Runtime. |Nee |
+| enableServerCertificateValidation | Geef op of de SSL-certificaat validatie van de server moet worden ingeschakeld wanneer u verbinding maakt met een HTTP-eind punt. Als uw HTTPS-server een zelfondertekend certificaat gebruikt, stelt u deze eigenschap inop ONWAAR. | Nee<br /> (de standaard waarde is **True**) |
+| authenticationType | Hiermee geeft u het verificatie type op. Toegestane waarden zijn **anoniem**, **basis**, **Digest**, **Windows**en **ClientCertificate**. <br><br> Zie de secties die volgen op deze tabel voor meer eigenschappen en JSON-voor beelden voor deze verificatie typen. | Ja |
+| connectVia | De [Integration Runtime](concepts-integration-runtime.md) gebruiken om te verbinden met het gegevensarchief. U kunt de Azure Integration Runtime of een zelf-hostend Integration Runtime gebruiken (als uw gegevens archief zich in een particulier netwerk bevindt). Als deze eigenschap niet is opgegeven, wordt de standaard Azure Integration Runtime gebruikt. |Nee |
 
-### <a name="using-basic-digest-or-windows-authentication"></a>Met behulp van basisverificatie, verificatiesamenvatting of Windows-verificatie
+### <a name="using-basic-digest-or-windows-authentication"></a>Basis verificatie, verificatie samenvatting of Windows-authenticatie gebruiken
 
-Stel de **authenticationType** eigenschap **Basic**, **Digest**, of **Windows**. Naast de algemene eigenschappen die worden beschreven in de vorige sectie, moet u de volgende eigenschappen opgeven:
+Stel de eigenschap **authenticationType** in op **Basic**, **Digest**of **Windows**. Naast de algemene eigenschappen die in de voor gaande sectie worden beschreven, geeft u de volgende eigenschappen op:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| userName | De gebruikersnaam gebruiken voor toegang tot het HTTP-eindpunt. | Ja |
+| userName | De gebruikers naam die moet worden gebruikt voor toegang tot het HTTP-eind punt. | Ja |
 | password | Het wachtwoord voor de gebruiker (de **userName** waarde). Dit veld als markeert een **SecureString** type voor het veilig opslaan in Data Factory. U kunt ook [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Voorbeeld**
@@ -97,24 +97,24 @@ Stel de **authenticationType** eigenschap **Basic**, **Digest**, of **Windows**.
 }
 ```
 
-### <a name="using-clientcertificate-authentication"></a>Met behulp van ClientCertificate verificatie
+### <a name="using-clientcertificate-authentication"></a>Gebruik van ClientCertificate-verificatie
 
-ClientCertificate om verificatie te gebruiken, stelt de **authenticationType** eigenschap **ClientCertificate**. Naast de algemene eigenschappen die worden beschreven in de vorige sectie, moet u de volgende eigenschappen opgeven:
+Als u ClientCertificate-verificatie wilt gebruiken, stelt u de eigenschap **authenticationType** in op **ClientCertificate**. Naast de algemene eigenschappen die in de voor gaande sectie worden beschreven, geeft u de volgende eigenschappen op:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| embeddedCertData | De gegevens van de met base64 gecodeerde certificaat. | Geef óf een **embeddedCertData** of **certThumbprint**. |
-| certThumbprint | De vingerafdruk van het certificaat dat geïnstalleerd op het certificaatarchief van de zelf-hostende Integration Runtime-machine. Geldt alleen wanneer de zelf-hostende Integration Runtime-type is opgegeven in de **connectVia** eigenschap. | Geef óf een **embeddedCertData** of **certThumbprint**. |
-| password | Het wachtwoord dat is gekoppeld aan het certificaat. Dit veld als markeert een **SecureString** type voor het veilig opslaan in Data Factory. U kunt ook [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
+| embeddedCertData | Met base64 gecodeerde certificaat gegevens. | Geef **embeddedCertData** of **certThumbprint**op. |
+| certThumbprint | De vinger afdruk van het certificaat dat is geïnstalleerd op uw zelf-hostende certificaat archief van Integration Runtime computer. Is alleen van toepassing wanneer het zelf-hostende type Integration Runtime is opgegeven in de eigenschap **connectVia** . | Geef **embeddedCertData** of **certThumbprint**op. |
+| password | Het wacht woord dat is gekoppeld aan het certificaat. Dit veld als markeert een **SecureString** type voor het veilig opslaan in Data Factory. U kunt ook [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 
-Als u **certThumbprint** voor verificatie en het certificaat is geïnstalleerd in het persoonlijke archief van de lokale computer, Leesmachtiging verlenen aan de zelf-hostende Integration Runtime:
+Als u **certThumbprint** gebruikt voor verificatie en het certificaat is geïnstalleerd in het persoonlijke archief van de lokale computer, verleent u lees machtigingen voor de zelf-hostende Integration runtime:
 
-1. Open de Microsoft Management Console (MMC). Voeg de **certificaten** -module die is gericht op **lokale Computer**.
-2. Vouw **certificaten** > **persoonlijke**, en selecteer vervolgens **certificaten**.
-3. Met de rechtermuisknop op het certificaat uit het persoonlijke archief, en selecteer vervolgens **alle taken** > **persoonlijke sleutels beheren**.
-3. Op de **Security** tabblad, voegt u het gebruikersaccount waarmee de hostservice van Integration Runtime (DIAHostService) wordt uitgevoerd, met leestoegang tot het certificaat.
+1. Open de micro soft Management Console (MMC). Voeg de module **certificaten** toe die gericht is op de **lokale computer**.
+2. Vouw **certificaten** > **persoonlijk**uit en selecteer vervolgens **certificaten**.
+3. Klik met de rechter muisknop op het certificaat in het persoonlijke archief en selecteer vervolgens **alle taken** > **persoonlijke sleutels beheren**.
+3. Voeg op het tabblad **beveiliging** het gebruikers account toe waaronder de Integration runtime host-service (DIAHostService) wordt uitgevoerd, met lees toegang tot het certificaat.
 
-**Voorbeeld 1: Met behulp van certThumbprint**
+**Voor beeld 1: CertThumbprint gebruiken**
 
 ```json
 {
@@ -134,7 +134,7 @@ Als u **certThumbprint** voor verificatie en het certificaat is geïnstalleerd i
 }
 ```
 
-**Voorbeeld 2: Met behulp van embeddedCertData**
+**Voor beeld 2: EmbeddedCertData gebruiken**
 
 ```json
 {
@@ -162,23 +162,23 @@ Als u **certThumbprint** voor verificatie en het certificaat is geïnstalleerd i
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. 
 
-- Voor **Parquet en gescheiden tekstopmaak**, verwijzen naar [Parquet en tekst met scheidingstekens indeling gegevensset](#parquet-and-delimited-text-format-dataset) sectie.
-- Voor andere indelingen, zoals **ORC/Avro/JSON/binaire indeling**, verwijzen naar [andere gegevensset indeling](#other-format-dataset) sectie.
+- Raadpleeg voor **Parquet, tekst met scheidings tekens en binaire indeling**, de sectie [Parquet, tekst met scheidings tekens en gegevensset voor binaire indeling](#format-based-dataset) .
+- Raadpleeg voor andere indelingen, zoals de **Orc/Avro/JSON-indeling**, de sectie [andere indelings gegevensset](#other-format-dataset) .
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet en tekst met scheidingstekens indeling gegevensset
+### <a name="format-based-dataset"></a>Parquet, gescheiden tekst en binaire indeling gegevensset
 
-Het kopiëren van gegevens van HTTP in **Parquet of gescheiden tekstopmaak**, verwijzen naar [Parquet-indeling](format-parquet.md) en [gescheiden tekstopmaak](format-delimited-text.md) artikel op de gegevensset op basis van indeling en ondersteund Instellingen. De volgende eigenschappen worden ondersteund voor HTTP onder `location` instellingen in de indeling op basis van gegevensset:
+Als u gegevens wilt kopiëren naar en van **Parquet, tekst met scheidings tekens of binaire indeling**, raadpleegt u de [Parquet-indeling](format-parquet.md), [tekst indeling met scheidings tekens](format-delimited-text.md) en het artikel [binaire indeling](format-binary.md) op op indeling gebaseerde gegevensset en ondersteunde instellingen. De volgende eigenschappen worden ondersteund voor http onder `location` instellingen in gegevensset op basis van indeling:
 
 | Eigenschap    | Description                                                  | Vereist |
 | ----------- | ------------------------------------------------------------ | -------- |
-| type        | De eigenschap type onder `location` in de gegevensset moet worden ingesteld op **HttpServerLocation**. | Ja      |
+| type        | De eigenschap type onder `location` in DataSet moet worden ingesteld op **HttpServerLocation**. | Ja      |
 | relativeUrl | Een relatieve URL naar de resource die de gegevens bevat.       | Nee       |
 
 > [!NOTE]
-> De ondersteunde grootte van HTTP-verzoek nettolading is ongeveer 500 KB. Als de grootte van de nettolading die u wilt doorgeven aan uw webeindpunt groter dan 500 KB is, kunt u overwegen de nettolading in kleinere chunks batchverwerking.
+> De ondersteunde Payload-grootte van de HTTP-aanvraag is ongeveer 500 KB. Als de payload-grootte die u wilt door geven aan uw web-eind punt groter is dan 500 KB, kunt u de payload in kleinere segmenten batcheren.
 
 > [!NOTE]
-> **HttpFile** type gegevensset met Parquet/tekstindeling die worden vermeld in de volgende sectie wordt nog steeds ondersteund als-is voor het kopiëren/Lookup-activiteit voor achterwaartse compatibiliteit. U gebruik van dit nieuwe model voortaan worden voorgesteld, en de gebruikersinterface ontwerpen ADF is overgeschakeld naar deze nieuwe typen genereren.
+> **HttpFile** van het type dataset met Parquet/Text-indeling die in de volgende sectie wordt vermeld, wordt nog steeds ondersteund als-is voor de activiteit Copy/lookup voor achterwaartse compatibiliteit. U wordt aangeraden dit nieuwe model verder te gebruiken en de gebruikers interface van de ADF-ontwerp functie is overgeschakeld op het genereren van deze nieuwe typen.
 
 **Voorbeeld:**
 
@@ -206,24 +206,24 @@ Het kopiëren van gegevens van HTTP in **Parquet of gescheiden tekstopmaak**, ve
 }
 ```
 
-### <a name="other-format-dataset"></a>Andere indeling-gegevensset
+### <a name="other-format-dataset"></a>Gegevensset voor andere indeling
 
-Het kopiëren van gegevens van HTTP in **ORC/Avro/JSON/binaire indeling**, de volgende eigenschappen worden ondersteund:
+De volgende eigenschappen worden ondersteund voor het kopiëren van gegevens uit HTTP in de **Orc/Avro/JSON-indeling**:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De **type** eigenschap van de gegevensset moet worden ingesteld op **HttpFile**. | Ja |
-| relativeUrl | Een relatieve URL naar de resource die de gegevens bevat. Als deze eigenschap is niet opgegeven, wordt alleen de URL die opgegeven in de definitie van de gekoppelde service gebruikt. | Nee |
-| requestMethod | De HTTP-methode. Toegestane waarden zijn **ophalen** (standaard) en **Post**. | Nee |
-| additionalHeaders | Extra kopteksten die HTTP-aanvraag. | Nee |
-| requestBody | De hoofdtekst van de HTTP-aanvraag. | Nee |
-| format | Als u wilt ophalen van gegevens uit de HTTP-eindpunt als-is zonder parseren en kopieer de gegevens in een store op basis van bestanden, gaat de **indeling** sectie in de invoer en uitvoer gegevenssetdefinities.<br/><br/>Als u de inhoud van de HTTP-reactie parseren tijdens het kopiëren wilt, worden de volgende indeling bestandstypen ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, en **ParquetFormat**. Onder **indeling**, stel de **type** eigenschap op een van deze waarden. Zie voor meer informatie, [JSON-indeling](supported-file-formats-and-compression-codecs.md#json-format), [tekstindeling](supported-file-formats-and-compression-codecs.md#text-format), [Avro-indeling](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-indeling](supported-file-formats-and-compression-codecs.md#orc-format), en [Parquet-indeling](supported-file-formats-and-compression-codecs.md#parquet-format). |Nee |
-| compression | Geef het type en het niveau van compressie voor de gegevens. Zie voor meer informatie, [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Ondersteunde typen: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**.<br/>Ondersteunde niveaus:  **Optimale** en **snelste**. |Nee |
+| type | De eigenschap **type** van de DataSet moet worden ingesteld op **HttpFile**. | Ja |
+| relativeUrl | Een relatieve URL naar de resource die de gegevens bevat. Als deze eigenschap niet is opgegeven, wordt alleen de URL gebruikt die in de definitie van de gekoppelde service is opgegeven. | Nee |
+| requestMethod | De HTTP-methode. Toegestane waarden zijn **Get** (standaard) en **post**. | Nee |
+| additionalHeaders | Aanvullende HTTP-aanvraag headers. | Nee |
+| requestBody | De hoofd tekst van de HTTP-aanvraag. | Nee |
+| format | Als u gegevens wilt ophalen uit het HTTP-eind punt zonder te parseren, en vervolgens de gegevens naar een op bestanden gebaseerde opslag kopie wilt kopiëren, slaat u de sectie **opmaak** in zowel de definitie van de invoer-als uitvoer gegevensset over.<br/><br/>Als u de inhoud van het HTTP-antwoord tijdens het kopiëren wilt parseren, worden de volgende typen bestands indelingen ondersteund: **TextFormat**, **JsonFormat**, **Avro Format**, **OrcFormat**en **ParquetFormat**. Stel onder **indeling**de eigenschap **type** in op een van deze waarden. Zie [JSON-indeling](supported-file-formats-and-compression-codecs.md#json-format), [tekst indeling](supported-file-formats-and-compression-codecs.md#text-format), [Avro](supported-file-formats-and-compression-codecs.md#avro-format)-indeling, Orc- [indeling](supported-file-formats-and-compression-codecs.md#orc-format)en Parquet- [indeling](supported-file-formats-and-compression-codecs.md#parquet-format)voor meer informatie. |Nee |
+| compression | Geef het type en het niveau van compressie voor de gegevens. Zie voor meer informatie, [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Ondersteunde typen: **Gzip**,Deflate, **bzip2**en **ZipDeflate**.<br/>Ondersteunde niveaus:  **Optimaal** en **snelst**. |Nee |
 
 > [!NOTE]
-> De ondersteunde grootte van HTTP-verzoek nettolading is ongeveer 500 KB. Als de grootte van de nettolading die u wilt doorgeven aan uw webeindpunt groter dan 500 KB is, kunt u overwegen de nettolading in kleinere chunks batchverwerking.
+> De ondersteunde Payload-grootte van de HTTP-aanvraag is ongeveer 500 KB. Als de payload-grootte die u wilt door geven aan uw web-eind punt groter is dan 500 KB, kunt u de payload in kleinere segmenten batcheren.
 
-**Voorbeeld 1: Met behulp van de Get-methode (standaard)**
+**Voor beeld 1: De Get-methode gebruiken (standaard)**
 
 ```json
 {
@@ -242,7 +242,7 @@ Het kopiëren van gegevens van HTTP in **ORC/Avro/JSON/binaire indeling**, de vo
 }
 ```
 
-**Voorbeeld 2: Met behulp van de Post-methode**
+**Voor beeld 2: De post-methode gebruiken**
 
 ```json
 {
@@ -264,30 +264,30 @@ Het kopiëren van gegevens van HTTP in **ORC/Avro/JSON/binaire indeling**, de vo
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Deze sectie bevat een lijst met eigenschappen die ondersteuning biedt voor de HTTP-bron.
+In deze sectie vindt u een lijst met eigenschappen die door de HTTP-bron worden ondersteund.
 
 Zie voor een volledige lijst van eigenschappen die beschikbaar zijn voor het definiëren van activiteiten en secties, [pijplijnen](concepts-pipelines-activities.md). 
 
 ### <a name="http-as-source"></a>HTTP als bron
 
-- Voor het kopiëren van **Parquet en gescheiden tekstopmaak**, verwijzen naar [Parquet en tekst met scheidingstekens indeling bron](#parquet-and-delimited-text-format-source) sectie.
-- Voor het kopiëren van andere indelingen, zoals **ORC/Avro/JSON/binaire indeling**, verwijzen naar [andere bron indeling](#other-format-source) sectie.
+- Als u wilt kopiëren van **Parquet, tekst met scheidings tekens en binaire indeling**, raadpleegt u de sectie [Parquet, tekst met scheidings tekens en bron voor binaire indeling](#format-based-source) .
+- Als u wilt kopiëren van andere indelingen, zoals de **Orc/Avro/JSON-indeling**, raadpleegt u de sectie [andere indelings bron](#other-format-source) .
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Parquet en tekst met scheidingstekens indeling bron
+#### <a name="format-based-source"></a>Parquet, tekst met scheidings tekens en binaire indelings bron
 
-Het kopiëren van gegevens van HTTP in **Parquet of gescheiden tekstopmaak**, verwijzen naar [Parquet-indeling](format-parquet.md) en [gescheiden tekstopmaak](format-delimited-text.md) artikel op de bron voor kopiëren-indeling op basis van activiteit en ondersteunde instellingen. De volgende eigenschappen worden ondersteund voor HTTP onder `storeSettings` instellingen in de bron voor kopiëren-indeling op basis van:
+Als u gegevens wilt kopiëren uit een **Parquet, een tekst met scheidings tekens of binaire indeling**, raadpleegt u de [Parquet-indeling](format-parquet.md), [tekst indeling met scheidings tekens](format-delimited-text.md) en het artikel [binaire indeling](format-binary.md) op op indeling gebaseerde Kopieer activiteit bron en ondersteunde instellingen. De volgende eigenschappen worden ondersteund voor http onder `storeSettings` instellingen in een op indeling gebaseerde kopie bron:
 
 | Eigenschap                 | Description                                                  | Vereist |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | De eigenschap type onder `storeSettings` moet worden ingesteld op **HttpReadSetting**. | Ja      |
-| requestMethod            | De HTTP-methode. <br>Toegestane waarden zijn **ophalen** (standaard) en **Post**. | Nee       |
-| addtionalHeaders         | Extra kopteksten die HTTP-aanvraag.                             | Nee       |
-| requestBody              | De hoofdtekst van de HTTP-aanvraag.                               | Nee       |
-| requestTimeout           | De time-out (de **TimeSpan** waarde) voor de HTTP-aanvraag reageert. Deze waarde is de time-out voor een antwoord, niet de time-out voor lezen van gegevens van de reactie. De standaardwaarde is **00:01:40**. | Nee       |
-| maxConcurrentConnections | Het nummer van de verbindingen gelijktijdig verbinding maken met opslag-store. Geef alleen als u wilt beperken, de gelijktijdige verbinding met het gegevensarchief. | Nee       |
+| requestMethod            | De HTTP-methode. <br>Toegestane waarden zijn **Get** (standaard) en **post**. | Nee       |
+| addtionalHeaders         | Aanvullende HTTP-aanvraag headers.                             | Nee       |
+| requestBody              | De hoofd tekst van de HTTP-aanvraag.                               | Nee       |
+| requestTimeout           | De time-out (de time **span** -waarde) voor de HTTP-aanvraag om een antwoord te krijgen. Deze waarde is de time-out voor het verkrijgen van een reactie, niet de time-out voor het lezen van antwoord gegevens. De standaard waarde is **00:01:40**. | Nee       |
+| maxConcurrentConnections | Het aantal verbindingen dat gelijktijdig verbinding maakt met opslag archief. Geef alleen op wanneer u de gelijktijdige verbinding met het gegevens archief wilt beperken. | Nee       |
 
 > [!NOTE]
-> Voor Parquet/gescheiden tekstopmaak **HttpSource** type activiteit kopieerbron vermeld in de volgende sectie wordt nog steeds ondersteund als-is voor achterwaartse compatibiliteit. U gebruik van dit nieuwe model voortaan worden voorgesteld, en de gebruikersinterface ontwerpen ADF is overgeschakeld naar deze nieuwe typen genereren.
+> Voor een Parquet/gescheiden tekst indeling wordt de bron van de Kopieer activiteit van het type **http** die in de volgende sectie wordt vermeld, nog steeds ondersteund als-is voor achterwaartse compatibiliteit. U wordt aangeraden dit nieuwe model verder te gebruiken en de gebruikers interface van de ADF-ontwerp functie is overgeschakeld op het genereren van deze nieuwe typen.
 
 **Voorbeeld:**
 
@@ -330,14 +330,14 @@ Het kopiëren van gegevens van HTTP in **Parquet of gescheiden tekstopmaak**, ve
 ]
 ```
 
-#### <a name="other-format-source"></a>De bron van andere indeling
+#### <a name="other-format-source"></a>Andere indelings bron
 
-Het kopiëren van gegevens van HTTP in **ORC/Avro/JSON/binaire indeling**, de volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
+Als u gegevens wilt kopiëren van HTTP in **Orc/Avro/JSON-indeling**, worden de volgende eigenschappen ondersteund in de sectie **bron** van de Kopieer activiteit:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De **type** eigenschap van de bron voor kopiëren-activiteit moet worden ingesteld op **HttpSource**. | Ja |
-| httpRequestTimeout | De time-out (de **TimeSpan** waarde) voor de HTTP-aanvraag reageert. Deze waarde is de time-out voor een antwoord, niet de time-out voor lezen van gegevens van de reactie. De standaardwaarde is **00:01:40**.  | Nee |
+| type | De eigenschap **type** van de bron van de Kopieer activiteit moet zijn ingesteld op **http**. | Ja |
+| httpRequestTimeout | De time-out (de time **span** -waarde) voor de HTTP-aanvraag om een antwoord te krijgen. Deze waarde is de time-out voor het verkrijgen van een reactie, niet de time-out voor het lezen van antwoord gegevens. De standaard waarde is **00:01:40**.  | Nee |
 
 **Voorbeeld**
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: bb2d5733704b0b31dc010cec2a90e99e1be07b56
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 7d4f36be51591d6be2b4c42eb8a8950ab52a0258
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592030"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782570"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection voor Azure Storage
 
@@ -117,62 +117,7 @@ U kunt uw huidige beveiligings waarschuwingen controleren en beheren via de [teg
 
 ## <a name="protection-alerts"></a>Beveiligings waarschuwingen
 
-Waarschuwingen worden gegenereerd door ongebruikelijke en mogelijk schadelijke pogingen om opslag accounts te openen of misbruik te maken. Deze gebeurtenissen kunnen de volgende waarschuwingen activeren:
-
-### <a name="anomalous-access-pattern-alerts"></a>Waarschuwingen voor afwijkende toegangs patronen
-
-* **Toegang vanaf ongebruikelijke locatie**: Deze waarschuwing wordt geactiveerd wanneer iemand toegang heeft gekregen tot een opslag account vanuit een ongebruikelijke geografische locatie.
-Mogelijke oorzaken:
-   * Een aanvaller heeft toegang tot uw opslag account
-   * Een rechtmatige gebruiker heeft toegang verkregen tot uw opslag account vanaf een nieuwe locatie
- 
-* **Toepassings afwijkingen**: Deze waarschuwing geeft aan dat een ongewone toepassing toegang heeft gekregen tot dit opslag account. Mogelijke oorzaken:
-   * Een aanvaller heeft toegang tot uw opslag account via een nieuwe toepassing.
-   * Een rechtmatige gebruiker heeft een nieuwe toepassing/browser gebruikt om toegang te krijgen tot uw opslag account.
-
-* **Anonieme toegang**: Deze waarschuwing geeft aan dat dit account anoniem is geopend (d.w.z. zonder enige verificatie), wat niet wordt verwacht, vergeleken met het recente toegangs patroon voor dit account.
-Mogelijke oorzaken:
-   * Een aanvaller heeft open bare Lees toegang tot een container.
-   * Een rechtmatige gebruiker of toepassing heeft open bare Lees toegang voor een container gebruikt.
-
-* **Tor-afwijkingen**: Deze waarschuwing geeft aan dat de toegang tot dit account is verkregen vanaf een IP-adres dat een actief eind knooppunt van Tor (een anoniem-proxy) wordt genoemd. Bij de ernst van deze waarschuwing wordt rekening gehouden met het gebruikte verificatie type (indien van toepassing) en of dit het eerste geval van dergelijke toegang is.
-Mogelijke oorzaken:
-   * Een aanvaller heeft toegang tot uw opslag account via Tor.
-   * Een rechtmatige gebruiker heeft toegang verkregen tot uw opslag account via Tor.
-
-
-### <a name="anomalous-extractupload-alerts"></a>Afwijkende uitpak-en upload waarschuwingen
-
-* **Gegevens exfiltration**: Deze waarschuwing geeft aan dat een ongebruikelijk grote hoeveelheid gegevens is geëxtraheerd vergeleken met de recente activiteit op deze opslag container. Mogelijke oorzaken:
-   * Een aanvaller heeft een grote hoeveelheid gegevens uit een container geëxtraheerd. (Bijvoorbeeld: gegevens exfiltration/inbreuk, niet-geautoriseerde overdracht van gegevens)
-   * Een rechtmatige gebruiker of toepassing heeft een ongebruikelijke hoeveelheid gegevens uit een container geëxtraheerd. (Bijvoorbeeld: onderhouds activiteit)
-
-* **Onverwachte verwijdering**: Deze waarschuwing geeft aan dat er een of meer onverwachte verwijderings bewerkingen zijn uitgevoerd in een opslag account, vergeleken met de recente activiteit voor dit account. Mogelijke oorzaken:
-   * Een aanvaller heeft gegevens uit uw opslag account verwijderd.
-   * Een rechtmatige gebruiker heeft een ongebruikelijke verwijdering uitgevoerd.
-
-* **Azure-Cloud service pakket uploaden**: Deze waarschuwing geeft aan dat een Azure-Cloud service pakket (. cspkg-bestand) op een ongebruikelijke manier is geüpload naar een opslag account, vergeleken met de recente activiteit voor dit account. Mogelijke oorzaken: 
-   * Een aanvaller is voor bereid op het implementeren van schadelijke code vanuit uw opslag account naar een Azure-Cloud service.
-   * Een rechtmatige gebruiker is voor bereid voor een legitieme service-implementatie.
-
-### <a name="suspicious-storage-activities-alerts"></a>Waarschuwingen voor verdachte opslag activiteiten
-
-* **Wijziging van toegangs machtigingen**: Deze waarschuwing geeft aan dat de toegangs machtigingen van deze opslag container op een ongebruikelijke manier zijn gewijzigd. Mogelijke oorzaken: 
-   * Een aanvaller heeft container machtigingen gewijzigd om de beveiliging te verzwakken.
-   * Een rechtmatige gebruiker heeft container machtigingen gewijzigd.
-
-* **Toegangs controle**: Deze waarschuwing geeft aan dat de toegangs machtigingen van een opslag account op een ongebruikelijke manier zijn geïnspecteerd, vergeleken met de recente activiteit van dit account. Mogelijke oorzaken: 
-   * Een aanvaller heeft Reconnaissance uitgevoerd voor een toekomstige aanval.
-   * Een rechtmatige gebruiker heeft onderhoud uitgevoerd op het opslag account.
-
-* **Gegevens verkennen**: Deze waarschuwing geeft aan dat blobs of containers in een opslag account op een ongebruikelijke manier zijn geïnventariseerd, vergeleken met de recente activiteit van dit account. Mogelijke oorzaken: 
-   * Een aanvaller heeft Reconnaissance uitgevoerd voor een toekomstige aanval.
-   * Een rechtmatige gebruiker-of toepassings logica heeft verkennen van gegevens binnen het opslag account.
-
-
-
-
-
+Waarschuwingen worden gegenereerd door ongebruikelijke en mogelijk schadelijke pogingen om opslag accounts te openen of misbruik te maken. Zie [Azure Storage](../../security-center/security-center-alerts-data-services.md#azure-storage) -waarschuwingen voor een lijst met deze waarschuwingen
 
 ## <a name="next-steps"></a>Volgende stappen
 

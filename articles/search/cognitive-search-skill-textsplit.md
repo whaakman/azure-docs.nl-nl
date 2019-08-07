@@ -1,6 +1,6 @@
 ---
-title: Tekst splitsen cognitief zoeken vaardigheid - Azure Search
-description: Tekst opdelen in segmenten of pagina's van de tekst op basis van de lengte in een Azure Search verrijking-pijplijn.
+title: Tekst splitsing cognitieve Zoek vaardigheid-Azure Search
+description: Tekst in segmenten of pagina's met tekst afsplitsen op basis van lengte in een Azure Search verrijkings pijplijn.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,50 +10,50 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: c7f5fda405ca0e5ba9cf1dd0ed44c47cd3ee74b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 8fb7ff51507212dfb162c09fcee469d6f154f3c3
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65949855"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840900"
 ---
-#   <a name="text-split-cognitive-skill"></a>Tekst splitsen cognitieve vaardigheden
+#   <a name="text-split-cognitive-skill"></a>Cognitieve vaardigheid van tekst splitsen
 
-De **tekst splitsen** vaardigheid tekst opgesplitst in segmenten van de tekst. U kunt opgeven of u wilt verbreken van de tekst in zinnen of pagina's van een bepaalde lengte. Deze kwalificatie is vooral handig als er vereisten voor de lengte in andere vaardigheden downstream maximale tekst zijn. 
+De **tekst** gesplitste vaardigheid verbreekt tekst in delen van tekst. U kunt opgeven of u de tekst wilt opsplitsen in zinnen of op pagina's met een bepaalde lengte. Deze vaardigheid is vooral nuttig als er Maxi maal vereisten voor de lengte van de tekst in andere vaardig heden downstream zijn. 
 
 > [!NOTE]
-> Deze kwalificatie is niet gebonden aan een Cognitive Services-API en u niet worden in rekening gebracht voor het gebruik ervan. U moet nog steeds [een Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md), echter overschrijven de **gratis** resource-optie waarmee u een klein aantal dagelijkse enrichments per dag wordt beperkt.
+> Deze vaardigheid is niet gebonden aan een Cognitive Services-API en er worden geen kosten in rekening gebracht voor het gebruik ervan. U moet nog steeds [een Cognitive Services resource koppelen](cognitive-search-attach-cognitive-services.md)om de optie **gratis** resource te overschrijven, waardoor u een klein aantal dagelijkse verrijkingen per dag beperkt.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 
 
-## <a name="skill-parameters"></a>Kwalificatie Parameters
+## <a name="skill-parameters"></a>Vaardigheids parameters
 
-Parameters zijn hoofdlettergevoelig.
+Para meters zijn hoofdletter gevoelig.
 
 | Parameternaam     | Description |
 |--------------------|-------------|
-| textSplitMode      | 'Pagina's ' of "zinnen" | 
-| maximumPageLength | Als textSplitMode is ingesteld op 'pagina's ', verwijst deze naar de maximale lengte wordt gemeten door `String.Length`. De minimumwaarde is 100.  Als de textSplitMode is ingesteld op 'pagina's ', probeert het algoritme om te splitsen van de tekst in segmenten die in de grootte van maximaal 'maximumPageLength'. In dit geval wordt het algoritme voor het beste doen verbreken van de zin op een grens van een zin, zodat de grootte van het segment mogelijk iets minder dan 'maximumPageLength'. | 
-| defaultLanguageCode   | (optioneel) Een van de volgende taalcodes: `da, de, en, es, fi, fr, it, ko, pt`. De standaardwaarde is Engels (en). Aantal dingen om te overwegen:<ul><li>Als u een indeling languagecode countrycode doorgeeft, wordt alleen het languagecode deel van de indeling wordt gebruikt.</li><li>De kwalificatie split verbroken als de taal die zich niet in de vorige lijst, de tekst op de grenzen van het teken.</li><li>Biedt een taalcode is handig om te voorkomen dat een woord in de helft voor niet-ruimte talen zoals Chinese, Japans en Koreaanse knippen.</li></ul>  |
+| textSplitMode      | ' Pagina's ' of ' zinnen ' | 
+| maximumPageLength | Als textSplitMode is ingesteld op ' pagina's ', verwijst dit naar de maximale pagina lengte, gemeten door `String.Length`. De minimum waarde is 100.  Als de textSplitMode is ingesteld op ' pagina's ', probeert het algoritme de tekst te splitsen in segmenten die de meeste grootte hebben ' maximumPageLength '. In dit geval is het algoritme het beste om de zin op een zin te verkorten, zodat de grootte van het segment iets kleiner is dan ' maximumPageLength '. | 
+| defaultLanguageCode   | Beschrijving Een van de volgende taal codes: `da, de, en, es, fi, fr, it, ko, pt`. De standaard waarde is Engels (en). Enkele dingen die u moet overwegen:<ul><li>Als u een language code-CountryCode-indeling doorgeeft, wordt alleen het language code deel van de indeling gebruikt.</li><li>Als de taal zich niet in de vorige lijst bevindt, wordt de tekst door de gesplitste vaardigheid op teken grenzen afgebroken.</li><li>Het is handig om een taal code op te geven om te voor komen dat een woord in de helft wordt geknipt voor niet-beschik bare talen, zoals Chinees, Japans en Koreaans.</li></ul>  |
 
 
-## <a name="skill-inputs"></a>Kwalificatie invoer
+## <a name="skill-inputs"></a>Vaardigheids invoer
 
 | Parameternaam       | Description      |
 |----------------------|------------------|
-| text  | De tekst die moet worden gesplitst in subtekenreeksen. |
-| languageCode  | (Optioneel) De taalcode die voor het document.  |
+| text  | De tekst die moet worden gesplitst in subtekenreeks. |
+| languageCode  | Beschrijving De taal code voor het document.  |
 
-## <a name="skill-outputs"></a>Kwalificatie uitvoer 
+## <a name="skill-outputs"></a>Vaardigheids uitvoer 
 
 | Parameternaam     | Description |
 |--------------------|-------------|
-| textItems | Een matrix met subtekenreeksen die zijn opgehaald. |
+| textItems | Een matrix met subtekenreeksen die zijn geëxtraheerd. |
 
 
-##  <a name="sample-definition"></a>Van voorbeelddefinitie
+##  <a name="sample-definition"></a>Voorbeeld definitie
 
 ```json
 {
@@ -80,7 +80,7 @@ Parameters zijn hoofdlettergevoelig.
 }
 ```
 
-##  <a name="sample-input"></a>Van Voorbeeldinvoer
+##  <a name="sample-input"></a>Voorbeeld invoer
 
 ```json
 {
@@ -103,7 +103,7 @@ Parameters zijn hoofdlettergevoelig.
 }
 ```
 
-##  <a name="sample-output"></a>Voorbeeld van uitvoer
+##  <a name="sample-output"></a>Voorbeeld uitvoer
 
 ```json
 {
@@ -130,10 +130,10 @@ Parameters zijn hoofdlettergevoelig.
 }
 ```
 
-## <a name="error-cases"></a>Foutgevallen
-Als een taal wordt niet ondersteund, wordt een waarschuwing wordt gegenereerd en wordt de tekst is opgesplitst in de grenzen van het teken.
+## <a name="error-cases"></a>Fout cases
+Als een taal niet wordt ondersteund, wordt er een waarschuwing gegenereerd en wordt de tekst op teken grenzen gesplitst.
 
 ## <a name="see-also"></a>Zie ook
 
-+ [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md)
-+ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)
++ [Vooraf gedefinieerde vaardig heden](cognitive-search-predefined-skills.md)
++ [Een vaardig heden definiëren](cognitive-search-defining-skillset.md)

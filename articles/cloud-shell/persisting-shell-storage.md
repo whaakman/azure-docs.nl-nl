@@ -1,6 +1,6 @@
 ---
-title: Behouden bestanden voor Bash in Azure Cloud Shell | Microsoft Docs
-description: Overzicht van hoe bestanden in Bash in Azure Cloud Shell blijft bestaan.
+title: Bestanden in Azure Cloud Shell persistent maken | Microsoft Docs
+description: Overzicht van de wijze waarop Azure Cloud Shell bestanden persistent wilt maken.
 services: azure
 documentationcenter: ''
 author: maertendMSFT
@@ -14,68 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
-ms.openlocfilehash: 0aa00af543a3d21db9b8ad0ed808a8bff0b534e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f60125123d019cbfa93bfc1b06da7ac90b54e311
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60200180"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742041"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-storage-works"></a>De werking van Cloud Shell-storage 
-Cloudshell zich blijft voordoen bestanden via beide van de volgende methoden: 
-* Het maken van de installatiekopie van een schijf van uw `$Home` directory om vast te leggen van alle inhoud in de map. De installatiekopie van de schijf wordt opgeslagen in de opgegeven bestandsshare als `acc_<User>.img` op `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`, en deze wijzigingen automatisch gesynchroniseerd. 
-* Koppelen van de opgegeven bestandsshare als `clouddrive` in uw `$Home` Active directory voor interactie met de rechtstreekse bestandsshare. `/Home/<User>/clouddrive` is toegewezen aan `fileshare.storage.windows.net/fileshare`.
+## <a name="how-cloud-shell-storage-works"></a>Hoe Cloud Shell Storage werkt 
+Cloud Shell bestanden persistent maken via de volgende methoden: 
+* Er wordt een schijf kopie van `$Home` uw directory gemaakt om alle inhoud in de map te behouden. De schijf installatie kopie wordt opgeslagen in de opgegeven bestands share `acc_<User>.img` , `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`net zoals bij, en de wijzigingen worden automatisch gesynchroniseerd. 
+* Koppel uw opgegeven bestands share als `clouddrive` uw `$Home` Directory voor directe interactie via bestands share. `/Home/<User>/clouddrive`is toegewezen aan `fileshare.storage.windows.net/fileshare`.
  
 > [!NOTE]
-> Alle bestanden in uw `$Home` directory, zoals SSH-sleutels zijn opgeslagen in de schijfinstallatiekopie van de gebruiker die is opgeslagen in de gekoppelde bestandsshare. Aanbevolen procedures van toepassing als u informatie in uw `$Home` directory en gekoppelde-bestandsshare.
+> Alle bestanden in uw `$Home` Directory, zoals SSH-sleutels, blijven behouden in de installatie kopie van de gebruikers schijf, die wordt opgeslagen in de gekoppelde bestands share. Pas aanbevolen procedures toe wanneer u gegevens in uw `$Home` Directory en gekoppelde bestands share persistent wilt maken.
 
 ## <a name="bash-specific-commands"></a>Bash-specifieke opdrachten
 
 ### <a name="use-the-clouddrive-command"></a>Gebruik de `clouddrive` opdracht
-Met Bash in Cloud Shell, kunt u een opdracht uitvoeren `clouddrive`, waarmee u kunt handmatig bijwerken van de bestandsshare die is gekoppeld aan Cloud Shell.
-![De opdracht "clouddrive"](media/persisting-shell-storage/clouddrive-h.png)
+Met bash in Cloud shell kunt u een opdracht met de naam `clouddrive`, waarmee u de bestands share die is gekoppeld aan Cloud shell hand matig bijwerken.
+![De opdracht ' clouddrive ' uitvoeren](media/persisting-shell-storage/clouddrive-h.png)
 
 ### <a name="mount-a-new-clouddrive"></a>Een nieuwe clouddrive koppelen
 
-#### <a name="prerequisites-for-manual-mounting"></a>Vereisten voor handmatige koppelen
-U kunt de bestandsshare die is gekoppeld aan Cloud Shell met behulp van bijwerken de `clouddrive mount` opdracht.
+#### <a name="prerequisites-for-manual-mounting"></a>Vereisten voor hand matig koppelen
+U kunt de bestands share die is gekoppeld aan Cloud shell, bijwerken met behulp van de `clouddrive mount` opdracht.
 
-Als u een bestaande bestandsshare koppelt, moeten u de storage-accounts zich in uw Selecteer Cloud Shell-regio. De locatie ophalen door het uitvoeren van `env` van Bash en controleren van de `ACC_LOCATION`.
+Als u een bestaande bestands share koppelt, moeten de opslag accounts zich in de geselecteerde Cloud Shell regio bevinden. Haal de locatie op door `env` uit te voeren vanuit bash `ACC_LOCATION`en de te controleren.
 
 #### <a name="the-clouddrive-mount-command"></a>De `clouddrive mount` opdracht
 
 > [!NOTE]
-> Als u een nieuwe bestandsshare koppelen wilt, een nieuwe gebruikersinstallatiekopie is gemaakt voor uw `$Home` directory. Uw vorige `$Home` installatiekopie wordt opgeslagen in de vorige bestandsshare.
+> Als u een nieuwe bestands share koppelt, wordt er een nieuwe gebruikers installatie kopie voor `$Home` uw directory gemaakt. De vorige `$Home` afbeelding wordt bewaard in de vorige bestands share.
 
-Voer de `clouddrive mount` opdracht met de volgende parameters:
+Voer de `clouddrive mount` opdracht uit met de volgende para meters:
 
 ```
 clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareName
 ```
 
-Uitvoeren als u meer details, `clouddrive mount -h`, zoals hier wordt weergegeven:
+Voer uit `clouddrive mount -h`om meer details weer te geven, zoals hier wordt weer gegeven:
 
-![Met de ' clouddrive mount'command](media/persisting-shell-storage/mount-h.png)
+![De clouddrive-mount'command uitvoeren](media/persisting-shell-storage/mount-h.png)
 
 ### <a name="unmount-clouddrive"></a>Clouddrive ontkoppelen
-U kunt een bestandsshare die gekoppeld aan Cloud Shell op elk gewenst moment ontkoppelen. Nadat u Cloud Shell is vereist voor een gekoppelde bestandsshare die moet worden gebruikt, wordt u gevraagd om te maken en koppelen van een andere bestandsshare in de volgende sessie.
+U kunt een bestands share die is gekoppeld aan Cloud Shell, op elk gewenst moment ontkoppelen. Omdat Cloud Shell een gekoppelde bestands share moet worden gebruikt, wordt u gevraagd een andere bestands share te maken en koppelen tijdens de volgende sessie.
 
 1. Voer `clouddrive unmount` uit.
-2. Bevestigen en bevestigt u wordt gevraagd.
+2. Bevestigings-en bevestigings prompts.
 
-De bestandsshare blijft bestaan, tenzij u deze handmatig verwijderen. Cloudshell wordt niet meer voor deze bestandsshare zoeken op de volgende sessies. Uitvoeren als u meer details, `clouddrive unmount -h`, zoals hier wordt weergegeven:
+De bestands share blijft bestaan, tenzij u deze hand matig verwijdert. Cloud Shell kunt niet meer op volgende sessies naar deze bestands share zoeken. Voer uit `clouddrive unmount -h`om meer details weer te geven, zoals hier wordt weer gegeven:
 
-![Met de ' clouddrive unmount'command](media/persisting-shell-storage/unmount-h.png)
+![De clouddrive-unmount'command uitvoeren](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Hoewel deze opdracht uitvoert, alle resources niet verwijderen wordt, gewist handmatig verwijderen van een resourcegroep, de storage-account of de bestandsshare die toegewezen aan Cloud Shell de `$Home` schijfinstallatiekopie van de map en alle bestanden in de bestandsshare. Deze actie kan niet ongedaan worden gemaakt.
+> Hoewel met deze opdracht geen resources worden verwijderd, hand matig verwijderen van een resource groep, opslag account of bestands share die is toegewezen aan Cloud shell, worden de `$Home` schijf kopie van de Directory en alle bestanden in de bestands share gewist. Deze actie kan niet ongedaan worden gemaakt.
 
-### <a name="list-clouddrive"></a>Lijst met `clouddrive`
-Om te ontdekken welke-bestandsshare is gekoppeld als `clouddrive`, voert de `df` opdracht. 
+### <a name="list-clouddrive"></a>Orderverzamellijst`clouddrive`
+Als u wilt weten welke bestands share is `clouddrive`gekoppeld als, `df` voert u de opdracht uit. 
 
-Het pad naar clouddrive ziet u dat de storage-accountnaam en het bestand delen in de URL. Bijvoorbeeld: `//storageaccountname.file.core.windows.net/filesharename`
+Het bestandspad naar clouddrive toont de naam van uw opslag account en de bestands share in de URL. Bijvoorbeeld: `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
@@ -88,24 +88,24 @@ shm                                                    65536       0      65536 
 //mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
 justin@Azure:~$
 ```
-## <a name="powershell-specific-commands"></a>PowerShell-specifieke opdrachten
+## <a name="powershell-specific-commands"></a>Power shell-specifieke opdrachten
 
-### <a name="list-clouddrive-azure-file-shares"></a>Lijst met `clouddrive` Azure-bestandsshares
-De `Get-CloudDrive` cmdlet haalt de gegevens voor het delen van Azure-bestand dat momenteel is gekoppeld met de `clouddrive` in de Cloud Shell. <br>
-![Get-CloudDrive uitgevoerd](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
+### <a name="list-clouddrive-azure-file-shares"></a>Azure `clouddrive` -bestands shares weer geven
+Met `Get-CloudDrive` de cmdlet worden de gegevens van de Azure-bestands share `clouddrive` opgehaald die momenteel zijn gekoppeld door de in de Cloud shell. <br>
+![Get-CloudDrive uitvoeren](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
 
-### <a name="unmount-clouddrive"></a>Ontkoppelen `clouddrive`
-U kunt een Azure-bestandsshare die gekoppeld aan Cloud Shell op elk gewenst moment ontkoppelen. Als de Azure-bestandsshare is verwijderd, wordt u gevraagd om te maken en een nieuwe Azure-bestandsshare koppelen op de volgende sessie.
+### <a name="unmount-clouddrive"></a>Ontkoppelen`clouddrive`
+U kunt op elk gewenst moment een Azure-bestands share ontkoppelen die aan Cloud Shell is gekoppeld. Als de Azure-bestands share is verwijderd, wordt u gevraagd om een nieuwe Azure-bestands share te maken en te koppelen tijdens de volgende sessie.
 
-De `Dismount-CloudDrive` cmdlet wordt een Azure-bestandsshare van het huidige opslagaccount. Ontkoppelen van de `clouddrive` de huidige sessie wordt beëindigd. De gebruiker wordt gevraagd om te maken en een nieuwe Azure-bestandsshare koppelen tijdens de volgende sessie.
-![Actieve Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
+Met `Dismount-CloudDrive` de cmdlet ontkoppelt u een Azure-bestands share van het huidige opslag account. Ontkoppelen van de `clouddrive` huidige sessie wordt beëindigd. De gebruiker wordt gevraagd een nieuwe Azure-bestands share te maken en koppelen tijdens de volgende sessie.
+![Ontkoppeling uitvoeren-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
 [!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-Opmerking: Als u nodig hebt voor het definiëren van een functie in een bestand en deze aanroepen vanuit de PowerShell-cmdlets, moet klikt u vervolgens de punt worden opgenomen. Bijvoorbeeld:. .\MyFunctions.ps1
+Opmerking: Als u een functie in een bestand moet definiëren en deze aanroept vanuit de Power shell-cmdlets, moet de punt operator worden opgenomen. Bijvoorbeeld:. .\MyFunctions.ps1
 
 ## <a name="next-steps"></a>Volgende stappen
-[Bash in Cloud Shell-snelstartgids](quickstart.md) <br>
-[PowerShell in Cloud Shell-snelstartgids](quickstart-powershell.md) <br>
-[Meer informatie over Microsoft Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
-[Meer informatie over de storage-tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
+[Bash in Cloud Shell Quick Start](quickstart.md) <br>
+[Power shell in Cloud Shell Quick Start](quickstart-powershell.md) <br>
+[Meer informatie over de opslag van Microsoft Azure-bestanden](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
+[Meer informatie over opslag Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

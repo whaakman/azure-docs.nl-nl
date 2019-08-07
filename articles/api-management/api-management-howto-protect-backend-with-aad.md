@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 72cffea3e5d42210bffbdbeef94c475cc8bdebf4
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: bef82302c4b137b53b52669652f8aeb5d788a82a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312089"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774773"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Een API beveiligen met behulp van OAuth 2,0 met Azure Active Directory en API Management
 
@@ -37,7 +37,7 @@ Hier volgt een kort overzicht van de stappen:
 1. Registreer een toepassing (back-end-app) in azure AD om de API aan te duiden.
 2. Registreer een andere toepassing (client-app) in azure AD om een client toepassing aan te duiden die de API moet aanroepen.
 3. Ken in azure AD machtigingen toe om de client-app toe te staan de back-end-app aan te roepen.
-4. Configureer de ontwikkelaars console om OAuth 2,0-gebruikers autorisatie te gebruiken.
+4. Configureer de ontwikkelaars console om de API aan te roepen met OAuth 2,0-gebruikers autorisatie.
 5. Voeg het beleid **valideren-JWT** toe om het OAuth-token voor elke inkomende aanvraag te valideren.
 
 ## <a name="register-an-application-in-azure-ad-to-represent-the-api"></a>Een toepassing registreren in azure AD om de API aan te duiden
@@ -46,13 +46,13 @@ De eerste stap is het registreren van een toepassing in azure AD die de API vert
 
 1. Ga naar de pagina met de [Azure Portal-app-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) . 
 
-2. Selecteer **nieuwe registratie**. 
+1. Selecteer **nieuwe registratie**. 
 
 1. Wanneer de pagina **Een toepassing registreren** verschijnt, voert u de registratiegegevens van de toepassing in: 
     - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `backend-app`. 
-    - Selecteer in de sectie **ondersteunde account typen** de optie **accounts in elke organisatie Directory**. 
+    - Selecteer in de sectie **ondersteunde account typen** een optie die aansluit bij uw scenario. 
 
-1. Laat het gedeelte voor de omleidings- **URI** nu leeg.
+1. Laat de sectie **URI omleiden** leeg.
 
 1. Selecteer **Registreren** om de toepassing te maken. 
 
@@ -60,9 +60,15 @@ De eerste stap is het registreren van een toepassing in azure AD die de API vert
 
 Wanneer de toepassing is gemaakt, noteert u de **toepassings-id**voor gebruik in een volgende stap. 
 
+1. Selecteer **een API** weer geven en klik op **opslaan en ga door met** het maken van een toepassings-id-URI.
+
+1. Maak op de pagina **een bereik toevoegen** een nieuwe scope die wordt ondersteund door de API. (bijvoorbeeld lezen) en klik vervolgens op *bereik toevoegen* om het bereik te maken. Herhaal deze stap om alle scopes toe te voegen die worden ondersteund door uw API.
+
+1. Wanneer het bereik is gemaakt, noteert u dit voor gebruik in een volgende stap. 
+
 ## <a name="register-another-application-in-azure-ad-to-represent-a-client-application"></a>Een andere toepassing registreren in azure AD om een client toepassing aan te duiden
 
-Elke client toepassing die de API aanroept, moet ook worden geregistreerd als een toepassing in azure AD. Voor dit voor beeld is de voor beeld-client toepassing de ontwikkelaars console in het API Management ontwikkelaars Portal. U kunt als volgt een andere toepassing in azure AD registreren om de ontwikkelaars console aan te duiden.
+Elke client toepassing die de API aanroept, moet ook worden geregistreerd als een toepassing in azure AD. In dit voor beeld is de client toepassing de ontwikkelaars console in het API Management ontwikkelaars Portal. U kunt als volgt een andere toepassing in azure AD registreren om de ontwikkelaars console aan te duiden.
 
 1. Ga naar de pagina met de [Azure Portal-app-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) . 
 
@@ -82,9 +88,9 @@ Maak nu een client geheim voor deze toepassing, voor gebruik in een volgende sta
 
 1. Selecteer in de lijst met pagina's voor uw client-app **certificaten & geheimen**en selecteer **Nieuw client geheim**.
 
-2. Geef onder **een client geheim toevoegen**een **Beschrijving**op. Kies wanneer de sleutel moet verlopen en selecteer **toevoegen**.
+1. Geef onder **een client geheim toevoegen**een **Beschrijving**op. Kies wanneer de sleutel moet verlopen en selecteer **toevoegen**.
 
-Noteer de sleutel waarde. 
+Wanneer het geheim is gemaakt, noteert u de sleutel waarde voor gebruik in een volgende stap. 
 
 ## <a name="grant-permissions-in-azure-ad"></a>Machtigingen verlenen in azure AD
 
@@ -92,18 +98,15 @@ Nu u twee toepassingen hebt geregistreerd die de API en de ontwikkelaars console
 
 1. Navigeer naar **app-registraties**. 
 
-2. Selecteer `client-app`en in de lijst met pagina's voor de app gaat u naar **API-machtigingen**.
+1. Selecteer `client-app`en in de lijst met pagina's voor de app gaat u naar **API-machtigingen**.
 
-3. Selecteer **een machtiging toevoegen**.
+1. Selecteer **een machtiging toevoegen**.
 
-4. Onder **een API selecteren**, zoeken en selecteren `backend-app`.
+1. Onder **een API selecteren**, zoeken en selecteren `backend-app`.
 
-5. Selecteer onder **gedelegeerde machtigingen**de juiste machtigingen voor `backend-app`.
+1. Selecteer onder **gedelegeerde machtigingen**de juiste machtigingen om op `backend-app` **machtigingen toevoegen**te klikken.
 
-6. **Machtigingen toevoegen** selecteren 
-
-> [!NOTE]
-> Als **Azure Active Directory** niet wordt vermeld onder Machtigingen voor andere toepassingen, selecteert u **toevoegen** om het uit de lijst toe te voegen.
+1. Klik desgewenst op de pagina **API-machtigingen** op **toestemming geven voor de beheerder voor < uw-Tenant naam >** onder aan de pagina om toestemming te verlenen namens alle gebruikers in deze map. 
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>OAuth 2,0-gebruikers autorisatie inschakelen in de ontwikkelaars console
 
@@ -113,33 +116,41 @@ In dit voor beeld is de ontwikkelaars console de client-app. In de volgende stap
 
 1. Ga in Azure Portal naar uw API Management-exemplaar.
 
-2. Selecteer **OAuth 2,0** > **toevoegen**.
+1. Selecteer **OAuth 2,0** > **toevoegen**.
 
-3. Geef een **weergave naam** en een **Beschrijving**op.
+1. Geef een **weergave naam** en een **Beschrijving**op.
 
-4. Voer voor de URL voor de **registratie pagina**van de client een tijdelijke aanduiding `http://localhost`in, bijvoorbeeld. De **URL voor de registratie pagina** van de client verwijst naar de pagina die gebruikers kunnen gebruiken om hun eigen accounts te maken en te configureren voor OAuth 2,0-providers die dit ondersteunen. In dit voor beeld maken gebruikers geen eigen accounts en configureren ze daarom een tijdelijke aanduiding.
+1. Voer voor de URL voor de **registratie pagina**van de client een tijdelijke aanduiding `http://localhost`in, bijvoorbeeld. De **URL voor de registratie pagina** van de client verwijst naar een pagina die gebruikers kunnen gebruiken om hun eigen accounts te maken en te configureren voor OAuth 2,0-providers die dit ondersteunen. In dit voor beeld maken gebruikers geen eigen accounts en configureren ze daarom een tijdelijke aanduiding.
 
-5. Selecteer **autorisatie code**voor het **type autorisatie verlening**.
+1. Selecteer **autorisatie code**voor het **type autorisatie verlening**.
 
-6. Geef de URL van het **autorisatie-eind punt** en de URL van het **token eind punt**op. Deze waarden worden opgehaald van de pagina **eind punten** in uw Azure AD-Tenant. Blader opnieuw naar de pagina **app-registraties** en selecteer **eind punten**.
+1. Geef de URL van het **autorisatie-eind punt** en de URL van het **token eind punt**op. Deze waarden worden opgehaald van de pagina **eind punten** in uw Azure AD-Tenant. Blader opnieuw naar de pagina **app-registraties** en selecteer **eind punten**.
 
-7. Kopieer het **OAuth 2,0-autorisatie-eind punt**en plak dit in het tekstvak **URL van autorisatie-eind punt** .
 
-8. Kopieer het **OAuth 2,0 token-eind punt**en plak het in het tekstvak **URL voor token-eind punt** . Naast het plakken in het token-eind punt, voegt u een body-para meter met de naam **resource**toe. Voor de waarde van deze para meter gebruikt u de **toepassings-id** voor de back-end-app.
+1. Kopieer het **OAuth 2,0-autorisatie-eind punt**en plak dit in het tekstvak **URL van autorisatie-eind punt** . Selecteer **bericht** onder Autorisatie aanvraag methode.
 
-9. Geef vervolgens de client referenties op. Dit zijn de referenties voor de client-app.
+1. Kopieer het **OAuth 2,0 token-eind punt**en plak het in het tekstvak **URL voor token-eind punt** . 
 
-10. Voor **client-id**gebruikt u de **toepassings-id** voor de client-app.
+    >[!IMPORTANT]
+    > U kunt **v1** -of **v2** -eind punten gebruiken. Afhankelijk van de versie die u kiest, is de onderstaande stap echter anders. U kunt het beste v2-eind punten gebruiken. 
 
-11. Gebruik voor **client geheim**de sleutel die u eerder hebt gemaakt voor de client-app. 
+1. Als u **v1** -eind punten gebruikt, voegt u een body-para meter met de naam **resource**toe. Gebruik de **toepassings-id** van de back-end-app voor de waarde van deze para meter. 
 
-12. Direct na het client geheim bevindt zich het **redirect_url** voor het toekennings type voor de autorisatie code. Noteer deze URL.
+1. Als u **v2** -eind punten gebruikt, gebruikt u het bereik dat u hebt gemaakt voor de back-end-app in het **standaard bereik** veld.
 
-13. Selecteer **Maken**.
+1. Geef vervolgens de client referenties op. Dit zijn de referenties voor de client-app.
 
-14. Ga terug naar de pagina **instellingen** van uw client-app.
+1. Gebruik voor **client-id**de **toepassings-id** van de client-app.
 
-15. Selecteer **antwoord-url's**en plak de **redirect_url** in de eerste rij. In dit voor beeld vervangt `https://localhost` u door de URL in de eerste rij.  
+1. Gebruik voor **client geheim**de sleutel die u eerder hebt gemaakt voor de client-app. 
+
+1. Direct na het client geheim bevindt zich het **redirect_url** voor het toekennings type voor de autorisatie code. Noteer deze URL.
+
+1. Selecteer **Maken**.
+
+1. Ga terug naar de pagina **instellingen** van uw client-app.
+
+1. Selecteer **antwoord-url's**en plak de **redirect_url** in de eerste rij. In dit voor beeld vervangt `https://localhost` u door de URL in de eerste rij.  
 
 Nu u een OAuth 2,0-autorisatie server hebt geconfigureerd, kan de ontwikkelaars console toegangs tokens van Azure AD verkrijgen. 
 
@@ -147,7 +158,7 @@ De volgende stap is om OAuth 2,0-gebruikers autorisatie in te scha kelen voor uw
 
 1. Blader naar uw API Management-exemplaar en ga naar **api's**.
 
-2. Selecteer de API die u wilt beveiligen. In dit voor beeld gebruikt u de `Echo API`.
+2. Selecteer de API die u wilt beveiligen. U kunt bijvoorbeeld de `Echo API`gebruiken.
 
 3. Ga naar **instellingen**.
 
@@ -160,9 +171,9 @@ De volgende stap is om OAuth 2,0-gebruikers autorisatie in te scha kelen voor uw
 > [!NOTE]
 > Deze sectie is niet van toepassing op de laag **verbruik** , die geen ondersteuning biedt voor de ontwikkelaars Portal.
 
-Nu de OAuth 2,0 `Echo API`-gebruikers autorisatie is ingeschakeld, verkrijgt de ontwikkelaars console een toegangs token namens de gebruiker voordat de API wordt aangeroepen.
+Nu de OAuth 2,0-gebruikers autorisatie is ingeschakeld op uw API, zal de ontwikkelaars console een toegangs token namens de gebruiker verkrijgen voordat de API wordt aangeroepen.
 
-1. Blader naar een wille keurige bewerking onder `Echo API` in de ontwikkelaars Portal en selecteer **proberen**. Hiermee wordt de ontwikkelaars console geopend.
+1. Blader naar een wille keurige bewerking onder de API in de ontwikkelaars Portal en selecteer **proberen**. Hiermee wordt de ontwikkelaars console geopend.
 
 2. Noteer een nieuw item in het gedeelte **autorisatie** , dat overeenkomt met de autorisatie server die u zojuist hebt toegevoegd.
 
@@ -179,11 +190,11 @@ Nu de OAuth 2,0 `Echo API`-gebruikers autorisatie is ingeschakeld, verkrijgt de 
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Een JWT-validatie beleid configureren om aanvragen vooraf te autoriseren
 
-Wanneer een gebruiker op dit moment probeert een aanroep te doen vanuit de ontwikkelaars console, wordt de gebruiker gevraagd zich aan te melden. De ontwikkelaars console verkrijgt een toegangs token namens de gebruiker.
+Wanneer een gebruiker op dit moment probeert een aanroep te doen vanuit de ontwikkelaars console, wordt de gebruiker gevraagd zich aan te melden. De ontwikkelaars console verkrijgt een toegangs token namens de gebruiker en bevat het token in de aanvraag voor de API.
 
-Maar wat gebeurt er als iemand uw API aanroept zonder een token of met een ongeldig token? U kunt echter wel de API aanroepen, zelfs als u de `Authorization` header verwijdert. De reden hiervoor is dat API Management het toegangs token op dit moment niet valideert. De `Authorization` header wordt gewoon door gegeven aan de back-end-API.
+Wat gebeurt er echter als iemand uw API aanroept zonder een token of met een ongeldig token? U kunt bijvoorbeeld proberen om de API aan te roepen `Authorization` zonder de header, maar de aanroep gaat door. De reden hiervoor is dat API Management het toegangs token op dit moment niet valideert. De `Authorization` header wordt gewoon door gegeven aan de back-end-API.
 
-U kunt de [validatie JWT](api-management-access-restriction-policies.md#ValidateJWT) -beleid valideren om aanvragen vooraf te autoriseren in API Management door de toegangs tokens van elke binnenkomende aanvraag te valideren. Als een aanvraag geen geldig token heeft, wordt deze door API Management geblokkeerd. U kunt bijvoorbeeld het volgende beleid toevoegen aan de `<inbound>` sectie beleid van de. `Echo API` Hiermee wordt de claim van een doel groep in een toegangs token gecontroleerd en wordt een fout bericht geretourneerd als het token ongeldig is. Zie [beleid instellen of bewerken](set-edit-policies.md)voor meer informatie over het configureren van beleid.
+U kunt de [validatie JWT](api-management-access-restriction-policies.md#ValidateJWT) -beleid valideren om aanvragen vooraf te autoriseren in API Management door de toegangs tokens van elke binnenkomende aanvraag te valideren. Als een aanvraag geen geldig token heeft, wordt deze door API Management geblokkeerd. Voeg bijvoorbeeld het volgende beleid toe aan de `<inbound>` sectie beleid van de. `Echo API` Hiermee wordt de claim van een doel groep in een toegangs token gecontroleerd en wordt een fout bericht geretourneerd als het token ongeldig is. Zie [beleid instellen of bewerken](set-edit-policies.md)voor meer informatie over het configureren van beleid.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">

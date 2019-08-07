@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 8ee7db3ade594958729deeb12007f528376d5179
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 4f06e579e8548f4220d8f3fb4b618902f18b538e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442420"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774807"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management restrictie beleid voor toegang
 
@@ -34,6 +34,9 @@ In dit onderwerp vindt u een verwijzing naar de volgende API Management-beleids 
 -   [Gebruiks quotum per abonnement instellen](api-management-access-restriction-policies.md#SetUsageQuota) : Hiermee kunt u een Verleng bare of levensduur oproep volume en/of bandbreedte quota afdwingen op basis van elk abonnement.
 -   [Gebruiks quotum instellen op sleutel](#SetUsageQuotaByKey) : Hiermee kunt u een Verleng bare of levensduur oproep volume en/of bandbreedte quotum per sleutel afdwingen.
 -   [Valideer JWT](api-management-access-restriction-policies.md#ValidateJWT) : afdwingt aanwezigheid en geldigheid van een JWT die is geëxtraheerd uit een opgegeven HTTP-header of een opgegeven query parameter.
+
+> [!TIP]
+> U kunt toegangs restrictie beleid in verschillende bereiken gebruiken voor verschillende doel einden. U kunt bijvoorbeeld de volledige API met Aad-verificatie beveiligen door het `validate-jwt` beleid toe te passen op het API-niveau, maar u kunt het ook Toep assen op het API-bewerkings niveau en gebruiken `claims` voor gedetailleerdere controle.
 
 ## <a name="CheckHTTPHeader"></a>HTTP-header controleren
 

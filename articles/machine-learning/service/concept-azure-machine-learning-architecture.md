@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 82d3656e0adc03157de57b700f8f0be6bde1f2ee
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 59ce6719c117db53b02ed6594de219010ee08ee6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663476"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828231"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>De werking van Azure Machine Learning-service: Architectuur en concepten
 
@@ -40,13 +40,13 @@ De werk stroom voor het machine learning model volgt doorgaans deze reeks:
 
 1. **Monitor** : monitor voor **gegevens** overdracht tussen de trainings gegevensset en het afleiden van gegevens van een geïmplementeerd model. Als dat nodig is, keert u terug naar stap 1 om het model te trainen met nieuwe trainings gegevens.
 
-## <a name="tools-for-azure-machine-learning"></a>Hulpprogram ma's voor Azure Machine Learning 
+## <a name="tools-for-azure-machine-learning"></a>Hulpprogram ma's voor Azure Machine Learning
 
 Gebruik deze hulpprogram ma's voor Azure Machine Learning:
 
 +  Communiceer met de service in een python-omgeving met de [Azure machine learning SDK voor python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Automatiseer uw machine learning activiteiten met de [Azure machine learning cli](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
-+ Code schrijven in Visual Studio code met [Azure machine learning VS code-extensie](how-to-vscode-tools.md) 
++ Code schrijven in Visual Studio code met [Azure machine learning VS code-extensie](how-to-vscode-tools.md)
 + Gebruik de [visuele interface (preview) voor Azure machine learning-service](ui-concept-visual-interface.md) om de werk stroom stappen uit te voeren zonder code te schrijven.
 
 ## <a name="glossary-of-concepts"></a>Woorden lijst met concepten
@@ -87,7 +87,7 @@ Zie [Wat is een Azure machine learning-werk ruimte?](concept-workspace.md)voor m
 
 Een experiment is een groepering van veel uitvoeringen van een opgegeven script. Altijd hoort bij een werkruimte. Wanneer u een uitvoering verzendt, kunt u de naam van een experiment opgeven. Informatie voor de uitvoering wordt onder dit experiment opgeslagen. Als u een uitvoering verzendt en een experimentnaam opgeeft die niet bestaat, wordt automatisch een nieuw experiment met de zojuist opgegeven naam gemaakt.
 
-Voor een voor beeld van het gebruik van een [experiment raadpleegt u Quick Start: Aan de slag met Azure Machine Learning](quickstart-run-cloud-notebook.md)service.
+Zie [zelf studie voor een voor beeld van het gebruik van een experiment: Train uw eerste model](tutorial-1st-experiment-sdk-train.md).
 
 ### <a name="models"></a>Modellen
 
@@ -132,9 +132,9 @@ Een **gegevens archief** is een opslag abstractie van een Azure-opslag account. 
 
 ### <a name="compute-targets"></a>COMPUTE-doelen
 
-Met een [reken doel](concept-compute-target.md) kunt u de reken resource opgeven waarin u uw trainings script uitvoert of uw service-implementatie host. Deze locatie kan uw lokale machine of een cloud-gebaseerde reken resource zijn. Met Compute-doelen kunt u uw reken omgeving eenvoudig wijzigen zonder uw code te wijzigen. 
+Met een [reken doel](concept-compute-target.md) kunt u de reken resource opgeven waarin u uw trainings script uitvoert of uw service-implementatie host. Deze locatie kan uw lokale machine of een cloud-gebaseerde reken resource zijn. Met Compute-doelen kunt u uw reken omgeving eenvoudig wijzigen zonder uw code te wijzigen.
 
-Meer informatie over de [beschik bare reken doelen voor training en implementatie](concept-compute-target.md). 
+Meer informatie over de [beschik bare reken doelen voor training en implementatie](concept-compute-target.md).
 
 ### <a name="training-scripts"></a>Trainingsscripts
 
@@ -153,7 +153,6 @@ Een uitvoering is een record met de volgende informatie:
 
 U produceert een uitvoering wanneer u een script voor het trainen van een model verzendt. Een uitvoering kan nul of meer onderliggende uitvoeringen hebben. De uitvoering op het hoogste niveau kan bijvoorbeeld twee onderliggende uitvoeringen hebben, waarvan elk een eigen onderliggend item kan hebben.
 
-Voor een voor beeld van het weer geven van uitvoeringen die worden geproduceerd door [een model trainen, raadpleegt u Quick Start: Aan de slag met Azure Machine Learning](quickstart-run-cloud-notebook.md)service.
 
 ### <a name="github-tracking-and-integration"></a>GitHub bijhouden en integreren
 
@@ -222,7 +221,9 @@ Azure IoT Edge zorgt ervoor dat de module wordt uitgevoerd en controleert het ap
 
 ### <a name="ml-pipelines"></a>ML-pijplijnen
 
-U gebruikt machine learning pijp lijnen voor het maken en beheren van werk stromen die samen een machine learning fasen opdoen. Een pijp lijn kan bijvoorbeeld bestaan uit gegevens voorbereiding, model training, model implementatie en fase ring/scores. Elke fase kan meerdere stappen, die kan worden uitgevoerd zonder toezicht in diverse compute-doelen omvatten.
+U gebruikt machine learning pijp lijnen voor het maken en beheren van werk stromen die samen een machine learning fasen opdoen. Een pijp lijn kan bijvoorbeeld bestaan uit gegevens voorbereiding, model training, model implementatie en fase ring/scores. Elke fase kan meerdere stappen, die kan worden uitgevoerd zonder toezicht in diverse compute-doelen omvatten. 
+
+U kunt de stappen van de pijp lijn herbruikbaresen en uitvoeren zonder de volgende stappen uit te voeren als de uitvoer van de stap niet is gewijzigd. U kunt bijvoorbeeld een model opnieuw trainen zonder de stappen voor het voorbereiden van de kosten voor het opnieuw uitvoeren van gegevens als de gegevens niet zijn gewijzigd. Door pijp lijnen kunnen gegevens wetenschappers ook samen werken terwijl ze werken op verschillende gebieden van een machine learning werk stroom.
 
 Zie [pijp lijnen en Azure machine learning](concept-ml-pipelines.md)voor meer informatie over het machine learning pijp lijnen met deze service.
 

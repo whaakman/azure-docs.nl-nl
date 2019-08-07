@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor voor containers Veelgestelde vragen | Microsoft Docs
-description: Azure Monitor voor containers is een oplossing die de status van uw AKS-clusters en exemplaren van de Container in Azure controleert. In dit artikel vindt u antwoorden op veelgestelde vragen.
+title: Veelgestelde vragen over het Azure Monitor voor containers | Microsoft Docs
+description: Azure Monitor voor containers is een oplossing waarmee de status van uw AKS-clusters en-Container Instances in azure wordt gecontroleerd. In dit artikel vindt u antwoorden op veelgestelde vragen.
 services: azure-monitor
 author: mgoedtel
 manager: carmonm
@@ -8,48 +8,52 @@ editor: tysonn
 ms.service: azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 08/02/2019
 ms.author: magoedte
-ms.openlocfilehash: afa332b40884a79b5114b3b8093cd27108c39984
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3644b40311c037df800eb89ca26d1285fbf1e082
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780010"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741508"
 ---
-# <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Azure Monitor voor containers Veelgestelde vragen
+# <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Veelgestelde vragen over containers Azure Monitor
 
-Dit Microsoft-FAQ is een lijst met veelgestelde vragen over Azure Monitor voor containers. Als u aanvullende vragen over de oplossing hebt, gaat u naar de [discussieforum](https://feedback.azure.com/forums/34192--general-feedback) en plaats uw vraag. Wanneer u een vraag is vaak wordt gevraagd, toevoegen we deze aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
+Deze veelgestelde vragen over micro soft is een lijst met veelgestelde vragen over Azure Monitor voor containers. Als u aanvullende vragen over de oplossing hebt, gaat u naar het [discussie forum](https://feedback.azure.com/forums/34192--general-feedback) en plaatst u uw vragen. Wanneer u een vraag is vaak wordt gevraagd, toevoegen we deze aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
 
-## <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>Waarom zie ik gegevens niet in mijn werkruimte van Log Analytics?
+## <a name="can-i-monitor-my-aks-engine-cluster-with-azure-monitor-for-containers"></a>Kan ik mijn AKS-engine-cluster bewaken met Azure Monitor voor containers?
 
-Als u niet om te zien van alle gegevens in de Log Analytics-werkruimte aan een bepaalde tijd dagelijks, mogelijk u bereikt de standaardlimiet van 500 MB of de dagelijkse limiet voor het controleren van de hoeveelheid gegevens voor het verzamelen van dagelijks opgegeven. Als de limiet voor de dag wordt voldaan, wordt het verzamelen van gegevens stopt en alleen op de volgende dag hervat. Als u wilt het gegevensgebruik van uw bekijken en bijwerken naar een andere prijscategorie op basis van uw Verwachte gebruikspatronen, Zie [gegevensgebruik en-kosten](../platform/manage-cost-storage.md). 
+Azure Monitor voor containers ondersteunt bewakings werkbelastingen die zijn geïmplementeerd op de AKS-Engine (voorheen bekend als ACS-Engine) cluster (s) die worden gehost op Azure. Zie voor meer informatie en een overzicht van de stappen die nodig zijn om bewaking in te scha kelen voor dit scenario Raadpleeg [Azure monitor gebruiken voor containers voor AKS-engine](https://github.com/microsoft/OMS-docker/tree/aks-engine).
 
-## <a name="what-are-the-container-states-specified-in-the-containerinventory-table"></a>Wat zijn de Staten container is opgegeven in de tabel ContainerInventory?
+## <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>Waarom zie ik geen gegevens in mijn Log Analytics-werk ruimte?
 
-De tabel ContainerInventory bevat informatie over containers gestopt en wordt uitgevoerd. De tabel wordt gevuld met een werkstroom in de agent die de docker voor alle containers (wordt uitgevoerd en is gestopt) query's en verzendt die gegevens van de Log Analytics-werkruimte.
+Als u op een bepaald moment dagelijks geen gegevens in de Log Analytics-werk ruimte kunt zien, hebt u mogelijk de standaard limiet van 500 MB bereikt of is de daglimiet opgegeven om de hoeveelheid gegevens die dagelijks moet worden verzameld, te bepalen. Wanneer de limiet voor de dag wordt bereikt, stopt het verzamelen van gegevens en wordt deze alleen op de volgende dag hervat. Zie [logboek gegevens gebruiken en kosten](../platform/manage-cost-storage.md)voor meer informatie over het controleren van uw gegevens gebruik en het bijwerken van een andere prijs categorie op basis van uw verwachte gebruiks patronen. 
+
+## <a name="what-are-the-container-states-specified-in-the-containerinventory-table"></a>Wat zijn de container statussen die zijn opgegeven in de tabel ContainerInventory?
+
+De tabel ContainerInventory bevat informatie over zowel gestopte als actieve containers. De tabel wordt gevuld met een werk stroom in de agent die de docker doorzoekt voor alle containers (actief en gestopt), en stuurt die gegevens door naar de Log Analytics-werk ruimte.
  
-## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>Hoe los ik **ontbrekende abonnementsregistratie** fout?
+## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>Hoe kan ik oplossen van **ontbrekende registratie** fout van abonnement?
 
-Als u de foutmelding **ontbrekende abonnementen registreren voor Microsoft.OperationsManagement**, u het kunt oplossen door de resourceprovider registreren **Microsoft.OperationsManagement** in de het abonnement waarin de werkruimte is gedefinieerd. De documentatie voor hoe u dit doet, kan worden gevonden [hier](../../azure-resource-manager/resource-manager-register-provider-errors.md).
+Als u de fout melding **abonnements registratie voor micro soft. OperationsManagement**ontvangt, kunt u deze oplossen door de resource provider **micro soft. OperationsManagement** te registreren in het abonnement waarin de werk ruimte is gedefinieerd. De documentatie voor hoe u dit doet, vindt u [hier](../../azure-resource-manager/resource-manager-register-provider-errors.md).
 
-## <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>Is er ondersteuning voor RBAC AKS clusters ingeschakeld?
+## <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>Is er ondersteuning voor AKS-clusters met RBAC ingeschakeld?
 
-De Container Monitoring-oplossing biedt geen ondersteuning voor RBAC, maar dit wordt ondersteund met Azure Monitor for Containers. De pagina met details van de oplossing kan niet de juiste informatie weergegeven op de blades die gegevens voor deze clusters weergeven.
+De container bewakings oplossing biedt geen ondersteuning voor RBAC, maar wordt wel ondersteund met Azure Monitor voor containers. Op de pagina oplossings Details wordt mogelijk niet de juiste informatie weer gegeven op de Blades waarin de gegevens voor deze clusters worden weer gegeven.
 
-## <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Hoe schakel ik logboekverzameling voor containers in de naamruimte kube-systeem via Helm?
+## <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Hoe kan ik logboek verzameling voor containers in de uitvoeren-naam ruimte inschakelen via helm?
 
-De logboekverzameling van containers in de naamruimte kube-systeem is standaard uitgeschakeld. Logboekverzameling kan worden ingeschakeld door het instellen van een omgevingsvariabele op de omsagent. Zie voor meer informatie de [Azure Monitor voor containers](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) GitHub-pagina. 
+De logboek verzameling van containers in de uitvoeren-naam ruimte is standaard uitgeschakeld. Logboek verzameling kan worden ingeschakeld door een omgevings variabele in te stellen op de omsagent. Zie de pagina [Azure monitor voor containers](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) github voor meer informatie. 
 
-## <a name="how-do-i-update-the-omsagent-to-the-latest-released-version"></a>Hoe kan ik de omsagent bijwerken naar de meest recente releaseversie?
+## <a name="how-do-i-update-the-omsagent-to-the-latest-released-version"></a>Hoe kan ik de omsagent bij naar de meest recente versie?
 
-Als u wilt weten hoe u de agent bij te werken, Zie [agentbeheer](container-insights-manage-agent.md).
+Zie [agent beheer](container-insights-manage-agent.md)voor meer informatie over het bijwerken van de agent.
 
-## <a name="how-do-i-enable-multi-line-logging"></a>Hoe kan ik meerdere regels logboekregistratie inschakelen?
+## <a name="how-do-i-enable-multi-line-logging"></a>Hoe kan ik logboek registratie met meerdere regels inschakelen?
 
-Op dit moment meerdere regels logboekregistratie biedt geen ondersteuning voor Azure Monitor voor containers, maar er zijn oplossingen beschikbaar. U kunt alle services om te schrijven in JSON-indeling configureren en Docker/Moby wordt te schrijven als een enkele regel.
+Momenteel Azure Monitor voor containers geen ondersteuning voor logboek registratie in meerdere regels, maar er zijn tijdelijke oplossingen beschikbaar. U kunt alle services zo configureren dat ze worden geschreven in JSON-indeling en vervolgens docker/Moby als één regel schrijft.
 
-U kunt bijvoorbeeld uw logboek verpakken als een JSON-object, zoals wordt weergegeven in het voorbeeld hieronder voor een voorbeeld van een node.js-toepassing:
+U kunt uw logboek bijvoorbeeld als een JSON-object laten teruglopen, zoals wordt weer gegeven in het onderstaande voor beeld voor een node. js-toepassing voor een voor beeld:
 
 ```
 console.log(json.stringify({ 
@@ -60,27 +64,27 @@ console.log(json.stringify({
       }));
 ```
 
-Deze gegevens eruit als in het volgende voorbeeld in Azure Monitor voor Logboeken wanneer u een query uitvoeren voor:
+Deze gegevens zien eruit als in het volgende voor beeld in Azure Monitor voor Logboeken wanneer u er een query op uitvoert:
 
 ```
 LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will not break this into multiple lines", "and you will receive":"all of them in log analytics", "as one": "log entry"}
 
 ```
 
-Voor een gedetailleerde Kijk op het probleem, raadpleegt u de volgende [link naar github](https://github.com/moby/moby/issues/22920).
+Raadpleeg de volgende [github-koppeling](https://github.com/moby/moby/issues/22920)voor een gedetailleerde weer gave van het probleem.
 
-## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Hoe kan ik Azure AD-fouten oplossen wanneer ik live Logboeken inschakelen? 
+## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Hoe kan ik Azure AD-fouten oplossen wanneer ik live-logboeken inschakel? 
 
-U ziet mogelijk de volgende fout: **Het antwoord op de url die is opgegeven in de aanvraag komt niet overeen met de antwoord-URL's geconfigureerd voor de toepassing: ' < toepassings-ID\>'** . De oplossing op te lossen kunt u vinden in het artikel [container logboeken realtime met Azure Monitor voor containers weergeven](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
+Mogelijk wordt de volgende fout weer geven: **De antwoord-URL die in de aanvraag is opgegeven, komt niet overeen met de antwoord-url's die zijn geconfigureerd\>voor de toepassing: ' <-Toepassings-id '** . De oplossing om deze op te lossen vindt u in het artikel een [realtime weer gave van container logboeken met Azure monitor voor containers](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
 
-## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Waarom niet kan ik een upgrade uitvoeren cluster na de onboarding?
+## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Waarom kan ik het cluster niet upgraden na het onboarden?
 
-Als nadat u Azure Monitor voor containers voor een AKS-cluster hebt ingeschakeld, u de Log Analytics-werkruimte verwijdert de gegevens is verzonden met het cluster, bij het upgraden van het cluster zal mislukken. Om dit te omzeilen, moet u uitschakelen, controle en vervolgens weer inschakelen die verwijst naar een andere geldige werkruimte in uw abonnement. Wanneer u de clusterupgrade opnieuw uitvoert probeert, moet worden verwerkt en voltooid.  
+Als u Azure Monitor voor containers voor een AKS-cluster hebt ingeschakeld, verwijdert u de Log Analytics werk ruimte waarnaar de gegevens naar het cluster zijn verzonden bij het upgraden van het cluster. U kunt dit probleem omzeilen door de bewaking uit te scha kelen en vervolgens weer in te scha kelen naar een andere geldige werk ruimte in uw abonnement. Wanneer u de cluster upgrade opnieuw probeert uit te voeren, moet het proces worden uitgevoerd en voltooid.  
 
-## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Welke poorten en domeinen moet ik openen/whitelist voor de agent?
-- *.ods.opinsights.azure.com   443
-- *.oms.opinsights.azure.com   443
-- *.blob.core.windows.net      443
+## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Welke poorten en domeinen heb ik nodig om de agent te openen/white list?
+- *. ods.opinsights.azure.com 443
+- *. oms.opinsights.azure.com 443
+- *. blob.core.windows.net 443
 - dc.services.visualstudio.com 443
 
 ## <a name="next-steps"></a>Volgende stappen

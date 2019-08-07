@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor HTTP-gegevensverzamelaar-API | Microsoft Docs
-description: U kunt de API van Azure Monitor HTTP Data Collector POST-JSON-gegevens toevoegen aan een Log Analytics-werkruimte van een willekeurige client die de REST-API kunt aanroepen. Dit artikel wordt beschreven hoe u de API en bevat voorbeelden van hoe u gegevens publiceert met behulp van verschillende programmeertalen.
+title: HTTP-gegevens verzamelaar-API Azure Monitor | Microsoft Docs
+description: U kunt de Azure Monitor HTTP data collector API gebruiken om POST JSON-gegevens toe te voegen aan een Log Analytics-werk ruimte vanaf elke client die de REST API kan aanroepen. In dit artikel wordt beschreven hoe u de API gebruikt en bevat voor beelden van het publiceren van gegevens met behulp van verschillende programmeer talen.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,69 +13,69 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: 0f5a996d68c80fd9b1f55a36de37579ea245d99d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 11c3ded45e87e815b6c694f0a3f9c0ccb96f8750
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922788"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68813920"
 ---
-# <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Logboekgegevens verzenden naar Azure Monitor met de HTTP Data Collector-API (preview-versie)
-Dit artikel leest u hoe de API HTTP Data Collector gebruikt om te verzenden van logboekgegevens naar Azure Monitor van een REST-API-client.  Dit wordt beschreven hoe u gegevens die zijn verzameld door het script of een toepassing opmaken, opnemen in een aanvraag en die aanvraag heeft geautoriseerd door Azure Monitor.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
+# <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Logboek gegevens naar Azure Monitor verzenden met de HTTP-gegevens verzamelaar-API (open bare preview)
+In dit artikel leest u hoe u de HTTP data collector API kunt gebruiken om logboek gegevens te verzenden naar Azure Monitor van een REST API-client.  Hierin wordt beschreven hoe u gegevens opmaakt die worden verzameld door uw script of toepassing, deze toevoegen aan een aanvraag en die aanvraag hebben toegestaan door Azure Monitor.  Er zijn voor beelden van Power C#shell, en python.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 > [!NOTE]
-> De API van Azure Monitor HTTP Data Collector is in openbare preview.
+> De Azure Monitor HTTP-gegevens verzamelaar-API bevindt zich in de open bare preview.
 
 ## <a name="concepts"></a>Concepten
-De HTTP Data Collector-API kunt u logboekgegevens naar een Log Analytics-werkruimte in Azure Monitor verzenden vanaf een willekeurige client die een REST-API kunt aanroepen.  Dit wordt mogelijk een runbook in Azure Automation die management verzamelt mogelijk gegevens vanuit Azure of een andere cloud, of het een ander beheersysteem die gebruikmaakt van Azure Monitor om te consolideren en analyseren van logboekgegevens.
+U kunt de HTTP data collector API gebruiken om logboek gegevens te verzenden naar een Log Analytics-werk ruimte in Azure Monitor vanaf elke client die een REST API kan aanroepen.  Dit kan een runbook zijn in Azure Automation waarmee beheer gegevens worden verzameld van Azure of een andere Cloud, of een ander beheer systeem is dat gebruikmaakt van Azure Monitor om logboek gegevens te consolideren en analyseren.
 
-Alle gegevens in de Log Analytics-werkruimte wordt opgeslagen als een record met een bepaald type.  U uw gegevens worden verzonden naar de API HTTP Data Collector als meerdere records in de JSON-indeling.  Wanneer u de gegevens hebt ingediend, wordt een afzonderlijke record gemaakt in de opslagplaats voor elke record in de nettolading van de aanvraag.
+Alle gegevens in de werk ruimte Log Analytics worden opgeslagen als een record met een bepaald record type.  U formatteert uw gegevens om deze te verzenden naar de HTTP data collector-API als meerdere records in JSON.  Wanneer u de gegevens verzendt, wordt er voor elke record in de aanvraag lading een afzonderlijke record in de opslag plaats gemaakt.
 
 
-![Overzicht van de HTTP-gegevensverzamelaar](media/data-collector-api/overview.png)
+![Overzicht van HTTP-gegevens verzamelaar](media/data-collector-api/overview.png)
 
 
 
 ## <a name="create-a-request"></a>Een aanvraag maken
-Voor het gebruik van de API HTTP Data Collector, maakt u een POST-aanvraag met de gegevens worden verzonden in JavaScript Object Notation (JSON).  De volgende drie tabellen worden de kenmerken die vereist voor elke aanvraag zijn. Elk kenmerk in meer detail later in dit artikel wordt beschreven.
+Als u de HTTP data collector API wilt gebruiken, maakt u een POST-aanvraag die de gegevens bevat die moeten worden verzonden in de JavaScript Object Notation (JSON).  De volgende drie tabellen geven een lijst van de kenmerken die zijn vereist voor elke aanvraag. Verderop in dit artikel wordt elk kenmerk uitvoeriger beschreven.
 
 ### <a name="request-uri"></a>Aanvraag-URI
 | Kenmerk | Eigenschap |
 |:--- |:--- |
 | Methode |POST |
 | URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
-| Type inhoud |application/json |
+| Inhoudstype |application/json |
 
-### <a name="request-uri-parameters"></a>Aanvraag-URI-parameters
+### <a name="request-uri-parameters"></a>URI-para meters aanvragen
 | Parameter | Description |
 |:--- |:--- |
-| CustomerID |De unieke id voor de Log Analytics-werkruimte. |
-| Resource |De naam van de API-resource: / api/logs. |
-| API-versie |De versie van de API voor gebruik met deze aanvraag. Het is momenteel, 2016-04-01. |
+| Nummer |De unieke id voor de Log Analytics-werk ruimte. |
+| Resource |De naam van de API-resource:/API/logs. |
+| API-versie |De versie van de API die moet worden gebruikt voor deze aanvraag. Momenteel is dit 2016-04-01. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 | Header | Description |
 |:--- |:--- |
-| Autorisatie |De autorisatie-handtekening. Later in dit artikel, kunt u lezen over het maken van een HMAC-SHA256-header. |
-| Log-Type |Geef het recordtype van de gegevens die wordt verzonden. De maximale grootte voor deze parameter is 100 tekens. |
-| x-ms-date |De datum waarop de aanvraag is verwerkt, in de RFC 1123-indeling. |
-| x-ms-AzureResourceId | Resource-ID van de Azure-resource de gegevens moet worden gekoppeld. Dit vult de [_ResourceId](log-standard-properties.md#_resourceid) eigenschap en maakt het mogelijk de gegevens moeten worden opgenomen in [resource-georiënteerde](manage-access.md#access-modes) query's. Als dit veld niet wordt opgegeven, worden de gegevens niet worden opgenomen in de resource-georiënteerde query's. |
-| Time-gegenereerd-veld | De naam van een veld in de gegevens die met het tijdstempel van het gegevensitem. Als u een veld opgeven en vervolgens de inhoud ervan worden gebruikt voor **TimeGenerated**. Als dit veld niet wordt opgegeven, de standaardwaarde voor **TimeGenerated** is de tijd die het bericht wordt opgenomen. De inhoud van het berichtenveld diende de ISO 8601-notatie jjjj-MM-ddTHH. |
+| Authorization |De autorisatie handtekening. Verderop in dit artikel vindt u meer informatie over het maken van een HMAC-SHA256-header. |
+| Log-Type |Geef het record type op van de gegevens die worden verzonden. De maximale grootte voor deze para meter is 100 tekens. |
+| x-ms-date |De datum waarop de aanvraag is verwerkt, in RFC 1123-indeling. |
+| x-ms-AzureResourceId | Resource-ID van de Azure-resource waaraan de gegevens moeten worden gekoppeld. Hiermee wordt de eigenschap [_ResourceId](log-standard-properties.md#_resourceid) ingevuld en kunnen de gegevens worden opgenomen in [resource-context](design-logs-deployment.md#access-mode) query's. Als dit veld niet wordt opgegeven, worden de gegevens niet opgenomen in resource-context query's. |
+| gegenereerde tijd-veld | De naam van een veld in de gegevens die de tijds tempel van het gegevens item bevat. Als u een veld opgeeft, wordt de inhoud ervan gebruikt voor **TimeGenerated**. Als dit veld niet is opgegeven, is de standaard waarde voor **TimeGenerated** het tijdstip waarop het bericht wordt opgenomen. De inhoud van het veld bericht moet de ISO 8601-notatie JJJJ-MM-DDTuu: mm: ssZ hebben. |
 
-## <a name="authorization"></a>Autorisatie
-Elk verzoek aan de API van Azure Monitor HTTP Data Collector moet een autorisatie-header bevatten. Als u wilt een aanvraag worden geverifieerd, moet u zich aanmelden met de aanvraag met de primaire of de secundaire sleutel voor de werkruimte die de aanvraag wordt uitgevoerd. Geeft de handtekening die als onderdeel van de aanvraag.   
+## <a name="authorization"></a>Authorization
+Elke aanvraag voor de Azure Monitor HTTP-gegevens verzamelaar-API moet een autorisatie-header bevatten. Als u een aanvraag wilt verifiëren, moet u de aanvraag ondertekenen met de primaire of secundaire sleutel voor de werk ruimte die de aanvraag maakt. Geef vervolgens die hand tekening door als onderdeel van de aanvraag.   
 
-Hier volgt de indeling voor de autorisatie-header:
+Dit is de indeling voor de autorisatie-header:
 
 ```
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*Werkruimte-id* is de unieke id voor de Log Analytics-werkruimte. *Handtekening* is een [HMAC Hash-based Message Authentication Code ()](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) die is samengesteld uit de aanvraag en vervolgens worden berekend met behulp van de [algoritme SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Klik, codeert u deze met behulp van Base64-codering.
+*WorkspaceID* is de unieke id voor de log Analytics-werk ruimte. *Hand tekening* is een [op hash gebaseerde Message Authentication Code (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) die is opgebouwd op basis van de aanvraag en vervolgens wordt berekend met behulp van de [sha256-algoritme](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Vervolgens versleutelt u het met base64-code ring.
 
-Deze indeling gebruiken om te coderen de **SharedKey** handtekening tekenreeks:
+Gebruik deze indeling om de teken reeks voor de **SharedKey** -hand tekening te coderen:
 
 ```
 StringToSign = VERB + "\n" +
@@ -85,22 +85,22 @@ StringToSign = VERB + "\n" +
                   "/api/logs";
 ```
 
-Hier volgt een voorbeeld van een handtekening-tekenreeks:
+Hier volgt een voor beeld van een teken reeks voor hand tekeningen:
 
 ```
 POST\n1024\napplication/json\nx-ms-date:Mon, 04 Apr 2016 08:00:00 GMT\n/api/logs
 ```
 
-Wanneer u de handtekening-tekenreeks hebt, deze met behulp van de HMAC-SHA256-algoritme op de UTF-8-gecodeerde tekenreeks te coderen en vervolgens het resultaat als Base64 coderen. Gebruik deze indeling:
+Wanneer u de teken reeks voor hand tekeningen hebt, versleutelt u deze met behulp van het HMAC-SHA256-algoritme voor de teken reeks met UTF-8-code ring en versleutelt u het resultaat als base64. Gebruik deze indeling:
 
 ```
 Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 ```
 
-De voorbeelden in de volgende secties hebben voorbeeldcode voor het maken van een autorisatie-header.
+De voor beelden in de volgende secties bevatten voorbeeld code om u te helpen bij het maken van een autorisatie-header.
 
 ## <a name="request-body"></a>Aanvraagbody
-De hoofdtekst van het bericht moet zich in JSON. Er moet een of meer records met de eigenschap naam / waarde-paren opnemen in deze indeling:
+De hoofd tekst van het bericht moet JSON zijn. Het moet een of meer records bevatten met de eigenschaps naam en waardeparen in deze indeling:
 
 ```json
 [
@@ -113,7 +113,7 @@ De hoofdtekst van het bericht moet zich in JSON. Er moet een of meer records met
 ]
 ```
 
-U kunt meerdere records samen in één aanvraag batch met behulp van de volgende indeling hebben. Alle records moet hetzelfde type zijn.
+U kunt meerdere records samen voegen in één aanvraag met behulp van de volgende indeling. Alle records moeten hetzelfde record type zijn.
 
 ```json
 [
@@ -132,93 +132,93 @@ U kunt meerdere records samen in één aanvraag batch met behulp van de volgende
 ]
 ```
 
-## <a name="record-type-and-properties"></a>Recordtype en eigenschappen
-Wanneer u gegevens via de API van Azure Monitor HTTP Data Collector verzendt definieert u een aangepaste recordtype. U kunt gegevens op dit moment kan niet schrijven naar bestaande typen bronrecords vermeld die zijn gemaakt door andere gegevenstypen en -oplossingen. Azure Monitor leest de binnenkomende gegevens en maakt vervolgens eigenschappen die overeenkomen met de gegevenstypen van de waarden die u invoert.
+## <a name="record-type-and-properties"></a>Record type en eigenschappen
+U definieert een aangepast record type wanneer u gegevens verzendt via de Azure Monitor HTTP-gegevens verzamelaar-API. Op dit moment kunt u geen gegevens schrijven naar bestaande record typen die zijn gemaakt door andere gegevens typen en oplossingen. Azure Monitor leest de inkomende gegevens en maakt vervolgens eigenschappen die overeenkomen met de gegevens typen van de waarden die u invoert.
 
-Elke aanvraag aan de Data Collector-API moet bevatten een **Logboektype** -header met de naam van het recordtype. Het achtervoegsel **_CL** wordt automatisch toegevoegd aan de naam die u invoert voor deze onderscheidt van andere typen logboeken als een aangepast logboek. Bijvoorbeeld, als u de naam invoeren **MyNewRecordType**, maakt u een record met het type Azure Monitor **MyNewRecordType_CL**. Dit zorgt ervoor dat er geen conflicten tussen typenamen die door de gebruiker heeft gemaakt en die in de huidige of toekomstige Microsoft-oplossingen hebt verzonden zijn.
+Elke aanvraag voor de Data Collector-API moet een header van het **logboek type** bevatten met de naam van het record type. Het achtervoegsel **_CL** wordt automatisch toegevoegd aan de naam die u invoert om deze te onderscheiden van andere logboek typen als aangepast logboek. Als u bijvoorbeeld de naam **MyNewRecordType**opgeeft, maakt Azure monitor een record met het type **MyNewRecordType_CL**. Dit zorgt ervoor dat er geen conflicten zijn tussen door de gebruiker gemaakte type namen en die worden geleverd in huidige of toekomstige micro soft-oplossingen.
 
-Voor het identificeren van het gegevenstype van een eigenschap, voegt Azure Monitor het achtervoegsel aan de naam van de eigenschap. Als een eigenschap een null-waarde bevat, wordt de eigenschap is niet opgenomen in die record. Deze tabel bevat de eigenschap gegevenstype en de bijbehorende achtervoegsel:
+Als u het gegevens type van een eigenschap wilt identificeren, voegt Azure Monitor een achtervoegsel toe aan de naam van de eigenschap. Als een eigenschap een null-waarde bevat, wordt de eigenschap niet in die record opgenomen. Deze tabel bevat het gegevens type van de eigenschap en het bijbehorende achtervoegsel:
 
-| Eigenschap gegevenstype | Suffix |
+| Eigenschaps gegevens type | Achtervoegsel |
 |:--- |:--- |
-| String |_s |
-| Boolean |_b |
+| Reeks |_s |
+| Boolean-waarde |_b |
 | Double |_d |
-| Datum/tijd |_t |
+| Datum en tijd |_t |
 | GUID |_g |
 
-Het gegevenstype dat Azure Monitor voor elke eigenschap gebruikt is afhankelijk van of het recordtype voor de nieuwe record al bestaat.
+Het gegevens type dat Azure Monitor gebruikt voor elke eigenschap is afhankelijk van het feit of het record type voor de nieuwe record al bestaat.
 
-* Als het recordtype niet bestaat nog, wordt een nieuw wachtwoord met behulp van het type JSON Deductie om te bepalen van het gegevenstype voor elke eigenschap voor de nieuwe record gemaakt in Azure Monitor.
-* Als het recordtype bestaat, wordt Azure Monitor probeert te maken van een nieuwe record op basis van bestaande eigenschappen. Als de gegevens voor een eigenschap in de nieuwe record komt niet overeen met en kan niet worden geconverteerd naar het type van een bestaande, of als de record een eigenschap die niet bestaat bevat, maakt u een nieuwe eigenschap met het achtervoegsel van de relevante Azure Monitor.
+* Als het record type niet bestaat, wordt door Azure Monitor een nieuwe gemaakt met behulp van het JSON-type deinterferentie om het gegevens type voor elke eigenschap voor de nieuwe record te bepalen.
+* Als het record type bestaat, probeert Azure Monitor een nieuwe record te maken op basis van bestaande eigenschappen. Als het gegevens type voor een eigenschap in de nieuwe record niet overeenkomt met en niet kan worden geconverteerd naar het bestaande type, of als de record een eigenschap bevat die niet bestaat, maakt Azure Monitor een nieuwe eigenschap met het relevante achtervoegsel.
 
-Deze vermelding inzending zou bijvoorbeeld een record maken met drie eigenschappen **number_d**, **boolean_b**, en **string_s**:
+Met deze verzend vermelding zou bijvoorbeeld een record met drie eigenschappen, **number_d**, **boolean_b**en **string_s**worden gemaakt:
 
-![Voorbeeldrecord 1](media/data-collector-api/record-01.png)
+![Voorbeeld record 1](media/data-collector-api/record-01.png)
 
-Als u deze volgende vermelding, klik vervolgens met alle waarden die zijn opgemaakt als tekenreeksen hebt ingediend, worden de eigenschappen zou niet wijzigen. Deze waarden kunnen worden geconverteerd naar bestaande gegevenstypen:
+Als u deze volgende vermelding vervolgens hebt verzonden met alle waarden die zijn opgemaakt als teken reeksen, worden de eigenschappen niet gewijzigd. Deze waarden kunnen worden geconverteerd naar bestaande gegevens typen:
 
-![Voorbeeldrecord 2](media/data-collector-api/record-02.png)
+![Voorbeeld record 2](media/data-collector-api/record-02.png)
 
-Maar als u deze volgende verzending vervolgens gemaakt, maakt Azure Monitor de eigenschappen van nieuwe **boolean_d** en **string_d**. Deze waarden kunnen niet worden geconverteerd:
+Maar als u deze volgende verzen ding hebt gemaakt, maakt Azure Monitor de nieuwe eigenschappen **boolean_d** en **string_d**. Deze waarden kunnen niet worden geconverteerd:
 
-![Voorbeeldrecord 3](media/data-collector-api/record-03.png)
+![Voorbeeld record 3](media/data-collector-api/record-03.png)
 
-Als u de volgende vermelding, klikt u vervolgens verzonden voordat het recordtype is gemaakt, Azure Monitor een record wilt maken met drie eigenschappen **gunstig**, **boolean_s**, en **string_s**. In deze post is elk van de oorspronkelijke waarden opgemaakt als een tekenreeks:
+Als u de volgende vermelding vervolgens hebt verzonden voordat het record type werd gemaakt, maakt Azure Monitor een record met drie eigenschappen, **aantal-gunstig**, **boolean_s**en **string_s**. In deze vermelding wordt elk van de oorspronkelijke waarden opgemaakt als een teken reeks:
 
-![Voorbeeldrecord 4](media/data-collector-api/record-04.png)
+![Voorbeeld record 4](media/data-collector-api/record-04.png)
 
 ## <a name="reserved-properties"></a>Gereserveerde eigenschappen
-De volgende eigenschappen zijn gereserveerd en mag niet worden gebruikt in een aangepaste recordtype. U ontvangt een foutmelding als de nettolading een van de namen van deze eigenschappen bevat.
+De volgende eigenschappen zijn gereserveerd en mogen niet worden gebruikt in een aangepast record type. U krijgt een fout melding als uw payload een van deze eigenschaps namen bevat.
 
 - tenant
 
 ## <a name="data-limits"></a>Gegevenslimieten
-Er zijn enkele beperkingen om de gegevens in de gegevensverzameling van Azure Monitor API geplaatst.
+Er zijn enkele beperkingen rond de gegevens die worden gepost naar de Azure Monitor Data Collection-API.
 
-* Maximaal 30 MB per post naar Azure Monitor Data Collector-API. Dit is een maximale grootte voor een enkel bericht. Als de gegevens van één die boeken groter is dan 30 MB, moet u de gegevens tot een kleinere grootte segmenten splitsen en ze gelijktijdig te verzenden.
-* Maximum van 32 KB-limiet voor veldwaarden. Als de veldwaarde groter dan 32 KB is, wordt de gegevens worden afgekapt.
-* Aanbevolen maximumaantal velden voor een bepaald type is 50. Dit is een limiet van bruikbaarheid en zoeken ervaring perspectief.  
-* Een tabel in een werkruimte voor Log Analytics biedt alleen ondersteuning voor maximaal 500 kolommen (aangeduid als een veld in dit artikel). 
-* Het maximum aantal tekens in voor de naam van de kolom is 500.
+* Maxi maal 30 MB per post naar Azure Monitor Data Collector-API. Dit is een maximale grootte voor één bericht. Als de gegevens van één post die meer dan 30 MB overschrijden, moet u de gegevens opsplitsen naar kleinere segmenten en deze gelijktijdig verzenden.
+* Maxi maal 32 KB-limiet voor veld waarden. Als de veld waarde groter is dan 32 KB, worden de gegevens afgekapt.
+* Het aanbevolen maximum aantal velden voor een bepaald type is 50. Dit is een praktische beperking van een oogpunt van bruikbaarheid en zoek ervaring.  
+* Een tabel in een Log Analytics-werk ruimte ondersteunt Maxi maal 500 kolommen (ook wel een veld genoemd in dit artikel). 
+* Het maximum aantal tekens voor de naam van de kolom is 500.
 
-## <a name="return-codes"></a>Retourcodes
-De HTTP-statuscode 200 betekent dat de aanvraag is ontvangen voor verwerking. Hiermee wordt aangegeven dat de bewerking is voltooid.
+## <a name="return-codes"></a>Retour codes
+De HTTP-status code 200 betekent dat de aanvraag is ontvangen voor verwerking. Dit geeft aan dat de bewerking is voltooid.
 
-Deze tabel bevat de volledige reeks statuscodes die de service kan worden geretourneerd:
+Deze tabel bevat de volledige set met status codes die de service kan retour neren:
 
 | Code | Status | Foutcode | Description |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |De aanvraag is geaccepteerd. |
-| 400 |Ongeldig verzoek |InactiveCustomer |De werkruimte is gesloten. |
-| 400 |Ongeldig verzoek |InvalidApiVersion |De API-versie die u hebt opgegeven is niet herkend door de service. |
-| 400 |Ongeldig verzoek |InvalidCustomerId |De opgegeven werkruimte-ID is ongeldig. |
-| 400 |Ongeldig verzoek |InvalidDataFormat |Ongeldige JSON is ingediend. De antwoordtekst kan bevatten meer informatie over de fout op te lossen. |
-| 400 |Ongeldig verzoek |InvalidLogType |Het logboektype opgegeven ingesloten speciale tekens of cijfers. |
+| 400 |Ongeldig verzoek |InactiveCustomer |De werk ruimte is gesloten. |
+| 400 |Ongeldig verzoek |InvalidApiVersion |De API-versie die u hebt opgegeven, wordt niet herkend door de service. |
+| 400 |Ongeldig verzoek |InvalidCustomerId |De opgegeven werk ruimte-ID is ongeldig. |
+| 400 |Ongeldig verzoek |InvalidDataFormat |Ongeldige JSON verzonden. De antwoord tekst bevat mogelijk meer informatie over het oplossen van de fout. |
+| 400 |Ongeldig verzoek |InvalidLogType |Het opgegeven logboek type bevat speciale tekens of cijfers. |
 | 400 |Ongeldig verzoek |MissingApiVersion |De API-versie is niet opgegeven. |
-| 400 |Ongeldig verzoek |MissingContentType |Het inhoudstype is niet opgegeven. |
-| 400 |Ongeldig verzoek |MissingLogType |De vereiste waarde Logboektype is niet opgegeven. |
-| 400 |Ongeldig verzoek |UnsupportedContentType |Het inhoudstype is niet ingesteld op **application/json**. |
-| 403 |Verboden |InvalidAuthorization |De service kan niet verifiëren van de aanvraag. Controleer of de sleutel van de werkruimte-ID en verbinding geldig zijn. |
-| 404 |Niet gevonden | | De opgegeven URL is onjuist, of de aanvraag is te groot. |
-| 429 |Te veel aanvragen | | De service ondervindt een groot aantal gegevens uit uw account. Probeer de aanvraag later opnieuw. |
-| 500 |Interne serverfout |UnspecifiedError |De service is een interne fout opgetreden. Probeer de aanvraag. |
-| 503 |Service is niet beschikbaar |ServiceUnavailable |De service is momenteel niet beschikbaar is om aanvragen te ontvangen. Probeer uw aanvraag. |
+| 400 |Ongeldig verzoek |MissingContentType |Het inhouds type is niet opgegeven. |
+| 400 |Ongeldig verzoek |MissingLogType |Het vereiste logboek type voor de waarde is niet opgegeven. |
+| 400 |Ongeldig verzoek |UnsupportedContentType |Het inhouds type is niet ingesteld op **Application/JSON**. |
+| 403 |Verboden |InvalidAuthorization |De service kan de aanvraag niet verifiëren. Controleer of de werk ruimte-ID en de verbindings sleutel geldig zijn. |
+| 404 |Niet gevonden | | De gegeven URL is onjuist of de aanvraag is te groot. |
+| 429 |Te veel aanvragen | | De service ondervindt een groot aantal gegevens van uw account. Voer de aanvraag later opnieuw uit. |
+| 500 |Interne serverfout |UnspecifiedError |De service heeft een interne fout aangetroffen. Voer de aanvraag opnieuw uit. |
+| 503 |Service niet beschikbaar |ServiceUnavailable |De service is momenteel niet beschikbaar voor het ontvangen van aanvragen. Probeer de aanvraag opnieuw uit te voeren. |
 
 ## <a name="query-data"></a>Querygegevens
-Query uitvoeren op gegevens verzonden door de Azure Monitor HTTP Data Collector-API, zoeken naar records met **Type** die gelijk is aan de **LogType** waarde die u hebt opgegeven, met het achtervoegsel **_CL**. Als u gebruikt bijvoorbeeld **MyCustomLog**, zou u alle records geretourneerd `MyCustomLog_CL`.
+Als u query's wilt uitvoeren op gegevens die zijn verzonden door de Azure Monitor HTTP-gegevens verzamelaar-API, zoekt u naar records met een **type** dat gelijk is aan de **LogType** -waarde die u hebt opgegeven, toegevoegd met **_CL**. Als u bijvoorbeeld **MyCustomLog**hebt gebruikt, geeft u alle records met op `MyCustomLog_CL`.
 
-## <a name="sample-requests"></a>Van voorbeeldaanvragen
-In de volgende secties vindt u voorbeelden van hoe u gegevens naar de API van Azure Monitor HTTP Data Collector indienen met behulp van verschillende programmeertalen.
+## <a name="sample-requests"></a>Voorbeeld aanvragen
+In de volgende secties vindt u voor beelden van het verzenden van gegevens naar de Azure Monitor HTTP-gegevens verzamelaar-API met behulp van verschillende programmeer talen.
 
-Voer deze stappen om de variabelen voor de autorisatie-header voor elk voorbeeld:
+Voer voor elk voor beeld de volgende stappen uit om de variabelen in te stellen voor de autorisatie-header:
 
-1. Ga naar uw Log Analytics-werkruimte in de Azure-portal.
-2. Selecteer **geavanceerde instellingen** en vervolgens **verbonden bronnen**.
-2. Aan de rechterkant van **werkruimte-ID**, selecteer het kopieerpictogram en plak de-ID als de waarde van de **klant-ID** variabele.
-3. Aan de rechterkant van **primaire sleutel**, selecteer het kopieerpictogram en plak de-ID als de waarde van de **gedeelde sleutel** variabele.
+1. Zoek in de Azure Portal de Log Analytics-werk ruimte.
+2. Selecteer **Geavanceerde instellingen** en vervolgens **verbonden bronnen**.
+2. Selecteer het Kopieer pictogram rechts van **werk ruimte-id**en plak de id als de waarde van de variabele voor de **klant-id** .
+3. Rechts van **primaire sleutel**selecteert u het Kopieer pictogram en plakt u de id als de waarde van de **gedeelde sleutel** variabele.
 
-U kunt ook de variabelen voor de Logboektype en JSON-gegevens wijzigen.
+U kunt ook de variabelen voor het logboek type en JSON-gegevens wijzigen.
 
 ### <a name="powershell-sample"></a>Voorbeeld van PowerShell
 ```powershell
@@ -389,7 +389,7 @@ namespace OIAPIExample
 
 ```
 
-### <a name="python-2-sample"></a>Voorbeeld van Python 2
+### <a name="python-2-sample"></a>Python 2-voor beeld
 ```python
 import json
 import requests
@@ -472,16 +472,16 @@ def post_data(customer_id, shared_key, body, log_type):
 post_data(customer_id, shared_key, body, log_type)
 ```
 ## <a name="alternatives-and-considerations"></a>Alternatieven en overwegingen
-De Collector-API moet beslaat van uw behoeften voor het verzamelen van vrije-gegevens in Azure-Logboeken, maar er zijn gevallen waarbij alternatief nodig zijn om het oplossen van enkele van de beperkingen van de API. Alle uw opties zijn als volgt de belangrijkste zaken die zijn opgenomen:
+Terwijl de Data Collector-API het meren deel van uw behoeften voor het verzamelen van vrije-vorm gegevens in azure-logboeken moet omvatten, zijn er exemplaren die mogelijk vereist zijn om bepaalde beperkingen van de API te overwinnen. U kunt kiezen uit de volgende belang rijke overwegingen:
 
-| Alternatieve | Description | Het meest geschikt voor |
+| Vervangen | Description | Geschikt voor |
 |---|---|---|
-| [Aangepaste gebeurtenissen](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Systeemeigen SDK op basis van opname in Application Insights | Application Insights, doorgaans geïnstrumenteerd via een SDK in uw toepassing, biedt de mogelijkheid voor u om aangepaste gegevens door middel van aangepaste gebeurtenissen te verzenden. | <ul><li> Gegevens die is gegenereerd in uw toepassing, maar niet zijn doorgevoerd door SDK via een van de standaard-gegevenstypen (ie: aanvragen, afhankelijkheden, uitzonderingen, enzovoort).</li><li> Gegevens die vaak wordt gecorreleerd met de andere toepassingsgegevens in Application Insights </li></ul> |
-| [Gegevensverzamelaar-API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) in Logboeken van Azure Monitor | De Collector-API in Azure Monitor-Logboeken is een volledig mogelijkheden voor opname van gegevens. Geen gegevens ingedeeld in een JSON-object kunnen hier worden verzonden. Als verzonden, wordt verwerkt en beschikbaar zijn in Logboeken om te worden gecorreleerd met andere gegevens in Logboeken of op basis van andere Application Insights gegevens. <br/><br/> Het is redelijk eenvoudig de gegevens te uploaden als bestanden naar een Azure Blob-blob uit waar deze bestanden worden verwerkt en geüpload naar Log Analytics. Raadpleeg [dit](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artikel voor een Voorbeeldimplementatie van dergelijke een pijplijn. | <ul><li> Gegevens die niet noodzakelijkerwijs worden gegenereerd in een toepassing die is geïnstrumenteerd in Application Insights.</li><li> Voorbeelden zijn onder meer lookup-en feitentabellen, referentiegegevens, vooraf samengevoegde statistieken, enzovoort. </li><li> Bedoeld voor gegevens die op basis van andere Azure Monitor-gegevens (bijvoorbeeld Application Insights, andere gegevenstypen Logboeken, Security Center, Azure-Monitor voor Containers/VM's, enzovoort) waarnaar wordt verwezen. </li></ul> |
-| [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Azure Data Explorer (ADX) is het gegevensplatform dat wordt gebruikt door Application Insights Analytics en logboeken van Azure Monitor. Nu biedt algemeen beschikbaar ('GA'), met behulp van het gegevensplatform in ruwe vorm u volledige flexibiliteit (maar waarvoor de overhead van het management) ten opzichte van het cluster (RBAC, Retentiepercentage, schema, enzovoort). ADX biedt veel [opname opties](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) inclusief [CSV, TSV en JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) bestanden. | <ul><li> Gegevens die niet wordt worden gecorreleerd met andere gegevens in Application Insights of de logboeken. </li><li> Gegevens vereisen geavanceerde opname of vandaag nog niet beschikbaar in Logboeken van Azure Monitor-verwerkingsmogelijkheden. </li></ul> |
+| [Aangepaste gebeurtenissen](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Systeem eigen op SDK gebaseerde opname in Application Insights | Application Insights, meestal door middel van een SDK binnen uw toepassing, biedt u de mogelijkheid om aangepaste gegevens via aangepaste gebeurtenissen te verzenden. | <ul><li> Gegevens die in uw toepassing worden gegenereerd, maar niet door de SDK worden opgehaald via een van de standaard gegevens typen (aanvragen, afhankelijkheden, uitzonde ringen, enzovoort).</li><li> Gegevens die het meest worden gecorreleerd aan andere toepassings gegevens in Application Insights </li></ul> |
+| [Data Collector-API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) in azure monitor-logboeken | De Data Collector-API in Azure Monitor Logboeken is een volledig open manier om gegevens op te nemen. Gegevens die in een JSON-object zijn ingedeeld, kunnen hier worden verzonden. Zodra de gegevens zijn verzonden, worden deze verwerkt en in logboeken weer gegeven om te worden gecorreleerd met andere vermeldingen in Logboeken of met andere Application Insights gegevens. <br/><br/> Het is tamelijk eenvoudig om de gegevens als bestanden naar een Azure Blob-Blob te uploaden, vanaf waar deze bestanden worden verwerkt en geüpload naar Log Analytics. Raadpleeg [Dit](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artikel voor een voor beeld van de implementatie van een dergelijke pijp lijn. | <ul><li> Gegevens die niet noodzakelijkerwijs worden gegenereerd binnen een toepassings instrument in Application Insights.</li><li> Voor beelden zijn onder andere lookup-en feiten tabellen, referentie gegevens, vooraf geaggregeerde statistieken, enzovoort. </li><li> Bedoeld voor gegevens waarnaar wordt verwezen met andere Azure Monitor gegevens (Application Insights, andere gegevens typen van Logboeken, Security Center, Azure Monitor voor containers/Vm's, enzovoort). </li></ul> |
+| [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Azure Data Explorer (ADX) is het gegevens platform dat Application Insights Analytics-en Azure Monitor-logboeken aanstuurt. Nu algemeen beschikbaar ("GA"), met behulp van het gegevens platform in het onbewerkte formulier, hebt u de flexibiliteit om te volt ooien (maar de overhead van het beheer vereisen) over het cluster (RBAC, bewaar frequentie, schema enzovoort). ADX biedt veel [opname opties](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) , waaronder [CSV-, TSV-en JSON-](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) bestanden. | <ul><li> Gegevens die niet met andere gegevens onder Application Insights of Logboeken worden gecorreleerd. </li><li> Gegevens waarvoor geavanceerde opname-of verwerkings mogelijkheden zijn vereist, die momenteel niet beschikbaar zijn in Azure Monitor Logboeken. </li></ul> |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Gebruik de [Log Search API](../log-query/log-query-overview.md) voor het ophalen van gegevens vanuit de Log Analytics-werkruimte.
+- Gebruik de [API voor zoeken](../log-query/log-query-overview.md) in Logboeken om gegevens op te halen uit de log Analytics-werk ruimte.
 
-- Meer informatie over hoe u [een pijplijn maken met de API van Data Collector](create-pipeline-datacollector-api.md) met behulp van de werkstroom voor Logic Apps naar Azure Monitor.
+- Meer informatie over hoe u [een gegevens pijplijn maakt met de Data Collector-API](create-pipeline-datacollector-api.md) met behulp van Logic apps werk stroom tot Azure monitor.

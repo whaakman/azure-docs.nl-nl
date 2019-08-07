@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 50056d4d05d2426ff644518aea04a2c9f4d817f3
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 3aa3176b1d6d9e5665fd3a8988b71159a4fc20c0
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667170"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735711"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Naslaginformatie over App-instellingen voor Azure Functions
 
@@ -25,7 +25,7 @@ App-instellingen in een functie-app bevatten globale configuratie-opties die inv
 
 Er zijn andere globale configuratie-opties in de [host.json](functions-host-json.md) bestand en klik in de [local.settings.json](functions-run-local.md#local-settings-file) bestand.
 
-## <a name="appinsightsinstrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
+## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
 De Application Insights-instrumentatiesleutel als u Application Insights. Zie [Azure Functions controleren](functions-monitoring.md).
 
@@ -33,7 +33,7 @@ De Application Insights-instrumentatiesleutel als u Application Insights. Zie [A
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|5dbdd5e9-af77-484b-9032-64f83bb83bb|
 
-## <a name="azurefunctionsenvironment"></a>AZURE_FUNCTIONS_ENVIRONMENT
+## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
 In versie 2. x van de functions runtime configureert het app-gedrag op basis van de runtime-omgeving. Deze waarde wordt [tijdens de initialisatie gelezen](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). U kunt elke `AZURE_FUNCTIONS_ENVIRONMENT` waarde instellen, maar [drie waarden](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) worden ondersteund: [Ontwikkeling](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [fase ring](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)en [productie](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Als `AZURE_FUNCTIONS_ENVIRONMENT` niet is ingesteld, wordt `Development` standaard de waarde in een lokale `Production` omgeving en op Azure gebruikt. Deze instelling moet worden gebruikt in plaats `ASPNETCORE_ENVIRONMENT` van om de runtime-omgeving in te stellen. 
 
@@ -92,7 +92,7 @@ De Azure Functions-runtime maakt gebruik van deze tekenreeks opslagaccountverbin
 |---|------------|
 |AzureWebJobsStorage|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [-toets]|
 
-## <a name="azurewebjobstypescriptpath"></a>AzureWebJobs_TypeScriptPath
+## <a name="azurewebjobs_typescriptpath"></a>AzureWebJobs_TypeScriptPath
 
 Pad naar de gebruikt voor TypeScript-compiler. Hiermee kunt u de standaardinstelling negeren als u wilt.
 
@@ -100,7 +100,7 @@ Pad naar de gebruikt voor TypeScript-compiler. Hiermee kunt u de standaardinstel
 |---|------------|
 |AzureWebJobs_TypeScriptPath|%Home%\typescript|
 
-## <a name="functionappeditmode"></a>FUNCTIE\_APP\_BEWERKEN\_MODUS
+## <a name="function_app_edit_mode"></a>FUNCTIE\_APP\_BEWERKEN\_MODUS
 
 Hiermee wordt bepaald of bewerken in de Azure Portal is ingeschakeld. Geldige waarden zijn 'readwrite' en 'alleen-lezen'.
 
@@ -108,7 +108,7 @@ Hiermee wordt bepaald of bewerken in de Azure Portal is ingeschakeld. Geldige wa
 |---|------------|
 |FUNCTIE\_APP\_BEWERKEN\_MODUS|alleen-lezen|
 
-## <a name="functionsextensionversion"></a>FUNCTIES\_EXTENSIE\_VERSIE
+## <a name="functions_extension_version"></a>FUNCTIES\_EXTENSIE\_VERSIE
 
 De versie van de Functions-runtime voor gebruik in deze functie-app. Een tilde met hoofdversie betekent dat de meest recente versie van die primaire versie (bijvoorbeeld ' ~ 2') gebruiken. Wanneer er nieuwe versies van dezelfde primaire versie beschikbaar zijn, worden ze automatisch geïnstalleerd in de functie-app. Als u wilt de app vastmaken aan een specifieke versie, gebruik het volledige versienummer (bijvoorbeeld ' 2.0.12345'). De standaardwaarde is '~ 2'. Een waarde van `~1` kledingwinkelketen van uw app naar versie 1.x van de runtime.
 
@@ -116,7 +116,16 @@ De versie van de Functions-runtime voor gebruik in deze functie-app. Een tilde m
 |---|------------|
 |FUNCTIES\_EXTENSIE\_VERSIE|~ 2|
 
-## <a name="functionsworkerruntime"></a>FUNCTIES\_WORKER\_RUNTIME
+## <a name="functions_worker_process_count"></a>AANTAL\_FUNCTIES\_WERKPROCES\_
+
+Hiermee geeft u het maximum aantal taal werk processen op, met een standaard `1`waarde van. De toegestane maximum waarde is `10`. Functie aanroepen worden gelijkmatig verdeeld over werk processen van de taal. Werk processen in de taal worden elke tien seconden uitgevoerd\_\_tot het aantal dat is ingesteld\_door functions van het aantal werk processen is bereikt. Het gebruik van werk processen in meerdere talen is niet hetzelfde als het [schalen](functions-scale.md). U kunt deze instelling gebruiken als uw werk belasting een combi natie van aan CPU gebonden en I/O-gebonden aanroepen heeft. Deze instelling is van toepassing op alle non-.NET talen.
+
+|Sleutel|Voorbeeldwaarde|
+|---|------------|
+|AANTAL\_FUNCTIES\_WERKPROCES\_|2|
+
+
+## <a name="functions_worker_runtime"></a>FUNCTIES\_WORKER\_RUNTIME
 
 De werknemer language runtime worden geladen in de functie-app.  Dit komt overeen met de taal die wordt gebruikt in uw toepassing (bijvoorbeeld ' dotnet'). Voor functies in meerdere talen moet u deze publiceren naar meerdere apps, elk met een overeenkomende waarde van de worker-runtime.  Geldige waarden zijn `dotnet` (C#/F#), `node` (Java script/type script) `java` , (Java) `powershell` , (Power shell) `python` en (python).
 
@@ -124,7 +133,7 @@ De werknemer language runtime worden geladen in de functie-app.  Dit komt overee
 |---|------------|
 |FUNCTIES\_WORKER\_RUNTIME|DotNet|
 
-## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
+## <a name="website_contentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
 Alleen voor verbruik & Premium-abonnementen. Verbindingsreeks voor het opslagaccount waarin de functie-app-code en de configuratie zijn opgeslagen. Zie [maken van een functie-app](functions-infrastructure-as-code.md#create-a-function-app).
 
@@ -132,7 +141,7 @@ Alleen voor verbruik & Premium-abonnementen. Verbindingsreeks voor het opslagacc
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [-toets]|
 
-## <a name="websitecontentshare"></a>WEBSITE\_CONTENTSHARE
+## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
 Alleen voor verbruik & Premium-abonnementen. Het pad naar de functie-app-code en configuratie. Met WEBSITE_CONTENTAZUREFILECONNECTIONSTRING gebruikt. Standaard is een unieke tekenreeks die met de naam van de functie-app begint. Zie [maken van een functie-app](functions-infrastructure-as-code.md#create-a-function-app).
 
@@ -140,7 +149,7 @@ Alleen voor verbruik & Premium-abonnementen. Het pad naar de functie-app-code en
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
-## <a name="websitemaxdynamicapplicationscaleout"></a>WEBSITE\_MAX\_DYNAMISCHE\_TOEPASSING\_SCHAAL\_UIT
+## <a name="website_max_dynamic_application_scale_out"></a>WEBSITE\_MAX\_DYNAMISCHE\_TOEPASSING\_SCHAAL\_UIT
 
 Het maximum aantal exemplaren die de functie-app naar uitschalen kunt. Standaard is geen limiet.
 
@@ -151,7 +160,7 @@ Het maximum aantal exemplaren die de functie-app naar uitschalen kunt. Standaard
 |---|------------|
 |WEBSITE\_MAX\_DYNAMISCHE\_TOEPASSING\_SCHAAL\_UIT|5|
 
-## <a name="websitenodedefaultversion"></a>WEBSITE\_KNOOPPUNT\_DEFAULT_VERSION
+## <a name="website_node_default_version"></a>WEBSITE\_KNOOPPUNT\_DEFAULT_VERSION
 
 De standaardwaarde is '8.11.1'.
 
@@ -159,7 +168,7 @@ De standaardwaarde is '8.11.1'.
 |---|------------|
 |WEBSITE\_KNOOPPUNT\_DEFAULT_VERSION|8.11.1|
 
-## <a name="websiterunfrompackage"></a>WEBSITE\_UITVOEREN\_FROM\_PAKKET
+## <a name="website_run_from_package"></a>WEBSITE\_UITVOEREN\_FROM\_PAKKET
 
 Hiermee kunt uw functie-app om uit te voeren vanuit een gekoppelde pakketbestand.
 
@@ -169,7 +178,7 @@ Hiermee kunt uw functie-app om uit te voeren vanuit een gekoppelde pakketbestand
 
 Geldige waarden zijn een URL die wordt omgezet naar de locatie van een pakketbestand implementatie of `1`. Als de waarde `1`, het pakket moet zich in de `d:\home\data\SitePackages` map. Wanneer u zip-implementatie met deze instelling gebruikt, wordt het pakket automatisch geüpload naar deze locatie. In preview, deze instelling is de naam `WEBSITE_RUN_FROM_ZIP`. Zie voor meer informatie, [uw functies worden uitgevoerd vanuit een pakketbestand](run-functions-from-deployment-package.md).
 
-## <a name="azurefunctionproxydisablelocalcall"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
+## <a name="azure_function_proxy_disable_local_call"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
 Standaard wordt Functions-proxy's gebruikmaken van een snelkoppeling naar de API-aanroepen van proxy's rechtstreeks naar de functies in dezelfde functie-App, in plaats van het maken van een nieuwe HTTP-aanvraag verzonden. Deze instelling kunt u uitschakelen dat gedrag.
 
@@ -179,7 +188,7 @@ Standaard wordt Functions-proxy's gebruikmaken van een snelkoppeling naar de API
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Dit is de standaardwaarde. Aanroepen met een back-end-url die verwijst naar een functie van de lokale functie-App wordt rechtstreeks naar deze functie worden doorgestuurd|
 
 
-## <a name="azurefunctionproxybackendurldecodeslashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
+## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
 Deze instelling wordt bepaald of % 2F is gedecodeerd als slashes in de Routeparameters wanneer ze in de back-end-URL worden ingevoegd. 
 

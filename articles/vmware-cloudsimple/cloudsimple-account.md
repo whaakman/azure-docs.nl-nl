@@ -1,40 +1,40 @@
 ---
-title: Accountbeheer CloudSimple - Azure
-description: Meer informatie over het beheren van CloudSimple accounts
+title: CloudSimple-account beheer-Azure
+description: Meer informatie over het beheren van CloudSimple-accounts
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: da0b948ff1445c98d3c254e97d0a02a6641699db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d9fc39edfad18c756c2816f9eb0b3774d8bf882c
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577778"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812680"
 ---
-# <a name="account-management-overview"></a>Overzicht van het beheer van account
+# <a name="account-management-overview"></a>Overzicht van account beheer
 
-Wanneer u uw service CloudSimple maakt, wordt een account op CloudSimple gemaakt.  Het account is gekoppeld aan uw Azure-abonnement waar de service zich bevindt.  Alle gebruikers met **eigenaar** en **Inzender** rollen in het abonnement hebben toegang tot de CloudSimple Portal.  De Azure-abonnement-ID en tenant-ID die is gekoppeld aan de service CloudSimple worden gevonden op de [pagina Accounts](https://docs.azure.cloudsimple.com/account/).
+Wanneer u uw CloudSimple-service maakt, maakt deze een account op CloudSimple.  Het account is gekoppeld aan uw Azure-abonnement waar de service zich bevindt.  Alle gebruikers met de rollen **eigenaar** en **Inzender** in het abonnement hebben toegang tot de CloudSimple-Portal.  De Azure-abonnements-ID en Tenant-ID die zijn gekoppeld aan de CloudSimple-service zijn te vinden op de [pagina accounts](https://docs.azure.cloudsimple.com/account/).
 
-## <a name="additional-alert-emails"></a>Aanvullende e-mails met waarschuwingen
+## <a name="additional-alert-emails"></a>Extra waarschuwings berichten
 
-U kunt e-mailadressen configureren in CloudSimple om waarschuwingen te ontvangen:
+U kunt e-mail-Id's in CloudSimple configureren voor het ontvangen van waarschuwingen:
 
-* Met betrekking tot uw service
-* Voor de automatische verwerking
+* Gerelateerd aan uw service
+* Voor automatische verwerking
 
-## <a name="cloudsimple-operator-access"></a>CloudSimple operator toegang
+## <a name="cloudsimple-operator-access"></a>Toegang tot CloudSimple-operator
 
-U kunt toegang tot de CloudSimple Portal voor werknemers service beheren.  Service werknemers zich aanmeldt bij de portal wanneer u een ondersteuningsticket indienen.  Servicebewerkingen wordt los eventuele problemen die worden gerapporteerd en de acties zijn beschikbaar in de logboeken voor controle.
+U kunt de toegang tot de CloudSimple-portal beheren voor service operationele mede werkers.  Service bewerkings personeel meldt zich aan bij de Portal wanneer u een ondersteunings ticket verzendt.  Service bewerkingen verhelpen alle problemen die worden gerapporteerd en de acties die worden uitgevoerd, zijn beschikbaar in audit Logboeken.
 
 ## <a name="users"></a>Gebruikers
 
-Alle gebruikers die hebben **eigenaar** en **Inzender** rol in het abonnement hebben toegang tot de CloudSimple Portal.  Wanneer u toegang de portal tot, wordt de gebruiker op de CloudSimple-account gemaakt.  Op de pagina Accounts kunt u toegang tot de CloudSimple Portal voor specifieke gebruikers uitschakelen.
+Alle gebruikers die de rol **eigenaar** en **Inzender** hebben in het abonnement, hebben toegang tot de CloudSimple-Portal.  Wanneer u de portal opent, wordt de gebruiker gemaakt in het CloudSimple-account.  U kunt de toegang tot de CloudSimple-portal voor specifieke gebruikers uitschakelen op de pagina accounts.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Overzicht van de account weergeven](https://docs.azure.cloudsimple.com/account/)
-* [Lijst van de gebruiker weergeven](https://docs.azure.cloudsimple.com/users/)
+* [Account overzicht weer geven](https://docs.azure.cloudsimple.com/account/)
+* [Gebruikers lijst weer geven](https://docs.azure.cloudsimple.com/users/)

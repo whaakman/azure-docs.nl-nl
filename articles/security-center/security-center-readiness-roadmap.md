@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 7de085766ae700b5c76d9eca49c1127aabdddb9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1527dbd1df3e4a10a68a5949d9e0bca11628bdd2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60703401"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781144"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Roadmap naar Azure Security Center-gereedheid
 Dit document bevat een roadmap naar gereedheid die u helpt aan de slag te gaan met Azure Security Center.
@@ -107,18 +107,18 @@ Artikelen
 
 * [Security Center-praktijksessies](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72)
 * [Web Application Firewall (WAF) recommendation playbook in Security Center](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff) (ASC-playbook: Servers beschermen met Web Application Firewall)
-* [Playbook voor Azure Security Center: Beveiligingswaarschuwingen](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
+* [Playbook voor Azure Security Center: Beveiligings waarschuwingen](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
 ## <a name="additional-resources"></a>Aanvullende resources
 * [Documentatiepagina van Security Center](https://docs.microsoft.com/azure/security-center/)
 * [Documentatiepagina van Security Center REST API](https://msdn.microsoft.com/library/mt704034.aspx)
 * [Veelgestelde vragen over Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-faq)
 * [Pagina met prijzen van Security Center](https://azure.microsoft.com/pricing/details/security-center/)
-* [Aanbevolen procedures voor identiteitsbeveiliging](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
-* [Aanbevolen procedures voor netwerkbeveiliging](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
+* [Aanbevolen procedures voor identiteitsbeveiliging](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
+* [Aanbevolen procedures voor netwerkbeveiliging](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [PaaS-aanbevelingen](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Naleving](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
-* [Log analytics-klanten kunnen nu Azure Security Center gebruiken om hun hybride cloud-workloads te beschermen](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Log Analytics-klanten kunnen nu Azure Security Center gebruiken om hun hybride Cloud werkbelastingen te beschermen](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Communitybronnen
 

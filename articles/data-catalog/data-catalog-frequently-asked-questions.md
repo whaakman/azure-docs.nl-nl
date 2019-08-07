@@ -1,37 +1,37 @@
 ---
 title: Veelgestelde vragen over Azure Data Catalog
-description: Veelgestelde vragen over Azure Data Catalog, met inbegrip van mogelijkheden voor detectie van gegevensbronnen, aantekening en beheren.
+description: Veelgestelde vragen over Azure Data Catalog, met inbegrip van mogelijkheden voor het detecteren van gegevens bronnen, aantekening en beheer.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 07/01/2019
-ms.openlocfilehash: 6ab5c67129b16cde5ca74e72effdf56ec0a22711
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.date: 08/01/2019
+ms.openlocfilehash: 754e967a1be0b00f7ce7448744ec90690fd9f0c3
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508900"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736429"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Veelgestelde vragen over Azure Data Catalog
-In dit artikel vindt u antwoorden op veelgestelde vragen met betrekking tot de service Azure Data Catalog.
+In dit artikel vindt u antwoorden op veelgestelde vragen met betrekking tot de Azure Data Catalog-service.
 
 ## <a name="what-is-azure-data-catalog"></a>Wat is Azure Data Catalog?
-Data Catalog is een volledig beheerde service, die wordt gehost in Microsoft Azure, die als een systeem van registratie en detectie van bedrijfsgegevensassets fungeert. Met Data Catalog, kunt een willekeurige gebruiker, van analisten tot gegevenswetenschappers en ontwikkelaars, registreren, ontdekken, begrijpen, gegevensbronnen en gebruiken.
+Data Catalog is een volledig beheerde service, die wordt gehost in Microsoft Azure, die fungeert als een systeem voor registratie en detectie voor zakelijke gegevens bronnen. Met Data Catalog kunnen alle gebruikers, van analisten tot gegevens wetenschappers en ontwikkel aars, gegevens bronnen registreren, detecteren, begrijpen en gebruiken.
 
-## <a name="what-customer-challenges-does-it-solve"></a>Welke klant uitdagingen doet het allemaal oplossen?
-Data Catalog uitdagingen het hoofd van gegevensbron detectie en de 'donkere gegevens' zodat gebruikers kunnen detecteren en te begrijpen van zakelijke gegevensbronnen.
+## <a name="what-customer-challenges-does-it-solve"></a>Wat voor uitdagingen van klanten wordt het opgelost?
+Data Catalog verhelpt de uitdagingen van de detectie van gegevens bronnen en ' donkere gegevens ', zodat gebruikers ondernemings gegevens bron kunnen ontdekken en begrijpen.
 
-## <a name="what-are-its-target-audiences"></a>Wat zijn de doelgroepen?
-Data Catalog is ontworpen voor technische en niet-technische gebruikers, met inbegrip van:
+## <a name="what-are-its-target-audiences"></a>Wat zijn de doel groepen?
+Data Catalog is ontworpen voor technische en niet-technische gebruikers, waaronder:
 
-* Ontwikkelaars kunnen en BI- en analyse-professionals: Personen die verantwoordelijk zijn voor het maken van gegevens en analyses inhoud zodat anderen deze kunnen gebruiken.
-* Gegevens stewards: Personen die de kennis op over de gegevens, wat het betekent en hoe deze is bedoeld om te worden gebruikt.
-* Gebruikers van gegevens: Mensen die eraan moeten kunnen eenvoudig ontdekken, begrijpen en verbinding maken met de gegevens die ze nodig hebben voor hun werk doen met behulp van het hulpprogramma van hun keuze.
-* Centrale IT: Mensen die nodig hebben om honderden gegevensbronnen kunnen worden gedetecteerd door zakelijke gebruikers en die moeten toezicht over hoe gegevens worden gebruikt en door wie onderhouden.
+* Ontwikkel aars van gegevens en BI-en analyse professionals: Personen die verantwoordelijk zijn voor het produceren van gegevens en analyse-inhoud zodat anderen deze kunnen gebruiken.
+* Data-webbronnen: Personen die kennis hebben van de gegevens, wat het betekent, en hoe deze moeten worden gebruikt.
+* Gegevens verbruikers: Personen die de gegevens die ze nodig hebben om hun werk te doen, gemakkelijk kunnen detecteren, begrijpen en er verbinding mee moeten maken, met behulp van het programma van hun keuze.
+* Centraal IT: Personen die kunnen beschikken over honderden gegevens bronnen die kunnen worden gedetecteerd door zakelijke gebruikers en die toezicht moeten houden op de manier waarop gegevens worden gebruikt en door wie.
 
-## <a name="what-is-its-availability-by-region"></a>Wat is de beschikbaarheid per regio?
-Data Catalog-services zijn momenteel beschikbaar in de volgende datacenters:
+## <a name="what-is-its-availability-by-region"></a>Wat is de beschik baarheid per regio?
+Data Catalog Services zijn momenteel beschikbaar in de volgende data centers:
 
 * US - west
 * East US
@@ -41,85 +41,85 @@ Data Catalog-services zijn momenteel beschikbaar in de volgende datacenters:
 * Azië - zuidoost
 
 ## <a name="what-are-its-limits-on-the-number-of-data-assets"></a>Wat zijn de limieten voor het aantal gegevensassets?
-De gratis editie van Data Catalog is beperkt tot 5000 geregistreerde gegevensassets.
+De gratis versie van Data Catalog is beperkt tot 5.000 geregistreerde gegevensassets.
 
-De Standard-editie van Data Catalog biedt ondersteuning voor maximaal 100.000 geregistreerde gegevensassets.
+De Standard-editie van Data Catalog ondersteunt Maxi maal 100.000 geregistreerde gegevensassets.
 
-Een object geregistreerd in Data Catalog, zoals tabellen, weergaven, bestanden en rapporten, telt als een gegevensasset.
+Elk object dat is geregistreerd in Data Catalog, zoals tabellen, weer gaven, bestanden en rapporten, telt als gegevensasset.
 
-## <a name="what-are-its-supported-data-source-and-asset-types"></a>Wat zijn de ondersteunde bron- en asset gegevenstypen?
-Zie voor een lijst met ondersteunde gegevensbronnen, [Data Catalog DSR](data-catalog-dsr.md).
+## <a name="what-are-its-supported-data-source-and-asset-types"></a>Wat zijn de ondersteunde gegevens bron en activa typen?
+Zie [Data CATALOG DSR](data-catalog-dsr.md)voor een lijst met gegevens bronnen die momenteel worden ondersteund.
 
-## <a name="how-do-i-request-support-for-another-data-source"></a>Hoe ik vragen om ondersteuning voor een andere gegevensbron?
-Als u wilt functieverzoeken en andere feedback indienen, gaat u naar de [gegevenscatalogus op de Azure-Forums voor Feedback](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
+## <a name="how-do-i-request-support-for-another-data-source"></a>Hoe kan ik ondersteuning aanvragen voor een andere gegevens bron?
+Als u functie aanvragen en andere feedback wilt verzenden, gaat u naar de [Data Catalog op de Azure feedback forums](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
 
-## <a name="how-do-i-get-started-with-data-catalog"></a>Hoe ga ik aan de slag met Data Catalog?
-De beste manier om te beginnen is door te gaan naar [aan de slag met Data Catalog](data-catalog-get-started.md). Dit artikel is een end-to-end-overzicht van de mogelijkheden van de service.
+## <a name="how-do-i-get-started-with-data-catalog"></a>Hoe kan ik aan de slag met Data Catalog?
+De beste manier om aan de slag te gaan, is aan de slag [met Data Catalog](data-catalog-get-started.md). Dit artikel is een end-to-end-overzicht van de mogelijkheden van de service.
 
 ## <a name="how-do-i-register-my-data"></a>Hoe kan ik mijn gegevens registreren?
-Uw gegevens in Data Catalog registreren:
-1. In de Azure Data Catalog-portal in de **publiceren** gebied, start het hulpprogramma voor registratie van Azure Data Catalog. 
-2. In de Data Catalog registratiehulpprogramma voor gegevensbronnen, meld u aan met dezelfde referenties die u gebruiken voor toegang tot de Data Catalog-portal.
-3. Selecteer de gegevensbron en de specifieke activa die u wilt registreren.
+Uw gegevens registreren in Data Catalog:
+1. Start in de Azure Data Catalog Portal in het gedeelte **publiceren** het Azure Data Catalog registratie programma. 
+2. Meld u in het Data Catalog hulp programma voor gegevens bron registratie aan met dezelfde referenties die u gebruikt om toegang te krijgen tot de Data Catalog-Portal.
+3. Selecteer de gegevens bron en de specifieke assets die u wilt registreren.
 
-## <a name="what-properties-does-it-extract-for-data-assets-that-are-registered"></a>Welke eigenschappen wordt deze uitgepakt voor gegevens die zijn geregistreerd?
-De specifieke eigenschappen van gegevensbron tot gegevensbron verschillen, maar in het algemeen de service voor het publiceren van Data Catalog haalt de volgende informatie:
+## <a name="what-properties-does-it-extract-for-data-assets-that-are-registered"></a>Welke eigenschappen worden uitgepakt voor gegevensassets die zijn geregistreerd?
+De specifieke eigenschappen verschillen van de gegevens bron tot de gegevens bron, maar in het algemeen haalt de Data Catalog Publishing-service de volgende informatie op:
 
-* Assetnaam
+* Activa naam
 * Activatype
-* Beschrijving van de Asset
-* Kenmerk-/ kolomnamen
-* Kenmerk/kolom-gegevenstypen
-* Kenmerk-/ kolombeschrijving
+* Beschrijving van activum
+* Kenmerk/kolom namen
+* Gegevens typen voor kenmerken/kolommen
+* Beschrijving van kenmerk/kolom
 
 > [!IMPORTANT]
-> Gegevensassets registreren met Data Catalog niet verplaatsen of kopiëren van uw gegevens naar de cloud. Elementen van een gegevensbron registreren de activa metagegevens worden gekopieerd naar Azure, maar blijven de gegevens in de bestaande locatie van de gegevensbron. De uitzondering op deze regel is als u ervoor kiezen om te uploaden preview records of een gegevensprofiel voor tijdens de registratie van de activa. Wanneer het opnemen van een Preview-versie, maximaal 20 records worden opgehaald uit elke asset en opgeslagen als een momentopname in Data Catalog. Als u een gegevensprofiel worden weergegeven, is de verzamelde gegevens berekend en de opgenomen in de metagegevens die zijn opgeslagen in de catalogus. Statistische informatie kan bestaan uit de grootte van tabellen, het percentage van de null-waarden per kolom of de minimale, maximale en gemiddelde waarden voor kolommen. 
+> Door gegevensassets te registreren met Data Catalog worden uw gegevens niet naar de Cloud verplaatst of gekopieerd. Als u assets van een gegevens bron registreert, worden de meta gegevens van de assets naar Azure gekopieerd, maar de gegevens blijven op de bestaande locatie van de gegevens bron staan. De uitzonde ring op deze regel is als u ervoor kiest om voorbeeld records of een gegevens profiel te uploaden wanneer u de activa registreert. Wanneer u een preview-versie opneemt, worden Maxi maal twintig records van elke Asset gekopieerd en opgeslagen als een moment opname in Data Catalog. Wanneer u een gegevens profiel opneemt, worden de verzamelde gegevens berekend en opgenomen in de meta gegevens die zijn opgeslagen in de catalogus. Statistische gegevens kunnen de omvang van tabellen, het percentage Null-waarden per kolom of de minimum-, maximum-en gemiddelde waarden voor kolommen bevatten. 
 >
 >
 
 > [!NOTE]
-> Voor gegevensbronnen, zoals SQL Server Analysis Services die u een eersteklas hebt **beschrijving** eigenschap, de Data Catalog hulpprogramma voor registratie extraheert waarde van die eigenschap. Voor relationele databases van SQL Server, die een eersteklas ontbreken **beschrijving** eigenschap, de Data Catalog hulpprogramma voor registratie extraheert de waarde van de **ms_description** uitgebreide eigenschap voor objecten en kolommen. Zie voor meer informatie, [met behulp van uitgebreide eigenschappen voor databaseobjecten](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> Voor gegevens bronnen, zoals SQL Server Analysis Services die een eigenschap van de klasse **Description** hebben, haalt het hulp programma voor het registreren van Data Catalog gegevens die eigenschaps waarde uit. Voor SQL Server relationele data bases, die geen eigenschap **Description** van de eerste klasse hebben, haalt het Data Catalog hulp programma gegevens bron registratie de waarde uit de uitgebreide eigenschap **ms_description** voor objecten en kolommen. Zie voor meer informatie [uitgebreide eigenschappen gebruiken voor database objecten](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 
-## <a name="how-long-should-it-take-for-newly-registered-assets-to-appear-in-the-catalog"></a>Hoe lang het duurt voor de zojuist geregistreerde assets om te worden weergegeven in de catalogus?
-Nadat u activa met Data Catalog registreert, is het mogelijk dat er een periode van 5 tot 10 seconden voordat ze worden weergegeven in de Data Catalog-portal.
+## <a name="how-long-should-it-take-for-newly-registered-assets-to-appear-in-the-catalog"></a>Hoe lang duurt het voordat nieuwe geregistreerde assets in de catalogus worden weer gegeven?
+Nadat u assets bij Data Catalog hebt geregistreerd, kan het een periode van 5 tot 10 seconden duren voordat deze in de Data Catalog Portal worden weer gegeven.
 
-## <a name="how-do-i-annotate-and-enrich-the-metadata-for-my-registered-data-assets"></a>Hoe kan ik van aantekeningen voorzien en verrijken van de metagegevens voor mijn geregistreerde gegevensassets?
-De eenvoudigste manier voor metagegevens voor geregistreerde assets is voor het selecteren van de asset in de Data Catalog-portal en voer vervolgens de waarden in het eigenschappendeelvenster of schema voor het geselecteerde object.
+## <a name="how-do-i-annotate-and-enrich-the-metadata-for-my-registered-data-assets"></a>Hoe kan ik aantekeningen maken en de meta gegevens verrijken voor mijn geregistreerde gegevensassets?
+De eenvoudigste manier om meta gegevens voor geregistreerde assets te bieden is door de Asset te selecteren in de Data Catalog Portal en vervolgens de waarden in het deel venster Eigenschappen of het schema deel venster voor het geselecteerde object in te voeren.
 
-U kunt ook een aantal metagegevens, zoals experts en tags, opgeven tijdens het registratieproces. De waarden die u in de Data Catalog-publicatieservice opgeeft zijn van toepassing op alle activa op dat moment wordt geregistreerd. Als u wilt de onlangs geregistreerde objecten in de portal voor aanvullende opmerkingen bekijken, selecteert u de **Portal weergeven** knop op het laatste scherm van het registratiehulpprogramma voor Data Catalog gegevensbronnen.
+Tijdens het registratie proces kunt u ook meta gegevens, zoals experts en tags, opgeven. De waarden die u opgeeft in de Data Catalog Publishing-service, zijn van toepassing op alle activa die op dat moment worden geregistreerd. Als u de onlangs geregistreerde objecten in de portal wilt weer geven voor aanvullende aantekening, selecteert u de knop **Portal weer geven** in het laatste scherm van het hulp programma voor registratie van gegevens bronnen Data Catalog.
 
-## <a name="how-do-i-delete-my-registered-data-objects"></a>Hoe kan ik mijn geregistreerde objecten verwijderen?
-U kunt een object verwijderen uit de gegevenscatalogus door het object selecteren in de portal en vervolgens te klikken op de **verwijderen** knop. Het object verwijderen, verwijdert u de metagegevens van de van Data Catalog, maar heeft geen invloed op de onderliggende gegevensbron.
+## <a name="how-do-i-delete-my-registered-data-objects"></a>Hoe kan ik mijn geregistreerde gegevens objecten verwijderen?
+U kunt een object verwijderen uit Data Catalog door het object te selecteren in de portal en vervolgens op de knop **verwijderen** te klikken. Als u het object verwijdert, worden de meta gegevens van Data Catalog verwijderd, maar heeft dit geen invloed op de onderliggende gegevens bron.
 
-## <a name="what-is-an-expert"></a>Wat is er een expert?
-Een expert is een persoon die een perspectief op de hoogte over een gegevensobject. Een object kan meerdere experts hebben. Een expert hoeft niet te worden van de 'eigenaar' voor een object, maar is gewoon iemand die weet hoe de gegevens kan en moet worden gebruikt.
+## <a name="what-is-an-expert"></a>Wat is een expert?
+Een expert is een persoon die een geïnformeerd perspectief over een gegevens object heeft. Een object kan meerdere experts hebben. Een expert hoeft niet de eigenaar van een object te zijn, maar is gewoon iemand die weet hoe de gegevens kunnen en moeten worden gebruikt.
 
-## <a name="how-do-i-share-information-with-the-data-catalog-team-if-i-encounter-problems"></a>Hoe kan ik delen informatie met de Data Catalog-team als ik problemen ondervindt?
-Problemen melden, informatie delen, en stel vragen, gaat u naar de [forum van Azure Data Catalog](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+## <a name="how-do-i-share-information-with-the-data-catalog-team-if-i-encounter-problems"></a>Hoe kan ik informatie met het Data Catalog team delen als er problemen optreden?
+Ga naar het [Azure Data Catalog forum](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)om problemen te melden, informatie te delen en vragen te stellen.
 
-## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>Werkt de catalogus met een andere gegevensbron die ik ben geïnteresseerd in?
-We werken er hard aan meer gegevensbronnen toe te voegen aan Data Catalog. Als u wilt weergeven van een specifieke gegevensbron wordt ondersteund, suggestie (of het ondersteuningsteam van uw stem als deze al is voorgesteld) door te gaan naar de [gegevenscatalogus op de Azure-Forums voor Feedback](https://feedback.azure.com/forums/906052-data-catalog).
+## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>Werkt de catalogus met een andere gegevens bron waarin ik geïnteresseerd ben?
+Er wordt actief gewerkt aan het toevoegen van meer gegevens bronnen aan Data Catalog. Als u een specifieke gegevens bron wilt weer geven, kunt u deze Voorst Ellen (of uw ondersteunings gesprek ondervragen als deze al is voorgesteld) door naar de [Data Catalog op de Azure feedback forums](https://feedback.azure.com/forums/906052-data-catalog)te gaan.
 
-## <a name="what-permissions-do-i-need-to-register-assets-with-data-catalog"></a>Welke machtigingen heb ik nodig voor het registreren van activa met Data Catalog?
-Als u wilt uitvoeren van het hulpprogramma voor registratie van Data Catalog, moet u machtigingen voor de gegevensbron waarmee u kunt de metagegevens van de bron lezen. Inclusief een Preview-versie, moet u machtigingen kunt u lezen in de gegevens van de objecten die wordt geregistreerd hebben.
+## <a name="what-permissions-do-i-need-to-register-assets-with-data-catalog"></a>Welke machtigingen heb ik nodig om assets te registreren bij Data Catalog?
+Als u het hulp programma voor het registreren van Data Catalog wilt uitvoeren, hebt u machtigingen nodig voor de gegevens bron waarmee u de meta gegevens van de bron kunt lezen. Als u ook een preview wilt toevoegen, moet u machtigingen hebben waarmee u de gegevens van de geregistreerde objecten kunt lezen.
 
-Data Catalog kan ook catalogusbeheerders om te beperken welke gebruikers en groepen metagegevens aan de catalogus toevoegen kunnen. Zie voor meer informatie, [over het beveiligen van toegang tot de gegevenscatalogus en gegevensassets](data-catalog-how-to-secure-catalog.md).
+Data Catalog kunnen Catalog-beheerders ook beperken welke gebruikers en groepen meta gegevens kunnen toevoegen aan de catalogus. Zie [toegang tot Data Catalog en](data-catalog-how-to-secure-catalog.md)gegevensassets beveiligen voor meer informatie.
 
-## <a name="will-data-catalog-be-made-available-for-on-premises-deployment-as-well"></a>Data Catalog beschikbaar gesteld voor on-premises implementatie ook?
-Data Catalog is een cloudservice waarmee zowel cloud en on-premises gegevensbronnen te bieden een oplossing voor hybride gegevensbron detectie kunt werken. Er zijn momenteel geen plannen voor een versie van de Data Catalog-service die wordt uitgevoerd on-premises.
+## <a name="will-data-catalog-be-made-available-for-on-premises-deployment-as-well"></a>Worden er ook Data Catalog beschikbaar gemaakt voor on-premises implementaties?
+Data Catalog is een Cloud service die kan samen werken met zowel Cloud-als on-premises gegevens bronnen om een hybride oplossing voor gegevens bron detectie te leveren. Er zijn momenteel geen plannen voor een versie van de Data Catalog-service die on-premises wordt uitgevoerd.
 
-## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>Kan ik meer of uitgebreide metagegevens te extraheren uit de gegevensbronnen die kan ik registreren?
-We werken er hard om uit te breiden, de mogelijkheden van Data Catalog. Als u wilt dat aanvullende metagegevens geëxtraheerd uit de gegevensbron tijdens de registratie, voorstellen dat (of stem voor deze, als deze al is voorgesteld) in de [gegevenscatalogus op de Azure-Forums voor Feedback](https://feedback.azure.com/forums/906052-data-catalog). 
+## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>Kan ik meer of rijkere meta gegevens ophalen uit de gegevens bronnen die ik registreer?
+We werken actief om de mogelijkheden van Data Catalog uit te breiden. Als u extra meta gegevens wilt ophalen uit de gegevens bron tijdens de registratie, kunt u deze Voorst Ellen (of stem ermee in als deze al is voorgesteld) in het [Data Catalog op de Azure feedback forums](https://feedback.azure.com/forums/906052-data-catalog). 
 
-Als u wilt opnemen kolom/schema metagegevens, voorlopige versies of gegevens-profielen voor gegevensbronnen waar deze metagegevens niet wordt opgehaald door het registratiehulpprogramma voor gegevensbronnen, kunt u de API van Data Catalog om toe te voegen deze metagegevens. Zie voor meer informatie, [REST-API van Azure Data Catalog](https://docs.microsoft.com/rest/api/datacatalog/).
+Als u meta gegevens van kolommen, voor beelden of gegevens profielen wilt toevoegen voor gegevens bronnen waarin deze meta gegevens niet worden geëxtraheerd door het hulp programma voor gegevens bron registratie, kunt u de Data Catalog-API gebruiken om deze meta gegevens toe te voegen. Zie [Azure Data Catalog rest API](https://docs.microsoft.com/rest/api/datacatalog/)voor meer informatie.
 
-## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Hoe beperk ik de zichtbaarheid van geregistreerde gegevensassets, zodat alleen bepaalde personen kunnen ze detecteren?
-Selecteer de gegevensassets die in de catalogus met gegevens en klik vervolgens op de **eigenaar** knop. Eigenaars van gegevensassets in Data Catalog, kunnen de instellingen van de zichtbaarheid ofwel zodat alle gebruikers kunnen het eigendom assets detecteren of zichtbaarheid beperken tot specifieke gebruikers wijzigen. Zie voor meer informatie, [gegevensassets in Azure Data Catalog beheren](data-catalog-how-to-manage.md).
+## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Hoe kan ik de zicht baarheid van geregistreerde gegevensassets beperken, zodat alleen bepaalde personen deze kunnen ontdekken?
+Selecteer de gegevensassets in de Data Catalog en klik vervolgens op de knop **eigenaar worden** . Eigen aren van gegevensassets in Data Catalog kunnen de zichtbaarheids instellingen wijzigen zodat alle gebruikers de eigendoms activa kunnen detecteren of de zicht baarheid kunnen beperken tot specifieke gebruikers. Zie gegevensassets [beheren in azure Data Catalog](data-catalog-how-to-manage.md)voor meer informatie.
 
-## <a name="how-do-i-update-the-registration-for-a-data-asset-so-that-changes-in-the-data-source-are-reflected-in-the-catalog"></a>Hoe kan ik de registratie voor een gegevensasset bijwerken zodat wijzigingen in de gegevensbron worden weergegeven in de catalogus?
-Voor het bijwerken van de metagegevens voor de gegevensassets die al zijn geregistreerd in de catalogus, gewoon Registreer opnieuw de gegevensbron met de activa. Alle wijzigingen die in de gegevensbron, zoals kolommen worden toegevoegd of verwijderd uit de tabellen of weergaven, zijn bijgewerkt in de catalogus, maar aantekeningen die door gebruikers worden bewaard.
+## <a name="how-do-i-update-the-registration-for-a-data-asset-so-that-changes-in-the-data-source-are-reflected-in-the-catalog"></a>Hoe kan ik de registratie voor een gegevensasset bijwerken zodat wijzigingen in de gegevens bron worden weer gegeven in de catalogus?
+Als u de meta gegevens wilt bijwerken voor gegevensassets die al in de catalogus zijn geregistreerd, registreert u de gegevens bron die de assets bevat opnieuw. Wijzigingen in de gegevens bron, zoals kolommen die worden toegevoegd of verwijderd uit tabellen of weer gaven, worden bijgewerkt in de catalogus, maar alle aantekeningen die door gebruikers worden aangeboden, blijven behouden.
 
-## <a name="my-question-isnt-answered-here-where-can-i-go-for-answers"></a>Mijn vraag niet wordt hier beantwoord. Waar vind ik antwoorden?
-Ga naar de [forum van Azure Data Catalog](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Er vragen vindt hier aankomen.
+## <a name="my-question-isnt-answered-here-where-can-i-go-for-answers"></a>Mijn vraag wordt hier niet beantwoord. Waar kan ik terecht voor antwoorden?
+Ga naar het [Azure Data Catalog forum](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Vragen die u hier kunt vinden, vindt u hier.

@@ -1,83 +1,81 @@
 ---
-title: Gegevensbronnen registreren in Azure Data Catalog
-description: In dit artikel ziet u informatie over het registreren van gegevensbronnen in Azure Data Catalog, met inbegrip van de metagegevensvelden tijdens de registratie hebt uitgepakt.
-services: data-catalog
+title: Gegevens bronnen registreren in Azure Data Catalog
+description: In dit artikel wordt uitgelegd hoe u gegevens bronnen registreert in Azure Data Catalog, met inbegrip van de velden voor meta gegevens die zijn geëxtraheerd tijdens de registratie.
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: bab89906-186f-4d35-9ffd-61b1d903905d
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 57b9a040b875c584b126e2062e4938b37875a31b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 0c5fdac7df41fec3a6206dbd78af74b7f1b58c7f
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001290"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736323"
 ---
-# <a name="register-data-sources-in-azure-data-catalog"></a>Gegevensbronnen registreren in Azure Data Catalog
+# <a name="register-data-sources-in-azure-data-catalog"></a>Gegevens bronnen registreren in Azure Data Catalog
 ## <a name="introduction"></a>Inleiding
-Azure Data Catalog is een volledig beheerde cloudservice die als een systeem van registratie en detectie van bedrijfsgegevensassets fungeert. Met andere woorden, Data Catalog helpt gebruikers ontdekken, begrijpen en gebruiken van gegevensbronnen en het helpt organisaties meer waarde halen uit hun bestaande gegevens. De eerste stap bij het maken van een gegevensbron kan worden gedetecteerd via Data Catalog is voor het registreren van die gegevensbron.
+Azure Data Catalog is een volledig beheerde Cloud service die fungeert als een systeem van registratie en detectie voor zakelijke gegevens bronnen. Met andere woorden, Data Catalog helpt mensen bij het ontdekken, begrijpen en gebruiken van gegevens bronnen, en het helpt organisaties meer waarde te krijgen van hun bestaande gegevens. De eerste stap voor het toegankelijk maken van een gegevens bron via Data Catalog is het registreren van die gegevens bron.
 
 ## <a name="register-data-sources"></a>Gegevensbronnen registreren
-Registratie is het proces van het extraheren van metagegevens van de gegevensbron en die gegevens kopiëren naar de Data Catalog-service. De gegevens blijven waar ze zich momenteel bevinden, onder het beheer van de groep beheerders en het beleid van het huidige systeem.
+Registratie is het proces van het extra heren van meta gegevens uit de gegevens bron en het kopiëren van die gegevens naar de Data Catalog-service. De gegevens blijven waar ze zich momenteel bevinden, onder het beheer van de groep beheerders en het beleid van het huidige systeem.
 
-Voor het registreren van een gegevensbron, het volgende doen:
-1. Start het registratiehulpprogramma voor Data Catalog gegevensbronnen in de Azure Data Catalog-portal. 
-2. Meld u aan met uw werk- of schoolaccount met dezelfde Azure Active Directory-referenties die u gebruiken om aan te melden bij de portal.
-3. Selecteer de gegevensbron die u wilt registreren.
+Als u een gegevens bron wilt registreren, gaat u als volgt te werk:
+1. Start in de Azure Data Catalog Portal het hulp programma registratie van Data Catalog gegevens bron. 
+2. Aanmelden met uw werk-of schoolaccount met dezelfde Azure Active Directory referenties die u gebruikt om u aan te melden bij de portal.
+3. Selecteer de gegevens bron die u wilt registreren.
 
-Zie voor meer details in stappen, de [aan de slag met Azure Data Catalog](data-catalog-get-started.md) zelfstudie.
+Zie voor meer stapsgewijze Details de zelf studie [aan de slag met Azure Data Catalog](data-catalog-get-started.md) .
 
-Nadat u de gegevensbron hebt geregistreerd, wordt de catalogus houdt de locatie en de metagegevens van de indexen. Gebruikers kunnen zoeken, bladeren en de gegevensbron detecteren en gebruik vervolgens de locatie te verbinden met behulp van de toepassing of het hulpprogramma van hun keuze.
+Nadat u de gegevens bron hebt geregistreerd, houdt de catalogus de locatie bij en indexeert de meta gegevens ervan. Gebruikers kunnen de gegevens bron zoeken, doorzoeken en detecteren, en de locatie ervan gebruiken om er verbinding mee te maken met behulp van de toepassing of het hulp programma van hun keuze.
 
 ## <a name="supported-data-sources"></a>Ondersteunde gegevensbronnen
-Zie voor een lijst met ondersteunde gegevensbronnen, [Data Catalog DSR](data-catalog-dsr.md).
+Zie [Data CATALOG DSR](data-catalog-dsr.md)voor een lijst met gegevens bronnen die momenteel worden ondersteund.
 
-## <a name="structural-metadata"></a>Structurele metagegevens
-Als u een gegevensbron registreert, haalt het registratiehulpprogramma voor informatie over de structuur van de objecten die u selecteert. Deze informatie wordt aangeduid als de structurele metagegevens.
+## <a name="structural-metadata"></a>Structurele meta gegevens
+Wanneer u een gegevens bron registreert, haalt het registratie hulpprogramma informatie over de structuur van de objecten die u selecteert. Deze informatie wordt aangeduid als structurele meta gegevens.
 
-Deze structurele metagegevens bevat voor alle objecten van het object locatie, zodat gebruikers die de gegevens te detecteren die informatie gebruiken kunnen om te verbinden met het object in de clienthulpprogramma's van hun keuze. Andere structurele metagegevens objectnaam en het type bevat, en typ de naam van kenmerk/kolom en gegevens.
+Voor alle objecten bevat deze structurele meta gegevens de locatie van het object, zodat gebruikers die de gegevens detecteren deze informatie kunnen gebruiken om verbinding te maken met het object in de client hulpprogramma's van hun keuze. Andere structurele meta gegevens omvatten object naam en-type, en kenmerk/kolom naam en gegevens type.
 
-## <a name="descriptive-metadata"></a>Beschrijvende metagegevens
-Het hulpprogramma voor registratie extraheert naast de structurele metagegevens core, die wordt opgehaald uit de gegevensbron, beschrijvende metagegevens. Voor SQL Server Analysis Services en SQL Server Reporting Services, wordt deze metagegevens opgehaald uit de beschrijving van eigenschappen die worden weergegeven door deze services. Voor SQL Server, de waarden geleverd met behulp van de ms\_beschrijving uitgebreide eigenschap wordt opgehaald. Het hulpprogramma voor registratie van gegevensbron worden voor Oracle-Database, de kolom Opmerkingen geëxtraheerd uit de gehele\_tabblad\_opmerkingen bekijken.
+## <a name="descriptive-metadata"></a>Beschrijvende meta gegevens
+Naast de kern structuur meta gegevens die zijn geëxtraheerd uit de gegevens bron, haalt het hulp programma voor registratie van gegevens bronnen beschrijvende meta gegevens op. Voor SQL Server Analysis Services en SQL Server Reporting Services worden deze meta gegevens opgehaald uit de beschrijvings eigenschappen die door deze services worden weer gegeven. Voor SQL Server worden waarden die zijn gegeven met\_de uitgebreide eigenschap MS Description geëxtraheerd. Voor Oracle database haalt het hulp programma voor registratie van gegevens bronnen de kolom opmerkingen uit de weer\_gave\_alle tabblad opmerkingen.
 
-Naast de beschrijvende metagegevens die zijn geëxtraheerd uit de gegevensbron, kunnen gebruikers de beschrijvende metagegevens invoeren met behulp van het hulpprogramma voor registratie. Gebruikers kunnen labels toevoegen en ze experts voor de objecten die wordt geregistreerd kunnen identificeren. Deze beschrijvende metagegevens is gekopieerd naar de Data Catalog-service, samen met de structurele metagegevens.
+Naast de beschrijvende meta gegevens die uit de gegevens bron zijn geëxtraheerd, kunnen gebruikers beschrijvende meta gegevens invoeren met het hulp programma voor registratie van gegevens bronnen. Gebruikers kunnen Tags toevoegen en ze kunnen experts identificeren voor de geregistreerde objecten. Al deze beschrijvende meta gegevens worden samen met de structurele meta gegevens gekopieerd naar de Data Catalog-service.
 
-## <a name="include-previews"></a>Preview-versies bevatten
-Standaard worden alleen metagegevens geëxtraheerd uit gegevensbronnen en gekopieerd naar de Data Catalog-service, maar wat die een gegevensbron is vaak eenvoudiger gemaakt wanneer u een voorbeeld van de gegevens in die het rapport kunt weergeven.
+## <a name="include-previews"></a>Voor beelden toevoegen
+Standaard worden alleen meta gegevens geëxtraheerd uit gegevens bronnen en gekopieerd naar de Data Catalog-service, maar inzicht in een gegevens bron wordt vaak eenvoudiger gemaakt wanneer u een voor beeld van de gegevens in het bestand kunt bekijken.
 
-Met behulp van het hulpprogramma voor registratie van Data Catalog-gegevensbron, kunt u een voorbeeld van de momentopname van de gegevens opnemen in elke tabel en de weergave die is geregistreerd. Als u ervoor kiest om op te nemen previews tijdens de registratie, bevat het hulpprogramma voor registratie maximaal 20 records uit elke tabel en de weergave. Deze momentopname wordt vervolgens gekopieerd naar de catalogus, samen met de metagegevens van de structurele en beschrijvend.
+Met behulp van het Data Catalog hulp programma voor gegevens bron registratie kunt u een voor beeld van een moment opname van de gegevens in elke tabel en weer gave die is geregistreerd, toevoegen. Als u voor beelden tijdens de registratie wilt opnemen, omvat het registratie hulpprogramma Maxi maal twintig records uit elke tabel en weer gave. Deze moment opname wordt vervolgens gekopieerd naar de catalogus, samen met de structurele en beschrijvende meta gegevens.
 
 > [!NOTE]
-> Brede tabellen met een groot aantal kolommen mogelijk minder dan 20 records die zijn opgenomen in de preview.
+> Grote tabellen met een groot aantal kolommen kunnen minder dan twintig records bevatten die zijn opgenomen in de preview-versie.
 >
 >
 
-## <a name="include-data-profiles"></a>Gegevens-profielen bevatten
-Net zoals inclusief voorlopige versies waardevolle context voor gebruikers die voor gegevensbronnen in Data Catalog bieden kunnen zoeken, kunt met inbegrip van een gegevensprofiel maken het gemakkelijker om te begrijpen gedetecteerde gegevensbronnen.
+## <a name="include-data-profiles"></a>Gegevens profielen toevoegen
+Net als bij het opnemen van previews kan de context van gebruikers die zoeken naar gegevens bronnen in Data Catalog worden geboden, met inbegrip van een gegevens profiel, waardoor het eenvoudiger is om gedetecteerde gegevens bronnen te begrijpen.
 
-Met behulp van het hulpprogramma voor registratie van Data Catalog-gegevensbron, kunt u een gegevensprofiel voor elke tabel en de weergave die is geregistreerd kunt opnemen. Als u ervoor kiest om op te nemen van een gegevensprofiel tijdens de registratie, het hulpprogramma voor registratie statistische gegevens over de gegevens bevat in elke tabel en de weergave, met inbegrip van:
+Met behulp van het Data Catalog hulp programma voor gegevens bron registratie kunt u een gegevens profiel voor elke tabel en weer gave die is geregistreerd, toevoegen. Als u ervoor kiest om een gegevens profiel op te nemen tijdens de registratie, bevat het registratie hulpprogramma statistische statistieken over de gegevens in elke tabel en weer gave, waaronder:
 
 * Het aantal rijen en de grootte van de gegevens in het object.
-* De datum voor de meest recente update van de gegevens en de object-schema.
-* Het aantal null-records en afzonderlijke waarden voor kolommen.
-* Het minimum, maximum, gemiddelde en standaarddeviatie waarden voor kolommen.
+* De datum voor de meest recente update van de gegevens en het object schema.
+* Het aantal null-records en DISTINCT-waarden voor kolommen.
+* De waarden voor minimum, maximum, gemiddelde en standaard deviatie voor kolommen.
 
-Deze statistische gegevens worden vervolgens gekopieerd naar de catalogus, samen met de metagegevens van de structurele en beschrijvend.
+Deze statistieken worden vervolgens gekopieerd naar de catalogus, samen met de structurele en beschrijvende meta gegevens.
 
 > [!NOTE]
-> Tekst en datum kolommen omvatten geen gemiddelde of standaarddeviatie statistieken in het gegevensprofiel van hun.
+> Tekst-en datum kolommen bevatten geen statistieken over gemiddelde of standaard deviatie in hun gegevens profiel.
 >
 >
 
-## <a name="update-registrations"></a>Bijwerken van registraties
-Het registreren van een gegevensbron kunt u in Data Catalog kunnen worden gedetecteerd wanneer u de metagegevens en een optionele preview tijdens de registratie hebt uitgepakt. Als de gegevensbron moet worden bijgewerkt in de catalogus (bijvoorbeeld, als het schema van een object is gewijzigd, tabellen oorspronkelijk uitgesloten opgenomen worden moeten of u wilt bijwerken van de gegevens die zijn opgenomen in de Preview-versies), kan het registratiehulpprogramma voor gegevensbronnen opnieuw worden uitgevoerd.
+## <a name="update-registrations"></a>Registraties bijwerken
+Als u een gegevens bron registreert, kan deze worden gedetecteerd in Data Catalog wanneer u de meta gegevens en de optionele preview-versie die tijdens de registratie is geëxtraheerd, gebruikt. Als de gegevens bron moet worden bijgewerkt in de catalogus (bijvoorbeeld als het schema van een object is gewijzigd, de tabellen die oorspronkelijk zijn uitgesloten, moeten worden opgenomen of als u de gegevens wilt bijwerken die in de voor beelden zijn opgenomen), kan het hulp programma voor het registreren van gegevens bronnen opnieuw worden uitgevoerd.
 
-Een al geregistreerd gegevensbron opnieuw te registreren, voert een "upsert"-bewerking merge: bestaande objecten zijn bijgewerkt en nieuwe objecten worden gemaakt. Alle metagegevens die door gebruikers via de portal voor Data Catalog worden bewaard.
+Als u een al geregistreerde gegevens bron opnieuw registreert, wordt de bewerking ' upsert ' samen voegen uitgevoerd: bestaande objecten worden bijgewerkt en nieuwe objecten worden gemaakt. Meta gegevens die door gebruikers via de Data Catalog Portal worden verschaft, blijven behouden.
 
 ## <a name="summary"></a>Samenvatting
-Omdat het structurele en beschrijvende metagegevens opgehaald uit een gegevensbron met de catalogusservice, registreert de gegevensbron in Data Catalog, de gegevens eenvoudiger te detecteren en begrijpen. Nadat u de gegevensbron hebt geregistreerd, kunt u aantekeningen maken, beheren en te ontdekken met behulp van de Data Catalog-portal.
+Omdat hiermee structurele en beschrijvende meta gegevens van een gegevens bron naar de catalogus service worden gekopieerd en de gegevens bron in Data Catalog wordt geregistreerd, zijn de gegevens eenvoudiger te detecteren en te begrijpen. Nadat u de gegevens bron hebt geregistreerd, kunt u aantekeningen maken, beheren en detecteren met behulp van de Data Catalog Portal.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het registreren van gegevensbronnen, de [aan de slag met Azure Data Catalog](data-catalog-get-started.md) zelfstudie.
+Zie de zelf studie [aan de slag met Azure Data Catalog](data-catalog-get-started.md) voor meer informatie over het registreren van gegevens bronnen.

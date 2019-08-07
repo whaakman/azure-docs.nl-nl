@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 300d96a792663a32a326d5d01f281b77ccf9c4bf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6e41453a096f4812b9ba541a2693b9c9b975b7c9
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050507"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779064"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Security Center
 Deze Veelgestelde vragen vindt u antwoorden op vragen over Azure Security Center, een service die u bij het voorkomen helpt, detecteren en direct reageren op bedreigingen met verbeterde zichtbaarheid en controle over de beveiliging van uw Microsoft Azure-resources.
@@ -42,10 +42,10 @@ Security Center wordt aangeboden in twee lagen:
 
 De **gratis laag** biedt meer inzicht in de beveiligingsstatus van uw Azure-resources, beleid van de basisvereisten voor beveiliging, aanbevelingen voor beveiliging en integratie met beveiligingsproducten en -diensten van partners.
 
-De **Standard-laag** geavanceerde threat detectiemogelijkheden, waaronder threat intelligence, gedragsanalyse, anomaliedetectie, beveiligingsincidenten en attribution rapporten van bedreigingen wordt toegevoegd. U kunt een Standard-laag gratis proefversie starten. Als u wilt bijwerken, selecteert u [prijscategorie](https://docs.microsoft.com/azure/security-center/security-center-pricing) in het beveiligingsbeleid. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
+De **Standard-laag** geavanceerde threat detectiemogelijkheden, waaronder threat intelligence, gedragsanalyse, anomaliedetectie, beveiligingsincidenten en attribution rapporten van bedreigingen wordt toegevoegd. U kunt een gratis proef versie van de Standard-laag starten. Als u wilt bijwerken, selecteert u [prijscategorie](https://docs.microsoft.com/azure/security-center/security-center-pricing) in het beveiligingsbeleid. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
 
-### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>Hoe kan ik bijhouden wie in mijn organisatie prijswijzigingen laag uitgevoerd in Azure Security Center
-Als een Azure-abonnement meerdere beheerders met machtigingen voor het wijzigen van de prijscategorie hebt kan, wilt een gebruiker weten wie de prijscategorie wordt gewijzigd uitgevoerd. Als u wilt gebruiken, kunt een Azure-activiteitenlogboek gebruiken. Raadpleeg verdere instructies [hier](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)
+### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>Hoe kan ik bijhouden wie in mijn organisatie de prijs categorie heeft gewijzigd in Azure Security Center
+Als een Azure-abonnement meerdere beheerders met machtigingen heeft om de prijs categorie te wijzigen, kan een gebruiker weten wie de wijziging van de prijs categorie heeft uitgevoerd. Om dat te gebruiken, kan een Azure-activiteiten logboek worden gebruikt. Lees [hier](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832) meer instructies
 
 ## <a name="permissions"></a>Machtigingen
 Het Azure Beveiligingscentrum gebruikt [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md), dat [ingebouwde rollen](../role-based-access-control/built-in-roles.md) biedt die kunnen worden toegewezen aan gebruikers, groepen en services in Azure.
@@ -55,10 +55,10 @@ Security Center beoordeelt de configuratie van uw resources om beveiligingsprobl
 Zie [machtigingen in Azure Security Center](security-center-permissions.md) voor meer informatie over de functies en toegestane acties in Security Center.
 
 ## <a name="data-collection-agents-and-workspaces"></a>Het verzamelen van gegevens, agents en werkruimten
-Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's), virtuele-machineschaalsets (VMSS), IaaS-containers en niet-Azure (met inbegrip van on-premises) computers om te controleren op beveiligingsproblemen en bedreigingen. De gegevens worden verzameld met behulp van de MMA, die verschillende configuraties en gebeurtenislogboeken met betrekking tot beveiliging van de machine leest en de gegevens kopieert naar uw werkruimte voor analyse.
+Security Center verzamelt gegevens van uw virtuele machines (Vm's) van Azure, virtuele-machine schaal sets (VMSS), IaaS-containers en niet-Azure-computers (met inbegrip van on-premises) om te controleren op beveiligings problemen en bedreigingen. De gegevens worden verzameld met behulp van de MMA, die verschillende configuraties en gebeurtenislogboeken met betrekking tot beveiliging van de machine leest en de gegevens kopieert naar uw werkruimte voor analyse.
 
-### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Word ik gefactureerd voor Azure Monitor-logboeken op de werkruimten die zijn gemaakt door Security Center?
-Nee. Werkruimten die zijn gemaakt door Security Center, terwijl geconfigureerd voor Azure Monitor-logboeken per knooppunt facturering, doen niet Azure Monitor logboeken kosten in rekening gebracht. Security Center-facturering is altijd gebaseerd op het Security Center-beveiligingsbeleid en de oplossingen die zijn geïnstalleerd op een werkruimte:
+### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Ben ik gefactureerd voor Azure Monitor-logboeken op de werk ruimten die door Security Center zijn gemaakt?
+Nee. Werk ruimten die zijn gemaakt door Security Center en die zijn geconfigureerd voor Azure Monitor-logboeken per knoop punt, worden niet in rekening gebracht Azure Monitor logboek kosten. Security Center-facturering is altijd gebaseerd op het Security Center-beveiligingsbeleid en de oplossingen die zijn geïnstalleerd op een werkruimte:
 
 - **Gratis laag** – Security Center schakelt u de oplossing 'SecurityCenterFree' in de standaardwerkruimte. U bent niet in rekening gebracht voor de gratis laag.
 - **Standard-laag** – Security Center schakelt u de oplossing 'Beveiliging' in de standaardwerkruimte.
@@ -66,7 +66,7 @@ Nee. Werkruimten die zijn gemaakt door Security Center, terwijl geconfigureerd v
 Zie voor meer informatie over prijzen [prijzen van Security Center](https://azure.microsoft.com/pricing/details/security-center/). De pagina met prijzen adressen wijzigingen in de opslag van beveiligingsgegevens en facturering naar rato vanaf juni 2017.
 
 > [!NOTE]
-> De prijscategorie van werkruimten die zijn gemaakt door Security Center met log analytics heeft geen invloed op de facturering van Security Center.
+> De prijs categorie voor log Analytics van werk ruimten die zijn gemaakt door Security Center heeft geen invloed op Security Center facturering.
 >
 >
 
@@ -77,7 +77,7 @@ Windows- of Linux IaaS-VM's in aanmerking komt als:
 
 - De Microsoft Monitoring Agent-extensie is momenteel niet geïnstalleerd op de virtuele machine.
 - De virtuele machine wordt uitgevoerd.
-- De Windows- of Linux [Azure Virtual Machine Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) is geïnstalleerd.
+- De Windows-of Linux [Azure virtual machine-agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) is geïnstalleerd.
 - De virtuele machine wordt niet gebruikt als een apparaat, zoals de web application firewall of de firewall van volgende generatie.
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Kan ik de Standaardwerkruimten die zijn gemaakt door Security Center wilt verwijderen?
@@ -118,25 +118,25 @@ Selecteer een bestaande Log Analytics-werkruimte:
 
    - Selecteer **annuleren** om de bewerking te annuleren.
 
-### Wat gebeurt er als dat de Microsoft Monitoring Agent al is geïnstalleerd als een uitbreiding op de virtuele machine?<a name="mmaextensioninstalled"></a>
-Wanneer de Monitoring Agent is geïnstalleerd als een uitbreiding, kan de configuratie van de extensie aan slechts één werkruimte rapporteren. Security Center wordt de bestaande verbindingen met werkruimten van de gebruiker niet overschreven. Security Center worden beveiligingsgegevens van een virtuele machine opgeslagen in een werkruimte die al is verbonden, mits de oplossing "Beveiliging" of "SecurityCenterFree" erop is geïnstalleerd. Security Center kan de versie van de extensie upgraden naar de meest recente versie van dit proces.
+### Wat gebeurt er als micro soft Monitoring Agent al is geïnstalleerd als een uitbrei ding op de VM?<a name="mmaextensioninstalled"></a>
+Wanneer de bewakings agent is geïnstalleerd als een uitbrei ding, staat de extensie configuratie slechts aan één werk ruimte toe. Security Center wordt de bestaande verbindingen met werkruimten van de gebruiker niet overschreven. Security Center worden beveiligings gegevens van een virtuele machine opgeslagen in een werk ruimte die al is verbonden, op voor waarde dat de oplossing Security of SecurityCenterFree is geïnstalleerd. Security Center kunt de extensie versie in dit proces upgraden naar de meest recente versie.
 
-Zie voor meer informatie, [automatische inrichting in geval van een bestaande installatie van de agent](security-center-enable-data-collection.md#preexisting).
+Zie Automatic Provisioning [in cases van een bestaande Agent installatie](security-center-enable-data-collection.md#preexisting)voor meer informatie.
 
 
-### Wat gebeurt er als ik heb een Microsoft Monitoring Agent is rechtstreeks geïnstalleerd op de computer, maar niet als een uitbreiding (Direct Agent)?<a name="directagentinstalled"></a>
-Als de Microsoft Monitoring Agent rechtstreeks op de virtuele machine (en niet als een Azure-extensie) is geïnstalleerd, wordt in Security Center de Microsoft Monitoring Agent-extensie wordt geïnstalleerd en kan de Microsoft Monitoring agent upgraden naar de nieuwste versie.
-De agent is geïnstalleerd om te rapporteren aan de reeds geconfigureerd werkruimten wordt voortgezet, en daarnaast rapporteren aan de werkruimte die is geconfigureerd in Security Center (multihoming wordt ondersteund op Windows-machines).
-Als de geconfigureerde werkruimte is een gebruikerswerkruimte (geen standaardwerkruimte van Security Center bevinden), moet u voor het installeren van de "Security / 'SecurityCenterFree'-oplossing op het Security Center om te verwerken van gebeurtenissen starten van virtuele machines en computers die rapporteren werkruimte.
+### Wat moet ik doen als ik een micro soft Monitoring Agent heb geïnstalleerd op de computer, maar niet als een uitbrei ding (direct agent)?<a name="directagentinstalled"></a>
+Als de micro soft Monitoring Agent rechtstreeks op de virtuele machine is geïnstalleerd (niet als een Azure-extensie), wordt de micro soft Monitoring Agent-extensie door Security Center geïnstalleerd en kan micro soft Monitoring Agent worden bijgewerkt naar de nieuwste versie.
+De agent die is geïnstalleerd, blijft rapporteren aan de al geconfigureerde werk ruimte (n) en rapporteert bovendien aan de werk ruimte die is geconfigureerd in Security Center (multi-multihoming wordt ondersteund op Windows-computers).
+Als de geconfigureerde werk ruimte een gebruikers werkruimte is (niet Security Center de standaardwerk ruimte), moet u de oplossing ' Security/' SecurityCenterFree ' installeren voor Security Center om te beginnen met het verwerken van gebeurtenissen van Vm's en computers die rapporteren werk ruimte.
 
-Voor Linux-machines, multihoming Agent is nog niet ondersteund - daarom als een bestaande agentinstallatie wordt gedetecteerd, automatische inrichting wordt niet uitgevoerd en de configuratie van de computer wordt niet gewijzigd.
+Voor Linux-machines wordt agent-multi-multihoming nog niet ondersteund. als er een bestaande agent wordt gedetecteerd, treedt er geen automatische inrichting op en wordt de configuratie van de computer niet gewijzigd.
 
-Voor bestaande machines op abonnementen toegevoegd aan Security Center voor 2019-03-17, wanneer een bestaande agent wordt gedetecteerd, wordt de Microsoft Monitoring Agent-extensie niet geïnstalleerd en de machine worden niet beïnvloed. Zie de aanbeveling voor 'Los de problemen met de agent controleren op uw virtuele machines' om op te lossen, het installeren van beveiligingsagenten oplossen op deze machines voor deze machines
+Voor bestaande machines op abonnementen die voor Security Center vóór 2019-03-17 worden uitgevoerd, wordt de micro soft Monitoring Agent-extensie niet geïnstalleerd en wordt de computer niet beïnvloed als er een bestaande agent wordt gedetecteerd. Voor deze computers raadpleegt u de aanbeveling bewakings agent status problemen op uw computers oplossen om de installatie problemen van de agent op deze computers op te lossen
 
  Zie voor meer informatie de volgende sectie [wat gebeurt er als een SCOM of OMS directe agent al is geïnstalleerd op mijn VM?](#scomomsinstalled)
 
-### Wat gebeurt er als een agent van System Center Operations Manager (SCOM) is al geïnstalleerd op mijn VM?<a name="scomomsinstalled"></a>
-Security center installeert de Microsoft Monitoring Agent-extensie side-by-side aan de bestaande System Center Operations Manager-agent. De bestaande SCOM-agent blijft normaal rapport met de System Center Operations Manager-server. Houd er rekening mee dat de System Center Operations Manager-agent en de Microsoft Monitoring Agent delen algemene runtime-bibliotheken, die wordt bijgewerkt naar de meest recente versie tijdens deze weer. Opmerking: als u System Center Operations Manager 2012-versie van de agent is geïnstalleerd, niet inschakelen automatische inrichting op (beheerbaarheid mogelijkheden kunnen worden verbroken wanneer de System Center Operations Manager-server ook versie 2012).
+### Wat gebeurt er als er al een System Center Operations Manager-agent (SCOM) is geïnstalleerd op mijn VM?<a name="scomomsinstalled"></a>
+In Security Center wordt de micro soft Monitoring Agent-extensie naast elkaar geïnstalleerd op de bestaande System Center Operations Manager-agent. De bestaande SCOM-agent blijft normaal aan de System Center Operations Manager-server rapporteren. Houd er rekening mee dat de System Center Operations Manager agent en micro soft Monitoring Agent gemeen schappelijke run-time bibliotheken delen, die worden bijgewerkt naar de laatste versie tijdens deze geen. Opmerking: als System Center Operations Manager agent versie 2012 is geïnstalleerd, moet u niet automatisch inrichten inschakelen (de beheer mogelijkheden kunnen verloren gaan als de System Center Operations Manager server ook versie 2012 is).
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>Wat zijn de gevolgen van het verwijderen van deze extensies?
 Als u de extensie voor Microsoft Monitoring verwijdert, Security Center kan geen beveiligingsgegevens verzamelen van de virtuele machine en enkele aanbevelingen voor beveiliging en waarschuwingen zijn niet beschikbaar. Security Center bepaalt binnen 24 uur dat de virtuele machine in de uitbreiding ontbreekt en de extensie opnieuw geïnstalleerd.
@@ -161,7 +161,7 @@ U kunt uitschakelen automatische inrichting van uw abonnementen in het beveiligi
 U wilt afmelden voor automatische inrichting als voor u het volgende geldt:
 
 - Automatische installatie van agent door Security Center is van toepassing op het hele abonnement.  U kunt geen automatische installatie toepassen op een subset van virtuele machines. Als er kritieke VM's die met de Microsoft Monitoring Agent kunnen niet worden geïnstalleerd, moet u ervoor kiezen automatische inrichting van buiten.
-- Installatie van de Microsoft Monitoring Agent (MMA)-extensie van de agent-versie-updates. Dit geldt voor een agent toewijzen en een SCOM-agent (in de laatste de SCOM en de MMA delen algemene runtimebibliotheken - die in het proces wordt bijgewerkt). Als de geïnstalleerde SCOM-agent versie 2012 is en wordt bijgewerkt, kunnen beheerbaarheid mogelijkheden worden verbroken wanneer de SCOM-server ook versie 2012. U moet overwegen wanneer u geen gebruik automatische inrichting als de geïnstalleerde SCOM-agent versie 2012.
+- Door de installatie van de micro soft Monitoring Agent (MMA)-extensie wordt de versie van de agent bijgewerkt. Dit geldt voor een directe agent en een SCOM-agent (in de laatste, de SCOM en MMA delen algemene runtime-bibliotheken die in het proces worden bijgewerkt). Als de geïnstalleerde SCOM-agent versie 2012 is en wordt bijgewerkt, kunnen beheerbaarheid mogelijkheden worden verbroken wanneer de SCOM-server ook versie 2012. U moet overwegen wanneer u geen gebruik automatische inrichting als de geïnstalleerde SCOM-agent versie 2012.
 - Als u een aangepaste werkruimte buiten het abonnement (een gecentraliseerde werkruimte) hebt moet u ervoor kiezen automatische inrichting van buiten. U kunt handmatig installeren van de Microsoft Monitoring Agent-extensie en verbindt dit uw werkruimte zonder Security Center voor het overschrijven van de verbinding.
 - Als u wilt voorkomen dat het maken van meerdere werkruimten per abonnement en u uw eigen aangepaste werkruimte binnen het abonnement hebt, hebt u twee opties:
 
@@ -185,7 +185,7 @@ Security Center kunnen de juiste oplossing is in de werkruimte op basis van de g
 U kunt de Microsoft Monitoring Agent handmatig verwijderen. Dit wordt niet aanbevolen omdat deze wordt beperkt door Security Center aanbevelingen en waarschuwingen.
 
 > [!NOTE]
-> Als gegevensverzameling is ingeschakeld, kan Security Center de agent wordt opnieuw nadat u deze verwijderen.  U moet verzamelen van gegevens voordat u de agent handmatig verwijdert uitschakelen. Zie hoe stop ik het automatische agent-installatie en werkruimte maken? voor instructies over het verzamelen van gegevens uitschakelen.
+> Als gegevensverzameling is ingeschakeld, kan Security Center de agent wordt opnieuw nadat u deze verwijderen.  U moet verzamelen van gegevens voordat u de agent handmatig verwijdert uitschakelen. Zie Hoe kan ik de automatische agent installatie en het maken van de werk ruimte stoppen? voor instructies voor het uitschakelen van gegevens verzameling.
 >
 >
 
@@ -218,7 +218,9 @@ De agent ook kunt u gegevens verzamelen voor [besturingselementen voor adaptieve
 
 Wanneer Security Center verdachte activiteiten op de virtuele machine detecteert, wordt de klant per e-mail verwittigd als [beveiliging contactgegevens](security-center-provide-security-contact-details.md) is opgegeven. Een waarschuwing wordt ook weergegeven in het dashboard van Security Center security-waarschuwingen.
 
-
+### <a name="will-security-center-work-using-an-oms-gateway"></a>Werkt Security Center met behulp van een OMS-gateway?
+Ja. Azure Security Center maakt gebruik van Azure Monitor voor het verzamelen van gegevens van Azure-Vm's en-servers, met behulp van micro soft monitoring agent.
+Voor het verzamelen van de gegevens moet elke virtuele machine en server verbinding maken met internet met behulp van HTTPS. De verbinding kan direct worden gebruikt, met behulp van een proxy of via de [OMS-gateway](../azure-monitor/platform/gateway.md).
 
 ### <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>De Monitoring Agent invloed op de prestaties van mijn servers?
 De agent een nominaal bedrag van systeembronnen verbruikt en moet weinig invloed hebben op de prestaties. Zie voor meer informatie over de invloed op de prestaties en de agent en de extensie, de [planning- en bedieningsgids voor](security-center-planning-and-operations-guide.md#data-collection-and-storage).
@@ -226,12 +228,12 @@ De agent een nominaal bedrag van systeembronnen verbruikt en moet weinig invloed
 ### <a name="where-is-my-data-stored"></a>Waar worden mijn gegevens opgeslagen?
 Gegevens die worden verzameld van deze agent worden opgeslagen in een bestaande Log Analytics-werkruimte die is gekoppeld aan uw abonnement of een nieuwe werkruimte. Zie voor meer informatie, [gegevensbeveiliging](security-center-data-security.md).
 
-## Klanten van bestaande Azure Monitor-Logboeken<a name="existingloganalyticscust"></a>
+## Bestaande Azure Monitor-logboeken klanten<a name="existingloganalyticscust"></a>
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Security Center heeft voorrang op bestaande verbindingen tussen virtuele machines en werkruimten?
-Als een virtuele machine al de Microsoft Monitoring Agent is geïnstalleerd als een uitbreiding van Azure is, wordt de bestaande verbinding in de werkruimte niet overschreven door Security Center. Security Center gebruikt in plaats daarvan de bestaande werkruimte. De virtuele machine worden beveiligd, mits de "Security" of "SecurityCenterFree"-oplossing is geïnstalleerd op deze rapporteert aan van de werkruimte. 
+Als een virtuele machine al de Microsoft Monitoring Agent is geïnstalleerd als een uitbreiding van Azure is, wordt de bestaande verbinding in de werkruimte niet overschreven door Security Center. Security Center gebruikt in plaats daarvan de bestaande werkruimte. De virtuele machine wordt beveiligd, op voor waarde dat de oplossing ' Security ' of ' SecurityCenterFree ' is geïnstalleerd op de werk ruimte waaraan deze is gerapporteerd. 
 
-Een oplossing voor Security Center is geïnstalleerd op de werkruimte die is geselecteerd in het scherm voor het verzamelen van gegevens als dat niet al aanwezig, en de oplossing wordt alleen toegepast op de relevante virtuele machines. Wanneer u een oplossing toevoegt, wordt deze automatisch geïmplementeerd standaard voor alle Windows en Linux-agents die zijn verbonden met uw Log Analytics-werkruimte. [Oplossing doelitems](../operations-management-suite/operations-management-suite-solution-targeting.md) kunt u een bereik toepassen op uw oplossingen.
+Er wordt een Security Center oplossing geïnstalleerd op de werk ruimte die is geselecteerd in het scherm voor het verzamelen van gegevens, als deze nog niet aanwezig is, en de oplossing wordt alleen toegepast op de relevante Vm's. Wanneer u een oplossing toevoegt, wordt deze automatisch geïmplementeerd standaard voor alle Windows en Linux-agents die zijn verbonden met uw Log Analytics-werkruimte. [Oplossing doelitems](../operations-management-suite/operations-management-suite-solution-targeting.md) kunt u een bereik toepassen op uw oplossingen.
 
 Als de Microsoft Monitoring Agent rechtstreeks op de virtuele machine (en niet als een Azure-extensie) is geïnstalleerd, de Microsoft Monitoring Agent wordt niet geïnstalleerd door Security Center en beveiligingsbewaking is beperkt.
 
@@ -284,8 +286,8 @@ Azure Security Center automatisch verzamelt, analyseert en worden logboekgegeven
 * Beveiligingsaanvallen op virtuele machines
 * Beveiligingswaarschuwingen van geïntegreerde partneroplossingen beveiliging zoals Anti-Malware of Web Application Firewalls
 
-### Waarom beveiligde scores waarden wijzigen? <a name="secure-score-faq"></a>
-Vanaf februari 2019 aangepast Security Center de score van een aantal aanbevelingen, om betere aansluiting op de ernst ervan weergegeven. Als gevolg van deze aanpassing mogelijk zijn er wijzigingen in de totale score waarden beveiligen.  Zie voor meer informatie over veilige score [scoreberekening Secure](security-center-secure-score.md).
+### Waarom zijn beveiligde Score waarden gewijzigd? <a name="secure-score-faq"></a>
+Vanaf februari 2019 heeft Security Center de Score van enkele aanbevelingen aangepast, zodat deze beter past bij de ernst. Als gevolg van deze aanpassing kunnen de algemene waarden voor beveiligde scores worden gewijzigd.  Zie [Secure Score Calculation](security-center-secure-score.md)(Engelstalig) voor meer informatie over beveiligde scores.
 
 ### <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Wat is het verschil tussen bedreigingen gedetecteerd en waarschuwingen over door Microsoft Security Response Center ten opzichte van Azure Security Center?
 De Microsoft Security Response Center (MSRC) wordt uitgevoerd selecteert u beveiligingsbewaking van de Azure-netwerk en de infrastructuur en threat intelligence en misbruik klachten ontvangt van een derde partij. MSRC wordt wanneer op de hoogte dat klantgegevens zijn geopend door een partij onwettig of niet-geautoriseerde of dat gebruik van Azure van de klant niet aan de voorwaarden voor aanvaardbaar gebruik voldoet, een incident beveiligingsbeheer informeert de klant. Melding treedt meestal op door een e-mailbericht verzenden naar het security contactpersonen in Azure Security Center of de eigenaar van de Azure-abonnement moet worden opgegeven als een contactpersoon voor beveiliging is niet opgegeven.
@@ -296,14 +298,14 @@ Security Center is een Azure-service waarmee continu gecontroleerd van de klant 
 De volgende Azure-resources worden bewaakt door Azure Security Center:
 
 * Virtuele machines (VM's) (met inbegrip van [Cloudservices](../cloud-services/cloud-services-choose-me.md))
-* Virtuele-machineschaalsets (VMSSs)
+* Virtuele-machine schaal sets (VMSSs)
 * Virtuele netwerken van Azure
 * Azure SQL-service
 * Azure Storage-account
 * Azure-Web-Apps (in [App Service-omgeving](../app-service/environment/intro.md))
 * Oplossingen van partners die zijn geïntegreerd met uw Azure-abonnement, zoals een firewall voor webtoepassingen op virtuele machines en op App Service-omgeving
 
-Niet-Azure (met inbegrip van on-premises) computers kunnen bovendien ook worden bewaakt door Azure Security Center (beide [Windows-computers](./quick-onboard-windows-computer.md) en [Linux-computers](./quick-onboard-linux-computer.md) worden ondersteund)
+Daarnaast kunnen niet-Azure-computers (met inbegrip van on-premises) ook worden bewaakt door Azure Security Center (zowel [Windows-computers](./quick-onboard-windows-computer.md) als [Linux-computers](./quick-onboard-linux-computer.md) worden ondersteund)
 
 ## <a name="virtual-machines"></a>Virtuele machines
 ### <a name="what-types-of-virtual-machines-are-supported"></a>Welke typen virtuele machines worden ondersteund?

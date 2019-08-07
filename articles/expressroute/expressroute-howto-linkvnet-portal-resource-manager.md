@@ -1,5 +1,5 @@
 ---
-title: 'Een virtueel netwerk koppelen aan een circuit - ExpressRoute: Azure-portal | Microsoft Docs'
+title: 'Een virtueel netwerk koppelen aan een circuit-ExpressRoute: Azure Portal | Microsoft Docs'
 description: Een VNet verbinden met een Azure ExpressRoute-Circuit. Procedures.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 66c43556e698063b95ce1c3787458e40c9d71504
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1545e2e7eba23b0bedbfe297c292fc94e1659ae3
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60365506"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775286"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Een virtueel netwerk verbinden met een ExpressRoute-circuit met behulp van de portal
 > [!div class="op_single_selector"]
@@ -70,7 +70,7 @@ U kunt een ExpressRoute-circuit delen voor meerdere abonnementen. De afbeelding 
 
 - Elk van de kleinere clouds binnen de grote cloud wordt gebruikt voor abonnementen die deel uitmaken van verschillende afdelingen binnen een organisatie.
 - Elk van de afdelingen binnen de organisatie kan hun eigen abonnement gebruiken voor het implementeren van hun services, maar ze kunnen een enkel ExpressRoute-circuit terugverbinding maken met uw on-premises netwerk delen.
-- Één afdeling (in dit voorbeeld: IT) kunt eigenaar van het ExpressRoute-circuit. Andere abonnementen binnen de organisatie kunnen gebruiken voor de ExpressRoute-circuit en de machtigingen die zijn gekoppeld aan het circuit, met inbegrip van abonnementen die zijn gekoppeld aan andere Azure Active Directory-tenants en de Enterprise Agreement-inschrijvingen.
+- Eén afdeling (in dit voor beeld: IT) kan eigenaar zijn van het ExpressRoute-circuit. Andere abonnementen binnen de organisatie kunnen gebruiken voor de ExpressRoute-circuit en de machtigingen die zijn gekoppeld aan het circuit, met inbegrip van abonnementen die zijn gekoppeld aan andere Azure Active Directory-tenants en de Enterprise Agreement-inschrijvingen.
 
   > [!NOTE]
   > Connectiviteit en de bandbreedte kosten in rekening gebracht voor het toegewezen circuit wordt toegepast op de eigenaar van het ExpressRoute-circuit. Alle virtuele netwerken delen de dezelfde bandbreedte.
@@ -90,7 +90,7 @@ De circuiteigenaar van het heeft de mogelijkheid om te wijzigen en autorisaties 
 De circuiteigenaar van het maakt een autorisatie. Dit resulteert in het maken van een autorisatiesleutel die door de gebruiker van een circuit kan worden gebruikt om hun virtuele netwerkgateways aan ExpressRoute-circuit. Een autorisatie is geldig voor slechts één verbinding.
 
 > [!NOTE]
-> Elke verbinding vereist een afzonderlijke autorisatie.
+> Voor elke verbinding is een afzonderlijke autorisatie vereist.
 >
 
 1. Klik op de pagina ExpressRoute **autorisaties** en typ vervolgens een **naam** voor de autorisatie en klik op **opslaan**.
@@ -121,7 +121,7 @@ De gebruiker circuit moet de resource-ID en een autorisatiesleutel van de circui
 
    ![Grondbeginselen van pagina](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. In de **instellingen** pagina, selecteer de **gateway van virtueel netwerk** en controleer de **autorisatie inwisselen** selectievakje.
-6. Voer de **autorisatiesleutel** en de **URI van Peercircuit** en geef een naam op voor de verbinding. Klik op **OK**.
+6. Voer de **autorisatiesleutel** en de **URI van Peercircuit** en geef een naam op voor de verbinding. Klik op **OK**. De **URI van het peer circuit** is de resource-id van het ExpressRoute-circuit (dat u kunt vinden onder het instellingen venster Eigenschappen van het ExpressRoute-circuit).
 
    ![De pagina Instellingen](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. Lees de informatie in de **samenvatting** pagina en klik op **OK**.

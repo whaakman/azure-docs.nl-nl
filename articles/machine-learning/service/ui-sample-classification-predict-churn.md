@@ -1,7 +1,7 @@
 ---
-title: 'Classificatie: Verloop, appetency en up-selling te voorspellen '
+title: Ontbreekt Voor spel verloop + verlangen + up-sell
 titleSuffix: Azure Machine Learning service
-description: In dit voorbeeldexperiment visuele interface bevat binaire classificatie voorspelling van het verloop, een veelvoorkomende taak voor klantrelatiebeheer (CRM).
+description: In dit voorbeeld experiment van de Visual-Interface ziet u de binaire classifier-voor spelling van het verloop, een algemene taak voor Customer Relationship Management (CRM).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,62 +10,62 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 7d10d996febd0e31c9085bf5cb82324cce101c80
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 172089d5371d8c3e38a2a22b3285b5eb180baf00
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606142"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742293"
 ---
-# <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Voorbeeld 5 - indeling: Verloop, appetency en up-selling te voorspellen 
+# <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Voor beeld 5-classificatie: Verloop, verlangen en up-sell voors pellen 
 
-Meer informatie over het bouwen van een complexe machine learning-experiment zonder te hoeven schrijven van één regel code met behulp van de visuele interface.
+Meer informatie over hoe u een complex machine learning experiment bouwt zonder een enkele regel code te schrijven met behulp van de visuele interface.
 
-Dit experiment traint drie, **twee-class boosted-beslisboom** classificaties te voorspellen algemene taken voor customer relationship management (CRM) systemen: verloop, appetency en verkoop. De gegevenswaarden en labels zijn verdeeld over meerdere gegevensbronnen en versleuteld het anoniem maken van informatie over de klant, maar we nog steeds de visuele interface kunnen gebruiken voor data-sets combineren en traint u een model met behulp van de gecodeerde waarden.
+In dit experiment worden drie, met **twee klassen** gestimuleerde classificaties voor de beslissings structuur voor het voors pellen van veelvoorkomende taken voor CRM-systemen (Customer Relationship Management): verloop, verlangen en up-selling. De gegevens waarden en labels zijn gesplitst over meerdere gegevens bronnen en worden versleuteld naar anoniem maken klant gegevens. we kunnen echter nog steeds de visuele interface gebruiken om gegevens sets te combi neren en een model te trainen met behulp van de versleutelde waarden.
 
-Omdat we willen de vraag worden beantwoord "Waarvoor een?" Dit is een probleem classificatie genoemd. U kunt dezelfde stappen in dit experiment om aan te pakken van elk type machine learning-probleem of het een regressie, classificatie, clustering, enzovoort zijn echter kunt toepassen.
+Omdat we proberen de vraag "welke?" te beantwoorden Dit wordt een probleem met de classificatie genoemd. U kunt echter dezelfde stappen in dit experiment Toep assen om elk type machine learning probleem op te doen, of het nu gaat om een regressie, classificatie, Clustering, enzovoort.
 
 Hier volgt de voltooide grafiek voor dit experiment:
 
-![Experimentgrafiek](./media/ui-sample-classification-predict-churn/experiment-graph.png)
+![Grafiek experimenteren](./media/ui-sample-classification-predict-churn/experiment-graph.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Selecteer de **Open** knop van het voorbeeld 5-experiment.
+4. Selecteer de knop **openen** voor het voor beeld 5-experiment.
 
-    ![Open het experiment](media/ui-sample-classification-predict-churn/open-sample5.png)
+    ![Het experiment openen](media/ui-sample-classification-predict-churn/open-sample5.png)
 
 ## <a name="data"></a>Data
 
-De gegevens die worden gebruikt voor dit experiment is van de KDD Cup 2009. De gegevensset is 50.000 rijen en kolommen met 230 functie. De taak is het verloop, appetency en verkoop voor klanten die gebruikmaken van deze functies te voorspellen. Zie voor meer informatie over de gegevens en de taak de [KDD website](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
+De gegevens die we voor dit experiment gebruiken, zijn afkomstig uit KDDe Cup 2009. De gegevensset heeft 50.000 rijen en kolommen van 230. De taak is het voors pellen van verloop, verlangen en het verkopen van klanten die gebruikmaken van deze functies. Zie de [KDD-website](https://www.kdd.org/kdd-cup/view/kdd-cup-2009)voor meer informatie over de gegevens en de taak.
 
-## <a name="experiment-summary"></a>Samenvatting van experiment
+## <a name="experiment-summary"></a>Experiment overzicht
 
-In dit voorbeeldexperiment visuele interface bevat binaire classificatie voorspelling van het verloop, appetency en up-selling, een veelvoorkomende taak voor klantrelatiebeheer (CRM).
+In dit voorbeeld experiment van de Visual-Interface ziet u een veelvoorkomende taak voor de voor spelling van een gemeen schappelijke geclassificeerd verloop, verlangen en verkoop, een algemene taken voor Customer Relationship Management (CRM).
 
-Eerst doen we enkele eenvoudige gegevensverwerking.
+Eerst gaan we een eenvoudige gegevens verwerking uitvoeren.
 
-- De onbewerkte gegevensset bevat veel van de ontbrekende waarden. We gebruiken de **Clean Missing Data** module ter vervanging van de ontbrekende waarden met 0.
+- De onbewerkte gegevensset bevat veel ontbrekende waarden. We gebruiken de module **clean Missing Data** om de ontbrekende waarden te vervangen door 0.
 
-    ![Opschonen van de gegevensset](./media/ui-sample-classification-predict-churn/cleaned-dataset.png)
+    ![De gegevensset opschonen](./media/ui-sample-classification-predict-churn/cleaned-dataset.png)
 
-- De functies en de bijbehorende verloop, appetency, en up-selling labels zijn in verschillende gegevenssets. We gebruiken de **kolommen toevoegen** module de label-kolommen toevoegen aan de functie-kolommen. De eerste kolom **Col1**, is de labelkolom. De rest van de kolommen **Var1**, **Var2**, enzovoort, zijn de kolommen van de functie.
+- De functies en de bijbehorende labels voor de verloop-, verlangen-en verkoop activiteiten bevinden zich in verschillende gegevens sets. We gebruiken de module **Columns toevoegen** om de label kolommen toe te voegen aan de functie kolommen. De eerste kolom, **Kol1**, is de kolom Label. De rest van de kolommen, **Var1**, **Var2**, enzovoort, zijn de functie kolommen.
 
-    ![De gegevensset kolom toe te voegen](./media/ui-sample-classification-predict-churn/added-column1.png)
+    ![De kolom gegevensset toevoegen](./media/ui-sample-classification-predict-churn/added-column1.png)
 
-- We gebruiken de **Split Data** module voor het splitsen van de gegevensset in train en sets testen.
+- We gebruiken de **gesplitste gegevens** module om de gegevensset te splitsen in Train-en test sets.
 
-    Vervolgens gebruiken we de beslissingsstructuur heeft de Klantenopbrengst binaire classificatie met de standaardparameters de voorspellende modellen te bouwen. We bouwen één model per taak, dat wil zeggen, één model elke om te voorspellen verkoop, appetency en gegevensverloop.
+    Vervolgens gebruiken we de gestimuleerde binaire classificatie van de beslissings structuur met de standaard parameters voor het bouwen van de Voorspellings modellen. We bouwen één model per taak, dat wil zeggen, één model voor het voors pellen van de verkoop, verlangen en het verloop.
 
 ## <a name="results"></a>Resultaten
 
-Visualiseer de uitvoer van de **Evaluate Model** module om te zien van de prestaties van het model voor de test. Voor de taak verkoop ziet de ROC-curve u dat het model beter dan een willekeurige-model heeft. Het gebied onder de curve (AUC) is 0.857. Met drempelwaarde 0,5, de precisie is 0,7, het intrekken van het 0.463 is en de F1-score 0.545 is.
+Visualiseer de uitvoer van de module **Evaluate model** om de prestaties van het model in de testset te bekijken. Voor de Upsell-taak laat de ROC-curve zien dat het model beter werkt dan een wille keurig model. Het gebied onder de curve (AUC) is 0,857. Bij drempel waarde van 0,5 is de nauw keurigheid 0,7, het intrekken 0,463 en de F1-Score is 0,545.
 
 ![De resultaten evalueren](./media/ui-sample-classification-predict-churn/evaluate-result.png)
 
- U kunt verplaatsen de **drempelwaarde** schuifregelaar en bekijk de metrische gegevens voor de taak binaire classificatie wijzigen.
+ U kunt de schuif regelaar drempelwaarde verplaatsen en de wijziging van metrische gegevens voor de binaire classificatie taak bekijken.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -73,10 +73,10 @@ Visualiseer de uitvoer van de **Evaluate Model** module om te zien van de presta
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De voorbeelden beschikbaar zijn voor de visuele interface verkennen:
+Bekijk de andere voor beelden die beschikbaar zijn voor de visuele interface:
 
-- [Voorbeeld 1: regressie: De prijs van een auto's voorspellen](ui-sample-regression-predict-automobile-price-basic.md)
-- [Voorbeeld 2: regressie: Algoritmen voor auto's voorspellen vergelijken](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Voorbeeld 3 - indeling: Kredietrisico voorspellen](ui-sample-classification-predict-credit-risk-basic.md)
-- [Voorbeeld 4 - classificatie: Kredietrisico (kosten gevoelige) voorspellen](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Voorbeeld 6 - indeling: Voorspellen van vertragingen van vertragingen van vluchten](ui-sample-classification-predict-flight-delay.md)
+- [Voor beeld 1-regressie: De prijs van een auto voors pellen](ui-sample-regression-predict-automobile-price-basic.md)
+- [Voor beeld 2-regressie: Algoritmen voor het voors pellen van prijzen vergelijken](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Voor beeld 3-classificatie: Krediet risico voors pellen](ui-sample-classification-predict-credit-risk-basic.md)
+- [Voor beeld 4-classificatie: Voor speld krediet risico (kosten gevoelig)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Voor beeld 6: classificatie: Vlucht vertragingen voors pellen](ui-sample-classification-predict-flight-delay.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d3d4679703f6d98cb2062144cfde7d11fe44130c
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 8aeb32ecddc0ef368b615a201179f17178ececad
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386852"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817211"
 ---
 ## <a name="application-performance-indicators"></a>Prestatie-indica toren voor toepassingen
 
@@ -268,6 +268,9 @@ Door het configureren van alleen-lezen cache op Premium Storage gegevens schijve
 
 *ReadWrite*  
 Op de besturingssysteem schijven is ReadWrite-caching standaard ingeschakeld. We hebben onlangs ondersteuning toegevoegd voor ReadWrite-caching op gegevens schijven. Als u gebruik wilt maken van ReadWrite cache, moet u de juiste manier hebben om de gegevens van de cache naar permanente schijven te schrijven. SQL Server bijvoorbeeld het schrijven van gegevens in de cache naar de permanente opslag schijven. Het gebruik van de ReadWrite-cache met een toepassing die het persistent maken van de vereiste gegevens niet verwerkt, kan leiden tot verlies van gegevens, als de virtuele machine vastloopt.
+
+*Geen*  
+Op dit moment wordt **geen** ondersteund op gegevens schijven. Het wordt niet ondersteund op besturingssysteem schijven. Als u **geen** op een besturingssysteem schijf instelt, wordt deze intern overschreven en ingesteld op **alleen-lezen**.
 
 Als voor beeld kunt u deze richt lijnen Toep assen op SQL Server die worden uitgevoerd op Premium Storage door het volgende te doen:
 

@@ -1,6 +1,6 @@
 ---
 title: Oracle-oplossingen op Azure virtual machines | Microsoft Docs
-description: Meer informatie over ondersteunde configuraties en beperkingen van Oracle-installatiekopieën voor virtuele machines op Microsoft Azure.
+description: Meer informatie over ondersteunde configuraties en beperkingen van installatie kopieën van virtuele Oracle-machines op Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
@@ -15,24 +15,24 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 70e87a38373688c1b364a079cd07934309662e3e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f13c7e6db2bf13c0547ee8689e22c9f04fe6d511
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707424"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68826755"
 ---
-# <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Oracle-installatiekopieën voor virtuele machine en de implementatie ervan op Microsoft Azure
+# <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Oracle-VM-installatie kopieën en hun implementatie op Microsoft Azure
 
-In dit artikel vindt u informatie over de Oracle-oplossingen op basis van installatiekopieën voor virtuele machines met Oracle op Azure Marketplace worden gepubliceerd. Als u geïnteresseerd in oplossingen voor cross-cloud-toepassingen met Oracle Cloud-infrastructuur bent, Zie [oplossingen voor Oracle-toepassingen integreren van Microsoft Azure en Oracle Cloud Infrastructure](oracle-oci-overview.md).
+In dit artikel vindt u informatie over Oracle-oplossingen op basis van installatie kopieën van virtuele machines die zijn gepubliceerd door Oracle in azure Marketplace. Als u geïnteresseerd bent in cross-Cloud toepassings oplossingen met Oracle Cloud Infrastructure, raadpleegt u [Oracle Application solutions Microsoft Azure en Oracle Cloud Infrastructure](oracle-oci-overview.md)(Engelstalig).
 
-Als u een lijst met beschikbare installatiekopieën, voer de volgende opdracht:
+Voer de volgende opdracht uit om een lijst met momenteel beschik bare installatie kopieën weer te geven:
 
 ```azurecli-interactive
 az vm image list --publisher oracle -o table --all
 ```
 
-Vanaf mei 2019 zijn de volgende installatiekopieën beschikbaar:
+Vanaf mei 2019 zijn de volgende installatie kopieën beschikbaar:
 
 ```bash
 Offer                   Publisher    Sku                     Urn                                                          Version
@@ -55,84 +55,84 @@ Oracle-Linux            Oracle       7.6                     Oracle:Oracle-Linux
 Oracle-WebLogic-Server  Oracle       Oracle-WebLogic-Server  Oracle:Oracle-WebLogic-Server:Oracle-WebLogic-Server:12.1.2  12.1.2
 ```
 
-Deze installatiekopieën worden beschouwd als 'Bring Your Own License' en als zodanig u enkel gefactureerd voor berekening, opslag en netwerken kosten in rekening gebracht door het uitvoeren van een virtuele machine.  Ervan wordt uitgegaan dat u goed een licentie voor het gebruik van Oracle-software en dat u beschikt over een huidige ondersteuningscontract bij Oracle. Oracle is mobiliteit van licenties gegarandeerd van on-premises naar Azure. Zie de gepubliceerde [Oracle en Microsoft](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) Opmerking voor meer informatie over mobiliteit van licenties. 
+Deze installatie kopieën worden beschouwd als ' uw eigen licentie nemen ' en als zodanig worden er alleen kosten in rekening gebracht voor berekening, opslag en netwerken die worden gemaakt door een virtuele machine uit te voeren.  Er wordt van uitgegaan dat u over een juiste licentie beschikt om Oracle-software te gebruiken en dat er een actuele ondersteunings overeenkomst is met Oracle. Oracle heeft de mobiliteit van licenties van on-premises naar Azure gegarandeerd. Raadpleeg de gepubliceerde [Oracle en micro soft](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) Note voor meer informatie over License Mobility. 
 
-Personen kunnen ook voor kiezen op basis van hun oplossingen op een aangepaste installatiekopie ze volledig in Azure maken of uploaden van een aangepaste installatiekopie van hun on-premises-omgeving.
+Gebruikers kunnen er ook voor kiezen om hun oplossingen te baseren op een aangepaste installatie kopie die ze helemaal zelf maken in azure of een aangepaste installatie kopie uploaden vanuit hun on-premises omgeving.
 
 ## <a name="support-for-jd-edwards"></a>Ondersteuning voor JD Edwards
-Op basis van de Oracle-ondersteuning Opmerking [document-ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), JD Edwards EnterpriseOne versies 9.2 en hoger worden ondersteund op **openbare cloud aanbieding** die voldoet aan hun specifieke `Minimum Technical Requirements` (MTR).  U moet maken van aangepaste installatiekopieën die voldoen aan hun MTR de specificaties voor toepassingscompatibiliteit OS en software. 
+Volgens Oracle-ondersteunings nota [doc id 2178595,1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), JD Edwards EnterpriseOne versie 9,2 en hoger, worden ondersteund in **een open bare Cloud** die `Minimum Technical Requirements` voldoet aan hun specifieke (MTR).  U moet aangepaste installatie kopieën maken die voldoen aan de MTR-specificaties voor de compatibiliteit van besturings systemen en software toepassingen. 
 
-## <a name="oracle-database-vm-images"></a>VM-installatiekopieën van Oracle-database
-Oracle biedt actieve Oracle DB 12.1 Standard en Enterprise-edities ondersteuning in Azure op installatiekopieën voor virtuele machines op basis van Oracle Linux.  Voor de beste prestaties voor werkbelastingen voor productie van Oracle DB op Azure, moet correct het formaat van de VM-installatiekopie en beheerde schijven die worden ondersteund door Premium-opslag gebruiken. Voor instructies over hoe u snel aan de slag wilt u een Oracle-database actief en werkend in Azure met behulp van de Oracle VM-installatiekopie, gepubliceerd [probeert de Oracle DB-Quickstart-overzicht](oracle-database-quick-create.md).
+## <a name="oracle-database-vm-images"></a>VM-installatie kopieën van Oracle data base
+Oracle biedt ondersteuning voor het uitvoeren van Oracle DB 12,1 Standard-en Enter prise-edities in azure op installatie kopieën van virtuele machines op basis van Oracle Linux.  Voor de beste prestaties voor productie werkbelastingen van Oracle DB op Azure, moet u de grootte van de VM-installatie kopie op juiste wijze aanpassen en Managed Disks gebruiken die door Premium Storage worden ondersteund. Meer informatie over hoe u snel een Oracle DB in azure kunt krijgen met behulp van de Oracle-installatie kopie van het gepubliceerde virtuele systeem, [kunt u Oracle DB Snelstartgids](oracle-database-quick-create.md).
 
-### <a name="attached-disk-configuration-options"></a>Gekoppelde schijf configuratie-opties
+### <a name="attached-disk-configuration-options"></a>Opties voor de schijf configuratie zijn gekoppeld
 
-Gekoppelde schijven, is afhankelijk van de Azure Blob storage-service. Elke standard-schijf is geschikt voor een theoretisch maximum van ongeveer 500 invoer/uitvoer-bewerkingen per seconde (IOPS). Onze premium-aanbod voor schijf heeft de voorkeur voor databaseworkloads met hoge prestaties en kan maar liefst tot 5000 IOP's per schijf. U kunt één schijf als die voldoet aan uw prestatievereisten past. U kunt echter de effectieve IOPS-prestaties verbeteren als u meerdere gekoppelde schijven te gebruiken, een databasegegevens verdeeld over deze, en vervolgens met Oracle automatische Storage Management (ASM). Zie [automatische opslag van Oracle-overzicht](https://www.oracle.com/technetwork/database/index-100339.html) voor Oracle ASM specifieke informatie. Zie voor een voorbeeld van hoe u kunt installeren en configureren van Oracle Asm installeren op een virtuele Linux Azure-machine, de [installeren en configureren van Oracle geautomatiseerde Storage Management](configure-oracle-asm.md) zelfstudie.
+Gekoppelde schijven zijn afhankelijk van de Azure Blob Storage-service. Elke standaard schijf kan een theoretisch maximum van ongeveer 500 invoer/uitvoer-bewerkingen per seconde (IOPS) zijn. Onze Premium Disk-aanbieding verdient de voor keur voor hoogwaardige data bases en kan Maxi maal 5000 IOps per schijf belasten. U kunt één schijf gebruiken als deze voldoet aan de prestatie behoeften. U kunt de daad werkelijke IOPS-prestaties echter verbeteren als u meerdere gekoppelde schijven gebruikt, database gegevens verspreid over hen en vervolgens Oracle Automatic Storage Management (ASM) gebruikt. Zie [overzicht van automatische opslag van Oracle](https://www.oracle.com/technetwork/database/index-100339.html) voor meer informatie over Oracle asm. Zie voor een voor beeld van het installeren en configureren van Oracle ASM op een Linux Azure-VM de zelf studie [Oracle Automated Storage Management installeren en configureren](configure-oracle-asm.md) .
 
-### <a name="shared-storage-configuration-options"></a>Configuratieopties voor gedeelde opslag
+### <a name="shared-storage-configuration-options"></a>Configuratie opties voor gedeelde opslag
 
-Azure Files met NetApp is ontworpen om te voldoen aan de vereisten van de kern van het uitvoeren van krachtige workloads, zoals databases in de cloud en biedt;
-- Systeemeigen Azure storage-service voor het uitvoeren van Oracle-workloads, hetzij via een virtuele machine systeemeigen NFS-client of Oracle dNFS NFS gedeeld
-- Schaalbare prestatielagen die overeenkomen met de werkelijke bereik van de IOPS-vereisten
+Azure NetApp Files is ontworpen om te voldoen aan de belangrijkste vereisten voor het uitvoeren van hoogwaardige workloads zoals data bases in de Cloud, en biedt;
+- De Azure native gedeelde NFS-opslag service voor het uitvoeren van Oracle-workloads via de native NFS-client van de VM of Oracle dNFS
+- Schaal bare prestatie lagen die het werkelijke bereik van IOPS-aanvragen weer spie gelen
 - Lage latentie
-- Hoge beschikbaarheid, hoge duurzaamheid en beheerbaarheid op schaal, doorgaans worden vereist door essentiële taken kritiek bedrijfsworkloads (zoals SAP en Oracle)
-- Snelle en efficiënte back-up en herstel, om de agressief RTO en RPO SLA's te realiseren
+- Hoge Beschik baarheid, hoge duurzaamheid en beheer baarheid op schaal, meestal vereist door bedrijfs werkbelastingen die essentieel zijn voor bedrijven (zoals SAP en Oracle)
+- Snelle en efficiënte back-up en herstel om de meest agressieve RTO-en RPO-SLA te halen
 
-Deze mogelijkheden zijn mogelijk omdat Azure NetApp bestanden is gebaseerd op NetApp ONTAP® all-flash-systemen die binnen de omgeving van het Azure data center – als een systeemeigen Azure-service worden uitgevoerd. Het resultaat is een ideale database opslagtechnologie die kan worden ingericht en verbruikt net als andere Azure storage-opties. Zie [Azure NetApp Files documentatie](https://docs.microsoft.com/azure/azure-netapp-files/) voor meer informatie over het implementeren en toegang tot Azure NetApp bestanden NFS-volumes. Zie [Oracle op Azure Best Practice Guide met behulp van Azure NetApp Implementatiebestanden](https://www.netapp.com/us/media/tr-4780.pdf) voor aanbevelingen voor het besturingssysteem van een Oracle-database op Azure NetApp bestanden.
+Deze mogelijkheden zijn mogelijk omdat Azure NetApp Files is gebaseerd op NetApp® ONTAP® alle-Flash systemen die worden uitgevoerd in een Azure Data Center-omgeving, als een systeem eigen Azure-service. Het resultaat is een ideale database opslag technologie die net als andere opties voor Azure Storage kan worden ingericht en verbruikt. Zie [Azure NetApp files-documentatie](https://docs.microsoft.com/azure/azure-netapp-files/) voor meer informatie over het implementeren en gebruiken van Azure NetApp files NFS-volumes. Zie de [Best practices-hand leiding voor Oracle in azure met behulp van Azure NetApp files](https://www.netapp.com/us/media/tr-4780.pdf) voor Best Practice aanbevelingen voor het werken met een Oracle-data base op Azure NetApp files.
 
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
-Oracle RAC is ontworpen voor het beperken van het uitvallen van één knooppunt in een cluster met meerdere knooppunten on-premises configuratie. Afhankelijk van twee on-premises technologieën die niet ingebouwd in grootschalige openbare cloudomgevingen zijn: gedeelde schijf en netwerk-multicast. Als uw databaseoplossing vereist dat Oracle RAC in Azure, moet u andere software van derden zodat deze technologieën. Zie voor meer informatie over Oracle RAC de [FlashGrid SkyCluster pagina](https://www.flashgrid.io/oracle-rac-in-azure/).
+Oracle RAC is ontworpen om het mislukken van één knoop punt in een on-premises cluster configuratie met meerdere knoop punten te verminderen. Het is afhankelijk van twee on-premises technologieën die niet standaard zijn voor het maken van open bare Cloud omgevingen: netwerk multi cast en gedeelde schijven. Als uw database oplossing Oracle RAC vereist in azure, hebt u de software van derden nodig om deze technologieën in te scha kelen. Zie de [pagina FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/)voor meer informatie over Oracle RAC.
 
-## <a name="high-availability-and-disaster-recovery-considerations"></a>Overwegingen voor hoge beschikbaarheid en noodherstel herstel
-Als u Oracle-databases in Azure, bent u verantwoordelijk voor het implementeren van een hoge beschikbaarheid en noodherstel hersteloplossing om te voorkomen uitvaltijd. 
+## <a name="high-availability-and-disaster-recovery-considerations"></a>Overwegingen voor hoge Beschik baarheid en herstel na nood gevallen
+Wanneer u Oracle-data bases in azure gebruikt, bent u verantwoordelijk voor het implementeren van een oplossing voor hoge Beschik baarheid en herstel na nood gevallen om uitval tijd te voor komen. 
 
-Hoge beschikbaarheid en herstel na noodgevallen voor Oracle Database Enterprise Edition (zonder afhankelijk te zijn Oracle RAC) kan worden bereikt over het gebruik van Azure [Data Guard, actief Data Guard](https://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html), of [Oracle GoldenGate](https://www.oracle.com/technetwork/middleware/goldengate), met twee databases op twee afzonderlijke virtuele machines. Beide virtuele machines moeten zich in dezelfde [virtueel netwerk](https://azure.microsoft.com/documentation/services/virtual-network/) om te controleren of ze elkaar via het particuliere IP-adres permanente toegang krijgen tot.  Bovendien is het raadzaam het plaatsen van de virtuele machines in dezelfde beschikbaarheidsset wilt dat Azure plaats deze in afzonderlijke foutdomeinen en upgradedomeinen. Moet u geo-redundantie, instellen van de twee databases om te repliceren tussen twee verschillende regio's en verbinding maken met de twee exemplaren met een VPN-Gateway.
+Hoge Beschik baarheid en herstel na nood gevallen voor Oracle Database Enterprise Edition (zonder vertrouwen op Oracle RAC) kunnen worden bereikt op Azure met behulp van [Data Guard, Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html)of [Oracle Golden Gate](https://www.oracle.com/technetwork/middleware/goldengate), met twee data bases op twee afzonderlijke virtuele apparaten. Beide virtuele machines moeten zich in hetzelfde [virtuele netwerk](https://azure.microsoft.com/documentation/services/virtual-network/) bevinden om ervoor te zorgen dat ze toegang hebben tot elkaar via het permanente IP-adres van de privé.  Daarnaast is het raadzaam om de virtuele machines in dezelfde beschikbaarheidsset te plaatsen zodat Azure deze kan plaatsen in afzonderlijke fout domeinen en upgrade domeinen. Als u geo-redundantie wilt instellen, stelt u de twee data bases in voor replicatie tussen twee verschillende regio's en verbindt u de twee exemplaren met een VPN Gateway.
 
-De zelfstudie [implementeren Oracle Data Guard voor Azure](configure-oracle-dataguard.md) begeleidt u bij de procedure eenvoudige integratie op Azure.  
+Met de zelf studie implementeert u [Oracle Data Guard in azure](configure-oracle-dataguard.md) met behulp van de basis installatie procedure van Azure.  
 
-Met Oracle Data Guard, hoge beschikbaarheid kan worden bereikt met een primaire database in een virtuele machine, een secundaire (stand-by)-database in een andere virtuele machine, en één richting replicatie tussen beide instellen. Het resultaat is leestoegang tot de kopie van de database. U kunt met Oracle GoldenGate, bidirectionele replicatie tussen de twee databases configureren. Zie voor meer informatie over het instellen van een oplossing voor hoge beschikbaarheid voor uw databases met behulp van deze hulpprogramma's, [actief Data Guard](https://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) en [GoldenGate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) documentatie op de Oracle-website. Als u moet lezen-schrijven toegang naar de kopie van de database, kunt u [Oracle actief Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
+Met Oracle Data Guard kan hoge Beschik baarheid worden bereikt met een primaire data base in één virtuele machine, een secundaire (standby)-data base in een andere virtuele machine en een eenrichtings replicatie tussen deze. Het resultaat is lees toegang tot de kopie van de data base. Met Oracle Golden Gate kunt u bidirectionele replicatie tussen de twee data bases configureren. Zie de documentatie over [Active Data Guard](https://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) en [Golden Gate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) op de Oracle-website voor meer informatie over het instellen van een oplossing voor hoge Beschik baarheid voor uw data bases met behulp van deze hulpprogram ma's. Als u lees-/schrijftoegang tot de kopie van de data base nodig hebt, kunt u [Oracle Active Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html)gebruiken.
 
-De zelfstudie [Oracle GoldenGate implementeren op Azure](configure-oracle-golden-gate.md) begeleidt u bij de procedure eenvoudige integratie op Azure.
+In de zelf studie wordt [Oracle Golden Gate in azure geïmplementeerd](configure-oracle-golden-gate.md) , wordt u begeleid bij de basis installatie procedure van Azure.
 
-Naast een HA en DR-oplossing die zijn ontworpen in Azure, hebt u een back-upstrategie op locatie om uw database te herstellen. De zelfstudie [back-up en herstel een Oracle-Database](oracle-backup-recovery.md) begeleidt u bij de eenvoudige procedure voor het tot stand brengen van een consistente back-up.
+Naast een oplossing van HA en DR in azure, moet u een back-upstrategie hebben om uw data base te herstellen. In de zelf studie [back-up en herstellen van een Oracle database](oracle-backup-recovery.md) wordt u begeleid bij de basis procedure voor het instellen van een consistente back-up.
 
-## <a name="oracle-weblogic-server-virtual-machine-images"></a>Installatiekopieën van Oracle WebLogic Server-machines
+## <a name="oracle-weblogic-server-virtual-machine-images"></a>Installatie kopieën van virtuele Oracle WebLogic-Server
 
-* **Clustering wordt ondersteund op Enterprise-editie alleen.** U bent in licentie gegeven voor het gebruik van WebLogic clustering alleen bij gebruik van de Enterprise-editie van WebLogic Server. Gebruik geen clustering met WebLogic Server Standard Edition.
-* **Multicast-UDP wordt niet ondersteund.** Azure biedt ondersteuning voor UDP-unicast-verzending, maar niet multicasting of broadcasting. WebLogic Server is vertrouwen op Azure UDP-unicast-mogelijkheden. Voor de beste resultaten vertrouwen op UDP-unicast, wordt u aangeraden dat de clustergrootte WebLogic statisch of behouden met niet meer dan 10 beheerde servers worden bewaard.
-* **WebLogic Server wordt verwacht dat de openbare en particuliere poorten moet hetzelfde zijn voor T3-toegang (bijvoorbeeld bij het gebruik van Enterprise JavaBeans).** U hebt een meerlagige scenario waarin een service-laag (EJB)-toepassing wordt uitgevoerd op een WebLogic Server-cluster dat bestaat uit twee of meer virtuele machines, in een virtueel netwerk met de naam *SLWLS*. De clientlaag is in een ander subnet in hetzelfde virtuele netwerk, een eenvoudige Java-programma wilt EJB aanroepen in de servicelaag. Omdat het nodig zijn voor taakverdeling tussen de servicelaag is, moet een openbare load balancing-eindpunt worden gemaakt voor de virtuele machines in het cluster WebLogic Server. Als de particuliere poort die u opgeeft verschilt van de openbare poort (bijvoorbeeld 7006:7008), treedt er een fout, zoals het volgende op:
+* **Clustering wordt alleen ondersteund in de Enter prise-editie.** U hebt een licentie voor het gebruik van WebLogic-clustering alleen wanneer u de Enter prise-editie van WebLogic Server gebruikt. Gebruik clustering niet met WebLogic Server Standard Edition.
+* **UDP-multi cast wordt niet ondersteund.** Azure ondersteunt UDP-Unicasting, maar geen multi Casting of Broadcasting. WebLogic-Server kan gebruikmaken van de mogelijkheden van Azure UDP-unicast. Voor de beste resultaten die gebruikmaken van UDP-unicast, wordt aangeraden de grootte van het WebLogic-cluster statisch te houden of te blijven werken met niet meer dan 10 beheerde servers.
+* **WebLogic-Server verwacht dat open bare en particuliere poorten hetzelfde zijn voor T3-toegang (bijvoorbeeld wanneer u Enter prise JavaBeans gebruikt).** Overweeg een scenario met meerdere lagen waarbij een EJB-toepassing wordt uitgevoerd op een WebLogic-Server cluster dat bestaat uit twee of meer virtuele machines, in een virtueel netwerk met de naam *SLWLS*. De laag van de client bevindt zich in een ander subnet in hetzelfde virtuele netwerk, met een eenvoudig Java-programma dat probeert EJB aan te roepen in de service laag. Omdat het nodig is om de service laag te verdelen, moet een openbaar eind punt met gelijke taak verdeling worden gemaakt voor de virtuele machines in het WebLogic-Server cluster. Als de particuliere poort die u opgeeft, niet overeenkomt met de open bare poort (bijvoorbeeld 7006:7008), treedt er een fout op, zoals de volgende:
 
        [java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.cloudapp.net:7006:
 
        Bootstrap to: example.cloudapp.net/138.91.142.178:7006' over: 't3' got an error or timed out]
 
-   Dit komt doordat voor externe toegang T3, WebLogic Server wordt verwacht dat de load balancer-poort en de beheerde WebLogic server-poort moet dezelfde zijn. In het geval is voorgaande, de client toegang heeft tot poort 7006 (de load balancer-poort) en de beheerde server luistert op 7008 (de particuliere poort). Deze beperking is alleen van toepassing op T3 toegang, niet op HTTP.
+   Dit komt doordat voor een externe T3-toegang WebLogic-Server de load balancer poort en de WebLogic beheerde server poort hetzelfde moeten hebben. In het bovenstaande geval opent de client poort 7006 (de load balancer poort) en luistert de beheerde server naar 7008 (de particuliere poort). Deze beperking is alleen van toepassing op T3-toegang, niet op HTTP.
 
-   Om dit te voorkomen, gebruikt u een van de volgende tijdelijke oplossingen:
+   Als u dit probleem wilt voor komen, gebruikt u een van de volgende tijdelijke oplossingen:
 
-  * De dezelfde persoonlijke en openbare poortnummers gebruiken voor taakverdeling eindpunten toegewezen aan T3-toegang.
-  * Bij het starten van WebLogic Server, zijn onder andere de volgende JVM-parameter:
+  * Gebruik dezelfde persoonlijke en open bare poort nummers voor eind punten met gelijke taak verdeling die specifiek zijn voor T3-toegang.
+  * Neem de volgende JVM-para meter op bij het starten van de WebLogic-Server:
 
     ```
     -Dweblogic.rjvm.enableprotocolswitch=true
     ```
 
-Voor meer informatie, Zie KB-artikel **860340.1** op <https://support.oracle.com>.
+Zie KB-artikel **860340,1** op <https://support.oracle.com>voor meer informatie.
 
-* **Dynamische clustering en beperkingen voor taakverdeling.** Stel dat u wilt gebruiken een dynamische-cluster in WebLogic Server en deze beschikbaar te maken via een enkele, openbare load balancing-eindpunt in Azure. Dit kan worden gedaan als u een vaste poortnummer voor elk van de beheerde servers (niet dynamisch toegewezen uit een bereik) en meer beheerde servers dan er machines die is het bijhouden van de beheerder niet worden gestart. Dat wil zeggen, is er niet meer dan één beheerde server per virtuele machine). Als uw configuratie in meer WebLogic servers wordt gestart resulteert dan er virtuele machines (dat wil zeggen, waarbij meerdere exemplaren van WebLogic Server delen dezelfde virtuele machine), dan is het niet mogelijk voor meer dan één van deze exemplaren van WebLogic-servers verbinding maken met een specifiek poortnummer. Anderen op deze virtuele machine mislukt.
+* **Beperkingen voor dynamische clustering en taak verdeling.** Stel dat u een dynamisch cluster wilt gebruiken in de WebLogic-Server en dit beschikbaar wilt maken via één openbaar eind punt met gelijke taak verdeling in Azure. U kunt dit doen als u een vast poort nummer gebruikt voor elk van de beheerde servers (niet dynamisch toegewezen vanuit een bereik) en niet meer beheerde servers start dan de computers die door de beheerder worden bijgehouden. Dat wil zeggen dat er niet meer dan één beheerde server per virtuele machine is. Als uw configuratie resulteert in meer WebLogic-servers die worden gestart dan er virtuele machines zijn (dat wil zeggen, waarbij meerdere WebLogic-Server instanties dezelfde virtuele machine delen), is het niet mogelijk om meer dan een van de exemplaren van WebLogic-servers te gebruiken binden aan een opgegeven poort nummer. De andere op die virtuele machine mislukken.
 
-   Als u de beheerserver om toe te wijzen automatisch unieke poortnummers op de beheerde servers configureert, klikt u vervolgens is de taakverdeling niet mogelijk omdat Azure biedt geen ondersteuning voor toewijzing van een enkele openbare poort naar meerdere particuliere poorten, zoals is vereist voor deze de configuratie.
-* **Meerdere exemplaren van WebLogic Server op een virtuele machine.** Afhankelijk van de vereisten van uw implementatie, kunt u overwegen meerdere exemplaren van WebLogic Server op dezelfde virtuele machine, uitgevoerd als de virtuele machine groot genoeg is. Op een middelgrote virtuele machine, waarin twee cores, kunt u bijvoorbeeld twee exemplaren van WebLogic Server uitvoeren. We raden echter nog steeds aan dat u Vermijd de introductie van single point of failure in uw architectuur, het geval zijn zou als u slechts één virtuele machine met meerdere exemplaren van WebLogic Server gebruikt. Met behulp van ten minste twee virtuele machines wordt mogelijk een betere benadering en elke virtuele machine kan vervolgens meerdere exemplaren van WebLogic Server uitvoeren. Elk exemplaar van WebLogic Server kan nog steeds deel uitmaken van hetzelfde cluster. Echter, het is momenteel niet mogelijk om Azure te gebruiken voor taakverdeling eindpunten die beschikbaar worden gesteld door dergelijke implementaties WebLogic Server binnen dezelfde virtuele machine, omdat Azure load balancer is vereist voor de servers met load balancing worden verdeeld over de unieke virtuele machines.
+   Als u de-beheer server zodanig configureert dat er automatisch unieke poort nummers worden toegewezen aan de beheerde servers, is taak verdeling niet mogelijk omdat Azure geen toewijzing van een enkele open bare poort aan meerdere persoonlijke poorten ondersteunt, zoals vereist voor dit configuratie.
+* **Meerdere exemplaren van de WebLogic-Server op een virtuele machine.** Afhankelijk van de vereisten van uw implementatie kunt u overwegen om meerdere exemplaren van WebLogic-Server op dezelfde virtuele machine uit te voeren als de virtuele machine groot genoeg is. U kunt bijvoorbeeld op een virtuele machine met een gemiddelde grootte, die twee kernen bevat, kiezen om twee exemplaren van de WebLogic-Server uit te voeren. We raden u echter aan om afzonderlijke punten van storingen in uw architectuur te voor komen. Dit is bijvoorbeeld het geval als u slechts één virtuele machine met meerdere exemplaren van WebLogic Server hebt gebruikt. Het gebruik van ten minste twee virtuele machines kan een betere benadering zijn en elke virtuele machine kan vervolgens meerdere exemplaren van de WebLogic-Server uitvoeren. Elk exemplaar van de WebLogic-Server kan nog steeds deel uitmaken van hetzelfde cluster. Het is momenteel niet mogelijk om Azure te gebruiken voor het laden van eind punten die worden weer gegeven door dergelijke WebLogic-Server implementaties binnen dezelfde virtuele machine, omdat Azure load balancer vereist dat de servers met gelijke taak verdeling worden verdeeld over unieke virtuele machines.
 
-## <a name="oracle-jdk-virtual-machine-images"></a>Oracle-installatiekopieën voor virtuele machines van JDK
-* **JDK 6 en 7 van de meest recente updates.** Terwijl het wordt aangeraden om de meest recente openbare, ondersteunde versie van Java (momenteel Java 8), maakt Azure ook JDK 6 en 7 installatiekopieën beschikbaar. Dit is bedoeld voor oudere toepassingen die zijn nog niet klaar om te worden bijgewerkt naar JDK 8. Terwijl updates van vorige JDK installatiekopieën zijn mogelijk niet langer beschikbaar voor het algemene publiek, de Microsoft-partner met Oracle, krijgt zijn de JDK 6 en 7 installatiekopieën die worden verstrekt door Azure bedoeld om een meer recente niet-openbare-update die normaal gesproken worden aangeboden door Oracle bevatten alleen een selecte groep van Oracle de klanten ondersteund. Nieuwe versies van de JDK-installatiekopieën worden na verloop van tijd met bijgewerkte versies van JDK 6 en 7 beschikbaar gesteld.
+## <a name="oracle-jdk-virtual-machine-images"></a>Installatie kopieën voor virtuele Oracle JDK-machines
+* **JDK 6 en 7 nieuwste updates.** We raden u aan om de meest recente, ondersteunde versie van Java (momenteel Java 8) te gebruiken, maar er zijn ook JDK 6-en 7-installatie kopieën beschikbaar. Dit is bedoeld voor oudere toepassingen die nog niet gereed zijn om te worden bijgewerkt naar JDK 8. Hoewel updates voor eerdere JDK-installatie kopieën mogelijk niet meer beschikbaar zijn voor het grote publiek, gezien de micro soft-samen werking met Oracle, zijn de installatie kopieën van JDK 6 en 7 van Azure bedoeld voor een meer recente niet-open bare update die normaal gesp roken wordt aangeboden door Oracle naar alleen een SELECT-groep van Oracle-ondersteunde klanten. Nieuwe versies van de JDK-installatie kopieën worden na verloop van tijd beschikbaar gemaakt met bijgewerkte releases van JDK 6 en 7.
 
-   De JDK die beschikbaar zijn in de JDK 6 en 7-installatiekopieën, en de virtuele machines en installatiekopieën die zijn afgeleid van deze kan alleen worden gebruikt in Azure.
-* **64-bits JDK.** Het Oracle WebLogic Server-installatiekopieën voor virtuele machines en de VM-installatiekopieën van Oracle JDK verstrekt door Azure bevatten de 64-bits versies van Windows Server en de JDK.
+   De JDK die beschikbaar zijn in de installatie kopieën van JDK 6 en 7 en de virtuele machines en installatie kopieën die hiervan zijn afgeleid, kunnen alleen worden gebruikt in Azure.
+* **64-bits JDK.** De installatie kopieën van de virtuele machine van Oracle WebLogic Server en de installatie kopieën van de virtuele machine van Oracle JDK die door Azure worden meegeleverd, bevatten de 64-bits versies van zowel Windows Server als de JDK.
 
 ## <a name="next-steps"></a>Volgende stappen
-U hebt nu een overzicht van de huidige Oracle-oplossingen op basis van installatiekopieën voor virtuele machines in Microsoft Azure. De volgende stap is het implementeren van uw eerste Oracle-database in Azure.
+U hebt nu een overzicht van de huidige Oracle-oplossingen op basis van installatie kopieën van virtuele machines in Microsoft Azure. De volgende stap is het implementeren van uw eerste Oracle-data base in Azure.
 
 > [!div class="nextstepaction"]
-> [Een Oracle-database in Azure maken](oracle-database-quick-create.md)
+> [Een Oracle-data base maken in azure](oracle-database-quick-create.md)

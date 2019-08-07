@@ -1,6 +1,6 @@
 ---
-title: Rollover van ondertekeningssleutel in Azure AD
-description: In dit artikel vindt u de ondertekening sleutelrollover aanbevolen procedures voor Azure Active Directory
+title: Rollover van de handtekening sleutel in azure AD
+description: In dit artikel worden de aanbevolen procedures voor het door voeren van de handtekening sleutel voor Azure Active Directory beschreven.
 services: active-directory
 documentationcenter: .net
 author: rwike77
@@ -11,67 +11,67 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f809fa856d39096a85dcc205d8211ba3551eeb48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f20a10f7c6f98b352e8a2d794fabc3b6b3b57319
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962852"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835306"
 ---
-# <a name="signing-key-rollover-in-azure-active-directory"></a>Rollover van ondertekeningssleutel gebruiken in Azure Active Directory
-In dit artikel wordt beschreven wat u moet weten over de openbare sleutels die worden gebruikt in Azure Active Directory (Azure AD) om beveiligingstokens te ondertekenen. Het is belangrijk te weten dat deze sleutels op basis van periodieke meegenomen en, in geval van nood, kunnen worden meegenomen onmiddellijk. Alle toepassingen die gebruikmaken van Azure AD moet kunnen via de programmacode verwerken van het proces sleutelrollover of tot stand brengen van een periodieke handmatige rollover-proces. Lees verder voor u te begrijpen hoe de sleutels werken, het beoordelen wat de impact van de overschakeling van uw toepassing en het bijwerken van uw toepassing of een rollover van periodieke handmatige proces voor het afhandelen van sleutelrollover indien nodig tot stand brengen.
+# <a name="signing-key-rollover-in-azure-active-directory"></a>Rollover van de handtekening sleutel in Azure Active Directory
+In dit artikel wordt beschreven wat u moet weten over de open bare sleutels die in Azure Active Directory (Azure AD) worden gebruikt voor het ondertekenen van beveiligings tokens. Het is belang rijk te weten dat deze sleutels periodiek worden doorgevoerd en kan in een nood geval direct worden doorgevoerd. Alle toepassingen die gebruikmaken van Azure AD, moeten programmatisch het proces voor sleutel rollover kunnen afhandelen of een periodiek hand matig rollover proces instellen. Ga verder met lezen om te begrijpen hoe de sleutels werken, hoe u de invloed van de rollover op uw toepassing kunt beoordelen en hoe u uw toepassing kunt bijwerken of een periodiek hand matig rollover proces kunt instellen voor het afhandelen van Key rollover, indien nodig.
 
-## <a name="overview-of-signing-keys-in-azure-ad"></a>Overzicht van het ondertekenen van sleutels in Azure AD
-Azure AD maakt gebruik van cryptografie met openbare sleutels die is gebouwd op industrienormen vertrouwensrelatie tussen zelf en de toepassingen die worden gebruikt. Dit werkt in de praktijk in de volgende manier: Azure AD maakt gebruik van een ondertekeningssleutel die uit een openbare en persoonlijke sleutelpaar bestaat. Wanneer een gebruiker zich aanmeldt bij een toepassing die gebruikmaakt van Azure AD voor verificatie, maakt Azure AD een beveiligingstoken dat informatie over de gebruiker bevat. Dit token is ondertekend door Azure AD met behulp van de persoonlijke sleutel voordat deze wordt verzonden naar de toepassing. Om te controleren dat het token geldig en oorsprong van Azure AD is, de toepassing van het token handtekening met behulp van de openbare sleutel beschikbaar is gemaakt door Azure AD die is opgenomen in de tenant moet worden gevalideerd [OpenID Connect discovery-document](https://openid.net/specs/openid-connect-discovery-1_0.html) of SAML / WS-Federation [document met federatieve metagegevens](azure-ad-federation-metadata.md).
+## <a name="overview-of-signing-keys-in-azure-ad"></a>Overzicht van handtekeningen sleutels in azure AD
+Azure AD maakt gebruik van open bare-sleutel cryptografie die is gebaseerd op industrie normen om een vertrouwens relatie tussen zichzelf en de toepassingen die deze gebruiken te maken. In de praktijk geldt dit op de volgende manier: Azure AD maakt gebruik van een handtekening sleutel die bestaat uit een openbaar en een persoonlijk sleutel paar. Wanneer een gebruiker zich aanmeldt bij een toepassing die gebruikmaakt van Azure AD voor verificatie, maakt Azure AD een beveiligings token dat informatie over de gebruiker bevat. Dit token is ondertekend door Azure AD met behulp van de persoonlijke sleutel voordat het wordt teruggestuurd naar de toepassing. Om te controleren of het token geldig is en afkomstig is van Azure AD, moet de toepassing de hand tekening van het token valideren met behulp van de open bare sleutel die wordt weer gegeven door Azure AD die is opgenomen in het [OpenID Connect Connect-detectie document](https://openid.net/specs/openid-connect-discovery-1_0.html) van de Tenant of via SAML/WS-inbrengen [Federatie meta gegevens document](azure-ad-federation-metadata.md).
 
-Uit veiligheidsoverwegingen kan belangrijke rollen op periodieke basis en, in het geval van een noodsituatie voor ondertekening van Azure AD worden meegenomen onmiddellijk. Elke toepassing die kan worden geïntegreerd met Azure AD moet worden voorbereid voor het afhandelen van een gebeurtenis sleutelrollover, ongeacht hoe vaak deze optreden. Als dat niet het geval, en uw toepassing probeert een verlopen sleutel gebruiken om te controleren of de handtekening van een token, mislukken de aanmeldingsaanvraag.
+Uit veiligheids overwegingen wordt de handtekening sleutel van Azure AD periodiek gerollt en in het geval van nood onmiddellijk te worden doorgevoerd. Elke toepassing die is geïntegreerd met Azure AD moet worden voor bereid om een sleutel rollover gebeurtenis te verwerken, ongeacht hoe vaak deze kan optreden. Als dat niet het geval is, zal de aanmeldings aanvraag mislukken als uw toepassing een verlopen sleutel probeert te gebruiken om de hand tekening op een token te verifiëren.
 
-Er is altijd meer dan één geldige sleutel beschikbaar in de OpenID Connect discovery-document en het document met federatieve metagegevens. Uw toepassing moet worden voorbereid om te gebruiken een van de sleutels die zijn opgegeven in het document, omdat een sleutel, wordt mogelijk teruggedraaid binnenkort, een andere kan worden de vervanging ervan, enzovoort.
+Er is altijd meer dan één geldige sleutel beschikbaar in het OpenID Connect Connect Discovery-document en het federatieve meta gegevens document. Uw toepassing moet worden voor bereid op het gebruik van een van de sleutels die zijn opgegeven in het document, omdat een sleutel binnenkort kan worden samengevouwen, een andere mogelijk de vervanging, enzovoort.
 
-## <a name="how-to-assess-if-your-application-will-be-affected-and-what-to-do-about-it"></a>Hoe kunnen beoordelen als uw toepassing worden beïnvloed en wat te doen over het
-Hoe uw toepassing omgaat met sleutelrollover, is afhankelijk van variabelen, zoals het type toepassing of welke identiteit protocol en de bibliotheek is gebruikt. De onderstaande secties te beoordelen of de meest voorkomende typen toepassingen worden beïnvloed door de rollover van ondertekeningssleutel en advies over het bijwerken van de toepassing geven voor de ondersteuning van automatische rollover of handmatig bijwerken van de sleutel.
+## <a name="how-to-assess-if-your-application-will-be-affected-and-what-to-do-about-it"></a>Controleren of uw toepassing wordt beïnvloed en wat er gebeurt
+Hoe uw toepassing de sleutel rollover afhandelt, is afhankelijk van variabelen zoals het type toepassing of het id-protocol en de bibliotheek die zijn gebruikt. In de volgende secties wordt beoordeeld of de meest voorkomende typen toepassingen worden beïnvloed door de sleutel rollover en wordt uitgelegd hoe u de toepassing bijwerkt ter ondersteuning van automatische rollover of de sleutel hand matig bijwerkt.
 
-* [Native clienttoepassingen toegang tot bronnen](#nativeclient)
-* [Webtoepassingen / API's toegang tot bronnen](#webclient)
-* [Webtoepassingen / API's beveiligen van bronnen en gebouwd met behulp van Azure App Services](#appservices)
-* [Webtoepassingen / API's beveiligen van resources met behulp van .NET OWIN OpenID Connect, WS-Federation of WindowsAzureActiveDirectoryBearerAuthentication middleware](#owin)
-* [Webtoepassingen / API's beveiligen van resources met behulp van .NET Core OpenID Connect of JwtBearerAuthentication middleware](#owincore)
-* [Webtoepassingen / API's beveiligen van resources met behulp van Node.js passport-azure-ad-module](#passport)
-* [Webtoepassingen / API's beveiligen van bronnen en gemaakt met Visual Studio 2015 of hoger](#vs2015)
-* [Beveiligen van bronnen en die zijn gemaakt met Visual Studio 2013](#vs2013)
-* Web-API's beveiligen van bronnen en die zijn gemaakt met Visual Studio 2013
-* [Beveiligen van bronnen en die zijn gemaakt met Visual Studio 2012](#vs2012)
-* [Beveiligen van bronnen en die zijn gemaakt met Visual Studio 2010, 2008 o met behulp van Windows Identity Foundation](#vs2010)
-* [Webtoepassingen / API's beveiligen van resources met behulp van een andere bibliotheken of handmatig implementeren van een van de ondersteunde protocollen](#other)
+* [Systeem eigen client toepassingen die bronnen gebruiken](#nativeclient)
+* [Webtoepassingen/Api's die bronnen gebruiken](#webclient)
+* [Webtoepassingen/Api's die resources beveiligen en gebouwd met behulp van Azure-app Services](#appservices)
+* [Webtoepassingen/Api's die resources beveiligen met behulp van .NET OWIN OpenID Connect Connect, WS-InPort of WindowsAzureActiveDirectoryBearerAuthentication middleware](#owin)
+* [Webtoepassingen/Api's die resources beveiligen met behulp van .NET core OpenID Connect Connect of JwtBearerAuthentication middleware](#owincore)
+* [Webtoepassingen/Api's die resources beveiligen met behulp van node. js Pass Port-Azure-ad-module](#passport)
+* [Webtoepassingen/Api's die resources beveiligen en zijn gemaakt met Visual Studio 2015 of hoger](#vs2015)
+* [Webtoepassingen die bronnen beveiligen en maken met Visual Studio 2013](#vs2013)
+* Web-Api's die bronnen beveiligen en worden gemaakt met Visual Studio 2013
+* [Webtoepassingen die bronnen beveiligen en maken met Visual Studio 2012](#vs2012)
+* [Webtoepassingen die bronnen beveiligen en die zijn gemaakt met Visual Studio 2010, 2008 o met behulp van Windows Identity Foundation](#vs2010)
+* [Webtoepassingen/Api's die resources beveiligen met behulp van andere bibliotheken of hand matig een van de ondersteunde protocollen implementeren](#other)
 
-Dit artikel gaat in **niet** van toepassing op:
+Deze richt lijnen zijn **niet** van toepassing op:
 
-* Toepassingen die zijn toegevoegd vanuit de Azure AD-Toepassingsgalerie (met inbegrip van aangepaste) hebben afzonderlijke richtlijnen met betrekking tot het ondertekenen van sleutels. [Meer informatie.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
-* On-premises toepassingen die zijn gepubliceerd via toepassingsproxy geen zorgen te hoeven maken over het ondertekenen van sleutels.
+* Toepassingen die zijn toegevoegd vanuit de Azure AD-toepassings galerie (met inbegrip van aangepaste), hebben afzonderlijke richt lijnen met betrekking tot het ondertekenen van sleutels. [Meer informatie.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
+* On-premises toepassingen die zijn gepubliceerd via toepassings proxy, hoeven zich geen zorgen te maken over handtekening sleutels.
 
-### <a name="nativeclient"></a>Native clienttoepassingen toegang tot bronnen
-Toepassingen die alleen toegang tot bronnen (zoals zijn) Microsoft Graph, KeyVault, Outlook-API en andere Microsoft-APIs) in het algemeen alleen een token verkrijgen en deze doorgeven aan aan de resource-eigenaar. Gezien het feit dat ze alle resources die niet beveiligt, worden ze doen het token niet controleren en hoeft dus niet om te controleren of dat deze correct is ondertekend.
+### <a name="nativeclient"></a>Systeem eigen client toepassingen die bronnen gebruiken
+Toepassingen die alleen toegang hebben tot resources (dat wil zeggen Microsoft Graph, sleutel kluis, Outlook API en andere micro soft-Api's), wordt in het algemeen alleen een token opgehaald en door gegeven aan de eigenaar van de resource. Gezien het niet beveiligen van resources, inspecteert ze niet het token en hoeven ze niet te controleren of ze correct zijn ondertekend.
 
-Systeemeigen client-toepassingen, of bureaublad of mobiel, kunnen worden onderverdeeld in deze categorie en worden dus niet beïnvloed door de rollover.
+Systeem eigen client toepassingen, of desktop of Mobile, vallen in deze categorie en worden dus niet beïnvloed door de rollover.
 
-### <a name="webclient"></a>Webtoepassingen / API's toegang tot bronnen
-Toepassingen die alleen toegang tot bronnen (zoals zijn) Microsoft Graph, KeyVault, Outlook-API en andere Microsoft-APIs) in het algemeen alleen een token verkrijgen en deze doorgeven aan aan de resource-eigenaar. Gezien het feit dat ze alle resources die niet beveiligt, worden ze doen het token niet controleren en hoeft dus niet om te controleren of dat deze correct is ondertekend.
+### <a name="webclient"></a>Webtoepassingen/Api's die bronnen gebruiken
+Toepassingen die alleen toegang hebben tot resources (dat wil zeggen Microsoft Graph, sleutel kluis, Outlook API en andere micro soft-Api's), wordt in het algemeen alleen een token opgehaald en door gegeven aan de eigenaar van de resource. Gezien het niet beveiligen van resources, inspecteert ze niet het token en hoeven ze niet te controleren of ze correct zijn ondertekend.
 
-Webtoepassingen en web-API's die van de app alleen-lezen stroom gebruikmaken (clientreferenties / clientcertificaat), kunnen worden onderverdeeld in deze categorie en worden dus niet beïnvloed door de rollover.
+Webtoepassingen en Web-Api's die gebruikmaken van de app-only-stroom (client referenties/client certificaat), vallen in deze categorie en worden daarom niet beïnvloed door de rollover.
 
-### <a name="appservices"></a>Webtoepassingen / API's beveiligen van bronnen en gebouwd met behulp van Azure App Services
-Azure App Services verificatie / autorisatie (EasyAuth)-functionaliteit heeft al de benodigde logica voor het automatisch rollover van ondertekeningssleutel afhandelen.
+### <a name="appservices"></a>Webtoepassingen/Api's die resources beveiligen en gebouwd met behulp van Azure-app Services
+De functie voor verificatie/autorisatie van Azure-app Services (EasyAuth) heeft al de benodigde logica voor het automatisch verwerken van de sleutel rollover.
 
-### <a name="owin"></a>Webtoepassingen / API's beveiligen van resources met behulp van .NET OWIN OpenID Connect, WS-Federation of WindowsAzureActiveDirectoryBearerAuthentication middleware
-Als uw toepassing van de .NET OWIN OpenID Connect, WS-Federation of WindowsAzureActiveDirectoryBearerAuthentication middleware gebruikmaakt, is deze al heeft van de benodigde logica voor het automatisch rollover van ondertekeningssleutel afhandelen.
+### <a name="owin"></a>Webtoepassingen/Api's die resources beveiligen met behulp van .NET OWIN OpenID Connect Connect, WS-InPort of WindowsAzureActiveDirectoryBearerAuthentication middleware
+Als uw toepassing gebruikmaakt van de .NET OWIN OpenID Connect Connect, WS-insluiting of WindowsAzureActiveDirectoryBearerAuthentication middleware, beschikt deze al over de benodigde logica om de sleutel rollover automatisch te verwerken.
 
-U kunt bevestigen dat uw toepassing gebruik maakt van een van deze door te zoeken naar een van de volgende codefragmenten in de Startup.cs of Startup.Auth.cs van uw toepassing
+U kunt controleren of uw toepassing een van deze gebruikt door te zoeken naar een van de volgende fragmenten in de Startup.cs of Startup.Auth.cs van uw toepassing
 
 ```
 app.UseOpenIdConnectAuthentication(
@@ -95,10 +95,10 @@ app.UseWsFederationAuthentication(
      });
 ```
 
-### <a name="owincore"></a>Webtoepassingen / API's beveiligen van resources met behulp van .NET Core OpenID Connect of JwtBearerAuthentication middleware
-Als uw toepassing van de .NET Core OWIN OpenID Connect of JwtBearerAuthentication middleware gebruikmaakt, is deze al heeft van de benodigde logica voor het automatisch rollover van ondertekeningssleutel afhandelen.
+### <a name="owincore"></a>Webtoepassingen/Api's die resources beveiligen met behulp van .NET core OpenID Connect Connect of JwtBearerAuthentication middleware
+Als uw toepassing gebruikmaakt van .NET core OWIN OpenID Connect Connect of JwtBearerAuthentication middleware, beschikt deze al over de benodigde logica om de sleutel rollover automatisch te verwerken.
 
-U kunt bevestigen dat uw toepassing gebruik maakt van een van deze door te zoeken naar een van de volgende codefragmenten in de Startup.cs of Startup.Auth.cs van uw toepassing
+U kunt controleren of uw toepassing een van deze gebruikt door te zoeken naar een van de volgende fragmenten in de Startup.cs of Startup.Auth.cs van uw toepassing
 
 ```
 app.UseOpenIdConnectAuthentication(
@@ -115,10 +115,10 @@ app.UseJwtBearerAuthentication(
      });
 ```
 
-### <a name="passport"></a>Webtoepassingen / API's beveiligen van resources met behulp van Node.js passport-azure-ad-module
-Als uw toepassing van de passport-ad-module voor Node.js gebruikmaakt, is deze al heeft van de benodigde logica voor het automatisch rollover van ondertekeningssleutel afhandelen.
+### <a name="passport"></a>Webtoepassingen/Api's die resources beveiligen met behulp van node. js Pass Port-Azure-ad-module
+Als uw toepassing gebruikmaakt van de node. js Pass Port-ad-module, beschikt deze al over de benodigde logica om de sleutel rollover automatisch te verwerken.
 
-U kunt bevestigen dat uw toepassing passport-ad door te zoeken naar het volgende codefragment in van uw toepassing app.js
+U kunt controleren of uw toepassings-Pass Port-AD naar het volgende code fragment in de app. js van uw toepassing zoekt.
 
 ```
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -128,32 +128,32 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="vs2015"></a>Webtoepassingen / API's beveiligen van bronnen en gemaakt met Visual Studio 2015 of hoger
-Als uw toepassing is gemaakt met behulp van een sjabloon in Visual Studio 2015 of hoger en u hebt geselecteerd **werk-of Schoolaccounts** uit de **Change Authentication** in het menu heeft al de noodzakelijke logica voor het automatisch rollover van ondertekeningssleutel verwerken. Deze logica, ingesloten in de OpenID Connect OWIN-middleware, opgehaald en de sleutels van het OpenID Connect discovery-document in de cache opslaat en ze worden regelmatig vernieuwd.
+### <a name="vs2015"></a>Webtoepassingen/Api's die resources beveiligen en zijn gemaakt met Visual Studio 2015 of hoger
+Als uw toepassing is gemaakt met behulp van een sjabloon voor webtoepassingen in Visual Studio 2015 of hoger en u hebt **werk-of school accounts** geselecteerd in het menu **authenticatie wijzigen** , beschikt u al over de benodigde logica om de sleutel rollover automatisch te verwerken. Met deze logica, die is inge sloten in de OWIN OpenID Connect Connect, worden de sleutels opgehaald en opgeslagen in de cache van het OpenID Connect Connect-detectie document en worden ze regel matig vernieuwd.
 
-Als u verificatie handmatig toegevoegd aan uw oplossing, is uw toepassing mogelijk niet de logica die nodig zijn sleutelrollover. U moet zelf schrijven of volg de stappen in [webtoepassingen / API's met behulp van een andere bibliotheken of handmatig implementeren van een van de ondersteunde protocollen](#other).
+Als u hand matig verificatie aan uw oplossing hebt toegevoegd, heeft uw toepassing mogelijk niet de benodigde sleutel rollover logica. U moet zelf schrijven of u kunt de stappen in webtoepassingen [/api's gebruiken met andere bibliotheken of hand matig een van de ondersteunde protocollen implementeren](#other).
 
-### <a name="vs2013"></a>Beveiligen van bronnen en die zijn gemaakt met Visual Studio 2013
-Als uw toepassing is gemaakt met behulp van een sjabloon in Visual Studio 2013 en u hebt geselecteerd **Organisatieaccounts** uit de **Change Authentication** in het menu heeft al de benodigde logica voor het afhandelen van automatisch rollover van ondertekeningssleutel. Deze logica slaat de unieke id van uw organisatie en de sleutel ondertekeningsinformatie in twee databasetabellen die zijn gekoppeld aan het project. U kunt de verbindingsreeks voor de database vinden in Web.config-bestand van het project.
+### <a name="vs2013"></a>Webtoepassingen die bronnen beveiligen en maken met Visual Studio 2013
+Als uw toepassing is gemaakt met behulp van een sjabloon voor webtoepassingen in Visual Studio 2013 en u **organisatie accounts** hebt geselecteerd in het menu **authenticatie wijzigen** , beschikt deze al over de benodigde logica om de sleutel rollover automatisch te verwerken. Deze logica slaat de unieke id van uw organisatie en de informatie over de handtekening sleutel op in twee database tabellen die zijn gekoppeld aan het project. U kunt de connection string voor de data base vinden in het bestand Web. config van het project.
 
-Als u verificatie handmatig toegevoegd aan uw oplossing, is uw toepassing mogelijk niet de logica die nodig zijn sleutelrollover. U moet zelf schrijven of volg de stappen in [webtoepassingen / API's met behulp van een andere bibliotheken of handmatig implementeren van een van de ondersteunde protocollen.](#other).
+Als u hand matig verificatie aan uw oplossing hebt toegevoegd, heeft uw toepassing mogelijk niet de benodigde sleutel rollover logica. U moet zelf schrijven of u kunt de stappen in [Web Applications/api's gebruiken met andere bibliotheken of hand matig een van de ondersteunde protocollen implementeren.](#other)
 
-De volgende stappen kunt u controleren of de logica goed in uw toepassing werkt.
+Met de volgende stappen kunt u controleren of de logica goed werkt in uw toepassing.
 
-1. Open de oplossing in Visual Studio 2013, en klik vervolgens op de **Server Explorer** tabblad in het rechter venster.
-2. Vouw **gegevensverbindingen**, **DefaultConnection**, en vervolgens **tabellen**. Zoek de **IssuingAuthorityKeys** tabel, met de rechtermuisknop op en klik vervolgens op **tabelgegevens weergeven**.
-3. In de **IssuingAuthorityKeys** tabel, is er ten minste een rij die overeenkomt met de vingerafdrukwaarde voor de sleutel. Alle rijen in de tabel verwijderen.
-4. Met de rechtermuisknop op de **Tenants** tabel en klik vervolgens op **tabelgegevens weergeven**.
-5. In de **Tenants** tabel, is er ten minste een rij die overeenkomt met een unieke directory-tenant-id. Alle rijen in de tabel verwijderen. Als u de rijen in beide niet verwijdert de **Tenants** tabel en **IssuingAuthorityKeys** tabel, krijgt u een fout opgetreden tijdens runtime.
-6. Ontwikkel en voer de toepassing. Nadat u bent aangemeld bij uw account, kunt u de toepassing kunt stoppen.
-7. Ga terug naar de **Server Explorer** en bekijk de waarden in de **IssuingAuthorityKeys** en **Tenants** tabel. U zult zien dat ze hebben is automatisch opnieuw gevuld met de juiste gegevens uit het document met federatieve metagegevens.
+1. Open de oplossing in Visual Studio 2013 en klik vervolgens op het tabblad **Server Explorer** in het rechter venster.
+2. Vouw **gegevens verbindingen**, **DefaultConnection**en **tabellen**uit. Zoek de tabel **IssuingAuthorityKeys** , klik er met de rechter muisknop op en klik vervolgens op **tabel gegevens weer geven**.
+3. In de tabel **IssuingAuthorityKeys** is er ten minste één rij die overeenkomt met de vingerafdruk waarde voor de sleutel. Alle rijen in de tabel verwijderen.
+4. Klik met de rechter muisknop op de tabel tenants en klik vervolgens op **tabel gegevens weer geven**.
+5. In de tabel tenants is er ten minste één rij die overeenkomt met een unieke Directory-Tenant-id. Alle rijen in de tabel verwijderen. Als u de rijen in de tabel tenants en **IssuingAuthorityKeys** niet verwijdert, krijgt u tijdens runtime een fout melding.
+6. Bouw en voer de toepassing uit. Nadat u bent aangemeld bij uw account, kunt u de toepassing stoppen.
+7. Ga terug naar de **Server Explorer** en Bekijk de waarden in de tabel **IssuingAuthorityKeys** en **tenants** . U ziet dat ze automatisch opnieuw zijn ingevuld met de juiste gegevens uit het federatieve meta gegevens document.
 
-### <a name="vs2013"></a>Web-API's beveiligen van bronnen en die zijn gemaakt met Visual Studio 2013
-Als u een web-API-toepassing in Visual Studio 2013 met behulp van de Web-API-sjabloon hebt gemaakt en vervolgens geselecteerd **Organisatieaccounts** uit de **Change Authentication** in het menu u al hebt u de benodigde de logica in uw toepassing.
+### <a name="vs2013"></a>Web-Api's die bronnen beveiligen en worden gemaakt met Visual Studio 2013
+Als u in Visual Studio 2013 een web API-toepassing hebt gemaakt met behulp van de Web-API-sjabloon en vervolgens **organisatie accounts** hebt geselecteerd in het menu **verificatie wijzigen** , hebt u al de benodigde logica in uw toepassing.
 
-Als u verificatie handmatig hebt geconfigureerd, volgt u de instructies hieronder voor meer informatie over het configureren van uw Web-API voor het automatisch bijwerken van de belangrijkste informatie.
+Als u verificatie hand matig hebt geconfigureerd, volgt u de onderstaande instructies om te leren hoe u uw web-API kunt configureren om de bijbehorende sleutel gegevens automatisch bij te werken.
 
-Het volgende codefragment laat zien hoe u de meest recente sleutels ophalen uit het document met federatieve metagegevens en gebruik vervolgens de [JWT-Token Handler](https://msdn.microsoft.com/library/dn205065.aspx) voor het valideren van het token. Het volgende codefragment wordt ervan uitgegaan dat die u uw eigen caching-mechanisme gebruikt voor het opslaan van de sleutel voor het valideren van toekomstige tokens van Azure AD, ongeacht of dit in een database, -configuratiebestand of ergens anders.
+Het volgende code fragment laat zien hoe u de meest recente sleutels van het document met federatieve meta gegevens ophaalt en vervolgens de [JWT-token-handler](https://msdn.microsoft.com/library/dn205065.aspx) gebruikt om het token te valideren. In het code fragment wordt ervan uitgegaan dat u uw eigen cache mechanisme gebruikt voor het persistent maken van de sleutel voor het valideren van toekomstige tokens van Azure AD, ongeacht of deze zich in een Data Base, configuratie bestand of ergens anders bevinden.
 
 ```
 using System;
@@ -243,18 +243,18 @@ namespace JWTValidation
 }
 ```
 
-### <a name="vs2012"></a>Beveiligen van bronnen en die zijn gemaakt met Visual Studio 2012
-Als uw toepassing in Visual Studio 2012 is gemaakt, u waarschijnlijk gebruikt de identiteit en toegang tot hulpprogramma om uw toepassing te configureren. Ook is het waarschijnlijk dat u gebruikmaakt van de [valideren van certificaatverlener naam register (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). De VINR is verantwoordelijk voor het onderhouden van informatie over de vertrouwde id-providers (Azure AD) en de sleutels die worden gebruikt voor het valideren van tokens die zijn uitgegeven door hen. De VINR ook kunt u eenvoudig automatisch bijwerken van de gegevens van de sleutel die zijn opgeslagen in een Web.config-bestand door te downloaden van de meest recente document met federatieve metagegevens die zijn gekoppeld aan uw directory, controleren of de configuratie bijgewerkt met de meest recente document is, en bijwerken van de toepassing voor het gebruik van de nieuwe sleutel zo nodig.
+### <a name="vs2012"></a>Webtoepassingen die bronnen beveiligen en maken met Visual Studio 2012
+Als uw toepassing is gemaakt in Visual Studio 2012, hebt u waarschijnlijk het hulp programma voor identiteits-en toegangs beheer gebruikt voor het configureren van uw toepassing. Het is ook waarschijnlijk dat u gebruikmaakt van het [valideren van de naam register van de verlener (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). De VINR is verantwoordelijk voor het onderhouden van informatie over vertrouwde id-providers (Azure AD) en de sleutels die worden gebruikt om tokens te valideren die door hen worden uitgegeven. Met de VINR kunt u de belang rijke informatie die is opgeslagen in een web. config-bestand, ook gemakkelijk bijwerken door het meest recente federatieve meta gegevens document dat is gekoppeld aan uw directory te downloaden, te controleren of de configuratie verouderd is met het laatste document en de toepassing zo nodig bij te werken om de nieuwe sleutel te gebruiken.
 
-Als u uw toepassing met behulp van de voorbeelden van code of scenario documentatie die wordt geleverd door Microsoft gemaakt, wordt de logica rollover van ondertekeningssleutel is al opgenomen in uw project. U ziet dat de onderstaande code in uw project al bestaat. Als uw toepassing heeft nog geen deze logica, de volgende stappen toe te voegen en te controleren of deze correct werkt.
+Als u uw toepassing hebt gemaakt met behulp van een van de code voorbeelden of de overzichts documentatie van micro soft, is de logica voor sleutel rollover al opgenomen in uw project. U ziet dat de onderstaande code al in uw project bestaat. Als uw toepassing deze logica nog niet heeft, volgt u de onderstaande stappen om deze toe te voegen en te controleren of deze correct werkt.
 
-1. In **Solution Explorer**, Voeg een verwijzing naar de **System.IdentityModel** assembly voor het juiste project.
-2. Open de **Global.asax.cs** -bestand en voeg de volgende using-instructies:
+1. In **Solution Explorer**voegt u een verwijzing naar de **System. Identity model** -assembly voor het betreffende project toe.
+2. Open het **Global.asax.cs** -bestand en voeg het volgende toe met behulp van de instructies:
    ```
    using System.Configuration;
    using System.IdentityModel.Tokens;
    ```
-3. Toevoegen van de volgende methode naar de **Global.asax.cs** bestand:
+3. Voeg de volgende methode toe aan het **Global.asax.cs** -bestand:
    ```
    protected void RefreshValidationSettings()
    {
@@ -264,7 +264,7 @@ Als u uw toepassing met behulp van de voorbeelden van code of scenario documenta
     ValidatingIssuerNameRegistry.WriteToConfig(metadataAddress, configPath);
    }
    ```
-4. Aanroepen van de **RefreshValidationSettings()** methode in de **Application_Start()** methode in **Global.asax.cs** zoals wordt weergegeven:
+4. Roep de methode **RefreshValidationSettings ()** aan in de methode **Application_Start ()** in **Global.asax.cs** zoals weer gegeven:
    ```
    protected void Application_Start()
    {
@@ -274,11 +274,11 @@ Als u uw toepassing met behulp van de voorbeelden van code of scenario documenta
    }
    ```
 
-Nadat u deze stappen hebt gevolgd, wordt met de meest recente gegevens uit het document met federatieve metagegevens, met inbegrip van de meest recente sleutels van uw toepassing Web.config bijgewerkt. Deze update wordt uitgevoerd telkens als uw groep van toepassingen wordt gerecycled in IIS. IIS is standaard ingesteld op toepassingen recyclen om 29 uur.
+Zodra u deze stappen hebt gevolgd, wordt de web. config van uw toepassing bijgewerkt met de meest recente informatie uit het federatieve meta gegevens document, inclusief de meest recente sleutels. Deze update wordt uitgevoerd telkens wanneer de groep van toepassingen wordt gerecycled in IIS. IIS wordt standaard elke 29 uur ingesteld voor het recyclen van toepassingen.
 
-Volg de stappen hieronder om te controleren of de logica sleutelrollover werkt.
+Volg de onderstaande stappen om te controleren of de sleutel rollover logica werkt.
 
-1. Nadat u hebt gecontroleerd dat uw toepassing met behulp van de bovenstaande code, opent u de **Web.config** bestands- en navigeer naar de  **\<issuerNameRegistry >** blok, specifiek op zoek naar de aantal regels te volgen:
+1. Nadat u hebt gecontroleerd of de bovenstaande code door uw toepassing wordt gebruikt, opent u het bestand **Web. config** en gaat u naar het  **\<issuerNameRegistry->** blok, dat specifiek zoekt naar de volgende regels:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -286,31 +286,31 @@ Volg de stappen hieronder om te controleren of de logica sleutelrollover werkt.
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. In de  **\<toevoegen vingerafdruk = "" >** instelt, wijzigt u de vingerafdrukwaarde door een willekeurig teken vervangen door een andere schijf. Sla de **Web.config** bestand.
-3. Maken van de toepassing en voer het vervolgens uit. Als u kunt het aanmeldingsproces hebt voltooid, wordt uw toepassing de sleutel is bijgewerkt door het downloaden van de vereiste gegevens van het document met federatieve metagegevens van uw directory. Als u problemen met aanmelden ondervindt, controleert u of de wijzigingen in uw toepassing juist zijn door het lezen van de [toe te voegen aanmelding in voor uw Web-toepassing met Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) artikel of downloaden op te halen en het volgende codevoorbeeld: [Multitenant-Cloud-toepassing voor Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
+2. Wijzig in de  **\<instelling vinger afdruk toevoegen = "" >** de waarde van de vinger afdruk door een ander teken te vervangen. Sla het bestand **Web. config** op.
+3. Bouw de toepassing en voer deze uit. Als u het aanmeld proces kunt volt ooien, wordt de sleutel door uw toepassing bijgewerkt door de vereiste informatie te downloaden uit het federatieve meta gegevens document van uw Directory. Als u problemen ondervindt bij het aanmelden, moet u ervoor zorgen dat de wijzigingen in uw toepassing correct zijn door het [toevoegen van een aanmelding aan uw webtoepassing met behulp van Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) -artikel of het downloaden en inspecteren van het volgende code voorbeeld: [Cloud toepassing met meerdere tenants voor Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
-### <a name="vs2010"></a>Beveiligen van bronnen en die zijn gemaakt met Visual Studio 2008 of 2010 en Windows Identity Foundation (WIF) v1.0 voor .NET 3.5
-Als u een toepassing gebouwd op WIF v1.0, is er geen opgegeven mechanisme voor automatisch vernieuwen van uw toepassing configureren voor het gebruik van een nieuwe sleutel.
+### <a name="vs2010"></a>Webtoepassingen die bronnen beveiligen en zijn gemaakt met Visual Studio 2008 of 2010 en Windows Identity Foundation (WIF) v 1.0 voor .NET 3,5
+Als u een toepassing op WIF v 1.0 hebt gemaakt, is er geen mechanisme voor het automatisch vernieuwen van de configuratie van uw toepassing om een nieuwe sleutel te gebruiken.
 
-* *Eenvoudigste manier* de FedUtil programma's die is opgenomen in de SDK WIF, die het meest recente metadata-document ophalen en bijwerken van uw configuratie gebruiken.
-* Uw toepassing bijwerken voor .NET 4.5, waaronder de nieuwste versie van WIF zich in de naamruimte System. Vervolgens kunt u de [valideren van certificaatverlener naam register (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) automatische updates van de configuratie van de toepassing uitvoert.
-* Voer een handmatige rollover volgens de instructies aan het einde van dit document met richtlijnen.
+* *Eenvoudigste manier* Gebruik het FedUtil-hulp programma dat is opgenomen in de WIF-SDK, waarmee het meest recente meta gegevens document kan worden opgehaald en uw configuratie kan worden bijgewerkt.
+* Werk uw toepassing bij naar .NET 4,5, die de nieuwste versie van WIF bevat die zich in de systeem naam ruimte bevindt. U kunt vervolgens het [validatie programma naam register (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) gebruiken om automatische updates van de configuratie van de toepassing uit te voeren.
+* Voer een hand matige rollover uit conform de instructies aan het einde van dit document.
 
-Instructies voor het gebruik van de FedUtil uw configuratie bij te werken:
+Instructies voor het gebruik van de FedUtil om uw configuratie bij te werken:
 
-1. Controleer of u de WIF v1.0 SDK geïnstalleerd op uw ontwikkelcomputer voor Visual Studio 2008 of 2010. U kunt [downloaden vanaf hier](https://www.microsoft.com/en-us/download/details.aspx?id=4451) als u nog niet hebt geïnstalleerd het.
-2. Open de oplossing in Visual Studio, klik met de rechtermuisknop op het desbetreffende project en selecteer **bijwerken van de federatiemetagegevens**. Als deze optie niet beschikbaar is, is FedUtil en/of de WIF v1.0 SDK niet geïnstalleerd.
-3. Selecteer in de prompt **Update** om te beginnen met het bijwerken van uw federatiemetagegevens. Hebt u toegang tot de server-omgeving waar de toepassing wordt gehost, kunt u eventueel de FedUtil gebruiken [metagegevens van automatische update scheduler](https://msdn.microsoft.com/library/ee517272.aspx).
-4. Klik op **voltooien** om de updateproces te voltooien.
+1. Controleer of de WIF v 1.0 SDK is geïnstalleerd op uw ontwikkel computer voor Visual Studio 2008 of 2010. U kunt [deze hier downloaden](https://www.microsoft.com/en-us/download/details.aspx?id=4451) als u deze nog niet hebt geïnstalleerd.
+2. Open de oplossing in Visual Studio, klik met de rechter muisknop op het betreffende project en selecteer **federatieve meta gegevens bijwerken**. Als deze optie niet beschikbaar is, is FedUtil en/of de WIF v 1.0 SDK niet geïnstalleerd.
+3. Selecteer in de prompt **Update** om te beginnen met het bijwerken van uw federatieve meta gegevens. Als u toegang hebt tot de server omgeving waar de toepassing wordt gehost, kunt u eventueel de [automatische update planner](https://msdn.microsoft.com/library/ee517272.aspx)van FedUtil gebruiken.
+4. Klik op **volt ooien** om het update proces te volt ooien.
 
-### <a name="other"></a>Webtoepassingen / API's beveiligen van resources met behulp van een andere bibliotheken of handmatig implementeren van een van de ondersteunde protocollen
-Als u met behulp van sommige andere bibliotheek of een van de ondersteunde protocollen handmatig zijn geïmplementeerd, moet u de bibliotheek of uw implementatie om ervoor te zorgen dat de sleutel wordt opgehaald uit het OpenID Connect discovery-document of de federatiemetagegevens bekijken het document. Een manier om dit te controleren is te doen van een zoekopdracht in uw code of code van de bibliotheek voor de aanroepen uit voor de OpenID-discovery-document of het document met federatieve metagegevens.
+### <a name="other"></a>Webtoepassingen/Api's die resources beveiligen met behulp van andere bibliotheken of hand matig een van de ondersteunde protocollen implementeren
+Als u een andere bibliotheek gebruikt of een van de ondersteunde protocollen hand matig implementeert, moet u de bibliotheek of uw implementatie controleren om ervoor te zorgen dat de sleutel wordt opgehaald uit het OpenID Connect Connect Discovery-document of de federatieve meta gegevens document. U kunt dit ook controleren door een zoek opdracht in uw code of de code van de bibliotheek uit te voeren voor alle aanroepen naar het OpenID Connect Discovery-document of het federatieve meta gegevens document.
 
-Als de sleutel ergens worden opgeslagen of vastgelegd in uw toepassing, u handmatig kunt de sleutel ophalen en werk deze dienovereenkomstig door een handmatige rollover volgens de instructies aan het einde van dit document met richtlijnen uitvoeren. **Het is sterk aangeraden dat u uw toepassing voor de ondersteuning van automatische rollover verbeteren** via een van de omtrek van de methoden in dit artikel om te voorkomen dat toekomstige onderbrekingen en overhead als Azure AD verhoogt het proces of een noodsituatie out-of-band rollover.
+Als de sleutel wordt opgeslagen ergens of hardcoded in uw toepassing, kunt u de sleutel hand matig ophalen en deze bijwerken door een hand matige rollover uit te voeren overeenkomstig de instructies aan het einde van dit document. Het **wordt ten zeerste aangeraden om uw toepassing te verbeteren om automatische rollover te ondersteunen** met behulp van een van de benaderingen in dit artikel om toekomstige onderbrekingen en overhead te voor komen als Azure AD de rollover uitgebracht verhoogt of een nood geval heeft niet-band-rollover.
 
-## <a name="how-to-test-your-application-to-determine-if-it-will-be-affected"></a>Het testen van uw toepassing om te bepalen als deze wordt beïnvloed
-U kunt controleren of uw toepassing automatische sleutelrollover ondersteunt door de scripts downloaden en de instructies in [deze GitHub-opslagplaats.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
+## <a name="how-to-test-your-application-to-determine-if-it-will-be-affected"></a>Uw toepassing testen om te bepalen of deze wordt beïnvloed
+U kunt controleren of uw toepassing automatische sleutel rollover ondersteunt door de scripts te downloaden en de instructies in [deze github-opslag plaats](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) te volgen.
 
-## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Het uitvoeren van een rollover van handmatige als automatische rollover biedt geen ondersteuning voor uw toepassing
-Als uw toepassing **niet** automatische rollover ondersteunen, moet u een proces dat periodiek monitors Azure AD het ondertekenen van sleutels en voert een handmatige rollover dienovereenkomstig vast te stellen. [Deze GitHub-opslagplaats](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) bevat scripts en instructies over hoe u dit doet.
+## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Hand matige rollover uitvoeren als uw toepassing automatische rollover niet ondersteunt
+Als uw toepassing **geen** automatische rollover ondersteunt, moet u een proces opzetten dat regel matig de Ondertekeningssleutels van Azure AD bewaakt en een hand matige rollover uitvoert. [Deze github-opslag plaats](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) bevat scripts en instructies over hoe u dit doet.
 

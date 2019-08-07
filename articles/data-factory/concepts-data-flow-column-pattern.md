@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8f1fa6f7823c643278e52ffd0faa1c0ce4972ef8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 41037e0687274d123bea742cee5cf2887548aa0f
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640250"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775214"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>Kolom patronen voor gegevens stromen toewijzen
 
@@ -45,6 +45,16 @@ Als u patronen wilt bouwen op basis van kolommen, kunt u overeenkomen met de kol
 Bij het toewijzen van kolommen in de bron en het selecteren van trans formaties, hebt u de mogelijkheid om "vaste toewijzing" of "op regels gebaseerde toewijzing" te kiezen. Wanneer u het schema van uw gegevens kent en wilt verwachten dat er specifieke kolommen van de bron-gegevensset worden gevonden die altijd overeenkomen met specifieke statische namen, kunt u vaste toewijzing gebruiken. Maar wanneer u met flexibele schema's werkt, gebruikt u toewijzing op basis van een regel. U kunt een patroon overeenkomst samen stellen met de regels die hierboven worden beschreven.
 
 ![toewijzing op basis van een regel](media/data-flow/rule2.png "Toewijzing op basis van een regel")
+
+Bouw uw regels met de opbouw functie voor expressies. Uw expressies retour neren een Booleaanse waarde naar match columns (true) of kolommen uitsluiten (false).
+
+## <a name="pattern-matching-special-columns"></a>Patroon overeenkomende speciale kolommen
+
+* `$$`wordt omgezet naar de naam van elk match tijdens de ontwerp fase in de foutopsporingsmodus en tijdens de uitvoering.
+* `name`vertegenwoordigt de naam van elke binnenkomende kolom
+* `type`vertegenwoordigt het gegevens type van elke binnenkomende kolom
+* `stream`vertegenwoordigt de naam die is gekoppeld aan elke stroom of trans formatie in uw stroom
+* `position`is het Volg nummer van de kolommen in uw gegevens stroom
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over de [taal](http://aka.ms/dataflowexpressions) van de ADF-toewijzings gegevens voor gegevens transformaties

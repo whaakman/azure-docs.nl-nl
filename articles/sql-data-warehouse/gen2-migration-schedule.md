@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 07/22/2019
-ms.openlocfilehash: d4724672510d6ccbbc819691d621400cb00d8c9a
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: cd55e078e14ec34006df05096f161e7bdef39a03
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405452"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827221"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Upgrade uw data warehouse naar Gen2
 
@@ -88,7 +88,7 @@ Er zijn twee opties voor het uitvoeren van een self-upgrade.  U kunt uw huidige 
 - [In-place upgrade uitvoeren](upgrade-to-latest-generation.md) : met deze optie wordt uw bestaande gen1-Data Warehouse bijgewerkt naar Gen2. Bij het upgrade proces geldt een korte daling van de connectiviteit (ongeveer 5 min.) wanneer uw data warehouse opnieuw wordt gestart.  Zodra uw data warehouse opnieuw is opgestart, is het volledig beschikbaar voor gebruik. Als u problemen ondervindt tijdens de upgrade, opent u een ondersteunings [aanvraag](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) en raadpleegt u de mogelijke oorzaak van de Gen2-upgrade.
 - [Upgrade van herstel punt](sql-data-warehouse-restore.md) : Maak een door de gebruiker gedefinieerd herstel punt op het huidige gen1-Data Warehouse en herstel het vervolgens rechtstreeks naar een Gen2-exemplaar. Het bestaande gen1-Data Warehouse blijft aanwezig. Nadat het herstel is voltooid, is uw Gen2-Data Warehouse volledig beschikbaar voor gebruik.  Wanneer u alle test-en validatie processen op het teruggezette Gen2-exemplaar hebt uitgevoerd, kan de oorspronkelijke gen1-instantie worden verwijderd.
 
-   - Stap 1: Maak in de Azure Portal [een door de gebruiker gedefinieerd herstel punt](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal).
+   - Stap 1: Maak in de Azure Portal [een door de gebruiker gedefinieerd herstel punt](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal).
    - Stap 2: Wanneer u herstelt vanaf een door de gebruiker gedefinieerd herstel punt, stelt u het prestatie niveau in op de Gen2-laag van uw voor keur.
 
 Er kan tijdelijk sprake zijn van verminderde prestaties terwijl het upgradeproces de gegevensbestanden op de achtergrond blijft bijwerken. De totale tijdsduur voor afnemende prestaties is afhankelijk van de grootte van uw gegevensbestanden.
@@ -155,6 +155,6 @@ Zie [upgrade naar Gen2](upgrade-to-latest-generation.md)voor meer informatie.
 - [Resource Health Monitor](https://docs.microsoft.com/azure/service-health/resource-health-overview)
 - [Controleren voordat u een migratie start](upgrade-to-latest-generation.md#before-you-begin)
 - [Upgrade in-place en upgrade vanaf een herstel punt](upgrade-to-latest-generation.md)
-- [Een door de gebruiker gedefinieerd herstel punt maken](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
-- [Meer informatie over het herstellen naar Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
+- [Een door de gebruiker gedefinieerd herstel punt maken](sql-data-warehouse-restore-points.md)
+- [Meer informatie over het herstellen naar Gen2](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal)
 - [Een ondersteunings aanvraag voor SQL Data Warehouse openen](https://go.microsoft.com/fwlink/?linkid=857950)

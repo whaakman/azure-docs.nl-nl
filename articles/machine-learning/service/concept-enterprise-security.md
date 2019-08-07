@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
-ms.openlocfilehash: f9fd9f88a0aa6af9cd4160bf5879b9b8f383dca1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: f0fb6f0d2b2579679ee8a6ec43b3241377701d48
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720429"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780903"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Enter prise Security voor Azure Machine Learning-service
 
@@ -161,7 +161,7 @@ Alle container installatie kopieën in uw REGI ster (ACR) worden op rest versleu
 
 De besturingssysteem schijf voor elk reken knooppunt wordt opgeslagen in Azure Storage wordt versleuteld met behulp van door micro soft beheerde sleutels in Azure Machine Learning-opslag accounts voor services. Deze berekening is kortstondig en clusters worden meestal omlaag geschaald wanneer er geen uitvoeringen in de wachtrij worden geplaatst. De onderliggende virtuele machine is ongedaan gemaakt en de besturingssysteem schijf is verwijderd. Azure Disk Encryption wordt niet ondersteund voor de besturingssysteem schijf.
 Elke virtuele machine heeft ook een lokale tijdelijke schijf voor besturingssysteem bewerkingen. Deze schijf kan ook worden gebruikt voor het faseren van de trainings gegevens. Deze schijf is niet versleuteld.
-Zie [Azure Data Encryption-at-rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)voor meer informatie over de werking van versleuteling bij rest in Azure.
+Zie [Azure Data Encryption-at-rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)voor meer informatie over de werking van versleuteling bij rest in Azure.
 
 ### <a name="encryption-in-transit"></a>Versleuteling in transit
 

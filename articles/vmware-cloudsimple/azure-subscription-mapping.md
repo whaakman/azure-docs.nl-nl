@@ -1,74 +1,74 @@
 ---
-title: Azure-abonnement worden toegewezen aan resourcegroepen op Azure VMware-oplossing door CloudSimple
-description: Hierin wordt beschreven hoe u een resourcegroep maken op Azure VMware-oplossing door CloudSimple toewijzen aan uw Azure-abonnement
+title: Azure-abonnement toewijzen aan resource groepen in azure VMware-oplossing op CloudSimple
+description: Hierin wordt beschreven hoe u een resource groep in een Azure VMware-oplossing toewijst door CloudSimple aan uw Azure-abonnement
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/05/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: efda996e03d46a2f97d19558f7c2930b623a639e
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 1bf721f35500d2ff1344996e7750c5e574f40f31
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67333249"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816264"
 ---
-# <a name="map-resource-pools-from-your-private-cloud-to-your-azure-subscription"></a>Resourcegroepen in uw Privécloud aan uw Azure-abonnement toewijzen
+# <a name="map-resource-pools-from-your-private-cloud-to-your-azure-subscription"></a>Resource groepen toewijzen vanuit uw Privécloud aan uw Azure-abonnement
 
-Toewijzing van de Azure-abonnement kunt u resourcegroepen in uw vCenter Private Cloud aan uw Azure-abonnement toewijzen. Alleen voor het abonnement waarin u de service CloudSimple hebt gemaakt, kunt u toewijzen.  Het maken van een virtuele VMware-machine vanuit Azure portal, wordt de virtuele machine in de toegewezen resourcegroep geïmplementeerd.  In de portal voor CloudSimple, kunt u weergeven en beheren van de Azure-abonnement voor uw Privéclouds.
+Met de toewijzing van Azure-abonnementen kunt u resource groepen vanuit uw Privécloud-vCenter toewijzen aan uw Azure-abonnement. U kunt alleen het abonnement toewijzen waar u de CloudSimple-service hebt gemaakt.  Als u een virtuele VMware-machine maakt op basis van de Azure Portal implementeert de virtuele machine in de toegewezen resource groep.  In de CloudSimple-Portal kunt u het Azure-abonnement voor uw privé-Clouds weer geven en beheren.
 
-Een abonnement kan worden toegewezen aan meerdere resourcegroepen voor vCenter van een privécloud.  U hebt om toe te wijzen resourcegroepen van elke privécloud.  Alleen de toegewezen resourcegroepen zijn beschikbaar voor het maken van een virtuele VMware-machine vanuit Azure portal.
+Een abonnement kan worden toegewezen aan meerdere vCenter-resource groepen van een privécloud.  U moet resource groepen van elke privécloud toewijzen.  Alleen de toegewezen resource groepen zijn beschikbaar voor het maken van een virtuele VMware-machine vanuit de Azure Portal.
 
 > [!IMPORTANT]
-> Toewijzing van een resourcegroep bronnengroepen onderliggende ook worden toegewezen. Een bovenliggende resource pool kan niet worden toegewezen als onderliggend bronnengroepen zijn al toegewezen.
+> Als u een resource groep toewijst, worden ook alle onderliggende resource groepen toegewezen. Een bovenliggende resource groep kan niet worden toegewezen als er al onderliggende resource groepen zijn toegewezen.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel wordt ervan uitgegaan dat u hebt een CloudSimple service en een privécloud in uw abonnement.  Zie voor het maken van een service CloudSimple [Quick Start - service maken](quickstart-create-cloudsimple-service.md).  Als u nodig hebt om een privécloud te maken, Zie [-Snelstart: een privécloud-omgeving configureren](quickstart-create-private-cloud.md).
+In dit artikel wordt ervan uitgegaan dat u een CloudSimple-service en een privécloud hebt in uw abonnement.  Als u een CloudSimple-service wilt maken, raadpleegt u [Quick start-service maken](quickstart-create-cloudsimple-service.md).  Als u een privécloud wilt maken, raadpleegt u [Quick Start-een Privécloud configureren](quickstart-create-private-cloud.md).
 
-U kunt de vCenter-cluster (root-resourcegroep) toewijzen aan uw abonnement.  Als u wilt een nieuwe resourcegroep maken, Zie [een bronnengroep maken](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.resmgmt.doc/GUID-0F6C6709-A5DA-4D38-BE08-6CB1002DD13D.html) artikel op de website van de VMware-documentatie.
+U kunt het vCenter-cluster (de hoofd resource groep) toewijzen aan uw abonnement.  Als u een nieuwe resource groep wilt maken, raadpleegt u een artikel van [een resource groep maken op de](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.resmgmt.doc/GUID-0F6C6709-A5DA-4D38-BE08-6CB1002DD13D.html) documentatie site van VMware.
 
-## <a name="default-resource-group"></a>Standaard-resourcegroep
+## <a name="default-resource-group"></a>Standaard resource groep
 
-Het maken van een nieuwe CloudSimple virtuele machine van Azure-portal, kunt u de resourcegroep selecteren.  Een virtuele machine gemaakt op vCenter-privécloud in een toegewezen resourcegroep zijn zichtbaar in Azure portal.  De gedetecteerde virtuele machine wordt geplaatst in de standaard Azure-resourcegroep.  U kunt de naam van de standaard-resourcegroep wijzigen.
+Als u een nieuwe virtuele CloudSimple-machine maakt op basis van Azure Portal, kunt u de resource groep selecteren.  Een virtuele machine die is gemaakt in een privécloud in de cloud in een toegewezen resource groep, wordt weer gegeven op Azure Portal.  De gedetecteerde virtuele machine wordt in de standaard Azure-resource groep geplaatst.  U kunt de naam van de standaard resource groep wijzigen.
 
 ## <a name="map-azure-subscription"></a>Azure-abonnement toewijzen
 
-1. Toegang tot de [CloudSimple portal](access-cloudsimple-portal.md).
+1. Toegang tot de [CloudSimple-Portal](access-cloudsimple-portal.md).
 
-2. Open de **Resources** pagina en selecteer de privécloud die u wilt toewijzen.
+2. Open de pagina **resources** en selecteer de privécloud die u wilt toewijzen.
 
 3. Selecteer **Azure-abonnementen toewijzen**.
 
-4. Klik op **bewerken Azure-abonnement toewijzing**.
+4. Klik op **Azure-abonnements toewijzing bewerken**.
 
-5. Beschikbare resourcegroepen toewijzen, selecteert u deze aan de linkerkant en klik op de pijl naar rechts.
+5. Als u beschik bare resource groepen wilt toewijzen, selecteert u deze aan de linkerkant en klikt u op de pijl naar rechts.
 
-6. Als toewijzingen wilt verwijderen, selecteert u deze aan de rechterkant en klikt u op de pijl naar links.
+6. Als u toewijzingen wilt verwijderen, selecteert u deze aan de rechter kant en klikt u op de pijl naar links.
 
     ![Azure-abonnementen](media/resources-azure-mapping.png)
 
 7. Klik op **OK**.
 
-## <a name="change-default-resource-group-name"></a>Naam van resourcegroep wijzigen standaard
+## <a name="change-default-resource-group-name"></a>Naam van standaard resource groep wijzigen
 
-1. Toegang tot de [CloudSimple portal](access-cloudsimple-portal.md).
+1. Toegang tot de [CloudSimple-Portal](access-cloudsimple-portal.md).
 
-2. Open de **Resources** pagina en selecteer de privécloud die u wilt toewijzen.
+2. Open de pagina **resources** en selecteer de privécloud die u wilt toewijzen.
 
 3. Selecteer **Azure-abonnementen toewijzen**.
 
-4. Klik op **bewerken** onder de naam van de Azure-resourcegroep.
+4. Klik op **bewerken** onder naam van Azure-resource groep.
 
-    ![De naam van resourcegroep bewerken](media/resources-edit-resource-group-name.png)
+    ![Naam van resource groep bewerken](media/resources-edit-resource-group-name.png)
 
-5. Voer een nieuwe naam voor de resourcegroep en klik op **indienen**.
+5. Voer een nieuwe naam in voor de resource groep en klik op **verzenden**.
 
-    ![Nieuwe Resourcegroepnaam invoeren](media/resources-new-resource-group-name.png)
+    ![Nieuwe naam voor de resource groep invoeren](media/resources-new-resource-group-name.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Virtuele VMware-machines op Azure gebruiken](quickstart-create-vmware-virtual-machine.md)
-* Meer informatie over [CloudSimple virtuele machines](cloudsimple-virtual-machines.md)
+* [VMware-Vm's in azure gebruiken](quickstart-create-vmware-virtual-machine.md)
+* Meer informatie over [virtuele CloudSimple-machines](cloudsimple-virtual-machines.md)

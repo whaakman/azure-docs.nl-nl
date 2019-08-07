@@ -1,32 +1,32 @@
 ---
-title: Toegang krijgen tot gegevens in gegevens opslag/blobs voor training
+title: Toegang tot gegevens in azure Storage-services
 titleSuffix: Azure Machine Learning service
-description: Meer informatie over het gebruik van gegevens opslag voor toegang tot blobgegevens tijdens de training met Azure Machine Learning service
+description: Meer informatie over het gebruik van data stores voor toegang tot Azure Storage-services tijdens de training met Azure Machine Learning service
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: minxia
-author: mx-iao
-ms.reviewer: sgilley
-ms.date: 05/24/2019
+ms.author: sihhu
+author: MayMSFT
+ms.reviewer: nibaccam
+ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 97a4bc20394553b97211763cedaa76c3711306f2
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 4bc035ba061a65f6770136240d8867f82858e67e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68319313"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772732"
 ---
-# <a name="access-data-from-your-datastores"></a>Toegang tot gegevens uit uw gegevens opslag
+# <a name="access-data-in-azure-storage-services"></a>Toegang tot gegevens in azure Storage-services
 
- In Azure Machine Learning service worden data stores reken locatie-onafhankelijke mechanismen voor toegang tot opslag zonder dat de bron code hoeft te worden gewijzigd. Als u trainings code schrijft om een pad op te halen als een para meter, of als u een gegevens opslag rechtstreeks aan een Estimator, Azure Machine Learning werk stromen controleren of uw gegevens opslag locaties toegankelijk zijn en beschikbaar zijn gesteld voor uw Compute-context.
+ In dit artikel leert u hoe u eenvoudig toegang hebt tot uw gegevens in azure Storage-services via Azure Machine Learning gegevens opslag. Data stores worden gebruikt voor het opslaan van verbindings gegevens, zoals uw abonnements-ID en Token autorisatie, om toegang te krijgen tot uw opslag zonder dat u de informatie in uw scripts hoeft vast te maken.
 
 In deze procedure worden voor beelden van de volgende taken weer gegeven:
-* [Kies een gegevens opslag](#access)
-* [Gegevens ophalen](#get)
-* [Gegevens uploaden en downloaden naar gegevens opslag](#up-and-down)
-* [Toegang tot Data Store tijdens training](#train)
+* [Gegevens opslag registreren](#access)
+* [Gegevens opslag ophalen uit de werk ruimte](#get)
+* [Gegevens uploaden en downloaden met behulp van data stores](#up-and-down)
+* [Toegang tot gegevens tijdens de training](#train)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -43,34 +43,8 @@ ws = Workspace.from_config()
 
 <a name="access"></a>
 
-## <a name="choose-a-datastore"></a>Kies een gegevens opslag
+## <a name="register-datastores"></a>Gegevens opslag registreren
 
-U kunt gebruikmaken van de standaard gegevens opslag of uw eigen Data Store.
-
-### <a name="use-the-default-datastore-in-your-workspace"></a>De standaard gegevens opslag in uw werk ruimte gebruiken
-
- Elke werk ruimte heeft een geregistreerde, standaard-gegevens opslag die u direct kunt gebruiken.
-
-Ophalen van de werkruimte standaard gegevensopslag:
-
-```Python
-ds = ws.get_default_datastore()
-```
-
-### <a name="register-your-own-datastore-with-the-workspace"></a>Uw eigen gegevens opslag registreren bij de werk ruimte
-
-Hebt u een bestaande Azure-opslag, kunt u deze registreren als een gegevensarchief in uw werkruimte. 
-
-<a name="store"></a>
-
-####  <a name="storage-guidance"></a>Richtlijnen voor Azure Storage
-
-We raden Blob Storage en BLOB-gegevens opslag. Zowel Standard-als Premium-opslag zijn beschikbaar voor blobs. Hoewel we nog duurder worden, worden Premium-opslag voorgesteld door snellere doorvoer snelheden die de snelheid van uw trainings uitvoeringen kunnen verbeteren, met name als u traint voor een grote gegevensset. Zie de [Azure-prijs calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) voor informatie over de kosten van het opslag account.
-
->[!NOTE]
-> Azure Machine Learning-service ondersteunt andere typen gegevens opslag, wat nuttig kan zijn voor specifieke scenario's. Als u bijvoorbeeld wilt trainen met gegevens die zijn opgeslagen in een Data Base, kunt u de AzureSQLDatabaseDatastore of AzurePostgreSqlDatastore gebruiken. Zie [deze tabel](#matrix) voor de beschik bare typen gegevens opslag.
-
-#### <a name="register-your-datastore"></a>Uw gegevens opslag registreren
 Alle registratie methoden bevinden zich op [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) de klasse en hebben het formulier register_azure_ *.
 
 In de volgende voor beelden ziet u hoe u een Azure Blob-container of een Azure-bestands share als een gegevens opslag registreert.
@@ -78,45 +52,56 @@ In de volgende voor beelden ziet u hoe u een Azure Blob-container of een Azure-b
 + Gebruik voor een **Azure Blob container-gegevens opslag**[`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py)
 
   ```Python
-  ds = Datastore.register_azure_blob_container(workspace=ws, 
-                                               datastore_name='your datastore name', 
-                                               container_name='your azure blob container name',
-                                               account_name='your storage account name', 
-                                               account_key='your storage account key',
-                                               create_if_not_exists=True)
+  datastore = Datastore.register_azure_blob_container(workspace=ws, 
+                                                      datastore_name='your datastore name', 
+                                                      container_name='your azure blob container name',
+                                                      account_name='your storage account name', 
+                                                      account_key='your storage account key',
+                                                      create_if_not_exists=True)
   ```
 
 + [Gebruik`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)voor een **Azure file share-gegevens opslag**. Bijvoorbeeld: 
   ```Python
-  ds = Datastore.register_azure_file_share(workspace=ws, 
-                                           datastore_name='your datastore name', 
-                                           file_share_name='your file share name',
-                                           account_name='your storage account name', 
-                                           account_key='your storage account key',
-                                           create_if_not_exists=True)
+  datastore = Datastore.register_azure_file_share(workspace=ws, 
+                                                  datastore_name='your datastore name', 
+                                                  file_share_name='your file share name',
+                                                  account_name='your storage account name', 
+                                                  account_key='your storage account key',
+                                                  create_if_not_exists=True)
   ```
+
+####  <a name="storage-guidance"></a>Richtlijnen voor Azure Storage
+
+We raden Azure Blob-container aan. Zowel Standard-als Premium-opslag zijn beschikbaar voor blobs. Hoewel we nog duurder worden, worden Premium-opslag voorgesteld door snellere doorvoer snelheden die de snelheid van uw trainings uitvoeringen kunnen verbeteren, met name als u traint voor een grote gegevensset. Zie de [Azure-prijs calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) voor informatie over de kosten van het opslag account.
 
 <a name="get"></a>
 
-## <a name="find--define-datastores"></a>Zoeken & gegevens opslag vastleggen
+## <a name="get-datastores-from-your-workspace"></a>Gegevens opslag ophalen uit uw werk ruimte
 
-Als u een opgegeven Data Store wilt ontvangen die in de huidige [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) werk ruimte is geregistreerd, gebruikt u:
+Als u een specifieke gegevens opslag die in de huidige werk ruimte is [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) geregistreerd wilt ophalen, gebruikt u de statische methode voor de klasse Data Store:
 
 ```Python
 #get named datastore from current workspace
-ds = Datastore.get(ws, datastore_name='your datastore name')
+datastore = Datastore.get(ws, datastore_name='your datastore name')
 ```
-
-Gebruik de volgende code om een lijst op te halen van alle gegevens opslag in een bepaalde werk ruimte:
+Als u de lijst met gegevens opslag die is geregistreerd met een bepaalde werk ruimte wilt ophalen `datastores` , kunt u de eigenschap gebruiken voor een werkruimte object:
 
 ```Python
 #list all datastores registered in current workspace
 datastores = ws.datastores
-for name, ds in datastores.items():
-    print(name, ds.datastore_type)
+for name, datastore in datastores.items():
+    print(name, datastore.datastore_type)
 ```
 
-Als u een andere standaard gegevens opslag voor de huidige werk ruimte [`set_default_datastore()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-)wilt definiëren, gebruikt u:
+Wanneer u een werk ruimte maakt, worden een Azure Blob-container en een Azure-bestands share geregistreerd in `workspaceblobstore` de `workspacefilestore` werk ruimte met de naam en respectievelijk. Ze slaan de verbindings gegevens van de BLOB-container en de bestands share op die zijn ingericht in het opslag account dat aan de werk ruimte is gekoppeld. De `workspaceblobstore` wordt ingesteld als de standaard gegevens opslag.
+
+Ophalen van de werkruimte standaard gegevensopslag:
+
+```Python
+datastore = ws.get_default_datastore()
+```
+
+Als u een andere standaard gegevens opslag voor de huidige werk ruimte [`set_default_datastore()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-) wilt definiëren, gebruikt u de methode voor het object werk ruimte:
 
 ```Python
 #define default datastore for current workspace
@@ -131,69 +116,93 @@ De [`upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.
 
  Een map of afzonderlijke bestanden uploaden naar de gegevensopslag met behulp van de Python-SDK.
 
-Het uploaden van een map naar een gegevensarchief `ds`:
+Het uploaden van een map naar een gegevensarchief `datastore`:
 
 ```Python
 import azureml.data
 from azureml.data.azure_storage_datastore import AzureFileDatastore, AzureBlobDatastore
 
-ds.upload(src_dir='your source directory',
-          target_path='your target path',
-          overwrite=True,
-          show_progress=True)
+datastore.upload(src_dir='your source directory',
+                 target_path='your target path',
+                 overwrite=True,
+                 show_progress=True)
 ```
 
-`target_path` Hiermee geeft u de locatie in de bestandsshare (of de blob-container) om te uploaden. Wordt standaard `None`, in welk geval de gegevens wordt het geüpload naar de hoofdmap. `overwrite=True` overschrijft bestaande gegevens op `target_path`.
+De `target_path` para meter geeft de locatie in de bestands share (of BLOB-container) op die moet worden geüpload. Wordt standaard `None`, in welk geval de gegevens wordt het geüpload naar de hoofdmap. Wanneer `overwrite=True` een bestaande `target_path` gegevens worden overschreven.
 
-Of een lijst van afzonderlijke bestanden uploaden naar het gegevensarchief via van het gegevensarchief `upload_files()` methode.
+Of upload een lijst met afzonderlijke bestanden naar het gegevens archief via `upload_files()` de-methode.
 
 ### <a name="download"></a>Downloaden
+
 Gegevens uit een gegevensarchief op dezelfde manier downloaden naar uw lokale bestandssysteem.
 
 ```Python
-ds.download(target_path='your target path',
-            prefix='your prefix',
-            show_progress=True)
+datastore.download(target_path='your target path',
+                   prefix='your prefix',
+                   show_progress=True)
 ```
 
-`target_path` is de locatie van de lokale map voor het downloaden van de gegevens. Geef het pad naar de map in de bestandsshare (of de blob-container) om te downloaden, geeft dat pad op naar `prefix`. Als `prefix` is `None`, de inhoud van uw bestandsshare (of de blob-container) wordt gedownload.
+De `target_path` para meter is de locatie van de lokale map waarnaar de gegevens moeten worden gedownload. Geef het pad naar de map in de bestandsshare (of de blob-container) om te downloaden, geeft dat pad op naar `prefix`. Als `prefix` is `None`, de inhoud van uw bestandsshare (of de blob-container) wordt gedownload.
 
 <a name="train"></a>
-## <a name="access-datastores-during-training"></a>Toegang tot gegevens opslag in de training
+## <a name="access-your-data-during-training"></a>Toegang tot uw gegevens tijdens de training
 
-Zodra u uw gegevens opslag beschikbaar hebt gemaakt op het doel van de trainings compute, hebt u toegang tot de Data Store tijdens de uitvoering van de training (bijvoorbeeld training of validatie gegevens) door het pad naar het bestand door te geven als een para meter in uw trainings script.
+Om toegang te krijgen tot gegevens tijdens de training kunt u uw gegevens van uw Azure Storage-services downloaden naar of koppelen aan het reken doel via gegevens opslag.
 
-De volgende tabel bevat de [`DataReference`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) methoden die het reken doel laten zien hoe de gegevens opslag tijdens uitvoeringen moet worden gebruikt.
+De volgende tabel bevat de methoden die het reken doel vertellen hoe de gegevens opslag worden gebruikt tijdens de uitvoering. 
 
 Manier|Methode|Description|
 ----|-----|--------
-Koppelen| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Gebruiken om de gegevens opslag te koppelen aan het berekenings doel.
-Downloaden|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Gebruik om de inhoud van uw gegevens archief te downloaden naar de locatie `path_on_compute`die is opgegeven door. <br> Voor de context van de trainings uitvoering wordt deze down load uitgevoerd vóór de uitvoering.
-Uploaden|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Gebruiken om een bestand te uploaden vanaf de locatie die `path_on_compute` is opgegeven door naar uw gegevens opslag. <br> Voor de context van de trainings uitvoering vindt deze upload plaats na de uitvoering.
+Koppelen| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| Gebruiken om de gegevens opslag te koppelen aan het berekenings doel.
+Downloaden|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-download-path-on-compute-none-)|Gebruik om de inhoud van uw gegevens archief te downloaden naar de locatie `path_on_compute`die is opgegeven door. <br> Deze down load gebeurt vóór de uitvoering.
+Uploaden|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-upload-path-on-compute-none-)| Gebruiken om een bestand te uploaden vanaf de locatie die `path_on_compute` is opgegeven door naar uw gegevens opslag. <br> Deze upload vindt plaats na de uitvoering.
 
- ```Python
-import azureml.data
-from azureml.data.data_reference import DataReference
-
-ds.as_mount()
-ds.as_download(path_on_compute='your path on compute')
-ds.as_upload(path_on_compute='yourfilename')
-```  
-
-Gebruik de [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) functie Data Store om te verwijzen naar een specifieke map of bestand in uw gegevens opslag en deze beschikbaar te maken op het berekenings doel.
+Gebruik de methode Data Store [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#path-path-none--data-reference-name-none-) om te verwijzen naar een specifieke map of bestand in uw gegevens opslag en deze beschikbaar te maken op het Compute-doel.
 
 ```Python
-#download the contents of the `./bar` directory in ds to the compute target
-ds.path('./bar').as_download()
+#to mount the full contents in your storage to the compute target
+datastore.as_mount()
+
+#to download the contents of the `./bar` directory in your storage to the compute target
+datastore.path('./bar').as_download()
+```
+> [!NOTE]
+> Elk `datastore` `"$AZUREML_DATAREFERENCE_XXXX"`of `datastore.path` -object wordt omgezet in de naam van een omgevings variabele van de indeling, waarvan de waarde het pad voor koppelen/downloaden op de doel Compute vertegenwoordigt. Het Data Store-pad op de doel Compute kan niet hetzelfde zijn als het pad voor de uitvoering van het trainings script.
+
+### <a name="examples"></a>Voorbeelden 
+
+De volgende code voorbeelden zijn specifiek voor de [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) -klasse om toegang te krijgen tot gegevens tijdens de training. 
+
+`script_params`is een woorden lijst met para meters voor de entry_script. U kunt deze gebruiken om in een gegevens Archief door te geven en te beschrijven hoe gegevens beschikbaar moeten worden gemaakt voor het reken doel. Meer informatie vindt u in onze end-to-end [zelf studie](tutorial-train-models-with-aml.md).
+
+```Python
+from azureml.train.estimator import Estimator
+
+script_params = {
+    '--data_dir': datastore.path('/bar').as_mount()
+}
+
+est = Estimator(source_directory='your code directory',
+                entry_script='train.py',
+                script_params=script_params,
+                compute_target=compute_target
+                )
 ```
 
-> [!NOTE]
-> Elk `ds` `"$AZUREML_DATAREFERENCE_XXXX"` of `ds.path` -object wordt omgezet in de naam van een omgevings variabele van de notatie waarvan de waarde het pad voor koppelen/downloaden op de doel comput vertegenwoordigt. Het Data Store-pad op de doel Compute kan niet hetzelfde zijn als het pad voor de uitvoering van het trainings script.
+U kunt ook een lijst met data stores door geven aan de `inputs` para meter Estimator om gegevens te koppelen of kopiëren naar/van uw gegevens opslag (s). Dit code voorbeeld:
+* Hiermee wordt alle inhoud in `datastore1` naar het reken doel gedownload voordat het trainings `train.py` script wordt uitgevoerd
+* Hiermee wordt de `'./foo'` map `datastore2` in het berekenings `train.py` doel gedownload voordat deze wordt uitgevoerd
+* Uploadt het bestand `'./bar.pkl'` van het Compute-doel naar `datastore3` het nadat het script is uitgevoerd
 
-<a name="matrix"></a>
-### <a name="training-compute-and-datastore-matrix"></a>Trainings Compute en Data Store-matrix
+```Python
+est = Estimator(source_directory='your code directory',
+                compute_target=compute_target,
+                entry_script='train.py',
+                inputs=[datastore1.as_download(), datastore2.path('./foo').as_download(), datastore3.as_upload(path_on_compute='./bar.pkl')])
+```
+### <a name="compute-and-datastore-matrix"></a>Compute-en Data Store-matrix
 
-De volgende matrix geeft de beschik bare functies voor gegevens toegang voor de verschillende trainings Compute-doelen en Data Store-scenario's. Meer informatie over de [trainings Compute-doelen voor Azure machine learning](how-to-set-up-training-targets.md#compute-targets-for-training).
+Data stores ondersteunen momenteel het opslaan van verbindings gegevens naar de opslag services die in de volgende matrix worden weer gegeven. Deze matrix bevat de beschik bare functies voor gegevens toegang voor de verschillende reken doelen en Data Store-scenario's. Meer informatie over de [Compute-doelen voor Azure machine learning](how-to-set-up-training-targets.md#compute-targets-for-training).
 
 |Compute|[AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py)                                       |[AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py)                                      |[AzureDataLakeDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakedatastore?view=azure-ml-py) |[AzureDataLakeGen2Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) [AzurePostgreSqlDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_postgre_sql_datastore.azurepostgresqldatastore?view=azure-ml-py) [AzureSqlDatabaseDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_sql_database_datastore.azuresqldatabasedatastore?view=azure-ml-py) |
 |--------------------------------|----------------------------------------------------------|----------------------------------------------------------|------------------------|----------------------------------------------------------------------------------------|
@@ -209,39 +218,7 @@ De volgende matrix geeft de beschik bare functies voor gegevens toegang voor de 
 > [!NOTE]
 > Er zijn mogelijk scenario's waarin zeer terugkerende gegevens processen sneller worden uitgevoerd met behulp `as_download()` van in `as_mount()`plaats van; dit kan experimenteel worden gevalideerd.
 
-### <a name="examples"></a>Voorbeelden 
-
-De volgende code voorbeelden zijn specifiek voor de [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) -klasse om toegang te krijgen tot uw Data Store tijdens de training.
-
-Met deze code wordt een Estimator gemaakt met behulp `train.py`van het trainings script, vanuit de aangegeven bronmap met de `script_params`para meters die zijn gedefinieerd in, alle op het opgegeven trainings Compute-doel.
-
-```Python
-from azureml.train.estimator import Estimator
-
-script_params = {
-    '--data_dir': ds.as_mount()
-}
-
-est = Estimator(source_directory='your code directory',
-                entry_script='train.py',
-                script_params=script_params,
-                compute_target=compute_target
-                )
-```
-
-U kunt ook een lijst met gegevens opslag items door geven aan de `inputs` para meter van de Estimator-constructor om te koppelen aan of te kopiëren van uw gegevens opslag (s). Dit code voorbeeld:
-* Hiermee wordt alle inhoud in de `ds1` gegevens opslag naar het reken doel gedownload voordat `train.py` het trainings script wordt uitgevoerd
-* Hiermee wordt de `'./foo'` map in `ds2` de gegevens opslag naar het `train.py` Compute-doel gedownload voordat deze wordt uitgevoerd
-* Uploadt het bestand `'./bar.pkl'` van het Compute-doel naar het gegevens `ds3` archief nadat het script is uitgevoerd
-
-```Python
-est = Estimator(source_directory='your code directory',
-                compute_target=compute_target,
-                entry_script='train.py',
-                inputs=[ds1.as_download(), ds2.path('./foo').as_download(), ds3.as_upload(path_on_compute='./bar.pkl')])
-```
-
-## <a name="access-datastores-during-for-scoring"></a>Toegang tot data stores tijdens het scoren
+## <a name="access-data-during-scoring"></a>Toegang tot gegevens tijdens de Score
 
 De Azure Machine Learning-service biedt verschillende manieren om uw modellen te gebruiken voor het scoren van punten. Sommige van deze methoden bieden geen toegang tot gegevens opslag. Gebruik de volgende tabel om inzicht te krijgen in de methoden waarmee u toegang hebt tot gegevens opslag in de Score:
 
@@ -252,6 +229,7 @@ De Azure Machine Learning-service biedt verschillende manieren om uw modellen te
 | [Module IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Model (len) implementeren op IoT Edge apparaten. |
 
 In situaties waarin de SDK geen toegang biedt tot gegevens opslag, kunt u mogelijk aangepaste code maken met behulp van de relevante Azure SDK om toegang te krijgen tot de data. U kunt bijvoorbeeld de [Azure Storage SDK voor python](https://github.com/Azure/azure-storage-python) gebruiken om toegang te krijgen tot gegevens die zijn opgeslagen in blobs.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

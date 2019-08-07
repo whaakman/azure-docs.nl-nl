@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 236d880af780114dfb906021f53d5c09aee75332
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: f33193e3102afca73344fcd640d14d9af9c1d46e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514889"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775349"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Toegang tot Azure-blobs en-wacht rijen toestaan met Azure Active Directory
 
@@ -22,7 +22,7 @@ Azure Storage ondersteunt het gebruik van Azure Active Directory (AD) om aanvrag
 
 Het autoriseren van gebruikers of toepassingen met een OAuth 2,0-token dat wordt geretourneerd door Azure AD biedt een superieure beveiliging en gebruiks vriendelijk gebruik van gedeelde sleutel autorisatie en Shared Access signatures (SAS). Met Azure AD hoeft u de toegangs sleutel voor het account niet op te slaan met uw code en mogelijke beveiligings problemen. U kunt de verificatie van de gedeelde sleutel blijven gebruiken met uw toepassingen, maar met Azure AD wordt de nood zaak om uw account toegangs sleutel op te slaan met uw code. U kunt ook door gaan met het gebruik van Shared Access signatures (SAS) om nauw keurige toegang tot resources in uw opslag account te verlenen, maar Azure AD biedt soort gelijke mogelijkheden zonder de behoefte aan het beheer van SAS-tokens of een probleem bij het intrekken van een aangetaste SAS. Micro soft raadt u aan gebruik te maken van Azure AD-autorisatie met uw Azure Storage-toepassingen wanneer dat mogelijk is.
 
-Verificatie met Azure AD is beschikbaar voor alle accounts voor algemeen gebruik en Blob Storage in alle open bare regio's en nationale Clouds. Alleen opslag accounts die zijn gemaakt met het Azure Resource Manager implementatie model ondersteunen Azure AD-autorisatie.
+Verificatie met Azure AD is beschikbaar voor alle accounts voor algemeen gebruik en Blob Storage in alle open bare regio's en nationale Clouds. Alleen opslag accounts die zijn gemaakt met het Azure Resource Manager implementatie model ondersteunen Azure AD-autorisatie. Autorisatie met Azure AD wordt niet ondersteund voor Azure-tabel opslag.
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Overzicht van Azure AD voor blobs en wacht rijen
 

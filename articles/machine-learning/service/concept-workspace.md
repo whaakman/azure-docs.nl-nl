@@ -1,7 +1,7 @@
 ---
-title: Wat is een werkruimte
+title: Wat is een werk ruimte?
 titleSuffix: Azure Machine Learning service
-description: De werkruimte is de resource op het hoogste niveau voor Azure Machine Learning-service. Dit houdt een geschiedenis bij van alle trainingsuitvoeringen, met inbegrip van Logboeken, metrische gegevens, uitvoer en een momentopname van uw scripts. U deze informatie gebruiken om te bepalen welke run training levert het beste model
+description: De werk ruimte is de resource op het hoogste niveau voor Azure Machine Learning service. Het houdt een geschiedenis bij van alle trainings runs, waaronder Logboeken, metrische gegevens, uitvoer en een moment opname van uw scripts. U gebruikt deze informatie om te bepalen welke trainings uitvoering het beste model produceert
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,90 +9,90 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 912c064fb5ca4e7ca311f60ed04a0122809cb0ff
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fc3f88e627e0ce19195f6df947d4f11f5f8a73ae
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442361"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772759"
 ---
-# <a name="what-is-an-azure-machine-learning-service-workspace"></a>Wat is een werkruimte van de service Azure Machine Learning?
+# <a name="what-is-an-azure-machine-learning-service-workspace"></a>Wat is een Azure Machine Learning service-werk ruimte?
 
-De werkruimte is de resource op het hoogste niveau voor Azure Machine Learning-service, waarmee u een centrale locatie voor het werken met alle artefacten die u maakt wanneer u Azure Machine Learning-service.  De werkruimte houdt een geschiedenis bij van alle trainingsuitvoeringen, met inbegrip van Logboeken, metrische gegevens, uitvoer en een momentopname van uw scripts. U kunt deze informatie gebruiken om te bepalen welke run training levert het beste model.  
+De werk ruimte is de resource op het hoogste niveau voor Azure Machine Learning service, waardoor u een centrale locatie kunt gebruiken met alle artefacten die u maakt wanneer u Azure Machine Learning-service gebruikt.  De werk ruimte houdt een geschiedenis bij van alle uitvoeringen van de training, met inbegrip van Logboeken, metrische gegevens, uitvoer en een moment opname van uw scripts. U gebruikt deze informatie om te bepalen welke trainings uitvoering het beste model produceert.  
 
-Zodra u een model dat u hebt, kunt u deze registreren met de werkruimte. U vervolgens het geregistreerde model en de scoring-scripts om te implementeren in Azure Container Instances, Azure Kubernetes Service, of op een veld-programmable gate array (FPGA) als een HTTP op basis van REST-eindpunt. U kunt ook het model met een Azure IoT Edge-apparaat implementeren als een module.
+Wanneer u een model hebt dat u wilt, registreert u het bij de werk ruimte. Vervolgens gebruikt u de geregistreerde model-en Score scripts om te implementeren op Azure Container Instances, Azure Kubernetes-service of een veld-Programmeer bare poort matrix (FPGA) als een HTTP-eind punt op basis van de REST. U kunt het model ook implementeren op een Azure IoT Edge-apparaat als een module.
 
 ## <a name="taxonomy"></a>Taxonomie 
 
-Een taxonomie van de werkruimte wordt weergegeven in het volgende diagram:
+Een taxonomie van de werk ruimte wordt geïllustreerd in het volgende diagram:
 
 [![Taxonomie van werkruimte](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
-Het diagram ziet u de volgende onderdelen van een werkruimte:
+In het diagram worden de volgende onderdelen van een werk ruimte weer gegeven:
 
-+ Een werkruimte kan bevatten [Notebook VMs](quickstart-run-cloud-notebook.md), resources die zijn geconfigureerd met de Python-omgeving die nodig zijn om uit te voeren van Azure Machine Learning in de cloud.
-+ [Gebruikersrollen](how-to-assign-roles.md) kunt u uw werkruimte delen met andere gebruikers, teams of projecten.
-+ [COMPUTE-doelen](concept-azure-machine-learning-architecture.md#compute-targets) worden gebruikt voor het uitvoeren van de experimenten nodig hebben.
-+ Wanneer u de werkruimte maakt [gekoppelde resources](#resources) worden ook voor u gemaakt.
-+ [Experimenten](concept-azure-machine-learning-architecture.md#experiments) zijn trainingsuitvoeringen u gebruiken om uw modellen te bouwen.  U kunt maken en uitvoeren van experimenten met
-    + De [Azure Machine Learning-SDK voor Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-    + De [machine learning-experimenten (preview) geautomatiseerde](how-to-create-portal-experiments.md) sectie in Azure portal.
-    + De [visuele interface (preview)](ui-concept-visual-interface.md).
-+ [Pijplijnen](concept-azure-machine-learning-architecture.md#ml-pipelines) zijn herbruikbare werkstromen voor trainings- en opnieuw trainen van uw model.
-+ [Gegevenssets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) hulpmiddel bij het beheer van de gegevens die u voor het model training en de pijplijn gebruikt.
-+ Zodra u een model dat u wilt implementeren hebt, kunt u een geregistreerde model maken.
-+ Het geregistreerde model en een scoring-script gebruiken om u te maken van een [implementatie](concept-azure-machine-learning-architecture.md#deployment).
++ Een werk ruimte kan VM- [vm's](tutorial-1st-experiment-sdk-setup.md)bevatten, cloud resources die zijn geconfigureerd met de python-omgeving die nodig is om Azure machine learning uit te voeren.
++ [Gebruikers rollen](how-to-assign-roles.md) bieden u de mogelijkheid om uw werk ruimte te delen met andere gebruikers, teams of projecten.
++ [Reken doelen](concept-azure-machine-learning-architecture.md#compute-targets) worden gebruikt om uw experimenten uit te voeren.
++ Wanneer u de werk ruimte maakt, worden er ook [gekoppelde resources](#resources) voor u gemaakt.
++ [Experimenten](concept-azure-machine-learning-architecture.md#experiments) zijn trainings uitvoeringen die u gebruikt om uw modellen te bouwen.  U kunt experimenten maken en uitvoeren met
+    + De [Azure machine learning SDK voor python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+    + De sectie [geautomatiseerde machine learning experimenten (preview)](how-to-create-portal-experiments.md) in de Azure Portal.
+    + De [visuele interface (preview-versie)](ui-concept-visual-interface.md).
++ [Pijp lijnen](concept-azure-machine-learning-architecture.md#ml-pipelines) zijn herbruikbare werk stromen voor trainingen en trainingen van uw model.
++ Gegevens [sets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) bieden ondersteuning bij het beheer van de data die u gebruikt voor model training en het maken van pijp lijnen.
++ Zodra u een model hebt dat u wilt implementeren, maakt u een geregistreerd model.
++ Gebruik het geregistreerde model en een score script om een [implementatie](concept-azure-machine-learning-architecture.md#deployment)te maken.
 
-## <a name="tools-for-workspace-interaction"></a>Hulpprogramma's voor interactie met de werkruimte
+## <a name="tools-for-workspace-interaction"></a>Hulp middelen voor werkruimte interactie
 
-U kunt werken met uw werkruimte in de volgende manieren:
+U kunt op de volgende manieren met uw werk ruimte werken:
 
 + Op het web:
     + [Azure Portal](https://portal.azure.com)
-    + De [visuele interface (preview)](ui-concept-visual-interface.md)
-+ Met behulp van Azure Machine Learning in Python [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-+ Op de opdrachtregel met de Azure Machine Learning [CLI-extensie](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
+    + De [visuele interface (preview-versie)](ui-concept-visual-interface.md)
++ In python met Azure Machine Learning [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
++ Op de opdracht regel met behulp van de Azure Machine Learning [cli-extensie](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
 
-## <a name="machine-learning-with-a-workspace"></a>Machine learning met een werkruimte
+## <a name="machine-learning-with-a-workspace"></a>Machine learning met een werk ruimte
 
-Machine learning-taken gelezen en/of artefacten schrijven naar uw werkruimte. 
+Machine learning-taken lezen en/of schrijven artefacten naar uw werk ruimte. 
 
-+ Uitvoeren van een experiment voor het trainen van een model - experimenteren schrijfbewerkingen resultaten van de uitvoering in de werkruimte.
-+ Gebruik automatische ML met het trainen van een model - training resultaten schrijft naar de werkruimte.
-+ Registreer een model in de werkruimte.
-+ Een model implementeren - het geregistreerde model wordt gebruikt om een implementatie te maken.
-+ Maak en herbruikbare werkstromen uitvoeren.
-+ Weergave voor machine learning-artefacten, zoals experimenten, pijplijnen, modellen, implementaties.
-+ Bijhouden en monitor-modellen.
++ Voer een experiment uit om een model voor het schrijven van modellen te trainen in de werk ruimte.
++ Gebruik automatische ML om een model te trainen-schrijf de resultaten van de training naar de werk ruimte.
++ Registreer een model in de werk ruimte.
++ Een model implementeren: maakt gebruik van het geregistreerde model om een implementatie te maken.
++ Herbruikbare werk stromen maken en uitvoeren.
++ Machine learning artefacten weer geven, zoals experimenten, pijp lijnen, modellen en implementaties.
++ Modellen bijhouden en bewaken.
 
-## <a name="workspace-management"></a>Werkruimtebeheer
+## <a name="workspace-management"></a>Werkruimte beheer
 
-U kunt ook de volgende werkruimte-beheertaken uitvoeren:
+U kunt ook de volgende beheer taken voor werk ruimten uitvoeren:
 
-| Taak voor het beheer van werkruimte   | Portal              | SDK        | CLI        |
+| Werkruimte beheer taak   | Portal              | SDK        | CLI        |
 |---------------------------|------------------|------------|------------|
 | Een werkruimte maken        | **&check;**     | **&check;** | **&check;** |
-| Compute-resources maken en beheren    | **&check;**   | **&check;** |  **&check;**   |
-| Werkruimtetoegang beheren    | **&check;**   | |  **&check;**    |
-| Een VM-notebook maken | **&check;**   | |     |
+| Reken resources maken en beheren    | **&check;**   | **&check;** |  **&check;**   |
+| Toegang tot de werk ruimte beheren    | **&check;**   | |  **&check;**    |
+| Een VM voor een notebook maken | **&check;**   | |     |
 
-Aan de slag met de service door [het maken van een werkruimte](setup-create-workspace.md).
+Ga aan de slag met de service door [een werk ruimte te maken](setup-create-workspace.md).
 
-## <a name="resources"></a> Gekoppelde resources
+## <a name="resources"></a>Gekoppelde resources
 
 Wanneer u een nieuwe werkruimte maakt, wordt automatisch verschillende Azure-resources die worden gebruikt door de werkruimte gemaakt:
 
-+ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Hiermee registreert u docker-containers die u tijdens de training en wanneer u een model implementeert gebruiken. Als u wilt kosten kunt minimaliseren, de ACR is **langzaam geladen** tot implementatie-installatiekopieën worden gemaakt.
-+ [Azure Storage-account](https://azure.microsoft.com/services/storage/): Wordt gebruikt als de standaard gegevensopslag voor de werkruimte.  Jupyter-notitieblokken die worden gebruikt met uw laptop VM's zijn hier ook opgeslagen.
-+ [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Winkels controlegegevens over uw modellen.
-+ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Winkels geheimen die worden gebruikt door compute-doelen en andere gevoelige informatie die nodig is door de werkruimte.
++ [Azure container Registry](https://azure.microsoft.com/services/container-registry/): Registreert docker-containers die u tijdens de training gebruikt en wanneer u een model implementeert. Om de kosten te minimaliseren, wordt ACR **Lazy geladen** totdat implementatie installatie kopieën zijn gemaakt.
++ [Azure Storage account](https://azure.microsoft.com/services/storage/): Wordt gebruikt als de standaard gegevens opslag voor de werk ruimte.  Jupyter-notebooks die worden gebruikt met uw laptop-Vm's, worden hier ook opgeslagen.
++ [Azure-toepassing Insights](https://azure.microsoft.com/services/application-insights/): Slaat bewakings informatie over uw modellen op.
++ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Slaat geheimen op die worden gebruikt door Compute-doelen en andere gevoelige informatie die nodig is voor de werk ruimte.
 
 > [!NOTE]
-> Naast het maken van nieuwe versies, kunt u ook bestaande Azure-services gebruiken.
+> Naast het maken van nieuwe versies, kunt u ook bestaande Azure-Services gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt aan de slag met Azure Machine Learning-service, Zie:
+Om aan de slag te gaan met Azure Machine Learning-service, raadpleegt u:
 
 + [Overzicht van Azure Machine Learning-service](overview-what-is-azure-ml.md)
 + [Een werkruimte maken](setup-create-workspace.md)

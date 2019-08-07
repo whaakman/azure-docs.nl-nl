@@ -9,7 +9,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2019
@@ -17,12 +17,12 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db05f59faf945e425761fe7a20bad3e263246a39
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 784ec507027d6ec0ac1b5288c101e2a76cab436e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849347"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835067"
 ---
 # <a name="use-microsoft-authentication-library-to-interoperate-with-azure-active-directory-b2c"></a>Micro soft-verificatie bibliotheek gebruiken om te werken met Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ In deze zelf studie wordt gedemonstreerd hoe u MSAL kunt gebruiken om te werken 
 
 Als u nog geen eigen [Azure AD B2C Tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)hebt gemaakt, maakt u er nu een. U kunt ook een bestaande Azure AD B2C Tenant gebruiken.
 
-## <a name="javascript"></a>Javascript
+## <a name="javascript"></a>JavaScript
 
 De volgende stappen laten zien hoe een toepassing met één pagina kan Azure AD B2C gebruiken om zich aan te melden, zich aan te melden en een beveiligde web-API aan te roepen.
 

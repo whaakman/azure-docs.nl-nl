@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7214cf4c16cc4ee5e76d479d153395085a7e3a6e
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 25e511a1596c1119d1db8c9270ce216cd5186e72
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688945"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735474"
 ---
-# <a name="back-up-files-on-azure-stack"></a>Back-ups maken van bestanden op Azure Stack
+# <a name="back-up-files-and-applications-on-azure-stack"></a>Back-up van bestanden en toepassingen in Azure Stack
 U kunt Azure Backup gebruiken om bestanden en toepassingen op Azure Stack te beveiligen (of er back-ups van te maken). Als u een back-up wilt maken van bestanden en toepassingen, installeert u Microsoft Azure Backup Server als een virtuele machine die wordt uitgevoerd op Azure Stack. U kunt de bestanden op elke Azure Stack-server in hetzelfde virtuele netwerk beveiligen. Nadat u Azure Backup Server hebt geïnstalleerd, voegt u Azure-schijven toe om de lokale opslag ruimte beschikbaar te maken voor back-upgegevens op de korte termijn. Azure Backup Server maakt gebruik van Azure Storage voor lange termijn retentie.
 
 > [!NOTE]

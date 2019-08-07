@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f5930f2d3db94f615321eda480aed0d4d196911
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 0c0625a233b3b4a949feff2e289361a26fc8dc5a
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380824"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835359"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedure: Claims aanpassen die zijn uitgegeven in het SAML-token voor zakelijke toepassingen
 
@@ -80,7 +80,7 @@ Selecteer de gewenste bron voor de `NameIdentifier` claim (of NameID). U kunt ki
 | onpremisessamaccount | SAM-account naam die is gesynchroniseerd vanuit on-premises Azure AD |
 | id | objectid van de gebruiker in azure AD |
 | werknemer-id | werk nemers van de gebruiker |
-| Uitbreidingen van de directory | Directory-extensies [die zijn gesynchroniseerd vanuit on-premises Active Directory met behulp van Azure AD Connect-synchronisatie](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
+| Directory-extensies | Directory-extensies [die zijn gesynchroniseerd vanuit on-premises Active Directory met behulp van Azure AD Connect-synchronisatie](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Extensie kenmerken 1-15 | Kenmerken van on-premises extensies die worden gebruikt om het Azure AD-schema uit te breiden |
 
 Zie [voor meer informatie tabel 3: Geldige ID-waarden per](active-directory-claims-mapping.md#table-3-valid-id-values-per-source)bron.

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/06/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 896bd7f9af3c319ec4190131036d8aa8ee49bb79
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: e15fa8c79663fc2517039124f9be8c1ecd57b8a8
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705439"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68837875"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Machtigingen voor app-registratie in Azure Active Directory delegeren
 
@@ -29,7 +29,7 @@ In dit artikel wordt beschreven hoe u met behulp van app-machtigingen in aangepa
 - [Beperken wie toepassingen kan maken](#restrict-who-can-create-applications) en de toepassingen kan beheren die ze maken. In azure AD kunnen alle gebruikers standaard toepassings registraties registreren en alle aspecten beheren van de toepassingen die ze hebben gemaakt. Dit kan worden beperkt zodat alleen geselecteerde personen deze machtiging kunnen toestaan.
 - [Een of meer eigen aren toewijzen aan een toepassing](#assign-application-owners). Dit is een eenvoudige manier om iemand de mogelijkheid te geven alle aspecten van de Azure AD-configuratie voor een specifieke toepassing te beheren.
 - [Wijs een ingebouwde](#assign-built-in-application-admin-roles) beheerdersrol toe die toegang verleent voor het beheren van configuratie in azure AD voor alle toepassingen. Dit is de aanbevolen manier om IT-experts toegang te geven tot het beheren van brede toepassings configuratie machtigingen zonder toegang te verlenen tot het beheren van andere delen van Azure AD die niet gerelateerd zijn aan de configuratie van de toepassing.
-- Het [maken van een aangepaste rol](#create-and-assign-a-custom-role) om zeer specifieke machtigingen te definiëren en deze toe te wijzen aan iemand, hetzij aan het bereik van één toepassing als een beperkte eigenaar, of in het bereik van de directory (alle toepassingen) als beperkte beheerder.
+- Het [maken van een aangepaste rol](#create-and-assign-a-custom-role-preview) om zeer specifieke machtigingen te definiëren en deze toe te wijzen aan iemand, hetzij aan het bereik van één toepassing als een beperkte eigenaar, of in het bereik van de directory (alle toepassingen) als beperkte beheerder.
 
 Het is belang rijk om de toegang te verlenen met behulp van een van de bovenstaande methoden om twee redenen. Eerst dedraagt het delegeren van de mogelijkheid om beheer taken uit te voeren, de overhead van de globale beheerder. Ten tweede verbetert het gebruik van beperkte machtigingen uw beveiligings postuur en vermindert de kans op onbevoegde toegang. Overdrachts problemen en algemene richt lijnen worden besproken in [gedelegeerd beheer in azure Active Directory](roles-concept-delegation.md).
 
@@ -86,16 +86,21 @@ Volg de instructies in de [rollen toewijzen aan gebruikers met Azure Active Dire
 > Toepassings beheerders en beheerders van Cloud toepassingen kunnen referenties toevoegen aan een toepassing en deze referenties gebruiken om de identiteit van de toepassing te imiteren. De toepassing heeft mogelijk machtigingen die een uitbrei ding van bevoegdheden hebben ten opzichte van de machtigingen van de rol beheerder. Een beheerder in deze rol kan mogelijk gebruikers of andere objecten maken of bijwerken tijdens het imiteren van de toepassing, afhankelijk van de machtigingen van de toepassing.
 > Geen van de rollen geeft de mogelijkheid om instellingen voor voorwaardelijke toegang te beheren.
 
-## <a name="create-and-assign-a-custom-role"></a>Een aangepaste rol maken en toewijzen
+## <a name="create-and-assign-a-custom-role-preview"></a>Een aangepaste rol maken en toewijzen (preview-versie)
 
 Het maken van aangepaste rollen en het toewijzen van aangepaste rollen is een afzonderlijke stap:
 
 - [Een aangepaste *roldefinitie* maken](roles-create-custom.md) en [er machtigingen aan toevoegen vanuit een vooraf ingestelde lijst](roles-custom-available-permissions.md). Dit zijn dezelfde machtigingen die worden gebruikt in de ingebouwde rollen.
-- [Maak een *roltoewijzing* ](roles-assign-graph.md) om de aangepaste rol toe te wijzen.
+- [Maak een *roltoewijzing* ](roles-assign-powershell.md) om de aangepaste rol toe te wijzen.
 
 Met deze schei ding kunt u een definitie van één rol maken en deze vervolgens meerdere keren aan verschillende *bereiken*toewijzen. Een aangepaste rol kan worden toegewezen aan het hele organisatie bereik of kan worden toegewezen aan het bereik als één Azure AD-object. Een voor beeld van een object bereik is een enkele app-registratie. Als u verschillende bereiken gebruikt, kan dezelfde roldefinitie worden toegewezen aan Sandra via alle app-registraties in de organisatie en vervolgens Naveen alleen over de registratie van de app voor onkosten rapporten van contoso.
 
-Voor meer informatie over de basis principes van aangepaste rollen, zie het [overzicht van aangepaste functies](roles-custom-overview.md), en hoe u [een aangepaste rol maakt](roles-create-custom.md) en hoe u [een rol kunt toewijzen](roles-assign-graph.md).
+Tips voor het maken en gebruiken van aangepaste rollen voor het delegeren van toepassings beheer:
+- Aangepaste rollen verlenen alleen toegang via de meest actuele Blade van de app-registratie van de Azure AD-Portal. Ze verlenen geen toegang via de Blade verouderde app-registraties.
+- Aangepaste rollen verlenen geen toegang tot de Azure AD-Portal wanneer de gebruikers instelling toegang tot de Azure AD-beheer Portal beperken is ingesteld op Ja.
+- App-registraties de gebruiker toegang heeft tot het gebruik van roltoewijzingen, wordt alleen weer gegeven op het tabblad alle toepassingen op de pagina app-registratie. Ze worden niet weer gegeven op het tabblad eigendoms toepassingen.
+
+Voor meer informatie over de basis principes van aangepaste rollen, zie het [overzicht van aangepaste functies](roles-custom-overview.md), en hoe u [een aangepaste rol maakt](roles-create-custom.md) en hoe u [een rol kunt toewijzen](roles-assign-powershell.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

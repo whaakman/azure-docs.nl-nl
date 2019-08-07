@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 9906fe5de9c24f1b1a8c3f713fa772e56ed4e13f
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 135855ee33f783e85b398c7f9716c2c897633de9
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441965"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779546"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Een virtueel netwerk voor Azure HDInsight plannen
 
@@ -224,7 +224,7 @@ Als u van plan bent om **netwerk beveiligings groepen** te gebruiken om netwerk 
 
 3. Maak of wijzig de netwerk beveiligings groepen voor het subnet waarop u HDInsight wilt installeren.
 
-    * __Netwerk beveiligings groepen__: Allow  inkomend verkeer op poort __443__ van de IP-adressen. Dit zorgt ervoor dat HDInsight-beheer Services het cluster kunnen bereiken van buiten het virtuele netwerk.
+    * __Netwerk beveiligings groepen__: Allow inkomend verkeer op poort __443__ van de IP-adressen. Dit zorgt ervoor dat HDInsight-beheer Services het cluster kunnen bereiken van buiten het virtuele netwerk.
 
 Zie [overzicht van netwerk beveiligings groepen](../virtual-network/security-overview.md)voor meer informatie over netwerk beveiligings groepen.
 

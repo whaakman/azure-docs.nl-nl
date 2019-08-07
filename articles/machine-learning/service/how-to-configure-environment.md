@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45b28b4d88c670a8b2ec34b93a342f06b80e02d7
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: efe5829ffbe4db304f9ffab0a259ab9d10279b27
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668481"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772693"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -72,11 +72,11 @@ De VM van het notebook is:
 
   Als u in code werkt, bevat de virtuele machine zelf studies en voor beelden om u te helpen te verkennen en hoe u Azure Machine Learning-service kunt gebruiken. De voorbeeld notitieblokken worden opgeslagen in het Azure Blob Storage-account van uw werk ruimte zodat ze kunnen worden gedeeld via Vm's. Wanneer ze worden uitgevoerd, hebben ze ook toegang tot de gegevens archieven en reken resources van uw werk ruimte.
 
-+ **Eenvoudige installatie**: Maak een wille keurig moment in uw Azure Machine Learning-werk ruimte. Geef een naam op en geef een Azure VM-type op. Probeer het nu met deze [Snelstartgids: Gebruik een op de cloud gebaseerde Notebook server om aan de slag](quickstart-run-cloud-notebook.md)te gaan met Azure machine learning.
++ **Eenvoudige installatie**: Maak een wille keurig moment in uw Azure Machine Learning-werk ruimte. Geef een naam op en geef een Azure VM-type op. Probeer het nu met deze [zelf studie: Omgeving en werk ruimte](tutorial-1st-experiment-sdk-setup.md)instellen.
 
 + **Aanpasbaar**. Tijdens een beheerde en beveiligde VM-aanbieding behoudt u volledige toegang tot de hardware-mogelijkheden en past u deze aan op de wensen van uw hart. Zo kunt u snel de nieuwste NVidia V100-VM maken om stapsgewijze fout opsporing van nieuwe Neural-netwerk architectuur uit te voeren.
 
-[Stop de VM van het notitie](quickstart-run-cloud-notebook.md#stop-the-notebook-vm)blok om de VM-kosten van de notebook te stoppen.
+[Stop de VM van het notitie](tutorial-1st-experiment-sdk-setup.md#stop-the-notebook-vm)blok om de VM-kosten van de notebook te stoppen. 
 
 ## <a id="dsvm"></a>Virtuele Machine voor Datatechnologie
 

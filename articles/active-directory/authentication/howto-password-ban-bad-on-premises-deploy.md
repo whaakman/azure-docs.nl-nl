@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ebeed3636ea6da77e05a9a790e51c7771ebe685
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 596020952fd02a414c050ac7fe7ab37d7137c391
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666289"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779663"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Wachtwoordbeveiliging in Azure AD implementeren
 
@@ -282,12 +282,29 @@ Er zijn twee vereiste installatie Programma's voor Azure AD-wachtwoord beveiligi
 
    U kunt de software-installatie automatiseren met behulp van standaard MSI-procedures. Bijvoorbeeld:
 
-   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
+   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 
-   > [!WARNING]
-   > De voorbeeld Msiexec-opdracht wordt nu direct opnieuw opgestart. Gebruik de `/norestart` vlag om dit te voor komen.
+   U kunt de `/norestart` vlag weglaten als u het installatie programma de computer liever automatisch opnieuw opstart.
 
 De installatie is voltooid nadat de DC-agent software is geïnstalleerd op een domein controller en die computer opnieuw wordt opgestart. Er is geen andere configuratie vereist of mogelijk.
+
+## <a name="upgrading-the-proxy-agent"></a>De proxy-agent bijwerken
+
+Wanneer er een nieuwere versie van de Azure AD-proxy software voor wachtwoord beveiliging beschikbaar is, wordt de upgrade uitgevoerd door de meest recente `AzureADPasswordProtectionProxySetup.exe` versie van het installatie programma van de software uit te voeren. Het is niet vereist om de huidige versie van de proxy software te verwijderen. het installatie programma voert een in-place upgrade uit. U hoeft niet opnieuw op te starten om de proxy software bij te werken. De software-upgrade kan worden geautomatiseerd met behulp van standaard `AzureADPasswordProtectionProxySetup.exe /quiet`MSI-procedures, bijvoorbeeld:.
+
+De proxy-agent ondersteunt automatische upgrades. Automatische upgrade maakt gebruik van de Microsoft Azure AD connect agent Updater-service die naast de proxy service is geïnstalleerd. Automatische upgrade is standaard ingeschakeld en kan worden in-of uitgeschakeld met de cmdlet Set-AzureADPasswordProtectionProxyConfiguration. De huidige instelling kan worden opgevraagd met behulp van de cmdlet Get-AzureADPasswordProtectionProxyConfiguration. Micro soft raadt aan dat de automatische upgrade ingeschakeld blijft.
+
+De `Get-AzureADPasswordProtectionProxy` cmdlet kan worden gebruikt om de software versie van alle geïnstalleerde proxy agenten in een forest op te vragen.
+
+## <a name="upgrading-the-dc-agent"></a>De DC-agent bijwerken
+
+Wanneer er een nieuwere versie van de Azure AD-agent software voor wachtwoord beveiliging beschikbaar is, wordt de upgrade uitgevoerd door de nieuwste versie van `AzureADPasswordProtectionDCAgentSetup.msi` het software pakket uit te voeren. Het is niet vereist om de huidige versie van de DC-agent software te verwijderen. het installatie programma voert een in-place upgrade uit. Opnieuw opstarten is altijd vereist bij het upgraden van de DC-agent software. dit wordt veroorzaakt door het kern gedrag van Windows. 
+
+De software-upgrade kan worden geautomatiseerd met behulp van standaard `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`MSI-procedures, bijvoorbeeld:.
+
+U kunt de `/norestart` vlag weglaten als u het installatie programma de computer liever automatisch opnieuw opstart.
+
+De `Get-AzureADPasswordProtectionDCAgent` cmdlet kan worden gebruikt om de software versie van alle geïnstalleerde DC-agents in een forest op te vragen.
 
 ## <a name="multiple-forest-deployments"></a>Implementaties met meerdere forests
 
@@ -301,7 +318,7 @@ Wachtwoord wijzigingen/-sets worden niet verwerkt en bewaard op alleen-lezen dom
 
 De belangrijkste Beschik baarheid voor wachtwoord beveiliging is de beschik baarheid van proxy servers wanneer de domein controllers in een forest proberen nieuwe beleids regels of andere gegevens van Azure te downloaden. Elke DC-agent maakt gebruik van een eenvoudig Round Robin-stijl algoritme bij het bepalen welke proxy server moet worden aangeroepen. Proxy servers die niet reageren, worden door de agent overgeslagen. Voor de meeste volledig verbonden Active Directory-implementaties met een goede replicatie van de status van de map en SYSVOL-map zijn er twee proxy servers voldoende om Beschik baarheid te garanderen. Dit resulteert in een tijdige down load van nieuwe beleids regels en andere gegevens. U kunt echter wel aanvullende proxy servers implementeren.
 
-Het ontwerp van de DC-agent software vermindert de gang bare problemen die zijn gekoppeld aan hoge Beschik baarheid. De DC-agent onderhoudt een lokale cache van het laatst gedownloade wachtwoord beleid. Zelfs als alle geregistreerde proxy servers niet meer beschikbaar zijn, blijven de DC-agents het wachtwoord beleid in de cache afdwingen. Een redelijke update frequentie voor wachtwoord beleid in een grote implementatie is doorgaans *dagen*, niet uren of minder. Korte uitval van de proxy servers heeft dus geen invloed op de beveiliging van Azure AD-wacht woorden.
+Het ontwerp van de DC-agent software vermindert de gang bare problemen die zijn gekoppeld aan hoge Beschik baarheid. De DC-agent onderhoudt een lokale cache van het laatst gedownloade wachtwoord beleid. Zelfs als alle geregistreerde proxy servers niet meer beschikbaar zijn, blijven de DC-agents het wachtwoord beleid in de cache afdwingen. Een redelijke update frequentie voor wachtwoord beleid in een grote implementatie is doorgaans dagen, niet uren of minder. Korte uitval van de proxy servers heeft dus geen invloed op de beveiliging van Azure AD-wacht woorden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

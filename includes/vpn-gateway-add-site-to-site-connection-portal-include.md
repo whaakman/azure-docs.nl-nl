@@ -5,26 +5,26 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 04/04/2018
+ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 19ad4e39ca4e402c37b2cfa69c7c306b6e5a2766
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5149973fe63f867b49e55c970779c005e12536b9
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175888"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780206"
 ---
-1. Navigeer naar en open de pagina voor uw virtuele netwerkgateway. Er zijn meerdere manieren om ernaar te navigeren. U kunt naar de gateway 'VNet1GW' navigeren via: **TestVNet1 -> Overzicht -> Verbonden apparaten -> VNet1GW**.
-2. Op de pagina voor VNet1GW klikt u op **Verbindingen**. Klik bovenaan de pagina Verbindingen op **+ Toevoegen** om de pagina **Verbinding toevoegen** te openen.
+1. Open de pagina voor de gateway van uw virtuele netwerk. Er zijn meerdere manieren om ernaar te navigeren. U kunt naar de gateway gaan door te gaan naar de **naam van uw VNet-> overzicht: > verbonden apparaten: > naam van uw gateway**.
+2. Op de pagina voor de gateway klikt u op **verbindingen**. Klik bovenaan de pagina Verbindingen op **+ Toevoegen** om de pagina **Verbinding toevoegen** te openen.
 
    ![Site-naar-Site-verbinding maken](./media/vpn-gateway-add-site-to-site-connection-portal-include/configure-site-to-site-connection.png)
 3. Op de pagina **Verbinding toevoegen** configureert u de waarden die nodig zijn om verbinding te maken.
 
-   - **Naam:** Naam van de verbinding.
-   - **Verbindingstype:** Selecteer **Site-to-site(IPSec)** .
-   - **Gateway van virtueel netwerk:** De waarde is opgelost, omdat u verbinding vanaf deze gateway maakt.
-   - **Lokale netwerkgateway:** Klik op **een lokale netwerkgateway kiezen** en selecteert u de lokale netwerkgateway die u wilt gebruiken.
+   - **Naam:** Geef een naam voor de verbinding op.
+   - **Verbindings type:** Selecteer **site-naar-site (IPSec)** .
+   - **Gateway van virtueel netwerk:** De waarde is vast omdat u verbinding maakt vanaf deze gateway.
+   - **Lokale netwerk gateway:** Klik op **een lokale netwerk gateway kiezen** en selecteer de lokale netwerk gateway die u wilt gebruiken.
    - **Gedeelde sleutel:** de waarde hier moet overeenkomen met de waarde die u voor uw lokale on-premises VPN-apparaat gebruikt. In het voorbeeld wordt 'abc123' gebruikt, maar u kunt een ingewikkeldere waarde gebruiken (aanbevolen). Het is van belang dat de waarde die u hier opgeeft, dezelfde waarde is die u hebt opgegeven bij het configureren van het VPN-apparaat.
    - De resterende waarden voor **Abonnement**, **Resourcegroep**, en **Locatie** zijn vast.
 

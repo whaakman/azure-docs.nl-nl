@@ -1,6 +1,6 @@
 ---
-title: Kaartstijlen ondersteund in Azure Maps | Microsoft Docs
-description: Ondersteund door Azure Maps kaartstijlen
+title: Ondersteunde kaart stijlen in Azure Maps | Microsoft Docs
+description: Kaart stijlen die door Azure Maps worden ondersteund
 author: walsehgal
 ms.author: v-musehg
 ms.date: 05/06/2019
@@ -8,81 +8,91 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: db396ad06bf46cbbaf486696b68393a6a4214c2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1aad2284c0f64c92efaefe3f9145d95c4aabec67
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230827"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839446"
 ---
-# <a name="azure-maps-supported-map-styles"></a>Azure Maps ondersteunde kaartstijlen
-Azure kaarten biedt ondersteuning voor diverse verschillende ingebouwde kaartstijlen zoals hieronder wordt beschreven.
+# <a name="azure-maps-supported-map-styles"></a>Azure Maps ondersteunde kaart stijlen
+Azure Maps biedt ondersteuning voor verschillende ingebouwde kaart stijlen, zoals hieronder wordt beschreven.
 
-## <a name="road"></a>Kaartachtergrond als weg
-Een **weg** kaart is een standaard-kaart die wordt weergegeven wegen, natuurlijke en kunstmatige functies samen met de labels voor deze functies.
+## <a name="road"></a>Tour
+Een wegkaart is een standaard kaart met wegen, natuurlijke en kunst matige functies, samen met de labels voor deze functies.
 
-![Kaartachtergrond als weg](./media/supported-map-styles/road.png)
+![Tour](./media/supported-map-styles/road.png)
 
-**Van toepassing API's:**
-* [Kaartafbeelding](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Tegel Serviceoverzicht](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
-* Kaartbesturingselement JS
-* Android kaartbesturingselement
+**Toepasselijke Api's:**
+* [Kaart afbeelding](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
+* [Kaart tegel](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* Web SDK-kaart besturings element
+* Besturings element Android-kaart
 
-## <a name="satellite"></a>satellite 
-De **satelliet** stijl is een combinatie van satelliet en Luchtfoto beelden.
+## <a name="blank-and-blank_accessible"></a>leeg en blank_accessible
 
-![satellite](./media/supported-map-styles/satellite.png)
+De **lege** en **blank_accessible** kaart stijlen bieden een leeg canvas waarop gegevens kunnen worden gevisualiseerd. De stijl **blank_accessible** blijft scherm lezers-updates bieden met locatie Details van waar de kaart zich bevindt, hoewel de basis kaart niet wordt weer gegeven.
 
-**Van toepassing API's:**
-* [Satelliet-tegel](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
-* Kaartbesturingselement JS
-* Android kaartbesturingselement
+> [!Note]
+> In de Web-SDK kunt u de achtergrond kleur van de kaart wijzigen door de CSS `background-color` -stijl van het element map div in te stellen.
 
-## <a name="satelliteroadlabels"></a>satellite_road_labels
-De stijl van deze kaart is een hybride van wegen en labels satelliet en Luchtfoto beelden heen.
+**Toepasselijke Api's:**
+* Web SDK-kaart besturings element
+
+## <a name="satellite"></a>kantoor 
+De **satelliet** stijl is een combi natie van satelliet-en lucht foto beelden.
+
+![kantoor](./media/supported-map-styles/satellite.png)
+
+**Toepasselijke Api's:**
+* [Satelliet tegel](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
+* Web SDK-kaart besturings element
+* Besturings element Android-kaart
+
+## <a name="satellite_road_labels"></a>satellite_road_labels
+Deze kaart stijl bestaat uit een hybride van de weg en labels op satelliet-en lucht foto-afbeelding.
 
 ![satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
 
-**Van toepassing API's:**
-* Kaartbesturingselement JS
-* Android kaartbesturingselement
+**Toepasselijke Api's:**
+* Web SDK-kaart besturings element
+* Besturings element Android-kaart
 
-## <a name="grayscaledark"></a>grayscale_dark
-**Weg in grijswaarden donker** is een donkere versie van de roadmap-stijl.
+## <a name="grayscale_dark"></a>grayscale_dark
+het **donkere grijs tinten** is een donkere versie van het kaart type weg.
 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
-**Van toepassing API's:**
-* Kaartbesturingselement JS 
-* Android kaartbesturingselement
+**Toepasselijke Api's:**
+* Web SDK-kaart besturings element 
+* Besturings element Android-kaart
 
 
-## <a name="grayscalelight"></a>grayscale_light
-**weg in grijswaarden licht** is een eenvoudige versie van de stijl van het overzicht.
+## <a name="grayscale_light"></a>grayscale_light
+**grijs waarden licht** is een lichte versie van het kaart type weg.
 
-![licht weg in grijswaarden](./media/supported-map-styles/grayscale_light.png)
+![licht grijs tinten](./media/supported-map-styles/grayscale_light.png)
 
-**Van toepassing API's:**
-* Kaartbesturingselement JS
-* Android kaartbesturingselement
+**Toepasselijke Api's:**
+* Web SDK-kaart besturings element
+* Besturings element Android-kaart
 
 
-## <a name="night"></a>'s nachts
-**'s nachts** is een donkere versie van de stijl overzicht met gekleurde wegen en symbolen.
+## <a name="night"></a>'s
+**'s avonds** is een donkere versie van de kaart stijl met gekleurde wegen en symbolen.
 
-!['s nachts](./media/supported-map-styles/night.png)
+!['s](./media/supported-map-styles/night.png)
 
-**Van toepassing API's:**
-* Kaartbesturingselement JS
-* Android kaartbesturingselement
+**Toepasselijke Api's:**
+* Web SDK-kaart besturings element
+* Besturings element Android-kaart
 
-## <a name="roadshadedrelief"></a>road_shaded_relief
-**weg gearceerde vrijstelling** is een Azure-kaarten belangrijkste stijl is voltooid met beschrijvingen van de aarde.
+## <a name="road_shaded_relief"></a>road_shaded_relief
+uitlichting van de **weg** is een Azure Maps hoofd stijl voltooid met conto uren van de aarde.
 
-![gearceerde vrijstelling](./media/supported-map-styles/shaded-relief.png)
+![verlichting in grijs tinten](./media/supported-map-styles/shaded-relief.png)
 
-**Van toepassing API's:**
-* [Tegel Serviceoverzicht](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
-* Kaartbesturingselement JS
-* Android kaartbesturingselement
+**Toepasselijke Api's:**
+* [Kaart tegel](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* Web SDK-kaart besturings element
+* Besturings element Android-kaart

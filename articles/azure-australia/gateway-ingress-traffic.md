@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: 808a615885129af1be9b7fdcdb64d5a8c5a25e40
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3885b9fa346047a50a49c7b2f9b96b6a8f95e51f
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571651"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779352"
 ---
 # <a name="controlling-ingress-traffic-in-azure-australia"></a>Binnenkomend verkeer in azure Australia beheren
 
@@ -146,7 +146,7 @@ Standard biedt extra mogelijkheden voor risico beperking ten opzichte van de Bas
 |Resource|Koppelen|
 |---|---|
 |Overzicht van Azure DDoS Protection|[https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)|
-|Best practices voor Azure DDoS|[https://docs.microsoft.com/azure/security/azure-ddos-best-practices](https://docs.microsoft.com/azure/security/azure-ddos-best-practices)|
+|Best practices voor Azure DDoS|[https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices](https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices)|
 |DDoS Protection beheren|[https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)|
 |
 

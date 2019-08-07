@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/24/2019
 ms.author: v-mohabe
-ms.openlocfilehash: f33b69ac443a1bb8f6b7d6e1b19f2f077bf38f58
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 8812ac325e6bfd5ee019f6ddd6bf86c846ed5c10
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501486"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782449"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Detectie van bedreigingen voor gegevens Services in Azure Security Center
 
@@ -60,6 +60,7 @@ Security Center analyseert Diagnostische logboeken met lees-, schrijf-en verwijd
 |**Afwijking van ongebruikelijke locatie toegang**|Voor beeld van netwerk verkeer analyse heeft afwijkende uitgaande Remote Desktop Protocol (RDP)-communicatie gedetecteerd die afkomstig is van een bron in uw implementatie. Deze activiteit wordt als abnormaal beschouwd voor deze omgeving en kan erop wijzen dat uw resource is aangetast en nu wordt gebruikt om een externe RDP-eind punt te forceren. Houd er rekening mee dat dit type activiteit ervoor kan zorgen dat uw IP-adres wordt gemarkeerd als kwaadaardig bij externe entiteiten.|
 |**Afwijking van toepassings toegang**|Geeft aan dat een ongebruikelijke toepassing toegang heeft gekregen tot dit opslag account. Een mogelijke oorzaak is dat een aanvaller met een nieuwe toepassing toegang heeft tot uw opslag account.|
 |**Afwijking anonieme toegang**|Geeft aan dat er een wijziging is in het toegangs patroon voor een opslag account. Zo is bijvoorbeeld anoniem toegang gekregen tot het account (zonder enige verificatie). Dit is onverwacht vergeleken met het recente toegangs patroon voor dit account. Een mogelijke oorzaak is dat een aanvaller open bare Lees toegang heeft voor een container die BLOB (s)-opslag bevat.|
+|**Tor-afwijkingen**|Geeft aan dat de toegang tot dit account is verkregen vanaf een IP-adres dat een actief eind knooppunt van Tor (een anoniem-proxy) wordt genoemd. Bij de ernst van deze waarschuwing wordt rekening gehouden met het gebruikte verificatie type (indien van toepassing) en of dit het eerste geval van dergelijke toegang is. Mogelijke oorzaken kunnen kwaadwillende personen toegang hebben tot uw opslag account via Tor, of een rechtmatige gebruiker heeft toegang verkregen tot uw opslag account via Tor.|
 |**Afwijkingen van gegevens exfiltration**|Geeft aan dat een ongebruikelijk grote hoeveelheid gegevens is geëxtraheerd vergeleken met recente activiteiten op deze opslag container. Een mogelijke oorzaak is dat een aanvaller een grote hoeveelheid gegevens heeft geëxtraheerd uit een container die BLOB (s)-opslag bevat.|
 |**Onverwachte afwijkings verwijdering**|Hiermee wordt aangegeven dat er een of meer onverwachte verwijderings bewerkingen zijn uitgevoerd in een opslag account, vergeleken met recente activiteiten voor dit account. Een mogelijke oorzaak is dat een aanvaller gegevens uit uw opslag account heeft verwijderd.|
 |**Azure-Cloud service pakket uploaden**|Geeft aan dat een Azure-Cloud service pakket (. cspkg-bestand) op een ongebruikelijke manier is geüpload naar een opslag account, vergeleken met de recente activiteit voor dit account. Een mogelijke oorzaak is dat een aanvaller bereid is om schadelijke code vanuit uw opslag account te implementeren naar een Azure-Cloud service.|
@@ -70,7 +71,7 @@ Security Center analyseert Diagnostische logboeken met lees-, schrijf-en verwijd
 >[!NOTE]
 >Advanced Threat Protection voor Azure Storage is momenteel niet beschikbaar in azure Government en soevereine Cloud regio's.
 
-Voor meer informatie over de waarschuwingen voor opslag raadpleegt u het artikel [Advanced Threat Protection voor Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection) en raadpleegt u de sectie beveiligings waarschuwingen.
+Voor meer informatie over de waarschuwingen voor opslag raadpleegt u het artikel [Advanced Threat Protection voor Azure Storage](../storage/common/storage-advanced-threat-protection.md) en raadpleegt u de sectie beveiligings waarschuwingen.
 
 ## Cosmos DB<a name="cosmos-db"></a>
 

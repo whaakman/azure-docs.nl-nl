@@ -1,39 +1,39 @@
 ---
-title: Problemen oplossen met Azure Data Catalog
-description: Dit artikel worden algemene problemen voor het oplossen van problemen met voor Azure Data Catalog-resources.
+title: Problemen oplossen Azure Data Catalog
+description: In dit artikel worden veelvoorkomende problemen met het oplossen van Azure Data Catalog resources beschreven.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: troubleshooting
-ms.date: 06/13/2019
-ms.openlocfilehash: ed74e90e5e8ed55b75968f51cb50e6a1b4cdd75d
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.date: 08/01/2019
+ms.openlocfilehash: f37110138ae62272e56b155b7e8a9aac2f80cdf8
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203509"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734589"
 ---
-# <a name="troubleshooting-azure-data-catalog"></a>Oplossen van problemen met Azure Data Catalog
+# <a name="troubleshooting-azure-data-catalog"></a>Problemen met Azure Data Catalog oplossen
 
-Dit artikel worden algemene problemen voor het oplossen van problemen met voor Azure Data Catalog-resources. 
+In dit artikel worden veelvoorkomende problemen met het oplossen van Azure Data Catalog resources beschreven. 
 
-## <a name="functionality-limitations"></a>Beperkingen van de functionaliteit
+## <a name="functionality-limitations"></a>Functionaliteits beperkingen
 
-Wanneer u Azure Data Catalog, zijn de volgende functionaliteit is beperkt:
+Bij het gebruik van Azure Data Catalog is de volgende functionaliteit beperkt:
 
-- Accounts met het type **gastrol** worden niet ondersteund. U kunt geen Gast-accounts toevoegen als gebruikers van Azure Data Catalog en gastgebruikers ook kunnen de portal op www.azuredatacatalog.com niet gebruiken.
+- Accounts met de **rol gast** worden niet ondersteund. U kunt geen gast accounts toevoegen als gebruikers van Azure Data Catalog en gast gebruikers kunnen de portal niet gebruiken op www.azuredatacatalog.com.
 
-- Het maken van Azure Data Catalog-resources met behulp van Azure Resource Manager-sjablonen of Azure PowerShell-opdrachten wordt niet ondersteund.
+- Het maken van Azure Data Catalog-resources met behulp van Azure Resource Manager sjablonen of Azure PowerShell opdrachten worden niet ondersteund.
 
-- De Azure Data Catalog-resource kan niet worden verplaatst tussen Tenants van Azure.
+- De Azure Data Catalog resource kan niet worden verplaatst tussen Azure-tenants.
 
 ## <a name="azure-active-directory-policy-configuration"></a>Azure Active Directory-beleid configureren
 
-Het kan voorkomen dat u zich wel kunt aanmelden bij de Azure Data Catalog-portal, maar niet bij het hulpprogramma voor gegevensbronregistratie. Er wordt dan een foutmelding weergegeven. Deze fout kan optreden wanneer u zich op het bedrijfsnetwerk bevindt of wanneer u verbinding vanaf buiten het bedrijfsnetwerk bevindt maakt.
+Het kan voorkomen dat u zich wel kunt aanmelden bij de Azure Data Catalog-portal, maar niet bij het hulpprogramma voor gegevensbronregistratie. Er wordt dan een foutmelding weergegeven. Deze fout kan optreden als u zich op het bedrijfs netwerk bevindt of wanneer u een verbinding maakt van buiten het bedrijfs netwerk.
 
 Het registratiehulpprogramma maakt gebruik van *formulierverificatie* om de gebruikersaanmeldingen te valideren bij Azure Active Directory. Als u zich wilt aanmelden, moet een Azure Active Directory-beheerder formulierverificatie inschakelen in het *algemene verificatiebeleid*.
 
-Met het algemene verificatiebeleid kunt u afzonderlijke verificatie voor intranet- en extranetverbindingen inschakelen, zoals wordt weergegeven in de volgende afbeelding. Aanmelden fouten kunnen optreden als formulierverificatie niet is ingeschakeld voor het netwerk van waaruit u verbinding maakt.
+Met het algemene verificatiebeleid kunt u afzonderlijke verificatie voor intranet- en extranetverbindingen inschakelen, zoals wordt weergegeven in de volgende afbeelding. Er kunnen zich aanmeldings fouten voordoen als formulier verificatie niet is ingeschakeld voor het netwerk van waaruit u verbinding maakt.
 
  ![Het algemene verificatiebeleid van Azure Active Directory](./media/troubleshoot-policy-configuration/global-auth-policy.png)
 
@@ -41,4 +41,4 @@ Zie [Verificatiebeleid configureren](/previous-versions/windows/it-pro/windows-s
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Maken van een Azure Data Catalog](data-catalog-get-started.md)
+* [Een Azure Data Catalog maken](data-catalog-get-started.md)

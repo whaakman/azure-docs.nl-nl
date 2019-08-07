@@ -1,71 +1,71 @@
 ---
-title: Azure VMware-oplossing door CloudSimple - overzicht
-description: Meer informatie over functies, scenario's en voordelen van VMware-oplossing op Azure door CloudSimple-service.
+title: Azure VMware-oplossing per CloudSimple-overzicht
+description: Meer informatie over functies, scenario's en voor delen van VMware-oplossingen op Azure door de CloudSimple-service.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6e84801875cf0a77990a63db5c28eedc2128c504
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01fd132b3e43d15c5f2eee0114ef09dbac6df2a6
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64866833"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812451"
 ---
-# <a name="what-is-vmware-solution-on-azure-by-cloudsimple"></a>Wat is de oplossing VMware op Azure door CloudSimple
+# <a name="what-is-vmware-solution-on-azure-by-cloudsimple"></a>Wat is VMware-oplossing op Azure door CloudSimple
 
-**VMware-oplossing op Azure door CloudSimple** is een volledig beheerde service waarmee u de VMware-platform worden uitgevoerd in Azure. Deze oplossing omvat vSphere, vCenter, vSAN, NSX-T en bijbehorende hulpprogramma's.
-Uw VMware-omgeving wordt uitgevoerd systeemeigen op Bare-Metalimplementatie van Azure-infrastructuur, op locaties van de Azure-cloud. De service omvat alle functies die vereist zijn om te gebruiken van de VMware-platforms, efficiënte en veilige manier.
+**VMware-oplossing op Azure door CloudSimple** is een volledig beheerde service waarmee u het VMware-platform in azure kunt uitvoeren. Deze oplossing omvat vSphere, vCenter, vSAN, NSX-T en bijbehorende hulpprogram ma's.
+Uw VMware-omgeving wordt systeem eigen op Azure bare-metal infra structuur uitgevoerd op Azure-Cloud locaties. De service omvat alle functies die nodig zijn om de VMware-platforms efficiënt en veilig te gebruiken.
 
-![VMware-oplossing op Azure door CloudSimple-overzicht](media/azure-vmware-solution-by-cloudsimple.png)
+![Overzicht van VMware-oplossing op Azure met CloudSimple](media/azure-vmware-solution-by-cloudsimple.png)
 
 ## <a name="features"></a>Functies
 
-* On-demand selfservice inrichting van VMware cloud-omgevingen. Mogelijkheid toevoegen en verwijderen van de capaciteit op aanvraag
-* Implementatie van VMware-platform, upgrade, management vlak back-up, health/capaciteit bewaking, waarschuwingen, problemen oplossen, en herstel.
-* Aan de basis liggen netwerk services die nodig zijn om in te schakelen van VMware, waaronder het beheer van L2/L3-services en firewall-regel.
-* Edge-type netwerkservices, zoals VPN, openbaar IP-adres en Internet-Gateways. Deze geavanceerde services uitvoeren op Azure en de bijbehorende beveiligingsupdates en DDoS-beveiliging van Azure.
-* Reservering van de capaciteit tot lagere kosten.
-* Snelle, lage latentie connectiviteit met Azure en on-premises.
-* Architecturen voor oplossingen voor klanten gebruiken Azure-services op geïntegreerde wijze, profiteren van deze unieke 'VMware cloud in een openbare cloud'-architectuur. Deze Azure-services zijn Azure AD, opslag, Toepassingsgateways en anderen.
-* Infrastructuur is volledig aan u toegewezen en worden fysiek gescheiden van de infrastructuur van andere klanten.
-* -Beheerfuncties dergelijke activiteitsbeheer, gebruik, facturering/meten en beheer van gebruikers.
-* 24 x 7-klantondersteuning.
+* Self-service-inrichting op aanvraag van VMware-Cloud omgevingen. Mogelijkheid om op aanvraag capaciteit toe te voegen en te verwijderen
+* Implementatie van VMware-platform, upgrades, beheer vlak back-ups, bewaking van status/capaciteit, waarschuwingen, probleem oplossing en herstel.
+* Aan-netwerk services die zijn vereist om VMware in te scha kelen, inclusief L2/L3-Services en firewall regel beheer.
+* Edge-type netwerk services, waaronder VPN, open bare IP en Internet gateways. Deze Edge-services worden uitgevoerd op Azure en voorzien in de bijbehorende beveiligings-en DDoS beveiliging van Azure.
+* Capaciteits reservering tot lagere kosten.
+* Connectiviteit met hoge snelheid en lage latentie met Azure en on-premises.
+* Oplossings architecturen zodat klanten Azure-Services op een geïntegreerde manier kunnen gebruiken, profiteren van deze unieke ' VMware-Cloud in een open bare Cloud '-architectuur. Deze Azure-Services omvatten Azure AD, opslag, toepassings gateways en anderen.
+* De infra structuur is volledig specifiek voor u en is fysiek geïsoleerd van de infra structuur van andere klanten.
+* Beheer functies, zoals het beheren van activiteiten, het gebruik, facturering/meting en gebruikers beheer.
+* 24x7 klant ondersteuning.
 
 ## <a name="benefits"></a>Voordelen
 
-* **Operationele continuïteit:** CloudSimple biedt systeemeigen toegang tot de VMware-platforms. De architectuur CloudSimple is compatibel met uw bestaande:
+* **Operationele continuïteit:** CloudSimple biedt systeem eigen toegang tot VMware-platforms. De CloudSimple-architectuur is compatibel met uw bestaande:
   * Toepassingen
   * Bewerkingen
   * Netwerken
   * Beveiliging
-  * Backup
+  * Back-up
   * Herstel na noodgeval
   * Controleren
-  * Hulpprogramma's voor naleving
+  * Nalevings hulpprogramma's
   * Processen
-* **Er is geen Retraining:** VMware-platformcompatibiliteit kunt u gebruikmaken van bestaande vaardigheden en kennis.
-* **Flexibiliteit van de infrastructuur:** U hoeft niet langer de capaciteitsbehoeften voorspellen en vervolgens terechtkomen met ongebruikte capaciteit of infrastructuur tekort aan. CloudSimple wordt geleverd als een service in de cloud, en u kunt toevoegen of capaciteit op elk gewenst moment beperken
-* **Beveiliging:** Toegang tot de omgeving CloudSimple via Azure biedt ingebouwde DDoS protection- en beveiligingscontrole.
-* **Lagere kosten:** Het platform CloudSimple maximaal is ontworpen, en biedt een hoge mate van automatisering, operationele efficiëntie en schaalvoordelen. Bovendien publiceert CloudSimple architecturen voor oplossingen die van de aanwezigheid van VMware in een openbare cloud profiteren om kosten te verlagen. Voorbeelden zijn Azure AD, back-up naar Azure storage, application-gateway, load balancer en anderen.
-* **Een nieuw hybride Platform:** De service kunt snelle, lage latentie toegang tot de rest van Azure. Bovendien kan CloudSimple management uniform beheer van virtuele VMware-Machines en de rest van Azure met behulp van de gebruikersinterface en de API. Uw ontwikkelteams kunnen profiteren van openbare en persoonlijke platforms in een geïntegreerde, consistente manier worden geactiveerd.
-* **Infrastructuurbewaking, probleemoplossing en ondersteuning:** De onderliggende infrastructuur werkt CloudSimple als een service. Mislukken hardware automatisch wordt vervangen. U kunt zich richten op verbruik terwijl CloudSimple zorgt ervoor dat de omgeving goed wordt uitgevoerd.
-* **Compatibiliteit met beleid:** Houd uw VMware-hulpprogramma's, beveiligingsprocedures, controle-procedures en nalevingscertificeringen.
+* **Geen training:** Met VMware-platform compatibiliteit kunt u bestaande vaardig heden en kennis gebruiken.
+* **Flexibele infra structuur:** U hoeft niet langer te voors pellen van de capaciteits behoeften en vervolgens te beëindigen met verspilde capaciteit of infrastructuur tekorten. CloudSimple wordt geleverd als een Cloud service en u kunt op elk gewenst moment capaciteit toevoegen of beperken
+* **Beveiligingsprincipal** Toegang tot de CloudSimple-omgeving via Azure biedt ingebouwde DDoS beveiliging en beveiligings bewaking.
+* **Lagere kosten:** Het CloudSimple-platform is zeer ontworpen en biedt een hoge mate van automatisering, operationele efficiëntie en schaal voordelen. Daarnaast publiceert CloudSimple oplossings architecturen die profiteren van de aanwezigheid van VMware in een open bare Cloud om de kosten te verlagen. Voor beelden hiervan zijn Azure AD, back-ups naar Azure Storage, toepassings gateway, load balancer en anderen.
+* **Een nieuw hybride platform:** Met de service kunt u hoge snelheid en lage latentie toegang tot de rest van Azure. Verder biedt CloudSimple Management Unified management van VMware Virtual Machines en de rest van Azure met dezelfde gebruikers interface en API. Uw ontwikkel teams kunnen profiteren van de open bare en persoonlijke platformen op een geïntegreerde, consistente manier.
+* **Bewaking van infra structuur, probleem oplossing en ondersteuning:** CloudSimple werkt uw onderliggende infra structuur als een service. Defecte hardware wordt automatisch vervangen. U kunt zich concentreren op verbruik terwijl CloudSimple ervoor zorgt dat de omgeving soepel wordt uitgevoerd.
+* **Beleids compatibiliteit:** Zorg ervoor dat uw VMware-hulpprogram ma's, beveiligings procedures, controle procedures en nalevings certificeringen worden bewaard.
 
 ## <a name="scenarios"></a>Scenario's
 
-* **Data Center buiten gebruik stellen of de migratie:** Zorg voor extra capaciteit wanneer u grenzen van uw bestaande datacenter bereiken of vernieuwen van hardware. Het is eenvoudig voor u de benodigde capaciteit in de cloud toevoegen en verwijderen van de problemen die van het beheer van hardware wordt vernieuwd. Het risico en de kosten van de cloud kunt migreren in vergelijking met tijdrovende conversies of rearchitecture verminderen. Gebruik vertrouwde VMware-hulpprogramma's en vaardigheden om te versnellen cloudmigraties. Eenmaal in de cloud, gebruikt u Azure-services te moderniseren van uw toepassingen in uw eigen tempo.
-* **Vouw op aanvraag:** Vouw in de cloud om te voldoen aan onvoorziene behoeften, zoals nieuwe ontwikkelomgevingen of seizoensgebonden capaciteit pieken. U kunt eenvoudig nieuwe capaciteit op aanvraag maken en bewaar alleen als u deze nodig hebt. Uw investeringen vooraf verkorten, Versnel de snelheid van de inrichting en verminder complexiteit met de dezelfde architectuur en het beleid in zowel on-premises en de cloud.
-* **Herstel na noodgevallen en virtuele bureaubladen in de Azure-Cloud:** Externe toegang tot gegevens, apps en pc's in de Azure-Cloud maken. Met hoge bandbreedte verbindingen, u uploaden / downloaden van gegevens snel te herstellen van incidenten. Netwerken met lage latentie geven u snel antwoord keer dat gebruikers van een bureaublad-app verwachten. Met CloudSimple is het eenvoudig om uw beleid en netwerken in de Cloud met behulp van de portal CloudSimple en vertrouwde VMware-hulpprogramma's te repliceren. Het gemak van herstel en replicatie vermindert aanzienlijk de inspanning en het risico van het maken en beheren van herstel na Noodgevallen en VDI-implementaties.
-* **Krachtige toepassingen en Databases:** CloudSimple biedt een hypergeconvergeerd-architectuur ontworpen voor het uitvoeren van uw meest veeleisende VMware-workloads. Oracle, Microsoft SQL server, middleware-systemen en krachtige geen SQL-databases worden uitgevoerd. Ervaar de cloud als uw eigen datacenter met hoge snelheid 25 Gbps netwerkverbindingen waarmee u hybride apps die on-premises VMware in Azure en Azure omvatten uitvoeren persoonlijke werkbelastingen zonder verlies van prestaties.
-* **Echte hybride:** Lever een geïntegreerde ervaring DevOps in VMware en Azure. VMware-beheer voor Azure-services en oplossingen die kunnen worden toegepast voor alle uw workloads optimaliseren. Toegang tot services van de openbare cloud zonder dat uw datacenter uitbreiden of opnieuw ontwerpen van uw toepassingen. Centraliseer identiteiten, beleid voor toegangsbeheer, logboekregistratie en bewaking van VMware-toepassingen op Azure.
+* **Buiten gebruik stellen of migreren van data centers:** Krijg extra capaciteit wanneer u de limieten bereikt van uw bestaande Data Center of hardware vernieuwt. Het is eenvoudig om de benodigde capaciteit toe te voegen in de Cloud en om te voor komen dat het beheer van de hardware vernieuwt. Verminder het risico en de kosten voor Cloud migraties vergeleken met tijdrovende conversies of herarchitectuur. Gebruik vertrouwde VMware-hulpprogram ma's en-vaardig heden om Cloud migraties te versnellen. In de cloud kunt u Azure-Services gebruiken om uw toepassingen in uw tempo te moderniseren.
+* **Uitvouwen op aanvraag:** Breid uit naar de cloud om te voldoen aan niet-verwachte behoeften, zoals nieuwe ontwikkelings omgevingen of bursts met een seizoen capaciteit. U kunt eenvoudig nieuwe capaciteit op aanvraag maken en deze alleen zolang als u dat nodig hebt. Verminder uw investering in de voor grond, Versnel snelheid van het inrichten en verminder de complexiteit met dezelfde architectuur en hetzelfde beleid in zowel on-premises als in de Cloud.
+* **Herstel na nood gevallen en virtuele Bureau bladen in de Azure-Cloud:** Externe toegang tot gegevens, apps en Bureau bladen in de Azure-Cloud tot stand brengen. Met verbindingen met een hoge band breedte kunt u snel gegevens uploaden/downloaden om van incidenten te herstellen. Netwerken met lage latentie bieden snelle reactie tijden die gebruikers verwachten van een desktop-app. Met CloudSimple kunt u al uw beleids regels en netwerken in de Cloud eenvoudig repliceren met behulp van de CloudSimple-Portal en vertrouwde VMware-hulpprogram ma's. Het gemak van herstel en de replicatie vermindert de inspanningen en het risico van het maken en beheren van DR-en VDI-implementaties.
+* **Toepassingen en data bases met hoge prestaties:** CloudSimple biedt een hypergeconvergeerd-architectuur die is ontworpen om uw meest veeleisende VMware-workloads uit te voeren. Voer Oracle, micro soft SQL Server, middleware Systems en no-SQL-data bases met hoge prestaties uit. Ervaar de Cloud als uw eigen Data Center met hoge snelheid van 25 Gbps netwerk verbindingen waarmee u hybride apps kunt uitvoeren die on-premises, VMware op Azure en persoonlijke werk belastingen van Azure omvatten, zonder de prestaties te verbeteren.
+* **Waar hybride:** Verdeel DevOps in VMware en Azure. Optimaliseer VMware-beheer voor Azure-Services en-oplossingen die in al uw workloads kunnen worden toegepast. Toegang tot open bare Cloud Services zonder uw Data Center uit te breiden of uw toepassingen opnieuw te ontwerpen. Centraliseer identiteiten, Toegangs beheer beleid, logboek registratie en controle voor VMware-toepassingen op Azure.
 
 ![Scenario's](media/cloudsimple-scenarios.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [CloudSimple service maken](quickstart-create-cloudsimple-service.md)
-* [Private Cloud maken](quickstart-create-private-cloud.md)
+* [CloudSimple-service maken](quickstart-create-cloudsimple-service.md)
+* [Privécloud maken](quickstart-create-private-cloud.md)

@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 07/19/2019
-ms.openlocfilehash: 763d424d9d462c4a9531df84f3e5e26bfc1b0a14
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.date: 08/02/2019
+ms.openlocfilehash: 5c300cb7d5416ada435811872e2cea8865e3c657
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68502279"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781276"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>Vooruitbetalen voor Virtual Machines met Azure Reserved VM Instances (RI)
 
@@ -36,7 +36,7 @@ Uw VM-reserve ringen kunnen van toepassing zijn op het VM-gebruik dat wordt verz
 
 De instelling voor de flexibiliteit van de instantie grootte bepaalt welke services de gereserveerde exemplaar kortingen ophalen.
 
-Of de instelling is ingeschakeld of uitgeschakeld, de reserverings kortingen zijn automatisch van toepassing op alle  overeenkomende VM `Microsoft.Compute`-gebruik wanneer de ConsumedService is. Controleer daarom de gebruiks gegevens voor de waarde *ConsumedService* . Voorbeelden zijn:
+Of de instelling is ingeschakeld of uitgeschakeld, de reserverings kortingen zijn automatisch van toepassing op alle overeenkomende VM `Microsoft.Compute`-gebruik wanneer de ConsumedService is. Controleer daarom de gebruiks gegevens voor de waarde *ConsumedService* . Voorbeelden zijn:
 
 - Virtuele machines
 - Virtual Machine Scale Sets
@@ -132,13 +132,9 @@ U kunt de volgende typen wijzigingen na de aankoop niet rechtstreeks aanbrengen:
 
 U kunt echter wel een reserve ring *uitwisselen* als u wijzigingen wilt aanbrengen.
 
-## <a name="cancellations-and-exchanges"></a>Annuleringen en uitwisselingen
+## <a name="cancel-exchange-or-refund-reservations"></a>Reserve ringen annuleren, omruilen of terugbetalen
 
-Als u uw reservering wilt annuleren, worden er mogelijk kosten voor vroegtijdige beëindiging van 12% in rekening gebracht. Restituties worden gebaseerd op de laagste prijs, zijnde de aankoopprijs of de huidige prijs van de reservering, welke het laagste is. Restituties zijn beperkt tot $ 50.000 per jaar. De restitutie die u ontvangt, is het resterende bedrag naar rato saldo minus de kosten voor vroegtijdige beëindiging van 12%. Als u wilt annuleren, gaat u naar de reserve ring in het Azure Portal en selecteert u **terugbetaling**.
-
-Als u de reserve ring van de gereserveerde VM-instanties wilt wijzigen in een andere regio, VM-grootte groep of-term, kunt u deze uitwisselen. De uitwisseling moet een andere reserverings waarde zijn die gelijk of groter is. De begindatum van de periode voor de nieuwe reservering wordt niet meegenomen naar de uitgewisselde reservering. De periode van één of drie jaar begint bij het maken van de nieuwe reserve ring. Als u Exchange wilt, gaat u naar de reserve ring in het Azure Portal en selecteert u **Exchange**.
-
-Zie reserverings [uitwisselingen en](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md)terugbetalingen voor meer informatie over het omruilen of terugbetalen van reserve ringen.
+U kunt reserve ringen annuleren, vervangen of terugbetalen met bepaalde beperkingen. Zie [self-service-uitwisseling en terugbetalingen voor Azure Reservations](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md)voor meer informatie.
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 

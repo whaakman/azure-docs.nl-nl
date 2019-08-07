@@ -1,6 +1,6 @@
 ---
-title: Beheren van tokens (Microsoft Authentication Library) | Azure
-description: Meer informatie over het ophalen en opslaan in cache met behulp van de Microsoft Authentication Library (MSAL).
+title: Tokens beheren (micro soft-verificatie bibliotheek) | Azure
+description: Meer informatie over het verkrijgen en caching van tokens met behulp van de micro soft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -9,7 +9,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
@@ -17,89 +17,89 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ca011ec7185b084de6d1d346556c1c270c7aee3
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e6148f6f9d449dc5aa55da2f041119a8b706491b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546068"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835077"
 ---
-# <a name="acquiring-and-caching-tokens-using-msal"></a>Ophalen en opslaan in cache tokens met MSAL
-[Toegangstokens](access-tokens.md) zorgen ervoor dat clients veilig aanroepen van web-API's die zijn beveiligd door Azure. Er zijn veel manieren om een token met behulp van Microsoft Authentication Library (MSAL) te verkrijgen. Enkele manieren vereisen gebruikersinteracties via een webbrowser. Sommige nodig geen voor alle gebruikersinteracties. In het algemeen is de manier om een token te verkrijgen is afhankelijk van of de toepassing een openbare client-toepassing (desktop- of mobiele app) of een vertrouwelijke client-toepassing (Web-App, Web-API of daemon-toepassing, zoals een Windows-service is).
+# <a name="acquiring-and-caching-tokens-using-msal"></a>Tokens verkrijgen en cachen met behulp van MSAL
+Met [toegangs tokens](access-tokens.md) kunnen clients veilig Web-api's aanroepen die worden beveiligd door Azure. Er zijn veel manieren om een token te verkrijgen met behulp van micro soft Authentication Library (MSAL). Voor sommige manieren is interactie van de gebruiker vereist via een webbrowser. Voor sommige gebruikers interacties is geen interactie van de gebruiker vereist. Over het algemeen is het mogelijk om een token te verkrijgen, afhankelijk van of de toepassing een open bare-client toepassing (desktop-of mobiele app) of een vertrouwelijke client toepassing (Web-app, Web-API of daemon-toepassing, zoals een Windows-service) is.
 
-MSAL slaat een token nadat deze is aangeschaft.  Toepassingscode moet proberen een token op de achtergrond (uit de cache), eerst ophalen voor het ophalen van een token op een andere manier.
+MSAL slaat een token op in de cache nadat het is verkregen.  Toepassings code moet eerst proberen een token op de achtergrond (uit de cache) te krijgen voordat een token op een andere manier wordt verkregen.
 
-U kunt ook de tokencache wordt bereikt door het verwijderen van de accounts uit de cache wissen. De sessiecookie die zich in de browser, maar wordt niet verwijderd.
+U kunt ook de token cache wissen. dit wordt bereikt door de accounts uit de cache te verwijderen. Hiermee wordt de sessie cookie die zich in de browser bevindt, echter niet verwijderd.
 
-## <a name="scopes-when-acquiring-tokens"></a>Bereiken bij het verkrijgen van tokens
-[Scopes](v2-permissions-and-consent.md) zijn de machtigingen die een web-API beschikbaar maakt voor clienttoepassingen om toegang aan te vragen. Clienttoepassingen aanvragen van de gebruiker toestemming voor deze bereiken bij het maken van verificatieaanvragen voor het ophalen van tokens voor toegang tot de web-API's. MSAL kunt u tokens voor toegang tot Azure AD voor ontwikkelaars (v1.0) en Microsoft identity-platform (v2.0) API's. v2.0-protocol maakt gebruik van bereiken in plaats van de resource in de aanvragen. Lees voor meer informatie, [vergelijking v1.0 en v2.0](active-directory-v2-compare.md). Het v2.0-eindpunt retourneert op basis van de web-API van configuratie van de token versie accepteert, het toegangstoken en MSAL.
+## <a name="scopes-when-acquiring-tokens"></a>Bereiken bij het ophalen van tokens
+[Scopes](v2-permissions-and-consent.md) zijn de machtigingen die een web-API beschikbaar maakt voor client toepassingen om toegang aan te vragen. Client toepassingen vragen de toestemming van de gebruiker voor deze bereiken bij het maken van verificatie aanvragen voor het verkrijgen van tokens voor toegang tot de Web-Api's. Met MSAL kunt u tokens ophalen om toegang te krijgen tot Azure AD voor ontwikkel aars (v 1.0) en micro soft Identity platform (v 2.0) Api's. v 2.0-protocol gebruikt scopes in plaats van resource in de aanvragen. Lees de [vergelijking van v 1.0 en v 2.0](active-directory-v2-compare.md)voor meer informatie. Op basis van de configuratie van de token die door de Web-API wordt geaccepteerd, retourneert het v 2.0-eind punt het toegangs token voor MSAL.
 
-Een aantal MSAL verkrijgen token als methode vereist een *scopes* parameter. Deze parameter is een eenvoudige lijst met tekenreeksen die de gewenste machtigingen en bronnen die worden aangevraagd declareren. Bekende bereiken zijn de [machtigingen voor Microsoft Graph](/graph/permissions-reference).
+Voor een aantal MSAL-Acquire-token methoden is een *bereik* parameter vereist. Deze para meter is een eenvoudige lijst met teken reeksen die de gewenste machtigingen en benodigde bronnen declareren. Bekende bereiken zijn de [Microsoft Graph machtigingen](/graph/permissions-reference).
 
-Het is ook mogelijk in MSAL voor toegang tot v1.0 resources. Lees voor meer informatie, [bereiken voor een toepassing v1.0](msal-v1-app-scopes.md).
+Het is ook mogelijk in MSAL om toegang te krijgen tot v 1.0-resources. Lees voor meer informatie [bereiken voor een v 1.0-toepassing](msal-v1-app-scopes.md).
 
-### <a name="request-specific-scopes-for-a-web-api"></a>Aanvragen van specifieke bereiken voor een web-API
-Wanneer de toepassing nodig heeft om aan te vragen van tokens met specifieke machtigingen voor een resource-API, moet u om door te geven van de bereiken met de ID-URI van de API-app in de onderstaande indeling:  *&lt;app ID URI&gt; / &lt;bereik&gt;*
+### <a name="request-specific-scopes-for-a-web-api"></a>Specifieke bereiken voor een web-API aanvragen
+Wanneer uw toepassing tokens met specifieke machtigingen voor een resource-API moet aanvragen, moet u de scopes met de App-ID-URI van de API door geven in de onderstaande notatie:  *&lt;app-&gt;id-URI/&lt;-bereik&gt;*
 
-Bijvoorbeeld, bereiken voor Microsoft Graph API: `https://graph.microsoft.com/User.Read`
+Bijvoorbeeld bereiken voor de Microsoft Graph-API:`https://graph.microsoft.com/User.Read`
 
-Of, bijvoorbeeld bereiken voor een aangepaste web-API: `api://abscdefgh-1234-abcd-efgh-1234567890/api.read`
+Of bijvoorbeeld bereiken voor een aangepaste web-API:`api://abscdefgh-1234-abcd-efgh-1234567890/api.read`
 
-Voor de Microsoft Graph API, alleen een waarde voor het bereik `user.read` wordt toegewezen aan `https://graph.microsoft.com/User.Read` formatteren en door elkaar kunnen worden gebruikt.
+Voor de Microsoft Graph-API wordt alleen een bereik waarde `user.read` toegewezen aan `https://graph.microsoft.com/User.Read` indeling en kan deze door elkaar worden gebruikt.
 
 > [!NOTE]
-> Bepaalde web-API's, zoals Azure Resource Manager-API (https://management.core.windows.net/) verwacht een afsluitende slash (/) claim in de doelgroep (aud) van het toegangstoken. In dit geval is het belangrijk om door te geven van het bereik als https://management.core.windows.net//user_impersonation (Let op de dubbele slash), voor het token geldig te zijn in de API.
+> Bepaalde web-api's, zoals Azure Resource Manager- https://management.core.windows.net/) API (verwacht een navolgende '/' in de claim van de doel groep (AUD) van het toegangs token. In dit geval is het belang rijk om het bereik door te https://management.core.windows.net//user_impersonation geven als (Let op de dubbele slash), zodat het token geldig is in de API.
 
-### <a name="request-dynamic-scopes-for-incremental-consent"></a>Dynamische bereiken van de aanvraag voor incrementele toestemming
-Bij het bouwen van toepassingen die gebruikmaken van v1.0, moest u de volledige set machtigingen (statische bereiken) vereist voor de toepassing voor de gebruiker om toestemming op het moment van de aanmelding registreren. In versie 2.0, kunt u extra machtigingen aanvragen indien nodig met de scope-parameter. Deze heten dynamische bereiken en toestaan dat de gebruiker incrementele toestemming te bereiken.
+### <a name="request-dynamic-scopes-for-incremental-consent"></a>Dynamische bereiken aanvragen voor incrementele toestemming
+Wanneer u toepassingen bouwt met behulp van v 1.0, moest u de volledige set machtigingen (statische bereiken) registreren die de gebruiker nodig heeft om toestemming te geven op het moment van de aanmelding. In v 2.0 kunt u indien nodig aanvullende machtigingen aanvragen met de para meter bereik. Deze worden dynamische bereiken genoemd en bieden de gebruiker de mogelijkheid om incrementele toestemming te bieden voor scopes.
 
-U kunt bijvoorbeeld in eerste instantie Meld u aan de gebruiker en ze elk soort toegang weigeren. Later, kunt u ze geven de mogelijkheid om te lezen van de agenda van de gebruiker door het aanvragen van het bereik van de kalender in het token als methode ophalen en toestemming van de gebruiker.
+U kunt de gebruiker bijvoorbeeld eerst aanmelden en de toegang weigeren. Later kunt u hen de mogelijkheid geven om de agenda van de gebruiker te lezen door het kalender bereik aan te vragen bij de methoden voor het verkrijgen van een token en de toestemming van de gebruiker te verkrijgen.
 
-Bijvoorbeeld: `https://graph.microsoft.com/User.Read` en `https://graph.microsoft.com/Calendar.Read`
+Bijvoorbeeld: `https://graph.microsoft.com/User.Read` en`https://graph.microsoft.com/Calendar.Read`
 
-## <a name="acquiring-tokens-silently-from-the-cache"></a>Verkrijgen van tokens op de achtergrond (uit de cache)
-MSAL onderhoudt een tokencache (of twee caches voor toepassingen van vertrouwelijke client) en een token opgeslagen nadat deze is aangeschaft.  In veel gevallen bij het ophalen van een token op de achtergrond wordt een ander token ophalen met meer bereiken op basis van een token in de cache. Het is ook geschikt voor een token vernieuwen als dit het ophalen van verloopt bijna (zoals de tokencache ook een vernieuwingstoken bevat).
+## <a name="acquiring-tokens-silently-from-the-cache"></a>Tokens op de achtergrond verkrijgen (vanuit de cache)
+MSAL onderhoudt een token cache (of twee caches voor vertrouwelijke client toepassingen) en slaat een token op in de cache nadat het is verkregen.  In veel gevallen probeert het op de achtergrond ophalen van een token een andere token te verkrijgen met meer scopes op basis van een token in de cache. Het is ook mogelijk om een token te vernieuwen wanneer het bijna is verlopen (omdat de token cache ook een vernieuwings token bevat).
 
-### <a name="recommended-call-pattern-for-public-client-applications"></a>De aanroep van de aanbevolen patroon voor openbare-clienttoepassingen
-Toepassingscode moet ophalen van een token op de achtergrond (uit de cache), eerst proberen.  Als de aanroep van de methode een 'UI is vereist' fout of uitzondering retourneert, probeert u het ophalen van een token op een andere manier. 
+### <a name="recommended-call-pattern-for-public-client-applications"></a>Aanbevolen aanroep patroon voor open bare client toepassingen
+De toepassings code moet eerst proberen een token op de achtergrond te verkrijgen (vanuit de cache).  Als de aanroep van de methode de fout of uitzonde ring ' gebruikers interface vereist ' retourneert, kunt u een token op een andere manier ophalen. 
 
-Er zijn echter twee stromen waarvoor u **beter niet** proberen een token op de achtergrond ophalen:
+Er zijn echter twee stromen waarvoor u **niet moet** proberen om een token op de achtergrond te verkrijgen:
 
-- [clientreferenties die stroom](msal-authentication-flows.md#client-credentials), die geen token cache van de gebruiker, maar een tokencache toepassing gebruikt. Deze methode zorgt dat deze toepassing-tokencache controleren voordat een aanvraag wordt verzonden naar de STS.
-- [autorisatiecodestroom](msal-authentication-flows.md#authorization-code) in Web-Apps, zoals deze wordt ingewisseld een code die de toepassing hebt verkregen door ondertekening in de gebruiker is, en dat zij toestemming voor meer bereiken. Omdat een code wordt doorgegeven als een parameter en niet op een account, de methode kan niet zoeken in de cache voor het inwisselen van de code die is vereist, toch een oproep naar de service.
+- [client referenties flow](msal-authentication-flows.md#client-credentials), die geen gebruik maakt van de token cache van de gebruiker, maar een toepassings token cache. Deze methode zorgt ervoor dat deze toepassings token cache wordt gecontroleerd voordat een aanvraag naar de STS wordt verzonden.
+- de [autorisatie code stroom](msal-authentication-flows.md#authorization-code) in web apps, omdat er een code wordt ingewisseld die de toepassing heeft ontvangen door zich aan te melden bij de gebruiker en die toestemming heeft voor meer bereiken. Omdat een code wordt door gegeven als een para meter en geen account, kan de methode niet in de cache zoeken voordat de code wordt ingewisseld, waardoor er nog een aanroep van de service nodig is.
 
-### <a name="recommended-call-pattern-in-web-apps-using-the-authorization-code-flow"></a>Aanbevolen aanroep patroon in Web Apps met behulp van de stroom autorisatiecode 
-Voor webtoepassingen die gebruikmaken van de [OpenID Connect-autorisatiecodestroom](v2-protocols-oidc.md), de aanbevolen patroon in de controllers is:
+### <a name="recommended-call-pattern-in-web-apps-using-the-authorization-code-flow"></a>Aanbevolen aanroep patroon in Web Apps met behulp van de autorisatie code stroom 
+Voor webtoepassingen die gebruikmaken van de [OpenID Connect Connect-autorisatie code stroom](v2-protocols-oidc.md), is het aanbevolen patroon in de controllers:
 
-- Exemplaar maken van een vertrouwelijke client-toepassing met een token cache met aangepaste serialisatie. 
-- Het token met behulp van de stroom van de autorisatiecode ophalen
+- Een vertrouwelijke client toepassing instantiëren met een token cache met aangepaste serialisatie. 
+- Het token verkrijgen met de autorisatie code stroom
 
-## <a name="acquiring-tokens"></a>Verkrijgen van tokens
-Over het algemeen de methode van het ophalen van een token is afhankelijk van of het een openbare client of een vertrouwelijke client-toepassing is.
+## <a name="acquiring-tokens"></a>Tokens ophalen
+Over het algemeen is de methode voor het verkrijgen van een token afhankelijk van of het een open bare client of een vertrouwelijke client toepassing is.
 
-### <a name="public-client-applications"></a>Openbare clienttoepassingen
-Voor openbare-clienttoepassingen (desktop- of mobiele app), u:
-- Vaak tokens verkrijgen interactief, zorg dat de gebruiker zich aanmeldt via een gebruikersinterface of de pop-upvenster.
-- Kan [op de achtergrond een token verkrijgen voor de aangemelde gebruiker](msal-authentication-flows.md#integrated-windows-authentication) met behulp van geïntegreerde Windows-verificatie (IWA/Kerberos) als de desktop-toepassing wordt uitgevoerd op een Windows-computer lid is van een domein of naar Azure.
-- Kan [ophalen een token met een gebruikersnaam en wachtwoord](msal-authentication-flows.md#usernamepassword) in .NET framework-bureaubladclient toepassingen, maar dit wordt niet aanbevolen. Gebruik geen gebruikersnaam en wachtwoord in vertrouwelijke client-toepassingen.
-- Een token via kunt verkrijgen de [apparaat codestroom](msal-authentication-flows.md#device-code) in toepassingen die worden uitgevoerd op apparaten die niet beschikken over een webbrowser. De gebruiker wordt geleverd met een URL en een code, die vervolgens gaat naar een webbrowser op een ander apparaat en de code opgeeft en zich aanmeldt.  Vervolgens Azure AD stuurt een token terug naar het apparaat in browser.
+### <a name="public-client-applications"></a>Open bare client toepassingen
+Voor open bare client toepassingen (desktop of mobiele app) gaat u als volgt te werk:
+- Vaak tokens interactief verkrijgen, waarbij de gebruiker zich aanmeldt via een gebruikers interface of pop-upvenster.
+- Kan [een token op de achtergrond ontvangen voor de aangemelde gebruiker](msal-authentication-flows.md#integrated-windows-authentication) die gebruikmaakt van geïntegreerde Windows-authenticatie (IWA/Kerberos) als de bureaublad toepassing wordt uitgevoerd op een Windows-computer die is toegevoegd aan een domein of aan Azure.
+- Kan [een token verkrijgen met een gebruikers naam en wacht woord](msal-authentication-flows.md#usernamepassword) in .NET Framework desktop client-toepassingen, maar dit wordt niet aanbevolen. Gebruik geen gebruikers naam/wacht woord in vertrouwelijke client toepassingen.
+- Kan een token verkrijgen via de [code stroom](msal-authentication-flows.md#device-code) van het apparaat in toepassingen die worden uitgevoerd op apparaten die geen webbrowser hebben. De gebruiker wordt voorzien van een URL en een code, die vervolgens naar een webbrowser op een ander apparaat gaat en de code invoert en zich aanmeldt.  Azure AD stuurt vervolgens een token terug naar het browser-less-apparaat.
 
-### <a name="confidential-client-applications"></a>Vertrouwelijke client-toepassingen 
-Voor vertrouwelijke client-toepassingen (Web-App, Web-API of daemon-toepassing, zoals een Windows-service), u:
-- Tokens verkrijgen **voor de toepassing zelf** en niet voor een gebruiker, met behulp van de [clientreferenties die stroom](msal-authentication-flows.md#client-credentials). Dit kan worden gebruikt voor het synchroniseren hulpprogramma's, of hulpprogramma's waarmee gebruikers in het algemeen worden verwerkt en niet op een specifieke gebruiker. 
-- Gebruik de [op namens-stroom](msal-authentication-flows.md#on-behalf-of) voor een web-API voor het aanroepen van een API namens de gebruiker. De toepassing wordt aangeduid met de clientreferenties van de om te kunnen verkrijgen van een token op basis van een gebruiker-verklaring (SAML bijvoorbeeld of een JWT-token). Deze stroom wordt gebruikt door toepassingen die toegang moeten krijgen tot resources van een bepaalde gebruiker in de service-naar-service aanroepen.
-- Verkrijgen met behulp van de [autorisatiecodestroom](msal-authentication-flows.md#authorization-code) in web-apps nadat de gebruiker zich aanmeldt bij via de autorisatie aanvraag-URL. OpenID Connect-toepassing wordt doorgaans gebruikt dit mechanisme waarmee de gebruiker aanmelden met behulp van Open ID connect en toegang tot web-API's namens de gebruiker.
+### <a name="confidential-client-applications"></a>Vertrouwelijke client toepassingen 
+Voor vertrouwelijke client toepassingen (Web-app, Web-API of daemon-toepassing, zoals een Windows-service), gaat u als volgt te werk:
+- Tokens ophalen **voor de toepassing zelf** en niet voor een gebruiker, met behulp van de [client referenties stroom](msal-authentication-flows.md#client-credentials). Dit kan worden gebruikt voor het synchroniseren van hulpprogram ma's of hulpprogram ma's die gebruikers in het algemeen en niet een specifieke gebruiker verwerken. 
+- Gebruik de [namens-stroom](msal-authentication-flows.md#on-behalf-of) voor een web-API om een API namens de gebruiker aan te roepen. De toepassing wordt aangeduid met client referenties om een token te verkrijgen op basis van een gebruikers bevestiging (SAML-voor beeld of een JWT-token). Deze stroom wordt gebruikt door toepassingen die toegang moeten hebben tot bronnen van een bepaalde gebruiker in service-to-service-aanroepen.
+- Tokens verkrijgen met de [autorisatie code stroom](msal-authentication-flows.md#authorization-code) in web apps nadat de gebruiker zich heeft aangemeld via de URL van de verificatie aanvraag. OpenID Connect Connect Application gebruikt dit mechanisme doorgaans, waarmee de gebruiker zich kan aanmelden met open ID Connect en vervolgens toegang tot Web-Api's namens de gebruiker kan krijgen.
 
 
-## <a name="authentication-results"></a>Verificatie-resultaten 
-Wanneer de client een toegangstoken vraagt, retourneert Azure AD ook een verificatieresultaat waarin een aantal metagegevens over het toegangstoken. Deze informatie omvat de verlooptijd van het toegangstoken en de bereiken waarvoor deze geldig is. Deze gegevens kan uw app doen van intelligente cachebewerkingen van toegangstokens zonder te parseren van het toegangstoken zelf.  Resultaat van de verificatie wordt aangegeven:
+## <a name="authentication-results"></a>Verificatie resultaten 
+Als uw client een toegangs token aanvraagt, retourneert Azure AD ook een verificatie resultaat dat enkele meta gegevens bevat over het toegangs token. Deze informatie omvat de verloop tijd van het toegangs token en de scopes waarvoor deze geldig is. Met deze gegevens kan uw app intelligente caching van toegangs tokens uitvoeren zonder dat het toegangs token zelf moet worden geparseerd.  Het verificatie resultaat is beschikbaar:
 
-- De [toegangstoken](access-tokens.md) voor de web-API voor toegang tot resources. Dit is een tekenreeks, meestal een met base64 gecodeerde JWT maar de client moet nooit zoeken binnen het toegangstoken. De indeling wordt niet gegarandeerd blijft stabiel en deze kan worden versleuteld voor de resource. Gebruikers schrijven van code, afhankelijk van de token toegang tot inhoud op de client is een van de grootste bronnen van fouten en client logische onderbrekingen.
-- De [ID-token](id-tokens.md) voor de gebruiker (dit is een JWT).
-- Het token verlopen, wordt de datum en tijd wanneer het token is verlopen.
-- De tenant-ID bevat de tenant waarin de gebruiker is gevonden. Gastgebruikers (Azure AD B2B-scenario's) is de tenant-ID de Gast-tenant, niet de unieke tenant. Wanneer het token wordt doorgegeven in de naam van een gebruiker, bevat het verificatieresultaat ook informatie over deze gebruiker. Voor vertrouwelijke client stromen waar tokens worden aangevraagd zonder gebruiker (voor de toepassing), is deze gebruikersgegevens null.
+- Het [toegangs token](access-tokens.md) voor de Web-API voor toegang tot bronnen. Dit is een teken reeks, meestal een met base64 gecodeerde JWT, maar de client mag nooit in het toegangs token kijken. De indeling is niet gegarandeerd stabiel en kan worden versleuteld voor de resource. Personen die code schrijven, afhankelijk van de inhoud van het toegangs token op de client, is een van de grootste bronnen van fouten en client logica-onderbrekingen.
+- Het [id-token](id-tokens.md) voor de gebruiker (dit is een JWT).
+- Het verval van het token, waarmee de datum/tijd wordt aangegeven waarop het token verloopt.
+- De Tenant-ID bevat de Tenant waarin de gebruiker is gevonden. Voor gast gebruikers (Azure AD B2B-scenario's) is de Tenant-ID de gast-Tenant, niet de unieke Tenant. Wanneer het token wordt geleverd met de naam van een gebruiker, bevat het verificatie resultaat ook informatie over deze gebruiker. Voor vertrouwelijke client stromen waarbij tokens worden aangevraagd zonder gebruiker (voor de toepassing), is deze gebruikers informatie null.
 - De bereiken waarvoor het token is uitgegeven.
 - De unieke ID voor de gebruiker.
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over [afhandeling van fouten en uitzonderingen](msal-handling-exceptions.md). 
+Meer informatie over het afhandelen van [fouten en uitzonde ringen](msal-handling-exceptions.md). 

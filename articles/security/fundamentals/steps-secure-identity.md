@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martinco
-ms.openlocfilehash: 0ccd2ee8b2c9f542eabe7a297f4c99a3993a47e9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c5cdd12c3075d48ff32c40d686b32a650ec43d8e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726740"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779787"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Vijf stappen voor het beveiligen van uw identiteits infrastructuur
 
@@ -74,7 +74,7 @@ U kunt [Power shell gebruiken om te voor komen dat wacht woorden verlopen](https
 Als uw organisatie gebruikmaakt van een hybride identiteits oplossing met Pass-Through-verificatie of Federatie, moet u de wachtwoord hash-synchronisatie inschakelen om de volgende twee redenen:
 
 * Het rapport [gebruikers met gelekte referenties](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events) in het Azure AD-beheer waarschuwt u voor gebruikers naam-en wachtwoord paren, die zijn weer gegeven op het ' donkere Web '. Een ongelooflijke hoeveelheid wacht woorden wordt gelekt via phishing, malware en het opnieuw gebruiken van wacht woorden op sites van derden die later zijn geschonden. Micro soft vindt veel van deze gelekte referenties en vertelt u, in dit rapport, als ze overeenkomen met referenties in uw organisatie, maar alleen als u de [synchronisatie van wacht woord](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization)-hashes inschakelt.
-* In het geval van een on-premises storing (bijvoorbeeld bij een Ransomware-aanval) kunt u overstappen naar het gebruik van [Cloud verificatie met behulp van wacht woord-hash-synchronisatie](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). Met deze methode voor back-upauthenticatie kunt u de toegang tot apps die zijn geconfigureerd voor verificatie met Azure Active Directory, waaronder Office 365, blijven gebruiken. In dit geval hoeven IT-mede werkers geen persoonlijke e-mail accounts te gebruiken om gegevens te delen totdat de on-premises storing is opgelost.
+* In het geval van een on-premises storing (bijvoorbeeld bij een Ransomware-aanval) kunt u overstappen naar het gebruik van [Cloud verificatie met behulp van wacht woord-hash-synchronisatie](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn). Met deze methode voor back-upauthenticatie kunt u de toegang tot apps die zijn geconfigureerd voor verificatie met Azure Active Directory, waaronder Office 365, blijven gebruiken. In dit geval hoeven IT-mede werkers geen persoonlijke e-mail accounts te gebruiken om gegevens te delen totdat de on-premises storing is opgelost.
 
 Meer informatie over hoe [wachtwoord-hash-synchronisatie](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization) werkt.
 
@@ -146,7 +146,7 @@ Controle en logboek registratie van gebeurtenissen met betrekking tot beveiligin
 
 ### <a name="monitor-azure-ad"></a>Azure AD bewaken
 
-Microsoft Azure Services en-functies bieden u Configureer bare opties voor beveiligings controle en logboek registratie waarmee u hiaten in uw beveiligings beleid en-mechanismen kunt identificeren en deze hiaten kunt aanpakken om inbreuken te voor komen. U kunt [Azure-logboek registratie en-controle](https://docs.microsoft.com/azure/security/azure-log-audit) gebruiken en rapporten met [controle activiteiten gebruiken in de Azure Active Directory Portal](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs).
+Microsoft Azure Services en-functies bieden u Configureer bare opties voor beveiligings controle en logboek registratie waarmee u hiaten in uw beveiligings beleid en-mechanismen kunt identificeren en deze hiaten kunt aanpakken om inbreuken te voor komen. U kunt [Azure-logboek registratie en-controle](https://docs.microsoft.com/azure/security/fundamentals/log-audit) gebruiken en rapporten met [controle activiteiten gebruiken in de Azure Active Directory Portal](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs).
 
 ### <a name="monitor-azure-ad-connect-health-in-hybrid-environments"></a>Azure AD Connect Health in hybride omgevingen bewaken
 

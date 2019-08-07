@@ -10,12 +10,12 @@ ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: be39a623dc5dac09dcfe47de67e025191b5c7de3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 43eb7e5c4cab722eb97f9e2fe819c9c79bae45d9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727489"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828778"
 ---
 # <a name="security-attributes-for-azure-services"></a>Beveiligings kenmerken voor Azure-Services
 
@@ -646,7 +646,7 @@ SQL Database bevatten zowel [één data base](/azure/sql-database/sql-database-s
 | Ondersteuning voor service-eind punten| Ja | Is alleen van toepassing op [één data base](/azure/sql-database/sql-database-single-index) . |
 | Ondersteuning voor Azure Virtual Network injectie| Ja | Is alleen van toepassing op een [beheerd exemplaar](/azure/sql-database/sql-database-managed-instance) . |
 | Netwerk isolatie en firewall ondersteuning| Ja | Firewall op database niveau en op server niveau. Netwerk isolatie geldt alleen voor [beheerde exemplaren](/azure/sql-database/sql-database-managed-instance) . |
-| Ondersteuning voor geforceerde tunneling| Ja | [Beheerde instantie](/azure/sql-database/sql-database-managed-instance) via een [ExpressRoute](/azure/expressroute/index.yml) -VPN. |
+| Ondersteuning voor geforceerde tunneling| Ja | [Beheerde instantie](/azure/sql-database/sql-database-managed-instance) via een [ExpressRoute](/azure/expressroute/index) -VPN. |
 
 ### <a name="detection"></a>Detectie
 

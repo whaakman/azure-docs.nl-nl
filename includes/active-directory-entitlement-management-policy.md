@@ -5,21 +5,23 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 05/16/2019
+ms.date: 07/31/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: da4bc51cdd8cdfad8212ee5a288f03874f673c2c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: db16a2f122da1bf6c767e0a47c93c22f1882c406
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678195"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817210"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Beleid: Voor gebruikers in uw Directory
 
 Volg deze stappen als u uw beleid wilt gebruiken voor gebruikers in uw directory die dit toegangs pakket kunnen aanvragen.  De **gebruikers in uw directory** verwijzen naar zowel interne gebruikers als externe gebruikers die eerder zijn uitgenodigd voor de Directory, door hen het recht te geven met een ander toegangs pakket of om te worden uitgenodigd met Azure AD B2B. Wanneer u het beleid definieert, kunt u afzonderlijke gebruikers of meer vaak groepen gebruikers opgeven. Uw organisatie kan bijvoorbeeld al een groep hebben, zoals **alle werk nemers**.  Als deze groep wordt toegevoegd aan het beleid voor gebruikers die toegang kunnen aanvragen, kan een lid van die groep vervolgens toegang vragen.
 
 1. Selecteer in de sectie **gebruikers die toegang kunnen aanvragen** , **de optie voor gebruikers in uw directory**.
+
+    Houd er rekening mee dat de **voor gebruikers in uw directory** -instelling zowel leden gebruikers als gast gebruikers bevatten die zijn toegevoegd aan uw Directory. Als u alleen leden wilt toevoegen en niet gast gebruikers, selecteert u **voor gebruikers in uw directory** en selecteert u vervolgens een groep gebruikers. Als dat nodig is, kunt u een dynamische groep van uw gebruikers voor leden (User. User type-EQ "lid") maken. Zie voor meer informatie [dynamische lidmaatschaps regels voor groepen in azure Active Directory](../articles/active-directory/users-groups-roles/groups-dynamic-membership.md).
 
 1. Klik in de sectie **gebruikers en groepen selecteren** op **gebruikers en groepen toevoegen**.
 

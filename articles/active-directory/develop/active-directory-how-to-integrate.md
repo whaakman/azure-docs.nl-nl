@@ -1,6 +1,6 @@
 ---
-title: Over het integreren met Azure Active Directory | Microsoft Docs
-description: Informatie over de voordelen van uw toepassing integreren met Azure Active Directory, en profiteer van resources functies zoals eenvoudige aanmelding, identiteitsbeheer, meervoudige verificatie, en toegangsbeheer.
+title: Integratie met Azure Active Directory | Microsoft Docs
+description: Ontdek de voor delen van het integreren van uw toepassing met Azure Active Directory en ontvang resources voor functies zoals vereenvoudigde aanmelding, identiteits beheer, multi-factor Authentication en toegangs beheer.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -10,7 +10,7 @@ ms.assetid: d13bba54-96bd-4b81-bee9-c8025ffa1648
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/08/2019
@@ -18,84 +18,84 @@ ms.author: ryanwi
 ms.reviewer: bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4af8cdc1072678de7e34458fc4b54d52aae9eff1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da694dd77186ce22bd7080540bd3b08e14f205b0
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111599"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835360"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integreren met Azure Active Directory
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-In dit artikel meer informatie over de voordelen van uw toepassing integreren met Azure Active Directory (Azure AD) en profiteer van integratie van resources. Azure AD biedt organisaties met zakelijke Identiteitsbeheer voor cloudtoepassingen. Integratie van Azure AD biedt uw gebruikers een gestroomlijnde ervaring aanmelden en uw toepassing in overeenstemming zijn met de IT-beleid.
+In dit artikel vindt u informatie over de voor delen van het integreren van uw toepassing met Azure Active Directory (Azure AD) en het ophalen van resources voor integratie. Azure AD biedt organisaties een identiteits beheer op ondernemings niveau voor Cloud toepassingen. Azure AD-integratie biedt uw gebruikers een gestroomlijnde aanmeldings ervaring en helpt uw toepassing te voldoen aan het IT-beleid.
 
 ## <a name="how-to-integrate"></a>Het integreren van
 
-Er zijn verschillende manieren voor uw toepassing om te integreren met Azure AD. Maak gebruik van zo veel of weinig van deze scenario's zoals geschikt is voor uw toepassing.
+Er zijn verschillende manieren waarop uw toepassing kan worden geïntegreerd met Azure AD. Profiteer van zoveel of slechts enkele van deze scenario's als geschikt voor uw toepassing.
 
-### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Ondersteuning voor Azure AD als een manier om aan te melden bij uw toepassing
+### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Ondersteuning voor Azure AD als een manier om u aan te melden bij uw toepassing
 
-**Meld problemen verminderen en ondersteuning verlagen.** Uw gebruikers geen met behulp van Azure AD om aan te melden bij uw toepassing, een meer naam en wachtwoord te onthouden. Als ontwikkelaar hebt u een minder wachtwoord opslaan en beschermen. Omdat u niet hoeft voor het afhandelen van vergeten wachtwoord opnieuw instellen van wachtwoorden, kan een aanzienlijke besparingen die alleen zijn. Azure AD wordt gebruikt door aanmelden voor een aantal van's werelds meest populaire cloudtoepassingen, waaronder Office 365 en Microsoft Azure. Honderden miljoenen gebruikers van miljoenen organisaties, waarschijnlijk uw gebruiker is al aangemeld bij Azure AD. Meer informatie over [ondersteuning toegevoegd voor aanmelding bij Azure AD](authentication-scenarios.md).
+**Verminder de wrijving van het probleem en verminder de ondersteunings kosten.** Als u Azure AD gebruikt om u aan te melden bij uw toepassing, hebben uw gebruikers niet langer een naam en wacht woord om te onthouden. Als ontwikkelaar hebt u nog een minder wacht woord om op te slaan en te beveiligen. Het is niet mogelijk om verg eten wacht woorden opnieuw in te voeren. Dit kan alleen aanzienlijk zijn. Met Azure AD-bevoegdheden meldt u zich aan voor een aantal van de populairste Cloud toepassingen van de wereld, waaronder Office 365 en Microsoft Azure. Met honderden miljoenen gebruikers van miljoenen organisaties is uw gebruiker al aangemeld bij Azure AD. Meer informatie over het [toevoegen van ondersteuning voor Azure AD-aanmelding](authentication-scenarios.md).
 
-**Aanmelding van vereenvoudigen voor uw toepassing.**  Tijdens de registratie voor uw toepassing, kan Azure AD essentiële informatie over een gebruiker verzenden zodat u kunt vooraf uw aanmelding formulier vullen of volledig elimineren. Gebruikers kunnen zich aanmelden voor uw toepassing met behulp van hun Azure AD-account via een vertrouwde toestemming ervaring die vergelijkbaar is met deze gevonden in sociale media- en mobiele toepassingen. Elke gebruiker kan zich registreren en aanmelden bij een toepassing die is geïntegreerd met Azure AD zonder tussenkomst van de IT. Meer informatie over [melden voor uw toepassing voor Azure AD-Account aanmelding](../../app-service/configure-authentication-provider-aad.md).
+**Vereenvoudig de registratie voor uw toepassing.**  Wanneer u zich aanmeldt voor uw toepassing, kan Azure AD essentiële informatie over een gebruiker verzenden, zodat u uw aanmeldings formulier vooraf kunt invullen of het volledig moet elimineren. Gebruikers kunnen zich aanmelden voor uw toepassing met behulp van hun Azure AD-account via een vertrouwde instemming-ervaring die vergelijkbaar is met die van sociale media en mobiele toepassingen. Elke gebruiker kan zich registreren en aanmelden bij een toepassing die is geïntegreerd met Azure AD zonder dat hiervoor een rol is vereist. Meer informatie over [het aanmelden van uw toepassing voor aanmelding bij een Azure ad-account](../../app-service/configure-authentication-provider-aad.md).
 
-### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Zoeken naar gebruikers, inrichten van gebruikers beheren en toegang tot uw toepassing beheren
+### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Bladeren naar gebruikers, het inrichten van gebruikers beheren en de toegang tot uw toepassing controleren
 
-**Zoeken naar gebruikers in de directory.**  De Graph API gebruiken om u te helpen gebruikers zoeken naar en zoeken naar andere personen in hun organisatie wanneer anderen uitnodigen of verlenen van toegang, in plaats van dat ze naar het type e-adressen. Gebruikers kunnen bladeren met behulp van een bekend adres book stijlinterface, inclusief het weergeven van de details van de organisatie-hiërarchie. Meer informatie over de [Graph API](active-directory-graph-api.md).
+**Blader naar gebruikers in de Directory.**  Gebruik de Graph API om gebruikers te helpen bij het zoeken en zoeken naar andere personen in hun organisatie bij het uitnodigen van anderen of het verlenen van toegang, in plaats van dat ze e-mail adressen moeten typen. Gebruikers kunnen bladeren door gebruik te maken van een vertrouwde Adresboek stijl interface, inclusief het weer geven van de details van de organisatie hiërarchie. Meer informatie over de [Graph API](active-directory-graph-api.md).
 
-**Active Directory-groepen en distributielijsten die al wordt beheerd door de klant opnieuw gebruiken.**  Azure AD bevat de groepen die de klant al wordt gebruikt voor e-maildistributie en toegang beheren. Met de Graph API, deze groepen in plaats van dat van uw klant maken en beheren van een afzonderlijke set met groepen in uw toepassing opnieuw gebruiken. Groepsgegevens kunnen ook worden verzonden aan uw toepassing in de aanmelding van tokens. Meer informatie over de [Graph API](active-directory-graph-api.md).
+**Active Directory groepen en distributie lijsten opnieuw gebruiken die uw klant al beheert.**  Azure AD bevat de groepen die uw klant al gebruikt voor het distribueren van e-mail en het beheren van de toegang. Gebruik de Graph API om deze groepen opnieuw te gebruiken in plaats van uw klant te verplichten om een afzonderlijke set groepen in uw toepassing te maken en te beheren. Groeps informatie kan ook worden verzonden naar uw toepassing in aanmeldings tokens. Meer informatie over de [Graph API](active-directory-graph-api.md).
 
-**Azure AD om te bepalen wie toegang tot uw toepassing heeft gebruiken.**  Beheerders en toepassingseigenaren in Azure AD kunnen de toegang tot toepassingen op specifieke gebruikers en groepen toewijzen. Met de Graph API, kunt u lezen van deze lijst en het beheren van de inrichting en ongedaan maken inrichting van resources en toegang in uw toepassing gebruiken.
+**Gebruik Azure AD om te bepalen wie toegang heeft tot uw toepassing.**  Beheerders en eigen aren van toepassingen in azure AD kunnen toegang tot toepassingen toewijzen aan specifieke gebruikers en groepen. Met behulp van de Graph API kunt u deze lijst lezen en gebruiken om het inrichten en het ongedaan maken van de inrichting van resources en toegang in uw toepassing te beheren.
 
-**Gebruik Azure AD voor rollen gebaseerd toegangsbeheer.**  Beheerders en toepassingseigenaren van kunnen gebruikers en groepen toewijzen aan rollen die u definieert wanneer u uw toepassing in Azure AD registreren. Rol informatie wordt verzonden naar uw toepassing in tokens aanmelden en kan ook worden gelezen met de Graph API. Meer informatie over [met behulp van Azure AD voor autorisatie](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
+**Gebruik Azure AD voor functies op basis van Access Control.**  Beheerders en eigen aren van toepassingen kunnen gebruikers en groepen toewijzen aan rollen die u definieert wanneer u uw toepassing registreert in azure AD. De functie gegevens worden naar uw toepassing verzonden in aanmeldings tokens en kunnen ook worden gelezen met behulp van de Graph API. Meer informatie over het [gebruik van Azure AD voor autorisatie](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
-### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Toegang krijgen tot van gebruiker-profiel, agenda, e-mail, contactpersonen, bestanden en meer
+### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Toegang krijgen tot het profiel van de gebruiker, de agenda, het e-mail adres, de contact personen, bestanden en meer
 
-**Azure AD is de autorisatie-server voor Office 365 en andere zakelijke services van Microsoft.**  Als u Azure AD voor aanmelden bij uw toepassing of de accounts van uw huidige gebruikers koppelen aan Azure AD-gebruikersaccounts met behulp van OAuth 2.0-ondersteuning ondersteunt, kunt u lees- en schrijftoegang tot het profiel van een gebruiker, agenda, e-mail, contactpersonen, bestanden en andere informatie aanvragen. U kunt naadloos gebeurtenissen schrijven naar de agenda van de gebruiker, en lezen of schrijven van bestanden naar hun OneDrive. Meer informatie over [toegang tot de Office 365 API's](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).
+**Azure AD is de autorisatie server voor Office 365 en andere micro soft Business Services.**  Als u Azure AD ondersteunt om u aan te melden bij uw toepassing of ondersteuning te bieden voor het koppelen van uw huidige gebruikers accounts aan Azure AD-gebruikers accounts met behulp van OAuth 2,0, kunt u lees-en schrijf toegang aanvragen voor het profiel van een gebruiker, agenda, e-mail, contact personen, bestanden en andere informatie. U kunt eenvoudig gebeurtenissen naar de agenda van de gebruiker schrijven en bestanden in OneDrive lezen of schrijven. Meer informatie over [het verkrijgen van toegang tot de Office 365-api's](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).
 
-### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Promoot uw toepassing in Azure en Office 365-marktplaatsen
+### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Promoot uw toepassing in Azure en Office 365 marketplaces
 
-**Promoot uw toepassing op miljoenen organisaties die al van Azure AD gebruikmaken.**  Gebruikers die zoeken en deze marktplaatsen al gebruikmaakt van een of meer cloudservices, waardoor ze gekwalificeerde cloud service-klanten. Meer informatie over het promoveren van uw toepassing in [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
+**Promoot uw toepassing tot miljoenen organisaties die al gebruikmaken van Azure AD.**  Gebruikers die deze markt plaatsen zoeken en bezoeken, maken al gebruik van een of meer Cloud Services, waardoor ze gekwalificeerde Cloud service-klanten zijn. Meer informatie over het promoten van uw toepassing in [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
-**Wanneer gebruikers zich aanmelden voor uw toepassing, wordt deze weergegeven in hun Azure AD-toegangspaneel en startprogramma voor Office 365-app.**  Gebruikers zich snel en eenvoudig terug naar uw toepassing later betrokkenheid van gebruikers verbeteren. Meer informatie over de [Azure AD-toegangspaneel](../user-help/active-directory-saas-access-panel-introduction.md).
+**Wanneer gebruikers zich aanmelden voor uw toepassing, wordt deze weer gegeven in het Azure AD-toegangs venster en het start programma voor Office 365-apps.**  Gebruikers kunnen snel en eenvoudig terugkeren naar uw toepassing, waardoor de gebruikers betrokkenheid wordt verbeterd. Meer informatie over het [Azure AD-toegangs venster](../user-help/active-directory-saas-access-panel-introduction.md).
 
-### <a name="secure-device-to-service-and-service-to-service-communication"></a>Beveiligde communicatie van apparaat-naar-service en service-naar-service
+### <a name="secure-device-to-service-and-service-to-service-communication"></a>Beveiligde apparaat-naar-service-en service-to-service-communicatie
 
-**Met behulp van Azure AD voor identiteitsbeheer van services en apparaten de code hoeft vermindert te schrijven en kunnen IT-om toegang te beheren.**  Services en apparaten kunnen tokens verkrijgen van Azure AD met behulp van OAuth en gebruiken van deze tokens voor toegang tot web-API's. Met behulp van Azure AD kunt u voorkomen schrijven van complexe verificatiecode op te geven. Omdat de identiteit van de services en apparaten worden opgeslagen in Azure AD, IT-sleutels en intrekken van documenten op één locatie in plaats van dat hiervoor apart in uw toepassing kunt beheren.
+**Het gebruik van Azure AD voor het Identity Management van services en apparaten vermindert de code die u moet schrijven en maakt het mogelijk om de toegang te beheren.**  Services en apparaten kunnen tokens van Azure AD ophalen met behulp van OAuth en deze tokens gebruiken om toegang te krijgen tot Web-Api's. Met Azure AD kunt u voor komen dat complexe verificatie code wordt geschreven. Omdat de identiteiten van de services en apparaten zijn opgeslagen in azure AD, kan deze sleutels en intrekken op één plek beheren, in plaats van dat ze afzonderlijk in uw toepassing hoeven te worden uitgevoerd.
 
-## <a name="benefits-of-integration"></a>Voordelen van-integratie
+## <a name="benefits-of-integration"></a>Voor delen van integratie
 
-Integratie met Azure AD wordt geleverd met voordelen die niet nodig hebt u extra code te schrijven.
+De integratie met Azure AD is gebaseerd op voor delen waarvoor u geen extra code hoeft te schrijven.
 
-### <a name="integration-with-enterprise-identity-management"></a>Integratie met enterprise-identiteitsbeheer
+### <a name="integration-with-enterprise-identity-management"></a>Integratie met Enter prise Identity Management
 
-**Help uw toepassing te voldoen aan de IT-beleid.**  Organisaties hun onderneming identity management-systemen integreren met Azure AD, zodat wanneer een persoon die een organisatie verlaat, ze automatisch toegang tot uw toepassing zonder verliezen zullen IT hoeven extra stappen uitvoeren. IT kan beheren wie kan toegang tot uw toepassing en te bepalen welk toegangsbeleid zijn vereist - voor voorbeeld van de multi-factor authentication - verminderen de noodzaak code om te voldoen aan complexe bedrijfsbeleid te schrijven. Azure AD biedt beheerders met een gedetailleerd logboek van die aangemeld bij uw toepassing zodat IT kunt bijhouden.
+**Help uw toepassing te voldoen aan het IT-beleid.**  Organisaties integreren hun bedrijfsidentiteits beheersysteem met Azure AD, dus wanneer een persoon een organisatie verlaat, wordt de toegang tot uw toepassing automatisch verbroken zonder dat er extra stappen hoeven te worden ondernomen. Hiermee kan worden beheerd wie toegang heeft tot uw toepassing en bepalen welk toegangs beleid vereist is, bijvoorbeeld multi-factor Authentication, waardoor code niet meer hoeft te worden geschreven om te voldoen aan complexe bedrijfs beleidsregels. Azure AD biedt beheerders een gedetailleerd controle logboek van wie zich heeft aangemeld bij uw toepassing, zodat het gebruik kan worden bijgehouden.
 
-**Azure AD uitbreiding van Active Directory naar de cloud zodat uw toepassing kan worden geïntegreerd met AD.**  Veel organisaties over de hele wereld Active Directory gebruiken als hun principal aanmelden en het beheersysteem voor identiteit en hun toepassingen werken met AD vereist. Uw app integreren met Azure AD is geïntegreerd met Active Directory.
+**Azure AD breidt Active Directory uit naar de Cloud, zodat uw toepassing kan worden geïntegreerd met AD.**  Veel organisaties over de hele wereld gebruiken Active Directory als hun belangrijkste aanmeld-en identiteits beheersysteem en vereisen dat hun toepassingen werken met AD. Integreren met Azure AD integreert uw app met Active Directory.
 
 ### <a name="advanced-security-features"></a>Geavanceerde beveiligingsfuncties
 
-**Meervoudige verificatie.**  Azure AD biedt systeemeigen meervoudige verificatie. IT-beheerders kunnen multi-factor authentication toegang tot uw toepassing, vereisen, zodat u geen code voor deze ondersteuning zelf. Meer informatie over [multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+**Multi-factor Authentication.**  Azure AD biedt systeem eigen multi-factor Authentication. IT-beheerders kunnen multi-factor Authentication vereisen voor toegang tot uw toepassing, zodat u deze ondersteuning niet zelf hoeft te coderen. Meer informatie over [multi-factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
-**Afwijkende aanmelden detectie.**  Azure AD verwerkt meer dan een miljard aanmeldingen per dag, tijdens het gebruik van machine learning-algoritmen voor detecteren van verdachte activiteiten en de kennisgeving van IT-beheerders van mogelijke problemen. Door de ondersteuning van Azure AD-aanmelding, krijgt uw toepassing het voordeel van deze beveiligingsgroep. Meer informatie over [weergeven van Azure Active Directory-rapport](../active-directory-view-access-usage-reports.md).
+**Afwijkende aanmeldings detectie.**  Azure AD verwerkt meer dan een miljard aanmeldingen per dag, terwijl u machine learning algoritmen gebruikt om verdachte activiteiten te detecteren en IT-beheerders op de hoogte te stellen van mogelijke problemen. Door de aanmelding van Azure AD te ondersteunen, haalt uw toepassing het voor deel van deze beveiliging op. Meer informatie over het [weer geven van Azure Active Directory Access-rapport](../active-directory-view-access-usage-reports.md).
 
-**Voorwaardelijke toegang.**  Naast verificatie met meerdere factoren, beheerders kunnen vereisen dat aan bepaalde voorwaarden worden voldaan voordat gebruikers kunnen aanmelden bij uw toepassing. Voorwaarden die kunnen worden ingesteld omvatten het IP-adresbereik van clientapparaten, lidmaatschap van de opgegeven groepen en de status van het apparaat wordt gebruikt om toegang te krijgen. Meer informatie over [Azure Active Directory voor voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md).
+**Voorwaardelijke toegang.**  Naast multi-factor Authentication kunnen beheerders specifieke voor waarden vereisen voordat gebruikers zich kunnen aanmelden bij uw toepassing. Voor waarden die kunnen worden ingesteld, zijn onder andere het IP-adres bereik van client apparaten, lidmaatschap van de opgegeven groepen en de status van het apparaat dat wordt gebruikt voor toegang. Meer informatie over [voorwaardelijke toegang van Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
 ### <a name="easy-development"></a>Eenvoudige ontwikkeling
 
-**Protocollen volgens de industrienorm.**  Microsoft is gericht op de ondersteuning van industrienormen. De OAuth 2.0 en OpenID Connect 1.0 standaardprotocollen biedt ondersteuning voor het Microsoft identity-platform. Meer informatie over [Microsoft identity-platform-verificatieprotocollen](active-directory-v2-protocols.md).
+**Industrie standaard protocollen.**  Micro soft hecht veel belang aan de ondersteuning van industrie normen. Het micro soft Identity-platform biedt ondersteuning voor de industrie standaard OAuth 2,0 en OpenID Connect Connect 1,0-protocollen. Meer informatie over [verificatie protocollen voor micro soft-identiteits platform](active-directory-v2-protocols.md).
 
-**Open source-bibliotheken.**  Microsoft biedt volledig ondersteunde open source-bibliotheken voor populaire talen en platforms Versnel de ontwikkeling. De broncode is in licentie gegeven onder Apache 2.0 en u bent vrij te vertakken en bijdragen terug naar de projecten. Meer informatie over [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md).
+**Open-source-bibliotheken.**  Micro soft biedt volledig ondersteunde open source-bibliotheken voor populaire talen en platforms om de ontwikkeling te versnellen. De bron code wordt in licentie gegeven onder Apache 2,0 en u kunt de projecten splitsen en er een bijdrage aan leveren. Meer informatie over [micro soft Authentication Library (MSAL)](reference-v2-libraries.md).
 
-### <a name="worldwide-presence-and-high-availability"></a>Wereldwijde aanwezigheid en hoge beschikbaarheid
+### <a name="worldwide-presence-and-high-availability"></a>Wereld wijde aanwezigheid en hoge Beschik baarheid
 
-**Azure AD wordt wordt geïmplementeerd in datacenters over de hele wereld en beheerd en bewaakt nacht.**  Azure AD het beheersysteem voor identiteit voor Microsoft Azure en Office 365 en wordt geïmplementeerd in 28 datacenters over de hele wereld. Directory-gegevens wordt worden gerepliceerd naar ten minste drie datacenters gegarandeerd. Globale load balancers Zorg ervoor dat gebruikers toegang tot de dichtstbijzijnde kopie van de Azure AD met hun gegevens en aanvragen voor andere datacenters automatisch opnieuw verzenden als er een probleem is gedetecteerd.
+**Azure AD is geïmplementeerd in data centers over de hele wereld en wordt beheerd en gecontroleerd rond de klok.**  Azure AD is het identiteits beheersysteem voor Microsoft Azure en Office 365 en wordt geïmplementeerd in 28 data centers over de hele wereld. Directory gegevens worden gegarandeerd gerepliceerd naar ten minste drie data centers. Globale load balancers zorgen ervoor dat gebruikers toegang krijgen tot het dichtstbijzijnde exemplaar van Azure AD dat hun gegevens bevat, en aanvragen automatisch opnieuw routeren naar andere Data Centers als er een probleem wordt gedetecteerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Aan de slag schrijven van code](v2-overview.md#getting-started).
+[Aan de slag](v2-overview.md#getting-started)met het schrijven van code.
 
-[Gebruikers aanmelden met behulp van Microsoft identity-platform](authentication-scenarios.md)
+[Gebruikers aanmelden met het micro soft Identity-platform](authentication-scenarios.md)
 

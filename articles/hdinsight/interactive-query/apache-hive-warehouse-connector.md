@@ -7,12 +7,12 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: f3a0fa1ecdb2db94b43a5380f9497b4b1c266e47
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: bf9bb7adfa25ea16498a32b57d4927de7e81c007
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441933"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68826912"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Apache Spark en Apache Hive integreren met de Hive-Warehouse connector
 
@@ -51,7 +51,7 @@ Volg deze stappen om de Hive-Warehouse connector in te stellen tussen een Spark 
 
         ![Configuratie van Spark2 Ambari](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-    1. Stel `spark.hadoop.hive.llap.daemon.service.hosts` in op dezelfde waarde als de eigenschap **LLAP app name** onder **Advanced component-Interactive-env**. Bijvoorbeeld: `@llap0`
+    1. Stel `spark.hadoop.hive.llap.daemon.service.hosts` in op dezelfde waarde als de eigenschap **LLAP app name** onder **Advanced component-Interactive-env**. Bijvoorbeeld: `llap0`
 
     1. Ingesteld `spark.sql.hive.hiveserver2.jdbc.url` op de JDBC-Connection String, die verbinding maakt met Hiveserver2 op het interactieve query cluster. De connection string voor uw cluster ziet er ongeveer als volgt uit. `CLUSTERNAME`is de naam van uw Spark-cluster en `user` de `password` para meters en zijn ingesteld op de juiste waarden voor uw cluster.
 
@@ -72,7 +72,7 @@ Volg deze stappen om de Hive-Warehouse connector in te stellen tussen een Spark 
         ```
 
     1. Ingesteld `spark.security.credentials.hiveserver2.enabled` op`false` voor de garen-client implementatie modus.
-    1. Stel `spark.hadoop.hive.zookeeper.quorum` in op het Zookeeper-quorum van uw LLAP-cluster. Als u het Zookeeper-quorum voor uw LLAP-cluster wilt vinden, zoekt u naar de eigenschap **Hive. Zookeeper. quorum** in de Ambari-gebruikers interface voor uw LLAP- **cluster onder** > Hive**Geavanceerde** > **Geavanceerde component-site**. De waarde ziet er ongeveer als volgt uit:
+    1. Stel `spark.hadoop.hive.zookeeper.quorum` in op het Zookeeper-quorum van uw LLAP-cluster. Als u het Zookeeper-quorum voor uw LLAP-cluster wilt vinden, zoekt u naar de eigenschap **Hive. Zookeeper. quorum** in de Ambari- > gebruikers interface voor uw LLAP-cluster onder Hive**Geavanceerde** > **Geavanceerde component-site**. De waarde ziet er ongeveer als volgt uit:
 
         ```
         zk1-nkhvne.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,
@@ -230,7 +230,7 @@ Volg de onderstaande stappen om een component Warehouse connector-voor beeld te 
     1. Ga naar de gebruikers interface van Zwerver `https://CLUSTERNAME.azurehdinsight.net/ranger/`op.
     1. Klik onder **Hive**op de component service voor uw cluster.
         ![demo tabel vóór het Toep assen van het beleid voor Zwerver](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
-    1. Klik op het  tabblad maskeren en vervolgens op **nieuwe beleids** ![beleids lijst toevoegen](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
+    1. Klik op het tabblad maskeren en vervolgens op **nieuwe beleids** ![beleids lijst toevoegen](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
     1. Geef een gewenste beleids naam op. Data base selecteren: **Standaard**, Hive-tabel: **demo**, Hive-kolom: **naam**, gebruiker: **Rsadmin2**, toegangs typen: **selecteren**en **gedeeltelijk masker: weer geven laatste 4** van het menu **optie masker selecteren** . Klik op **Toevoegen**.
                 ![lijst met beleids regels](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. Bekijk de inhoud van de tabel opnieuw. Na het Toep assen van het beleid voor zwerver, kunnen we alleen de laatste vier tekens van de kolom zien.

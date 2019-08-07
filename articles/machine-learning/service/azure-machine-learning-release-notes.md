@@ -10,18 +10,75 @@ ms.author: jmartens
 author: j-martens
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: ade107f51fabb133e8e4046bf645f4dff284102b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ec913133ef97a632b12db2859bd4ac32df70a1c5
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565115"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828616"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
 In dit artikel meer informatie over de versies van de Azure Machine Learning-service.  Ga voor de volledige SDK-referentie-inhoud naar de hoofd pagina van de hand leiding van de Azure Machine Learning van de [**SDK voor python**](https://aka.ms/aml-sdk) .
 
 Zie [de lijst met bekende problemen](resource-known-issues.md) voor meer informatie over bekende problemen en oplossingen.
+
+## <a name="2019-08-05"></a>2019-08-05
+
+### <a name="azure-machine-learning-sdk-for-python-v1055"></a>Azure Machine Learning SDK voor python v-1.0.55
+
++ **Nieuwe functies**
+  + Verificatie op basis van tokens wordt nu ondersteund voor de aanroepen van het Score-eind punt dat is geïmplementeerd op AKS. De huidige op sleutels gebaseerde authenticatie blijven wel worden ondersteund en gebruikers kunnen een van deze verificatie mechanismen tegelijk gebruiken.
+  + De mogelijkheid om een Blob-opslag te registreren die zich achter het virtuele netwerk (VNet) bevindt als een gegevens opslag.
+  
++ **Oplossingen en verbeteringen voor oplossingen**
+  + **azureml-automl-core**
+    + Hiermee wordt een bug opgelost waarbij de validatie grootte voor het verg Roten van de AVK klein is en resulteert in beschadigde, gedicteerde en ware grafieken voor regressie en prognose.
+    + De logboek registratie van taken op de externe uitvoering is verbeterd. de gebruiker wordt nu uitgebreid met het fout bericht weer gegeven als de uitvoering is mislukt.
+    + Problemen met de tijds Erie die zijn opgelost als de preprocess-vlag is ingesteld op True.
+    + Er zijn bepaalde fout berichten voor prognose gegevens validatie meer actie mogelijk.
+    + Gereduceerd geheugen gebruik van AutoML wordt uitgevoerd door gegevens sets te verwijderen en/of langzaam te laden, met name tussen het proces
+  + **azureml-contrib-uitleg-model**
+    + Er is een model_task-vlag toegevoegd aan uitleg om toe te staan dat gebruikers standaard automatische interferentie logica voor model type overschrijven
+    + Wijzigingen in de widget: Wordt automatisch geïnstalleerd met contrib, niet meer nbextension installeren/inschakelen-ondersteuning met alleen de prioriteit van globale functies (bijvoorbeeld Permutative)
+    + Wijzigingen in het dash board:-box plots en viools worden weer gegeven naast beeswarm plot op overzichts pagina-veel sneller opnieuw samen stellen van beeswarme tekening op de schuif regelaar van de top-k-verschuiving-nuttig bericht waarin wordt uitgelegd hoe top-k is berekend: bruikbare, aanpas bare berichten in plaats van grafieken wanneer niet-beschik bare gegevens
+  + **azureml-core**
+    + De methode model. package () is toegevoegd om docker-installatie kopieën en Dockerfiles te maken waarmee modellen en hun afhankelijkheden worden ingekapseld.
+    + Lokale webservices bijgewerkt om InferenceConfigs te accepteren die omgevings objecten bevatten.
+    + Vast model. REGI ster () waarbij ongeldige modellen worden geproduceerd wanneer. (voor de huidige map) wordt door gegeven als de para meter model_path.
+    + Run. submit_child toevoegen, de functionaliteit weerspiegelt experiment. Submit tijdens het opgeven van de run as the parent van de ingediende onderliggende run.
+    + Ondersteuning voor configuratie opties van model. REGI ster in run. register_model.
+    + De mogelijkheid om JAR-taken uit te voeren op een bestaand cluster.
+    + De instance_pool_id-en cluster_log_dbfs_path-para meters worden nu ondersteund.
+    + Er is ondersteuning toegevoegd voor het gebruik van een omgevings object bij het implementeren van een model naar een webservice. Het omgevings object kan nu worden opgenomen als onderdeel van het InferenceConfig-object.
+    + Appinsifht toewijzing toevoegen voor nieuwe regio's-centraal-westus-northcentralus
+    + Documentatie toegevoegd voor alle kenmerken in alle Data Store-klassen.
+    + De blob_cache_timeout-para `Datastore.register_azure_blob_container`meter is toegevoegd aan.
+    + Save_to_directory-en load_from_directory-methoden zijn toegevoegd aan azureml. core. Environment. Environment.
+    + De opdrachten "AZ ml Environment down load" en "AZ ml Environment REGI ster" zijn toegevoegd aan de CLI.
+    + De methode environment. add _private_pip_wheel is toegevoegd.
+  + **azureml-explain-model**
+    + Het bijhouden van gegevensset is toegevoegd aan uitleg met behulp van de DataSet-service (preview).
+    + De standaard Batch grootte is verminderd bij het streamen van globale uitleg van 10k tot 100.
+    + Er is een model_task-vlag toegevoegd aan uitleg om gebruikers toe te staan de standaard logica voor automatische interferentie voor het model type te negeren.
+  + **azureml-mlflow**
+    + Er is een fout opgelost in mlflow. azureml. build_image waarbij geneste mappen worden genegeerd.
+  + **azureml-pipeline-steps**
+    + De mogelijkheid om JAR-taken uit te voeren op bestaande Azure Databricks cluster is toegevoegd.
+    + Ondersteuning voor instance_pool_id-en cluster_log_dbfs_path-para meters voor DatabricksStep-stap toegevoegd.
+    + Er is ondersteuning toegevoegd voor pijplijn parameters in de stap DatabricksStep.
+  + **azureml-train-automl**
+    + Docstrings toegevoegd voor de aan ensemble gerelateerde bestanden.
+    + Documenten bijgewerkt naar een meer geschikte taal `max_cores_per_iteration` voor en`max_concurrent_iterations`
+    + De logboek registratie van taken op de externe uitvoering is verbeterd. de gebruiker wordt nu uitgebreid met het fout bericht weer gegeven als de uitvoering is mislukt.
+    + Get_data verwijderd uit pijp lijn automlstep-notebook.
+    + De ondersteuning van dataprep in automlstep is gestart.
+
+### <a name="azure-machine-learning-data-prep-sdk-v1110"></a>Azure Machine Learning data prep SDK v 1.1.10
+
++ **Nieuwe functies**
+  + U kunt nu een aanvraag indienen om specifieke controles uit te voeren (bijvoorbeeld een histogram, een spreidings tekening enzovoort) op specifieke kolommen.
+  + Het argument parallelliseren is toegevoegd `append_columns`aan. Indien waar, worden gegevens in het geheugen geladen, maar wordt de uitvoering parallel uitgevoerd. Als deze eigenschap onwaar is, wordt de uitvoering streaming, maar met één thread.
 
 ## <a name="2019-07-23"></a>2019-07-23
 
@@ -352,7 +409,7 @@ In Azure Portal kunt u nu het volgende doen:
 ### <a name="notebook-virtual-machine"></a>Virtuele machine van notebook 
 
 Gebruik een laptop-VM als een veilige, bedrijfsgeschikte hosting omgeving voor Jupyter-notebooks waarin u machine learning experimenten kunt Program meren, modellen als web-eind punten implementeert en alle andere bewerkingen uitvoert die door Azure Machine Learning SDK worden ondersteund met behulp van python. Het biedt verschillende mogelijkheden:
-+ [U kunt snel een vooraf geconfigureerde notebook-VM](quickstart-run-cloud-notebook.md) maken met de nieuwste versie van Azure machine learning SDK en gerelateerde pakketten.
++ [U kunt snel een vooraf geconfigureerde notebook-VM](tutorial-1st-experiment-sdk-setup.md) maken met de nieuwste versie van Azure machine learning SDK en gerelateerde pakketten.
 + De toegang wordt beveiligd via bewezen technologieën, zoals HTTPS, Azure Active Directory verificatie en autorisatie.
 + Betrouw bare Cloud opslag van notitie blokken en code in uw Azure Machine Learning-werkruimte Blob Storage-account. U kunt de VM van uw notebook veilig verwijderen zonder dat uw werk verloren gaat.
 + Vooraf geïnstalleerde voorbeeld notitieblokken om te verkennen en experimenteren met Azure Machine Learning service-functies.

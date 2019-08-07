@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee3309bdd3629057d174866dde58ffd95e9e5ca8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 49f8d0e418f43648665b95f5bf1f672e9f9dae28
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562134"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779456"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedure: Uw hybride Azure Active Directory deelname-implementatie plannen
 
@@ -111,12 +111,18 @@ Voor deze scenario's is het niet nodig om een Federatie server te configureren v
 
 ### <a name="federated-environment"></a>Federatieve omgeving
 
-Een gefedereerde omgeving moet een id-provider hebben die de volgende vereisten ondersteunt:
+Een gefedereerde omgeving moet een id-provider hebben die de volgende vereisten ondersteunt. Als u een gefedereerde omgeving hebt met Active Directory Federation Services (AD FS), worden de onderstaande vereisten al ondersteund.
 
-- **WS-Trust-Protocol:** Dit protocol is vereist voor de verificatie van Windows Current Hybrid Azure AD gekoppelde apparaten met Azure AD.
 - **WIAORMULTIAUTHN claim:** Deze claim is vereist voor het uitvoeren van hybride Azure AD-deelname voor Windows-apparaten op lagere niveaus.
+- **WS-Trust-Protocol:** Dit protocol is vereist voor de verificatie van Windows Current Hybrid Azure AD gekoppelde apparaten met Azure AD. Wanneer u AD FS gebruikt, moet u de volgende WS-Trust-eind punten inschakelen:`/adfs/services/trust/2005/windowstransport`  
+`/adfs/services/trust/13/windowstransport`  
+  `/adfs/services/trust/2005/usernamemixed` 
+  `/adfs/services/trust/13/usernamemixed`
+  `/adfs/services/trust/2005/certificatemixed` 
+  `/adfs/services/trust/13/certificatemixed` 
 
-Als u een gefedereerde omgeving hebt met Active Directory Federation Services (AD FS), worden de bovenstaande vereisten al ondersteund.
+> [!WARNING] 
+> **ADFS/Services/Trust/2005/windowstransport** of **ADFS/Services/Trust/13/windowstransport** moeten alleen worden ingeschakeld als intranet gerichte eind punten en mogen niet worden weer gegeven als een extranet gerichte eind punten via de Web Application proxy. Zie [Windows-eind punten van WS-Trust uitschakelen op de proxy](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)voor meer informatie over het uitschakelen van WS-Trust Windows-eind punten. Onder **Service** > **Eindpunten** in de AD FS-beheerconsole kunt u zien welke eindpunten zijn ingeschakeld.
 
 > [!NOTE]
 > Azure AD biedt geen ondersteuning voor Smart Cards of certificaten in beheerde domeinen.
@@ -130,7 +136,7 @@ Ga op basis van het scenario dat overeenkomt met uw identiteits infrastructuur n
 
 ## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>On-premises AD-UPN-ondersteuning voor hybride Azure AD-deelname controleren
 
-Soms kunnen uw on-premises AD-Upn's afwijken van uw Azure AD-Upn's. In dergelijke gevallen biedt Windows 10 Hybrid Azure AD-deelname beperkte ondersteuning voor on-premises AD-Upn's op basis van de [verificatie methode](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), het domein type en de Windows 10-versie. Er zijn twee typen on-premises AD-Upn's die in uw omgeving kunnen bestaan:
+Soms kunnen uw on-premises AD-Upn's afwijken van uw Azure AD-Upn's. In dergelijke gevallen biedt Windows 10 Hybrid Azure AD-deelname beperkte ondersteuning voor on-premises AD-Upn's op basis van de [verificatie methode](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), het domein type en de Windows 10-versie. Er zijn twee typen on-premises AD-Upn's die in uw omgeving kunnen bestaan:
 
 - Routeer bare UPN: Een routeerbaar UPN heeft een geldig geverifieerd domein dat is geregistreerd bij een domein registratie service. Als contoso.com bijvoorbeeld het primaire domein in azure AD is, is contoso.org het primaire domein in on-premises AD eigendom van Contoso en wordt het [geverifieerd in azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
 - Niet-omleid bare UPN: Een niet-Routeer bare UPN heeft geen geverifieerd domein. Het is alleen van toepassing op het particuliere netwerk van uw organisatie. Als contoso.com bijvoorbeeld het primaire domein is in azure AD, contoso. local is het primaire domein in on-premises AD, maar dit is geen verifieerbaar domein op internet en wordt alleen gebruikt in het netwerk van contoso.

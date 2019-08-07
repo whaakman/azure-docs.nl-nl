@@ -1,5 +1,5 @@
 ---
-title: Verzenden en ontvangen van gebeurtenissen met behulp van .NET Core - Azure Event Hubs | Microsoft Docs
+title: Gebeurtenissen verzenden en ontvangen met behulp van .NET core-Azure Event Hubs | Microsoft Docs
 description: Dit artikel bevat een overzicht voor het maken van een .NET Core-toepassing die gebeurtenissen verzendt naar Azure Event Hubs.
 services: event-hubs
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 001abd15c88ae717fa0fb91605b2f0822a38973d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 736612398861cc7a168fd24e83bc28e3815a8a28
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65603540"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742157"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core"></a>Gebeurtenissen verzenden of ontvangen van gebeurtenissen uit Azure Event Hubs met behulp van .NET Core
+# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core"></a>Gebeurtenissen verzenden naar of ontvangen van Azure Event Hubs met behulp van .NET core
 Event Hubs is een service die grote hoeveelheden gebeurtenisgegevens (telemetrie) van verbonden apparaten en toepassingen verwerkt. Nadat u gegevens in Event Hubs hebt verzameld, kunt u de gegevens opslaan met behulp van een opslagcluster of transformeren met een provider van realtime-analyses. Deze functie voor grootschalige gebeurtenisverzameling en -verwerking is een belangrijk onderdeel van de architectuur van moderne toepassingen, met inbegrip van het Internet der dingen (IoT). Zie [Overzicht van Event Hubs](event-hubs-about.md) en [Functies van Event Hubs](event-hubs-features.md) voor een gedetailleerd overzicht van Event Hubs.
 
-Deze zelfstudie laat zien hoe u .NET Core-toepassingen in maakt C# gebeurtenissen te verzenden of ontvangen van gebeurtenissen van een event hub. 
+In deze zelf studie leert u hoe u .NET core C# -toepassingen kunt maken in om gebeurtenissen te verzenden naar of gebeurtenissen te ontvangen van een event hub. 
 
 > [!NOTE]
 > U kunt deze snelstart als voorbeeld downloaden van de [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender), de tekenreeksen `EventHubConnectionString` en `EventHubName` vervangen door uw event hub-waarden en deze uitvoeren. U kunt ook de stappen in deze zelfstudie volgen om uw eigen oplossing te maken.
@@ -34,10 +34,10 @@ Deze zelfstudie laat zien hoe u .NET Core-toepassingen in maakt C# gebeurtenisse
 
 - [Microsoft Visual Studio 2019](https://www.visualstudio.com).
 - [.NET core Visual Studio 2015- of 2017-hulpprogramma's](https://www.microsoft.com/net/core). 
-- **Maak een Event Hubs-naamruimte en een event hub**. In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naamruimte van het type Event Hubs te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de Event Hub te communiceren. Als u wilt een naamruimte en een event hub maken, volgt u de procedure in [in dit artikel](event-hubs-create.md). Vervolgens kunt u de **verbindingsreeks voor de event hub-naamruimte** met de instructies in het artikel: [Verbindingstekenreeks ophalen](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). U de verbindingsreeks later in deze zelfstudie.
+- **Een event hubs naam ruimte en een event hub maken**. In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naamruimte van het type Event Hubs te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de Event Hub te communiceren. Als u wilt een naamruimte en een event hub maken, volgt u de procedure in [in dit artikel](event-hubs-create.md). Vervolgens haalt u de **Connection String voor de Event hub naam ruimte** door de volgende instructies uit het artikel: [Verbindingstekenreeks ophalen](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). U de verbindingsreeks later in deze zelfstudie.
 
 ## <a name="send-events"></a>Gebeurtenissen verzenden 
-Deze sectie leest u hoe u een .NET Core-consoletoepassing voor het verzenden van gebeurtenissen naar een event hub maakt. 
+In deze sectie wordt beschreven hoe u een .NET core-console toepassing maakt voor het verzenden van gebeurtenissen naar een Event Hub. 
 
 ### <a name="create-a-console-application"></a>Een consoletoepassing maken
 
@@ -97,7 +97,7 @@ Voeg het .NET Core-bibliotheek NuGet-pakket [`Microsoft.Azure.EventHubs`](https:
 4. Voeg als volgt een nieuwe methode met de naam `SendMessagesToEventHub` toe aan de klasse `Program`:
 
     ```csharp
-    // Creates an event hub client and sends 100 messages to the event hub.
+    // Uses the event hub client to send 100 messages to the event hub.
     private static async Task SendMessagesToEventHub(int numMessagesToSend)
     {
         for (var i = 0; i < numMessagesToSend; i++)
@@ -167,7 +167,7 @@ Voeg het .NET Core-bibliotheek NuGet-pakket [`Microsoft.Azure.EventHubs`](https:
                 Console.ReadLine();
             }
 
-            // Creates an event hub client and sends 100 messages to the event hub.
+            // Uses the event hub client to send 100 messages to the event hub.
             private static async Task SendMessagesToEventHub(int numMessagesToSend)
             {
                 for (var i = 0; i < numMessagesToSend; i++)
@@ -195,7 +195,7 @@ Voeg het .NET Core-bibliotheek NuGet-pakket [`Microsoft.Azure.EventHubs`](https:
 6. Voer het programma uit en controleer of er geen fouten zijn.
 
 ## <a name="receive-events"></a>Gebeurtenissen ontvangen
-Deze sectie wordt beschreven hoe u een .NET Core-consoletoepassing die berichten van een event hub met behulp van ontvangt de [Event Processor Host](event-hubs-event-processor-host.md). De [EventProcessorHost](event-hubs-event-processor-host.md) is een .NET-klasse die het ontvangen van gebeurtenissen van Event Hubs vereenvoudigt door permanente controlepunten en parallelle ontvangst van deze Event Hubs te beheren. Met de EventProcessorHost kunt u gebeurtenissen splitsen over meerdere ontvangers, zelfs als deze worden gehost in verschillende knooppunten. In dit voorbeeld wordt het gebruik van de EventProcessorHost gedemonstreerd voor één ontvanger.
+In deze sectie wordt beschreven hoe u een .NET core-console toepassing schrijft die berichten ontvangt van een Event Hub met de [Event processor host](event-hubs-event-processor-host.md). De [EventProcessorHost](event-hubs-event-processor-host.md) is een .NET-klasse die het ontvangen van gebeurtenissen van Event Hubs vereenvoudigt door permanente controlepunten en parallelle ontvangst van deze Event Hubs te beheren. Met de EventProcessorHost kunt u gebeurtenissen splitsen over meerdere ontvangers, zelfs als deze worden gehost in verschillende knooppunten. In dit voorbeeld wordt het gebruik van de EventProcessorHost gedemonstreerd voor één ontvanger.
 > [!NOTE]
 > U kunt deze snelstart downloaden als een voorbeeld van de [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), de tekenreeksen `EventHubConnectionString` en `EventHubName`, `StorageAccountName`, `StorageAccountKey` en `StorageContainerName` vervangen door uw Event Hub-waarden en deze uitvoeren. U kunt ook de stappen in deze zelfstudie volgen om uw eigen oplossing te maken.
 
@@ -368,7 +368,7 @@ Voeg de NuGet-pakketten voor [ **Microsoft.Azure.EventHubs** ](https://www.nuget
 Lees de volgende artikelen:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Functies en de belangrijkste termen in de Azure Event Hubs](event-hubs-features.md)
+- [Functies en terminologie in Azure Event Hubs](event-hubs-features.md)
 - [Veelgestelde vragen over Event Hubs](event-hubs-faq.md)
 
 

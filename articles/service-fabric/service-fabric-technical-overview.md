@@ -1,6 +1,6 @@
 ---
-title: Terminologie voor Azure Service Fabric | Microsoft Docs
-description: Een overzicht van de terminologie van Service Fabric. Belangrijke terminologie concepten en termen die worden gebruikt in de rest van de documentatie besproken.
+title: Meer informatie over Azure Service Fabric terminologie | Microsoft Docs
+description: Een overzicht van de terminologie van Service Fabric. Hierin worden de belangrijkste termen concepten en termen beschreven die worden gebruikt in de rest van de documentatie.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,164 +14,164 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/17/2018
 ms.author: masnider
-ms.openlocfilehash: 085d5e560eec090ab76c263f8f93140786f2d734
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82672114722db843fcb5d0bdff28cf14cddb1aef
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60543203"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68811909"
 ---
-# <a name="service-fabric-terminology-overview"></a>Overzicht van service Fabric-terminologie
-Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices.  U kunt [host Service Fabric-clusters overal](service-fabric-deploy-anywhere.md): Azure, in een on-premises datacenter of op elke andere cloudprovider.  Service Fabric is de orchestrator dat wordt gebruikt door [Azure Service Fabric NET](/azure/service-fabric-mesh). U kunt elk gewenst framework schrijven van uw services en kiezen waar u wilt uitvoeren van de toepassing uit meerdere mogelijkheden van de omgeving. Dit artikel worden de termen die door Service Fabric om te begrijpen van de termen die worden gebruikt in de documentatie.
+# <a name="service-fabric-terminology-overview"></a>Overzicht van Service Fabric terminologie
+Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices.  U kunt [overal service Fabric-clusters hosten](service-fabric-deploy-anywhere.md): Azure, in een on-premises Data Center of op een Cloud provider.  Service Fabric is de Orchestrator die [Azure service Fabric net](/azure/service-fabric-mesh)aanstuurt. U kunt elk Framework gebruiken om uw services te schrijven en te kiezen waar u de toepassing uitvoert vanuit meerdere omgevings opties. In dit artikel vindt u informatie over de terminologie die wordt gebruikt door Service Fabric om inzicht te krijgen in de voor waarden in de documentatie.
 
-## <a name="infrastructure-concepts"></a>Infrastructuur-concepten
-**Cluster**: Een netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd.  Clusters kunnen naar duizenden machines worden geschaald.
+## <a name="infrastructure-concepts"></a>Infrastructuur concepten
+**Cluster**: Een met het netwerk verbonden reeks virtuele of fysieke machines waarop uw micro services worden geïmplementeerd en beheerd.  Clusters kunnen naar duizenden machines worden geschaald.
 
-**Knooppunt**: Een machine of virtuele machine die deel uitmaakt van een cluster, heet een *knooppunt*. Aan elk knooppunt wordt een knooppuntnaam toegewezen (een tekenreeks). Knooppunten hebben kenmerken zoals plaatsingseigenschappen. Elke computer of virtuele machine heeft een Windows-service die automatisch wordt gestart, `FabricHost.exe`, die wordt uitgevoerd bij het opstarten en start vervolgens twee uitvoerbare bestanden: `Fabric.exe` en `FabricGateway.exe`. Deze twee uitvoerbare bestanden zijn vormen van het knooppunt. Voor het testen van scenario's, kunt u meerdere knooppunten op een enkele machine of virtuele machine host door het uitvoeren van meerdere exemplaren van `Fabric.exe` en `FabricGateway.exe`.
+**Knoop punt**: Een computer of virtuele machine die deel uitmaakt van een cluster, wordt een *knoop punt*genoemd. Aan elk knooppunt wordt een knooppuntnaam toegewezen (een tekenreeks). Knoop punten hebben kenmerken, zoals plaatsings eigenschappen. Elke machine of VM heeft een Windows-service die automatisch wordt `FabricHost.exe`gestart, en die start op het moment dat de computer wordt `Fabric.exe` opgestart `FabricGateway.exe`en twee uitvoer bare bestanden worden gestart: en. Deze twee uitvoer bare bestanden vormen het knoop punt. Voor het testen van scenario's kunt u meerdere knoop punten op één computer of virtuele machine hosten door meerdere `Fabric.exe` exemplaren `FabricGateway.exe`van en uit te voeren.
 
-## <a name="application-and-service-concepts"></a>Toepassing en serviceconcepten
+## <a name="application-and-service-concepts"></a>Toepassings-en service concepten
 
-**Service Fabric-toepassing voor Mesh**: Service Fabric NET-toepassingen worden beschreven door de Resource-Model (YAML en JSON-resource-bestanden) en kan worden geïmplementeerd voor een omgeving waarin de Service Fabric wordt uitgevoerd.
+**Service Fabric mesh-toepassing**: Service Fabric mesh-toepassingen worden beschreven door het resource model (YAML-en JSON-bron bestanden) en kunnen worden geïmplementeerd in elke omgeving waarin Service Fabric wordt uitgevoerd.
 
-**Service Fabric-systeemeigen toepassing**: Native service Fabric-toepassingen worden beschreven door de systeemeigen toepassing-Model (op basis van een XML-toepassings- en servicemanifesten).  Service Fabric-systeemeigen toepassingen uitvoeren niet in Service Fabric NET.
+**Service Fabric systeem eigen toepassing**: Service Fabric systeem eigen toepassingen worden beschreven door het systeem eigen toepassings model (XML-toepassings-en service manifesten).  Service Fabric systeem eigen toepassingen kunnen niet worden uitgevoerd in Service Fabric net.
 
-### <a name="service-fabric-mesh-application-concepts"></a>Concepten van service Fabric NET-toepassing
+### <a name="service-fabric-mesh-application-concepts"></a>Concepten van Service Fabric-mesh-toepassing
 
-**Toepassing**: Een toepassing is de eenheid van de implementatie, versiebeheer en levensduur van een Mesh-toepassing. De levenscyclus van elk toepassingsexemplaar kan onafhankelijk van elkaar worden beheerd.  Toepassingen bestaan uit een of meer code-servicepakketten en -instellingen. Een toepassing is gedefinieerd met behulp van het schema van de Azure Resource-Model (RM).  Services worden omschreven als de eigenschappen van de bron van de toepassing in een RM-sjabloon.  Netwerken en de volumes die worden gebruikt door de toepassing wordt verwezen door de toepassing.  Bij het maken van een toepassing, zijn de toepassing, de service (s), het netwerk en de volumes gemodelleerd met behulp van het Resourcemodel dat Service Fabric.
+**Toepassing**: Een toepassing is de implementatie-eenheid, versie beheer en levens duur van een mesh-toepassing. De levens cyclus van elk toepassings exemplaar kan onafhankelijk worden beheerd.  Toepassingen bestaan uit een of meer service code pakketten en instellingen. Een toepassing wordt gedefinieerd met behulp van het schema van het Azure resource model (RM).  Services worden beschreven als eigenschappen van de toepassings bron in een RM-sjabloon.  Voor netwerken en volumes die worden gebruikt door de toepassing wordt verwezen door de toepassing.  Bij het maken van een toepassing worden de toepassing, de service (s), het netwerk en volume (s) gemodelleerd met behulp van het Service Fabric resource model.
 
-**Service**: Een service in een toepassing een microservice vertegenwoordigt en vervult een functie volledig en zelfstandig. Elke service bestaat uit een of meer codepakketten die alles wat nodig is om uit te voeren van de containerinstallatiekopie die is gekoppeld aan het codepakket wordt beschreven.  Het aantal services in een toepassing kunt omhoog en omlaag worden geschaald.
+**Service**: Een service in een toepassing vertegenwoordigt een micro service en voert een volledige en zelfstandige functie uit. Elke service bestaat uit een of meer code pakketten met een beschrijving van alles wat nodig is voor het uitvoeren van de container installatie kopie die is gekoppeld aan het code pakket.  Het aantal services in een toepassing kan omhoog of omlaag worden geschaald.
 
-**Netwerk**: Een netwerkbron maakt een particulier netwerk voor uw toepassingen en staat los van de toepassingen of services die naar deze verwijzen kunnen. Meerdere services van verschillende toepassingen kunnen deel uitmaken van hetzelfde netwerk. Netwerken zijn implementeerbare resources waarnaar wordt verwezen door toepassingen.
+**Netwerk**: Een netwerk bron maakt een privé netwerk voor uw toepassingen en is onafhankelijk van de toepassingen of services die hiernaar kunnen verwijzen. Meerdere services van verschillende toepassingen kunnen deel uitmaken van hetzelfde netwerk. Netwerken zijn Implementeer bare bronnen waarnaar wordt verwezen door toepassingen.
 
-**Codepakket**: Codepakketten beschrijven alles wat nodig is om uit te voeren van de installatiekopie van de container zijn gekoppeld aan de codepakket, met inbegrip van het volgende:
+**Code pakket**: Code pakketten beschrijven alles wat nodig is voor het uitvoeren van de container installatie kopie die is gekoppeld aan het code pakket, met inbegrip van het volgende:
 
-* De containernaam van de, versie en -register
-* CPU en geheugen-resources die vereist voor elke container
-* Network-eindpunten
-* Volumes te koppelen aan de container, die verwijst naar een ander volume-resource.
+* Container naam, versie en REGI ster
+* Benodigde CPU-en geheugen resources voor elke container
+* Netwerk eindpunten
+* Volumes die moeten worden gekoppeld in de container en verwijzen naar een afzonderlijke volume bron.
 
-Alle codepakketten die worden gedefinieerd als onderdeel van de bron van een toepassing worden geïmplementeerd en geactiveerd als een groep.
+Alle code pakketten die zijn gedefinieerd als onderdeel van een toepassings bron, worden als een groep geïmplementeerd en geactiveerd.
 
-**Volume**: Volumes zijn mappen die in uw containerinstanties die u gebruiken kunt om vast te leggen de status worden gekoppeld. Het volume-stuurprogramma voor Azure Files koppelt een Azure-bestandsshare naar een container en biedt betrouwbare gegevensopslag via een API die ondersteuning biedt voor bestandsopslag. Volumes zijn implementeerbare resources waarnaar wordt verwezen door toepassingen.
+**Volume**: Volumes zijn mappen die in de container instanties worden gekoppeld die u kunt gebruiken om de status te behouden. Het Azure Files-volume stuur programma koppelt een Azure Files-share aan een container en biedt betrouw bare gegevens opslag via elke API die ondersteuning biedt voor bestands opslag. Volumes zijn Implementeer bare resources waarnaar wordt verwezen door toepassingen.
 
-### <a name="service-fabric-native-application-concepts"></a>Concepten van Native service Fabric-toepassing
+### <a name="service-fabric-native-application-concepts"></a>Service Fabric systeem eigen concepten van toepassingen
 
-**Toepassing**: Een toepassing is een verzameling van de services die een bepaalde functie of functies uitvoeren. De levenscyclus van elk toepassingsexemplaar kan onafhankelijk van elkaar worden beheerd.
+**Toepassing**: Een toepassing is een verzameling van onderdeel Services die een bepaalde functie of functies uitvoeren. De levens cyclus van elk toepassings exemplaar kan onafhankelijk worden beheerd.
 
-**Service**: Een service kunt vervult een functie volledig en zelfstandig en starten en onafhankelijk van andere services worden uitgevoerd. Een service bestaat uit code, configuratie en gegevens. Voor elke service code bestaat uit de uitvoerbare binaire bestanden, configuratie bestaat uit service-instellingen die kunnen worden geladen tijdens de uitvoering en gegevens bestaat uit willekeurige statische gegevens om te worden verbruikt door de service.
+**Service**: Een service voert een volledige en zelfstandige functie uit en kan onafhankelijk van andere services worden gestart en uitgevoerd. Een service bestaat uit code, configuratie en gegevens. Voor elke service bestaat code uit de binaire uitvoer bare bestanden, configuratie bestaat uit service-instellingen die tijdens runtime kunnen worden geladen en gegevens bestaan uit wille keurige statische gegevens die door de service worden gebruikt.
 
-**Toepassingstype**: De naam of de versie die is toegewezen aan een verzameling van servicetypen. Dit is gedefinieerd in een `ApplicationManifest.xml` bestand en de ingesloten in een pakket toepassingsmap. De map wordt vervolgens gekopieerd naar de installatiekopieopslag van het Service Fabric-cluster. U kunt vervolgens een toepassing met de naam van dit toepassingstype binnen het cluster maken.
+**Toepassings type**: De naam/versie die is toegewezen aan een verzameling service typen. Deze is gedefinieerd in een `ApplicationManifest.xml` bestand en is inge sloten in een toepassings pakket Directory. De map wordt vervolgens gekopieerd naar het archief met installatie kopieën van het Service Fabric-cluster. U kunt vervolgens een benoemde toepassing maken op basis van dit toepassings type binnen het cluster.
 
-Lees de [toepassingsmodel](service-fabric-application-model.md) artikel voor meer informatie.
+Lees het artikel over het [toepassings model](service-fabric-application-model.md) voor meer informatie.
 
-**Toepassingspakket**: Een map met het toepassingstype `ApplicationManifest.xml` bestand. Verwijst naar de servicepakketten voor elk servicetype dat het toepassingstype. De bestanden in de toepassingsmap pakket worden gekopieerd naar de installatiekopieopslag van Service Fabric-cluster. Een toepassingspakket voor een e-mailtype toepassing kan bijvoorbeeld verwijzingen naar een pakket queue-service, een front-end-service-pakket en een database-service-pakket bevatten.
+**Toepassings pakket**: Een schijf Directory met het bestand van `ApplicationManifest.xml` het toepassings type. Verwijst naar de service pakketten voor elk Service type dat het toepassings type vormt. De bestanden in de map van het toepassings pakket worden gekopieerd naar het archief met installatie kopieën van Service Fabric cluster. Een toepassings pakket voor een e-mail toepassings type kan bijvoorbeeld verwijzingen bevatten naar een wachtrij-service pakket, een frontend-service pakket en een Data Base-service pakket.
 
-**Met de naam toepassing**: Nadat u een toepassingspakket naar de installatiekopieopslag kopiëren, maakt u een exemplaar van de toepassing binnen het cluster. U kunt een exemplaar maken wanneer u het toepassingspakket toepassingstype, opgeeft met behulp van de naam of versie. Elk type-exemplaar is de naam van een uniform resource identifier (URI) die als eruitziet toegewezen: `"fabric:/MyNamedApp"`. Binnen een cluster, kunt u meerdere benoemde toepassingen kunt maken van een type één toepassing. U kunt ook met de naam toepassingen van verschillende toepassingstypen maken. Elke toepassing met de naam is onafhankelijk beheerd en is samengesteld.
+**Benoemde toepassing**: Nadat u een toepassings pakket naar het archief met installatie kopieën hebt gekopieerd, maakt u een exemplaar van de toepassing in het cluster. U maakt een instantie wanneer u het toepassings type van het toepassings pakket opgeeft met behulp van de naam of versie. Aan elk exemplaar van het toepassings type is een URI-naam (Uniform Resource Identifier) toegewezen `"fabric:/MyNamedApp"`die er als volgt uitziet:. Binnen een cluster kunt u meerdere benoemde toepassingen maken op basis van één toepassings type. U kunt ook benoemde toepassingen maken op basis van verschillende toepassings typen. Elke benoemde toepassing wordt afzonderlijk beheerd en gemaakt.
 
-**Servicetype**: De naam of de versie die is toegewezen aan de pakketten, gegevenspakketten en van configuratiepakketten van een service. Type van de service is gedefinieerd in de `ServiceManifest.xml` bestands- en opgenomen in de map van een service-pakket. De map van de service-pakket vervolgens naar wordt verwezen door een toepassingspakket `ApplicationManifest.xml` bestand. Binnen het cluster kunt na het maken van een toepassing met de naam, u een benoemde service van een van het toepassingstype servicetypen. Het servicetype `ServiceManifest.xml` bestand beschrijft de service.
+**Service type**: De naam/versie die is toegewezen aan de code pakketten, gegevens pakketten en configuratie pakketten van een service. Het Service type wordt gedefinieerd in het `ServiceManifest.xml` bestand en Inge sloten in een service pakket Directory. Er wordt naar de map van het service pakket verwezen door het bestand `ApplicationManifest.xml` van het toepassings pakket. In het cluster kunt u na het maken van een benoemde toepassing een benoemde service maken van een van de service typen van het toepassings type. In het bestand van `ServiceManifest.xml` het Service type wordt de service beschreven.
 
-Lees de [toepassingsmodel](service-fabric-application-model.md) artikel voor meer informatie.
+Lees het artikel over het [toepassings model](service-fabric-application-model.md) voor meer informatie.
 
 Er zijn twee soorten services:
 
-* **Stateless**: Gebruik een stateless service als de permanente status van de service is opgeslagen in een service voor externe opslag, zoals Azure Storage, Azure SQL Database of Azure Cosmos DB. Gebruik een stateless service als de service geen permanente opslag heeft. Bijvoorbeeld, voor een rekenmachine-service waar waarden worden doorgegeven aan de service, een berekening wordt uitgevoerd die gebruikmaakt van deze waarden en vervolgens wordt een resultaat geretourneerd.
-* **Stateful**: Een stateful service gebruiken als u wilt dat de Service Fabric voor het beheren van de status van uw service via de betrouwbare verzamelingen of Reliable Actors programmeermodellen. Wanneer u een benoemde service maakt, geeft u het aantal partities die u uw status gespreid wilt over voor schaalbaarheid. Ook kunt u opgeven hoe vaak voor het repliceren van uw status over meerdere knooppunten voor betrouwbaarheid. Elke benoemde service heeft een enkele primaire replica en meerdere secundaire replica's. U wijzigen de status van uw service met de naam bij het schrijven naar de primaire replica. Service Fabric wordt deze status vervolgens gerepliceerd naar alle secundaire replica's naar de status gesynchroniseerd houden. Service Fabric wordt automatisch gedetecteerd wanneer een primaire replica is mislukt en het schrijven van een bestaande secundaire replica naar een primaire replica. Service Fabric maakt vervolgens een nieuwe secundaire replica.  
+* **Stateless**: Gebruik een stateless service wanneer de permanente status van de service wordt opgeslagen in een externe opslag service, zoals Azure Storage, Azure SQL Database of Azure Cosmos DB. Gebruik een stateless service als de service geen permanente opslag heeft. Voor een Calculator service waarbij waarden worden door gegeven aan de service, wordt een berekening uitgevoerd die deze waarden gebruikt, waarna een resultaat wordt geretourneerd.
+* **Stateful**: Gebruik een stateful service als u wilt Service Fabric de status van uw service wilt beheren via de betrouw bare verzamelingen of Reliable Actors programmeer modellen. Wanneer u een benoemde service maakt, geeft u op hoeveel partities u uw status wilt spreiden voor schaal baarheid. Geef ook op hoe vaak uw status moet worden gerepliceerd tussen knoop punten, voor betrouw baarheid. Elke benoemde service heeft één primaire replica en meerdere secundaire replica's. U wijzigt de status van de naam van de service wanneer u naar de primaire replica schrijft. Service Fabric repliceert deze status vervolgens naar alle secundaire replica's om uw status synchroon te laten blijven. Service Fabric detecteert automatisch wanneer een primaire replica is mislukt en bevordert een bestaande secundaire replica naar een primaire replica. Service Fabric maakt vervolgens een nieuwe secundaire replica.  
 
-**Replica's of instanties** verwijzen naar de code (en de status voor stateful services) van een service die wordt geïmplementeerd en uitgevoerd. Zie [replica's en exemplaren](service-fabric-concepts-replica-lifecycle.md).
+**Replica's of exemplaren** verwijzen naar code (en status voor stateful Services) van een service die is geïmplementeerd en wordt uitgevoerd. Zie [replica's en exemplaren](service-fabric-concepts-replica-lifecycle.md).
 
-**Herconfiguratie** verwijst naar het proces van eventuele wijzigingen in de replicaset van een service. Zie [herconfiguratie](service-fabric-concepts-reconfiguration.md).
+**Herconfiguratie** verwijst naar het proces van elke wijziging in de replicaset van een service. Zie [herconfiguratie](service-fabric-concepts-reconfiguration.md).
 
-**Servicepakket**: Een map met het servicetype `ServiceManifest.xml` bestand. Dit bestand verwijst naar de code, statische gegevens en configuratiepakketten voor het type van de service. De bestanden in de map van de service-pakket wordt verwezen door het toepassingstype `ApplicationManifest.xml` bestand. Bijvoorbeeld, kunt een servicepakket verwijzen naar de code, statische gegevens en configuratiepakketten die gezamenlijk een databaseservice.
+**Service pakket**: Een schijf Directory met het bestand van `ServiceManifest.xml` het Service type. Dit bestand verwijst naar de code, statische gegevens en configuratie pakketten voor het Service type. Naar de bestanden in de map van het service pakket wordt verwezen door het bestand `ApplicationManifest.xml` van het toepassings type. Een service pakket kan bijvoorbeeld verwijzen naar de code, statische gegevens en configuratie pakketten die een database service vormen.
 
-**Met de naam service**: Nadat u een toepassing met de naam maakt, kunt u een exemplaar van een van de servicetypen binnen het cluster kunt maken. U opgeven het servicetype met behulp van de naam/versie. Elk type service-exemplaar is de naam van een URI die binnen het bereik van onder de naam van de toepassing URI toegewezen. Bijvoorbeeld, als u een service in een toepassing met de naam 'MyNamedApp' met de naam 'MijnDatabase' maakt, de URI ziet eruit als: `"fabric:/MyNamedApp/MyDatabase"`. In een toepassing met de naam, kunt u verschillende services worden gebruikt met de naam maken. Elke benoemde service kan hebben een eigen partitieschema en exemplaar of replica wordt geteld.
+**Benoemde service**: Nadat u een benoemde toepassing hebt gemaakt, kunt u een exemplaar van een van de service typen in het cluster maken. U geeft het Service type op met behulp van de naam/versie. Aan elk Service type-exemplaar is een URI-naam toegewezen onder de URI van de benoemde toepassing. Als u bijvoorbeeld een ' MyDatabase-service met de naam ' in een ' MyNamedApp '-toepassing maakt, ziet de URI er `"fabric:/MyNamedApp/MyDatabase"`als volgt uit:. Binnen een benoemde toepassing kunt u meerdere benoemde services maken. Elke benoemde service kan een eigen partitie schema en exemplaar-of replica aantallen hebben.
 
-**Codepakket**: Een diskette-map met het servicetype uitvoerbare bestanden, doorgaans EXE/DLL-bestanden. De bestanden in de pakketmap code wordt verwezen door het servicetype `ServiceManifest.xml` bestand. Wanneer u een benoemde service maakt, wordt het codepakket gekopieerd naar het knooppunt of knooppunten die zijn geselecteerd om uit te voeren van de benoemde service. Vervolgens de code wordt gestart om uit te voeren. Er zijn twee soorten code pakket uitvoerbare bestanden:
+**Code pakket**: Een schijf Directory met de uitvoer bare bestanden van het Service type, doorgaans EXE/DLL-bestanden. Er wordt naar de bestanden in de map code pakket verwezen door het bestand van `ServiceManifest.xml` het Service type. Wanneer u een benoemde service maakt, wordt het code pakket gekopieerd naar het knoop punt of de knoop punten die zijn geselecteerd om de genoemde service uit te voeren. Vervolgens wordt de code uitgevoerd. Er zijn twee soorten code pakket uitvoer bare bestanden:
 
-* **Gastbestanden**: Uitvoerbare bestanden die worden uitgevoerd als-is op het hostbesturingssysteem (Windows of Linux). Deze uitvoerbare bestanden niet koppelen aan of verwijzen naar een Service Fabric-runtime-bestanden en daarom geen gebruik van een Service Fabric-programmeermodellen. Deze uitvoerbare bestanden zijn niet sommige functies van de Service Fabric, zoals de naming-service voor de eindpuntdetectie van gebruiken. Gastbestanden meetwaarden die specifiek voor elk service-exemplaar zijn kan niet rapporteren.
-* **Uitvoerbare bestanden host-service**: Uitvoerbare bestanden die gebruikmaken van Service Fabric-programmeermodellen door een koppeling naar Service Fabric-runtime-bestanden, Service Fabric-functies inschakelen. Bijvoorbeeld, een benoemd service-exemplaar eindpunten kunt registreren bij de Service Fabric Naming-Service en kan de meetwaarden ook rapporteren.
+* **Uitvoer bare gast bestanden**: Uitvoer bare bestanden die worden uitgevoerd op de host van het besturings systeem (Windows of Linux). Deze uitvoer bare bestanden zijn niet gekoppeld aan of verwijzen naar Service Fabric runtime-bestanden en gebruiken daarom geen Service Fabric-programmeer modellen. Deze uitvoer bare bestanden kunnen sommige Service Fabric functies niet gebruiken, zoals de naamgevings service voor eindpunt detectie. Uitvoer bare bestanden voor gasten kunnen geen belasting gegevens rapporteren die specifiek zijn voor elk service-exemplaar.
+* **Uitvoer bare service-host**: Uitvoer bare bestanden die gebruikmaken van Service Fabric-programmeer modellen door te koppelen aan Service Fabric runtime bestanden, waardoor Service Fabric functies worden ingeschakeld. Een benoemd service-exemplaar kan bijvoorbeeld eind punten registreren bij de Naming Service van Service Fabric en kan ook belasting gegevens rapporteren.
 
-**Gegevenspakket**: Een diskette-map die het servicetype statisch, alleen-lezen-gegevensbestanden, doorgaans foto's, Beeld en geluid bestanden bevat. De bestanden in de map wordt verwezen door het servicetype `ServiceManifest.xml` bestand. Wanneer u een benoemde service maakt, wordt het gegevenspakket gekopieerd naar het knooppunt of knooppunten die zijn geselecteerd om uit te voeren van de benoemde service. De code wordt uitgevoerd en hebben nu toegang tot de bestanden.
+**Gegevens pakket**: Een schijf Directory met de statische, alleen-lezen gegevens bestanden van het Service type, doorgaans foto-, geluids-en video bestanden. Er wordt naar de bestanden in de map van het gegevens pakket verwezen door het `ServiceManifest.xml` bestand van het Service type. Wanneer u een benoemde service maakt, wordt het gegevens pakket gekopieerd naar het knoop punt of de knoop punten die zijn geselecteerd om de genoemde service uit te voeren. De code wordt uitgevoerd en heeft nu toegang tot de gegevens bestanden.
 
-**Het configuratiepakket**: Een diskette-map met het servicetype statisch, alleen-lezen-configuratiebestanden, doorgaans tekstbestanden. De bestanden in de map van het pakket configuration wordt verwezen door het servicetype `ServiceManifest.xml` bestand. Wanneer u een benoemde service maakt, de bestanden in het configuratiepakket voor de gekopieerde één of meer knooppunten hebt geselecteerd de benoemde service uit te voeren. Vervolgens begint de code uit te voeren en kunt nu toegang tot de configuratiebestanden.
+**Configuratie pakket**: Een schijf Directory met de statische, alleen-lezen configuratie bestanden van het Service type, meestal tekst bestanden. Naar de bestanden in de map van het configuratie pakket wordt verwezen door het bestand `ServiceManifest.xml` van het Service type. Wanneer u een benoemde service maakt, worden de bestanden in het configuratie pakket een of meer knoop punten gekopieerd die zijn geselecteerd om de genoemde service uit te voeren. Vervolgens wordt de code uitgevoerd en hebt u nu toegang tot de configuratie bestanden.
 
-**Containers**: Standaard wordt Service Fabric implementeert en services als processen wordt geactiveerd. Service Fabric kunt u ook services in containerinstallatiekopieën implementeren. Containers zijn een virtualisatietechnologie die het onderliggende besturingssysteem van toepassingen virtualiseert. Een toepassing en de runtime, afhankelijkheden en systeembibliotheken worden uitgevoerd binnen een container. De container heeft volledige, persoonlijke toegang tot de container eigen geïsoleerde weergave van de concepten van het besturingssysteem. Service Fabric biedt ondersteuning voor Docker-containers op Linux- en Windows Server-containers. Lees voor meer informatie, [Service Fabric en containers](service-fabric-containers-overview.md).
+**Containers**: Service Fabric implementeert en activeert standaard services als processen. Service Fabric kunt ook services implementeren in container installatie kopieën. Containers zijn een Virtualization-technologie die het onderliggende besturings systeem virtualiseren vanuit toepassingen. Een toepassing en de runtime, afhankelijkheden en systeem bibliotheken worden uitgevoerd binnen een container. De container heeft volledige, persoonlijke toegang tot de eigen geïsoleerde weer gave van de constructie van het besturings systeem in de container. Service Fabric ondersteunt docker-containers in Linux-en Windows Server-containers. Lees [service Fabric en containers](service-fabric-containers-overview.md)voor meer informatie.
 
-**Partitieschema**: Wanneer u een benoemde service maakt, kunt u een partitieschema opgeven. Services met een aanzienlijke hoeveelheid status splitsen van de gegevens over meerdere partities, die de status verspreidt over knooppunten van het cluster. Door het splitsen van de gegevens over meerdere partities, de status van de benoemde service kan worden geschaald. Binnen een partitie hebben stateless services voor benoemde exemplaren, terwijl stateful services met de naam replica's hebben. Stateless benoemde services hebben meestal slechts één partitie, omdat ze geen interne status hebben. De partitie-instanties bieden voor beschikbaarheid. Als één instantie is mislukt, doorgaan met andere exemplaren normaal functioneren en Service Fabric maakt vervolgens een nieuw exemplaar. Stateful services met de naam behouden hun status binnen de replica's en elke partitie heeft een eigen replica instellen, zodat de status wordt bewaard gesynchroniseerd. Een replica mislukt, bouwt Service fabrics een nieuwe replica van de bestaande replica's.
+**Partitie schema**: Wanneer u een benoemde service maakt, geeft u een partitie schema op. Services met een aanzienlijke hoeveelheid status splitsen de gegevens over partities, waardoor de status wordt verdeeld over de knoop punten van het cluster. Door de gegevens te splitsen in meerdere partities, kan de status van de named service worden geschaald. Binnen een partitie hebben stateless benoemde services instanties, terwijl stateful benoemde services replica's hebben. Meestal hebben stateless benoemde services slechts één partitie, omdat ze geen interne status hebben. De partitie-exemplaren bieden Beschik baarheid. Als één exemplaar mislukt, blijven andere instanties normaal functioneren en maakt Service Fabric vervolgens een nieuwe instantie. Stateful benoemde services behouden hun status in replica's en elke partitie heeft een eigen replicaset, zodat de status synchroon blijft. Als een replica mislukt, Service Fabric een nieuwe replica bouwt van de bestaande replica's.
 
-Lees de [Partition Service Fabric betrouwbare services](service-fabric-concepts-partitioning.md) artikel voor meer informatie.
+Lees de [partitie service Fabric reliable Services](service-fabric-concepts-partitioning.md) -artikel voor meer informatie.
 
-## <a name="system-services"></a>Systeemservices
-Er zijn systeemservices die zijn gemaakt in elk cluster waarmee de mogelijkheden van het platform van Service Fabric.
+## <a name="system-services"></a>Systeem services
+Er zijn systeem services die in elk cluster worden gemaakt en die de platform mogelijkheden van Service Fabric bieden.
 
-**Naamgevingsservice**: Elke Service Fabric-cluster heeft een Naming-Service, die de servicenamen worden omgezet in een locatie in het cluster. U beheert de servicenamen en de eigenschappen op, zoals een internet Domain Name System (DNS) voor het cluster. Clients communiceren veilig met een willekeurig knooppunt in het cluster met behulp van de Naming-Service een servicenaam en de locatie op te lossen. Toepassingen verplaatsen binnen het cluster. Dit kan bijvoorbeeld zijn vanwege fouten, bron-balancing of de grootte van het cluster. U kunt ontwikkelen services en -clients om de huidige netwerklocatie op te lossen. Clients downloaden de werkelijke machine IP-adres en poort waar deze momenteel wordt uitgevoerd.
+**Naming Service**: Elk Service Fabric cluster heeft een Naming Service, waarmee service namen worden omgezet naar een locatie in het cluster. U beheert de namen en eigenschappen van de service, zoals een Internet Domain Name System (DNS) voor het cluster. Clients communiceren veilig met een wille keurig knoop punt in het cluster door gebruik te maken van de Naming Service om een service naam en de locatie ervan op te lossen. Toepassingen worden binnen het cluster verplaatst. Dit kan bijvoorbeeld het gevolg zijn van fouten, resource verdeling of het wijzigen van het formaat van het cluster. U kunt Services en clients ontwikkelen die de huidige netwerk locatie omzetten. Clients verkrijgen het werkelijke IP-adres en de poort van de computer waarop deze momenteel wordt uitgevoerd.
 
-Lezen [communiceren met services](service-fabric-connect-and-communicate-with-services.md) voor meer informatie over de communicatie-client en service-API's die met de Naming-Service werken.
+Lees [communicatie met Services](service-fabric-connect-and-communicate-with-services.md) voor meer informatie over de api's voor client-en service communicatie die met de Naming Service werken.
 
-**Afbeelding Store-service**: Elke Service Fabric-cluster heeft een installatiekopie van Store-service waar geïmplementeerd, is samengesteld toepassingspakketten worden gehouden. Een toepassingspakket kopiëren naar de Store-installatiekopie en Registreer het toepassingstype dat is opgenomen in die toepassingspakket. Nadat het toepassingstype is ingericht, maakt u een benoemde toepassing uit. U kunt de registratie van een toepassingstype van de installatiekopie van Store-service ongedaan maken nadat alle benoemde toepassingen zijn verwijderd.
+**Image Store-service**: Elk Service Fabric cluster heeft een Image Store-service waar geïmplementeerde toepassings pakketten met versie worden bewaard. Kopieer een toepassings pakket naar het Image Store en registreer vervolgens het toepassings type in dat toepassings pakket. Nadat het toepassings type is ingericht, maakt u er een benoemde toepassing van. U kunt de registratie van een toepassings type bij de Image Store-service ongedaan maken nadat alle benoemde toepassingen zijn verwijderd.
 
-Lezen [inzicht in de instelling ImageStoreConnectionString](service-fabric-image-store-connection-string.md) voor meer informatie over de installatiekopie van Store-service.
+Lees [de ImageStoreConnectionString-instelling](service-fabric-image-store-connection-string.md) voor meer informatie over de image Store-service.
 
-Lees de [implementeren van een toepassing](service-fabric-deploy-remove-applications.md) artikel voor meer informatie over het implementeren van toepassingen op de installatiekopie van Store-service.
+Lees het artikel [een toepassing implementeren](service-fabric-deploy-remove-applications.md) voor meer informatie over het implementeren van toepassingen voor de image Store-service.
 
-**Failover Manager-service**: Elke Service Fabric-cluster heeft een Failover Manager-service die verantwoordelijk is voor de volgende acties:
-   - Functies met betrekking tot hoge beschikbaarheid en consistentie van de services worden uitgevoerd.
-   - Toepassing en cluster upgrades coördineert.
-   - Communiceert met andere onderdelen van het systeem.
+**Failover Manager-service**: Elk Service Fabric cluster heeft een Failover Manager-service die verantwoordelijk is voor de volgende acties:
+   - Voert functies uit die betrekking hebben op hoge Beschik baarheid en consistentie van services.
+   - Hiermee worden de toepassings-en cluster upgrades georchestrationeerd.
+   - Communiceert met andere systeem onderdelen.
 
-**Reparatiemanager service**: Dit is een optionele systeemservice waarmee acties voor herstellen op een cluster in een veilige, automatiseerbare en transparante manier worden uitgevoerd. Reparatiemanager wordt gebruikt in:
-   - Uitvoeren van onderhoud van Azure herstelt op [Silver en Gold duurzaamheid](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Azure Service Fabric-clusters.
-   - Uitvoering van acties voor herstellen voor [Patch Orchestration-toepassing](service-fabric-patch-orchestration-application.md)
+**Repair Manager-service**: Dit is een optionele systeem service waarmee herstel acties op een cluster op een veilige, geautomatiseerde en transparante manier kunnen worden uitgevoerd. Repair Manager wordt gebruikt in:
+   - Onderhoud van Azure wordt uitgevoerd op [Silver en Gold duurzaamheid](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Azure service Fabric-clusters.
+   - Herstel acties uitvoeren voor [patch Orchestration-toepassing](service-fabric-patch-orchestration-application.md)
 
-## <a name="deployment-and-application-models"></a>Implementatie en toepassing modellen 
+## <a name="deployment-and-application-models"></a>Implementatie-en toepassings modellen 
 
-Voor het implementeren van uw services, moet u om te beschrijven hoe u deze wilt uitvoeren. Service Fabric ondersteunt drie verschillende implementatiemodellen:
+Als u uw services wilt implementeren, moet u beschrijven hoe ze moeten worden uitgevoerd. Service Fabric ondersteunt drie verschillende implementatie modellen:
 
-### <a name="resource-model-preview"></a>Resource-model (preview)
-Service Fabric-Resources worden alle items die afzonderlijk kunnen worden geïmplementeerd naar Service Fabric; met inbegrip van toepassingen, services, netwerken en volumes. Resources worden gedefinieerd met behulp van een JSON-bestand naar een clustereindpunt kan worden geïmplementeerd.  Voor Service Fabric NET, wordt het Model van Azure-Resource-schema gebruikt. Een YAML-bestandsschema kan ook worden gebruikt om eenvoudiger definitiebestanden. Resources kunnen worden geïmplementeerd waar dan ook die service Fabric wordt uitgevoerd. Het resourcemodel is de eenvoudigste manier om te beschrijven van uw Service Fabric-toepassingen. De nadruk ligt op de eenvoudige implementatie en beheer van services in containers. Voor meer informatie lezen [Inleiding tot de Service Fabric-Resourcemodel](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources).
+### <a name="resource-model-preview"></a>Resource model (preview-versie)
+Service Fabric resources zijn alles wat afzonderlijk kan worden geïmplementeerd in Service Fabric; inclusief toepassingen, services, netwerken en volumes. Resources worden gedefinieerd met behulp van een JSON-bestand dat kan worden geïmplementeerd in een cluster eindpunt.  Voor Service Fabric net wordt het Azure resource model-schema gebruikt. Een YAML-bestands schema kan ook worden gebruikt om eenvoudig definitie bestanden te schrijven. Resources kunnen overal worden geïmplementeerd Service Fabric worden uitgevoerd. Het resource model is de eenvoudigste manier om uw Service Fabric-toepassingen te beschrijven. De belangrijkste focus is het eenvoudig implementeren en beheren van container Services. Lees [Introduction to the service Fabric resource model](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources)voor meer informatie.
 
-### <a name="native-model"></a>Systeemeigen model
-Het model systeemeigen toepassing biedt uw toepassingen met volledige op laag niveau toegang tot Service Fabric. Toepassingen en services worden gedefinieerd als het geregistreerde type in XML-manifestbestanden.
+### <a name="native-model"></a>Systeem eigen model
+Het systeem eigen toepassings model biedt uw toepassingen volledige toegang tot Service Fabric op laag niveau. Toepassingen en services worden gedefinieerd als geregistreerde typen in XML-manifest bestanden.
 
-De systeemeigen model biedt ondersteuning voor de Reliable Services en Reliable Actors-frameworks, waarmee u toegang tot de Service Fabric-runtime-API's en cluster-API's in C# en Java. Het oorspronkelijke gegevensmodel biedt ook ondersteuning voor willekeurige containers en uitvoerbare bestanden. Het oorspronkelijke gegevensmodel wordt niet ondersteund in de [Service Fabric-NET-omgeving](/azure/service-fabric-mesh/service-fabric-mesh-overview).
+Het systeem eigen model ondersteunt de Reliable Services en Reliable Actors frameworks, waarmee u toegang hebt tot de api's voor Service Fabric-runtime en C# Cluster beheer in en Java. Het systeem eigen model biedt ook ondersteuning voor wille keurige containers en uitvoer bare bestanden. Het systeem eigen model wordt niet ondersteund in de [service Fabric-omgeving](/azure/service-fabric-mesh/service-fabric-mesh-overview).
 
-**Reliable Services**: Een API voor het bouwen van staatloze en stateful services. Stateful services voor het opslaan van hun status in Reliable Collections, zoals een woordenlijst of een wachtrij. U kunt ook aansluiten in verschillende communicatie-stacks, zoals Web-API en Windows Communication Foundation (WCF).
+**Reliable Services**: Een API voor het bouwen van stateless en stateful Services. Stateful Services slaan hun status op in betrouw bare verzamelingen, zoals een woorden lijst of een wachtrij. U kunt ook verschillende communicatie stacks, zoals web-API en Windows Communication Foundation (WCF), aansluiten.
 
-**Reliable Actors**: Een API voor het bouwen van staatloze en stateful objecten door de virtuele Actor-programmeermodel. Dit model is nuttig wanneer u veel onafhankelijke eenheden van berekening of status hebt. Dit model gebruikt een beurt threadmodel, zodat het is raadzaam om te voorkomen dat code aan andere actors of services aanroept omdat andere binnenkomende aanvragen door een afzonderlijke actor kan niet worden verwerkt totdat alle uitgaande aanvragen zijn voltooid.
+**Reliable actors**: Een API voor het bouwen van stateless en stateful objecten via het virtuele actor-programmeer model. Dit model is handig als u veel onafhankelijke reken eenheden of status hebt. In dit model wordt gebruikgemaakt van een model voor het maken van een threading. het is daarom het beste om te voor komen dat code wordt aangeroepen voor andere actors of services, omdat een individuele actor andere binnenkomende aanvragen niet kan verwerken totdat alle uitgaande aanvragen zijn voltooid.
 
-U kunt ook uw bestaande toepassingen uitvoeren in Service Fabric:
+U kunt ook uw bestaande toepassingen uitvoeren op Service Fabric:
 
-**Containers**:  Service Fabric ondersteunt de implementatie van Docker-containers op Linux en Windows Server-containers in Windows Server 2016, samen met de ondersteuning voor Hyper-V-isolatiemodus. In de Service Fabric [toepassingsmodel](service-fabric-application-model.md), een container vertegenwoordigt een toepassingshost in welke meerdere service replica's worden geplaatst. Service Fabric kan geen containers worden uitgevoerd en het scenario is vergelijkbaar met het Gast uitvoerbare scenario, waarin u een bestaande toepassing binnen een container verpakken. Bovendien kunt u [Service Fabric-services in containers uitvoeren](service-fabric-services-inside-containers.md) ook.
+**Containers**:  Service Fabric ondersteunt de implementatie van docker-containers op Linux-en Windows Server-containers in Windows Server 2016, samen met ondersteuning voor de isolatie modus van Hyper-V. In het Service Fabric [toepassings model](service-fabric-application-model.md)vertegenwoordigt een container een toepassingshost waarin meerdere service replica's worden geplaatst. Service Fabric kunt elke container uitvoeren en het scenario is vergelijkbaar met het uitvoer bare gast scenario, waarbij u een bestaande toepassing in een container inpakt. Daarnaast kunt u ook [service Fabric Services in containers uitvoeren](service-fabric-services-inside-containers.md) .
 
-**Gastbestanden**: Als een service kunt u elk type code, zoals Node.js, Java of C++ uitvoeren in Azure Service Fabric. Service Fabric verwijst naar deze typen services als uitvoerbare gastbestanden, worden behandeld als stateless services. De voordelen van het uitvoeren van een door gasten uitvoerbare bestanden in een Service Fabric-cluster zijn hoge beschikbaarheid, statuscontrole, levensduurbeheer van toepassingen, met hoge dichtheid en zichtbaarheid.
+**Uitvoer bare gast bestanden**: U kunt elk type code uitvoeren, zoals node. js, Python, Java of C++ in azure service Fabric als een service. Service Fabric verwijst naar deze typen services als uitvoer bare gast bestanden, die worden behandeld als stateless Services. De voor delen van het uitvoeren van een uitvoerbaar gast bestand in een Service Fabric cluster zijn onder andere hoge Beschik baarheid, status controle, beheer van toepassings levenscyclus, hoge densiteit en detectie.
 
-Lees de [programmeermodel voor uw service kiezen](service-fabric-choose-framework.md) artikel voor meer informatie.
+Lees de [een programmeer model kiezen voor uw service](service-fabric-choose-framework.md) -artikel voor meer informatie.
 
 ### <a name="docker-compose"></a>Docker Compose 
-[Docker Compose](https://docs.docker.com/compose/) maakt deel uit van de Docker-project. Service Fabric biedt beperkte ondersteuning voor [implementeren van toepassingen met behulp van het model Docker Compose](service-fabric-docker-compose.md).
+[Docker opstellen](https://docs.docker.com/compose/) maakt deel uit van het docker-project. Service Fabric biedt beperkte ondersteuning voor [het implementeren van toepassingen met behulp van het model docker opstellen](service-fabric-docker-compose.md).
 
 ## <a name="environments"></a>Omgevingen
 
-Service Fabric is een open-source platform-technologie die verschillende verschillende services en producten zijn gebaseerd op. Microsoft biedt de volgende opties:
+Service Fabric is een open-source platform technologie waarmee verschillende services en producten zijn gebaseerd. Micro soft biedt de volgende opties:
 
- - **Azure Service Fabric Mesh**: Een volledig beheerde service voor het uitvoeren van Service Fabric-toepassingen in Microsoft Azure.
- - **Azure Service Fabric**: De door Azure gehoste Service Fabric-cluster-aanbieding. Deze service biedt integratie tussen Service Fabric en de Azure-infrastructuur, samen met de upgrade en configuratie van beheer van Service Fabric-clusters.
- - **Zelfstandige service Fabric**: Een set hulpprogramma's de installatie en configuratie voor [overal Service Fabric-clusters implementeren](/azure/service-fabric/service-fabric-deploy-anywhere) (on-premises of op elke andere cloudprovider). Niet beheerd door Azure.
- - **Service Fabric-cluster voor ontwikkeling**: Biedt een lokale ontwikkeling onder Windows, Linux of Mac voor ontwikkeling van Service Fabric-toepassingen.
+ - **Azure service Fabric mesh**: Een volledig beheerde service voor het uitvoeren van Service Fabric-toepassingen in Microsoft Azure.
+ - **Azure service Fabric**: Het Azure hosted Service Fabric-cluster. Het biedt integratie tussen Service Fabric en de Azure-infra structuur, samen met upgrade-en configuratie beheer van Service Fabric clusters.
+ - **Zelfstandige service Fabric**: Een set hulpprogram ma's voor installatie en configuratie om [service Fabric-clusters overal](/azure/service-fabric/service-fabric-deploy-anywhere) (on-premises of op een Cloud provider) te implementeren. Niet beheerd door Azure.
+ - **Service Fabric ontwikkelings cluster**: Biedt een lokale ontwikkel ervaring op Windows, Linux of Mac voor het ontwikkelen van Service Fabric toepassingen.
 
-## <a name="environment-framework-and-deployment-model-support-matrix"></a>Omgeving framework en implementatiemodel ondersteuningsmatrix
-Verschillende omgevingen hebben een ander niveau van ondersteuning van frameworks en -implementatiemodellen. De volgende tabel beschrijft de ondersteunde framework en combinaties van implementatie-model.
+## <a name="environment-framework-and-deployment-model-support-matrix"></a>Ondersteunings matrix voor omgeving, Framework en implementatie model
+Verschillende omgevingen hebben een ander ondersteunings niveau voor frameworks en implementatie modellen. In de volgende tabel worden de ondersteunde combi Naties van Framework en implementatie modellen beschreven.
 
-| Type van de toepassing | Wordt beschreven in | Azure Service Fabric Mesh | Azure Service Fabric-Clusters (elk besturingssysteem)| Lokale cluster | Zelfstandig cluster |
+| Type toepassing | Beschreven door | Azure Service Fabric Mesh | Azure Service Fabric-clusters (elk besturings systeem)| Lokaal cluster | Zelfstandig cluster |
 |---|---|---|---|---|---|
-| Service Fabric Mesh-toepassingen | Resource-Model (YAML & JSON) | Ondersteund |Niet ondersteund | Windows - ondersteund, Linux en Mac-niet ondersteund | Windows-niet ondersteund |
-|Native service Fabric-toepassingen | Systeemeigen toepassingsmodel (XML) | Niet ondersteund| Ondersteund|Ondersteund|Windows: ondersteund|
+| Service Fabric mesh-toepassingen | Resource model (YAML & JSON) | Ondersteund |Niet ondersteund | Windows: ondersteund, Linux en Mac: niet ondersteund | Windows-niet ondersteund |
+|Service Fabric systeem eigen toepassingen | Systeem eigen toepassings model (XML) | Niet ondersteund| Ondersteund|Ondersteund|Windows: ondersteund|
 
-De volgende tabel beschrijft de modellen van de andere toepassing en de tooling die voor hen op basis van Service Fabric bestaat.
+In de volgende tabel worden de verschillende toepassings modellen en de hulp middelen beschreven die voor hen bestaan, vergeleken met Service Fabric.
 
-| Type van de toepassing | Wordt beschreven in | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
+| Type toepassing | Beschreven door | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
 |---|---|---|---|---|---|---|
-| Service Fabric Mesh-toepassingen | Resource-Model (YAML & JSON) | VS 2017 |Niet ondersteund |Niet ondersteund | Ondersteund - alleen Mesh-omgeving | Niet ondersteund|
-|Native service Fabric-toepassingen | Systeemeigen toepassingsmodel (XML) | Visual Studio 2017 en VS 2015| Ondersteund|Ondersteund|Ondersteund|Ondersteund|
+| Service Fabric mesh-toepassingen | Resource model (YAML & JSON) | VS 2017 |Niet ondersteund |Niet ondersteund | Alleen ondersteunde mesh-omgeving | Niet ondersteund|
+|Service Fabric systeem eigen toepassingen | Systeem eigen toepassings model (XML) | VS 2017 en VS 2015| Ondersteund|Ondersteund|Ondersteund|Ondersteund|
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen
@@ -181,6 +181,6 @@ Voor meer informatie over Service Fabric:
 * [Waarom een microservices-benadering voor het ontwikkelen van toepassingen?](service-fabric-overview-microservices.md)
 * [Toepassingsscenario's](service-fabric-application-scenarios.md)
 
-Voor meer informatie over Service Fabric NET:
+Meer informatie over Service Fabric mesh:
 
-* [Overzicht van Service Fabric Mesh](/azure/service-fabric-mesh/service-fabric-mesh-overview)
+* [Overzicht van Service Fabric mesh](/azure/service-fabric-mesh/service-fabric-mesh-overview)

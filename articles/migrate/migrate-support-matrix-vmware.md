@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: bbbec680cd2575cc63761c9fbe1335d548ec4d3b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ed7e53570127f12dbe41932481a3286a78865dde
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640784"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828277"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Ondersteuningsmatrix voor VMware-evaluatie en -migratie
 
@@ -42,8 +42,12 @@ De tabel bevat een overzicht van de ondersteunde scenario's voor virtuele VMware
 **Geografie** | **Opslag locatie van meta gegevens**
 --- | ---
 Azure Government | VS (overheid) - Virginia
-Azië en Stille Oceaan | Zuidoost-Azië of Azië-oost
-Europa | Zuid-Europa of Europa-west
+Azië en Stille Oceaan | Azië Azië-oost of Zuidoost
+Australië | Australië-oost of Australië-zuidoost
+Canada | Canada-centraal of Canada-oost
+Europa | Europa - noord of Europa - west
+India | Centraal-India of India-zuid
+Japan |  Japan-Oost of Japan-West
 Verenigd Koninkrijk | UK-zuid of UK-west
 Verenigde Staten | VS-midden, VS-West 2
 
@@ -70,7 +74,7 @@ Het Azure Migrate-apparaat voor VMware wordt geïmplementeerd met behulp van een
 
 **Ondersteuning** | **Details**
 --- | ---
-**vCenter Server** | U hebt voldoende resources op de vCenter Server nodig om een virtuele machine toe te wijzen met 32 GB geheugen, 4 Vcpu's en een externe virtuele switch.<br/><br/> Voor het apparaat is toegang tot internet vereist, hetzij rechtstreeks hetzij via een proxy.
+**vCenter Server** | U hebt voldoende resources op de vCenter Server nodig om een virtuele machine toe te wijzen met 32 GB RAM, 8 Vcpu's en een externe virtuele switch.<br/><br/> Voor het apparaat is toegang tot internet vereist, hetzij rechtstreeks hetzij via een proxy.
 **ESXi** | De toestel-VM moet worden geïmplementeerd op een ESXi-host waarop versie 5,5 of hoger wordt uitgevoerd.
 **Azure Migrate project** | Een apparaat kan worden gekoppeld aan een enkel project.
 **vCenter Server** | Een apparaat kan tot 10.000 VMware-Vm's detecteren op een vCenter Server.<br/> Een apparaat kan verbinding maken met één vCenter Server.
@@ -78,7 +82,7 @@ Het Azure Migrate-apparaat voor VMware wordt geïmplementeerd met behulp van een
 
 ## <a name="assessment-url-access-requirements"></a>Beoordeling-vereisten voor URL-toegang
 
-Het Azure Migrate-apparaat heeft Internet verbinding met internet nodig.
+Het Azure Migrate-apparaat heeft verbinding met internet nodig.
 
 - Wanneer u het apparaat implementeert, controleert Azure Migrate een connectiviteits controle op de Url's die in de onderstaande tabel worden samenvatten.
 - Als u een op URL gebaseerde proxy gebruikt om verbinding te maken met internet, toegang tot deze Url's toestaan, zodat de proxy alle CNAME-records verhelpt die zijn ontvangen tijdens het opzoeken van de Url's.

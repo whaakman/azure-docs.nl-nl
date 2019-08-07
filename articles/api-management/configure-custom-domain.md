@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 08/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 9eb03be5cd9704c3b124bfb16fd30c5c3466890d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b3513ab2583939943ff188b582f57f49530e5ded
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326146"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736246"
 ---
 # <a name="configure-a-custom-domain-name"></a>Een aangepaste domeinnaam configureren
 
@@ -40,17 +40,19 @@ Voor het uitvoeren van de stappen die in dit artikel worden beschreven, hebt u h
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>De Azure Portal gebruiken om een aangepaste domein naam in te stellen
 
 1. Navigeer naar uw API Management-exemplaar in de [Azure Portal](https://portal.azure.com/).
-1. Selecteer **aangepaste domeinen en SSL**.
+1. Selecteer **aangepaste domeinen**.
 
     Er zijn een aantal eind punten waaraan u een aangepaste domein naam kunt toewijzen. Momenteel zijn de volgende eind punten beschikbaar:
 
-    - **Proxy** (standaard is: `<apim-service-name>.azure-api.net`),
+    - **Gateway** (standaard is: `<apim-service-name>.azure-api.net`),
     - **Portal** (standaard is: `<apim-service-name>.portal.azure-api.net`),
     - **Beheer** (standaard is: `<apim-service-name>.management.azure-api.net`),
     - **SCM** (standaard is: `<apim-service-name>.scm.azure-api.net`).
 
     > [!NOTE]
-    > U kunt alle eind punten of een aantal hiervan bijwerken. Klanten updaten **proxy** (deze URL wordt meestal gebruikt voor het aanroepen van de API die wordt weer gegeven via API Management) en de **Portal** (de URL van de ontwikkelaars Portal). **Beheer** -en **SCM** -eind punten worden intern gebruikt door de eigen aren van het API Management-exemplaar en zijn dus minder vaak toegewezen aan een aangepaste domein naam. In de meeste gevallen kan slechts één aangepaste domein naam worden ingesteld voor een bepaald eind punt. De **Premium** -laag ondersteunt echter het instellen van meerdere hostnamen voor het **proxy** -eind punt.
+    > Alleen het **Gateway** -eind punt in beschikbaar voor configuratie in de laag verbruik.
+    > U kunt alle eind punten of een aantal hiervan bijwerken. Klanten updaten **Gateway** (deze URL wordt meestal gebruikt voor het aanroepen van de API die wordt weer gegeven via API Management) en de **Portal** (de URL van de ontwikkelaars Portal).
+    > **Beheer** -en **SCM** -eind punten worden intern gebruikt door de eigen aren van het API Management-exemplaar en zijn dus minder vaak toegewezen aan een aangepaste domein naam. De **Premium** -laag biedt ondersteuning voor het instellen van meerdere hostnamen voor het **Gateway** -eind punt.
 
 1. Selecteer het eind punt dat u wilt bijwerken.
 1. Klik in het venster aan de rechter kant op **aangepast**.

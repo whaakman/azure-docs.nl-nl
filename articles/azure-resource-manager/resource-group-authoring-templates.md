@@ -1,27 +1,27 @@
 ---
-title: Sjabloonstructuur van Azure Resource Manager-en de syntaxis | Microsoft Docs
-description: Beschrijft de structuur en de eigenschappen van Azure Resource Manager-sjablonen met behulp van declaratieve JSON-syntaxis.
+title: Structuur en syntaxis van Azure Resource Manager-sjabloon | Microsoft Docs
+description: Hierin worden de structuur en eigenschappen van Azure Resource Manager sjablonen beschreven met declaratieve JSON-syntaxis.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 08/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: ab8e4f5f6506f80b62c112298f73f95bc7fedeaf
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 9858e8a52888304edd48893db02faa992b356b3b
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204363"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774906"
 ---
-# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Informatie over de structuur en de syntaxis van Azure Resource Manager-sjablonen
+# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Inzicht in de structuur en syntaxis van Azure Resource Manager sjablonen
 
-Dit artikel beschrijft de structuur van een Azure Resource Manager-sjabloon. Deze geeft de verschillende secties van een sjabloon en de eigenschappen die beschikbaar in deze secties zijn. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruiken kunt om waarden voor uw implementatie samen te stellen.
+In dit artikel wordt de structuur van een Azure Resource Manager sjabloon beschreven. Het biedt de verschillende secties van een sjabloon en de eigenschappen die beschikbaar zijn in deze secties. De sjabloon bestaat uit JSON en expressies die u kunt gebruiken om waarden voor uw implementatie samen te stellen.
 
-In dit artikel is bedoeld voor gebruikers die bekend zijn met Resource Manager-sjablonen. Het biedt gedetailleerde informatie over de structuur en de syntaxis van de sjabloon. Als u een inleiding wilt tot het maken van een sjabloon, Zie [uw eerste Azure Resource Manager-sjabloon maken](resource-manager-create-first-template.md).
+Dit artikel is bedoeld voor gebruikers die bekend zijn met Resource Manager-sjablonen. Het bevat gedetailleerde informatie over de structuur en syntaxis van de sjabloon. Als u een sjabloon wilt maken, raadpleegt u [uw eerste Azure Resource Manager sjabloon maken](resource-manager-create-first-template.md).
 
-## <a name="template-format"></a>Sjabloonindeling
+## <a name="template-format"></a>Sjabloon indeling
 
-In de meest eenvoudige structuur heeft een sjabloon voor de volgende elementen:
+In de eenvoudigste structuur heeft een sjabloon de volgende elementen:
 
 ```json
 {
@@ -38,20 +38,20 @@ In de meest eenvoudige structuur heeft een sjabloon voor de volgende elementen:
 
 | De naam van element | Vereist | Description |
 |:--- |:--- |:--- |
-| $schema |Ja |Locatie van het JSON-schema-bestand dat de versie van de taal van de sjabloon beschrijft.<br><br> Voor implementaties van resource-groep, gebruiken: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Gebruik voor abonnementimplementaties van: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
-| contentVersion |Ja |De versie van de sjabloon (bijvoorbeeld 1.0.0.0). U kunt een waarde opgeven voor dit element. Gebruik deze waarde aan aanzienlijke wijzigingen in het document in de sjabloon. Bij het implementeren van resources met behulp van de sjabloon, kan deze waarde kan worden gebruikt om ervoor te zorgen dat de juiste sjabloon wordt gebruikt. |
-| apiProfile |Nee | Een API-versie die als een verzameling van API-versies voor het woord brontypen fungeert. Gebruik deze waarde om te voorkomen dat om op te geven van API-versies voor elke resource in de sjabloon. Wanneer u de versie van een API-profiel opgeven en een API-versie voor het resourcetype niet opgeeft, wordt de API-versie in Resource Manager gebruikt voor dat resourcetype die is gedefinieerd in het profiel.<br><br>De API-profiel-eigenschap is vooral handig bij het implementeren van een sjabloon in verschillende omgevingen, zoals Azure Stack en globale Azure. Gebruik de API-profiel-versie om te controleren of dat uw sjabloon maakt automatisch gebruik van versies die worden ondersteund in beide omgevingen. Zie voor een lijst van de huidige versies van de API-profiel en de API-versies die zijn gedefinieerd in het profiel van de resources, [API profiel](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Zie voor meer informatie, [versies met behulp van API-profielen bijhouden](templates-cloud-consistency.md#track-versions-using-api-profiles). |
-| [parameters](#parameters) |Nee |De waarden die zijn opgegeven wanneer de implementatie wordt uitgevoerd om aan te passen van de resource-implementatie. |
-| [variables](#variables) |Nee |De waarden die worden gebruikt als JSON-fragmenten in de sjabloon voor het vereenvoudigen van sjabloontaalexpressies. |
-| [functions](#functions) |Nee |Gebruiker gedefinieerde functies die beschikbaar in de sjabloon zijn. |
-| [resources](#resources) |Ja |De resourcetypen die worden geïmplementeerd of bijgewerkt in een resourcegroep of abonnement. |
-| [outputs](#outputs) |Nee |De waarden die zijn geretourneerd na de implementatie. |
+| $schema |Ja |Locatie van het JSON-schema bestand waarin de versie van de sjabloon taal wordt beschreven.<br><br> Voor implementaties van resource groepen gebruikt u:`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Gebruik voor implementaties van abonnementen:`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
+| contentVersion |Ja |De versie van de sjabloon (bijvoorbeeld 1.0.0.0). U kunt een wille keurige waarde voor dit element opgeven. Gebruik deze waarde als u belang rijke wijzigingen in uw sjabloon wilt documenteren. Wanneer u resources implementeert met behulp van de sjabloon, kan deze waarde worden gebruikt om ervoor te zorgen dat de juiste sjabloon wordt gebruikt. |
+| apiProfile |Nee | Een API-versie die fungeert als een verzameling van API-versies voor resource typen. Gebruik deze waarde om te voor komen dat u API-versies opgeeft voor elke resource in de sjabloon. Wanneer u een API-profiel versie opgeeft en geen API-versie voor het resource type opgeeft, gebruikt Resource Manager de API-versie voor het bron type dat in het profiel is gedefinieerd.<br><br>De API-profiel eigenschap is vooral handig bij het implementeren van een sjabloon in verschillende omgevingen, zoals Azure Stack en wereld wijd Azure. Gebruik de versie van het API-profiel om ervoor te zorgen dat uw sjabloon automatisch versies gebruikt die in beide omgevingen worden ondersteund. Zie [API-profiel](https://github.com/Azure/azure-rest-api-specs/tree/master/profile)voor een lijst met de huidige API-profiel versies en de bronnen-API-versies die in het profiel zijn gedefinieerd.<br><br>Zie [versies bijhouden met API-profielen](templates-cloud-consistency.md#track-versions-using-api-profiles)voor meer informatie. |
+| [parameters](#parameters) |Nee |Waarden die worden gegeven bij het uitvoeren van de implementatie om de resource-implementatie aan te passen. |
+| [variabelen](#variables) |Nee |Waarden die worden gebruikt als JSON-fragmenten in de sjabloon voor het vereenvoudigen van sjabloon taal expressies. |
+| [vervullen](#functions) |Nee |Door de gebruiker gedefinieerde functies die beschikbaar zijn in de sjabloon. |
+| [resources](#resources) |Ja |Resource typen die worden geïmplementeerd of bijgewerkt in een resource groep of-abonnement. |
+| [uitvoer](#outputs) |Nee |Waarden die worden geretourneerd na de implementatie. |
 
-Elk element heeft eigenschappen die u kunt instellen. Dit artikel wordt beschreven in de secties van de sjabloon in meer detail.
+Elk element heeft eigenschappen die u kunt instellen. In dit artikel worden de secties van de sjabloon uitvoeriger beschreven.
 
 ## <a name="syntax"></a>Syntaxis
 
-De algemene syntaxis van de sjabloon is JSON. U kunt echter expressies gebruiken om uit te breiden de JSON-waarden die beschikbaar zijn in de sjabloon.  Expressies beginnen en eindigen met tussen haakjes: `[` en `]`, respectievelijk. De waarde van de expressie wordt geëvalueerd wanneer de sjabloon wordt geïmplementeerd. Een expressie kunt retourneert een tekenreeks, geheel getal, Booleaanse waarde, matrix of object. Het volgende voorbeeld ziet een expressie in de standaardwaarde van een parameter:
+De basis syntaxis van de sjabloon is JSON. U kunt echter expressies gebruiken om de JSON-waarden uit te breiden die beschikbaar zijn in de sjabloon.  Expressies beginnen en eindigen met vier Kante `[` haken `]`: en. De waarde van de expressie wordt geëvalueerd wanneer de sjabloon wordt geïmplementeerd. Een expressie kan een teken reeks, een geheel getal, een Booleaanse waarde, een matrix of een object retour neren. In het volgende voor beeld ziet u een expressie in de standaard waarde van een para meter:
 
 ```json
 "parameters": {
@@ -62,33 +62,33 @@ De algemene syntaxis van de sjabloon is JSON. U kunt echter expressies gebruiken
 },
 ```
 
-In de expressie, de syntaxis van de `resourceGroup()` roept een van de functies die Resource Manager voor gebruik in een sjabloon biedt. Net zoals in JavaScript-functieaanroepen die zijn opgemaakt als `functionName(arg1,arg2,arg3)`. De syntaxis van de `.location` één eigenschap opgehaald uit het object dat wordt geretourneerd door deze functie.
+Binnen de expressie roept de syntaxis `resourceGroup()` een van de functies aan die Resource Manager biedt voor gebruik in een sjabloon. Net als in Java script worden functie aanroepen opgemaakt `functionName(arg1,arg2,arg3)`als. De syntaxis `.location` haalt één eigenschap op uit het object dat door die functie wordt geretourneerd.
 
-Sjabloonfuncties en de bijbehorende parameters zijn niet hoofdlettergevoelig. Bijvoorbeeld: Resource Manager wordt omgezet **variables('var1')** en **VARIABLES('VAR1')** als hetzelfde. Wanneer geëvalueerd, tenzij de functie wijzigt uitdrukkelijk geval (zoals toUpper of toLower), de functie blijft behouden voor het geval is. Bepaalde resourcetypen mogelijk case-vereisten, ongeacht hoe de functies worden geëvalueerd.
+Sjabloon functies en de bijbehorende para meters zijn niet hoofdletter gevoelig. Met Resource Manager worden bijvoorbeeld **variabelen (' var1 ')** en **variabelen (' var1 ')** als hetzelfde omgezet. Als de functie wordt geëvalueerd, wordt de-functie in de gevallen bewaard, tenzij deze expliciet een hoofdletter gebruik wijzigt (zoals toUpper of toLower). Bepaalde resource typen kunnen Case vereisten hebben, ongeacht hoe functies worden geëvalueerd.
 
-Moet een letterlijke tekenreeks begint met een haakje openen `[` en moet eindigen met een haakje sluiten `]`, maar niet het geïnterpreteerd als een expressie, toevoegen van een extra haakje voor het starten van de tekenreeks met `[[`. Bijvoorbeeld, de variabele:
+Als u een letterlijke teken reeks begint met een `[` haakje en eindigend met een `]`haakje sluiten, maar niet als een expressie, voegt u een extra beugel toe om de teken reeks `[[`te starten met. Bijvoorbeeld de variabele:
 
 ```json
 "demoVar1": "[[test value]"
 ```
 
-Wordt omgezet naar `[test value]`.
+Wordt omgezet in `[test value]`.
 
-Echter, als de letterlijke tekenreeks niet met een haakje sluiten eindigt, niet de eerste haakje escape. Bijvoorbeeld, de variabele:
+Als de letterlijke teken reeks niet eindigt met een haakje, hoeft u de eerste vier Kante haak niet te sluiten. Bijvoorbeeld de variabele:
 
 ```json
 "demoVar2": "[test] value"
 ```
 
-Wordt omgezet naar `[test] value`.
+Wordt omgezet in `[test] value`.
 
-Als u wilt een string-waarde als een parameter doorgeven aan een functie, gebruikt u enkele aanhalingstekens.
+Als u een teken reeks waarde wilt door geven als een para meter voor een functie, gebruikt u enkele aanhalings tekens.
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
 
-Gebruik de backslash om te escapen dubbele aanhalingstekens in een expressie, zoals het toevoegen van een JSON-object in de sjabloon.
+Gebruik de back slash om dubbele aanhalings tekens in een expressie te escapen, zoals het toevoegen van een JSON-object in de sjabloon.
 
 ```json
 "tags": {
@@ -96,19 +96,19 @@ Gebruik de backslash om te escapen dubbele aanhalingstekens in een expressie, zo
 },
 ```
 
-Een sjabloonexpressie voor een niet langer zijn dan 24.576 tekens.
+Een sjabloon expressie mag niet langer zijn dan 24.576 tekens.
 
-Zie voor de volledige lijst van de sjabloonvariabelen [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md). 
+Zie [Azure Resource Manager-sjabloon functies](resource-group-template-functions.md)voor een volledige lijst met sjabloon functies. 
 
 ## <a name="parameters"></a>Parameters
 
-U opgeven welke waarden u invoeren kunt bij het implementeren van de resources in de parametersectie van de sjabloon. De parameterwaarden van deze kunnen u de implementatie aanpassen door het verstrekken van waarden die zijn aangepast voor een bepaalde omgeving (zoals ontwikkelen, testen en productie). U hoeft te bieden van parameters in de sjabloon, maar zonder parameters de sjabloon altijd dezelfde resources met dezelfde namen, locaties en eigenschappen wilt implementeren.
+In het gedeelte para meters van de sjabloon geeft u op welke waarden u kunt invoeren bij het implementeren van de resources. Met deze parameter waarden kunt u de implementatie aanpassen door waarden op te geven die zijn afgestemd op een bepaalde omgeving (zoals dev, test en productie). U hoeft geen para meters in uw sjabloon op te geven, maar zonder para meters zal uw sjabloon altijd dezelfde resources implementeren met dezelfde namen, locaties en eigenschappen.
 
-U bent beperkt tot 256 parameters in een sjabloon. U kunt het aantal parameters verminderen door middel van objecten die meerdere eigenschappen bevat, zoals weergegeven in dit artikel.
+U bent beperkt tot 256 para meters in een sjabloon. U kunt het aantal para meters verminderen door objecten te gebruiken die meerdere eigenschappen bevatten, zoals wordt weer gegeven in dit artikel.
 
 ### <a name="available-properties"></a>Beschikbare eigenschappen
 
-De beschikbare eigenschappen voor een parameter zijn:
+De beschik bare eigenschappen voor een para meter zijn:
 
 ```json
 "parameters": {
@@ -129,19 +129,19 @@ De beschikbare eigenschappen voor een parameter zijn:
 
 | De naam van element | Vereist | Description |
 |:--- |:--- |:--- |
-| parameterName |Ja |Naam van de parameter. Moet een geldige JavaScript-id. |
-| type |Ja |Het type van de waarde van parameter. De toegestane typen en de waarden zijn **tekenreeks**, **securestring**, **int**, **bool**, **object**, **secureObject**, en **matrix**. |
-| defaultValue |Nee |De standaardwaarde voor de parameter, als er geen waarde is opgegeven voor de parameter. |
-| allowedValues |Nee |Matrix van toegestane waarden voor de parameter om ervoor te zorgen dat de juiste waarde is opgegeven. |
-| minValue |Nee |De minimumwaarde voor de parameters van het type int, deze waarde wordt ook meegerekend. |
-| maxValue |Nee |De maximale waarde voor de parameters van het type int, deze waarde wordt ook meegerekend. |
-| minLength |Nee |De minimale lengte van tekenreeks, een beveiligde tekenreeks en parameters van het type matrix, deze waarde wordt ook meegerekend. |
-| maxLength |Nee |De maximale lengte voor string, beveiligde tekenreeks en parameters van het type matrix, deze waarde wordt ook meegerekend. |
-| description |Nee |Beschrijving van de parameter die wordt weergegeven voor gebruikers via de portal. Zie voor meer informatie, [opmerkingen in sjablonen](#comments). |
+| parameterName |Ja |De naam van de para meter. Moet een geldige JavaScript-id. |
+| type |Ja |Type parameter waarde. De toegestane typen en waarden zijn **String**, **securestring**, **int**, **BOOL**, **object**, **secureObject**en **array**. |
+| defaultValue |Nee |De standaard waarde voor de para meter, als er geen waarde wordt gegeven voor de para meter. |
+| allowedValues |Nee |Matrix van toegestane waarden voor de para meter om ervoor te zorgen dat de juiste waarde wordt gegeven. |
+| minValue |Nee |De minimum waarde voor de para meters van het type int, deze waarde is inclusief. |
+| maxValue |Nee |De maximum waarde voor de para meters van het type int, deze waarde is inclusief. |
+| minLength |Nee |De minimale lengte voor de para meters String, Secure string en array type is inclusief. |
+| Lengte |Nee |De maximale lengte van de para meters voor teken reeksen, beveiligde teken reeksen en matrix type is inclusief. |
+| description |Nee |Beschrijving van de para meter die wordt weer gegeven voor gebruikers via de portal. Zie [opmerkingen in sjablonen](#comments)voor meer informatie. |
 
-### <a name="define-and-use-a-parameter"></a>Definiëren en gebruiken van een parameter
+### <a name="define-and-use-a-parameter"></a>Een para meter definiëren en gebruiken
 
-Het volgende voorbeeld ziet een eenvoudige parameterdefinitie. De naam van de parameter definieert, en geeft aan dat het duurt een string-waarde voordat. De parameter accepteert alleen waarden die geschikt zijn voor het beoogde gebruik. Het geeft een standaardwaarde wanneer er geen waarde is opgegeven tijdens de implementatie. Ten slotte bevat de parameter een beschrijving van het gebruik ervan.
+In het volgende voor beeld ziet u een eenvoudige parameter definitie. Hiermee wordt de naam van de para meter gedefinieerd en wordt opgegeven dat er een teken reeks waarde wordt gebruikt. De para meter accepteert alleen waarden die zinvol zijn voor het beoogde gebruik. Er wordt een standaard waarde opgegeven wanneer er geen waarde wordt opgegeven tijdens de implementatie. Ten slotte bevat de para meter een beschrijving van het gebruik ervan.
 
 ```json
 "parameters": {
@@ -162,7 +162,7 @@ Het volgende voorbeeld ziet een eenvoudige parameterdefinitie. De naam van de pa
 }
 ```
 
-In de sjabloon, verwijst u naar de waarde voor de parameter met de volgende syntaxis:
+In de sjabloon verwijst u naar de waarde voor de para meter met de volgende syntaxis:
 
 ```json
 "resources": [
@@ -176,9 +176,9 @@ In de sjabloon, verwijst u naar de waarde voor de parameter met de volgende synt
 ]
 ```
 
-### <a name="template-functions-with-parameters"></a>Sjabloonfuncties met parameters
+### <a name="template-functions-with-parameters"></a>Sjabloon functies met para meters
 
-Wanneer u de standaardwaarde voor een parameter opgeeft, kunt u de meeste sjabloonfuncties. Een andere waarde voor de parameter kunt u een standaardwaarde te bouwen. De volgende sjabloon ziet u het gebruik van functies in de standaard-waarde:
+Wanneer u de standaard waarde voor een para meter opgeeft, kunt u de meeste sjabloon functies gebruiken. U kunt een andere parameter waarde gebruiken om een standaard waarde te maken. De volgende sjabloon toont het gebruik van functies in de standaard waarde:
 
 ```json
 "parameters": {
@@ -199,13 +199,13 @@ Wanneer u de standaardwaarde voor een parameter opgeeft, kunt u de meeste sjablo
 }
 ```
 
-U kunt geen gebruiken de `reference` functie in de parametersectie. Parameters worden geëvalueerd vóór de implementatie zodat de `reference` functie kan de runtimestatus van een resource niet ophalen. 
+U kunt de `reference` functie niet gebruiken in het gedeelte para meters. Para meters worden geëvalueerd vóór de `reference` implementatie, zodat de functie de runtime status van een resource niet kan ophalen. 
 
-### <a name="objects-as-parameters"></a>Objecten als parameters
+### <a name="objects-as-parameters"></a>Objecten als para meters
 
-Kan het zijn beter te organiseren van gerelateerde waarden doordat ze worden doorgegeven als een object. Deze aanpak vermindert ook het aantal parameters in de sjabloon.
+Het kan gemakkelijker zijn om verwante waarden te organiseren door ze als een object door te geven. Deze benadering vermindert ook het aantal para meters in de sjabloon.
 
-De parameter in de sjabloon definieert en geeft u een JSON-object in plaats van een enkele waarde tijdens de implementatie. 
+Definieer de para meter in uw sjabloon en geef tijdens de implementatie een JSON-object op in plaats van een enkele waarde. 
 
 ```json
 "parameters": {
@@ -235,7 +235,7 @@ De parameter in de sjabloon definieert en geeft u een JSON-object in plaats van 
 },
 ```
 
-Vervolgens, verwijzen naar de subeigenschappen van de parameter met behulp van de punt.
+Ga vervolgens naar de subeigenschappen van de para meter met behulp van de punt operator.
 
 ```json
 "resources": [
@@ -269,22 +269,22 @@ Vervolgens, verwijzen naar de subeigenschappen van de parameter met behulp van d
 ]
 ```
 
-### <a name="parameter-example-templates"></a>Voorbeeldsjablonen van parameter
+### <a name="parameter-example-templates"></a>Parameter voorbeeld sjablonen
 
-Deze voorbeeldsjablonen laten zien voor sommige scenario's voor het gebruik van parameters. Te testen hoe parameters worden verwerkt in verschillende scenario's implementeren.
+In deze voorbeeld sjablonen ziet u enkele scenario's voor het gebruik van para meters. Implementeer ze om te testen hoe para meters in verschillende scenario's worden verwerkt.
 
 |Template  |Description  |
 |---------|---------|
-|[parameters met functies voor standaardwaarden](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstreert hoe u sjabloonfuncties gebruiken bij het definiëren van de standaardwaarden voor parameters. De sjabloon implementeren niet alle resources. Deze parameterwaarden constructs en die waarden retourneert. |
-|[Parameter-object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Ziet u met behulp van een object voor een parameter. De sjabloon implementeren niet alle resources. Deze parameterwaarden constructs en die waarden retourneert. |
+|[para meters met functies voor standaard waarden](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstreert hoe u sjabloon functies gebruikt bij het definiëren van standaard waarden voor para meters. De sjabloon implementeert geen resources. Er worden parameter waarden gemaakt en deze waarden worden geretourneerd. |
+|[parameter object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Laat zien hoe u een object gebruikt voor een para meter. De sjabloon implementeert geen resources. Er worden parameter waarden gemaakt en deze waarden worden geretourneerd. |
 
 ## <a name="variables"></a>Variabelen
 
-In het gedeelte variabelen kunt u waarden die kunnen worden gebruikt in uw sjabloon maken. U hoeft niet te definiëren, variabelen, maar ze vaak de sjabloon vereenvoudigen door te verminderen van complexe expressies.
+In de sectie variabelen kunt u waarden maken die in de hele sjabloon kunnen worden gebruikt. U hoeft geen variabelen te definiëren, maar ze vereenvoudigen uw sjabloon vaak door complexe expressies te reduceren.
 
-### <a name="available-definitions"></a>Beschikbare definities
+### <a name="available-definitions"></a>Beschik bare definities
 
-Het volgende voorbeeld ziet u de beschikbare opties voor het definiëren van een variabele:
+In het volgende voor beeld ziet u de beschik bare opties voor het definiëren van een variabele:
 
 ```json
 "variables": {
@@ -311,11 +311,11 @@ Het volgende voorbeeld ziet u de beschikbare opties voor het definiëren van een
 }
 ```
 
-Voor informatie over het gebruik van `copy` voor het maken van verschillende waarden voor een variabele, Zie [variabele iteratie](resource-group-create-multiple.md#variable-iteration).
+Zie voor meer informatie `copy` over het gebruik van om verschillende waarden voor een variabele te maken de [variabele iteratie](resource-group-create-multiple.md#variable-iteration).
 
-### <a name="define-and-use-a-variable"></a>Definiëren en een variabele te gebruiken
+### <a name="define-and-use-a-variable"></a>Een variabele definiëren en gebruiken
 
-Het volgende voorbeeld ziet de definitie van een variabele. Hiermee maakt u een string-waarde voor de naam van een opslagaccount. Het maakt gebruik van verschillende sjabloonfuncties een parameterwaarde op te halen en tot een unieke tekenreeks worden samengevoegd.
+In het volgende voor beeld ziet u een definitie van een variabele. Er wordt een teken reeks waarde voor de naam van een opslag account gemaakt. Er worden verschillende sjabloon functies gebruikt om een parameter waarde op te halen en deze aan een unieke teken reeks toe te voegen.
 
 ```json
 "variables": {
@@ -323,7 +323,7 @@ Het volgende voorbeeld ziet de definitie van een variabele. Hiermee maakt u een 
 },
 ```
 
-U kunt de variabele gebruiken bij het definiëren van de resource.
+U gebruikt de variabele bij het definiëren van de resource.
 
 ```json
 "resources": [
@@ -333,7 +333,7 @@ U kunt de variabele gebruiken bij het definiëren van de resource.
     ...
 ```
 
-### <a name="configuration-variables"></a>Configuratievariabelen voor de
+### <a name="configuration-variables"></a>Configuratie variabelen
 
 U kunt complexe JSON-typen gebruiken om gerelateerde waarden voor een omgeving te definiëren.
 
@@ -352,7 +352,7 @@ U kunt complexe JSON-typen gebruiken om gerelateerde waarden voor een omgeving t
 },
 ```
 
-In de parameters maakt u een waarde die welke configuratiewaarden aangeeft te gebruiken.
+In para meters maakt u een waarde die aangeeft welke configuratie waarden moeten worden gebruikt.
 
 ```json
 "parameters": {
@@ -366,36 +366,36 @@ In de parameters maakt u een waarde die welke configuratiewaarden aangeeft te ge
 },
 ```
 
-Ophalen van de huidige instellingen met:
+U haalt de huidige instellingen op met:
 
 ```json
 "[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
 ```
 
-### <a name="variable-example-templates"></a>Van de variabele voorbeeldsjablonen
+### <a name="variable-example-templates"></a>Voorbeeld sjablonen voor variabelen
 
-Deze voorbeeldsjablonen laten zien voor sommige scenario's voor het gebruik van variabelen. Te testen hoe variabelen worden verwerkt in verschillende scenario's implementeren. 
+In deze voorbeeld sjablonen ziet u enkele scenario's voor het gebruik van variabelen. Implementeer ze om te testen hoe variabelen worden verwerkt in verschillende scenario's. 
 
 |Template  |Description  |
 |---------|---------|
-| [definities van variabele](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Ziet u de verschillende typen variabelen. De sjabloon implementeren niet alle resources. Deze waarden van variabelen constructs en die waarden retourneert. |
-| [van configuratievariabele](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Ziet u het gebruik van een variabele die de configuratiewaarden definieert. De sjabloon implementeren niet alle resources. Deze waarden van variabelen constructs en die waarden retourneert. |
-| [netwerkbeveiligingsregels](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) en [parameterbestand](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Vormt het een matrix in de juiste indeling voor het beveiligingsregels toewijzen aan een netwerkbeveiligingsgroep. |
+| [variabele definities](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Toont de verschillende typen variabelen. De sjabloon implementeert geen resources. Er worden variabele waarden gemaakt en deze waarden worden geretourneerd. |
+| [configuratie variabele](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Toont het gebruik van een variabele die configuratie waarden definieert. De sjabloon implementeert geen resources. Er worden variabele waarden gemaakt en deze waarden worden geretourneerd. |
+| [netwerk beveiligings regels](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) en [parameter bestand](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Hiermee wordt een matrix gemaakt met de juiste indeling voor het toewijzen van beveiligings regels aan een netwerk beveiligings groep. |
 
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Functies
 
-U kunt uw eigen functies maken in uw sjabloon. Deze functies zijn beschikbaar voor gebruik in uw sjabloon. Normaal gesproken definieert u een complexe expressie die u niet wilt herhalen in uw sjabloon. U maakt de gebruiker gedefinieerde functies van expressies en [functies](resource-group-template-functions.md) die worden ondersteund in de sjablonen.
+U kunt binnen uw sjabloon uw eigen functies maken. Deze functies zijn beschikbaar voor gebruik in uw sjabloon. Normaal gesp roken definieert u de gecompliceerde expressie die u niet wilt herhalen in uw sjabloon. U maakt de door de gebruiker gedefinieerde functies op basis van expressies en [functies](resource-group-template-functions.md) die in sjablonen worden ondersteund.
 
-Bij het definiëren van de functie van een gebruiker, zijn er enkele beperkingen:
+Bij het definiëren van een gebruikers functie gelden enkele beperkingen:
 
 * De functie heeft geen toegang tot variabelen.
-* De functie kan de parameters die zijn gedefinieerd in de functie alleen gebruiken. Wanneer u gebruikt de [parameters functie](resource-group-template-functions-deployment.md#parameters) binnen een door de gebruiker gedefinieerde functie, bent u beperkt tot de parameters voor deze functie.
+* De functie kan alleen para meters gebruiken die in de functie zijn gedefinieerd. Wanneer u de [functie para meters](resource-group-template-functions-deployment.md#parameters) in een door de gebruiker gedefinieerde functie gebruikt, bent u beperkt tot de para meters voor die functie.
 * De functie kan geen andere door de gebruiker gedefinieerde functies aanroepen.
-* De functie niet gebruiken de [verwijzen naar de functie](resource-group-template-functions-resource.md#reference).
-* Parameters voor de functie kunnen geen standaardwaarden hebben.
+* De functie kan de [functie Reference](resource-group-template-functions-resource.md#reference)niet gebruiken.
+* Para meters voor de functie kunnen geen standaard waarden hebben.
 
-Uw functies vereisen een naamruimtewaarde naamconflicten met sjabloonfuncties worden voorkomen. Het volgende voorbeeld ziet u een functie die resulteert in een storage-accountnaam:
+Uw functies vereisen een naam ruimte waarde om naam conflicten met sjabloon functies te voor komen. In het volgende voor beeld ziet u een functie die de naam van een opslag account retourneert:
 
 ```json
 "functions": [
@@ -419,7 +419,7 @@ Uw functies vereisen een naamruimtewaarde naamconflicten met sjabloonfuncties wo
 ],
 ```
 
-U kunt de functie met aanroepen:
+U roept de functie aan met:
 
 ```json
 "resources": [
@@ -439,11 +439,11 @@ U kunt de functie met aanroepen:
 ```
 
 ## <a name="resources"></a>Resources
-In de sectie resources definieert u de resources die worden geïmplementeerd of bijgewerkt.
+In de sectie Resources definieert u de resources die worden geïmplementeerd of bijgewerkt.
 
 ### <a name="available-properties"></a>Beschikbare eigenschappen
 
-Definieert u resources met de volgende structuur:
+U definieert resources met de volgende structuur:
 
 ```json
 "resources": [
@@ -501,26 +501,26 @@ Definieert u resources met de volgende structuur:
 
 | De naam van element | Vereist | Description |
 |:--- |:--- |:--- |
-| condition | Nee | Booleaanse waarde die aangeeft of de resource tijdens deze implementatie worden ingericht. Wanneer `true`, de resource is gemaakt tijdens de implementatie. Wanneer `false`, de bron voor deze implementatie wordt overgeslagen. Zie [voorwaarde](#condition). |
-| apiVersion |Ja |De versie van de REST-API moet worden gebruikt voor het maken van de resource. Zie het vaststellen van de beschikbare waarden [sjabloonverwijzing](/azure/templates/). |
-| type |Ja |Het type van de resource. Deze waarde is een combinatie van de naamruimte van de resourceprovider en het resourcetype (zoals **Microsoft.Storage/storageAccounts**). Zie het vaststellen van de beschikbare waarden [sjabloonverwijzing](/azure/templates/). Voor een onderliggende resource, is de indeling van het type afhankelijk van of deze is genest in de bovenliggende resource of buiten de bovenliggende resource gedefinieerd. Zie [onderliggende resources](#child-resources). |
-| name |Ja |Naam van de resource. De naam moet URI-onderdeel beperkingen gedefinieerd in RFC3986 volgen. Azure-services die beschikbaar maken van de naam van de resource buiten partijen valideren de naam om te controleren of het is bovendien een poging tot het vervalsen van een andere identiteit niet. Voor een onderliggende resource, is de indeling van de naam van de afhankelijk van of deze is genest in de bovenliggende resource of buiten de bovenliggende resource gedefinieerd. Zie [onderliggende resources](#child-resources). |
-| location |Varieert |Geografische locaties van de opgegeven resource wordt ondersteund. U kunt een van de beschikbare locaties selecteren, maar meestal is het zinvol om te kiezen die zich in de buurt van uw gebruikers. Meestal is het ook verstandig om de resources die met elkaar in dezelfde regio communiceren te plaatsen. De meeste resourcetypen een locatie vereist, maar sommige typen (zoals een roltoewijzing) vereisen een locatie. |
-| codes |Nee |Tags die gekoppeld aan de resource zijn. Labels toevoegen om in te delen logisch resources in uw abonnement. |
-| opmerkingen |Nee |Uw notities voor het documenteren van de resources in uw sjabloon. Zie voor meer informatie, [opmerkingen in sjablonen](resource-group-authoring-templates.md#comments). |
-| kopiëren |Nee |Als meer dan één exemplaar is vereist, het aantal resources om te maken. Er is de standaardmodus voor parallelle. Seriële modus wanneer u niet dat alle wilt of de resources om te implementeren op hetzelfde moment opgeven. Zie voor meer informatie, [verschillende exemplaren van resources maken in Azure Resource Manager](resource-group-create-multiple.md). |
-| dependsOn |Nee |Resources die moeten worden geïmplementeerd voordat deze resource is geïmplementeerd. Resource Manager evalueert de afhankelijkheden tussen resources en ze implementeert in de juiste volgorde. Als resources niet van elkaar afhankelijk zijn, zijn ze parallel geïmplementeerd. De waarde kan een door komma's gescheiden lijst van een resource zijn namen of resource-id's uniek. Alleen lijst met resources die in deze sjabloon zijn geïmplementeerd. Resources die niet zijn gedefinieerd in deze sjabloon moeten al bestaan. Vermijd onnodige afhankelijkheden toevoegen als ze kunnen uw implementatie vertragen en circulaire afhankelijkheden maken. Zie voor meer informatie over de afhankelijkheden van de instelling [afhankelijkheden definiëren in Azure Resource Manager-sjablonen](resource-group-define-dependencies.md). |
-| properties |Nee |Resource-specifieke configuratie-instellingen. De waarden voor de eigenschappen zijn hetzelfde als de waarden die u in de hoofdtekst van de aanvraag voor de REST-API-bewerking (PUT-methode opgeeft) om de resource te maken. U kunt ook een matrix kopiëren voor het maken van meerdere exemplaren van een eigenschap opgeven. Zie het vaststellen van de beschikbare waarden [sjabloonverwijzing](/azure/templates/). |
-| sku | Nee | Sommige resources zijn waarden toegestaan die definiëren van de SKU om het te implementeren. Bijvoorbeeld, kunt u het type redundantie voor een opslagaccount. |
-| type | Nee | Sommige resources kunnen een waarde die bepaalt het type resource dat u implementeert. Bijvoorbeeld, kunt u het type van de Cosmos DB te maken. |
-| plan | Nee | Sommige resources zijn waarden toegestaan die in de planning definiëren wilt implementeren. U kunt bijvoorbeeld opgeven dat de marketplace-installatiekopie voor een virtuele machine. | 
-| resources |Nee |Onderliggende resources die afhankelijk zijn van de resource wordt gedefinieerd. Geef alleen resourcetypen die zijn toegestaan door het schema van de bovenliggende resource. Afhankelijkheid van de bovenliggende resource is niet impliciet. Afhankelijkheid zijn opgetreden, moet u expliciet definiëren. Zie [onderliggende resources](#child-resources). |
+| condition | Nee | Een Booleaanse waarde die aangeeft of de resource wordt ingericht tijdens deze implementatie. Wanneer `true`wordt de bron gemaakt tijdens de implementatie. Wanneer `false`wordt de resource overgeslagen voor deze implementatie. Zie [voor waarde](#condition). |
+| apiVersion |Ja |De versie van de REST API die moet worden gebruikt voor het maken van de resource. Zie [Naslag informatie over sjablonen](/azure/templates/)om beschik bare waarden te bepalen. |
+| type |Ja |Het type van de resource. Deze waarde is een combi natie van de naam ruimte van de resource provider en het resource type (zoals **micro soft. Storage/Storage accounts**). Zie [Naslag informatie over sjablonen](/azure/templates/)om beschik bare waarden te bepalen. Voor een onderliggende resource is de notatie van het type afhankelijk van of het is genest binnen de bovenliggende resource of buiten de bovenliggende resource is gedefinieerd. Zie [naam en type voor onderliggende resources instellen](child-resource-name-type.md). |
+| name |Ja |Naam van de resource. De naam moet volgen op de URI-onderdeel beperkingen die zijn gedefinieerd in RFC3986. Bovendien valideren Azure-Services die de resource naam beschikbaar maken voor externe partijen de naam om ervoor te zorgen dat het geen poging is om een andere identiteit te vervalsen. Voor een onderliggende resource is de notatie van de naam afhankelijk van of deze is genest binnen de bovenliggende resource of buiten de bovenliggende resource is gedefinieerd. Zie [naam en type voor onderliggende resources instellen](child-resource-name-type.md). |
+| location |Varieert |Ondersteunde geo-locaties van de gegeven bron. U kunt een van de beschik bare locaties selecteren, maar normaal gesp roken is het een goed idee om er een te kiezen die zich dicht bij uw gebruikers bevindt. Doorgaans is het zinvol om resources te plaatsen die met elkaar in dezelfde regio communiceren. Voor de meeste resource typen is een locatie vereist, maar sommige typen (zoals een roltoewijzing) vereisen geen locatie. |
+| codes |Nee |Tags die zijn gekoppeld aan de resource. Pas Tags toe om de resources in uw abonnement logisch te organiseren. |
+| aantekeningen |Nee |Uw notities voor het documenteren van de resources in uw sjabloon. Zie [opmerkingen in sjablonen](resource-group-authoring-templates.md#comments)voor meer informatie. |
+| kopiëren |Nee |Als er meer dan één exemplaar nodig is, wordt het aantal resources dat moet worden gemaakt. De standaard modus is parallel. Geef de seriële modus op als u niet wilt dat alle of de resources op hetzelfde moment worden geïmplementeerd. Zie [meerdere exemplaren van resources maken in azure Resource Manager](resource-group-create-multiple.md)voor meer informatie. |
+| dependsOn |Nee |Resources die moeten worden geïmplementeerd voordat deze resource wordt geïmplementeerd. Resource Manager evalueert de afhankelijkheden tussen resources en implementeert deze in de juiste volg orde. Wanneer resources niet afhankelijk zijn van elkaar, worden ze parallel geïmplementeerd. De waarde kan een door komma's gescheiden lijst zijn van een resource naam of unieke id van een resource. Alleen een lijst met resources die in deze sjabloon zijn geïmplementeerd. Resources die niet in deze sjabloon zijn gedefinieerd, moeten al bestaan. Vermijd overbodige afhankelijkheden omdat deze uw implementatie kunnen vertragen en circulaire afhankelijkheden kan maken. Zie [afhankelijkheden definiëren in azure Resource Manager sjablonen](resource-group-define-dependencies.md)voor hulp bij het instellen van afhankelijkheden. |
+| properties |Nee |Resource-specifieke configuratie-instellingen. De waarden voor de eigenschappen zijn gelijk aan de waarden die u opgeeft in de hoofd tekst van de aanvraag voor de REST API bewerking (PUT-methode) om de resource te maken. U kunt ook een Kopieer matrix opgeven om meerdere exemplaren van een eigenschap te maken. Zie [Naslag informatie over sjablonen](/azure/templates/)om beschik bare waarden te bepalen. |
+| sku | Nee | Sommige resources staan waarden toe die de te implementeren SKU definiëren. U kunt bijvoorbeeld het type redundantie voor een opslag account opgeven. |
+| type | Nee | Bij sommige resources is een waarde toegestaan die het type resource definieert dat u implementeert. U kunt bijvoorbeeld het type Cosmos DB opgeven dat u wilt maken. |
+| Fonds | Nee | In sommige resources zijn waarden toegestaan waarmee het plan wordt gedefinieerd dat moet worden geïmplementeerd. U kunt bijvoorbeeld de Marketplace-installatie kopie voor een virtuele machine opgeven. | 
+| bronnen |Nee |Onderliggende bronnen die afhankelijk zijn van de resource die wordt gedefinieerd. Alleen resource typen opgeven die zijn toegestaan voor het schema van de bovenliggende resource. De afhankelijkheid van de bovenliggende resource is niet geïmpliceerd. Deze afhankelijkheid moet expliciet worden gedefinieerd. Zie [naam en type voor onderliggende resources instellen](child-resource-name-type.md). |
 
 ### <a name="condition"></a>Voorwaarde
 
-Wanneer u tijdens de implementatie of een resource maken beslissen moet, gebruikt u de `condition` element. De waarde voor dit element wordt omgezet in waar of ONWAAR. Wanneer de waarde true is, wordt de resource is gemaakt. Wanneer de waarde false is, wordt de resource is niet gemaakt. De waarde kan alleen worden toegepast op de hele resource.
+Als u moet bepalen of u een resource wilt maken, gebruikt u het `condition` -element. De waarde voor dit element wordt omgezet in True of false. Als de waarde True is, wordt de resource gemaakt. Als de waarde False is, wordt de resource niet gemaakt. De waarde kan alleen worden toegepast op de hele resource.
 
-Meestal gebruikt u deze waarde als u wilt maken van een nieuwe resource of gebruik een bestaande resourcegroep. Bijvoorbeeld, om op te geven of een nieuw opslagaccount wordt geïmplementeerd of een bestaand opslagaccount wordt gebruikt, gebruikt u het:
+Normaal gesp roken gebruikt u deze waarde wanneer u een nieuwe resource wilt maken of een bestaande wilt gebruiken. Als u bijvoorbeeld wilt opgeven of een nieuw opslag account wordt geïmplementeerd of een bestaand opslag account wordt gebruikt, gebruikt u:
 
 ```json
 {
@@ -537,19 +537,19 @@ Meestal gebruikt u deze waarde als u wilt maken van een nieuwe resource of gebru
 }
 ```
 
-Voor een compleet voorbeeld-sjabloon die gebruikmaakt van de `condition` -element, Zie [VM met een nieuwe of bestaande Virtueelnetwerk, opslag- en openbare IP-adres](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
+Zie `condition` [VM met een nieuwe of bestaande Virtual Network, opslag en openbaar IP-adres](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)voor een complete voorbeeld sjabloon die gebruikmaakt van het-element.
 
-Als u een [verwijzing](resource-group-template-functions-resource.md#reference) of [lijst](resource-group-template-functions-resource.md#list) functie met een resource voorwaardelijk wordt geïmplementeerd, is de functie is geëvalueerd, zelfs als de resource is niet geïmplementeerd. Er treedt een fout als de functie verwijst naar een resource die niet bestaat. Gebruik de [als](resource-group-template-functions-logical.md#if) functie om ervoor te zorgen dat de functie wordt pas geëvalueerd voor voorwaarden wanneer de resource is geïmplementeerd. Zie de [als functie](resource-group-template-functions-logical.md#if) voor een voorbeeldsjabloon die wordt gebruikt als en een referentie met een resource voorwaardelijk geïmplementeerde.
+Als u een [verwijzing](resource-group-template-functions-resource.md#reference) of [lijst](resource-group-template-functions-resource.md#list) functie gebruikt met een resource die voorwaardelijk is geïmplementeerd, wordt de functie geëvalueerd, zelfs als de resource niet is geïmplementeerd. Er wordt een fout bericht weer geven als de functie verwijst naar een resource die niet bestaat. Gebruik de functie [als](resource-group-template-functions-logical.md#if) om ervoor te zorgen dat de functie alleen wordt geëvalueerd voor omstandigheden wanneer de resource wordt geïmplementeerd. Zie de [functie als](resource-group-template-functions-logical.md#if) voor een voorbeeld sjabloon die gebruikmaakt van if en verwijst naar een voorwaardelijk geïmplementeerde resource.
 
-### <a name="resource-names"></a>Namen van voorbeeldresources
+### <a name="resource-names"></a>Resource namen
 
-In het algemeen, werkt u met drie typen resourcenamen in Resource Manager:
+Over het algemeen kunt u in Resource Manager drie typen resource namen gebruiken:
 
-* Namen van voorbeeldresources die moeten uniek zijn.
-* Namen van voorbeeldresources die niet zijn vereist voor het uniek zijn, maar u kiest een naam waarmee u identificeren van de resource op te geven.
-* Namen van voorbeeldresources die algemene worden kunnen.
+* Resource namen die uniek moeten zijn.
+* Resource namen die niet uniek hoeven te zijn, maar u kunt een naam opgeven die u kan helpen bij het identificeren van de resource.
+* Resource namen die algemeen kunnen zijn.
 
-Geef een **unieke resourcenaam** voor elk resourcetype dat een eindpunt van de toegang tot gegevens heeft. Sommige algemene resourcetypen waarvoor een unieke naam zijn onder andere:
+Geef een **unieke resource naam** op voor een resource type met een eind punt voor gegevens toegang. Enkele veelvoorkomende resource typen waarvoor een unieke naam is vereist zijn onder andere:
 
 * Azure Storage<sup>1</sup> 
 * Web Apps-functie van Azure App Service
@@ -561,9 +561,9 @@ Geef een **unieke resourcenaam** voor elk resourcetype dat een eindpunt van de t
 * Azure Search
 * Azure HDInsight
 
-<sup>1</sup> opslagaccountnamen ook moet een kleine letter, 24 tekens of korter is, en niet alle afbreekstreepjes bevatten.
+<sup>1</sup> namen van opslag accounts moeten ook kleine letters, 24 tekens of minder zijn en geen afbreek streepjes bevatten.
 
-Bij het instellen van de naam, u kunt handmatig maken van een unieke naam of gebruik de [uniqueString()](resource-group-template-functions-string.md#uniquestring) functie voor het genereren van een naam. Ook kunt u voegt u een voorvoegsel of achtervoegsel aan de **uniqueString** resultaat. De unieke naam wijzigen, kunt u eenvoudig kunt identificeren het brontype van de naam. U kunt bijvoorbeeld een unieke naam voor een opslagaccount genereren met behulp van de volgende variabele:
+Wanneer u de naam instelt, kunt u hand matig een unieke naam maken of de functie [Unique string ()](resource-group-template-functions-string.md#uniquestring) gebruiken om een naam te genereren. Het is ook mogelijk dat u een voor voegsel of achtervoegsel wilt toevoegen aan het **Unique string** resultaat. Het wijzigen van de unieke naam kan u helpen het resource type gemakkelijker te identificeren vanuit de naam. U kunt bijvoorbeeld een unieke naam voor een opslag account genereren met behulp van de volgende variabele:
 
 ```json
 "variables": {
@@ -571,7 +571,7 @@ Bij het instellen van de naam, u kunt handmatig maken van een unieke naam of geb
 }
 ```
 
-Voor sommige resourcetypen, kunt u voor een **naam voor de identificatie**, maar de naam hoeft niet uniek te zijn. Geef een naam met een beschrijving ervan gebruik of de kenmerken voor deze resourcetypen.
+Voor sommige resource typen wilt u mogelijk een **naam opgeven voor identificatie**, maar de naam hoeft niet uniek te zijn. Geef voor deze resource typen een naam op die het gebruik of de kenmerken beschrijft.
 
 ```json
 "parameters": {
@@ -585,7 +585,7 @@ Voor sommige resourcetypen, kunt u voor een **naam voor de identificatie**, maar
 }
 ```
 
-Voor resource die u voornamelijk toegang via een andere resource gegevenstypen, kunt u een **algemene naam** die is vastgelegd in de sjabloon. U kunt bijvoorbeeld een algemene naam voor de firewall-regels instellen op een SQL server:
+Voor resource typen waartoe u voornamelijk toegang hebt via een andere resource, kunt u een **generieke naam** gebruiken die in de sjabloon is vastgelegd. U kunt bijvoorbeeld een standaard, algemene naam instellen voor firewall regels op een SQL-Server:
 
 ```json
 {
@@ -597,11 +597,11 @@ Voor resource die u voornamelijk toegang via een andere resource gegevenstypen, 
 
 ### <a name="resource-location"></a>Resourcelocatie
 
-Bij het implementeren van een sjabloon, moet u een locatie voor elke resource opgeven. Andere resource-typen worden ondersteund op verschillende locaties. Als u de ondersteunde locaties voor een resourcetype, Zie [Azure resourceproviders en typen](resource-manager-supported-services.md).
+Bij het implementeren van een sjabloon moet u een locatie voor elke resource opgeven. Verschillende resource typen worden ondersteund op verschillende locaties. Als u de ondersteunde locaties voor een resource type wilt ophalen, raadpleegt u [Azure-resource providers en-typen](resource-manager-supported-services.md).
 
-Gebruik een parameter om op te geven van de locatie voor resources en de standaardwaarde ingesteld op `resourceGroup().location`.
+Gebruik een para meter om de locatie voor resources op te geven en stel de standaard `resourceGroup().location`waarde in op.
 
-Het volgende voorbeeld ziet u een opslagaccount dat wordt geïmplementeerd op een locatie die is opgegeven als parameter:
+In het volgende voor beeld ziet u een opslag account dat is geïmplementeerd op een locatie die is opgegeven als een para meter:
 
 ```json
 {
@@ -654,77 +654,9 @@ Het volgende voorbeeld ziet u een opslagaccount dat wordt geïmplementeerd op ee
 }
 ```
 
-### <a name="child-resources"></a>Onderliggende resources
+## <a name="outputs"></a>outputs
 
-In sommige resourcetypen, kunt u ook een reeks onderliggende resources definiëren. Onderliggende resources zijn resources die alleen zijn opgeslagen in de context van een andere resource. Een SQL-database niet kan bijvoorbeeld bestaan zonder een SQL-server, zodat de database een onderliggend element van de server is. U kunt de database in de definitie voor de server definiëren.
-
-```json
-{
-  "apiVersion": "2015-05-01-preview",
-  "type": "Microsoft.Sql/servers",
-  "name": "exampleserver",
-  ...
-  "resources": [
-    {
-      "apiVersion": "2017-10-01-preview",
-      "type": "databases",
-      "name": "exampledatabase",
-      ...
-    }
-  ]
-}
-```
-
-Maar u hoeft de database in de server. U kunt de onderliggende resource op het hoogste niveau definiëren. U kunt deze methode gebruiken als de bovenliggende resource is niet geïmplementeerd in dezelfde sjabloon of wilt gebruiken `copy` om meer dan één onderliggende resource te maken. Met deze methode moet u het type volledige resource en omvatten de naam van de bovenliggende resource in de naam van de onderliggende resource.
-
-```json
-{
-  "apiVersion": "2015-05-01-preview",
-  "type": "Microsoft.Sql/servers",
-  "name": "exampleserver",
-  "resources": [ 
-  ],
-  ...
-},
-{
-  "apiVersion": "2017-10-01-preview",
-  "type": "Microsoft.Sql/servers/databases",
-  "name": "exampleserver/exampledatabase",
-  ...
-}
-```
-
-De waarden die u voor het type en de naam opgeven, afhankelijk van waar de onderliggende bron is gedefinieerd in de bovenliggende resource of buiten de bovenliggende resource.
-
-Wanneer in de bovenliggende resource is genest, gebruiken:
-
-```json
-"type": "{child-resource-type}",
-"name": "{child-resource-name}",
-```
-
-Wanneer gedefinieerd buiten de bovenliggende resource, gebruiken:
-
-```json
-"type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",
-"name": "{parent-resource-name}/{child-resource-name}",
-```
-
-Wanneer genest, het type is ingesteld op `databases` , maar het type volledige resource is nog steeds `Microsoft.Sql/servers/databases`. U geen opgeeft `Microsoft.Sql/servers/` omdat ervan wordt uitgegaan van het type van de bovenliggende resource. De naam van de onderliggende bron is ingesteld op `exampledatabase` , maar de volledige naam bevat de naam van de bovenliggende. U geen opgeeft `exampleserver` omdat ervan wordt uitgegaan van de bovenliggende resource.
-
-Bij het maken van een volledig gekwalificeerde verwijzing naar een resource, is de volgorde te combineren segmenten van het type en de naam niet gewoon een samenvoeging van de twee. In plaats daarvan nadat de naamruimte van het gebruik van een reeks *typenaam/* paren van minst specifiek voor meest specifieke:
-
-```json
-{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
-```
-
-Bijvoorbeeld:
-
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` klopt `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` is niet correct
-
-## <a name="outputs"></a>Uitvoer
-
-In de sectie uitvoer geeft u waarden die zijn geretourneerd na de implementatie. Normaal gesproken retourneren u waarden van resources die zijn geïmplementeerd.
+In de sectie uitvoer geeft u waarden die zijn geretourneerd na de implementatie. Normaal gesp roken retourneert u waarden van resources die zijn geïmplementeerd.
 
 ### <a name="available-properties"></a>Beschikbare eigenschappen
 
@@ -743,8 +675,8 @@ Het volgende voorbeeld ziet u de structuur van de uitvoerdefinitie van een:
 | De naam van element | Vereist | Description |
 |:--- |:--- |:--- |
 | outputName |Ja |De naam van de uitvoerwaarde. Moet een geldige JavaScript-id. |
-| condition |Nee | Booleaanse waarde die aangeeft of deze uitvoer waarde wordt geretourneerd. Wanneer `true`, de waarde is opgenomen in de uitvoer voor de implementatie. Wanneer `false`, de uitvoerwaarde wordt overgeslagen voor deze implementatie. Als niet is opgegeven, is de standaardwaarde `true`. |
-| type |Ja |Type van de uitvoerwaarde. Uitvoerwaarden ondersteuning van de dezelfde typen als sjabloon invoerparameters die zijn opgegeven. Als u opgeeft **securestring** voor het uitvoertype de waarde wordt niet weergegeven in de geschiedenis van de implementatie en kan niet worden opgehaald uit een andere sjabloon. Voor het gebruik van een geheime waarde in meer dan één sjabloon, het geheim opslaan in een Key Vault en verwijzen naar het geheim in het parameterbestand. Zie voor meer informatie, [Azure Key Vault gebruikt om door te geven beveiligde parameterwaarde tijdens de implementatie van](resource-manager-keyvault-parameter.md). |
+| condition |Nee | Booleaanse waarde die aangeeft of deze uitvoer waarde wordt geretourneerd. Wanneer `true`is de waarde opgenomen in de uitvoer voor de implementatie. Wanneer `false`wordt de uitvoer waarde overgeslagen voor deze implementatie. Wanneer deze niet is opgegeven, is `true`de standaard waarde. |
+| type |Ja |Type van de uitvoerwaarde. Uitvoerwaarden ondersteuning van de dezelfde typen als sjabloon invoerparameters die zijn opgegeven. Als u **securestring** opgeeft voor het uitvoer type, wordt de waarde niet weer gegeven in de implementatie geschiedenis en kan deze niet worden opgehaald uit een andere sjabloon. Als u een geheime waarde in meer dan één sjabloon wilt gebruiken, slaat u het geheim op in een Key Vault en verwijst u naar het geheim in het parameter bestand. Zie [Azure Key Vault gebruiken om de waarde van een beveiligde para meter door te geven tijdens de implementatie](resource-manager-keyvault-parameter.md)voor meer informatie. |
 | value |Ja |De sjabloontaalexpressie dat wordt geëvalueerd en geretourneerd als de uitvoerwaarde. |
 
 ### <a name="define-and-use-output-values"></a>Definiëren en uitvoerwaarden
@@ -760,7 +692,7 @@ Het volgende voorbeeld laat zien hoe geretourneerd van de resource-ID voor een o
 }
 ```
 
-Het volgende voorbeeld laat zien hoe voorwaardelijk geretourneerd de resource-ID voor een openbaar IP-adres op basis van of een nieuw een is geïmplementeerd:
+In het volgende voor beeld ziet u hoe u de resource-ID voor een openbaar IP-adres voorwaardelijk kunt retour neren op basis van het feit of een nieuw item is geïmplementeerd:
 
 ```json
 "outputs": {
@@ -772,7 +704,7 @@ Het volgende voorbeeld laat zien hoe voorwaardelijk geretourneerd de resource-ID
 }
 ```
 
-Zie voor een eenvoudig voorbeeld van uitvoer voorwaardelijke [voorwaardelijke uitvoer sjabloon](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
+Zie [voorwaardelijke uitvoer sjabloon](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json)voor een eenvoudig voor beeld van voorwaardelijke uitvoer.
 
 Na de implementatie, kunt u de waarde met het script ophalen. Gebruik voor PowerShell:
 
@@ -790,7 +722,7 @@ U kunt de uitvoerwaarde van een gekoppelde sjabloon ophalen met behulp van de [v
 
 Bij het ophalen van een eigenschap van een uitvoer van een gekoppelde sjabloon, kan niet de eigenschapsnaam van de een streepje bestaan.
 
-Het volgende voorbeeld ziet hoe u het IP-adres op een load balancer instellen met het ophalen van een waarde van een gekoppelde sjabloon.
+In het volgende voor beeld ziet u hoe u het IP-adres instelt op een load balancer door een waarde op te halen uit een gekoppelde sjabloon.
 
 ```json
 "publicIPAddress": {
@@ -800,7 +732,7 @@ Het volgende voorbeeld ziet hoe u het IP-adres op een load balancer instellen me
 
 U kunt geen gebruiken de `reference` functie in de uitvoersectie van een [geneste sjabloon](resource-group-linked-templates.md#link-or-nest-a-template). Als u wilt de waarden voor een geïmplementeerde resource in een geneste sjabloon, uw geneste sjabloon te converteren naar een gekoppelde sjabloon.
 
-### <a name="output-example-templates"></a>Voorbeeldsjablonen van uitvoer
+### <a name="output-example-templates"></a>Voorbeeld sjablonen voor uitvoer
 
 |Template  |Description  |
 |---------|---------|
@@ -811,11 +743,11 @@ U kunt geen gebruiken de `reference` functie in de uitvoersectie van een [genest
 
 <a id="comments" />
 
-## <a name="comments-and-metadata"></a>Opmerkingen en metagegevens
+## <a name="comments-and-metadata"></a>Opmerkingen en meta gegevens
 
-U hebt een aantal opties voor het toevoegen van opmerkingen en metagegevens aan uw sjabloon.
+U hebt een aantal opties voor het toevoegen van opmerkingen en meta gegevens aan uw sjabloon.
 
-U kunt toevoegen een `metadata` object vrijwel overal in uw sjabloon. Resource Manager worden genegeerd voor het object, maar uw JSON-editor kan waarschuwt u dat de eigenschap is niet geldig. In het object definieert de eigenschappen die u nodig hebt.
+U kunt een `metadata` object bijna overal in uw sjabloon toevoegen. De Resource Manager negeert het object, maar uw JSON-editor kan u waarschuwen dat de eigenschap niet geldig is. In het object definieert u de eigenschappen die u nodig hebt.
 
 ```json
 {
@@ -827,7 +759,7 @@ U kunt toevoegen een `metadata` object vrijwel overal in uw sjabloon. Resource M
   },
 ```
 
-Voor **parameters**, Voeg een `metadata` object met een `description` eigenschap.
+Voor **para meters**voegt `metadata` u een object `description` toe met een eigenschap.
 
 ```json
 "parameters": {
@@ -839,11 +771,11 @@ Voor **parameters**, Voeg een `metadata` object met een `description` eigenschap
   },
 ```
 
-Bij het implementeren van de sjabloon die via de portal, wordt de tekst die u in de beschrijving opgeeft automatisch gebruikt als een tip voor deze parameter.
+Wanneer u de sjabloon via de portal implementeert, wordt de tekst die u in de beschrijving opgeeft automatisch gebruikt als tip voor die para meter.
 
-![Tip van de parameter weergeven](./media/resource-group-authoring-templates/show-parameter-tip.png)
+![Parameter tip weer geven](./media/resource-group-authoring-templates/show-parameter-tip.png)
 
-Voor **resources**, Voeg een `comments` element of een metagegevensobject. Het volgende voorbeeld ziet zowel een element opmerkingen en een metagegevensobject.
+Voor **resources**voegt u een `comments` -element of een meta gegevens object toe. In het volgende voor beeld ziet u een comments-element en een meta gegevens object.
 
 ```json
 "resources": [
@@ -869,7 +801,7 @@ Voor **resources**, Voeg een `comments` element of een metagegevensobject. Het v
 ]
 ```
 
-Voor **levert**, een metagegevensobject toevoegen aan de uitvoerwaarde.
+Voeg voor **uitvoer**een meta gegevens object toe aan de uitvoer waarde.
 
 ```json
 "outputs": {
@@ -882,9 +814,9 @@ Voor **levert**, een metagegevensobject toevoegen aan de uitvoerwaarde.
   },
 ```
 
-U kunt een metagegevensobject niet toevoegen aan de gebruiker gedefinieerde functies.
+U kunt geen meta gegevens object toevoegen aan door de gebruiker gedefinieerde functies.
 
-Voor Inlineopmerkingen, kunt u `//` , maar deze syntaxis werkt niet met alle hulpprogramma's. U kunt Azure CLI niet gebruiken om de sjabloon met inlineopmerkingen te implementeren. En u niet de sjabloon-editor gebruiken voor het werken met sjablonen met inlineopmerkingen. Als u de stijl van de opmerking toevoegt, moet de hulpprogramma's waarmee u Inlineopmerkingen van ondersteuning voor JSON.
+Voor inline opmerkingen kunt u gebruiken `//` , maar deze syntaxis is niet geschikt voor alle hulpprogram ma's. U kunt Azure CLI niet gebruiken om de sjabloon te implementeren met inline opmerkingen. En u kunt de Portal sjabloon editor niet gebruiken voor het werken met sjablonen met inline opmerkingen. Als u deze stijl van een opmerking toevoegt, moet u ervoor zorgen dat de hulpprogram ma's die u gebruikt ondersteuning bieden voor inline JSON-opmerkingen.
 
 ```json
 {
@@ -898,19 +830,19 @@ Voor Inlineopmerkingen, kunt u `//` , maar deze syntaxis werkt niet met alle hul
   ],
 ```
 
-In VS Code, kunt u de taalmodus instellen naar JSON met opmerkingen. De Inlineopmerkingen zijn niet langer als ongeldig gemarkeerd. De modus te wijzigen:
+In VS code kunt u de taal modus instellen op JSON met opmerkingen. De inline opmerkingen worden niet meer als ongeldig gemarkeerd. De modus wijzigen:
 
-1. Open modus taalselectie (Ctrl + K min.)
+1. De selectie van de taal modus openen (CTRL + K M)
 
 1. Selecteer **JSON met opmerkingen**.
 
-   ![Taalmodus selecteren](./media/resource-group-authoring-templates/select-json-comments.png)
+   ![Taal modus selecteren](./media/resource-group-authoring-templates/select-json-comments.png)
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie de [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/) voor volledige sjablonen voor verschillende soorten oplossingen.
 * Zie voor meer informatie over de functies die u uit in een sjabloon gebruiken kunt [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md).
-* Als u wilt combineren verschillende sjablonen tijdens de implementatie, Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
-* Zie voor aanbevelingen over het maken van sjablonen, [aanbevolen procedures voor Azure Resource Manager-sjabloon](template-best-practices.md).
-* Zie voor aanbevelingen voor het maken van Resource Manager-sjablonen die u voor alle Azure-omgevingen en Azure Stack gebruiken kunt [ontwikkelen van Azure Resource Manager-sjablonen voor de consistentie van de cloud](templates-cloud-consistency.md).
+* Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md)voor het combi neren van verschillende sjablonen tijdens de implementatie.
+* Zie voor aanbevelingen voor het maken van sjablonen [Azure Resource Manager best practices](template-best-practices.md)voor sjablonen.
+* Zie [Azure Resource Manager sjablonen voor Cloud consistentie ontwikkelen](templates-cloud-consistency.md)voor aanbevelingen voor het maken van Resource Manager-sjablonen die u kunt gebruiken in alle Azure-omgevingen en Azure stack.

@@ -1,6 +1,6 @@
 ---
-title: DevTest Labs gebruiken in azure DevOps-pijp lijnen bouwen en vrijgeven | Microsoft Docs
-description: Meer informatie over het gebruik van Azure DevTest Labs in azure DevOps build-en release-pijp lijnen.
+title: DevTest Labs gebruiken in azure-pijp lijnen builds en release pijp lijnen | Microsoft Docs
+description: Meer informatie over het gebruik van Azure DevTest Labs in azure-pijp lijnen build-en release pijplijnen.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: spelluru
-ms.openlocfilehash: 606563cd7d7adcdd79bf9561876eb0640fb68b21
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 032f598fed765b281d4a6a124f8855abc201ee94
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620894"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774497"
 ---
-# <a name="use-devtest-labs-in-azure-devops-build-and-release-pipelines"></a>DevTest Labs gebruiken in Azure DevOps om pijplijnen te bouwen en uit te brengen
-Dit artikel bevat informatie over de manier waarop DevTest Labs kan worden gebruikt in azure DevOps-pijp lijnen voor Build en release. 
+# <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Gebruik DevTest Labs in azure-pijp lijnen build-en release pijplijnen
+In dit artikel vindt u informatie over de manier waarop DevTest Labs kan worden gebruikt in azure pipelines build-en release-pijp lijnen. 
 
 ## <a name="overall-flow"></a>Algehele stroom
 De basis stroom is een build- **pijp lijn** die de volgende taken doet:
@@ -49,7 +49,7 @@ Er zijn een aantal items die moeten worden gemaakt:
 Met de build-pijp lijn wordt een DevTest Labs-omgeving gemaakt en de code voor het testen geïmplementeerd.
 
 ## <a name="set-up-a-build-pipeline"></a>Een build-pijp lijn instellen
-Maak in azure DevOps een build-pijp lijn met behulp van de [code in de zelf studie: Een .NET core-en SQL Database-web-app](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)maken in azure app service. Gebruik de **ASP.net core** sjabloon, waarmee de benodigde taak wordt gevuld om de code te bouwen, te testen en te publiceren.
+Maak in azure-pijp lijnen een build-pijp lijn met behulp van [de code in de zelf studie: Een .NET core-en SQL Database-web-app](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)maken in azure app service. Gebruik de **ASP.net core** sjabloon, waarmee de benodigde taak wordt gevuld om de code te bouwen, te testen en te publiceren.
 
 ![De ASP.NET-sjabloon selecteren](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 
@@ -85,7 +85,7 @@ De derde taak is de taak **implementatie Azure app service** . Het app-type is i
 
 ![Taak implementeren App Service](./media/use-devtest-labs-build-release-pipelines/app-service-deploy.png)
 
-## <a name="setup-release-pipeline"></a>Pijp lijn installatie-release
+## <a name="set-up-release-pipeline"></a>Release pijplijn instellen
 U maakt een release pijplijn met twee taken: **Azure-implementatie: Resource groep** maken of bijwerken en **Azure app service implementeren**. 
 
 Geef voor de eerste taak de naam en de locatie van de resource groep op. De locatie van de sjabloon is een gekoppeld artefact. Als de Resource Manager-sjabloon gekoppelde sjablonen bevat, moet een aangepaste implementatie van een resource groep worden geïmplementeerd. De sjabloon bevindt zich in het gepubliceerde drop-artefact. Temp late para meters voor de Resource Manager-sjabloon negeren. U kunt de resterende instellingen met standaard waarden laten staan. 
@@ -98,5 +98,5 @@ Nu beide pijp lijnen zijn ingesteld, kunt u een build hand matig in de wachtrij 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen:
 
-- [Azure DevTest Labs integreren in uw continue integratie-en leverings pijplijn voor Azure DevOps](devtest-lab-integrate-ci-cd-vsts.md)
-- [Omgevingen integreren in uw Azure DevOps CI/CD-pijp lijnen](integrate-environments-devops-pipeline.md)
+- [Azure DevTest Labs integreren in uw Azure pipelines continue integratie en leverings pijplijn](devtest-lab-integrate-ci-cd-vsts.md)
+- [Omgevingen integreren in uw Azure pipelines CI/CD-pijp lijnen](integrate-environments-devops-pipeline.md)

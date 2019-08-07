@@ -1,85 +1,85 @@
 ---
-title: De zakelijke woordenlijst in Azure Data Catalog instellen
-description: Artikel markeren van de zakelijke woordenlijst in Azure Data Catalog voor het definiëren en met behulp van een algemeen bedrijfsjargon op tag geregistreerde gegevensassets.
+title: De zakelijke woorden lijst instellen in Azure Data Catalog
+description: Instructies voor het markeren van de zakelijke woorden lijst in Azure Data Catalog voor het definiëren en gebruiken van een algemene bedrijfs woordenlijst voor het labelen van geregistreerde gegevensassets.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: 649a842c8c8890713bda938c8e11740c5c8be7aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 6ecb481245484332221e45b8f27c776291ea532d
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001888"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736414"
 ---
-# <a name="set-up-the-business-glossary-for-governed-tagging"></a>De zakelijke woordenlijst instellen voor geregeld tagging
+# <a name="set-up-the-business-glossary-for-governed-tagging"></a>De zakelijke woorden lijst instellen voor de onderhevige labels
 
 ## <a name="introduction"></a>Inleiding
 
-Azure Data Catalog kunt gegevensbron detectie, zodat u eenvoudig kunt detecteren en begrijpen van de gegevensbronnen die u wilt uitvoeren van analyses en beslissingen te nemen. Deze mogelijkheden kunt de grootste impact als u deze kunt vinden en informatie over het breedste aanbod van beschikbare gegevensbronnen.
+Azure Data Catalog maakt detectie van gegevens bronnen mogelijk, zodat u de gegevens bronnen die u nodig hebt om analyses uit te voeren en beslissingen te nemen, gemakkelijk kunt ontdekken en begrijpen. Deze mogelijkheden maken het grootste effect wanneer u het breedste bereik van beschik bare gegevens bronnen kunt vinden en begrijpen.
 
-Een Data Catalog-functie die beter inzicht in gegevens van de activa stimulansen is tagging. U kunt met behulp van tags, trefwoorden koppelen aan een asset of een kolom, wat op zijn beurt het gemakkelijker maakt voor het detecteren van de asset via zoeken of bladeren. Tags kunt u gemakkelijk inzicht in de context en de bedoeling van de asset.
+Een Data Catalog-functie waarmee meer informatie over activa gegevens wordt gelabeld. Door gebruik te maken van labels kunt u tref woorden koppelen aan een Asset of een kolom, waardoor het actief gemakkelijker wordt gedetecteerd via zoeken of bladeren. Tags toevoegen helpt u ook om de context en het doel van de Asset gemakkelijker te begrijpen.
 
-Echter kan tags soms problemen veroorzaken zelf. Enkele voorbeelden van problemen die tags kan zijn:
+Tagging kan echter soms problemen veroorzaken. Hier volgen enkele voor beelden van problemen die door labels kunnen worden geïntroduceerd:
 
-* Het gebruik van de afkortingen van sommige items en uitgebreide tekst op anderen. Deze inconsistentie belemmert de detectie van assets, zelfs als het doel is voor het taggen van de activa met dezelfde tag.
-* Mogelijke variaties in de zin, afhankelijk van context. Bijvoorbeeld, een label met de naam *omzet* van een klant die in de gegevensset kan dit betekenen dat opbrengst per klant, maar dezelfde tag op een per kwartaal sales-gegevensset kan dit betekenen dat elk kwartaal omzet voor het bedrijf.  
+* Het gebruik van afkortingen op sommige assets en uitgevouwen tekst op andere activa. Deze inconsistentie belemmert de detectie van assets, hoewel de bedoeling was om de activa met dezelfde tag te labelen.
+* Mogelijke variaties in betekenis, afhankelijk van de context. Een tag met de naam *omzet* voor een klant gegevensverzameling kan bijvoorbeeld omzet per klant betekenen, maar hetzelfde label voor een driemaandelijkse verkoop gegevensset kan een driemaandelijkse omzet van het bedrijf betekenen.  
 
-Zodat deze en andere vergelijkbare problemen bevat Data Catalog een zakelijke woordenlijst.
+Data Catalog bevat een zakelijke woorden lijst om deze en andere vergelijk bare uitdagingen te helpen aanpakken.
 
-Met behulp van de zakelijke woordenlijst van Data Catalog, kan een organisatie belangrijke bedrijfstermen en de bijbehorende definities om te maken van een algemeen bedrijfsjargon document. Deze governance kunt consistentie in de gebruikte gegevens in de hele organisatie. Nadat een term in de zakelijke woordenlijst is gedefinieerd, kan deze worden toegewezen aan een gegevensasset in de catalogus. Deze aanpak *geregeld tagging*, is de dezelfde methode als labels.
+Door de Data Catalog zakelijke woorden lijst te gebruiken, kan een organisatie belang rijke zakelijke voor waarden en hun definities voor het maken van een gemeen schappelijke zakelijke woorden lijst documenteren. Dit beheer biedt consistentie in het gegevens gebruik binnen de hele organisatie. Nadat een term is gedefinieerd in de zakelijke woorden lijst, kan deze worden toegewezen aan een gegevensasset in de catalogus. Deze benadering,onderliggend labelen, is dezelfde benadering als labelen.
 
-## <a name="glossary-availability-and-privileges"></a>Verklarende woordenlijst voor beschikbaarheid en bevoegdheden
+## <a name="glossary-availability-and-privileges"></a>Beschik baarheid en bevoegdheden van de woorden lijst
 
-De zakelijke woordenlijst is alleen beschikbaar in de Standard-editie van Azure Data Catalog. De gratis editie van Data Catalog bevat geen een woordenlijst en het niet mogelijk om mogelijkheden voor bestuurbaar tagging.
+De zakelijke woorden lijst is alleen beschikbaar in de Standard-editie van Azure Data Catalog. De gratis versie van Data Catalog bevat geen woorden lijst en biedt geen mogelijkheden voor het beheersen van tags.
 
-U hebt toegang tot de zakelijke woordenlijst via de **verklarende woordenlijst** optie in het navigatiemenu van de Data Catalog-portal.  
+U kunt de bedrijfs woordenlijst openen via de optie voor de **woorden lijst** in het navigatie menu van de Data Catalog-Portal.  
 
-![Toegang tot de zakelijke woordenlijst](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
+![De zakelijke woorden lijst openen](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
-Data Catalog-beheerders en leden van de rol van de beheerders verklarende woordenlijst kunnen maken, bewerken en verwijderen van termen in de woordenlijst in de zakelijke woordenlijst. Alle Data Catalog-gebruikers kunnen de term definities en activa met termen in de tag weergeven.
+Data Catalog beheerders en leden van de rol Administrators van woorden lijst kunnen termen van een woorden lijst maken, bewerken en verwijderen in de zakelijke woorden lijst. Alle Data Catalog gebruikers kunnen de termen definities en label activa weer geven met woordenlijst termen.
 
-![Een nieuwe woordenlijstterm toevoegen](./media/data-catalog-how-to-business-glossary/02-new-term.png)
+![Een nieuwe woordenlijst term toevoegen](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
-## <a name="creating-glossary-terms"></a>Het maken van Woordenlijsttermen
+## <a name="creating-glossary-terms"></a>Termen voor een woorden lijst maken
 
-Data Catalog-beheerders en woordenlijstbeheerders Woordenlijsttermen kunnen maken door te klikken op de **nieuwe Term** knop. Elke woordenlijstterm bevat de volgende velden:
+Data Catalog beheerders en verklarende woorden lijst beheerders kunnen termen voor een woorden lijst maken door te klikken op de knop **nieuwe term** . Elke woordenlijst term bevat de volgende velden:
 
-* De bedrijfsdefinitie van een voor de term
-* Een beschrijving op die worden vastgelegd van het beoogde gebruik of de bedrijfsregels voor de asset of kolom
-* Een lijst met belanghebbenden die met de meeste weten aan de term
-* De bovenliggende term, waarin de hiërarchie waarin de term is georganiseerd
+* Een bedrijfs definitie voor de term
+* Een beschrijving voor het vastleggen van het beoogde gebruik of bedrijfs regels voor de activa of de kolom
+* Een lijst met belanghebbenden die de meeste weten over de term
+* De bovenliggende term die de hiërarchie definieert waarin de term is ingedeeld
 
-## <a name="glossary-term-hierarchies"></a>Verklarende woordenlijst term hiërarchieën
+## <a name="glossary-term-hierarchies"></a>Hiërarchieën voor woordenlijst termen
 
-Met behulp van de zakelijke woordenlijst van Data Catalog, een organisatie kan de bedrijfsjargon worden beschreven als een hiërarchie van de voorwaarden en dat een classificatie van termen die beter de zakelijke taxonomie vertegenwoordigt kan worden gemaakt.
+Door gebruik te maken van de Data Catalog zakelijke woorden lijst, kan een organisatie zijn bedrijfs woordenlijst beschrijven als een hiërarchie van voor waarden en kan er een classificatie worden gemaakt van termen die beter de bedrijfs taxonomie vertegenwoordigen.
 
-Een term moet op een bepaald niveau van de hiërarchie uniek zijn. Dubbele namen zijn niet toegestaan. Er is geen limiet voor het aantal niveaus in een hiërarchie, maar een hiërarchie is vaak gemakkelijker te begrijpen wanneer er drie niveaus of minder zijn.
+Een term moet uniek zijn voor een bepaald niveau van de hiërarchie. Dubbele namen zijn niet toegestaan. Er is geen limiet voor het aantal niveaus in een hiërarchie, maar een hiërarchie is vaak gemakkelijker te begrijpen wanneer er drie niveaus of minder zijn.
 
-Het gebruik van hiërarchieën in de zakelijke woordenlijst is optioneel. De bovenliggende term veld leeg laten voor Woordenlijsttermen, maakt een vast (niet-hiërarchische)-lijst met voorwaarden in de woordenlijst.  
+Het gebruik van hiërarchieën in de bedrijfs woordenlijst is optioneel. Als u het veld voor de bovenliggende term leeg laat, worden in de woorden lijst een platte (niet-hiërarchische) voor waarden weer geven.  
 
-## <a name="tagging-assets-with-glossary-terms"></a>Labels van activa met Woordenlijsttermen
+## <a name="tagging-assets-with-glossary-terms"></a>Activa labelen met woordenlijst termen
 
-Nadat Woordenlijsttermen zijn gedefinieerd in de catalogus, wordt de ervaring van de activa-tagging geoptimaliseerd om te zoeken naar de verklarende woordenlijst van een gebruiker typt u een tag. De Data Catalog-portal geeft een lijst van overeenkomende termen om uit te kiezen. Als de gebruiker een woordenlijstterm in de lijst selecteert, wordt de term als een label (ook wel een woordenlijsttag) toegevoegd aan de asset. De gebruiker kunt ook een nieuw label maken door te typen van een term die zich niet in de woordenlijst (ook wel een gebruikerstag genoemd).
+Nadat de terminologie van de woorden lijst in de catalogus is gedefinieerd, wordt de ervaring van het labelen van assets geoptimaliseerd om de woorden lijst te doorzoeken als een gebruiker een tag typt. In de Data Catalog-portal wordt een lijst weer gegeven met de overeenkomende termen voor woorden lijsten waaruit u kunt kiezen. Als de gebruiker in de lijst een term voor een woorden lijst selecteert, wordt de term aan de Asset toegevoegd als een tag (ook wel een woordenlijst Label genoemd). De gebruiker kan er ook voor kiezen om een nieuwe tag te maken door een term te typen die niet voor komt in de woorden lijst (ook wel een gebruikers label genoemd).
 
-![Gegevensasset gemarkeerd met een label en tags van twee verklarende woordenlijst](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
+![Gegevens Asset gelabeld met één gebruikers label en twee woordenlijst Tags](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
 
 > [!NOTE]
-> Gebruiker-tags zijn het enige type label wordt ondersteund in de gratis editie van Data Catalog.
+> Gebruikers codes zijn het enige type tag dat wordt ondersteund in de gratis versie van Data Catalog.
 
-### <a name="hover-behavior-on-tags"></a>Beweeg de muisaanwijzer gedrag van tags
+### <a name="hover-behavior-on-tags"></a>Gedrag bij aanwijzen op labels
 
-In de portal voor Data Catalog zijn de twee typen codes visueel uniek en werkt deze verschillende aanwijzen gedrag. Wanneer u een label aanwijst, ziet u de tekst van de tag en de gebruikers of gebruikers die de code hebt toegevoegd. Wanneer u de muisaanwijzer over een woordenlijsttag, ziet u ook de definitie van de woordenlijstterm en een koppeling naar het openen van de zakelijke woordenlijst om de volledige definitie van de periode weer te geven.
+In de Data Catalog Portal worden de twee typen labels visueel onderscheiden en worden verschillende aanwijs gedragen weer gegeven. Wanneer u de muis aanwijzer boven een gebruikers label houdt, ziet u de code tekst en de gebruikers die de tag hebben toegevoegd. Wanneer u de muis aanwijzer boven een woordenlijst Label houdt, ziet u ook de definitie van de woordenlijst term en een koppeling om de zakelijke woorden lijst te openen om de volledige definitie van de term weer te geven.
 
-### <a name="search-filters-for-tags"></a>Zoekfilters voor tags
+### <a name="search-filters-for-tags"></a>Zoek filters voor labels
 
-Verklarende woordenlijst tags en gebruiker tags zijn beide doorzoekbaar en kunt u deze toepassen als filters in een zoekopdracht.
+De woordenlijst Tags en gebruikers Tags zijn beide doorzoekbaar en u kunt ze als filters toep assen in een zoek opdracht.
 
 ## <a name="summary"></a>Samenvatting
 
-Met behulp van de zakelijke woordenlijst in Azure Data Catalog en het bestuurbaar tagging kunt, kunt u identificeren, beheren en gegevens detecteren op een consistente manier. De zakelijke woordenlijst kunt leren van de zakelijke woordenlijst door leden van de organisatie verhogen. De verklarende woordenlijst biedt ook ondersteuning voor het vastleggen van nuttige metagegevens die assetdetectie en -inzicht vereenvoudigt.
+Door gebruik te maken van de zakelijke woorden lijst in Azure Data Catalog en de beheerde code ring, kunt u gegevensassets op een consistente manier identificeren, beheren en detecteren. De zakelijke woorden lijst kan het leren van de bedrijfs woordenlijst door de leden van de organisatie promoten. De verklarende woorden lijst biedt ook ondersteuning voor het vastleggen van zinvolle meta gegevens, waardoor Asset Discovery en inzichten eenvoudiger zijn.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [REST API-documentatie voor bedrijfsactiviteiten verklarende woordenlijst](/rest/api/datacatalog/data-catalog-glossary)
+* [REST API documentatie voor zakelijke woordenlijst bewerkingen](/rest/api/datacatalog/data-catalog-glossary)

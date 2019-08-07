@@ -1,29 +1,32 @@
 ---
-title: Azure Resource Manager-sjablonen voor Gremlin-API van Azure Cosmos DB
-description: Gebruik Azure Resource Manager-sjablonen maken en configureren van de Gremlin-API van Azure Cosmos DB.
+title: Azure Resource Manager sjablonen voor Azure Cosmos DB Gremlin-API
+description: Gebruik Azure Resource Manager sjablonen om Azure Cosmos DB Gremlin-API te maken en te configureren.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9f62399e3a1ef2a4ceaa8bdf64196bdb634fb4b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82d15f342e6c0a4f107e8b089be14c0e670a33ca
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65968881"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815056"
 ---
-# <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Gremlin-API van Azure Cosmos DB-resources met behulp van Azure Resource Manager-sjablonen beheren
+# <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Azure Cosmos DB Gremlin-API-resources beheren met Azure Resource Manager sjablonen
 
-## Azure Cosmos DB API voor MongoDB-account, -database en verzameling maken <a id="create-resource"></a>
+## Azure Cosmos DB-API maken voor het MongoDB-account, de data base en de verzameling<a id="create-resource"></a>
 
-Azure Cosmos DB-resources met behulp van een Azure Resource Manager-sjabloon maken. Deze sjabloon wordt een Azure Cosmos-account maken voor Gremlin-API met twee grafieken die delen van 400 RU/s doorvoer op het databaseniveau van de. De sjabloon te kopiëren en implementeren zoals hieronder wordt weergegeven of Ga naar [Azure Snelstartgalerie](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin/) en implementeren vanuit Azure portal. U kunt ook de sjabloon downloaden naar uw lokale computer of maak een nieuwe sjabloon en geef het lokale pad op met de `--template-file` parameter.
+Azure Cosmos DB resources maken met behulp van een Azure Resource Manager sjabloon. Met deze sjabloon wordt een Azure Cosmos-account gemaakt voor Gremlin-API met twee grafieken die een door Voer van 400 RU/s op database niveau delen. Kopieer de sjabloon en implementeer deze zoals hieronder wordt weer gegeven of ga naar de [Galerie van Azure Quick](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin/) start en implementeer deze vanuit de Azure Portal. U kunt de sjabloon ook downloaden naar uw lokale computer of een nieuwe sjabloon maken en het lokale pad met de `--template-file` para meter opgeven.
+
+> [!NOTE]
+> Account namen moeten kleine letters en < 31 tekens zijn.
 
 [!code-json[create-cosmos-gremlin](~/quickstart-templates/101-cosmosdb-gremlin/azuredeploy.json)]
 
 ## <a name="deploy-with-azure-cli"></a>Implementeren met Azure CLI
 
-Implementatie van de Resource Manager-sjabloon met behulp van Azure CLI, **kopie** het script en selecteer **uitproberen** openen van de Azure Cloud shell. Als u het script, met de rechtermuisknop op de shell en selecteer vervolgens **plakken**:
+Als u de Resource Manager-sjabloon wilt implementeren met behulp van Azure CLI, **kopieert** u het script en selecteert u **proberen** de Azure Cloud shell te openen. Als u het script wilt plakken, klikt u met de rechter muisknop op de shell en selecteert u vervolgens **Plakken**:
 
 ```azurecli-interactive
 
@@ -45,17 +48,17 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-De `az cosmosdb show` opdracht geeft u het zojuist gemaakte Azure-Cosmos-account nadat deze is ingericht. Als u ervoor kiest een lokaal geïnstalleerde versie van Azure CLI gebruiken in plaats van CloudShell gebruikt, Zie [Azure-opdrachtregelinterface (CLI)](/cli/azure/) artikel.
+De `az cosmosdb show` opdracht toont het zojuist gemaakte Azure Cosmos-account nadat het is ingericht. Als u ervoor kiest een lokaal geïnstalleerde versie van Azure CLI te gebruiken in plaats van Cloud shell, raadpleegt u het artikel [Azure Command-Line Interface (CLI)](/cli/azure/) .
 
-## Doorvoer (RU/s) voor een database bijwerken <a id="database-ru-update"></a>
+## De door Voer (RU/s) bijwerken voor een Data Base<a id="database-ru-update"></a>
 
-De volgende sjabloon wordt de doorvoer van een database bijwerken. De sjabloon te kopiëren en implementeren zoals hieronder wordt weergegeven of Ga naar [Azure Snelstartgalerie](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-database-ru-update/) en implementeren vanuit Azure portal. U kunt ook de sjabloon downloaden naar uw lokale computer of maak een nieuwe sjabloon en geef het lokale pad op met de `--template-file` parameter.
+Met de volgende sjabloon wordt de door Voer van een Data Base bijgewerkt. Kopieer de sjabloon en implementeer deze zoals hieronder wordt weer gegeven of ga naar de [Galerie van Azure Quick](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-database-ru-update/) start en implementeer deze vanuit de Azure Portal. U kunt de sjabloon ook downloaden naar uw lokale computer of een nieuwe sjabloon maken en het lokale pad met de `--template-file` para meter opgeven.
 
 [!code-json[cosmosdb-gremlin-database-ru-update](~/quickstart-templates/101-cosmosdb-gremlin-database-ru-update/azuredeploy.json)]
 
-### <a name="deploy-database-template-via-azure-cli"></a>Databasesjabloon via Azure CLI implementeren
+### <a name="deploy-database-template-via-azure-cli"></a>Database sjabloon implementeren via Azure CLI
 
-Selecteer voor het implementeren van de Resource Manager-sjabloon met behulp van Azure CLI, **uitproberen** openen van de Azure Cloud shell. Als u het script, met de rechtermuisknop op de shell en selecteer vervolgens **plakken**:
+Als u de Resource Manager-sjabloon wilt implementeren met behulp van Azure CLI, selecteert u **proberen** de Azure Cloud shell te openen. Als u het script wilt plakken, klikt u met de rechter muisknop op de shell en selecteert u vervolgens **Plakken**:
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -68,15 +71,15 @@ az group deployment create --resource-group $resourceGroupName \
    --parameters accountName=$accountName databaseName=$databaseName throughput=$throughput
 ```
 
-## Doorvoer (RU/s) op een grafiek bijwerken <a id="graph-ru-update"></a>
+## De door Voer (RU/s) bijwerken in een grafiek<a id="graph-ru-update"></a>
 
-De volgende sjabloon wordt de doorvoer van een grafiek bijgewerkt. De sjabloon te kopiëren en implementeren zoals hieronder wordt weergegeven of Ga naar [Azure Snelstartgalerie](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-graph-ru-update/) en implementeren vanuit Azure portal. U kunt ook de sjabloon downloaden naar uw lokale computer of maak een nieuwe sjabloon en geef het lokale pad op met de `--template-file` parameter.
+Met de volgende sjabloon wordt de door Voer van een grafiek bijgewerkt. Kopieer de sjabloon en implementeer deze zoals hieronder wordt weer gegeven of ga naar de [Galerie van Azure Quick](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-graph-ru-update/) start en implementeer deze vanuit de Azure Portal. U kunt de sjabloon ook downloaden naar uw lokale computer of een nieuwe sjabloon maken en het lokale pad met de `--template-file` para meter opgeven.
 
 [!code-json[cosmosdb-gremlin-graph-ru-update](~/quickstart-templates/101-cosmosdb-gremlin-graph-ru-update/azuredeploy.json)]
 
-### <a name="deploy-graph-template-via-azure-cli"></a>Graph-sjabloon via Azure CLI implementeren
+### <a name="deploy-graph-template-via-azure-cli"></a>Graph-sjabloon implementeren via Azure CLI
 
-Selecteer voor het implementeren van de Resource Manager-sjabloon met behulp van Azure CLI, **uitproberen** openen van de Azure Cloud shell. Als u het script, met de rechtermuisknop op de shell en selecteer vervolgens **plakken**:
+Als u de Resource Manager-sjabloon wilt implementeren met behulp van Azure CLI, selecteert u **proberen** de Azure Cloud shell te openen. Als u het script wilt plakken, klikt u met de rechter muisknop op de shell en selecteert u vervolgens **Plakken**:
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -92,9 +95,9 @@ az group deployment create --resource-group $resourceGroupName \
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Hier volgen enkele aanvullende resources:
+Hier volgen enkele aanvullende bronnen:
 
-- [Azure Resource Manager-documentatie](/azure/azure-resource-manager/)
-- [Azure Cosmos DB-resource providerschema](/azure/templates/microsoft.documentdb/allversions)
-- [Azure Cosmos DB-Quickstart-sjablonen](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
-- [Oplossen van veelvoorkomende fouten bij de implementatie van Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+- [Documentatie over Azure Resource Manager](/azure/azure-resource-manager/)
+- [Resource provider-schema Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions)
+- [Quick Start-sjablonen Azure Cosmos DB](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
+- [Veelvoorkomende fouten bij Azure Resource Manager implementatie oplossen](../azure-resource-manager/resource-manager-common-deployment-errors.md)

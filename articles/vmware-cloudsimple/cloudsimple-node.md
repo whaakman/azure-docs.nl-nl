@@ -1,61 +1,61 @@
 ---
-title: Overzicht van de knooppunten voor VMware-oplossing door CloudSimple - Azure
-description: Meer informatie over CloudSimple knooppunten en concepten.
+title: Overzicht van knoop punten voor VMware-oplossing door CloudSimple-Azure
+description: Meer informatie over CloudSimple-knoop punten en-concepten.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fb82e31d58d9955efc3b147eccf2b82b8768aeee
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 346bd046810ebae5142bc23400419857000d0c8e
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165806"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812571"
 ---
-# <a name="cloudsimple-nodes-overview"></a>Overzicht van de knooppunten CloudSimple
+# <a name="cloudsimple-nodes-overview"></a>Overzicht van CloudSimple-knoop punten
 
-Een knooppunt is:
+Een knoop punt is:
 
-* Een speciale bare-metalcomputers compute host waarop VMware ESXi-hypervisor is geïnstalleerd  
-* Een eenheid van computers waarop u kunt inrichten of reserveren voor het maken van persoonlijke clouds  
-* Beschikbaar in te richten of te reserveren in een regio waar de service CloudSimple beschikbaar is
+* Een toegewezen bare-metal Compute-host waarop VMware ESXi Hyper Visor is geïnstalleerd  
+* Een reken eenheid die u kunt inrichten of reserveren voor het maken van persoonlijke Clouds  
+* Beschikbaar voor het inrichten of reserveren van een regio waar de CloudSimple-service beschikbaar is
 
-Knooppunten zijn de bouwstenen van een privécloud.  Voor het maken van een privécloud, moet u minimaal drie knooppunten van de dezelfde SKU.  Als u wilt een privécloud wilt uitbreiden, moet u extra knooppunten toevoegen.  U kunt knooppunten toevoegen aan een bestaand cluster. Of u kunt een nieuw cluster maken met het inrichten van knooppunten in de Azure-portal en deze koppelen aan de CloudSimple-service.  Alle knooppunten die ingericht zijn zichtbaar in de CloudSimple-service.  U kunt een privécloud maken van de ingerichte knooppunten op CloudSimple-Portal.
+Knoop punten zijn bouw stenen van een privécloud.  Als u een privécloud wilt maken, hebt u Mini maal drie knoop punten van dezelfde SKU nodig.  Als u een privécloud wilt uitbreiden, voegt u extra knoop punten toe.  U kunt knoop punten toevoegen aan een bestaand cluster. U kunt ook een nieuw cluster maken door knoop punten in de Azure Portal in te richten en deze te koppelen aan de CloudSimple-service.  Alle geconfigureerde knoop punten zijn zichtbaar in de CloudSimple-service.  U kunt een privécloud maken op basis van de ingerichte knoop punten op de CloudSimple-Portal.
 
-## <a name="provisioned-nodes"></a>Ingerichte knooppunten
+## <a name="provisioned-nodes"></a>Ingerichte knoop punten
 
-Ingerichte knooppunten bieden betalen per gebruik capaciteit. Knooppunten wordt ingericht, kunt u snel uw VMware-cluster op aanvraag kunt schalen. U kunt knooppunten toevoegen of verwijderen van een ingerichte knooppunt omlaag uw VMware-cluster schalen. ingerichte knooppunten zijn op maandbasis in rekening gebracht en verrekend met het abonnement waar ze zijn ingericht:
+Ingerichte knoop punten bieden een betalen naar gebruik-capaciteit. Met het inrichten van knoop punten kunt u uw VMware-cluster op aanvraag snel schalen. U kunt indien nodig knoop punten toevoegen of een ingericht knoop punt verwijderen om uw VMware-cluster omlaag te schalen. ingerichte knoop punten worden maandelijks gefactureerd en worden in rekening gebracht voor het abonnement waar ze zijn ingericht:
 
-* Als u voor uw Azure-abonnement met creditcard betalen, wordt de kaart wordt onmiddellijk gefactureerd.
-* Als u kosten in rekening per factuur gebracht, worden de kosten in rekening gebracht op uw volgende factuur weergegeven.
+* Als u betaalt voor uw Azure-abonnement per credit card, wordt de kaart onmiddellijk gefactureerd.
+* Als u per factuur factureert, worden de kosten op uw volgende factuur weer gegeven.
 
-## <a name="vmware-solution-by-cloudsimple-nodes-sku"></a>VMware-oplossing door CloudSimple knooppunten SKU
+## <a name="vmware-solution-by-cloudsimple-nodes-sku"></a>VMware-oplossing op CloudSimple knoop punten SKU
 
-De volgende typen knooppunten zijn beschikbaar voor het inrichten of reservering.
+De volgende typen knoop punten zijn beschikbaar voor inrichting of reserve ring.
 
-| SKU | CS28 - knooppunt | CS36 - knooppunt |
+| SKU | CS28-knoop punt | CS36-knoop punt |
 |-----|-------------|-------------|
-| CPU | 2x2.2 GHz, 28 kernen (56 HT) | 2x2.3 GHz, 36 kernen (72 HT) |
+| CPU | 2x 2,2 GHz, 28 kernen (56 HT) | 2x 2,3 GHz, 36 kern geheugens (72 HT) |
 | RAM | 256 GB | 512 GB |
-| Cache Disk |  1.6 TB NVMe | 3.2-TB NVMe |
-| Capaciteit van schijf | 5.625 TB onbewerkte | 11,25 TB onbewerkte |
-| Opslagtype | Alle Flash | Alle Flash |
+| Cache schijf |  1,6-TB NVMe | 3,2-TB NVMe |
+| Capaciteits schijf | 5,625 TB onbewerkt | 11,25 TB onbewerkt |
+| Opslag type | Alle Flash | Alle Flash |
 
-## <a name="limits"></a>Limits
+## <a name="limits"></a>Limieten
 
-Het volgende knooppunt-limieten gelden voor privéclouds.
+De volgende limieten voor knoop punten zijn van toepassing op persoonlijke Clouds.
 
 | Resource | Limiet |
 |----------|-------|
-| Minimum aantal knooppunten aan een privécloud maken | 3 |
-| Maximum aantal knooppunten in een Cluster in een privécloud | 16 |
-| Maximum aantal knooppunten in een privécloud | 64 |
-| Minimum aantal knooppunten in een nieuw Cluster | 3 |
+| Minimum aantal knoop punten voor het maken van een privécloud | 3 |
+| Maximum aantal knoop punten in een cluster in een privécloud | 16 |
+| Maximum aantal knoop punten in een privécloud | 64 |
+| Minimum aantal knoop punten op een nieuw cluster | 3 |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het [knooppunten in te richten](create-nodes.md)
-* Meer informatie over [Private Cloud](cloudsimple-private-cloud.md)
+* Meer informatie over het [inrichten van knoop punten](create-nodes.md)
+* Meer informatie over [privécloud](cloudsimple-private-cloud.md)

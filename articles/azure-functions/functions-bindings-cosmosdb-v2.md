@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 3c0a10bf03106bc7e1b89e4664dfed9fc76fc34f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67b70a67065bfc66639b0f6911f66111829c9a0f
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564842"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774927"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB bindingen voor Azure Functions 2. x
 
@@ -1745,6 +1745,7 @@ Zie de voorbeelden taalspecifieke:
 * [F#](#output---f-examples)
 * [Java](#output---java-examples)
 * [JavaScript](#output---javascript-examples)
+* [Python](#output---python-examples)
 
 Zie ook de [invoer voorbeeld](#input---c-examples) die gebruikmaakt van `DocumentClient`.
 
@@ -2274,6 +2275,57 @@ In het volgende voor beeld ziet u een Java-functie die meerdere documenten naar 
 
 Gebruik in de [runtime-bibliotheek van Java](/java/api/overview/azure/functions/runtime)- `@CosmosDBOutput` functies de aantekening voor para meters die worden geschreven naar Cosmos db.  Het parameter type van de aantekening moet zijn ```OutputBinding<T>```, waarbij T een systeem eigen Java-type of een POJO is.
 
+### <a name="output---python-examples"></a>Uitvoer-python-voor beelden
+
+In het volgende voor beeld ziet u hoe u een document naar een Azure CosmosDB-data base schrijft als uitvoer van een functie.
+
+De bindings definitie is gedefinieerd in *Function. json* waarbij *type* is ingesteld `cosmosDB`op.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "doc",
+      "databaseName": "demodb",
+      "collectionName": "data",
+      "createIfNotExists": "true",
+      "connectionStringSetting": "AzureCosmosDBConnectionString"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
+```
+
+Als u naar de Data Base wilt schrijven, geeft u een `set` document object door aan de methode van de data base-para meter.
+
+```python
+import azure.functions as func
+
+def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpResponse:
+
+    request_body = req.get_body()
+
+    doc.set(func.Document.from_json(request_body))
+
+    return 'OK'
+```
 
 ## <a name="output---attributes"></a>Uitvoer - kenmerken
 

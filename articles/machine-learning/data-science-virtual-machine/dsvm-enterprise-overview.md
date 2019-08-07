@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: vijetaj
-ms.openlocfilehash: 81aac356f49f7bf8dc57f77054d10aa3e09d473f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 40b8f101d968514ac599b43a79b7e62b7fd837a4
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565259"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779467"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Op basis van een virtuele Machine voor Datatechnologie team gegevensanalyse en AI-omgeving 
 De [Data Science Virtual Machine](overview.md) (DSVM) biedt een uitgebreide omgeving in de Azure-platform met vooraf gedefinieerde software voor kunstmatige intelligentie (AI) en gegevensanalyse. 
@@ -43,12 +43,12 @@ Enkele van de belangrijkste bouwstenen van een bedrijfsomgeving team-analytics z
 
 Deze reeks artikelen bevat richtlijnen en tips voor elk van de bovenstaande items. Ze omvatten niet de overwegingen en behoeften bij het implementeren van DSVM in grote ondernemingen configuraties. Hier ziet u andere Azure-documentatie die u gebruiken kunt tijdens het implementeren van DSVM-exemplaren in uw onderneming: 
 
-* [Netwerkbeveiliging](https://docs.microsoft.com/azure/security/azure-network-security)
+* [Netwerk beveiliging] (https://docs.microsoft.com/azure/security/fundamentals/network-security
 * [Bewaking](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) en [management](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
-* [Logboekregistratie en bewaking](https://docs.microsoft.com/azure/security/azure-log-audit)
+* [Logboekregistratie en bewaking](https://docs.microsoft.com/azure/security/fundamentals/log-audit)
 * [Op rollen gebaseerd toegangsbeheer](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Beleid instellen en afdwingen](../../governance/policy/overview.md)
-* [Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+* [Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 * [Versleuteling](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [Gegevensdetectie en -beheer](https://docs.microsoft.com/azure/data-catalog/)
 

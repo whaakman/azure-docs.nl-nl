@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f1f2e06eb6b5f8d402515ff1c07a4163174495d
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 8ccefec9e548b7981f696712bb4a983f4b577a9b
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666347"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779637"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>On-premises Veelgestelde vragen over Azure AD-wachtwoord beveiliging
 
@@ -40,19 +40,19 @@ Wordt niet ondersteund. Als Azure AD-wachtwoord beveiliging eenmaal is geïmplem
 
 **V: Wat is het verschil tussen een wachtwoord wijziging en een wachtwoordset (of opnieuw instellen)?**
 
-Een wijziging van het wacht woord is wanneer een gebruiker een nieuw wacht woord kiest nadat ze kennis hebben van het oude wacht woord. Dit is bijvoorbeeld wat er gebeurt wanneer een gebruiker zich aanmeldt bij Windows en vervolgens wordt gevraagd om een nieuw wacht woord te kiezen.
+Een wijziging van het wacht woord is wanneer een gebruiker een nieuw wacht woord kiest nadat ze kennis hebben van het oude wacht woord. Een wachtwoord wijziging is bijvoorbeeld wat er gebeurt wanneer een gebruiker zich aanmeldt bij Windows en vervolgens wordt gevraagd om een nieuw wacht woord te kiezen.
 
-Een wachtwoordset (ook wel wacht woord opnieuw instellen genoemd) is wanneer een beheerder het wacht woord voor een account vervangt door een nieuw wacht woord, bijvoorbeeld met behulp van het beheer programma Active Directory gebruikers en computers. Voor deze bewerking is een hoog bevoegdheids niveau (meestal domein beheerder) vereist. de persoon die de bewerking uitvoert, heeft doorgaans geen kennis van het oude wacht woord. Help Desk-scenario's doen dit vaak, bijvoorbeeld bij het helpen van een gebruiker die het wacht woord is verg eten. U ziet ook wachtwoord sets wanneer er voor de eerste keer een nieuwe gebruikers account wordt gemaakt met een wacht woord.
+Een wachtwoordset (ook wel wacht woord opnieuw instellen genoemd) is wanneer een beheerder het wacht woord voor een account vervangt door een nieuw wacht woord, bijvoorbeeld met behulp van het beheer programma Active Directory gebruikers en computers. Voor deze bewerking is een hoog bevoegdheids niveau (meestal domein beheerder) vereist. de persoon die de bewerking uitvoert, heeft doorgaans geen kennis van het oude wacht woord. Help Desk-scenario's voeren vaak wachtwoord sets in, bijvoorbeeld bij het helpen van een gebruiker die het wacht woord is verg eten. U ziet ook wachtwoord sets wanneer er voor de eerste keer een nieuwe gebruikers account wordt gemaakt met een wacht woord.
 
 Het wachtwoord validatie beleid gedraagt zich hetzelfde, ongeacht of er een wacht woord is gewijzigd of ingesteld. De Azure AD-Agent service voor wachtwoord beveiliging registreert verschillende gebeurtenissen om u te informeren of een wacht woord is gewijzigd of een set-bewerking is uitgevoerd.  Zie [Azure AD-controle programma voor wachtwoord beveiliging en logboek registratie](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **V: Waarom worden duplicaat gebeurtenissen voor het afkeuren van wacht woorden vastgelegd bij het instellen van een zwak wacht woord met behulp van de Active Directory-module gebruikers en computers beheren?**
 
-De Active Directory-module gebruikers en computers wordt eerst geprobeerd het nieuwe wacht woord in te stellen met behulp van het Kerberos-protocol. Als er een fout optreedt in de module, wordt een tweede poging gedaan om het wacht woord in te stellen met behulp van een verouderd (SAM RPC)-protocol (de gebruikte specifieke protocollen zijn niet belang rijk). Als het nieuwe wacht woord wordt beschouwd als ongemerkt door Azure AD-wachtwoord beveiliging, worden er twee sets afwijzings gebeurtenissen van het wacht woord opnieuw vastgelegd.
+De Active Directory-module gebruikers en computers wordt eerst geprobeerd het nieuwe wacht woord in te stellen met behulp van het Kerberos-protocol. Als de module is mislukt, wordt een tweede poging gedaan om het wacht woord in te stellen met behulp van een verouderd (SAM RPC)-protocol (de gebruikte specifieke protocollen zijn niet belang rijk). Als het nieuwe wacht woord wordt beschouwd als ongemerkt door Azure AD-wachtwoord beveiliging, worden in dit geval twee sets uitzonderings gebeurtenissen voor wachtwoord herstel vastgelegd.
 
 **V: Waarom worden wachtwoord validatie gebeurtenissen voor Azure AD-wacht woord met een lege gebruikers naam vastgelegd?**
 
-Active Directory ondersteunt de mogelijkheid om een wacht woord te testen om te zien of de huidige wachtwoord complexiteits vereisten van het domein worden door gegeven, bijvoorbeeld met behulp van de [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) -API. Wanneer een wacht woord op deze manier wordt gevalideerd, omvat het testen ook de validatie van op wacht woord-filter-dll gebaseerde producten, zoals Azure AD-wachtwoord beveiliging, maar de gebruikers namen die zijn door gegeven aan een opgegeven wachtwoord filter-dll zijn leeg. In dit scenario zal Azure AD-wachtwoord beveiliging het wacht woord nog steeds valideren met behulp van het wachtwoord beleid dat momenteel wordt gebruikt en wordt er een gebeurtenis logboek bericht weer gegeven om het resultaat vast te leggen. het gebeurtenis logboek bericht bevat echter lege velden voor de gebruikers naam.
+Active Directory ondersteunt de mogelijkheid om een wacht woord te testen om te zien of de huidige wachtwoord complexiteits vereisten van het domein worden door gegeven, bijvoorbeeld met behulp van de [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) -API. Wanneer een wacht woord op deze manier wordt gevalideerd, omvat het testen ook de validatie van op wacht woord-filter-dll gebaseerde producten, zoals Azure AD-wachtwoord beveiliging, maar de gebruikers namen die zijn door gegeven aan een opgegeven wachtwoord filter-dll zijn leeg. In dit scenario zal Azure AD-wachtwoord beveiliging het wacht woord nog steeds valideren met behulp van het wachtwoord beleid dat momenteel wordt gebruikt en wordt er een gebeurtenis logboek bericht weer gegeven om het resultaat vast te leggen, maar het gebeurtenis logboek bericht bevat lege velden voor gebruikers namen.
 
 **V: Wordt het ondersteund om Azure AD-wachtwoord beveiliging naast elkaar te installeren met andere op wacht woorden gebaseerde producten?**
 
@@ -115,6 +115,10 @@ Een manier om dit doel gedeeltelijk te bereiken, is het implementeren van Azure 
 Nee. Wanneer het wacht woord van een gebruiker op een bepaalde niet-PDC-domein controller wordt gewijzigd, wordt het wacht woord voor lees bare tekst nooit verzonden naar de PDC (dit is een veelvoorkomende mis-bewerking). Zodra een nieuw wacht woord op een bepaalde domein controller wordt geaccepteerd, gebruikt die domein controller dat wacht woord om de verschillende verificatie-protocolspecifieke hashes van dat wacht woord te maken. vervolgens worden deze hashes in de Directory bewaard. Het wacht woord voor de Lees bare tekst wordt niet bewaard. De bijgewerkte hashes worden vervolgens gerepliceerd naar de PDC. Gebruikers wachtwoorden kunnen in sommige gevallen rechtstreeks worden gewijzigd op de primaire domein controller, afhankelijk van verschillende factoren, zoals netwerk topologie en Active Directory site ontwerp. (Zie de vorige vraag.)
 
 In samen vatting is de implementatie van de Azure AD-Agent service voor wachtwoord beveiliging op de PDC vereist om een beveiligings dekking van 100% voor het hele domein te bereiken. Het implementeren van de functie op de primaire domein controller biedt geen Azure AD-beveiligings voordelen voor wachtwoord beveiliging voor andere domein controllers in het domein.
+
+**V: Waarom werkt aangepaste slimme vergren deling niet, zelfs niet nadat de agents zijn geïnstalleerd in mijn on-premises Active Directory omgeving?**
+
+Aangepaste slimme vergren deling wordt alleen ondersteund in Azure. Wijzigingen in de aangepaste instellingen voor slim vergren delen in de Azure Management Portal hebben geen invloed op de on-premises Active Directory omgeving, zelfs niet als de agents zijn geïnstalleerd.
 
 **V: Is er een System Center Operations Manager management pack beschikbaar voor Azure AD-wachtwoord beveiliging?**
 

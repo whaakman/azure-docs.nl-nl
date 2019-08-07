@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: cee91de9e0a5d75be258705f636248a6a6213664
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 16e12021a65a09376293f28efe9a6e9ef74ef5c2
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444053"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839563"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -314,7 +314,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 Als u uw functies lokaal wilt testen, [start u de functies host](#start) en roept u eind punten aan op de lokale server met behulp van HTTP-aanvragen. Het eind punt dat u aanroept, is afhankelijk van het type functie.
 
 >[!NOTE]
-> Voor beelden in dit onderwerp gebruiken het krul hulp programma voor het verzenden van HTTP-aanvragen van de terminal of een opdracht prompt. U kunt een hulp programma van uw keuze gebruiken om HTTP-aanvragen naar de lokale server te verzenden. Het krul hulp programma is standaard beschikbaar op Linux-systemen. In Windows moet u eerst het [krul hulp programma](https://curl.haxx.se/)downloaden en installeren.
+> Voor beelden in dit onderwerp gebruiken het krul hulp programma voor het verzenden van HTTP-aanvragen van de terminal of een opdracht prompt. U kunt een hulp programma van uw keuze gebruiken om HTTP-aanvragen naar de lokale server te verzenden. Het krul hulp programma is standaard beschikbaar op Linux-systemen en Windows 10 build 17063 en hoger. In oudere versies van Windows moet u eerst het [krul hulp programma](https://curl.haxx.se/)downloaden en installeren.
 
 Zie [strategieën voor het testen van uw code in azure functions](functions-test-a-function.md)voor meer algemene informatie over het testen van functies.
 

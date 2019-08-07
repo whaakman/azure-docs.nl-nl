@@ -1,63 +1,61 @@
 ---
 title: Algemene scenario’s Azure Data Catalog
-description: Een overzicht van veelvoorkomende scenario's voor Azure Data Catalog, met inbegrip van de registratie en detectie van waardevolle gegevensbronnen, self-service business intelligence inschakelen en het vastleggen van bestaande kennis over gegevensbronnen en processen.
-services: data-catalog
+description: Een overzicht van algemene scenario's voor Azure Data Catalog, met inbegrip van de registratie en detectie van gegevens bronnen met hoge waarde, het inschakelen van selfservice business intelligence en het vastleggen van bestaande kennis over gegevens bronnen en processen.
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: e95cc64b9086a6fb4c5e2d42521a5fd3f44244ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: aeae505b510f563a6640726c384ea358983eb24f
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61003953"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736464"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Algemene scenario’s Azure Data Catalog
-In dit artikel geeft algemene scenario's waar Azure Data Catalog meer waarde halen uit de bestaande gegevensbronnen van uw organisatie kan helpen.
+In dit artikel vindt u algemene scenario's waarin Azure Data Catalog uw organisatie kan helpen meer waarde uit de bestaande gegevens bronnen te halen.
 
-## <a name="scenario-1-registration-of-central-data-sources"></a>Scenario 1: Registratie van de centrale gegevensbronnen
-Organisaties hebben vaak veel waardevolle gegevensbronnen. Deze gegevensbronnen zijn line-of-business, online transactieverwerking (OLTP)-systemen, Datawarehouses en business intelligence en analyse-databases. Het aantal systemen en de overlapping tussen, groeit doorgaans na verloop van tijd naarmate uw bedrijfsbehoeften zich ontwikkelen en het bedrijf zelf zich verder via bijvoorbeeld fusies en aankopen ontwikkelt.
+## <a name="scenario-1-registration-of-central-data-sources"></a>Scenario 1: Registratie van centrale gegevens bronnen
+Organisaties hebben vaak veel gegevens bronnen met hoge waarde. Deze gegevens bronnen zijn onder andere line-of-Business, OLTP-systemen (online Trans Action processing), data warehouses en business intelligence/Analytics-data bases. Het aantal systemen, en de onderlinge overlap ping, groeit doorgaans in de loop van de tijd wanneer de bedrijfs behoeften ontwikkelen en het bedrijf zelf ontwikkelt, bijvoorbeeld fusies en acquisities.
 
-Het kan lastig zijn voor leden van de organisatie om te weten waar u de gegevens binnen deze gegevensbronnen. Vragen als volgt zijn alle te veel voorkomt:
+Het kan lastig zijn voor leden van de organisatie om te weten waar de gegevens zich in deze gegevens bronnen bevinden. Vragen, zoals het volgende, zijn allemaal te algemeen:
 
-* Van de drie HR-systemen binnen het bedrijf gebruikt, welke moet ik gebruiken om dit type rapport te maken?
-* Waar moet ik gaat u naar de gecertificeerde verkoopcijfers ophalen voor het belastingjaar die zojuist is afgelopen?
-* Wie moet ik vragen of wat is het proces dat ik gebruiken moet voor toegang tot het datawarehouse?
-* Ik weet niet als deze waarden correct zijn. Wie kan ik om vragen inzicht op hoe deze gegevens worden gebruikt moeten voordat ik dit dashboard met mijn team delen?
+* Van de drie HR-systemen die in het bedrijf worden gebruikt, wat ik moet gebruiken voor het maken van dit type rapport?
+* Waar moet ik de gecertificeerde verkoop cijfers ophalen voor het boek jaar dat net is geëindigd?
+* Wie moet ik vragen of wat is het proces dat ik moet gebruiken om toegang te krijgen tot het Data Warehouse?
+* Ik weet niet of deze cijfers goed zijn. Wie kan ik vragen hoe deze gegevens moeten worden gebruikt voordat ik dit dash board met mijn team deel?
 
-Op deze en andere vragen krijgt u Azure Data Catalog antwoorden. De centrale waardevolle, IT-beheer gegevensbronnen die worden gebruikt in organisaties zijn vaak de logische beginpunt voor het invullen van de catalogus. Hoewel alle gebruikers zich voor een gegevensbron registreren kan, helpt met de catalogus met de gegevensbronnen die voor de waarde voor het grootste aantal gebruikers waarschijnlijk kick-started station acceptatie en gebruik van het systeem. 
+Op deze en andere vragen kunt Azure Data Catalog antwoorden geven. De centrale, IT-beheerde gegevens bronnen die worden gebruikt in verschillende organisaties, zijn vaak het logische begin punt voor het invullen van de catalogus. Hoewel elke gebruiker een gegevens bron kan registreren, waardoor de catalogus kan worden gestart met de gegevens bronnen die de meest waarschijnlijke waarde geven aan het grootste aantal gebruikers, helpt het systeem te implementeren en te gebruiken. 
 
-Als u bent aan de slag met Azure Data Catalog, kunnen identificeren en registreren van belangrijke gegevensbronnen die worden gebruikt door veel verschillende teams van gebruikers van gegevens met de eerste stap voor succes zijn.
+Als u aan de slag gaat met Azure Data Catalog, het identificeren en registreren van belang rijke gegevens bronnen die worden gebruikt door veel verschillende teams van gegevens gebruikers, kan de eerste stap worden uitgevoerd.
 
-In dit scenario geeft ook een verkoopkans aantekeningen toevoegen aan de waardevolle gegevensbronnen, zodat ze gemakkelijker te begrijpen en te openen. Een belangrijk aspect van deze inspanning, moet u informatie over hoe gebruikers toegang tot de gegevensbron kunnen aanvragen. Met Azure Data Catalog, kunt u het e-mailadres van de gebruiker of team dat verantwoordelijk is voor het beheren van de gegevensbron toegang, koppelingen naar documentatie of bestaande hulpprogramma's of vrije tekst die het proces van de aanvraag voor toegang tot beschrijft opgeven. Deze informatie helpt de leden die geregistreerde gegevensbronnen detecteren, maar die nog niet machtigingen voor toegang tot de gegevens gemakkelijk om toegang te vragen met behulp van de processen die zijn gedefinieerd en beheerd door de eigenaren van de gegevensbron.
+Dit scenario biedt u ook de mogelijkheid om aantekeningen te maken op de gegevens bronnen met hoge waarden zodat ze gemakkelijker te begrijpen en toegankelijk zijn. Een belang rijk aspect van deze inspanning is het toevoegen van informatie over de manier waarop gebruikers toegang kunnen aanvragen tot de gegevens bron. Met Azure Data Catalog kunt u het e-mail adres opgeven van de gebruiker die of het team dat verantwoordelijk is voor het beheren van toegang tot de gegevens bron, koppelingen naar bestaande hulpprogram ma's of documentatie of vrije tekst die het Access-aanvraag proces beschrijft. Deze informatie helpt leden die geregistreerde gegevens bronnen detecteren, maar die nog geen machtigingen hebben om toegang te krijgen tot de gegevens om eenvoudig toegang te vragen met behulp van de processen die worden gedefinieerd en beheerd door de eigen aren van de gegevens bron.
 
 ## <a name="scenario-2-self-service-business-intelligence"></a>Scenario 2: Self-service business intelligence
-Hoewel traditionele zakelijke oplossingen voor business intelligence een waardevol onderdeel te vormen van veel organisaties gegevenslandschappen blijft, heeft het wijzigen van gelijke tred of-business gemaakt selfservice-BI meer belangrijk. Met behulp van selfservice-BI, IT-medewerkers en analisten kunnen maken hun eigen rapporten, werkmappen en dashboards zonder afhankelijkheid van een centrale IT-team of worden beperkt door het schema en de beschikbaarheid dat IT-team.
+Hoewel traditionele bedrijfs oplossingen van bedrijven nog steeds een waardevol deel uitmaken van de data landschappen van veel organisaties, heeft het veranderende tempo van het bedrijf zelf meer en belang rijker. Met self-service BI kunnen informatie medewerkers en analisten hun eigen rapporten, werkmappen en dash boards maken zonder dat ze gebruikmaken van een IT-team van de IT-afdeling of door de planning en beschik baarheid van het IT-team worden beperkt.
 
-In selfservice BI-scenario's combineren gebruikers doorgaans gegevens uit meerdere bronnen, waarvan vele mogelijk niet eerder zijn gebruikt voor BI en analyse. Hoewel sommige van deze gegevensbronnen mogelijk al bekend zijn, kan het lastig om te ontdekken wat u moet doen om te zoeken en beoordelen van mogelijke gegevensbronnen voor een bepaalde taak.
+In self-service BI-scenario's combi neren gebruikers doorgaans gegevens uit meerdere bronnen, die veel mogelijk niet eerder zijn gebruikt voor BI en analyse. Hoewel sommige van deze gegevens bronnen mogelijk al bekend zijn, kan het lastig zijn om te ontdekken wat u kunt doen om mogelijke gegevens bronnen voor een bepaalde taak te zoeken en te evalueren.
 
-Traditioneel deze discovery-proces is een handmatige: analisten gebruiken hun netwerkverbindingen peer voor anderen die werken met de gegevens wordt gezocht. Nadat een gegevensbron is gevonden en gebruikt, het proces wordt herhaald opnieuw voor elke volgende selfservice BI inspanning, met meerdere gebruikers voor het uitvoeren van een redundante handmatig proces van detectie.
+Normaal gesp roken is dit detectie proces een hand matig: analisten gebruiken hun peer-netwerk verbindingen om anderen te identificeren die samen werken met de gegevens die worden aangevraagd. Nadat een gegevens bron is gevonden en gebruikt, herhaalt het proces zichzelf opnieuw voor elke volgende selfservice BI-inspanning, waarbij meerdere gebruikers een redundant hand matig proces van detectie uitvoeren.
 
-Met Azure Data Catalog, kan uw organisatie deze cyclus van inspanning verbroken. Nadat u een gegevensbron via traditionele middelen ontdekte, kan een analist registreren, zodat deze eenvoudiger kunnen worden gedetecteerd door andere gebruikers in de toekomst. Hoewel de analist meer waarde toevoegen kan door de geregistreerde gegevensassets, hoeft deze aantekening niet om te worden toegepast op hetzelfde moment als registratie. Gebruikers kunnen bijdragen gedurende een periode, als hun schema's toestaan, geleidelijk waarde toe te voegen met de gegevensbronnen die zijn geregistreerd in de catalogus.
+Met Azure Data Catalog kan uw organisatie deze cyclus van moeite verstoren. Na het detecteren van een gegevens bron via een traditionele manier kan een analist deze registreren, zodat deze in de toekomst eenvoudiger kan worden gedetecteerd door andere gebruikers. Hoewel de analist meer waarde kan toevoegen door aantekeningen te maken op de geregistreerde gegevensassets, hoeft deze aantekening niet op hetzelfde moment als registratie te worden uitgevoerd. Gebruikers kunnen na verloop van tijd bijdragen, zoals hun schema's toestaan, waarmee de waarde geleidelijk wordt toegevoegd aan de gegevens bronnen die in de catalogus zijn geregistreerd.
 
-Deze organische groei van de catalogusinhoud is een natuurlijke aanvulling op de registratie vooraf te betalen van de centrale gegevensbronnen. Vooraf invullen van de catalogus met gegevens die door veel gebruikers moeten mag een motivator voor eerste gebruik en detectie. Hierdoor kunnen gebruikers zich registreren en aantekeningen toevoegen aan aanvullende bronnen is een manier om deze en andere leden van de organisatie die zich bezighoudt te houden.
+Deze biologische groei van de catalogus inhoud is een natuurlijke aanvulling op de registratie vooraf van centrale gegevens bronnen. Het vooraf invullen van de catalogus met gegevens die veel gebruikers nodig hebben, kan een gebruiker zijn voor het eerste gebruik en detectie. Als u gebruikers de mogelijkheid wilt geven om zich te registreren en aantekeningen aan te maken, kunnen ze een manier hebben om ze te houden en andere leden van de organisatie.
 
-Het is vermelden waard dat hoewel in dit scenario is gericht op selfservice-BI specifiek, dezelfde patronen en uitdagingen van toepassing op grote schaal corporate BI-projecten ook zijn. Met behulp van Data Catalog, kan uw organisatie zonder veel moeite een handmatig proces voor het doorzoeken van de gegevensbron van omvat verbeteren.
+Het is belang rijk dat hoewel dit scenario specifiek gericht is op self-service BI, dezelfde patronen en uitdagingen van toepassing zijn op grootschalige zakelijke BI-projecten. Met behulp van Data Catalog kan uw organisatie alle inspanningen verbeteren die een hand matig proces van het detecteren van gegevens bronnen inhouden.
 
-## <a name="scenario-3-capturing-tribal-knowledge"></a>Scenario 3: Bedrijfskennis vastleggen
-Hoe weet u welke gegevens u moet uw werk en waar u kunt vinden die gegevens doen?
+## <a name="scenario-3-capturing-tribal-knowledge"></a>Scenario 3: Tribale-kennis vastleggen
+Hoe weet u welke gegevens u nodig hebt om uw taak uit te voeren en waar u die gegevens kunt vinden?
 
-Als u in uw taak een tijdje is hebt, u waarschijnlijk hoeft te weten. U een geleidelijke leerproces hebt doorlopen, en na verloop van tijd hebt geleerd over de gegevensbronnen die essentieel voor uw dagelijkse werkzaamheden zijn.
+Als u al enige tijd in uw taak hebt, weet u het waarschijnlijk alleen. U hebt een geleidelijk leer proces door lopen en u hebt meer informatie over de gegevens bronnen die van belang zijn voor uw dagelijkse werk.
 
-Wanneer een nieuwe werknemer lid wordt van uw team, hoe die persoon weten welke gegevens is vereist voor de taak en waar u deze kunt vinden?
+Hoe weet deze persoon welke gegevens voor de taak zijn vereist, wanneer een nieuwe werk nemer deelneemt aan uw team?
 
-Kans zijn de nieuwe persoon komt naar u met deze vragen.
+Conflicteert zijn, de nieuwe persoon komt met deze vragen.
 
-Deze continue overdracht van bedrijfskennis maakt deel uit van het detectieproces voor de gegevensbron in organisaties grote als kleine volumes. Senior en ervaren teamleden zijn gebouwd op basis van kennis in de afgelopen jaren en nieuwere teamleden hebt geleerd om te vragen wanneer ze vragen hebben. De meest essentiële informatie vaak alleen aanwezig is in de hoofden van enkele personen en wanneer deze personen zich op vakantie of het team laat, de organisatie heeft.
+Deze voortdurende overdracht van tribale kennis maakt deel uit van het detectie proces voor de gegevens bron in organisaties groot en klein. Meer senioren en ervaren team leden hebben kennis gemaakt over de jaren en nieuwere team leden hebben geleerd om hen te vragen wanneer ze vragen hebben. De meest essentiële informatie bestaat vaak alleen in de hoofden van enkele belang rijke personen, en wanneer deze mensen op vakantie zijn of het team verlaten, heeft de organisatie Last.
 
-Data-experts maken gewoonlijk een poging om het document hun kennis te delen via e-mail of in Word-documenten op de SharePoint-site van een team. Hoewel deze methode nuttig zijn kan, het introduceert een nieuwe detectie-probleem: hoe mensen weten welke documentatie bestaat en waar u deze kunt vinden?
+Data experts maken het mogelijk om hun kennis te documenteren, deze te delen via e-mail of in Word-documenten op een team share point-site. Hoewel deze aanpak waardevol kan zijn, wordt er een nieuw detectie probleem geïntroduceerd: Hoe weet men welke documentatie bestaat en waar u deze kunt vinden?
 
-Met Azure Data Catalog heeft uw organisatie een centrale locatie voor het opslaan en delen van deze specifieke kennis en voor het maken van deze gemakkelijk kunnen worden gedetecteerd. In Data Catalog, kunnen de experts van uw gegevens rechtstreeks aantekeningen toevoegen aan gegevensassets en bevatten koppelingen naar bestaande documentatie. Wanneer leden van de organisatie de catalogus voor het detecteren van een gegevensbron, vindt ze niet alleen de bron zelf, maar ook de kennis die eerder alleen in de geesten op het gebied van experts van uw organisatie.
+Met Azure Data Catalog heeft uw organisatie één centrale locatie voor het opslaan en delen van deze tribale kennis, en om het eenvoudig te kunnen detecteren. In Data Catalog kunnen uw gegevens specialisten rechtstreeks aantekeningen toevoegen aan gegevensassets en koppelingen naar bestaande documentatie bieden. Wanneer leden van een organisatie de catalogus gebruiken om een gegevens bron te detecteren, vinden ze niet alleen de bron zelf, maar ook de kennis die voorheen alleen aanwezig was in de experts van uw organisatie.

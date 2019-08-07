@@ -7,18 +7,18 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 9f6edc45316eaeceb75da643ed64b39382712852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2ffd88b21d8cf331435a030199b562e6b5b979f
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165946"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840261"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Ondersteunde indelingen en codecs voor de compressie in Azure Data Factory
 
-*In dit artikel is van toepassing op de volgende connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [Bestandssysteem](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), en [ SFTP](connector-sftp.md).*
+*Dit artikel is van toepassing op de volgende connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [azure BLOB](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [Bestands systeem](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)en [SFTP](connector-sftp.md).*
 
 Als u wilt **bestanden als kopiëren-is** overslaan tussen op basis van bestanden (binaire kopie), het gedeelte indeling in beide definities van de gegevensset voor invoer en uitvoer. Als u wilt **parseren of bestanden met een specifieke indeling genereren**, Azure Data Factory ondersteunt de volgende indeling bestandstypen:
 
@@ -27,14 +27,15 @@ Als u wilt **bestanden als kopiëren-is** overslaan tussen op basis van bestande
 * [Parquet-indeling](#parquet-format)
 * [ORC-indeling](#orc-format)
 * [Avro-indeling](#avro-format)
+* [Binaire indeling](#binary-format)
 
 > [!TIP]
-> Informatie over hoe copy activity in uw gegevens om op te vangen van kaarten [schematoewijzing in de kopieeractiviteit](copy-activity-schema-and-type-mapping.md).
+> Meer informatie over hoe kopieer activiteiten uw bron gegevens koppelt aan de [schema toewijzing in de Kopieer activiteit](copy-activity-schema-and-type-mapping.md).
 
 ## <a name="text-format"></a>Tekstindeling
 
 >[!NOTE]
->Data Factory nieuwe geïntroduceerd gescheiden tekst opmaken DataSet, Zie [gescheiden tekstopmaak](format-delimited-text.md) artikel met informatie. De volgende configuraties op bestanden gebaseerde gegevens store gegevensset wordt nog steeds ondersteund als-is voor achterwaartse compabitility. U worden gebruik van het nieuwe model voortaan voorgesteld.
+>Data Factory nieuwe tekst indeling met scheidings tekens datset geïntroduceerd, raadpleegt u artikel met scheidings tekens voor [tekst](format-delimited-text.md) met details. De volgende configuraties voor gegevens opslag gegevensset op basis van een bestand worden nog steeds ondersteund als-is voor achterwaartse compabitility. U wordt aangeraden het nieuwe model verder te gebruiken.
 
 Als u wilt lezen uit een tekstbestand of schrijven naar een tekstbestand, stelt u de `type` eigenschap in de `format` sectie van de gegevensset in **TextFormat**. U kunt ook de volgende **optionele** eigenschappen opgeven in het gedeelte `format`. Raadpleeg het gedeelte [TextFormat-voorbeeld](#textformat-example) voor configuratie-instructies.
 
@@ -42,7 +43,7 @@ Als u wilt lezen uit een tekstbestand of schrijven naar een tekstbestand, stelt 
 | --- | --- | --- | --- |
 | columnDelimiter |Het teken dat wordt gebruikt voor het scheiden van kolommen in een bestand. U kunt overwegen een zeldzaam niet-afdrukbaar teken die mogelijk niet aanwezig zijn in uw gegevens gebruiken. Geef bijvoorbeeld '\u0001', waarmee de Start van de kop (SOH). |Er is slechts één teken toegestaan. De **standaardwaarde** is een **komma (',')** . <br/><br/>Raadpleeg voor het gebruik van een Unicode-teken, [Unicode-tekens](https://en.wikipedia.org/wiki/List_of_Unicode_characters) om op te halen van de bijbehorende code voor deze. |Nee |
 | rowDelimiter |Het teken dat wordt gebruikt voor het scheiden van rijen in een bestand. |Er is slechts één teken toegestaan. De **standaardwaarde** is een van de volgende leeswaarden **['\r\n', '\r', '\n']** en de schrijfwaarde **'\r\n'** . |Nee |
-| escapeChar |Dit speciale teken wordt gebruikt om een scheidingsteken voor kolommen van de inhoud van het invoerbestand om te zetten. <br/><br/>Het is niet mogelijk om zowel escapeChar als quoteChar voor een tabel op te geven. |Er is slechts één teken toegestaan. Er is geen standaardwaarde. <br/><br/>Voorbeeld: als u met door komma's hebt (', ') als de kolom, maar u wilt het kommateken in de tekst (voorbeeld: "Hallo, wereld"), kunt u '$' als het escape-teken definiëren en gebruiken van de tekenreeks "Hallo$, wereld" in de bron. |Nee |
+| escapeChar |Dit speciale teken wordt gebruikt om een scheidingsteken voor kolommen van de inhoud van het invoerbestand om te zetten. <br/><br/>Het is niet mogelijk om zowel escapeChar als quoteChar voor een tabel op te geven. |Er is slechts één teken toegestaan. Er is geen standaardwaarde. <br/><br/>Voor beeld: als u een komma (', ') hebt als kolom scheidings teken, maar u wilt het punt komma in de tekst hebben (bijvoorbeeld: "Hallo, wereld"), u kunt $ definiëren als escape teken en de teken reeks "Hallo $, wereld" in de bron gebruiken. |Nee |
 | quoteChar |Het teken dat wordt gebruikt om een tekenreekswaarde te citeren. De scheidingstekens voor kolommen en rijen binnen de aanhalingstekens worden beschouwd als onderdeel van de tekenreekswaarde. Deze eigenschap is van toepassing op gegevenssets voor invoer en uitvoer.<br/><br/>Het is niet mogelijk om zowel escapeChar als quoteChar voor een tabel op te geven. |Er is slechts één teken toegestaan. Er is geen standaardwaarde. <br/><br/>Voorbeeld: als u kolommen scheidt met komma's (', '), maar u het kommateken in een tekst wilt gebruiken (voorbeeld: <Hallo, wereld>), kunt u " (dubbel aanhalingsteken) als het aanhalingsteken opgeven en de tekenreeks "Hallo, wereld" in de bron gebruiken. |Nee |
 | nullValue |Een of meer tekens die worden gebruikt om een null-waarde te vertegenwoordigen. |Een of meer tekens. De **standaardwaarden** zijn **'\N' en 'NULL'** voor lezen en **'\N'** voor schrijven. |Nee |
 | encodingName |Geef de coderingsnaam op. |Een geldige coderingsnaam. Zie [De eigenschap Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Voorbeeld: windows 1250 of shift_jis. De **standaardwaarde** is **UTF-8**. |Nee |
@@ -81,7 +82,7 @@ Gebruik een `escapeChar` in plaats van `quoteChar`, vervang de regel door `quote
 
 ### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>Scenario's voor het gebruik van firstRowAsHeader en skipLineCount
 
-* U wilt kopiëren uit een bron die geen bestand naar een tekstbestand en wilt een headerregel met metagegevens van het schema toevoegen (bijvoorbeeld: SQL-schema). Geef voor `firstRowAsHeader` 'True' op in de uitvoergegevensset voor dit scenario.
+* U kopieert vanuit een niet-bestands bron naar een tekst bestand en wilt een header regel toevoegen met de meta gegevens van het schema (bijvoorbeeld: SQL-schema). Geef voor `firstRowAsHeader` 'True' op in de uitvoergegevensset voor dit scenario.
 * U wilt kopiëren vanuit een tekstbestand met een headerregel naar een sink die geen bestand is en wilt die regel verwijderen. Geef voor `firstRowAsHeader` 'True' op in de invoergegevensset.
 * U wilt kopiëren uit een tekstbestand en wilt een paar regels aan het begin overslaan die geen gegevens of headerinformatie bevatten. Geef `skipLineCount` op om aan te geven hoeveel regels er moeten worden overgeslagen. Als de rest van het bestand een headerregel bevat, kunt u ook `firstRowAsHeader` opgeven. Als zowel `skipLineCount` als `firstRowAsHeader` is opgegeven, worden de regels eerst overgeslagen en wordt de headerinformatie gelezen uit het invoerbestand
 
@@ -94,13 +95,13 @@ Als u wilt voor het parseren van JSON-bestanden of de gegevens in JSON-indeling 
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | filePattern |Hiermee geeft u het patroon aan van gegevens die zijn opgeslagen in elk JSON-bestand. Toegestane waarden zijn **setOfObjects** en **arrayOfObjects**. De **standaardwaarde** is **setOfObjects**. Zie het gedeelte [JSON-bestandpatronen](#json-file-patterns) voor meer informatie over deze patronen. |Nee |
-| jsonNodeReference | Als u wilt bladeren en gegevens wilt ophalen uit de objecten in een matrixveld met hetzelfde patroon, geeft u het JSON-pad van die matrix op. Deze eigenschap wordt alleen ondersteund bij kopiëren van gegevens **van** JSON-bestanden. | Nee |
-| jsonPathDefinition | Hiermee geeft u de JSON-padexpressie aan voor elke kolomtoewijzing met een aangepaste kolomnaam (begin met een kleine letter). Deze eigenschap wordt alleen ondersteund bij kopiëren van gegevens **van** JSON-bestanden, en u kunt gegevens ophalen uit object of een matrix. <br/><br/> Voor velden onder het hoofdobject begint u met root $; voor velden binnen de matrix die is gekozen door de eigenschap `jsonNodeReference`, begint u vanaf het element van de matrix. Zie het gedeelte [JsonFormat-voorbeeld](#jsonformat-example) voor configuratie-instructies. | Nee |
-| encodingName |Geef de coderingsnaam op. Zie voor de lijst met geldige namen: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) eigenschap. Bijvoorbeeld: windows 1250 of shift_jis. De **standaard** waarde is: **UTF-8**. |Nee |
+| jsonNodeReference | Als u wilt bladeren en gegevens wilt ophalen uit de objecten in een matrixveld met hetzelfde patroon, geeft u het JSON-pad van die matrix op. Deze eigenschap wordt alleen ondersteund bij het kopiëren **van gegevens uit** json-bestanden. | Nee |
+| jsonPathDefinition | Hiermee geeft u de JSON-padexpressie aan voor elke kolomtoewijzing met een aangepaste kolomnaam (begin met een kleine letter). Deze eigenschap wordt alleen ondersteund bij het kopiëren **van gegevens uit** json-bestanden en u kunt gegevens uit een object of matrix ophalen. <br/><br/> Voor velden onder het hoofdobject begint u met root $; voor velden binnen de matrix die is gekozen door de eigenschap `jsonNodeReference`, begint u vanaf het element van de matrix. Zie het gedeelte [JsonFormat-voorbeeld](#jsonformat-example) voor configuratie-instructies. | Nee |
+| encodingName |Geef de coderingsnaam op. Zie voor de lijst met geldige coderings namen: Eigenschap [Encoding.](https://msdn.microsoft.com/library/system.text.encoding.aspx) coderings naam. Bijvoorbeeld: windows 1250 of shift_jis. De **standaard** waarde is: **UTF-8**. |Nee |
 | nestingSeparator |Teken dat wordt gebruikt voor het scheiden van geneste niveaus. De standaardwaarde is '.' (punt). |Nee |
 
 >[!NOTE]
->Voor het geval van gegevens in de matrix met een kruis toepassen in meerdere rijen (case 1 -> voorbeeld 2 in [JsonFormat voorbeelden](#jsonformat-example)), kunt u slechts één matrix met behulp van de eigenschap Vouw `jsonNodeReference`.
+>In het geval van cross-apply gegevens in een matrix in meerdere rijen (hoofdletter 1-> voor beeld 2 in [JsonFormat-voor beelden](#jsonformat-example)), kunt u er alleen voor kiezen `jsonNodeReference`om één matrix uit te breiden met behulp van eigenschap.
 
 ### <a name="json-file-patterns"></a>JSON-bestandpatronen
 
@@ -195,7 +196,7 @@ Kopieeractiviteit kan de volgende patronen van JSON-bestanden parseren:
 
 ### <a name="jsonformat-example"></a>Voorbeeld van JsonFormat
 
-**Geval 1: Kopiëren van gegevens uit JSON-bestanden**
+**Voor beeld 1: Gegevens uit JSON-bestanden kopiëren**
 
 **Voorbeeld 1: gegevens ophalen uit object en matrix**
 
@@ -355,7 +356,7 @@ De invoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: (
 * Als er dubbele namen op hetzelfde niveau voorkomen, gebruikt de kopieerbewerking de laatste.
 * Eigenschapnamen zijn hoofdlettergevoelig. Twee eigenschappen met dezelfde naam maar met een verschil in hoofdletters en kleine letters worden behandeld als twee afzonderlijke eigenschappen.
 
-**Geval 2: Gegevens schrijven naar een JSON-bestand**
+**Voor beeld 2: Gegevens schrijven naar JSON-bestand**
 
 Als u de volgende tabel in SQL-Database hebt:
 
@@ -412,7 +413,7 @@ De uitvoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: 
 ## <a name="parquet-format"></a>Parquet-indeling
 
 >[!NOTE]
->Data Factory nieuwe Parquet-indeling DataSet geïntroduceerd, Zie [Parquet-indeling](format-parquet.md) artikel met informatie. De volgende configuraties op bestanden gebaseerde gegevens store gegevensset wordt nog steeds ondersteund als-is voor achterwaartse compabitility. U worden gebruik van het nieuwe model voortaan voorgesteld.
+>Data Factory nieuwe Parquet-indeling datset geïntroduceerd, Zie [Parquet Format](format-parquet.md) -artikel met details. De volgende configuraties voor gegevens opslag gegevensset op basis van een bestand worden nog steeds ondersteund als-is voor achterwaartse compabitility. U wordt aangeraden het nieuwe model verder te gebruiken.
 
 Als u de Parquet-bestanden wilt parseren of de gegevens in Parquet-indeling wilt schrijven, stelt u de eigenschap `format` `type` in op **ParquetFormat**. U hoeft geen eigenschappen op te geven in het gedeelte Indeling binnen het gedeelte typeProperties. Voorbeeld:
 
@@ -425,24 +426,24 @@ Als u de Parquet-bestanden wilt parseren of de gegevens in Parquet-indeling wilt
 
 Houd rekening met de volgende punten:
 
-* Complexe gegevenstypen niet worden ondersteund (MAP, LIST).
-* Witruimte in de naam van kolom wordt niet ondersteund.
-* Parquet-bestand heeft de volgende opties voor compressie: NONE, SNAPPY, GZIP en LZO. Data Factory ondersteunt het lezen van gegevens in Parquet-bestanden in een van deze gecomprimeerde indelingen behalve LZO: deze wordt de compressiecodec in de metagegevens van de gegevens niet lezen. Bij het schrijven naar een Parquet-bestand kiest Data Factory echter SNAPPY, de standaardinstelling voor Parquet. Er is momenteel geen optie om dit gedrag te overschrijven.
+* Complexe gegevens typen worden niet ondersteund (kaart, lijst).
+* Spaties in kolom naam wordt niet ondersteund.
+* Het Parquet-bestand heeft de volgende opties voor compressie: GEEN, SNAPPY, GZIP en LZO. Data Factory ondersteunt het lezen van gegevens uit het Parquet-bestand in een van deze gecomprimeerde indelingen, met uitzonde ring van LZO, gebruikt de compressie-codec in de meta gegevens om de gegevens te lezen. Bij het schrijven naar een Parquet-bestand kiest Data Factory echter SNAPPY, de standaardinstelling voor Parquet. Er is momenteel geen optie om dit gedrag te overschrijven.
 
 > [!IMPORTANT]
-> Voor kopiëren gemachtigd door zelfgehoste Cloudintegratieruntime bijvoorbeeld tussen on-premises en cloud gegevensarchieven, als u niet Parquet-bestanden kopieert **als-is**, moet u voor het installeren van de **64-bits JRE 8 (Java Runtime Environment) of OpenJDK** op uw computer IR. Zie de volgende alinea met meer informatie.
+> Als u de kopie wilt voorzien van zelf-hostende Integration Runtime bijvoorbeeld tussen on-premises en gegevens opslag in de Cloud, moet ude **64-bits JRE 8 (Java Runtime Environment) of OPENJDK** op uw IR-computer installeren, als u geen Parquet-bestanden kopieert. Raadpleeg de volgende alinea met meer informatie.
 
-Voor het exemplaar wordt uitgevoerd in zelfgehoste IR en Parquet-bestand serialisatie/deserialisatie, ADF wordt gezocht naar de Java-runtime door te controleren in de eerste plaats het register *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* voor JRE, als dat niet wordt gevonden, ten tweede controle systeemvariabele *`JAVA_HOME`* voor OpenJDK.
+Voor een kopie die wordt uitgevoerd op een zelf-hostende IR met Parquet-serialisatie/deserialisatie, zoekt ADF de Java-runtime *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* door het REGI ster voor jre te controleren, indien niet *`JAVA_HOME`* gevonden, ter controle van de systeem variabele voor openjdk.
 
-- **Gebruik Java Runtime Environment**: De 64-bits-IR is 64-bits JRE vereist. U vindt deze in [hier](https://go.microsoft.com/fwlink/?LinkId=808605).
-- **Gebruik OpenJDK**: dit wordt ondersteund sinds IR versie 3.13. Pakket de jvm.dll met alle andere vereiste assembly's van OpenJDK in zelfgehoste IR-machine en set-systeemomgevingsvariabele JAVA_HOME dienovereenkomstig.
+- **Jre gebruiken**: De 64-bits IR vereist een 64-bits JRE. U kunt deze [hier](https://go.microsoft.com/fwlink/?LinkId=808605)vinden.
+- **Als u openjdk wilt gebruiken**, wordt dit ondersteund sinds IR-versie 3,13. Verdeel het JVM. dll-bestand met alle andere vereiste assembly's van OpenJDK in een zelf-hostende IR-computer en stel de systeem omgevings variabele JAVA_HOME dienovereenkomstig in.
 
 >[!TIP]
->Als u kopieert gegevens naar/vanuit Parquet-indeling met behulp van zelfgehoste Cloudintegratieruntime en druk op fout met de melding "Er is een fout opgetreden bij het aanroepen van java, bericht: **java.lang.OutOfMemoryError:Java heap ruimte**', kunt u een omgevingsvariabele toevoegen `_JAVA_OPTIONS` in de computer die als host fungeert voor de zelfgehoste IR om aan te passen de min/max heap-grootte voor JVM voor die te maken van dergelijke kopiëren, klikt u vervolgens de pijplijn opnieuw uitvoeren.
+>Als u gegevens kopieert naar/van Parquet-indeling met zelf-hostende Integration runtime en de fout melding ' er is een fout opgetreden bij het aanroepen van Java, bericht: **Java. lang. OutOfMemoryError: Java-heap**- `_JAVA_OPTIONS` ruimte ', kunt u een omgevings variabele toevoegen in de machine die de zelf-hostende IR host om de minimale/maximale Heap-grootte voor JVM aan te passen om een dergelijke kopie te kunnen uitvoeren, en vervolgens de pijp lijn opnieuw uit te voeren.
 
-![JVM-heap-grootte instellen op zelfgehoste IR](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
+![JVM-Heap-grootte instellen op zelf-hostende IR](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
-Voorbeeld: set-variabele `_JAVA_OPTIONS` met waarde `-Xms256m -Xmx16g`. De vlag `Xms` Hiermee geeft u de eerste toewijzing van de geheugengroep voor een Java Virtual Machine (JVM), terwijl `Xmx` geeft de maximale hoeveelheid geheugen toegewezen groep. Dit betekent dat JVM wordt gestart met `Xms` hoeveelheid geheugen en kunnen maximaal gebruiken `Xmx` hoeveelheid geheugen. Standaard ADF gebruiken van 64MB min en max 1G.
+Voor beeld: Stel `_JAVA_OPTIONS` variabele met `-Xms256m -Xmx16g`waarde in. Met de `Xms` vlag wordt de eerste geheugen toewijzings groep opgegeven voor een Java Virtual Machine (JVM `Xmx` ), terwijl de maximale geheugen toewijzings groep wordt opgegeven. Dit betekent dat JVM wordt gestart met `Xms` de hoeveelheid geheugen en dat er een `Xmx` maximum hoeveelheid geheugen kan worden gebruikt. ADF gebruikt standaard min 64 MB en Max 1G.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Gegevenstype toewijzing voor Parquet-bestanden
 
@@ -482,17 +483,17 @@ Als u de ORC-bestanden wilt parseren of de gegevens in ORC-indeling wilt schrijv
 
 Houd rekening met de volgende punten:
 
-* Complexe gegevenstypen niet worden ondersteund (STRUCT, MAP, LIST, UNION).
-* Witruimte in de naam van kolom wordt niet ondersteund.
-* ORC-bestand heeft drie [opties voor compressie](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory ondersteunt het lezen van gegevens uit ORC-bestanden in een van deze gecomprimeerde indelingen. Hierbij wordt de compressiecodec in de metagegevens gebruikt om de gegevens te lezen. Bij het schrijven naar een ORC-bestand kiest Data Factory echter ZLIB, de standaardinstelling voor ORC. Er is momenteel geen optie om dit gedrag te overschrijven.
+* Complexe gegevens typen worden niet ondersteund (STRUCT, kaart, lijst, samen VOEGing).
+* Spaties in kolom naam wordt niet ondersteund.
+* Het ORC-bestand heeft drie [opties met betrekking tot compressie](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): GEEN, ZLIB, SNAPPY. Data Factory ondersteunt het lezen van gegevens uit ORC-bestanden in een van deze gecomprimeerde indelingen. Hierbij wordt de compressiecodec in de metagegevens gebruikt om de gegevens te lezen. Bij het schrijven naar een ORC-bestand kiest Data Factory echter ZLIB, de standaardinstelling voor ORC. Er is momenteel geen optie om dit gedrag te overschrijven.
 
 > [!IMPORTANT]
-> Voor kopiëren gemachtigd door zelfgehoste Cloudintegratieruntime bijvoorbeeld tussen on-premises en cloud gegevensarchieven, als u niet ORC-bestanden kopieert **als-is**, moet u voor het installeren van de **64-bits JRE 8 (Java Runtime Environment) of OpenJDK**  op uw computer IR. Zie de volgende alinea met meer informatie.
+> Als u de kopie wilt voorzien van zelf-hostende Integration Runtime bijvoorbeeld tussen on-premises en gegevens opslag in de Cloud, moet ude **64-bits JRE 8 (Java Runtime Environment) of OPENJDK** op uw IR-computer installeren, als u geen Orc-bestanden kopieert. Raadpleeg de volgende alinea met meer informatie.
 
-Voor het exemplaar wordt uitgevoerd in zelfgehoste IR en ORC-bestand serialisatie/deserialisatie, ADF wordt gezocht naar de Java-runtime door te controleren in de eerste plaats het register *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* voor JRE, als dat niet wordt gevonden, ten tweede controle systeemvariabele *`JAVA_HOME`* voor OpenJDK.
+Voor een kopie die wordt uitgevoerd op een zelf-hostende IR met Orc-serialisatie/deserialisatie, zoekt ADF de Java-runtime *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* door het REGI ster voor jre te controleren, indien niet *`JAVA_HOME`* gevonden, ter controle van de systeem variabele voor openjdk.
 
-- **Gebruik Java Runtime Environment**: De 64-bits-IR is 64-bits JRE vereist. U vindt deze in [hier](https://go.microsoft.com/fwlink/?LinkId=808605).
-- **Gebruik OpenJDK**: dit wordt ondersteund sinds IR versie 3.13. Pakket de jvm.dll met alle andere vereiste assembly's van OpenJDK in zelfgehoste IR-machine en set-systeemomgevingsvariabele JAVA_HOME dienovereenkomstig.
+- **Jre gebruiken**: De 64-bits IR vereist een 64-bits JRE. U kunt deze [hier](https://go.microsoft.com/fwlink/?LinkId=808605)vinden.
+- **Als u openjdk wilt gebruiken**, wordt dit ondersteund sinds IR-versie 3,13. Verdeel het JVM. dll-bestand met alle andere vereiste assembly's van OpenJDK in een zelf-hostende IR-computer en stel de systeem omgevings variabele JAVA_HOME dienovereenkomstig in.
 
 ### <a name="data-type-mapping-for-orc-files"></a>Gegevenstype toewijzing voor ORC-bestanden
 
@@ -535,6 +536,10 @@ Houd rekening met de volgende punten:
 
 * [Complexe gegevenstypen](https://avro.apache.org/docs/current/spec.html#schema_complex) worden niet ondersteund (records, enums, matrices, kaarten, samenvoegingen, en vaste bestanden).
 
+## <a name="binary-format"></a>Binaire indeling
+
+Raadpleeg het artikel over [binaire indeling](format-binary.md) voor meer informatie.
+
 ## <a name="compression-support"></a>Compressieondersteuning voor
 
 Azure Data Factory ondersteunt comprimeren/decomprimeren van gegevens tijdens het kopiëren. Wanneer u opgeeft `compression` eigenschap in een invoergegevensset, de kopieerbewerking de gecomprimeerde gegevens lezen van de bron- en decomprimeren; en wanneer u de eigenschap opgeeft in een uitvoergegevensset, de copy-activiteit gecomprimeerd en vervolgens gegevens schrijven naar de sink. Hier volgen enkele eenvoudige voorbeeldscenario's:
@@ -575,22 +580,22 @@ De **compressie** sectie heeft twee eigenschappen:
 * **Type:** de compressiecodec, dit kan **GZIP**, **Deflate**, **BZIP2**, of **ZipDeflate**.
 * **Niveau:** de compressieverhouding, dit kan **optimale** of **snelst**.
 
-  * **Fastest:** De compressie-bewerking moet zo snel mogelijk worden voltooid, zelfs als het resulterende bestand is niet optimaal gecomprimeerd.
-  * **Optimale**: De compressie-bewerking moet optimaal zijn gecomprimeerd, zelfs als de bewerking duurt het langer om te voltooien.
+  * **Snelste** De compressie bewerking moet zo snel mogelijk worden voltooid, zelfs als het resulterende bestand niet optimaal is gecomprimeerd.
+  * **Optimaal**: De compressie bewerking moet optimaal worden gecomprimeerd, zelfs als het volt ooien van de bewerking langer duurt.
 
     Zie voor meer informatie, [compressieniveau](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) onderwerp.
 
 > [!NOTE]
 > Compressie-instellingen worden niet ondersteund voor gegevens in de **AvroFormat**, **OrcFormat**, of **ParquetFormat**. Bij het lezen van bestanden in de volgende indelingen, wordt in Data Factory wordt gedetecteerd en wordt de compressiecodec in de metagegevens. Bij het schrijven naar bestanden in de volgende indelingen, kiest Data Factory de compressiecodec standaard voor deze indeling. Bijvoorbeeld, ZLIB voor OrcFormat en SNAPPY voor ParquetFormat.
 
-## <a name="unsupported-file-types-and-compression-formats"></a>Niet-ondersteunde bestandstypen en compressie-indelingen
+## <a name="unsupported-file-types-and-compression-formats"></a>Niet-ondersteunde bestands typen en compressie-indelingen
 
-De functies van de uitbreidbaarheid van Azure Data Factory kunt u transformatie van bestanden die niet worden ondersteund.
-Twee opties zijn onder andere Azure Functions en aangepaste taken met behulp van Azure Batch.
+U kunt de uitbreidings functies van Azure Data Factory gebruiken om bestanden te transformeren die niet worden ondersteund.
+Er zijn twee opties Azure Functions en aangepaste taken met behulp van Azure Batch.
 
-U kunt een voorbeeld dat gebruikmaakt van een Azure-functie om te zien [Pak de inhoud van een bestand met tar](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Zie voor meer informatie, [Azure Functions-activiteit](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
+U kunt een voor beeld zien waarin een Azure-functie wordt gebruikt om [de inhoud van een tar-bestand te extra heren](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Zie [Azure functions-activiteit](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity)voor meer informatie.
 
-U kunt ook deze functionaliteit met behulp van een aangepaste dotnet-activiteit maken. Meer informatie vindt u [hier](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
+U kunt deze functionaliteit ook bouwen met behulp van een aangepaste DotNet-activiteit. Meer informatie is [hier](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity) beschikbaar
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,7 +1,7 @@
 ---
-title: PyTorch-modellen trainen en registreren
+title: Een diepe Learning Neural-netwerk trainen met PyTorch
 titleSuffix: Azure Machine Learning service
-description: Dit artikel leest u hoe te trainen en een PyTorch-model met behulp van Azure Machine Learning-service te registreren.
+description: Meer informatie over het uitvoeren van uw PyTorch-trainings scripts op ENTER prise Scale met behulp van de PyTorch Estimator-klasse van Azure Machine Learning.  De voorbeeld scripts classificeren de installatie kopieën van kippen en Turkije om een diep gaande Neural-netwerk te bouwen op basis van de zelf studie over de overdracht van PyTorch.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,47 +9,49 @@ ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
 ms.reviewer: peterlu
-ms.date: 06/18/2019
+ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: d9c953eeecedf14a8f3fae43c5d4713252d58b4c
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 99217106c456adcc338138190be2060b0c9a195b
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840087"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772676"
 ---
-# <a name="train-and-register-pytorch-models-at-scale-with-azure-machine-learning-service"></a>Trainen en PyTorch-modellen op schaal registreren met Azure Machine Learning-service
+# <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Pytorch diepe Learning-modellen op schaal trainen met Azure Machine Learning
 
-Dit artikel leest u hoe te trainen en een PyTorch-model met behulp van Azure Machine Learning-service te registreren. Deze gebaseerd op [PyTorch van overdracht learning-zelfstudie](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) die een deep neural network (DNN)-classificatie voor afbeeldingen van kuikens en kalkoenen bouwt.
+In dit artikel leert u hoe u uw [PyTorch](https://pytorch.org/) -trainings scripts kunt uitvoeren op ENTER prise Scale met behulp van de [PyTorch Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) -klasse van Azure machine learning.  
 
-[PyTorch](https://pytorch.org/) is een open-source-framework rekenkundige meestal gebruikt om (DNN) deep neural networks. Met Azure Machine Learning-service, kunt u snel schalen van open-source trainingstaken met behulp van flexibele cloud compute-resources. U kunt ook bijhouden uw trainingsuitvoeringen, de versie-modellen implementeren van modellen en nog veel meer.
+De voorbeeld scripts in dit artikel worden gebruikt voor het classificeren van kippen en Turkije installatie kopieën om een diep gaande Neural-netwerk te bouwen op basis van de [zelf studie](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)over de overdracht van PyTorch. 
 
-Of u een PyTorch-model van de grond-up ontwikkelt of u een bestaand model naar de cloud brengen, kunt Azure Machine Learning-service u gereed is voor productie-modellen bouwen.
+Of u nu een diep Learning PyTorch-model traint of een bestaand model in de Cloud brengt, u kunt Azure Machine Learning gebruiken om open-source trainings taken te schalen met behulp van elastische Cloud Compute-resources. U kunt modellen voor productie kwaliteit bouwen, implementeren, versie en bewaken met Azure Machine Learning. 
+
+Meer informatie over [uitgebreide kennis en machine learning](concept-deep-learning-vs-machine-learning.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze code in elk van deze omgevingen worden uitgevoerd:
+Voer deze code uit in een van de volgende omgevingen:
 
- - Azure Machine Learning-Notebook VM - geen downloads of installatie nodig
+ - Azure Machine Learning-notebook-VM-geen down loads of installatie vereist
 
-    - Voltooid de [cloud-gebaseerde notebook snelstartgids](quickstart-run-cloud-notebook.md) maken een toegewezen notebookserver vooraf geladen met de SDK en de opslagplaats met voorbeelden.
-    - Zoeken in de map samples op de notebookserver, een laptop voltooide en uitgebreide door te navigeren naar deze map: **How-to-naar-gebruik-azureml > training met deep learning > train-hyperparameter-tune-deploy-with-pytorch** de map. 
+    - U moet de [Zelfstudie: Omgeving en werk ruimte](tutorial-1st-experiment-sdk-setup.md) instellen voor het maken van een toegewezen notebook server vooraf geladen met de SDK en de voor beeld-opslag plaats.
+    - Zoek in de map met uitgebreide trainingen op de notebook server een volledig en uitgebreid notitie blok door naar deze map te navigeren: **instructies-to-use-azureml > training-met-diepe learning > Train-afstemming-Tune-Deploy-with-pytorch** -map. 
  
- - Uw eigen Jupyter-Notebook-server
+ - Uw eigen Jupyter Notebook-server
 
-    - [De Azure Machine Learning-SDK voor Python installeren](setup-create-workspace.md#sdk)
-    - [Het configuratiebestand van een werkruimte maken](setup-create-workspace.md#write-a-configuration-file)
-    - [De voorbeeldbestanden script downloaden](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch) `pytorch_train.py`
+    - [De Azure Machine Learning SDK voor python installeren](setup-create-workspace.md#sdk)
+    - [Een configuratie bestand voor een werk ruimte maken](setup-create-workspace.md#write-a-configuration-file)
+    - [De voorbeeld script bestanden downloaden](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)`pytorch_train.py`
      
-    U vindt hier ook een voltooide [Jupyter-Notebook versie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) van deze handleiding op de pagina van de GitHub-voorbeelden. De notebook bevat uitgebreide secties die betrekking hebben op intelligente hyperparameter afstemmen, modelimplementatie en laptop widgets.
+    U kunt ook een voltooide [Jupyter notebook versie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) van deze hand leiding vinden op de pagina met voor beelden van github. Het notitie blok bevat uitgebreide secties die betrekking hebben op intelligent afstemming tuning, model implementatie en notebook widgets.
 
-## <a name="set-up-the-experiment"></a>Instellen van het experiment
+## <a name="set-up-the-experiment"></a>Het experiment instellen
 
-In deze sectie stelt u het trainingsexperiment door het laden van de vereiste python-pakketten, het initialiseren van een werkruimte, een experiment maken en uploaden van de trainingsgegevens en trainingsscripts.
+In deze sectie wordt het trainings experiment opgesteld door het laden van de vereiste Python-pakketten, het initialiseren van een werk ruimte, het maken van een experiment en het uploaden van de trainings gegevens en trainings scripts.
 
 ### <a name="import-packages"></a>Pakketten importeren
 
-Importeer eerst de benodigde Python-bibliotheken.
+Importeer eerst de benodigde python-bibliotheken.
 
 ```Python
 import os
@@ -63,19 +65,19 @@ from azureml.core.compute_target import ComputeTargetException
 from azureml.train.dnn import PyTorch
 ```
 
-### <a name="initialize-a-workspace"></a>Een werkruimte initialiseren
+### <a name="initialize-a-workspace"></a>Een werk ruimte initialiseren
 
-De [werkruimte van Azure Machine Learning-service](concept-workspace.md) is de resource op het hoogste niveau voor de service. Het biedt u met een centrale locatie voor het werken met alle artefacten die u maakt. In de Python-SDK, opent u de werkruimte-artefacten met het maken van een [ `workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) object.
+De [werk ruimte](concept-workspace.md) van de Azure machine learning-service is de resource op het hoogste niveau voor de service. Het biedt u een centrale locatie voor het werken met alle artefacten die u maakt. In de python-SDK hebt u toegang tot de werkruimte artefacten door een [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) object te maken.
 
-Maken van een werkruimteobject uit de `config.json` bestand dat is gemaakt de [sectie vereisten](#prerequisites).
+Maak een werkruimte object op basis `config.json` van het bestand dat in de [sectie vereisten](#prerequisites)is gemaakt.
 
 ```Python
 ws = Workspace.from_config()
 ```
 
-### <a name="create-an-experiment"></a>Een experiment maken
+### <a name="create-a-deep-learning-experiment"></a>Een diep leer experiment maken
 
-Een experiment en een map voor het opslaan van uw trainingsscripts maken. In dit voorbeeld maakt u een experiment met de naam 'pytorch-dieren'.
+Maak een experiment en een map om uw trainings scripts te bewaren. In dit voor beeld maakt u een experiment met de naam ' pytorch-vogels '.
 
 ```Python
 project_folder = './pytorch-birds'
@@ -87,23 +89,23 @@ experiment = Experiment(ws, name=experiment_name)
 
 ### <a name="get-the-data"></a>De gegevens ophalen
 
-De gegevensset bestaat uit ongeveer 120 training-installatiekopieën voor kalkoenen en kuikens, waarbij 100 validatie-afbeeldingen voor elke categorie. We zullen downloaden en uitpakken van de gegevensset als onderdeel van onze trainingsscript `pytorch_train.py`. De afbeeldingen zijn een subset van de [afbeeldingen openen v5 gegevensset](https://storage.googleapis.com/openimages/web/index.html).
+De gegevensset bestaat uit ongeveer 120 trainings afbeeldingen voor kalk oenen en kuikens, met 100-validatie kopieën voor elke klasse. We zullen de gegevensset downloaden en uitpakken als onderdeel van het trainings `pytorch_train.py`script. De installatie kopieën zijn een subset van de [Open Image V5-gegevensset](https://storage.googleapis.com/openimages/web/index.html).
 
-### <a name="prepare-training-scripts"></a>Trainingsscripts voorbereiden
+### <a name="prepare-training-scripts"></a>Trainings scripts voorbereiden
 
-In deze zelfstudie, het trainingsscript `pytorch_train.py`, is al opgegeven. In de praktijk, kunt u neemt een trainingsscript aangepaste, zoals is en de App uitvoeren met Azure Machine Learning-service.
+In deze zelf studie wordt het trainings script `pytorch_train.py`,,, al meegeleverd. In de praktijk kunt u een aangepast trainings script uitvoeren, zoals dat is, en het met Azure Machine Learning service.
 
-Uploaden van het script van de training Pytorch `pytorch_train.py`.
+Upload het Pytorch-trainings script `pytorch_train.py`,.
 
 ```Python
 shutil.copy('pytorch_train.py', project_folder)
 ```
 
-Echter, als u wilt het gebruik van Azure Machine Learning-service volgen en mogelijkheden voor metrische gegevens, u moet een kleine hoeveelheid code binnen uw trainingsscript toevoegen. Voorbeelden van metrische gegevens bijhouden kunnen u vinden in `pytorch_train.py`.
+Als u echter Azure Machine Learning service tracering en metrische mogelijkheden wilt gebruiken, moet u een kleine code in uw trainings script toevoegen. Voor beelden van het bijhouden van metrische gegevens vindt `pytorch_train.py`u in.
 
 ## <a name="create-a-compute-target"></a>Een compute-doel maken
 
-Maak een compute-doel voor uw PyTorch-taak uit te voeren op. In dit voorbeeld maakt u een Azure Machine Learning met GPU rekencluster.
+Maak een compute-doel voor uw PyTorch-taak om uit te voeren. In dit voor beeld maakt u een Azure Machine Learning Compute-cluster waarvoor GPU is ingeschakeld.
 
 ```Python
 cluster_name = "gpucluster"
@@ -121,15 +123,15 @@ except ComputeTargetException:
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-Zie voor meer informatie over de compute-doelen, de [wat is er een compute-doel](concept-compute-target.md) artikel.
+Zie voor meer informatie over Compute-doelen het artikel [Wat is een reken doel](concept-compute-target.md) .
 
-## <a name="create-a-pytorch-estimator"></a>Een estimator PyTorch maken
+## <a name="create-a-pytorch-estimator"></a>Een PyTorch-Estimator maken
 
-De [PyTorch estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) biedt een eenvoudige manier om een PyTorch-trainingstaak op een compute-doel starten.
+De [PyTorch Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) biedt een eenvoudige manier om een PyTorch-trainings taak te starten op een compute-doel.
 
-De estimator PyTorch wordt geïmplementeerd via de algemene [ `estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klasse, die kan worden gebruikt voor de ondersteuning van elk gewenst framework. Zie voor meer informatie over het trainen van modellen met behulp van de algemene estimator [trainen van modellen met Azure Machine Learning met behulp van estimator](how-to-train-ml-models.md)
+De PyTorch Estimator wordt geïmplementeerd via de algemene [`estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klasse, die kan worden gebruikt ter ondersteuning van een Framework. Voor meer informatie over trainings modellen die gebruikmaken van de algemene Estimator, raadpleegt [u modellen met Azure machine learning met behulp van Estimator](how-to-train-ml-models.md)
 
-Als uw trainingsscript moet extra pip of conda-pakketten om uit te voeren, kunt u hebt de pakketten die zijn geïnstalleerd op de resulterende docker-installatiekopie door door te geven hun namen door middel van de `pip_packages` en `conda_packages` argumenten.
+Als uw trainings script extra PIP-of Conda-pakketten nodig heeft om uit te voeren, kunt u de pakketten op de resulterende docker-installatie kopie installeren `pip_packages` door `conda_packages` hun namen door te geven via de argumenten en.
 
 ```Python
 script_params = {
@@ -145,34 +147,34 @@ estimator = PyTorch(source_directory=project_folder,
                     pip_packages=['pillow==5.4.1'])
 ```
 
-## <a name="submit-a-run"></a>Een uitvoering verzenden
+## <a name="submit-a-run"></a>Een run verzenden
 
-De [object uitvoeren](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) biedt de interface voor de uitvoeringsgeschiedenis terwijl de taak wordt uitgevoerd en wanneer deze is voltooid.
+Het [object run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) biedt de interface voor de uitvoerings geschiedenis terwijl de taak wordt uitgevoerd en nadat deze is voltooid.
 
 ```Python
 run = experiment.submit(estimator)
 run.wait_for_completion(show_output=True)
 ```
 
-Als de uitvoering wordt uitgevoerd, er wordt de volgende fasen:
+Wanneer de uitvoering wordt uitgevoerd, worden de volgende fasen door lopen:
 
-- **Voorbereiden van**: Een docker-installatiekopie wordt gemaakt op basis van de estimator PyTorch. De afbeelding is geüpload naar het containerregister van de werkruimte en hoger wordt uitgevoerd in de cache opgeslagen. Logboeken ook worden gestreamd naar de uitvoeringsgeschiedenis en kunnen worden weergegeven om voortgang te controleren.
+- **Voorbereiden**: Een docker-installatie kopie wordt gemaakt op basis van de PyTorch-Estimator. De afbeelding wordt geüpload naar het container register van de werk ruimte en opgeslagen in de cache voor latere uitvoeringen. Logboeken worden ook gestreamd naar de uitvoerings geschiedenis en kunnen worden weer gegeven om de voortgang te bewaken.
 
-- **Schalen**: Het cluster probeert om omhoog te schalen als de Batch AI-cluster meer knooppunten vereist voor het uitvoeren van de uitvoering dan er op dit moment beschikbaar zijn.
+- **Schalen**: Het cluster probeert omhoog te schalen als het Batch AI-cluster meer knoop punten nodig heeft om de uitvoering uit te voeren dan momenteel beschikbaar zijn.
 
-- **Uitvoeren**: Alle scripts in de scriptmap worden geüpload naar de compute-doel, data-archieven worden gekoppeld of worden gekopieerd en de entry_script wordt uitgevoerd. Uitvoer van stdout en. / map logboeken worden gestreamd naar de uitvoeringsgeschiedenis en kan worden gebruikt voor het bewaken van de uitvoering.
+- **Uitvoeren**: Alle scripts in de map script worden geüpload naar het Compute-doel, gegevens archieven worden gekoppeld of gekopieerd en de entry_script wordt uitgevoerd. Uitvoer van stdout en de map./logs worden gestreamd naar de uitvoerings geschiedenis en kunnen worden gebruikt om de uitvoering te bewaken.
 
-- **Nabewerken**: De. / map van de uitvoering is gekopieerd naar de uitvoeringsgeschiedenis levert.
+- **Nabewerken**: De map./outputs van de uitvoering wordt gekopieerd naar de uitvoerings geschiedenis.
 
-## <a name="register-or-download-a-model"></a>Registreren of te downloaden van een model
+## <a name="register-or-download-a-model"></a>Een model registreren of downloaden
 
-Nadat u het model hebt getraind, kunt u deze kunt registreren in uw werkruimte. Registratie van het model kunt u store en versie uw modellen in de werkruimte voor het vereenvoudigen van [model voor beheer en de implementatie](concept-model-management-and-deployment.md).
+Zodra u het model hebt getraind, kunt u het registreren in uw werk ruimte. Met model registratie kunt u uw modellen in uw werk ruimte opslaan en versieren om het [model beheer en de implementatie](concept-model-management-and-deployment.md)te vereenvoudigen.
 
 ```Python
 model = run.register_model(model_name='pt-dnn', model_path='outputs/')
 ```
 
-U kunt ook een lokale kopie van het model downloaden met behulp van het object uitvoeren. In het trainingsscript `pytorch_train.py`, een PyTorch opslaan object zich blijft voordoen het model naar een lokale map (lokaal naar de compute-doel). U kunt de Run-object gebruiken om een kopie te downloaden.
+U kunt ook een lokale kopie van het model downloaden met behulp van het object run. In het trainings script `pytorch_train.py`slaat een PyTorch-object opslaan het model op in een lokale map (lokaal naar het Compute-doel). U kunt het object run gebruiken om een kopie te downloaden.
 
 ```Python
 # Create a model folder in the current directory
@@ -187,12 +189,12 @@ for f in run.get_file_names():
 
 ## <a name="distributed-training"></a>Gedistribueerde training
 
-De [ `PyTorch` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) estimator biedt ook ondersteuning voor gedistribueerde training over CPU en GPU-clusters. U kunt eenvoudig gedistribueerde PyTorch-taken uitvoeren en Azure Machine Learning-service de indeling u wilt beheren.
+De [`PyTorch`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) Estimator biedt ook ondersteuning voor gedistribueerde training over CPU-en GPU-clusters. U kunt eenvoudig gedistribueerde PyTorch-taken uitvoeren en Azure Machine Learning-service beheert de indeling voor u.
 
 ### <a name="horovod"></a>Horovod
-[Horovod](https://github.com/uber/horovod) is een open-source, alle verminderen framework voor gedistribueerde cursussen ontwikkeld door Uber. Het biedt een eenvoudige manier gedistribueerde GPU PyTorch-taken.
+[Horovod](https://github.com/uber/horovod) is een open source-, alle verlaagde structuur voor gedistribueerde training ontwikkeld door uber. Het biedt een eenvoudig pad naar gedistribueerde GPU PyTorch-taken.
 
-Voor het gebruik van Horovod, Geef een [ `MpiConfiguration` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) -object voor de `distributed_training` parameter in de constructor PyTorch. Deze parameter zorgt ervoor dat Horovod bibliotheek is geïnstalleerd voor gebruik in uw trainingsscript.
+Als u Horovod wilt gebruiken, [`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) geeft u een `distributed_training` object op voor de para meter in de PyTorch-constructor. Deze para meter zorgt ervoor dat de Horovod-bibliotheek wordt geïnstalleerd zodat u deze kunt gebruiken in uw trainings script.
 
 
 ```Python
@@ -208,22 +210,22 @@ estimator= PyTorch(source_directory=project_folder,
                       framework_version='1.13',
                       use_gpu=True)
 ```
-Horovod en de bijbehorende afhankelijkheden wordt geïnstalleerd, zodat u deze in uw trainingsscript importeren kunt `train.py` als volgt:
+Horovod en de bijbehorende afhankelijkheden worden voor u geïnstalleerd, zodat u deze als volgt kunt importeren in `train.py` uw trainings script:
 
 ```Python
 import torch
 import horovod
 ```
-## <a name="export-to-onnx"></a>Exporteren naar de ONNX
+## <a name="export-to-onnx"></a>Exporteren naar ONNX
 
-Om te optimaliseren interferentie met de [ONNX-Runtime](concept-onnx.md), het getrainde model voor PyTorch converteren naar de ONNX-indeling. Deductie of het model scoren, is de fase waarin het gedistribueerde model wordt gebruikt voor voorspellingen, meestal op productiegegevens. Zie de [zelfstudie](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) voor een voorbeeld.
+Converteer uw getrainde PyTorch-model naar de ONNX-indeling om de deinterferentie te optimaliseren met de [ONNX-runtime](concept-onnx.md). Defactorion of model Score is de fase waarin het geïmplementeerde model wordt gebruikt voor de voor spelling, meestal op productie gegevens. Raadpleeg de [zelf studie](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) voor een voor beeld.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel wordt getraind en een PyTorch-model van Azure Machine Learning-service geregistreerd. Ga verder dan het model implementeren-artikel voor meer informatie over het implementeren van een model.
+In dit artikel hebt u een diep gaande Neural-netwerk getraind en geregistreerd met behulp van PyTorch in Azure Machine Learning service. Ga verder met ons model implementatie artikel voor meer informatie over het implementeren van een model.
 
 > [!div class="nextstepaction"]
-> [Hoe en waar u kunt modellen implementeren](how-to-deploy-and-where.md)
+> [Hoe en waar modellen moeten worden geïmplementeerd](how-to-deploy-and-where.md)
 * [Metrische gegevens over uitvoeren tijdens de training bijhouden](how-to-track-experiments.md)
 * [Afstemmen van hyperparameters](how-to-tune-hyperparameters.md)
 * [Een getraind model implementeren](how-to-deploy-and-where.md)

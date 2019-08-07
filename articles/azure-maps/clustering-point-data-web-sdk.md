@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 69e95a9e6c76da5d502314a7190e99fc10e968f7
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 5f51c1166364a3470a1cc943e66d429c32cdc49b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639078"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839471"
 ---
 # <a name="clustering-point-data"></a>Clustering Point-gegevens
 
@@ -35,7 +35,7 @@ var datasource = new atlas.source.DataSource(null, {
 
     //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
-    clusterMaxZoom: 15 
+    clusterMaxZoom: 15
 });
 ```
 
@@ -107,6 +107,16 @@ De punt gegevens die een cluster vertegenwoordigt, worden verdeeld over een gebi
 
  <iframe height="500" style="width: 100%;" scrolling="no" title="Cluster gebied convexe romp" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Zie het cluster gebied van de pen <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>convexe romp</a> per<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () op <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="aggregating-data-in-clusters"></a>Gegevens in clusters samen voegen
+
+Vaak worden clusters weer gegeven met behulp van een symbool met het aantal punten in het cluster, maar soms is het wenselijk om de stijl van clusters op basis van een bepaalde metriek verder aan te passen, zoals de totale omzet van alle punten in een cluster. Met cluster aggregaties kunnen aangepaste eigenschappen worden gemaakt en gevuld met behulp van een [statistische expressie](data-driven-style-expressions-web-sdk.md#aggregate-expression) berekening.  U kunt cluster aggregaties definiëren in `clusterProperties` de `DataSource`optie.
+
+In het volgende voor beeld wordt een statistische expressie gebruikt om een aantal te berekenen op basis van de eigenschap entiteit type van elk gegevens punt in een cluster.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Aggregaties van het cluster" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Zie de <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>samen voegingen</a> van het pen-<a href='https://codepen.io/azuremaps'>@azuremaps</a>cluster met Azure Maps () op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -1,6 +1,6 @@
 ---
-title: Uw eerste app implementeren in de Cloud Foundry op Microsoft Azure | Microsoft Docs
-description: Een toepassing implementeren in de Cloud Foundry op Azure
+title: Implementeer uw eerste app voor het Cloud Foundry op Microsoft Azure | Microsoft Docs
+description: Een toepassing implementeren op Cloud Foundry in azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
@@ -17,71 +17,71 @@ ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
 ms.openlocfilehash: fe510865e687b6a44538627e4ef9025b41416841
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/06/2019
 ms.locfileid: "67668353"
 ---
-# <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Uw eerste app implementeren in de Cloud Foundry op Microsoft Azure
+# <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Implementeer uw eerste app voor het Cloud Foundry op Microsoft Azure
 
-[Cloud Foundry](https://cloudfoundry.org) is een populaire open-source-toepassingsplatform beschikbaar op Microsoft Azure. In dit artikel laten we zien hoe u kunt implementeren en beheren van een toepassing op Cloud Foundry in een Azure-omgeving.
+[Cloud Foundry](https://cloudfoundry.org) is een populair open-source toepassings platform dat beschikbaar is op Microsoft Azure. In dit artikel laten we zien hoe u een toepassing kunt implementeren en beheren op Cloud Foundry in een Azure-omgeving.
 
-## <a name="create-a-cloud-foundry-environment"></a>Een Cloud Foundry-omgeving maken
+## <a name="create-a-cloud-foundry-environment"></a>Een Cloud Foundry omgeving maken
 
-Er zijn verschillende opties voor het maken van een omgeving met Cloud Foundry op Azure:
+Er zijn verschillende opties voor het maken van een Cloud Foundry omgeving in Azure:
 
-- Gebruik de [Pivotal Cloud Foundry-aanbieding][pcf-azuremarketplace] in the Azure Marketplace to create a standard environment that includes PCF Ops Manager and the Azure Service Broker. You can find [complete instructions][pcf-azuremarketplace-pivotaldocs] bieden voor het implementeren van de marketplace in de documentatie van Pivotal.
-- Maak een aangepaste omgeving door [handmatig implementeren van Pivotal Cloud Foundry][pcf-custom].
-- [De open-source Cloud Foundry-pakketten rechtstreeks implementeren][oss-cf-bosh] door het instellen van een [BOSH](https://bosh.io) director, een virtuele machine die coördinaten van de implementatie van de Cloud Foundry-omgeving.
+- Gebruik de [Cloud Foundry aanbieding voor de draai tabel][pcf-azuremarketplace] in azure Marketplace om een standaard omgeving te maken met PCF OPS Manager en Azure Service Broker. U vindt [volledige instructies][pcf-azuremarketplace-pivotaldocs] voor het implementeren van de Marketplace-aanbieding in de Pivot-documentatie.
+- Maak een aangepaste omgeving door de [Cloud Foundry hand matig te implementeren][pcf-custom].
+- [Implementeer de open-source Cloud Foundry pakketten rechtstreeks][oss-cf-bosh] door een [BOSH](https://bosh.io) -directeur in te stellen, een VM die de implementatie van de Cloud Foundry omgeving coördineert.
 
 > [!IMPORTANT] 
-> Als u PCF vanuit Azure Marketplace implementeert, moet u een notitie van de SYSTEMDOMAINURL en de beheerdersreferenties vereist voor toegang tot de Pivotal Manager van de Apps die worden beschreven in de marketplace-Implementatiehandleiding. Ze zijn nodig om deze zelfstudie te voltooien. Voor implementaties van marketplace, de SYSTEMDOMAINURL is in het formulier https://system. *IP-adres*. cf.pcfazure.com.
+> Als u PCF implementeert vanuit Azure Marketplace, noteert u de SYSTEMDOMAINURL en de beheerders referenties die zijn vereist voor toegang tot de Pivot-apps Manager, die beide zijn beschreven in de implementatie handleiding voor Marketplace. Ze zijn nodig om deze zelf studie te volt ooien. Voor Marketplace-implementaties is de SYSTEMDOMAINURL in het formulier https://system. *IP-adres*. cf.pcfazure.com.
 
-## <a name="connect-to-the-cloud-controller"></a>Verbinding maken met de Cloud-Controller
+## <a name="connect-to-the-cloud-controller"></a>Verbinding maken met de Cloud controller
 
-De Controller Cloud is het primaire toegangspunt aan een Cloud Foundry-omgeving voor het implementeren en beheren van toepassingen. De core API voor Cloud-Controller (CCAPI) is een REST-API, maar deze is toegankelijk via de verschillende hulpprogramma's. In dit geval werken met deze via de [Cloud Foundry CLI][cf-cli]. You can install the CLI on Linux, MacOS, or Windows, but if you'd prefer not to install it at all, it is available pre-installed in the [Azure Cloud Shell][cloudshell-docs].
+De Cloud controller is het primaire toegangs punt voor een Cloud Foundry omgeving voor het implementeren en beheren van toepassingen. De belangrijkste Cloud controller-API (CCAPI) is een REST API, maar is toegankelijk via verschillende hulpprogram ma's. In dit geval communiceren we met de [Cloud FOUNDRY cli][cf-cli]. U kunt de CLI installeren in Linux, MacOS of Windows, maar als u deze liever niet wilt installeren, is deze vooraf geïnstalleerd in de [Azure Cloud shell][cloudshell-docs].
 
-Om aan te melden, voegt u vóór `api` naar de SYSTEMDOMAINURL die u hebt verkregen via de marketplace-implementatie. Omdat de standaardimplementatie een zelf-ondertekend certificaat gebruikt, moet u ook opnemen de `skip-ssl-validation` overschakelen.
+Als u zich wilt aanmelden `api` , laten voorafgaan door u met de SYSTEMDOMAINURL die u hebt verkregen via Marketplace-implementatie. Aangezien de standaard implementatie gebruikmaakt van een zelfondertekend certificaat, moet u ook de `skip-ssl-validation` Schakel optie toevoegen.
 
 ```bash
 cf login -a https://api.SYSTEMDOMAINURL --skip-ssl-validation
 ```
 
-U wordt gevraagd of u aanmelden bij de Cloud-Controller. Gebruik de beheerdersreferenties voor het account dat u hebt aangeschaft van de implementatiestappen marketplace.
+U wordt gevraagd om u aan te melden bij de Cloud controller. Gebruik de referenties van het beheerders account die u hebt verkregen via de implementatie stappen voor Marketplace.
 
-Cloud Foundry biedt *organisaties* en *spaties* als naamruimten voor het isoleren van de teams en omgevingen gebruiken in een gedeelde-implementatie. De implementatie van de marketplace PCF bevat de standaard *system* org en een set met spaties gemaakt waartoe de basis-onderdelen, zoals de service automatisch schalen en de Azure service broker. Kies voor dit voorbeeld de *system* ruimte.
+Cloud Foundry voorziet in *organisaties* en *ruimten* als naam ruimten voor het isoleren van de teams en omgevingen binnen een gedeelde implementatie. De implementatie van de PCF Marketplace omvat de standaard *systeem* org en een set met ruimten die zijn gemaakt met de basis onderdelen, zoals de service voor automatisch schalen en de Service Broker van Azure. Kies voor nu de *systeem* ruimte.
 
 
-## <a name="create-an-org-and-space"></a>Maken van een organisatie en de ruimte
+## <a name="create-an-org-and-space"></a>Een organisatie en ruimte maken
 
-Als u typt `cf apps`, ziet u een set-toepassingen die zijn geïmplementeerd in de ruimte die op binnen het systeem org. 
+Als u typt `cf apps`, ziet u een set systeem toepassingen die zijn geïmplementeerd in de systeem ruimte binnen de organisatie van het systeem. 
 
-Houd rekening met de *system* org gereserveerd voor systeemtoepassingen, zodat een organisatie en ruimte ook voor onze voorbeeldtoepassing maken.
+U moet ervoor zorgen dat de *systeem* organisatie voor systeem toepassingen is gereserveerd. Maak dus een organisatie en ruimte voor onze voorbeeld toepassing.
 
 ```bash
 cf create-org myorg
 cf create-space dev -o myorg
 ```
 
-De doel-opdracht gebruiken om te schakelen naar de nieuwe organisatie en de ruimte:
+Gebruik de doel opdracht om over te scha kelen naar de nieuwe organisatie en ruimte:
 
 ```bash
 cf target -o testorg -s dev
 ```
 
-Nu, wanneer u een toepassing implementeert, deze wordt automatisch gemaakt in de nieuwe organisatie en de ruimte. Typ om te bevestigen dat er momenteel geen apps in de nieuwe organisatie per ruimte zijn, `cf apps` opnieuw.
+Wanneer u nu een toepassing implementeert, wordt deze automatisch gemaakt in de nieuwe organisatie en ruimte. Als u wilt bevestigen dat er momenteel geen apps in de nieuwe organisatie of ruimte zijn `cf apps` , typt u opnieuw.
 
 > [!NOTE] 
-> Zie voor meer informatie over organisaties en spaties en hoe ze kunnen worden gebruikt voor op rollen gebaseerd toegangsbeheer (RBAC), de [documentatie voor Cloud Foundry][cf-orgs-spaces-docs].
+> Zie de [Cloud Foundry-documentatie][cf-orgs-spaces-docs]voor meer informatie over organisaties en Spaces en hoe deze kunnen worden gebruikt voor op rollen gebaseerd toegangs beheer (RBAC).
 
 ## <a name="deploy-an-application"></a>Een app implementeren
 
-We gebruiken een Cloud Foundry-voorbeeldtoepassing met de naam Hello Spring Cloud, die is geschreven in Java en op basis van de [Spring Framework](https://spring.io) en [Spring Boot](https://projects.spring.io/spring-boot/).
+We gaan een voor beeld gebruiken van een Cloud Foundry toepassing Hello lente, die is geschreven in Java en op basis van het [lente-Framework](https://spring.io) en [Spring boot](https://projects.spring.io/spring-boot/).
 
-### <a name="clone-the-hello-spring-cloud-repository"></a>Kloon de opslagplaats Hello Spring Cloud
+### <a name="clone-the-hello-spring-cloud-repository"></a>Het Hello lente-Cloud archief klonen
 
-De voorbeeldtoepassing Hello Spring Cloud is beschikbaar op GitHub. Deze klonen op uw omgeving en wijzigen in de nieuwe map:
+De voor beeld-Cloud toepassing Hello lente is beschikbaar op GitHub. Kloon het naar uw omgeving en wijzig de nieuwe map:
 
 ```bash
 git clone https://github.com/cloudfoundry-samples/hello-spring-cloud
@@ -90,42 +90,42 @@ cd hello-spring-cloud
 
 ### <a name="build-the-application"></a>De toepassing bouwen
 
-Bouw de app via [Apache Maven](https://maven.apache.org).
+Bouw de app met [Apache Maven](https://maven.apache.org).
 
 ```bash
 mvn clean package
 ```
 
-### <a name="deploy-the-application-with-cf-push"></a>De toepassing implementeren met push voor cf
+### <a name="deploy-the-application-with-cf-push"></a>De toepassing implementeren met CF push
 
-U kunt de meeste toepassingen voor het gebruik van Cloud Foundry implementeren de `push` opdracht:
+U kunt de meeste toepassingen implementeren op Cloud Foundry met `push` behulp van de opdracht:
 
 ```bash
 cf push
 ```
 
-Wanneer u *push* een toepassing, Cloud Foundry detecteert het type van de toepassing (in dit geval een Java-app) en identificeert de afhankelijkheden ervan (in dit geval de Spring-framework). Deze pakketten vervolgens alles wat vereist voor het uitvoeren van uw code in een containerinstallatiekopie zelfstandige, ook wel een *druppel*. Ten slotte Cloud Foundry plant u de toepassing op een van de beschikbare machines in uw omgeving en maakt u een URL waar u deze benaderen kunt, die beschikbaar is in de uitvoer van de opdracht.
+Wanneer u een toepassing pusht, detecteert Cloud Foundry het type toepassing (in dit geval een Java-app) en identificeert het de afhankelijkheden (in dit geval het lente-Framework). Vervolgens worden alle items die nodig zijn om uw code uit te voeren, verpakt in een zelfstandige container installatie kopie, ook wel een *droplet*genoemd. Ten slotte Cloud Foundry plant u de toepassing op een van de beschik bare computers in uw omgeving en maakt u een URL waar u deze kunt bereiken. deze is beschikbaar in de uitvoer van de opdracht.
 
-![Uitvoer van cf push-opdracht][cf-push-output]
+![Uitvoer van de CF-push opdracht][cf-push-output]
 
-Als u wilt zien van de toepassing hello-spring-cloud, door de opgegeven URL te openen in uw browser:
+Als u de Cloud toepassing wilt bekijken, opent u de gegeven URL in uw browser:
 
-![Standaard gebruikersinterface voor Hello Spring Cloud][hello-spring-cloud-basic]
+![Standaard-UI voor Hello lente-Cloud][hello-spring-cloud-basic]
 
 > [!NOTE] 
-> Voor meer informatie over wat er tijdens het gebeurt `cf push`, Zie [hoe toepassingen worden klaargezet][cf-push-docs] in de Cloud Foundry-documentatie.
+> Zie [hoe toepassingen worden klaargezet][cf-push-docs] in de `cf push`Cloud Foundry documentatie voor meer informatie over wat er gebeurt tijdens.
 
-## <a name="view-application-logs"></a>Logboeken van de toepassing weergeven
+## <a name="view-application-logs"></a>Toepassings logboeken weer geven
 
-U kunt de Cloud Foundry-CLI gebruiken om Logboeken voor een toepassing door de naam ervan weer te geven:
+U kunt de Cloud Foundry CLI gebruiken om logboeken voor een toepassing weer te geven op basis van de naam:
 
 ```bash
 cf logs hello-spring-cloud
 ```
 
-Standaard de logboeken gebruikt de opdracht *tail*, nieuwe logboeken laat zien als ze worden geschreven. Overzicht van nieuwe logboeken worden weergegeven, vernieuwt u de Hallo-spring-cloud-app in de browser.
+De logboeken opdracht maakt standaard gebruik van *staart*, waarin nieuwe logboeken worden weer gegeven wanneer ze zijn geschreven. Als u nieuwe logboeken wilt weer geven, vernieuwt u de Hello-lente-Cloud-app in de browser.
 
-Als u logboeken die al zijn geschreven, voeg de `recent` schakelen:
+Als u logboeken wilt weer geven die al zijn geschreven `recent` , voegt u de switch toe:
 
 ```bash
 cf logs --recent hello-spring-cloud
@@ -133,20 +133,20 @@ cf logs --recent hello-spring-cloud
 
 ## <a name="scale-the-application"></a>De toepassing schalen
 
-Standaard `cf push` slechts één exemplaar van uw toepassing maakt. Voor hoge beschikbaarheid garanderen en inschakelen van scale-out voor een hogere doorvoer, doorgaans wilt u meer dan één exemplaar van uw toepassingen uitvoeren. U kunt gemakkelijk schalen reeds geïmplementeerde toepassingen met behulp van de `scale` opdracht:
+Standaard `cf push` maakt slechts één exemplaar van uw toepassing. Om hoge Beschik baarheid te garanderen en uit te schalen voor een hogere door Voer, wilt u meestal meer dan één exemplaar van uw toepassingen uitvoeren. U kunt al geïmplementeerde toepassingen eenvoudig uitschalen met `scale` behulp van de opdracht:
 
 ```bash
 cf scale -i 2 hello-spring-cloud
 ```
 
-Met de `cf app` op de toepassing-opdracht laat zien dat Cloud Foundry is het maken van een ander exemplaar van de toepassing. Nadat de toepassing is gestart, worden de taakverdeling van verkeer naar deze Cloud Foundry automatisch gestart.
+Als u `cf app` de opdracht uitvoert op de toepassing, ziet u dat Cloud Foundry een andere instantie van de toepassing maakt. Zodra de toepassing is gestart, wordt door Cloud Foundry automatisch taakverdelings verkeer gestart.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Raadpleeg de documentatie voor Cloud Foundry][cloudfoundry-docs]
-- [Instellen van het Azure DevOps-Services-invoegtoepassing voor Cloud Foundry][vsts-plugin]
-- [Configureren van de Microsoft Log Analytics-pijp voor Cloud Foundry][loganalytics-nozzle]
+- [Raadpleeg de documentatie van Cloud Foundry][cloudfoundry-docs]
+- [De Azure DevOps Services-invoeg toepassing voor Cloud Foundry instellen][vsts-plugin]
+- [De micro soft Log Analytics-spuit voor Cloud Foundry configureren][loganalytics-nozzle]
 
 <!-- LINKS -->
 

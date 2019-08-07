@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7356541ed6288603a66d5caa43138284d8d4d918
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 1609931cd5fcab0977ff64f680fbb1f253f3caaf
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320471"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782176"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Durable Functions 2,0 Preview (Azure Functions)
 
@@ -147,7 +147,7 @@ public class Counter
 }
 ```
 
-Het model op basis van klassen is vergelijkbaar met het programmeer model dat is gepopulaird door [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). In dit model wordt een entiteits type gedefinieerd als een .NET-klasse. Elke methode van de klasse is een bewerking die kan worden aangeroepen door een externe client. In tegens telling tot Orleans zijn .NET-interfaces echter optioneel. Het vorige *voor* beeld van het object heeft geen interface gebruikt, maar kan nog wel worden aangeroepen via andere functies of via HTTP-API-aanroepen.
+Het model op basis van klassen is vergelijkbaar met het programmeer model dat is gepopulaird door [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). In dit model wordt een entiteits type gedefinieerd als een .NET-klasse. Elke methode van de klasse is een bewerking die kan worden aangeroepen door een externe client. In tegens telling tot Orleans zijn .NET-interfaces echter optioneel. Het vorige voor beeld van het object heeft geen interface gebruikt, maar kan nog wel worden aangeroepen via andere functies of via HTTP-API-aanroepen.
 
 Entiteit *exemplaren* worden geopend via een unieke id, de *entiteit-id*. Een Entiteits-ID is gewoon een paar teken reeksen waarmee een entiteits exemplaar uniek wordt geïdentificeerd. Het bestaat uit:
 
@@ -242,6 +242,16 @@ public static async Task AddValueClient(
 ```
 
 In het vorige voor beeld is `proxy` de para meter een dynamisch gegenereerd exemplaar `ICounter`van, waarmee de aanroep naar `Add` de `SignalEntityAsync`equivalente (niet-getypte) aanroep wordt omgezet in.
+
+Voor de type parameter `SignalEntityAsync<T>` voor gelden de volgende beperkingen:
+
+* De type parameter moet een interface zijn.
+* Op de interface kunnen alleen methoden worden gedefinieerd. Eigenschappen worden niet ondersteund.
+* Elke methode moet een of geen para meters definiëren.
+* Elke methode moet een van `void`de `Task`volgende typen `Task<T>` of `T` een JSON-serializeable retour neren.
+* De interface moet worden geïmplementeerd door precies één type in de assembly van de interface.
+
+In de meeste gevallen wordt een runtime-uitzonde ring veroorzaakt door interfaces die niet aan deze vereisten voldoen.
 
 > [!NOTE]
 > Het is belang rijk te weten dat `ReadEntityStateAsync` de `SignalEntityAsync` methoden en `IDurableOrchestrationClient` de prioriteit van de prestaties ten opzichte van consistentie zijn. `ReadEntityStateAsync`een verouderde waarde kan worden `SignalEntityAsync` geretourneerd en kan worden geretourneerd voordat de bewerking is voltooid.

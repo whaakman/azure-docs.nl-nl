@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: ad9c752898733286701db2d0f0b1fc40029b7521
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 2cc33a9ac55ae9e906d88b72476d4b5ee244d2c8
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370706"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780427"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Zelfstudie: Bedreigingen detecteren met de preview-versie van Azure Sentinel
 
@@ -28,7 +28,7 @@ ms.locfileid: "68370706"
 > Azure Sentinel is momenteel beschikbaar als open bare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-Nadat u [uw gegevens bronnen hebt verbonden](quickstart-onboard.md) met Azure Sentinel, wilt u een melding ontvangen wanneer er iets verdacht is. Als u dit wilt doen, kunt u met Azure Sentinel geavanceerde waarschuwings regels maken waarmee aanvragen worden gegenereerd die u kunt toewijzen en gebruiken om afwijkingen en bedreigingen in uw omgeving nauw keurig te onderzoeken. 
+Nadat u [uw gegevens bronnen hebt verbonden](quickstart-onboard.md) met Azure Sentinel, wilt u een melding ontvangen wanneer er iets verdacht is. Hiervoor kunt u met Azure Sentinel geavanceerde waarschuwings regels maken waarmee incidenten worden gegenereerd die u kunt toewijzen en gebruiken om afwijkingen en bedreigingen in uw omgeving nauw keurig te onderzoeken. 
 
 Deze zelf studie helpt u bij het detecteren van bedreigingen met Azure Sentinel.
 > [!div class="checklist"]
@@ -37,7 +37,7 @@ Deze zelf studie helpt u bij het detecteren van bedreigingen met Azure Sentinel.
 
 ## <a name="create-detection-rules"></a>Detectie regels maken
 
-Als u cases wilt onderzoeken, moet u eerst detectie regels maken. 
+Voor het onderzoeken van incidenten moet u eerst detectie regels maken. 
 
 > [!NOTE]
 > Waarschuwingen die zijn gegenereerd in azure Sentinel zijn beschikbaar via [Microsoft Graph beveiliging](https://aka.ms/securitygraphdocs). Raadpleeg de [documentatie over Microsoft Graph Security Alerts](https://aka.ms/graphsecurityreferencebetadocs) voor meer informatie en integratie partners.
@@ -77,9 +77,9 @@ Detectie regels zijn gebaseerd op de typen bedreigingen en afwijkingen die in uw
 
 8. Nadat u de query hebt geplakt in het veld **waarschuwings regel instellen** , kunt u direct een simulatie van de waarschuwing bekijken onder **Logic alert simulatie** zodat u kunt zien hoeveel gegevens er worden gegenereerd over een bepaald tijds interval voor de waarschuwing u hebt gemaakt. Dit is afhankelijk van wat u hebt ingesteld voor **frequentie** en **drempel waarde**. Als u ziet dat uw waarschuwing gemiddeld te vaak wordt geactiveerd, moet u het aantal resultaten hoger instellen, zodat het boven uw gemiddelde basis lijn komt.
 
-9. Klik op **maken** om uw waarschuwings regel te initialiseren. Nadat de waarschuwing is gemaakt, wordt er een aanvraag gemaakt die de waarschuwing bevat. U kunt de gedefinieerde detectie regels als rijen zien op het tabblad **Security Analytics** . U kunt ook het aantal overeenkomsten voor elke regel bekijken. de waarschuwingen worden geactiveerd. In deze lijst kunt u elke regel inschakelen, uitschakelen of verwijderen. U kunt ook met de rechter muisknop het weglatings teken (...) aan het einde van de rij selecteren om elke waarschuwing te bewerken, uit te scha kelen, te klonen, overeenkomsten weer te geven of een regel te verwijderen. De **Analytics** -pagina is een galerie met al uw actieve waarschuwings regels, waaronder sjablonen die u hebt ingeschakeld en waarschuwings regels die u maakt op basis van sjablonen.
+9. Klik op **maken** om uw waarschuwings regel te initialiseren. Nadat de waarschuwing is gemaakt, wordt er een incident gemaakt met daarin de waarschuwing. U kunt de gedefinieerde detectie regels als rijen zien op het tabblad **Security Analytics** . U kunt ook het aantal overeenkomsten voor elke regel bekijken. de waarschuwingen worden geactiveerd. In deze lijst kunt u elke regel inschakelen, uitschakelen of verwijderen. U kunt ook met de rechter muisknop het weglatings teken (...) aan het einde van de rij selecteren om elke waarschuwing te bewerken, uit te scha kelen, te klonen, overeenkomsten weer te geven of een regel te verwijderen. De **Analytics** -pagina is een galerie met al uw actieve waarschuwings regels, waaronder sjablonen die u hebt ingeschakeld en waarschuwings regels die u maakt op basis van sjablonen.
 
-1. De resultaten van de waarschuwings regels kunnen worden weer gegeven op  de pagina cases, waar u de bedreigingen kunt sorteren, [onderzoeken](tutorial-investigate-cases.md)en oplossen.
+1. De resultaten van de waarschuwings regels kunnen worden weer gegeven op de pagina incidenten, waar u kunt sorteren, [incidenten onderzoeken](tutorial-investigate-cases.md)en de bedreigingen herstelt.
 
 
 

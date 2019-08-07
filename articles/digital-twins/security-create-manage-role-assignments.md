@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 07/29/2019
 ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: a57089eb2cd87b08ba647afed002d90d6f14891a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 968ae62344f99edf8eb46eb62a4cf13f300c868f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846660"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815642"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Roltoewijzingen in azure Digital Apparaatdubbels maken en beheren
 
@@ -39,13 +39,13 @@ Elke roltoewijzing voldoet aan de volgende definitie:
 
 In de volgende tabel wordt elk kenmerk beschreven:
 
-| Kenmerk | Name | Verplicht | Type | Description |
+| Kenmerk | Name | Vereist | Type | Description |
 | --- | --- | --- | --- | --- |
 | roleId | Roldefinitie-id | Ja | Tekenreeks | De unieke ID van de gewenste roltoewijzing. Zoek roldefinities en hun id door een query uit te zoeken naar de onderstaande systeem-API of-tabel. |
-| object-id | Object-id | Ja | Reeks | Een Azure Active Directory-ID, Service-Principal object-ID of domein naam. Waaraan de roltoewijzing is toegewezen. De roltoewijzing moet worden ingedeeld volgens het bijbehorende type. Voor de `DomainName` objectIdType moet objectId met het `“@”` teken beginnen. |
-| objectIdType | Type object-id | Ja | Tekenreeks | Het soort object-id dat wordt gebruikt. Zie de **ondersteunde ObjectIdTypes** hieronder. |
-| path | Pad naar Space | Ja | Tekenreeks | Het volledige toegangspad naar het `Space` object. Een voorbeeld is `/{Guid}/{Guid}`. Als een id de roltoewijzing voor de hele grafiek vereist, geeft `"/"`u op. Met dit teken wordt de hoofdmap aangeduid, maar het gebruik ervan wordt afgeraden. Volg altijd het principe van minimale bevoegdheden. |
-| TenantId | Tenant-id | Varieert | Tekenreeks | In de meeste gevallen wordt de Tenant-ID van Azure Active Directory. Niet toegestaan voor `DeviceId` en `TenantId` ObjectIdTypes. Vereist voor `UserId` en `ServicePrincipalId` ObjectIdTypes. Optioneel voor de DomainName-ObjectIdType. |
+| object-id | Object-id | Ja | Tekenreeks | Een Azure Active Directory-ID, Service-Principal object-ID of domein naam. Waaraan de roltoewijzing is toegewezen. De roltoewijzing moet worden ingedeeld volgens het bijbehorende type. Voor de `DomainName` objectIdType moet objectId met het `“@”` teken beginnen. |
+| objectIdType | Type object-id | Ja | Reeks | Het soort object-id dat wordt gebruikt. Zie de **ondersteunde ObjectIdTypes** hieronder. |
+| path | Pad naar Space | Ja | Reeks | Het volledige toegangspad naar het `Space` object. Een voorbeeld is `/{Guid}/{Guid}`. Als een id de roltoewijzing voor de hele grafiek vereist, geeft `"/"`u op. Met dit teken wordt de hoofdmap aangeduid, maar het gebruik ervan wordt afgeraden. Volg altijd het principe van minimale bevoegdheden. |
+| tenantId | Tenant-id | Varieert | Tekenreeks | In de meeste gevallen wordt de Tenant-ID van Azure Active Directory. Niet toegestaan voor `DeviceId` en `TenantId` ObjectIdTypes. Vereist voor `UserId` en `ServicePrincipalId` ObjectIdTypes. Optioneel voor de DomainName-ObjectIdType. |
 
 ### <a name="supported-role-definition-identifiers"></a>Definitie-id's van ondersteunde rollen
 
@@ -167,8 +167,8 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  Waar | Reeks |   De objectId voor de gebruikers-id objectIdType. |
 | YOUR_PATH | Waar | Tekenreeks |   Het gekozen pad om de toegang voor te controleren. |
-| YOUR_ACCESS_TYPE |  Waar | Reeks |   Het toegangs type waarvoor moet worden gecontroleerd. |
-| YOUR_RESOURCE_TYPE | Waar | Tekenreeks |  De resource die moet worden gecontroleerd. |
+| YOUR_ACCESS_TYPE |  Waar | Tekenreeks |   Het toegangs type waarvoor moet worden gecontroleerd. |
+| YOUR_RESOURCE_TYPE | Waar | Reeks |  De resource die moet worden gecontroleerd. |
 
 Een geslaagde aanvraag retourneert een Booleaanse `true` waarde `false` of geeft aan of het toegangs type is toegewezen aan de gebruiker voor het gegeven pad en de opgegeven bron.
 
@@ -180,7 +180,7 @@ Als u alle roltoewijzingen voor een pad wilt ophalen, maakt u een geverifieerde 
 YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
-| Waarde | Vervangen door |
+| Value | Vervangen door |
 | --- | --- |
 | YOUR_PATH | Het volledige pad naar de ruimte |
 

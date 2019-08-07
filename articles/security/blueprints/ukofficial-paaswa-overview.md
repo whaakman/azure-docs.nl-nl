@@ -1,6 +1,6 @@
 ---
-title: Azure-beveiliging en naleving blauwdruk - PaaS-webtoepassing die als host fungeert voor de officiële Workloads groot-Brittannië
-description: Azure-beveiliging en naleving blauwdruk - PaaS-webtoepassing die als host fungeert voor de officiële Workloads groot-Brittannië
+title: Azure-blauwdruk voor beveiliging en naleving-PaaS voor het hosten van webtoepassingen voor de officiële workloads in het Verenigd Konink rijk
+description: Azure-blauwdruk voor beveiliging en naleving-PaaS voor het hosten van webtoepassingen voor de officiële workloads in het Verenigd Konink rijk
 services: security
 author: jomolesk
 ms.assetid: 446105ad-a863-44f5-a964-6ead1dac4787
@@ -8,48 +8,48 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: e3ee5a0aa22d1231dca7d02a77d39e0a2b569314
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54bf4512785941ae1d09ae1436deefc032ec0037
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753848"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780663"
 ---
-# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-beveiliging en naleving blauwdruk: PaaS-webtoepassing die als host fungeert voor de officiële Workloads groot-Brittannië
+# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-blauwdruk voor beveiliging en naleving: Host voor PaaS-webtoepassingen voor de officiële workloads van het Verenigd Konink rijk
 
 ## <a name="azure-security-and-compliance-blueprints"></a>Blauwdrukken voor Azure-beveiliging en naleving
 
-Azure blauwdrukken bestaan uit richtlijnen documenten en automation-sjablonen die voor het implementeren van cloud-gebaseerde architecturen voor oplossingen voor scenario's waarvoor accreditatie-en nalevingsvereisten. Azure blauwdrukken zijn verzamelingen van richtlijnen en automation-sjabloon waardoor Microsoft Azure-klanten kunnen Versnel de levering van hun zakelijke doelstellingen die via het inrichten van een foundation-architectuur die kan worden uitgebreid om te voldoen aan eventuele aanvullende vereisten.
+Azure-blauw drukken bestaat uit richt lijnen voor documenten en Automation-sjablonen die Cloud architecturen implementeren om oplossingen te bieden voor scenario's met betrekking tot accreditatie-of nalevings vereisten. Azure-blauw drukken zijn regels voor begeleiding en Automation-sjablonen waarmee Microsoft Azure klanten hun bedrijfs doelen sneller kunnen leveren door middel van het inrichten van een basis architectuur die kan worden uitgebreid om te voldoen aan alle verdere vereisten.
 
 ## <a name="overview"></a>Overzicht
 
-Deze Azure-beveiliging en naleving blauwdruk biedt richtlijnen en automation-scripts voor het leveren van een Microsoft Azure [platform als een service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) gehost architectuur voor webtoepassingen geschikt is voor het verwerken van workloads die zijn geclassificeerd Als [UK-OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Deze beveiligingsclassificatie omvat het merendeel van de gegevens die zijn gemaakt of verwerkt via de openbare sector. Dit omvat routinematige zakelijke activiteiten en -services, welke indien verloren, gestolen of gepubliceerd in de media, waarvan sommige kan schadelijke gevolgen hebben. De typische bedreigingsprofiel voor de officiële classificatie is bijna hetzelfde als een privé-onderneming die waardevolle informatie en services bevat. Groot-Brittannië officiële verwacht de noodzaak om te beschermen van gegevens van de Britse overheid of services op basis van een dreiging of een inbreuk op door aanvallers met gebonden mogelijkheden en resources, zoals (maar is niet beperkt tot) hactivists, single-issue druk te verlichten groepen, resulterend journalisten bevoegde afzonderlijke hackers, en het merendeel van strafrechtelijke personen en groepen.
+Deze Azure-blauwdruk voor beveiliging en naleving biedt richt lijnen en automatiserings scripts voor het leveren van een Microsoft Azure [platform as a Service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) gehoste webtoepassings architectuur die geschikt is voor het verwerken van werk belastingen die zijn geclassificeerd als [UK-ambtenaar ](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Deze beveiligings classificatie omvat het meren deel van de gegevens die zijn gemaakt of verwerkt door de open bare sector. Dit omvat routine bedrijfs activiteiten en-services, die als verloren, gestolen of uitgegeven in de media worden uitgevoerd, waarvan sommige nadelige gevolgen kunnen hebben. Het typische bedreigings profiel voor de officiële classificatie is veel hetzelfde als een persoonlijke onderneming die waardevolle informatie en services biedt. In het Verenigd Konink rijk wordt gekeken naar de nood zaak om gegevens of services van Britse UK te beschermen tegen bedreigingen of inbreuken door aanvallers met gebonden mogelijkheden en resources, zoals (maar niet beperkt tot) hactivists, op het onderhandelings journalisten; bevoegde individuele hackers en de meerderheid van criminele individuen en groepen.
 
-Deze blauwdruk is gecontroleerd door de UK nationale Cyber Security Center (NCSC) en overeenstemt met de NCSC 14 Cloud Security Principles.
+Deze blauw druk is gecontroleerd door het UK National Cyber Security Center (NCSC) en is afgestemd op de NCSC 14 Cloud Security Principles.
 
-De architectuur maakt gebruik van Azure [platform als een service](https://azure.microsoft.com/overview/what-is-paas/) onderdelen voor het leveren van een omgeving waarmee klanten om te voorkomen dat de kosten en complexiteit van het aanschaffen van softwarelicenties, van het beheer van de onderliggende infrastructuur van toepassingen en middleware of de ontwikkelhulpprogramma's en andere bronnen. Klanten beheren de toepassingen en services die hij ontwikkelt, ligt de focus op het leveren van de waarde voor het bedrijf, terwijl Microsoft Azure de andere Azure-resources zoals virtuele machines, opslag beheert en netwerken, plaatsen van meer van de [deling van verantwoordelijkheid](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) voor infrastructuurbeheer u aan bij de Azure-platform. [Azure App Services](https://azure.microsoft.com/services/app-service/) automatisch schalen, hoge beschikbaarheid biedt, biedt ondersteuning voor Windows en Linux en maakt automatische implementaties vanuit GitHub, Azure DevOps of een gitopslagplaats als standaard-services mogelijk. Door het gebruik van App Services, ontwikkelaars zich concentreren op het leveren van de waarde voor het bedrijf zonder de overhead van het beheer van infrastructuur. Het is mogelijk ontwikkel nieuwe toepassingen voor Java, PHP, Node.js, Python, HTML of C# web of ook voor het migreren van bestaande cloud of op lokale webtoepassingen voor Azure App Services (Hoewel grondige vanwege de zorgvuldigheid en testen om te bevestigen prestaties is vereist).
+De architectuur maakt gebruik van Azure [platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) -onderdelen om een omgeving te bieden waarmee klanten de kosten en complexiteit van het kopen van software licenties kunnen vermijden, van het beheren van de onderliggende toepassings infrastructuur en middleware of de Ontwikkel hulpprogramma's en andere bronnen. Klanten beheren de toepassingen en services die ze ontwikkelen, gericht op het leveren van bedrijfs waarde, terwijl Microsoft Azure de andere Azure-resources, zoals virtuele machines, opslag en netwerken, beheert, waardoor meer van de [divisie van verantwoordelijk](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) voor het beheer van de infra structuur op het Azure-platform. [Azure-app Services](https://azure.microsoft.com/services/app-service/) biedt automatisch schalen, hoge Beschik baarheid, ondersteunt Windows en Linux en maakt automatische implementaties mogelijk vanuit github, Azure DevOps of een Git-opslag plaats als standaard services. Dankzij het gebruik van App Services kunnen ontwikkel aars zich concentreren op het leveren van bedrijfs waarde zonder de overhead van het beheer van de infra structuur. Het is mogelijk om ontwikkel nieuwe Java-, PHP-, node. js-, python- C# , HTML-of webtoepassingen te bouwen, of om bestaande Cloud-of on-premises webtoepassingen te migreren naar Azure-app-Services (hoewel uitgebreide mogelijkheden en testen voor het bevestigen van de prestaties vereist).
 
-Deze blauwdruk is gericht op het inrichten van een veilige basis [platform als een service](https://azure.microsoft.com/overview/what-is-paas/) webinterface voor openbare en ook back-office-gebruikers. In dit scenario van blauwdruk ontwerp rekening gehouden met het gebruik van Azure die worden gehost op basis van web services waar een openbare gebruiker kunt veilig indienen, weergeven en beheren van gevoelige gegevens; ook dat een back-office of government-operator de gevoelige gegevens die de openbare gebruiker heeft ingediend veilig kunt verwerken. Use cases voor dit scenario kunnen zijn:
+Deze blauw druk is gericht op het inrichten van een beveiligd Foundation- [platform als een](https://azure.microsoft.com/overview/what-is-paas/) webinterface op basis van een service voor open bare en ook Back-Office-gebruikers. In dit scenario van de blauw druk wordt het gebruik van door Azure gehoste webservices beschouwd, waarbij een open bare gebruiker veilig gevoelige gegevens kan indienen, bekijken en beheren. het is ook mogelijk dat de gevoelige gegevens die de open bare gebruiker heeft verzonden, veilig kunnen worden verwerkt door een back Office-of overheids operator. Voor dit scenario gelden de volgende cases:
 
-- Een gebruiker een belastingaangifte indienen met behulp van een government-operator verwerken van de inzending;
-- Een gebruiker die een service via een webgebaseerde toepassing aanvragen met een back-office-gebruiker valideren en leveren van de service. of
-- Een gebruiker om te zoeken en weergeven van openbare domein help-informatie over een government-service.
+- Een gebruiker die een belasting aangifte indient, met een overheids operator die de verzen ding verwerkt;
+- Een gebruiker die een service aanvraagt via een webtoepassing, met een back-Office-gebruiker die de service valideert en levert; of
+- Een gebruiker die open bare domein Help-informatie zoekt en bekijkt met betrekking tot een overheids service.
 
-Met behulp van [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) sjablonen en Azure Command Line Interface scripts, de blauwdruk implementeert u een omgeving die wordt uitgelijnd op het Verenigd Koninkrijk nationale Cyber beveiliging centrum (NCSC) 14 [Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) en het Center for Internet Security (CIS) [kritieke beveiligingscontroles](https://www.cisecurity.org/critical-controls.cfm). De NCSC raadt aan om te evalueren van de eigenschappen voor de beveiliging van de service en voor meer informatie over de verdeling van de verantwoordelijkheid tussen de klant en de leverancier van de Cloud Security Principles door klanten worden gebruikt. Microsoft heeft verstrekt informatie met betrekking tot elk van deze principes voor meer informatie over de splitsing van verantwoordelijkheden. Deze architectuur en de bijbehorende Azure Resource Manager-sjablonen worden ondersteund door de Microsoft-whitepaper [14 Cloud beveiligingsmaatregelen voor het Verenigd Koninkrijk in de cloud met behulp van Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Deze architectuur is gecontroleerd door de NCSC en het Verenigd Koninkrijk NCSC 14 Cloud beveiligingsprincipes, waardoor de publieke sector organisaties de mogelijkheid om te voldoen aan verplichtingen met cloud-gebaseerde services wereldwijd en in het Verenigd Koninkrijk in fast track conform de Microsoft Azure-cloud. Deze sjabloon implementeert de infrastructuur voor de werkbelasting. Toepassingscode en de ondersteunende bedrijfslaag en software van gegevens van de laag moeten worden geïnstalleerd en geconfigureerd door klanten. Gedetailleerde implementatie-instructies zijn beschikbaar [hier](https://aka.ms/ukofficial-paaswa-repo/).
+Met behulp van [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) sjablonen en Azure Command line interface scripts implementeert de blauw druk een omgeving die wordt afgestemd op het UK National Cyber NCSC-beveiligings centrum voor de [Cloud](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) , en het Center voor Internet Security (CIS) [essentiële beveiligings controles](https://www.cisecurity.org/critical-controls.cfm). De NCSC raadt aan de Cloud beveiligings principes door klanten te worden gebruikt om de beveiligings eigenschappen van de service te evalueren en om inzicht te krijgen in de verdeling van de verantwoordelijkheid tussen de klant en de leverancier. Micro soft heeft informatie over elk van deze principes verstrekt, zodat u beter inzicht krijgt in de splitsing van verantwoordelijkheden. Deze architectuur en bijbehorende Azure Resource Manager sjablonen worden ondersteund door de micro soft-white paper- [beveiligings controles voor de 14-Cloud voor UK in de Cloud met behulp van Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Deze architectuur is gecontroleerd door de NCSC en is afgestemd op de beveiligings principes van het Verenigd Konink rijk van NCSC 14, waardoor organisaties in de publieke sector snel hun capaciteit kunnen volgen om te voldoen aan de nalevings verplichtingen met behulp van Cloud Services die wereld wijd en in het Verenigd Konink rijk zijn op de Microsoft Azure Cloud. Met deze sjabloon wordt de infra structuur voor de werk belasting geïmplementeerd. Toepassings code en ondersteunende software voor bedrijfslaag en gegevenslaag moeten door klanten worden geïnstalleerd en geconfigureerd. Gedetailleerde implementatie-instructies zijn [hier](https://aka.ms/ukofficial-paaswa-repo/)beschikbaar.
 
-Deze blauwdruk is een foundation-architectuur. Onze klanten kunnen deze blauwdruk gebruiken als basis voor de officiële classificatie web gebaseerde workloads en vouw op de sjablonen en resources met hun eigen vereisten. Deze blauwdruk bouwt voort op de beginselen van het [UK officiële drie lagen IaaS-webtoepassingen blauwdruk](https://aka.ms/ukofficial-iaaswa) te bieden van onze klanten [infrastructure-as-a-service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/) en PaaS-implementatie-opties voor het hosten van web gebaseerde workloads.
+Deze blauw druk is een kern architectuur. Onze klanten kunnen deze blauw druk gebruiken als basis voor hun officiële classificatie op het web gebaseerde workloads en de sjablonen en resources uitbreiden met hun eigen vereisten. Deze blauw druk is gebaseerd op de beginselen van de [OFFICAL met drie lagen IaaS](https://aka.ms/ukofficial-iaaswa) webtoepassingen die onze klanten zowel [Infrastructure as a Service (IaaS) als](https://azure.microsoft.com/overview/what-is-iaas/) PaaS implementatie opties bieden voor het hosten van op internet gebaseerde workloads.
 
-Voor het implementeren van deze blauwdruk, is een Azure-abonnement vereist. Als u een Azure-abonnement hebt, kunt u kosteloos zich om snel en eenvoudig: Aan de slag met Azure. Klik op [hier](https://aka.ms/ukofficial-paaswa-repo/) voor implementatie-instructies.
+Als u deze blauw druk wilt implementeren, is een Azure-abonnement vereist. Als u geen Azure-abonnement hebt, kunt u zich snel en eenvoudig op een gratis manier aanmelden: Aan de slag met Azure. Klik [hier](https://aka.ms/ukofficial-paaswa-repo/) voor implementatie-instructies.
 
 ## <a name="architecture-and-components"></a>Architectuur en onderdelen
 
-Deze blauwdruk biedt een webtoepassing die als host fungeert oplossing in een Azure-cloud-omgeving die ondersteuning biedt voor UK-OFFICIAL werkbelastingen. De architectuur biedt een beveiligde omgeving die gebruikmaakt van Azure-platform als een servicemogelijkheden. Binnen de omgeving zijn twee App Service-web-apps geïmplementeerd (één voor gebruikers) en één voor back-office-gebruikers, met een API-App-laag voor de zakelijke services voor de web-front-end. Een Azure SQL Database wordt geïmplementeerd als een beheerde relationele gegevensopslag voor de toepassing. Verbinding met deze onderdelen van buiten het platform en tussen al deze onderdelen worden versleuteld via TLS 1.2 om te controleren of gegevens in transport privacy, die toegang heeft geverifieerd door Azure Active Directory.
+Deze blauw druk biedt een oplossing voor het hosten van webtoepassingen in een Azure-cloud omgeving die ondersteuning biedt voor de officiële workloads van UK. De architectuur levert een beveiligde omgeving die gebruikmaakt van Azure-platform als service mogelijkheden. Binnen de omgeving worden twee App Service web-apps geïmplementeerd (één voor open bare gebruikers en één voor een back-Office-gebruiker), met een API-app-laag om de zakelijke services voor de Webfront-end te bieden. Een Azure SQL Database wordt geïmplementeerd als een beheerd relationeel gegevens Archief voor de toepassing. Connectiviteit met deze onderdelen van buiten het platform en tussen deze onderdelen wordt versleuteld met TLS 1,2 om gegevens te garanderen in Trans Port-privacy, waarbij toegang is geverifieerd door Azure Active Directory.
 
-![PaaS Web Hosting van toepassingen voor UK officiële Workloads verwijzing Architectuurdiagram](images/ukofficial-paaswa-architecture.png?raw=true "PaaS Web Hosting van toepassingen voor UK officiële Workloads verwijzing Architectuurdiagram")
+![PaaS webtoepassing hosten voor de referentie architectuur diagram van de officiële workloads van het Verenigd Konink rijk](images/ukofficial-paaswa-architecture.png?raw=true "PaaS webtoepassing hosten voor de referentie architectuur diagram van de officiële workloads van het Verenigd Konink rijk")
 
-Als onderdeel van de implementatie-architectuur, veilige opslag inrichten, bewaking & logboekregistratie, geïntegreerd beveiligingsbeheer en geavanceerde bedreigingsbeveiliging en management worden mogelijkheden ook geïmplementeerd om ervoor te zorgen dat klanten alle hulpprogramma's die zijn vereist om te hebben Beveilig en controleren van hun omgeving voor deze oplossing.
+Als onderdeel van de implementatie architectuur, het inrichten van beveiligde opslag, bewaking & logboek registratie, Unified Security Management & Advanced Threat Protection en beheer mogelijkheden, worden ook geïmplementeerd om ervoor te zorgen dat klanten over alle hulpprogram ma's beschikken die nodig zijn om Beveilig en bewaak hun omgeving voor deze oplossing.
 
-Deze oplossing maakt gebruik van de volgende Azure-services. Informatie van de implementatiearchitectuur vindt u in de [architectuur](#deployment-architecture) sectie.
+Deze oplossing maakt gebruik van de volgende Azure-Services. Details van de implementatie architectuur vindt u in de sectie [implementatie architectuur](#deployment-architecture) .
 
 - Azure Active Directory
 - App Service
@@ -64,190 +64,190 @@ Deze oplossing maakt gebruik van de volgende Azure-services. Informatie van de i
 - Azure SQL Database
 - Azure Storage
 
-## <a name="deployment-architecture"></a>Implementatie-architectuur
+## <a name="deployment-architecture"></a>Implementatie architectuur
 
-De volgende sectie bevat de elementen van de implementatie en uitvoering.
+De volgende sectie bevat informatie over de implementatie-en implementatie-elementen.
 
 ### <a name="security"></a>Beveiliging
 
 #### <a name="identity-and-authentication"></a>Identiteit en verificatie
 
-Deze blauwdruk zorgt ervoor dat de toegang tot resources wordt beschermd met directory-en identiteitsbeheerservices. Deze architectuur maakt volledig gebruik van [identiteit als de beveiligingsperimeter](https://docs.microsoft.com/azure/security/security-paas-deployments). 
+Deze blauw druk zorgt ervoor dat de toegang tot bronnen wordt beschermd via Directory-en identiteits beheer Services. Deze architectuur maakt volledig gebruik van [identiteit als de beveiligings verbinding](https://docs.microsoft.com/azure/security/security-paas-deployments). 
 
-De volgende technologieën bieden identiteit beheermogelijkheden in de Azure-omgeving:
+De volgende technologieën bieden mogelijkheden voor identiteits beheer in de Azure-omgeving:
 
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) is van Microsoft met meerdere tenants cloudgebaseerde directory service- en identiteit. Alle gebruikers voor de oplossing zijn gemaakt in Azure Active Directory, met inbegrip van gebruikers met toegang tot de SQL-Database.
-- Verificatie van de operator gerichte web-App- en toegangsbeheer voor het beheer van de Azure-resources wordt uitgevoerd met behulp van Azure AD. Zie voor meer informatie, [toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Versleuteling van de kolom database maakt gebruik van Azure AD om te verifiëren van de toepassing naar Azure SQL Database. Zie voor meer informatie, [altijd versleuteld: Bescherming van gevoelige gegevens in SQL-Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
-- Voor de burgers bestemde webtoepassing is geconfigureerd voor openbare toegang. Om toe te staan voor het maken van accounts en -verificatie via active directory of sociale id-providers [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) indien nodig kan worden geïntegreerd.
-- [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) detecteert mogelijke beveiligingsproblemen en risico's accounts bevat aanbevelingen voor het verbeteren van de beveiligingsstatus van de identiteiten van uw organisatie, configureert u automatische antwoorden gedetecteerd verdachte activiteit met betrekking tot de identiteiten van uw organisatie, en verdachte incidenten onderzoekt het probleem en wordt de juiste actie op te lossen.
-- [Azure Role-based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) maakt nauwkeurig beheer gerichte toegang voor Azure. Abonnementstoegang is beperkt tot de beheerder van het abonnement en Azure Key Vault toegang is beperkt tot gebruikers die Sleutelbeheer toegang nodig hebben.
-- Door gebruik te maken van [Azure Active Directory voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) klanten aanvullende beveiligingscontroles op toegang tot apps of gebruikers in hun omgeving op basis van specifieke voorwaarden, zoals locatie, apparaat, status en meld u kunnen afdwingen in de risico's.
-- [Azure DDoS Protection](https://docs.microsoft.com/azure/security/security-paas-deployments#security-advantages-of-a-paas-cloud-service-model) gecombineerd met aanbevolen procedures voor ontwerp van toepassingen, biedt beveiliging tegen DDoS-aanvallen, met het verkeer altijd bewaken, en realtime beperken van de algemene op netwerkniveau aanvallen. Met een architectuur voor PaaS, platform-niveau van DDoS protection is transparant voor de klant en opgenomen in het platform, maar het is belangrijk te weten dat de toepassing security ontwerp verantwoordelijkheid wordt veroorzaakt door de klant.
+- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) is de multi tenant-Cloud Directory en identiteits beheer service van micro soft. Alle gebruikers voor de oplossing zijn gemaakt in Azure Active Directory, met inbegrip van gebruikers die toegang hebben tot de SQL Database.
+- Verificatie voor de operator die is gericht op de webtoepassing en de toegang tot het beheer van de Azure-resources wordt uitgevoerd met behulp van Azure AD. Zie [toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)voor meer informatie.
+- Database kolom versleuteling maakt gebruik van Azure AD om de toepassing te verifiëren voor Azure SQL Database. Zie [always encrypted voor meer informatie: Beveilig gevoelige gegevens in SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+- De burger Facing Web-toepassing is geconfigureerd voor open bare toegang. Als u het maken en verifiëren van accounts wilt toestaan via Active Directory of id-providers voor sociale netwerken [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) , indien nodig, kunnen worden geïntegreerd.
+- [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) detecteert mogelijke beveiligings problemen en Risk ante accounts voorziet in aanbevelingen voor het verbeteren van de beveiligings postuur van de identiteiten van uw organisatie, configureert automatische antwoorden op gedetecteerde verdachte acties die betrekking hebben op de identiteiten van uw organisatie en verdachte incidenten onderzoeken en de juiste actie ondernemen om ze op te lossen.
+- [Met Access Control op basis van rollen (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) kunt u nauw keurig toegang krijgen tot het beheer van Azure. Abonnements toegang is beperkt tot de abonnements beheerder en Azure Key Vault toegang is beperkt tot gebruikers die toegang tot sleutel beheer nodig hebben.
+- Dankzij het gebruik van [Azure Active Directory voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) kunnen klanten extra beveiligings controles afdwingen voor toegang tot apps of gebruikers in hun omgeving op basis van specifieke voor waarden, zoals locatie, apparaat, status en aanmeldings risico.
+- [Azure DDoS Protection](https://docs.microsoft.com/azure/security/security-paas-deployments#security-advantages-of-a-paas-cloud-service-model) in combi natie met aanbevolen procedures voor het ontwerpen van toepassingen, biedt bescherming tegen DDoS-aanvallen, met AlwaysOn verkeers bewaking en real-time beperking van veelvoorkomende aanvallen op netwerk niveau. Met een PaaS-architectuur is platform niveau DDoS-beveiliging transparant voor de klant en is deze opgenomen in het platform, maar het is belang rijk te weten dat de gebruiker verantwoordelijk is voor het ontwerp van de toepassings beveiliging.
 
 #### <a name="data-in-transit"></a>Actieve gegevens
 
-Gegevens zijn van doorvoer van buiten en tussen Azure-onderdelen worden beschermd met behulp van [Transport Layer Security/Secure Sockets Layer (TLS/SSL)](https://www.microsoft.com/TrustCenter/Security/Encryption), waarbij symmetrische cryptographie op basis van een gedeeld geheim voor het versleutelen van communicatie als ze worden gebruikt via het netwerk worden verzonden. Standaard wordt het netwerkverkeer beveiligd met behulp van TLS 1.2.
+Gegevens worden door Voer buiten en tussen Azure-onderdelen beveiligd met [Transport Layer Security/Secure Sockets Layer (TLS/SSL)](https://www.microsoft.com/TrustCenter/Security/Encryption), waarbij gebruik wordt gemaakt van symmetrische crypto grafie op basis van een gedeeld geheim om de communicatie te versleutelen wanneer deze via het netwerk worden verzonden. Netwerk verkeer wordt standaard beveiligd met TLS 1,2.
 
-#### <a name="security-and-malware-protection"></a>Beveiliging en malware protection
+#### <a name="security-and-malware-protection"></a>Beveiliging en bescherming tegen schadelijke software
 
-[Azure Security Center](https://azure.microsoft.com/services/security-center/) biedt een gecentraliseerde weergave van de beveiligingsstatus van al uw Azure-resources. In een oogopslag kunt u controleren dat de juiste beveiligingscontroles zijn geïnstalleerd en correct geconfigureerd en u kunt snel zien of er resources die uw aandacht vereisen.
+[Azure Security Center](https://azure.microsoft.com/services/security-center/) biedt een gecentraliseerde weer gave van de beveiligings status van al uw Azure-resources. In één oogopslag kunt u controleren of de juiste beveiligings maatregelen aanwezig zijn en op de juiste wijze zijn geconfigureerd. u kunt snel alle resources identificeren die aandacht vereisen.
 
-[Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) is een persoonlijke cloudconsultant die u helpt volgen aanbevolen procedures voor het optimaliseren van uw Azure-implementaties. Het analyseert uw resourceconfiguratie en gebruikstelemetrie, en raadt vervolgens oplossingen aan die u kunnen helpen de kosteneffectiviteit, prestaties, hoge beschikbaarheid en beveiliging van uw Azure-resources te verbeteren.
+[Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) is een gepersonaliseerde Cloud consultant die u helpt bij het volgen van de aanbevolen procedures voor het optimaliseren van uw Azure-implementaties. Het analyseert uw resourceconfiguratie en gebruikstelemetrie, en raadt vervolgens oplossingen aan die u kunnen helpen de kosteneffectiviteit, prestaties, hoge beschikbaarheid en beveiliging van uw Azure-resources te verbeteren.
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) is een realtime-beveiliging-functie waarmee u kunt herkennen en verwijderen van virussen, spyware en andere schadelijke software. Dit wordt standaard op de onderliggende infrastructuur van de PaaS-virtuele machine is geïnstalleerd en wordt beheerd door de Azure-infrastructuur transparant voor de klant.
+[Micro soft antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) is een real-time beschermings functie waarmee u virussen, spyware en andere schadelijke software kunt herkennen en verwijderen. Dit wordt standaard geïnstalleerd op de onderliggende infra structuur van de virtuele PaaS-machine en wordt door de Azure-Fabric transparant beheerd voor de klant.
 
-### <a name="paas-services-in-this-blueprint"></a>PaaS-services in deze blauwdruk
+### <a name="paas-services-in-this-blueprint"></a>PaaS Services in deze blauw druk
 
 #### <a name="azure-app-service"></a>Azure App Service
 
-Azure App Service biedt een volledig beheerde hostomgeving voor web-App ontwikkeld in Java, PHP, Node.js, Python, HTML en C# zonder om infrastructuur te beheren. Het biedt automatisch schalen en hoge beschikbaarheid ondersteunt zowel Windows als Linux en maakt automatische implementaties van [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) of een willekeurige op basis van een Git-repo.
+Azure App Service biedt een volledig beheerde omgeving voor webhosting voor webtoepassingen die zijn ontwikkeld in Java, PHP, node. js C# PYTHON, HTML en zonder dat u de infra structuur hoeft te beheren. Het biedt automatisch schalen en hoge Beschik baarheid, ondersteunt zowel Windows als Linux, en maakt automatische implementaties mogelijk vanuit [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) of op Git gebaseerde opslag plaats.
 
-App Service is [ISO, SOC en PCI-](https://www.microsoft.com/TrustCenter/) en verificatie van gebruikers met [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) of via sociaal aanmelden ([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google), [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook), [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter), en [Microsoft authentication](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft).
+App Service is [compatibel met ISO, SOC en PCI](https://www.microsoft.com/TrustCenter/) en kan gebruikers verifiëren met [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) of met sociale aanmelding ([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google), [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook), [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter)en [micro soft-verificatie](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)).
 
-Basic-, Standard en Premium-abonnementen zijn voor productieworkloads en draaien op specifieke virtuele Machine-instanties. Elke instantie kan meerdere toepassingen en domeinen ondersteunen. App-services ook ondersteuning voor [IP-adresbeperkingen](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) voor het beveiligen van verkeer naar de goedgekeurde IP-adressen, indien nodig, evenals [beheerde identiteiten voor een Azure-resources](https://docs.microsoft.com/azure/app-service/overview-managed-identity) voor beveiligde verbinding met andere PaaS-services zoals [voor Key Vault](https://azure.microsoft.com/services/key-vault/) en [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Extra beveiliging is vereist als host fungeert voor uw apps in een persoonlijke, exclusieve Azure-omgeving en is ideaal voor apps waarvoor een veilige verbindingen met uw on-premises netwerk, of extra prestaties en schaal onze Isolated-abonnement.
+Basis-, standaard-en Premium-abonnementen zijn voor productie-workloads en worden uitgevoerd op toegewezen virtuele-machine-instanties. Elk exemplaar kan meerdere toepassingen en domeinen ondersteunen. App Services biedt ook ondersteuning voor [IP-adres beperkingen](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) voor het beveiligen van verkeer naar vertrouwde IP-adressen, indien nodig en ook [beheerde identiteiten voor Azure-bronnen](https://docs.microsoft.com/azure/app-service/overview-managed-identity) voor een beveiligde verbinding met andere PaaS-Services, zoals [Key Vault](https://azure.microsoft.com/services/key-vault/) en [Azure SQL Data base](https://azure.microsoft.com/services/sql-database/). Wanneer extra beveiliging is vereist, hebben we uw apps in een persoonlijke, exclusieve Azure-omgeving gehost en zijn ze ideaal voor apps waarvoor beveiligde verbindingen met uw on-premises netwerk of extra prestaties en schaal zijn vereist.
 
-Deze sjabloon implementeert de volgende functies van App Service:
+Met deze sjabloon worden de volgende App Service-functies geïmplementeerd:
 
-- [Standard](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) laag voor App Service-Plan
-- Meerdere App Service [implementatiesites](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): Ontwikkel, Preview, QA, UAT en natuurlijk productie (standaard sleuf).
-- [Identiteiten voor een Azure-resources beheerd](https://docs.microsoft.com/azure/app-service/overview-managed-identity) verbinding maken met [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (dit kan ook worden gebruikt voor toegang tot [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
-- Integratie met [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) om prestaties te bewaken
+- [Standaard](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) App Service plan tier
+- Meerdere App Service [implementatie sleuven](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): Dev, preview, QA, bedoeld en training Production (standaard sleuf).
+- [Beheerde identiteiten voor Azure-resources](https://docs.microsoft.com/azure/app-service/overview-managed-identity) om verbinding te maken met [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (dit kan ook worden gebruikt om toegang te verlenen tot [Azure SQL database](https://azure.microsoft.com/services/sql-database/) 
+- Integratie met [Azure-toepassing Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) voor het bewaken van de prestaties
 - [Diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
-- Metrische gegevens [waarschuwingen](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
+- Metrische [waarschuwingen](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
 - [Azure API Apps](https://azure.microsoft.com/services/app-service/api/) 
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 
-SQL Database is een algemene, beheerde relationele databaseservice in Microsoft Azure die ondersteuning biedt voor structuren zoals relationele gegevens, JSON, ruimtelijke gegevens en XML. SQL Database biedt beheerde één SQL-databases, beheerde SQL-databases in een [elastische pool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool), en SQL [beheerde instanties](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (in openbare preview). De service biedt [dynamisch schaalbare prestaties](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) en opties zoals [columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) voor krachtige analyses en rapportages, en [in-memory OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) voor veeleisende transactieverwerking. Microsoft verzorgt op naadloze wijze alle patching en updating van de SQL-codebasis en heeft het beheer van de onderliggende infrastructuur volledig weggewerkt.
+SQL Database is een algemene, beheerde relationele databaseservice in Microsoft Azure die ondersteuning biedt voor structuren zoals relationele gegevens, JSON, ruimtelijke gegevens en XML. SQL Database biedt beheerde single SQL-data bases, beheerde SQL-data bases in een [elastische pool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)en SQL [Managed instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (in open bare preview). De service biedt [dynamisch schaalbare prestaties](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) en opties zoals [columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) voor krachtige analyses en rapportages, en [in-memory OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) voor veeleisende transactieverwerking. Microsoft verzorgt op naadloze wijze alle patching en updating van de SQL-codebasis en heeft het beheer van de onderliggende infrastructuur volledig weggewerkt.
 
-Azure SQL-Database in deze blauwdruk
+Azure SQL Database in deze blauw druk
 
-De Azure SQL Database-exemplaar maakt gebruik van de volgende metingen van de database-beveiliging:
+Het Azure SQL Database exemplaar maakt gebruik van de volgende data base Security-maat eenheden:
 
-- [Firewallregels op serverniveau en databaseniveau](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure), of via [Virtual Network-Service-eindpunten](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) met behulp van [virtuele netwerkregels](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).
-- [Transparante gegevensversleuteling](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) helpt Azure SQL Database en Azure Data Warehouse beschermen tegen de dreiging van schadelijke activiteiten. Het voert realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogboekbestanden in rust zonder wijzigingen aan de toepassing.
-- [Azure AD-verificatie](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication), kunt u de identiteit van databasegebruikers en andere Microsoft-services op één centrale locatie centraal beheren. Centrale ID-beheer biedt één plek voor het beheren van databasegebruikers en vereenvoudigt het beheer van machtigingen.
-- Gebruik van Azure Active Directory voor het databasebeheer van de
-- [Auditlogboeken](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) naar storage-accounts
-- Metrische gegevens [waarschuwingen](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) voor mislukte DB-verbindingen
-- [SQL Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)
-- [Altijd versleutelde kolommen](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
+- [Firewall regels op server-en database niveau](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure), of via [Virtual Network Service-eind punten](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) met behulp van regels voor het [virtuele netwerk](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).
+- [Transparante gegevens versleuteling](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) helpt Azure SQL database en Azure Data Warehouse te beschermen tegen de dreiging van schadelijke activiteiten. Er wordt in realtime versleuteling en ontsleuteling van de data base, gekoppelde back-ups en transactie logboek bestanden in rust uitgevoerd zonder dat de toepassing hoeft te worden gewijzigd.
+- [Azure AD-verificatie](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)kunt u de identiteiten van database gebruikers en andere micro soft-services centraal beheren op één centrale locatie. Centraal-ID-beheer biedt één locatie voor het beheren van database gebruikers en het vereenvoudigt het beheer van machtigingen.
+- Gebruik van Azure Active Directory voor database beheer
+- [Audit logboeken](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) naar opslag accounts
+- Metrische [waarschuwingen](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) voor mislukte DB-verbindingen
+- [SQL-bedreigings detectie](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)
+- [Always Encrypted kolommen](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
 
 ### <a name="azure-storage"></a>Azure Storage
 
-Microsoft [Azure Storage](https://azure.microsoft.com/services/storage/) is een Microsoft beheerde cloudservice waarmee opslag die maximaal beschikbaar, beveiligde, duurzaam, schaalbaar en redundant is. Azure Storage bestaat uit Blob Storage, File Storage en Queue Storage.
+Micro soft [Azure Storage](https://azure.microsoft.com/services/storage/) is een door micro soft beheerde Cloud service die opslag biedt die Maxi maal beschikbaar is, veilig, duurzaam, schaalbaar en redundant is. Azure Storage bestaat uit Blob Storage, File Storage en Queue Storage.
 
-#### <a name="azure-storage-in-this-blueprint"></a>Azure Storage in deze blauwdruk
+#### <a name="azure-storage-in-this-blueprint"></a>Azure Storage in deze blauw druk
 
-Deze sjabloon maakt gebruik van de volgende onderdelen van Azure Storage:
+Deze sjabloon maakt gebruik van de volgende Azure Storage onderdelen:
 
-- [Storage-Serviceversleuteling](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) 
+- [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) 
 - Alleen HTTPS-verbindingen toestaan
 
-#### <a name="data-at-rest"></a>Inactieve gegevens
+#### <a name="data-at-rest"></a>Data-at-rest
 
-Via [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) alle gegevens die zijn geschreven naar Azure Storage worden versleuteld met 256-bits AES-versleuteling, een van de krachtigste blokversleutelingsmethoden die. U kunt Microsoft beheerde sleutels gebruiken met SSE of kunt u [uw eigen versleutelingssleutels](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
+Via [Storage service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) alle gegevens die naar Azure Storage zijn geschreven, zijn versleuteld via 256-bits AES-versleuteling, een van de krach tigste blok cijfers die beschikbaar zijn. U kunt door micro soft beheerde versleutelings sleutels met SSE gebruiken of u kunt [uw eigen versleutelings sleutels](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys)gebruiken.
 
-Storage-accounts kunnen worden beveiligd [Virtual Network-Service-eindpunten](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) met behulp van [virtuele netwerkregels](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Opslag accounts kunnen worden beveiligd via [Virtual Network Service-eind punten](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) met behulp van regels voor het [virtuele netwerk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
-Gedetailleerde informatie over het beveiligen van Azure Storage vindt u de [beveiligingshandleiding](https://docs.microsoft.com/azure/storage/common/storage-security-guide).
+Gedetailleerde informatie over het beveiligen van Azure Storage vindt u in de [beveiligings handleiding](https://docs.microsoft.com/azure/storage/common/storage-security-guide).
 
 
 ### <a name="secrets-management"></a>Geheimen beheren
 
 #### <a name="azure-key-vault"></a>Azure Key Vault
 
-[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) wordt gebruikt voor het beveiligen van de toepassingssleutels en geheimen om ervoor te zorgen dat ze niet toegankelijk zijn door derde partijen. Key Vault is niet bedoeld als archief voor wachtwoorden van gebruikers. Hiermee kunt u meerdere beveiligde containers, die kluizen worden genoemd maken. Deze kluizen worden ondersteund door hardware security modules (HSM's). Kluizen verminderen de kans op onbedoeld verlies van beveiligingsinformatie door de opslag van toepassingsgeheimen te centraliseren. Sleutelkluizen regelen en registreren ook de toegang tot alles wat erin is opgeslagen. Azure Key Vault kan het aanvragen en vernieuwen van Transport Layer Security-certificaten (TLS) verwerken, met behulp van de functies die vereist zijn voor een robuuste oplossing voor het beheren van de levenscyclus van certificaten.
+[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) wordt gebruikt om toepassings sleutels en geheimen te beveiligen om ervoor te zorgen dat ze niet toegankelijk zijn voor externe partijen. Key Vault is niet bedoeld als archief voor wachtwoorden van gebruikers. U kunt meerdere veilige containers maken, ook wel kluizen genoemd. Deze kluizen worden ondersteund door hardware security modules (HSM's). Kluizen verminderen de kans op onbedoeld verlies van beveiligingsinformatie door de opslag van toepassingsgeheimen te centraliseren. Sleutelkluizen regelen en registreren ook de toegang tot alles wat erin is opgeslagen. Azure Key Vault kan het aanvragen en vernieuwen van Transport Layer Security-certificaten (TLS) verwerken, met behulp van de functies die vereist zijn voor een robuuste oplossing voor het beheren van de levenscyclus van certificaten.
 
-#### <a name="azure-key-vault-in-this-blueprint"></a>Azure Key Vault in deze blauwdruk
+#### <a name="azure-key-vault-in-this-blueprint"></a>Azure Key Vault in deze blauw druk
 
-- Bevat de toegangssleutel voor opslag met leestoegang verleend aan de [beheerde identiteit](https://docs.microsoft.com/azure/app-service/overview-managed-identity) van de klant gerichte web-app
-- Het wachtwoord van de SQL Server DBA bevat (in een afzonderlijke kluis)
-- Logboekregistratie van diagnostische gegevens
+- Bevat de toegangs sleutel voor opslag, met lees toegang die is verleend aan de [beheerde identiteit](https://docs.microsoft.com/azure/app-service/overview-managed-identity) van de klant gerichte web-app
+- Bevat het SQL Server DBA-wacht woord (in een afzonderlijke kluis)
+- Logboek registratie van diagnostische gegevens
 
-### <a name="monitoring-logging-and-audit"></a>Bewaking, logboekregistratie en controle
+### <a name="monitoring-logging-and-audit"></a>Bewaking, logboek registratie en controle
 
 #### <a name="azure-monitor-logs"></a>Azure Monitor-logboeken
 
-[Logboeken in Azure Monitor](https://azure.microsoft.com/services/log-analytics/) is een service in Azure waarmee u kunt verzamelen en analyseren van gegevens die worden gegenereerd door resources in uw cloud en on-premises omgevingen.
+[Azure monitor](https://azure.microsoft.com/services/log-analytics/) -Logboeken is een service in azure die u helpt bij het verzamelen en analyseren van gegevens die zijn gegenereerd door resources in uw Cloud-en on-premises-omgevingen.
 
-#### <a name="azure-monitor-logs-in-this-blueprint"></a>Azure Monitor-Logboeken in deze blauwdruk
+#### <a name="azure-monitor-logs-in-this-blueprint"></a>Azure Monitor Logboeken in deze blauw druk
 
 - SQL-evaluatie
-- Diagnostische gegevens van Key Vault
-- Verbinding met Application Insights
+- Diagnostische gegevens Key Vault
+- Application Insights verbinding
 - Azure-activiteitenlogboek
 
 #### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is een uitbreidbare service voor Application Performance Management (APM) voor webontwikkelaars op meerdere platforms. Gebruikt voor het bewaken van live web-apps het wordt automatisch detecteren van afwijkende prestaties, prestaties analyseren en een diagnose stellen problemen en om te begrijpen hoe gebruikers interacteren met de app. Application Insights kunnen worden geïmplementeerd op platforms, waaronder .NET, Node.js en Java EE, on-premises gehost of in de cloud. De service kan ook worden geïntegreerd met uw DevOps-proces en bevat verbindingspunten naar verschillende hulpmiddelen voor ontwikkelaars.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is een UITBREID bare apm-service (Application Performance Management) voor webontwikkelaars op meerdere platforms. Voor het bewaken van Live webtoepassingen worden automatisch prestatie afwijkingen gedetecteerd, worden de prestaties geanalyseerd, worden problemen opgespoord en wordt uitgelegd hoe gebruikers met de app werken. Application Insights kan worden geïmplementeerd op platforms zoals .NET, node. js en Java EE, lokaal gehost of in de Cloud. De service kan ook worden geïntegreerd met uw DevOps-proces en bevat verbindingspunten naar verschillende hulpmiddelen voor ontwikkelaars.
 
-#### <a name="application-insights-in-this-blueprint"></a>Application Insights in deze blauwdruk
+#### <a name="application-insights-in-this-blueprint"></a>Application Insights in deze blauw druk
 
-Deze sjabloon maakt gebruik van de volgende Application Insights-onderdelen:
+Deze sjabloon maakt gebruik van de volgende Application Insights onderdelen:
 
-- Application Insights-dashboard per site (Operator, klanten en API)
+- Application Insights dash board per site (operator, klant en API)
 
-#### <a name="azure-activity-logs"></a>Azure-activiteitenlogboeken
+#### <a name="azure-activity-logs"></a>Activiteiten logboeken van Azure
 
-[Azure-activiteitenlogboek](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) controlelaag gebeurtenissen voor uw abonnementen voert een controle uit. Met het activiteitenlogboek, kunt u bepalen de ' wat, wie, en wanneer ' voor (PUT, POST, DELETE schrijfbewerkingen) die wordt gemaakt op de resources in uw abonnement. U kunt ook de status van de bewerking en andere relevante eigenschappen begrijpen.
+In [Azure-activiteiten logboek](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) worden controle gebeurtenissen voor uw abonnementen gecontroleerd. Met het activiteiten logboek kunt u de ' wat, wie en wanneer ' bepalen voor schrijf bewerkingen (PUT, POST, DELETE) die zijn uitgevoerd op de resources in uw abonnement. U kunt ook de status van de bewerking en andere relevante eigenschappen begrijpen.
 
 #### <a name="azure-monitor"></a>Azure Monitor
 
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) kunt kernbewaking voor Azure-services doordat het verzamelen van metrische gegevens, activiteitenlogboeken en diagnostische logboeken. Azure Monitor biedt metrische infrastructuurgegevens en logboeken op basisniveau voor de meeste services in Microsoft Azure.
+[Azure monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) maakt kern bewaking voor Azure-Services mogelijk door het verzamelen van metrische gegevens, activiteiten logboeken en diagnostische Logboeken toe te staan. Azure Monitor biedt metrische infrastructuurgegevens en logboeken op basisniveau voor de meeste services in Microsoft Azure.
 
-## <a name="threat-model"></a>Risicomodel
+## <a name="threat-model"></a>Bedreigings model
 
-Het diagram van de gegevensstroom voor deze referentiearchitectuur is beschikbaar voor [downloaden](https://aka.ms/ukofficial-paaswa-tm) of vindt u hieronder. Dit model kunt klanten inzicht krijgen in de punten van de mogelijke risico's in de infrastructuur van het systeem als u wijzigingen aanbrengt.
+Het gegevensstroom diagram voor deze referentie architectuur is beschikbaar voor [downloaden](https://aka.ms/ukofficial-paaswa-tm) of kan hieronder worden weer gegeven. Dit model kan klanten helpen om inzicht te krijgen in de punten van potentieel risico in de systeem infrastructuur bij het aanbrengen van wijzigingen.
 
-![PaaS Web Hosting van toepassingen voor UK officiële Workloads risicomodel](images/ukofficial-paaswa-threat-model.png?raw=true "PaaS Web Hosting van toepassingen voor risicomodel UK officiële Workloads")
+![Hosten van PaaS-webtoepassingen voor het risico model officiële workloads van het Verenigd Konink rijk](images/ukofficial-paaswa-threat-model.png?raw=true "Hosten van PaaS-webtoepassingen voor het risico model officiële workloads van het Verenigd Konink rijk")
 
-## <a name="ncsc-cloud-security-principles-compliance-documentation"></a>NCSC Cloud Security Principles naleving documentatie
+## <a name="ncsc-cloud-security-principles-compliance-documentation"></a>Nalevings documentatie voor NCSC Cloud Security Principles
 
-De kroon commerciële Service (een Bureau die geschikt is voor commerciële en aankopen activiteit verbeteren door de overheid) vernieuwd de classificatie van Microsoft binnen de regeling vallen enterprise cloudservices aan v6 G-Cloud, die betrekking hebben op het aanbod op het OFFICIAL-niveau. Details van Azure en G-Cloud kunnen u vinden in de [Azure Verenigd Koninkrijk G-Cloud security evaluatieoverzicht](https://www.microsoft.com/trustcenter/compliance/uk-g-cloud).
+De kroon commerciële dienst (een instantie die de commerciële en aanschaffings activiteiten door de overheid verbetert), vernieuwt de classificatie van micro soft in-Scope Enter prise Cloud Services naar G-Cloud V6, waarbij alle aanbiedingen op het officiële niveau worden gedekt. Details van Azure en G-Cloud vindt u in het [overzicht van Azure UK G-Cloud Security Assessment](https://www.microsoft.com/trustcenter/compliance/uk-g-cloud).
 
-Deze blauwdruk overeenstemt met de 14 cloud security-principes die worden beschreven in de NCSC [Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) om te zorgen voor een omgeving die ondersteuning biedt voor werkbelastingen die zijn geclassificeerd als groot-Brittannië officiële.
+Deze blauw druk is afgestemd op de 14 beveiligings principes voor de cloud die zijn gedocumenteerd in de NCSC voor [Cloud beveiliging](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) om ervoor te zorgen dat een omgeving wordt ondersteund die werk belastingen ondersteunt die zijn geclassificeerd als UK-ambtenaar.
 
-De [Azure-beveiliging en naleving blauwdruk - groot-Brittannië officiële klant verantwoordelijkheid Matrix](https://aka.ms/ukofficial-crm) (Excel-werkmap) geeft een lijst van alle 14 cloud security principles en geeft voor elk principe (of principe subdeel), of het principe implementatie is de verantwoordelijkheid van Microsoft, de klant, of gedeeld tussen de twee.
+In de [officiële matrix voor de gebruikers verantwoordelijkheid van Azure-BLAUWDRUK voor beveiliging en naleving UK](https://aka.ms/ukofficial-crm) (Excel-werkmap) worden alle 14 beveiligings principes voor de Cloud vermeld en wordt voor elk principe (of principe subdeel) aangegeven of de implementatie van het principe de de verantwoordelijkheid van micro soft, de klant of het gedeeld tussen de twee.
 
-De [Azure-beveiliging en naleving blauwdruk - PaaS-webtoepassing voor UK officiële principe implementatie Matrix](https://aka.ms/ukofficial-paaswa-pim) (Excel-werkmap) geeft een lijst van alle 14 cloud security principles en geeft voor elk principe (of principe subdeel) die de verantwoordelijkheid van een klant in de Matrix van de verantwoordelijkheden van de klant wordt gebruikt (1) als de blauwdruk implementeert het principe en 2) een beschrijving van hoe de toepassing wordt uitgelijnd met de principal-vereisten.  
+De [Azure-blauwdruk voor beveiliging en naleving-PaaS-webtoepassing voor het Verenigd Konink rijk principle-implementatie matrix](https://aka.ms/ukofficial-paaswa-pim) (Excel-werkmap) bevat alle 14 beveiligings principes voor de Cloud en geeft voor elk principe (of principe subdeel) die is aangewezen als de verantwoordelijkheid van de klant in de matrix van klant verantwoordelijkheden, 1) als de blauw druk het principe implementeert en 2) een beschrijving van de manier waarop de implementatie wordt uitgelijnd met de vereiste voor Schriften.  
 
-De Cloud Security Alliance (CSA) gepubliceerd bovendien de Cloud Control Matrix ter ondersteuning van klanten in de evaluatie van cloudproviders en om te vragen die moeten worden beantwoord voordat u doorgaat naar de cloud services te identificeren. Antwoord, Microsoft Azure beantwoord de CSA Consensus evaluatie Initiative Questionnaire ([CSA CAIQ](https://www.microsoft.com/TrustCenter/Compliance/CSA)), waarin wordt beschreven hoe Microsoft de principes voor de voorgestelde adressen.
+Daarnaast publiceerde de Cloud Security Alliance (CSA) de Cloud beheer matrix ter ondersteuning van klanten in de evaluatie van cloud providers en om vragen te identificeren die moeten worden beantwoord voordat ze naar Cloud Services kunnen worden verplaatst. Als antwoord heeft Microsoft Azure de CSA consensus Assessment Initiative vragen lijst ([CSA CAIQ](https://www.microsoft.com/TrustCenter/Compliance/CSA)) beantwoord, waarin wordt beschreven hoe micro soft de voorgestelde principes verhelpt.
 
-## <a name="third-party-assessment"></a>Evaluatie van derden
+## <a name="third-party-assessment"></a>Beoordeling van derden
 
-Deze blauwdruk is gecontroleerd door de UK nationale Cyber Security Center (NCSC) en overeenstemt met de NCSC 14 Cloud Security Principles
+Deze blauw druk is gecontroleerd door het UK National Cyber Security Center (NCSC) en is afgestemd op de NCSC 14 Cloud Security Principles
 
-De automation-sjablonen zijn getest door het team UK klant succes eenheid Azure Cloud Solution Architect en onze partner van Microsoft, [Ampliphae](https://www.ampliphae.com/).
+De Automation-sjablonen zijn getest door het Azure Cloud Solution Architects team van UK Customer-oplossing en door onze micro soft-partner, [Ampliphae](https://www.ampliphae.com/).
 
 
 ## <a name="deploy-the-solution"></a>De oplossing implementeren
 
-Deze Azure-beveiliging en naleving blauwdruk Automation bestaat uit JSON-configuratiebestanden en PowerShell-scripts die worden verwerkt door Azure Resource Manager API-service om resources binnen Azure te implementeren. Gedetailleerde implementatie-instructies zijn beschikbaar [hier](https://aka.ms/ukofficial-paaswa-repo).
+Deze Azure-blauwdruk voor beveiliging en naleving automatisering bestaat uit JSON-configuratie bestanden en Power shell-scripts die worden verwerkt door de API-service van Azure Resource Manager om resources te implementeren in Azure. Gedetailleerde implementatie-instructies zijn [hier](https://aka.ms/ukofficial-paaswa-repo)beschikbaar.
 
-Drie manieren is te vinden voor de implementatie van; Een eenvoudige 'express' [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) geschikt is voor het snel ontwikkelen van een test-omgeving; een geparameteriseerde [2 van Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) aanpak biedt meer configuratie voor werkbelasting omgevingen; en een Azure-portal op basis van een implementatie waarbij de operator de implementatieparameters via Azure portal kunt opgeven. 
+Er zijn drie benaderingen voor de implementatie. Een eenvoudige ' Express ' [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) die geschikt is voor het snel bouwen van een test omgeving; een door para meters [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) -benadering die een grotere configuratie biedt voor werkbelasting omgevingen; en een implementatie op basis van Azure Portal waarbij de operator de implementatie parameters kan opgeven via de Azure Portal. 
 
-1.  Klonen of downloaden [dit](https://aka.ms/ukofficial-paaswa-repo) GitHub-opslagplaats naar uw lokale werkstation.
-2.  Beoordeling [methode 1: Azure CLI-2 (Express-versie)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) en de opgegeven opdrachten uit te voeren.
-3.  Beoordeling [methode 1a: Azure CLI-2 (configureren van de implementatie via scriptargumenten)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) en voert u de opgegeven opdrachten
-4.  Beoordeling [methode 2: Azure-portal implementatieproces](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) en de vermelde opdrachten uitvoeren
+1.  Kloon of down load [deze](https://aka.ms/ukofficial-paaswa-repo) github-opslag plaats naar uw lokale werk station.
+2.  Controle [methode 1: Azure CLI 2 (Express-versie](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) ) en de gegeven opdrachten uit te voeren.
+3.  Beoordelings [methode 1a: Azure CLI 2 (de implementatie configureren via script argumenten)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) en de gegeven opdrachten uitvoeren
+4.  Controle [methode 2: Implementatie proces](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) Azure Portal en de vermelde opdrachten uitvoeren
 
-## <a name="guidance-and-recommendations"></a>Richtlijnen en aanbevelingen
+## <a name="guidance-and-recommendations"></a>Richt lijnen en aanbevelingen
 
 ### <a name="api-management"></a>API Management
 
-[Met Azure API Management](https://azure.microsoft.com/services/api-management/) kan worden gebruikt voor de API-App-Service voor extra lagen van beveiliging, beperking en besturingselementen beschikbaar, proxy en API's beveiligen.
+[Azure API Management](https://azure.microsoft.com/services/api-management/) kan worden gebruikt vóór de API-app service om extra beveiligings lagen te bieden, beperkingen en controles uit te voeren om api's weer te geven, te beperken en te beveiligen.
 
 ### <a name="azure-b2c"></a>Azure B2C
 
-[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) kan worden geïmplementeerd als een besturingselement waarmee gebruikers zich registreren, een identiteit maken en inschakelen autorisatie en toegangsbeheer voor de openbare web-App.
+[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) kan worden geïmplementeerd als een besturings element waarmee gebruikers zich kunnen registreren, een identiteit kunnen maken en autorisatie-en toegangs beheer voor de open bare webtoepassing kunnen inschakelen.
 
 ## <a name="disclaimer"></a>Vrijwaring
 
-- Dit document is uitsluitend ter informatie bedoeld. MICROSOFT BIEDT GEEN GARANTIES, EXPLICIETE, IMPLICIETE OF WETTELIJKE GARANTIE VOOR DE INFORMATIE IN DIT DOCUMENT. Dit document wordt geleverd ' as-is. " Informatie en meningen in dit document, inclusief URL's en andere websiteverwijzingen, kunnen zonder kennisgeving worden gewijzigd. Klanten die in dit document leest draagt het risico van het gebruik ervan.
-- Dit document biedt klanten met een enkel wettelijk recht op enig intellectueel in andere Microsoft-producten of oplossingen.
-- Klanten kunnen kopiëren en gebruiken van dit document voor interne referentiedoeleinden.
-- Bepaalde aanbevelingen in dit document kunnen leiden tot grotere hoeveelheden gegevens, netwerk- of gebruik van de compute-bronnen in Azure en de Azure-licentie of abonnement kosten van een klant kunnen verhogen.
-- Deze architectuur is bedoeld om te fungeren als een basis voor klanten om aan te passen op hun specifieke behoeften en mag niet worden gebruikt als-is in een productieomgeving.
-- Dit document is ontwikkeld als referentie en mag niet worden gebruikt voor het definiëren van alle middelen waarmee een klant kan voldoen aan specifieke nalevingsvereisten en voorschriften. Klanten moeten juridische ondersteuning van hun organisatie op goedgekeurde klantimplementaties gezocht.
+- Dit document is alleen ter informatie bedoeld. MICRO SOFT BIEDT GEEN ENKELE GARANTIE, UITDRUKKELIJK, IMPLICIET OF WETTELIJK, MET BETREKKING TOT DE INFORMATIE IN DIT DOCUMENT. Dit document wordt in de as-is opgenomen. Informatie en weer gaven in dit document, inclusief URL'S en andere website verwijzingen, kunnen zonder kennisgeving worden gewijzigd. Klanten die dit document lezen, hebben het risico van het gebruik ervan.
+- Dit document biedt klanten geen juridische rechten voor intellectueel eigendom in een micro soft-product of-oplossingen.
+- Klanten kunnen dit document kopiëren en gebruiken voor interne referentie doeleinden.
+- Bepaalde aanbevelingen in dit document kunnen leiden tot meer gegevens-, netwerk-of COMPUTE-resource gebruik in azure, en kunnen de kosten van de Azure-licentie of het abonnement van de klant verhogen.
+- Deze architectuur is bedoeld om te fungeren als basis voor klanten om aan hun specifieke vereisten aan te passen en mag niet worden gebruikt in een productie omgeving.
+- Dit document is ontwikkeld als referentie en mag niet worden gebruikt voor het definiëren van de manier waarop een klant kan voldoen aan specifieke nalevings vereisten en-voor Schriften. Klanten moeten juridische ondersteuning van hun organisatie zoeken op goedgekeurde klant implementaties.

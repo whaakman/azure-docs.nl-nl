@@ -1,6 +1,6 @@
 ---
-title: Richtlijnen voor persoonlijke gegevens die zijn opgeslagen in Azure Log Analytics | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u persoonlijke gegevens die zijn opgeslagen in Azure Log Analytics en de methoden om te bepalen en verwijdert u deze beheren.
+title: Richt lijnen voor persoons gegevens die zijn opgeslagen in azure Log Analytics | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u persoons gegevens beheert die zijn opgeslagen in azure Log Analytics en hoe u deze kunt herkennen en verwijderen.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,118 +13,118 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 0cf5a80e3eedbe7efb8463162b5b3ed489ac08c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29c91f2dcff04a2d21973e79c5719c3f4d84181b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61087252"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827370"
 ---
-# <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Richtlijnen voor persoonlijke gegevens die zijn opgeslagen in Log Analytics en Application Insights
+# <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Richt lijnen voor persoons gegevens die zijn opgeslagen in Log Analytics en Application Insights
 
-Log Analytics is een gegevensarchief daar persoonlijke gegevens kunnen worden gevonden. Application Insights worden de gegevens opslaat in een Log Analytics-partitie. In dit artikel wordt uitgelegd waar in Log Analytics en Application Insights dergelijke gegevens doorgaans wordt gevonden, evenals de mogelijkheden die voor u beschikbaar zijn voor het afhandelen van dergelijke gegevens.
+Log Analytics is een gegevens archief waar persoons gegevens waarschijnlijk worden gevonden. Application Insights worden de gegevens opgeslagen in een Log Analytics partitie. In dit artikel wordt beschreven waar in Log Analytics en Application Insights dergelijke gegevens doorgaans worden gevonden, evenals de mogelijkheden die beschikbaar zijn voor het afhandelen van dergelijke gegevens.
 
 > [!NOTE]
-> Voor de doeleinden van dit artikel _logboekgegevens_ verwijst naar gegevens die worden verzonden naar Log Analytics-werkruimte, terwijl _toepassingsgegevens_ verwijst naar gegevens die zijn verzameld door Application Insights.
+> Voor de doel einden van dit artikel verwijzen _gegevens_ naar gegevens die naar een log Analytics werkruimte worden verzonden, terwijl _toepassings gegevens_ verwijzen naar gegevens die worden verzameld door Application Insights.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="strategy-for-personal-data-handling"></a>Strategie voor de verwerking van persoonlijke gegevens
+## <a name="strategy-for-personal-data-handling"></a>Strategie voor het afhandelen van persoonlijke gegevens
 
-Terwijl deze worden tot u en uw bedrijf uiteindelijk bepalen de strategie waarbij u uw persoonlijke afhandelt gegevens (indien helemaal), wordt hier volgen enkele mogelijke strategieën. Ze worden weergegeven in de volgorde van voorkeur vanuit een technisch oogpunt van de meeste te minste voorkeur:
+Hoewel het aan u is en uw bedrijf uiteindelijk de strategie wil bepalen waarmee u uw privé gegevens gaat verwerken (in alle), zijn de volgende mogelijke benaderingen van toepassing. Deze worden weer gegeven in volg orde van voor keur van een technisch oogpunt van het grootste voor deel:
 
-* Waar mogelijk, verzameling van stoppen, onleesbaar maakt, anoniem maken of andere wijze aanpassen, de gegevens worden verzameld uit de gebeurtenis wordt beschouwd als 'private' te sluiten. Dit is _veruit_ de aanpak van voorkeur, zodat u niet hoeft te maken van een strategie voor de afhandeling zeer kostbaar en meer impact van gegevens.
-* Indien niet mogelijk is, kunt u proberen te normaliseren van de gegevens voor de op het data platform en de prestaties worden verminderd. Maak bijvoorbeeld een lookup-gegevens die wordt correleren van de gebruikersnaam en de bijbehorende gegevens die vervolgens ergens anders kunnen worden geregistreerd in een interne id in plaats van de logboekregistratie van een expliciete gebruikers-ID. Op die manier moet een van uw gebruikers vragen om te verwijderen van hun persoonlijke gegevens, is het mogelijk dat alleen verwijderen van de rij in de opzoektabel overeenkomt met de gebruiker voldoende zal zijn. 
-* Als persoonlijke gegevens moeten worden verzameld, bouw ten slotte een proces om het opschonen van API-pad en de bestaande query API pad om te voldoen aan de verplichtingen die u mogelijk om exporteren en verwijderen van persoonlijke gegevens die zijn gekoppeld aan een gebruiker. 
+* Indien mogelijk, stopt u het verzamelen van, het afschermen, anoniem maken of anderszins aanpassen van de gegevens die worden verzameld om deze uit te sluiten van als ' privé '. Dit is de aanbevolen benadering en bespaart u de nood zaak om een zeer kost bare strategie voor gegevens verwerking te maken.
+* Als dat niet mogelijk is, probeert u de gegevens te normaliseren om de impact op het gegevens platform en de prestaties te verminderen. In plaats van een expliciete gebruikers-ID te registreren, maakt u bijvoorbeeld een opzoek gegevens waarmee de gebruikers naam en de details ervan worden gecorreleerd aan een interne ID die vervolgens ergens anders kan worden geregistreerd. Op die manier is het mogelijk dat als een van uw gebruikers u vraagt om zijn of haar persoonlijke gegevens te verwijderen, de rij in de opzoek tabel die overeenkomt met de gebruiker, voldoende wordt verwijderd. 
+* Ten slotte, als er persoonlijke gegevens moeten worden verzameld, moet u een proces maken rond het pad van de API voor opschonen en het bestaande query-API-pad om te voldoen aan eventuele verplichtingen die u mogelijk hebt voor het exporteren en verwijderen van persoonlijke gegevens die aan een gebruiker zijn gekoppeld. 
 
-## <a name="where-to-look-for-private-data-in-log-analytics"></a>Waar om te zoeken naar persoonlijke gegevens in Log Analytics?
+## <a name="where-to-look-for-private-data-in-log-analytics"></a>Waar moet u zoeken naar privé gegevens in Log Analytics?
 
-Log Analytics is een flexibele opslag, die tijdens het voorschrijven van een schema dat u wilt uw gegevens, kunt u elk veld met uw eigen waarden. Een aangepaste schema kan bovendien worden opgenomen. Daarom is het niet mogelijk om in te spreken precies waar persoonlijke gegevens worden gevonden in uw specifieke werkruimte. De volgende locaties zijn echter goed startpunt in uw inventaris:
+Log Analytics is een flexibele Store, waarmee u een schema voor uw gegevens voorschrijft, kunt u elk veld overschrijven met aangepaste waarden. Daarnaast kan elk aangepast schema worden opgenomen. Het is dus niet mogelijk om precies te zeggen waar privé gegevens worden gevonden in uw specifieke werk ruimte. De volgende locaties zijn echter goede start punten in uw inventaris:
 
 ### <a name="log-data"></a>Logboekgegevens
 
-* *IP-adressen*: Log Analytics verzamelt een verscheidenheid aan IP-informatie in veel verschillende tabellen. De volgende query ziet u bijvoorbeeld alle tabellen waarbij IPv4-adressen in de afgelopen 24 uur zijn verzameld:
+* *IP-adressen*: Log Analytics verzamelt diverse IP-gegevens over diverse tabellen. Met de volgende query worden bijvoorbeeld alle tabellen weer gegeven waarin IPv4-adressen zijn verzameld in de afgelopen 24 uur:
     ```
     search * 
     | where * matches regex @'\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b' //RegEx originally provided on https://stackoverflow.com/questions/5284147/validating-ipv4-addresses-with-regexp
     | summarize count() by $table
     ```
-* *Gebruikers-id's*: Gebruikers-id's komen in een grote verscheidenheid aan oplossingen en tabellen. U kunt zoeken naar een specifieke gebruikersnaam in uw hele gegevensset met de zoekopdracht:
+* *Gebruikers-id's*: Gebruikers-Id's vindt u in een groot aantal verschillende oplossingen en tabellen. U kunt met behulp van de zoek opdracht zoeken naar een bepaalde gebruikers naam in uw hele gegevensset:
     ```
     search "[username goes here]"
     ```
-  Houd er rekening mee om te zoeken, niet alleen voor mensen leesbare gebruikersnamen, maar ook GUID's die kunnen rechtstreeks worden gerelateerd aan een bepaalde gebruiker!
-* *Apparaat-id's*: Als gebruikers-id's, apparaat-id's worden soms beschouwd als 'persoonlijke'. Zoals hierboven vermeld voor de gebruikers-id's dezelfde benadering gebruiken om te identificeren van tabellen wanneer dit wordt mogelijk een probleem. 
-* *Aangepaste gegevens*: Log Analytics kunt u de verzameling in een aantal methoden: aangepaste logboeken en aangepaste velden, de [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) , en aangepaste gegevens worden verzameld als onderdeel van gebeurtenislogboeken van systeem. Al deze waarden zijn vatbaar voor die persoonlijke gegevens bevatten en moet worden onderzocht om te controleren of er dergelijke gegevens bestaat.
-* *Oplossing vastgelegde gegevens*: Omdat het mechanisme voor oplossing een open is, wordt u aangeraden alle tabellen die zijn gegenereerd door oplossingen om de naleving controleren.
+  Zoek niet alleen naar gebruikers namen met een lees bare naam, maar ook GUID'S die rechtstreeks naar een bepaalde gebruiker kunnen worden getraceerd.
+* *Apparaat-id's*: Net als gebruikers-Id's worden apparaat-Id's soms als ' privé ' beschouwd. Gebruik dezelfde methode als hierboven hierboven voor gebruikers-Id's om tabellen te identificeren waarin dit probleem kan optreden. 
+* *Aangepaste gegevens*: Met Log Analytics kunt u de verzameling op diverse manieren toestaan: aangepaste logboeken en aangepaste velden, de [http-gegevens verzamelaar-API](../../azure-monitor/platform/data-collector-api.md) en aangepaste gegevens die zijn verzameld als onderdeel van systeem gebeurtenis Logboeken. Al deze zijn gevoelig voor persoonlijke gegevens en moeten worden onderzocht om te controleren of dergelijke gegevens bestaan.
+* Door *oplossingen vastgelegde gegevens*: Omdat het oplossings mechanisme een open-end is, raden wij aan alle tabellen die door oplossingen zijn gegenereerd, te controleren om ervoor te zorgen dat deze compatibel zijn.
 
 ### <a name="application-data"></a>Toepassingsgegevens
 
-* *IP-adressen*: Hoewel Application Insights wordt standaard onleesbaar maakt alle velden van IP-adres op '0.0.0.0', is het een vrij algemeen patroon voor de onderdrukking van deze waarde met de werkelijke gebruikers-IP-adres om sessiegegevens te beheren. De onderstaande Analytics-query kan worden gebruikt om een tabel die de waarden in de kolom IP-adres dan "0.0.0.0" in de afgelopen 24 uur bevat te vinden:
+* *IP-adressen*: Hoewel Application Insights standaard alle IP-adres velden maakt op ' 0.0.0.0 ', is dit een redelijk gebruikelijk patroon om deze waarde te overschrijven met de werkelijke gebruikers-IP om sessie gegevens te onderhouden. De onderstaande Analytics-query kan worden gebruikt om een tabel te vinden die waarden bevat in de kolom IP-adres in plaats van ' 0.0.0.0 ' in de afgelopen 24 uur:
     ```
     search client_IP != "0.0.0.0"
     | where timestamp > ago(1d)
     | summarize numNonObfuscatedIPs_24h = count() by $table
     ```
-* *Gebruikers-id's*: Standaard Application Insights willekeurig gegenereerde id's voor de gebruiker en voor sessie bijhouden gebruikt. Het is echter gebruikelijk om te zien van deze velden worden genegeerd voor het opslaan van een meer relevant zijn voor de toepassing-ID. Bijvoorbeeld: gebruikersnamen, AAD-GUID's, enzovoort. Deze id's zijn vaak beschouwd als binnen de regeling vallen als persoonlijke gegevens, en daarom moet worden verwerkt op de juiste wijze. Onze aanbeveling is altijd proberen te verbergen, weergeven of anoniem maken van deze id. Dit zijn enkele velden waarin deze waarden worden vaak gevonden type session_Id, user_Id, user_AuthenticatedId, user_AccountId, evenals customDimensions.
-* *Aangepaste gegevens*: Application Insights kunt u een set aangepaste dimensies toevoegen aan elk gegevenstype. Deze dimensies kunnen worden *eventuele* gegevens. Gebruik de volgende query uit om te identificeren die worden verzameld in de afgelopen 24 uur aangepaste dimensies:
+* *Gebruikers-id's*: Standaard worden door Application Insights wille keurig gegenereerde Id's gebruikt voor het bijhouden van gebruikers en sessies. Het is echter gebruikelijk dat deze velden worden overschreven voor het opslaan van een ID die relevant is voor de toepassing. Bijvoorbeeld: gebruikers namen, AAD-GUID'S, enzovoort. Deze Id's worden vaak beschouwd als persoonlijke gegevens en moeten daarom op de juiste wijze worden afgehandeld. Onze aanbeveling is altijd om deze Id's te veranoniem makenen. Velden waarin deze waarden vaak worden gevonden, zijn session_Id, user_Id, user_AuthenticatedId, user_AccountId en customDimensions.
+* *Aangepaste gegevens*: Met Application Insights kunt u een set aangepaste dimensies toevoegen aan elk gegevens type. Deze dimensies kunnen *alle* gegevens zijn. Gebruik de volgende query om alle aangepaste dimensies te identificeren die in de afgelopen 24 uur zijn verzameld:
     ```
     search * 
     | where isnotempty(customDimensions)
     | where timestamp > ago(1d)
     | project $table, timestamp, name, customDimensions 
     ```
-* *Gegevens in het geheugen en in-transit*: Application Insights wordt bijgehouden, uitzonderingen, aanvragen, afhankelijkheidsaanroepen en traceringen. Persoonlijke gegevens kunnen vaak worden verzameld op de code en het niveau van de HTTP-aanroep. Bekijk de uitzonderingen, aanvragen, afhankelijkheden en traceringen tabellen voor het identificeren van dergelijke gegevens. Gebruik [telemetrie initializers](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) waar mogelijk op deze gegevens, onleesbaar maakt.
-* *Snapshot Debugger opnamen*: De [Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) functie in Application Insights kunt u voor het verzamelen van momentopnamen voor foutopsporing, telkens wanneer een uitzondering is opgetreden op de productie-instantie van uw toepassing. Momentopnamen wordt de volledige stack-trace leidt tot de uitzonderingen, evenals de waarden voor lokale variabelen bij elke stap in de stack weergegeven. Deze functie is helaas niet toegestaan voor selectieve verwijdering van uitlijnpunten of programmatische toegang tot gegevens in de momentopname. Als de retentie-frequentie van de standaard-momentopnamen niet voldoet aan uw vereisten voor naleving, moet de aanbeveling is daarom de functie uitschakelen.
+* *In-Memory en in-transit gegevens*: Application Insights worden uitzonde ringen, aanvragen, afhankelijkheids aanroepen en traceringen bijgehouden. Persoonlijke gegevens kunnen vaak worden verzameld op het niveau van code en HTTP-aanroepen. Bekijk de tabellen met uitzonde ringen, aanvragen, afhankelijkheden en traceringen om dergelijke gegevens te identificeren. Gebruik de [initialisatie functies](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) voor telemetrie waar mogelijk deze gegevens kunnen worden verborgen.
+* *Snapshot debugger opnamen*: Met de functie [Snapshot debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) in Application Insights kunt u moment opnamen van fout opsporing verzamelen wanneer er een uitzonde ring wordt gedetecteerd op het productie-exemplaar van uw toepassing. Met moment opnamen wordt de volledige Stack tracering voor de uitzonde ringen en de waarden voor lokale variabelen bij elke stap in de stack beschikbaar gemaakt. Helaas is deze functie niet toegestaan voor selectieve verwijdering van magnetische punten of programmatische toegang tot gegevens in de moment opname. Als de standaard retentie tijd van de moment opname niet voldoet aan uw nalevings vereisten, is de aanbeveling daarom de functie uit te scha kelen.
 
-## <a name="how-to-export-and-delete-private-data"></a>Het exporteren en verwijderen van persoonlijke gegevens
+## <a name="how-to-export-and-delete-private-data"></a>Privé gegevens exporteren en verwijderen
 
-Zoals vermeld in de [strategie voor de verwerking van persoonlijke gegevens](#strategy-for-personal-data-handling) eerdere sectie, is het __sterk__ aanbevolen als het mogelijk om te herstructureren van uw beleid voor het uitschakelen van de verzameling van verzameling persoonlijke gegevens, obfuscating of deze anoniem of anderszins wijzigen om te verwijderen uit de gebeurtenis wordt beschouwd als 'persoonlijke'. Verwerken van de gegevens worden voorste leiden tot kosten bij u en uw team te definiëren en het automatiseren van een strategie, het bouwen van een interface voor uw klanten om te communiceren met hun gegevens via en constant onderhoudskosten. Bovendien is het rekenintensief kostbare voor Log Analytics en Application Insights en een groot aantal gelijktijdige query of opschonen van API-aanroepen hebben de potentiële negatieve invloed hebben op alle interactie met Log Analytics-functionaliteit. Dat gezegd, er zijn inderdaad enkele geldige scenario's waar de persoonlijke gegevens moeten worden verzameld. Voor deze gevallen moet de gegevens worden verwerkt zoals beschreven in deze sectie.
+Zoals vermeld in de sectie [strategie voor het afhandelen van persoonlijke gegevens](#strategy-for-personal-data-handling) , wordt het __ten zeerste__ aanbevolen om uw gegevensverzamelings beleid te herstructureren om het verzamelen van persoonlijke gegevens uit te scha kelen, af te zetten of te anoniem of anders wijzigt u deze om te voor komen dat dit wordt beschouwd als ' persoonlijk '. Het afhandelen van de gegevens leidt ertoe dat de kosten voor u en uw team een strategie definiëren en automatiseren, een interface bouwen voor uw klanten om te communiceren met hun gegevens via en continue onderhouds kosten. Verder is het kostenbesparend voor Log Analytics en Application Insights en is een groot volume van gelijktijdige query's of API-aanroepen voor het opschonen van api's de mogelijkheid om alle andere interactie met Log Analytics functionaliteit negatief te beïnvloeden. Dit heeft te maken met inderdaad enkele geldige scenario's waarin privé gegevens moeten worden verzameld. In dergelijke gevallen moeten gegevens worden verwerkt, zoals beschreven in deze sectie.
 
 [!INCLUDE [gdpr-intro-sentence](../../../includes/gdpr-intro-sentence.md)]
 
-### <a name="view-and-export"></a>Weergeven en exporteren
+### <a name="view-and-export"></a>Weer geven en exporteren
 
-Voor beide weergeven en exporteren van aanvragen voor gegevens, de [Log Analytics-query API](https://dev.loganalytics.io/) of de [Application Insights query API](https://dev.applicationinsights.io/quickstart) moet worden gebruikt. Logica voor het converteren van de vorm van de gegevens naar een geschikt om te leveren aan uw gebruikers worden aan u om te implementeren. [Azure Functions](https://azure.microsoft.com/services/functions/) maakt een mooie plek voor het hosten van dergelijke logica.
+Voor beide gegevens aanvragen weer geven en exporteren moet de [log Analytics query-API](https://dev.loganalytics.io/) of de [Application INSIGHTS query-API](https://dev.applicationinsights.io/quickstart) worden gebruikt. Logica voor het converteren van de vorm van de gegevens naar een geschikte shape om aan uw gebruikers te leveren, is aan u toe te passen. [Azure functions](https://azure.microsoft.com/services/functions/) is een goede plaats om deze logica te hosten.
 
 > [!IMPORTANT]
->  Hoewel de meeste opschonen bewerkingen mogelijk veel sneller dan de SLA voltooid **een formele SLA voor de voltooiing van leegmaken is ingesteld op 30 dagen** vanwege de zware impact op het data platform dat wordt gebruikt. Dit is een geautomatiseerd proces; Er is geen manier om aan te vragen dat een bewerking sneller worden verwerkt.
+>  Hoewel het meren deel van de opschoon bewerkingen veel sneller kan worden uitgevoerd dan de SLA, **wordt de formele sla voor het volt ooien van de opschoon bewerking 30 dagen ingesteld** als gevolg van de zware impact van het gebruikte gegevens platform. Dit is een geautomatiseerd proces. u kunt niet aanvragen dat een bewerking sneller wordt verwerkt.
 
 ### <a name="delete"></a>Verwijderen
 
 > [!WARNING]
-> Verwijderingen in Log Analytics zijn schadelijke en niet-omkeerbare! Gebruik zeer voorzichtig te werk in de uitvoering ervan.
+> Verwijderingen in Log Analytics zijn destructief en niet-omkeerbaar. Wees uiterst voorzichtig bij de uitvoering ervan.
 
-We hebben aangebracht beschikbaar als onderdeel van de verwerking van een privacy een *opschonen* API-pad. Dit pad moet spaarzaam worden gebruikt vanwege het risico dat samenhangt met in dat geval, de mogelijke invloed op de prestaties en het potentieel scheeftrekken gehele aggregaties, metingen en andere aspecten van uw Log Analytics-gegevens. Zie de [strategie voor de verwerking van persoonlijke gegevens](#strategy-for-personal-data-handling) sectie voor alternatieve methoden voor het verwerken van persoonlijke gegevens.
+We zijn beschikbaar gesteld als onderdeel van een privacy-verwerkings-API-pad. Dit pad moet spaarzaam worden gebruikt vanwege het risico dat eraan is gekoppeld, de potentiële invloed op de prestaties en de kans om alle aggregaties, metingen en andere aspecten van uw Log Analytics gegevens te scheef trekken. Zie de sectie [strategie voor het verwerken van persoonlijke gegevens](#strategy-for-personal-data-handling) voor alternatieve benaderingen voor het afhandelen van persoonlijke gegevens.
 
-Opschonen van Logboeken is een zeer bevoegde bewerking dat er geen app of gebruiker in Azure (met inbegrip van zelfs de resource-eigenaar) hebben machtigingen om uit te voeren zonder expliciet worden verleend een rol in Azure Resource Manager. Deze rol is _gegevens Purger_ en moet voorzichtig worden overgedragen vanwege de mogelijkheden voor preventie van gegevensverlies. 
+Opschonen is een zeer beschermde bewerking die geen enkele app of gebruiker in azure (inclusief zelfs de resource-eigenaar) toestemming heeft om uit te voeren zonder expliciet een rol in Azure Resource Manager te krijgen. Deze rol is _gegevens verzamelaar_ en moet voorzichtig worden gedelegeerd vanwege het mogelijke verlies van gegevens. 
 
-Nadat de Azure Resource Manager-rol is toegewezen, zijn twee nieuwe API-paden zijn beschikbaar: 
+Zodra de Azure Resource Manager rol is toegewezen, zijn er twee nieuwe API-paden beschikbaar: 
 
 #### <a name="log-data"></a>Logboekgegevens
 
-* [Opschonen na](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - wordt een object op te geven parameters van de gegevens te verwijderen en retourneert een verwijzing GUID 
-* OPHALEN leegmaken status - de POST-aanroep voor opschonen van een 'x-ms-status-location'-header die bevat een URL die u aanroepen kunt om te bepalen van de status van uw API opschonen wordt geretourneerd. Bijvoorbeeld:
+* [Bericht](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) opschonen: Hiermee wordt een object opgegeven met de para meters voor het verwijderen van de gegevens en wordt een verwijzings-GUID geretourneerd 
+* Status van leegmaken ophalen: de aanroep ' x-MS-status-location ' wordt door het aanroepen van de POST geretourneerd en bevat een URL die u kunt aanroepen om de status van uw opschoon API te bepalen. Bijvoorbeeld:
 
     ```
-    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperatonalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
+    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
     ```
 
 > [!IMPORTANT]
->  Terwijl we verwachten dat de meeste opschonen bewerkingen om uit te voeren veel sneller dan onze SLA, vanwege de zware impact op het data-platform dat door Log Analytics, **een formele SLA voor de voltooiing van leegmaken is ingesteld op 30 dagen**. 
+>  Hoewel we verwachten dat het overgrote deel van de opschoon bewerking veel sneller is dan onze SLA, vanwege hun zware impact op het gegevens platform dat wordt gebruikt door Log Analytics, **wordt de formele sla voor het volt ooien van de opschoon bewerking ingesteld op 30 dagen**. 
 
 #### <a name="application-data"></a>Toepassingsgegevens
 
-* [Opschonen na](https://docs.microsoft.com/rest/api/application-insights/components/purge) - wordt een object op te geven parameters van de gegevens te verwijderen en retourneert een verwijzing GUID
-* OPHALEN leegmaken status - de POST-aanroep voor opschonen van een 'x-ms-status-location'-header die bevat een URL die u aanroepen kunt om te bepalen van de status van uw API opschonen wordt geretourneerd. Bijvoorbeeld:
+* [Bericht](https://docs.microsoft.com/rest/api/application-insights/components/purge) opschonen: Hiermee wordt een object opgegeven met de para meters voor het verwijderen van de gegevens en wordt een verwijzings-GUID geretourneerd
+* Status van leegmaken ophalen: de aanroep ' x-MS-status-location ' wordt door het aanroepen van de POST geretourneerd en bevat een URL die u kunt aanroepen om de status van uw opschoon API te bepalen. Bijvoorbeeld:
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01
    ```
 
 > [!IMPORTANT]
->  Hoewel de meeste opschonen bewerkingen mogelijk veel sneller dan de SLA, vanwege de zware impact op het data-platform dat door Application Insights, voltooid **een formele SLA voor de voltooiing van leegmaken is ingesteld op 30 dagen**.
+>  Hoewel het meren deel van de opschoon bewerkingen veel sneller kan worden uitgevoerd dan de SLA Application Insights, **wordt de formele sla voor het volt ooien van de opschoon bewerking op 30 dagen ingesteld**.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Zie voor meer informatie over hoe Log Analytics-gegevens wordt verzameld, verwerkt en beveiligd, [Log Analytics-gegevensbeveiliging](../../azure-monitor/platform/data-security.md).
-- Zie voor meer informatie over hoe Application Insights-gegevens wordt verzameld, verwerkt en beveiligd, [Application Insights-gegevensbeveiliging](../../azure-monitor/app/data-retention-privacy.md).
+- Zie [log Analytics Data Security](../../azure-monitor/platform/data-security.md)(Engelstalig) voor meer informatie over hoe log Analytics gegevens worden verzameld, verwerkt en beveiligd.
+- Zie [Application Insights Data Security](../../azure-monitor/app/data-retention-privacy.md)(Engelstalig) voor meer informatie over hoe Application Insights gegevens worden verzameld, verwerkt en beveiligd.

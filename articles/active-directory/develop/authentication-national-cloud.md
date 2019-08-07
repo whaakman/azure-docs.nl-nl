@@ -1,6 +1,6 @@
 ---
-title: Verificatie met behulp van Azure Active Directory in nationale clouds
-description: Meer informatie over app-registratie en verificatie-eindpunten voor nationale clouds.
+title: Verificatie met behulp van Azure Active Directory in nationale Clouds
+description: Meer informatie over app-registratie en verificatie-eind punten voor nationale Clouds.
 services: active-directory
 documentationcenter: ''
 author: negoe
@@ -9,7 +9,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
@@ -17,69 +17,69 @@ ms.author: negoe
 ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd37366697a9c1f5019d2864e6d81a4dcd02e3a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abaf8c910710000930f4e0ab6200d0ebd75b8d46
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235494"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835191"
 ---
-# <a name="national-clouds"></a>Nationale clouds
+# <a name="national-clouds"></a>Nationale Clouds
 
-Nationale clouds zijn fysiek geïsoleerd exemplaren van Azure. Deze regio's van Azure zijn ontworpen om ervoor te zorgen dat gegevens gegevenslocatie, soevereiniteit, en vereisten binnen geografische grenzen worden herkend.
+Nationale Clouds zijn fysiek geïsoleerde exemplaren van Azure. Deze regio's van Azure zijn zodanig ontworpen dat de vereisten voor gegevens locatie, soevereiniteit en naleving binnen geografische grenzen worden gerespecteerd.
 
-Azure Active Directory (Azure AD) is geïmplementeerd met inbegrip van de globale cloud in de volgende nationale clouds:  
+Met inbegrip van de wereld wijde Cloud, Azure Active Directory (Azure AD), wordt geïmplementeerd in de volgende nationale Clouds:  
 
 - Azure Government
 - Azure Duitsland
 - Azure China 21Vianet
 
-Nationale clouds uniek zijn en een afzonderlijke omgeving van Azure wereldwijd. Het is belangrijk om te worden op de hoogte van belangrijke verschillen tijdens het ontwikkelen van uw toepassing voor deze omgevingen. Verschillen zijn toepassingen registreren, het verkrijgen van tokens en het configureren van eindpunten.
+Nationale Clouds zijn uniek en een afzonderlijke omgeving van Azure Global. Het is belang rijk om rekening te houden met belang rijke verschillen tijdens het ontwikkelen van uw toepassing voor deze omgevingen. Verschillen zijn onder andere het registreren van toepassingen, het verkrijgen van tokens en het configureren van eind punten.
 
-## <a name="app-registration-endpoints"></a>Eindpunten voor App-registratie
+## <a name="app-registration-endpoints"></a>App-registratie-eind punten
 
-Er is een afzonderlijke Azure-portal voor elk van de nationale clouds. Voor het integreren van toepassingen met de Microsoft identity-platform in een nationale cloud, bent u verplicht afzonderlijk uw toepassing registreren in elke Azure-portal die specifiek is voor de omgeving.
+Er is een afzonderlijke Azure Portal voor elk van de nationale Clouds. Als u toepassingen wilt integreren met het micro soft Identity-platform in een nationale Cloud, moet u uw toepassing afzonderlijk registreren in elk Azure Portal dat specifiek is voor de omgeving.
 
-De volgende tabel bevat de basis-URL's voor de Azure AD-eindpunten gebruikt voor het registreren van een toepassing voor elke nationale cloud.
+De volgende tabel bevat de basis-Url's voor de Azure AD-eind punten die worden gebruikt om een toepassing voor elke nationale Cloud te registreren.
 
-| Nationale cloud | Azure AD portal-eindpunt |
+| Nationale Cloud | Azure AD-Portal-eind punt |
 |----------------|--------------------------|
 | Azure AD voor de Amerikaanse overheid | `https://portal.azure.us` |
-| Azure AD Germany | `https://portal.microsoftazure.de` |
-| Azure AD-China, uitgevoerd door 21Vianet | `https://portal.azure.cn` |
-| Azure AD (global service) |`https://portal.azure.com` |
+| Azure AD Duitsland | `https://portal.microsoftazure.de` |
+| Azure AD China beheerd door 21Vianet | `https://portal.azure.cn` |
+| Azure AD (globale service) |`https://portal.azure.com` |
 
-## <a name="azure-ad-authentication-endpoints"></a>Azure AD-verificatie-eindpunten
+## <a name="azure-ad-authentication-endpoints"></a>Azure AD-verificatie-eind punten
 
-De nationale clouds verificatie van gebruikers in elke omgeving afzonderlijk en afzonderlijke verificatie-eindpunten hebben.
+Alle nationale Clouds verifiëren gebruikers afzonderlijk in elke omgeving en hebben afzonderlijke verificatie-eind punten.
 
-De volgende tabel bevat de basis-URL's voor de Azure AD-eindpunten voor het verkrijgen van tokens voor elke nationale cloud.
+De volgende tabel bevat de basis-Url's voor de Azure AD-eind punten die worden gebruikt om tokens voor elke nationale Cloud te verkrijgen.
 
-| Nationale cloud | Azure AD-verificatie-eindpunt |
+| Nationale Cloud | Azure AD-verificatie-eind punt |
 |----------------|-------------------------|
 | Azure AD voor de Amerikaanse overheid | `https://login.microsoftonline.us` |
-| Azure AD Germany| `https://login.microsoftonline.de` |
-| Azure AD-China, uitgevoerd door 21Vianet | `https://login.chinacloudapi.cn` |
-| Azure AD (global service)| `https://login.microsoftonline.com` |
+| Azure AD Duitsland| `https://login.microsoftonline.de` |
+| Azure AD China beheerd door 21Vianet | `https://login.chinacloudapi.cn` |
+| Azure AD (globale service)| `https://login.microsoftonline.com` |
 
-Aanvragen voor de autorisatie van Azure AD of token-eindpunten kunt u vormen met behulp van de juiste regiospecifieke basis-URL. Bijvoorbeeld: voor Azure Duitsland:
+U kunt aanvragen indienen bij de autorisatie-of Token-eind punten van Azure AD met behulp van de juiste regiospecifieke basis-URL. Bijvoorbeeld voor Azure Duitsland:
 
-  - Algemene autorisatie-eindpunt is `https://login.microsoftonline.de/common/oauth2/authorize`.
-  - Algemene tokeneindpunt is `https://login.microsoftonline.de/common/oauth2/token`.
+  - Het gebruikelijke eind punt `https://login.microsoftonline.de/common/oauth2/authorize`voor autorisatie is.
+  - Token common-eind `https://login.microsoftonline.de/common/oauth2/token`punt is.
 
-Vervang 'algemene' in de vorige URL's met de naam van uw tenant-ID of voor één tenant-toepassingen. Een voorbeeld is `https://login.microsoftonline.de/contoso.com`.
+Vervang voor toepassingen met één Tenant "common" in de vorige Url's door uw Tenant-ID of-naam. Een voorbeeld is `https://login.microsoftonline.de/contoso.com`.
 
 > [!NOTE]
-> De [Azure AD v2.0-autorisatie]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview) en token-eindpunten zijn alleen beschikbaar voor de globale-service. Ze worden niet ondersteund voor nationale cloudimplementaties.
+> De autorisatie-en Token-eind punten van [Azure AD v 2.0]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview) zijn alleen beschikbaar voor de algemene service. Ze worden niet ondersteund voor nationale Cloud implementaties.
 
-## <a name="microsoft-graph-api"></a>Microsoft Graph API
+## <a name="microsoft-graph-api"></a>Microsoft Graph-API
 
-Voor meer informatie over het aanroepen van de Microsoft Graph-API's in een nationale cloudomgeving, gaat u naar [Microsoft Graph in nationale cloudimplementaties](https://developer.microsoft.com/graph/docs/concepts/deployments).
+Ga voor meer informatie over het aanroepen van de Microsoft Graph-Api's in een nationale cloud omgeving naar [Microsoft Graph in nationale Cloud implementaties](https://developer.microsoft.com/graph/docs/concepts/deployments).
 
 > [!IMPORTANT]
-> Bepaalde services en functies die zich in specifieke gebieden van de algemene service mogelijk niet beschikbaar in alle van de nationale clouds. Als u wilt weten welke services beschikbaar zijn, gaat u naar [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
+> Bepaalde services en functies in bepaalde regio's van de wereld wijde service zijn mogelijk niet beschikbaar in alle nationale Clouds. Ga naar [beschik bare producten per regio](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast)voor meer informatie over welke services beschikbaar zijn.
 
-Voor meer informatie over het bouwen van een toepassing met behulp van de Microsoft identity-platform, volgt u de [Microsoft Authentication Library (MSAL) zelfstudie](msal-national-cloud.md). Deze app wordt specifiek, meld u aan een gebruiker en een toegangstoken voor het aanroepen van de Microsoft Graph API.
+Als u wilt weten hoe u een toepassing bouwt met behulp van het micro soft-identiteits platform, volgt u de [zelf studie micro soft Authentication Library (MSAL)](msal-national-cloud.md). Met name deze app meldt zich aan bij een gebruiker en krijgt een toegangs token om de Microsoft Graph-API aan te roepen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -88,4 +88,4 @@ Meer informatie over:
 - [Azure Government](https://docs.microsoft.com/azure/azure-government/)
 - [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
 - [Azure Duitsland](https://docs.microsoft.com/azure/germany/)
-- [Basisbeginselen van Azure AD-verificatie](authentication-scenarios.md)
+- [Basis beginselen van Azure AD-verificatie](authentication-scenarios.md)

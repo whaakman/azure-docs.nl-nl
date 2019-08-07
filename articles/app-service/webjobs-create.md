@@ -1,6 +1,6 @@
 ---
-title: Achtergrondtaken uitvoeren met WebJobs - Azure App Service
-description: Informatie over het gebruik van WebJobs voor achtergrondtaken uitvoeren in Azure App Service WebApps, API-apps of mobiele apps.
+title: Achtergrond taken uitvoeren met webjobs-Azure App Service
+description: Leer hoe u webjobs kunt gebruiken om achtergrond taken uit te voeren in Azure App Service web apps, API apps of mobiele apps.
 services: app-service
 documentationcenter: ''
 author: ggailey777
@@ -16,166 +16,166 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 8f4689e7d8d5af1aba2f31aac0359494a3a259f5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 47a068ac6a7941c8ce71cf5c6745d2958c75fe74
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613384"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736598"
 ---
-# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Achtergrondtaken uitvoeren met WebJobs in Azure App Service
+# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Achtergrond taken uitvoeren met webjobs in Azure App Service
 
 ## <a name="overview"></a>Overzicht
-WebJobs is een functie van [Azure App Service](https://docs.microsoft.com/azure/app-service/) waarmee u kunt een programma of script binnen dezelfde context als een web-app, API-app of mobiele app uitvoeren. Er is geen extra kosten gebruik van WebJobs.
+Webjobs is een functie van [Azure app service](https://docs.microsoft.com/azure/app-service/) waarmee u een programma of script kunt uitvoeren in dezelfde context als een web-app, API-app of mobiele app. Er zijn geen extra kosten verbonden aan het gebruik van webjobs.
 
 > [!IMPORTANT]
-> WebJobs is nog niet ondersteund voor App Service on Linux.
+> Webjobs wordt nog niet ondersteund voor App Service in Linux.
 
-Dit artikel wordt beschreven hoe u WebJobs implementeren met behulp van de [Azure-portal](https://portal.azure.com) voor het uploaden van een uitvoerbaar bestand of script. Zie voor meer informatie over het ontwikkelen en WebJobs implementeren met behulp van Visual Studio [WebJobs toepassen met Visual Studio](webjobs-dotnet-deploy-vs.md).
+In dit artikel wordt beschreven hoe u webjobs kunt implementeren met behulp van de [Azure Portal](https://portal.azure.com) voor het uploaden van een uitvoerbaar bestand of script. Zie [Webjobs implementeren met Visual Studio](webjobs-dotnet-deploy-vs.md)voor meer informatie over het ontwikkelen en implementeren van webjobs met Visual Studio.
 
-De Azure WebJobs SDK kan worden gebruikt met WebJobs om veel programming taken te vereenvoudigen. Zie voor meer informatie, [wat de WebJobs SDK is](https://github.com/Azure/azure-webjobs-sdk/wiki).
+De Azure WebJobs SDK kan worden gebruikt met webjobs om veel programmeer taken te vereenvoudigen. Zie [Wat is de Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)? voor meer informatie.
 
-Azure Functions biedt een andere manier om uit te voeren programma's en scripts. Zie voor een vergelijking tussen de functies en WebJobs [kiezen tussen Flow, Logic Apps, Functions en WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
+Azure Functions biedt een andere manier om Program ma's en scripts uit te voeren. Zie [kiezen tussen flow, Logic apps, functions en Webjobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md)voor een vergelijking tussen webjobs en functies.
 
-## <a name="webjob-types"></a>WebJob-typen
+## <a name="webjob-types"></a>Webtaak typen
 
-De volgende tabel beschrijft de verschillen tussen *continue* en *geactiveerd* WebJobs.
+In de volgende tabel worden de verschillen tussen doorlopende en *geactiveerde* webjobs beschreven.
 
 
-|Continu  |Triggered  |
+|Doorlopend  |Geactiveerd  |
 |---------|---------|
-| Begint onmiddellijk wanneer de webtaak wordt gemaakt. Het programma of script, doet om te voorkomen dat de taak beëindigen, gewoonlijk zijn werk binnen een oneindige lus. Als de taak eindigt, kunt u deze opnieuw starten. | Wordt alleen gestart als geactiveerd handmatig of volgens een schema. |
-| Wordt uitgevoerd op alle exemplaren die de web-app wordt uitgevoerd op. U kunt eventueel de webtaak beperken tot één exemplaar. |Wordt uitgevoerd op een enkele instantie die door Azure wordt geselecteerd voor de taakverdeling.|
-| Biedt ondersteuning voor foutopsporing op afstand. | Biedt geen ondersteuning voor foutopsporing op afstand.|
+| Wordt onmiddellijk gestart wanneer de Webtaak wordt gemaakt. Om te voor komen dat de taak eindigt, wordt het programma of het script doorgaans binnen een oneindige lus uitgevoerd. Als de taak wordt beëindigd, kunt u deze opnieuw starten. | Wordt alleen gestart wanneer hand matig of volgens een planning wordt geactiveerd. |
+| Wordt uitgevoerd op alle exemplaren waarop de web-app wordt uitgevoerd. U kunt de Webtaak optioneel beperken tot één exemplaar. |Wordt uitgevoerd op één exemplaar dat door Azure wordt geselecteerd voor taak verdeling.|
+| Ondersteunt fout opsporing op afstand. | Biedt geen ondersteuning voor externe fout opsporing.|
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
-## <a name="acceptablefiles"></a>Ondersteunde bestandstypen voor scripts of programma 's
+## <a name="acceptablefiles"></a>Ondersteunde bestands typen voor scripts of Program ma's
 
-De volgende bestandstypen worden ondersteund:
+De volgende bestands typen worden ondersteund:
 
 * .cmd, .bat, .exe (using Windows cmd)
-* .ps1 (met behulp van PowerShell)
-* .sh (met Bash)
-* .php (met behulp van PHP)
-* .PY (met behulp van Python)
-* .js (met behulp van Node.js)
-* .jar (using Java)
+* . ps1 (met Power shell)
+* . sh (met behulp van bash)
+* . php (met PHP)
+* . py (met python)
+* . js (met behulp van node. js)
+* . jar (met behulp van Java)
 
-## <a name="CreateContinuous"></a> Een continue WebJob maken
+## <a name="CreateContinuous"></a>Een doorlopende Webtaak maken
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
 when making changes in one don't forget the other two.
 -->
 
-1. In de [Azure-portal](https://portal.azure.com), gaat u naar de **App Service** pagina van uw App Service-web-app, API-app of mobiele app.
+1. Ga in het [Azure Portal](https://portal.azure.com)naar de pagina **App Service** van uw app service Web-app, API-app of mobiele app.
 
-2. Selecteer **WebJobs**.
+2. Selecteer **webjobs**.
 
-   ![WebJobs selecteren](./media/web-sites-create-web-jobs/select-webjobs.png)
+   ![Webjobs selecteren](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. In de **WebJobs** weergeeft, schakelt **toevoegen**.
+2. Selecteer op de pagina webjobs de optie **toevoegen**.
 
-    ![WebJob-pagina](./media/web-sites-create-web-jobs/wjblade.png)
+    ![Pagina Webtaak](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Gebruik de **webtaak toevoegen** instellingen zoals opgegeven in de tabel.
+3. Gebruik de instellingen voor het **toevoegen** van webtaaks zoals opgegeven in de tabel.
 
-   ![Webtaak pagina toevoegen](./media/web-sites-create-web-jobs/addwjcontinuous.png)
+   ![Pagina Webtaak toevoegen](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
    | Instelling      | Voorbeeldwaarde   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Naam** | myContinuousWebJob | Een naam die uniek is binnen een App Service-app. Moet beginnen met een letter of cijfer en mag geen andere waarde dan speciale tekens bevatten '-' en '_'. |
-   | **Bestand uploaden** | ConsoleApp.zip | Een *.zip* -bestand met het bestand uitvoerbaar bestand of script, evenals alle ondersteunende bestanden die nodig zijn voor het programma of script uitvoeren. De ondersteunde typen voor uitvoerbaar bestand of script bestand worden vermeld in de [ondersteunde bestandstypen](#acceptablefiles) sectie. |
-   | **Type** | Continu | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
-   | **Schalen** | Meerdere exemplaren | Alleen beschikbaar voor doorlopende webtaken. Bepaalt of het programma of script wordt uitgevoerd op alle exemplaren of slechts één exemplaar. De mogelijkheid om te worden uitgevoerd op meerdere exemplaren niet van toepassing op gratis of gedeeld [Prijscategorieën](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
+   | **Naam** | myContinuousWebJob | Een naam die uniek is binnen een App Service-app. Moet beginnen met een letter of een cijfer en mag geen speciale tekens bevatten, behalve '-' en ' _ '. |
+   | **Bestand uploaden** | ConsoleApp.zip | Een *zip* -bestand dat uw uitvoer bare bestand of script bestanden bevat, evenals alle ondersteunende bestanden die nodig zijn om het programma of script uit te voeren. De ondersteunde typen uitvoer bare bestanden of scripts worden vermeld in de sectie [ondersteunde bestands typen](#acceptablefiles) . |
+   | **Type** | Doorlopend | De [typen](#webjob-types) webtaaks worden eerder in dit artikel beschreven. |
+   | **Schalen** | Meerdere exemplaren | Alleen beschikbaar voor doorlopende webjobs. Hiermee wordt bepaald of het programma of script wordt uitgevoerd op alle exemplaren of op slechts één exemplaar. De optie voor het uitvoeren van meerdere exemplaren is niet van toepassing op de [prijs categorieën](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)gratis of gedeeld. | 
 
 4. Klik op **OK**.
 
-   De nieuwe webtaak wordt weergegeven op de **WebJobs** pagina.
+   De nieuwe Webtaak wordt weer gegeven op de pagina webjobs.
 
-   ![Lijst met WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
+   ![Lijst met webjobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-2. Als u wilt stoppen of opnieuw starten van een doorlopende webtaak, met de rechtermuisknop op de webtaak in de lijst en klikt u op **stoppen** of **Start**.
+2. Als u een doorlopende Webtaak wilt stoppen of opnieuw wilt starten, klikt u met de rechter muisknop in de lijst en klikt u op **stoppen** of **starten**.
 
-    ![Een doorlopende webtaak stoppen](./media/web-sites-create-web-jobs/continuousstop.png)
+    ![Een doorlopende Webtaak stoppen](./media/web-sites-create-web-jobs/continuousstop.png)
 
-## <a name="CreateOnDemand"></a> Een handmatig geactiveerde-webtaak maken
+## <a name="CreateOnDemand"></a>Een hand matig geactiveerde Webtaak maken
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
 when making changes in one don't forget the other two.
 -->
 
-1. In de [Azure-portal](https://portal.azure.com), gaat u naar de **App Service** pagina van uw App Service-web-app, API-app of mobiele app.
+1. Ga in het [Azure Portal](https://portal.azure.com)naar de pagina **App Service** van uw app service Web-app, API-app of mobiele app.
 
-2. Selecteer **WebJobs**.
+2. Selecteer **webjobs**.
 
-   ![WebJobs selecteren](./media/web-sites-create-web-jobs/select-webjobs.png)
+   ![Webjobs selecteren](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. In de **WebJobs** weergeeft, schakelt **toevoegen**.
+2. Selecteer op de pagina webjobs de optie **toevoegen**.
 
-    ![WebJob-pagina](./media/web-sites-create-web-jobs/wjblade.png)
+    ![Pagina Webtaak](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Gebruik de **webtaak toevoegen** instellingen zoals opgegeven in de tabel.
+3. Gebruik de instellingen voor het **toevoegen** van webtaaks zoals opgegeven in de tabel.
 
-   ![Webtaak pagina toevoegen](./media/web-sites-create-web-jobs/addwjtriggered.png)
+   ![Pagina Webtaak toevoegen](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
    | Instelling      | Voorbeeldwaarde   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Naam** | myTriggeredWebJob | Een naam die uniek is binnen een App Service-app. Moet beginnen met een letter of cijfer en mag geen andere waarde dan speciale tekens bevatten '-' en '_'.|
-   | **Bestand uploaden** | ConsoleApp.zip | Een *.zip* -bestand met het bestand uitvoerbaar bestand of script, evenals alle ondersteunende bestanden die nodig zijn voor het programma of script uitvoeren. De ondersteunde typen voor uitvoerbaar bestand of script bestand worden vermeld in de [ondersteunde bestandstypen](#acceptablefiles) sectie. |
-   | **Type** | Triggered | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
+   | **Naam** | myTriggeredWebJob | Een naam die uniek is binnen een App Service-app. Moet beginnen met een letter of een cijfer en mag geen speciale tekens bevatten, behalve '-' en ' _ '.|
+   | **Bestand uploaden** | ConsoleApp.zip | Een *zip* -bestand dat uw uitvoer bare bestand of script bestanden bevat, evenals alle ondersteunende bestanden die nodig zijn om het programma of script uit te voeren. De ondersteunde typen uitvoer bare bestanden of scripts worden vermeld in de sectie [ondersteunde bestands typen](#acceptablefiles) . |
+   | **Type** | Geactiveerd | De [typen](#webjob-types) webtaaks worden eerder in dit artikel beschreven. |
    | **Triggers** | Handmatig | |
 
 4. Klik op **OK**.
 
-   De nieuwe webtaak wordt weergegeven op de **WebJobs** pagina.
+   De nieuwe Webtaak wordt weer gegeven op de pagina webjobs.
 
-   ![Lijst met WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
+   ![Lijst met webjobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-7. Als u wilt de webtaak uitvoeren, met de rechtermuisknop op de naam in de lijst en klikt u op **uitvoeren**.
+7. Als u de Webtaak wilt uitvoeren, klikt u met de rechter muisknop op de naam in de lijst en klikt u op **uitvoeren**.
    
     ![Webtaak uitvoeren](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="CreateScheduledCRON"></a> Een geplande webtaak maken
+## <a name="CreateScheduledCRON"></a>Een geplande Webtaak maken
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
 when making changes in one don't forget the other two.
 -->
 
-1. In de [Azure-portal](https://portal.azure.com), gaat u naar de **App Service** pagina van uw App Service-web-app, API-app of mobiele app.
+1. Ga in het [Azure Portal](https://portal.azure.com)naar de pagina **App Service** van uw app service Web-app, API-app of mobiele app.
 
-2. Selecteer **WebJobs**.
+2. Selecteer **webjobs**.
 
-   ![WebJobs selecteren](./media/web-sites-create-web-jobs/select-webjobs.png)
+   ![Webjobs selecteren](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. In de **WebJobs** weergeeft, schakelt **toevoegen**.
+2. Selecteer op de pagina webjobs de optie **toevoegen**.
 
-   ![WebJob-pagina](./media/web-sites-create-web-jobs/wjblade.png)
+   ![Pagina Webtaak](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Gebruik de **webtaak toevoegen** instellingen zoals opgegeven in de tabel.
+3. Gebruik de instellingen voor het **toevoegen** van webtaaks zoals opgegeven in de tabel.
 
-   ![Webtaak pagina toevoegen](./media/web-sites-create-web-jobs/addwjscheduled.png)
+   ![Pagina Webtaak toevoegen](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
    | Instelling      | Voorbeeldwaarde   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Naam** | myScheduledWebJob | Een naam die uniek is binnen een App Service-app. Moet beginnen met een letter of cijfer en mag geen andere waarde dan speciale tekens bevatten '-' en '_'. |
-   | **Bestand uploaden** | ConsoleApp.zip | Een *.zip* -bestand met het bestand uitvoerbaar bestand of script, evenals alle ondersteunende bestanden die nodig zijn voor het programma of script uitvoeren. De ondersteunde typen voor uitvoerbaar bestand of script bestand worden vermeld in de [ondersteunde bestandstypen](#acceptablefiles) sectie. |
-   | **Type** | Triggered | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
-   | **Triggers** | Gepland | Voor de planning betrouwbaar werkt, moet u de functie altijd op inschakelen. Altijd beschikbaar is alleen beschikbaar in de Basic, Standard en Premium-Prijscategorieën.|
-   | **CRON-expressie** | 0 0/20 * * * * | [CRON-expressies](#cron-expressions) worden beschreven in de volgende sectie. |
+   | **Naam** | myScheduledWebJob | Een naam die uniek is binnen een App Service-app. Moet beginnen met een letter of een cijfer en mag geen speciale tekens bevatten, behalve '-' en ' _ '. |
+   | **Bestand uploaden** | ConsoleApp.zip | Een *zip* -bestand dat uw uitvoer bare bestand of script bestanden bevat, evenals alle ondersteunende bestanden die nodig zijn om het programma of script uit te voeren. De ondersteunde typen uitvoer bare bestanden of scripts worden vermeld in de sectie [ondersteunde bestands typen](#acceptablefiles) . |
+   | **Type** | Geactiveerd | De [typen](#webjob-types) webtaaks worden eerder in dit artikel beschreven. |
+   | **Triggers** | Gepland | Schakel de functie altijd on in om de planning betrouwbaar te laten werken. Always on is alleen beschikbaar in de prijs categorieën Basic, Standard en Premium.|
+   | **CRON-expressie** | 0 0/20 * * * * | [Cron-expressies](#cron-expressions) worden beschreven in de volgende sectie. |
 
 4. Klik op **OK**.
 
-   De nieuwe webtaak wordt weergegeven op de **WebJobs** pagina.
+   De nieuwe Webtaak wordt weer gegeven op de pagina webjobs.
 
-   ![Lijst met WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
+   ![Lijst met webjobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
 ## <a name="cron-expressions"></a>CRON-expressies
 
-Kunt u een [CRON-expressie](../azure-functions/functions-bindings-timer.md#cron-expressions) in de portal of een `settings.job` bestand in de hoofdmap van de webtaak *.zip* -bestand, zoals in het volgende voorbeeld:
+U kunt een [cron-expressie](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) invoeren in de portal of een `settings.job` bestand toevoegen aan de hoofdmap van het *zip* -bestand van Webtaak, zoals in het volgende voor beeld:
 
 ```json
 {
@@ -183,30 +183,30 @@ Kunt u een [CRON-expressie](../azure-functions/functions-bindings-timer.md#cron-
 }
 ```
 
-Zie voor meer informatie, [plannen van een geactiveerde WebJob](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
+Zie [een geactiveerde Webtaak plannen](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob)voor meer informatie.
 
-## <a name="ViewJobHistory"></a> De geschiedenis van de taak weergeven
+## <a name="ViewJobHistory"></a>De taak geschiedenis weer geven
 
-1. Selecteer de webtaak die u wilt zien van de geschiedenis voor, en selecteer vervolgens de **logboeken** knop.
+1. Selecteer de Webtaak waarvan u de geschiedenis wilt bekijken en selecteer vervolgens de knop Logboeken.
    
-   ![Knop voor logboeken](./media/web-sites-create-web-jobs/wjbladelogslink.png)
+   ![Knop Logboeken](./media/web-sites-create-web-jobs/wjbladelogslink.png)
 
-2. In de **webtaak Details** pagina, selecteert u een tijd om de details voor een run te bekijken.
+2. Selecteer op de pagina **Details** van Webtaak een tijd om Details voor één uitvoering weer te geven.
    
-   ![WebJob-Details](./media/web-sites-create-web-jobs/webjobdetails.png)
+   ![Details van Webtaak](./media/web-sites-create-web-jobs/webjobdetails.png)
 
-3. In de **Details uitvoering van webtaak** weergeeft, schakelt **in-/ uitschakelen uitvoer** de tekst van de inhoud van het logboek wilt zien.
+3. Selecteer in de detail pagina voor het **uitvoeren** van webtaaks de optie uitvoer in- **/uitschakelen** om de tekst van de logboek inhoud te bekijken.
    
-    ![Webtaak details van de uitvoering](./media/web-sites-create-web-jobs/webjobrundetails.png)
+    ![Details van de uitvoering van de Webtaak](./media/web-sites-create-web-jobs/webjobrundetails.png)
 
-   De uitvoertekst in een afzonderlijke browservenster Selecteer **downloaden**. Voor het downloaden van de tekst zelf, met de rechtermuisknop op **downloaden** en opties van uw browser gebruiken om op te slaan van de inhoud van het bestand.
+   Als u de uitvoer tekst in een afzonderlijk browser venster wilt zien, selecteert u **downloaden**. Als u de tekst zelf wilt downloaden, klikt u met de rechter muisknop op **downloaden** en gebruikt u uw browser opties om de inhoud van het bestand op te slaan.
    
-5. Selecteer de **WebJobs** breadcrumb-koppeling aan de bovenkant van de pagina te gaan naar een lijst van WebJobs.
+5. Selecteer de navigatie koppeling webjobs boven aan de pagina om naar een lijst met webjobs te gaan.
 
-    ![Webtaak breadcrumb](./media/web-sites-create-web-jobs/breadcrumb.png)
+    ![Webtaak-breadcrumbnavigatie](./media/web-sites-create-web-jobs/breadcrumb.png)
    
-    ![Lijst met WebJobs in de geschiedenis van dashboard](./media/web-sites-create-web-jobs/webjobslist.png)
+    ![Lijst met webtaken in het dash board geschiedenis](./media/web-sites-create-web-jobs/webjobslist.png)
    
 ## <a name="NextSteps"></a> Volgende stappen
 
-De Azure WebJobs SDK kan worden gebruikt met WebJobs om veel programming taken te vereenvoudigen. Zie voor meer informatie, [wat de WebJobs SDK is](https://github.com/Azure/azure-webjobs-sdk/wiki).
+De Azure WebJobs SDK kan worden gebruikt met webjobs om veel programmeer taken te vereenvoudigen. Zie [Wat is de Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)? voor meer informatie.

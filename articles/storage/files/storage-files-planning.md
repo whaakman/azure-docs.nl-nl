@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 93c36ccb244931c12d8b038f448fbda4eff77f16
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 287902c149fd3a8732ce9ce95b05b0d9fa36147b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721716"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816601"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
 
@@ -62,7 +62,7 @@ Azure Files heeft verschillende ingebouwde opties voor het garanderen van gegeve
     * Clients die geen ondersteuning bieden voor SMB 3,0 met versleuteling, kunnen intra Data Center via SMB 2,1 of SMB 3,0 zonder versleuteling communiceren. SMB-clients mogen geen communicatie tussen-Data Center via SMB 2,1 of SMB 3,0 zonder versleuteling.
     * Clients kunnen via de REST van het bestand communiceren met HTTP of HTTPS.
 * Versleuteling op rest ([Azure Storage-service versleuteling](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): Storage Service Encryption (SSE) is ingeschakeld voor alle opslag accounts. Data-at-rest is versleuteld met volledig beheerde sleutels. Versleuteling op rest verhoogt de opslag kosten niet of vermindert de prestaties. 
-* Optionele vereiste voor versleutelde gegevens in transit: wanneer deze optie is geselecteerd Azure Files, wordt de toegang geweigerd tot de gegevens via niet-versleutelde kanalen. In het bijzonder worden alleen HTTPS-en SMB-3,0 met versleutelings verbindingen toegestaan.
+* Optionele vereiste voor versleutelde gegevens in transit: wanneer deze optie is geselecteerd, wordt de toegang tot de gegevens via niet-versleutelde kanalen door Azure Files geweigerd. In het bijzonder worden alleen HTTPS-en SMB-3,0 met versleutelings verbindingen toegestaan.
 
     > [!Important]  
     > Het vereisen van een veilige overdracht van gegevens leidt ertoe dat oudere SMB-clients niet kunnen communiceren met SMB 3,0 en dat de versleuteling mislukt. Zie [mounten in Windows](storage-how-to-use-files-windows.md), [koppelen aan linux](storage-how-to-use-files-linux.md)en [koppelen aan macOS](storage-how-to-use-files-mac.md)voor meer informatie.
@@ -136,7 +136,7 @@ In de volgende tabel ziet u enkele voor beelden van deze formules voor de ingeri
 
 #### <a name="bursting"></a>Toepassingen
 
-Premium-bestands shares kunnen de IOPS opbursten tot een factor van drie. Bursting wordt geautomatiseerd en werkt op basis van een tegoed systeem. Bursting werkt op basis van de beste inspanningen en de burst-limiet is geen garantie. bestands shares *kunnen de limiet* overschrijden.
+Premium-bestands shares kunnen de IOPS opbursten tot een factor van drie. Bursting wordt geautomatiseerd en werkt op basis van een tegoed systeem. Bursting werkt op basis van de beste inspanningen en de burst-limiet is geen garantie. bestands shares kunnen de limiet overschrijden.
 
 De tegoeden worden in een burst-Bucket verzameld wanneer het verkeer voor uw bestands share onder IOPS voor de basis lijn valt. Een GiB-share van 100 heeft bijvoorbeeld 100 Baseline IOPS. Als het werkelijke verkeer op de share 40 IOPS is voor een specifiek interval van 1 seconde, worden 60 de ongebruikte IOPS gecrediteerd op een burst-Bucket. Deze tegoeden worden vervolgens later gebruikt wanneer bewerkingen de basis lijn van IOPs overschrijden.
 
@@ -207,11 +207,12 @@ Standaard bestands shares zijn beschikbaar in alle regio's tot 5 TiB. In bepaald
 
 |Regio |Ondersteunde redundantie |Ondersteunt bestaande opslag accounts |Portal ondersteuning *   |
 |-------|---------|---------|---------|
-|Australië - oost  |LRS|Nee         |Ja|
-|Frankrijk - centraal  |LRS|Nee         |Nog niet|
-|Zuidoost-Azië  |LRS, ZRS|Nee         |Alleen LRS, ZRS-nog niet|
-|Europa -west     |LRS, ZRS|Nee       |Ja|
-|US - west 2       |LRS, ZRS|Nee         |Ja|
+|Australië - oost  |LRS     |Nee    |Ja|
+|Frankrijk - centraal  |LRS     |Nee    |Nog niet|
+|Frankrijk - zuid    |LRS     |Nee    |Nog niet|
+|Zuidoost-Azië  |LRS, ZRS|Nee    |Ja|
+|Europa -west     |LRS, ZRS|Nee    |Ja|
+|US - west 2       |LRS, ZRS|Nee    |Ja|
 
 \* Voor regio's zonder ondersteuning van de portal kunt u Power shell of de Azure-opdracht regel interface (CLI) nog steeds gebruiken om meer dan 5 TiB-shares te maken. Altenatively maakt u een nieuwe share via de Portal zonder een quotum op te geven. Hiermee wordt een share gemaakt met de standaard grootte van 100 TiB, die later kan worden bijgewerkt via Power shell of Azure CLI.
 

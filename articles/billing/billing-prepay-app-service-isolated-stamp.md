@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 40ccee7a993ce39a9b4c7a86309b0554daa56026
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: f122ec2474c09cdd6c9ada4ddc59b1adb44f619f
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298267"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780008"
 ---
 # <a name="prepay-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Vooruitbetalen voor Azure App Service van de geïsoleerde stempel met gereserveerde capaciteit
 
@@ -62,13 +62,9 @@ U kunt gereserveerde stempel capaciteit kopen in de [Azure Portal](https://porta
 
 Na de aankoop gaat u naar [reserve ringen](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) om de status van de aankopen te bekijken en deze op elk gewenst moment te controleren.
 
-## <a name="cancellations-and-exchanges"></a>Annuleringen en uitwisselingen
+## <a name="cancel-exchange-or-refund-reservations"></a>Reserve ringen annuleren, omruilen of terugbetalen
 
-Als u de gereserveerde capaciteit van de geïsoleerde stempel moet annuleren, zijn er mogelijk 12% vroege ontslag kosten. Restituties worden gebaseerd op de laagste prijs, zijnde de aankoopprijs of de huidige prijs van de reservering, welke het laagste is. De restituties zijn beperkt tot $50.000,00 per jaar. De terugbetaling die u ontvangt, is het resterende tarief saldo min de kosten voor de vroege beëindiging van 12%. Als u wilt annuleren, gaat u naar de reserve ring in het Azure Portal en selecteert u **terugbetaling**.
-
-Als u de gereserveerde stempel capaciteit naar een andere regio wilt verplaatsen, kunt u deze uitwisselen met een andere reserve ring die gelijk of hoger is. De begindatum van de periode voor de nieuwe reservering wordt niet meegenomen naar de uitgewisselde reservering. Wanneer u de nieuwe reserve ring maakt, begint een periode van drie jaar. Als u Exchange wilt, gaat u naar de Azure Portal, selecteert u de reserve ring die u wilt uitwisselen en selecteert u **Exchange**.
-
-Zie reserverings [uitwisselingen en](billing-azure-reservations-self-service-exchange-and-refund.md)terugbetalingen voor meer informatie over het omruilen of terugbetalen van reserve ringen.
+U kunt reserve ringen annuleren, vervangen of terugbetalen met bepaalde beperkingen. Zie [self-service-uitwisseling en terugbetalingen voor Azure Reservations](billing-azure-reservations-self-service-exchange-and-refund.md)voor meer informatie.
 
 ## <a name="discount-application-shown-in-usage-data"></a>Kortings toepassing die wordt weer gegeven in gebruiks gegevens
 

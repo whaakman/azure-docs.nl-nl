@@ -1,42 +1,42 @@
 ---
-title: Problemen met HDFS in Azure HDinsight oplossen
-description: Vind antwoorden op veelgestelde vragen over het werken met HDFS- en Azure HDInsight.
+title: Problemen met HDFS in azure HDinsight oplossen
+description: Krijg antwoorden op veelgestelde vragen over het werken met HDFS en Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0a310eaeb9baf6ed2438b9f824cd6ad7eb492915
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9b9e691c0c9f26ff765ca849777c278bc3ae03b
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64714205"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779552"
 ---
-# <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Apache Hadoop HDFS oplossen met behulp van Azure HDInsight
+# <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Problemen met Apache Hadoop HDFS oplossen met behulp van Azure HDInsight
 
-Meer informatie over de meest voorkomende problemen en hun oplossingen bij het werken met Hadoop Distributed File System (HDFS) nettoladingen in Apache Ambari.
+Meer informatie over de belangrijkste problemen en hun oplossingen bij het werken met Hadoop Distributed File System (HDFS) Payloads in Apache Ambari.
 
-## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Hoe krijg ik toegang tot de lokale HDFS uit in een cluster?
+## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Hoe kan ik toegang tot de lokale HDFS vanuit een cluster?
 
 ### <a name="issue"></a>Probleem
 
-De lokale HDFS te openen vanaf de opdrachtregel en toepassingscode in plaats van met behulp van Azure Blob storage of Azure Data Lake Storage uit in het HDInsight-cluster.   
+Open de lokale HDFS via de opdracht regel en toepassings code in plaats van met behulp van Azure Blob-opslag of Azure Data Lake Storage vanuit het HDInsight-cluster.   
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. Gebruik bij de opdrachtprompt `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` letterlijk, zoals in de volgende opdracht uit:
+1. Gebruik `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` in de opdracht prompt letterlijk, zoals in de volgende opdracht:
 
-    ```apache
-    hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
+    ```output
+    hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
     Found 3 items
     drwxr-xr-x   - hdiuser hdfs          0 2017-03-24 14:12 /EventCheckpoint-30-8-24-11102016-01
     drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
     drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
     ```
 
-2. Uit de broncode, gebruikt u de URI `hdfs://mycluster/` letterlijk, zoals in het volgende voorbeeld van toepassing:
+2. Gebruik vanaf de bron code de URI `hdfs://mycluster/` letterlijk, zoals in de volgende voorbeeld toepassing:
 
     ```Java
     import java.io.IOException;
@@ -61,10 +61,10 @@ De lokale HDFS te openen vanaf de opdrachtregel en toepassingscode in plaats van
     }
     ```
 
-3. Voer het gecompileerde JAR-bestand (bijvoorbeeld een bestand met de naam `java-unit-tests-1.0.jar`) op het HDInsight-cluster met de volgende opdracht:
+3. Voer het gecompileerde jar-bestand (bijvoorbeeld een bestand met de `java-unit-tests-1.0.jar`naam) uit op het HDInsight-cluster met de volgende opdracht:
 
     ```apache
-    hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests
+    hadoop jar java-unit-tests-1.0.jar JavaUnitTests
     hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.info
     hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.lck
     hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
@@ -72,7 +72,7 @@ De lokale HDFS te openen vanaf de opdrachtregel en toepassingscode in plaats van
     ```
 
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Hoe ik geforceerde-/ uitschakelen HDFS veilige modus in een cluster?
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Hoe kan ik Force-veilige modus van HDFS in een cluster uitschakelen?
 
 ### <a name="issue"></a>Probleem
 
@@ -80,16 +80,16 @@ De lokale HDFS is vastgelopen in de veilige modus op het HDInsight-cluster.
 
 ### <a name="detailed-description"></a>Gedetailleerde beschrijving
 
-Fout treedt op wanneer u de volgende HDFS-opdracht uitvoeren:
+Er treedt een fout op wanneer u de volgende HDFS-opdracht uitvoert:
 
 ```apache
 hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 ```
 
-De volgende fout ziet u wanneer u de opdracht uitvoert:
+U ziet de volgende fout wanneer u de opdracht uitvoert:
 
-```apache
-hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
+```output
+hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
 It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode off.
@@ -142,18 +142,18 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ### <a name="probable-cause"></a>Mogelijke oorzaak
 
-De grootte van het HDInsight-cluster is gewijzigd om een zeer weinig knooppunten. Het aantal knooppunten is hieronder of dicht bij de replicatiefactor HDFS.
+Het HDInsight-cluster is naar een paar knoop punten omlaag geschaald. Het aantal knoop punten is lager of dicht bij de HDFS-replicatie factor.
 
 ### <a name="resolution-steps"></a>Oplossingen 
 
-1. Haal de status van HDFS op het HDInsight-cluster met behulp van de volgende opdrachten:
+1. Haal de status van HDFS op het HDInsight-cluster op met behulp van de volgende opdrachten:
 
-    ```apache
+    ```bash
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
     ```
 
-    ```apache
-    hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+    ```output
+    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
     Safe mode is ON
     Configured Capacity: 3372381241344 (3.07 TB)
     Present Capacity: 3138625077248 (2.85 TB)
@@ -187,13 +187,13 @@ De grootte van het HDInsight-cluster is gewijzigd om een zeer weinig knooppunten
     ...
     ```
 
-2. Controleert de integriteit van HDFS op het HDInsight-cluster met behulp van de volgende opdrachten:
+2. Controleer de integriteit van HDFS op het HDInsight-cluster met behulp van de volgende opdrachten:
 
-    ```apache
-    hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
+    ```bash
+    hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
     ```
 
-    ```apache
+    ```output
     Connecting to namenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net:30070/fsck?ugi=hdiuser&path=%2F
     FSCK started by hdiuser (auth:SIMPLE) from /10.0.0.22 for path / at Wed Apr 05 16:40:28 UTC 2017
     ....................................................................................................
@@ -220,7 +220,7 @@ De grootte van het HDInsight-cluster is gewijzigd om een zeer weinig knooppunten
     The filesystem under path '/' is HEALTHY
     ```
 
-3. Als u dat vaststelt er zijn geen ontbreekt, beschadigd of under-gerepliceerde blokken of dat deze blokken kunnen worden genegeerd, voer de volgende opdracht worden de naam van knooppunt wordt uit de veilige modus:
+3. Als u vaststelt dat er geen ontbrekende, beschadigde of onder gerepliceerde blokken bestaan of dat deze blokken kunnen worden genegeerd, voert u de volgende opdracht uit om het naam-knoop punt uit de veilige modus te halen:
 
     ```apache
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave

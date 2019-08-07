@@ -1,69 +1,67 @@
 ---
-title: Gegevensassets in Azure Data Catalog beheren
-description: Het artikel ziet u hoe u voor het beheren van inzicht en het eigendom van de gegevensassets die in Azure Data Catalog zijn geregistreerd.
-services: data-catalog
+title: Gegevensassets beheren in Azure Data Catalog
+description: In het artikel wordt uitgelegd hoe u de zicht baarheid en het eigendom van geregistreerde gegevensassets in Azure Data Catalog kunt beheren.
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 407e25b7bb1a2220448c9701bbef208195c50b63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 9905ed72ec54304bbdb0f7ee607cbb013fc645bb
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953114"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736333"
 ---
-# <a name="manage-data-assets-in-azure-data-catalog"></a>Gegevensassets in Azure Data Catalog beheren
+# <a name="manage-data-assets-in-azure-data-catalog"></a>Gegevensassets beheren in Azure Data Catalog
 ## <a name="introduction"></a>Inleiding
-Azure Data Catalog is ontworpen voor detectie van de gegevensbron, zodat u eenvoudig kunt detecteren en begrijpen van de gegevensbronnen die u wilt uitvoeren van analyses en beslissingen te nemen. Deze detectie-mogelijkheden kunt de grootste impact als u en andere gebruikers kunnen vinden en informatie over het breedste aanbod van beschikbare gegevensbronnen. Met deze elementen in gedachten is het standaardgedrag van Data Catalog voor alle geregistreerde gegevensbronnen niet zichtbaar voor en kunnen worden gedetecteerd door alle gebruikers van de catalogus.
+Azure Data Catalog is ontworpen voor detectie van gegevens bronnen, zodat u de gegevens bronnen die u nodig hebt om analyses uit te voeren en beslissingen te nemen, eenvoudig kunt ontdekken en begrijpen. Deze detectie mogelijkheden maken de grootste invloed op het moment dat u en andere gebruikers het breedste bereik aan beschik bare gegevens bronnen kunnen vinden en begrijpen. Met deze elementen in dit geval is het standaard gedrag van Data Catalog voor alle geregistreerde gegevens bronnen voor weer gave en detectie door alle catalogus gebruikers.
 
-Data Catalog geeft geen toegang tot de gegevens zelf. Toegang tot gegevens wordt bepaald door de eigenaar van de gegevensbron. Met Data Catalog kunt u gegevensbronnen detecteren en weergeven van de metagegevens die zijn gerelateerd aan de bronnen die zijn geregistreerd in de catalogus.
+Data Catalog geeft u geen toegang tot de gegevens zelf. De gegevens toegang wordt bepaald door de eigenaar van de gegevens bron. Met Data Catalog kunt u gegevens bronnen detecteren en de meta gegevens bekijken die gerelateerd zijn aan de bronnen die in de catalogus zijn geregistreerd.
 
-Mogelijk zijn er situaties echter waarin gegevensbronnen alleen zichtbaar voor specifieke gebruikers of specifieke groepen zijn moeten. In dergelijke scenario's, kunnen gebruikers eigenaar worden van geregistreerde gegevensassets in de catalogus en vervolgens bepalen de zichtbaarheid van de activa die waarvan ze eigenaar.
+Er kunnen echter situaties zijn waarin gegevens bronnen alleen zichtbaar moeten zijn voor specifieke gebruikers of voor leden van specifieke groepen. In dergelijke scenario's kunnen gebruikers het eigendom van geregistreerde gegevensassets in de catalogus nemen en vervolgens de zicht baarheid van de assets bepalen.
 
 > [!NOTE]
-> De functionaliteit die worden beschreven in dit artikel is alleen beschikbaar in de Standard-editie van Azure Data Catalog. De Free Edition biedt mogelijkheden voor het eigendom en beperken gegevens-asset-zichtbaarheid.
+> De functionaliteit die in dit artikel wordt beschreven, is alleen beschikbaar in de Standard-editie van Azure Data Catalog. De gratis editie biedt geen mogelijkheden voor eigendom en het beperken van de zicht baarheid van gegevens elementen.
 >
 >
 
 ## <a name="manage-ownership-of-data-assets"></a>Eigendom van gegevensassets beheren
-Standaard zijn de gegevensassets die zijn geregistreerd in Data Catalog zonder eigenaar. Elke gebruiker met machtiging voor toegang tot de catalogus kan detecteren en aantekeningen toevoegen aan deze apparaten. Gebruikers kunnen eigenaar worden van gegevensassets zonder eigenaar en beperken de zichtbaarheid van de activa die waarvan ze eigenaar zijn.
+Standaard hebben gegevensassets die zijn geregistreerd in Data Catalog geen eigendom van de gegevens. Elke gebruiker met machtigingen voor toegang tot de catalogus kan deze assets detecteren en aantekeningen maken. Gebruikers kunnen eigenaar worden van niet-eigendoms gegevensassets en vervolgens de zicht baarheid van de assets beperken.
 
-Wanneer een gegevensasset in Data Catalog eigenaar is, alleen gebruikers die zijn gemachtigd door de eigenaars kunnen de asset detecteren en de metagegevens bekijken en alleen de eigenaren van de asset kunnen verwijderen uit de catalogus.
+Wanneer een gegevensasset in Data Catalog eigendom is, kunnen alleen gebruikers die zijn geautoriseerd door de eigen aren de Asset detecteren en de meta gegevens weer geven, en kunnen alleen de eigen aren de Asset uit de catalogus verwijderen.
 
 > [!NOTE]
-> Data Catalog eigendom is van invloed op alleen de metagegevens die zijn opgeslagen in de catalogus. Eigenaar verleent alle machtigingen voor de onderliggende gegevensbron.
+> Eigendom in Data Catalog is alleen van invloed op de meta gegevens die zijn opgeslagen in de catalogus. Eigendom verleent geen machtigingen voor de onderliggende gegevens bron.
 >
 >
 
 ### <a name="take-ownership"></a>Eigenaar worden
-Gebruikers kunnen eigenaar worden van gegevensassets door het selecteren van de **eigenaar** optie in de Data Catalog-portal. Er zijn geen speciale machtigingen moeten eigenaar worden van een activum zonder eigenaar gegevens. Elke gebruiker kan de eigenaar van een activum zonder eigenaar gegevens.
+Gebruikers kunnen eigenaar worden van gegevensassets door de optie **eigendom nemen** te selecteren in de portal van Data Catalog. Er zijn geen speciale machtigingen vereist om eigenaar te worden van een niet-eigendom gegevens Asset. Elke gebruiker kan eigenaar worden van een niet-eigendom gegevens Asset.
 
-### <a name="add-owners-and-co-owners"></a>Eigenaars en mede-eigenaars toevoegen
-Gewoon als een gegevensasset is al eigendom, andere gebruikers kunnen geen eigenaar. Ze moeten worden toegevoegd als mede-eigenaars door de eigenaar van een bestaande. Een eigenaar kunt extra gebruikers of beveiligingsgroepen toevoegen als mede-eigenaren.
-
-> [!NOTE]
-> Het is aanbevolen dat ten minste twee personen als eigenaren voor eigendom gegevensasset.
->
->
-
-### <a name="remove-owners"></a>Eigenaars verwijderen
-Net als de eigenaar van een asset mede-eigenaars toevoegen kunt, kan de eigenaar van een asset een mede-eigenaar kunt verwijderen.
-
-De asset kan niet meer beheren door de eigenaar van een asset die zich als een eigenaar verwijdert. Als de eigenaar van de asset zelf als een eigenaar verwijdert en er geen andere mede-eigenaars zijn, wordt de asset naar een zonder eigenaar status terugkeert.
-
-## <a name="control-visibility"></a>Besturingselement voor zichtbaarheid
-Gegevensasset eigenaren kunnen de zichtbaarheid van de gegevensassets die ze beheren. Als u wilt beperken zichtbaarheid als de standaardconfiguratie, waarbij alle Data Catalog-gebruikers kunnen detecteren en weergeven van de gegevensasset, de eigenaar van de asset de zichtbaarheidsinstelling van kunt schakelen **iedereen** naar **eigenaars en deze gebruikers** in de eigenschappen voor de asset. Eigenaren kunnen vervolgens specifieke gebruikers en beveiligingsgroepen toevoegen.
+### <a name="add-owners-and-co-owners"></a>Eigen aren en mede-eigen aars toevoegen
+Als een gegevensasset al eigendom is, kunnen andere gebruikers niet gewoon eigenaar worden. Ze moeten worden toegevoegd als mede-eigen aren door een bestaande eigenaar. Elke eigenaar kan aanvullende gebruikers of beveiligings groepen toevoegen als mede-eigen aars.
 
 > [!NOTE]
-> Indien mogelijk, moeten machtigingen voor het eigendom en de zichtbaarheid van asset worden toegewezen aan beveiligingsgroepen en niet naar afzonderlijke gebruikers.
+> Het is een best practice om ten minste twee personen als eigen aren te hebben voor de gegevens activa van de eigenaar.
 >
 >
 
-## <a name="catalog-administrators"></a>Catalogusbeheerders
-Data Catalog-beheerders zijn impliciet mede-eigenaars van alle activa in de catalogus. Asseteigenaren zichtbaarheid niet verwijderen van beheerders en beheerders kunnen beheren, eigendom en de zichtbaarheid voor alle gegevens in de catalogus.
+### <a name="remove-owners"></a>Eigenaren verwijderen
+Net zoals een eigenaar van een activum mede-eigen aars kan toevoegen, kan elke eigenaar van het activum elke mede-eigenaar verwijderen.
+
+Een eigenaar van een activum die zichzelf verwijdert als eigenaar, kan de Asset niet meer beheren. Als de eigenaar van de activa zichzelf verwijdert als eigenaar en er geen andere mede-eigen aars zijn, wordt de Asset opnieuw ingesteld op een niet-eigendoms status.
+
+## <a name="control-visibility"></a>Zicht baarheid bepalen
+Eigen aren van gegevens elementen kunnen de zicht baarheid van de gegevensassets bepalen. Als u de zicht baarheid wilt beperken als de standaard, waarbij alle Data Catalog gebruikers de gegevensasset kunnen detecteren en weer geven, kan de eigenaar van het activum de zichtbaarheids instelling van **iedereen** naar **eigen aren & deze gebruikers** in de eigenschappen voor de asset in-of uitschakelen. Eigen aren kunnen vervolgens specifieke gebruikers en beveiligings groepen toevoegen.
+
+> [!NOTE]
+> Als dat mogelijk is, moeten machtigingen voor eigendom en zicht baarheid van assets worden toegewezen aan beveiligings groepen en niet aan afzonderlijke gebruikers.
+>
+>
+
+## <a name="catalog-administrators"></a>Catalogus beheerders
+Data Catalog beheerders zijn impliciet mede-eigen aren van alle assets in de catalogus. Eigen aars van activa kunnen geen zicht baarheid van beheerders verwijderen en beheerders kunnen het eigendom en de zicht baarheid voor alle gegevensassets in de catalogus beheren.
 
 ## <a name="summary"></a>Samenvatting
-De Data Catalog crowdsourcing-model op metagegevens en gegevens detecteren van gegevensmiddelen kan alle gebruikers van de catalogus te dragen en te detecteren. De Standard-editie van Data Catalog is ontworpen voor het eigendom en het beheer te beperken van de zichtbaarheid van en het gebruik van specifieke gegevensassets.
+Met het Data Catalog crowdsourcing-model naar meta gegevens en gegevens Asset Discovery kunnen alle catalogus gebruikers bijdragen en detectie. De Standard-editie van Data Catalog is ontworpen voor eigendom en beheer om de zicht baarheid en het gebruik van specifieke gegevensassets te beperken.

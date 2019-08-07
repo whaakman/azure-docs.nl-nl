@@ -1,6 +1,6 @@
 ---
-title: Interfacedefinitie voor aangepaste vaardigheden in cognitief zoeken - Azure Search
-description: Aangepaste gegevens extractie interface voor aangepaste kwalificatie van de web-api in de pijplijn cognitief zoeken in Azure Search.
+title: Interface definitie voor aangepaste vaardig heden in cognitieve zoek opdracht-Azure Search
+description: Aangepaste interface voor het extra heren van gegevens voor webapi-aangepaste vaardigheid in de cognitieve Zoek pijplijn in Azure Search.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -9,48 +9,48 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: e181aab3d92d8111a0a7d1d41bbddac20687a547
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.subservice: cognitive-search
+ms.openlocfilehash: c708cd282e38b5da73915e427485bb8990afd6c2
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668861"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841200"
 ---
-# <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Een aangepaste vaardigheden toevoegen aan een pijplijn cognitief zoeken
+# <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Een aangepaste vaardigheid toevoegen aan een cognitieve Zoek pijplijn
 
-Een [cognitief zoeken indexering pijplijn](cognitive-search-concept-intro.md) in Azure Search kan worden samengesteld uit [vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md) , evenals [aangepaste vaardigheden](cognitive-search-custom-skill-web-api.md) die u zelf maakt en toevoegt aan de pijplijn. In dit artikel leert u over het maken van een aangepaste vaardigheden die een interface zodat het kan worden opgenomen in een pijplijn cognitief zoeken. 
+Een [cognitieve Zoek pijp lijn](cognitive-search-concept-intro.md) voor het indexeren in azure Search kan worden samengesteld op basis van [vooraf gedefinieerde vaardig heden](cognitive-search-predefined-skills.md) en [aangepaste vaardig heden](cognitive-search-custom-skill-web-api.md) die u persoonlijk maakt en toevoegt aan de pijp lijn. In dit artikel leert u hoe u een aangepaste vaardigheid maakt waarmee een interface wordt weer gegeven, zodat deze kan worden opgenomen in een cognitieve Zoek pijplijn. 
 
-Het bouwen van een aangepaste vaardigheden kunt u een manier om in te voegen transformaties die uniek is voor uw inhoud. Een aangepaste vaardigheden voert onafhankelijk van elkaar, ongeacht verrijking stap die u nodig hebt. U kan bijvoorbeeld definiëren veld-specifieke aangepaste entiteiten, bouw aangepaste classificatie modellen om te onderscheiden van zakelijke en financiële contracten en documenten of een spraakherkenning vaardigheid om te bereiken diepere audio-bestanden voor de relevante inhoud toevoegen. Zie voor een stapsgewijze bijvoorbeeld [voorbeeld: Het maken van een aangepaste vaardigheden voor cognitief zoeken](cognitive-search-create-custom-skill-example.md).
+Het bouwen van een aangepaste vaardigheid biedt een manier om trans formaties die uniek zijn voor uw inhoud, in te voegen. Een aangepaste vaardigheid wordt onafhankelijk uitgevoerd, waarbij de gewenste verrijkings stap wordt toegepast. U kunt bijvoorbeeld veld-specifieke aangepaste entiteiten definiëren en aangepaste classificatie modellen bouwen om onderscheid te maken tussen zakelijke en financiële contracten en documenten, of u kunt een vaardigheid voor spraak herkenning toevoegen om diep gaande geluids bestanden voor relevante inhoud te bereiken. Voor een stapsgewijs voor beeld, Zie [voor beeld: Een aangepaste vaardigheid maken voor cognitieve Zoek](cognitive-search-create-custom-skill-example.md)opdrachten.
 
- Welke aangepaste mogelijkheid die u nodig hebt, er is een eenvoudige en duidelijke interface voor het verbinden van een aangepaste vaardigheden met de rest van de pijplijn verrijking. De enige vereiste voor opname in een [vaardigheden](cognitive-search-defining-skillset.md) is de mogelijkheid om te accepteren van invoer en uitvoer op die binnen de vaardigheden als geheel verbruikbare verzenden. De focus van dit artikel is van de invoer- en -indelingen die de pijplijn verrijking vereist.
+ Welke aangepaste capaciteit u nodig hebt, er is een eenvoudige en heldere interface voor het koppelen van een aangepaste vaardigheid aan de rest van de verrijkings pijplijn. De enige vereiste voor insluiting in een [vaardig heden](cognitive-search-defining-skillset.md) is de mogelijkheid om invoer te accepteren en uitvoer te verzenden op manieren die kunnen worden gebruikt binnen de vaardig heden als geheel. De focus van dit artikel bevindt zich in de invoer-en uitvoer indelingen die de verrijkings pijplijn nodig heeft.
 
-## <a name="web-api-custom-skill-interface"></a>Web-API-interface voor aangepaste vaardigheden
+## <a name="web-api-custom-skill-interface"></a>Aangepaste vaardigheden interface voor web-API
 
-Aangepaste eindpunten door WebAPI-vaardigheden door de standaardtime-out als ze een reactie binnen een tijdvenster van 30 seconden niet retourneren. De pijplijn voor indexering is synchroon en indexeren produceert een time-outfout als een antwoord wordt ontvangen in dit venster.  Het is mogelijk te configureren van de time-out voor het tot 90 seconden, worden door het instellen van de time-out voor de parameter:
+Aangepaste vaardigheids eindpunten voor WebAPI op standaard time-out als ze geen antwoord retour neren binnen een venster van 30 seconden. De indexerings pijplijn is synchroon en het indexeren produceert een time-outfout als er in dat venster geen antwoord wordt ontvangen.  U kunt de time-out Maxi maal 230 seconden configureren door de para meter time-out in te stellen:
 
 ```json
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "This skill has a 90 second timeout",
+        "description": "This skill has a 230 second timeout",
         "uri": "https://[your custom skill uri goes here]",
-        "timeout": "PT90S",
+        "timeout": "PT230S",
 ```
 
-Op dit moment is het enige mechanisme voor interactie met een aangepaste vaardigheden via een Web-API-interface. De Web-API moet moet voldoen aan de vereisten die worden beschreven in deze sectie.
+Momenteel is het enige mechanisme voor interactie met een aangepaste vaardigheid via een web API-interface. De Web-API moet voldoen aan de vereisten die in deze sectie worden beschreven.
 
-### <a name="1--web-api-input-format"></a>1.  Web-API-invoer-indeling
+### <a name="1--web-api-input-format"></a>1.  Invoer indeling voor web-API
 
-De Web-API moet een matrix van records moeten worden verwerkt accepteren. Elke record een "eigenschappenverzameling" moet bevatten dat wil zeggen de invoer die uw Web-API. 
+De Web-API moet een matrix accepteren met records die moeten worden verwerkt. Elke record moet een ' eigenschappen verzameling ' bevatten die de invoer is van uw web-API. 
 
-Stel dat u wilt maken van een eenvoudige enricher dat de eerste datum die worden vermeld in de tekst van een contract aangeeft. In dit voorbeeld wordt de kwalificatie een één invoer accepteert *contractText* als de tekst van het contract. De kwalificatie heeft ook een één-uitvoer, die de datum van het contract is. Als u de enricher interessanter, keren hierdoor *contractDate* in de vorm van een meerdelige complex type.
+Stel dat u een eenvoudige verrijker wilt maken waarin de eerste datum wordt aangegeven die in de tekst van een contract wordt vermeld. In dit voor beeld accepteert de vaardigheid één invoer *contractText* als de contract tekst. De vaardigheid heeft ook één uitvoer, wat de datum van het contract is. Als u de verrijker interessanter wilt maken, retourneert u deze *contractDate* in de vorm van een complex type met meerdere delen.
 
-Uw Web-API moet klaar zijn voor het ontvangen van een batch van invoer records. Elk lid van de *waarden* matrix vertegenwoordigt de invoer voor een bepaalde record. Elke record is vereist om de volgende elementen:
+De Web-API moet gereed zijn voor het ontvangen van een batch met invoer records. Elk lid van de matrix *waarden* vertegenwoordigt de invoer voor een bepaalde record. Elke record moet de volgende elementen bevatten:
 
-+ Een *recordId* lid dat is de unieke id voor een bepaalde record. Wanneer uw enricher worden de resultaten geretourneerd, moet deze bieden dit *recordId* zodat de oproepende functie zodat deze overeenkomen met de resultaten van de record in de invoer.
++ Een *RecordID* -lid dat de unieke id voor een bepaalde record is. Wanneer de resultaten door de verrijker worden geretourneerd, moet deze opnieuw worden opgegeven om ervoor te zorgen dat de beller de record resultaten kan aanpassen aan de invoer.
 
-+ Een *gegevens* lid, dit in feite een eigenschappenverzameling van invoervelden voor elke record is.
++ Een *Gegevenslid* dat in feite een zak van invoer velden voor elke record is.
 
-Als u wilt worden meer concrete per het bovenstaande voorbeeld uw Web-API goed is, aanvragen die er als volgt uit:
+Als u het voor beeld meer wilt doen, moet uw web-API aanvragen verwachten die er als volgt uitzien:
 
 ```json
 {
@@ -81,11 +81,11 @@ Als u wilt worden meer concrete per het bovenstaande voorbeeld uw Web-API goed i
     ]
 }
 ```
-In werkelijkheid kan uw service ophalen aangeroepen met honderden of duizenden records in plaats van alleen de drie die hier worden weergegeven.
+In werkelijkheid kan uw service worden aangeroepen met honderden of duizenden records in plaats van alleen de drie die hier worden weer gegeven.
 
-### <a name="2-web-api-output-format"></a>2. De indeling van de web-API-uitvoer
+### <a name="2-web-api-output-format"></a>2. Indeling van de Web-API-uitvoer
 
-De indeling van de uitvoer is een set records met een *recordId*, en een eigenschappenverzameling 
+De indeling van de uitvoer is een set records met een *RecordID*en een eigenschappen verzameling 
 
 ```json
 {
@@ -116,15 +116,15 @@ De indeling van de uitvoer is een set records met een *recordId*, en een eigensc
 }
 ```
 
-Dit voorbeeld heeft slechts één uitvoer, maar u meer dan één eigenschap kan uitvoeren. 
+Dit voor beeld heeft slechts één uitvoer, maar u kunt meer dan één eigenschap uitvoeren. 
 
 ### <a name="errors-and-warning"></a>Fouten en waarschuwingen
 
-Zoals u in het vorige voorbeeld, kunt u fout- en waarschuwingsberichten voor elke record kan retourneren.
+Zoals weer gegeven in het vorige voor beeld, kunt u fout-en waarschuwings berichten voor elke record retour neren.
 
-## <a name="consuming-custom-skills-from-skillset"></a>Aangepaste vaardigheden van vaardigheden gebruiken
+## <a name="consuming-custom-skills-from-skillset"></a>Aangepaste vaardig heden uit vaardig heden gebruiken
 
-Wanneer u een Web-API-enricher maakt, kunt u HTTP-headers en parameters beschrijven als onderdeel van de aanvraag. Het onderstaande fragment toont hoe de aanvraagparameters en HTTP-headers kunnen worden beschreven als onderdeel van de definitie van de vaardigheden.
+Wanneer u een web API-verrijker maakt, kunt u HTTP-headers en-para meters beschrijven als onderdeel van de aanvraag. In het volgende fragment ziet u hoe aanvraag parameters en HTTP-headers kunnen worden beschreven als onderdeel van de definitie van de vaardig heden.
 
 ```json
 {
@@ -156,7 +156,7 @@ Wanneer u een Web-API-enricher maakt, kunt u HTTP-headers en parameters beschrij
 
 ## <a name="next-steps"></a>Volgende stappen
 
-+ [Voorbeeld: Het maken van een aangepaste vaardigheden voor cognitief zoeken](cognitive-search-create-custom-skill-example.md)
-+ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)
-+ [Vaardighedenset (REST) maken](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Verrijkt velden toewijzen](cognitive-search-output-field-mapping.md)
++ [Voorbeeld: Een aangepaste vaardigheid maken voor cognitieve zoek acties](cognitive-search-create-custom-skill-example.md)
++ [Een vaardig heden definiëren](cognitive-search-defining-skillset.md)
++ [Vaardig heden maken (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Verrijkte velden toewijzen](cognitive-search-output-field-mapping.md)

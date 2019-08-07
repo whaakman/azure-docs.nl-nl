@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: f86dc92b4df45119930970acfe9e173f32f894fb
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 0960862da9e65cff4d957e97a7488dc7a245651a
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356047"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742126"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>Het gebruik van Azure Event Hubs in een Python-toepassing
 Azure Event Hubs is een big data-platform voor het streamen van gegevens en een gebeurtenisopneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Event Hubs kan gebeurtenissen, gegevens of telemetrie die wordt geproduceerd door gedistribueerde software en apparaten verwerken en opslaan. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen via een provider voor realtime analytische gegevens of batchverwerking/opslagadapters. Zie voor meer informatie, [Inleiding tot Event Hubs](event-hubs-what-is-event-hubs.md). 
@@ -162,7 +162,7 @@ startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'capture')
 Zie voor een volledige zelfstudie over het lezen van vastgelegde gegevens van Event Hubs in een Azure blob storage vanuit een toepassing die is geschreven in Python [in dit artikel](event-hubs-capture-python.md)
 
 ## <a name="github-samples"></a>GitHub-voorbeelden
-U vindt meer voorbeelden van Python in de [Git-opslagplaats voor azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/).
+U vindt meer voorbeelden van Python in de [Git-opslagplaats voor azure-event-hubs-python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs).
 
 ## <a name="next-steps"></a>Volgende stappen
 Lees de artikelen in de sectie concepten vanaf [overzicht van de functies van Event Hubs](event-hubs-features.md).

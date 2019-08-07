@@ -4,15 +4,15 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 86d1cf5e103bcbb13782aa7a2a84092aa426d670
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 86b18c2a6fc3fbf342f5b7a4b6b563432c605f73
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176674"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781443"
 ---
-Houd rekening met deze aanbevolen procedures:
+Houd u aan de volgende aanbevolen procedures:
 
-- Het is raadzaam dat u alle wachtwoorden opslaan op een veilige plaats, zodat u hoeft een wachtwoord opnieuw instellen als deze vergeten. De management-service kan geen bestaande wachtwoorden ophalen. Het kan alleen opnieuw ingesteld ze via de Azure-portal. Als u een wachtwoord opnieuw instelt, zorg er dan voor dat alle gebruikers een melding ontvangen voordat u het opnieuw instellen.
-- U kunt de Windows PowerShell-interface van uw apparaat op afstand benaderen via HTTP. Als een aanbevolen beveiligingsprocedure, moet u HTTP alleen in vertrouwde netwerken.
-- Zorg ervoor dat apparaat wachtwoorden sterke en goed beveiligd. Ga als volgt de [aanbevolen procedures voor wachtwoorden](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
+- We raden u aan om alle wacht woorden op een veilige locatie op te slaan, zodat u een wacht woord niet opnieuw hoeft in te stellen als het is verg eten. De beheer service kan de bestaande wacht woorden niet ophalen. Deze kan alleen opnieuw worden ingesteld via de Azure Portal. Als u een wacht woord opnieuw instelt, moet u alle gebruikers hiervan op de hoogte stellen voordat u het opnieuw instelt.
+- U kunt de Windows Power shell-interface van uw apparaat op afstand openen via HTTP. Als beveiligings best practice moet u HTTP alleen op vertrouwde netwerken gebruiken.
+- Zorg ervoor dat de wacht woorden van het apparaat sterk en goed beveiligd zijn. Volg de [Aanbevolen procedures voor wacht woorden](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices#enable-password-management).

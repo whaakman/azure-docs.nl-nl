@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 849065460acda36426f8a594a984ad1cc8590c34
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 323470adfe56ee20fe0fb64aeba38b6af4330351
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688822"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827597"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Problemen met SQL Server database back-up oplossen met behulp van Azure Backup
 
@@ -119,6 +119,19 @@ Als u de beveiliging voor een SQL Server Data Base op een virtuele machine wilt 
 | Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
 |---|---|---|
 | De opzet van de automatische beveiliging is verwijderd of is niet geldig. | Wanneer u automatische beveiliging inschakelt voor een SQL Server-exemplaar, **configureert u back-** uptaken voor alle data bases in dat exemplaar. Als u automatische beveiliging uitschakelt terwijl de taken worden uitgevoerd, worden de taken **in uitvoering** met deze fout code geannuleerd. | Schakel automatische beveiliging opnieuw in om alle resterende data bases te beveiligen. |
+
+### <a name="clouddosabsolutelimitreached"></a>CloudDosAbsoluteLimitReached
+
+| Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
+|---|---|---|
+De bewerking is geblokkeerd omdat u de limiet hebt bereikt van het aantal bewerkingen dat binnen 24 uur is toegestaan. | Wanneer u de Maxi maal toegestane limiet hebt bereikt voor een bewerking binnen een periode van 24 uur, wordt deze fout weer geleverd. <br> Bijvoorbeeld: Als u de limiet hebt bereikt voor het aantal back-uptaken dat per dag kan worden geactiveerd, en u een back-up wilt configureren voor een nieuw item, wordt deze fout weer geven. | Normaal gesp roken wordt de bewerking na 24 uur opnieuw geprobeerd om dit probleem op te lossen. Als het probleem zich blijft voordoen, kunt u contact opnemen met micro soft ondersteuning voor hulp.
+
+### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
+
+| Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
+|---|---|---|
+De bewerking is geblokkeerd omdat de kluis de maximum limiet heeft bereikt voor dergelijke bewerkingen die zijn toegestaan in een periode van 24 uur. | Wanneer u de Maxi maal toegestane limiet hebt bereikt voor een bewerking binnen een periode van 24 uur, wordt deze fout weer geleverd. Deze fout treedt doorgaans op in het geval van schaal bewerkingen, zoals het wijzigen van beleid of automatische beveiliging. In tegens telling tot in het geval van CloudDosAbsoluteLimitReached is het niet veel wat u kunt doen om deze status op te lossen, Azure Backup service de bewerkingen intern opnieuw probeert uit te voeren voor alle betreffende items.<br> Bijvoorbeeld: Als u een groot aantal gegevens bronnen hebt die zijn beveiligd met een beleid en u het beleid probeert te wijzigen, worden de beveiligings taken voor elk van de beveiligde items geactiveerd en kan de maximum limiet voor dergelijke bewerkingen per dag worden bereikt.| Azure Backup service wordt deze bewerking na 24 uur automatisch opnieuw uitgevoerd. 
+
 
 ## <a name="re-registration-failures"></a>Fouten bij opnieuw registreren
 

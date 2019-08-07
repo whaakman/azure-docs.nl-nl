@@ -1,57 +1,57 @@
 ---
-title: Virtuele Windows-bureaublad voor probleemoplossing overzicht, feedback en ondersteuning - Azure
-description: Een overzicht voor het oplossen van problemen tijdens het instellen van een omgeving met virtuele Windows-bureaublad tenants.
+title: Overzicht van het oplossen van problemen met Windows virtueel bureau blad, feedback en ondersteuning-Azure
+description: Een overzicht van het oplossen van problemen bij het instellen van een Windows Virtual Desktop-Tenant omgeving.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
-ms.author: v-chjenk
-ms.openlocfilehash: b349d7f384c801e95d745f7a18535f9f5d13cf86
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.author: helohr
+ms.openlocfilehash: e652c8a67db686159a2c3fd48e2ea65888bcc10d
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605216"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816345"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Probleemoplossingsoverzicht, feedback en ondersteuning
 
-Dit artikel bevat een overzicht van de problemen die u kan optreden bij het instellen van een omgeving met virtuele Windows-bureaublad tenants en biedt methoden voor het oplossen van problemen.
+Dit artikel bevat een overzicht van de problemen die zich kunnen voordoen bij het instellen van een Windows Virtual Desktop-Tenant omgeving en biedt manieren om de problemen op te lossen.
 
 ## <a name="provide-feedback"></a>Feedback geven
 
-We zijn niet op dit moment kwesties duurt zolang virtuele Windows-bureaublad in preview. Ga naar de [Windows virtuele bureaublad Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) bespreken van de virtuele Windows-bureaublad-service met het productteam en actieve communityleden.
+Er worden momenteel geen ondersteunings kwesties in rekening gebracht terwijl het virtuele bureau blad van Windows in preview is. Ga naar de [technische community van Windows virtueel bureau blad](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) voor het bespreken van de Windows Virtual Desktop-service met het product team en de actieve leden van de community.
 
-## <a name="escalation-tracks"></a>Escalatie sporen te wissen
+## <a name="escalation-tracks"></a>Escalatie trajecten
 
-Gebruik de volgende tabel om te identificeren en oplossen van problemen die optreden kunnen bij het instellen van een omgeving met tenants met behulp van extern bureaublad-client. Zodra uw tenant de ingesteld, kunt u onze nieuwe [Diagnostics-service](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service) voor het identificeren van problemen voor algemene scenario's.
+Gebruik de volgende tabel voor het identificeren en oplossen van problemen die zich kunnen voordoen bij het instellen van een Tenant omgeving met Extern bureaublad-client. Zodra de Tenant is ingesteld, kunt u onze nieuwe service voor [Diagnostische gegevens](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service) gebruiken om problemen voor veelvoorkomende scenario's te identificeren.
 
 >[!NOTE]
->We zijn niet op dit moment kwesties duurt zolang virtuele Windows-bureaublad in preview. Wanneer we naar ondersteuning voor virtuele Windows-bureaublad verwijzen, gaat u naar ons forum Tech-Community voor nu. Ga naar de [Windows virtuele bureaublad Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) wilt discussiëren over problemen met het productteam en actieve communityleden. Als u moet een Ondersteuningsprobleem op te lossen, bevatten de activiteits-ID en de geschatte tijdsbestek voor wanneer het probleem is opgetreden.
+>Er worden momenteel geen ondersteunings kwesties in rekening gebracht terwijl het virtuele bureau blad van Windows in preview is. Wanneer we verwijzen naar ondersteuning voor virtueel bureau blad van Windows, gaat u naar ons Tech Community-Forum voor Taan. Ga naar de [technische community van Windows virtueel bureau blad](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) om problemen met het product team en de actieve communityleden te bespreken. Als u een ondersteunings probleem moet oplossen, neemt u de activiteits-ID en het geschatte tijds bestek op wanneer het probleem is opgetreden.
 
-| **Probleem**                                                            | **Voorgestelde oplossing**  |
+| **Name**                                                            | **Voorgestelde oplossing**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
-| Het maken van een Tenant                                                    | Als er een Azure-storing, neem dan contact op met [ondersteuning voor Azure](https://azure.microsoft.com/support/options/); Neem anders contact op met **ondersteuning voor extern bureaublad Services/Windows virtuele bureaublad**.|
-| Toegang tot de sjablonen op Marketplace in Azure portal       | Als er een Azure-storing, neem dan contact op met [ondersteuning voor Azure](https://azure.microsoft.com/support/options/). <br> <br> Azure virtuele Windows-bureaublad Marketplace-sjablonen zijn gratis beschikbaar.|
-| Toegang tot Azure Resource Manager-sjablonen van GitHub                                  | Zie de sectie 'Creating Windows virtuele bureaublad-sessiehost VM's ' van [Tenant en de host een pool maken](troubleshoot-set-up-issues.md). Als het probleem zich nog steeds niet-omgezette, neem dan contact op met de [GitHub-ondersteuningsteam](https://github.com/contact). <br> <br> Als de fout optreedt nadat u hebt toegang tot de sjabloon in GitHub, neem dan contact op met [ondersteuning voor Azure](https://azure.microsoft.com/support/options/).|
-| Sessie host groep Azure Virtual Network (VNET) en Express Route-instellingen               | Neem contact op met **Azure-ondersteuning (netwerk)** . |
-| Sessie-host-pool maken van de virtuele Machine (VM) als Azure Resource Manager-sjablonen die zijn voorzien van virtuele Windows-bureaublad niet worden gebruikt | Neem contact op met **Azure-ondersteuning (rekenen)** . <br> <br> Voor problemen met de Azure Resource Manager-sjablonen die zijn meegeleverd met virtuele Windows-bureaublad, Zie gedeelte voor het maken van virtuele Windows-bureaublad-tenant van [Tenant en de host een pool maken](troubleshoot-set-up-issues.md). |
-| Virtuele Windows-bureaublad-sessie hostomgeving beheren vanuit Azure portal    | Neem contact op met **ondersteuning van Azure**. <br> <br> Zie voor van beheerproblemen bij het gebruik van Remote Desktop Services/Windows virtuele bureaublad PowerShell [Windows virtuele bureaublad PowerShell](troubleshoot-powershell.md) of neem contact op met de **ondersteuningsteam Remote Desktop Services/Windows virtueel bureaublad** . |
-| Beheren van virtuele Windows-bureaublad configuratie gekoppeld aan host pools en toepassingsgroepen (app-groepen)      | Zie [Windows virtuele bureaublad PowerShell](troubleshoot-powershell.md), of neem contact op met de **Remote Desktop Services/Windows virtueel bureaublad ondersteuningsteam**. <br> <br> Als er problemen zijn gekoppeld aan de grafische gebruikersinterface (GUI) van voorbeeldgegevens, kunt u contact opnemen met de Yammer-community.|
-| Storing van de extern bureaublad-clients op het startscherm                                                 | Zie [verbindingen met extern bureaublad-client](troubleshoot-client-connection.md) en als het probleem niet is opgelost, neem dan contact op met **Remote Desktop Services/Windows virtueel bureaublad ondersteuningsteam**.  <br> <br> Als het een netwerkprobleem is, moeten uw gebruikers contact op met de netwerkbeheerder. |
-| Verbonden maar er geen invoer                                                                 | Problemen oplossen met de ' gebruiker verbinding maakt, maar er niets wordt weergegeven (Er is geen invoer) "sectie van [verbindingen met extern bureaublad-client](troubleshoot-client-connection.md). <br> <br> Als uw gebruikers zijn toegewezen aan een app-groep, escaleren naar de **Remote Desktop Services/Windows virtueel bureaublad ondersteuningsteam**. |
-| Problemen met detectie vanwege de netwerk-feed                                            | Uw gebruikers moeten contact op met de netwerkbeheerder. |
-| Clients die verbinding maken                                                                    | Zie [verbindingen met extern bureaublad-client](troubleshoot-client-connection.md) en als dat niet het probleem is opgelost, Zie [Session host Virtuele-machineconfiguratie](troubleshoot-vm-configuration.md). |
-| Reactietijd van externe toepassingen of bureaublad                                      | Als er problemen zijn gekoppeld aan een bepaalde toepassing of het product, neem dan contact op met het team dat verantwoordelijk is voor dat product. |
-| Licentieverlening berichten of fouten                                                          | Als er problemen zijn gekoppeld aan een bepaalde toepassing of het product, neem dan contact op met het team dat verantwoordelijk is voor dat product. |
+| Een Tenant maken                                                    | Als er een storing in azure optreedt, neemt u contact op met de [ondersteuning van Azure](https://azure.microsoft.com/support/options/). Neem anders contact op met **extern bureaublad-services/ondersteuning voor virtueel bureau blad van Windows**.|
+| Toegang tot Marketplace-sjablonen in Azure Portal       | Als er een onderbreking van Azure is, neemt u contact op met de [ondersteuning van Azure](https://azure.microsoft.com/support/options/). <br> <br> Azure Marketplace-sjablonen voor virtueel bureau blad zijn gratis beschikbaar.|
+| Toegang tot Azure Resource Manager sjablonen vanuit GitHub                                  | Zie de sectie ' virtuele bureau blad-sessiehost Vm's maken ' van [Tenant en hostgroep maken](troubleshoot-set-up-issues.md). Als het probleem nog steeds niet is opgelost, neemt u contact op met het ondersteunings [team van github](https://github.com/contact). <br> <br> Als de fout optreedt nadat u de sjabloon in GitHub hebt geopend, neemt u contact op met de [ondersteuning van Azure](https://azure.microsoft.com/support/options/).|
+| Instellingen voor de Azure Virtual Network (VNET) en Express-route van de Session Host-pool               | Neem contact op met de **ondersteuning van Azure (netwerken)** . |
+| De hostgroep van de virtuele machine (VM) maken wanneer Azure Resource Manager sjablonen die worden meegeleverd met Windows virtueel bureau blad niet worden gebruikt | Neem contact op met de **ondersteuning van Azure (Compute)** . <br> <br> Zie voor problemen met de Azure Resource Manager sjablonen die worden meegeleverd met Windows virtueel bureau blad maken de sectie Tenant voor Windows-virtueel bureau blad voor het [maken van Tenant-en hostgroepen](troubleshoot-set-up-issues.md). |
+| Windows Virtual Desktop Session Host-omgeving beheren vanuit de Azure Portal    | Neem contact op met de **ondersteuning van Azure**. <br> <br> Zie [Windows Virtual Desktop Power shell](troubleshoot-powershell.md) (Engelstalig) of neem contact op met het ondersteunings team voor **virtuele bureau bladen van extern bureaublad-services/Windows**voor problemen met het beheer van extern bureaublad-services/Windows Virtual Desktop Power shell. |
+| Virtuele Windows-bureaublad configuratie beheren die zijn gekoppeld aan host Pools en toepassings groepen (app-groepen)      | Zie [Windows Virtual Desktop Power shell](troubleshoot-powershell.md)of neem contact op met het ondersteunings **team van extern bureaublad-services/Windows Virtual Desktop**. <br> <br> Als er problemen zijn gekoppeld aan de voorbeeld Graphical User Interface (GUI), neem dan contact op met de Yammer-community.|
+| Storing van extern bureau blad-clients bij starten                                                 | Zie [extern bureaublad client verbindingen](troubleshoot-client-connection.md) en als het probleem niet wordt opgelost, neemt u contact op met **extern bureaublad-services/het Windows-ondersteunings team voor virtueel bureau blad**.  <br> <br> Als het een netwerk probleem is, moeten uw gebruikers contact opnemen met de netwerk beheerder. |
+| Verbonden, maar geen feed                                                                 | Problemen oplossen met behulp van de sectie ' Gebruiker connects, maar er wordt niets weer gegeven (geen feed) ' van [extern bureaublad-client verbindingen](troubleshoot-client-connection.md). <br> <br> Als uw gebruikers zijn toegewezen aan een app-groep, gaat u naar het **Windows-ondersteunings team voor extern bureaublad-services/virtueel bureau blad**. |
+| Problemen met de detectie van feeds door het netwerk                                            | Uw gebruikers moeten contact opnemen met hun netwerk beheerder. |
+| Clients verbinden                                                                    | Zie [extern bureaublad client verbindingen](troubleshoot-client-connection.md) . Als u het probleem niet kunt oplossen, raadpleegt u de [Virtual machine-configuratie van de sessie host](troubleshoot-vm-configuration.md). |
+| Reactie tijd van externe toepassingen of bureau blad                                      | Neem contact op met het team dat verantwoordelijk is voor het desbetreffende product als er problemen zijn gekoppeld aan een specifieke toepassing of product. |
+| Licentie berichten of-fouten                                                          | Neem contact op met het team dat verantwoordelijk is voor het desbetreffende product als er problemen zijn gekoppeld aan een specifieke toepassing of product. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor het oplossen van problemen tijdens het maken van een tenant en host-pool in een omgeving met virtuele Windows-bureaublad, [Tenant en de host een pool maken](troubleshoot-set-up-issues.md).
-- Zie voor het oplossen van problemen tijdens het configureren van een virtuele machine (VM) in virtuele Windows-bureaublad, [Session host Virtuele-machineconfiguratie](troubleshoot-vm-configuration.md).
-- Zie voor het oplossen van problemen met virtuele Windows-bureaublad-clientverbindingen, [verbindingen met extern bureaublad-client](troubleshoot-client-connection.md).
-- Zie voor het oplossen van problemen bij het gebruik van PowerShell met virtuele Windows-bureaublad, [Windows virtuele bureaublad PowerShell](troubleshoot-powershell.md).
-- Zie voor meer informatie over de Preview-service, [Windows Desktop Preview-omgeving](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- Als u wilt u een zelfstudie voor problemen oplossen, Zie [zelfstudie: Problemen met sjabloonimplementaties van Resource Manager-oplossen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- Zie voor meer informatie over het controleren van acties, [bewerkingen controleren met Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- Zie voor meer informatie over acties voor het bepalen van de fouten tijdens de implementatie, [implementatiebewerkingen bekijken](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- Zie [Tenant en hostgroep maken](troubleshoot-set-up-issues.md)voor informatie over het oplossen van problemen bij het maken van een Tenant en een hostgroep in een virtueel-bureaublad omgeving van Windows.
+- Zie voor het oplossen van problemen bij het configureren van een virtuele machine (VM) in Windows virtueel bureau blad de [virtuele machine configuratie](troubleshoot-vm-configuration.md)van de host.
+- Zie [extern bureaublad-client verbindingen](troubleshoot-client-connection.md)voor het oplossen van problemen met Windows-client verbindingen met virtueel bureau blad.
+- Zie [Windows Virtual Desktop Power shell](troubleshoot-powershell.md)(Engelstalig) voor informatie over het oplossen van problemen met het gebruik van Power shell met Windows virtueel bureau blad.
+- Zie [Windows Desktop Preview Environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)(Engelstalig) voor meer informatie over de preview-service.
+- Zie [zelf studie voor het oplossen van problemen met de zelf studie: Problemen oplossen met implementaties](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)van Resource Manager-sjablonen.
+- Zie [bewerkingen controleren met Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)voor meer informatie over controle acties.
+- Zie [implementatie bewerkingen weer geven](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)voor meer informatie over acties om de fouten te bepalen tijdens de implementatie.

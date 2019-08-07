@@ -9,12 +9,12 @@ ms.service: iot-edge
 ms.custom: seodec18
 ms.reviewer: arduppal
 manager: mchad
-ms.openlocfilehash: 4511510dec6f488e1a6ea9a6842b771d2a298fec
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 86040020c8f9163a327b2029008e3648723b14ec
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640671"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839685"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>De Azure Blob Storage op IoT Edge module implementeren op uw apparaat
 
@@ -168,7 +168,7 @@ Azure IoT Edge zorgt voor sjablonen in Visual Studio Code om u te helpen bij het
 
 1. Open *deployment.template.json* in uw nieuwe werkruimte voor de oplossing en zoek de **modules** sectie. Breng de volgende configuratie wijzigingen aan:
 
-   1. Verwijder de **tempSensor** -module, zoals deze het niet nodig voor deze implementatie.
+   1. Verwijder de **SimulatedTemperatureSensor** -module, omdat deze niet nodig is voor deze implementatie.
 
    1. Kopieer de volgende code en plak deze in `createOptions` het veld:
 

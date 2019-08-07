@@ -1,6 +1,6 @@
 ---
-title: Een installatiekopie maken van een Linux-VM in Azure met behulp van Azure CLI | Microsoft Docs
-description: Een installatiekopie maken van een Azure-VM te gebruiken voor grootschalige implementaties met behulp van de Azure CLI.
+title: Een installatie kopie van een virtuele Linux-machine in azure vastleggen met behulp van Azure CLI | Microsoft Docs
+description: Leg een installatie kopie vast van een Azure-VM die moet worden gebruikt voor grootschalige implementaties met behulp van de Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,63 +15,65 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 96169f8f52ea9d45d8804a7d4fc08827a4f1ea03
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: ed9eb990fff3a0901f3fa26526b30e8cb8a2fe66
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668398"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779408"
 ---
-# <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Hoe u een installatiekopie van een virtuele machine of een VHD maken
+# <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Een installatie kopie van een virtuele machine of VHD maken
 
 <!-- generalize, image - extended version of the tutorial-->
 
-Voor het maken van meerdere exemplaren van een virtuele machine (VM) voor gebruik in Azure, moet u een installatiekopie van de virtuele machine of VHD met het besturingssysteem vastleggen. Voor het maken van een installatiekopie voor de implementatie, moet u verwijderen van persoonlijke gegevens. In de volgende stappen u inrichting ongedaan maken van een bestaande virtuele machine, toewijzing van het ongedaan maken en een installatiekopie maken. Deze afbeelding kunt u virtuele machines in een resourcegroep in uw abonnement maakt.
+Als u meerdere exemplaren van een virtuele machine (VM) wilt maken voor gebruik in azure, moet u een installatie kopie van de VM of van de VHD van het besturings systeem vastleggen. Als u een installatie kopie voor de implementatie wilt maken, moet u persoonlijke account gegevens verwijderen. In de volgende stappen kunt u de inrichting van een bestaande virtuele machine ongedaan maken, de toewijzing ervan opheffen en een installatie kopie maken. U kunt deze installatie kopie gebruiken om Vm's te maken voor elke resource groep in uw abonnement.
 
-Om een kopie van uw bestaande Linux-VM voor back-up of foutopsporing, of voor het uploaden van een gespecialiseerde VHD met Linux vanuit een on-premises VM, Zie [uploaden en een Linux-VM maken van aangepaste installatiekopie](upload-vhd.md).  
+Zie [een virtuele Linux-machine uploaden en maken op basis van een aangepaste schijf kopie](upload-vhd.md)om een kopie te maken van uw bestaande virtuele Linux-machine voor back-up of fout opsporing of om een speciale Linux-VHD te uploaden vanaf een on-premises VM.  
 
-U kunt de **Azure VM Image Builder (openbare Preview)** service voor het bouwen van uw aangepaste installatiekopie, niet nodig voor meer informatie over alle hulpprogramma's, of setup pijplijnen, eenvoudigweg gebruik van de configuratie van een installatiekopie maken en de Image Builder maakt u de installatiekopie. Zie voor meer informatie, [aan de slag met Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+U kunt de **Azure VM Image Builder-service (open bare preview)** gebruiken om uw aangepaste installatie kopie te bouwen, geen hulp middelen meer te leren of door pijp lijnen voor het bouwen van een installatie kopie te maken, simpelweg een configuratie voor de installatie kopieën te bieden en de installatie kopie wordt gemaakt met de opbouw functie voor installatie kopieën. Zie aan de slag [met Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview)voor meer informatie.
 
-Daarnaast gebruik **Packer** om uw aangepaste configuratie te maken. Zie voor meer informatie, [hoe u Linux-installatiekopieën voor virtuele machines maken in Azure met Packer](build-image-with-packer.md).
+Bovendien, gebruikt u de pakketer om uw aangepaste configuratie te maken. Zie [How to use Packer gebruiken om installatie kopieën van virtuele Linux-machines te maken in azure](build-image-with-packer.md)voor meer informatie.
 
-U moet de volgende items voordat u een installatiekopie maakt:
+Voordat u een installatie kopie maakt, hebt u de volgende items nodig:
 
-* Een Azure-VM gemaakt in het Resource Manager-implementatiemodel dat maakt gebruik van schijven beheerde. Als u een Linux-VM nog niet hebt gemaakt, kunt u de [portal](quick-create-portal.md), wordt de [Azure CLI](quick-create-cli.md), of [Resource Manager-sjablonen](create-ssh-secured-vm-from-template.md). De virtuele machine configureren indien nodig. Bijvoorbeeld, [gegevensschijven toevoegen](add-disk.md), toepassen van updates en toepassingen te installeren. 
+* Een virtuele Azure-machine die is gemaakt in het Resource Manager-implementatie model dat gebruikmaakt van beheerde schijven. Als u nog geen virtuele Linux-machine hebt gemaakt, kunt u de [Portal](quick-create-portal.md), de [Azure cli](quick-create-cli.md)of de [Resource Manager-sjablonen](create-ssh-secured-vm-from-template.md)gebruiken. Configureer de virtuele machine als nodig. U kunt bijvoorbeeld [gegevens schijven toevoegen](add-disk.md), updates Toep assen en toepassingen installeren. 
 
-* De meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en worden aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az-login).
+* De nieuwste [Azure cli](/cli/azure/install-az-cli2) is geïnstalleerd en u moet zijn aangemeld bij een Azure-account met [AZ login](/cli/azure/reference-index#az-login).
 
 ## <a name="quick-commands"></a>Snelle opdrachten
 
-Voor een vereenvoudigde versie van dit artikel, en voor het testen, evalueren, of bij het leren over virtuele machines in Azure, Zie [een aangepaste installatiekopie van een Azure-VM maken met behulp van de CLI](tutorial-custom-images.md).
+Zie [een aangepaste installatie kopie van een virtuele Azure-machine maken met behulp van de CLI](tutorial-custom-images.md)voor een vereenvoudigde versie van dit artikel en voor het testen, evalueren of leren over Vm's in Azure.
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Stap 1: De inrichting van de virtuele machine ongedaan maken
-Eerst moet u de inrichting ongedaan de virtuele machine maken met behulp van de Azure VM-agent verwijderen van machine-specifieke bestanden en gegevens. Gebruik de `waagent` opdracht met de `-deprovision+user` parameter op de bron-Linux-VM. Zie de [Gebruikershandleiding voor Azure Linux Agent](../extensions/agent-linux.md) voor meer informatie.
+Eerst moet u de inrichting van de virtuele machine ongedaan maken met behulp van de Azure VM-agent om computerspecifieke bestanden en gegevens te verwijderen. Gebruik de `waagent` opdracht met de `-deprovision+user` para meter op uw bron-Linux-virtuele machine. Zie de [Gebruikershandleiding voor Azure Linux Agent](../extensions/agent-linux.md) voor meer informatie.
 
-1. Verbinding maken met uw Linux-VM met een SSH-client.
-2. Voer de volgende opdracht in het venster SSH:
+1. Maak verbinding met uw virtuele Linux-machine met een SSH-client.
+2. Voer in het SSH-venster de volgende opdracht in:
    
     ```bash
     sudo waagent -deprovision+user
     ```
    > [!NOTE]
-   > Alleen deze opdracht uitvoeren op een virtuele machine die u gaat als afbeelding vastleggen. Met deze opdracht is geen garantie dat de installatiekopie van alle gevoelige informatie is uitgeschakeld of geschikt voor verdere distributie is. De `+user` parameter verwijdert u ook de laatste ingerichte gebruikersaccount. Als u wilt behouden gebruikersaccountreferenties op in de virtuele machine, gebruikt u alleen `-deprovision`.
+   > Voer deze opdracht alleen uit op een virtuele machine die u vastlegt als een installatie kopie. Met deze opdracht wordt niet gegarandeerd dat de installatie kopie van alle gevoelige informatie wordt gewist of geschikt is voor herdistributie. Met `+user` de para meter wordt ook het laatste ingerichte gebruikers account verwijderd. Gebruik alleen `-deprovision`als u de referenties van het gebruikers account in de virtuele machine wilt blijven gebruiken.
  
-3. Voer **y** om door te gaan. U kunt toevoegen de `-force` parameter om te voorkomen dat deze bevestigingsstap.
-4. Nadat de opdracht is voltooid, voert u **afsluiten** te sluiten van de SSH-client.
+3. Voer **y** in om door te gaan. U kunt de `-force` para meter toevoegen om deze bevestigings stap te voor komen.
+4. Nadat de opdracht is voltooid, voert u **Afsluiten** in om de SSH-client te sluiten.
 
-## <a name="step-2-create-vm-image"></a>Stap 2: VM-installatiekopie maken
-De Azure-CLI gebruiken voor de virtuele machine markeren als gegeneraliseerd en vastleggen van de installatiekopie. In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld-parameternamen bevatten *myResourceGroup*, *myVnet*, en *myVM*.
+## <a name="step-2-create-vm-image"></a>Stap 2: VM-installatie kopie maken
+Gebruik de Azure CLI om de virtuele machine als gegeneraliseerd te markeren en de installatie kopie vast te leggen. Vervang in de volgende voor beelden voorbeeld parameter namen door uw eigen waarden. Voor beelden van parameter namen zijn *myResourceGroup*, *myVnet*en *myVM*.
 
-1. Wijs de virtuele machine die u met de inrichting ongedaan gemaakt [az vm deallocate](/cli/azure/vm). Het volgende voorbeeld wordt de virtuele machine met de naam de toewijzing ingetrokken *myVM* in de resourcegroep met de naam *myResourceGroup*.
+1. Maak de toewijzing van de virtuele machine ongedaan die u hebt opgedaan met [AZ VM deallocate](/cli/azure/vm). In het volgende voor beeld wordt de toewijzing van de virtuele machine met de naam *myVM* in de resource groep met de naam *myResourceGroup*ongedaan gemaakt.  
    
     ```azurecli
     az vm deallocate \
       --resource-group myResourceGroup \
       --name myVM
     ```
+    
+    Wacht tot de virtuele machine volledig is vrijgegeven voordat u doorgaat met. Dit kan een paar minuten duren.
 
-2. De virtuele machine markeren als gegeneraliseerd met [az vm generalize](/cli/azure/vm). Het volgende voorbeeld wordt de virtuele machine met de naam *myVM* in de resourcegroep met de naam *myResourceGroup* als gegeneraliseerd.
+2. Markeer de virtuele machine als gegeneraliseerd met [AZ VM generalize](/cli/azure/vm). In het volgende voor beeld wordt de virtuele machine met de naam *myVM* in de resource groep met de naam *myResourceGroup* als gegeneraliseerd gemarkeerd.
    
     ```azurecli
     az vm generalize \
@@ -79,7 +81,7 @@ De Azure-CLI gebruiken voor de virtuele machine markeren als gegeneraliseerd en 
       --name myVM
     ```
 
-3. Maken van een installatiekopie van de virtuele machine met [az afbeelding maken](/cli/azure/image#az-image-create). Het volgende voorbeeld wordt een installatiekopie met de naam *myImage* in de resourcegroep met de naam *myResourceGroup* met behulp van de VM-resource met de naam *myVM*.
+3. Maak een installatie kopie van de VM-resource met [AZ image Create](/cli/azure/image#az-image-create). In het volgende voor beeld wordt een installatie kopie gemaakt met de naam *myImage* in de resource groep met de naam *MYRESOURCEGROUP* met de VM-resource met de naam *myVM*.
    
     ```azurecli
     az image create \
@@ -88,12 +90,12 @@ De Azure-CLI gebruiken voor de virtuele machine markeren als gegeneraliseerd en 
     ```
    
    > [!NOTE]
-   > De installatiekopie is gemaakt in dezelfde resourcegroep bevinden als de bron-VM. U kunt virtuele machines maken in elke willekeurige resourcegroep binnen uw abonnement van deze installatiekopie. U kunt desgewenst een specifieke resourcegroep voor uw VM-resources en afbeeldingen maken vanuit het oogpunt van beheer.
+   > De installatie kopie wordt gemaakt in dezelfde resource groep als de bron-VM. U kunt in deze installatie kopie Vm's maken in elke resource groep in uw abonnement. Vanuit een beheer perspectief wilt u mogelijk een specifieke resource groep maken voor uw VM-resources en installatie kopieën.
    >
-   > Als u wilt voor het opslaan van uw installatiekopie in de zone-robuuste opslag, moet u deze maken in een regio die ondersteuning biedt voor [beschikbaarheidszones](../../availability-zones/az-overview.md) en bevatten de `--zone-resilient true` parameter.
+   > Als u uw installatie kopie wilt opslaan in zone-flexibele opslag, moet u deze maken in een regio die [beschikbaarheids zones](../../availability-zones/az-overview.md) ondersteunt en de `--zone-resilient true` para meter bevat.
 
-## <a name="step-3-create-a-vm-from-the-captured-image"></a>Stap 3: Een virtuele machine maken van de vastgelegde installatiekopie
-Een virtuele machine maken met behulp van de installatiekopie die u hebt gemaakt met [az vm maken](/cli/azure/vm). Het volgende voorbeeld wordt een virtuele machine met de naam *myVMDeployed* van de installatiekopie met de naam *myImage*.
+## <a name="step-3-create-a-vm-from-the-captured-image"></a>Stap 3: Een virtuele machine maken op basis van de vastgelegde installatie kopie
+Maak een virtuele machine met behulp van de installatie kopie die u hebt gemaakt met [AZ VM Create](/cli/azure/vm). In het volgende voor beeld wordt een VM gemaakt met de naam *myVMDeployed* uit de installatie kopie met de naam *myImage*.
 
 ```azurecli
 az vm create \
@@ -104,9 +106,9 @@ az vm create \
    --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-### <a name="creating-the-vm-in-another-resource-group"></a>Het maken van de virtuele machine in een andere resourcegroep 
+### <a name="creating-the-vm-in-another-resource-group"></a>De virtuele machine in een andere resource groep maken 
 
-U kunt virtuele machines maken van een installatiekopie in elke willekeurige resourcegroep binnen uw abonnement. Voor het maken van een virtuele machine in een andere resourcegroep dan de installatiekopie, geef de volledige resource-ID aan de installatiekopie. Gebruik [az afbeeldingenlijst](/cli/azure/image#az-image-list) om een lijst met installatiekopieën weer te geven. De uitvoer lijkt op die in het volgende voorbeeld.
+U kunt Vm's maken op basis van een installatie kopie in een resource groep in uw abonnement. Als u een virtuele machine in een andere resource groep wilt maken dan de installatie kopie, geeft u de volledige Resource-ID op voor uw installatie kopie. Gebruik [AZ Image List](/cli/azure/image#az-image-list) om een lijst met installatie kopieën weer te geven. De uitvoer lijkt op die in het volgende voorbeeld.
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -114,7 +116,7 @@ U kunt virtuele machines maken van een installatiekopie in elke willekeurige res
    "name": "myImage",
 ```
 
-Het volgende voorbeeld wordt [az vm maken](/cli/azure/vm#az-vm-create) te maken van een virtuele machine in een resourcegroep gemaakt dan de installatiekopie van de bron van de resource-id van de installatiekopie op te geven
+In het volgende voor beeld wordt [AZ VM Create](/cli/azure/vm#az-vm-create) gebruikt om een virtuele machine te maken in een andere resource groep dan de bron installatie kopie, door de resource-id van de installatie kopie op te geven.
 
 ```azurecli
 az vm create \
@@ -128,7 +130,7 @@ az vm create \
 
 ## <a name="step-4-verify-the-deployment"></a>Stap 4: De implementatie controleren
 
-Voeg SSH toe aan de virtuele machine die u hebt gemaakt om te controleren of de implementatie en maak gebruik van de nieuwe virtuele machine. Als u wilt verbinding maken via SSH, vinden de IP-adres of FQDN-naam van uw virtuele machine met [az vm show](/cli/azure/vm#az-vm-show).
+SSH naar de virtuele machine die u hebt gemaakt om de implementatie te controleren en te beginnen met het gebruik van de nieuwe VM. Als u verbinding wilt maken via SSH, zoekt u het IP-adres of de FQDN van uw virtuele machine met [AZ VM show](/cli/azure/vm#az-vm-show).
 
 ```azurecli
 az vm show \
@@ -138,11 +140,11 @@ az vm show \
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt meerdere virtuele machines maken vanuit de bron-VM-installatiekopie. Wijzigingen aanbrengen in uw installatiekopie: 
+U kunt meerdere virtuele machines maken op basis van de installatie kopie van de bron-VM. Wijzigingen aanbrengen in de installatie kopie: 
 
-- Een virtuele machine maken door uw installatiekopie.
-- Controleer alle updates of wijzigingen in de configuratie.
-- Volg de stappen opnieuw voor de inrichting, toewijzing ongedaan maken, generaliseren en een installatiekopie maken.
-- Deze nieuwe installatiekopie gebruiken voor toekomstige implementaties. U kunt de oorspronkelijke afbeelding verwijderen.
+- Maak een virtuele machine op basis van uw installatie kopie.
+- Updates of configuratie wijzigingen aanbrengen.
+- Volg de stappen opnieuw om de inrichting te verwijderen, de toewijzing op te heffen, te generaliseren en een installatie kopie te maken.
+- Gebruik deze nieuwe installatie kopie voor toekomstige implementaties. U kunt de oorspronkelijke installatie kopie verwijderen.
 
-Zie voor meer informatie over het beheren van uw VM's met de CLI [Azure CLI](/cli/azure).
+Zie [Azure cli](/cli/azure)voor meer informatie over het beheren van uw vm's met de cli.

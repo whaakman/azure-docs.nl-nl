@@ -10,12 +10,12 @@ ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 91a074cf98291b105864a69730314efff3482254
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61ea7eb0b81c5489ad2bf20e8148d2481bb4fb13
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126406"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840178"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Azure IoT Edge-modules van Visual Studio Code implementeren
 
@@ -71,7 +71,7 @@ Hier volgt een manifest eenvoudige implementatie met één module als een voorbe
              }
            },
            "modules": {
-             "tempSensor": {
+             "SimulatedTemperatureSensor": {
                "version": "1.0",
                "type": "docker",
                "status": "running",
@@ -95,7 +95,7 @@ Hier volgt een manifest eenvoudige implementatie met één module als een voorbe
            }
          }
        },
-       "tempSensor": {
+       "SimulatedTemperatureSensor": {
          "properties.desired": {}
        }
      }
@@ -128,10 +128,10 @@ U implementeren modules naar uw apparaat door het toepassen van het manifest imp
 
 1. Vouw in de weergave van Visual Studio Code explorer de **Azure IoT Hub-apparaten** sectie.
 
-1. Met de rechtermuisknop op het IoT Edge-apparaat dat u wilt configureren met de implementatie van het manifest.
+1. Klik met de rechter muisknop op het IoT Edge apparaat dat u wilt configureren met het implementatie manifest.
 
     > [!TIP]
-    > Om te bevestigen dat het apparaat die u hebt ervoor gekozen een IoT Edge-apparaat is, selecteert u deze aan de lijst met modules uitvouwen en controleer of de aanwezigheid van **$edgeHub** en **$edgeAgent**. Elke IoT Edge-apparaat omvat deze twee modules.
+    > Als u wilt controleren of het apparaat dat u hebt gekozen een IoT Edge apparaat is, selecteert u dit om de lijst met modules uit te vouwen en de aanwezigheid van **$edgeHub** en **$edgeAgent**te controleren. Elk IoT Edge apparaat bevat deze twee modules.
 
 1. Selecteer **implementatie voor één apparaat maken**.
 

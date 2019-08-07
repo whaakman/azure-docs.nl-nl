@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Problemen oplossen met | Microsoft Docs'
-description: Gids voor probleemoplossing voor Azure AD Domain Services
+title: 'Azure Active Directory Domain Services: Gids voor probleem oplossing | Microsoft Docs'
+description: Gids voor probleem oplossing voor Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,68 +15,68 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 2df1ac6325f692e2d433238ae0b92d8e3f8482b5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: acb001417b85b8ff45b2617e148e8b1961f3cbfa
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472288"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772976"
 ---
-# <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - gids problemen oplossen
-Dit artikel vindt tips voor probleemoplossing voor problemen die optreden kunnen bij het instellen of beheren van Azure Active Directory (AD) Domain Services.
+# <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services-probleemoplossings gids
+In dit artikel vindt u tips voor het oplossen van problemen die zich kunnen voordoen bij het instellen of beheren van Azure Active Directory (AD) Domain Services.
 
-## <a name="you-cannot-enable-azure-ad-domain-services-for-your-azure-ad-directory"></a>U kunt Azure AD Domain Services voor uw Azure AD-directory niet inschakelen
-In deze sectie helpt u fouten oplossen wanneer u probeert te Azure AD Domain Services inschakelt voor uw directory.
+## <a name="you-cannot-enable-azure-ad-domain-services-for-your-azure-ad-directory"></a>U kunt Azure AD Domain Services niet inschakelen voor uw Azure AD-adres lijst
+In deze sectie leert u hoe u fouten kunt oplossen wanneer u probeert Azure AD Domain Services in te scha kelen voor uw Directory.
 
-Kies de stappen voor probleemoplossing die overeenkomen met het foutbericht dat u ondervindt.
+Kies de stappen voor het oplossen van problemen die overeenkomen met het fout bericht dat u tegen komt.
 
-| **Foutbericht** | **Resolutie** |
+| **Fout bericht** | **Resolutie** |
 | --- |:--- |
-| *De naam contoso100.com is al in gebruik op dit netwerk. Geef een naam op die niet in gebruik is.* |[Conflict met domein in het virtuele netwerk](troubleshoot.md#domain-name-conflict) |
-| *Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De service heeft niet voldoende machtigingen voor de toepassing met de naam 'Azure AD Domain Services Sync'. Verwijder de toepassing met de naam 'Azure AD Domain Services Sync' en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.* |[Domain Services beschikt niet over voldoende machtigingen voor de Azure AD Domain Services Sync-toepassing](troubleshoot.md#inadequate-permissions) |
-| *Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De toepassing Domain Services in uw Azure AD-tenant heeft niet de vereiste machtigingen om Domain Services in te schakelen. Verwijder de toepassing met de toepassings-id d87dcbc6-a371-462e-88e3-28ad15ec4e64 en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.* |[De toepassing Domain Services is niet juist geconfigureerd in uw tenant](troubleshoot.md#invalid-configuration) |
-| *Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De toepassing Microsoft Azure AD is uitgeschakeld in uw Azure AD-tenant. Schakel de toepassing met de toepassings-id 00000002-0000-0000-c000-000000000000 in en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.* |[De toepassing Microsoft Graph is uitgeschakeld in uw Azure AD-tenant](troubleshoot.md#microsoft-graph-disabled) |
+| *De naam contoso100.com is al in gebruik op dit netwerk. Geef een naam op die niet in gebruik is.* |[Domein naam conflict in het virtuele netwerk](troubleshoot.md#domain-name-conflict) |
+| *Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De service heeft niet voldoende machtigingen voor de toepassing met de naam 'Azure AD Domain Services Sync'. Verwijder de toepassing met de naam 'Azure AD Domain Services Sync' en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.* |[Domain Services heeft niet de juiste machtigingen voor de Azure AD Domain Services Sync-toepassing](troubleshoot.md#inadequate-permissions) |
+| *Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De toepassing Domain Services in uw Azure AD-tenant heeft niet de vereiste machtigingen om Domain Services in te schakelen. Verwijder de toepassing met de toepassings-id d87dcbc6-a371-462e-88e3-28ad15ec4e64 en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.* |[De domein Services-toepassing is niet juist geconfigureerd in uw Tenant](troubleshoot.md#invalid-configuration) |
+| *Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De toepassing Microsoft Azure AD is uitgeschakeld in uw Azure AD-tenant. Schakel de toepassing met de toepassings-id 00000002-0000-0000-c000-000000000000 in en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.* |[De Microsoft Graph toepassing is uitgeschakeld in uw Azure AD-Tenant](troubleshoot.md#microsoft-graph-disabled) |
 
-### <a name="domain-name-conflict"></a>Conflict met domein
-**Foutbericht:**
+### <a name="domain-name-conflict"></a>Conflict met domein naam
+**Fout bericht:**
 
 *De naam contoso100.com is al in gebruik op dit netwerk. Geef een naam op die niet in gebruik is.*
 
-**Herstel:**
+**Herstel**
 
-Zorg ervoor dat u geen bestaand domein met dezelfde domeinnaam beschikbaar is op dit virtuele netwerk. Het domein met de naam contoso.com is bijvoorbeeld al beschikbaar op het geselecteerde virtuele netwerk. Later kunt proberen u om in te schakelen van een Azure AD Domain Services beheerde domein met dezelfde domeinnaam (dat wil zeggen ' contoso.com') op dit virtuele netwerk. U kunt een fout optreedt tijdens het inschakelen van Azure AD Domain Services.
+Zorg ervoor dat er geen bestaand domein met dezelfde domein naam beschikbaar is op het virtuele netwerk. Het domein met de naam contoso.com is bijvoorbeeld al beschikbaar op het geselecteerde virtuele netwerk. Later probeert u een Azure AD Domain Services beheerd domein in te scha kelen met dezelfde domein naam (dat wil zeggen ' contoso.com ') op dat virtuele netwerk. Er treedt een fout op bij het inschakelen van Azure AD Domain Services.
 
-Deze fout is ontstaan door naamconflicten voor de domeinnaam op dit virtuele netwerk. In dit geval moet u een andere naam gebruiken om het beheerde domein van Azure AD Domain Services in te stellen. U kunt ook de inrichting van het bestaande domein ongedaan maken en doorgaan met het inschakelen van Azure AD Domain Services.
+Deze fout wordt veroorzaakt door naam conflicten voor de domein naam op het virtuele netwerk. In dit geval moet u een andere naam gebruiken om het beheerde domein van Azure AD Domain Services in te stellen. U kunt ook de inrichting van het bestaande domein ongedaan maken en doorgaan met het inschakelen van Azure AD Domain Services.
 
-### <a name="inadequate-permissions"></a>Onvoldoende machtigingen
-**Foutbericht:**
+### <a name="inadequate-permissions"></a>Ontoereikende machtigingen
+**Fout bericht:**
 
 *Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De service heeft niet voldoende machtigingen voor de toepassing met de naam 'Azure AD Domain Services Sync'. Verwijder de toepassing met de naam 'Azure AD Domain Services Sync' en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.*
 
-**Herstel:**
+**Herstel**
 
-Controleer of er is een toepassing met de naam 'Azure AD Domain Services Sync' in uw Azure AD-directory. Als deze toepassing bestaat, verwijderen en vervolgens Azure AD Domain Services opnieuw inschakelen.
+Controleer of er een toepassing is met de naam Azure AD Domain Services Sync in uw Azure AD-adres lijst. Als deze toepassing bestaat, verwijdert u deze en schakelt u Azure AD Domain Services opnieuw in.
 
-Voer de volgende stappen uit om te controleren op de aanwezigheid van de toepassing en verwijderen, als de toepassing bestaat:
+Voer de volgende stappen uit om te controleren of de toepassing aanwezig is en om deze te verwijderen als de toepassing bestaat:
 
-1. Navigeer naar de **toepassingen** sectie van uw Azure AD-directory in de [Azure-portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/).
-2. Selecteer **alle toepassingen** in de **weergeven** vervolgkeuzelijst. Selecteer **eventuele** in de **toepassingsstatus** vervolgkeuzelijst. Selecteer **eventuele** in de **zichtbaarheid van toepassing** vervolgkeuzelijst.
-3. Type **Azure AD Domain Services Sync** in het zoekvak in. Als de toepassing aanwezig is, klikt u erop klikt u op de **verwijderen** knop op de werkbalk om deze te verwijderen.
-4. Nadat u de toepassing hebt verwijderd, probeer het opnieuw inschakelen van Azure AD Domain Services.
+1. Navigeer naar het gedeelte **toepassingen** van uw Azure AD-Directory in de [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/).
+2. Selecteer **alle toepassingen** in de vervolg keuzelijst **weer geven** . Selecteer in de vervolg keuzelijst **toepassingen status** de optie. Selecteer de **gewenste** optie in de vervolg keuzelijst **toepassings zichtbaarheid** .
+3. Typ **Azure AD Domain Services Sync** in het zoekvak. Als de toepassing bestaat, klikt u erop en klikt u op de knop **verwijderen** op de werk balk om deze te verwijderen.
+4. Nadat u de toepassing hebt verwijderd, kunt u opnieuw proberen Azure AD Domain Services opnieuw in te scha kelen.
 
 ### <a name="invalid-configuration"></a>Ongeldige configuratie
-**Foutbericht:**
+**Fout bericht:**
 
 *Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De toepassing Domain Services in uw Azure AD-tenant heeft niet de vereiste machtigingen om Domain Services in te schakelen. Verwijder de toepassing met de toepassings-id d87dcbc6-a371-462e-88e3-28ad15ec4e64 en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.*
 
-**Herstel:**
+**Herstel**
 
-Controleer of u een toepassing met de naam 'AzureActiveDirectoryDomainControllerServices' (met een toepassings-id van d87dcbc6-a371-462e-88e3-28ad15ec4e64) hebt in uw Azure AD-directory. Als deze toepassing bestaat, moet u deze verwijderen en vervolgens Azure AD Domain Services opnieuw inschakelen.
+Controleer of u een toepassing met de naam ' AzureActiveDirectoryDomainControllerServices ' hebt (met een toepassings-id van d87dcbc6-a371-462e-88e3-28ad15ec4e64) in uw Azure AD-adres lijst. Als deze toepassing bestaat, moet u deze verwijderen en vervolgens opnieuw inschakelen Azure AD Domain Services.
 
-Gebruik de volgende PowerShell-script te vinden van de toepassing en deze verwijdert.
+Gebruik het volgende Power shell-script om de toepassing te zoeken en te verwijderen.
 
 > [!NOTE]
-> Dit script maakt gebruik van **Azure AD PowerShell versie 2** cmdlets. Lees voor een volledige lijst van alle beschikbare cmdlets en de module downloaden, de [AzureAD PowerShell-referentiedocumentatie](https://msdn.microsoft.com/library/azure/mt757189.aspx).
+> Dit script maakt gebruik van **Azure AD Power shell versie 2** -cmdlets. Lees de [AzureAD Power shell-referentie documentatie](https://msdn.microsoft.com/library/azure/mt757189.aspx)voor een volledige lijst met alle beschik bare cmdlets en down load de module.
 >
 >
 
@@ -114,51 +114,54 @@ if ($sp -ne $null)
 <br>
 
 ### <a name="microsoft-graph-disabled"></a>Microsoft Graph uitgeschakeld
-**Foutbericht:**
+**Fout bericht:**
 
-Domain Services kunnen niet worden ingeschakeld in deze Azure AD-tenant. De toepassing Microsoft Azure AD is uitgeschakeld in uw Azure AD-tenant. Schakel de toepassing met de toepassing-id 00000002-0000-0000-C000-000000000000 in en probeer vervolgens te domeinservices inschakelen voor uw Azure AD-tenant.
+Domain Services kan niet worden ingeschakeld in deze Azure AD-Tenant. De toepassing Microsoft Azure AD is uitgeschakeld in uw Azure AD-tenant. Schakel de toepassing met de toepassings-id 00000002-0000-0000-C000-000000000000 te gebruiken in en probeer vervolgens Domain Services in te scha kelen voor uw Azure AD-Tenant.
 
-**Herstel:**
+**Herstel**
 
-Controleer als u een toepassing met de id 00000002-0000-0000-c000-000000000000 hebt uitgeschakeld. Deze toepassing is de Microsoft Azure AD-toepassing en biedt Graph API-toegang tot uw Azure AD-tenant. Azure AD Domain Services moet deze toepassing worden ingeschakeld om te synchroniseren van uw Azure AD-tenant aan uw beheerde domein.
+Controleer of u een toepassing hebt uitgeschakeld met de id 00000002-0000-0000-C000-000000000000 te gebruiken. Deze toepassing is de Microsoft Azure AD toepassing en biedt Graph API toegang tot uw Azure AD-Tenant. Azure AD Domain Services moet deze toepassing worden ingeschakeld om uw Azure AD-Tenant te synchroniseren met uw beheerde domein.
 
-U kunt deze fout oplossen door deze toepassing inschakelen en probeer vervolgens te domeinservices inschakelen voor uw Azure AD-tenant.
+Om deze fout op te lossen, schakelt u deze toepassing in en probeert u domein Services in te scha kelen voor uw Azure AD-Tenant.
 
 
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Gebruikers kunnen zich niet aanmelden bij het in Azure AD Domain Services beheerde domein
-Als een of meer gebruikers in uw Azure AD-tenant zich niet aanmelden bij de zojuist gemaakte beheerde domein, voer de volgende stappen:
+Als een of meer gebruikers in uw Azure AD-Tenant zich niet kunnen aanmelden bij het zojuist gemaakte beheerde domein, voert u de volgende stappen voor probleem oplossing uit:
 
-* **Aanmelden met behulp van de UPN-indeling:** Probeer u aan te melden met behulp van de UPN-indeling (bijvoorbeeld 'joeuser@contoso.com') in plaats van de SAMAccountName-indeling ('CONTOSO\joeuser'). De SAMAccountName kan automatisch worden gegenereerd voor gebruikers wiens UPN-voorvoegsel is te lang of is hetzelfde als een andere gebruiker in het beheerde domein. De UPN-indeling is gegarandeerd uniek zijn binnen een Azure AD-tenant.
+* **Aanmelden met UPN-indeling:** Probeer u aan te melden met behulp van de UPN-indeling (bijvoorbeeld 'joeuser@contoso.com') in plaats van de SAMAccountName-indeling ('CONTOSO\joeuser'). De SAMAccountName kan automatisch worden gegenereerd voor gebruikers waarvan het UPN-voor voegsel langer is dan of gelijk is aan die van een andere gebruiker in het beheerde domein. De UPN-indeling is gegarandeerd uniek binnen een Azure AD-Tenant.
 
 > [!NOTE]
-> U wordt aangeraden met behulp van de UPN-indeling te melden bij de Azure AD Domain Services beheerde domein.
+> We raden u aan de UPN-indeling te gebruiken om u aan te melden bij het door Azure AD Domain Services beheerde domein.
 >
 >
 
 * Zorg ervoor dat u [wachtwoordsynchronisatie hebt ingeschakeld](active-directory-ds-getting-started-password-sync.md) volgens de stappen beschreven in de handleiding.
-* **Externe accounts:** Zorg ervoor dat het betreffende gebruikersaccount geen extern account in de Azure AD-tenant is. Voorbeelden van externe accounts zijn Microsoft-accounts (bijvoorbeeld 'joe@live.com') of gebruikersaccounts met een externe Azure AD-directory. Omdat Azure AD Domain Services geen referenties voor deze gebruikersaccounts, kunnen deze gebruikers zich niet aanmelden bij het beheerde domein.
-* **Gesynchroniseerde accounts:** Als de betrokken gebruikersaccounts worden gesynchroniseerd vanuit een on-premises directory, moet u de volgende punten controleren:
+* **Externe accounts:** Zorg ervoor dat het betreffende gebruikersaccount geen extern account in de Azure AD-tenant is. Voor beelden van externe accounts zijn micro soft-accounts (bijvoorbeeldjoe@live.com' ') of gebruikers accounts uit een externe Azure AD-adres lijst. Omdat Azure AD Domain Services geen referenties heeft voor dergelijke gebruikers accounts, kunnen deze gebruikers zich niet aanmelden bij het beheerde domein.
+* **Gesynchroniseerde accounts:** Als de betrokken gebruikers accounts worden gesynchroniseerd vanuit een on-premises Directory, controleert u het volgende:
 
-  * U hebt geïmplementeerd of bijgewerkt naar de [meest recente aanbevolen versie van Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
-  * U kunt Azure AD Connect hebt geconfigureerd [een volledige synchronisatie uitvoeren](active-directory-ds-getting-started-password-sync.md).
-  * Afhankelijk van de grootte van uw directory, kan het even duren voor gebruikersaccounts en referentie-hashes worden weergegeven in Azure AD Domain Services. Zorg ervoor dat u wacht lang genoeg voordat opnieuw wordt geprobeerd de verificatie.
-  * Als het probleem zich blijft voordoen nadat u hebt gecontroleerd van de voorgaande stappen, probeert u de Microsoft Azure AD Sync-Service opnieuw te starten. Vanaf uw sync-computer, start een opdrachtprompt en voer de volgende opdrachten uit:
+  * U hebt de [meest recente aanbevolen versie van Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)geïmplementeerd of bijgewerkt.
+  * U hebt Azure AD Connect geconfigureerd om [een volledige synchronisatie uit te voeren](active-directory-ds-getting-started-password-sync.md).
+  * Afhankelijk van de grootte van uw map kan het enige tijd duren voordat gebruikers accounts en referentie-hashes beschikbaar zijn in Azure AD Domain Services. Zorg ervoor dat u lang genoeg wacht voordat u opnieuw probeert te authenticeren.
+  * Als het probleem zich blijft voordoen nadat u de voor gaande stappen hebt gecontroleerd, start u de Microsoft Azure AD Sync-service opnieuw op. Start vanaf de synchronisatie computer een opdracht prompt en voer de volgende opdrachten uit:
 
-    1. net stop 'Microsoft Azure AD Sync'
-    2. net start 'Microsoft Azure AD Sync'
-* **Alleen in de cloud accounts**: Als het betrokken gebruikersaccount een alleen-cloud-gebruikersaccount is, zorgt u ervoor dat de gebruiker het wachtwoord is gewijzigd nadat u Azure AD Domain Services hebt ingeschakeld. Door deze stap worden de referentie-hashes gegenereerd die zijn vereist voor Azure AD Domain Services.
+    1. net stop ' Microsoft Azure AD Sync '
+    2. net start ' Microsoft Azure AD Sync '
+* **Alleen Cloud accounts**: Als het betrokken gebruikers account een alleen-Cloud gebruikers account is, moet u ervoor zorgen dat de gebruiker zijn of haar wacht woord heeft gewijzigd nadat u Azure AD Domain Services hebt ingeschakeld. Door deze stap worden de referentie-hashes gegenereerd die zijn vereist voor Azure AD Domain Services.
+* **Controleer of het gebruikers account actief is**: Als het account van een gebruiker is vergrendeld, kan het zich niet aanmelden totdat het account weer actief is. Vijf ongeldige wachtwoord pogingen binnen twee minuten op het beheerde domein zorgen ervoor dat een gebruikers account 30 minuten wordt vergrendeld. Na 30 minuten wordt het gebruikers account automatisch ontgrendeld.
+  * Bij ongeldige wachtwoord pogingen op het beheerde domein wordt het gebruikers account in azure AD niet vergrendeld. Het gebruikers account is alleen vergrendeld binnen uw Azure AD Domain Services beheerde domein. Controleer de status van het gebruikers account met behulp van de Active Directory-beheer console (ADAC) voor het beheerde Azure AD DS-domein, niet in azure AD.
+  * U kunt ook [een verfijnd wachtwoord beleid configureren dat de standaard drempelwaarde en duur van vergren deling wijzigt](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy).
 
-## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Er zijn een of meer waarschuwingen op uw beheerde domein
+## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Er zijn een of meer waarschuwingen voor uw beheerde domein
 
-Informatie over het oplossen van waarschuwingen op uw beheerde domein door naar de pagina de [waarschuwingen oplossen](troubleshoot-alerts.md) artikel.
+Zie waarschuwingen voor uw beheerde domein oplossen door het artikel [problemen met waarschuwingen oplossen](troubleshoot-alerts.md) te bezoeken.
 
-## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Verwijderd uit uw Azure AD-tenant gebruikers worden niet verwijderd uit uw beheerde domein
-Azure AD voorkomt dat u onbedoeld gebruikersobjecten verwijdert. Wanneer u een gebruikersaccount uit uw Azure AD-tenant verwijdert, wordt het overeenkomstige gebruikersobject verplaatst naar de Prullenbak. Wanneer deze verwijderingsbewerking wordt gesynchroniseerd met uw beheerde domein, zorgt deze ervoor dat het bijbehorende gebruikersaccount gemarkeerd als uitgeschakeld. Deze functie kunt u herstellen of het gebruikersaccount later ongedaan maken.
+## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Gebruikers die zijn verwijderd uit uw Azure AD-Tenant, worden niet verwijderd uit uw beheerde domein
+Azure AD voorkomt dat u onbedoeld gebruikersobjecten verwijdert. Wanneer u een gebruikersaccount uit uw Azure AD-tenant verwijdert, wordt het overeenkomstige gebruikersobject verplaatst naar de Prullenbak. Wanneer deze Verwijder bewerking is gesynchroniseerd met uw beheerde domein, wordt het bijbehorende gebruikers account gemarkeerd als uitgeschakeld. Met deze functie kunt u het gebruikers account later herstellen of verwijderen.
 
-Het gebruikersaccount dat blijft in de status uitgeschakeld in uw beheerde domein, zelfs als u opnieuw een gebruikersaccount met dezelfde UPN in uw Azure AD-directory maakt. Als u wilt het gebruikersaccount verwijderen uit uw beheerde domein, moet u deze geforceerd verwijderen uit uw Azure AD-tenant.
+Het gebruikers account blijft uitgeschakeld in uw beheerde domein, zelfs als u opnieuw een gebruikers account met dezelfde UPN maakt in uw Azure AD-adres lijst. Als u het gebruikers account uit uw beheerde domein wilt verwijderen, moet u het verwijderen uit uw Azure AD-Tenant.
 
-Als wilt verwijderen het gebruikersaccount dat volledig uit uw beheerde domein, verwijdert u de gebruiker permanent van uw Azure AD-tenant. Gebruik de `Remove-MsolUser` PowerShell-cmdlet met de `-RemoveFromRecycleBin` optie, zoals beschreven in dit [MSDN-artikel](/previous-versions/azure/dn194132(v=azure.100)).
+Als u het gebruikers account volledig van uw beheerde domein wilt verwijderen, verwijdert u de gebruiker permanent uit uw Azure AD-Tenant. Gebruik de `Remove-MsolUser` Power shell-cmdlet `-RemoveFromRecycleBin` met de optie, zoals beschreven in dit [MSDN-artikel](/previous-versions/azure/dn194132(v=azure.100)).
 
 
 ## <a name="contact-us"></a>Contact opnemen
-Neem contact op met het productteam van Azure Active Directory Domain Services naar [feedback geven of voor ondersteuning van](contact-us.md).
+Neem contact op met het product team van Azure Active Directory Domain Services om [feedback te delen of voor ondersteuning](contact-us.md).

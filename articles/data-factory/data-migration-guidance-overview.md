@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/30/2019
-ms.openlocfilehash: 780b9ae6e4664af86fa655c9136193bed58526d9
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: a61ddf57d4f01fcaf4a949add29c677aa94060a9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708496"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827859"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Azure Data Factory gebruiken om gegevens van uw data Lake of Data Warehouse te migreren naar Azure 
 
@@ -26,7 +26,7 @@ Azure Data Factory kan het hulp programma zijn om gegevens migratie uit te voere
 - Migratie van de werk belasting van Big data van AWS S3, on-premises Hadoop-bestands systeem naar Azure. 
 - EDW migratie van Oracle Exadata, Netezza, Teradata, AWS Redshift naar Azure. 
 
-Azure Data Factory kunt het gegevens niveau van PBs verplaatsen voor de migratie van data Lake en tien TB gegevens voor Data Warehouse migraties. 
+Azure Data Factory kunt PBs van gegevens verplaatsen voor data Lake Migration en tien tallen TB gegevens voor Data Warehouse migratie. 
 
 ## <a name="why-azure-data-factory-can-be-used-for-data-migration"></a>Waarom Azure Data Factory kunnen worden gebruikt voor gegevens migratie 
 
@@ -59,4 +59,4 @@ Als u de gegevens migratie binnen twee weken (migratie venster) wilt volt ooien,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Bestanden van meerdere containers met Azure Data Factory kopiëren](solution-template-copy-files-multiple-containers.md)
+- [Gegevens migreren van AWS S3 naar Azure](data-migration-guidance-s3-azure-storage.md)

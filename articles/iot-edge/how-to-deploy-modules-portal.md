@@ -10,12 +10,12 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8337c8672eb886d79b38b2a38a74037f88604497
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f27484fd1d47a2e29aa5083a7d440e5c7dba11c1
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448545"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839641"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure IoT Edge-modules van de Azure-portal implementeren
 
@@ -39,25 +39,25 @@ In dit artikel laat zien hoe de Azure-portal begeleidt u bij het maken van een m
 
 Het manifest voor een implementatie is een JSON-document waarin wordt beschreven welke modules te implementeren, hoe gegevens stromen tussen de modules, en de gewenste eigenschappen van de moduledubbels. Zie voor meer informatie over hoe implementatie werk manifesten en hoe ze worden gemaakt, [te begrijpen hoe IoT Edge-modules kunnen worden gebruikt, geconfigureerd en opnieuw gebruikt](module-composition.md).
 
-De Azure portal heeft een wizard waarmee wordt beschreven hoe u het manifest van de implementatie, in plaats van het JSON-document handmatig. Het heeft drie stappen: **Modules toevoegen**, **routes opgeven**, en **implementatie bekijken**.
+De Azure portal heeft een wizard waarmee wordt beschreven hoe u het manifest van de implementatie, in plaats van het JSON-document handmatig. De oplossing bestaat uit drie stappen: **Modules toevoegen**, **routes opgeven**en de **implementatie controleren**.
 
 ### <a name="add-modules"></a>Modules toevoegen
 
-1. In de **Container Registry Settings** sectie van de pagina, geef de referenties voor toegang tot alle persoonlijke containerregisters die uw module-installatiekopieën bevatten.
+1. Geef in de sectie **container Registry-instellingen** van de pagina de referenties op voor toegang tot persoonlijke container registers die uw module installatie kopieën bevatten.
 
-1. In de **implementatie Modules** sectie van de pagina, selecteer **toevoegen**.
+1. Selecteer in de sectie **implementatie modules** van de pagina **toevoegen**.
 
 1. Kijken naar de soorten modules uit de vervolgkeuzelijst:
 
    * **IoT Edge-Module** -de standaardoptie.
    * **Azure Stream Analytics-Module** -alleen modules die zijn gegenereerd op basis van een Azure Stream Analytics-workload.
-   * **Azure Machine Learning-Module** -model voor alleen afbeeldingen die worden gegenereerd op basis van een Azure Machine Learning-werkruimte.
+   * **Azure machine learning** model installatie kopieën die zijn gegenereerd op basis van een Azure machine learning-werk ruimte.
 
 1. Selecteer de **IoT Edge-Module**.
 
 1. Geef een naam op voor de module en geeft u de container-installatiekopie. Bijvoorbeeld:
 
-   * **Naam** -tempSensor
+   * **Naam** -SimulatedTemperatureSensor
    * **URI installatiekopie** -mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
 
 1. Vul de optionele velden indien nodig. Voor meer informatie over container maken van opties voor beleid voor opnieuw opstarten en gewenste status zien [EdgeAgent gewenste eigenschappen](module-edgeagent-edgehub.md#edgeagent-desired-properties). Zie voor meer informatie over de moduledubbel [definiëren of update gewenste eigenschappen](module-composition.md#define-or-update-desired-properties).
@@ -84,28 +84,28 @@ Lees de informatie van uw implementatie, en selecteer vervolgens **indienen**.
 
 Nadat u hebt modules geïmplementeerd op uw apparaat, vindt u alle mappen in de **Apparaatdetails** pagina van de portal. Deze pagina weergegeven de naam van elke geïmplementeerde module, evenals de nuttige informatie als de implementatie de status- en uitgiftemodules code.
 
-## <a name="deploy-modules-from-azure-marketplace"></a>Implementeren van modules in Azure Marketplace
+## <a name="deploy-modules-from-azure-marketplace"></a>Modules implementeren vanuit Azure Marketplace
 
-Azure Marketplace is een online-toepassingen en services waar u door een breed scala aan bedrijfstoepassingen en -oplossingen die zijn gecertificeerd en geoptimaliseerd bladeren kan voor het uitvoeren op Azure, met inbegrip van [IoT Edge-modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure Marketplace kan ook worden geopend via de Azure-portal onder **een Resource maken**.
+Azure Marketplace is een online Marketplace voor toepassingen en services waar u kunt bladeren door een breed scala aan bedrijfs toepassingen en oplossingen die zijn gecertificeerd en geoptimaliseerd om te worden uitgevoerd op Azure, met inbegrip van [IOT Edge-modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure Marketplace kan ook worden geopend via de Azure Portal onder **een resource maken**.
 
-U kunt een IoT Edge-module installeren via Azure Marketplace of de Azure-portal:
+U kunt een IoT Edge module installeren vanuit Azure Marketplace of via de Azure Portal:
 
-1. Zoek een module en met het implementatieproces begint.
+1. Zoek een module en begin met het implementatie proces.
 
    * Azure Portal: Zoek een module en selecteer **maken**.
 
    * Azure Marketplace:
 
-     1. Zoek een module en selecteer **nu downloaden**.
-     1. Bevestiging van de provider en de servicevoorwaarden en het privacybeleid door te selecteren **doorgaan**.
+     1. Zoek een module en selecteer **nu ophalen**.
+     1. Bevestig de gebruiks voorwaarden en het privacybeleid van de provider door **door gaan**te selecteren.
 
-1. Kies uw abonnement en de IoT-Hub waarop het doelapparaat is aangesloten.
+1. Kies uw abonnement en het IoT Hub waaraan het doel apparaat is gekoppeld.
 
 1. Kies **implementeren op een apparaat**.
 
-1. Voer de naam van het apparaat of selecteer **apparaat vinden** te zoeken tussen de apparaten die zijn geregistreerd bij de hub.
+1. Voer de naam van het apparaat in of selecteer **apparaat zoeken** om te bladeren tussen de apparaten die zijn geregistreerd bij de hub.
 
-1. Selecteer **maken** om door te gaan van het standaardproces van het configureren van een implementatie-manifest, zoals het toevoegen van andere modules indien gewenst. Details voor de nieuwe module zoals URI, installatiekopie opties maken en gewenste eigenschappen zijn vooraf gedefinieerd, maar kunnen worden gewijzigd.
+1. Selecteer **maken** om door te gaan met het standaard proces voor het configureren van een implementatie manifest, inclusief het toevoegen van andere modules, indien gewenst. Details voor de nieuwe module, zoals afbeeldings-URI, opties voor maken en gewenste eigenschappen, zijn vooraf gedefinieerd, maar kunnen worden gewijzigd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

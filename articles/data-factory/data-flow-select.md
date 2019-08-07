@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 974243da07a2570e851b7d44eac2556c201c2782
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3c81ec5e213364ed6f159fd20e12879a098caad4
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678531"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774996"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Gegevens stroom koppelen selecteren trans formatie
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
@@ -35,6 +35,8 @@ Select kan ook worden gebruikt als een manier om de kolommen uit uw gegevens str
 * Kies dubbele items overs Laan om dubbele kolommen van invoer-of uitvoer meta gegevens te verwijderen.
 
 ![Dubbele items overs Laan](media/data-flow/select-skip-dup.png "Dubbele items overs Laan")
+
+* Wanneer u ervoor kiest dubbele items over te slaan, worden de resultaten weer gegeven op het tabblad controleren. ADF behoudt de eerste keer dat de kolom wordt weer gegeven en u ziet dat elke volgende keer dat dezelfde kolom is verwijderd uit de stroom is gewist.
 
 > [!NOTE]
 > Als u de toewijzings regels wilt wissen, klikt u op de knop **Reset** .

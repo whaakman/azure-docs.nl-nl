@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 93b26b2861c5603770a954943174d6436296ad07
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 10aee302377c4f71e47d93f5cd975043efcea375
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668385"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815916"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Modellen trainen met Azure Machine Learning met behulp van estimator
 
 Met Azure Machine Learning kunt u eenvoudig uw trainings script naar [verschillende Compute-doelen](how-to-set-up-training-targets.md#compute-targets-for-training)verzenden met behulp van [RunConfiguration-object](how-to-set-up-training-targets.md#whats-a-run-configuration) en het [ScriptRunConfig-object](how-to-set-up-training-targets.md#submit). Met dit patroon kunt u veel flexibiliteit en maximale controle bieden.
 
-De Azure Machine Learning python SDK biedt een alternatieve abstractie van een hoger niveau, de Estimator-klasse, waarmee gebruikers eenvoudig uitvoer configuraties kunnen bouwen, om de training van een grondige leer model te vergemakkelijken. U kunt een algemene [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) maken en gebruiken om trainings script te verzenden met behulp van een door u gekozen trainings raamwerk (zoals scikit-Learn) dat u wilt uitvoeren op een reken doel, ongeacht of het nu uw lokale computer, één virtuele machine in azure of een GPU-cluster in Azure is. Voor PyTorch, tensor flow en Chainer tasks biedt Azure Machine Learning ook de respectieve [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [tensor flow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) en [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) -schattingen te vereenvoudigen met behulp van deze frameworks.
+De Azure Machine Learning python SDK biedt een alternatieve abstractie van een hoger niveau, de Estimator-klasse, waarmee gebruikers eenvoudig uitvoer configuraties kunnen bouwen, om de training van een grondige leer model te vergemakkelijken. U kunt een algemene [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) maken en gebruiken om trainings script te verzenden met behulp van een door u gekozen trainings raamwerk (zoals scikit-informatie) op elk reken doel dat u kiest, of het nu uw lokale computer, één virtuele machine in azure of een GPU-cluster in Azure is. Voor PyTorch-, tensor flow-en Chainer-taken biedt Azure Machine Learning ook de respectieve [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [tensor flow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)en [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) -schattingen om het gebruik van deze frameworks te vereenvoudigen.
 
 ## <a name="train-with-an-estimator"></a>Trainen met een estimator
 
@@ -58,13 +58,13 @@ Dit codefragment bevat de volgende parameters voor de `Estimator` constructor.
 
 Parameter | Description
 --|--
-`source_directory`| Lokale map waarin alle uw code die nodig zijn voor de trainingstaak. Deze map wordt op uw lokale machine gekopieerd naar de externe compute 
-`script_params`| Woorden lijst waarmee de opdracht regel argumenten voor uw trainings script `entry_script`worden opgegeven, in de `<command-line argument, value>` vorm van paren. Als u een uitgebreide vlag in `script_params`wilt opgeven, gebruikt `<command-line argument, "">`u.
+`source_directory`| Lokale map waarin alle uw code die nodig zijn voor de trainingstaak. Deze map wordt van uw lokale computer naar de externe Compute gekopieerd.
+`script_params`| Dictionary waarmee de opdracht regel argumenten worden opgegeven die moeten worden door gegeven `entry_script`aan uw trainings script, `<command-line argument, value>` in de vorm van paren. Als u een uitgebreide vlag in `script_params`wilt opgeven, gebruikt `<command-line argument, "">`u.
 `compute_target`| Het externe Compute-doel waarvoor uw trainings script wordt uitgevoerd, in dit geval een[AmlCompute](how-to-set-up-training-targets.md#amlcompute)-cluster (Azure machine learning Compute). (Houd er rekening mee dat het AmlCompute-cluster het doel is dat het vaakst wordt gebruikt. het is ook mogelijk om andere berekenings doel typen te kiezen, zoals virtuele Azure-machines of zelfs lokale computers.)
-`entry_script`| FilePath (relatief aan de `source_directory`) van het trainingsscript in de berekening die extern worden uitgevoerd. Dit bestand en eventuele aanvullende bestanden dat hangt ervan af, moeten zich bevinden in deze map
+`entry_script`| FilePath (relatief aan de `source_directory`) van het trainingsscript in de berekening die extern worden uitgevoerd. Dit bestand en eventuele extra bestanden waarvan het afhankelijk is, moeten zich in deze map bevinden.
 `conda_packages`| Lijst met Python-pakketten worden geïnstalleerd via conda die nodig zijn voor uw trainingsscript.  
 
-De constructor heeft een andere parameter met de naam `pip_packages` die u gebruikt voor een pip-pakketten die nodig zijn
+De constructor heeft een andere para meter `pip_packages` met de naam die u gebruikt voor de benodigde PIP-pakketten.
 
 Nu dat u hebt uw `Estimator` object, verzenden van de trainingstaak om te worden uitgevoerd op de externe compute met een aanroep naar de `submit` functioneren in uw [Experiment](concept-azure-machine-learning-architecture.md#experiments) object `experiment`. 
 
@@ -112,7 +112,7 @@ Parameter | Description | Standaard
 `custom_docker_image`| Naam van de installatiekopie die u wilt gebruiken. Geef alleen installatiekopieën die beschikbaar zijn in de openbare docker-opslagplaatsen (in dit geval Docker Hub). Als u een afbeelding uit een privé-docker-opslag plaats wilt gebruiken, `environment_definition` gebruikt u in plaats daarvan de constructor-para meter. [Zie voor beeld](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| Het aantal knooppunten moet worden gebruikt voor de trainingstaak. | `1`
 `process_count_per_node`| Het aantal processen (of 'werknemers') om uit te voeren op elk knooppunt. In dit geval gebruikt u de `2` GPU's die beschikbaar zijn op elk knooppunt.| `1`
-`distributed_backend`| Back-end voor het starten distributed opleiding, die de Estimator via MPI biedt.  Bij het uitvoeren van parallelle en gedistribueerde training (bijvoorbeeld `node_count`> 1 of `process_count_per_node`> 1 of beide) en stel `distributed_backend='mpi'`. De MPI-implementatie die worden gebruikt door AML [Open MPI](https://www.open-mpi.org/).| `None`
+`distributed_backend`| Back-end voor het starten distributed opleiding, die de Estimator via MPI biedt.  Als u parallelle of gedistribueerde training wilt uitvoeren ( `node_count`bijvoorbeeld > 1 `process_count_per_node`of > 1 of beide), `distributed_backend='mpi'`stelt u in. De MPI-implementatie die worden gebruikt door AML [Open MPI](https://www.open-mpi.org/).| `None`
 
 Ten slotte verzendt u de trainingstaak:
 ```Python

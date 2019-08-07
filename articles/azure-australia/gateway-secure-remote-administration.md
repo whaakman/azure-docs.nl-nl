@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: 827dffc1c7544d9373b5f8d4426ea8c448fa25ab
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1e4c4712312faf2274a4a0737c4fc1f7ce39f98e
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571599"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824202"
 ---
 # <a name="secure-remote-administration-of-your-gateway-in-azure-australia"></a>Extern beheer van uw gateway in azure Australia beveiligen
 
@@ -33,7 +33,6 @@ In dit document wordt het belang van veilig beheer besproken en wordt een method
 |Logboek registratie en controle   |Door het automatisch genereren, verzamelen en analyseren van beveiligings-en beheer gebeurtenissen op basis van werk stations, servers, netwerk apparaten en Jump boxen, kunnen inbreuken worden gedetecteerd en wordt geknoeid. Met Automation kunnen organisaties sneller reageren, waardoor de implicaties van een inbreuk worden verminderd.|
 |Netwerk segmentatie en schei ding|Het segmenteren van een netwerk in logische zones, zoals verschillende beveiligings domeinen, en het scheiden van deze logische netwerken door de typen gegevens te beperken die van de ene zone naar een andere worden getransporteerd, beperkt de zijdelingse verplaatsing. Segmentatie voor komt dat een kwaadwillende persoon toegang krijgt tot extra resources.|
 |Jump boxen|Een Jump box is een beveiligde RAS-server, die vaak gebruik maakt van de Extern bureaublad-services of SSH-software (Secure Shell) van micro soft. Jump boxes fungeren als stapsgewijze punt voor beheerders die toegang hebben tot essentiële systemen met alle beheer acties die worden uitgevoerd vanaf de toegewezen host.|
-|
 
 Dit artikel bevat een referentie architectuur voor de manier waarop de bovenstaande elementen kunnen worden gebruikt voor veilig beheer van systemen die zijn geïmplementeerd in Azure.
 
@@ -77,7 +76,6 @@ Toegang verkrijgen voor beheer is een proces met meerdere stappen voor de onderd
 |Voorwaardelijke toegang |Beleid voor voorwaardelijke toegang Controleer de verificatie poging om ervoor te zorgen dat het voldoet aan de vereiste vereisten, zoals het IP-adres van de verbinding, het groepslid maatschap voor het bevoegde account en de beheer-en nalevings status van de geprivilegieerd werk station zoals gerapporteerd door intune. |
 |Privileged Identity Management (PIM) |Via de Azure Portal kan de beheerder nu activering activeren of aanvragen voor de bevoegde rollen waarvoor ze een autorisatie via PIM hebben. PIM zorgt ervoor dat geprivilegieerde accounts geen permanente beheerders bevoegdheden hebben en dat alle aanvragen voor bevoegde toegang alleen gelden voor de tijd die nodig is om beheer taken uit te voeren. PIM biedt ook logboek registratie van alle aanvragen en activeringen voor controle doeleinden. |
 |Identiteits- en toegangsbeheer|Zodra het bevoegde account veilig is geïdentificeerd en rollen geactiveerd, wordt de beheerder toegang verleend tot de Azure-abonnementen en-resources waaraan ze machtigingen hebben toegewezen via identiteits-en toegangs beheer.|
-|
 
 Zodra het bevoegde account de stappen heeft voltooid om beheerders toegang te krijgen tot de Azure Portal, kan de toegang tot de werk belastingen worden geconfigureerd en kunnen beheer verbindingen worden gemaakt.
 
@@ -91,7 +89,6 @@ Zodra het bevoegde account de stappen heeft voltooid om beheerders toegang te kr
 |Network Policy Server (NPS)|De NPS ontvangt de verificatie aanvraag van de RD-gateway en valideert de gebruikers naam en het wacht woord voor Active Directory voordat een aanvraag naar Azure Active Directory wordt verzonden om een Azure MFA-verificatie aanvraag te activeren.|
 |Azure MFA|Azure MFA verzendt een verificatie aanvraag naar het geregistreerde mobiele apparaat van het bevoegde account. Het mobiele apparaat wordt beheerd door intune om ervoor te zorgen dat aan de beveiligings vereisten wordt voldaan. De beheerder moet eerst worden geverifieerd bij het mobiele apparaat en vervolgens naar de Microsoft Authenticator-app met behulp van een pincode of biometrisch systeem voordat de verificatie poging is toegestaan voor Azure MFA.|
 |Jump-server|Nadat de verificatie is gelukt, wordt de RDP-verbinding met Transport Layer Security (TLS) versleuteld en vervolgens via de versleutelde IPSec-tunnel naar de Azure-VPN Gateway verzonden via de RD-gateway en de Jump-server. Vanaf de Jump-server kan de beheerder nu RDP of SSH uitvoeren voor virtuele workload-machines zoals opgegeven in de JIT-aanvraag.|
-|
 
 ## <a name="general-guidance"></a>Algemene richtlijnen
 
@@ -133,7 +130,6 @@ Het bevoegde werk station is een harde computer die kan worden gebruikt om behee
 |---|---|
 |Overzicht van de architectuur van privileged Access workstations|[https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)|
 |Naslag materiaal over bevoegde toegang beveiligen|[https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)|
-|
 
 ### <a name="mobile-device"></a>Mobiel apparaat
 
@@ -143,7 +139,6 @@ Een mobiel apparaat is langer risico op onbedoeld verlies of dief stal als gevol
 |---|---|
 |Azure AD-verificatie methoden|[https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)|
 |De Microsoft Authenticator-app gebruiken|[https://support.microsoft.com/help/4026727/microsoft-account-how-to-use-the-microsoft-authenticator-app](https://support.microsoft.com/help/4026727/microsoft-account-how-to-use-the-microsoft-authenticator-app)|
-|
 
 ### <a name="microsoft-intune"></a>Microsoft Intune
 
@@ -153,7 +148,6 @@ InTune is het onderdeel van Enterprise Mobility + Security waarmee mobiele appar
 |---|---|
 |Documentatie over Microsoft Intune|[https://docs.microsoft.com/intune/](https://docs.microsoft.com/intune/)|
 |Aan de slag met apparaatcompatibiliteit in intune|[https://docs.microsoft.com/intune/device-compliance-get-started](https://docs.microsoft.com/intune/device-compliance-get-started)|
-|
 
 ### <a name="group-policy"></a>Groepsbeleid
 
@@ -162,7 +156,6 @@ Groepsbeleid wordt gebruikt om de configuratie van besturings systemen en toepas
 |Resources|Koppelen|
 |---|---|
 |Instelling voor lokaal aanmelden toestaan groepsbeleid|[https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally)|
-|
 
 ### <a name="jump-server--bastion-host"></a>Jump server/bastion-host
 
@@ -171,7 +164,6 @@ De Jump server/bastion-host is een gecentraliseerd punt voor beheer. Het bevat d
 |Resources|Koppelen|
 |---|---|
 |Beveiligde beheer hosts implementeren|[https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts)|
-|
 
 ### <a name="just-in-time-jit-access"></a>Just-in-time-toegang
 
@@ -181,7 +173,6 @@ JIT is een Azure Security Center mogelijkheid om netwerk beveiligings groepen (N
 |---|---|
 |Just-in-time-toegang beheren|[https://docs.microsoft.com/azure/security-center/security-center-just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|
 |Azure just-in-time-VM-toegang automatiseren|[https://blogs.technet.microsoft.com/motiba/2018/06/24/automating-azure-just-in-time-vm-access](https://blogs.technet.microsoft.com/motiba/2018/06/24/automating-azure-just-in-time-vm-access)|
-|
 
 ## <a name="secure-communication"></a>Beveiligde communicatie
 
@@ -194,7 +185,6 @@ De communicatie met de Azure Portal is versleuteld met behulp van Transport Laye
 |Resources |Koppelen |
 |---|---|
 |Overzicht van Azure-versleuteling – versleuteling in transit|[https://docs.microsoft.com/azure/security/security-azure-encryption-overview#encryption-of-data-in-transit](https://docs.microsoft.com/azure/security/security-azure-encryption-overview#encryption-of-data-in-transit)|
-|
 
 ### <a name="azure-vpn-gateway"></a>Azure VPN-gateway
 
@@ -204,8 +194,7 @@ De Azure-VPN Gateway biedt de beveiligde versleutelde verbinding van het bevoegd
 |---|---|
 |Over punt-naar-site-verbindingen|[https://docs.microsoft.com/azure/vpn-gateway/point-to-site-about](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-about)|
 |Cryptografische Details van Azure VPN Gateway|[https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-compliance-crypto](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-compliance-crypto)|
-|Configuratie van Azure VPN Gateway|[https://aka.ms/AzGovAUSecurity](https://aka.ms/AzGovAUSecurity)|
-|
+|Configuratie van Azure VPN Gateway|[Configuratie van Azure VPN Gateway](vpn-gateway.md)|
 
 ### <a name="remote-desktop-rd-gateway"></a>Extern bureaublad-gateway (RD)
 
@@ -214,7 +203,6 @@ RD-gateway is een veilig mechanisme voor het beheren en toelaten van RDP-verbind
 |Resources |Koppelen |
 |---|---|
 |Extern bureaublad-services architectuur|[https://docs.microsoft.com/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)|
-|
 
 ### <a name="network-security-groups-nsgs"></a>Netwerk beveiligings groepen (Nsg's)
 
@@ -224,7 +212,6 @@ Nsg's functie als Access Control lijsten (Acl's) voor netwerk verkeer subnetten 
 |---|---|
 |Overzicht van Azure-beveiligings groepen|[https://docs.microsoft.com/azure/virtual-network/security-overview](https://docs.microsoft.com/azure/virtual-network/security-overview)|
 |Procedure: Virtuele netwerken plannen|[https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)|
-|
 
 ## <a name="strong-authentication"></a>Strenge verificatie
 
@@ -237,7 +224,6 @@ Op hoog niveau host een DC een kopie van de Active Directory-Data Base, die alle
 |Resources |Koppelen |
 |---|---|
 |Overzicht van Active Directory Domain Services|[https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)|
-|
 
 ### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 
@@ -249,7 +235,6 @@ identiteiten en bieden verificatie en autorisatie voor een Azure-omgeving. Azure
 |---|---|
 |Documentatie voor Azure Active Directory|[https://docs.microsoft.com/azure/active-directory](https://docs.microsoft.com/azure/active-directory)|
 |Documentatie voor hybride identiteit|[https://docs.microsoft.com/azure/active-directory/hybrid](https://docs.microsoft.com/azure/active-directory/hybrid)|
-|
 
 ### <a name="network-policy-server-nps"></a>Network Policy Server (NPS)
 
@@ -258,7 +243,6 @@ Een NPS is een verificatie-en beleids server die geavanceerde verificatie-en aut
 |Resources |Koppelen |
 |---|---|
 |Documentatie over Network Policy Server|[https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)|
-|
 
 ### <a name="azure-mfa"></a>Azure MFA
 
@@ -268,7 +252,6 @@ Azure MFA is een verificatie service in Azure Active Directory om verificatie aa
 |---|---|
 |Hoe werkt het? Azure Multi-Factor Authentication|[https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)|
 |Procedure: Azure Multi-Factor Authentication op basis van cloud implementeren|[https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)|
-|
 
 ## <a name="strong-authorisation"></a>Sterke autorisatie
 
@@ -282,7 +265,6 @@ Toegang tot het uitvoeren van bevoegde acties binnen Azure is gebaseerd op rolle
 |---|---|
 |Access Control op basis van Azure Role|[https://docs.microsoft.com/azure/role-based-access-control](https://docs.microsoft.com/azure/role-based-access-control)|
 |Roldefinities begrijpen|[https://docs.microsoft.com/azure/role-based-access-control/role-definitions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions)|
-|
 
 ### <a name="privileged-identity-management-pim"></a>Privileged Identity Management (PIM)
 
@@ -292,7 +274,6 @@ PIM is een Azure Active Directory onderdeel waarmee de toegang tot bevoegde roll
 |---|---|
 |Documentatie voor Privileged Identity Management (PIM)|[https://docs.microsoft.com/azure/active-directory/privileged-identity-management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management)|
 |Beginnen met PIM|[https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-getting-started](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-getting-started)|
-|
 
 ### <a name="conditional-access"></a>Voorwaardelijke toegang
 
@@ -302,7 +283,6 @@ Voorwaardelijke toegang is een onderdeel van Azure Active Directory waarmee de t
 |---|---|
 |Documentatie over voorwaardelijke toegang|[https://docs.microsoft.com/azure/active-directory/conditional-access](https://docs.microsoft.com/azure/active-directory/conditional-access)|
 |Procedure: Beheerde apparaten vereisen voor toegang tot Cloud-apps met voorwaardelijke toegang|[https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|
-|
 
 ## <a name="next-steps"></a>Volgende stappen
 

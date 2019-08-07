@@ -1,57 +1,57 @@
 ---
-title: 'Voorbeeld: Het maken van een aangepaste cognitieve vaardigheden met de Bing Entity Search API - Azure Search'
-description: Ziet u in een aangepaste vaardigheden toegewezen aan een indexering pijplijn cognitief zoeken in Azure Search met behulp van de Bing Entity Search-service.
+title: 'Voorbeeld: Een aangepaste cognitieve vaardigheid maken met de Bing Entiteiten zoeken-API-Azure Search'
+description: Demonstreert het gebruik van de Bing Entity Search-service in een aangepaste vaardigheid die is toegewezen aan een cognitieve zoek index pijplijn in Azure Search.
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 7d90f46ada9b9453b4c1516a4a898456dc73b8e7
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: a032288338d2d6a53489105790b6862eefadf609
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672151"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841229"
 ---
-# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Voorbeeld: Een aangepaste vaardigheden met behulp van de Bing Entity Search API maken
+# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Voorbeeld: Een aangepaste vaardigheid maken met behulp van de Bing Entiteiten zoeken-API
 
-In dit voorbeeld wordt informatie over het maken van een web API-aangepaste vaardigheden. Deze vaardigheid accepteert locaties, openbare afbeeldingen en organisaties, en beschrijvingen voor hen retourneren. Het voorbeeld wordt een [Azure Function](https://azure.microsoft.com/services/functions/) het verpakken van de [Bing Entity Search API](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) zodat deze de aangepaste vaardigheden-interface implementeert.
+In dit voor beeld leert u hoe u een aangepaste web-API maakt. Deze vaardigheid accepteert locaties, open bare cijfers en organisaties en geeft beschrijvingen voor hen. In het voor beeld wordt een [Azure-functie](https://azure.microsoft.com/services/functions/) gebruikt om de [Bing entiteiten zoeken-API](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) te verpakken zodat deze de aangepaste vaardigheids interface implementeert.
 
 ## <a name="prerequisites"></a>Vereisten
 
-+ Meer informatie over [aangepaste vaardigheden interface](cognitive-search-custom-skill-interface.md) artikel als u niet bekend bent met de i/o-interface die een aangepaste vaardigheden te implementeren.
++ Meer informatie over het artikel [aangepaste vaardigheden interface](cognitive-search-custom-skill-interface.md) als u niet bekend bent met de invoer-en uitvoer interface die door een aangepaste vaardigheid moet worden geïmplementeerd.
 
 + [!INCLUDE [cognitive-services-bing-entity-search-signup-requirements](../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-+ Installeer [Visual Studio 2019](https://www.visualstudio.com/vs/) of hoger, waaronder de Azure-ontwikkelworkload.
++ Installeer [Visual Studio 2019](https://www.visualstudio.com/vs/) of hoger, met inbegrip van de Azure Development-workload.
 
 ## <a name="create-an-azure-function"></a>Een Azure-functie maken
 
-Hoewel dit voorbeeld wordt een Azure-functie voor het hosten van een web-API gebruikt, is het niet vereist.  Zolang u voldoet aan de [interface-vereisten voor een cognitieve vaardigheden](cognitive-search-custom-skill-interface.md), benadering u van belang is. Azure Functions, echter gemakkelijk te maken van een aangepaste vaardigheden.
+Hoewel in dit voor beeld een Azure-functie wordt gebruikt om een web-API te hosten, is dit niet vereist.  Als u voldoet aan de [Interface vereisten voor een cognitieve vaardigheid](cognitive-search-custom-skill-interface.md), is de aanpak die u uitvoert, niet van belang. Met Azure Functions kunt u echter eenvoudig een aangepaste vaardigheid maken.
 
 ### <a name="create-a-function-app"></a>Een functie-app maken
 
-1. Selecteer in Visual Studio, **nieuw** > **Project** in het menu bestand.
+1. Selecteer in Visual Studio **Nieuw** > **project** in het menu bestand.
 
-1. Selecteer in het dialoogvenster Nieuw Project **geïnstalleerde**, vouw **Visual C#**  > **Cloud**, selecteer **Azure Functions**, typ een Naam voor uw project en selecteer **OK**. De functie-appnaam moet geldig zijn als een C# naamruimte, gebruik dus geen onderstrepingstekens, afbreekstreepjes of andere niet-alfanumerieke tekens.
+1. Selecteer in het dialoog venster Nieuw project **geïnstalleerd**, vouw **Visual C#**   >  **Cloud**uit, selecteer **Azure functions**, typ een naam voor uw project en selecteer **OK**. De naam van de functie-app moet geldig C# zijn als een naam ruimte, dus gebruik geen onderstrepings tekens, afbreek streepjes of andere niet-alfanumerieke karakters.
 
-1. Selecteer **Azure Functions-v2 (.NET Core)** . U kunt het ook doen met versie 1, maar de code hieronder is gebaseerd op de v2-sjabloon.
+1. Selecteer **Azure functions v2 (.net core)** . U kunt dit ook doen met versie 1, maar de hieronder geschreven code is gebaseerd op de v2-sjabloon.
 
-1. Selecteer het type moet **HTTP-Trigger**
+1. Selecteer het type dat **http-trigger** moet worden
 
-1. U kunt selecteren voor Storage-Account **geen**, zoals u niet alle opslag voor deze functie hoeft.
+1. Voor Storage-account kunt u **geen**selecteren, omdat u geen opslag voor deze functie nodig hebt.
 
-1. Selecteer **OK** om de functie te maken project- en HTTP-geactiveerde functie.
+1. Selecteer **OK** om het functie project en de door http geactiveerde functie te maken.
 
-### <a name="modify-the-code-to-call-the-bing-entity-search-service"></a>Wijzig de code voor het aanroepen van de Bing Entity Search-Service
+### <a name="modify-the-code-to-call-the-bing-entity-search-service"></a>Wijzig de code om de Bing Entity Search-service aan te roepen
 
 Visual Studio maakt een project met daarin een klasse die standaardcode voor het gekozen functietype bevat. Met het kenmerk *FunctionName* in de methode wordt de naam van de functie ingesteld. Met het kenmerk *HttpTrigger* wordt aangegeven dat de functie wordt geactiveerd door een HTTP-aanvraag.
 
-Vervang de inhoud van het bestand nu, *Function1.cs* door de volgende code:
+Vervang nu alle inhoud van het bestand *Function1.cs* door de volgende code:
 
 ```csharp
 using System;
@@ -313,15 +313,15 @@ namespace SampleSkills
 }
 ```
 
-Zorg ervoor dat u Voer uw eigen *sleutel* waarde in de `key` constante op basis van de sleutel die u hebt verkregen bij het aanmelden voor de Bing entiteiten zoeken-API.
+Zorg ervoor dat u uw eigen *sleutel* waarde in de `key` constante invoert op basis van de sleutel die u hebt ontvangen bij het aanmelden voor de Bing entity Search-API.
 
-In dit voorbeeld bevat alle benodigde code in een enkel bestand voor het gemak. U vindt een iets meer gestructureerde versie van die dezelfde vaardigheid in [de opslagplaats van de vaardigheden power](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
+Dit voor beeld bevat alle benodigde code in één bestand voor het gemak. U kunt een iets meer gestructureerde versie van dezelfde vaardigheid vinden in [de Power skills-opslag plaats](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
 
-U kunt natuurlijk, naam van het bestand uit `Function1.cs` naar `BingEntitySearch.cs`.
+U kunt de naam van het bestand natuurlijk wijzigen `Function1.cs` van `BingEntitySearch.cs`in.
 
-## <a name="test-the-function-from-visual-studio"></a>Test de functie vanuit Visual Studio
+## <a name="test-the-function-from-visual-studio"></a>De functie testen vanuit Visual Studio
 
-Druk op **F5** om uit te voeren van het gedrag van de functie programma en test. In dit geval gebruikt we de functie hieronder om te controleren of twee entiteiten. Postman of Fiddler gebruiken om uit te geven van een aanroep, zoals hieronder wordt weergegeven:
+Druk op **F5** om het programma uit te voeren en het gedrag van functies te testen. In dit geval gebruiken we de onderstaande functie om twee entiteiten op te zoeken. Gebruik postman of Fiddler om een oproep te geven zoals hieronder wordt weer gegeven:
 
 ```http
 POST https://localhost:7071/api/EntitySearch
@@ -350,7 +350,7 @@ POST https://localhost:7071/api/EntitySearch
 ```
 
 ### <a name="response"></a>Antwoord
-Hier ziet u een reactie vergelijkbaar met het volgende voorbeeld:
+Er wordt een antwoord weer gegeven dat vergelijkbaar is met het volgende voor beeld:
 
 ```json
 {
@@ -375,27 +375,27 @@ Hier ziet u een reactie vergelijkbaar met het volgende voorbeeld:
 
 ## <a name="publish-the-function-to-azure"></a>De functie publiceren naar Azure
 
-Wanneer u tevreden met het gedrag van de functie bent, kunt u deze kunt publiceren.
+Wanneer u tevreden bent met het functie gedrag, kunt u het publiceren.
 
-1. Klik in **Solution Explorer** met de rechtermuisknop op het project en selecteer **Publiceren**. Kies **Maak een nieuwe** > **publiceren**.
+1. Klik in **Solution Explorer** met de rechtermuisknop op het project en selecteer **Publiceren**. Kies **nieuwe** > **publicatie**maken.
 
-1. Als u dit nog niet hebt Visual Studio al met uw Azure-account verbonden, selecteert u **een account toevoegen...**
+1. Als u Visual Studio nog niet hebt verbonden met uw Azure-account, selecteert u **een account toevoegen....**
 
-1. Volg de aanwijzingen op. U wordt gevraagd om op te geven van een unieke naam voor uw appservice, het Azure-abonnement, de resourcegroep, het hostingabonnement en het opslagaccount dat u wilt gebruiken. U kunt een nieuwe resourcegroep, een nieuw hosting plan en een storage-account maken als u dit nog niet hebt. Wanneer u klaar bent, selecteert u **maken**
+1. Volg de aanwijzingen op het scherm. U wordt gevraagd een unieke naam op te geven voor uw app service, het Azure-abonnement, de resource groep, het hosting plan en het opslag account dat u wilt gebruiken. U kunt een nieuwe resource groep, een nieuw hosting plan en een opslag account maken als u deze nog niet hebt. Wanneer u klaar bent, selecteert u **maken**
 
-1. Nadat de implementatie voltooid is, ziet u de Site-URL. Dit is het adres van uw functie-app in Azure. 
+1. Nadat de implementatie is voltooid, ziet u de URL van de site. Het is het adres van uw functie-app in Azure. 
 
-1. In de [Azure-portal](https://portal.azure.com), gaat u naar de resourcegroep en zoek naar de `EntitySearch` functie die u hebt gepubliceerd. Onder de **beheren** sectie ziet u Hostsleutels. Selecteer de **kopie** pictogram voor de *standaard* host-sleutel.  
+1. Navigeer in het [Azure Portal](https://portal.azure.com)naar de resource groep en zoek naar de `EntitySearch` functie die u hebt gepubliceerd. Onder de sectie **beheren** ziet u de host-sleutels. Selecteer het **Kopieer** pictogram voor de *standaard* -host-sleutel.  
 
-## <a name="test-the-function-in-azure"></a>De functie testen in Azure
+## <a name="test-the-function-in-azure"></a>De functie in azure testen
 
-Nu dat u de standaard-hostsleutel hebt, test u de functie als volgt:
+Nu u de standaardhostcode hebt, moet u de functie als volgt testen:
 
 ```http
 POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?code=[enter default host key here]
 ```
 
-### <a name="request-body"></a>Aanvraagtekst
+### <a name="request-body"></a>Hoofdtekst van de aanvraag
 ```json
 {
     "values": [
@@ -417,10 +417,10 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 }
 ```
 
-In dit voorbeeld moet u eerder hebt gezien bij het uitvoeren van de functie in de lokale omgeving hetzelfde resultaat opleveren.
+In dit voor beeld moet u hetzelfde resultaat opleveren dat u eerder hebt gezien bij het uitvoeren van de functie in de lokale omgeving.
 
-## <a name="connect-to-your-pipeline"></a>Verbinding maken met uw pijplijn
-Nu dat u een nieuwe aangepaste vaardigheden hebt, kunt u deze kunt toevoegen aan uw vaardigheden uit. Het volgende voorbeeld ziet u over het aanroepen van de vaardigheid om toe te voegen beschrijvingen voor organisaties in het document (dit kan worden uitgebreid om te werken ook op locaties en mensen). Vervang `[your-entity-search-app-name]` met de naam van uw app.
+## <a name="connect-to-your-pipeline"></a>Verbinding maken met uw pijp lijn
+Nu u een nieuwe aangepaste vaardigheid hebt, kunt u deze toevoegen aan uw vaardig heden. In het onderstaande voor beeld ziet u hoe u de vaardigheid aanroept om beschrijvingen toe te voegen aan organisaties in het document (dit kan worden uitgebreid om ook te werken met locaties en personen). Vervang `[your-entity-search-app-name]` door de naam van uw app.
 
 ```json
 {
@@ -448,7 +448,7 @@ Nu dat u een nieuwe aangepaste vaardigheden hebt, kunt u deze kunt toevoegen aan
 }
 ```
 
-Hier, we tellen op de ingebouwde [entiteit erkenning vaardigheid](cognitive-search-skill-entity-recognition.md) aanwezig zijn in de vaardigheden en het document met de lijst met organisaties zijn uitgebreid. Ter informatie is dit een entiteit extractie vaardigheid configuratie die volstaan worden kan bij het genereren van de gegevens die we nodig:
+Hier tellen we hoe de ingebouwde vaardigheid van entiteits [herkenning](cognitive-search-skill-entity-recognition.md) aanwezig is in de vaardig heden en om het document te verrijken met de lijst met organisaties. Ter referentie is hier een vaardigheids configuratie voor het uitpakken van entiteiten die voldoende is voor het genereren van de gegevens die we nodig hebben:
 
 ```json
 {
@@ -478,9 +478,9 @@ Hier, we tellen op de ingebouwde [entiteit erkenning vaardigheid](cognitive-sear
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Gefeliciteerd! U hebt uw eerste aangepaste enricher gemaakt. U kunt nu hetzelfde patroon om toe te voegen van de functionaliteit van uw eigen aangepaste volgen. 
+Gefeliciteerd! U hebt uw eerste aangepaste verrijker gemaakt. U kunt nu hetzelfde patroon volgen om uw eigen aangepaste functionaliteit toe te voegen. 
 
-+ [Een aangepaste vaardigheid toevoegen aan een pijplijn cognitief zoeken](cognitive-search-custom-skill-interface.md)
-+ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)
-+ [Vaardighedenset (REST) maken](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Verrijkt velden toewijzen](cognitive-search-output-field-mapping.md)
++ [Een aangepaste vaardigheid toevoegen aan een cognitieve Zoek pijplijn](cognitive-search-custom-skill-interface.md)
++ [Een vaardig heden definiëren](cognitive-search-defining-skillset.md)
++ [Vaardig heden maken (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Verrijkte velden toewijzen](cognitive-search-output-field-mapping.md)

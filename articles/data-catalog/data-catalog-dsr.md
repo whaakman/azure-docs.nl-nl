@@ -1,36 +1,35 @@
 ---
-title: Ondersteunde gegevensbronnen in Azure Data Catalog
-description: In dit artikel geeft een lijst met specificaties van de momenteel ondersteunde gegevensbronnen.
-services: data-catalog
+title: Ondersteunde gegevens bronnen in Azure Data Catalog
+description: In dit artikel vindt u een overzicht van de specificaties van de gegevens bronnen die momenteel worden ondersteund.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: 85753e788284396262053aad8cf567ad5cd71fee
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.date: 08/01/2019
+ms.openlocfilehash: 6b5c75e928b62181f2ea2b51a11cd997a9942bca
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509281"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736439"
 ---
-# <a name="supported-data-sources-in-azure-data-catalog"></a>Ondersteunde gegevensbronnen in Azure Data Catalog
+# <a name="supported-data-sources-in-azure-data-catalog"></a>Ondersteunde gegevens bronnen in Azure Data Catalog
 
-U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenmaal registratie hulpprogramma of door het handmatig invoeren van gegevens rechtstreeks naar de Azure Data Catalog-webportal. De volgende tabel geeft een overzicht van alle gegevensbronnen die worden ondersteund door de catalogus vandaag en de mogelijkheden voor publiceren voor elk. Ook vermeld, zijn de hulpprogramma's voor externe gegevens die elke gegevensbron vanuit de portal 'open-in'-ervaring starten kunt. De tweede tabel bevat een meer technische specificatie van elke gegevensbron verbinding-eigenschap.
+U kunt meta gegevens publiceren met behulp van een open bare API of een eenmalige registratie tool, of door rechtstreeks gegevens hand matig in te voeren op de Azure Data Catalog-webportal. De volgende tabel bevat een overzicht van alle gegevens bronnen die momenteel door de catalogus worden ondersteund en de publicatie mogelijkheden voor elk. Ook worden de hulpprogram ma's voor externe gegevens vermeld die elke gegevens bron kan starten vanuit onze ervaring voor het openen van de portal. De tweede tabel bevat een meer technische specificatie van elke eigenschap van de gegevens bron verbinding.
 
-## <a name="list-of-supported-data-sources"></a>Lijst met ondersteunde gegevensbronnen
+## <a name="list-of-supported-data-sources"></a>Lijst met ondersteunde gegevens bronnen
 
 <table>
     <tr>
-       <td><b>Gegevensbronobject</b></td>
+       <td><b>Gegevens bron object</b></td>
        <td><b>API</b></td>
-       <td><b>Handmatige invoer</b></td>
-       <td><b>Hulpprogramma voor registratie</b></td>
-       <td><b>Openen in hulpprogramma 's</b></td>
+       <td><b>Hand matige invoer</b></td>
+       <td><b>Registratie hulpprogramma</b></td>
+       <td><b>Open-in hulpprogram ma's</b></td>
        <td><b>Opmerkingen</b></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store-map (alleen Gen 1)</td>
+      <td>Azure Data Lake Store Directory (alleen gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -38,7 +37,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store-bestand (alleen Gen 1)</td>
+      <td>Azure Data Lake Store bestand (alleen gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -54,7 +53,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>Azure Storage-directory</td>
+      <td>Azure Storage Directory</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -62,7 +61,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>Azure Storage-tabel</td>
+      <td>Azure Storage tabel</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -80,7 +79,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>HDFS file</td>
+      <td>HDFS-bestand</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -96,7 +95,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>Hive-weergave</td>
+      <td>Hive-weer gave</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -112,7 +111,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>MySQL-weergave</td>
+      <td>MySQL-weer gave</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -120,7 +119,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>Oracle Database-tabel</td>
+      <td>Oracle Database tabel</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -128,7 +127,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>Oracle Database-weergave</td>
+      <td>Oracle Database weer gave</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -136,7 +135,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>Overige (algemene actief)</td>
+      <td>Overige (algemene activa)</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
@@ -144,28 +143,28 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>Azure SQL Data Warehouse-tabel</td>
+      <td>Azure SQL Data Warehouse tabel</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, Power BI Desktop, SQL Server data tools</td>
+      <td>Excel, Power BI Desktop, SQL Server hulpprogram ma's voor gegevens</td>
       <td></td>
     </tr>
     <tr>
-      <td>Azure SQL Data Warehouse view</td>
+      <td>Azure SQL Data Warehouse weer gave</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, Power BI Desktop, SQL Server data tools</td>
+      <td>Excel, Power BI Desktop, SQL Server hulpprogram ma's voor gegevens</td>
       <td></td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services-dimensie</td>
+      <td>SQL Server Analysis Services dimensie</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td>SQL Server 2008 en latere versies.</td>
+      <td>SQL Server 2008 en hoger.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services KPI</td>
@@ -173,47 +172,47 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td>SQL Server 2008 en latere versies.</td>
+      <td>SQL Server 2008 en hoger.</td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services-meting</td>
+      <td>SQL Server Analysis Services meting</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td>SQL Server 2008 en latere versies.</td>
+      <td>SQL Server 2008 en hoger.</td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services-tabel</td>
+      <td>SQL Server Analysis Services tabel</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td>SQL Server 2008 en latere versies.</td>
+      <td>SQL Server 2008 en hoger.</td>
     </tr>
     <tr>
-      <td>SQL Server Reporting Services-rapport</td>
+      <td>SQL Server Reporting Services rapport</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
-      <td>Native modus servers. SharePoint-modus wordt niet ondersteund. SQL Server 2008 en latere versies alleen</td>
+      <td>Alleen servers in de native modus. De share point-modus wordt niet ondersteund. Alleen SQL Server 2008 en latere versies</td>
     </tr>
     <tr>
       <td>SQL Server-tabel</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, Power BI Desktop, SQL Server data tools</td>
-      <td>SQL Server 2008 en latere versies.</td>
+      <td>Excel, Power BI Desktop, SQL Server hulpprogram ma's voor gegevens</td>
+      <td>SQL Server 2008 en hoger.</td>
     </tr>
     <tr>
-      <td>SQL Server-weergave</td>
+      <td>SQL Server weer gave</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, Power BI Desktop, SQL Server data tools</td>
-      <td>SQL Server 2008 en latere versies.</td>
+      <td>Excel, Power BI Desktop, SQL Server hulpprogram ma's voor gegevens</td>
+      <td>SQL Server 2008 en hoger.</td>
     </tr>
     <tr>
       <td>Teradata-tabel</td>
@@ -224,7 +223,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>Teradata-weergave</td>
+      <td>Teradata-weer gave</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -240,7 +239,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td>Werkt alleen in het Engels. Metingen worden niet ondersteund.</td>
     </tr>
     <tr>
-      <td>SAP HANA-weergave</td>
+      <td>SAP HANA weer gave</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -256,7 +255,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>DB2-weergave</td>
+      <td>DB2-weer gave</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -264,7 +263,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>Systeembestand</td>
+      <td>Bestandssysteem bestand</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -312,7 +311,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>OData-entiteitsset</td>
+      <td>OData-entiteitset</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -336,7 +335,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>PostgreSQL-weergave</td>
+      <td>PostgreSQL weer geven</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -344,7 +343,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>SAP HANA-weergave</td>
+      <td>SAP HANA weer gave</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -352,7 +351,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td> SalesForce-object</td>
+      <td> Sales Force-object</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -360,7 +359,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>SharePoint-lijst </td>
+      <td>Share point-lijst </td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -368,12 +367,12 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>Azure Cosmos DB-verzameling</td>
+      <td>Azure Cosmos DB verzameling</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Alleen verouderde verzamelingen van Azure DocumentDB en verzamelingen in Azure Cosmos DB SQL API zijn compatibel. Nieuwere Cosmos DB-API's zijn nog niet ondersteund. Kies Azure DocumentDB in de lijst van de gegevensbron.</td>
+      <td>Alleen verouderde verzamelingen van Azure DocumentDB-en SQL-API-verzamelingen in Azure Cosmos DB zijn compatibel. Nieuwere Cosmos DB-Api's worden nog niet ondersteund. Kies Azure DocumentDB in de lijst met gegevens bronnen.</td>
     </tr>
     <tr>
       <td>Algemene ODBC-tabel</td>
@@ -384,7 +383,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>Algemene ODBC-weergave</td>
+      <td>Algemene ODBC-weer gave</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -397,15 +396,15 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Publiceren als een algemene ODBC-asset</td>
+      <td>Publiceren als een algemeen ODBC-Asset</td>
     </tr>
     <tr>
-      <td>Cassandra-weergave</td>
+      <td>Cassandra weer geven</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Publiceren als een algemene ODBC-asset</td>
+      <td>Publiceren als een algemeen ODBC-Asset</td>
     </tr>
     <tr>
       <td>Sybase-tabel</td>
@@ -416,7 +415,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>Sybase-weergave</td>
+      <td>Sybase-weer gave</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -429,30 +428,30 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Publiceren als een algemene ODBC-asset</td>
+      <td>Publiceren als een algemeen ODBC-Asset</td>
     </tr>
     <tr>
-      <td>MongoDB-weergave</td>
+      <td>MongoDB weer geven</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Publiceren als een algemene ODBC-asset</td>
+      <td>Publiceren als een algemeen ODBC-Asset</td>
     </tr>
 </table>
 
-Als u wilt weergeven van een specifieke gegevensbron wordt ondersteund, suggestie (of het ondersteuningsteam van uw stem als deze al is voorgesteld) door te gaan naar de [gegevenscatalogus op de Azure-Forums voor Feedback](https://feedback.azure.com/forums/906052-data-catalog).
+Als u een specifieke gegevens bron wilt weer geven, kunt u deze Voorst Ellen (of uw ondersteunings gesprek ondervragen als deze al is voorgesteld) door naar de [Data Catalog op de Azure feedback forums](https://feedback.azure.com/forums/906052-data-catalog)te gaan.
 
 
-## <a name="data-source-reference-specification"></a>Referentie-specificatie van gegevensbron
+## <a name="data-source-reference-specification"></a>Specificatie van verwijzing naar gegevens bron
 > [!NOTE]
-> De **DSL-structuur** kolom in de volgende tabel bevat alleen de verbindingseigenschappen voor de eigenschappenverzameling "adres" die worden gebruikt door Azure Data Catalog. Dat wil zeggen, mag "adres" eigenschappenverzameling andere eigenschappen van de verbinding van de gegevensbron die Azure Data Catalog zich blijft voordoen, maar maakt geen gebruik.
+> De kolom **DSL-structuur** in de volgende tabel bevat alleen de verbindings eigenschappen voor de eigenschappen verzameling ' adres ' die door Azure Data Catalog worden gebruikt. Dat wil zeggen dat de eigenschappen verzameling ' Address ' andere verbindings eigenschappen kan bevatten van de gegevens bron die Azure Data Catalog persistent wordt gemaakt, maar niet wordt gebruikt.
 
 <table>
     <tr>
        <td><b>Brontype</b></td>
-       <td><b>Activatype</b></td>
-       <td><b>Objecttypen</b></td>
+       <td><b>Activa type</b></td>
+       <td><b>Object typen</b></td>
        <td><b>DSL-structuur<b></td>
     </tr>
     <tr>

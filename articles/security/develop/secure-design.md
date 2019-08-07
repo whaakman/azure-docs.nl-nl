@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 67687e217372c17b007982ef99bf1f80c3e6be5f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e31db74807b850b3d8cb8fc057e94e98db18fca2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728705"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780634"
 ---
 # <a name="design-secure-applications-on-azure"></a>Veilige toepassingen ontwerpen in azure
 In dit artikel bieden we beveiligings activiteiten en-controles waarmee u rekening moet houden bij het ontwerpen van toepassingen voor de Cloud. Trainings bronnen samen met beveiligings vragen en concepten die u kunt overwegen tijdens de vereisten en ontwerp fasen van micro soft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) , worden gedekt. Het doel is om u te helpen bij het definiëren van activiteiten en Azure-Services die u kunt gebruiken om een veiligere toepassing te ontwerpen.
@@ -156,7 +156,7 @@ Het ontwerpen van het toepassings ontwerp en het opsommen van [STRIDE](https://d
 | Spoofing               | Authentication        | [HTTPS-verbindingen vereisen](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Manipulatie              | Gegevensintegriteit             | SSL/TLS-certificaten valideren. Toepassingen die gebruikmaken van SSL/TLS moeten de X. 509-certificaten van de entiteiten waarmee ze verbinding maken, volledig controleren. Gebruik Azure Key Vault certificaten om [uw x509-certificaten te beheren](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
 | Ging            | Geen weerlegbaarheid       | [Bewaking en diagnose](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)van Azure inschakelen.|
-| Openbaarmaking van informatie | Aard       | Versleutel gevoelige gegevens in [rust](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) en [onderweg](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |
+| Openbaarmaking van informatie | Aard       | Versleutel gevoelige gegevens in [rust](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) en [onderweg](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit). |
 | Denial of service (DoS)      | Beschikbaarheid          | Bewaak de prestatie gegevens voor mogelijke denial of service-voor waarden. Verbindings filters implementeren. [Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), gecombineerd met aanbevolen procedures voor het ontwerpen van toepassingen, biedt bescherming tegen DDoS-aanvallen.|
 | Verhoging van bevoegdheden | Authorization         | Gebruik Azure Active Directory <span class="underline"></span> [privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
 
@@ -267,7 +267,7 @@ Voorzie alle toepasselijke gegevens als vertrouwelijk wanneer u uw gegevens inde
 #### <a name="use-encryption"></a>Versleuteling gebruiken
 
 Het beveiligen van gegevens moet een essentieel onderdeel zijn van uw beveiligings strategie.
-Als uw gegevens worden opgeslagen in een Data Base of als deze tussen locaties worden teruggezet, gebruikt u versleuteling van [gegevens in rust](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) (in de data base) en versleuteling van [gegevens die onderweg](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit) zijn (op de manier van en naar de gebruiker, de data base, een API of service-eind punt). U wordt aangeraden altijd SSL/TLS-protocollen te gebruiken om gegevens uit te wisselen. Zorg ervoor dat u de meest recente versie van TLS gebruikt voor versleuteling (momenteel is dit versie 1,2).
+Als uw gegevens worden opgeslagen in een Data Base of als deze tussen locaties worden teruggezet, gebruikt u versleuteling van [gegevens in rust](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) (in de data base) en versleuteling van [gegevens die onderweg](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit) zijn (op de manier van en naar de gebruiker, de data base, een API of service-eind punt). U wordt aangeraden altijd SSL/TLS-protocollen te gebruiken om gegevens uit te wisselen. Zorg ervoor dat u de meest recente versie van TLS gebruikt voor versleuteling (momenteel is dit versie 1,2).
 
 #### <a name="avoid-hard-coding"></a>Geen vaste code
 

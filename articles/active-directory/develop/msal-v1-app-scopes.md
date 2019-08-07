@@ -1,6 +1,6 @@
 ---
-title: Bereiken voor een toepassing v1.0 (Microsoft Authentication Library) | Azure
-description: Meer informatie over de bereiken voor een v1.0-toepassing met behulp van de Microsoft Authentication Library (MSAL).
+title: Bereiken voor een v 1.0-toepassing (micro soft-verificatie bibliotheek) | Azure
+description: Meer informatie over de bereiken voor een v 1.0-toepassing met behulp van de micro soft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -9,7 +9,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/23/2019
@@ -17,21 +17,21 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e43bc245a5908ba1bf91e7b4bee6df2f5cfc618
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 17837c6f4d1b3c690c39c9f99ca4896fcce16b00
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514365"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834904"
 ---
-# <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Bereiken voor een Web-API v1.0 tokens accepteren
+# <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Bereiken voor een web-API die v 1.0-tokens accepteert
 
-OAuth2-machtigingen zijn machtigingsbereiken die een Azure Active Directory voor ontwikkelaars (v1.0) web-API (resource)-toepassing beschikbaar aan clienttoepassingen stelt. Dit bereik aan machtigingen kunnen tijdens toestemming worden verleend aan clienttoepassingen. Zie de sectie over `oauth2Permissions` in de [Azure Active Directory application manifest verwijzing](reference-app-manifest.md#manifest-reference).
+OAuth2 machtigingen zijn machtigingen die een toepassing van Azure AD voor ontwikkel aars (v 1.0) Web-API (resource) beschikbaar maakt voor client toepassingen. Deze machtigings bereiken kunnen tijdens de toestemming aan client toepassingen worden verleend. Zie de sectie over `oauth2Permissions` de naslag informatie over het [Azure Active Directory-toepassings manifest](reference-app-manifest.md#manifest-reference).
 
-## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Bereiken voor het aanvragen van toegang tot specifieke OAuth2-machtigingen van een toepassing v1.0
-Als u wilt verkrijgen van tokens voor specifieke scopes van een toepassing v1.0 (bijvoorbeeld de Azure AD graph, die https:\//graph.windows.net), moet u bereiken door het samenvoegen van een gewenste resource-id met een gewenste OAuth2-machtiging maken voor deze resource.
+## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Bereiken voor het aanvragen van toegang tot specifieke OAuth2-machtigingen van een v 1.0-toepassing
+Als u tokens wilt verkrijgen voor specifieke bereiken van een v 1.0-toepassing (bijvoorbeeld de Azure AD-grafiek, die https:\//Graph.Windows.net is), moet u scopes maken door een gewenste resource-id met een gewenste OAuth2-machtiging samen te voegen. voor die bron.
 
-Bijvoorbeeld, voor toegang tot namens de gebruiker een web-API van v1.0 waar de app-ID-URI is `ResourceId`:
+Bijvoorbeeld voor toegang namens de gebruiker een v 1.0 Web API waarbij de URI van de App-ID is `ResourceId`:
 
 ```csharp
 var scopes = new [] {  ResourceId+"/user_impersonation"};
@@ -41,7 +41,7 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-Als u wilt lezen en schrijven met MSAL.NET Azure Active Directory met behulp van de Azure AD graph API (https:\//graph.windows.net/), maakt u een lijst met scopes zoals in het volgende:
+Als u wilt lezen en schrijven met MSAL.net Azure Active Directory met behulp van de Azure AD Graph API (\/https:/Graph.Windows.net/), maakt u een lijst met bereiken, zoals in het volgende:
 
 ```csharp
 string ResourceId = "https://graph.windows.net/";
@@ -53,7 +53,7 @@ var ResourceId = "https://graph.windows.net/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 
-Als u wilt schrijven van het bereik dat overeenkomt met de Azure Resource Manager-API (https:\//management.core.windows.net/), moet u het volgende bereik (Houd er rekening mee de twee slashes) aanvragen:
+Als u het bereik wilt schrijven dat overeenkomt met de Azure Resource Manager-API (\/https:/Management.core.Windows.net/), moet u het volgende bereik aanvragen (Let op de twee slashes):
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -63,16 +63,16 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 ```
 
 > [!NOTE]
-> U moet twee slashes gebruiken omdat de API van Azure Resource Manager een schuine streep in de doelgroep-claim (aud verwacht) en vervolgens er een slash is voor het scheiden van de naam van de API van het bereik.
+> U moet twee slashes gebruiken omdat de Azure Resource Manager-API een slash in de claim van de doel groep (AUD) verwacht en vervolgens een slash is om de API-naam van het bereik te scheiden.
 
-De logica die wordt gebruikt door Azure AD is het volgende:
+De logica die door Azure AD wordt gebruikt, is als volgt:
 
-- Voor het eindpunt van de ADAL (v1.0) met een v1.0 access token (de enige mogelijke), aud resource =
-- Voor MSAL (Microsoft identity-platform (v2.0) eindpunt), waarin wordt gevraagd een toegangstoken voor een resource accepteren v2.0-tokens, aud = resource. Toepassings-id
-- Azure AD wordt de gewenste doelgroep van het aangevraagde bereik voor MSAL (v2.0-eindpunt) waarin wordt gevraagd een toegangstoken voor een resource een toegangstoken v1.0 (dit is de bovenstaande aanvraag) accepteren, geparseerd door te nemen alles vóór de laatste slash en als de resource-id gebruiken. Daarom als https:\//database.windows.net wordt verwacht dat een een publiek van ' https:\//database.windows.net/ ', moet u een bereik van de aanvraag ' https:\//database.windows.net//.default '. Zie ook GitHub probleem [#747: Bron-url afsluitende schuine streep wordt weggelaten, waardoor sql-verificatie mislukt](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+- Voor ADAL (v 1.0)-eind punt met een v 1.0-toegangs token (alleen mogelijk), AUD = resource
+- Voor MSAL (micro soft Identity platform (v 2.0)-eind punt) waarbij een toegangs token wordt gevraagd voor een resource die v 2.0-tokens accepteert, AUD = resource. AppId
+- Voor MSAL (v 2.0-eind punt) waarbij een toegangs token wordt gevraagd voor een resource die een v 1.0-toegangs token accepteert (dit is het geval hierboven), parseert Azure AD de gewenste doel groep uit het aangevraagde bereik door alles vóór de laatste slash te nemen en deze als de resource-id te gebruiken. Als https:\//database.Windows.net verwacht dat het doel groep https:\//database.Windows.net/is, moet u daarom een scope van ' https:\//database.Windows.net//.default ' aanvragen. Zie ook github issue [#747: De afsluitende slash van de bron-URL wordt wegge laten, waardoor](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)SQL-verificatie is mislukt.
 
-## <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Bereiken voor het aanvragen van toegang tot de machtigingen van een toepassing v1.0
-Als u een token verkrijgen voor de statische bereiken van een toepassing v1.0 wilt, moet u '.standaard' toevoegen aan de ID-URI van de API-app:
+## <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Bereiken om toegang aan te vragen tot alle machtigingen van een v 1.0-toepassing
+Als u een token wilt verkrijgen voor alle statische bereiken van een v 1.0-toepassing, voegt u '. default ' toe aan de URI van de App-ID van de API:
 
 ```csharp
 ResourceId = "someAppIDURI";
@@ -84,5 +84,5 @@ var ResourceId = "someAppIDURI";
 var scopes = [ ResourceId + "/.default"];
 ```
 
-## <a name="scopes-to-request-for-client-credential-flow--daemon-app"></a>Bereiken om aan te vragen voor client referentie-gegevensstroom / daemon-app
-In het geval van een client referentie-gegevensstroom, het bereik om door te geven ook worden `/.default`. Hiermee wordt aangegeven met Azure AD: "alle app-niveau machtigingen die de beheerder heeft ingestemd met de in de registratie van de toepassing.
+## <a name="scopes-to-request-for-client-credential-flow--daemon-app"></a>Bereiken voor het aanvragen van een client referentie stroom/daemon-app
+In het geval van een client referentie stroom is `/.default`het bereik dat moet worden door gegeven ook. Dit geeft aan Azure AD: ' alle machtigingen op app-niveau die de beheerder heeft ingestemd in de registratie van de toepassing.

@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba63f9c04e062741eded9c39e44ba64281931387
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 6646217149cec48ca5fcee59b3dd9d850965c602
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311351"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779909"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migreren van Federatie naar Pass-Through-verificatie voor Azure Active Directory
 
@@ -156,7 +156,7 @@ Voor Windows 8-en Windows 7-computer accounts gebruikt hybride deelname naadloze
 
 Zie [Configure Hybrid Azure AD-joined devices](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup)(Engelstalig) voor meer informatie.
 
-#### <a name="branding"></a>Namen
+#### <a name="branding"></a>Huisstijl
 
 Als uw organisatie [uw AD FS aanmeld pagina's heeft aangepast](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization) om informatie weer te geven die relevant is voor de organisatie, kunt u overwegen vergelijk bare [aanpassingen aan te brengen op de aanmeldings pagina van Azure AD](https://docs.microsoft.com/azure/active-directory/customize-branding).
 
@@ -454,5 +454,5 @@ Zie [problemen oplossen Azure Active Directory Pass-Through-verificatie](https:/
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over [Azure AD Connect ontwerp concepten](plan-connect-design-concepts.md).
-* Kies de [juiste verificatie](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+* Kies de [juiste verificatie](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
 * Meer informatie over [ondersteunde topologieën](plan-connect-design-concepts.md).

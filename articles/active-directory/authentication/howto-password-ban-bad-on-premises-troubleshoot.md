@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d96f5bb189dfd20c65fc6fc6ddcb8fff66d52ff
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 07c035f4823ea8c8eaa96ca9bda22450246811cd
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666238"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779629"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Probleem oplossing voor Azure AD-wachtwoord beveiliging
 
@@ -32,7 +32,7 @@ De gebruikelijke oorzaak van dit probleem is dat een proxy nog niet is geregistr
 
 Het belangrijkste symptoom van dit probleem is 30018 gebeurtenissen in het gebeurtenis logboek van de DC-agent beheerder. Dit probleem kan verschillende mogelijke oorzaken hebben:
 
-1. De DC-agent bevindt zich in een geïsoleerd gedeelte van het netwerk dat geen netwerk verbinding met de geregistreerde proxy (s) toestaat. Dit probleem kan daarom worden vermeden als andere DC-agents kunnen communiceren met de proxy (s) om wachtwoord beleid te downloaden van Azure, dat vervolgens wordt opgehaald door de geïsoleerde domein controller via replicatie van de beleids bestanden in de SYSVOL-share.
+1. De DC-agent bevindt zich in een geïsoleerd gedeelte van het netwerk dat geen netwerk verbinding met de geregistreerde proxy (s) toestaat. Dit probleem kan onschadelijk zijn zolang andere DC-agents kunnen communiceren met de proxy (s) om wachtwoord beleid te downloaden van Azure. Zodra het beleid is gedownload, wordt het door de geïsoleerde domein controller opgehaald via de replicatie van de beleids bestanden in de SYSVOL-share.
 
 1. De proxyclient blokkeert de toegang tot het eind punt van de RPC-eindpunttoewijzer (poort 135)
 
@@ -70,6 +70,8 @@ De meest voorkomende hoofd oorzaak voor de KDS-service is niet gestart, omdat he
 
 Dit probleem kan verschillende oorzaken hebben.
 
+1. Uw DC-agent (s) wordt uitgevoerd op een open bare Preview-software versie die is verlopen. Zie de [Software voor de open bare preview-agent van DC is verlopen](howto-password-ban-bad-on-premises-troubleshoot.md#public-preview-dc-agent-software-has-expired).
+
 1. Uw DC-agent (s) kan geen beleid downloaden of bestaande beleids regels kunnen niet worden ontsleuteld. Controleer op mogelijke oorzaken in de bovenstaande onderwerpen.
 
 1. De modus voor het afdwingen van het wachtwoord beleid is nog steeds ingesteld op controle. Als deze configuratie van kracht is, moet u deze opnieuw configureren om te worden afgedwongen met behulp van de Azure AD-portal voor wachtwoord beveiliging. Zie [wachtwoord beveiliging inschakelen](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
@@ -99,7 +101,7 @@ Setting password failed.
         Error Message: Password doesn't meet the requirements of the filter dll's
 ```
 
-Als met Azure AD-wachtwoord beveiliging de gebeurtenis logboek gebeurtenissen voor wachtwoord validatie worden geregistreerd voor een Active Directory DSRM-wacht woord, wordt verwacht dat in de gebeurtenis logboek berichten geen gebruikers naam wordt vermeld. Dit gebeurt omdat het DSRM-account een lokaal account is dat geen deel uitmaakt van het werkelijke Active Directory domein.  
+Als met Azure AD-wachtwoord beveiliging de gebeurtenis logboek gebeurtenissen voor wachtwoord validatie worden geregistreerd voor een Active Directory DSRM-wacht woord, wordt verwacht dat in de gebeurtenis logboek berichten geen gebruikers naam wordt vermeld. Dit probleem treedt op omdat het DSRM-account een lokaal account is dat geen deel uitmaakt van het werkelijke Active Directory domein.  
 
 ## <a name="domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password"></a>De promotie van de domein controller replica is mislukt vanwege een zwak wacht woord voor DSRM
 
@@ -119,7 +121,67 @@ Zodra de degradatie is geslaagd en de domein controller opnieuw is opgestart en 
 
 ## <a name="booting-into-directory-services-repair-mode"></a>Opstarten in de modus Active Directory-Services herstellen
 
-Als de domein controller wordt opgestart in de modus voor het herstellen van adreslijst Services, detecteert de DC-Agent service deze voor waarde en zorgt u ervoor dat alle wachtwoord validatie-of afdwingings activiteiten worden uitgeschakeld, ongeacht de huidige actieve beleids configuratie.
+Als de domein controller wordt opgestart in de modus voor het herstellen van Directory Services, detecteert de wachtwoord filter-dll van de DC-agent deze voor waarde en zorgt u ervoor dat alle wachtwoord validatie-of afdwingings activiteiten worden uitgeschakeld, ongeacht het huidige actieve beleid configuratie. De wachtwoord filter-dll van de DC-agent registreert een 10023-waarschuwings gebeurtenis in het gebeurtenis logboek van de beheerder, bijvoorbeeld:
+
+```text
+The password filter dll is loaded but the machine appears to be a domain controller that has been booted into Directory Services Repair Mode. All password change and set requests will be automatically approved. No further messages will be logged until after the next reboot.
+```
+## <a name="public-preview-dc-agent-software-has-expired"></a>De software voor de open bare preview-agent is verlopen
+
+Tijdens de open bare preview-periode van Azure AD-wachtwoord beveiliging werd de DC-agent software in code vastgelegd om de verwerking van wachtwoord validatie aanvragen voor de volgende datums te stoppen:
+
+* Versie 1.2.65.0 stopt met het verwerken van aanvragen voor wachtwoord validatie op september 1 2019.
+* Versie 1.2.25.0 en eerder gestopt de verwerking van wachtwoord validatie aanvragen op 1 2019 juli.
+
+Naarmate de deadline nadert, worden met alle time-outversies van gelijkstroom agents in het gebeurtenis logboek van de DC-agent beheerder een 10021-gebeurtenis weer gegeven, die er als volgt uitziet:
+
+```text
+The password filter dll has successfully loaded and initialized.
+
+The allowable trial period is nearing expiration. Once the trial period has expired, the password filter dll will no longer process passwords. Please contact Microsoft for an newer supported version of the software.
+
+Expiration date:  9/01/2019 0:00:00 AM
+
+This message will not be repeated until the next reboot.
+```
+
+Zodra de deadline is verstreken, worden met alle time-outversies van DC-agents in het gebeurtenis logboek van de DC-agent beheerder een 10022-gebeurtenis verzonden die er als volgt uitziet:
+
+```text
+The password filter dll is loaded but the allowable trial period has expired. All password change and set requests will be automatically approved. Please contact Microsoft for a newer supported version of the software.
+
+No further messages will be logged until after the next reboot.
+```
+
+Aangezien de deadline alleen wordt gecontroleerd bij de eerste keer opstarten, worden deze gebeurtenissen mogelijk pas na de deadline van de kalender weer gegeven. Zodra de deadline is herkend, zullen geen negatieve effecten op de domein controller of de grotere omgeving worden uitgevoerd, anders dan alle wacht woorden, worden automatisch goedgekeurd.
+
+> [!IMPORTANT]
+> Micro soft raadt aan dat verlopen open bare preview-agents direct worden bijgewerkt naar de nieuwste versie.
+
+Een eenvoudige manier om DC-agents in uw omgeving te detecteren die moeten worden bijgewerkt, is `Get-AzureADPasswordProtectionDCAgent` door de cmdlet uit te voeren, bijvoorbeeld:
+
+```powershell
+PS C:\> Get-AzureADPasswordProtectionDCAgent
+
+ServerFQDN            : bpl1.bpl.com
+SoftwareVersion       : 1.2.125.0
+Domain                : bpl.com
+Forest                : bpl.com
+PasswordPolicyDateUTC : 8/1/2019 9:18:05 PM
+HeartbeatUTC          : 8/1/2019 10:00:00 PM
+AzureTenant           : bpltest.onmicrosoft.com
+```
+
+Voor dit onderwerp is het veld SoftwareVersion duidelijk de sleutel eigenschap die u wilt bekijken. U kunt ook Power shell-filtering gebruiken om DC-agents te filteren die al of niet hoger zijn dan de vereiste basislijn versie, bijvoorbeeld:
+
+```powershell
+PS C:\> $LatestAzureADPasswordProtectionVersion = "1.2.125.0"
+PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion -lt $LatestAzureADPasswordProtectionVersion}
+```
+
+De Azure AD-proxy software voor wachtwoord beveiliging is niet in een wille keurige versie beperkt. Micro soft raadt u aan om de domein controller en de proxy agent te upgraden naar de meest recente versies zodra ze worden uitgebracht. De `Get-AzureADPasswordProtectionProxy` cmdlet kan worden gebruikt om proxy agenten te vinden waarvoor upgrades zijn vereist, vergelijkbaar met het bovenstaande voor beeld voor DC-agents.
+
+Raadpleeg [de DC-agent bijwerken](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) en [de proxy-agent bijwerken](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) voor meer informatie over specifieke upgrade procedures.
 
 ## <a name="emergency-remediation"></a>Herstel na nood geval
 

@@ -8,45 +8,45 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 8d1f0f6ae3ffc123f1ae8318a6fbce4a9a3024fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a58e408feadd10e6dbc9d6878b82a4d045918ea6
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66814884"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781444"
 ---
 ## <a name="access-the-virtual-machine"></a>Toegang tot de virtuele machine
 
-De volgende stappen uit de Azure CLI gebruiken in Azure Cloud Shell. Als u liever, kunt u [Azure CLI installeren](/cli/azure/install-azure-cli) op de ontwikkeling van uw computer en de opdrachten lokaal uitvoeren.
+In de volgende stappen wordt de Azure CLI in Azure Cloud Shell gebruikt. Als u wilt, kunt u [de Azure cli installeren](/cli/azure/install-azure-cli) op uw ontwikkel computer en de opdrachten lokaal uitvoeren.
 
-De volgende stappen laten zien hoe het configureren van de virtuele machine van Azure waarmee u **SSH** toegang. De weergegeven stappen wordt ervan uitgegaan dat de naam die u hebt gekozen voor de solution accelerator is **contoso-simulatie** --Vervang deze waarde door de naam van uw implementatie:
+De volgende stappen laten zien hoe u de virtuele machine van Azure configureert om **SSH** -toegang toe te staan. Bij de stappen die worden weer gegeven, wordt ervan uitgegaan dat de naam die u hebt gekozen voor de oplossings versneller is **Contoso-simulatie** --Vervang deze waarde door de naam van uw implementatie:
 
-1. Overzicht van de inhoud van de resourcegroep die de solution accelerator resources bevat:
+1. Lijst met de inhoud van de resource groep die de resources voor oplossings versneller bevat:
 
     ```azurecli-interactive
     az resource list -g contoso-simulation -o table
     ```
 
-    Noteer de naam van de virtuele machine, het openbare IP-adres en de netwerkbeveiligingsgroep: u hebt deze waarden later nodig.
+    Noteer de naam van de virtuele machine, het open bare IP-adres en de netwerk beveiligings groep: u hebt deze waarden later nodig.
 
-1. De netwerkbeveiligingsgroep voor SSH-toegang bijwerken. De volgende opdracht wordt ervan uitgegaan dat de naam van de netwerkbeveiligingsgroep is **contoso-simulatie-nsg** --Vervang deze waarde door de naam van uw netwerkbeveiligingsgroep:
+1. Werk de netwerk beveiligings groep bij om SSH-toegang toe te staan. Bij de volgende opdracht wordt ervan uitgegaan dat de naam van de netwerk beveiligings groep **Contoso-simulatie-NSG** is--Vervang deze waarde door de naam van uw netwerk beveiligings groep:
 
     ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name contoso-simulation-nsg -g contoso-simulation --access Allow -o table
     ```
 
-    Alleen SSH-toegang inschakelen tijdens het testen en ontwikkeling. Als u SSH schakelt, [moet u dit opnieuw zo snel mogelijk uitschakelen](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices#disable-rdpssh-access-to-virtual-machines).
+    Schakel SSH-toegang alleen in tijdens testen en ontwikkeling. Als u SSH inschakelt, [moet u dit zo snel mogelijk weer uitschakelen](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices#disable-rdpssh-access-to-virtual-machines).
 
-1. Bijwerken van het wachtwoord voor de **azureuser** account op de virtuele machine naar een wachtwoord die u kent. Kies uw eigen wachtwoord wanneer u de volgende opdracht uitvoeren:
+1. Werk het wacht woord voor het **azureuser** -account op de virtuele machine bij naar een wacht woord dat u kent. Kies uw eigen wacht woord wanneer u de volgende opdracht uitvoert:
 
     ```azurecli-interactive
     az vm user update --name vm-vikxv --username azureuser --password YOURSECRETPASSWORD  -g contoso-simulation
     ```
 
-1. Het openbare IP-adres van uw virtuele machine vinden. De volgende opdracht wordt ervan uitgegaan dat de naam van de virtuele machine is **vm-vikxv** --Vervang deze waarde door de naam van de virtuele machine die u eerder een notitie van gemaakt:
+1. Zoek het open bare IP-adres van uw virtuele machine. Bij de volgende opdracht wordt ervan uitgegaan dat de naam van de virtuele machine **VM-vikxv** is: Vervang deze waarde door de naam van de virtuele machine die u eerder hebt genoteerd:
 
     ```azurecli-interactive
     az vm list-ip-addresses --name vm-vikxv -g contoso-simulation -o table
     ```
 
-    Noteer het openbare IP-adres van uw virtuele machine.
+    Noteer het open bare IP-adres van uw virtuele machine.

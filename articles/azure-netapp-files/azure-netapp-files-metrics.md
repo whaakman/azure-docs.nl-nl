@@ -1,6 +1,6 @@
 ---
-title: Metrische gegevens voor Azure NetApp-bestanden | Microsoft Docs
-description: Beschrijving van metrische gegevens voor Azure NetApp-bestanden.
+title: Metrische gegevens voor Azure NetApp Files | Microsoft Docs
+description: Beschrijft de metrische gegevens voor Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,38 +12,44 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 08/06/2019
 ms.author: b-juche
-ms.openlocfilehash: 1563b60ef26ac5e4d40f45095d0109dd9dd71570
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a56fb27fdf9e196291942041d68b249d7f16648
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61084936"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839247"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Metrische gegevens voor Azure NetApp Files
 
-Azure Files met NetApp biedt metrische gegevens over toegewezen opslag, werkelijke opslaggebruik volume doorvoer, IOP's en latentie. Door deze metrische gegevens analyseren, krijgt u een beter begrip van de gebruik patroon en volume de prestaties van uw accounts NetApp.  
+Azure NetApp Files voorziet in metrische gegevens over de toegewezen opslag, het werkelijke gebruik van de opslag, de door Voer van het volume, IOPS en latentie. Door deze metrische gegevens te analyseren, kunt u een beter inzicht krijgen in het gebruiks patroon en de volume prestaties van uw NetApp-accounts.  
 
-## <a name="capacity_pools"></a>Metrische gegevens voor capaciteit van toepassingen
+## <a name="capacity_pools"></a>Metrische gegevens over gebruik voor capaciteits Pools
 
-- *De grootte van de groep toegewezen volume*  
-    Dit is de grootte (GiB) van de ingerichte capaciteit van toepassingen.  
-- *Toegewezen volume van toepassingen die worden gebruikt*  
-    Dit is het totaal van volume quotum (GiB) in een opgegeven capaciteit van toepassingen (dat wil zeggen, het totaal van de ingerichte grootte de volumes in de capaciteit van toepassingen). Dit is de grootte die u hebt geselecteerd tijdens het maken van volume.  
-- *Totaal aantal logische grootte van volume van toepassingen*  
-    Dit is het totaal van alle volumes in een pool capaciteit gebruikt logische ruimte (GiB).  
-- *Totale momentopname van de volumegrootte van toepassingen*  
-    Dit is het totaal van incrementele logische ruimte die wordt gebruikt door de momentopnamen.  
+<!-- 
+- *Volume pool allocated size*  
+    This is the size (GiB) of the provisioned capacity pool.  
+--> 
+- *Gebruikte volume groep*  
+    Dit is het totale volume quotum (GiB) in een bepaalde capaciteits groep (dat wil zeggen, het totaal van de ingerichte grootte van het volume in de capaciteits pool). Dit is het formaat dat u hebt geselecteerd tijdens het maken van het volume.  
+- *Totale logische grootte van volume groep*  
+    Dit is het totale aantal logische ruimte (GiB) dat wordt gebruikt voor alle volumes in een capaciteits groep.  
+<!-- 
+- *Volume pool total snapshot size*  
+    This is the total of incremental logical space used by the snapshots.  
+-->
 
-## <a name="volumes"></a>Metrische gegevens over gebruik voor volumes
+## <a name="volumes"></a>Metrische gegevens over het gebruik voor volumes
 
-- *Volume toegewezen grootte*   
-    Dit is de volumegrootte (quotum) dat is ingericht in GiB.  
-- *De logische grootte van volume*   
-    Dit is de totale logische ruimte die wordt gebruikt in een volume (GiB). Deze grootte bevat logische ruimte die wordt gebruikt door actieve bestandssystemen en momentopnamen.  
-- *De grootte van de momentopname van volume*   
-    Dit is de incrementele logische ruimte die wordt gebruikt door momentopnamen in een volume.  
+<!-- 
+- *Volume allocated size*   
+    This is the volume size (quota) provisioned in GiB.  
+--> 
+- *Logische volume grootte*   
+    Dit is de totale logische ruimte die wordt gebruikt in een volume (GiB). Deze grootte bevat logische ruimte die wordt gebruikt door actieve bestands systemen en moment opnamen.  
+- *Grootte van moment opname van volume*   
+    Dit is de incrementele logische ruimte die wordt gebruikt voor moment opnamen in een volume.  
 
 ## <a name="next-steps"></a>Volgende stappen
 

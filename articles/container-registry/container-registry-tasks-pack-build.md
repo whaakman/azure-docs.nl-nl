@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: danlep
-ms.openlocfilehash: 5100418651e24d74ad747e8c436ffce53c899a92
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e41bcaff8faef2c4eaec9ae852955d4b7ce354b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68500896"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839911"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Een installatie kopie bouwen en pushen vanuit een app met behulp van een native Buildpack in de Cloud
 
@@ -44,11 +44,13 @@ In het volgende voor beeld wordt een container installatie kopie samengesteld ui
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --builder cloudfoundry/cnb:bionic \
+    --pull --builder cloudfoundry/cnb:bionic \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
 In dit voor beeld `node-app` wordt de installatie `1.0` kopie samengesteld met het label en gepusht naar het container register *myregistry* . Hier wordt de naam van het doel register expliciet voor de naam van de installatie kopie geplaatst. Als u niets opgeeft, wordt de register-URL automatisch voor de naam van de installatie kopie geplaatst.
+
+De `--pull` para meter geeft aan dat de opdracht de meest recente installatie kopie van de opbouw functie haalt.
 
 De opdracht uitvoer toont de voortgang van het bouwen en pushen van de installatie kopie. 
 
@@ -80,7 +82,7 @@ az acr pack build \
 
 In dit voor beeld `java-app` wordt de installatie kopie samengesteld met de run-id van de opdracht en gepusht naar het container register *myregistry* .
 
-De `--pull` para meter geeft aan dat de opdracht de nieuwste installatie kopie van de opbouw functie haalt, wat nodig is omdat de heroku Builder-installatie kopie niet wordt opgeslagen in de cache van ACR-taken.
+De `--pull` para meter geeft aan dat de opdracht de meest recente installatie kopie van de opbouw functie haalt.
 
 De opdracht uitvoer toont de voortgang van het bouwen en pushen van de installatie kopie. 
 

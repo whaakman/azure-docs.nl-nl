@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4115964533072e5d8f1760c8c5cdf0f20c9b7625
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0c07cbd9fef865f3fc7b782210ef44094df9f629
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727140"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779831"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolatie in de open bare Azure-Cloud
 ##  <a name="introduction"></a>Inleiding
@@ -240,7 +240,7 @@ Versleuteling in transit is een mechanisme voor het beveiligen van gegevens wann
 -   [Versleuteling aan de client zijde](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), voor het versleutelen van de gegevens voordat deze naar de opslag wordt overgebracht en voor het ontsleutelen van de gegevens nadat deze buiten de opslag zijn overgedragen.
 
 #### <a name="encryption-at-rest"></a>Versleuteling bij rest
-Voor veel organisaties is [gegevens versleuteling in rust](https://docs.microsoft.com/azure/security/azure-isolation) een verplichte stap op het vlak van gegevens privacy, naleving en data soevereiniteit. Er zijn drie Azure-functies voor het versleutelen van gegevens met de waarde ' op rest ':
+Voor veel organisaties is [gegevens versleuteling in rust](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices) een verplichte stap op het vlak van gegevens privacy, naleving en data soevereiniteit. Er zijn drie Azure-functies voor het versleutelen van gegevens met de waarde ' op rest ':
 
 -   Met [Storage service Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) kunt u aanvragen dat de opslag service automatisch gegevens versleutelt bij het schrijven naar Azure Storage.
 

@@ -5,32 +5,29 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d9825ea41937dc9436fe8b465b48b378e13407c1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9c18a2c74d03a636a0865f3008eb421ab8d7412d
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175907"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781442"
 ---
-1. In de portal klikt u via **Alle resources** op **+Toevoegen**.
-2. In de **Alles** pagina zoekvak, type **lokale netwerkgateway**, klik vervolgens om te retourneren van een lijst met resources. Klik op **Lokale netwerkgateway** om de pagina te openen en klik op **Maken** om de pagina **Lokale netwerkgateway maken** te openen.
+1. Klik in de portal op **+Een resource maken**.
+2. In het zoekvak typt u **Lokale netwerkgateway**. Druk vervolgens op **Enter** om te zoeken. Er wordt dan een lijst met resultaten geretourneerd. Klik op **Lokale netwerkgateway** om de pagina te openen en klik op de knop **Maken** om de pagina **Lokale netwerkgateway maken** te openen.
 
-   ![maak een lokale netwerkgateway](./media/vpn-gateway-add-lng-rm-portal-include/lng.png)
+   ![De lokale netwerkgateway maken](./media/vpn-gateway-add-lng-rm-portal-include/local-network-gateway.png "De lokale netwerkgateway maken")
+
 3. Op de **pagina Lokale netwerkgateway maken** geeft u de waarden voor uw lokale netwerkgateway op.
 
-   - **Naam:** Geef een naam voor uw lokale netwerkgateway-object. Gebruik indien mogelijk iets intuïtieve, zoals **ClassicVNetLocal** of **TestVNet1Local**. Dit maakt het eenvoudiger voor u bij het identificeren van de lokale netwerkgateway in de portal.
-   - **IP-adres:** Geef een geldig openbaar **IP-adres** voor de VPN-apparaat of de virtuele netwerkgateway waarmee u verbinding wilt maken.
-
-     * **Als dit lokale netwerk een on-premises locatie vertegenwoordigt:** Geef het openbare IP-adres van het VPN-apparaat waarmee u verbinding wilt maken. Het mag zich niet achter NAT bevinden en moet bereikbaar zijn voor Azure.
-     * **Als dit lokale netwerk een ander VNet vertegenwoordigt:** Geef het openbare IP-adres dat is toegewezen aan de virtuele netwerkgateway voor dit VNet.
-     * **Als u nog het IP-adres hebt:** U kunt gezamenlijk een geldige tijdelijke aanduiding voor IP-adres, en vervolgens keert u terug en wijzig deze instelling voordat u verbinding maakt.
-   - **Adresruimte** verwijst naar de adresbereiken voor het netwerk dat dit lokale netwerk vertegenwoordigt. U kunt meerdere adresruimtebereiken toevoegen. Zorg ervoor dat het hier opgegeven bereiken niet overlappen met bereiken van andere netwerken waarmee u verbinding maken.
-   - **BGP-instellingen configureren:** Gebruik alleen bij het configureren van BGP. Selecteer deze anders niet.
-   - **Abonnement:** Controleer of dat het juiste abonnement wordt weergegeven.
-   - **Resourcegroep:** Selecteer de resourcegroep die u wilt gebruiken. U kunt een nieuwe resourcegroep maken of een resourcegroep selecteren die u al hebt gemaakt.
+   - **Naam:** Geef een naam op voor het object van de lokale netwerk gateway.
+   - **IP-adres:** Dit is het open bare IP-adres van het VPN-apparaat waarmee u verbinding wilt maken met Azure. Geef een geldig openbaar IP-adres op. Als u op dit moment niet beschikt over het IP-adres, kunt u de waarden uit de schermafbeelding gebruiken. U moet dan wel later terugkeren om uw tijdelijke IP-adres te vervangen door het openbare IP-adres van uw VPN-apparaat. Anders kan er geen verbinding worden gemaakt vanuit Azure.
+   - **Adresruimte** verwijst naar de adresbereiken voor het netwerk dat dit lokale netwerk vertegenwoordigt. U kunt meerdere adresruimtebereiken toevoegen. Zorg ervoor dat de bereiken die u hier opgeeft, niet overlappen met bereiken van andere netwerken waarmee u verbinding wilt maken. Azure stuurt het adresbereik dat u opgeeft, door naar het IP-adres van het on-premises VPN-apparaat. *Gebruik hier uw eigen waarden als u verbinding wilt maken met uw on-premises site, niet de waarden die worden weergegeven in het voorbeeld*.
+   - **BGP-instellingen configureren:** Alleen gebruiken bij het configureren van BGP. Selecteer deze anders niet.
+   - **Abonnement:** Controleer of het juiste abonnement wordt weer gegeven.
+   - **Resourcegroep:** Selecteer de resource groep die u wilt gebruiken. U kunt een nieuwe resourcegroep maken of een resourcegroep selecteren die u al hebt gemaakt.
    - **Locatie:** Selecteer de locatie waarin dit object wordt gemaakt. U kunt dezelfde locatie selecteren als die van uw VNet, maar dat is niet vereist.
 
-4. Klik op **Maken** om de lokale netwerkgateway te maken.
+4. Wanneer u klaar bent met het opgeven van de waarden, klikt u op de knop **maken** om de gateway te maken.

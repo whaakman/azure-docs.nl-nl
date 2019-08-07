@@ -1,23 +1,23 @@
 ---
-title: Snelstartgids - een virtuele VMware-machine op een Privécloud maken
-description: Beschrijft het maken en een VMware-VM op CloudSimple Private Cloud
+title: 'Snelstartgids: een virtuele VMware-machine maken in een Privécloud'
+description: Hierin wordt beschreven hoe u een virtuele VMware-machine maakt in CloudSimple-Privécloud
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/03/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 33354ce09ad6ba1a9a7c08a8cd3b945f3788011a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 7d21035fc3e9e80344264b9fde21820162f376d3
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595690"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816707"
 ---
-# <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Virtuele VMware-machines maken op uw Privécloud
+# <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Virtuele VMware-machines maken in uw Privécloud
 
-Voor het maken van virtuele machines in uw persoonlijke Cloud, beginnen met het openen van de portal CloudSimple vanuit Azure portal.
+Als u virtuele machines in uw Privécloud wilt maken, moet u beginnen met het openen van de CloudSimple-Portal vanuit de Azure Portal.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
@@ -26,153 +26,153 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
 ## <a name="access-the-cloudsimple-portal"></a>Toegang tot de CloudSimple-portal
 
 1. Selecteer **Alle services**.
-2. Zoeken naar **CloudSimple Services**.
-3. Selecteer de CloudSimple-service op die u wilt maken van uw Privécloud.
-4. Uit de **overzicht** pagina, klikt u op **gaat u naar de portal CloudSimple** openen van een nieuw browsertabblad voor CloudSimple-portal.  Als u hierom wordt gevraagd, aanmelden met uw Azure-referenties aanmelden.  
+2. Zoek naar **CloudSimple Services**.
+3. Selecteer de CloudSimple-service waarop u uw Privécloud wilt maken.
+4. Klik op de pagina **overzicht** op **Ga naar de CloudSimple-Portal** om een nieuw browser tabblad voor CloudSimple-portal te openen.  Meld u aan met uw aanmeldings referenties voor Azure als u hierom wordt gevraagd.  
 
-    ![Starten van CloudSimple-portal](media/launch-cloudsimple-portal.png)
+    ![CloudSimple-Portal starten](media/launch-cloudsimple-portal.png)
 
-## <a name="launch-vcenter-web-ui"></a>Starten van de vCenter-web-ui
+## <a name="launch-vcenter-web-ui"></a>VCenter-Web-UI starten
 
-U kunt vCenter voor het instellen van virtuele machines en het beleid nu starten.
+U kunt nu vCenter starten om virtuele machines en beleids regels in te stellen.
 
-Voor toegang tot vCenter, start u vanuit de portal CloudSimple. Op de startpagina onder **algemene taken**, klikt u op **vSphere-Client starten**.  Selecteer de Privécloud en klik vervolgens op **vSphere-Client starten** op de Privécloud.
+Als u toegang wilt krijgen tot vCenter, start u vanuit de CloudSimple-Portal. Klik op de start pagina onder **algemene taken**op **VSphere-client starten**.  Selecteer de privécloud en klik vervolgens op **vSphere-client starten** op de privécloud.
 
-   ![VSphere-Client starten](media/launch-vcenter-from-cloudsimple-portal.png)
+   ![VSphere-client starten](media/launch-vcenter-from-cloudsimple-portal.png)
 
-## <a name="upload-an-iso-or-vsphere-template"></a>Uploaden van een ISO- of vSphere-sjabloon
+## <a name="upload-an-iso-or-vsphere-template"></a>Een ISO-of vSphere-sjabloon uploaden
 
 > [!WARNING]
-> Gebruik de vSphere HTML5-client voor ISO-uploads.  Met behulp van Flash-client kan leiden tot een fout.
+> Voor ISO-uploads gebruikt u de vSphere HTML5-client.  Het gebruik van een Flash-client kan een fout veroorzaken.
 
-1. Verkrijg de ISO- of vSphere-sjabloon die u uploaden naar vCenter wilt naar een virtuele machine maken en deze beschikbaar op uw lokale systeem.
+1. Verkrijg de ISO-of vSphere-sjabloon die u wilt uploaden naar vCenter om een virtuele machine te maken en deze beschikbaar te stellen op uw lokale systeem.
 
-2. In vCenter, klikt u op de **schijf** pictogram en selecteer **vsanDatastore**. Klik op **bestanden** en klik vervolgens op **nieuwe map**.
+2. Klik in vCenter op het pictogram **schijf** en selecteer **vsanDatastore**. Klik op **bestanden** en klik vervolgens op **nieuwe map**.
 
     ![vCenter ISO](media/vcenter-create-folder.png)
 
 3. Maak een map voor het opslaan van ISO-bestanden.
 
-4. Navigeer naar de nieuwe map gemaakt en klik op **bestanden uploaden**. Volg de aanwijzingen op het scherm instructies voor het uploaden van de ISO.
+4. Navigeer naar de nieuwe map die u hebt gemaakt en klik op **bestanden uploaden**. Volg de instructies op het scherm om de ISO te uploaden.
 
-## <a name="create-a-virtual-machine-in-vcenter"></a>Maak een virtuele Machine in VMware vCenter
+## <a name="create-a-virtual-machine-in-vcenter"></a>Een virtuele machine maken in vCenter
 
-1. In vCenter, klikt u op de **Hosts en Clusters** pictogram.
+1. Klik in vCenter op het pictogram **hosts en clusters** .
 
-2. Met de rechtermuisknop op **werkbelasting** en selecteer **nieuwe virtuele Machine**.
+2. Klik met de rechter muisknop op **workload** en selecteer **nieuwe virtuele machine**.
     
     ![Virtuele machine maken](media/create-vcenter-virtual-machine-01.png)
 
-3. Selecteer **maken van nieuwe virtuele machine** en klikt u op **volgende**.
+3. Selecteer **nieuwe virtuele machine maken** en klik op **volgende**.
 
-    ![Wizard nieuwe virtuele machine](media/create-vcenter-virtual-machine-02.png)
+    ![Wizard Nieuwe virtuele machine](media/create-vcenter-virtual-machine-02.png)
 
-4. De naam van de virtuele machine, selecteer de **werkbelasting van de virtuele machine** map en klik op **volgende**.
+4. Geef de machine een naam, selecteer de map **van de VM van de werk belasting** en klik op **volgende**.
 
     ![Naam en map selecteren](media/create-vcenter-virtual-machine-03.png)
 
-5. Selecteer de **werkbelasting** rekenresource en klikt u op **volgende**.
+5. Selecteer de **werk belasting** Compute resource en klik op **volgende**.
 
-    ![Compute-resource selecteren](media/create-vcenter-virtual-machine-04.png)
+    ![Reken resource selecteren](media/create-vcenter-virtual-machine-04.png)
 
-6. Selecteer **vsanDatastore** en klikt u op **volgende**.
+6. Selecteer **vsanDatastore** en klik op **volgende**.
 
     ![Opslag selecteren](media/create-vcenter-virtual-machine-05.png)
 
-7. Laat de standaardselectie voor de compatibiliteit van ESXi 6.5 en klik op **volgende**.
+7. Behoud de standaard selectie van de ESXi 6,5-compatibiliteit en klik op **volgende**.
 
-    ![Selecteer compatibiliteit](media/create-vcenter-virtual-machine-06.png)
+    ![Compatibiliteit selecteren](media/create-vcenter-virtual-machine-06.png)
 
-8. Selecteer het gastbesturingssysteem van de ISO van voor de virtuele machine en klik op **volgende**.
+8. Selecteer het gast besturingssysteem van de ISO voor de virtuele machine en klik op **volgende**.
 
-    ![Gast-OS aanpassen](media/create-vcenter-virtual-machine-07.png)
+    ![Gast besturingssysteem aanpassen](media/create-vcenter-virtual-machine-07.png)
 
-9. Harde schijf en netwerkopties selecteren. Selecteer nieuwe CD/DVD-station **Datastore ISO-bestand**.  Als u dat verkeer van het openbare IP-adres aan deze virtuele machine is toegestaan wilt, selecteert u het netwerk als **vm-1**.
+9. Selecteer de opties voor harde schijf en netwerk. Selecteer **ISO-bestand Data Store**voor nieuwe cd/dvd-stations.  Als u verkeer van het open bare IP-adres naar deze virtuele machine wilt toestaan, selecteert u het netwerk als **VM-1**.
 
-    ![Selecteer hardware aanpassing](media/create-vcenter-virtual-machine-08.png)
+    ![Hardware aanpassen selecteren](media/create-vcenter-virtual-machine-08.png)
 
-10. Een selectievenster wordt geopend. Selecteer het bestand dat u eerder hebt geüpload naar de map ISO's en -sjablonen en klikt u op **OK**.
+10. Er wordt een selectie venster geopend. Selecteer het bestand dat u eerder hebt geüpload naar de map Iso's en templates en klik op **OK**.
 
     ![ISO selecteren](media/create-vcenter-virtual-machine-10.png)
 
-11. Controleer de instellingen en klik op **OK** te maken van de virtuele machine.
+11. Controleer de instellingen en klik op **OK** om de virtuele machine te maken.
 
-    ![Opties controleren](media/create-vcenter-virtual-machine-11.png)
+    ![Beoordelings opties](media/create-vcenter-virtual-machine-11.png)
 
-De virtuele machine wordt nu toegevoegd aan de werkbelasting van compute-resources en gereed is voor gebruik. 
+De virtuele machine wordt nu toegevoegd aan de werk belasting reken resources en is klaar voor gebruik. 
 
-![Nieuwe virtuele machine in VMware vCenter](media/create-vcenter-virtual-machine-12.png)
+![Nieuwe virtuele machine in vCenter](media/create-vcenter-virtual-machine-12.png)
 
-De eenvoudige configuratie is nu voltooid. U kunt starten met behulp van uw Privécloud vergelijkbaar met hoe u uw on-premises virtuele machine-infrastructuur gebruiken.
+De basis installatie is nu voltooid. U kunt uw Privécloud op dezelfde manier gebruiken als uw on-premises infra structuur voor virtuele machines.
 
-Volgende secties bevatten optionele informatie over het instellen van DNS en DHCP-servers voor Private Cloud workloads en het wijzigen van de standaard-netwerkconfiguratie.
+Volgende secties bevatten optionele informatie over het instellen van DNS-en DHCP-servers voor werk belastingen in de privécloud en het wijzigen van de standaard netwerk configuratie.
 
-## <a name="add-users-and-identity-sources-to-vcenter-optional"></a>Gebruikers en identiteiten bronnen toevoegen aan vCenter (optioneel)
+## <a name="add-users-and-identity-sources-to-vcenter-optional"></a>Gebruikers en identiteits bronnen aan vCenter toevoegen (optioneel)
 
-CloudSimple wijst een standaardgebruikersaccount van vCenter met gebruikersnaam **cloudowner@cloudsimple.local** . Er zijn geen extra accountconfiguratie is vereist om aan de slag.  Beheerders CloudSimple normaal toegewezen de bevoegdheden die ze nodig hebben normale bewerkingen uit te voeren.  Instellen van uw on-premises active directory of Azure AD als een [extra identiteitsbron](https://docs.azure.cloudsimple.com/set-vcenter-identity/) op uw Privécloud.
+CloudSimple wijst een standaard-vCenter-gebruikers account toe **cloudowner@cloudsimple.local** met een gebruikers naam. U hoeft geen extra account in te stellen om aan de slag te gaan.  CloudSimple wijst beheerders normaal gesp roken de bevoegdheden toe die ze nodig hebben om normale bewerkingen uit te voeren.  Stel uw on-premises Active Directory of Azure AD in als een [extra id-bron](https://docs.azure.cloudsimple.com/set-vcenter-identity/) in uw privécloud.
 
-## <a name="create-a-dns-and-dhcp-server-optional"></a>Maak een DNS- en DHCP-server (optioneel)
+## <a name="create-a-dns-and-dhcp-server-optional"></a>Een DNS-en DHCP-server maken (optioneel)
 
-Toepassingen en workloads die worden uitgevoerd in een Privécloud-omgeving moeten naamomzetting en DHCP-services voor een lookup- en IP-adrestoewijzing. Een juiste DHCP en DNS-infrastructuur is vereist om deze services te leveren. U kunt een virtuele machine configureren in vCenter om deze services in uw omgeving Private Cloud te leveren.
+Toepassingen en werk belastingen die worden uitgevoerd in een Privécloud-omgeving, moeten naam omzetting en DHCP-services voor lookup-en IP-adres toewijzing hebben. U hebt de juiste DHCP-en DNS-infra structuur nodig om deze services te kunnen leveren. U kunt een virtuele machine in vCenter configureren om deze services te leveren in uw Privécloud.
 
 ### <a name="prerequisites"></a>Vereisten
 
-* Een gedistribueerde poortgroep met VLAN geconfigureerd
+* Een gedistribueerde poort groep waarvoor VLAN is geconfigureerd
 
-* Route instellen voor on-premises of op basis van een Internet-DNS-servers
+* Route ingesteld op on-premises of op internet gebaseerde DNS-servers
 
-* Virtuele-machinesjabloon of ISO naar een virtuele machine maken
+* Virtuele-machine sjabloon of ISO voor het maken van een virtuele machine
 
-De volgende koppelingen bieden richtlijnen over het instellen van DHCP en DNS-servers op Linux- en Windows.
+De volgende koppelingen bieden richt lijnen voor het instellen van DHCP-en DNS-servers in Linux en Windows.
 
-### <a name="linux-based-dns-server-setup"></a>Installatie op basis van Linux-DNS-Server
+### <a name="linux-based-dns-server-setup"></a>Installatie van DNS-server op basis van Linux
 
-Linux biedt verschillende pakketten voor het instellen van DNS-servers.  Hier volgt een koppeling naar instructies voor het instellen van een open-source BIND DNS-server.
+Linux biedt verschillende pakketten voor het instellen van DNS-servers.  Hier volgt een koppeling naar instructies voor het instellen van een open-source BIND-DNS-server.
 
-[Voorbeeld van de installatie](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7)
+[Voor beeld van installatie](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7)
 
-### <a name="windows-based-setup"></a>Windows-installatie
+### <a name="windows-based-setup"></a>Installatie op basis van Windows
 
-Deze Microsoft-artikelen wordt beschreven hoe u een Windows-server als een DNS-server en als een DHCP-server.
+In deze micro soft-artikelen wordt beschreven hoe u een Windows-Server als een DNS-server en als een DHCP-server instelt.
 <br>
-[WindowsServer-DNS-server](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
+[Windows Server als DNS-server](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
 
-[Windows Server as DHCP Server](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
+[Windows Server als DHCP-server](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
 
-## <a name="customize-networking-configuration-optional"></a>Aanpassen van de netwerkconfiguratie (optioneel)
+## <a name="customize-networking-configuration-optional"></a>Netwerk configuratie aanpassen (optioneel)
 
-De netwerk-pagina's in de portal CloudSimple kunnen u de configuratie voor de firewall-tabellen en openbare IP-adressen voor virtuele machines op te geven.
+Met de netwerk pagina's in de CloudSimple-Portal kunt u de configuratie voor Firewall tabellen en open bare IP-adressen voor virtuele machines opgeven.
 
-### <a name="allocate-public-ips"></a>Openbare IP-adressen toewijzen
+### <a name="allocate-public-ips"></a>Open bare IP-adressen toewijzen
 
-1. Navigeer naar **netwerk > openbare IP-adres** in de portal CloudSimple.
+1. Navigeer naar **netwerk > open bare IP** in de CloudSimple-Portal.
 2. Klik op **openbaar IP-adres toewijzen**.
-3. Voer een unieke naam voor de IP-adres toe.
-4. Selecteer de locatie van uw Privécloud.
-5. Gebruik de schuifregelaar naar de time-out voor inactiviteit desgewenst wijzigen.
-6. Voer in het lokale IP-adres waarvoor u wilt een openbaar IP-adres toewijzen.
-7. Voer een bijbehorende DNS-naam desgewenst.
+3. Voer een naam in om de IP-adres vermelding te identificeren.
+4. Selecteer de locatie van de Privécloud.
+5. Gebruik de schuif regelaar om de time-out voor inactiviteit indien gewenst te wijzigen.
+6. Voer het lokale IP-adres in waarvoor u een openbaar IP-adres wilt toewijzen.
+7. Voer desgewenst een bijbehorende DNS-naam in.
 8. Klik op **Gereed**.
 
-    ![Openbare IP](media/quick-create-pc-public-ip.png)
+    ![Openbaar IP](media/quick-create-pc-public-ip.png)
 
-De taak van het toewijzen van het openbare IP-adres is gestart. U kunt de status van de taak controleren op de **activiteit > taken** pagina. Wanneer de toewijzing is voltooid, wordt het nieuwe item wordt weergegeven op de pagina openbaar IP-adressen.
+De taak voor het toewijzen van het open bare IP-adres begint. U kunt de status van de taak controleren op de pagina **activiteit > taken** . Wanneer de toewijzing is voltooid, wordt de nieuwe vermelding op de open bare IPs-pagina weer gegeven.
 
-De virtuele machine waaraan dit IP-adres moet worden toegewezen moet worden geconfigureerd met het lokale adres hierboven opgegeven. De procedure voor het configureren van een IP-adres is specifiek voor het besturingssysteem van de virtuele machine. Raadpleeg de documentatie voor uw besturingssysteem voor de virtuele machine voor de juiste procedure.
+De virtuele machine waaraan dit IP-adres moet worden toegewezen, moet worden geconfigureerd met het lokale adres dat hierboven is opgegeven. De procedure voor het configureren van een IP-adres is specifiek voor het besturings systeem van de virtuele machine. Raadpleeg de documentatie voor het besturings systeem van de virtuele machine voor de juiste procedure.
 
 #### <a name="example"></a>Voorbeeld
 
-Dit zijn bijvoorbeeld de details voor Ubuntu 16.04.
+Dit zijn bijvoorbeeld de Details voor Ubuntu 16,04.
 
-Voeg de statische methode toe aan de inet-familie-adresconfiguratie in het bestand ```/etc/network/interfaces```. Het adres, IP-masker en gateway waarden te wijzigen. In dit voorbeeld gebruiken we de eth0 interface, interne IP-adres 192.168.24.10, gatewayadres 192.168.24.1 en IP-masker 255.255.255.0. 
+Voeg de statische methode toe aan de configuratie van de inet-adres ```/etc/network/interfaces```familie in het bestand. Wijzig de waarden voor adres, netmasker en gateway. Voor dit voor beeld gebruiken we de eth0-interface, het interne IP-adres 192.168.24.10, het gateway adres 192.168.24.1 en netmask 255.255.255.0. 
 
-Bewerk de ```interfaces``` bestand.
+Bewerk het ```interfaces``` bestand.
 
 ```
 sudo vi /etc/network/interfaces
 ```
 
-Bijwerken van de volgende sectie in ```interfaces``` bestand.
+Werk de volgende sectie bij ```interfaces``` in het bestand.
 
 ```
 auto eth0
@@ -185,35 +185,35 @@ dns-domain acme.com
 dns-search acme.com
 ```
 
-De interface uitschakelen.
+Schakel de interface uit.
 
 ```
 sudo ifdown eth0
 ```
 
-De interface opnieuw inschakelen.
+Schakel de interface opnieuw in.
 
 ```
 sudo ifup eth0
 ```
 
-Is standaard al het binnenkomende verkeer vanaf Internet **geweigerd**. Als u wilt een andere poort te openen, maakt u een [firewall tabel](https://docs.azure.cloudsimple.com/firewall/).
+Standaard wordt al het binnenkomende verkeer van Internet **geweigerd**. Als u een andere poort wilt openen, moet u een [firewall tabel](https://docs.azure.cloudsimple.com/firewall/)maken.
 
-Controleer na het configureren van een interne IP-adres als het statische IP-adres, of dat u het Internet vanaf de virtuele machine kan bereiken.
+Nadat u een intern IP-adres hebt geconfigureerd als het statische IP-adres, controleert u of u het internet kunt bereiken vanuit de virtuele machine.
 
 ```
 ping 8.8.8.8
 ```
 
-Controleer of dat u kunt bereiken de virtuele machine via Internet met behulp van het openbare IP-adres.
+Controleer of u de virtuele machine vanaf internet kunt bereiken met behulp van het open bare IP-adres.
 
-Zorg ervoor dat alle firewallregels (iptable) op de virtuele machine niet poort 80 blokkeert inkomende.
+Zorg ervoor dat de firewall regels (iptable) op de virtuele machine geen poort 80 binnenkomend worden geblokkeerd.
 
 ```
 netstat -an | grep 80
 ```
 
-Start een http-server op poort 80 luistert.
+Start een http-server die luistert op poort 80.
        
 ```
 python2.7 -m SimpleHTTPServer 80
@@ -225,25 +225,25 @@ of
 python3 -m http.server 80
 ```
 
-Start een browser op het bureaublad en wijs poort 80 voor het openbare IP-adres om door te bladeren in de bestanden op uw virtuele machine. 
+Start een browser op uw bureau blad en ga naar poort 80 voor het open bare IP-adres om door de bestanden op uw virtuele machine te bladeren. 
 
-### <a name="default-cloudsimple-firewall-rules-for-public-ip"></a>Standaard CloudSimple firewall-regels voor openbare IP-adres
+### <a name="default-cloudsimple-firewall-rules-for-public-ip"></a>Standaard CloudSimple-firewall regels voor openbaar IP-adres
 
-* VPN-verkeer: Al het verkeer tussen (van/naar) de VPN-verbinding en alle werkbelasting netwerken en beheernetwerk is toegestaan.
-* Intern verkeer privécloud: Alle Oost-west-verkeer tussen (van/naar) netwerken van de werkbelasting en het beheernetwerk (hierboven) is toegestaan.
-* Verkeer van Internet:
-    * Al het binnenkomende verkeer vanaf het Internet wordt geweigerd voor werkbelasting-netwerken en het beheernetwerk.
-    * Alle uitgaande verkeer naar Internet vanuit werkbelasting netwerken of het beheernetwerk is toegestaan.
+* VPN-verkeer: Al het verkeer tussen (van/naar) de VPN-en alle werkbelasting netwerken en het beheer netwerk is toegestaan.
+* Intern verkeer van de privécloud: Alle Oost-West-verkeer tussen (van/naar) werkbelasting netwerken en het beheer netwerk (zie hierboven) is toegestaan.
+* Internet verkeer:
+    * Al het binnenkomende verkeer van Internet wordt geweigerd aan workload netwerken en het beheer netwerk.
+    * Al het uitgaande verkeer naar het Internet vanuit workload netwerken of het beheer netwerk is toegestaan.
 
-U kunt de manier waarop die uw verkeer wordt beveiligd, ook wijzigen met behulp van de functie voor Firewall-regels. Zie voor meer informatie, [firewall tabellen en regels instellen](https://docs.azure.cloudsimple.com/firewall/).
+U kunt ook de manier wijzigen waarop het verkeer wordt beveiligd, met de functie Firewall regels. Zie [firewall tabellen en-regels instellen](https://docs.azure.cloudsimple.com/firewall/)voor meer informatie.
 
-## <a name="install-solutions-optional"></a>Installeer oplossingen (optioneel)
-U kunt oplossingen installeren op uw CloudSimple Private Cloud te kunnen profiteren van uw Privécloud vCenter-omgeving. U kunt back-up, herstel na noodgevallen, replicatie en andere functies instellen om te beveiligen van uw virtuele machines. Voorbeelden zijn onder meer de VMware-Site Recovery Manager (VMware SRM) en Veeam back-up en replicatie.
+## <a name="install-solutions-optional"></a>Oplossingen installeren (optioneel)
+U kunt oplossingen op uw CloudSimple-Privécloud installeren om optimaal gebruik te kunnen maken van uw persoonlijke Cloud vCenter-omgeving. U kunt back-ups, herstel na nood gevallen, replicatie en andere functies instellen om uw virtuele machines te beveiligen. Voor beelden hiervan zijn VMware Site Recovery Manager (VMware-Veeam) en back-up& replicatie.
 
-Voor het installeren van een oplossing, moet u extra bevoegdheden aanvragen voor een beperkte periode. Zie [escaleren bevoegdheden](https://docs.azure.cloudsimple.com/escalate-private-cloud-privileges).
+Als u een oplossing wilt installeren, moet u voor een beperkte periode extra bevoegdheden aanvragen. Zie [bevoegdheden escaleren](https://docs.azure.cloudsimple.com/escalate-private-cloud-privileges).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Virtuele VMware-machines op Azure gebruiken](quickstart-create-vmware-virtual-machine.md)
-* [Verbinding maken met on-premises netwerk met behulp van Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection)
-* [VPN-gateways op CloudSimple netwerk instellen](https://docs.azure.cloudsimple.com/vpn-gateway)
+* [Virtuele VMware-machines in azure gebruiken](quickstart-create-vmware-virtual-machine.md)
+* [Verbinding maken met een on-premises netwerk met behulp van Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection)
+* [VPN-gateways instellen op het CloudSimple-netwerk](https://docs.azure.cloudsimple.com/vpn-gateway)

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: 6537bfe5df8de298593428fb21448181ad8075fc
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c31a9fde50de8190cdd7bc19600344a8e58cf60b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663467"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827319"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-apparaat
 
@@ -42,7 +42,7 @@ Deze agents zijn geïnstalleerd op het apparaat.
 
 **Agent** | **Details**
 --- | ---
-Detectieagent | Verzamelt configuratie gegevens van on-premises Vm's.
+Detectieagent | Verzamelt configuratie gegevens van on-premises virtuele machines
 Beoordelingsagent | Profielen de on-premises omgeving voor het verzamelen van prestatie gegevens van de virtuele machine.
 Migratie adapter | Organiseert de replicatie van de virtuele machine en coördineert de communicatie tussen Vm's en Azure.
 Migratie gateway | Hiermee worden gerepliceerde VM-gegevens naar Azure verzonden.
@@ -200,8 +200,8 @@ Het apparaat wordt bijgewerkt wanneer de Azure Migrate agents die op het apparaa
 
 - Dit gebeurt automatisch omdat de automatische update standaard is ingeschakeld op het apparaat.
 - U kunt deze standaard instelling wijzigen om de agents hand matig bij te werken.
-- Als u automatische updates wilt uitschakelen, stelt u de automatische update van de register sleutel in op HKLM\SOFTWAREMicrosoft\Azure.
-
+- Als u de automatische update wilt uitschakelen, gaat u naar de REGI ster-editor > HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance en stelt u de register sleutel-"auto update" in op 0 (DWORD).
+ 
 ### <a name="set-agent-updates-to-manual"></a>Agent updates instellen op hand matig
 
 Voor hand matige updates moet u ervoor zorgen dat u alle agents op het apparaat tegelijk bijwerkt met behulp van de knop **bijwerken** voor elke verouderde agent op het apparaat. U kunt de instelling van de update op elk gewenst moment naar automatische updates overschakelen.

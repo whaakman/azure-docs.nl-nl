@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2192bad89764f20c24c85d9571bebbd6518de307
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb936e7ad863fc7816ee8ed3b5dd88a8f25dbef0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387279"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68813974"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights voor webpagina’s
 Krijg inzicht in de prestaties en het gebruik van uw webpagina's of app. Wanneer u [Application Insights](app-insights-overview.md) toevoegt aan uw paginascript, krijgt u de beschikking over allerlei gegevens, zoals de tijden voor het laden van pagina’s en AJAX-aanroepen, tellingen en details van browseruitzonderingen en AJAX-fouten, evenals de aantallen gebruikers en sessies. Al deze gegevens kunnen worden gesegmenteerd op pagina, clientbesturingssysteem en browserversie, geografische locatie en andere dimensies. U kunt waarschuwingen instellen voor foutaantallen of het langzaam laden van de pagina. En door het invoegen van trace-aanroepen in JavaScript-code, kunt u bijhouden hoe de verschillende functies van uw webpaginatoepassing worden gebruikt.
@@ -57,13 +57,11 @@ and before any other scripts. Your first data will appear
 automatically in just a few seconds.
 -->
 <script type="text/javascript">
-var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){
-  function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/next/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t
-  }({
-      instrumentationKey:"<your instrumentation key>"
-  });
-
-window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+    var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
+    {
+      instrumentationKey:"INSTRUMENTATION_KEY"
+    }
+    );window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
 ```
 
@@ -86,7 +84,7 @@ Voor het instellen van deze parameters zoekt u deze regel in het codefragment en
       // Insert here
     });
 
-Zie voor een volledige lijst van parameters voor de configuratie, de [GitHub-Page](https://github.com/microsoft/applicationinsights-js#configuration). Er zijn enkele beschikbare parameters:
+Ga naar de [github-pagina](https://github.com/microsoft/applicationinsights-js#configuration)voor een volledige lijst met configuratie parameters. Enkele beschik bare para meters zijn:
 
     // Send telemetry immediately without batching.
     // Remember to remove this when no longer required, as it
@@ -205,7 +203,7 @@ Stel op de blade Diagnostische gegevens doorzoeken de optie Filters in op Pagina
 Selecteer een gebeurtenis om deze gedetailleerder te bekijken. Klik op de pagina met details op '...' om nog meer details weer te geven.
 
 > [!NOTE]
-> Als u [zoeken](diagnostic-search.md), u ziet dat u hebt volledige woorden: 'Abou' of 'bout' komen niet overeen 'About'.
+> Als u [zoeken](diagnostic-search.md)gebruikt, moet u de hele woorden aanpassen: "Abou" en "Abou" komen niet overeen met "about".
 > 
 > 
 
@@ -230,7 +228,7 @@ De naam van de pagina mag dezelfde tekens als een URL bevatten, maar alles na '#
 ## <a name="usage-tracking"></a>Gebruik bijhouden
 Wilt u weten wat gebruikers met uw app doen?
 
-* [Meer informatie over de analysehulpmiddelen van de gebruiker-gedrag](usage-overview.md)
+* [Meer informatie over de hulpprogram ma's voor analyse van gebruikers gedrag](usage-overview.md)
 * [Meer informatie over de API voor aangepaste gebeurtenissen en metrische gegevens](api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video

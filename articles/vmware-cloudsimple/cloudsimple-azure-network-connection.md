@@ -1,56 +1,56 @@
 ---
-title: VMware-oplossing door CloudSimple - verbindingen van Azure-netwerk
-description: Meer informatie over uw Azure-netwerk verbinden met het netwerk van de regio CloudSimple
+title: VMware-oplossing door CloudSimple-Azure-netwerk verbindingen
+description: Meer informatie over het verbinden van uw virtuele Azure-netwerk met uw CloudSimple-regio netwerk
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f2ab82b6c1b4b373c186019eaf96f9864861b9d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8e99da05f71cb01744111b41c301b11a0969057
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497639"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812709"
 ---
-# <a name="azure-network-connections-overview"></a>Overzicht van de verbindingen van Azure-netwerk
+# <a name="azure-network-connections-overview"></a>Overzicht van Azure-netwerk verbindingen
 
-Wanneer u een service CloudSimple in een regio en maakt het:
+Wanneer u een CloudSimple-service in een regio maakt, doet u het volgende:
 
-* Hiermee maakt u een Azure ExpressRoute-circuit en gekoppeld aan de service in deze regio
-* Kan de verbinding van uw regio CloudSimple netwerk naar uw Azure-netwerk of uw on-premises netwerk met behulp van Azure ExpressRoute
-* Biedt toegang tot services die worden uitgevoerd in uw Azure-abonnement of uw on-premises-netwerk van uw omgeving Private Cloud
+* Hiermee wordt een Azure ExpressRoute-circuit gemaakt en gekoppeld aan de service in die regio
+* Maakt verbinding vanuit uw CloudSimple Region-netwerk met uw virtuele Azure-netwerk of uw on-premises netwerk mogelijk met behulp van Azure ExpressRoute
+* Geeft toegang tot services die worden uitgevoerd in uw Azure-abonnement, of uw on-premises netwerk, vanuit uw Privécloud
 
 De verbinding is:
 
 * Beveiligen
 * Privé
-* Hoge bandbreedte
+* Hoge band breedte
 * Lage latentie
 
 ## <a name="benefits"></a>Voordelen
 
-Azure-netwerkverbinding kunt u:
+Met Azure-netwerk verbinding kunt u:
 
-* Gebruik Azure als het doel van een back-up voor virtuele machines in uw Privécloud.
-* KMS-servers in uw Azure-abonnement voor het versleutelen van uw virtueel SAN Private Cloud datastore implementeren.
-* Hybride toepassingen waar de weblaag van de toepassing wordt uitgevoerd in de openbare cloud terwijl de toepassing en databaselagen uitvoeren in uw Privécloud gebruiken.
+* Gebruik Azure als back-updoel voor virtuele machines in uw Privécloud.
+* Implementeer KMS-servers in uw Azure-abonnement om uw vSAN-gegevens opslag in de Privécloud te versleutelen.
+* Gebruik hybride toepassingen waarbij de weblaag van de toepassing wordt uitgevoerd in de open bare Cloud terwijl de lagen van de toepassing en de data base in uw Privécloud worden uitgevoerd.
 
-## <a name="azure-virtual-network-connection"></a>Azure virtuele netwerkverbinding
+## <a name="azure-virtual-network-connection"></a>Virtuele Azure-netwerk verbinding
 
-Privéclouds kunnen worden verbonden met uw Azure-resources met behulp van ExpressRoute.  U kunt deze verbinding gebruiken voor toegang tot andere resources in uw Azure-abonnement van uw Privécloud uitgevoerd.  Deze verbinding kunt u uitbreiden u Private Cloud-netwerk met uw Azure-netwerk.
+Persoonlijke Clouds kunnen worden verbonden met uw Azure-resources met behulp van ExpressRoute.  U kunt deze verbinding gebruiken voor toegang tot verschillende bronnen die worden uitgevoerd in uw Azure-abonnement vanuit uw Privécloud.  Met deze verbinding kunt u uw particuliere cloud netwerk uitbreiden naar uw virtuele Azure-netwerk.
 
-![Azure ExpressRoute-verbinding met virtual network](media/cloudsimple-azure-network-connection.png)
+![Azure ExpressRoute-verbinding met virtueel netwerk](media/cloudsimple-azure-network-connection.png)
 
-## <a name="expressroute-connection-to-on-premises-network"></a>ExpressRoute-verbinding met on-premises netwerk
+## <a name="expressroute-connection-to-on-premises-network"></a>ExpressRoute-verbinding met een on-premises netwerk
 
-U kunt uw bestaande Azure ExpressRoute-circuit voor uw regio CloudSimple verbinden. ExpressRoute globaal bereik functie wordt gebruikt om de twee circuits met elkaar verbinding te maken.  Een verbinding tot stand is gebracht tussen de on-premises en CloudSimple ExpressRoute-circuits.  Deze verbinding kunt u uw on-premises netwerken met Private Cloud netwerk uitbreiden.
+U kunt uw bestaande Azure ExpressRoute-circuit aansluiten op uw CloudSimple-regio. De functie ExpressRoute Global Reach wordt gebruikt om de twee circuits met elkaar te verbinden.  Er wordt een verbinding tot stand gebracht tussen de on-premises en CloudSimple ExpressRoute-circuits.  Deze verbinding stelt u in staat om uw on-premises netwerken uit te breiden naar een particulier Cloud netwerk.
 
-![On-premises ExpressRoute-verbinding - wereldwijd bereik](media/cloudsimple-global-reach-connection.png)
+![On-premises ExpressRoute-verbinding-Global Reach](media/cloudsimple-global-reach-connection.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Peering informatie voor Azure-netwerk op CloudSimple verbinding verkrijgen](https://docs.azure.cloudsimple.com/virtual-network-connection)
+* [Informatie over peering voor Azure Virtual Network verkrijgen voor CloudSimple-verbinding](https://docs.azure.cloudsimple.com/virtual-network-connection)
 * [Verbinding maken tussen on-premises en CloudSimple met behulp van ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection)

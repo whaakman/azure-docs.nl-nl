@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f4828b59ffa43365f48c002262368d383dfcff05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f275cca664733f19d3f3c5b52d168ffad01cadad
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389372"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839610"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Meer informatie over het implementeren van modules en routes instellen in IoT Edge
 
-Elke IoT Edge-apparaat wordt uitgevoerd ten minste twee modules: $edgeAgent en $edgeHub, die deel uitmaken van de IoT Edge-runtime. IoT Edge-apparaat kan meerdere aanvullende modules voor een willekeurig aantal processen worden uitgevoerd. Gebruik een manifest van de implementatie op uw apparaat zien welke modules te installeren en configureren om samen te werken. 
+Elke IoT Edge-apparaat wordt uitgevoerd ten minste twee modules: $edgeAgent en $edgeHub, die deel uitmaken van de IoT Edge-runtime. IoT Edge apparaat kan meerdere extra modules uitvoeren voor elk aantal processen. Gebruik een implementatie manifest om uw apparaat te laten weten welke modules moeten worden geïnstalleerd en hoe ze moeten worden geconfigureerd om samen te werken. 
 
 De *implementatie manifest* is een JSON-document dat wordt beschreven:
 
-* De **IoT Edge agent** moduledubbel, waaronder drie onderdelen. 
-  * De installatiekopie van de container voor elke module die wordt uitgevoerd op het apparaat.
-  * De referenties voor toegang tot persoonlijke containerregisters die module afbeeldingen bevatten.
-  * Instructies voor hoe elke module moet worden gemaakt en beheerd.
+* De **IOT Edge agent** module, die drie onderdelen bevat. 
+  * De container installatie kopie voor elke module die op het apparaat wordt uitgevoerd.
+  * De referenties voor toegang tot persoonlijke container registers die module-installatie kopieën bevatten.
+  * Instructies voor het maken en beheren van elke module.
 * De **IoT Edge hub** moduledubbel, waaronder hoe berichten stromen tussen modules en uiteindelijk naar IoT Hub.
 * (Optioneel) de gewenste eigenschappen van elke aanvullende moduledubbels.
 
@@ -78,9 +78,9 @@ Implementatie manifesten volgen deze structuur:
 
 ## <a name="configure-modules"></a>Modules configureren
 
-Definiëren hoe de modules in IoT Edge-runtime wordt geïnstalleerd in uw implementatie. De IoT Edge-agent is de runtime-onderdelen die installatie, updates en rapportage voor een IoT Edge-apparaat de status beheerd. Daarom vereist de moduledubbel $edgeAgent de configuratie en van beheergegevens voor alle modules. Deze informatie omvat de configuratieparameters voor de IoT Edge-agent zelf. 
+Definiëren hoe de modules in IoT Edge-runtime wordt geïnstalleerd in uw implementatie. De IoT Edge-agent is de runtime-onderdelen die installatie, updates en rapportage voor een IoT Edge-apparaat de status beheerd. Daarom vereist de moduledubbel $edgeAgent de configuratie en van beheergegevens voor alle modules. Deze informatie bevat de configuratie parameters voor de IoT Edge agent zelf. 
 
-Zie voor een volledige lijst van eigenschappen die kunnen of moeten worden opgenomen, [eigenschappen van de IoT Edge-agent en de IoT Edge hub](module-edgeagent-edgehub.md).
+Zie [Eigenschappen van de IOT Edge agent en IOT Edge hub](module-edgeagent-edgehub.md)voor een volledige lijst met eigenschappen die kunnen of moeten worden opgenomen.
 
 De eigenschappen $edgeAgent volgen deze structuur:
 
@@ -137,9 +137,9 @@ Elke route heeft een bron en sink, maar de voorwaarde is een optioneel onderdeel
 
 ### <a name="source"></a>Bron
 
-De bron geeft aan waar de berichten afkomstig zijn uit. IoT Edge kunnen routeren van berichten van modules of knooppuntniveau van apparaten. 
+De bron geeft aan waar de berichten afkomstig zijn uit. IoT Edge kunt berichten van modules of blad apparaten routeren. 
 
-Met de IoT-SDK's, kunnen modules wachtrijen voor hun berichten met behulp van de klasse ModuleClient specifieke uitvoer declareren. Uitvoer wachtrijen zijn niet nodig, maar zijn handig voor het beheren van meerdere routes. Leaf-apparaten kunnen de klasse DeviceClient van de IoT-SDK's gebruiken om berichten te verzenden naar IoT Edge-gateway-apparaten op dezelfde manier die ze berichten naar IoT Hub verzenden zouden. Zie voor meer informatie, [begrijpen en gebruiken Azure IoT Hub SDK's](../iot-hub/iot-hub-devguide-sdks.md).
+Met behulp van de IoT-Sdk's kunnen modules specifieke uitvoer wachtrijen voor hun berichten declareren met behulp van de ModuleClient-klasse. Uitvoer wachtrijen zijn niet nodig, maar zijn handig voor het beheren van meerdere routes. Blade apparaten kunnen de DeviceClient-klasse van de IoT-Sdk's gebruiken om berichten te verzenden naar IoT Edge gateway-apparaten op dezelfde manier als waarop ze berichten verzenden naar IoT Hub. Zie voor meer informatie [Azure IOT hub-Sdk's begrijpen en gebruiken](../iot-hub/iot-hub-devguide-sdks.md).
 
 De broneigenschap kan een van de volgende waarden zijn:
 
@@ -147,14 +147,14 @@ De broneigenschap kan een van de volgende waarden zijn:
 | ------ | ----------- |
 | `/*` | Alle apparaat-naar-cloud-berichten of dubbele wijzigingsmeldingen vanaf elk apparaat module of leaf |
 | `/twinChangeNotifications` | Elke wijziging met dubbele (gerapporteerde eigenschappen) die afkomstig zijn van een module of leaf-apparaat |
-| `/messages/*` | Een apparaat-naar-cloud bericht verzonden door een module door bepaalde of geen uitvoer, of een leaf-apparaat |
+| `/messages/*` | Een apparaat-naar-Cloud-bericht dat door een module wordt verzonden via een of geen uitvoer of door een Leaf-apparaat |
 | `/messages/modules/*` | Een apparaat-naar-cloud bericht verzonden door een module door bepaalde of geen uitvoer |
 | `/messages/modules/<moduleId>/*` | Een apparaat-naar-cloud bericht verzonden door een specifieke module via bepaalde of geen uitvoer |
 | `/messages/modules/<moduleId>/outputs/*` | Een apparaat-naar-cloud bericht verzonden door een specifieke module door sommige uitvoer |
 | `/messages/modules/<moduleId>/outputs/<output>` | Een apparaat-naar-cloud bericht verzonden door een specifieke module door een specifieke uitvoer |
 
 ### <a name="condition"></a>Voorwaarde
-De voorwaarde is optioneel in de declaratie van een route. Als u wilt om door te geven van alle berichten van de bron voor de sink, laat u uit de **waar** component volledig. Of u kunt de [IoT Hub-querytaal](../iot-hub/iot-hub-devguide-routing-query-syntax.md) berichten of berichttypen die voldoen aan de voorwaarde voor bepaalde filteren. IoT Edge-routes bieden geen ondersteuning voor filters gebruiken om berichten op basis van de apparaatdubbel-tags of eigenschappen. 
+De voorwaarde is optioneel in de declaratie van een route. Als u alle berichten van de bron wilt door geven aan de sink, laat u de **where** -component gewoon weg. Of u kunt de [IoT Hub-querytaal](../iot-hub/iot-hub-devguide-routing-query-syntax.md) berichten of berichttypen die voldoen aan de voorwaarde voor bepaalde filteren. IoT Edge-routes bieden geen ondersteuning voor filters gebruiken om berichten op basis van de apparaatdubbel-tags of eigenschappen. 
 
 De berichten die modules in IoT Edge tussen worden opgemaakt gelijk zijn aan de berichten die de apparaten en Azure IoT Hub tussen. Alle berichten worden opgemaakt als JSON en hebben **systemProperties**, **appProperties**, en **hoofdtekst** parameters. 
 
@@ -182,9 +182,9 @@ De eigenschap sink is een van de volgende waarden:
 | `$upstream` | Het bericht verzenden naar IoT Hub |
 | `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | Het bericht verzenden naar een specifieke invoer van een specifieke module |
 
-IoT Edge biedt op-één keer garanties. De IoT Edge hub slaat de berichten lokaal in het geval een route kan niet het bericht niet naar de sink verzenden. Bijvoorbeeld, als de IoT Edge hub kan geen verbinding met IoT Hub of de doel-module is niet verbonden.
+IoT Edge biedt op-één keer garanties. De IoT Edge hub slaat berichten lokaal op als een route het bericht niet aan de Sink kan verzenden. Bijvoorbeeld, als de IoT Edge hub geen verbinding kan maken met IoT Hub of de doel module niet is verbonden.
 
-IoT Edge hub slaat de berichten tot aan de tijd die is opgegeven in de `storeAndForwardConfiguration.timeToLiveSecs` eigenschap van de [IoT Edge hub gewenste eigenschappen](module-edgeagent-edgehub.md).
+IOT Edge hub worden de berichten opgeslagen tot de tijd die is opgegeven `storeAndForwardConfiguration.timeToLiveSecs` in de eigenschap van de [gewenste eigenschappen van de IOT Edge hub](module-edgeagent-edgehub.md).
 
 ## <a name="define-or-update-desired-properties"></a>Gewenste eigenschappen bijwerken of definiëren 
 
@@ -237,7 +237,7 @@ Het volgende voorbeeld laat zien hoe een geldige implementatie manifest document
           }
         },
         "modules": {
-          "tempSensor": {
+          "SimulatedTemperatureSensor": {
             "version": "1.0",
             "type": "docker",
             "status": "running",
@@ -264,7 +264,7 @@ Het volgende voorbeeld laat zien hoe een geldige implementatie manifest document
       "properties.desired": {
         "schemaVersion": "1.0",
         "routes": {
-          "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+          "sensorToFilter": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
           "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
         },
         "storeAndForwardConfiguration": {
@@ -278,6 +278,6 @@ Het volgende voorbeeld laat zien hoe een geldige implementatie manifest document
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een volledige lijst van eigenschappen die kunnen of moeten worden opgenomen in $edgeAgent en $edgeHub [eigenschappen van de IoT Edge-agent en de IoT Edge hub](module-edgeagent-edgehub.md).
+* Zie [Eigenschappen van de IOT Edge agent en IOT Edge hub](module-edgeagent-edgehub.md)voor een volledige lijst met eigenschappen die kunnen of moeten worden opgenomen in $edgeAgent en $edgeHub.
 
 * Nu dat u hoe IoT Edge-modules worden gebruikt weet, [informatie over de vereisten en hulpprogramma's voor het ontwikkelen van IoT Edge-modules](module-development.md).

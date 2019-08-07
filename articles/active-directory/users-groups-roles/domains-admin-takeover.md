@@ -1,6 +1,6 @@
 ---
-title: Overname van de beheerder van een niet-beheerde adreslijst - Azure Active Directory | Microsoft Docs
-description: Klik hier voor meer informatie over het overnemen van een DNS-domeinnaam in een niet-beheerde adreslijst (shadow tenant) in Azure Active Directory.
+title: Beheerders overname van een onbeheerde map-Azure Active Directory | Microsoft Docs
+description: Het overnemen van een DNS-domein naam in een niet-beheerde map (Shadow Tenant) in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,141 +10,141 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 03/18/2019
+ms.date: 08/01/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b32ef37c6d61c88a18acd5ddc80cc6154369ca29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 553118486d1148f63e79ca25c32ed7dd8a3b7414
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780524"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736803"
 ---
-# <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Een niet-beheerde directory overnemen als in Azure Active Directory-beheerder
+# <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Een niet-beheerde Directory als beheerder overnemen in Azure Active Directory
 
-Dit artikel wordt beschreven in een niet-beheerde adreslijst in Azure Active Directory (Azure AD) een DNS-domeinnaam overnemen op twee manieren. Wanneer een selfservice-gebruiker zich registreert voor een cloudservice die gebruikmaakt van Azure AD, wordt deze toegevoegd aan een niet-beheerde Azure AD-adreslijst op basis van het e-maildomein. Zie voor meer informatie over selfservice of 'viraal' aanmelden voor een service [wat is selfserviceregistratie voor Azure Active Directory?](directory-self-service-signup.md)
+In dit artikel worden twee manieren beschreven om een DNS-domein naam te nemen in een onbeheerde map in Azure Active Directory (Azure AD). Wanneer een selfservice-gebruiker zich registreert voor een cloudservice die gebruikmaakt van Azure AD, wordt deze toegevoegd aan een niet-beheerde Azure AD-adreslijst op basis van het e-maildomein. Zie [Wat is self-service-aanmelding voor Azure Active Directory?](directory-self-service-signup.md) voor meer informatie over selfservice of virus registratie voor een service.
 
-## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Bepaal hoe u wilt een niet-beheerde directory overnemen
+## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Bepaal hoe u wilt overnemen van een niet-beheerde map
 Tijdens het proces van overname door een beheerder kunt u eigendom bewijzen, zoals beschreven in [Een aangepaste domeinnaam toevoegen aan Azure AD](../fundamentals/add-custom-domain.md). In de volgende secties wordt de ervaring voor de beheerder gedetailleerder uitgelegd, maar hier volgt een samenvatting:
 
 * Wanneer u een ['interne' beheerdersovername](#internal-admin-takeover) van een niet-beheerde Azure-adreslijst uitvoert, wordt u als globale beheerder van de niet-beheerde adreslijst toegevoegd. Er worden geen gebruikers, domeinen of serviceabonnementen gemigreerd naar een andere adreslijst die u beheert.
 
 * Wanneer u een ['externe' beheerdersovername](#external-admin-takeover) uitvoert van een niet-beheerde Azure-adreslijst, voegt u de naam van het DNS-domein van de niet-beheerde adreslijst toe aan uw beheerde Azure-adreslijst. Wanneer u de domeinnaam toevoegt, wordt een toewijzing van gebruikers aan bronnen gemaakt in uw beheerde Azure-adreslijst, zodat gebruikers zonder onderbreking toegang houden tot services. 
 
-## <a name="internal-admin-takeover"></a>Interne beheerdersovername
+## <a name="internal-admin-takeover"></a>Interne beheerder overname
 
-Sommige producten, zoals SharePoint en OneDrive, zoals Office 365, bieden geen ondersteuning voor externe overname. Als uw scenario, of als u een beheerder bent en wilt overnemen een niet-beheerde of 'shadow' tenant maken door gebruikers die self-service-aanmelding gebruikt, kunt u dit doen met een interne beheerdersrechten overneemt.
+Sommige producten die share point en OneDrive bevatten, zoals Office 365, bieden geen ondersteuning voor externe overname. Als dat het geval is, of als u een beheerder bent en u wilt een niet-beheerde of ' Shadow '-Tenant maken op basis van gebruikers die gebruikmaken van self-service registratie, kunt u dit doen met een interne beheerder.
 
-1. Maak de context van een gebruiker in de niet-beheerde tenant bij het aanmelden voor Power BI. Deze stappen voor het gemak van het voorbeeld wordt ervan uitgegaan dat het pad.
+1. Maak een gebruikers context in de onbeheerde Tenant door u aan te melden voor Power BI. Voor het gemak van deze stappen wordt ervan uitgegaan dat het pad.
 
-2. Open de [Power BI-site](https://powerbi.com) en selecteer **gratis starten**. Voer een gebruikersaccount die gebruikmaakt van de domain name voor de organisatie. bijvoorbeeld, `admin@fourthcoffee.xyz`. Nadat u in de verificatiecode invoert, controleert u uw e-mailadres voor de bevestigingscode.
+2. Open de [Power bi-site](https://powerbi.com) en selecteer **gratis starten**. Voer een gebruikers account in dat gebruikmaakt van de domein naam voor de organisatie. bijvoorbeeld `admin@fourthcoffee.xyz`. Nadat u de verificatie code hebt ingevoerd, controleert u uw e-mail op de bevestigings code.
 
-3. Selecteer in de bevestigingse-mail van Power BI, **Ja, dat ben ik**.
+3. Selecteer **Ja**in het bevestigings bericht van Power bi.
 
-4. Aanmelden bij de [Microsoft 365-beheercentrum](https://admin.microsoft.com) met de Power BI-gebruikersaccount. U ontvangt een bericht dat u de opdracht geeft **beheerder** van de domeinnaam die was al geverifieerd in de niet-beheerde tenant. Selecteer **Ja, ik wil de beheerder**.
+4. Meld u aan bij het [Microsoft 365-beheer centrum](https://admin.microsoft.com) met de Power bi gebruikers account. U ontvangt een bericht waarin wordt aangegeven dat u **de beheerder** bent van de domein naam die al is geverifieerd in de niet-beheerde Tenant. Selecteer **Ja, ik wil de beheerder zijn**.
   
-   ![eerste schermafbeelding voor worden de beheerder](./media/domains-admin-takeover/become-admin-first.png)
+   ![eerste scherm afbeelding van de beheerder](./media/domains-admin-takeover/become-admin-first.png)
   
-5. De TXT-record om te bewijzen dat u eigenaar van de domeinnaam toevoegen **fourthcoffee.xyz** aan uw domeinnaamregistrar. In dit voorbeeld is het GoDaddy.com.
+5. Voeg de TXT-record toe om te bewijzen dat u eigenaar bent van de domein naam **fourthcoffee. xyz** in uw domein naam registratie service. In dit voor beeld is het GoDaddy.com.
   
-   ![Een txt-record voor de domeinnaam toevoegen](./media/domains-admin-takeover/become-admin-txt-record.png)
+   ![Een TXT-record voor de domein naam toevoegen](./media/domains-admin-takeover/become-admin-txt-record.png)
 
-Wanneer de DNS TXT-records worden geverifieerd bij uw domeinnaamregistrar, kunt u de Azure AD-tenant kunt beheren.
+Wanneer de DNS TXT-records worden geverifieerd bij uw domein naam registratie, kunt u de Azure AD-Tenant beheren.
 
-Wanneer u de voorgaande stappen hebt voltooid, bent u nu de globale beheerder van de vierde koffie tenant in Office 365. Als u wilt de domeinnaam integreren met uw andere Azure-services, kunt u verwijderen uit Office 365 en toe te voegen aan een andere beheerde tenant in Azure.
+Wanneer u de voor gaande stappen hebt voltooid, bent u nu de globale beheerder van de Fourth Coffee-Tenant in Office 365. U kunt de domein naam met uw andere Azure-Services integreren door deze uit Office 365 te verwijderen en toe te voegen aan een andere beheerde Tenant in Azure.
 
-### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Naam van het domein toe te voegen aan een beheerde tenant in Azure AD
+### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>De domein naam toevoegen aan een beheerde Tenant in azure AD
 
-1. Open de [Microsoft 365-beheercentrum](https://admin.microsoft.com).
-2. Selecteer **gebruikers** tabblad en een nieuw gebruikersaccount maken met een naam, zoals *gebruiker\@fourthcoffeexyz.onmicrosoft.com* die gebruikt niet de aangepaste domeinnaam. 
-3. Zorg ervoor dat het nieuwe gebruikersaccount globale beheerdersmachtigingen voor de Azure AD-tenant.
-4. Open **domeinen** tabblad in het Microsoft 365-beheercentrum, selecteert u de domeinnaam en selecteer **verwijderen**. 
+1. Open het [Microsoft 365-beheer centrum](https://admin.microsoft.com).
+2. Selecteer **gebruikers** tabblad en maak een nieuw gebruikers account met een naam als *gebruiker\@fourthcoffeexyz.onmicrosoft.com* die geen gebruik maakt van de aangepaste domein naam. 
+3. Zorg ervoor dat het nieuwe gebruikers account globale beheerders rechten heeft voor de Azure AD-Tenant.
+4. Open het tabblad **domeinen** in het Microsoft 365-beheer centrum, selecteer de domein naam en selecteer **verwijderen**. 
   
-   ![de domeinnaam verwijderen uit Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
+   ![de domein naam verwijderen uit Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Als u gebruikers of groepen in Office 365 die verwijzen naar de verwijderde domeinnaam hebt, moeten u ze gewijzigd in de. onmicrosoft.com-domein. Als u geforceerd verwijderen van de domeinnaam, alle gebruikers worden automatisch gewijzigd, in dit voorbeeld *gebruiker\@fourthcoffeexyz.onmicrosoft.com*.
+5. Als u gebruikers of groepen in Office 365 hebt die verwijzen naar de verwijderde domein naam, moet u de naam ervan wijzigen in het domein. onmicrosoft.com. Als u de domein naam geforceerd verwijdert, worden alle gebruikers automatisch hernoemd, in dit voor beeld *naar\@gebruikers fourthcoffeexyz.onmicrosoft.com*.
   
-6. Aanmelden bij de [Azure AD-beheercentrum](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) met een account dat de globale beheerder voor de Azure AD-tenant.
+6. Meld u aan bij het [Azure AD-beheer centrum](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) met een account dat de globale beheerder is voor de Azure AD-Tenant.
   
-7. Selecteer **aangepaste-domeinnamen**, voegt u de domeinnaam. Hebt u de DNS TXT-records om te controleren of de eigenaar van de domain name invoeren. 
+7. Selecteer **aangepaste domein namen**en voeg vervolgens de domein naam toe. U moet de DNS TXT-records invoeren om het eigendom van de domein naam te verifiëren. 
   
-   ![domein zijn toegevoegd aan Azure AD geverifieerd](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
+   ![het domein is geverifieerd als toegevoegd aan Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Alle gebruikers van Power BI- of Azure Rights Management-service die een licentie toegewezen in de Office 365-tenant zijn, moeten hun dashboards opslaan als de domeinnaam wordt verwijderd. Ze moeten zich aanmelden met een gebruikersnaam, zoals *gebruiker\@fourthcoffeexyz.onmicrosoft.com* in plaats van *gebruiker\@fourthcoffee.xyz*.
+> Gebruikers van Power BI-of Azure Rights Management-service met licenties die zijn toegewezen in de Office 365-Tenant, moeten hun Dash boards opslaan als de domein naam wordt verwijderd. Ze moeten zich aanmelden met een gebruikers naam zoals *de\@gebruiker fourthcoffeexyz.onmicrosoft.com* in plaats van de *gebruiker\@fourthcoffee. xyz*.
 
-## <a name="external-admin-takeover"></a>Externe beheerdersovername
+## <a name="external-admin-takeover"></a>Externe beheerder overname
 
-Als u al een tenant met de Azure-services of Office 365 beheren, kunt u een aangepaste domeinnaam kan niet toevoegen als deze al is geverifieerd in een andere Azure AD-tenant. Echter uit uw beheerde tenant in Azure AD kunt u een niet-beheerde tenant als een externe beheerdersovername overnemen. De algemene procedure volgt het artikel [een aangepast domein toevoegen aan Azure AD](../fundamentals/add-custom-domain.md).
+Als u al een Tenant beheert met Azure-Services of Office 365, kunt u geen aangepaste domein naam toevoegen als deze al is geverifieerd in een andere Azure AD-Tenant. Vanuit uw beheerde Tenant in azure AD kunt u echter een niet-beheerde Tenant nemen als een externe beheerder. De algemene procedure volgt het artikel [een aangepast domein toevoegen aan Azure AD](../fundamentals/add-custom-domain.md).
 
-Wanneer u eigendom van de domeinnaam te verifiëren, wordt Azure AD Hiermee verwijdert u de domeinnaam van de niet-beheerde tenant en verplaatst die naar uw bestaande tenant. Externe beheerdersrechten overneemt van een niet-beheerde adreslijst vereist het validatieproces van dezelfde DNS TXT als interne beheerdersrechten overneemt. Het verschil is dat het volgende ook met de naam van het domein verplaatst worden:
+Wanneer u het eigendom van de domein naam controleert, wordt de domein naam van de onbeheerde Tenant door Azure AD verwijderd en verplaatst naar uw bestaande Tenant. Externe beheerder-overname van een onbeheerde map vereist hetzelfde DNS-TXT-validatie proces als de interne beheerder voor overname. Het verschil is dat het volgende ook wordt verplaatst met de domein naam:
 
 - Gebruikers
-- Subscriptions
-- Toewijzing van licenties
+- Abonnementen
+- Licentie toewijzingen
 
-### <a name="support-for-external-admin-takeover"></a>Ondersteuning voor externe beheerdersovername
-Externe beheerdersovername wordt ondersteund door de volgende online services:
+### <a name="support-for-external-admin-takeover"></a>Ondersteuning voor externe beheerders overname
+Externe beheerders overname wordt ondersteund door de volgende onlineservices:
 
 - Power BI
 - Azure Rights Management
 - Exchange Online
 
-De ondersteunde service-abonnementen bevatten:
+De ondersteunde service plannen zijn onder andere:
 
 - Power BI gratis
 - Power BI Pro
-- PowerApps Free
-- Gratis PowerFlow
+- PowerApps gratis
+- PowerFlow gratis
 - RMS voor personen
 - Microsoft Stream
-- Gratis proefversie van Dynamics 365
+- Dynamics 365 gratis proef versie
 
-Externe beheerdersovername wordt niet ondersteund voor alle services waarvoor serviceabonnementen met SharePoint, OneDrive of Skype voor bedrijven; bijvoorbeeld via een gratis Office-abonnement of de basis-SKU van Office. U kunt eventueel de [ **ForceTakeover** optie](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) voor het verwijderen van de domeinnaam van de niet-beheerde tenant en het controleren op de gewenste tenant. Deze ForceTakeover-optie wordt niet verplaatsen over gebruikers, of toegang tot het abonnement behouden. Met deze optie wordt alleen in plaats daarvan de domeinnaam. 
+Externe beheerder overname wordt niet ondersteund voor een service met service plannen die share point, OneDrive of Skype voor bedrijven bevatten. bijvoorbeeld via een gratis Office-abonnement. U kunt eventueel de [optie **ForceTakeover** ](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) gebruiken om de domein naam uit de niet-beheerde Tenant te verwijderen en deze te verifiëren op de gewenste Tenant. Deze ForceTakeover optie gaat niet over gebruikers of behoudt de toegang tot het abonnement. In plaats daarvan verplaatst deze optie alleen de domein naam. 
 
 #### <a name="more-information-about-rms-for-individuals"></a>Meer informatie over RMS voor personen
 
-Voor [RMS voor personen](/azure/information-protection/rms-for-individuals), wanneer het niet-beheerde tenant bevindt zich in dezelfde regio als de tenant dat u eigenaar bent, de automatisch gemaakte [Azure Information Protection-tenantsleutel](/azure/information-protection/plan-implement-tenant-key) en [standaard Beveiligingssjablonen](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) verder met de naam van het domein worden verplaatst. 
+Wanneer de onbeheerde Tenant zich in dezelfde regio bevindt als de Tenant waarvan u de eigenaar bent, worden de automatisch gemaakte [Azure Information Protection-Tenant sleutel](/azure/information-protection/plan-implement-tenant-key) en de [standaard beveiligings sjablonen](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) ook verplaatst voor [RMS voor personen](/azure/information-protection/rms-for-individuals)met de domein naam. 
 
-De sleutel en -sjablonen zijn niet verplaatst via wanneer het niet-beheerde tenant bevindt zich in een andere regio. De niet-beheerde tenant is bijvoorbeeld in Europa en de tenant die van jou is in Noord-Amerika. 
+De sleutel en sjablonen worden niet verplaatst wanneer de onbeheerde Tenant zich in een andere regio bevindt. De onbeheerde Tenant bevindt zich bijvoorbeeld in Europa en de Tenant die u bezit, bevindt zich in Noord-Amerika. 
 
-Hoewel RMS voor personen is ontworpen ter ondersteuning van Azure AD-verificatie om te openen van beveiligde inhoud, niet te voorkomen dat gebruikers inhoud ook beveiligen. Als gebruikers inhoud met de RMS voor personen-abonnement beveiligen en de sleutel en -sjablonen niet via verplaatst zijn, wordt die inhoud niet toegankelijk nadat de domeinovername.
+Hoewel RMS voor individuen is ontworpen ter ondersteuning van Azure AD-verificatie om beveiligde inhoud te openen, voor komt u dat gebruikers ook inhoud beveiligen. Als gebruikers inhoud met het abonnement voor RMS voor personen hebben beveiligd en de sleutel en sjablonen niet zijn verplaatst, is deze inhoud niet toegankelijk na de domein overname.
 
 #### <a name="more-information-about-power-bi"></a>Meer informatie over Power BI
 
-Wanneer het uitvoeren van een externe, openbaar, Power BI-inhoud is die is gemaakt voordat de overname wordt geplaatst een [Power BI gearchiveerde werkruimte](/power-bi/service-admin-power-bi-archived-workspace). U moet alle inhoud die u wilt gebruiken in de nieuwe tenant handmatig migreren.
+Wanneer u een externe overname uitvoert, wordt Power BI inhoud die is gemaakt voordat de overname is opgenomen in een [Power bi gearchiveerde werk ruimte](/power-bi/service-admin-power-bi-archived-workspace). U moet alle inhoud die u wilt gebruiken in de nieuwe Tenant hand matig migreren.
 
-### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Azure AD PowerShell-cmdlets voor de ForceTakeover-optie
-U ziet deze cmdlets gebruikt in [PowerShell-voorbeeld](#powershell-example).
+### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Azure AD Power shell-cmdlets voor de ForceTakeover-optie
+U kunt deze cmdlets zien die in [Power shell-voor beeld](#powershell-example)worden gebruikt.
 
 
 cmdlet | Gebruik 
 ------- | -------
-`connect-msolservice` | Wanneer u hierom wordt gevraagd, moet u zich aanmelden bij uw beheerde tenant.
-`get-msoldomain` | Geeft de domeinnamen van uw dat is gekoppeld aan de huidige tenant.
-`new-msoldomain –name <domainname>` | Wordt toegevoegd aan de tenant als niet-geverifieerd (Er is geen DNS-verificatie is uitgevoerd nog) de naam van het domein.
-`get-msoldomain` | De domeinnaam is nu opgenomen in de lijst met domeinnamen die zijn gekoppeld aan uw beheerde tenant, maar wordt vermeld als **niet geverifieerd**.
-`get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Bevat de informatie in de nieuwe DNS TXT-record voor het domein plaatsen (MS = xxxxx). Verificatie mogelijk niet gebeurt onmiddellijk omdat het duurt even voordat de TXT-record worden doorgegeven, dus wacht een paar minuten voordat de **- ForceTakeover** optie. 
-`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Als de domeinnaam van uw nog niet is geverifieerd, kunt u doorgaan met de **- ForceTakeover** optie. Wordt gecontroleerd of de TXT-record is gemaakt en het proces van overname begint.<li>De **- ForceTakeover** optie moet worden toegevoegd aan de cmdlet alleen wanneer het afdwingen van een externe beheerdersovername, zoals wanneer het niet-beheerde tenant heeft voor Office 365-services de overname blokkeren.
-`get-msoldomain` | De lijst met domeinen wordt nu weergegeven als de naam van het domein **Verified**.
+`connect-msolservice` | Meld u aan bij uw beheerde Tenant wanneer u hierom wordt gevraagd.
+`get-msoldomain` | Hier worden uw domein namen weer gegeven die zijn gekoppeld aan de huidige Tenant.
+`new-msoldomain –name <domainname>` | Voegt de domein naam aan de Tenant toe als niet-geverifieerd (er is nog geen DNS-verificatie uitgevoerd).
+`get-msoldomain` | De domein naam is nu opgenomen in de lijst met domein namen die zijn gekoppeld aan uw beheerde Tenant, maar wordt weer gegeven als niet- **geverifieerd**.
+`get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Bevat informatie die u kunt opnemen in een nieuwe DNS TXT-record voor het domein (MS = xxxxx). Verificatie vindt mogelijk niet onmiddellijk plaats omdat het even duurt voordat de TXT-record is door gegeven. wacht daarom een paar minuten voordat u de optie **-ForceTakeover** overweegt. 
+`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Als uw domein naam nog niet is geverifieerd, kunt u door gaan met de optie **-ForceTakeover** . Er wordt gecontroleerd of de TXT-record is gemaakt en het overname proces is afgebroken.<li>De optie **-ForceTakeover** moet alleen worden toegevoegd aan de cmdlet wanneer een externe beheerder een overname afdwingt, bijvoorbeeld wanneer de onbeheerde tenant Office 365-Services heeft die de overname blokkeert.
+`get-msoldomain` | In de lijst domein wordt nu de domein naam weer gegeven als **geverifieerd**.
 
 ### <a name="powershell-example"></a>PowerShell-voorbeeld
 
-1. Verbinding maken met Azure AD met behulp van de referenties die zijn gebruikt om te reageren op de aanbieding selfservice:
+1. Maak verbinding met Azure AD met behulp van de referenties die zijn gebruikt om te reageren op de self-service aanbieding:
    ```powershell
     Install-Module -Name MSOnline
     $msolcred = get-credential
     
     connect-msolservice -credential $msolcred
    ```
-2. Haal een lijst met domeinen:
+2. Een lijst met domeinen ophalen:
   
    ```powershell
     Get-MsolDomain
    ```
-3. De cmdlet Get-MsolDomainVerificationDns voor het maken van een uitdaging uitvoeren:
+3. Voer de cmdlet Get-MsolDomainVerificationDns uit om een uitdaging te maken:
    ```powershell
     Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
   
@@ -153,12 +153,12 @@ cmdlet | Gebruik
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. Kopieer de waarde (de challenge) die wordt geretourneerd door deze opdracht. Bijvoorbeeld:
+4. Kopieer de waarde (de uitdaging) die wordt geretourneerd met deze opdracht. Bijvoorbeeld:
    ```powershell
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
-5. Maak een DNS txt-record met de waarde die u in de vorige stap hebt gekopieerd in uw openbare DNS-naamruimte. De naam voor deze record is de naam van het bovenliggende domein, dus als u deze bronrecord maakt met behulp van de DNS-rol vanaf Windows Server, laat de plakken Record de naam leeg en alleen de waarde in het tekstvak.
-6. De Confirm-MsolDomain-cmdlet om te controleren of de uitdaging uitvoeren:
+5. Maak in uw open bare DNS-naam ruimte een DNS TXT-record die de waarde bevat die u in de vorige stap hebt gekopieerd. De naam voor deze record is de naam van het bovenliggende domein, dus als u deze bron record maakt met behulp van de DNS-functie van Windows Server, laat u de record naam leeg en plakt u alleen de waarde in het tekstvak.
+6. Voer de cmdlet confirm-MsolDomain uit om de uitdaging te controleren:
   
    ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
@@ -170,11 +170,11 @@ cmdlet | Gebruik
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
    ```
 
-Een geslaagde uitdaging gaat u terug naar de prompt zonder fouten.
+Bij een geslaagde poging keert u terug naar de prompt zonder fout.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Een aangepaste domeinnaam toevoegen aan Azure AD](../fundamentals/add-custom-domain.md)
+* [Een aangepaste domein naam toevoegen aan Azure AD](../fundamentals/add-custom-domain.md)
 * [Azure PowerShell installeren en configureren](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Azure-cmdlet-naslaginformatie](/powershell/azure/get-started-azureps)

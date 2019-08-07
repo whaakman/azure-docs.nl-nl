@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 91104b36b4821d8b1e0350d4eeb20d652de1242b
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 934300351c05b1709dc9df38909edb1bb4ae73ea
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406244"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779567"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Verbinding maken met HDInsight (Apache Hadoop) met behulp van SSH
 
@@ -171,7 +171,9 @@ De werkrol-knooppunten en Zookeeper-knooppunten zijn niet rechtstreeks toegankel
 
 2. Gebruik van de SSH-verbinding naar het hoofd- of Edge-knooppunt de opdracht `ssh` om verbinding te maken met een werkrolknooppunt in het cluster:
 
+        ```bash
         ssh sshuser@wn0-myhdi
+        ```
 
     Als u een lijst met namen van knoop punten wilt ophalen, raadpleegt u de [HDInsight beheren met behulp van het Apache Ambari rest API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) -document.
 

@@ -6,18 +6,18 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: a2711339f5e952747adeeb6217b283770cb6cc6b
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0512facbdf5f2222aee1e9bb5d2be64e22bf1a69
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689049"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774639"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Problemen met back-ups van SAP HANA-data bases in azure oplossen
 
-Dit artikel bevat informatie over het oplossen van problemen met het maken van back-ups van SAP HANA-data bases op Azure virtual machines.
+Dit artikel bevat informatie over het oplossen van problemen met het maken van back-ups van SAP HANA-data bases op Azure virtual machines. De volgende sectie bevat belang rijke conceptuele gegevens die nodig zijn voor het opsporen van een veelvoorkomende fout in SAP HANA back-up.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -56,6 +56,26 @@ Nadat een Data Base is gekozen voor back-up, configureert de Azure Backup-Servic
 
 > [!NOTE]
 > Zorg ervoor dat deze para meters *niet* aanwezig zijn op het niveau van de host. Met para meters op hostniveau worden deze para meters overschreven en kan dit leiden tot onverwacht gedrag.
+
+## <a name="restore-checks"></a>Controles herstellen
+
+### <a name="single-container-database-sdc-restore"></a>Dit SDC-herstel (single container data base)
+
+Voer de invoer uit tijdens het herstellen van één container database (dit SDC) voor HANA naar een andere dit SDC-computer. De naam van de data base moet worden opgegeven met kleine letters en ' dit SDC ' toegevoegd tussen haakjes. De HANA-instantie wordt weer gegeven in hoofd letters.
+
+Stel dat er een back-up wordt gemaakt van een dit SDC HANA-exemplaar ' h21 '. Op de pagina Back-upitems wordt de naam van het back-upartikel weer gegeven als **' h21 (dit SDC) '** . Als u probeert om deze data base te herstellen naar een andere doel-dit SDC, zegt u H11 en vervolgens moet u de volgende invoer invoeren.
+
+![Dit SDC herstellen](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
+
+Let op het volgende
+- De naam van de herstelde DB wordt standaard gevuld met de naam van het back-upitem, bijvoorbeeld h21 (dit SDC)
+- Als u het doel als H11 selecteert, wordt de herstelde database naam niet automatisch gewijzigd. **Deze moet worden bewerkt in H11 (dit SDC)** . In het geval van dit SDC is de herstelde database naam de doel exemplaar-ID met kleine letters en ' dit SDC ' toegevoegd tussen haakjes.
+- Aangezien dit SDC slechts één data base kan hebben, moet u ook op het selectie vakje klikken om de bestaande database gegevens met de herstel punt gegevens te overschrijven.
+- Linux is hoofdletter gevoelig en zorgt er daarom voor dat u de zaak behoudt.
+
+### <a name="multiple-container-database-mdc-restore"></a>Multiple container data base (MDC) Restore
+
+In meerdere container databases voor HANA is de standaard configuratie SYSTEMDB + 1 of meer Tenant Db's. Als u een volledig SAP HANA exemplaar herstelt, moet u zowel de SYSTEMDB als de Tenant Db's herstellen. Eén herstelt SYSTEMDB eerst en gaat vervolgens verder met de Tenant-data base. Systeem-DB betekent in wezen dat de systeem gegevens op het geselecteerde doel worden overschreven. Dit overschrijft ook de BackInt gerelateerde informatie in het doel exemplaar. Nadat de systeem database is hersteld naar een doel exemplaar, moet er daarom opnieuw een pre-registratie script worden uitgevoerd. Alleen dan zullen de volgende Tenant-DB-herstel bewerkingen slagen.
 
 ## <a name="common-user-errors"></a>Veelvoorkomende gebruikers fouten
 

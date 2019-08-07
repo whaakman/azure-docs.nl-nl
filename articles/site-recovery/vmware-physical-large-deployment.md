@@ -1,224 +1,224 @@
 ---
-title: Herstel na noodgevallen naar Azure voor grote aantallen virtuele VMware-machines of fysieke servers met Azure Site Recovery instellen | Microsoft Docs
-description: Meer informatie over het instellen van herstel na noodgevallen naar Azure voor grote aantallen on-premises VMware-machines of fysieke servers met Azure Site Recovery.
+title: Herstel na nood geval instellen op Azure voor een groot aantal virtuele VMware-machines of fysieke servers met Azure Site Recovery | Microsoft Docs
+description: Meer informatie over het instellen van herstel na nood gevallen voor Azure voor een groot aantal on-premises virtuele VMware-machines of fysieke servers met Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: e96aafe61c0d8547ffca9e97bfd9e90c9529155f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ef4a9d5f63282736b010e67b467f82474bcf409
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237264"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782661"
 ---
-# <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Herstel na noodgeval op schaal voor VMware-machines/fysieke servers instellen
+# <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Herstel na nood geval op schaal instellen voor virtuele VMware-machines/fysieke servers
 
-In dit artikel wordt beschreven hoe u herstel na noodgevallen naar Azure voor grote aantallen (> 1000) on-premises VMware-machines of fysieke servers in uw productieomgeving instellen met behulp van de [Azure Site Recovery](site-recovery-overview.md) service.
+In dit artikel wordt beschreven hoe u herstel na nood gevallen instelt voor Azure voor grote aantallen (> 1000) van on-premises virtuele VMware-machines of fysieke servers in uw productie omgeving, met behulp van de [Azure site Recovery](site-recovery-overview.md) -service.
 
 
 ## <a name="define-your-bcdr-strategy"></a>Uw BCDR-strategie definiëren
 
-Als onderdeel van uw zakelijke continuïteit en noodherstelplan (BCDR) definieert u herstelpuntdoelen (RPO's) en hersteltijddoelen (RTO's) voor uw zakelijke apps en workloads. RTO meet de duur van de tijd en service niveau waarin een business-app of een proces moet worden teruggezet en beschikbaar, om te voorkomen dat problemen van de bedrijfscontinuïteit te waarborgen.
-- Site Recovery biedt continue replicatie voor VMware-machines en fysieke servers en een [SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/) voor RTO.
-- Als u van plan voor grootschalige noodherstel voor VMware-VM's en het uitzoeken van de Azure-resources die u nodig hebt bent, kunt u een RTO-waarde die wordt gebruikt voor capaciteitsberekeningen.
+Als onderdeel van uw strategie voor bedrijfs continuïteit en herstel na nood gevallen (BCDR) kunt u herstel punt doelstellingen (Rpo's) en de beoogde tijdstippen (Rto's) voor uw zakelijke apps en werk belastingen definiëren. RTO meet de duur van tijd en service niveau waarbinnen een zakelijke app of proces moet worden hersteld en beschikbaar moeten zijn om continuïteits problemen te voor komen.
+- Site Recovery biedt continue replicatie voor virtuele VMware-machines en fysieke servers en een [Sla](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/) voor RTO.
+- Bij het plannen van een grootschalig herstel na nood gevallen voor VMware-Vm's en het afhandelen van de Azure-resources die u nodig hebt, kunt u een RTO-waarde opgeven die wordt gebruikt voor de berekening van capaciteit.
 
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 
-Sommige algemene aanbevolen procedures voor grootschalige noodherstel. Deze aanbevolen procedures worden besproken in de volgende secties van het document in meer detail.
+Enkele algemene aanbevolen procedures voor grootschalig herstel na nood gevallen. Deze aanbevolen procedures worden uitgebreid beschreven in de volgende secties van het document.
 
-- **Doel-vereisten identificeren**: Een schatting van de behoeften van capaciteit en resources in Azure voordat u herstel na noodgevallen instelt.
-- **Plannen voor Site Recovery-onderdelen**: Nagaan welke onderdelen van Site Recovery (configuratieserver, processervers) die u nodig hebt om te voldoen aan de capaciteit van de geschatte.
-- **Instellen van een of meer scale-out processervers**: Gebruik niet de processerver die standaard wordt uitgevoerd op de configuratieserver. 
-- **Uitvoeren van de meest recente updates**: De Site Recovery-team vrijgegeven nieuwe versies van Site Recovery-onderdelen op gezette tijden en moet u controleren of dat u nu de meest recente versies worden uitgevoerd. Om u te helpen bij die, bijhouden [wat is er nieuw](site-recovery-whats-new.md) voor updates en [inschakelen en het installeren van updates](service-updates-how-to.md) als ze beschikbaar zijn.
-- **Proactief bewaken**: Als u herstel na noodgevallen ingesteld en geactiveerd, moet u de status en integriteit van gerepliceerde virtuele machines en infrastructuurresources proactief bewaken.
-- **Analyses voor noodherstel**: U moet noodhersteloefeningen uitvoeren op gezette tijden. Dit geen invloed op uw productieomgeving, maar ervoor te zorgen dat de failover naar Azure, werken zoals verwacht wanneer dat nodig is.
+- **Doel vereisten identificeren**: U kunt een schatting maken van de capaciteits-en resource behoeften in azure voordat u herstel na nood gevallen instelt.
+- **Site Recovery onderdelen plannen**: Bepaal welke Site Recovery onderdelen (configuratie server, proces servers) u nodig hebt om te voldoen aan de geschatte capaciteit.
+- **Stel een of meer scale-out proces servers**in: Gebruik niet de proces server die standaard wordt uitgevoerd op de configuratie server. 
+- **Voer de nieuwste updates uit**: Het Site Recovery team brengt regel matig nieuwe versies van Site Recovery onderdelen uit en u moet ervoor zorgen dat u de nieuwste versies uitvoert. Houd bij het bijhouden van [wat er nieuw](site-recovery-whats-new.md) is voor updates en [Schakel updates in en installeer](service-updates-how-to.md) deze.
+- **Proactief controleren**: Wanneer u herstel na nood gevallen uitvoert, moet u de status en status van gerepliceerde machines en infrastructuur resources proactief controleren.
+- Inzoomen op **nood herstel**: U moet regel matig herstel na nood geval uitvoeren. Dit is niet van invloed op uw productie omgeving, maar helpt ervoor te zorgen dat failover naar Azure naar behoren werkt als dat nodig is.
 
 
 
-## <a name="gather-capacity-planning-information"></a>Verzamelen van gegevens over capaciteitsplanning
+## <a name="gather-capacity-planning-information"></a>Informatie over capaciteits planning verzamelen
 
-Gegevens verzamelen over uw on-premises omgeving, om te beoordelen en maak een schatting van dat de capaciteit van uw doel (Azure) nodig.
-- Voor VMware, uitvoeren van de Deployment Planner voor VMware-VM's om dit te doen.
-- Verzamel de informatie handmatig voor fysieke servers.
+Verzamel informatie over uw on-premises omgeving, om u te helpen bij het beoordelen en ramen van de capaciteits behoeften van uw doel (Azure).
+- Voor VMware voert u de Deployment Planner voor virtuele VMware-machines uit.
+- Verzamel de informatie voor fysieke servers hand matig.
 
-### <a name="run-the-deployment-planner-for-vmware-vms"></a>De Implementatieplanner voor VMware-VM's uitvoeren
+### <a name="run-the-deployment-planner-for-vmware-vms"></a>De Deployment Planner uitvoeren voor VMware-Vm's
 
-De Deployment Planner kunt u gegevens verzamelen over uw VMware on-premises omgeving.
+De Deployment Planner helpt u bij het verzamelen van informatie over uw VMware on-premises omgeving.
 
-- De Implementatieplanner uitvoeren tijdens een periode die typisch gegevensverloop voor uw virtuele machines vertegenwoordigt. Hiermee wordt meer nauwkeurige schattingen en aanbevelingen gegenereerd.
-- Het is raadzaam dat u de Deployment Planner op de server configureren, uitvoeren omdat de Planner berekent de doorvoer van de server waarop deze wordt uitgevoerd. [Meer informatie](site-recovery-vmware-deployment-planner-run.md#get-throughput) over het meten van doorvoer.
-- Als u geen nog een configuratieserver instellen:
-    - [Bekijk een overzicht](vmware-physical-azure-config-process-server-overview.md) van Site Recovery-onderdelen.
-    - [Instellen van een configuratieserver](vmware-azure-deploy-configuration-server.md), om de Deployment Planner erop worden uitgevoerd.
+- Voer de Deployment Planner uit tijdens een periode die een typisch verloop vormt voor uw Vm's. Hierdoor worden nauw keurige schattingen en aanbevelingen gegenereerd.
+- U wordt aangeraden de Deployment Planner op de computer van de configuratie server uit te voeren, omdat de planner de door Voer berekent van de server waarop deze wordt uitgevoerd. Meer [informatie](site-recovery-vmware-deployment-planner-run.md#get-throughput) over het meten van door voer.
+- Als u nog geen configuratie server hebt ingesteld:
+    - [Bekijk een overzicht](vmware-physical-azure-config-process-server-overview.md) van site Recovery onderdelen.
+    - [Stel een configuratie server](vmware-azure-deploy-configuration-server.md)in om de Deployment planner erop uit te voeren.
 
-Voer vervolgens de Planner als volgt uit:
+Voer de planner vervolgens als volgt uit:
 
-1. [Meer informatie over](site-recovery-deployment-planner.md) de Deployment Planner. U kunt de meest recente versie downloaden vanuit de portal of [rechtstreeks downloaden](https://aka.ms/asr-deployment-planner).
-2. Controleer de [vereisten](site-recovery-deployment-planner.md#prerequisites) en [meest recente updates](site-recovery-deployment-planner-history.md) voor de Implementatieplanner en [downloaden en uitpakken](site-recovery-deployment-planner.md#download-and-extract-the-deployment-planner-tool) het hulpprogramma.
-3. [De Implementatieplanner uitvoeren](site-recovery-vmware-deployment-planner-run.md) op de configuratieserver.
-4. [Een rapport genereren](site-recovery-vmware-deployment-planner-run.md#generate-report) om samen te vatten schattingen en aanbevelingen.
-5. Analyseer de [rapport aanbevelingen](site-recovery-vmware-deployment-planner-analyze-report.md) en [kosten schattingen](site-recovery-vmware-deployment-planner-cost-estimation.md).
+1. [Meer informatie over](site-recovery-deployment-planner.md) de Deployment planner. U kunt de nieuwste versie downloaden van de portal of [deze rechtstreeks downloaden](https://aka.ms/asr-deployment-planner).
+2. Bekijk de [vereisten](site-recovery-deployment-planner.md#prerequisites) en de [meest recente updates](site-recovery-deployment-planner-history.md) voor de Deployment planner en [down load en pak](site-recovery-deployment-planner.md#download-and-extract-the-deployment-planner-tool) het hulp programma uit.
+3. [Voer de Deployment planner](site-recovery-vmware-deployment-planner-run.md) uit op de configuratie server.
+4. [Genereer een rapport](site-recovery-vmware-deployment-planner-run.md#generate-report) om ramingen en aanbevelingen samen te vatten.
+5. Analyseer de [aanbevelingen](site-recovery-vmware-deployment-planner-analyze-report.md) van het rapport en de [kosten ramingen](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 >[!NOTE]
-> Standaard wordt met het hulpprogramma is geconfigureerd voor het profiel en wordt rapport gegenereerd voor maximaal 1000 virtuele machines. U kunt deze limiet wijzigen door de sleutelwaarde maxvmssupported in het bestand ASRDeploymentPlanner.exe.config te verhogen.
+> Het hulp programma is standaard geconfigureerd voor het profiel en genereert een rapport voor Maxi maal 1000 Vm's. U kunt deze limiet wijzigen door de sleutel waarde MaxVMsSupported in het bestand ASRDeploymentPlanner. exe. config te verhogen.
 
-## <a name="plan-target-azure-requirements-and-capacity"></a>Doel (Azure)-vereisten en capaciteit plannen
+## <a name="plan-target-azure-requirements-and-capacity"></a>Vereisten en capaciteit van doel (Azure) plannen
 
-Met behulp van de verzamelde schattingen en aanbevelingen, kunt u plannen voor de doelresources en capaciteit. Als u de Deployment Planner voor VMware-VM's uitgevoerd, kunt u een aantal van de [rapport aanbevelingen](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) om u te helpen.
+Met uw verzamelde schattingen en aanbevelingen kunt u de doel resources en-capaciteit plannen. Als u de Deployment Planner voor VMware-Vm's hebt uitgevoerd, kunt u een aantal van de aanbevelingen van het [rapport](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) gebruiken om u te helpen.
 
-- **Compatibele virtuele machines**: Dit nummer gebruiken om het aantal virtuele machines die gereed voor herstel na noodgevallen naar Azure zijn te identificeren. Aanbevelingen over de bandbreedte van het netwerk en Azure-kerngeheugens zijn gebaseerd op dit nummer.
-- **Vereiste netwerkbandbreedte**: Houd er rekening mee de bandbreedte die u nodig hebt voor replicatie van verschillen van compatibele virtuele machines. 
-    - Wanneer u de Planner uitvoeren geeft u de gewenste RPO in minuten. De aanbevelingen ziet u de bandbreedte die nodig zijn om te voldoen aan deze RPO 100% en 90% van de tijd. 
-    - De aanbevelingen voor netwerkbandbreedte rekening mee dat de bandbreedte die nodig zijn voor het totale aantal configuratieservers en processervers aanbevolen in de Planner.
-- **Azure-kerngeheugens vereist**: Opmerking het aantal kernen u in de doel-Azure-regio moet, gebaseerd op het aantal compatibele virtuele machines. Als u geen onvoldoende cores, na een failover Site Recovery niet mogelijk om te maken van de vereiste Azure-VM's.
-- **Aanbevolen VM-batchgrootte**: De aanbevolen batchgrootte is gebaseerd op de mogelijkheid om een geslaagde initiële replicatie voor de batch binnen 72 uur standaard aan de wensen van een RPO van 100%. De uurwaarde kan worden gewijzigd.
+- **Compatibele vm's**: Gebruik dit nummer om het aantal Vm's te identificeren dat gereed is voor herstel na nood gevallen naar Azure. Aanbevelingen over netwerk bandbreedte en Azure cores zijn gebaseerd op dit aantal.
+- **Vereiste netwerk bandbreedte**: Let op de band breedte die u nodig hebt voor de Delta replicatie van compatibele Vm's. 
+    - Wanneer u de planner uitvoert, geeft u de gewenste RPO in minuten op. De aanbevelingen tonen u de band breedte die nodig is om te voldoen aan de RPO 100% en 90% van de tijd. 
+    - Bij de aanbevelingen voor netwerk bandbreedte wordt rekening gehouden met de band breedte die nodig is voor het totale aantal configuratie servers en proces servers dat wordt aanbevolen in de planner.
+- **Vereiste Azure**-kernen: Noteer het aantal kernen dat u nodig hebt in de Azure-doel regio, op basis van het aantal compatibele Vm's. Als u niet genoeg kernen hebt, kunt u bij failover Site Recovery de vereiste Azure-Vm's niet maken.
+- **Aanbevolen VM-Batch grootte**: De aanbevolen Batch grootte is gebaseerd op de mogelijkheid om de initiële replicatie voor de batch binnen 72 uur standaard te volt ooien, terwijl een RPO van 100% is. De waarde van het uur kan worden gewijzigd.
 
-U kunt deze aanbevelingen gebruiken om te plannen voor Azure-resources, netwerkbandbreedte en batchverwerking van de virtuele machine.
+U kunt deze aanbevelingen gebruiken om Azure-resources, netwerk bandbreedte en VM-batch verwerking te plannen.
 
-## <a name="plan-azure-subscriptions-and-quotas"></a>Azure-abonnementen en quota's plannen
+## <a name="plan-azure-subscriptions-and-quotas"></a>Azure-abonnementen en-quota's plannen
 
-We willen ervoor zorgen dat de beschikbare quota's in het doelabonnement voldoende zijn zijn voor de failover af te handelen.
+We willen er zeker van zijn dat beschik bare quota's in het doel abonnement voldoende zijn voor het verwerken van de failover.
 
 **Taak** | **Details** | **Actie**
 --- | --- | ---
-**Selectievakje kernen** | Als cores in het beschikbare quotum niet gelijk zijn aan of groter zijn dan het aantal totale doel op het moment van failover, mislukt de failover. | Voor virtuele VMware-machines, Controleer dat u hebt onvoldoende cores in het doelabonnement om te voldoen aan de aanbevelingen van Deployment Planner core.<br/><br/> Controleer of Azure-kerngeheugens, voldoen aan uw handmatige schattingen voor fysieke servers.<br/><br/> Om te controleren of de quota's in Azure portal > **abonnement**, klikt u op **gebruik + quota**.<br/><br/> [Meer informatie](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) over het verhogen van quota.
-**Controleer de failover-limieten** | Het aantal failovers kan niet groter zijn dan de limieten van Site Recovery-failover. |  Als failover de grenzen overschrijdt, kunt u abonnementen, toevoegen en fungeren als failover voor meerdere abonnementen of verhoog het quotum voor een abonnement. 
+**Kern geheugens controleren** | Als de kernen in het beschik bare quotum niet gelijk zijn aan of groter zijn dan het totale aantal doelen op het moment van failover, mislukken failovers. | Voor virtuele VMware-machines controleert u of er voldoende kern geheugens zijn in het doel abonnement om te voldoen aan de Deployment Planner core-aanbeveling.<br/><br/> Controleer voor fysieke servers of Azure-kernen voldoen aan uw hand matige schattingen.<br/><br/> Als u quota's wilt controleren, klikt u in het Azure Portal >- **abonnement**op **gebruik en quota's**.<br/><br/> Meer [informatie](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) over het verhogen van quota's.
+**Failover-limieten controleren** | Het aantal failovers mag overschrijdt Site Recovery failover-limieten. |  Als failovers de limieten overschrijden, kunt u abonnementen toevoegen en failover uitvoeren naar meerdere abonnementen of het quotum verhogen voor een abonnement. 
 
 
 ### <a name="failover-limits"></a>Failover-limieten
 
-De limieten geeft het aantal failovers die worden ondersteund door siteherstel binnen een uur, uitgaande van de drie schijven per machine.
+Met de limieten wordt het aantal failovers aangegeven dat wordt ondersteund door Site Recovery binnen één uur, uitgaande van drie schijven per computer.
 
-Wat betekenen voldoet? Voor het starten van een virtuele machine van Azure, Azure vereist dat sommige stuurprogramma's in de toestand bij het opstarten start, en services zoals DHCP moet worden ingesteld op automatisch starten.
-- Computers die voldoen hebt al deze instellingen in plaats.
-- Voor machines waarop Windows wordt uitgevoerd, kunt u proactief controleren op naleving en zodat ze voldoen aan het beleid zo nodig. [Meer informatie](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
-- Linux-machines worden alleen weer in overeenstemming is op het moment van failover.
+Wat betekent er in overeenstemming? Voor het starten van een virtuele Azure-machine moeten sommige Stuur Programma's worden gestart in de opstart status van Azure en kunnen services zoals DHCP zo worden ingesteld dat deze automatisch worden gestart.
+- Computers die voldoen aan deze instellingen, zijn al aanwezig.
+- Voor computers waarop Windows wordt uitgevoerd, kunt u proactief controleren op naleving en deze indien nodig in overeenstemming brengen. [Meer informatie](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
+- Linux-machines worden alleen in overeenstemming gebracht op het moment van failover.
 
-**Machine voldoet aan de Azure?** | **Azure VM-limieten (failover voor beheerde schijf)**
+**Machine voldoet aan Azure?** | **Limieten voor Azure-VM'S (failover van beheerde schijf)**
 --- | --- 
 Ja | 2000
 Nee | 1000
 
-- Limieten wordt ervan uitgegaan dat minimale dat andere taken worden uitgevoerd in de doelregio voor het abonnement.
-- Sommige Azure-regio's zijn kleiner en er iets lagere limieten.
+- Bij limieten wordt ervan uitgegaan dat er mini maal andere taken worden uitgevoerd in de doel regio voor het abonnement.
+- Sommige Azure-regio's zijn kleiner en hebben mogelijk iets lagere limieten.
 
-## <a name="plan-infrastructure-and-vm-connectivity"></a>Infrastructuur- en VM-connectiviteit plannen
+## <a name="plan-infrastructure-and-vm-connectivity"></a>Infra structuur-en VM-connectiviteit plannen
 
-Na een failover naar Azure moet u uw workloads om te werken als on-premises, en waarmee gebruikers toegang krijgen tot workloads die worden uitgevoerd op de Azure VM's.
+Na een failover naar Azure hebt u uw workloads nodig om te werken zoals ze on-premises zijn en om gebruikers toegang te geven tot werk belastingen die worden uitgevoerd op de virtuele machines van Azure.
 
-- [Meer informatie](site-recovery-active-directory.md#test-failover-considerations) over failover van uw on-premises Active Directory of DNS-infrastructuur naar Azure.
-- [Meer informatie](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) over het maken van verbinding maken met virtuele Azure-machines na een failover.
+- Meer [informatie](site-recovery-active-directory.md#test-failover-considerations) over het mislukken van uw Active Directory of een on-premises infra structuur van DNS naar Azure.
+- [Meer informatie](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) over het voorbereiden van verbinding met virtuele Azure-machines na een failover.
 
 
 
-## <a name="plan-for-source-capacity-and-requirements"></a>Plan voor de broncomputer en vereisten
+## <a name="plan-for-source-capacity-and-requirements"></a>De bron capaciteit en-vereisten plannen
 
-Het is belangrijk dat u hebt voldoende configuratieservers en processervers dat scale-out moet voldoen aan de vereisten voor de opslagcapaciteit. Als u uw grootschalige implementatie begint, kunt u beginnen met een configuratie voor één server en een enkele uitbreidbare processerver. Als u de voorgeschreven limiet hebt bereikt, moet u extra servers toevoegen.
+Het is belang rijk dat u voldoende configuratie servers en scale-out proces servers hebt om te voldoen aan de capaciteits vereisten. Wanneer u begint met grootschalige implementatie, start u met één configuratie server en één scale-out proces server. Voeg extra servers toe als u de vereiste limieten hebt bereikt.
 
 >[!NOTE]
-> Voor virtuele VMware-machines kunt de Deployment Planner u enkele aanbevelingen over de configuratie en de proces-servers die u nodig hebt. U wordt aangeraden dat u de tabellen die zijn opgenomen in de volgende procedures, in plaats van de Deployment Planner-aanbeveling te volgen. 
+> Voor virtuele VMware-machines worden met de Deployment Planner enkele aanbevelingen gedaan over de configuratie-en proces servers die u nodig hebt. U wordt aangeraden de tabellen die zijn opgenomen in de volgende procedures te gebruiken, in plaats van de Deployment Planner aanbeveling te volgen. 
 
 
-## <a name="set-up-a-configuration-server"></a>Een configuratieserver instellen
+## <a name="set-up-a-configuration-server"></a>Een configuratie server instellen
  
-Capaciteit van configuratie-server wordt beïnvloed door het aantal machines die worden gerepliceerd, en niet door gegevens verloop tarief. Als u wilt weten of u aanvullende configuratie-servers nodig hebt, gebruikt u deze gedefinieerde VM-limieten.
+De capaciteit van de configuratie server wordt beïnvloed door het aantal computers dat repliceert, en niet op basis van het verloop tempo van gegevens. Als u wilt weten of u aanvullende configuratie servers nodig hebt, gebruikt u deze gedefinieerde VM-limieten.
 
-**CPU** | **Geheugen** | **Cacheschijf** | **Limiet voor computer gerepliceerd**
+**CPU** | **Geheugenmetabase** | **Cache schijf** | **Limiet van gerepliceerde machines**
  --- | --- | --- | ---
-8 vcpu 's<br> 2-sockets * 4 kernen @ 2,5 Ghz | 16 GB | 600 TB | 550 machines<br> Wordt ervan uitgegaan dat elke machine drie schijven van 100 GB elk heeft.
+8 Vcpu's<br> 2 sockets * 4 kernen @ 2,5 GHz | 16 GB | 600 GB | Maxi maal 550 computers<br> Er wordt van uitgegaan dat elke machine drie schijven van 100 GB elk heeft.
 
-- Deze limieten zijn gebaseerd op een configuratieserver instellen met behulp van een OVF-sjabloon.
-- De limieten wordt ervan uitgegaan dat u niet de processerver die standaard wordt uitgevoerd op de configuratieserver gebruikt.
+- Deze limieten zijn gebaseerd op een configuratie server die is ingesteld met behulp van een OVF-sjabloon.
+- Bij de limieten wordt ervan uitgegaan dat u niet de proces server gebruikt die standaard op de configuratie server wordt uitgevoerd.
 
-Als u wilt toevoegen van een nieuwe configuratieserver, volgt u deze instructies:
+Als u een nieuwe configuratie server moet toevoegen, volgt u deze instructies:
 
-- [Instellen van een configuratieserver](vmware-azure-deploy-configuration-server.md) voor herstel na noodgevallen VMware-VM met behulp van een OVF-sjabloon.
-- [Instellen van een configuratieserver](physical-azure-set-up-source.md) handmatig voor fysieke servers, of voor VMware-implementaties die een OVF-sjabloon niet kunnen gebruiken.
+- [Stel een configuratie server](vmware-azure-deploy-configuration-server.md) in voor nood herstel voor VMware-vm's met behulp van een OVF-sjabloon.
+- [Stel een configuratie server](physical-azure-set-up-source.md) hand matig in voor fysieke servers of voor VMware-implementaties die geen OVF-sjabloon kunnen gebruiken.
 
-Bij het instellen van een configuratieserver, houd er rekening mee dat:
+Houd bij het instellen van een configuratie server rekening met het volgende:
 
-- Bij het instellen van een configuratieserver, is het belangrijk dat u rekening houden met het abonnement en de kluis waarin deze zich bevindt, omdat deze al dan niet mogen worden gewijzigd na de installatie. Als u wijzigen van de kluis wilt, hebt u loskoppelen van de configuratieserver in de kluis en deze opnieuw te registreren. Hierdoor wordt voorkomen dat de replicatie van virtuele machines in de kluis.
-- Als u wilt voor het instellen van een configuratieserver met meerdere netwerkadapters, moet u dit doen tijdens het instellen van. U kunt dit niet doen na het registreren van de configuratieserver in de kluis.
+- Wanneer u een configuratie server instelt, is het belang rijk dat u rekening houdt met het abonnement en de kluis waarin deze zich bevindt, omdat deze niet mogen worden gewijzigd na de installatie. Als u de kluis wilt wijzigen, moet u de koppeling tussen de configuratie server en de kluis ongedaan maken. Hiermee wordt de replicatie van virtuele machines in de kluis gestopt.
+- Als u een configuratie server met meerdere netwerk adapters wilt instellen, moet u dit doen tijdens het instellen. U kunt dit niet doen na de registratie van de configuratie server in de kluis.
 
-## <a name="set-up-a-process-server"></a>Een processerver instellen
+## <a name="set-up-a-process-server"></a>Een proces server instellen
 
-Proces-servercapaciteit wordt beïnvloed door gegevenstarieven verloop, en niet door het aantal machines die zijn ingeschakeld voor replicatie.
+De capaciteit van de proces server wordt beïnvloed door de gegevens verloop tarieven en niet op het aantal machines dat is ingeschakeld voor replicatie.
 
-- Voor grote implementaties moet u altijd ten minste één uitbreidbare processerver hebben.
-- Als u wilt weten of u extra servers nodig hebt, gebruik de volgende tabel.
-- We raden u aan een server met de hoogste specificaties. 
+- Voor grote implementaties moet u altijd ten minste één scale-out proces server hebben.
+- Als u wilt weten of u extra servers nodig hebt, gebruikt u de volgende tabel.
+- U wordt aangeraden een server met de hoogste specificatie toe te voegen. 
 
 
-**CPU** | **Geheugen** | **Cacheschijf** | **Tarief verloop**
+**CPU** | **Geheugenmetabase** | **Cache schijf** | **Verloop frequentie**
  --- | --- | --- | --- 
-12 vcpu 's<br> 2-sockets * 6 kernen @ 2,5 Ghz | 24 GB | 1 GB | Tot 2 TB per dag
+12 Vcpu's<br> 2 sockets * 6 kernen @ 2,5 GHz | 24 GB | 1 GB | Tot 2 TB per dag
 
-Stel de processerver als volgt in:
+Stel de proces server als volgt in:
 
 1. Controleer de [vereisten](vmware-azure-set-up-process-server-scale.md#prerequisites).
-2. Installeren van de server in de [portal](vmware-azure-set-up-process-server-scale.md#install-from-the-ui), of vanuit de [vanaf de opdrachtregel](vmware-azure-set-up-process-server-scale.md#install-from-the-command-line).
-3. Gerepliceerde machines voor het gebruik van de nieuwe server configureren. Als u al machines die worden gerepliceerd hebt:
-    - U kunt [verplaatsen](vmware-azure-manage-process-server.md#switch-an-entire-workload-to-another-process-server) de serverwerkbelasting van een hele proces naar de nieuwe processerver.
-    - U kunt ook [verplaatsen](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load) specifieke virtuele machines naar de nieuwe processerver.
+2. Installeer de server in de [Portal](vmware-azure-set-up-process-server-scale.md#install-from-the-ui)of vanaf de [opdracht regel](vmware-azure-set-up-process-server-scale.md#install-from-the-command-line).
+3. Configureer gerepliceerde machines voor het gebruik van de nieuwe server. Als u al computers hebt gerepliceerd:
+    - U kunt een volledige werk belasting van de proces server [verplaatsen](vmware-azure-manage-process-server.md#switch-an-entire-workload-to-another-process-server) naar de nieuwe proces server.
+    - U kunt ook specifieke Vm's [verplaatsen](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load) naar de nieuwe proces server.
 
 
 
 ## <a name="enable-large-scale-replication"></a>Grootschalige replicatie inschakelen
 
-Na het plannen van capaciteit en de vereiste onderdelen en de infrastructuur implementeren, schakelt u replicatie voor grote aantallen virtuele machines.
+Nadat u de capaciteit hebt gepland en de vereiste onderdelen en infra structuur hebt geïmplementeerd, schakelt u de replicatie in voor een groot aantal virtuele machines.
 
-1. Machines voor het sorteren in batches. U schakelt replicatie voor virtuele machines binnen een batch- en gaat u naar de volgende batch.
+1. Machines in batches sorteren. U schakelt replicatie in voor Vm's binnen een batch en gaat vervolgens verder met de volgende batch.
 
-    - Voor virtuele VMware-machines, kunt u de [aanbevolen VM-batchgrootte](site-recovery-vmware-deployment-planner-analyze-report.md#recommended-vm-batch-size-for-initial-replication) in de Deployment Planner-rapport.
-    - Voor fysieke computers raden wij dat u identificeren op basis van machines waarvoor een vergelijkbare grootte en de hoeveelheid gegevens en op de beschikbare netwerkdoorvoer batches. Het doel is het batch-machines die waarschijnlijk de initiële replicatie in rond de dezelfde hoeveelheid tijd voltooien.
+    - Voor virtuele VMware-machines kunt u de [Aanbevolen VM-Batch grootte](site-recovery-vmware-deployment-planner-analyze-report.md#recommended-vm-batch-size-for-initial-replication) in het Deployment planner-rapport gebruiken.
+    - Voor fysieke machines raden we u aan om batches te identificeren op basis van machines met een vergelijk bare grootte en hoeveelheid gegevens en over de beschik bare netwerk doorvoer. Het doel is om batch machines te maken die hun initiële replicatie waarschijnlijk in ongeveer dezelfde hoeveelheid tijd kunnen volt ooien.
     
-2. Als het verloop van de schijf voor een virtuele machine is hoog of overschrijdt de grenzen in implementatie thePlanner, kunt u niet-kritieke bestanden die u niet nodig hebt voor het repliceren van de machine uit (zoals log dumpbestanden voor foutopsporing of tijdelijke bestanden) verplaatsen. Voor virtuele VMware-machines, kunt u deze bestanden verplaatsen naar een afzonderlijke schijf, en vervolgens [uitsluiten van die schijf](vmware-azure-exclude-disk.md) van replicatie.
-3. Voordat u replicatie inschakelt, moet u controleren die voldoen aan machines [replicatievereisten](vmware-physical-azure-support-matrix.md#replicated-machines).
-4. Configureren van een replicatiebeleid voor [virtuele VMware-machines](vmware-azure-set-up-replication.md#create-a-policy) of [fysieke servers](physical-azure-disaster-recovery.md#create-a-replication-policy).
-5. Replicatie inschakelen voor [virtuele VMware-machines](vmware-azure-enable-replication.md) of [fysieke servers](physical-azure-disaster-recovery.md#enable-replication). Deze begint de initiële replicatie voor de geselecteerde computers.
+2. Als het schijf verloop voor een machine hoog is of limieten in de implementatie thePlanner overschrijdt, kunt u niet-essentiële bestanden verplaatsen die u niet hoeft te repliceren (zoals logboek dumps of tijdelijke bestanden) van de computer. Voor virtuele VMware-machines kunt u deze bestanden verplaatsen naar een afzonderlijke schijf en vervolgens [die schijf uitsluiten](vmware-azure-exclude-disk.md) van replicatie.
+3. Voordat u replicatie inschakelt, controleert u of de computers voldoen aan de [replicatie vereisten](vmware-physical-azure-support-matrix.md#replicated-machines).
+4. Configureer een replicatie beleid voor [virtuele VMware-machines](vmware-azure-set-up-replication.md#create-a-policy) of [fysieke servers](physical-azure-disaster-recovery.md#create-a-replication-policy).
+5. Schakel replicatie in voor [virtuele VMware-machines](vmware-azure-enable-replication.md) of [fysieke servers](physical-azure-disaster-recovery.md#enable-replication). Dit is de initiële replicatie voor de geselecteerde machines.
 
 ## <a name="monitor-your-deployment"></a>Uw implementatie bewaken
 
-Nadat u een vliegende start replicatie voor de eerste batch VM's, start u de bewaking van uw implementatie als volgt:  
+Nadat u de replicatie voor de eerste batch met Vm's hebt uitgeschakeld, start u uw implementatie als volgt:  
 
-1. Een beheerder van het herstel na noodgevallen voor het bewaken van de status van gerepliceerde machines toewijzen.
-2. [Gebeurtenissen controleren](site-recovery-monitor-and-troubleshoot.md) voor gerepliceerde items en de infrastructuur.
-3. [Controleer de status](vmware-physical-azure-monitor-process-server.md) van uw scale-out processervers.
-4. Zich registreren om op te halen [e-mailmeldingen](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) voor gebeurtenissen, bewaking vergemakkelijken.
-5. Normaal voeren [noodhersteloefeningen](site-recovery-test-failover-to-azure.md), om ervoor te zorgen dat alles werkt zoals verwacht.
+1. Een nood herstel beheerder toewijzen om de status van gerepliceerde machines te controleren.
+2. [Gebeurtenissen bewaken](site-recovery-monitor-and-troubleshoot.md) voor gerepliceerde items en de infra structuur.
+3. [De status](vmware-physical-azure-monitor-process-server.md) van uw scale-out proces servers bewaken.
+4. Meld u aan om [e-mail meldingen](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) voor gebeurtenissen op te halen, zodat u gemakkelijker kunt controleren.
+5. Voer regel matig [nood herstel analyses](site-recovery-test-failover-to-azure.md)uit om ervoor te zorgen dat alles werkt zoals verwacht.
 
 
-## <a name="plan-for-large-scale-failovers"></a>Plan voor grootschalige failovers
+## <a name="plan-for-large-scale-failovers"></a>Plannen voor grootschalige failovers
 
-In een gebeurtenis van na noodgevallen moet u mogelijk failover van een groot aantal machines/workloads naar Azure. Bereid als volgt voor dit type gebeurtenis.
+Bij een nood geval moet u mogelijk een failover uitvoeren van een groot aantal machines/workloads naar Azure. Dit type gebeurtenis wordt als volgt voor bereid.
 
-U kunt voorbereiden vooraf voor failover als volgt:
+Ga als volgt te voor bereiden voor failover:
 
-- [Voorbereiden van uw infrastructuur en virtuele machines](#plan-infrastructure-and-vm-connectivity) zodat uw workloads na een failover beschikbaar en zodat gebruikers toegang hebben tot de Azure VM's.
-- Houd er rekening mee de [failover limieten](#failover-limits) eerder in dit document. Zorg ervoor dat uw failovers valt binnen deze limieten.
-- Voer regelmatig [noodhersteloefeningen](site-recovery-test-failover-to-azure.md). Zoomt u in de help voor:
-    - Hiaten in uw implementatie voordat de failover.
-    - Maak een schatting van de RTO end-to-end voor uw apps.
-    - Maak een schatting van de RPO end-to-end voor uw workloads.
-    - IP-adres adresbereik veroorzaakt een conflict identificeren.
-    - Als u oefeningen uitvoert, wordt aangeraden dat u geen productienetwerken om de oefeningen gebruiken, Vermijd het gebruik van de dezelfde namen van subnetten in productie en testen netwerken en testfailovers na elke inzoomen opschonen.
+- [Bereid uw infra structuur en vm's](#plan-infrastructure-and-vm-connectivity) voor, zodat uw workloads na een failover beschikbaar zijn, zodat gebruikers toegang hebben tot de Azure-vm's.
+- Let op de [failover](#failover-limits) -limieten eerder in dit document. Zorg ervoor dat de failover binnen deze limieten valt.
+- Voer regel matig [nood herstel oefeningen](site-recovery-test-failover-to-azure.md)uit. Zoomt in op de volgende onderwerpen:
+    - Zoek hiaten in uw implementatie voor een failover.
+    - U kunt end-to-end-RTO voor uw apps ramen.
+    - Een schatting maken van end-to-end RPO voor uw workloads.
+    - Conflicten met het IP-adres bereik identificeren.
+    - Bij het uitvoeren van oefeningen raden wij u aan om geen productie netwerken te gebruiken voor boren, Vermijd het gebruik van dezelfde subnet-namen in productie-en test netwerken en opschonen van testfailover na elke analyse.
 
-Als u wilt een grootschalige failover uitvoert, raden we het volgende:
+Als u een grootschalige failover wilt uitvoeren, raden we het volgende aan:
 
-1. Herstelplannen maken voor failover van werkbelastingen.
-    - Elk plan voor herstel kunt failover van maximaal 50 machines activeren.
-    - [Meer informatie](recovery-plan-overview.md) over plannen voor herstel.
-2. Azure Automation runbook scripts toevoegen aan herstelplannen, om een handmatige taken op Azure te automatiseren. Typische taken omvatten het configureren van load balancers, bijwerken DNS enzovoort. [Meer informatie](site-recovery-runbook-automation.md)
-2. Bereid voordat de failover, Windows-machines zodat deze aan de Azure-omgeving voldoen. [Failover-limieten](#plan-azure-subscriptions-and-quotas) hoger voor machines die in overeenstemming zijn. [Meer informatie](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) over runbooks.
-4.  Failover met activeren de [Start AzRecoveryServicesAsrPlannedFailoverJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) PowerShell-cmdlet, samen met een plan voor herstel.
+1. Herstel plannen maken voor failover van werk belasting.
+    - Elk herstel plan kan failover van Maxi maal 50 computers activeren.
+    - [Meer informatie](recovery-plan-overview.md) over herstel plannen.
+2. Azure Automation runbook-scripts toevoegen aan herstel plannen om hand matige taken in azure te automatiseren. Veelvoorkomende taken zijn onder andere het configureren van load balancers, het bijwerken van DNS, enzovoort. [Meer informatie](site-recovery-runbook-automation.md)
+2. Voor failover moet u Windows-computers voorbereiden zodat deze voldoen aan de Azure-omgeving. [Failover](#plan-azure-subscriptions-and-quotas) -limieten zijn hoger voor computers die voldoen aan het oog. Meer [informatie](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) over runbooks.
+4.  Activeer failover met de Power shell [-cmdlet start-AzRecoveryServicesAsrPlannedFailoverJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) , samen met een herstel plan.
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Monitor voor Site Recovery](site-recovery-monitor-and-troubleshoot.md)
+> [Site Recovery bewaken](site-recovery-monitor-and-troubleshoot.md)

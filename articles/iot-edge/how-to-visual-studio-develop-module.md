@@ -9,12 +9,12 @@ ms.date: 07/22/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c9fd286fd28d55318221177f69948c20ed1b935
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 0ed7d65601465a197cb4d7f92f500e1bf29ad8c2
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414467"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839669"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio 2019 gebruiken voor het ontwikkelen en opsporen van fouten in modules voor Azure IoT Edge
 
@@ -105,13 +105,13 @@ De Azure IoT Edge-projectsjabloon in Visual Studio maakt een project dat kan wor
 
 1. Selecteer **OK** om de Azure IOT EDGE oplossing te maken met een module die gebruikmaakt C# van ofwel of C.
 
-U hebt nu het project **AzureIoTEdgeApp1. Linux. amd64** of het project **AzureIoTEdgeApp1. Windows. amd64** en ook een **IoTEdgeModule1** -project in uw oplossing. Elk **AzureIoTEdgeApp1** -project bevat `deployment.template.json` een bestand waarin de modules worden gedefinieerd die u wilt bouwen en implementeren voor uw IOT EDGE-oplossing. ook worden de routes tussen modules gedefinieerd. De standaardoplossing heeft een **tempSensor** module en een **IoTEdgeModule1** module. De **temp sensor** -module genereert gesimuleerde gegevens in de **IoTEdgeModule1** -module, terwijl de standaard code in de module **IoTEdgeModule1** berichten direct pipet ontvangen op Azure IOT hub.
+U hebt nu het project **AzureIoTEdgeApp1. Linux. amd64** of het project **AzureIoTEdgeApp1. Windows. amd64** en ook een **IoTEdgeModule1** -project in uw oplossing. Elk **AzureIoTEdgeApp1** -project bevat `deployment.template.json` een bestand waarin de modules worden gedefinieerd die u wilt bouwen en implementeren voor uw IOT EDGE-oplossing. ook worden de routes tussen modules gedefinieerd. De standaard oplossing heeft een **SimulatedTemperatureSensor** -module en een **IoTEdgeModule1** -module. De **SimulatedTemperatureSensor** -module genereert gesimuleerde gegevens in de **IoTEdgeModule1** -module, terwijl de standaard code in de module **IoTEdgeModule1** berichten direct pipet ontvangen op Azure IOT hub.
 
 Het **IoTEdgeModule1** -project is een .net Core 2,1-console toepassing als dit C# een module is. Het bevat vereiste docker-bestanden die u nodig hebt voor uw IoT Edge-apparaat dat wordt uitgevoerd met een Windows-container of een Linux-container. In `module.json` het bestand worden de meta gegevens van een module beschreven. De daad werkelijke module code, waarmee de Azure IOT Device SDK als afhankelijkheid wordt gebruikt, is `Program.cs` te `main.c` vinden in het bestand of.
 
 ## <a name="develop-your-module"></a>Uw-module ontwikkelen
 
-De standaard module code die wordt geleverd bij de oplossing bevindt zich op **IoTEdgeModule1** > **Program.cs** (voor C#) of **Main. c** (c). De module en het `deployment.template.json` bestand zijn zo ingesteld dat u de oplossing kunt bouwen, deze naar het container register pusht en deze implementeert op een apparaat om te testen zonder dat u code hoeft te gebruiken. De module is gebouwd om invoer van een bron (in dit geval de **temp sensor** -module die gegevens simuleert) te maken en deze naar Azure IOT hub te door sluizen.
+De standaard module code die wordt geleverd bij de oplossing bevindt zich op **IoTEdgeModule1** > **Program.cs** (voor C#) of **Main. c** (c). De module en het `deployment.template.json` bestand zijn zo ingesteld dat u de oplossing kunt bouwen, deze naar het container register pusht en deze implementeert op een apparaat om te testen zonder dat u code hoeft te gebruiken. De module is gebouwd om invoer van een bron (in dit geval de **SimulatedTemperatureSensor** -module die gegevens simuleert) te maken en deze naar Azure IOT hub te door sluizen.
 
 Wanneer u klaar bent om de module sjabloon aan te passen met uw eigen code, gebruikt u de [Azure IOT hub sdk's](../iot-hub/iot-hub-devguide-sdks.md) om modules te bouwen die voldoen aan de belangrijkste behoeften van IOT-oplossingen, zoals beveiliging, Apparaatbeheer en betrouw baarheid.
 
@@ -172,9 +172,9 @@ Wanneer u klaar bent met het ontwikkelen van een enkele module, wilt u mogelijk 
     ```json
         "routes": {
           "IoTEdgeModule1ToIoTHub": "FROM /messages/modules/IoTEdgeModule1/outputs/* INTO $upstream",
-          "sensorToIoTEdgeModule1": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IoTEdgeModule1/inputs/input1\")",
+          "sensorToIoTEdgeModule1": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IoTEdgeModule1/inputs/input1\")",
           "IoTEdgeModule2ToIoTHub": "FROM /messages/modules/IoTEdgeModule2/outputs/* INTO $upstream",
-          "sensorToIoTEdgeModule2": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IoTEdgeModule2/inputs/input1\")"
+          "sensorToIoTEdgeModule2": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IoTEdgeModule2/inputs/input1\")"
         },
     ```
 
@@ -232,7 +232,7 @@ In dit snelstartartikel voor het instellen van uw IoT Edge-apparaat hebt u een m
    > [!NOTE]
    > U moet niet selecteren `$AzureIoTEdgeAppSolutionDir\config\deployment_for_local_debug.json`
 
-1. Klik op de knop Vernieuwen om de nieuwe modules samen met de **temp sensor** -module en **$edgeAgent** en **$edgeHub**weer te geven.
+1. Klik op de knop Vernieuwen om de nieuwe modules samen met de **SimulatedTemperatureSensor** -module en **$edgeAgent** en **$edgeHub**weer te geven.
 
 ## <a name="view-generated-data"></a>Gegenereerde gegevens weergeven
 

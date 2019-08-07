@@ -1,7 +1,7 @@
 ---
 title: Een werkruimte maken
 titleSuffix: Azure Machine Learning service
-description: De Azure-portal, de SDK, een sjabloon of de CLI gebruiken om te maken van de werkruimte van uw Azure Machine Learning-service. Deze werkruimte biedt een centrale locatie voor het werken met alle artefacten die u maakt wanneer u Azure Machine Learning-service.
+description: Gebruik de Azure Portal, de SDK, een sjabloon of de CLI om uw Azure Machine Learning service-werk ruimte te maken. Deze werk ruimte biedt een centrale locatie voor het werken met alle artefacten die u maakt wanneer u Azure Machine Learning-service gebruikt.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,30 +10,30 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 36f3d421ee0b41a0ff71b549a4d4b5646188c3fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d689b51a53a27a0e85a52724752d959c4c2506d
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417348"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775053"
 ---
-# <a name="create-an-azure-machine-learning-service-workspace"></a>Een Azure Machine Learning-service-werkruimte maken
+# <a name="create-an-azure-machine-learning-service-workspace"></a>Een Azure Machine Learning service-werk ruimte maken
 
-Voor het gebruik van Azure Machine Learning-service, moet u een [ **werkruimte van Azure Machine Learning-service**](concept-workspace.md).  Deze werkruimte is de resource op het hoogste niveau voor de service en biedt u een centrale locatie voor het werken met alle artefacten die u maakt. 
+Als u Azure Machine Learning-service wilt gebruiken, hebt u een [**Azure machine learning service-werk ruimte**](concept-workspace.md)nodig.  Deze werk ruimte is de resource op het hoogste niveau voor de service en biedt u een centrale locatie voor het werken met alle artefacten die u maakt. 
 
-In dit artikel leert u hoe u een werkruimte maken met behulp van deze methoden: 
-* De [Azure-portal](#portal) interface
-* De [Azure Machine Learning-SDK voor Python](#sdk)
-* Een Azure Resource Manager-sjabloon
-* De [Azure Machine Learning CLI](#cli)
+In dit artikel leert u hoe u een werk ruimte maakt met behulp van een van de volgende methoden: 
+* De [Azure Portal](#portal) -interface
+* De [Azure machine learning SDK voor python](#sdk)
+* Een Azure Resource Manager sjabloon
+* De [Azure machine learning cli](#cli)
 
-De werkruimte die u maakt met behulp van de stappen die u hier in kan worden gebruikt als een vereiste voor andere zelfstudies en artikelen met procedures.
+De werk ruimte die u maakt met behulp van de hier beschreven stappen, kunnen worden gebruikt als een vereiste voor andere zelf studies en artikelen met instructies.
 
-Als u een script gebruiken wilt voor het instellen van geautomatiseerde machine learning in een lokale Python-omgeving raadpleegt u de [Azure/MachineLearningNotebooks GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) voor instructies.  
+Als u een script wilt gebruiken om automatische machine learning in te stellen in een lokale python-omgeving raadpleegt u de [Azure-MachineLearningNotebooks github](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) voor instructies.  
 
-Wanneer u een werkruimte maakt zijn de volgende Azure-resources automatisch (als ze regionaal beschikbaar) toegevoegd:
+Wanneer u een werk ruimte maakt, worden de volgende Azure-resources automatisch toegevoegd (als deze regionaal beschikbaar zijn):
  
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Als u wilt kosten kunt minimaliseren, de ACR is **langzaam geladen** tot implementatie-installatiekopieën worden gemaakt.
+- [Azure container Registry](https://azure.microsoft.com/services/container-registry/): Om de kosten te minimaliseren, wordt ACR **Lazy geladen** totdat implementatie installatie kopieën zijn gemaakt.
 - [Azure Storage](https://azure.microsoft.com/services/storage/)
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
@@ -45,27 +45,27 @@ Wanneer u een werkruimte maakt zijn de volgende Azure-resources automatisch (als
 ## <a name="prerequisites"></a>Vereisten
 Een werkruimte te maken, moet u een Azure-abonnement. Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
-## <a name="portal"></a> Azure-portal
+## <a name="portal"></a>Azure Portal
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-Ongeacht hoe het is gemaakt, vindt u uw werkruimte in de [Azure-portal](https://portal.azure.com/).  Zie [weergeven van een werkruimte](how-to-manage-workspace.md#view) voor meer informatie.
+Ongeacht hoe de app is gemaakt, kunt u uw werk ruimte weer geven in de [Azure Portal](https://portal.azure.com/).  Zie [een werk ruimte weer geven](how-to-manage-workspace.md#view) voor meer informatie.
 
-## <a name="sdk"></a> Python-SDK
+## <a name="sdk"></a>Python-SDK
 
-Maak uw werkruimte met behulp van de Python-SDK. U moet eerst de SDK te installeren.
+Maak uw werk ruimte met behulp van de python-SDK. Eerst moet u de SDK installeren.
 
 > [!IMPORTANT]
-> Installatie van de SDK overslaan als u een Azure Data Science Virtual Machine of een Azure Databricks gebruiken.
-> * Op Data Science Virtual Machines die zijn gemaakt na 27 september 2018 is de Python SDK al geïnstalleerd. De installatie overslaan en beginnen met [een werkruimte maken met de SDK](#sdk-create).
+> Sla de installatie van de SDK over als u een Azure Data Science Virtual Machine of Azure Databricks gebruikt.
+> * Op Data Science Virtual Machines die zijn gemaakt na 27 september 2018 is de Python SDK al geïnstalleerd. Sla de installatie over en begin met [het maken van een werk ruimte met de SDK](#sdk-create).
 > * Gebruik in de Azure Databricks-omgeving in plaats daarvan de [Databricks-installatiestappen](how-to-configure-environment.md#azure-databricks).
 
 >[!NOTE]
-> Volg deze instructies om te installeren en gebruik de SDK van de lokale computer. Voor het gebruik van Jupyter op een externe virtuele machine, instellen van een externe bureaublad of X-terminal-sessie.
+> Gebruik deze instructies voor het installeren en gebruiken van de SDK vanaf uw lokale computer. Als u Jupyter op een externe virtuele machine wilt gebruiken, stelt u een extern bureau blad-of X-terminal sessie in.
 
 Voordat u de SDK installeert, raden we u aan om een geïsoleerde omgeving voor Python te maken. In dit artikel wordt [Miniconda](https://docs.conda.io/en/latest/miniconda.html) gebruikt, maar u kunt ook gebruikmaken van volledig geïnstalleerde [Anaconda](https://www.anaconda.com/) of [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
-De instructies in dit artikel installeert alle pakketten die u wilt uitvoeren van de Quick Start- en -zelfstudie-notebooks.  Voor andere voorbeeldnotebooks moeten mogelijk extra onderdelen worden geïnstalleerd.  Zie [De Azure Machine Learning-SDK voor Python installeren](https://docs.microsoft.com/python/api/overview/azure/ml/install) voor meer informatie over deze onderdelen.
+Met de instructies in dit artikel worden alle pakketten geïnstalleerd die u nodig hebt om de notitie blokken Snelstartgids en zelf studie uit te voeren.  Voor andere voorbeeldnotebooks moeten mogelijk extra onderdelen worden geïnstalleerd.  Zie [De Azure Machine Learning-SDK voor Python installeren](https://docs.microsoft.com/python/api/overview/azure/ml/install) voor meer informatie over deze onderdelen.
 
 ### <a name="install-miniconda"></a>Miniconda installeren
 
@@ -73,7 +73,7 @@ De instructies in dit artikel installeert alle pakketten die u wilt uitvoeren va
 
 ### <a name="create-an-isolated-python-environment"></a>Een geïsoleerde omgeving voor Python maken
 
-1. Open Anaconda vragen en maak een nieuwe conda-omgeving met de naam *myenv* en installeer Python 3.6.5. Azure Machine Learning SDK werkt met Python 3.5.2 of hoger, maar de geautomatiseerde Machine Learning-onderdelen zijn niet volledig functioneel in Python 3.7.  Het duurt enkele minuten om de omgeving te maken terwijl onderdelen en pakketten worden gedownload. 
+1. Open Anaconda prompt en maak een nieuwe Conda-omgeving met de naam *myenv* en installeer Python 3.6.5. Azure Machine Learning SDK werkt met Python 3.5.2 of hoger, maar de geautomatiseerde Machine Learning-onderdelen zijn niet volledig functioneel in Python 3.7.  Het duurt enkele minuten om de omgeving te maken terwijl onderdelen en pakketten worden gedownload. 
 
     ```shell
     conda create -n myenv python=3.6.5
@@ -118,12 +118,12 @@ De instructies in dit artikel installeert alle pakketten die u wilt uitvoeren va
     ```
 
 > [!IMPORTANT]
-> In sommige opdrachtregelprogramma's moet u mogelijk tussen aanhalingstekens als volgt toevoegen:
+> In sommige opdracht regel Programma's moet u mogelijk aanhalings tekens als volgt toevoegen:
 > *  'azureml-sdk[notebooks]'
 > * 'azureml-sdk[automl]'
 >
 
-### <a name='sdk-create'></a> Een werkruimte maken met de SDK
+### <a name='sdk-create'></a>Een werk ruimte maken met de SDK
 
 Maak uw werkruimte in een Jupyter Notebook met behulp van de Python SDK.
 
@@ -141,7 +141,7 @@ Maak uw werkruimte in een Jupyter Notebook met behulp van de Python SDK.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=import)]
 
-1. Zoek een waarde voor de `<azure-subscription-id>`-parameter in de [-abonnementenlijst in Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). U kunt elk abonnement gebruiken waarvoor u de rol eigenaar of bijdrager hebt. Zie voor meer informatie over rollen [toegang tot een Azure Machine Learning-werkruimte beheren](how-to-assign-roles.md) artikel.
+1. Zoek een waarde voor de `<azure-subscription-id>`-parameter in de [-abonnementenlijst in Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). U kunt elk abonnement gebruiken waarvoor u de rol eigenaar of bijdrager hebt. Zie [toegang tot een Azure machine learning werkruimte artikel beheren](how-to-assign-roles.md) voor meer informatie over rollen.
 
    ```python
    from azureml.core import Workspace
@@ -162,13 +162,13 @@ Maak uw werkruimte in een Jupyter Notebook met behulp van de Python SDK.
 
 ### <a name="write-a-configuration-file"></a>Een configuratiebestand schrijven
 
-Sla de details van uw werkruimte in een configuratiebestand op in de huidige map. Dit bestand wordt aangeroepen *.azureml/config.json*.  
+Sla de details van uw werkruimte in een configuratiebestand op in de huidige map. Dit bestand heet *. azureml/config. json*.  
 
-Dit configuratiebestand van de werkruimte maakt het eenvoudig om dezelfde werkruimte later te laden. U kunt deze laden met andere notitieblokken en -scripts in dezelfde map of in een submap met de code `ws=Workspace.from_config()` . 
+Dit configuratiebestand van de werkruimte maakt het eenvoudig om dezelfde werkruimte later te laden. U kunt deze met behulp van de code `ws=Workspace.from_config()` laden met andere notitie blokken en scripts in dezelfde map of een submap. 
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
-Door deze `write_config()`-API aan te roepen, wordt het configuratiebestand in de huidige map gemaakt. De *.azureml/config.json* -bestand bevat het volgende:
+Door deze `write_config()`-API aan te roepen, wordt het configuratiebestand in de huidige map gemaakt. Het bestand *. azureml/config. json* bevat het volgende:
 
 ```json
 {
@@ -179,16 +179,16 @@ Door deze `write_config()`-API aan te roepen, wordt het configuratiebestand in d
 ```
 
 > [!TIP]
-> Voor het gebruik van uw werkruimte in de Python-scripts of Jupyter-Notebooks zich in andere directory's, moet u dit bestand kopiëren naar die map. Het bestand kan worden in dezelfde map, een submap met de naam *.azureml*, of in een bovenliggende map.
+> Als u uw werk ruimte wilt gebruiken in python-scripts of Jupyter-notebooks die zich in andere directory's bevinden, kopieert u dit bestand naar die map. Het bestand kan zich in dezelfde map bevindt, een submap met de naam *. azureml*of in een bovenliggende map.
 
-## <a name="resource-manager-template"></a>Resource manager-sjabloon
+## <a name="resource-manager-template"></a>Resource Manager-sjabloon
 
-Zie voor informatie over het maken van een werkruimte met een sjabloon [maken van een werkruimte van Azure Machine Learning-service met behulp van een sjabloon](how-to-create-workspace-template.md)
+Zie een [Azure machine learning service-werk ruimte maken met behulp van een sjabloon](how-to-create-workspace-template.md) om een werk ruimte met een sjabloon te maken
 
 <a name="cli"></a>
-## <a name="command-line-interface"></a>Opdrachtregelinterface
+## <a name="command-line-interface"></a>Opdracht regel interface
 
-Zie voor informatie over het maken van een werkruimte met de CLI [gebruikt u de CLI-extensie voor Azure Machine Learning-service](reference-azure-machine-learning-cli.md).
+Als u een werk ruimte met de CLI wilt maken, raadpleegt [u de CLI-uitbrei ding voor de Azure machine learning-service gebruiken](reference-azure-machine-learning-cli.md).
 
 ## <a name="clean-up-resources"></a>Resources opschonen 
 
@@ -196,15 +196,14 @@ Zie voor informatie over het maken van een werkruimte met de CLI [gebruikt u de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Ongeacht hoe het is gemaakt, vindt u uw werkruimte in de [Azure-portal](https://portal.azure.com/).  Zie [weergeven van een werkruimte](how-to-manage-workspace.md#view) voor meer informatie.
+* Ongeacht hoe de app is gemaakt, kunt u uw werk ruimte weer geven in de [Azure Portal](https://portal.azure.com/).  Zie [een werk ruimte weer geven](how-to-manage-workspace.md#view) voor meer informatie.
 
-* Probeer uit uw werkruimte met deze snelstartgidsen en zelfstudies.
+* Probeer uw werk ruimte uit met deze zelf studies.
 
-    * Quickstart: [Jupyter-notebook in de cloud uitvoeren](quickstart-run-cloud-notebook.md).
-    * Quickstart: [Jupyter-notebook uitvoert op uw eigen server](quickstart-run-local-notebook.md).
-    * Tweedelige zelfstudie: [Train](tutorial-train-models-with-aml.md) en [implementeren](tutorial-deploy-models-with-aml.md) de modus van een installatiekopie-classificatie.
-    * Tweedelige zelfstudie: [Gegevens voorbereiden](tutorial-data-prep.md) en [geautomatiseerde machine learning gebruiken](tutorial-auto-train-models.md) aan het bouwen van een regressiemodel.
+    * Zelf studie met twee delen: [Stel de omgeving en werk ruimte](tutorial-1st-experiment-sdk-setup.md) in en [Train uw eerste model](tutorial-1st-experiment-sdk-train.md).
+    * Zelf studie met twee delen: [Train](tutorial-train-models-with-aml.md) en [Implementeer](tutorial-deploy-models-with-aml.md) een afbeeldings classificatie modus.
+    * Zelf studie met twee delen: [Gegevens voorbereiden](tutorial-data-prep.md) en [geautomatiseerd machine learning gebruiken](tutorial-auto-train-models.md) om een regressie model samen te stellen.
 
-* Meer informatie over het [een ontwikkelomgeving configureren](how-to-configure-environment.md).
+* Meer informatie over het [configureren van een ontwikkel omgeving](how-to-configure-environment.md).
 
-* Meer informatie over de [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk).
+* Meer informatie over de [Azure machine learning SDK voor python](https://aka.ms/aml-sdk).

@@ -1,92 +1,92 @@
 ---
-title: Status van de indexeerfunctie en resultaten - Azure Search controleren
-description: Controleer de status, voortgang en resultaten van Azure Search-indexeerfuncties in Azure portal, met behulp van de REST-API of de .NET SDK.
+title: De status en resultaten van de Indexeer functie controleren-Azure Search
+description: De status, voortgang en resultaten van Azure Search Indexeer functies in de Azure Portal bewaken met behulp van de REST API of de .NET SDK.
 ms.date: 06/28/2019
 author: RobDixon22
 manager: HeidiSteen
-ms.author: v-rodixo
+ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 07b4fe2ef830c3ce09b655cf4b433d14923229a9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 52e9e96598f429bcd57bba23d035d0d341731a9c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67486283"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840746"
 ---
-# <a name="how-to-monitor-azure-search-indexer-status-and-results"></a>Status van de indexeerfunctie Azure Search en de resultaten controleren
+# <a name="how-to-monitor-azure-search-indexer-status-and-results"></a>Azure Search Indexeer functie-status en-resultaten controleren
 
-Azure Search biedt status- en informatie over de huidige en historische uitvoeringen van elke indexeerfunctie bewaking.
+Azure Search biedt status-en controle gegevens over de huidige en historische uitvoeringen van elke Indexeer functie.
 
-Bewaking van de indexeerfunctie is handig als u wilt:
+De controle van de Indexeer functie is handig wanneer u het volgende wilt doen:
 
-* Spoor de voortgang van een indexeerfunctie tijdens een doorlopend worden uitgevoerd.
-* Bekijk de resultaten van doorlopende of vorige uitvoerbewerking van de indexeerfunctie.
-* Op het hoogste niveau indexeerfunctie identificeren fouten, en fouten of waarschuwingen over afzonderlijke documenten worden geïndexeerd.
+* De voortgang van een Indexeer functie tijdens een doorlopende uitvoering volgen.
+* Bekijk de resultaten van de lopende of vorige uitvoering van de Indexeer functie.
+* Identificeer indexerings fouten op het hoogste niveau en fouten of waarschuwingen over afzonderlijke documenten die worden geïndexeerd.
 
-## <a name="find-indexer-status-and-history-details"></a>Indexeerfunctie status en geschiedenis van meer informatie te vinden
+## <a name="find-indexer-status-and-history-details"></a>De Indexeer functie-status en geschiedenis details zoeken
 
-U kunt toegang tot bewakingsgegevens op verschillende manieren, met inbegrip van indexeerfunctie:
+U kunt de gegevens van de Indexeer functie op verschillende manieren openen, zoals:
 
 * In [Azure Portal](#portal)
-* Met behulp van de [REST-API](#restapi)
-* Met behulp van de [.NET SDK](#dotnetsdk)
+* De [rest API](#restapi) gebruiken
+* De [.NET-SDK](#dotnetsdk) gebruiken
 
-Beschikbare indexeerfunctie controlegegevens bevat alle volgende (Hoewel de gegevens indelingen verschillen op basis van de access-methode gebruikt):
+De beschik bare bewakings gegevens voor indexeringen bevatten alle volgende (hoewel de gegevens indelingen verschillen op basis van de gebruikte toegangs methode):
 
-* Statusinformatie over de indexeerfunctie zelf
-* Informatie over de meest recente uitvoering van de indexeerfunctie, met inbegrip van de status, begin en einde keren, en gedetailleerde fouten en waarschuwingen.
-* Een lijst met historische indexeerfunctie wordt uitgevoerd, en hun status, resultaten, fouten en waarschuwingen.
+* Status informatie over de Indexeer functie zelf
+* Informatie over de meest recente uitvoering van de Indexeer functie, met inbegrip van de status, start-en eind tijden, en gedetailleerde fouten en waarschuwingen.
+* Een lijst met historische Indexeer functies en de bijbehorende status, resultaten, fouten en waarschuwingen.
 
-Indexeerfuncties die grote hoeveelheden gegevens verwerken kunnen erg lang duren om uit te voeren. Indexeerfuncties die verwerking van miljoenen brondocumenten kunnen bijvoorbeeld 24 uur uitgevoerd en vervolgens bijna onmiddellijk opnieuw opgestart. De status van hoge volumes indexeerfuncties altijd mogelijk staat **In voortgang** in de portal. Zelfs als een indexeerfunctie wordt uitgevoerd, wordt informatie over de voortgang van de actieve en eerdere uitvoeringen vindt.
+Indexeer functies die grote hoeveel heden gegevens verwerken, kunnen veel tijd in beslag nemen. Indexeer functies die miljoenen bron documenten verwerken, kunnen bijvoorbeeld 24 uur worden uitgevoerd en bijna onmiddellijk opnieuw worden opgestart. De status voor Indexeer functies met een hoog volume wordt mogelijk altijd in de portal **uitgevoerd** . Zelfs wanneer een Indexeer functie wordt uitgevoerd, zijn er details beschikbaar over lopende voortgang en eerdere uitvoeringen.
 
 <a name="portal"></a>
 
-## <a name="monitor-indexers-in-the-portal"></a>Monitor indexeerfuncties in de portal
+## <a name="monitor-indexers-in-the-portal"></a>Indexeer functies in de portal bewaken
 
-U ziet de huidige status van al uw indexeerfuncties in de **indexeerfuncties** lijst op de pagina overzicht van uw zoekservice.
+U kunt de huidige status van al uw Indexeer functies weer geven in de lijst **Indexeer functies** op de pagina overzicht van de zoek service.
 
-   ![Lijst met indexeerfuncties](media/search-monitor-indexers/indexers-list.png "lijst met indexeerfuncties")
+   ![Lijst met Indexeer functies](media/search-monitor-indexers/indexers-list.png "Lijst met Indexeer functies")
 
-Wanneer een indexeerfunctie wordt uitgevoerd, de status in de lijst wordt aangegeven **In voortgang**, en de **Docs is geslaagd** waarde geeft het aantal documenten dat tot nu toe is verwerkt. Duurt het enkele minuten duren voordat de portal voor het bijwerken van de indexeerfunctie statuswaarden en document telt.
+Wanneer een Indexeer functie wordt uitgevoerd, wordt de status in de lijst weergegeven en wordt de waarde **docs geslaagd** toont het aantal documenten dat tot nu toe is verwerkt. Het kan een paar minuten duren voordat de index status waarden en het aantal documenten zijn bijgewerkt door de portal.
 
-Een indexeerfunctie waarvan de meest recente uitvoering geslaagd toont is **succes**. Uitvoerbewerking van de indexeerfunctie kan worden uitgevoerd, zelfs als afzonderlijke documenten fouten bevatten, als het aantal fouten kleiner dan van de indexeerfunctie is **maximaal aantal mislukt items** instelling.
+Een Indexeer functie waarvan de meest recente uitvoering is geslaagd, is geslaagd. Het uitvoeren van een Indexeer functie kan worden geslaagd, zelfs als afzonderlijke documenten fouten bevatten, als het aantal fouten minder is dan de instelling **maximale mislukte items** van de Indexeer functie.
 
-Als de meest recente uitvoering is beëindigd met een fout, ziet u de status **mislukt**. De status van **opnieuw** betekent dat staat voor bijhouden van de indexeerfunctie is opnieuw ingesteld.
+Als de meest recente uitvoering **is**beëindigd met een fout, wordt de status weer gegeven. Als de status **opnieuw instellen is ingesteld** , is de status van het bijhouden van wijzigingen van de Indexeer functie opnieuw ingesteld.
 
-Klik op een indexeerfunctie in de lijst voor meer informatie over van de indexeerfunctie huidige en recente wordt uitgevoerd.
+Klik op een Indexeer functie in de lijst om meer details weer te geven over de huidige en recente uitvoeringen van de Indexeer functie.
 
-   ![De geschiedenis van de samenvatting en uitvoering van de indexeerfunctie](media/search-monitor-indexers/indexer-summary.png "de geschiedenis van de samenvatting en uitvoering van de indexeerfunctie")
+   ![Overzicht van Indexeer functie en uitvoerings geschiedenis](media/search-monitor-indexers/indexer-summary.png "Overzicht van Indexeer functie en uitvoerings geschiedenis")
 
-De **indexeerfunctie samenvatting** grafiek geeft een grafiek van het aantal documenten in de meest recente uitvoerbewerkingen verwerkt.
+In de samenvattings grafiek van de **Indexeer functie** wordt een grafiek weer gegeven van het aantal documenten dat is verwerkt in de meest recente uitvoeringen.
 
-De **uitvoeringsdetails** lijst bevat maximaal 50 van de meest recente uitvoering resultaten.
+In de lijst **uitvoerings Details** worden maxi maal 50 van de meest recente uitvoerings resultaten weer gegeven.
 
-Klik op een resultaat kan worden uitgevoerd in de lijst om te zien van specifieke informatie over die worden uitgevoerd. Dit omvat de start en eindtijd ervan, en eventuele fouten en waarschuwingen die zijn opgetreden.
+Klik op een uitvoer resultaat in de lijst om specifieke informatie over die uitvoering weer te geven. Dit geldt ook voor de start-en eind tijden en eventuele fouten en waarschuwingen die zijn opgetreden.
 
-   ![Details van uitvoering van indexeerfunctie](media/search-monitor-indexers/indexer-execution.png "details van uitvoering van indexeerfunctie")
+   ![Details van de uitvoering van de Indexeer functie](media/search-monitor-indexers/indexer-execution.png "Details van de uitvoering van de Indexeer functie")
 
-Als er document-specifieke problemen tijdens de uitvoering waren, wordt deze weergegeven in de velden fouten en waarschuwingen.
+Als er tijdens de uitvoering Documentspecifieke problemen zijn, worden deze weer gegeven in de velden fouten en waarschuwingen.
 
-   ![Details van de indexeerfunctie met fouten](media/search-monitor-indexers/indexer-execution-error.png "details van de indexeerfunctie met fouten")
+   ![Details van Indexeer functie met fouten](media/search-monitor-indexers/indexer-execution-error.png "Details van Indexeer functie met fouten")
 
-Waarschuwingen met bepaalde typen indexeerfuncties gemeenschappelijk zijn en niet altijd duidt op een probleem. Indexeerfuncties die gebruikmaken van cognitive services kunnen bijvoorbeeld waarschuwingen rapporteren wanneer de installatiekopie of een PDF-bestanden bevatten geen tekst om te verwerken.
+Waarschuwingen zijn gebruikelijk met bepaalde typen Indexeer functies en geven niet altijd een probleem aan. Bijvoorbeeld Indexeer functies die gebruikmaken van cognitieve Services kunnen waarschuwingen rapporteren wanneer afbeeldings-of PDF-bestanden geen tekst bevatten die moeten worden verwerkt.
 
-Zie voor meer informatie over het onderzoeken van indexeerfunctie fouten en waarschuwingen [het oplossen van veelvoorkomende problemen met indexeerfunctie in Azure Search](search-indexer-troubleshooting.md).
+Zie problemen [met algemene Indexeer functies oplossen in azure Search](search-indexer-troubleshooting.md)voor meer informatie over het onderzoeken van fouten en waarschuwingen voor Indexeer functies.
 
 <a name="restapi"></a>
 
-## <a name="monitor-indexers-using-the-rest-api"></a>Bewaken met behulp van de REST-API indexeerfuncties
+## <a name="monitor-indexers-using-the-rest-api"></a>Indexeer functies bewaken met behulp van de REST API
 
-U kunt de geschiedenis van status en de uitvoering van het gebruik van een indexeerfunctie ophalen de [indexeerfunctie Status ophalen-opdracht](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
+U kunt de status en de uitvoerings geschiedenis van een Indexeer functie ophalen met behulp van de [opdracht Get Indexing-status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
 
     GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2019-05-06
     api-key: [Search service admin key]
 
-Het antwoord bevat de algemene status van de indexeerfunctie, het laatste (of in uitvoering) indexer-aanroepen en de geschiedenis van recente indexeerfunctie aanroepen.
+Het antwoord bevat de algemene status van de Indexeer functie, de laatste (of in uitvoering zijnde) indexerings aanroep en de geschiedenis van recente Indexeer functie-aanroepen.
 
     {
         "status":"running",
@@ -114,23 +114,23 @@ Het antwoord bevat de algemene status van de indexeerfunctie, het laatste (of in
         }]
     }
 
-Uitvoeringsgeschiedenis bevat maximaal de 50 meest recente uitgevoerd die zijn gesorteerd in omgekeerde volgorde (meest recente eerst).
+De uitvoerings geschiedenis bevat tot de 50 meest recente uitvoeringen, die in omgekeerde chronologische volg orde (meest recent eerst) worden gesorteerd.
 
-Let op: Er zijn twee verschillende statussen. De status op het hoogste niveau is voor de indexeerfunctie zelf. De status van een indexeerfunctie van **met** betekent dat de indexeerfunctie juist is ingesteld en worden uitgevoerd, maar niet dat deze de momenteel uitgevoerd.
+Houd er rekening mee dat er twee verschillende status waarden zijn. De status op het hoogste niveau is voor de Indexeer functie zelf. Een Indexeer functie-status van **actief** betekent dat de Indexeer functie op de juiste wijze is ingesteld en kan worden uitgevoerd, maar niet dat deze op dat moment wordt uitgevoerd.
 
-Elke uitvoering van de indexeerfunctie heeft ook een eigen status die aangeeft of deze specifieke uitvoering lopende (**met**), of al is voltooid met een **succes**, **transientFailure**, of **persistentFailure** status. 
+Elke uitvoering van de Indexeer functie heeft ook een eigen status die aangeeft of de specifieke uitvoering**actief**is (wordt uitgevoerd) of al is voltooid met de status **geslaagd**, **transientFailure**of **persistentFailure** . 
 
-Wanneer een indexeerfunctie opnieuw wordt ingesteld om te vernieuwen van de status van de bijhouden, een uitvoering van afzonderlijke vermelding wordt toegevoegd met een **opnieuw** status.
+Wanneer een Indexeer functie opnieuw wordt ingesteld om de status van het bijhouden van wijzigingen te vernieuwen, wordt een afzonderlijke vermelding voor de uitvoerings geschiedenis toegevoegd met de status **opnieuw instellen** .
 
-Zie voor meer informatie over statuscodes en indexeerfunctie bewakingsgegevens [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+Zie [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)voor meer informatie over de status codes en de bewakings gegevens van de Indexeer functie.
 
 <a name="dotnetsdk"></a>
 
-## <a name="monitor-indexers-using-the-net-sdk"></a>Bewaken met behulp van de .NET SDK indexeerfuncties
+## <a name="monitor-indexers-using-the-net-sdk"></a>Indexeer functies bewaken met behulp van de .NET SDK
 
-U kunt het schema voor een indexeerfunctie met behulp van de Azure Search .NET SDK definiëren. Om dit te doen, bevatten de **planning** eigenschap bij het maken of bijwerken van een indexeerfunctie.
+U kunt het schema voor een Indexeer functie definiëren met behulp van de Azure Search .NET SDK. Hiertoe neemt u de eigenschap **schema** op wanneer u een Indexeer functie maakt of bijwerkt.
 
-De volgende C# voorbeeld schrijft u informatie over de status van een indexeerfunctie en de resultaten van de meest recente (of lopende) worden uitgevoerd in de console.
+In het C# volgende voor beeld wordt informatie over de status van een Indexeer functie en de resultaten van de meest recente (of doorlopende) uitvoering naar de-console geschreven.
 
 ```csharp
 static void CheckIndexerStatus(Indexer indexer, SearchServiceClient searchService)
@@ -162,7 +162,7 @@ static void CheckIndexerStatus(Indexer indexer, SearchServiceClient searchServic
 }
 ```
 
-De uitvoer in de console ziet er ongeveer als volgt:
+De uitvoer in de-console ziet er ongeveer als volgt uit:
 
     Indexer has run 18 times.
     Indexer Status: Running
@@ -173,14 +173,14 @@ De uitvoer in de console ziet er ongeveer als volgt:
       ErrorMessage: none
       Document Errors: 0, Warnings: 0
 
-Let op: Er zijn twee verschillende statussen. De status van de op het hoogste niveau is de status van de indexeerfunctie zelf. De status van een indexeerfunctie van **met** betekent dat de indexeerfunctie juist is ingesteld en beschikbaar voor uitvoering, maar niet dat deze wordt momenteel uitgevoerd.
+Houd er rekening mee dat er twee verschillende status waarden zijn. De status op het hoogste niveau is de status van de Indexeer functie zelf. Een Indexeer functie-status van **actief** betekent dat de Indexeer functie juist is ingesteld en beschikbaar is voor uitvoering, maar niet dat deze momenteel wordt uitgevoerd.
 
-Elke uitvoering van de indexeerfunctie heeft ook een eigen status voor of die specifieke uitvoering momenteel wordt (**met**), of al is voltooid met een **succes** of **TransientError** de status. 
+Elke uitvoering van de Indexeer functie heeft ook een eigen status om te bepalen of die specifieke uitvoering actief is (wordt**uitgevoerd**) of al is voltooid met de status **geslaagd** of **TransientError** . 
 
-Wanneer een indexeerfunctie opnieuw wordt ingesteld om te vernieuwen van de status van de bijhouden, een afzonderlijke vermelding wordt toegevoegd met een **opnieuw** status.
+Wanneer een Indexeer functie opnieuw wordt ingesteld om de status van het bijhouden van wijzigingen te vernieuwen, wordt een afzonderlijk geschiedenis item toegevoegd met de status **opnieuw instellen** .
 
-Zie voor meer informatie over statuscodes en indexeerfunctie controlegegevens [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) in de REST-API.
+Zie [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) in de rest API voor meer informatie over de status codes en de bewakings gegevens van de Indexeer functie.
 
-Meer informatie over de document-specifieke fouten of waarschuwingen kunnen worden opgehaald met het inventariseren van de lijsten `IndexerExecutionResult.Errors` en `IndexerExecutionResult.Warnings`.
+Details van Documentspecifieke fouten of waarschuwingen kunnen worden opgehaald door de lijsten `IndexerExecutionResult.Errors` en te `IndexerExecutionResult.Warnings`inventariseren.
 
-Zie voor meer informatie over de .NET SDK-klassen worden gebruikt voor het bewaken van indexeerfuncties [IndexerExecutionInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) en [IndexerExecutionResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).
+Zie [IndexerExecutionInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) en [IndexerExecutionResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet)voor meer informatie over de .NET SDK-klassen die worden gebruikt om Indexeer functies te controleren.

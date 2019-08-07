@@ -1,6 +1,6 @@
 ---
-title: Mogelijkheden in Azure Sentinel Preview jacht | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u de mogelijkheden van Azure Sentinel jacht gebruiken.
+title: Jacht-mogelijkheden in azure Sentinel preview | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u de Azure Sentinel-jacht-mogelijkheden kunt gebruiken.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -16,136 +16,136 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 23e7db25e5ebed2a23b4d38bcfe9597b77c6b04b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5e6ad3c0b415722349dc584434add1031b7c3cb1
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620748"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780466"
 ---
-# <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Hunt voor bedreigingen met Azure Sentinel Preview-versie
+# <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Zoeken naar bedreigingen met in azure Sentinel preview
 
 > [!IMPORTANT]
-> Azure Sentinel is momenteel in openbare preview.
+> Azure Sentinel is momenteel beschikbaar als open bare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-Als u een onderzoeker die wil proactief over beveiligingsrisico's op zoek bent, jacht Azure Sentinel krachtige zoek- en query's om te zoeken op beveiligingsrisico's in uw organisatie gegevensbronnen. Maar uw systemen en beveiligingsapparaten bergen van gegevens die moeilijk te parseren en te filteren in zinvolle gebeurtenissen worden gegenereerd. Voor de beveiliging analisten zoekt proactief nieuwe afwijkingen die niet zijn gedetecteerd door uw beveiligings-apps, Azure Sentinel' ingebouwde jacht query's helpen u bij de juiste vragen te vinden van problemen in de gegevens die u al in uw netwerk hebt. 
+Als u een onderzoeker bent die proactief wil zijn om te kijken naar beveiligings Risico's, worden de Azure Sentinel krachtige zoek-en query hulpprogramma's gebruikt om beveiligings Risico's te vinden in de gegevens bronnen van uw organisatie. Maar uw systemen en beveiligings apparaten genereren bergen van gegevens die moeilijk kunnen worden geparseerd en gefilterd in betekenis volle gebeurtenissen. Om beveiligings analisten proactief te bieden voor nieuwe afwijkingen die niet door uw beveiligings-apps zijn gedetecteerd, kunt u met de ingebouwde jacht-query's van Azure Sentinel de juiste vragen stellen om problemen op te sporen in de gegevens die u al in uw netwerk hebt. 
 
-Bijvoorbeeld, een ingebouwde query biedt gegevens over de meest ongebruikelijk processen die worden uitgevoerd op uw infrastructuur - u helemaal niet wilt dat een waarschuwing over telkens wanneer ze worden uitgevoerd, kan deze worden volledig onschuldig uitziet, maar kunt u eens in de query in bepaalde gevallen om te controleren of th ere's iets ongebruikelijke. 
+Eén ingebouwde query biedt bijvoorbeeld gegevens over de meest voorkomende processen die op uw infra structuur worden uitgevoerd. u wilt geen waarschuwing over elke keer dat ze worden uitgevoerd, maar het kan ook een goed idee zijn, maar het is aan te raden om de query bij te werken om te zien of th ere is iets ongebruikelijk. 
 
 
 
-Met Azure Sentinel jacht, kunt u profiteren van de volgende mogelijkheden:
+Met Azure Sentinel-jacht kunt u profiteren van de volgende mogelijkheden:
 
-- Ingebouwde query's: Als u aan de slag te gaan, biedt een introductiepagina vooraf geladen queryvoorbeelden die zijn ontworpen om u te helpen aan de slag en raken met de tabellen en de querytaal. Deze ingebouwde jacht query's zijn ontwikkeld door Microsoft-beveiligingsonderzoekers op continue basis toe te voegen nieuwe query's, en verder aanpassen bestaande query's bieden u een beginpunt voor het zoeken naar nieuwe detecties en nagaan waar u wilt zoeken naar beginnen de begin van nieuwe aanvallen. 
+- Ingebouwde query's: Om aan de slag te gaan, biedt een start pagina vooraf geladen query voorbeelden die zijn ontworpen om u op weg te helpen en u vertrouwd te raken met de tabellen en de query taal. Deze ingebouwde jacht-query's worden continu ontwikkeld door micro soft-beveiligings onderzoekers, het toevoegen van nieuwe query's en het afstemmen van bestaande query's om u een ingangs punt te bieden voor nieuwe detecties en te achterhalen waar u kunt zoeken naar de begin van nieuwe aanvallen. 
 
-- Krachtige querytaal met IntelliSense: Gebaseerd op een querytaal waarmee u beschikt over de flexibiliteit die u nodig hebt om te zoeken naar een hoger niveau.
+- Krachtige query taal met IntelliSense: Gebouwd op basis van een query taal die u de flexibiliteit biedt die u nodig hebt om naar het volgende niveau te gaan.
 
-- Maak uw eigen bladwijzers: Tijdens het zoeken kan u overeenkomsten of bevindingen, dashboards of activiteiten die ongebruikelijk of verdachte gehoord. Gebruik de bladwijzer-functionaliteit om deze items markeren, zodat u kunt later terugkeren naar deze in de toekomst. Bladwijzers kunnen u items opslaan voor later, om te worden gebruikt voor het maken van een aanvraag voor onderzoek. Zie voor meer informatie over bladwijzers gebruiken [bladwijzers in jacht].
+- Uw eigen blad wijzers maken: Tijdens het jacht-proces kunt u komen over overeenkomsten of bevindingen, Dash boards of activiteiten die er vreemd of verdacht uitzien. Als u deze items wilt markeren zodat u ze in de toekomst weer kunt gebruiken, gebruikt u de bladwijzer functionaliteit. Met blad wijzers kunt u items later opslaan, zodat u deze kunt gebruiken om een incident voor onderzoek te maken. Zie [blad wijzers in jacht] gebruiken voor meer informatie over blad wijzers.
 
-- Notitieblokken gebruiken voor het automatiseren van onderzoek: Notitieblokken zijn stapsgewijze playbooks die u helpt bij de stappen van een onderzoek naar en zoeken naar een baan kunt bouwen.  Notitieblokken bevatten alle jacht stappen in een herbruikbare playbook die kunnen worden gedeeld met anderen in uw organisatie. 
-- De opgeslagen gegevens op te vragen: De gegevens zijn toegankelijk in de tabellen voor u om op te vragen. U kunt bijvoorbeeld een query maken van het proces, DNS-gebeurtenissen en vele andere typen gebeurtenissen.
+- Notitie blokken gebruiken om onderzoek te automatiseren: Notebooks zijn net als stapsgewijze playbooks die u kunt maken om de stappen van een onderzoek en jacht te door lopen.  Notebooks bevatten alle jacht-stappen in een herbruikbare Playbook die kunnen worden gedeeld met anderen in uw organisatie. 
+- Query uitvoeren op de opgeslagen gegevens: De gegevens zijn toegankelijk in de tabellen die u wilt doorzoeken. U kunt bijvoorbeeld een query uitvoeren op proces maken, DNS-gebeurtenissen en veel andere gebeurtenis typen.
 
-- Koppelingen naar de community: Benut de kracht van de community groter te vinden van extra query's en gegevensbronnen.
+- Koppelingen naar Community: Maak gebruik van de kracht van de grotere Community om extra query's en gegevens bronnen te vinden.
  
-## <a name="get-started-hunting"></a>Aan de slag jacht
+## <a name="get-started-hunting"></a>Aan de slag met jacht
 
-1. Klik in de portal voor Azure Sentinel **jacht**.
-  ![Azure Sentinel jacht wordt gestart](media/tutorial-hunting/hunting-start.png)
+1. Klik in de Azure-Sentinel-Portal op **jacht**.
+  ![Azure Sentinel start-jacht](media/tutorial-hunting/hunting-start.png)
 
-2. Wanneer u opent de **jacht** pagina, de jacht query's worden weergegeven in een enkele tabel. De tabel geeft een lijst van alle query's die zijn geschreven door de Microsoft-team van beveiligingsanalisten, evenals eventuele extra query die u hebt gemaakt of gewijzigd. Elke query bevat een beschrijving van wat het voor hunts en wat voor soort gegevens op wordt uitgevoerd. Deze sjablonen zijn gegroepeerd op hun verschillende tactieken - de pictogrammen aan de rechterkant categoriseren van het type bedreigingen, zoals initiële toegang, persistentie en exfiltratie. U kunt deze jacht query sjablonen met behulp van een van de velden filteren. U kunt elke query aan uw favorieten opslaan. Door op te slaan een query aan uw Favorieten, door de query automatisch elke keer wordt uitgevoerd de **jacht** pagina wordt geopend. U kunt uw eigen jacht query of kloon maken en aanpassen van een bestaande sjabloon voor de query van zoeken. 
+2. Wanneer u de pagina **jacht** opent, worden alle Zoek opdrachten in één tabel weer gegeven. De tabel bevat een lijst met alle query's die zijn geschreven door het team van beveiligings analisten van micro soft, evenals de aanvullende query's die u hebt gemaakt of gewijzigd. Elke query bevat een beschrijving van de functie voor het zoeken naar en de soort gegevens waarop deze wordt uitgevoerd. Deze sjablonen worden gegroepeerd op hun verschillende tactiek-de pictogrammen aan de rechter kant categoriseren het type bedreiging, zoals initiële toegang, persistentie en exfiltration. U kunt deze jacht-query sjablonen filteren met behulp van een van de velden. U kunt elke query opslaan in uw favorieten. Als u een query opslaat in uw favorieten, wordt de query automatisch uitgevoerd telkens wanneer de pagina **jacht** wordt geopend. U kunt uw eigen zoek opdracht maken of een bestaande zoek opdracht sjabloon klonen en aanpassen. 
  
-2. Klik op **query uitvoeren** in de jacht Querydetails pagina voor het uitvoeren van query's zonder de jacht pagina af te sluiten.  Het aantal overeenkomsten wordt in de tabel weergegeven. Bekijk de lijst met jacht query's en hun overeenkomsten. Bekijk welke fase in de kill chain de overeenkomst gekoppeld is.
+2. Klik op **query uitvoeren** op de pagina met query Details van de jacht om query's uit te voeren zonder de pagina jacht te verlaten.  Het aantal overeenkomsten wordt weer gegeven in de tabel. Bekijk de lijst met jacht-query's en de bijbehorende overeenkomsten. Bekijk in welke fase van de Kill-keten de overeenkomst is gekoppeld.
 
-3. Een kort overzicht van de onderliggende query uitvoeren in het detailvenster van de query of klik op **queryresultaat weergeven** te openen van de query in Log Analytics. Bekijk de resultaten voor de query aan de onderkant.
+3. Voer een snelle controle uit van de onderliggende query in het detail venster van de query of klik op **query resultaten weer geven** om de query te openen in log Analytics. Controleer aan de hand van de overeenkomsten voor de query.
 
-4.  Klik op de rij en selecteer **toevoegen bladwijzer** om toe te voegen van de rijen moeten worden onderzocht - u kunt dit doen voor alles wat er verdacht uitziet. 
+4.  Klik op de rij en selecteer **blad wijzer toevoegen** om de rijen toe te voegen die u wilt onderzoeken. u kunt dit doen voor alles wat er verdacht uitziet. 
 
-5. Ga vervolgens terug naar het hoofdvenster **jacht** pagina en klik op de **bladwijzers** tabblad om te bekijken van alle verdachte activiteiten. 
+5. Ga vervolgens terug naar de hoofd pagina van de **jacht** en klik op het tabblad **blad wijzers** om alle verdachte activiteiten weer te geven. 
 
-6. Selecteer een bladwijzer en klik vervolgens op **onderzoeken** openen van de ervaring voor het onderzoeken. U kunt de bladwijzers filteren. Bijvoorbeeld, als u een campagne onderzoekt, kunt u een label voor de campagne maken en filter vervolgens de bladwijzers die op basis van de campagne.
+6. Selecteer een blad wijzer en klik vervolgens op **onderzoeken** om de ervaring van het onderzoek te openen. U kunt de blad wijzers filteren. Als u bijvoorbeeld een campagne onderzoekt, kunt u een tag voor de campagne maken en vervolgens alle blad wijzers filteren op basis van de campagne.
 
-1. Nadat u welke query jacht biedt waardevolle inzichten in het mogelijke aanvallen ontdekt, kunt u ook aangepaste detectie regels op basis van uw query en maak die inzichten duidelijk als waarschuwingen aan uw security incident beantwoorders maken.
+1. Nadat u hebt ontdekt welke zoek opdracht hoge waarde-inzichten biedt in mogelijke aanvallen, kunt u ook aangepaste detectie regels maken op basis van uw query en die inzichten als waarschuwingen voor uw beveiligings incident responders.
 
  
 
 ## <a name="query-language"></a>Querytaal 
 
-Zoeken in Azure Sentinel is gebaseerd op Azure Log Analytics-querytaal. Zie voor meer informatie over de querytaal en de ondersteunde operators [Query Language Reference](https://docs.loganalytics.io/docs/Language-Reference/).
+Jacht in azure Sentinel is gebaseerd op de query taal van Azure Log Analytics. Zie [Query Language Reference (Engelstalig](https://docs.loganalytics.io/docs/Language-Reference/)) voor meer informatie over de query taal en ondersteunde Opera tors.
 
-## <a name="public-hunting-query-github-repository"></a>Openbare jacht query GitHub-opslagplaats
+## <a name="public-hunting-query-github-repository"></a>GitHub-opslag plaats voor open bare jacht-query's
 
-Bekijk de [jacht query opslagplaats](https://github.com/Azure/Orion). Bijdragen en voorbeelden van query's gedeeld door onze klanten gebruiken.
+Bekijk de [Zoek opslagplaats](https://github.com/Azure/Orion)van de query. Deel bijdragen en gebruik voorbeeld query's die worden gedeeld door onze klanten.
 
  
 
-## <a name="sample-query"></a>Voorbeeldquery
+## <a name="sample-query"></a>Voorbeeld query
 
-Een typische query begint met een tabelnaam wordt opgegeven gevolgd door een reeks van operators, gescheiden door \|.
+Een typische query begint met een tabel naam gevolgd door een reeks Opera tors gescheiden door \|.
 
-In het voorbeeld hierboven, beginnen met de tabel een naam SecurityEvent en toevoegen van elementen doorgesluisd naar behoefte.
+In het bovenstaande voor beeld begint u met de tabel naam SecurityEvent en voegt u waar nodig gepipede elementen toe.
 
-1. Definieer een tijdfilter om te controleren van alleen de records van de afgelopen zeven dagen.
+1. Definieer een tijd filter om alleen records van de afgelopen zeven dagen te controleren.
 
 2. Een filter toevoegen in de query om alleen gebeurtenis-ID 4688 weer te geven.
 
-3. Een filter in de query op de opdrachtregel bevat alleen de exemplaren van cscript.exe toevoegen.
+3. Voeg in de query op de CommandLine een filter toe dat alleen exemplaren van cscript. exe bevat.
 
-4. Alleen de kolommen die u geïnteresseerd bent in het verkennen en de resultaten tot en met 1000, beperken en klikt u op project **query uitvoeren**.
-5. Klik op de groene driehoek en voer de query uit. U kunt de query testen en uitvoeren om te zoeken naar afwijkend gedrag.
+4. Projecteer alleen de kolommen die u wilt verkennen en beperk de resultaten tot 1000 en klik op **query uitvoeren**.
+5. Klik op het groene drie hoekje en voer de query uit. U kunt de query testen en uitvoeren om te zoeken naar afwijkend gedrag.
 
 ## <a name="useful-operators"></a>Nuttige operatoren
 
-De querytaal is een krachtig en bevat veel beschikbaar operators, enkele nuttige operators worden hier weergegeven:
+De query taal is krachtig en er zijn veel beschik bare Opera tors. sommige nuttige Opera tors worden hier weer gegeven:
 
-**waar** -Filter een tabel naar de subset rijen die voldoet aan een predicaat.
+**where** : een tabel filteren op de subset rijen die voldoen aan een predikaat.
 
-**samenvatten** -produceren van een tabel die de inhoud van de invoertabel samenvoegt.
+samenvatten: een tabel genereren die de inhoud van de invoer tabel samenvoegt.
 
-**JOIN** -samenvoegen van de rijen van twee tabellen om te vormen een nieuwe tabel door de overeenkomende waarden van de opgegeven kolommen uit elke tabel.
+**lid worden** van de rijen van twee tabellen samen voegen om een nieuwe tabel te maken op basis van de waarden van de opgegeven kolom (men) in elke tabel.
 
-**aantal** -retourneert het aantal records in de invoerrecordset.
+**Count** : retourneert het aantal records in de invoer Recordset.
 
-**Top** -retourneren de eerste N-records die zijn gesorteerd op basis van de opgegeven kolommen.
+**Top** : retourneert de eerste N records, gesorteerd op de opgegeven kolommen.
 
-**limiet** -retourneren tot het opgegeven aantal rijen.
+**Limit** : retourneert naar het opgegeven aantal rijen.
 
-**Project** : Selecteer de kolommen die moeten worden opgenomen, wijzigen of verwijderen en nieuwe berekende kolommen worden ingevoegd.
+**project** : Selecteer de kolommen die u wilt opnemen, de naam ervan wijzigen of verwijderen, en nieuwe berekende kolommen invoegen.
 
-**uitbreiden** : berekende kolommen maken en deze toevoegen aan de resultatenset.
+**uitbreiden** : berekende kolommen maken en toevoegen aan de resultatenset.
 
-**makeset** -retourneert een dynamische (JSON)-matrix van de set met verschillende waarden markering wordt in de groep
+**makenset** : retourneert een dynamische (JSON)-matrix van de set afzonderlijke waarden die de expressie in de groep neemt
 
-**Zoek** -rijen die overeenkomen met een predicaat in een set met tabellen zoeken.
+**Zoek** rijen die overeenkomen met een predikaat in een set tabellen.
 
 ## <a name="save-a-query"></a>Een query opslaan
 
-U kunt maken of wijzigen van een query en sla deze op als uw eigen query of delen met gebruikers die zich in dezelfde tenant.
+U kunt een query maken of wijzigen en deze opslaan als uw eigen query of deze delen met gebruikers die zich in dezelfde Tenant bevinden.
 
    ![Query opslaan](./media/tutorial-hunting/save-query.png)
 
-Maak een nieuwe jacht-query:
+Een nieuwe zoek opdracht maken:
 
-1. Klik op **nieuwe query** en selecteer **opslaan**.
-2. Vul in de lege velden in en selecteer **opslaan**.
+1. Klik op **nieuwe query** en selecteer **Opslaan**.
+2. Vul alle lege velden in en selecteer **Opslaan**.
 
    ![Nieuwe query](./media/tutorial-hunting/new-query.png)
 
-Klonen en wijzig een bestaande jacht-query:
+Een bestaande zoek opdracht klonen en wijzigen:
 
-1. Selecteer de query van zoeken in de tabel die u wilt wijzigen.
-2. Selecteer het beletselteken (...) in de regel van de query die u wilt wijzigen, en selecteer **query klonen**.
+1. Selecteer de zoek opdracht in de tabel die u wilt wijzigen.
+2. Selecteer het beletsel teken (...) in de regel van de query die u wilt wijzigen en selecteer **kloon query**.
 
    ![query klonen](./media/tutorial-hunting/clone-query.png)
  
 
-3. Wijzigen van de query en selecteert u **maken**.
+3. Wijzig de query en selecteer **maken**.
 
    ![aangepaste query](./media/tutorial-hunting/custom-query.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe u een onderzoek jacht uitvoert met Azure Sentinel. Zie voor meer informatie over Azure Sentinel, de volgende artikelen:
+In dit artikel hebt u geleerd hoe u een jacht onderzoek kunt uitvoeren met Azure Sentinel. Raadpleeg de volgende artikelen voor meer informatie over Azure Sentinel:
 
 
-- [Notitieblokken gebruiken voor het uitvoeren van geautomatiseerde jacht campagnes](notebooks.md)
-- [Bladwijzers gebruiken om op te slaan interessante gegevens terwijl jacht](bookmarks.md)
+- [Notitie blokken gebruiken voor het uitvoeren van geautomatiseerde jacht-campagnes](notebooks.md)
+- [Gebruik blad wijzers voor het opslaan van interessante informatie tijdens het jacht](bookmarks.md)
