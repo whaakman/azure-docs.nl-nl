@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7381a0dfb8f780900d8c2c8ba0637dcd232bdb9f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bf0c639dd5fb678af7fca9224292218331b10ee6
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380887"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834750"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Service-naar-service-aanroepen die een overgedragen gebruikers-id gebruiken in namens-of-flow
 
@@ -117,7 +117,7 @@ Bij gebruik van een gedeeld geheim bevat een aanvraag voor service-naar-service-
 | client_secret |vereist | De sleutel die is geregistreerd voor de aanroepende service in azure AD. Deze waarde moet worden vermeld op het moment van registratie. |
 | resource |vereist | De App-ID-URI van de ontvangende service (beveiligde resource). Als u de URI van de App-ID wilt vinden in de Azure Portal, selecteert u **Active Directory** en kiest u de map. Selecteer de naam van de toepassing, kies **alle instellingen**en selecteer vervolgens **Eigenschappen**. |
 | requested_token_use |vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In namens-of uitstroom moet de waarde **on_behalf_of**zijn. |
-| scope |vereist | Een lijst met door spaties gescheiden bereiken voor de token aanvraag. Voor OpenID Connect Connect moet de scope **OpenID Connect** worden opgegeven.|
+| bereik |vereist | Een lijst met door spaties gescheiden bereiken voor de token aanvraag. Voor OpenID Connect Connect moet de scope **OpenID Connect** worden opgegeven.|
 
 #### <a name="example"></a>Voorbeeld
 
@@ -152,7 +152,7 @@ Een aanvraag voor service-naar-service-toegangs token met een certificaat bevat 
 | client_assertion |vereist | Een JSON Web Token die u maakt en ondertekent met het certificaat dat u hebt geregistreerd als referenties voor uw toepassing. Zie [certificaat referenties](active-directory-certificate-credentials.md) voor meer informatie over de bevestigings indeling en over het registreren van uw certificaat.|
 | resource |vereist | De App-ID-URI van de ontvangende service (beveiligde resource). Als u de URI van de App-ID wilt vinden in de Azure Portal, selecteert u **Active Directory** en kiest u de map. Selecteer de naam van de toepassing, kies **alle instellingen**en selecteer vervolgens **Eigenschappen**. |
 | requested_token_use |vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In namens-of uitstroom moet de waarde **on_behalf_of**zijn. |
-| scope |vereist | Een lijst met door spaties gescheiden bereiken voor de token aanvraag. Voor OpenID Connect Connect moet de scope **OpenID Connect** worden opgegeven.|
+| bereik |vereist | Een lijst met door spaties gescheiden bereiken voor de token aanvraag. Voor OpenID Connect Connect moet de scope **OpenID Connect** worden opgegeven.|
 
 Deze para meters zijn bijna hetzelfde als met de aanvraag van het gedeelde geheim, `client_secret parameter` behalve dat de is vervangen door `client_assertion_type` twee `client_assertion`para meters: en.
 
@@ -183,8 +183,8 @@ Een reactie op geslaagde pogingen is een JSON OAuth 2,0-antwoord met de volgende
 
 | Parameter | Description |
 | --- | --- |
-| token_type |Geeft de waarde van het token type aan. Het enige type dat door Azure AD wordt ondersteund, is Bearer. Voor meer informatie over Bearer-tokens raadpleegt [u het OAuth 2,0 autorisatie Framework: Bearer-token gebruik (RFC 6750](https://www.rfc-editor.org/rfc/rfc6750.txt)). |
-| scope |Het bereik van toegang dat in het token wordt verleend. |
+| token_type |Geeft de waarde van het token type aan. Het enige type dat door Azure AD wordtondersteund, is Bearer. Voor meer informatie over Bearer-tokens raadpleegt [u het OAuth 2,0 autorisatie Framework: Bearer-token gebruik (RFC 6750](https://www.rfc-editor.org/rfc/rfc6750.txt)). |
+| bereik |Het bereik van toegang dat in het token wordt verleend. |
 | expires_in |De tijds duur dat het toegangs token geldig is (in seconden). |
 | expires_on |Het tijdstip waarop het toegangs token verloopt. De datum wordt weer gegeven als het aantal seconden van 1970-01-01T0:0: 0Z UTC tot de verloop tijd. Deze waarde wordt gebruikt om de levens duur van tokens in de cache te bepalen. |
 | resource |De App-ID-URI van de ontvangende service (beveiligde resource). |
@@ -274,8 +274,8 @@ Het antwoord bevat een SAML-token dat is gecodeerd in UTF8 en Base64url.
 
 | Parameter | Description |
 | --- | --- |
-| token_type |Geeft de waarde van het token type aan. Het enige type dat door Azure AD wordt ondersteund, is Bearer. Zie [voor meer informatie over Bearer-tokens OAuth 2,0 Authorization Framework: Bearer-token gebruik (RFC 6750](https://www.rfc-editor.org/rfc/rfc6750.txt)). |
-| scope |Het bereik van toegang dat in het token wordt verleend. |
+| token_type |Geeft de waarde van het token type aan. Het enige type dat door Azure AD wordtondersteund, is Bearer. Zie [voor meer informatie over Bearer-tokens OAuth 2,0 Authorization Framework: Bearer-token gebruik (RFC 6750](https://www.rfc-editor.org/rfc/rfc6750.txt)). |
+| bereik |Het bereik van toegang dat in het token wordt verleend. |
 | expires_in |De tijds duur dat het toegangs token geldig is (in seconden). |
 | expires_on |Het tijdstip waarop het toegangs token verloopt. De datum wordt weer gegeven als het aantal seconden van 1970-01-01T0:0: 0Z UTC tot de verloop tijd. Deze waarde wordt gebruikt om de levens duur van tokens in de cache te bepalen. |
 | resource |De App-ID-URI van de ontvangende service (beveiligde resource). |

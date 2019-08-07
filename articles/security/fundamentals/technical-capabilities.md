@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 688492188bb8a29e33568011c2cf75439ca5f4af
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: fbce475e1f783595fb67e62e15d5a503a4c687ed
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726656"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780601"
 ---
 # <a name="azure-security-technical-capabilities"></a>Technische mogelijkheden voor Azure-beveiliging
 Dit artikel bevat een inleiding tot beveiligings Services in azure waarmee u uw gegevens, resources en toepassingen in de cloud kunt beveiligen en voldoen aan de beveiligings behoeften van uw bedrijf.
@@ -331,7 +331,7 @@ Azure biedt ook verschillende gebruiks vriendelijke functies waarmee u zowel bin
 
 - [Uw app veilig verbinden met resources in een particulier netwerk met behulp van Hybride verbindingen](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 
-Azure App Service gebruikt dezelfde antimalware-oplossing die wordt gebruikt door Azure Cloud Services en Virtual Machines. Raadpleeg onze [malware-documentatie](https://docs.microsoft.com/azure/security/azure-security-antimalware)voor meer informatie over dit onderwerp.
+Azure App Service gebruikt dezelfde antimalware-oplossing die wordt gebruikt door Azure Cloud Services en Virtual Machines. Raadpleeg onze [malware-documentatie](https://docs.microsoft.com/azure/security/fundamentals/antimalware)voor meer informatie over dit onderwerp.
 
 ## <a name="secure-your-network"></a>Uw netwerk beveiligen
 Microsoft Azure bevat een robuuste netwerk infrastructuur ter ondersteuning van uw toepassings-en service connectiviteits vereisten. De netwerk verbinding is mogelijk tussen bronnen in azure, tussen on-premises en Azure gehoste resources, en naar en van Internet en Azure.
@@ -352,7 +352,7 @@ Azure biedt ondersteuning voor speciale WAN-koppelings connectiviteit met uw on-
 
 Met [Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/) kunt u een breed scala aan computer oplossingen implementeren op een flexibele manier. Met ondersteuning voor Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP en Azure BizTalk Services kunt u elke workload en elke taal implementeren op vrijwel elk besturingssysteem.
 
-Met Azure kunt u antimalware- [Software](https://docs.microsoft.com/azure/security/azure-security-antimalware) van beveiligings leveranciers gebruiken, zoals micro soft, Symantec, Trend Micro en Kaspersky, om uw virtuele machines te beschermen tegen schadelijke bestanden, adware en andere bedreigingen.
+Met Azure kunt u antimalware- [Software](https://docs.microsoft.com/azure/security/fundamentals/antimalware) van beveiligings leveranciers gebruiken, zoals micro soft, Symantec, Trend Micro en Kaspersky, om uw virtuele machines te beschermen tegen schadelijke bestanden, adware en andere bedreigingen.
 
 Micro soft antimalware voor Azure Cloud Services en Virtual Machines is een real-time beschermings functie waarmee u virussen, spyware en andere schadelijke software kunt identificeren en verwijderen. Micro soft antimalware biedt Configureer bare waarschuwingen wanneer bekende schadelijke of ongewenste software probeert zichzelf te installeren of uit te voeren op uw Azure-systemen.
 
@@ -382,7 +382,7 @@ Daarnaast is de controle lijst:
 
 ## <a name="azure-infrastructure-and-application-security-validation"></a>Azure-infra structuur en toepassings beveiligings validatie
 
-[Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security) heeft betrekking op de services, besturings elementen en functies die beschikbaar zijn voor gebruikers voor het beveiligen van hun gegevens, toepassingen en andere assets in Microsoft Azure.
+[Azure-operationele beveiliging] (https://docs.microsoft.com/azure/security/fundamentals/operational-security verwijst naar de services, besturings elementen en functies die beschikbaar zijn voor gebruikers voor het beveiligen van hun gegevens, toepassingen en andere assets in Microsoft Azure.
 
 ![beveiligings validatie (detectie)](./media/technical-capabilities/azure-security-technical-capabilities-fig7.png)
 

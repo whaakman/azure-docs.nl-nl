@@ -1,85 +1,91 @@
 ---
-title: Azure Active Directory zonder wachtwoord uitproberen aanmelden (preview)
-description: De configuratie aanmelden bij Azure AD met behulp van beveiligingssleutels FIDO2 of de Microsoft Authenticator-app (preview)
+title: Azure Active Directory aanmelding zonder wacht woord (preview-versie)
+description: Meld u aan bij Azure AD met behulp van FIDO2-beveiligings sleutels of de Microsoft Authenticator-app (preview)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/05/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d80b359be0a6249327ba1ba1d51ffbc330bb073
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3ae8f6854241240249cb3b7494872cbbd8fd41e6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712083"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823759"
 ---
-# <a name="what-is-passwordless"></a>Wat is het zonder wachtwoord uitproberen?
+# <a name="what-is-passwordless"></a>Wat is een wacht woord?
 
-Multi-factor authentication (MFA) is een uitstekende manier voor het beveiligen van uw organisatie, maar gebruikers gefrustreerd zijn met de extra laag bovenop mailservers te hoeven onthouden hun wachtwoorden ontvangen. De configuratie verificatiemethoden zijn eenvoudiger omdat het wachtwoord is verwijderd en vervangen door iets hebt plus iets dat die u bent of iets dat die u weet.
+Multi-factor Authentication (MFA) is een uitstekende manier om uw organisatie te beveiligen, maar gebruikers worden met de extra laag boven op de hoogte gehouden om hun wacht woord te onthouden. Verificatie methoden met een wacht woord zijn handiger omdat het wacht woord wordt verwijderd en vervangen door iets wat u hebt of iets dat u weet.
 
-|   | Iets dat die u hebt | Iets dat u weet of |
+|   | Iets dat u hebt | Iets dat u weet of weet |
 | --- | --- | --- |
-| Zonder wachtwoord | Sleutel voor de telefoon of beveiliging | Biometrische of PINCODE |
+| Zonder wachtwoord | Telefoon of beveiligings sleutel | Biometrische of pincode |
 
-Wordt herkend dat elke organisatie verschillende behoeften heeft als het gaat om verificatie. Microsoft biedt momenteel Windows Hello, onze premier zonder wachtwoord uitproberen-ervaring voor de Windows-PC. Er zijn nieuwe referenties toegevoegd aan de configuratie: Microsoft Authenticator-app en FIDO2 beveiligingssleutels.
+Elke organisatie heeft verschillende behoeften wanneer dit van toepassing is op verificatie. Micro soft biedt momenteel Windows Hello, onze voor Windows-Pc's. De Microsoft Authenticator app-en FIDO2-beveiligings sleutels worden toegevoegd aan de groep met wacht woorden.
 
-## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator-App
+## <a name="microsoft-authenticator-app"></a>App Microsoft Authenticator
 
-Telefoon om te worden van een methode voor verificatie van de configuratie van uw werknemer toestaan. U al gebruikt de Microsoft Authenticator-App als een handige multi-factor authentication-optie naast een wachtwoord. Maar het is nu beschikbaar als een optie voor de configuratie.
+Laat de telefoon van uw werk nemer een verificatie methode met een wacht woord maken. U kunt ook de Microsoft Authenticator-app gebruiken als een handige multi-factor Authentication-optie naast een wacht woord. Maar nu is het beschikbaar als optie met een wacht woord.
 
-Het verandert iOS- of Android-telefoon in een sterk, zonder wachtwoord uitproberen referentie doordat gebruikers zich aanmelden op elk platform of de browser door een melding naar de telefoon aan, die overeenkomt met een getal dat wordt weergegeven op het scherm op die hun telefoon en vervolgens met behulp van hun biometrische) touch of geconfronteerd) of PINCODE om te bevestigen.
+![Aanmelden bij micro soft Edge met de app Microsoft Authenticator](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
-## <a name="fido2-security-keys"></a>Beveiligingssleutels FIDO2
+Hiermee wordt een wille keurige iOS-of Android-telefoon omgezet in een sterke, wacht woordloze referentie door gebruikers toe te staan zich aan te melden bij een platform of browser door een melding te ontvangen op de telefoon, een nummer te zoeken dat op het scherm wordt weer gegeven op de telefoon en vervolgens met behulp van de biometrische ( aanraken of gezicht) of pincode om te bevestigen.
 
-Beveiligingssleutels FIDO2 zijn een unphishable standaarden op basis van de configuratie verificatiemethode die kan worden geleverd in alle vormfactor. Snelle identiteit Online (FIDO) is een open standaard voor de configuratie-verificatie. Kunnen gebruikers en organisaties gebruikmaken van de standaard aan te melden met hun bronnen zonder een gebruikersnaam of wachtwoord met behulp van een externe beveiliging-sleutel of een platformsleutel die is ingebouwd in een apparaat.
+## <a name="fido2-security-keys"></a>FIDO2-beveiligings sleutels
 
-Voor de openbare preview, werknemers externe sleutels gebruiken voor aanmelding bij naar de Azure Active Directory gekoppelde Windows 10-computers (met versie 1809 of hoger) en ophalen van eenmalige aanmelding hun cloudresources. Ook kunnen ze zich aanmelden voor ondersteunde browsers.
+FIDO2-beveiligings sleutels zijn een niet-verwerkte op standaarden gebaseerde verificatie methode op basis van een wacht woord, die in elke vorm factor kan worden gebruikt. Fast Identity online (FIDO) is een open standaard voor verificatie met een wacht woord. Hiermee kunnen gebruikers en organisaties de standaard gebruiken om zich aan te melden bij hun resources zonder gebruikers naam of wacht woord met behulp van een externe beveiligings sleutel of een platform sleutel die is ingebouwd in een apparaat.
 
-Er zijn veel sleutels die gecertificeerd door de FIDO-Alliance FIDO2 zijn, Microsoft vereist dat sommige optionele uitbreidingen van de specificatie FIDO2 CTAP moeten worden geïmplementeerd door de leverancier om ervoor te zorgen voor een maximale beveiliging en de beste ervaring.
+Werk nemers kunnen met de open bare preview externe beveiligings sleutels gebruiken om zich aan te melden bij hun Azure Active Directory lid zijn van Windows 10 (met versie 1809 of hoger) en eenmalige aanmelding bij hun cloud resources op te halen. Ze kunnen zich ook aanmelden bij ondersteunde browsers.
 
-Een beveiligingssleutel **moet** implementeren de volgende functies en uitbreidingen van het protocol FIDO2 CTAP Microsoft-compatibel zijn met:
+![Aanmelden bij micro soft Edge met een beveiligings sleutel](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
-| # | Functie / extensie vertrouwen | Waarom is dit vereist? |
+Hoewel er veel sleutels zijn die FIDO2 gecertificeerd door de FIDO-Alliantie, vereist micro soft een aantal optionele uitbrei dingen van de FIDO2 CTAP-specificatie die door de leverancier moet worden geïmplementeerd om te zorgen voor maximale beveiliging en de beste ervaring.
+
+Een beveiligings sleutel **moet** de volgende functies en uitbrei dingen van het FIDO2 CTAP-protocol implementeren als compatibel met micro soft:
+
+| # | Functie/uitbrei ding vertrouwen | Waarom is deze functie of extensie vereist? |
 | --- | --- | --- |
-| 1 | Residente sleutel | Deze functie kunt de beveiligingssleutel zijn draagbaar, waar u uw referenties op de beveiligingssleutel is opgeslagen. |
-| 2 | Pincode van de client | Deze functie kunt u uw referenties met een tweede factor beveiligen en is van toepassing op beveiligingssleutels waarvoor geen een gebruikersinterface. |
-| 3 | hmac-secret | Deze extensie zorgt ervoor dat u kunt aanmelden bij uw apparaat wanneer het offline of in vliegtuigmodus. |
-| 4 | Meerdere accounts per RP | Deze functie zorgt ervoor dat u kunt de dezelfde beveiligingssleutel over meerdere services, zoals Microsoft-Account en Azure Active Directory. |
+| 1 | Residente sleutel | Met deze functie kan de beveiligings sleutel worden overdraagbaar, waar uw referentie wordt opgeslagen op de beveiligings sleutel. |
+| 2 | Client pincode | Met deze functie kunt u uw referenties beveiligen met een tweede factor en van toepassing op beveiligings sleutels die geen gebruikers interface hebben. |
+| 3 | hmac-secret | Deze uitbrei ding zorgt ervoor dat u zich kunt aanmelden bij uw apparaat wanneer het offline is of in de vliegtuig stand. |
+| 4 | Meerdere accounts per RP | Deze functie zorgt ervoor dat u dezelfde beveiligings sleutel kunt gebruiken voor meerdere services, zoals micro soft-account en Azure Active Directory. |
 
-De volgende providers bieden FIDO2 beveiligingssleutels van verschillende vormfactoren die bekend is dat deze compatibel is met de paswordless-ervaring. Microsoft adviseert klanten om te evalueren van de eigenschappen van de beveiliging van deze sleutels contact opnemen met de leverancier, evenals de FIDO-Alliance.
+De volgende providers bieden FIDO2-beveiligings sleutels van verschillende vorm factoren waarvan bekend is dat ze compatibel zijn met de paswordless-ervaring. Micro soft raadt klanten aan om de beveiligings eigenschappen van deze sleutels te evalueren door contact op te nemen met de leverancier en FIDO Alliance.
 
 | Provider | Neem contact op met |
 | --- | --- |
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |
-| VERBORGEN | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
+| SPECIALE | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://ensurity.com/contact-us.html](https://ensurity.com/contact-us.html) |
 | eWBM | [https://www.ewbm.com/page/sub1_5](https://www.ewbm.com/page/sub1_5) |
 
-Als u een leverancier en wilt u uw apparaat laten in deze lijst staat, neem dan contact op met [ Fido2Request@Microsoft.com ](mailto:Fido2Request@Microsoft.com).
+Als u een leverancier bent en uw apparaat in deze lijst wilt ontvangen, neemt u [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com)contact op met.
 
-Beveiligingssleutels FIDO2 zijn een goede optie voor bedrijven die zijn zeer gevoelige beveiliging of scenario's of werknemers die niet bereid of kunnen hun telefoon gebruiken als tweede factor.
+FIDO2-beveiligings sleutels zijn een uitstekende optie voor ondernemingen die zeer gevoelig zijn voor bedrijven of die scenario's of werk nemers hebben die hun telefoon niet kunnen gebruiken als een tweede factor.
 
-## <a name="what-scenarios-work-with-the-preview"></a>Welke scenario's werken met de preview?
+## <a name="what-scenarios-work-with-the-preview"></a>Welke scenario's werken met de preview-versie?
 
-1. Beheerders kunnen de configuratie verificatiemethoden inschakelen voor hun tenant
-1. Beheerders kunnen alle gebruikers of gebruikers/groepen binnen hun tenant voor elke methode selecteren
-1. Eindgebruikers kunnen registreren en beheren van deze configuratie verificatiemethoden in de accountportal
-1. Eindgebruikers kunnen aanmelden met deze configuratie verificatiemethoden
-   1. Microsoft Authenticator-App: Werk in elk scenario waarin Azure AD-verificatie wordt gebruikt, wordt waaronder in alle browsers tijdens Windows 10 uit van de setup vak (OOBE), en met geïntegreerde mobiele apps in elk besturingssysteem.
-   1. Sleutels: Werken op de website in de ondersteunde browsers, zoals Microsoft Edge en vergrendelingsscherm voor Windows 10, versie 1809 of hoger.
+- Beheerders kunnen verificatie methoden met een wacht woord toestaan voor hun Tenant
+- Beheerders kunnen alle gebruikers bereiken of gebruikers/groepen selecteren binnen hun Tenant voor elke methode
+- Eind gebruikers kunnen deze verificatie methoden zonder wacht woord registreren en beheren in hun account Portal
+- Eind gebruikers kunnen zich aanmelden met deze verificatie methoden met een wacht woord
+   - App Microsoft Authenticator: Werkt in scenario's waarin Azure AD-verificatie wordt gebruikt, inclusief alle browsers, tijdens de installatie van Windows 10 out of Box (OOBE), en met geïntegreerde mobiele apps op elk besturings systeem.
+   - Beveiligings sleutels: Werkt op het vergrendelings scherm voor Windows 10 versie 1809 of hoger en op het web in ondersteunde browsers, zoals micro soft Edge.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Opties voor de configuratie in uw organisatie inschakelen](howto-authentication-passwordless-enable.md)
+[Opties voor passwordlesss voor FIDO2-beveiligings sleutel inschakelen in uw organisatie](howto-authentication-passwordless-security-key.md)
+
+[Op telefoon gebaseerde opties voor wacht woord in uw organisatie inschakelen](howto-authentication-passwordless-phone.md)
 
 ### <a name="external-links"></a>Externe koppelingen
 
-[FIDO-Alliance](https://fidoalliance.org/)
+[FIDO Alliance](https://fidoalliance.org/)
 
 [FIDO2 CTAP-specificatie](https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-client-to-authenticator-protocol-v2.0-id-20180227.html)

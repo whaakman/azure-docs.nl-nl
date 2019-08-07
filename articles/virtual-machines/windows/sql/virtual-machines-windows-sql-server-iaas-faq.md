@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/12/2018
+ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 7f6ec1ee65727fb8c3c7d98f696c288e95ec880a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 4b50b4acf6ea655c40821e7c49824af11aeeb9ab
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876198"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816300"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Veelgestelde vragen over SQL Server die worden uitgevoerd op virtuele Windows-machines in azure
 
@@ -73,7 +73,7 @@ In dit artikel vindt u antwoorden op enkele van de meest voorkomende vragen over
 
    Maak eerst een virtuele Azure-machine met een SQL Server-exemplaar. Migreer vervolgens uw on-premises data bases naar dat exemplaar. Zie [een SQL Server-Data Base migreren naar SQL Server in een Azure-VM](virtual-machines-windows-migrate-sql.md)voor strategieën voor gegevens migratie.
 
-## <a name="licensing"></a>Licentieverlening
+## <a name="licensing"></a>Licenties
 
 1. **Hoe kan ik mijn gelicentieerd exemplaar van SQL Server installeren op een Azure-VM?**
 
@@ -122,6 +122,11 @@ In dit artikel vindt u antwoorden op enkele van de meest voorkomende vragen over
 
     Ja. Als u SQL Server vanaf uw eigen media hebt geïmplementeerd en de SQL IaaS-extensie hebt geïnstalleerd, kunt u uw SQL Server VM registreren bij de resource provider om de beheer baarheid van de SQL IaaS-uitbrei ding te verkrijgen. U kunt een zelf geïmplementeerde SQL-VM echter niet converteren naar Betalen per gebruik.
 
+1. **Is het mogelijk om te scha kelen tussen licentie model op een SQL Server VM die is geïmplementeerd met het klassieke model?**
+
+   Nee. Het wijzigen van het licentie model wordt niet ondersteund op een klassieke virtuele machine. U kunt uw VM migreren naar het Resource Manager-model (ARM) en registreren bij de resource provider van de SQL-VM. Zodra de VM is geregistreerd bij de resource provider van de SQL-VM, zijn wijzigingen in het licentie model beschikbaar op de VM. 
+   
+
 ## <a name="administration"></a>Beheer
 
 1. **Kan ik een tweede exemplaar van een SQL Server op dezelfde VM installeren? Kan ik geïnstalleerde functies van het standaardexemplaar wijzigen?**
@@ -146,9 +151,9 @@ In dit artikel vindt u antwoorden op enkele van de meest voorkomende vragen over
    
 ## <a name="updating-and-patching"></a>Updates en patches
 
-1. **Hoe kan ik overschakelen naar een andere versie of editie van de SQL Server in een Azure VM?**
+1. **Hoe kan ik overschakelen naar een andere versie of editie van de SQL Server in een Azure-VM?**
 
-   Klanten kunnen hun versie/editie van SQL Server wijzigen door gebruik te maken van de installatie media die de gewenste versie of editie van SQL Server bevatten. Zodra de versie is gewijzigd, gebruikt u de Azure Portal om de eigenschap van de editie van de virtuele machine te wijzigen zodat deze nauw keurig overeenkomt met de facturering voor de virtuele machine. Zie [Change Edition of a SQL Server VM](virtual-machines-windows-sql-change-edition.md)(Engelstalig) voor meer informatie. 
+   Klanten kunnen hun versie of editie van SQL Server wijzigen door gebruik te maken van een installatiemedium met de gewenste versie of editie van SQL Server. Zodra de versie of editie is gewijzigd, gebruikt u de Azure-portal om de versie- of editie-eigenschap van de VM te wijzigen zodat deze nauwkeurig de facturering voor de VM aangeeft. Zie [Change Edition of a SQL Server VM](virtual-machines-windows-sql-change-edition.md)(Engelstalig) voor meer informatie. 
 
 
 1. **Hoe worden updates en service packs toegepast op een SQL Server virtuele machine?**

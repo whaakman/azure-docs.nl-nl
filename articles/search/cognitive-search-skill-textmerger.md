@@ -1,6 +1,6 @@
 ---
-title: Tekst samenvoegen cognitief zoeken vaardigheid - Azure Search
-description: Tekst uit een verzameling van velden samenvoegen in één geconsolideerde veld. Gebruik deze cognitieve vaardigheden in een Azure Search verrijking-pijplijn.
+title: Tekst samen voegen cognitieve Zoek vaardigheid-Azure Search
+description: Tekst van een verzameling velden samen voegen in één geconsolideerd veld. Gebruik deze cognitieve vaardigheid in een Azure Search verrijkings pijplijn.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,36 +10,36 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: bbf2e524d626ac17596ded61746c26f20a6caf1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 312caf2d514d630c5bc1fb7755b7ab7a6a3d443a
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021829"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840907"
 ---
-#    <a name="text-merge-cognitive-skill"></a>Tekst samenvoegen cognitieve vaardigheden
+#    <a name="text-merge-cognitive-skill"></a>Cognitieve vaardigheid van tekst samen voegen
 
-De **tekst samenvoegen** vaardigheid consolideert tekst uit een verzameling van velden in één veld. 
+Met de functie **tekst samen voegen** wordt tekst van een verzameling velden in één veld geconsolideerd. 
 
 > [!NOTE]
-> Deze kwalificatie is niet gebonden aan een Cognitive Services-API en u niet worden in rekening gebracht voor het gebruik ervan. U moet nog steeds [een Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md), echter overschrijven de **gratis** resource-optie waarmee u een klein aantal dagelijkse enrichments per dag wordt beperkt.
+> Deze vaardigheid is niet gebonden aan een Cognitive Services-API en er worden geen kosten in rekening gebracht voor het gebruik ervan. U moet nog steeds [een Cognitive Services resource koppelen](cognitive-search-attach-cognitive-services.md)om de optie **gratis** resource te overschrijven, waardoor u een klein aantal dagelijkse verrijkingen per dag beperkt.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill
 
-## <a name="skill-parameters"></a>Kwalificatie parameters
+## <a name="skill-parameters"></a>Vaardigheids parameters
 
-Parameters zijn hoofdlettergevoelig.
+Para meters zijn hoofdletter gevoelig.
 
 | Parameternaam     | Description |
 |--------------------|-------------|
-| insertPreTag  | Tekenreeks die moet worden opgenomen voor elke invoegen. De standaardwaarde is `" "`. Als u wilt de ruimte weglaat, stelt u de waarde in op `""`.  |
-| insertPostTag | Tekenreeks die moet worden opgenomen na elke invoegen. De standaardwaarde is `" "`. Als u wilt de ruimte weglaat, stelt u de waarde in op `""`.  |
+| insertPreTag  | De teken reeks die voor elke invoeging moet worden opgenomen. De standaardwaarde is `" "`. Als u de spatie wilt weglaten, stelt `""`u de waarde in op.  |
+| insertPostTag | De teken reeks die na elke invoeging moet worden opgenomen. De standaardwaarde is `" "`. Als u de spatie wilt weglaten, stelt `""`u de waarde in op.  |
 
 
-##  <a name="sample-input"></a>Van Voorbeeldinvoer
-Een JSON-document bieden van bruikbare invoer voor deze kwalificatie kan worden:
+##  <a name="sample-input"></a>Voorbeeld invoer
+Een JSON-document dat bruikbare invoer voor deze vaardigheid biedt, kan zijn:
 
 ```json
 {
@@ -58,7 +58,7 @@ Een JSON-document bieden van bruikbare invoer voor deze kwalificatie kan worden:
 ```
 
 ##  <a name="sample-output"></a>Voorbeelduitvoer
-In dit voorbeeld ziet u de uitvoer van de vorige invoer, ervan uitgaande dat de *insertPreTag* is ingesteld op `" "`, en *insertPostTag* is ingesteld op `""`. 
+In dit voor beeld ziet u de uitvoer van de vorige invoer, ervan uitgaande dat de `" "`insertPreTag is ingesteld op en *insertPostTag* is ingesteld op `""`. 
 
 ```json
 {
@@ -74,11 +74,11 @@ In dit voorbeeld ziet u de uitvoer van de vorige invoer, ervan uitgaande dat de 
 }
 ```
 
-## <a name="extended-sample-skillset-definition"></a>Uitgebreide voorbeelddefinitie voor vaardigheden
+## <a name="extended-sample-skillset-definition"></a>Uitgebreide definitie van de voor beeld-vaardigheidset
 
-Een veelvoorkomend scenario voor het gebruik van tekst samenvoegen is om samen te voegen van de tekstweergave van installatiekopieën (tekst uit een OCR-vaardigheden of het bijschrift van een installatiekopie) in het veld inhoud van een document. 
+Een veelvoorkomend scenario voor het gebruik van het samen voegen van tekst is het samen voegen van de tekstuele weer gave van afbeeldingen (tekst van een OCR-vaardigheid of het bijschrift van een afbeelding) in het veld inhoud van een document. 
 
-De vaardigheden van het volgende voorbeeld maakt gebruik van de OCR-vaardigheden om tekst te extraheren uit in het document ingesloten afbeeldingen. Vervolgens maakt u er een *merged_text* veld naar het oorspronkelijke zowel OCRed tekst van elke afbeelding bevatten. U kunt meer informatie over de OCR-kwalificatie [hier](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
+In het volgende voor beeld wordt gebruikgemaakt van de OCR-vaardigheid voor het extra heren van tekst uit afbeeldingen die zijn Inge sloten in het document. Vervolgens wordt er een *merged_text* -veld gemaakt dat zowel de oorspronkelijke als de OCRed-tekst van elke afbeelding bevat. [Hier](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr)vindt u meer informatie over de OCR-vaardigheid.
 
 ```json
 {
@@ -129,7 +129,7 @@ De vaardigheden van het volgende voorbeeld maakt gebruik van de OCR-vaardigheden
   ]
 }
 ```
-Het bovenstaande voorbeeld wordt ervan uitgegaan dat een veld genormaliseerd installatiekopieën bestaat. Genormaliseerd installatiekopieën veld krijgen, stelt u de *imageAction* configuratie in de definitie van de indexeerfunctie *generateNormalizedImages* zoals hieronder wordt weergegeven:
+In het bovenstaande voor beeld wordt ervan uitgegaan dat er een veld met genormaliseerde afbeeldingen bestaat. Als u het veld genormaliseerde afbeeldingen wilt ophalen, stelt u de *imageAction* -configuratie in de definitie van de Indexeer functie in op *generateNormalizedImages* , zoals hieronder wordt weer gegeven:
 
 ```json
 {
@@ -145,6 +145,6 @@ Het bovenstaande voorbeeld wordt ervan uitgegaan dat een veld genormaliseerd ins
 
 ## <a name="see-also"></a>Zie ook
 
-+ [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md)
-+ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)
-+ [Indexeerfunctie (REST) maken](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Vooraf gedefinieerde vaardig heden](cognitive-search-predefined-skills.md)
++ [Een vaardig heden definiëren](cognitive-search-defining-skillset.md)
++ [Indexeer functie maken (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

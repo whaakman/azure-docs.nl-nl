@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: gwallace
-ms.openlocfilehash: 802ece106099e8a475b83c820130c3c238d330d2
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 3f2c60be29d679d0b0d30b6bf471f083c66ba93f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359208"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827669"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Aan de slag met Azure Cloud Services en ASP.NET
 
@@ -514,7 +514,7 @@ var imagesQueue = queueClient.GetQueueReference("images");
 imagesQueue.CreateIfNotExists();
 ```
 
-### <a name="contosoadsweb---layoutcshtml"></a>ContosoAdsWeb - \_Layout.cshtml
+### <a name="contosoadsweb---_layoutcshtml"></a>ContosoAdsWeb - \_Layout.cshtml
 Het bestand *_Layout.cshtml* stelt de naam van de app in de kop- en voettekst in en maakt een menu-item 'Ads'.
 
 ### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb - Views\Home\Index.cshtml
@@ -696,7 +696,7 @@ public override void Run()
 }
 ```
 
-Na elke herhaling van de lus wordt als er geen wachtrij bericht is gevonden de inactieve modus ingeschakeld gedurende een seconde. Zo wordt voorkomen dat de werkrol buitensporig veel CPU-tijd en opslagtransactiekosten verbruikt. Het Microsoft Customer Advisory Team kent het verhaal van een ontwikkelaar die was vergeten dit element op te nemen voordat hij de app live zette en op vakantie ging. Toen hij na terugkomst zijn fout ontdekte, bleek deze meer te hebben gekost dan zijn hele vakantie.
+Na elke herhaling van de lus wordt als er geen wachtrij bericht is gevonden de inactieve modus ingeschakeld gedurende een seconde. Zo wordt voorkomen dat de werkrol buitensporig veel CPU-tijd en opslagtransactiekosten verbruikt. Het Microsoft Customer Advisory Team kent het verhaal van een ontwikkelaar die was vergeten dit element op te nemen voordat hij de app live zette en op vakantie ging. Wanneer ze terugkomen, kost het toezicht meer dan de vakantie.
 
 Soms veroorzaakt de inhoud van een wachtrijbericht een fout in de verwerking. We spreken dan van een *verontreinigd bericht*. Als u alleen een fout in het logboek hebt geregistreerd en de lus opnieuw hebt gestart, kan dit leiden tot eindeloze pogingen om het bericht te verwerken.  Daarom bevat het catch-blok een if-instructie waarmee wordt gecontroleerd hoe vaak de app heeft geprobeerd het huidige bericht te verwerken. Bij meer dan 5 pogingen wordt het bericht uit de wachtrij verwijderd.
 

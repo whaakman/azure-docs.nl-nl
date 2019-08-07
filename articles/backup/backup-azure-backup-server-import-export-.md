@@ -1,6 +1,6 @@
 ---
 title: Azure Backup-offline back-up voor DPM en Azure Backup Server
-description: Meer informatie over hoe u met behulp van Azure Backup gegevens via het netwerk kunt verzenden met de Azure import/export-service. In dit artikel wordt uitgelegd hoe u de offline seeding van de eerste back-upgegevens maakt met behulp van de Azure import-export service.
+description: Met Azure Backup kunt u gegevens van het netwerk verzenden met behulp van de Azure import/export-service. In dit artikel wordt de werk stroom voor offline back-ups voor DPM en Azure Backup Server (MABS) uitgelegd.
 ms.reviewer: saurse
 author: dcurwin
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: dacurwin
-ms.openlocfilehash: 4bc0421f16d56d34e3f3156700a7a141d38fd63d
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0f60fbf22541e5fdd003d0ab663b5905cd31adcd
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689385"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737241"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Werk stroom voor offline back-ups voor DPM en Azure Backup Server
 Azure Backup heeft verschillende ingebouwde efficiency waarmee netwerk-en opslag kosten worden bespaard tijdens de eerste volledige back-ups van gegevens naar Azure. Bij eerste volledige back-ups worden grote hoeveel heden gegevens overgebracht en is er meer netwerk bandbreedte nodig in vergelijking met de volgende back-ups die alleen de Deltas/toenames overdragen. Azure Backup comprimeert de eerste back-ups. Dankzij het proces van offline seeding kan Azure Backup schijven gebruiken om de gecomprimeerde initiële back-upgegevens offline te uploaden naar Azure.

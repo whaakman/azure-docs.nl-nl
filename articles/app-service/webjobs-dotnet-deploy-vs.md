@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 2695ee2751a2834466c42d224101af246b829aca
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: d50acc50880229626c847d41d9abe9a9e13d9c6e
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717628"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736114"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Webjobs ontwikkelen en implementeren met behulp van Visual Studio-Azure App Service
 
@@ -228,7 +228,7 @@ Wanneer u [een Webtaak maakt op basis van de Azure Portal](webjobs-create.md), w
 
 ### <a name="cron-expressions"></a>CRON-expressies
 
-Webjobs maakt gebruik van dezelfde CRON-expressies voor planning als de trigger timer in Azure Functions. Zie het [referentie artikel timer trigger](../azure-functions/functions-bindings-timer.md#cron-expressions)voor meer informatie over cron-ondersteuning.
+Webjobs maakt gebruik van dezelfde CRON-expressies voor planning als de trigger timer in Azure Functions. Zie het [referentie artikel timer trigger](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)voor meer informatie over cron-ondersteuning.
 
 ### <a name="settingjob-reference"></a>Naslag informatie over instelling. taak
 
@@ -238,7 +238,7 @@ De volgende instellingen worden ondersteund door webjobs:
 | ----------- | --------- | --------------- |
 | `is_in_place` | Alle | Hiermee kan de taak worden uitgevoerd in plaats zonder dat deze eerst naar een tijdelijke map wordt gekopieerd. Zie [werkmap](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)voor webtaken voor meer informatie. |
 | `is_singleton` | Doorlopend | Voer de webjobs alleen uit op één instantie wanneer deze is uitgeschaald. Zie [een continue taak als Singleton instellen](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton)voor meer informatie. |
-| `schedule` | Geactiveerd | Voer de Webtaak uit op basis van een CRON schema. Zie het [referentie artikel timer trigger](../azure-functions/functions-bindings-timer.md#cron-expressions)voor meer informatie. |
+| `schedule` | Geactiveerd | Voer de Webtaak uit op basis van een CRON schema. Zie het [referentie artikel timer trigger](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)voor meer informatie. |
 | `stopping_wait_time`| Alle | Hiermee staat u het beheer van het afsluit gedrag toe. Zie [correct afsluiten](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown)voor meer informatie. |
 
 ## <a name="next-steps"></a>Volgende stappen

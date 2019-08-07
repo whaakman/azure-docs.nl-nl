@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 8948a620c27311f0371a557c91a971da37111cb9
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 078c8763a08df339b9291807102e2d187d2a882f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688582"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827586"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Veelgestelde vragen: back-ups maken van virtuele Azure-machines
 
@@ -64,14 +64,14 @@ Ja. Back-ups worden uitgevoerd wanneer een machine wordt afgesloten. Het herstel
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Kan ik een back-uptaak in uitvoering annuleren?
 Ja. U kunt de back-uptaak annuleren in een status voor het **maken van moment opnamen** . U kunt een taak niet annuleren als de gegevens overdracht van de moment opname wordt uitgevoerd.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Ik heb de vergren deling ingeschakeld voor de resource groep die is gemaakt door Azure Backup Service (dat wil zeggen `AzureBackupRG_<geo>_<number>`) zullen mijn back-ups blijven werken?
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Ik heb de vergren deling ingeschakeld voor de resource groep die is gemaakt door Azure Backup Service (dat wil zeggen `AzureBackupRG_<geo>_<number>`) zullen mijn back-ups blijven werken?
 Als u de resource groep die is gemaakt met Azure Backup-Service vergrendelt, mislukken back-ups als er een maximum limiet van 18 herstel punten is.
 
 De gebruiker moet de vergren deling verwijderen en de herstel punt verzameling wissen van die resource groep om de toekomstige back-ups te kunnen volt ooien. [Volg deze stappen](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) om de verzameling herstel punten te verwijderen.
 
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Biedt Azure backup ondersteuning voor Standard SSD Managed Disk?
-Azure Backup ondersteunt [Standard SSD Managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD-Managed disks bieden een nieuw type duurzame opslag voor Azure-Vm's. Ondersteuning voor SSD Managed disks wordt weer gegeven in het [direct herstellen](backup-instant-restore-capability.md).
+Ja, Azure Backup ondersteunt [Standard SSD Managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Kan ik een back-up maken van een VM met een Write Accelerator (WA) ingeschakelde schijf?
 Er kunnen geen moment opnamen worden gemaakt op de schijf met WA-functionaliteit. De Azure Backup-service kan de op WA ingeschakelde schijf echter uitsluiten van een back-up.
@@ -119,7 +119,7 @@ Ja. Zelfs als u de virtuele machine verwijdert, kunt u naar het bijbehorende bac
 Voor de virtuele machine van de beheerde schijf wordt het herstellen naar de beschikbaarheids sets ingeschakeld door een optie in de sjabloon op te geven tijdens het herstellen als beheerde schijven. Deze sjabloon bevat de invoer parameter met de naam **beschikbaarheids sets**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Hoe worden de prestaties sneller teruggezet?
-Voor een snellere herstel snelheid gaan we over naar de mogelijkheid om [direct te herstellen](backup-instant-restore-capability.md) .
+Met de functie voor [direct terugzetten](backup-instant-restore-capability.md) kunt u sneller back-ups maken en direct herstellen vanuit de moment opnamen.
 
 ## <a name="manage-vm-backups"></a>Back-ups van uw virtuele machine beheren
 

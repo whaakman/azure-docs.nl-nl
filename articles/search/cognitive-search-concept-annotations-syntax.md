@@ -1,44 +1,45 @@
 ---
-title: Referentie-invoer en uitvoer in cognitive zoeken pijplijnen - Azure Search
-description: Verklaart de syntaxis van de aantekening en hoe u om te verwijzen naar een aantekening in de invoer en uitvoer van een set vaardigheden in een pijplijn cognitief zoeken in Azure Search.
+title: Referentie-invoer en-uitvoer in cognitieve Zoek pijplijnen-Azure Search
+description: Hierin worden de syntaxis van aantekeningen beschreven en wordt uitgelegd hoe u kunt verwijzen naar een aantekening in de invoer en uitvoer van een vakkennisset in een cognitieve Zoek pijplijn in Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 637edc0e45daa37a753fbaa15313b076e8af4d7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1868e9fd3a7dde5d6302753986019f481a577007
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023881"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841297"
 ---
-# <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Hoe om te verwijzen naar aantekeningen in een vaardigheden cognitief zoeken
+# <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Verwijzen naar aantekeningen in een cognitieve Zoek vaardighedenset
 
-In dit artikel leert u hoe u om te verwijzen naar aantekeningen in definities van vaardigheden, met behulp van voorbeelden ter illustratie van verschillende scenario's. Wanneer de inhoud van een document via een set vaardigheden, haalt deze verrijkt met aantekeningen. Aantekeningen kunnen worden gebruikt als invoer voor verdere downstream verrijking of toegewezen aan een uitvoerveld in een index. 
+In dit artikel leert u hoe u kunt verwijzen naar aantekeningen in vaardigheids definities, met voor beelden om verschillende scenario's te illustreren. Als de inhoud van een document door een set met vaardig heden loopt, wordt het verrijkt met annotaties. Annotaties kunnen worden gebruikt als invoer voor een verdere verrijking van de downstream of worden toegewezen aan een uitvoer veld in een index. 
  
-Voorbeelden in dit artikel zijn gebaseerd op de *inhoud* veld automatisch gegenereerd [Azure Blob-indexeerfuncties](search-howto-indexing-azure-blob-storage.md) als onderdeel van het document fase kraken. Met betrekking tot documenten uit een Blob-container, gebruikt u een indeling zoals `"/document/content"`, waarbij de *inhoud* veld deel uitmaakt van de *document*. 
+Voor beelden in dit artikel zijn gebaseerd op het *inhouds* veld dat automatisch door [Azure Blob-Indexeer functies](search-howto-indexing-azure-blob-storage.md) wordt gegenereerd als onderdeel van de fase voor het kraken van het document. Wanneer u verwijst naar documenten uit een BLOB-container, gebruikt u een `"/document/content"`indeling zoals, waarbij het veld *inhoud* deel uitmaakt van het *document*. 
 
-## <a name="background-concepts"></a>Achtergrondconcepten
+## <a name="background-concepts"></a>Achtergrond concepten
 
-Voordat u de syntaxis van de bekeken, gaan we terug naar een paar belangrijke concepten voor meer informatie over de voorbeelden verderop in dit artikel.
+Voordat u de syntaxis bekijkt, gaan we enkele belang rijke concepten opnieuw bezoeken om meer inzicht te krijgen in de voor beelden die verderop in dit artikel worden beschreven.
 
-| Termijn | Description |
+| Begrip | Description |
 |------|-------------|
-| Verrijkt Document | Een geavanceerde document is een interne structuur gemaakt en gebruikt door de pijplijn voor het opslaan van alle aantekeningen met betrekking tot een document. Een document verrijkt beschouwen als een boomstructuur van aantekeningen. Een aantekening gemaakt op basis van een vorige aantekening wordt over het algemeen het onderliggende.<p/>Verrijkt documenten bestaan alleen voor de duur van de uitvoering van vaardigheden. Wanneer inhoud wordt toegewezen aan de search-index, wordt het verrijkt document niet meer nodig hebt. Hoewel u niet rechtstreeks met verrijkt documenten communiceren, is het handig om een mentale model van de documenten hebt bij het maken van een set vaardigheden. |
-| Verrijking Context | De context waarin de verrijking plaatsvindt, in termen van welke element is uitgebreid. De context verrijking is standaard op de `"/document"` niveau binnen het bereik van afzonderlijke documenten. Wanneer een kwalificatie wordt uitgevoerd, wordt de uitvoer van deze kwalificatie worden [eigenschappen van de gedefinieerde context](#example-2).|
+| Verrijkt document | Een verrijkt document is een interne structuur die door de pijp lijn wordt gemaakt en gebruikt om alle aantekeningen te bewaren die betrekking hebben op een document. U beschouwt een verrijkt document als een structuur van aantekeningen. Over het algemeen wordt een aantekening die is gemaakt van een vorige aantekening het onderliggende item.<p/>Verrijkte documenten bestaan alleen voor de duur van de uitvoering van de vaardig heden. Zodra de inhoud is toegewezen aan de zoek index, is het verrijkte document niet langer nodig. Hoewel u niet rechtstreeks met verrijkde documenten communiceert, is het handig om een geestelijke model van de documenten te hebben wanneer u een vaardig heden maakt. |
+| Verrijkings context | De context waarin de verrijking plaatsvindt, in termen van welk element wordt verrijkt. De verrijkings context bevindt zich standaard `"/document"` op het niveau, in het bereik van afzonderlijke documenten. Wanneer een vaardigheid wordt uitgevoerd, worden de uitvoer van die vaardigheid [Eigenschappen van de gedefinieerde context](#example-2).|
 
 <a name="example-1"></a>
-## <a name="example-1-simple-annotation-reference"></a>Voorbeeld 1: Met eenvoudige aantekeningsverwijzing
+## <a name="example-1-simple-annotation-reference"></a>Voorbeeld 1: Eenvoudige aantekening verwijzing
 
-Stel dat u beschikt over tal van bestanden met verwijzingen naar de namen van personen die u wilt ophalen met behulp van de entiteit opname in Azure Blob-opslag. In de definitie van de kwalificatie hieronder `"/document/content"` is de tekstuele weergave genereren van het hele document en 'iedereen' is een extractie van de volledige naam voor entiteiten die zijn geïdentificeerd als personen.
+In Azure Blob-opslag hebt u een verscheidenheid aan bestanden met verwijzingen naar namen van personen die u wilt extra heren met behulp van entiteits herkenning. In de onderstaande `"/document/content"` vaardigheids definitie is de tekstuele weer gave van het hele document en ' personen ' is een uittreksel van volledige namen voor entiteiten die als personen zijn geïdentificeerd.
 
-Omdat de standaardcontext `"/document"`, de lijst met personen kan nu worden verwezen als `"/document/people"`. In dit specifieke geval `"/document/people"` is van een aantekening, dat kan nu worden toegewezen aan een veld in een index, of gebruikt in een ander niveau in de dezelfde vaardigheden.
+Omdat de standaard context is `"/document"`, kan er nu naar de lijst met personen worden verwezen `"/document/people"`als. In dit specifieke geval `"/document/people"` is een aantekening die nu kan worden toegewezen aan een veld in een index of worden gebruikt in een andere vaardigheid in dezelfde vaardig heden.
 
 ```json
   {
@@ -64,9 +65,9 @@ Omdat de standaardcontext `"/document"`, de lijst met personen kan nu worden ver
 
 ## <a name="example-2-reference-an-array-within-a-document"></a>Voorbeeld 2: Verwijzen naar een matrix in een document
 
-In dit voorbeeld is gebaseerd op het vorige voorbeeld, waarin u wordt getoond hoe een stap verrijking meerdere keren aangeroepen via hetzelfde document. Wordt ervan uitgegaan dat het vorige voorbeeld gegenereerd een matrix met tekenreeksen met 10 mensen namen vanuit één document. Een redelijke volgende stap is mogelijk een tweede verrijking die de achternaam uit een volledige naam ophaalt. Omdat er 10 namen, wilt u deze stap moet worden aangeroepen 10 keer in dit document, één keer voor elke persoon. 
+In dit voor beeld wordt een eerdere versie van het document beschreven, waarin wordt uitgelegd hoe u een verrijkings stap meerdere keren aanroept. Stel dat het vorige voor beeld een matrix met teken reeksen heeft gegenereerd met 10 personen namen uit één document. Een redelijke volgende stap kan een tweede verrijking zijn die de achternaam ophaalt uit een volledige naam. Omdat er tien namen zijn, wilt u deze stap 10 keer in dit document aanroepen, één keer voor elke persoon. 
 
-Voor het aanroepen van het juiste aantal iteraties, stelt u de context als `"/document/people/*"`, waarbij het sterretje (`"*"`) staat voor alle knooppunten in het document verrijkt als afstammelingen van `"/document/people"`. Hoewel deze kwalificatie is slechts één keer gedefinieerd in de matrix vaardigheden, wordt deze aangeroepen voor elk lid in het document totdat alle leden worden verwerkt.
+Als u het juiste aantal iteraties wilt aanroepen, stelt u `"/document/people/*"`de context in op als`"*"`, waarbij het sterretje () alle knoop punten in het verrijkte `"/document/people"`document vertegenwoordigt als descendanten van. Hoewel deze vaardigheid slechts eenmaal in de vaardigheden matrix is gedefinieerd, wordt deze voor elk lid binnen het document aangeroepen totdat alle leden zijn verwerkt.
 
 ```json
   {
@@ -90,15 +91,15 @@ Voor het aanroepen van het juiste aantal iteraties, stelt u de context als `"/do
   }
 ```
 
-Wanneer aantekeningen matrices of verzamelingen van tekenreeksen, is het raadzaam om u te richten op specifieke leden in plaats van de matrix als geheel. Het bovenstaande voorbeeld worden gegenereerd met de naam van een aantekening `"last"` onder elk knooppunt dat wordt vertegenwoordigd door de context. Als u wilt om te verwijzen naar deze reeks aantekeningen, kunt u de syntaxis van de `"/document/people/*/last"`. Als u wilt om te verwijzen naar een bepaalde aantekening, kunt u een expliciete index: `"/document/people/1/last`' om te verwijzen naar de achternaam van de eerste persoon die wordt geïdentificeerd in het document. U ziet dat in deze syntaxis matrices '0 geïndexeerd'.
+Wanneer aantekeningen matrices of verzamelingen teken reeksen zijn, wilt u mogelijk specifieke leden richten in plaats van de matrix als geheel. In het bovenstaande voor beeld wordt een aantekening gegenereerd die wordt aangeroepen `"last"` onder elk knoop punt dat wordt weer gegeven door de context. Als u naar deze reeks aantekeningen wilt verwijzen, kunt u de syntaxis `"/document/people/*/last"`gebruiken. Als u wilt verwijzen naar een bepaalde aantekening, kunt u een expliciete index gebruiken `"/document/people/1/last`: "om te verwijzen naar de achternaam van de eerste persoon die in het document is geïdentificeerd. U ziet dat in deze syntaxis matrices de waarde 0 Indexed is.
 
 <a name="example-3"></a>
 
-## <a name="example-3-reference-members-within-an-array"></a>Voorbeeld 3: Leden van de referentie in een matrix
+## <a name="example-3-reference-members-within-an-array"></a>Voorbeeld 3: Verwijzen naar leden binnen een matrix
 
-Soms moet u aan de groep alle aantekeningen van een bepaald type ze doorgeven aan een bepaalde kwalificatie. Houd rekening met een hypothetische aangepaste vaardigheden waarmee de meest voorkomende achternaam van de laatste namen in voorbeeld 2 hebt uitgepakt. Om alleen de laatste namen aan de aangepaste vaardigheid, geef de context als `"/document"` en de invoer als `"/document/people/*/lastname"`.
+Soms moet u alle aantekeningen van een bepaald type groeperen om deze door te geven aan een bepaalde vaardigheid. Overweeg een hypothetische aangepaste vaardigheid die de meest voorkomende achternaam identificeert van de achternamen die in voor beeld 2 zijn geëxtraheerd. Als u alleen de laatste namen wilt opgeven voor de aangepaste vaardigheid, geeft u `"/document"` de context op als `"/document/people/*/lastname"`en de invoer als.
 
-U ziet dat de kardinaliteit van `"/document/people/*/lastname"` groter is dan die van het document. Mogelijk zijn er 10 lastname knooppunten terwijl er slechts één documentknooppunt voor dit document. In dat geval wordt het systeem automatisch maakt een matrix met `"/document/people/*/lastname"` met alle van de elementen in het document.
+U ziet dat de kardinaliteit `"/document/people/*/lastname"` van groter is dan die van het document. Er kunnen 10 achternaam-knoop punten zijn zolang er slechts één document knooppunt is voor dit document. In dat geval wordt met het systeem automatisch een matrix gemaakt met `"/document/people/*/lastname"` alle elementen in het document.
 
 ```json
   {
@@ -124,7 +125,7 @@ U ziet dat de kardinaliteit van `"/document/people/*/lastname"` groter is dan di
 
 
 ## <a name="see-also"></a>Zie ook
-+ [Hoe u een aangepaste vaardigheden integreren in een pijplijn verrijking](cognitive-search-custom-skill-interface.md)
-+ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)
-+ [Vaardighedenset (REST) maken](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Verrijkt velden toewijzen aan een index](cognitive-search-output-field-mapping.md)
++ [Een aangepaste vaardigheid integreren in een verrijkings pijplijn](cognitive-search-custom-skill-interface.md)
++ [Een vaardig heden definiëren](cognitive-search-defining-skillset.md)
++ [Vaardig heden maken (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Uitgebreide velden toewijzen aan een index](cognitive-search-output-field-mapping.md)

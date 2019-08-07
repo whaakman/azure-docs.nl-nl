@@ -1,47 +1,47 @@
 ---
-title: Knooppunten voor VMware-oplossing door CloudSimple - Azure inrichten
-description: Meer informatie over het toevoegen van knooppunten aan uw VMWare met CloudSimple implementatie
+title: Knoop punten inrichten voor VMware-oplossing door CloudSimple-Azure
+description: Meer informatie over het toevoegen van knoop punten aan uw VMWare met CloudSimple-implementatie
 author: dikamath
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 33de07663c91f12d4e10c4661b841cd2dbe5a162
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9eb02f04b5873e5906782a27ce833a724ceecfe3
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165260"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812377"
 ---
-# <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Knooppunten voor VMware-oplossing door CloudSimple - Azure inrichten
+# <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Knoop punten inrichten voor VMware-oplossing door CloudSimple-Azure
 
-Knooppunten in de Azure-portal in te richten. Vervolgens kunt u betaalt u Ga capaciteit voor uw privécloud CloudSimple omgeving instellen.
+Knoop punten inrichten in de Azure Portal. Vervolgens kunt u betalen naar gebruik-capaciteit instellen voor uw persoonlijke cloud omgeving van CloudSimple.
 
-## <a name="add-a-provisioned-node-to-your-cloudsimple-private-cloud"></a>Een ingerichte knooppunt toevoegen aan uw persoonlijke cloud CloudSimple
+## <a name="add-a-provisioned-node-to-your-cloudsimple-private-cloud"></a>Een ingericht knoop punt toevoegen aan uw CloudSimple-privécloud
 
 1. Selecteer **Alle services**.
-2. Zoeken naar **CloudSimple knooppunten**.
+2. Zoek naar **CloudSimple-knoop punten**.
 
-   ![Search CloudSimple knooppunten](media/create-cloudsimple-node-search.png)
+   ![CloudSimple-knoop punten zoeken](media/create-cloudsimple-node-search.png)
 
-3. Selecteer **CloudSimple knooppunten**.
-4. Klik op **toevoegen** knooppunten te maken.
+3. Selecteer **CloudSimple-knoop punten**.
+4. Klik op **toevoegen** om knoop punten te maken.
 
-    ![CloudSimple knooppunten toevoegen](media/create-cloudsimple-node-add.png)
+    ![CloudSimple-knoop punten toevoegen](media/create-cloudsimple-node-add.png)
 
-5. Selecteer het abonnement waarin u wilt CloudSimple knooppunten in te richten.
-6. Selecteer de resourcegroep voor de knooppunten. Als u wilt een nieuwe resourcegroep toevoegen, klikt u op **nieuw**.
-7. Geef het voorvoegsel voor het identificeren van de knooppunten.
-8. Selecteer de locatie voor de resources van het knooppunt.
-9. Selecteer de specifieke locatie voor het hosten van de resources van het knooppunt.
-10. Selecteer het knooppunttype. U kunt ervoor kiezen de [optie CS28 of CS36](cloudsimple-node.md). De laatste optie bevat de maximale capaciteit voor Computing en geheugen.
-11. Selecteer het aantal knooppunten om in te richten.
+5. Selecteer het abonnement waar u de CloudSimple-knoop punten wilt inrichten.
+6. Selecteer de resource groep voor de knoop punten. Klik op **nieuwe maken**om een nieuwe resource groep toe te voegen.
+7. Voer het voor voegsel in om de knoop punten te identificeren.
+8. Selecteer de locatie voor de knooppunt resources.
+9. Selecteer de toegewezen locatie om de knooppunt resources te hosten.
+10. Selecteer het knooppunt type. U kunt de [optie CS28 of CS36](cloudsimple-node.md)kiezen. De laatste optie omvat de maximale reken-en geheugen capaciteit.
+11. Selecteer het aantal knoop punten dat moet worden ingericht.
 12. Selecteer **Controleren + maken**.
-13. Controleer de instellingen. Als u wilt de instellingen wijzigen, klikt u op **vorige**.
+13. Controleer de instellingen. Als u instellingen wilt wijzigen, klikt u op **vorige**.
 14. Selecteer **Maken**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Private Cloud maken](https://docs.azure.cloudsimple.com/create-private-cloud/)
+* [Privécloud maken](https://docs.azure.cloudsimple.com/create-private-cloud/)

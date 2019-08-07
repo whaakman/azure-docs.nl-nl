@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: bfc9d01284bb5623989676afbdeadc1c91c14ab0
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 025052a5005702232eb9eaf255e6aac2c58fec98
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688384"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735575"
 ---
-# <a name="manage-azure-vm-backups"></a>Back-ups van Azure-VM's beheren
+# <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Back-ups van Azure-VM'S beheren met Azure Backup-Service
 
 In dit artikel wordt beschreven hoe u virtuele Azure-machines (Vm's) beheert waarvan een back-up is gemaakt met behulp van de [Azure backup-service](backup-overview.md). Het artikel bevat ook een overzicht van de back-upgegevens die u op het kluis dashboard kunt vinden.
 

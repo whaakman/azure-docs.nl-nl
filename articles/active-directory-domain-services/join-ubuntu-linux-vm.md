@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 29a6cb69a818ed11e5f20dddd7299c01fbefbf47
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 78afec75269876c309b2c324d8a5973fd5ebf9a8
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234025"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68773043"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Een virtuele Ubuntu-machine in azure toevoegen aan een beheerd domein
 In dit artikel wordt beschreven hoe u een Ubuntu Linux virtuele machine kunt koppelen aan een Azure AD Domain Services beheerd domein.
@@ -145,6 +145,8 @@ Nu de vereiste pakketten zijn geïnstalleerd op de virtuele Linux-machine, moet 
 
     > [!TIP]
     > Gebruik hetzelfde gebruikers account dat u in de vorige stap hebt opgegeven (' kinit ').
+    >
+    > Als uw virtuele machine geen lid kan worden van het domein, moet u ervoor zorgen dat uitgaande Kerberos-verkeer op TCP + UDP-poort 464 naar het subnet van het virtuele netwerk voor uw door Azure AD DS beheerd domein is toegestaan voor de netwerk beveiligings groep van de virtuele machine.
 
     ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM' --install=/

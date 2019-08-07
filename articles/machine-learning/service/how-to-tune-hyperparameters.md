@@ -1,7 +1,7 @@
 ---
 title: Afstemmen van hyperparameters voor uw model
 titleSuffix: Azure Machine Learning service
-description: Efficiënt afstemmen van hyperparameters voor uw deep learning / machine learning-model met behulp van Azure Machine Learning-service. U leert hoe u wilt definiëren van de parameter zoeken ruimte, geeft u een primaire metrische waarde om te optimaliseren en voortijdig beëindigen slecht presterend wordt uitgevoerd.
+description: Efficiënt afstemmen van hyperparameters voor uw deep learning / machine learning-model met behulp van Azure Machine Learning-service. U leert hoe u de zoek ruimte voor de para meters definieert, een primaire metriek opgeeft die u wilt optimaliseren, en vervroegde uitvoeringen worden uitgevoerd.
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 730f39bf0b05ef33bbbca150532f96f1e495a9ed
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: cb4378047f34f3f635b2f1dd2425bbee28f91178
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302351"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815719"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Afstemmen van hyperparameters voor uw model met Azure Machine Learning-service
 
@@ -45,7 +45,7 @@ Automatisch afstemmen van hyperparameters door het bereik van waarden die zijn g
 
 ### <a name="types-of-hyperparameters"></a>Typen hyperparameters
 
-Elke hyperparameter kan discrete of continue zijn.
+Elke afstemming kan afzonderlijk of doorlopend zijn en heeft een distributie van waarden die worden beschreven door een [parameter expressie](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?view=azure-ml-py).
 
 #### <a name="discrete-hyperparameters"></a>Discrete hyperparameters 
 
@@ -129,7 +129,7 @@ param_sampling = GridParameterSampling( {
 
 Wanneer u Bayesiaanse steekproeven gebruikt, heeft het aantal gelijktijdige uitvoeringen een invloed op de effectiviteit van het proces voor afstemmen. Normaal gesproken worden een kleiner aantal gelijktijdige uitvoeringen kan leiden tot betere steekproeven convergentie, omdat de kleinere graad van parallelle uitvoering verhoogt het aantal uitvoeringen die baat bij eerder voltooid wordt uitgevoerd hebben.
 
-Bayesiaanse steekproeven ondersteunt alleen `choice` en `uniform` distributies boven de ruimte zoeken. 
+Bayesiaanse-steek proeven `choice`bieden `uniform`alleen ondersteuning `quniform` voor, en distributies in de zoek ruimte.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
@@ -179,7 +179,7 @@ Het trainingsscript berekent de `val_accuracy` en registreert u deze als 'nauwke
 
 ## <a name="specify-early-termination-policy"></a>Beleid voor vroegtijdige beëindiging opgeven
 
-Beëindig het uitvoeren van de uitvoering van een onverwacht programma automatisch met een beleid voor vroegtijdige beëindiging. Beëindiging minder verspilling van resources en in plaats daarvan deze resources worden gebruikt voor het verkennen van de andere parameterconfiguraties.
+Beëindig slecht presterend wordt uitgevoerd automatisch met een beleid voor vroegtijdige beëindiging. Beëindiging minder verspilling van resources en in plaats daarvan deze resources worden gebruikt voor het verkennen van de andere parameterconfiguraties.
 
 Wanneer u een beleid voor vroegtijdige beëindiging gebruikt, kunt u de volgende parameters die bepalen wanneer een beleid wordt toegepast:
 
@@ -234,7 +234,7 @@ from azureml.train.hyperdrive import TruncationSelectionPolicy
 early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, delay_evaluation=5)
 ```
 
-In dit voorbeeld wordt het beleid voor vroegtijdige beëindiging toegepast op elke interval dat begint bij de evaluatie-interval 5. Een uitvoering worden op basis van interval 5, beëindigd als de prestaties met interval 5 in de laagste 20% van de prestaties van alle uitvoeringen op interval van 5.
+In dit voorbeeld wordt het beleid voor vroegtijdige beëindiging toegepast op elke interval dat begint bij de evaluatie-interval 5. Een run wordt beëindigd bij interval 5 als de prestaties bij interval 5 in de laagste 20% van de prestaties van alle uitvoeringen in interval 5 liggen.
 
 ### <a name="no-termination-policy"></a>Er is geen beleid beëindiging
 
@@ -246,7 +246,7 @@ policy=None
 
 ### <a name="default-policy"></a>Standaardbeleid
 
-Als er geen beleid is opgegeven, kunt de hyperparameter afstemmen van de service alle trainingsuitvoeringen tot voltooiing worden uitgevoerd.
+Als er geen beleid is opgegeven, kan de afstemming-afstemmings service alle trainings uitvoeringen uitvoeren tot voltooiing.
 
 >[!NOTE] 
 >Als u een conservatieve beleid dat zorgt voor besparingen zonder afsluitende veelbelovende taken zoekt, kunt u een beleid mediaan stoppen met `evaluation_interval` 1 en `delay_evaluation` 5. Dit zijn conservatieve instellingen, die ongeveer 25% - 35% lager zonder verlies van primaire metrische gegevens (op basis van onze evaluatiegegevens) kunnen bieden.
@@ -275,7 +275,7 @@ max_total_runs=20,
 max_concurrent_runs=4
 ```
 
-Deze code wordt de hyperparameter afstemmen experiment voor het gebruik van maximaal 20 totaal aantal uitvoeringen, 4 configuraties uitvoeren op een tijdstip geconfigureerd.
+Met deze code wordt het afstemming-afstemmings experiment geconfigureerd voor gebruik van Maxi maal 20 volledige uitvoeringen, waarbij vier configuraties tegelijk worden uitgevoerd.
 
 ## <a name="configure-experiment"></a>Configureren van experiment
 

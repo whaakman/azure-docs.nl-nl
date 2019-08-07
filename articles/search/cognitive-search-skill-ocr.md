@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 903673e2c953328e90029938a9b7446271411646
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.subservice: cognitive-search
+ms.openlocfilehash: 653fbfe8c20150b2aca3e0a45b2877af35e01fff
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422998"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840988"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR cognitieve vaardigheid
 
@@ -55,7 +55,7 @@ Voorheen was er een para meter met de naam ' textExtractionAlgorithm ' om aan te
 
 ## <a name="skill-inputs"></a>Vaardigheids invoer
 
-| Invoer naam      | Description                                          |
+| Naam invoeren      | Description                                          |
 |---------------|------------------------------------------------------|
 | image         | Complex type. Werkt momenteel alleen met het veld '/document/normalized_images ', gemaakt door de Indexeer functie van Azure ```imageAction``` BLOB wanneer is ingesteld op een andere ```none```waarde dan. Zie het voor [beeld](#sample-output) voor meer informatie.|
 

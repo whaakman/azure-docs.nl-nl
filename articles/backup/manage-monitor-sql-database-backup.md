@@ -1,5 +1,5 @@
 ---
-title: SQL Server-data bases beheren en bewaken op een virtuele Azure-machine waarvan een back-up is gemaakt door Azure Backup | Microsoft Docs
+title: SQL Server-data bases op een virtuele Azure-machine beheren en bewaken met Azure Backup
 description: In dit artikel wordt beschreven hoe u SQL Server-data bases die worden uitgevoerd op een virtuele machine van Azure kunt beheren en controleren.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dacurwin
-ms.openlocfilehash: c5f61c778849a57d9143580e0e1041c7fe992d52
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7cd916c8e52b40dee3ce2d63d43dc88f09001b32
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639584"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827558"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Back-ups van SQL Server-data bases beheren en bewaken
 
@@ -120,7 +120,7 @@ U kunt verschillende typen back-ups op aanvraag uitvoeren:
 * Differentiële back-up
 * Logboekback-up
 
-Wanneer u de Bewaar periode voor een volledige back-up wilt opgeven, wordt het Bewaar bereik voor andere back-uptypes automatisch ingesteld op 30 dagen vanaf de huidige tijd. <br/>
+Wanneer u de Bewaar periode voor een volledige back-up wilt opgeven, wordt de Bewaar termijn voor de volledige back-up van ad-hoc automatisch ingesteld op 45 dagen vanaf de huidige tijd. <br/>
 Zie [SQL Server back-](backup-architecture.md#sql-server-backup-types)uptypen voor meer informatie.
 
 ## <a name="unregister-a-sql-server-instance"></a>Registratie van een SQL Server-exemplaar ongedaan maken

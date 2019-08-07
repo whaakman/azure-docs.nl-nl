@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: dfdeee9591b5d6ccbadadaef83c6598dd0e850d8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 117b7d4adb508628ee768bb9531d0bbc52f61121
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448148"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816055"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Actieve Directory Role-Based Access Control (preview)
 
@@ -27,19 +27,19 @@ Voor Azure Event Hubs, het beheer van naamruimten en alle gerelateerde resources
 Een toepassing die gebruikmaakt van Azure AD RBAC hoeft niet voor het afhandelen van SAS-regels en sleutels of een andere specifieke naar Event Hubs toegangstokens. De client-app communiceert met Azure AD om geen verificatiecontext stand te brengen en een toegangstoken opgehaald voor Event Hubs. Met de domeingebruikersaccounts waarvoor interactieve aanmelding, de toepassing verwerkt nooit geen referenties rechtstreeks.
 
 ## <a name="event-hubs-roles-and-permissions"></a>Event Hubs-rollen en machtigingen
-Azure biedt de volgende ingebouwde RBAC-rollen voor het verlenen van toegang tot een Event Hubs-naamruimte:
+Azure biedt de volgende ingebouwde RBAC-rollen voor het verlenen van toegang tot een Event Hubs naam ruimte:
 
-De [Gegevenseigenaar (Preview) voor de Azure-Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) rol kunnen toegang tot gegevens in een Event Hubs-naamruimte en de entiteiten (wachtrijen, onderwerpen, abonnementen en filters)
+De rol [Azure Event hubs data Owner (preview)](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) maakt gegevens toegang tot een event hubs naam ruimte en de bijbehorende entiteiten (wacht rijen, onderwerpen, abonnementen en filters) mogelijk
 
 >[!IMPORTANT]
-> We eerder toe te voegen beheerde identiteit ondersteund de **eigenaar** of **Inzender** rol. Echter bevoegdheden voor toegang tot de gegevens **eigenaar** en **Inzender** rol niet meer worden herkend. Als u de **eigenaar** of **Inzender** rol, switch voor het gebruik van de **Gegevenseigenaar (Preview) voor de Azure-Event Hubs** rol.
+> We hebben eerder ondersteuning geboden voor het toevoegen van beheerde identiteit aan de rol **Owner** of **Inzender** . De bevoegdheden voor gegevens toegang voor de rol **eigenaar** en **Inzender** worden echter niet meer nageleefd. Als u de rol **eigenaar** of **Inzender** gebruikt, schakelt u over naar het gebruik van de rol **Azure Event hubs data Owner (preview)** .
 
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Event Hubs gebruiken met een gebruikersaccount voor Azure AD-domein
 
 De volgende sectie wordt beschreven hoe u maken en uitvoeren van een voorbeeldtoepassing die om een interactieve Azure vraagt AD-gebruiker aanmelden, het verlenen van toegang aan de gebruikersaccount Event Hubs en die identiteit gebruiken voor toegang tot de Event Hubs. 
 
-Deze inleiding beschrijft een eenvoudige consoletoepassing de [code waarvoor is op GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
+In deze inleiding wordt een eenvoudige console toepassing beschreven, de [code waarvoor op github](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)
 
 ### <a name="create-an-active-directory-user-account"></a>Een Active Directory-gebruikersaccount maken
 
@@ -49,7 +49,7 @@ Als u nog steeds wilt maken van een speciaal account voor dit scenario [als volg
 
 ### <a name="create-an-event-hubs-namespace"></a>Een Event Hubs-naamruimte maken
 
-Volgende [maken van een Event Hubs-naamruimte](event-hubs-create.md). 
+Maak vervolgens [een event hubs naam ruimte](event-hubs-create.md). 
 
 Nadat de naamruimte is gemaakt, gaat u naar de **Access Control (IAM)** pagina in de portal en klik vervolgens op **roltoewijzing toevoegen** de Azure AD-gebruikersaccount toevoegen aan de rol van eigenaar. Als u uw eigen gebruikersaccount gebruikt en u de naamruimte hebt gemaakt, bent u al in de rol van eigenaar. Zoek de naam van de web-App in een ander account toevoegen aan de rol, de **machtigingen toevoegen** deelvenster **Selecteer** veld en klik vervolgens op de vermelding. Klik vervolgens op **Opslaan**. Het gebruikersaccount heeft nu toegang tot de Event Hubs-naamruimte en naar de event hub die u eerder hebt gemaakt.
  
@@ -65,16 +65,16 @@ De registratie van gedetailleerde stapsgewijze [in deze zelfstudie](../active-di
 
 Voordat u het voorbeeld uitvoeren kunt, bewerkt u het bestand App.config en, afhankelijk van uw scenario, stel de volgende waarden:
 
-- `tenantId`: Ingesteld op **TenantId** waarde.
-- `clientId`: Ingesteld op **ApplicationId** waarde. 
-- `clientSecret`: Als u wilt zich aanmelden met het clientgeheim, kunt u deze in Azure AD maken. Een web-app of API ook gebruiken in plaats van een systeemeigen app. Voeg ook de app onder **Access Control (IAM)** in de naamruimte die u eerder hebt gemaakt.
-- `eventHubNamespaceFQDN`: Ingesteld op de volledig gekwalificeerde DNS-naam van uw zojuist gemaakte Event Hubs-naamruimte. bijvoorbeeld, `example.servicebus.windows.net`.
-- `eventHubName`: Stel op de naam van de event hub die u hebt gemaakt.
+- `tenantId`: Stel in op de waarde **TenantId** .
+- `clientId`: Stel in op **ApplicationId** -waarde. 
+- `clientSecret`: Als u zich wilt aanmelden met behulp van het client geheim, maakt u het in azure AD. Een web-app of API ook gebruiken in plaats van een systeemeigen app. Voeg ook de app onder **Access Control (IAM)** in de naamruimte die u eerder hebt gemaakt.
+- `eventHubNamespaceFQDN`: Stel in op de volledig gekwalificeerde DNS-naam van de zojuist gemaakte Event Hubs naam ruimte; bijvoorbeeld `example.servicebus.windows.net`.
+- `eventHubName`: Stel in op de naam van de Event Hub die u hebt gemaakt.
 - De omleidings-URI die u in uw app in de vorige stappen hebt opgegeven.
  
 Wanneer u de consoletoepassing uitvoert, wordt u gevraagd om te selecteren van een scenario; Klik op **interactieve aanmelding voor gebruiker** door te typen van het nummer en druk op ENTER. De toepassing verschijnt een venster aanmelden, wordt u gevraagd om uw toestemming voor toegang tot de Event Hubs en gebruikt vervolgens de service uit te voeren via het scenario verzenden/ontvangen met behulp van de identiteit van de aanmelding.
 
-De app gebruikt `ServiceAudience.EventHubsAudience` als de tokendoelgroep. Wanneer u andere talen of de SDK's waar de doelgroep is niet beschikbaar als een constante, de juiste waarde te gebruiken is `https://eventhubs.azure.net/`.
+De app wordt `ServiceAudience.EventHubsAudience` gebruikt als de token doelgroep. Wanneer u andere talen of Sdk's gebruikt, waarbij de doel groep niet beschikbaar is als een constante, is `https://eventhubs.azure.net/`de juiste waarde die moet worden gebruikt.
 
 ## <a name="next-steps"></a>Volgende stappen
 

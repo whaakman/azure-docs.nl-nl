@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 07/30/2019
-ms.openlocfilehash: d97c3d47a277ecd8b1de635e3d835f9ee1f42057
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.date: 08/07/2019
+ms.openlocfilehash: 4b66d015e8a182e305a36dacaa2e082288a3e19e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700351"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840536"
 ---
 # <a name="introduction-to-deep-learning-vs-machine-learning"></a>Inleiding tot diep gaande informatie versus machine learning
 
@@ -43,9 +43,9 @@ Nu u een overzicht hebt van machine learning versus diep gaande kennis, kunt u d
 
 De volgende tabel vergelijkt de twee technieken in meer detail:
 
-| |Machine learning |Deep learning|
+| |Alle machine learning |Alleen diep gaande lessen|
 |---|---|---|
-|  **Aantal gegevens punten** | Kan kleine gegevens bedragen van gebruikers gebruiken | Vereist een groot aantal niet-gelabelde trainings gegevens om beknoptere conclusies te maken |
+|  **Aantal gegevens punten** | Kan kleine gegevens bedragen van gebruikers gebruiken | Vereist een grote hoeveelheid trainings gegevens om beknopte conclusies te maken |
 |  **Hardware-afhankelijkheden** | Kan werken op computers met een laag eind punt. Er is geen grote hoeveelheid reken kracht nodig | Is afhankelijk van high-end-machines. Er wordt een groot aantal bewerkingen voor matrix vermenigvuldiging uitgevoerd. Deze bewerkingen kunnen efficiënt worden geoptimaliseerd met behulp van een GPU |
 |  **Parametrisatie-proces** | Vereist dat functies nauw keurig worden geïdentificeerd en gemaakt door gebruikers | Het leert op hoog niveau functies van gegevens en maakt zelf nieuwe functies |
 |  **Leer benadering** | Verdeelt taken in kleine delen en combineert de ontvangen resultaten in één conclusie | Hiermee lost u het probleem op een end-to-end-basis |

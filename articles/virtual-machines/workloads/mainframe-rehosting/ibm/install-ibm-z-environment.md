@@ -1,7 +1,8 @@
 ---
 title: IBM zD & T dev/test-omgeving installeren op Azure | Microsoft Docs
-description: IBM Z Development- en testomgeving (zD & T) implementeren op Azure Virtual Machine (VM)-infrastructuur als een dienst (IaaS).
+description: Implementeer de IBM Z-ontwikkelings-en test omgeving (zD & T) op de infra structuur van Azure virtual machine (VM) als een service (IaaS).
 services: virtual-machines-linux
+ms.service: virtual-machines-linux
 documentationcenter: ''
 author: njray
 ms.author: edprice
@@ -11,130 +12,130 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: ad02ec75dab4cb6971d0467899d80f5f745fd94b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 7ba3323f0811f3f9b76d73796264bf17712a1179
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621296"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841335"
 ---
-# <a name="install-ibm-zdt-devtest-environment-on-azure"></a>IBM zD & T dev/test-omgeving op Azure installeren
+# <a name="install-ibm-zdt-devtest-environment-on-azure"></a>IBM zD & T dev/test-omgeving installeren op Azure
 
-Voor het maken van een dev/test-omgeving voor mainframe-workloads op IBM Z Systems, kunt u IBM Z Development en Test Environment (zD & T) implementeren op Azure Virtual Machine (VM)-infrastructuur als een dienst (IaaS).
+Als u een ontwikkel-en test omgeving wilt maken voor mainframe workloads op IBM Z-systemen, kunt u de IBM Z-ontwikkelings-en test omgeving (zD & T) implementeren op de infra structuur van Azure virtual machine (VM) als een service (IaaS).
 
-Met zD & T, kunt u profiteren van de kosten te besparen van de x86 platform voor uw minder kritieke ontwikkel- en testomgevingen en push de updates back-ups maken in een productieomgeving Z-systeem. Zie voor meer informatie de [IBM ZD & T installatie-instructies](https://www-01.ibm.com/support/docview.wss?uid=swg24044565#INSTALL).
+Met zD & T kunt u profiteren van de kosten besparingen van het x86-platform voor uw minder kritieke ontwikkel-en test omgevingen en vervolgens de updates vervolgens terugsturen naar een systeem productie omgeving van Z. Zie de installatie-instructies voor [IBM ZD & T](https://www-01.ibm.com/support/docview.wss?uid=swg24044565#INSTALL)voor meer informatie.
 
-Ondersteuning voor de volgende versies van Azure en Azure Stack:
+Azure en Azure Stack ondersteunen de volgende versies:
 
-- zD & T persoonlijke editie
+- zD & T Personal Edition
 - zD & T parallelle Sysplex
 - zD&T Enterprise Edition
 
-Alle edities van zD & T uitvoeren op x86 Linux-systemen, niet Windows Server. Enterprise-editie wordt ondersteund op Red Hat Enterprise Linux (RHEL) of Ubuntu/Debian. RHEL- en virtuele Debian-machine-installatiekopieën zijn beschikbaar voor Azure.
+Alle versies van zD & T alleen worden uitgevoerd op x86 Linux-systemen, niet op Windows Server. Enter prise Edition wordt ondersteund op een Red Hat Enterprise Linux (RHEL) of Ubuntu/Debian. Er zijn zowel RHEL-als Debian-VM-installatie kopieën beschikbaar voor Azure.
 
-In dit artikel leest u hoe het instellen van zD & T Enterprise Edition op Azure, zodat u de zD & T Enterprise Edition-webserver voor het maken en beheren van omgevingen gebruiken kunt. Installeren van zD & T alle omgevingen niet worden geïnstalleerd. U moet deze afzonderlijk als installatiepakketten maken. Bijvoorbeeld, toepassing ontwikkelaars beheerd distributies (ADCD) zijn installatiekopieën van volumes van testomgevingen. Ze zijn opgenomen in het zip-installatiekopieën in de mediadistributie van IBM beschikbaar. Zie hoe u [instellen van een omgeving ADCD op Azure](demo.md).
+Dit artikel laat u zien hoe u zD & T Enter prise Edition op Azure kunt instellen, zodat u de zD & T Enter prise Edition gebruikt voor het maken en beheren van omgevingen. Wanneer u zD & T installeert, worden er geen omgevingen geïnstalleerd. U moet deze afzonderlijk maken als installatie pakketten. Ontwikkel aars van toepassings ontwikkelaars (ADCD) zijn bijvoorbeeld volume kopieën van test omgevingen. Ze zijn opgenomen in zip-installatie kopieën op de media distributie die beschikbaar is via IBM. Zie [een ADCD-omgeving instellen in azure](demo.md).
 
-Zie voor meer informatie de [zD & T overzicht](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zdt.overview.gs.doc/topics/c_product_overview.html) in het midden van de kennis IBM.
+Zie voor meer informatie het [overzicht van zD & T](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zdt.overview.gs.doc/topics/c_product_overview.html) in het IBM-kennis centrum.
 
-In dit artikel leest u hoe het instellen van Z ontwikkelings- en testomgeving (zD & T) Enterprise Edition op Azure. Vervolgens kunt u de zD & T Enterprise Edition-webserver te maken en beheren van Z-omgevingen op Azure.
+In dit artikel wordt beschreven hoe u de Enter prise-editie voor Z Development and test (zD & T) kunt instellen op Azure. Vervolgens kunt u de zD & T Enter prise Edition-webserver gebruiken voor het maken en beheren van op Z gebaseerde omgevingen op Azure.
 
 ## <a name="prerequisites"></a>Vereisten
 
 > [!NOTE]
-> IBM kunt zD & T Enterprise Edition in dev/test-omgevingen alleen te worden geïnstalleerd:*niet* productie-omgevingen.
+> Met IBM kan zD & T Enter prise Edition alleen worden geïnstalleerd in ontwikkel-en test omgevingen,*niet* in productie omgevingen.
 
 - Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
-- U moet toegang tot de media, alleen beschikbaar voor IBM-klanten en partners is. Voor meer informatie contact op met uw vertegenwoordiger IBM of raadpleegt u de contactgegevens op de [zD & T](https://www.ibm.com/us-en/marketplace/z-systems-development-test-environment) website.
+- U hebt toegang tot de media nodig, die alleen beschikbaar is voor klanten en partners van IBM. Voor meer informatie neemt u contact op met uw IBM-vertegenwoordiger of raadpleegt u de contact gegevens op de website van [zD & T](https://www.ibm.com/us-en/marketplace/z-systems-development-test-environment) .
 
-- Een [licentieserver](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.tools.user.guide.doc/topics/zdt_ee.html). Dit is vereist voor toegang tot de omgevingen. De manier waarop u dit hebt gemaakt, is afhankelijk van hoe u de software van IBM licentie:
+- Een [licentie server](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.tools.user.guide.doc/topics/zdt_ee.html). Dit is vereist voor toegang tot de omgevingen. De manier waarop u deze maakt, is afhankelijk van hoe u een licentie voor de software van IBM hebt:
 
-     - **Op basis van hardware licentieserver** vereist een USB-apparaat dat de rationele Tokens die nodig zijn voor toegang tot alle onderdelen van de software bevat. U moet dit verkrijgen van IBM.
+     - Op **hardware gebaseerde licentie server** vereist een USB-apparaat met de rationele tokens die nodig zijn voor toegang tot alle delen van de software. U moet dit verkrijgen van IBM.
 
-     - **Op basis van software licentieserver** , moet u voor het instellen van een centrale server voor het beheer van de licentieverlening sleutels. Deze methode heeft de voorkeur en moet u voor het instellen van de sleutels die u van IBM in de beheerserver ontvangt.
+     - **Licentie server op basis van software** vereist dat u een gecentraliseerde server instelt voor het beheer van de licentie sleutels. Deze methode verdient de voor keur en hiervoor moet u de sleutels instellen die u van IBM wilt ontvangen op de-beheer server.
 
-## <a name="create-the-base-image-and-connect"></a>De basisinstallatiekopie maken en verbinden
+## <a name="create-the-base-image-and-connect"></a>De basis installatie kopie maken en verbinding maken
 
-1. In Azure-portal [maken van een virtuele machine](/azure/virtual-machines/linux/quick-create-portal) met de gewenste configuratie van besturingssysteem. In dit artikel wordt ervan uitgegaan dat een VM B4ms (met 4 vcpu's en 16 GB geheugen) waarop Ubuntu 16.04 wordt uitgevoerd.
+1. In Azure Portal [maakt u een virtuele machine](/azure/virtual-machines/linux/quick-create-portal) met de gewenste configuratie van het besturings systeem. In dit artikel wordt ervan uitgegaan dat er een B4ms-VM is (met 4 Vcpu's en 16 GB geheugen) waarop Ubuntu 16,04 wordt uitgevoerd.
 
-2. Nadat de virtuele machine is gemaakt, opent u poorten voor inkomend verkeer 22 voor SSH, 21 voor FTP en 9443 voor de webserver.
+2. Nadat de VM is gemaakt, opent u voor de webserver binnenkomende poorten 22 voor SSH, 21 voor FTP en 9443.
 
-3. Ophalen van de SSH-referenties die worden weergegeven op de **overzicht** blade van de virtuele machine via de **Connect** knop. Selecteer de **SSH** tabblad en de SSH-aanmelding-opdracht naar het Klembord kopiëren.
+3. Ontvang de SSH-referenties die worden weer gegeven op de Blade **overzicht** van de virtuele machine via de knop **verbinding maken** . Selecteer het tabblad **SSH** en kopieer de SSH-aanmeldings opdracht naar het klem bord.
 
-4. Meld u aan bij een [Bash-shell](/azure/cloud-shell/quickstart) vanuit uw lokale PC en plak de opdracht. Dit is in het formulier **ssh\<gebruikers-id\>\@\<IP-adres\>** . Wanneer u hierom wordt gevraagd uw referenties op te geven, voert u zodat ze geen verbinding maken met de basismap van de.
+4. Meld u aan bij een [bash-shell](/azure/cloud-shell/quickstart) vanaf uw lokale PC en plak de opdracht. Dit is het **\<IP-adres\@\<\>vanhetformulierSSH-\>gebruikers-id**. Wanneer u om referenties wordt gevraagd, voert u deze in om een verbinding met uw basismap tot stand te brengen.
 
-## <a name="copy-the-installation-file-to-the-server"></a>Kopieer het installatiebestand naar de server
+## <a name="copy-the-installation-file-to-the-server"></a>Kopieer het installatie bestand naar de server
 
-Het installatiebestand voor de webserver is **ZDT\_installeren\_EE\_V12.0.0.1.tgz**. Het is opgenomen in de media die wordt geleverd door IBM. U moet dit bestand uploaden naar uw Ubuntu-VM.
+Het installatie bestand voor de webserver is **ZDT\_install\_ee\_v 12.0.0.1. tgz**. Het is opgenomen in de media die door IBM worden geleverd. U moet dit bestand uploaden naar uw Ubuntu-VM.
 
-1. Voer de volgende opdracht om te controleren of dat alles is bijgewerkt in de zojuist gemaakte installatiekopie vanaf de opdrachtregel:
+1. Voer vanaf de opdracht regel de volgende opdracht in om ervoor te zorgen dat alles up-to-date is in de zojuist gemaakte installatie kopie:
 
     ```
     sudo apt-get update
     ```
 
-2. Maak de map voor de installatie:
+2. Maak de directory waarin u wilt installeren:
 
     ```
     mkdir ZDT
     ```
 
-3. Kopieer het bestand van uw lokale computer naar de virtuele machine:
+3. Kopieer het bestand van uw lokale computer naar de VM:
 
     ```
     scp ZDT_Install_EE_V12.0.0.1.tgz  your_userid@<IP Address /ZDT>   =>
     ```
     
 > [!NOTE]
-> Deze opdracht wordt het installatiebestand naar de map ZDT in uw directory thuis, deze is afhankelijk van of de client Windows of Linux wordt uitgevoerd.
+> Met deze opdracht kopieert u het installatie bestand naar de map ZDT in uw basismap. Dit is afhankelijk van het feit of uw client Windows of Linux uitvoert.
 
-## <a name="install-the-enterprise-edition"></a>Installeren van de Enterprise-editie
+## <a name="install-the-enterprise-edition"></a>De Enter prise-editie installeren
 
-1. Ga naar de map ZDT en decomprimeren van het ZDT\_installeren\_EE\_V12.0.0.1.tgz-bestand met de volgende opdrachten:
+1. Ga naar de map ZDT en decomprimeer het\_bestand\_ZDT\_install ee v 12.0.0.1. tgz met de volgende opdrachten:
 
     ```
     cd ZDT
     chmod 755 ZDT\_Install\_EE\_V12.0.0.0.tgz
     ```
 
-2. Voer het installatieprogramma:
+2. Voer het installatie programma uit:
 
     ```
     ./ZDT_Install_EE_V12.0.0.0.x86_64
     ```
 
-3. Selecteer **1** om Enterprise-Server te installeren.
+3. Selecteer **1** om de Enter prise-server te installeren.
 
-4. Druk op **Enter** en lees de licentievoorwaarden aandachtig door. Aan het einde van de licentie, voer **Ja** om door te gaan.
+4. Druk op **Enter** en lees de licentie overeenkomsten aandachtig door. Voeg aan het einde van de licentie **Ja** toe om door te gaan.
 
-5. Wanneer u wordt gevraagd het wachtwoord voor de nieuwe gebruiker te wijzigen **ibmsys1**, gebruikt u de opdracht **sudo passwd ibmsys1** en voer het nieuwe wachtwoord.
+5. Wanneer u wordt gevraagd het wacht woord voor de zojuist gemaakte gebruiker **ibmsys1**te wijzigen, gebruikt u de opdracht **sudo passwd ibmsys1** en voert u het nieuwe wacht woord in.
 
-6. Om te controleren of de installatie geslaagd is invoeren
+6. Als u wilt controleren of de installatie is voltooid, voert u
 
     ```
     dpkg -l | grep zdtapp
     ```
 
-7. Controleer of de uitvoer bevat de tekenreeks **zdtapp 12.0.0.0**, waarmee wordt aangegeven dat de brandstof pakket is geïnstalleerd
+7. Controleer of de uitvoer de teken reeks **zdtapp 12.0.0.0**bevat, waarmee wordt aangegeven dat het pakket gas is geïnstalleerd
 
-### <a name="starting-enterprise-edition"></a>Starting Enterprise Edition
+### <a name="starting-enterprise-edition"></a>Enter prise Edition starten
 
-Houd er rekening mee dat wanneer de server wordt gestart, deze wordt uitgevoerd onder de zD & T gebruikers-ID die is gemaakt tijdens de installatie.
+Wanneer de webserver wordt gestart, wordt deze uitgevoerd onder de zD & T-gebruikers-ID die is gemaakt tijdens het installatie proces.
 
-1. Voor het starten van de webserver, gebruikt u de gebruikers-ID van de hoofdmap om uit te voeren van de volgende opdracht uit:
+1. Als u de webserver wilt starten, gebruikt u de hoofd gebruikers-ID om de volgende opdracht uit te voeren:
 
     ```
     sudo /opt/ibm/zDT/bin/startServer
     ```
 
-2. Kopieer de URL-uitvoer door het script ziet eruit als:
+2. Kopieer de URL-uitvoer door het script. dit ziet er als volgt uit:
 
     ```
     https://<your IP address or domain name>:9443/ZDTMC/login.htm
     ```
 
-3. Plak de URL in een webbrowser te openen van het onderdeel management voor uw zD & T-installatie.
+3. Plak de URL in een webbrowser om het beheer onderdeel voor uw zD & T-installatie te openen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Instellen van een toepassing ontwikkelaars beheerd distributie (ADCD) in de IBM zD & T v1](./demo.md)
+[Een toepassings ontwikkelaars ADCD (Controlled Distribution) instellen in IBM zD & T v1](./demo.md)

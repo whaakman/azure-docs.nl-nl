@@ -1,5 +1,5 @@
 ---
-title: 'Verbind uw on-premises netwerk met een virtueel Azure-netwerk: Site-naar-Site-VPN: Portal | Microsoft Docs'
+title: 'Verbind uw on-premises netwerk met een virtueel Azure-netwerk: Site-naar-site-VPN: Portal | Microsoft Docs'
 description: Stappen voor het maken van een IPSec-verbinding van uw on-premises netwerk met een virtueel Azure-netwerk via het openbare internet. Deze stappen helpen u een cross-premises site-naar-site-VPN-gatewayverbinding te maken met de portal.
 services: vpn-gateway
 author: cherylmc
@@ -7,19 +7,19 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 032b6a4f5147d06a4613a827a0372437dca47f47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b4be7464a4c19cd0a71d5a786b46091cdbc074b
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407542"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780130"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Een site-naar-site-verbinding maken in Azure Portal
 
 In dit artikel leest u hoe u Azure Portal gebruikt om een site-naar-site-VPN-gatewayverbinding te maken vanaf uw on-premises netwerk naar het VNet. De stappen in dit artikel zijn van toepassing op het Resource Manager-implementatiemodel. U kunt deze configuratie ook maken met een ander implementatiehulpprogramma of een ander implementatiemodel door in de volgende lijst een andere optie te selecteren:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure-portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure Portal (klassiek)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -42,23 +42,23 @@ Controleer voordat u met de configuratie begint of u aan de volgende criteria he
 
 In de voorbeelden in dit artikel worden de volgende waarden gebruikt. U kunt deze waarden gebruiken om een testomgeving te maken of ze raadplegen om meer inzicht te krijgen in de voorbeelden in dit artikel. Zie [Over instellingen voor VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md) voor meer informatie over instellingen voor VPN-gateways in het algemeen.
 
-* **VNet-naam:** TestVNet1
+* **VNet-naam:** VNet1
 * **Adresruimte:** 10.1.0.0/16
 * **Abonnement:** Het abonnement dat u wilt gebruiken
 * **Resourcegroep:** TestRG1
-* **Locatie:** US - oost
-* **Subnet:** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (optioneel voor deze oefening)
-* **Naam Gatewaysubnet:** GatewaySubnet (dit wordt automatisch ingevuld in de portal)
-* **Adresbereik Gatewaysubnet:** 10.1.255.0/27
-* **DNS-server:** 8.8.8.8 - optioneel. Het IP-adres van de DNS-server.
-* **Gatewaynaam van het virtuele netwerk:** VNet1GW
+* **Locatie:** East US
+* **Subnetrouter** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (optioneel voor deze oefening)
+* **Naam van Gateway-subnet:** GatewaySubnet (Hiermee wordt de portal automatisch ingevuld)
+* **Adres bereik gateway-subnet:** 10.1.255.0/27
+* **DNS-server:** 8.8.8.8-optioneel. Het IP-adres van de DNS-server.
+* **Virtual Network gateway naam:** VNet1GW
 * **Openbaar IP-adres:** VNet1GWIP
-* **VPN-Type:** Op route gebaseerd
-* **Verbindingstype:** Site-naar-site (IPsec)
-* **Gatewaytype:** VPN
-* **Naam van lokale netwerkgateway:** Site1
-* **Verbindingsnaam:** VNet1toSite1
-* **Gedeelde sleutel:** In dit voorbeeld gebruiken we abc123. Maar u kunt datgene gebruiken wat compatibel is met uw VPN-hardware. Het belangrijkste is dat de waarden aan beide zijden van de verbinding met elkaar overeenkomen.
+* **VPN-type:** Op route gebaseerd
+* **Verbindings type:** Site-naar-site (IPsec)
+* **Gateway type:** VPN
+* **Naam van lokale netwerk gateway:** Site1
+* **Verbindings naam:** VNet1toSite1
+* **Gedeelde sleutel:** Voor dit voor beeld gebruiken we abc123. Maar u kunt datgene gebruiken wat compatibel is met uw VPN-hardware. Het belangrijkste is dat de waarden aan beide zijden van de verbinding met elkaar overeenkomen.
 
 ## <a name="CreatVNet"></a>1. Een virtueel netwerk maken
 
@@ -66,9 +66,11 @@ In de voorbeelden in dit artikel worden de volgende waarden gebruikt. U kunt dez
 
 ## <a name="dns"></a>2. Een DNS-server opgeven
 
-DNS is niet vereist om site-naar-site-verbindingen te maken. Als u echter naamomzetting wilt instellen voor resources die in uw virtuele netwerk worden geïmplementeerd, moet u een DNS-server opgeven. Met deze instelling kunt u de DNS-server opgeven die u wilt gebruiken voor de naamomzetting voor dit virtuele netwerk. Hierdoor wordt geen DNS-server aangemaakt. Zie [Naamomzetting voor VM's en rolinstanties](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) voor meer informatie over naamomzetting.
+DNS is niet vereist om site-naar-site-verbindingen te maken.
 
-[!INCLUDE [Specify a dns server - optional](../../includes/vpn-gateway-specify-dns-portal-include.md)]
+Als u echter naamomzetting wilt instellen voor resources die in uw virtuele netwerk worden geïmplementeerd, moet u een DNS-server opgeven. Met deze instelling kunt u de DNS-server opgeven die u wilt gebruiken voor de naamomzetting voor dit virtuele netwerk. Hierdoor wordt geen DNS-server aangemaakt. Zie [Naamomzetting voor VM's en rolinstanties](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) voor meer informatie over naamomzetting.
+
+[!INCLUDE [Specify a dns server - optional](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Her gatewaysubnet maken
 

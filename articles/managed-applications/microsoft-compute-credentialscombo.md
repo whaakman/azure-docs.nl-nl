@@ -1,6 +1,6 @@
 ---
-title: Azure CredentialsCombo UI-element | Microsoft Docs
-description: Beschrijft de Microsoft.Compute.CredentialsCombo UI-element voor Azure-portal.
+title: Gebruikers interface-element van Azure CredentialsCombo | Microsoft Docs
+description: Hierin wordt het UI-element micro soft. compute. CredentialsCombo voor Azure Portal beschreven.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,32 +13,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0412d55fe60524cde404e6a640723d3259e020e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3036e5882e236dbbb9cf4f9aae17617822422a82
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60251380"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742109"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo UI element
-Een groep besturingselementen met ingebouwde validatie voor wachtwoorden voor Windows en Linux- en openbare SSH-sleutels.
+Een groep besturings elementen met ingebouwde validatie voor Windows-en Linux-wacht woorden en open bare SSH-sleutels.
 
-## <a name="ui-sample"></a>Voorbeeld van de gebruikersinterface
+## <a name="ui-sample"></a>UI-voor beeld
 
-Voor Windows, gebruikers te zien:
+Voor Windows zien gebruikers het volgende:
 
 ![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
 
-Zie voor Linux met een wachtwoord dat is geselecteerd, gebruikers:
+Voor Linux waarbij een wacht woord is geselecteerd, zien gebruikers:
 
-![Microsoft.Compute.CredentialsCombo Linux-wachtwoord](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
+![Micro soft. compute. CredentialsCombo Linux-wacht woord](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
 
-Zie voor Linux met openbare SSH-sleutel hebt geselecteerd, gebruikers:
+Voor Linux waarvoor een open bare SSH-sleutel is geselecteerd, zien gebruikers:
 
-![Microsoft.Compute.CredentialsCombo Linux key](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
+![Micro soft. compute. CredentialsCombo Linux-sleutel](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
 ## <a name="schema"></a>Schema
-Voor Windows, gebruikt u het volgende schema:
+Gebruik voor Windows het volgende schema:
 
 ```json
 {
@@ -54,7 +54,7 @@ Voor Windows, gebruikt u het volgende schema:
   "constraints": {
     "required": true,
     "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{12,}$",
-    "customValidationMessage": "The password must contain at least 12 characters, with at least 1 letter and 1 number."
+    "customValidationMessage": "The password must be alphanumeric, contain at least 12 characters, and have at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false
@@ -64,7 +64,7 @@ Voor Windows, gebruikt u het volgende schema:
 }
 ```
 
-Voor **Linux**, gebruikt u het volgende schema:
+Gebruik voor **Linux**het volgende schema:
 
 ```json
 {
@@ -84,7 +84,7 @@ Voor **Linux**, gebruikt u het volgende schema:
   "constraints": {
     "required": true,
     "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{12,}$",
-    "customValidationMessage": "The password must contain at least 12 characters, with at least 1 letter and 1 number."
+    "customValidationMessage": "The password must be alphanumeric, contain at least 12 characters, and have at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false,
@@ -96,14 +96,14 @@ Voor **Linux**, gebruikt u het volgende schema:
 ```
 
 ## <a name="remarks"></a>Opmerkingen
-- `osPlatform` Er moet worden opgegeven en kan **Windows** of **Linux**.
-- Als `constraints.required` is ingesteld op **waar**, en vervolgens het wachtwoord of SSH public key tekstvakken moet waarden die moeten worden gevalideerd. De standaardwaarde is **waar**.
-- Als `options.hideConfirmation` is ingesteld op **waar**, en vervolgens het tweede tekstvak voor het bevestigen van het wachtwoord van gebruikers wordt verborgen. De standaardwaarde is **false**.
-- Als `options.hidePassword` is ingesteld op **waar**, en vervolgens de optie voor het gebruik van wachtwoordverificatie is verborgen. Het kan worden gebruikt alleen wanneer `osPlatform` is **Linux**. De standaardwaarde is **false**.
-- Aanvullende beperkingen met betrekking tot de toegestane wachtwoorden kunnen worden geïmplementeerd met behulp van de `customPasswordRegex` eigenschap. De tekenreeks in `customValidationMessage` wordt weergegeven als een wachtwoord aangepaste validatie is mislukt. De standaardwaarde voor beide eigenschappen is **null**.
+- `osPlatform`moet worden opgegeven, en kan **Windows** of **Linux**zijn.
+- Als `constraints.required` is ingesteld op **True**, moeten de tekst vakken voor het wacht woord of de open bare SSH-sleutel waarden bevatten om te kunnen valideren. De standaard waarde is **True**.
+- Als `options.hideConfirmation` is ingesteld op **True**, wordt het tweede tekstvak voor het bevestigen van het wacht woord van de gebruiker verborgen. De standaardwaarde is **false**.
+- Als `options.hidePassword` is ingesteld op **True**, is de optie voor het gebruik van wachtwoord verificatie verborgen. Het kan alleen worden gebruikt als `osPlatform` **Linux**. De standaardwaarde is **false**.
+- Aanvullende beperkingen voor de toegestane wacht woorden kunnen worden geïmplementeerd met behulp van de `customPasswordRegex` -eigenschap. De teken reeks `customValidationMessage` in wordt weer gegeven wanneer een wacht woord aangepaste validatie mislukt. De standaard waarde voor beide eigenschappen is **Null**.
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
-Als `osPlatform` is **Windows**, of `osPlatform` is **Linux** en de gebruiker een wachtwoord in plaats van een openbare SSH-sleutel opgegeven, wordt het besturingselement geeft als resultaat de volgende uitvoer:
+Als `osPlatform` **Windows**, of `osPlatform` **Linux** is en de gebruiker een wacht woord heeft opgegeven in plaats van een open bare SSH-sleutel, retourneert het besturings element de volgende uitvoer:
 
 ```json
 {
@@ -112,7 +112,7 @@ Als `osPlatform` is **Windows**, of `osPlatform` is **Linux** en de gebruiker ee
 }
 ```
 
-Als `osPlatform` is **Linux** en de gebruiker een openbare SSH-sleutel hebt opgegeven, wordt het besturingselement geeft als resultaat de volgende uitvoer:
+Als `osPlatform` is **Linux** en de gebruiker een open bare SSH-sleutel heeft gegeven, retourneert het besturings element de volgende uitvoer:
 
 ```json
 {
@@ -122,5 +122,5 @@ Als `osPlatform` is **Linux** en de gebruiker een openbare SSH-sleutel hebt opge
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een inleiding tot het maken van definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).
-* Zie voor een beschrijving van de algemene eigenschappen in de UI-elementen, [CreateUiDefinition elementen](create-uidefinition-elements.md).
+* Zie aan de slag [met CreateUiDefinition](create-uidefinition-overview.md)voor een inleiding tot het maken van UI-definities.
+* Zie [CreateUiDefinition-elementen](create-uidefinition-elements.md)voor een beschrijving van algemene eigenschappen in UI-elementen.

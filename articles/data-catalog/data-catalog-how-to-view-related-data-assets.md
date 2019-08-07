@@ -1,24 +1,23 @@
 ---
-title: Gerelateerde gegevensassets weergeven in Azure Data Catalog
-description: In dit artikel wordt uitgelegd hoe u gerelateerde gegevensassets van een geselecteerde gegevensasset weergeven in Azure Data Catalog.
-services: data-catalog
+title: Gerelateerde gegevensassets weer geven in Azure Data Catalog
+description: In dit artikel wordt uitgelegd hoe u gerelateerde gegevensassets van een geselecteerde gegevensasset in Azure Data Catalog kunt weer geven.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: b01c328812113ad721b7632978ad28e54a6a3ef1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 212ba647e6eb44e800a589928620f56fba65107c
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61000115"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737020"
 ---
-# <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Hoe kan ik gerelateerde gegevensassets weergeven in Azure Data Catalog?
-Azure Data Catalog kunt u weergeven die betrekking hebben op een geselecteerde gegevens asset en bekijk de relaties tussen deze gegevensassets. 
+# <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Gerelateerde gegevensassets in Azure Data Catalog weer geven?
+Met Azure Data Catalog kunt u gegevensassets weer geven die zijn gerelateerd aan een geselecteerd gegevens activum en relaties tussen deze activa weer geven. 
 
 ## <a name="supported-data-sources"></a>Ondersteunde gegevensbronnen 
-Wanneer u gegevensassets uit de volgende gegevensbronnen hebt geregistreerd, wordt in Azure Data Catalog automatisch metagegevens over de joinrelaties tussen de geselecteerde gegevensassets geregistreerd. 
+Wanneer u gegevensassets registreert bij de volgende gegevens bronnen, registreert Azure Data Catalog automatisch meta gegevens over het koppelen van relaties tussen de geselecteerde gegevensassets. 
 
 - SQL Server
 - Azure SQL Database
@@ -26,26 +25,26 @@ Wanneer u gegevensassets uit de volgende gegevensbronnen hebt geregistreerd, wor
 - Oracle
 
 > [!NOTE]
-> Voor Data Catalog voor het importeren van de relatie tussen twee gegevensassets, moet u zowel de elementen op hetzelfde moment te registreren. Als u had een van deze afzonderlijk toegevoegd, is deze opnieuw op en de andere gegevensasset voor het importeren van de relatie tussen deze toevoegen.
+> Als Data Catalog relatie tussen twee gegevensassets wilt importeren, moet u beide activa tegelijk registreren. Als u een van deze afzonderlijk hebt toegevoegd, voegt u deze opnieuw toe en de andere gegevensasset om de relatie tussen de gegevens te importeren.
 
 ## <a name="view-related-data-assets"></a>Gerelateerde gegevensassets weergeven
-Als u wilt weergeven van gegevensassets die gerelateerd zijn aan een geselecteerde gegevensset, gebruikt u de **relaties** tabblad zoals wordt weergegeven in de volgende afbeelding: 
+Als u gegevensassets wilt weer geven die zijn gerelateerd aan een geselecteerde gegevensset, gebruikt u het tabblad **relaties** zoals wordt weer gegeven in de volgende afbeelding: 
 
-![Azure Data Catalog - gerelateerde gegevensassets weergeven](media/data-catalog-how-to-view-related-data-assets/relationships-tab.png)
+![Gerelateerde gegevensassets Azure Data Catalog weer geven](media/data-catalog-how-to-view-related-data-assets/relationships-tab.png)
 
-In dit voorbeeld zijn er twee relaties voor de geselecteerde **ProductSubcategory** gegevensasset: 
+In dit voor beeld zijn er twee relaties voor de geselecteerde **tabel productsubcategory** -gegevens Asset: 
 
-- ProductSubcategoryID kolom van de tabel Product heeft een refererende-sleutelrelatie met ProductSubcategoryID kolom van de geselecteerde tabel ProductSubcategory. 
-- ProductCategoryID kolom van de tabel ProductSubCategory heeft een refererende-sleutelrelatie met ProductCategoryID kolom van de geselecteerde tabel ProductCategory.
+- De kolom ProductSubcategoryID van de product tabel heeft een refererende-sleutel relatie met de kolom ProductSubcategoryID van de geselecteerde tabel productsubcategory-tabel. 
+- De kolom ProductCategoryID van de tabel tabel productsubcategory heeft een refererende-sleutel relatie met de kolom ProductCategoryID van de geselecteerde ProductCategory-tabel.
 
 > [!NOTE]
-> U ziet de richting van de pijl in de structuurweergave van relaties.  
+> Let op de richting van de pijl in de structuur weergave relaties.  
 
-Voor meer informatie, zoals de volledig gekwalificeerde naam van de kolom, Beweeg de muisaanwijzer over en ziet u een pop-upvenster die vergelijkbaar is met de volgende afbeelding: 
+Als u meer informatie wilt weer geven, bijvoorbeeld de volledig gekwalificeerde naam van de kolom, plaatst u de muis aanwijzer op en ziet u een pop-upvenster dat lijkt op de volgende afbeelding: 
 
-![Azure Data Catalog - relatie pop-upvenster](media/data-catalog-how-to-view-related-data-assets/relationship-popup.png)
+![Pop-up Azure Data Catalog-relatie](media/data-catalog-how-to-view-related-data-assets/relationship-popup.png)
 
-Als u wilt opnemen relaties tussen de elementen die al zijn geregistreerd, deze assets opnieuw te registreren.
+Als u relaties wilt opnemen tussen activa die al zijn geregistreerd, registreert u deze opnieuw.
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Gegevensassets beheren](data-catalog-how-to-manage.md)

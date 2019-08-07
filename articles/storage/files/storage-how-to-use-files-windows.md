@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d2bad808d0bcbbd5dc8052db0f8fd32fc4c1180a
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 831c771da385ef6faeba194878ca53ede34ccc0a
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699479"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816638"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Een Azure-bestandsshare gebruiken met Windows
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen probleemloos worden gebruikt in Windows en Windows Server. In dit artikel worden de overwegingen besproken voor het gebruik van een Azure-bestandsshare met Windows en Windows Server.
@@ -33,8 +33,8 @@ U kunt Azure-bestandsshares gebruiken in een Windows-installatie die wordt uitge
 | Windows 7              | SMB 2.1     | Ja                   | Nee                   |
 | Windows Server 2008 R2 | SMB 2.1     | Ja                   | Nee                   |
 
-<sup>1</sup>Windows 10, versie 1507, 1607, 1703, 1709, 1803 en 1809.  
-<sup>2</sup>Windows Server, versie 1709 en 1803.
+<sup>1</sup> Windows 10, versies 1507, 1607, 1703, 1709, 1803, 1809 en 1903.  
+<sup>2</sup> Windows Server, versies 1803, 1809 en 1903.
 
 > [!Note]  
 > We raden altijd aan de meest recente KB voor uw versie van Windows te nemen.

@@ -1,6 +1,6 @@
 ---
-title: Hoe u uw app in Azure Active Directory-geregistreerde beperken tot een groep gebruikers
-description: Leer hoe u toegang tot uw apps die zijn geregistreerd bij Azure AD voor een geselecteerde groep gebruikers te beperken.
+title: Uw door Azure Active Directory geregistreerde app beperken tot een aantal gebruikers
+description: Meer informatie over het beperken van de toegang tot uw apps die zijn geregistreerd in azure AD voor een geselecteerde groep gebruikers.
 services: active-directory
 documentationcenter: ''
 author: kalyankrishna1
@@ -17,65 +17,82 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e07d9f0fa6ec6b4abc7ce96279b7b02faae298fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a51c49633e68fdc5f9afd4bf0205adaa625940ff
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540207"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812975"
 ---
 # <a name="how-to-restrict-your-app-to-a-set-of-users"></a>Procedure: Uw app tot een groep gebruikers beperken
 
-Toepassingen die zijn geregistreerd in een tenant Azure Active Directory (Azure AD) zijn standaard beschikbaar voor alle gebruikers van de tenant die worden geverifieerd.
+Toepassingen die zijn geregistreerd in een Azure Active Directory-Tenant (Azure AD), zijn standaard beschikbaar voor alle gebruikers van de Tenant die zijn geverifieerd.
 
-Op deze manier in geval van een [multitenant](howto-convert-app-to-be-multi-tenant.md) app, alle gebruikers in de Azure AD-tenant waar deze app is ingericht zich toegang hebben tot deze toepassing zodra ze in hun respectieve tenant verifiëren.
+In het geval van een [multi tenant](howto-convert-app-to-be-multi-tenant.md) -app kunnen alle gebruikers in de Azure AD-Tenant waar deze app is ingericht, toegang krijgen tot deze toepassing zodra ze zijn geverifieerd in hun respectieve Tenant.
 
-Tenantbeheerders en ontwikkelaars hebben vaak vereisten waar een app moet worden beperkt tot een bepaalde groep gebruikers. Ontwikkelaars hetzelfde kunnen uitvoeren met behulp van populaire autorisatie patronen, zoals rollen gebaseerd toegangsbeheer (RBAC), maar deze aanpak vereist een aanzienlijke hoeveelheid werk aan een deel van de ontwikkelaar.
+Tenant beheerders en ontwikkel aars hebben vaak vereisten waarbij een app moet worden beperkt tot een bepaalde groep gebruikers. Ontwikkel aars kunnen hetzelfde doen met behulp van populaire verificatie patronen als op rollen gebaseerd Access Control (RBAC), maar deze benadering vereist een aanzienlijke hoeveelheid werk voor een deel van de ontwikkelaar.
 
-Azure AD kan tenant-beheerders en ontwikkelaars een app beperken tot een specifieke set gebruikers of beveiligingsgroepen in de tenant.
+Met Azure AD kunnen Tenant beheerders en ontwikkel aars een app beperken tot een specifieke set gebruikers of beveiligings groepen in de Tenant.
 
 ## <a name="supported-app-configurations"></a>Ondersteunde app-configuraties
 
-De optie voor een app beperken tot een specifieke set gebruikers of beveiligingsgroepen in een tenant werkt met de volgende typen toepassingen:
+De optie om een app te beperken tot een specifieke set gebruikers of beveiligings groepen in een Tenant werkt met de volgende typen toepassingen:
 
-- Toepassingen die zijn geconfigureerd voor federatieve eenmalige aanmelding met verificatie op basis van SAML
-- Application proxy toepassingen die gebruikmaken van Azure AD-vooraf-verificatie
-- Toepassingen die zijn ontwikkeld rechtstreeks op het Azure AD-platform voor toepassingen die gebruikmaken van OAuth 2.0/OpenID verbinding maken met verificatie nadat een gebruiker of beheerder heeft ingestemd met de toepassing.
+- Toepassingen die zijn geconfigureerd voor federatieve eenmalige aanmelding met op SAML gebaseerde verificatie
+- Toepassings proxy toepassingen die gebruikmaken van pre-authenticatie van Azure AD
+- Toepassingen die rechtstreeks zijn gebouwd op het Azure AD-toepassings platform die gebruikmaken van OAuth 2.0/OpenID Connect Connect-verificatie nadat een gebruiker of beheerder heeft ingestemd met die toepassing.
 
      > [!NOTE]
-     > Deze functie is beschikbaar voor web-app/web-API en zakelijke toepassingen alleen. Apps die zijn geregistreerd als [systeemeigen](quickstart-v1-integrate-apps-with-azure-ad.md) kan niet worden beperkt tot een set van gebruikers of beveiligingsgroepen in de tenant.
+     > Deze functie is alleen beschikbaar voor web-app/Web-API en bedrijfs toepassingen. Apps die zijn geregistreerd als [systeem eigen](quickstart-v1-integrate-apps-with-azure-ad.md) , kunnen niet worden beperkt tot een set gebruikers of beveiligings groepen in de Tenant.
 
-## <a name="update-the-app-to-enable-user-assignment"></a>De app om in te schakelen Gebruikerstoewijzing bijwerken
+## <a name="update-the-app-to-enable-user-assignment"></a>De app bijwerken om de gebruikers toewijzing in te scha kelen
 
-1. Ga naar de [ **Azure-portal** ](https://portal.azure.com/) en aanmelden als een **globale beheerder.**
+Er zijn twee manieren om een toepassing met ingeschakelde gebruikers toewijzing te maken. Voor één is de rol **globale beheerder** vereist, de tweede niet.
+
+### <a name="enterprise-applications-requires-the-global-adminstrator-role"></a>Bedrijfs toepassingen (vereist de rol van globale beheerder)
+
+1. Ga naar de [**Azure Portal**](https://portal.azure.com/) en meld u aan als **globale beheerder**.
 1. Selecteer op de bovenste balk het aangemelde account. 
-1. Onder **Directory**, selecteert u de Azure AD-tenant waar de app worden geregistreerd.
-1. Selecteer in de navigatiebalk aan de linkerkant, **Azure Active Directory**. Als Azure Active Directory niet beschikbaar in het navigatiedeelvenster is, voert u deze stappen:
+1. Onder **Directory**selecteert u de Azure AD-Tenant waar de app wordt geregistreerd.
+1. Selecteer in de navigatie aan de linkerkant **Azure Active Directory**. Als Azure Active Directory niet beschikbaar is in het navigatie venster, voert u de volgende stappen uit:
 
-    1. Selecteer **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
-    1. Typ in **Azure Active Directory** in het zoekvak van filter en selecteer vervolgens de **Azure Active Directory** item van het resultaat.
+    1. Selecteer **alle services** boven aan het hoofd navigatie menu aan de linkerkant.
+    1. Typ **Azure Active Directory** in het vak Zoek opdracht filteren en selecteer vervolgens het **Azure Active Directory** item in het resultaat.
 
-1. In de **Azure Active Directory** venster **bedrijfstoepassingen** uit de **Azure Active Directory** navigatiemenu links.
+1. Selecteer in het deel venster Azure Active Directory **bedrijfs toepassingen** in het navigatie menu **Azure Active Directory** links.
 1. Selecteer **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-     Als u de toepassing die u wilt dat hier weergegeven niet ziet, gebruikt u de verschillende filters aan de bovenkant van de **alle toepassingen** lijst om te beperken van de lijst of blader naar uw toepassing in de lijst.
+     Als u de toepassing die u wilt weer geven hier niet ziet, gebruikt u de diverse filters boven aan de lijst **alle toepassingen** om de lijst te beperken of omlaag te schuiven in de lijst om uw toepassing te vinden.
 
-1. Selecteer de toepassing die u wilt toewijzen van een gebruiker of beveiligingsgroep op in de lijst.
-1. In de toepassingsmap **overzicht** weergeeft, schakelt **eigenschappen** in het navigatiemenu aan de van de toepassing.
-1. Zoek de instelling **Gebruikerstoewijzing vereist?** en stel deze in op **Ja**. Wanneer deze optie is ingesteld op **Ja**, en vervolgens gebruikers moeten eerst worden toegewezen aan deze toepassing voordat u de mogelijkheid om deze te openen.
-1. Selecteer **opslaan** deze configuratiewijziging op te slaan.
+1. Selecteer in de lijst de toepassing waaraan u een gebruiker of beveiligings groep wilt toewijzen.
+1. Op de overzichts pagina van de toepassing selecteert u **Eigenschappen** in het navigatie menu van de toepassing aan de linkerkant.
+1. Zoek de instelling **gebruikers toewijzing vereist?** en stel deze in op **Ja**. Als deze optie is ingesteld op **Ja**, moeten gebruikers eerst worden toegewezen aan deze toepassing voordat ze er toegang toe hebben.
+1. Selecteer **Opslaan** om deze configuratie wijziging op te slaan.
 
-## <a name="assign-users-and-groups-to-the-app"></a>Gebruikers en groepen toewijzen aan de app.
+### <a name="app-registration"></a>App-registratie
 
-Wanneer u uw app zodat de gebruiker is toegewezen hebt geconfigureerd, kunt u direct verder gaan en gebruikers en groepen toewijzen aan de app.
+1. Ga naar de [**Azure Portal**](https://portal.azure.com/).
+1. Selecteer op de bovenste balk het aangemelde account. 
+1. Onder **Directory**selecteert u de Azure AD-Tenant waar de app wordt geregistreerd.
+1. Selecteer in de navigatie aan de linkerkant **Azure Active Directory**.
+1. Selecteer **app** -registraties in het deel venster **Azure Active Directory** van het navigatie menu **Azure Active Directory** links.
+1. Maak of selecteer de app die u wilt beheren. U moet **eigenaar** zijn van deze app-registratie.
+1. Op de overzichts pagina van de toepassing volgt u de koppeling **beheerde toepassing in lokale map** onder de essentiële elementen boven aan de pagina. Hiermee gaat u naar de _beheerde bedrijfs toepassing_ van de app-registratie.
+1. Selecteer **Eigenschappen**in de Blade navigatie aan de linkerkant.
+1. Zoek de instelling **gebruikers toewijzing vereist?** en stel deze in op **Ja**. Als deze optie is ingesteld op **Ja**, moeten gebruikers eerst worden toegewezen aan deze toepassing voordat ze er toegang toe hebben.
+1. Selecteer **Opslaan** om deze configuratie wijziging op te slaan.
 
-1. Selecteer de **gebruikers en groepen** deelvenster in het navigatiemenu aan de van de toepassing.
-1. Aan de bovenkant van de **gebruikers en groepen** in de lijst met de **gebruiker toevoegen** te openen de **toevoegen toewijzing** deelvenster.
-1. Selecteer de **gebruikers** selector vanaf de **toevoegen toewijzing** deelvenster. 
+## <a name="assign-users-and-groups-to-the-app"></a>Gebruikers en groepen toewijzen aan de app
 
-     Een lijst met gebruikers en beveiligingsgroepen worden weergegeven, samen met een tekstvak Zoeken naar en zoeken naar een bepaalde gebruiker of groep. Dit scherm kunt u meerdere gebruikers en groepen selecteren in een go.
+Zodra u uw app hebt geconfigureerd om gebruikers toewijzing in te scha kelen, kunt u gebruikers en groepen toewijzen aan de app.
 
-1. Wanneer u klaar bent de gebruikers en groepen selecteren, drukt u op de **Selecteer** knop onderaan om te verplaatsen naar het volgende gedeelte.
-1. Druk op de **toewijzen** knop onder aan het voltooien van de toewijzingen van gebruikers en groepen naar de app. 
-1. Bevestig dat de gebruikers en groepen die u hebt toegevoegd worden weergegeven in de bijgewerkte **gebruikers en groepen** lijst.
+1. Selecteer het deel venster **gebruikers en groepen** in het navigatie menu aan de linkerkant van de toepassing.
+1. Klik boven aan de lijst **gebruikers en groepen** op de knop **gebruiker toevoegen** om het deel venster **toewijzing toevoegen** te openen.
+1. Selecteer de optie **gebruikers** selecteren in het deel venster **toewijzing toevoegen** . 
+
+     Er wordt een lijst met gebruikers en beveiligings groepen weer gegeven samen met een tekstvak om te zoeken en een bepaalde gebruiker of groep te zoeken. In dit scherm kunt u meerdere gebruikers en groepen tegelijk selecteren.
+
+1. Wanneer u klaar bent met het selecteren van de gebruikers en groepen, klikt u op de knop **selecteren** aan de onderkant om naar het volgende deel te gaan.
+1. Druk op de knop **toewijzen** aan de onderkant om de toewijzingen van gebruikers en groepen aan de app te volt ooien. 
+1. Controleer of de gebruikers en groepen die u hebt toegevoegd, worden weer gegeven in de lijst met bijgewerkte **gebruikers en groepen** .
 

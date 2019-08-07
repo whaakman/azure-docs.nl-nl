@@ -5,18 +5,19 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 589f8c8f11138b4fb5c3c3096229e28c633efb0d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e60eeb601a0a5796609b9c38b7394c2de0610cdf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423006"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841279"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Informatie over het verwerken en extra heren van afbeeldingen in cognitieve Zoek scenario's
 
@@ -41,7 +42,7 @@ U kunt het normaliseren van afbeeldingen niet uitschakelen. Vaardig heden die ov
 > [!NOTE]
 > Als u de eigenschap *imageAction* op een andere waarde dan ' geen ' instelt, kunt u de eigenschap *parsingMode* niet instellen op een andere waarde dan default.  U kunt slechts een van deze twee eigenschappen instellen op een niet-standaard waarde in de configuratie van de Indexeer functie.
 
-Stel de  para meter parsingMode `json` in op (om elke BLOB als één document te indexeren `jsonArray` ) of (als uw blobs JSON-matrices bevatten en u wilt dat elk element van een matrix als een afzonderlijk document wordt behandeld).
+Stel de para meter parsingMode `json` in op (om elke BLOB als één document te indexeren `jsonArray` ) of (als uw blobs JSON-matrices bevatten en u wilt dat elk element van een matrix als een afzonderlijk document wordt behandeld).
 
 De standaard waarde van 2000 pixels voor de genormaliseerde afbeeldingen maximale breedte en hoogte is gebaseerd op de maximale grootte die wordt ondersteund door de [OCR-vaardigheid](cognitive-search-skill-ocr.md) en de vaardigheid van de [afbeeldings analyse](cognitive-search-skill-image-analysis.md). Als u de maximum limiet verhoogt, kan de verwerking mislukken voor de grotere installatie kopieën.
 
@@ -72,7 +73,8 @@ Wanneer de *imageAction* is ingesteld op een andere waarde dan ' geen ', bevat h
 | originalWidth      | De oorspronkelijke breedte van de afbeelding vóór normalisatie. |
 | originalHeight      | De oorspronkelijke hoogte van de afbeelding vóór normalisatie. |
 | rotationFromOriginal |  Rotatie linksom in graden die is opgetreden tijdens het maken van de genormaliseerde afbeelding. Een waarde tussen 0 en 360 graden. Met deze stap worden de meta gegevens van de installatie kopie die wordt gegenereerd door een camera of scanner, gelezen. Doorgaans een veelvoud van 90 graden. |
-| contentOffset |De teken verschuiving binnen het inhouds veld waaruit de afbeelding is geëxtraheerd. Dit veld is alleen van toepassing op bestanden met Inge sloten installatie kopieën. |
+| contentOffset | De teken verschuiving binnen het inhouds veld waaruit de afbeelding is geëxtraheerd. Dit veld is alleen van toepassing op bestanden met Inge sloten installatie kopieën. |
+| pageNumber | Als de afbeelding is geëxtraheerd of gerenderd vanuit een PDF, bevat dit veld het pagina nummer in het PDF-bestand dat is geëxtraheerd of gerenderd, vanaf 1.  Als de afbeelding niet afkomstig is uit een PDF, is dit veld 0.  |
 
  Voorbeeld waarde van *normalized_images*:
 ```json
@@ -84,7 +86,8 @@ Wanneer de *imageAction* is ingesteld op een andere waarde dan ' geen ', bevat h
     "originalWidth": 5000,  
     "originalHeight": 3000,
     "rotationFromOriginal": 90,
-    "contentOffset": 500  
+    "contentOffset": 500,
+    "pageNumber": 2
   }
 ]
 ```

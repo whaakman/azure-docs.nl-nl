@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: grgale
-ms.openlocfilehash: 0c575076439e3405d34fe0ef3beff0242a53a8c5
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: 48b4b71d80bcef1eaf3bf89c0b14c8033748684e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68601807"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779336"
 ---
 # <a name="additional-documentation-and-resources-by-focus-area"></a>Aanvullende documentatie en bronnen op focus gebied
 
@@ -22,7 +22,7 @@ Deze resource bibliotheek bevat aanvullende koppelingen en verwijzingen die rele
 * [Micro soft service Trust portal-pagina Australië](https://aka.ms/au-irap)
 * [Micro soft vertrouwens centrum CCSL-pagina](https://www.microsoft.com/trustcenter/compliance/ccsl)
 * [Beveiligings-en nalevings Schema's voor Azure voor beveiligde](https://aka.ms/au-protected)
-* [Tenant isolatie in Microsoft Azure](https://docs.microsoft.com/azure/security/azure-isolation)
+* [Tenant isolatie in Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices)
 * [Australische Information Security-hand leiding](https://www.cyber.gov.au/ism)
 * [Gecertificeerde Cloud lijst voor Australische Cyber Security Center (ACSC)](https://www.cyber.gov.au/irap/asd-certified-cloud-services)
 
@@ -32,7 +32,7 @@ Deze resource bibliotheek bevat aanvullende koppelingen en verwijzingen die rele
 * [Informatie over sleutels, geheimen en certificaten](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
 * [Azure Key Vault firewalls en virtuele netwerken configureren](https://docs.microsoft.com/azure/key-vault/key-vault-network-security)
 * [Veilige toegang tot een sleutel kluis](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)
-* [Azure-gegevens versleuteling-at-rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+* [Azure-gegevens versleuteling-at-rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
 * [Azure Key Vault gebruiken met Azure Windows Virtual Machines in .NET](https://docs.microsoft.com/azure/key-vault/tutorial-net-windows-virtual-machine)
 * [Beheerd opslag account Azure Key Vault-Power shell](https://docs.microsoft.com/azure/key-vault/tutorial-net-windows-virtual-machine)
 * [Draaiing en controle van installatie sleutel](https://docs.microsoft.com/azure/key-vault/key-vault-key-rotation-log-monitoring)
@@ -68,7 +68,7 @@ Deze resource bibliotheek bevat aanvullende koppelingen en verwijzingen die rele
 * [Overzicht van Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Overzicht van het beheer van Azure-privileges](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure)
 * [Overzicht van Azure Beheergroepen](https://docs.microsoft.com/azure/governance/management-groups/)
-* [Aanbevolen procedures voor Azure-identiteit en-Access Control](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
+* [Aanbevolen procedures voor Azure-identiteit en-Access Control](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
 * [Azure AD-groepen beheren](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 * [Hybride identiteit](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
 * [Aangepaste RBAC-rollen](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)

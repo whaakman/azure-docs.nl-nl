@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: danlep
-ms.openlocfilehash: 285d5592ce667f7b4d84f26d67a00af0698c2967
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 88b6da4e9bd2938adadadc1ef0e696399fc3c75e
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620959"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828000"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Regels configureren voor toegang tot een Azure container Registry achter een firewall
 
@@ -123,9 +123,9 @@ Maak bijvoorbeeld een regel voor een uitgaande netwerk beveiligings groep met he
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [Aanbevolen procedures voor Azure voor netwerk beveiliging](../security/azure-security-network-security-best-practices.md)
+* Meer informatie over [Aanbevolen procedures voor Azure voor netwerk beveiliging](../security/fundamentals/network-best-practices.md)
 
-* Meer informatie over [beveiligings groepen](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview.md) in een virtueel Azure-netwerk
+* Meer informatie over [beveiligings groepen](/azure/virtual-network/security-overview) in een virtueel Azure-netwerk
 
 
 

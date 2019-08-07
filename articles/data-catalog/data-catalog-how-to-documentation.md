@@ -1,47 +1,45 @@
 ---
-title: Het vastleggen van gegevensbronnen in Azure Data Catalog
-description: Het vastleggen van gegevensassets in Azure Data Catalog markeren artikel met instructies.
-services: data-catalog
+title: Gegevens bronnen documenteren in Azure Data Catalog
+description: Instructies voor het vastleggen van gegevensassets in Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 053b1701-b848-4ada-b726-6f485caa9961
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 9049e0b25db37f296e27476fbb93418d13c4dcc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 46e3780c7fc6e6a2481e774b89bfb69510865db3
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001552"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734617"
 ---
 # <a name="document-data-sources"></a>Gegevensbronnen documenteren
 ## <a name="introduction"></a>Inleiding
-**Microsoft Azure Data Catalog** is een volledig beheerde cloudservice die als registratiesysteem en detectiesysteem voor zakelijke gegevensbronnen fungeert. Met andere woorden, **Azure Data Catalog** helpen bij het detecteren, mensen *begrijpen*, en gegevensbronnen gebruiken en waarmee organisaties meer waarde halen uit hun bestaande gegevens.
+**Microsoft Azure Data Catalog** is een volledig beheerde Cloud service die fungeert als registratie systeem en detectie systeem voor zakelijke gegevens bronnen. Met andere woorden, het **Azure Data Catalog** is alles wat helpt mensen bij het detecteren, *begrijpen*en gebruiken van gegevens bronnen, en helpt organisaties bij het verkrijgen van meer waarde dan hun bestaande gegevens.
 
-Wanneer een gegevensbron is geregistreerd bij **Azure Data Catalog**, de metagegevens wordt gekopieerd en door de service geïndexeerd, maar het verhaal er niet beëindigen. **Azure Data Catalog** ook kunnen gebruikers hun eigen volledige documentatie die wordt beschreven en het gebruik en algemene scenario's voor de gegevensbron opgeven.
+Wanneer een gegevens bron wordt geregistreerd bij **Azure Data Catalog**, worden de meta gegevens gekopieerd en geïndexeerd door de service, maar het artikel eindigt daar niet. **Azure Data Catalog** kunnen gebruikers ook hun eigen volledige documentatie geven waarmee het gebruik en de algemene scenario's voor de gegevens bron kunnen worden beschreven.
 
-In [aantekeningen toevoegen aan gegevensbronnen](data-catalog-how-to-annotate.md), leert u dat experts die de gegevensbron weet aantekeningen met tags en een beschrijving toevoegen kunnen. De **Azure Data Catalog** portal bevat een RTF-editor, zodat gebruikers volledig gegevensassets en containers vastleggen kunnen. De editor biedt alineaopmaak, zoals koppen, tekst met opmaak lijsten met opsommingstekens, genummerde lijsten en tabellen.
+[Als u aantekeningen wilt maken voor gegevens bronnen](data-catalog-how-to-annotate.md), leert u dat experts die de gegevens bron kennen, aantekeningen kunnen maken met tags en een beschrijving. De **Azure Data Catalog** -Portal bevat een RTF-editor, zodat gebruikers gegevens assets en containers volledig kunnen documenteren. De editor bevat opmaak van alinea's, zoals koppen, tekst opmaak, lijsten met opsommings tekens, genummerde lijsten en tabellen.
 
-Labels en beschrijvingen zijn ideaal voor het eenvoudig aantekeningen. Echter, zodat gebruikers van de gegevens beter begrip van het gebruik van een gegevensbron en bedrijfsscenario's voor een gegevensbron krijgt een expert u een volledige, gedetailleerde documentatie. Het is eenvoudig vastleggen van een gegevensbron. Selecteer een gegevensasset of de container en kies **documentatie**.
+Tags en beschrijvingen zijn handig voor eenvoudige aantekeningen. Om gegevens gebruikers beter inzicht te geven in het gebruik van een gegevens bron en zakelijke scenario's voor een gegevens bron, kan een deskundige volledige, gedetailleerde documentatie bieden. Het is eenvoudig om een gegevens bron te documenteren. Selecteer een gegevens activum of container en kies **documentatie**.
 
 ![](media/data-catalog-documentation/data-catalog-documentation.png)
 
 ## <a name="documenting-data-assets"></a>Gegevensassets documenteren
-Het voordeel van **Azure Data Catalog** documentatie kunt u de gegevenscatalogus gebruiken als opslagplaats voor inhoud te maken van een volledig overzicht van uw gegevensassets. Hier vindt u gedetailleerde inhoud waarin wordt beschreven containers en tabellen. Als u al inhoud in een andere opslagplaats voor inhoud, zoals SharePoint of een bestandsshare, kunt u toevoegen aan de asset documentatiekoppelingen om te verwijzen naar deze bestaande inhoud. Met deze functie kunt uw bestaande documenten sneller wordt ontdekt.
+Dankzij het voor deel van **Azure Data Catalog** documentatie kunt u uw Data Catalog gebruiken als opslag plaats voor inhoud om een volledig afronding van uw gegevensassets te maken. U kunt gedetailleerde inhoud verkennen waarin containers en tabellen worden beschreven. Als u al inhoud in een andere inhouds opslagplaats hebt, zoals share point of een bestands share, kunt u toevoegen aan de Asset-documentatie koppelingen om te verwijzen naar deze bestaande inhoud. Met deze functie kunnen uw bestaande documenten beter worden gedetecteerd.
 
 > [!NOTE]
-> Documentatie is niet opgenomen in de search-index.
+> Documentatie is niet opgenomen in de zoek index.
 >
 >
 
 ![](media/data-catalog-documentation/data-catalog-documentation2.png)
 
-Het niveau van de documentatie kan variëren van met een beschrijving van de kenmerken en de waarde van een container van de asset gegevens voor een gedetailleerde beschrijving van het tabelschema in een container. Het niveau van de documentatie die moet worden aangestuurd door de behoeften van uw bedrijf. Maar in het algemeen zijn hier enkele voordelen en nadelen van het vastleggen van gegevens:
+Het documentatie niveau kan variëren van het beschrijven van de kenmerken en waarde van een gegevens Asset container naar een gedetailleerde beschrijving van het tabel schema binnen een container. Het niveau van de documentatie moet worden verstrekt door uw bedrijfs behoeften. Maar in het algemeen zijn hier enkele voor-en nadelen van het documenteren van gegevensassets:
 
-* Document slechts een container: Alle inhoud is op één plek, maar mogelijk niet over de benodigde informatie voor gebruikers om een gefundeerde beslissing nemen.
-* Alleen de tabellen document: Inhoud is specifiek voor dat object, maar uw gebruikers beschikken over meerdere locaties voor documenten.
-* Document-containers en tabellen: Meest uitgebreide benadering, maar mogelijk meer onderhoud van de documenten introduceren.
+* Alleen een container documenteren: Alle inhoud bevindt zich op één locatie, maar kan de gebruikers niet de benodigde details geven om een weloverwogen beslissing te nemen.
+* Documenteer alleen de tabellen: Inhoud is specifiek voor dat object, maar uw gebruikers hebben meerdere locaties voor documenten.
+* Document containers en tabellen: De meest uitgebreide benadering, maar kan meer onderhoud van de documenten veroorzaken.
 
 ## <a name="summary"></a>Samenvatting
-Gegevensbronnen documenteren **Azure Data Catalog** een boodschap over uw gegevensassets kunt maken in zoveel mogelijk details als u nodig hebt.  U kunt met behulp van koppelingen, koppelen aan inhoud die is opgeslagen in een bestaande opslagplaats voor inhoud, die uw bestaande documenten en gegevens combineert. Wanneer uw gebruikers de juiste gegevensassets detecteren, kunnen ze een volledige set documentatie hebben.
+Het documenteren van gegevens bronnen met **Azure Data Catalog** kan een verduidelijking van uw gegevensassets in zoveel detail maken als u wilt.  Met koppelingen kunt u een koppeling maken naar inhoud die is opgeslagen in een bestaande inhouds opslagplaats, waardoor uw bestaande documenten en gegevens assets samen worden gebracht. Zodra de gebruikers de juiste gegevensassets hebben gedetecteerd, kunnen ze een volledige set documentatie hebben.

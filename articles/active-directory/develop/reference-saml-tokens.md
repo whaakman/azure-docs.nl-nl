@@ -1,6 +1,6 @@
 ---
-title: Meer informatie over de verschillende token en claimtypen die worden ondersteund door Azure AD | Microsoft Docs
-description: Een handleiding voor informatie over en evaluatie van de claims in het SAML 2.0 en JSON Web Tokens (JWT)-tokens die zijn uitgegeven door Azure Active Directory (AAD)
+title: Meer informatie over de verschillende token-en claim typen die worden ondersteund door Azure AD | Microsoft Docs
+description: Een hand leiding voor het leren en evalueren van de claims in de SAML-tokens (2,0 en JSON Web tokens) die zijn uitgegeven door Azure Active Directory (AAD)
 documentationcenter: na
 author: rwike77
 services: active-directory
@@ -10,7 +10,7 @@ ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/22/2018
@@ -18,42 +18,42 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a18d0b5ebc9aef1f8fa03d6351e53e4df6d9931f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: af8f1e9150efca4441356a80c263a58fafefcfaf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65601991"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834839"
 ---
-# <a name="azure-ad-saml-token-reference"></a>Azure AD-SAML-token naslaginformatie
+# <a name="azure-ad-saml-token-reference"></a>Azure AD SAML-token referentie
 
-Azure Active Directory (Azure AD) verzendt verschillende typen beveiligingstokens bij het verwerken van elke verificatiestroom. Dit document beschrijft de indeling, de beveiligingskenmerken en de inhoud van elk type token.
+Azure Active Directory (Azure AD) verzendt verschillende typen beveiligings tokens in de verwerking van elke verificatie stroom. In dit document worden de indeling, de beveiligings kenmerken en de inhoud van elk type token beschreven.
 
-## <a name="claims-in-saml-tokens"></a>Claims in het SAML-tokens
+## <a name="claims-in-saml-tokens"></a>Claims in SAML-tokens
 
 > [!div class="mx-codeBreakAll"]
 > | Name | Equivalent JWT Claim | Description | Voorbeeld |
 > | --- | --- | --- | ------------|
-> |Doelgroep | `aud` |De beoogde ontvanger van het token. De toepassing die de token ontvangt moet controleren of de waarde van de doelgroep juist is en geen tokens die bestemd zijn voor een andere doelgroep afwijzen. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
-> | Verificatiemoment | |Registreert de datum en tijd waarop de verificatie heeft plaatsgevonden. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | 
-> |Verificatiemethode | `amr` |Hiermee geeft u op hoe de onderwerpnaam van het token is geverifieerd. | `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` |
-> |Voornaam | `given_name` |De eerste biedt of als u ' ' naam van de gebruiker, zoals ingesteld op de Azure AD-gebruiker-object. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">`<br>`<AttributeValue>Frank<AttributeValue>`  |
-> |Groepen | `groups` |Object-id's die staan voor groepslidmaatschappen van de certificaathouder biedt. Deze waarden zijn unieke (Zie de Object-ID) en veilig kunnen worden gebruikt voor het beheren van toegang, zoals het afdwingen van machtiging voor toegang tot een resource. De groepen die zijn opgenomen in de claim van groepen zijn geconfigureerd op basis van per toepassing, via de eigenschap 'groupMembershipClaims' van het toepassingsmanifest. Een null-waarde wordt alle groepen uitsluit, een waarde van 'Toewijzingsmodule' bevat alleen lidmaatschappen voor Active Directory-beveiligingsgroepen, en de waarde 'Alle' wordt opgenomen beveiligingsgroepen en distributielijsten van Office 365. <br><br> **Opmerkingen bij de**: <br> Als het nummer van de gebruiker zich in groepen via een limiet (150 voor SAML, 200 voor JWT gaat) en vervolgens een overschrijding claim wordt de claim bronnen aan te wijzen aan de Graph-eindpunt met de lijst met groepen voor de gebruiker worden toegevoegd. (in. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
-> | Overschrijding Indicator van groepen | `groups:src1` | Token aanvragen die niet beperkt de lengte zijn (Zie `hasgroups` hierboven), maar nog steeds te groot is voor het token, een koppeling naar de volledige lijst van de gebruiker worden opgenomen. Voor SAML wordt dit toegevoegd als een nieuwe claim in plaats van de `groups` claim. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
-> |Identiteitsprovider | `idp` |Registreert de identiteitsprovider waarmee het onderwerp van het token is geverifieerd. Deze waarde is gelijk aan de waarde van de claim van verlener, tenzij het gebruikersaccount dat in een andere tenant dan de verlener is. | `<Attribute Name=" http://schemas.microsoft.com/identity/claims/identityprovider">`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` |
-> |IssuedAt | `iat` |Slaat de tijd waarop het token is uitgegeven. Dit wordt vaak gebruikt voor het meten van token webdocumenten. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
-> |Verlener | `iss` |Identificeert de beveiligingstokenservice (STS) die wordt gemaakt en het token retourneert. In de tokens die Azure AD als resultaat geeft, wordt de verlener sts.windows.net. De GUID in de uitgeverwaarde van de claim is de tenant-ID van de Azure AD-directory. De tenant-ID is een onveranderbare en betrouwbare id van de map. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |
-> |Achternaam | `family_name` |Biedt de achternaam, achternaam, of familienaam van de gebruiker zoals gedefinieerd in de Azure AD-gebruiker-object. | `<Attribute Name=" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname">`<br>`<AttributeValue>Miller<AttributeValue>` |
-> |Name | `unique_name` |Biedt een voor mensen leesbare waarde waarmee het onderwerp van het token wordt geïdentificeerd. Deze waarde is niet noodzakelijkerwijs uniek zijn binnen een tenant en is ontworpen om te worden gebruikt alleen ter informatie weergegeven. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
-> |Object-id | `oid` |Bevat een unieke id van een object in de Azure AD. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. De object-ID gebruiken om een object in query's naar Azure AD te identificeren. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
-> |Rollen | `roles` |Hiermee geeft u alle toepassingsrollen die het onderwerp heeft gekregen zowel direct als indirect via een groepslidmaatschap en kan worden gebruikt om af te dwingen op rollen gebaseerd toegangsbeheer. Toepassingsrollen zijn gedefinieerd op basis van per toepassing via de `appRoles` eigenschap van het toepassingsmanifest. De `value` eigenschap van de toepassingsrol van elke is de waarde die wordt weergegeven in de rollenclaim. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
-> |Subject | `sub` |Hiermee geeft u de principal waarover het token worden bevestigd met gegevens, zoals de gebruiker van een toepassing. Deze waarde is onveranderbaar en kan niet opnieuw worden toegewezen of opnieuw worden gebruikt, zodat deze kan worden gebruikt om autorisatie controles veilig uitvoeren. Omdat het onderwerp altijd in de tokens die de problemen met Azure AD aanwezig is, wordt u aangeraden deze waarde in een systeem van de autorisatie voor algemene doeleinden te gebruiken. <br> `SubjectConfirmation` is niet een claim. Hierin wordt beschreven hoe het onderwerp van het token is geverifieerd. `Bearer` Geeft aan dat het onderwerp wordt bevestigd door iemand met kennis van het token. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
-> |Tenant-id | `tid` |Een onveranderbare, herbruikbare-id waarmee de directory-tenant die het token is uitgegeven. U kunt deze waarde gebruiken voor toegang tot mapresources van de tenant-specifieke in een toepassing met meerdere tenants. Bijvoorbeeld, kunt u deze waarde om de tenant in een aanroep van de Graph API te identificeren. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>`|
-> |Levensduur van token | `nbf`, `exp` |Definieert gedurende welke periode een token geldig is. De service die het token valideert moet controleren of dat de huidige datum valt binnen de levensduur van tokens, anders die wordt het token moet afwijzen. De service mogelijk voor maximaal vijf minuten buiten het bereik van de levensduur van vernieuwingstoken ter compensatie van eventuele verschillen in clock-tijd ("tijd scheeftrekken') tussen Azure AD en de service. | `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br>|
+> |Doelgroep | `aud` |De bedoelde ontvanger van het token. De toepassing die het token ontvangt, moet controleren of de doel groep juist is en weigert tokens die zijn bedoeld voor een andere doel groep. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
+> | Verificatiemoment | |Registreert de datum en tijd waarop verificatie is uitgevoerd. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | 
+> |Verificatiemethode | `amr` |Hiermee wordt aangegeven hoe het onderwerp van het token is geverifieerd. | `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` |
+> |Voornaam | `given_name` |Hiermee wordt de eerste of de naam van de gebruiker opgegeven, zoals ingesteld in het Azure AD-gebruikers object. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">`<br>`<AttributeValue>Frank<AttributeValue>`  |
+> |Groepen | `groups` |Bevat object-Id's die de groepslid maatschappen van het onderwerp vertegenwoordigen. Deze waarden zijn uniek (zie object-ID) en kunnen veilig worden gebruikt voor het beheren van toegang, zoals het afdwingen van autorisatie voor toegang tot een bron. De groepen die zijn opgenomen in de claim groepen, worden per toepassing geconfigureerd, via de eigenschap groupMembershipClaims van het toepassings manifest. Met een waarde van Null worden alle groepen uitgesloten, de waarde ' beveiligings groep ' bevat alleen Active Directory beveiligings groepslid maatschappen en de waarde ' all ' bevat zowel beveiligings groepen als Office 365-distributie lijsten. <br><br> **Opmerkingen**: <br> Als het aantal groepen waartoe de gebruiker zich bevindt, een limiet heeft (150 voor SAML, 200 voor JWT), wordt er een overschrijding-claim toegevoegd, die verwijst naar het eind punt van de grafiek met de lijst met groepen voor de gebruiker. Naast. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
+> | Overschrijding indicator voor groepen | `groups:src1` | Voor token aanvragen die geen beperkte lengte hebben (Zie `hasgroups` hierboven), maar nog steeds te groot zijn voor het token, wordt een koppeling naar de lijst met volledige groepen voor de gebruiker opgenomen. Voor SAML wordt deze toegevoegd als een nieuwe claim in plaats van de `groups` claim. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
+> |Id-provider | `idp` |Registreert de identiteitsprovider waarmee het onderwerp van het token is geverifieerd. Deze waarde is gelijk aan de waarde van de verlener-claim, tenzij de gebruikers account zich in een andere Tenant bevindt dan de verlener. | `<Attribute Name=" http://schemas.microsoft.com/identity/claims/identityprovider">`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` |
+> |IssuedAt | `iat` |Hiermee slaat u de tijd op waarop het token is uitgegeven. Dit wordt vaak gebruikt om de versheid van het token te meten. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
+> |Certificaatverlener | `iss` |Identificeert de Security Token Service (STS) die het token bouwt en retourneert. In de tokens die Azure AD retourneert, is de uitgever sts.windows.net. De GUID in de claim waarde van de verlener is de Tenant-ID van de Azure AD-adres lijst. De Tenant-ID is een onveranderbare en betrouw bare id van de Directory. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |
+> |Achternaam | `family_name` |Hiermee geeft u de achternaam, de achternaam of de familynaam van de gebruiker, zoals gedefinieerd in het Azure AD-gebruikers object. | `<Attribute Name=" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname">`<br>`<AttributeValue>Miller<AttributeValue>` |
+> |Name | `unique_name` |Biedt een voor mensen leesbare waarde waarmee het onderwerp van het token wordt geïdentificeerd. Deze waarde is niet gegarandeerd uniek binnen een Tenant en is zodanig ontworpen dat deze alleen voor weergave doeleinden wordt gebruikt. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
+> |Object-id | `oid` |Bevat een unieke id van een object in azure AD. Deze waarde is onveranderbaar en kan niet opnieuw worden toegewezen of opnieuw worden gebruikt. Gebruik de object-ID om een object in query's naar Azure AD te identificeren. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
+> |Rollen | `roles` |Vertegenwoordigt alle toepassings rollen die het onderwerp zowel direct als indirect via groepslid maatschap heeft gekregen en kan worden gebruikt voor het afdwingen van toegangs beheer op basis van rollen. Toepassings rollen worden per toepassing gedefinieerd, via de `appRoles` eigenschap van het toepassings manifest. De `value` eigenschap van elke toepassingsrol is de waarde die wordt weer gegeven in de claim rol. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
+> |Subject | `sub` |Identificeert de principal waarvan het token informatie bedient, zoals de gebruiker van een toepassing. Deze waarde is onveranderbaar en kan niet opnieuw worden toegewezen of opnieuw worden gebruikt, zodat deze kan worden gebruikt om autorisatie controles veilig uit te voeren. Omdat het onderwerp altijd aanwezig is in de tokens van de problemen met Azure AD, raden we u aan deze waarde te gebruiken in een autorisatie systeem voor algemene doel einden. <br> `SubjectConfirmation`is geen claim. Hierin wordt beschreven hoe het onderwerp van het token wordt gecontroleerd. `Bearer`geeft aan dat het onderwerp is bevestigd door het bezit van het token. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
+> |Tenant-id | `tid` |Een onveranderbare, niet-herbruikbare id die de Directory-Tenant identificeert die het token heeft uitgegeven. U kunt deze waarde gebruiken om toegang te krijgen tot Tenant-specifieke Directory bronnen in een multi tenant-toepassing. U kunt deze waarde bijvoorbeeld gebruiken om de Tenant te identificeren in een aanroep van de Graph API. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>`|
+> |Levensduur van token | `nbf`, `exp` |Definieert gedurende welke periode een token geldig is. De service die het token valideert, moet controleren of de huidige datum binnen de levens duur van het token ligt, anders moet het token worden afgewezen. Het kan tot vijf minuten duren voordat de levens duur van het token is ingesteld op verschillen tussen de klok tijd (' tijd verschil ') tussen Azure AD en de service. | `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br>|
 
-## <a name="sample-saml-token"></a>Voorbeeld van SAML-Token
+## <a name="sample-saml-token"></a>Voor beeld-SAML-token
 
-Dit is een voorbeeld van een typische SAML-token.
+Dit is een voor beeld van een typisch SAML-token.
 
     <?xml version="1.0" encoding="UTF-8"?>
     <t:RequestSecurityTokenResponse xmlns:t="http://schemas.xmlsoap.org/ws/2005/02/trust">
@@ -156,8 +156,8 @@ Dit is een voorbeeld van een typische SAML-token.
     </t:RequestSecurityTokenResponse>
 
 ## <a name="related-content"></a>Gerelateerde inhoud
-* Zie de Azure AD Graph [beleidsbewerkingen](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) en de [beleidsentiteit](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), voor meer informatie over het beheren van de levensduur van vernieuwingstoken beleid via de Azure AD Graph API.
-* Zie voor meer informatie over en voorbeelden over het beheren van beleid via PowerShell-cmdlets, waaronder voorbeelden, [configureerbare levensduur van tokens in Azure AD](active-directory-configurable-token-lifetimes.md). 
-* Voeg [aangepast en een optionele claims](active-directory-optional-claims.md) naar de tokens voor uw toepassing.
-* Gebruik [eenmalige aanmelding (SSO) met SAML](single-sign-on-saml-protocol.md).
-* Gebruik de [Azure eenmalige aanmelding van SAML-Protocol](single-sign-out-saml-protocol.md)
+* Zie de [Operations-beleids bewerkingen](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) en de entiteit van het [beleid](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity)van Azure AD voor meer informatie over het beheren van de levens duur van tokens via de Azure AD-Graph API.
+* Zie [Configureer bare token levensduur in azure AD](active-directory-configurable-token-lifetimes.md)voor meer informatie en voor beelden over het beheren van beleids regels via Power shell-cmdlets, inclusief voor beelden. 
+* [Aangepaste en optionele claims](active-directory-optional-claims.md) toevoegen aan de tokens voor uw toepassing.
+* [Eenmalige aanmelding (SSO) met SAML](single-sign-on-saml-protocol.md)gebruiken.
+* Het [SAML-protocol](single-sign-out-saml-protocol.md) voor eenmalige afmelding van Azure gebruiken

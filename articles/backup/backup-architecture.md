@@ -7,14 +7,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 44bf85eafe3f5cfa801b6c845a51e3dcd5e1262a
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3165183d4a5e0dcfecee62b128ee8cfa9d94209b
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466873"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736708"
 ---
-# <a name="azure-backup-architecture"></a>Azure Backup architectuur
+# <a name="azure-backup-architecture-and-components"></a>Architectuur en onderdelen van Azure Backup
 
 U kunt de [Azure backup-service](backup-overview.md) gebruiken om een back-up te maken van gegevens naar het Microsoft Azure Cloud platform. Dit artikel bevat een overzicht van Azure Backup architectuur, onderdelen en processen. 
 

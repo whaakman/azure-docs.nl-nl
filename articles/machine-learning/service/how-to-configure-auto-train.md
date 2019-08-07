@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a316de54600d18f7ab839b8459bfe4eb0ff86e8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 5dee966f8664bc14d81004e625ad9632066ffcb2
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479800"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742312"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Automatische ML experimenten configureren in python
 
@@ -40,7 +40,7 @@ Als u liever geen code hebt, kunt u ook [uw geautomatiseerde machine learning ex
 
 Voordat u uw experiment, moet u het type van machine learning probleem, u het oplossen van bepalen. Geautomatiseerde machine learning ondersteunt taaktypen classificatie, regressie en prognose.
 
-Geautomatiseerde machine learning ondersteunt de volgende algoritmen tijdens de automatisering en het afstemmen van proces. Als een gebruiker is er niet nodig voor u het algoritme opgeven. 
+Geautomatiseerde machine learning ondersteunt de volgende algoritmen tijdens de automatisering en het afstemmen van proces. Als een gebruiker is er niet nodig voor u het algoritme opgeven.
 
 Classificatie | Regressie | Tijd reeks prognose
 |-- |-- |--
@@ -104,7 +104,7 @@ Hier volgt een voor beeld van `datastore`het gebruik van:
 ```python
     import pandas as pd
     from sklearn import datasets
-    
+
     data_train = datasets.load_digits()
 
     pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
@@ -114,7 +114,7 @@ Hier volgt een voor beeld van `datastore`het gebruik van:
     ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
 ```
 
-### <a name="define-deprep-references"></a>Verwijzingen voor deprep definiëren
+### <a name="define-dprep-references"></a>Dprep-verwijzingen definiëren
 
 Definieer X en y als referentie voor dprep, die wordt door gegeven aan een `AutoMLConfig` automatisch machine learning object dat er ongeveer als volgt uitziet:
 
@@ -122,8 +122,8 @@ Definieer X en y als referentie voor dprep, die wordt door gegeven aan een `Auto
 
     X = dprep.auto_read_file(path=ds.path('digitsdata/X_train.csv'))
     y = dprep.auto_read_file(path=ds.path('digitsdata/y_train.csv'))
-    
-    
+
+
     automl_config = AutoMLConfig(task = 'classification',
                                  debug_log = 'automl_errors.log',
                                  path = project_folder,
@@ -253,9 +253,60 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
+### <a name="ensemble"></a>Configuratie van ensemble
+
+Ensemble-modellen zijn standaard ingeschakeld en worden weer gegeven als de laatste uitvoerings herhalingen in een automatische machine learning uitvoering. Momenteel worden op dit moment ondersteunde ensemble-methoden gestemd en gestapeld. Stemmen wordt geïmplementeerd als zachte stem met gewogen gemiddelden en de stacking-implementatie maakt gebruik van een implementatie met twee lagen, waarbij de eerste laag dezelfde modellen heeft als de naam van de stem-ensemble en het tweede laag model wordt gebruikt om de optimale combi natie van de modellen van de eerste laag. Als u gebruikmaakt van ONNX-modellen **of** als u model uitleg hebt ingeschakeld, wordt stacking uitgeschakeld en wordt alleen de stem gebruikt.
+
+Er zijn meerdere standaard argumenten die kunnen worden gegeven als `kwargs` in een `AutoMLConfig` -object om het standaard gedrag van de stack-ensemble te wijzigen.
+
+* `stack_meta_learner_type`: de meta-informatieer is een model dat is getraind op de uitvoer van de afzonderlijke heterogene modellen. `LogisticRegression` Standaard-meta informatie is voor classificatie taken (of `LogisticRegressionCV` als kruis validatie is ingeschakeld) en voor regressie `ElasticNet` -en prognose taken (of `ElasticNetCV` als kruis validatie is ingeschakeld). Deze para meter kan een van de volgende teken reeksen `LogisticRegression`zijn `LogisticRegressionCV`: `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor`,, `LinearRegression`, of.
+* `stack_meta_learner_train_percentage`: Hiermee geeft u het aandeel van de Trainingsset (bij het kiezen van trein en validatie type training) op dat moet worden gereserveerd voor de training van de meta-informatieer. De standaard waarde `0.2`is.
+* `stack_meta_learner_kwargs`: optionele para meters die moeten worden door gegeven aan de initialisatie functie van de meta-informatieer. Deze para meters en parameter typen spie gelen die van de bijbehorende model-constructor en worden doorgestuurd naar de model-constructor.
+
+De volgende code toont een voor beeld van het opgeven van een aangepast `AutoMLConfig` ensemble-gedrag in een object.
+
+```python
+ensemble_settings = {
+    "stack_meta_learner_type": "LogisticRegressionCV",
+    "stack_meta_learner_train_percentage": 0.3,
+    "stack_meta_learner_kwargs": {
+        "refit": True,
+        "fit_intercept": False,
+        "class_weight": "balanced",
+        "multi_class": "auto",
+        "n_jobs": -1
+    }
+}
+
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        X=X_train,
+        y=y_train,
+        n_cross_validations=5,
+        **ensemble_settings
+        )
+```
+
+Een ensemble-training is standaard ingeschakeld, maar kan worden uitgeschakeld met behulp `enable_voting_ensemble` van `enable_stack_ensemble` de para meters en Booleaanse waarden.
+
+```python
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        X=X_train,
+        y=y_train,
+        n_cross_validations=5,
+        enable_voting_ensemble=False,
+        enable_stack_ensemble=False
+        )
+```
+
 ## <a name="run-experiment"></a>Experiment uit te voeren
 
-Voor automatische ml moet u een `Experiment` object maken. Dit is een benoemd object in een `Workspace` gebruikt om experimenten uit te voeren.
+Voor automatische milliliters maakt u `Experiment` een object, een benoemd object in een `Workspace` gebruikt om experimenten uit te voeren.
 
 ```python
 from azureml.core.experiment import Experiment

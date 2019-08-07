@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor-virtuele machine-extensie voor Linux | Microsoft Docs
+title: Extensie van de virtuele machine Azure Monitor voor Linux | Microsoft Docs
 description: De Log Analytics-agent op Linux-machine met behulp van de extensie van een virtuele machine implementeren.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/01/2019
+ms.date: 08/06/2019
 ms.author: roiyz
-ms.openlocfilehash: 7d8192a3b6ff732481a4d48f6e188b4bb3989cda
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a0c4b6333cc8348959a679a81343f2479078694b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705938"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828160"
 ---
-# <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Azure Monitor-virtuele machine-extensie voor Linux
+# <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Extensie van de virtuele machine Azure Monitor voor Linux
 
 ## <a name="overview"></a>Overzicht
 
-Logboeken in Azure Monitor biedt mogelijkheden voor bewaking, waarschuwingen en meldingen herstel via cloud en on-premises assets. De extensie voor de Log Analytics-Agent van een virtuele machine voor Linux is gepubliceerd en ondersteund door Microsoft. De extensie voor de Log Analytics-agent geïnstalleerd op virtuele Azure-machines en virtuele machines voor een bestaande Log Analytics-werkruimte worden ingeschreven. In dit document worden de ondersteunde platforms, configuraties en implementatie-opties voor de extensie van de Azure Monitor-virtuele machine voor Linux.
+Azure Monitor Logboeken biedt bewakings-, waarschuwings-en waarschuwings functies voor het door voeren van waarschuwingen voor Cloud-en on-premises activa. De extensie voor de Log Analytics-Agent van een virtuele machine voor Linux is gepubliceerd en ondersteund door Microsoft. De extensie voor de Log Analytics-agent geïnstalleerd op virtuele Azure-machines en virtuele machines voor een bestaande Log Analytics-werkruimte worden ingeschreven. In dit document vindt u informatie over de ondersteunde platforms, configuraties en implementatie opties voor de Azure Monitor extensie van de virtuele machine voor Linux.
 
 >[!NOTE]
 >Als onderdeel van de lopende overgang van Microsoft Operations Management Suite (OMS) naar Azure Monitor, wordt de OMS-Agent voor Windows of Linux worden aangeduid als de Log Analytics-agent voor Windows en de Log Analytics-agent voor Linux.
@@ -37,43 +37,14 @@ Logboeken in Azure Monitor biedt mogelijkheden voor bewaking, waarschuwingen en 
 
 ### <a name="operating-system"></a>Besturingssysteem
 
-De Log Analytics-Agent-extensie kan voor deze Linux-distributies worden uitgevoerd.
-
-| Distributie | Versie |
-|---|---|
-| CentOS Linux | 6 (x86/x64) en 7 (x 64) |
-| Amazon-Linux | 2017.09 (x64) | 
-| Oracle Linux | 6 en 7 (x86/x64) |
-| Red Hat Enterprise Linux Server | 6 (x86/x64) en 7 (x 64) |
-| Debian GNU/Linux | 8 en 9 (x86/x64) |
-| Ubuntu | 14.04 LTS (x86/x64), 16.04 LTS (x86/x64) en 18.04 LTS (x64) |
-| SUSE Linux Enterprise Server | 12 (x 64) en 15 (x 64) |
-
->[!NOTE]
->OpenSSL lager is dan versie 1.x wordt niet ondersteund op elk platform en versie 1.10 wordt alleen ondersteund op x86_64 platforms (64-bits).  
->
-
-### <a name="agent-prerequisites"></a>Vereisten voor clientagents
-
-De volgende tabel ziet u de pakketten zijn vereist voor de ondersteunde Linux-distributies die de agent worden geïnstalleerd op.
-
-|Vereist pakket |Description |Minimale versie |
-|-----------------|------------|----------------|
-|Glibc |    GNU C-bibliotheek | 2.5-12 
-|Openssl    | OpenSSL-bibliotheken | 1.0.x of 1.1.x |
-|Curl | cURL webclient | 7.15.5 |
-|Python-ctypes | | 
-|PAM | Pluggable Authentication Modules | | 
-
->[!NOTE]
->Rsyslog of syslog-ng het volgende zijn vereist voor het verzamelen van syslog-berichten. De standaard syslog-daemon op versie 5 van Red Hat Enterprise Linux, CentOS en Oracle Linux-versie (sysklog) wordt niet ondersteund voor de verzameling van syslog. Voor het verzamelen van syslog-gegevens in deze versie van deze distributies, moet de rsyslog-daemon worden geïnstalleerd en geconfigureerd ter vervanging van sysklog.
+Raadpleeg het overzichts artikel [log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) voor meer informatie over de ondersteunde Linux-distributies.
 
 ### <a name="agent-and-vm-extension-version"></a>Versie agent en VM-extensie
-De volgende tabel bevat een toewijzing van de versie van de Azure Monitor VM-extensie en bundel van Log Analytics-agent voor elke versie. Een koppeling naar de opmerkingen bij de release voor de versie van Log Analytics-agent-bundel is opgenomen. Opmerkingen bij de release bevatten informatie over oplossingen voor problemen en nieuwe functies die beschikbaar zijn voor een opgegeven agent-release.  
+De volgende tabel bevat een overzicht van de versie van de Azure Monitor VM-extensie en Log Analytics agent bundel voor elke release. Een koppeling naar de opmerkingen bij de release voor de versie van Log Analytics-agent-bundel is opgenomen. Opmerkingen bij de release bevatten informatie over oplossingen voor problemen en nieuwe functies die beschikbaar zijn voor een opgegeven agent-release.  
 
-| Versie van de extensie Azure Monitor virtuele Linux-machine | Log Analytics-Agent bundelversie krijgt | 
+| Versie van de Linux VM-extensie Azure Monitor | Log Analytics-Agent bundelversie krijgt | 
 |--------------------------------|--------------------------|
-| 1.11.9 | [1.11.0-7](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-7) |
+| 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
 | 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
@@ -145,9 +116,9 @@ De volgende JSON ziet u het schema voor de Log Analytics-Agent-extensie. De exte
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
 
-Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. Sjablonen zijn ideaal bij het implementeren van een of meer virtuele machines waarvoor de post-implementatieconfiguratie zoals onboarding van Azure Monitor-Logboeken. Een voorbeeld van Resource Manager-sjabloon met de Log Analytics-Agent-VM-extensie kunt u vinden op de [Azure Quick Start-galerie](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. Sjablonen zijn ideaal bij het implementeren van een of meer virtuele machines waarvoor de configuratie na implementatie vereist is, zoals het onboarden van Azure Monitor-Logboeken. Een voor beeld van een resource manager-sjabloon met de extensie van de Log Analytics agent-VM vindt u in de [Galerie van Azure Quick](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm)start. 
 
-De JSON-configuratie voor een VM-extensie worden genest in de bron van de virtuele machine of geplaatst op de hoofdmap of het hoogste niveau van een Resource Manager JSON-sjabloon. De plaatsing van de JSON-configuratie is van invloed op de waarde van de resourcenaam en het type. Zie voor meer informatie, [naam en type voor de onderliggende resources instellen](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
+De JSON-configuratie voor een VM-extensie worden genest in de bron van de virtuele machine of geplaatst op de hoofdmap of het hoogste niveau van een Resource Manager JSON-sjabloon. De plaatsing van de JSON-configuratie is van invloed op de waarde van de resourcenaam en het type. Zie voor meer informatie, [naam en type voor de onderliggende resources instellen](../../azure-resource-manager/child-resource-name-type.md). 
 
 Het volgende voorbeeld wordt ervan uitgegaan dat de VM-extensie is genest in de bron van de virtuele machine. Wanneer het nesten van de extensie-resource, de JSON wordt geplaatst in de `"resources": []` object van de virtuele machine.
 
@@ -209,8 +180,8 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.7 --protected-settings '{"workspaceKey": "omskey"}' \
-  --settings '{"workspaceId": "omsid"}'
+  --version 1.10.1 --protected-settings '{"workspaceKey":"omskey"}' \
+  --settings '{"workspaceId":"omsid"}'
 ```
 
 ## <a name="troubleshoot-and-support"></a>Problemen oplossen en ondersteuning
@@ -240,7 +211,7 @@ Extensie uitvoering uitvoer wordt vastgelegd in het volgende bestand:
 | 19 | Fout tijdens de installatie van de OMI-pakket | 
 | 20 | Fout tijdens de installatie van de SCX-pakket |
 | 51 | Deze extensie wordt niet ondersteund voor besturingssysteem van de virtuele machine | |
-| 55 | Kan geen verbinding maken met de Azure Monitor-service of de vereiste pakketten ontbreken of dpkg Pakketbeheer is vergrendeld| Controleer of het systeem heeft toegang tot Internet of dat een geldige HTTP-proxy is opgegeven. Bovendien Controleer de juistheid van de werkruimte-ID en controleer of curl en tar-hulpprogramma's zijn geïnstalleerd. |
+| 55 | Kan geen verbinding maken met de Azure Monitor-service of de vereiste pakketten ontbreken of met dpkg Package Manager is vergrendeld| Controleer of het systeem heeft toegang tot Internet of dat een geldige HTTP-proxy is opgegeven. Bovendien Controleer de juistheid van de werkruimte-ID en controleer of curl en tar-hulpprogramma's zijn geïnstalleerd. |
 
 Als u meer informatie over probleemoplossing vindt u op de [Log Analytics-Agent voor Linux Troubleshooting Guide](../../azure-monitor/platform/vmext-troubleshoot.md).
 

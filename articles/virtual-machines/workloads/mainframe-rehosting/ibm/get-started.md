@@ -1,7 +1,8 @@
 ---
-title: IBM-workloads in Azure | Microsoft Docs
-description: Een mainframe-emulator en andere services van Microsoft-partners gebruiken om te opnieuw hosten van uw IBM z/OS-werkbelastingen met Microsoft Azure.
+title: IBM-workloads op Azure | Microsoft Docs
+description: Gebruik een mainframe emulator en andere services van micro soft-partners om uw IBM z/OS-workloads opnieuw te hosten met behulp van Microsoft Azure.
 services: virtual-machines-linux
+ms.service: virtual-machines-linux
 documentationcenter: ''
 author: njray
 ms.author: edprice
@@ -11,32 +12,32 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 4acf2fe1bc63061f17f90d6737f586408520dc13
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 13c83c53cdad719d6a4bed4cc1852b85d62082e8
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621326"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834578"
 ---
 # <a name="ibm-workloads-on-azure"></a>IBM-workloads op Azure
 
-Veel IBM mainframe-werkbelastingen op basis van z/OS, kunnen zonder verlies van functionaliteit en zonder dat u nog wijzigingen in de onderliggende systemen gebruikers in Azure worden gerepliceerd. Opnieuw hosten van toepassingen op Azure kunt u de mainframe-achtige functies u bovendien de elasticiteit, beschikbaarheid moet, en potentiële kostenbesparingen van de cloud.
+Veel IBM mainframe-workloads op basis van z/O'S kunnen worden gerepliceerd in azure zonder dat er functionaliteit verloren gaat en zonder gebruikers zelfs merkt wijzigingen in hun onderliggende systemen. Het opnieuw hosten van toepassingen in Azure biedt u de mainframe achtige functies die u nodig hebt, plus de flexibiliteit, Beschik baarheid en mogelijke kosten besparingen van de Cloud.
 
-Azure Ondersteunt integratie met bestaande IBM mainframe-omgevingen, zodat u kunt voor het migreren van de applicates die geschikt zijn, hybride-oplossingen uitvoeren indien nodig, en migreer na verloop van tijd. Hoewel u bestaande mainframe-programma's volledig voor Azure herschrijven kunt, is het gebruikelijker aan ze opnieuw hosten. Voegt kosten, complexiteit en de tijd voor het herschrijven toe aan migration-projecten. Met het opnieuw hosten, kunt u het volgende doen:
+Azure ondersteunt de integratie met bestaande IBM-mainframe omgevingen, zodat u de applicates die zinvol zijn, kunt migreren, waar nodig hybride oplossingen en migratie gedurende een periode. Hoewel u bestaande mainframe-Program ma's voor Azure volledig opnieuw kunt schrijven, is het gebruikelijk om ze opnieuw te hosten. Bij het herschrijven worden kosten, complexiteit en tijd aan migratie projecten toegevoegd. Met het opnieuw hosten kunt u het volgende doen:
 
-- Verplaats toepassingen naar een cloud-gebaseerde-emulator.
+- Verplaats toepassingen naar een cloud-gebaseerde emulator.
 
-- De database migreren naar een cloud-gebaseerde database.
+- Migreer de Data Base naar een cloud-gebaseerde data base.
 
-- Vervang de modules en code met behulp van code transformatie-engines.
+- Vervang modules en code met code Transformation-engines.
 
-Bovendien is IBM-software, waaronder WebSphere en MQ, nu in de Azure Marketplace. Met een licentie van IBM-software kunt u profiteren van de schaalbare infrastructuur op aanvraag die door Azure wordt verstrekt, zodat u snel met een virtuele machine aan de slag kunt.
+Daarnaast bevindt IBM-software, waaronder WebSphere en MQ, zich nu in de Azure Marketplace. Met een licentie van IBM-software kunt u profiteren van de schaalbare infrastructuur op aanvraag die door Azure wordt verstrekt, zodat u snel met een virtuele machine aan de slag kunt.
 
-Een uitgebreide partnerecosysteem is beschikbaar voor het migreren van IBM mainframe-systemen naar Azure. Volg een pragmatische benadering van hergebruik waar mogelijk de meeste voordat u een gefaseerde implementatie van herschrijven of vervangen van toepassingen. Krijg meer hulp en hulp van partners op de [Azure Mainframe-migratie center](https://azure.microsoft.com/migration/mainframe/).
+Er is een uitgebreid partner ecosysteem beschikbaar om u te helpen bij het migreren van IBM mainframe-systemen naar Azure. U kunt waar mogelijk een pragmatic aanpak gebruiken voordat u een implementatie van het herschrijven of vervangen van toepassingen uitvoert. Meer informatie over partners vindt u in het [Azure mainframe-migratie centrum](https://azure.microsoft.com/migration/mainframe/).
 
 **Volgende stappen**
 
-- [Mainframe-migratie: misverstanden en feiten](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [IBM zD & T dev/test-omgeving op Azure installeren](./install-ibm-z-environment.md)
-- [Instellen van een toepassing ontwikkelaars beheerd distributie (ADCD) in de IBM zD & T v1](./demo.md)
+- [Mainframe migratie: mythen en feiten](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [IBM zD & T dev/test-omgeving installeren op Azure](./install-ibm-z-environment.md)
+- [Een toepassings ontwikkelaars ADCD (Controlled Distribution) instellen in IBM zD & T v1](./demo.md)
 - [IBM DB2 pureScale op Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)

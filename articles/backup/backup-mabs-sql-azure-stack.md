@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3b116e25635873429dd164288c2764fd76c8f7a7
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 3dcf2188fd4fed211c96d4cc5241044d32ab6577
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689003"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737174"
 ---
-# <a name="back-up-sql-server-on-stack"></a>SQL Server op stack maken
+# <a name="back-up-sql-server-on-azure-stack"></a>Back-up maken van SQL Server op Azure Stack
 Gebruik dit artikel om Microsoft Azure Backup Server (MABS) te configureren om SQL Server-data bases op Azure Stack te beveiligen.
 
 Het beheer van SQL Server database back-up naar Azure en het herstel van Azure bestaat uit drie stappen:

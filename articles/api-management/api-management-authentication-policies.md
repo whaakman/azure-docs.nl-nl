@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 5ca9bd4964cf190eaa2be6d66d57c7ada971d675
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: bd31d711c58a63b5c15712c1774d48433c62f18d
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442405"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774978"
 ---
 # <a name="api-management-authentication-policies"></a>Verificatie beleid voor API Management
 In dit onderwerp vindt u een verwijzing naar de volgende API Management-beleids regels. Zie [beleid in API Management](https://go.microsoft.com/fwlink/?LinkID=398186)voor meer informatie over het toevoegen en configureren van beleid.
@@ -83,64 +83,73 @@ In dit voor beeld wordt het client certificaat aangeduid met de vinger afdruk.
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
 ```
 In dit voor beeld wordt het client certificaat geïdentificeerd op basis van de resource naam.
-```xml
-<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />
+```xml  
+<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
+```  
+
+### <a name="elements"></a>Elementen  
+  
+|Name|Description|Vereist|  
+|----------|-----------------|--------------|  
+|verificatie-certificaat|Hoofd element.|Ja|  
+  
+### <a name="attributes"></a>Kenmerken  
+  
+|Name|Description|Vereist|Standaard|  
+|----------|-----------------|--------------|-------------|  
+|thumbprint|De vinger afdruk voor het client certificaat.|Ofwel `thumbprint` of`certificate-id` moeten aanwezig zijn.|N/A|  
+|certificaat-id|De naam van de certificaat resource.|Ofwel `thumbprint` of`certificate-id` moeten aanwezig zijn.|N/A|  
+  
+### <a name="usage"></a>Gebruik  
+ Dit beleid kan worden gebruikt in de volgende beleids [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [bereiken](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+  
+-   **Beleids secties:** binnenkomend  
+  
+-   **Beleids bereik:** alle bereiken  
+
+##  <a name="ManagedIdentity"></a>Verifiëren met beheerde identiteit  
+ Gebruik het `authentication-managed-identity` beleid om te verifiëren met een back-end-service met behulp van de beheerde identiteit van de API Management service. Dit beleid gebruikt in feite de beheerde identiteit voor het verkrijgen van een toegangs token van Azure Active Directory voor toegang tot de opgegeven resource. Nadat het token is verkregen, wordt met het beleid de waarde van het token in de `Authorization` header ingesteld met `Bearer` behulp van het schema.
+  
+### <a name="policy-statement"></a>Beleids verklaring  
+  
+```xml  
+<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
+```  
+  
+### <a name="example"></a>Voorbeeld  
+#### <a name="use-managed-identity-to-authenticate-with-a-backend-service"></a>Beheerde identiteit gebruiken om te verifiëren met een back-end-service
+```xml  
+<authentication-managed-identity resource="https://graph.windows.net"/> 
+```
+  
+#### <a name="use-managed-identity-in-send-request-policy"></a>Beheerde identiteit gebruiken in beleid voor verzenden en aanvragen
+```xml  
+<send-request mode="new" timeout="20" ignore-error="false">
+    <set-url>https://example.com/</set-url>
+    <set-method>GET</set-method>
+    <authentication-managed-identity resource="ResourceID"/>
+</send-request>
 ```
 
-### <a name="elements"></a>Elementen
-
-|Name|Description|Vereist|
-|----------|-----------------|--------------|
-|verificatie-certificaat|Hoofd element.|Ja|
-
-### <a name="attributes"></a>Kenmerken
-
-|Name|Description|Vereist|Standaard|
-|----------|-----------------|--------------|-------------|
-|thumbprint|De vinger afdruk voor het client certificaat.|Ofwel `thumbprint` of`certificate-id` moeten aanwezig zijn.|N/A|
-|certificaat-id|De naam van de certificaat resource.|Ofwel `thumbprint` of`certificate-id` moeten aanwezig zijn.|N/A|
-
-### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in de volgende beleids [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [bereiken](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
-
--   **Beleids secties:** binnenkomend
-
--   **Beleids bereik:** alle bereiken
-
-##  <a name="ManagedIdentity"></a>Verifiëren met beheerde identiteit
- Gebruik het `authentication-managed-identity` beleid om te verifiëren met een back-end-service met behulp van de beheerde identiteit van de API Management service. Dit beleid maakt effectief gebruik van de beheerde identiteit om een toegangs token te verkrijgen van Azure Active Directory voor toegang tot de opgegeven resource.
-
-### <a name="policy-statement"></a>Beleids verklaring
-
-```xml
-<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>
-```
-
-### <a name="example"></a>Voorbeeld
-
-```xml
-<authentication-managed-identity resource="https://graph.windows.net" output-token-variable-name="test-access-token" ignore-error="true" />
-```
-
-### <a name="elements"></a>Elementen
-
-|Name|Description|Vereist|
-|----------|-----------------|--------------|
-|verificatie-beheerd identiteit |Hoofd element.|Ja|
-
-### <a name="attributes"></a>Kenmerken
-
-|Name|Description|Vereist|Standaard|
-|----------|-----------------|--------------|-------------|
-|resource|Tekenreeksexpressie. De App-ID-URI van de doel-Web-API (beveiligde bron) in Azure Active Directory.|Ja|N/A|
-|uitvoer-token-variabele-naam|Tekenreeksexpressie. De naam van de context variabele die de token waarde ontvangt als object type `string`.|Nee|N/A|
-|negeren-fout|True. Als deze is `true`ingesteld op, blijft de beleids pijplijn worden uitgevoerd, zelfs als er geen toegangs token is verkregen.|Nee|false|
-
-### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in de volgende beleids [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [bereiken](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
-
--   **Beleids secties:** binnenkomend
-
+### <a name="elements"></a>Elementen  
+  
+|Name|Description|Vereist|  
+|----------|-----------------|--------------|  
+|verificatie-beheerd identiteit |Hoofd element.|Ja|  
+  
+### <a name="attributes"></a>Kenmerken  
+  
+|Name|Description|Vereist|Standaard|  
+|----------|-----------------|--------------|-------------|  
+|resource|Tekenreeksexpressie. De App-ID-URI van de doel-Web-API (beveiligde bron) in Azure Active Directory.|Ja|N/A|  
+|uitvoer-token-variabele-naam|Tekenreeksexpressie. De naam van de context variabele die de token waarde ontvangt als object type `string`. |Nee|N/A|  
+|negeren-fout|True. Als deze is `true`ingesteld op, blijft de beleids pijplijn worden uitgevoerd, zelfs als er geen toegangs token is verkregen.|Nee|false|  
+  
+### <a name="usage"></a>Gebruik  
+ Dit beleid kan worden gebruikt in de volgende beleids [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [bereiken](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+  
+-   **Beleids secties:** binnenkomend  
+  
 -   **Beleids bereik:** alle bereiken
 
 ## <a name="next-steps"></a>Volgende stappen

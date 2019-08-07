@@ -1,58 +1,58 @@
 ---
-title: Een Jupyter-notitieblok gebruiken voor het analyseren van gegevens in Azure Data Explorer
-description: Dit onderwerp ziet u hoe het analyseren van gegevens in Azure Data Explorer met behulp van een Jupyter-Notebook en de extensie Kqlmagic.
+title: Een Jupyter Notebook gebruiken voor het analyseren van gegevens in azure Data Explorer
+description: In dit onderwerp wordt beschreven hoe u gegevens in azure Data Explorer analyseert met behulp van een Jupyter Notebook en de Kqlmagic-extensie.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: a894052e54bd1ca9f8316342f714074c92753448
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 312e39ff1b699bb3c7f2baea3c66cbf8999ee44b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806344"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814512"
 ---
-# <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Een Jupyter-Notebook en Kqlmagic-extensie gebruiken voor het analyseren van gegevens in Azure Data Explorer
+# <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Een Jupyter Notebook-en Kqlmagic-extensie gebruiken voor het analyseren van gegevens in azure Data Explorer
 
-Jupyter-Notebook is een open-source-webtoepassing waarmee u het maken en delen van documenten met live code, vergelijkingen, visualisaties en verhalende tekst. Gebruik omvat het opschonen van gegevens en -transformatie, numerieke simulatie, statistische modellen bouwen, gegevensvisualisatie en machine learning.
-[Jupyter-Notebook](https://jupyter.org/) ondersteunt magic-functies die de mogelijkheden van de kernel uitbreiden door de ondersteuning van aanvullende opdrachten. KQL Magic-pakket is een opdracht die de mogelijkheden van de Python-kernel in Jupyter-Notebook breidt, zodat u kunt systeemeigen Kusto language-query's uitvoeren. U kunt eenvoudig combineren met Python en Kusto-querytaal om te vragen en visualiseren van gegevens met behulp van uitgebreide Plot.ly bibliotheek geïntegreerd met `render` opdrachten. Gegevensbronnen voor het uitvoeren van query's worden ondersteund. Deze gegevensbronnen zijn Azure Data Explorer, een service voor het verkennen van snelle en schaalbare gegevens voor logboek en telemetriegegevens, evenals Azure Monitor-logboeken en Application Insights. KQL magic werkt ook met de Azure-notitieblokken, Jupyter Lab en Visual Studio Code Jupyter-extensie.
+Jupyter Notebook is een open-source webtoepassing waarmee u documenten kunt maken en delen met Live code, vergelijkingen, visualisaties en tekst. Gebruik omvat het opschonen van gegevens en trans formatie, het numeriek simuleren, statistisch model leren, gegevens visualisatie en machine learning.
+[Jupyter notebook](https://jupyter.org/) ondersteunt Magic-functies die de mogelijkheden van de kernel uitbreiden door extra opdrachten te ondersteunen. KQL Magic is een opdracht waarmee de mogelijkheden van de python-kernel in Jupyter Notebook worden uitgebreid, zodat u Kusto taal query's systeem eigen kunt uitvoeren. U kunt de python-en Kusto-query taal eenvoudig combi neren om gegevens op te vragen en te visualiseren met de uitgebreide plot.ly-bibliotheek, geïntegreerd met `render` opdrachten. Gegevens bronnen voor het uitvoeren van query's worden ondersteund. Deze gegevens bronnen zijn onder andere Azure Data Explorer, een snelle en zeer schaal bare service voor gegevens verkenning voor logboek-en telemetriegegevens, evenals Azure Monitor logboeken en Application Insights. KQL Magic werkt ook met de extensie Azure Notebooks, Jupyter Lab en Visual Studio code Jupyter.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Organisatie-e-mailaccount die deel uitmaakt van Azure Active Directory (AAD).
-- Jupyter-Notebook op uw lokale computer is geïnstalleerd of gebruik de Azure-notitieblokken en het voorbeeld klonen [Azure Notebook](https://kustomagicsamples-manojraheja.notebooks.azure.com/j/notebooks/Getting%20Started%20with%20kqlmagic%20on%20Azure%20Data%20Explorer.ipynb)
+- Organisatie-e-mail account dat lid is van Azure Active Directory (AAD).
+- Jupyter Notebook op uw lokale machine geïnstalleerd of gebruik Azure Notebooks en kloon de voor beeld- [Azure-notebook](https://kustomagicsamples-manojraheja.notebooks.azure.com/j/notebooks/Getting%20Started%20with%20kqlmagic%20on%20Azure%20Data%20Explorer.ipynb)
 
-## <a name="install-kql-magic-library"></a>KQL magic bibliotheek installeren
+## <a name="install-kql-magic-library"></a>KQL Magic-bibliotheek installeren
 
-1. KQL Magic-pakket installeren:
+1. KQL Magic installeren:
 
     ```python
     !pip install Kqlmagic --no-cache-dir  --upgrade
     ```
     > [!NOTE]
-    > Wanneer u Azure-laptops, is deze stap niet vereist.
+    > Wanneer u Azure Notebooks gebruikt, is deze stap niet vereist.
 
-1. Laden KQL Magic-pakket:
+1. KQL Magic laden:
 
     ```python
-    reload_ext Kqlmagic
+    %reload_ext Kqlmagic
     ```
 
-## <a name="connect-to-the-azure-data-explorer-help-cluster"></a>Verbinding maken met het cluster Azure Data Explorer Help
+## <a name="connect-to-the-azure-data-explorer-help-cluster"></a>Verbinding maken met het Azure Data Explorer Help-cluster
 
-Gebruik de volgende opdracht om te verbinden met de *voorbeelden* database die wordt gehost op de *Help* cluster. Niet - Microsoft AAD-gebruikers, vervangen door de naam van de tenant `Microsoft.com` met uw AAD-Tenant.
+Gebruik de volgende opdracht om verbinding te maken met de *voorbeeld* database die op het *Help* -cluster wordt gehost. Voor gebruikers die niet van micro soft zijn Aad, vervangt `Microsoft.com` u de naam van de Tenant door uw Aad-Tenant.
 
 ```python
 %kql AzureDataExplorer://tenant="Microsoft.com";code;cluster='help';database='Samples'
 ```
 
-## <a name="query-and-visualize"></a>Opvragen en visualiseren
+## <a name="query-and-visualize"></a>Query's uitvoeren en visualiseren
 
-Query-gegevens met de [renderen operator](/azure/kusto/query/renderoperator) en Visualiseer gegevens met behulp van de bibliotheek ploy.ly. Biedt een geïntegreerde ervaring die gebruikmaakt van systeemeigen KQL deze query en visualisatie. Kqlmagic ondersteunt de meeste grafieken, behalve `timepivot`, `pivotchart`, en `ladderchart`. Rendering wordt ondersteund met alle kenmerken met uitzondering van `kind`, `ysplit`, en `accumulate`. 
+Gegevens opvragen met behulp van de [render-operator](/azure/kusto/query/renderoperator) en gegevens visualiseren met behulp van de Ploy.ly-bibliotheek. Deze query en visualisatie biedt een geïntegreerde ervaring waarbij gebruik wordt gemaakt van systeem eigen KQL. Kqlmagic ondersteunt de meeste grafieken `timepivot`, `pivotchart`behalve, `ladderchart`, en. Rendering wordt ondersteund met alle kenmerken behalve `kind`, `ysplit`en `accumulate`. 
 
-### <a name="query-and-render-piechart"></a>Query's en render piechart
+### <a name="query-and-render-piechart"></a>Piechart opvragen en weer geven
 
 ```python
 %%kql
@@ -63,7 +63,7 @@ StormEvents
 | render piechart title="My Pie Chart by State"
 ```
 
-### <a name="query-and-render-timechart"></a>Query's en render tijdgrafiek
+### <a name="query-and-render-timechart"></a>Timechart opvragen en weer geven
 
 ```python
 %%kql
@@ -73,19 +73,19 @@ StormEvents
 ```
 
 > [!NOTE]
-> Deze diagrammen zijn interactief. Selecteer een tijdsbereik kunt inzoomen op in een bepaald tijdstip.
+> Deze grafieken zijn interactief. Selecteer een tijds bereik om in te zoomen op een specifieke tijd.
 
-### <a name="customize-the-chart-colors"></a>Kleuren in de grafiek aanpassen
+### <a name="customize-the-chart-colors"></a>De grafiek kleuren aanpassen
 
-Als u niet het standaardkleurenpalet bevalt, aanpassen van de grafieken met palet opties. Beschikbare daarop vindt u hier: [Kleurenpalet voor uw KQL magic grafiek queryresultaat kiezen](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
+Als u het standaardkleuren palet niet mooi vindt, past u de grafieken aan met behulp van de palet opties. De beschik bare paletten vindt u hier: [Kleuren palet kiezen voor het KQL Magic-query diagram resultaat](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
 
-1. Voor een lijst van palet:
+1. Voor een lijst met paletten:
 
     ```python
     %kql --palettes -popup_window
     ```
 
-1. Selecteer de `cool` kleurenpalet en weer te geven van de query opnieuw uit:
+1. Selecteer het `cool` kleuren palet en Genereer de query opnieuw:
 
     ```python
     %%kql -palette_name "cool"
@@ -96,13 +96,13 @@ Als u niet het standaardkleurenpalet bevalt, aanpassen van de grafieken met pale
     | render piechart title="My Pie Chart by State"
     ```
 
-## <a name="parameterize-a-query-with-python"></a>Voorzien van een query met Python
+## <a name="parameterize-a-query-with-python"></a>Een query para meters met python
 
-KQL magic kunt u eenvoudige uitwisseling tussen Kusto-querytaal en Python. Voor meer informatie: [Parameteriseren uw KQL magic query met Python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb)
+KQL Magic maakt eenvoudige uitwisseling mogelijk tussen Kusto-query taal en python. Voor meer informatie: [Para meters uw KQL Magic-query met python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb)
 
-### <a name="use-a-python-variable-in-your-kql-query"></a>Een Python-variabele gebruiken in uw query KQL
+### <a name="use-a-python-variable-in-your-kql-query"></a>Een python-variabele gebruiken in uw KQL-query
 
-U kunt de waarde van een Python-variabele gebruiken in uw query om de gegevens te filteren:
+U kunt de waarde van een python-variabele in uw query gebruiken om de gegevens te filteren:
 
 ```python
 statefilter = ["TEXAS", "KANSAS"]
@@ -117,9 +117,9 @@ StormEvents
 | render timechart title = "Trend"
 ```
 
-### <a name="convert-query-results-to-pandas-dataframe"></a>Queryresultaten converteren naar Pandas DataFrame
+### <a name="convert-query-results-to-pandas-dataframe"></a>Query resultaten converteren naar Panda data frame
 
-U kunt de resultaten van een query KQL in Pandas DataFrame openen. Toegang tot de laatst uitgevoerde queryresultaten door variabele `_kql_raw_result_` en converteer de resultaten in Pandas DataFrame als volgt:
+U kunt de resultaten van een KQL-query openen in Pandas data frame. Open de laatst uitgevoerde query resultaten per `_kql_raw_result_` variabele en converteer de resultaten eenvoudig naar een Panda data frame als volgt:
 
 ```python
 df = _kql_raw_result_.to_dataframe()
@@ -128,9 +128,9 @@ df.head(10)
 
 ### <a name="example"></a>Voorbeeld
 
-In veel scenario's voor analyse, kunt u herbruikbare notitieblokken die veel query's bevatten en feed van de resultaten van een query in de volgende query's maken. Het volgende voorbeeld wordt de variabele Python `statefilter` om de gegevens te filteren.
+In veel analyse scenario's wilt u mogelijk herbruikbare notitie blokken maken die veel query's bevatten en de resultaten van een query in de volgende query's invoeren. In het volgende voor beeld wordt de `statefilter` python-variabele gebruikt om de gegevens te filteren.
 
-1. Voer een query voor het weergeven van de top 10 Staten met hoogste `DamageProperty`:
+1. Voer een query uit om de tien statussen met het `DamageProperty`maximum te bekijken:
 
     ```python
     %%kql
@@ -140,7 +140,7 @@ In veel scenario's voor analyse, kunt u herbruikbare notitieblokken die veel que
     | limit 10
     ```
 
-1. Voer een query voor het uitpakken van de status van de bovenste en stel deze in een Python-variabele:
+1. Voer een query uit om de bovenste status op te halen en in te stellen als een python-variabele:
 
     ```python
     df = _kql_raw_result_.to_dataframe()
@@ -148,7 +148,7 @@ In veel scenario's voor analyse, kunt u herbruikbare notitieblokken die veel que
     statefilter
     ```
 
-1. Voer een query met de `let` instructie en de Python-variabele:
+1. Voer een query uit met `let` behulp van de-instructie en de python-variabele:
 
     ```python
     %%kql
@@ -159,20 +159,20 @@ In veel scenario's voor analyse, kunt u herbruikbare notitieblokken die veel que
     | render timechart title = "Trend"
     ```
 
-1. De help-opdracht uitvoeren:
+1. Voer de Help-opdracht uit:
 
     ```python
     %kql --help "help"
     ```
 
 > [!TIP]
-> Krijgt u informatie over het gebruik van alle beschikbare configuraties `%config KQLmagic`. Om problemen op te leggen Kusto-fouten, zoals problemen met verbindingen en onjuiste query's gebruiken `%config Kqlmagic.short_errors=False`
+> Voor informatie over het gebruik `%config KQLmagic`van alle beschik bare configuraties. Voor het oplossen van problemen met Kusto en het vastleggen van fouten in de verbinding, zoals verbindings problemen en onjuiste query's, gebruikt u`%config Kqlmagic.short_errors=False`
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voer de opdracht help om te verkennen van de volgende voorbeeldnotitieblokken die alle functies van de ondersteunde bevatten:
-- [Aan de slag met KQL magic voor Azure Data Explorer](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 
-- [Aan de slag met KQL magic voor Application Insights](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) 
-- [Aan de slag met KQL Magic-pakket voor Azure Monitor-Logboeken](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
-- [Parametrize uw KQL magic-query met Python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
-- [Kleurenpalet voor uw KQL magic grafiek queryresultaat kiezen](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
+Voer de Help opdracht uit om de volgende voorbeeld notitieblokken te verkennen die alle ondersteunde functies bevatten:
+- [Aan de slag met KQL Magic voor Azure Data Explorer](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 
+- [Aan de slag met KQL Magic voor Application Insights](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) 
+- [Aan de slag met KQL Magic voor Azure Monitor-logboeken](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
+- [Parametrize uw KQL Magic-query met python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
+- [Kleuren palet kiezen voor het KQL Magic-query diagram resultaat](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)

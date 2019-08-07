@@ -1,5 +1,5 @@
 ---
-title: Veelgestelde vragen over Azure Backup
+title: Antwoorden op veelgestelde vragen over Azure Backup-functies
 description: 'Antwoorden op veelgestelde vragen over: Azure Backup functies, waaronder Recovery Services kluizen, waarvan een back-up kan worden gemaakt, hoe het werkt, versleuteling en limieten. '
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c60b2bfae0d974d454c03b7eba655cbdacab5943
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: c41381dd3e53c80e74da3dc0d0a08e1ac83daec6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466676"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827629"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Veelgestelde vragen over Azure Backup
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-service.
@@ -24,6 +24,13 @@ Ja. U kunt Maxi maal 500 Recovery Services kluizen maken, per ondersteund gebied
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Zijn er beperkingen met betrekking tot het aantal servers/machines dat kan worden geregistreerd voor elke kluis?
 U kunt Maxi maal 1000 Azure virtuele machines per kluis registreren. Als u de Microsoft Azure Backup-agent gebruikt, kunt u Maxi maal 50 MAB agents per kluis registreren. En u kunt 50 MAB-servers/DPM-servers registreren bij een kluis.
+
+### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Hoeveel gegevens bronnen/items kunnen worden beveiligd in een kluis? 
+U kunt Maxi maal 2000 gegevens bronnen of-items beveiligen voor alle werk belastingen (IaaS VM, SQL, AFS, enz.) in een kluis.<br>  
+Als u bijvoorbeeld al 500 Vm's en 400 Azure Files-shares in de kluis hebt beveiligd, kunt u Maxi maal 1100 SQL-data bases in het bestand beveiligen. 
+
+### <a name="how-many-policies-can-i-create-per-vault"></a>Hoeveel beleids regels kan ik per kluis maken? 
+U kunt Maxi maal 200 beleids regels per kluis hebben.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Als mijn organisatie één kluis heeft, hoe kan ik dan gegevens van verschillende servers in de kluis isoleren bij het herstellen van gegevens?
 Server gegevens die u samen wilt herstellen, moeten dezelfde wachtwoordzin gebruiken bij het instellen van de back-up. Als u herstel op een specifieke server of servers wilt isoleren, gebruikt u alleen een wachtwoordzin voor die server of servers. U kunt bijvoorbeeld verschillende wachtwoordzinnen voor de human resource-server, de accountingserver en de opslagserver gebruiken.

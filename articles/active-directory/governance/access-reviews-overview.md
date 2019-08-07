@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 08/05/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da9bc3906e6f39b2d943708eb6a1b930ac8cc5a5
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 9b6b310e2ca2c19bf4b163704627943a881501bd
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68401938"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823848"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Wat zijn Azure AD-toegangs beoordelingen?
 
@@ -61,28 +61,6 @@ Afhankelijk van wat u wilt controleren, maakt u uw toegangs beoordeling in azure
 | Azure AD-rol | Opgegeven revisoren</br>Zelf beoordeling | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
 | Azure-resource functie | Opgegeven revisoren</br>Zelf beoordeling | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
 
-## <a name="which-users-must-have-licenses"></a>Welke gebruikers moeten licenties hebben?
-
-Elke gebruiker die communiceert met toegangs beoordelingen moet beschikken over een betaalde Azure AD Premium P2-licentie. Voorbeelden zijn:
-
-- Beheerders die een toegangs beoordeling maken
-- Groeps eigenaren die een toegangs beoordeling uitvoeren
-- Gebruikers die zijn toegewezen als revisoren
-- Gebruikers die zelf een beoordeling uitvoeren
-
-U kunt ook gast gebruikers vragen hun eigen toegang te controleren. Voor elke betaalde Azure AD Premium P2-licentie die u toewijst aan een van de gebruikers van uw eigen organisatie, kunt u Azure AD Business-to-Business (B2B) gebruiken om Maxi maal vijf gast gebruikers uit te nodigen onder de limiet voor externe gebruikers. Deze gast gebruikers kunnen ook gebruikmaken van Azure AD Premium P2-functies. Zie [licentie richtlijnen voor Azure AD B2B-samen werking](../b2b/licensing-guidance.md)voor meer informatie.
-
-Hier volgen enkele voorbeeld scenario's die u kunnen helpen bij het bepalen van het aantal licenties dat u nodig hebt.
-
-| Scenario | Berekening | Vereist aantal licenties |
-| --- | --- | --- |
-| Een beheerder maakt een toegangs beoordeling van groep A met 500 gebruikers.<br/>Wijst drie groeps eigenaren als revisoren toe. | 1 beheerder en 3 groeps eigenaren | 4 |
-| Een beheerder maakt een toegangs beoordeling van groep A met 500 gebruikers.<br/>Maakt het een zelf beoordeling. | 1 beheerder + 500 gebruikers als eigen revisoren | 501 |
-| Een beheerder maakt een toegangs beoordeling van groep A met 5 gebruikers en 25 gast gebruikers.<br/>Maakt het een zelf beoordeling. | 1 beheerder en 5 gebruikers als eigen revisoren<br/>(gast gebruikers worden gedekt in de vereiste verhouding van 1:5) | 6 |
-| Een beheerder maakt een toegangs beoordeling van groep A met 5 gebruikers en 28 gast gebruikers.<br/>Maakt het een zelf beoordeling. | 1 beheerder en 5 gebruikers als zelfstandigen + 1 gebruiker om gast gebruikers te voorzien van de vereiste 1:5-verhouding | 7 |
-
-Zie [licenties toewijzen of verwijderen met behulp van de Azure Active Directory Portal](../fundamentals/license-users-groups.md)voor informatie over het toewijzen van licenties aan uw gebruik.
-
 ## <a name="onboard-access-reviews"></a>Toegangsbeoordelingen onboarden
 
 Volg deze stappen om toegangs beoordelingen uit te voeren.
@@ -115,6 +93,28 @@ Als u klaar bent voor het implementeren van toegangs beoordelingen in uw organis
 ## <a name="license-requirements"></a>Licentievereisten
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+### <a name="which-users-must-have-licenses"></a>Welke gebruikers moeten licenties hebben?
+
+Elke gebruiker die communiceert met toegangs beoordelingen moet beschikken over een betaalde Azure AD Premium P2-licentie. Voorbeelden zijn:
+
+- Beheerders die een toegangs beoordeling maken
+- Groeps eigenaren die een toegangs beoordeling uitvoeren
+- Gebruikers die zijn toegewezen als revisoren
+- Gebruikers die zelf een beoordeling uitvoeren
+
+U kunt ook gast gebruikers vragen hun eigen toegang te controleren. Voor elke betaalde Azure AD Premium P2-licentie die u toewijst aan een van de gebruikers van uw eigen organisatie, kunt u Azure AD Business-to-Business (B2B) gebruiken om Maxi maal vijf gast gebruikers uit te nodigen onder de limiet voor externe gebruikers. Deze gast gebruikers kunnen ook gebruikmaken van Azure AD Premium P2-functies. Zie [licentie richtlijnen voor Azure AD B2B-samen werking](../b2b/licensing-guidance.md)voor meer informatie.
+
+Hier volgen enkele voorbeeld scenario's die u kunnen helpen bij het bepalen van het aantal licenties dat u nodig hebt.
+
+| Scenario | Berekening | Vereist aantal licenties |
+| --- | --- | --- |
+| Een beheerder maakt een toegangs beoordeling van groep A met 500 gebruikers. Wijst drie groeps eigenaren als revisoren toe. | 1 licentie voor de beheerder en 3 licenties voor elke groeps eigenaar als controleurs. | 4 |
+| Een beheerder maakt een toegangs beoordeling van groep A met 500 gebruikers. Maakt het een zelf beoordeling. | 1 licentie voor de beheerder + 500 licenties voor elke gebruiker als eigen revisors. | 501 |
+| Een beheerder maakt een toegangs beoordeling van groep B met vijf gebruikers en 25 gast gebruikers. Maakt het een zelf beoordeling. | 1 licentie voor de beheerder + 5 licenties voor elke gebruiker als eigen revisors.<br/>(gast gebruikers worden gedekt in de vereiste verhouding van 1:5) | 6 |
+| Een beheerder maakt een toegangs beoordeling van groep C met 5 gebruikers en 108 gast gebruikers. Maakt het een zelf beoordeling. | 1 licentie voor de beheerder + 5 licenties voor elke gebruiker als eigen revisors + 16 extra licenties voor alle 108 gast gebruikers in de vereiste 1:5 verhouding.<br/>1 + 5 = 6 licenties, die 5\*6 = 30 gast gebruikers bedekken. Voor de resterende (108-5\*6) = 78 gast gebruikers, 78/5 = 16 extra licenties zijn vereist. In totaal moeten 6 + 16 = 22 licenties zijn vereist. | 22 |
+
+Zie [licenties toewijzen of verwijderen met behulp van de Azure Active Directory Portal](../fundamentals/license-users-groups.md)voor informatie over het toewijzen van licenties aan uw gebruik.
 
 ## <a name="next-steps"></a>Volgende stappen
 

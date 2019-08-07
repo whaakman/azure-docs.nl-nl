@@ -1,5 +1,5 @@
 ---
-title: Veelgestelde vragen over het maken van back-ups van SQL Server-data bases op virtuele machines van Azure met Azure Backup
+title: 'Veelgestelde vragen: back-ups maken van SQL Server-data bases op virtuele machines van Azure met Azure Backup'
 description: Vind antwoorden op veelgestelde vragen over het maken van back-ups van SQL Server-data bases op virtuele machines van Azure met Azure Backup.
 ms.reviewer: vijayts
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: 23dda22a8350591d5cf87cefc1a2f15fd90f17c7
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: a600c50e97f0d069443112a59d529c0d6f6fecad
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688839"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737063"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Veelgestelde vragen over SQL Server-data bases die worden uitgevoerd op een back-up van Azure VM
 

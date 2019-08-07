@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: magattus
-ms.openlocfilehash: be6655c2c5e6b2acca82b4a1b20a3cdf84e0251b
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 297c65c1cd89163b8663819f844dc6c2a83fd1bf
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707524"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814068"
 ---
 # <a name="debug-http-header-for-azure-cdn-from-microsoft"></a>Fout opsporing voor de HTTP-header voor Azure CDN van micro soft
 De antwoord header `X-Cache`voor fout opsporing bevat details over de laag van de CDN-stack waaruit de inhoud afkomstig is. Deze header is specifiek voor Azure CDN van micro soft.
