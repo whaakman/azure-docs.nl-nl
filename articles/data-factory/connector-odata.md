@@ -51,8 +51,8 @@ De volgende eigenschappen worden ondersteund voor een gekoppelde OData-service:
 | type | De **type** eigenschap moet worden ingesteld op **OData**. |Ja |
 | url | De basis-URL van de OData-service. |Ja |
 | authenticationType | Het type verificatie gebruikt voor verbinding met de OData-bron. Toegestane waarden zijn **anoniem**, **Basic**, **Windows**, **AadServicePrincipal**, en **ManagedServiceIdentity** . De gebruiker op basis van OAuth wordt niet ondersteund. | Ja |
-| userName | Geef **gebruikersnaam** als u basisverificatie of Windows-verificatie gebruikt. | Nee |
-| password | Geef **wachtwoord** voor de gebruiker-account u hebt opgegeven voor **gebruikersnaam**. Dit veld als markeert een **SecureString** type voor het veilig opslaan in Data Factory. U kunt ook [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
+| userName | Geef **userName** als u basisverificatie of Windows-verificatie gebruikt. | Nee |
+| password | Geef **password** voor de gebruiker-account u hebt opgegeven voor **gebruikersnaam**. Dit veld als markeert een **SecureString** type voor het veilig opslaan in Data Factory. U kunt ook [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | servicePrincipalId | Geef de Azure Active Directory-toepassing client-ID. | Nee |
 | aadServicePrincipalCredentialType | Geef het referentietype moet worden gebruikt voor verificatie van service-principal. Toegestane waarden zijn: `ServicePrincipalKey` of `ServicePrincipalCert`. | Nee |
 | servicePrincipalKey | Geef de sleutel van de Azure Active Directory-toepassing. Dit veld als markeert een **SecureString** voor het veilig opslaan in de Data Factory of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
