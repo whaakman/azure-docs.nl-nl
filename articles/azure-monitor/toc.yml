@@ -131,6 +131,8 @@
   items:
     - name: Azure Monitor beheren
       items:
+        - name: Een werkruimte-implementatie ontwerpen
+          href: platform/design-logs-deployment.md
         - name: Rolmachtigingen en -beveiliging
           href: platform/roles-permissions-security.md
         - name: IP-adressen

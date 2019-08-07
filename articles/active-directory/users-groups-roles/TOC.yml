@@ -128,8 +128,6 @@
           href: directory-assign-admin-roles.md
         - name: Rollen weergeven en toewijzen
           href: directory-manage-roles-portal.md
-        - name: Aangepaste rollen toewijzen in Graph API
-          href: roles-assign-powershell.md
         - name: Preview van aangepaste rollen
           items:
             - name: Preview van aangepaste rollen
@@ -142,6 +140,8 @@
               href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
             - name: Aangepaste rollen toewijzen in Graph API
               href: roles-assign-graph.md
+            - name: Aangepaste rollen toewijzen in PowerShell
+              href: roles-assign-powershell.md
             - name: Machtigingen voor preview van aangepaste rollen
               href: roles-custom-available-permissions.md
             - name: App-beheerdersmachtigingen delegeren

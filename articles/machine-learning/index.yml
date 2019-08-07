@@ -27,64 +27,31 @@ sections:
         style: cards
         type: list
   - items:
-      - text: 'Bereid u voor en ga aan de slag met Azure Machine Learning-service:'
+      - text: Bereid u voor en ga aan de slag met Azure Machine Learning Service.
         type: paragraph
-      - text: '<b>Quickstarts:</b>'
-        type: paragraph
-      - items:
-          - html: <a href="service/quickstart-run-cloud-notebook">Een experiment uitvoeren in de cloud</a> (geen installatie vereist)
-          - html: <a href="service/quickstart-run-local-notebook">Een experiment met behulp van een lokale notebookserver uitvoeren</a> (lokale SDK-installatie)
-        style: unordered
-        type: list
-      - text: '<b>Zelfstudie: Uw eerste geautomatiseerde ML-model in de Azure-portal trainen en implementeren:</b>'
+      - text: 'Gebruik de Azure-portal, een gebruiksvriendelijke interface waarin u geen code hoeft te schrijven, om ML-modellen te trainen, te implementeren en te beheren:'
         type: paragraph
       - items:
+          - html: <a href="service/ui-tutorial-automobile-price-train-score">Uw eerste experiment trainen in de gebruikersinterface met slepen en neerzetten van de visuele interface</a>
           - html: <a href="service/tutorial-first-experiment-automated-ml">Geautomatiseerde machine learning gebruiken om uw eerste classificatiemodel te trainen en implementeren</a>
         style: unordered
         type: list
-      - text: '<b>Zelfstudie: Train uw eerste ML-model met SDK:</b>'
+      - text: 'Gebruik de Python-SDK in scripts en notebooks voor het trainen, implementeren en beheren van ML-modellen:'
         type: paragraph
       - items:
-          - html: 'Deel 1: <a href="service/tutorial-1st-experiment-sdk-setup">Omgeving en werkruimte instellen</a>'
-          - html: 'Deel 2: <a href="service/tutorial-1st-experiment-sdk-train">Uw eerste model trainen</a>'
+          - html: <a href="service/tutorial-1st-experiment-sdk-setup">Uw omgeving instellen en uw eerste ML-experiment trainen</a>
+          - html: <a href="service/tutorial-train-models-with-aml">Modellen voor classificatie van afbeeldingen trainen en implementeren</a>
+          - html: <a href="service/tutorial-data-prep">Gegevens voorbereiden en geautomatiseerd ML gebruiken om taxitarieven te voorspellen</a>
         style: unordered
         type: list
-      - text: '<b>Zelfstudie: Het eerste experiment trainen en implementeren met behulp van de visuele interface:</b>'
-        type: paragraph
-      - items:
-          - html: 'Deel 1: <a href="service/ui-tutorial-automobile-price-train-score">Regressiemodel trainen</a>'
-          - html: 'Deel 2: <a href="service/ui-tutorial-automobile-price-deploy">Model implementeren</a>'
-        style: unordered
-        type: list
-      - text: '<b>Zelfstudie: Afbeeldingsclassificatie van MNIST-gegevens met SDK:</b>'
-        type: paragraph
-      - items:
-          - html: 'Deel 1: <a href="service/tutorial-train-models-with-aml">Uw eigen model trainen</a>'
-          - html: 'Deel 2: <a href="service/tutorial-deploy-models-with-aml">Dat model implementeren</a>'
-        style: unordered
-        type: list
-      - text: '<b>Zelfstudie: Taxikosten voorspellen met behulp van SDK:</b>'
-        type: paragraph
-      - items:
-          - html: 'Deel 1: <a href="service/tutorial-data-prep">Gegevens voorbereiden voor modellering</a>'
-          - html: 'Deel 2: <a href="service/tutorial-auto-train-models">Geautomatiseerde ML-trainingsmodellen voor u laten werken</a>'
-        style: unordered
-        type: list
-      - text: '<b>Zelfstudie: Autoprijs voorspellen met behulp van de visuele interface:</b>'
-        type: paragraph
-      - items:
-          - html: 'Deel 1: <a href="service/ui-tutorial-automobile-price-train-score">Autoprijs voorspellen</a>'
-          - html: 'Deel 2: <a href="service/ui-tutorial-automobile-price-deploy">Het regressiemodel implementeren</a>'
-        style: unordered
-        type: list
-      - text: '<b>Uw modellen gebruiken:</b>'
+      - text: 'Uw modellen gebruiken:'
         type: paragraph
       - items:
           - html: <a href="service/how-to-consume-web-service">Gebruik van aanvraag/antwoord-modellen</a>
           - html: <a href="service/how-to-run-batch-predictions">Voorspellingen batchen met ML-pijplijnen</a>
         style: unordered
         type: list
-    title: Snelstarts en zelfstudies
+    title: Zelfstudies met stapsgewijze instructies
   - items:
       - className: cardsM
         columns: 2

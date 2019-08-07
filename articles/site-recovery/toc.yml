@@ -23,7 +23,7 @@
           href: azure-to-azure-tutorial-failover-failback.md
         - name: Failback uitvoeren
           href: azure-to-azure-tutorial-failback.md
-    - name: Virtuele Azure-machines verplaatsen
+    - name: Verplaatsen
       items:
         - name: Virtuele Azure-machines verplaatsen naar een andere regio
           href: azure-to-azure-tutorial-migrate.md
@@ -31,6 +31,8 @@
           href: move-Azure-VMs-AVset-Azone.md
         - name: Azure-VM's verplaatsen tussen openbare en Government-regio's
           href: region-move-cross-geos.md
+        - name: Een kluis verplaatsen naar een andere regio
+          href: move-vaults-across-regions.md
     - name: Herstel na noodgevallen van virtuele VMware-machines naar Azure
       items:
         - name: Azure voorbereiden
@@ -365,8 +367,6 @@
               href: service-updates-how-to.md
             - name: Een kluis verwijderen
               href: delete-vault.md
-            - name: Een kluis verplaatsen naar een andere regio
-              href: move-vaults-across-regions.md
     - name: Herstel na noodgeval voor apps
       items:
         - name: Herstel na noodgevallen instellen van on-premises apps naar Azure
@@ -441,6 +441,8 @@
       items:
         - name: Problemen met replicatie van Azure-VM's oplossen
           href: azure-to-azure-troubleshoot-errors.md
+        - name: Verbindingsproblemen met Azure-VM oplossen
+          href: azure-to-azure-troubleshoot-network-connectivity.md
         - name: Problemen met doorlopende replicatie oplossen
           href: azure-to-azure-troubleshoot-replication.md
         - name: Problemen met de Mobility-service oplossen

@@ -26,7 +26,7 @@
       href: tutorial-add-identity-providers.md
     - name: De gebruikersinterface aanpassen
       href: tutorial-customize-ui.md
-    - name: Accounts verifiëren
+    - name: Gebruikers verifiëren
       items:
         - name: ASP.NET
           href: active-directory-b2c-tutorials-web-app.md
@@ -49,72 +49,161 @@
     - name: Toepassingstypen
       href: active-directory-b2c-apps.md
     - name: Verificatieprotocollen
-      href: active-directory-b2c-reference-protocols.md
-    - name: Identity-ervaringsframework
       items:
+        - name: OAuth2-protocol
+          href: active-directory-b2c-reference-protocols.md
+        - name: OpenID Connect-protocol
+          href: active-directory-b2c-reference-oidc.md
+        - name: Stroom voor het verlenen van autorisatiecode
+          href: active-directory-b2c-reference-oauth-code.md
+        - name: Impliciete stroom
+          href: active-directory-b2c-reference-spa.md
+        - name: Tokens
+          href: active-directory-b2c-reference-tokens.md
+        - name: Toegangstoken aanvragen
+          href: active-directory-b2c-access-tokens.md
+        - name: Meerdere tokenverleners ondersteunen
+          href: multiple-token-endpoints.md
+          displayName: 'migrate, b2clogin, owin, jwt'
+    - name: Gebruikersstroom en beleid
+      items:
+        - name: Gebruikersstromen
+          href: active-directory-b2c-reference-policies.md
         - name: Aangepast beleid
           href: active-directory-b2c-overview-custom.md
-        - name: Gebruikerstoegang
-          href: manage-user-access.md
-    - name: JavaScript en pagina-indelingen
-      href: user-flow-javascript-overview.md
-    - name: OAuth 2.0
-      href: active-directory-b2c-reference-oauth-code.md
-    - name: OpenID Connect
-      href: active-directory-b2c-reference-oidc.md
-    - name: Aanmelding met één pagina
-      href: active-directory-b2c-reference-spa.md
-    - name: Tokens
-      href: active-directory-b2c-reference-tokens.md
     - name: Gebruikersaccounts
       href: user-overview.md
-    - name: Gebruikersgegevens
-      href: manage-user-data.md
-    - name: Gebruikersstromen
-      href: active-directory-b2c-reference-policies.md
-    - name: Aanpassing van de gebruikersinterface
-      href: customize-ui-overview.md
 - name: Handleidingen
   items:
-    - name: Auditlogboeken inzien
-      href: active-directory-b2c-reference-audit-logs.md
-    - name: Een web-API-toepassing toevoegen
-      href: add-web-application.md
-    - name: Een systeemeigen clienttoepassing toevoegen
-      href: add-native-application.md
-    - name: Leeftijdsbeperking configureren
-      href: basic-age-gating.md
-    - name: Sessiegedrag configureren
-      href: session-behavior.md
-    - name: Taal aanpassen
-      href: active-directory-b2c-reference-language-customization.md
-    - name: Wachtwoord aanpassen
-      href: active-directory-b2c-reference-password-complexity.md
-    - name: Aangepaste kenmerken definiëren
-      href: active-directory-b2c-reference-custom-attr.md
-    - name: E-mailverificatie uitschakelen
-      href: active-directory-b2c-reference-disable-ev.md
-    - name: MFA inschakelen
-      href: active-directory-b2c-reference-mfa.md
-    - name: Identity-ervaringsframework
+    - name: App-integratie
       items:
-        - name: Logboeken verzamelen met Application Insights
-          href: active-directory-b2c-troubleshoot-custom.md
-        - name: ROPC configureren
-          href: ropc-custom.md
-        - name: Gebruikersinvoer configureren
-          href: active-directory-b2c-configure-signup-self-asserted-custom.md
-        - name: Aangepast beleid maken
-          href: active-directory-b2c-get-started-custom.md
-        - name: De gebruikersinterface aanpassen
-          href: active-directory-b2c-ui-customization-custom.md
-        - name: De gebruikersinterface dynamisch aanpassen
-          href: active-directory-b2c-ui-customization-custom-dynamic.md
+        - name: Een toepassing registreren
+          href: tutorial-register-applications.md
+        - name: Een web-API-toepassing toevoegen
+          href: add-web-application.md
+        - name: Een systeemeigen clienttoepassing toevoegen
+          href: add-native-application.md
+        - name: iOS ObjC met App Auth
+          href: active-directory-b2c-devquickstarts-ios.md
+        - name: Android met App Auth
+          href: active-directory-b2c-devquickstarts-android.md
+    - name: Gebruikersstroom
+      items:
+        - name: Stroom maken
+          items:
+            - name: Registreren of aanmelden
+              href: tutorial-create-user-flows.md
+            - name: Referenties voor wachtwoord van resource-eigenaar
+              href: configure-ropc.md
+            - name: Zelf een wachtwoord opnieuw instellen configureren
+              href: active-directory-b2c-reference-sspr.md
+        - name: UX-aanpassing
+          items:
+            - name: Aanpassing van de gebruikersinterface
+              href: customize-ui-overview.md
+            - name: JavaScript en pagina-indelingen
+              href: user-flow-javascript-overview.md
+            - name: Taal aanpassen
+              href: active-directory-b2c-reference-language-customization.md
+            - name: Wachtwoordcomplexiteit
+              href: active-directory-b2c-reference-password-complexity.md
+            - name: E-mailverificatie uitschakelen
+              href: active-directory-b2c-reference-disable-ev.md
+            - name: MFA inschakelen
+              href: active-directory-b2c-reference-mfa.md
+        - name: Externe id-providers
+          items:
+            - name: Amazon
+              href: active-directory-b2c-setup-amzn-app.md
+            - name: Azure AD (één tenant)
+              href: active-directory-b2c-setup-oidc-azure-active-directory.md
+            - name: Microsoft-account
+              href: active-directory-b2c-setup-msa-app.md
+            - name: Facebook
+              href: active-directory-b2c-setup-fb-app.md
+            - name: GitHub
+              href: active-directory-b2c-setup-github-app.md
+            - name: Google
+              href: active-directory-b2c-setup-goog-app.md
+            - name: LinkedIn
+              href: active-directory-b2c-setup-li-app.md
+            - name: Twitter
+              href: active-directory-b2c-setup-twitter-app.md
+            - name: Algemene id-providers
+              href: active-directory-b2c-setup-oidc-idp.md
+        - name: Tokens en sessiebeheer
+          items:
+            - name: Tokens configureren
+              href: configure-tokens.md
+            - name: Sessiegedrag configureren
+              href: session-behavior.md
+        - name: Leeftijdsbeperking configureren
+          href: basic-age-gating.md
         - name: Aangepaste kenmerken definiëren
-          href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
-        - name: Aangemeld blijven inschakelen
-          href: active-directory-b2c-reference-kmsi-custom.md
-        - name: RESTful-API's integreren
+          href: active-directory-b2c-reference-custom-attr.md
+        - name: Pass Through van extern IdP-token
+          href: idp-pass-through-user-flow.md
+    - name: Aangepast beleid
+      items:
+        - name: Beleid maken
+          items:
+            - name: Aan de slag met aangepaste beleidsregels
+              href: active-directory-b2c-get-started-custom.md
+            - name: Referenties voor wachtwoord van resource-eigenaar
+              href: ropc-custom.md
+            - name: Aangemeld blijven inschakelen
+              href: active-directory-b2c-reference-kmsi-custom.md
+            - name: Wachtwoord wijzigen
+              href: active-directory-b2c-reference-password-change-custom.md
+        - name: UX-aanpassing
+          items:
+            - name: Gebruikersinvoer configureren
+              href: active-directory-b2c-configure-signup-self-asserted-custom.md
+            - name: De gebruikersinterface aanpassen
+              href: active-directory-b2c-ui-customization-custom.md
+            - name: De gebruikersinterface dynamisch aanpassen
+              href: active-directory-b2c-ui-customization-custom-dynamic.md
+            - name: Pagina-indeling
+              href: page-layout.md
+            - name: JavaScript inschakelen
+              href: javascript-samples.md
+            - name: Wachtwoordcomplexiteit
+              href: active-directory-b2c-reference-password-complexity-custom.md
+        - name: Externe id-providers
+          items:
+            - name: OIDC-/OAuth-providers
+              items:
+                - name: Amazon
+                  href: setup-amazon-custom.md
+                - name: Azure AD (één tenant)
+                  href: active-directory-b2c-setup-aad-custom.md
+                - name: Azure AD (multitenant)
+                  href: active-directory-b2c-setup-commonaad-custom.md
+                - name: Google
+                  href: active-directory-b2c-custom-setup-goog-idp.md
+                - name: LinkedIn
+                  href: active-directory-b2c-custom-setup-li-idp.md
+                - name: Microsoft-account
+                  href: active-directory-b2c-custom-setup-msa-idp.md
+                - name: Twitter
+                  href: active-directory-b2c-custom-setup-twitter-idp.md
+            - name: SAML-providers
+              items:
+                - name: ADFS
+                  href: active-directory-b2c-custom-setup-adfs2016-idp.md
+                - name: SalesForce
+                  href: active-directory-b2c-setup-sf-app-custom.md
+        - name: Tokens en sessiebeheer
+          items:
+            - name: Tokens aanpassen
+              href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+        - name: Pass Through van extern IdP-token
+          href: idp-pass-through-custom.md
+        - name: Adaptieve ervaring
+          items:
+            - name: Directe aanmelding instellen
+              href: direct-signin.md
+        - name: Uw eigen bedrijfslogica toevoegen
           items:
             - name: Gebruikersinvoer valideren
               href: active-directory-b2c-rest-api-validation-custom.md
@@ -126,192 +215,131 @@
               href: active-directory-b2c-custom-rest-api-netfw-secure-basic.md
             - name: RESTful-API's beveiligen met verificatie op basis van een certificaat
               href: active-directory-b2c-custom-rest-api-netfw-secure-cert.md
-        - name: OIDC-/OAUTH-providers
+        - name: Aangepaste kenmerken definiëren
+          href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
+        - name: Problemen oplossen
           items:
-            - name: Amazon
-              href: setup-amazon-custom.md
-            - name: Azure AD (Eén tenant)
-              href: active-directory-b2c-setup-aad-custom.md
-            - name: Azure AD (Multitenant)
-              href: active-directory-b2c-setup-commonaad-custom.md
-            - name: Google
-              href: active-directory-b2c-custom-setup-goog-idp.md
-            - name: LinkedIn
-              href: active-directory-b2c-custom-setup-li-idp.md
-            - name: Microsoft-account
-              href: active-directory-b2c-custom-setup-msa-idp.md
-            - name: Twitter
-              href: active-directory-b2c-custom-setup-twitter-idp.md
-        - name: Pagina-indeling
-          href: page-layout.md
-        - name: Wachtwoordcomplexiteit
-          href: active-directory-b2c-reference-password-complexity-custom.md
-        - name: Wachtwoord wijzigen
-          href: active-directory-b2c-reference-password-change-custom.md
-        - name: SAML-providers
-          items:
-            - name: ADFS
-              href: active-directory-b2c-custom-setup-adfs2016-idp.md
-            - name: SalesForce
-              href: active-directory-b2c-setup-sf-app-custom.md
-        - name: Tokens
-          items:
-            - name: Tokens aanpassen
-              href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
-            - name: Toegangstoken doorgeven
-              href: idp-pass-through-custom.md
-        - name: Gebruikersgedrag bijhouden
+            - name: Logboeken verzamelen met Application Insights
+              href: active-directory-b2c-troubleshoot-custom.md
+        - name: Gebruiksanalyse
           href: active-directory-b2c-custom-guide-eventlogger-appins.md
         - name: Naslaginformatie
           items:
-            - name: Claim resolvers
-              href: claim-resolver-overview.md
-            - name: Schema voor identiteitservaring-framework
-              items:
-                - name: TrustFrameworkPolicy
-                  href: trustframeworkpolicy.md
-                - name: BuildingBlocks
-                  href: buildingblocks.md
-                  items:
-                    - name: ClaimsSchema
-                      href: claimsschema.md
-                    - name: ClaimsTransformations
-                      href: claimstransformations.md
-                      items:
-                        - name: Booleaans
-                          href: boolean-transformations.md
-                        - name: Date
-                          href: date-transformations.md
-                        - name: Algemeen
-                          href: general-transformations.md
-                        - name: Geheel getal
-                          href: integer-transformations.md
-                        - name: JSON
-                          href: json-transformations.md
-                        - name: Sociale accounts
-                          href: social-transformations.md
-                        - name: StringCollection
-                          href: stringcollection-transformations.md
-                        - name: Tekenreeks
-                          href: string-transformations.md
-                    - name: Predicaten
-                      href: predicates.md
-                    - name: ContentDefinitions
-                      href: contentdefinitions.md
-                    - name: Lokalisatie
-                      href: localization.md
-                      items:
-                        - name: Lokalisatie van tekenreeks-id's
-                          href: localization-string-ids.md
-                - name: ClaimsProviders
-                  href: claimsproviders.md
-                  items:
-                    - name: TechnicalProfiles
-                      href: technicalprofiles.md
-                      items:
-                        - name: Over technische profielen
-                          href: technical-profiles-overview.md
-                        - name: Azure Active Directory
-                          href: active-directory-technical-profile.md
-                        - name: Claimstransformatie
-                          href: claims-transformation-technical-profile.md
-                        - name: Uitgever van het JWT-token
-                          href: jwt-issuer-technical-profile.md
-                        - name: OAuth1
-                          href: oauth1-technical-profile.md
-                        - name: OAuth2
-                          href: oauth2-technical-profile.md
-                        - name: OpenID Connect
-                          href: openid-connect-technical-profile.md
-                        - name: REST
-                          href: restful-technical-profile.md
-                        - name: SAML
-                          href: saml-technical-profile.md
-                        - name: Zelf bevestigd
-                          href: self-asserted-technical-profile.md
-                        - name: SSO-sessie
-                          href: active-directory-b2c-reference-sso-custom.md
-                        - name: Validatie
-                          href: validation-technical-profile.md
-                - name: UserJourneys
-                  href: userjourneys.md
-                - name: RelyingParty
-                  href: relyingparty.md
-            - name: JavaScript-voorbeelden
-              href: javascript-samples.md
-            - name: Opmerkingen voor ontwikkelaars
-              href: active-directory-b2c-developer-notes-custom.md
             - name: 'Vertrouwensframework: definitie'
               href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
-    - name: Id-providers
-      items:
-        - name: Amazon
-          href: active-directory-b2c-setup-amzn-app.md
-        - name: Azure AD (enkele tenant)
-          href: active-directory-b2c-setup-oidc-azure-active-directory.md
-        - name: Microsoft-account
-          href: active-directory-b2c-setup-msa-app.md
-        - name: Facebook
-          href: active-directory-b2c-setup-fb-app.md
-        - name: GitHub
-          href: active-directory-b2c-setup-github-app.md
-        - name: Google
-          href: active-directory-b2c-setup-goog-app.md
-        - name: LinkedIn
-          href: active-directory-b2c-setup-li-app.md
-        - name: OpenID Connect
-          href: active-directory-b2c-setup-oidc-idp.md
-        - name: Twitter
-          href: active-directory-b2c-setup-twitter-app.md
-    - name: Gebruikers migreren
-      href: active-directory-b2c-user-migration.md
-    - name: Gebruikers met sociale identiteiten migreren
-      href: active-directory-b2c-social-migration.md
-    - name: Mobiele en bureaubladapps
-      items:
-        - name: iOS ObjC met App Auth
-          href: active-directory-b2c-devquickstarts-ios.md
-        - name: Android met App Auth
-          href: active-directory-b2c-devquickstarts-android.md
-    - name: Gebruik rapporteren
-      href: active-directory-b2c-reference-usage-reporting-api.md
-    - name: Referenties voor wachtwoord van resource-eigenaar
-      href: configure-ropc.md
-    - name: Directe aanmelding instellen
-      href: direct-signin.md
-    - name: Zelf een wachtwoord opnieuw instellen configureren
-      href: active-directory-b2c-reference-sspr.md
-    - name: Tokens
-      items:
-        - name: Tokens configureren
-          href: configure-tokens.md
-        - name: Toegangstoken doorgeven
-          href: idp-pass-through-user-flow.md
-        - name: Toegangstoken aanvragen
-          href: active-directory-b2c-access-tokens.md
-        - name: Meerdere tokenverleners ondersteunen
-          href: multiple-token-endpoints.md
-          displayName: 'migrate, b2clogin, owin, jwt'
+            - name: TrustFrameworkPolicy
+              href: trustframeworkpolicy.md
+            - name: BuildingBlocks
+              href: buildingblocks.md
+              items:
+                - name: ClaimsSchema
+                  href: claimsschema.md
+                - name: ClaimsTransformations
+                  href: claimstransformations.md
+                  items:
+                    - name: Booleaans
+                      href: boolean-transformations.md
+                    - name: Date
+                      href: date-transformations.md
+                    - name: Algemeen
+                      href: general-transformations.md
+                    - name: Geheel getal
+                      href: integer-transformations.md
+                    - name: JSON
+                      href: json-transformations.md
+                    - name: Externe accounts
+                      href: social-transformations.md
+                    - name: StringCollection
+                      href: stringcollection-transformations.md
+                    - name: Tekenreeks
+                      href: string-transformations.md
+                - name: Predicaten
+                  href: predicates.md
+                - name: ContentDefinitions
+                  href: contentdefinitions.md
+                - name: Lokalisatie
+                  href: localization.md
+                  items:
+                    - name: Id's van lokalisatiereeksen
+                      href: localization-string-ids.md
+            - name: ClaimsProviders
+              href: claimsproviders.md
+              items:
+                - name: TechnicalProfiles
+                  href: technicalprofiles.md
+                  items:
+                    - name: Over technische profielen
+                      href: technical-profiles-overview.md
+                    - name: Claim resolvers
+                      href: claim-resolver-overview.md
+                    - name: Azure Active Directory
+                      href: active-directory-technical-profile.md
+                    - name: Claimstransformatie
+                      href: claims-transformation-technical-profile.md
+                    - name: Uitgever van het JWT-token
+                      href: jwt-issuer-technical-profile.md
+                    - name: OAuth1
+                      href: oauth1-technical-profile.md
+                    - name: OAuth2
+                      href: oauth2-technical-profile.md
+                    - name: OpenID Connect
+                      href: openid-connect-technical-profile.md
+                    - name: REST
+                      href: restful-technical-profile.md
+                    - name: SAML
+                      href: saml-technical-profile.md
+                    - name: Zelf bevestigd
+                      href: self-asserted-technical-profile.md
+                    - name: SSO-sessie
+                      href: active-directory-b2c-reference-sso-custom.md
+                    - name: Validatie
+                      href: validation-technical-profile.md
+            - name: UserJourneys
+              href: userjourneys.md
+            - name: RelyingParty
+              href: relyingparty.md
     - name: B2clogin.com gebruiken
       href: b2clogin.md
-    - name: De Azure AD Graph API gebruiken
-      href: active-directory-b2c-devquickstarts-graph-dotnet.md
-    - name: Naslaginformatie
+    - name: Automation
       items:
-        - name: Codevoorbeelden
-          href: 'https://azure.microsoft.com/resources/samples/?service=active-directory-b2c'
-        - name: Cookiedefinities
-          href: cookie-definitions.md
-        - name: Regionale beschikbaarheid en opslaglocaties
-          href: active-directory-b2c-reference-tenant-type.md
-        - name: Facturering inschakelen
-          href: active-directory-b2c-how-to-enable-billing.md
-        - name: Beveiligingsbeheer
-          href: active-directory-b2c-reference-threat-management.md
-        - name: App met extensies
-          href: active-directory-b2c-reference-extensions-app.md
-        - name: Gebruikersstroomversies
-          href: user-flow-versions.md
+        - name: Gebruiksrapport exporteren
+          href: active-directory-b2c-reference-usage-reporting-api.md
+        - name: Accountbeheer
+          href: active-directory-b2c-devquickstarts-graph-dotnet.md
+    - name: Auditlogboeken
+      href: active-directory-b2c-reference-audit-logs.md
+    - name: Naleving
+      items:
+        - name: Gebruikerstoegang
+          href: manage-user-access.md
+          displayName: GDPR
+        - name: Gebruikersgegevens
+          href: manage-user-data.md
+          displayName: GDPR
+    - name: Migratie
+      items:
+        - name: Gebruikers migreren
+          href: active-directory-b2c-user-migration.md
+        - name: Gebruikers met externe identiteiten migreren
+          href: active-directory-b2c-social-migration.md
+- name: Naslaginformatie
+  items:
+    - name: Opmerkingen bij de release voor Identity Experience Framework
+      href: active-directory-b2c-developer-notes-custom.md
+    - name: Codevoorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?service=active-directory-b2c'
+    - name: Cookiedefinities
+      href: cookie-definitions.md
+    - name: Regionale beschikbaarheid en opslaglocaties
+      href: active-directory-b2c-reference-tenant-type.md
+    - name: Facturering inschakelen
+      href: active-directory-b2c-how-to-enable-billing.md
+    - name: Beveiligingsbeheer
+      href: active-directory-b2c-reference-threat-management.md
+    - name: App met extensies
+      href: active-directory-b2c-reference-extensions-app.md
+    - name: Gebruikersstroomversies
+      href: user-flow-versions.md
 - name: Resources
   items:
     - name: Azure-roadmap

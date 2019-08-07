@@ -28,6 +28,10 @@
           items:
             - name: De limiet voor GC-overhead is overschreden
               href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: Foutbericht niet weergegeven in Apache Hive-weergave
+          href: ./interactive-query-troubleshoot-error-message-hive-view.md
+        - name: Apache Hive-weergave niet toegankelijk
+          href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
         - name: ZooKeeperHiveClientException - HiveServer2-configuraties
           href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
         - name: Query-prestaties van Apache Hive LLAP

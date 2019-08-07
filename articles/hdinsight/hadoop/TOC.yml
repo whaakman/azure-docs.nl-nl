@@ -56,14 +56,20 @@
       maintainContext: true
     - name: Problemen oplossen
       items:
+        - name: Zacht vergrendeling - CPU
+          href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
+        - name: 'InvalidNetworkConfigurationErrorCode: maken van cluster mislukt'
+          href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
+        - name: 'InvalidNetworkSecurityGroupSecurityRules: het maken van een cluster mislukt'
+          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
         - name: Aanmelden bij het HDInsight-cluster is niet mogelijk
           href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
         - name: Kan geen knooppunten toevoegen aan het HDInsight-cluster
           href: ./hdinsight-troubleshoot-unable-add-nodes.md
-        - name: 'InvalidNetworkSecurityGroupSecurityRules: het maken van een cluster mislukt'
-          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
         - name: Certificaat van service-principal converteren
           href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+        - name: Lokale HDFS vastgelopen in veilige modus
+          href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
         - name: Problemen met de Apache Ambari-heartbeat
           href: ./apache-ambari-troubleshoot-heartbeat-issues.md
 - name: Procedures

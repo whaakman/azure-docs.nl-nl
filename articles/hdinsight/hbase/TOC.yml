@@ -27,6 +27,8 @@
       href: ../hdinsight-version-release.md
     - name: Problemen oplossen
       items:
+        - name: Apache HBase REST reageert niet
+          href: ./hbase-troubleshoot-rest-not-spending.md
         - name: Constant hoog CPU-gebruik op de regioserver
           href: ./hbase-troubleshoot-pegged-cpu-region-server.md
         - name: Time-outs bij gebruik van de opdracht 'hbase hbck'

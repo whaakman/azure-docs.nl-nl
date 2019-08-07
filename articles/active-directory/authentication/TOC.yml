@@ -129,14 +129,14 @@
               href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: Slimme vergrendeling van Azure AD
       href: howto-password-smart-lockout.md
-    - name: Windows Hello voor Bedrijven
-      href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
     - name: Zonder wachtwoord
       items:
-        - name: Zonder wachtwoord inschakelen
-          href: howto-authentication-passwordless-enable.md
+        - name: Beveiligingssleutels zonder wachtwoord
+          href: howto-authentication-passwordless-security-key.md
         - name: Zonder wachtwoord aanmelden via telefoon
-          href: howto-authentication-phone-sign-in.md
+          href: howto-authentication-passwordless-phone.md
+        - name: Windows Hello voor Bedrijven
+          href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
     - name: Verificatie op basis van certificaat
       items:
         - name: Aan de slag met certificaatverificatie
