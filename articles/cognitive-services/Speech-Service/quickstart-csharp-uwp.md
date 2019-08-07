@@ -3,20 +3,20 @@ title: 'Quickstart: Speech herkennen, C# (UWP)-spraak service'
 titleSuffix: Azure Cognitive Services
 description: In dit artikel maakt u in C# een UWP-app (Universal Windows Platform) met behulp van de Speech-SDK van Cognitive Services. U gaat in realtime spraak naar tekst transcriberen via de microfoon van uw apparaat. De toepassing is gemaakt met het Speech-SDK NuGet-pakket en Microsoft Visual Studio 2017.
 services: cognitive-services
-author: lisaweixu
+author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/23/2019
-ms.author: lisaweixu
+ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b4c3c0979f3fea491ad8b04285973517423eaeeb
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 5ea75f1956b70b6bfebebcf29e27542eba0ca0cf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607804"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839948"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Snelstartgids: Gesproken tekst herkennen in een UWP-app met behulp van de Speech-SDK
 

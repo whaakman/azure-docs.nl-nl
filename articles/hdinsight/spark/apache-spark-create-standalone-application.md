@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Een Scala Maven-toepassing maken voor Apache Spark in Azure HDInsight met behulp van IntelliJ'
-description: 'Zelfstudie: een Spark-toepassing die zijn geschreven in Scala met Apache Maven als de build-systeem en een bestaande Maven-archetype voor Scala geleverd door IntelliJ IDEA maken.'
+description: 'Zelf studie: een Spark-toepassing maken die is geschreven in scala met Apache Maven als het build-systeem en een bestaande maven archetype voor scala van IntelliJ-ideeën.'
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: d057aa162c5554ed6c568fb765ddb2b84ac92fd6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 263eea88182a947eccc8a57450432fce8d2fcfc9
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448911"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839712"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Zelfstudie: Een Scala Maven-toepassing maken voor Apache Spark in HDInsight met behulp van IntelliJ
 
@@ -37,9 +37,9 @@ In deze zelfstudie leert u het volgende:
 
 * [Oracle Java Development Kit](https://www.azul.com/downloads/azure-only/zulu/).  In deze zelfstudie wordt gebruikgemaakt van Java-versie 8.0.202.
 
-* Een Java-IDE. In dit artikel wordt gebruikgemaakt van [IntelliJ IDEA Community-versie  2018.3.4](https://www.jetbrains.com/idea/download/).
+* Een Java-IDE. In dit artikel [wordt gebruikgemaakt van IntelliJ-idee Community ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
 
-* Azure-toolkit voor IntelliJ.  Zie [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable) (De Azure Toolkit voor IntelliJ installeren).
+* Azure-toolkit voor IntelliJ.  Zie [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app#installation-and-sign-in) (De Azure Toolkit voor IntelliJ installeren).
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>Scala-invoegtoepassing voor IntelliJ IDEA installeren
 
@@ -51,7 +51,7 @@ Voer de volgende stappen uit om de Scala-invoegtoepassing te installeren:
 
     ![Scala-invoegtoepassing inschakelen](./media/apache-spark-create-standalone-application/enable-scala-plugin.png)
 
-3. Selecteer **Install** voor de Scala-invoegtoepassing die in het nieuwe venster wordt weergegeven.  
+3. Select **Install** voor de Scala-invoegtoepassing die in het nieuwe venster wordt weergegeven.  
 
     ![Scala-invoegtoepassing installeren](./media/apache-spark-create-standalone-application/install-scala-plugin.png)
 
@@ -71,7 +71,7 @@ Voer de volgende stappen uit om de Scala-invoegtoepassing te installeren:
 
    ![Het dialoogvenster New Project](./media/apache-spark-create-standalone-application/create-hdi-scala-app.png)
 
-5. Selecteer **Next**.
+5. Selecteer **Volgende**.
 
 6. Geef in het venster **New project** de volgende gegevens op:  
 
@@ -80,7 +80,7 @@ Voer de volgende stappen uit om de Scala-invoegtoepassing te installeren:
   	|Projectnaam| Voer een naam in.|  
   	|Project&nbsp;location| Voer de gewenste locatie in om uw project in op te slaan.|
   	|Project SDK| Als u IDEA voor het eerst gebruikt, is dit veld leeg.  Selecteer **New...** en ga naar uw JDK.|
-  	|Spark version|De wizard voor het maken van het project integreert de juiste versie voor Spark SDK en Scala SDK. Selecteer **Spark 1.x** als de Spark-clusterversie ouder is dan 2.0. Selecteer anders **Spark 2.x**. In dit voorbeeld wordt **Spark 2.3.0 (Scala 2.11.8)** gebruikt.|
+  	|Spark-versie|De wizard voor het maken van het project integreert de juiste versie voor Spark SDK en Scala SDK. Selecteer **Spark 1.x** als de Spark-clusterversie ouder is dan 2.0. Selecteer anders **Spark 2.x**. In dit voorbeeld wordt **Spark 2.3.0 (Scala 2.11.8)** gebruikt.|
 
     ![De Spark SDK selecteren](./media/apache-spark-create-standalone-application/hdi-new-project.png)
 
@@ -100,14 +100,14 @@ Voer de volgende stappen uit om de Scala-invoegtoepassing te installeren:
 
     ![Maven-project maken](./media/apache-spark-create-standalone-application/create-maven-project.png)
 
-6. Selecteer **Next**.
+6. Selecteer **Volgende**.
 
 7. Geef relevante waarden op voor **GroupId**, **ArtifactId** en **Version**. In deze zelfstudie worden de volgende waarden gebruikt:
 
     - **GroupId:** com.microsoft.spark.example
     - **ArtifactId:** SparkSimpleApp
 
-8. Selecteer **Next**.
+8. Selecteer **Volgende**.
 
 9. Controleer de instellingen en selecteer vervolgens **Next**.
 
@@ -209,7 +209,7 @@ U kunt de volgende methoden gebruiken om de toepassing uit te voeren in het clus
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u niet verder om door te gaan om deze toepassing te gebruiken, verwijdert u het cluster dat u hebt gemaakt met de volgende stappen uit:
+Als u deze toepassing niet wilt blijven gebruiken, verwijdert u het cluster dat u hebt gemaakt met de volgende stappen:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
@@ -217,7 +217,7 @@ Als u niet verder om door te gaan om deze toepassing te gebruiken, verwijdert u 
 
 1. Selecteer onder **Services** de optie **HDInsight-clusters**.
 
-1. Selecteer in de lijst van HDInsight-clusters die wordt weergegeven, de **...**  naast het cluster dat u voor deze zelfstudie hebt gemaakt.
+1. Selecteer in de lijst met HDInsight-clusters die wordt weer gegeven, de **...** naast het cluster dat u voor deze zelf studie hebt gemaakt.
 
 1. Selecteer **Verwijderen**. Selecteer **Ja**.
 

@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
-ms.openlocfilehash: ba2c8b01861c0ecbc9adeebfcb184cff1b81e816
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b53d3d6ad5471cfe4ce105a3aace3bc55390a610
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176653"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68843181"
 ---
-* Voltooi de [Quick Start: Gebruik van een cloud-gebaseerde notebookserver aan de slag met Azure Machine Learning](../articles/machine-learning/service/quickstart-run-cloud-notebook.md) te maken van een werkruimte en starten van de webpagina van de notebook. 
+* U moet de [Zelfstudie: Omgeving en werk ruimte](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md) instellen om een werk ruimte te maken en de webpagina van het notitie blok te starten. 
 

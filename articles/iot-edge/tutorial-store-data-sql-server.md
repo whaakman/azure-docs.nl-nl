@@ -9,18 +9,18 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b77b44856e9623235051470bc087885765ee12c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 872c6f0af9695628f2821c8859d0b582534efd45
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080437"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840069"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Zelfstudie: Gegevens aan de rand opslaan met SQL Server-databases
 
-Implementeer een SQL Server-module voor het opslaan van gegevens op een Linux-apparaat met Azure IoT Edge.
+Implementeer een SQL Server-module om gegevens op te slaan op een Linux-apparaat met Azure IoT Edge.
 
-Gebruik Azure IoT Edge en SQL Server voor het opslaan en opvragen van gegevens aan de rand. Azure IoT Edge heeft basisopslagmogelijkheden waarmee berichten in cache worden geplaatst als een apparaat offline is, en worden doorgestuurd wanneer de verbinding weer tot stand is gebracht. Mogelijk wilt u echter meer geavanceerde opslagmogelijkheden, zoals het lokaal kunnen opvragen van gegevens. Uw IoT Edge-apparaten kunnen lokale databases gebruiken om uit te voeren complexere computing zonder te onderhouden van een verbinding met IoT Hub. 
+Gebruik Azure IoT Edge en SQL Server voor het opslaan en opvragen van gegevens aan de rand. Azure IoT Edge heeft basisopslagmogelijkheden waarmee berichten in cache worden geplaatst als een apparaat offline is, en worden doorgestuurd wanneer de verbinding weer tot stand is gebracht. Mogelijk wilt u echter meer geavanceerde opslagmogelijkheden, zoals het lokaal kunnen opvragen van gegevens. Uw IoT Edge-apparaten kunnen lokale data bases gebruiken om complexere computing uit te voeren zonder dat er een verbinding met IoT Hub hoeft te worden onderhouden. 
 
 Dit artikel bevat instructies voor het implementeren van een SQL Server-database op een IoT Edge-apparaat. Azure Functions, dat op het IoT Edge-apparaat wordt uitgevoerd, structureert de binnenkomende gegevens en verzendt deze naar de database. De stappen in dit artikel kunnen ook worden toegepast op andere databases die in containers werken, zoals MySQL of PostgreSQL.
 
@@ -36,15 +36,15 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u deze zelfstudie begint, moet u zijn gebleven door middel van de vorige zelfstudie over het instellen van uw ontwikkelomgeving voor ontwikkeling van Linux-containers: [Ontwikkelen van IoT Edge-modules voor Linux-apparaten](tutorial-develop-for-linux.md). Door deze zelfstudie is voltooid, hebt u de volgende vereisten voldaan: 
+Voordat u met deze zelf studie begint, moet u de vorige zelf studie hebben door lopen om uw ontwikkel omgeving in te stellen voor de ontwikkeling van Linux-containers: [Ontwikkel IOT Edge-modules voor Linux-apparaten](tutorial-develop-for-linux.md). Door deze zelf studie te volt ooien, moet u aan de volgende vereisten voldoen: 
 
 * Een gratis of standaard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure.
-* Een [Linux-apparaat met Azure IoT Edge](quickstart-linux.md)
-* Een containerregister, bijvoorbeeld [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio Code](https://code.visualstudio.com/) geconfigureerd met de [hulpprogramma's voor Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* [Docker CE](https://docs.docker.com/install/) geconfigureerd voor het uitvoeren van Linux-containers.
+* Een [Linux-apparaat met Azure IOT Edge](quickstart-linux.md)
+* Een container register, zoals [Azure container Registry](https://docs.microsoft.com/azure/container-registry/).
+* [Visual Studio-code](https://code.visualstudio.com/) die is geconfigureerd met de [Azure IOT-hulpprogram ma's](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [Docker CE](https://docs.docker.com/install/) is geconfigureerd voor het uitvoeren van Linux-containers.
 
-In deze zelfstudie wordt een Azure Functions-module voor het verzenden van gegevens met de SQL Server. Voor het ontwikkelen van een IoT Edge-module met Azure Functions, installeert u de volgende aanvullende vereisten op uw ontwikkelcomputer: 
+In deze zelf studie wordt een Azure Functions module gebruikt voor het verzenden van gegevens naar de SQL Server. Als u een IoT Edge module wilt ontwikkelen met Azure Functions, installeert u de volgende aanvullende vereisten op uw ontwikkel computer: 
 
 * [C#-extensie voor Visual Studio Code (van OmniSharp) voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download). 
@@ -69,7 +69,7 @@ De volgende stappen laten zien hoe u een IoT-Edge-functie maakt met behulp van V
    | Een naam opgeven voor de oplossing | Voer een beschrijvende naam voor de oplossing in, bijvoorbeeld **SqlSolution**, of accepteer de standaardinstelling. |
    | Modulesjabloon selecteren | Kies **Azure Functions - C#** . |
    | Een modulenaam opgeven | Noem uw module **sqlFunction**. |
-   | Opslagplaats voor Docker-afbeeldingen voor de module opgeven | Een opslagplaats voor afbeeldingen bevat de naam van het containerregister en de naam van uw containerafbeelding. De containerafbeelding wordt vooraf gevuld vanuit de laatste stap. Vervang **localhost:5000** door de waarde van de aanmeldingsserver uit uw Azure-containerregister. U vindt de aanmeldingsserver op de overzichtspagina van het containerregister in de Azure-portal. <br><br>De laatste tekenreeks ziet eruit als \<registernaam\>.azurecr.io/sqlfunction. |
+   | Opslagplaats voor Docker-afbeeldingen voor de module opgeven | Een opslagplaats voor afbeeldingen bevat de naam van het containerregister en de naam van uw containerafbeelding. De containerafbeelding wordt vooraf gevuld vanuit de laatste stap. Vervang **localhost:5000** door de waarde van de aanmeldingsserver uit uw Azure-containerregister. U vindt de aanmeldingsserver op de overzichtspagina van het containerregister in de Azure-portal. <br><br>De uiteindelijke teken reeks ziet \<eruit als\>register naam. azurecr.io/sqlfunction. |
 
    In het VS Code-venster wordt de werkruimte van de IoT Edge-oplossing geladen. 
    
@@ -81,13 +81,13 @@ In het omgevingsbestand worden de referenties voor het containerregister opgesla
 2. Werk de velden **gebruikersnaam** en **wachtwoord** bij met de waarden die u hebt gekopieerd uit het Azure-containerregister.
 3. Sla dit bestand op.
 
-### <a name="select-your-target-architecture"></a>Selecteer uw doel-architectuur
+### <a name="select-your-target-architecture"></a>Selecteer uw doel architectuur
 
-Op dit moment kunt C-modules voor Linux AMD64- en Linux ARM32v7 apparaten ontwikkelen met Visual Studio Code. U moet selecteren welke architectuur die u hebt geconfigureerd met elke oplossing, omdat de container is gemaakt en uitgevoerd anders voor elk architectuurtype. De standaardwaarde is Linux AMD64. 
+Visual Studio code kan momenteel C-modules ontwikkelen voor Linux AMD64-en Linux ARM32v7-apparaten. U moet selecteren welke architectuur u wilt richten op elke oplossing, omdat de container is gebouwd en anders wordt uitgevoerd voor elk type architectuur. De standaard waarde is Linux AMD64. 
 
-1. Open het opdrachtenpalet en zoek **Azure IoT Edge: Doelplatform standaard ingesteld voor Edge-oplossing**, of Selecteer het pictogram van de snelkoppeling in de zijbalk aan de onderkant van het venster. 
+1. Open het opdracht palet en zoek naar **Azure IOT Edge: Stel het standaard doel platform voor rand**oplossing in of selecteer het snelkoppelings pictogram in de zijbalk aan de onderkant van het venster. 
 
-2. Selecteer de doel-architectuur in de lijst met opties in het opdrachtenpalet. Voor deze zelfstudie gebruiken we een virtuele Ubuntu-machine als de IoT Edge-apparaat, zodat de standaardwaarde wordt **amd64**. 
+2. Selecteer in het opdracht palet de doel architectuur in de lijst met opties. Voor deze zelf studie gebruiken we een virtuele machine van Ubuntu als het IoT Edge-apparaat, zodat de standaard **amd64**wordt bewaard. 
 
 ### <a name="update-the-module-with-custom-code"></a>De module bijwerken met aangepaste code
 
@@ -180,7 +180,7 @@ Op dit moment kunt C-modules voor Linux AMD64- en Linux ARM32v7 apparaten ontwik
    }
    ```
 
-3. Vervang in regel 35 de tekenreeks **\<sql-verbindingsreeks\>** door de volgende tekenreeks. De **gegevensbron** eigenschap verwijst naar de SQL Server-container, zodat nog niet bestaat, maar u deze maken met de naam van de **SQL** in de volgende sectie. 
+3. Vervang in regel 35 de tekenreeks **\<sql-verbindingsreeks\>** door de volgende tekenreeks. De eigenschap **Data Source** verwijst naar de SQL Server container, die nog niet bestaat, maar die u maakt met de naam **SQL** in de volgende sectie. 
 
    ```csharp
    Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=Strong!Passw0rd;TrustServerCertificate=False;Connection Timeout=30;
@@ -190,7 +190,7 @@ Op dit moment kunt C-modules voor Linux AMD64- en Linux ARM32v7 apparaten ontwik
 
 5. Open het bestand **sqlFunction.csproj**.
 
-6. De groep van pakket met verwijzingen zoeken en toevoegen van een nieuw account om op te nemen SqlClient. 
+6. Zoek de groep pakket verwijzingen en voeg een nieuwe toe voor het insluiten van SqlClient. 
 
    ```csproj
    <PackageReference Include="System.Data.SqlClient" Version="4.5.1"/>
@@ -200,51 +200,51 @@ Op dit moment kunt C-modules voor Linux AMD64- en Linux ARM32v7 apparaten ontwik
 
 ## <a name="add-the-sql-server-container"></a>De SQL Server-container toevoegen
 
-Een [distributiemanifest](module-composition.md) declareert welke modules de IoT Edge-runtime op uw IoT Edge-apparaat zal installeren. U hebt opgegeven dat de code voor het maken van een aangepaste functiemodule in de vorige sectie, maar de SQL Server-module is al ingebouwd en beschikbaar in de Azure Marketplace. U hoeft alleen aan de IoT Edge-runtime op te geven dat het deze module moet opnemen, en die vervolgens op uw apparaat te configureren. 
+Een [distributiemanifest](module-composition.md) declareert welke modules de IoT Edge-runtime op uw IoT Edge-apparaat zal installeren. U hebt de code voor het maken van een aangepaste functie module in de vorige sectie gegeven, maar de SQL Server module is al in de Azure Marketplace gemaakt en beschikbaar. U hoeft alleen aan de IoT Edge-runtime op te geven dat het deze module moet opnemen, en die vervolgens op uw apparaat te configureren. 
 
-1. Open in Visual Studio Code, het opdrachtenpalet hiervoor **weergave** > **Command palette**.
+1. Open in Visual Studio code het opdracht palet door **weer gave** > **opdracht palet**te selecteren.
 
-2. Typ in het opdrachtpalet de opdracht **Azure IoT Edge: IoT Edge-module toevoegen**. Geef de volgende informatie om toe te voegen een nieuwe module in het opdrachtenpalet: 
+2. Typ in het opdrachtpalet de opdracht **Azure IoT Edge: IoT Edge module**toevoegen. Geef in het opdracht palet de volgende informatie op om een nieuwe module toe te voegen: 
 
-   | Veld | Value | 
+   | Veld | Waarde | 
    | ----- | ----- |
-   | Implementatiesjabloonbestand selecteren | Het opdrachtenpalet ziet u het bestand deployment.template.json in uw huidige oplossingenmap. Selecteer dat bestand.  |
-   | Modulesjabloon selecteren | Selecteer **Module op basis van Azure Marketplace**. |
+   | Implementatiesjabloonbestand selecteren | In het opdracht palet wordt het bestand Deployment. sjabloon. json in de map van de huidige oplossing gemarkeerd. Selecteer dat bestand.  |
+   | Modulesjabloon selecteren | Selecteer **module in azure Marketplace**. |
 
-3. Zoek in de marketplace met Azure IoT Edge-module en selecteer **SQL Server-Module**. 
+3. Zoek en selecteer **SQL Server module**op de Marketplace Azure IOT Edge-module. 
 
-4. Wijzig de modulenaam in **sql**, alleen kleine letters bevatten. Deze naam komt overeen met de naam van de container die in de verbindingsreeks in het bestand sqlFunction.cs gedeclareerd. 
+4. Wijzig de module naam in **SQL**, alle kleine letters. Deze naam komt overeen met de container naam die is gedeclareerd in de connection string in het bestand sqlFunction.cs. 
 
-5. Selecteer **importeren** de module toevoegen aan uw oplossing. 
+5. Selecteer **importeren** om de module toe te voegen aan uw oplossing. 
 
-6. Open in de oplossingenmap van uw, de **deployment.template.json** bestand. 
+6. Open in de map Solution het bestand **Deployment. sjabloon. json** . 
 
-7. Ga naar de sectie **modules**. Hier ziet u drie modules. De module *tempSensor* is standaard opgenomen in nieuwe oplossingen en biedt testgegevens voor gebruik met uw andere modules. De module *sqlFunction* is de module die u in eerste instantie hebt gemaakt en bijgewerkt met nieuwe code. Ten slotte de module *sql* is geïmporteerd uit Azure Marketplace. 
+7. Ga naar de sectie **modules**. U ziet nu drie modules. De module *SimulatedTemperatureSensor* is standaard opgenomen in nieuwe oplossingen en levert test gegevens die met uw andere modules kunnen worden gebruikt. De module *sqlFunction* is de module die u in eerste instantie hebt gemaakt en bijgewerkt met nieuwe code. Ten slotte is de module *SQL* geïmporteerd vanuit Azure Marketplace. 
 
    >[!Tip]
-   >De SQL Server-module wordt geleverd met een standaardwachtwoord instellen in de omgevingsvariabelen van het manifest van de implementatie. Telkens wanneer u een SQL Server-container in een productieomgeving maakt, moet u [het standaardwachtwoord van de systeembeheerder](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker)wijzigen.
+   >De module SQL Server wordt geleverd met een standaard wachtwoordset in de omgevings variabelen van het implementatie manifest. Telkens wanneer u een SQL Server-container in een productieomgeving maakt, moet u [het standaardwachtwoord van de systeembeheerder](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker)wijzigen.
 
-8. Sluit de **deployment.template.json** bestand.
+8. Sluit het bestand **Deployment. Temp late. json** .
 
 ## <a name="build-your-iot-edge-solution"></a>Uw eigen IoT Edge-oplossing bouwen
 
-In de voorgaande secties hebt u een oplossing met één module gemaakt en er vervolgens nog een toegevoegd aan de distributiemanifestsjabloon. De SQL Server-module openbaar wordt gehost door Microsoft, maar u moet de code in de Functions-module in een container plaatsen. In deze sectie, maak de oplossing, containerinstallatiekopieën maakt voor de module sqlFunction en push de installatiekopie naar uw containerregister. 
+In de voorgaande secties hebt u een oplossing met één module gemaakt en er vervolgens nog een toegevoegd aan de distributiemanifestsjabloon. De SQL Server-module wordt openbaar door micro soft gehost, maar u moet de code in de functie-module container plaatsen. In deze sectie bouwt u de oplossing, maakt u container installatie kopieën voor de sqlFunction-module en pusht u de installatie kopie naar het container register. 
 
 1. Open de in Visual Studio Code geïntegreerde terminal door **View** > **Terminal** te selecteren.  
 
-1. Meld u aan bij uw containerregister in Visual Studio Code, zodat u uw installatiekopieën naar uw register kunt pushen. Gebruik de dezelfde referenties voor Azure Container Registry (ACR) die u hebt toegevoegd aan het .env-bestand. Voer de volgende opdracht in de geïntegreerde terminal in:
+1. Meld u aan bij uw containerregister in Visual Studio Code, zodat u uw installatiekopieën naar uw register kunt pushen. Gebruik dezelfde Azure Container Registry-referenties (ACR) die u hebt toegevoegd aan het. env-bestand. Voer de volgende opdracht in de geïntegreerde terminal in:
 
     ```csh/sh
     docker login -u <ACR username> -p <ACR password> <ACR login server>
     ```
     
-    U ziet mogelijk een beveiligingswaarschuwing geadviseerd het gebruik van de--wachtwoord stdin-parameter. Hoewel buiten het bestek van dit artikel, wordt u deze best practice aangeraden. Zie voor meer informatie de [dockeraanmelding](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) opdrachten. 
+    Mogelijk wordt een beveiligings waarschuwing weer gegeven waarin wordt aanbevolen de para meter---Password-stdin te gebruiken. Hoewel buiten het bestek van dit artikel, wordt u deze best practice aangeraden. Zie voor meer informatie de koppeling naar de opdracht [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) . 
 
 2. Klik in VS Code Explorer met de rechtermuisknop op het bestand **deployment.template.json** en selecteer **Build and Push IoT Edge solution**. 
 
 Wanneer u Visual Studio Code de opdracht geeft om uw oplossing te bouwen, wordt eerst een bestand deployment.json gemaakt in een nieuwe map genaamd **config** op basis van de informatie in de distributiesjabloon. Vervolgens worden twee opdrachten uitgevoerd in de geïntegreerde terminal: `docker build` en `docker push`. Met deze twee opdrachten wordt de code gebouwd, wordt de module opgeslagen in een container, en wordt de code vervolgens naar het containerregister gepusht dat u hebt opgegeven toen u de oplossing initialiseerde. 
 
-U kunt controleren dat de module sqlFunction met succes is gepusht naar uw containerregister. Ga naar het containerregister in Azure portal. Selecteer **opslagplaatsen** en zoek naar de **sqlFunction**. De andere twee modules, tempSensor en sql, wordt niet naar het containerregister worden gepusht, omdat u al die naar de opslagplaatsen in de Microsoft-registers verwijst.
+U kunt controleren of de sqlFunction-module naar het container register is gepusht. Ga in het Azure Portal naar het container register. Selecteer **opslag** plaatsen en zoek naar **sqlFunction**. De andere twee modules, SimulatedTemperatureSensor en SQL, worden niet naar het container register gepusht omdat u al naar de opslag plaatsen van de micro soft-registers verwijst.
 
 ## <a name="deploy-the-solution-to-a-device"></a>De oplossing implementeren op een apparaat
 
@@ -256,7 +256,7 @@ U kunt modules op een apparaat instellen via de IoT Hub, maar u hebt ook toegang
 
 3. Ga in de bestandsverkenner naar de map **config** in uw oplossing en kies **deployment.amd64**. Klik op **Edge-distributiemanifest selecteren**. 
 
-   Gebruik het bestand deployment.template.json niet als een implementatie-manifest.
+   Gebruik het bestand Deployment. Temp late. json niet als een implementatie manifest.
 
 Als de implementatie is geslaagd, wordt er een bevestigingsbericht weergegeven in de VS Code-uitvoer. 
 
@@ -268,7 +268,7 @@ Vernieuw de status van uw apparaat in de sectie Azure IoT Hub-apparaten van VS C
 
 ## <a name="create-the-sql-database"></a>De SQL-database maken
 
-Wanneer u het distributiemanifest op uw apparaat toepast, krijgt u drie modules die worden uitgevoerd. De module tempSensor genereert gesimuleerde omgevingsgegevens. De module sqlFunction neemt de gegevens en deelt deze in voor een database. Deze sectie leidt u door het instellen van de SQL-database voor het opslaan van de temperatuurgegevens. 
+Wanneer u het distributiemanifest op uw apparaat toepast, krijgt u drie modules die worden uitgevoerd. De SimulatedTemperatureSensor-module genereert gesimuleerde omgevings gegevens. De module sqlFunction neemt de gegevens en deelt deze in voor een database. Deze sectie leidt u door het instellen van de SQL-database voor het opslaan van de temperatuurgegevens. 
 
 Voer de volgende opdrachten uit op uw IoT Edge-apparaat. Met deze opdrachten wordt verbinding gemaakt met de **sql**-module die wordt uitgevoerd op uw apparaat en worden er een database en een tabel gemaakt voor de opslag van de temperatuurgegevens die naar de module worden verzonden. 
 
@@ -327,7 +327,7 @@ Anders kunt u de lokale configuraties en Azure-resources die u in dit artikel he
 
 In deze zelfstudie hebt u een Azure Functions-module gemaakt die code bevat voor het filteren van onbewerkte gegevens die worden gegenereerd door uw IoT Edge-apparaat. Wanneer u klaar bent om uw eigen modules te bouwen, kunt u meer informatie krijgen over het [ontwikkelen van Azure Functions met Azure IoT Edge voor Visual Studio Code](how-to-develop-csharp-function.md). 
 
-Als u proberen een andere opslagmethode aan de rand wilt, kunt u lezen over het gebruik van Azure Blob-opslag op IoT Edge. 
+Als u aan de rand een andere opslag methode wilt proberen, lees dan meer informatie over het gebruik van Azure Blob Storage op IoT Edge. 
 
 > [!div class="nextstepaction"]
-> [Gegevens aan de rand met Azure Blob Storage Store op IoT Edge](how-to-store-data-blob.md)
+> [Gegevens opslaan aan de rand met Azure Blob Storage op IoT Edge](how-to-store-data-blob.md)

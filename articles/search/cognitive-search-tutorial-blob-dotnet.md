@@ -1,82 +1,83 @@
 ---
-title: C#Zelfstudie voor het aanroepen van Cognitive Services API's in een indexering pijplijn - Azure Search
+title: C#Zelf studie voor het aanroepen van Cognitive Services-API's in een indexerings pijplijn-Azure Search
 description: In deze zelfstudie ziet u een voorbeeld van gegevensextractie, natuurlijke taal en AI-beeldverwerking in Azure Search indexeren voor gegevensextractie en transformatie.
 manager: eladz
 author: MarkHeff
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 2c77d509a0e66fd02bd949e481c5f0316fdd9afb
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 79e99e8311941e46c35c17472ed4833706834940
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672008"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840861"
 ---
-# <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C#Zelfstudie: Cognitive Services API's aanroepen in een Azure Search indexeren van pijplijn
+# <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C#Vind Cognitive Services-API's aanroepen in een Azure Search Indexing-pijp lijn
 
-In deze zelfstudie leert u de mechanismen achter gegevensverrijking programmeren in Azure Search met behulp van *cognitieve vaardigheden*. Vaardigheden worden ondersteund door natuurlijke taalverwerking (NLP) en de installatiekopie van analysemogelijkheden in Cognitive Services. U kunt via de samenstelling van vaardigheden en configuratie, tekst en de vorm van een afbeelding of gescande documentbestand tekst extraheren. Ook kunt u de taal, entiteiten en sleuteltermen detecteren. Het eindresultaat is uitgebreide aanvullende inhoud in een Azure Search-index, die zijn gemaakt door een AI aangestuurde indexing-pijplijn.
+In deze zelfstudie leert u de mechanismen achter gegevensverrijking programmeren in Azure Search met behulp van *cognitieve vaardigheden*. Vaardig heden worden ondersteund door NLP (natuurlijke taal verwerking) en mogelijkheden voor de analyse van installatie kopieën in Cognitive Services. Via de vaardig heden-compositie en-configuratie kunt u tekst-en tekst representaties van een afbeelding of gescand document bestand extra heren. U kunt ook taal, entiteiten, sleutel zinnen en meer detecteren. Het eind resultaat is uitgebreide extra inhoud in een Azure Search index, gemaakt door een AI-indexerings pijplijn.
 
-In deze zelfstudie, kunt u de .NET SDK gebruiken om uit te voeren van de volgende taken:
+In deze zelf studie gebruikt u de .NET SDK om de volgende taken uit te voeren:
 
 > [!div class="checklist"]
 > * Een indexeringspijplijn maken die voorbeeldgegevens onderweg naar een index verrijkt
-> * Ingebouwde vaardigheden toepassen: optische tekenherkenning, tekst samenvoegen, taaldetectie, tekst splitsen, entiteiten herkennen, sleuteltermextractie
+> * Ingebouwde vaardig heden Toep assen: optische teken herkenning, tekst fusie, taal detectie, tekst splitsing, entiteit herkenning, extractie van sleutel zinnen
 > * Vaardigheden aan elkaar koppelen door invoeren aan uitvoeren toe te wijzen in een set vaardigheden
 > * Aanvragen uitvoeren en resultaten bekijken
 > * De index en indexeerfuncties opnieuw instellen voor verdere ontwikkeling
 
 Uitvoer is een volledige doorzoekbare index in Azure Search. U kunt de index uitbreiden met andere standaardfuncties, zoals [synoniemen](search-synonyms.md), [scoreprofielen](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyses](search-analyzers.md) en [filters](search-filters.md).
 
-In deze zelfstudie wordt uitgevoerd op de gratis service, maar het aantal gratis transacties is beperkt tot 20 documenten per dag. Als u wilt meer dan eenmaal in deze zelfstudie wordt uitgevoerd in dezelfde dag, gebruikt u een kleiner bestand instellen, zodat u in meer uitvoeringen past.
+Deze zelf studie wordt uitgevoerd op de gratis service, maar het aantal gratis trans acties is beperkt tot 20 documenten per dag. Als u deze zelf studie meer dan één keer in dezelfde dag wilt uitvoeren, gebruikt u een kleinere set bestanden, zodat u in meer uitvoeringen kunt passen.
 
 > [!NOTE]
-> Als u een bereik uitbreiden door het verhogen van de frequentie van de verwerking, meer documenten toe te voegen of meer AI-algoritmen toe te voegen, moet u een factureerbare Cognitive Services-resource koppelen. Kosten toenemen bij het aanroepen van API's in Cognitive Services en voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken in Azure Search. Er zijn geen kosten voor het ophalen van de tekst van documenten.
+> Als u het bereik uitbreidt door de verwerkings frequentie te verhogen, meer documenten toe te voegen of meer AI-algoritmen toe te voegen, moet u een factureer bare Cognitive Services resource koppelen. Er worden kosten in rekening gebracht bij het aanroepen van Api's in Cognitive Services en voor het ophalen van afbeeldingen als onderdeel van de fase voor het kraken van documenten in Azure Search. Er worden geen kosten in rekening gebracht voor het ophalen van tekst uit documenten.
 >
-> Uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijzen wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400).
+> De uitvoering van ingebouwde vaardig heden wordt in rekening gebracht op basis van de bestaande [Cognitive Services betalen naar](https://azure.microsoft.com/pricing/details/cognitive-services/) gebruik-prijs. Prijzen voor Image extractie worden beschreven op de [pagina met Azure Search prijzen](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-De volgende services, hulpprogramma's en gegevens worden gebruikt in deze zelfstudie. 
+In deze zelf studie worden de volgende services, hulpprogram ma's en gegevens gebruikt. 
 
-+ [Een Azure storage-account maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) voor het opslaan van de voorbeeldgegevens. Zorg ervoor dat het opslagaccount zich in dezelfde regio als de Azure Search.
++ [Maak een Azure-opslag account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) voor het opslaan van de voorbeeld gegevens. Zorg ervoor dat het opslag account zich in dezelfde regio bevindt als Azure Search.
 
-+ [Voorbeeldgegevens](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) bestaat uit een verzameling kleine bestanden van verschillende typen. 
++ De [voorbeeld gegevens](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) bestaan uit een kleine set verschillende typen. 
 
-+ [Visual Studio installeren](https://visualstudio.microsoft.com/) om te gebruiken als de IDE.
++ [Installeer Visual Studio](https://visualstudio.microsoft.com/) om te gebruiken als IDE.
 
-+ [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze zelfstudie gebruiken.
++ [Een Azure Search-service maken](search-create-service-portal.md) of [een bestaande service vinden](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) onder uw huidige abonnement. U kunt voor deze zelf studie gebruikmaken van een gratis service.
 
-## <a name="get-a-key-and-url"></a>Een sleutel en -URL ophalen
+## <a name="get-a-key-and-url"></a>Een sleutel en URL ophalen
 
-Om te communiceren met uw Azure Search-service moet u de service-URL en een toegangssleutel. Een zoekservice wordt gemaakt met beide, dus als u Azure Search hebt toegevoegd aan uw abonnement, volgt u deze stappen om de benodigde gegevens op te halen:
+Als u wilt communiceren met uw Azure Search-service, hebt u de service-URL en een toegangs sleutel nodig. Een zoekservice wordt gemaakt met beide, dus als u Azure Search hebt toegevoegd aan uw abonnement, volgt u deze stappen om de benodigde gegevens op te halen:
 
-1. [Meld u aan bij Azure portal](https://portal.azure.com/), en in uw zoekservice **overzicht** pagina, de URL ophalen. Een eindpunt ziet er bijvoorbeeld uit als `https://mydemo.search.windows.net`.
+1. [Meld u aan bij de Azure Portal](https://portal.azure.com/)en down load de URL op de pagina **overzicht** van de zoek service. Een eindpunt ziet er bijvoorbeeld uit als `https://mydemo.search.windows.net`.
 
-1. In **instellingen** > **sleutels**, een beheersleutel voor volledige rechten voor de service ophalen. Er zijn twee uitwisselbaar beheersleutels, verstrekt voor bedrijfscontinuïteit voor het geval u moet een meegenomen. U kunt de primaire of secundaire sleutel gebruiken voor verzoeken voor toevoegen, wijzigen en verwijderen van objecten.
+1. Haal in **instellingen** > **sleutels**een beheerders sleutel op voor volledige rechten op de service. Er zijn twee uitwissel bare beheer sleutels die voor bedrijfs continuïteit worden verschaft, voor het geval dat u een voor beeld moet doen. U kunt de primaire of secundaire sleutel gebruiken op aanvragen voor het toevoegen, wijzigen en verwijderen van objecten.
 
-   ![Een HTTP-eindpunt en -sleutel ophalen](media/search-get-started-postman/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
+   ![Een HTTP-eind punt en toegangs sleutel ophalen](media/search-get-started-postman/get-url-key.png "Een HTTP-eind punt en toegangs sleutel ophalen")
 
 Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
-## <a name="prepare-sample-data"></a>Voorbeeldgegevens voorbereiden
+## <a name="prepare-sample-data"></a>Voorbeeld gegevens voorbereiden
 
-De verrijkingspijplijn haalt gegevens uit Azure-gegevensbronnen. Brongegevens moeten afkomstig zijn van een ondersteund type gegevensbron van een [Azure Search-indexeerfunctie](search-indexer-overview.md). Azure Table Storage wordt niet ondersteund voor cognitief zoeken. In dit voorbeeld gebruiken we blobopslag om meerdere inhoudstypen te laten zien.
+De verrijkingspijplijn haalt gegevens uit Azure-gegevensbronnen. Brongegevens moeten afkomstig zijn van een ondersteund type gegevensbron van een [Azure Search-indexeerfunctie](search-indexer-overview.md). Azure Table Storage wordt niet ondersteund voor cognitieve Zoek opdrachten. In dit voorbeeld gebruiken we blobopslag om meerdere inhoudstypen te laten zien.
 
-1. [Meld u aan bij Azure portal](https://portal.azure.com), gaat u naar uw Azure storage-account, klikt u op **Blobs**, en klik vervolgens op **+ Container**.
+1. [Meld u aan bij de Azure Portal](https://portal.azure.com), navigeer naar uw Azure Storage-account, klik op blobs en klik vervolgens op **+ container**.
 
-1. [Maak een blobcontainer](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) voorbeeldgegevens bevatten. U kunt het niveau van de openbare toegang instellen op een van de geldige waarden. In deze zelfstudie wordt ervan uitgegaan dat de containernaam van de 'basic-demo-gegevens-pr'.
+1. [Maak een BLOB-container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) om voorbeeld gegevens te bevatten. U kunt het niveau van open bare toegang instellen op een van de geldige waarden. In deze zelf studie wordt ervan uitgegaan dat de container naam ' Basic-demo-data-PR ' is.
 
-1. Nadat de container is gemaakt, opent u het en selecteer **uploaden** op de opdrachtbalk om te uploaden de [voorbeeldgegevens](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4).
+1. Nadat de container is gemaakt, opent u deze en selecteert u **uploaden** op de opdracht balk om de [voorbeeld gegevens](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)te uploaden.
 
    ![Bronbestanden in Azure-blobopslag](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-1. Nadat de voorbeeldbestanden zijn geladen, haalt u de containernaam en een verbindingsreeks voor de Blob-opslag op. U kunt dat doen door te navigeren naar uw opslagaccount in Azure portal, selecteren **toegangssleutels**, en kopieer vervolgens de **Connection String** veld.
+1. Nadat de voorbeeldbestanden zijn geladen, haalt u de containernaam en een verbindingsreeks voor de Blob-opslag op. U kunt dit doen door te navigeren naar uw opslag account in de Azure Portal, **toegangs toetsen**te selecteren en vervolgens het **verbindings reeks** veld te kopiëren.
 
    De verbindingsreeks moet een URL zijn die er ongeveer als volgt uitziet:
 
@@ -88,25 +89,25 @@ Er zijn andere manieren om de verbindingsreeks op te geven, zoals een Shared Acc
 
 ## <a name="set-up-your-environment"></a>Uw omgeving instellen
 
-Beginnen met Visual Studio te openen en een nieuwe Console-App-project maken dat kan worden uitgevoerd op .NET Core.
+Begin met het openen van Visual Studio en het maken van een nieuw console-app-project dat kan worden uitgevoerd op .NET core.
 
 ### <a name="install-nuget-packages"></a>NuGet-pakketten installeren
 
-De [Azure Search .NET SDK](https://aka.ms/search-sdk) bestaat uit een aantal clientbibliotheken waarmee u voor het beheren van uw indexen, gegevensbronnen, Indexeerfuncties en kennis en vaardigheden, ook als uploaden en beheren van documenten en het uitvoeren van query's, allemaal zonder dat u hoeft te bekommeren om de de details van HTTP en JSON. Deze clientbibliotheken worden gedistribueerd als een NuGet-pakketten.
+De [Azure Search .NET SDK](https://aka.ms/search-sdk) bestaat uit een aantal client bibliotheken waarmee u uw indexen, gegevens bronnen, Indexeer functies en vaardig heden kunt beheren, evenals documenten en query's kunt uploaden en uitvoeren, zonder dat u de details van http en JSON hoeft te hoeven afhandelen. . Deze client bibliotheken zijn allemaal gedistribueerd als NuGet-pakketten.
 
-Voor dit project, moet u voor het installeren van versie 9 van de `Microsoft.Azure.Search` NuGet-pakket en de meest recente `Microsoft.Extensions.Configuration.Json` NuGet-pakket.
+Voor dit project moet u versie 9 van het `Microsoft.Azure.Search` NuGet-pakket en het meest recente `Microsoft.Extensions.Configuration.Json` NuGet-pakket installeren.
 
-Installeer de `Microsoft.Azure.Search` NuGet-pakket met behulp van de Package Manager console in Visual Studio. Openen van de Package Manager console Selecteer **extra** > **NuGet Package Manager** > **Package Manager Console**. Als u de opdracht uit te voeren, gaat u naar de [Microsoft.Azure.Search NuGet-pakketpagina](https://www.nuget.org/packages/Microsoft.Azure.Search)versie 9, en selecteer de Package Manager-opdracht kopiëren. In de Package Manager-console, moet u deze opdracht uitvoeren.
+Installeer het `Microsoft.Azure.Search` NuGet-pakket met behulp van de Package Manager-console in Visual Studio. Als u de Package Manager-console wilt openen, selecteert u **tools** > **NuGet package manager** > **Package Manager console**. Als u de opdracht wilt uitvoeren, gaat u naar de [pagina micro soft. Azure. Search NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Search), selecteert u versie 9 en kopieert u de opdracht Package Manager. Voer deze opdracht uit in de Package Manager-console.
 
-Voor het installeren van de `Microsoft.Extensions.Configuration.Json` NuGet-pakket in Visual Studio, selecteer **extra** > **NuGet Package Manager** > **NuGet-pakketten beheren voor oplossing...** . Selecteer Bladeren en zoeken naar de `Microsoft.Extensions.Configuration.Json` NuGet-pakket. Als u deze hebt gevonden, selecteert u het pakket, selecteert u uw project, Controleer of dat de versie is de laatste stabiele versie, en selecteer vervolgens installeren.
+Als u het `Microsoft.Extensions.Configuration.Json` NuGet-pakket in Visual Studio wilt installeren, selecteert u **extra** > **NuGet package manager** > **NuGet-pakketten beheren voor oplossing...** . Selecteer Bladeren en zoek naar het `Microsoft.Extensions.Configuration.Json` NuGet-pakket. Zodra u de app hebt gevonden, selecteert u het pakket, selecteert u het project, bevestigt u dat de versie de laatste stabiele versie is en selecteert u installeren.
 
 ## <a name="add-azure-search-service-information"></a>Informatie over Azure Search-service toevoegen
 
-Als u wilt verbinding maken met uw Azure Search-service moet u de informatie over de zoekservice toevoegen aan uw project. Klik met de rechtermuisknop op uw project in Solution Explorer en selecteer **toevoegen** > **Nieuw Item...**  . Noem het bestand `appsettings.json` en selecteer **toevoegen**. 
+Als u verbinding wilt maken met uw Azure Search-service, moet u de gegevens van de zoek service toevoegen aan uw project. Klik met de rechter muisknop op het project in de > Solution Explorer en selecteer**Nieuw item toevoegen...** . Geef het bestand `appsettings.json` een naam en selecteer **toevoegen**. 
 
-Dit bestand moet worden opgenomen in uw map met de uitvoer. Om dit te doen, klik met de rechtermuisknop op `appsettings.json` en selecteer **eigenschappen**. Wijzig de waarde van **naar uitvoermap kopiëren** naar **kopie van de nieuwere**.
+Dit bestand moet worden opgenomen in de uitvoermap. Hiertoe klikt u met de rechter `appsettings.json` muisknop op en selecteert u **Eigenschappen**. Wijzig de waarde van **kopiëren naar uitvoermap** naar een **nieuwere versie**.
 
-Kopieer de onderstaande JSON in uw nieuwe JSON-bestand.
+Kopieer de onderstaande JSON naar het nieuwe JSON-bestand.
 
 ```json
 {
@@ -117,15 +118,15 @@ Kopieer de onderstaande JSON in uw nieuwe JSON-bestand.
 }
 ```
 
-Search-service en blob storage gegevens over uw account toevoegen.
+Voeg de gegevens van uw zoek service en Blob-opslag account toe.
 
-U kunt de informatie over de zoekservice ophalen vanuit jouw accountpagina zoeken in Azure portal. De accountnaam is op de hoofdpagina en de sleutels kunnen worden gevonden door te selecteren **sleutels**.
+U kunt de informatie van uw zoek service ophalen via de pagina van uw zoek account in de Azure Portal. De account naam bevindt zich op de hoofd pagina en de sleutels kunnen worden gevonden door **sleutels**te selecteren.
 
-U kunt de blob-verbindingsreeks ophalen door te navigeren naar uw opslagaccount in Azure portal, selecteren **toegangssleutels**, en vervolgens te kopiëren de **Connection String** veld.
+U kunt de BLOB-connection string ophalen door te navigeren naar uw opslag account in de Azure Portal, **toegangs toetsen**te selecteren en vervolgens het **verbindings reeks** veld te kopiëren.
 
-## <a name="add-namespaces"></a>Naamruimten toevoegen
+## <a name="add-namespaces"></a>Naam ruimten toevoegen
 
-In deze zelfstudie maakt gebruik van veel verschillende typen in verschillende naamruimten. Als u wilt gebruiken die typen het volgende toevoegen aan `Program.cs`.
+In deze zelf studie wordt een groot aantal verschillende typen van verschillende naam ruimten gebruikt. Als u deze typen wilt gebruiken, moet u het `Program.cs`volgende toevoegen aan.
 
 ```csharp
 using System;
@@ -145,7 +146,7 @@ IConfigurationRoot configuration = builder.Build();
 SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
 ```
 
-`CreateSearchServiceClient` maakt u een nieuwe `SearchServiceClient` met waarden die zijn opgeslagen in het configuratiebestand van de toepassing (appsettings.json).
+`CreateSearchServiceClient`Hiermee maakt u `SearchServiceClient` een nieuw met behulp van waarden die zijn opgeslagen in het configuratie bestand van de toepassing (appSettings. json).
 
 ```csharp
 private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
@@ -165,9 +166,9 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 
 ## <a name="create-a-data-source"></a>Een gegevensbron maken
 
-Maak een nieuwe `DataSource` exemplaar door het aanroepen van `DataSource.AzureBlobStorage`. `DataSource.AzureBlobStorage` vereist dat u de naam van de gegevensbron, verbindingsreeks en de naam van de blob-container opgeven.
+Maak een nieuw `DataSource` exemplaar door aan `DataSource.AzureBlobStorage`te roepen. `DataSource.AzureBlobStorage`Hiervoor moet u de naam van de gegevens bron, de connection string en de naam van de BLOB-container opgeven.
 
-Hoewel het niet wordt gebruikt in deze zelfstudie wordt ook een beleid voor voorlopig verwijderen gedefinieerd dat wordt gebruikt voor het identificeren van verwijderde blobs op basis van de waarde van een kolom voor voorlopig verwijderen. Het volgende beleid rekening gehouden met een blob moet worden verwijderd als er een eigenschap metadata `IsDeleted` met de waarde `true`.
+Hoewel het niet in deze zelf studie wordt gebruikt, wordt er ook een voorlopig verwijderings beleid gedefinieerd, dat wordt gebruikt voor het identificeren van verwijderde blobs op basis van de waarde van een kolom voorlopig verwijderen. Het volgende beleid beschouwt een blob die moet worden verwijderd als deze een meta `IsDeleted` gegevens eigenschap met `true`de waarde bevat.
 
 ```csharp
 DataSource dataSource = DataSource.AzureBlobStorage(
@@ -180,9 +181,9 @@ DataSource dataSource = DataSource.AzureBlobStorage(
     description: "Demo files to demonstrate cognitive search capabilities.");
 ```
 
-Nu dat u hebt geïnitialiseerd de `DataSource` object, het maken van de gegevensbron. `SearchServiceClient` heeft een `DataSources`-eigenschap. Deze eigenschap bevat alle methoden die u maken wilt, weergeven, bijwerken of verwijderen van Azure Search-gegevensbronnen.
+Nu u het `DataSource` object hebt geïnitialiseerd, maakt u de gegevens bron. `SearchServiceClient` heeft een `DataSources`-eigenschap. Deze eigenschap bevat alle methoden die u nodig hebt om Azure Search gegevens bronnen te maken, weer te geven, bij te werken of te verwijderen.
 
-Voor een aanvraag is gelukt retourneert de methode voor de gegevensbron die is gemaakt. Als er een probleem met de aanvraag, zoals een ongeldige parameter, genereert de methode een uitzondering.
+Voor een succes volle aanvraag retourneert de methode de gegevens bron die is gemaakt. Als er een probleem is met de aanvraag, zoals een ongeldige para meter, genereert de methode een uitzonde ring.
 
 ```csharp
 try
@@ -201,29 +202,29 @@ Aangezien dit uw eerste aanvraag is, controleert u Azure Portal om te bevestigen
 
 ## <a name="create-a-skillset"></a>Een set vaardigheden maken
 
-In deze sectie maakt definiëren u een reeks verrijking stappen die u wilt toepassen op uw gegevens. Elke stap verrijking heet een *vaardigheid* en de set van verrijking stappen een *vaardigheden*. In deze zelfstudie wordt gebruikgemaakt van [vooraf gedefinieerde cognitieve vaardigheden](cognitive-search-predefined-skills.md) voor de set vaardigheden:
+In deze sectie definieert u een reeks verrijkings stappen die u wilt Toep assen op uw gegevens. Elke verrijkings stap wordt een *vaardigheid* genoemd en de set verrijkings stappen een *vaardig heden*. In deze zelfstudie wordt gebruikgemaakt van [vooraf gedefinieerde cognitieve vaardigheden](cognitive-search-predefined-skills.md) voor de set vaardigheden:
 
-+ [Optische tekenherkenning](cognitive-search-skill-ocr.md) gedrukte en handgeschreven tekst in afbeeldingen herkennen.
++ [Optische teken herkenning](cognitive-search-skill-ocr.md) voor het herkennen van gedrukte en handgeschreven tekst in afbeeldings bestanden.
 
-+ [Tekst samenvoegen](cognitive-search-skill-textmerger.md) tekst uit een verzameling van velden in één veld consolideren.
++ [Tekst fusie](cognitive-search-skill-textmerger.md) voor het consolideren van tekst van een verzameling velden in één veld.
 
 + [Taaldetectie](cognitive-search-skill-language-detection.md) om de taal van de inhoud vast te stellen.
 
-+ [Tekst splitsen](cognitive-search-skill-textsplit.md) grote inhoud opsplitsen in kleinere chunks voordat u de kwalificatie van de extractie sleuteluitdrukkingen en de entiteit opname-kwalificatie. Extractie van cruciale frasen en herkenning entiteit accepteren invoer van 50.000 tekens of minder. Enkele voorbeeldbestanden moeten worden opgesplitst om aan deze limiet te voldoen.
++ [Tekst splitsing](cognitive-search-skill-textsplit.md) voor het afsplitsen van grote inhoud in kleinere segmenten voordat u de sleutel woorden extractie vaardigheid en de kwalificatie voor entiteits herkenning aanroept. Sleutel woord extractie en entiteits herkenning accepteren invoer van 50.000 tekens of minder. Enkele voorbeeldbestanden moeten worden opgesplitst om aan deze limiet te voldoen.
 
-+ [Herkenning van entiteit](cognitive-search-skill-entity-recognition.md) voor het uitpakken van de namen van organisaties van de inhoud in de blob-container.
++ [Entiteits herkenning](cognitive-search-skill-entity-recognition.md) voor het extra heren van de namen van organisaties uit inhoud in de BLOB-container.
 
 + [Sleuteltermextractie](cognitive-search-skill-keyphrases.md) voor het ophalen van de belangrijkste sleuteltermen.
 
-Tijdens de verwerking van initiële zorgt Azure Search elk document kunnen inhoud in verschillende bestandsindelingen lezen. Gevonden tekst uit het bronbestand wordt in een gegenereerd ```content```-veld geplaatst, één voor elk document. Als zodanig ingesteld als invoer voor ```"/document/content"``` gebruik van deze tekst. 
+Tijdens de eerste verwerking wordt door Azure Search elke document gekraakt om inhoud uit verschillende bestands indelingen te lezen. Gevonden tekst uit het bronbestand wordt in een gegenereerd ```content```-veld geplaatst, één voor elk document. Stel, als zodanig, de invoer in ```"/document/content"``` voor het gebruik van deze tekst. 
 
 Uitvoeren kunnen aan een index worden toegewezen, als invoer worden gebruikt voor een downstream-vaardigheid, of beide zoals bij taalcode. Een taalcode is in de index handig om te filteren. Taalcode wordt als invoer door vaardigheden voor tekstanalyse gebruikt om de taalregels voor woordafbreking in te stellen.
 
 Zie [How to define a skillset](cognitive-search-defining-skillset.md) (Een set vaardigheden definiëren) voor meer informatie over de grondbeginselen van vaardigheden.
 
-### <a name="ocr-skill"></a>OCR-kwalificatie
+### <a name="ocr-skill"></a>OCR-vaardigheid
 
-De **OCR** vaardigheid haalt tekst uit afbeeldingen. Deze kwalificatie wordt ervan uitgegaan dat een veld normalized_images bestaat. Voor het genereren van dit veld, verderop in de zelfstudie we stellen de ```"imageAction"``` configuratie in de definitie van de indexeerfunctie te ```"generateNormalizedImages"```.
+De **OCR** -vaardigheid extraheert tekst uit afbeeldingen. Bij deze vaardigheid wordt ervan uitgegaan dat er een normalized_images veld bestaat. Als u dit veld wilt genereren, stelt u verderop in de zelf ```"imageAction"``` studie de configuratie in de definitie van ```"generateNormalizedImages"```de Indexeer functie in op.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -245,9 +246,9 @@ OcrSkill ocrSkill = new OcrSkill(
     shouldDetectOrientation: true);
 ```
 
-### <a name="merge-skill"></a>Samenvoegen van vaardigheden
+### <a name="merge-skill"></a>Vaardigheid samen voegen
 
-In deze sectie maakt u een **samenvoegen** dat het veld voor de document-inhoud met de tekst die is geproduceerd door de OCR-kwalificatie worden samengevoegd.
+In deze sectie maakt u een **samenvoeg** vaardigheid die het veld document inhoud samenvoegt met de tekst die door de OCR-vaardigheid is geproduceerd.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -275,9 +276,9 @@ MergeSkill mergeSkill = new MergeSkill(
     insertPostTag: " ");
 ```
 
-### <a name="language-detection-skill"></a>Taal detecteren-kwalificatie
+### <a name="language-detection-skill"></a>Vaardigheid van taal detectie
 
-De **taaldetectie** vaardigheid detecteert de taal van de invoertekst en rapporten van een enkele taalcode voor elk document dat is ingediend bij de aanvraag. We gebruiken de uitvoer van de **taaldetectie** vaardigheden als onderdeel van de invoer voor de **tekst splitsen** kwalificatie.
+De **taaldetectie** vaardigheid detecteert de taal van de invoer tekst en rapporteert één taal code voor elk document dat voor de aanvraag wordt verzonden. We gebruiken de uitvoer van de **taaldetectie** vaardigheid als onderdeel van de invoer voor de kwalificatie **tekst splitsen** .
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -297,9 +298,9 @@ LanguageDetectionSkill languageDetectionSkill = new LanguageDetectionSkill(
     outputs: outputMappings);
 ```
 
-### <a name="text-split-skill"></a>Tekst splitsen vaardigheid
+### <a name="text-split-skill"></a>Vaardigheid tekst splitsen
 
-De onderstaande **splitsen** vaardigheid wordt tekst splitsen op pagina's en beperkingen voor pagina 4000 tekens bevatten wordt gemeten door `String.Length`. Het algoritme probeert op te splitsen van de tekst in stukken verdeeld die maximaal `maximumPageLength` in grootte. In dit geval het algoritme voor het beste doen verbreken van de zin op een grens van een zin, zodat de grootte van het segment mogelijk iets minder dan `maximumPageLength`.
+Met de onderstaande vaardigheid splitsen worden tekst op pagina's gesplitst en wordt de pagina lengte beperkt tot 4.000 tekens zoals `String.Length`gemeten door. Het algoritme probeert de tekst te splitsen in segmenten die de meeste `maximumPageLength` grootte hebben. In dit geval is het algoritme het beste om de zin op een zin te kraken, zodat de grootte van het segment enigszins kleiner is dan `maximumPageLength`.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -324,11 +325,11 @@ SplitSkill splitSkill = new SplitSkill(
     maximumPageLength: 4000);
 ```
 
-### <a name="entity-recognition-skill"></a>Entiteit erkenning vaardigheid
+### <a name="entity-recognition-skill"></a>Vaardigheid van entiteits herkenning
 
-Dit `EntityRecognitionSkill` instantie is ingesteld voor het herkennen van categorietype `organization`. De **entiteit erkenning** vaardigheid herkent ook categorietypen `person` en `location`.
+Dit `EntityRecognitionSkill` exemplaar is ingesteld op het categorie type `organization`wordt herkend. De kwalificatie voor **entiteits herkenning** kan ook categorie `person` typen `location`herkennen en.
 
-U ziet dat het veld 'context' is ingesteld op ```"/document/pages/*"``` met een sterretje, wat betekent dat de stap verrijking wordt aangeroepen voor elke pagina onder ```"/document/pages"```.
+U ziet dat het veld context is ingesteld op ```"/document/pages/*"``` met een asterisk, wat betekent dat de verrijkings stap voor elke ```"/document/pages"```pagina wordt aangeroepen.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -353,9 +354,9 @@ EntityRecognitionSkill entityRecognitionSkill = new EntityRecognitionSkill(
     defaultLanguageCode: EntityRecognitionSkillLanguage.En);
 ```
 
-### <a name="key-phrase-extraction-skill"></a>Sleuteluitdrukkingen extraheren vaardigheid
+### <a name="key-phrase-extraction-skill"></a>Vaardigheid van sleutel frase extractie
 
-Net als de `EntityRecognitionSkill` -exemplaar dat zojuist is gemaakt, de **sleutel vindt er sleuteltermextractie plaats** kwalificatie voor elke pagina van het document wordt genoemd.
+Net als `EntityRecognitionSkill` het exemplaar dat zojuist is gemaakt, wordt de **Sleuteltermextractie** vaardigheid voor elke pagina van het document aangeroepen.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -378,9 +379,9 @@ KeyPhraseExtractionSkill keyPhraseExtractionSkill = new KeyPhraseExtractionSkill
     outputs: outputMappings);
 ```
 
-### <a name="build-and-create-the-skillset"></a>Maken van de vaardigheden
+### <a name="build-and-create-the-skillset"></a>De vaardig heden bouwen en maken
 
-Bouw de `Skillset` met behulp van de vaardigheden die u hebt gemaakt.
+Bouw het `Skillset` met behulp van de vaardig heden die u hebt gemaakt.
 
 ```csharp
 List<Skill> skills = new List<Skill>();
@@ -397,7 +398,7 @@ Skillset skillset = new Skillset(
     skills: skills);
 ```
 
-Maak de vaardigheden in uw search-service.
+Maak de vaardig heden in uw zoek service.
 
 ```csharp
 try
@@ -421,20 +422,20 @@ In deze oefening worden de volgende velden en veldtypen gebruikt:
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
 
-### <a name="create-demoindex-class"></a>DemoIndex klasse maken
+### <a name="create-demoindex-class"></a>DemoIndex-klasse maken
 
-De velden voor deze index worden gedefinieerd met behulp van een modelklasse. Elke eigenschap van de modelklasse heeft kenmerken die het zoekgerelateerde gedrag van het bijbehorende indexveld bepalen. 
+De velden voor deze index worden gedefinieerd met behulp van een model klasse. Elke eigenschap van de modelklasse heeft kenmerken die het zoekgerelateerde gedrag van het bijbehorende indexveld bepalen. 
 
-Gaan we de modelklasse toevoegen aan een nieuwe C# bestand. Klik met de rechtermuisknop op uw project en selecteer **toevoegen** > **Nieuw Item...** , selecteer "Class" en noem het bestand `DemoIndex.cs`en selecteer vervolgens **toevoegen**.
+We voegen de model klasse toe aan een C# nieuw bestand. Klik met de rechter muisknop op uw > project en selecteer**Nieuw item toevoegen...** , selecteer "klasse" en `DemoIndex.cs`Geef het bestand een naam en selecteer vervolgens **toevoegen**.
 
-Zorg ervoor dat om aan te geven dat u wilt gebruiken vanaf de `Microsoft.Azure.Search` en `Microsoft.Azure.Search.Models` naamruimten.
+Zorg ervoor dat u opgeeft dat u typen van de `Microsoft.Azure.Search` naam ruimten en `Microsoft.Azure.Search.Models` wilt gebruiken.
 
 ```csharp
 using Microsoft.Azure.Search;
 using Microsoft.Azure.Search.Models;
 ```
 
-Voeg de onder de klassedefinitie model te `DemoIndex.cs` en deze opnemen in dezelfde naamruimte waar u de index maken.
+Voeg de definitie van de onderstaande model `DemoIndex.cs` klasse toe aan en voeg deze toe aan dezelfde naam ruimte waarin u de index gaat maken.
 
 ```csharp
 // The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
@@ -461,7 +462,7 @@ public class DemoIndex
 }
 ```
 
-Nu dat u een modelklasse hebt gedefinieerd, back-ups maken `Program.cs` kunt u vrij eenvoudig een indexdefinitie maken. De naam voor de index is 'demoindex'.
+Nu u een model klasse hebt gedefinieerd, kunt `Program.cs` u weer een index definitie vrij eenvoudig maken. De naam voor deze index is "demoindex".
 
 ```csharp
 var index = new Index()
@@ -471,7 +472,7 @@ var index = new Index()
 };
 ```
 
-Tijdens het testen merkt u misschien dat u probeert te maken van de index meer dan één keer. Als gevolg hiervan, controleert u of de index die u gaat maken al bestaat voordat wordt geprobeerd om deze te maken.
+Tijdens het testen is het mogelijk dat u de index meer dan één keer probeert te maken. Controleer daarom of de index die u gaat maken al bestaat voordat u deze probeert te maken.
 
 ```csharp
 try
@@ -497,11 +498,11 @@ Zie [Create Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/s
 
 Tot nu toe hebt u een gegevensbron, een set vaardigheden en een index gemaakt. Deze drie onderdelen gaan deel uitmaken van een [indexeerfunctie](search-indexer-overview.md) die de onderdelen combineert in één meervoudige bewerking. Als u deze in een indexeerfunctie wilt combineren, moet u veldtoewijzingen definiëren.
 
-+ De fieldMappings worden verwerkt voordat de vaardigheden, toewijzing van de bronvelden uit de gegevensbron naar de doelvelden in een index. Als de veldnamen en typen identiek aan beide uiteinden zijn, zijn er is geen toewijzing is vereist.
++ De fieldMappings worden vóór de vaardig heden verwerkt, waarbij bron velden van de gegevens bron worden toegewezen aan de doel velden in een index. Als veld namen en-typen gelijk zijn aan beide uiteinden, is toewijzing niet vereist.
 
-+ De outputFieldMappings worden verwerkt na de vaardigheden, verwijst naar een sourceFieldNames die niet tot documenten kraken of verrijking gemaakt. De targetFieldName is een veld in een index.
++ De outputFieldMappings worden verwerkt na de vaardig heden en verwijzen naar sourceFieldNames die niet bestaan totdat het document wordt gekraakt of verrijkt. De targetFieldName is een veld in een index.
 
-Naast het installeren van de invoer voor uitvoer, kunt u ook veldtoewijzingen gebruiken om af te vlakken gegevensstructuren. Zie voor meer informatie, [verrijkt velden toewijzen aan een doorzoekbare index](cognitive-search-output-field-mapping.md).
+Naast het koppelen van invoer aan uitvoer, kunt u ook veld toewijzingen gebruiken om gegevens structuren samen te voegen. Zie [hoe u verrijkte velden aan een Doorzoek bare index kunt toewijzen](cognitive-search-output-field-mapping.md)voor meer informatie.
 
 ```csharp
 IDictionary<string, object> config = new Dictionary<string, object>();
@@ -563,22 +564,22 @@ catch (Exception e)
 }
 ```
 
-Verwacht dat het maken van de indexeerfunctie duurt even de tijd om te voltooien. De gegevensset is klein, maar analytische vaardigheden zijn berekeningsintensief. Sommige vaardigheden, zoals afbeeldingsanalyse, zijn langlopend.
+Het kan even duren voordat het maken van de Indexeer functie is voltooid. De gegevensset is klein, maar analytische vaardigheden zijn berekeningsintensief. Sommige vaardigheden, zoals afbeeldingsanalyse, zijn langlopend.
 
 > [!TIP]
 > Het maken van een indexeerfunctie roept de pijplijn aan. Als er problemen zijn met het bereiken van de gegevens, het toewijzen van invoeren en uitvoeren of de volgorde van bewerkingen, worden ze in deze fase weergegeven.
 
-### <a name="explore-creating-the-indexer"></a>Het maken van de indexeerfunctie verkennen
+### <a name="explore-creating-the-indexer"></a>Het maken van de Indexeer functie verkennen
 
-De code stelt ```"maxFailedItems"``` op-1, geeft dit de indexing-engine worden fouten genegeerd tijdens het importeren van gegevens. Dit is nuttig omdat de demo-gegevensbron maar een paar documenten bevat. Voor een grotere gegevensbron zou u de waarde op groter dan 0 instellen.
+De code wordt ```"maxFailedItems"``` ingesteld op-1, waarmee wordt aangegeven dat de indexerings engine fouten moet negeren tijdens het importeren van gegevens. Dit is nuttig omdat de demo-gegevensbron maar een paar documenten bevat. Voor een grotere gegevensbron zou u de waarde op groter dan 0 instellen.
 
-Ook ziet u de ```"dataToExtract"``` is ingesteld op ```"contentAndMetadata"```. Deze instructie geeft de indexeerfunctie de opdracht om automatisch de inhoud van verschillende bestandsindelingen te extraheren, evenals metagegevens voor elk bestand.
+U ziet ook ```"dataToExtract"``` dat de is ```"contentAndMetadata"```ingesteld op. Deze instructie geeft de indexeerfunctie de opdracht om automatisch de inhoud van verschillende bestandsindelingen te extraheren, evenals metagegevens voor elk bestand.
 
-Wanneer inhoud wordt uitgepakt, kunt u instellen dat `imageAction` tekst ophaalt uit afbeeldingen die in de gegevensbron worden gevonden. De ```"imageAction"``` ingesteld op ```"generateNormalizedImages"``` configuratie, gecombineerd met de OCR-vaardigheden en tekst samenvoegen vaardigheid vertelt de indexeerfunctie tekst ophalen uit de afbeeldingen (bijvoorbeeld het woord 'stop' van een verkeer Stop-teken) en dit als onderdeel van het veld inhoud insluiten. Dit gedrag is van toepassing op zowel de afbeeldingen die zijn ingesloten in de documenten (zoals een afbeelding in een pdf-bestand) als afbeeldingen die zijn gevonden in de gegevensbron, zoals een JPG-bestand.
+Wanneer inhoud wordt uitgepakt, kunt u instellen dat `imageAction` tekst ophaalt uit afbeeldingen die in de gegevensbron worden gevonden. De ```"imageAction"``` set to ```"generateNormalizedImages"``` Configuration, gecombineerd met de OCR-vaardigheid voor vaardig heden en tekst samenvoeging, vertelt de Indexeer functie om tekst uit de afbeeldingen te halen (bijvoorbeeld het woord ' Stop ' van een stop teken voor verkeer) en dit in te sluiten als onderdeel van het veld inhoud. Dit gedrag is van toepassing op zowel de afbeeldingen die zijn ingesloten in de documenten (zoals een afbeelding in een pdf-bestand) als afbeeldingen die zijn gevonden in de gegevensbron, zoals een JPG-bestand.
 
 ## <a name="check-indexer-status"></a>De status van de indexeerfunctie controleren
 
-Nadat de indexeerfunctie is gedefinieerd, wordt deze automatisch uitgevoerd wanneer u de aanvraag verzendt. Afhankelijk van welke cognitieve vaardigheden u hebt gedefinieerd, kan het indexeren langer duren dan verwacht. Als u wilt weten of de indexeerfunctie nog steeds wordt uitgevoerd, gebruikt u de `GetStatus` methode.
+Nadat de indexeerfunctie is gedefinieerd, wordt deze automatisch uitgevoerd wanneer u de aanvraag verzendt. Afhankelijk van welke cognitieve vaardigheden u hebt gedefinieerd, kan het indexeren langer duren dan verwacht. Als u wilt weten of de Indexeer functie nog steeds wordt uitgevoerd, `GetStatus` gebruikt u de-methode.
 
 ```csharp
 try
@@ -607,13 +608,13 @@ catch (Exception e)
 }
 ```
 
-`IndexerExecutionInfo` Hiermee geeft u de huidige status en de uitvoering van de geschiedenis van een indexeerfunctie.
+`IndexerExecutionInfo`Hiermee worden de huidige status en de uitvoerings geschiedenis van een Indexeer functie aangeduid.
 
 Waarschuwingen komen veel voor bij sommige combinaties van bronbestand en vaardigheid en wijzen niet altijd op een probleem. In deze zelfstudie zijn de waarschuwingen onschadelijk (bijvoorbeeld geen tekstinvoeren van de JPEG-bestanden).
  
 ## <a name="query-your-index"></a>Een query uitvoeren in uw index
 
-Nadat de indexeren is voltooid, kunt u query's die de inhoud van afzonderlijke velden retourneren kunt uitvoeren. Standaard retourneert Azure Search de 50 hoogste resultaten. De voorbeeldgegevens zijn beperkt, dus de standaardinstelling werkt prima. Als u echter werkt met grotere gegevenssets, moet u mogelijk parameters opnemen in de queryreeks om meer resultaten te retourneren. Zie [How to page results in Azure Search](search-pagination-page-layout.md) (Resultaten genereren in Azure Search) voor instructies.
+Nadat het indexeren is voltooid, kunt u query's uitvoeren waarmee de inhoud van afzonderlijke velden wordt geretourneerd. Standaard retourneert Azure Search de 50 hoogste resultaten. De voorbeeldgegevens zijn beperkt, dus de standaardinstelling werkt prima. Als u echter werkt met grotere gegevenssets, moet u mogelijk parameters opnemen in de queryreeks om meer resultaten te retourneren. Zie [How to page results in Azure Search](search-pagination-page-layout.md) (Resultaten genereren in Azure Search) voor instructies.
 
 Voer als verificatiestap query's uit op de index voor alle velden.
 
@@ -632,7 +633,7 @@ catch (Exception e)
 }
 ```
 
-`CreateSearchIndexClient` maakt u een nieuwe `SearchIndexClient` met waarden die zijn opgeslagen in het configuratiebestand van de toepassing (appsettings.json). Houd er rekening mee dat de search service API-query-sleutel wordt gebruikt en niet de Administrator-code.
+`CreateSearchIndexClient`Hiermee maakt u `SearchIndexClient` een nieuw met behulp van waarden die zijn opgeslagen in het configuratie bestand van de toepassing (appSettings. json). Houd er rekening mee dat de query-API-sleutel van de zoek service wordt gebruikt en niet de Administrator-sleutel.
 
 ```csharp
 private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
@@ -666,23 +667,23 @@ catch (Exception e)
 }
 ```
 
-Herhaal dit voor aanvullende velden: inhoud, languageCode Sleutelzinnen en organisaties in deze oefening. U kunt meerdere velden retourneren via `$select` met behulp van een door komma's gescheiden lijst.
+Herhaal dit voor aanvullende velden: inhoud, language code, zinsdelen en organisaties in deze oefening. U kunt meerdere velden retourneren via `$select` met behulp van een door komma's gescheiden lijst.
 
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Opnieuw instellen en uitvoeren
 
-In de eerste experimentele fasen van de ontwikkeling is de meest praktische aanpak voor ontwerp iteraties verwijderen van de objecten uit Azure Search en ervoor zorgen dat uw code opnieuw opbouwen. Resourcenamen zijn uniek. Na het verwijderen van een object kunt u het opnieuw maken met dezelfde naam.
+In de vroege experimentele stadia van de ontwikkeling is het de meest praktische benadering van het ontwerp om de objecten uit Azure Search te verwijderen en uw code toe te staan om ze opnieuw samen te stellen. Resourcenamen zijn uniek. Na het verwijderen van een object kunt u het opnieuw maken met dezelfde naam.
 
-In deze zelfstudie zorgt duurde controleren op bestaande Indexeerfuncties en indexen en deze worden verwijderd als ze al bestond, zodat u uw code opnieuw kunt uitvoeren.
+In deze zelf studie hebt u gecontroleerd op bestaande Indexeer functies en indexen en verwijdert u deze als deze al bestaan, zodat u de code opnieuw kunt uitvoeren.
 
-U kunt de portal ook gebruiken om te verwijderen van indexen, Indexeerfuncties en kennis en vaardigheden.
+U kunt ook de portal gebruiken om indexen, Indexeer functies en vaardig heden te verwijderen.
 
 Naarmate uw code meer vormt krijgt, is het raadzaam om uw herbouwstrategie te verfijnen. Zie [How to rebuild an index](search-howto-reindex.md) (Een index herbouwen) voor meer informatie.
 
 ## <a name="takeaways"></a>Opgedane kennis
 
-De basisstappen voor het bouwen van een verrijkt indexeren pijplijn het maken van onderdelen in deze zelfstudie wordt gedemonstreerd: een gegevensbron, vaardigheden, index en indexeerfunctie.
+In deze zelf studie worden de basis stappen voor het bouwen van een verrijkte index pijplijn gemaakt door het maken van onderdeel onderdelen: een gegevens bron, vaardig heden, index en Indexeer functie.
 
 [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md) zijn geïntroduceerd, samen met de definitie van de set vaardigheden en het mechanisme voor het koppelen van vaardigheden via in- en uitvoeren. U hebt ook geleerd dat `outputFieldMappings` vereist is in de definitie van de indexeerfunctie voor de routering van verrijkte waarden uit de pijplijn naar een doorzoekbare index op een Azure Search-service.
 
@@ -697,4 +698,4 @@ De snelste manier om op te schonen na een zelfstudie is om de resourcegroep met 
 De pijplijn uitbreiden of aanpassen met aangepaste vaardigheden. Door een aangepaste vaardigheid te maken en deze toe te voegen aan een set vaardigheden, kunt u zelfgeschreven tekst- of afbeeldingsanalyse integreren.
 
 > [!div class="nextstepaction"]
-> [Voorbeeld: Het maken van een aangepaste vaardigheden voor cognitief zoeken](cognitive-search-create-custom-skill-example.md)
+> [Voorbeeld: Een aangepaste vaardigheid maken voor cognitieve zoek acties](cognitive-search-create-custom-skill-example.md)

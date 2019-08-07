@@ -4,16 +4,17 @@ description: Maak een kennis archief met behulp van de wizard gegevens importere
 author: heidisteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: heidist
-ms.openlocfilehash: 66a051c430be9f59569a5843c0138c7ddc15b87c
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 518a96ae8ace5c9630d594fe70487635b6ec1d2c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707157"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840838"
 ---
 # <a name="create-an-azure-search-knowledge-store-and-connect-using-power-bi"></a>Een Azure Search Knowledge Store maken en verbinding maken met behulp van Power BI
 
@@ -104,7 +105,7 @@ Gebruik de wizard gegevens importeren om het kennis archief te maken. U importee
    - Geef de index een naam, zoals *Hotel-Recensies-idx*.
    - Stel alle velden in als **ophalen**mogelijk.
    - *Plaats*, *naam*, *reviews_text*, *taal*, *zinsdelen* als doorzoekbaar.
-   - Stel *sentiment*, *taal*, *woordgroepen* in als **filterbaar** en **bruikbaarheid**. 
+   - Stel *sentiment*, *taal*, *woordgroepen* in als **filterbaar** enbruikbaarheid. 
    
     De index moet er ongeveer uitzien als de volgende afbeelding.
 
@@ -112,7 +113,7 @@ Gebruik de wizard gegevens importeren om het kennis archief te maken. U importee
 
    Klik op **Next: Maak een Indexeer functie** om door te gaan naar de volgende stap.
 
-1. Een Indexeer functie configureren door deze een naam en uitvoerings uitgebracht te geven. Voor dit scenario gebruikt u *Hotel-Recensies-idxr* als de naam van de Indexeer functie en gebruikt u **het schema van** de standaard tijd om de Indexeer functie direct uit te voeren.
+1. Een Indexeer functie configureren door deze een naam en uitvoerings uitgebracht te geven. Voor dit scenario gebruikt u *Hotel-Recensies-idxr* als de naam van de Indexeer functie en gebruikt u het schema van de standaard tijd om de Indexeer functie direct uit te voeren.
 
    Bij de uitvoering van de Indexeer functie worden alle vorige configuraties in beweging gezet. Voor extra heren, verwerken en opnemen vindt u hier in deze stap.
 

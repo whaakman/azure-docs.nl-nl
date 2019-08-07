@@ -7,15 +7,15 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
-ms.topic: article
+ms.topic: overview
 ms.date: 04/19/2019
 ms.author: nitinme
-ms.openlocfilehash: dd93cd938539ae322e6344e0ce24cee6e34db27b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 5337f2d3df395650c65ae4a12cbdf4f8ba90ca3d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594751"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840405"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Wat zijn Azure Cognitive Services?
 
@@ -80,7 +80,7 @@ Azure Cognitive Services zijn Api's, Sdk's en services die beschikbaar zijn om o
 
 ## <a name="subscription-management"></a>Abonnementsbeheer
 
-Zodra u bent aangemeld met uw micro soft-account, hebt u toegang tot [mijn](https://www.microsoft.com/cognitive-services/subscriptions "abonnementen om de") producten weer te geven die u gebruikt, het resterende quotum en de mogelijkheid om extra producten aan uw abonnement toe te voegen.
+Zodra u bent aangemeld met uw micro soft-account, hebt u toegang tot [mijn](https://www.microsoft.com/cognitive-services/subscriptions "") abonnementen om de producten weer te geven die u gebruikt, het resterende quotum en de mogelijkheid om extra producten aan uw abonnement toe te voegen.
 
 ## <a name="upgrade-to-unlock-limits"></a>Upgrade uitvoeren naar limieten voor ontgrendelen
 

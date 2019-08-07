@@ -1,5 +1,5 @@
 ---
-title: "Power shell-Snelstartgids: Indexen maken, laden en query's uitvoeren met behulp van Azure Search REST-Api's-Azure Search"
+title: "Power shell-Snelstartgids: Indexen maken, laden en query's uitvoeren met REST-Api's-Azure Search"
 description: Hierin wordt uitgelegd hoe u een index maakt, gegevens laadt en query's uitvoert met behulp van de invoke-RestMethod van Power shell en de REST API van de Azure Search.
 ms.date: 07/11/2019
 author: heidisteen
@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.openlocfilehash: abfe418e8feac1693aea279d44b4a41fca3d1875
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 3c47a9a809357d1ad09d8a2dd2ef5a7f1a31a02d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828733"
+ms.locfileid: "68840720"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>Quickstart: Een Azure Search-index maken in Power shell met REST Api's
 > [!div class="op_single_selector"]

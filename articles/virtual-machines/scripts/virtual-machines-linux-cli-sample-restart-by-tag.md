@@ -3,8 +3,8 @@ title: Azure CLI-voorbeeldscript - Virtuele machines opnieuw opstarten | Microso
 description: Azure CLI-voorbeeldscript - Virtuele machines opnieuw opstarten op label en op id
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: allclark
-manager: douge
+author: cynthn
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: douge
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ae036d02f0655d046de8b284bfd196eda92c45db
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 78e646887a0e595589b9d0cc794029dcd4be91ca
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875401"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841399"
 ---
 # <a name="restart-vms"></a>Virtuele machines opnieuw opstarten
 
@@ -61,7 +61,7 @@ Twee van de machines krijgen een label.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Provision the VMs")]
 
-### <a name="wait"></a>Wait
+### <a name="wait"></a>Wachten
 
 Met dit script wordt elke 20 seconden gecontroleerd wat de status van het inrichten is totdat alle drie de virtuele machines zijn ingericht, of totdat het inrichten van een van de machines is mislukt.
 

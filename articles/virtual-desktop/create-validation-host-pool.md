@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: helohr
-ms.openlocfilehash: a23d9fe932556b0a685b373b060901d2c7fb8c85
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 732192e481f88c0cd3c78e9dac43970eb5be72e6
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816457"
+ms.locfileid: "68840513"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Zelfstudie: Een hostpool voor het valideren van service-updates maken
 
@@ -46,7 +46,7 @@ Set-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv
 Voer de volgende Power shell-cmdlet uit om te controleren of de validatie-eigenschap is ingesteld. Vervang de waarden tussen aanhalings tekens door de waarden die relevant zijn voor uw sessie.
 
 ```powershell
-Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv $true
+Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool"
 ```
 
 De resultaten van de cmdlet moeten er ongeveer als volgt uitzien:

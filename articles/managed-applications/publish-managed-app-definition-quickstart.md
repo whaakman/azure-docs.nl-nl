@@ -7,14 +7,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
-ms.date: 10/04/2018
+ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1f80d7e63d994f0e3eb3733b99afaa1b056f4686
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7682670131b0ef50a1480285bc379b634169e49e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252401"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840617"
 ---
 # <a name="publish-an-azure-managed-application-definition"></a>De definitie van een door Azure beheerde toepassing publiceren
 
@@ -41,7 +41,7 @@ Bij het definiëren van de beheerde toepassing selecteert u een gebruiker, groep
 Als u de object-id van uw identiteit wilt ophalen, geeft u uw user principal name op in de volgende opdracht:
 
 ```azurecli-interactive
-userid=$(az ad user show --upn-or-object-id example@contoso.org --query objectId --output tsv)
+userid=$(az ad user show --id example@contoso.org --query objectId --output tsv)
 ```
 
 Vervolgens hebt u de roldefinitie-id nodig van de ingebouwde RBAC-rol waarmee u toegang wilt verlenen aan de gebruiker. In de volgende opdracht ziet u hoe u de roldefinitie-id ophaalt voor de rol van eigenaar:
@@ -68,14 +68,14 @@ Wanneer de opdracht is voltooid, hebt u de definitie van een beheerde toepassing
 
 Enkele parameters die in het voorgaande voorbeeld worden gebruikt, zijn:
 
-* **resource-group**: De naam van de resourcegroep waar de definitie van beheerde toepassing wordt gemaakt.
-* **vergrendelingsniveau**: Het type vergrendeling op de beheerde resourcegroep geplaatst. Hiermee voorkomt u dat de klant ongewenste bewerkingen uitvoert op deze resourcegroep. ReadOnly is momenteel het enige ondersteunde vergrendelingsniveau. Als ReadOnly is opgegeven, kan de klant alleen de resources die aanwezig zijn in de beheerde resourcegroep lezen. De uitgeversidentiteiten die toegang tot de beheerde resourcegroep krijgen, zijn uitgesloten van de vergrendeling.
-* **autorisaties**: Beschrijving van de principal-ID en de roldefinitie-ID die worden gebruikt voor het verlenen van machtigingen aan de beheerde resourcegroep. Wordt opgegeven in de `<principalId>:<roleDefinitionId>`-indeling. Als meer dan één waarde is vereist, geeft u deze op in de vorm `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. De waarden worden gescheiden door een spatie.
-* **package-file-uri**: De locatie van een ZIP-pakket dat de vereiste bestanden bevat. Het pakket moet de bestanden **mainTemplate.json** en **createUiDefinition.json** bevatten. **mainTemplate.json** definieert de Azure-resources die zijn gemaakt als onderdeel van de beheerde toepassing. De sjabloon is niet anders dan een reguliere Resource Manager-sjabloon. **createUiDefinition.json** genereert de gebruikersinterface voor gebruikers die de beheerde toepassing via de portal maken.
+* **resource-group**: De naam van de resource groep waarin de definitie van de beheerde toepassing wordt gemaakt.
+* **vergrendelings niveau**: Het type vergren deling dat wordt geplaatst op de beheerde resource groep. Hiermee voorkomt u dat de klant ongewenste bewerkingen uitvoert op deze resourcegroep. ReadOnly is momenteel het enige ondersteunde vergrendelingsniveau. Als ReadOnly is opgegeven, kan de klant alleen de resources die aanwezig zijn in de beheerde resourcegroep lezen. De uitgeversidentiteiten die toegang tot de beheerde resourcegroep krijgen, zijn uitgesloten van de vergrendeling.
+* **autorisaties**: Hierin worden de principal-ID en de roldefinitie-ID beschreven die worden gebruikt voor het verlenen van machtigingen aan de beheerde resource groep. Wordt opgegeven in de `<principalId>:<roleDefinitionId>`-indeling. Als meer dan één waarde is vereist, geeft u deze op in de vorm `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. De waarden worden gescheiden door een spatie.
+* **package-file-uri**: De locatie van een zip-pakket dat de vereiste bestanden bevat. Het pakket moet de bestanden **mainTemplate.json** en **createUiDefinition.json** bevatten. **mainTemplate.json** definieert de Azure-resources die zijn gemaakt als onderdeel van de beheerde toepassing. De sjabloon is niet anders dan een reguliere Resource Manager-sjabloon. **createUiDefinition.json** genereert de gebruikersinterface voor gebruikers die de beheerde toepassing via de portal maken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 U hebt de definitie van de beheerde toepassing gepubliceerd. Nu krijgt u informatie over het implementeren van een exemplaar van deze definitie.
 
 > [!div class="nextstepaction"]
-> [Snelstart: Catalogus-app service implementeren](deploy-service-catalog-quickstart.md)
+> [Snelstart: Service catalogus-app implementeren](deploy-service-catalog-quickstart.md)

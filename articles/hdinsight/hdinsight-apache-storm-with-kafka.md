@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 001739d337d8c123023ccbf037933938113aaf2a
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 181d052501b9c418fad10a2069dde928a7ff9f38
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779600"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840250"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Zelfstudie: Apache Storm gebruiken met Apache Kafka in HDInsight
 
@@ -130,7 +130,7 @@ Er worden twee topologieën meegeleverd in deze zelfstudie:
     >
     > De script actie bevindt [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh) zich op en wordt toegepast op de Super Visor en Nimbus-knoop punten van het Storm-cluster. Zie het document [Op Linux gebaseerde HDInsight-clusters aanpassen met behulp van scriptacties](hdinsight-hadoop-customize-cluster-linux.md) voor meer informatie over het gebruik van scriptacties.
 
-De topologieën worden gedefinieerd met [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux werd geïntroduceerd in Storm 0.10.x en stelt u in staat om de topologieconfiguratie te scheiden van de code. In het geval van topologieën die gebruikmaken van het Flux-framework, wordt de topologie gedefinieerd in een YAML-bestand. Het YAML-bestand kan worden opgenomen als onderdeel van de topologie. Het kan ook een zelfstandig bestand zijn dat wordt gebruikt wanneer u de topologie indient. Flux ondersteunt ook het vervangen van variabelen tijdens runtime, wat we in dit voorbeeld doen.
+De topologieën worden gedefinieerd met [Flux](https://storm.apache.org/releases/current/flux.html). Flux werd geïntroduceerd in Storm 0.10.x en stelt u in staat om de topologieconfiguratie te scheiden van de code. In het geval van topologieën die gebruikmaken van het Flux-framework, wordt de topologie gedefinieerd in een YAML-bestand. Het YAML-bestand kan worden opgenomen als onderdeel van de topologie. Het kan ook een zelfstandig bestand zijn dat wordt gebruikt wanneer u de topologie indient. Flux ondersteunt ook het vervangen van variabelen tijdens runtime, wat we in dit voorbeeld doen.
 
 De volgende parameters worden tijdens runtime ingesteld voor deze topologieën:
 
@@ -144,7 +144,7 @@ De volgende parameters worden tijdens runtime ingesteld voor deze topologieën:
 
 * `${hdfs.write.dir}`: de map waarnaar gegevens worden weggeschreven.
 
-Zie [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html) voor meer informatie over Flux-topologieën.
+Zie [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html) voor meer informatie over Flux-topologieën.
 
 ### <a name="kafka-writer"></a>Kafka-writer
 

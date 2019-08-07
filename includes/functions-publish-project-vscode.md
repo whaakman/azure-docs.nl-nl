@@ -9,18 +9,18 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: ba3cf3e77e5414804e881e0cddb151fb14fb7fd5
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: abb8b6bed6766ff0ea85eab1434014a057af4ca3
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669611"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68843184"
 ---
 ## <a name="publish-the-project-to-azure"></a>Het project naar Azure publiceren
 
 In Visual Studio Code kunt u uw functieproject rechtstreeks in Azure publiceren. In dit proces maakt u een functie-app en de bijbehorende resources in uw Azure-abonnement. De functie-app biedt een context waar u uw functies kunt uitvoeren. Het project wordt in uw Azure-abonnement verpakt en geïmplementeerd in de nieuwe functie-app.
 
-Visual Studio maakt standaard alle Azure-resources die nodig zijn om uw functie-app te maken. De namen van deze resources zijn gebaseerd op de naam van de functie-app die u kiest. Als u volledige controle over de gemaakte resources nodig hebt, kunt u in plaats daarvan [publiceren met behulp van geavanceerde opties](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options).
+Visual Studio code maakt standaard alle Azure-resources die nodig zijn om uw functie-app te maken. De namen van deze resources zijn gebaseerd op de naam van de functie-app die u kiest. Als u volledige controle over de gemaakte resources nodig hebt, kunt u in plaats daarvan [publiceren met behulp van geavanceerde opties](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options).
 
 In deze sectie wordt ervan uitgegaan dat u een nieuwe functie-app in azure maakt.
 

@@ -1,20 +1,21 @@
 ---
-title: 'Python-zelf studie: Cognitive Services aanroepen in een indexerings pijplijn-Azure Search'
+title: 'Python-zelf studie: Cognitive Services aanroepen in een pijp lijn met AI-verrijking-Azure Search'
 description: Bekijk een voor beeld van het uitpakken van gegevens, natuurlijke taal en afbeelding AI-verwerking in Azure Search met behulp van een Jupyter python-notebook. Geëxtraheerde gegevens worden geïndexeerd en eenvoudig geopend door de query.
 manager: cgronlun
 author: LisaLeib
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: b7f1baa473ca28db696835a7b0895f1603c74770
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: af355ec353e12c30723597927883cb23dfa31e71
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359403"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840935"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Python-zelf studie: Cognitive Services-API's aanroepen in een Azure Search Indexing-pijp lijn
 
@@ -68,7 +69,7 @@ Voor alle aanvragen is een API-sleutel vereist voor elke aanvraag die naar uw se
 
 De verrijkingspijplijn haalt gegevens uit Azure-gegevensbronnen. Brongegevens moeten afkomstig zijn van een ondersteund type gegevensbron van een [Azure Search-indexeerfunctie](search-indexer-overview.md). Azure Table Storage wordt niet ondersteund voor cognitieve Zoek opdrachten. In dit voorbeeld gebruiken we blobopslag om meerdere inhoudstypen te laten zien.
 
-1. [Meld u aan bij de Azure Portal](https://portal.azure.com), navigeer naar uw Azure Storage-account , klik op blobs en klik vervolgens op **+ container**.
+1. [Meld u aan bij de Azure Portal](https://portal.azure.com), navigeer naar uw Azure Storage-account, klik op blobs en klik vervolgens op **+ container**.
 
 1. [Maak een BLOB-container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) om voorbeeld gegevens te bevatten. U kunt het niveau van open bare toegang instellen op een van de geldige waarden.
 
