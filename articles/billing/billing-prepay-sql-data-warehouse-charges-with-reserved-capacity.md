@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 08c9f958f5103da9961f4c2d29be97f455cecc4b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 6ee7a661434bb756c6cf196937229db19d06b373
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359268"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779984"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Kosten voor vooruitbetalen voor SQL Data Warehouse met gereserveerde capaciteit
 
@@ -61,15 +61,11 @@ Stel bijvoorbeeld dat uw totale verbruik van SQL Data Warehouse DW3000c is. U wi
 8. Selecteer **Aankoop**.
 9. Selecteer **deze reserve ring weer geven** om de status van uw aankoop te bekijken.
 
-## <a name="cancellations-and-exchanges"></a>Annuleringen en uitwisselingen
+## <a name="cancel-exchange-or-refund-reservations"></a>Reserve ringen annuleren, omruilen of terugbetalen
 
-Als u de gereserveerde capaciteit van SQL Data Warehouse moet annuleren, kunnen er 12% vroege ontslag kosten in rekening worden gebracht. Restituties worden gebaseerd op de laagste prijs, zijnde de aankoopprijs of de huidige prijs van de reservering, welke het laagste is. De restituties zijn beperkt tot $50.000,00 per jaar. De terugbetaling die u ontvangt, is het resterende tarief saldo min de kosten voor de vroege beëindiging van 12%. Als u wilt annuleren, gaat u naar de reserve ring in het Azure Portal en selecteert u **terugbetaling**.
+U kunt reserve ringen annuleren, vervangen of terugbetalen met bepaalde beperkingen. Zie [self-service-uitwisseling en terugbetalingen voor Azure Reservations](billing-azure-reservations-self-service-exchange-and-refund.md)voor meer informatie.
 
-Als u uw SQL Data Warehouse gereserveerde capaciteit wilt wijzigen in een andere regio of periode, kunt u deze uitwisselen voor een andere reserve ring die gelijk of hoger is. De begindatum van de periode voor de nieuwe reservering wordt niet meegenomen naar de uitgewisselde reservering. De periode van één of drie jaar wordt gestart wanneer u de nieuwe reserve ring maakt. Als u Exchange wilt, opent u de reserve ring in het Azure Portal en selecteert u **Exchange**.
-
-Zie reserverings [uitwisselingen en](billing-azure-reservations-self-service-exchange-and-refund.md)terugbetalingen voor meer informatie over het omruilen of terugbetalen van reserve ringen.
-
-De reserverings korting wordt automatisch toegepast op het aantal SQL Data Warehouse exemplaren dat overeenkomt met het bereik en de regio van de gereserveerde capaciteit van SQL Data Warehouse. U kunt het bereik van de SQL Data Warehouse gereserveerde capaciteit bijwerken met de [Azure Portal](https://portal.azure.com/), Power shell, CLI of via de API.
+Er wordt automatisch een reserverings korting toegepast op het aantal SQL Data Warehouse exemplaren dat overeenkomt met het bereik en de regio van de gereserveerde capaciteit van SQL Data Warehouse. U kunt het bereik van de SQL Data Warehouse gereserveerde capaciteit bijwerken met de [Azure Portal](https://portal.azure.com/), Power shell, CLI of via de API.
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Contact opnemen
 

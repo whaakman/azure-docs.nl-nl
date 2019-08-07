@@ -1,8 +1,7 @@
 ---
 title: PowerShell gebruiken om Application Insights in te stellen in Azure | Microsoft Docs
-description: Automatiseer het configureren van diagnostische Azure-gegevens, zodat deze worden doorgestuurd naar Application Insights.
+description: Automatisch configureren van Azure Diagnostics om gegevens te pipeen op Application Insights.
 services: application-insights
-documentationcenter: .net
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
@@ -10,16 +9,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/17/2015
+ms.date: 08/06/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3c0decaa89b4ecc503157a32fcb1e5b4d249ccfb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 89ed75e4ae3363c2cb25020e6074aa17baf94eda
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60254630"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827101"
 ---
-# <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>PowerShell gebruiken om Application Insights in te stellen voor een Azure-web-app
+# <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>Power shell gebruiken voor het instellen van Application Insights voor Azure Cloud Services
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -46,7 +45,7 @@ Als de web-app in Azure wordt uitgevoerd en u uw resources maakt met een Azure R
      } 
 
 * `nameOfAIAppResource`: een naam voor de Application Insights-resource
-* `myWebAppName` -de ID van de web-app
+* `myWebAppName`-de ID van de web-app
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>De extensie voor diagnostische gegevens inschakelen als onderdeel van het implementeren van een cloudservice
 De cmdlet `New-AzureDeployment` bevat de parameter `ExtensionConfiguration`, die overweg kan met vele configuraties voor diagnostische gegevens. Deze kunnen worden gemaakt met de cmdlet `New-AzureServiceDiagnosticsExtensionConfig`. Bijvoorbeeld:

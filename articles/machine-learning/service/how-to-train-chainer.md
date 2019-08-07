@@ -1,7 +1,7 @@
 ---
-title: Keten modellen trainen en registreren
+title: Een diepe Learning Neural-netwerk trainen met Chainer
 titleSuffix: Azure Machine Learning service
-description: Dit artikel laat u zien hoe u een Chainer-model kunt trainen en registreren met behulp van Azure Machine Learning-service.
+description: Meer informatie over het uitvoeren van uw PyTorch-trainings scripts op ondernemings schaal met behulp van de Estimator-klasse van Azure Machine Learning Chainer.  In het voorbeeld script classifis worden handgeschreven cijfer afbeeldingen gemaakt om een diep gaande Neural-netwerk te bouwen met behulp van de keten python-bibliotheek die op numpy wordt uitgevoerd.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
-ms.date: 06/15/2019
-ms.openlocfilehash: 7cf5650708cd951e872e3df6ea533a62bde0389d
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.date: 08/02/2019
+ms.openlocfilehash: f95a7efd8b9303db0a9ba98c1be32e13d0c5e984
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618341"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780887"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Keten modellen trainen en registreren op schaal met Azure Machine Learning-service
 
-Dit artikel laat u zien hoe u een Chainer-model kunt trainen en registreren met behulp van Azure Machine Learning-service. De populaire MNIST- [gegevensset](http://yann.lecun.com/exdb/mnist/) wordt gebruikt om handgeschreven cijfers te classificeren met behulp van een diepe Neural Network (DNN) die is gebouwd met behulp van de [python-bibliotheek](https://Chainer.org) van de keten die op [numpy](https://www.numpy.org/)wordt uitgevoerd.
+In dit artikel leert u hoe u uw [Chainer](https://chainer.org/) -trainings scripts kunt uitvoeren op ENTER prise Scale met behulp van de [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) -klasse van Azure machine learning. In het voorbeeld script in dit artikel wordt gebruikgemaakt van de populaire [MNIST-gegevensset](http://yann.lecun.com/exdb/mnist/) om handgeschreven cijfers te classificeren met behulp van een diepe Neural Network (DNN) die is gebouwd met behulp van de python-bibliotheek van de keten die boven op [numpy](https://www.numpy.org/)wordt uitgevoerd.
 
-Chainer is een Neural netwerk-API op hoog niveau die op andere populaire DNN-Frameworks kan worden uitgevoerd om de ontwikkeling te vereenvoudigen. Met Azure Machine Learning-service kunt u trainings taken snel uitschalen met behulp van elastische Cloud Compute-resources. U kunt ook uw trainings uitvoeringen, versie modellen, implementatie modellen en nog veel meer volgen.
+Of u nu een diep gaande leer keten van het model traint of een bestaand model in de Cloud brengt, u kunt Azure Machine Learning gebruiken om open-source trainings taken uit te breiden met behulp van elastische Cloud Compute-resources. U kunt modellen voor productie kwaliteit bouwen, implementeren, versie en bewaken met Azure Machine Learning. 
 
-Of u nu een ketting model ontwikkelt of een bestaand model in de Cloud brengt, Azure Machine Learning-service kan u helpen bij het bouwen van modellen die gereed zijn voor productie.
+Meer informatie over [uitgebreide kennis en machine learning](concept-deep-learning-vs-machine-learning.md).
 
 Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
@@ -33,8 +33,8 @@ Voer deze code uit in een van de volgende omgevingen:
 
 - Azure Machine Learning-notebook-VM-geen down loads of installatie vereist
 
-    - Voltooi de [Snelstartgids](quickstart-run-cloud-notebook.md) in de cloud om een toegewezen notebook server te maken vooraf geladen met de SDK en de voor beeld-opslag plaats.
-    - Zoek in de map met voor beelden op de notebook server een voltooide notebook en bestanden in de map **How-to-use-azureml/training-with-diepe-Learning/Train-afstemming-Tune-Deploy-with-Chainer** .  Het notitie blok bevat uitgebreide secties die betrekking hebben op intelligent afstemming tuning, model implementatie en notebook widgets.
+    - U moet de [Zelfstudie: Omgeving en werk ruimte](tutorial-1st-experiment-sdk-setup.md) instellen voor het maken van een toegewezen notebook server vooraf geladen met de SDK en de voor beeld-opslag plaats.
+    - Zoek in de map met de voor beelden diepe Learning op de notebook server naar een voltooide notebook en bestanden in de map **How-to-use-azureml/training-with-diepe-Learning/Train-afstemming-Tune-Deploy-with-Chainer** .  Het notitie blok bevat uitgebreide secties die betrekking hebben op intelligent afstemming tuning, model implementatie en notebook widgets.
 
 - Uw eigen Jupyter Notebook-server
 
@@ -94,7 +94,7 @@ import shutil
 shutil.copy('chainer_mnist.py', project_folder)
 ```
 
-### <a name="create-an-experiment"></a>Een experiment maken
+### <a name="create-a-deep-learning-experiment"></a>Een diep leer experiment maken
 
 Een experiment maken. In dit voor beeld maakt u een experiment met de naam ' Chainer-mnist '.
 
@@ -209,9 +209,7 @@ for f in run.get_file_names():
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u een ketting model getraind op Azure Machine Learning service. 
-
-* Ga verder met ons [model implementatie](how-to-deploy-and-where.md) artikel voor meer informatie over het implementeren van een model.
+In dit artikel hebt u een diep gaande training getraind en geregistreerd, Neural-netwerk met Chainer op Azure Machine Learning service. Ga verder met ons [model implementatie](how-to-deploy-and-where.md) artikel voor meer informatie over het implementeren van een model.
 
 * [Afstemmen van hyperparameters](how-to-tune-hyperparameters.md)
 

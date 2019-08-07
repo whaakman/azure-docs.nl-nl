@@ -14,90 +14,95 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: 2add03d68b00fb18fb4323a6acd04480b3770c1c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: efc76616151776bc2f766f92ff9503413c6037d0
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708419"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774269"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure voor on-demand Red Hat Enterprise Linux-machines in Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) kunt u cloudproviders, zoals Azure, voor het spiegelen van de inhoud van Red Hat gehoste opslagplaats, aangepaste opslagplaatsen maken met Azure-specifieke inhoud en het beschikbaar maken voor virtuele machines door eindgebruikers.
 
 Red Hat Enterprise Linux (RHEL) betalen naar gebruik (betalen per gebruik) afbeeldingen afkomstig zijn vooraf geconfigureerd voor toegang tot Azure RHUI. Er is geen aanvullende configuratie nodig. Uitvoeren als u de meest recente updates, `sudo yum update` nadat uw RHEL-exemplaar gereed is. Deze service is opgenomen als onderdeel van de kosten voor de RHEL PAYG-software.
 
-Meer informatie over de RHEL-installatiekopieën in Azure, met inbegrip van publicatie- en bewaarbeleid, is beschikbaar [hier](./rhel-images.md).
+Meer informatie over RHEL-installatie kopieën in azure, met inbegrip van publicatie-en bewaar beleid, is [hier](./rhel-images.md)beschikbaar.
 
-Informatie over het beleid voor Red Hat-ondersteuning voor alle versies van RHEL vindt u op de [Red Hat Enterprise Linux-levenscyclus](https://access.redhat.com/support/policy/updates/errata) pagina.
+Informatie over Red Hat-ondersteunings beleid voor alle versies van RHEL vindt u op de pagina [levens cyclus van Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata) .
 
 ## <a name="important-information-about-azure-rhui"></a>Belangrijke informatie over Azure RHUI
-* Azure RHUI is de update-infrastructuur die ondersteuning biedt voor alle RHEL betalen per gebruik virtuele machines in Azure hebt gemaakt. Dit betekent niet dat u het registreren van uw betalen per gebruik-RHEL VM's met Doelabonnementbeheerder of satelliet of een andere bron van updates, maar doet dit met een VM PAYG zal leiden tot indirecte double-facturering. Zie het volgende punt voor meer informatie.
-* Toegang tot de RHUI wordt gehost op Azure is opgenomen in de prijs van de installatiekopie RHEL PAYG. Als u een betalen per gebruik-RHEL VM uit de RHUI wordt gehost op Azure registratie is dat de virtuele machine niet converteren naar een type bring-your-own-license (BYOL) van virtuele machine. Als u dezelfde virtuele machine met een andere bron van de updates hebt geregistreerd, kunnen kosten voor _indirecte_ dubbele kosten in rekening gebracht. U betaalt het eerst voor de kosten van Azure RHEL-software. De tweede keer voor Red Hat-abonnementen die eerder zijn gekocht, moet u betalen. Als u consistent gebruik van een update-infrastructuur dan RHUI wordt gehost op Azure moet, kunt u registreren voor het gebruik van de [BYOS RHEL-installatiekopieën](https://aka.ms/rhel-byos).
-* Het standaardgedrag van RHUI is uw RHEL VM bijwerken naar de nieuwste secundaire versie tijdens het uitvoeren van `sudo yum update`.
+* Azure RHUI is de update-infra structuur die ondersteuning biedt voor alle RHEL PAYG-Vm's die zijn gemaakt in Azure. Dit verhindert u niet dat u uw PAYG RHEL-Vm's kunt registreren met abonnements Manager of satelliet of andere bron van updates, maar wel met een PAYG-VM, resulteert dit in indirect dubbel facturering. Zie het volgende punt voor meer informatie.
+* Toegang tot de RHUI wordt gehost op Azure is opgenomen in de prijs van de installatiekopie RHEL PAYG. Als u een betalen per gebruik-RHEL VM uit de RHUI wordt gehost op Azure registratie is dat de virtuele machine niet converteren naar een type bring-your-own-license (BYOL) van virtuele machine. Als u dezelfde virtuele machine met een andere bron van de updates hebt geregistreerd, kunnen kosten voor _indirecte_ dubbele kosten in rekening gebracht. U betaalt het eerst voor de kosten van Azure RHEL-software. De tweede keer voor Red Hat-abonnementen die eerder zijn gekocht, moet u betalen. Als u een andere update-infra structuur dan een door Azure gehoste RHUI wilt gebruiken, kunt u overwegen om te registreren voor het gebruik van de [RHEL BYOS-installatie kopieën](https://aka.ms/rhel-byos).
+* Het standaard gedrag van RHUI is om uw RHEL-VM bij te werken naar de meest recente secundaire `sudo yum update`versie wanneer u uitvoert.
 
     Bijvoorbeeld, als u een virtuele machine van een installatiekopie van een RHEL 7.4 PAYG inrichten en voer `sudo yum update`, krijgt u uiteindelijk met een 7.6 RHEL VM (de nieuwste secundaire versie in de familie RHEL7).
 
-    Om te voorkomen dat dit probleem, kunt u overschakelen naar [Update-ondersteuningskanalen uitgebreid](#rhel-eus-and-version-locking-rhel-vms) of bouw uw eigen installatiekopie, zoals beschreven in de [maken en uploaden, een Red Hat gebaseerde virtuele machine voor Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artikel. Als u uw eigen installatiekopie maakt, moet u verbinding maakt met een andere update-infrastructuur ([rechtstreeks naar Red Hat content delivery servers](https://access.redhat.com/solutions/253273) of een [Red Hat satelliet server](https://access.redhat.com/products/red-hat-satellite)).
+    Om dit gedrag te voor komen, kunt u overschakelen naar de ondersteunings [kanalen voor uitgebreide updates](#rhel-eus-and-version-locking-rhel-vms) of uw eigen installatie kopie bouwen, zoals beschreven in het artikel [een op Red Hat gebaseerde virtuele machine maken en uploaden voor Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) . Als u uw eigen installatie kopie bouwt, moet u deze verbinden met een andere update-infra structuur ([rechtstreeks op een Red Hat content delivery servers](https://access.redhat.com/solutions/253273) of een [Red Hat Satellite-Server](https://access.redhat.com/products/red-hat-satellite)).
 
 
 
-* SAP betalen per gebruik RHEL-installatiekopieën in Azure (RHEL for SAP, RHEL for SAP HANA en RHEL for SAP Business Applications) zijn verbonden met specifieke RHUI-kanalen die op de specifieke RHEL secundaire versie zoals vereist voor de SAP-certificering blijven.
+* RHEL SAP PAYG-installatie kopieën in azure (RHEL for SAP, RHEL for SAP HANA en RHEL for SAP Business Applications) zijn verbonden met toegewezen RHUI-kanalen die blijven gelden voor de specifieke RHEL-versie zoals vereist voor SAP-certificering.
 
 * Toegang tot Azure gehoste RHUI is beperkt tot de virtuele machines binnen de [Azure datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). Als u via een proxy alle VM-verkeer via een on-premises netwerkinfrastructuur, moet u mogelijk voor het instellen van de gebruiker gedefinieerde routes voor de RHEL-betalen per gebruik virtuele machines voor toegang tot de Azure-RHUI.
 
-## <a name="rhel-eus-and-version-locking-rhel-vms"></a>RHEL EUS en versie vergrendelen RHEL VM 's
-Sommige klanten willen hun RHEL VM's naar een bepaalde kleine RHEL-versie vergrendelen. U kunt uw RHEL VM naar een specifieke secundaire versie versie-lock door bij te werken van de opslagplaatsen om te verwijzen naar de uitgebreide ondersteuning voor Update-opslagplaatsen. U kunt ook de EUS versie vergrendelen bewerking ongedaan te maken.
+## <a name="rhel-eus-and-version-locking-rhel-vms"></a>RHEL EUS en versie-vergren delen RHEL Vm's
+Sommige klanten willen hun RHEL-Vm's wellicht vergren delen met een bepaalde RHEL-kleine release. U kunt uw RHEL-VM met een specifieke secundaire versie vergren delen door de opslag plaatsen bij te werken zodat deze verwijzen naar de ondersteunings opslagplaatsen voor uitgebreide updates. U kunt ook de vergrendelings bewerking van de EUS-versie ongedaan maken.
 
 >[!NOTE]
-> EUS wordt niet ondersteund op RHEL extra's. Dit betekent dat als u een pakket dat is gewoonlijk beschikbaar in het kanaal RHEL extra's installeert, kunt u niet zich om dit te doen terwijl op EUS. De levenscyclus van Red Hat extra's wordt toegelicht [hier](https://access.redhat.com/support/policy/updates/extras/).
+> EUS wordt niet ondersteund voor RHEL-Extra's. Dit betekent dat als u een pakket installeert dat doorgaans beschikbaar is via het RHEL Extrass-kanaal, u dit niet kunt doen wanneer u op EUS. De product levenscyclus van Red Hat extras wordt [hier](https://access.redhat.com/support/policy/updates/extras/)beschreven.
 
-Op het moment van dit artikel is geschreven, EUS ondersteuning is beëindigd voor RHEL < = 7.3. Zie de sectie 'Red Hat Enterprise Linux langer ondersteuning voor invoegtoepassingen' in de [Red Hat documentatie](https://access.redhat.com/support/policy/updates/errata/) voor meer informatie.
-* RHEL 7.4 EUS ondersteuning wordt beëindigd en met 31 augustus 2019
-* RHEL 7.5 EUS ondersteuning wordt beëindigd op 30 April 2020
-* RHEL 7.6 EUS ondersteuning wordt beëindigd op 31 oktober 2020
+Op het moment van deze schrijf bewerking is de EUS-ondersteuning voor RHEL < = 7,3 beëindigd. Zie de sectie ' Red Hat Enterprise Linux meer ondersteuning voor invoeg toepassingen ' in de [Red Hat-documentatie](https://access.redhat.com/support/policy/updates/errata/) voor meer informatie.
+* RHEL 7,4 EUS-ondersteuning eindigt op 31 augustus 2019
+* RHEL 7,5 EUS support eindigt op 30 april 2020
+* RHEL 7,6 EUS-ondersteuning eindigt op 31 oktober 2020
 
-### <a name="switch-a-rhel-vm-to-eus-version-lock-to-a-specific-minor-version"></a>Een RHEL VM overschakelen naar EUS (versie-lock naar een specifieke secundaire versie)
-Gebruik de volgende instructies om te vergrendelen van een RHEL VM naar een specifieke secundaire versie (uitvoeren als hoofdgebruiker):
+### <a name="switch-a-rhel-vm-to-eus-version-lock-to-a-specific-minor-version"></a>Een RHEL-VM overschakelen naar EUS (versie-vergren delen naar een specifieke secundaire versie)
+Gebruik de volgende instructies om een RHEL-VM te vergren delen naar een bepaalde kleine release (uitvoeren als root):
 
 >[!NOTE]
-> Dit geldt alleen voor RHEL-versies waarvoor EUS beschikbaar is. Dit omvat RHEL 7.2 7.6 op het moment van schrijven. Meer details zijn beschikbaar op de [Red Hat Enterprise Linux-levenscyclus](https://access.redhat.com/support/policy/updates/errata) pagina.
+> Dit geldt alleen voor RHEL-versies waarvoor EUS beschikbaar is. Op het moment van deze schrijf bewerking omvat dit RHEL 7,2-7,6. Meer informatie vindt u op de pagina [Red Hat Enterprise Linux levens cyclus](https://access.redhat.com/support/policy/updates/errata) .
 
-1. Niet-EUS opslagplaatsen uitschakelen:
+1. Niet-EUS-opslag plaatsen uitschakelen:
     ```bash
     yum --disablerepo='*' remove 'rhui-azure-rhel7'
     ```
 
-1. EUS opslagplaatsen toevoegen:
+1. EUS opslag plaatsen toevoegen:
     ```bash
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config' install 'rhui-azure-rhel7-eus'
     ```
 
-1. Vergrendel de releasever variabele (uitvoeren als hoofdgebruiker):
+1. De variabele releasever vergren delen (uitvoeren als root):
     ```bash
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
     ```
 
     >[!NOTE]
-    > De bovenstaande instructies, de secundaire versie van RHEL naar de huidige secundaire versie wordt vergrendeld. Voer een specifieke secundaire versie als u wilt bijwerken en een vergrendeling van naar een hoger secundaire versie aan die niet de nieuwste versie. Bijvoorbeeld, `echo 7.5 > /etc/yum/vars/releasever` uw RHEL-versie op RHEL 7,5 wordt vergrendeld
+    > Met de bovenstaande instructie wordt de RHEL-secundaire release vergrendeld op de huidige secundaire release. Voer een specifieke kleine release in als u een upgrade wilt uitvoeren en wilt vergren delen naar een latere secundaire versie die niet het meest recent is. Uw RHEL- `echo 7.5 > /etc/yum/vars/releasever` versie wordt bijvoorbeeld vergrendeld op RHEL 7,5
 
-1. Uw RHEL VM bijwerken
+1. Uw RHEL-VM bijwerken
     ```bash
     sudo yum update
     ```
 
-### <a name="switch-a-rhel-vm-back-to-non-eus-remove-a-version-lock"></a>Een RHEL VM wilt terugkeren naar niet-EUS (Verwijder de vergrendeling van een versie)
-Voer het volgende als hoofdmap:
-1. Verwijder het bestand releasever:
+### <a name="switch-a-rhel-vm-back-to-non-eus-remove-a-version-lock"></a>Overschakelen van een RHEL-VM naar een niet-EUS (een versie vergrendeling verwijderen)
+Voer het volgende uit als root:
+1. Verwijder het releasever-bestand:
     ```bash
     rm /etc/yum/vars/releasever
      ```
 
-1. EUS opslagplaatsen uitschakelen:
+1. EUS opslag plaatsen uitschakelen:
     ```bash
     yum --disablerepo='*' remove 'rhui-azure-rhel7-eus'
    ```
 
-1. Uw RHEL VM bijwerken
+1. RHEL VM configureren
+    ```bash
+    yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
+    ```
+    
+1. Uw RHEL-VM bijwerken
     ```bash
     sudo yum update
     ```
@@ -127,20 +132,20 @@ Als u verder beperken van toegang van RHEL betalen per gebruik virtuele machines
 51.4.228.145
 ```
 
-## <a name="azure-rhui-infrastructure"></a>Azure RHUI-infrastructuur
+## <a name="azure-rhui-infrastructure"></a>Azure RHUI-infra structuur
 
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Verlopen RHUI-clientcertificaat op een virtuele machine bijwerken
 
-Als u een oudere RHEL VM-installatiekopie, bijvoorbeeld RHEL 7.4 (image-URN: `RedHat:RHEL:7.4:7.4.2018010506`), wordt er verbindingsproblemen met RHUI vanwege een nu verlopen SSL-clientcertificaat. De fout die u ziet eruit als _'SSL peer geweigerd uw certificaat als verlopen'_ of _' fout: Kan de opslagplaats metagegevens (repomd.xml) voor de opslagplaats niet ophalen:... Controleer of het pad en probeer het opnieuw"_ . Werk de RHUI-clientpakket op de virtuele machine met behulp van de volgende opdracht uit om dit probleem oplossen:
+Als u een oudere RHEL-VM-installatie kopie gebruikt, bijvoorbeeld RHEL 7,4 (installatie kopie urn `RedHat:RHEL:7.4:7.4.2018010506`:), treden er connectiviteits problemen op RHUI vanwege een nu-verlopen SSL-client certificaat. De fout die u ziet, kan eruitzien _als "SSL-peer heeft uw certificaat afgewezen als verlopen"_ of _"fout: Kan de meta gegevens van de opslag plaats (repomd. XML) niet ophalen voor de opslag plaats:... Controleer het pad en probeer het opnieuw_. Als u dit probleem wilt verhelpen, moet u het RHUI-client pakket op de VM bijwerken met de volgende opdracht:
 
 ```bash
 sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
 ```
 
-U kunt ook uitgevoerd `sudo yum update` het clientpakket certificaat (afhankelijk van de RHEL-versie), kan ook worden bijgewerkt ondanks fouten van 'verlopen SSL-certificaat' u voor andere opslagplaatsen ziet. Als deze update geslaagd is, normale connectiviteit met andere RHUI-opslagplaatsen moet worden hersteld, zodat u kunt uitvoeren `sudo yum update` is.
+U kunt ook het `sudo yum update` client certificaat pakket bijwerken (afhankelijk van uw RHEL-versie), ondanks dat er fouten met het ' verlopen SSL-certificaat ' worden weer geven voor andere opslag plaatsen. Als deze update is geslaagd, moet de normale connectiviteit met andere RHUI-opslag plaatsen worden hersteld, zodat u kunt worden uitgevoerd `sudo yum update` .
 
-Als u een 404-fout tijdens de uitvoering een `yum update`, probeert u het volgende als u wilt vernieuwen van uw yum-cache:
+Als er een 404-fout optreedt tijdens het uitvoeren `yum update`van een, voert u de volgende handelingen uit om de yum-cache te vernieuwen:
 ```bash
 sudo yum clean all;
 sudo yum makecache
@@ -159,7 +164,7 @@ Als u problemen hebt met het verbinding maken met Azure RHUI vanuit uw virtuele 
 
 1. Als u de nieuwe configuratie, hebt gecontroleerd dat de virtuele machine verbinding vanuit de Azure-IP-adresbereik maakt en nog steeds geen verbinding met Azure RHUI, bestand een ondersteuningscase met Microsoft of Red Hat maken.
 
-### <a name="infrastructure-update"></a>Infrastructuur-update
+### <a name="infrastructure-update"></a>Infrastructuur update
 
 In September 2016 gaan we een bijgewerkte Azure RHUI geïmplementeerd. In April 2017 wordt de oude Azure RHUI afgesloten. Als u eerder hebt gebruikt de PAYG RHEL-installatiekopieën (of hun momentopnamen) vanaf September 2016 of hoger, bent u automatisch verbinding met de nieuwe Azure-RHUI. Als u oudere momentopnamen echter op uw virtuele machines hebt, moet u handmatig bijwerken hun configuratie voor toegang tot de Azure-RHUI zoals beschreven in een volgende sectie.
 
@@ -180,5 +185,5 @@ Deze procedure is alleen ter informatie bedoeld. Er is al de juiste configuratie
 
 ## <a name="next-steps"></a>Volgende stappen
 * Een Red Hat Enterprise Linux-VM maken vanaf een betalen per gebruik van Azure Marketplace-installatiekopie en RHUI wordt gehost op Azure gebruiken, gaat u naar de [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).
-* Voor meer informatie over de Red Hat-afbeeldingen in Azure, gaat u naar de [documentatiepagina](./rhel-images.md).
-* Informatie over het beleid voor Red Hat-ondersteuning voor alle versies van RHEL vindt u op de [Red Hat Enterprise Linux-levenscyclus](https://access.redhat.com/support/policy/updates/errata) pagina.
+* Ga naar de [documentatie pagina](./rhel-images.md)voor meer informatie over de Red Hat-afbeeldingen in Azure.
+* Informatie over Red Hat-ondersteunings beleid voor alle versies van RHEL vindt u op de pagina [levens cyclus van Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata) .

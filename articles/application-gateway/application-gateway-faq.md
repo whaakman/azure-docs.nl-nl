@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: dc3b9cceda10ae1ff648306236d5ac4868b5b426
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5bfb3a093cd101f30daf4439dc8f58b5b4f693ca
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722160"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740875"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Veelgestelde vragen over Application Gateway
 
@@ -101,7 +101,7 @@ Ja. Zie [wijzigingen aan een aanvraag](https://docs.microsoft.com/azure/applicat
 
 Het kan Maxi maal 20 minuten duren voordat nieuwe SKU-implementaties van Application Gateway v1 beschikbaar zijn. Wijzigingen in de exemplaar grootte of het aantal zijn niet verstoord en de gateway blijft actief gedurende deze periode.
 
-Implementaties die gebruikmaken van de v2-SKU kunnen tot wel zes minuten duren.
+De meeste implementaties die gebruikmaken van de v2-SKU nemen ongeveer 6 minuten in beslag. Het kan echter langer duren, afhankelijk van het type implementatie. Implementaties over meerdere Beschikbaarheidszones met veel instanties kunnen bijvoorbeeld meer dan 6 minuten duren. 
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Kan ik Exchange Server gebruiken als een back-end met Application Gateway?
 
@@ -323,10 +323,6 @@ Ja. U kunt DDoS-beveiliging inschakelen voor het virtuele netwerk waarin de toep
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Zijn er richt lijnen beschikbaar om te migreren van de V1-SKU naar de v2-SKU?
 
 Ja. Voor meer informatie raadpleegt u [Azure-toepassing gateway en Web Application firewall van v1 naar v2](migrate-v1-v2.md).
-
-### <a name="does-waf-support-non-utf-8-encoding"></a>Ondersteunt WAF niet UTF-8-code ring?
-
-Nee. WAF ondersteunt momenteel alleen UTF-8-code ring.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostische gegevens en logboekregistratie
 

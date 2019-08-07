@@ -1,0 +1,64 @@
+---
+title: bewakings fout van de lockup-CPU van een Azure HDInsight-cluster
+description: Er wordt een tijdelijke Lockup-CPU voor een watchdog-fout weer gegeven in kernel syslogs
+ms.service: hdinsight
+ms.topic: troubleshooting
+author: hrasheed-msft
+ms.author: hrasheed
+ms.date: 08/05/2019
+ms.openlocfilehash: 9278c174d96cb6b1823c8dbfdcba197b7a3c05cc
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68829175"
+---
+# <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Scenario: ' watchdog: BUG: zachte Lockup-CPU-fout van een Azure HDInsight-cluster
+
+In dit artikel worden de stappen beschreven voor het oplossen van problemen en mogelijke oplossingen voor problemen bij het werken met Azure HDInsight-clusters.
+
+## <a name="issue"></a>Probleem
+
+De kernel-syslogs bevatten het volgende fout `watchdog: BUG: soft lockup - CPU`bericht:.
+
+## <a name="cause"></a>Oorzaak
+
+Een [fout](https://bugzilla.kernel.org/show_bug.cgi?id=199437) in de Linux-kernel veroorzaakt CPU-Soft-Lockups.
+
+## <a name="resolution"></a>Oplossing
+
+Kernel-patch Toep assen. In het onderstaande script wordt de Linux-kernel bijgewerkt en worden de machines op verschillende tijdstippen in 24 uur opnieuw opgestart. Voer de script actie uit in twee batches. De eerste batch bevindt zich op alle knoop punten, behalve het hoofd knooppunt. De tweede batch bevindt zich op het hoofd knooppunt. Voer niet op het hoofd knooppunt en andere knoop punten tegelijk uit.
+
+1. Ga vanuit Azure Portal naar uw HDInsight-cluster.
+
+1. Ga naar script acties.
+
+1. Selecteer **nieuwe verzenden** en voer de invoer als volgt in
+
+    | Eigenschap | Waarde |
+    | --- | --- |
+    | Scripttype | -Aangepast |
+    | Name |Oplossing voor een probleem met de kernel-zachte vergrendeling |
+    | Bash-script-URI |`https://raw.githubusercontent.com/hdinsight/hdinsight.github.io/master/ClusterCRUD/KernelSoftLockFix/scripts/KernelSoftLockIssue_FixAndReboot.sh` |
+    | Knooppunt type (n) |Werk nemer, Zookeeper |
+    | Parameters |N/A |
+
+    Selecteer **Deze script actie persistent maken...** als u het script wilt uitvoeren wanneer er nieuwe knoop punten worden toegevoegd.
+
+1. Selecteer **Maken**.
+
+1. Wacht totdat de uitvoering is geslaagd.
+
+1. Voer de script actie uit op het hoofd knooppunt door dezelfde stappen te volgen als stap 3, maar deze keer met knooppunt typen: Horen.
+
+1. Wacht totdat de uitvoering is geslaagd.
+
+## <a name="next-steps"></a>Volgende stappen
+
+Als u het probleem niet ziet of als u het probleem niet kunt oplossen, gaat u naar een van de volgende kanalen voor meer ondersteuning:
+
+* Krijg antwoorden van Azure-experts via de [ondersteuning van Azure Community](https://azure.microsoft.com/support/community/).
+
+* Maak verbinding [@AzureSupport](https://twitter.com/azuresupport) met-het officiële Microsoft Azure account voor het verbeteren van de gebruikers ervaring door de Azure-community te verbinden met de juiste resources: antwoorden, ondersteuning en experts.
+
+* Als u meer hulp nodig hebt, kunt u een ondersteunings aanvraag indienen via de [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecteer **ondersteuning** in de menu balk of open de hub **Help en ondersteuning** . Lees voor meer gedetailleerde informatie [hoe u een ondersteunings aanvraag voor Azure maakt](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). De toegang tot abonnementen voor abonnements beheer en facturering is inbegrepen bij uw Microsoft Azure-abonnement en technische ondersteuning wordt geleverd via een van de ondersteunings [abonnementen voor Azure](https://azure.microsoft.com/support/plans/).

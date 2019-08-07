@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: a4947349e64d5f9bf95a9213701dc62a0e018b8f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 300dd634cc99e5203145619b475d813705f09553
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501307"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815689"
 ---
 # <a name="create-a-new-saas-offer"></a>Een nieuwe SaaS-aanbieding maken
 
@@ -271,7 +271,7 @@ Als u de beschrijving van uw aanbieding aantrekkelijker wilt maken, kunt u HTML-
         <li> Voeg hier tekst toe </li> 
     </ul> 
 
-1. `</b>`  Voeg`<b>` aan het begin van de tekst die u wilt vet toe en voeg toe aan het einde van de tekst die u wilt vet weer gegeven aan de inhoud. 
+1. `</b>` Voeg`<b>` aan het begin van de tekst die u wilt vet toe en voeg toe aan het einde van de tekst die u wilt vet weer gegeven aan de inhoud. 
 
     **Voor beeld**: `<b>`GRATIS PROEF VERSIE`</b>`
     
@@ -317,7 +317,7 @@ Als u de beschrijving van uw aanbieding aantrekkelijker wilt maken, kunt u HTML-
 
 #### <a name="contact-information"></a>Contactgegevens
 
-- **Contact personen**: Geef voor elke contact persoon van de klant de **naam** , het **telefoon nummer**en het **e-mail** adres van de werk nemer op.  (Deze worden *niet* openbaar weer gegeven). Er is ook een ondersteunings- **URL** vereist voor de contact groep van de **ondersteuning** .  ( *Deze gegevens worden* openbaar weer gegeven).
+- **Contact personen**: Geef voor elke contact persoon van de klant de **naam** , het **telefoon nummer**en het **e-mail** adres van de werk nemer op.  (Deze worden *niet* openbaar weer gegeven). Er is ook een ondersteunings- **URL** vereist voor de contact groep van de **ondersteuning** .  (Deze gegevens worden openbaar weer gegeven).
 
 **Contact opnemen met ondersteuning** (vereist): Voor algemene ondersteunings vragen.
 
@@ -431,7 +431,7 @@ Als u al prijzen voor uw abonnement hebt ingesteld in Verenigde Staten dollars (
 
 **Vast aantal:** Schakel toegang tot uw aanbieding in met een enkelvoudige prijs per maand of per jaar. Dit wordt soms ook wel site-gebaseerde prijzen genoemd. Met dit prijs model kunt u optioneel plannen met gecontroleerde licenties definiëren die gebruikmaken van de API voor de Marketplace-meter service om klanten in rekening te brengen op basis van niet-standaard eenheden.  Zie voor meer informatie over het gebruik van facturen [met data limieten met behulp van de Marketplace-meter service](./saas-metered-billing.md).
 
-**Seat gebaseerd:** U kunt toegang tot uw aanbieding bieden met de prijs op basis van het aantal gebruikers dat toegang heeft tot de aanbieding of voor het innemen van seats. Met dit model op basis van seat kunt u het minimale en maximale aantal stoelen instellen dat is toegestaan op basis van de prijs. Op deze manier kunnen verschillende prijs punten worden geconfigureerd op basis van het aantal gebruikers door het configureren van meerdere plannen.  Deze velden zijn optioneel. Als dit veld leeg blijft, wordt het aantal stoelen geïnterpreteerd als een limiet (mini maal 1 en Maxi maal zo groot als het systeem kan ondersteunen). Deze velden kunnen worden bewerkt als onderdeel van een update voor uw abonnement.
+**Per gebruiker:** U kunt toegang tot uw aanbieding bieden met de prijs op basis van het aantal gebruikers dat toegang heeft tot de aanbieding of voor het innemen van seats. Met dit op gebruikers gebaseerd model kunt u het minimum en maximum aantal gebruikers instellen dat is toegestaan op basis van de prijs. Op deze manier kunnen verschillende prijs punten worden geconfigureerd op basis van het aantal gebruikers door het configureren van meerdere plannen.  Deze velden zijn optioneel. Als deze optie niet is geselecteerd, wordt het aantal gebruikers geïnterpreteerd als een limiet van Mini maal 1 en Maxi maal zo lang het systeem kan ondersteunen. Deze velden kunnen worden bewerkt als onderdeel van een update voor uw abonnement.
 
 Na publicatie kan de prijs model keuze van facturering niet worden gewijzigd. Daarnaast moeten alle abonnementen voor hetzelfde aanbod hetzelfde prijs model delen.
 
@@ -549,7 +549,7 @@ Als u het test station namens u wilt implementeren, moet u een afzonderlijk, uni
 
 - **Azure AD-App-ID** (vereist): Voer uw Azure Active Directory (AD) [-toepassings-id](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)in. Als u deze ID wilt vinden, meldt u zich aan bij de [Azure Portal](https://portal.azure.com/), selecteert u het tabblad Active Directory in het menu aan de linkerkant, selecteert u **app-registraties**en zoekt u naar het weer gegeven **toepassings-id** -nummer (bijvoorbeeld 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD-App-client geheim** (vereist): Voer uw Azure AD-toepassings [client geheim](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)in. Als u deze waarde wilt vinden, meldt u zich aan bij de [Azure Portal](https://portal.azure.com/). Selecteer in het linkermenu het tabblad **Azure Active Directory** , selecteer **app-registraties**en selecteer vervolgens uw test drive-app. Selecteer vervolgens **certificaten en geheimen**, selecteer **Nieuw client geheim**, voer een beschrijving in, selecteer **nooit** onder verlooptd en kies vervolgens **toevoegen**. Zorg ervoor dat u de waarde kopieert. (Verlaat de pagina niet voordat u dit doet, anders hebt u geen toegang tot de waarde.)
+- **Azure AD-App-client geheim** (vereist): Voer uw Azure AD-toepassings [client geheim](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)in. Als u deze waarde wilt vinden, meldt u zich aan bij de [Azure Portal](https://portal.azure.com/). Selecteer in het linkermenu het tabblad **Azure Active Directory** , selecteer **app-registraties**en selecteer vervolgens uw test drive-app. Selecteer vervolgens **certificaten en geheimen**, selecteer **Nieuw client geheim**, voer een beschrijving in, selecteer **nooit** onderverlooptd en kies vervolgens **toevoegen**. Zorg ervoor dat u de waarde kopieert. (Verlaat de pagina niet voordat u dit doet, anders hebt u geen toegang tot de waarde.)
 
 Vergeet niet om te **slaan** voordat u verdergaat met de volgende sectie.
 

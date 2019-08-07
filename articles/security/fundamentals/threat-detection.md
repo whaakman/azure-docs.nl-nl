@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 500ae75f9bf53c1633290e706e33165dd9d67a88
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 4e33b22c5bc931685f5848db55fc4b9b8fc6eafe
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726614"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780612"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detectie van Azure Advanced Threat
 
@@ -216,7 +216,7 @@ Deze gecombineerde inspanningen culminate in nieuwe en verbeterde detecties, die
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>Virtuele machines: Micro soft antimalware
 
-[Micro soft antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) voor Azure is een oplossing voor toepassingen en Tenant omgevingen met één agent, ontworpen om op de achtergrond te worden uitgevoerd zonder menselijke tussen komst. U kunt beveiliging implementeren op basis van de behoeften van uw toepassings werkbelastingen, met een basis beveiliging van standaard instellingen of geavanceerde aangepaste configuratie, waaronder bewaking van anti-malware. Azure antimalware is een beveiligings optie voor virtuele Azure-machines die automatisch worden geïnstalleerd op alle virtuele machines van Azure PaaS.
+[Micro soft antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) voor Azure is een oplossing voor toepassingen en Tenant omgevingen met één agent, ontworpen om op de achtergrond te worden uitgevoerd zonder menselijke tussen komst. U kunt beveiliging implementeren op basis van de behoeften van uw toepassings werkbelastingen, met een basis beveiliging van standaard instellingen of geavanceerde aangepaste configuratie, waaronder bewaking van anti-malware. Azure antimalware is een beveiligings optie voor virtuele Azure-machines die automatisch worden geïnstalleerd op alle virtuele machines van Azure PaaS.
 
 #### <a name="microsoft-antimalware-core-features"></a>Kern functies van micro soft antimalware
 

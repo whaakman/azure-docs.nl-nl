@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 05d9dc8f676589dcb301c19b0a2e80e9fd4c1fa0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: cc0fcbb2005ce2aaa70c9e1d2a9993d341169209
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249748"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814221"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>IIS-logboeken in Azure Monitor verzamelen
 Internet Information Services (IIS) slaat gebruikers activiteiten op in logboek bestanden die kunnen worden verzameld door Azure Monitor en worden opgeslagen als [logboek gegevens](data-platform.md).
@@ -34,7 +34,7 @@ Configureer IIS-logboeken in Azure Monitor vanuit het [menu Geavanceerde instell
 
 
 ## <a name="data-collection"></a>Gegevensverzameling
-Azure Monitor worden IIS-logboek vermeldingen van elke agent verzameld telkens wanneer de tijds tempel van het logboek wordt gewijzigd of een nieuw bestand wordt gemaakt. Het logboek wordt elke vijf minuten gelezen. De frequentie van het maken van nieuwe bestanden wordt bepaald door de instelling voor het schema voor de **rollover van logboek bestanden** voor de IIS-site, die standaard één keer per dag wordt uitgevoerd. Als IIS de tijds tempel voor de rollover tijd niet bijwerkt als de instelling elk **uur**is, wordt het logboek elk uur door Azure monitor verzameld. Als de instelling **dagelijks**is, verzamelt Azure monitor het logboek elke 24 uur.
+Azure Monitor worden IIS-logboek vermeldingen van elke agent verzameld telkens wanneer de tijds tempel van het logboek wordt gewijzigd. Het logboek wordt elke **vijf minuten**gelezen. Als IIS de tijds tempel voor de rollover tijd niet bijwerkt wanneer een nieuw bestand wordt gemaakt, worden de gegevens verzameld na het maken van het nieuwe bestand. De frequentie van het maken van nieuwe bestanden wordt bepaald door de instelling voor het schema voor de **rollover van logboek bestanden** voor de IIS-site, die standaard één keer per dag wordt uitgevoerd. Als de instelling elk **uur**is, verzamelt Azure monitor elk uur het logboek. Als de instelling **dagelijks**is, verzamelt Azure monitor het logboek elke 24 uur.
 
 
 ## <a name="iis-log-record-properties"></a>Eigenschappen van IIS-logboek record

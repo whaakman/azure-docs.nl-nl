@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: f53d3bd64b4f837fe29baa338cd338158d59d95d
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 0dd61deb372822c5c564758d26d4c4a4938c1064
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466957"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741468"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Werken met teken reeksen in Azure Monitor-logboek query's
 
@@ -30,11 +30,11 @@ ms.locfileid: "68466957"
 
 In dit artikel wordt beschreven hoe u een aantal andere bewerkingen op teken reeksen kunt bewerken, vergelijken, zoeken en uitvoeren.
 
-Elk teken in een teken reeks heeft een index nummer, afhankelijk van de locatie. Het eerste teken bevindt zich op index 0, het volgende teken is 1, en dus een. Met verschillende teken reeks functies worden index nummers gebruikt, zoals wordt weer gegeven in de volgende secties. In veel van de volgende voor beelden wordt de opdracht **afdrukken** gebruikt voor het demonstreren van teken reeks manipulatie zonder een specifieke gegevens bron te gebruiken.
+Elk teken in een teken reeks heeft een index nummer, afhankelijk van de locatie. Het eerste teken is bij index 0, het volgende teken is 1, enzovoort. Met verschillende teken reeks functies worden index nummers gebruikt, zoals wordt weer gegeven in de volgende secties. In veel van de volgende voor beelden wordt de opdracht **afdrukken** gebruikt voor het demonstreren van teken reeks manipulatie zonder een specifieke gegevens bron te gebruiken.
 
 
 ## <a name="strings-and-escaping-them"></a>Teken reeksen en Escapes
-Teken reeks waarden worden verpakt met één of dubbele aanhalings tekens. Back slash\) (wordt gebruikt om tekens naar het volgende teken te escapen, zoals \t voor Tab, \n voor nieuwe regel \" en het aanhalings teken zelf.
+Teken reeks waarden worden verpakt met één of dubbele aanhalings tekens. Back slash\\() wordt gebruikt om tekens naar het volgende teken te escapen, zoals \t voor Tab, \n voor nieuwe regel \" en het aanhalings teken zelf.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
@@ -90,7 +90,7 @@ Operator       |Description                         |Hoofdletter gevoelig|Voor b
 
 ## <a name="countof"></a>countof
 
-Telt het aantal exemplaren van een subtekenreeks in een teken reeks. Kan teken reeksen overeenkomen of regex gebruiken. Teken reeks treffers kunnen overlappen terwijl regex-overeenkomsten niet overeenkomen.
+Telt het aantal exemplaren van een subtekenreeks in een teken reeks. Kan teken reeksen overeenkomen of regex gebruiken. Niet-overeenkomende teken reeks overeenkomsten kunnen overlappen terwijl regex-overeenkomsten niet zijn toegestaan.
 
 ### <a name="syntax"></a>Syntaxis
 ```
@@ -129,7 +129,7 @@ print countof("abcabc", "a.c", "regex");  // result: 2
 
 ## <a name="extract"></a>daaruit
 
-Hiermee wordt een overeenkomst opgehaald voor een reguliere expressie van een opgegeven teken reeks. Hiermee wordt ook de geëxtraheerde subtekenreeks van het opgegeven type geconverteerd.
+Hiermee wordt een overeenkomst opgehaald voor een reguliere expressie van een opgegeven teken reeks. Hiermee wordt ook de geëxtraheerde subtekenreeks geconverteerd naar het opgegeven type.
 
 ### <a name="syntax"></a>Syntaxis
 
@@ -168,7 +168,7 @@ Heartbeat
 | project ComputerIP, last_octet, next_ip
 ```
 
-In het onderstaande voor beeld zoekt de  teken reeks tracering naar een definitie van ' duration '. De overeenkomst wordt in *werkelijkheid* geconverteerd en vermenigvuldigd met een tijd constante (1 s) *die de duur van het type time*-out overgeeft.
+In het onderstaande voor beeld zoekt de teken reeks tracering naar een definitie van ' duration '. De overeenkomst wordt in *werkelijkheid* geconverteerd en vermenigvuldigd met een tijd constante (1 s) *die de duur van het type time*-out overgeeft.
 ```Kusto
 let Trace="A=12, B=34, Duration=567, ...";
 print Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real));  //result: 567

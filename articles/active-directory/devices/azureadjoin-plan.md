@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e58762bd5bf4342804767a200c94b432dd152a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e5dc1c3fb7ae12c36a8c1fe383290435c03ee0c4
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562211"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741375"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedure: Uw implementatie van Azure AD-deelname plannen
 
@@ -68,7 +68,11 @@ Voor deze scenario's is het niet nodig om een Federatie server te configureren v
 Een gefedereerde omgeving moet een id-provider hebben die zowel WS-Trust-als WS-inschakel protocollen ondersteunt:
 
 - **WS-voeder:** Dit protocol is vereist om een apparaat toe te voegen aan Azure AD.
-- **WS-Trust:** Dit protocol is vereist om u aan te melden bij een toegevoegd Azure AD-apparaat. 
+- **WS-Trust:** Dit protocol is vereist om u aan te melden bij een toegevoegd Azure AD-apparaat.
+Wanneer u AD FS gebruikt, moet u de volgende WS-Trust-eind punten inschakelen:`/adfs/services/trust/2005/usernamemixed`
+ `/adfs/services/trust/13/usernamemixed`
+ `/adfs/services/trust/2005/certificatemixed`
+ `/adfs/services/trust/13/certificatemixed`
 
 Als uw ID-provider deze protocollen niet ondersteunt, werkt Azure AD-deelname niet systeem eigen. Vanaf Windows 10 1809 kunnen uw gebruikers zich aanmelden bij een aan Azure AD gekoppeld apparaat met een id-provider op basis van SAML via de webaanmelding in [Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Op dit moment is webaanmelding een preview-functie en wordt niet aanbevolen voor productie-implementaties.
 

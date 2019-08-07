@@ -10,7 +10,7 @@ ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/15/2019
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5ee766a1db51e14ca5bc6ee2d447e3db374683
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4bc671080a05e2c4e27fabcbab5cc40b9717dc85
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276772"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834889"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory code voorbeelden (v 1.0-eind punt)
 
@@ -65,7 +65,7 @@ De volgende voor beelden illustreren webtoepassingen die gebruikers ondertekenen
 
 ### <a name="web-applications-demonstrating-role-based-access-control-authorization"></a>Webtoepassingen die op rollen gebaseerd toegangs beheer (autorisatie) demonstreren
 
-De volgende voor beelden laten zien hoe u op rollen gebaseerd toegangs beheer (RBAC) implementeert. RBAC wordt gebruikt om de machtigingen van bepaalde functies in een webtoepassing te beperken tot bepaalde gebruikers. De gebruikers zijn gemachtigd, afhankelijk van of ze deel uitmaken van een **Azure AD-groep** of een bepaalde toepassingsrol **hebben.**
+De volgende voor beelden laten zien hoe u op rollen gebaseerd toegangs beheer (RBAC) implementeert. RBAC wordt gebruikt om de machtigingen van bepaalde functies in een webtoepassing te beperken tot bepaalde gebruikers. De gebruikers zijn gemachtigd, afhankelijk van of ze deel uitmaken van een **Azure AD-groep** of eenbepaalde toepassingsrol hebben.
 
 Platform | Voorbeeld |
  -------- | ------------------- |
@@ -88,7 +88,7 @@ Mobiel (Android)           | ![Deze afbeelding toont het Android-logo](media/sam
 Mobiel (iOS)           | ![Deze afbeelding toont iOS/objectief C of SWIFT](media/sample-v2-code/logo_iOS.png) | Interactief |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
 Bureau blad (console)          | ![In deze afbeelding wordt het .NETC# /logo weer gegeven](media/sample-v2-code/logo_NET.png) | Gebruikers naam/wacht woord </p>  Geïntegreerde Windows-verificatie | | [DotNet-native-headless](https://github.com/azure-samples/active-directory-dotnet-native-headless)
 Bureau blad (console)          | ![In deze afbeelding wordt het Java-logo weer gegeven](media/sample-v2-code/logo_Java.png) | Gebruikers naam/wacht woord | | [Java-Native-headless](https://github.com/Azure-Samples/active-directory-java-native-headless)
-Bureau blad (console)           | ![In deze afbeelding wordt de .NET-C# kern/het logo weer gegeven](media/sample-v2-code/logo_NETcore.png) | Toestel code stroom | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
+Bureau blad (console)           | ![In deze afbeelding wordt de .NET-C# kern/het logo weer gegeven](media/sample-v2-code/logo_NETcore.png) | Stroom voor apparaatcode | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
 ## <a name="daemon-applications-accessing-web-apis-with-the-applications-identity"></a>Daemon-toepassingen (toegang tot Web-Api's met de identiteit van de toepassing)
 

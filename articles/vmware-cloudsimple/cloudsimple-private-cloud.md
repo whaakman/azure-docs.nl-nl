@@ -1,41 +1,41 @@
 ---
-title: Persoonlijke clouds in VMware-oplossing door CloudSimple - Azure
-description: Meer informatie over de privéclouds CloudSimple en concepten.
+title: Persoonlijke Clouds in VMware-oplossing door CloudSimple-Azure
+description: Meer informatie over persoonlijke Clouds en concepten van CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e3ab53466cae5bd39d85f8d846c8e59ad94f1f2d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9885366d5987870fe2739083ff47abaae9ef6ed1
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165751"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816204"
 ---
-# <a name="cloudsimple-private-cloud-overview"></a>Overzicht van de privécloud CloudSimple
+# <a name="cloudsimple-private-cloud-overview"></a>Overzicht van CloudSimple Private Cloud
 
-CloudSimple transformeert en breidt de VMware-workloads met openbare clouds in minuten. De service CloudSimple gebruikt, kunt u implementeren VMware systeemeigen op Azure bare metal-infrastructuur. Uw implementatie wordt toegevoegd aan Azure-locaties en volledig kan worden geïntegreerd met de rest van de Azure-cloud.
+Met CloudSimple worden VMware-workloads binnen enkele minuten getransformeerd en uitgebreid naar open bare Clouds. Met de CloudSimple-service kunt u VMware systeem eigen implementeren op een Azure bare-metal infra structuur. Uw implementatie bevindt zich op Azure-locaties en integreert volledig met de rest van de Azure-Cloud.
 
-* De oplossing CloudSimple biedt volledige VMware operationele continuïteit. Deze oplossing biedt u de voordelen van de openbare cloud van:
+* De CloudSimple-oplossing biedt volledige VMware-operationele continuïteit. Deze oplossing biedt u de voor delen van de open bare cloud van:
   * Elasticiteit
   * Innovatie
   * Efficiëntie
-* Met CloudSimple profiteert u van een model voor het gebruik van cloud dat uw totale eigendomskosten verlaagt. Het biedt ook op aanvraag inrichten, betaal-als-u-groeit en capaciteitsoptimalisatie van.
+* Met CloudSimple profiteert u van een model voor Cloud verbruik dat uw total cost of ownership verlaagt. Het biedt ook mogelijkheden voor inrichting op aanvraag, betalen per gebruik en capaciteits optimalisatie.
 * CloudSimple is volledig compatibel met:
-  * Bestaande hulpprogramma 's
+  * Bestaande hulpprogram ma's
   * Vaardigheden
   * Processen
-* Deze compatibiliteit kan uw teams voor het beheren van werkbelastingen op de Azure-cloud, zonder te onderbreken van uw beleid:
+* Met deze compatibiliteit kunnen uw teams werk belastingen op de Azure-Cloud beheren zonder uw beleid te onderbreken:
   * Netwerk
   * Beveiliging  
   * Gegevensbescherming  
   * Controleren
-* CloudSimple beheert de infrastructuur en alle vereiste netwerk- en beheer van services. De CloudSimple-service kan uw team zich richten op:
-  * Waarde voor het bedrijf
-  * Toepassingsinrichting
+* CloudSimple beheert de infra structuur en alle benodigde netwerk-en beheer Services. Met de CloudSimple-service kan uw team zich richten op het volgende:
+  * Bedrijfs waarde
+  * Toepassing inrichten
   * Bedrijfscontinuïteit
   * Ondersteuning
   * Beleidsafdwinging
@@ -49,84 +49,84 @@ Een privécloud is een geïsoleerde VMware-stack, zoals deze omgevingen:
 * vSAN
 * NSX
 
-Persoonlijke clouds worden beheerd door een vCenter-server in een eigen beheerdomein.
+Persoonlijke Clouds worden beheerd door een vCenter-Server in een eigen beheer domein.
 
 De stack wordt uitgevoerd op:
 
 * Toegewezen knooppunten
-* Geïsoleerde voor bare metal-hardwareknooppunten
+* Geïsoleerde bare metal-hardwareprofielen
 
-Gebruikers gebruiken de stack met systeemeigen VMware-hulpprogramma's, waaronder:
+Gebruikers gebruiken de stack via systeem eigen VMware-hulpprogram ma's, waaronder:
 
 * vCenter
 * NSX Manager
 
-U kunt specifieke knooppunten in de Azure-locaties kunt implementeren. Vervolgens kunt u ze beheren met Azure en CloudSimple. Een privécloud bestaat uit een of meer vSphere-hostclusters en elk cluster 3 tot en met 16 knooppunten bevat.
+U kunt toegewezen knoop punten implementeren op Azure-locaties. Vervolgens kunt u ze beheren met Azure en CloudSimple. Een privécloud bestaat uit een of meer vSphere-clusters en elk cluster bevat 3 tot 16 knoop punten.
 
-U kunt een privécloud met behulp van de ingerichte knooppunten maken:
+U kunt een privécloud maken met behulp van ingerichte knoop punten:
 
-* Betalen per gebruik-knooppunten
-* Gereserveerde, toegewezen knooppunten
+* Betalen per gebruik-knoop punten
+* Gereserveerde, toegewezen knoop punten
 
-U kunt de privécloud verbinden met uw on-premises omgeving en het Azure-netwerk met behulp van de volgende verbindingen:
+U kunt de privécloud koppelen aan uw on-premises omgeving en het Azure-netwerk met behulp van de volgende verbindingen:
 
 * Beveiligen
-* Persoonlijke VPN
-* ExpressRoute van Azure
+* Particuliere VPN
+* Azure ExpressRoute
 
-De privécloud-omgeving is ontworpen om te voorkomen dat een single point of failure:
+De privécloud is ontworpen om een Single Point of Failure te elimineren:
 
-* ESXi-clusters zijn geconfigureerd met hoge beschikbaarheid van vSphere en grootte hebben van ten minste één extra knooppunt voor tolerantie.
-* virtueel SAN biedt redundante primaire opslag. virtueel SAN moet ten minste drie knooppunten voor beveiliging tegen een storing. U kunt vSAN om een hogere tolerantie voor grotere clusters configureren.
-* U kunt vCenter PSC-server en virtuele machines NSX Manager configureren met RAID 10-beleid voor opslag om te beveiligen tegen fout bij de opslag. Ze zijn vervolgens beveiligd door vSphere HA tegen storingen in knooppunt en het netwerk.
+* ESXi-clusters zijn geconfigureerd met een hoge Beschik baarheid van vSphere en hebben een grootte van ten minste één reserve knooppunt voor tolerantie.
+* vSAN biedt redundante primaire opslag. vSan vereist ten minste drie knoop punten om bescherming te bieden tegen één fout. U kunt vSAN configureren om hogere toleranties voor grotere clusters te bieden.
+* U kunt vCenter-, PSC-en NSX-beheer machines configureren met RAID-10-opslag beleid om te beschermen tegen opslag storingen. Ze worden vervolgens beschermd door vSphere HA tegen knoop punten en netwerk fouten.
 
 ## <a name="scenarios-for-deploying-a-private-cloud"></a>Scenario's voor het implementeren van een privécloud
 
-* **Data center buiten gebruik stellen of de migratie**
+* **Buiten gebruik stellen of migreren van data centers**
 
-  * Zorg voor extra capaciteit wanneer u de grenzen van uw bestaande datacenter bereiken of vernieuwen van hardware.
-  * Benodigde capaciteit in de cloud toevoegen en verwijderen van de problemen die van het beheer van hardware wordt vernieuwd.
-  * Verminder de risico's en de kosten van de cloud kunt migreren, in vergelijking met tijdrovende conversies of rearchitecture.
-  * Gebruik vertrouwde VMware-hulpprogramma's en vaardigheden om te versnellen cloudmigraties. Gebruik in de cloud, Azure-services te moderniseren van uw toepassingen in uw eigen tempo.
+  * Krijg extra capaciteit wanneer u de limieten bereikt van uw bestaande Data Center of hardware vernieuwt.
+  * U kunt de benodigde capaciteit toevoegen aan de Cloud en het beheer van hardware-vernieuwingen elimineren.
+  * Verminder het risico en de kosten voor Cloud migraties, vergeleken met tijdrovende conversies of herarchitectuur.
+  * Gebruik vertrouwde VMware-hulpprogram ma's en-vaardig heden om Cloud migraties te versnellen. Gebruik Azure-Services in de cloud om uw toepassingen in uw tempo te moderniseren.
 
-* **Vouw op aanvraag**
+* **Op aanvraag uitvouwen**
 
-  * Vouw in de cloud om te voldoen aan onvoorziene behoeften, zoals nieuwe ontwikkelomgevingen of seizoensgebonden capaciteit pieken.
-  * Nieuwe capaciteit op aanvraag maken en bewaar alleen als u deze nodig hebt.
-  * Uw investeringen vooraf verkorten, Versnel de snelheid van de inrichting en verminder complexiteit met de dezelfde architectuur en het beleid in zowel on-premises en de cloud.
+  * Breid uit naar de cloud om te voldoen aan niet-verwachte behoeften, zoals nieuwe ontwikkelings omgevingen of bursts met een seizoen capaciteit.
+  * Maak op aanvraag nieuwe capaciteit en bewaar deze alleen zolang u dat nodig hebt.
+  * Verminder uw investering in de voor grond, Versnel snelheid van het inrichten en verminder de complexiteit met dezelfde architectuur en hetzelfde beleid in zowel on-premises als in de Cloud.
 
-* **Herstel na noodgevallen en virtuele bureaubladen in de Azure-cloud**
+* **Herstel na nood gevallen en virtuele Bureau bladen in de Azure-Cloud**
 
-  * Externe toegang tot gegevens, apps en pc's in de Azure-cloud maken. Met hoge bandbreedte verbindingen, u uploaden / downloaden van gegevens snel te herstellen van incidenten. Netwerken met lage latentie geven u snel antwoord keer dat gebruikers van een bureaublad-app verwachten.
+  * Externe toegang tot gegevens, apps en Bureau bladen in de Azure-Cloud tot stand brengen. Met verbindingen met een hoge band breedte kunt u snel gegevens uploaden/downloaden om van incidenten te herstellen. Netwerken met lage latentie bieden snelle reactie tijden die gebruikers verwachten van een desktop-app.
 
-  * Alle beleidsregels en netwerken in de cloud met behulp van de portal CloudSimple en vertrouwde hulpprogramma's van VMware repliceren. Deze replicatie vermindert de inspanning en het risico van het maken en beheren van herstel na Noodgevallen en VDI-implementaties.
+  * Repliceer al uw beleids regels en netwerken in de Cloud met behulp van de CloudSimple-Portal en vertrouwde VMware-hulpprogram ma's. Deze replicatie vermindert de inspanning en het risico van het maken en beheren van DR-en VDI-implementaties.
 
-* **Krachtige toepassingen en -databases**
+* **Toepassingen en data bases met hoge prestaties**
 
-  * Uw meest veeleisende workloads uitvoeren met de architectuur van het hypergeconvergeerd geleverd door CloudSimple.
-  * Oracle, Microsoft SQL server, middleware-systemen en krachtige geen SQL-databases worden uitgevoerd.
+  * Voer uw meest veeleisende workloads uit, met de hypergeconvergeerd-architectuur van CloudSimple.
+  * Voer Oracle, micro soft SQL Server, middleware Systems en no-SQL-data bases met hoge prestaties uit.
 
-  * Ervaar de cloud als uw eigen datacenter met hoge snelheid 25 Gbps netwerkverbindingen. Snelle verbindingen kunnen u hybride apps met betrekking on-premises VMware op Azure tot, uitvoeren en Azure privé-workloads, zonder verlies van prestaties.
+  * Ervaar de Cloud als uw eigen Data Center met hoge snelheid van 25 Gbps netwerk verbindingen. Met verbindingen met hoge snelheid kunt u hybride apps uitvoeren die on-premises, VMware op Azure en persoonlijke werk belastingen van Azure omvatten, zonder de prestaties te verbeteren.
 
-* **Echte hybride**
+* **Waar hybride**
 
-  * Lever een geïntegreerde ervaring DevOps in VMware en Azure-services.
-  * VMware-beheer voor Azure-services en oplossingen die kunnen worden toegepast voor alle uw workloads optimaliseren.
-  * Toegang tot services van de openbare cloud zonder dat uw datacenter uitbreiden of opnieuw ontwerpen van uw toepassingen.
-  * Centraliseer identiteiten, beleid voor toegangsbeheer, logboekregistratie en bewaking van VMware-toepassingen op Azure.
+  * Verdeel DevOps tussen VMware en Azure-Services.
+  * Optimaliseer VMware-beheer voor Azure-Services en-oplossingen die in al uw workloads kunnen worden toegepast.
+  * Toegang tot open bare Cloud Services zonder uw Data Center uit te breiden of uw toepassingen opnieuw te ontwerpen.
+  * Centraliseer identiteiten, Toegangs beheer beleid, logboek registratie en controle voor VMware-toepassingen op Azure.
 
-## <a name="limits"></a>Limits
+## <a name="limits"></a>Limieten
 
-De onderstaande tabel bevat de limieten van het knooppunt op resources van een privécloud.
+Onderstaande tabel bevat de limieten voor knoop punten van resources van een privécloud.
 
 | Resource | Limiet |
 |----------|-------|
-| Minimum aantal knooppunten aan een privécloud maken | 3 |
-| Maximum aantal knooppunten in een cluster in een privécloud | 16 |
-| Maximum aantal knooppunten in een privécloud | 64 |
-| Minimum aantal knooppunten in een nieuw cluster | 3 |
+| Minimum aantal knoop punten voor het maken van een privécloud | 3 |
+| Maximum aantal knoop punten in een cluster in een privécloud | 16 |
+| Maximum aantal knoop punten in een privécloud | 64 |
+| Minimum aantal knoop punten op een nieuw cluster | 3 |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het [een privécloud maken](https://docs.azure.cloudsimple.com/create-private-cloud/)
-* Meer informatie over het [een privécloud-omgeving configureren](quickstart-create-private-cloud.md)
+* Meer informatie over het [maken van een privécloud](https://docs.azure.cloudsimple.com/create-private-cloud/)
+* Meer informatie over het [configureren van een privécloud](quickstart-create-private-cloud.md)

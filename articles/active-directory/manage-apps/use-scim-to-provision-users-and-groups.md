@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/31/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7e28e92da319580baa9b4cadc4bc17f862b69e2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 48eb36151948dc6e39edd4ae0fd863c63e83a52b
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68494512"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741352"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Met behulp van systeem voor meerdere domeinen Identity Management (SCIM) voor het automatisch inrichten van gebruikers en groepen uit Azure Active Directory voor toepassingen
 
@@ -73,7 +73,7 @@ Toepassingen die ondersteuning bieden voor het SCIM-profiel dat wordt beschreven
    ![Voorbeeld: De inrichtings pagina van een app in de Azure Portal][2]<br/>
    *Afbeelding 3: Inrichting configureren in de Azure Portal*
 
-1. In de **Tenant-URL** en voer de URL van SCIM-eindpunt van de toepassing. Voorbeeld: https://api.contoso.com/scim/v2/
+1. In de **Tenant-URL** en voer de URL van SCIM-eindpunt van de toepassing. Voorbeeld: https://api.contoso.com/scim/
 1. Als het eindpunt SCIM een OAuth-bearer-token van een uitgever dan Azure AD vereist, kopieert u de vereiste OAuth bearer-token naar de optionele **geheim Token** veld. Als dit veld leeg blijft, bevat Azure AD een OAuth Bearer-token dat is uitgegeven door Azure AD met elke aanvraag. Apps die gebruikmaken van Azure AD als id-provider kunnen dit door Azure AD uitgegeven token valideren.
 1. Selecteer **verbinding testen** om te laten proberen Azure Active Directory verbinding te maken met het scim-eind punt. Als de poging mislukt, wordt er informatie over de fout weer gegeven.  
 
@@ -678,7 +678,7 @@ De eenvoudigste manier voor het implementeren van een eindpunt SCIM inrichting a
 1. Voer een naam in voor uw toepassing en selecteer **toevoegen** om een app-object te maken. De toepassingsobject gemaakt is bedoeld om weer te geven van de doel-app u zou worden ingericht voor en uitvoering van eenmalige aanmelding voor en niet alleen het eindpunt SCIM.
 1. Selecteer in het scherm voor het beheren van apps de optie **inrichten** in het linkerdeel venster.
 1. In de **inrichting modus** in het menu **automatische**.    
-1. In de **Tenant-URL** en voer de beschikbaar gesteld op internet-URL en poort van uw eindpunt SCIM. De vermelding is iets zoals http://testmachine.contoso.com:9000 of http://\< IP-adres >: 9000/, waarbij \< IP-adres > het IP-adres van Internet is.
+1. In de **Tenant-URL** en voer de URL van SCIM-eindpunt van de toepassing. Voorbeeld: https://api.contoso.com/scim/
 
 1. Als het eindpunt SCIM een OAuth-bearer-token van een uitgever dan Azure AD vereist, kopieert u de vereiste OAuth bearer-token naar de optionele **geheim Token** veld. Als dit veld leeg blijft, bevat Azure AD een OAuth Bearer-token dat is uitgegeven door Azure AD met elke aanvraag. Apps die gebruikmaken van Azure AD als id-provider kunnen dit door Azure AD uitgegeven token valideren.
 1. Selecteer **verbinding testen** om te laten proberen Azure Active Directory verbinding te maken met het scim-eind punt. Als de poging mislukt, wordt er informatie over de fout weer gegeven.  

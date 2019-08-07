@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 787bcf28a64c98f82deb0725e2362bf8144d6c4e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: da68c0ae1dc92f5b854c30c90b93856248c43281
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640865"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828347"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Ondersteuningsmatrix voor Hyper-V-evaluatie en -migratie
 
@@ -36,14 +36,18 @@ De tabel bevat een overzicht van de ondersteunde scenario's voor virtuele Hyper-
 **Ondersteuning** | **Details**
 --- | ---
 Azure-machtigingen | U hebt machtigingen voor Inzender of eigenaar nodig in het abonnement om een Azure Migrate project te maken.
-Virtuele Hyper-V-machines | Evalueer Maxi maal 10.000 Hyper-V-Vm's in één project. U kunt meerdere projecten in een Azure-abonnement hebben. Een project kan zowel virtuele VMware-machines als virtuele Hyper-V-machines bevatten, tot aan de evaluatie limieten.
+Virtuele Hyper-V-machines | Evalueer Maxi maal 35.000 Hyper-V-Vm's in één project. U kunt meerdere projecten in een Azure-abonnement hebben. Een project kan zowel virtuele VMware-machines als virtuele Hyper-V-machines bevatten, tot aan de evaluatie limieten.
 Geografie | U kunt Azure Migrate projecten maken in een aantal geographs. Hoewel u projecten in specifieke ographies kunt maken, kunt u machines voor andere doel locaties evalueren of migreren. De Geografie van het project wordt alleen gebruikt om de gedetecteerde meta gegevens op te slaan.
 
   **Geografie** | **Opslag locatie van meta gegevens**
   --- | ---
   Azure Government | VS (overheid) - Virginia
-  Azië en Stille Oceaan | Zuidoost-Azië of Azië-oost
-  Europa | Zuid-Europa of Europa-west
+  Azië en Stille Oceaan | Azië Azië-oost of Zuidoost
+  Australië | Australië-oost of Australië-zuidoost
+  Canada | Canada-centraal of Canada-oost
+  Europa | Europa - noord of Europa - west
+  India | Centraal-India of India-zuid
+  Japan |  Japan-Oost of Japan-West
   Verenigd Koninkrijk | UK-zuid of UK-west
   Verenigde Staten | VS-midden, VS-West 2
 
@@ -84,7 +88,7 @@ Voor evaluatie voert Azure Migrate een licht gewicht in voor de detectie van Hyp
 | **Ondersteuning**                | **Details**               
 | :-------------------       | :------------------- |
 | **Azure Migrate project**  |  Een apparaat kan worden gekoppeld aan een enkel project.<br/> U kunt Maxi maal 5000 virtuele Hyper-V-machines detecteren met één apparaat.
-| **Hyper-V**    |  U implementeert het apparaat als een Hyper-V-VM.<br/> De virtuele machine van het apparaat is Hyper-V VM versie 5,0.<br/> Op de VM-host moet Windows Server 2012 R2 of later worden uitgevoerd.<br/> Er is voldoende ruimte nodig om 16 GB RAM, 4 virtuele processors en 1 externe switch voor de toestel-VM toe te wijzen.<br/> Voor het apparaat is een statisch of dynamisch IP-adres en Internet toegang vereist.
+| **Hyper-V**    |  U implementeert het apparaat als een Hyper-V-VM.<br/> De virtuele machine van het apparaat is Hyper-V VM versie 5,0.<br/> Op de VM-host moet Windows Server 2012 R2 of later worden uitgevoerd.<br/> Er is voldoende ruimte nodig om 16 GB RAM, 8 Vcpu's en 1 externe switch toe te wijzen voor de toestel-VM.<br/> Voor het apparaat is een statisch of dynamisch IP-adres en Internet toegang vereist.
 
 
 ## <a name="assessment-appliance-url-access"></a>Beoordeling: toestel-URL-toegang

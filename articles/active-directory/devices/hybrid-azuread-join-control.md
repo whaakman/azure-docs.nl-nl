@@ -1,6 +1,6 @@
 ---
-title: Gecontroleerde validatie van hybride Azure AD join - Azure AD
-description: Meer informatie over het uitvoeren van een gecontroleerde validatie van hybride Azure AD join voordat u dit inschakelt in de hele organisatie in één keer
+title: Gecontroleerde validatie van hybride Azure AD-deelname-Azure AD
+description: Meer informatie over het uitvoeren van een gecontroleerde validatie van de deelname aan hybride Azure AD voordat u deze in de hele organisatie in één keer inschakelt
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,91 +11,94 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d59104bf9c7675fdac2c245fff89ab1483b96b67
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d5d8cd7799dd23dabc2cbb423e82b8c7203b7bed
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481724"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834643"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Gecontroleerde validatie van hybride Azure AD-deelname
 
-Wanneer alle van de vereisten gemaakt zijn, wordt automatisch Windows-apparaten registreren als apparaten in uw Azure AD-tenant. De status van deze apparaat-id's in Azure AD wordt verwezen als hybride Azure AD join. Meer informatie over de concepten die in dit artikel vindt u in de artikelen [Inleiding tot Apparaatbeheer in Azure Active Directory](overview.md) en [uw hybride Azure Active Directory join-implementatie plannen ](hybrid-azuread-join-plan.md).
+Wanneer alle vereisten aanwezig zijn, worden Windows-apparaten automatisch geregistreerd als apparaten in uw Azure AD-Tenant. De status van deze apparaat-id's in azure AD wordt aangeduid als hybride Azure AD-deelname. Meer informatie over de concepten die in dit artikel worden behandeld, vindt u in de artikelen [Inleiding tot Apparaatbeheer in azure Active Directory](overview.md) en [de implementatie van uw hybride Azure Active Directory-deelname plannen](hybrid-azuread-join-plan.md).
 
-Organisaties kunnen wilt een gecontroleerde validatie van hybride Azure AD join voordat u dit inschakelt in de hele organisatie in één keer te doen. In dit artikel wordt uitgelegd hoe u kunt een gecontroleerde validatie van hybride Azure AD join uitvoeren.
+Organisaties willen mogelijk een gecontroleerde validatie van hybride Azure AD-deelname uitvoeren voordat ze in hun hele organisatie allemaal tegelijk worden ingeschakeld. In dit artikel wordt uitgelegd hoe u een gecontroleerde validatie van hybride Azure AD-deelname uitvoert.
 
-## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-current-devices"></a>Gecontroleerde validatie van hybride Azure AD join op huidige Windows-apparaten
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-current-devices"></a>Gecontroleerde validatie van hybride Azure AD-deelname op Windows huidige apparaten
 
-Voor apparaten met het besturingssysteem voor Windows-bureaublad, de ondersteunde versie is de Windows 10 Jubileumupdate (versie 1607) of hoger. Als een best practice, een upgrade uitvoeren naar de nieuwste versie van Windows 10.
+Voor apparaten met het besturings systeem Windows Desktop is de ondersteunde versie de update van Windows 10 jubileum (versie 1607) of hoger. Voer een upgrade uit naar de nieuwste versie van Windows 10 als best practice.
 
-Als u wilt een gecontroleerde validatie van hybride Azure AD join op huidige Windows-apparaten doen, moet u naar:
+Voor een gecontroleerde validatie van hybride Azure AD-deelname op Windows huidige apparaten moet u het volgende doen:
 
-1. Schakel de Service Connection Point (SCP) vermelding in Active Directory (AD) indien aanwezig
-1. Client-side-registerinstelling voor SCP op uw domein computers met behulp van een groepsbeleidsobject (GPO) configureren
-1. Als u AD FS gebruikt, moet u ook de client-side-registerinstelling voor SCP configureren op de AD FS-server met behulp van een groepsbeleidsobject  
-
-
-
-### <a name="clear-the-scp-from-ad"></a>Schakel het SCP uit Active Directory
-
-Gebruik de Active Directory Services Interfaces Editor (ADSI bewerken) om de SCP-objecten in AD.
-
-1. Start de **ADSI Edit** bureaubladtoepassing uit en werkstation voor beheer of een domeincontroller als een Enterprise-beheerder.
-1. Verbinding maken met de **naamgevingscontext configuratie** van uw domein.
-1. Blader naar **CN = configuratie, DC = contoso, DC = com** > **CN = Services** > **CN = registratie apparaatconfiguratie**
-1. Klik met de rechtermuisknop op de leaf-object onder **CN = registratie apparaatconfiguratie** en selecteer **eigenschappen**
-   1. Selecteer **trefwoorden** uit de **Kenmerkeditor** venster en klikt u op **bewerken**
-   1. Selecteer de waarden van **azureADId** en **azureADName** (één op een tijdstip) en klikt u op **verwijderen**
-1. Sluiten **ADSI bewerken**
+1. Wis de SCP-vermelding (Service Connection Point) van Active Directory (AD) als deze bestaat
+1. Register instelling aan client zijde voor SCP op computers die lid zijn van een domein configureren met behulp van een groepsbeleid-object (GPO)
+1. Als u AD FS gebruikt, moet u ook de register instelling aan de client zijde voor SCP op uw AD FS-server configureren met behulp van een groeps beleidsobject  
 
 
-### <a name="configure-client-side-registry-setting-for-scp"></a>Client-side-registerinstelling voor SCP configureren
 
-Gebruik het volgende voorbeeld om te maken van een groepsbeleidsobject (GPO) voor het implementeren van een instelling in het register configureren van een SCP-vermelding in het register van uw apparaten.
+### <a name="clear-the-scp-from-ad"></a>De SCP uit AD wissen
 
-1. Open een Group Policy Management console en maak een nieuwe Group Policy Object in uw domein.
-   1. Geef uw nieuwe groepsbeleidsobject een naam (bijvoorbeeld ClientSideSCP).
-1. Bewerk het GPO en zoekt u het volgende pad: **Computerconfiguratie** > **voorkeuren** > **Windows-instellingen** > **register**
-1. Met de rechtermuisknop op het register en selecteer **nieuw** > **registeritem**
-   1. Op de **algemene** tabblad, configureer de volgende
+Gebruik de Active Directory Services Interfaces editor (ADSI bewerken) om de SCP-objecten in AD te wijzigen.
+
+1. Start de **ADSI** -module voor het bewerken van het bureau blad van en het beheer werkstation of een domein controller als een ondernemings beheerder.
+1. Maak verbinding met de **configuratie naamgevings context** van uw domein.
+1. Blader naar **CN = Configuration, DC = contoso, DC = com** > **CN = Services** > **CN = apparaatregistratie configureren**
+1. Klik met de rechter muisknop op het blad object onder **CN = Configuratie van apparaatregistratie** en selecteer **Eigenschappen**
+   1. Selecteer **tref woorden** in het venster **kenmerk editor** en klik op **bewerken**
+   1. Selecteer de waarden van **azureADId** en **azureADName** (een voor een tegelijk) en klik op **verwijderen**
+1. **ADSI bewerken** sluiten
+
+
+### <a name="configure-client-side-registry-setting-for-scp"></a>Register instelling aan client zijde voor SCP configureren
+
+Gebruik het volgende voor beeld om een groepsbeleid-object (GPO) te maken om een register instelling te implementeren voor het configureren van een SCP-vermelding in het REGI ster van uw apparaten.
+
+1. Open een groepsbeleid-beheer console en maak een nieuw groepsbeleid-object in uw domein.
+   1. Geef een naam op voor het nieuwe groeps beleidsobject dat u hebt gemaakt (bijvoorbeeld ClientSideSCP).
+1. Bewerk het groeps beleidsobject en zoek het volgende pad: > **Voor keuren**voor > computer configuratie**REGI ster** **Windows-instellingen** > 
+1. Klik met de rechter muisknop op het REGI ster en selecteer **Nieuw** > **register item**
+   1. Configureer op het tabblad **Algemeen** de volgende instellingen:
       1. Actie: **Update**
-      1. Component: **HKEY_LOCAL_MACHINE**
+      1. Onderdelen **HKEY_LOCAL_MACHINE**
       1. Sleutelpad: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Waardenaam: **TenantId**
       1. Waardetype: **REG_SZ**
-      1. Waardegegevens: De GUID of **map-ID** van uw Azure AD-exemplaar (deze waarde kan worden gevonden de **Azure-portal** > **Azure Active Directory**  >   **Eigenschappen** > **map-ID**)
+      1. Waardegegevens: De GUID of **Directory-id** van uw Azure AD-exemplaar (deze waarde is te vinden in de **Azure Portal** > **Azure Active Directory** > **Eigenschappen** > **Directory-id**)
    1. Klik op **OK**
-1. Met de rechtermuisknop op het register en selecteer **nieuw** > **registeritem**
-   1. Op de **algemene** tabblad, configureer de volgende
+1. Klik met de rechter muisknop op het REGI ster en selecteer **Nieuw** > **register item**
+   1. Configureer op het tabblad **Algemeen** de volgende instellingen:
       1. Actie: **Update**
-      1. Component: **HKEY_LOCAL_MACHINE**
+      1. Onderdelen **HKEY_LOCAL_MACHINE**
       1. Sleutelpad: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Waardenaam: **TenantName**
       1. Waardetype: **REG_SZ**
-      1. Waardegegevens: Uw geverifieerde **domeinnaam** in Azure AD (bijvoorbeeld `contoso.onmicrosoft.com` of andere geverifieerde domeinnaam op in uw directory)
+      1. Waardegegevens: De geverifieerde **domein naam** als u een federatieve omgeving gebruikt, zoals AD FS. Uw geverifieerde * * domein naam of uw onmicrosoft.com- `contoso.onmicrosoft.com` domein naam bijvoorbeeld als u een beheerde omgeving gebruikt
    1. Klik op **OK**
-1. Sluit de editor voor het nieuwe groepsbeleidsobject
-1. Het nieuwe groepsbeleidsobject koppelen aan de gewenste organisatie-eenheid met domein computers die deel uitmaken van uw beheerde implementatie populatie
+1. De editor voor het zojuist gemaakte groeps beleidsobject sluiten
+1. Koppel het zojuist gemaakte groeps beleidsobject aan de gewenste organisatie-eenheid met computers die lid zijn van een domein en die deel uitmaken van uw geïmplementeerde implementatie populatie
 
 ### <a name="configure-ad-fs-settings"></a>AD FS-instellingen configureren
 
-Als u AD FS gebruikt, moet u eerst aan de clientzijde SCP met behulp van de instructies die hierboven worden vermeld, maar het groepsbeleidsobject koppelen aan uw AD FS-servers configureren. Deze configuratie is vereist voor AD FS tot stand brengen van de bron voor apparaat-id's als Azure AD.
-
-## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Gecontroleerde validatie van hybride Azure AD join op Windows downlevel-apparaten
-
-Voor het registreren van Windows downlevel-apparaten, organisaties moeten installeren [Microsoft Workplace Join voor Windows 10-computers](https://www.microsoft.com/download/details.aspx?id=53554) beschikbaar is op het Microsoft Download Center.
-
-U kunt het pakket implementeren met behulp van een software-distributiesysteem zoals [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Het pakket biedt ondersteuning voor de standaard installatie op de achtergrond-opties met de stille parameter. De huidige vertakking van Configuration Manager biedt voordelen ten opzichte van eerdere versies, zoals de mogelijkheid voor het bijhouden van voltooide registraties.
-
-Het installatieprogramma maakt een geplande taak op het systeem die wordt uitgevoerd in de context van de gebruiker. De taak wordt geactiveerd wanneer de gebruiker zich aanmeldt bij Windows. De taak op de achtergrond lid wordt van het apparaat met Azure AD met de referenties van de gebruiker na verificatie met Azure AD.
-
-Voor het beheren van de device Registration service, moet u het Windows Installer-pakket implementeren op de geselecteerde groep Windows downlevel-apparaten.
+Als u AD FS gebruikt, moet u eerst SCP aan de client zijde configureren met behulp van de bovenstaande instructies, maar het groeps beleidsobject koppelen aan uw AD FS-servers. Het SCP-object definieert de bron van de autoriteit voor object apparaatobject. Het kan on-premises of Azure AD zijn. Wanneer dit is geconfigureerd voor AD FS, wordt de bron voor object apparaten ingesteld als Azure AD.
 
 > [!NOTE]
-> Als een SCP niet is geconfigureerd in AD, dan dezelfde benadering volgt zoals beschreven op [configureren van client-side-registerinstelling voor SCP](#configure-client-side-registry-setting-for-scp)) op uw domein computers met behulp van een groepsbeleidsobject (GPO).
+> Als u het SCP aan client zijde op uw AD FS-servers niet configureert, wordt de bron voor apparaat-id's als on-premises beschouwd en AD FS begint na een bepaalde periode of de objecten van de on-premises map worden verwijderd.
+
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Gecontroleerde validatie van hybride Azure AD-deelname op Windows-apparaten op het lagere niveau
+
+Voor het registreren van Windows-apparaten op een lager niveau moeten organisaties [micro soft Workplace join installeren voor niet-Windows 10-computers](https://www.microsoft.com/download/details.aspx?id=53554) die beschikbaar zijn via het micro soft Download centrum.
+
+U kunt het pakket implementeren met behulp van een software distributiesysteem als [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Het pakket ondersteunt de standaard opties voor installatie op de achtergrond met de Stille para meter. De huidige vertakking van Configuration Manager biedt voor delen ten opzichte van eerdere versies, zoals de mogelijkheid om voltooide registraties bij te houden.
+
+Het installatie programma maakt een geplande taak op het systeem dat wordt uitgevoerd in de gebruikers context. De taak wordt geactiveerd wanneer de gebruiker zich aanmeldt bij Windows. De taak wordt tijdens de verificatie met Azure AD met de gebruikers referenties op de achtergrond gekoppeld aan het apparaat met Azure AD.
+
+Als u de apparaatregistratie wilt beheren, moet u het Windows Installer-pakket implementeren op de geselecteerde groep apparaten van het lagere niveau Windows.
+
+> [!NOTE]
+> Als een SCP niet is geconfigureerd in AD, moet u dezelfde benadering volgen als beschreven voor het configureren van de [register instelling aan client zijde voor SCP](#configure-client-side-registry-setting-for-scp)) op computers die lid zijn van een domein met behulp van een Groepsbeleid-object (GPO).
 
 
-Nadat u hebt gecontroleerd dat alles werkt zoals verwacht, kunt u de rest van uw Windows-apparaten voor huidige en eerdere automatisch registreren met Azure AD door [SCP met Azure AD Connect configureren](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
+Nadat u hebt gecontroleerd of alles werkt zoals verwacht, kunt u de rest van uw Windows-apparaten voor huidige en lagere niveaus automatisch registreren met Azure AD door [SCP te configureren met Azure AD Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
 ## <a name="next-steps"></a>Volgende stappen
 

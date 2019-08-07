@@ -1,90 +1,90 @@
 ---
-title: Voorbereiden voor migratie van Azure Monitor-klassieke waarschuwingen door bij te werken uw logic apps en runbooks
-description: Informatie over het wijzigen van uw webhooks, logic apps en runbooks om voor te bereiden voor migratie op vrijwillige basis.
+title: De migratie van Azure Monitor klassieke waarschuwingen voorbereiden door uw Logic apps en runbooks bij te werken
+description: Meer informatie over het wijzigen van uw webhooks, Logic apps en runbooks om een vrijwillige migratie voor te bereiden.
 author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: bdbd45c2b10dec8f1c0a85110747a470e818dbf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5235db5cab39be6e36bdf145d3edc7c73fe9da54
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66015613"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827387"
 ---
-# <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Uw logic apps en runbooks voorbereiden voor migratie van klassiek waarschuwingsregels
+# <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Bereid uw Logic apps en runbooks voor op de migratie van klassieke waarschuwings regels
 
-Als [eerder aangekondigd](monitoring-classic-retirement.md), klassieke waarschuwingen in Azure Monitor worden stopgezet in September 2019 (oorspronkelijk juli 2019 is). Een hulpprogramma voor migratie is beschikbaar in de Azure-portal voor klanten die gebruik van klassieke waarschuwingsregels en willen voor het activeren van de migratie zelf.
+Zoals [eerder aangekondigd](monitoring-classic-retirement.md), worden klassieke waarschuwingen in azure monitor buiten gebruik gesteld in september 2019 (oorspronkelijk juli 2019). Er is een hulp programma voor migratie beschikbaar in de Azure Portal voor klanten die gebruikmaken van klassieke waarschuwings regels en die migratie zelf willen activeren.
 
 > [!NOTE]
-> Vanwege vertragingen in het uitrollen van hulpprogramma voor migratie, is de vervaldatum voor de migratie van de klassieke waarschuwingen zijn uitgebreid ter 31 augustus 2019 vanaf de oorspronkelijk aangekondigde datum van 30 juni 2019.
+> Als gevolg van een vertraging bij het uitrollen van het migratie hulpprogramma, is de buitengebruikstellings datum voor de migratie van klassieke waarschuwingen uitgebreid tot en met 31 augustus 2019 van de oorspronkelijke datum van 30 juni 2019.
 
-Als u kiest voor het migreren van de klassieke waarschuwingsregels vrijwillig voor nieuwe regels voor waarschuwingen, er rekening mee dat er enkele verschillen tussen de twee systemen zijn. In dit artikel wordt uitgelegd die verschillen en hoe u kunt voorbereiden voor de wijziging.
+Als u ervoor kiest om uw klassieke waarschuwings regels vrijwillig te migreren naar nieuwe waarschuwings regels, moet u er rekening mee houden dat er verschillen zijn tussen de twee systemen. In dit artikel worden deze verschillen beschreven en wordt uitgelegd hoe u de wijziging kunt voor bereiden.
 
 ## <a name="api-changes"></a>API-wijzigingen
 
-De API's die bij het maken en beheren van klassieke waarschuwingsregels (`microsoft.insights/alertrules`) verschillen van de API's die nieuwe metrische waarschuwingen maken en beheren (`microsoft.insights/metricalerts`). Als via een programma maken en beheren van klassieke waarschuwingsregels vandaag, werkt u uw implementatiescripts om te werken met de nieuwe API's.
+De api's die klassieke waarschuwings regels maken en beheren (`microsoft.insights/alertrules`) verschillen van de api's die nieuwe metrische waarschuwingen maken en beheren (`microsoft.insights/metricalerts`). Als u nu een regel matig klassieke waarschuwings regels maakt en beheert, moet u de implementatie scripts bijwerken zodat deze met de nieuwe Api's kan worden gebruikt.
 
 De volgende tabel bevat een verwijzing naar de programmatische interfaces voor zowel klassieke als nieuwe waarschuwingen:
 
 |         |Klassieke waarschuwingen  |Nieuwe metrische waarschuwingen |
 |---------|---------|---------|
 |REST-API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|Azure-CLI     | [AZ monitor voor waarschuwing](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [AZ monitor metrics waarschuwing](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|Azure-CLI     | [AZ-monitor waarschuwing](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [waarschuwing AZ monitor Metrics](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Naslaginformatie](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Naslaginformatie](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Azure Resource Manager-sjabloon | [Voor klassieke waarschuwingen](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Voor nieuwe metrische waarschuwingen](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
-## <a name="notification-payload-changes"></a>Melding nettolading wijzigt
+## <a name="notification-payload-changes"></a>Wijzigingen aan de meldings lading
 
-De indeling van de melding nettolading is enigszins tussen [klassieke waarschuwingsregels](alerts-webhooks.md) en [nieuwe metrische waarschuwingen](alerts-metric-near-real-time.md#payload-schema). Als u een webhook, logische app of runbook-acties die worden geactiveerd door regels voor klassieke waarschuwingen hebt, moet u deze meldingseindpunten voor het accepteren van de indeling van de nettolading van de nieuwe metrische waarschuwingen bijwerken.
+De indeling van de meldings lading verschilt enigszins van de [klassieke waarschuwings regels](alerts-webhooks.md) en de [nieuwe metrische waarschuwingen](alerts-metric-near-real-time.md#payload-schema). Als u een webhook, een logische app of runbook-acties hebt die worden geactiveerd door de regels van de klassieke waarschuwing, moet u deze meldings eindpunten bijwerken om de indeling van de nettolading van nieuwe metrische waarschuwingen te accepteren.
 
-Gebruik de volgende tabel de velden van de webhook-nettolading van de klassieke-indeling naar de nieuwe indeling toe te wijzen:
+Gebruik de volgende tabel om de velden voor de nettolading van webhooks van de klassieke indeling toe te wijzen aan de nieuwe indeling:
 
 |  |Klassieke waarschuwingen  |Nieuwe metrische waarschuwingen |
 |---------|---------|---------|
-|De waarschuwing is geactiveerd of opgelost?    | **status**       | **data.status** |
+|Is de waarschuwing geactiveerd of opgelost?    | **status**       | **data.status** |
 |Contextuele informatie over de waarschuwing     | **context**        | **data.context**        |
-|Tijdstempel die de waarschuwing is geactiveerd of opgelost     | **context.timestamp**       | **data.context.timestamp**        |
-| Waarschuwingsregel-ID | **context.id** | **data.context.id** |
+|Tijds tempel waarop de waarschuwing is geactiveerd of opgelost     | **context. time stamp**       | **data.context.timestamp**        |
+| ID van waarschuwings regel | **context.id** | **data.context.id** |
 | Naam waarschuwingsregel | **context.name** | **data.context.name** |
-| Beschrijving van de waarschuwingsregel | **context.description** | **data.context.description** |
-| Waarschuwingsregel voorwaarde | **context.condition** | **data.context.condition** |
-| Naam van de meetwaarde | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
-| Tijdverzameling (hoe de metrische gegevens over de evaluatie-venster wordt geaggregeerd)| **data.context.condition.timeAggregation** | **data.context.condition.timeAggregation** |
-| De evaluatieperiode voor | **context.condition.windowSize** | **data.context.condition.windowSize** |
-| Operator (hoe de samengevoegde metrische waarde wordt vergeleken met de drempelwaarde) | **context.condition.operator** | **data.context.condition.operator** |
-| Drempelwaarde | **context.condition.threshold** | **data.context.condition.allOf[0].threshold** |
-| Metrische waarde | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
+| Beschrijving van de waarschuwings regel | **context.description** | **data.context.description** |
+| Voor waarde waarschuwings regel | **context.condition** | **data.context.condition** |
+| Naam van de meetwaarde | **context. condition. metrische** | **data. context. condition. overzet [0]. metrische** |
+| Tijd aggregatie (hoe de metrische gegevens worden geaggregeerd over het evaluatie venster)| **context. condition. timeAggregation** | **context. condition. timeAggregation** |
+| Evaluatie periode | **context.condition.windowSize** | **data.context.condition.windowSize** |
+| Operator (hoe de cumulatieve metrische waarde wordt vergeleken met de drempel) | **context.condition.operator** | **data.context.condition.operator** |
+| Drempelwaarde | **context.condition.threshold** | **data. context. condition. overzet [0]. drempel waarde** |
+| Metrische waarde | **context.condition.metricValue** | **data. context. condition. overzet [0]. metricValue** |
 | Abonnements-id | **context.subscriptionId** | **data.context.subscriptionId** |
-| Resourcegroep van de betrokken resource | **context.resourceGroup** | **data.context.resourceGroup** |
+| Resource groep van de betrokken resource | **context.resourceGroup** | **data.context.resourceGroup** |
 | Naam van de betrokken resource | **context.resourceName** | **data.context.resourceName** |
 | Type van de betrokken resource | **context.resourceType** | **data.context.resourceType** |
-| Resource-ID van de betreffende resource | **context.resourceId** | **data.context.resourceId** |
-| Directe koppeling naar de pagina overzicht van portal-resource | **context.portalLink** | **data.context.portalLink** |
-| De nettolading van de aangepaste velden die moeten worden doorgegeven aan de webhook of de logische app | **Eigenschappen** | **data.properties** |
+| Resource-ID van de betrokken resource | **context.resourceId** | **data.context.resourceId** |
+| Directe koppeling naar de pagina overzicht van portal-resources | **context.portalLink** | **data.context.portalLink** |
+| Aangepaste Payload-velden die moeten worden door gegeven aan de webhook-of logische app | **Eigenschappen** | **data.properties** |
 
-De nettoladingen zijn vergelijkbaar, zoals u kunt zien. De volgende sectie biedt:
+De payloads zijn vergelijkbaar, zoals u kunt zien. In de volgende sectie vindt u:
 
-- Meer informatie over het wijzigen van logische apps om te werken met de nieuwe indeling.
-- Een voorbeeld van het runbook dat de nettolading van de melding voor nieuwe waarschuwingen worden geparseerd.
+- Meer informatie over het wijzigen van Logic apps voor gebruik van de nieuwe indeling.
+- Een voor beeld van een runbook waarmee de meldings lading voor nieuwe waarschuwingen wordt geparseerd.
 
-## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Wijzigen van een logische app voor het ontvangen van een metrische waarschuwing
+## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Een logische app wijzigen om een melding over een metrische waarschuwing te ontvangen
 
-Als u logische apps met klassieke waarschuwingen, moet u uw code logica-app voor het parseren van de nettolading van de nieuwe metrische waarschuwingen wijzigen. Volg deze stappen:
+Als u Logic apps gebruikt met klassieke waarschuwingen, moet u de code van uw logische App aanpassen om de nieuwe Payload voor metrische waarschuwingen te parseren. Volg deze stappen:
 
-1. Maak een nieuwe logische app.
+1. Een nieuwe logische app maken.
 
-1. Gebruik de sjabloon 'Azure Monitor--metrische waarschuwing Handler'. Deze sjabloon bevat een **HTTP-aanvraag** trigger met het bijbehorende schema gedefinieerd.
+1. Gebruik de sjabloon ' Azure Monitor-metrische waarschuwings-handler '. Voor deze sjabloon is een **HTTP-aanvraag** trigger met het juiste schema gedefinieerd.
 
-    ![logica-app-sjabloon](media/alerts-migration/logic-app-template.png "metrische waarschuwing sjabloon")
+    ![Logic-app-sjabloon](media/alerts-migration/logic-app-template.png "Sjabloon metrische waarschuwing")
 
-1. Een actie voor het hosten van uw verwerkingslogica toevoegen.
+1. Voeg een actie toe om uw verwerkings logica te hosten.
 
-## <a name="use-an-automation-runbook-that-receives-a-metric-alert-notification"></a>Een automation-runbook dat een metrische waarschuwing melding ontvangt gebruiken
+## <a name="use-an-automation-runbook-that-receives-a-metric-alert-notification"></a>Een Automation-runbook gebruiken dat een melding over een metrische waarschuwing ontvangt
 
-Het volgende voorbeeld wordt PowerShell die moet worden gebruikt in uw runbook. Deze code kan de nettoladingen voor zowel klassieke waarschuwingsregels voor metrische gegevens en nieuwe waarschuwingsregels voor metrische gegevens worden geparseerd.
+Het volgende voor beeld biedt Power shell-code voor gebruik in uw runbook. Deze code kan de nettoladingen voor zowel de klassieke metrische waarschuwings regels als nieuwe metrische waarschuwings regels parseren.
 
 ```PowerShell
 ## Example PowerShell code to use in a runbook to handle parsing of both classic and new metric alerts.
@@ -151,19 +151,19 @@ else {
 
 ```
 
-Zie voor een compleet voorbeeld van een runbook waarmee een virtuele machine wordt gestopt wanneer een waarschuwing wordt geactiveerd, de [documentatie over Azure Automation](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook).
+Zie de [Azure Automation-documentatie](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook)voor een volledig voor beeld van een runbook dat een virtuele machine stopt wanneer een waarschuwing wordt geactiveerd.
 
-## <a name="partner-integration-via-webhooks"></a>Partnerintegratie via webhooks
+## <a name="partner-integration-via-webhooks"></a>Partner integratie via webhooks
 
-De meeste van [onze partners die zijn geïntegreerd met klassieke waarschuwingen](https://docs.microsoft.com/azure/azure-monitor/platform/partners) al ondersteuning voor nieuwere metrische waarschuwingen via hun integraties. Bekende integraties gebruikt die al met nieuwe metrische waarschuwingen werken zijn:
+De meeste van [onze partners die integreren met klassieke waarschuwingen](https://docs.microsoft.com/azure/azure-monitor/platform/partners) , ondersteunen reeds nieuwere metrische waarschuwingen via hun integraties. Bekende integraties die al werken met nieuwe metrische waarschuwingen zijn:
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)
 - [Signl4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
 
-Als u een partnerintegratie die niet wordt vermeld hier gebruikt, controleert u of met de integratie-provider dat de integratie met nieuwe metrische waarschuwingen werkt.
+Als u een partner integratie gebruikt die hier niet wordt vermeld, controleert u met de integratie provider waarmee de integratie werkt met nieuwe metrische waarschuwingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Het gebruik van het hulpprogramma voor migratie](alerts-using-migration-tool.md)
-- [Informatie over de werking van het hulpprogramma voor migratie](alerts-understand-migration.md)
+- [Het hulpprogramma voor migratie gebruiken](alerts-using-migration-tool.md)
+- [Werking van het hulpprogramma voor migratie](alerts-understand-migration.md)

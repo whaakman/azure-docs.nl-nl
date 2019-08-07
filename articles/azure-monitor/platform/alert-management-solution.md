@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dacc4179483de5d5ef8a05fd836e4241c161deac
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60777010"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741266"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Waarschuwingenbeheeroplossing in Azure Log Analytics
 
 ![Pictogram voor het beheer van waarschuwing](media/alert-management-solution/icon.png)
 
 > [!NOTE]
->  Azure Monitor nu ondersteunt verbeterde mogelijkheden voor [uw waarschuwingen op schaal beheren](https://aka.ms/azure-alerts-overview), met inbegrip van die zijn gegenereerd door [controlehulpprogramma's zoals SCOM, Zabbix of Nagios](https://aka.ms/managing-alerts-other-monitoring-services).
+>  Azure Monitor ondersteunt nu verbeterde mogelijkheden voor [het beheren van uw waarschuwingen op schaal](https://aka.ms/azure-alerts-overview), met inbegrip van de functies die worden gegenereerd door [controle hulpprogramma's als SCOM, zabbix of nagios](https://aka.ms/managing-alerts-other-monitoring-services).
 >  
 
 
@@ -89,26 +89,26 @@ De oplossing waarschuwingen importeren uit System Center Operations Manager en m
 
 | Eigenschap | Description |
 |:--- |:--- |
-| Type |*Ontvang een waarschuwing* |
-| SourceSystem |*OpsManager* |
-| AlertContext |De details van het gegevensitem dat de waarschuwing worden gegenereerd in XML-indeling heeft. |
-| AlertDescription |Gedetailleerde beschrijving van de waarschuwing. |
-| AlertId |De GUID van de waarschuwing. |
-| AlertName |Naam van de waarschuwing. |
-| AlertPriority |Prioriteit van de waarschuwing. |
-| AlertSeverity |Ernst van de waarschuwing. |
-| AlertState |Meest recente oplossingsstatus van de waarschuwing. |
-| LastModifiedBy |De naam van de gebruiker die de waarschuwing het laatst is gewijzigd. |
-| ManagementGroupName |De naam van de beheergroep waar de waarschuwing is gegenereerd. |
-| RepeatCount |Aantal keren dat de dezelfde waarschuwing is gegenereerd voor dezelfde bewaakte object sinds worden omgezet. |
-| ResolvedBy |De naam van de gebruiker die de waarschuwing is opgelost. Leeg zijn als de waarschuwing nog niet opgelost is. |
-| SourceDisplayName |Weergavenaam van de controle-object dat de waarschuwing heeft gegenereerd. |
-| SourceFullName |Volledige naam van de controle-object dat de waarschuwing heeft gegenereerd. |
-| TicketId |Ticket-ID voor de waarschuwing als de System Center Operations Manager-omgeving is geïntegreerd met een proces voor het toewijzen van tickets voor waarschuwingen.  Lege van geen ticket-ID is toegewezen. |
-| TimeGenerated |Datum en tijd waarop de waarschuwing is gemaakt. |
-| TimeLastModified |Datum en tijd waarop de waarschuwing voor het laatst is gewijzigd. |
-| TimeRaised |Datum en tijd waarop de waarschuwing is gegenereerd. |
-| TimeResolved |Datum en tijd waarop de waarschuwing is opgelost. Leeg zijn als de waarschuwing nog niet opgelost is. |
+| `Type` |*Ontvang een waarschuwing* |
+| `SourceSystem` |*OpsManager* |
+| `AlertContext` |De details van het gegevensitem dat de waarschuwing worden gegenereerd in XML-indeling heeft. |
+| `AlertDescription` |Gedetailleerde beschrijving van de waarschuwing. |
+| `AlertId` |De GUID van de waarschuwing. |
+| `AlertName` |Naam van de waarschuwing. |
+| `AlertPriority` |Prioriteit van de waarschuwing. |
+| `AlertSeverity` |Ernst van de waarschuwing. |
+| `AlertState` |Meest recente oplossingsstatus van de waarschuwing. |
+| `LastModifiedBy` |De naam van de gebruiker die de waarschuwing het laatst is gewijzigd. |
+| `ManagementGroupName` |De naam van de beheergroep waar de waarschuwing is gegenereerd. |
+| `RepeatCount` |Aantal keren dat de dezelfde waarschuwing is gegenereerd voor dezelfde bewaakte object sinds worden omgezet. |
+| `ResolvedBy` |De naam van de gebruiker die de waarschuwing is opgelost. Leeg zijn als de waarschuwing nog niet opgelost is. |
+| `SourceDisplayName` |Weergavenaam van de controle-object dat de waarschuwing heeft gegenereerd. |
+| `SourceFullName` |Volledige naam van de controle-object dat de waarschuwing heeft gegenereerd. |
+| `TicketId` |Ticket-ID voor de waarschuwing als de System Center Operations Manager-omgeving is geïntegreerd met een proces voor het toewijzen van tickets voor waarschuwingen.  Lege van geen ticket-ID is toegewezen. |
+| `TimeGenerated` |Datum en tijd waarop de waarschuwing is gemaakt. |
+| `TimeLastModified` |Datum en tijd waarop de waarschuwing voor het laatst is gewijzigd. |
+| `TimeRaised` |Datum en tijd waarop de waarschuwing is gegenereerd. |
+| `TimeResolved` |Datum en tijd waarop de waarschuwing is opgelost. Leeg zijn als de waarschuwing nog niet opgelost is. |
 
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
 De volgende tabel bevat voorbeelden van zoekopdrachten voor waarschuwing records die zijn verzameld door deze oplossing: 

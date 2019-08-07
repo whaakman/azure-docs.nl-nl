@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: f680a1cb15edf0141897c74da3b7c7afa01acae0
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 31a367fcde909f393efa4fea65b25716f95c56ee
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699120"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828430"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Gegevens verkennen en voorbereiden met de klasse DataSet (preview)
 
@@ -35,7 +35,7 @@ Om uw gegevens te verkennen en voor te bereiden, hebt u het volgende nodig:
 
 * De Azure Machine Learning SDK voor python (versie 1.0.21 of hoger), die het pakket met de azureml-gegevens sets bevat. Zie [de SDK installeren of bijwerken](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)om de nieuwste versie van de SDK te installeren of bij te werken.
 
-* De Azure Machine Learning data prep SDK. Zie [de data prep-SDK installeren of bijwerken](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install)om de nieuwste versie te installeren of bij te werken.
+* De Azure Machine Learning data prep SDK. Zie [de data prep-SDK installeren of bijwerken](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py)om de nieuwste versie te installeren of bij te werken.
 
 * Down load de voorbeeld bestanden om samen te gaan met de voor beelden: [criminaliteit. CSV](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) en [City. json](https://dprepdata.blob.core.windows.net/dataset-sample-files/city.json).
 

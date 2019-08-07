@@ -1,39 +1,43 @@
 ---
-title: Kan geen knoop punten toevoegen aan een Azure HDInsight-cluster
-description: Kan geen knoop punten toevoegen aan een Azure HDInsight-cluster
+title: Apache Hive Zeppelin-interpreter bevat een Zookeeper-fout in azure HDInsight
+description: De Zeppelin Hive JDBC-interpreter verwijst naar de verkeerde URL
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 07/31/2019
-ms.openlocfilehash: 6c2e2c7395fcc45fe74c50beb3624eabb1d395c9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.date: 07/30/2019
+ms.openlocfilehash: f623d2516a2cf069b6347ebe8366b9b437228a87
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828023"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781346"
 ---
-# <a name="scenario-unable-to-add-nodes-to-azure-hdinsight-cluster"></a>Scenario: Kan geen knoop punten toevoegen aan een Azure HDInsight-cluster
+# <a name="scenario-apache-hive-zeppelin-interpreter-gives-a-zookeeper-error-in-azure-hdinsight"></a>Scenario: Apache Hive Zeppelin-interpreter bevat een Zookeeper-fout in azure HDInsight
 
-In dit artikel worden de stappen beschreven voor het oplossen van problemen en mogelijke oplossingen voor problemen bij het werken met Azure HDInsight-clusters.
+In dit artikel worden probleemoplossings stappen en mogelijke oplossingen voor problemen beschreven bij het gebruik van interactieve query onderdelen in azure HDInsight-clusters.
 
 ## <a name="issue"></a>Probleem
 
-Kan geen knoop punten toevoegen aan een Azure HDInsight-cluster.
+Op een Apache Hive LLAP-cluster geeft de Zeppelin-interpreter het volgende fout bericht weer wanneer wordt geprobeerd een query uit te voeren:
+
+```
+java.sql.SQLException: org.apache.hive.jdbc.ZooKeeperHiveClientException: Unable to read HiveServer2 configs from ZooKeeper
+```
 
 ## <a name="cause"></a>Oorzaak
 
-Redenen kunnen variëren.
+De Zeppelin Hive JDBC-interpreter verwijst naar de verkeerde URL.
 
 ## <a name="resolution"></a>Oplossing
 
-Gebruik de functie [cluster grootte](../hdinsight-scaling-best-practices.md) om het aantal extra kernen te berekenen dat nodig is voor het cluster. Dit wordt gebaseerd op het totale aantal cores in de nieuwe werkrolknooppunten. Probeer vervolgens een of meer van de volgende stappen:
+1. Navigeer naar het samen vatting van Hive-onderdelen en kopieer de ' hive JDBC-URL ' naar het klem bord.
 
-* Controleer of er kernen beschikbaar zijn op de locatie van het cluster.
+1. Ga naar`https://clustername.azurehdinsight.net/zeppelin/#/interpreter`
 
-* Bekijk het aantal beschikbare cores op andere locaties. Overweeg het cluster opnieuw te maken op een andere locatie met voldoende beschikbare cores.
+1. De JDBC-instellingen bewerken: werk de Hive. URL-waarde bij naar de component JDBC-URL die u in stap 1 hebt gekopieerd
 
-* Als u het aantal cores voor een specifieke locatie wilt verhogen, maakt u een ondersteuningsticket aan voor verhoging van het aantal HDInsight-cores.
+1. Sla het bestand op en voer de query opnieuw uit
 
 ## <a name="next-steps"></a>Volgende stappen
 

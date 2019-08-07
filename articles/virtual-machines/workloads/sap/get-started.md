@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/29/2019
+ms.date: 08/05/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 60474148d1eac6ca9d85fbc1d103ad612787aeae
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 4af30a24c5913abec1c2c2287e1b0f145470f42c
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607866"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828373"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure gebruiken om SAP-werkbelasting scenario's te hosten en uit te voeren
 
@@ -34,20 +34,8 @@ De uniekheid van Azure voor SAP HANA is een aanbieding waarin Azure wordt onders
 
 Bij het hosten van SAP-werkbelasting scenario's in azure kunnen ook vereisten voor identiteits integratie en eenmalige aanmelding worden gemaakt. Deze situatie kan zich voordoen wanneer u Azure Active Directory (Azure AD) gebruikt om verschillende SAP-onderdelen en SAP-software-as-a-Service (SaaS) of PaaS-aanbiedingen (platform-as-a-Service) te verbinden. Een lijst met dergelijke scenario's voor integratie en eenmalige aanmelding met Azure AD en SAP-entiteiten wordt beschreven en beschreven in de sectie ' AAD SAP identiteits integratie en eenmalige aanmelding '.
 
-## <a name="change-log"></a>Wijzigingenlogboek
-
-- Wijzigingen in [cluster een SAP ASCS/SCS-exemplaar op een Windows-failovercluster met behulp van een bestands share in azure](sap-high-availability-guide-wsfc-file-share.md) om ondersteuning te geven voor opslag ruimte Direct door Azure site Recovery Services
-- Release van [Azure proximity-plaatsings groepen voor optimale netwerk latentie met SAP-toepassingen](sap-proximity-placement-scenarios.md)
-- Release van de nieuwe hand leiding voor [IBM DB2 HADR in Red Hat Enter prise server](high-availability-guide-rhel-ibm-db2-luw.md)
-- Release van [hoge Beschik baarheid voor SAP NetWeaver op Red Hat Enterprise Linux met Azure NetApp files voor SAP-toepassingen](high-availability-guide-rhel-netapp-files.md)
-- Introductie van ExpressRoute snelle paden en Global Reach voor HANA grote instanties in [SAP Hana (grote instanties) netwerk architectuur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) en gerelateerde documenten
-- Release van [Azure Hana-besturings elementen voor grote instanties via de Azure Portal](hana-li-portal.md)
-- Release van [hoge Beschik baarheid voor SAP NetWeaver op Azure vm's op SuSE Linux Enterprise Server met Azure NetApp files voor SAP-toepassingen](high-availability-guide-suse-netapp-files.md)
-- Release van de [installatie van SAP NetWeaver ASCS voor SAP Hana op Azure NetAppFiles (ANF) Beta](lama-installation.md)
-
-
-
-
+## <a name="changes-to-the-sap-workload-section"></a>Wijzigingen in de sectie SAP-workload
+Wijzigingen in documenten in de sectie SAP on Azure workload worden aan het einde van dit artikel vermeld.
 
 
 ## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA op Azure (grote exemplaren)
@@ -132,5 +120,13 @@ Zie voor informatie over de integratie van Azure-Services in SAP-onderdelen:
 - [Azure Data Factory biedt integratie van SAP HANA- en Business Warehouse-gegevens](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 
 
+## <a name="change-log"></a>Wijzigingenlogboek
+
+- 08/01/2019: Wijzigingen in het [instellen van pacemaker op SuSE Linux Enterprise Server in azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) om wijzigingen te integreren die specifiek zijn voor SLES 15 
+- 07/23/2019: Wijzigingen in [cluster een SAP ASCS/SCS-exemplaar op een Windows-failovercluster met behulp van een bestands share in azure](sap-high-availability-guide-wsfc-file-share.md) om ondersteuning te geven voor opslag ruimte Direct door Azure site Recovery Services
+- 07/14/2019: Release van [Azure proximity-plaatsings groepen voor optimale netwerk latentie met SAP-toepassingen](sap-proximity-placement-scenarios.md)
+- 07/11/2019: Wijzigingen in diverse documenten met betrekking tot HANA grote instanties om revisie 4 van HANA grote instanties te behandelen
+- 07/09/2019: Release van de nieuwe hand leiding voor [IBM DB2 HADR in Red Hat Enter prise server](high-availability-guide-rhel-ibm-db2-luw.md)
+- 06/13/2019: Release van [hoge Beschik baarheid voor SAP NetWeaver op Red Hat Enterprise Linux met Azure NetApp files voor SAP-toepassingen](high-availability-guide-rhel-netapp-files.md)
 
 

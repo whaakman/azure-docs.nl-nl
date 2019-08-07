@@ -1,6 +1,6 @@
 ---
-title: Aangepaste cognitief zoeken vaardigheid - Azure Search
-description: Mogelijkheden van cognitief zoeken kennis en vaardigheden uitbreiden door Web-API's aanroepen
+title: Aangepaste cognitieve Zoek vaardigheid-Azure Search
+description: Mogelijkheden van cognitieve Zoek vaardig heden uitbreiden door naar web-Api's aan te roepen
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,50 +10,51 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seojan2018
-ms.openlocfilehash: e1ca8a5ce7b615ed8d84c91d8a0d72098c175c44
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.subservice: cognitive-search
+ms.openlocfilehash: 0451778d9b3bb29d06551c881b9f674ef7a74ab3
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672120"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841224"
 ---
-# <a name="custom-web-api-skill"></a>Aangepaste Web-API-kwalificatie
+# <a name="custom-web-api-skill"></a>Aangepaste web API-vaardigheid
 
-De **aangepaste Web-API** vaardigheden kunt u cognitief zoeken uitbreiden door het aanroepen van een Web-API-eindpunt aangepaste bewerkingen bieden. Vergelijkbaar met ingebouwde vaardigheden, een **aangepaste Web-API** vaardigheid heeft invoer en uitvoer. Afhankelijk van de invoer, uw Web-API een JSON-nettolading ontvangt wanneer de indexeerfunctie wordt uitgevoerd, en levert een JSON-nettolading als antwoord, samen met een code van de status geslaagd. Het antwoord wordt verwacht dat de uitvoer die is opgegeven door uw aangepaste vaardigheden. Een ander antwoord wordt beschouwd als een fout opgetreden en er is geen enrichments worden uitgevoerd.
+Met de **aangepaste web API** -vaardigheid kunt u een cognitieve zoek opdracht uitbreiden door aan te roepen naar een web-API-eind punt dat aangepaste bewerkingen biedt. Net als bij ingebouwde vaardig heden bevat een **aangepaste web-API** -vaardigheid invoer en uitvoer. Afhankelijk van de invoer, ontvangt uw web-API een JSON-nettolading wanneer de Indexeer functie wordt uitgevoerd en voert deze een JSON-nettolading uit als antwoord, samen met de status code geslaagd. Er wordt verwacht dat het antwoord de uitvoer bevat die is opgegeven door uw aangepaste vaardigheid. Elk ander antwoord wordt als een fout beschouwd en er worden geen verrijkingen uitgevoerd.
 
-De structuur van de JSON-nettoladingen zijn verder omlaag in dit document beschreven.
+De structuur van de JSON-nettoladingen wordt verder beschreven in dit document.
 
 > [!NOTE]
-> De indexeerfunctie wordt opnieuw geprobeerd tweemaal voor bepaalde standaard HTTP-statuscodes die is geretourneerd door de Web-API. Deze HTTP-statuscodes zijn: 
+> De Indexeer functie voert twee keer opnieuw uit voor bepaalde standaard HTTP-status codes die worden geretourneerd door de Web-API. Deze HTTP-status codes zijn: 
+> * `502 Bad Gateway`
 > * `503 Service Unavailable`
 > * `429 Too Many Requests`
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Custom.WebApiSkill
 
-## <a name="skill-parameters"></a>Kwalificatie parameters
+## <a name="skill-parameters"></a>Vaardigheids parameters
 
-Parameters zijn hoofdlettergevoelig.
+Para meters zijn hoofdletter gevoelig.
 
 | Parameternaam     | Description |
 |--------------------|-------------|
-| URI | De URI van de Web-API die de _JSON_ nettolading wordt verzonden. Alleen **https** URI-schema is toegestaan |
-| HttpMethod | De methode die u wilt gebruiken tijdens het verzenden van de nettolading. Toegestane methoden zijn `PUT` of `POST` |
-| httpHeaders | Een verzameling van sleutel / waarde-paren waarbij de sleutels headernamen en waarden staan vertegenwoordigen headerwaarden die worden verzonden naar uw Web-API, samen met de nettolading. De volgende headers zijn niet toegestaan in deze verzameling wordt: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
-| timeout | (Optioneel) Als u opgeeft, geeft u de time-out voor de http-client die van de API-aanroep. Deze moet zijn opgemaakt als een "dayTimeDuration" XSD-waarde (een beperkte subset van een [duur van de ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) waarde). Bijvoorbeeld, `PT60S` gedurende 60 seconden. Als dat niet is ingesteld, een standaardwaarde van 30 seconden wordt gekozen. De time-out kan worden ingesteld op een maximum van 90 seconden en een minimum van 1 seconde. |
-| batchSize | (Optioneel) Geeft aan hoeveel "gegevensrecords' (Zie _JSON_ nettolading structuur hieronder) worden verzonden per API-aanroep. Als dat niet is ingesteld, een standaardwaarde van 1000 is gekozen. We raden u aan het gebruik van deze parameter om een geschikte verhouding tussen de doorvoer voor indexering en belasting van uw API |
+| uri | De URI van de Web-API waarnaar de _JSON_ -nettolading wordt verzonden. Alleen **https** URI-schema is toegestaan |
+| httpMethod | De methode die moet worden gebruikt bij het verzenden van de payload. Toegestane methoden zijn `PUT` of`POST` |
+| httpHeaders | Een verzameling sleutel-waardeparen waarbij de sleutels koptekst namen en-waarden vertegenwoordigen header waarden die worden verzonden naar uw web-API en de payload. De volgende headers mogen niet voor komen in deze verzameling: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length` `TE` `Cookie` `Content-Type`,,, `Host`,, `Upgrade`,`Via` |
+| timeout | Beschrijving Hiermee geeft u de time-out op voor de HTTP-client die de API-aanroep maakt. Deze moet worden ingedeeld als een XSD ' dayTimeDuration-waarde (een beperkte subset van een [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) -waarde). Bijvoorbeeld `PT60S` gedurende 60 seconden. Als deze niet is ingesteld, wordt de standaard waarde van 30 seconden gekozen. De time-out kan worden ingesteld op een maximum van 230 seconden en een minimum van 1 seconde. |
+| batchSize | Beschrijving Hiermee wordt aangegeven hoeveel ' gegevens records ' (Zie de structuur van de _JSON_ -nettolading hieronder) per API-aanroep worden verzonden. Als deze niet is ingesteld, wordt de standaard waarde 1000 gekozen. We raden u aan gebruik te maken van deze para meter om een geschikte verhouding te krijgen tussen het door voeren van de indexering en de belasting van uw API |
 
-## <a name="skill-inputs"></a>Kwalificatie invoer
+## <a name="skill-inputs"></a>Vaardigheids invoer
 
-Er zijn geen "vooraf gedefinieerde" invoer voor deze kwalificatie. U kunt een of meer velden die al beschikbaar op het moment van uitvoering van deze kwalificatie als invoer zijn en de _JSON_ nettolading verzonden naar de Web-API heeft verschillende velden.
+Er zijn geen "vooraf gedefinieerde" invoer voor deze vaardigheid. U kunt een of meer velden kiezen die al beschikbaar zijn op het moment dat de uitvoering van deze vaardigheid als invoer wordt uitgevoerd en de _JSON_ -nettolading die naar de Web-API wordt verzonden, verschillende velden heeft.
 
-## <a name="skill-outputs"></a>Kwalificatie uitvoer
+## <a name="skill-outputs"></a>Vaardigheids uitvoer
 
-Er zijn geen "vooraf gedefinieerde" uitvoer voor deze kwalificatie. Afhankelijk van het antwoord uw Web-API retourneert, uitvoervelden toevoegen zodat ze kunnen worden opgehaald uit de _JSON_ antwoord.
+Er zijn geen vooraf gedefinieerde uitvoer voor deze vaardigheid. Afhankelijk van de reactie die uw web-API retourneert, voegt u uitvoer velden toe zodat deze kunnen worden opgehaald uit het _JSON_ -antwoord.
 
 
-## <a name="sample-definition"></a>Van voorbeelddefinitie
+## <a name="sample-definition"></a>Voorbeeld definitie
 
 ```json
   {
@@ -84,15 +85,15 @@ Er zijn geen "vooraf gedefinieerde" uitvoer voor deze kwalificatie. Afhankelijk 
         ]
       }
 ```
-## <a name="sample-input-json-structure"></a>Voorbeeld van invoer JSON-structuur
+## <a name="sample-input-json-structure"></a>Voorbeeld structuur voor de invoer van JSON
 
-Dit _JSON_ structuur vertegenwoordigt de nettolading die wordt verzonden naar uw Web-API.
-Het wordt altijd volgt u deze beperkingen:
+Deze _JSON_ -structuur vertegenwoordigt de nettolading die wordt verzonden naar uw web-API.
+Deze beperkingen worden altijd gevolgd:
 
-* De entiteit op het hoogste niveau wordt aangeroepen `values` en is een matrix met objecten. Het aantal van dergelijke objecten worden maximaal de `batchSize`
+* De entiteit op het hoogste niveau wordt `values` aangeroepen en is een matrix met objecten. Het aantal objecten is de meeste`batchSize`
 * Elk object in de `values` matrix heeft
-    * Een `recordId` eigenschap die een **unieke** tekenreeks, die wordt gebruikt om te identificeren die aan deze record.
-    * Een `data` eigenschap die een _JSON_ object. De velden van de `data` eigenschap komt overeen met de 'naam', opgegeven in de `inputs` sectie van de definitie van de kwalificatie. De waarde van deze velden worden uit de `source` van deze velden (dit kunnen uit een veld in het document, mogelijk van een andere vraagstukken)
+    * Een `recordId` eigenschap die een **unieke** teken reeks is, die wordt gebruikt om die record te identificeren.
+    * Een `data` eigenschap die een _JSON_ -object is. De velden van de `data` eigenschap komen overeen met de namen die zijn opgegeven in de `inputs` sectie van de vaardigheids definitie. De waarde van deze velden gaat uit `source` van deze velden (die mogelijk afkomstig zijn uit een veld in het document of mogelijk van een andere vaardigheid)
 
 ```json
 {
@@ -137,18 +138,18 @@ Het wordt altijd volgt u deze beperkingen:
 }
 ```
 
-## <a name="sample-output-json-structure"></a>Voorbeeld van uitvoer-JSON-structuur
+## <a name="sample-output-json-structure"></a>Voor beeld van JSON-structuur van uitvoer
 
-De 'uitvoer"komt overeen met het antwoord geretourneerd door uw Web-API. De Web-API moet alleen retourneren een _JSON_ nettolading (geverifieerd door te kijken de `Content-Type` reactieheader) en moet voldoen aan de volgende beperkingen:
+De "uitvoer" komt overeen met de reactie die wordt geretourneerd door de Web-API. De Web-API mag alleen een _JSON_ -nettolading retour neren (gecontroleerd door `Content-Type` te kijken naar de reactie header) en moet voldoen aan de volgende beperkingen:
 
-* Er moet een entiteit op het hoogste niveau met de naam `values` dit moet een matrix met objecten zijn.
-* Het aantal objecten in de matrix moet hetzelfde zijn als het aantal objecten dat is verzonden naar de Web-API.
-* Elk object moet hebben:
+* Er moet een entiteit op het hoogste niveau worden `values` aangeroepen die een matrix met objecten moet zijn.
+* Het aantal objecten in de matrix moet hetzelfde zijn als het aantal objecten dat naar de Web-API wordt verzonden.
+* Elk object moet het volgende hebben:
    * Een `recordId` eigenschap
-   * Een `data` eigenschap, dit is een object waarin de velden enrichments zijn die overeenkomen met de 'naam' de `output` en waarvan de waarde wordt beschouwd als de verrijking.
-   * Een `errors` eigenschap, een matrix met eventuele fouten die worden toegevoegd aan de geschiedenis van indexeerfunctie worden uitgevoerd. Deze eigenschap is vereist, maar kan hebben een `null` waarde.
-   * Een `warnings` eigenschap, een matrix met eventuele waarschuwingen aangetroffen die wordt toegevoegd aan de geschiedenis van de indexeerfunctie worden uitgevoerd. Deze eigenschap is vereist, maar kan hebben een `null` waarde.
-* De objecten in de `values` matrix niet moet zich in dezelfde volgorde als de objecten in de `values` matrix ze als een aanvraag verzonden naar de Web-API. Echter, de `recordId` wordt gebruikt voor correlatie, zodat elke record in de reactie die een `recordId` die geen deel uitmaakte van de oorspronkelijke aanvraag voor de Web-API worden genegeerd.
+   * Een `data` eigenschap, die een object is waarbij de velden verrijkingen zijn die overeenkomen met de ' `output` namen ' in de en waarvan de waarde wordt beschouwd als de verrijking.
+   * Een `errors` eigenschap, een matrix met eventuele fouten die worden toegevoegd aan de uitvoerings geschiedenis van de Indexeer functie. Deze eigenschap is vereist, maar kan wel een `null` waarde hebben.
+   * Een `warnings` eigenschap, een matrix met waarschuwingen die worden toegevoegd aan de uitvoerings geschiedenis van de Indexeer functie. Deze eigenschap is vereist, maar kan wel een `null` waarde hebben.
+* De objecten in de `values` matrix moeten zich niet in dezelfde volg orde besturen als de objecten `values` in de matrix die als een aanvraag naar de Web-API worden verzonden. De `recordId` wordt echter gebruikt voor correlatie, zodat alle records in het antwoord met een `recordId` die geen deel uitmaakt van de oorspronkelijke aanvraag voor de Web-API, worden genegeerd.
 
 ```json
 {
@@ -193,16 +194,16 @@ De 'uitvoer"komt overeen met het antwoord geretourneerd door uw Web-API. De Web-
 
 ```
 
-## <a name="error-cases"></a>Foutgevallen
-Naast uw Web-API niet beschikbaar of verzenden van niet-geslaagde statuscodes wordt het volgende worden beschouwd als foutieve gevallen:
+## <a name="error-cases"></a>Fout cases
+Naast de Web-API die niet beschikbaar is, of het verzenden van niet-geslaagde status codes, worden de volgende als foutieve cases beschouwd:
 
-* Als de Web-API een code van de status geslaagd retourneert, maar het antwoord geeft aan dat het niet is `application/json` en vervolgens het antwoord wordt beschouwd als ongeldig en wordt er geen enrichments uitgevoerd.
-* Als er **ongeldig** (met `recordId` niet in de oorspronkelijke aanvraag of met dubbele waarden) records in het antwoord `values` matrix, geen verrijking wordt uitgevoerd voor **die** records.
+* Als de Web-API een status code voor geslaagde pogingen retourneert, maar het antwoord `application/json` geeft aan dat het niet het geval is, wordt het antwoord beschouwd als ongeldig en worden er geen verrijkingen uitgevoerd.
+* Als er een **Ongeldige** ( `recordId` in de oorspronkelijke aanvraag of met dubbele waarden) records in de antwoord `values` matrix aanwezig zijn, wordt er geen verrijking uitgevoerd voor **deze** records.
 
-Voor het geval wanneer de Web-API niet beschikbaar is of wordt de HTTP-fout geretourneerd, wordt een gebruiksvriendelijke met alle beschikbare informatie over de HTTP-fout worden toegevoegd aan de geschiedenis van de indexeerfunctie worden uitgevoerd.
+Als de Web-API niet beschikbaar is of een HTTP-fout retourneert, wordt een beschrijvende fout met alle beschik bare Details over de HTTP-fout toegevoegd aan de indexerings geschiedenis.
 
 ## <a name="see-also"></a>Zie ook
 
-+ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)
-+ [Aangepaste vaardigheden toevoegen aan cognitief zoeken](cognitive-search-custom-skill-interface.md)
-+ [Voorbeeld: Het maken van een aangepaste vaardigheden voor cognitief zoeken](cognitive-search-create-custom-skill-example.md)
++ [Een vaardig heden definiëren](cognitive-search-defining-skillset.md)
++ [Aangepaste vaardigheid toevoegen aan cognitieve zoek functie](cognitive-search-custom-skill-interface.md)
++ [Voorbeeld: Een aangepaste vaardigheid maken voor cognitieve zoek acties](cognitive-search-create-custom-skill-example.md)

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
-ms.openlocfilehash: 305ff610c0f8962f2b50789d8af0a5f6e2fbf046
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: e06cd77a1d46208fe0f7aa166be3ccd3b9b7dbb4
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717376"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828612"
 ---
 # <a name="service-updates-in-site-recovery"></a>Service-updates in Site Recovery
 
@@ -72,7 +72,7 @@ Volg hetzelfde proces voor alle relevante onderdelen.
 
 1. Controleer voordat u de versies van het besturings systeem/de kernel bijwerkt of de doel versie wordt ondersteund Site Recovery. 
 
-    - Ondersteuning voor [Azure VM](/azure-to-azure-support-matrix.md#replicated-machine-operating-systems) .
+    - Ondersteuning voor [Azure VM](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) .
     - Ondersteuning voor [VMware/fysieke server](vmware-physical-azure-support-matrix.md#replicated-machines)
     - Ondersteuning voor [Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms) .
 2. Bekijk de [beschik bare updates](site-recovery-whats-new.md) voor informatie over wat u wilt upgraden.

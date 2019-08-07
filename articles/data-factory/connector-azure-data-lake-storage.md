@@ -1,6 +1,6 @@
 ---
 title: Gegevens kopiëren naar of van Azure Data Lake Storage Gen2 met behulp van Data Factory | Microsoft Docs
-description: Informatie over het kopiëren van gegevens naar en van Azure Data Lake Storage Gen2 met behulp van Azure Data Factory.
+description: Meer informatie over het kopiëren van gegevens van en naar Azure Data Lake Storage Gen2 met behulp van Azure Data Factory.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -8,60 +8,60 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 9f60c6258da77c0aaa99d16e178f4b3531ce90d9
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: a0a7a413d6c3344ccf5c3f7e4d14dd3d82715034
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509250"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840321"
 ---
-# <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen2 met Azure Data Factory
+# <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen2 met behulp van Azure Data Factory
 
-Azure Data Lake Storage Gen2 is een verscheidenheid aan functies die zijn toegewezen aan de analyse van big data die is ingebouwd in [Azure Blob-opslag](../storage/blobs/storage-blobs-introduction.md). U kunt deze gebruiken om met uw gegevens met behulp van beide beschermingsparadigma in het systeem en de object-opslag.
+Azure Data Lake Storage Gen2 is een set mogelijkheden die is toegewezen aan big data Analytics ingebouwd in [Azure Blob-opslag](../storage/blobs/storage-blobs-introduction.md). U kunt het gebruiken om de interface met uw gegevens te maken met behulp van zowel bestands systeem-als object opslag-modellen.
 
-In dit artikel bevat een overzicht over het kopiëren van gegevens naar en van Azure Data Lake Storage Gen2. Lees voor meer informatie over Azure Data Factory, de [inleidende artikel](introduction.md).
+In dit artikel wordt beschreven hoe u gegevens kopieert van en naar Azure Data Lake Storage Gen2. Lees voor meer informatie over Azure Data Factory, de [inleidende artikel](introduction.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-Deze connector Azure Data Lake Storage Gen2 wordt ondersteund voor de volgende activiteiten:
+Deze Azure Data Lake Storage Gen2-connector wordt ondersteund voor de volgende activiteiten:
 
-- [Kopieeractiviteit](copy-activity-overview.md) met [bron- of sinkservice matrix ondersteund](copy-activity-overview.md)
-- [Toewijzing van de gegevensstroom](concepts-data-flow-overview.md)
+- [Kopieer activiteit](copy-activity-overview.md) met een [ondersteunde bron-of sink-matrix](copy-activity-overview.md)
+- [Gegevens stroom toewijzen](concepts-data-flow-overview.md)
 - [Activiteit Lookup](control-flow-lookup-activity.md)
-- [De activiteit GetMetadata](control-flow-get-metadata-activity.md)
+- [GetMetadata-activiteit](control-flow-get-metadata-activity.md)
 
-Met deze connector kunt u met name:
+Met name met deze connector kunt u het volgende doen:
 
-- Gegevens kopiëren met behulp van de sleutel, service-principal of beheerde identiteiten van Azure-resources-verificaties.
-- Kopiëren van bestanden of parseren of bestanden met genereren [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md).
+- Gegevens kopiëren met behulp van account sleutel, Service-Principal of beheerde identiteiten voor Azure-bronnen verificaties.
+- Kopieer bestanden als bestand of parser of Genereer bestanden met [ondersteunde bestands indelingen en compressie](supported-file-formats-and-compression-codecs.md)-codecs.
 
 >[!TIP]
->Als u de hiërarchische naamruimte inschakelt, bestaat er momenteel geen interoperabiliteit van bewerkingen tussen de Blob en Data Lake Storage Gen2 API's. Als u de fout ' ErrorCode FilesystemNotFound = "van het bericht 'het opgegeven bestandssysteem does not exist', dit wordt veroorzaakt door het opgegeven sink-bestandssysteem dat is gemaakt via de Blob-API in plaats van de API van Data Lake Storage Gen2 elders. Los het probleem, geeft u een nieuwe bestandssysteem met een naam die als de naam van een Blob-container bestaat niet. Data Factory maakt die bestandssysteem vervolgens automatisch tijdens het kopiëren van gegevens.
+>Als u de hiërarchische naam ruimte inschakelt, is er momenteel geen interoperabiliteit van bewerkingen tussen Blob-en Data Lake Storage Gen2-Api's. Als u de fout "error code = FilesystemNotFound" bereikt met het bericht "het opgegeven bestands systeem bestaat niet," wordt het veroorzaakt door het opgegeven Sink-bestands systeem dat is gemaakt via de BLOB-API in plaats van Data Lake Storage Gen2-API elders. Om het probleem op te lossen, geeft u een nieuw bestands systeem met een naam op die niet bestaat als de naam van een BLOB-container. Vervolgens wordt het bestands systeem door Data Factory automatisch gemaakt tijdens het kopiëren van de gegevens.
 
 >[!NOTE]
->Als u inschakelt de **vertrouwde Microsoft-services voor toegang tot dit storage-account toestaan** optie in de firewallinstellingen van Azure Storage, Azure integratieruntime niet verbinden met Data Lake Storage Gen2 en ziet u een niet-toegestane fout. Het foutbericht wordt weergegeven, omdat de Data Factory wordt niet beschouwd als een vertrouwde Microsoft-service. Gebruik de zelf-hostende integratieruntime om in plaats daarvan.
+>Als u de optie **vertrouwde micro soft-Services toegang geven tot dit opslag account** in azure Storage Firewall-instellingen inschakelt, maakt Azure Integration runtime geen verbinding met data Lake Storage Gen2 en wordt er een verboden fout weer gegeven. Het fout bericht wordt weer gegeven omdat Data Factory niet wordt behandeld als een vertrouwde micro soft-service. Gebruik in plaats daarvan de zelf-hostende Integration runtime om verbinding te maken.
 
 ## <a name="get-started"></a>Aan de slag
 
 >[!TIP]
->Zie voor een overzicht van het gebruik van de connector Data Lake Storage Gen2 [gegevens laden in Azure Data Lake Storage Gen2](load-azure-data-lake-storage-gen2.md).
+>Zie [gegevens laden in azure data Lake Storage Gen2](load-azure-data-lake-storage-gen2.md)voor een overzicht van het gebruik van de data Lake Storage Gen2-connector.
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar Data Lake Storage Gen2.
+De volgende secties bevatten informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory entiteiten die specifiek zijn voor Data Lake Storage Gen2.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
-De Azure Data Lake Storage Gen2-connector ondersteunt de volgende verificatietypen. Zie de betreffende secties voor meer informatie:
+De Azure Data Lake Storage Gen2-connector ondersteunt de volgende verificatie typen. Zie de betreffende secties voor meer informatie:
 
 - [Verificatie van account-sleutel](#account-key-authentication)
 - [Verificatie van service-principal](#service-principal-authentication)
 - [Beheerde identiteiten voor verificatie van de Azure-resources](#managed-identity)
 
 >[!NOTE]
->Bij het gebruik van PolyBase om gegevens te laden in SQL Data Warehouse, als uw Data Lake Storage Gen2-bron is geconfigureerd met het eindpunt voor Virtueelnetwerk, moet u verificatie van de beheerde identiteit zoals vereist door PolyBase gebruiken. Zie de [verificatie van de beheerde identiteit](#managed-identity) sectie met meer configuratievereisten.
+>Wanneer u poly base gebruikt voor het laden van gegevens in SQL Data Warehouse, als uw bron Data Lake Storage Gen2 is geconfigureerd met Virtual Network-eind punt, moet u beheerde identiteits verificatie gebruiken zoals vereist is door poly base. Zie de sectie [beheerde identiteits verificatie](#managed-identity) met meer configuratie vereisten.
 
 ### <a name="account-key-authentication"></a>Verificatie van account-sleutel
 
@@ -70,9 +70,9 @@ Voor het gebruik van storage-account sleutelverificatie, worden de volgende eige
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **AzureBlobFS**. |Ja |
-| url | Eindpunt voor Data Lake Storage Gen2 met het patroon van `https://<accountname>.dfs.core.windows.net`. | Ja |
-| accountKey | Accountsleutel voor het Data Lake Storage Gen2. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de Azure integratieruntime of een zelf-hostende integratieruntime gebruiken als uw gegevensarchief zich in een particulier netwerk. Als deze eigenschap niet is opgegeven, wordt de standaard Azure integratieruntime wordt gebruikt. |Nee |
+| url | Eind punt voor Data Lake Storage Gen2 met het patroon `https://<accountname>.dfs.core.windows.net`van. | Ja |
+| accountKey | Account sleutel voor Data Lake Storage Gen2. Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory, of [verwijs naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de Azure Integration runtime of een zelf-hostende Integration runtime gebruiken als uw gegevens archief zich in een particulier netwerk bevindt. Als deze eigenschap niet is opgegeven, wordt de standaard Azure Integration runtime gebruikt. |Nee |
 
 **Voorbeeld:**
 
@@ -98,35 +98,35 @@ Voor het gebruik van storage-account sleutelverificatie, worden de volgende eige
 
 ### <a name="service-principal-authentication"></a>Verificatie van service-principal
 
-Volg deze stappen voor het gebruik van service-principal verificatie.
+Voer de volgende stappen uit om Service-Principal-verificatie te gebruiken.
 
-1. Registreren van een Toepassingsentiteit in Azure Active Directory (Azure AD) met de volgende stappen in [uw toepassing registreren bij een Azure AD-tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Noteer de volgende waarden, die u gebruikt voor het definiëren van de gekoppelde service:
+1. Registreer een toepassings entiteit in Azure Active Directory (Azure AD) door de stappen te volgen in [uw toepassing registreren bij een Azure AD-Tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Noteer de volgende waarden, die u gebruikt voor het definiëren van de gekoppelde service:
 
     - Toepassings-id
     - Toepassingssleutel
     - Tenant-id
 
-2. De service principal juiste machtiging verlenen. Meer informatie over de werking van machtiging in Data Lake Storage Gen2 van [toegangsbeheerlijsten voor bestanden en mappen](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
+2. Verleen de service-principal de juiste machtigingen. Meer informatie over de werking van machtigingen in Data Lake Storage Gen2 van [toegangs beheer lijsten voor bestanden en mappen](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
 
-    - **Als bron**: In Storage Explorer verlenen ten minste **Execute** machtiging starten vanaf de bron-bestandssysteem, samen met **lezen** machtiging voor de bestanden te kopiëren. U kunt ook in Access control (IAM), verleent u ten minste de **gegevenslezer voor Opslagblob** rol.
-    - **Als sink**: In Storage Explorer verlenen ten minste **Execute** machtiging vanaf het sink-bestandssysteem, samen met **schrijven** machtiging voor de sink-map. U kunt ook in Access control (IAM), verleent u ten minste de **Gegevensbijdrager voor Blob** rol.
+    - **Als bron**: Wijs in Storage Explorer ten minste de machtiging **uitvoeren** vanuit het bron bestandssysteem toe, samen met de machtiging **lezen** voor de bestanden die moeten worden gekopieerd. U kunt ook in toegangs beheer (IAM) ten minste de rol **Storage BLOB data Reader** verlenen.
+    - **Als Sink**: Ken in Storage Explorer ten minste de machtiging **uitvoeren** vanuit het sink-bestands systeem, samen met **Schrijf** machtiging voor de map sink. U kunt ook, in toegangs beheer (IAM), ten minste de rol van **BLOB voor gegevens opslag** verlenen.
 
 >[!NOTE]
->Aan de lijst met mappen vanuit het accountniveau, of om verbinding te testen, moet u de machtiging van de service-principal wordt verleend aan instellen **storage-account met de machtiging 'Gegevenslezer voor Opslagblob' in IAM**. Dit geldt wanneer u de:
->- **Het kopieerprogramma van gegevens** om de kopieerpijplijn auteur te.
->- **Data Factory-UI** voor het testen van verbinding en het navigeren door mappen tijdens het ontwerpen. 
->Als u zich zorgen maakt over het verlenen van machtiging op het accountniveau tijdens het ontwerpen, gaat u verder testen verbinding en kies vervolgens een bovenliggend pad met een machtiging verleend om te bladeren van invoer die opgegeven pad. Kopieer activiteit werkt, zolang de service-principal is verleend met de juiste machtigingen aan de bestanden worden gekopieerd.
+>Als u mappen wilt weer geven vanaf het account niveau of als u de verbinding wilt testen, moet u de machtiging instellen van de service-principal die wordt verleend aan het **opslag account met de machtiging Storage BLOB data Reader in iam**. Dit geldt wanneer u het volgende gebruikt:
+>- **Kopieer het hulp programma data** om Kopieer pijp lijn te schrijven.
+>- **Data Factory gebruikers interface** voor het testen van de verbinding en het navigeren door mappen tijdens het ontwerpen. 
+>Als u problemen hebt met het verlenen van machtigingen op account niveau, slaat u tijdens het ontwerpen de test verbinding over en voert u een bovenliggend pad in met toestemming toegekend en kiest u vervolgens om te bladeren vanuit het opgegeven pad. De Kopieer activiteit werkt als de Service-Principal is verleend met de juiste machtigingen voor de bestanden die moeten worden gekopieerd.
 
 Deze eigenschappen worden ondersteund voor de gekoppelde service:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **AzureBlobFS**. |Ja |
-| url | Eindpunt voor Data Lake Storage Gen2 met het patroon van `https://<accountname>.dfs.core.windows.net`. | Ja |
+| url | Eind punt voor Data Lake Storage Gen2 met het patroon `https://<accountname>.dfs.core.windows.net`van. | Ja |
 | servicePrincipalId | Opgeven van de toepassing client-ID. | Ja |
-| servicePrincipalKey | Geef de sleutel van de toepassing. Dit veld als markeert een `SecureString` Bewaar deze zorgvuldig in Data Factory. U kunt [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| tenant | De tenantgegevens (domain name of tenant-ID) opgeven in uw toepassing zich bevindt. Deze ophalen door de muis in de rechterbovenhoek van de Azure-portal. | Ja |
-| connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de Azure integratieruntime of een zelf-hostende integratieruntime gebruiken als uw gegevensarchief zich in een particulier netwerk. Indien niet opgegeven, wordt de standaard Azure integratieruntime wordt gebruikt. |Nee |
+| servicePrincipalKey | Geef de sleutel van de toepassing. Markeer dit veld als een `SecureString` om het veilig op te slaan in Data Factory. U kunt ook [verwijzen naar een geheim dat is opgeslagen in azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| tenant | De tenantgegevens (domain name of tenant-ID) opgeven in uw toepassing zich bevindt. U kunt deze ophalen door de muis in de rechter bovenhoek van de Azure Portal aan te wijzen. | Ja |
+| connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de Azure Integration runtime of een zelf-hostende Integration runtime gebruiken als uw gegevens archief zich in een particulier netwerk bevindt. Als dat niet is opgegeven, wordt de standaard Azure Integration runtime gebruikt. |Nee |
 
 **Voorbeeld:**
 
@@ -154,33 +154,33 @@ Deze eigenschappen worden ondersteund voor de gekoppelde service:
 
 ### <a name="managed-identity"></a> Beheerde identiteiten voor verificatie van de Azure-resources
 
-Een data factory kan worden gekoppeld aan een [beheerde identiteit voor de Azure-resources](data-factory-service-identity.md), die staat voor deze specifieke data factory. U kunt deze beheerde identiteit rechtstreeks gebruiken voor verificatie met Data Lake Storage Gen2, vergelijkbaar met het gebruik van uw eigen service-principal. Kan deze aangewezen factory toegang en Kopieer gegevens naar of van uw Data Lake Storage Gen2.
+Een data factory kan worden gekoppeld aan een [beheerde identiteit voor de Azure-resources](data-factory-service-identity.md), die staat voor deze specifieke data factory. U kunt deze beheerde identiteit rechtstreeks gebruiken voor Data Lake Storage Gen2 verificatie, vergelijkbaar met het gebruik van uw eigen service-principal. Hiermee kan deze toegewezen Factory gegevens naar of van uw Data Lake Storage Gen2 benaderen en kopiëren.
 
-Volg deze stappen voor het gebruik van beheerde identiteiten voor verificatie van de Azure-resource.
+Voer de volgende stappen uit om beheerde identiteiten voor Azure-resource verificatie te gebruiken.
 
-1. [Ophalen van de identiteitsgegevens van de Data Factory beheerd](data-factory-service-identity.md#retrieve-managed-identity) door te kopiëren van de waarde van de **identiteitstoepassings-ID-service** gegenereerd samen met uw gegevensfactory.
+1. [Haal de Data Factory beheerde identiteits gegevens](data-factory-service-identity.md#retrieve-managed-identity) op door de waarde van de **toepassings-id van de service-** id te kopiëren die samen met uw fabriek is gegenereerd.
 
-2. Verleen de juiste machtiging beheerde identiteit. Meer informatie over de werking van machtiging in Data Lake Storage Gen2 van [toegangsbeheerlijsten voor bestanden en mappen](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+2. Verleen de beheerde identiteit de juiste machtiging. Meer informatie over de werking van machtigingen in Data Lake Storage Gen2 van [toegangs beheer lijsten voor bestanden en mappen](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
-    - **Als bron**: In Storage Explorer verlenen ten minste **Execute** machtiging starten vanaf de bron-bestandssysteem, samen met **lezen** machtiging voor de bestanden te kopiëren. U kunt ook in Access control (IAM), verleent u ten minste de **gegevenslezer voor Opslagblob** rol.
-    - **Als sink**: In Storage Explorer verlenen ten minste **Execute** machtiging vanaf het sink-bestandssysteem, samen met **schrijven** machtiging voor de sink-map. U kunt ook in Access control (IAM), verleent u ten minste de **Gegevensbijdrager voor Blob** rol.
+    - **Als bron**: Wijs in Storage Explorer ten minste de machtiging **uitvoeren** vanuit het bron bestandssysteem toe, samen met de machtiging **lezen** voor de bestanden die moeten worden gekopieerd. U kunt ook in toegangs beheer (IAM) ten minste de rol **Storage BLOB data Reader** verlenen.
+    - **Als Sink**: Ken in Storage Explorer ten minste de machtiging **uitvoeren** vanuit het sink-bestands systeem, samen met **Schrijf** machtiging voor de map sink. U kunt ook, in toegangs beheer (IAM), ten minste de rol van **BLOB voor gegevens opslag** verlenen.
 
 >[!NOTE]
->Aan de lijst met mappen vanuit het accountniveau, of om verbinding te testen, moet u de machtiging van de beheerde identiteit wordt verleend aan instellen **storage-account met de machtiging 'Gegevenslezer voor Opslagblob' in IAM**. Dit geldt wanneer u de:
->- **Het kopieerprogramma van gegevens** om de kopieerpijplijn auteur te.
->- **Data Factory-UI** voor het testen van verbinding en het navigeren door mappen tijdens het ontwerpen. 
->Als u zich zorgen maakt over het verlenen van machtiging op het accountniveau tijdens het ontwerpen, gaat u verder testen verbinding en kies vervolgens een bovenliggend pad met een machtiging verleend om te bladeren van invoer die opgegeven pad. Kopieer activiteit werkt, zolang de service-principal is verleend met de juiste machtigingen aan de bestanden worden gekopieerd.
+>Als u mappen wilt weer geven vanaf het account niveau of als u de verbinding wilt testen, moet u de machtiging instellen van de beheerde identiteit die wordt verleend aan het **opslag account met de machtiging opslag-BLOB-gegevens in iam**. Dit geldt wanneer u het volgende gebruikt:
+>- **Kopieer het hulp programma data** om Kopieer pijp lijn te schrijven.
+>- **Data Factory gebruikers interface** voor het testen van de verbinding en het navigeren door mappen tijdens het ontwerpen. 
+>Als u problemen hebt met het verlenen van machtigingen op account niveau, slaat u tijdens het ontwerpen de test verbinding over en voert u een bovenliggend pad in met toestemming toegekend en kiest u vervolgens om te bladeren vanuit het opgegeven pad. De Kopieer activiteit werkt als de Service-Principal is verleend met de juiste machtigingen voor de bestanden die moeten worden gekopieerd.
 
 >[!IMPORTANT]
->Als u PolyBase om gegevens te laden uit Data Lake Storage Gen2 in SQL Data Warehouse bij het gebruik van verificatie van de beheerde identiteit voor Data Lake Storage Gen2 gebruikt, zorg ervoor dat u ook stappen 1 en 2 in [deze richtlijnen](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) op 1) uw SQL registreren Database-server met Azure Active Directory (Azure AD) en 2) toewijzen de Gegevensbijdrager voor Blob-rol aan uw SQL-Database-server. de rest worden verwerkt door Data Factory. Als uw Data Lake Storage Gen2 is geconfigureerd met een Azure Virtual Network-eindpunt, voor het gebruik van PolyBase om gegevens te laden, moet u verificatie van de beheerde identiteit zoals vereist door PolyBase.
+>Als u poly base gebruikt voor het laden van gegevens van Data Lake Storage Gen2 naar SQL Data Warehouse, moet u, wanneer u beheerde identiteits verificatie voor Data Lake Storage Gen2 gebruikt, ervoor zorgen dat u de stappen 1 en 2 in [deze](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) hand leiding uitvoert naar 1) uw SQL database-server registreren bij Azure Active Directory (Azure AD) en 2) wijs de rol van BLOB voor gegevens opslag toe aan uw SQL Database-Server. de rest wordt afgehandeld door Data Factory. Als uw Data Lake Storage Gen2 is geconfigureerd met een Azure Virtual Network-eind punt, moet u de beheerde identiteits verificatie gebruiken zoals vereist is door poly Base om poly Base te gebruiken voor het laden van gegevens.
 
 Deze eigenschappen worden ondersteund voor de gekoppelde service:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **AzureBlobFS**. |Ja |
-| url | Eindpunt voor Data Lake Storage Gen2 met het patroon van `https://<accountname>.dfs.core.windows.net`. | Ja |
-| connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de Azure integratieruntime of een zelf-hostende integratieruntime gebruiken als uw gegevensarchief zich in een particulier netwerk. Indien niet opgegeven, wordt de standaard Azure integratieruntime wordt gebruikt. |Nee |
+| url | Eind punt voor Data Lake Storage Gen2 met het patroon `https://<accountname>.dfs.core.windows.net`van. | Ja |
+| connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de Azure Integration runtime of een zelf-hostende Integration runtime gebruiken als uw gegevens archief zich in een particulier netwerk bevindt. Als dat niet is opgegeven, wordt de standaard Azure Integration runtime gebruikt. |Nee |
 
 **Voorbeeld:**
 
@@ -202,24 +202,24 @@ Deze eigenschappen worden ondersteund voor de gekoppelde service:
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, [gegevenssets](concepts-datasets-linked-services.md).
+Zie [gegevens sets](concepts-datasets-linked-services.md)voor een volledige lijst met secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevens sets.
 
-- Zie voor de parquet en gescheiden tekstopmaak de [Parquet en tekst met scheidingstekens indeling gegevensset](#parquet-and-delimited-text-format-dataset) sectie.
-- Zie voor andere indelingen, zoals ORC, Avro, JSON of binaire indeling, de [andere gegevensset indeling](#other-format-dataset) sectie.
+- Raadpleeg voor **Parquet, tekst met scheidings tekens en binaire indeling**, de sectie [Parquet, tekst met scheidings tekens en gegevensset voor binaire indeling](#format-based-dataset) .
+- Raadpleeg voor andere indelingen, zoals de **Orc/Avro/JSON-indeling**, de sectie [andere indelings gegevensset](#other-format-dataset) .
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet en tekst met scheidingstekens indeling gegevensset
+### <a name="format-based-dataset"></a>Parquet, gescheiden tekst en binaire indeling gegevensset
 
-Als u wilt kopiëren van en naar Data Lake Storage Gen2 gegevens in parquet of gescheiden tekstopmaak, Zie de [Parquet-indeling](format-parquet.md) en [gescheiden tekstopmaak](format-delimited-text.md) artikelen op de gegevensset op basis van indeling en ondersteunde instellingen. De volgende eigenschappen worden ondersteund voor Data Lake Storage Gen2 onder `location` instellingen in de gegevensset op basis van een indeling:
+Als u gegevens wilt kopiëren naar en van **Parquet, tekst met scheidings tekens of binaire indeling**, raadpleegt u de [Parquet-indeling](format-parquet.md), [tekst indeling met scheidings tekens](format-delimited-text.md) en het artikel [binaire indeling](format-binary.md) op op indeling gebaseerde gegevensset en ondersteunde instellingen. De volgende eigenschappen worden ondersteund voor data Lake Storage Gen2 onder `location` instellingen in de gegevensset op basis van een indeling:
 
 | Eigenschap   | Description                                                  | Vereist |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | De eigenschap type onder `location` in de gegevensset moet worden ingesteld op **AzureBlobFSLocation**. | Ja      |
-| fileSystem | De naam van Data Lake Storage Gen2 bestand system.                              | Nee       |
-| folderPath | Het pad naar een map onder het opgegeven bestand-systeem. Als u wilt een jokerteken gebruiken om te filteren worden de mappen overslaan van deze instelling en deze opgeven in de instellingen voor de bron. | Nee       |
-| fileName   | De bestandsnaam van het onder de opgegeven bestandssysteem + folderPath. Als u een jokerteken gebruiken om te filteren van bestanden wilt, overslaan van deze instelling en deze opgeven in de instellingen voor de bron. | Nee       |
+| fileSystem | De naam van het Data Lake Storage Gen2-bestands systeem.                              | Nee       |
+| folderPath | Het pad naar een map onder het opgegeven bestands systeem. Als u een Joker teken wilt gebruiken om mappen te filteren, slaat u deze instelling over en geeft u deze op in de activiteiten bron instellingen. | Nee       |
+| fileName   | De bestands naam onder het opgegeven bestands systeem en folderPath. Als u een Joker teken wilt gebruiken om bestanden te filteren, slaat u deze instelling over en geeft u deze op in de activiteiten bron instellingen. | Nee       |
 
 > [!NOTE]
-> De **AzureBlobFSFile** type gegevensset met de indeling van parquet of tekst vermeld in de volgende sectie wordt nog steeds ondersteund als kopiëren, lookup of de activiteit GetMetadata voor achterwaartse compatibiliteit. Maar dit niet werkt met de functie voor toewijzing gegevensstroom. U wordt aangeraden dat u dit nieuwe model gaan gebruiken. De Data Factory UI ontwerpen genereert deze nieuwe typen.
+> De **AzureBlobFSFile** -gegevensset met Parquet of tekst indeling die in de volgende sectie wordt vermeld, wordt nog steeds ondersteund als voor Copy-, lookup-of GetMetadata-activiteiten voor achterwaartse compatibiliteit. Maar dit werkt niet met de functie gegevens stroom toewijzen. U wordt aangeraden dit nieuwe model verder te gebruiken. Deze nieuwe typen worden gegenereerd door de gebruikers interface van de Data Factory-ontwerp functie.
 
 **Voorbeeld:**
 
@@ -248,22 +248,22 @@ Als u wilt kopiëren van en naar Data Lake Storage Gen2 gegevens in parquet of g
 }
 ```
 
-### <a name="other-format-dataset"></a>Andere indeling-gegevensset
+### <a name="other-format-dataset"></a>Gegevensset voor andere indeling
 
-Om gegevens te kopiëren naar en van Data Lake Storage Gen2 in ORC, Avro, JSON of binaire indeling, worden de volgende eigenschappen ondersteund:
+Als u gegevens wilt kopiëren naar en van Data Lake Storage Gen2 in **Orc/Avro/JSON-indeling**, worden de volgende eigenschappen ondersteund:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op **AzureBlobFSFile**. |Ja |
-| folderPath | Pad naar de map in Data Lake Storage Gen2. Indien niet opgegeven, wordt deze verwijst naar de hoofdmap. <br/><br/>Filteren op jokerteken wordt ondersteund. Jokertekens zijn toegestaan `*` (komt overeen met nul of meer tekens) en `?` (komt overeen met nul of één teken). Gebruik `^` als escape voor als de naam van uw map zelf een jokerteken is of deze escape-teken in. <br/><br/>Voorbeelden: bestandssysteem/map /. Meer voorbeelden in [mappen en bestanden filteren voorbeelden](#folder-and-file-filter-examples). |Nee |
-| fileName | Naam of het jokerteken filter voor de bestanden in de opgegeven 'folderPath'. Als u een waarde voor deze eigenschap niet opgeeft, wordt de gegevensset verwijst naar alle bestanden in de map. <br/><br/>Voor het filter, de jokertekens toegestaan zijn `*` (komt overeen met nul of meer tekens) en `?` (komt overeen met nul of één teken).<br/>-Voorbeeld 1: `"fileName": "*.csv"`<br/>-Voorbeeld 2: `"fileName": "???20180427.txt"`<br/>Gebruik `^` als escape voor als de bestandsnaam van uw werkelijke een jokerteken heeft of deze escape-teken in.<br/><br/>Wanneer de bestandsnaam is niet opgegeven voor een uitvoergegevensset en **preserveHierarchy** is niet opgegeven in de activiteit-sink, de kopieeractiviteit wordt automatisch gegenereerd met de naam van het bestand met het volgende patroon: "*Gegevens. [activiteit uitgevoerd GUID-ID]. [GUID als FlattenHierarchy]. [de indeling als geconfigureerd]. [compressie als geconfigureerd]* ', bijvoorbeeld 'Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz'. Als u van een tabellair bron in plaats van een query met behulp van een tabelnaam wordt opgegeven kopieert, wordt het naampatroon is ' *[tabelnaam]. [ indeling]. [compressie als geconfigureerd]* ', bijvoorbeeld 'MyTable.csv'. |Nee |
-| modifiedDatetimeStart | Bestanden filteren op basis van het kenmerk Laatst gewijzigd. De bestanden zijn geselecteerd als hun laatst gewijzigd binnen het tijdsbereik tussen `modifiedDatetimeStart` en `modifiedDatetimeEnd`. De tijd wordt toegepast op de UTC-tijdzone in de indeling van ' 2018-12-01T05:00:00Z '. <br/><br/> De algehele prestaties van de verplaatsing van gegevens wordt beïnvloed door deze instelling is ingeschakeld als u wilt filter het bestand met grote hoeveelheden bestanden. <br/><br/> De eigenschappen kunnen niet null zijn, wat betekent dat er geen kenmerk bestandsfilter wordt toegepast op de gegevensset. Wanneer `modifiedDatetimeStart` een datum / tijdwaarde heeft, maar `modifiedDatetimeEnd` NULL is, betekent dit dat de bestanden waarvan het kenmerk Laatst gewijzigde groter dan is of gelijk zijn aan de datum / tijdwaarde zijn geselecteerd. Wanneer `modifiedDatetimeEnd` een datum / tijdwaarde heeft, maar `modifiedDatetimeStart` NULL is, betekent dit dat de bestanden waarvan het laatst gewijzigde kenmerk kleiner dan de datum / tijdwaarde is zijn geselecteerd.| Nee |
-| modifiedDatetimeEnd | Bestanden filteren op basis van het kenmerk Laatst gewijzigd. De bestanden zijn geselecteerd als hun laatst gewijzigd binnen het tijdsbereik tussen `modifiedDatetimeStart` en `modifiedDatetimeEnd`. De tijd wordt toegepast op de UTC-tijdzone in de indeling van ' 2018-12-01T05:00:00Z '. <br/><br/> De algehele prestaties van de verplaatsing van gegevens wordt beïnvloed door deze instelling is ingeschakeld als u wilt filter het bestand met grote hoeveelheden bestanden. <br/><br/> De eigenschappen kunnen niet null zijn, wat betekent dat er geen kenmerk bestandsfilter wordt toegepast op de gegevensset. Wanneer `modifiedDatetimeStart` een datum / tijdwaarde heeft, maar `modifiedDatetimeEnd` NULL is, betekent dit dat de bestanden waarvan het kenmerk Laatst gewijzigde groter dan is of gelijk zijn aan de datum / tijdwaarde zijn geselecteerd. Wanneer `modifiedDatetimeEnd` een datum / tijdwaarde heeft, maar `modifiedDatetimeStart` NULL is, betekent dit dat de bestanden waarvan het laatst gewijzigde kenmerk kleiner dan de datum / tijdwaarde is zijn geselecteerd.| Nee |
-| format | Als u wilt kopiëren van bestanden als tussen winkels op basis van bestanden (binaire kopie), moet u de sectie indeling in de invoer en uitvoer gegevenssetdefinities overslaan.<br/><br/>Als u wilt parseren of bestanden met een specifieke indeling genereren, worden de volgende indeling bestandstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, en **ParquetFormat**. Stel de **type** eigenschap onder **indeling** op een van deze waarden. Zie voor meer informatie de [tekstindeling](supported-file-formats-and-compression-codecs.md#text-format), [JSON-indeling](supported-file-formats-and-compression-codecs.md#json-format), [Avro-indeling](supported-file-formats-and-compression-codecs.md#avro-format), [ORC-indeling](supported-file-formats-and-compression-codecs.md#orc-format), en [Parquet-indeling ](supported-file-formats-and-compression-codecs.md#parquet-format) secties. |Nee (alleen voor binaire kopie-scenario) |
+| folderPath | Pad naar de map in Data Lake Storage Gen2. Indien niet opgegeven, wordt deze verwijst naar de hoofdmap. <br/><br/>Het Joker teken filter wordt ondersteund. Toegestane joker tekens zijn `*` (komt overeen met nul of meer tekens `?` ) en (komt overeen met nul of één teken). Gebruik `^` om te escapen als uw werkelijke mapnaam een Joker teken bevat of dit escape-teken in. <br/><br/>Voor beelden: bestands systeem/map/. Bekijk meer voor beelden in [map-en bestands filter voorbeelden](#folder-and-file-filter-examples). |Nee |
+| fileName | De naam of het Joker teken filter voor de bestanden onder het opgegeven folderPath. Als u een waarde voor deze eigenschap niet opgeeft, wordt de gegevensset verwijst naar alle bestanden in de map. <br/><br/>Voor het filter zijn `*` de toegestane joker tekens (komt overeen met nul of meer tekens) en `?` (komt overeen met nul of één teken).<br/>-Voorbeeld 1: `"fileName": "*.csv"`<br/>-Voorbeeld 2: `"fileName": "???20180427.txt"`<br/>Gebruik `^` om te escapen als uw werkelijke bestands naam een Joker teken bevat of dit escape-teken in.<br/><br/>Als er geen bestands naam is opgegeven voor een uitvoer-gegevensset en **preserveHierarchy** niet is opgegeven in de Sink van de activiteit, genereert de Kopieer activiteit automatisch de bestands naam met het volgende patroon: "*Gegevens. [GUID van run-ID van activiteit]. [GUID if FlattenHierarchy]. [indeling indien geconfigureerd]. [compressie indien geconfigureerd]* ', bijvoorbeeld ' data. 0a405f8a-93ff-4c6f-b3be-f69616f1df7a. txt. gz '. Als u vanuit een tabellaire bron kopieert met behulp van een tabel naam in plaats van een query, is het naam patroon ' *[tabel naam]. [ indeling]. [compressie indien geconfigureerd]* ', bijvoorbeeld ' mytable. csv '. |Nee |
+| modifiedDatetimeStart | Bestanden filteren op basis van het kenmerk dat het laatst is gewijzigd. De bestanden worden geselecteerd als het tijdstip van de laatste wijziging binnen het tijds bereik `modifiedDatetimeStart` ligt `modifiedDatetimeEnd`tussen en. De tijd wordt toegepast op de UTC-tijd zone in de notatie "2018-12-01T05:00:00Z". <br/><br/> De algehele prestaties van het verplaatsen van gegevens worden beïnvloed door deze instelling in te scha kelen wanneer u bestands filter wilt uitvoeren met enorme hoeveel heden bestanden. <br/><br/> De eigenschappen kunnen NULL zijn, wat betekent dat er geen bestands kenmerk filter op de gegevensset wordt toegepast. Wanneer `modifiedDatetimeStart` heeft een datum/tijd `modifiedDatetimeEnd` -waarde, maar null is, betekent dit dat de bestanden waarvan het kenmerk laatst gewijzigd is groter is dan of gelijk is aan de datum/tijd-waarde zijn geselecteerd. Wanneer `modifiedDatetimeEnd` heeft een datum/tijd `modifiedDatetimeStart` -waarde, maar is null, betekent dit dat de bestanden waarvan het kenmerk laatst gewijzigd is, kleiner zijn dan de waarde voor datum/tijd.| Nee |
+| modifiedDatetimeEnd | Bestanden filteren op basis van het kenmerk dat het laatst is gewijzigd. De bestanden worden geselecteerd als het tijdstip van de laatste wijziging binnen het tijds bereik `modifiedDatetimeStart` ligt `modifiedDatetimeEnd`tussen en. De tijd wordt toegepast op de UTC-tijd zone in de notatie "2018-12-01T05:00:00Z". <br/><br/> De algehele prestaties van het verplaatsen van gegevens worden beïnvloed door deze instelling in te scha kelen wanneer u bestands filter wilt uitvoeren met enorme hoeveel heden bestanden. <br/><br/> De eigenschappen kunnen NULL zijn, wat betekent dat er geen bestands kenmerk filter op de gegevensset wordt toegepast. Wanneer `modifiedDatetimeStart` heeft een datum/tijd `modifiedDatetimeEnd` -waarde, maar null is, betekent dit dat de bestanden waarvan het kenmerk laatst gewijzigd is groter is dan of gelijk is aan de datum/tijd-waarde zijn geselecteerd. Wanneer `modifiedDatetimeEnd` heeft een datum/tijd `modifiedDatetimeStart` -waarde, maar is null, betekent dit dat de bestanden waarvan het kenmerk laatst gewijzigd is, kleiner zijn dan de waarde voor datum/tijd.| Nee |
+| format | Als u wilt kopiëren van bestanden als tussen winkels op basis van bestanden (binaire kopie), moet u de sectie indeling in de invoer en uitvoer gegevenssetdefinities overslaan.<br/><br/>Als u bestanden wilt parseren of genereren met een specifieke indeling, worden de volgende typen bestands indelingen ondersteund: **TextFormat**, **JsonFormat**, **Avro Format**, **OrcFormat**en **ParquetFormat**. Stel de **type** eigenschap onder **indeling** op een van deze waarden. Zie de secties [tekst indeling](supported-file-formats-and-compression-codecs.md#text-format), [JSON-indeling](supported-file-formats-and-compression-codecs.md#json-format), [Avro](supported-file-formats-and-compression-codecs.md#avro-format)-indeling, [Orc-indeling](supported-file-formats-and-compression-codecs.md#orc-format)en [Parquet-indeling](supported-file-formats-and-compression-codecs.md#parquet-format) voor meer informatie. |Nee (alleen voor binaire kopie-scenario) |
 | compression | Geef het type en het niveau van compressie voor de gegevens. Zie voor meer informatie, [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Ondersteunde typen zijn **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**.<br/>Ondersteunde niveaus zijn **optimale** en **snelst**. |Nee |
 
 >[!TIP]
->Alle bestanden in een map wilt kopiëren, geef **folderPath** alleen.<br>Als u wilt kopiëren van één bestand met een specifieke naam, geef **folderPath** met een maponderdeel en **fileName** met een bestandsnaam op.<br>Als u wilt kopiëren van een subset van de bestanden in een map, geef **folderPath** met een maponderdeel en **fileName** met een wildcard-filter. 
+>Alle bestanden in een map wilt kopiëren, geef **folderPath** alleen.<br>Als u één bestand met een bepaalde naam wilt kopiëren, geeft u **FolderPath** op met een mappen onderdeel en **filename** met een bestands naam.<br>Als u een subset van bestanden onder een map wilt kopiëren, geeft u **FolderPath** op met een deel van een map en een **Bestands naam** met een Joker teken filter. 
 
 **Voorbeeld:**
 
@@ -297,29 +297,29 @@ Om gegevens te kopiëren naar en van Data Lake Storage Gen2 in ORC, Avro, JSON o
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, [kopiëren activiteitsconfiguraties](copy-activity-overview.md#configuration) en [pijplijnen en activiteiten](concepts-pipelines-activities.md). Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de Data Lake Storage Gen2 bron en sink.
+Zie [configuraties van activiteiten](copy-activity-overview.md#configuration) en [pijp lijnen en activiteiten](concepts-pipelines-activities.md)kopiëren voor een volledige lijst met secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de Data Lake Storage Gen2 bron en sink.
 
-### <a name="azure-data-lake-storage-gen2-as-a-source-type"></a>Azure Data Lake Storage Gen2 als een brontype
+### <a name="azure-data-lake-storage-gen2-as-a-source-type"></a>Azure Data Lake Storage Gen2 als bron type
 
-- Als u wilt kopiëren uit de parquet of gescheiden tekstopmaak, Zie de [Parquet en tekst met scheidingstekens indeling bron](#parquet-and-delimited-text-format-source) sectie.
-- Als u wilt kopiëren van andere indelingen, zoals ORC, Avro, JSON of binaire indeling, Zie de [andere bron indeling](#other-format-source) sectie.
+- Als u wilt kopiëren van **Parquet, tekst met scheidings tekens en binaire indeling**, raadpleegt u de sectie [Parquet, tekst met scheidings tekens en bron voor binaire indeling](#format-based-source) .
+- Als u wilt kopiëren van andere indelingen, zoals de **Orc/Avro/JSON-indeling**, raadpleegt u de sectie [andere indelings bron](#other-format-source) .
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Parquet en tekst met scheidingstekens indeling bron
+#### <a name="format-based-source"></a>Parquet, tekst met scheidings tekens en binaire indelings bron
 
-Als u wilt kopiëren van gegevens van Data Lake Storage Gen2 in parquet of gescheiden tekstopmaak, Zie de [Parquet-indeling](format-parquet.md) en [gescheiden tekstopmaak](format-delimited-text.md) artikel op de bron voor kopiëren-indeling op basis van activiteit en ondersteunde instellingen. De volgende eigenschappen worden ondersteund voor Data Lake Storage Gen2 onder `storeSettings` instellingen in de bron voor kopiëren-indeling op basis van:
+Als u gegevens wilt kopiëren uit een **Parquet, een tekst met scheidings tekens of binaire indeling**, raadpleegt u de [Parquet-indeling](format-parquet.md), [tekst indeling met scheidings tekens](format-delimited-text.md) en het artikel [binaire indeling](format-binary.md) op op indeling gebaseerde Kopieer activiteit bron en ondersteunde instellingen. De volgende eigenschappen worden ondersteund voor data Lake Storage Gen2 onder `storeSettings` instellingen in een op indeling gebaseerde kopie bron:
 
 | Eigenschap                 | Description                                                  | Vereist                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | De eigenschap type onder `storeSettings` moet worden ingesteld op **AzureBlobFSReadSetting**. | Ja                                           |
-| recursive                | Geeft aan of de gegevens recursief worden gelezen uit de submappen of alleen voor de opgegeven map. Wanneer recursieve is ingesteld op true en de sink is een opslagplaats op basis van bestanden, een lege map of submap is niet gekopieerd of gemaakt in de sink. Toegestane waarden zijn **waar** (standaard) en **false**. | Nee                                            |
-| wildcardFolderPath       | Het pad met jokertekens onder het opgegeven bestandssysteem dat is geconfigureerd in de gegevensset aan filter bronmappen. <br>Jokertekens zijn toegestaan `*` (komt overeen met nul of meer tekens) en `?` (komt overeen met nul of één teken). Gebruik `^` als escape voor als de naam van uw map zelf een jokerteken of deze escape-teken in. <br>Meer voorbeelden in [mappen en bestanden filteren voorbeelden](#folder-and-file-filter-examples). | Nee                                            |
-| wildcardFileName         | De naam van het bestand met jokertekens onder het opgegeven bestand system + folderPath/wildcardFolderPath naar de bronbestanden filter. <br>Jokertekens zijn toegestaan `*` (komt overeen met nul of meer tekens) en `?` (komt overeen met nul of één teken). Gebruik `^` als escape voor als de naam van uw map zelf een jokerteken of deze escape-teken in. Meer voorbeelden in [mappen en bestanden filteren voorbeelden](#folder-and-file-filter-examples). | Ja als `fileName` niet is opgegeven in de gegevensset |
-| modifiedDatetimeStart    | Bestanden filteren op basis van het kenmerk Laatst gewijzigd. De bestanden zijn geselecteerd als hun laatst gewijzigd binnen het tijdsbereik tussen `modifiedDatetimeStart` en `modifiedDatetimeEnd`. De tijd wordt toegepast op de UTC-tijdzone in de indeling van ' 2018-12-01T05:00:00Z '. <br> De eigenschappen kunnen niet null zijn, wat betekent dat er geen kenmerk bestandsfilter wordt toegepast op de gegevensset. Wanneer `modifiedDatetimeStart` een datum / tijdwaarde heeft, maar `modifiedDatetimeEnd` NULL is, betekent dit dat de bestanden waarvan het laatste kenmerk gewijzigd is groter dan of gelijk zijn aan de datum / tijdwaarde zijn geselecteerd. Wanneer `modifiedDatetimeEnd` een datum / tijdwaarde heeft, maar `modifiedDatetimeStart` NULL is, betekent dit dat de bestanden waarvan het laatst gewijzigde kenmerk kleiner dan de datum / tijdwaarde is zijn geselecteerd. | Nee                                            |
+| recursive                | Geeft aan of de gegevens recursief worden gelezen uit de submappen of alleen voor de opgegeven map. Als recursief is ingesteld op True en de Sink een archief op basis van bestanden is, wordt een lege map of submap niet gekopieerd of gemaakt bij de sink. Toegestane waarden zijn **waar** (standaard) en **false**. | Nee                                            |
+| wildcardFolderPath       | Het mappad met Joker tekens onder het opgegeven bestands systeem dat is geconfigureerd in de gegevensset om bron mappen te filteren. <br>Toegestane joker tekens zijn `*` (komt overeen met nul of meer tekens `?` ) en (komt overeen met nul of één teken). Gebruik `^` om te escapen als uw werkelijke mapnaam een Joker teken of escape-teken bevat. <br>Bekijk meer voor beelden in [map-en bestands filter voorbeelden](#folder-and-file-filter-examples). | Nee                                            |
+| wildcardFileName         | De naam van het bestand met Joker tekens onder het opgegeven bestands systeem + folderPath/wildcardFolderPath voor het filteren van bron bestanden. <br>Toegestane joker tekens zijn `*` (komt overeen met nul of meer tekens `?` ) en (komt overeen met nul of één teken). Gebruik `^` om te escapen als uw werkelijke mapnaam een Joker teken of escape-teken bevat. Bekijk meer voor beelden in [map-en bestands filter voorbeelden](#folder-and-file-filter-examples). | Ja als `fileName` niet is opgegeven in de gegevensset |
+| modifiedDatetimeStart    | Bestanden filteren op basis van het kenmerk dat het laatst is gewijzigd. De bestanden worden geselecteerd als het tijdstip van de laatste wijziging binnen het tijds bereik `modifiedDatetimeStart` ligt `modifiedDatetimeEnd`tussen en. De tijd wordt toegepast op de UTC-tijd zone in de notatie "2018-12-01T05:00:00Z". <br> De eigenschappen kunnen NULL zijn, wat betekent dat er geen filter voor bestands kenmerken wordt toegepast op de gegevensset. Wanneer `modifiedDatetimeStart` heeft een datum/tijd `modifiedDatetimeEnd` -waarde, maar null is, betekent dit dat de bestanden waarvan het kenmerk laatst gewijzigd is groter dan of gelijk is aan de datum/tijd-waarde zijn geselecteerd. Wanneer `modifiedDatetimeEnd` heeft een datum/tijd `modifiedDatetimeStart` -waarde, maar is null, betekent dit dat de bestanden waarvan het kenmerk laatst gewijzigd is, kleiner zijn dan de waarde voor datum/tijd. | Nee                                            |
 | modifiedDatetimeEnd      | Hetzelfde als hierboven.                                               | Nee                                            |
-| maxConcurrentConnections | Het aantal verbindingen gelijktijdig verbinding maken met opslag-store. Geef alleen als u wilt beperken, de gelijktijdige verbinding met het gegevensarchief. | Nee                                            |
+| maxConcurrentConnections | Het aantal verbindingen dat gelijktijdig met een opslag archief moet worden verbonden. Geef alleen op wanneer u de gelijktijdige verbinding met het gegevens archief wilt beperken. | Nee                                            |
 
 > [!NOTE]
-> Voor de parquet of gescheiden tekstopmaak, de **AzureBlobFSSource** type activiteit kopieerbron vermeld in de volgende sectie wordt nog steeds ondersteund als voor achterwaartse compatibiliteit. U wordt aangeraden dat u dit nieuwe model gaan gebruiken. De Data Factory UI ontwerpen genereert deze nieuwe typen.
+> Voor de Parquet-of gescheiden tekst indeling wordt de bron van de Kopieer activiteit **AzureBlobFSSource** die in de volgende sectie wordt genoemd, nog steeds ondersteund voor compatibiliteit met eerdere versies. U wordt aangeraden dit nieuwe model verder te gebruiken. Deze nieuwe typen worden gegenereerd door de gebruikers interface van de Data Factory-ontwerp functie.
 
 **Voorbeeld:**
 
@@ -362,15 +362,15 @@ Als u wilt kopiëren van gegevens van Data Lake Storage Gen2 in parquet of gesch
 ]
 ```
 
-#### <a name="other-format-source"></a>De bron van andere indeling
+#### <a name="other-format-source"></a>Andere indelings bron
 
-Als u wilt kopiëren van gegevens van Data Lake Storage Gen2 in ORC, Avro, JSON of binaire indeling, de volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
+Als u gegevens wilt kopiëren van Data Lake Storage Gen2 in de **Orc/Avro/JSON-indeling**, worden de volgende eigenschappen ondersteund in het gedeelte **bron** van de Kopieer activiteit:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **AzureBlobFSSource**. |Ja |
-| recursive | Geeft aan of de gegevens recursief worden gelezen uit de submappen of alleen voor de opgegeven map. Wanneer recursieve is ingesteld op true en de sink is een opslagplaats op basis van bestanden, een lege map of submap is niet gekopieerd of gemaakt in de sink.<br/>Toegestane waarden zijn **waar** (standaard) en **false**. | Nee |
-| maxConcurrentConnections | Het aantal verbindingen gelijktijdig verbinding maken met het gegevensarchief. Geef alleen als u wilt beperken, de gelijktijdige verbinding met het gegevensarchief. | Nee |
+| recursive | Geeft aan of de gegevens recursief worden gelezen uit de submappen of alleen voor de opgegeven map. Als recursief is ingesteld op True en de Sink een archief op basis van bestanden is, wordt een lege map of submap niet gekopieerd of gemaakt bij de sink.<br/>Toegestane waarden zijn **waar** (standaard) en **false**. | Nee |
+| maxConcurrentConnections | Het aantal verbindingen dat gelijktijdig verbinding maakt met het gegevens archief. Geef alleen op wanneer u de gelijktijdige verbinding met het gegevens archief wilt beperken. | Nee |
 
 **Voorbeeld:**
 
@@ -406,21 +406,21 @@ Als u wilt kopiëren van gegevens van Data Lake Storage Gen2 in ORC, Avro, JSON 
 
 ### <a name="azure-data-lake-storage-gen2-as-a-sink-type"></a>Azure Data Lake Storage Gen2 als een sink-type
 
-- Als u wilt kopiëren naar de parquet of gescheiden tekstopmaak, Zie de [Parquet en tekst met scheidingstekens indeling sink](#parquet-and-delimited-text-format-sink) sectie.
-- Als u wilt kopiëren naar andere indelingen, zoals ORC, Avro, JSON of binaire indeling, Zie de [andere indeling sink](#other-format-sink) sectie.
+- Als u wilt kopiëren naar **Parquet, tekst met scheidings tekens of binaire indeling**, raadpleegt u de sectie [Parquet, tekst met scheidings tekens en](#format-based-sink) het gedeelte voor de binaire indelings sink.
+- Als u wilt kopiëren naar andere indelingen, zoals de **Orc/Avro/JSON-indeling**, raadpleegt u de sectie [andere indelings Sink](#other-format-sink) .
 
-#### <a name="parquet-and-delimited-text-format-sink"></a>Parquet en tekst met scheidingstekens indeling sink
+#### <a name="format-based-sink"></a>Parquet, tekst met scheidings tekens en de Sink voor binaire indeling
 
-Om gegevens te kopiëren naar Data Lake Storage Gen2 in parquet of gescheiden tekstopmaak, Zie de [Parquet-indeling](format-parquet.md) en [gescheiden tekstopmaak](format-delimited-text.md) artikelen op kopiëren-indeling op basis van activiteit-sink- en ondersteunde instellingen. De volgende eigenschappen worden ondersteund voor Data Lake Storage Gen2 onder `storeSettings` instellingen in op basis van opmaak kopiëren sink:
+Als u gegevens wilt kopiëren naar **Parquet, tekst met scheidings tekens of binaire indeling**, raadpleegt u [Parquet-indeling](format-parquet.md), [scheidings teken voor tekst](format-delimited-text.md) en [binaire indeling](format-binary.md) op op indeling gebaseerde kopie van de Kopieer activiteit en ondersteunde instellingen. De volgende eigenschappen worden ondersteund voor data Lake Storage Gen2 onder `storeSettings` instellingen in op indeling gebaseerde kopie-Sink:
 
 | Eigenschap                 | Description                                                  | Vereist |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | De eigenschap type onder `storeSettings` moet worden ingesteld op **AzureBlobFSWriteSetting**. | Ja      |
-| copyBehavior             | Definieert het gedrag kopiëren wanneer de bron bestanden vanuit een bestandsgebaseerde gegevensarchief is.<br/><br/>Toegestane waarden zijn:<br/><b>-PreserveHierarchy (standaard)</b>: Hiermee behoudt u de bestandshiërarchie in de doelmap. Het relatieve pad van het bronbestand voor de bronmap is identiek aan het relatieve pad van de doel-bestand naar de doelmap.<br/><b>-FlattenHierarchy</b>: Alle bestanden uit de bronmap zijn in het eerste niveau van de doelmap. De doelbestanden hebben automatisch gegenereerde namen. <br/><b>-MergeFiles</b>: Hiermee worden alle bestanden uit de bronmap naar één bestand samengevoegd. Als de bestandsnaam is opgegeven, is de naam van het samengevoegde de opgegeven naam. Anders is de naam van een automatisch gegenereerde bestand. | Nee       |
-| maxConcurrentConnections | Het aantal verbindingen gelijktijdig verbinding maken met het gegevensarchief. Geef alleen als u wilt beperken, de gelijktijdige verbinding met het gegevensarchief. | Nee       |
+| copyBehavior             | Definieert het gedrag kopiëren wanneer de bron bestanden vanuit een bestandsgebaseerde gegevensarchief is.<br/><br/>Toegestane waarden zijn:<br/><b>-PreserveHierarchy (standaard)</b>: Hiermee behoudt u de bestands hiërarchie in de doelmap. Het relatieve pad van het bron bestand naar de bronmap is identiek aan het relatieve pad van het doel bestand naar de doelmap.<br/><b>-FlattenHierarchy</b>: Alle bestanden van de bronmap bevinden zich in het eerste niveau van de doelmap. De doelbestanden hebben automatisch gegenereerde namen. <br/><b>-MergeFiles</b>: Alle bestanden van de bronmap worden samengevoegd met één bestand. Als de bestandsnaam is opgegeven, is de naam van het samengevoegde de opgegeven naam. Anders is de naam van een automatisch gegenereerde bestand. | Nee       |
+| maxConcurrentConnections | Het aantal verbindingen dat gelijktijdig verbinding maakt met het gegevens archief. Geef alleen op wanneer u de gelijktijdige verbinding met het gegevens archief wilt beperken. | Nee       |
 
 > [!NOTE]
-> Voor de parquet of gescheiden tekstopmaak, de **AzureBlobFSSink** type activiteit-sink voor exemplaar vermeld in de volgende sectie wordt nog steeds ondersteund als voor achterwaartse compatibiliteit. U wordt aangeraden dat u dit nieuwe model gaan gebruiken. De Data Factory UI ontwerpen genereert deze nieuwe typen.
+> Voor de Parquet-of gescheiden tekst indeling wordt de Sink van de Kopieer activiteit **AzureBlobFSSink** die in de volgende sectie wordt vermeld, nog steeds ondersteund voor compatibiliteit met eerdere versies. U wordt aangeraden dit nieuwe model verder te gebruiken. Deze nieuwe typen worden gegenereerd door de gebruikers interface van de Data Factory-ontwerp functie.
 
 **Voorbeeld:**
 
@@ -457,15 +457,15 @@ Om gegevens te kopiëren naar Data Lake Storage Gen2 in parquet of gescheiden te
 ]
 ```
 
-#### <a name="other-format-sink"></a>Andere indeling-sink
+#### <a name="other-format-sink"></a>Andere opmaak Sink
 
-Om gegevens te kopiëren naar Data Lake Storage Gen2 in ORC, Avro, JSON of binaire indeling, de volgende eigenschappen worden ondersteund in de **sink** sectie:
+Als u gegevens wilt kopiëren naar Data Lake Storage Gen2 in **Orc/Avro/JSON-indeling**, worden de volgende eigenschappen ondersteund in de sectie **sink** :
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op **AzureBlobFSSink**. |Ja |
-| copyBehavior | Definieert het gedrag kopiëren wanneer de bron bestanden vanuit een bestandsgebaseerde gegevensarchief is.<br/><br/>Toegestane waarden zijn:<br/><b>-PreserveHierarchy (standaard)</b>: Hiermee behoudt u de bestandshiërarchie in de doelmap. Het relatieve pad van het bronbestand voor de bronmap is identiek aan het relatieve pad van de doel-bestand naar de doelmap.<br/><b>-FlattenHierarchy</b>: Alle bestanden uit de bronmap zijn in het eerste niveau van de doelmap. De doelbestanden hebben automatisch gegenereerde namen. <br/><b>-MergeFiles</b>: Hiermee worden alle bestanden uit de bronmap naar één bestand samengevoegd. Als de bestandsnaam is opgegeven, is de naam van het samengevoegde de opgegeven naam. Anders is de naam van een automatisch gegenereerde bestand. | Nee |
-| maxConcurrentConnections | Het aantal verbindingen gelijktijdig verbinding maken met het gegevensarchief. Geef alleen als u wilt beperken, de gelijktijdige verbinding met het gegevensarchief. | Nee |
+| copyBehavior | Definieert het gedrag kopiëren wanneer de bron bestanden vanuit een bestandsgebaseerde gegevensarchief is.<br/><br/>Toegestane waarden zijn:<br/><b>-PreserveHierarchy (standaard)</b>: Hiermee behoudt u de bestands hiërarchie in de doelmap. Het relatieve pad van het bron bestand naar de bronmap is identiek aan het relatieve pad van het doel bestand naar de doelmap.<br/><b>-FlattenHierarchy</b>: Alle bestanden van de bronmap bevinden zich in het eerste niveau van de doelmap. De doelbestanden hebben automatisch gegenereerde namen. <br/><b>-MergeFiles</b>: Alle bestanden van de bronmap worden samengevoegd met één bestand. Als de bestandsnaam is opgegeven, is de naam van het samengevoegde de opgegeven naam. Anders is de naam van een automatisch gegenereerde bestand. | Nee |
+| maxConcurrentConnections | Het aantal verbindingen dat gelijktijdig verbinding maakt met het gegevens archief. Geef alleen op wanneer u de gelijktijdige verbinding met het gegevens archief wilt beperken. | Nee |
 
 **Voorbeeld:**
 
@@ -499,53 +499,53 @@ Om gegevens te kopiëren naar Data Lake Storage Gen2 in ORC, Avro, JSON of binai
 ]
 ```
 
-### <a name="folder-and-file-filter-examples"></a>Map en bestand filter voorbeelden
+### <a name="folder-and-file-filter-examples"></a>Voor beelden van map-en bestands filter
 
-Deze sectie beschrijft het resulterende gedrag van de map pad en de naam met jokertekens filters.
+In deze sectie wordt het resulterende gedrag van het mappad en de bestands naam met Joker teken filters beschreven.
 
-| folderPath | fileName | recursive | Bron van de structuur en het filter resultaat map (bestanden in **vet** worden opgehaald)|
+| folderPath | fileName | recursive | De structuur van de bronmap en het filter resultaat (vetgedrukte bestanden worden opgehaald)|
 |:--- |:--- |:--- |:--- |
-| `Folder*` | (Leeg, gebruikt u standaard) | false | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `Folder*` | (Leeg, gebruikt u standaard) | true | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `Folder*` | `*.csv` | false | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `Folder*` | `*.csv` | true | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `Folder*` | (Leeg, standaard instelling gebruiken) | false | Mapa<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `Folder*` | (Leeg, standaard instelling gebruiken) | true | Mapa<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `Folder*` | `*.csv` | false | Mapa<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `Folder*` | `*.csv` | true | Mapa<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 
 ### <a name="some-recursive-and-copybehavior-examples"></a>Enkele voorbeelden van recursieve en copyBehavior
 
-Deze sectie beschrijft het resulterende gedrag van de kopieerbewerking voor de verschillende combinaties van recursieve en copyBehavior waarden.
+In deze sectie wordt het resulterende gedrag van de Kopieer bewerking voor verschillende combi Naties van recursieve en copyBehavior waarden beschreven.
 
 | recursive | copyBehavior | Structuur van de gegevensbron | Resulterende doel |
 |:--- |:--- |:--- |:--- |
-| true |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Het doel Map1 is gemaakt met dezelfde structuur als de bron:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
+| true |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | De doel-Map1 is gemaakt met dezelfde structuur als de bron:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
 | true |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Het doel Map1 is gemaakt met de volgende structuur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File5 |
 | true |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Het doel Map1 is gemaakt met de volgende structuur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand1 bestand2 + bestand3 + File4 + File5 inhoud worden samengevoegd in één bestand met een automatisch gegenereerde naam. |
-| false |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Het doel Map1 is gemaakt met de volgende structuur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Subfolder1 bestand3 File4 en File5 is niet opgehaald. |
-| false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Het doel Map1 is gemaakt met de volgende structuur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/><br/>Subfolder1 bestand3 File4 en File5 is niet opgehaald. |
-| false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Het doel Map1 is gemaakt met de volgende structuur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand1 + bestand2 inhoud worden samengevoegd in één bestand met een automatisch gegenereerde naam. automatisch gegenereerde naam voor File1<br/><br/>Subfolder1 bestand3 File4 en File5 is niet opgehaald. |
+| false |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Het doel Map1 is gemaakt met de volgende structuur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Subfolder1 met File3, File4 en File5 worden niet opgehaald. |
+| false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Het doel Map1 is gemaakt met de volgende structuur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/><br/>Subfolder1 met File3, File4 en File5 worden niet opgehaald. |
+| false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Het doel Map1 is gemaakt met de volgende structuur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand1 + bestand2 inhoud worden samengevoegd in één bestand met een automatisch gegenereerde naam. automatisch gegenereerde naam voor File1<br/><br/>Subfolder1 met File3, File4 en File5 worden niet opgehaald. |
 
-## <a name="preserve-acls-from-data-lake-storage-gen1"></a>ACL's van Data Lake Storage Gen1 behouden
+## <a name="preserve-acls-from-data-lake-storage-gen1"></a>Acl's van Data Lake Storage Gen1 behouden
 
 >[!TIP]
->Om gegevens te kopiëren van Azure Data Lake Storage Gen1 in Gen2 in het algemeen, Zie [gegevens kopiëren van Azure Data Lake Storage Gen1 naar Gen2 met Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) voor een overzicht en best practices.
+>Als u gegevens van Azure Data Lake Storage Gen1 wilt kopiëren naar Gen2 in het algemeen, raadpleegt u [gegevens kopiëren van Azure data Lake Storage gen1 naar Gen2 met Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) voor een stapsgewijze en best practices.
 
-Wanneer u bestanden van Azure Data Lake Storage Gen1 naar Gen2 kopiëren, kunt u kiezen of u de POSIX toegangsbeheerlijsten (ACL's) samen met gegevens behouden. Zie voor meer informatie over toegangsbeheer [toegangsbeheer in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md) en [toegangsbeheer in Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
+Wanneer u bestanden kopieert van Azure Data Lake Storage Gen1 naar Gen2, kunt u ervoor kiezen om de POSIX Access Control Lists (Acl's) samen met de gegevens te behouden. Zie voor meer informatie over toegangs beheer [toegangs beheer in azure data Lake Storage gen1](../data-lake-store/data-lake-store-access-control.md) en [toegangs beheer in azure data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
-De volgende typen ACL's kunnen worden bewaard met behulp van de kopieeractiviteit in Azure Data Factory. U kunt een of meer typen selecteren:
+De volgende typen Acl's kunnen worden bewaard met behulp van de Azure Data Factory Kopieer activiteit. U kunt een of meer typen selecteren:
 
-- **ACL**: Kopieer en POSIX ACL's voor bestanden en mappen behouden. De volledige bestaande ACL's worden gekopieerd van bron naar een sink. 
-- **De eigenaar van**: Kopieer en behouden van de gebruiker die eigenaar is van bestanden en mappen. Supergebruiker toegang tot Data Lake Storage Gen2 sink is vereist.
-- **Groep**: Kopieer en behouden van de groep die eigenaar is van bestanden en mappen. Supergebruiker toegang tot het sink-Data Lake Storage Gen2 of de gebruiker die eigenaar is (als de gebruiker die eigenaar ook lid is van de doelgroep is) is vereist.
+- **ACL**: POSIX Access Control Lists kopiëren en bewaren voor bestanden en mappen. Hiermee worden de volledige bestaande Acl's van de bron naar de Sink gekopieerd. 
+- **Eigenaar**: Kopieer en bewaar de gebruiker die eigenaar is van bestanden en mappen. Super gebruikers hebben toegang tot Sink Data Lake Storage Gen2 vereist.
+- **Groep**: Kopieer en bewaar de groep die eigenaar is van bestanden en mappen. Super gebruikers hebben toegang tot Sink Data Lake Storage Gen2 of de gebruiker die eigenaar is (als de gebruiker die eigenaar is ook lid is van de doel groep) is vereist.
 
-Als u opgeeft als u wilt kopiëren uit een map, Data Factory de ACL's voor die opgegeven map en de bestanden en mappen, repliceert als `recursive` is ingesteld op true. Als u opgeeft als u wilt kopiëren van een enkel bestand, wordt de ACL's op dat bestand worden gekopieerd.
+Als u opgeeft dat u wilt kopiëren vanuit een map, Data Factory repliceert de acl's voor die bepaalde map en de bestanden en mappen daaronder als `recursive` deze is ingesteld op True. Als u opgeeft dat u vanuit één bestand wilt kopiëren, worden de Acl's voor dat bestand gekopieerd.
 
 >[!IMPORTANT]
->Als u behouden van ACL's wilt, zorg er dan voor dat u hiervoor toestemming hoog genoeg voor Data Factory om te werken op basis van uw sink Gen2 van Data Lake Storage-account. Bijvoorbeeld, gebruik van verificatie van account-sleutel of de eigenaar van gegevens van Storage Blob-rol toewijzen aan de service-principal of beheerde identiteit.
+>Wanneer u ervoor kiest om Acl's te behouden, moet u ervoor zorgen dat u Maxi maal voldoende machtigingen voor Data Factory verleent voor het uitvoeren van uw Sink Data Lake Storage Gen2-account. Gebruik bijvoorbeeld account sleutel verificatie of wijs de rol Storage BLOB data owner toe aan de service-principal of beheerde identiteit.
 
-Wanneer u als Data Lake Storage Gen1 met de optie binaire kopiëren of de binaire indeling en de sink als Data Lake Storage Gen2 met de optie binaire kopiëren of de binaire indeling configureren, vindt u de **behouden** kiezen op de **kopiëren Instellingen van het hulpprogramma Data** pagina of op de **Kopieeractiviteit** > **instellingen** tabblad voor het ontwerpen van de activiteit.
+Wanneer u bron configureert als Data Lake Storage Gen1 met de optie binaire kopie of binaire indeling en Sink als Data Lake Storage Gen2 met de optie voor binaire kopieën of binaire indeling, kunt u de optie **behouden** vinden op de pagina **instellingen van gegevens kopiëren-programma** of op het tabblad**instellingen** van de **Kopieer activiteit** > voor het ontwerpen van de activiteit.
 
-![Data Lake Storage Gen1 naar Gen2 behouden ACL](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
+![Data Lake Storage Gen1 Gen2-ACL behouden](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
 
-Hier volgt een voorbeeld van JSON-configuratie (Zie `preserve`): 
+Hier volgt een voor beeld van de JSON- `preserve`configuratie (zie): 
 
 ```json
 "activities":[
@@ -583,9 +583,9 @@ Hier volgt een voorbeeld van JSON-configuratie (Zie `preserve`):
 ]
 ```
 
-## <a name="mapping-data-flow-properties"></a>Eigenschappen van de gebruikersstroom toewijzing van gegevens
+## <a name="mapping-data-flow-properties"></a>Eigenschappen van gegevens stroom toewijzen
 
-Meer informatie over [bron transformatie](data-flow-source.md) en [sink-transformatie](data-flow-sink.md) in de functie voor toewijzing gegevensstroom.
+Meer informatie over [bron transformatie](data-flow-source.md) en [sink-trans formatie](data-flow-sink.md) vindt u in de functie gegevens stroom toewijzen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

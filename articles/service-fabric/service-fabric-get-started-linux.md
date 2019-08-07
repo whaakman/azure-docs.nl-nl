@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 49e80c3fc8935064aceef8ef4e2bd3257c41e5e7
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 6916eea26f03d7b9cd0b3792fa65354619f97f74
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514194"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828500"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Uw ontwikkelomgeving voorbereiden in Linux
 > [!div class="op_single_selector"]
@@ -103,11 +103,11 @@ Voor het installeren van de SDK en het bijbehorende runtimepakket via het apt-ge
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Azul JDK sleutel toevoegen aan uw APT-sleutelring en stelt u de opslagplaats.
+7. Voeg Azul JDK-sleutel toe aan uw APT sleutel hanger en stel de opslag plaats in.
 
     ```bash
-    curl -fsSL https://repos.azul.com/azul-repo.key | sudo apt-key add -
-    sudo add-apt-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
+    sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
 8. Vernieuw uw pakketlijsten op basis van de net toegevoegde opslagplaatsen.
@@ -178,7 +178,7 @@ De Service Fabric-runtime die wordt geleverd met de installatie omvat de pakkett
 
  | | DotNetCore | Java | Python | Node.js | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicit van npm | latest |
+Ubuntu | 2.0.0 | AzulJDK 1,8 | Implicit van npm | latest |
 RHEL | - | OpenJDK 1.8 | Implicit van npm | latest |
 
 ## <a name="set-up-a-local-cluster"></a>Een lokaal cluster instellen
@@ -239,7 +239,7 @@ Installeer de [.NET Core 2.0 SDK voor Ubuntu](https://www.microsoft.com/net/core
 
 ## <a name="set-up-java-development"></a>Java-ontwikkeling instellen
 
-Als u wilt maken met behulp van Java Service Fabric-services, installeert u Gradle om uit te voeren build-taken. Voer de onderstaande opdracht Gradle te installeren. De Service Fabric-Java-bibliotheken worden opgehaald uit Maven.
+Als u Service Fabric Services wilt maken met behulp van Java, installeert u Gradle om bouw taken uit te voeren. Voer de onderstaande opdracht uit om Gradle te installeren. De Service Fabric-Java-bibliotheken worden opgehaald uit Maven.
 
 
 * Ubuntu
@@ -272,7 +272,7 @@ U kunt de Eclipse-invoegtoepassing voor Service Fabric installeren vanuit de Ecl
 > 
 > Voor Ubuntu wordt u aangeraden de installatie rechtstreeks vanaf de site van Eclipse uit te voeren en niet door middel van een installatieprogramma voor pakketten (`apt` of `apt-get`). Daardoor weet u zeker dat u de meest recente versie van Eclipse hebt. U kunt de Eclipse IDE installeren voor Java-ontwikkelaars of voor Java EE-ontwikkelaars.
 
-1. Controleer in Eclipse of u Eclipse Neon of later en Buildship versie 2.2.1 of later hebt geïnstalleerd. Controleer de versies van geïnstalleerde onderdelen door **Help** > **About Eclipse** > **Installation Details** te selecteren. U kunt Buildship bijwerken met behulp van de instructies op de [Eclipse Buildship: Eclipse-invoegtoepassingen voor Gradle][buildship-update].
+1. Controleer in Eclipse of u Eclipse Neon of later en Buildship versie 2.2.1 of later hebt geïnstalleerd. Controleer de versies van geïnstalleerde onderdelen door **Help** > **About Eclipse** > **Installation Details** te selecteren. U kunt de samen stelling bijwerken met behulp van [de instructies bij het bouwen van eclips: Eclips-invoeg toepassingen voor Gradle][buildship-update].
 
 2. Als u de Service Fabric-invoegtoepassing wilt installeren, selecteert u **Help** > **Install New Software**.
 

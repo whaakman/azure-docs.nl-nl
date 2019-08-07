@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: c8528ac81f2248e417d7d25d0f3c2650845c3d7d
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 87e6f69c06fb9f8bc03d184cfe160964403e7a2a
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404299"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780872"
 ---
 # <a name="get-started-with-device-management-java"></a>Aan de slag met Apparaatbeheer (Java)
 
@@ -63,6 +63,8 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
+## <a name="register-a-new-device-in-the-iot-hub"></a>Een nieuw apparaat registreren in de IoT-hub
+
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="get-the-iot-hub-connection-string"></a>De IoT hub-connection string ophalen
@@ -91,7 +93,7 @@ Met deze console-app maakt u verbinding met uw IoT Hub om de directe methode aan
 
 3. Ga bij de opdracht prompt naar de map trigger-reboot.
 
-4. Open met een tekst editor het bestand pom. XML in de map trigger-reboot en voeg de volgende afhankelijkheden toe aan  het knoop punt afhankelijkheden. Met deze afhankelijkheid kunt u het IOT-service-client-pakket in uw app gebruiken om te communiceren met uw IoT-hub:
+4. Open met een tekst editor het bestand pom. XML in de map trigger-reboot en voeg de volgende afhankelijkheden toe aan het knoop punt afhankelijkheden. Met deze afhankelijkheid kunt u het IOT-service-client-pakket in uw app gebruiken om te communiceren met uw IoT-hub:
 
     ```xml
     <dependency>
@@ -105,7 +107,7 @@ Met deze console-app maakt u verbinding met uw IoT Hub om de directe methode aan
     > [!NOTE]
     > U kunt de meest recente versie van **IOT-service-client** controleren met behulp van [maven Search](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-5. Voeg het volgende **Build** -knoop punt  toe na het knoop punt afhankelijkheden. Deze configuratie zorgt ervoor dat maven Java 1,8 wordt gebruikt om de app te bouwen:
+5. Voeg het volgende **Build** -knoop punt toe na het knoop punt afhankelijkheden. Deze configuratie zorgt ervoor dat maven Java 1,8 wordt gebruikt om de app te bouwen:
 
     ```xml
     <build>
@@ -238,7 +240,7 @@ In deze sectie maakt u een Java-Console-app die een apparaat simuleert. De app l
 
 2. Navigeer vanuit het opdrachtvenster naar de map simulated-device.
 
-3. Open met een tekst editor het bestand pom. XML in de map gesimuleerde apparaten en voeg de volgende afhankelijkheden toe aan  het knoop punt afhankelijkheden. Met deze afhankelijkheid kunt u het IOT-service-client-pakket in uw app gebruiken om te communiceren met uw IoT-hub:
+3. Open met een tekst editor het bestand pom. XML in de map gesimuleerde apparaten en voeg de volgende afhankelijkheden toe aan het knoop punt afhankelijkheden. Met deze afhankelijkheid kunt u het IOT-service-client-pakket in uw app gebruiken om te communiceren met uw IoT-hub:
 
     ```xml
     <dependency>
@@ -251,7 +253,7 @@ In deze sectie maakt u een Java-Console-app die een apparaat simuleert. De app l
     > [!NOTE]
     > U kunt de meest recente versie van **IOT-Device-client** controleren met behulp van [maven Search](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-4. Voeg het volgende **Build** -knoop punt  toe na het knoop punt afhankelijkheden. Deze configuratie zorgt ervoor dat maven Java 1,8 wordt gebruikt om de app te bouwen:
+4. Voeg het volgende **Build** -knoop punt toe na het knoop punt afhankelijkheden. Deze configuratie zorgt ervoor dat maven Java 1,8 wordt gebruikt om de app te bouwen:
 
     ```xml
     <build>
@@ -287,7 +289,7 @@ In deze sectie maakt u een Java-Console-app die een apparaat simuleert. De app l
     import java.util.HashSet;
     ```
 
-7. Voeg de volgende variabelen op klasseniveau toe aan de **App**-klasse. Vervang `{yourdeviceconnectionstring}` door het apparaat Connection String u hebt genoteerd in het gedeelte *een apparaat-id maken* :
+7. Voeg de volgende variabelen op klasseniveau toe aan de **App**-klasse. Vervang `{yourdeviceconnectionstring}` door het apparaat Connection String u hebt genoteerd in het gedeelte [een nieuw apparaat registreren in de IOT-hub](#register-a-new-device-in-the-iot-hub) :
 
     ```java
     private static final int METHOD_SUCCESS = 200;

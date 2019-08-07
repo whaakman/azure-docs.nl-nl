@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 3fd4287c6dd1cc42f419cfa6b252c1d276d1d5a5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 7578811c37cd0bbe47821dadacce5fa5974f56cf
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597237"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812729"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Azure Security Center implementeren voor IoT C-gebaseerde beveiligings agent voor Linux
 
@@ -48,7 +48,7 @@ Als u de beveiligings agent wilt installeren en implementeren, gebruikt u de vol
 
 1. Down load de meest recente versie van [github](https://aka.ms/iot-security-github-c)naar uw computer.
 
-1. Pak de inhoud van het pakket uit en navigeer naar de map _/install_ .
+1. Pak de inhoud van het pakket uit en navigeer naar de map _/src/Installation_ .
 
 1. Voeg actieve machtigingen toe aan het **script InstallSecurityAgent** door de volgende opdracht uit te voeren:
     
@@ -70,7 +70,7 @@ Met dit script wordt de volgende functie uitgevoerd:
 
 2. Hiermee wordt een service gebruiker (met interactieve aanmelding uitgeschakeld) toegevoegd.
 
-3. Installeert de agent als een **daemon** : veronderstelt dat het apparaat **wordt gebruikt voor** Service beheer.
+3. Installeert de agent als een **daemon** : veronderstelt dat het apparaat wordt gebruikt voor Service beheer.
 
 4. Hiermee configureert u de agent met de opgegeven verificatie parameters. 
 

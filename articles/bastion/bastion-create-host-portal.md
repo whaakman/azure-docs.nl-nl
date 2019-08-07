@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: 881d89170c82731fca3f6977da486eac5be772f8
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 4c283e840208ab9f53d084ca17221ea2c835b794
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466996"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814137"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Een Azure bastion-host maken (preview)
 
@@ -54,10 +54,10 @@ In deze sectie kunt u een nieuwe Azure Bastion-resource maken op basis van de Az
     * **Naam**: De naam van de nieuwe Bastion-resource
     * **Regio**: De open bare Azure-regio waarin de resource wordt gemaakt.
     * **Virtueel netwerk**: Het virtuele netwerk waarin de Bastion-resource wordt gemaakt. U kunt tijdens dit proces een nieuw virtueel netwerk maken in de portal, als u geen bestaand virtueel netwerk wilt gebruiken. Als u een bestaand virtueel netwerk gebruikt, zorg er dan voor dat het bestaande virtuele netwerk voldoende vrije adres ruimte heeft om de vereisten van het Bastion-subnet aan te passen.
-    * **Subnet**: Het subnet in het virtuele netwerk waarop de nieuwe bastion-host wordt geïmplementeerd. U moet een subnet maken met de naam waarde **AzureBastionSubnet**. Met deze waarde kan Azure weten met welk subnet de Bastion-resources moeten worden geïmplementeerd. Dit wijkt af van een gateway-subnet. We raden u ten zeerste aan om ten minste een/27 of groter subnet (/27,/26 enzovoort) te gebruiken. Maak de **AzureBastionSubnet** zonder route tabellen of delegaties. Wanneer u netwerk beveiligings groepen op de **AzureBastionSubnet**gebruikt, raadpleegt u [werken met nsg's](bastion-nsg.md).
+    * **Subnet**: Het subnet in het virtuele netwerk waarop de nieuwe bastion-host wordt geïmplementeerd. U moet een subnet maken met de naam waarde **AzureBastionSubnet**. Met deze waarde kan Azure weten met welk subnet de Bastion-resources moeten worden geïmplementeerd. Dit wijkt af van een gateway-subnet. U moet een subnet van Mini maal een/27 of groter subnet (/27,/26, enzovoort) gebruiken. Maak de **AzureBastionSubnet** zonder route tabellen of delegaties. Wanneer u netwerk beveiligings groepen op de **AzureBastionSubnet**gebruikt, raadpleegt u [werken met nsg's](bastion-nsg.md).
     * **Openbaar IP-adres**: Het open bare IP-adres van de Bastion-bron waarop RDP/SSH wordt gebruikt (via poort 443). Maak een nieuw openbaar IP-adres of gebruik een bestaande. Het open bare IP-adres moet zich in dezelfde regio bevinden als de Bastion-resource die u maakt.
     * **Openbare IP-adresnaam**: De naam van de resource voor het open bare IP-adres.
-    * **SKU openbaar IP-adres**: Standaard vooraf **ingevuld.** Azure Bastion gebruikt/ondersteunt alleen de standaard open bare IP-SKU.
+    * **SKU openbaar IP-adres**: Standaard vooraf ingevuld. Azure Bastion gebruikt/ondersteunt alleen de standaard open bare IP-SKU.
     * **Toewijzing**: Standaard vooraf ingevuld naar **statisch**.
 
 1. Wanneer u klaar bent met het opgeven van de instellingen, klikt u op **controleren + maken**. Hiermee worden de waarden gevalideerd. Zodra de validatie is geslaagd, kunt u beginnen met het aanmaak proces.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 6516bbcb4ea879279812d61d9fe31f1ea4268280
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7dcf962345a2453fca52825c4be33a439d25df54
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67616246"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740939"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Voor beeld-veilige toegang tot de API-server met behulp van geautoriseerde IP-adresbereiken in azure Kubernetes service (AKS)
 
@@ -218,13 +218,13 @@ U geeft een lijst met geautoriseerde IP-adresbereiken op om de API-server geauto
 
 Gebruik [AZ AKS update][az-aks-update] opdracht en geef de *-API-server-geautoriseerde IP-bereiken* op die u wilt toestaan. Deze IP-adresbereiken zijn meestal adresbereiken die worden gebruikt door uw on-premises netwerken. Voeg het open bare IP-adres van uw eigen Azure-firewall toe die is verkregen in de vorige stap, zoals *20.42.25.196/32*.
 
-In het volgende voor beeld worden geautoriseerde IP-adresbereiken van de API-server ingeschakeld in het cluster met de naam *myAKSCluster* in de resource groep genaamd *myResourceGroup*. De IP-adresbereiken die u wilt autoriseren, zijn *20.42.25.196/32* (het open bare IP-adres van Azure firewall), vervolgens *172.0.0.10/16* en *168.10.0.10/18*:
+In het volgende voor beeld worden geautoriseerde IP-adresbereiken van de API-server ingeschakeld in het cluster met de naam *myAKSCluster* in de resource groep genaamd *myResourceGroup*. De IP-adresbereiken die u wilt autoriseren, zijn *20.42.25.196/32* (het open bare IP-adres van Azure firewall), vervolgens *172.0.0.0/16* en *168.10.0.0/18*:
 
 ```azurecli-interactive
 az aks update \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.10/16,168.10.0.10/18
+    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.0/16,168.10.0.0/18
 ```
 
 ## <a name="update-or-disable-authorized-ip-ranges"></a>Gemachtigde IP-bereiken bijwerken of uitschakelen

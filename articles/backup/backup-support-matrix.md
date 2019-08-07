@@ -7,14 +7,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7ee4cffea9c997e5fcd3631594d61e6d5383cb38
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 6b79b34b1db6c201a8f132e4c608e251edb3666a
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639478"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735424"
 ---
-# <a name="azure-backup-support-matrix"></a>Ondersteuningsmatrix voor Azure Backup
+# <a name="support-matrix-for-azure-backup"></a>Ondersteunings matrix voor Azure Backup
 
 U kunt [Azure backup](backup-overview.md) gebruiken om een back-up te maken van gegevens naar het Microsoft Azure Cloud platform. In dit artikel vindt u een overzicht van de algemene ondersteunings instellingen en-beperkingen voor Azure Backup scenario's en implementaties.
 

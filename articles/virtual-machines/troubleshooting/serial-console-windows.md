@@ -1,6 +1,6 @@
 ---
-title: Azure-seriële Console voor Windows | Microsoft Docs
-description: Bidirectionele seriële Console voor virtuele Azure-Machines en Virtual Machine Scale Sets.
+title: Azure Serial console voor Windows | Microsoft Docs
+description: Bidirectionele seriële console voor Azure Virtual Machines en Virtual Machine Scale Sets.
 services: virtual-machines-windows
 documentationcenter: ''
 author: asinn826
@@ -14,73 +14,73 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: e76fcd937f85ce3b1c156cf2f3dabb8ca95b9b68
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a6e303c26278eff290a2d4efb6f96e9962cf2f87
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710557"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775371"
 ---
-# <a name="azure-serial-console-for-windows"></a>Azure-seriële Console voor Windows
+# <a name="azure-serial-console-for-windows"></a>Azure Serial console voor Windows
 
-Seriële Console van het in Azure portal biedt toegang tot een op tekst gebaseerde console voor Windows-machines (VM's) en virtuele-machineschaalset exemplaren. Deze seriële verbinding maken met de seriële poort COM1 van de virtuele machine of virtuele machine scale set exemplaar, toegang tot deze onafhankelijk van de status van de netwerk- of -besturingssysteem. Seriële console van het alleen kan worden geopend met behulp van Azure portal en is alleen voor gebruikers die een access-rol van inzender zijn toegestaan of hoger als u wilt de schaalset voor virtuele machine of virtuele machine.
+De seriële console in de Azure Portal biedt toegang tot een op tekst gebaseerde console voor virtuele Windows-machines (Vm's) en exemplaren van virtuele-machine schaal sets. Deze seriële verbinding maakt verbinding met de COM1 seriële poort van de VM of virtuele-machine Scale set-instantie, waardoor deze onafhankelijk is van de status van het netwerk of het besturings systeem. De seriële console is alleen toegankelijk via de Azure Portal en is alleen toegestaan voor gebruikers met een toegangs rol van Inzender of een hoger niveau voor virtuele-machine schaal sets.
 
-Seriële Console werkt op dezelfde manier voor virtuele machines en virtuele-machineschaalset exemplaren. In dit document bevat alle vermeldingen op virtuele machines impliciet schaalsetinstanties virtuele machine, tenzij anders vermeld.
+Seriële console werkt op dezelfde manier voor Vm's en exemplaren van virtuele-machine schaal sets. In dit document bevatten alle vermeldingen aan Vm's impliciet instanties voor schaal sets voor virtuele machines, tenzij anders vermeld.
 
-Zie voor de seriële console van documentatie voor virtuele Linux-machines en virtuele-machineschaalset [de seriële Console van Azure voor Linux](serial-console-linux.md).
+Zie [Azure Serial console voor Linux](serial-console-linux.md)voor informatie over de seriële console voor Linux vm's en virtuele-machine schaal sets.
 
 > [!NOTE]
-> De seriële Console is algemeen beschikbaar in de globale Azure-regio's. Het is nog niet beschikbaar in de Azure government en Azure China clouds.
+> De seriële console is algemeen beschikbaar in de wereld wijde Azure-regio's. Het is nog niet beschikbaar in de Azure government en Azure China clouds.
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Uw virtuele machine of virtuele machine-exemplaar schaalset moet de resource Manager-implementatiemodel gebruiken. Klassieke implementaties worden niet ondersteund.
+* De virtuele machine of het exemplaar van de VM-schaalset moet gebruikmaken van het Resource Management-implementatie model. Klassieke implementaties worden niet ondersteund.
 
-- Uw account die gebruikmaakt van de seriële console van de [rol van inzender voor virtuele machines](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) voor de virtuele machine en de [diagnostische gegevens over opstarten](boot-diagnostics.md) storage-account
+- Uw account dat gebruikmaakt van seriële console, moet de [rol Inzender voor virtuele machines](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) hebben voor de VM en het opslag account voor [Diagnostische gegevens over opstarten](boot-diagnostics.md)
 
-- Uw virtuele machine of virtuele machine scale set-exemplaar moet een gebruiker op basis van wachtwoorden hebben. U kunt maken met de [wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functie van de VM-extensie voor toegang. Selecteer **wachtwoord opnieuw instellen** uit de **ondersteuning en probleemoplossing** sectie.
+- Uw virtuele machine of exemplaar van de VM-schaalset moet een gebruiker met een wacht woord zijn. U kunt maken met de [wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functie van de VM-extensie voor toegang. Selecteer **wachtwoord opnieuw instellen** uit de **ondersteuning en probleemoplossing** sectie.
 
 * De virtuele machine waar u toegang wilt een seriële console tot krijgen moet hebben [diagnostische gegevens over opstarten](boot-diagnostics.md) ingeschakeld.
 
     ![De instellingen voor diagnostische gegevens over opstarten](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
 ## <a name="get-started-with-the-serial-console"></a>Aan de slag met de seriële console
-De seriële Console voor virtuele machines en virtuele-machineschaalset is uitsluitend toegankelijk via de Azure-portal:
+De seriële console voor Vm's en schaal sets voor virtuele machines is alleen toegankelijk via de Azure Portal:
 
-### <a name="serial-console-for-virtual-machines"></a>Seriële Console voor virtuele Machines
-Seriële Console voor virtuele machines is zo eenvoudig als klikken op **seriële console** binnen de **ondersteuning en probleemoplossing** sectie in Azure portal.
+### <a name="serial-console-for-virtual-machines"></a>Seriële console voor Virtual Machines
+Seriële console voor Vm's is net zo eenvoudig als klikken op **seriële console** in de sectie **ondersteuning en probleem oplossing** in de Azure Portal.
   1. Open de [Azure Portal](https://portal.azure.com).
 
-  1. Navigeer naar **alle resources** en selecteert u een virtuele Machine. De overzichtspagina voor de virtuele machine wordt geopend.
+  1. Ga naar **alle resources** en selecteer een virtuele machine. De overzichts pagina voor de VM wordt geopend.
 
   1. Schuif omlaag naar de **ondersteuning en probleemoplossing** sectie en selecteer **seriële console**. Een nieuw deelvenster met de seriële console wordt geopend en wordt de verbinding wordt gestart.
 
-### <a name="serial-console-for-virtual-machine-scale-sets"></a>Seriële Console voor Virtual Machine Scale Sets
-Seriële Console is beschikbaar op basis van afzonderlijke instanties voor virtuele-machineschaalsets. U hebt om te navigeren naar de afzonderlijke instantie van een virtuele-machineschaalset voordat de **seriële console** knop. Als uw virtuele-machineschaalset geen diagnostische gegevens over opstarten ingeschakeld, controleert u of dat u uw virtuele machine scale set model voor het inschakelen van diagnostische gegevens over opstarten en vervolgens alle exemplaren een upgrade naar het nieuwe model voor toegang tot de seriële console bijwerken.
+### <a name="serial-console-for-virtual-machine-scale-sets"></a>Seriële console voor Virtual Machine Scale Sets
+Seriële console is beschikbaar op basis van per instantie voor schaal sets voor virtuele machines. U moet naar de afzonderlijke instantie van een schaalset voor virtuele machines gaan voordat u de knop **seriële console** ziet. Als voor de virtuele-machine schaal sets geen diagnostische gegevens over opstarten zijn ingeschakeld, moet u het model voor de schaalset van de virtuele machine bijwerken om diagnostische gegevens over opstarten in te scha kelen en vervolgens alle exemplaren naar het nieuwe model bijwerken om toegang te krijgen tot de seriële console.
   1. Open de [Azure Portal](https://portal.azure.com).
 
-  1. Navigeer naar **alle resources** en selecteert u een virtuele-Machineschaalset opgehaald. De overzichtspagina voor de virtuele-machineschaalset instellen wordt geopend.
+  1. Ga naar **alle resources** en selecteer een schaalset voor virtuele machines. De overzichts pagina voor de schaalset voor virtuele machines wordt geopend.
 
-  1. Navigeer naar **exemplaren**
+  1. Naar **instanties** navigeren
 
-  1. Selecteer een instantie van virtuele-machineschaalset
+  1. Een instantie van een schaalset voor virtuele machines selecteren
 
-  1. Uit de **ondersteuning en probleemoplossing** sectie, selecteer **seriële console**. Een nieuw deelvenster met de seriële console wordt geopend en wordt de verbinding wordt gestart.
+  1. Selecteer **seriële console**in het gedeelte **ondersteuning en probleem oplossing** . Een nieuw deelvenster met de seriële console wordt geopend en wordt de verbinding wordt gestart.
 
-## <a name="enable-serial-console-functionality"></a>Schakel de seriële Console-functionaliteit
+## <a name="enable-serial-console-functionality"></a>De functionaliteit van seriële console inschakelen
 
 > [!NOTE]
-> Als u in de seriële console niet ziet, zorg er dan voor dat de diagnostische gegevens over die opstarten is ingeschakeld op uw schaalset voor virtuele machine of virtuele machine.
+> Als u niets in de seriële console ziet, zorg er dan voor dat de diagnostische gegevens over opstarten zijn ingeschakeld op de virtuele machine of in de schaalset van virtual machines.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>Inschakelen van de seriële console in aangepaste of oudere installatiekopieën
 Nieuwere Windows Server-installatiekopieën op Azure hebt [speciale beheerconsole](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) standaard ingeschakeld. SAC wordt ondersteund in serverversies van Windows, maar is niet beschikbaar in clientversies (bijvoorbeeld Windows 10, Windows 8 of Windows 7).
 
-Voor oudere Windows Server-installatiekopieën (die zijn gemaakt vóór februari 2018), kunt u automatisch de seriële console via de Azure-portal RunCommand-functie inschakelen. Selecteer in de Azure portal, **RunCommand-** , selecteer vervolgens de opdracht met de naam **EnableEMS** in de lijst.
+Voor oudere Windows Server-installatiekopieën (die zijn gemaakt vóór februari 2018), kunt u automatisch de seriële console via de Azure-portal RunCommand-functie inschakelen. Selecteer in de Azure Portal de **opdracht uitvoeren**en selecteer vervolgens de opdracht met de naam **EnableEMS** in de lijst.
 
 ![Lijst met opdrachten uitvoeren](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-runcommand.png)
 
-U kunt ook om in te schakelen handmatig de seriële console voor Windows-VM's / virtuele-machineschaalset die zijn gemaakt vóór februari 2018, als volgt te werk:
+U kunt ook de seriële console voor Windows Vm's/virtuele-machine schaal sets die zijn gemaakt vóór 2018 februari, als volgt hand matig inschakelen:
 
 1. Verbinding maken met uw Windows-machine via Extern bureaublad
 1. Voer de volgende opdrachten vanaf een opdrachtprompt met beheerdersrechten:
@@ -106,7 +106,7 @@ Als [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) niet is 
 
 Als u nodig hebt om in te schakelen Windows boot loader aanwijzingen om weer te geven in de seriële console, kunt u de volgende aanvullende opties toevoegen aan uw opstartconfiguratiegegevens. Zie voor meer informatie, [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set).
 
-1. Verbinding maken met uw Windows-virtuele machine of virtuele-machineschaalset exemplaar met behulp van extern bureaublad.
+1. Maak verbinding met uw Windows-VM of een installatie kopie van een virtuele machine met behulp van Extern bureaublad.
 
 1. Voer de volgende opdrachten vanaf een opdrachtprompt met beheerdersrechten:
    - `bcdedit /set {bootmgr} displaybootmenu yes`
@@ -118,9 +118,9 @@ Als u nodig hebt om in te schakelen Windows boot loader aanwijzingen om weer te 
 > [!NOTE]
 > De time-out die u hebt ingesteld voor het opstartmenu manager om weer te geven is van invloed op de opstarttijd van uw besturingssysteem. Als u denkt dat de 10 seconden time-outwaarde is te lang of te kort dat, doet u het op een andere waarde.
 
-## <a name="use-serial-console"></a>Seriële Console gebruiken
+## <a name="use-serial-console"></a>Seriële console gebruiken
 
-### <a name="use-cmd-or-powershell-in-serial-console"></a>CMD of PowerShell gebruiken in de seriële Console
+### <a name="use-cmd-or-powershell-in-serial-console"></a>CMD of Power shell gebruiken in de seriële console
 
 1. Verbinding maken met de seriële console. Als u bent verbonden, is het de prompt **SAC >** :
 
@@ -128,7 +128,7 @@ Als u nodig hebt om in te schakelen Windows boot loader aanwijzingen om weer te 
 
 1.  Voer `cmd` om een kanaal waaraan een CMD-exemplaar te maken.
 
-1.  Voer `ch -si 1` om over te schakelen naar het kanaal dat de CMD-exemplaar wordt uitgevoerd.
+1.  Voer `ch -si 1` sneltoetsen in `<esc>+<tab>` of druk op ENTER om over te scha kelen naar het kanaal waarop het cmd-exemplaar wordt uitgevoerd.
 
 1.  Druk op **Enter**, en geef vervolgens referenties aanmelden met beheerdersmachtigingen.
 
@@ -139,7 +139,7 @@ Als u nodig hebt om in te schakelen Windows boot loader aanwijzingen om weer te 
     ![Open PowerShell-exemplaar](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
 ### <a name="use-the-serial-console-for-nmi-calls"></a>Gebruik de seriële console voor NMI aanroepen
-Een niet-maskeren interrupt (NMI) is ontworpen voor het maken van een signaal dat software op een virtuele machine wordt niet negeren. In het verleden zijn NMIs gebruikt om te controleren op hardwareproblemen op systemen die specifieke reactietijden vereist. NMI vandaag, programmeurs en systeembeheerders vaak gebruikt als een mechanisme voor foutopsporing of problemen met systemen die niet reageren.
+Een niet-maskeren interrupt (NMI) is ontworpen voor het maken van een signaal dat software op een virtuele machine wordt niet negeren. In het verleden zijn NMIs gebruikt om te controleren op hardwareproblemen op systemen die specifieke reactietijden vereist. Tegenwoordig gebruiken programmeurs en systeem beheerders NMI vaak als een mechanisme voor het opsporen van problemen met systemen die niet reageren.
 
 De seriële console kan worden gebruikt voor het verzenden van een NMI met een Azure-machine met behulp van het toetsenbordpictogram in de opdrachtbalk. Nadat de NMI wordt geleverd, wordt de virtuele-machineconfiguratie bepalen hoe het systeem reageert. Windows kan worden geconfigureerd voor crashes en een geheugendumpbestand maken wanneer er een NMI worden ontvangen.
 
@@ -148,31 +148,31 @@ De seriële console kan worden gebruikt voor het verzenden van een NMI met een A
 Zie voor meer informatie over het configureren van Windows voor het maken van een crashdumpbestand wanneer deze een NMI ontvangt [het genereren van een crashdump-bestand met behulp van een NMI](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
 
 ### <a name="use-function-keys-in-serial-console"></a>De functietoetsen gebruiken in de seriële console
-Functietoetsen zijn ingeschakeld voor gebruik voor de seriële console in de Windows-VM's. De F8 in de vervolgkeuzelijst de seriële console biedt het gemak van het invoeren van de geavanceerde instellingen voor opstarten menu eenvoudig, maar de seriële console compatibel is met alle andere functietoetsen. U moet mogelijk op **Fn** + **F1** (of F2, F3, enzovoort) op het toetsenbord, afhankelijk van de computer gebruikt u de seriële console uit.
+Functietoetsen zijn ingeschakeld voor gebruik voor de seriële console in de Windows-VM's. De F8 in de vervolgkeuzelijst de seriële console biedt het gemak van het invoeren van de geavanceerde instellingen voor opstarten menu eenvoudig, maar de seriële console compatibel is met alle andere functietoetsen. Mogelijk moet u op **FN** + **F1** drukken (of F2, F3, etc.) op het toetsen bord, afhankelijk van de computer waarvan u de seriële console gebruikt.
 
 ### <a name="use-wsl-in-serial-console"></a>Gebruik WSL in seriële console
 Het Windows-subsysteem voor Linux (WSL) is ingeschakeld voor Windows Server 2019 of hoger, dus het is ook mogelijk om in te schakelen WSL voor gebruik binnen de seriële console als u werkt met Windows Server 2019 of hoger. Dit kan nuttig zijn voor gebruikers die ook een vertrouwd bent met Linux-opdrachten hebben zijn. Zie voor instructies voor het inschakelen van WSL voor Windows Server, de [installatiehandleiding](https://docs.microsoft.com/windows/wsl/install-on-server).
 
-### <a name="restart-your-windows-vmvirtual-machine-scale-set-instance-within-serial-console"></a>Uw Windows VM/virtuele machine scale set-exemplaar binnen de seriële Console van opnieuw opstarten
-U kunt opnieuw worden opgestart binnen de seriële console starten door te navigeren naar de / uit-knop en te klikken op 'Virtuele machine opnieuw starten'. Er wordt nu een virtuele machine opnieuw opstarten en u ziet een melding in Azure portal met betrekking tot het opnieuw opstarten.
+### <a name="restart-your-windows-vmvirtual-machine-scale-set-instance-within-serial-console"></a>Uw Windows VM/virtual machine Scale set-exemplaar opnieuw starten binnen een seriële console
+U kunt een herstart starten binnen de seriële console door te navigeren naar de aan/uit-knop en op VM opnieuw opstarten te klikken. Hiermee start u het opnieuw opstarten van een virtuele machine en ziet u een melding binnen het Azure Portal met betrekking tot de herstart.
 
-Dit is handig in situaties waar u toegang tot het opstartmenu wilt mogelijk zonder de seriële console-ervaring.
+Dit is handig in situaties waarin u toegang wilt krijgen tot het opstart menu zonder dat u de seriële console-ervaring hoeft te verlaten.
 
-![Seriële Console opnieuw opstarten van Windows](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
+![Windows seriële console opnieuw opstarten](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
 
 ## <a name="disable-serial-console"></a>Seriële console uitschakelen
 Standaard hebben alle abonnementen seriële console-toegang ingeschakeld voor alle virtuele machines. U kunt de seriële console op het abonnementsniveau of op het niveau van de virtuele machine uitschakelen.
 
-### <a name="vmvirtual-machine-scale-set-level-disable"></a>VM/virtuele machine scale set-niveau uitschakelen
-De seriële console kan worden uitgeschakeld voor een specifieke virtuele machine of virtuele machine schaalset door de instelling van de diagnostische gegevens over opstarten uit te schakelen. Diagnostische gegevens over opstarten via de Azure-portal om uit te schakelen van de seriële console voor de virtuele machine of de virtuele-machineschaalset uitschakelen. Als u de seriële console op een virtuele-machineschaalset, controleert u of dat u exemplaren in uw virtuele machineschaalset upgraden naar de nieuwste model.
+### <a name="vmvirtual-machine-scale-set-level-disable"></a>VM/virtuele-machine schaalset uitschakelen
+De seriële console kan worden uitgeschakeld voor een specifieke VM of schaalset voor virtuele machines door de instelling diagnostische gegevens over opstarten uit te scha kelen. Schakel diagnostische gegevens over opstarten uit van de Azure Portal om de seriële console uit te scha kelen voor de virtuele machine of de schaalset van de VM. Als u een seriële console gebruikt voor een schaalset voor virtuele machines, moet u ervoor zorgen dat u de instanties van de schaalset voor virtuele machines bijwerkt naar het meest recente model.
 
 > [!NOTE]
 > Als u wilt in- of uitschakelen van de seriële console voor een abonnement, moet u hebt schrijfmachtigingen voor het abonnement. Deze machtigingen zijn, maar niet beperkt zijn tot de beheerder of eigenaar van rollen. Aangepaste rollen kunnen ook schrijfmachtigingen hebben.
 
 ### <a name="subscription-level-disable"></a>Abonnementsniveau uitschakelen
-De seriële console kan worden uitgeschakeld voor een volledige-abonnement via de [uitschakelen Console REST API-aanroep](/rest/api/serialconsole/console/disableconsole). Deze actie is vereist voor toegang van Inzender-niveau of hoger op het abonnement. U kunt de **uitproberen** functie beschikbaar is op deze pagina van de API-documentatie uitschakelen en inschakelen van de seriële console voor een abonnement. Voer uw abonnements-ID voor **subscriptionId**, "default" invoeren voor **standaard**, en selecteer vervolgens **uitvoeren**. Azure CLI-opdrachten zijn nog niet beschikbaar.
+De seriële console kan worden uitgeschakeld voor een volledige-abonnement via de [uitschakelen Console REST API-aanroep](/rest/api/serialconsole/console/disableconsole). Voor deze actie is toegang op Inzender niveau of hoger vereist voor het abonnement. U kunt de **uitproberen** functie beschikbaar is op deze pagina van de API-documentatie uitschakelen en inschakelen van de seriële console voor een abonnement. Voer uw abonnements-ID voor **subscriptionId**, "default" invoeren voor **standaard**, en selecteer vervolgens **uitvoeren**. Azure CLI-opdrachten zijn nog niet beschikbaar.
 
-Als u wilt inschakelen voor een abonnement op de seriële console, gebruiken de [inschakelen Console REST API-aanroep](/rest/api/serialconsole/console/enableconsole).
+Als u een seriële console opnieuw wilt inschakelen voor een abonnement, gebruikt u de [aanroep console rest API inschakelen](/rest/api/serialconsole/console/enableconsole).
 
 ![REST-API uitproberen](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
@@ -239,12 +239,12 @@ Scenario          | Acties in de seriële console
 Onjuiste firewall-regels | Toegang tot de seriële console en de oplossing Windows firewall-regels.
 Bestandssysteem beschadigd/selectievakje | Toegang tot de seriële console en het bestandssysteem herstellen.
 Problemen met RDP-configuratie | Toegang tot de seriële console en de instellingen wijzigen. Zie voor meer informatie de [RDP documentatie](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
-Systeem voor het vergrendelen van netwerk | Toegang tot de seriële console van de Azure-portal voor het beheren van het systeem. Sommige netwerkopdrachten worden vermeld in [Windows-opdrachten: CMD en PowerShell](serial-console-cmd-ps-commands.md).
+Systeem voor het vergrendelen van netwerk | Toegang tot de seriële console van de Azure-portal voor het beheren van het systeem. Sommige netwerk opdrachten worden weer gegeven [in Windows-opdrachten: CMD en Power](serial-console-cmd-ps-commands.md)shell.
 Interactie met de bootloader | Toegang tot het BCD via de seriële console. Zie voor meer informatie, [inschakelen het opstartmenu Windows in de seriële console](#enable-the-windows-boot-menu-in-the-serial-console).
 
 
 ## <a name="errors"></a>Fouten
-Omdat de meeste fouten tijdelijk zijn, opnieuw wordt geprobeerd de verbinding kan vaak worden verholpen. De volgende tabel ziet u een lijst met fouten en oplossingen voor zowel virtuele machines en virtuele-machineschaalset exemplaren.
+Omdat de meeste fouten tijdelijk zijn, opnieuw wordt geprobeerd de verbinding kan vaak worden verholpen. In de volgende tabel ziet u een lijst met fouten en oplossingen voor instanties van virtuele-machine schaal sets.
 
 Fout                            |   Oplossing
 :---------------------------------|:--------------------------------------------|
@@ -257,7 +257,7 @@ Web socket is gesloten of kan niet worden geopend. | U moet mogelijk aan lijst m
 Alleen gegevens over de servicestatus wordt weergegeven bij het verbinden met een Windows-VM| Deze fout treedt op als de beheerconsole van speciale is niet ingeschakeld voor uw Windows-installatiekopie. Zie [inschakelen van de seriële console in aangepaste of oudere installatiekopieën](#enable-the-serial-console-in-custom-or-older-images) voor instructies over het handmatig inschakelen SAC op uw Windows-VM. Zie voor meer informatie, [Windows health signalen](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 
 ## <a name="known-issues"></a>Bekende problemen
-We zijn op de hoogte van problemen met de seriële console. Hier volgt een lijst van deze problemen beschreven en stappen voor risicobeperking. Deze problemen en oplossingen op voor beide VM's en virtuele-machineschaalset exemplaren.
+We zijn op de hoogte van problemen met de seriële console. Hier volgt een lijst van deze problemen beschreven en stappen voor risicobeperking. Deze problemen en oplossingen zijn van toepassing voor zowel Vm's als virtuele-machine schaal sets.
 
 Probleem                             |   Oplossing
 :---------------------------------|:--------------------------------------------|
@@ -266,8 +266,8 @@ Kan niet naar het type op SAC vragen als kernelfoutopsporing is ingeschakeld. | 
 Plakken in PowerShell in SAC resulteert in een derde teken als de oorspronkelijke inhoud beschikt over een herhalende teken. | Voor een tijdelijke oplossing Voer `Remove-Module PSReadLine` te verwijderen van de module PSReadLine uit de huidige sessie. Deze actie wordt niet verwijderen of de module verwijderen.
 Sommige invoer toetsenbord vreemd SAC uitvoer produceren (bijvoorbeeld **[A**, **[3 ~** ). | [VT100](https://aka.ms/vtsequences) escapereeksen worden niet ondersteund door de SAC-prompt.
 Lange tekenreeksen plakken werkt niet. | De seriële console beperkt de lengte van tekenreeksen in de terminal naar 2048 tekens om te voorkomen dat de seriële poort-bandbreedte overbelasten geplakt.
-Seriële console werkt niet met een firewall voor storage-account. | Standaard de seriële console werkt niet met een storage-account Firewall ingeschakeld op het opslagaccount van de diagnostische gegevens over opstarten.
-Seriële console werkt niet met een opslagaccount met behulp van Azure Data Lake Storage Gen2 met hiërarchische naamruimten. | Dit is een bekend probleem met hiërarchische naamruimten. Als u wilt oplossen, zorg ervoor dat van de virtuele machine opstarten diagnostische gegevens van storage-account niet is gemaakt met behulp van Azure Data Lake Storage Gen2. Deze optie kan alleen worden ingesteld bij het opslagaccount is gemaakt. U moet een diagnostische gegevens over de afzonderlijke opstarten storage-account maken zonder Azure Data Lake Storage Gen2 ingeschakeld om dit probleem te verhelpen.
+Seriële console werkt niet met een firewall voor opslag accounts. | Seriële console per ontwerp kan niet werken met firewalls voor opslag accounts die zijn ingeschakeld in het opslag account voor diagnostische gegevens over opstarten.
+Seriële console werkt niet met een opslag account met behulp van Azure Data Lake Storage Gen2 met hiërarchische naam ruimten. | Dit is een bekend probleem met hiërarchische naam ruimten. Als u wilt beperken, moet u ervoor zorgen dat het opslag account voor diagnostische gegevens over opstarten van de virtuele machine niet is gemaakt met behulp van Azure Data Lake Storage Gen2. Deze optie kan alleen worden ingesteld bij het maken van een opslag account. Mogelijk moet u een afzonderlijk opslag account voor diagnostische gegevens over opstarten maken zonder dat Azure Data Lake Storage Gen2 ingeschakeld om dit probleem te verhelpen.
 
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
@@ -297,6 +297,6 @@ A. Uw installatiekopie is waarschijnlijk niet goed is geconfigureerd voor toegan
 A. Op dit moment wordt niet toegang tot de seriële console voor schaalsetinstanties virtuele machine ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een uitgebreide handleiding voor het CMD- en PowerShell-opdrachten kunt u in de Windows-SAC, [Windows-opdrachten: CMD en PowerShell](serial-console-cmd-ps-commands.md).
+* Zie [Windows-opdrachten voor een diep gaande hand leiding voor cmd-en Power shell-opdrachten die u kunt gebruiken in Windows SAC: CMD en Power](serial-console-cmd-ps-commands.md)shell.
 * Seriële console van het is ook beschikbaar voor [Linux](serial-console-linux.md) VM's.
 * Meer informatie over [diagnostische gegevens over opstarten](boot-diagnostics.md).

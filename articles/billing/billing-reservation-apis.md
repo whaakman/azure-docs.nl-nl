@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 20ed2bcf793ab5c3913ccf66d338e71c1a99a003
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 36bc403c4000e58541f22c2cb44f77a28e81cb72
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478922"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779891"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>Api's voor automatisering van Azure-reserve ring
 
@@ -84,7 +84,7 @@ Als u merkt dat de reserve ringen van uw organisatie onder-worden gebruikt:
 - Zorg ervoor dat de virtuele machines die uw organisatie maakt, overeenkomen met de VM-grootte die op de reserve ring is.
 - Zorg ervoor dat de flexibiliteit van de instantie grootte is ingeschakeld. Zie voor meer informatie [Manage Reservations-instelling Optimize wijzigen voor gereserveerde VM-instanties](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 - Wijzig de reik wijdte van de reserve ring naar gedeeld zodat deze breder wordt toegepast. Zie [reserve ringen beheren-het bereik voor een reserve ring wijzigen](billing-manage-reserved-vm-instance.md#change-the-reservation-scope)voor meer informatie.
-- Het niet-gebruikte aantal uitwisselen. Zie [reserve ringen beheren-annuleringen en uitwisseling](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges)voor meer informatie.
+- Het niet-gebruikte aantal uitwisselen. Zie [reserve ringen beheren](billing-manage-reserved-vm-instance.md)voor meer informatie.
 
 ## <a name="give-access-to-reservations"></a>Toegang geven tot reserve ringen
 

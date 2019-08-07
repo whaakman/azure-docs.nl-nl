@@ -1,5 +1,5 @@
 ---
-title: Ondersteunings matrix voor het maken van back-ups van machines met de Microsoft Azure Recovery Services-agent (MARS) met Azure Backup
+title: Ondersteunings matrix voor de Microsoft Azure Recovery Services-agent (MARS)-Azure Backup
 description: Dit artikel bevat een overzicht van Azure Backup ondersteuning bij het maken van een back-up van computers waarop de Microsoft Azure Recovery Services-agent (MARS) wordt uitgevoerd.
 author: dcurwin
 ms.service: backup
@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 46863b2eed8e5c5c4074a713b50739820a1e5bc9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 6d05b6ac49b372caff1bdc2f03358598fcc1afba
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639532"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737095"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Ondersteunings matrix voor back-up met de Microsoft Azure Recovery Services-agent (MARS)
 

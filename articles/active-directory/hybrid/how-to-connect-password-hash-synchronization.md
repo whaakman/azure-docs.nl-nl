@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d74eb91b5122f63088f3344836eab8decf5c57d2
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 98101973627750f87fd06d3f617a1af764a837ee
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227373"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774239"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Wachtwoord-hashsynchronisatie met Azure AD Connect sync implementeren
 Dit artikel bevat gegevens die u nodig hebt om te synchroniseren van uw wachtwoorden van gebruikers uit een on-premises Active Directory-exemplaar naar een cloud-gebaseerde Azure Active Directory (Azure AD)-exemplaar.
@@ -63,9 +63,6 @@ De volgende sectie wordt beschreven, uitgebreide, de werking van wachtwoord-hash
 >[!Note] 
 >De oorspronkelijke MD4-hash is niet verzonden naar Azure AD. In plaats daarvan wordt de SHA256-hash van de oorspronkelijke MD4-hash verzonden. Als gevolg hiervan als de hash die zijn opgeslagen in Azure AD wordt verkregen, worden deze niet gebruikt in een on-premises pass-the-hash-aanval.
 
-### <a name="how-password-hash-synchronization-works-with-azure-active-directory-domain-services"></a>De werking van wachtwoord-hashsynchronisatie met Azure Active Directory Domain Services
-U kunt ook de wachtwoordfunctie-hash-synchronisatie gebruiken om te synchroniseren van uw on-premises wachtwoorden te [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Uw gebruikers in de cloud worden in de Azure Active Directory Domain Services-exemplaar in dit scenario wordt geverifieerd met alle methoden die beschikbaar zijn in uw on-premises Active Directory-exemplaar. De ervaring van dit scenario is vergelijkbaar met het gebruik van de Active Directory Migration Tool (ADMT) in een on-premises omgeving.
-
 ### <a name="security-considerations"></a>Beveiligingsoverwegingen
 Bij het synchroniseren van wachtwoorden, wordt de versie van de tekst zonder opmaak van uw wachtwoord niet blootgesteld aan de wachtwoordfunctie-hash-synchronisatie, naar Azure AD, of een van de gekoppelde services.
 
@@ -104,6 +101,39 @@ De synchronisatie van een wachtwoord heeft geen invloed op de Azure-gebruiker di
 
 - Wachtwoord-hashsynchronisatie is over het algemeen eenvoudiger te implementeren dan een federation-service. Het vereist geen extra servers en elimineert de afhankelijkheid van een maximaal beschikbare federation-service om gebruikers te verifiëren.
 - Wachtwoord-hashsynchronisatie kan ook worden ingeschakeld naast federation. Het kan worden gebruikt als alternatieve methode als er een storing optreedt in de federation-service.
+
+## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Wacht woord-hash-synchronisatie proces voor Azure AD Domain Services
+
+Als u Azure AD Domain Services gebruikt om verouderde verificatie te bieden voor toepassingen en services die Keberos, LDAP of NTLM moeten gebruiken, zijn sommige extra processen onderdeel van de synchronisatie stroom voor wacht woord-hashes. Azure AD Connect gebruikt het volgende proces om wacht woord-hashes te synchroniseren met Azure AD voor gebruik in Azure AD Domain Services:
+
+> [!IMPORTANT]
+> Azure AD Connect synchroniseert alleen verouderde wachtwoord-hashes wanneer u Azure AD DS voor uw Azure AD-Tenant inschakelt. De volgende stappen worden niet gebruikt als u alleen Azure AD Connect gebruikt om een on-premises AD DS omgeving te synchroniseren met Azure AD.
+>
+> Als uw verouderde toepassingen geen gebruikmaken van NTLM-verificatie of LDAP-eenvoudige bindingen, raden we u aan NTLM-wachtwoord hash-synchronisatie voor Azure AD DS uit te scha kelen. Zie voor meer informatie [zwak coderings suites en hash-synchronisatie van NTLM-referenties uitschakelen](../../active-directory-domain-services/secure-your-domain.md).
+
+1. Azure AD Connect haalt de open bare sleutel op voor het exemplaar van de Tenant van Azure AD Domain Services.
+1. Wanneer een gebruiker het wacht woord wijzigt, slaat de on-premises domein controller het resultaat van het wijzigen van het wacht woord (hashes) op in twee kenmerken:
+    * *unicodePwd* voor de NTLM-wachtwoord-hash.
+    * *supplementalCredentials* voor de Kerberos-wachtwoord-hash.
+1. Azure AD Connect detecteert wachtwoord wijzigingen via het Directory replicatie kanaal (kenmerk wijzigingen die moeten worden gerepliceerd naar andere domein controllers).
+1. Azure AD Connect voert de volgende stappen uit voor elke gebruiker waarvan het wacht woord is gewijzigd:
+    * Hiermee wordt een wille keurige AES 256-bits symmetrische sleutel gegenereerd.
+    * Hiermee wordt een wille keurige initialisatie vector gegenereerd die nodig is voor de eerste afronding van versleuteling.
+    * Extraheert Kerberos-wachtwoord-hashes uit de *supplementalCredentials* -kenmerken.
+    * Hiermee wordt de Azure AD Domain Services instelling beveiligings configuratie *SyncNtlmPasswords* gecontroleerd.
+        * Als deze instelling is uitgeschakeld, wordt een wille keurige NTLM-hash met een hoge entropie gegenereerd (anders dan het wacht woord van de gebruiker). Deze hash wordt vervolgens gecombineerd met de exacte Kerberos-wachtwoord-hashes van het kenmerk *supplementalCrendetials* in één gegevens structuur.
+        * Bij inschakeling wordt de waarde van het kenmerk *unicodePwd* gecombineerd met het geëxtraheerde Kerberos-wacht woord hashes van het kenmerk *supplementalCredentials* in één gegevens structuur.
+    * Hiermee versleutelt u de afzonderlijke gegevens structuur met de AES symmetrische sleutel.
+    * Hiermee versleutelt u de AES symmetrische sleutel met de open bare sleutel van de Tenant Azure AD Domain Services.
+1. Azure AD Connect verzendt de versleutelde AES symmetrische sleutel, de versleutelde gegevens structuur met de wacht woord-hashes en de initialisatie vector naar Azure AD.
+1. In azure AD worden de versleutelde AES symmetrische sleutel, de versleutelde gegevens structuur en de initialisatie vector voor de gebruiker opgeslagen.
+1. Azure AD duwt de versleutelde AES symmetrische sleutel, de versleutelde gegevens structuur en de initialisatie vector met behulp van een intern synchronisatie mechanisme via een versleutelde HTTP-sessie tot Azure AD Domain Services.
+1. Azure AD Domain Services haalt de persoonlijke sleutel voor het exemplaar van de Tenant op uit de Azure-sleutel kluis.
+1. Azure AD Domain Services voert de volgende stappen uit voor elke versleutelde set gegevens (die de wachtwoord wijziging van één gebruiker vertegenwoordigen):
+    * Maakt gebruik van de persoonlijke sleutel voor het ontsleutelen van de AES symmetrische sleutel.
+    * Maakt gebruik van de AES symmetrische sleutel met de initialisatie vector voor het ontsleutelen van de versleutelde gegevens structuur die de wacht woord-hashes bevat.
+    * Schrijft de Kerberos-wachtwoord hashes die worden ontvangen naar de Azure AD Domain Services domein controller. De hashes worden opgeslagen in het kenmerk *supplementalCredentials* van het gebruikers object dat is versleuteld met de open bare sleutel van de Azure AD Domain Services domein controller.
+    * Azure AD Domain Services schrijft de NTLM-wachtwoord-hash die is ontvangen naar de Azure AD Domain Services-domein controller. De hash wordt opgeslagen in het kenmerk *unicodePwd* van het gebruikers object dat is versleuteld met de open bare sleutel van de Azure AD Domain Services domein controller.
 
 ## <a name="enable-password-hash-synchronization"></a>Synchronisatie van wachtwoordhashes inschakelen
 

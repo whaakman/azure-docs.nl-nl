@@ -1,6 +1,6 @@
 ---
-title: Cognitieve zoekopdrachten kaart uitgebreid invoervelden naar uitvoervelden - Azure Search
-description: Pak en verrijken van velden voor bron en toewijzen aan uitvoervelden in een Azure Search-index.
+title: Verrijkte invoer velden voor cognitieve Zoek opdrachten toewijzen aan uitvoer velden-Azure Search
+description: Haal en verrijkende brongegevens velden op en wijs deze toe aan uitvoer velden in een Azure Search index.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -9,21 +9,21 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 506acee6cd9cd3c50e10f1c45768230564eeaaf1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 1fae611c202b77d222436b090f7e0c2f432de1f2
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65022083"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841164"
 ---
-# <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>Verrijkt velden toewijzen aan een doorzoekbare index
+# <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>Verrijkte velden toewijzen aan een Doorzoek bare index
 
-In dit artikel leert u hoe u geavanceerde invoervelden toewijzen aan velden in een doorzoekbare index uitvoeren. Als u eenmaal hebt [gedefinieerd van een set vaardigheden](cognitive-search-defining-skillset.md), moet u de uitvoervelden van een kwalificatie die rechtstreeks deel uitmaakt van de waarden aan een bepaald veld in uw search-index worden toegewezen. Veldtoewijzingen zijn vereist voor het verplaatsen van de inhoud van verrijkt documenten in de index.
+In dit artikel leert u hoe u verrijkte invoer velden kunt toewijzen aan uitvoer velden in een Doorzoek bare index. Zodra u [een vaardig heden hebt gedefinieerd](cognitive-search-defining-skillset.md), moet u de uitvoer velden toewijzen van alle vaardig heden waarmee waarden rechtstreeks worden bijgedragen aan een bepaald veld in uw zoek index. Veld Toewijzingen zijn vereist voor het verplaatsen van inhoud van verrijkte documenten naar de index.
 
 
-## <a name="use-outputfieldmappings"></a>Gebruik outputFieldMappings
-Toevoegen als velden wilt toewijzen, `outputFieldMappings` aan de definitie van de indexeerfunctie zoals hieronder wordt weergegeven:
+## <a name="use-outputfieldmappings"></a>OutputFieldMappings gebruiken
+Als u velden wilt toewijzen `outputFieldMappings` , voegt u deze toe aan de definitie van de Indexeer functie, zoals hieronder wordt weer gegeven:
 
 ```http
 PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
@@ -31,7 +31,7 @@ api-key: [admin key]
 Content-Type: application/json
 ```
 
-De hoofdtekst van de aanvraag is als volgt opgebouwd:
+De hoofd tekst van de aanvraag is als volgt gestructureerd:
 
 ```json
 {
@@ -64,14 +64,14 @@ De hoofdtekst van de aanvraag is als volgt opgebouwd:
     ]
 }
 ```
-Voor elk veld de toewijzing van uitvoer, stelt u de naam van de geavanceerde veld (sourceFieldName) en de naam van het veld waarnaar wordt verwezen in de index (targetFieldName).
+Stel voor elke toewijzing van het uitvoer veld de naam van het verrijkte veld (sourceFieldName) en de naam van het veld in waarnaar wordt verwezen in de index (targetFieldName).
 
-Het pad in een sourceFieldName kan één element of meerdere elementen vertegenwoordigen. In het bovenstaande voorbeeld ```/document/content/sentiment``` vertegenwoordigt een numerieke waarde, terwijl ```/document/content/organizations/*/description``` verschillende organisatie-beschrijvingen vertegenwoordigt. In gevallen waarbij er verschillende elementen, ze worden "afgevlakt" in een matrix met de elementen. Meer concrete invulling te geven, voor de ```/document/content/organizations/*/description``` voorbeeld, worden de gegevens in de *beschrijvingen* veld eruit als een platte-matrix van beschrijvingen voordat deze worden geïndexeerd:
+Het pad in een sourceFieldName kan bestaan uit één element of meerdere elementen. In het bovenstaande ```/document/content/sentiment``` voor beeld vertegenwoordigt een enkele numerieke waarde, terwijl ```/document/content/organizations/*/description``` verschillende beschrijvingen van de organisatie worden aangeduid. Als er meerdere elementen zijn, worden deze ' afgevlakt ' in een matrix die elk van de elementen bevat. In het ```/document/content/organizations/*/description``` voor beeld worden de gegevens in het veld *beschrijvingen* als een vlakke matrix met beschrijvingen weer gegeven voordat de indexering wordt geïndexeerd:
 
 ```
  ["Microsoft is a company in Seattle","LinkedIn's office is in San Francisco"]
 ```
 ## <a name="next-steps"></a>Volgende stappen
-Als u uw verrijkt velden aan doorzoekbare velden hebt toegewezen, kunt u het veldkenmerken instellen voor elk van de doorzoekbare velden [als onderdeel van de indexdefinitie](search-what-is-an-index.md).
+Zodra u uw verrijkte velden aan Doorzoek bare velden hebt toegewezen, kunt u de veld kenmerken voor elk van de Doorzoek bare velden instellen [als onderdeel van de definitie van de index](search-what-is-an-index.md).
 
-Zie voor meer informatie over veldtoewijzing [veldtoewijzingen in Azure Search-indexeerfuncties](search-indexer-field-mappings.md).
+Zie [veld toewijzingen in azure Search-Indexeer functies](search-indexer-field-mappings.md)voor meer informatie over veld toewijzing.

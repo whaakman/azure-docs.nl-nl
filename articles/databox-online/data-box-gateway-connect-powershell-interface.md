@@ -1,40 +1,39 @@
 ---
-title: Verbinding maken met en beheren van Microsoft Azure Data Box-Gateway-apparaat via de Windows PowerShell-interface | Microsoft Docs
-description: Beschrijft hoe u verbinding maken met en gegevens in het Gateway vervolgens beheren via de Windows PowerShell-interface.
+title: Verbinding maken met Microsoft Azure Data Box Gateway apparaat en beheren via de Windows Power shell-interface | Microsoft Docs
+description: Hierin wordt beschreven hoe u verbinding maakt met Data Box Gateway en vervolgens beheert via de Windows Power shell-interface.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 08/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 67caaa2c6c9bd615d0b88bdd5de3442b46aa32cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 650777d849e172686e8b46502a84db8c519174e7
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64415166"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775202"
 ---
-# <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>Een Azure Data Box-Gateway-apparaat via Windows PowerShell beheren
+# <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>Een Azure Data Box Gateway-apparaat beheren via Windows Power shell
 
-Azure Data Box-Gateway-oplossing kunt u gegevens naar Azure verzenden via het netwerk. Dit artikel worden enkele van de configuratie en beheer taken voor uw gegevens in het Gateway-apparaat. U kunt de Azure portal, de lokale web-UI of de Windows PowerShell-interface gebruiken om uw apparaat te beheren.
+Met Azure Data Box Gateway oplossing kunt u gegevens via het netwerk naar Azure verzenden. In dit artikel worden enkele van de configuratie-en beheer taken voor uw Data Box Gateway-apparaat beschreven. U kunt de Azure Portal, de lokale webgebruikersinterface of de Windows Power shell-interface gebruiken om uw apparaat te beheren.
 
-In dit artikel richt zich op de taken die u met behulp van de PowerShell-interface.
+Dit artikel is gericht op de taken die u gebruikt om de Power shell-interface te gebruiken.
 
-In dit artikel bevat de volgende procedures:
+Dit artikel bevat de volgende procedures:
 
-- Verbinding maken met de PowerShell-interface
-- Een ondersteuningssessie starten
-- Een ondersteuningspakket maken
+- Verbinding maken met de Power shell-interface
+- Een ondersteunings pakket maken
 - Certificaat uploaden
 - Opstarten in niet-DHCP-omgeving
-- Gegevens van een apparaat weergeven
+- Apparaatgegevens weer geven
 
-## <a name="connect-to-the-powershell-interface"></a>Verbinding maken met de PowerShell-interface
+## <a name="connect-to-the-powershell-interface"></a>Verbinding maken met de Power shell-interface
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
 
-## <a name="create-a-support-package"></a>Een ondersteuningspakket maken
+## <a name="create-a-support-package"></a>Een ondersteunings pakket maken
 
 [!INCLUDE [Create a support package](../../includes/data-box-edge-gateway-create-support-package.md)]
 
@@ -46,7 +45,7 @@ In dit artikel bevat de volgende procedures:
 
 [!INCLUDE [Boot up in non-DHCP environment](../../includes/data-box-edge-gateway-boot-non-dhcp.md)]
 
-## <a name="view-device-information"></a>Gegevens van een apparaat weergeven
+## <a name="view-device-information"></a>Apparaatgegevens weer geven
 
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8297a2b1e78da6685b3129071612dc4457990bc1
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 29188013b75dbefbaf80f3c59360f203ae5b5a82
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696391"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736753"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Uitschalen van Azure Analysis Services
 
@@ -143,9 +143,9 @@ Voor SSMS-, SSDT-en verbindings reeksen in Power shell, Azure function-apps en A
 
 ![Server namen](media/analysis-services-scale-out/aas-scale-out-name.png)
 
-## <a name="scale-up--down-vs-scale-out"></a>Omhoog schalen versus omhoog/omlaag Uitschalen
+## <a name="scale-up-scale-down-vs-scale-out"></a>Omhoog schalen, omlaag schalen versus Uitschalen
 
-U kunt de prijs categorie van de server wijzigen op een server met meerdere replica's. Dezelfde prijs categorie is van toepassing op alle replica's. Met de bewerking omhoog en omlaag schalen worden eerst alle replica's in één keer omlaag gebracht. vervolgens worden alle replica's op de nieuwe prijs categorie weer geven.
+U kunt de prijs categorie wijzigen op een server met meerdere replica's. Dezelfde prijs categorie is van toepassing op alle replica's. Bij een schaal bewerking worden eerst alle replica's in één keer omlaag gebracht. vervolgens worden alle replica's op de nieuwe prijs categorie weer geven.
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 

@@ -1,6 +1,6 @@
 ---
-title: App klonen met PowerShell - Azure App Service
-description: Leer hoe u uw App Service klonen op een nieuwe app met behulp van PowerShell.
+title: App klonen met Power shell-Azure App Service
+description: Meer informatie over het klonen van uw App Service-app naar een nieuwe app met behulp van Power shell.
 services: app-service\web
 documentationcenter: ''
 author: ahmedelnably
@@ -15,127 +15,127 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: d31a6ee13965aa326ab8a71b5b5435025bc26057
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 52d02fd79571e42f71c06b7090534136e4a5e341
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705733"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814688"
 ---
-# <a name="azure-app-service-app-cloning-using-powershell"></a>Azure App Service-App klonen met behulp van PowerShell
+# <a name="azure-app-service-app-cloning-using-powershell"></a>App-klonen Azure App Service met behulp van Power shell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Met de release van Microsoft Azure PowerShell versie 1.1.0 is een nieuwe optie is toegevoegd aan `New-AzWebApp` waarmee u een bestaande App Service-app om een nieuwe app in een andere regio of in dezelfde regio te klonen. Deze optie kan klanten snel en eenvoudig een aantal apps implementeren in verschillende regio's.
+Met de release van Microsoft Azure PowerShell versie 1.1.0 is een nieuwe optie toegevoegd `New-AzWebApp` waarmee u een bestaande app service app kunt klonen voor een nieuwe app in een andere regio of in dezelfde regio. Met deze optie kunnen klanten snel en eenvoudig een aantal apps implementeren in verschillende regio's.
 
-Apps klonen wordt ondersteund voor Standard, Premium, Premium V2 en geïsoleerd app service-abonnementen. Dezelfde beperkingen als back-up van App Service-functie maakt gebruik van de nieuwe functie, Zie [maakt u een Back-up van een app in Azure App Service](manage-backup.md).
+Het klonen van apps wordt ondersteund voor Standard-, Premium-, Premium v2-en geïsoleerde app service-abonnementen. De nieuwe functie gebruikt dezelfde beperkingen als App Service back-upfunctie. Zie [een back-up maken van een app in azure app service](manage-backup.md).
 
 ## <a name="cloning-an-existing-app"></a>Een bestaande app klonen
-Scenario: Een bestaande app in de regio Zuid-centraal VS, en u wilt klonen van de inhoud naar een nieuwe app in de regio Noord-centraal VS. Dit kan worden bereikt met behulp van de Azure Resource Manager-versie van de PowerShell-cmdlet om te maken van een nieuwe app met de `-SourceWebApp` optie.
+Scenario: Een bestaande app in de regio Zuid-Centraal VS en u wilt de inhoud klonen naar een nieuwe app in de regio Noord-Centraal vs. U kunt dit doen met behulp van de Azure Resource Manager versie van de Power shell-cmdlet om een nieuwe `-SourceWebApp` app te maken met de optie.
 
-Naam van de resourcegroep met de bron-app weet, kunt u de volgende PowerShell-opdracht kunt gebruiken om op te halen van de bronapp-gegevens (in dit geval met de naam `source-webapp`):
+Als u de naam van de resource groep kent die de bron-app bevat, kunt u de volgende Power shell-opdracht gebruiken om de gegevens van de `source-webapp`bron-app op te halen (in dit geval met de naam):
 
 ```powershell
 $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
 ```
 
-Voor het maken van een nieuwe App Service-Plan, kunt u `New-AzAppServicePlan` opdracht zoals in het volgende voorbeeld
+Als u een nieuw app service plan wilt maken, kunt `New-AzAppServicePlan` u de opdracht gebruiken zoals in het volgende voor beeld
 
 ```powershell
-New-AzAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
+New-AzAppServicePlan -Location "North Central US" -ResourceGroupName DestinationAzureResourceGroup -Name DestinationAppServicePlan -Tier Standard
 ```
 
-Met behulp van de `New-AzWebApp` opdracht, kunt u de nieuwe app maken in de regio Noord-centraal VS, en deze koppelen aan een bestaande premium-laag van App Service-Plan. U kunt bovendien gebruik dezelfde resourcegroep bevinden als de bron-app of een nieuwe resourcegroep definiëren, zoals wordt weergegeven in de volgende opdracht uit:
+Met de `New-AzWebApp` opdracht kunt u de nieuwe app maken in de regio Noord-Centraal VS en deze koppelen aan een bestaand app service plan. Daarnaast kunt u dezelfde resource groep gebruiken als de bron-app, of een nieuwe resource groep definiëren, zoals wordt weer gegeven in de volgende opdracht:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
-Als u wilt een bestaande app, met inbegrip van alle bijbehorende implementatiesites klonen, moet u gebruiken de `IncludeSourceWebAppSlots` parameter. De volgende PowerShell-opdracht ziet u het gebruik van deze parameter met de `New-AzWebApp` opdracht:
+Als u een bestaande app wilt klonen, inclusief alle gekoppelde implementatie sleuven, moet `IncludeSourceWebAppSlots` u de para meter gebruiken. Met de volgende Power shell-opdracht ziet u hoe die para meter `New-AzWebApp` wordt gebruikt met de opdracht:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
 ```
 
-Als u wilt klonen van een bestaande app binnen dezelfde regio, moet u een nieuwe resourcegroep maken en een nieuwe appservice plannen in dezelfde regio en vervolgens de volgende PowerShell-opdracht gebruiken om het te klonen:
+Als u een bestaande app in dezelfde regio wilt klonen, moet u een nieuwe resource groep en een nieuw app service-plan maken in dezelfde regio. vervolgens gebruikt u de volgende Power shell-opdracht om de app te klonen:
 
 ```powershell
-$destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcap
+$destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcapp
 ```
 
-## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Klonen van een bestaande App naar een App Service Environment
-Scenario: Een bestaande app in de regio Zuid-centraal VS, en u wilt klonen van de inhoud naar een nieuwe app op een bestaande App Service Environment (ASE).
+## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Een bestaande app klonen naar een App Service Environment
+Scenario: Een bestaande app in de regio Zuid-Centraal VS en u wilt de inhoud klonen naar een nieuwe app voor een bestaande App Service Environment (ASE).
 
-Naam van de resourcegroep met de bron-app weet, kunt u de volgende PowerShell-opdracht kunt gebruiken om op te halen van de bronapp-gegevens (in dit geval met de naam `source-webapp`):
+Als u de naam van de resource groep kent die de bron-app bevat, kunt u de volgende Power shell-opdracht gebruiken om de gegevens van de `source-webapp`bron-app op te halen (in dit geval met de naam):
 
 ```powershell
 $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
 ```
 
-De naam van de as-omgeving en de naam van de resourcegroep die deel uitmaakt van de as-omgeving te weten, kunt u de nieuwe app in de bestaande as-omgeving, zoals wordt weergegeven in de volgende opdracht uit:
+Als u de naam van de ASE en de naam van de resource groep waarvan de ASE deel uitmaakt, weet, kunt u de nieuwe app maken in de bestaande ASE, zoals wordt weer gegeven in de volgende opdracht:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -ASEName DestinationASE -ASEResourceGroupName DestinationASEResourceGroupName -SourceWebApp $srcapp
 ```
 
-De `Location` parameter is vereist vanwege de verouderde reden, maar wordt dit genegeerd wanneer u de app in een as-omgeving maakt. 
+De `Location` para meter is vereist vanwege een verouderde reden, maar wordt genegeerd wanneer u de app in een ASE maakt. 
 
-## <a name="cloning-an-existing-app-slot"></a>Klonen van een bestaande App-sleuf
-Scenario: Wilt u een bestaande implementatiesleuf van een app in een nieuwe app of een nieuwe sleuf klonen. De nieuwe app kan zich in dezelfde regio als de oorspronkelijke app-site of in een andere regio.
+## <a name="cloning-an-existing-app-slot"></a>Een bestaande app-sleuf klonen
+Scenario: U wilt een bestaande implementatie site van een app klonen voor een nieuwe app of een nieuwe sleuf. De nieuwe app kan zich in dezelfde regio bevinden als de oorspronkelijke app-sleuf of in een andere regio.
 
-Naam van de resourcegroep met de bron-app weet, kunt u de volgende PowerShell-opdracht kunt gebruiken voor de bron-app-site-informatie (in dit geval met de naam `source-appslot`) gekoppeld aan `source-app`:
+Als u de naam van de resource groep kent die de bron-app bevat, kunt u de volgende Power shell-opdracht gebruiken om de gegevens van de bron `source-appslot`app-sleuf `source-app`(in dit geval met de naam) te verkrijgen die is gekoppeld aan:
 
 ```powershell
 $srcappslot = Get-AzWebAppSlot -ResourceGroupName SourceAzureResourceGroup -Name source-app -Slot source-appslot
 ```
 
-De volgende opdracht ziet u een kloon van de bron-app in een nieuwe app maken:
+De volgende opdracht illustreert het maken van een kloon van de bron-app naar een nieuwe app:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-app -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcappslot
 ```
 
-## <a name="configuring-traffic-manager-while-cloning-an-app"></a>Traffic Manager tijdens het klonen van een app configureren
-Het maken van apps voor meerdere regio's en het configureren van Azure Traffic Manager om verkeer te routeren naar deze apps is een belangrijk scenario om ervoor te zorgen dat klanten apps maximaal beschikbaar zijn. Bij het klonen van een bestaande app, hebt u de optie om beide apps naar een nieuw traffic manager-profiel of een bestaande verbinding te maken. Alleen Azure Resource Manager-versie van Traffic Manager wordt ondersteund.
+## <a name="configuring-traffic-manager-while-cloning-an-app"></a>Traffic Manager configureren tijdens het klonen van een app
+Het maken van apps voor meerdere regio's en het configureren van Azure Traffic Manager voor het routeren van verkeer naar al deze apps, is een belang rijk scenario om ervoor te zorgen dat de apps van klanten Maxi maal beschikbaar zijn. Wanneer u een bestaande app wilt klonen, hebt u de mogelijkheid om beide apps te verbinden met een nieuw Traffic Manager-profiel of een bestaande. Alleen Azure Resource Manager versie van Traffic Manager wordt ondersteund.
 
-### <a name="creating-a-new-traffic-manager-profile-while-cloning-an-app"></a>Het maken van een nieuw Traffic Manager-profiel terwijl het klonen van een app
-Scenario: Wilt u een app naar een andere regio klonen tijdens het configureren van een Azure Resource Manager traffic manager-profiel dat beide apps bevat. De volgende opdracht ziet u het maken van een kloon van de bron-app in een nieuwe app tijdens het configureren van een nieuw Traffic Manager-profiel:
+### <a name="creating-a-new-traffic-manager-profile-while-cloning-an-app"></a>Een nieuw Traffic Manager profiel maken tijdens het klonen van een app
+Scenario: U wilt een app klonen naar een andere regio en tijdens het configureren van een Azure Resource Manager Traffic Manager-profiel dat beide apps bevat. De volgende opdracht illustreert het maken van een kloon van de bron-app naar een nieuwe app tijdens het configureren van een nieuw Traffic Manager profiel:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 ```
 
-### <a name="adding-new-cloned-app-to-an-existing-traffic-manager-profile"></a>App aan een bestaand Traffic Manager-profiel toe te voegen nieuwe gekloond
-Scenario: U al een Azure Resource Manager traffic manager-profiel hebt en wilt toevoegen van zowel apps als eindpunten. Om dit te doen, moet u eerst voor het samenstellen van de bestaande traffic manager-profiel-id. U moet de abonnements-ID, naam van de resourcegroep en de bestaande profielnaam voor traffic manager.
+### <a name="adding-new-cloned-app-to-an-existing-traffic-manager-profile"></a>Nieuwe gekloonde app toevoegen aan een bestaand Traffic Manager profiel
+Scenario: U hebt al een Azure Resource Manager Traffic Manager-profiel en wilt beide apps als eind punten toevoegen. Hiervoor moet u eerst de bestaande Traffic Manager-profiel-ID assembleren. U hebt de abonnements-ID, de naam van de resource groep en de naam van het bestaande Traffic Manager-profiel nodig.
 
 ```powershell
 $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"
 ```
 
-Nadat er de traffic Manager-ID, de volgende opdracht wordt uitgelegd hoe u een kloon van de bron-app in een nieuwe app terwijl u ze toevoegt aan een bestaand Traffic Manager-profiel:
+Nadat u de Traffic Manager-ID hebt, wordt met de volgende opdracht gedemonstreerd hoe u een kloon van de bron-app maakt naar een nieuwe app terwijl u deze toevoegt aan een bestaand Traffic Manager profiel:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName <Resource group name> -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileId $TMProfileID
 ```
 
 ## <a name="current-restrictions"></a>Huidige beperkingen
-Hier volgen de bekende beperkingen van de app klonen:
+Dit zijn de bekende beperkingen voor het klonen van apps:
 
 * Instellingen voor automatisch schalen worden niet gekloond
-* Back-upschema instellingen worden niet gekloond
+* De instellingen voor het back-upschema zijn niet gekloond
 * VNET-instellingen worden niet gekloond
-* App Insights worden niet automatisch ingesteld op de doel-app
+* App Insights wordt niet automatisch ingesteld op de doel-app
 * Eenvoudige verificatie-instellingen worden niet gekloond
-* Kudu-extensie worden niet gekloond
-* TiP regels worden niet gekloond
-* Inhoud van de database is niet gekloond
-* Uitgaande IP-adressen gewijzigd als er aan een andere schaaleenheid klonen
-* Niet beschikbaar voor Linux-Apps
+* De kudu-extensie is niet gekloond
+* TiP-regels worden niet gekloond
+* Data Base-inhoud is niet gekloond
+* Uitgaande IP-adressen worden gewijzigd bij het klonen naar een andere schaal eenheid
+* Niet beschikbaar voor Linux-apps
 
 ### <a name="references"></a>Verwijzingen
 * [App Service klonen](app-service-web-app-cloning.md)
-* [Back-up van een app in Azure App Service](manage-backup.md)
-* [Azure Resource Manager-ondersteuning voor Azure Traffic Manager-Preview](../traffic-manager/traffic-manager-powershell-arm.md)
+* [Een back-up maken van een app in Azure App Service](manage-backup.md)
+* [Azure Resource Manager ondersteuning voor Azure Traffic Manager preview](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Inleiding tot de App Service-omgeving](environment/intro.md)
 * [Azure PowerShell gebruiken met Azure Resource Manager](../azure-resource-manager/manage-resources-powershell.md)
 

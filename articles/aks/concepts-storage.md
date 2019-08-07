@@ -1,67 +1,69 @@
 ---
-title: Concepten - opslag in Azure Kubernetes-Services (AKS)
-description: Meer informatie over opslag in Azure Kubernetes Service (AKS), met inbegrip van volumes, permanente volumes Opslagklassen en claims
+title: Concepten-opslag in azure Kubernetes Services (AKS)
+description: Meer informatie over opslag in azure Kubernetes service (AKS), inclusief volumes, permanente volumes, opslag klassen en claims
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: eb9141d363bdb09b5773f80dfc5a1c4b9b92728f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: fb15063e41e83b4c9a9f2e01b6ad18c8afed7f5f
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615809"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740993"
 ---
-# <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opties voor opslag voor toepassingen in Azure Kubernetes Service (AKS)
+# <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opslag opties voor toepassingen in azure Kubernetes service (AKS)
 
-Toepassingen die worden uitgevoerd in Azure Kubernetes Service (AKS) mogelijk voor het opslaan en ophalen van gegevens. Voor sommige werkbelastingen van toepassingen, de opslag van deze gegevens lokale opslag met een snelle gebruiken op het knooppunt dat niet meer nodig hebt is wanneer de schillen zijn verwijderd. Andere werkbelastingen van toepassingen vereisen mogelijk opslagruimte die zich blijft voordoen in meer regelmatig gegevens op volumes in het Azure-platform. Meerdere schillen zijn mogelijk de dezelfde gegevensvolumes te delen of gegevensvolumes opnieuw koppelen als de schil is opnieuw gepland op een ander knooppunt. Ten slotte moet u mogelijk gevoelige gegevens of configuratie-informatie in schillen toepassing invoeren.
+Toepassingen die worden uitgevoerd in azure Kubernetes service (AKS), moeten mogelijk gegevens opslaan en ophalen. Voor sommige werk belastingen van toepassingen kan deze gegevens opslag gebruikmaken van lokale, snelle opslag op het knoop punt dat niet meer nodig is wanneer het Peul wordt verwijderd. Voor andere werk belastingen van toepassingen is mogelijk opslag vereist die persistent is op meer reguliere gegevens volumes binnen het Azure-platform. Meerdere peulen moeten mogelijk dezelfde gegevens volumes delen of gegevens volumes opnieuw koppelen als de pod op een ander knoop punt opnieuw wordt gepland. Ten slotte moet u mogelijk gevoelige gegevens of informatie over de configuratie van de toepassing in een Peul injecteren.
 
-![Opties voor opslag voor toepassingen in een cluster Azure Kubernetes-Services (AKS)](media/concepts-storage/aks-storage-options.png)
+![Opslag opties voor toepassingen in een AKS-cluster (Azure Kubernetes Services)](media/concepts-storage/aks-storage-options.png)
 
-In dit artikel worden de belangrijkste concepten die over de opslag die aan uw toepassingen in AKS geïntroduceerd:
+In dit artikel worden de belangrijkste concepten geïntroduceerd die opslag aan uw toepassingen bieden in AKS:
 
-- [Volumes](#volumes)
+- [Omvang](#volumes)
 - [Permanente volumes](#persistent-volumes)
-- [Opslagklassen](#storage-classes)
+- [Opslag klassen](#storage-classes)
 - [Claims voor permanente volumes](#persistent-volume-claims)
 
 ## <a name="volumes"></a>Volumes
 
-Toepassingen moeten vaak kunnen opslaan en ophalen van gegevens. Als afzonderlijke schillen Kubernetes doorgaans als tijdelijke, beschikbare resources behandelt, zijn verschillende methoden beschikbaar is voor toepassingen om te gebruiken en behoud van gegevens naar behoefte. Een *volume* vertegenwoordigt een manier opslaan, ophalen en behoud van gegevens tussen schillen en gedurende de levensduur van toepassingen.
+Toepassingen moeten vaak gegevens kunnen opslaan en ophalen. Net als Kubernetes behandelt afzonderlijke peulen doorgaans als tijdelijke, wegwerp bronnen, verschillende benaderingen voor het gebruik van toepassingen en het persistent maken van gegevens als dat nodig is. Een *volume* is een manier om gegevens op te slaan, op te halen en te persistent maken en de levens cyclus van de toepassing.
 
-Traditionele volumes aan gegevens opslaan en ophalen worden als ondersteund door Azure Storage Kubernetes-resources gemaakt. U kunt handmatig maken van deze gegevensvolumes moet worden toegewezen aan schillen rechtstreeks of Kubernetes ze automatisch te maken hebben. Deze gegevensvolumes kunnen Azure-schijven of Azure Files gebruiken:
+Traditionele volumes voor het opslaan en ophalen van gegevens worden gemaakt als Kubernetes bronnen die door Azure Storage worden ondersteund. U kunt deze gegevens volumes hand matig maken en deze rechtstreeks aan een Peul toewijzen, of Kubernetes automatisch laten maken. Deze gegevens volumes kunnen gebruikmaken van Azure-schijven of Azure Files:
 
-- *Azure-schijven* kan worden gebruikt voor het maken van een Kubernetes *DataDisk* resource. Azure Premium-opslag, ondersteund door hoogwaardige SSD's, of Azure Standard-opslag, ondersteund door HDD's van normale schijven gebruiken. Voor de meeste productie en werkvolumes voor ontwikkeling, Premium storage te gebruiken. Azure-schijven zijn gekoppeld als *ReadWriteOnce*, dus zijn alleen beschikbaar voor een enkel knooppunt. Voor de opslagvolumes die kunnen worden geopend door meerdere knooppunten gelijktijdig, Azure Files te gebruiken.
-- *Azure Files* kan worden gebruikt voor het koppelen van een ondersteund door een Azure Storage-account met schillen SMB 3.0-bestandsshare. Bestanden kunnen u gegevens in meerdere knooppunten en schillen delen. Bestanden kunnen op dit moment alleen gebruiken voor Azure Standard-opslag ondersteund door HDD's van reguliere.
+- *Azure-schijven* kunnen worden gebruikt om een Kubernetes *DataDisk* -resource te maken. Schijven kunnen gebruikmaken van Azure Premium Storage, ondersteund door Ssd's met hoge prestaties of Azure Standard-opslag, ondersteund door gewone Hdd's. Voor de meeste werk belastingen voor productie en ontwikkeling gebruikt u Premium Storage. Azure-schijven zijn gekoppeld als *ReadWriteOnce*, dus zijn alleen beschikbaar voor één knoop punt. Gebruik Azure Files voor opslag volumes die gelijktijdig kunnen worden gebruikt door meerdere knoop punten.
+- *Azure files* kan worden gebruikt om een SMB 3,0-share die wordt ondersteund door een Azure Storage-account, te koppelen aan het gehele volume. Met bestanden kunt u gegevens delen op meerdere knoop punten en een Peul. Bestanden kunnen Azure Standard-opslag gebruiken die wordt ondersteund door gewone Hdd's of Azure Premium Storage, ondersteund door Ssd's met hoge prestaties.
+> [!NOTE] 
+> Azure Files Premium-opslag wordt ondersteund in AKS-clusters met Kubernetes 1,13 of hoger.
 
-In Kubernetes, kunnen volumes bestaan uit meer dan alleen maar een traditionele schijf waar informatie kan worden opgeslagen en opgehaald. Kubernetes-volumes kunnen ook worden gebruikt als een manier om gegevens injecteren in een schil voor gebruik door de containers. Algemene typen van extra volumes in Kubernetes zijn onder andere:
+In Kubernetes kunnen volumes meer vormen dan alleen een traditionele schijf waar informatie kan worden opgeslagen en opgehaald. Kubernetes-volumes kunnen ook worden gebruikt als een manier om gegevens in een pod te injecteren voor gebruik door de containers. Veelvoorkomende aanvullende volume typen in Kubernetes zijn onder andere:
 
-- *emptyDir* -dit volume wordt vaak gebruikt als tijdelijke ruimte voor een schil. Alle containers in een schil hebben toegang tot de gegevens op het volume. Gegevens geschreven naar dit volumetype zich blijft voordoen alleen voor de levensduur van de schil - wanneer de schil wordt verwijderd, het volume wordt verwijderd. Dit volume wordt doorgaans gebruikt de onderliggende opslag van het lokale knooppunt schijf, maar kunnen ook bestaan alleen in het geheugen van het knooppunt.
-- *geheim* -dit volume wordt gebruikt voor het invoeren van gevoelige gegevens in schillen, zoals wachtwoorden. U maakt eerst een geheim met behulp van de Kubernetes-API. Wanneer u uw schil of de implementatie definieert, kan een specifiek geheim worden aangevraagd. Geheimen zijn alleen bedoeld als knooppunten met een geplande schil dat vereist is en het geheim is opgeslagen in *tmpfs*niet geschreven naar schijf. Wanneer de laatste schil op een knooppunt dat is vereist een geheim is verwijderd, wordt het geheim uit van het knooppunt tmpfs verwijderd. Geheimen worden opgeslagen in een bepaalde naamruimte en kunnen alleen worden geopend door schillen in de dezelfde naamruimte.
-- *configMap* -deze volume wordt gebruikt om het invoeren van sleutel / waarde-paar eigenschappen in schillen, zoals informatie over de configuratie van toepassingen. In plaats van de configuratiegegevens van de toepassing binnen de installatiekopie van een container definieert, kunt u deze definiëren als een Kubernetes-resource die eenvoudig kan worden bijgewerkt en toegepast op nieuwe instanties van schillen wanneer ze worden geïmplementeerd. Als u een geheim, moet u eerst een ConfigMap met behulp van de Kubernetes-API maken. Deze ConfigMap kan vervolgens worden aangevraagd bij het definiëren van een pod of de implementatie. ConfigMaps worden opgeslagen in een bepaalde naamruimte en kan alleen worden geopend door schillen in de dezelfde naamruimte.
+- *emptyDir* : dit volume wordt meestal gebruikt als tijdelijke ruimte voor een pod. Alle containers in een pod hebben toegang tot de gegevens op het volume. Gegevens die naar dit volume type zijn geschreven, blijven behouden voor de levens duur van de pod-wanneer de Pod wordt verwijderd, wordt het volume verwijderd. Dit volume maakt gewoonlijk gebruik van de onderliggende schijf opslag van het lokale knoop punt, maar kan ook alleen bestaan in het geheugen van het knoop punt.
+- *geheim* : dit volume wordt gebruikt voor het injecteren van gevoelige gegevens in een Peul, zoals wacht woorden. U maakt eerst een geheim met behulp van de Kubernetes-API. Wanneer u uw Pod of implementatie definieert, kan een specifiek geheim worden aangevraagd. Geheimen worden alleen door gegeven aan knoop punten met een geplande pod waarvoor deze zijn vereist en het geheim wordt opgeslagen in *tmpfs*, niet naar de schijf geschreven. Wanneer de laatste pod op een knoop punt dat een geheim vereist, wordt verwijderd, wordt het geheim verwijderd uit de tmpfs van het knoop punt. Geheimen worden opgeslagen in een opgegeven naam ruimte en kunnen alleen worden gebruikt door een Peul binnen dezelfde naam ruimte.
+- *configMap* : dit volume type wordt gebruikt om de eigenschappen van sleutel/waarde-paren in te voeren, zoals informatie over de configuratie van de toepassing. In plaats van de configuratie gegevens van de toepassing te definiëren in een container installatie kopie, kunt u deze definiëren als een Kubernetes-resource die eenvoudig kan worden bijgewerkt en toegepast op nieuwe exemplaren van het Peul wanneer ze worden geïmplementeerd. Net als bij het gebruik van een geheim maakt u eerst een ConfigMap met behulp van de Kubernetes-API. Deze ConfigMap kan vervolgens worden aangevraagd wanneer u een pod of implementatie definieert. ConfigMaps worden opgeslagen in een opgegeven naam ruimte en kunnen alleen worden gebruikt door een Peul binnen dezelfde naam ruimte.
 
 ## <a name="persistent-volumes"></a>Permanente volumes
 
-Volumes die zijn gedefinieerd en gemaakt als onderdeel van de levenscyclus van de schil bestaan alleen totdat de schil wordt verwijderd. Schillen verwachten vaak dat de opslag om te blijven als een schil op een andere host is opnieuw gepland tijdens onderhoud, met name in StatefulSets. Een *permanent volume* (HW) is een opslagresource gemaakt en beheerd door de Kubernetes-API die buiten de levensduur van een afzonderlijke pod kan bestaan.
+Volumes die worden gedefinieerd en gemaakt als onderdeel van de levens cyclus van de pod bestaan pas nadat de Pod is verwijderd. Het is vaak dat de opslag van een pod op een andere host wordt gepland tijdens een onderhouds gebeurtenis, met name in StatefulSets. Een *permanent volume* (HW) is een opslag resource die wordt gemaakt en beheerd door de KUBERNETES-API en die buiten de levens duur van een afzonderlijke pod kan bestaan.
 
-Azure-schijven of bestanden worden gebruikt voor de PersistentVolume. Als in de vorige sectie op Volumes die u hebt genoteerd, wordt de keuze van de schijven of bestanden vaak bepaald door de noodzaak voor gelijktijdige toegang tot de gegevens of de prestatielaag.
+Azure-schijven of-bestanden worden gebruikt om de PersistentVolume op te geven. Zoals vermeld in de vorige sectie op volumes, wordt de keuze van schijven of bestanden vaak bepaald door de nood zaak van gelijktijdige toegang tot de gegevens of de prestatie-laag.
 
-![Permanente volumes in een cluster Azure Kubernetes-Services (AKS)](media/concepts-storage/persistent-volumes.png)
+![Permanente volumes in een Azure Kubernetes Services-cluster (AKS)](media/concepts-storage/persistent-volumes.png)
 
-Een PersistentVolume mag *statisch* die zijn gemaakt door de Clusterbeheerder van een, of *dynamisch* die zijn gemaakt door de Kubernetes API-server. Als een schil is gepland en opslag die is momenteel niet beschikbaar-aanvragen, kunt Kubernetes de onderliggende opslag van Azure-cd of -bestanden maken en deze koppelen aan de schil. Dynamische provisioning maakt gebruik van een *StorageClass* om te bepalen welk type Azure-opslag moet worden gemaakt.
+Een PersistentVolume kan *statisch* worden gemaakt door een cluster beheerder of *dynamisch* gemaakt door de Kubernetes-API-server. Als een pod wordt gepland en er opslag wordt aangevraagd die momenteel niet beschikbaar is, kan Kubernetes de onderliggende Azure-schijf of bestands opslag maken en deze koppelen aan de pod. Dynamische inrichting maakt gebruik van een *StorageClass* om te bepalen welk type Azure-opslag moet worden gemaakt.
 
-## <a name="storage-classes"></a>Opslagklassen
+## <a name="storage-classes"></a>Opslag klassen
 
-Voor het definiëren van verschillende lagen van opslag, zoals Premium en Standard, kunt u een *StorageClass*. De StorageClass bepaalt ook de *reclaimPolicy*. Deze reclaimPolicy bepaalt het gedrag van de onderliggende Azure storage-resource als de schil wordt verwijderd en het permanent volume is mogelijk niet meer vereist. De onderliggende resource voor opslag kan worden verwijderd of worden bewaard voor gebruik met een toekomstige schil.
+Als u verschillende opslag lagen wilt definiëren, zoals Premium en Standard, kunt u een *StorageClass*maken. De StorageClass definieert ook de *reclaimPolicy*. Deze reclaimPolicy bepaalt het gedrag van de onderliggende Azure storage-resource als de schil wordt verwijderd en het permanent volume is mogelijk niet meer vereist. De onderliggende resource voor opslag kan worden verwijderd of worden bewaard voor gebruik met een toekomstige schil.
 
-In AKS, worden twee initiële StorageClasses gemaakt:
+In AKS worden twee initiële StorageClasses gemaakt:
 
-- *standaard* -maakt gebruik van Azure Standard-opslag om een beheerde schijf te maken. Het beleid reclaim geeft aan dat de onderliggende Azure-schijf wordt verwijderd wanneer de schil waarmee deze wordt verwijderd.
-- *beheerde premium* -maakt gebruik van Azure Premium storage om beheerde schijf te maken. Het beleid reclaim opnieuw geeft aan dat de onderliggende Azure-schijf wordt verwijderd wanneer de schil waarmee deze wordt verwijderd.
+- *standaard* : maakt gebruik van Azure Standard-opslag voor het maken van een beheerde schijf. Het beleid voor opnieuw claim geeft aan dat de onderliggende Azure-schijf wordt verwijderd wanneer de pod die deze gebruikt, wordt verwijderd.
+- *Managed-Premium* : maakt gebruik van Azure Premium Storage voor het maken van een beheerde schijf. Het beleid voor opnieuw claimen geeft aan dat de onderliggende Azure-schijf wordt verwijderd wanneer de pod die deze gebruikt, wordt verwijderd.
 
-Als er geen StorageClass voor een permanent volume is opgegeven, wordt de standaardwaarde StorageClass gebruikt. Wees voorzichtig bij het aanvragen van permanente volumes zodat ze de juiste opslag die u moet gebruiken. U kunt een StorageClass voor extra wensen op het gebied maken `kubectl`. Het volgende voorbeeld maakt gebruik van Premium Managed Disks en geeft aan dat de onderliggende Azure-schijf moet worden *bewaard* wanneer de schil wordt verwijderd:
+Als er geen StorageClass is opgegeven voor een permanent volume, wordt de standaard StorageClass gebruikt. Wees voorzichtig bij het aanvragen van permanente volumes, zodat ze de juiste opslag gebruiken die u nodig hebt. U kunt een StorageClass maken voor extra behoeften met `kubectl`. In het volgende voor beeld wordt Premium Managed Disks gebruikt en wordt aangegeven dat de onderliggende Azure-schijf *behouden moet blijven* wanneer de Pod wordt verwijderd:
 
 ```yaml
 kind: StorageClass
@@ -75,15 +77,15 @@ parameters:
   kind: Managed
 ```
 
-## <a name="persistent-volume-claims"></a>Claims van permanent volume
+## <a name="persistent-volume-claims"></a>Claims voor permanente volumes
 
-Een PersistentVolumeClaim vraagt een schijf of bestand opslag van een bepaalde StorageClass, toegangsmodus en grootte. De Kubernetes API-server kunt richten op dynamische wijze de onderliggende opslagresource in Azure als er geen bestaande resource om te voldoen aan de claim op basis van de gedefinieerde StorageClass. De definitie van de schil bevat de volumekoppelpunt wanneer het volume is verbonden met de schil.
+Een PersistentVolumeClaim vraagt schijf-of bestands opslag van een bepaalde StorageClass, toegangs modus en grootte aan. De Kubernetes API-server kan de onderliggende opslag resource in azure dynamisch inrichten als er geen bestaande resource is om te voldoen aan de claim op basis van de gedefinieerde StorageClass. De pod-definitie bevat de volume koppeling zodra het volume is verbonden met de pod.
 
 ![Permanent volume claims in een cluster Azure Kubernetes-Services (AKS)](media/concepts-storage/persistent-volume-claims.png)
 
-Een PersistentVolume is *gebonden* naar een PersistentVolumeClaim zodra de resource van een beschikbare opslag is toegewezen aan de schil aanvragen. Er is een 1:1 toewijzing van permanente volumes op claims.
+Een PersistentVolume is *gebonden* aan een PersistentVolumeClaim zodra een beschik bare opslag resource is toegewezen aan de pod die de aanvraag heeft ingediend. Er is een 1:1 toewijzing van permanente volumes aan claims.
 
-Het volgende voorbeeld YAML-manifest ziet u een permanent volume-claim die gebruikmaakt van de *beheerde premium* StorageClass en vraagt een schijf *5Gi* in grootte:
+In het volgende voor beeld YAML-manifest wordt een permanente volume claim weer gegeven die gebruikmaakt van de *beheerde-Premium* StorageClass en wordt een schijf *5Gi* -grootte aangevraagd:
 
 ```yaml
 apiVersion: v1
@@ -99,7 +101,7 @@ spec:
       storage: 5Gi
 ```
 
-Wanneer u een pod-definitie maakt, wordt de claim permanent volume is opgegeven om aan te vragen van de gewenste opslag. Ook vervolgens geeft u de *volumeMount* voor uw toepassingen te lezen en schrijven van gegevens. Het volgende voorbeeld YAML-manifest laat zien hoe de vorige permanent volume claim kan worden gebruikt om een volume koppelen aan */mnt/azure*:
+Wanneer u een pod-definitie maakt, wordt de permanente volume claim opgegeven om de gewenste opslag aan te vragen. U geeft ook de *volumeMount* voor uw toepassingen op om gegevens te lezen en te schrijven. In het volgende voor beeld YAML-manifest ziet u hoe de vorige permanente volume claim kan worden gebruikt om een volume te koppelen aan */mnt/Azure*:
 
 ```yaml
 kind: Pod
@@ -121,22 +123,22 @@ spec:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor de bijbehorende best practices, [aanbevolen procedures voor opslag en back-ups in AKS][operator-best-practices-storage].
+Zie [Aanbevolen procedures voor opslag en back-ups in AKS][operator-best-practices-storage]voor gekoppelde aanbevolen procedures.
 
-Zie voor meer informatie over het maken van dynamische en statische volumes die gebruikmaken van Azure-schijven of Azure-bestanden, de volgende praktische artikelen:
+Zie de volgende artikelen met procedures voor informatie over het maken van dynamische en statische volumes die gebruikmaken van Azure-schijven of Azure Files:
 
-- [Maak een statische volume met behulp van Azure-schijven][aks-static-disks]
-- [Maak een statische volume met behulp van Azure Files][aks-static-files]
-- [Maken van een dynamisch volume met behulp van Azure-schijven][aks-dynamic-disks]
-- [Maken van een dynamisch volume met behulp van Azure Files][aks-dynamic-files]
+- [Een statisch volume maken met behulp van Azure-schijven][aks-static-disks]
+- [Een statisch volume maken met behulp van Azure Files][aks-static-files]
+- [Een dynamisch volume maken met behulp van Azure-schijven][aks-dynamic-disks]
+- [Een dynamisch volume maken met behulp van Azure Files][aks-dynamic-files]
 
-Zie de volgende artikelen voor meer informatie over core Kubernetes en concepten voor AKS:
+Raadpleeg de volgende artikelen voor meer informatie over de belangrijkste Kubernetes-en AKS-concepten:
 
-- [Kubernetes / AKS-clusters en workloads][aks-concepts-clusters-workloads]
-- [Kubernetes / AKS-identiteit][aks-concepts-identity]
-- [Kubernetes / AKS-beveiliging][aks-concepts-security]
-- [Kubernetes / AKS virtuele netwerken][aks-concepts-network]
-- [Kubernetes / AKS schalen][aks-concepts-scale]
+- [Kubernetes/AKS-clusters en-workloads][aks-concepts-clusters-workloads]
+- [Kubernetes/AKS-identiteit][aks-concepts-identity]
+- [Kubernetes/AKS-beveiliging][aks-concepts-security]
+- [Kubernetes/AKS virtuele netwerken][aks-concepts-network]
+- [Kubernetes/AKS-schaal][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 

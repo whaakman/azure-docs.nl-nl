@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: ef02c8120775aa119aff44ff7a06bccf2bc70a21
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 962c28c8b081980c2715d4d78739662e86748bd1
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377345"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814447"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer trigger voor Azure Functions 
 
@@ -125,7 +125,7 @@ In het volgende voor beeld wordt de functie geactiveerd en wordt elke vijf minut
 ```java
 @FunctionName("keepAlive")
 public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
       ExecutionContext context
  ) {
      // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
@@ -225,14 +225,14 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**type** | N.v.t. | Moet worden ingesteld op ' Timer trigger '. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
 |**direction** | N.v.t. | Moet worden ingesteld op 'in'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
 |**De naam** | N.v.t. | De naam van de variabele die het Timer object in functie code vertegenwoordigt. | 
-|**schedule**|**ScheduleExpression**|Een [cron-expressie](#cron-expressions) of een [time span](#timespan) -waarde. A `TimeSpan` kan alleen worden gebruikt voor een functie-app die wordt uitgevoerd op een app service plan. U kunt de schema-expressie in een app-instelling plaatsen en deze eigenschap instellen op de naam van de **%** app-instelling die wordt verpakt in tekens, zoals in dit voor beeld:% ScheduleAppSetting%. |
+|**schedule**|**ScheduleExpression**|Een [cron-expressie](#ncrontab-expressions) of een [time span](#timespan) -waarde. A `TimeSpan` kan alleen worden gebruikt voor een functie-app die wordt uitgevoerd op een app service plan. U kunt de schema-expressie in een app-instelling plaatsen en deze eigenschap instellen op de naam van de **%** app-instelling die wordt verpakt in tekens, zoals in dit voor beeld:% ScheduleAppSetting%. |
 |**runOnStartup**|**RunOnStartup**|Als `true`de functie wordt aangeroepen wanneer de runtime wordt gestart. De runtime wordt bijvoorbeeld gestart wanneer de functie-app wordt geactiveerd nadat de inactiviteit is voltooid. Wanneer de functie-app opnieuw wordt gestart vanwege functie wijzigingen en wanneer de functie-app wordt geschaald. Daarom moet **runOnStartup** zelden worden ingesteld op `true`, met name bij de productie. |
 |**useMonitor**|**UseMonitor**|Ingesteld op `true` of `false` om aan te geven of het schema moet worden bewaakt. Het plannen van de controle houdt in dat het schema wordt gebruikt om ervoor te zorgen dat het schema goed wordt onderhouden, zelfs wanneer de functie-app-exemplaren opnieuw worden gestart. Als niet expliciet is ingesteld, is `true` de standaard waarde voor schema's met een terugkeer patroon dat groter is dan 1 minuut. Voor schema's die meer dan één keer per minuut activeren, is `false`de standaard waarde.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> We raden u aan  om runOnStartup `true` in te stellen op in productie. Met deze instelling wordt de code op zeer onvoorspelbare tijden uitgevoerd. In bepaalde productie-instellingen kan deze extra uitvoeringen leiden tot aanzienlijk hogere kosten voor apps die worden gehost in verbruiks abonnementen. Als **runOnStartup** is ingeschakeld, wordt de trigger bijvoorbeeld aangeroepen wanneer uw functie-app wordt geschaald. Zorg ervoor dat u het productie gedrag van uw functies volledig begrijpt voordat u **runOnStartup** in productie inschakelt.   
+> We raden u aan om runOnStartup `true` in te stellen op in productie. Met deze instelling wordt de code op zeer onvoorspelbare tijden uitgevoerd. In bepaalde productie-instellingen kan deze extra uitvoeringen leiden tot aanzienlijk hogere kosten voor apps die worden gehost in verbruiks abonnementen. Als **runOnStartup** is ingeschakeld, wordt de trigger bijvoorbeeld aangeroepen wanneer uw functie-app wordt geschaald. Zorg ervoor dat u het productie gedrag van uw functies volledig begrijpt voordat u **runOnStartup** in productie inschakelt.   
 
 ## <a name="usage"></a>Gebruik
 
@@ -253,9 +253,9 @@ Wanneer een timer functie wordt geactiveerd, wordt er een timer object door gege
 
 De `IsPastDue` eigenschap is `true` op het moment dat de huidige functie aanroep later is dan gepland. Het opnieuw starten van een functie-app kan ertoe leiden dat een aanroep wordt gemist.
 
-## <a name="cron-expressions"></a>CRON-expressies 
+## <a name="ncrontab-expressions"></a>NCRONTAB-expressies 
 
-Azure Functions maakt gebruik van de [NCronTab](https://github.com/atifaziz/NCrontab) -bibliotheek om cron-expressies te interpreteren. Een CRON-expressie bevat zes velden:
+Azure Functions maakt gebruik van de [NCronTab](https://github.com/atifaziz/NCrontab) -bibliotheek om NCronTab-expressies te interpreteren. Een NCRONTAB-exppression is vergelijkbaar met een CRON-expressie, behalve dat het een extra zesde veld bevat die aan het begin moet worden gebruikt voor tijd nauwkeurigheid in seconden:
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -271,9 +271,9 @@ Elk veld kan een van de volgende typen waarden hebben:
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
-### <a name="cron-examples"></a>CRON-voor beelden
+### <a name="ncrontab-examples"></a>NCRONTAB-voor beelden
 
-Hier volgen enkele voor beelden van CRON-expressies die u kunt gebruiken voor de timer trigger in Azure Functions.
+Hier volgen enkele voor beelden van NCRONTAB-expressies die u kunt gebruiken voor de timer trigger in Azure Functions.
 
 |Voorbeeld|Wanneer geactiveerd  |
 |---------|---------|
@@ -284,25 +284,24 @@ Hier volgen enkele voor beelden van CRON-expressies die u kunt gebruiken voor de
 |`"0 30 9 * * *"`|elke dag om 9:30 uur|
 |`"0 30 9 * * 1-5"`|om 9:30 uur om de dag|
 |`"0 30 9 * Jan Mon"`|om 9:30 uur elke maandag in januari|
->[!NOTE]   
->U kunt cron-expressie voorbeelden online vinden, maar veel hiervan laten we `{second}` het veld weg. Als u een van deze kopieert, voegt u het ontbrekende `{second}` veld toe. Normaal gesp roken wilt u een nul in dat veld, niet een sterretje.
 
-### <a name="cron-time-zones"></a>CRON tijd zones
+
+### <a name="ncrontab-time-zones"></a>NCRONTAB tijd zones
 
 De getallen in een CRON-expressie verwijzen naar een datum en tijd, niet een tijds Panne. Bijvoorbeeld, een 5 in het `hour` veld verwijst naar 5:00 uur, niet om de vijf uur.
 
 De standaardtijd zone die wordt gebruikt in de CRON-expressies is Coordinated Universal Time (UTC). Als u de CRON-expressie op basis van een andere tijd zone wilt gebruiken, maakt u een app `WEBSITE_TIME_ZONE`-instelling voor de functie-app met de naam. Stel de waarde in op de naam van de gewenste tijd zone, zoals weer gegeven in de [micro soft-tijd zone-index](https://technet.microsoft.com/library/cc749073). 
 
-Bijvoorbeeld, *Eastern Standard Time* is UTC-05:00. Als u wilt dat uw timer trigger wordt geactiveerd om 10:00 uur EST elke dag, gebruikt u de volgende CRON-expressie die accounts voor UTC-tijd zone:
+Bijvoorbeeld, *Eastern Standard Time* is UTC-05:00. Als u wilt dat uw timer trigger wordt geactiveerd om 10:00 uur EST elke dag, gebruikt u de volgende NCRONTAB-expressie die accounts voor UTC-tijd zone:
 
-```json
-"schedule": "0 0 15 * * *"
+```
+"0 0 15 * * *"
 ``` 
 
-Of maak een app-instelling voor de naam `WEBSITE_TIME_ZONE` van de functie-app en stel de waarde in op **Eastern Standard Time**.  Gebruikt vervolgens de volgende CRON-expressie: 
+Of maak een app-instelling voor de naam `WEBSITE_TIME_ZONE` van de functie-app en stel de waarde in op **Eastern Standard Time**.  Gebruikt vervolgens de volgende NCRONTAB-expressie: 
 
-```json
-"schedule": "0 0 10 * * *"
+```
+"0 0 10 * * *"
 ``` 
 
 Wanneer u gebruikt `WEBSITE_TIME_ZONE`, wordt de tijd aangepast voor tijd wijzigingen in de specifieke tijd zone, zoals zomer tijd. 

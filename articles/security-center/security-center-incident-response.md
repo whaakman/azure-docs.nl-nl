@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a55de2d5f47274ea112e52ddbcc0d946db56470
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60908171"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775338"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Azure Security Center gebruiken voor reacties op incidenten
 Veel organisaties leren pas hoe ze moeten reageren op beveiligingsincidenten nadat ze het slachtoffer zijn geworden van een aanval. Als u de kosten en schade wilt beperken, is het belangrijk dat u een plan hebt voor het reageren op incidenten voordat er een aanval plaatsvindt. U kunt Azure Security Center gebruiken in verschillende fasen tijdens een reactie op een incident.
@@ -51,12 +51,12 @@ Voor dit scenario gaan we ons richten op de rollen van de volgende personen die 
 
 ![Levenscyclus van reacties op incidenten](./media/security-center-incident-response/security-center-incident-response-fig2.png)
 
-Judy houdt zich bezig met beveiligingsbewerkingen. Haar verantwoordelijkheden zijn onder andere:
+Judy houdt zich bezig met beveiligingsbewerkingen. Hun verantwoordelijkheden zijn onder andere:
 
 * Het ononderbroken bewaken van en reageren op bedreigingen.
 * Indien nodig een probleem doorverwijzen naar de eigenaar van de workloads in de cloud of naar de beveiligingsanalist.
 
-Sam is een beveiligingsanalist en zijn verantwoordelijkheden omvatten:
+Sam is een beveiligings analist en hun verantwoordelijkheden zijn:
 
 * Het onderzoeken van aanvallen.
 * Het oplossen van problemen die worden vermeld in beveiligingswaarschuwingen.
@@ -65,17 +65,17 @@ Sam is een beveiligingsanalist en zijn verantwoordelijkheden omvatten:
 Zoals u ziet, hebben Judy en Sam verschillende verantwoordelijkheden, en ze moeten samenwerken om de informatie te delen die ze van Security Center krijgen.
 
 ## <a name="recommended-solution"></a>Aanbevolen oplossing
-Aangezien Judy en Sam verschillende rollen hebben, gebruiken ze verschillende gebieden van Security Center om relevante informatie voor hun dagelijkse activiteiten te verkrijgen. Judy gebruikt **beveiligingswaarschuwingen** als onderdeel van haar dagelijkse bewakingswerkzaamheden.
+Aangezien Judy en Sam verschillende rollen hebben, gebruiken ze verschillende gebieden van Security Center om relevante informatie voor hun dagelijkse activiteiten te verkrijgen. Judy gebruikt **beveiligings waarschuwingen** als onderdeel van hun dagelijkse bewaking.
 
 ![Beveiligingswaarschuwingen](./media/security-center-incident-response/security-center-incident-response-fig3.png)
 
-Judy gebruikt beveiligingswaarschuwingen tijdens de detectie- en beoordelingsfase. Zodra Judy de eerste beoordeling heeft uitgevoerd, kan ze het probleem doorverwijzen naar Sam als er extra onderzoek vereist is. Op dit punt in het proces moet Sam de informatie van Security Center, soms in combinatie met andere gegevensbronnen, gebruiken om verder te gaan naar de diagnosefase.
+Judy gebruikt beveiligingswaarschuwingen tijdens de detectie- en beoordelingsfase. Nadat Judy de eerste evaluatie heeft voltooid, kunnen ze het probleem door verwijzen naar Sam als er een aanvullend onderzoek vereist is. Op dit punt in het proces moet Sam de informatie van Security Center, soms in combinatie met andere gegevensbronnen, gebruiken om verder te gaan naar de diagnosefase.
 
 ## <a name="how-to-implement-this-solution"></a>Deze oplossing implementeren
 Als u wilt zien hoe u Azure Security Center gebruikt in een scenario voor het reageren op incidenten, volgen we de stappen van Dena tijdens de detectie- en beoordelingsfasen, en gaan we vervolgens kijken naar wat Rolf doet om vast te stellen wat het probleem is.
 
 ### <a name="detect-and-assess-incident-response-stages"></a>Detectie- en beoordelingsfase van de reactie op incidenten
-Judy heeft zich aangemeld bij Azure Portal en werkt met de Security Center-console. Als onderdeel van haar dagelijkse bewakingsactiviteiten is ze begonnen met het bekijken van de beveiligingswaarschuwingen met hoge prioriteit. Ze voert hierbij de volgende stappen uit:
+Judy heeft zich aangemeld bij Azure Portal en werkt met de Security Center-console. Als onderdeel van haar dagelijkse bewakings activiteiten zijn ze begonnen met het controleren van beveiligings waarschuwingen met hoge prioriteit door de volgende stappen uit te voeren:
 
 1. Klik op de tegel **Beveiligingswaarschuwingen** en open de blade **Beveiligingswaarschuwingen**.
     ![Blade Beveiligingswaarschuwing](./media/security-center-incident-response/security-center-incident-response-fig4.png)
@@ -84,12 +84,12 @@ Judy heeft zich aangemeld bij Azure Portal en werkt met de Security Center-conso
    > In dit scenario gaat Judy een waarschuwing over schadelijke SQL-activiteit beoordelen, zoals te zien is in de afbeelding hierboven.
    >
    >
-2. Klik op de **schadelijke SQL-activiteit** waarschuwen en bekijk de aangevallen resources in de **schadelijke SQL-activiteit** blade:  ![Details incident](./media/security-center-incident-response/security-center-incident-response-fig5.png)
+2. Klik op de waarschuwing **schadelijke SQL-activiteit** en Bekijk de aangevallen resources op de Blade **schadelijke SQL-activiteit** :  ![Details van incident](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     In deze blade kan Judy aantekeningen maken over de aangevallen resources, hoe vaak deze aanval heeft plaatsgevonden en wanneer deze is gedetecteerd.
 3. Klik op de **aangevallen resource** voor meer informatie over deze aanval.
 
-Na het lezen van de beschrijving is Dena ervan overtuigd dat het hier niet om een fout-positief gaat en dat ze deze case naar Rolf moet doorverwijzen.
+Na het lezen van de beschrijving gaat Joop ervan uit dat dit geen vals-positief is en dat ze deze aanvraag moeten escaleren naar Sam.
 
 ### <a name="diagnose-incident-response-stage"></a>Diagnosefase van reactie op incidenten
 Sam ontvangt de case van Judy en begint de herstelstappen door te nemen die worden geadviseerd door Security Center.

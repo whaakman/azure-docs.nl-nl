@@ -1,6 +1,6 @@
 ---
-title: Azure AD-Federatiemetagegevens | Microsoft Docs
-description: Dit artikel beschrijft het document met federatieve metagegevens die Azure Active Directory publiceert voor services die Azure Active Directory-tokens accepteren.
+title: Azure AD Federation-meta gegevens | Microsoft Docs
+description: In dit artikel wordt het document met federatieve meta gegevens beschreven dat Azure Active Directory publiceert voor services die Azure Active Directory-tokens accepteren.
 services: active-directory
 documentationcenter: .net
 author: rwike77
@@ -12,48 +12,48 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: ryanwi
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f105c0d4f8807b53d400a1c198edd504c0aef3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fefaf618ff29cc2186dc555eb6f452223f4cd097
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544509"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835128"
 ---
 # <a name="federation-metadata"></a>Federatieve metagegevens
-Azure Active Directory (Azure AD) publiceert een document met federatieve metagegevens voor services die is geconfigureerd voor het accepteren van de beveiligingstokens die problemen met Azure AD. De indeling federation metadata-document wordt beschreven in de [Web Services Federation Language (WS-Federation) versie 1.2](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), die een uitbreiding [metagegevens voor de OASIS Security Assertion Markup Language (SAML) 2.0](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
+Azure Active Directory (Azure AD) publiceert een document met federatieve meta gegevens voor services die zijn geconfigureerd om de beveiligings tokens te accepteren die door Azure AD worden uitgegeven. De indeling van het federatieve meta gegevens document wordt beschreven in de [webservices-Federatie Language (WS-Federation) versie 1,2](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), waarmee [de meta gegevens voor de Oasis Security Assertion Markup Language (SAML) v 2.0](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf)worden uitgebreid.
 
-## <a name="tenant-specific-and-tenant-independent-metadata-endpoints"></a>Tenant-specifieke en Tenant-onafhankelijke metagegevens eindpunten
-Azure AD publiceert-tenant-specifieke en tenant-onafhankelijke eindpunten.
+## <a name="tenant-specific-and-tenant-independent-metadata-endpoints"></a>Tenant-en Tenant-onafhankelijke eind punten van meta gegevens
+Azure AD publiceert Tenant-specifieke en Tenant-onafhankelijke eind punten.
 
-Tenant-specifieke eindpunten zijn ontworpen voor een bepaalde tenant. De tenant-specifieke federatiemetagegevens bevat informatie over de tenant, met inbegrip van informatie over de verlener en -eindpunt van de tenant-specifieke. Toepassingen die toegang tot één tenant beperken gebruiken tenant-specifieke eindpunten.
+Tenant-specifieke eind punten zijn ontworpen voor een bepaalde Tenant. De Tenant-specifieke federatieve meta gegevens bevatten informatie over de Tenant, met inbegrip van Tenant-specifieke uitgevers en eindpunt informatie. Toepassingen die de toegang tot één Tenant beperken, gebruiken Tenant-specifieke eind punten.
 
-Tenant-onafhankelijke eindpunten bevatten informatie die geldt voor alle Azure AD-tenants. Deze informatie is van toepassing op de tenants die worden gehost op *login.microsoftonline.com* en wordt gedeeld door tenants. Tenant-onafhankelijke eindpunten worden aanbevolen voor toepassingen met meerdere tenants, omdat ze niet gekoppeld aan een bepaalde tenant zijn.
+Tenant-onafhankelijke eind punten bieden informatie die gemeen schappelijk is voor alle Azure AD-tenants. Deze informatie is van toepassing op tenants die worden gehost op *login.microsoftonline.com* en worden gedeeld via tenants. Tenant-onafhankelijke eind punten worden aanbevolen voor toepassingen met meerdere tenants, omdat ze niet zijn gekoppeld aan een bepaalde Tenant.
 
-## <a name="federation-metadata-endpoints"></a>Federatieve metagegevens eindpunten
-Azure AD publiceert federatiemetagegevens op `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.
+## <a name="federation-metadata-endpoints"></a>Federatieve meta gegevens-eind punten
+Azure AD publiceert federatieve meta gegevens `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`op.
 
-Voor **tenant-specifieke eindpunten**, wordt de `TenantDomainName` kan bestaan uit een van de volgende typen:
+Voor **Tenant-specifieke eind punten**kan dit `TenantDomainName` een van de volgende typen zijn:
 
-* Een geregistreerde domeinnaam van een Azure AD-tenant, zoals: `contoso.onmicrosoft.com`.
-* De onveranderbare tenant-ID van het domein, zoals `72f988bf-86f1-41af-91ab-2d7cd011db45`.
+* Een geregistreerde domein naam van een Azure AD-Tenant, zoals: `contoso.onmicrosoft.com`.
+* De onveranderbare Tenant-ID van het domein, `72f988bf-86f1-41af-91ab-2d7cd011db45`zoals.
 
-Voor **tenant-onafhankelijke eindpunten**, wordt de `TenantDomainName` is `common`. Dit document geeft een lijst van de Federatiemetagegevens-elementen die gemeenschappelijk zijn voor alle Azure AD-tenants die worden gehost op login.microsoftonline.com.
+De`TenantDomainName` is`common`voor **Tenant-onafhankelijke eind punten**. In dit document worden alleen de federatieve meta gegevenselementen vermeld die gemeen schappelijk zijn voor alle Azure AD-tenants die worden gehost op login.microsoftonline.com.
 
-Bijvoorbeeld, een tenant-specifieke eindpunt mogelijk `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. Het eindpunt van de tenant-onafhankelijke [ https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml ](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). U kunt het document met federatieve metagegevens weergeven door deze URL te typen in een browser.
+Een Tenant-specifiek eind punt kan bijvoorbeeld zijn `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. Het Tenant-onafhankelijke eind punt [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml)is. U kunt het document met federatieve meta gegevens weer geven door deze URL in een browser te typen.
 
-## <a name="contents-of-federation-metadata"></a>Inhoud van de federatieve metagegevens
-De volgende sectie bevat informatie die nodig zijn voor services die de tokens die zijn uitgegeven door Azure AD worden gebruikt.
+## <a name="contents-of-federation-metadata"></a>Inhoud van federatieve meta gegevens
+De volgende sectie bevat informatie die nodig is voor services die gebruikmaken van de tokens die zijn uitgegeven door Azure AD.
 
-### <a name="entity-id"></a>Entiteit-ID
-De `EntityDescriptor` element bevat een `EntityID` kenmerk. De waarde van de `EntityID` kenmerk vertegenwoordigt de verlener, dat wil zeggen, de beveiligingstokenservice (STS) die het token is uitgegeven. Het is belangrijk om te valideren van de verlener wanneer u een token ontvangt.
+### <a name="entity-id"></a>Entiteits-id
+Het `EntityDescriptor` element bevat een `EntityID` kenmerk. De waarde van het `EntityID` kenmerk vertegenwoordigt de uitgever, dat wil zeggen, de Security Token Service (STS) die het token heeft uitgegeven. Het is belang rijk dat u de uitgever valideert wanneer u een token ontvangt.
 
-De metagegevens van de volgende toont een voorbeeld van een tenant-specifieke `EntityDescriptor` element met een `EntityID` element.
+In de volgende meta gegevens ziet u een voor `EntityDescriptor` beeld van een `EntityID` Tenant-specifiek element met een-element.
 
 ```
 <EntityDescriptor
@@ -61,9 +61,9 @@ xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
 ID="_b827a749-cfcb-46b3-ab8b-9f6d14a1294b"
 entityID="https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db45/">
 ```
-U kunt de tenant-ID in het eindpunt van de tenant-onafhankelijke vervangen door uw tenant-ID te maken van een tenant-specifieke `EntityID` waarde. De resulterende waarde is hetzelfde als de uitgever van het token. De strategie kunt een toepassing met meerdere tenants voor het valideren van de verlener voor een bepaalde tenant.
+U kunt de Tenant-id in het Tenant-onafhankelijke eind punt vervangen door de Tenant-id om een Tenant `EntityID` -specifieke waarde te maken. De resulterende waarde is hetzelfde als de uitgever van het token. Met de strategie kan een multi tenant-toepassing de verlener voor een bepaalde Tenant valideren.
 
-De metagegevens van de volgende toont een voorbeeld van een tenant-onafhankelijke `EntityID` element. Houd er rekening mee dat de `{tenant}` is een letterlijke tekenreeks, niet een tijdelijke aanduiding.
+In de volgende meta gegevens ziet u een voor `EntityID` beeld van een Tenant-onafhankelijk element. Houd er rekening mee dat `{tenant}` het een letterlijke waarde is, geen tijdelijke aanduiding.
 
 ```
 <EntityDescriptor
@@ -72,12 +72,12 @@ ID="="_0e5bd9d0-49ef-4258-bc15-21ce143b61bd"
 entityID="https://sts.windows.net/{tenant}/">
 ```
 
-### <a name="token-signing-certificates"></a>Certificaten voor tokenondertekening
-Wanneer een service een token dat is uitgegeven door een Azure AD-tenant ontvangt, kan de handtekening van het token moet worden gevalideerd met een ondertekeningssleutel die is gepubliceerd in het document met federatieve metagegevens. De federatiemetagegevens bevat het openbare gedeelte van de certificaten die gebruikmaken van de tenants voor token-ondertekening. Het certificaat onbewerkte bytes worden weergegeven in de `KeyDescriptor` element. Het token-ondertekening van certificaat is geldig voor het ondertekenen van alleen wanneer de waarde van de `use` kenmerk is `signing`.
+### <a name="token-signing-certificates"></a>Token handtekening certificaten
+Wanneer een service een token ontvangt dat is uitgegeven door een Azure AD-Tenant, moet de hand tekening van het token worden gevalideerd met een ondertekeningssleutel die is gepubliceerd in het document met federatieve meta gegevens. De federatieve meta gegevens bevatten het open bare deel van de certificaten die door de tenants worden gebruikt voor het ondertekenen van tokens. De onbewerkte certificaat bytes worden `KeyDescriptor` weer gegeven in het-element. Het token handtekening certificaat is alleen geldig voor ondertekening wanneer de waarde van het `use` kenmerk is `signing`.
 
-Een document met federatieve metagegevens gepubliceerd door Azure AD kan hebben meerdere ondertekeningssleutels, zoals wanneer Azure AD wordt voorbereid om bij te werken van het certificaat voor ondertekening. Wanneer een document met federatieve metagegevens meer dan één certificaat bevat, moet een service die de tokens worden gevalideerd ondersteuning voor alle certificaten in het document.
+Een document met federatieve meta gegevens dat door Azure AD wordt gepubliceerd, kan meerdere ondertekeningssleutel hebben, bijvoorbeeld wanneer Azure AD wordt voor bereid om het handtekening certificaat bij te werken. Wanneer een document met federatieve meta gegevens meer dan één certificaat bevat, moet een service die de tokens valideert alle certificaten in het document ondersteunen.
 
-De volgende metagegevens wordt een voorbeeld `KeyDescriptor` element met een ondertekeningssleutel.
+In de volgende meta gegevens ziet `KeyDescriptor` u een voorbeeld element met een handtekening sleutel.
 
 ```
 <KeyDescriptor use="signing">
@@ -91,29 +91,29 @@ MIIDPjCCAiqgAwIBAgIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291
 </KeyDescriptor>
   ```
 
-De `KeyDescriptor` element wordt weergegeven op twee plaatsen in het document met federatieve metagegevens; in de WS-Federation-specifieke en de sectie SAML-specifieke. De certificaten die zijn gepubliceerd in beide secties zijn hetzelfde.
+Het `KeyDescriptor` element wordt weer gegeven op twee plaatsen in het document met federatieve meta gegevens, in de sectie WS-Federation-specific en de sectie SAML-specific. De certificaten die in beide secties worden gepubliceerd, zijn hetzelfde.
 
-In de sectie WS-Federation-specifieke leest een lezer WS-Federation-metagegevens van de certificaten van een `RoleDescriptor` element met de `SecurityTokenServiceType` type.
+In de sectie WS-Federation-specific worden de certificaten van een `RoleDescriptor` -element met het `SecurityTokenServiceType` type door een WS-Federation-meta gegevens lezer gelezen.
 
-De volgende metagegevens wordt een voorbeeld `RoleDescriptor` element.
+In de volgende meta gegevens wordt `RoleDescriptor` een voorbeeld element weer gegeven.
 
 ```
 <RoleDescriptor xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:fed="https://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="https://docs.oasis-open.org/wsfed/federation/200706">
 ```
 
-In de sectie SAML-specifieke leest een lezer WS-Federation-metagegevens van de certificaten van een `IDPSSODescriptor` element.
+In de sectie SAML-specifiek worden de certificaten van een `IDPSSODescriptor` -element gelezen met de WS-Federation-meta gegevens lezer.
 
-De volgende metagegevens wordt een voorbeeld `IDPSSODescriptor` element.
+In de volgende meta gegevens wordt `IDPSSODescriptor` een voorbeeld element weer gegeven.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
 ```
-Er zijn geen verschillen in de indeling van de tenant-specifieke en tenant-onafhankelijke certificaten.
+Er zijn geen verschillen in de indeling van Tenant-specifieke en Tenant-onafhankelijke certificaten.
 
-### <a name="ws-federation-endpoint-url"></a>URL van WS-Federation-eindpunt
-De federatiemetagegevens bevatten de URL die wordt gebruikt voor Azure AD voor eenmalige aanmelding bij en eenmalige afmelding in WS-Federation-protocol. Dit eindpunt wordt weergegeven in de `PassiveRequestorEndpoint` element.
+### <a name="ws-federation-endpoint-url"></a>URL van WS-Federation-eind punt
+De federatieve meta gegevens bevatten de URL die door Azure AD wordt gebruikt voor eenmalige aanmelding en eenmalige afmelding in het WS-Federation-Protocol. Dit eind punt wordt weer `PassiveRequestorEndpoint` gegeven in het-element.
 
-De volgende metagegevens wordt een voorbeeld `PassiveRequestorEndpoint` -element voor een tenant-specifieke eindpunt.
+In de volgende meta gegevens ziet `PassiveRequestorEndpoint` u een voorbeeld element voor een Tenant-specifiek eind punt.
 
 ```
 <fed:PassiveRequestorEndpoint>
@@ -124,7 +124,7 @@ https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db45/wsfed
 </EndpointReference>
 </fed:PassiveRequestorEndpoint>
 ```
-Voor het eindpunt van de tenant-onafhankelijke, de WS-Federation-URL wordt weergegeven in het eindpunt voor WS-Federation, zoals wordt weergegeven in het volgende voorbeeld.
+Voor het Tenant-onafhankelijke eind punt wordt de WS-Federation-URL weer gegeven in het WS-Federation-eind punt, zoals wordt weer gegeven in het volgende voor beeld.
 
 ```
 <fed:PassiveRequestorEndpoint>
@@ -136,12 +136,12 @@ https://login.microsoftonline.com/common/wsfed
 </fed:PassiveRequestorEndpoint>
 ```
 
-### <a name="saml-protocol-endpoint-url"></a>Eindpunt-URL voor SAML-protocol
-De federatiemetagegevens bevatten de URL die gebruikmaakt van Azure AD voor eenmalige aanmelding bij en eenmalige afmelding in SAML 2.0-protocol. Deze eindpunten worden weergegeven in de `IDPSSODescriptor` element.
+### <a name="saml-protocol-endpoint-url"></a>URL voor SAML-protocol eindpunt
+De federatieve meta gegevens bevatten de URL die door Azure AD wordt gebruikt voor eenmalige aanmelding en eenmalige afmelding in het SAML 2,0-protocol. Deze eind punten worden weer gegeven `IDPSSODescriptor` in het-element.
 
-De URL's voor aanmelden en afmelden wordt weergegeven de `SingleSignOnService` en `SingleLogoutService` elementen.
+De url's voor aanmelden en afmelden worden weer gegeven in de `SingleSignOnService` elementen `SingleLogoutService` en.
 
-De volgende metagegevens wordt een voorbeeld `PassiveResistorEndpoint` voor een tenant-specifieke-eindpunt.
+In de volgende meta gegevens ziet `PassiveResistorEndpoint` u een voor beeld van een Tenant-specifiek eind punt.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -151,7 +151,7 @@ De volgende metagegevens wordt een voorbeeld `PassiveResistorEndpoint` voor een 
   </IDPSSODescriptor>
 ```
 
-Op dezelfde manier worden de eindpunten voor de algemene SAML 2.0-protocol-eindpunten worden gepubliceerd in de tenant-onafhankelijke federatiemetagegevens, zoals wordt weergegeven in het volgende voorbeeld.
+Net als de eind punten voor de gemeen schappelijke SAML 2,0-protocol eindpunten worden gepubliceerd in de Tenant-onafhankelijke federatieve meta gegevens, zoals wordt weer gegeven in het volgende voor beeld.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">

@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos DB-resources met behulp van Azure CLI beheren
-description: Azure CLI gebruiken voor het beheren van uw Azure Cosmos DB-account, -database en -containers.
+title: Azure Cosmos DB-resources beheren met Azure CLI
+description: Gebruik Azure CLI voor het beheren van uw Azure Cosmos DB-account,-data base en-containers.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 82d7cdf0c9519bb8a682445e666d46d6fd7bfbd7
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 9ec049311fc158b13bba45deb2974d7cdd531f90
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550942"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815034"
 ---
-# <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Beheer van Azure Cosmos-resources met behulp van Azure CLI
+# <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Azure Cosmos-resources beheren met Azure CLI
 
-De volgende handleiding wordt beschreven veelgebruikte opdrachten voor het automatiseren van beheer van uw Azure Cosmos DB-accounts, -databases en containers met behulp van Azure CLI. Referentiepagina's voor alle Azure Cosmos DB CLI-opdrachten zijn beschikbaar in de [naslaginformatie voor Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb). U vindt ook meer voorbeelden van [Azure CLI-voorbeelden voor Azure Cosmos DB](cli-samples.md), waaronder het maken en beheren van Cosmos DB-accounts, -databases en -containers voor MongoDB, Gremlin, Cassandra en Table-API.
+In de volgende hand leiding worden algemene opdrachten beschreven voor het automatiseren van het beheer van uw Azure Cosmos DB accounts, data bases en containers met behulp van Azure CLI. Referentiepagina's voor alle Azure Cosmos DB CLI-opdrachten zijn beschikbaar in de [naslaginformatie voor Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb). U kunt ook meer voor beelden vinden in [Azure CLI-voor beelden voor Azure Cosmos DB](cli-samples.md), met inbegrip van het maken en beheren van Cosmos DB accounts, data bases en containers voor MongoDb, Gremlin, Cassandra en Table-API.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -23,11 +23,11 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Maak een Azure Cosmos DB-account
 
-Als u wilt een Azure Cosmos DB-account maken met SQL-API, sessieconsistentie in regio's VS-Oost en VS-West, voer de volgende opdracht:
+Als u een Azure Cosmos DB-account wilt maken met SQL API, sessie consistentie in de regio's VS-Oost en VS-West, voert u de volgende opdracht uit:
 
 ```azurecli-interactive
 az cosmosdb create \
-   --name mycosmosdbaccount \
+   --name mycosmosdbaccount # must be lowercase and < 31 characters \
    --resource-group myResourceGroup \
    --kind GlobalDocumentDB \
    --default-consistency-level Session \
@@ -37,11 +37,11 @@ az cosmosdb create \
 ```
 
 > [!IMPORTANT]
-> De naam van de Azure Cosmos-account moet een kleine letter.
+> De naam van het Azure Cosmos-account moet kleine letters zijn.
 
 ## <a name="create-a-database"></a>Een database maken
 
-Voer de volgende opdracht voor het maken van een Cosmos DB-database:
+Als u een Cosmos DB Data Base wilt maken, voert u de volgende opdracht uit:
 
 ```azurecli-interactive
 az cosmosdb database create \
@@ -52,7 +52,7 @@ az cosmosdb database create \
 
 ## <a name="create-a-container"></a>Een container maken
 
-Voor het maken van een Cosmos DB-container met RU/s van 400 en een partitiesleutel, voer de volgende opdracht:
+Als u een Cosmos DB container met RU/s 400 en een partitie sleutel wilt maken, voert u de volgende opdracht uit:
 
 ```azurecli-interactive
 # Create a container
@@ -65,9 +65,9 @@ az cosmosdb collection create \
    --throughput 400
 ```
 
-## <a name="change-the-throughput-of-a-container"></a>De doorvoer van een container wijzigen
+## <a name="change-the-throughput-of-a-container"></a>De door Voer van een container wijzigen
 
-Als u de doorvoer van een Cosmos DB-container wilt 1000 RU/s, kunt u de volgende opdracht uitvoeren:
+Als u de door Voer van een Cosmos DB container wilt wijzigen in 1000 RU/s, voert u de volgende opdracht uit:
 
 ```azurecli-interactive
 # Update container throughput
@@ -79,9 +79,9 @@ az cosmosdb collection update \
    --throughput 1000
 ```
 
-## <a name="list-account-keys"></a>Een lijst met accountsleutels
+## <a name="list-account-keys"></a>Lijst met account sleutels
 
-Als u de sleutels voor uw Cosmos-account, moet u de volgende opdracht uitvoeren:
+Als u de sleutels voor uw Cosmos-account wilt ophalen, voert u de volgende opdracht uit:
 
 ```azurecli-interactive
 # List account keys
@@ -90,9 +90,9 @@ az cosmosdb keys list \
    --resource-group myResourceGroup
 ```
 
-## <a name="list-connection-strings"></a>Lijst met verbindingsreeksen
+## <a name="list-connection-strings"></a>Verbindings reeksen weer geven
 
-Als u de verbindingsreeksen voor uw Cosmos-account, moet u de volgende opdracht uitvoeren:
+Als u de verbindings reeksen voor uw Cosmos-account wilt ophalen, voert u de volgende opdracht uit:
 
 ```azurecli-interactive
 # List connection strings
@@ -101,9 +101,9 @@ az cosmosdb list-connection-strings \
    --resource-group myResourceGroup
 ```
 
-## <a name="regenerate-account-key"></a>Accountsleutel opnieuw genereren
+## <a name="regenerate-account-key"></a>Account sleutel opnieuw genereren
 
-Als u wilt genereren van een nieuwe primaire sleutel voor uw Cosmos-account, moet u de volgende opdracht uitvoeren:
+Als u een nieuwe primaire sleutel voor uw Cosmos-account opnieuw wilt genereren, voert u de volgende opdracht uit:
 
 ```azurecli-interactive
 # Regenerate account key
@@ -119,4 +119,4 @@ Zie voor meer informatie over de Azure CLI:
 
 - [Azure-CLI installeren](/cli/azure/install-azure-cli)
 - [Azure CLI-referentie](https://docs.microsoft.com/cli/azure/cosmosdb)
-- [Extra Azure CLI-voorbeelden voor Azure Cosmos DB](cli-samples.md)
+- [Aanvullende voor beelden van Azure CLI voor Azure Cosmos DB](cli-samples.md)

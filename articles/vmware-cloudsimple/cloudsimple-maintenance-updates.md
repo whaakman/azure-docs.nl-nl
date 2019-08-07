@@ -1,108 +1,108 @@
 ---
-title: Azure VMware-oplossing door CloudSimple - CloudSimple onderhoud en updates
-description: Beschrijft het proces van de service CloudSimple voor gepland onderhoud en updates
+title: Azure VMware-oplossing door CloudSimple-CloudSimple onderhoud en updates
+description: Beschrijft het CloudSimple-service proces voor gepland onderhoud en updates
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/30/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4dde358f10e9ac5054297ff68a0971404c0dc135
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d6eeecbecc89995c25e687cc6808ed3b0c5dc5c
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160243"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816215"
 ---
-# <a name="cloudsimple-maintenance-and-updates"></a>CloudSimple onderhoud en updates
+# <a name="cloudsimple-maintenance-and-updates"></a>Onderhoud en updates voor CloudSimple
 
-De privécloud-omgeving is ontworpen om u te hebben geen één storingspunt is:
+De privécloud is zodanig ontworpen dat deze geen Single Point of Failure heeft:
 
-* ESXi-clusters zijn geconfigureerd met hoge beschikbaarheid van vSphere. De clusters worden aangepast om ten minste één extra knooppunt voor tolerantie.
-* Redundante primaire opslag wordt verstrekt door virtuele SAN, waarvoor is vereist ten minste drie knooppunten voor beveiliging tegen een storing. virtueel SAN kan worden geconfigureerd om een hogere tolerantie voor grotere clusters.
-* vCenter, PSC-server en NSX Manager virtuele machines zijn geconfigureerd met RAID 10-beleid voor opslag om te beveiligen tegen fout bij de opslag. De virtuele machines worden beschermd tegen storingen in knooppunt/netwerk door vSphere HA.
-* ESXi-hosts hebben redundante fans en NIC's.
-* TOR- en -spine switches worden geconfigureerd in de HA-paren over tolerantie.
+* ESXi-clusters worden geconfigureerd met een hoge Beschik baarheid van vSphere. De clusters hebben een grootte van ten minste één reserve knooppunt voor tolerantie.
+* Redundante primaire opslag wordt geleverd door vSAN, waarvoor ten minste drie knoop punten zijn vereist om beveiliging tegen één storing te bieden. vSAN kan worden geconfigureerd om hogere toleranties te bieden voor grotere clusters.
+* de virtuele machines van vCenter, PSC en NSX Manager zijn geconfigureerd met RAID-10-opslag beleid om te beschermen tegen opslag storingen. De virtuele machines worden beschermd tegen knoop punten/netwerk fouten door vSphere HA.
+* ESXi-hosts hebben redundante ventilatoren en Nic's.
+* TOR-en spin-switches worden in HA-paren geconfigureerd om tolerantie te bieden.
 
-CloudSimple continu controleert de volgende virtuele machines voor actieve tijdsduur en de beschikbaarheid en biedt een beschikbaarheid van SLA's:
+CloudSimple bewaakt voortdurend de volgende Vm's voor de uptime en beschik baarheid en biedt Beschik baarheid van service overeenkomsten:
 
 * ESXi-hosts
 * vCenter
 * PSC
 * NSX Manager
 
-CloudSimple bewaakt ook de volgende continu voor fouten:
+CloudSimple controleert ook de volgende taken continu voor fouten:
 
 * Harde schijven
 * Fysieke NIC-poorten
 * Servers
 * Fans
-* Energiebeheer
-* Switches
-* Switchpoorten
+* /Uitschakelaar
+* Focus
+* Switch poorten
 
-Als een schijf of een knooppunt mislukt, wordt een nieuw knooppunt automatisch toegevoegd aan de betreffende VMware-cluster onmiddellijk terug naar de status te brengen.
+Als een schijf of knoop punt uitvalt, wordt er automatisch een nieuw knoop punt aan het betrokken VMware-cluster toegevoegd om de status onmiddellijk weer te geven.
 
-Back-ups van CloudSimple, onderhoudt en werkt deze VMware-elementen in het persoonlijke clouds:
+CloudSimple maakt een back-up, onderhoudt en werkt deze VMware-elementen bij in de privécloud:
 
 * ESXi
-* vCenter Platform Services
+* vCenter-platform Services
 * Controller
 * vSAN
 * NSX
 
-## <a name="back-up-and-restore"></a>Back-up en herstellen
+## <a name="back-up-and-restore"></a>Back-ups maken en herstellen
 
-Back-up CloudSimple bevat:
+CloudSimple back-up omvat:
 
-* Elke nacht incrementele back-ups van vCenter, PSC-server en DVS regels.
-* Gebruik van vCenter systeemeigen API's om de back-up van onderdelen op het niveau van de toepassing.
-* Automatische back-up voordat u een update of upgrade van de software voor het beheer van VMware.
-* De versleuteling van de gegevens in de bron, door een vCenter, voordat de overdracht van gegevens via een versleuteld kanaal TLS1.2 aan Azure. De gegevens worden opgeslagen in een Azure-blob waar deze worden gerepliceerd tussen regio's.
+* Nacht incrementele back-ups van vCenter-, PSC-en DVS-regels.
+* Het gebruik van systeem eigen vCenter-Api's voor het maken van back-ups van onderdelen in de toepassingslaag.
+* Automatische back-up vóór een update of upgrade van de VMware-beheer software.
+* Gegevens versleuteling op de bron, door vCenter, vóór gegevens overdracht via een met TLS 1.2 versleuteld kanaal naar Azure. De gegevens worden opgeslagen in een Azure-Blob waar ze worden gerepliceerd tussen regio's.
 
-U kunt een herstelpunt aanvragen door het openen van een [ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+U kunt een terugzet bewerking aanvragen door een [ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)te openen.
 
 ## <a name="maintenance"></a>Onderhoud
 
-CloudSimple heeft verschillende typen gepland onderhoud.
+CloudSimple voert diverse soorten gepland onderhoud uit.
 
 ### <a name="backendinternal-maintenance"></a>Back-end/intern onderhoud
 
-Dit onderhoud omvat doorgaans opnieuw configureren van fysieke activa of installeren van softwarepatches. Dit heeft geen invloed op normale verbruik van de activa wordt onderhouden. Met redundante NIC's gaan met elke fysieke rack, worden niet normale netwerkverkeer en privécloud bewerkingen beïnvloed. Alleen als uw organisatie wordt verwacht dat de volledige redundante bandbreedte gebruiken tijdens het onderhoud interval valt u wellicht een prestatie-impact op.
+Dit onderhoud omvat doorgaans het opnieuw configureren van fysieke assets of het installeren van software patches. Dit heeft geen invloed op het normale verbruik van de activa die worden onderhouden. Met redundante Nic's die aan elk fysiek rack worden gekoppeld, worden normale netwerk verkeer en privé-Cloud bewerkingen niet beïnvloed. U kunt alleen invloed hebben op de prestaties als uw organisatie verwacht dat de volledige redundante band breedte tijdens het onderhouds interval wordt gebruikt.
 
-### <a name="cloudsimple-portal-maintenance"></a>CloudSimple portal onderhoud
+### <a name="cloudsimple-portal-maintenance"></a>Onderhoud van de CloudSimple-Portal
 
-Enige uitvaltijd beperkt service is vereist wanneer de controlelaag CloudSimple of infrastructuur wordt bijgewerkt. Op dit moment kunnen onderhoud intervallen zijn zo vaak als één keer per maand. De frequentie wordt verwacht na verloop van tijd weigeren. CloudSimple biedt melding voor het onderhoud van de portal en het interval zo kort mogelijk blijft. De volgende services blijven werken zonder enige gevolgen tijdens een interval van de portal onderhoud:
+Een bepaalde downtime van de service is vereist wanneer het CloudSimple-besturings vlak of de infra structuur wordt bijgewerkt. Op dit moment kunnen onderhouds intervallen even frequent per maand zijn. De frequentie wordt naar verwachting in de loop van de tijd geweigerd. CloudSimple biedt een melding voor portal onderhoud en houdt het interval zo kort mogelijk. Tijdens een portal-onderhouds interval blijven de volgende services werken zonder dat dit van invloed is:
 
-* VMware-beheerlaag en de toepassingen
-* vCenter-toegang
+* VMware-beheer vlak en-toepassingen
+* toegang tot vCenter
 * Alle netwerken en opslag
-* Alle Azure-verkeer
+* Al het Azure-verkeer
 
-### <a name="vmware-infrastructure-maintenance"></a>Onderhoud van de VMware-infrastructuur
+### <a name="vmware-infrastructure-maintenance"></a>VMware-infrastructuur onderhoud
 
-Het is soms nodig wijzigingen aanbrengen in de configuratie van de VMware-infrastructuur.  Op dit moment wordt deze intervallen kunnen zich voordoen na 1-2 maanden, maar wordt verwacht dat de frequentie weigeren na verloop van tijd. Dit type onderhoud kan doorgaans worden uitgevoerd zonder dat normale verbruik van de services CloudSimple wordt onderbroken. De volgende services blijven werken zonder enige gevolgen tijdens een interval van het onderhoud VMware:
+Het is nu af en toe nood zakelijk om wijzigingen aan te brengen in de configuratie van de VMware-infra structuur.  Op dit moment kunnen deze intervallen elke 1-2 maanden optreden, maar wordt de frequentie naar verwachting in de loop van de tijd geweigerd. Dit type onderhoud kan meestal worden uitgevoerd zonder het normale gebruik van de CloudSimple-services te onderbreken. Tijdens een VMware-onderhouds interval blijven de volgende services functioneren zonder enige impact:
 
-* VMware-beheerlaag en de toepassingen
-* vCenter-toegang
+* VMware-beheer vlak en-toepassingen
+* toegang tot vCenter
 * Alle netwerken en opslag
-* Alle Azure-verkeer
+* Al het Azure-verkeer
 
-## <a name="updates-and-upgrades"></a>Updates en Upgrades
+## <a name="updates-and-upgrades"></a>Updates en upgrades
 
-CloudSimple is verantwoordelijk voor het beheer van de levenscyclus van VMware-software (ESXi, vCenter, PSC-server en NSX) in de privécloud.
+CloudSimple is verantwoordelijk voor het levenscyclus beheer van VMware-software (ESXi, vCenter, PSC en NSX) in de privécloud.
 
 Software-updates zijn onder andere:
 
-* **Patches**. Beveiligingspatches of oplossingen voor problemen die zijn uitgebracht met VMware.
-* **Updates**. Secundaire versie is gewijzigd van een VMware-stack-onderdeel.
-* **Upgrades**. Het wijzigen van de primaire versie van een VMware-stack-onderdeel.
+* **Patches**. Beveiligings patches of oplossingen voor oplossingen die worden vrijgegeven door VMware.
+* **Updates**. Wijziging van de secundaire versie van een VMware-stack onderdeel.
+* **Upgrades**. Wijziging van de hoofd versie van een VMware-stack onderdeel.
 
-CloudSimple test een essentiële beveiligingspatch zodra deze beschikbaar van VMware. Per SLA zichtbare CloudSimple de beveiligingspatch voor privécloudomgevingen binnen een week.
+CloudSimple test een kritieke beveiligings patch zodra deze beschikbaar is in VMware. Per SLA implementeert CloudSimple de beveiligings patch naar privécloud binnen een week.
 
-CloudSimple biedt elk kwartaal onderhoudsupdates voor softwareonderdelen van VMware. Wanneer een nieuwe primaire versie van VMware-software beschikbaar is, wordt de CloudSimple werkt met klanten voor de coördinatie van een geschikte onderhoudsvenster voor een upgrade.
+CloudSimple biedt updates voor het driemaandelijkse onderhoud aan VMware-software onderdelen. Wanneer er een nieuwe belang rijke versie van VMware-software beschikbaar is, werkt CloudSimple samen met klanten om een geschikt onderhouds venster voor de upgrade te coördineren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Maak een back-up van werkbelasting van virtuele machines met behulp van Veeam](https://docs.azure.cloudsimple.com/backup-workloads-veeam/).
+[Maak een back-up van werkbelasting machines met Veeam](https://docs.azure.cloudsimple.com/backup-workloads-veeam/).

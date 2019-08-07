@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f13c266e9587c245669fc8aec10fe9a448552167
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: b338ad90c01c109cc9b2e222f1d7bcaa09f20346
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717336"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812945"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archief voor de wat is er nieuw? in Azure Active Directory
 
@@ -775,8 +775,6 @@ Zie voor meer informatie over de apps [SaaS-toepassing-integratie met Azure Acti
  
 Azure AD kunt u het maken, onderhoud en verwijderen van gebruikers-id's in SaaS-toepassingen, zoals Dropbox, Salesforce, ServiceNow en automatiseren. Voor juli 2018, hebben we ondersteuning voor de volgende toepassingen in de galerie van Azure AD-app inrichten van gebruikers toegevoegd:
 
-- [Cisco Spark](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial)
-
 - [Cisco WebEx](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial)
 
 - [Bonusly](https://docs.microsoft.com/azure/active-directory/saas-apps/bonusly-provisioning-tutorial)
@@ -1221,7 +1219,7 @@ Toegangsbeoordelingen voor groepen en apps zijn nu algemeen beschikbaar als onde
 
 ---
 
-### <a name="id-tokens-can-no-longer-be-returned-using-the-query-responsemode-for-new-apps"></a>ID-tokens kunnen niet meer worden geretourneerd met behulp van de query-response_mode voor nieuwe apps. 
+### <a name="id-tokens-can-no-longer-be-returned-using-the-query-response_mode-for-new-apps"></a>ID-tokens kunnen niet meer worden geretourneerd met behulp van de query-response_mode voor nieuwe apps. 
 
 **Type:** Gewijzigde functie  
 **Service categorie:** Verificaties (aanmeldingen)  
@@ -1553,7 +1551,7 @@ Zie voor meer informatie, [aanvragen van een autorisatiecode](https://docs.micro
  
 ---
  
-### <a name="support-for-provisioning-all-user-attribute-values-available-in-the-workday-getworkers-api"></a>Ondersteuning voor het inrichten van alle gebruiker kenmerkwaarden beschikbaar in de Workday Get_Workers-API
+### <a name="support-for-provisioning-all-user-attribute-values-available-in-the-workday-get_workers-api"></a>Ondersteuning voor het inrichten van alle gebruiker kenmerkwaarden beschikbaar in de Workday Get_Workers-API
 
 **Type:** Nieuwe functie  
 **Service categorie:** App-inrichting  

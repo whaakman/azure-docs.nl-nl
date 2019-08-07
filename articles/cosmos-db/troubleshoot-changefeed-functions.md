@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b90986e449df7e81f97f9ef86ce3cf69621c76d6
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 17fa443c3b0113d80a020f2a43c7099cf5a832d2
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335748"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772903"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Problemen vaststellen en oplossen bij het gebruik van Azure Functions trigger voor Cosmos DB
 
@@ -88,6 +88,15 @@ Als u merkt dat er helemaal geen wijzigingen zijn ontvangen door de trigger, is 
 Daarnaast kunt u het scenario valideren als u weet hoeveel exemplaren van Azure functie-app u uitvoert. Als u uw leases-container inspecteert en het aantal lease-items binnen hebt geteld, moeten de `Owner` afzonderlijke waarden van de eigenschap in deze worden ingesteld op het aantal exemplaren van uw functie-app. Als er meer eigen aren zijn dan de bekende exemplaren van Azure functie-app, betekent dit dat de andere eigen aren de wijzigingen ' stelen ' hebben.
 
 Een eenvoudige manier om deze situatie op te lossen, is `LeaseCollectionPrefix/leaseCollectionPrefix` om een toe te passen op uw functie met een nieuwe/andere waarde of door te testen met een nieuwe lease-container.
+
+### <a name="need-to-restart-and-re-process-all-the-items-in-my-container-from-the-beginning"></a>De items in mijn container moeten opnieuw worden opgestart en opnieuw worden verwerkt vanaf het begin 
+Alle items in een container opnieuw verwerken vanaf het begin:
+1. Stop uw Azure-functie als deze momenteel wordt uitgevoerd. 
+1. De documenten in de lease verzameling verwijderen (of de lease verzameling verwijderen en opnieuw maken, zodat deze leeg is)
+1. Stel het kenmerk [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) CosmosDBTrigger in uw functie in op waar. 
+1. Start de Azure-functie opnieuw. Er worden nu alle wijzigingen van het begin gelezen en verwerkt. 
+
+Als u [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) instelt op True, wordt de Azure-functie gestart met het lezen van wijzigingen aan het begin van de geschiedenis van de verzameling in plaats van de huidige tijd. Dit werkt alleen als er geen leases zijn (bijvoorbeeld documenten in de lease-verzameling). Als u deze eigenschap instelt op waar wanneer er al leases zijn gemaakt, heeft dit geen effect. Wanneer een functie wordt gestopt en opnieuw wordt gestart, wordt in dit scenario begonnen met het lezen van het laatste controle punt, zoals gedefinieerd in de verzameling leases. Volg de bovenstaande stappen 1-4 om vanaf het begin opnieuw te verwerken.  
 
 ### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>U kunt de binding alleen doen met\<IReadOnlyList document > of JArray
 
