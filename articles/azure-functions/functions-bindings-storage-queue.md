@@ -1,6 +1,6 @@
 ---
-title: Azure Queue storage-bindingen voor Azure Functions
-description: Informatie over het gebruik van de trigger voor Azure Queue storage en Storage-Uitvoerbinding in Azure Functions.
+title: Azure Queue-opslag bindingen voor Azure Functions
+description: Meer informatie over het gebruik van de Azure Queue Storage-trigger en uitvoer binding in Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
@@ -12,22 +12,22 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 9604ef276625d1fcc9164a9b75b94ebc22cb51e1
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: bf5219f8e147baba0e89a8c0e1fa6cb7b371473c
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480141"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774752"
 ---
-# <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindingen voor Azure Functions
+# <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue-opslag bindingen voor Azure Functions
 
-In dit artikel wordt uitgelegd hoe u werkt met Azure Queue storage-bindingen in Azure Functions. Azure Functions ondersteunt activeren en uitvoerbindingen voor wachtrijen.
+In dit artikel wordt uitgelegd hoe u kunt werken met Azure Queue Storage-bindingen in Azure Functions. Azure Functions ondersteunt trigger-en uitvoer bindingen voor wacht rijen.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
 
-De Queue storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 2.x. Broncode voor het pakket is in de [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub-opslagplaats.
+De bindingen voor de wachtrij opslag zijn opgenomen in het pakket [micro soft. Azure. webjobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet versie 2. x. Broncode voor het pakket is in de [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -35,16 +35,16 @@ De Queue storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](https:
 
 ## <a name="packages---functions-2x"></a>Pakketten - functies 2.x
 
-De Queue storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet-pakket versie 3.x. Broncode voor het pakket is in de [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues) GitHub-opslagplaats.
+De bindingen voor de wachtrij opslag zijn opgenomen in het [micro soft. Azure. webjobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet-pakket, versie 3. x. Broncode voor het pakket is in de [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="encoding"></a>Encoding
-Functies verwacht een *base64* gecodeerde tekenreeks. Alle aanpassingen van het type codering (als u wilt voorbereiden van gegevens als een *base64* gecodeerde tekenreeks) moet worden geïmplementeerd in de aanroepende-service.
+Functions verwachten een *Base64* -gecodeerde teken reeks. Eventuele aanpassingen van het coderings type (om gegevens voor te bereiden als een *Base64* -gecodeerde teken reeks) moeten worden geïmplementeerd in de aanroepende service.
 
 ## <a name="trigger"></a>Trigger
 
-Een functie starten wanneer een nieuw item wordt ontvangen in een wachtrij gebruiken de wachtrijtrigger. Bericht uit de wachtrij wordt geleverd als invoer voor de functie.
+Gebruik de wachtrij trigger om een functie te starten wanneer er een nieuw item in een wachtrij wordt ontvangen. Het wachtrij bericht wordt opgegeven als invoer voor de functie.
 
 ## <a name="trigger---example"></a>Trigger - voorbeeld
 
@@ -54,10 +54,11 @@ Zie het voorbeeld taalspecifieke:
 * [C# script (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>Trigger - voorbeeld met C#
 
-Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die pollt de `myqueue-items` in de wachtrij en schrijft een logboek telkens wanneer een wachtrij-item wordt verwerkt.
+In het volgende voor beeld ziet u een [ C# functie](functions-dotnet-class-library.md) waarmee `myqueue-items` de wachtrij wordt gepeild en een logboek wordt geschreven telkens wanneer een wachtrij-item wordt verwerkt.
 
 ```csharp
 public static class QueueFunctions
@@ -74,7 +75,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Trigger - voorbeeld van C#-script
 
-Het volgende voorbeeld ziet u een wachtrijtrigger binding in een *function.json* bestand en [C#-script (.csx)](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie polls de `myqueue-items` in de wachtrij en schrijft een logboek telkens wanneer een wachtrij-item wordt verwerkt.
+In het volgende voor beeld ziet u een binding van een wachtrij trigger in een *Function. json* file [ C# -en script-code (. CSX)](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie pollt de `myqueue-items` wachtrij en schrijft een logboek wanneer een wachtrij-item wordt verwerkt.
 
 Hier volgt de *function.json* bestand:
 
@@ -125,11 +126,11 @@ public static void Run(CloudQueueMessage myQueueItem,
 }
 ```
 
-De [gebruik](#trigger---usage) sectie wordt uitgelegd `myQueueItem`, die met de naam van de `name` eigenschap in de function.json.  De [bericht sectie met metagegevens](#trigger---message-metadata) wordt uitgelegd dat alle andere variabelen die worden weergegeven.
+In [](#trigger---usage) het gedeelte gebruik `myQueueItem`wordt uitgelegd hoe dit wordt genoemd `name` door de eigenschap in function. json.  De [sectie meta gegevens](#trigger---message-metadata) van het bericht geeft een uitleg van alle andere variabelen die worden weer gegeven.
 
 ### <a name="trigger---javascript-example"></a>Trigger - JavaScript-voorbeeld
 
-Het volgende voorbeeld ziet u een wachtrijtrigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie polls de `myqueue-items` in de wachtrij en schrijft een logboek telkens wanneer een wachtrij-item wordt verwerkt.
+In het volgende voor beeld ziet u een binding van een wachtrij trigger in een *Function. json* -bestand en een [Java script-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie pollt de `myqueue-items` wachtrij en schrijft een logboek wanneer een wachtrij-item wordt verwerkt.
 
 Hier volgt de *function.json* bestand:
 
@@ -151,7 +152,7 @@ Hier volgt de *function.json* bestand:
 De [configuratie](#trigger---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
 > [!NOTE]
-> De parameter name weerspiegelt als `context.bindings.<name>` in de JavaScript-code die de nettolading van de wachtrij-item bevat. Deze nettolading wordt ook als de tweede parameter doorgegeven aan de functie.
+> De para meter name komt `context.bindings.<name>` overeen met de Java script-code die de nettolading van het wachtrij-item bevat. Deze nettolading wordt ook door gegeven als de tweede para meter voor de functie.
 
 Dit is de JavaScript-code:
 
@@ -170,11 +171,11 @@ module.exports = async function (context, message) {
 };
 ```
 
-De [gebruik](#trigger---usage) sectie wordt uitgelegd `myQueueItem`, die met de naam van de `name` eigenschap in de function.json.  De [bericht sectie met metagegevens](#trigger---message-metadata) wordt uitgelegd dat alle andere variabelen die worden weergegeven.
+In [](#trigger---usage) het gedeelte gebruik `myQueueItem`wordt uitgelegd hoe dit wordt genoemd `name` door de eigenschap in function. json.  De [sectie meta gegevens](#trigger---message-metadata) van het bericht geeft een uitleg van alle andere variabelen die worden weer gegeven.
 
 ### <a name="trigger---java-example"></a>Trigger - Java-voorbeeld
 
-Het volgende Java-voorbeeld ziet u een trigger voor storage-wachtrij-functies die het geactiveerde bericht in de wachtrij geplaatst `myqueuename`.
+In het volgende Java-voor beeld ziet u een trigger voor opslag wachtrij waarmee het geactiveerde bericht `myqueuename`in de wachtrij wordt geregistreerd.
 
  ```java
  @FunctionName("queueprocessor")
@@ -188,13 +189,61 @@ Het volgende Java-voorbeeld ziet u een trigger voor storage-wachtrij-functies di
  }
  ```
 
+### <a name="trigger---python-example"></a>Voor beeld van een trigger-python
+
+In het volgende voor beeld ziet u hoe u een wachtrij bericht leest dat is door gegeven aan een functie via een trigger.
+
+Een opslag wachtrij trigger is gedefinieerd in *Function. json* waarbij *type* is ingesteld op `queueTrigger`.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "msg",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "AzureStorageQueuesConnectionString"
+    }
+  ]
+}
+```
+
+De `func.ServiceBusMessage` code   *_\_init_.pydeclareerteenparameterwaarmeeuhetwachtrijberichtinuwfunctiekuntlezen.\_*
+
+```python
+import logging
+import json
+
+import azure.functions as func
+
+def main(msg: func.QueueMessage):
+    logging.info('Python queue trigger function processed a queue item.')
+
+    result = json.dumps({
+        'id': msg.id,
+        'body': msg.get_body().decode('utf-8'),
+        'expiration_time': (msg.expiration_time.isoformat()
+                            if msg.expiration_time else None),
+        'insertion_time': (msg.insertion_time.isoformat()
+                           if msg.insertion_time else None),
+        'time_next_visible': (msg.time_next_visible.isoformat()
+                              if msg.time_next_visible else None),
+        'pop_receipt': msg.pop_receipt,
+        'dequeue_count': msg.dequeue_count
+    })
+
+    logging.info(result)
+```
+
 ## <a name="trigger---attributes"></a>Trigger - kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenmerken gebruiken om te configureren van een wachtrijtrigger:
+Gebruik in [ C# class bibliotheken](functions-dotnet-class-library.md)de volgende kenmerken voor het configureren van een wachtrij trigger:
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs)
 
-  De constructor van het kenmerk wordt de naam van de wachtrij om te controleren, zoals wordt weergegeven in het volgende voorbeeld:
+  De constructor van het kenmerk maakt de naam van de wachtrij die moet worden bewaakt, zoals wordt weer gegeven in het volgende voor beeld:
 
   ```csharp
   [FunctionName("QueueTrigger")]
@@ -206,7 +255,7 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenme
   }
   ```
 
-  U kunt instellen dat de `Connection` eigenschap om op te geven van het opslagaccount dat moet worden gebruikt, zoals wordt weergegeven in het volgende voorbeeld:
+  U kunt de `Connection` eigenschap instellen om het opslag account op te geven dat moet worden gebruikt, zoals wordt weer gegeven in het volgende voor beeld:
 
   ```csharp
   [FunctionName("QueueTrigger")]
@@ -222,7 +271,7 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenme
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
-  Biedt een andere manier om op te geven van de storage-account te gebruiken. De constructor, wordt de naam van een app-instelling met een verbindingsreeks voor opslag. Het kenmerk kan worden toegepast op de parameter, klasseniveau of methode. Het volgende voorbeeld toont het klasseniveau en methode:
+  Biedt een andere manier om het opslag account op te geven dat moet worden gebruikt. De constructor krijgt de naam van een app-instelling die een opslag connection string bevat. Het kenmerk kan worden toegepast op de parameter, klasseniveau of methode. Het volgende voorbeeld toont het klasseniveau en methode:
 
   ```csharp
   [StorageAccount("ClassLevelStorageAppSetting")]
@@ -236,13 +285,13 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenme
   }
   ```
 
-Het storage-account te gebruiken, wordt bepaald in de volgende volgorde:
+Het opslag account dat moet worden gebruikt, wordt in de volgende volg orde bepaald:
 
 * De `QueueTrigger` van kenmerk `Connection` eigenschap.
 * De `StorageAccount` kenmerk toegepast op de dezelfde parameter als de `QueueTrigger` kenmerk.
 * De `StorageAccount` kenmerk toegepast op de functie.
 * De `StorageAccount` kenmerk toegepast op de klasse.
-* De 'AzureWebJobsStorage' app-instelling.
+* De instelling van de app ' AzureWebJobsStorage '.
 
 ## <a name="trigger---configuration"></a>Trigger - configuratie
 
@@ -251,65 +300,65 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type** | N.v.t.| Moet worden ingesteld op `queueTrigger`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
-|**direction**| N.v.t. | In de *function.json* alleen het bestand. Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
-|**De naam** | N.v.t. |De naam van de variabele met de nettolading van de wachtrij-item in de functiecode aan te geven.  |
-|**queueName** | **Wachtrijnaam**| De naam van de wachtrij te peilen. |
-|**verbinding** | **verbinding** |De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
+|**direction**| N.v.t. | Alleen in het bestand *Function. json* . Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
+|**De naam** | N.v.t. |De naam van de variabele die de nettolading van het wachtrij-item bevat in de functie code.  |
+|**queueName** | **Wachtrijnaam**| De naam van de wachtrij die moet worden gecontroleerd. |
+|**verbinding** | **verbinding** |De naam van een app-instelling die de opslag connection string bevat die moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met ' AzureWebJobs ', kunt u hier alleen de rest van de naam opgeven. Als u bijvoorbeeld instelt `connection` op ' mijn opslag ', zoekt de functie runtime naar een app-instelling met de naam ' AzureWebJobsMyStorage '. Als u leeg `connection` laat, gebruikt de functions runtime de standaard opslag Connection String in de app-instelling met `AzureWebJobsStorage`de naam.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Trigger - gebruik
 
-In C# en C#-script, toegang krijgen tot de berichtgegevens met behulp van een methodeparameter zoals `string paramName`. In C#-script, `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. U kunt koppelen aan een van de volgende typen:
+In C# en C# script opent u de bericht gegevens met behulp van een methode `string paramName`parameter, zoals. In C# script `paramName` is de waarde die is opgegeven in `name` de eigenschap van *Function. json*. U kunt verbinding maken met een van de volgende typen:
 
-* Object - de Functions-runtime gedeserialiseerd een JSON-nettolading in een exemplaar van een willekeurige klasse is gedefinieerd in uw code. 
+* Object-met de functions runtime wordt een JSON-nettolading gedeserialiseerd naar een exemplaar van een wille keurige klasse die in uw code is gedefinieerd. 
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
 
-Als u probeert te binden aan `CloudQueueMessage` en een foutmelding krijgt, zorg ervoor dat u een verwijzing naar [de juiste versie van de Storage-SDK](#azure-storage-sdk-version-in-functions-1x).
+Als u probeert verbinding te maken `CloudQueueMessage` met een fout bericht, moet u ervoor zorgen dat u een verwijzing naar [de juiste versie van de Storage SDK](#azure-storage-sdk-version-in-functions-1x)hebt.
 
-Gebruik in JavaScript, `context.bindings.<name>` voor toegang tot de nettolading van de wachtrij-item. Als de nettolading van de JSON is, wordt deze in een object gedeserialiseerd.
+Gebruik `context.bindings.<name>` in Java script om toegang te krijgen tot de nettolading van het wachtrij-item. Als de payload JSON is, wordt deze gedeserialiseerd tot een object.
 
 ## <a name="trigger---message-metadata"></a>Trigger - bericht-metagegevens
 
-De wachtrijtrigger bevat diverse [metagegevenseigenschappen](./functions-bindings-expressions-patterns.md#trigger-metadata). Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies in andere bindingen voor gegevensbinding of als parameters in uw code. Dit zijn de eigenschappen van de [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) klasse.
+De trigger van de wachtrij biedt verschillende [Eigenschappen van meta gegevens](./functions-bindings-expressions-patterns.md#trigger-metadata). Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies in andere bindingen voor gegevensbinding of als parameters in uw code. Dit zijn eigenschappen van de klasse [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) .
 
 |Eigenschap|Type|Description|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|Payload van de wachtrij (als een geldige tekenreeks). Als de wachtrij nettolading als een tekenreeks bericht, `QueueTrigger` heeft dezelfde waarde als de variabele met de naam van de `name` eigenschap in *function.json*.|
-|`DequeueCount`|`int`|Het aantal keren dat die dit bericht heeft zijn uit wachtrij verwijderd.|
-|`ExpirationTime`|`DateTimeOffset`|De tijd die het bericht is verlopen.|
-|`Id`|`string`|Wachtrij bericht-ID.|
-|`InsertionTime`|`DateTimeOffset`|De tijd die het bericht is toegevoegd aan de wachtrij.|
-|`NextVisibleTime`|`DateTimeOffset`|De tijd die het bericht vervolgens zichtbaar zijn.|
-|`PopReceipt`|`string`|Van het bericht pop-ontvangstbericht.|
+|`QueueTrigger`|`string`|Nettolading van de wachtrij (als een geldige teken reeks). Als de nettolading van het wachtrij bericht als een `QueueTrigger` teken reeks, dezelfde waarde heeft als de variabele met `name` de naam van de eigenschap in *Function. json*.|
+|`DequeueCount`|`int`|Het aantal keren dat dit bericht in de wachtrij is geplaatst.|
+|`ExpirationTime`|`DateTimeOffset`|Het tijdstip waarop het bericht verloopt.|
+|`Id`|`string`|Bericht-ID van de wachtrij.|
+|`InsertionTime`|`DateTimeOffset`|De tijd waarop het bericht is toegevoegd aan de wachtrij.|
+|`NextVisibleTime`|`DateTimeOffset`|De tijd waarop het bericht volgende wordt weer gegeven.|
+|`PopReceipt`|`string`|De pop-ontvangst van het bericht.|
 
 ## <a name="trigger---poison-messages"></a>Trigger - Onverwerkbare berichten
 
-Wanneer een activeringsfunctie mislukt, pogingen Azure Functions de functie maximaal vijf keer voor een bepaalde wachtrij-bericht, met inbegrip van de eerste poging. Als alle vijf pogingen mislukken, wordt in de functions-runtime een bericht toevoegt aan een wachtrij met de naam  *&lt;originalqueuename >-onverwerkbare*. U kunt schrijven om een functie voor het verwerken van berichten uit de wachtrij onverwerkbare door registratie of een melding verzonden dat handmatige aandacht is vereist.
+Wanneer een functie voor het activeren van een wachtrij mislukt, Azure Functions de functie tot vijf keer opnieuw geprobeerd voor een gegeven wachtrij bericht, met inbegrip van de eerste try. Als alle vijf de pogingen mislukken, voegt de functions-runtime een bericht toe aan een wachtrij met de naam  *&lt;originalqueuename >-Poison*. U kunt een functie schrijven om berichten uit de verontreinigde wachtrij te verwerken door ze te registreren of om een melding te verzenden dat er hand matige aandacht nodig is.
 
-Voor het beheer van Onverwerkbare berichten handmatig afhandelen, Controleer de [dequeueCount](#trigger---message-metadata) van bericht uit de wachtrij.
+Als u verontreinigde berichten hand matig wilt verwerken, controleert u de [dequeueCount](#trigger---message-metadata) van het bericht in de wachtrij.
 
-## <a name="trigger---polling-algorithm"></a>Trigger - algoritme voor polling
+## <a name="trigger---polling-algorithm"></a>Trigger-polling-algoritme
 
-De wachtrijtrigger implementeert een willekeurig exponentieel uitstel algoritme voor het effect van niet-actieve wachtrij polling op de opslagkosten van de transactie wordt beperkt.  Wanneer een bericht wordt gevonden, de runtime Wacht twee seconden en controleert vervolgens of er een andere message; Wanneer er geen bericht is gevonden, wacht ongeveer vier seconden voordat u doorgaat. Na opeenvolgende mislukte pogingen om een wachtrijbericht, blijft de wachttijd vergroten totdat de maximale wachttijd, die standaard één minuut is bereikt. De maximale wachttijd kan worden geconfigureerd via de `maxPollingInterval` eigenschap in de [host.json bestand](functions-host-json.md#queues).
+Met de trigger voor de wachtrij wordt een wille keurig exponentiële uitstel algoritme geïmplementeerd om het effect van polling bij een niet-actieve wachtrij op kosten voor opslag transacties te verminderen.  Wanneer een bericht wordt gevonden, wacht de runtime twee seconden en vervolgens wordt een ander bericht gecontroleerd. Wanneer er geen bericht wordt gevonden, wacht het ongeveer vier seconden voordat u het opnieuw probeert. Na volgende mislukte pogingen om een wachtrij bericht op te halen, blijft de wacht tijd toenemen totdat de maximale wacht tijd is bereikt. de standaard waarde is één minuut. De maximale wacht tijd kan worden geconfigureerd via de `maxPollingInterval` eigenschap in het [bestand host. json](functions-host-json.md#queues).
 
-## <a name="trigger---concurrency"></a>Trigger - gelijktijdigheid
+## <a name="trigger---concurrency"></a>Trigger-gelijktijdigheid
 
-Wanneer er meerdere Wachtrijberichten wachten, wordt de wachtrijtrigger opgehaald van een batch van berichten en exemplaren gelijktijdig voor het verwerken van deze functie wordt aangeroepen. Standaard is de batchgrootte 16. Wanneer het nummer dat wordt verwerkt, u tot en met 8 ontvangt, wordt de runtime opgehaald van een andere batch en start deze berichten worden verwerkt. Daarom is het maximum aantal gelijktijdige berichten worden verwerkt per functie op een virtuele machine (VM) 24 uur per dag. Deze limiet geldt afzonderlijk voor elke wachtrij-geactiveerde functie op elke virtuele machine. Als uw functie-app wordt geschaald naar meerdere virtuele machines, wordt elke virtuele machine wacht voor triggers en probeert uit te voeren van functies. Bijvoorbeeld, als een functie-app kan worden geschaald om naar 3 VM's, is het standaard maximum aantal gelijktijdige exemplaren van een wachtrij geactiveerde functie 72.
+Wanneer er meerdere wachtrij berichten wachten, haalt de trigger van de wachtrij een batch berichten op en roept de functie-exemplaren gelijktijdig aan om ze te verwerken. De Batch grootte is standaard 16. Wanneer het aantal dat wordt verwerkt, wordt ingesteld op 8, haalt de runtime een nieuwe batch op en begint deze met de verwerking van die berichten. Het maximum aantal gelijktijdige berichten dat per functie op één virtuele machine (VM) wordt verwerkt, is dus 24. Deze limiet is van toepassing op elke virtuele machine die door de wachtrij wordt geactiveerd. Als uw functie-app wordt geschaald naar meerdere Vm's, wacht elke virtuele machine op Triggers en probeert de functies uit te voeren. Als een functie-app bijvoorbeeld uitschaalt naar 3 Vm's, is het maximum aantal gelijktijdige exemplaren van één door de wachtrij geactiveerde functie 72.
 
-De batchgrootte en de drempelwaarde voor het ophalen van een nieuwe batch kunnen worden geconfigureerd in de [host.json bestand](functions-host-json.md#queues). Als u beperken van parallelle uitvoering voor wachtrij geactiveerde functies in een functie-app wilt, kunt u de batchgrootte instellen op 1. Deze instelling wordt voorkomen dat gelijktijdige alleen zo lang uw functie-app wordt uitgevoerd op een enkele virtuele machine (VM). 
+De Batch grootte en de drempel waarde voor het ophalen van een nieuwe batch kunnen worden geconfigureerd in het [bestand host. json](functions-host-json.md#queues). Als u parallelle uitvoering voor door de wachtrij geactiveerde functies in een functie-app wilt minimaliseren, kunt u de Batch grootte instellen op 1. Met deze instelling elimineert u alleen gelijktijdigheid, zolang uw functie-app op één virtuele machine (VM) wordt uitgevoerd. 
 
-De wachtrijtrigger automatisch wordt voorkomen dat een functie verwerken van een wachtrijbericht meerdere keren; functies hoeft niet te worden geschreven naar idempotent zijn.
+De wachtrij trigger voor komt automatisch dat een functie meerdere keren een wachtrij bericht verwerkt; functions hoeven niet te worden geschreven om te worden idempotent.
 
 ## <a name="trigger---hostjson-properties"></a>Trigger - eigenschappen voor host.json
 
-De [host.json](functions-host-json.md#queues) bestand bevat instellingen die het gedrag van wachtrij trigger beheren. Zie de [host.json instellingen](#hostjson-settings) sectie voor meer informatie over de beschikbare instellingen.
+Het bestand [host. json](functions-host-json.md#queues) bevat instellingen die het gedrag van de wachtrij activeren controleren. Zie de sectie [host. json-instellingen](#hostjson-settings) voor meer informatie over de beschik bare instellingen.
 
 ## <a name="output"></a>Output
 
-Gebruik de Azure Queue storage-Uitvoerbinding berichten schrijven naar een wachtrij.
+Gebruik de Azure Queue Storage-uitvoer binding om berichten te schrijven naar een wachtrij.
 
 ## <a name="output---example"></a>Uitvoer - voorbeeld
 
@@ -319,10 +368,11 @@ Zie het voorbeeld taalspecifieke:
 * [C# script (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 * [Java](#output---java-example)
+* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>Uitvoer - voorbeeld met C#
 
-Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die Hiermee maakt u een wachtrijbericht voor elke HTTP-aanvraag ontvangen.
+In het volgende voor beeld ziet u een [ C# functie](functions-dotnet-class-library.md) waarmee een wachtrij bericht wordt gemaakt voor elke ontvangen HTTP-aanvraag.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -340,7 +390,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Uitvoer - voorbeeld van C#-script
 
-Het volgende voorbeeld ziet u een HTTP-trigger binding in een *function.json* bestand en [C#-script (.csx)](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie maakt een wachtrij-item met een **CustomQueueMessage** object nettolading voor elke HTTP-aanvraag ontvangen.
+In het volgende voor beeld ziet u een binding van een http-trigger in een *Function. json* file [ C# -en script-code (. CSX)](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie maakt een wachtrij-item met een **CustomQueueMessage** -object lading voor elke ontvangen HTTP-aanvraag.
 
 Hier volgt de *function.json* bestand:
 
@@ -371,7 +421,7 @@ Hier volgt de *function.json* bestand:
 
 De [configuratie](#output---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
-Hier volgt een C#-script-code die wordt gemaakt van een enkel wachtrijbericht:
+Dit is C# de script code voor het maken van één wachtrij bericht:
 
 ```cs
 public class CustomQueueMessage
@@ -386,7 +436,7 @@ public static CustomQueueMessage Run(CustomQueueMessage input, ILogger log)
 }
 ```
 
-U kunt meerdere berichten in één keer verzenden met behulp van een `ICollector` of `IAsyncCollector` parameter. Hier volgen enkele redenen C#-script-code waarmee meerdere berichten, één met de gegevens van de HTTP-aanvragen en één met de vastgelegde waarden worden verzonden:
+U kunt meerdere berichten tegelijk verzenden met behulp van `ICollector` een `IAsyncCollector` or-para meter. Dit is C# de script code waarmee meerdere berichten worden verzonden, een met de HTTP-aanvraag gegevens en een met in code vastgelegde waarden:
 
 ```cs
 public static void Run(
@@ -401,7 +451,7 @@ public static void Run(
 
 ### <a name="output---javascript-example"></a>Uitvoer - JavaScript-voorbeeld
 
-Het volgende voorbeeld ziet u een HTTP-trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie maakt een wachtrij-item voor elke HTTP-aanvraag ontvangen.
+In het volgende voor beeld ziet u een binding van de HTTP-trigger in een *Function. json* -bestand en een [Java script-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie maakt een wachtrij-item voor elke ontvangen HTTP-aanvraag.
 
 Hier volgt de *function.json* bestand:
 
@@ -440,7 +490,7 @@ module.exports = function (context, input) {
 };
 ```
 
-U kunt meerdere berichten in één keer verzenden door te definiëren van de matrix van een bericht voor de `myQueueItem` -Uitvoerbinding. De volgende JavaScript-code verzendt twee Wachtrijberichten met vastgelegde waarden voor elke HTTP-aanvraag ontvangen.
+U kunt meerdere berichten tegelijk verzenden door een bericht matrix te definiëren voor de `myQueueItem` uitvoer binding. De volgende Java script-code verzendt twee wachtrij berichten met in code vastgelegde waarden voor elke ontvangen HTTP-aanvraag.
 
 ```javascript
 module.exports = function(context) {
@@ -451,7 +501,7 @@ module.exports = function(context) {
 
 ### <a name="output---java-example"></a>Uitvoer - Java-voorbeeld
 
- Het volgende voorbeeld ziet een Java-functie waarmee een wachtrijbericht voor wanneer ze worden geactiveerd door een HTTP-aanvraag.
+ In het volgende voor beeld ziet u een Java-functie die een wachtrij bericht maakt voor wanneer door een HTTP-aanvraag wordt geactiveerd.
 
 ```java
 @FunctionName("httpToQueue")
@@ -465,14 +515,76 @@ module.exports = function(context) {
  }
 ```
 
-In de [Java functions runtime library](/java/api/overview/azure/functions/runtime), gebruikt u de `@QueueOutput` aantekening op parameters waarvan de waarde kan worden geschreven naar Queue storage.  Het parametertype moet `OutputBinding<T>`, waarbij T alle systeemeigen Java-type van een POJO.
+Gebruik in de [runtime-bibliotheek van Java](/java/api/overview/azure/functions/runtime)- `@QueueOutput` functies de aantekening voor para meters waarvan de waarde wordt geschreven naar de wachtrij opslag.  Het parametertype moet `OutputBinding<T>`, waarbij T alle systeemeigen Java-type van een POJO.
 
+### <a name="output---python-example"></a>Voor beeld van de uitvoer-python
+
+In het volgende voor beeld ziet u hoe u één en meerdere waarden naar opslag wachtrijen kunt uitvoeren. De configuratie die nodig is voor *Function. json* is op dezelfde manier.
+
+Een opslag wachtrij binding is gedefinieerd in *Function. json* waarbij *type* is ingesteld op `queue`.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "msg",
+      "queueName": "outqueue",
+      "connection": "AzureStorageQueuesConnectionString"
+    }
+  ]
+}
+```
+
+Als u een afzonderlijk bericht in de wachtrij wilt instellen, geeft u één waarde door `set` aan de-methode.
+
+```python
+import azure.functions as func
+
+def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
+
+    input_msg = req.params.get('message')
+
+    msg.set(input_msg)
+
+    return 'OK'
+```
+
+Als u meerdere berichten in de wachtrij wilt maken, declareert u een para meter als het juiste lijst Type en geeft u een matrix met waarden (die overeenkomen met het lijst Type) door aan de `set` -methode.
+
+```python
+import azure.functions as func
+import typing
+
+def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpResponse:
+
+    msg.set(['one', 'two'])
+
+    return 'OK'
+```
 
 ## <a name="output---attributes"></a>Uitvoer - kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruikt u de [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs).
+Gebruik in [ C# class libraries](functions-dotnet-class-library.md)het [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs).
 
-Het kenmerk is van toepassing op een `out` parameter of de geretourneerde waarde van de functie. De constructor van het kenmerk wordt de naam van de wachtrij staan, zoals wordt weergegeven in het volgende voorbeeld:
+Het kenmerk is van toepassing `out` op een para meter of de retour waarde van de functie. De constructor van het kenmerk maakt de naam van de wachtrij, zoals wordt weer gegeven in het volgende voor beeld:
 
 ```csharp
 [FunctionName("QueueOutput")]
@@ -483,7 +595,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 }
 ```
 
-U kunt instellen dat de `Connection` eigenschap om op te geven van het opslagaccount dat moet worden gebruikt, zoals wordt weergegeven in het volgende voorbeeld:
+U kunt de `Connection` eigenschap instellen om het opslag account op te geven dat moet worden gebruikt, zoals wordt weer gegeven in het volgende voor beeld:
 
 ```csharp
 [FunctionName("QueueOutput")]
@@ -496,7 +608,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 Zie voor een compleet voorbeeld [uitvoer - voorbeeld met C#](#output---c-example).
 
-U kunt de `StorageAccount` kenmerk om op te geven van de storage-account op het niveau van klasse, methode of parameter. Zie voor meer informatie, Trigger - kenmerken.
+U kunt het `StorageAccount` -kenmerk gebruiken om het opslag account op te geven op klasse, methode of parameter niveau. Zie trigger-Attributes (Engelstalig) voor meer informatie.
 
 ## <a name="output---configuration"></a>Uitvoer - configuratie
 
@@ -506,38 +618,38 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op `queue`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
 |**direction** | N.v.t. | Moet worden ingesteld op `out`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
-|**De naam** | N.v.t. | De naam van de variabele die staat voor de wachtrij in functiecode aan te geven. Ingesteld op `$return` om te verwijzen naar de geretourneerde waarde van de functie.|
+|**De naam** | N.v.t. | De naam van de variabele die de wachtrij in functie code vertegenwoordigt. Instellen op `$return` om te verwijzen naar de functie retour waarde.|
 |**queueName** |**Wachtrijnaam** | De naam van de wachtrij. |
-|**verbinding** | **verbinding** |De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
+|**verbinding** | **verbinding** |De naam van een app-instelling die de opslag connection string bevat die moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met ' AzureWebJobs ', kunt u hier alleen de rest van de naam opgeven. Als u bijvoorbeeld instelt `connection` op ' mijn opslag ', zoekt de functie runtime naar een app-instelling met de naam ' AzureWebJobsMyStorage '. Als u leeg `connection` laat, gebruikt de functions runtime de standaard opslag Connection String in de app-instelling met `AzureWebJobsStorage`de naam.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Uitvoer - gebruik
 
-Schrijven in C# en C#-script, een enkel wachtrijbericht met behulp van een methodeparameter zoals `out T paramName`. In C#-script, `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. U kunt het retourtype van de methode in plaats van een `out` parameter en `T` kan dit een van de volgende typen:
+In C# en C# script, een enkel wachtrij bericht schrijven met behulp van een methode `out T paramName`parameter, zoals. In C# script `paramName` is de waarde die is opgegeven in `name` de eigenschap van *Function. json*. U kunt het retour type van de methode gebruiken in `out` plaats van een `T` para meter, en dit kan een van de volgende typen zijn:
 
-* Een geserialiseerd als JSON-object
+* Een object dat als JSON kan worden geserialiseerd
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 
 
-Als u probeert te binden aan `CloudQueueMessage` en een foutmelding krijgt, zorg ervoor dat u een verwijzing naar [de juiste versie van de Storage-SDK](#azure-storage-sdk-version-in-functions-1x).
+Als u probeert verbinding te maken `CloudQueueMessage` met een fout bericht, moet u ervoor zorgen dat u een verwijzing naar [de juiste versie van de Storage SDK](#azure-storage-sdk-version-in-functions-1x)hebt.
 
-Schrijven in C# en C#-script, meerdere berichten in wachtrij plaatsen met behulp van een van de volgende typen: 
+Schrijf C# in C# en script meerdere wachtrij berichten met behulp van een van de volgende typen: 
 
 * `ICollector<T>` of `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-Gebruik in JavaScript-functies, `context.bindings.<name>` voor toegang tot het wachtrijbericht uitvoer. U kunt een tekenreeks of een JSON-geserialiseerd object gebruiken voor de nettolading van de wachtrij-item.
+In Java script-functies `context.bindings.<name>` gebruikt u om toegang te krijgen tot het uitvoer wachtrij bericht. U kunt een teken reeks of een JSON-serialiseerbaar object gebruiken voor de nettolading van het wachtrij-item.
 
 
 ## <a name="exceptions-and-return-codes"></a>Uitzonderingen en retourcodes
 
 | Binding |  Referentie |
 |---|---|
-| Wachtrij | [Foutcodes voor wachtrij](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
-| BLOB-, tabel, wachtrij | [Foutcodes voor opslag](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| BLOB-, tabel, wachtrij |  [Problemen oplossen](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| Wachtrij | [Fout codes voor de wachtrij](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
+| BLOB, tabel, wachtrij | [Opslag fout codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| BLOB, tabel, wachtrij |  [Problemen oplossen](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 <a name="host-json"></a>  
 
@@ -566,11 +678,11 @@ In deze sectie beschrijft de globale configuratie-instellingen beschikbaar voor 
 
 |Eigenschap  |Standaard | Description |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|Het maximale interval tussen de wachtrij worden opgevraagd. Minimale 00:00:00.100 (100 ms) is en wordt verhoogd tot 00:01:00 uur (1 min). |
-|visibilityTimeout|00:00:00|Het tijdsinterval tussen nieuwe pogingen bij het verwerken van een bericht is mislukt. |
-|batchSize|16|Het aantal Wachtrijberichten waarmee de Functions-runtime gelijktijdig worden opgehaald en parallel worden verwerkt. Als het getal dat wordt verwerkt opgehaald omlaag naar de `newBatchThreshold`, de runtime opgehaald van een andere batch en start deze berichten worden verwerkt. Zodat het maximum aantal gelijktijdige berichten worden verwerkt per functie `batchSize` plus `newBatchThreshold`. Deze limiet geldt afzonderlijk voor elke wachtrij-geactiveerde functie. <br><br>Als u voorkomen dat de parallelle uitvoering voor berichten in een wachtrij ontvangen wilt, kunt u instellen `batchSize` op 1. Deze instelling elimineert echter gelijktijdigheid alleen zo lang uw functie-app wordt uitgevoerd op een enkele virtuele machine (VM). Als de functie-app wordt geschaald naar meerdere virtuele machines, kan één exemplaar van elke wachtrij-geactiveerde functie uitvoeren in elke virtuele machine.<br><br>De maximale `batchSize` is 32. |
-|maxDequeueCount|5|Het aantal keren dat probeert een bericht verwerken voordat u deze verplaatst naar de wachtrij onverwerkbare.|
-|newBatchThreshold|batchSize/2|Wanneer het aantal berichten gelijktijdig worden verwerkt met deze eigenschap omlaag naar het volgende nummer, wordt een andere batch in de runtime opgehaald.|
+|maxPollingInterval|00:00:01|Het maximum interval tussen de polls van de wachtrij. Minimum is 00:00:00.100 (100 MS) en wordt verhoogd naar 00:01:00 (1 min.). |
+|visibilityTimeout|00:00:00|Het tijds interval tussen nieuwe pogingen wanneer het verwerken van een bericht mislukt. |
+|batchSize|16|Het aantal wachtrij berichten dat door de functions-runtime gelijktijdig wordt opgehaald en processen parallel. Wanneer het nummer dat wordt verwerkt, naar de `newBatchThreshold`wordt Verwerk, wordt er door de runtime een andere batch opgehaald en worden deze berichten verwerkt. Het maximum aantal gelijktijdige berichten dat per functie wordt verwerkt, is `batchSize` plus `newBatchThreshold`. Deze limiet geldt afzonderlijk voor elke door de wachtrij geactiveerde functie. <br><br>Als u een parallelle uitvoering wilt voor komen voor berichten die worden ontvangen op één wachtrij, `batchSize` kunt u instellen op 1. Met deze instelling elimineert u echter alleen gelijktijdigheid, zolang uw functie-app wordt uitgevoerd op één virtuele machine (VM). Als de functie-app wordt geschaald naar meerdere Vm's, kan elke virtuele machine één exemplaar van elke door de wachtrij geactiveerde functie uitvoeren.<br><br>De maximum `batchSize` waarde is 32. |
+|maxDequeueCount|5|Het aantal keren dat een bericht moet worden verwerkt voordat het naar de verontreinigde wachtrij wordt verplaatst.|
+|newBatchThreshold|batchSize/2|Telkens wanneer het aantal berichten dat gelijktijdig wordt verwerkt, naar dit nummer wordt opgehaald, haalt de runtime een andere batch op.|
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -582,7 +694,7 @@ In deze sectie beschrijft de globale configuratie-instellingen beschikbaar voor 
 -->
 
 > [!div class="nextstepaction"]
-> [Ga naar een zelfstudie over het gebruik van een Queue storage-Uitvoerbinding](functions-integrate-storage-queue-output-binding.md)
+> [Ga naar een zelf studie waarin een uitvoer binding voor de wachtrij opslag wordt gebruikt](functions-integrate-storage-queue-output-binding.md)
 
 <!-- LINKS -->
 

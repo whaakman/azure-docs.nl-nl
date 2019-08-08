@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 32da92fb3c5573d24eb18a01a4ede8fe6a0bf36a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3637676a330b324d5620885f0cbe50d4aa68ed51
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567447"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779052"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Veelgestelde vragen over SQL Database beheerde exemplaren
 
@@ -79,9 +79,9 @@ Als beide generaties niet in dezelfde regio worden ondersteund, is het wijzigen 
 
 ## <a name="how-do-i-tune-performance-of-my-managed-instance"></a>De prestaties van mijn beheerde exemplaar Hoe kan ik afstemmen? 
 
-Algemeen beheerde instantie gebruikt externe opslag, omdat de grootte van de gegevens en logboek bestanden op de prestaties van belang is. Volg de instructies in dit blog bericht om de prestaties van Algemeen service tier af te stemmen.
+Algemeen beheerde instantie gebruikt externe opslag, omdat de grootte van de gegevens en logboek bestanden op de prestaties van belang is. Zie [impact van de grootte van het logboek bestand op algemeen prestaties van het beheerde exemplaar](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e)voor meer informatie.
 
-Voor intensieve IO-workloads kunt u gebruikmaken van generatie 5-Hardware en met behulp van gen 4 voor computerintensieve werk belastingen. Zie de sectie Veelgestelde vragen over het kiezen van hardware-generaties voor meer informatie.
+Voor intensieve IO-workloads kunt u gebruikmaken van generatie 5-Hardware en met behulp van gen 4 voor computerintensieve werk belastingen. Zie [Hoe kan ik kiezen tussen gen 4 en Gen 5](#how-do-i-choose-between-gen-4-and-gen-5-hardware-generation-for-managed-instance)voor meer informatie.
 
 Als uw werk belasting uit veel kleine trans acties bestaat, kunt u overwegen om het verbindings type van de proxy naar de omleidings modus te scha kelen.
 

@@ -12,18 +12,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 2/13/2019
-ms.openlocfilehash: e7dea69b507117ba8a3765b5e9bc1fad46be4c53
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.date: 08/01/2019
+ms.openlocfilehash: e656cd4d901ad9f3180963047a85cd980e56df8b
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444195"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774200"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>Opmerkingen bij de release van Azure virtual machine SQL Server
 
 Met Azure kunt u een virtuele machine implementeren met een installatie kopie van SQL Server ingebouwde. In dit artikel vindt u een overzicht van de nieuwe functies en verbeteringen in de recente releases van [SQL Server op virtuele machines van Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). In dit artikel vindt u ook een overzicht van belang rijke inhouds updates die niet rechtstreeks verband houden met de release, maar die in hetzelfde tijds bestek zijn gepubliceerd. Zie [service-updates](https://azure.microsoft.com/updates) voor verbeteringen aan andere Azure-Services
 
+## <a name="july-2019"></a>2019 juli
+
+### <a name="documentation-improvements"></a>Verbeterde documentatie
+
+| Documentatie | Details |
+| --- | --- |
+| **SQL-VM naar een andere regio verplaatsen** | Gebruik Azure Site Recovery om [uw SQL Server-VM van de ene regio naar de andere te migreren](virtual-machines-windows-sql-move-different-region.md). |
+| &nbsp; | &nbsp; |
 
 ## <a name="june-2019"></a>Juni 2019
 
@@ -63,7 +71,7 @@ Met Azure kunt u een virtuele machine implementeren met een installatie kopie va
 
 | Service verbeteringen | Details |
 | --- | --- |
-| **Ondersteuning voor SQL Server 2008-2008R2 uitbreiden** | [Ondersteuning](virtual-machines-windows-sql-server-2008-eos-extend-support.md) voor SQL Server 2008 en SQL Server 2008 R2 uitbreiden *door te migreren* naar een virtuele machine van Azure. | 
+| **Ondersteuning voor SQL Server 2008-2008R2 uitbreiden** | [Ondersteuning](virtual-machines-windows-sql-server-2008-eos-extend-support.md) voor SQL Server 2008 en SQL Server 2008 R2 uitbreiden door te migreren naar een virtuele machine van Azure. | 
 | &nbsp; | &nbsp; |
 
 
@@ -73,7 +81,7 @@ Met Azure kunt u een virtuele machine implementeren met een installatie kopie va
 | --- | --- |
 | **Ondersteuning voor aangepaste installatie kopieën** | U kunt de [SQL IaaS-extensie](virtual-machines-windows-sql-server-agent-extension.md#installation) nu installeren op aangepaste besturings systemen en SQL-installatie kopieën, die de beperkte functionaliteit van [flexibele licenties](virtual-machines-windows-sql-ahb.md)bieden. Wanneer u uw aangepaste installatie kopie met de SQL-resource provider registreert, geeft u het licentie type op als ' AHUB ', anders mislukt de registratie. | 
 | **Ondersteunings ondersteuning voor benoemde instanties** | U kunt nu de [SQL IaaS-extensie](virtual-machines-windows-sql-server-agent-extension.md#installation) gebruiken met een benoemd exemplaar als het standaard exemplaar op de juiste manier is verwijderd. | 
-| **Portal verbetering** | De Azure Portal ervaring voor het implementeren van een SQL Server VM is vernieuwd om de bruikbaarheid te verbeteren. Meer informatie vindt u in de korte [Snelstartgids](quickstart-sql-vm-create-portal.md) en uitgebreidere [hand leiding](virtual-machines-windows-portal-sql-server-provision.md) voor het implementeren van een SQL Server-VM.|
+| **Portal verbetering** | De Azure Portal ervaring voor het implementeren van een SQL Server VM is vernieuwd om de bruikbaarheid te verbeteren. Meer informatie vindt u in de korte [Snelstartgids](quickstart-sql-vm-create-portal.md) en uitgebreidere [](virtual-machines-windows-portal-sql-server-provision.md) hand leiding voor het implementeren van een SQL Server-VM.|
 | &nbsp; | &nbsp; |
 
 

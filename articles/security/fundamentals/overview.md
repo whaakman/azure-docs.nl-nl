@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 62fd2c3f46104fdf3193f105c234f1dae417b0fd
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 527c9cfa64eab9fe2286098d2c10186391bdde4d
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726871"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780577"
 ---
 # <a name="introduction-to-azure-security"></a>Inleiding tot Azure-beveiliging
 ## <a name="overview"></a>Overzicht
@@ -114,7 +114,7 @@ De sectie bevat aanvullende informatie over de belangrijkste functies in toepass
 Een van de eenvoudigste manieren om aan de slag te gaan met het testen op beveiligings problemen in uw [app service-app](https://docs.microsoft.com/azure/app-service/overview) is het gebruik van de [integratie met Tinfoil-beveiliging](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) om met één klik een beveiligingslek in uw app te scannen. U kunt de test resultaten weer geven in een eenvoudig te begrijpen rapport en meer informatie over het oplossen van elk beveiligings probleem met stapsgewijze instructies.
 
 ### <a name="penetration-testing"></a>Penetratietesten
-Als u liever uw eigen indringings tests uitvoert of een ander scanner pakket of een andere provider wilt gebruiken, moet u het [goedkeurings proces voor Azure indringings tests](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) volgen en voorafgaand goed keuring aanvragen om de gewenste indringings tests uit te voeren.
+Als u liever uw eigen indringings tests uitvoert of een ander scanner pakket of een andere provider wilt gebruiken, moet u het [goedkeurings proces voor Azure indringings tests](https://docs.microsoft.com/azure/security/fundamentals/pen-testing ) volgen en voorafgaand goed keuring aanvragen om de gewenste indringings tests uit te voeren.
 
 ### <a name="web-application-firewall"></a>Web Application firewall
 De Web Application Firewall (WAF) in [Azure-toepassing gateway](https://azure.microsoft.com/services/application-gateway/) helpt bij het beveiligen van webtoepassingen tegen veelvoorkomende aanvallen op internet, zoals SQL-injectie, cross-site scripting aanvallen en het overnemen van sessies. Het is vooraf geconfigureerd met beveiliging tegen bedreigingen die zijn geïdentificeerd door het [Open Web Application Security project (OWASP) als de Top 10 van veelvoorkomende beveiligings problemen](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
@@ -154,7 +154,7 @@ In Application Diagnostics kunt u de gebeurtenissen weer geven die op de volgend
 De sectie bevat aanvullende informatie over de belangrijkste functies in azure Storage-beveiliging en samenvattings informatie over deze mogelijkheden.
 
 ### <a name="role-based-access-control-rbac"></a>RBAC (op rollen gebaseerd toegangsbeheer)
-U kunt uw opslag account beveiligen met op rollen gebaseerd Access Control (RBAC). Het beperken van de toegang op basis van [de beveiligings principes](https://en.wikipedia.org/wiki/Principle_of_least_privilege) van de [nood zaak om te kennen](https://en.wikipedia.org/wiki/Need_to_know) , is van cruciaal belang voor organisaties die beveiligings beleid voor gegevens toegang willen afdwingen. Deze toegangs rechten worden verleend door de juiste RBAC-rol toe te wijzen aan groepen en toepassingen bij een bepaald bereik. U kunt [Ingebouwde RBAC-rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles), zoals Inzender voor opslag accounts, gebruiken om machtigingen toe te wijzen aan gebruikers. Toegang tot de opslag sleutels voor een opslag account met behulp van het [Azure Resource Manager](https://docs.microsoft.com/azure/storage/storage-security-guide) model kan worden beheerd via op rollen gebaseerde Access Control (RBAC).
+U kunt uw opslag account beveiligen met op rollen gebaseerd Access Control (RBAC). Het beperken van de toegang op basis van de beveiligings principes [](https://en.wikipedia.org/wiki/Principle_of_least_privilege) van de [nood zaak om te kennen](https://en.wikipedia.org/wiki/Need_to_know) , is van cruciaal belang voor organisaties die beveiligings beleid voor gegevens toegang willen afdwingen. Deze toegangs rechten worden verleend door de juiste RBAC-rol toe te wijzen aan groepen en toepassingen bij een bepaald bereik. U kunt [Ingebouwde RBAC-rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles), zoals Inzender voor opslag accounts, gebruiken om machtigingen toe te wijzen aan gebruikers. Toegang tot de opslag sleutels voor een opslag account met behulp van het [Azure Resource Manager](https://docs.microsoft.com/azure/storage/storage-security-guide) model kan worden beheerd via op rollen gebaseerde Access Control (RBAC).
 
 ### <a name="shared-access-signature"></a>Shared Access Signature
 Een [SAS (Shared Access Signature; handtekening voor gedeelde toegang)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) biedt gedelegeerde toegang tot bronnen in uw opslagaccount. De SAS betekent dat u een client beperkte machtigingen kunt verlenen voor objecten in uw opslag account voor een opgegeven periode en met een opgegeven set machtigingen. U kunt deze beperkte machtigingen verlenen zonder dat u de toegangs sleutels van uw account hoeft te delen.
@@ -313,7 +313,7 @@ Beschik bare aanbevelingen voor het netwerk zijn als volgt:
 De sectie bevat aanvullende informatie over belang rijke functies op dit gebied en samenvattings informatie over deze mogelijkheden.
 
 ### <a name="antimalware--antivirus"></a>Antimalware & anti virus
-Met Azure IaaS kunt u antimalware-software gebruiken van beveiligings leveranciers zoals micro soft, Symantec, Trend Micro, McAfee en Kaspersky om uw virtuele machines te beschermen tegen schadelijke bestanden, adware en andere bedreigingen. [Micro soft antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) voor Azure Cloud Services en virtual machines is een beschermings functie waarmee u virussen, spyware en andere schadelijke software kunt identificeren en verwijderen. Micro soft antimalware biedt Configureer bare waarschuwingen wanneer bekende schadelijke of ongewenste software probeert zichzelf te installeren of uit te voeren op uw Azure-systemen. Micro soft antimalware kan ook worden geïmplementeerd met Azure Security Center
+Met Azure IaaS kunt u antimalware-software gebruiken van beveiligings leveranciers zoals micro soft, Symantec, Trend Micro, McAfee en Kaspersky om uw virtuele machines te beschermen tegen schadelijke bestanden, adware en andere bedreigingen. [Micro soft antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) voor Azure Cloud Services en virtual machines is een beschermings functie waarmee u virussen, spyware en andere schadelijke software kunt identificeren en verwijderen. Micro soft antimalware biedt Configureer bare waarschuwingen wanneer bekende schadelijke of ongewenste software probeert zichzelf te installeren of uit te voeren op uw Azure-systemen. Micro soft antimalware kan ook worden geïmplementeerd met Azure Security Center
 
 ### <a name="hardware-security-module"></a>Hardware Security module
 Versleuteling en verificatie verbeteren de beveiliging alleen als de sleutels zelf zijn beveiligd. U kunt het beheer en de beveiliging van uw essentiële geheimen en sleutels vereenvoudigen door ze op te slaan in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis). Key Vault biedt de mogelijkheid om uw sleutels op te slaan in Hardware Security modules (Hsm's) die zijn gecertificeerd voor FIPS 140-2 level 2-standaarden. Uw SQL Server versleutelings sleutels voor back-up of [transparante gegevens versleuteling](https://msdn.microsoft.com/library/bb934049.aspx) kunnen allemaal worden opgeslagen in Key Vault met alle sleutels of geheimen van uw toepassingen. Machtigingen en toegang tot deze beveiligde items worden beheerd via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).

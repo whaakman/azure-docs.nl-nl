@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Indexeren van gegevens uit Azure SQL-databases in een C# voorbeeldcode - Azure Search'
-description: Een C# codevoorbeeld waarin wordt beschreven hoe u verbinding maken met Azure SQL-database, doorzoekbare gegevens ophalen en deze te laden in een Azure Search-index.
+title: C#Vind Index gegevens uit Azure SQL-data bases-Azure Search
+description: Een C# code voorbeeld waarin wordt getoond hoe u verbinding maakt met Azure SQL database, Doorzoek bare gegevens ophaalt en laadt in een Azure search index.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -10,20 +10,20 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bb082fb83f8c2521b0deabced6f851e62b785e8f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c88ff0d7e408e03216707ff9282d640fb7d28500
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485394"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840692"
 ---
-# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C#Zelfstudie: Een Azure SQL-database verkennen met de indexeerfuncties van Azure Search
+# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C#Vind Een Azure SQL-database verkennen met de indexeerfuncties van Azure Search
 
-Informatie over het configureren van een indexeerfunctie die doorzoekbare gegevens uit een voorbeeld van Azure SQL-database. [Indexeerfuncties](search-indexer-overview.md) zijn onderdelen van Azure Search die externe gegevensbronnen verkennen en een [zoekindex](search-what-is-an-index.md) vullen met inhoud. De indexeerfunctie voor Azure SQL Database is van alle indexeerfuncties is de meest gebruikte. 
+Meer informatie over hoe u een Indexeer functie kunt configureren voor het extra heren van Doorzoek bare gegevens uit een Azure-voor beeld-SQL database. [Indexeerfuncties](search-indexer-overview.md) zijn onderdelen van Azure Search die externe gegevensbronnen verkennen en een [zoekindex](search-what-is-an-index.md) vullen met inhoud. Van alle Indexeer functies is de Indexeer functie voor Azure SQL Database het meest gebruikte. 
 
 Een goede vaardigheid in het configureren van indexeerfuncties is nuttig omdat dit de hoeveelheid code die u moet schrijven en onderhouden vereenvoudigt. In plaats van een schemacompatibele JSON-gegevensset voor te bereiden en te pushen, kunt u een indexeerfunctie koppelen aan een gegevensbron en de indexeerfunctie gegevens laten ophalen en in een index plaatsen. U kunt de indexeerfunctie eventueel uitvoeren volgens een terugkerend schema om zo wijzigingen in de onderliggende gegevensbron op te halen.
 
-In deze zelfstudie gebruikt u de [Azure Search .NET-clientbibliotheken](https://aka.ms/search-sdk) en een .NET Core-consoletoepassing voor het uitvoeren van de volgende taken:
+In deze zelf studie gebruikt u de [Azure Search .net-client bibliotheken](https://aka.ms/search-sdk) en een .net core-console toepassing om de volgende taken uit te voeren:
 
 > [!div class="checklist"]
 > * Informatie over de zoekservice toevoegen aan toepassingsinstellingen
@@ -37,39 +37,39 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 
-De volgende services, hulpprogramma's en gegevens worden gebruikt in deze Quick Start. 
+De volgende services, hulpprogram ma's en gegevens worden gebruikt in deze Quick Start. 
 
-[Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze zelfstudie gebruiken.
+[Een Azure Search-service maken](search-create-service-portal.md) of [een bestaande service vinden](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) onder uw huidige abonnement. U kunt voor deze zelf studie gebruikmaken van een gratis service.
 
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) slaat de externe gegevensbron die wordt gebruikt door een indexeerfunctie. De voorbeeldoplossing biedt een SQL-gegevensbestand om de tabel te maken. In deze zelfstudie vindt u stappen voor het maken van de service en de database.
+[Azure SQL database](https://azure.microsoft.com/services/sql-database/) slaat de externe gegevens bron op die door een Indexeer functie wordt gebruikt. De voorbeeldoplossing biedt een SQL-gegevensbestand om de tabel te maken. De stappen voor het maken van de service en de Data Base zijn opgenomen in deze zelf studie.
 
-[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alle edities, kan worden gebruikt om uit te voeren van de Voorbeeldoplossing. Voorbeeldcode en instructies zijn getest op de gratis Community-versie.
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), elke editie, kan worden gebruikt om de voorbeeld oplossing uit te voeren. Voor beelden van code en instructies zijn getest in de gratis Community-editie.
 
-[Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) biedt de Voorbeeldoplossing, zich in de GitHub-opslagplaats voor Azure-voorbeelden. Downloaden en uitpakken van de oplossing. Oplossingen zijn standaard alleen-lezen. Met de rechtermuisknop op de oplossing en schakelt u het kenmerk alleen-lezen zodat u bestanden kunt wijzigen.
+[Azure-samples/Search-DotNet-Getting-Started](https://github.com/Azure-Samples/search-dotnet-getting-started) biedt de voorbeeld oplossing die zich bevindt in de GitHub-opslag plaats van Azure samples. Down load de oplossing en pak deze uit. Oplossingen zijn standaard alleen-lezen. Klik met de rechter muisknop op de oplossing en schakel het kenmerk alleen-lezen uit zodat u bestanden kunt wijzigen.
 
 > [!Note]
 > Als u de gratis Azure Search-service gebruikt, bent u beperkt tot drie indexen, drie indexeerfuncties en drie gegevensbronnen. In deze zelfstudie wordt één exemplaar van elk onderdeel gemaakt. Zorg ervoor dat uw service voldoende ruimte heeft voor de nieuwe resources.
 
-## <a name="get-a-key-and-url"></a>Een sleutel en -URL ophalen
+## <a name="get-a-key-and-url"></a>Een sleutel en URL ophalen
 
 REST-aanroepen hebben voor elke aanvraag de service-URL en een toegangssleutel nodig. Een zoekservice wordt gemaakt met beide, dus als u Azure Search hebt toegevoegd aan uw abonnement, volgt u deze stappen om de benodigde gegevens op te halen:
 
-1. [Meld u aan bij Azure portal](https://portal.azure.com/), en in uw zoekservice **overzicht** pagina, de URL ophalen. Een eindpunt ziet er bijvoorbeeld uit als `https://mydemo.search.windows.net`.
+1. [Meld u aan bij de Azure Portal](https://portal.azure.com/)en down load de URL op de pagina **overzicht** van de zoek service. Een eindpunt ziet er bijvoorbeeld uit als `https://mydemo.search.windows.net`.
 
-1. In **instellingen** > **sleutels**, een beheersleutel voor volledige rechten voor de service ophalen. Er zijn twee uitwisselbaar beheersleutels, verstrekt voor bedrijfscontinuïteit voor het geval u moet een meegenomen. U kunt de primaire of secundaire sleutel gebruiken voor verzoeken voor toevoegen, wijzigen en verwijderen van objecten.
+1. Haal in **instellingen** > **sleutels**een beheerders sleutel op voor volledige rechten op de service. Er zijn twee uitwissel bare beheer sleutels die voor bedrijfs continuïteit worden verschaft, voor het geval dat u een voor beeld moet doen. U kunt de primaire of secundaire sleutel gebruiken op aanvragen voor het toevoegen, wijzigen en verwijderen van objecten.
 
-![Een HTTP-eindpunt en -sleutel ophalen](media/search-get-started-postman/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
+![Een HTTP-eind punt en toegangs sleutel ophalen](media/search-get-started-postman/get-url-key.png "Een HTTP-eind punt en toegangs sleutel ophalen")
 
-Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw service. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
+Voor alle aanvragen is een API-sleutel vereist voor elke aanvraag die naar uw service wordt verzonden. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
 ## <a name="set-up-connections"></a>Verbindingen instellen
 Verbindingsgegevens voor benodigde services worden opgegeven in het bestand **appsettings.json** in de oplossing. 
 
-1. Open in Visual Studio, de **DotNetHowToIndexers.sln** bestand.
+1. Open in Visual Studio het bestand **DotNetHowToIndexers. SLN** .
 
-1. Open in Solution Explorer **appsettings.json** zodat u kunt de waarden voor elke instelling.  
+1. Open **appSettings. json** in Solution Explorer zodat u elke instelling kunt invullen.  
 
-De eerste twee vermeldingen daarna vult u nu, met de URL en beheer sleutels voor uw Azure Search-service. Een eindpunt van de opgegeven `https://mydemo.search.windows.net`, is de naam van de service voor `mydemo`.
+De eerste twee vermeldingen die u nu kunt invullen, met behulp van de URL en de beheer sleutels voor uw Azure Search service. Op basis van een `https://mydemo.search.windows.net`eind punt van is `mydemo`de te bieden service naam.
 
 ```json
 {
@@ -79,17 +79,17 @@ De eerste twee vermeldingen daarna vult u nu, met de URL en beheer sleutels voor
 }
 ```
 
-Het laatste item is vereist voor een bestaande database. In de volgende stap maakt u deze.
+Voor de laatste invoer is een bestaande data base vereist. U maakt deze in de volgende stap.
 
-## <a name="prepare-sample-data"></a>Voorbeeldgegevens voorbereiden
+## <a name="prepare-sample-data"></a>Voorbeeld gegevens voorbereiden
 
 In deze stap maakt u een externe gegevensbron die een indexeerfunctie kan verkennen. U kunt de Azure-portal en het bestand *hotels.sql* uit het voorbeeld gebruiken om de gegevensset in Azure SQL Database te maken. Azure Search gebruikt platte rijensets, zoals de sets die worden gegenereerd op basis van een weergave of query. Het SQL-bestand in de voorbeeldoplossing maakt en vult één tabel.
 
 In de volgende oefening wordt ervan uitgegaan dat er geen bestaande server of database is en u maakt beide in stap 2. Als u een bestaande resource hebt, kunt u de tabel hotels er desgewenst aan toevoegen vanaf stap 4.
 
-1. [Meld u aan bij Azure portal](https://portal.azure.com/). 
+1. [Meld u aan bij de Azure Portal](https://portal.azure.com/). 
 
-2. Zoekt of maakt u een **Azure SQL Database** om een groep database, server en resourcegroep te maken. U kunt de standaardinstellingen en de laagste prijscategorie gebruiken. Eén voordeel van het maken van een server is dat u de gebruikersnaam en het wachtwoord van een beheerder kunt opgeven die in een latere stap nodig zijn om tabellen te maken en te laden.
+2. Zoek of maak een **Azure SQL database** om een Data Base, server en resource groep te maken. U kunt de standaardinstellingen en de laagste prijscategorie gebruiken. Eén voordeel van het maken van een server is dat u de gebruikersnaam en het wachtwoord van een beheerder kunt opgeven die in een latere stap nodig zijn om tabellen te maken en te laden.
 
    ![De pagina Nieuwe database](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 
@@ -99,7 +99,7 @@ In de volgende oefening wordt ervan uitgegaan dat er geen bestaande server of da
 
    ![De pagina SQL-database](./media/search-indexer-tutorial/hotels-db.png)
 
-4. Klik in het navigatievenster op **Query-editor (preview)** .
+4. Klik in het navigatie deel venster op **query-editor (preview)** .
 
 5. Klik op **Aanmelden** en voer de gebruikersnaam en het wachtwoord van de serverbeheerder in.
 
@@ -137,7 +137,7 @@ In de volgende oefening wordt ervan uitgegaan dat er geen bestaande server of da
 
 ## <a name="understand-the-code"></a>De code begrijpen
 
-Zodra de gegevens en configuratie-instellingen zijn gemaakt, wordt het voorbeeld programma **DotNetHowToIndexers.sln** is gereed om te bouwen en uitvoeren. Voordat u dat doet, moet u even de tijd nemen om de definities van de index en de indexeerfuncties voor dit voorbeeld te bestuderen. De relevante code staat in twee bestanden:
+Zodra de gegevens en configuratie-instellingen zijn geïmplementeerd, is het voorbeeld programma in **DotNetHowToIndexers. SLN** klaar om te bouwen en uit te voeren. Voordat u dat doet, moet u even de tijd nemen om de definities van de index en de indexeerfuncties voor dit voorbeeld te bestuderen. De relevante code staat in twee bestanden:
 
   + **hotel.cs**, dat het schema bevat dat de index definieert
   + **Program.cs**, dat de functies bevat die de structuren in uw service maken en beheren
@@ -155,13 +155,13 @@ public string HotelName { get; set; }
 
 Een schema kan ook andere elementen bevatten, zoals scoreprofielen om een zoekscore te verbeteren, aangepaste analysefuncties en andere constructies. In dit geval is het schema echter beperkt gedefinieerd en bestaat het alleen uit velden in de voorbeeldgegevenssets.
 
-In deze zelfstudie haalt de indexeerfunctie gegevens op uit één gegevensbron. In de praktijk, kunt u meerdere indexeerfuncties koppelen aan de dezelfde index, het maken van een geconsolideerde doorzoekbare index van meerdere gegevensbronnen. U kunt dezelfde combinatie van index en indexeerfunctie gebruiken, waarbij alleen de gegevensbronnen verschillen, of één index gebruiken met verschillende combinaties van indexeerfunctie en gegevensbron, afhankelijk van waar u flexibiliteit nodig hebt.
+In deze zelfstudie haalt de indexeerfunctie gegevens op uit één gegevensbron. In de praktijk kunt u meerdere Indexeer functies aan dezelfde index koppelen en een geconsolideerde Doorzoek bare index uit meerdere gegevens bronnen maken. U kunt dezelfde combinatie van index en indexeerfunctie gebruiken, waarbij alleen de gegevensbronnen verschillen, of één index gebruiken met verschillende combinaties van indexeerfunctie en gegevensbron, afhankelijk van waar u flexibiliteit nodig hebt.
 
 ### <a name="in-programcs"></a>In Program.cs
 
-Het hoofdprogramma bevat de logica voor het maken van een client, een index, een gegevensbron en een indexeerfunctie. De code controleert op en verwijdert bestaande resources met dezelfde naam, waarbij ervan wordt uitgegaan dat u dit programma meerdere keren uitvoert.
+Het hoofd programma bevat logica voor het maken van een-client, een index, een gegevens bron en een Indexeer functie. De code controleert op en verwijdert bestaande resources met dezelfde naam, waarbij ervan wordt uitgegaan dat u dit programma meerdere keren uitvoert.
 
-Het object voor de bron is geconfigureerd met instellingen die specifiek voor Azure SQL database-resources zijn, met inbegrip van [incrementele indexeren](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) voor het gebruik van de ingebouwde [wijzigen detectie functies](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) van Azure SQL. De demo hotels database in Azure SQL is een 'voorlopig verwijderen' kolom met de naam **IsDeleted**. Wanneer deze kolom is ingesteld op true in de database, de indexeerfunctie Hiermee verwijdert u de bijbehorende document uit de Azure Search-index.
+Het gegevens bron object is geconfigureerd met instellingen die specifiek zijn voor Azure SQL database-resources, [](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) inclusief incrementele indexering voor het gebruik van de ingebouwde functie voor het [detecteren van wijzigingen](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) van Azure SQL. De voorbeeld database van de demo in Azure SQL heeft een kolom ' voorlopig verwijderen ' met de naam **IsDeleted**. Als deze kolom is ingesteld op True in de data base, verwijdert de Indexeer functie het bijbehorende document uit de Azure Search index.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -178,7 +178,7 @@ Het object voor de bron is geconfigureerd met instellingen die specifiek voor Az
   searchService.DataSources.CreateOrUpdateAsync(dataSource).Wait();
   ```
 
-Een indexeerfunctie-object is platformonafhankelijk, waarbij configuratie, plannen en aanroepen zijn hetzelfde, ongeacht de bron. In dit voorbeeld van de indexeerfunctie bevat een schema, een optie voor opnieuw instellen die wordt gewist indexeerfunctie geschiedenis en roept een methode voor het maken en de indexeerfunctie direct uitvoeren.
+Een Indexeer functie-object is platform-neutraal, waarbij de configuratie, planning en aanroep hetzelfde zijn, ongeacht de bron. Dit voor beeld bevat een schema, een reset optie waarmee de indexerings geschiedenis wordt gewist en een methode wordt aangeroepen om de Indexeer functie direct te maken en uit te voeren.
 
   ```csharp
   Console.WriteLine("Creating Azure SQL indexer...");
@@ -256,8 +256,8 @@ Klik in de Azure Portal op de overzichtspagina van de zoekservice op **Search Ex
 
 Alle indexeerfuncties, inclusief de functie die u zojuist via programmacode hebt gemaakt, worden vermeld in de portal. U kunt de definitie van een indexeerfunctie openen en de gegevensbron ervan weergeven of een vernieuwingsschema configureren om nieuwe en gewijzigde rijen op te halen.
 
-1. [Meld u aan bij Azure portal](https://portal.azure.com/), en in uw zoekservice **overzicht** pagina, klikt u op de koppelingen voor **indexen**, **indexeerfuncties**, en **gegevens Bronnen**.
-3. Selecteer de afzonderlijke objecten weergeven of wijzigen van configuratie-instellingen.
+1. [Meld u aan bij de Azure Portal](https://portal.azure.com/)en klik op de pagina **overzicht** van zoek services op de koppelingen naar **indexen**, **Indexeer functies**en **gegevens bronnen**.
+3. Selecteer afzonderlijke objecten om configuratie-instellingen weer te geven of te wijzigen.
 
    ![Tegels met indexeerfuncties en gegevensbronnen](./media/search-indexer-tutorial/tiles-portal.png)
 
@@ -267,7 +267,7 @@ De snelste manier om op te schonen na een zelfstudie is de resourcegroep met de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt AI-algoritmen voor verrijking koppelen aan een pijplijn voor indexering. Als volgende stap kunt u verdergaan met de volgende zelfstudie.
+U kunt AI-verrijkings algoritmen koppelen aan een indexerings pijplijn. Als volgende stap kunt u verdergaan met de volgende zelfstudie.
 
 > [!div class="nextstepaction"]
 > [Documenten in Azure Blob Storage indexeren](search-howto-indexing-azure-blob-storage.md)

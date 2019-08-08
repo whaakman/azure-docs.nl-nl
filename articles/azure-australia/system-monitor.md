@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: b68bdb6d1c349df67943889b511eac87c940b531
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f7f78dbde9810c8786e2344555444efabcc989b0
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571885"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779327"
 ---
 # <a name="system-monitoring-for-security-in-azure-australia"></a>Systeem bewaking voor beveiliging in azure Australië
 
@@ -108,7 +108,7 @@ De logboeken die in azure zijn verzameld, vallen onder een van de volgende drie 
 
 De bewaking van virtuele Azure-machines wordt verbeterd door de implementatie van de Virtual Machine-agent voor Windows en Linux. Dit markeert aanzienlijk de omvang van de verzamelde logboek gegevens. De implementatie van deze agent kan worden geconfigureerd om automatisch te worden uitgevoerd via de Azure Security Center.
 
-Micro soft biedt gedetailleerde informatie over Azure-resource-specifieke logboeken en hun [schema's](https://docs.microsoft.com/azure/security/azure-log-audit).
+Micro soft biedt gedetailleerde informatie over Azure-resource-specifieke logboeken en hun [schema's](https://docs.microsoft.com/azure/security/fundamentals/log-audit).
 
 ### <a name="log-retention-and-protection"></a>Bewaren en beveiligen van logboek
 
@@ -136,7 +136,7 @@ Met een beveiligde Score in Azure Security Center krijgt u een lijst met aanbeve
 
 Azure Policy speelt ook een belang rijke rol in de doorlopende evaluatie van het beveiligingslek. De typen beleid die beschikbaar zijn in Azure Policy bereik van het afdwingen van resource Tags en-waarden, het beperken van de Azure-regio's waarin resources kunnen worden gemaakt, om het maken van bepaalde resource typen te blok keren. Een set van Azure-beleid kan worden gegroepeerd in initiatieven. Initiatieven worden gebruikt voor het Toep assen van gerelateerde Azure-beleids regels die, wanneer ze samen worden toegepast als groep, de basis vormen van een specifiek beveiligings-of nalevings doel.
 
-Azure Policy heeft een bibliotheek met ingebouwde beleids definities die voortdurend groeien. Azure Portal biedt u ook de mogelijkheid om uw eigen aangepaste Azure Policy definities te maken. Wanneer u een beleid in de bestaande bibliotheek hebt gevonden of een nieuwe hebt gemaakt, kunt u het beleid toewijzen aan Azure-resources. Deze toewijzingen kunnen op verschillende niveaus in de resource beheer [hiërarchie worden toegepast](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) . Beleids toewijzing is overgenomen, wat betekent dat alle onderliggende resources binnen een bereik dezelfde beleids toewijzing ontvangen. Resources kunnen ook worden uitgesloten van de toewijzing van het bereik beleid zoals vereist.
+Azure Policy heeft een bibliotheek met ingebouwde beleids definities die voortdurend groeien. Azure Portal biedt u ook de mogelijkheid om uw eigen aangepaste Azure Policy definities te maken. Wanneer u een beleid in de bestaande bibliotheek hebt gevonden of een nieuwe hebt gemaakt, kunt u het beleid toewijzen aan Azure-resources. Deze toewijzingen kunnen op [](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) verschillende niveaus in de resource beheer hiërarchie worden toegepast. Beleids toewijzing is overgenomen, wat betekent dat alle onderliggende resources binnen een bereik dezelfde beleids toewijzing ontvangen. Resources kunnen ook worden uitgesloten van de toewijzing van het bereik beleid zoals vereist.
 
 Alle geïmplementeerde Azure-beleids regels dragen bij aan de beveiligde Score van een organisatie. In een zeer Bespoke omgeving kunnen aangepaste definities van Azure Policy worden gemaakt en geïmplementeerd om controle gegevens op te geven die zijn afgestemd op specifieke werk belastingen.
 

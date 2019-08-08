@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: cc0540f74b755e083855721ad62754c70edb88b6
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 1b2e6e0aa74c06afea09a67dbdf65ca47727b72e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728677"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780568"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Veilige toepassingen ontwikkelen in azure
 In dit artikel bieden we beveiligings activiteiten en-controles waarmee u rekening moet houden bij het ontwikkelen van toepassingen voor de Cloud. Beveiligings vragen en-concepten waarmee u rekening moet houden tijdens de implementatie-en verificatie fasen van micro soft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) vallen onder de dekking. Het doel is om u te helpen bij het definiëren van activiteiten en Azure-Services die u kunt gebruiken om een veiligere toepassing te ontwikkelen.
@@ -99,9 +99,9 @@ Als de toepassing automatisch wacht woorden moet genereren, zorgt u ervoor dat d
 
 Als uw toepassing uploads van [bestanden](https://www.owasp.org/index.php/Unrestricted_File_Upload)toestaat, moet u rekening houden met voorzorgsmaatregelen die u voor deze Risk ante activiteit kunt nemen. De eerste stap in veel aanvallen is het verkrijgen van schadelijke code in een systeem dat wordt aangevallen. Als u een bestand uploadt, helpt de aanvaller dit te doen. OWASP biedt oplossingen voor het valideren van een bestand om ervoor te zorgen dat het bestand dat u uploadt veilig is.
 
-Met antimalware Protection kunt u virussen, spyware en andere schadelijke software identificeren en verwijderen. U kunt [micro soft antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) of een Endpoint Protection-oplossing van micro soft partner ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)en [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)) installeren.
+Met antimalware Protection kunt u virussen, spyware en andere schadelijke software identificeren en verwijderen. U kunt [micro soft antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) of een Endpoint Protection-oplossing van micro soft partner ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)en [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)) installeren.
 
-[Micro soft antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) bevat functies als realtime-beveiliging, geplande scans, malware-herstel, handtekening updates, engine-updates, voor beelden van rapporten en uitsluitings gebeurtenissen verzamelen. U kunt micro soft antimalware en partner oplossingen integreren met [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) voor een gemakkelijke implementatie en ingebouwde detecties (waarschuwingen en incidenten).
+[Micro soft antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) bevat functies als realtime-beveiliging, geplande scans, malware-herstel, handtekening updates, engine-updates, voor beelden van rapporten en uitsluitings gebeurtenissen verzamelen. U kunt micro soft antimalware en partner oplossingen integreren met [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) voor een gemakkelijke implementatie en ingebouwde detecties (waarschuwingen en incidenten).
 
 ### <a name="dont-cache-sensitive-content"></a>Geen gevoelige inhoud opslaan in cache
 
@@ -128,7 +128,7 @@ Dynamische test op toepassings beveiliging (DAST) is een proces van het testen v
 
 DAST wijkt af van de statische test van de toepassings beveiliging (SAST). SAST-hulpprogram ma's analyseren bron code of gecompileerde versies van code wanneer de code niet wordt uitgevoerd om beveiligings fouten te vinden.
 
-Voer DAST uit, bij voor keur met de hulp van een beveiligings [](https://docs.microsoft.com/azure/security/azure-security-pen-testing) Professional (een indringings tester of beveiligings ervaring). Als een beveiligings Professional niet beschikbaar is, kunt u DAST zelf uitvoeren met een webproxy scanner en een aantal trainingen. Sluit in een vroeg stadium een DAST-scanner aan om ervoor te zorgen dat u geen duidelijke beveiligings problemen in uw code kunt introduceren. Zie de [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) -site voor een lijst met scanners voor beveiligings problemen met webtoepassingen.
+Voer DAST uit, bij voor keur met de hulp van een beveiligings [](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) Professional (een indringings tester of beveiligings ervaring). Als een beveiligings Professional niet beschikbaar is, kunt u DAST zelf uitvoeren met een webproxy scanner en een aantal trainingen. Sluit in een vroeg stadium een DAST-scanner aan om ervoor te zorgen dat u geen duidelijke beveiligings problemen in uw code kunt introduceren. Zie de [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) -site voor een lijst met scanners voor beveiligings problemen met webtoepassingen.
 
 ### <a name="perform-fuzz-testing"></a>Fuzzy tests uitvoeren
 
@@ -144,7 +144,7 @@ U kunt een afbeelding van de kwets baarheid bouwen door de toepassing te scannen
 
 ### <a name="perform-security-penetration-testing"></a>Beveiligings indringings tests uitvoeren
 
-Om ervoor te zorgen dat uw toepassing veilig is, is het belang rijk dat u een andere functionaliteit test. Zorg voor indringings [test](https://docs.microsoft.com/azure/security/azure-security-pen-testing) een standaard onderdeel van het build-en implementatie proces. Plan regel matige beveiligings tests en beveiligings problemen met het scannen van geïmplementeerde toepassingen en controleer op open poorten, eind punten en aanvallen.
+Om ervoor te zorgen dat uw toepassing veilig is, is het belang rijk dat u een andere functionaliteit test. Zorg voor indringings [test](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) een standaard onderdeel van het build-en implementatie proces. Plan regel matige beveiligings tests en beveiligings problemen met het scannen van geïmplementeerde toepassingen en controleer op open poorten, eind punten en aanvallen.
 
 ### <a name="run-security-verification-tests"></a>Tests voor beveiligings verificatie uitvoeren
 

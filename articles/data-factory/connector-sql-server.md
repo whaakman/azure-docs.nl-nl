@@ -1,6 +1,6 @@
 ---
-title: Gegevens kopiëren naar en van SQL Server met behulp van Azure Data Factory | Microsoft Docs
-description: Meer informatie over het verplaatsen van gegevens naar en vanuit SQL Server-database die zich on-premises of in een Azure-VM met behulp van Azure Data Factory.
+title: Gegevens kopiëren van en naar SQL Server met behulp van Azure Data Factory | Microsoft Docs
+description: Meer informatie over het verplaatsen van gegevens naar en van SQL Server Data Base die on-premises of in een Azure-VM is door gebruik te maken van Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,62 +10,64 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: a6767c7c8931898c44fd748dbe4299b8ed23eb9c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5dcbb2c25511277eaf46d6c9f4afc007a180f8a6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443279"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827869"
 ---
-# <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Gegevens kopiëren naar en van SQL Server met behulp van Azure Data Factory
+# <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar SQL Server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Azure Data Factory die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-sqlserver-connector.md)
 > * [Huidige versie](connector-sql-server.md)
 
-In dit artikel bevat een overzicht over het gebruik van de kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van en naar een SQL Server-database. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel wordt beschreven hoe u de Kopieer activiteit in Azure Data Factory kunt gebruiken om gegevens van en naar een SQL Server-Data Base te kopiëren. Het is gebaseerd op het artikel overzicht van de [Kopieer activiteit](copy-activity-overview.md) . Dit geeft een algemeen overzicht van de Kopieer activiteit.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt de gegevens van en naar een SQL Server-database kopiëren naar een ondersteunde sink-gegevensopslag. Of u kunt gegevens kopiëren van een ondersteund brongegevensarchief naar een SQL Server-database. Zie voor een lijst met gegevensarchieven die worden ondersteund als gegevensbronnen of PUT voor de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens van en naar een Data Base van SQL Server kopiëren naar elk ondersteund Sink-gegevens archief. Of u kunt gegevens van elk ondersteund brongegevens archief kopiëren naar een SQL Server-Data Base. Zie voor een lijst met gegevensarchieven die worden ondersteund als gegevensbronnen of PUT voor de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
-Deze SQL Server-connector ondersteunt name:
+Deze SQL Server-connector ondersteunt met name:
 
-- Versies van SQL Server 2016, 2014, 2012, 2008 R2, 2008 en 2005.
-- Kopiëren van gegevens met behulp van SQL- of Windows-verificatie.
-- Als een bron, het ophalen van gegevens met behulp van een SQL-query of een opgeslagen procedure.
-- Als een sink, gegevens toevoegen aan een tabel van de bestemming of het aanroepen van een opgeslagen procedure met aangepaste logica tijdens het kopiëren.
+- SQL Server versies 2016, 2014, 2012, 2008 R2, 2008 en 2005.
+- Gegevens kopiëren met behulp van SQL of Windows-verificatie.
+- Als bron, waarbij gegevens worden opgehaald met behulp van een SQL-query of een opgeslagen procedure.
+- Het toevoegen van gegevens aan een doel tabel of het aanroepen van een opgeslagen procedure met aangepaste logica tijdens het kopiëren als een sink.
+
+[SQL Server Express LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-2017) wordt niet ondersteund.
 
 >[!NOTE]
->SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) wordt niet ondersteund door deze connector nu. Als u wilt omzeilen, kunt u een [algemene ODBC connector](connector-odbc.md) en een SQL Server ODBC-stuurprogramma. Ga als volgt [deze richtlijnen](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) met ODBC-stuurprogramma downloaden en connection string configuraties.
+>SQL Server [Always encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) wordt nu niet ondersteund door deze connector. U kunt dit probleem omzeilen door een [algemene ODBC-Connector](connector-odbc.md) en een SQL Server ODBC-stuur programma te gebruiken. Volg [deze richt lijnen voor het](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) downloaden van ODBC-stuur Programma's en het Connection String van configuraties.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het gebruik van kopiëren van gegevens uit een SQL Server-database die niet openbaar toegankelijk is, moet u voor het instellen van een zelf-hostende integratieruntime. Zie voor meer informatie, [zelf-hostende integratieruntime](create-self-hosted-integration-runtime.md). De integratieruntime biedt een ingebouwde stuurprogramma voor SQL Server-database. U hoeft niet te handmatig een stuurprogramma installeren wanneer u gegevens van of naar de SQL Server-database kopiëren.
+Als u gegevens kopiëren van een SQL Server Data Base wilt gebruiken die niet openbaar toegankelijk is, moet u een zelf-hostende Integration runtime instellen. Zie [zelf-hostende Integration runtime](create-self-hosted-integration-runtime.md)voor meer informatie. Integration runtime biedt een ingebouwd SQL Server database stuur programma. U hoeft geen stuur Programma's hand matig te installeren wanneer u gegevens kopieert vanuit of naar de SQL Server-Data Base.
 
 ## <a name="get-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten die specifiek voor de SQL Server-database-connector.
+De volgende secties bevatten informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory entiteiten die specifiek zijn voor de SQL Server-database connector.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
-De volgende eigenschappen worden ondersteund voor de gekoppelde SQL Server-service:
+De volgende eigenschappen worden ondersteund voor de SQL Server gekoppelde service:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op **SqlServer**. | Ja |
-| connectionString |Geef **connectionString** informatie die nodig is om verbinding maken met de SQL Server-database met behulp van SQL-verificatie of Windows-verificatie. Raadpleeg de volgende voorbeelden.<br/>Dit veld is gemarkeerd **SecureString** voor het veilig opslaan in Azure Data Factory. U kunt ook een wachtwoord plaatsen in Azure Key Vault. Als het SQL-verificatie, halen de `password` configuratie buiten de verbindingsreeks. Zie voor meer informatie het volgende op de tabel JSON-voorbeeld en [referenties Store in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| userName |Geef een gebruikersnaam op als u Windows-verificatie gebruiken. Een voorbeeld is **domainname\\gebruikersnaam**. |Nee |
-| password |Geef een wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de naam van de gebruiker. Dit veld is gemarkeerd **SecureString** voor het veilig opslaan in Azure Data Factory. U kunt [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Nee |
-| connectVia | Dit [integratieruntime](concepts-integration-runtime.md) wordt gebruikt voor verbinding met het gegevensarchief. U kunt een zelf-hostende integratieruntime of de Azure integratieruntime gebruiken als uw gegevensarchief openbaar toegankelijk is. Indien niet opgegeven, wordt de standaard Azure integratieruntime wordt gebruikt. |Nee |
+| type | De eigenschap type moet worden ingesteld op **sqlserver**. | Ja |
+| connectionString |Geef **verbindings reeks** gegevens op die nodig zijn om verbinding te maken met de SQL Server-Data Base met behulp van SQL-verificatie of Windows-verificatie. Raadpleeg de volgende voor beelden.<br/>Markeer dit veld als **SecureString** om het veilig op te slaan in azure Data Factory. U kunt ook een wacht woord in Azure Key Vault plaatsen. Als de SQL-verificatie wordt uitgevoerd, `password` haalt u de configuratie uit het Connection String. Zie voor meer informatie het JSON-voor beeld dat volgt op de tabel en [referenties opslaan in azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| userName |Geef een gebruikers naam op als u Windows-verificatie gebruikt. Een voor beeld **is\\domeinnaam domein naam**. |Nee |
+| password |Geef een wacht woord op voor het gebruikers account dat u hebt opgegeven voor de gebruikers naam. Markeer dit veld als **SecureString** om het veilig op te slaan in azure Data Factory. U kunt ook [verwijzen naar een geheim dat is opgeslagen in azure Key Vault](store-credentials-in-key-vault.md). |Nee |
+| connectVia | Deze [Integration runtime](concepts-integration-runtime.md) wordt gebruikt om verbinding te maken met het gegevens archief. U kunt een zelf-hostende Integration runtime of Azure Integration runtime gebruiken als uw gegevens archief openbaar toegankelijk is. Als dat niet is opgegeven, wordt de standaard Azure Integration runtime gebruikt. |Nee |
 
 >[!TIP]
->Als u een fout opgetreden met de foutcode 'UserErrorFailedToConnectToSqlServer' en een bericht bereikt, zoals "XXX is in de sessielimiet voor de database en het is bereikt", voegt u toe `Pooling=false` met de verbindingstekenreeks en probeer het opnieuw.
+>Als u op een fout met de fout code ' UserErrorFailedToConnectToSqlServer ' en een bericht ziet dat de sessie limiet voor de data base xxx is en is bereikt, voegt `Pooling=false` u toe aan uw Connection String en probeert u het opnieuw.
 
-**Voorbeeld 1: SQL-verificatie gebruiken**
+**Voor beeld 1: SQL-verificatie gebruiken**
 
 ```json
 {
@@ -86,7 +88,7 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde SQL Server-servi
 }
 ```
 
-**Voorbeeld 2: SQL-verificatie gebruiken met een wachtwoord in Azure Key Vault**
+**Voor beeld 2: SQL-verificatie gebruiken met een wacht woord in Azure Key Vault**
 
 ```json
 {
@@ -115,7 +117,7 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde SQL Server-servi
 }
 ```
 
-**Voorbeeld 3: Windows-verificatie gebruiken**
+**Voor beeld 3: Windows-verificatie gebruiken**
 
 ```json
 {
@@ -143,14 +145,14 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde SQL Server-servi
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie het artikel gegevenssets voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de SQL Server-gegevensset.
+Zie het artikel gegevenssets voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die door de SQL Server-gegevensset worden ondersteund.
 
-Om gegevens te kopiëren van en naar een SQL Server-database, worden de volgende eigenschappen ondersteund:
+De volgende eigenschappen worden ondersteund voor het kopiëren van gegevens van en naar een SQL Server-Data Base:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de gegevensset moet worden ingesteld op **SqlServerTable**. | Ja |
-| tableName |Deze eigenschap is de naam van de tabel of weergave in de SQL Server-database-instantie waarnaar de gekoppelde service naar verwijst. | Nee voor bron, Ja voor sink |
+| type | De eigenschap type van de DataSet moet worden ingesteld op **SqlServerTable**. | Ja |
+| tableName |Deze eigenschap is de naam van de tabel of weer gave in de SQL Server Data Base-instantie waarnaar de gekoppelde service verwijst. | Nee voor bron, Ja voor sink |
 
 **Voorbeeld**
 
@@ -174,25 +176,25 @@ Om gegevens te kopiëren van en naar een SQL Server-database, worden de volgende
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor gebruik voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de SQL Server-bron en sink.
+Zie het artikel [pijp lijnen](concepts-pipelines-activities.md) voor een volledige lijst met secties en eigenschappen die u kunt gebruiken om activiteiten te definiëren. In deze sectie vindt u een lijst met eigenschappen die worden ondersteund door de SQL Server bron en Sink.
 
-### <a name="sql-server-as-a-source"></a>SQL Server als een bron
+### <a name="sql-server-as-a-source"></a>SQL Server als bron
 
-Als u wilt kopiëren van gegevens uit SQL Server, stelt u het brontype in de kopieeractiviteit naar **SqlSource**. De volgende eigenschappen worden ondersteund in de sectie voor bron activiteit kopiëren:
+Als u gegevens wilt kopiëren uit SQL Server, stelt u het bron type in de Kopieer activiteit in op **SqlSource**. De volgende eigenschappen worden ondersteund in de sectie bron van de Kopieer activiteit:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **SqlSource**. | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet zijn ingesteld op **SqlSource**. | Ja |
 | sqlReaderQuery |Gebruik de aangepaste SQL-query om gegevens te lezen. Een voorbeeld is `select * from MyTable`. |Nee |
-| sqlReaderStoredProcedureName |Deze eigenschap is de naam van de opgeslagen procedure die gegevens uit de brontabel leest. De laatste SQL-instructie moet een SELECT-instructie in de opgeslagen procedure. |Nee |
-| storedProcedureParameters |Deze parameters zijn voor de opgeslagen procedure.<br/>Toegestane waarden zijn de naam of waarde-paren. De naam en het hoofdlettergebruik van parameters moeten overeenkomen met de naam en het hoofdlettergebruik van de opgeslagen-procedureparameters. |Nee |
+| sqlReaderStoredProcedureName |Deze eigenschap is de naam van de opgeslagen procedure waarmee gegevens uit de bron tabel worden gelezen. De laatste SQL-instructie moet een SELECT-instructie in de opgeslagen procedure. |Nee |
+| storedProcedureParameters |Deze para meters zijn voor de opgeslagen procedure.<br/>Toegestane waarden zijn de naam of waarde-paren. De namen en het hoofdletter gebruik van para meters moeten overeenkomen met de namen en de behuizing van de opgeslagen procedure parameters. |Nee |
 
-**Die u moet weten:**
+**Punten om te noteren:**
 
-- Als **sqlReaderQuery** is opgegeven voor **SqlSource**, de kopieeractiviteit deze query wordt uitgevoerd op basis van de SQL Server-bron, de gegevens op te halen. Ook kunt u een opgeslagen procedure door op te geven **sqlReaderStoredProcedureName** en **storedProcedureParameters** als de opgeslagen procedure parameters nodig heeft.
-- Als u niet of opgeven **sqlReaderQuery** of **sqlReaderStoredProcedureName**, de kolommen die zijn gedefinieerd in de sectie "structuur" van de gegevensset JSON worden gebruikt om een query samen te stellen. De query `select column1, column2 from mytable` wordt uitgevoerd op de SQL-Server. Als de definitie van de gegevensset geen "structuur", worden alle kolommen uit de tabel geselecteerd.
+- Als **sqlReaderQuery** is opgegeven voor **SqlSource**, voert de Kopieer activiteit deze query uit op basis van de SQL Server bron om de gegevens op te halen. U kunt ook een opgeslagen procedure opgeven door **sqlReaderStoredProcedureName** en **storedProcedureParameters** op te geven als voor de opgeslagen procedure para meters worden gebruikt.
+- Als u **sqlReaderQuery** of **sqlReaderStoredProcedureName**niet opgeeft, worden de kolommen die zijn gedefinieerd in de sectie ' Structure ' van de JSON van de gegevensset gebruikt voor het maken van een query. De query `select column1, column2 from mytable` wordt uitgevoerd op basis van de SQL Server. Als de definitie van de gegevensset niet de structuur ' Structure ' bevat, worden alle kolommen geselecteerd in de tabel.
 
-**Voorbeeld: Gebruik SQL-query**
+**Voorbeeld: SQL-query gebruiken**
 
 ```json
 "activities":[
@@ -224,7 +226,7 @@ Als u wilt kopiëren van gegevens uit SQL Server, stelt u het brontype in de kop
 ]
 ```
 
-**Voorbeeld: Gebruik een opgeslagen procedure**
+**Voorbeeld: Een opgeslagen procedure gebruiken**
 
 ```json
 "activities":[
@@ -279,24 +281,25 @@ END
 GO
 ```
 
-### <a name="sql-server-as-a-sink"></a>SQL Server als een sink
+### <a name="sql-server-as-a-sink"></a>SQL Server als Sink
 
 > [!TIP]
-> Meer informatie over de ondersteunde schrijven gedrag, configuraties en best practices van [Best practice om gegevens te laden in SQL Server](#best-practice-for-loading-data-into-sql-server).
+> Meer informatie over het ondersteunde schrijf gedrag, configuraties en aanbevolen procedures voor het [laden van gegevens in SQL Server](#best-practice-for-loading-data-into-sql-server).
 
-Om gegevens te kopiëren naar SQL Server, stelt u het sink-type in de kopieeractiviteit naar **SqlSink**. De volgende eigenschappen worden ondersteund in de sectie kopiëren activiteit-sink:
+Als u gegevens wilt kopiëren naar SQL Server, stelt u het sink-type in de Kopieer activiteit in op **SqlSink**. De volgende eigenschappen worden ondersteund in het gedeelte Sink van de Kopieer activiteit:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op **SqlSink**. | Ja |
-| writeBatchSize |Aantal rijen in de SQL-tabel moet worden ingevoegd *per batch*.<br/>Toegestane waarden zijn gehele getallen voor het aantal rijen. Standaard bepaalt Azure Data Factory dynamisch de batchgrootte van de juiste op basis van de rijgrootte. |Nee |
-| writeBatchTimeout |Deze eigenschap geeft u de wachttijd voor de batch insert bewerking is voltooid voordat er een optreedt time-out.<br/>Toegestane waarden zijn voor de periode. Een voorbeeld hiervan is "00: 30:00" gedurende 30 minuten. |Nee |
-| preCopyScript |Deze eigenschap geeft u een SQL-query voor de kopieeractiviteit om uit te voeren voordat het schrijven van gegevens in SQL Server. De toepassing wordt aangeroepen slechts één keer per exemplaar uitvoeren. U kunt deze eigenschap gebruiken voor het opschonen van de vooraf geladen gegevens. |Nee |
-| sqlWriterStoredProcedureName |Deze naam is voor de opgeslagen procedure waarmee wordt gedefinieerd hoe gegevens in de doeltabel van toepassing.<br/>Deze opgeslagen procedure is *per batch aangeroepen*. Een bewerking die wordt slechts één keer worden uitgevoerd en heeft niets te met brongegevens, bijvoorbeeld verwijderen of afbreken, gebruikt u de `preCopyScript` eigenschap. |Nee |
-| storedProcedureParameters |Deze parameters worden gebruikt voor de opgeslagen procedure.<br/>Toegestane waarden zijn de naam of waarde-paren. De naam en het hoofdlettergebruik van de parameters moeten overeenkomen met de naam en het hoofdlettergebruik van de opgeslagen-procedureparameters. |Nee |
-| sqlWriterTableType |Deze eigenschap geeft u een tabel typenaam die moet worden gebruikt in de opgeslagen procedure. De kopieeractiviteit maakt de gegevens worden verplaatst beschikbaar zijn in een tijdelijke tabel met dit tabeltype. Opgeslagen procedurecode kunt vervolgens de gegevens die wordt gekopieerd met bestaande gegevens samenvoegen. |Nee |
+| type | De eigenschap type van de Sink voor kopieer activiteiten moet worden ingesteld op **SqlSink**. | Ja |
+| writeBatchSize |Het aantal rijen dat *per batch*in de SQL-tabel moet worden ingevoegd.<br/>Toegestane waarden zijn gehele getallen voor het aantal rijen. Standaard bepaalt Azure Data Factory dynamisch de juiste Batch grootte op basis van de Rijgrootte. |Nee |
+| writeBatchTimeout |Met deze eigenschap geeft u de wacht tijd op waarna de batch INSERT-bewerking moet worden voltooid voordat er een time-out optreedt.<br/>Toegestane waarden zijn voor de time span. Een voor beeld 00:30:00 is 30 minuten. |Nee |
+| preCopyScript |Met deze eigenschap geeft u een SQL-query op voor het uitvoeren van de Kopieer activiteit voordat u gegevens naar SQL Server schrijft. Het wordt slechts één keer per Kopieer bewerking aangeroepen. U kunt deze eigenschap gebruiken om de vooraf geladen gegevens op te schonen. |Nee |
+| sqlWriterStoredProcedureName | De naam van de opgeslagen procedure die definieert hoe bron gegevens in een doel tabel worden toegepast. <br/>Deze opgeslagen procedure wordt *per batch aangeroepen*. Voor bewerkingen die slechts één keer worden uitgevoerd en niets te doen met bron gegevens, bijvoorbeeld verwijderen of afkappen, gebruikt u de `preCopyScript` eigenschap. | Nee |
+| storedProcedureTableTypeParameterName |De parameter naam van het tabel type dat is opgegeven in de opgeslagen procedure.  |Nee |
+| sqlWriterTableType |De naam van het tabel type dat moet worden gebruikt in de opgeslagen procedure. Met de Kopieer activiteit worden de gegevens in een tijdelijke tabel met dit tabel type beschikbaar gemaakt. Met de opgeslagen procedure code kunt u vervolgens de gegevens samen voegen die worden gekopieerd met bestaande gegevens. |Nee |
+| storedProcedureParameters |Parameters voor de opgeslagen procedure.<br/>Toegestane waarden zijn naam-en waardeparen. Namen en hoofdlettergebruik van parameters moeten overeenkomen met de naam en het hoofdlettergebruik van de opgeslagen-procedureparameters. | Nee |
 
-**Voorbeeld 1: Gegevens toevoegen**
+**Voor beeld 1: Gegevens toevoegen**
 
 ```json
 "activities":[
@@ -328,9 +331,9 @@ Om gegevens te kopiëren naar SQL Server, stelt u het sink-type in de kopieeract
 ]
 ```
 
-**Voorbeeld 2: Een opgeslagen procedure aanroepen tijdens het kopiëren van**
+**Voor beeld 2: Een opgeslagen procedure aanroepen tijdens het kopiëren**
 
-Meer details bekijken van [aanroepen van een opgeslagen procedure uit een SQL-sink](#invoke-a-stored-procedure-from-a-sql-sink).
+Meer informatie over [het aanroepen van een opgeslagen procedure vanuit een SQL-Sink](#invoke-a-stored-procedure-from-a-sql-sink).
 
 ```json
 "activities":[
@@ -356,7 +359,8 @@ Meer details bekijken van [aanroepen van een opgeslagen procedure uit een SQL-si
             "sink": {
                 "type": "SqlSink",
                 "sqlWriterStoredProcedureName": "CopyTestStoredProcedureWithParameters",
-                "sqlWriterTableType": "CopyTestTableType",
+                "storedProcedureTableTypeParameterName": "MyTable",
+                "sqlWriterTableType": "MyTableType",
                 "storedProcedureParameters": {
                     "identifier": { "value": "1", "type": "Int" },
                     "stringData": { "value": "str1" }
@@ -367,33 +371,33 @@ Meer details bekijken van [aanroepen van een opgeslagen procedure uit een SQL-si
 ]
 ```
 
-## <a name="best-practice-for-loading-data-into-sql-server"></a>Best practices voor het laden van gegevens in SQL Server
+## <a name="best-practice-for-loading-data-into-sql-server"></a>Aanbevolen procedure voor het laden van gegevens in SQL Server
 
-Wanneer u gegevens naar SQL Server kopiëren, kunt u verschillende schrijfeigenschappen mogelijk nodig hebt:
+Wanneer u gegevens naar SQL Server kopieert, hebt u mogelijk een ander schrijf gedrag nodig:
 
-- [Toevoeg-](#append-data): Mijn brongegevens heeft alleen nieuwe records.
-- [Upsert](#upsert-data): Mijn brongegevens heeft zowel invoegingen en updates.
-- [Overschrijven](#overwrite-the-entire-table): Ik wil de gehele dimensietabel elke keer laden.
-- [Schrijf met aangepaste logica](#write-data-with-custom-logic): Moet ik extra verwerking vóór de laatste invoeging in de doeltabel.
+- [Toevoegen](#append-data): Mijn bron gegevens hebben alleen nieuwe records.
+- [Upsert](#upsert-data): Mijn bron gegevens hebben zowel toevoegingen als updates.
+- [Overschrijven](#overwrite-the-entire-table): Ik wil elke keer de hele dimensie tabel opnieuw laden.
+- [Schrijven met aangepaste logica](#write-data-with-custom-logic): Ik heb extra verwerking nodig vóór de laatste invoeging in de doel tabel.
 
-Zie de betreffende secties voor informatie over het configureren in Azure Data Factory en best practices.
+Zie de betreffende secties voor informatie over het configureren van Azure Data Factory en aanbevolen procedures.
 
 ### <a name="append-data"></a>Gegevens toevoegen
 
-Gegevens toevoegen, is het standaardgedrag van deze SQL Server-sink-connector. Azure Data Factory biedt een bulksgewijs invoegen te schrijven naar de tabel efficiënt. U kunt configureren van de bron en sink-dienovereenkomstig in de kopieeractiviteit.
+Het toevoegen van gegevens is het standaard gedrag van deze SQL Server Sink-connector. Azure Data Factory voert een bulksgewijze invoer uit om uw tabel efficiënt te schrijven. U kunt de bron en Sink dienovereenkomstig configureren in de Kopieer activiteit.
 
 ### <a name="upsert-data"></a>Upsert-gegevens
 
-**Optie 1:** Wanneer u een grote hoeveelheid gegevens wilt kopiëren, gebruikt u de volgende benadering te doen een upsert hebt: 
+**Optie 1:** Wanneer u een grote hoeveelheid gegevens hebt om te kopiëren, gebruikt u de volgende methode om een upsert te maken: 
 
-- Gebruik eerst een [tijdelijke tabel](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) voor bulksgewijs laden alle records met behulp van de kopieeractiviteit. Omdat bewerkingen op tijdelijke tabellen worden niet geregistreerd, kunt u miljoenen records laden in een paar seconden.
-- Een opgeslagen procedure-activiteit uitvoeren in Azure Data Factory om toe te passen een [samenvoegen](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) of invoegen/bijwerken-instructie. Gebruik de tijdelijke tabel als een bron voor het uitvoeren van alle bijwerkt of als één transactie invoegt. Op deze manier wordt het aantal retouren en logboekbewerkingen verminderd. Aan het einde van de opgeslagen procedure-activiteit, kan de tijdelijke tabel worden afgekapt als u wilt deze klaar is voor de volgende upsert-cyclus.
+- Gebruik eerst een [tijdelijke tabel](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) om alle records bulksgewijs te laden met behulp van de Kopieer activiteit. Omdat bewerkingen voor tijdelijke tabellen niet worden geregistreerd, kunt u miljoenen records in enkele seconden laden.
+- Voer een opgeslagen procedure-activiteit uit in Azure Data Factory om [](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) een instructie Merge of insert/update toe te passen. Gebruik de tijdelijke tabel als bron om alle updates uit te voeren of als één trans actie in te voegen. Op deze manier wordt het aantal Retouren en logboek bewerkingen gereduceerd. Aan het einde van de opgeslagen procedure-activiteit kan de tijdelijke tabel worden afgekapt zodat deze klaar is voor de volgende upsert-cyclus.
 
-Als u bijvoorbeeld in Azure Data Factory, kunt u een pijplijn met een **Kopieeractiviteit** gekoppeld met een **Stored Procedure-activiteit**. De vorige worden gegevens gekopieerd van de brongegevensopslag naar een tijdelijke tabel van de database, bijvoorbeeld **##UpsertTempTable**, als de naam van de tabel in de gegevensset. De laatste vervolgens roept een opgeslagen procedure voor het samenvoegen van brongegevens van de tijdelijke tabel in de doeltabel en het opschonen van de tijdelijke tabel.
+In Azure Data Factory kunt u bijvoorbeeld een pijp lijn maken met een **Kopieer activiteit** die is gekoppeld aan een **opgeslagen procedure activiteit**. De eerste kopie kopieert gegevens uit het bron archief naar een tijdelijke data base-tabel, bijvoorbeeld **# #UpsertTempTable**, als de tabel naam in de gegevensset. Vervolgens roept de laatste een opgeslagen procedure aan om bron gegevens van de tijdelijke tabel samen te voegen in de doel tabel en de tijdelijke tabel op te schonen.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-In uw database, definieert u een opgeslagen procedure met de logica van samenvoegen, zoals het volgende voorbeeld, waarin wordt aangewezen uit de vorige opgeslagen procedure-activiteit. Wordt ervan uitgegaan dat het doel is de **Marketing** een tabel met drie kolommen: **ProfileID**, **status**, en **categorie**. Voer de upsert op basis van de **ProfileID** kolom.
+Definieer in uw data base een opgeslagen procedure met SAMENVOEG logica, zoals in het volgende voor beeld, dat verwijst naar de vorige opgeslagen procedure activiteit. Stel dat het doel de **marketing** tabel is met drie kolommen: **ProfileID**, **State**en **Category**. Voer de upsert uit op basis van de kolom **ProfileID** .
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -412,98 +416,78 @@ BEGIN
 END
 ```
 
-**Optie 2:** U kunt desgewenst ook [aanroepen van een opgeslagen procedure in de kopieeractiviteit](#invoke-a-stored-procedure-from-a-sql-sink). Deze aanpak wordt elke rij in de brontabel in plaats van bulksgewijs invoegen als de aanpak van standaard in de kopieeractiviteit, is niet geschikt voor grootschalige upsert uitgevoerd.
+**Optie 2:** U kunt er ook voor kiezen om [een opgeslagen procedure binnen de Kopieer activiteit](#invoke-a-stored-procedure-from-a-sql-sink)aan te roepen. Met deze benadering wordt elke rij in de bron tabel uitgevoerd in plaats van bulksgewijs invoegen als de standaard benadering in de Kopieer activiteit, wat niet van toepassing is op grootschalige upsert.
 
-### <a name="overwrite-the-entire-table"></a>De hele tabel overschrijven
+### <a name="overwrite-the-entire-table"></a>De volledige tabel overschrijven
 
-U kunt configureren dat de **preCopyScript** eigenschap in een kopie activiteit-sink. In dit geval voor elke kopieeractiviteit die wordt uitgevoerd, voert Azure Data Factory het script eerst. Vervolgens wordt de kopie voor het invoegen van de gegevens uitgevoerd. Bijvoorbeeld als u wilt overschrijven de hele tabel met de meest recente gegevens, Geef een script voor het eerst alle records verwijderen voordat u bulksgewijs laden van de nieuwe gegevens uit de bron.
+U kunt de eigenschap **preCopyScript** in een Sink voor kopieer activiteiten configureren. In dit geval voert Azure Data Factory voor elke Kopieer activiteit die wordt uitgevoerd eerst het script uit. Vervolgens wordt de kopie uitgevoerd om de gegevens in te voegen. Als u bijvoorbeeld de volledige tabel wilt overschrijven met de meest recente gegevens, geeft u een script op om eerst alle records te verwijderen voordat u de nieuwe gegevens uit de bron laadt.
 
-### <a name="write-data-with-custom-logic"></a>Schrijven van gegevens met aangepaste logica
+### <a name="write-data-with-custom-logic"></a>Gegevens schrijven met aangepaste logica
 
-De stappen voor het schrijven van gegevens met aangepaste logica zijn vergelijkbaar met die wordt beschreven in de [Upsert gegevens](#upsert-data) sectie. Wanneer u nodig hebt om toe te passen extra verwerking vóór de laatste invoegen van de brongegevens in de doeltabel voor grootschalige, kunt u doen twee dingen: 
+De stappen voor het schrijven van gegevens met aangepaste logica zijn vergelijkbaar met die in de sectie [Upsert-gegevens](#upsert-data) . Wanneer u extra verwerking wilt Toep assen voordat de laatste invoeging van bron gegevens in de doel tabel, op grote schaal, een van de volgende twee dingen doen: 
 
-- Laden naar een tijdelijke tabel en klik vervolgens aanroepen van een opgeslagen procedure. 
-- Een opgeslagen procedure tijdens het kopiëren van aanroepen.
+- Laden naar een tijdelijke tabel en vervolgens een opgeslagen procedure aanroepen. 
+- Een opgeslagen procedure aanroepen tijdens het kopiëren.
 
-## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Aanroepen van een opgeslagen procedure uit een SQL-sink
+## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a>Een opgeslagen procedure aanroepen vanuit een SQL-Sink
 
-Wanneer u gegevens naar een SQL Server-database kopieert, kunt ook u configureren en aanroepen van een gebruiker opgegeven opgeslagen procedure met extra parameters.
+Wanneer u gegevens naar een SQL Server-Data Base kopieert, kunt u ook een door de gebruiker opgegeven opgeslagen procedure met aanvullende para meters configureren en aanroepen. De functie opgeslagen procedure maakt gebruik van [para meters met tabel waarden](https://msdn.microsoft.com/library/bb675163.aspx).
 
 > [!TIP]
-> Aanroepen van een opgeslagen procedure, verwerkt de gegevens per rij in plaats van via een bulkbewerking, wordt niet voor grootschalige kopiëren aanbevolen. Meer informatie uit [Best practice om gegevens te laden in SQL Server](#best-practice-for-loading-data-into-sql-server).
+> Als u een opgeslagen procedure aanroept, wordt de gegevensrij per rij verwerkt in plaats van met behulp van een bulk bewerking. dit wordt niet aanbevolen voor grootschalige kopieën. Meer informatie over [Best practices voor het laden van gegevens in SQL Server](#best-practice-for-loading-data-into-sql-server).
 
-U kunt een opgeslagen procedure gebruiken bij het kopiëren van ingebouwde mechanismen niet voldoen aan het doel. Een voorbeeld daarvan is wanneer u wilt toepassen extra verwerking vóór de laatste invoeging van gegevens in de doeltabel. Voorbeelden van de extra verwerking zijn als u wilt samenvoegen van kolommen, aanvullende waarden opzoeken en gegevens invoegen in meer dan één tabel.
+U kunt een opgeslagen procedure gebruiken wanneer ingebouwde Kopieer mechanismen het doel niet behouden. Een voor beeld hiervan is wanneer u een extra verwerking wilt Toep assen vóór het uiteindelijke invoegen van bron gegevens in de doel tabel. Sommige extra verwerkings voorbeelden zijn wanneer u kolommen wilt samen voegen, aanvullende waarden wilt opzoeken en gegevens in meer dan één tabel wilt invoegen.
 
-Het volgende voorbeeld laat zien hoe een opgeslagen procedure gebruiken om te doen van een upsert in een tabel in de SQL Server-database. Wordt ervan uitgegaan dat de invoergegevens en de sink **Marketing** tabel elke drie kolommen bevatten: **ProfileID**, **status**, en **categorie**. Voer de upsert op basis van de **ProfileID** kolom, en alleen toe te passen voor een specifieke categorie.
+In het volgende voor beeld ziet u hoe u een opgeslagen procedure gebruikt om een upsert te maken in een tabel in de SQL Server-Data Base. Stel dat de invoer gegevens en de bron voor de Sink- **marketing** elk drie kolommen bevatten: **ProfileID**, **State**en **Category**. Voer de upsert uit op basis van de kolom **ProfileID** en pas deze alleen toe voor een specifieke categorie met de naam ProductA.
 
-**Uitvoergegevensset:** De 'tableName' is de hetzelfde type parameter tabelnaam in uw opgeslagen procedure, zoals wordt weergegeven in het volgende script in de opgeslagen procedure:
+1. Definieer in uw data base het tabel type met de naam **sqlWriterTableType**. Het schema van het tabel type is hetzelfde als het schema dat wordt geretourneerd door de invoer gegevens.
 
-```json
-{
-    "name": "SQLServerDataset",
-    "properties":
-    {
-        "type": "SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "<SQL Server linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "Marketing"
+    ```sql
+    CREATE TYPE [dbo].[MarketingType] AS TABLE(
+        [ProfileID] [varchar](256) NOT NULL,
+        [State] [varchar](256) NOT NULL，
+        [Category] [varchar](256) NOT NULL
+    )
+    ```
+
+2. Definieer in uw data base de opgeslagen procedure met de naam **SqlWriterStoredProcedureName**. De invoer gegevens van de opgegeven bron worden verwerkt en samen voegingen in de uitvoer tabel. De parameter naam van het tabel type in de opgeslagen procedure is hetzelfde als **TableName** gedefinieerd in de gegevensset.
+
+    ```sql
+    CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
+    AS
+    BEGIN
+    MERGE [dbo].[Marketing] AS target
+    USING @Marketing AS source
+    ON (target.ProfileID = source.ProfileID and target.Category = @category)
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT MATCHED THEN
+        INSERT (ProfileID, State, Category)
+        VALUES (source.ProfileID, source.State, source.Category);
+    END
+    ```
+
+3. In Azure Data Factory definieert u de sectie **SQL-Sink** in de Kopieer activiteit als volgt:
+
+    ```json
+    "sink": {
+        "type": "SqlSink",
+        "SqlWriterStoredProcedureName": "spOverwriteMarketing",
+        "storedProcedureTableTypeParameterName": "Marketing",
+        "SqlWriterTableType": "MarketingType",
+        "storedProcedureParameters": {
+            "category": {
+                "value": "ProductA"
+            }
         }
     }
-}
-```
+    ```
 
-Definieer de **SQL-sink** sectie in de kopieeractiviteit als volgt:
+## <a name="data-type-mapping-for-sql-server"></a>Toewijzing van gegevens type voor SQL Server
 
-```json
-"sink": {
-    "type": "SqlSink",
-    "SqlWriterTableType": "MarketingType",
-    "SqlWriterStoredProcedureName": "spOverwriteMarketing",
-    "storedProcedureParameters": {
-        "category": {
-            "value": "ProductA"
-        }
-    }
-}
-```
+Wanneer u gegevens van en naar SQL Server kopieert, worden de volgende toewijzingen gebruikt van SQL Server gegevens typen om tussenliggende gegevens typen te Azure Data Factory. Zie [schema en gegevens type toewijzingen](copy-activity-schema-and-type-mapping.md)voor meer informatie over hoe de Kopieer activiteit het bron schema en het gegevens type aan de Sink koppelt.
 
-In de database, definieert u de opgeslagen procedure met dezelfde naam als **SqlWriterStoredProcedureName**. Het ingevoerde gegevens van de opgegeven bron worden verwerkt en samengevoegd met de uitvoertabel. De parameternaam van het tabeltype in de opgeslagen procedure is hetzelfde als **tableName** gedefinieerd in de gegevensset.
-
-```sql
-CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
-AS
-BEGIN
-  MERGE [dbo].[Marketing] AS target
-  USING @Marketing AS source
-  ON (target.ProfileID = source.ProfileID and target.Category = @category)
-  WHEN MATCHED THEN
-      UPDATE SET State = source.State
-  WHEN NOT MATCHED THEN
-      INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category);
-END
-```
-
-In de database, definieert het tabeltype met dezelfde naam als **sqlWriterTableType**. Het schema van het tabeltype is hetzelfde als het schema dat is geretourneerd door de invoergegevens.
-
-```sql
-CREATE TYPE [dbo].[MarketingType] AS TABLE(
-    [ProfileID] [varchar](256) NOT NULL,
-    [State] [varchar](256) NOT NULL，
-    [Category] [varchar](256) NOT NULL
-)
-```
-
-De opgeslagen procedure-functie maakt gebruik van [tabelwaardeparameters](https://msdn.microsoft.com/library/bb675163.aspx).
-
-## <a name="data-type-mapping-for-sql-server"></a>De gegevenstypetoewijzing voor SQL Server
-
-Wanneer u gegevens van en naar SQL Server kopiëren, worden de volgende toewijzingen van SQL Server-gegevenstypen gebruikt om Azure Data Factory tussentijdse gegevenstypen. Zie voor meer informatie hoe de kopieerbewerking het schema en de gegevens van een brontype toegewezen aan de sink [Schema en gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md).
-
-| SQL Server-gegevenstype | Azure Data Factory tussentijdse gegevenstype |
+| SQL Server gegevens type | Azure Data Factory tussentijds gegevens type |
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
@@ -539,26 +523,26 @@ Wanneer u gegevens van en naar SQL Server kopiëren, worden de volgende toewijzi
 | xml |Xml |
 
 >[!NOTE]
-> Voor de gegevenstypen die zijn toegewezen aan de tijdelijke decimaal, ondersteunt Azure Data Factory momenteel precisie maximaal 28. Als u gegevens die groter zijn dan 28 precisie nodig hebt, kunt u overwegen converteren naar een tekenreeks in een SQL-query.
+> Voor gegevens typen die worden toegewezen aan het type van de tijdelijke decimalen, Azure Data Factory op dit moment de precisie Maxi maal 28 ondersteunen. Als u gegevens hebt die een grotere nauw keurigheid dan 28 vereisen, kunt u overwegen om te converteren naar een teken reeks in een SQL-query.
 
-## <a name="troubleshoot-connection-issues"></a>Verbindingsproblemen oplossen
+## <a name="troubleshoot-connection-issues"></a>Verbindings problemen oplossen
 
-1. Configureer uw SQL Server-exemplaar om externe verbindingen te accepteren. Start **SQL Server Management Studio**, met de rechtermuisknop op **server**, en selecteer **eigenschappen**. Selecteer **verbindingen** uit de lijst en selecteer de **externe verbindingen met deze server toestaan** selectievakje.
+1. Configureer uw SQL Server-exemplaar om externe verbindingen te accepteren. Start **SQL Server Management Studio**, klik met de rechter muisknop op **Server**en selecteer **Eigenschappen**. Selecteer **verbindingen** in de lijst en schakel het selectie vakje **externe verbindingen met deze server toestaan** in.
 
     ![Externe verbindingen inschakelen](media/copy-data-to-from-sql-server/AllowRemoteConnections.png)
 
-    Zie voor gedetailleerde stappen [configureren van de RAS-server-configuratieoptie](https://msdn.microsoft.com/library/ms191464.aspx).
+    Zie [Configure the RAS server Configuration option](https://msdn.microsoft.com/library/ms191464.aspx)(Engelstalig) voor gedetailleerde stappen.
 
-2. Start **SQL Server Configuration Manager**. Vouw **SQL Server-netwerkconfiguratie** voor het exemplaar dat u wilt gebruiken en selecteer **protocollen voor MSSQLSERVER**. Protocollen worden weergegeven in het rechter deelvenster. Schakel TCP/IP in met de rechtermuisknop op **TCP/IP** en selecteren **inschakelen**.
+2. Start **SQL Server Configuration Manager**. Vouw **SQL Server netwerk configuratie** voor de gewenste instantie uit en selecteer **protocollen voor MSSQLSERVER**. Protocollen worden weer gegeven in het rechterdeel venster. Schakel TCP/IP in door met de rechter muisknop op **TCP/IP** te klikken en **inschakelen**te selecteren.
 
-    ![Schakel TCP/IP in](./media/copy-data-to-from-sql-server/EnableTCPProptocol.png)
+    ![TCP/IP inschakelen](./media/copy-data-to-from-sql-server/EnableTCPProptocol.png)
 
-    Zie voor meer informatie en alternatieve manieren van het inschakelen van TCP/IP-protocol, [in- of uitschakelen van een server network protocol](https://msdn.microsoft.com/library/ms191294.aspx).
+    Zie [een server netwerkprotocol in-of uitschakelen](https://msdn.microsoft.com/library/ms191294.aspx)voor meer informatie en alternatieve manieren om het TCP/IP-protocol in te scha kelen.
 
-3. Dubbelklik in het venster dezelfde **TCP/IP** starten de **TCP/IP-eigenschappen** venster.
-4. Schakel over naar de **IP-adressen** tabblad. Schuif omlaag naar Zie de **IPAll** sectie. Noteer de **TCP-poort**. De standaardwaarde is **1433**.
-5. Maak een **regel voor de Windows-Firewall** op de computer waarmee inkomend verkeer via deze poort. 
-6. **Verbinding controleren**: Als u wilt verbinding maken met SQL Server met behulp van een volledig gekwalificeerde naam, SQL Server Management Studio uit een andere computer te gebruiken. Een voorbeeld is `"<machine>.<domain>.corp.<company>.com,1433"`.
+3. Dubbel klik in hetzelfde venster op **TCP/IP** om het venster **TCP/IP-eigenschappen** te openen.
+4. Schakel over naar het tabblad **IP-adressen** . Schuif omlaag om de sectie **IPAll** weer te geven. Noteer de **TCP-poort**. De standaard waarde is **1433**.
+5. Maak een **regel voor de Windows Firewall** op de computer om binnenkomend verkeer via deze poort toe te staan. 
+6. **Verbinding controleren**: Als u verbinding wilt maken met SQL Server met behulp van een volledig gekwalificeerde naam, gebruikt u SQL Server Management Studio vanaf een andere computer. Een voorbeeld is `"<machine>.<domain>.corp.<company>.com,1433"`.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md##supported-data-stores-and-formats).
+Zie [ondersteunde gegevens archieven](copy-activity-overview.md##supported-data-stores-and-formats)voor een lijst met gegevens archieven die worden ondersteund als bronnen en sinks op basis van de Kopieer activiteit in azure Data Factory.

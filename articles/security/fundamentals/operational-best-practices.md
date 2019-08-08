@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e815c038cce2e792fe7ea39f1ee43342be0b679f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 97f061d94209d84b70626f8735d08f89870e7319
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726898"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828724"
 ---
 # <a name="azure-operational-security-best-practices"></a>Best practices voor Azure Operational Security
 Dit artikel bevat een reeks operationele aanbevolen procedures voor het beveiligen van uw gegevens, toepassingen en andere assets in Azure.
@@ -118,7 +118,7 @@ Met de beveiligde Score, die is gebaseerd op de besturings elementen Center voor
 **Details**: De meeste organisaties met een SIEM gebruiken deze als centraal-Clearinghouse voor beveiligings waarschuwingen waarvoor een analisten reactie nodig is. Verwerkte gebeurtenissen die zijn geproduceerd door Security Center worden gepubliceerd in het Azure-activiteiten logboek, een van de logboeken die beschikbaar zijn via Azure Monitor. Azure Monitor biedt een geconsolideerde pijp lijn voor de route ring van uw bewakings gegevens in een SIEM-hulp programma. Zie [beveiligings oplossingen integreren in Security Center](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) voor instructies. Als u Azure Sentinel gebruikt, raadpleegt u [verbinding maken Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Aanbevolen procedure**: Integreer Azure-logboeken met uw SIEM.   
-**Details**: Gebruik [Azure monitor om gegevens te verzamelen en te exporteren](/azure/azure-monitor/overview.md#integrate-and-export-data). Deze procedure is essentieel voor het inschakelen van het onderzoek van beveiligings incidenten en het online bewaren van Logboeken is beperkt. Zie [verbinding maken met gegevens bronnen](../../sentinel/connect-data-sources.md)als u Azure Sentinel gebruikt.
+**Details**: Gebruik [Azure monitor om gegevens te verzamelen en te exporteren](/azure/azure-monitor/overview#integrate-and-export-data). Deze procedure is essentieel voor het inschakelen van het onderzoek van beveiligings incidenten en het online bewaren van Logboeken is beperkt. Zie [verbinding maken met gegevens bronnen](../../sentinel/connect-data-sources.md)als u Azure Sentinel gebruikt.
 
 **Aanbevolen procedure**: Versnel uw onderzoek en jacht processen en verminder fout-positieven door de functies voor het detecteren van eind punten te integreren in uw aanvals onderzoek.   
 **Details**: [Schakel de Windows Defender ATP-integratie in](../../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) via uw Security Center-beveiligings beleid. Overweeg het gebruik van Azure Sentinel voor het beletten van dreigingen en reacties op incidenten.

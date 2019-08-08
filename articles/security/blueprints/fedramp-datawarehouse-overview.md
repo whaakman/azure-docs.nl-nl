@@ -1,6 +1,6 @@
 ---
-title: Azure-beveiliging en naleving blauwdruk - datawarehouse voor het automatiseren van FedRAMP
-description: Azure-beveiliging en naleving blauwdruk - datawarehouse voor het automatiseren van FedRAMP
+title: Azure-blauwdruk voor beveiliging en naleving-data warehouse voor FedRAMP-automatisering
+description: Azure-blauwdruk voor beveiliging en naleving-data warehouse voor FedRAMP-automatisering
 services: security
 author: jomolesk
 ms.assetid: 834d1ff6-8369-455f-b052-1ef301e3d7e6
@@ -8,54 +8,54 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 3c78aed2f30ea85f5bc16a8c0fb270bb1c761be8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ada041640cb66f756f8976fa5290592f11ff1cad
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586006"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68778918"
 ---
-# <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Azure-beveiliging en naleving blauwdruk: Datawarehouse voor automatisering van FedRAMP
+# <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Azure-blauwdruk voor beveiliging en naleving: Data Warehouse voor FedRAMP-automatisering
 
 ## <a name="overview"></a>Overzicht
 
-De [Federal Risk and Authorization Management Program (FedRAMP)](https://www.fedramp.gov/) Verenigde Staten government-is een programma is dat een gestandaardiseerde benadering voor de beveiligingsbeoordeling, de autorisatie en voortdurende bewaking biedt voor cloud producten en services. Deze Azure-beveiliging en naleving blauwdruk biedt richtlijnen voor het leveren van een Microsoft Azure datawarehouse-architectuur waarmee een subset van FedRAMP High besturingselementen implementeren. Deze oplossing biedt richtlijnen voor de implementatie en configuratie van Azure-resources voor een algemene referentiearchitectuur manieren waarin klanten specifieke vereisten voor beveiliging en naleving kunnen voldoen aan te tonen en fungeert als een basis voor klanten bouw en hun eigen datawarehouse-oplossingen in Azure te configureren.
+De [Federal Risk and Authorization Management Program (FedRAMP)](https://www.fedramp.gov/) is een Verenigde Staten overheids programma dat een gestandaardiseerde benadering biedt voor de beveiligings beoordeling, de autorisatie en de voortdurende bewaking van Cloud producten en-services. Deze Azure-blauwdruk voor beveiliging en naleving biedt richt lijnen voor het leveren van een Microsoft Azure Data Warehouse-architectuur die helpt bij het implementeren van een subset van FedRAMP High Controls. Deze oplossing biedt richt lijnen voor de implementatie en configuratie van Azure-resources voor een algemene referentie architectuur, waarbij u kunt zien hoe klanten aan specifieke vereisten voor beveiliging en naleving kunnen voldoen en als basis voor klanten worden gebruikt om bouw en configureer hun eigen data warehouse-oplossingen in Azure.
 
-Deze referentiearchitectuur, bijbehorende besturingselement implementatiehandleidingen en bedreigingsmodellen zijn bedoeld om te fungeren als een basis voor klanten om aan te passen op hun specifieke behoeften en mag niet worden gebruikt als-is in een productieomgeving. Er is onvoldoende om volledig te voldoen aan de vereisten van de basislijn FedRAMP High implementeren van een toepassing in deze omgeving zonder aanpassingen. Houd rekening met het volgende:
-- De architectuur biedt een basislijn om workloads naar Azure te implementeren op een manier die compatibel is met FedRAMP klanten te helpen.
-- Klanten zijn verantwoordelijk voor het uitvoeren van de juiste beveiliging en naleving evaluaties van een oplossing die is gebouwd met behulp van deze architectuur als vereisten kunnen variëren op basis van de details van de uitvoering van elke klant.
+Deze referentie architectuur, de bijbehorende beheer implementatie handleidingen en bedreigings modellen zijn bedoeld om te fungeren als basis voor klanten om aan hun specifieke vereisten aan te passen en mogen niet worden gebruikt als in een productie omgeving. Het implementeren van een toepassing in deze omgeving zonder aanpassing is niet voldoende om volledig te voldoen aan de vereisten van de FedRAMP hoge basis lijn. Houd rekening met het volgende:
+- De architectuur biedt een basis lijn om klanten te helpen bij het implementeren van werk belastingen naar Azure op een FedRAMP.
+- Klanten zijn verantwoordelijk voor het uitvoeren van passende beveiligings-en nalevings beoordelingen van alle oplossingen die zijn gebouwd met behulp van deze architectuur, aangezien de vereisten kunnen variëren afhankelijk van de specifieke implementaties van elke klant.
 
-## <a name="architecture-diagram-and-components"></a>Diagram van architectuur en onderdelen
+## <a name="architecture-diagram-and-components"></a>Architectuur diagram en onderdelen
 
-Deze oplossing biedt een datawarehouse-referentiearchitectuur waarmee een krachtige en veilige cloud datawarehouse wordt geïmplementeerd. Er zijn twee afzonderlijke lagen in deze architectuur: één waar gegevens worden geïmporteerd, die zijn opgeslagen, en tijdelijk worden opgeslagen in een geclusterde SQL-omgeving, en een andere voor de Azure SQL Data Warehouse waar de gegevens zijn geladen met behulp van een ETL-hulpprogramma (bijvoorbeeld [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase)T-SQL-query's) voor verwerking. Wanneer gegevens worden opgeslagen in Azure SQL Data Warehouse, kunt analytics uitvoeren op grote schaal.
+Deze oplossing biedt een referentie architectuur voor data warehouses waarmee een hoogwaardig en veilig data warehouse in de Cloud wordt geïmplementeerd. Er zijn twee afzonderlijke gegevens lagen in deze architectuur: een locatie waar gegevens worden geïmporteerd, opgeslagen en gefaseerd worden uitgevoerd binnen een geclusterde SQL-omgeving, en een andere voor de Azure SQL Data Warehouse waar de gegevens worden geladen met een ETL-hulp programma (bijvoorbeeld [poly base](https://docs.microsoft.com/azure/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase) T-SQL-query's) voor verwerking. Wanneer de gegevens zijn opgeslagen in Azure SQL Data Warehouse, kan Analytics op grote schaal worden uitgevoerd.
 
-Microsoft Azure biedt tal van services voor rapportage en analyse voor de klant. Deze oplossing omvat SQL Server Reporting Services (SSRS) voor het snel maken van rapporten uit de Azure SQL Data Warehouse. Alle SQL-verkeer wordt versleuteld met SSL door de toevoeging van zelfondertekende certificaten. Als een best practice raadt Azure het gebruik van een vertrouwde certificeringsinstantie voor verbeterde beveiliging.
+Microsoft Azure biedt een aantal rapportage-en analyse Services voor de klant. Deze oplossing bevat SQL Server Reporting Services (SSRS) voor het snel maken van rapporten van de Azure SQL Data Warehouse. Alle SQL-verkeer wordt versleuteld met SSL via het opnemen van zelfondertekende certificaten. Als best practice, raadt Azure het gebruik aan van een vertrouwde certificerings instantie voor verbeterde beveiliging.
 
-Gegevens in de Azure SQL Data Warehouse is opgeslagen in relationele tabellen met opslag in kolommen, een indeling die de kosten voor gegevensopslag aanzienlijk verlaagt en verbetert de prestaties van query's.  Afhankelijk van gebruiksvereisten, kunnen Azure SQL Data Warehouse-rekenresources worden omhoog of omlaag geschaald of volledig afgesloten als er geen actieve processen die rekenresources.
+Gegevens in de Azure SQL Data Warehouse worden opgeslagen in relationele tabellen met kolom opslag, een indeling waarmee de kosten voor de gegevens opslag aanzienlijk worden verminderd en de query prestaties worden verbeterd.  Afhankelijk van de gebruiks vereisten kunnen Azure SQL Data Warehouse Compute-resources omhoog of omlaag worden geschaald of volledig worden afgesloten als er geen actieve processen zijn die reken resources vereisen.
 
-Een SQL-load balancer beheert SQL-verkeer, ervoor te zorgen dat de hoge prestaties. Alle virtuele machines in deze referentiearchitectuur implementeert in een beschikbaarheidsset met SQL Server-exemplaren die zijn geconfigureerd in een AlwaysOn-beschikbaarheidsgroep voor mogelijkheden voor hoge beschikbaarheid en herstel na noodgevallen.
+Een SQL-load balancer beheert SQL-verkeer, waardoor hoge prestaties worden gegarandeerd. Alle virtuele machines in deze referentie architectuur implementeren in een beschikbaarheidsset met SQL Server exemplaren die zijn geconfigureerd in een AlwaysOn-beschikbaarheids groep voor mogelijkheden met hoge Beschik baarheid en herstel na nood gevallen.
 
-Deze referentiearchitectuur voor datawarehouse bevat ook een laag Active Directory (AD) voor het beheren van resources in de architectuur. De Active Directory-subnet kan eenvoudig acceptatie onder een groter geheel voor AD-forest, zodat voor doorlopende werking van de omgeving, zelfs wanneer de toegang tot de grotere forest niet beschikbaar is. Alle virtuele machines worden toegevoegd aan de Active Directory-laag- en Active Directory-groepsbeleid gebruiken om af te dwingen van beveiliging en naleving configuraties op het niveau van het besturingssysteem.
+Deze referentie architectuur voor data warehouses bevat ook een Active Directory (AD)-laag voor het beheer van bronnen binnen de architectuur. Met het Active Directory-subnet kunt u eenvoudig de implementatie onder een grotere structuur van een AD-forest, waardoor de omgeving voortdurend kan worden geactiveerd, zelfs wanneer toegang tot het grotere forest niet beschikbaar is. Alle virtuele machines zijn gekoppeld aan de laag Active Directory en gebruiken Active Directory groeps beleid om configuraties voor beveiliging en naleving af te dwingen op het niveau van het besturings systeem.
 
-Een virtuele machine fungeert als een bastionhost management biedt een beveiligde verbinding voor beheerders voor toegang tot geïmplementeerd resources. De gegevens zijn geladen in het faseringsgebied via deze bastionhost management. **Azure wordt aanbevolen voor het configureren van een VPN of Azure ExpressRoute-verbinding voor beheer en de gegevens importeren in het subnet van referentie-architectuur.**
+Een virtuele machine fungeert als een management bastion-host en biedt een beveiligde verbinding voor beheerders om toegang te krijgen tot geïmplementeerde bronnen. De gegevens worden in het faserings gebied geladen via deze beheer bastion-host. **U wordt aangeraden een VPN-of Azure ExpressRoute-verbinding te configureren voor beheer en gegevens import in het subnet met de referentie architectuur.**
 
-![Datawarehouse voor FedRAMP verwijzing Architectuurdiagram](images/fedramp-datawarehouse-architecture.png?raw=true "Data Warehouse voor Architectuurdiagram van FedRAMP-verwijzing")
+![Data Warehouse voor FedRAMP-referentie architectuur diagram](images/fedramp-datawarehouse-architecture.png?raw=true "Data Warehouse voor FedRAMP-referentie architectuur diagram")
 
-Deze oplossing maakt gebruik van de volgende Azure-services. Informatie van de implementatiearchitectuur vindt u in de [architectuur](#deployment-architecture) sectie.
+Deze oplossing maakt gebruik van de volgende Azure-Services. Details van de implementatie architectuur vindt u in de sectie [implementatie architectuur](#deployment-architecture) .
 
 Azure Virtual Machines
--   (1) bastionhost
--   (2) active Directory-domeincontroller
--   (2) SQL Server-clusterknooppunt
--   (1) SQL Server-Witness
+-   (1) bastion-host
+-   (2) Active Directory domein controller
+-   (2) SQL Server cluster knooppunt
+-   (1) SQL Server Witness
 
 Beschikbaarheidssets
--   (1) active Directory-domeincontrollers
--   (1) SQL-clusterknooppunten en -witness
+-   (1) Active Directory domein controllers
+-   (1) SQL-cluster knooppunten en Witness
 
 Virtueel netwerk
 -   (4) subnetten
--   (4) de Netwerkbeveiligingsgroepen
+-   (4) netwerk beveiligings groepen
 
 SQL Data Warehouse
 
@@ -65,135 +65,135 @@ Azure SQL Load Balancer
 
 Azure Active Directory
 
-Recovery Services-kluis
+Recovery Services kluis
 
 Azure Key Vault
 
 Azure Monitor-logboeken
 
-## <a name="deployment-architecture"></a>Implementatie-architectuur
+## <a name="deployment-architecture"></a>Implementatie architectuur
 
-De volgende sectie bevat de elementen van de ontwikkeling en implementatie.
+De volgende sectie bevat informatie over de ontwikkelings-en implementatie-elementen.
 
-**SQL Data Warehouse**: [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) is een Enterprise Data Warehouse (EDW) die gebruikmaakt van uiterst (Massively Parallel Processing) als u wilt snel complexe query's uitvoeren voor petabytes aan gegevens. Big data importeren in SQL Data Warehouse met eenvoudige PolyBase T-SQL-query's en de kracht van MPP gebruiken om uit te voeren analyses met hoge prestaties.
+**SQL Data Warehouse**: [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) is een edw (Enter prise Data Warehouse) dat gebruikmaakt van enorme parallelle verwerking (MPP) om snel complexe query's uit te voeren op PETA bytes met gegevens. Importeer big data in SQL Data Warehouse met eenvoudige poly Base T-SQL-query's en gebruik de kracht van MPP voor het uitvoeren van analyses met hoge prestaties.
 
-**SQL Server Reporting Services**: [SQL Server Reporting Services](https://docs.microsoft.com/sql/reporting-services/report-data/sql-azure-connection-type-ssrs) Hiermee kunt u snel maken van rapporten met tabellen, diagrammen, kaarten, meters, matrices en meer voor Azure SQL Data Warehouse.
+**SQL Server Reporting Services**: [SQL Server Reporting Services](https://docs.microsoft.com/sql/reporting-services/report-data/sql-azure-connection-type-ssrs) maakt het snel maken van rapporten met tabellen, grafieken, kaarten, meters, matrices en meer voor Azure SQL Data Warehouse.
 
-**Bastionhost**: De bastionhost is de enkel ingangspunt waarmee gebruikers toegang krijgen tot de geïmplementeerde resources in deze omgeving. De bastionhost biedt een beveiligde verbinding met de geïmplementeerde resources door toe te staan alleen extern verkeer vanaf openbare IP-adressen op een veilige lijst. Als u wilt toestaan dat verkeer van extern bureaublad (RDP), moet de oorzaak van het verkeer in de Netwerkbeveiligingsgroep (NSG) worden gedefinieerd.
+**Bastion-host**: De bastion-host is het enige toegangs punt dat gebruikers in staat stelt om toegang te krijgen tot de geïmplementeerde resources in deze omgeving. De bastion-host biedt een beveiligde verbinding met geïmplementeerde bronnen door alleen extern verkeer van open bare IP-adressen in een veilige lijst toe te staan. Als u RDP-verkeer (extern bureau blad) wilt toestaan, moet u de bron van het verkeer definiëren in de netwerk beveiligings groep (NSG).
 
-Een virtuele machine is gemaakt als een domein bastionhost met de volgende configuraties:
--   [Antimalware-uitbreiding](https://docs.microsoft.com/azure/security/azure-security-antimalware)
--   [Extensie van Azure Monitor-Logboeken](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-oms)
--   [Azure Diagnostics-extensie](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
--   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) met behulp van Azure Key Vault (respecteert Azure Government, PCI DSS, HIPAA en andere vereisten)
--   Een [beleid voor automatisch afsluiten](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) verkleind van resources van de virtuele machine als deze niet in gebruik
--   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) ingeschakeld die referenties en andere geheimen in een beveiligde omgeving die is geïsoleerd van het besturingssysteem wordt uitgevoerd
+Een virtuele machine is gemaakt als een bastion-host die is gekoppeld aan een domein met de volgende configuraties:
+-   [Uitbrei ding voor antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+-   [Extensie Azure Monitor logboeken](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-oms)
+-   [Azure Diagnostics extensie](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
+-   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) het gebruik van Azure Key Vault (opzichten Azure Government, PCI DSS, HIPAA en andere vereisten)
+-   Een [beleid voor automatisch afsluiten](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) om het verbruik van resources van de virtuele machine te verminderen wanneer het niet wordt gebruikt
+-   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) is ingeschakeld zodat referenties en andere geheimen worden uitgevoerd in een beveiligde omgeving die is geïsoleerd van het actieve besturings systeem
 
 ### <a name="virtual-network"></a>Virtueel netwerk
-Deze referentiearchitectuur definieert een particulier virtueel netwerk met een adresruimte van 10.0.0.0/16.
+Deze referentie architectuur definieert een particulier virtueel netwerk met een adres ruimte van 10.0.0.0/16.
 
-**Netwerkbeveiligingsgroepen**: [Nsg's](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) bevatten toegangsbeheerlijsten (ACL's) die verkeer binnen een VNet toestaan of weigeren. Nsg's kunnen worden gebruikt om verkeer een subnet of afzonderlijke virtuele machine te beveiligen. De volgende nsg's bestaan:
-  - Een NSG voor de gegevenslaag (SQL Server-Clusters, SQL Server-Witness en SQL Load Balancer)
-  - Een NSG voor het beheer van bastionhost
+**Netwerk beveiligings groepen**: [Nsg's](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) bevatten Access Control-lijsten (acl's) waarmee verkeer binnen een VNet wordt toegestaan of geweigerd. Nsg's kan worden gebruikt om verkeer op een subnet of een afzonderlijk VM-niveau te beveiligen. De volgende Nsg's bestaan:
+  - Een NSG voor de gegevenslaag (SQL Server clusters, SQL Server Witness en SQL Load Balancer)
+  - Een NSG voor de bastion-host van het beheer
   - Een NSG voor Active Directory
   - Een NSG voor SQL Server Reporting Services
 
-Elk van de nsg's zijn bepaalde poorten en protocollen openen, zodat de oplossing kunt veilig en goed werken. Bovendien zijn de volgende configuraties voor elke NSG ingeschakeld:
-  - [Diagnostische logboeken en gebeurtenissen](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) zijn ingeschakeld en die zijn opgeslagen in een storage-account
-  - Logboeken in Azure Monitor is verbonden met de [NSG van diagnostische gegevens](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+Voor elk van de Nsg's zijn specifieke poorten en protocollen geopend, zodat de oplossing veilig en goed werkt. Daarnaast zijn de volgende configuraties ingeschakeld voor elke NSG:
+  - [Diagnostische logboeken en gebeurtenissen](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) worden ingeschakeld en opgeslagen in een opslag account
+  - Azure Monitor-logboeken zijn verbonden met de [Diagnostische gegevens van de NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Subnetten**: Elk subnet is gekoppeld aan de bijbehorende NSG.
 
-### <a name="data-at-rest"></a>Inactieve gegevens
-De architectuur beveiligt gegevens in rust via versleuteling, controle-database en andere metingen.
+### <a name="data-at-rest"></a>Data-at-rest
+De architectuur beveiligt gegevens op rest door versleuteling, database controle en andere metingen.
 
-**Azure Storage** om versleutelde data-at-rest-vereisten te voldoen aan alle [Azure Storage](https://azure.microsoft.com/services/storage/) maakt gebruik van [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption).
+**Azure Storage** Om te voldoen aan de versleutelde gegevens op rest-vereisten, gebruikt alle [Azure Storage](https://azure.microsoft.com/services/storage/) [Storage service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption).
 
-**Azure Disk Encryption**
-[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) maakt gebruik van de BitLocker-functie van Windows om volumeversleuteling voor het besturingssysteem en gegevensschijven te bieden. De oplossing kan worden geïntegreerd met Azure Key Vault voor het beheren en beheren van de versleutelingssleutels op de schijf.
+AzureDiskEncryption
+[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) maakt gebruik van de BitLocker-functie van Windows om volume versleuteling te bieden voor besturings systeem-en gegevens schijven. De oplossing kan worden geïntegreerd met Azure Key Vault om de versleutelings sleutels voor de schijf te controleren en te beheren.
 
-**Azure SQL Database** de Azure SQL Database-exemplaar maakt gebruik van de volgende metingen van de database-beveiliging:
--   [AD-verificatie en autorisatie](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) maakt identiteitsbeheer van databasegebruikers en andere Microsoft-services op één centrale locatie.
--   [SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) databasegebeurtenissen bijgehouden en geschreven naar een auditlogboek in Azure storage-account.
--   SQL-Database is geconfigureerd voor het gebruik van [transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), die voert realtime versleuteling en ontsleuteling van gegevens en logboekbestanden om gegevens in rust te beveiligen. TDE biedt de zekerheid dat de opgeslagen gegevens niet is onderworpen aan onbevoegde toegang.
--   [Firewall-regels](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) voorkomen dat u alle toegang tot de database-servers, totdat de juiste machtigingen zijn toegekend. De firewall verleent toegang tot databases op basis van het IP-adres waar de aanvraag vandaan komt.
--   [SQL Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) kunt u detectie en reactie op mogelijke bedreigingen wanneer deze zich voordoen, dankzij beveiligingswaarschuwingen voor verdachte databaseactiviteiten, potentiële kwetsbaarheden, SQL-injectieaanvallen en afwijkende database-toegang patronen.
--   [Altijd versleuteld kolommen](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) ervoor te zorgen dat gevoelige gegevens nooit wordt weergegeven als tekst zonder opmaak in de database-systeem. Na het inschakelen van versleuteling van gegevens, alleen clienttoepassingen of appservers met toegang tot de sleutels gegevens zijn toegankelijk als tekst zonder opmaak.
--   [SQL Database dynamische gegevensmaskering](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) kan worden uitgevoerd nadat de referentiearchitectuur implementeert. Klanten moet aanpassen, dynamische gegevensmaskering instellingen om te voldoen aan het schema van de database.
+**Azure SQL database** Het Azure SQL Database exemplaar maakt gebruik van de volgende data base Security-maat eenheden:
+-   [Ad-verificatie en-autorisatie](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) maken het identiteits beheer mogelijk van database gebruikers en andere micro soft-Services op één centrale locatie.
+-   Met [SQL database controle](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) worden database gebeurtenissen bijgehouden en naar een audit logboek in een Azure-opslag account geschreven.
+-   SQL Database is geconfigureerd voor het gebruik van [transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), waarmee in realtime versleuteling en ontsleuteling van gegevens en logboek bestanden worden uitgevoerd om informatie te beveiligen. TDE biedt zekerheid dat opgeslagen gegevens niet zijn onderworpen aan onbevoegde toegang.
+-   [Firewall regels](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) voor komen dat alle toegang tot database servers tot de juiste machtigingen worden verleend. De firewall verleent toegang tot databases op basis van het IP-adres waar de aanvraag vandaan komt.
+-   Met de [detectie van SQL-bedreigingen](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) kunnen mogelijke dreigingen worden gedetecteerd en gereageerd als ze optreden door beveiligings waarschuwingen te bieden voor verdachte database activiteiten, potentiële kwetsbaar heden, SQL-injectie aanvallen en afwijkende database toegangs patronen.
+-   [Always encrypted kolommen](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) zorgen ervoor dat gevoelige gegevens nooit als tekst zonder opmaak in het database systeem worden weer gegeven. Na het inschakelen van gegevens versleuteling, hebben alleen client toepassingen of app-servers met toegang tot de sleutels toegang tot tekst zonder opmaak.
+-   [SQL database dynamische gegevens maskering](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) kunnen worden uitgevoerd nadat de referentie architectuur is geïmplementeerd. Klanten moeten de instellingen voor dynamische gegevens maskering aanpassen om te voldoen aan hun database schema.
 
 ### <a name="business-continuity"></a>Bedrijfscontinuïteit
-**Hoge beschikbaarheid**: Server-workloads worden gegroepeerd in een [Beschikbaarheidsset](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) om te zorgen voor hoge beschikbaarheid van virtuele machines in Azure. Ten minste één virtuele machine beschikbaar is tijdens gepland of ongepland onderhoud, voldoen aan de 99,95% Azure SLA.
+**Hoge beschikbaarheid**: Server werkbelastingen worden gegroepeerd in [](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) een beschikbaarheidsset om te zorgen voor een hoge Beschik baarheid van virtuele machines in Azure. Er is ten minste één virtuele machine beschikbaar tijdens een geplande of niet-geplande onderhouds gebeurtenis die voldoet aan de 99,95% Azure SLA.
 
-**Recovery Services-kluis**: De [Recovery Services-kluis](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) -instellingen van de back-upgegevens en alle configuraties van Azure Virtual Machines in deze architectuur beveiligt. Met een Recovery Services-kluis, klanten kunnen bestanden en mappen terugzetten vanuit een IaaS-VM zonder te herstellen van de hele virtuele machine, waardoor sneller worden hersteld.
+**Recovery Services kluis**: De [Recovery Services kluis](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) maakt back-upgegevens en beveiligt alle configuraties van Azure virtual machines in deze architectuur. Met een Recovery Services kluis kunnen klanten bestanden en mappen herstellen vanaf een IaaS-VM zonder de hele virtuele machine te herstellen, waardoor de herstel tijd sneller verloopt.
 
-### <a name="logging-and-audit"></a>Logboekregistratie en controle
-[Logboeken in Azure Monitor](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) biedt uitgebreide logboekregistratie van het systeem- en gebruikersactiviteit, evenals de status van het bestandssysteem. De [logboeken van Azure Monitor](https://azure.microsoft.com/services/log-analytics/) oplossing verzamelt en analyseert gegevens gegenereerd door resources in Azure en on-premises omgevingen.
-- **Activiteitenlogboeken**: [Activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in bewerkingen die worden uitgevoerd op resources in een abonnement.
-- **Diagnostische logboeken**: [Diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) bevatten alle logboeken die zijn gegenereerd door elke resource. Deze logboeken bevatten de logboeken voor Windows-systeem en Azure Blob-opslag, tabellen en wachtrijlogboeken.
-- **Firewall-logboeken**: De Application Gateway biedt volledige diagnostische en toegang tot logboeken. Firewall-logboeken zijn beschikbaar voor Application Gateway WAF-functionaliteit resources.
-- **Logboek archiveren**: Alle logboeken met diagnostische gegevens schrijven naar een gecentraliseerd en versleutelde Azure storage-account voor archivering met een gedefinieerde bewaarperiode van twee dagen. Deze logboeken verbinden met Azure Monitor-logboeken voor verwerking, opslag en -dashboardrapporten.
+### <a name="logging-and-audit"></a>Logboek registratie en controle
+[Azure monitor logboeken](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) biedt uitgebreide logboek registratie van systeem-en gebruikers activiteiten, evenals de systeem status. De oplossing voor de [Azure monitor](https://azure.microsoft.com/services/log-analytics/) -logboeken verzamelt en analyseert gegevens die zijn gegenereerd door resources in Azure-en on-premises omgevingen.
+- **Activiteiten logboeken**: [Activiteiten logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in bewerkingen die worden uitgevoerd op resources in een abonnement.
+- **Diagnostische logboeken**: [Diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) bevatten alle logboeken die elke resource heeft verzonden. Deze logboeken bevatten Windows-gebeurtenis systeem logboeken en Azure Blob-opslag, tabellen en wachtrij Logboeken.
+- **Firewall logboeken**: De Application Gateway biedt volledige diagnostische en toegangs logboeken. Er zijn firewall-logboeken beschikbaar voor WAF Application Gateway-resources.
+- **Archivering**van Logboeken: Alle Diagnostische logboeken schrijven naar een gecentraliseerd en versleuteld Azure Storage-account voor archivering met een gedefinieerde Bewaar periode van 2 dagen. Deze logboeken maken verbinding met Azure Monitor logboeken voor verwerking, opslag en dashboard rapportage.
 
-Bovendien is de volgende bewakingsoplossingen, opgenomen als onderdeel van deze architectuur:
--   [AD-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): De oplossing statuscontrole van Active Directory beoordeelt het risico en de gezondheid van server-omgevingen op een vast interval en biedt een geprioriteerde lijst met aanbevelingen die specifiek zijn voor de geïmplementeerde serverinfrastructuur.
--   [Antimalware-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): De Antimalware-oplossing rapporteert over de status van schadelijke software, bedreigingen en beveiliging.
--   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): De oplossing Azure Automation opgeslagen, wordt uitgevoerd en runbooks worden beheerd.
--   [Beveiliging en controle](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): Het dashboard beveiliging en controle biedt een hoogwaardig inzicht in de beveiligingsstatus van resources, dankzij metrische gegevens over beveiligingsdomeinen, problemen die aandacht vereisen, detecties, bedreigingsinformatie en algemene Beveiligingsquery's.
--   [SQL-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): De oplossing SQL-statuscontrole beoordeelt het risico en de gezondheid van server-omgevingen op een vast interval en biedt klanten een geprioriteerde lijst met aanbevelingen die specifiek zijn voor de geïmplementeerde serverinfrastructuur.
--   [Updatebeheer](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): De oplossing Update Management kunt Klantenbeheer van updates voor besturingssysteem, met inbegrip van de status van de beschikbare updates en het installatieproces van vereiste updates.
--   [Status van agent](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): De oplossing status van Agent rapporteert het aantal agents zijn geïmplementeerd en hun geografische verdeling, evenals hoeveel agents die niet meer reageert en het aantal agents die zijn operationele gegevens kan verzenden.
--   [Azure-activiteitenlogboeken](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): De oplossing Activity Log Analytics biedt ondersteuning voor analyse van de Azure-activiteitenlogboeken voor alle Azure-abonnementen voor een klant.
--   [Wijzigingen bijhouden](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): De oplossing wijzigingen bijhouden kan klanten eenvoudig wijzigingen in de omgeving identificeren.
+Daarnaast zijn de volgende bewakings oplossingen opgenomen als onderdeel van deze architectuur:
+-   [Ad-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): De Active Directory Health Check-oplossing evalueert het risico en de status van de server omgevingen volgens een regel matig interval en biedt een lijst met aanbevelingen die specifiek zijn voor de geïmplementeerde server infrastructuur.
+-   [Anitmalware-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): De antimalware-oplossing rapporteert over malware, bedreigingen en de beveiligings status.
+-   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): Met de Azure Automation oplossing worden runbooks opgeslagen, uitgevoerd en beheerd.
+-   [Beveiliging en audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): Het Beveiliging en audit-dash board biedt een hoog niveau inzicht in de beveiligings status van bronnen door metrische gegevens op te geven over beveiligings domeinen, belang rijke problemen, detecties, bedreigings informatie en algemene beveiligings query's.
+-   [SQL-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): De SQL Health Check-oplossing evalueert het risico en de status van de server omgevingen met een regel matig interval en biedt klanten een lijst met prioriteiten die specifiek zijn voor de geïmplementeerde server infrastructuur.
+-   [Updatebeheer](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): Met de Updatebeheer oplossing kan het klant beheer van beveiligings updates van besturings systemen worden uitgevoerd, inclusief de status van beschik bare updates en het proces voor het installeren van vereiste updates.
+-   [Status van agent](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): De Status van agent oplossing meldt hoeveel agents zijn geïmplementeerd en wat hun geografische distributie zijn, en hoeveel agents niet reageren en het aantal agents dat operationele gegevens verzendt.
+-   [Azure-activiteiten logboeken](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): De Analyse van activiteitenlogboek oplossing helpt bij het analyseren van de activiteiten logboeken van Azure in alle Azure-abonnementen voor een klant.
+-   [Wijzigingen bijhouden](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): Met de Wijzigingen bijhouden oplossing kunnen klanten eenvoudig wijzigingen in de omgeving identificeren.
 
 ### <a name="identity-management"></a>Identiteitsbeheer
-De volgende technologieën bieden identiteit beheermogelijkheden in de Azure-omgeving:
--   [Active Directory (AD)](https://azure.microsoft.com/services/active-directory/) van Microsoft cloud-gebaseerde directory- en identiteitsbeheer management service met meerdere tenants kan zijn. Alle gebruikers voor de oplossing zijn gemaakt in Azure Active Directory, met inbegrip van gebruikers met toegang tot de SQL-Database.
--   Verificatie van de toepassing wordt uitgevoerd met behulp van Azure AD. Zie voor meer informatie, [toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Bovendien de versleuteling van de kolom database maakt gebruik van Azure AD om te verifiëren van de toepassing naar Azure SQL Database. Zie voor meer informatie over het [bescherming van gevoelige gegevens in SQL-Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
--   [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) mogelijke beveiligingsproblemen die betrekking hebben op van een organisatie-id's detecteert, configureert u automatische antwoorden op gedetecteerde verdachte activiteit met betrekking tot een organisatie-id's en onderzoekt het probleem verdachte incidenten, onderneem gepaste actie op te lossen.
--   [Azure Role-based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) maakt gericht beheer van toegang voor Azure. Abonnementstoegang is beperkt tot de beheerder van het abonnement.
+De volgende technologieën bieden mogelijkheden voor identiteits beheer in de Azure-omgeving:
+-   [Active Directory (AD)](https://azure.microsoft.com/services/active-directory/) kan de multi tenant-Cloud Directory en identiteits beheer service van micro soft zijn. Alle gebruikers voor de oplossing zijn gemaakt in Azure Active Directory, met inbegrip van gebruikers die toegang hebben tot de SQL Database.
+-   Verificatie voor de toepassing wordt uitgevoerd met behulp van Azure AD. Zie [toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)voor meer informatie. Daarnaast maakt de database kolom versleuteling gebruik van Azure AD om de toepassing te verifiëren voor Azure SQL Database. Zie voor meer informatie hoe u [gevoelige gegevens in SQL database kunt beveiligen](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+-   [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) detecteert mogelijke beveiligings problemen die invloed hebben op de identiteiten van een organisatie, configureert automatische antwoorden op gedetecteerde verdachte acties die betrekking hebben op de identiteit van een organisatie en onderzoeken verdachte incidenten om deze problemen op te lossen.
+-   [Met Access Control op basis van rollen (RBAC) van Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) kunt u het toegangs beheer voor Azure richten. Abonnements toegang is beperkt tot de abonnements beheerder.
 
-Zie voor meer informatie over het gebruik van de beveiligingsfuncties van Azure SQL Database, de [Contoso Clinic-Demotoepassing](https://github.com/Microsoft/azure-sql-security-sample) voorbeeld.
+Voor meer informatie over het gebruik van de beveiligings functies van Azure SQL Database raadpleegt u de voorbeeld [toepassing contoso Clinic demo](https://github.com/Microsoft/azure-sql-security-sample) .
 
 ### <a name="security"></a>Beveiliging
-**Geheimen management**: De oplossing maakt gebruik van [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) voor het beheer van sleutels en geheimen. Met Azure Sleutelkluis kunt u de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services worden gebruikt.
+**Beheer van geheimen**: De oplossing maakt gebruik van [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) voor het beheer van sleutels en geheimen. Met Azure Sleutelkluis kunt u de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services worden gebruikt.
 
-**Bescherming tegen schadelijke software**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) voor virtuele Machines biedt realtime-beveiliging-functie die helpt te identificeren en verwijderen van virussen, spyware en andere schadelijke software, met configureerbare meldingen wanneer bekende schadelijke of ongewenste software wil installeren of uitvoeren op de beveiligde virtuele machines.
+**Bescherming tegen schadelijke software**: [Micro soft antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) voor virtual machines biedt realtime beschermings mogelijkheden waarmee u virussen, spyware en andere schadelijke software kunt identificeren en verwijderen, met Configureer bare waarschuwingen wanneer bekende of ongewenste software probeert om op beveiligde virtuele machines installeren of uitvoeren.
 
-**Patchbeheer**: Windows virtuele machines geïmplementeerd als onderdeel van deze referentiearchitectuur worden standaard automatisch updates ontvangen van Windows Update-Service geconfigureerd. Deze oplossing bevat ook de [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) service waarmee bijgewerkte implementaties kunnen worden gemaakt voor de patch voor virtuele machines wanneer dat nodig is.
+**Patch beheer**: Virtuele Windows-machines die zijn geïmplementeerd als onderdeel van deze referentie architectuur, worden standaard geconfigureerd voor het ontvangen van automatische updates van Windows Update-service. Deze oplossing omvat ook de [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) -service waarmee bijgewerkte implementaties kunnen worden gemaakt om virtuele machines te patchen wanneer dat nodig is.
 
 
-## <a name="guidance-and-recommendations"></a>Richtlijnen en aanbevelingen
-### <a name="expressroute-and-vpn"></a>ExpressRoute- en VPN
-[ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of een beveiligde VPN-tunnel moet worden geconfigureerd voor een veilig verbinding met de resources die zijn geïmplementeerd als onderdeel van deze referentiearchitectuur voor datawarehouse. Als het ExpressRoute-verbindingen gaan niet via het Internet, bieden deze verbindingen een meer betrouwbaarheid, hogere snelheden, kortere wachttijden en hogere beveiliging dan gebruikelijke verbindingen via Internet. Door op de juiste wijze instellen van ExpressRoute of een VPN-verbinding, kunnen klanten een beveiligingslaag voor gegevens in transit toevoegen.
+## <a name="guidance-and-recommendations"></a>Richt lijnen en aanbevelingen
+### <a name="expressroute-and-vpn"></a>ExpressRoute en VPN
+[ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of een beveiligde VPN-tunnel moet worden geconfigureerd om een veilige verbinding te maken met de resources die zijn geïmplementeerd als onderdeel van deze data warehouse-referentie architectuur. Omdat ExpressRoute-verbindingen niet via internet werken, bieden deze verbindingen meer betrouw baarheid, hogere snelheden, lagere latenties en een betere beveiliging dan typische verbindingen via internet. Door ExpressRoute of een VPN in te stellen, kunnen klanten een beveiligingslaag toevoegen voor gegevens die onderweg zijn.
 
-### <a name="extract-transform-load-etl-process"></a>Proces extract-Transform-Load (ETL)
-[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) kunnen gegevens laden in Azure SQL Data Warehouse zonder de noodzaak voor een afzonderlijke ETL of hulpprogramma voor importeren. PolyBase biedt toegang tot gegevens via T-SQL-query's. Microsoft business intelligence en analyse-stack, evenals hulpprogramma's van derden die compatibel is met SQL Server, kunnen worden gebruikt met PolyBase.
+### <a name="extract-transform-load-etl-process"></a>Proces voor het laden van de loads-trans formatie (ETL)
+[Poly base](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) kan gegevens in Azure SQL Data Warehouse laden zonder dat hiervoor een afzonderlijk ETL-of import programma nodig is. Poly Base biedt toegang tot gegevens via T-SQL-query's. De business intelligence-en analyse stack van micro soft, en hulpprogram ma's van derden die compatibel zijn met SQL Server, kunnen worden gebruikt met poly base.
 
-### <a name="azure-active-directory-setup"></a>Installatie van de Azure Active Directory
-[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is essentieel voor het beheren van de implementatie en inrichting van toegang tot personeel interactie met de omgeving. Een bestaande Windows Server Active Directory kunnen worden geïntegreerd met AAD in [vier klikken](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Klanten kunnen ook de geïmplementeerde Active Directory-infrastructuur (domeincontrollers) koppelen aan een bestaande AAD doordat de geïmplementeerde Active Directory-infrastructuur een subdomein van een AAD-forest.
+### <a name="azure-active-directory-setup"></a>Azure Active Directory instellen
+[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is essentieel voor het beheren van de implementatie en het inrichten van de toegang tot mede werkers met de omgeving. Een bestaande Windows Server-Active Directory kan in [vier klikken](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express)met Aad worden geïntegreerd. Klanten kunnen de geïmplementeerde Active Directory-infra structuur (domein controllers) ook koppelen aan een bestaande AAD door de geïmplementeerde Active Directory-infra structuur een subdomein van een AAD-forest te maken.
 
 ### <a name="additional-services"></a>Extra services
-Hoewel deze datawarehouse-architectuur is niet bedoeld voor implementatie naar de [Azure Commercial](https://azure.microsoft.com/overview/what-is-azure/) omgeving, hetzelfde doel kunnen worden bereikt via de services die worden beschreven in deze referentiearchitectuur, evenals aanvullende services die alleen beschikbaar in de commerciële Azure-omgeving. Houd er rekening mee dat Azure Commercial een FedRAMP JAB P-ATO op het niveau van matige Impact onderhoudt, overheidsinstellingen worden gesteld en partners te implementeren dat gevoelige informatie naar de cloud gebruik te maken van de commerciële Azure-omgeving.
+Hoewel deze data warehouse-architectuur niet is bedoeld voor implementatie naar de [Azure-commerciële](https://azure.microsoft.com/overview/what-is-azure/) omgeving, kunnen vergelijk bare doel stellingen worden bereikt via de services die in deze referentie architectuur worden beschreven, evenals de extra services die beschikbaar zijn alleen in de bedrijfs omgeving van Azure. Houd er rekening mee dat Azure Commercial een FedRAMP JAB P-ATO onderhoudt op het niveau van de gemiddelde impact, waardoor overheids instellingen en partners tamelijk gevoelige informatie kunnen implementeren in de Cloud met behulp van de Azure-commerciële omgeving.
 
-Commerciële Azure biedt die een groot aantal services die ingang geformatteerd en opslag van niet-opgemaakte gegevens en in fasering moet worden gebruikt in de gegevensopslag, met inbegrip van:
--   [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) is een beheerde cloudservice die is gebouwd voor complexe hybride extract-transform-load (ETL), extract-load-transform (ELT), en gegevensintegratieprojecten. Met Azure Data Factory, kunnen klanten maken en plannen van gegevensgestuurde werkstromen pijplijnen die gegevens uit verschillende gegevensarchieven opnemen genoemd. Klanten kunnen vervolgens verwerken en transformeren van de gegevens voor uitvoer naar gegevensarchieven zoals Azure SQL Data Warehouse.
--   [Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) kunt u het vastleggen van gegevens van elke grootte, soort en opnamesnelheid op één plek voor operationele en verkennende analyse. Azure Data Lake Store is compatibel met de meeste open source-onderdelen in het Hadoop-ecosysteem en mooi integreert met andere Azure-services zoals Azure SQL Data Warehouse.
+Azure Commercial biedt een breed scala aan services voor het verwerken van geformatteerde en niet-opgemaakte gegevens opslag en fase ring om te worden gebruikt in gegevens opslag, waaronder:
+-   [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) is een beheerde Cloud service die is gebouwd voor complexe Hybrid extract-Transform-loads (ETL), uitpak-load-trans formatie (ELT) en gegevens integratie projecten. Klanten kunnen met behulp van Azure Data Factory gegevensgestuurde werk stromen maken en plannen die gegevens uit verschillende gegevens archieven opnemen. Klanten kunnen vervolgens de gegevens verwerken en transformeren voor uitvoer naar gegevens archieven zoals Azure SQL Data Warehouse.
+-   [Azure data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) maakt het vastleggen van gegevens van elke grootte, type en opname snelheid mogelijk op één plek voor operationele en experimentele analyses. Azure Data Lake Store is compatibel met de meeste open source-onderdelen in het Hadoop-ecosysteem en integreert mooi met andere Azure-Services, zoals Azure SQL Data Warehouse.
 
-## <a name="threat-model"></a>Risicomodel
+## <a name="threat-model"></a>Bedreigings model
 
-De gegevensstroom-diagram (GSD) voor deze referentiearchitectuur is beschikbaar voor [downloaden](https://aka.ms/blueprintdwthreatmodel) of vindt u hieronder:
+Het gegevensstroom diagram (GSD) voor deze referentie architectuur is beschikbaar om te worden [gedownload](https://aka.ms/blueprintdwthreatmodel) . Hieronder vindt u een voor waarde:
 
-![Datawarehouse voor FedRAMP risicomodel](images/fedramp-datawarehouse-threat-model.png?raw=true "Data Warehouse voor risicomodel FedRAMP")
+![Data Warehouse voor FedRAMP Threat model](images/fedramp-datawarehouse-threat-model.png?raw=true "Data Warehouse voor FedRAMP Threat model")
 
-## <a name="compliance-documentation"></a>Naleving-documentatie
-De [Azure-beveiliging en naleving blauwdruk – FedRAMP hoog klant verantwoordelijkheid Matrix](https://aka.ms/blueprinthighcrm) geeft een lijst van alle beveiligingsmaatregelen die zijn vereist voor de basislijn FedRAMP High. Op dezelfde manier de [Azure-beveiliging en naleving blauwdruk – FedRAMP gemiddeld klant verantwoordelijkheid Matrix](https://aka.ms/blueprintcrmmod) geeft een lijst van alle beveiligingsmaatregelen die zijn vereist voor de basislijn FedRAMP gemiddeld. Beide documenten beschreven of de implementatie van elk besturingselement de verantwoordelijkheid van Microsoft, de klant is, of gedeeld tussen de twee.
+## <a name="compliance-documentation"></a>Documentatie voor naleving
+De [FedRAMP-matrix voor hoge klant verantwoordelijkheden bevat Azure-blauwdruk voor beveiliging en naleving](https://aka.ms/blueprinthighcrm) een lijst met alle beveiligings controles die vereist zijn voor de hoge basis lijn van FedRAMP. Op dezelfde manier worden in [Azure-blauwdruk voor beveiliging en naleving de FedRAMP-matrix met gematigde gebruikers verantwoordelijkheden](https://aka.ms/blueprintcrmmod) alle beveiligings controles vermeld die vereist zijn voor de basis lijn FedRAMP. In beide documenten wordt weer gegeven of de implementatie van elk besturings element de verantwoordelijkheid is van micro soft, de klant of gedeeld door de twee.
 
-De [Azure-beveiliging en blauwdruk voor naleving - FedRAMP hoog besturingselement implementatie Matrix](https://aka.ms/blueprintdwcimhigh) en de [Azure-beveiliging en blauwdruk voor naleving - FedRAMP gemiddeld besturingselement implementatie Matrix](https://aka.ms/blueprintdwcimmod) bieden informatie over waarop besturingselementen worden gedekt door de datawarehouse-architectuur voor elke basislijn FedRAMP, met inbegrip van gedetailleerde beschrijvingen van de manier waarop de implementatie voldoet aan de vereisten van elk besturingselement vallen.
+De [FedRAMP-implementatie matrix voor hoge controle](https://aka.ms/blueprintdwcimhigh) van de Azure-blauwdruk voor beveiliging en naleving en de door de [Azure-blauwdruk voor beveiliging en naleving FedRAMP gematigde controle-implementatie matrix](https://aka.ms/blueprintdwcimmod) bieden informatie over de besturings elementen die worden gedekt door de Data Warehouse-architectuur voor elke FedRAMP-basis lijn, inclusief gedetailleerde beschrijvingen van de manier waarop de implementatie voldoet aan de vereisten van elk gedekte besturings element.
 
 ## <a name="disclaimer"></a>Vrijwaring
 
- - Dit document is uitsluitend ter informatie bedoeld. MICROSOFT BIEDT GEEN GARANTIES, EXPLICIETE, IMPLICIETE OF WETTELIJKE GARANTIE VOOR DE INFORMATIE IN DIT DOCUMENT. Dit document wordt geleverd ' as-is. " Informatie en meningen in dit document, inclusief URL's en andere websiteverwijzingen, kunnen zonder kennisgeving worden gewijzigd. Klanten die in dit document leest draagt het risico van het gebruik ervan.
- - Dit document biedt klanten met een enkel wettelijk recht op enig intellectueel in andere Microsoft-producten of oplossingen.
- - Klanten kunnen kopiëren en gebruiken van dit document voor interne referentiedoeleinden.
- - Bepaalde aanbevelingen in dit document kunnen leiden tot grotere hoeveelheden gegevens, netwerk- of gebruik van de compute-bronnen in Azure en de Azure-licentie of abonnement kosten van een klant kunnen verhogen.
- - Deze architectuur is bedoeld om te fungeren als een basis voor klanten om aan te passen op hun specifieke behoeften en mag niet worden gebruikt als-is in een productieomgeving.
- - Dit document is ontwikkeld als referentie en mag niet worden gebruikt voor het definiëren van alle middelen waarmee een klant kan voldoen aan specifieke nalevingsvereisten en voorschriften. Klanten moeten juridische ondersteuning van hun organisatie op goedgekeurde klantimplementaties gezocht.
+ - Dit document is alleen ter informatie bedoeld. MICRO SOFT BIEDT GEEN ENKELE GARANTIE, UITDRUKKELIJK, IMPLICIET OF WETTELIJK, MET BETREKKING TOT DE INFORMATIE IN DIT DOCUMENT. Dit document wordt in de as-is opgenomen. Informatie en weer gaven in dit document, inclusief URL'S en andere website verwijzingen, kunnen zonder kennisgeving worden gewijzigd. Klanten die dit document lezen, hebben het risico van het gebruik ervan.
+ - Dit document biedt klanten geen juridische rechten voor intellectueel eigendom in een micro soft-product of-oplossingen.
+ - Klanten kunnen dit document kopiëren en gebruiken voor interne referentie doeleinden.
+ - Bepaalde aanbevelingen in dit document kunnen leiden tot meer gegevens-, netwerk-of COMPUTE-resource gebruik in azure, en kunnen de kosten van de Azure-licentie of het abonnement van de klant verhogen.
+ - Deze architectuur is bedoeld om te fungeren als basis voor klanten om aan hun specifieke vereisten aan te passen en mag niet worden gebruikt in een productie omgeving.
+ - Dit document is ontwikkeld als referentie en mag niet worden gebruikt voor het definiëren van de manier waarop een klant kan voldoen aan specifieke nalevings vereisten en-voor Schriften. Klanten moeten juridische ondersteuning van hun organisatie zoeken op goedgekeurde klant implementaties.

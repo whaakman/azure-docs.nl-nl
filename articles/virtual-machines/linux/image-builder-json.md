@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: a623aa98cd26e1636e47cb0e2831eeced17935b9
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: abaf96b11abee0bf519a276f825b9c47cd333c1b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695401"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816323"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Preview: Een Azure Image Builder-sjabloon maken 
 
@@ -65,7 +65,11 @@ De locatie is de regio waar de aangepaste installatie kopie wordt gemaakt. Voor 
 ```json
     "location": "<region>",
 ```
-    
+
+## <a name="tags"></a>Labels
+
+Dit zijn sleutel-waardeparen die u kunt opgeven voor de afbeelding die wordt gegenereerd.
+
 ## <a name="depends-on-optional"></a>Is afhankelijk van (optioneel)
 
 Deze optionele sectie kan worden gebruikt om ervoor te zorgen dat afhankelijkheden worden voltooid voordat u doorgaat. 
@@ -344,7 +348,8 @@ Dit wordt ondersteund door Windows-mappen en Linux-paden, maar er zijn enkele ve
  
 Als er een fout optreedt bij het downloaden van het bestand of in een opgegeven map worden geplaatst, mislukt de stap voor het aanpassen en wordt deze weer gegeven in de aanpassings. log.
 
->> Eraan! De bestands aanpassing is alleen geschikt voor kleine bestands downloads, < 20 MB. Voor grotere bestands downloads kunt u een script of inline opdracht gebruiken, de code gebruiken om bestanden te downloaden, zoals `wget` Linux `curl`of Windows, `Invoke-WebRequest`.
+> [!NOTE]
+> De bestands aanpassing is alleen geschikt voor kleine bestands downloads, < 20 MB. Voor grotere bestands downloads kunt u een script of inline opdracht gebruiken, de code gebruiken om bestanden te downloaden, zoals `wget` Linux `curl`of Windows, `Invoke-WebRequest`.
 
 Bestanden in file Customize kunnen worden gedownload van Azure Storage met [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: 92c3452e07dee126666e6ee1fe0c46b1f8f6dfa4
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f9ff6e19a0f0091cb5b831279eee90727bbb89fd
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876538"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742264"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS-toepassingen bieden een publicatie gids
 
@@ -115,7 +115,7 @@ Als u al Azure AD ondersteunt, doet u het volgende:
 Als u geen ervaring hebt met Azure AD Federated SSO, doet u het volgende: 
 1.  Registreer uw toepassing in de Azure Portal
 2.  Ontwikkel SSO met Azure AD met behulp van [OpenID Connect Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) of [OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Schakel de ondersteunings functie voor meerdere multitenancy in AAD in om meer specifieke informatie te verkrijgen met een proef versie met één [klik.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified)  
+3.  Schakel de ondersteunings functie voor meerdere multitenancy in AAD in om meer specifieke informatie te verkrijgen met een proef versie met [](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified)één klik.  
 
 **Gebruik voor toepassing met één Tenant een van de volgende opties:**  
 * Gebruikers toevoegen aan uw directory als gast gebruikers met behulp van [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
@@ -126,13 +126,13 @@ Als u geen ervaring hebt met Azure AD Federated SSO, doet u het volgende:
 ## <a name="saas-subscriptions"></a>SaaS-abonnementen
 
 Gebruik het type SaaS-app-aanbieding om uw klant in staat te stellen uw SaaS-gebaseerde technische oplossing als een abonnement te kopen. Voor uw SaaS-app moet aan de volgende vereisten worden voldaan:
-- Prijs en factureer de service met een vast, maandelijks tarief.
+- Prijs en factureer de service op een vlak (maandelijks of jaarlijks) of op tarieven per gebruiker.
 - Bieden een methode om de service op elk gewenst moment te upgraden of te annuleren.
-Micro soft fungeert als host voor de commerce-trans actie. Micro soft factureert namens u uw klant. Als u een SaaS-app als een abonnement wilt gebruiken, moet u een eigen API voor abonnements beheer service inschakelen. De API voor abonnements beheer service moet rechtstreeks communiceren met de Azure Resource Manager-Api's. De API voor abonnements beheer service moet ondersteuning bieden voor service-inrichting, upgrades en annuleren.
+Micro soft fungeert als host voor de commerce-trans actie. Micro soft factureert namens u uw klant. Als u een SaaS-app als een abonnement wilt aanbieden, moet u integreren met de SaaS-fulfillment-Api's.  Uw service moet ondersteuning bieden voor het inrichten, upgraden en annuleren.
 
 | Vereiste | Details |  
 |:--- |:--- |  
-|Facturering en meting | Voor uw aanbieding geldt een maandelijks vast bedrag. Op gebruik gebaseerde prijzen en op gebruik gebaseerde ' true-up '-mogelijkheden worden op dit moment niet ondersteund. |  
+|Facturering en meting | Uw aanbieding is geprijsd op basis van het prijs model dat u hebt geselecteerd voor publicatie (vast tarief of per gebruiker).  Als u gebruikmaakt van het model voor vaste kosten, kunt u eventueel extra dimensies opnemen die worden gebruikt om klanten in rekening te brengen voor gebruik dat niet in het vast tarief is opgenomen. |  
 |Heffing | Uw aanbieding wordt op elk gewenst moment geannuleerd door de klant. |  
 |Pagina transactie overloop | U host een Azure-landings pagina voor co-branding, waar gebruikers hun SaaS-service account kunnen maken en beheren. |   
 | API voor abonnementen | U maakt een service beschikbaar die kan communiceren met het SaaS-abonnement om een gebruikers account en een service plan te maken, bij te werken en te verwijderen. Essentiële wijzigingen in de API moeten binnen 24 uur worden ondersteund. Wijzigingen van niet-kritieke API'S worden periodiek vrijgegeven. |  
