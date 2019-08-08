@@ -6,19 +6,19 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 07/09/2019
+ms.date: 08/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d0d1dbb81f00f500f3eb95c605ed0c15c634f624
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9de7a6fdddf732f13c8dc7ab50fd151d9f90dc20
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706792"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855862"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Een Azure Search-service maken in de portal
 
-Azure Search is een zelfstandige resource die wordt gebruikt voor het toevoegen van een zoekervaring aan aangepaste apps. Hoewel Azure Search kan eenvoudig worden geïntegreerd met andere Azure-services, kunt u ook gebruiken als onderdeel van een zelfstandige of integreren met apps op servers van het netwerk of met software die wordt uitgevoerd op andere cloudplatforms.
+Azure Search is een zelfstandige resource die wordt gebruikt voor het toevoegen van een zoekervaring aan aangepaste apps. Hoewel Azure Search eenvoudig integreert met andere Azure-Services, kunt u het ook gebruiken als zelfstandig onderdeel, of het integreren met apps op netwerk servers, of met software die wordt uitgevoerd op andere Cloud platforms.
 
 Dit artikel bevat meer informatie over hoe u een Azure Search-resource in [Azure Portal](https://portal.azure.com/) kunt maken.
 
@@ -40,11 +40,26 @@ U kunt ook [voordelen voor MSDN-abonnees activeren](https://azure.microsoft.com/
 
 ![Naar een Azure Search-resource navigeren](./media/search-create-service-portal/find-search3.png "Navigatiepad naar Azure Search")
 
+## <a name="select-a-subscription"></a>Selecteer een abonnement
+
+Als u meer dan één abonnement hebt, moet u er één kiezen dat ook services voor gegevensopslag of File Storage-services biedt. Azure Search kunnen Azure Table-en Blob-opslag, SQL Database en Azure Cosmos DB voor indexering automatisch detecteren via [*Indexeer functies*](search-indexer-overview.md), maar alleen voor services onder hetzelfde abonnement.
+
+## <a name="select-a-resource-group"></a>Selecteer een resourcegroep
+
+Een resource groep is vereist en is handig voor het beheren van resources, met inbegrip van kosten beheer. Een resource groep kan bestaan uit één service of meerdere services die samen worden gebruikt. Als u bijvoorbeeld Azure Search gebruikt voor het indexeren van een Azure Cosmos DB-Data Base, kunt u beide services onderdeel maken van dezelfde resource groep voor beheer doeleinden. 
+
+Als u resources niet in één groep combineert of als bestaande resourcegroepen resources bevatten die worden gebruikt in oplossingen waartussen geen verband bestaat, maakt u een nieuwe resourcegroep voor uw Azure Search-resource. 
+
+Wanneer u de service gebruikt, kunt u de huidige en geschatte kosten bijhouden (zoals weer gegeven in de scherm opname) of omlaag schuiven om de kosten voor afzonderlijke resources weer te geven.
+
+![Kosten beheren op het niveau van de resource groep](./media/search-create-service-portal/resource-group-cost-management.png "Kosten beheren op het niveau van de resource groep")
+
+> [!TIP]
+> Als u een resourcegroep verwijdert, worden de services binnen die resourcegroep ook verwijderd. Bij prototypeprojecten die gebruikmaken van meerdere services, wordt het opschonen na afloop van het project gemakkelijker als die services zich allemaal in dezelfde resourcegroep bevinden.
+
 ## <a name="name-the-service-and-url-endpoint"></a>De service en het URL-eindpunt een naam geven
 
-Een servicenaam is onderdeel van het URL-eindpunt waaraan API-aanroepen worden geadresseerd: `https://your-service-name.search.windows.net`. Voer de naam van uw service in het **URL**-veld in.
-
-Als u bijvoorbeeld wilt dat het eindpunt `https://my-app-name-01.search.windows.net` wordt, voert u `my-app-name-01` in.
+Geef in de details van het exemplaar een service naam op in het veld **URL** . De naam maakt deel uit van het URL-eind punt waartegen API-aanroepen worden uitgegeven: `https://your-service-name.search.windows.net`. Als u bijvoorbeeld wilt dat het eindpunt `https://myservice.search.windows.net` wordt, voert u `myservice` in.
 
 Vereisten voor servicenaam:
 
@@ -54,51 +69,41 @@ Vereisten voor servicenaam:
 * Vermijd streepjes (-) bij de eerste 2 tekens of als het allerlaatste teken
 * Zorg ervoor dat er nergens twee opeenvolgende streepjes (--) staan
 
-## <a name="select-a-subscription"></a>Een abonnement selecteren
-
-Als u meer dan één abonnement hebt, moet u er één kiezen dat ook services voor gegevensopslag of File Storage-services biedt. Azure Search kan automatisch Azure Table- en Blob-opslag, SQL-Database en Azure Cosmos DB detecteren voor indexering via [*indexeerfuncties*](search-indexer-overview.md), maar alleen voor services in hetzelfde abonnement.
-
-## <a name="select-a-resource-group"></a>Een resourcegroep selecteren
-
-Een resourcegroep is een verzameling Azure-services en -resources die samen worden gebruikt. Als u bijvoorbeeld Azure Search gebruikt om een SQL-database te indexeren, dan moeten beide services deel uitmaken van dezelfde resourcegroep.
-
-Als u resources niet in één groep combineert of als bestaande resourcegroepen resources bevatten die worden gebruikt in oplossingen waartussen geen verband bestaat, maakt u een nieuwe resourcegroep voor uw Azure Search-resource.
-
 > [!TIP]
-> Als u een resourcegroep verwijdert, worden de services binnen die resourcegroep ook verwijderd. Bij prototypeprojecten die gebruikmaken van meerdere services, wordt het opschonen na afloop van het project gemakkelijker als die services zich allemaal in dezelfde resourcegroep bevinden.
+> Als u denkt dat u meerdere services gaat gebruiken, is het raadzaam om de regio (of locatie) in de service naam op te nemen als een naamgevings Conventie. Services binnen dezelfde regio kunnen zonder kosten worden uitgewisseld, dus als Azure Search zich in VS West bevindt en u andere services hebt in het VS-West, `mysearchservice-westus` kunt u met een naam op de pagina eigenschappen een reis opslaan in een bestand met de informatie over het combi neren of koppelen van resources.
 
-## <a name="select-a-location"></a>Selecteer een locatie
+## <a name="select-a-location"></a>Een locatie selecteren
 
-Azure Search kan als Azure-service worden gehost in datacenters over de hele wereld. De lijst met ondersteunde regio's vindt u de [pagina met prijzen](https://azure.microsoft.com/pricing/details/search/). 
+Azure Search kan als Azure-service worden gehost in datacenters over de hele wereld. De lijst met ondersteunde regio's kunt u vinden op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/search/). 
 
-Als u zijn indexeren van de gegevens die zijn opgegeven door een andere Azure-service (Azure storage, Azure Cosmos DB, Azure SQL Database), wordt aangeraden om uw Azure Search-service maken in dezelfde regio bevinden om bandbreedte kosten te voorkomen. Er zijn geen kosten voor uitgaande gegevens wanneer de services zijn in dezelfde regio.
+U kunt de bandbreedte kosten minimaliseren of vermijden door dezelfde locatie voor meerdere services te kiezen. Als u bijvoorbeeld gegevens indexeert die door een andere Azure-service zijn verschaft (Azure Storage, Azure Cosmos DB, Azure SQL Database), voor komt u dat de Azure Search service in dezelfde regio bandbreedte kosten (er worden geen kosten in rekening gebracht voor uitgaande gegevens wanneer de services zich bevinden). dezelfde regio).
 
-Als u cognitief zoeken AI enrichments gebruikt, moet u uw service maken in dezelfde regio als uw Cognitive Services-resource. *CO-locatie van Azure Search en Cognitive Services in dezelfde regio is een vereiste voor AI-verrijking*.
+Daarnaast kunt u, als u verrijkingen van cognitieve Zoek opdrachten AI gebruikt, uw service maken in dezelfde regio als uw Cognitive Services-resource. *De co-locatie van Azure Search en Cognitive Services in dezelfde regio is een vereiste voor AI*-verrijking.
 
 > [!Note]
-> Centraal-India is momenteel niet beschikbaar voor nieuwe services. U kunt opschalen zonder beperkingen voor de services die al in Centraal-India, en uw service wordt volledig ondersteund in deze regio. De beperking voor deze regio is tijdelijk en beperkt tot alleen nieuwe services. Deze opmerking wordt verwijderd wanneer de beperking niet langer van toepassing is.
+> Centraal-India is momenteel niet beschikbaar voor nieuwe services. Voor services die zich al in Centraal-India bevinden, kunt u opschalen zonder beperkingen en wordt uw service volledig ondersteund in die regio. De beperking voor deze regio is tijdelijk en beperkt tot alleen nieuwe services. Deze notitie wordt verwijderd wanneer de beperking niet meer van toepassing is.
 
 ## <a name="select-a-pricing-tier-sku"></a>Een prijscategorie selecteren (SKU)
 
 [Azure Search wordt momenteel aangeboden in verschillende prijscategorieën](https://azure.microsoft.com/pricing/details/search/): Gratis, Basic of Standard. Elke categorie heeft eigen [capaciteiten en limieten](search-limits-quotas-capacity.md). Raadpleeg [Choose a pricing tier or SKU](search-sku-tier.md) (Een prijscategorie of SKU kiezen) voor hulp.
 
-Standard wordt meestal gekozen voor productieworkloads, maar de meeste klanten beginnen met de gratis service.
+Basic en Standard zijn de meest voorkomende opties voor productie werkbelastingen, maar de meeste klanten beginnen met de gratis service.
 
-Een prijscategorie kan niet worden gewijzigd nadat de service is gemaakt. Als u een hogere of lagere categorie nodig hebt, moet u de service opnieuw maken.
+Houd er rekening mee dat een prijs categorie niet kan worden gewijzigd nadat de service is gemaakt. Als u een hogere of lagere categorie nodig hebt, moet u de service opnieuw maken.
 
 ## <a name="create-your-service"></a>Uw service maken
 
-Voer de benodigde invoeren voor het maken van de service. 
+Nadat u de benodigde invoer hebt gemaakt, gaat u verder met het maken van de service. 
 
-![Controleren en maken van de service](./media/search-create-service-portal/new-service3.png "controleren en de service maken")
+![De service controleren en maken](./media/search-create-service-portal/new-service3.png "De service controleren en maken")
 
-Uw service wordt geïmplementeerd binnen enkele minuten, die u via Azure meldingen controleren kunt. Houd rekening met de service aan uw dashboard om gemakkelijk toegang te krijgen in de toekomst vast te maken.
+Uw service wordt binnen enkele minuten geïmplementeerd, die u via meldingen van Azure kunt bewaken. U kunt de service vastmaken aan uw dash board voor een snelle toegang in de toekomst.
 
-![Controleren en de service pin](./media/search-create-service-portal/monitor-notifications.png "Monitor en pincode de service")
+![De service controleren en vastmaken](./media/search-create-service-portal/monitor-notifications.png "De service controleren en vastmaken")
 
 ## <a name="get-a-key-and-url-endpoint"></a>Een sleutel en het URL-eindpunt ophalen
 
-Tenzij u de portal, toegang tot uw nieuwe service is vereist dat u de URL-eindpunt en een verificatie-api-sleutel opgeven.
+Tenzij u de portal gebruikt, moet u op programmeer niveau toegang tot uw nieuwe service het URL-eind punt en een verificatie-API-sleutel opgeven.
 
 1. Zoek en kopieer op de overzichtspagina van de service het URL-eindpunt aan de rechterkant van de pagina.
 
@@ -106,7 +111,7 @@ Tenzij u de portal, toegang tot uw nieuwe service is vereist dat u de URL-eindpu
 
    ![Overzichtspagina met URL-eindpunt](./media/search-create-service-portal/get-url-key.png "URL-eindpunt en andere details van de service")
 
-Een eindpunt en sleutel zijn niet nodig voor op de portal gebaseerde taken. De portal is al gekoppeld aan uw Azure Search-resource met beheerdersrechten. Voor een kennismaken met de portal, beginnen met [Quick Start: Een Azure Search-index maken in de portal](search-get-started-portal.md).
+Een eindpunt en sleutel zijn niet nodig voor op de portal gebaseerde taken. De portal is al gekoppeld aan uw Azure Search-resource met beheerdersrechten. Begin met [Quick start voor een portal-overzicht: Een Azure Search-index maken in de](search-get-started-portal.md)Portal.
 
 ## <a name="scale-your-service"></a>Uw service schalen
 
@@ -128,7 +133,7 @@ Als u resources toevoegt, wordt uw maandfactuur hoger. Met de [prijscalculator](
 ![Capaciteit toevoegen](./media/search-create-service-portal/settings-scale.png "Capaciteit toevoegen via replica's en partities")
 
 > [!Note]
-> Per partitie opslagruimte en snelheid toeneemt op hogere lagen. Zie voor meer informatie, [capaciteiten en limieten](search-limits-quotas-capacity.md).
+> Opslag per partitie en snelheid neemt toe bij hogere lagen. Zie [capaciteit en limieten](search-limits-quotas-capacity.md)voor meer informatie.
 
 ## <a name="when-to-add-a-second-service"></a>Wanneer u een tweede service moet toevoegen
 
@@ -141,7 +146,7 @@ Hoewel de meeste klanten slechts één service gebruiken, kan serviceredundantie
 * Voor globaal geïmplementeerde toepassingen kan het nodig zijn dat u een exemplaar van Azure Search in meerdere regio's plaatst om de latentie van het internationale verkeer in uw toepassing te minimaliseren.
 
 > [!NOTE]
-> In Azure Search kunt u indexering en querywerkbelastingen niet scheiden; u kunt dus nooit meerdere services voor gescheiden werkbelastingen maken. Een query wordt altijd uitgevoerd op de service waarin de index is gemaakt (u kunt niet een index in een service maken en vervolgens naar een andere service kopiëren).
+> In Azure Search kunt u indexering en query bewerkingen niet scheiden. Daarom zou u nooit meerdere services voor gescheiden werk belastingen maken. Een query wordt altijd uitgevoerd op de service waarin de index is gemaakt (u kunt niet een index in een service maken en vervolgens naar een andere service kopiëren).
 
 Een tweede service is niet vereist voor hoge beschikbaarheid. Hoge beschikbaarheid voor query's wordt bereikt wanneer u twee of meer replica's in dezelfde service gebruikt. Replica-updates zijn sequentieel, wat betekent dat er ten minste één operationeel is wanneer er een service-update wordt geïmplementeerd. Voor meer informatie over uptime raadpleegt u [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 

@@ -10,12 +10,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5323c996b8d974c9db11a508503f767cfee80301
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 7a9c0f24c7b6175b2289af39f2267d695894857d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828104"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855950"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Wat is de Azure Machine Learning-service?
 
@@ -106,7 +106,7 @@ U ontvangt tegoed wat u kunt uitgeven aan Azure-services. Als uw tegoed op is, k
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Maak een machine learning service-werk ruimte](setup-create-workspace.md) om aan de slag te gaan.
+- [Maak een machine learning service-werk ruimte](how-to-manage-workspace.md) om aan de slag te gaan.
 
 - Volg de volledige zelfstudies:
   + [Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md)

@@ -10,24 +10,24 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/25/2019
-ms.openlocfilehash: 677d9b5a8ca837288755ab098fbccd8a5b7ddacd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1b8d4965edb446235e28f47a0226c82b89c73e0b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567858"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845053"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Beheertaken automatiseren met behulp van databasetaken
 
 Met behulp van Azure SQL Database kunt u taken die regelmatig kunnen worden uitgevoerd op een of meer databases maken en plannen om T-SQL-query's en onderhoudstaken uit te voeren. Door elke taak wordt de uitvoeringsstatus in een logboek vastgelegd en wordt ook geprobeerd de bewerkingen opnieuw uit te voeren als er een fout optreedt.
 U kunt een doeldatabase of groepen Azure SQL-databases definiëren waarin de taak wordt uitgevoerd, en ook schema's voor het uitvoeren van een taak definiëren.
-Een taak handelt het aanmelden bij de doeldatabase af. Ook definieert, onderhoudt en handhaaft u Transact-SQL-scripts die in een groep van Azure SQL-databases moeten worden uitgevoerd.
+Met een taak wordt de taak voor het aanmelden bij de doel database afgehandeld. Ook definieert, onderhoudt en handhaaft u Transact-SQL-scripts die in een groep van Azure SQL-databases moeten worden uitgevoerd.
 
 ## <a name="when-to-use-automated-jobs"></a>Wanneer gebruikt u geautomatiseerde taken?
 
 Er zijn verschillende scenario's waarin u taakautomatisering kunt gebruiken:
 
-- Beheertaken automatiseren en deze vervolgens plannen voor uitvoering op elke weekdag, na kantooruren, enzovoort.
+- Beheer taken automatiseren en ze plannen om elke werkdag, na uur, enzovoort uit te voeren.
   - Implementeer schemawijzigingen, referentiebeheer, het verzamelen van prestatiegegevens of telemetrie van tenant (klant).
   - Referentiegegevens (algemene informatie voor alle databases) bijwerken, gegevens laden uit Azure-blobopslag.
   - Bouw indexen opnieuw om queryprestaties te verbeteren. Configureer taken die op terugkerende basis, bijvoorbeeld tijdens daluren, moeten worden uitgevoerd.
@@ -36,7 +36,7 @@ Er zijn verschillende scenario's waarin u taakautomatisering kunt gebruiken:
   - Verzamel gegevens uit een verzameling Azure SQL-databases in één doeltabel.
   - Voer langer durende gegevensverwerkingsquery's uit voor een groot aantal databases, zoals het verzamelen van klanttelemetrie. Resultaten worden in één doeltabel verzameld voor verdere analyse.
 - Gegevensverplaatsingen
-  - Taken maken waarmee wijzigingen die zijn aangebracht in uw databases naar andere databases worden gerepliceerd of updates verzamelen die zijn uitgevoerd in externe databases en wijzigingen doorvoeren in de database.
+  - Maak taken die wijzigingen in uw data bases repliceren naar andere data bases of Verzamel updates die zijn gemaakt in externe data bases en pas wijzigingen in de data base toe.
   - Taken maken waarmee gegevens vanuit of naar uw databases worden geladen met behulp van SQL Server Integration Services (SSIS).
 
 ## <a name="overview"></a>Overzicht
@@ -44,7 +44,7 @@ Er zijn verschillende scenario's waarin u taakautomatisering kunt gebruiken:
 De volgende technologieën voor het plannen van taken zijn beschikbaar in Azure SQL Database:
 
 - **SQL Agent-taken** zijn een klassiek en bewezen SQL Server-onderdeel voor taakplanning dat beschikbaar is in het beheerde exemplaar. SQL Agent-taken zijn niet beschikbaar in individuele databases.
-- **Elastic Database-taken** zijn een taakplanningsservice die aangepaste taken uitvoert op een of meer Azure SQL Databases.
+- **Elastic database taken** zijn taak plannings services waarmee aangepaste taken worden uitgevoerd op een of meer Azure SQL-data bases.
 
 Hier volgen enkele noemenswaardige verschillen tussen SQL Agent (on-premises beschikbaar en als onderdeel van SQL Database Managed Instance) en de taakagent van Elastic Database (beschikbaar voor individuele databases in Azure SQL-database en databases in SQL Data Warehouse).
 
@@ -55,18 +55,18 @@ Hier volgen enkele noemenswaardige verschillen tussen SQL Agent (on-premises bes
 
 ## <a name="sql-agent-jobs"></a>SQL Agent-taken
 
-SQL Agent-taken zijn een reeks T-SQL-scripts die voor uw database zijn opgegeven. Gebruik taken om een administratieve taak te definiëren die een keer of vaker kan worden uitgevoerd en kan worden gecontroleerd op slagen of mislukken.
-Een taak kan op één lokale server of op meerdere externe servers worden uitgevoerd. Een SQL Agent-taak is een intern Database-Engine-onderdeel dat wordt uitgevoerd in de service voor het beheerde exemplaar.
+SQL-Agent taken zijn een opgegeven reeks T-SQL-scripts voor uw data base. Gebruik taken om een administratieve taak te definiëren die een keer of vaker kan worden uitgevoerd en kan worden gecontroleerd op slagen of mislukken.
+Een taak kan op één lokale server of op meerdere externe servers worden uitgevoerd. SQL-Agent taken zijn een interne data base-engine component die wordt uitgevoerd binnen de service Managed instance.
 Er zijn enkele belangrijke concepten in SQL Agent-taken:
 
 - **Taakstappen** zijn een of meer stappen die in de taak moet worden uitgevoerd. U kunt voor elke stap een strategie voor opnieuw proberen definiëren en de actie die moet plaatsvinden moet als de taakstap is geslaagd of mislukt.
 - **Schema's** definiëren wanneer de taak moet worden uitgevoerd.
-- Met **meldingen** kunt u regels definiëren die worden gebruikt om operators een melding te verzenden via een e-mailbericht wanneer de taak is voltooid.
+- Met **meldingen** kunt u regels definiëren die worden gebruikt om Opera tors te melden via e-mail zodra de taak is voltooid.
 
 ### <a name="job-steps"></a>Taakstappen
 
 SQL Agent-taakstappen zijn reeksen met acties die door SQL Agent moeten worden uitgevoerd. Elke stap bevat de volgende stap die moet worden uitgevoerd als de stap is geslaagd of mislukt en in het laatste geval het aantal nieuwe pogingen in geval van een fout.
-Met SQL Agent kunt u verschillende soorten taakstappen, zoals de Transact-SQL-taakstap waarmee één Transact-SQL-batch op de database wordt uitgevoerd of OS-opdracht-/PowerShell stappen die een aangepast OS-script kunnen uitvoeren. Met SSIS-taakstappen kunt u gegevens laden met behulp van SSIS-runtime of [replicatie](sql-database-managed-instance-transactional-replication.md)stappen uitvoeren die wijzigingen uit uw database naar andere databases kunnen publiceren.
+Met SQL-Agent kunt u verschillende typen taak stappen maken, zoals een Transact-SQL-taak stap die één Transact-SQL-batch uitvoert op de data base, of de besturingssysteem opdracht/Power shell-stappen waarmee een aangepast besturings systeem script kan worden uitgevoerd. SSIS-taak stappen bieden u de mogelijkheid om gegevens te laden met behulp van SSIS-runtime of [replicatie](sql-database-managed-instance-transactional-replication.md) stappen die wijzigingen kunnen publiceren vanuit uw Data Base naar andere data bases.
 
 [Transactionele replicatie](sql-database-managed-instance-transactional-replication.md) is een Database-Engine-functie waarmee u de wijzigingen die zijn aangebracht in een of meer tabellen in de ene database kunt publiceren en naar een set abonneedatabases kunt publiceren/distribueren. Publicatie van de wijzigingen wordt geïmplementeerd met behulp van de volgende staptypen voor de SQL Agent-taak:
 
@@ -90,11 +90,11 @@ Een schema kan de volgende voorwaarden definiëren voor het moment waarop een ta
 - Met een terugkerend schema.
 
 > [!Note]
-> Met een beheerd exemplaar is het op dit moment niet mogelijk om een taak te starten wanneer het exemplaar 'inactief' is.
+> Met het beheerde exemplaar kunt u op dit moment geen taak starten wanneer het exemplaar ' inactief ' is.
 
 ### <a name="job-notifications"></a>Taakmeldingen
 
-Met SQL Agent-taken kunt u meldingen ontvangen wanneer de taak is voltooid of mislukt. U kunt een melding via e-mail ontvangen.
+Met SQL-Agent taken kunt u meldingen ontvangen wanneer de taak is voltooid of mislukt. U kunt meldingen ontvangen via e-mail.
 
 Eerst moet u het e-mailaccount instellen dat wordt gebruikt voor het verzenden van de e-mailmeldingen en het account toewijzen aan het e-mailprofiel met de naam `AzureManagedInstance_dbmail_profile`, zoals wordt weergegeven in het volgende voorbeeld:
 
@@ -134,10 +134,10 @@ GO
 RECONFIGURE 
 ```
 
-U kunt operators waarschuwen dat er iets is gebeurd met uw SQL Agent-taken. Een operator definieert contactgegevens voor een persoon die verantwoordelijk is voor het onderhoud van een of meer beheerde exemplaren. Soms zijn operatorverantwoordelijkheden toegewezen aan één persoon.
+U kunt de operator op de hoogte stellen dat er iets is gebeurd met uw SQL-Agent taken. Een operator definieert contact gegevens voor een persoon die verantwoordelijk is voor het onderhoud van een of meer beheerde exemplaren. Soms worden operator verantwoordelijkheden toegewezen aan één persoon.
 In systemen met meerdere beheerde exemplaren of SQL-servers, kunnen veel personen operatorverantwoordelijkheden delen. Een operator bevat geen informatie over beveiliging, en definieert geen beveiligingsprincipal.
 
-U kunt operators maken met behulp van SQL Server Management Studio of Transact SQL-script, zoals in het volgende voorbeeld wordt weergegeven:
+U kunt Opera tors maken met behulp van SSMS of het Transact-SQL-script dat in het volgende voor beeld wordt weer gegeven:
 
 ```sql
 EXEC msdb.dbo.sp_add_operator 
@@ -146,7 +146,7 @@ EXEC msdb.dbo.sp_add_operator
         @email_address=N'mihajlo.pupin@contoso.com'
 ```
 
-U kunt een taak wijzigen en een operator toewijzen die via e-mail wordt gewaarschuwd als de taak is voltooid, mislukt of geslaagd met behulp van SQL Server Management Studio of het volgende Transact-SQL-script:
+U kunt elke taak wijzigen en Opera tors toewijzen die via e-mail worden gewaarschuwd als de taak is voltooid, mislukt of slaagt met behulp van SSMS of het volgende Transact-SQL-script:
 
 ```sql
 EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS', 
@@ -158,11 +158,11 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
 
 Enkele van de SQL Agent-functies die beschikbaar zijn in SQL Server worden niet ondersteund in het beheerde exemplaar:
 - SQL Agent-instellingen zijn alleen-lezen. Procedure `sp_set_agent_properties` wordt niet ondersteund in het beheerde exemplaar.
-- Het in-/uitschakelen van de Agent wordt momenteel niet ondersteund in het beheerde exemplaar. SQL Agent wordt altijd uitgevoerd.
+- Het in-/uitschakelen van SQL-Agent wordt momenteel niet ondersteund in een beheerd exemplaar. SQL Agent wordt altijd uitgevoerd.
 - Meldingen worden gedeeltelijk ondersteund
   - Pager wordt niet ondersteund.
   - NetSend wordt niet ondersteund.
-  - Waarschuwingen worden nog niet ondersteund.
+  - Waarschuwingen worden niet ondersteund.
 - Proxy's worden niet ondersteund.
 - Gebeurtenislogboek wordt niet ondersteund.
 
@@ -194,11 +194,11 @@ Een elastische-taakagent is de Azure-resource voor het maken, uitvoeren en beher
 
 Voor het maken van een **elastische-taakagent** hebt u een bestaande SQL-database nodig. De agent configureert deze bestaande database als de [*taakdatabase*](#job-database).
 
-De elastische-taakagent is gratis. De taakdatabase wordt tegen hetzelfde tarief gefactureerd als een SQL-database.
+De elastische-taakagent is gratis. De taak database wordt gefactureerd tegen hetzelfde aantal SQL database.
 
 #### <a name="job-database"></a>Taakdatabase
 
-De *taakdatabase* wordt gebruikt voor het definiëren van taken en het bijhouden van de status en geschiedenis van taakuitvoeringen. De *taakdatabase* wordt ook gebruikt voor het opslaan van metagegevens van de agent, logboeken, resultaten en taakdefinities. De database bevat ook veel nuttige opgeslagen procedures en andere databaseobjecten voor het maken, uitvoeren en beheren van taken met T-SQL.
+De *taakdatabase* wordt gebruikt voor het definiëren van taken en het bijhouden van de status en geschiedenis van taakuitvoeringen. De *taak database* wordt ook gebruikt voor de opslag van meta gegevens, logboeken, resultaten en taak definities van de agent en bevat ook veel nuttige opgeslagen procedures en andere database objecten voor het maken, uitvoeren en beheren van taken met behulp van T-SQL.
 
 Voor de huidige preview is een bestaande Azure SQL-database (S0 of hoger) vereist om een elastische-taakagent te kunnen maken.
 
@@ -248,7 +248,7 @@ In **Voorbeeld 4** ziet u een doelgroep die een elastische pool als doel heeft. 
 
 ![Voorbeelden van doelgroep](media/elastic-jobs-overview/targetgroup-examples2.png)
 
-In **Voorbeeld 5** en **Voorbeeld 6** ziet u geavanceerde scenario’s waarin Azure SQL-servers, elastische pools en databases kunnen worden gecombineerd met behulp van regels voor opnemen en uitsluiten.<br>
+**Voor beeld 5** en **voor beeld 6** worden geavanceerde Scenario's weer gegeven waarin Azure SQL-servers, elastische Pools en data bases kunnen worden gecombineerd met behulp van regels voor opnemen en uitsluiten.<br>
 In **Voorbeeld 7** ziet u dat de shards in een shardkaart ook kunnen worden geëvalueerd tijden het uitvoeren van de taak.
 
 #### <a name="job"></a>Taak

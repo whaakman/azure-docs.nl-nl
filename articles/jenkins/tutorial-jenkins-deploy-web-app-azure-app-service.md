@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 019c4a8f77f2664c68dcc6499fb2f27cc0d1447c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 51ca9602ff155bf61eb28a59a97faa7a06322c7a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326913"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855162"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Zelfstudie: implementatie vanuit GitHub naar Azure App Service met continue integratie en implementatie in Jenkins
 
@@ -68,7 +68,7 @@ Voor het voltooien van deze zelfstudie hebt u de volgende items nodig:
 
    Als deze invoegtoepassingen niet worden weergegeven, controleer dan of niet al zijn geïnstalleerd. Daartoe opent u het tabblad **Installed**.
 
-1. Om de geselecteerde invoegtoepassingen te installeren, kiest u **Download now and install after restart**.
+1. Selecteer **nu downloaden en installeren na opnieuw opstarten**om de geselecteerde invoeg toepassingen te installeren.
 
 1. Wanneer u klaar bent, selecteert u in het Jenkins-menu de optie **Manage Jenkins** om naar de beheerpagina van Jenkins terug te keren voor verdere stappen.
 
@@ -76,7 +76,7 @@ Voor het voltooien van deze zelfstudie hebt u de volgende items nodig:
 
 1. [Meld u aan bij GitHub-opslagplaats voor de Spring Boot-voorbeeld-app](https://github.com/spring-guides/gs-spring-boot). 
 
-1. Kies **Fork** in de rechterbovenhoek in GitHub.
+1. Selecteer **Fork**in de rechter bovenhoek van github.
 
    ![Fork maken van voorbeeldopslagplaats vanuit GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/fork-github-repo.png)
 
@@ -102,7 +102,7 @@ Als u wilt dat Jenkins GitHub bewaakt en reageert wanneer er nieuwe doorvoeracti
 
    ![GitHub-server toevoegen](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
 
-1. Als de eigenschap **Manage hooks** niet is geselecteerd, selecteert u deze eigenschap. Kies **Advanced** zodat u andere instellingen kunt opgeven. 
+1. Als de eigenschap **Manage hooks** niet is geselecteerd, selecteert u deze eigenschap. Selecteer **Geavanceerd** zodat u andere instellingen kunt opgeven. 
 
    !['Advanced' kiezen voor meer instellingen](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
 
@@ -110,7 +110,7 @@ Als u wilt dat Jenkins GitHub bewaakt en reageert wanneer er nieuwe doorvoeracti
 
    !['Manage additional GitHub actions' kiezen](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
 
-1. Selecteer **From login and password** zodat u uw GitHub-gebruikersnaam en -wachtwoord kunt invoeren. Wanneer u klaar bent, kiest u **Create token credentials**, waarmee een [PAT (GitHub Personal Access Token)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) wordt gemaakt.   
+1. Selecteer **From login and password** zodat u uw GitHub-gebruikersnaam en -wachtwoord kunt invoeren. Wanneer u klaar bent, selecteert u **token referenties maken**, waarmee u een [github Personal Access token (Pat)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)maakt.   
 
    ![GitHub-PAT maken op basis van gebruikersnaam en wachtwoord](media/tutorial-jenkins-deploy-web-app-azure-app-service/create-github-token-credentials.png)
 
@@ -170,7 +170,7 @@ De volgende uitvoer wordt gegenereerd door de opdracht **`create-for-rbac`** :
    | **Tenant ID** | <*yourAzureActiveDirectoryTenant-ID*> | De GUID-waarde van `tenant` voor uw Azure Active Directory-tenant | 
    | **ID** | <*yourAzureServicePrincipalName*> | De waarde van `displayName` voor uw Azure-service-principal | 
 
-1. Om te controleren of uw service-principal werkt, kiest u **Verify Service Principal**. Als u klaar bent, kiest u **Done**.
+1. Selecteer **Service-Principal controleren**om te controleren of uw Service-Principal werkt. Wanneer u gereed bent, selecteert u **OK**.
 
 Vervolgens maakt u de Jenkins-pijplijn waarmee uw app wordt gecompileerd en geïmplementeerd.
 
@@ -182,7 +182,7 @@ Maak in Jenkins de pijplijntaak voor het compileren en implementeren van uw app.
 
    !['New Item' selecteren](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
 
-1. Geef een naam op voor de pijplijntaak, bijvoorbeeld 'Mijn-Java-Web-App' en selecteer **Pijplijn**. Kies onderaan **OK**.  
+1. Geef een naam op voor de pijplijntaak, bijvoorbeeld 'Mijn-Java-Web-App' en selecteer **Pijplijn**. Selecteer aan de onderkant **OK**.  
 
    !['Pipeline' selecteren](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
 
@@ -200,7 +200,7 @@ Maak in Jenkins de pijplijntaak voor het compileren en implementeren van uw app.
 
       !['Prepare an environment for the run' selecteren en omgevingsvariabelen instellen](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-run.png)
 
-1. Als u bent klaar, kiest u **Opslaan**.
+1. Selecteer **Opslaan** als u klaar bent.
 
 Vervolgens maakt u de build- en implementatiescripts voor Jenkins.
 
@@ -273,7 +273,7 @@ Nu geeft u het build- en implementatiescript op dat Jenkins moet gebruiken.
 
    ![Pijplijn wijzen naar script](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
 
-1. Als u bent klaar, kiest u **Opslaan**.
+1. Selecteer **Opslaan** als u klaar bent.
 
 Vervolgens gaat u de app compileren en implementeren in Azure App Service. 
 
@@ -309,7 +309,7 @@ Vervolgens gaat u de app compileren en implementeren in Azure App Service.
 
    `complete/src/main/java/Hello/Application.java`
    
-1. Kies **Edit this file** in de rechterbovenhoek in GitHub.
+1. Selecteer in de rechter bovenhoek van GitHub de optie **dit bestand bewerken**.
 
 1. Breng deze wijziging aan in de methode `commandLineRunner()` en voer de wijziging door in de vertakking `master` van de opslagplaats. Door deze doorvoering in de vertakking `master` wordt een build in Jenkins gestart. 
    

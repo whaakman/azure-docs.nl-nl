@@ -11,12 +11,12 @@ ms.author: sihhu
 ms.reviewer: trbye
 ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6692f64dc7e7fa2799f9095af39171a2ddc0e76d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: aacb7cbaf3d5864d39d00bc341615f2a0e4e82f2
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360918"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855922"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Zelfstudie: Gegevens voorbereiden voor regressiemodellering
 
@@ -56,7 +56,7 @@ Het is eenvoudig om aan de slag te gaan met uw eigen cloud-gebaseerde Notebook s
 
 Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.  Nadat u de stappen hebt uitgevoerd, voert u het notebook **tutorials/regression-part1-data-prep.ipynb** uit.
 
-1. Voltooi de installatie stappen in [Azure machine learning python Quick](setup-create-workspace.md#sdk) start om een Miniconda-omgeving te maken en de SDK te installeren.  U kunt het gedeelte **Een werkruimte maken** nu desgewenst overslaan, maar dit gedeelte is wel vereist voor [deel 2](tutorial-auto-train-models.md) van deze reeks zelfstudies.
+1. Voltooi de installatie stappen in [Azure machine learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 1. Het `azureml-dataprep` pakket wordt automatisch geïnstalleerd tijdens de installatie van de SDK.
 1. Kloon [de GitHub-opslagplaats](https://aka.ms/aml-notebooks).
 
@@ -100,10 +100,11 @@ Download twee verschillende gegevenssets van NYC Taxi in gegevensstroomobjecten.
 
 ```python
 from IPython.display import display
-dataset_root = "https://dprepdata.blob.core.windows.net/demo"
 
-green_path = "/".join([dataset_root, "green-small/*"])
-yellow_path = "/".join([dataset_root, "yellow-small/*"])
+green_path = "https://dprepdata.blob.core.windows.net/demo/green-small/*"])
+yellow_path = "https://dprepdata.blob.core.windows.net/demo/yellow-small/*"])
+
+# (optional) Download and view a subset of the data: https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
 green_df_raw = dprep.read_csv(
     path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
@@ -113,9 +114,6 @@ yellow_df_raw = dprep.auto_read_file(path=yellow_path)
 display(green_df_raw.head(5))
 display(yellow_df_raw.head(5))
 ```
-
-> [!Note]
-> De URL in dit voor beeld is geen volledige URL. In plaats daarvan verwijst deze naar de demo-map in de blob. De volledige URL van een aantal gegevens is https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
 `Dataflow`-objecten zijn vergelijkbaar met gegevensframes en vertegenwoordigen een reeks traag geëvalueerde, onveranderbare bewerkingen voor gegevens. Bewerkingen kunnen worden toegevoegd door het aanroepen van de verschillende transformatie- en filtermethoden die beschikbaar zijn. Wanneer een bewerking wordt toegevoegd aan een `Dataflow`, is het resultaat altijd een nieuw `Dataflow`-object.
 
