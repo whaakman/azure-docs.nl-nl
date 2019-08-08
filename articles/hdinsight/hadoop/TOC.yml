@@ -56,6 +56,8 @@
       maintainContext: true
     - name: Problemen oplossen
       items:
+        - name: Onvoldoende schijfruimte
+          href: ./hdinsight-troubleshoot-out-disk-space.md
         - name: Zacht vergrendeling - CPU
           href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
         - name: 'InvalidNetworkConfigurationErrorCode: maken van cluster mislukt'
@@ -72,6 +74,8 @@
           href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
         - name: Problemen met de Apache Ambari-heartbeat
           href: ./apache-ambari-troubleshoot-heartbeat-issues.md
+        - name: Apache Ambari-hosts en -services zijn buiten werking
+          href: ./apache-ambari-troubleshoot-down-hosts-services.md
 - name: Procedures
   items:
     - name: Apache Hadoop-sandbox gebruiken
