@@ -30,7 +30,7 @@ Selecteer een bestaande kolom of maak een nieuwe berekende kolom die u wilt gebr
 ## <a name="aggregate-column"></a>Statistische kolom 
 Kies het tabblad aggregaties om aggregatie-expressies te maken. U kunt een bestaande kolom kiezen en de waarde overschrijven met de aggregatie, of een nieuw veld maken met een nieuwe naam. De expressie aggregatie wordt ingevoerd in het rechter vak naast de kolom naam kiezer. Als u de expressie wilt bewerken, klikt u op het tekstvak om de opbouw functie voor expressies te openen. Als u een extra aggregatie wilt toevoegen, houdt u de muis aanwijzer boven een bestaande expressie en klikt u op + om een nieuwe aggregatie kolom of [kolom patroon](concepts-data-flow-column-pattern.md)te maken.
 
-Statistische ![instellingen voor trans formatie] aggregatie Statistische (media/data-flow/agg2.png "instellingen voor trans formatie") aggregatie
+![instellingen voor trans formatie](media/data-flow/agg2.png "instellingen voor trans formatie")
 
 > [!NOTE]
 > Elke aggregatie-expressie moet ten minste één statistische functie bevatten.
