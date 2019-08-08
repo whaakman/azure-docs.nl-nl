@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Uberflip | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Uberflip.
+title: 'Zelfstudie: Integratie met Uberflip Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Uberflip.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,115 +14,115 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: fb55840a3423f32d2d6d6d2531628ae4361a0cc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8760606c981f494b38d4eb8ac1b2cd50ceb8582c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088212"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852113"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Zelfstudie: Azure Active Directory-integratie met Uberflip
+# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Zelfstudie: Integratie met Uberflip Azure Active Directory
 
-In deze zelfstudie leert u hoe u Uberflip integreren met Azure Active Directory (Azure AD).
+In deze zelf studie leert u hoe u Uberflip integreert met Azure Active Directory (Azure AD).
 
-Uberflip integreren met Azure AD biedt u de volgende voordelen:
+Het integreren van Uberflip met Azure AD biedt de volgende voor delen:
 
-* U kunt beheren in Azure AD die toegang tot Uberflip heeft.
-* U kunt uw gebruikers kunnen automatisch worden aangemeld bij Uberflip (eenmalige aanmelding) met hun Azure AD-accounts inschakelen.
-* U kunt uw accounts in één centrale locatie kunt beheren: de Azure-portal.
+* U kunt beheren in azure AD die toegang heeft tot Uberflip.
+* U kunt ervoor zorgen dat uw gebruikers automatisch worden aangemeld bij Uberflip (eenmalige aanmelding) met hun Azure AD-accounts.
+* U kunt uw accounts op één centrale locatie beheren: de Azure Portal.
 
-Zie voor meer informatie over software als een service (SaaS)-app-integratie met Azure AD [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Zie [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)voor meer informatie over de integratie van een SaaS-app (Software as a Service) met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Uberflip, moet u de volgende items:
+Als u Azure AD-integratie met Uberflip wilt configureren, hebt u de volgende items nodig:
 
 * Een Azure AD-abonnement Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
-* Een abonnement Uberflip met eenmalige aanmelding ingeschakeld.
+* Een Uberflip-abonnement waarvoor eenmalige aanmelding is ingeschakeld.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
 In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-Uberflip ondersteunt de volgende functies:
+Uberflip biedt ondersteuning voor de volgende functies:
 
-* SP geïnitieerde en IDP geïnitieerde eenmalige aanmelding (SSO).
-* De Just-in-time gebruikersinrichting.
+* Door SP geïnitieerd en IDP: eenmalige aanmelding (SSO) gestart.
+* Just-in-time-gebruikers inrichting.
 
-## <a name="add-uberflip-from-the-azure-marketplace"></a>Uberflip toevoegen in Azure Marketplace
+## <a name="add-uberflip-from-the-azure-marketplace"></a>Uberflip toevoegen vanuit Azure Marketplace
 
-Voor het configureren van de integratie van Uberflip in Azure AD, moet u Uberflip vanuit Azure Marketplace toevoegen aan uw lijst met beheerde SaaS-apps:
+Als u de integratie van Uberflip in azure AD wilt configureren, moet u Uberflip van de Azure Marketplace toevoegen aan uw lijst met beheerde SaaS-apps:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 1. Selecteer de knop **Azure Active Directory** in het linkerdeelvenster.
 
-   ![De Azure Active Directory-optie](common/select-azuread.png)
+   ![De optie Azure Active Directory](common/select-azuread.png)
 
 1. Ga naar **Bedrijfstoepassingen** en selecteer vervolgens **Alle toepassingen**.
 
    ![Het deelvenster Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Als u wilt een nieuwe toepassing toevoegen, selecteert u **+ nieuwe toepassing** aan de bovenkant van het deelvenster.
+1. Als u een nieuwe toepassing wilt toevoegen, selecteert u **+ nieuwe toepassing** boven aan het deel venster.
 
-   ![De nieuwe optie voor de App](common/add-new-app.png)
+   ![De optie nieuwe toepassing](common/add-new-app.png)
 
-1. Voer in het zoekvak **Uberflip**. Selecteer in de lijst met zoekresultaten **Uberflip**, en selecteer vervolgens **toevoegen** om toe te voegen van de toepassing.
+1. Typ **Uberflip**in het zoekvak. Selecteer in de zoek resultaten **Uberflip**en selecteer **toevoegen** om de toepassing toe te voegen.
 
    ![Uberflip in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Uberflip op basis van een testgebruiker met de naam **B Simon**. Voor eenmalige aanmelding om te werken, moet u een koppeling tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Uberflip vast te stellen.
+In deze sectie kunt u eenmalige aanmelding voor Azure AD configureren en testen met Uberflip op basis van een test gebruiker met de naam **B Simon**. Als u eenmalige aanmelding wilt gebruiken, moet u een koppeling tot stand brengen tussen een Azure AD-gebruiker en een gerelateerde gebruiker in Uberflip.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Uberflip, moet u de volgende bouwstenen voltooien:
+Als u eenmalige aanmelding voor Azure AD wilt configureren en testen met Uberflip, moet u de volgende bouw stenen volt ooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  zodat uw gebruikers deze functie wilt gebruiken.
-1. **[Configureren van eenmalige aanmelding Uberflip](#configure-uberflip-single-sign-on)**  de instellingen voor eenmalige aanmelding configureren aan de toepassing.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  voor het testen van Azure AD eenmalige aanmelding met B. Simon.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  B. Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Maak een testgebruiker Uberflip](#create-an-uberflip-test-user)**  zodat er een gebruiker met de naam B. Simon in Uberflip die gekoppeld aan de Azure AD-gebruiker met de naam B. Simon.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  om te controleren of de configuratie werkt.
+1. **[Eenmalige aanmelding voor Azure AD configureren](#configure-azure-ad-single-sign-on)** om uw gebruikers in staat te stellen deze functie te gebruiken.
+1. **[Uberflip eenmalige aanmelding configureren](#configure-uberflip-single-sign-on)** om de instellingen voor eenmalige aanmelding aan de kant van de toepassing te configureren.
+1. **[Maak een Azure AD-test gebruiker om de](#create-an-azure-ad-test-user)** eenmalige aanmelding van Azure ad te testen met B. Simon.
+1. **[Wijs de Azure AD-test gebruiker](#assign-the-azure-ad-test-user)** toe om B. Simon in te scha kelen voor het gebruik van eenmalige aanmelding voor Azure AD.
+1. **[Maak een Uberflip test gebruiker](#create-an-uberflip-test-user)** zodat er een gebruiker is met de naam b. Simon in Uberflip die is gekoppeld aan de Azure AD-gebruiker met de naam B. Simon.
+1. **[Test eenmalige aanmelding](#test-single-sign-on)** om te controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-Voor het configureren van Azure AD eenmalige aanmelding met Uberflip, voert u de volgende stappen uit:
+Voer de volgende stappen uit om eenmalige aanmelding voor Azure AD te configureren met Uberflip:
 
-1. In de [Azure-portal](https://portal.azure.com/)op de **Uberflip** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+1. Selecteer in de [Azure Portal](https://portal.azure.com/)op de pagina **Uberflip** Application Integration de optie **eenmalige aanmelding**.
 
     ![Optie voor eenmalige aanmelding configureren](common/select-sso.png)
 
-1. In de **selecteert u een methode voor eenmalige aanmelding** deelvenster Selecteer **SAML/WS-Federation** modus voor eenmalige aanmelding inschakelen.
+1. Selecteer in het deel venster **eenmalige aanmelding selecteren** de optie **SAML/WS-** gegevensinvoermodus om eenmalige aanmelding in te scha kelen.
 
     ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-1. Op de **instellen van eenmalige aanmelding met SAML** venster **bewerken** (het potloodpictogram) te openen de **SAML-basisconfiguratie** deelvenster.
+1. Selecteer in het deel venster **eenmalige aanmelding met SAML instellen** de optie **bewerken** (het potlood pictogram) om het deel venster **basis-SAML-configuratie** te openen.
 
    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-1. Op de **SAML-basisconfiguratie** deelvenster, voert u een van de volgende stappen uit, afhankelijk van welke SSO-modus die u wilt configureren:
+1. Voer in het deel venster **basis-SAML-configuratie** een van de volgende stappen uit, afhankelijk van de SSO-modus die u wilt configureren:
 
-   * Configureren van de toepassing in de IDP gestart door SSO-modus in de **antwoord-URL (URL van de Bevestigingsconsumerservice)** voert u een URL met behulp van het volgende patroon:
+   * Als u de toepassing in de IDP-modus voor eenmalige aanmelding wilt configureren, voert u in het vak **antwoord-URL (assertion Consumer Service-URL)** een URL in op het volgende patroon:
 
      `https://app.uberflip.com/sso/saml2/<IDPID>/<ACCOUNTID>`
 
-     ![Uberflip domein en URL's, eenmalige aanmelding informatie](common/both-replyurl.png)
+     ![Informatie over eenmalige aanmelding voor Uberflip domein en Url's](common/both-replyurl.png)
 
      > [!NOTE]
-     > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke antwoord-URL. Als u de werkelijke waarde, neem contact op met de [Uberflip ondersteuningsteam](mailto:support@uberflip.com). U kunt ook verwijzen naar de patronen die wordt weergegeven in de **SAML-basisconfiguratie** deelvenster in de Azure-portal.
+     > Deze waarde is niet echt. Werk deze waarde bij met de daad werkelijke antwoord-URL. Neem contact op met het ondersteunings [team van Uberflip](mailto:support@uberflip.com)om de werkelijke waarde op te halen. U kunt ook verwijzen naar de patronen die worden weer gegeven in het deel venster **basis-SAML-configuratie** in de Azure Portal.
 
-   * Selecteer voor het configureren van de toepassing in de modus van de Serviceprovider geïnitieerde eenmalige aanmelding, **extra URL's instellen**, en klik in de **aanmeldings-URL** voert u deze URL:
+   * Als u de toepassing in de door SP geïnitieerde SSO-modus wilt configureren, selecteert u **extra Url's instellen**en voert u in het vak **aanmeldings-URL** de volgende URL in:
 
      `https://app.uberflip.com/users/login`
 
-     ![Uberflip domein en URL's, eenmalige aanmelding informatie](common/both-signonurl.png)
+     ![Informatie over eenmalige aanmelding voor Uberflip domein en Url's](common/both-signonurl.png)
 
-1. Op de **instellen van eenmalige aanmelding met SAML** deelvenster in de **SAML-handtekeningcertificaat** sectie, selecteer **downloaden** voor het downloaden van de **federatieve metagegevens-XML**  uit de opgegeven opties en bewaar deze op uw computer.
+1. Selecteer in het deel venster **eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekening certificaat** de optie **downloaden** om de **federatieve meta gegevens-XML** te downloaden uit de opgegeven opties en op uw computer op te slaan.
 
-   ![De optie voor het downloaden van federatieve metagegevens-XML](common/metadataxml.png)
+   ![De optie voor XML-down load voor federatieve meta gegevens](common/metadataxml.png)
 
-1. In de **Uberflip instellen** deelvenster, Kopieer de URL of URL's die u nodig hebt:
+1. Kopieer in het deel venster **Uberflip instellen** de URL of url's die u nodig hebt:
 
    * **Aanmeldings-URL**
    * **Azure AD Identifier**
@@ -130,29 +130,29 @@ Voor het configureren van Azure AD eenmalige aanmelding met Uberflip, voert u de
 
    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-### <a name="configure-uberflip-single-sign-on"></a>Uberflip eenmalige aanmelding configureren
+### <a name="configure-uberflip-single-sign-on"></a>Eenmalige aanmelding voor Uberflip configureren
 
-Voor het configureren van eenmalige aanmelding aan de Uberflip, die u nodig hebt voor het verzenden van het gedownloade federatieve metagegevens van XML-bestand en de juiste URL's gekopieerd vanuit Azure portal naar de [Uberflip ondersteuningsteam](mailto:support@uberflip.com). Het team Uberflip zorgt u ervoor dat de SAML SSO-verbinding aan beide zijden juist is ingesteld.
+Als u eenmalige aanmelding aan de Uberflip zijde wilt configureren, moet u de gedownloade federatieve meta gegevens-XML en de juiste gekopieerde Url's van de Azure Portal naar het ondersteunings [team van Uberflip](mailto:support@uberflip.com)verzenden. Het Uberflip-team zorgt ervoor dat de SAML SSO-verbinding aan beide zijden correct is ingesteld.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-In deze sectie maakt u een testgebruiker B. Simon met de naam in Azure portal.
+In deze sectie maakt u een test gebruiker met de naam B. Simon in de Azure Portal.
 
 1. Selecteer in de Azure-portal aan de linkerkant **Azure Active Directory** > **Gebruikers** > **Alle gebruikers**.
 
-    ![De gebruikers- en 'Alle gebruikers' opties](common/users.png)
+    ![De opties gebruikers en alle gebruikers](common/users.png)
 
-1. Aan de bovenkant van het scherm, selecteer **+ nieuwe gebruiker**.
+1. Selecteer boven aan het scherm **+ nieuwe gebruiker**.
 
-    ![Nieuwe Gebruikersoptie](common/new-user.png)
+    ![Optie nieuwe gebruiker](common/new-user.png)
 
-1. In de **gebruiker** in het deelvenster de volgende stappen uit:
+1. Voer de volgende stappen uit in het deel venster van de **gebruiker** :
 
-    ![De gebruiker-deelvenster](common/user-properties.png)
+    ![Het deel venster gebruiker](common/user-properties.png)
 
-    1. In de **naam** Voer **BSimon**.
+    1. Typ **BSimon**in het vak **naam** .
   
-    1. In de **gebruikersnaam** Voer **BSimon\@\<uwbedrijfsdomein >.\< extensie >** . Bijvoorbeeld, **BSimon\@contoso.com**.
+    1. Voer in het vak **gebruikers naam** **BSimon\@\<yourcompanydomain > in.\< extensie >** . Bijvoorbeeld **BSimon\@contoso.com**.
 
     1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
 
@@ -160,46 +160,46 @@ In deze sectie maakt u een testgebruiker B. Simon met de naam in Azure portal.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u B. Simon Azure eenmalige aanmelding gebruiken door hun toegang verlenen tot Uberflip.
+In deze sectie schakelt u B. Simon in om de eenmalige aanmelding van Azure te gebruiken door hun toegang te verlenen aan Uberflip.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen** > **alle toepassingen** > **Uberflip**.
+1. Selecteer in de Azure Portal**alle toepassingen** > in **bedrijfs toepassingen** > **Uberflip**.
 
-    ![Deelvenster voor Enterprise applications](common/enterprise-applications.png)
+    ![Deel venster ondernemings toepassingen](common/enterprise-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **Uberflip**.
+1. Selecteer in de lijst toepassingen de optie **Uberflip**.
 
     ![Uberflip in de lijst met toepassingen](common/all-applications.png)
 
-1. In het linkerdeelvenster onder **beheren**, selecteer **gebruikers en groepen**.
+1. Selecteer in het linkerdeel venster onder **beheren**de optie **gebruikers en groepen**.
 
-    ![De optie 'Gebruikers en groepen'](common/users-groups-blade.png)
+    ![De optie gebruikers en groepen](common/users-groups-blade.png)
 
-1. Selecteer **+ gebruiker toevoegen**, en selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** deelvenster.
+1. Selecteer **+ gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in het deel venster **toewijzing toevoegen** .
 
-    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+    ![Het deelvenster toewijzing toevoegen](common/add-assign-user.png)
 
-1. In de **gebruikers en groepen** venster **B Simon** in de **gebruikers** lijst en kies vervolgens **Selecteer** aan de onderkant van het deelvenster.
+1. Selecteer in het deel venster **gebruikers en groepen** de optie **B Simon** in de lijst met **gebruikers** en kies vervolgens **selecteren** onder aan het deel venster.
 
-1. Als u verwacht een waarde voor de rol in het SAML-verklaring, klikt u vervolgens de **rol selecteren** deelvenster, selecteert u de juiste rol voor de gebruiker in de lijst. Kies aan de onderkant van het deelvenster **Selecteer**.
+1. Als u een waarde voor een rol in de SAML-bevestiging verwacht, selecteert u in het deel venster **rol selecteren** de juiste rol voor de gebruiker in de lijst. Klik onder aan het deel venster op **selecteren**.
 
-1. In de **toevoegen toewijzing** venster **toewijzen**.
+1. Selecteer in het deel venster **toewijzing toevoegen** de optie **toewijzen**.
 
-### <a name="create-an-uberflip-test-user"></a>Maak een testgebruiker Uberflip
+### <a name="create-an-uberflip-test-user"></a>Een Uberflip-test gebruiker maken
 
-Een gebruiker met de naam B. Simon is nu gemaakt in Uberflip. U hoeft te ondernemen om deze gebruiker te maken. Uberflip biedt ondersteuning voor just-in-time-gebruikersinrichting, dat standaard is ingeschakeld. Als een gebruiker met de naam B. Simon nog niet in Uberflip bestaat, wordt een nieuw gemaakt nadat verificatie.
+Een gebruiker met de naam B. Simon is nu gemaakt in Uberflip. U hoeft niets te doen om deze gebruiker te maken. Uberflip biedt ondersteuning voor Just-in-time-gebruikers inrichting, die standaard is ingeschakeld. Als een gebruiker met de naam B. Simon niet al bestaat in Uberflip, wordt er een nieuwe gemaakt na verificatie.
 
 > [!NOTE]
-> Als u maken van een gebruiker handmatig wilt, neem dan contact op met de [Uberflip ondersteuningsteam](mailto:support@uberflip.com).
+> Als u hand matig een gebruiker moet maken, neemt u contact op met het ondersteunings [team van Uberflip](mailto:support@uberflip.com).
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw configuratie Azure AD eenmalige aanmelding testen met behulp van de portal mijn Apps.
+In deze sectie test u de configuratie van eenmalige aanmelding voor Azure AD met behulp van de portal mijn apps.
 
-Wanneer u selecteert **Uberflip** in de portal mijn Apps u moet worden automatisch aangemeld bij de Uberflip-abonnement waarvoor u van eenmalige aanmelding instellen. Zie voor meer informatie over de portal mijn Apps [toegang en gebruik apps op de portal mijn Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wanneer u **Uberflip** in de portal mijn apps selecteert, moet u automatisch worden aangemeld bij het Uberflip-abonnement waarvoor u eenmalige aanmelding hebt ingesteld. Zie [apps openen en gebruiken in de portal mijn apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)voor meer informatie over de portal mijn apps.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies voor het integreren van SaaS-toepassingen met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [Lijst met zelf studies voor het integreren van SaaS-toepassingen met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 * [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 

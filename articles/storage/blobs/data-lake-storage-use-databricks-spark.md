@@ -1,7 +1,6 @@
 ---
 title: 'Zelfstudie: Toegang tot Azure Data Lake Storage Gen2-gegevens met Azure Databricks met behulp van Apache Spark | Microsoft Docs'
 description: Deze zelf studie laat zien hoe u Spark-query's uitvoert op een Azure Databricks cluster om toegang te krijgen tot gegevens in een Azure Data Lake Storage Gen2 Storage-account.
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: a745ade33e5d9c493fed187bbd9a4309e1a2d0ff
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 3a283f6cbcf4dc345a8c55192507c461f33244d6
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360116"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855447"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Zelfstudie: Toegang tot Data Lake Storage Gen2-gegevens met Azure Databricks met behulp van Apache Spark
 

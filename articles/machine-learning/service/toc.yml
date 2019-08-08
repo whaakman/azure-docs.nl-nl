@@ -9,11 +9,6 @@
     - name: De werking van de service
       displayName: 'architecture, concepts, definitions, glossary'
       href: concept-azure-machine-learning-architecture.md
-- name: Instellen
-  items:
-    - name: Een werkruimte maken
-      displayName: install sdk workspace
-      href: setup-create-workspace.md
 - name: Zelfstudies
   items:
     - name: Python-SDK

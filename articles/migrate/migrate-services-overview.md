@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5409ed799454a6bb64077ee884065fc518556142
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 03918976935f9071ba2a7951e29195118943a8ef
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227816"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845830"
 ---
 # <a name="about-azure-migrate"></a>Over Azure Migrate
 
@@ -50,7 +50,7 @@ Naast de systeem eigen Azure-hulpprogram ma's, kan Azure Migrate worden geïnteg
 
 ### <a name="selecting-an-isv-tool"></a>Een ISV-hulp programma selecteren
 
-Nadat u een ISV-hulp programma aan een Azure Migrate-project hebt toegevoegd, kunt u aan de slag met het hulp programma door een licentie te verkrijgen of u aan te melden voor een gratis proef versie, in overeenstemming met het ISV-beleid. In elk hulp programma is er een optie om verbinding te maken met Azure Migrate. Volg de instructies en documentatie van het hulp programma om het hulp programma te verbinden met Azure Migrate.
+Nadat u een ISV-hulp programma aan een Azure Migrate-project hebt toegevoegd, kunt u aan de slag met het hulp programma door een licentie te verkrijgen of u aan te melden voor een gratis proef versie, in overeenstemming met het ISV-beleid. In elk hulp programma is er een optie om verbinding te maken met Azure Migrate. Volg de instructies en documentatie van het hulp programma om het hulp programma te verbinden met Azure Migrate. Licentie verlening voor ISV-hulpprogram ma's is in overeenstemming met het ISV-licentie model.
 
 ## <a name="azure-migrate-server-assessment"></a>Evaluatie van Azure Migrate-server
 
@@ -90,7 +90,7 @@ Vanuit de Azure Migrate hub kunt u on-premises web-apps evalueren en migreren na
 
 [Meer informatie.](https://appmigration.microsoft.com/)
 
-## <a name="offline-data-migration"></a>Offline gegevens migratie
+## <a name="offline-data-migration"></a>Offlinegegevensmigratie
 
 U kunt de Data Box offline familie van producten gebruiken om grote hoeveel heden gegevens naar Azure te verplaatsen. [Meer informatie](https://docs.microsoft.com/azure/databox/)
 

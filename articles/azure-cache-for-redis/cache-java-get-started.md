@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/23/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 01fb6f66ce71599a70a127a2b73eba6f848bf365
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d1a90df07d1973272193f9d01b5d26aaf329166e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324130"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849908"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Quickstart: Azure cache gebruiken voor redis met Java
 
@@ -147,13 +147,13 @@ Als u niet verder wilt met de voorbeeldtoepassing uit de snelstart, kunt u de Az
 > Het verwijderen van een resourcegroep kan niet ongedaan worden gemaakt. De resourcegroep en alle bijbehorende resources worden permanent verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u de resources voor het hosten van dit voorbeeld in een bestaande resourcegroep hebt gemaakt en deze groep ook resources bevat die u wilt behouden, kunt u elke resource afzonderlijk verwijderen via hun respectievelijke blade.
 >
 
-Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Resourcegroepen**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com) en selecteer **Resourcegroepen**.
 
-Typ de naam van de resourcegroep in het tekstvak **Filteren op naam...** . In de instructies voor dit artikel is een resourcegroep met de naam *TestResources* gebruikt. Klik in de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
+1. Typ in het tekstvak **filteren op naam** de naam van de resource groep. In de instructies voor dit artikel is een resourcegroep met de naam *TestResources* gebruikt. Selecteer in de lijst met resultaten van de resource groep de optie **...** en vervolgens de **resource groep verwijderen**.
 
-![Verwijderen](./media/cache-java-get-started/cache-delete-resource-group.png)
+   ![Verwijderen](./media/cache-java-get-started/cache-delete-resource-group.png)
 
-U wordt gevraagd om het verwijderen van de resourcegroep te bevestigen. Typ de naam van de resourcegroep om te bevestigen en klik op **Verwijderen**.
+1. U wordt gevraagd om het verwijderen van de resourcegroep te bevestigen. Typ de naam van de resource groep die u wilt bevestigen en selecteer **verwijderen**.
 
 Na enkele ogenblikken worden de resourcegroep en alle resources in de groep verwijderd.
 

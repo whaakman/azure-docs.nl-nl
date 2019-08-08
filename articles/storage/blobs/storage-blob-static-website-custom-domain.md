@@ -1,20 +1,18 @@
 ---
 title: 'Zelfstudie: Aangepast domein inschakelen met SSL op een statische website met behulp van Azure CDN - Azure Storage'
 description: Leer hoe u een aangepast domein configureert voor het hosten van statische websites.
-services: storage
 author: normesta
 ms.service: storage
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: normesta
-ms.reviewer: seguler
-ms.custom: seodec18
-ms.openlocfilehash: 2b0bb94be2ba8ea983cda8fd015d05fcd532f2bc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.reviewer: dineshm
+ms.openlocfilehash: a65c0e677182eb224f6bfa7ed834740458b97098
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66226106"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847002"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Zelfstudie: Azure CDN gebruiken om een aangepast domein met SSL in te schakelen voor een statische website
 
@@ -38,27 +36,27 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/) om aan de slag te gaan.
 
 ## <a name="create-a-cdn-endpoint-on-the-static-website-endpoint"></a>Een CDN-eindpunt op het eindpunt van een statische website maken
 
-1. Zoek uw opslagaccount in Azure portal en een overzicht van het account weergegeven.
+1. Zoek uw opslag account in de Azure Portal en geef het account overzicht weer.
 1. Selecteer **Azure CDN** onder het menu **Blob-Service** om Azure CDN te configureren.
-1. In de **CDN-profiel** sectie, geeft u een nieuwe of bestaande CDN-profiel. Zie voor meer informatie [Snelstart: Een Azure CDN-profiel en een eindpunt maken](../../cdn/cdn-create-new-endpoint.md).
-1. Geef een prijscategorie voor het CDN-eindpunt. In deze zelfstudie wordt de **Standard Akamai** prijscategorie, omdat deze wordt doorgegeven snel, meestal binnen een paar minuten. Andere Prijscategorieën kunnen langer duren doorgegeven, maar kan ook andere voordelen bieden. Zie voor meer informatie, [vergelijken Azure CDN-producteigenschappen](../../cdn/cdn-features.md).
-1. In de **de naam van de CDN-eindpunt** veld, geeft u een naam op voor uw CDN-eindpunt. Het CDN-eindpunt moet uniek zijn in Azure.
-1. Geef je het eindpunt voor statische website in de **hostnaam van oorsprong** veld. Als u uw eindpunt voor statische website zoekt, gaat u naar de **statische website** -instellingen voor uw storage-account. Het primaire eindpunt Kopieer en plak deze in de CDN-configuratie, het verwijderen van het protocol-id (*bijvoorbeeld*, HTTPS).
+1. Geef in de sectie **CDN-profiel** een nieuw of bestaand CDN-profiel op. Zie voor meer informatie [Snelstart: Een Azure CDN-profiel en een eindpunt maken](../../cdn/cdn-create-new-endpoint.md).
+1. Geef een prijs categorie op voor het CDN-eind punt. In deze zelf studie wordt gebruikgemaakt van de standaard prijs categorie **Akamai** , omdat deze snel wordt door gegeven, meestal binnen een paar minuten. Andere prijs categorieën kunnen langer duren voordat ze worden door gegeven, maar kunnen ook andere voor delen bieden. Zie [Azure CDN product functies vergelijken](../../cdn/cdn-features.md)voor meer informatie.
+1. Geef in het veld **naam van CDN-eind punt** een naam op voor uw CDN-eind punt. Het CDN-eind punt moet uniek zijn binnen Azure.
+1. Geef op dat u het eind punt van een statische website bent in het veld **hostnaam van oorsprong** . Om het eind punt van een statische website te vinden, gaat u naar de **statische website** -instellingen voor uw opslag account. Kopieer het primaire eind punt en plak het in de CDN-configuratie, waarbij u de protocol-id (*bijvoorbeeld*https) verwijdert.
 
-    De volgende afbeelding toont een voorbeeld van de endpoint-configuratie:
+    In de volgende afbeelding ziet u een voor beeld van een eindpunt configuratie:
 
-    ![Schermopname die laat zien CDN-eindpunt voorbeeldconfiguratie](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
+    ![Scherm opname van voor beeld van CDN-eindpunt configuratie](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
 
-1. Maken van het CDN-eindpunt en wacht totdat deze worden doorgegeven.
-1. Om te controleren of het CDN-eindpunt juist is geconfigureerd, klikt u op het eindpunt om te navigeren naar de instellingen ervan. Uit het CDN-overzicht voor uw opslagaccount, zoek de hostnaam van eindpunt en Ga naar het eindpunt, zoals wordt weergegeven in de volgende afbeelding. De indeling van uw CDN-eindpunt is vergelijkbaar met `https://staticwebsitesamples.azureedge.net`.
+1. Maak het CDN-eind punt en wacht totdat het is door gegeven.
+1. Als u wilt controleren of het CDN-eind punt correct is geconfigureerd, klikt u op het eind punt om naar de instellingen te navigeren. Zoek in het CDN-overzicht voor uw opslag account de hostnaam van het eind punt en ga naar het eind punt, zoals wordt weer gegeven in de volgende afbeelding. De indeling van uw CDN-eind punt is vergelijkbaar `https://staticwebsitesamples.azureedge.net`met.
 
-    ![Schermopname die laat zien overzicht van CDN-eindpunt](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
+    ![Scherm afbeelding met overzicht van het CDN-eind punt](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
 
-    Zodra de doorgifte van CDN-eindpunt voltooid is, wordt de inhoud van het index.html-bestand dat u eerder hebt geüpload naar uw statische website te navigeren naar het CDN-eindpunt wordt weergegeven.
+    Zodra de doorgifte van het CDN-eind punt is voltooid, wordt in de navigatie naar het CDN-eind punt de inhoud weer gegeven van het bestand index. html dat u eerder hebt geüpload naar uw statische website.
 
-1. Navigeer naar de oorsprong om instellingen te controleren voor uw CDN-eindpunt, **oorsprong** onder de **instellingen** sectie voor uw CDN-eindpunt. U ziet dat de **oorsprongtype** veld is ingesteld op *aangepaste oorsprong* en dat de **hostnaam van oorsprong** veld wordt het eindpunt voor statische website weergegeven.
+1. Als u de oorspronkelijke instellingen voor het CDN-eind punt wilt controleren, gaat u naar **oorsprong** in het gedeelte **instellingen** van het CDN-eind punt. U ziet dat het veld van het **type oorsprong** is ingesteld op *aangepaste oorsprong* en dat het veld **hostnaam van oorsprong** het eind punt van de statische website weergeeft.
 
-    ![Schermafbeelding van de oorspronkelijke instellingen voor CDN-eindpunt](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
+    ![Scherm opname met de oorspronkelijke instellingen voor het CDN-eind punt](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
 
 ## <a name="enable-custom-domain-and-ssl"></a>Aangepast domein en SSL inschakelen
 
@@ -66,19 +64,19 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/) om aan de slag te gaan.
 
     ![CNAME-record voor het www-subdomein opgeven](media/storage-blob-static-website-custom-domain/subdomain-cname-record.png)
 
-1. In de Azure-portal, moet u de instellingen voor uw CDN-eindpunt weergegeven. Navigeer naar **aangepaste domeinen** onder **instellingen** om het aangepaste domein en het SSL-certificaat te configureren.
+1. Geef in het Azure Portal de instellingen voor uw CDN-eind punt weer. Navigeer naar **aangepaste domeinen** onder **instellingen** om het aangepaste domein en het SSL-certificaat te configureren.
 1. Selecteer **Aangepast domein toevoegen**, voer uw domeinnaam in en klik op **Toevoegen**.
-1. Selecteer de nieuwe aangepaste domeintoewijzing voor het inrichten van een SSL-certificaat.
-1. Instellen **HTTPS voor aangepast domein** naar **ON**, klikt u vervolgens op **opslaan**. Het duurt enkele uren in uw aangepast domein configureren. Voortgang zoals wordt weergegeven in de volgende afbeelding wordt weergegeven in de portal.
+1. Selecteer de nieuwe aangepaste domein toewijzing om een SSL-certificaat in te richten.
+1. Stel het **aangepaste domein https** in **op**aan en klik vervolgens op **Opslaan**. Het kan enkele uren duren om uw aangepaste domein te configureren. De portal geeft de voortgang weer, zoals wordt weer gegeven in de volgende afbeelding.
 
-    ![Schermafbeelding van de voortgang van de configuratie van aangepast domein](media/storage-blob-static-website-custom-domain/configure-custom-domain-https.png)
+    ![Scherm opname van de voortgang van de aangepaste domein configuratie](media/storage-blob-static-website-custom-domain/configure-custom-domain-https.png)
 
-1. De toewijzing van uw statische website aan uw aangepaste domein testen door het openen van de URL voor uw aangepaste domein.
+1. Test de toewijzing van uw statische website aan uw aangepaste domein door de URL voor uw aangepaste domein te openen.
 
-Zie voor meer informatie over het inschakelen van HTTPS voor aangepaste domeinen [zelfstudie: HTTPS configureren op een aangepast Azure CDN-domein](../../cdn/cdn-custom-ssl.md).
+Zie [zelf studie voor meer informatie over het inschakelen van HTTPS voor aangepaste domeinen: Configureer HTTPS op een Azure CDN aangepast domein](../../cdn/cdn-custom-ssl.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deel twee van deze zelfstudie hebt u geleerd hoe u een aangepast domein kunt configureren met SSL in Azure CDN voor uw statische website.
 
-Zie voor meer informatie over het configureren en het gebruik van Azure CDN [wat is Azure CDN?](../../cdn/cdn-overview.md).
+Zie [Wat is Azure CDN?](../../cdn/cdn-overview.md)voor meer informatie over het configureren en gebruiken van Azure CDN.

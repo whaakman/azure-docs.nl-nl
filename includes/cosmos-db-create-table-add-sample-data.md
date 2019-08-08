@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 4341d06f09c60933bfc0512f54e024b35a19d8dd
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: 1ebd645b740ab0f454d006d003518fbb8cb5e9e7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67176577"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854641"
 ---
 U kunt nu gegevens aan uw nieuwe tabel toevoegen met behulp van Data Explorer.
 
-1. Vouw in Data Explorer **sample-table** uit, klik op **Entiteiten** en klik vervolgens op **Entiteit toevoegen**.
+1. Vouw in Data Explorer de **voorbeeld tabel**uit, selecteer **entiteiten**en selecteer vervolgens **entiteit toevoegen**.
 
    ![Nieuwe entiteiten maken in Data Explorer in Azure Portal](./media/cosmos-db-create-table-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
 
-2. Voeg nu gegevens toe aan de vakken met een waarde voor PartitionKey en RowKey en klik op **Entiteit toevoegen**.
+2. Voeg nu gegevens toe aan het vak waarde voor PartitionKey en RowKey waarde en selecteer **entiteit toevoegen**.
 
    ![De partitiesleutel en de rijsleutel instellen voor een nieuwe entiteit](./media/cosmos-db-create-table-add-sample-data/azure-cosmosdb-data-explorer-new-entity.png)
   

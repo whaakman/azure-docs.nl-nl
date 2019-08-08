@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 50264dfba401f623c4ad14a6310303f2787fc85f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8d0973b8d4de280842930a8a70618600daab849b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175840"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849936"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-by-using-the-azure-portal"></a>Hostnaam, poorten en toegangssleutels ophalen met behulp van Azure Portal
 
@@ -21,7 +21,7 @@ Tijdens het maken van een verbinding met een Azure Cache for Redis-instantie heb
 
 #### <a name="to-retrieve-the-access-keys-and-host-name"></a>De toegangssleutels en hostnaam ophalen
 
-1. Als u de toegangssleutels wilt ophalen met behulp van [Azure Portal](https://portal.azure.com), bladert u naar de cache en selecteert u **Toegangssleutels**. 
+1. Als u de toegangs sleutels wilt ophalen met behulp van de [Azure Portal](https://portal.azure.com), gaat u naar uw cache en selecteert u **toegangs sleutels**. 
 
     ![Sleutels van Azure Cache voor Redis](media/redis-cache-access-keys/redis-cache-keys.png)
 

@@ -1,20 +1,20 @@
 ---
 title: Overzicht van Azure Blueprints
-description: Begrijpen hoe de blauwdrukken voor Azure-service kunt u maken, definiëren en implementeren van artefacten in uw Azure-omgeving.
+description: Meer informatie over hoe u met de Azure-service voor blauw drukken artefacten kunt maken, definiëren en implementeren in uw Azure-omgeving.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 5f403ee7d2bf4a0730ceaa9b5a95b3e7b11f3695
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: be7e3043172f988a429bbf02dec08bfbbc1a70b7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428780"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848442"
 ---
-# <a name="overview-of-the-azure-blueprints-service"></a>Overzicht van de service Azure blauwdrukken
+# <a name="overview-of-the-azure-blueprints-service"></a>Overzicht van de service Azure-blauw drukken
 
 Net zoals een blauwdruk het een ingenieur of architect mogelijk maakt om de ontwerpparameters voor een project te schetsen, stelt Azure Blueprints cloudarchitecten en centrale IT-groepen in staat om een ​​herhaalbare set Azure-resources te definiëren die voldoet aan de normen, patronen en vereisten van een organisatie en deze implementeert. Met Azure Blueprints kunnen ontwikkelteams snel nieuwe omgevingen bouwen en instellen in het volste vertrouwen dat ze voldoen aan de vereisten van de organisatie, met een set ingebouwde componenten, zoals netwerken, om de ontwikkeling en levering te versnellen.
 
@@ -54,7 +54,7 @@ Een blauwdruk bestaat uit _artefacten_. Blauwdrukken ondersteunen momenteel de v
 
 |Resource  | Hiërarchieopties| Description  |
 |---------|---------|---------|
-|Resourcegroepen | Abonnement | Een nieuwe resourcegroep maken voor gebruik door andere artefacten binnen de blauwdruk.  Met deze tijdelijke resourcegroepen kunt u resources precies zo indelen als u ze wilt structureren, en het bereik beperken voor opgenomen beleids- en roltoewijzingsartefacten, en Azure Resource Manager-sjablonen. |
+|Resourcegroepen | Subscription | Een nieuwe resourcegroep maken voor gebruik door andere artefacten binnen de blauwdruk.  Met deze tijdelijke resourcegroepen kunt u resources precies zo indelen als u ze wilt structureren, en het bereik beperken voor opgenomen beleids- en roltoewijzingsartefacten, en Azure Resource Manager-sjablonen. |
 |Azure Resource Manager-sjabloon | Abonnement, resourcegroep | Sjablonen worden gebruikt om complexe omgevingen samen te stellen. Voorbeeldomgevingen: een SharePoint-farm, Azure Automation State Configuration of een Log Analytics-werkruimte. |
 |Beleidstoewijzing | Abonnement, resourcegroep | Hiermee kan een beleid of initiatief worden toegewezen aan het abonnement waaraan de blauwdruk wordt toegewezen. Het beleid of initiatief moet binnen het bereik van de locatie van de blauwdrukdefinitie vallen. Als het beleid of initiatief parameters heeft, worden deze parameters toegewezen bij het maken of toewijzen van de blauwdruk. |
 |Roltoewijzing | Abonnement, resourcegroep | Voeg een bestaande gebruiker of groep toe aan een ingebouwde rol om ervoor te zorgen dat de juiste mensen altijd over de juiste toegang tot uw bronnen beschikken. Roltoewijzingen kunnen voor het hele abonnement worden gedefinieerd of genest in een specifieke resourcegroep die in de blauwdruk is opgenomen. |
@@ -79,7 +79,7 @@ Wanneer een blauwdruk wordt gemaakt, bevindt deze zich in de modus **Concept**. 
 
 ## <a name="blueprint-assignment"></a>Blauwdruktoewijzing
 
-Elke **gepubliceerde** **versie** van een blauwdruk kan worden toegewezen aan een bestaand abonnement. In de portal wordt standaard de **versie** van de blauwdruk gebruikt die het laatst is **gepubliceerd**. Als er artefactparameters (of blauwdrukparameters) zijn, worden de parameters tijdens het toewijzingsproces gedefinieerd.
+Elke **gepubliceerde** **versie** van een blauw druk kan worden toegewezen (met een maximale naam van 90 tekens) aan een bestaand abonnement. In de portal wordt standaard de **versie** van de blauwdruk gebruikt die het laatst is **gepubliceerd**. Als er artefactparameters (of blauwdrukparameters) zijn, worden de parameters tijdens het toewijzingsproces gedefinieerd.
 
 ## <a name="permissions-in-azure-blueprints"></a>Machtigingen in Azure Blueprints
 
@@ -109,7 +109,18 @@ Als u een blauwdruk wilt toewijzen of de toewijzing ongedaan wilt maken, heeft u
 Alle bovenstaande machtigingen zijn opgenomen in de rol **Eigenaar**. De rol **Inzender** beschikt over machtigingen voor het maken en verwijderen van blauwdrukken. Er is geen sprake van blauwdruktoewijzingsmachtigingen. Als deze ingebouwde rollen niet aan uw beveiligingsbehoeften voldoen, kunt u een [aangepaste rol](../../role-based-access-control/custom-roles.md) maken.
 
 > [!NOTE]
-> Als met behulp van een systeem toegewezen identiteit wordt beheerd, vereist dat de service-principal voor Azure blauwdrukken de **eigenaar** -rol op het toegewezen abonnement om in te schakelen van de implementatie. Als u de portal gebruikt, wordt deze rol automatisch verleend en ingetrokken voor de implementatie. Als u de REST API gebruikt, moet deze rol handmatig worden toegekend, maar wordt deze automatisch ingetrokken nadat de implementatie is voltooid. Als met behulp van een gebruiker toegewezen identiteit wordt beheerd, alleen de gebruiker die het maken van de blauwdruktoewijzing moet **eigenaar** machtigingen.
+> Als u een door het systeem toegewezen beheerde identiteit gebruikt, is voor de service-principal voor Azure-blauw drukken de rol van **eigenaar** van het toegewezen abonnement vereist om de implementatie in te scha kelen. Als u de portal gebruikt, wordt deze rol automatisch verleend en ingetrokken voor de implementatie. Als u de REST API gebruikt, moet deze rol handmatig worden toegekend, maar wordt deze automatisch ingetrokken nadat de implementatie is voltooid. Als u een door de gebruiker toegewezen beheerde identiteit gebruikt, moet alleen de gebruiker die de blauw druk maakt, **eigenaars** machtigingen hebben.
+
+## <a name="naming-limits"></a>Naamgevings limieten
+
+Hier volgt een lijst met beperkingen die voor bepaalde velden bestaan:
+
+|Object|Veld|Toegestane tekens|Met maximaal Hoogte|
+|-|-|-|-|
+|Blauwdruk|Name|letters, cijfers, afbreek streepjes en punten|48|
+|Blauwdruk|Version|letters, cijfers, afbreek streepjes en punten|20|
+|Blauwdruktoewijzing|Name|letters, cijfers, afbreek streepjes en punten|90|
+|Blauw druk artefact|Name|letters, cijfers, afbreek streepjes en punten|48|
 
 ## <a name="video-overview"></a>Video-overzicht
 

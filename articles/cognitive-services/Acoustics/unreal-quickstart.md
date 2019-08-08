@@ -3,20 +3,20 @@ title: Quick start voor project akoestische met Unreal
 titlesuffix: Azure Cognitive Services
 description: Experimenteer met voorbeeld inhoud met behulp van ontwerp besturings elementen voor project akoestische in Unreal en WWise en implementeer het op Windows Desktop.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 06023b2758d09fe8ebe7c1301ef1a03d9c54aa41
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 8809c80f2ecba4ea2b3e3d280be0c4ad81d78d37
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704775"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854838"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Unreal/WWise Quick start voor project akoestische
 In deze Quick start gaat u experimenteren met de ontwerp besturings elementen voor project akoestische, met behulp van de meegeleverde voorbeeld inhoud voor de Unreal-Engine en WWise.

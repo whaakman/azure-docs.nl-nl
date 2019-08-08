@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Gegevens in Azure Data Lake Storage Gen2 analyseren met behulp van Azure Databricks | Microsoft Docs'
 description: Leer hoe u een Spark-taak kunt uitvoeren op Azure Databricks met behulp van de Azure-portal en een Azure Data Lake Storage Gen2-opslagaccount.
-services: storage
 author: normesta
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
-ms.openlocfilehash: d27f89b5a6f6da0732b98fe7b15793e80d491038
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.reviewer: jeking
+ms.openlocfilehash: a1e7ee4f81f2b40b804ee69c8366ca87c377e6ac
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357482"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855485"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Quickstart: Gegevens in Azure Data Lake Storage Gen2 analyseren met behulp van Azure Databricks
 
@@ -38,7 +38,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
   > [!IMPORTANT]
   > Zorg ervoor dat u de rol toewijst in het bereik van het Data Lake Storage Gen2-opslagaccount. U kunt een rol toewijzen aan de bovenliggende resourcegroep of het bovenliggende abonnement, maar u ontvangt machtigingsgerelateerde fouten tot die roltoewijzingen zijn doorgegeven aan het opslagaccount.
 
-  :heavy_check_mark: Bij het uitvoeren van de stappen in de [waarden ophalen voor het aanmelden](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) gedeelte van het artikel, plak de tenant-ID, app-ID en wachtwoord waarden in een tekstbestand. U hebt deze binnenkort nodig.
+  :heavy_check_mark: Bij het uitvoeren van de stappen in de sectie [waarden ophalen voor ondertekening in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) van het artikel, plakt u de Tenant-id, app-id en wachtwoord waarden in een tekst bestand. U hebt deze binnenkort nodig.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Een Azure Databricks-werkruimte maken
 

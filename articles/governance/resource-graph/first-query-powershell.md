@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6c58528aba29cbbc81694112815534a8fc525b8a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a8221de15dfa48b4eebcf0fe0df29ea0c3a1868e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565386"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854956"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Quickstart: Uw eerste Resource Graph-query uitvoeren met Azure PowerShell
 
@@ -27,7 +27,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 ## <a name="add-the-resource-graph-module"></a>De Resource Graph-module toevoegen
 
-De module moet worden toegevoegd opdat Azure PowerShell query's kan uitvoeren voor Azure Resource Graph. Deze module kan worden gebruikt met lokaal geïnstalleerde PowerShell, met [Azure Cloud Shell](https://shell.azure.com) of met de [Azure PowerShell Docker-installatiekopie](https://hub.docker.com/r/azuresdk/azure-powershell/).
+De module moet worden toegevoegd opdat Azure PowerShell query's kan uitvoeren voor Azure Resource Graph. Deze module kan worden gebruikt met lokaal geïnstalleerde Power shell, met [Azure Cloud shell](https://shell.azure.com), of met de [Power shell-docker-installatie kopie](https://hub.docker.com/_/microsoft-powershell).
 
 ### <a name="base-requirements"></a>Basisvereisten
 
@@ -98,8 +98,11 @@ Wanneer de laatste query meerdere keren wordt uitgevoerd, ervan uitgaande dat ni
 Als u de Resource Graph-module uit uw Azure PowerShell-omgeving wilt verwijderen, kunt u dit doen met de volgende opdracht:
 
 ```azurepowershell-interactive
-# Remove the Resource Graph module from the Azure PowerShell environment
+# Remove the Resource Graph module from the current session
 Remove-Module -Name 'Az.ResourceGraph'
+
+# Uninstall the Resource Graph module from the environment
+Uninstall-Module -Name 'Az.ResourceGraph'
 ```
 
 > [!NOTE]

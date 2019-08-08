@@ -56,7 +56,8 @@
     - name: Een aangepaste ervaring voor automatische suggesties configureren
       href: define-custom-suggestions.md
     - name: Markering van treffers afhandelen
-      href: hit-highlighting.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
     - name: Bladeren door webpagina's
       href: page-webpages.md
 - name: Naslaginformatie

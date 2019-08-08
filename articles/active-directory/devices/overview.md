@@ -1,6 +1,6 @@
 ---
 title: Wat is de apparaat-id in Azure Active Directory?
-description: Meer informatie over hoe identiteit Apparaatbeheer kan u helpen om de apparaten die toegang hebben tot bronnen in uw omgeving te beheren.
+description: Meer informatie over hoe het beheer van apparaat-id's u kan helpen bij het beheren van de apparaten die toegang hebben tot resources in uw omgeving.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,77 +11,77 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d38ca8bdf93ff201b3f5842f4cb0e8409dcd0c3
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c1d7d2ad6adefb83c3c313063a9e630458ccebc5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481664"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851771"
 ---
 # <a name="what-is-a-device-identity"></a>Wat is een apparaat-id?
 
-Met de komst van apparaten van alle vormen en grootten en het concept Bring Your Own Device (BYOD), worden de IT-professionals geconfronteerd met twee enigszins andere doelen:
+Dankzij de toename van apparaten van alle vormen en grootten en het BYOD-concept (your own Device), worden IT-professionals geconfronteerd met twee enigszins tegengestelde doel stellingen:
 
-- Toestaan dat eindgebruikers productief waar en wanneer
-- Beveiligen van de activa van de organisatie
+- Eind gebruikers toestaan overal en altijd productief te zijn
+- De bedrijfs middelen beveiligen
 
-Ter bescherming van deze middelen, moet IT-personeel eerst de apparaat-id's te beheren. IT-personeel kunnen gebruikmaken van de apparaat-id met hulpprogramma's, zoals Microsoft Intune om ervoor te zorgen standaarden voor beveiliging en naleving wordt voldaan. Azure Active Directory (Azure AD) kunt single sign-on bij apparaten, apps en services vanaf een willekeurige plaats via deze apparaten.
+Voor het beveiligen van deze assets moeten IT-mede werkers eerst de apparaat-id's beheren. IT-mede werkers kunnen de identiteit van het apparaat bouwen met hulpprogram ma's als Microsoft Intune om ervoor te zorgen dat aan de normen voor beveiliging en naleving wordt voldaan. Met Azure Active Directory (Azure AD) kunt u eenmalige aanmelding op apparaten, apps en services vanaf elke locatie via deze apparaten.
 
-- Uw gebruikers krijgen toegang tot activa van uw organisatie die ze nodig hebben. 
-- Uw IT-medewerkers krijgen de besturingselementen die ze nodig hebben voor het beveiligen van uw organisatie.
+- Uw gebruikers krijgen toegang tot de activa van uw organisatie die ze nodig hebben. 
+- Uw IT-mede werkers krijgen de besturings elementen die ze nodig hebben om uw organisatie te beveiligen.
 
-Apparaat-identiteitsbeheer vormt de basis voor [apparaat gebaseerde voorwaardelijke toegang](../conditional-access/require-managed-devices.md). Met beleid voor voorwaardelijke toegang op basis van apparaat, kunt u ervoor zorgen dat toegang tot bronnen in uw omgeving is alleen mogelijk met beheerde apparaten.
+Apparaat-id-beheer is de basis voor [voorwaardelijke toegang op basis van apparaten](../conditional-access/require-managed-devices.md). Met op apparaten gebaseerd beleid voor voorwaardelijke toegang kunt u ervoor zorgen dat toegang tot resources in uw omgeving alleen mogelijk is met beheerde apparaten.
 
-## <a name="getting-devices-in-azure-ad"></a>Ophalen van apparaten in Azure AD
+## <a name="getting-devices-in-azure-ad"></a>Apparaten in azure AD ophalen
 
-Als u een apparaat in Azure AD, hebt u meerdere opties:
+U hebt meerdere opties om een apparaat in azure AD op te halen:
 
-- **Geregistreerd bij Azure AD**
-   - Apparaten die geregistreerd bij Azure AD zijn zijn doorgaans persoonlijk eigendom zijn of mobiele apparaten en bent aangemeld bij met een persoonlijk Microsoft-account of een andere lokale account.
+- **Geregistreerde Azure AD**
+   - Apparaten die zijn geregistreerd bij Azure AD, zijn doorgaans persoonlijk eigendom of mobiele apparaten en zijn aangemeld met een persoonlijke Microsoft-account of een ander lokaal account.
       - Windows 10
       - iOS
       - Android
       - MacOS
-- **Azure AD-domein**
-   - Apparaten die toegevoegd aan Azure AD zijn eigendom zijn van een organisatie, en bent aangemeld bij met een Azure AD-account die behoren tot deze organisatie. Ze bestaan alleen in de cloud.
+- **Toegevoegd aan Azure AD**
+   - Apparaten die lid zijn van Azure AD zijn eigendom van een organisatie en zijn aangemeld met een Azure AD-account dat deel uitmaakt van die organisatie. Ze bestaan alleen in de Cloud.
       - Windows 10 
 - **lid is van hybride Azure Active Directory**
-   - Apparaten die zijn toegevoegd aan hybrid Azure AD join eigendom zijn van een organisatie, en bent aangemeld bij met een Azure AD-account die behoren tot deze organisatie. Ze bestaan in de cloud en 
-      - Windows 7, 8.1 en 10
-      - WindowsServer 2008 of hoger
+   - Apparaten die lid zijn van hybride Azure AD zijn eigendom van een organisatie en zijn aangemeld met een Azure AD-account dat deel uitmaakt van die organisatie. Ze bevinden zich in de Cloud en on-premises.
+      - Windows 7, 8,1 of 10
+      - Windows Server 2008 of hoger
 
-![Apparaten die worden weergegeven in de blade Azure AD-apparaten](./media/overview/azure-ad-devices-all-devices-overview.png)
+![Weer gave van apparaten op de Blade Azure AD-apparaten](./media/overview/azure-ad-devices-all-devices-overview.png)
 
 ## <a name="device-management"></a>Apparaatbeheer
 
-Apparaten in Azure AD kunnen worden beheerd via Mobile Device Management (MDM)-hulpprogramma's zoals Microsoft Intune, System Center Configuration Manager, Group Policy (hybrid Azure AD join), hulpprogramma's voor Mobile Application Management (MAM) of andere hulpprogramma's van derden.
+Apparaten in azure AD kunnen worden beheerd met behulp van Mobile Device Management (MDM)-hulpprogram ma's zoals Microsoft Intune, System Center Configuration Manager, groepsbeleid (Hybrid Azure AD-deelname), Mobile Application Management-hulpprogram ma's (MAM) of andere hulpprogram ma's van derden.
 
-## <a name="resource-access"></a>Toegang tot resources
+## <a name="resource-access"></a>Brontoegang
 
-Registreren en deze koppelen aan uw gebruikers naadloze eenmalige aanmelding (SSO) in de cloud-resources en beheerders de mogelijkheid om toe te passen van beleid voor voorwaardelijke toegang tot deze bronnen te verlenen. 
+Registreren en samen voegen bieden uw gebruikers naadloze aanmelding (SSO) voor cloud resources en beheerders de mogelijkheid om beleid voor voorwaardelijke toegang toe te passen op deze resources. 
 
-Apparaten die toegevoegd aan Azure AD zijn of hybride Azure AD lid van het belangrijkste voordeel van eenmalige aanmelding voor uw organisatie on-premises bronnen, evenals cloud-bronnen. Meer informatie vindt u in het artikel [hoe eenmalige aanmelding voor on-premises resources werkt in Azure AD gekoppelde apparaten](azuread-join-sso.md).
+Apparaten die zijn toegevoegd aan Azure AD of hybride Azure AD, profiteren van eenmalige aanmelding bij de on-premises resources van uw organisatie en in cloud resources. Meer informatie vindt u in het artikel, [hoe SSO to on-premises resources werkt op apparaten die zijn toegevoegd aan Azure AD](azuread-join-sso.md).
 
 ## <a name="device-security"></a>Beveiligde apparaten
 
-- **Azure AD ingeschreven apparaten** gebruikmaken van een account dat wordt beheerd door de gebruiker, dit account is een Microsoft-account of een ander lokaal beheerde referenties die zijn beveiligd met een of meer van de volgende.
+- **Geregistreerde apparaten van Azure AD** gebruiken een account dat wordt beheerd door de eind gebruiker. dit account is een Microsoft-account of een andere lokaal beheerde referentie die is beveiligd met een of meer van de volgende.
    - Wachtwoord
-   - PINCODE
+   - Pincode
    - Patroon
    - Windows Hello
-- **Azure AD join of hybride Azure AD gekoppelde apparaten** gebruikmaken van een organisatie-account in Azure AD die worden beveiligd met een of meer van de volgende.
+- Aan **Azure AD gekoppelde of hybride Azure AD gekoppelde apparaten** maken gebruik van een organisatie account in azure AD dat is beveiligd met een of meer van de volgende.
    - Wachtwoord
    - Windows Hello voor Bedrijven
 
 ## <a name="provisioning"></a>Inrichten
 
-Ophalen van apparaten in Azure AD kan worden gedaan in een manier die zelf of in een gecontroleerde inrichtingsproces door beheerders.
+Het ophalen van apparaten in voor Azure AD kan worden uitgevoerd op een selfservice manier of een bewaakt inrichtings proces door beheerders.
 
 ## <a name="summary"></a>Samenvatting
 
-Met identiteit Apparaatbeheer in Azure AD, kunt u het volgende doen:
+Met apparaat-id-beheer in azure AD kunt u het volgende doen:
 
-- Het vereenvoudigen van halen en het beheer van apparaten in Azure AD
+- Vereenvoudig het proces van het in azure AD inbrengen en beheren van apparaten
 - Uw gebruikers gemakkelijke toegang tot de cloudgebaseerde bronnen van uw organisatie bieden
 
 ## <a name="license-requirements"></a>Licentievereisten
@@ -90,8 +90,8 @@ Met identiteit Apparaatbeheer in Azure AD, kunt u het volgende doen:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [Azure AD ingeschreven apparaten](concept-azure-ad-register.md)
-- Meer informatie over [Azure AD gekoppelde apparaten](concept-azure-ad-join.md)
+- Meer informatie over [geregistreerde Azure ad-apparaten](concept-azure-ad-register.md)
+- Meer informatie over [apparaten die zijn toegevoegd aan Azure AD](concept-azure-ad-join.md)
 - Meer informatie over [hybride Azure AD gekoppelde apparaten](concept-azure-ad-join-hybrid.md)
-- Als u een overzicht van hoe u voor het beheren van apparaat-id's in Azure portal, Zie [beheren van apparaat-id's met behulp van de Azure-portal](device-management-azure-portal.md).
-- Zie voor meer informatie over voorwaardelijke toegang op basis van apparaat, [beleid voor het apparaat gebaseerde voorwaardelijke toegang van Azure Active Directory configureren](../conditional-access/require-managed-devices.md).
+- Zie [apparaat-Id's beheren met behulp van de Azure Portal](device-management-azure-portal.md)voor een overzicht van het beheren van apparaat-id's in de Azure Portal.
+- Zie [Azure Active Directory op apparaten gebaseerde beleids regels voor voorwaardelijke toegang configureren](../conditional-access/require-managed-devices.md)voor meer informatie over voorwaardelijke toegang op basis van apparaten.

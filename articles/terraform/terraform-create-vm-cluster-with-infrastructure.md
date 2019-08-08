@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/13/2017
-ms.openlocfilehash: a0358859d6f806a94c529bae2eb6fa9d1ab82963
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 284dcd99dc77d7ec0fb5cb214d49b6fcf93a6aef
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884797"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854486"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Een VM-cluster maken met Terraform en HCL
 
@@ -103,7 +103,7 @@ In deze sectie maakt u een bestand dat de resourcedefinities voor uw infrastruct
     name                         = "publicIPForLB"
     location                     = "${azurerm_resource_group.test.location}"
     resource_group_name          = "${azurerm_resource_group.test.name}"
-    public_ip_address_allocation = "static"
+    allocation_method            = "Static"
    }
 
    resource "azurerm_lb" "test" {

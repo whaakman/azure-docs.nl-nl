@@ -3,20 +3,20 @@ title: Zelf studie voor project akoestische Unreal maken
 titlesuffix: Azure Cognitive Services
 description: In dit document wordt het proces voor het verzenden van een akoestische maken met behulp van de Unreal-Editor-extensie beschreven.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
-ms.author: michem
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 47946570db305ff3d54dfed9ea6f698e5deb7b72
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 7a868a5f9b06499e23710399733b0659d97f900d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704790"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854889"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Zelf studie voor project akoestische Unreal maken
 In dit document wordt het proces voor het verzenden van een akoestische maken met behulp van de Unreal-Editor-extensie beschreven.

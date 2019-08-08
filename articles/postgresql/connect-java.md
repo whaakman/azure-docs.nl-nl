@@ -1,19 +1,19 @@
 ---
-title: Java gebruiken om verbinding te maken met Azure Database for PostgreSQL-één server
+title: 'Quickstart: Java gebruiken om verbinding te maken met Azure Database for PostgreSQL-één server'
 description: Deze Quick Start biedt een Java-code voorbeeld dat u kunt gebruiken om verbinding te maken en gegevens op te vragen van Azure Database for PostgreSQL-één server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: seo-java-august2019
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 6984cd456c0c119e86fec0960160e93e79d4d361
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: acb59c75441c729aabaea8b33b5253f4df7c1fc0
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359347"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845852"
 ---
 # <a name="azure-database-for-postgresql---single-server-use-java-to-connect-and-query-data"></a>Azure Database for PostgreSQL-één server: Java gebruiken om verbinding te maken met gegevens en er query's op uit te voeren
 In deze snelstartgids ziet u hoe u met behulp van een Java-toepassing verbinding maakt met een Azure Database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Java en geen ervaring hebt met het werken met Azure Database for PostgreSQL.
@@ -31,8 +31,8 @@ U moet ook het volgende doen:
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor PostgreSQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het menu aan de linkerkant in Azure Portal op **Alle resources** en zoek naar de server die u hebt gemaakt (bijvoorbeeld **mydemoserver**).
-3. Klik op de servernaam.
+2. Selecteer in het menu aan de linkerkant in Azure Portal **alle resources**en zoek vervolgens naar de server die u hebt gemaakt (bijvoorbeeld **mydemoserver**).
+3. Selecteer de servernaam.
 4. Ga naar het venster **Overzicht** van de server en noteer de **Servernaam** en de **Aanmeldingsnaam van de serverbeheerder**. Als u uw wachtwoord vergeet, kunt u het wachtwoord in dit venster opnieuw instellen.
  ![Servernaam Azure Database for PostgreSQL](./media/connect-java/1-connection-string.png)
 

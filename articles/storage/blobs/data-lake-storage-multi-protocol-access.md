@@ -1,19 +1,19 @@
 ---
 title: Toegang tot meerdere protocollen op Azure Data Lake Storage | Microsoft Docs
 description: Gebruik BLOB Api's en toepassingen die gebruikmaken van BLOB-Api's met Azure Data Lake Storage Gen2.
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: normesta
-ms.openlocfilehash: f384fb738fe719b8e622e8d61502e6acba2bbf31
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.reviewer: stewu
+ms.openlocfilehash: cc0191a9484a09ed12e0ca0cde4d51681e44ec5f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314387"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855540"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Toegang tot meerdere protocollen op Azure Data Lake Storage
 
@@ -28,7 +28,7 @@ Tot die tijd moest u mogelijk afzonderlijke opslag oplossingen voor object opsla
 
 Als u zich registreert bij de preview-versie van toegang tot meerdere protocollen op Data Lake Storage, kunt u met al uw gegevens werken door gebruik te maken van het hele ecosysteem van hulpprogram ma's, toepassingen en services. Dit omvat Azure-Services, zoals [Azure stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction), [IOT hub](https://docs.microsoft.com/azure/iot-hub/), [Power bi](https://docs.microsoft.com/power-bi/desktop-data-sources)en vele andere. 
 
-Dit geldt ook voor hulpprogram ma's en toepassingen van derden. U kunt ze naar accounts met een hiërarchische naam ruimte wijzen, zonder dat u ze hoeft te wijzigen. Deze *toepassingen werken ook* als ze BLOB-api's aanroepen, omdat BLOB-api's nu kunnen worden uitgevoerd op gegevens in accounts met een hiërarchische naam ruimte.
+Dit geldt ook voor hulpprogram ma's en toepassingen van derden. U kunt ze naar accounts met een hiërarchische naam ruimte wijzen, zonder dat u ze hoeft te wijzigen. Deze toepassingen werken ook als ze BLOB-api's aanroepen, omdat BLOB-api's nu kunnen worden uitgevoerd op gegevens in accounts met een hiërarchische naam ruimte.
 
 > [!NOTE]
 > Zie het artikel [bekende problemen](data-lake-storage-known-issues.md) voor een overzicht van de beperkingen.

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2c173da9bfb60f74b90a17f4f3c5ea6f930ca528
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 5ea16b1f92080f74afa05dcf8137c9b7e0ef4e3d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705842"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851200"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Zelfstudie: gebruikers end-to-end verifiëren en autoriseren in Azure App Service in Linux
 
@@ -101,7 +101,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="configure-cors"></a>CORS configureren
 
-Deze stap heeft geen betrekking op verificatie en autorisatie. De stap is echter nodig om later [de back-end-API aan te roepen vanuit de code van de front-endbrowser](#call-api-securely-from-browser-code), zodat uw browser de API-aanroepen tussen domeinen vanuit de app Angular.js toestaat. App Service on Linux biedt nu ondersteuning voor CORS-functionaliteit, zoals [bijbehorende equivalent Windows biedt](../app-service-web-tutorial-rest-api.md#add-cors-functionality).
+Deze stap heeft geen betrekking op verificatie en autorisatie. De stap is echter nodig om later [de back-end-API aan te roepen vanuit de code van de front-endbrowser](#call-api-securely-from-browser-code), zodat uw browser de API-aanroepen tussen domeinen vanuit de app Angular.js toestaat. App Service op Linux ondersteunt nu CORS-functionaliteit [, zoals het equivalent van Windows](../app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
 Open het bestand _Startup.cs_ in de lokale opslagplaats. Voeg de volgende coderegel toe aan de methode `ConfigureServices(IServiceCollection services)`:
 
@@ -303,7 +303,7 @@ Meld u aan bij [Azure Resource Explorer](https://resources.azure.com). Klik bove
 
 ![ASP.NET Core-API uitvoeren in Azure App Service](./media/tutorial-auth-aad/resources-enable-write.png)
 
-Klik in de linkerbrowser op **subscriptions** > ** _&lt;your\_subscription>_**  > **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** >  ** _\<front\_end\_app\_name>_**  > **config** > **authsettings**.
+Klik in de linkerbrowser op **subscriptions** >  **_&lt;your\_subscription>_**  > **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** >  **_\<front\_end\_app\_name>_**  > **config** > **authsettings**.
 
 Klik in de weergave **authsettings** op **Bewerken**. Stel `additionalLoginParams` in op de volgende JSON-tekenreeks met behulp van de toepassings-id die u hebt gekopieerd. 
 
@@ -337,7 +337,7 @@ public override void OnActionExecuting(ActionExecutingContext context)
 
     _client.DefaultRequestHeaders.Accept.Clear();
     _client.DefaultRequestHeaders.Authorization =
-        new AuthenticationHeaderValue("Bearer", Request.Headers["x-ms-token-aad-access_token"]);
+        new AuthenticationHeaderValue("Bearer", Request.Headers["x-ms-token-aad-access-token"]);
 }
 ```
 

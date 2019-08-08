@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: bbb9653173925e1443504aa3f2e9c5e6edbfc486
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 70a95cdba2a8b41c7b2fc3ee4b2664f049a84e95
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371032"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846002"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Zelfstudie: Geautomatiseerde machine learning gebruiken om uw regressiemodel te bouwen
 
@@ -54,7 +54,7 @@ Ga naar [De ontwikkelomgeving instellen](#start) om de notebook-stappen te doorl
 
 Haal al deze vereisten op uit een van de secties hieronder.
 
-* Een [Cloud notebook server gebruiken in uw werk ruimte](#azure) 
+* Een [Cloud notebook server gebruiken in uw werk ruimte](#azure)
 * [Uw eigen Notebook-server](#server) gebruiken
 
 ### <a name="azure"></a>Een Cloud notebook server gebruiken in uw werk ruimte
@@ -688,6 +688,9 @@ automated_ml_config = AutoMLConfig(task='regression',
                                    **automl_settings)
 ```
 
+> [!NOTE]
+> Automatische machine learning vooraf verwerkte stappen (functie normalisatie, het verwerken van ontbrekende gegevens, het converteren van tekst naar numerieke waarde, enzovoort) worden onderdeel van het onderliggende model. Wanneer u het model gebruikt voor voor spellingen, worden dezelfde vooraf verwerkings stappen die tijdens de training worden toegepast, automatisch toegepast op uw invoer gegevens.
+
 ### <a name="train-the-automatic-regression-model"></a>Het automatische regressiemodel trainen
 
 Start het experiment voor lokale uitvoering. Geef het gedefinieerde `automated_ml_config`-object door aan het experiment. Stel de uitvoer in op `True` om de voortgang tijdens het experiment weer te geven:
@@ -764,7 +767,7 @@ Dezelfde resultaten worden opgeslagen in uw werk ruimte.  U vindt een koppeling 
 ```
 local_run.get_portal_url()
 ```
-  
+
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Optie 2: Alle uitgevoerde herhalingen ophalen en onderzoeken in Python
 

@@ -1,20 +1,19 @@
 ---
 title: Een toepassing voor cloudopslag bewaken en problemen oplossen in Azure | Microsoft Docs
 description: Gebruik diagnostische hulpprogramma's, metrische gegevens en waarschuwingen voor het oplossen van problemen met een cloudtoepassing en deze te bewaken.
-services: storage
 author: normesta
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: mvc
-ms.openlocfilehash: 1383ccd570e23d80343ccdfd586d08ee25ebbc8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3a2381302a378e7b2635b84c32a87e844e4605a7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148224"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844880"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Een toepassing voor cloudopslag bewaken en problemen oplossen
 
@@ -52,7 +51,7 @@ Waarschuwingen bieden een manier waarbij beheerders e-mails ontvangen of dat er 
 
 ### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Navigeren naar het opslagaccount in Azure Portal
 
-Selecteer onder het gedeelte **Bewaking** de optie **Waarschuwingen (klassiek)**.
+Selecteer onder het gedeelte **Bewaking** de optie **Waarschuwingen (klassiek)** .
 
 Selecteer **Waarschuwing voor metrische gegevens toevoegen (klassiek)** en voltooi het formulier **Regel toevoegen** door de vereiste gegevens in te vullen. In de vervolgkeuzelijst **Metrisch** selecteert u `SASClientOtherError`. Als u wilt toestaan dat de waarschuwing bij de eerste fout wordt geactiveerd, selecteert u in de vervolgkeuzelijst **Voorwaarde** **Groter dan of gelijk aan**.
 

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/25/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3d9f96f0b61129a0f881c8fe8676bd5df7376ad
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 946eb0343c2858e275e40b7a581fd48e1713accd
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494568"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853521"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Verificatie stromen en toepassings scenario's
 
@@ -185,7 +185,7 @@ Scenario's met betrekking tot het verkrijgen van tokens zijn ook toegewezen aan 
 
 ## <a name="scenarios-and-supported-platforms-and-languages"></a>Scenario's en ondersteunde platforms en talen
 
-Niet elk toepassings type is beschikbaar op elk platform. U kunt ook verschillende talen gebruiken om uw toepassingen te bouwen. Micro soft-verificatie bibliotheken ondersteunen een  aantal platformen (Java script, .NET Framework, .net core, Windows 10/UWP, Xamarin. IOS, Xamarin. Android, systeem eigen IOS, systeem eigen Android, Java, python)
+Niet elk toepassings type is beschikbaar op elk platform. U kunt ook verschillende talen gebruiken om uw toepassingen te bouwen. Micro soft-verificatie bibliotheken ondersteunen een aantal platformen (Java script, .NET Framework, .net core, Windows 10/UWP, Xamarin. IOS, Xamarin. Android, systeem eigen IOS, systeem eigen Android, Java, python)
 
 |Scenario  | Windows | Linux | Mac | iOS | Android
 |--|--|--|--|--|--|--|

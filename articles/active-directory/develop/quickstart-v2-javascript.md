@@ -8,7 +8,7 @@ manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ca7e7f282d63160cd1f729fba00f6d7d7704270
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 59b5ddbff646104b3d4a35c26c1ecf3968dea31d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334130"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852910"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>Quickstart: Gebruikers aanmelden en een toegangs token verkrijgen van een Java script-toepassing met één pagina
 
@@ -59,7 +59,7 @@ Voor deze Quick start is de volgende configuratie vereist:
 > 1. Selecteer **nieuwe registratie**.
 > 1. Wanneer de pagina **Een toepassing registreren** wordt weergegeven, voert u een naam in voor de toepassing.
 > 1. Selecteer onder **Ondersteunde accounttypen** de optie **Accounts in een organisatieadreslijst en persoonlijke Microsoft-account**.
-> 1. Selecteer onder de sectie omleidings- **URI** in de vervolg keuzelijst het **webplatform en** stel vervolgens de waarde in op `http://localhost:30662/`.
+> 1. Selecteer onder de sectie omleidings- **URI** in de vervolg keuzelijst het webplatform en stel vervolgens de waarde in op. `http://localhost:30662/`
 > 1. Selecteer **Registreren**. Noteer de waarde van de **toepassing (client)** op de pagina app- **overzicht** voor later gebruik.
 > 1. Voor deze quickstart moet de [Impliciete toekenningsstroom](v2-oauth2-implicit-grant-flow.md) zijn ingeschakeld. Selecteer in het linkerdeel venster van de geregistreerde toepassing **verificatie**.
 > 1. Selecteer in de sectie **Geavanceerde instellingen** onder **impliciete toekenning**de selectie vakjes **id-tokens** en **toegangs tokens** . ID-tokens en toegangs tokens zijn vereist omdat deze app gebruikers moet aanmelden en een API kan aanroepen.

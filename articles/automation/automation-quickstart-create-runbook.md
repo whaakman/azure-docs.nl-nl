@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 2f6dcbba8da314798b2e8de12a9fc5bf55f67a4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3dece2d2bffc7bd2b9e0a3c2931b2038ebc3c77e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738601"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850651"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Een Azure Automation-runbook maken
 
@@ -45,7 +45,7 @@ Maak eerst een runbook. Het voorbeeldrunbook dat in deze quickstart is gemaakt, 
     ![PowerShell-script in de runbookeditor ontwerpen](./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png)
 
 1. Typ of kopieer en plak de volgende code in het bewerkingsvenster. Er wordt een optionele invoerparameter 'Name' gemaakt met een standaardwaarde 'World', en als uitvoer wordt een tekenreeks geproduceerd die gebruikmaakt van deze invoerwaarde:
-   
+
    ```powershell-interactive
    param
    (
@@ -102,4 +102,3 @@ In deze quickstart hebt u geleerd om een runbook te maken, bewerken, testen en p
 
 > [!div class="nextstepaction"]
 > [Procedures voor Automation: runbooktypen](./automation-runbook-types.md)
-

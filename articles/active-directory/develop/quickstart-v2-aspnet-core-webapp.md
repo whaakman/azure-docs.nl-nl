@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4723b224d61b2ccc2b563150befa5ea2d33453ad
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 7779d01fd59446cf10aabf9fd6fdcce05e76899b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335607"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852988"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snelstart: aanmelding met Microsoft toevoegen aan een ASP.NET Core-web-app
 
@@ -55,9 +55,9 @@ In deze snelstart leert u hoe een ASP.NET Core-web-app persoonlijke accounts (ho
 > 1. Selecteer **nieuwe registratie**.
 > 1. Wanneer de pagina **Een toepassing registreren** verschijnt, voert u de registratiegegevens van de toepassing in:
 >    - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `AspNetCore-Quickstart`.
->    - In omleidings- `https://localhost:44321/`URI, toevoegen en **registreren**selecteren.
+>    - Inomleidings- `https://localhost:44321/`URI, toevoegen en **registreren**selecteren.
 > 1. Selecteer het menu **Verificatie** en voeg dan de volgende gegevens toe:
->    - In omleidings- `https://localhost:44321/signin-oidc`uri's toevoegen en selecteert u **Opslaan**.
+>    - Inomleidings- `https://localhost:44321/signin-oidc`uri's toevoegen en selecteert u **Opslaan**.
 >    - Bij **Geavanceerde instellingen** stelt u de **afmeldings-URL** in op `https://localhost:44321/signout-oidc`.
 >    - Bij **Impliciete toekenning** controleert u de **id-tokens**.
 >    - Selecteer **Opslaan**.

@@ -1,24 +1,23 @@
 ---
 title: Azure Data Lake Storage Gen2 Inleiding
 description: Biedt een overzicht van Azure Data Lake Storage Gen2
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: daa5efcf1be075e81e402edff56239a7cf21db18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3dea4dfc58bf087b8f6bc0a3f45646da5cb597ad
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939229"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847228"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Inleiding tot Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 is een verscheidenheid aan functies die zijn toegewezen aan de analyse van big data, gebouwd op [Azure Blob-opslag](storage-blobs-introduction.md). Data Lake Storage Gen2 is het resultaat van de mogelijkheden van onze twee bestaande storage-services, Azure-blobopslag en Azure Data Lake Storage Gen1 geconvergeerd. Functies van [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), zoals de semantiek van het bestandssysteem, map en Bestandsbeveiliging en schaal worden gecombineerd met lage kosten, gelaagde opslag, hoge beschikbaarheid/noodherstel herstelfuncties van [Azure Blob-opslag](storage-blobs-introduction.md).
+Azure Data Lake Storage Gen2 is een set mogelijkheden die is toegewezen aan big data Analytics, gebouwd op [Azure Blob-opslag](storage-blobs-introduction.md). Data Lake Storage Gen2 is het resultaat van de mogelijkheden van onze twee bestaande storage-services, Azure-blobopslag en Azure Data Lake Storage Gen1 geconvergeerd. Functies van [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), zoals de semantiek van het bestandssysteem, map en Bestandsbeveiliging en schaal worden gecombineerd met lage kosten, gelaagde opslag, hoge beschikbaarheid/noodherstel herstelfuncties van [Azure Blob-opslag](storage-blobs-introduction.md).
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Ontworpen voor analyse van big data voor ondernemingen
 
@@ -38,13 +37,13 @@ In het verleden had cloudanalyses te boeten op het gebied van prestaties, beheer
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Belangrijke functies van Data Lake Storage Gen2
 
--   **Hadoop-compatibele toegang**: Data Lake Storage Gen2 kunt u beheren en toegang tot gegevens, net zoals u zou met doen een [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). De nieuwe [ABFS stuurprogramma](data-lake-storage-abfs-driver.md) is beschikbaar in alle Apache Hadoop-omgevingen, met inbegrip van [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index) *,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), en [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) voor toegang tot gegevens die zijn opgeslagen in Data Lake Storage Gen2.
+-   **Hadoop-compatibele toegang**: Met Data Lake Storage Gen2 kunt u gegevens beheren en openen, net zoals u dat zou doen met een [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). De nieuwe [ABFS stuurprogramma](data-lake-storage-abfs-driver.md) is beschikbaar in alle Apache Hadoop-omgevingen, met inbegrip van [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index) *,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), en [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) voor toegang tot gegevens die zijn opgeslagen in Data Lake Storage Gen2.
 
--   **Een hoofdverzameling van POSIX-machtigingen**: Het beveiligingsmodel voor Data Lake Gen2 biedt ondersteuning voor ACL en POSIX-machtigingen, samen met enkele extra granulariteit die specifiek zijn voor Data Lake Storage Gen2. Instellingen kunnen worden geconfigureerd via Storage Explorer of frameworks, zoals Hive- en Spark.
+-   **Een superset van POSIX-machtigingen**: Het beveiligings model voor Data Lake Gen2 ondersteunt ACL-en POSIX-machtigingen, samen met een extra granulariteit die specifiek is voor Data Lake Storage Gen2. Instellingen kunnen worden geconfigureerd via Storage Explorer of frameworks, zoals Hive- en Spark.
 
--   **Voordelige**: Data Lake Storage Gen2 biedt de opslagcapaciteit van de lage kosten en transacties. Als gegevens overgangen gedurende de volledige levensduur, factureringstarieven invloed op de bewaren kosten tot een minimum beperkt via de ingebouwde functies zoals [Azure Blob storage-levenscyclus](storage-lifecycle-management-concepts.md).
+-   **Kosten effectief**: Data Lake Storage Gen2 biedt goedkope opslag capaciteit en-trans acties. Als gegevens overgangen gedurende de volledige levensduur, factureringstarieven invloed op de bewaren kosten tot een minimum beperkt via de ingebouwde functies zoals [Azure Blob storage-levenscyclus](storage-lifecycle-management-concepts.md).
 
--   **Geoptimaliseerde stuurprogramma**: Het stuurprogramma ABFS [speciaal geoptimaliseerd](data-lake-storage-abfs-driver.md) voor analyse van big data. De bijbehorende REST-API's zijn opgehaald via het eindpunt `dfs.core.windows.net`.
+-   **Geoptimaliseerd stuur programma**: Het ABFS-stuur programma is [specifiek geoptimaliseerd](data-lake-storage-abfs-driver.md) voor Big Data Analytics. De bijbehorende REST Api's worden opgehaald via het eind punt `dfs.core.windows.net`.
 
 ### <a name="scalability"></a>Schaalbaarheid
 
@@ -77,10 +76,10 @@ Data Lake Storage Gen2 ondersteuning voor verschillende open source-platforms. D
 | Platform |  Ondersteunde versie (s) | Meer informatie |
 | --- | --- | --- |
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6 + | [Wat zijn de Apache Hadoop-onderdelen en versies die beschikbaar met HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
-| [Hadoop](https://hadoop.apache.org/) | 3.2+ | [Apache Hadoop-versies archiveren](https://hadoop.apache.org/release.html) |
+| [Hadoop](https://hadoop.apache.org/) | 3,2 + | [Apache Hadoop-versies archiveren](https://hadoop.apache.org/release.html) |
 | [Cloudera](https://www.cloudera.com/) | 6.1 + | [Opmerkingen bij de release van de Cloudera Enterprise 6.x](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
-| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Databricks Runtime-versies](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
-|[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [Toegang tot cloud-gegevens configureren](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
+| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1 + | [Databricks Runtime-versies](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
+|[Hortonworks](https://hortonworks.com/)| 3.1. x + + | [Toegang tot Cloud gegevens configureren](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
 ## <a name="next-steps"></a>Volgende stappen
 

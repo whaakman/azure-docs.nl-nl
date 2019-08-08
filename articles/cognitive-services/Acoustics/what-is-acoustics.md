@@ -3,20 +3,20 @@ title: Overzicht van de project akoestische
 titlesuffix: Azure Cognitive Services
 description: Project akoestische is een akoestische engine voor 3D-interactieve ervaringen, waarbij geïntegreerde Golf fysica simulatie kan worden geïntegreerd met interactieve ontwerp besturings elementen.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: a654dd966c40b5b079f92b910ade52f4eda10344
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 382d4febed98b53a469ac2788e6e8c8cbf064c23
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704760"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854817"
 ---
 # <a name="what-is-project-acoustics"></a>Wat is Project Acoustics?
 Project akoestische is een golf akoestische engine voor 3D-interactieve ervaringen. De IT-modellen zijn wave-effecten zoals Diffraction, portaling en galm effecten in complexe scènes zonder hand matige zone markeringen te vereisen. Het omvat ook Game-Engine en integratie van de audio-middleware. De "filosofie van het project" is vergelijkbaar met statische belichting: maken gedetailleerde fysieke fysica offline om een fysieke basis lijn te bieden en gebruik een licht gewicht runtime met duidelijke ontwerp besturings elementen om te voldoen aan uw artistieke doelen.

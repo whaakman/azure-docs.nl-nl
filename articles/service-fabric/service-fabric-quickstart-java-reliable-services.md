@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ddd56b8479678b288424dd896baadea6a41a2aef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 656ebed78aab1ad078eb7e9410cb01876159cf13
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726522"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845805"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Snelstartgids: Een Java Reliable Services-toepassing maken voor Service Fabric
 
@@ -65,17 +65,17 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![Lokaal cluster is in orde](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. Open Eclipse.
-3. Klik op Bestand -> Importeren -> Gradle -> Bestaand Gradle-project en volg de wizard.
-4. Klik op Map en kies de map `Voting` uit de map `service-fabric-java-quickstart` die u hebt gekloond vanuit GitHub. Klik op Voltooien.
+3. Selecteer **bestand** > **importeren** **Gradle bestaand Gradle-project** en volg de wizard. >  > 
+4. Selecteer **Directory** en kies de `Voting` map uit de `service-fabric-java-quickstart` map die u hebt gekloond vanuit github. Selecteer **Finish**.
 
     ![Het importdialoogvenster van Eclipse](./media/service-fabric-quickstart-java/eclipseimport.png)
 
 5. U hebt nu het project `Voting` in de pakketverkenner voor Eclipse.
-6. Klik met de rechtermuisknop op het project en selecteer **Toepassing publiceren...** in de vervolgkeuzelijst **Service Fabric**. Kies **PublishProfiles/Local.json** als doelprofiel en klik op Publiceren.
+6. Klik met de rechter muisknop op het project en selecteer **toepassing publiceren** onder de vervolg keuzelijst **service Fabric** . Kies **PublishProfiles/local. json** als doel profiel en selecteer **publiceren**.
 
     ![Het dialoogvenster Publiceren voor Local](./media/service-fabric-quickstart-java/localjson.png)
 
-7. Open uw favoriete webbrowser en Open de toepassing op `http://localhost:8080`.
+7. Open uw favoriete webbrowser om `http://localhost:8080`toegang te krijgen tot de toepassing.
 
     ![Front-end van de toepassing voor Local](./media/service-fabric-quickstart-java/runninglocally.png)
 
@@ -90,14 +90,14 @@ Service Fabric Explorer kan worden uitgevoerd in alle Service Fabric-clusters en
 Voer de volgende stappen uit om de web-front-endservice te schalen:
 
 1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `https://localhost:19080`.
-2. Klik op het beletselteken (drie punten) naast het knooppunt **fabric:/Voting/VotingWeb** in de structuurweergave en kies **Service schalen**.
+2. Selecteer het beletsel teken ( **...** ) naast het knoop punt **Fabric:/stem/VotingWeb** in de structuur weergave en selecteer **service schalen**.
 
     ![De Service Fabric Explorer-service schalen](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
 
     U kunt er nu voor kiezen om het aantal exemplaren van de web-front-endservice te schalen.
 
-3. Wijzig het aantal in **2** en klik op **Service schalen**.
-4. Klik op het knooppunt **fabric:/Voting/VotingWeb** in de structuurweergave en vouw het partitieknooppunt uit (vertegenwoordigd door een GUID).
+3. Wijzig het getal in **2** en selecteer **service schalen**.
+4. Selecteer het knoop punt **Fabric:/stem/VotingWeb** in de structuur weergave en vouw het partitie knooppunt uit (vertegenwoordigd door een GUID).
 
     ![Schalen van Service Fabric Explorer-service is voltooid](./media/service-fabric-quickstart-java/servicescaled.png)
 

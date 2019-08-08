@@ -47,7 +47,8 @@
 - name: Handleidingen
   items:
     - name: Markering van treffers afhandelen
-      href: hit-highlighting.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
     - name: Bladeren door nieuws
       href: paging-news.md
     - name: Het formaat van miniaturen wijzigen en miniaturen bijsnijden

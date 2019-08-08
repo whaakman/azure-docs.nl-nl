@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f7cf3f4cc0ceba89c031f5c36e90bbd6ef3dd20a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 8bb25fc373ff0816154795d2ef25a44066c1acc1
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327159"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847762"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Quickstart: Een Java Spring Boot-toepassing implementeren in Service Fabric
 
@@ -149,7 +149,7 @@ In dit stadium hebt u een Service Fabric-toepassing voor het Spring Boot Aan de 
     
     ![Lokaal cluster is in orde](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
-1. Navigeer naar de map `gs-spring-boot/SpringServiceFabric`.
+1. Open de map `gs-spring-boot/SpringServiceFabric`.
 1. Voer de volgende opdracht uit om verbinding te maken met het lokale cluster.
 
     ```bash
@@ -176,13 +176,13 @@ Service Fabric Explorer kan worden uitgevoerd in alle Service Fabric-clusters en
 Voer de volgende stappen uit om de web-front-endservice te schalen:
 
 1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `http://localhost:19080`.
-1. Klik op het beletselteken (drie punten) naast het knooppunt **fabric:/SpringServiceFabric/SpringGettingStarted** in de structuurweergave en kies **Service schalen**.
+1. Selecteer het beletsel teken ( **...** ) naast het knoop punt **Fabric:/SpringServiceFabric/springgettingstartedt** in de structuur weergave en selecteer **service schalen**.
 
     ![De Service Fabric Explorer-service schalen](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     U kunt er nu voor kiezen om het aantal exemplaren van de service te schalen.
 
-1. Wijzig het aantal in **3** en klik op **Service schalen**.
+1. Wijzig het aantal in **3** en selecteer **service schalen**.
 
     Een alternatieve manier om de service te schalen met behulp van de opdrachtregel gaat als volgt.
 
@@ -194,7 +194,7 @@ Voer de volgende stappen uit om de web-front-endservice te schalen:
     sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
-1. Klik op het knooppunt **fabric:/SpringServiceFabric/SpringGettingStartedt** in de structuurweergave en vouw het partitieknooppunt uit (vertegenwoordigd door een GUID).
+1. Selecteer het knoop punt **Fabric:/SpringServiceFabric/springgettingstartedt** in de structuur weergave en vouw het partitie knooppunt uit (vertegenwoordigd door een GUID).
 
     ![Schalen van Service Fabric Explorer-service is voltooid](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
@@ -207,7 +207,7 @@ Met deze eenvoudige beheertaak hebt u het aantal beschikbare resources voor het 
 Het opnieuw opstarten van een knooppunt kan worden gesimuleerd met behulp van Service Fabric Explorer om failover van de service te demonstreren. Zorg ervoor dat maar één exemplaar van de service wordt uitgevoerd.
 
 1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `http://localhost:19080`.
-1. Klik op het beletselteken (drie punten) naast het knooppunt waarop het service-exemplaar wordt uitgevoerd, en start het knooppunt opnieuw.
+1. Selecteer het beletsel teken ( **...** ) naast het knoop punt waarop het exemplaar van uw service wordt uitgevoerd en start het knoop punt opnieuw op.
 
     ![Knooppunt opnieuw starten in Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
 1. Het service-exemplaar wordt naar een ander knooppunt verplaatst en er treedt geen downtime op voor de toepassing.

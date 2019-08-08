@@ -1,105 +1,104 @@
 ---
-title: Kopiëren van gegevens in Azure Data Lake Storage Gen2 DistCp gebruiken | Microsoft Docs
-description: DistCp gebruiken om gegevens te kopiëren naar en van Data Lake Storage Gen2
-services: storage
+title: Gegevens naar Azure Data Lake Storage Gen2 kopiëren met behulp van DistCp | Microsoft Docs
+description: Gebruik het hulp programma DistCp om gegevens te kopiëren van en naar Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
-ms.reviewer: seguler
-ms.openlocfilehash: 0e85d2b2c7e9a3022e7fea2063ffa0aa915abb53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: stewu
+ms.openlocfilehash: d33518c7dc82f8af61fef02ecabb7ac7f42e28fb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939059"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847097"
 ---
-# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>DistCp gebruiken om gegevens tussen Azure Storage-Blobs en Azure Data Lake Storage Gen2 te kopiëren
+# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Gebruik DistCp om gegevens te kopiëren tussen Azure Storage blobs en Azure Data Lake Storage Gen2
 
-U kunt [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) om gegevens te kopiëren tussen een opslagaccount voor algemeen gebruik V2 en een opslagaccount voor algemeen gebruik V2 met hiërarchische naamruimte ingeschakeld. Dit artikel bevat instructies over het hulpprogramma DistCp gebruiken.
+U kunt [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) gebruiken om gegevens te kopiëren tussen een algemeen doel-v2-opslag account en een opslag account voor algemeen gebruik v2 met een hiërarchische naam ruimte ingeschakeld. In dit artikel vindt u instructies voor het gebruik van het hulp programma DistCp.
 
-DistCp biedt tal van opdrachtregelparameters en we raden u in dit artikel lezen om te optimaliseren van uw gebruik ervan. Dit artikel laat basisfunctionaliteit tijdens richten op het gebruik ervan voor het kopiëren van gegevens naar een hiërarchische naamruimte ingeschakeld account.
+DistCp biedt diverse opdracht regel parameters en we raden u ten zeerste aan om dit artikel te lezen, zodat u het gebruik ervan kunt optimaliseren. Dit artikel bevat de basis functionaliteit en is gericht op het gebruik voor het kopiëren van gegevens naar een hiërarchische naam ruimte met ingeschakeld account.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
-* **Een bestaand Azure Storage-account zonder Data Lake Storage Gen2 mogelijkheden (hiërarchische naamruimte) ingeschakeld**.
-* **Een Azure Storage-account met Data Lake Storage Gen2 functie ingeschakeld**. Zie voor instructies over het maken van een [een Azure Data Lake Storage Gen2 storage-account maken](data-lake-storage-quickstart-create-account.md)
-* **Een bestandssysteem** die in het opslagaccount dat is gemaakt met een hiërarchische naamruimte ingeschakeld.
-* **Azure HDInsight-cluster** met toegang tot een opslagaccount met Data Lake Storage Gen2 is ingeschakeld. Zie [Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Zorg ervoor dat u extern bureaublad inschakelen voor het cluster.
+* **Een bestaand Azure Storage-account zonder data Lake Storage Gen2 mogelijkheden (hiërarchische naam ruimte) ingeschakeld**.
+* **Een Azure Storage-account waarvoor data Lake Storage Gen2 functie is ingeschakeld**. Zie [een Azure data Lake Storage Gen2 Storage-account maken](data-lake-storage-quickstart-create-account.md) voor instructies over het maken van een.
+* **Een bestands systeem** dat is gemaakt in het opslag account waarvoor een hiërarchische naam ruimte is ingeschakeld.
+* **Azure HDInsight-cluster** met toegang tot een opslag account waarvoor data Lake Storage Gen2 is ingeschakeld. Zie [Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Zorg ervoor dat Extern bureaublad voor het cluster is ingeschakeld.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>DistCp gebruiken vanuit een HDInsight Linux-cluster
 
-Een HDInsight-cluster wordt geleverd met het hulpprogramma DistCp, die kan worden gebruikt om gegevens te kopiëren uit verschillende bronnen in een HDInsight-cluster. Als u het HDInsight-cluster voor het gebruik van Azure Blob Storage en Azure Data Lake Storage samen hebt geconfigureerd, kan het hulpprogramma DistCp gebruikte out-of-the-box om gegevens te kopiëren tussen ook zijn. In deze sectie wordt behandeld hoe u het hulpprogramma DistCp gebruiken.
+An HDInsight cluster wordt geleverd met het hulp programma DistCp, dat kan worden gebruikt voor het kopiëren van gegevens uit verschillende bronnen naar een HDInsight-cluster. Als u het HDInsight-cluster hebt geconfigureerd voor het gebruik van Azure Blob Storage en Azure Data Lake Storage samen, kan het hulp programma DistCp out-of-the-box worden gebruikt voor het kopiëren van gegevens. In deze sectie kijken we naar het gebruik van het DistCp-hulp programma.
 
-1. Maak een SSH-sessie met uw HDI-cluster. Zie [verbinding maken met een Linux gebaseerde HDInsight-cluster](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Maak een SSH-sessie met uw HDI-cluster. Zie [verbinding maken met een HDInsight-cluster op basis van Linux](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Controleer of u toegang hebben tot uw bestaande algemeen gebruik V2-account (zonder hiërarchische naamruimte ingeschakeld).
+2. Controleer of u toegang hebt tot uw bestaande algemeen gebruik v2-account (zonder hiërarchische naam ruimte ingeschakeld).
 
         hdfs dfs –ls wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/
 
-    De uitvoer moet een lijst met inhoud van de container opgeven.
+    De uitvoer moet een lijst met inhoud in de container bevatten.
 
-3. Daarnaast moet worden gecontroleerd of u toegang krijgen het opslagaccount met de hiërarchische naamruimte uit het cluster ingeschakeld tot kunt. Voer de volgende opdracht uit:
+3. U kunt ook controleren of u toegang hebt tot het opslag account met een hiërarchische naam ruimte die is ingeschakeld in het cluster. Voer de volgende opdracht uit:
 
         hdfs dfs -ls abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/
 
-    De uitvoer moet een lijst van bestanden/mappen in de Data Lake Storage-account opgeven.
+    De uitvoer moet een lijst met bestanden/mappen in het Data Lake Storage-account bevatten.
 
-4. DistCp gebruiken om te kopiëren van gegevens van WASB naar een Data Lake Storage-account.
+4. Gebruik DistCp om gegevens van WASB te kopiëren naar een Data Lake Storage-account.
 
         hadoop distcp wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
 
-    Met de opdracht wordt de inhoud van de **/voorbeeld/data/gutenberg/** map in Blob storage naar **/myfolder** in het Data Lake Storage-account.
+    Met de opdracht wordt de inhoud van de map **/example/data/Gutenberg/** in Blob Storage gekopieerd naar **/myfolder** in het data Lake Storage-account.
 
-5. Op deze manier DistCp gebruiken om gegevens te kopiëren van Data Lake Storage-account voor Blob Storage (WASB).
+5. Gebruik DistCp om gegevens te kopiëren van Data Lake Storage account naar Blob Storage (WASB).
 
         hadoop distcp abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg
 
-    Met de opdracht wordt de inhoud van **/myfolder** in het Data Lake Store-account **/voorbeeld/data/gutenberg/** WASB-map.
+    De opdracht kopieert de inhoud van **/MyFolder** in de map Data Lake Store account naar **/example/data/Gutenberg/** in WASB.
 
-## <a name="performance-considerations-while-using-distcp"></a>Prestatieoverwegingen tijdens het gebruik van DistCp
+## <a name="performance-considerations-while-using-distcp"></a>Prestatie overwegingen bij het gebruik van DistCp
 
-Omdat de laagste granulariteit van DistCp een enkel bestand is, is instellen van het maximum aantal gelijktijdige exemplaren de belangrijkste parameter optimaliseren op basis van Data Lake-opslag. Aantal gelijktijdige exemplaren is gelijk aan het aantal mappers (**m**) parameter op de opdrachtregel. Deze parameter bepaalt het maximum aantal mappers die worden gebruikt om gegevens te kopiëren. Standaardwaarde is 20.
+Omdat de laagste granulatie van DistCp één bestand is, is het instellen van het maximum aantal gelijktijdige kopieën de belangrijkste para meter om deze te optimaliseren ten opzichte van Data Lake Storage. Het aantal gelijktijdige kopieën is gelijk aan de para meter aantal mappers (**m**) op de opdracht regel. Met deze para meter geeft u het maximum aantal mappers op dat wordt gebruikt om gegevens te kopiëren. De standaard waarde is 20.
 
 **Voorbeeld**
 
     hadoop distcp wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder -m 100
 
-### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>Hoe bepaal ik het aantal mappers gebruiken?
+### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>Hoe kan ik het aantal mappers bepalen dat moet worden gebruikt?
 
 Hier volgen een aantal richtlijnen.
 
-* **Stap 1: Totaal geheugen beschikbaar is voor de wachtrij 'default' YARN app bepalen** -de eerste stap is om te bepalen van het geheugen beschikbaar is voor de wachtrij 'default' YARN-app. Deze informatie is beschikbaar in de Ambari-portal die zijn gekoppeld aan het cluster. Navigeer naar YARN en weergeven van het tabblad configuraties om te zien van de YARN-geheugen beschikbaar is voor de wachtrij van de app 'default'. Dit is het totale beschikbare geheugen voor uw taak DistCp (dit is eigenlijk een MapReduce-taak).
+* **Stap 1: Bepaal het totale geheugen dat beschikbaar is voor de ' standaard '** garen-app-wachtrij: de eerste stap is het bepalen van het geheugen dat beschikbaar is voor de standaard-app-wachtrij voor garens. Deze informatie is beschikbaar in de Ambari-portal die aan het cluster is gekoppeld. Navigeer naar GARENs en Bekijk het tabblad Configuratie om het garen geheugen weer te geven dat beschikbaar is voor de standaard-app-wachtrij. Dit is het totale beschik bare geheugen voor uw DistCp-taak (dit is eigenlijk een MapReduce-taak).
 
-* **Stap 2: Bereken het aantal mappers** -de waarde van **m** is gelijk aan het quotiënt van de totale hoeveelheid geheugen voor YARN gedeeld door de grootte van de YARN-container. Informatie over de grootte van de YARN-container is beschikbaar in de Ambari-portal. Navigeer naar YARN en weergeven van het tabblad configuraties. De grootte van de YARN-container wordt weergegeven in dit venster. De vergelijking om naar het aantal mappers (**m**) is
+* **Stap 2: Het aantal mappers** berekenen: de waarde van **m** is gelijk aan het quotiënt van het totale garen geheugen gedeeld door de grootte van de garen container. De informatie over de grootte van de garen container is ook beschikbaar in de Ambari-Portal. Navigeer naar GARENs en Bekijk het tabblad Configuratie. De grootte van de garen container wordt in dit venster weer gegeven. De vergelijking voor het aantal mappers (**m**) is
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 
 **Voorbeeld**
 
-Stel dat u een cluster met 4 x D14v2s hebt en u probeert om over te dragen van 10 TB aan gegevens van 10 verschillende mappen. Elk van de mappen bevat verschillende hoeveelheden gegevens en de grootte in elke map verschillend zijn.
+We gaan ervan uit dat u een 4x D14v2s-cluster hebt en u probeert 10 TB aan gegevens over te brengen van tien verschillende mappen. Elk van de mappen bevat verschillende hoeveel heden gegevens en de bestands grootten in elke map verschillen.
 
-* **Totaal geheugen YARN**: Vanuit de Ambari-portal kunt u bepalen dat het geheugen YARN 96 GB voor een D14-knooppunt is. Totale YARN-geheugen voor cluster met vier knooppunten is dus: 
+* **Totaal aantal garens**: Vanuit de Ambari-Portal hebt u vastgesteld dat het garen geheugen van 96 GB is voor een D14-knoop punt. Dit betekent dat het totale garen geheugen voor het cluster van vier knoop punten: 
 
         YARN memory = 4 * 96GB = 384GB
 
-* **Aantal mappers**: Vanuit de Ambari-portal kunt u bepalen dat de grootte van de container YARN 3,072 MB voor een D14-clusterknooppunt is. Aantal mappers is dus:
+* **Aantal mappers**: Vanuit de Ambari-Portal hebt u vastgesteld dat de grootte van de garen container 3.072 MB is voor een D14-cluster knooppunt. Het aantal mappers is dus:
 
         m = (4 nodes * 96GB) / 3072MB = 128 mappers
 
-Als u andere toepassingen gebruikt geheugen, kunt klikt u vervolgens u alleen een gedeelte van de YARN-geheugen van uw cluster worden gebruikt voor DistCp.
+Als andere toepassingen geheugen gebruiken, kunt u ervoor kiezen om alleen een deel van het garen geheugen van uw cluster te gebruiken voor DistCp.
 
-### <a name="copying-large-datasets"></a>Kopiëren van grote gegevenssets
+### <a name="copying-large-datasets"></a>Grote gegevens sets kopiëren
 
-Wanneer de grootte van de gegevensset worden verplaatst groot is (bijvoorbeeld > 1 TB) of als u veel verschillende mappen hebt, moet u overwegen meerdere DistCp taken. Er is waarschijnlijk geen prestatieverbetering te bereiken, maar het verspreidt zich van de taken die als een taak mislukt, hoeft u alleen die specifieke taak in plaats van de hele taak opnieuw.
+Wanneer de grootte van de gegevensset die moet worden verplaatst, groot is (bijvoorbeeld > 1 TB) of als u veel verschillende mappen hebt, kunt u overwegen meerdere DistCp-taken te gebruiken. Er is waarschijnlijk geen prestatie verbetering, maar deze verdeelt de taken, zodat als een taak mislukt, u de specifieke taak alleen opnieuw hoeft te starten in plaats van de volledige taak.
 
 ### <a name="limitations"></a>Beperkingen
 
-* DistCp probeert te maken van mappers die zijn vergelijkbaar in grootte om prestaties te optimaliseren. Het aantal mappers mogelijk niet altijd vergroot prestaties.
+* DistCp probeert toewijzingen te maken die vergelijkbaar zijn met de grootte om de prestaties te optimaliseren. Het verhogen van het aantal mappers leidt mogelijk niet altijd tot betere prestaties.
 
-* DistCp is beperkt tot slechts één mapper per bestand. U moet daarom niet meer mappers dan er bestanden hebben. Aangezien DistCp alleen een toewijzen aan een bestand toewijzen kunt, beperkt dit de hoeveelheid gelijktijdigheid die kan worden gebruikt om grote bestanden te kopiëren.
+* DistCp is beperkt tot slechts één Mapper per bestand. Daarom moet u niet meer toewijzingen hebben dan er bestanden zijn. Aangezien DistCp slechts één Mapper aan een bestand kan toewijzen, wordt hiermee de hoeveelheid gelijktijdigheid beperkt die kan worden gebruikt voor het kopiëren van grote bestanden.
 
-* Hebt u een klein aantal grote bestanden, moet klikt u vervolgens u opsplitsen ze in segmenten van 256 MB-bestand waarin u meer mogelijke gelijktijdigheid.
+* Als u een klein aantal grote bestanden hebt, moet u deze opsplitsen in bestands segmenten van 256 MB om u meer potentiële gelijktijdigheid te geven.

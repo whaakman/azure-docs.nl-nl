@@ -1,7 +1,6 @@
 ---
 title: 'Zelfstudie: On-premises gegevens migreren naar Azure Storage met behulp van AzCopy | Microsoft Docs'
 description: In deze zelfstudie gebruikt u AzCopy om gegevens te migreren of gegevens te kopiëren naar of vanuit een blob, tabel en bestandsinhoud. Eenvoudig gegevens migreren vanuit uw lokale opslag naar Azure Storage.
-services: storage
 author: normesta
 ms.service: storage
 ms.topic: tutorial
@@ -9,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 193c00354b6222152e26476d0b06cfb1555c207e
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 5f09ae7dc625ad579e31fd49d70331f30e6a708a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754874"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844904"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Zelfstudie: On-premises gegevens migreren naar cloudopslag met behulp van AzCopy
 
@@ -32,7 +31,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie, moet u de nieuwste versie van AzCopy downloaden. Zie [aan de slag met AzCopy](storage-use-azcopy-v10.md).
+Als u deze zelf studie wilt volt ooien, moet u de meest recente versie van AzCopy downloaden. Zie [aan de slag met AzCopy](storage-use-azcopy-v10.md).
 
 Als u Windows gebruikt, hebt u [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) nodig omdat deze opdracht in deze zelfstudie wordt gebruikt om een taak te plannen. Linux-gebruikers maken in plaats hiervan gebruik van de opdracht crontab.
 
@@ -53,29 +52,29 @@ Containernamen moeten beginnen met een letter of cijfer. Ze mogen alleen letters
 
 ## <a name="download-azcopy"></a>AzCopy downloaden
 
-Het uitvoerbare bestand van AzCopy V10 downloaden.
+Down load het uitvoer bare bestand van AzCopy V10 toevoegen.
 
-- [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
-- [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
+- [Windows](https://aka.ms/downloadazcopy-v10-windows) telefoon
+- [Linux](https://aka.ms/downloadazcopy-v10-linux) tar
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-Plaats het bestand AzCopy overal op uw computer. De locatie van het bestand toevoegen aan uw padomgevingsvariabele system, zodat u naar dit uitvoerbare bestand in een map op uw computer verwijzen kunt.
+Plaats het AzCopy-bestand op een wille keurige locatie op de computer. Voeg de locatie van het bestand toe aan de variabele bestandssysteempad, zodat u dit uitvoer bare bestand vanuit een wille keurige map op uw computer kunt raadplegen.
 
 ## <a name="authenticate-with-azure-ad"></a>Verifiëren met Azure AD
 
-Eerst, wijzen de [Gegevensbijdrager voor Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) rol aan uw identiteit. Zie [toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC in Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
+Wijs eerst de rol voor het overdragen van [BLOB-gegevens](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) toe aan uw identiteit. Zie [toegang verlenen aan Azure Blob en gegevens wachtrij met RBAC in de Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
 
-Vervolgens opent u een opdrachtprompt, typ de volgende opdracht en druk op ENTER.
+Open vervolgens een opdracht prompt, typ de volgende opdracht en druk op de ENTER-toets.
 
 ```azcopy
 azcopy login
 ```
 
-Met deze opdracht retourneert een verificatiecode op te geven en de URL van een website. Open de website, de op te geven en kies vervolgens de **volgende** knop.
+Met deze opdracht worden een verificatie code en de URL van een website geretourneerd. Open de website, geef de code op en kies vervolgens de knop **volgende** .
 
 ![Een container maken](media/storage-use-azcopy-v10/azcopy-login.png)
 
-Er wordt een venster Aanmelden weergegeven. In dit venster, meld u aan bij uw Azure-account met behulp van de referenties van uw Azure-account. Nadat u hebt aangemeld, kunt u het browservenster sluiten en beginnen met behulp van AzCopy.
+Er wordt een aanmeldings venster weer gegeven. Meld u in dat venster aan bij uw Azure-account met behulp van de referenties van uw Azure-account. Nadat u zich hebt aangemeld, kunt u het browser venster sluiten en AzCopy gaan gebruiken.
 
 ## <a name="upload-contents-of-a-folder-to-blob-storage"></a>Upload de inhoud van een map in Blob-opslag
 
@@ -85,31 +84,31 @@ U kunt AzCopy gebruiken om alle bestanden in een map te uploaden naar Blob-opsla
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
 ```
 
-* Vervang de `<local-folder-path>` tijdelijke aanduiding door het pad naar een map met bestanden (bijvoorbeeld: `C:\myFolder` of `/mnt/myFolder`).
+* Vervang de `<local-folder-path>` tijdelijke aanduiding door het pad naar een map die bestanden bevat (bijvoorbeeld: `C:\myFolder` of `/mnt/myFolder`).
 
 * Vervang de tijdelijke plaatsaanduiding `<storage-account-name>` door de naam van uw opslagaccount.
 
 * Vervang de `<container-name>` tijdelijke aanduiding door de naam van de container die u hebt gemaakt.
 
-Als u wilt de inhoud van de opgegeven map uploaden naar Blob storage recursief, geef de `--recursive` optie. Wanneer u AzCopy met deze optie uitvoert, worden alle submappen en de bestanden ook geüpload.
+Als u de inhoud van de opgegeven map recursief naar Blob Storage wilt uploaden, geeft `--recursive` u de optie op. Wanneer u AzCopy met deze optie uitvoert, worden ook alle submappen en de bijbehorende bestanden geüpload.
 
 ## <a name="upload-modified-files-to-blob-storage"></a>Gewijzigde bestanden uploaden naar Blob-opslag
 
-U kunt AzCopy gebruiken voor het uploaden van bestanden op basis van hun tijd van laatste wijziging. 
+U kunt AzCopy gebruiken om bestanden te uploaden op basis van de tijd die het laatst is gewijzigd. 
 
-Als u dit wilt uitproberen, wijzigt u bestanden of maakt u nieuwe bestanden in uw bronmap voor testdoeleinden. Vervolgens gebruikt u de AzCopy `sync` opdracht.
+Als u dit wilt uitproberen, wijzigt u bestanden of maakt u nieuwe bestanden in uw bronmap voor testdoeleinden. Gebruik vervolgens de opdracht AzCopy `sync` .
 
 ```AzCopy
 azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true
 ```
 
-* Vervang de `<local-folder-path>` tijdelijke aanduiding door het pad naar een map met bestanden (bijvoorbeeld: `C:\myFolder` of `/mnt/myFolder`.
+* Vervang de `<local-folder-path>` tijdelijke aanduiding door het pad naar een map die bestanden bevat (bijvoorbeeld: `C:\myFolder` of `/mnt/myFolder`.
 
 * Vervang de tijdelijke plaatsaanduiding `<storage-account-name>` door de naam van uw opslagaccount.
 
 * Vervang de `<container-name>` tijdelijke aanduiding door de naam van de container die u hebt gemaakt.
 
-Voor meer informatie over de `sync` opdracht, Zie [bestanden te synchroniseren](storage-use-azcopy-blobs.md#synchronize-files).
+Zie [bestanden synchroniseren](storage-use-azcopy-blobs.md#synchronize-files)voor meer `sync` informatie over de opdracht.
 
 ## <a name="create-a-scheduled-task"></a>Een geplande taak maken
 
@@ -117,10 +116,10 @@ U kunt een geplande taak of Cron-taak maken die een AzCopy-opdrachtscript uitvoe
 
 Kopieer de AzCopy-opdracht naar een teksteditor. Werk de parameterwaarden van de AzCopy-opdracht bij met de juiste waarden. Sla het bestand op als `script.sh` (Linux) of `script.bat` (Windows) voor AzCopy. 
 
-Deze voorbeelden wordt ervan uitgegaan dat de map met de naam `myFolder`, de naam van uw opslagaccount is `mystorageaccount` en de naam van uw container `mycontainer`.
+In deze voor beelden wordt ervan uitgegaan `myFolder`dat uw map een naam heeft `mystorageaccount` , de naam van het `mycontainer`opslag account en de naam van de container.
 
 > [!NOTE]
-> Het Linux-voorbeeld voegt een SAS-token. U moet opgeven in de opdracht. De huidige versie van AzCopy V10 biedt geen ondersteuning voor Azure AD-autorisatie in cron-taken.
+> Het Linux-voor beeld voegt een SAS-token toe. U moet een naam opgeven in de opdracht. De huidige versie van AzCopy V10 toevoegen biedt geen ondersteuning voor Azure AD-autorisatie in cron-taken.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
@@ -151,7 +150,7 @@ Wanneer de Cron-expressie `*/5 * * * *` wordt opgegeven in de opdracht, geeft di
 
 Als u een geplande taak in Windows wilt maken, voert u de volgende opdracht uit via de opdrachtprompt of in PowerShell:
 
-In dit voorbeeld wordt ervan uitgegaan dat uw script bevindt zich in het basisstation van de computer, maar uw script overal zijn kan dat u wilt.
+In dit voor beeld wordt ervan uitgegaan dat uw script zich in het hoofd station van de computer bevindt, maar uw script kan zich op elke gewenste locatie bevinden.
 
 ```cmd
 schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\script.bat
@@ -175,14 +174,14 @@ Voor meer informatie over manieren om on-premises gegevens te verplaatsen naar A
 
 * [Gegevens verplaatsen naar en uit Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
-Zie voor meer informatie over AzCopy, een van deze artikelen:
+Zie een van de volgende artikelen voor meer informatie over AzCopy:
 
 * [Aan de slag met AzCopy](storage-use-azcopy-v10.md)
 
-* [Gegevens overdragen met AzCopy en blob-opslag](storage-use-azcopy-blobs.md)
+* [Gegevens overdragen met AzCopy en Blob Storage](storage-use-azcopy-blobs.md)
 
-* [Gegevens overdragen met AzCopy en bestandsopslag](storage-use-azcopy-files.md)
+* [Gegevens overdragen met AzCopy en File Storage](storage-use-azcopy-files.md)
 
-* [Gegevens overdragen met AzCopy en Amazon S3 buckets](storage-use-azcopy-s3.md)
+* [Gegevens overdragen met AzCopy en Amazon S3-buckets](storage-use-azcopy-s3.md)
  
-* [Configureer, optimaliseren en oplossen van AzCopy](storage-use-azcopy-configure.md)
+* [AzCopy configureren, optimaliseren en problemen oplossen](storage-use-azcopy-configure.md)
