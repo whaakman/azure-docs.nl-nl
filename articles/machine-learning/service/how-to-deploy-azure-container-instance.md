@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 1bf8c22c2c7c8e8aaab35a4663652300a341c99c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 04c77a82d08e2559d4ce29d49d56d6b7a5edfca5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571047"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856133"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Een model implementeren naar Azure Container Instances
 
@@ -28,7 +28,7 @@ Zie [quota's en regionale Beschik baarheid voor Azure container instances](https
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een werkruimte van Azure Machine Learning-service. Zie [een Azure machine learning service-werk ruimte maken](setup-create-workspace.md)voor meer informatie.
+- Een werkruimte van Azure Machine Learning-service. Zie [een Azure machine learning service-werk ruimte maken](how-to-manage-workspace.md)voor meer informatie.
 
 - Een machine learning model dat in uw werk ruimte is geregistreerd. Als u geen geregistreerd model hebt, raadpleegt u [hoe en hoe u modellen implementeert](how-to-deploy-and-where.md).
 

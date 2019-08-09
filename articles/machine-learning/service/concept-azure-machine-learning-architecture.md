@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 59ce6719c117db53b02ed6594de219010ee08ee6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e6f6c41e5de4f4a053748dfb08dc57e8acac32e5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828231"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848227"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>De werking van Azure Machine Learning-service: Architectuur en concepten
 
@@ -236,5 +236,5 @@ Wanneer u uw oplossing ontwikkelt, gebruikt u de Azure Machine Learning python-S
 Om aan de slag te gaan met Azure Machine Learning-service, raadpleegt u:
 
 * [Wat is Azure Machine Learning Service?](overview-what-is-azure-ml.md)
-* [Een Azure Machine Learning service-werk ruimte maken](setup-create-workspace.md)
+* [Een Azure Machine Learning service-werk ruimte maken](how-to-manage-workspace.md)
 * [Zelfstudie (deel 1): een model trainen](tutorial-train-models-with-aml.md)

@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 06194537a0c0cce3a52510e6f426a9c2904387b2
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9cf39230d6a2c615925222b6545a091a4be941ac
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694345"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847970"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Een diep leer model implementeren voor demijnen met GPU
 
@@ -31,9 +31,9 @@ Detrainer of model Score is de fase waarin het geïmplementeerde model wordt geb
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een werkruimte van Azure Machine Learning-service. Zie [een Azure machine learning service-werk ruimte maken](setup-create-workspace.md)voor meer informatie.
+* Een werkruimte van Azure Machine Learning-service. Zie [een Azure machine learning service-werk ruimte maken](how-to-manage-workspace.md)voor meer informatie.
 
-* Een python-ontwikkel omgeving met de Azure Machine Learning SDK geïnstalleerd. Zie de sectie [PYTHON SDK](setup-create-workspace.md#sdk) van het artikel een werk ruimte maken voor meer informatie.
+* Een python-ontwikkel omgeving met de Azure Machine Learning SDK geïnstalleerd. Zie [Azure machine learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)voor meer informatie.  
 
 * Een geregistreerd model dat gebruikmaakt van een GPU.
 
@@ -48,7 +48,7 @@ Detrainer of model Score is de fase waarin het geïmplementeerde model wordt geb
 Gebruik de volgende code om verbinding te maken met een bestaande werk ruimte:
 
 > [!IMPORTANT]
-> Dit code fragment verwacht dat de werkruimte configuratie wordt opgeslagen in de huidige map of het bovenliggende item. Zie [een Azure machine learning service-werk ruimte maken](setup-create-workspace.md)voor meer informatie over het maken van een werk ruimte en het opslaan van de configuratie in een bestand.
+> Dit code fragment verwacht dat de werkruimte configuratie wordt opgeslagen in de huidige map of het bovenliggende item. Zie [Azure machine learning service-werk ruimten maken en beheren](how-to-manage-workspace.md)voor meer informatie over het maken van een werk ruimte.   Zie [een configuratie bestand voor een werk ruimte maken](how-to-configure-environment.md#workspace)voor meer informatie over het opslaan van de configuratie in een bestand.
 
 ```python
 from azureml.core import Workspace

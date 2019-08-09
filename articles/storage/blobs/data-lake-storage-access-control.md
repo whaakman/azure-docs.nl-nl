@@ -1,7 +1,6 @@
 ---
 title: Overzicht van Access Control in Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Begrijpen hoe toegangs beheer werkt in Azure Data Lake Storage Gen2
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 112d3b18df8205aac173eafb8f8e30ed6c32e048
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: aa2cfbee6feeacf46003fdc244f0aeea5df0f41a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249084"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847351"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Toegangs beheer in Azure Data Lake Storage Gen2
 
@@ -24,7 +23,7 @@ Azure Data Lake Storage Gen2 implementeert een model voor toegangs beheer dat zo
 
 ## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
 
-RBAC gebruikt roltoewijzingen om effectief machtigingen sets toe te passen op *beveiligings*-principals. Een *beveiligingsprincipal is een* object dat een gebruiker, groep, Service-Principal of beheerde identiteit vertegenwoordigt die is gedefinieerd in azure Active Directory (AD) dat toegang tot Azure-resources aanvraagt.
+RBAC gebruikt roltoewijzingen om effectief machtigingen sets toe te passen op *beveiligings*-principals. Een beveiligingsprincipal is een object dat een gebruiker, groep, Service-Principal of beheerde identiteit vertegenwoordigt die is gedefinieerd in azure Active Directory (AD) dat toegang tot Azure-resources aanvraagt.
 
 Normaal gesp roken zijn deze Azure-resources beperkt tot resources op het hoogste niveau (bijvoorbeeld: Azure Storage-accounts). In het geval van Azure Storage, en dus Azure Data Lake Storage Gen2, is dit mechanisme uitgebreid naar de container bron (bestands systeem).
 

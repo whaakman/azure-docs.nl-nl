@@ -1,6 +1,6 @@
 ---
-title: SQL Server-VM's in Azure met behulp van de Azure-portal beheren | Microsoft Docs
-description: Leer hoe u toegang tot de SQL-VM-resource in Azure portal voor een SQL Server-VM die wordt gehost op Azure.
+title: SQL Server Vm's beheren in azure met behulp van de Azure Portal | Microsoft Docs
+description: Meer informatie over toegang tot de resource van de virtuele SQL-machine in de Azure Portal voor een SQL Server VM gehost op Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -14,76 +14,74 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 59a85e855c9fab9f2a3437c83c867b8076f55049
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 398eea4b968bb77017415e1dc259004c697b8dda
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607209"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846170"
 ---
-# <a name="manage-sql-server-vms-in-azure-using-the-azure-portal"></a>SQL Server-VM's in Azure met behulp van de Azure-portal beheren
+# <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>SQL Server Vm's in azure beheren door gebruik te maken van de Azure Portal
 
-Er is een nieuw toegangspunt voor het beheren van uw SQL Server-VM op Azure met de [Azure-portal](https://portal.azure.com). 
+In de [Azure Portal](https://portal.azure.com)is de resource van de **virtuele SQL-machine** een onafhankelijke beheer service. U kunt deze gebruiken om al uw SQL Server Vm's tegelijk weer te geven en instellingen te wijzigen die zijn toegewezen aan SQL Server: 
 
-De **SQL virtuele machines** resource is nu een onafhankelijke management-service waarmee u al uw SQL Server-VM's tegelijkertijd weergeven en wijzigen van instellingen die zijn toegewezen aan SQL Server: 
-
-![SQL-resource voor virtuele machines](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
+![Resource van virtuele SQL-machines](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
 
 
 ## <a name="remarks"></a>Opmerkingen
 
-- De **SQL virtuele machines** bron is de aanbevolen methode om te bekijken en beheren van uw SQL Server-VM's. Echter, momenteel, de **SQL virtuele machines** resource biedt geen ondersteuning voor het beheer van [einde van ondersteuning (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server-VM's. Voor het beheren van instellingen voor uw EOS SQL Server-VM's, gebruikt u de afgeschafte [tabblad voor SQL Server-configuratie](#access-sql-server-configuration-tab) in plaats daarvan. 
-- De **SQL virtuele machines** resource is alleen beschikbaar voor SQL Server-VM's waarvoor [geregistreerd bij de resourceprovider van de SQL-VM](virtual-machines-windows-sql-register-with-resource-provider.md). 
+- U wordt aangeraden de resource voor **virtuele SQL-machines** te gebruiken voor het weer geven en beheren van uw SQL Server-Vm's in Azure. Op dit moment biedt de resource van de **virtuele SQL-machine** geen ondersteuning voor het beheer van [End-of-support](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server vm's. Als u de instellingen voor uw end-of-support SQL Server Vm's wilt beheren, gebruikt u het tabblad afgeschafte [SQL Server configuratie](#access-the-sql-server-configuration-tab) . 
+- De resource voor **virtuele SQL-machines** is alleen beschikbaar voor SQL Server vm's die zijn [geregistreerd bij de resource provider van de SQL-VM](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 
-## <a name="access-sql-virtual-machine-resource"></a>Toegang tot SQL VM-resource
-Voor toegang tot de SQL-bron voor virtuele machines, het volgende doen:
-
-1. Open de [Azure Portal](https://portal.azure.com). 
-1. Selecteer **alle Services**. 
-1. Type `SQL virtual machines` in het zoekvak in.
-1. (Optioneel): Selecteer de ster naast **SQL virtuele machines** deze optie aan uw Favorieten toevoegen. 
-1. Selecteer **SQL virtuele machines**. 
-
-   ![SQL-VM virtuele machines zoeken in alle services](media/virtual-machines-windows-sql-manage-portal/sql-vm-search.png)
-
-1. Hiermee worden alle SQL Server-VM's beschikbaar zijn binnen het abonnement. Selecteer de versie die u wilt beheren om te starten de **SQL virtuele machines** resource. Gebruik het zoekvak als uw SQL Server-VM niet snel duidelijk is. 
-
-![Alle beschikbare SQL-VM 's](media/virtual-machines-windows-sql-manage-portal/all-sql-vms.png)
-
-Selecteren van uw SQL Server-VM wordt geopend de **SQL virtuele machines** resource: 
-
-
-![SQL-resource voor virtuele machines](media/virtual-machines-windows-sql-manage-portal/sql-vm-resource.png)
-
-  > [!TIP]
-  > De **SQL virtuele machines** resource is bedoeld voor specifieke SQL Server-instellingen. Selecteer de naam van de virtuele machine in de **virtuele machine** veld om te navigeren naar de instellingen die specifiek zijn voor de virtuele machine, maar niet exclusief voor SQL Server zijn. 
-
-## <a name="access-sql-server-configuration-tab"></a>Tabblad voor toegang tot SQL Server-configuratie
-Het tabblad van de configuratie van SQL Server is afgeschaft. Op dit moment is dit de enige methode voor het beheren van [einde van ondersteuning (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server-VM's en SQL Server-VM's die niet zijn [geregistreerd bij de resourceprovider van de SQL-VM](virtual-machines-windows-sql-register-with-resource-provider.md).
-
-Voor toegang tot de afgeschafte tabblad configuratie van SQL server, moet u navigeren naar de **virtuele machines** resource. Om dit te doen, het volgende doen:
+## <a name="access-the-sql-virtual-machines-resource"></a>Toegang tot de resource van de virtuele SQL-machines
+Ga als volgt te werk om toegang te krijgen tot de resource van de **virtuele SQL-machines** :
 
 1. Open de [Azure Portal](https://portal.azure.com). 
-1. Selecteer **alle Services**. 
-1. Type `virtual machines` in het zoekvak in.
-1. (Optioneel): Selecteer de ster naast **virtuele machines** deze optie aan uw Favorieten toevoegen. 
+1. Selecteer **alle services**. 
+1. Voer **SQL-virtuele machines** in het zoekvak in.
+1. (Optioneel): Selecteer de ster naast **virtuele machines van SQL** om deze optie toe te voegen aan uw **Favorieten** menu. 
+1. Selecteer **virtuele SQL-machines**. 
+
+   ![SQL Server virtuele machines zoeken in alle services](media/virtual-machines-windows-sql-manage-portal/sql-vm-search.png)
+
+1. In de portal wordt een lijst weer gegeven met alle SQL Server Vm's die beschikbaar zijn in het abonnement. Selecteer het item dat u wilt beheren om de resource van de **virtuele SQL-machines** te openen. Gebruik het zoekvak als uw SQL Server virtuele machine niet wordt weer gegeven. 
+
+   ![Alle beschik bare SQL Server Vm's](media/virtual-machines-windows-sql-manage-portal/all-sql-vms.png)
+
+   Als u uw SQL Server VM selecteert, wordt de resource van de **virtuele SQL-machines** geopend: 
+
+
+   ![Resource van virtuele SQL-machines](media/virtual-machines-windows-sql-manage-portal/sql-vm-resource.png)
+
+> [!TIP]
+> De resource van de **virtuele SQL-machine** is voor toegewezen SQL Server-instellingen. Selecteer de VM-naam in het vak **virtuele machine** om instellingen te openen die specifiek zijn voor de VM, maar niet exclusief voor SQL Server. 
+
+## <a name="access-the-sql-server-configuration-tab"></a>Het tabblad SQL Server configuratie openen
+Het tabblad **SQL Server configuratie** is afgeschaft. Op dit moment is het de enige methode om [End-of-support](virtual-machines-windows-sql-server-2008-eos-extend-support.md) te beheren SQL Server vm's en SQL Server virtuele machines die niet zijn [geregistreerd bij de resource provider van de SQL-VM](virtual-machines-windows-sql-register-with-resource-provider.md).
+
+Ga naar de resource van de **virtuele machines** om toegang te krijgen tot het tabblad afgeschafte **SQL Server configuratie** . Voer de volgende stappen uit:
+
+1. Open de [Azure Portal](https://portal.azure.com). 
+1. Selecteer **alle services**. 
+1. Voer de **virtuele machines** in het zoekvak in.
+1. (Optioneel): Selecteer de ster naast **virtuele machines** om deze optie toe te voegen aan uw **Favorieten** menu. 
 1. Selecteer **virtuele machines**. 
 
    ![Zoeken naar virtuele machines](media/virtual-machines-windows-sql-manage-portal/vm-search.png)
 
-1. Hiermee worden alle virtuele machines in het abonnement. Selecteer de versie die u wilt beheren om te starten de **virtuele machine** resource. Gebruik het zoekvak als uw SQL Server-VM niet snel duidelijk is. 
-1. Selecteer **SQL Server-configuratie** in de **instellingen** deelvenster voor het beheren van uw SQL-Server. 
+1. In de portal worden alle virtuele machines in het abonnement weer gegeven. Selecteer het item dat u wilt beheren om de resource van de **virtuele machines** te openen. Gebruik het zoekvak als uw SQL Server virtuele machine niet wordt weer gegeven. 
+1. Selecteer **SQL Server configuratie** in het deel venster **instellingen** om uw SQL Server virtuele machine te beheren. 
 
-![SQL Server-configuratie](media/virtual-machines-windows-sql-manage-portal/sql-vm-configuration.png)
+   ![SQL Server configuratie](media/virtual-machines-windows-sql-manage-portal/sql-vm-configuration.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Raadpleeg voor meer informatie de volgende artikelen: 
 
-* [Overzicht van SQL Server op een Windows VM](virtual-machines-windows-sql-server-iaas-overview.md)
-* [SQL Server op een Windows VM-Veelgestelde vragen](virtual-machines-windows-sql-server-iaas-faq.md)
-* [SQL Server op een Windows-VM prijsinformatie](virtual-machines-windows-sql-server-pricing-guidance.md)
-* [SQL Server op een Windows VM release-opmerkingen](virtual-machines-windows-sql-server-iaas-release-notes.md)
+* [Overzicht van SQL Server op een Windows-VM](virtual-machines-windows-sql-server-iaas-overview.md)
+* [Veelgestelde vragen over SQL Server op een Windows-VM](virtual-machines-windows-sql-server-iaas-faq.md)
+* [Prijs informatie voor SQL Server op een Windows-VM](virtual-machines-windows-sql-server-pricing-guidance.md)
+* [Release opmerkingen voor SQL Server op een Windows-VM](virtual-machines-windows-sql-server-iaas-release-notes.md)
 
 

@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05f2f52da90f499f7ac16de179d9967b97579997
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606738"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849192"
 ---
-# <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights-Connector-beheeroplossing (afgeschaft)
+# <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights-connector-beheer oplossing (afgeschaft)
 
 ![Application Insights-symbool](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> Met de ondersteuning van [query's voor meerdere bronnen](../../azure-monitor/log-query/cross-workspace-query.md), het beheersysteem voor Application Insights-Connector is niet langer vereist. Dit is afgeschaft en verwijderd uit Azure Marketplace, samen met de OMS-portal die officieel op 15 januari 2019 is afgeschaft voor commerciële Azure-cloud. Deze wordt beëindigd op 30 maart 2019 voor Azure US Government-cloud.
+> Met de ondersteuning van [query's voor meerdere bronnen](../../azure-monitor/log-query/cross-workspace-query.md)is de Application Insights-connector beheer oplossing niet meer nodig. Het is afgeschaft en verwijderd uit Azure Marketplace, samen met de OMS-portal die officieel werd afgeschaft op 15 januari 2019 voor de commerciële cloud van Azure. Deze wordt ingetrokken op 30 maart 2019 voor Azure US Government-Cloud.
 >
->Bestaande verbindingen blijven werken tot en met 30 juni 2019.  Met OMS portal afschaffing is er geen manier om te configureren en bestaande verbindingen verwijderen uit de portal. Zie [verwijderen van de connector met PowerShell](#removing-the-connector-with-powershell) hieronder voor een script op bestaande verbindingen verwijderen met behulp van PowerShell.
+>Bestaande verbindingen blijven werken tot en met 30 juni 2019.  In de OMS-Portal is het niet mogelijk om bestaande verbindingen te configureren en te verwijderen vanuit de portal. Zie [de onderstaande connector verwijderen met Power shell](#removing-the-connector-with-powershell) voor een script in Power shell gebruiken om bestaande verbindingen te verwijderen.
 >
->Voor hulp bij het uitvoeren van query's Application Insights logboekgegevens voor meerdere toepassingen, Zie [meerdere Azure Monitor Application Insights-resources consistent](../log-query/unify-app-resource-data.md). Zie voor meer informatie over de afschaffing van OMS-portal, [OMS-portal naar Azure verplaatst,](../../azure-monitor/platform/oms-portal-transition.md).
+>Zie [meerdere Azure Monitor Application Insights resources](../log-query/unify-app-resource-data.md)samen voegen voor hulp bij het opvragen van Application Insights logboek gegevens voor meerdere toepassingen. Voor meer informatie over de afschaffing van de OMS-Portal raadpleegt [u OMS Portal verplaatsen naar Azure](../../azure-monitor/platform/oms-portal-transition.md).
 >
 > 
 
@@ -192,10 +192,10 @@ Een record met een *type* van *ApplicationInsights* is gemaakt voor elk type inv
 | Apparaattype | Client-apparaat |
 | ScreenResolution |   |
 | Continent | Continent waarvan de aanvraag afkomstig is |
-| Land/regio | Land/regio waar de aanvraag afkomstig is |
+| Country | Land/regio waar de aanvraag vandaan komt |
 | Provincie | Provincie, provincie of land waar de aanvraag afkomstig is |
 | Plaats | Stad of plaats waar de aanvraag afkomstig is |
-| isSynthetic | Geeft aan of de aanvraag is gemaakt door een gebruiker of door de geautomatiseerde methode. True = gebruiker gegenereerde of = false geautomatiseerde methode |
+| isSynthetic | Geeft aan of de aanvraag is gemaakt door een gebruiker of door de geautomatiseerde methode. True = geautomatiseerde methode of onwaar = door de gebruiker gegenereerd |
 | SamplingRate | Percentage van de telemetrie die is gegenereerd door de SDK die wordt verzonden naar de portal. Het bereik 0,0 100,0. |
 | SampledCount | 100/(SamplingRate). Bijvoorbeeld, 4 =&gt; 25% |
 | IsAuthenticated | Waar of onwaar |
@@ -272,8 +272,8 @@ Een record met een *type* van *ApplicationInsights* is gemaakt voor elk type inv
 
 Deze oplossing beschikt niet over een aantal voorbeelden van zoekopdrachten op het dashboard weergegeven. Echter, voorbeeld log zoekquery's met beschrijvingen worden weergegeven in de [weergave Application Insights-Connector informatie](#view-application-insights-connector-information) sectie.
 
-## <a name="removing-the-connector-with-powershell"></a>Verwijderen van de connector met PowerShell
-Met OMS portal afschaffing is er geen manier om te configureren en bestaande verbindingen verwijderen uit de portal. U kunt bestaande verbindingen met de volgende PowerShell-script verwijderen. U moet de eigenaar of Inzender van de werkruimte en de lezer van de Application Insights-resource voor deze bewerking.
+## <a name="removing-the-connector-with-powershell"></a>De connector verwijderen met Power shell
+In de OMS-Portal is het niet mogelijk om bestaande verbindingen te configureren en te verwijderen vanuit de portal. U kunt bestaande verbindingen met het volgende Power shell-script verwijderen. U moet de eigenaar of bijdrager zijn van de werk ruimte en de lezer van Application Insights resource om deze bewerking uit te voeren.
 
 ```powershell
 $Subscription_app = "App Subscription Name"
@@ -290,7 +290,7 @@ Set-AzContext -SubscriptionId $Subscription_workspace
 Remove-AzOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceGroupName $ResourceGroup_workspace -Name $AIApp.Id
 ```
 
-U kunt een lijst met toepassingen die gebruikmaken van de volgende PowerShell-script dat een REST-API-aanroep roept kunt ophalen. 
+U kunt een lijst met toepassingen ophalen met behulp van het volgende Power shell-script dat een REST API aanroep aanroept. 
 
 ```powershell
 Connect-AzAccount
@@ -311,13 +311,13 @@ $Headers = @{
 $Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
 $ConnectionsJson = $Connections | ConvertTo-Json
 ```
-Dit script moet een bearer-token voor verificatie voor verificatie met Azure Active Directory. Een manier om dit token ophalen met behulp van een artikel in de [REST-API-documentatiesite](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Klik op **uitproberen** en meld u aan bij uw Azure-abonnement. U kunt het bearer-token van de **Preview aanvragen** zoals wordt weergegeven in de volgende afbeelding.
+Voor dit script is een Bearer-verificatie token vereist voor verificatie op basis van Azure Active Directory. Een manier om dit token op te halen, is het gebruik van een artikel op de [Documentatie site van rest API](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Klik op **Probeer het** en meld u aan bij uw Azure-abonnement. U kunt het Bearer-token kopiëren uit de preview van de **aanvraag** , zoals wordt weer gegeven in de volgende afbeelding.
 
 
 ![Bearer-token](media/app-insights-connector/bearer-token.png)
 
 
-U kunt een lijst met toepassingen gebruiken ook een query voor ophalen:
+U kunt ook een lijst met toepassingen ophalen een logboek query gebruiken:
 
 ```Kusto
 ApplicationInsights | summarize by ApplicationName

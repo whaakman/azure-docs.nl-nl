@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: eca421697081310b1bf245172b3ff125e11c8728
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: b3fb5d665380bc15b61d3b4b7913a992915f9afb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234176"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853847"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure-AD-toepassingsproxy implementeren op een Azure AD Domain Services beheerd domein
 Azure Active Directory (AD)-toepassings proxy helpt u externe werk nemers te ondersteunen door on-premises toepassingen te publiceren voor toegang via internet. Met Azure AD Domain Services kunt u nu oudere toepassingen die on-premises worden uitgevoerd, verplaatsen naar Azure-infrastructuur services. U kunt deze toepassingen vervolgens publiceren met behulp van de Azure-AD-toepassingsproxy om veilige externe toegang te bieden aan gebruikers in uw organisatie.
@@ -46,13 +46,10 @@ Voer de volgende stappen uit om Azure AD-toepassingsproxy in te scha kelen voor 
 
 2. Klik op **Azure Active Directory** om het overzicht van mappen weer te geven. Klik op **bedrijfs toepassingen**.
 
-    ![Azure AD-Directory selecteren](./media/app-proxy/app-proxy-enable-start.png)
-3. Klik op **toepassings proxy**. Als u geen Azure AD Basic-of Azure AD Premium-abonnement hebt, ziet u een optie voor het inschakelen van een proef versie. **Toepassings proxy inschakelen** in-/uitschakelen? om in te **scha kelen** en klik op **Opslaan**.
+3. Klik op **toepassings proxy**.
 
-    ![App-Proxy inschakelen](./media/app-proxy/app-proxy-enable-proxy-blade.png)
 4. Als u de connector wilt downloaden, klikt u op de knop **connector** .
 
-    ![Connector downloaden](./media/app-proxy/app-proxy-enabled-download-connector.png)
 5. Ga naar de download pagina en accepteer de licentie voorwaarden en de privacyverklaring en klik op de knop **downloaden** .
 
     ![Downloaden bevestigen](./media/app-proxy/app-proxy-enabled-confirm-download.png)
@@ -75,7 +72,7 @@ Eerder hebt u een virtuele Windows Server-machine ingericht en gekoppeld aan het
 
     ![Voor waarden accepteren voor installatie](./media/app-proxy/app-proxy-install-connector-terms.png)
 3. Tijdens de installatie wordt u gevraagd de connector te registreren bij de toepassings proxy van uw Azure AD-adres lijst.
-   * Geef uw **globale beheerders referenties voor Azure AD**op. De referenties van uw globale beheerderstenant kunnen afwijken van uw Microsoft Azure-referenties.
+   * Geef uw **Azure AD-toepassings beheerders referenties**op. De Tenant van de toepassings beheerder kan afwijken van uw Microsoft Azure referenties.
    * Het beheerders account dat wordt gebruikt om de connector te registreren, moet behoren tot dezelfde map waar u de Application proxy-service hebt ingeschakeld. Als het domein van de Tenant bijvoorbeeld contoso.com is, moet de beheerder of admin@contoso.com een andere geldige alias in dat domein zijn.
    * Als verbeterde beveiliging van Internet Explorer is ingeschakeld voor de server waarop u de connector installeert, wordt het registratie scherm mogelijk geblokkeerd. Volg de instructies in het fout bericht om toegang toe te staan. Zorg ervoor dat de verbeterde beveiliging van Internet Explorer is uitgeschakeld.
    * Zie [Troubleshoot Application Proxy](../active-directory/manage-apps/application-proxy-troubleshoot.md) (Engelstalig) als de registratie van de connector niet lukt.

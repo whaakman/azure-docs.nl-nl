@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 07/22/2019
 ms.author: juliako
-ms.openlocfilehash: fd67e867b5eac58838551ac29e1fca5e860b15ff
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: b627a78edef1c0b0fe6b3ed011678145aea397ae
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414213"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845883"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Release opmerkingen bij Azure Media Services Video Indexer
 
@@ -27,6 +27,16 @@ Als u wilt bijhouden met de meest recente ontwikkelingen, vindt in dit artikel u
 * Bekende problemen
 * Opgeloste fouten
 * Afgeschafte functies
+
+## <a name="july-2019"></a>2019 juli
+
+### <a name="editor-as-a-widget"></a>Editor als een widget
+
+De Video Indexer AI-editor is nu beschikbaar als widget die moeten worden inge sloten in klant toepassingen.
+
+### <a name="update-custom-language-model-from-closed-caption-file-from-the-portal"></a>Aangepast taal model bijwerken vanuit ondertitelings bestand vanuit de portal
+
+Klanten kunnen VTT-, SRT-en TTML-bestands indelingen opgeven als invoer voor taal modellen op de pagina aanpassing van de portal.
 
 ## <a name="june-2019"></a>Juni 2019
 

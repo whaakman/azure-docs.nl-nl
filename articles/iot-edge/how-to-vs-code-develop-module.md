@@ -4,23 +4,22 @@ description: Visual Studio code gebruiken voor het ontwikkelen, bouwen en opspor
 services: iot-edge
 keywords: ''
 author: shizn
-manager: philmea
 ms.author: xshi
-ms.date: 07/23/2019
+ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 39b8485ac3f98cb7ca6739fe31378726bea3452b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2efda0e506cf0525b1a8ea868acca48a929f8f41
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565344"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848287"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio code gebruiken voor het ontwikkelen en opsporen van fouten in modules voor Azure IoT Edge
 
 U kunt uw bedrijfslogica in modules inschakelen voor Azure IoT Edge. Dit artikel laat u zien hoe u Visual Studio code kunt gebruiken als het belangrijkste hulp programma voor het ontwikkelen en opsporen van fouten in modules.
 
-Voor modules die zijn C#geschreven in, node. js of Java, zijn er twee manieren om fouten in uw module in Visual Studio code op te sporen: U kunt een proces in een module container koppelen of de module code in de foutopsporingsmodus starten. Voor modules die in Python of C zijn geschreven, kunnen ze alleen worden opgespoord door te koppelen aan een proces in linux amd64-containers.
+Er zijn twee manieren om fouten op te lossen die zijn geschreven in C#, node. js of java in Visual Studio code: U kunt een proces in een module container koppelen of de module code in de foutopsporingsmodus starten. Als u fouten wilt opsporen in modules die in Python of C zijn geschreven, kunt u alleen aan een proces in linux amd64-containers koppelen.
 
 Lees over [fout opsporing](https://code.visualstudio.com/Docs/editor/debugging)als u niet bekend bent met de mogelijkheden voor fout opsporing van Visual Studio code.
 
@@ -43,7 +42,7 @@ Installeer eerst [Visual Studio code](https://code.visualstudio.com/) en voeg ve
   - Java: [Java Extension Pack voor Visual Studio code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
   - C: [C/C++ uitbrei ding](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 
-U moet ook extra, taalspecifieke hulpprogram ma's installeren om uw module te kunnen ontwikkelen:
+U moet ook extra, taalspecifieke hulpprogram ma's installeren om uw module te ontwikkelen:
 
 - C#, inclusief Azure Functions: [.net Core 2,1 SDK](https://www.microsoft.com/net/download)
 
@@ -107,7 +106,7 @@ Er zijn vier items in de oplossing:
   > [!NOTE]
   > Het omgevings bestand wordt alleen gemaakt als u een opslag plaats voor installatie kopieën voor de module opgeeft. Als u de standaard waarden voor localhost hebt geaccepteerd om lokaal te testen en fouten op te sporen, hoeft u geen omgevings variabelen te declareren.
 
-- Een **implementatie. json** -bestand bevat een lijst met uw nieuwe module, samen met een **temp sensor** -voorbeeld module die gegevens simuleert die u voor het testen kunt gebruiken. Zie informatie over het gebruik van implementatie manifesten voor het [implementeren van modules en het tot stand brengen van routes](module-composition.md)voor meer informatie over de werking van implementatie manifesten.
+- Een **implementatie. json** -bestand bevat een lijst met uw nieuwe module, samen met een **SimulatedTemperatureSensor** -voorbeeld module die gegevens simuleert die u voor het testen kunt gebruiken. Zie informatie over het gebruik van implementatie manifesten voor het [implementeren van modules en het tot stand brengen van routes](module-composition.md)voor meer informatie over de werking van implementatie manifesten.
 
 ## <a name="add-additional-modules"></a>Aanvullende modules toevoegen
 
@@ -124,7 +123,7 @@ De standaard module code die bij de oplossing hoort, bevindt zich op de volgende
 - Java: **modules > *&lt;de module naam&gt;* > src > Main > java > com > edgemodulemodules > app. java**
 - C: **modules > *&lt;uw module naam&gt;* > main. c**
 
-De module en het bestand deployment.template.json zijn ingesteld zodat u kunt de oplossing te bouwen, deze naar het containerregister pushen en implementeren op een apparaat om te testen zonder code aan te starten. De module is gebouwd om te gewoon nemen invoer van een bron (in dit geval de tempSensor-module die gegevens simuleert) en doorgeven naar IoT Hub.
+De module en het bestand deployment.template.json zijn ingesteld zodat u kunt de oplossing te bouwen, deze naar het containerregister pushen en implementeren op een apparaat om te testen zonder code aan te starten. De module is gebouwd om simpelweg invoer van een bron (in dit geval de SimulatedTemperatureSensor-module die gegevens simuleert) te maken en deze te IoT Hub.
 
 Wanneer u klaar bent om de sjabloon aan te passen met uw eigen code, gebruikt u de [Azure IOT hub sdk's](../iot-hub/iot-hub-devguide-sdks.md) om modules te bouwen die voldoen aan de belangrijkste behoeften voor IOT-oplossingen zoals beveiliging, Apparaatbeheer en betrouw baarheid.
 
@@ -227,7 +226,7 @@ U kunt in uw ontwikkel computer een IoT Edge Simulator starten in plaats van de 
 
 1. Klik in de weer gave Visual Studio code Explorer met de rechter `deployment.debug.template.json` muisknop op het bestand voor uw oplossing en selecteer vervolgens **bouwen en uitvoeren IOT EDGE oplossing in Simulator**. U kunt alle module container logboeken bekijken in hetzelfde venster. U kunt ook naar de docker-weer gave navigeren om de container status te bekijken.
 
-   ![Variabelen bekijken](media/how-to-develop-csharp-module/view-log.png)
+   ![Variabelen bekijken](media/how-to-vs-code-develop-module/view-log.png)
 
 1. Ga naar de weer gave fout opsporing Visual Studio-code en selecteer het configuratie bestand voor fout opsporing voor uw module. De naam van de optie voor fout opsporing moet overeenkomen met  ***&lt;&gt;* de naam van de module externe fout opsporing**
 

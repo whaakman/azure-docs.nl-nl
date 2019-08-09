@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/10/2019
-ms.openlocfilehash: f0fb6f0d2b2579679ee8a6ec43b3241377701d48
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 08/07/2019
+ms.openlocfilehash: d1ad89943f6acfec6e42199ef399643be12e2b8b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780903"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856214"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Enter prise Security voor Azure Machine Learning-service
 
@@ -176,12 +176,24 @@ Key Vault exemplaar dat is gekoppeld aan de werk ruimte, wordt door Azure Machin
 * Wacht woorden voor Azure container repository-instanties
 * Verbindings reeksen voor gegevens archieven.
 
-SSH-wacht woorden en sleutels voor het berekenen van doelen zoals HDI HDInsight en VM worden opgeslagen in een afzonderlijke Key Vault die aan micro soft-abonnement is gekoppeld. Azure Machine Learning-service slaat wacht woorden of sleutels op die door de gebruiker worden verschaft, in plaats daarvan worden de eigen SSH-sleutels gegenereerd, geautoriseerd en opgeslagen om verbinding te maken met VM/HDInsight om de experimenten uit te voeren.
+SSH-wacht woorden en sleutels voor het berekenen van doelen zoals HDI HDInsight en VM worden opgeslagen in een afzonderlijke Key Vault die aan micro soft-abonnement is gekoppeld. Azure Machine Learning-service slaat geen wacht woorden of sleutels op die door de gebruiker worden verschaft, in plaats daarvan zijn eigen SSH-sleutels gegenereerd, geautoriseerd en opgeslagen om verbinding te maken met VM/HDInsight om de experimenten uit te voeren.
 Elke werk ruimte heeft een aan het systeem toegewezen beheerde identiteit (met dezelfde naam als de werk ruimte) die toegang heeft tot alle sleutels, geheimen en certificaten in de Key Vault.
 
 ## <a name="monitoring"></a>Bewaking
 
-Gebruikers kunnen het activiteiten logboek onder de werk ruimte bekijken om verschillende bewerkingen te zien die worden uitgevoerd op de werk ruimte en de basis informatie te krijgen, zoals de naam van de bewerking, de gebeurtenis gestart door, tijds tempel etc.
+### <a name="metrics"></a>Metrische gegevens
+
+Azure Monitor metrieken kunnen worden gebruikt om metrische gegevens weer te geven en te bewaken voor uw Azure Machine Learning service-werk ruimte. Selecteer in de [Azure Portal](https://portal.azure.com)uw werk ruimte en gebruik vervolgens de koppeling __metrische gegevens__ .
+
+![Scherm opname van voor beelden van metrische gegevens voor een werk ruimte](./media/enterprise-readiness/workspace-metrics.png)
+
+Metrische gegevens bevatten informatie over uitvoeringen, implementaties en registraties.
+
+Zie [metrische gegevens in azure monitor](/azure/azure-monitor/platform/data-platform-metrics)voor meer informatie.
+
+### <a name="activity-log"></a>Activiteitenlogboek
+
+U ziet het activiteiten logboek onder de werk ruimte om verschillende bewerkingen te bekijken die worden uitgevoerd op de werk ruimte en de basis informatie op te halen, zoals de bewerkings naam, de gebeurtenis gestart door, de tijds tempel enzovoort.
 
 De volgende scherm afbeelding toont het activiteiten logboek voor een werk ruimte:
 

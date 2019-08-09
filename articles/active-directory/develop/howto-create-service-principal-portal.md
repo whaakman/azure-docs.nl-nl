@@ -14,16 +14,16 @@ ms.workload: na
 ms.date: 05/17/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.custom: aaddev, seoapril2019
+ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 825966fbb0db537aad8de39e69e17418e6432b44
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a28354f54978e8ba776d8b0da294652ff462a05f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324683"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853456"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: De portal gebruiken om een Azure AD-toepassing en Service-Principal te maken die toegang hebben tot resources
+# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources
 
 In dit artikel wordt beschreven hoe u een nieuwe Azure Active Directory (Azure AD)-toepassing en Service-Principal maakt die kunnen worden gebruikt met het toegangs beheer op basis van rollen. Wanneer u code hebt die resources moet openen of wijzigen, kunt u een identiteit voor de app maken. Deze identiteit staat bekend als een service-principal. U kunt vervolgens de vereiste machtigingen toewijzen aan de Service-Principal. In dit artikel leest u hoe u de-portal kunt gebruiken om de service-principal te maken. Het is gericht op een toepassing met één Tenant waarbij de toepassing alleen binnen één organisatie kan worden uitgevoerd. Normaal gesp roken gebruikt u toepassingen met één Tenant voor line-of-business-toepassingen die binnen uw organisatie worden uitgevoerd.
 
@@ -121,7 +121,7 @@ U moet over voldoende machtigingen beschikken om een toepassing te registreren b
 ### <a name="check-azure-ad-permissions"></a>Azure AD-machtigingen controleren
 
 1. Selecteer **Azure Active Directory**.
-1. Noteer uw rol. Als **u de gebruikersrol** hebt, moet u ervoor zorgen dat niet-beheerders toepassingen kunnen registreren.
+1. Noteer uw rol. Als u de gebruikersrol hebt, moet u ervoor zorgen dat niet-beheerders toepassingen kunnen registreren.
 
    ![Zoek uw rol. Als u een gebruiker bent, moet u ervoor zorgen dat niet-beheerders apps kunnen registreren](./media/howto-create-service-principal-portal/view-user-info.png)
 

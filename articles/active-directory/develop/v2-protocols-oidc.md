@@ -16,14 +16,14 @@ ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be7d4164bd1a412c69c3b5adfe20cf83d699d2b4
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 69aa2da29e18f99e75e09d8f21814b71cc95ef72
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304793"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852150"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Micro soft Identity platform en OpenID Connect Connect protocol
 
@@ -48,11 +48,11 @@ OpenID Connect Connect beschrijft een meta gegevens document met de meeste infor
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
 > [!TIP]
-> Probeer het nu! Klik [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) om de configuratie `common` van de tenants weer te geven.
+> Nu uitproberen. Klik [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) om de configuratie `common` van de tenants weer te geven.
 
 De `{tenant}` kan een van de volgende vier waarden hebben:
 
-| Waarde | Description |
+| Value | Description |
 | --- | --- |
 | `common` |Gebruikers met een persoonlijk Microsoft-account en een werk-of school account van Azure AD kunnen zich aanmelden bij de toepassing. |
 | `organizations` |Alleen gebruikers met werk-of school accounts van Azure AD kunnen zich aanmelden bij de toepassing. |
@@ -112,12 +112,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter | Voorwaarde | Description |
 | --- | --- | --- |
-| `tenant` | Verplicht | U kunt de `{tenant}` waarde in het pad van de aanvraag gebruiken om te bepalen wie zich kan aanmelden bij de toepassing. De toegestane waarden zijn `common`, `organizations`, `consumers`en Tenant-id's. Zie [basis beginselen van protocollen](active-directory-v2-protocols.md#endpoints)voor meer informatie. |
-| `client_id` | Verplicht | De **client-id** van de toepassing die de [Azure Portal – app-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ervaring die aan uw app is toegewezen. |
-| `response_type` | Verplicht | Moet zijn `id_token` inbegrepen voor OpenID Connect Connect-aanmelding. Het kan ook andere `response_type` waarden bevatten, `code`zoals. |
+| `tenant` | Vereist | U kunt de `{tenant}` waarde in het pad van de aanvraag gebruiken om te bepalen wie zich kan aanmelden bij de toepassing. De toegestane waarden zijn `common`, `organizations`, `consumers`en Tenant-id's. Zie [basis beginselen van protocollen](active-directory-v2-protocols.md#endpoints)voor meer informatie. |
+| `client_id` | Vereist | De **client-id** van de toepassing die de [Azure Portal – app-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ervaring die aan uw app is toegewezen. |
+| `response_type` | Vereist | Moet zijn `id_token` inbegrepen voor OpenID Connect Connect-aanmelding. Het kan ook andere `response_type` waarden bevatten, `code`zoals. |
 | `redirect_uri` | Aanbevolen | De omleidings-URI van uw app, waar verificatie reacties kunnen worden verzonden en ontvangen door uw app. De waarde moet exact overeenkomen met een van de omleidings-Uri's die u in de portal hebt geregistreerd, behalve dat deze URL moet worden gecodeerd. Als deze niet aanwezig is, kiest het eind punt een wille keurige geregistreerde redirect_uri om de gebruiker terug te sturen naar. |
-| `scope` | Verplicht | Een lijst met door spaties gescheiden bereiken. Voor OpenID Connect Connect moet het bereik `openid`zijn opgenomen, dat wordt omgezet in de machtiging ' Meld u aan ' in de gebruikers interface van de toestemming. U kunt ook andere bereiken in deze aanvraag toevoegen om toestemming te vragen. |
-| `nonce` | Verplicht | Een waarde die is opgenomen in de aanvraag, gegenereerd door de app, die wordt opgenomen in de resulterende id_token waarde als claim. De app kan deze waarde verifiëren om token replay-aanvallen te verhelpen. De waarde is doorgaans een wille keurige, unieke teken reeks die kan worden gebruikt om de oorsprong van de aanvraag te identificeren. |
+| `scope` | Vereist | Een lijst met door spaties gescheiden bereiken. Voor OpenID Connect Connect moet het bereik `openid`zijn opgenomen, dat wordt omgezet in de machtiging ' Meld u aan ' in de gebruikers interface van de toestemming. U kunt ook andere bereiken in deze aanvraag toevoegen om toestemming te vragen. |
+| `nonce` | Vereist | Een waarde die is opgenomen in de aanvraag, gegenereerd door de app, die wordt opgenomen in de resulterende id_token waarde als claim. De app kan deze waarde verifiëren om token replay-aanvallen te verhelpen. De waarde is doorgaans een wille keurige, unieke teken reeks die kan worden gebruikt om de oorsprong van de aanvraag te identificeren. |
 | `response_mode` | Aanbevolen | Hiermee geeft u de methode op die moet worden gebruikt om de resulterende autorisatie code terug te sturen naar uw app. Deze waarde kan `form_post` of `fragment` zijn. Voor webtoepassingen raden `response_mode=form_post`wij u aan om te zorgen voor de veiligste overdracht van tokens naar uw toepassing. |
 | `state` | Aanbevolen | Een waarde die in de aanvraag is opgenomen en die ook wordt geretourneerd in het token antwoord. Dit kan een teken reeks zijn van elke gewenste inhoud. Een wille keurig gegenereerde unieke waarde wordt doorgaans gebruikt om [vervalsing van aanvragen op meerdere sites te voor komen](https://tools.ietf.org/html/rfc6749#section-10.12). De status wordt ook gebruikt om informatie over de status van de gebruiker in de app te coderen voordat de verificatie aanvraag is uitgevoerd, zoals de pagina of weer gave waarin de gebruiker zich bevond. |
 | `prompt` | Optioneel | Hiermee wordt het type gebruikers interactie aangegeven dat vereist is. De enige geldige waarden op dit moment zijn `login`, `none`, en `consent`. De `prompt=login` claim dwingt de gebruiker om hun referenties in te voeren voor die aanvraag, waardoor eenmalige aanmelding wordt genegeerd. De `prompt=none` claim is het tegenovergestelde. Met deze claim zorgt u ervoor dat de gebruiker niet wordt aangeboden met een interactieve prompt op. Als de aanvraag niet op de achtergrond kan worden voltooid via eenmalige aanmelding, wordt een fout geretourneerd door het micro soft Identity platform-eind punt. Met `prompt=consent` de claim wordt het dialoog venster OAuth-toestemming geactiveerd nadat de gebruiker zich heeft aangemeld. In het dialoog venster wordt de gebruiker gevraagd om machtigingen te verlenen aan de app. |

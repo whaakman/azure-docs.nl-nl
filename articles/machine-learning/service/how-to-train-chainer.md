@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: f95a7efd8b9303db0a9ba98c1be32e13d0c5e984
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 91ac8b596373963aeba00c1932dfde5d76f27bd0
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780887"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856029"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Keten modellen trainen en registreren op schaal met Azure Machine Learning-service
 
@@ -38,9 +38,9 @@ Voer deze code uit in een van de volgende omgevingen:
 
 - Uw eigen Jupyter Notebook-server
 
-    - [De Azure Machine Learning SDK voor python installeren](setup-create-workspace.md#sdk)
-    - [Een configuratie bestand voor een werk ruimte maken](setup-create-workspace.md#write-a-configuration-file)
-    - Down load het voorbeeld script bestand [chainer_mnist. py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py)
+    - [Installeer de Azure machine learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    - [Maak een configuratie bestand voor de werk ruimte](how-to-configure-environment.md#workspace).
+    - Down load het voorbeeld script bestand [chainer_mnist. py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py).
      - U kunt ook een voltooide [Jupyter notebook versie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb) van deze hand leiding vinden op de pagina met github-voor beelden. Het notitie blok bevat uitgebreide secties die betrekking hebben op intelligent afstemming tuning, model implementatie en notebook widgets.
 
 ## <a name="set-up-the-experiment"></a>Het experiment instellen

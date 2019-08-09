@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: e4ed781544d3cd11e8494e40589676adf57a9c75
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 1827bfdbebaf1ffa17c7c631a94aa8fc6471d13b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405130"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854105"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Uw Bing Aangepaste zoekopdrachten-ervaring configureren
 
@@ -97,7 +97,7 @@ Met de portal kunt u de zoek volgorde van inhoud aanpassen van specifieke domein
 | Blokkeren      | Hiermee verplaatst u het domein, de subpagina of de webpagina naar de lijst met geblokkeerde blokken. De inhoud van de geselecteerde site wordt uitgesloten van de zoek resultaten.                    |
 | Versterking      | Verhoogt de inhoud van het domein of de subpagina naar een hoger niveau in de zoek resultaten.                                                                                        |
 | Degraderen     | Hiermee wordt de inhoud van het domein of de subpagina lager in de zoek resultaten verlaagd. U selecteert of u de inhoud van het domein of de subpagina waartoe de webpagina behoort, wilt degraderen. |
-| Vastmaken aan de bovenkant | Hiermee verplaatst u het domein, de subpagina of de  webpagina naar de lijst met vastgemaakte lijsten. Hiermee wordt de webpagina geforceerd weer gegeven als het hoogste Zoek resultaat voor een bepaalde Zoek query.                   |
+| Vastmaken aan de bovenkant | Hiermee verplaatst u het domein, de subpagina of de webpagina naar de lijst met vastgemaakte lijsten. Hiermee wordt de webpagina geforceerd weer gegeven als het hoogste Zoek resultaat voor een bepaalde Zoek query.                   |
 
 Het aanpassen van de positie is niet beschikbaar voor afbeeldingen of video-Zoek opdrachten.
 
@@ -114,22 +114,22 @@ De Super Boost, het boosten en het degraderen zijn niet beschikbaar voor de afbe
 
 ## <a name="pin-slices-to-the-top-of-search-results"></a>Segmenten vastmaken aan de bovenkant van de zoek resultaten
 
-Met de portal kunt u ook Url's aan de bovenkant van de zoek resultaten vastmaken voor specifieke zoek termen  , met behulp van het tabblad vastgemaakt. Voer een URL en een query in om de webpagina op te geven die als het beste resultaat wordt weer gegeven. Houd er rekening mee dat u Maxi maal één webpagina per zoek opdracht kunt vastmaken en dat alleen geïndexeerde webpagina's worden weer gegeven in Zoek opdrachten. Het vastmaken van resultaten is niet beschikbaar voor afbeeldingen of video-Zoek opdrachten.
+Met de portal kunt u ook Url's aan de bovenkant van de zoek resultaten vastmaken voor specifieke zoek termen , met behulp van het tabblad vastgemaakt. Voer een URL en een query in om de webpagina op te geven die als het beste resultaat wordt weer gegeven. Houd er rekening mee dat u Maxi maal één webpagina per zoek opdracht kunt vastmaken en dat alleen geïndexeerde webpagina's worden weer gegeven in Zoek opdrachten. Het vastmaken van resultaten is niet beschikbaar voor afbeeldingen of video-Zoek opdrachten.
 
 U kunt op twee manieren een webpagina aan de bovenkant vastmaken:
 
-* Voer op  het tabblad vastgemaakt de URL in van de webpagina die u aan de bovenkant wilt vastmaken en de bijbehorende query.
+* Voer op het tabblad vastgemaakt de URL in van de webpagina die u aan de bovenkant wilt vastmaken en de bijbehorende query.
 
-* Voer in het deel venster **voor beeld** een zoek opdracht in en klik op zoeken. Zoek de webpagina die u wilt vastmaken voor uw query en klik op **vastmaken aan de bovenkant**. de webpagina en de query worden toegevoegd aan de  lijst met vastgemaakte lijsten.
+* Voer in het deel venster **voor beeld** een zoek opdracht in en klik op zoeken. Zoek de webpagina die u wilt vastmaken voor uw query en klik op **vastmaken aan de bovenkant**. de webpagina en de query worden toegevoegd aan de lijst met vastgemaakte lijsten.
 
 ### <a name="specify-the-pins-match-condition"></a>De match-voor waarde voor de pincode opgeven
 
-Standaard worden webpagina's alleen aan de bovenkant van de zoek resultaten vastgemaakt wanneer de query teken reeks van een gebruiker exact overeenkomt met de pagina die **in de lijst** is opgenomen. U kunt dit gedrag wijzigen door een van de volgende match-voor waarden op te geven:
+Standaard worden webpagina's alleen aan de bovenkant van de zoek resultaten vastgemaakt wanneer de query teken reeks van een gebruiker exact overeenkomt met de pagina die in de lijst is opgenomen. U kunt dit gedrag wijzigen door een van de volgende match-voor waarden op te geven:
 
 > [!NOTE]
 > Alle vergelijkingen tussen de zoek query van de gebruiker en de zoek query van de pincode zijn niet hoofdletter gevoelig.
 
-| Waarde | Description                                                                          |
+| Value | Description                                                                          |
 |---------------|----------------------------------------------------------------------------------|
 | begint met | De pincode is een overeenkomst als de query reeks van de gebruiker begint met de query reeks van de pincode |
 | eindigt met   | De pincode is een overeenkomst als de query reeks van de gebruiker eindigt met de query teken reeks van de pincode.  |
@@ -159,5 +159,5 @@ Als u zich op het juiste niveau hebt geabonneerd op een aangepaste zoek opdracht
 
 - [Aangepaste zoekopdrachten aanroepen](./search-your-custom-view.md)
 - [Gehoste UI-ervaring configureren](./hosted-ui.md)
-- [Decoratiemarkeringen gebruiken om tekst te markeren](./hit-highlighting.md)
+- [Decoratiemarkeringen gebruiken om tekst te markeren](../bing-web-search/hit-highlighting.md)
 - [Bladeren door webpagina's](./page-webpages.md)

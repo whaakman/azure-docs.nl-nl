@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 35f29e425fc471e4df4a037ef312af0fd041dcd7
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: da8e82652b5406cb4e5fe6438f721e3394a4cd96
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699789"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854593"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Ontwikkelen voor Azure Files met .NET
 
@@ -55,10 +55,11 @@ Alle codevoorbeelden in deze zelfstudie kunnen worden toegevoegd aan de methode 
 U kunt de Azure Storage-client bibliotheek gebruiken in elk type .NET-toepassing, waaronder een Azure-Cloud service of web-app, en desktop-en mobiele toepassingen. In deze gids gebruiken we een consoletoepassing voor de eenvoud.
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>NuGet gebruiken om de vereiste pakketten te installeren
-Er zijn twee pakketten waarnaar u in uw project moet verwijzen om deze zelfstudie te kunnen voltooien:
+Dit zijn pakketten waarnaar u in uw project moet verwijzen om deze zelf studie te volt ooien:
 
 * [Algemene bibliotheek voor .net Microsoft Azure Storage](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Dit pakket biedt programmatische toegang tot veelvoorkomende resources in uw opslag account.
 * [Microsoft Azure Storage BLOB-bibliotheek voor .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Dit pakket biedt programmatische toegang tot BLOB-resources in uw opslag account.
+* [Microsoft Azure Storage bestands bibliotheek voor .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/): Dit pakket biedt programmatische toegang tot bestands resources in uw opslag account.
 * [Microsoft Azure Configuration Manager-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): dit pakket biedt een klasse voor het parseren van een verbindingsreeks in een configuratiebestand, ongeacht waar de toepassing wordt uitgevoerd.
 
 Met NuGet kunt u beide pakketten verkrijgen. Volg deze stappen:

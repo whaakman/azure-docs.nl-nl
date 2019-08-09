@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 07/12/2019
-ms.openlocfilehash: 384cd2df9c629a73095cc55f4f6d65aa6a727225
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 9deb369dc812616cd7256bbab4101531ca08f127
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360958"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847935"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Logboek registratie inschakelen in Azure Machine Learning-service
 
@@ -27,7 +27,7 @@ Met de Azure Machine Learning python-SDK kunt u logboek registratie inschakelen 
 > * Geïmplementeerde modellen
 > * Python `logging` -instellingen
 
-[Maak een Azure machine learning service-werk ruimte](setup-create-workspace.md). Gebruik de [gids](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) voor meer informatie over de SDK.
+[Maak een Azure machine learning service-werk ruimte](how-to-manage-workspace.md). Gebruik de [gids](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) voor meer informatie over de SDK.
 
 ## <a name="training-models-and-compute-target-logging"></a>Trainings modellen en logboek registratie van Compute-doelen
 

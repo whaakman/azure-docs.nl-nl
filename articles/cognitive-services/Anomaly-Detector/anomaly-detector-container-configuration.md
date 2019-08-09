@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 617a8fc823b7c40d047e5825dc31b095da132f29
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 886c93871a719770cbcbbcef2f536fd7515da34e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321454"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854219"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Anomalie detector containers configureren
 
@@ -59,7 +59,7 @@ Deze instelling bevindt zich op de volgende locatie:
 
 * Azure Portal: **Anomalie detectie** Overzicht, label`Endpoint`
 
-|Verplicht| Name | Gegevenstype | Description |
+|Vereist| Name | Gegevenstype | Description |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Reeks | URI van de facturering-eindpunt<br><br>Voorbeeld:<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
 
@@ -90,7 +90,7 @@ De exacte syntaxis van de locatie van de host koppelen, is afhankelijk van het h
 
 |Optioneel| Name | Gegevenstype | Description |
 |-------|------|-----------|-------------|
-|Niet toegestaan| `Input` | Reeks | Afwijkende detector containers gebruiken deze niet.|
+|Niet toegestaan| `Input` | Tekenreeks | Afwijkende detector containers gebruiken deze niet.|
 |Optioneel| `Output` | Tekenreeks | Het doel van de uitvoer-koppelpunt. De standaardwaarde is `/output`. Dit is de locatie van de logboeken. Dit omvat container Logboeken. <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Voorbeeld van de docker-opdrachten uitvoeren 
@@ -134,3 +134,8 @@ De volgende docker-voor beelden zijn voor de anomalie detectie container.
   Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
+
+## <a name="next-steps"></a>Volgende stappen
+
+* [Een anomalie detectie container implementeren naar Azure Container Instances](how-to/deploy-anomaly-detection-on-container-instances.md)
+* [Meer informatie over de API-service voor anomalie detectie](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

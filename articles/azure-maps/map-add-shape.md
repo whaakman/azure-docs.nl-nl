@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0696eba4f3cca7beedc2efcda0182ab82b3d69d9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 377cfbf93e45872e34242f9cd2432195b6ba6f92
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638708"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849124"
 ---
 # <a name="add-a-shape-to-a-map"></a>Een vorm aan een kaart toevoegen
 
@@ -46,6 +46,9 @@ In dit voor beeld ziet u hoe u pijl pictogrammen kunt toevoegen langs een regel 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Pijl langs lijn weer geven" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Zie de <a href='https://codepen.io/azuremaps/pen/drBJwX/'>pijl weer geven naast regel</a> voor Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+> [!TIP]
+> De Azure Maps Web-SDK biedt verschillende aanpas bare afbeeldings sjablonen die u kunt gebruiken met de Symbol-laag. Zie het document [over het gebruik van afbeeldings sjablonen](how-to-use-image-templates-web-sdk.md) voor meer informatie.
 
 ### <a name="line-stroke-gradient"></a>Een lijn kleur overgang toevoegen aan een lijn
 
@@ -113,6 +116,10 @@ Naast het vullen van een veelhoek met een kleur, kan ook een afbeeldings patroon
 Zie het <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>opvul patroon</a> voor de pen-veelhoek<a href='https://codepen.io/azuremaps'>@azuremaps</a>door Azure Maps () op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+
+> [!TIP]
+> De Azure Maps Web-SDK biedt verschillende aanpas bare afbeeldings sjablonen die u als opvul patroon kunt gebruiken. Zie het document [over het gebruik van afbeeldings sjablonen](how-to-use-image-templates-web-sdk.md) voor meer informatie.
+
 ### <a name="customize-a-polygon-layer"></a>Een polygoon laag aanpassen
 
 De polygoon laag heeft slechts enkele opmaak opties. Hier volgt een hulp programma om het uit te proberen.
@@ -179,3 +186,6 @@ Raadpleeg de volgende artikelen voor meer code voorbeelden om toe te voegen aan 
 
 > [!div class="nextstepaction"]
 > [Op gegevens gebaseerde stijl expressies gebruiken](data-driven-style-expressions-web-sdk.md)
+
+> [!div class="nextstepaction"]
+> [Afbeeldings sjablonen gebruiken](how-to-use-image-templates-web-sdk.md)

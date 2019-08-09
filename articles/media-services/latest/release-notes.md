@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: c730f41d1dbc48c6622d0a2ba43c32dd1a96c24c
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: f4a859f1e63866a50167031569dca05de3e9af27
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311814"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856315"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Release opmerkingen bij Azure Media Services v3
 
@@ -33,6 +33,14 @@ Als u wilt bijhouden met de meest recente ontwikkelingen, vindt in dit artikel u
 > U kunt momenteel geen gebruik maken van de Azure-portal om v3-resources te beheren. Gebruik de [rest API](https://aka.ms/ams-v3-rest-sdk), CLI of een van de ondersteunde sdk's.
 
 Zie voor meer informatie [migratie richtlijnen voor het overstappen van Media Services versie 2 tot v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="august-2019"></a>2019 augustus
+
+### <a name="south-africa-regional-pair-is-open-for-media-services"></a>Zuid-Afrika regionale paar is geopend voor Media Services 
+
+Media Services is nu beschikbaar in Zuid-Afrika-noord en Zuid-Afrika-west regio's.
+
+Zie [Clouds en regio's waarin Media Services v3 bestaat](azure-clouds-regions.md)voor meer informatie.
 
 ## <a name="july-2019"></a>2019 juli
 
@@ -175,7 +183,7 @@ In deze sectie worden Azure Media Services updates (AMS) van oktober beschreven.
 
 De [rest v3 ga-release](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) bevat meer Api's voor Live, account/Asset level-manifest filters en DRM-ondersteuning.
 
-#### <a name="azure-resource-management"></a>Azure-resource beheer 
+#### <a name="azure-resource-management"></a>Azure Resources Management 
 
 Ondersteuning voor Azure Resource Management maakt Unified management en Operations API mogelijk (nu alles op één plek).
 

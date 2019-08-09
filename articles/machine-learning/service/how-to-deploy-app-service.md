@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/01/2019
-ms.openlocfilehash: 11e8b26c81d3a8f672abbeafc153df73d063cb6e
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 84de9d53b19f5aa9b73570aa0d115d204e8b6596
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68612234"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848219"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Een machine learning model implementeren op Azure App Service (preview-versie)
 
@@ -34,7 +34,7 @@ Zie [app service-overzicht](/azure/app-service/overview)voor meer informatie ove
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een werkruimte van Azure Machine Learning-service. Zie het artikel [een werk ruimte maken](setup-create-workspace.md) voor meer informatie.
+* Een werkruimte van Azure Machine Learning-service. Zie het artikel [een werk ruimte maken](how-to-manage-workspace.md) voor meer informatie.
 * Een getraind machine learning model dat is geregistreerd in uw werk ruimte. Als u geen model hebt, gebruikt u de [zelf studie voor installatie kopie classificatie: Train model](tutorial-train-models-with-aml.md) om er een te trainen en te registreren.
 * Een docker-installatie kopie die is gemaakt op basis van het model. Als u geen installatie kopie hebt, gebruikt u de [afbeeldings classificatie: model implementeren](tutorial-deploy-models-with-aml.md) om er een te maken.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bd6d3abc6080c0ab1b6137511af719b23e5bcd4
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a763f15b57bf7f23eeb52c81dd48de7f02adc5e4
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736827"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853557"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD-controle en logboek registratie voor wachtwoord beveiliging
 

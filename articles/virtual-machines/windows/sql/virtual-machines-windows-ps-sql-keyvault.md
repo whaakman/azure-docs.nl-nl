@@ -1,6 +1,6 @@
 ---
-title: Key Vault integreren met SQL Server op Windows-VM's in Azure (Resource Manager) | Microsoft Docs
-description: Informatie over het automatiseren van de configuratie van SQL Server-versleuteling voor gebruik met Azure Key Vault. In dit onderwerp wordt uitgelegd hoe het gebruik van Azure Key Vault-integratie met SQL Server virtuele machines die zijn gemaakt met Resource Manager.
+title: Key Vault integreren met SQL Server op Windows-Vm's in azure (Resource Manager) | Microsoft Docs
+description: Meer informatie over het automatiseren van de configuratie van SQL Server versleuteling voor gebruik met Azure Key Vault. In dit onderwerp wordt uitgelegd hoe u Azure Key Vault integratie kunt gebruiken met SQL Server virtuele machines die zijn gemaakt met Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
@@ -16,58 +16,58 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 13d698cfbc0241248a77fd5f3b148a9393320c64
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7de54f7da8cef5942a8d8f41031eaf3e2565580
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076037"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846250"
 ---
-# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Azure Key Vault-integratie configureren voor SQL Server op Azure Virtual Machines (Resource Manager)
+# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Azure Key Vault integratie configureren voor SQL Server op Azure Virtual Machines (Resource Manager)
 
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-ps-sql-keyvault.md)
 > * [Klassiek](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
 
 ## <a name="overview"></a>Overzicht
-Er zijn meerdere functies van SQL Server-versleuteling, zoals [transparante gegevensversleuteling (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [versleuteling op kolom (CLE)](https://msdn.microsoft.com/library/ms173744.aspx), en [back-upversleuteling](https://msdn.microsoft.com/library/dn449489.aspx). Deze vormen van versleuteling moeten u de cryptografische sleutels die u voor versleuteling gebruikt opslaan en beheren. De service Azure Key Vault (AKV) is ontworpen voor het verbeteren van de beveiliging en beheer van deze sleutels op een beveiligde en maximaal beschikbare locatie. De [SQL Server-Connector](https://www.microsoft.com/download/details.aspx?id=45344) kan SQL Server om deze sleutels uit Azure Key Vault te gebruiken.
+Er zijn meerdere SQL Server versleutelings functies, zoals [transparante gegevens versleuteling (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [versleuteling op kolom niveau (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)en [back-upcodering](https://msdn.microsoft.com/library/dn449489.aspx). Voor deze coderings vormen moet u de cryptografische sleutels die u voor versleuteling gebruikt, beheren en opslaan. De Azure Key Vault-service (Azure) is ontworpen voor het verbeteren van de beveiliging en het beheer van deze sleutels op een veilige en Maxi maal beschik bare locatie. Met de [SQL Server-connector](https://www.microsoft.com/download/details.aspx?id=45344) kan SQL Server deze sleutels vanuit Azure Key Vault gebruiken.
 
-Als u SQL Server on-premises virtuele machines worden uitgevoerd, zijn er [stappen die u kunt volgen om toegang tot Azure Key Vault vanuit uw on-premises SQL Server-computer](https://msdn.microsoft.com/library/dn198405.aspx). Maar voor SQL Server in virtuele Azure-machines, kunt u tijd besparen met behulp van de *Azure Key Vault-integratie* functie.
+Als u SQL Server met on-premises machines uitvoert, zijn er [stappen die u kunt volgen om toegang te krijgen tot Azure Key Vault vanaf uw on-premises SQL Server computer](https://msdn.microsoft.com/library/dn198405.aspx). Maar voor SQL Server in azure-Vm's kunt u tijd besparen door gebruik te maken van de functie voor *Azure Key Vault integratie* .
 
-Wanneer deze functie is ingeschakeld, installeert en deze automatisch de SQL Server-Connector, configureert u de EKM-provider voor toegang tot Azure Key Vault, maakt u de referentie zodat u toegang krijgt tot uw kluis. Als u de stappen in de documentatie van de eerder genoemde on-premises hebt bekeken, kunt u zien dat deze functie automatiseert de stappen 2 en 3. Het enige wat dat u moet nog steeds handmatig doen is het maken van de key vault en sleutels. Van daaruit is de volledige installatie van uw SQL-VM geautomatiseerd. Als deze functie kan deze installatie is voltooid, kunt u T-SQL-instructies gebruikt om te beginnen met het versleutelen van uw databases of back-ups zoals u gewend kunt uitvoeren.
+Als deze functie is ingeschakeld, wordt de SQL Server-connector automatisch geïnstalleerd, wordt de EKM-provider geconfigureerd voor toegang tot Azure Key Vault en wordt de referentie gemaakt waarmee u toegang krijgt tot uw kluis. Als u de stappen in de eerder genoemde on-premises documentatie hebt bekeken, kunt u zien dat deze functie stap 2 en 3 automatiseert. Het enige wat u nog steeds hand matig moet doen, is door de sleutel kluis en sleutels te maken. Van daaruit wordt de volledige installatie van uw SQL-VM geautomatiseerd. Zodra deze functie is voltooid, kunt u T-SQL-instructies uitvoeren om te beginnen met het versleutelen van uw data bases of back-ups zoals u dat gewend bent.
 
 [!INCLUDE [AKV Integration Prepare](../../../../includes/virtual-machines-sql-server-akv-prepare.md)]
 
   >[!NOTE]
-  > Versie 1.0.4.0 EKM-Provider is geïnstalleerd op de SQL Server-VM via de [SQL IaaS-extensie](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension). De provider-versie wordt niet bijgewerkt als u een upgrade van de SQL IaaS-extensie. Neem overweegt handmatig de versie van de EKM-provider een upgrade uitvoert, indien nodig (bijvoorbeeld bij het migreren naar een SQL beheerd exemplaar).
+  > EKM-provider versie 1.0.4.0 wordt geïnstalleerd op de SQL Server virtuele machine via de [SQL IaaS-extensie](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension). Bij het bijwerken van de SQL IaaS-extensie wordt de provider versie niet bijgewerkt. Overweeg, indien nodig, hand matig een upgrade van de versie van de EKM-provider (bijvoorbeeld bij het migreren naar een beheerd exemplaar van SQL).
 
 
-## <a name="enabling-and-configuring-akv-integration"></a>Inschakelen en configureren van Azure Sleutelkluis-integratie
-U kunt tijdens het inrichten van Azure Sleutelkluis-integratie inschakelen of configureren voor bestaande VM's.
+## <a name="enabling-and-configuring-akv-integration"></a>Azure-integratie inschakelen en configureren
+U kunt de Azure-integratie tijdens het inrichten inschakelen of configureren voor bestaande virtuele machines.
 
-### <a name="new-vms"></a>Nieuwe virtuele machines
-Als u een nieuwe SQL Server-machine met Resource Manager inricht, biedt de Azure-portal een manier om Azure Key Vault-integratie inschakelen. De Azure Key Vault-functie is alleen beschikbaar voor de Enterprise, Developer en Evaluation-edities van SQL Server.
+### <a name="new-vms"></a>Nieuwe Vm's
+Als u een nieuwe SQL Server virtuele machine met Resource Manager inricht, biedt de Azure Portal een manier om Azure Key Vault integratie in te scha kelen. De functie Azure Key Vault is alleen beschikbaar voor de edities Enter prise, Developer en Evaluation van SQL Server.
 
 ![Integratie van Azure Sleutelkluis in SQL](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 
-Zie voor een gedetailleerd overzicht van de inrichting van [een SQL Server-machine inrichten in Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
+Zie [een SQL Server virtuele machine inrichten in de Azure Portal](virtual-machines-windows-portal-sql-server-provision.md)voor een gedetailleerd overzicht van het inrichten.
 
-### <a name="existing-vms"></a>Bestaande VM 's
+### <a name="existing-vms"></a>Bestaande Vm's
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Voor bestaande SQL Server virtuele machines, opent u uw [SQL-resource voor virtuele machines](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) en selecteer **Security** onder **instellingen**. Selecteer **inschakelen** Azure Key Vault-integratie inschakelen. 
+Voor bestaande SQL Server virtuele machines opent u de [resource virtuele SQL-machines](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) en selecteert u **beveiliging** onder **instellingen**. Selecteer **inschakelen** om Azure Key Vault integratie in te scha kelen. 
 
-![SQL Azure Sleutelkluis-integratie voor bestaande VM 's](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-existing-vms.png)
+![SQL Azure-integratie voor bestaande Vm's](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-existing-vms.png)
 
-Wanneer u klaar bent, selecteert u de **toepassen** knop aan de onderkant van de **Security** pagina uw wijzigingen op te slaan.
-
-> [!NOTE]
-> De referentienaam van de die we hier hebben gemaakt wordt later opnieuw worden toegewezen aan een SQL-aanmelding. Hiermee wordt de SQL-aanmelding voor toegang tot de sleutelkluis. 
-
+Wanneer u klaar bent, selecteert u de knop **Toep assen** aan de onderkant van de pagina **beveiliging** om uw wijzigingen op te slaan.
 
 > [!NOTE]
-> U kunt ook configureren met behulp van een sjabloon van Azure Sleutelkluis-integratie. Zie voor meer informatie, [Azure quickstart-sjabloon voor Azure Key Vault-integratie](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update).
+> De referentie naam die we hier maken, wordt later aan een SQL-aanmelding toegewezen. Hiermee kan de SQL-aanmelding toegang krijgen tot de sleutel kluis. 
+
+
+> [!NOTE]
+> U kunt ook Azure-integratie configureren met behulp van een sjabloon. Zie Azure Quick Start- [sjabloon voor Azure Key Vault-integratie](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update)voor meer informatie.
 
 
 [!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]

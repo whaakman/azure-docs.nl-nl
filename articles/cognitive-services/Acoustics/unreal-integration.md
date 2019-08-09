@@ -3,20 +3,20 @@ title: Unreal-en WWise-integratie in Project akoestische
 titlesuffix: Azure Cognitive Services
 description: Deze beschrijving beschrijft de integratie van de Unreal-en WWise-invoeg toepassingen van het project in uw project.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5511dd6b9a7d77c0988a94fef747a30d25bb4fc3
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 3fe9a28a99ea8becbfc40e1e64d1f5b109caace3
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706627"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854373"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Unreal-en WWise-integratie in Project akoestische
 Met deze procedure kunt u gedetailleerde integratie stappen van het invoeg toepassing project akoestische conversies in uw bestaande Unreal-en WWise-Game project. 
@@ -103,7 +103,7 @@ Implementeer WWise opnieuw op uw game, zelfs als u al een WWise hebt geïntegree
 Een voor beeld van een WWise-project is opgenomen in de down load samples. We raden u aan dit naast deze instructies te bekijken. De onderstaande scherm afbeeldingen worden uit dit project gehaald.
 
 ### <a name="bus-setup"></a>Bus-installatie
-* De Unreal-invoeg toepassing voor project akoestische zoekt naar de gekoppelde mixer-invoeg toepassing op een ****** bus met deze `Project Acoustics Bus`exacte naam:. Maak een nieuwe audio bus met deze naam. De mixer-invoeg toepassing kan in verschillende configuraties worden gebruikt, maar we nemen er nu rekening mee dat deze alleen voor de verwerking van galming wordt toegepast. Deze bus heeft het gemengde galm signaal voor alle bronnen die akoestische gebruiken. De IT-upstream kan worden gecombineerd in elke wille keurige combi natie van een bus, een voor beeld wordt hieronder weer gegeven, afkomstig uit het WWise-voorbeeld project dat in de voorbeeld down load is opgenomen.
+* De Unreal-invoeg toepassing voor project akoestische zoekt naar de gekoppelde mixer-invoeg toepassing op een bus met deze `Project Acoustics Bus`exacte naam:. Maak een nieuwe audio bus met deze naam. De mixer-invoeg toepassing kan in verschillende configuraties worden gebruikt, maar we nemen er nu rekening mee dat deze alleen voor de verwerking van galming wordt toegepast. Deze bus heeft het gemengde galm signaal voor alle bronnen die akoestische gebruiken. De IT-upstream kan worden gecombineerd in elke wille keurige combi natie van een bus, een voor beeld wordt hieronder weer gegeven, afkomstig uit het WWise-voorbeeld project dat in de voorbeeld down load is opgenomen.
 
     ![Scherm opname van WWise Busses met project akoestische bus](media/acoustics-bus.png)
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6de348a19081eba685deafebd8a7c9b9d6556444
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 67e5364996be2945d67aa1a95cbc3ab8137e077e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688116"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850256"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Problemen met desired state Configuration (DSC) oplossen
 
@@ -24,16 +24,17 @@ In dit artikel vindt u informatie over het oplossen van problemen met desired st
 
 Wanneer er fouten zijn opgetreden bij het compileren of implementeren van configuraties in de Azure-status configuratie, zijn hier enkele stappen beschikbaar om u te helpen bij het vaststellen van het probleem.
 
-1. **Zorg ervoor dat uw configuratie compileert op uw lokale computer:**  De Azure-status configuratie is gebaseerd op Power shell DSC. U kunt de documentatie voor de DSC-taal en syntaxis vinden in de [Power shell DSC-documenten](/powershell/dsc/overview/overview).
+1. **Zorg ervoor dat uw configuratie compileert op uw lokale computer:**  De Azure-status configuratie is gebaseerd op Power shell DSC. U kunt de documentatie voor de DSC-taal en syntaxis vinden in de [Power shell DSC-documenten](https://docs.microsoft.com/en-us/powershell/scripting/overview).
 
-   Door de DSC-configuratie op uw lokale machine te compileren, kunt u veelvoorkomende fouten detecteren en oplossen, zoals:
+   Door de DSC-configuratie op de lokale computer te compileren, kunt u veelvoorkomende fouten detecteren en oplossen, zoals:
 
    - **Ontbrekende modules**
    - **Syntaxis fouten**
    - **Logische fouten**
+
 2. **DSC-logboeken weer geven op uw knoop punt:** Als uw configuratie is gecompileerd, maar mislukt als deze wordt toegepast op een knoop punt, kunt u gedetailleerde informatie vinden in de logboeken. Zie voor informatie over waar DSC-logboeken kunnen [worden gevonden de DSC-gebeurtenis logboeken](/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
 
-   Futhermore, de [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) kan u helpen bij het parseren van gedetailleerde informatie uit de DSC-Logboeken. Als u contact opneemt met ondersteuning, moeten deze logboeken uw probleem dianose.
+   Daarnaast kan de [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) u helpen bij het parseren van gedetailleerde informatie uit de DSC-Logboeken. Als u contact opneemt met de ondersteuning, moet u deze logboeken uitvoeren om een diagnose van het probleem te krijgen.
 
    U kunt **xDscDiagnostics** installeren op uw lokale computer met behulp van de instructies in [de module stabiele versie installeren](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
 
@@ -130,7 +131,7 @@ Wanneer de expressie die volgt op `$null`het sleutel woord van het **knoop punt*
 Het probleem wordt opgelost met een van de volgende oplossingen:
 
 * Zorg ervoor dat de expressie naast het sleutel woord van het **knoop punt** in de configuratie definitie niet evalueert naar $null.
-* Als u ConfigurationData door geven tijdens het compileren van de configuratie, moet u ervoor zorgen dat u de verwachte waarden doorgeeft die de configuratie vereist van [ConfigurationData](../automation-dsc-compile.md#configurationdata).
+* Als u ConfigurationData door geven tijdens het compileren van de configuratie, moet u ervoor zorgen dat u de verwachte waarden doorgeeft die de configuratie vereist van [ConfigurationData](../automation-dsc-compile.md).
 
 ### <a name="dsc-in-progress"></a>Omstandigheden De status van het DSC-knoop punt wordt vastgelopen
 
@@ -166,7 +167,7 @@ U hebt een referentie in een configuratie gebruikt, maar u hebt niet de juiste *
 
 #### <a name="resolution"></a>Oplossing
 
-* Zorg ervoor dat u de juiste **ConfigurationData** geeft om **PSDscAllowPlainTextPassword** in te stellen op True voor elke knooppunt configuratie die wordt vermeld in de configuratie. Zie [assets in azure Automation DSC](../automation-dsc-compile.md#assets)voor meer informatie.
+* Zorg ervoor dat u de juiste **ConfigurationData** geeft om **PSDscAllowPlainTextPassword** in te stellen op True voor elke knooppunt configuratie die wordt vermeld in de configuratie. Zie [assets in azure Automation DSC](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation)voor meer informatie.
 
 ### <a name="failure-processing-extension"></a>Omstandigheden Onboarding van de DSC-extensie, fout verwerkings uitbreiding
 
@@ -199,11 +200,27 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>Oorzaak
 
-Klanten hebben vastgesteld dat als de map/tmp-locatie is ingesteld op exec, de huidige versie van DSC geen configuraties kan Toep assen.
+Klanten hebben vastgesteld dat als de `/tmp` locatie is ingesteld op `noexec`, de huidige versie van DSC geen configuraties kan Toep assen.
 
 #### <a name="resolution"></a>Oplossing
 
-* Verwijder de optie voor uitvoeren van de map/tmp-locatie.
+* Verwijder de `noexec` optie uit de `/tmp` locatie.
+
+### <a name="compilation-node-name-overlap"></a>Omstandigheden Knooppunt configuratie namen die elkaar overlappen kunnen leiden tot een slechte release
+
+#### <a name="issue"></a>Probleem
+
+Als één configuratie script wordt gebruikt om meerdere knooppunt configuraties te genereren en sommige knooppunt configuraties een naam hebben die een subset van andere is, kan een probleem in de compilatie service ertoe leiden dat de verkeerde configuratie wordt toegewezen.  Dit gebeurt alleen wanneer u één script gebruikt voor het genereren van configuraties met configuratie gegevens per knoop punt en alleen wanneer de naam overlapt aan het begin van de teken reeks.
+
+Als er bijvoorbeeld één configuratie script wordt gebruikt om configuraties te genereren op basis van knooppunt gegevens die worden door gegeven als hash-tabel met behulp van cmdlets, en de knooppunt gegevens een server met de naam ' server ' en ' 1server ' bevatten.
+
+#### <a name="cause"></a>Oorzaak
+
+Bekend probleem met de compilatie service.
+
+#### <a name="resolution"></a>Oplossing
+
+De beste oplossing is om lokaal of in een CI/CD-pijp lijn te compileren en de MOF-bestanden rechtstreeks te uploaden naar de service.  Als de compilatie in de service een vereiste is, is de volgende beste tijdelijke oplossing om de compilatie taken te splitsen, zodat er geen overlap is in namen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

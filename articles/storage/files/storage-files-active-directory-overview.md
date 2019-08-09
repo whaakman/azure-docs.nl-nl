@@ -1,22 +1,22 @@
 ---
-title: Overzicht van Azure Active Directory verificatie via SMB voor Azure Files (preview)-Azure Storage
-description: Azure Files ondersteunt op identiteit gebaseerde verificatie via SMB (Server Message Block) (preview) via Azure Active Directory (Azure AD) Domain Services. Uw virtuele Windows-machines (Vm's) die lid zijn van een domein, kunnen vervolgens toegang krijgen tot Azure-bestands shares met Azure AD-referenties.
+title: Overzicht van Azure Active Directory verificatie via SMB voor Azure Files-Azure Storage
+description: Azure Files ondersteunt verificatie op basis van identiteiten via SMB (Server Message Block) via Azure Active Directory (Azure AD) Domain Services. Uw virtuele Windows-machines (Vm's) die lid zijn van een domein, kunnen vervolgens toegang krijgen tot Azure-bestands shares met Azure AD-referenties.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
-ms.date: 06/18/2019
+ms.topic: article
+ms.date: 07/30/2019
 ms.author: rogarana
-ms.openlocfilehash: b1bc7385751fbd1829b4aee2713621448f8aa505
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 604cf2bbe0cf8ab036c76ee9223d1ee34fd4bd3d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699725"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854548"
 ---
-# <a name="overview-of-azure-files-azure-active-directory-domain-service-aad-ds-authentication-support-for-smb-access-preview"></a>Overzicht van de verificatie ondersteuning voor Azure Files Azure Active Directory domein service (AAD DS) voor SMB-toegang (preview)
+# <a name="overview-of-azure-files-azure-active-directory-domain-service-azure-ad-ds-authentication-support-for-smb-access"></a>Overzicht van de verificatie ondersteuning voor Azure Files Azure Active Directory Domain Service (Azure AD DS) voor SMB-toegang
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-Voor meer informatie over het inschakelen van AAD DS-verificatie voor Azure Files raadpleegt u [Azure Active Directory Domain Service-verificatie inschakelen via SMB voor Azure files (preview)](storage-files-active-directory-enable.md).
+Zie [Azure Active Directory Domain Service-verificatie inschakelen via SMB voor Azure files](storage-files-active-directory-enable.md)voor meer informatie over het inschakelen van Azure AD DS-verificatie voor Azure files.
 
 ## <a name="glossary"></a>Woordenlijst 
 Het is handig om enkele belang rijke termen te begrijpen met betrekking tot Azure AD Domain Service-authenticatie via SMB voor Azure Files:
@@ -41,7 +41,7 @@ Het is handig om enkele belang rijke termen te begrijpen met betrekking tot Azur
 Azure AD domain service-verificatie voor Azure Files biedt verschillende voor delen ten opzichte van het gebruik van gedeelde sleutel verificatie:
 
 -   **De traditionele toegang tot de Cloud op basis van identiteiten uitbreiden met de Azure AD-en Azure AD-domein service**  
-    Als u van plan bent om uw toepassing in de cloud te zetten en te verplaatsen, vervangt u de traditionele bestands servers door Azure Files. vervolgens wilt u uw toepassing verifiëren met Azure AD-referenties voor toegang tot bestands gegevens. Azure Files ondersteunt het gebruik van Azure AD-referenties voor toegang tot Azure Files via SMB vanuit AAD DS-domein toegevoegd aan Windows-Vm's. U kunt er ook voor kiezen om al uw on-premises Active Directory objecten te synchroniseren met Azure AD om gebruikers namen, wacht woorden en andere groeps toewijzingen te behouden.
+    Als u van plan bent om uw toepassing in de cloud te zetten en te verplaatsen, vervangt u de traditionele bestands servers door Azure Files. vervolgens wilt u uw toepassing verifiëren met Azure AD-referenties voor toegang tot bestands gegevens. Azure Files biedt ondersteuning voor het gebruik van Azure AD-referenties voor toegang tot Azure Files via SMB van Azure AD DS Windows-Vm's die lid zijn van een domein. U kunt er ook voor kiezen om al uw on-premises Active Directory objecten te synchroniseren met Azure AD om gebruikers namen, wacht woorden en andere groeps toewijzingen te behouden.
 
 -   **Gedetailleerd toegangs beheer voor Azure-bestands shares afdwingen**  
     U kunt machtigingen verlenen aan een specifieke identiteit op share-, map-of bestands niveau. Stel bijvoorbeeld dat u verschillende teams hebt die één Azure-bestands share gebruiken voor samen werking tussen projecten. U kunt alle teams toegang verlenen tot niet-gevoelige directory's, terwijl de toegang tot mappen met alleen gevoelige financiële gegevens wordt beperkt tot uw financiële team. 
@@ -61,18 +61,15 @@ U kunt Azure AD domain service-verificatie inschakelen voor Azure Files op uw ni
 
 Voordat u deze functie inschakelt, moet u controleren of Azure AD Domain Services is geïmplementeerd voor de primaire Azure AD-Tenant waarmee uw opslag account is gekoppeld. Als u Azure AD Domain Services nog niet hebt ingesteld, volgt u de stapsgewijze instructies in [enable Azure Active Directory Domain Services met behulp van de Azure Portal](../../active-directory-domain-services/create-instance.md).
 
-Azure AD Domain Services implementatie duurt over het algemeen 10 tot 15 minuten. Nadat Azure AD Domain Services is geïmplementeerd, kunt u Azure AD-verificatie via SMB inschakelen voor Azure Files. Zie [Azure Active Directory domein service-authenticatie via SMB voor Azure files inschakelen (preview)](storage-files-active-directory-enable.md)voor meer informatie. 
+Azure AD Domain Services implementatie duurt over het algemeen 10 tot 15 minuten. Nadat Azure AD Domain Services is geïmplementeerd, kunt u Azure AD-verificatie via SMB inschakelen voor Azure Files. Zie [Azure Active Directory Domain Service-authenticatie via SMB voor Azure files inschakelen](storage-files-active-directory-enable.md)voor meer informatie. 
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Machtigingen op share niveau voor Azure Files configureren
 Zodra Azure AD domain service-verificatie is ingeschakeld, kunt u aangepaste RBAC-rollen voor Azure AD-identiteiten configureren en toegangs rechten toewijzen aan bestands shares in het opslag account.
 
-Wanneer een toepassing die wordt uitgevoerd op een virtuele machine die lid is van een domein probeert een Azure-bestands share te koppelen of een map of bestand te openen, worden de Azure AD-referenties van de toepassing gecontroleerd om te zorgen voor de juiste machtigingen op share niveau en NTFS-machtigingen. Zie voor meer informatie over het configureren van machtigingen op share niveau [Azure Active Directory domein service-authenticatie via SMB inschakelen (preview)](storage-files-active-directory-enable.md).
+Wanneer een toepassing die wordt uitgevoerd op een virtuele machine die lid is van een domein probeert een Azure-bestands share te koppelen of een map of bestand te openen, worden de Azure AD-referenties van de toepassing gecontroleerd om te zorgen voor de juiste machtigingen op share niveau en NTFS-machtigingen. Zie voor meer informatie over het configureren van machtigingen op share niveau [Azure Active Directory domein service-authenticatie via SMB inschakelen](storage-files-active-directory-enable.md).
 
 ### <a name="configure-directory--or-file-level-permissions-for-azure-files"></a>Machtigingen op Directory-of bestands niveau configureren voor Azure Files 
-Azure Files dwingt standaard NTFS-bestands machtigingen af op Directory-en bestands niveau, met inbegrip van de hoofdmap. De configuratie van machtigingen op Directory-of bestands niveau wordt alleen voor SMB ondersteund. Koppel de doel bestands share van uw VM en Configureer machtigingen met behulp van de Windows- [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) of [set-ACL-](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) opdracht. 
-
-> [!NOTE]
-> Het configureren van NTFS-machtigingen via Windows Verkenner wordt niet ondersteund in de preview-versie.
+Azure Files dwingt standaard NTFS-bestands machtigingen af op Directory-en bestands niveau, met inbegrip van de hoofdmap. De configuratie van machtigingen op Directory-of bestands niveau wordt alleen voor SMB ondersteund. Koppel de doel bestands share van uw VM en Configureer machtigingen met behulp van Windows Verkenner, Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) of de opdracht [set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) . 
 
 ### <a name="use-the-storage-account-key-for-superuser-permissions"></a>De sleutel van het opslag account voor super gebruiker-machtigingen gebruiken 
 Een gebruiker die de sleutel van het opslag account heeft, heeft toegang tot Azure Files met machtigingen voor super gebruiker. Super gebruiker-machtigingen overschrijden alle toegangs beheer beperkingen die zijn geconfigureerd op het share niveau met RBAC en afgedwongen door Azure AD. Machtigingen voor de super gebruiker zijn vereist voor het koppelen van een Azure-bestands share. 
@@ -90,5 +87,5 @@ Er worden geen extra kosten in rekening gebracht om Azure AD-verificatie via SMB
 Zie de volgende bronnen voor meer informatie over Azure Files en Azure AD-verificatie via SMB:
 
 - [Inleiding tot Azure Files](storage-files-introduction.md)
-- [Azure Active Directory authenticatie via SMB voor Azure Files inschakelen (preview)](storage-files-active-directory-enable.md)
+- [Azure Active Directory authenticatie via SMB voor Azure Files inschakelen](storage-files-active-directory-enable.md)
 - [Veelgestelde vragen](storage-files-faq.md)

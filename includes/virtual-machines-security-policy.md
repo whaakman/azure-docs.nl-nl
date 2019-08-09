@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: f289da08c63f655006801d89f82640c6e3c6b7be
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 5c90d7b5eefdf8357c0f6f8efb619bd69af12b06
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68622290"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68843180"
 ---
 Het is belang rijk om uw virtuele machine (VM) te beveiligen voor de toepassingen die u uitvoert. Het beveiligen van uw Vm's kan bestaan uit een of meer Azure-Services en-functies die beveiligde toegang bieden tot uw Vm's en beveiligde opslag van uw gegevens. In dit artikel vindt u informatie waarmee u uw virtuele machines en toepassingen kunt beveiligen.
 
 ## <a name="antimalware"></a>Antimalware
 
-Het moderne risico landschap voor Cloud omgevingen is dynamisch, waardoor de druk wordt verhoogd om effectief beveiliging te garanderen om te voldoen aan de nalevings-en beveiligings vereisten. [Micro soft antimalware voor Azure](../articles/security/fundamentals/antimalware.md) is een gratis real-time beschermings functie waarmee u virussen, spyware en andere schadelijke software kunt herkennen en verwijderen. Waarschuwingen kunnen worden geconfigureerd om u te waarschuwen wanneer bekende of ongewenste software zichzelf probeert te installeren of uit te voeren op uw virtuele machine.
+Het moderne risico landschap voor Cloud omgevingen is dynamisch, waardoor de druk wordt verhoogd om effectief beveiliging te garanderen om te voldoen aan de nalevings-en beveiligings vereisten. [Micro soft antimalware voor Azure](../articles/security/fundamentals/antimalware.md) is een gratis real-time beschermings functie waarmee u virussen, spyware en andere schadelijke software kunt herkennen en verwijderen. Waarschuwingen kunnen worden geconfigureerd om u te waarschuwen wanneer bekende of ongewenste software zichzelf probeert te installeren of uit te voeren op uw virtuele machine. Het wordt niet ondersteund op virtuele machines met Linux of Windows Server 2008.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 

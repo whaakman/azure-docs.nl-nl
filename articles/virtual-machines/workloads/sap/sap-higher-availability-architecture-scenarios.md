@@ -1,6 +1,6 @@
 ---
-title: Gebruikmaken van Azure-infrastructuur virtuele machine opnieuw op om u te ' hogere beschikbaarheid ' van een SAP-systeem | Microsoft Docs
-description: Gebruikmaken van Azure-infrastructuur virtuele machine opnieuw op om u te ' hogere beschikbaarheid ' van de SAP-toepassingen
+title: VM van Azure-infra structuur opnieuw opstarten voor een hogere Beschik baarheid van een SAP-systeem | Microsoft Docs
+description: VM van Azure-infra structuur opnieuw opstarten gebruiken om een hogere Beschik baarheid van SAP-toepassingen te krijgen
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d99f704d05dea88f7fa29afea99cbbdb00d09c24
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 4668d5e7872c677f20c2395b5927d83c69775926
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709870"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855199"
 ---
-# <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Gebruikmaken van Azure-infrastructuur virtuele machine opnieuw op om u te ' hogere beschikbaarheid ' van een SAP-systeem
+# <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>VM van Azure-infra structuur opnieuw opstarten gebruiken om een hogere Beschik baarheid van een SAP-systeem te krijgen
 
 [1909114]: https://launchpad.support.sap.com/#/notes/1909114
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -126,7 +126,7 @@ ms.locfileid: "67709870"
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuratie voor hoge beschikbaarheid van SAP multi-SID)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Multi-SID-configuratie met hoge Beschik baarheid van SAP)
 
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
@@ -209,79 +209,78 @@ ms.locfileid: "67709870"
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-> In deze sectie is van toepassing op:
+> Deze sectie is van toepassing op:
 >
 > ![Windows][Logo_Windows] Windows en ![Linux][Logo_Linux] Linux
 >
 
-Als u besluit om niet te gebruiken functies zoals Windows Server Failover Clustering (WSFC) of Pacemaker op Linux (momenteel alleen voor SUSE Linux Enterprise Server [SLES] 12 en hoger ondersteund), wordt Azure-VM opnieuw opstarten gebruikt. Het beveiligt SAP-systemen op basis van geplande en ongeplande uitval van de infrastructuur van Azure fysieke server en de algehele onderliggende Azure-platform.
+Als u besluit geen functies zoals Windows Server Failover Clustering (WSFC) of pacemaker in Linux te gebruiken (momenteel alleen ondersteund voor SUSE Linux Enterprise Server [SLES] 12 en hoger), wordt de Azure VM opnieuw opgestart. Het beschermt SAP-systemen tegen geplande en ongeplande downtime van de fysieke Azure-server infrastructuur en het algehele onderliggende Azure-platform.
 
 > [!NOTE]
-> Azure VM opnieuw beveiligt voornamelijk VM's en *niet* toepassingen. Hoewel de virtuele machine opnieuw opstarten niet bieden hoge beschikbaarheid voor SAP-toepassingen, biedt het een bepaalde mate van beschikbaarheid van de infrastructuur. Het biedt ook indirect 'hogere beschikbaarheid' van de SAP-systemen. Er is ook geen SLA voor de tijd die nodig is voor een virtuele machine na een onderbreking gepland of ongepland host, waardoor deze methode van maximale beschikbaarheid niet geschikt voor de belangrijke onderdelen van een SAP-systeem opnieuw opstarten. Voorbeelden van belangrijke onderdelen mogelijk op een ASCS/SCS-exemplaar of een databasebeheersysteem (DBMS).
+> Azure VM restart beschermt voornamelijk Vm's en *niet* -toepassingen. Hoewel het opnieuw opstarten van de VM geen hoge Beschik baarheid biedt voor SAP-toepassingen, biedt dit een bepaald niveau van de beschik baarheid van de infra structuur. Het biedt ook indirect een ' hogere Beschik baarheid ' van SAP-systemen. Er is ook geen SLA voor de tijd die nodig is om een virtuele machine opnieuw op te starten na een geplande of ongeplande host-onderbreking, waardoor deze methode van hoge Beschik baarheid niet geschikt is voor de essentiële onderdelen van een SAP-systeem. Voor beelden van kritieke onderdelen zijn mogelijk een ASCS/SCS-exemplaar of een Database Management System (DBMS).
 >
 >
 
-Een ander belangrijk infrastructuur-element voor hoge beschikbaarheid is opslag. Bijvoorbeeld, is de SLA van Azure Storage beschikbaarheid van 99,9%. Als u alle virtuele machines en de schijven in een enkele Azure storage-account hebt geïmplementeerd, hebben mogelijk niet beschikbaar voor Azure Storage zorgt ervoor dat het ontbreken van alle virtuele machines die worden geplaatst in het storage-account en alle SAP-componenten die worden uitgevoerd binnen de virtuele machines.  
+Een ander belang rijk infrastructuur element voor hoge Beschik baarheid is opslag. De Azure Storage SLA is bijvoorbeeld 99,9% Beschik baarheid. Als u alle Vm's en hun schijven in één Azure-opslag account implementeert, is het Azure Storage mogelijk dat de niet-beschik baarheid van alle Vm's in dat opslag account en alle SAP-onderdelen die in de virtuele machines worden uitgevoerd, niet beschikbaar is.  
 
-In plaats van dat alle virtuele machines in een enkele Azure storage-account, kunt u gespecialiseerde opslagaccounts voor elke virtuele machine. Met behulp van meerdere onafhankelijke Azure storage-accounts, verhoogt u de algemene beschikbaarheid van virtuele machine en SAP.
+In plaats van alle Vm's in één Azure-opslag account te plaatsen, kunt u specifieke opslag accounts voor elke virtuele machine gebruiken. Door meerdere onafhankelijke Azure Storage-accounts te gebruiken, verhoogt u de totale Beschik baarheid van de virtuele machine en de SAP-toepassing.
 
-Azure-beheerde schijven worden automatisch opgenomen in het foutdomein van de virtuele machine die ze zijn gekoppeld. Als u twee virtuele machines in een beschikbaarheidsset plaatst en beheerde schijven gebruiken, zorgt het platform van de beheerde schijven in verschillende foutdomeinen en distribueren. Als u van plan bent te gebruiken van een premium storage-account, sterk aangeraden beheerde schijven.
+Azure Managed disks worden automatisch geplaatst in het fout domein van de virtuele machine waaraan ze zijn gekoppeld. Als u twee virtuele machines in een beschikbaarheidsset plaatst en beheerde schijven gebruikt, zorgt het platform ervoor dat de beheerde schijven ook in verschillende fout domeinen worden gedistribueerd. Als u van plan bent om een Premium-opslag account te gebruiken, raden we u aan Managed disks te gebruiken.
 
-De voorbeeldarchitectuur van een van een SAP NetWeaver-systeem dat gebruikmaakt van hoge beschikbaarheid en storage-account van Azure-infrastructuur kan er als volgt uitzien:
+Een voor beeld van een architectuur van een SAP net-systeem met een hoge Beschik baarheid voor Azure-infra structuur en opslag accounts kan er als volgt uitzien:
 
-![Hoge beschikbaarheid van de Azure-infrastructuur om SAP-toepassing ' hogere beschikbaarheid ' gebruiken][planning-guide-figure-2900]
+![Hoge Beschik baarheid van Azure-infra structuur gebruiken om de SAP-toepassing hogere Beschik baarheid te bieden][planning-guide-figure-2900]
 
-De voorbeeldarchitectuur van een van een SAP NetWeaver-systeem dat gebruikmaakt van hoge beschikbaarheid van Azure-infrastructuur en beheerde schijven uitzien als volgt:
+Een voor beeld van een architectuur van een SAP net-systeem met een hoge Beschik baarheid voor Azure-infra structuur en beheerde schijven kan er als volgt uitzien:
 
-![Hoge beschikbaarheid van de Azure-infrastructuur om SAP-toepassing ' hogere beschikbaarheid ' gebruiken][planning-guide-figure-2901]
+![Hoge Beschik baarheid van Azure-infra structuur gebruiken om de SAP-toepassing hogere Beschik baarheid te bieden][planning-guide-figure-2901]
 
-Voor essentiële SAP-onderdelen, hebt u bereikt het volgende tot nu toe:
+Voor kritieke SAP-onderdelen hebt u het volgende tot nu toe bereikt:
 
-* Hoge beschikbaarheid van SAP-toepassingsservers
+* Hoge Beschik baarheid van SAP-toepassings servers
 
-    SAP-toepassing server-exemplaren zijn redundante onderdelen. Elk SAP-server-exemplaar is geïmplementeerd op een eigen virtuele machine, die wordt uitgevoerd in een andere Azure-domeinen en upgradedomein. Zie voor meer informatie de [Foutdomeinen][planning-guide-3.2.1] and [Upgrade domains][planning-guide-3.2.2] secties. 
+    SAP-toepassings server exemplaren zijn redundante onderdelen. Elk SAP-toepassings Server exemplaar wordt geïmplementeerd op een eigen virtuele machine, die wordt uitgevoerd in een andere Azure-fout en een upgrade domein. Zie de secties [fout domeinen][planning-guide-3.2.1] en [upgrade domeinen][planning-guide-3.2.2] voor meer informatie. 
 
-    U kunt controleren of deze configuratie met behulp van Azure-beschikbaarheidssets. Zie voor meer informatie de [Azure-beschikbaarheidssets][planning-guide-3.2.3] sectie. 
+    U kunt deze configuratie controleren met behulp van Azure-beschikbaarheids sets. Zie de sectie [Azure Availability sets][planning-guide-3.2.3] voor meer informatie. 
 
-    Mogelijke gepland of ongepland onbeschikbaarheid van een Azure-fout of een upgradedomein zorgt ervoor dat niet beschikbaar zijn van een beperkt aantal virtuele machines met de server-exemplaren van hun SAP-toepassing.
+    Potentiële geplande of niet-geplande niet-beschik baarheid van een Azure-fout of een upgrade domein veroorzaakt niet-beschik baarheid van een beperkt aantal Vm's met de SAP-toepassings server exemplaren.
 
-    Elk SAP-server-exemplaar wordt geplaatst in een eigen Azure storage-account. De mogelijke onbeschikbaarheid van een Azure storage-account zorgt ervoor dat het ontbreken van slechts één virtuele machine met de server-exemplaar van SAP-toepassing. Let echter dat er een limiet voor het aantal Azure storage-accounts binnen één Azure-abonnement geldt. Om ervoor te zorgen een ASCS/SCS-exemplaar automatisch wordt gestart nadat de virtuele machine opnieuw is opgestart, stelt u de parameter automatisch starten in de ASCS/SCS-exemplaar start-profiel dat wordt beschreven in de [Autostart voor SAP-exemplaren met behulp van][planning-guide-11.5] sectie.
+    Elk SAP-toepassings Server exemplaar wordt in een eigen Azure-opslag account geplaatst. De potentiële niet-beschik baarheid van één Azure Storage-account leidt ertoe dat er niet meer dan één VM met het SAP Application Server-exemplaar niet beschikbaar is. Houd er echter rekening mee dat er een limiet is voor het aantal Azure Storage-accounts binnen één Azure-abonnement. Om ervoor te zorgen dat een ASCS/SCS-exemplaar automatisch wordt gestart nadat de VM opnieuw is opgestart, stelt u de para meter autostart in het start profiel ASCS/SCS-instantie in dat wordt beschreven in de sectie [using auto start for SAP instances][planning-guide-11.5] .
   
-    Zie voor meer informatie, [hoge beschikbaarheid voor SAP-toepassingsservers][planning-guide-11.4.1].
+    Zie [hoge Beschik baarheid voor SAP-toepassings servers][planning-guide-11.4.1]voor meer informatie.
 
-    Zelfs als u beheerde schijven gebruikt, worden de schijven worden opgeslagen in Azure storage-account en is mogelijk niet beschikbaar in het geval van een storing in de opslag.
+    Zelfs als u beheerde schijven gebruikt, worden de schijven opgeslagen in een Azure-opslag account en zijn deze mogelijk niet beschikbaar in het geval van een storing in de opslag.
 
-* *Hogere beschikbaarheid* van SAP ASCS/SCS-instanties
+* *Hogere Beschik baarheid* van SAP ASCS/SCS-instanties
 
-    In dit scenario kan gebruikmaken van Azure-VM opnieuw opstarten om de VM met de geïnstalleerde SAP ASCS/SCS-exemplaar te beveiligen. Virtuele machines worden in het geval van een geplande of niet-geplande uitvaltijd van Azure-servers, opnieuw gestart op een andere beschikbare server. Zoals eerder vermeld, beveiligt Azure virtuele machine opnieuw opstarten voornamelijk VM's en *niet* toepassingen, in dit geval in de ASCS/SCS-exemplaar. Via de virtuele machine opnieuw wordt opgestart, moet u indirect 'hogere beschikbaarheid' van de SAP ASCS/SCS-exemplaar bereiken. 
+    In dit scenario maakt u gebruik van Azure VM opnieuw opstarten om de virtuele machine te beveiligen met het geïnstalleerde SAP ASCS/SCS-exemplaar. In het geval van geplande of ongeplande downtime van Azure-servers, worden Vm's opnieuw gestart op een andere beschik bare server. Zoals eerder vermeld, beveiligt Azure VM restart voornamelijk Vm's en *niet* -toepassingen, in dit geval de ASCS/SCS-instantie. Door de VM opnieuw op te starten, bereikt u indirect ' hogere Beschik baarheid ' van het SAP ASCS/SCS-exemplaar. 
 
-    Om ervoor te zorgen een ASCS/SCS-exemplaar automatisch wordt gestart nadat de virtuele machine opnieuw is opgestart, stelt u de parameter automatisch starten in het profiel van de start in de ASCS/SCS-exemplaar, zoals beschreven in de [Autostart voor SAP-exemplaren met behulp van][planning-guide-11.5] sectie. Deze instelling betekent dat de beschikbaarheid van de gehele SAP-landschap wordt bepaald door de ASCS/SCS-exemplaar als een single point of failure (SPOF) die worden uitgevoerd in een enkele virtuele machine.
+    Om ervoor te zorgen dat het ASCS/SCS-exemplaar na het opnieuw opstarten van de VM automatisch wordt gestart, stelt u de para meter autostart in het start profiel ASCS/SCS instance in, zoals wordt beschreven in de sectie [using auto start for SAP instances][planning-guide-11.5] . Met deze instelling wordt de beschik baarheid van het hele SAP-landschap bepaald door het ASCS/SCS-exemplaar als een Single Point of Failure (SPOF) dat wordt uitgevoerd in één virtuele machine.
 
-* *Hogere beschikbaarheid* van de DBMS-server
+* *Hogere Beschik baarheid* van de DBMS-server
 
-    Use-case zoals in de voorgaande SAP ASCS/SCS-exemplaar, gebruikmaken van Azure-VM opnieuw opstarten ter bescherming van de virtuele machine met geïnstalleerde software die DBMS-systemen en u bereiken "hogere beschikbaarheid' van de DBMS-software via de virtuele machine opnieuw opstarten.
+    Net zoals in de voor gaande SAP ASCS/SCS instance use case gebruikt u Azure VM restart om de VM te beschermen met geïnstalleerde DBMS-software, en kunt u een hogere Beschik baarheid van DBMS-software bezorgen door de VM opnieuw op te starten.
   
-    DBMS-systemen die worden uitgevoerd in een enkele virtuele machine is ook een SPOF en is de doorslaggevend factor voor de beschikbaarheid van de gehele SAP-landschap.
+    Een DBMS dat wordt uitgevoerd in één virtuele machine is ook een SPOF en is de afsluitende factor voor de beschik baarheid van het hele SAP-landschap.
 
-## <a name="using-autostart-for-sap-instances"></a>Met behulp van automatisch starten voor SAP-exemplaren
-SAP biedt een instelling waarmee u SAP instanties starten direct nadat het begin van het besturingssysteem in de virtuele machine. De instructies zijn gedocumenteerd in SAP Knowledge Base-artikel [1909114]. Echter niet meer raadt het gebruik van de instelling voor SAP, omdat deze niet is toegestaan besturingselement van het einde van exemplaar opnieuw wordt opgestart als meer dan één virtuele machine wordt beïnvloed of als meerdere exemplaren per VM worden uitgevoerd. 
+## <a name="using-autostart-for-sap-instances"></a>Automatisch starten voor SAP-instanties gebruiken
+SAP biedt een instelling waarmee u direct na het starten van het besturings systeem in de virtuele machine SAP-instanties kunt starten. De instructies worden beschreven in het SAP Knowledge Base-artikel [1909114]. SAP raadt het gebruik van de instelling echter niet meer aan, omdat het niet is toegestaan de volg orde van de instantie opnieuw op te starten als meer dan één virtuele machine wordt beïnvloed of als er meerdere exemplaren worden uitgevoerd per VM. 
 
-Ervan uitgaande dat een typische Azure scenario van één SAP application server-exemplaar in een virtuele machine en een enkele virtuele machine uiteindelijk ophalen opnieuw wordt opgestart, het automatisch starten is niet kritiek. Maar u kunt deze inschakelen door de volgende parameter toe te voegen in het profiel van het begin van de instantie van SAP Advanced Business Application Programming (ABAP) of Java:
+Als een typisch Azure-scenario van één SAP-toepassings Server exemplaar in een VM en één VM uiteindelijk opnieuw wordt gestart, is automatisch starten niet essentieel. Maar u kunt dit inschakelen door de volgende para meter toe te voegen aan het begin Profiel van de SAP Advanced Business Application Programming (ABAP) of Java-instantie:
 
       Autostart = 1
 
 
   > [!NOTE]
-  > De parameter Autostart heeft bepaalde tekortkomingen ook. De parameter wordt met name het begin van een instantie van SAP ABAP- of Java geactiveerd wanneer de bijbehorende Windows- of Linux-service van het exemplaar wordt gestart. Dat gebeurt wanneer het besturingssysteem wordt opgestart. Echter, opnieuw opstarten van de SAP-services zijn ook vaak het geval voor levenscyclusbeheer van SAP-Software-functionaliteit, zoals Software Update Manager (som) of andere updates of upgrades. Deze functies zijn niet verwacht door een exemplaar automatisch opnieuw opgestart. De parameter Autostart moet daarom worden uitgeschakeld voordat u deze taken uitvoert. De parameter Autostart moet ook niet worden gebruikt voor SAP-instanties die zijn geclusterd, zoals ASCS/SCS/CI.
+  > De auto start-para meter heeft ook bepaalde tekortkomingen. Met name de para meter activeert het starten van een SAP-ABAP of Java-exemplaar wanneer de gerelateerde Windows-of Linux-service van het exemplaar wordt gestart. Deze volg orde treedt op wanneer het besturings systeem wordt opgestart. Het opnieuw starten van SAP-Services is echter ook een veelvoorkomende instantie voor de beheer functionaliteit voor SAP-software levenscyclus, zoals software update manager (SUM) of andere updates of upgrades. In deze functies wordt niet verwacht dat een exemplaar automatisch opnieuw wordt gestart. Daarom moet de para meter autostart worden uitgeschakeld voordat u deze taken uitvoert. De para meter automatisch starten mag ook niet worden gebruikt voor SAP-instanties die zijn geclusterd, zoals ASCS/SCS/CI.
   >
   >
 
-  Zie de volgende artikelen voor meer informatie over het automatisch starten voor SAP-exemplaren:
+  Zie de volgende artikelen voor meer informatie over het automatisch starten van SAP-exemplaren:
 
-  * [Starten of stoppen van SAP samen met uw Unix Server starten/stoppen](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
-  * [Starten en stoppen van SAP NetWeaver-beheeragents](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
-  * [Het inschakelen van automatisch starten van de HANA-database](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
+  * [Het starten of stoppen van SAP samen met de UNIX-server starten of stoppen](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
+  * [SAP NetWeaver-beheer agenten starten en stoppen](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de volledige SAP NetWeaver toepassingsbewuste hoge beschikbaarheid [SAP-toepassing voor hoge beschikbaarheid op Azure IaaS][sap-high-availability-architecture-scenarios-sap-app-ha].
+Zie voor meer informatie over de volledige Beschik baarheid van de toepassings bewuste SAP net-Weaver [in azure IaaS de hoge Beschik baarheid van SAP-toepassingen][sap-high-availability-architecture-scenarios-sap-app-ha].

@@ -8,17 +8,15 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 18615cf737eedcd188fd59d2aa98482210b9333a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc614626131236361246664a1bcef34f82b54ec5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991594"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848468"
 ---
 # <a name="expressroute-virtual-network-gateway-and-fastpath"></a>Virtuele ExpressRoute-netwerkgateway en FastPath
-Als u wilt verbinding maken met uw Azure-netwerk en uw on-premises netwerk via ExpressRoute, moet u eerst een virtuele netwerkgateway maken. Een virtuele netwerkgateway heeft een tweeledig doel: exchange IP-routes tussen de netwerken en netwerkverkeer routeren. In dit artikel wordt uitgelegd gatewaytypen, gateway-SKU's en geschatte prestatieverbetering SKU. Dit artikel wordt ook uitgelegd ExpressRoute [FastPath](#fastpath), een functie waarmee het netwerkverkeer van uw on-premises netwerk om over te slaan van de gateway van het virtuele netwerk om prestaties te verbeteren.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Als u uw virtuele Azure-netwerk en uw on-premises netwerk wilt verbinden via ExpressRoute, moet u eerst een virtuele netwerk gateway maken. Een virtuele netwerk gateway fungeert twee doelen: IP-routes uitwisselen tussen de netwerken en netwerk verkeer routeren. In dit artikel worden de gateway typen, gateway-Sku's en geschatte prestaties per SKU uitgelegd. In dit artikel wordt ook ExpressRoute [FastPath](#fastpath)beschreven, een functie waarmee het netwerk verkeer van uw on-premises netwerk wordt omzeild om de virtuele netwerk gateway te omzeilen om de prestaties te verbeteren.
 
 ## <a name="gateway-types"></a>Gatewaytypen
 
@@ -33,7 +31,7 @@ Elk virtueel netwerk kan maar één virtuele netwerkgateway per type gateway heb
 ## <a name="gwsku"></a>Gateway-SKU's
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-Als u upgraden van uw gateway naar een krachtigere gateway-SKU wilt, in de meeste gevallen kunt u de 'Resize-AzVirtualNetworkGateway' PowerShell-cmdlet. Dit werkt voor upgrades naar Standard en HighPerformance-SKU's. Echter, om te upgraden naar de SKU UltraPerformance, moet u de gateway opnieuw maken. Opnieuw maken van een gateway veroorzaakt uitvaltijd.
+Als u uw gateway wilt bijwerken naar een krachtigere gateway-SKU, kunt u in de meeste gevallen de Power shell-cmdlet ' resize-AzVirtualNetworkGateway ' gebruiken. Dit werkt voor upgrades naar Standard en HighPerformance-SKU's. Echter, om te upgraden naar de SKU UltraPerformance, moet u de gateway opnieuw maken. Opnieuw maken van een gateway veroorzaakt uitvaltijd.
 
 ### <a name="aggthroughput"></a>Geschatte prestaties per gateway-SKU
 De volgende tabel ziet u de gatewaytypen en de geschatte prestaties. Deze tabel is van toepassing op de Resource Manager en de klassieke implementatiemodellen.
@@ -60,13 +58,13 @@ Zone-redundante gateways specifieke nieuwe gateway-SKU's voor ExpressRoute-gatew
 De nieuwe gateway-SKU's ondersteunen ook andere implementatie-opties om het beste aan uw behoeften te voldoen. Bij het maken van een virtuele netwerkgateway met behulp van de nieuwe gateway-SKU's, hebt u ook de mogelijkheid om de gateway in een specifieke zone te implementeren. Dit is een zonegebonden gateway genoemd. Wanneer u een zonegebonden gateway implementeert, worden alle exemplaren van de gateway in dezelfde Beschikbaarheidszone geïmplementeerd.
 
 ## <a name="fastpath"></a>FastPath
-ExpressRoute-gateway voor virtueel netwerk is ontworpen voor netwerkroutes uitwisselen en netwerkverkeer te routeren. FastPath is ontworpen voor het verbeteren van de prestaties voor het pad van gegevens tussen uw on-premises netwerk en het virtuele netwerk. Wanneer dit is ingeschakeld, verzendt FastPath netwerkverkeer rechtstreeks naar virtuele machines in het virtuele netwerk, overslaan van de gateway. 
+ExpressRoute virtuele netwerk gateway is ontworpen voor het uitwisselen van netwerk routes en het routeren van netwerk verkeer. FastPath is ontworpen om de prestaties van het gegevenspad tussen uw on-premises netwerk en het virtuele netwerk te verbeteren. Als deze functie is ingeschakeld, verzendt FastPath netwerk verkeer rechtstreeks naar virtuele machines in het virtuele netwerk, waarbij de gateway wordt omzeild. 
 
-FastPath is beschikbaar op [ExpressRoute Direct](expressroute-erdirect-about.md) alleen. Met andere woorden, kunt u deze functie alleen als u [verbinding maken met uw virtuele netwerk](expressroute-howto-linkvnet-arm.md) aan een ExpressRoute-circuit dat is gemaakt op de poort van een ExpressRoute-Direct. FastPath is nog steeds vereist voor een virtuele netwerkgateway moet worden gemaakt voor het uitwisselen van routes tussen virtuele netwerken en on-premises netwerk. De virtuele netwerkgateway moet Ultra-Performance of ErGw3AZ.
+FastPath is alleen beschikbaar op [ExpressRoute direct](expressroute-erdirect-about.md) . Met andere woorden, u kunt deze functie alleen inschakelen als u [het virtuele netwerk verbindt](expressroute-howto-linkvnet-arm.md) met een ExpressRoute-circuit dat is gemaakt op een ExpressRoute-directe poort. FastPath moet nog een virtuele netwerk gateway maken voor het uitwisselen van routes tussen het virtuele netwerk en het on-premises netwerk. De gateway van het virtuele netwerk moet Ultra Performance of ErGw3AZ zijn.
 
 FastPath biedt geen ondersteuning voor de volgende functies:
-* UDR op het gatewaysubnet: als u een UDR van toepassing op het gatewaysubnet van uw virtuele netwerk dat het netwerkverkeer van uw on-premises netwerk worden verzonden naar de virtuele netwerkgateway wordt voortgezet.
-* VNet-Peering: als u beschikt over andere virtuele netwerken gekoppeld aan de map die is verbonden met ExpressRoute, het netwerkverkeer van uw on-premises netwerk naar de andere virtuele netwerken (dat wil zeggen de zogeheten 'Knooppunt' vnet's blijft) worden verzonden naar het virtuele netwerk gateway. De tijdelijke oplossing is voor de virtuele netwerken aan ExpressRoute-circuit rechtstreeks verbinding te maken.
+* UDR op Gateway-subnet: als u een UDR toepast op het gateway-subnet van het virtuele netwerk, wordt het netwerk verkeer van uw on-premises netwerk naar de gateway van het virtuele netwerk verzonden.
+* VNet-peering: als u andere virtuele netwerken hebt die zijn gekoppeld aan het netwerk verkeer van uw on-premises netwerk naar de andere virtuele netwerken (dat wil zeggen de zogenaamde ' spoke ' VNets), blijven worden verzonden naar het virtuele netwerk. #b0. De tijdelijke oplossing is om alle virtuele netwerken rechtstreeks aan het ExpressRoute-circuit te koppelen.
 
 ## <a name="resources"></a>REST-API's en PowerShell-cmdlets
 Zie voor aanvullende technische bronnen en de syntaxis van de specifieke vereisten bij het gebruik van REST-API's en PowerShell-cmdlets voor configuraties van virtuele gateway, de volgende pagina's:

@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98c04c50bc4a52e9b2e4e267895fdd94888885f5
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: e76a747f7e1d7ca7056edf5b69df0677aeff96a1
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775166"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856002"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>Scikit bouwen-modellen op schaal leren met Azure Machine Learning service
 
@@ -35,8 +35,8 @@ Voer deze code uit in een van de volgende omgevingen:
 
  - Uw eigen Jupyter Notebook-server
 
-    - [De Azure Machine Learning SDK voor python installeren](setup-create-workspace.md#sdk)
-    - [Een configuratie bestand voor een werk ruimte maken](setup-create-workspace.md#write-a-configuration-file)
+    - [Installeer de Azure machine learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    - [Maak een configuratie bestand voor de werk ruimte](how-to-configure-environment.md#workspace).
     - Het gegevensset-en voorbeeld script bestand downloaden 
         - [Iris gegevensset](https://archive.ics.uci.edu/ml/datasets/iris)
         - [`train_iris.py`](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn)
@@ -133,7 +133,7 @@ Zie voor meer informatie over Compute-doelen het artikel [Wat is een reken doel]
 
 ## <a name="create-a-scikit-learn-estimator"></a>Een scikit maken-leer estimator
 
-De [scikit-Learn Estimator](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) biedt een eenvoudige manier om een scikit-training-trainings taak te starten op een compute-doel. Het wordt geïmplementeerd via de [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) klasse, die kan worden gebruikt voor de ondersteuning van CPU-training met één knoop punt.
+De [scikit-Learn Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) biedt een eenvoudige manier om een scikit-training-trainings taak te starten op een compute-doel. Het wordt geïmplementeerd via de [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) klasse, die kan worden gebruikt voor de ondersteuning van CPU-training met één knoop punt.
 
 Als uw trainings script extra PIP-of Conda-pakketten nodig heeft om uit te voeren, kunt u de pakketten op de resulterende docker-installatie kopie installeren `pip_packages` door `conda_packages` hun namen door te geven via de argumenten en.
 

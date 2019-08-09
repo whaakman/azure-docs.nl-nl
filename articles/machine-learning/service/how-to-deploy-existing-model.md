@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/19/2019
-ms.openlocfilehash: 4534f7e5bba2e34316be3376e2627c15c20ba81f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: cbbfd5f7beb7270bf55e952c818b4802d9d9ecab
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694371"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847996"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning-service"></a>Een bestaand model gebruiken met Azure Machine Learning service
 
@@ -32,14 +32,14 @@ Als u een machine learning model hebt dat is getraind buiten de Azure Machine Le
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een werkruimte van Azure Machine Learning-service. Zie [een werk ruimte maken](setup-create-workspace.md)voor meer informatie.
+* Een werkruimte van Azure Machine Learning-service. Zie [een werk ruimte maken](how-to-manage-workspace.md)voor meer informatie.
 
     > [!TIP]
     > In de python-voor beelden in dit artikel `ws` wordt ervan uitgegaan dat de variabele is ingesteld op uw Azure machine learning service-werk ruimte.
     >
     > De CLI-voor beelden gebruiken een `myworkspace` tijdelijke `myresourcegroup`aanduiding van en. Vervang deze door de naam van uw werk ruimte en de resource groep waarin deze zich bevindt.
 
-* De Azure Machine Learning SDK. Zie de sectie python SDK van [een werk ruimte maken](setup-create-workspace.md#sdk)voor meer informatie.
+* De [Azure machine learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
 * De [Azure cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) -en [machine learning cli-extensie](reference-azure-machine-learning-cli.md).
 

@@ -1,7 +1,6 @@
 ---
-title: Azure Data Lake Storage Gen2 hiërarchische Namespace
-description: Beschrijving van het concept van de hiërarchische naamruimte voor Azure Data Lake Storage Gen2
-services: storage
+title: Hiërarchische naam ruimte Azure Data Lake Storage Gen2
+description: Hierin wordt het concept van de hiërarchische naam ruimte voor Azure Data Lake Storage Gen2 beschreven
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -9,39 +8,39 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: e0d888db5f8de137783a3f9282ca7f85d8a30fc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b98892bd31b097e3dc217d54f52f12550599d32
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939445"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847144"
 ---
-# <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 hiërarchische naamruimte
+# <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Hiërarchische naam ruimte Azure Data Lake Storage Gen2
 
-Een mechanisme waarmee Azure Data Lake Storage Gen2 voor prestaties op schaal van de opslag van object en de prijzen van het bestandssysteem is de toevoeging van een **hiërarchische naamruimte**. Hiermee wordt de verzameling van objecten/bestanden binnen een account om te worden ingedeeld in een hiërarchie van mappen en geneste submappen op dezelfde manier als dat het bestandssysteem op uw computer is ingedeeld. Met de hiërarchische naamruimte die is ingeschakeld, wordt een opslagaccount kan de schaalbaarheid en rentabiliteit van objectopslag, voorzien van semantiek van het bestandssysteem die bekend bij de analyse-engines en frameworks zijn.
+Een belang rijk mechanisme waarmee Azure Data Lake Storage Gen2 bestandssysteem prestaties kan bieden bij het schalen van object opslag en prijzen is de toevoeging van een **hiërarchische naam ruimte**. Hierdoor kan de verzameling van objecten/bestanden binnen een account worden georganiseerd in een hiërarchie van directory's en geneste submappen op dezelfde manier als het bestands systeem op uw computer is ingedeeld. Als de hiërarchische naam ruimte is ingeschakeld, wordt een opslag account in staat gesteld om de schaal baarheid en kosten effectiviteit van object opslag te bieden, met bestandssysteem semantiek die bekend zijn met analyse-engines en frameworks.
 
-## <a name="the-benefits-of-the-hierarchical-namespace"></a>De voordelen van de hiërarchische naamruimte
+## <a name="the-benefits-of-the-hierarchical-namespace"></a>De voor delen van de hiërarchische naam ruimte
 
-De volgende voordelen zijn gekoppeld aan bestandssystemen die een hiërarchische naamruimte worden geïmplementeerd via blob-gegevens:
+De volgende voor delen zijn gekoppeld aan bestands systemen die een hiërarchische naam ruimte implementeren via BLOB-gegevens:
 
-- **Atomische directory bewerken:** Object winkels schatting maken van een directory-hiërarchie door een overeenkomst voor het insluiten van schuine streep (/) in de objectnaam om aan te duiden padsegmenten vast te stellen. Deze overeenkomst werkt voor het ordenen van objecten, biedt de overeenkomst geen ondersteuning voor bewerkingen zoals het verplaatsen, naam wijzigen of verwijderen van mappen. Zonder echte mappen moeten toepassingen verwerken mogelijk miljoenen afzonderlijke blobs om taken op het niveau van de directory. De hiërarchische naamruimte worden deze taken, daarentegen, verwerkt door het bijwerken van een afzonderlijke vermelding (de bovenliggende map).
+- **Atomic Directory-manipulatie:** Het object slaat een Directory-hiërarchie in een benadering op door een Conventie voor het insluiten van slashes (/) in de object naam in te stellen om padsegmenten aan te duiden. Hoewel deze Conventie werkt voor het organiseren van objecten, biedt de Conventie geen hulp voor acties zoals verplaatsen, naam wijzigen of verwijderen van mappen. Zonder echte directory's moeten toepassingen mogelijk miljoenen afzonderlijke blobs verwerken om taken op Directory niveau te verzorgen. Daarentegen worden deze taken door de hiërarchische naam ruimte verwerkt door één vermelding (de bovenliggende map) bij te werken.
 
-    Deze indrukwekkende optimalisatie is met name belangrijk voor veel big data analytics-frameworks. Hulpprogramma's, zoals Hive, Spark, enz. vaak uitvoer schrijven naar tijdelijke locaties en vervolgens de naam van de locatie aan het einde van de taak. Zonder de hiërarchische naamruimte, kan deze naam vaak langer duren dan de analytics-proces zelf. Lagere latentie van de taak is gelijk aan lagere totale eigendomskosten (TCO) voor werkbelastingen voor gegevensanalyse.
+    Deze dramatische Optima Lise ring is met name van belang voor veel big data Analytics-frameworks. Hulpprogram ma's als Hive, Spark, enzovoort schrijven vaak uitvoer naar tijdelijke locaties en de naam van de locatie aan het einde van de taak. Zonder de hiërarchische naam ruimte kan deze naam vaak langer duren dan het analytische proces zelf. De lagere taak latentie is gelijk aan de lagere total cost of ownership (TCO) voor analyse werkbelastingen.
 
-- **Stijl van de vertrouwde-Interface:** Bestandssystemen worden goed begrepen door ontwikkelaars en gebruikers. Er is niet nodig voor meer informatie over een nieuwe opslag paradigma wanneer u naar de cloud verplaatst, omdat de bestand system interface beschikbaar is gemaakt door Data Lake Storage Gen2 het dezelfde paradigma die door computers, grote als kleine volumes is.
+- **Vertrouwde interface stijl:** Bestands systemen zijn duidelijk van toepassing op ontwikkel aars en gebruikers. Het is niet nodig om een nieuw opslag paradigma te leren wanneer u naar de Cloud gaat als de bestandssysteem interface die wordt weer gegeven door Data Lake Storage Gen2, hetzelfde paradigma is dat wordt gebruikt door computers, groot en klein.
 
-Een van de redenen dat object winkels een hiërarchische naamruimte in het verleden nog niet ondersteund is dat een hiërarchische naamruimte schaal beperkt. De Data Lake Storage Gen2 hiërarchische naamruimte zijn echter schaalt lineair en geen nadelige invloed op de gegevenscapaciteit- of Prestatieweergave.
+Een van de redenen waarom object archieven niet historisch worden ondersteund een hiërarchische naam ruimte is dat een hiërarchische naam ruimte limiet schaalbaar is. De Data Lake Storage Gen2 hiërarchische naam ruimte schaalt echter lineair en verlaagt niet de capaciteit of de prestaties van de gegevens.
 
-## <a name="when-to-enable-the-hierarchical-namespace"></a>Bij het inschakelen van de hiërarchische naamruimte
+## <a name="when-to-enable-the-hierarchical-namespace"></a>Wanneer de hiërarchische naam ruimte inschakelen
 
-Het is raadzaam dat u de hiërarchische naamruimte voor de opslag-werkbelastingen die zijn ontworpen voor bestandssystemen die mappen bewerken inschakelen. Dit omvat alle werkbelastingen die voornamelijk voor analyseverwerking. Gegevenssets waarvoor een hoge mate van de organisatie profiteren ook doordat de hiërarchische naamruimte.
+U wordt aangeraden de hiërarchische naam ruimte in te scha kelen voor werk belastingen voor opslag die zijn ontworpen voor bestands systemen waarmee directory's worden gemanipuleerd. Dit omvat alle werk belastingen die hoofd zakelijk voor analyse verwerking zijn. Gegevens sets die een hoge mate van organisatie vereisen, hebben ook voor deel door de hiërarchische naam ruimte in te scha kelen.
 
-De redenen voor het inschakelen van de hiërarchische naamruimte worden bepaald door een TCO-analyse. Verbeteringen in de workload latentie vanwege storage acceleration moet in het algemeen, compute-resources voor minder tijd. Latentie voor veel werkbelastingen kan worden verbeterd vanwege atomic directory-manipulaties die is ingeschakeld door de hiërarchische naamruimte. In veel werkbelastingen staat > 85% van de totale kosten voor de compute-resource en zelfs een matige vermindering van de werkbelasting latentie komt overeen met een aanzienlijke hoeveelheid TCO-besparingen. De totale Eigendomskosten is zelfs in gevallen waar de hiërarchische naamruimte inschakelen verhoogt de kosten voor opslag, nog steeds het vanwege de verminderde computerkosten verlaagd.
+De redenen voor het inschakelen van de hiërarchische naam ruimte worden bepaald door een TCO-analyse. Over het algemeen moeten de verbeteringen in de latentie van de werk belasting vanwege de opslag versnelling minder tijd in beslag nemen. Een latentie voor veel werk belastingen kan worden verbeterd vanwege een Atomic-Directory bewerking die is ingeschakeld door de hiërarchische naam ruimte. In veel werk belastingen vertegenwoordigt de reken Resource > 85% van de totale kosten, waardoor zelfs een bescheiden verkleinings latentie gelijk is aan een aanzienlijke besparing van de totale eigendoms kosten. Zelfs in gevallen waarin het inschakelen van de hiërarchische naam ruimte de opslag kosten verhoogt, wordt de TCO nog steeds verlaagd door lagere reken kosten.
 
-## <a name="when-to-disable-the-hierarchical-namespace"></a>Wanneer u de hiërarchische naamruimte uitschakelen
+## <a name="when-to-disable-the-hierarchical-namespace"></a>Wanneer de hiërarchische naam ruimte uitschakelen
 
-Sommige werkbelastingen van de store object kunnen niet een voordeel krijgen doordat de hiërarchische naamruimte. Voorbeelden zijn onder meer back-ups, afbeeldingopslag en andere toepassingen waar object organisatie afzonderlijk van de objecten zelf opgeslagen (bijvoorbeeld: in een afzonderlijke database).
+Sommige werk belastingen van een object archief kunnen geen voor deel verwerven door de hiërarchische naam ruimte in te scha kelen. Voor beelden zijn onder meer back-ups, opslag van installatie kopieën en andere toepassingen waarbij object organisaties onafhankelijk van de objecten zelf worden opgeslagen (bijvoorbeeld: in een afzonderlijke data base).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een opslagaccount maken](./data-lake-storage-quickstart-create-account.md)
+- [Een opslag account maken](./data-lake-storage-quickstart-create-account.md)

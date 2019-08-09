@@ -1,6 +1,6 @@
 ---
-title: Web-API die downstream aanroept web-API's (overzicht) - Microsoft identity-platform
-description: Meer informatie over het bouwen van een web-API die downstream web-aanroepen van API's (overzicht).
+title: Web-API die downstream Web-Api's (overzicht) aanroept-micro soft Identity-platform
+description: Meer informatie over het bouwen van een web-API die downstream Web-Api's (overzicht) aanroept.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,34 +13,34 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 497134b7f3cc535f7b3f180db13cd04ef56787db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ef9fc121b16d81eed932d1ab55ca38d2a2f1057
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65075398"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852503"
 ---
 # <a name="scenario-web-api-that-calls-web-apis"></a>Scenario: Web-API die web-API's aanroept
 
-Meer informatie over alle moet u een web-API bouwen die worden aangeroepen web-API's.
+Meer informatie over wat u nodig hebt om een web-API te maken die web-Api's aanroept.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit scenario, beveiligde web-API aanroepen van web-API's, dat voortbouwt op het scenario 'Een web-API beveiligen'. Zie voor meer informatie over deze fundamentele scenario, [beveiligd Web API - Scenario](scenario-protected-web-api-overview.md) eerste.
+In dit scenario wordt de beveiligde web-API voor het aanroepen van web-Api's gebaseerd op het scenario ' een web-API beveiligen '. Zie voor meer informatie over dit kern scenario de [beveiligde web API-scenario](scenario-protected-web-api-overview.md) .
 
 ## <a name="overview"></a>Overzicht
 
-- Een client (web, desktop, mobiel apparaat, of één pagina application) - niet weergegeven op het onderstaande diagram - een beveiligde web-API-aanroepen en biedt een JWT bearer-token in de "Autorisatie" Http-header.
-- De beveiligde web-API valideert het token en maakt gebruik van de MSAL `AcquireTokenOnBehalfOf` methode om aan te vragen (vanuit Azure AD) een ander token zodat deze kunnen zelf, aanroepen van een tweede web-API (met de naam van de downstream web-API) namens de gebruiker.
-- De beveiligde web-API maakt gebruik van dit token een downstream-API aan te roepen. Kan ook worden aangeroepen `AcquireTokenSilent`later aanvragen van tokens voor andere downstream-API's (maar nog steeds namens de gebruiker). `AcquireTokenSilent` Hiermee vernieuwt u de token wanneer dat nodig is.
+- Een client (Web-, Desktop-, mobiele of toepassing met één pagina)-wordt niet weer gegeven in het onderstaande diagram: roept een beveiligde web-API aan en biedt een JWT Bearer-token in de http-header autorisatie.
+- De beveiligde web-API valideert het token en maakt gebruik `AcquireTokenOnBehalfOf` van de methode MSAL om een andere token te aanvragen (vanuit Azure AD), zodat het zelf een tweede Web-API (de downstream Web-API) kan aanroepen namens de gebruiker.
+- De beveiligde web-API gebruikt dit token om een downstream API aan te roepen. Het kan ook later `AcquireTokenSilent`aanroepen om tokens aan te vragen voor andere downstream-api's (maar nog steeds namens dezelfde gebruiker). `AcquireTokenSilent`Hiermee wordt het token vernieuwd wanneer dit nodig is.
 
-![Web-API aanroepen van een web-API](media/scenarios/web-api.svg)
+![Web-API die een web-API aanroept](media/scenarios/web-api.svg)
 
-## <a name="specifics"></a>Specifieke informatie
+## <a name="specifics"></a>Opsporingsgegevens
 
-Het deel van de app-registratie met betrekking tot de API-machtigingen is klassieke. Configuratie van de toepassing omvat het gebruik van de OAuth 2.0-namens-stroom voor het uitwisselen van het JWT bearer-token op basis van een token voor een downstream-API. Dit token wordt toegevoegd aan de tokencache, waar het is beschikbaar in de web-API van domeincontrollers en een token op de achtergrond om aan te roepen downstream API's kunt ophalen.
+Het deel van de registratie van de app met betrekking tot de API-machtigingen is klassiek. De configuratie van de toepassing omvat het gebruik van de OAuth 2,0-stroom om het JWT Bearer-token uit te wisselen op basis van een token voor een stroomafwaartse API. Dit token wordt toegevoegd aan de token cache, waar deze beschikbaar is in de controller van de Web-API, en kan een token op de achtergrond verkrijgen om downstream-Api's aan te roepen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

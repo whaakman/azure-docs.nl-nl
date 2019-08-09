@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 2756444db010e23f7114e99f474de9ce6614aaee
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 27d5dcc99db040036ba296911aa33d8a312bb23f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837918"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851512"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>De nieuwe ontwikkelaars Portal openen en aanpassen in azure API Management
 
@@ -95,10 +95,6 @@ Een *indeling* wordt toegepast op een pagina door te voldoen aan de URL-sjabloon
 ### <a name="why-doesnt-the-interactive-developer-console-work"></a>Waarom werkt de interactieve ontwikkelaars console niet?
 
 Het is waarschijnlijk gerelateerd aan CORS. De interactieve console maakt een API aan de client zijde via de browser. U kunt het CORS-probleem oplossen door [een CORS-beleid](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) toe te voegen aan uw API (s). U kunt alle para meters hand matig opgeven (bijvoorbeeld oorsprong als https://contoso.com) of een Joker teken `*` waarde gebruiken.
-
-### <a name="where-can-i-file-bugs"></a>Waar kan ik fouten in het bestand opslaan?
-
-[In de GitHub-opslag plaats](http://aka.ms/apimdevportal).
 
 ## <a name="next-steps"></a>Volgende stappen
 

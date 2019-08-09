@@ -1,6 +1,6 @@
 ---
-title: Daemon-app aanroepen van web API's (overzicht) - Microsoft identity-platform
-description: Informatie over het bouwen van een daemon-app die web-API's aanroepen
+title: Daemon-app die web-Api's aanroept (overzicht)-micro soft Identity-platform
+description: Meer informatie over het bouwen van een daemon-app die web-Api's aanroept
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 578b7cdb38b7df3fab5885d773354a36f76a4cfb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b86841cc6889eb8e716df3f6d1ac9bc7b158992
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65075878"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852728"
 ---
-# <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenario: Daemon-toepassing die aanroepen van web-API 's
+# <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenario: Daemon-toepassing die web-Api's aanroept
 
-Meer informatie over alles die wat u nodig om een daemontoepassing die web-API's aanroept te bouwen.
+Meer informatie over wat u nodig hebt om een daemon-toepassing te bouwen die web-Api's aanroept.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,38 +33,38 @@ Meer informatie over alles die wat u nodig om een daemontoepassing die web-API's
 
 ## <a name="overview"></a>Overzicht
 
-Uw toepassing kunt verkrijgen van een token voor het aanroepen van een web-API namens zichzelf (niet namens een gebruiker). Dit scenario is handig voor toepassingen met daemon. Er wordt met behulp van de standaard OAuth 2.0 [clientreferenties](v2-oauth2-client-creds-grant-flow.md) verlenen.
+Uw toepassing kan een token verkrijgen om een web-API namens zichzelf aan te roepen (niet namens een gebruiker). Dit scenario is nuttig voor daemon-toepassingen. Het gebruikt de standaard OAuth 2,0- [client referenties](v2-oauth2-client-creds-grant-flow.md) toewijzen.
 
 ![Daemon-apps](./media/scenario-daemon-app/daemon-app.svg)
 
-Hier volgen enkele voorbeelden van use cases voor daemon-apps:
+Hier volgen enkele voor beelden van gebruiks voorbeelden voor daemon-apps:
 
-- Webtoepassingen die worden gebruikt voor het inrichten of beheren van gebruikers of batchprocessen in een map
-- Bureaubladtoepassingen zoals (windows-services op Windows) of daemons processen op Linux die batch-taken of een besturingssysteem-service wordt uitgevoerd op de achtergrond uitvoeren
-- Web-API's die nodig hebt voor het bewerken van mappen, geen specifieke gebruikers
+- Webtoepassingen die worden gebruikt voor het inrichten of beheren van gebruikers of het uitvoeren van batch processen in een directory
+- Bureaublad toepassingen (zoals Windows-Services op Windows of daemons processen op Linux) die batch-taken uitvoeren, of een besturingssysteem service die op de achtergrond wordt uitgevoerd
+- Web-Api's die directory's moeten bewerken, niet specifieke gebruikers
 
-Er is een andere gevallen waarbij niet-daemon-toepassingen clientreferenties gebruiken: zelfs wanneer ze namens gebruikers handelen, hebben ze nodig voor toegang tot een web-API of een resource met hun identiteit omwille van de technische. Een voorbeeld is de toegang tot geheimen in Key Vault of Azure SQL-database voor een cache.
+Er is een andere veelvoorkomende situatie waarbij niet-daemon-toepassingen gebruikmaken van client referenties: zelfs wanneer ze namens gebruikers handelen, moeten ze voor technische redenen toegang hebben tot een web-API of een resource met hun identiteit. Een voor beeld is toegang tot geheimen in de sleutel kluis of een Azure-SQL database voor een cache.
 
 Toepassingen die een token voor hun eigen identiteiten verkrijgen:
 
-- zijn vertrouwelijke client-toepassingen. Deze apps, gezien het feit dat ze toegang krijgen resources, onafhankelijk van een gebruiker tot nodig hebt om hun identiteit te bewijzen. Ze zich ook in plaats van gevoelige apps die ze nodig hebben om te worden goedgekeurd door de beheerders van de tenant Azure Active Directory (Azure AD).
-- Een geheim (toepassingswachtwoord of certificaat) hebt met Azure AD worden geregistreerd. Dit geheim wordt doorgegeven in tijdens de oproep aan Azure AD om een token verkrijgen.
+- Zijn vertrouwelijke client toepassingen. Deze apps, gezien de toegang tot bronnen onafhankelijk van een gebruiker, moeten hun identiteit bewijzen. Ze zijn ook gevoelige apps, die moeten worden goedgekeurd door de Tenant beheerders van de Azure Active Directory (Azure AD).
+- Een geheim (toepassings wachtwoord of-certificaat) hebt geregistreerd bij Azure AD. Dit geheim wordt door gegeven tijdens het aanroepen van Azure AD om een token op te halen.
 
-## <a name="specifics"></a>Specifieke informatie
+## <a name="specifics"></a>Opsporingsgegevens
 
 > [!IMPORTANT]
 >
-> - Tussenkomst van de gebruiker is niet mogelijk is met een daemon-toepassing. Een daemontoepassing vereist een eigen identiteit. Dit type toepassing vraagt een toegangstoken met behulp van de toepassings-id en presenteert de toepassings-ID, de referentie (wachtwoord of certificaat) en de toepassing-ID-URI naar Azure AD. Na een geslaagde authenticatie ontvangt de daemon voor een toegangstoken (en een vernieuwingstoken) van het Microsoft identity platform eindpunt, die vervolgens wordt gebruikt voor het aanroepen van de web-API (en wordt vernieuwd, indien nodig).
-> - Omdat tussenkomst van de gebruiker niet mogelijk is, zijn incrementele toestemming niet mogelijk. Alle vereiste API-machtigingen moeten worden geconfigureerd tijdens de toepassingsregistratie en de code van de toepassing alleen statisch gedefinieerde machtigingen aanvraagt. Dit betekent ook dat daemon toepassingen incrementele toestemming wordt niet ondersteund.
+> - Gebruikers interactie is niet mogelijk met een daemon-toepassing. Een daemon-toepassing vereist een eigen identiteit. Met dit type toepassing wordt een toegangs token aangevraagd met behulp van de toepassings-ID en worden de toepassings-id's, referenties (wacht woord of certificaat) en de URI van de toepassings-ID naar Azure AD gepresenteerd. Na een geslaagde verificatie ontvangt de daemon een toegangs token (en een vernieuwings token) van het micro soft Identity platform-eind punt, dat vervolgens wordt gebruikt om de Web-API aan te roepen (en wordt vervolgens naar behoefte vernieuwd).
+> - Omdat de gebruikers interactie niet mogelijk is, is de incrementele toestemming niet mogelijk. Alle vereiste API-machtigingen moeten worden geconfigureerd bij de registratie van de toepassing en de code van de toepassing verzoekt alleen statisch gedefinieerde machtigingen. Dit betekent ook dat daemon-toepassingen geen ondersteuning bieden voor incrementele toestemming.
 
-Voor ontwikkelaars heeft de end-to-end-ervaring voor dit scenario de volgende aspecten:
+Voor ontwikkel aars heeft de end-to-end-ervaring voor dit scenario de volgende aspecten:
 
-- Daemon voor toepassingen kunnen uitsluitend worden gebruikt in Azure AD-tenants. Dit heeft geen zin om een daemontoepassing die toegang probeert te manipuleren van persoonlijke Microsoft-accounts te bouwen. Als u een line-of-business (LOB)-app-ontwikkelaar bent, kunt u uw daemon-app maken in uw tenant. Als u een ISV bent, is het raadzaam om een multitenant daemontoepassing te maken. Het moet worden gegeven door elke tenant-beheerder.
-- Tijdens de [toepassingsregistratie](./scenario-daemon-app-registration.md), wordt de **antwoord-URI** niet nodig is. U moet voor het delen van geheimen of certificaten met Azure AD en moet u toepassingsmachtigingen aanvragen en verlenen van toestemming van een beheerder om deze app-machtigingen te gebruiken.
-- De [Toepassingsconfiguratie](./scenario-daemon-app-configuration.md) moet de referenties van de client als een gedeeld met Azure AD tijdens de registratie van de toepassing opgeven.
-- De [bereik](scenario-daemon-acquire-token.md#scopes-to-request) voor het verkrijgen van een token met de referenties van de client stroom nodig heeft om te worden van een statische bereik.
+- Daemon-toepassingen kunnen alleen worden gebruikt in azure AD-tenants. Het kan zinvol zijn om een daemon-toepassing te maken die probeert persoonlijke micro soft-accounts te bewerken. Als u een LOB-app (line-of-Business) bent, maakt u uw daemon-app in uw Tenant. Als u een ISV bent, wilt u mogelijk een multi tenant-daemon-toepassing maken. Het moet worden gezonden door elke Tenant beheerder.
+- Tijdens de [registratie](./scenario-daemon-app-registration.md)van de toepassing is de **antwoord-URI** niet nodig. U moet geheimen of certificaten delen met Azure AD en u moet de machtigingen van toepassingen aanvragen en toestemming geven om deze app-machtigingen te gebruiken.
+- De [configuratie](./scenario-daemon-app-configuration.md) van de toepassing moet client referenties opgeven die worden gedeeld met Azure ad tijdens de registratie van de toepassing.
+- Het [bereik](scenario-daemon-acquire-token.md#scopes-to-request) dat wordt gebruikt om een token met de client referentie stroom te verkrijgen, moet een statisch bereik zijn.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Daemon-app - app-registratie](./scenario-daemon-app-registration.md)
+> [Daemon-app-app-registratie](./scenario-daemon-app-registration.md)

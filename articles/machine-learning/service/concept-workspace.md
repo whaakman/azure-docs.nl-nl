@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 05/21/2019
-ms.openlocfilehash: fc3f88e627e0ce19195f6df947d4f11f5f8a73ae
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.date: 08/06/2019
+ms.openlocfilehash: cb1fd8e98a5eba350774ff6ccb8f86dcd3e4d734
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772759"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856199"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>Wat is een Azure Machine Learning service-werk ruimte?
 
@@ -65,6 +65,9 @@ Machine learning-taken lezen en/of schrijven artefacten naar uw werk ruimte.
 + Machine learning artefacten weer geven, zoals experimenten, pijp lijnen, modellen en implementaties.
 + Modellen bijhouden en bewaken.
 
+
+
+
 ## <a name="workspace-management"></a>Werkruimte beheer
 
 U kunt ook de volgende beheer taken voor werk ruimten uitvoeren:
@@ -76,7 +79,14 @@ U kunt ook de volgende beheer taken voor werk ruimten uitvoeren:
 | Toegang tot de werk ruimte beheren    | **&check;**   | |  **&check;**    |
 | Een VM voor een notebook maken | **&check;**   | |     |
 
-Ga aan de slag met de service door [een werk ruimte te maken](setup-create-workspace.md).
+### <a name='create-workspace'></a>Een werk ruimte maken
+
+Er zijn meerdere manieren om een werk ruimte te maken.
+
+* Gebruik de [Azure Portal](how-to-manage-workspace.md) voor een punt-en-klik-interface om elke stap stapsgewijs te door lopen.
+* De [Azure machine learning SDK voor python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) gebruiken om een werk ruimte te maken in de vlucht vanuit Python-scripts of Jupiter-notebooks
+* Gebruik een [Azure Resource Manager sjabloon](how-to-create-workspace-template.md) of de [Azure machine learning cli](reference-azure-machine-learning-cli.md) wanneer u het maken van de zakelijke beveiligings normen wilt automatiseren of aanpassen.
+* Als u in Visual Studio code werkt, gebruikt u de [VS code-extensie](how-to-vscode-tools.md#get-started-with-azure-machine-learning).
 
 ## <a name="resources"></a>Gekoppelde resources
 
@@ -95,6 +105,6 @@ Wanneer u een nieuwe werkruimte maakt, wordt automatisch verschillende Azure-res
 Om aan de slag te gaan met Azure Machine Learning-service, raadpleegt u:
 
 + [Overzicht van Azure Machine Learning-service](overview-what-is-azure-ml.md)
-+ [Een werkruimte maken](setup-create-workspace.md)
++ [Een werkruimte maken](how-to-manage-workspace.md)
 + [Een werkruimte beheren](how-to-manage-workspace.md)
 + [Zelfstudie: een model trainen](tutorial-train-models-with-aml.md)

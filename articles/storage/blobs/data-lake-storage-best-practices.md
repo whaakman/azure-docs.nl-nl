@@ -1,20 +1,19 @@
 ---
 title: Aanbevolen procedures voor het gebruik van Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Meer informatie over de aanbevolen procedures voor gegevens opname, datum beveiliging en prestaties met betrekking tot het gebruik van Azure Data Lake Storage Gen2 (voorheen bekend als Azure Data Lake Store)
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: c1a298584b2444d52f84c0e599462bc26c63a898
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 630d8f64b39888533aff4847dec64fa50fc43d7e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302624"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855594"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Aanbevolen procedures voor het gebruik van Azure Data Lake Storage Gen2
 
@@ -40,7 +39,7 @@ Azure Active Directory service-principals worden meestal gebruikt door services 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>De Data Lake Storage Gen2 firewall inschakelen met toegang tot de Azure-service
 
-Data Lake Storage Gen2 ondersteunt de mogelijkheid om een firewall in te scha kelen en de toegang alleen te beperken tot Azure-Services. dit wordt aanbevolen om de vector van externe aanvallen te beperken. De firewall kan worden ingeschakeld voor een opslag account in de Azure portal via  > Firewall**firewall inschakelen (ingeschakeld)**  > **toegang tot opties voor Azure-Services toestaan** .
+Data Lake Storage Gen2 ondersteunt de mogelijkheid om een firewall in te scha kelen en de toegang alleen te beperken tot Azure-Services. dit wordt aanbevolen om de vector van externe aanvallen te beperken. De firewall kan worden ingeschakeld voor een opslag account in de Azure portal via > Firewall**firewall inschakelen (ingeschakeld)**  > **toegang tot opties voor Azure-Services toestaan** .
 
 Om toegang te krijgen tot uw opslag account vanuit Azure Databricks, implementeert u Azure Databricks naar uw virtuele netwerk en voegt u dat virtuele netwerk vervolgens toe aan uw firewall. Zie [Azure Storage firewalls en virtuele netwerken configureren](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 

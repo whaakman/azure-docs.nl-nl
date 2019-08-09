@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 70ba6c5507cf31732d679a61c3e185a520b4c5f3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 94894126be98f0d3d4d404d97d0a4a39fff2e665
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566673"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847394"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Veelgestelde vragen over Azure SQL grootschalige-data bases
 
@@ -44,7 +44,7 @@ De vCore-gebaseerde service lagen worden voornamelijk onderscheiden op basis van
 - De servicelaag Bedrijfskritiek is geschikt voor zakelijke workloads waarbij IO-latentie een prioriteit is.
 
 | | Resourcetype | Algemeen doel |  Grootschalig | Bedrijfskritiek |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:---:|:---:|:---:|:---:|:---:|
 | **Geschikt voor** |Alle|  De meeste zakelijke workloads. Biedt berekenings-en opslag opties voor budget gericht evenwicht. | Gegevens toepassingen met vereisten voor grote gegevens capaciteit en de mogelijkheid om opslag te schalen en de reken capaciteit vloeiender te schalen. | OLTP-toepassingen met een hoge transactie frequentie en een laagste latentie-IO. Biedt de hoogste flexibiliteit tot storingen met behulp van verschillende, geïsoleerde replica's.|
 |  **Resourcetype** ||Eén data base/elastische pool/beheerd exemplaar | Individuele database | Eén data base/elastische pool/beheerd exemplaar |
 | **Reken grootte**|Eén data base/elastische pool * | 1 tot 80 vCores | 1 tot 80 vCores * | 1 tot 80 vCores |
@@ -55,7 +55,7 @@ De vCore-gebaseerde service lagen worden voornamelijk onderscheiden op basis van
 | **IO-door Voer** | Eén data base * * | 500 IOPS per vCore met 7000 maximum aantal IOPS | Grootschalige is een architectuur met meerdere lagen met caching op meerdere niveaus. Effectief IOPs is afhankelijk van de werk belasting. | 5000 IOPS met 200.000 maximum aantal IOPS|
 | | Beheerd exemplaar | Is afhankelijk van de grootte van het bestand | N/A | Beheerd exemplaar: Is afhankelijk van de grootte van het bestand|
 |**Beschikbaarheid**|Alle|1 replica, geen lees schaal, geen lokale cache | Meerdere replica's, Maxi maal 15 Lees-en gedeeltelijke lokale cache | 3 replica's, 1 Lees bare, zone-redundante HA, volledige lokale cache |
-|**Back-ups**|Alle|RA-GRS, 7-35 dagen (standaard 7 dagen)| RA-GRS, 7-35 dagen (standaard 7 dagen), constant tijdstip herstel op tijdstip (PITR) | RA-GRS, 7-35 dagen (standaard 7 dagen) |
+|**Back-ups**|Alle|RA-GRS, 7-35 dagen (standaard 7 dagen)| RA-GRS, 7 dagen, constant tijdstip herstel (PITR) | RA-GRS, 7-35 dagen (standaard 7 dagen) |
 
 \*Elastische Pools worden niet ondersteund in de grootschalige-servicelaag
 

@@ -1,6 +1,6 @@
 ---
 title: Ondersteuning voor SQL Server 2008 en SQL Server 2008 R2 met Azure uitbreiden
-description: Informatie over het uitbreiden van ondersteuning voor SQL Server 2008 en SQL Server 2008 R2 door uw SQL Server-exemplaar naar Azure migreren of het aanschaffen van uitgebreide ondersteuning voor instanties on-premises houden.
+description: Meer informatie over het uitbreiden van de ondersteuning voor SQL Server 2008 en SQL Server 2008 R2 door uw SQL Server-exemplaar te migreren naar Azure, of om uitgebreide ondersteuning te kopen om instanties on-premises te blijven gebruiken.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
@@ -14,76 +14,76 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b16fecd6db1f4bed319c832795a2252f8de96c6c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: adba197b4412177d0655fb6835cfdf8671a81f4e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607126"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846120"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Ondersteuning voor SQL Server 2008 en SQL Server 2008 R2 met Azure uitbreiden
 
-SQL Server 2008 en SQL Server 2008 R2 zijn beide nadert de [einde van de levenscyclus voor ondersteuning (EOS)](https://www.microsoft.com/sql-server/sql-server-2008). Omdat veel van onze klanten nog steeds van beide versies gebruikmaken, bieden we verschillende opties om te blijven ontvangen van ondersteuning. U kunt uw on-premises SQL Server-exemplaren migreren naar virtuele Azure-machines (VM's), migreren naar Azure SQL Database, of on-premises blijven en uitgebreide beveiligingsupdates kopen.
+SQL Server 2008 en SQL Server 2008 R2 volgen beide het [einde van hun levens cyclus](https://www.microsoft.com/sql-server/sql-server-2008). Omdat veel klanten nog steeds gebruikmaken van beide versies, bieden we verschillende opties om ondersteuning te blijven krijgen. U kunt uw on-premises SQL Server-exemplaren migreren naar Azure virtual machines (Vm's), migreren naar Azure SQL Database, of on-premises blijven en uitgebreide beveiligings updates aanschaffen.
 
-In tegenstelling tot met een beheerd exemplaar is migreren naar een Azure-VM niet vereist recertifying van uw toepassingen. En in tegenstelling tot bij on-premises blijft ontvangt u gratis uitgebreide beveiligingspatches door te migreren naar een Azure-VM.
+In tegens telling tot een beheerd exemplaar moet u uw toepassingen niet opnieuw certificeren met een virtuele machine van Azure. En in tegens telling tot on-premises, ontvangt u gratis uitgebreide beveiligings patches door te migreren naar een virtuele machine van Azure.
 
-De rest van dit artikel bevat overwegingen voor het migreren van uw SQL Server-exemplaar naar een Azure-VM.
+De rest van dit artikel bevat overwegingen voor het migreren van uw SQL Server-exemplaar naar een virtuele machine van Azure.
 
 ## <a name="provisioning"></a>Inrichten
 
-Er is een betalen per gebruik `SQL Server 2008 R2 on Windows Server 2008 R2` afbeelding die beschikbaar zijn op de Azure marketplace.
+Er is een betalen naar gebruik- **SQL Server 2008 R2 op de Windows Server 2008 R2** -installatie kopie beschikbaar op Azure Marketplace.
 
-Klanten die SQL Server 2008 moet ofwel zelf installeren of upgraden naar SQL Server 2008 R2. Evenzo moet klanten op Windows Server 2008 ofwel hun VM implementeren vanaf een aangepaste VHD of een upgrade naar Windows Server 2008 R2.
+Klanten die zich op SQL Server 2008 bevinden, moeten zelf een installatie of upgrade uitvoeren naar SQL Server 2008 R2. Daarnaast moeten klanten op Windows Server 2008 hun VM implementeren vanaf een aangepaste VHD of een upgrade uitvoeren naar Windows Server 2008 R2.
 
-Installatiekopieën die zijn geïmplementeerd via de Marketplace worden geleverd met de SQL IaaS-extensie die vooraf zijn geïnstalleerd. De SQL IaaS-extensie is een vereiste voor flexibele licentiëring en patchen. Klanten die zelf geïnstalleerde VM's implementeren moet handmatig de SQL IaaS-extensie installeren. De SQL IaaS-extensie wordt niet ondersteund op Windows 2008.
+Voor installatie kopieën die via Azure Marketplace worden geïmplementeerd, wordt de SQL IaaS-extensie vooraf geïnstalleerd. De SQL IaaS-uitbrei ding is een vereiste voor flexibele licenties en automatische patching. Klanten die zelf geïnstalleerde Vm's implementeren, moeten de SQL IaaS-extensie hand matig installeren. De SQL IaaS-extensie wordt niet ondersteund in Windows Server 2008.
 
-  > [!NOTE]
-  > Terwijl de SQL-Server `Create` en `Manage` blades werkt met de SQL Server 2008R2-installatiekopie in Azure portal, de volgende functies zijn _niet ondersteund_: Automatische back-ups, Azure Key Vault-integratie, R Services en configuratie van de opslag.
+> [!NOTE]
+> Hoewel de SQL Server Blades **maken** en **beheren** met de SQL Server 2008 R2-installatie kopie in de Azure Portal worden gebruikt, worden de volgende functies _niet ondersteund_: Automatische back-ups, integratie van Azure Key Vault, R-Services en opslag configuratie.
 
-## <a name="licensing"></a>Licentieverlening
-Betalen per gebruik SQL Server 2008R2 implementaties kunnen converteren naar [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/).
+## <a name="licensing"></a>Licenties
+Betalen per gebruik SQL Server 2008 R2-implementaties kunnen worden omgezet in [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-Als u wilt converteren een licentie met Software Assurance (SA) op basis van naar betalen per gebruik, moeten klanten zich inschrijven met de SQL-VM [resourceprovider](virtual-machines-windows-sql-register-with-resource-provider.md). Eenmaal hebt geregistreerd bij de resourceprovider van de SQL-VM, is het licentietype SQL wordt niet uitwisselbaar tussen AHB en betalen per gebruik.
+Als u een op Software Assurance (SA) gebaseerde licentie wilt converteren naar betalen per gebruik, moeten klanten zich registreren bij de [resource provider](virtual-machines-windows-sql-register-with-resource-provider.md)van de SQL-VM. Na deze registratie is het SQL-licentie type onderling verwisselbaar tussen Azure Hybrid Benefit en betalen per gebruik.
 
-Zelf geïnstalleerde SQL Server 2008 of SQL Server 2008 R2-exemplaren op Azure-VM kunnen registreren bij de SQL-resourceprovider en hun Licentietype converteren naar betalen per gebruik.
+Zelfgeïnstalleerde SQL Server 2008-of SQL Server 2008 R2-exemplaren op een virtuele Azure-machine kunnen worden geregistreerd bij de resource provider van de SQL-VM en het licentie type te converteren naar betalen per gebruik.
 
 ## <a name="migration"></a>Migratie
-U kunt EOS SQL Server-exemplaren migreren naar een Azure-VM met handmatige back-up/herstel methoden; Dit is de meest voorkomende migratiemethode van on-premises met een Azure-VM.
+U kunt met behulp van hand matige back-up-en herstel methoden EOS SQL Server-exemplaren migreren naar een Azure-VM. Dit is de meest voorkomende migratie methode van on-premises naar een Azure VM.
 
 ### <a name="azure-site-recovery"></a>Azure Site Recovery
 
-Voor bulksgewijs migraties, raden wij aan [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) service. Met Azure Site Recovery, kunnen klanten de volledige virtuele machine met inbegrip van SQL Server on-premises met een Azure-VM repliceren.
+Voor bulk migraties wordt de [Azure site Recovery](/azure/site-recovery/site-recovery-overview) -service aanbevolen. Met Azure Site Recovery kunnen klanten de hele virtuele machine repliceren, met inbegrip van SQL Server van on-premises naar Azure VM.
 
-SQL Server is vereist voor app-consistente momentopnamen van Azure Site Recovery om te waarborgen recovery; en Azure Site Recovery biedt ondersteuning voor app-consistente momentopnamen met minimale interval van 1 uur. De minimale RPO die mogelijk is voor SQL Server met Azure Site Recovery-migraties is 1 uur en de RTO bestaat uit twee uur plus hersteltijd van SQL Server.
+SQL Server vereist toepassings consistente Azure Site Recovery moment opnamen om het herstel te garanderen. Azure Site Recovery ondersteunt app-consistente moment opnamen met een minimum interval van 1 uur. De minimale Recovery Point Objective (RPO) die mogelijk is voor SQL Server met Azure Site Recovery migraties is 1 uur. De beoogde herstel tijd (RTO) is 2 uur plus SQL Server herstel tijd.
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-De [Database Migration Service](/azure/dms/dms-overview) is een optie voor klanten als migreren van on-premises met Azure-VM met SQL Server upgraden naar SQL Server 2012 en hoger.
+De [database Migration service](/azure/dms/dms-overview) is een optie voor klanten als ze worden gemigreerd van on-premises naar een virtuele Azure-machine door SQL Server te upgraden naar versie 2012 of hoger.
 
 ## <a name="disaster-recovery"></a>Herstel na noodgeval
 
-Noodhersteloplossingen voor EOS SQL Server op virtuele Azure-machine zijn als volgt:
+Oplossingen voor nood herstel voor EOS SQL Server op een Azure VM zijn als volgt:
 
-- **SQL Server back-ups**: Azure Backup gebruiken ter bescherming van uw SQL-Server EOS tegen onopzettelijk verwijderen en beschadiging van ransomware. De oplossing is momenteel in preview voor EOS SQL Server en biedt ondersteuning voor SQL Server 2008 en 2008 R2 die worden uitgevoerd op Windows 2008 R2 SP1. Raadpleeg voor meer informatie dit [artikel](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#support-for-sql-server-2008-and-sql-server-2008-r2)
-- **Back-upfunctie**: U kunt een replica van de verzending log maken in een andere zone of een Azure-regio met continue herstelbewerkingen te verminderen van de RTO bepaalt. Klanten moet het handmatig configureren van back-upfunctie.
-- **Azure Site Recovery**: U kunt uw virtuele machine repliceren tussen zones en -regio's via Azure Site Recovery-replicatie. SQL Server is vereist voor toepassingsconsistente momentopnamen van de App om te waarborgen van herstel in geval van een ramp. Azure Site Recovery biedt ten minste 1 uur RPO en 2 uur + SQL Server-hersteltijd RTO voor EOS SQL Server DR.
+- **SQL Server-back-ups**: Gebruik Azure Backup om uw EOS-SQL Server te beschermen tegen Ransomware, onbedoeld verwijderen en beschadiging. De oplossing is momenteel als preview-versie beschikbaar voor EOS-SQL Server en ondersteunt SQL Server 2008 en 2008 R2 die worden uitgevoerd op Windows 2008 R2 SP1. Zie [dit artikel](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#support-for-sql-server-2008-and-sql-server-2008-r2)voor meer informatie.
+- **Logboek verzending**: U kunt een back-upreplica van het logboek maken in een andere zone of Azure-regio met doorlopende herstel bewerkingen om de RTO te verminderen. U moet de verzen ding van het logboek hand matig configureren.
+- **Azure Site Recovery**: U kunt uw virtuele machine repliceren tussen zones en regio's via Azure Site Recovery replicatie. SQL Server vereist app-consistente moment opnamen om herstel in het geval van een ramp te garanderen. Azure Site Recovery biedt een minimale RPO van 1 uur en een periode van twee uur (plus SQL Server herstel tijd) RTO voor EOS SQL Server herstel na nood gevallen.
 
-## <a name="security-patching"></a>Toepassen van beveiligingspatches
-Extended security updates voor SQL Server-VM's worden geleverd via de kanalen van Microsoft Update als de SQL Server-VM is geregistreerd bij de SQL [resourceprovider](virtual-machines-windows-sql-register-with-resource-provider.md). Patches kunnen ofwel handmatig of automatisch worden gedownload.
+## <a name="security-patching"></a>Beveiligings patches
+Uitgebreide beveiligings updates voor SQL Server Vm's worden geleverd via de Microsoft Update kanalen nadat de SQL Server VM is geregistreerd bij de [resource provider](virtual-machines-windows-sql-register-with-resource-provider.md)van de SQL-VM. Patches kunnen hand matig of automatisch worden gedownload.
 
-**Automatisch patchen** is standaard ingeschakeld. Met automatisch patchen kan Azure automatisch een patch uitvoeren voor SQL Server en het besturingssysteem. U kunt een dag van de week, de tijd en de duur voor een onderhoudsvenster opgeven als SQL IaaS-extensie is geïnstalleerd. Azure voert de patch uit tijdens deze onderhoudssessie. Het onderhoudsschema maakt voor de tijd gebruik van de landinstellingen van de virtuele machine.  Zie voor meer informatie [Automatisch patchen voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-patching.md).
+*Automatisch patchen* is standaard ingeschakeld. Met automatisch patchen kan Azure automatisch een patch uitvoeren voor SQL Server en het besturingssysteem. U kunt een dag van de week, tijd en duur van een onderhouds venster opgeven als de SQL Server IaaS-extensie is geïnstalleerd. Azure voert de patch uit tijdens deze onderhoudssessie. Het onderhoudsschema maakt voor de tijd gebruik van de landinstellingen van de virtuele machine.  Zie voor meer informatie [automatische patching voor SQL Server op Azure virtual machines](virtual-machines-windows-sql-automated-patching.md).
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Uw SQL Server-machine te migreren naar Azure
+Uw SQL Server VM migreren naar Azure:
 
 * [Een SQL Server-database naar een SQL Server in een virtuele machine van Azure migreren](virtual-machines-windows-migrate-sql.md)
 
-Aan de slag met SQL Server op virtuele machines van Azure:
+Aan de slag met SQL Server op Azure Virtual Machines:
 
 * [Create a SQL Server VM in the Azure portal](quickstart-sql-vm-create-portal.md) (Een SQL Server-VM maken in Azure Portal)
 
-Antwoorden op veelgestelde vragen over SQL-VM's:
+Antwoorden vinden op veelgestelde vragen over SQL Server Vm's:
 
-* [Veelgestelde vragen over SQL Server op virtuele machines van Azure](virtual-machines-windows-sql-server-iaas-faq.md)
+* [Veelgestelde vragen over SQL Server op Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-faq.md)

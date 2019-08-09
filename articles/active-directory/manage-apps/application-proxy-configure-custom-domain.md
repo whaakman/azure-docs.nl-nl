@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d721e750ddb77ba293643ad978cecf4bd2dbac0
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 82b8dcfa02d21183a06fa510adb774338e72cb4e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618807"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851711"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Werken met aangepaste domeinen in Azure AD-toepassingsproxy
 
@@ -87,7 +87,7 @@ Alle Certificaatbeheer is momenteel door afzonderlijke toepassing's daarom voor 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Eenmalige aanmelding inschakelen](application-proxy-configure-single-sign-on-with-kcd.md) naar uw gepubliceerde apps met Azure AD-verificatie.
-* [Schakel voorwaardelijke toegang](application-proxy-integrate-with-sharepoint-server.md) tot uw gepubliceerde apps in.
+* [Schakel voorwaardelijke toegang](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/technical-reference#cloud-apps-assignments) tot uw gepubliceerde apps in.
 * [Uw aangepaste domeinnaam toevoegen aan Azure AD](../fundamentals/add-custom-domain.md)
 
 

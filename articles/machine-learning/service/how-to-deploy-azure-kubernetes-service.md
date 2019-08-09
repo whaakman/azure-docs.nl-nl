@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: deb6482c0419a5872ccf86f0014adbecc7be6c9d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 4a0aab2ca2f0bbcee07f09124e68c3623d16004d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694392"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848155"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Een model implementeren in een Azure Kubernetes service-cluster
 
@@ -23,7 +23,7 @@ Meer informatie over het gebruik van de Azure Machine Learning-service voor het 
 
 - __Snelle reactie tijd__.
 - Automatisch __schalen__ van de geïmplementeerde service.
-- __Opties voor__ hardwareversnelling, zoals GPU en Programmeer bare poort matrices (FPGA).
+- Opties voor hardwareversnelling, zoals GPU en Programmeer bare poort matrices (FPGA).
 
 > [!IMPORTANT]
 > Cluster schalen wordt niet gegeven via de Azure Machine Learning SDK. Zie [het aantal knoop punten schalen in een AKS-cluster](../../aks/scale-cluster.md)voor meer informatie over het schalen van de knooppunten in een AKS-cluster.
@@ -38,7 +38,7 @@ Wanneer u implementeert in azure Kubernetes service, implementeert u naar een AK
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een werkruimte van Azure Machine Learning-service. Zie [een Azure machine learning service-werk ruimte maken](setup-create-workspace.md)voor meer informatie.
+- Een werkruimte van Azure Machine Learning-service. Zie [een Azure machine learning service-werk ruimte maken](how-to-manage-workspace.md)voor meer informatie.
 
 - Een machine learning model dat in uw werk ruimte is geregistreerd. Als u geen geregistreerd model hebt, raadpleegt u [hoe en hoe u modellen implementeert](how-to-deploy-and-where.md).
 
@@ -61,6 +61,9 @@ Wanneer u implementeert in azure Kubernetes service, implementeert u naar een AK
 Het maken of koppelen van een AKS-cluster is een eenmalig proces voor uw werk ruimte. U kunt dit cluster voor meerdere implementaties opnieuw gebruiken. Als u het cluster of de resource groep verwijdert die het bevat, moet u de volgende keer dat u moet implementeren een nieuw cluster maken. Er kunnen meerdere AKS-clusters aan uw werk ruimte zijn gekoppeld.
 
 Als u een AKS-cluster wilt maken voor __ontwikkeling__, __validatie__en __testen__ in plaats van productie, kunt u het __cluster doel__ opgeven voor __dev test__.
+
+> [!WARNING]
+> Als u dit `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`hebt ingesteld, is het cluster dat is gemaakt niet geschikt voor verkeer op productie niveau en kunnen de tijden voor de afnemen toenemen. Dev/test-clusters garanderen ook geen fout tolerantie. We raden ten minste twee virtuele Cpu's aan voor dev/test-clusters.
 
 De volgende voor beelden laten zien hoe u een nieuw AKS-cluster maakt met behulp van de SDK en CLI:
 
@@ -85,7 +88,7 @@ aks_target.wait_for_completion(show_output = True)
 ```
 
 > [!IMPORTANT]
-> [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)Als u bijvoorbeeld aangepaste waarden voor agent_count en vm_size kiest, moet u ervoor zorgen dat agent_count vermenigvuldigd met vm_size groter is dan of gelijk is aan 12 virtuele cpu's. Als u bijvoorbeeld een vm_size van ' Standard_D3_v2 ' gebruikt, die 4 virtuele Cpu's heeft, moet u een agent_count van 3 of hoger kiezen.
+> Voor [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), als u aangepaste waarden voor `agent_count` en `vm_size`selecteert en `cluster_purpose` niet `DEV_TEST`, moet u ervoor zorgen dat `agent_count` vermenigvuldigd door `vm_size` is groter dan of gelijk aan 12 virtuele cpu's. Als u bijvoorbeeld een `vm_size` van ' Standard_D3_v2 ' gebruikt, die 4 virtuele cpu's heeft, moet u een van de `agent_count` drie of grotere kiezen.
 >
 > De Azure Machine Learning SDK biedt geen ondersteuning voor het schalen van een AKS-cluster. Als u de knoop punten in het cluster wilt schalen, gebruikt u de gebruikers interface voor uw AKS-cluster in de Azure Portal. U kunt alleen het aantal knoop punten wijzigen, niet de VM-grootte van het cluster.
 
@@ -118,7 +121,7 @@ Als u al een AKS-cluster in uw Azure-abonnement hebt en dit versie 1.12. # # is,
 >
 > Als u de `cluster_purpose` para meter of set `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`niet instelt, moet het cluster ten minste 12 virtuele cpu's hebben.
 >
-> Als u instelt `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, hoeft het cluster niet 12 virtuele cpu's te hebben. Een cluster dat is geconfigureerd voor dev/test, is echter niet geschikt voor verkeer op productie niveau en kan leiden tot meer tijd.
+> Als u instelt `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, hoeft het cluster niet 12 virtuele cpu's te hebben. We raden ten minste twee virtuele Cpu's aan voor dev/test. Een cluster dat is geconfigureerd voor dev/test is echter niet geschikt voor verkeer op productie niveau en kan de tijd voor de afnemen verhogen. Dev/test-clusters garanderen ook geen fout tolerantie.
 
 Raadpleeg de volgende artikelen voor meer informatie over het maken van een AKS-cluster met behulp van de Azure CLI of portal:
 

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: 31a367fcde909f393efa4fea65b25716f95c56ee
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: dbdd088e5a78a4f78eec27b5ee74856c6aecc209
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828430"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847908"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Gegevens verkennen en voorbereiden met de klasse DataSet (preview)
 
@@ -31,7 +31,7 @@ Om uw gegevens te verkennen en voor te bereiden, hebt u het volgende nodig:
 
 * Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
-* Een werkruimte van Azure Machine Learning-service. Zie [een Azure machine learning service-werk ruimte maken](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+* Een werkruimte van Azure Machine Learning-service. Zie [een Azure machine learning service-werk ruimte maken](how-to-manage-workspace.md).
 
 * De Azure Machine Learning SDK voor python (versie 1.0.21 of hoger), die het pakket met de azureml-gegevens sets bevat. Zie [de SDK installeren of bijwerken](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)om de nieuwste versie van de SDK te installeren of bij te werken.
 

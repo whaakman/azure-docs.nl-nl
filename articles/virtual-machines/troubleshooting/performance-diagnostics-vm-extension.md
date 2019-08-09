@@ -1,6 +1,6 @@
 ---
-title: Prestaties van Azure Diagnostics VM-extensie voor Windows | Microsoft Docs
-description: Introduceert Azure prestaties diagnostische VM-extensie voor Windows.
+title: VM-extensie voor Azure-prestatie diagnostiek voor Windows | Microsoft Docs
+description: Introduceert de Azure performance diagnostische VM-extensie voor Windows.
 services: virtual-machines-windows'
 documentationcenter: ''
 author: genlin
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f9a50b0e5dd4e96c9235348bbfaae1d8a6e54d53
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60307851"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846617"
 ---
-# <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Prestaties van Azure Diagnostics VM-extensie voor Windows
+# <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>VM-extensie voor Azure-prestatie diagnostiek voor Windows
 
-Azure Diagnostics VM-extensie voor prestaties kunt u diagnostische prestatiegegevens verzamelen van Windows-VM's. De extensie voert analyse en biedt een rapport van de bevindingen en aanbevelingen om u te identificeren en oplossen van problemen met prestaties op de virtuele machine. Deze extensie wordt geïnstalleerd voor een hulpprogramma voor probleemoplossing met de naam [PerfInsights](https://aka.ms/perfinsights).
+Met de Azure-extensie voor diagnostische gegevens van virtuele machines kunt u prestatie diagnostiek verzamelen van Windows-Vm's. De uitbrei ding voert analyses uit en biedt een rapport met bevindingen en aanbevelingen voor het identificeren en oplossen van prestatie problemen op de virtuele machine. Met deze extensie wordt een hulp programma voor probleem oplossing met de naam [PerfInsights](https://aka.ms/perfinsights)geïnstalleerd.
 
 > [!NOTE]
-> Als u uitvoeren van diagnostische gegevens op de virtuele machine vanuit Azure portal voor niet-klassieke VM's wilt, is het aanbevolen gebruik van de nieuwe ervaring. Zie voor meer informatie, [Prestatiediagnoses voor virtuele machines van Azure](performance-diagnostics.md) 
+> Als u Diagnostische gegevens wilt uitvoeren op uw VM van de Azure Portal voor niet-klassieke Vm's, is het raadzaam om de nieuwe ervaring te gebruiken. Zie [prestatie diagnostiek voor virtuele Azure-machines](performance-diagnostics.md) voor meer informatie. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze uitbreiding kan worden geïnstalleerd op Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 en Windows Server 2016. Het kan ook worden geïnstalleerd op Windows 8.1 en Windows 10.
+Deze uitbrei ding kan worden geïnstalleerd op Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 en Windows Server 2016. Het kan ook worden geïnstalleerd in Windows 8,1 en Windows 10.
 
 ## <a name="extension-schema"></a>Extensieschema
-De volgende JSON bevat het schema voor VM-extensie voor Azure prestaties diagnostische gegevens. Deze extensie is vereist voor de naam en sleutel voor een opslagaccount voor het opslaan van de uitvoer van de diagnostische gegevens en het rapport. Deze waarden zijn gevoelig. Sleutel van het opslagaccount moet worden opgeslagen in de configuratie van een beveiligde instellen. Azure VM-extensie beveiligde instellingsgegevens worden versleuteld en deze alleen ontsleuteld en dan op de virtuele doelmachine. Houd er rekening mee dat **storageAccountName** en **storageAccountKey** zijn hoofdlettergevoelig. Andere vereiste parameters zijn vermeld in de volgende sectie.
+De volgende JSON toont het schema voor de VM-extensie Azure prestatie diagnostiek. Deze uitbrei ding vereist de naam en sleutel voor een opslag account om de diagnostische uitvoer en het rapport op te slaan. Deze waarden zijn gevoelig. De sleutel van het opslag account moet worden opgeslagen in een configuratie met een beveiligde instelling. De beveiligde instellings gegevens voor de Azure VM-extensie zijn versleuteld en worden alleen ontsleuteld op de virtuele doel machine. Houd er rekening mee dat **storageAccountName** en **storageAccountKey** hoofdletter gevoelig zijn. Andere vereiste para meters worden weer gegeven in de volgende sectie.
 
 ```JSON
     {
@@ -67,61 +67,61 @@ De volgende JSON bevat het schema voor VM-extensie voor Azure prestaties diagnos
 
 ### <a name="property-values"></a>Waarden van eigenschappen
 
-|   **Naam**   |**Waarde / voorbeeld**|       **Beschrijving**      |
+|   **Name**   |**Waarde/voor beeld**|       **Beschrijving**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|De versie van de API.
-|publisher|Microsoft.Azure.Performance.Diagnostics|De naamruimte van de uitgever voor de extensie.
+|publisher|Microsoft.Azure.Performance.Diagnostics|De naam ruimte van de uitgever voor de extensie.
 |type|AzurePerformanceDiagnostics|Het type van de VM-extensie.
 |typeHandlerVersion|1.0|De versie van de extensie-handler.
-|performanceScenario|Basic|Het scenario prestaties waarvoor gegevens vast te leggen. Geldige waarden zijn: **basic**, **vmslow**, **Azure Files**, en **aangepaste**.
-|traceDurationInSeconds|300|De duur van de traceringen, als een van de traceeropties zijn geselecteerd.
-|perfCounterTrace|p|Optie voor het inschakelen van de prestaties teller tracering. Geldige waarden zijn **p** of lege waarde. Als u niet vastleggen van deze tracering wilt, laat u de waarde als leeg zijn.
-|networkTrace|n|Optie voor het inschakelen van netwerk-Trace. Geldige waarden zijn **n** of lege waarde. Als u niet vastleggen van deze tracering wilt, laat u de waarde als leeg zijn.
-|xperfTrace|x|Optie voor het inschakelen van XPerf tracering. Geldige waarden zijn **x** of lege waarde. Als u niet vastleggen van deze tracering wilt, laat u de waarde als leeg zijn.
-|storPortTrace|s|Optie voor het inschakelen van StorPort-Trace. Geldige waarden zijn **s** of lege waarde. Als u niet vastleggen van deze tracering wilt, laat u de waarde als leeg zijn.
-|srNumber|123452016365929|Het ticketnummer ondersteuning als deze beschikbaar is. Laat de waarde als leeg als u dit niet hebt.
-|requestTimeUtc|2017-09-28T22:08:53.736Z|Huidige datum en tijd in Utc. Als u gebruikmaakt van de portal voor deze extensie te installeren, hoeft u niet voor deze waarde.
+|performanceScenario|standaard|Het prestatie scenario waarvoor gegevens moeten worden vastgelegd. Geldige waarden zijn: **Basic**, **vmslow**, **Azure files**en **Custom**.
+|traceDurationInSeconds|300|De duur van de traceringen, als een van de tracerings opties is geselecteerd.
+|perfCounterTrace|p|Optie voor het inschakelen van tracering van prestatie meter items. Geldige waarden zijn **p** of empty. Als u deze tracering niet wilt vastleggen, laat u de waarde leeg.
+|networkTrace|n|Optie om netwerk tracering in te scha kelen. Geldige waarden zijn **n** of een lege waarde. Als u deze tracering niet wilt vastleggen, laat u de waarde leeg.
+|xperfTrace|x|Optie voor het inschakelen van XPerf-tracering. Geldige waarden zijn **x** of een lege waarde. Als u deze tracering niet wilt vastleggen, laat u de waarde leeg.
+|storPortTrace|s|Optie om StorPort-tracering in te scha kelen. Geldige waarden zijn **s** of lege waarde. Als u deze tracering niet wilt vastleggen, laat u de waarde leeg.
+|srNumber|123452016365929|Het nummer van het ondersteunings ticket, indien beschikbaar. Laat de waarde leeg als u deze niet hebt.
+|requestTimeUtc|2017-09-28T22:08:53.736Z|Huidige datum en tijd in UTC. Als u de portal gebruikt om deze uitbrei ding te installeren, hoeft u deze waarde niet op te geven.
 |resourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|De unieke id van een virtuele machine.
-|storageAccountName|mystorageaccount|De naam van het opslagaccount voor het opslaan van de logboeken met diagnostische gegevens en de resultaten.
-|storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|De sleutel voor het opslagaccount.
+|storageAccountName|mystorageaccount|De naam van het opslag account voor het opslaan van de diagnostische logboeken en resultaten.
+|storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|De sleutel voor het opslag account.
 
 ## <a name="install-the-extension"></a>De extensie installeren
 
-Volg deze instructies voor de extensie installeren op Windows-machines:
+Volg deze instructies voor het installeren van de uitbrei ding op virtuele Windows-machines:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer de virtuele machine waar u deze extensie te installeren.
+2. Selecteer de virtuele machine waarop u deze extensie wilt installeren.
 
-    ![Schermopname van het Azure-portal, met virtuele machines die zijn gemarkeerd](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
-3. Selecteer de **extensies** blade, en selecteer **toevoegen**.
+    ![Scherm opname van Azure Portal, waarbij virtuele machines zijn gemarkeerd](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
+3. Selecteer de Blade **extensies** en selecteer **toevoegen**.
 
-    ![Schermafbeelding van de extensies blade met toevoegen gemarkeerd](media/performance-diagnostics-vm-extension/select-extensions.png)
-4. Selecteer **Azure Prestatiediagnoses**, lees de voorwaarden en bepalingen, en selecteer **maken**.
+    ![Scherm opname van de Blade extensies, met geaccentueerd toevoegen](media/performance-diagnostics-vm-extension/select-extensions.png)
+4. Selecteer **Azure-prestatie diagnostiek**, Controleer de voor waarden en selecteer **maken**.
 
-    ![Schermafbeelding van de nieuwe resource-scherm, met Azure Prestatiediagnoses gemarkeerd](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
-5. Geef de parameterwaarden voor de installatie op en selecteer **OK** voor het installeren van de extensie. Zie voor meer informatie over ondersteunde scenario's, [PerfInsights gebruiken](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
+    ![Scherm opname van nieuw resource venster met Azure-prestatie controle gemarkeerd](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
+5. Geef de parameter waarden voor de installatie op en selecteer **OK** om de uitbrei ding te installeren. Zie [How to use PerfInsights](how-to-use-perfinsights.md#supported-troubleshooting-scenarios)voor meer informatie over ondersteunde scenario's. 
 
-    ![Dialoogvenster bestandsnaamextensie Screenshot van installeren](media/performance-diagnostics-vm-extension/install-the-extension.png)
-6. Wanneer de installatie voltooid is, ziet u een bericht met deze status.
+    ![Scherm afbeelding van het dialoog venster installatie-uitbrei ding](media/performance-diagnostics-vm-extension/install-the-extension.png)
+6. Wanneer de installatie is voltooid, ziet u een bericht dat deze status aangeeft.
 
-    ![Bericht Screenshot van inrichting geslaagd](media/performance-diagnostics-vm-extension/provisioning-succeeded-message.png)
+    ![Scherm opname van geslaagd bericht van inrichting](media/performance-diagnostics-vm-extension/provisioning-succeeded-message.png)
 
     > [!NOTE]
-    > De extensie wordt uitgevoerd wanneer het inrichten is voltooid. Het duurt twee minuten of minder om voor het eenvoudige scenario te voltooien. Voor andere scenario's, wordt deze uitgevoerd via de duur van de opgegeven tijdens de installatie.
+    > De uitbrei ding wordt uitgevoerd wanneer het inrichten is geslaagd. Het duurt twee minuten of minder om het basis scenario te volt ooien. Voor andere scenario's wordt de duur uitgevoerd die is opgegeven tijdens de installatie.
 
 ## <a name="remove-the-extension"></a>Verwijder de extensie
-Als u wilt verwijderen van de extensie van een virtuele machine, de volgende stappen uit:
+Voer de volgende stappen uit om de extensie van een virtuele machine te verwijderen:
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com), selecteer de virtuele machine van waaruit u wilt deze extensie te verwijderen en selecteer vervolgens de **extensies** blade. 
-2. Selecteer de ( **...** ) voor de extensie voor diagnostische gegevens van prestaties vermelding in de lijst en selecteer **verwijderen**.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com), selecteer de virtuele machine waarvan u deze extensie wilt verwijderen en selecteer vervolgens de Blade **uitbrei dingen** . 
+2. Selecteer in de lijst het ( **...** ) voor de vermelding diagnostische gegevens over prestaties en selecteer **verwijderen**.
 
-    ![Schermafbeelding van de extensies blade verwijderen gemarkeerd](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
+    ![Scherm opname van de Blade extensies, met gemarkeerde verwijdering](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
 
     > [!NOTE]
-    > U kunt ook de extensie-item selecteren en selecteer de **verwijderen** optie.
+    > U kunt ook de vermelding van de extensie selecteren en de optie **verwijderen** selecteren.
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
-Extensies voor Azure virtuele machines kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. De JSON-schema in de vorige sectie worden beschreven, kan worden gebruikt in een Azure Resource Manager-sjabloon. Hiermee wordt de Azure prestaties diagnostische VM-extensie uitgevoerd tijdens de sjabloonimplementatie van een Azure Resource Manager. Hier volgt een voorbeeldsjabloon:
+Extensies voor virtuele Azure-machines kunnen worden geïmplementeerd met Azure Resource Manager sjablonen. Het JSON-schema dat in de vorige sectie wordt beschreven, kan worden gebruikt in een Azure Resource Manager sjabloon. Hiermee wordt de VM-extensie Azure prestatie diagnostiek uitgevoerd tijdens de implementatie van een Azure Resource Manager sjabloon. Hier volgt een voorbeeld sjabloon:
 
 ```
 {
@@ -209,8 +209,8 @@ Extensies voor Azure virtuele machines kunnen worden geïmplementeerd met Azure 
 }
 ```
 
-## <a name="powershell-deployment"></a>PowerShell-implementatie
-De `Set-AzVMExtension` opdracht kan worden gebruikt voor het implementeren van VM-extensie voor Azure prestaties diagnostische gegevens naar een bestaande virtuele machine.
+## <a name="powershell-deployment"></a>Power shell-implementatie
+De `Set-AzVMExtension` opdracht kan worden gebruikt voor het implementeren van de VM-extensie Azure-prestatie diagnostiek op een bestaande virtuele machine.
 
 PowerShell
 
@@ -229,31 +229,31 @@ Set-AzVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -Location WestUS
 ```
 
-## <a name="information-on-the-data-captured"></a>Meer informatie over de gegevens die zijn vastgelegd
-Het hulpprogramma PerfInsights verzamelt verschillende logboeken, configuratie en diagnostische gegevens, afhankelijk van het geselecteerde scenario. Zie voor meer informatie de [PerfInsights documentatie](https://aka.ms/perfinsights).
+## <a name="information-on-the-data-captured"></a>Informatie over de gegevens die zijn vastgelegd
+Het hulp programma PerfInsights verzamelt diverse logboeken, configuratie en diagnostische gegevens, afhankelijk van het geselecteerde scenario. Zie de [PerfInsights-documentatie](https://aka.ms/perfinsights)voor meer informatie.
 
-## <a name="view-and-share-the-results"></a>Weergeven en delen van de resultaten
+## <a name="view-and-share-the-results"></a>De resultaten weer geven en delen
 
-Uitvoer van de extensie kunt u vinden in een zip-bestand geüpload naar het opslagaccount dat u opgeeft tijdens de installatie en wordt gedeeld voor 30 dagen met behulp van [Shared Access Signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Dit zip-bestand bevat de logboeken met diagnostische gegevens en een rapport met resultaten en aanbevelingen. Een SAS-koppeling naar het zip-bestand voor uitvoer kan worden gevonden in een tekstbestand met de naam *zipfilename*_saslink.txt onder de map **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<versie >** . Iedereen die deze koppeling kan voor het downloaden van het zip-bestand.
+Uitvoer van de uitbrei ding kan worden gevonden in een zip-bestand dat is geüpload naar het opslag account dat is opgegeven tijdens de installatie en wordt 30 dagen gedeeld met behulp van [Shared Access signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Dit zip-bestand bevat Diagnostische logboeken en een rapport met bevindingen en aanbevelingen. Een SAS-koppeling naar het zip-uitvoer bestand kan worden gevonden in een tekst bestand met de naam *zipfilename*_saslink. txt onder de map **C:\Packages\Plugins\Microsoft.Azure.performance.Diagnostics.AzurePerformanceDiagnostics\\ \< versie >** . Iedereen met deze koppeling kan het zip-bestand downloaden.
 
-Om te helpen de ondersteuningstechnicus van uw ondersteuningsticket gewerkt, kan Microsoft deze SAS-koppeling gebruiken om de diagnostische gegevens te downloaden.
+Micro soft kan deze SAS-koppeling gebruiken om de diagnostische gegevens te downloaden om de ondersteunings technicus te helpen werken aan uw ondersteunings ticket.
 
-Als u wilt weergeven van het rapport, pak het zipbestand en open de **PerfInsights Report.html** bestand.
+Als u het rapport wilt weer geven, pakt u het zip-bestand uit en opent u het bestand **PerfInsights Report. html** .
 
-U moet ook mogelijk om te downloaden van het zip-bestand rechtstreeks vanuit de portal door te selecteren van de extensie.
+Ook kunt u het zip-bestand rechtstreeks vanuit de portal downloaden door de extensie te selecteren.
 
-![Schermafbeelding van de prestaties van diagnostische gegevens over gedetailleerde status](media/performance-diagnostics-vm-extension/view-detailed-status.png)
+![Scherm opname van de gedetailleerde status van diagnostische gegevens](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
 > [!NOTE]
-> De SAS-koppeling weergegeven in de portal werken soms niet. Dit kan worden veroorzaakt door een onjuist gevormde URL tijdens de bewerkingen voor coderen en decoderen. In plaats daarvan krijgt u de koppeling rechtstreeks vanuit het bestand *_saslink.txt van de virtuele machine.
+> De SAS-koppeling die in de portal wordt weer gegeven, werkt mogelijk niet soms. Dit kan worden veroorzaakt door een onjuist ingedeelde URL tijdens het coderen en decoderen. U kunt de koppeling in plaats daarvan rechtstreeks vanuit het * _saslink. txt-bestand van de VM ophalen.
 
 ## <a name="troubleshoot-and-support"></a>Problemen oplossen en ondersteuning
 
-- Status van de extensie-implementatie (in het systeemvak) weergeven 'Implementatie wordt uitgevoerd' ondanks dat de extensie is ingericht.
+- Voor de implementatie status van een uitbrei ding (in het systeemvak) wordt mogelijk ' implementatie wordt uitgevoerd ' weer gegeven, zelfs als de extensie is ingericht.
 
-    Dit probleem kan veilig worden genegeerd, zolang de status van de extensie geeft aan dat de extensie is ingericht.
-- U kunt enkele problemen oplossen tijdens de installatie met behulp van de extensie-Logboeken. Extensie uitvoering uitvoer wordt vastgelegd op bestanden die zijn gevonden in de volgende map:
+    Dit probleem kan veilig worden genegeerd, zolang de status van de extensie aangeeft dat de extensie is ingericht.
+- U kunt tijdens de installatie bepaalde problemen oplossen met behulp van de extensie Logboeken. Uitvoer voor uitvoering van extensie wordt vastgelegd in bestanden die zijn gevonden in de volgende map:
 
         C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
 
-Als u hulp nodig hebt op elk gewenst moment in dit artikel, u kunt contact opnemen met de Azure-experts op het [forums voor Azure MSDN en Stack Overflow](https://azure.microsoft.com/support/forums/). U kunt ook een Azure-ondersteuning-incident indienen. Ga naar de [ondersteuning van Azure site](https://azure.microsoft.com/support/options/), en selecteer **ondersteuning krijgen**. Voor meer informatie over het gebruik van Azure-ondersteuning, de [Veelgestelde vragen over Microsoft Azure-ondersteuning](https://azure.microsoft.com/support/faq/).
+Als u hulp nodig hebt op elk gewenst moment in dit artikel, u kunt contact opnemen met de Azure-experts op het [forums voor Azure MSDN en Stack Overflow](https://azure.microsoft.com/support/forums/). U kunt ook een Azure-ondersteuning-incident indienen. Ga naar de [ondersteunings site van Azure](https://azure.microsoft.com/support/options/)en selecteer **ondersteuning verkrijgen**. Lees de [Veelgestelde vragen over ondersteuning voor Microsoft Azure](https://azure.microsoft.com/support/faq/)voor meer informatie over het gebruik van Azure-ondersteuning.

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: edc0da77fc1c2813c2485fca18d50952e3060db8
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: f7cd0125de886eed4b3e5c31503fdd4b7cbb76dd
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370468"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847825"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Metrische gegevens vastleggen tijdens trainings uitvoeringen in Azure Machine Learning
 
@@ -49,7 +49,7 @@ Als u wilt bijhouden of bewaken van uw experiment, moet u code om te starten wan
 ## <a name="set-up-the-workspace"></a>Instellen van de werkruimte
 Voordat u logboekregistratie en het verzenden van een experiment toevoegt, moet u de werkruimte instellen.
 
-1. Laden van de werkruimte. Volg de stappen in [Create a Azure machine learning service Workspace](setup-create-workspace.md#sdk)voor meer informatie over het instellen van de configuratie van de werk ruimte.
+1. Laden van de werkruimte. Zie [werkruimte configuratie bestand](how-to-configure-environment.md#workspace)voor meer informatie over het instellen van de configuratie van de werk ruimte.
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -58,7 +58,7 @@ Voordat u logboekregistratie en het verzenden van een experiment toevoegt, moet 
    ws = Workspace.from_config()
    ```
   
-## <a name="option-1-use-startlogging"></a>Optie 1: Start_logging gebruiken
+## <a name="option-1-use-start_logging"></a>Optie 1: Start_logging gebruiken
 
 **start_logging** maakt u een interactieve uitvoeren voor gebruik in scenario's zoals laptops. Alle metrische gegevens die zijn vastgelegd tijdens de sessie worden toegevoegd aan de uitvoerregistratie in het experiment.
 

@@ -4,17 +4,17 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 83a0adf98298225b52d3b4fdfa2ca861ebb70bb9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 346f63109e673692d425ede6bdbcb6f633af80bb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176721"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857367"
 ---
-**Back-end van .NET (C#)** :
+**.Net-backC#-end ()** :
   
-1. Met de rechtermuisknop op de serverproject in Visual Studio, en klikt u op **NuGet-pakketten beheren**, zoeken naar `Microsoft.Azure.NotificationHubs`, klikt u vervolgens op **installeren**. Hiermee installeert u de Notification Hubs-bibliotheek voor het verzenden van meldingen vanuit uw back-end.
-2. Open in Visual Studio-project van de back-end, **Controllers** > **TodoItemController.cs**. Voeg het volgende toe aan de bovenkant van het bestand `using` instructie:
+1. Klik in Visual Studio met de rechter muisknop op het server project en klik op **NuGet-pakketten beheren**, zoek naar `Microsoft.Azure.NotificationHubs`en klik vervolgens op **installeren**. Hiermee installeert u de Notification Hubs-bibliotheek voor het verzenden van meldingen van uw back-end.
+2. Open in het Visual Studio-project van de back-end **controllers** > **TodoItemController.cs**. Voeg boven aan het bestand de volgende `using` instructie toe:
 
     ```csharp
     using Microsoft.Azure.Mobile.Server.Config;
@@ -63,13 +63,13 @@ ms.locfileid: "67176721"
     }
     ```
 
-4. Het serverproject publiceren.
+4. Publiceer het server project opnieuw.
 
 **Node.js-back-end**:
 
-1. Als u dit nog niet hebt gedaan, [downloaden van de Quick Start-project](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) of gebruik anders de [online-editor in Azure portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).    
+1. Stel uw back-end-project in.    
 
-2. Het script van de tabel todoitem.js vervangen door de volgende code:
+2. Vervang het tabel script todoitem. js door de volgende code:
 
     ```javascript
     var azureMobileApps = require('azure-mobile-apps'),
@@ -110,4 +110,4 @@ ms.locfileid: "67176721"
     module.exports = table;
     ```
 
-3. Tijdens het bewerken van het bestand op uw lokale computer, publiceert u opnieuw het serverproject.
+3. Wanneer u het bestand op uw lokale computer bewerkt, publiceert u het server project opnieuw.

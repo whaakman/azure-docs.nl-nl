@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5d8cd7799dd23dabc2cbb423e82b8c7203b7bed
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c897d52c10efdb8824f676d7640dcc7275915a9e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834643"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851779"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Gecontroleerde validatie van hybride Azure AD-deelname
 
@@ -72,7 +72,7 @@ Gebruik het volgende voor beeld om een groepsbeleid-object (GPO) te maken om een
       1. Sleutelpad: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Waardenaam: **TenantName**
       1. Waardetype: **REG_SZ**
-      1. Waardegegevens: De geverifieerde **domein naam** als u een federatieve omgeving gebruikt, zoals AD FS. Uw geverifieerde * * domein naam of uw onmicrosoft.com- `contoso.onmicrosoft.com` domein naam bijvoorbeeld als u een beheerde omgeving gebruikt
+      1. Waardegegevens: De geverifieerde **domein naam** als u een federatieve omgeving gebruikt, zoals AD FS. Uw geverifieerde **domein naam** of uw onmicrosoft.com- `contoso.onmicrosoft.com` domein naam bijvoorbeeld als u een beheerde omgeving gebruikt
    1. Klik op **OK**
 1. De editor voor het zojuist gemaakte groeps beleidsobject sluiten
 1. Koppel het zojuist gemaakte groeps beleidsobject aan de gewenste organisatie-eenheid met computers die lid zijn van een domein en die deel uitmaken van uw geïmplementeerde implementatie populatie

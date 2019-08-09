@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4bc035ba061a65f6770136240d8867f82858e67e
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 545860a394c7eac953c1cbacc9dd05fc3737f6c1
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772732"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856176"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Toegang tot gegevens in azure Storage-services
 
@@ -32,7 +32,7 @@ In deze procedure worden voor beelden van de volgende taken weer gegeven:
 
 Voor het gebruik van gegevensopslag, moet u eerst een [werkruimte](concept-workspace.md).
 
-Begin door een van beide [het maken van een nieuwe werkruimte](setup-create-workspace.md#sdk) of bij het ophalen van een bestaande:
+Begin door een van beide [het maken van een nieuwe werkruimte](how-to-manage-workspace.md) of bij het ophalen van een bestaande:
 
 ```Python
 import azureml.core

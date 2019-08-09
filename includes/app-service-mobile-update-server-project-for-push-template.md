@@ -4,21 +4,21 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: c664b089f316255fabc4c8dc36b291d7d63e6280
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 675ad278cb8bdc0ced4eff3bd77572f44c9808fc
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176536"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857366"
 ---
-In deze sectie kunt u code bijwerken in uw bestaande Mobile Apps-back-end project voor het verzenden van een pushmelding ontvangen wanneer een nieuw item wordt toegevoegd. Dit proces wordt aangestuurd door de [sjabloon](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) functie van Azure Notification Hubs, waarmee platformoverschrijdende pushes. De verschillende clients zijn geregistreerd voor pushmeldingen te verzenden met behulp van sjablonen en een enkele universal push toegang krijgen tot alle clientplatforms.
+In deze sectie werkt u de code in uw bestaande Mobile Apps back-end-project bij om een push melding te verzenden wanneer een nieuw item wordt toegevoegd. Dit proces wordt ingeschakeld door de [sjabloon](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) functie van Azure notification hubs, waarmee platformoverschrijdende pushes mogelijk zijn. De verschillende clients zijn geregistreerd voor push meldingen met behulp van sjablonen en één universele push kan alle client platforms ophalen.
 
-Kies een van de volgende procedures die overeenkomt met uw back-end-projecttype&mdash;beide [.NET-back-end](#dotnet) of [Node.js-back-end](#nodejs).
+Kies een van de volgende procedures die overeenkomen met uw back-end&mdash;-project, de [.net-back-end](#dotnet) of de [node. js-back-end](#nodejs).
 
 ### <a name="dotnet"></a>.NET-back-end-project
 
-1. Met de rechtermuisknop op de serverproject in Visual Studio. Selecteer vervolgens **NuGet-pakketten beheren**. Zoeken naar `Microsoft.Azure.NotificationHubs`, en selecteer vervolgens **installeren**. Dit proces installeert de Notification Hubs-bibliotheek voor het verzenden van meldingen vanuit de back-end.
-2. Open in het serverproject **Controllers** > **TodoItemController.cs**. Voeg vervolgens de volgende using-instructies toe:
+1. Klik in Visual Studio met de rechter muisknop op het server project. Selecteer vervolgens **NuGet-pakketten beheren**. Zoek naar `Microsoft.Azure.NotificationHubs`en selecteer **installeren**. Met dit proces wordt de Notification Hubs-bibliotheek geïnstalleerd voor het verzenden van meldingen van de back-end.
+2. Open in het server project **controllers** > **TodoItemController.cs**. Voeg vervolgens de volgende using-instructies toe:
 
     ```csharp
     using System.Collections.Generic;
@@ -26,7 +26,7 @@ Kies een van de volgende procedures die overeenkomt met uw back-end-projecttype&
     using Microsoft.Azure.Mobile.Server.Config;
     ```
 
-3. In de **PostTodoItem** methode, voeg de volgende code na het aanroepen van **InsertAsync**:  
+3. In de methode **PostTodoItem** voegt u de volgende code toe na het aanroepen van **InsertAsync**:  
 
     ```csharp
     // Get the settings for the server project.
@@ -64,14 +64,14 @@ Kies een van de volgende procedures die overeenkomt met uw back-end-projecttype&
     }
     ```
 
-    Dit proces verzendt de melding van een sjabloon die het item bevat. Tekst wanneer een nieuw item wordt ingevoegd.
+    Dit proces verzendt een sjabloon melding die het item bevat. Tekst wanneer een nieuw item wordt ingevoegd.
 
-4. Het serverproject publiceren.
+4. Publiceer het server project opnieuw.
 
-### <a name="nodejs"></a>Node.js-back-end-project
+### <a name="nodejs"></a>Node. js-back-end-project
 
-1. Als u dit nog niet hebt gedaan, [downloaden van het snelstartproject dat back-end](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), of gebruik anders de [online-editor in Azure portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
-2. Vervang de bestaande code in todoitem.js door de volgende code:
+1. Stel uw back-end-project in.
+2. Vervang de bestaande code in todoitem. js door de volgende code:
 
     ```javascript
     var azureMobileApps = require('azure-mobile-apps'),
@@ -114,6 +114,6 @@ Kies een van de volgende procedures die overeenkomt met uw back-end-projecttype&
     module.exports = table;  
     ```
 
-    Dit proces verzendt de melding van een sjabloon met de item.text wanneer een nieuw item wordt ingevoegd.
+    Dit proces verzendt een sjabloon melding die het item. tekst bevat wanneer een nieuw item wordt ingevoegd.
 
-3. Wanneer u het bestand op uw lokale computer hebt bewerkt, publiceert u opnieuw het serverproject.
+3. Wanneer u het bestand op uw lokale computer bewerkt, publiceert u het server project opnieuw.

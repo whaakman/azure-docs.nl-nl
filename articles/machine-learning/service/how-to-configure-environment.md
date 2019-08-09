@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: efe5829ffbe4db304f9ffab0a259ab9d10279b27
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: d2f60b496594946e9175ecf5c1948b08c9065b1b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772693"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848206"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -40,7 +40,7 @@ Dit artikel bevat ook extra tips voor het gebruik van de volgende hulpprogram ma
 
 ## <a name="prerequisites"></a>Vereisten
 
-Een werkruimte van Azure Machine Learning-service. Zie [een Azure machine learning service werkruimte maken](setup-create-workspace.md)om de werk ruimte te maken. Een werk ruimte is alles wat u nodig hebt om aan de slag te gaan met uw eigen [cloud-gebaseerde Notebook server](#notebookvm), een [DSVM](#dsvm), [Azure Databricks](#aml-databricks)of [Azure notebooks](#aznotebooks).
+Een werkruimte van Azure Machine Learning-service. Zie [een Azure machine learning service werkruimte maken](how-to-manage-workspace.md)om de werk ruimte te maken. Een werk ruimte is alles wat u nodig hebt om aan de slag te gaan met uw eigen [cloud-gebaseerde Notebook server](#notebookvm), een [DSVM](#dsvm), [Azure Databricks](#aml-databricks)of [Azure notebooks](#aznotebooks).
 
 Als u de SDK-omgeving voor uw [lokale computer](#local)wilt installeren, [Jupyter notebook server](#jupyter) of [Visual Studio code](#vscode) die u ook nodig hebt:
 
@@ -294,7 +294,7 @@ Maak een [Databricks-cluster](https://docs.microsoft.com/azure/azure-databricks/
 
 Gebruik deze instellingen:
 
-| Instelling |Van toepassing op| Value |
+| Instelling |Van toepassing op| Waarde |
 |----|---|---|
 | Clusternaam |altijd| yourclustername |
 | Databricks Runtime |altijd| Een niet-ML-runtime (niet ML 4. x, 5. x) |
@@ -377,7 +377,7 @@ U kunt dit bestand vanuit uw code gebruiken `ws=Workspace.from_config()`. Deze c
 
 U kunt het configuratie bestand op drie manieren maken:
 
-* **Volg de stappen in [Create a Azure machine learning service Workspace](setup-create-workspace.md#sdk)** : Er wordt een bestand *config. json* in uw Azure notebooks-bibliotheek gemaakt. Het bestand bevat de configuratie gegevens voor uw werk ruimte. U kunt het *bestand config. json* downloaden of kopiëren naar andere ontwikkel omgevingen.
+* **Gebruik [WS. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)** : om een bestand *config. json* te schrijven. Het bestand bevat de configuratie gegevens voor uw werk ruimte. U kunt het *bestand config. json* downloaden of kopiëren naar andere ontwikkel omgevingen.
 
 * **Het bestand downloaden**: Selecteer in de [Azure Portal](https://ms.portal.azure.com)de optie **down load config. json** in het gedeelte **overzicht** van uw werk ruimte.
 

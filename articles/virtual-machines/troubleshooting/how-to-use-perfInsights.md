@@ -1,6 +1,6 @@
 ---
 title: PerfInsights gebruiken in Microsoft Azure | Microsoft Docs
-description: Leert hoe u met PerfInsights problemen met Windows-VM prestaties oplossen.
+description: Meer informatie over het gebruik van PerfInsights voor het oplossen van problemen met Windows VM-prestaties.
 services: virtual-machines-windows'
 documentationcenter: ''
 author: anandhms
@@ -14,305 +14,305 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 26301e9a8aef29f1ff786f4fcd28b806eb10b8df
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318350"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846735"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights gebruiken
 
-[PerfInsights](https://aka.ms/perfinsightsdownload) is een hulpprogramma voor zelfhulp diagnostische gegevens verzamelt, analyseert de diagnostische gegevens en biedt een rapport voor het oplossen van problemen met prestaties van Windows-virtuele machine in Azure. PerfInsights kan worden uitgevoerd op virtuele machines als een zelfstandig hulpprogramma, rechtstreeks vanuit de portal met behulp van [Prestatiediagnoses voor Azure virtual machines](performance-diagnostics.md), of door het installeren van [Azure prestaties diagnostische VM-extensie ](performance-diagnostics-vm-extension.md).
+[PerfInsights](https://aka.ms/perfinsightsdownload) is een hulp programma voor zelf ondersteuning waarmee de diagnostische gegevens worden verzameld en geanalyseerd, en biedt een rapport voor het oplossen van prestatie problemen met virtuele Windows-machines in Azure. PerfInsights kan worden uitgevoerd op virtuele machines als zelfstandig hulp programma, rechtstreeks vanuit de portal door gebruik te maken van [prestatie diagnostiek voor Azure virtual machines](performance-diagnostics.md)of door de [VM-extensie Azure performance Diagnostics](performance-diagnostics-vm-extension.md)te installeren.
 
-Als u problemen met de prestaties met virtuele machines, ondervindt voordat u contact opnemen met ondersteuning, moet u dit hulpprogramma uitvoeren.
+Als u prestatie problemen ondervindt met virtuele machines, moet u dit hulp programma uitvoeren voordat u contact opneemt met de ondersteuning.
 
-## <a name="supported-troubleshooting-scenarios"></a>Ondersteunde scenario's voor het oplossen van problemen
+## <a name="supported-troubleshooting-scenarios"></a>Ondersteunde scenario's voor probleem oplossing
 
-PerfInsights kunt verzamelen en analyseren van verschillende soorten informatie. De volgende secties voor algemene scenario's.
+PerfInsights kunnen diverse soorten informatie verzamelen en analyseren. In de volgende secties worden algemene scenario's besproken.
 
 ### <a name="quick-performance-analysis"></a>Analyse van snelle prestaties
 
-In dit scenario worden verzameld voor de configuratie van de schijf en andere belangrijke gegevens, met inbegrip van:
+In dit scenario worden de schijf configuratie en andere belang rijke informatie verzameld, waaronder:
 
 -   Gebeurtenislogboeken
 
--   Netwerkstatus voor alle inkomende en uitgaande verbindingen
+-   Netwerk status voor alle binnenkomende en uitgaande verbindingen
 
--   Netwerk- en firewallinstellingen configuratie-instellingen
+-   Configuratie-instellingen voor netwerk en firewall
 
--   Lijst met taken voor alle toepassingen die momenteel worden uitgevoerd op het systeem
+-   Taak lijst voor alle toepassingen die momenteel worden uitgevoerd op het systeem
 
--   Microsoft SQL Server-database configuratie-instellingen (als de virtuele machine wordt geïdentificeerd als een server waarop SQL Server wordt uitgevoerd)
+-   Configuratie-instellingen van Microsoft SQL Server-Data Base (als de virtuele machine is geïdentificeerd als een server waarop SQL Server wordt uitgevoerd)
 
--   Tellers voor opslag-betrouwbaarheid
+-   Betrouwbaarheids tellers voor opslag
 
--   Belangrijke Windows-hotfixes
+-   Belang rijke hotfixes voor Windows
 
--   Geïnstalleerde filterstuurprogramma 's
+-   Geïnstalleerde filter Stuur Programma's
 
-Dit is een passieve verzamelen van informatie die mag niet van invloed zijn op het systeem. 
+Dit is een passieve verzameling informatie die niet van invloed is op het systeem. 
 
 >[!Note]
->In dit scenario wordt automatisch opgenomen in elk van de volgende scenario's:
+>Dit scenario wordt automatisch opgenomen in elk van de volgende scenario's:
 
 ### <a name="benchmarking"></a>Benchmarking
 
-In dit scenario wordt uitgevoerd de [Diskspd](https://github.com/Microsoft/diskspd) benchmarktest (IOPS en MBPS) voor alle stations die zijn gekoppeld aan de virtuele machine. 
+In dit scenario wordt de [Diskspd](https://github.com/Microsoft/diskspd) Bench Mark-test (IOPS en MBPS) uitgevoerd voor alle stations die zijn gekoppeld aan de virtuele machine. 
 
 > [!Note]
-> In dit scenario kan invloed hebben op het systeem en mag niet worden uitgevoerd op een live productieomgeving. Indien nodig, kunt u dit scenario uitvoeren in een speciale onderhoudsvenster om eventuele problemen te voorkomen. Een grotere werkbelasting die wordt veroorzaakt door een trace- of -benchmark-test kan nadelige invloed heeft op de prestaties van uw virtuele machine.
+> Dit scenario kan van invloed zijn op het systeem en mag niet worden uitgevoerd op een live productie systeem. Voer, indien nodig, dit scenario uit in een speciaal onderhouds venster om eventuele problemen te voor komen. Een verhoogde werk belasting die wordt veroorzaakt door een tracering of Bench Mark-test kan een nadelige invloed hebben op de prestaties van de virtuele machine.
 >
 
 ### <a name="performance-analysis"></a>Analyse van prestaties
 
-In dit scenario wordt uitgevoerd een [prestatiemeteritem](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) traceren met behulp van de items die zijn opgegeven in het bestand RuleEngineConfig.json. Als de virtuele machine wordt geïdentificeerd als een server waarop SQL Server wordt uitgevoerd, wordt een prestaties teller tracering wordt uitgevoerd. Dit gebeurt met behulp van de items die zijn gevonden in het bestand RuleEngineConfig.json. Dit scenario omvat ook prestatiegegevens van diagnostische gegevens.
+In dit scenario wordt een [prestatie meter item](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) tracering uitgevoerd met behulp van de prestatie meter items die zijn opgegeven in het bestand RuleEngineConfig. json. Als de virtuele machine wordt geïdentificeerd als een server waarop SQL Server wordt uitgevoerd, wordt een prestatie meter item tracering uitgevoerd. Dit doet u door gebruik te maken van de prestatie meter items in het bestand RuleEngineConfig. json. Dit scenario omvat ook gegevens over prestatie diagnostiek.
 
-### <a name="azure-files-analysis"></a>Azure bestanden analysis
+### <a name="azure-files-analysis"></a>Azure Files analyse
 
-In dit scenario wordt een speciale prestaties teller vastleggen, samen met een netwerktracering uitgevoerd. De opname omvat alle Server Message Block (SMB) client shares prestatiemeteritems. Hier volgen enkele belangrijke SMB-share clientprestatietellers die deel van het vastleggen uitmaken:
+In dit scenario wordt een speciale opname voor prestatie meter items uitgevoerd met een netwerk tracering. De vastleg ging bevat alle items van het Server Message Block (SMB)-client shares. Hieronder volgen enkele belang rijke prestatie meter items voor SMB-client delen die deel uitmaken van de vastleg ging:
 
-| **Type**     | **SMB-client shares teller** |
+| **Type**     | **Teller SMB-client shares** |
 |--------------|-------------------------------|
-| IOPS         | Gegevens aanvragen/sec             |
-|              | Gelezen aanvragen per seconde             |
-|              | Schrijven van aanvragen/sec            |
-| Latentie      | Gem. per seconde/gegevensaanvraag         |
-|              | Gemiddelde leestijd                 |
-|              | Gemiddelde schrijftijd                |
-| I/o-grootte      | Gem. Aanvraag voor bytes/gegevens       |
+| IOPS         | Gegevens aanvragen per seconde             |
+|              | Lees aanvragen per seconde             |
+|              | Schrijf aanvragen per seconde            |
+| Latentie      | Gemiddeld aantal seconden/gegevens aanvraag         |
+|              | Gemiddeld aantal seconden per Lees bewerking                 |
+|              | Gemiddeld aantal seconden per schrijf bewerking                |
+| I/o-grootte      | Gem. Bytes/gegevens aanvraag       |
 |              | Gem. Bytes/Read               |
 |              | Gem. Bytes/schrijven              |
 | Doorvoer   | Data Bytes/sec                |
-|              | Gelezen Bytes per seconde                |
-|              | Geschreven Bytes per seconde               |
-| Lengte van wachtrij | Gem. Wachtrijlengte voor lezen        |
-|              | Gem. Lengte van wachtrij schrijven       |
-|              | Gem. Data Queue Length        |
+|              | Gelezen bytes/sec                |
+|              | Geschreven bytes/sec               |
+| Lengte van wachtrij | Gem. Lengte van Lees wachtrij        |
+|              | Gem. Lengte van schrijf wachtrij       |
+|              | Gem. Lengte van gegevens wachtrij        |
 
-### <a name="advanced-performance-analysis"></a>Geavanceerde analyse
+### <a name="advanced-performance-analysis"></a>Geavanceerde prestatie analyse
 
-Als u een geavanceerde prestatieanalyse uitvoert, selecteert u traceringen om parallel uit voeren. Als u wilt, kunt u ze op alle (prestatiemeteritems, Xperf, netwerk en StorPort) uitvoeren.  
+Wanneer u een geavanceerde prestatie analyse uitvoert, selecteert u traceringen die parallel moeten worden uitgevoerd. Als u wilt, kunt u deze allemaal uitvoeren (prestatie meter item, Xperf, netwerk en StorPort).  
 
 > [!Note]
-> In dit scenario kan invloed hebben op het systeem en mag niet worden uitgevoerd op een live productieomgeving. Indien nodig, kunt u dit scenario uitvoeren in een speciale onderhoudsvenster om eventuele problemen te voorkomen. Een grotere werkbelasting die wordt veroorzaakt door een trace- of -benchmark-test kan nadelige invloed heeft op de prestaties van uw virtuele machine.
+> Dit scenario kan van invloed zijn op het systeem en mag niet worden uitgevoerd op een live productie systeem. Voer, indien nodig, dit scenario uit in een speciaal onderhouds venster om eventuele problemen te voor komen. Een verhoogde werk belasting die wordt veroorzaakt door een tracering of Bench Mark-test kan een nadelige invloed hebben op de prestaties van de virtuele machine.
 >
 
 ## <a name="what-kind-of-information-is-collected-by-perfinsights"></a>Wat voor soort informatie wordt verzameld door PerfInsights?
 
-Informatie over Windows-VM, schijven of pools opslagconfiguratie, prestatiemeteritems, logboeken en verschillende traceringen worden verzameld. Dat hangt ervan af op de prestaties scenario dat u gebruikt. De volgende tabel bevat details:
+Informatie over Windows VM, schijven of opslag groepen configuratie, prestatie meter items, logboeken en verschillende traceringen worden verzameld. Dit is afhankelijk van het prestatie scenario dat u gebruikt. De volgende tabel bevat details:
 
-|Gegevens die zijn verzameld                              |  |  | Performance-scenario 's |  |  | |
+|Gegevens die zijn verzameld                              |  |  | Prestatie scenario's |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Analyse van snelle prestaties | Benchmarking | Analyse van prestaties | Azure bestanden analysis | Geavanceerde analyse |
-| Gegevens uit de gebeurtenislogboeken       | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
-| Systeemgegevens                | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
-| Volume-kaart                        | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
-| Schijf-kaart                          | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
+|                               | Analyse van snelle prestaties | Benchmarking | Analyse van prestaties | Azure Files analyse | Geavanceerde prestatie analyse |
+| Informatie uit gebeurtenis logboeken       | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
+| Systeem gegevens                | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
+| Volume toewijzing                        | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
+| Schijf toewijzing                          | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Actieve taken                     | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
-| Tellers voor opslag-betrouwbaarheid      | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
+| Betrouwbaarheids tellers voor opslag      | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Opslaggegevens               | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Fsutil-uitvoer                     | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
-| Stuurprogramma-informatie filteren                | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
+| Stuur programma-informatie filteren                | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Netstat-uitvoer                    | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Netwerkconfiguratie             | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
-| Firewall-configuratie            | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
-| SQL Server-configuratie          | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
-| Prestaties diagnostische traceringen *  | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
-| Prestaties teller trace **      |                            |                                    | Ja                      |                      | Ja                  |
-| SMB-prestatiemeteritems trace **              |                            |                                    |                          | Ja                  |                      |
-| SQL Server-teller tracering **       |                            |                                    | Ja                      |                      | Ja                  |
-| XPerf trace                       |                            |                                    |                          |                      | Ja                  |
+| Firewall configuratie            | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
+| SQL Server configuratie          | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
+| Traceringen van prestatie diagnostiek *  | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
+| Tracering van prestatie meter items * *      |                            |                                    | Ja                      |                      | Ja                  |
+| Tracering SMB-teller * *              |                            |                                    |                          | Ja                  |                      |
+| Teller tracering SQL Server * *       |                            |                                    | Ja                      |                      | Ja                  |
+| Xperf tracering                       |                            |                                    |                          |                      | Ja                  |
 | StorPort-tracering                    |                            |                                    |                          |                      | Ja                  |
-| Netwerktracering                     |                            |                                    |                          | Ja                  | Ja                  |
-| Diskspd benchmark trace ***       |                            | Ja                                |                          |                      |                      |
+| Netwerk tracering                     |                            |                                    |                          | Ja                  | Ja                  |
+| Diskspd-Bench Mark-tracering * * *       |                            | Ja                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
-### <a name="performance-diagnostics-trace-"></a>Diagnostische traceerlogboeken voor prestaties (*)
+### <a name="performance-diagnostics-trace-"></a>Prestatie diagnostiek tracering (*)
 
-Een op regels gebaseerde engine op de achtergrond voor het verzamelen van gegevens en doorlopende prestatieproblemen uitgevoerd. De volgende regels worden momenteel ondersteund:
+Voert een op regels gebaseerde engine op de achtergrond uit om gegevens te verzamelen en doorlopende prestatie problemen vast te stellen. De volgende regels worden momenteel ondersteund:
 
-- HighCpuUsage regel: Detecteert perioden van hoge CPU-gebruik en de bovenste verbruikers van de CPU-gebruik tijdens deze perioden wordt weergegeven.
-- HighDiskUsage regel: Detecteert perioden van intensief gebruik van fysieke schijven en ziet u de eerste schijf gebruik consumenten tijdens deze perioden.
-- HighResolutionDiskMetric regel: IOPS, doorvoer en i/o latentie metrische gegevens per 50 milliseconden voor elke fysieke schijf bevat. Zo kunt u snel identificeren schijf beperking perioden.
-- HighMemoryUsage regel: Hoge geheugen-gebruik perioden detecteert en ziet u de bovenste geheugen gebruik consumenten tijdens deze perioden.
+- HighCpuUsage-regel: Detecteert hoge CPU-gebruiks perioden, en toont de belangrijkste consumers van het CPU-gebruik tijdens deze peri Oden.
+- HighDiskUsage-regel: Detecteert hoge gebruiks tijden voor schijven op fysieke schijven en toont de meest voorkomende consumenten gebruikers tijdens deze peri Oden.
+- HighResolutionDiskMetric-regel: Hiermee worden de metrische gegevens voor IOPS, door Voer en I/O-latentie per 50 milliseconden voor elke fysieke schijf weer gegeven. Hiermee kunt u snel de schijfruimte beperkings punten identificeren.
+- HighMemoryUsage-regel: Detecteert gebruiks perioden in hoog geheugen en toont de prestaties van het hoogste geheugen gebruik tijdens die peri Oden.
 
 > [!NOTE] 
-> Windows-versies met de .NET Framework 4.5 of hoger worden momenteel ondersteund.
+> Op dit moment worden Windows-versies met de .NET Framework 4,5 of hogere versies ondersteund.
 
-### <a name="performance-counter-trace-"></a>Prestaties teller tracering (*)
+### <a name="performance-counter-trace-"></a>Prestatie meter item tracering (* *)
 
-Verzamelt de volgende prestatiemeteritems:
+Verzamelt de volgende prestatie meter items:
 
-- \Process, \Processor \Memory, \Thread, \PhysicalDisk en \LogicalDisk
-- \Cache\Dirty pagina's, \Cache\Lazy schrijfbewerkingen per seconde, \Server\Pool niet-wisselbaar geheugen, storingen, en \Server\Pool wisselbaar geheugen:
-- Geselecteerde items onder \Network-Interface, \IPv4\Datagrams, \IPv6\Datagrams, \TCPv4\Segments, \TCPv6\Segments, \Network Adapter, \WFPv4\Packets, \WFPv6\Packets, \UDPv4\Datagrams, \UDPv6\Datagrams, \TCPv4\Connection, \TCPv6\Connection, \ Netwerk-QoS Policy\Packets \Per Network Interface Card processoractiviteit en \Microsoft Winsock BSP
+- \Process, \Processor, \Memory, \Thread, \PhysicalDisk en \LogicalDisk
+- \Cache\Dirty-pagina's, \Cache\Lazy schrijf bewerkingen per seconde, \Server\Pool niet-wisselbaar, mislukte fouten en \Server\Pool met pagina fouten
+- Geselecteerde items onder \Network interface, \IPv4\Datagrams, \IPv6\Datagrams, \TCPv4\Segments, \TCPv6\Segments, \Network adapter, \WFPv4\Packets, \WFPv6\Packets, \UDPv4\Datagrams, \UDPv6\Datagrams, \TCPv4\Connection, \TCPv6\Connection, \ Netwerk-QoS-Policy\Packets, \Per processor Network Interface Card-activiteit en \Microsoft Winsock BSP
 
-#### <a name="for-sql-server-instances"></a>Voor SQL Server-exemplaren
-- \Sql server: Buffer Manager, \SQLServer:Resource Pool statistieken en \SQLServer:SQL Statistics\
-- \SQLServer:locks, \SQLServer:General, statistieken
-- \SQLServer:Access methoden
+#### <a name="for-sql-server-instances"></a>Voor SQL Server exemplaren
+- \SQL-server: buffer beheer, \SQLServer: resource groep statistieken en \SQLServer: SQL-statistieken \
+- \SQLServer: Locks, \SQLServer: General, Statistics
+- \SQLServer: toegangs methoden
 
 #### <a name="for-azure-files"></a>Voor Azure Files
-\SMB Clientshares
+\SMB-client shares
 
-### <a name="diskspd-benchmark-trace-"></a>Diskspd benchmark tracering (*)
-Diskspd i/o-werkbelasting tests uit (Besturingssysteemschijf [schrijven] en groep-stations [lezen/schrijven])
+### <a name="diskspd-benchmark-trace-"></a>Diskspd Bench Mark-tracering (* * *)
+Diskspd I/O-workload testen (besturingssysteem schijf [schrijven] en groeps stations [lezen/schrijven])
 
-## <a name="run-the-perfinsights-tool-on-your-vm"></a>Het hulpprogramma PerfInsights uitvoeren op uw virtuele machine
+## <a name="run-the-perfinsights-tool-on-your-vm"></a>Het PerfInsights-hulp programma uitvoeren op uw VM
 
-### <a name="what-do-i-have-to-know-before-i-run-the-tool"></a>Wat heb ik moet weten voordat ik het hulpprogramma uitvoeren? 
+### <a name="what-do-i-have-to-know-before-i-run-the-tool"></a>Wat moet ik weten voordat ik het hulp programma uitvoer? 
 
-#### <a name="tool-requirements"></a>Hulpprogramma-vereisten
+#### <a name="tool-requirements"></a>Hulp programma vereisten
 
--  Dit hulpprogramma moet worden uitgevoerd op de virtuele machine waarop het prestatieprobleem. 
+-  Dit hulp programma moet worden uitgevoerd op de VM met het prestatie probleem. 
 
--  De volgende besturingssystemen worden ondersteund: Windows Server 2008 R2, WindowsServer 2012, Windows Server 2012 R2 en WindowsServer 2016; Windows 8.1 en Windows 10.
+-  De volgende besturingssystemen worden ondersteund: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 en Windows Server 2016; Windows 8,1 en Windows 10.
 
-#### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Mogelijke problemen wanneer u het hulpprogramma op de productie-VM's uitvoeren
+#### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Mogelijke problemen wanneer u het hulp programma uitvoert op productie-Vm's
 
--  Voor het scenario voor benchmarking of het 'Geavanceerde analyse van prestaties'-scenario dat is geconfigureerd voor het gebruik van Xperf of Diskspd, het hulpprogramma mogelijk nadelige invloed heeft op de prestaties van de virtuele machine. Deze scenario's moeten niet worden uitgevoerd in een live productieomgeving.
+-  Het hulp programma kan de prestaties van de virtuele machine nadelig beïnvloeden voor het vergelijkings scenario of het scenario met geavanceerde prestaties dat is geconfigureerd voor het gebruik van Xperf of Diskspd. Deze scenario's mogen niet worden uitgevoerd in een live productie omgeving.
 
--  Voor het scenario voor benchmarking of het 'Geavanceerde analyse van prestaties'-scenario dat is geconfigureerd voor het gebruik van Diskspd, moet u ervoor zorgen dat er geen andere activiteit op de achtergrond de i/o-werkbelasting verstoort.
+-  Zorg ervoor dat de I/O-werk belasting niet wordt veroorzaakt door een andere achtergrond activiteit voor het benchmarking-scenario of het scenario voor geavanceerde prestaties dat is geconfigureerd voor het gebruik van Diskspd.
 
--  Het hulpprogramma gebruikt standaard de tijdelijke opslagschijf voor het verzamelen van gegevens. Als tracering ingeschakeld voor een langere tijd blijft, is de hoeveelheid gegevens die worden verzameld mogelijk relevant kunnen zijn. Dit kan de beschikbaarheid van de ruimte op de tijdelijke schijf verminderen en kan daarom invloed hebben op elke toepassing die is gebaseerd op dit station.
+-  Het hulp programma maakt standaard gebruik van het tijdelijke opslag station voor het verzamelen van gegevens. Als tracering gedurende langere tijd ingeschakeld blijft, kan de hoeveelheid verzamelde gegevens relevant zijn. Dit kan de beschik baarheid van ruimte op de tijdelijke schijf verminderen en kan daarom van invloed zijn op elke toepassing die afhankelijk is van dit station.
 
 ### <a name="how-do-i-run-perfinsights"></a>Hoe kan ik PerfInsights uitvoeren? 
 
-U kunt PerfInsights uitvoeren op een virtuele machine door het installeren van [Azure prestaties diagnostische VM-extensie](performance-diagnostics-vm-extension.md). U kunt deze ook uitvoeren als een zelfstandig hulpprogramma. 
+U kunt PerfInsights op een virtuele machine uitvoeren door de [VM-extensie Azure-prestatie diagnostiek](performance-diagnostics-vm-extension.md)te installeren. U kunt deze ook uitvoeren als een zelfstandig hulp programma. 
 
-**Installeren en uitvoeren van PerfInsights vanuit Azure portal**
+**PerfInsights installeren en uitvoeren vanuit de Azure Portal**
 
-Zie voor meer informatie over deze optie [installeren Azure prestaties diagnostische VM-extensie](performance-diagnostics-vm-extension.md#install-the-extension).  
+Zie voor meer informatie over deze optie [Azure performance diagnostische VM-extensie installeren](performance-diagnostics-vm-extension.md#install-the-extension).  
 
 **PerfInsights uitvoeren in de zelfstandige modus**
 
-Als u wilt de PerfInsights-hulpprogramma uitvoert, de volgende stappen uit:
+Voer de volgende stappen uit om het PerfInsights-hulp programma uit te voeren:
 
 
-1. Download [PerfInsights.zip](https://aka.ms/perfinsightsdownload).
+1. Down load [PerfInsights. zip](https://aka.ms/perfinsightsdownload).
 
-2. Het bestand PerfInsights.zip de blokkering opheffen. U doet dit door met de rechtermuisknop op het bestand PerfInsights.zip en selecteer **eigenschappen**. In de **algemene** tabblad **opheffen van blokkeringen**, en selecteer vervolgens **OK**. Dit zorgt ervoor dat het hulpprogramma wordt uitgevoerd zonder eventuele extra beveiliging wordt gevraagd.  
+2. Deblokkeren van het bestand PerfInsights. zip. U doet dit door met de rechter muisknop op het bestand PerfInsights. zip te klikken en **Eigenschappen**te selecteren. Selecteer op het tabblad **Algemeen** de optie **blok kering opheffen**en selecteer vervolgens **OK**. Dit zorgt ervoor dat het hulp programma wordt uitgevoerd zonder dat er extra beveiligings aanwijzingen zijn.  
 
-    ![Schermafbeelding van PerfInsights eigenschappen, met het opheffen van blokkeringen gemarkeerd](media/how-to-use-perfInsights/unlock-file.png)
+    ![Scherm opname van PerfInsights-eigenschappen, waarbij de blok kering is gemarkeerd](media/how-to-use-perfInsights/pi-unlock-file.png)
 
-3.  Het gecomprimeerde bestand in de PerfInsights.zip uitbreiden naar de tijdelijke schijf (standaard, dit is doorgaans station D bevindt). 
+3.  Vouw het gecomprimeerde bestand PerfInsights. zip uit in het tijdelijke station (standaard is dit het D-station). 
 
-4.  Open Windows-opdrachtprompt als beheerder en voer PerfInsights.exe om de beschikbare commandline parameters weer te geven.
+4.  Open Windows-opdracht prompt als beheerder en voer PerfInsights. exe uit om de beschik bare commandline-para meters weer te geven.
 
     ```
     cd <the path of PerfInsights folder>
     PerfInsights
     ```
-    ![Schermafbeelding van PerfInsights commandline uitvoer](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
+    ![Scherm opname van de uitvoer van PerfInsights commandline](media/how-to-use-perfInsights/pi-commandline.png)
     
-    De eenvoudige syntaxis voor het uitvoeren van PerfInsights scenario's is:
+    De basis syntaxis voor het uitvoeren van PerfInsights-scenario's is:
     
     ```
     PerfInsights /run <ScenarioName> [AdditionalOptions]
     ```
 
-    U kunt het onderstaande voorbeeld om uit te voeren van prestaties analysis scenario voor 5 minuten:
+    U kunt het onderstaande voor beeld gebruiken om een scenario voor prestatie analyse uit te voeren gedurende 5 minuten:
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    Het volgende voorbeeld kunt u het geavanceerde scenario met Xperf en prestaties teller traceringen voor 5 minuten uitvoeren:
+    U kunt het volgende voor beeld gebruiken om het geavanceerde scenario met traceringen voor Xperf en prestatie meter items gedurende 5 minuten uit te voeren:
     
     ```
     PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    U kunt het onderstaande voorbeeld prestaties analysis scenario voor 5 minuten uitvoeren en het resultaat zip-bestand uploaden naar het storage-account:
+    U kunt het onderstaande voor beeld gebruiken om een scenario voor prestatie analyse uit te voeren gedurende 5 minuten en het zip-bestand te uploaden naar het opslag account:
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>
     ```
 
-    U alle beschikbare scenario's en opties kunt opzoeken met behulp van de **/lijst** opdracht:
+    U kunt alle beschik bare scenario's en opties opzoeken met behulp van de opdracht **/List** :
     
     ```
     PerfInsights /list
     ```
 
     >[!Note]
-    >Voordat u een scenario, vraagt PerfInsights de gebruiker gaat ermee akkoord om diagnostische gegevens te delen en om de gebruiksrechtovereenkomst te accepteren. Gebruik **/AcceptDisclaimerAndShareDiagnostics** optie voor het overslaan van deze vragen. 
+    >Voordat u een scenario uitvoert, wordt de gebruiker door PerfInsights gevraagd om de diagnostische gegevens te delen en de gebruiksrecht overeenkomst te accepteren. Gebruik de optie **/AcceptDisclaimerAndShareDiagnostics** om deze prompts over te slaan. 
     >
-    >Als u een actieve ondersteuningsticket bij Microsoft en actieve PerfInsights per verzoek van de ondersteuningsmedewerker u met werkt hebt, zorg ervoor dat voor de ondersteuning van ticket getal met behulp van de **/sr** optie.
+    >Als u een actief ondersteunings ticket hebt met micro soft en PerfInsights wilt uitvoeren volgens de aanvraag van de ondersteunings technicus waarmee u werkt, moet u ervoor zorgen dat u het nummer van het ondersteunings ticket opgeeft met de optie **/SR** .
     >
-    >Standaard probeert PerfInsights zichzelf bijwerken naar de nieuwste versie, indien beschikbaar. Gebruik **/SkipAutoUpdate** of **/sau** parameter om over te slaan voor automatische updates.  
+    >PerfInsights probeert standaard zichzelf bij te werken naar de nieuwste versie, indien beschikbaar. Gebruik de para meter **/SkipAutoUpdate** of **/sau** om de automatische update over te slaan.  
     >
-    >Als de duur van de switch **/d** niet is opgegeven, PerfInsights wordt gevraagd u aan om te reproduceren het probleem tijdens het uitvoeren van vmslow, Azure Files en geavanceerde scenario's. 
+    >Als de duur schakelaar **/d** niet is opgegeven, wordt u door PerfInsights gevraagd het probleem op te lossen tijdens het uitvoeren van vmslow, Azure files en geavanceerde scenario's. 
 
-Wanneer de traceringen of bewerkingen zijn voltooid, wordt een nieuw bestand in dezelfde map als PerfInsights weergegeven. De naam van het bestand is **PerformanceDiagnostics\_jjjj-MM-dd\_hh: mm: ss-fff.zip.** U kunt dit bestand verzenden naar de agent ondersteuning voor analyse of open het rapport in het zip-bestand bevindingen en aanbevelingen te bekijken.
+Wanneer de traceringen of bewerkingen zijn voltooid, wordt een nieuw bestand weer gegeven in dezelfde map als PerfInsights. De naam van het bestand is **PerformanceDiagnostics\_jjjj-mm-dd\_hh-mm-SS-FFF. zip.** U kunt dit bestand naar de ondersteunings agent verzenden voor analyse of het rapport openen in het zip-bestand om de bevindingen en aanbevelingen te bekijken.
 
-## <a name="review-the-diagnostics-report"></a>Bekijk het rapport diagnostische gegevens
+## <a name="review-the-diagnostics-report"></a>Het diagnostische rapport controleren
 
-Binnen de **PerformanceDiagnostics\_jjjj-MM-dd\_hh: mm: ss-fff.zip** -bestand, kunt u een HTML-rapport waarin wordt uitgelegd van de resultaten van de PerfInsights vinden. Als u wilt controleren van het rapport, vouw de **PerformanceDiagnostics\_jjjj-MM-dd\_hh: mm: ss-fff.zip** bestand en open vervolgens de **PerfInsights Report.html** bestand.
+In het **PerformanceDiagnostics\_jjjj-mm-dd\_hh-mm-SS-FFF. zip-** bestand kunt u een HTML-rapport vinden waarin de bevindingen van PerfInsights worden beschreven. Als u het rapport wilt bekijken, vouwt u het bestand **\_PerformanceDiagnostics\_jjjj-mm-dd hh-mm-SS-FFF. zip** uit en opent u vervolgens het bestand **PerfInsights Report. html** .
 
-Selecteer de **bevindingen** tabblad.
+Selecteer het tabblad **bevindingen** .
 
-![Schermopname van het rapport PerfInsights](media/how-to-use-perfInsights/findingtab.png)
-![Screenshot van PerfInsights-rapport](media/how-to-use-perfInsights/findings.PNG)
+![Scherm opname van scherm](media/how-to-use-perfInsights/pi-finding-tab.png)
+opname van PerfInsights-rapport![van PerfInsights rapport](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
-> Bevindingen gecategoriseerd als hoog zijn bekende problemen die prestatieproblemen kunnen veroorzaken. Bevindingen gecategoriseerd als normaal vertegenwoordigen niet-optimale configuraties die niet noodzakelijkerwijs prestatieproblemen veroorzaken. Bevindingen ingedeeld als laag zijn alleen informatieve instructies.
+> Bevindingen die zijn gecategoriseerd als hoog, zijn bekende problemen die prestatie problemen kunnen veroorzaken. Bevindingen die zijn gecategoriseerd als medium, vertegenwoordigen niet-optimale configuraties die niet noodzakelijkerwijs prestatie problemen veroorzaken. Bevindingen die zijn gecategoriseerd als laag, zijn alleen informatieve instructies.
 
-Bekijk de aanbevelingen en koppelingen voor alle hoge en gemiddelde bevindingen. Meer informatie over hoe ze invloed hebben op prestaties en over aanbevolen procedures voor optimale prestaties configuraties.
+Bekijk de aanbevelingen en koppelingen voor alle belang rijke en middel grote bevindingen. Meer informatie over hoe deze prestaties kunnen beïnvloeden en ook over de aanbevolen procedures voor de prestaties geoptimaliseerde configuraties.
 
 ### <a name="storage-tab"></a>Tabblad opslag
 
-De **bevindingen** sectie vindt u verschillende bevindingen en aanbevelingen met betrekking tot opslag.
+In het gedeelte **bevindingen** worden verschillende bevindingen en aanbevelingen met betrekking tot opslag weer gegeven.
 
-De **schijf kaart** en **Volume kaart** secties beschrijven hoe logische volumes en fysieke schijven aan elkaar zijn gerelateerd.
+In de secties **schijf toewijzing** en **volume toewijzing** wordt beschreven hoe logische volumes en fysieke schijven aan elkaar zijn gerelateerd.
 
-In het perspectief van het fysieke schijf (schijf-Map) ziet de tabel u alle logische volumes die worden uitgevoerd op de schijf. In het volgende voorbeeld **PhysicalDrive2** twee logische volumes die zijn gemaakt op meerdere partities (J en H) wordt uitgevoerd:
+In het perspectief fysieke schijf (schijf toewijzing) toont de tabel alle logische volumes die op de schijf worden uitgevoerd. In het volgende voor beeld voert **PhysicalDrive2** twee logische volumes uit die zijn gemaakt op meerdere partities (J en H):
 
-![Schermafbeelding van tabblad schijf](media/how-to-use-perfInsights/disktab.png)
+![Scherm afbeelding van het tabblad schijf](media/how-to-use-perfInsights/pi-disk-tab.png)
 
-In het perspectief van het volume (Volume-Map) ziet de tabellen u de fysieke schijven in elke logische volume. U ziet dat voor RAID/dynamische schijven, u kunt een logische volume uitvoeren op meerdere fysieke schijven. In het volgende voorbeeld *C:\\koppelen* een koppelpunt is geconfigureerd als *SpannedDisk* op fysieke schijven met 2 en 3:
+In het perspectief volume (volume toewijzing) tonen de tabellen alle fysieke schijven onder elk logisch volume. U ziet dat voor RAID/dynamische schijven een logisch volume op meerdere fysieke schijven kan worden uitgevoerd. In het volgende voor beeld is *C\\: koppelen* een koppel punt geconfigureerd als *SpannedDisk* op de fysieke schijven 2 en 3:
 
-![Schermafbeelding van tabblad volume](media/how-to-use-perfInsights/volumetab.png)
+![Scherm afbeelding van het tabblad volume](media/how-to-use-perfInsights/pi-volume-tab.png)
 
-### <a name="sql-tab"></a>SQL-tabblad
+### <a name="sql-tab"></a>Tabblad SQL
 
-Als de doel-VM als host fungeert voor een SQL Server-exemplaren, ziet u een extra tabblad in het rapport met de naam **SQL**:
+Als de doel-VM een SQL Server instanties host, ziet u een extra tabblad in het rapport met de naam **SQL**:
 
-![Schermafbeelding van de SQL-tabblad](media/how-to-use-perfInsights/sqltab.png)
+![Scherm afbeelding van het tabblad SQL](media/how-to-use-perfInsights/pi-sql-tab.png)
 
-In deze sectie bevat een **bevindingen** tabblad, en de aanvullende tabbladen voor elk van de SQL Server-exemplaren die worden gehost op de virtuele machine.
+Deze sectie bevat een tabblad met **resultaten** en aanvullende tabbladen voor elk van de SQL Server exemplaren die worden gehost op de VM.
 
-De **bevindingen** tabblad bevat een lijst van alle SQL prestatieproblemen gevonden, samen met de aanbevelingen die betrekking hebben.
+Het tabblad **bevindingen** bevat een lijst met alle SQL-gerelateerde prestatie problemen die zijn gevonden, samen met de aanbevelingen.
 
-In het volgende voorbeeld **PhysicalDrive0** (het C-station wordt uitgevoerd) wordt weergegeven. Dit komt doordat zowel de **modeldev** en **modellog** bestanden bevinden zich op station C, en ze zijn van verschillende typen (zoals bestands- en transactie gegevenslogboek, respectievelijk).
+In het volgende voor beeld wordt **PhysicalDrive0** (uitvoeren van station C) weer gegeven. Dit komt doordat de **modeldev** -en **Modellog** -bestanden zich bevinden op het station C en ze zijn van verschillende typen (zoals gegevens bestand en transactie logboek).
 
-![Schermafbeelding van logboekgegevens](media/how-to-use-perfInsights/loginfo.png)
+![Scherm opname van logboek gegevens](media/how-to-use-perfInsights/pi-log-info.png)
 
-De tabbladen voor specifieke exemplaren van SQL Server bevatten een algemene sectie waarin algemene informatie over het geselecteerde exemplaar worden weergegeven. De tabbladen bevatten ook extra gedeelten voor geavanceerde informatie, waaronder instellingen, configuraties en opties voor gebruikers.
+De tabbladen voor specifieke exemplaren van SQL Server bevatten een algemene sectie waarin basis informatie over het geselecteerde exemplaar wordt weer gegeven. De tabbladen bevatten ook extra secties voor geavanceerde informatie, waaronder instellingen, configuraties en gebruikers opties.
 
-### <a name="diagnostic-tab"></a>Tabblad Diagnostische
-De **diagnostische** tabblad bevat informatie over bovenste verbruikers van CPU, schijf en geheugen op de computer voor de duur van het uitvoeren van PerfInsights. U vindt hier ook informatie over essentiële patches dat het systeem mogelijk ontbreekt de lijst met taken en belangrijke systeemgebeurtenissen. 
+### <a name="diagnostic-tab"></a>Tabblad Diagnostische gegevens
+Het tabblad Diagnostische gegevens bevat informatie over de belangrijkste CPU-, schijf-en geheugen gebruikers op de computer voor de duur van de uitvoering van PerfInsights. U vindt ook informatie over kritieke patches die mogelijk ontbreken in het systeem, de taken lijst en belang rijke systeem gebeurtenissen. 
 
-## <a name="references-to-the-external-tools-used"></a>Verwijzingen naar de externe hulpprogramma's die worden gebruikt
+## <a name="references-to-the-external-tools-used"></a>Verwijzingen naar de externe hulpprogram ma's die worden gebruikt
 
 ### <a name="diskspd"></a>Diskspd
 
-Diskspd is een opslag load-generator en prestaties testen hulpprogramma van Microsoft. Zie voor meer informatie, [Diskspd](https://github.com/Microsoft/diskspd).
+Diskspd is een test programma voor het laden van opslag en prestaties van micro soft. Zie [Diskspd](https://github.com/Microsoft/diskspd)voor meer informatie.
 
 ### <a name="xperf"></a>Xperf
 
-XPerf is een opdrachtregelprogramma voor het vastleggen van traces uit de werkset van de prestaties van Windows. Zie voor meer informatie, [Windows prestaties Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
+Xperf is een opdracht regel programma voor het vastleggen van traceringen vanuit de Windows Performance Toolkit. Zie [Windows Performance Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/)voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt Logboeken met diagnostische gegevens en rapporten uploaden naar Microsoft Support om verder te bestuderen. Ondersteuning kan u vragen die u de uitvoer die wordt gegenereerd door PerfInsights verzendt om te helpen bij het proces voor het oplossen van problemen.
+U kunt Diagnostische logboeken en rapporten uploaden naar Microsoft Ondersteuning voor verdere beoordeling. Ondersteuning kan aanvragen dat u de uitvoer verzendt die door PerfInsights wordt gegenereerd om te helpen bij het oplossen van het probleem.
 
-De volgende schermafbeelding ziet een bericht vergelijkbaar met wat u mogelijk ontvangt:
+Op de volgende scherm afbeelding wordt een bericht weer gegeven dat vergelijkbaar is met wat u kunt ontvangen:
 
-![Schermopname van voorbeeldbericht van Microsoft Support](media/how-to-use-perfInsights/supportemail.png)
+![Scherm opname van het voorbeeld bericht van Microsoft Ondersteuning](media/how-to-use-perfInsights/pi-support-email.png)
 
-Volg de instructies in het bericht voor toegang tot het bestand transfer-werkruimte. Voor extra beveiliging die u moet uw wachtwoord wijzigen in de eerste keer wordt gebruikt.
+Volg de instructies in het bericht voor toegang tot de werk ruimte bestands overdracht. Voor extra beveiliging moet u uw wacht woord wijzigen bij het eerste gebruik.
 
-Nadat u zich hebt aangemeld, vindt u een dialoogvenster voor het uploaden van de **PerformanceDiagnostics\_jjjj-MM-dd\_hh: mm: ss-fff.zip** bestand die is verzameld door PerfInsights.
+Nadat u zich hebt aangemeld, vindt u een dialoog venster waarin u het **PerformanceDiagnostics\_jjjj-mm-dd\_hh-mm-SS-FFF. zip-** bestand dat is verzameld door PerfInsights, kunt uploaden.
 

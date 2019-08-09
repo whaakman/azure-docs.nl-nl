@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 423fad943190232d9e5e674b98b62f4f0dffb8ae
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 2f7ad49fc56fc82955f79155838c69ff714aba2f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728749"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845875"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Vereisten voor Azure Disk Encryption
 
@@ -28,7 +28,7 @@ Voordat u Azure Disk Encryption op Azure IaaS Virtual Machines voor de ondersteu
 
 ## <a name="supported-vm-sizes"></a>Ondersteunde VM-grootten
 
-Azure Disk Encryption is beschikbaar op virtuele machines die voldoen aan de minimale geheugen vereisten:
+Azure Disk Encryption is niet beschikbaar op [virtuele machines van de basis, A-serie](/pricing/details/virtual-machines/series/). Azure Disk Encryption is beschikbaar op andere virtuele machines die voldoen aan de minimale geheugen vereisten:
 
 | Virtuele Machine | Minimale geheugen vereiste |
 |--|--|

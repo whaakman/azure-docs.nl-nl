@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 9a56fb27fdf9e196291942041d68b249d7f16648
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7cf382f511d2ba8452d77bf207f36b749cb31e94
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839247"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848792"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Metrische gegevens voor Azure NetApp Files
 
@@ -29,27 +29,40 @@ Azure NetApp Files voorziet in metrische gegevens over de toegewezen opslag, het
 
 <!-- 
 - *Volume pool allocated size*  
-    This is the size (GiB) of the provisioned capacity pool.  
+    The size (GiB) of the provisioned capacity pool  
 --> 
 - *Gebruikte volume groep*  
-    Dit is het totale volume quotum (GiB) in een bepaalde capaciteits groep (dat wil zeggen, het totaal van de ingerichte grootte van het volume in de capaciteits pool). Dit is het formaat dat u hebt geselecteerd tijdens het maken van het volume.  
+    Het totale volume quotum (GiB) in een opgegeven capaciteits groep (dat wil zeggen, het totaal van de ingerichte grootte van het volume in de capaciteits groep)  
+    Dit is het formaat dat u hebt geselecteerd tijdens het maken van het volume.  
 - *Totale logische grootte van volume groep*  
-    Dit is het totale aantal logische ruimte (GiB) dat wordt gebruikt voor alle volumes in een capaciteits groep.  
+    Het totale aantal logische ruimte (GiB) dat wordt gebruikt voor alle volumes in een capaciteits groep  
 <!-- 
 - *Volume pool total snapshot size*  
-    This is the total of incremental logical space used by the snapshots.  
+    The total of incremental logical space used by the snapshots  
 -->
 
 ## <a name="volumes"></a>Metrische gegevens over het gebruik voor volumes
 
 <!-- 
 - *Volume allocated size*   
-    This is the volume size (quota) provisioned in GiB.  
+    The volume size (quota) provisioned in GiB  
 --> 
 - *Logische volume grootte*   
-    Dit is de totale logische ruimte die wordt gebruikt in een volume (GiB). Deze grootte bevat logische ruimte die wordt gebruikt door actieve bestands systemen en moment opnamen.  
+    De totale logische ruimte die wordt gebruikt in een volume (GiB)  
+    Deze grootte bevat logische ruimte die wordt gebruikt door actieve bestands systemen en moment opnamen.  
 - *Grootte van moment opname van volume*   
-    Dit is de incrementele logische ruimte die wordt gebruikt voor moment opnamen in een volume.  
+   De incrementele logische ruimte die wordt gebruikt voor moment opnamen in een volume  
+
+## <a name="performance-metrics-for-volumes"></a>Prestatie gegevens voor volumes
+
+- *AverageReadLatency*   
+    De gemiddelde tijd voor lees bewerkingen van het volume in milliseconden
+- *AverageWriteLatency*   
+    De gemiddelde tijd voor het schrijven van het volume in milliseconden
+- *ReadIops*   
+    Het aantal lees bewerkingen naar het volume per seconde
+- *WriteIops*   
+    Het aantal schrijf bewerkingen naar het volume per seconde
 
 ## <a name="next-steps"></a>Volgende stappen
 

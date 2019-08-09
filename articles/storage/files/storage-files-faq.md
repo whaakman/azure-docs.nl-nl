@@ -3,16 +3,16 @@ title: Veelgestelde vragen over Azure Files | Microsoft Docs
 description: Vind antwoorden op veelgestelde vragen over Azure Files.
 author: roygara
 ms.service: storage
-ms.date: 01/02/2019
+ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 622a033b73ace93e98cfa0d5179002c78ec49b35
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: e14fcbd81a562b8d6451bb89a479c6675569403a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704488"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854541"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen over Azure Files
 [Azure files](storage-files-introduction.md) biedt volledig beheerde bestands shares in de cloud die toegankelijk zijn via het industrie standaard [SMB-protocol (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestands shares gelijktijdig koppelen aan Cloud-of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestands shares op Windows Server-computers in de cache opslaan met behulp van Azure File Sync voor snelle toegang, waarbij de gegevens worden gebruikt.
@@ -151,7 +151,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
     Vóór Azure File Sync agent versie 3, Azure File Sync de verplaatsing van gelaagde bestanden buiten het eind punt van de server geblokkeerd, maar op hetzelfde volume als het server eindpunt. Kopieer bewerkingen, verplaatsen van niet-gelaagde bestanden en verplaatsingen van gelaagde naar andere volumes werden niet beïnvloed. De reden voor dit gedrag is de impliciete veronderstelling dat bestanden Verkenner en andere Windows-Api's de bewerking voor het verplaatsen op hetzelfde volume (bijna) direct een andere naam hebben. Dit betekent dat bestanden Verkenner of andere methoden voor verplaatsen (zoals de opdracht regel of Power shell) niet meer reageert wanneer Azure File Sync de gegevens uit de Cloud aanroept. Als u begint met [Azure file sync agent versie 3.0.12.0](storage-files-release-notes.md#supported-versions), kunt u met Azure file sync een gelaagd bestand verplaatsen buiten het eind punt van de server. We vermijden de eerder genoemde negatieve effecten door toe te staan dat het gelaagde bestand bestaat als een gelaagd bestand buiten het eind punt van de server en vervolgens het bestand vervolgens op de achtergrond aanroept. Dit betekent dat het verplaatsen op hetzelfde volume onmiddellijk wordt uitgevoerd en dat alle werkzaamheden het bestand naar de schijf terughalen nadat de verplaatsing is voltooid. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
-  **Ik heb een probleem met Azure File Sync op mijn server (synchronisatie, Cloud lagen, etc.). Moet ik mijn server-eind punt verwijderen en opnieuw maken?**  
+  **Ik heb een probleem met Azure File Sync op mijn server (synchronisatie, Cloud lagen, enz.). Moet ik mijn server-eind punt verwijderen en opnieuw maken?**  
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
     
 * <a id="afs-resource-move"></a>
@@ -168,35 +168,27 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
     
 ## <a name="security-authentication-and-access-control"></a>Beveiliging, verificatie en toegangs beheer
 * <a id="ad-support"></a>
-**Wordt op Active Directory gebaseerde verificatie en toegangs beheer ondersteund door Azure Files?**  
+**Wordt verificatie op basis van identiteit en toegangs beheer ondersteund door Azure Files?**  
     
-    Ja, Azure Files ondersteunt verificatie op basis van identiteit en toegangs beheer met Azure Active Directory (Azure AD) (preview). Azure AD-verificatie via SMB voor Azure Files maakt gebruik van Azure Active Directory Domain Services om virtuele machines die lid zijn van een domein in te scha kelen voor toegang tot shares, directory's en bestanden met Azure AD-referenties. Zie [overzicht van Azure Active Directory-verificatie via SMB voor Azure files (preview)](storage-files-active-directory-overview.md)voor meer informatie. 
+    Ja, Azure Files biedt ondersteuning voor verificatie op basis van identiteit en toegangs beheer met Azure AD Domain Service (Azure AD DS). Met Azure AD DS-verificatie via SMB voor Azure Files kunnen AD DS Azure-Windows-Vm's die lid zijn van een domein, toegang krijgen tot shares, directory's en bestanden met behulp van Azure AD-referenties. Zie [overzicht van Azure Files Azure Active Directory Domain Service (Azure AD DS) verificatie-ondersteuning voor SMB-toegang](storage-files-active-directory-overview.md)voor meer informatie. 
 
     Azure Files biedt twee extra manieren om toegangs beheer te beheren:
 
     - U kunt Shared Access signatures (SAS) gebruiken voor het genereren van tokens met specifieke machtigingen en die geldig zijn voor een opgegeven tijds interval. U kunt bijvoorbeeld een token genereren met alleen-lezen toegang tot een specifiek bestand met een verval datum van 10 minuten. Iedereen die beschikt over het token terwijl het token geldig is heeft alleen-lezen toegang tot dat bestand voor die tien minuten. De sleutels voor gedeelde toegangs handtekeningen worden momenteel alleen ondersteund via de REST API of in client bibliotheken. U moet de Azure-bestands share via SMB koppelen met behulp van de sleutels voor het opslag account.
 
     - Azure File Sync behoudt en repliceert alle discretionaire Acl's, of DACL'S, (of Active Directory of lokaal) naar alle server eindpunten die worden gesynchroniseerd. Omdat Windows Server al kan worden geverifieerd met Active Directory, is Azure File Sync een efficiënte optie voor stop-gap totdat volledige ondersteuning voor verificatie op basis van Active Directory en ACL-ondersteuning arriveert.
-
-* <a id="ad-support-regions"></a>
-**Is de preview-versie van Azure AD over SMB voor Azure Files beschikbaar in alle Azure-regio's?**
-
-    Het voor beeld is beschikbaar in alle open bare regio's.
-
-* <a id="ad-support-on-premises"></a>
-**Ondersteunt Azure AD-verificatie via SMB voor Azure Files (preview) verificatie met behulp van Azure AD vanaf on-premises computers?**
-
-    Nee, Azure Files biedt geen ondersteuning voor verificatie met Azure AD vanaf on-premises computers in de preview-versie.
+    
+    U kunt de [toegang tot Azure Storage machtigen](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor een uitgebreide weer gave van alle protocollen die worden ondersteund op Azure Storage services. 
 
 * <a id="ad-support-devices"></a>
-**Ondersteunt Azure AD-verificatie via SMB voor Azure Files (preview) SMB-toegang via Azure AD-referenties van apparaten die zijn gekoppeld aan of zijn geregistreerd bij Azure AD?**
+**Ondersteunt Azure Files Azure AD DS-verificatie SMB-toegang via Azure AD-referenties van apparaten die zijn gekoppeld aan of zijn geregistreerd bij Azure AD?**
 
     Nee, dit scenario wordt niet ondersteund.
 
 * <a id="ad-support-rest-apis"></a>
 **Zijn er REST-Api's ter ondersteuning van Get/set/Copy map/file NTFS Acl's?**
 
-    De preview-versie biedt geen ondersteuning voor REST-Api's om NTFS-Acl's voor mappen of bestanden op te halen, in te stellen of te kopiëren.
+    Voor Taan bieden we geen ondersteuning voor REST-Api's voor het ophalen, instellen of kopiëren van NTFS-Acl's voor mappen of bestanden.
 
 * <a id="ad-vm-subscription"></a>
 **Kan ik Azure Files gebruiken met Azure AD-referenties van een VM onder een ander abonnement?**
@@ -204,17 +196,17 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
     Als het abonnement waarmee de bestands share is geïmplementeerd, is gekoppeld aan dezelfde Azure AD-Tenant als de Azure AD Domain Services implementatie waaraan de virtuele machine is toegevoegd aan een domein, kunt u vervolgens toegang krijgen tot Azure Files met dezelfde Azure AD-referenties. De beperking wordt niet toegepast op het abonnement, maar op de gekoppelde Azure AD-Tenant.    
     
 * <a id="ad-support-subscription"></a>
-**Kan ik Azure AD-verificatie via SMB voor Azure Files inschakelen met een Azure AD-Tenant die verschilt van de primaire Tenant waarmee de bestands share is gekoppeld?**
+**Kan ik Azure Files Azure AD DS-verificatie inschakelen met een Azure AD-Tenant die verschilt van de primaire Tenant waarmee de bestands share is gekoppeld?**
 
-    Nee, Azure Files ondersteunt alleen Azure AD-integratie met een Azure AD-Tenant die zich in hetzelfde abonnement als de bestands share bevindt. Er kan slechts één abonnement worden gekoppeld aan een Azure AD-Tenant.
+    Nee, Azure Files ondersteunt alleen Azure AD DS-integratie met een Azure AD-Tenant die zich in hetzelfde abonnement als de bestands share bevindt. Er kan slechts één abonnement worden gekoppeld aan een Azure AD-Tenant.
 
 * <a id="ad-linux-vms"></a>
-**Ondersteunt Azure AD-verificatie via SMB voor Azure Files (preview) Linux Vm's?**
+**Ondersteunt Azure Files Azure AD DS-verificatie Linux Vm's?**
 
-    Nee, authenticatie vanuit Linux-Vm's wordt niet ondersteund in de preview-versie.
+    Nee, authenticatie vanuit Linux-Vm's wordt niet ondersteund.
 
 * <a id="ad-aad-smb-afs"></a>
-**Kan ik gebruikmaken van Azure AD-verificatie via SMB-mogelijkheden op bestands shares die worden beheerd door Azure File Sync?**
+**Kan ik gebruikmaken van Azure Files Azure AD DS-verificatie op bestands shares die worden beheerd door Azure File Sync?**
 
     Nee, Azure Files biedt geen ondersteuning voor het behouden van NTFS-Acl's op bestands shares die worden beheerd door Azure File Sync. De Acl's voor bestanden die worden uitgevoerd op on-premises bestands servers worden bewaard door Azure File Sync. NTFS-Acl's die systeem eigen zijn geconfigureerd voor Azure Files worden overschreven door de Azure File Sync-Service. Daarnaast biedt Azure Files geen ondersteuning voor verificatie met Azure AD-referenties voor toegang tot bestands shares die worden beheerd door de Azure File Sync-Service.
 
@@ -289,7 +281,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
     Standaard kosten voor trans acties en standaard opslag zijn van toepassing op de moment opname. Moment opnamen zijn incrementeel. De basis momentopname is de share zelf. Alle volgende moment opnamen worden incrementeel gegenereerd en worden alleen het verschil van de vorige moment opname opgeslagen. Dit betekent dat de Delta wijzigingen die in de factuur worden weer gegeven, mini maal zijn als het verloop van de workload mini maal is. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/files/) voor de prijs informatie voor Standard Azure files. Vandaag de manier om te kijken naar de grootte van de moment opname van de share, wordt de gefactureerde capaciteit vergeleken met de gebruikte capaciteit. Er wordt aan gewerkt om de rapportage te verbeteren.
 
 * <a id="ntfs-acls-snaphsots"></a>
-**Zijn NTFS-Acl's voor mappen en bestanden opgeslagen in moment opnamen van shares?**
+**Zijn NTFS-Acl's voor mappen en bestanden opgeslagen in moment opnamen van shares?**  
     NTFS-Acl's voor mappen en bestanden worden opgeslagen in moment opnamen van shares.
 
 ### <a name="create-share-snapshots"></a>Moment opnamen van shares maken

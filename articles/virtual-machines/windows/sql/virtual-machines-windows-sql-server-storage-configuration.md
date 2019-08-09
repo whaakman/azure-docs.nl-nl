@@ -1,6 +1,6 @@
 ---
-title: De opslagconfiguratie voor SQL Server-VM's | Microsoft Docs
-description: In dit onderwerp wordt beschreven hoe Azure storage configureren voor SQL Server-VM's tijdens het inrichten (Resource Manager-implementatiemodel). Hierin wordt ook uitgelegd hoe u opslag kunt configureren voor uw bestaande SQL Server-VM's.
+title: Opslag configuratie voor SQL Server Vm's | Microsoft Docs
+description: In dit onderwerp wordt beschreven hoe Azure opslag configureert voor SQL Server Vm's tijdens het inrichten (Resource Manager-implementatie model). Ook wordt uitgelegd hoe u opslag kunt configureren voor uw bestaande SQL Server Vm's.
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
@@ -14,142 +14,142 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
-ms.openlocfilehash: 360ffb3d2c682d6bd2344cb3ae95447ff3df278d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d197bbf464038918dd083d14a1befa740c8ce0e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076880"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846095"
 ---
-# <a name="storage-configuration-for-sql-server-vms"></a>De opslagconfiguratie voor SQL Server-VM 's
+# <a name="storage-configuration-for-sql-server-vms"></a>Opslag configuratie voor SQL Server Vm's
 
-Wanneer u een virtuele machine-installatiekopie van SQL Server in Azure configureert, kunt u de Portal de opslagconfiguratie automatiseren. Dit omvat het toevoegen van opslag met de VM, dat toegankelijk is voor SQL Server maken en deze configureren om te optimaliseren voor uw specifieke vereisten.
+Wanneer u een installatie kopie van een SQL Server virtuele machine in azure configureert, helpt de portal u bij het automatiseren van uw opslag configuratie. Dit omvat het koppelen van opslag aan de VM, waardoor die opslag toegankelijk is voor SQL Server en deze kan worden geconfigureerd om te worden geoptimaliseerd voor uw specifieke prestatie vereisten.
 
-In dit onderwerp wordt uitgelegd hoe configureert Azure storage voor uw SQL Server-VM's tijdens het inrichten van zowel voor bestaande VM's. Deze configuratie is gebaseerd op de [aanbevolen procedures voor prestaties](virtual-machines-windows-sql-performance.md) voor virtuele Azure-machines waarop SQL Server wordt uitgevoerd.
+In dit onderwerp wordt uitgelegd hoe Azure opslag voor uw SQL Server Vm's configureert tijdens het inrichten en voor bestaande virtuele machines. Deze configuratie is gebaseerd op de [Aanbevolen prestatie procedures](virtual-machines-windows-sql-performance.md) voor Azure-vm's met SQL Server.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het gebruik van de configuratie-instellingen voor automatische opslag, is uw virtuele machine vereist de volgende kenmerken:
+Als u de configuratie-instellingen voor automatische opslag wilt gebruiken, zijn voor uw virtuele machine de volgende kenmerken vereist:
 
-* Ingericht met een [installatiekopie voor SQL Server-galerie](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
-* Maakt gebruik van de [Resource Manager-implementatiemodel](../../../azure-resource-manager/resource-manager-deployment-model.md).
-* Maakt gebruik van [premium SSD's](../disks-types.md).
+* Ingericht met een [SQL Server galerie-afbeelding](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
+* Maakt gebruik van het [Resource Manager-implementatie model](../../../azure-resource-manager/resource-manager-deployment-model.md).
+* Maakt gebruik van [Premium-ssd's](../disks-types.md).
 
-## <a name="new-vms"></a>Nieuwe virtuele machines
+## <a name="new-vms"></a>Nieuwe Vm's
 
-De volgende secties wordt beschreven hoe u opslag voor nieuwe virtuele machines van de SQL Server configureren.
+In de volgende secties wordt beschreven hoe u opslag configureert voor nieuwe SQL Server virtuele machines.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Bij het inrichten van een Azure-VM met behulp van een installatiekopie van de galerie met SQL Server, kunt u de opslag automatisch te configureren voor uw nieuwe virtuele machine. U geeft de maximale grootte, prestatielimieten en type werkbelasting. De volgende schermafbeelding ziet u de configuratieblade van de opslag die wordt gebruikt tijdens de SQL-VM inrichten.
+Bij het inrichten van een Azure-VM met behulp van een SQL Server galerie-afbeelding, kunt u ervoor kiezen om de opslag automatisch te configureren voor uw nieuwe virtuele machine. U geeft de opslag grootte, prestatie limieten en het type werk belasting op. Op de volgende scherm afbeelding ziet u de Blade opslag configuratie die wordt gebruikt tijdens het inrichten van SQL VM.
 
-![Configuratie van SQL Server VM-opslag tijdens het inrichten](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
+![Configuratie van VM-opslag SQL Server tijdens het inrichten](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Azure voert op basis van uw keuze, de volgende configuratietaken voor de opslag na het maken van de virtuele machine:
+Op basis van uw keuzes voert Azure de volgende opslag configuratie taken uit na het maken van de VM:
 
-* Hiermee maakt en koppelt premium SSD's aan de virtuele machine.
-* Hiermee configureert u de gegevensschijven zodat ze toegankelijk zijn met SQL Server.
-* Hiermee configureert u de gegevensschijven in een opslaggroep op basis van de opgegeven grootte en prestaties (IOPS en doorvoer).
-* Koppelt de opslaggroep aan een nieuw station op de virtuele machine.
-* Optimaliseert deze nieuwe schijf op basis van het type van de opgegeven werkbelasting (datawarehousing, transactionele verwerking of algemeen).
+* Hiermee worden Premium-Ssd's gemaakt en gekoppeld aan de virtuele machine.
+* Hiermee configureert u de gegevens schijven die toegankelijk moeten zijn voor SQL Server.
+* Hiermee configureert u de gegevens schijven in een opslag groep op basis van de opgegeven grootte en prestaties (IOPS en door Voer) vereisten.
+* Koppelt de opslag groep aan een nieuw station op de virtuele machine.
+* Optimaliseert dit nieuwe station op basis van het opgegeven type werk belasting (gegevens opslag, transactionele verwerking of algemeen).
 
-Zie voor meer informatie over hoe Azure storage-instellingen configureert, de [opslag configuratiesectie](#storage-configuration). Zie voor een overzicht van het maken van een SQL Server-VM in Azure portal, [de zelfstudie voor inrichting](virtual-machines-windows-portal-sql-server-provision.md).
+Zie de [sectie opslag configuratie](#storage-configuration)voor meer informatie over hoe Azure opslag instellingen configureert. Zie [de zelf studie over het inrichten](virtual-machines-windows-portal-sql-server-provision.md)voor een volledig overzicht van het maken van een SQL Server-VM in de Azure Portal.
 
-### <a name="resource-manage-templates"></a>Resource beheren-sjablonen
+### <a name="resource-manage-templates"></a>Resource beheer sjablonen
 
-Als u de volgende Resource Manager-sjablonen gebruikt, worden twee schijven voor premium-gegevens met geen configuratie van opslaggroep wordt standaard gekoppeld. U kunt echter aanpassen dat deze sjablonen om het aantal premium-gegevensschijven die zijn gekoppeld aan de virtuele machine te wijzigen.
+Als u de volgende Resource Manager-sjablonen gebruikt, worden standaard twee Premium-gegevens schijven gekoppeld zonder configuratie van de opslag groep. U kunt deze sjablonen echter aanpassen om het aantal Premium-gegevens schijven te wijzigen dat aan de virtuele machine is gekoppeld.
 
-* [Virtuele machine met automatische back-up maken](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
-* [Virtuele machine maken met automatische patches](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
-* [Virtuele machine maken met Azure Sleutelkluis-integratie](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
+* [Een VM maken met geautomatiseerde back-up](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
+* [Een VM maken met geautomatiseerde patching](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
+* [Een virtuele machine maken met Azure-integratie](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
 
-## <a name="existing-vms"></a>Bestaande VM 's
+## <a name="existing-vms"></a>Bestaande Vm's
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Voor bestaande SQL Server-VM's, kunt u bepaalde Opslaginstellingen voor in Azure portal. Open uw [SQL-resource voor virtuele machines](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource), en selecteer **overzicht**. De pagina overzicht van SQL Server bevat het huidige opslaggebruik van uw virtuele machine. Alle schijven die aanwezig zijn op de virtuele machine worden weergegeven in deze grafiek. Voor elk station wordt de opslagruimte in vier secties:
+Voor bestaande SQL Server Vm's kunt u enkele opslag instellingen wijzigen in de Azure Portal. Open de [resource van de virtuele SQL-machines](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource)en selecteer **overzicht**. Op de pagina overzicht van SQL Server wordt het huidige opslag gebruik van uw VM weer gegeven. Alle stations die op uw virtuele machine bestaan, worden weer gegeven in deze grafiek. Voor elk station wordt de opslag ruimte weer gegeven in vier secties:
 
 * SQL-gegevens
 * SQL-logboek
 * Overige (niet-SQL-opslag)
 * Beschikbaar
 
-De om Opslaginstellingen te wijzigen, selecteert u **configureren** onder **instellingen**. 
+Als u de opslag instellingen wilt wijzigen, selecteert u **configureren** onder **instellingen**. 
 
-![Opslag configureren voor bestaande SQL Server-machine](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
+![Opslag configureren voor bestaande SQL Server VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
-De configuratieopties die u ziet, is afhankelijk van of u hebt deze functie voordat gebruikt. Wanneer u voor de eerste keer gebruikt, kunt u uw opslagvereisten voor een nieuw station opgeven. Als u deze functie eerder hebt gebruikt om een station te maken, kunt u de opslag van dat station uitbreiden.
+De configuratie opties die u ziet, zijn afhankelijk van of u deze functie al eerder hebt gebruikt. Wanneer u voor de eerste keer gebruikt, kunt u uw opslag vereisten voor een nieuw station opgeven. Als u deze functie eerder hebt gebruikt om een station te maken, kunt u ervoor kiezen om de opslag van dat station uit te breiden.
 
-### <a name="use-for-the-first-time"></a>Gebruik voor de eerste keer
+### <a name="use-for-the-first-time"></a>Voor de eerste keer gebruiken
 
-Als de eerste keer dat u deze functie is, kunt u de opslaglimieten voor grootte en prestaties voor een nieuw station opgeven. Deze ervaring is vergelijkbaar met wat u bij het inrichten van de tijd zou zien. Het belangrijkste verschil is dat u niet toegestaan om op te geven van het type werkbelasting. Deze beperking voorkomt dat onderbreken van een bestaande SQL Server-configuraties op de virtuele machine.
+Als dit de eerste keer is dat u deze functie gebruikt, kunt u de opslag grootte en prestatie limieten voor een nieuw station opgeven. Deze ervaring is vergelijkbaar met wat u ziet tijdens de inrichtings tijd. Het belangrijkste verschil is dat u het type werk belasting niet mag opgeven. Deze beperking voor komt dat bestaande SQL Server configuraties op de virtuele machine worden onderbroken.
 
-Azure maakt een nieuw station op basis van uw specificaties. In dit scenario voert Azure uit de volgende configuratietaken voor opslag:
+Azure maakt een nieuw station op basis van uw specificaties. In dit scenario voert Azure de volgende opslag configuratie taken uit:
 
-* Hiermee maakt en koppelt premium-opslagschijven gegevens aan de virtuele machine.
-* Hiermee configureert u de gegevensschijven zodat ze toegankelijk zijn met SQL Server.
-* Hiermee configureert u de gegevensschijven in een opslaggroep op basis van de opgegeven grootte en prestaties (IOPS en doorvoer).
-* Koppelt de opslaggroep aan een nieuw station op de virtuele machine.
+* Hiermee maakt en koppelt u Premium Storage-gegevens schijven aan de virtuele machine.
+* Hiermee configureert u de gegevens schijven die toegankelijk moeten zijn voor SQL Server.
+* Hiermee configureert u de gegevens schijven in een opslag groep op basis van de opgegeven grootte en prestaties (IOPS en door Voer) vereisten.
+* Koppelt de opslag groep aan een nieuw station op de virtuele machine.
 
-Zie voor meer informatie over hoe Azure storage-instellingen configureert, de [opslag configuratiesectie](#storage-configuration).
+Zie de [sectie opslag configuratie](#storage-configuration)voor meer informatie over hoe Azure opslag instellingen configureert.
 
 ### <a name="add-a-new-drive"></a>Een nieuw station toevoegen
 
-Als u opslag al hebt geconfigureerd op de SQL Server-VM, biedt uitbreiden van opslag nu twee nieuwe opties. De eerste optie is het toevoegen van een nieuwe schijf, waarvoor het prestatieniveau van uw virtuele machine kunt verhogen.
+Als u de opslag al hebt geconfigureerd op uw SQL Server VM, worden er twee nieuwe opties in de groeiende opslag opgesteld. De eerste optie is het toevoegen van een nieuw station, waardoor het prestatie niveau van uw virtuele machine kan toenemen.
 
-Na het toevoegen van het station, moet u enkele extra handmatige configuratie voor het bereiken van de toename van de prestaties echter uitvoeren.
+Nadat u het station hebt toegevoegd, moet u echter een extra hand matige configuratie uitvoeren om de prestaties te verhogen.
 
 ### <a name="extend-the-drive"></a>Het station uitbreiden
 
-De andere optie voor het uitbreiden van opslag is om uit te breiden het bestaande station. Deze optie verhoogt de beschikbare opslag voor de schijf, maar de prestaties niet wordt verhoogd. Met opslaggroepen, u kunt het aantal kolommen niet wijzigen nadat de opslaggroep wordt gemaakt. Het aantal kolommen, bepaalt het aantal parallelle schrijfbewerkingen, die worden striped op verschillende schijven opgeslagen kan. Eventuele extra gegevensschijven kunnen daarom niet prestaties verhogen. Ze kunnen alleen meer opslag opgeven voor de gegevens die worden geschreven. Deze beperking betekent ook dat bij het uitbreiden van het station, het aantal kolommen bepaalt u het minimum aantal gegevensschijven die u kunt toevoegen. Dus als u een opslaggroep met vier gegevensschijven maakt, is het aantal kolommen ook vier. Telkens wanneer u de opslag uitbreidt, moet u ten minste vier gegevensschijven toevoegen.
+De andere optie voor het uitbreiden van opslag is het uitbreiden van het bestaande station. Met deze optie wordt de beschik bare opslag ruimte voor uw station verhoogd, maar wordt de prestaties niet verbeterd. Met opslag groepen kunt u het aantal kolommen niet wijzigen nadat de opslag groep is gemaakt. Het aantal kolommen bepaalt het aantal parallelle schrijf bewerkingen, dat over de gegevens schijven kan worden verdeeld. Daarom kunnen toegevoegde gegevens schijven de prestaties niet verhogen. Ze kunnen alleen meer opslag ruimte bieden voor de gegevens die worden geschreven. Deze beperking betekent ook dat bij het uitbreiden van het station het minimum aantal gegevens schijven dat u kunt toevoegen, wordt bepaald door het aantal kolommen. Dus als u een opslag groep met vier gegevens schijven maakt, is het aantal kolommen ook vier. Telkens wanneer u de opslag ruimte uitbreidt, moet u ten minste vier gegevens schijven toevoegen.
 
 ![Een station uitbreiden voor een SQL-VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
 
 ## <a name="storage-configuration"></a>Opslagconfiguratie
 
-Deze sectie bevat een verwijzing voor de opslag-configuratiewijzigingen die Azure automatisch uitgevoerd tijdens de SQL-VM inrichten of configuratie in Azure portal.
+Deze sectie bevat een Naslag informatie over de opslag configuratie wijzigingen die Azure automatisch uitvoert tijdens het inrichten of configureren van een SQL-VM in de Azure Portal.
 
-* Als u minder dan twee TB aan opslag hebt geselecteerd voor uw virtuele machine, maakt Azure een opslaggroep geen.
-* Als u ten minste twee TB aan opslag voor uw virtuele machine hebt geselecteerd, configureert Azure een opslaggroep. De volgende sectie van dit onderwerp bevat de details van de configuratie van opslaggroep.
-* Maakt gebruik van automatische opslagconfiguratie altijd [premium SSD's](../disks-types.md) P30-gegevensschijven. Als gevolg hiervan is er een 1:1 toewijzing tussen het geselecteerde aantal Terabytes en het aantal gegevensschijven die zijn gekoppeld aan uw virtuele machine.
+* Als u minder dan twee TBs van opslag voor uw virtuele machine hebt geselecteerd, maakt Azure geen opslag groep.
+* Als u ten minste twee TBs van opslag voor uw virtuele machine hebt geselecteerd, configureert Azure een opslag groep. In de volgende sectie van dit onderwerp vindt u de details van de configuratie van de opslag groep.
+* Automatische opslag configuratie maakt altijd gebruik van [Premium ssd's](../disks-types.md) P30-gegevens schijven. Daarom is er een 1:1-toewijzing tussen het geselecteerde aantal terabytes en het aantal gegevens schijven dat aan uw virtuele machine is gekoppeld.
 
-Zie voor informatie over de prijzen, de [prijzen voor Storage](https://azure.microsoft.com/pricing/details/storage) pagina op de **schijfopslag** tabblad.
+Zie de pagina [prijzen voor opslag](https://azure.microsoft.com/pricing/details/storage) op het tabblad **Disk Storage** voor prijs informatie.
 
-### <a name="creation-of-the-storage-pool"></a>Het maken van de opslaggroep
+### <a name="creation-of-the-storage-pool"></a>De opslag groep maken
 
-Azure maakt gebruik van de volgende instellingen om te maken van de opslaggroep op SQL Server-VM's.
+Azure gebruikt de volgende instellingen voor het maken van de opslag groep op SQL Server Vm's.
 
 | Instelling | Value |
 | --- | --- |
-| Streepgrootte |256 KB (datawarehousing); 64 KB (transactioneel) |
-| Schijfformaten |1 TB |
+| Stripe-grootte |256 KB (data warehousing); 64 KB (transactioneel) |
+| Schijfformaten |1 TB elk |
 | Cache |Lezen |
-| Grootte van bestandssysteemtoewijzing |De clustergrootte van 64 KB NTFS |
-| Initialisatie van de directe bestanden |Enabled |
-| Pagina's in het geheugen vergrendelen |Enabled |
+| Toewijzings grootte |64 KB NTFS Allocation Unit Size |
+| Directe bestands initialisatie |Enabled |
+| Pagina's in het geheugen vergren delen |Enabled |
 | Herstel |Eenvoudig herstel (geen tolerantie) |
-| Aantal kolommen |Aantal gegevensschijven<sup>1</sup> |
-| TempDB-locatie |Opgeslagen op gegevensschijven<sup>2</sup> |
+| Aantal kolommen |Aantal gegevens schijven<sup>1</sup> |
+| TempDB-locatie |Opgeslagen op gegevens schijven<sup>2</sup> |
 
-<sup>1</sup> nadat de opslaggroep is gemaakt, kunt u het aantal kolommen in de opslaggroep niet wijzigen.
+<sup>1</sup> nadat de opslag groep is gemaakt, kunt u het aantal kolommen in de opslag groep niet wijzigen.
 
-<sup>2</sup> deze instelling is alleen van toepassing op het eerste station dat u maakt met de functie voor het configureren van opslag.
+<sup>2</sup> deze instelling is alleen van toepassing op het eerste station dat u maakt met behulp van de functie voor opslag configuratie.
 
-## <a name="workload-optimization-settings"></a>Workload optimalisatie-instellingen
+## <a name="workload-optimization-settings"></a>Instellingen voor werk belasting optimalisatie
 
-De volgende tabel beschrijft de drie werkbelasting opties beschikbaar en hun bijbehorende optimalisatie:
+In de volgende tabel worden de drie beschik bare opties voor werkbelasting typen en de bijbehorende optimalisaties beschreven:
 
 | Type werkbelasting | Description | Optimalisaties |
 | --- | --- | --- |
-| **Algemeen** |Standaardinstelling die ondersteuning biedt voor de meeste workloads |Geen |
-| **Transactieverwerking** |Wordt de opslag voor OLTP-workloads van traditionele databases geoptimaliseerd |Traceringsvlag 1117<br/>Traceringsvlag 1118 |
-| **Gegevensopslag** |Optimaliseert de opslag voor analyse- en rapportageworkloads |Trace Flag 610<br/>Traceringsvlag 1117 |
+| **Algemeen** |Standaard instelling die de meeste werk belastingen ondersteunt |Geen |
+| **Transactionele verwerking** |Optimaliseert de opslag voor traditionele OLTP-workloads van data bases |Tracerings vlag 1117<br/>Tracerings vlag 1118 |
+| **Gegevensopslag** |Optimaliseert de opslag voor analyse-en rapportage werk belastingen |Tracerings vlag 610<br/>Tracerings vlag 1117 |
 
 > [!NOTE]
-> U kunt alleen het type werkbelasting opgeven wanneer u een virtuele SQL-machine inrichten door deze te selecteren in de stap voor het configureren van opslag.
+> U kunt het type werk belasting alleen opgeven wanneer u een virtuele SQL-machine inricht door deze te selecteren in de stap opslag configuratie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor andere onderwerpen met betrekking tot SQL Server wordt uitgevoerd in Azure VM's, [SQL Server op Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+Zie [SQL Server op azure virtual machines](virtual-machines-windows-sql-server-iaas-overview.md)voor andere onderwerpen met betrekking tot het uitvoeren van SQL Server in azure vm's.

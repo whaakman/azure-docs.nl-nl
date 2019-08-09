@@ -1,36 +1,36 @@
 ---
-title: 'Regressie: Prijs voorspellen'
+title: Regressie Prijs voorspellen
 titleSuffix: Azure Machine Learning service
-description: Meer informatie over het bouwen van een machine learning-model om te voorspellen de prijs van een auto zonder één regel code te schrijven.
+description: Meer informatie over het bouwen van een machine learning model voor het voors pellen van de prijs van een auto, zonder dat u een regel code hoeft te schrijven.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: ddc7ae10581075127f72dd020c59cf28bbfc9ae2
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 95373bdd58332f49307004067cdd04b9c313b935
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606123"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845944"
 ---
-# <a name="sample-1---regression-predict-price"></a>Voorbeeld 1: regressie: Prijs voorspellen
+# <a name="sample-1---regression-predict-price"></a>Voor beeld 1-regressie: Prijs voorspellen
 
-Meer informatie over het bouwen van een machine learning-regressiemodel zonder te hoeven schrijven van één regel code met behulp van de visuele interface.
+Meer informatie over het bouwen van een machine learning regressie model zonder een enkele regel code te schrijven met behulp van de visuele interface.
 
-Dit treinen experimenteren een **forest regressor zijn beschikking** om een auto's voorspellen de prijs op basis van technische functies, zoals het merk, model, paardenkracht en grootte. Omdat we willen de vraag "Hoeveel?" Dit is een regressieprobleem met genoemd. U kunt echter dezelfde fundamentele stappen in dit experiment om aan te pakken van elk type machine learning probleem, ongeacht of dit regressie, classificatie, clustering, enzovoort toepassen.
+In dit experiment wordt een regressor hierop van een **beslissings forest** voor speld om de prijs van een auto te voors pellen op basis van de technische functies zoals merk, model, paarden kracht en grootte. Omdat we proberen de vraag "hoeveel?" te beantwoorden Dit wordt een regressie probleem genoemd. U kunt echter dezelfde basis stappen in dit experiment Toep assen om elk type machine learning probleem op te doen, of het nu gaat om een regressie, classificatie, Clustering, enzovoort.
 
-De fundamentele stappen van een training machine learning-model zijn:
+De belangrijkste stappen van een trainings machine learning model zijn:
 
 1. De gegevens ophalen
-1. De gegevens vooraf te verwerken
+1. De gegevens vooraf verwerken
 1. Het model trainen
 1. Het model evalueren
 
-Hier volgt de uiteindelijke, voltooide grafiek van het experiment dat er wordt gewerkt aan. We bieden de logica voor alle modules, zodat u kunt vergelijkbare beslissingen op uw eigen nemen kunt.
+Hier volgt de uiteindelijke, voltooide grafiek van het experiment waarmee we aan de slag gaan. We bieden de motivering voor alle modules, zodat u op uw eigen wijze vergelijk bare beslissingen kunt nemen.
 
 ![Grafiek van het experiment](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
@@ -38,41 +38,41 @@ Hier volgt de uiteindelijke, voltooide grafiek van het experiment dat er wordt g
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Selecteer de **Open** knop van het experiment voorbeeld 1:
+4. Selecteer de knop **openen** voor het voor beeld van 1 experiment:
 
-    ![Open het experiment](media/ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
+    ![Het experiment openen](media/ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
 
 ## <a name="get-the-data"></a>De gegevens ophalen
 
-In dit experiment, gebruiken we de **Automobile prijs data (Raw)** gegevensset, die afkomstig uit de opslagplaats UCI Machine Learning is. De gegevensset bevat 26 kolommen die informatie over auto's bevatten, inclusief merk, model, prijs, voertuig-functies (zoals het aantal cilinders), MPG en een verzekering risicoscore. Het doel van dit experiment is om te voorspellen de prijs van de auto.
+In dit experiment gebruiken we de gegevensset **Auto Mobile price data (RAW)** , die afkomstig is uit de ICB machine learning-opslag plaats. De gegevensset bevat 26 kolommen die informatie bevatten over auto's, waaronder merk, model, prijs, voertuig functies (zoals het aantal flessen), MPG en een risico score voor verzekeringen. Het doel van dit experiment is om de prijs van de auto te voors pellen.
 
-## <a name="pre-process-the-data"></a>De gegevens vooraf te verwerken
+## <a name="pre-process-the-data"></a>De gegevens vooraf verwerken
 
-De belangrijkste gegevens Voorbereidingstaken omvatten het opschonen van gegevens, integratie, transformatie, reduceren en onderscheidende of kwantisatiefouten. In de visuele interface vindt u modules om uit te voeren van deze bewerkingen en andere gegevens vooraf verwerken van taken in de **gegevenstransformatie** groep in het linkerdeelvenster.
+De belangrijkste taken voor gegevens voorbereiding zijn het opschonen van gegevens, integratie, trans formatie, reductie en onderscheidings of kwantisatiefouten. In de visuele interface kunt u modules vinden voor het uitvoeren van deze bewerkingen en andere taken die vooraf worden verwerkt in de **gegevens transformatie** groep in het linkerdeel venster.
 
-We gebruiken de **Select Columns in Dataset** module normalized-losses met veel ontbrekende waarden uitsluiten. Vervolgens gebruiken we **Clean Missing Data** om de rijen met ontbrekende waarden te verwijderen. Dit helpt bij het maken van een nieuwe set trainingsgegevens.
+We gebruiken de module **select columns in dataset** om normale verliezen met veel ontbrekende waarden uit te sluiten. Vervolgens gebruiken we **clean Missing Data** om de rijen met ontbrekende waarden te verwijderen. Zo kunt u een schone set trainings gegevens maken.
 
-![Gegevens vooraf verwerken](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
+![Vooraf verwerkte gegevens](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## <a name="train-the-model"></a>Het model trainen
 
-Problemen met machine learning variëren. Algemene taken omvatten classificatie, regressie en recommender systemen, die elk een ander algoritme mogelijk clustering. Uw eigen keuze aan algoritme is vaak afhankelijk van de vereisten van de use-case. Nadat u een algoritme kiezen, moet u de parameters voor het trainen van een meer nauwkeurige model af te stemmen. Vervolgens moet u alle modellen op basis van metrische gegevens zoals nauwkeurigheid, leesbaarheid en efficiëntie te evalueren.
+Problemen met machine learning kunnen variëren. Veelvoorkomende machine learning taken omvatten classificatie-, cluster-, regressie-en aanbevolen systemen, die elk een ander algoritme kunnen vereisen. Uw keuze van algoritme is vaak afhankelijk van de vereisten van de use-case. Nadat u een algoritme hebt gekozen, moet u de para meters afstemmen om een nauw keuriger model te trainen. Vervolgens moet u alle modellen evalueren op basis van metrische gegevens, zoals nauw keurigheid, Intelligibility en efficiëntie.
 
-Omdat het doel van dit experiment is om de prijzen van auto's voorspellen en omdat de labelkolom (prijs) reële getallen bevat, wordt een regressiemodel een goede keuze. U overweegt dat het aantal functies relatief klein is (minder dan 100) en deze functies niet sparse, is de grens van de beslissing waarschijnlijk niet-lineaire. We gebruiken **besluit Forest regressie** voor dit experiment.
+Omdat het doel van dit experiment is om de prijzen van auto's te voors pellen, en omdat de kolom Label (prijs) reële getallen bevat, is een regressie model een goede keuze. Gezien het feit dat het aantal functies relatief klein is (minder dan 100) en deze functies niet verspreid zijn, is de beslissings grens waarschijnlijk niet lineair. Daarom gebruiken we de regressie van het **besluitvormings forest** voor dit experiment.
 
-We gebruiken de **Split Data** module willekeurig de ingevoerde gegevens delen, zodat de training-gegevensset 70% van de oorspronkelijke gegevens bevat en de tests gegevensset 30% van de oorspronkelijke gegevens.
+We gebruiken de **gesplitste gegevens** module om de invoer gegevens wille keurig te verdelen, zodat de trainings gegevensset 70% van de oorspronkelijke gegevens bevat en de test gegevensset bevat 30% van de oorspronkelijke gegevens.
 
 ## <a name="test-evaluate-and-compare"></a>Testen, evalueren en vergelijken
 
- We de gegevensset splitsen en verschillende gegevenssets te trainen en testen van het model als u de evaluatie van het model meer doel wilt gebruiken.
+ We splitsen de gegevensset en gebruiken verschillende gegevens sets om het model te trainen en te testen, zodat de evaluatie van het model meer doel gericht is.
 
-Nadat het model wordt getraind, gebruiken we de **Score Model** en **Evaluate Model** modules voorspelde resultaten genereren en evalueren van de modellen.
+Nadat het model is getraind, gebruiken we het **score model** en **evalueren we model** modules om voorspelde resultaten te genereren en de modellen te evalueren.
 
-**Score Model** voorspellingen voor de testgegevensset genereert met behulp van het getrainde model. Om te controleren of het resultaat, selecteert u de uitvoerpoort van **Score Model** en selecteer vervolgens **Visualize**.
+Met het **score model** worden voor spellingen gegenereerd voor de test gegevensset met behulp van het getrainde model. Als u het resultaat wilt controleren, selecteert u de uitvoer poort van het **score model** en selecteert u vervolgens **visualiseren**.
 
-![Resultaat van score](./media/ui-sample-regression-predict-automobile-price-basic/score-result.png)
+![Resultaat van Score](./media/ui-sample-regression-predict-automobile-price-basic/score-result.png)
 
-Vervolgens geven we de scores voor de **Evaluate Model** module voor het genereren van evaluatie van metrische gegevens. Om te controleren of het resultaat, selecteert u de uitvoerpoort van de **Evaluate Model** en selecteer vervolgens **Visualize**.
+Vervolgens worden de scores door gegeven aan de module **Evaluate model** voor het genereren van metrische gegevens voor de evaluatie. Als u het resultaat wilt controleren, selecteert u de uitvoer poort van het **Evalueer model** en selecteert u vervolgens **visualiseren**.
 
 ![Resultaat evalueren](./media/ui-sample-regression-predict-automobile-price-basic/evaluate-result.png)
 
@@ -82,10 +82,10 @@ Vervolgens geven we de scores voor de **Evaluate Model** module voor het generer
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De voorbeelden beschikbaar zijn voor de visuele interface verkennen:
+Bekijk de andere voor beelden die beschikbaar zijn voor de visuele interface:
 
-- [Voorbeeld 2: regressie: Algoritmen voor auto's voorspellen vergelijken](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Voorbeeld 3 - indeling: Kredietrisico voorspellen](ui-sample-classification-predict-credit-risk-basic.md)
-- [Voorbeeld 4 - classificatie: Kredietrisico (kosten gevoelige) voorspellen](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Voorbeeld 5 - indeling: Verloop voorspellen](ui-sample-classification-predict-churn.md)
-- [Voorbeeld 6 - indeling: Voorspellen van vertragingen van vertragingen van vluchten](ui-sample-classification-predict-flight-delay.md)
+- [Voor beeld 2-regressie: Algoritmen voor het voors pellen van prijzen vergelijken](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Voor beeld 3-classificatie: Krediet risico voors pellen](ui-sample-classification-predict-credit-risk-basic.md)
+- [Voor beeld 4-classificatie: Voor speld krediet risico (kosten gevoelig)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Voor beeld 5-classificatie: Verloop voors pellen](ui-sample-classification-predict-churn.md)
+- [Voor beeld 6: classificatie: Vlucht vertragingen voors pellen](ui-sample-classification-predict-flight-delay.md)

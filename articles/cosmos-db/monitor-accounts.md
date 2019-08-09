@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 1c12007e04ff8cd08ddb7afdf9a3c2add9638de3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d8e80594e0c56f57527d1703b0cf1323571cf351
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277433"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855710"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Controleer metrische gegevens voor prestaties en opslag in Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Metrische gegevens kunnen worden gecontroleerd op de pagina met het Account voor
 ## <a name="set-up-alerts-in-the-portal"></a>Stel waarschuwingen in de portal
 
 > [!NOTE]
-> De klassieke waarschuwingen in Azure Monitor worden op 31 augustus 2019 buiten gebruik gesteld. Azure Portal biedt een [hulp programma voor migratie](../azure-monitor/platform/alerts-using-migration-tool.md) om klassieke waarschuwings regels te migreren. Niet alle klassieke waarschuwingen voor Azure Cosmos DB gegevens kunnen worden gemigreerd, maar er zijn enkele uitzonde ringen, zie het artikel over [Azure monitor](../azure-monitor/platform/alerts-understand-migration.md#cosmos-db-metrics) voor een lijst met klassieke waarschuwingen die niet kunnen worden gemigreerd. 
+> De klassieke waarschuwingen in Azure Monitor worden binnenkort buiten gebruik gesteld. Azure Portal biedt een [hulp programma voor migratie](../azure-monitor/platform/alerts-using-migration-tool.md) om klassieke waarschuwings regels te migreren. Niet alle klassieke waarschuwingen op de Azure Cosmos DB metrieken kunnen echter worden gemigreerd, maar er zijn enkele uitzonde ringen, zie het artikel over [Azure monitor](../azure-monitor/platform/alerts-understand-migration.md#cosmos-db-metrics) voor een lijst met klassieke waarschuwingen die niet kunnen worden gemigreerd. 
 
 1. In de [Azure-portal](https://portal.azure.com/), klikt u op **alle services**, klikt u op **Azure Cosmos DB**, en klik vervolgens op de naam van de Azure Cosmos DB-account waarvoor u wilt instellen van prestaties metrische waarschuwingen.
 2. Klik in het resourcemenu op **waarschuwingsregels** om de pagina regels voor waarschuwingen te openen.  

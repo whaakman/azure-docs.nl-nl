@@ -1,6 +1,6 @@
 ---
-title: Azure Automation-Runbooktypen
-description: 'Beschrijft de verschillende typen runbooks die u in Azure Automation en overwegingen waarmee u rekening houden gebruiken kunt moet bij het bepalen van welk type te gebruiken. '
+title: Azure Automation typen Runbook
+description: 'Hierin worden de verschillende typen runbooks beschreven die u kunt gebruiken in Azure Automation en overwegingen waarmee u rekening moet houden bij het bepalen welk type u wilt gebruiken. '
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,114 +9,114 @@ ms.author: robreed
 ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8d90f1c03a9ed892a9dc8a4fecbeb9815c2dd376
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: e655e286c3aebe28bcb09c8723516c2ff52ad20e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476885"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850358"
 ---
-# <a name="azure-automation-runbook-types"></a>Azure Automation-runbooktypen
+# <a name="azure-automation-runbook-types"></a>Azure Automation typen runbook
 
-Azure Automation biedt ondersteuning voor verschillende typen runbooks die worden kort beschreven in de volgende tabel.  De onderstaande secties bevatten meer informatie over elk waarbij u rekening houdt van het moment waarop het gebruik van elk type.
+Azure Automation ondersteunt diverse typen runbooks die kort worden beschreven in de volgende tabel.  In de volgende secties vindt u meer informatie over elk type, met inbegrip van overwegingen voor het gebruik ervan.
 
-| Type | Description |
+| type | Description |
 |:--- |:--- |
-| [Grafisch](#graphical-runbooks)|Op basis van Windows PowerShell en gemaakt en bewerkt volledig in grafische editor in Azure portal. |
-| [Grafische PowerShell-werkstroom](#graphical-runbooks)|Op basis van Windows PowerShell-werkstroom en gemaakt en bewerkt volledig in de grafische editor in Azure portal. |
+| [Grafisch](#graphical-runbooks)|Op basis van Windows Power shell en worden volledig gemaakt en bewerkt in de grafische editor in Azure Portal. |
+| [Grafische power shell-werk stroom](#graphical-runbooks)|Op basis van een Windows Power shell-werk stroom en worden volledig gemaakt en bewerkt in de grafische editor in Azure Portal. |
 | [PowerShell](#powershell-runbooks) |Tekstrunbook op basis van Windows PowerShell-script. |
 | [PowerShell-werkstroom](#powershell-workflow-runbooks)|Tekstrunbook op basis van Windows PowerShell-werkstroom. |
-| [Python](#python-runbooks) |Tekstrunbook op basis van Python. |
+| [Python](#python-runbooks) |Tekst runbook op basis van python. |
 
 ## <a name="graphical-runbooks"></a>Grafische runbooks
 
-[Grafische](automation-runbook-types.md#graphical-runbooks) en grafische PowerShell Workflow-runbooks zijn gemaakt en bewerkt met de grafische editor in Azure portal.  U kunt exporteren naar een bestand en importeer ze in een ander automation-account. Maar u kunt maken of bewerken met een ander hulpprogramma. Grafische runbooks PowerShell-code genereren, maar u niet rechtstreeks weergeven of wijzigen van de code. Grafische runbooks kan niet worden geconverteerd naar een van de [tekstindelingen](automation-runbook-types.md), noch kan een tekstrunbook worden geconverteerd naar grafische indeling. Grafische runbooks kunnen worden geconverteerd naar grafische PowerShell Workflow-runbooks tijdens het importeren en andersom.
+[Grafisch](automation-runbook-types.md#graphical-runbooks) en grafisch runbooks voor grafische power shell-werk stromen worden gemaakt en bewerkt met de grafische editor in de Azure Portal.  U kunt ze exporteren naar een bestand en vervolgens importeren in een ander Automation-account. Maar u kunt ze niet maken of bewerken met een ander hulp programma. Grafische runbooks genereren Power shell-code, maar u kunt de code niet rechtstreeks weer geven of wijzigen. Grafische runbooks kunnen niet worden geconverteerd naar een van de [tekst indelingen](automation-runbook-types.md)en kunnen niet worden geconverteerd naar een grafische vorm van een tekst. Grafische runbooks kunnen tijdens het importeren worden omgezet in grafische power shell-werk stroom-runbooks en op een andere manier.
 
 ### <a name="advantages"></a>Voordelen
 
-* Visueel ontwerpen model insert-koppeling configureren  
-* Richt u op hoe gegevens door het proces stromen  
-* Visueel vertegenwoordigen beheerprocessen  
-* Andere runbooks bevatten als onderliggende runbooks op hoog niveau werkstromen maken  
-* Modulaire programmeren worden gebruikers aangemoedigd  
+* Visueel element voor invoegen en koppelen-ontwerp model configureren
+* Focussen op de manier waarop gegevens door het proces stromen
+* Beheer processen visueel weer geven
+* Andere runbooks als onderliggende runbooks toevoegen om werk stromen op hoog niveau te maken
+* Stimuleert modulaire programmering
 
 ### <a name="limitations"></a>Beperkingen
 
-* Kan runbook buiten Azure-portal niet bewerken.
-* Een activiteit met PowerShell-code voor het uitvoeren van complexe logica mogelijk.
-* Kan bekijken of de PowerShell-code die is gemaakt door de grafische workflow rechtstreeks bewerken. U kunt de code die u in een Code-activiteiten maakt weergeven.
-* Kan niet worden uitgevoerd op een Hybrid Runbook Worker in Linux
+* Kan het runbook niet bewerken buiten Azure Portal.
+* Voor het uitvoeren van complexe logica is mogelijk een code activiteit vereist die Power shell-code bevat.
+* Kan de Power shell-code die door de grafische werk stroom is gemaakt, niet weer geven of rechtstreeks bewerken. U kunt de code die u in code-activiteiten maakt, bekijken.
+* Kan niet worden uitgevoerd op een Linux-Hybrid Runbook Worker
 
 ## <a name="powershell-runbooks"></a>PowerShell-runbooks
 
-PowerShell-runbooks zijn gebaseerd op Windows PowerShell.  Rechtstreeks bewerkt u de code van het runbook met behulp van de teksteditor in Azure portal.  U kunt ook een offline teksteditor gebruiken en [Importeer het runbook](manage-runbooks.md) in Azure Automation.
+PowerShell-runbooks zijn gebaseerd op Windows PowerShell.  U bewerkt de code van het runbook rechtstreeks met behulp van de tekst editor in het Azure Portal.  U kunt ook een editor voor offline tekst gebruiken en [het runbook importeren](manage-runbooks.md) in azure Automation.
 
 ### <a name="advantages"></a>Voordelen
 
 * Implementeer alle complexe logica met PowerShell-code zonder de extra complexiteit van de PowerShell-werkstroom.
 * Runbook start sneller dan PowerShell Workflow-runbooks omdat hoeft niet te worden gecompileerd voordat wordt uitgevoerd.
-* Kan worden uitgevoerd in Azure of op Linux- en Windows Hybrid Runbook Workers
+* Kan worden uitgevoerd in azure of op zowel Linux-als Windows Hybrid Runbook Workers
 
 ### <a name="limitations"></a>Beperkingen
 
-* Moet bekend zijn met de PowerShell-scripts.
-* Kan niet worden gebruikt [parallelle verwerking](automation-powershell-workflow.md#parallel-processing) meerdere acties parallel uitvoeren.
-* Kan niet worden gebruikt [controlepunten](automation-powershell-workflow.md#checkpoints) runbook hervatten als er een fout is opgetreden.
-* Grafische runbooks en PowerShell Workflow-runbooks kunnen alleen worden opgenomen als onderliggende runbooks met behulp van de cmdlet Start-AzureAutomationRunbook, waarmee een nieuwe taak wordt gemaakt.
+* Moet bekend zijn met Power shell-scripts.
+* Kan [parallelle verwerking](automation-powershell-workflow.md#parallel-processing) niet gebruiken om meerdere acties parallel uit te voeren.
+* Kan geen [controle punten](automation-powershell-workflow.md#checkpoints) gebruiken om het runbook te hervatten als er een fout optreedt.
+* Power shell workflow-runbooks en grafische runbooks kunnen alleen worden opgenomen als onderliggende runbooks met behulp van de start-AzureAutomationRunbook-cmdlet, waarmee een nieuwe taak wordt gemaakt.
 
 ### <a name="known-issues"></a>Bekende problemen
 
-Hieronder vindt u huidige bekende problemen met PowerShell-runbooks.
+Hieronder vindt u actuele bekende problemen met Power shell-runbooks.
 
-* PowerShell-runbooks kunnen niet ophalen van een niet-versleutelde [variabeleasset](automation-variables.md) met een null-waarde.
-* PowerShell-runbooks kunnen niet worden opgehaald een [variabeleasset](automation-variables.md) met *~* in de naam.
-* Get-Process in een lus in een PowerShell runbook kan vastlopen na ongeveer 80 herhalingen.
-* Een PowerShell-runbook kan mislukken als wordt geprobeerd een grote hoeveelheid gegevens in één keer naar de uitvoerstroom schrijven.   U kunt doorgaans dit probleem omzeilen door het uitvoeren van alleen de informatie die u nodig hebt bij het werken met grote objecten.  Bijvoorbeeld, in plaats van het uitvoeren van ongeveer *Get-Process*, kunt u alleen de vereiste velden met uitvoer *Get-Process | Schakel ProcessName, CPU*.
+* Power shell-runbooks kunnen een niet-versleutelde [variabele Asset](automation-variables.md) niet ophalen met een null-waarde.
+* Power shell-runbooks kunnen een [variabele Asset](automation-variables.md) met *~* in de naam niet ophalen.
+* Get-process in een lus in een Power shell-runbook kan na ongeveer 80 iteraties vastlopen.
+* Een Power shell-runbook kan mislukken als wordt geprobeerd een grote hoeveelheid gegevens naar de uitvoer stroom tegelijk te schrijven.   Normaal gesp roken kunt u dit probleem omzeilen door alleen de informatie die u nodig hebt bij het werken met grote objecten uit te voeren.  In plaats van iets zoals *Get-process*uit te voeren, kunt u bijvoorbeeld alleen de vereiste velden uitvoeren met *Get-process | Selecteer verwerkings-en CPU*.
 
-## <a name="powershell-workflow-runbooks"></a>PowerShell Workflow-runbooks
+## <a name="powershell-workflow-runbooks"></a>Power shell workflow-runbooks
 
-PowerShell Workflow-runbooks zijn tekst-runbooks op basis van [Windows PowerShell-werkstroom](automation-powershell-workflow.md).  Rechtstreeks bewerkt u de code van het runbook met behulp van de teksteditor in Azure portal.  U kunt ook een offline teksteditor gebruiken en [Importeer het runbook](manage-runbooks.md) in Azure Automation.
+Power shell workflow-runbooks zijn tekst-runbooks op basis van [Windows Power shell-werk stroom](automation-powershell-workflow.md).  U bewerkt de code van het runbook rechtstreeks met behulp van de tekst editor in het Azure Portal.  U kunt ook een editor voor offline tekst gebruiken en [het runbook importeren](manage-runbooks.md) in azure Automation.
 
 ### <a name="advantages"></a>Voordelen
 
 * Alle complexe logica met PowerShell Workflow-code implementeren.
-* Gebruik [controlepunten](automation-powershell-workflow.md#checkpoints) runbook hervatten als er een fout is opgetreden.
+* Gebruik [controle punten](automation-powershell-workflow.md#checkpoints) om het runbook te hervatten als er een fout optreedt.
 * Gebruik [parallelle verwerking](automation-powershell-workflow.md#parallel-processing) meerdere acties parallel uitvoeren.
-* Andere grafische runbooks en PowerShell Workflow-runbooks kunt opnemen als onderliggende runbooks op hoog niveau werkstromen maken.
+* Kan andere grafische runbooks en Power shell-werk stroom runbooks als onderliggende runbooks bevatten om werk stromen op hoog niveau te maken.
 
 ### <a name="limitations"></a>Beperkingen
 
-* Auteur moet bekend zijn met de PowerShell-werkstroom.
-* Runbook moet omgaan met extra complexiteit van de PowerShell-werkstroom, zoals [gedeserialiseerd objecten](automation-powershell-workflow.md#code-changes).
+* De auteur moet bekend zijn met de Power shell-werk stroom.
+* Runbook moet de extra complexiteit van Power shell-werk stroom, zoals [gedeserialiseerd objecten](automation-powershell-workflow.md#code-changes), afhandelen.
 * Runbook langer duurt om te beginnen dan PowerShell-runbooks omdat ze moeten worden gecompileerd voordat wordt uitgevoerd.
-* PowerShell-runbooks kunnen alleen worden opgenomen als onderliggende runbooks met behulp van de cmdlet Start-AzureAutomationRunbook, waarmee een nieuwe taak wordt gemaakt.
-* Kan niet worden uitgevoerd op een Hybrid Runbook Worker in Linux
+* Power shell-runbooks kunnen alleen worden opgenomen als onderliggende runbooks met behulp van de cmdlet start-AzureAutomationRunbook, waarmee een nieuwe taak wordt gemaakt.
+* Kan niet worden uitgevoerd op een Linux-Hybrid Runbook Worker
 
 ## <a name="python-runbooks"></a>Python-runbooks
 
-Python-runbooks worden gecompileerd onder Python 2.  U kunt de code van het runbook met behulp van de teksteditor in Azure portal of met een offline teksteditor rechtstreeks bewerken en [Importeer het runbook](manage-runbooks.md) in Azure Automation.
+Python runbooks compileren onder python 2.  U kunt de code van het runbook rechtstreeks bewerken met behulp van de tekst editor in het Azure Portal, of met een editor voor offline tekst en [het runbook importeren](manage-runbooks.md) in azure Automation.
 
 ### <a name="advantages"></a>Voordelen
 
-* Gebruikmaken van de robuuste Python-bibliotheken.
-* Kan worden uitgevoerd in Azure of op beide Linux Hybrid Runbook Workers. Hybrid Runbook Workers van Windows worden ondersteund met [python2.7](https://www.python.org/downloads/release/latest/python2) geïnstalleerd.
+* Gebruik de robuuste python-bibliotheken.
+* Kan worden uitgevoerd in azure of op zowel Linux Hybrid Runbook Workers. Windows Hybrid Runbook Workers worden ondersteund met [python 2.7](https://www.python.org/downloads/release/latest/python2) geïnstalleerd.
 
 ### <a name="limitations"></a>Beperkingen
 
-* Moet bekend zijn met het Python-scripts.
-* Alleen Python 2 wordt ondersteund op dit moment, wat betekent dat bepaalde functies van Python 3 mislukken.
-* Voor het gebruik van bibliotheken van derden, moet u [importeren van het pakket](python-packages.md) in het Automation-Account voor deze moet worden gebruikt.
+* Moet bekend zijn met python-scripts.
+* Alleen python 2 wordt op het moment ondersteund, wat betekent dat er geen python 3-specifieke functies kunnen worden uitgevoerd.
+* Als u bibliotheken van derden wilt gebruiken, moet u [het pakket importeren](python-packages.md) in het Automation-account dat moet worden gebruikt.
 
 ## <a name="considerations"></a>Overwegingen
 
-Rekening gehouden met de volgende aanvullende overwegingen bij het bepalen van welk type moet worden gebruikt voor een bepaald runbook.
+Houd rekening met de volgende aanvullende overwegingen bij het bepalen van het type dat voor een bepaald runbook moet worden gebruikt.
 
-* U kunt runbooks kan niet converteren van grafische tekstuele type of andersom.
-* Zijn er beperkingen met behulp van runbooks van verschillende typen als een onderliggend runbook. Zie voor meer informatie, [onderliggende runbooks in Azure Automation](automation-child-runbooks.md).
+* U kunt geen runbooks converteren van grafisch naar tekst type of andersom.
+* Er zijn beperkingen bij het gebruik van runbooks van verschillende typen als onderliggend runbook. Zie voor meer informatie [onderliggende runbooks in azure Automation](automation-child-runbooks.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over het ontwerpen van een grafisch runbook, [grafisch ontwerpen in Azure Automation](automation-graphical-authoring-intro.md)
-* Om te weten wat de verschillen tussen PowerShell en PowerShell-werkstromen voor runbooks, Zie [Windows PowerShell-werkstroom leren](automation-powershell-workflow.md)
-* Zie voor meer informatie over het maken of importeren van een Runbook [een Runbook maken of importeren](manage-runbooks.md)
-
+* Zie voor meer informatie over het ontwerpen van een grafisch runbook [grafisch ontwerpen in azure Automation](automation-graphical-authoring-intro.md)
+* Zie [Windows Power shell-werk stroom leren](automation-powershell-workflow.md) voor informatie over de verschillen tussen Power shell-en Power shell-werk stromen voor runbooks.
+* Zie [een Runbook maken of importeren](manage-runbooks.md) voor meer informatie over het maken of importeren van een runbook
+* Raadpleeg de [Power shell-documenten](https://docs.microsoft.com/en-us/powershell/scripting/overview)voor meer informatie over Power shell, inclusief taal referentie-en leer modules.

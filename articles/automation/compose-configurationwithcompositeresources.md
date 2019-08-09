@@ -1,7 +1,7 @@
 ---
-title: Samenstellen van DSC-configuraties in Azure Automation State Configuration (DSC) hebt met behulp van samengestelde Resources
+title: DSC-configuraties in Azure Automation State Configuration (DSC) samen stellen met samengestelde resources
 description: Meer informatie over het opstellen van configuraties met behulp van samengestelde resources in Azure Automation State Configuration (DSC)
-keywords: PowerShell dsc, configuratie van gewenste status, azure powershell dsc, samengestelde resources
+keywords: Power shell DSC, desired state Configuration, Power shell DSC Azure, samengestelde resources
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,43 +10,44 @@ ms.author: robreed
 ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 64588829cec964e52dcb44465869e0090f36f9f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e153186a3917be3aa94cb663dec58bc3db46aae9
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61303939"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850403"
 ---
-# <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Samenstellen van DSC-configuraties in Azure Automation State Configuration (DSC) hebt met behulp van samengestelde Resources
+# <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>DSC-configuraties in Azure Automation State Configuration (DSC) samen stellen met samengestelde resources
 
-Wanneer een resource worden beheerd met meer dan een enkele gewenste status configuration (DSC)-configuratie moet, het beste pad is het gebruik van [samengestelde resources](/powershell/dsc/authoringresourcecomposite). Een samengestelde resource is een geneste en geparameteriseerde configuratie wordt gebruikt als een DSC-resource in een andere configuratie. Hiermee wordt het maken van complexe configuraties terwijl de onderliggende samengestelde resources (configuraties met parameters) afzonderlijk worden beheerd en die zijn gebouwd.
+Wanneer een resource moet worden beheerd met meer dan een configuratie met één desired state Configuration (DSC), is het beste pad om [samengestelde resources](/powershell/dsc/authoringresourcecomposite)te gebruiken. Een samengestelde resource is een geneste en geparametriseerde configuratie die wordt gebruikt als een DSC-resource in een andere configuratie. Hierdoor kan het maken van complexe configuraties worden toegestaan, terwijl de onderliggende samengestelde bronnen (geparametriseerde configuraties) afzonderlijk kunnen worden beheerd en gebouwd.
 
-Azure Automation kan de [importeren en de samenstelling van samengestelde resources](automation-dsc-compile.md#composite-resources). Als samengestelde resources zijn geïmporteerd in uw Automation-account, bent u kunt gebruiken de **opstellen configuratie** -ervaring in de **State Configuration (DSC)** pagina.
+Azure Automation maakt het mogelijk om [samengestelde resources te importeren en te compileren](automation-dsc-compile.md#compiling-configurations-in-azure-automation-that-contain-composite-resources).
+Zodra er samengestelde resources zijn geïmporteerd in uw Automation-account, kunt u de ervaring voor het opstellen van de **configuratie** gebruiken op de pagina **status configuratie (DSC)** .
 
-## <a name="composing-a-configuration-from-composite-resources"></a>Samenstellen van een configuratie van samengestelde resources
+## <a name="composing-a-configuration-from-composite-resources"></a>Een configuratie uit samengestelde resources opstellen
 
-Voordat u een configuratie gemaakt van samengestelde resources in Azure portal toewijzen kunt, moet u deze samenstelt. Dit kan worden gedaan met **opstellen configuratie** op de **State Configuration (DSC)** terwijl op een pagina de **configuraties** of **Compiled configuraties** tabbladen.
+Voordat u een configuratie kunt toewijzen van samengestelde resources in de Azure Portal, moet u deze samen stellen. U kunt dit doen met behulp van de **opstel configuratie** op de pagina **status configuratie (DSC)** en op de tabbladen **configuraties** of **gecompileerde configuraties** .
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-1. Aan de linkerkant, klikt u op **alle resources** en vervolgens de naam van uw Automation-account.
-1. Op de **Automation-account** weergeeft, schakelt **State configuration (DSC)** onder **Configuratiebeheer**.
-1. Op de **State configuration (DSC)** pagina, klik op de **configuraties** of **gecompileerd configuraties** tabblad en klik vervolgens op **configuratie opstellen**  in het menu aan de bovenkant van de pagina.
-1. Op de **basisbeginselen** stap, geeft u de nieuwe configuratienaam (vereist) en klikt u op een willekeurige plaats in de rij van elke samengestelde resource die u wilt opnemen in uw nieuwe configuratie en klik vervolgens op **volgende** of klik op de **Broncode** stap. Voor de volgende stappen die we geselecteerd **PSExecutionPolicy** en **RenameAndDomainJoin** samengestelde resources.
-   ![Schermafbeelding van de stap van de basisprincipes van de pagina van de configuratie opstellen](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
-1. De **broncode** stap laat zien hoe de samengesteld configuratie van de geselecteerde samengestelde resources eruitziet. U ziet het samenvoegen van alle parameters en hoe ze worden doorgegeven aan de samengestelde resource. Wanneer u klaar bent controleren van de nieuwe broncode, klikt u op **volgende** of klik op de **Parameters** stap.
-   ![Schermafbeelding van de stap van de bron-code van de pagina van de configuratie opstellen](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
-1. Op de **Parameters** stap, de parameter die elke samengestelde resource wordt weergegeven, zodat ze kunnen worden opgegeven. Als een parameter een beschrijving heeft, wordt dit weergegeven naast het parameterveld. Als een veld is een **PSCredential** typeparameter, de vervolgkeuzelijst configureren geeft een lijst van **referentie** objecten in het huidige Automation-account. Een **+ een referentie toevoegen** optie is ook beschikbaar zijn. Wanneer alle vereiste parameters zijn opgegeven, klikt u op **opslaan en compileren**.
-   ![Schermafbeelding van de parameters-stap van de pagina van de configuratie opstellen](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
+1. Klik aan de linkerkant op **alle resources** en vervolgens op de naam van uw Automation-account.
+1. Selecteer op de pagina Automation- **account** **status configuratie (DSC)** onder **configuratie beheer**.
+1. Op de pagina **status configuratie (DSC)** klikt u op het tabblad **configuraties** of **gecompileerde configuraties** en klikt u vervolgens op **configuratie opstellen** in het menu boven aan de pagina.
+1. Geef in de sectie **basis beginselen** de nieuwe configuratie naam (vereist) op en klik op een wille keurige plaats in de rij van elke samengestelde resource die u wilt toevoegen aan de nieuwe configuratie. Klik vervolgens op **volgende** of op de stap **bron code** . Voor de volgende stappen hebben we **PSExecutionPolicy** -en **RenameAndDomainJoin** -samengestelde resources geselecteerd.
+   ![Scherm afbeelding van de stap basis beginselen van de pagina opstellen van de configuratie](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
+1. De **bron code** stap laat zien hoe de bestaande configuratie van de geselecteerde samengestelde resources eruit ziet. U kunt het samen voegen van alle para meters bekijken en bepalen hoe ze worden door gegeven aan de samengestelde resource. Wanneer u klaar bent met het controleren van de nieuwe bron code, klikt u op **volgende** of op de stap **para meters** .
+   ![Scherm afbeelding van de stap bron code van de pagina opstellen van de configuratie](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
+1. In de stap **para meters** is de para meter waarmee elke samengestelde resource wordt weer gegeven, zodat deze kan worden opgegeven. Als een para meter een beschrijving heeft, wordt deze weer gegeven naast het veld para meter. Als een veld een **PSCredential** -type parameter is, geeft de vervolg keuzelijst voor configureren een lijst met **referentie** objecten in het huidige Automation-account. Er is ook een optie voor het **toevoegen van referenties** beschikbaar. Als alle vereiste para meters zijn opgegeven, klikt u op **opslaan en compileren**.
+   ![Scherm afbeelding van de stap para meters van de pagina opstellen van de configuratie](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
-Wanneer de nieuwe configuratie is opgeslagen, wordt deze verzonden voor de compilatie. Status van de Compilatietaak kan worden weergegeven, zoals een geïmporteerde configuratie. Zie voor meer informatie, [weergeven van een Compilatietaak](automation-dsc-getting-started.md#viewing-a-compilation-job).
+Zodra de nieuwe configuratie is opgeslagen, wordt deze voor compilatie verzonden. De status van de compilatie taak kan worden weer gegeven zoals bij elke geïmporteerde configuratie. Zie [een compilatie taak weer geven](automation-dsc-getting-started.md#viewing-a-compilation-job)voor meer informatie.
 
-Als de compilatie is voltooid, de nieuwe configuratie wordt weergegeven in de **gecompileerd configuraties** tabblad. Zodra deze zichtbaar zijn op dit tabblad is, kan deze worden toegewezen aan een beheerd knooppunt met behulp van de stappen in [opnieuw toewijzen van een knooppunt naar een ander knooppuntconfiguratie](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
+Wanneer de compilatie is voltooid, wordt de nieuwe configuratie weer gegeven op het tabblad **gecompileerde configuraties** . Zodra deze op dit tabblad wordt weer gegeven, kan deze worden toegewezen aan een beheerd knoop punt met behulp van de stappen in [een knoop punt opnieuw toewijzen aan een andere knooppunt configuratie](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u wilt beginnen, Zie [aan de slag met Azure Automation State Configuration](automation-dsc-getting-started.md)
-- Voor meer informatie over hoe voor onboarding knooppunten, Zie [Onboarding van machines voor beheer met Azure Automation State Configuration](automation-dsc-onboarding.md)
-- Zie voor meer informatie over het DSC-configuraties compileren zodat u ze aan de doelknooppunten toewijzen kunt, [-configuraties in Azure Automation-staat configuratie compileren](automation-dsc-compile.md)
-- Zie voor naslagdocumentatie voor PowerShell-cmdlet, [Statusconfiguratie van Azure Automation-cmdlets](/powershell/module/azurerm.automation/#automation)
-- Zie voor informatie over de prijzen [Statusconfiguratie van Azure Automation-prijzen](https://azure.microsoft.com/pricing/details/automation/)
-- Zie voor een voorbeeld van het gebruik van Azure Automation State Configuration in een pijplijn voor continue implementatie [continue implementatie met behulp van Azure Automation Statusconfiguratie- en Chocolatey](automation-dsc-cd-chocolatey.md)
+- Zie aan de slag [met de configuratie van de Azure Automation-status](automation-dsc-getting-started.md) om aan de slag te gaan.
+- Voor meer informatie over het voorbereiden van knoop punten, zie onboarding [machines voor beheer door Azure Automation status configuratie](automation-dsc-onboarding.md)
+- Zie [configuraties compileren in azure Automation status configuratie](automation-dsc-compile.md) voor meer informatie over het compileren van DSC-configuraties zodat u ze aan doel knooppunten kunt toewijzen.
+- Zie [Azure Automation status configuratie](/powershell/module/azurerm.automation/#automation) -cmdlets voor informatie over de Power shell-cmdlet.
+- Zie [prijzen voor Azure Automation status configuratie](https://azure.microsoft.com/pricing/details/automation/) voor prijs informatie.
+- Voor een voor beeld van het gebruik van Azure Automation status configuratie in een pijp lijn voor continue implementatie gaat u naar [continue implementatie met behulp van Azure Automation-status configuratie en chocolade](automation-dsc-cd-chocolatey.md)

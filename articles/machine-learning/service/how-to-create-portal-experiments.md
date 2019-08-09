@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cgronlun
+ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: eb6ae11bb4ffb39d9e9bcc692f17559fa2cde674
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a5db2c1c40c9c6f5c05205b9b2c652d2e23cf229
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720238"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848245"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Automatische machine learning experimenten maken, verkennen en implementeren in de Azure Portal (preview-versie)
 
@@ -28,7 +28,7 @@ ms.locfileid: "68720238"
 
 * Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
-* Een werkruimte van Azure Machine Learning-service. Zie [een Azure machine learning service-werk ruimte maken](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+* Een werkruimte van Azure Machine Learning-service. Zie [een Azure machine learning service-werk ruimte maken](how-to-manage-workspace.md).
 
 ## <a name="get-started"></a>Aan de slag
 

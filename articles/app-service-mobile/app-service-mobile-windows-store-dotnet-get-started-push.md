@@ -1,6 +1,6 @@
 ---
-title: Pushmeldingen toevoegen aan uw Universal Windows Platform (UWP)-app | Microsoft Docs
-description: Meer informatie over het gebruik van Azure App Service Mobile Apps en Azure Notification Hubs om pushmeldingen te verzenden aan uw Universal Windows Platform (UWP)-app.
+title: Push meldingen toevoegen aan uw Universeel Windows-platform-app (UWP) | Microsoft Docs
+description: Meer informatie over het gebruik van Azure App Service Mobile Apps en Azure Notification Hubs voor het verzenden van push meldingen naar uw Universeel Windows-platform-app (UWP).
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
 author: elamalani
@@ -14,63 +14,63 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 3ea2b336f647d9a27baaeeb489895b8f67d2e2d9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7455ad33660a0af004a3a3ad982e929fc4b3031e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445610"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851123"
 ---
-# <a name="add-push-notifications-to-your-windows-app"></a>Pushmeldingen toevoegen aan uw Windows-app
+# <a name="add-push-notifications-to-your-windows-app"></a>Push meldingen toevoegen aan uw Windows-app
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 > [!NOTE]
-> Visual Studio App Center investeert in nieuwe en geïntegreerde services centraal staat in de ontwikkeling van mobiele Apps. Ontwikkelaars kunnen gebruikmaken van **bouwen**, **Test** en **verdelen** services voor het instellen van de pijplijn voor continue integratie en levering. Zodra de app is geïmplementeerd, ontwikkelaars controleren de status en het gebruik van het gebruik van de app de **Analytics** en **Diagnostics** -services en Communiceer met gebruikers met behulp van de **Push** de service. Ontwikkelaars kunnen ook gebruikmaken van **Auth** om hun gebruikers te verifiëren en **gegevens** service behouden en synchroniseren van app-gegevens in de cloud. Bekijk [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-push) vandaag nog.
+> Visual Studio App Center is investeren in nieuwe en geïntegreerde services die in de ontwikkeling van mobiele apps kunnen worden ontwikkeld. Ontwikkel aars kunnen services **bouwen**, **testen** en **distribueren** om een continue integratie-en leverings pijplijn in te stellen. Zodra de app is geïmplementeerd, kunnen ontwikkel aars de status en het gebruik van hun app bewaken met behulp van de **analyse** -en **diagnose** Services en gebruikers benaderen met behulp van de **Push** service. Ontwikkel aars kunnen ook gebruikmaken van **auth** voor het verifiëren van hun gebruikers en **gegevens** service om app-gegevens in de Cloud op te slaan en te synchroniseren. Bekijk [app Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-push) vandaag nog.
 >
 
 ## <a name="overview"></a>Overzicht
 
-In deze zelfstudie voegt u pushmeldingen kunt verzenden naar de [Windows-snelstartgids](app-service-mobile-windows-store-dotnet-get-started.md) project, zodat een pushmelding wordt verzonden naar het apparaat telkens wanneer een record wordt ingevoegd.
+In deze zelf studie voegt u push meldingen toe aan het [Windows Quick Start](app-service-mobile-windows-store-dotnet-get-started.md) -project, zodat een push melding wordt verzonden naar het apparaat telkens wanneer een record wordt ingevoegd.
 
-Als u het gedownloade quick start-serverproject niet gebruikt, moet u de push notification-uitbreidingspakket. Zie [werken met de .NET back-endserver SDK voor Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) voor meer informatie.
+Als u het gedownloade Quick Start Server-project niet gebruikt, hebt u het uitbreidings pakket voor push meldingen nodig. Zie [werken met de .net back-end server SDK voor Azure Mobile apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) voor meer informatie.
 
-## <a name="configure-hub"></a>Een Notification Hub configureren
+## <a name="configure-hub"></a>Een notification hub configureren
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="register-your-app-for-push-notifications"></a>Uw app voor pushmeldingen registreren
 
-U moet uw app naar de Microsoft Store verzenden en configureer vervolgens uw serverproject te integreren met [Windows Notification Services (WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) voor het verzenden van pushmeldingen.
+U moet uw app indienen bij de Microsoft Store en vervolgens uw server project configureren voor integratie met [Windows Notification Services (WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) voor het verzenden van push berichten.
 
-1. In Visual Studio Solution Explorer met de rechtermuisknop op het UWP-app-project, klikt u op **Store** > **App aan de Store koppelen...** .
+1. Klik in Visual Studio Solution Explorer met de rechter muisknop op het UWP-app-project, klikt u op **Store** > **BIND app with the store...** .
 
-    ![App koppelen aan Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
+    ![App aan Microsoft Store koppelen](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
 
-2. In de wizard, klikt u op **volgende**, meld u aan met uw Microsoft-account, typ een naam voor uw app in **een nieuwe appnaam reserveren**, klikt u vervolgens op **Reserve**.
-3. Nadat de app-registratie is gemaakt, selecteert u de naam van de nieuwe app, klikt u op **volgende**, en klik vervolgens op **koppelen**. Hiermee wordt de vereiste registratiegegevens voor Microsoft Store toegevoegd aan het toepassingsmanifest.
-4. Navigeer naar de [Portal voor Appregistratie](https://apps.dev.microsoft.com/) en meld u aan met uw Microsoft-account. Klik op de Windows Store-app die u in de vorige stap hebt gekoppeld.
-5. In de registratiepagina geleid, noteer de waarde onder **toepassingsgeheimen** en de **pakket-SID**, waarmee u wordt vervolgens het configureren van de back-end van uw mobiele app.
+2. Klik in de wizard op **volgende**, Meld u aan met uw Microsoft-account, typ een naam voor uw app in **reserve een nieuwe app-naam**en klik vervolgens op **reserveren**.
+3. Nadat de app-registratie is gemaakt, selecteert u de naam van de nieuwe app, klikt u op **volgende**en klikt u vervolgens op **koppelen**. Hiermee voegt u de vereiste Microsoft Store registratie gegevens toe aan het toepassings manifest.
+4. Ga naar de [Portal voor toepassings registratie](https://apps.dev.microsoft.com/) en meld u aan met uw Microsoft-account. Klik op de Windows Store-app die u in de vorige stap hebt gekoppeld.
+5. Noteer op de pagina registratie de waarde onder **toepassings geheimen** en de **pakket-sid**, die u vervolgens kunt gebruiken om de back-end van uw mobiele app te configureren.
 
-    ![App koppelen aan Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
+    ![App aan Microsoft Store koppelen](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
    > [!IMPORTANT]
-   > Het clientgeheim en de pakket-SID zijn belangrijke beveiligingsreferenties. Deel deze waarden met niemand en distribueer ze niet met uw app. De **toepassings-Id** aan de geheime sleutel wordt gebruikt om verificatie van de Microsoft-Account te configureren.
+   > Het clientgeheim en de pakket-SID zijn belangrijke beveiligingsreferenties. Deel deze waarden met niemand en distribueer ze niet met uw app. De **toepassings-id** wordt met het geheim gebruikt voor het configureren van micro soft-account authenticatie.
 
-[App Center](https://docs.microsoft.com/appcenter/sdk/push/uwp#prerequisite---register-your-app-for-windows-notification-services-wns) bevat ook instructies voor het configureren van de UWP-apps voor pushmeldingen.
+[App Center](https://docs.microsoft.com/appcenter/sdk/push/uwp#prerequisite---register-your-app-for-windows-notification-services-wns) heeft ook instructies voor het configureren van UWP-apps voor push meldingen.
 
-## <a name="configure-the-backend-to-send-push-notifications"></a>Configureren van de back-end om pushmeldingen te verzenden
+## <a name="configure-the-backend-to-send-push-notifications"></a>De back-end configureren voor het verzenden van push meldingen
 
 [!INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
-## <a id="update-service"></a>Bijwerken van de server om pushmeldingen te verzenden
+## <a id="update-service"></a>De server bijwerken om Push meldingen te verzenden
 
-Gebruik de procedure hieronder die overeenkomt met uw back-end-projecttype&mdash;beide [.NET back-end](#dotnet) of [Node.js-back-end](#nodejs).
+Gebruik de onderstaande procedure die overeenkomt met uw back&mdash;-end-project Typ [.net-back-end](#dotnet) of [node. js-back-end](#nodejs).
 
-### <a name="dotnet"></a>.NET-back-end-project
+### <a name="dotnet"></a>.NET-back-upproject
 
-1. Met de rechtermuisknop op de serverproject in Visual Studio, en klikt u op **NuGet-pakketten beheren**, Microsoft.Azure.NotificationHubs Zoek en klik vervolgens op **installeren**. Hiermee installeert u de Notification Hubs-clientbibliotheek.
-2. Vouw **Controllers**, open TodoItemController.cs en voeg de volgende using-instructies toe:
+1. Klik in Visual Studio met de rechter muisknop op het server project en klik op **NuGet-pakketten beheren**, zoek naar micro soft. Azure. notification hubs en klik vervolgens op **installeren**. Hiermee wordt de Notification Hubs-client bibliotheek geïnstalleerd.
+2. Vouw **controllers**uit, open TodoItemController.cs en voeg de volgende using-instructies toe:
 
     ```csharp
     using System.Collections.Generic;
@@ -78,7 +78,7 @@ Gebruik de procedure hieronder die overeenkomt met uw back-end-projecttype&mdash
     using Microsoft.Azure.Mobile.Server.Config;
     ```
 
-3. In de **PostTodoItem** methode, voeg de volgende code na het aanroepen van **InsertAsync**:
+3. In de methode **PostTodoItem** voegt u de volgende code toe na het aanroepen van **InsertAsync**:
 
     ```csharp
     // Get the settings for the server project.
@@ -114,13 +114,13 @@ Gebruik de procedure hieronder die overeenkomt met uw back-end-projecttype&mdash
     }
     ```
 
-    Deze code wordt de notification hub voor het verzenden van een pushmelding ontvangen nadat een nieuw item invoegen is.
+    Met deze code wordt de notification hub geïnformeerd over het verzenden van een push melding nadat een nieuw item is ingevoegd.
 
-4. Het serverproject publiceren.
+4. Publiceer het server project opnieuw.
 
-### <a name="nodejs"></a>Node.js-back-end-project
-1. Als u dit nog niet hebt gedaan, [downloaden van de Quick Start-project](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) of gebruik anders de [online-editor in Azure portal](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
-2. Vervang de bestaande code in het bestand todoitem.js door het volgende:
+### <a name="nodejs"></a>Node. js-back-upproject
+1. Stel uw back-end-project in.
+2. Vervang de bestaande code in het bestand todoitem. js door het volgende:
 
     ```javascript
     var azureMobileApps = require('azure-mobile-apps'),
@@ -164,21 +164,21 @@ Gebruik de procedure hieronder die overeenkomt met uw back-end-projecttype&mdash
     module.exports = table;
     ```
 
-    Hierdoor wordt een pop-upmelding voor WNS waarin de item.text wanneer een nieuwe taak wordt ingevoegd verzonden.
+    Hiermee verzendt u een pop-upmelding WNS die het item. Text bevat wanneer een nieuw item wordt ingevoegd.
 
-3. Tijdens het bewerken van het bestand op uw lokale computer, publiceert u opnieuw het serverproject.
+3. Wanneer u het bestand op uw lokale computer bewerkt, publiceert u het server project opnieuw.
 
-## <a id="update-app"></a>Pushmeldingen toevoegen aan uw app
-Uw app moet vervolgens worden geregistreerd voor pushmeldingen op opstarten. Als u al verificatie hebt ingeschakeld, zorg ervoor dat de gebruiker zich aanmeldt voordat u probeert te registreren voor pushmeldingen.
+## <a id="update-app"></a>Push meldingen toevoegen aan uw app
+Vervolgens moet uw app registreren voor push meldingen bij het opstarten. Wanneer u verificatie al hebt ingeschakeld, moet u ervoor zorgen dat de gebruiker zich aanmeldt voordat u probeert te registreren voor push meldingen.
 
-1. Open de **App.xaml.cs** projectbestand en voeg de volgende `using` instructies:
+1. Open het project bestand **app.xaml.cs** en voeg de volgende `using` -instructies toe:
 
     ```csharp
     using System.Threading.Tasks;
     using Windows.Networking.PushNotifications;
     ```
 
-2. Voeg in hetzelfde bestand de volgende **InitNotificationsAsync** methodedefinitie naar de **App** klasse:
+2. Voeg in hetzelfde bestand de volgende **InitNotificationsAsync** -methode definitie toe aan de **app** -klasse:
 
     ```csharp
     private async Task InitNotificationsAsync()
@@ -192,9 +192,9 @@ Uw app moet vervolgens worden geregistreerd voor pushmeldingen op opstarten. Als
     }
     ```
 
-    Deze code wordt de kanaal-URI voor de app opgehaald uit WNS, en vervolgens die kanaal-URI voor uw App Service Mobile App geregistreerd.
+    Met deze code wordt de kanaal voor de app opgehaald uit WNS en wordt vervolgens geregistreerd dat kanaal met uw mobiele App Service-app.
 
-3. Aan de bovenkant van de **OnLaunched** gebeurtenis-handler in **App.xaml.cs**, toevoegen de **asynchrone** modifier aan de methodedefinitie van de en voeg de volgende oproep verzenden naar de nieuwe  **InitNotificationsAsync** methode, zoals in het volgende voorbeeld:
+3. Voeg aan de bovenkant van de gebeurtenis-handler **OnLaunched** in **app.xaml.cs**de wijzigings functie **async** toe aan de methode definitie en voeg de volgende aanroep toe aan de nieuwe **InitNotificationsAsync** -methode, zoals in het volgende voor beeld:
 
     ```csharp
     protected async override void OnLaunched(LaunchActivatedEventArgs e)
@@ -205,25 +205,25 @@ Uw app moet vervolgens worden geregistreerd voor pushmeldingen op opstarten. Als
     }
     ```
 
-    Dit zorgt ervoor dat de tijdelijke kanaal-URI wordt geregistreerd telkens wanneer die de toepassing wordt gestart.
+    Dit zorgt ervoor dat de tijdelijke kanaal wordt geregistreerd telkens wanneer de toepassing wordt gestart.
 
-4. Opnieuw opbouwen uw UWP-app-project. Uw app is nu gereed om pop-upmeldingen te ontvangen.
+4. Bouw uw UWP-app-project opnieuw op. Uw app is nu gereed om pop-upmeldingen te ontvangen.
 
-## <a id="test"></a>Testpushmeldingen in uw app
+## <a id="test"></a>Push meldingen in uw app testen
 
 [!INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
 ## <a id="more"></a>Volgende stappen
 
-Meer informatie over pushmeldingen te verzenden:
+Meer informatie over push meldingen:
 
-* [De beheerde client gebruiken voor Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications) sjablonen beschikt u over flexibiliteit voor het verzenden van platformonafhankelijke pushes en gelokaliseerde pushes. Informatie over het registreren van sjablonen.
-* [Push-melding problemen](../notification-hubs/notification-hubs-push-notification-fixer.md) er zijn diverse redenen waarom meldingen mogelijk verwijderd of niet doen terechtkomen op apparaten. Dit onderwerp ziet u hoe om te analyseren en te bepalen wat de oorzaak van fouten bij push-melding.
+* [De beheerde client voor Azure-Mobile Apps gebruiken](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications) Sjablonen bieden u de mogelijkheid om platformoverschrijdende pushes en gelokaliseerde pushes te verzenden. Meer informatie over het registreren van sjablonen.
+* [Problemen met push meldingen vaststellen](../notification-hubs/notification-hubs-push-notification-fixer.md) Er zijn verschillende redenen waarom meldingen verloren kunnen gaan of niet eindigen op apparaten. In dit onderwerp wordt uitgelegd hoe u de hoofd oorzaak van mislukte push meldingen kunt analyseren en berekenen.
 
-Houd rekening met voortgezet u aan bij een van de volgende zelfstudies:
+Overweeg door te gaan met een van de volgende zelf studies:
 
 * [Verificatie toevoegen aan uw app](app-service-mobile-windows-store-dotnet-get-started-users.md) Lees hoe u gebruikers van uw app verifieert met een id-provider.
-* [Offlinesynchronisatie inschakelen voor uw app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) meer informatie over het toevoegen van Offlineondersteuning aan uw app met behulp van een back-end van de mobiele App. Met offlinesynchronisatie kunnen eindgebruikers interactie aangaan met een mobiele app&mdash;gegevens weergeven, toevoegen of wijzigen&mdash;ook als er geen netwerkverbinding is.
+* [Offline synchronisatie voor uw app inschakelen](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Meer informatie over het toevoegen van offline ondersteuning aan uw app met een back-end voor een mobiele app. Met offlinesynchronisatie kunnen eindgebruikers interactie aangaan met een mobiele app&mdash;gegevens weergeven, toevoegen of wijzigen&mdash;ook als er geen netwerkverbinding is.
 
 <!-- Anchors. -->
 

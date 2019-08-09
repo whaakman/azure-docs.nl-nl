@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6fe08c15de7ea388a5194054791eb394dc2f6e01
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: de0eb685e212b59705d8d659cbe9627338697e9d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840603"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854528"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure Files SYNC implementeren
 Gebruik Azure File Sync om de bestands shares van uw organisatie in Azure Files te centraliseren, terwijl u de flexibiliteit, prestaties en compatibiliteit van een on-premises Bestands server bijhoudt. Azure File Sync transformeert Windows Server in een snelle cache van uw Azure-bestands share. U kunt elk protocol dat beschikbaar is op Windows Server gebruiken voor toegang tot uw gegevens lokaal, zoals SMB, NFS en FTPS. U kunt zoveel caches hebben als u nodig hebt in de hele wereld.
@@ -94,7 +94,7 @@ if ($installType -ne "Server Core") {
 De implementatie van Azure File Sync begint met het plaatsen van een **opslag synchronisatie service** resource in een resource groep van het geselecteerde abonnement. We raden u aan om zo weinig als nodig in te richten. U maakt een vertrouwens relatie tussen uw servers en deze bron en een server kan alleen worden geregistreerd voor één opslag synchronisatie service. Als gevolg hiervan wordt het aanbevolen om zoveel opslag synchronisatie services te implementeren als u nodig hebt om groepen servers te scheiden. Houd er wel bij dat servers van verschillende opslag synchronisatie Services niet met elkaar kunnen worden gesynchroniseerd.
 
 > [!Note]
-> De opslag synchronisatie service heeft toegangs machtigingen overgenomen van het abonnement en de resource groep waarin het is geïmplementeerd. We raden u aan om zorgvuldig te controleren wie er toegang tot heeft. Entiteiten met schrijf toegang kunnen beginnen met het synchroniseren van nieuwe sets bestanden van servers die zijn geregistreerd bij deze opslag synchronisatie service, waardoor gegevens stromen naar Azure-opslag die toegankelijk is voor hen.
+> De opslag synchronisatie service neemt toegangs machtigingen over van het abonnement en de resource groep waarin het is geïmplementeerd. We raden u aan om zorgvuldig te controleren wie er toegang tot heeft. Entiteiten met schrijf toegang kunnen beginnen met het synchroniseren van nieuwe sets bestanden van servers die zijn geregistreerd bij deze opslag synchronisatie service, waardoor gegevens stromen naar Azure-opslag die toegankelijk is voor hen.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Als u een opslag synchronisatie service wilt implementeren, gaat u naar de [Azure Portal](https://portal.azure.com/), klikt u op *een resource maken* en zoekt u naar Azure file sync. Selecteer in de zoek resultaten **Azure file sync**en selecteer vervolgens **maken** om het tabblad **opslag synchronisatie implementeren** te openen.
@@ -164,7 +164,7 @@ De Azure File Sync-agent is een downloadbaar pakket waardoor Windows Server met 
 U kunt de agent downloaden via het [micro soft Download centrum](https://go.microsoft.com/fwlink/?linkid=858257). Wanneer het downloaden is voltooid, dubbelklikt u op het MSI-pakket om de installatie van de Azure File Sync-agent te starten.
 
 > [!Important]  
-> Als u Azure File Sync wilt gebruiken met een failovercluster, moet de Azure File Sync-agent worden geïnstalleerd op elk knoop punt in het cluster. Elk knoop punt in het cluster moet worden geregistreerd om met Azure File Sync te werken.
+> Als u Azure File Sync wilt gebruiken met een failovercluster, moet de Azure File Sync-agent worden geïnstalleerd op elk knoop punt in het cluster. Elk knoop punt in het cluster moet worden geregistreerd om met Azure File Sync te kunnen werken.
 
 U wordt aangeraden het volgende te doen:
 - Verlaat het standaardpad voor installatie (C:\Program Files\Azure\StorageSyncAgent), om het oplossen van problemen en server onderhoud te vereenvoudigen.

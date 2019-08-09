@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1bd1882218630aca0707a792d120045c06dea127
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 89b8b5f8c574de033fabf6861e24fc7d2b31e171
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552678"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855103"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -54,7 +54,7 @@ Elk SSML-document wordt gemaakt met SSML-elementen (of-Tags). Deze elementen wor
 | Kenmerk | Description | Vereiste / optioneel |
 |-----------|-------------|---------------------|
 | version | Hiermee wordt de versie van de SSML-specificatie aangegeven die wordt gebruikt om de document markering te interpreteren. De huidige versie is 1,0. | Vereist |
-| xml:lang | Hiermee geeft u de taal van het hoofd document. De waarde kan een kleine letter, een taal code van twee letters (bijvoorbeeld en **) of**de taal code en het hoofd land/regio (bijvoorbeeld **en-US**) bevatten. | Vereist |
+| xml:lang | Hiermee geeft u de taal van het hoofd document. De waarde kan een kleine letter, een taal code van twee letters (bijvoorbeeld en) of de taal code en het hoofd land/regio (bijvoorbeeld **en-US**) bevatten. | Vereist |
 | xmlns | Hiermee geeft u de URI op voor het document dat de aantekeningen woordenlijst (de element typen en kenmerk namen) van het SSML-document definieert. De huidige URI is https://www.w3.org/2001/10/synthesis. | Vereist |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Kies een stem voor tekst naar spraak
@@ -413,8 +413,8 @@ Er is slechts één achtergrond geluids bestand toegestaan per SSML-document. U 
 |-----------|-------------|---------------------|
 | src | Hiermee geeft u de locatie/URL van het audio bestand op de achtergrond. | Vereist als u achtergrond geluid in uw SSML-document gebruikt. |
 | volume | Hiermee geeft u het volume van het audio bestand op de achtergrond. **Geaccepteerde waarden** `0` : `100` tot inclusief. De standaardwaarde is `1`. | Optioneel |
-| Infaden | Hiermee geeft u de duur van de achtergrond audio infaden. **Geaccepteerde waarden** `0` : `10000` tot inclusief.  | Optioneel |
-| fadeout | Hiermee geeft u de duur van de achtergrond audio vervagen. **Geaccepteerde waarden** `0` : `10000` tot inclusief.  | Optioneel |
+| Infaden | Hiermee geeft u de duur van de achtergrond audio infaden in milliseconden. De standaard waarde is `0`, die gelijk is aan niet vervagen in. **Geaccepteerde waarden** `0` : `10000` tot inclusief.  | Optioneel |
+| fadeout | Hiermee geeft u de duur van de achtergrond audio vervagen in milliseconden. De standaard waarde is `0`, die gelijk is aan geen uitfaden. **Geaccepteerde waarden** `0` : `10000` tot inclusief.  | Optioneel |
 
 **Voorbeeld**
 

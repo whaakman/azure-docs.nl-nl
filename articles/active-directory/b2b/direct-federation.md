@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 08/07/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 113e178d39ec776b63a0b38c55035f3493586ea2
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: f3aea108ed87debac56b18b5959d492f2bcb291d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233861"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853605"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Directe Federatie met AD FS en providers van derden voor gast gebruikers (preview-versie)
 |     |
@@ -46,7 +46,7 @@ Met directe Federatie melden gast gebruikers zich aan bij uw Azure AD-Tenant met
 ## <a name="limitations"></a>Beperkingen
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Door DNS geverifieerde domeinen in azure AD
-Directe Federatie is alleen toegestaan voor domeinen die ***niet*** door DNS worden geverifieerd in azure AD. Directe Federatie is toegestaan voor niet-beheerde (e-mailen geverifieerde of ' virale ') Azure AD-tenants, omdat ze niet zijn geverifieerd voor DNS.
+Het domein waarmee u wilt communiceren, mag ***niet*** door DNS worden geverifieerd in azure AD. U mag directe Federatie met niet-beheerde (e-mail berichten geverifieerde of ' virale ') Azure AD-tenants instellen, omdat deze niet zijn geverifieerd voor DNS.
 ### <a name="authentication-url"></a>Verificatie-URL
 Directe Federatie is alleen toegestaan voor beleids regels waarbij het domein van de authenticatie-URL overeenkomt met het doel domein of waarbij de verificatie-URL een van deze toegestane id-providers is (deze lijst kan worden gewijzigd):
 -   accounts.google.com
@@ -66,7 +66,7 @@ Als u de meta gegevens-URL in de instellingen van de identiteits provider opgeef
 Momenteel wordt een maximum van 1.000 Federatie relaties ondersteund. Deze limiet omvat zowel [interne](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) als directe overkoepelende organisaties.
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Kan ik directe Federatie instellen met een domein waarvoor een niet-beheerde Tenant (geverifieerd door een e-mail bericht) bestaat? 
-Ja. Als het domein niet is geverifieerd en de Tenant geen [beheerder](../users-groups-roles/domains-admin-takeover.md)heeft ondergaan, kunt u direct Federation instellen. Niet-beheerd of e-mail berichten-gecontroleerd, tenants worden gemaakt wanneer een gebruiker een B2B-uitnodiging inwisselt of een self-service registratie voor Azure AD uitvoert met behulp van een domein dat nog niet bestaat. U kunt direct Federation instellen met deze domeinen. Als u probeert om direct Federatie in te stellen met een domein met DNS-verificatie, in de Azure Portal of via Power shell, ziet u een fout melding.
+Ja. Als het domein niet is geverifieerd en de Tenant geen [beheerder](../users-groups-roles/domains-admin-takeover.md)heeft ondergaan, kunt u direct Federatie met dat domein instellen. Niet-beheerd of e-mail berichten-gecontroleerd, tenants worden gemaakt wanneer een gebruiker een B2B-uitnodiging inwisselt of een self-service registratie voor Azure AD uitvoert met behulp van een domein dat nog niet bestaat. U kunt direct Federation instellen met deze domeinen. Als u probeert om direct Federatie in te stellen met een domein met DNS-verificatie, in de Azure Portal of via Power shell, ziet u een fout melding.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Als voor de directe Federatie en e-mail eenmalige wachtwoord code verificatie is ingeschakeld, welke methode voor rang heeft?
 Wanneer directe Federatie wordt ingesteld met een partner organisatie, heeft dit prioriteit boven de e-mail verificatie voor eenmalige authenticatie voor nieuwe gast gebruikers van die organisatie. Als een gast gebruiker een uitnodiging heeft ingewisseld met verificatie met eenmalige wachtwoord code voordat u direct Federatie instelt, blijven ze gebruikmaken van verificatie met een eenmalige wachtwoord code. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>Worden er problemen met het aanmelden van direct Federation-adressen veroorzaakt door een gedeeltelijk gesynchroniseerde pacht?
@@ -90,11 +90,11 @@ In de volgende tabellen worden de vereisten voor specifieke kenmerken en claims 
 
 Vereiste kenmerken voor het SAML 2,0-antwoord van de IdP:
 
-|Kenmerk  |Value  |
+|Kenmerk  |Waarde  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Doelgroep     |`urn:federation:MicrosoftOnline`         |
-|Verlener     |De uitgevers-URI van de partner-IdP, bijvoorbeeld`http://www.example.com/exk10l6w90DHM0yi...`         |
+|Certificaatverlener     |De uitgevers-URI van de partner-IdP, bijvoorbeeld`http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
 Vereiste claims voor het SAML 2,0-token dat is uitgegeven door de IdP:
@@ -116,22 +116,22 @@ In de volgende tabellen worden de vereisten voor specifieke kenmerken en claims 
 
 Vereiste kenmerken in het WS-ingevoerd bericht van de IdP:
  
-|Kenmerk  |Value  |
+|Kenmerk  |Waarde  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Doelgroep     |`urn:federation:MicrosoftOnline`         |
-|Verlener     |De uitgevers-URI van de partner-IdP, bijvoorbeeld`http://www.example.com/exk10l6w90DHM0yi...`         |
+|Certificaatverlener     |De uitgevers-URI van de partner-IdP, bijvoorbeeld`http://www.example.com/exk10l6w90DHM0yi...`         |
 
 Vereiste claims voor het WS-invoeder token dat is uitgegeven door de IdP:
 
-|Kenmerk  |Value  |
+|Kenmerk  |Waarde  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
 ## <a name="step-2-configure-direct-federation-in-azure-ad"></a>Stap 2: Direct Federatie configureren in azure AD 
 Vervolgens configureert u Federatie met de ID-provider die is geconfigureerd in stap 1 van Azure AD. U kunt de Azure AD-portal of Power shell gebruiken. Het kan 5-10 minuten duren voordat het directe Federatie beleid van kracht wordt. Probeer tijdens deze periode niet een uitnodiging voor het directe Federatie domein in te wisselen. De volgende kenmerken zijn vereist:
-- URI van de uitgever van de partner IdP
+- Uitgever-URI van partner-IdP
 - Passief verificatie-eind punt van partner IdP (alleen https wordt ondersteund)
 - Certificaat
 
@@ -149,9 +149,9 @@ Vervolgens configureert u Federatie met de ID-provider die is geconfigureerd in 
 
 5. Voer de domein naam van uw partner organisatie in, die de doel domeinnaam voor directe Federatie is
 6. U kunt een meta gegevensbestand uploaden om details van meta gegevens in te vullen. Als u ervoor kiest om meta gegevens hand matig in te voeren, voert u de volgende gegevens in:
-   - De domein naam van de partner IdP
-   - Entiteit-ID van partner IdP
-   - Passief eind punt van de partner IdP
+   - Domeinnaam van partner-IdP
+   - Entiteit-id van partner-IdP
+   - Passief aanvragereindpunt van partner-IdP
    - Certificaat
    > [!NOTE]
    > Meta gegevens-URL is optioneel, maar wordt aanbevolen. Als u de meta gegevens-URL opgeeft, kan Azure AD het handtekening certificaat automatisch vernieuwen wanneer het verloopt. Als het certificaat om de een of andere reden vóór de verloop tijd wordt geroteerd of als u geen meta gegevens-URL opgeeft, kan Azure AD deze niet vernieuwen. In dit geval moet u het handtekening certificaat hand matig bijwerken.

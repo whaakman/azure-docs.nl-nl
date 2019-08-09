@@ -1,7 +1,6 @@
 ---
 title: Verzenden van gebeurtenissen van Azure Blob storage naar de webpagina-eindpunt - Powershell | Microsoft Docs
 description: Gebruik Azure Event Grid om u te abonneren op gebeurtenissen van Blob Storage.
-services: storage,event-grid
 author: normesta
 ms.author: normesta
 ms.reviewer: dastanfo
@@ -9,15 +8,14 @@ ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.custom: seodec18
-ms.openlocfilehash: cf1b0ba5d70ed0934418a147c09791725b5465bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65143368"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847167"
 ---
-# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Quickstart: Opslaggebeurtenissen doorsturen naar eindpunt op het web met PowerShell
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Quickstart: Opslag gebeurtenissen naar een webeindpunt door sturen met Power shell
 
 Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel hebt u Azure PowerShell gebruiken om u te abonneren op gebeurtenissen van Blob storage, trigger een gebeurtenis, en het resultaat weergeven. 
 
@@ -64,7 +62,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 Blob-opslaggebeurtenissen zijn beschikbaar in v2-opslagaccounts en Blob-opslagaccounts. **Algemeen gebruik v2**-accounts ondersteunen alle functies voor alle opslagservices, waaronder Blobs, bestanden, wachtrijen en tabellen. Een **Blob-opslagaccount** is een opslagaccount dat speciaal is bedoeld om ongestructureerde gegevens als blobs (objecten) op te slaan in Azure Storage. Blob-opslagaccounts zijn vergelijkbaar met de opslagaccounts voor algemeen gebruik en bieden dezelfde hoogwaardige kenmerken op het gebied van duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties waarover u nu al beschikt, inclusief 100 procent API-consistentie voor blok-blobs en toevoeg-blobs. Zie [Overzicht van Azure-opslagaccount](../common/storage-account-overview.md) voor meer informatie.
 
-Een Blob storage-account maken met het gebruik van LRS-replicatie [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount), haal vervolgens de opslagaccountcontext op waarin het opslagaccount dat moet worden gebruikt. Als u werkt met een opslagaccount, verwijst u naar de context in plaats van herhaaldelijk de referenties op te geven. Dit voorbeeld maakt u een opslagaccount met de naam **gridstorage** met lokaal redundante opslag (LRS). 
+Maak een Blob Storage-account met LRS-replicatie met behulp van [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount)en haal vervolgens de context van het opslag account op waarmee het opslag account wordt gedefinieerd dat moet worden gebruikt. Als u werkt met een opslagaccount, verwijst u naar de context in plaats van herhaaldelijk de referenties op te geven. Dit voorbeeld maakt u een opslagaccount met de naam **gridstorage** met lokaal redundante opslag (LRS). 
 
 > [!NOTE]
 > Namen van opslagaccounts zijn een globale naamruimte, moet u het aantal willekeurige tekens toevoegen aan de naam die in dit script worden opgegeven.

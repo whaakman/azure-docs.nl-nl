@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: 7c4c4ff611b35cac9aa8be1a9697a0d11bc4dc8b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9bd56984f088ab16fc5d80c588afce2cdc31240b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815961"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848117"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>Veilig experimenten en demijnen uitvoeren in een virtueel Azure-netwerk
 
@@ -27,7 +27,7 @@ In dit artikel vindt u gedetailleerde informatie over **Geavanceerde beveiliging
 
 ## <a name="prerequisites"></a>Vereisten
 
-Maak een Azure Machine Learning service- [werk ruimte](setup-create-workspace.md) als u er nog geen hebt. In dit document wordt ervan uitgegaan dat u bekend bent met virtuele Azure-netwerken en IP-netwerken in het algemeen. In dit document wordt ook ervan uitgegaan dat u een virtueel netwerk en subnet hebt gemaakt voor gebruik met uw reken resources. Als u niet bekend bent met virtuele Azure-netwerken, raadpleegt u de volgende artikelen voor meer informatie over de service:
+Maak een Azure Machine Learning service- [werk ruimte](how-to-manage-workspace.md) als u er nog geen hebt. In dit document wordt ervan uitgegaan dat u bekend bent met virtuele Azure-netwerken en IP-netwerken in het algemeen. In dit document wordt ook ervan uitgegaan dat u een virtueel netwerk en subnet hebt gemaakt voor gebruik met uw reken resources. Als u niet bekend bent met virtuele Azure-netwerken, raadpleegt u de volgende artikelen voor meer informatie over de service:
 
 * [IP-adressering](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
 * [Beveiligings groepen](https://docs.microsoft.com/azure/virtual-network/security-overview)
@@ -36,7 +36,7 @@ Maak een Azure Machine Learning service- [werk ruimte](setup-create-workspace.md
 
 ## <a name="storage-account-for-your-workspace"></a>Opslag account voor uw werk ruimte
 
-Voer de volgende stappen uit om de standaard Azure Storage-account te gebruiken voor de werk ruimte in een virtueel netwerk:
+Als u een Azure Storage account wilt gebruiken voor de werk ruimte in een virtueel netwerk, gebruikt u de volgende stappen:
 
 1. Maak een experimenteel reken proces af. Machine Learning Compute achter een virtueel netwerk of koppel een experimenten-Compute aan de werk ruimte af. HDInsight-cluster of virtuele machine. Zie [machine learning Compute gebruiken](#use-machine-learning-compute) en [een virtuele machine of HDInsight-cluster](#use-a-virtual-machine-or-hdinsight-cluster) secties in dit document gebruiken voor meer informatie.
 2. Ga naar de opslag die is gekoppeld aan de werk ruimte. ![Afbeelding van de Azure Portal met Azure Storage die is gekoppeld aan de werk ruimte van de Azure Machine Learning service](./media/how-to-enable-virtual-network/workspace-storage.png)
@@ -55,7 +55,9 @@ Voer de volgende stappen uit om de standaard Azure Storage-account te gebruiken 
 > [!IMPORTANT]
 > Het __standaard opslag account__ voor uw Azure machine learning-service kan alleen in een virtueel netwerk worden geplaatst __tijdens het experimenteren__.
 >
-> Voor __niet-standaard opslag accounts voor experimenten__of als u een opslag account gebruikt voor demijnen, moet u __onbeperkte toegang hebben tot het opslag account__.
+> __Niet-standaard opslag accounts__ kunnen ook in een virtueel netwerk worden geplaatst, maar __alleen voor experimenten__.
+>
+> Standaard-of niet-standaard opslag accounts die worden gebruikt voor deinterferentie, moeten __onbeperkte toegang tot het opslag account__hebben.
 >
 > Als u niet zeker weet of u deze instellingen hebt gewijzigd, raadpleegt u __de standaard netwerk toegangs regel wijzigen__ in [Azure Storage firewalls en virtuele netwerken configureren](https://docs.microsoft.com/azure/storage/common/storage-network-security). Gebruik de stappen om toegang tot alle netwerken te verlenen tijdens de interferentie of het model leren.
 

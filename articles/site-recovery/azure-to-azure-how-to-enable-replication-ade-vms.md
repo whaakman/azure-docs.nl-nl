@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5e5ae11a00b2a3656deceeeaf928536238a325fc
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f00ad898ea45700b75607f89bc2c8e71288357c2
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840632"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847575"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Virtuele machines die met Azure Disk Encryption zijn ingeschakeld repliceren naar een andere Azure-regio
 
 In dit artikel wordt beschreven hoe u Azure Disk Encryption-Vm's van de ene Azure-regio naar de andere repliceert.
 
 >[!NOTE]
->Azure Site Recovery ondersteunt momenteel alleen Azure-Vm's waarop een Windows-besturings systeem wordt uitgevoerd.
+>Azure Site Recovery ondersteunt momenteel alleen Azure Disk Encryption-ingeschakelde Vm's waarop een Windows-besturings systeem wordt uitgevoerd.
 
 ## <a id="required-user-permissions"></a>Vereiste gebruikers machtigingen
 Site Recovery vereist dat de gebruiker gemachtigd is om de sleutel kluis te maken in de doel regio en sleutels te kopiëren van de sleutel kluis van het bron gebied naar de sleutel kluis met de doel regio.

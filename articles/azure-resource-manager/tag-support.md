@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0e8df116a82f73af2348651a91aee3c34a595c45
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 452230a263e623f53346fcdb8cf310e73f171aee
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814098"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848612"
 ---
 # <a name="tag-support-for-azure-resources"></a>Ondersteuning voor labels voor Azure-resources
 In dit artikel wordt beschreven of een resource type [labels](resource-group-using-tags.md)ondersteunt. De kolom met de naam **ondersteunt labels** geeft aan of het resource type een eigenschap voor de tag heeft. De kolom label **in het kosten rapport** geeft aan of dit resource type de tag doorgeeft aan het kosten rapport.
@@ -857,9 +857,8 @@ Ga naar de naam ruimte van een resource provider:
 > [!div class="mx-tableFixed"]
 > | Resourcetype | Ondersteunt labels | Label in kosten rapport |
 > | ------------- | ----------- | ----------- |
-> | services | Ja |Ja |
-> | Services/projecten | Ja |Ja |
-> | sleuf | Ja |Ja |
+> | services | Nee |Nee |
+> | Services/projecten | Nee |Nee |
 
 ## <a name="microsoftdatashare"></a>Micro soft. DataShare
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: f13c7e6db2bf13c0547ee8689e22c9f04fe6d511
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 44fb955c4539a3330386c38a7798c9f3c3fed2d9
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826755"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846048"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Oracle-VM-installatie kopieën en hun implementatie op Microsoft Azure
 
@@ -91,7 +91,7 @@ Hoge Beschik baarheid en herstel na nood gevallen voor Oracle Database Enterpris
 
 Met de zelf studie implementeert u [Oracle Data Guard in azure](configure-oracle-dataguard.md) met behulp van de basis installatie procedure van Azure.  
 
-Met Oracle Data Guard kan hoge Beschik baarheid worden bereikt met een primaire data base in één virtuele machine, een secundaire (standby)-data base in een andere virtuele machine en een eenrichtings replicatie tussen deze. Het resultaat is lees toegang tot de kopie van de data base. Met Oracle Golden Gate kunt u bidirectionele replicatie tussen de twee data bases configureren. Zie de documentatie over [Active Data Guard](https://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) en [Golden Gate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) op de Oracle-website voor meer informatie over het instellen van een oplossing voor hoge Beschik baarheid voor uw data bases met behulp van deze hulpprogram ma's. Als u lees-/schrijftoegang tot de kopie van de data base nodig hebt, kunt u [Oracle Active Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html)gebruiken.
+Met Oracle Data Guard kan hoge Beschik baarheid worden bereikt met een primaire data base in één virtuele machine, een secundaire (standby)-data base in een andere virtuele machine en een eenrichtings replicatie tussen deze. Het resultaat is lees toegang tot de kopie van de data base. Met Oracle Golden Gate kunt u bidirectionele replicatie tussen de twee data bases configureren. Zie de documentatie over [Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html) en [Golden Gate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) op de Oracle-website voor meer informatie over het instellen van een oplossing voor hoge Beschik baarheid voor uw data bases met behulp van deze hulpprogram ma's. Als u lees-/schrijftoegang tot de kopie van de data base nodig hebt, kunt u [Oracle Active Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html)gebruiken.
 
 In de zelf studie wordt [Oracle Golden Gate in azure geïmplementeerd](configure-oracle-golden-gate.md) , wordt u begeleid bij de basis installatie procedure van Azure.
 

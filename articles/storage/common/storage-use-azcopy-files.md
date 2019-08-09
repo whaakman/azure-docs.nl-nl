@@ -1,29 +1,28 @@
 ---
-title: Het overbrengen van gegevens naar of van Azure Files met behulp van AzCopy v10 | Microsoft Docs
+title: Gegevens overdragen van of naar Azure Files met behulp van AzCopy V10 toevoegen | Microsoft Docs
 description: Gegevens overdragen met AzCopy en file storage.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 69d7136396c3d989e63b8956d3e703cc7f9666c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eeac35cb96f5001e9ad318d8fe03927d0cd9394e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66687927"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844806"
 ---
-# <a name="transfer-data-with-azcopy-and-file-storage"></a>Gegevens overdragen met AzCopy en bestandsopslag 
+# <a name="transfer-data-with-azcopy-and-file-storage"></a>Gegevens overdragen met AzCopy en File Storage 
 
-AzCopy is een opdrachtregelprogramma waarmee u kunt blobs of bestanden kopiëren naar of van een storage-account. In dit artikel bevat een van de voorbeeldopdrachten die met Azure Files werken.
+AzCopy is een opdracht regel programma dat u kunt gebruiken voor het kopiëren van blobs of bestanden naar of van een opslag account. Dit artikel bevat voorbeeld opdrachten die samen werken met Azure Files.
 
-Voordat u begint, Zie de [aan de slag met AzCopy](storage-use-azcopy-v10.md) artikel AzCopy downloaden en te raken met het hulpprogramma.
+Voordat u begint, raadpleegt u het artikel aan de [slag met AzCopy](storage-use-azcopy-v10.md) om AzCopy te downloaden en vertrouwd te raken met het hulp programma.
 
-## <a name="create-file-shares"></a>Bestandsshares maken
+## <a name="create-file-shares"></a>Bestands shares maken
 
-U kunt de AzCopy gebruiken `make` opdracht om een bestandsshare te maken. Het voorbeeld in deze sectie maakt u een bestandsshare met de naam `myfileshare`.
+U kunt de opdracht AzCopy `make` gebruiken om een bestands share te maken. In het voor beeld in deze sectie wordt een bestands `myfileshare`share met de naam gemaakt.
 
 |    |     |
 |--------|-----------|
@@ -32,19 +31,19 @@ U kunt de AzCopy gebruiken `make` opdracht om een bestandsshare te maken. Het vo
 
 ## <a name="upload-files"></a>Bestanden uploaden
 
-U kunt de AzCopy gebruiken `copy` opdracht voor het uploaden van bestanden en mappen van uw lokale computer.
+U kunt de opdracht AzCopy `copy` gebruiken om bestanden en mappen te uploaden vanaf uw lokale computer.
 
 Deze sectie bevat de volgende voorbeelden:
 
 > [!div class="checklist"]
-> * Bestand uploaden
+> * Een bestand uploaden
 > * Een map uploaden
-> * Bestanden uploaden met jokertekens
+> * Bestanden uploaden met behulp van joker tekens
 
 > [!NOTE]
-> AzCopy wordt niet automatisch berekenen en opslaan van het bestand md5-hash-code. Als u AzCopy om dat te doen wilt, voeg de `--put-md5` markeren voor elke kopieeropdracht. Op die manier kunnen wanneer het bestand wordt gedownload, AzCopy berekent een MD5-hash voor gegevens gedownloade en verifieert u dat de MD5-hash wordt opgeslagen in van het bestand `Content-md5` eigenschap komt overeen met de berekende hash.
+> De MD5-hash-code van het bestand wordt niet automatisch door AzCopy berekend en opgeslagen. Als u dit wilt doen, voegt u de `--put-md5` markering toe aan elke Kopieer opdracht. Op die manier wordt, wanneer het bestand wordt gedownload, AzCopy een MD5-hash voor gedownloade gegevens berekend en wordt gecontroleerd of de MD5- `Content-md5` hash die is opgeslagen in de eigenschap van het bestand overeenkomt met de berekende hash.
 
-### <a name="upload-a-file"></a>Bestand uploaden
+### <a name="upload-a-file"></a>Een bestand uploaden
 
 |    |     |
 |--------|-----------|
@@ -53,24 +52,24 @@ Deze sectie bevat de volgende voorbeelden:
 
 ### <a name="upload-a-directory"></a>Een map uploaden
 
-In dit voorbeeld kopieert een map (en alle bestanden in die map) naar een bestandsshare. Het resultaat is een map in de bestandsshare met dezelfde naam.
+In dit voor beeld wordt een map (en alle bestanden in die map) naar een bestands share gekopieerd. Het resultaat is een map in de bestands share met dezelfde naam.
 
 |    |     |
 |--------|-----------|
 | **Syntaxis** | `azcopy copy "<local-directory-path>" "https://<storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>" --recursive` |
 | **Voorbeeld** | `azcopy copy "C:\myDirectory" "https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
 
-Om te kopiëren naar een map in de bestandsshare, moet u alleen de naam van die map opgeven in uw opdrachttekenreeks.
+Als u wilt kopiëren naar een map in de bestands share, geeft u alleen de naam van die map op in de opdracht teken reeks.
 
 |    |     |
 |--------|-----------|
 | **Voorbeeld** | `azcopy copy "C:\myDirectory" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
 
-Als u de naam van een map die niet bestaat in de bestandsshare opgeeft, wordt een nieuwe map door AzCopy gemaakt met die naam.
+Als u de naam opgeeft van een map die niet voor komt in de bestands share, maakt AzCopy een nieuwe map met die naam.
 
 ### <a name="upload-the-contents-of-a-directory"></a>De inhoud van een map uploaden
 
-U kunt de inhoud van een map uploaden zonder te kopiëren van de betreffende map zelf met behulp van het jokerteken (*).
+U kunt de inhoud van een map uploaden zonder de bovenliggende map zelf te kopiëren met behulp van het Joker teken (*).
 
 |    |     |
 |--------|-----------|
@@ -78,23 +77,23 @@ U kunt de inhoud van een map uploaden zonder te kopiëren van de betreffende map
 | **Voorbeeld** | `azcopy copy "C:\myDirectory\*" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
 
 > [!NOTE]
-> Toevoeg-de `--recursive` vlag voor het uploaden van bestanden in alle submappen.
+> Voeg de `--recursive` vlag toe om bestanden te uploaden in alle submappen.
 
 ## <a name="download-files"></a>Bestanden downloaden
 
-U kunt de AzCopy gebruiken `copy` opdracht voor het downloaden van bestanden, mappen en bestanden deelt met uw lokale computer.
+U kunt de opdracht AzCopy `copy` gebruiken om bestanden, mappen en bestands shares te downloaden naar uw lokale computer.
 
 Deze sectie bevat de volgende voorbeelden:
 
 > [!div class="checklist"]
-> * Bestand downloaden
+> * Een bestand downloaden
 > * Een directory downloaden
-> * Bestanden downloaden met behulp van jokertekens
+> * Bestanden downloaden met behulp van joker tekens
 
 > [!NOTE]
-> Als de `Content-md5` waarde van de eigenschap van een bestand bevat een hash, AzCopy berekent een MD5-hash voor gedownloade gegevens en verifieert u dat de MD5-hash wordt opgeslagen in van het bestand `Content-md5` eigenschap komt overeen met de berekende hash. Als deze waarden niet overeenkomen, het downloaden is mislukt, tenzij u dit gedrag door toe te voegen negeren `--check-md5=NoCheck` of `--check-md5=LogOnly` aan de kopieeropdracht.
+> Als de `Content-md5` eigenschaps waarde van een bestand een hash bevat, wordt in AzCopy een MD5-hash voor gedownloade gegevens berekend en wordt gecontroleerd of de MD5 `Content-md5` -hash die is opgeslagen in de eigenschap van het bestand overeenkomt met de berekende hash. Als deze waarden niet overeenkomen, mislukt de down load tenzij u dit gedrag overschrijft `--check-md5=NoCheck` door `--check-md5=LogOnly` toe te voegen of aan de Kopieer opdracht.
 
-### <a name="download-a-file"></a>Bestand downloaden
+### <a name="download-a-file"></a>Een bestand downloaden
 
 |    |     |
 |--------|-----------|
@@ -108,11 +107,11 @@ Deze sectie bevat de volgende voorbeelden:
 | **Syntaxis** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>" "<local-directory-path>" --recursive` |
 | **Voorbeeld** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"  --recursive` |
 
-In dit voorbeeld resulteert in een map met de naam `C:\myDirectory\myFileShareDirectory` die alle gedownloade bestanden bevat.
+Dit voor beeld resulteert in een map `C:\myDirectory\myFileShareDirectory` met de naam die alle gedownloade bestanden bevat.
 
-### <a name="download-the-contents-of-a-directory"></a>De inhoud van een directory downloaden
+### <a name="download-the-contents-of-a-directory"></a>De inhoud van een map downloaden
 
-U kunt de inhoud van een map downloaden zonder dat de betreffende map zelf kopiëren met behulp van het jokerteken (*).
+U kunt de inhoud van een map downloaden zonder de bovenliggende map zelf te kopiëren met behulp van het Joker teken (*).
 
 |    |     |
 |--------|-----------|
@@ -120,16 +119,16 @@ U kunt de inhoud van een map downloaden zonder dat de betreffende map zelf kopi�
 | **Voorbeeld** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory/*?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"` |
 
 > [!NOTE]
-> Toevoeg-de `--recursive` vlag voor het downloaden van bestanden in alle submappen.
+> Voeg de `--recursive` vlag toe om bestanden in alle submappen te downloaden.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer voorbeelden niet vinden in een van deze artikelen:
+Meer voor beelden vindt u in een van deze artikelen:
 
 - [Aan de slag met AzCopy](storage-use-azcopy-v10.md)
 
-- [Gegevens overdragen met AzCopy en blob-opslag](storage-use-azcopy-blobs.md)
+- [Gegevens overdragen met AzCopy en Blob Storage](storage-use-azcopy-blobs.md)
 
-- [Gegevens overdragen met AzCopy en Amazon S3 buckets](storage-use-azcopy-s3.md)
+- [Gegevens overdragen met AzCopy en Amazon S3-buckets](storage-use-azcopy-s3.md)
 
-- [Configureer, optimaliseren en oplossen van AzCopy](storage-use-azcopy-configure.md)
+- [AzCopy configureren, optimaliseren en problemen oplossen](storage-use-azcopy-configure.md)

@@ -1,71 +1,70 @@
 ---
-title: Azure CDN gebruiken voor toegang tot blobs met aangepaste domeinen via HTTPS
-description: Meer informatie over het Azure CDN integreert met Blob-opslag voor toegang tot blobs met aangepaste domeinen via HTTPS
-services: storage
+title: Azure CDN gebruiken om toegang te krijgen tot blobs met aangepaste domeinen via HTTPS
+description: Meer informatie over het integreren van Azure CDN met Blob Storage voor toegang tot blobs met aangepaste domeinen via HTTPS
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: normesta
-ms.reviewer: seguler
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: da3a6dcb0d125ac4666bc375e843c57cf12fb2fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ad599182191e41ea43d38260692a7ab46e1af6f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148406"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844996"
 ---
-# <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Azure CDN gebruiken voor toegang tot blobs met aangepaste domeinen via HTTPS
+# <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Azure CDN gebruiken om toegang te krijgen tot blobs met aangepaste domeinen via HTTPS
 
-Azure Content Delivery Network (Azure CDN) biedt nu ondersteuning voor HTTPS voor aangepaste domeinnamen. Met Azure CDN, kunt u toegang tot blobs met behulp van de naam van uw aangepaste domein via HTTPS. Azure CDN inschakelt op uw eindpunt blob of web om dit te doen, en vervolgens Azure CDN toewijzen aan een aangepaste domeinnaam. Als u klaar bent, vereenvoudigt Azure HTTPS inschakelen voor uw aangepaste domein via één klik toegang en volledig Certificaatbeheer. Er is geen toename van de normale Azure CDN-tarieven.
+Azure Content Delivery Network (Azure CDN) biedt nu ondersteuning voor HTTPS voor aangepaste domein namen. Met Azure CDN kunt u toegang krijgen tot blobs met behulp van uw aangepaste domein naam via HTTPS. Als u dit wilt doen, schakelt u Azure CDN in op uw BLOB-of Web-eind punt en vervolgens wijst u Azure CDN toe aan een aangepaste domein naam. Wanneer u klaar bent, vereenvoudigt Azure het inschakelen van HTTPS voor uw aangepaste domein via één klik toegang en volledig certificaat beheer. De prijzen voor normale Azure CDN worden niet verhoogd.
 
-Azure CDN beschermt de privacy en integriteit van gegevens van de gegevens van uw web-toepassing zolang het van doorvoer. Met behulp van het SSL-protocol voor het bieden van verkeer via HTTPS, houdt Azure CDN uw gegevens versleuteld wanneer ze via internet worden verzonden. Met behulp van HTTPS met Azure CDN kunt u uw webtoepassingen beschermen tegen een aanval.
+Azure CDN beschermt de privacy en gegevens integriteit van uw gegevens van webtoepassingen tijdens de overdracht. Door het SSL-protocol te gebruiken om verkeer via HTTPS te verwerken, Azure CDN uw gegevens versleuteld wanneer ze via internet worden verzonden. Door gebruik te maken van HTTPS met Azure CDN helpt u uw webtoepassingen te beschermen tegen aanvallen.
 
 > [!NOTE]  
-> Naast het verlenen van SSL-ondersteuning voor aangepaste domeinnamen, kunt Azure CDN u schalen van uw toepassing om te leveren van inhoud met hoge bandbreedte over de hele wereld. Zie voor meer informatie, [overzicht van Azure CDN](../../cdn/cdn-overview.md).
+> Naast het bieden van SSL-ondersteuning voor aangepaste domein namen, kunt Azure CDN u helpen de schaal van uw toepassing te verg Roten voor het leveren van inhoud met een hoge band breedte over de hele wereld. Zie [overzicht van Azure CDN](../../cdn/cdn-overview.md)voor meer informatie.
 
-## <a name="quickstart"></a>Snelstartgids
+## <a name="quickstart"></a>Quick Start
 
-Als u wilt HTTPS inschakelen voor uw aangepast eindpunt voor Blob-opslag, het volgende doen:
+Ga als volgt te werk om HTTPS in te scha kelen voor uw aangepaste Blob Storage-eind punt:
 
-1.  [Een Azure storage-account integreren met Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).  
-    In dit artikel wordt beschreven hoe u een opslagaccount in Azure portal, als u dat nog niet hebt gedaan.
+1.  [Integreer een Azure-opslag account met Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).  
+    In dit artikel vindt u instructies voor het maken van een opslag account in de Azure Portal, als u dit nog niet hebt gedaan.
 
     > [!NOTE]  
-    > Selecteer om uw eindpunt op het web opslag toe tijdens de Preview-versie van de statische websites-ondersteuning in Azure Storage **aangepaste oorsprong** in de **oorsprongtype** vervolgkeuzelijst. In de Azure-portal moet u dit doen vanuit uw Azure CDN-profiel in plaats van rechtstreeks in uw storage-account.
+    > Als u uw opslag-webeindpunt wilt toevoegen tijdens de preview-versie van de ondersteuning van statische websites in Azure Storage, selecteert u **aangepaste oorsprong** in de vervolg keuzelijst **oorsprongs type** . In de Azure Portal moet u dit doen vanuit uw Azure CDN-profiel in plaats van rechtstreeks in uw opslag account.
 
-2.  [Azure CDN-inhoud toewijzen aan een aangepast domein](../../cdn/cdn-map-content-to-custom-domain.md).
+2.  [Azure CDN inhoud toewijzen aan een aangepast domein](../../cdn/cdn-map-content-to-custom-domain.md).
 
-3.  [HTTPS op een aangepast Azure CDN-domein inschakelen](../../cdn/cdn-custom-ssl.md).
+3.  [Schakel HTTPS in voor een Azure CDN aangepast domein](../../cdn/cdn-custom-ssl.md).
 
-## <a name="shared-access-signatures"></a>Handtekeningen voor gedeelde toegang
+## <a name="shared-access-signatures"></a>Shared Access signatures
 
-Blob storage-eindpunten niet standaard toestaan van anonieme toegang voor lezen. Als uw Blob storage-eindpunt is geconfigureerd voor het weigeren van anonieme toegang voor lezen, geeft u een [handtekening voor gedeelde toegang](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) token in elke aanvraag voor uw aangepaste domein. Zie [Anonieme leestoegang tot containers en blobs beheren](storage-manage-access-to-resources.md) voor meer informatie.
+Standaard staat Blob Storage-eind punten geen anonieme lees toegang toe. Als uw Blob Storage-eind punt is geconfigureerd om anonieme lees toegang niet toe te staan, geeft u in elke aanvraag een [Shared Access Signature](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) -token op voor uw aangepaste domein. Zie [Anonieme leestoegang tot containers en blobs beheren](storage-manage-access-to-resources.md) voor meer informatie.
 
-Azure CDN niet aansluiten bij de beperkingen die zijn toegevoegd aan de SAS-token. Bijvoorbeeld, verlopen alle SAS-tokens. U kunt nog steeds toegang tot inhoud met een verlopen shared access signature totdat deze inhoud is verwijderd uit de Azure CDN edge-knooppunten. U kunt bepalen hoe lang gegevens worden opgeslagen in de cache van Azure CDN door de Cache-Control-header in te stellen. Voor meer informatie Zie [vervaldatum van Azure Storage-blobs in Azure CDN beheren](../../cdn/cdn-manage-expiration-of-blob-content.md).
+Azure CDN respecteert geen beperkingen die worden toegevoegd aan het token voor Shared Access-hand tekeningen. Zo verlopen alle Shared Access Signature-tokens. U hebt nog steeds toegang tot inhoud met een verlopen Shared Access-hand tekening, totdat de inhoud wordt verwijderd uit de Azure CDN Edge-knoop punten. U kunt bepalen hoe lang gegevens worden opgeslagen in de cache van Azure CDN door de Cache-Control-header in te stellen. Zie de [verval datum van Azure Storage-blobs in azure CDN beheren](../../cdn/cdn-manage-expiration-of-blob-content.md)voor meer informatie.
 
-Als u twee of meer shared access signature-URL voor de dezelfde blobeindpunt maakt, wordt u aangeraden query queryreeksen opslaan in cache voor uw Azure CDN inschakelen. Deze actie zorgt ervoor dat er elke URL op Azure wordt beschouwd als een unieke entiteit. Zie [Cachegedrag in Azure CDN bepalen met queryreeksen](../../cdn/cdn-query-string.md) voor meer informatie.
+Als u twee of meer Url's voor gedeelde toegangs handtekeningen voor hetzelfde BLOB-eind punt maakt, wordt u aangeraden de query reeks in cache opslaan in te scha kelen voor uw Azure CDN. Met deze actie zorgt u ervoor dat Azure elke URL als een unieke entiteit behandelt. Zie [Cachegedrag in Azure CDN bepalen met queryreeksen](../../cdn/cdn-query-string.md) voor meer informatie.
 
-## <a name="http-to-https-redirection"></a>HTTP naar HTTPS-omleiding
+## <a name="http-to-https-redirection"></a>HTTP-naar-HTTPS-omleiding
 
-U kunt HTTP-verkeer omleiden naar HTTPS. In dat geval moet het gebruik van de Azure CDN premium van Verizon-aanbieding. [HTTP-gedrag overschrijven met de Azure CDN regels-engine](../../cdn/cdn-rules-engine.md) door toe te passen van de volgende regel:
+U kunt HTTP-verkeer omleiden naar HTTPS. Hiervoor is het gebruik van de Azure CDN Premium-aanbieding van Verizon vereist. Het [HTTP-gedrag met de engine van Azure CDN regels negeren](../../cdn/cdn-rules-engine.md) door de volgende regel toe te passen:
 
-![HTTP naar HTTPS-omleiding regel](./media/storage-https-custom-domain-cdn/redirect-to-https.png)
+![HTTP-naar-HTTPS-omleidings regel](./media/storage-https-custom-domain-cdn/redirect-to-https.png)
 
-*CDN-eindpunt-name*, die u selecteert in de vervolgkeuzelijst verwijst naar de naam die u hebt geconfigureerd voor uw Azure CDN-eindpunt. *Pad voor de oorsprong* verwijst naar het pad binnen uw opslagaccount oorsprong, waar de statische inhoud is opgeslagen. Als u alle statische inhoud in een enkele container host, vervangt u *-pad voor de oorsprong* met de naam van die container.
+*CDN-endpoint-name*, die u in de vervolg keuzelijst selecteert, verwijst naar de naam die u hebt geconfigureerd voor uw Azure CDN-eind punt. Bronpad verwijst naar het pad binnen uw bron-opslag account, waar uw statische inhoud wordt opgeslagen. Als u alle statische inhoud in één container host, vervangt u het *bronpad* door de naam van die container.
 
-Zie voor meer informatie over regels, de [Azure CDN-functies regelengine](../../cdn/cdn-rules-engine-reference-features.md).
+Zie de functies van de [Azure CDN-regel engine](../../cdn/cdn-rules-engine-reference-features.md)voor een diep gaande kennis van regels.
 
 ## <a name="pricing-and-billing"></a>Prijzen en facturering
 
-Als u toegang blobs via Azure CDN tot, betaalt u [Blob opslagprijzen](https://azure.microsoft.com/pricing/details/storage/blobs/) voor verkeer tussen de edge-knooppunten en de oorsprong (Blob storage). U betaalt [Azure CDN-prijzen](https://azure.microsoft.com/pricing/details/cdn/) voor gegevens die toegankelijk vanuit de edge-knooppunten.
+Wanneer u via Azure CDN toegang hebt tot blobs, betaalt u de [prijzen voor Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/) voor verkeer tussen de Edge-knoop punten en de oorsprong (Blob Storage). U betaalt [Azure CDN prijzen](https://azure.microsoft.com/pricing/details/cdn/) voor gegevens die worden geopend vanuit de Edge-knoop punten.
 
-Stel dat u hebt een storage-account in VS-West die u toegang wilt via Azure CDN tot krijgen. Wanneer iemand zich in het Verenigd Koninkrijk probeert te krijgen van een blob in het storage-account via Azure CDN, controleert Azure eerst voor de blob in de edge-knooppunt die zich het dichtst bij het Verenigd Koninkrijk. Als Azure vindt de blob, toegang heeft tot een kopie en gebruikt Azure CDN-prijzen, omdat Azure CDN is er toegang toe hebben. Als Azure de blob niet wordt gevonden, wordt de blob gekopieerd naar het edge-knooppunt. Deze actie leidt tot kosten voor uitgaand verkeer en transactie, zoals opgegeven in de prijzen voor Blob storage. Azure heeft vervolgens toegang tot het bestand op het edge-knooppunt, wat in facturering voor Azure CDN resulteert.
+Stel dat u een opslag account hebt in West-VS dat u via Azure CDN kunt openen. Wanneer iemand in het Verenigd Konink rijk probeert toegang te krijgen tot een BLOB in dat opslag account via Azure CDN, controleert Azure eerst op de BLOB in het Edge-knoop punt dat zich het dichtst bij het Verenigd Konink rijk bevindt. Als Azure de BLOB vindt, krijgt deze een kopie en maakt deze gebruik van Azure CDN prijzen, omdat Azure CDN deze opent. Als Azure de BLOB niet vindt, wordt de BLOB naar het Edge-knoop punt gekopieerd. Met deze actie worden de uitstaande en transactie kosten in rekening gebracht, zoals is opgegeven in de prijzen voor Blob Storage. Azure opent vervolgens het bestand op het Edge-knoop punt, wat leidt tot Azure CDN facturering.
 
-Op de [Azure CDN-pagina met prijzen](https://azure.microsoft.com/pricing/details/cdn/), HTTPS-ondersteuning voor namen van aangepaste domeinen is beschikbaar voor Azure CDN van Verizon Standard en Premium-producten alleen.
+Op de [pagina met Azure CDN prijzen](https://azure.microsoft.com/pricing/details/cdn/)is HTTPS-ondersteuning voor aangepaste domein namen alleen beschikbaar voor Azure CDN van Verizon Standard-en Premium-producten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Een aangepaste domeinnaam voor uw Blob storage-eindpunt configureren](storage-custom-domain-name.md)
+* [Een aangepaste domein naam configureren voor het eind punt van de Blob-opslag](storage-custom-domain-name.md)
 * [Een statische website hosten in Azure Storage](storage-blob-static-website.md)

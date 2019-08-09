@@ -1,29 +1,29 @@
 ---
-title: 'Classificatie: Vluchtvertragingen voorspellen'
+title: Ontbreekt Vluchtvertragingen voorspellen
 titleSuffix: Azure Machine Learning service
-description: In dit artikel laat u over het bouwen van een machine learning-model om te voorspellen van vertragingen van vertragingen van vluchten met behulp van de visuele slepen-en-neerzetten-interface en aangepaste R-code.
+description: In dit artikel wordt beschreven hoe u een machine learning model bouwt om vlucht vertragingen te voors pellen met behulp van de visuele interface voor slepen en neerzetten en aangepaste R-code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 07/02/2019
-ms.openlocfilehash: 773e55fe4b5ca5acf27ba1765e5a16075f625187
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: f2ef5fd17d6c6a91fa5f3c5d62700b68c5fbca24
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607635"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855965"
 ---
-# <a name="sample-6---classification-predict-flight-delays-using-r"></a>Voorbeeld 6 - indeling: Voorspellen van vertragingen van vertragingen van vluchten met R
+# <a name="sample-6---classification-predict-flight-delays-using-r"></a>Voor beeld 6: classificatie: Vertragingen in de vlucht voors pellen met R
 
-Dit experiment wordt gebruikgemaakt van historische vlucht en van Weergegevens te voorspellen als een geplande passagiersvlucht met meer dan 15 minuten worden uitgesteld.
+In dit experiment worden historische vlucht-en weers gegevens gebruikt om te voors pellen of een geplande reizigers vlucht meer dan 15 minuten wordt uitgesteld.
 
-Dit probleem kan worden gerealiseerd als een probleem is classificatie, voorspellen van twee klassen--vertraagd, of op tijd. Op een classificatie, dit met behulp van een groot aantal voorbeelden van historische flight data model maken.
+Dit probleem kan worden beschouwd als een classificatie probleem, waarbij twee klassen worden voor speld, of op tijd. Voor het bouwen van een classificatie maakt dit model gebruik van een groot aantal voor beelden van historische vlucht gegevens.
 
-Dit is de laatste experiment-grafiek:
+Hier volgt de laatste grafiek van het experiment:
 
 [![Grafiek van het experiment](media/ui-sample-classification-predict-flight-delay/experiment-graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
@@ -31,98 +31,98 @@ Dit is de laatste experiment-grafiek:
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Selecteer de **Open** knop van het experiment voorbeeld 6:
+4. Selecteer de knop **openen** voor het experiment sample 6:
 
-    ![Open het experiment](media/ui-sample-classification-predict-flight-delay/open-sample6.png)
+    ![Het experiment openen](media/ui-sample-classification-predict-flight-delay/open-sample6.png)
 
 ## <a name="get-the-data"></a>De gegevens ophalen
 
-Dit experiment maakt gebruik van de **vertragingen vluchtgegevens** gegevensset. Het onderdeel van de TranStats gegevens verzamelen van de Verenigde Staten 's Ministerie van transport. De gegevensset bevat vertraging vluchtgegevens van April tot oktober 2013. Voordat u de gegevens uploadt naar de visuele interface, het vooraf is verwerkt als volgt:
+In dit experiment wordt gebruikgemaakt van de **gegevens gegevensset vlucht vertragingen** . Het maakt deel uit van de TranStats-gegevens verzameling van de Verenigde Staten Ministerie van Trans Port. De gegevensset bevat informatie over de vlucht vertraging van april tot oktober 2013. Voordat u de gegevens naar de visuele interface uploadt, is deze als volgt vooraf verwerkt:
 
-* Gefilterd op de 70 drukste luchthavens opnemen in de Verenigde Staten.
-* Voor geannuleerde vluchten, relabeled als meer dan 15 minuten vertraagd.
-* Omgereden vluchten gefilterd.
-* Geselecteerde 14 kolommen.
+* Gefilterd op de 70 drukste lucht havens in het continentale Verenigde Staten.
+* Voor geannuleerde vluchten, met een label dat langer is dan 15 minuten.
+* Gefilterde vluchten.
+* 14 kolommen geselecteerd.
 
-Ter aanvulling van de vluchtgegevens van vertragingen van, de **weer gegevensset** wordt gebruikt. De weergegevens per uur weer op basis van land opmerkingen van NOAA bevat, en metingen uit luchthaven weer stations, die betrekking hebben op dezelfde periode van April-oktober 2013 vertegenwoordigt. Voordat u uploadt naar Azure ML visuele interface, het vooraf is verwerkt als volgt:
+Als aanvulling op de vlucht gegevens wordt de **weer gegevensset** gebruikt. De weer gegevens bevatten op het land gebaseerde weers waarnemingen van NOAA en duiden op de waarnemingen van de weers stations van de lucht haven, met dezelfde periode van april-oktober 2013. Voordat u uploadt naar de Azure ML-Visual Interface, is deze vooraf verwerkt als volgt:
 
-* Weerstation-id's zijn toegewezen aan de bijbehorende luchthaven id's.
-* Weather stations die niet zijn gekoppeld aan de 70 drukste luchthavens zijn verwijderd.
-* De datumkolom is splitsen in afzonderlijke kolommen: Jaar, maand en dag.
-* 26 kolommen geselecteerd.
+* Er zijn weer station-Id's toegewezen aan de bijbehorende luchthaven-Id's.
+* Weer stations die niet zijn gekoppeld aan de 70 drukste lucht havens zijn verwijderd.
+* De datum kolom is in afzonderlijke kolommen gesplitst: Jaar, maand en dag.
+* Geselecteerde 26 kolommen.
 
-## <a name="pre-process-the-data"></a>De gegevens vooraf te verwerken
+## <a name="pre-process-the-data"></a>De gegevens vooraf verwerken
 
-Een gegevensset moet meestal enkele vooraf verwerken voordat deze kan worden geanalyseerd.
+Een gegevensset vereist meestal een voor verwerking voordat deze kan worden geanalyseerd.
 
-![gegevens verwerken](media/ui-sample-classification-predict-flight-delay/data-process.png)
+![gegevens proces](media/ui-sample-classification-predict-flight-delay/data-process.png)
 
-### <a name="flight-data"></a>Vluchtgegevens van vertragingen van
+### <a name="flight-data"></a>Vlucht gegevens
 
-De kolommen **Carrier**, **OriginAirportID**, en **DestAirportID** als gehele getallen zijn opgeslagen. Echter nog categorische kenmerken, gebruikt u de **metagegevens bewerken** module converteert naar categorische.
+De kolommen **Carrier**, **OriginAirportID**en **DestAirportID** worden opgeslagen als gehele getallen. Ze zijn echter categorische-kenmerken, gebruik de module **meta gegevens bewerken** om ze te converteren naar categorische.
 
 ![edit-metadata](media/ui-sample-classification-predict-flight-delay/edit-metadata.png)
 
-Gebruik vervolgens de **Select Columns** module gegevensset moeten worden uitgesloten van de kolommen die mogelijk doel leakers zijn: **DepDelay**, **DepDel15**, **ArrDelay**, **geannuleerd**, **jaar**. 
+Gebruik vervolgens de module **select columns** in dataset om de gegevensset-kolommen uit te sluiten van de kolom met mogelijke doel lekken: **DepDelay**, **DepDel15**, **ArrDelay**, **geannuleerd**, **jaar**. 
 
-Als u wilt deelnemen aan de records vlucht met records weer per uur, de geplande vertrektijd als een van de join-sleutels te gebruiken. Hiertoe de join, de kolom CSRDepTime moet worden afgerond op het dichtstbijzijnde uur wordt uitgevoerd door in de **R-Script uitvoeren** module. 
+Als u de vlucht records wilt samen voegen met de weer records per uur, gebruikt u de geplande vertrek tijd als een van de koppelings sleutels. Als u de koppeling wilt uitvoeren, moet de kolom CSRDepTime naar beneden worden afgerond naar het dichtstbijzijnde uur. dit wordt gedaan door in de module **R-script uitvoeren** . 
 
-### <a name="weather-data"></a>Weergegevens
+### <a name="weather-data"></a>Weer gegevens
 
-Kolommen met een groot deel van de ontbrekende waarden zijn uitgesloten met behulp van de **Projectkolommen** module. Deze kolommen bevatten alle stringwaarde kolommen: **ValueForWindCharacter**, **WetBulbFarenheit**, **WetBulbCelsius**, **PressureTendency**, **PressureChange**, **SeaLevelPressure**, en **StationPressure**.
+Kolommen met een groot deel van ontbrekende waarden worden uitgesloten met de module **project kolommen** . Deze kolommen bevatten alle kolommen met een teken reeks waarde: **ValueForWindCharacter**, **WetBulbFarenheit**, **WetBulbCelsius**, **PressureTendency**, **PressureChange**, **SeaLevelPressure**en **StationPressure**.
 
-De **Clean Missing Data** module wordt vervolgens toegepast op de overige kolommen verwijderen van rijen met ontbrekende gegevens.
+De module **clean Missing Data** wordt vervolgens toegepast op de resterende kolommen om rijen met ontbrekende gegevens te verwijderen.
 
-Weather waarneming tijden worden naar boven afgerond op het dichtstbijzijnde volledig uur. Geplande vluchttijden en de tijden van de opmerking weer worden in de tegengestelde richting om te controleren of dat het model gebruikt alleen weer voor de overdracht afgerond. 
+De weer observatie tijden worden naar boven afgerond op het dichtstbijzijnde volledige uur. Geplande vlucht tijden en de weer observatie tijden worden in tegenovergestelde richting afgerond om ervoor te zorgen dat het model alleen weer voor de vlucht tijd gebruikt. 
 
-Sinds de weergegevens wordt gerapporteerd in de lokale tijd, tijdzone verschillen worden verwerkt door de kolommen van de tijdzone van de geplande vertrektijd en de weersomstandigheden waarneming af te trekken. Deze bewerkingen worden uitgevoerd met behulp van de **R-Script uitvoeren** module.
+Omdat weer gegevens worden gerapporteerd in de lokale tijd, worden tijdzone verschillen verwerkt door de tijd zone kolommen af te trekken van de geplande vertrek tijd en de weer observatie tijd. Deze bewerkingen worden uitgevoerd met de **script module Execute R** .
 
-### <a name="joining-datasets"></a>Lid worden van gegevenssets
+### <a name="joining-datasets"></a>Gegevens sets koppelen
 
-Flight records worden gekoppeld aan de weergegevens bij de oorsprong van de vlucht (**OriginAirportID**) met behulp van de **deelnemen aan gegevens** module.
+Vlucht records worden toegevoegd aan de gegevens van het begin van de vlucht (**OriginAirportID**) met behulp van de **join data** -module.
 
- ![lid worden van vertragingen van vluchten en weer per oorsprong](media/ui-sample-classification-predict-flight-delay/join-origin.png)
+ ![Sluit vlucht en weer aan de oorsprong](media/ui-sample-classification-predict-flight-delay/join-origin.png)
 
 
-Flight records worden gekoppeld aan de weergegevens met behulp van de bestemming van de vlucht (**DestAirportID**).
+Vlucht records worden gekoppeld aan weer gegevens die gebruikmaken van de bestemming van de vlucht (**DestAirportID**).
 
- ![Lid worden van vertragingen van vluchten en weer per doel](media/ui-sample-classification-predict-flight-delay/join-destination.png)
+ ![Vlucht en weer aan de bestemming toevoegen](media/ui-sample-classification-predict-flight-delay/join-destination.png)
 
-### <a name="preparing-training-and-test-samples"></a>Training en voorbeelden Test voorbereiden
+### <a name="preparing-training-and-test-samples"></a>Trainings-en test voorbeelden voorbereiden
 
-De **Split Data** module splitst u de gegevens in April door September-records voor training en oktober registreert voor testen.
+In de module **Split data** worden de gegevens gesplitst in april tot en met september records voor training en oktober records voor test doeleinden.
 
- ![Splitsen trainen en testen van gegevens](media/ui-sample-classification-predict-flight-delay/split.png)
+ ![Training en test gegevens splitsen](media/ui-sample-classification-predict-flight-delay/split.png)
 
-Jaar, maand en tijdzone-kolommen zijn verwijderd uit de training gegevensset met behulp van de module Select Columns.
+De kolommen Year, month en time zone worden verwijderd uit de trainings gegevensset met behulp van de module select columns.
 
 ## <a name="define-features"></a>Functies definiëren
 
-In machine learning-zijn functies afzonderlijke meetbare eigenschappen van iets waarin die u geïnteresseerd bent in. Zoeken naar een krachtige set functies, moet u basiskennis van experimenten en het domein. Bepaalde kenmerken zijn beter voor het voorspellen van het doel dan andere. Bovendien sommige functies mogelijk een nauwe correlatie met andere functies en nieuwe gegevens wordt niet toevoegen aan het model. Deze functies kunnen worden verwijderd.
+In machine learning zijn onderdelen afzonderlijke meet bare eigenschappen van iets waarin u geïnteresseerd bent. Voor het zoeken naar een sterke set functies is experimenteren en domein kennis vereist. Bepaalde kenmerken zijn beter voor het voorspellen van het doel dan andere. Het is ook mogelijk dat sommige functies een sterke correlatie met andere functies hebben en er geen nieuwe informatie aan het model toe te voegen. Deze functies kunnen worden verwijderd.
 
-U kunt voor het bouwen van een model, de beschikbare functies gebruiken of een subset van de functies selecteren.
+Als u een model wilt bouwen, kunt u alle beschik bare functies gebruiken of een subset van de functies selecteren.
 
 ## <a name="choose-and-apply-a-learning-algorithm"></a>Een leeralgoritme kiezen en toepassen
 
-Maken van een model met de **Two-Class Logistic Regression** module en de service op de gegevensset training te trainen. 
+Maak een model met behulp van de module **logistiek-regressie met twee klassen** en Train deze in de trainings-gegevensset. 
 
-Het resultaat van de **Train Model** -module is een getraind classificatie-model dat kan worden gebruikt om te beoordelen nieuwe voorbeelden om voorspellingen te maken. Gebruik de toets instellen voor het genereren van scores van het getrainde modellen. Gebruik vervolgens de **Evaluate Model** module te analyseren en de kwaliteit van de modellen te vergelijken.
+Het resultaat van de module **Train model** is een getraind classificatie model dat kan worden gebruikt om nieuwe voor beelden te scoren om voor spellingen te maken. Gebruik de testset om scores te genereren op basis van de getrainde modellen. Gebruik vervolgens de module **Evaluate model** om de kwaliteit van de modellen te analyseren en vergelijken.
 
-Nadat u het experiment uitvoert, vindt u de uitvoer van de **Score Model** module door te klikken op de uitvoerpoort en selecteer **Visualize**. De uitvoer bevat de scored labels en de kansen voor de labels.
+Nadat u het experiment hebt uitgevoerd, kunt u de uitvoer van de module **score model** weer geven door te klikken op deuitvoer poort en visualiseren te selecteren. De uitvoer bevat de gescoorde labels en de waarschijnlijkheid voor de labels.
 
-Als u wilt testen van de kwaliteit van de resultaten, voeg de **Evaluate Model** module naar het experimentcanvas en koppel de linkerinvoerpoort aan de uitvoer van de module Score Model. Voer het experiment uit en geef de uitvoer van de **Evaluate Model** -module, door te klikken op de uitvoerpoort en selecteer **Visualize**.
+Ten slotte kunt u de kwaliteit van de resultaten testen door de module **Evaluate model** toe te voegen aan het canvas van het experiment en de linker invoer poort te koppelen aan de uitvoer van de module score model. Voer het experiment uit en Bekijk de uitvoer van de module **Evaluate model** door te klikken op de uitvoerpoort en visualiseren te selecteren.
 
 ## <a name="evaluate"></a>Evalueren
-Het model voor logistieke regressie heeft AUC van 0.631 op de testmachine instellen.
+Het logistiek regressie model heeft AUC van 0,631 in de testset.
 
  ![evalueren](media/ui-sample-classification-predict-flight-delay/evaluate.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De voorbeelden beschikbaar zijn voor de visuele interface verkennen:
+Bekijk de andere voor beelden die beschikbaar zijn voor de visuele interface:
 
-- [Voorbeeld 1: regressie: De prijs van een auto's voorspellen](ui-sample-regression-predict-automobile-price-basic.md)
-- [Voorbeeld 2: regressie: Algoritmen voor auto's voorspellen vergelijken](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Voorbeeld 3 - indeling: Kredietrisico voorspellen](ui-sample-classification-predict-credit-risk-basic.md)
-- [Voorbeeld 4 - classificatie: Kredietrisico (kosten gevoelige) voorspellen](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Voorbeeld 5 - indeling: Verloop voorspellen](ui-sample-classification-predict-churn.md)
+- [Voor beeld 1-regressie: De prijs van een auto voors pellen](ui-sample-regression-predict-automobile-price-basic.md)
+- [Voor beeld 2-regressie: Algoritmen voor het voors pellen van prijzen vergelijken](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Voor beeld 3-classificatie: Krediet risico voors pellen](ui-sample-classification-predict-credit-risk-basic.md)
+- [Voor beeld 4-classificatie: Voor speld krediet risico (kosten gevoelig)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Voor beeld 5-classificatie: Verloop voors pellen](ui-sample-classification-predict-churn.md)

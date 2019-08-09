@@ -1,19 +1,19 @@
 ---
 title: Gegevens scenario's met betrekking tot Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Inzicht krijgen in de verschillende scenario's en hulpprogram ma's die gebruikmaken van welke gegevens kunnen worden opgenomen, verwerkt, gedownload en gevisualiseerd in Data Lake Storage Gen2 (voorheen bekend als Azure Data Lake Store)
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: normesta
-ms.openlocfilehash: 010b7bc38caf83c12dd0d8b8e731fdbad6e45256
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.reviewer: stewu
+ms.openlocfilehash: cafe761d2b566a7bddce503765c11bf9f8e00f2a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422880"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847442"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Azure Data Lake Storage Gen2 gebruiken voor big data vereisten
 
@@ -73,7 +73,7 @@ In deze tabel ziet u hoe u toegang verleent voor elke Azure-service of elk hulp 
 |Apache DistCp | Een rol toewijzen aan een door de gebruiker toegewezen beheerde identiteit | [Een HDInsight-cluster met Data Lake Storage Gen2 maken](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
 |Azure Data Factory| Een rol toewijzen aan een door de gebruiker toegewezen identiteit<br>**or**<br> Een rol toewijzen aan een Service-Principal<br>**or**<br> Een sleutel voor het opslag account gebruiken | [Eigenschappen van gekoppelde service](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
 |Azure HDInsight| Een rol toewijzen aan een door de gebruiker toegewezen beheerde identiteit | [Een HDInsight-cluster met Data Lake Storage Gen2 maken](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)|
-|Azure Databricks| Een rol toewijzen aan een Service-Principal | [Procedure: De portal gebruiken om een Azure AD-toepassing en Service-Principal te maken die toegang hebben tot resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
+|Azure Databricks| Een rol toewijzen aan een Service-Principal | [Procedure: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
 Zie deze artikelen voor meer informatie over het verlenen van toegang tot specifieke bestanden en mappen.
 

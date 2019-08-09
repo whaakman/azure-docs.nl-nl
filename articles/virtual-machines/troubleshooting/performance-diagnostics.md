@@ -1,6 +1,6 @@
 ---
-title: De diagnostische gegevens voor prestaties voor virtuele machines van Azure | Microsoft Docs
-description: Introduceert de prestaties van Azure Diagnostics voor Windows.
+title: Diagnostische gegevens over prestaties voor virtuele machines van Azure | Microsoft Docs
+description: Introduceert Azure-prestatie diagnostiek voor Windows.
 services: virtual-machines-windows'
 documentationcenter: ''
 author: anandhms
@@ -14,160 +14,192 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: c2089f9f6267f318dafe641a6a5b22e7e87427ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c0e0b5db9958fae6c9f49f636a97bf16697e74e0
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60308121"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854427"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnostische gegevens over prestaties voor virtuele Azure-machines
 
-Het hulpprogramma voor prestatieverbetering diagnostics helpt bij het oplossen van prestatieproblemen die invloed kunnen zijn op een Windows virtuele machine (VM). Ondersteunde scenario's voor het oplossen van problemen bevatten snelle controle van de bekende problemen en aanbevolen procedures en complexe problemen die betrekking hebben op trage prestaties van de virtuele machine of intensief gebruik van CPU, schijfruimte of geheugen. 
+Het hulp programma prestatie diagnostiek helpt u bij het oplossen van prestatie problemen die van invloed kunnen zijn op een virtuele Windows-of Linux-machine (VM). Ondersteunde scenario's voor het oplossen van problemen zijn onder andere snelle controles van bekende problemen en aanbevolen procedures, en complexe problemen die de prestaties van een trage virtuele machine of een hoog gebruik van CPU, schijf ruimte of geheugen vereisen.
 
-U kunt prestatiediagnoses uitvoeren rechtstreeks vanuit de Azure portal waarin u kunt ook bekijken inzichten en een rapport op verschillende logboeken, geavanceerde configuratie en diagnostische gegevens. U wordt aangeraden dat u de diagnostische gegevens van prestaties en de inzichten en diagnostische gegevens bekijken voordat u contact op met Microsoft Support.
+U kunt prestatie diagnostiek rechtstreeks vanuit de Azure Portal uitvoeren, waar u ook inzichten en een rapport kunt bekijken over de verschillende logboeken, uitgebreide configuratie en diagnostische gegevens. U wordt aangeraden prestatie diagnostiek uit te voeren en de inzichten en diagnostische gegevens te bekijken voordat u contact opneemt met Microsoft Ondersteuning.
 
 > [!NOTE]
-> Prestaties van diagnostische gegevens wordt momenteel ondersteund op Windows-VM's met .NET SDK-versie 4.5 of hoger geïnstalleerd. Zie voor de stappen uit te voeren van diagnostische gegevens voor prestaties op klassieke virtuele machines [Azure prestaties diagnostische VM-extensie](performance-diagnostics-vm-extension.md).
+> Voor Windows wordt prestatie diagnostiek op dit moment ondersteund op Vm's waarop .NET SDK versie 4,5 of hoger is geïnstalleerd. Voor de stappen voor het uitvoeren van prestatie diagnostiek op klassieke Vm's raadpleegt u [Azure performance diagnostische VM-extensie](performance-diagnostics-vm-extension.md).
 
-### <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
-Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, WindowsServer 2016, Windows Server 2012, Windows Server 2012 Datacenter, Windows Server 2012 R2, Windows Server 2012 R2 Datacenter, Windows Server 2012 R2 Standard, WindowsServer 2012 Standard, Windows Server 2008 R2, Windows Server 2008 R2 Datacenter, Windows Server 2008 R2 Enterprise, Windows Server 2008 R2 Foundation, Windows Server 2008 R2 SP1, Windows Server 2008 R2 Standard.
+## <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
 
-## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Installeren en uitvoeren van diagnostische gegevens voor prestaties op de virtuele machine
-Prestaties van diagnostische gegevens wordt geïnstalleerd voor een VM-extensie die wordt uitgevoerd een hulpprogramma voor diagnostische gegevens met de naam [PerfInsights](https://aka.ms/perfinsights). Als u wilt installeren en uitvoeren van diagnostische gegevens over prestaties, de volgende stappen uit:
-1.  Selecteer in de linkerkolom van opdrachten, **virtuele machines**.
-1.  Selecteer de virtuele machine die u uitvoeren wilt op in de lijst met namen van de virtuele machine.
-1.  Selecteer in de rechterkolom van opdrachten, **prestatiediagnoses**.
+### <a name="windows"></a>Windows
 
-    ![Schermopname van het Azure-portal met installatie performance diagnostics knop gemarkeerd](media/performance-diagnostics/performance-diagnostics-install.png)
+Windows 10, Windows 8, Windows 8 Enter prise, Windows 8 Pro, Windows 8,1, Windows Server 2016, Windows Server 2012, Windows Server 2012 Data Center, Windows Server 2012 R2, Windows Server 2012 R2 Data Center, Windows Server 2012 R2 Standard, Windows Server 2012 Standard, Windows Server 2008 R2, Windows Server 2008 R2 Data Center, Windows Server 2008 R2 Enter prise, Windows Server 2008 R2 Foundation, Windows Server 2008 R2 SP1, Windows Server 2008 R2 Standard.
+
+### <a name="linux"></a>Linux
+
+Oracle Linux Server 6,10 [`*`], 7,3, 7,6, 7,5 (Oracle-data base-ee 13,8 Marketplace-installatie kopie),`*`CentOS 6,5 [], 7,6, RHEL 7,2, 7,5`*`, 8,0 [], Ubuntu 14,04, 16,04, 18,04, Debian 8, 9`*`, 10 [], SLES 12 SP4 [`*`]
+
+>[!Note]
+>[`*`] Raadpleeg [bekende problemen](how-to-use-perfinsights-linux.md#known-issues)
+
+## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Prestatie diagnostiek op uw virtuele machine installeren en uitvoeren
+
+Met diagnostische gegevens over prestaties wordt een VM-extensie geïnstalleerd waarmee een diagnostisch hulp programma wordt uitgevoerd met de naam PerfInsights. PerfInsights is beschikbaar voor [Windows](https://aka.ms/perfinsights) en [Linux](https://aka.ms/perfinsightslinux). Voer de volgende stappen uit om prestatie diagnostiek te installeren en uit te voeren:
+
+1. Selecteer **virtuele machines**in de linkerkolom van de opdrachten.
+1. Selecteer in de lijst met VM-namen de virtuele machine waarvoor u Diagnostische gegevens wilt uitvoeren.
+1. Selecteer in de rechter kolom met opdrachten **prestatie diagnostiek**.
+
+    ![Scherm opname van Azure Portal, met de knop diagnostische gegevens over de installatie gemarkeerd](media/performance-diagnostics/performance-diagnostics-install.png)
 
     > [!NOTE]
-    > In deze schermafbeelding is is de blade van de namen van de virtuele machine verborgen.
-1. Selecteer een opslagaccount (optioneel)
+    > In deze scherm afbeelding is de Blade met de naam van de virtuele machine verborgen.
+1. Een opslag account selecteren (optioneel)
 
-    Als u een enkel opslagaccount gebruiken voor het opslaan van de prestatieresultaten van de diagnostische gegevens voor meerdere virtuele machines wilt, kunt u een opslagaccount selecteren door te klikken op de **instellingen** knop op de werkbalk. Klik op de **OK** knop nadat u de storage-account selecteren.
+    Als u een enkel opslag account wilt gebruiken om de resultaten van de diagnostische gegevens over meerdere Vm's op te slaan, kunt u een opslag account selecteren door te klikken op de knop **instellingen** op de werk balk. Klik op de knop **OK** zodra u het opslag account hebt geselecteerd.
 
-    Als u een storage-account niet opgeeft, wordt er standaard een nieuw opslagaccount gemaakt.
+    Als u geen opslag account opgeeft, wordt standaard een nieuw opslag account gemaakt.
 
-    ![Blade diagnostische gegevens over schermafbeelding van de prestaties, met de knop Instellingen gemarkeerd](media/performance-diagnostics/settings-button.png)
+    ![Scherm opname van de Blade diagnostische gegevens over prestaties, met de werkbalk knop instellingen gemarkeerd](media/performance-diagnostics/settings-button.png)
 
-    ![Schermopname van het storage-account selecteren uit de blade van instellingen voor diagnostische gegevens over prestaties](media/performance-diagnostics/select-storage-account.png)
+    ![Scherm afbeelding van selectie van opslag account uit de Blade instellingen voor diagnostische gegevens](media/performance-diagnostics/select-storage-account.png)
 
-1. Selecteer de **prestatiediagnoses installeren** knop.
-1. Selecteer de **diagnose uitvoeren** selectievakje in als u een diagnose uitvoeren wilt nadat de installatie is voltooid. Als u deze selectie maakt, moet u kunnen de prestaties analysis scenario en de verwante opties te kiezen.
+1. Selecteer de knop **prestatie diagnostiek installeren** .
+1. Schakel het selectie vakje **Diagnostische gegevens uitvoeren** in als u een diagnose wilt uitvoeren nadat de installatie is voltooid. Als u deze selectie maakt, kunt u het analyse scenario voor prestaties en de bijbehorende opties kiezen.
 
-    ![Schermafbeelding van de prestatiecontrole installeren knop](media/performance-diagnostics/install-diagnostics-button.png)
+    ![Scherm afbeelding van de knop installatie van de diagnostische gegevens](media/performance-diagnostics/install-diagnostics-button.png)
 
-## <a name="select-an-analysis-scenario-to-run"></a>Selecteer een scenario analyse om uit te voeren
+## <a name="select-an-analysis-scenario-to-run"></a>Een analyse scenario selecteren dat moet worden uitgevoerd
 
-De volgende scenario's voor prestatieanalyse zijn beschikbaar via de Azure-portal. Selecteer een analyse, afhankelijk van het prestatieprobleem dat u ondervindt. Selecteer de opties voor de duur en tracering die nodig zijn voor de analyse.
+De volgende analyse scenario's zijn beschikbaar via de Azure Portal. Selecteer een analyse, afhankelijk van het prestatie probleem dat u hebt. Selecteer de duur en tracerings opties die nodig zijn voor de analyse.
 
 * **Analyse van snelle prestaties**  
-    Controleert voor bekende problemen, analyseert de aanbevolen procedures en diagnostische gegevens worden verzameld. Deze analyse duurt enkele minuten om uit te voeren. [Meer informatie](https://aka.ms/perfinsights/quick)
+    Hiermee wordt gecontroleerd op bekende problemen, worden aanbevolen procedures geanalyseerd en worden diagnostische gegevens verzameld. Het uitvoeren van deze analyse duurt enkele minuten. Meer informatie over [Windows](https://aka.ms/perfinsights/quick) of [Linux](https://aka.ms/perfinsightslinux/quick)
 
 * **Analyse van prestaties**  
-    Bevat alle controles in de analyse van de snelle prestaties en hoge resourceverbruik bewaakt. Gebruik deze versie met algemene prestaties oplossen, zoals hoge CPU-, geheugen- en schijfgebruik. Deze analyse kan 30 seconden tot 15 minuten, afhankelijk van de geselecteerde periode. [Meer informatie](https://aka.ms/perfinsights/vmslow) 
-    
-* **Geavanceerde analyse**  
-    Bevat alle controles in de analyse van prestaties en een of meer van de traceringen worden verzameld zoals vermeld in de volgende secties. In dit scenario om complexe problemen waarvoor extra traceringen te gebruiken. Met dit scenario voor langere tijd, wordt de totale grootte van de uitvoer van de diagnostische gegevens, afhankelijk van de grootte van de virtuele machine en de traceeropties die zijn geselecteerd verhogen. Deze analyse duurt 30 seconden tot 15 minuten uit te voeren, afhankelijk van de geselecteerde periode. [Meer informatie](https://aka.ms/perfinsights/advanced) 
-    
-* **Azure bestanden analysis**  
-    Bevat alle controles in de analyse van prestaties, en een netwerktracering en SMB-prestatiemeteritems wordt vastgelegd. In dit scenario gebruiken om op te lossen van de prestaties van Azure files. Deze analyse duurt 30 seconden tot 15 minuten uit te voeren, afhankelijk van de geselecteerde periode. [Meer informatie](https://aka.ms/perfinsights/azurefiles)
+    Omvat alle controles in de analyse van snelle prestaties en bewaken het gebruik van hoge bronnen. Gebruik deze versie om algemene prestatie problemen op te lossen, zoals hoge CPU, geheugen en schijf gebruik. Deze analyse duurt 30 seconden tot 15 minuten, afhankelijk van de geselecteerde duur. Meer informatie over [Windows](https://aka.ms/perfinsights/vmslow) of [Linux](https://aka.ms/perfinsightslinux/vmslow)
 
+* **Geavanceerde prestatie analyse**`*`  
+    Omvat alle controles in de analyse van prestaties en verzamelt een of meer van de traceringen, zoals vermeld in de volgende secties. Gebruik dit scenario om ingewikkelde problemen op te lossen waarvoor extra traceringen zijn vereist. Als u dit scenario voor langere Peri Oden uitvoert, wordt de totale grootte van de diagnostische uitvoer verg root, afhankelijk van de grootte van de virtuele machine en de geselecteerde tracerings opties. Het uitvoeren van deze analyse duurt 30 seconden tot 15 minuten, afhankelijk van de geselecteerde duur. [Meer informatie](https://aka.ms/perfinsights/advanced)
 
-![Schermafbeelding van het uitvoeren van diagnostische gegevens deelvenster in de blade diagnostische gegevens over prestaties](media/performance-diagnostics/run-diagnostics-pane.png)
+* **Azure files analyse**`*`  
+    Omvat alle controles in de prestatie analyse en legt een netwerk tracering en SMB-teller vast. Gebruik dit scenario om de prestaties van Azure files op te lossen. Het uitvoeren van deze analyse duurt 30 seconden tot 15 minuten, afhankelijk van de geselecteerde duur. [Meer informatie](https://aka.ms/perfinsights/azurefiles)
 
-### <a name="provide-symptoms-optional"></a>Geef de symptomen (optioneel)
-Vooraf geselecteerde symptomen in de lijst selecteren of toevoegen van nieuwe problemen. Dit helpt ons de analyse in de toekomst te verbeteren. 
+>[!Note]
+>[`*`] Deze analyse scenario's worden alleen ondersteund in Windows.
 
-### <a name="provide-support-request-number-if-available-optional"></a>Bieden ondersteuning voor aanvraag getal, indien beschikbaar (optioneel)
-Als u met een ondersteuningsmedewerker van Microsoft op een bestaande ondersteuningsticket werkt, geeft u het ticketnummer ondersteuning. 
+![Scherm opname van het deel venster diagnostische gegevens uitvoeren in de Blade prestatie diagnostiek](media/performance-diagnostics/run-diagnostics-pane.png)
 
-### <a name="review-the-privacy-policy-and-legal-terms-and-select-the-check-box-to-acknowledge-required"></a>Controleer het privacybeleid en de juridische voorwaarden en schakel het selectievakje in om te bevestigen (vereist)
-Als u wilt uitvoeren van de diagnostische gegevens, moet u akkoord gaat met de juridische voorwaarden en privacybeleid accepteren.
+### <a name="provide-symptoms-optional"></a>Symptomen geven (optioneel)
 
-### <a name="select-ok-to-run-the-diagnostics"></a>Klik op OK om uit te voeren van de diagnostische gegevens 
-Een melding wordt weergegeven als prestatiediagnoses begint te installeren. Nadat de installatie is voltooid, ziet u een melding die aangeeft dat de installatie voltooid is. De geselecteerde analyse wordt vervolgens uitgevoerd voor de opgegeven duur. Dit is een goed moment om het prestatieprobleem reproduceren, zodat de diagnostische gegevens kunnen worden vastgelegd op het juiste moment. 
+Selecteer een of meer van de geselecteerde symptomen in de lijst of Voeg nieuwe symptomen toe. Dit helpt ons de analyse in de toekomst te verbeteren.
 
-Nadat de analyse voltooid is, worden de volgende items zijn geüpload naar Azure-tabellen en een binaire grote object (BLOB)-container in het opgegeven opslagaccount:
+### <a name="provide-support-request-number-if-available-optional"></a>Ondersteunings aanvraag nummer opgeven, indien beschikbaar (optioneel)
 
-*   Alle inzichten en verwante informatie over de uitvoering
-*   Een uitvoer gecomprimeerd bestand (.zip) (met de naam **PerformanceDiagnostics_yyyy-MM-dd_hh-mm-ss-fff.zip**) die logboekbestanden bevat
-*   Een HTML-rapport
+Als u werkt met een ondersteunings technicus van micro soft in een bestaand ondersteunings ticket, geeft u het nummer van het ondersteunings ticket op.
 
-Na het uploaden, wordt een nieuw rapport voor diagnostische gegevens vermeld in de Azure-portal.
+### <a name="review-the-privacy-policy-and-legal-terms-and-select-the-check-box-to-acknowledge-required"></a>Controleer het privacybeleid en de juridische voor waarden en schakel het selectie vakje in om te bevestigen (vereist)
 
-![Schermafbeelding van een lijst van rapport van de diagnostische gegevens in de blade diagnostische gegevens over prestaties](media/performance-diagnostics/diagnostics-report-list.png)
+Als u de diagnostische gegevens wilt uitvoeren, moet u akkoord gaan met de juridische voor waarden en het privacybeleid accepteren.
 
-## <a name="how-to-change-performance-diagnostics-settings"></a>Het wijzigen van prestatie-instellingen voor diagnostische gegevens
-Gebruik de **instellingen** werkbalkknop te wijzigen van het opslagaccount waar de diagnostische gegevens over inzichten en de uitvoer kunnen worden opgeslagen. U kunt hetzelfde opslagaccount gebruiken voor meerdere virtuele machines die gebruikmaken van diagnostische gegevens voor prestaties. Wanneer u het opslagaccount wijzigt, worden de oude rapporten en inzichten worden niet verwijderd. Echter, wordt ze niet meer worden weergegeven in de lijst met diagnostische gegevens over rapporten. 
+### <a name="select-ok-to-run-the-diagnostics"></a>Selecteer OK om de diagnostische gegevens uit te voeren
 
-## <a name="review-insights-and-performance-diagnostics-report"></a>Inzichten en diagnostische gegevens Prestatierapport bekijken
-Elke diagnose uitvoeren bevat een lijst met inzichten en aanbevelingen, betrokken resources, logboekbestanden en andere geavanceerde diagnostische gegevens die worden verzameld, plus een rapport voor offline te bekijken. Zie voor een volledige lijst van alle verzamelde diagnostische gegevens, [wat voor soort informatie wordt verzameld door PerfInsights?](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights) 
+Er wordt een melding weer gegeven wanneer prestatie diagnostiek wordt geïnstalleerd. Nadat de installatie is voltooid, ziet u een melding die aangeeft dat de installatie is geslaagd. De geselecteerde analyse wordt vervolgens uitgevoerd voor de opgegeven duur. Dit is een goed moment om het prestatie probleem te reproduceren zodat de diagnostische gegevens op het juiste moment kunnen worden vastgelegd.
 
-### <a name="select-a-performance-diagnostics-report"></a>Selecteer een rapport van de diagnostische gegevens over prestaties
-De lijst met diagnostische gegevens van rapporten kunt u zoeken naar alle diagnostische rapporten die zijn uitgevoerd. De lijst bevat informatie over de analyse die is gebruikt, inzichten die zijn gevonden en hun niveaus van impact. Selecteer een rij om meer details weer te geven.
+Nadat de analyse is voltooid, worden de volgende items geüpload naar Azure-tabellen en een BLOB-container (binary large object) in het opgegeven opslag account:
 
-![Schermafbeelding van het selecteren van een rapport diagnostische gegevens van de blade diagnostische gegevens over prestaties](media/performance-diagnostics/select-report.png)
+* Alle inzichten en gerelateerde informatie over de uitvoering
+* Een gecomprimeerd uitvoer bestand (. zip) (met de naam **PerformanceDiagnostics_yyyy-mm-dd_hh-mm-SS-FFF. zip** ) in Windows en een tar ball-bestand (met de naam **PerformanceDiagnostics_yyyy-mm-dd_hh-mm-SS-FFF. tar. gz** ) op Linux dat logboek bestanden bevat
+* Een HTML-rapport
 
-### <a name="review-a-performance-diagnostics-report"></a>Bekijk een rapport van de diagnostische gegevens over prestaties
-Elk rapport van de diagnostische gegevens over prestaties kan bevatten verschillende inzichten en duiden op een niveau van impact van hoog, Gemiddeld of laag. Elke inzicht bevat ook aanbevelingen voor het verkleinen van de bezorgdheid. Inzichten worden voor het filteren van eenvoudig gegroepeerd. 
+Na het uploaden wordt een nieuw rapport met diagnostische gegevens weer gegeven in de Azure Portal.
 
-Niveaus van impact vertegenwoordigen de kans op prestatieproblemen, op basis van factoren zoals onjuiste configuratie, bekende problemen, of problemen die worden gerapporteerd door andere gebruikers. Er kan niet nog worden sprake van een of meer van de vermelde problemen. Bijvoorbeeld, u mogelijk SQL-logboekbestanden en databasebestanden op dezelfde gegevensschijf als. Dit probleem heeft een grote kans voor knelpunten en andere prestatieproblemen als het Databasegebruik hoog, is dat niet u een probleem ziet als het gebruik laag is.
+![Scherm afbeelding van een lijst met diagnostische gegevens in de Blade diagnostische gegevens over prestaties](media/performance-diagnostics/diagnostics-report-list.png)
 
-![Schermafbeelding van de prestatiecontrole rapporteren overzichtsblade](media/performance-diagnostics/performance-diagnostics-report-overview.png)
+## <a name="how-to-change-performance-diagnostics-settings"></a>Instellingen voor diagnostische gegevens over prestaties wijzigen
 
-### <a name="reviewing-performance-diagnostics-insights-and-recommendations"></a>Prestatie-inzichten voor diagnostische gegevens en aanbevelingen te controleren
-U kunt een inzicht om meer informatie over de betrokken resources, voorgestelde oplossingen en koppelingen met naslaginformatie weer te geven. 
+Gebruik de knop **instellingen** werk balk om het opslag account te wijzigen waar de diagnostische gegevens en uitvoer kunnen worden opgeslagen. U kunt hetzelfde opslag account gebruiken voor meerdere Vm's die gebruikmaken van prestatie diagnostiek. Wanneer u het opslag account wijzigt, worden de oude rapporten en inzichten niet verwijderd. Ze worden echter niet meer weer gegeven in de lijst met diagnostische rapporten.
 
-![Schermafbeelding van een insight-details van de prestatie-diagnostische gegevens](media/performance-diagnostics/insight-detail.png)
+## <a name="review-insights-and-performance-diagnostics-report"></a>Rapport met diagnostische gegevens over inzichten en prestaties bekijken
 
-### <a name="download-and-review-the-full-performance-diagnostics-report"></a>Downloaden en bekijken van het rapport van de diagnostische gegevens over de volledige prestaties
-U kunt de **rapport downloaden** knop voor het downloaden van een HTML-rapport met gegevens over de aanvullende uitgebreide diagnostische gegevens, zoals opslag en configuratie van het netwerk, prestatiemeteritems, traceringen, overzicht van de processen, en zich aanmeldt. De inhoud, is afhankelijk van de geselecteerde analyse. Voor geavanceerde probleemoplossing, bevat het rapport mogelijk aanvullende informatie en interactieve grafieken die gerelateerd zijn aan hoge CPU-gebruik, -intensief gebruik en -processen die excessief veel geheugen gebruiken. Zie voor meer informatie over het rapport van de diagnostische gegevens over prestaties, [diagnostisch rapport bekijken](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report).
+Elke diagnostische uitvoering bevat een lijst met inzichten en aanbevelingen, betrokken resources, logboek bestanden en andere uitgebreide diagnostische gegevens die worden verzameld, plus een rapport voor offline weer gave. Voor een volledige lijst met alle verzamelde diagnostische gegevens, Zie **wat voor soort informatie wordt verzameld door PerfInsights?** op [Windows](how-to-use-perfinsights.md#what-kind-of-information-is-collected-by-perfinsights) of [Linux](how-to-use-perfinsights-linux.md#what-kind-of-information-is-collected-by-perfinsights).
 
-## <a name="manage-performance-diagnostics-reports"></a>Diagnostische rapporten beheren
-U kunt een of meer prestaties diagnostische rapporten verwijderen met behulp van de **rapport verwijderen** knop.
+### <a name="select-a-performance-diagnostics-report"></a>Een rapport voor prestatie diagnostiek selecteren
 
-## <a name="how-to-uninstall-performance-diagnostics"></a>Het verwijderen van diagnostische gegevens over prestaties
-U kunt prestaties diagnostische gegevens verwijderen van een virtuele machine. Deze actie verwijdert u de VM-extensie, maar heeft geen invloed op een diagnostische gegevens die in de storage-account is. 
+U kunt de lijst met diagnostische rapporten gebruiken om alle diagnostische rapporten te vinden die zijn uitgevoerd. De lijst bevat details over de gebruikte analyse, inzichten die zijn gevonden en hun impact niveaus. Selecteer een rij om meer details weer te geven.
 
-![Schermafbeelding van de werkbalk prestaties diagnostische gegevens van blade met de knop verwijderen gemarkeerd](media/performance-diagnostics/uninstal-button.png)
+![Scherm opname van het selecteren van een diagnose rapport op de Blade diagnostische gegevens over prestaties](media/performance-diagnostics/select-report.png)
+
+### <a name="review-a-performance-diagnostics-report"></a>Een rapport over prestatie diagnostiek bekijken
+
+Elk rapport met diagnostische gegevens over prestaties kan verschillende inzichten bevatten en duiden op een impact niveau van hoog, gemiddeld of laag. Elk inzicht bevat ook aanbevelingen waarmee u het probleem kunt voor komen. Inzichten worden gegroepeerd op eenvoudige filters.
+
+Impact niveaus vertegenwoordigen het potentieel voor prestatie problemen, op basis van factoren zoals een onjuiste configuratie, bekende problemen of problemen die door andere gebruikers worden gerapporteerd. Mogelijk hebt u nog niet een of meer van de vermelde problemen ondervonden. U kunt bijvoorbeeld SQL-logboek bestanden en database bestanden op dezelfde gegevens schijf hebben. Deze voor waarde heeft een hoge mate van knel punten en andere prestatie problemen als het database gebruik hoog is, terwijl u mogelijk geen problemen ondervindt als het gebruik laag is.
+
+![Scherm afbeelding van rapport overzicht van prestatie controle](media/performance-diagnostics/performance-diagnostics-report-overview.png)
+
+### <a name="reviewing-performance-diagnostics-insights-and-recommendations"></a>Inzichten en aanbevelingen voor prestatie diagnostiek controleren
+
+U kunt een inzicht selecteren om meer informatie weer te geven over de betrokken resources, aanbevolen oplossingen en referentie koppelingen.
+
+![Scherm opname van Details over prestatie diagnose](media/performance-diagnostics/insight-detail.png)
+
+### <a name="download-and-review-the-full-performance-diagnostics-report"></a>Het rapport met volledige prestatie diagnostiek downloaden en bekijken
+
+U kunt de knop **rapport downloaden** gebruiken om een HTML-rapport met aanvullende informatie over uitgebreide diagnostische gegevens te downloaden, zoals opslag-en netwerk configuratie, prestatie meter items, traceringen, lijst met processen en Logboeken. De inhoud is afhankelijk van de geselecteerde analyse. Voor geavanceerde probleem oplossing kan het rapport aanvullende informatie en interactieve grafieken bevatten die gerelateerd zijn aan een hoog CPU-gebruik, een hoog schijf gebruik en processen die buitensporig veel geheugen gebruiken. Zie [Windows](how-to-use-perfinsights.md#review-the-diagnostics-report) of [Linux](how-to-use-perfinsights-linux.md#review-the-diagnostics-report)voor meer informatie over het rapport prestatie diagnostiek.
+
+## <a name="manage-performance-diagnostics-reports"></a>Rapporten met diagnostische gegevens over prestaties beheren
+
+U kunt een of meer rapporten met diagnostische gegevens over prestaties verwijderen met behulp van de knop **rapport verwijderen** .
+
+## <a name="how-to-uninstall-performance-diagnostics"></a>Prestatie diagnostiek verwijderen
+
+U kunt prestatie diagnostiek verwijderen van een virtuele machine. Met deze actie wordt de VM-extensie verwijderd, maar heeft dit geen invloed op de diagnostische gegevens in het opslag account.
+
+![Scherm afbeelding van de werk balk voor de Blade prestatie diagnostiek met de knop verwijderen gemarkeerd](media/performance-diagnostics/uninstal-button.png)
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-### <a name="where-is-the-diagnostics-data-from-my-vm-stored"></a>Waar is de diagnostische gegevens van mijn virtuele machine opgeslagen? 
-Alle inzichten van diagnostische gegevens en rapporten worden opgeslagen in uw eigen opslagaccount. Inzicht zijn in Azure-tabellen opgeslagen. Het gecomprimeerde bestand rapporten is opgeslagen in een binaire grote object (BLOB)-container met de naam azdiagextnresults.
+### <a name="where-is-the-diagnostics-data-from-my-vm-stored"></a>Waar worden de diagnostische gegevens van mijn virtuele machine opgeslagen
 
-U kunt de gegevens over het opslagaccount weergeven met behulp van de knop instellingen op de werkbalk. 
+Alle prestatie diagnostiek en rapporten worden opgeslagen in uw eigen opslag account. Inzichten worden opgeslagen in azure-tabellen. Het gecomprimeerde bestand met rapporten wordt opgeslagen in een BLOB-container (binary large object) met de naam azdiagextnresults.
 
-### <a name="how-do-i-share-this-data-with-microsoft-customer-support"></a>Hoe moet ik deze gegevens delen met de klantondersteuning van Microsoft? 
-Er zijn meerdere manieren om het rapport diagnostische gegevens delen met Microsoft.
+U kunt de gegevens van het opslag account weer geven met behulp van de knop instellingen op de werk balk.
 
-**Optie 1:** Automatisch de meest recente rapport delen  
-Wanneer u een ondersteuningsticket met Microsoft opent, is het belangrijk dat u het prestatierapport diagnostische gegevens delen. Als u ervoor hebt gekozen voor het delen van deze gegevens met Microsoft tijdens het uitvoeren van de diagnostische gegevens (door het selecteren van de '**ik ga akkoord met de diagnostische gegevens delen met Microsoft**"selectievakje), Microsoft mogelijk toegang tot het rapport van uw opslag een account met behulp van een SAS-koppeling naar het zip-bestand voor uitvoer voor 30 dagen na het uitvoeren. Alleen het laatste rapport is beschikbaar voor de ondersteuningstechnicus. 
+### <a name="how-do-i-share-this-data-with-microsoft-customer-support"></a>Hoe kan ik deze gegevens delen met de klanten ondersteuning van micro soft
 
-**Optie 2:** Een Shared Access Signature voor het diagnostische rapport gecomprimeerde bestand genereren  
-U kunt een koppeling naar het gecomprimeerde bestand rapporten delen met behulp van handtekeningen voor gedeelde toegang. Voer de volgende stappen uit om dit te doen: 
-1.  Blader naar het opslagaccount waarin de diagnostische gegevens worden opgeslagen in de Azure-portal.
-1.  Selecteer **Blobs** onder de **Blob-service** sectie. 
-1.  Selecteer de **azdiagextnresults** container.
-1.  Selecteer het prestaties diagnostische uitvoer gecomprimeerde bestand dat u wilt delen.
-1.  Op de **SAS genereren** tabblad, selecteert u de criteria voor het delen van. 
-1.  Klik op **blob SAS-token en URL genereren**.
-1.  Kopieer de **Blob SAS-URL**, en deze delen met de ondersteuningstechnicus. 
+Er zijn meerdere manieren om het diagnostische rapport te delen met micro soft.
 
-**Optie 3:** Het rapport downloaden van het storage-account
+**Optie 1:** Het meest recente rapport automatisch delen  
+Wanneer u een ondersteunings ticket met micro soft opent, is het belang rijk om het rapport over prestatie diagnostiek te delen. Als u ervoor hebt gekozen deze informatie met micro soft te delen terwijl u de diagnostische gegevens uitvoert (door het selectie vakje**Ik ga akkoord met diagnostische informatie delen met micro**Soft) in te scha kelen, heeft micro soft via een SAS-koppeling toegang tot het rapport vanuit uw opslag account naar het uitvoer zip-bestand tot 30 dagen vanaf de uitvoerings datum. Alleen het meest recente rapport is beschikbaar voor de ondersteunings technicus.
 
-U kunt ook de prestaties van diagnostische gegevens rapport gecomprimeerd bestand vinden met behulp van de stappen 1 tot 4 in optie 2. Selecteer om te downloaden van het bestand en vervolgens via e-mail of vraag de ondersteuningstechnicus voor instructies om het bestand te uploaden.  
+**Optie 2:** Een Shared Access Signature genereren voor het gecomprimeerde bestand van het diagnostische rapport  
+U kunt een koppeling naar het gecomprimeerde bestand in rapporten delen met behulp van hand tekeningen voor gedeelde toegang. Voer de volgende stappen uit om dit te doen:
 
-### <a name="how-do-i-capture-the-diagnostics-data-at-the-correct-time"></a>Hoe ik de diagnostische gegevens vastleggen op het juiste moment?
-Elke prestatiediagnoses uitvoeren bestaat uit twee fasen: 
-1.  Installeren of bijwerken van de prestaties van diagnostische gegevens over VM-extensie.
-1.  De diagnostische gegevens voor de opgegeven duur uitvoeren.
+1. Blader in het Azure Portal naar het opslag account waarin de diagnostische gegevens zijn opgeslagen.
+1. Selecteer **blobs** onder het gedeelte **BLOB service** .
+1. Selecteer de **azdiagextnresults** -container.
+1. Selecteer het gecomprimeerde uitvoer bestand voor prestatie diagnostiek dat u wilt delen.
+1. Op het tabblad **SAS genereren** selecteert u de criteria voor delen.
+1. Klik op **genereren BLOB SAS-token en URL**.
+1. Kopieer de **URL**van de BLOB-SAS en deel deze met de ondersteunings technicus.
 
-Er is momenteel geen eenvoudige manier om te weten precies zien wanneer de installatie van de VM-extensie voltooid is. Het duurt meestal ongeveer 45 seconden tot 1 minuut voor het installeren van de VM-extensie. Nadat de VM-extensie is geïnstalleerd, kunt u de stappen om te reproduceren als u wilt dat de prestaties van diagnostische gegevens vastleggen van de juiste set gegevens voor het oplossen van problemen kunt uitvoeren. 
+**Optie 3:** Het rapport downloaden van het opslag account
+
+U kunt ook het gecomprimeerde bestand voor diagnostische gegevens over prestaties vinden met behulp van stap 1 – 4 in optie 2. Selecteer om het bestand te downloaden en deel het vervolgens via e-mail of vraag de ondersteunings technicus om het bestand te uploaden.  
+
+### <a name="how-do-i-capture-the-diagnostics-data-at-the-correct-time"></a>Hoe kan ik de diagnostische gegevens op het juiste moment vastleggen
+
+Elke uitvoering van de prestatie diagnostiek heeft twee fasen:
+
+1. De VM-extensie voor diagnostische gegevens over prestaties installeren of bijwerken.
+1. Voer de diagnostische gegevens uit voor de opgegeven duur.
+
+Momenteel is er geen eenvoudige manier om precies te weten wanneer de installatie van de VM-extensie is voltooid. Over het algemeen duurt het ongeveer 45 seconden tot 1 minuut om de VM-extensie te installeren. Nadat de VM-extensie is geïnstalleerd, kunt u uw reproduceren-stappen uitvoeren om de diagnostische gegevens over de prestaties te laten vastleggen voor het oplossen van problemen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u de prestatie-inzichten voor diagnostische gegevens en het rapport, bekijken als u nog steeds niet kan de oorzaak van het probleem en meer hulp nodig hebt, kunt u een ondersteuningsticket openen met de klantondersteuning van Microsoft. 
 
-Als u hulp nodig hebt op elk gewenst moment in dit artikel, u kunt contact opnemen met de Azure-experts op het [forums voor Azure MSDN en Stack Overflow](https://azure.microsoft.com/support/forums/). U kunt ook een Azure-ondersteuning-incident indienen. Ga naar de [ondersteuning van Azure site](https://azure.microsoft.com/support/options/), en selecteer **ondersteuning krijgen**. Voor meer informatie over het gebruik van Azure-ondersteuning, de [Veelgestelde vragen over Microsoft Azure-ondersteuning](https://azure.microsoft.com/support/faq/).
+Als u de diagnostische gegevens en het rapport over prestaties hebt gecontroleerd en u de oorzaak van het probleem nog steeds niet kunt vaststellen en meer hulp nodig hebt, kunt u een ondersteunings ticket openen met klant ondersteuning van micro soft.
+
+Als u hulp nodig hebt op elk gewenst moment in dit artikel, u kunt contact opnemen met de Azure-experts op het [forums voor Azure MSDN en Stack Overflow](https://azure.microsoft.com/support/forums/). U kunt ook een Azure-ondersteuning-incident indienen. Ga naar de [ondersteunings site van Azure](https://azure.microsoft.com/support/options/)en selecteer **ondersteuning verkrijgen**. Lees de [Veelgestelde vragen over ondersteuning voor Microsoft Azure](https://azure.microsoft.com/support/faq/)voor meer informatie over het gebruik van Azure-ondersteuning.

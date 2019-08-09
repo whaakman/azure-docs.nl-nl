@@ -1,6 +1,6 @@
 ---
-title: Over het werken met de Node.js-back-end Server SDK voor Mobile Apps | Microsoft Docs
-description: Informatie over het werken met de Node.js-back-end Server SDK voor Azure App Service Mobile Apps.
+title: Werken met de node. js back-end-server-SDK voor Mobile Apps | Microsoft Docs
+description: Meer informatie over het werken met de node. js back-end-server-SDK voor Azure App Service Mobile Apps.
 services: app-service\mobile
 documentationcenter: ''
 author: elamalani
@@ -14,61 +14,61 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6eaaeba8a36bcba8134d605889185fb8827dd05c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128097"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851195"
 ---
-# <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Het gebruik van de Mobile Apps Node.js-SDK
+# <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>De Mobile Apps node. js-SDK gebruiken
 
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
-In dit artikel bevat gedetailleerde informatie en voorbeelden die laten zien hoe u werkt met een Node.js-back-end in de functie Mobile Apps van Azure App Service.
+Dit artikel bevat gedetailleerde informatie en voor beelden die laten zien hoe u kunt werken met een node. js-back-end in de Mobile Apps-functie van Azure App Service.
 
 ## <a name="Introduction"></a>Inleiding
 
-Mobile Apps biedt de mogelijkheid een geoptimaliseerd voor mobiel toegang tot Web-API toevoegen aan een web-App. De Mobile Apps SDK wordt geboden voor ASP.NET- en Node.js-webtoepassingen. De SDK biedt de volgende bewerkingen:
+Mobile Apps biedt de mogelijkheid om een mobiel geoptimaliseerde Web-API voor gegevens toegang toe te voegen aan een webtoepassing. De Mobile Apps SDK wordt meegeleverd voor ASP.NET en node. js-webtoepassingen. De SDK biedt de volgende bewerkingen:
 
-* Tabelbewerkingen (lezen, invoegen, bijwerken en verwijderen) voor toegang tot gegevens
+* Tabel bewerkingen (lezen, invoegen, bijwerken, verwijderen) voor toegang tot gegevens
 * Aangepaste API-bewerkingen
 
-Beide bewerkingen opgeven voor verificatie voor alle id-providers waarmee Azure App Service. Deze providers zijn sociale id-providers, zoals Facebook, Twitter, Google en Microsoft, evenals Azure Active Directory voor de id van de onderneming.
+Beide bewerkingen bieden verificatie voor alle id-providers die Azure App Service toestaan. Deze providers bevatten sociale id-providers zoals Facebook, Twitter, Google en micro soft, maar ook Azure Active Directory voor bedrijfs identiteit.
 
-U kunt ook voorbeelden vinden voor elk use-case in het [map van de voorbeelden op GitHub].
+Voor elk use-case vindt u voor beelden in de [lijst met voor beelden op GitHub].
 
 ## <a name="supported-platforms"></a>Ondersteunde platforms
 
-De Mobile Apps Node.js SDK biedt ondersteuning voor de huidige LTS-release van knooppunt en hoger. Op dit moment is de meest recente versie van de LTS knooppunt v4.5.0. Andere versies van knooppunt werken mogelijk, maar worden niet ondersteund.
+De Mobile Apps node. js SDK ondersteunt de huidige LTS-versie van het knoop punt en later. Momenteel is de meest recente versie van LTS knoop punt v 4.5.0. Andere versies van het knoop punt werken mogelijk wel, maar worden niet ondersteund.
 
-De Mobile Apps Node.js SDK ondersteunt twee stuurprogramma's voor database: 
+De Mobile Apps node. js SDK ondersteunt twee database Stuur Programma's: 
 
-* Het knooppunt mssql-stuurprogramma biedt ondersteuning voor Azure SQL Database en de lokale SQL Server-exemplaren.  
-* Het stuurprogramma sqlite3 ondersteunt SQLite-databases op slechts één exemplaar.
+* Het knoop punt-MSSQL-stuur programma ondersteunt Azure SQL Database en lokale SQL Server-exemplaren.  
+* Het sqlite3-stuur programma ondersteunt alleen SQLite-data bases in één exemplaar.
 
-### <a name="howto-cmdline-basicapp"></a>Een eenvoudige back-end voor Node.js maken met behulp van de opdrachtregel
+### <a name="howto-cmdline-basicapp"></a>Een Basic node. js-back-end maken via de opdracht regel
 
-Elke back-end van Mobile Apps Node.js wordt gestart als een toepassing ExpressJS. ExpressJS is het meest populaire web service-framework beschikbaar voor Node.js. U kunt een eenvoudige maken [Express] toepassing als volgt te werk:
+Elke Mobile Apps node. js-back-end wordt gestart als een ExpressJS-toepassing. ExpressJS is het meest populaire Web Service-Framework dat beschikbaar is voor node. js. U kunt als volgt een eenvoudige [Express] -toepassing maken:
 
-1. Maak een map voor uw project in een opdracht of het PowerShell-venster:
+1. Maak in een opdracht-of Power shell-venster een map voor uw project:
 
         mkdir basicapp
 
-1. Voer `npm init` initialiseren van de pakketstructuur:
+1. Voer `npm init` uit om de pakket structuur te initialiseren:
 
         cd basicapp
         npm init
 
-   De `npm init` opdracht vraagt een reeks vragen om te initialiseren van het project. Zie het voorbeeld van uitvoer:
+   De `npm init` opdracht vraagt een set vragen om het project te initialiseren. Bekijk het voor beeld van de uitvoer:
 
-   ![De uitvoer van de init npm][0]
+   ![De NPM init-uitvoer][0]
 
-1. Installeer de `express` en `azure-mobile-apps` bibliotheken van de npm-opslagplaats:
+1. Installeer de `express` en `azure-mobile-apps` -bibliotheken vanuit de NPM-opslag plaats:
 
         npm install --save express azure-mobile-apps
 
-1. Maak een app.js-bestand voor het implementeren van de eenvoudige mobiele-server:
+1. Maak een app. js-bestand om de mobiele basis server te implementeren:
 
     ```javascript
     var express = require('express'),
@@ -87,42 +87,42 @@ Elke back-end van Mobile Apps Node.js wordt gestart als een toepassing ExpressJS
     app.listen(process.env.PORT || 3000);
     ```
 
-Deze toepassing maakt een Web-API voor geoptimaliseerd voor mobiel met één eindpunt (`/tables/TodoItem`) dat niet-geverifieerde toegang biedt tot een onderliggende SQL-gegevensopslag met behulp van een dynamisch schema. Het is geschikt voor het volgen van de client-bibliotheek snelstartgidsen:
+Met deze toepassing wordt een mobiel geoptimaliseerde Web-API gemaakt met één`/tables/TodoItem`eind punt () dat niet-geverifieerde toegang biedt tot een onderliggend SQL-gegevens archief met behulp van een dynamisch schema. Het is geschikt voor het volgen van de Snelstartgids voor de client bibliotheek:
 
-* [Snelstartgids voor android-client]
+* [Quick start voor Android-client]
 * [Snelstartgids voor Apache Cordova-client]
-* [iOS Client Quick Start]
-* [Snelstartgids voor Windows Store-client]
+* [Quick start voor iOS-client]
+* [Quick start voor Windows Store-client]
 * [Xamarin.iOS client quickstart]
 * [Xamarin.Android client quickstart]
 * [Xamarin.Forms client quickstart]
 
-U vindt de code voor deze eenvoudige toepassing in de [basicapp voorbeeld op GitHub].
+U kunt de code voor deze basis toepassing vinden in het [basicapp-voor beeld op github].
 
-### <a name="howto-vs2015-basicapp"></a>Een Node.js-back-end maken met behulp van Visual Studio 2015
+### <a name="howto-vs2015-basicapp"></a>Een node. js-back-end maken met behulp van Visual Studio 2015
 
-Visual Studio 2015 is vereist voor het ontwikkelen van Node.js-toepassingen vanuit de IDE. Als u wilt starten, installeert de [Node.js-hulpprogramma's 1.1 voor Visual Studio]. Wanneer u klaar bent met de installatie, moet u een snelle 4.x-toepassing maken:
+Voor Visual Studio 2015 is een uitbrei ding vereist voor het ontwikkelen van node. js-toepassingen in de IDE. Installeer de [node. js-Hulpprogram ma's 1,1 voor Visual Studio]om te starten. Wanneer u klaar bent met de installatie, maakt u een Express 4. x-toepassing:
 
-1. Open de **nieuw Project** in het dialoogvenster (van **bestand** > **nieuw** > **Project**).
-1. Vouw **sjablonen** > **JavaScript** > **Node.js**.
-1. Selecteer **Basic Azure Node.js Express 4-toepassing**.
-1. Vul de projectnaam in. Selecteer **OK**.
+1. Open het dialoog venster **Nieuw project** (uit het **bestand** > **Nieuw** > **project**).
+1. Vouw **sjablonen** > **Java script** > **node. js**uit.
+1. Selecteer **Basic Azure node. js Express 4-toepassing**.
+1. Vul de project naam in. Selecteer **OK**.
 
-   ![Nieuw project voor Visual Studio 2015][1]
-1. Met de rechtermuisknop op de **npm** knooppunt en selecteert u **nieuwe installatie van npm-pakketten**.
-1. Mogelijk moet u de catalogus npm vernieuwen nadat u uw eerste Node.js-toepassing maken. Selecteer **vernieuwen** indien nodig.
-1. Voer **azure-mobile-apps** in het zoekvak in. Selecteer de **azure mobile apps 2.0.0** verpakt en selecteer vervolgens **pakket installeren**.
+   ![Visual Studio 2015 nieuw project][1]
+1. Klik met de rechter muisknop op het knoop punt **NPM** en selecteer **nieuwe NPM-pakketten installeren**.
+1. Mogelijk moet u de NPM-catalogus vernieuwen nadat u uw eerste node. js-toepassing hebt gemaakt. Selecteer **vernieuwen** als dat nodig is.
+1. Voer **Azure-Mobile-apps** in het zoekvak in. Selecteer het **Azure-Mobile-apps 2.0.0** -pakket en selecteer vervolgens **pakket installeren**.
 
-   ![Nieuwe npm-pakketten installeren][2]
+   ![Nieuwe NPM-pakketten installeren][2]
 1. Selecteer **Sluiten**.
-1. Open het bestand app.js om toe te voegen ondersteuning voor de Mobile Apps SDK. Op regel 6 at onder aan de bibliotheek `require` overzichten, voeg de volgende code:
+1. Open het bestand app. js om ondersteuning toe te voegen voor de Mobile Apps SDK. Voeg op regel 6 onder aan de instructies van `require` de bibliotheek de volgende code toe:
 
     ```javascript
     var bodyParser = require('body-parser');
     var azureMobileApps = require('azure-mobile-apps');
     ```
 
-    27 op ongeveer regel na de andere `app.use` overzichten, voeg de volgende code:
+    Voeg op ongeveer regel 27 na de `app.use` andere-instructies de volgende code toe:
 
     ```javascript
     app.use('/users', users);
@@ -135,78 +135,78 @@ Visual Studio 2015 is vereist voor het ontwikkelen van Node.js-toepassingen vanu
 
     Sla het bestand op.
 
-1. Ofwel de toepassing lokaal uitvoeren (de API wordt geleverd op `http://localhost:3000`) publiceren naar Azure.
+1. Voer de toepassing lokaal uit (de API wordt geleverd `http://localhost:3000`) of publiceer naar Azure.
 
-### <a name="create-node-backend-portal"></a>Een Node.js-back-end maken met behulp van de Azure-portal
+### <a name="create-node-backend-portal"></a>Een node. js-back-end maken met behulp van de Azure Portal
 
-Kunt u een mobiele back-end Apps rechtstreeks in de [Azure Portal]. U kunt de volgende stappen uit of een client en server samen te maken door de volgende de [maken van een mobiele app](app-service-mobile-ios-get-started.md) zelfstudie. De zelfstudie bevat een vereenvoudigde versie van deze instructies en wordt aanbevolen voor proof-of-concept-projecten.
+U kunt een Mobile Apps back-end direct maken in de [Azure-portal]. U kunt de volgende stappen uitvoeren of een client en server samen maken door de zelf studie [een mobiele app maken](app-service-mobile-ios-get-started.md) te volgen. De zelf studie bevat een vereenvoudigde versie van deze instructies en is het meest geschikt voor testen van concept projecten.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
-Terug in de **aan de slag** deelvenster onder **maken van een tabel-API**, kiest u **Node.js** als de taal voor uw back-end.
-Selecteer het selectievakje in voor **ik erken dat hiermee alle site-inhoud wordt overschreven**, en selecteer vervolgens **takentabel maken**.
+Klik in het deel venster **aan de slag** onder **Create a Table API**op **node. js** als uw back-end-taal.
+Schakel het selectie vakje in om te **bevestigen dat hiermee alle site-inhoud wordt overschreven**en selecteer vervolgens **TodoItem-tabel maken**.
 
-### <a name="download-quickstart"></a>Het CodeProject van de Node.js-back-end-snelstartgids downloaden met behulp van Git
+### <a name="download-quickstart"></a>De Quick Start-code van het node. js-project downloaden met behulp van Git
 
-Wanneer u een back-end voor Node.js mobiele Apps maakt met behulp van de portal **Quick start** in het deelvenster een Node.js-project is voor u gemaakt en geïmplementeerd op uw site. U kunt in de portal, tabellen en API's toevoegen en bewerken van codebestanden voor de Node.js-back-end. U kunt ook verschillende-hulpprogramma's gebruiken voor het downloaden van het back-end-project, zodat u kunt toevoegen of wijzigen van tabellen en API's en vervolgens het project opnieuw te publiceren. Zie voor meer informatie de [Azure App Service-Implementatiehandleiding].
+Wanneer u een node. js-Mobile Apps back-end maakt met behulp van het deel venster **Quick Start** van de portal, wordt er een node. js-project voor u gemaakt en geïmplementeerd op uw site. In de portal kunt u tabellen en Api's toevoegen en code bestanden bewerken voor de back-end van node. js. U kunt ook verschillende implementatie hulpprogramma's gebruiken om het back-end-project te downloaden, zodat u tabellen en Api's kunt toevoegen of wijzigen, en vervolgens het project opnieuw publiceert. Zie [Implementatie handleiding Azure App Service]) voor meer informatie.
 
-De volgende procedure maakt gebruik van een Git-opslagplaats voor het downloaden van de snelstartcode project:
+In de volgende procedure wordt een Git-opslag plaats gebruikt voor het downloaden van de project code Quick Start:
 
-1. Installeer Git, als u dat nog niet hebt gedaan. De stappen die nodig zijn om Git te installeren variëren tussen besturingssystemen. Zie voor specifieke besturingssysteem-distributies en installatie [installeren van Git](https://git-scm.com/book/en/Getting-Started-Installing-Git).
-2. Zie [voorbereiden van uw opslagplaats](../app-service/deploy-local-git.md#prepare-your-repository) om in te schakelen van de Git-opslagplaats voor uw back-end-site. Maak een notitie van de implementatie-gebruikersnaam en wachtwoord.
-3. In het deelvenster voor uw Mobile Apps-back-end, maak een notitie van de **Git-kloon-URL** instelling.
-4. Voer de `git clone` met behulp van de Git-kloon-URL. Voer uw wachtwoord indien nodig, zoals in het volgende voorbeeld:
+1. Installeer Git als u dit nog niet hebt gedaan. De stappen die nodig zijn voor het installeren van Git, zijn afhankelijk van de besturings systemen. Zie [git installeren](https://git-scm.com/book/en/Getting-Started-Installing-Git)voor informatie over specifieke distributies en installatie richtlijnen voor besturings systemen.
+2. Zie [uw opslag plaats voorbereiden](../app-service/deploy-local-git.md#prepare-your-repository) om de Git-opslag plaats voor uw back-end-site in te scha kelen. Noteer de gebruikers naam en het wacht woord voor de implementatie.
+3. In het deel venster voor uw Mobile Apps back-end noteert u de instelling voor de **Git-kloon-URL** .
+4. Voer de `git clone` opdracht uit met behulp van de Git-kloon-URL. Voer uw wacht woord in als dat vereist is, zoals in het volgende voor beeld:
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
 
-5. Blader naar de lokale map (`/todolist` in het voorgaande voorbeeld), en u ziet dat project-bestanden zijn gedownload. Ga naar het bestand todoitem.json in de `/tables` directory. Dit bestand definieert machtigingen voor de tabel. Ook vindt u het bestand todoitem.js in dezelfde map. Hiermee definieert u de scripts CRUD bewerking voor de tabel.
-6. Nadat u wijzigingen in de project-bestanden aanbrengt, voer de volgende opdrachten om toe te voegen, doorvoeren en de wijzigingen vervolgens uploaden naar de site:
+5. Blader naar de lokale map (`/todolist` in het vorige voor beeld) en u ziet dat er project bestanden zijn gedownload. Zoek het bestand todoitem. json in de `/tables` map. In dit bestand worden de machtigingen voor de tabel gedefinieerd. Zoek ook het bestand todoitem. js in dezelfde map. Het definieert de scripts voor ruwe bewerkingen voor de tabel.
+6. Nadat u wijzigingen hebt aangebracht in Project bestanden, voert u de volgende opdrachten uit om de wijzigingen toe te voegen, door te voeren en vervolgens te uploaden naar de site:
 
         $ git commit -m "updated the table script"
         $ git push origin master
 
-   Wanneer u nieuwe bestanden aan het project toevoegt, moet u eerst om uit te voeren de `git add .` opdracht.
+   Wanneer u nieuwe bestanden aan het project toevoegt, moet u eerst de `git add .` opdracht uitvoeren.
 
-De site wordt gepubliceerd telkens wanneer een nieuwe set doorvoeracties naar de site wordt gepusht.
+De site wordt opnieuw gepubliceerd wanneer een nieuwe verzameling door Voer wordt gepusht naar de site.
 
-### <a name="howto-publish-to-azure"></a>Uw Node.js-back-end publiceren naar Azure
+### <a name="howto-publish-to-azure"></a>Uw node. js-back-end naar Azure publiceren
 
-Microsoft Azure biedt veel mechanismen voor het publiceren van uw Mobile Apps Node.js-back-end voor de Azure-service. Implementatiehulpprogramma's geïntegreerd in Visual Studio, opdrachtregelprogramma's en continue implementatie-opties op basis van het besturingselement van deze mechanismen zijn. Zie voor meer informatie de [Azure App Service-Implementatiehandleiding].
+Microsoft Azure biedt veel mechanismen voor het publiceren van uw Mobile Apps node. js-back-end naar de Azure-service. Deze mechanismen omvatten implementatie hulpprogramma's die zijn geïntegreerd in Visual Studio, opdracht regel Programma's en continue implementatie opties op basis van broncode beheer. Zie [Implementatie handleiding Azure App Service]) voor meer informatie.
 
-Azure App Service heeft specifiek advies voor Node.js-toepassingen die u moet doorlezen voordat u de back-end publiceren:
+Azure App Service heeft specifiek advies voor node. js-toepassingen die u moet controleren voordat u de back-end publiceert:
 
-* Hoe u [Geef de versie van het knooppunt]
-* Hoe u [Node-modules gebruiken]
+* [De knooppunt versie opgeven]
+* [Knooppunt modules gebruiken]
 
-### <a name="howto-enable-homepage"></a>Een startpagina voor uw toepassing inschakelen
+### <a name="howto-enable-homepage"></a>Een start pagina voor uw toepassing inschakelen
 
-Veel toepassingen zijn een combinatie van web- en mobiele apps. Het framework ExpressJS kunt u de twee facetten combineren. Soms, maar mogelijk wilt u alleen een mobiele-interface te implementeren. Het is handig voor een startpagina om ervoor te zorgen dat de appservice ingeschakeld is en wordt uitgevoerd. U kunt uw eigen startpagina bieden of inschakelen van de startpagina van een tijdelijke. Als u wilt inschakelen op de startpagina van een tijdelijke, gebruik de volgende code exemplaar maken van Mobile Apps:
+Veel toepassingen zijn een combi natie van web-en mobiele apps. U kunt het ExpressJS-Framework gebruiken om de twee facetten te combi neren. Soms wilt u echter alleen een mobiele interface implementeren. Het is handig om een start pagina op te geven om ervoor te zorgen dat de app service actief is. U kunt uw eigen start pagina opgeven of een tijdelijke start pagina inschakelen. Als u een tijdelijke start pagina wilt inschakelen, gebruikt u de volgende code om Mobile Apps te instantiëren:
 
 ```javascript
 var mobile = azureMobileApps({ homePage: true });
 ```
 
-Als u wilt dat alleen deze optie beschikbaar bij het lokaal ontwikkelen, kunt u deze instelling toevoegen aan uw azureMobile.js-bestand.
+Als u deze optie alleen beschikbaar wilt hebben bij het ontwikkelen van lokale bestanden, kunt u deze instelling toevoegen aan uw mobiele. js-bestand.
 
-## <a name="TableOperations"></a>Tabelbewerkingen
+## <a name="TableOperations"></a>Tabel bewerkingen
 
-De azure-mobile-apps Node.js Server SDK biedt mechanismen als gegevenstabellen worden opgeslagen in Azure SQL Database als een Web-API beschikbaar wilt maken. Het biedt vijf bewerkingen:
+De Azure-Mobile-apps node. js-Server-SDK biedt mechanismen voor het beschikbaar maken van gegevens tabellen die zijn opgeslagen in Azure SQL Database als een web-API. Het biedt vijf bewerkingen:
 
 | Bewerking | Description |
 | --- | --- |
-| GET-/tables/*tablename* |Haal alle records in de tabel. |
-| GET-/tables/*tablename*/:id |Een specifieke record ophalen in de tabel. |
-| POST /tables/*tablename* |Een record maken in de tabel. |
-| PATCH /tables/*tablename*/:id |Een record in de tabel niet bijwerken. |
-| VERWIJDEREN /tables/*tablename*/:id |Een record in de tabel verwijderen. |
+| /Tables/-*tabel naam* ophalen |Alle records in de tabel ophalen. |
+| /Tables/-*TableName*/:-id ophalen |Een specifieke record in de tabel ophalen. |
+| /Tables/-*tabel naam* |Maak een record in de tabel. |
+| PATCH/Tables/*TableName*/: id |Een record in de tabel bijwerken. |
+| De/Tables//:-id verwijderen |Een record in de tabel verwijderen. |
 
-Deze Web-API ondersteunt [OData] en breidt u het tabelschema ter ondersteuning van [offline gegevenssynchronisatie].
+Deze web-API ondersteunt [OData] en breidt het tabel schema uit ter ondersteuning van [offline gegevens synchronisatie].
 
-### <a name="howto-dynamicschema"></a>Tabellen met behulp van een dynamisch schema definiëren
+### <a name="howto-dynamicschema"></a>Tabellen definiëren met behulp van een dynamisch schema
 
-Voordat u een tabel gebruiken kunt, moet u deze definiëren. U kunt tabellen definiëren met behulp van een statisch schema (waar u definieert de kolommen in het schema) of dynamisch (wanneer de SDK Hiermee bepaalt u het schema op basis van binnenkomende aanvragen). Bovendien kunt u specifieke aspecten van de Web-API beheren door JavaScript-code toe te voegen aan de definitie.
+Voordat u een tabel kunt gebruiken, moet u deze definiëren. U kunt tabellen definiëren met behulp van een statisch schema (waarin u de kolommen in het schema definieert) of dynamisch (waarbij de SDK het schema beheert op basis van binnenkomende aanvragen). Daarnaast kunt u specifieke aspecten van de Web-API beheren door Java script-code toe te voegen aan de definitie.
 
-Als een best practice, moet u elke tabel definiëren in een JavaScript-bestand in de `tables` directory en gebruik vervolgens de `tables.import()` methode om de tabellen te importeren. Het voorbeeld van de basic-app is uitgebreid, zou u het app.js-bestand aanpassen:
+Als best practice moet u elke tabel definiëren in een Java script-bestand in de `tables` map en vervolgens de `tables.import()` -methode gebruiken om de tabellen te importeren. Als u het voor beeld van een eenvoudige app uitbreidt, moet u het bestand app. js aanpassen:
 
 ```javascript
 var express = require('express'),
@@ -228,7 +228,7 @@ mobile.tables.initialize().then(function () {
 });
 ```
 
-In de tabel in definiëren. / tables/TodoItem.js:
+Definieer de tabel in./tables/TodoItem.js:
 
 ```javascript
 var azureMobileApps = require('azure-mobile-apps');
@@ -240,14 +240,14 @@ var table = azureMobileApps.table();
 module.exports = table;
 ```
 
-Tabellen maken standaard gebruik van een dynamisch schema. Als u wilt uitschakelen het dynamische schema wereldwijd, stel de `MS_DynamicSchema` app-instelling op false in Azure portal.
+Tabellen gebruiken standaard een dynamisch schema. Als u het dynamische schema globaal wilt uitschakelen, stelt `MS_DynamicSchema` u de app-instelling in op ONWAAR in het Azure Portal.
 
-U vindt een compleet voorbeeld in de [todo-voorbeeld op GitHub].
+U kunt een volledig voor beeld vinden in het TODO-voor beeld [voor beeld van TODO op GitHub].
 
-### <a name="howto-staticschema"></a>Tabellen met behulp van een statisch schema definiëren
+### <a name="howto-staticschema"></a>Tabellen definiëren met behulp van een statisch schema
 
-U kunt expliciet aangeven welke kolommen om beschikbaar te stellen via de Web-API. De Node.js-SDK van azure-mobile-apps worden automatisch toegevoegd voor elke extra kolommen die vereist zijn voor de offline gegevenssynchronisatie aan de lijst die u opgeeft. Bijvoorbeeld een tabel met twee kolommen vereisen dat in de Quick Start-clienttoepassingen: `text` (een tekenreeks) en `complete` (een Booleaanse waarde).  
-De tabel kan worden gedefinieerd in de tabel de definitie van JavaScript-bestand (zich in de `tables` directory) als volgt:
+U kunt de kolommen die beschikbaar zijn via de Web-API, expliciet definiëren. De Azure-Mobile-apps node. js SDK voegt automatisch extra kolommen toe die vereist zijn voor het offline synchroniseren van gegevens naar de lijst die u opgeeft. Voor de Quick Start-client toepassingen is bijvoorbeeld een tabel met twee kolommen `text` vereist: (een teken `complete` reeks) en (een Booleaanse waarde).  
+De tabel kan als volgt worden gedefinieerd in het Java script-bestand van de `tables` tabel definitie (dat zich in de map bevindt):
 
 ```javascript
 var azureMobileApps = require('azure-mobile-apps');
@@ -266,85 +266,85 @@ table.dynamicSchema = false;
 module.exports = table;
 ```
 
-Als u tabellen statisch definieert, moet u ook aanroepen de `tables.initialize()` methode voor het maken van het databaseschema bij het opstarten. De `tables.initialize()` methode retourneert een [Promise] zodat de webservice geen aanvragen dienen voordat de database is geïnitialiseerd.
+Als u de tabellen statisch definieert, moet u ook de `tables.initialize()` methode aanroepen om het database schema te maken bij het opstarten. De `tables.initialize()` methode retourneert een [Toezeg] zodat de webservice geen aanvragen bedient voordat de data base wordt geïnitialiseerd.
 
-### <a name="howto-sqlexpress-setup"></a>SQL Server Express gebruiken als een gegevensarchief ontwikkeling op uw lokale computer
+### <a name="howto-sqlexpress-setup"></a>SQL Server Express als een gegevens Archief voor ontwikkeling gebruiken op uw lokale computer
 
-De Mobile Apps Node.js SDK biedt drie opties voor die gegevens buiten het vak:
+De Mobile Apps node. js SDK biedt drie opties voor het uitvoeren van gegevens uit het vak:
 
-* Gebruik de **geheugen** -stuurprogramma voor een voorbeeld van de niet-permanente opslag.
-* Gebruik de **mssql** stuurprogramma voor een SQL Server Express-gegevensarchief voor ontwikkeling.
-* Gebruik de **mssql** stuurprogramma voor een Azure SQL Database-gegevensarchief voor productie.
+* Gebruik het stuur programma voor het **geheugen** om een niet-persistent voor beeld van een archief op te geven.
+* Gebruik het **MSSQL** -stuur programma om een SQL Server Express gegevens archief op te geven voor ontwikkeling.
+* Gebruik het **MSSQL** -stuur programma om een Azure SQL database gegevens archief op te geven voor productie.
 
-De Mobile Apps Node.js-SDK gebruikt de [mssql Node.js-pakket] voor het maken van een verbinding met SQL Server Express en SQL-Database gebruiken. Dit pakket is vereist dat u TCP-verbindingen op uw exemplaar van SQL Server Express inschakelen.
+De Mobile Apps node. js SDK gebruikt het [MSSQL node. js-pakket] om een verbinding met zowel SQL Server Express als SQL database te maken en te gebruiken. Voor dit pakket moet u TCP-verbindingen inschakelen op uw SQL Server Express-exemplaar.
 
 > [!TIP]
-> Het stuurprogramma geheugen biedt geen een volledige set faciliteiten voor het testen. Als u uw back-end lokaal testen wilt, raden wij het gebruik van een SQL Server Express-gegevensarchief en de mssql-stuurprogramma.
+> Het stuur programma voor het geheugen biedt geen volledige set voorzieningen om te testen. Als u uw back-end lokaal wilt testen, is het raadzaam om een SQL Server Express gegevens archief en het MSSQL-stuur programma te gebruiken.
 
-1. Download en installeer [Microsoft SQL Server 2014 Express]. Zorg ervoor dat u de SQL Server Express 2014 met hulpprogramma's-editie installeert. Tenzij u expliciet 64-bits-ondersteuning nodig hebt, neemt de 32-bits versie minder geheugen bij het uitvoeren van.
+1. Down load en Installeer [Microsoft SQL Server 2014 Express]. Zorg ervoor dat u de editie SQL Server 2014 Express met Hulpprogram Ma's installeert. Tenzij u ondersteuning voor 64 bits expliciet vereist, verbruikt de 32-bits versie minder geheugen wanneer u uitvoert.
 1. Voer SQL Server 2014 Configuration Manager:
 
-   a. Vouw de **SQL Server-netwerkconfiguratie** knooppunt in het menu van de structuur.
+   a. Vouw het knoop punt **SQL Server netwerk configuratie** uit in het structuur menu.
 
    b. Selecteer **protocollen voor SQLEXPRESS**.
 
-   c. Met de rechtermuisknop op **TCP/IP** en selecteer **inschakelen**. Selecteer **OK** in het pop-updialoogvenster.
+   c. Klik met de rechter muisknop op **TCP/IP** en selecteer **inschakelen**. Selecteer **OK** in het pop-upvenster.
 
-   d. Met de rechtermuisknop op **TCP/IP** en selecteer **eigenschappen**.
+   d. Klik met de rechter muisknop op **TCP/IP** en selecteer **Eigenschappen**.
 
-   e. Selecteer de **IP-adressen** tabblad.
+   e. Selecteer het tabblad **IP-adressen** .
 
-   f. Zoek de **IPAll** knooppunt. In de **TCP-poort** veld **1433**.
+   f. Zoek het knoop punt **IPAll** . Voer **1433**in het veld **TCP-poort** in.
 
       ![SQL Server Express configureren voor TCP/IP][3]
 
-   g. Selecteer **OK**. Selecteer **OK** in het pop-updialoogvenster.
+   g. Selecteer **OK**. Selecteer **OK** in het pop-upvenster.
 
-   h. Selecteer **SQL Server Services** in het menu van de structuur.
+   h. Selecteer **SQL Server services** in het structuur menu.
 
-   i. Met de rechtermuisknop op **SQL Server (SQLEXPRESS)** en selecteer **opnieuw**.
+   i. Klik met de rechter muisknop op **SQL Server (SQLEXPRESS)** en selecteer **opnieuw starten**.
 
    j. Sluit SQL Server 2014 Configuration Manager.
 
-1. Voer SQL Server 2014 Management Studio en maak verbinding met uw lokale exemplaar van SQL Server Express:
+1. Voer SQL Server 2014 Management Studio uit en maak verbinding met uw lokale SQL Server Express-exemplaar:
 
-   1. Met de rechtermuisknop op het exemplaar in Object Explorer en selecteer **eigenschappen**.
-   1. Selecteer de **Security** pagina.
-   1. Zorg ervoor dat **modus van SQL Server en Windows-verificatie** is geselecteerd.
+   1. Klik met de rechter muisknop op uw exemplaar in Objectverkenner en selecteer **Eigenschappen**.
+   1. Selecteer de pagina **beveiliging** .
+   1. Zorg ervoor dat **SQL Server en Windows-verificatie modus** is geselecteerd.
    1. Selecteer **OK**.
 
       ![SQL Server Express-verificatie configureren][4]
-   1. Vouw **Security** > **aanmeldingen** in Object Explorer.
-   1. Met de rechtermuisknop op **aanmeldingen** en selecteer **nieuwe aanmelding**.
-   1. Voer een aanmeldingsnaam. Selecteer **SQL Server-verificatie**. Geef een wachtwoord op en voer vervolgens het wachtwoord in **wachtwoord bevestigen**. Het wachtwoord moet voldoen aan complexiteitsvereisten van Windows.
+   1. Vouw **beveiligings** > aanmeldingen uit in objectverkenner.
+   1. Klik met de rechter muisknop op aanmeldingen en selecteer **nieuwe aanmelding**.
+   1. Voer een aanmeldings naam in. Selecteer **SQL Server-verificatie**. Voer een wacht woord in en geef hetzelfde wacht woord op bij **wacht woord bevestigen**. Het wacht woord moet voldoen aan de complexiteits vereisten van Windows.
    1. Selecteer **OK**.
 
       ![Een nieuwe gebruiker toevoegen aan SQL Server Express][5]
-   1. Met de rechtermuisknop op uw nieuwe aanmelding en selecteer **eigenschappen**.
-   1. Selecteer de **serverfuncties** pagina.
-   1. Schakel het selectievakje in voor de **dbcreator** serverfunctie.
+   1. Klik met de rechter muisknop op uw nieuwe aanmelding en selecteer **Eigenschappen**.
+   1. Selecteer de pagina **Server functies** .
+   1. Schakel het selectie vakje in voor de server functie **dbcreator** .
    1. Selecteer **OK**.
    1. Sluit SQL Server 2015 Management Studio.
 
-Zorg ervoor dat de gebruikersnaam en wachtwoord die u hebt geselecteerd. U moet mogelijk extra server-rollen of machtigingen, afhankelijk van uw vereisten voor de database toewijst.
+Zorg ervoor dat u de gebruikers naam en het wacht woord noteert die u hebt geselecteerd. U moet mogelijk extra server functies of machtigingen toewijzen, afhankelijk van uw database vereisten.
 
-De Node.js-toepassing leest de `SQLCONNSTR_MS_TableConnectionString` omgevingsvariabele voor de verbindingsreeks voor deze database. U kunt deze variabele instellen in uw omgeving. Bijvoorbeeld, kunt u PowerShell gebruiken om in te stellen deze omgevingsvariabele:
+De node. js-toepassing leest `SQLCONNSTR_MS_TableConnectionString` de omgevings variabele voor de Connection String voor deze data base. U kunt deze variabele instellen in uw omgeving. U kunt bijvoorbeeld Power shell gebruiken om deze omgevings variabele in te stellen:
 
     $env:SQLCONNSTR_MS_TableConnectionString = "Server=127.0.0.1; Database=mytestdatabase; User Id=azuremobile; Password=T3stPa55word;"
 
-Toegang tot de database via een TCP/IP-verbinding. Geef een gebruikersnaam en wachtwoord voor de verbinding.
+Toegang tot de data base via een TCP/IP-verbinding. Geef een gebruikers naam en wacht woord op voor de verbinding.
 
-### <a name="howto-config-localdev"></a>Configureren van uw project voor lokale ontwikkeling
+### <a name="howto-config-localdev"></a>Uw project configureren voor lokale ontwikkeling
 
-Mobile Apps leest een JavaScript-bestand met de naam *azureMobile.js* van het lokale bestandssysteem. Gebruik dit bestand niet naar de Mobile Apps SDK configureren in de productieomgeving. In plaats daarvan gebruik **App-instellingen** in de [Azure Portal].
+Mobile Apps leest een Java script-bestand met de naam *mobiele. js* van het lokale bestands systeem. Gebruik dit bestand niet voor het configureren van de Mobile Apps SDK in productie. Gebruik in plaats daarvan **app-instellingen** in de [Azure-portal].
 
-Het bestand azureMobile.js moet een configuratieobject exporteren. De meest voorkomende instellingen zijn:
+Het mobiele. js-bestand moet een configuratie object exporteren. De meest voorkomende instellingen zijn:
 
 * Database-instellingen
-* Instellingen voor diagnostische logboekregistratie
+* Instellingen voor diagnostische logboek registratie
 * Alternatieve CORS-instellingen
 
-In dit voorbeeld **azureMobile.js** bestand implementeert de voorgaande database-instellingen:
+In dit voor beeld **mobiele. js** -bestand worden de voor gaande data base-instellingen geïmplementeerd:
 
 ```javascript
 module.exports = {
@@ -364,88 +364,88 @@ module.exports = {
 };
 ```
 
-We raden u aan **azureMobile.js** aan uw **.gitignore** bestand (of andere broncodebeheer bestand negeren) om te voorkomen dat wachtwoorden worden opgeslagen in de cloud. Configureer altijd dat instellingen voor productie in **App-instellingen** binnen de [Azure Portal].
+We raden u aan om **mobiele. js** toe te voegen aan uw **. gitignore** -bestand (of een ander broncode beheer bestand) om te voor komen dat wacht woorden worden opgeslagen in de Cloud. Configureer instellingen voor de productie altijd in de **app-instellingen** binnen de [Azure-portal].
 
 ### <a name="howto-appsettings"></a>App-instellingen voor uw mobiele app configureren
 
-De meeste instellingen in het bestand azureMobile.js hebben een gelijkwaardige app-instelling in de [Azure Portal]. Gebruik de volgende lijst om te configureren in uw app **App-instellingen**:
+De meeste instellingen in het bestand mobiele. js hebben een equivalente app-instelling in de [Azure-portal]. Gebruik de volgende lijst om uw app te configureren in de **app-instellingen**:
 
-| App-instelling | azureMobile.js instelling | Description | Geldige waarden |
+| App-instelling | de instelling mobiele. js | Description | Geldige waarden |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |name |Naam van de app |string |
-| **MS_MobileLoggingLevel** |logging.level |Minimaal logboekniveau van berichten aan te melden |fout, waarschuwing, informatie, uitgebreid, foutopsporing, stom |
-| **MS_DebugMode** |fouten opsporen |Hiermee schakelt de foutopsporingsmodus in of |waar of ONWAAR |
-| **MS_TableSchema** |data.schema |De schemanaam standaard voor SQL-tabellen |tekenreeks (standaard: dbo) |
-| **MS_DynamicSchema** |data.dynamicSchema |Hiermee schakelt de foutopsporingsmodus in of |waar of ONWAAR |
-| **MS_DisableVersionHeader** |versie (ingesteld op niet-gedefinieerde) |Schakelt de header X-ZUMO-Server-versie |waar of ONWAAR |
-| **MS_SkipVersionCheck** |skipversioncheck |Hiermee schakelt de controle van de client-API-versie |waar of ONWAAR |
+| **MS_MobileAppName** |name |De naam van de app |string |
+| **MS_MobileLoggingLevel** |Logging. level |Mini maal logboek niveau van te registreren berichten |fout, waarschuwing, info, uitgebreid, fouten opsporen, Silly |
+| **MS_DebugMode** |fouten opsporen |Hiermee wordt de foutopsporingsmodus in-of uitgeschakeld |true, false |
+| **MS_TableSchema** |data.schema |Standaard schema naam voor SQL-tabellen |teken reeks (standaard: dbo) |
+| **MS_DynamicSchema** |data.dynamicSchema |Hiermee wordt de foutopsporingsmodus in-of uitgeschakeld |true, false |
+| **MS_DisableVersionHeader** |versie (ingesteld op niet gedefinieerd) |Hiermee wordt de X-ZUMO-Server-versie-header uitgeschakeld |true, false |
+| **MS_SkipVersionCheck** |skipversioncheck |Hiermee schakelt u de client API-versie controle uit |true, false |
 
-Instellen van een app-instelling:
+Een app-instelling instellen:
 
-1. Meld u aan bij [Azure Portal].
-1. Selecteer **alle resources** of **App Services**, en selecteer vervolgens de naam van uw mobiele app.
-1. De **instellingen** deelvenster wordt standaard geopend. Als dit niet zo is, selecteert u **instellingen**.
-1. Op de **algemene** in het menu **toepassingsinstellingen**.
-1. Schuif naar de **App-instellingen** sectie.
+1. Meld u aan bij [Azure-portal].
+1. Selecteer **alle resources** of **app Services**en selecteer vervolgens de naam van uw mobiele app.
+1. Het deel venster **instellingen** wordt standaard geopend. Als dat niet het geval is, selecteert u **instellingen**.
+1. Selecteer **Toepassings instellingen**in het menu **Algemeen** .
+1. Ga naar de sectie **app-instellingen** .
 1. Als uw app-instelling al bestaat, selecteert u de waarde van de app-instelling om de waarde te bewerken.
-   Als uw app-instelling niet bestaat, voert u de app-instelling in de **sleutel** vak en de waarde in de **waarde** vak.
+   Als uw app-instelling niet bestaat, voert u de app-instelling in het vak **sleutel** en de waarde in het vak **waarde** in.
 1. Selecteer **Opslaan**.
 
-Als u de meeste appinstellingen wijzigt, moet service opnieuw worden opgestart.
+Voor het wijzigen van de meeste app-instellingen moet de service opnieuw worden gestart.
 
-### <a name="howto-use-sqlazure"></a>SQL Database gebruiken als uw productiegegevens opslaan
+### <a name="howto-use-sqlazure"></a>SQL Database gebruiken als uw productie gegevens archief
 
 <!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
-Met behulp van Azure SQL Database als een gegevensarchief is vrijwel identiek voor alle typen voor Azure App Service-toepassing. Als u niet hebt gedaan al, volgt u deze stappen voor het maken van een back-end van Mobile Apps:
+Het gebruik van Azure SQL Database als een gegevens archief is identiek voor alle Azure App Service toepassings typen. Als u dit nog niet hebt gedaan, volgt u deze stappen om een Mobile Apps back-end te maken:
 
-1. Meld u aan bij [Azure Portal].
-1. Selecteer in de linkerbovenhoek van het venster de **+ nieuw** knop > **Web en mobiel** > **mobiele App**, en geef vervolgens een naam voor uw Mobile Apps-back-end.
-1. In de **resourcegroep** voert u dezelfde naam als uw app.
-1. De standaardwaarde van App Service-plan is geselecteerd. Als u wijzigen van uw App Service-plan wilt:
+1. Meld u aan bij [Azure-portal].
+1. Selecteer in de linkerbovenhoek van het venster de knop **+ Nieuw** > **Web en mobiel** > **mobiele app**en geef een naam op voor uw Mobile apps back-end.
+1. Voer in het vak **resource groep** dezelfde naam in als uw app.
+1. Het standaard App Service plan wordt geselecteerd. Als u uw App Service plan wilt wijzigen:
 
-   a. Selecteer **App Service-Plan** >  **+ nieuwe maken**.
+   a. Selecteer **app service plan** >  **+ nieuwe maken**.
 
-   b. Geef een naam op van de nieuwe App Service-plan en selecteer de juiste locatie.
+   b. Geef een naam op voor het nieuwe App Service plan en selecteer een geschikte locatie.
 
-   c. Selecteer een juiste prijscategorie voor de service. Selecteer **weergeven van alle** naar de weergave meer prijsopties, zoals **gratis** en **gedeelde**.
+   c. Selecteer een geschikte prijs categorie voor de service. Selecteer **alles weer geven** om meer prijs opties weer te geven, zoals **gratis** en **gedeeld**.
 
-   d. Klik op de **Selecteer** knop.
+   d. Klik op de knop **selecteren** .
 
-   e. Klik in de **App Service-plan** venster **OK**.
+   e. Selecteer **OK**in het deel venster **app service plan** .
 1. Selecteer **Maken**.
 
-Inrichting van een mobiele Apps kan-back-end enkele minuten duren. Nadat de Mobile Apps back-end is ingericht, de portal wordt geopend de **instellingen** deelvenster voor de back-end voor mobiele Apps.
+Het inrichten van een Mobile Apps back-end kan een paar minuten duren. Nadat de Mobile Apps back-end is ingericht, opent de portal het deel venster **instellingen** voor de Mobile apps back-end.
 
-U kunt een bestaande SQL-database verbinden met uw back-end van Mobile Apps of maak een nieuwe SQL-database. In deze sectie maken we een SQL-database.
+U kunt ervoor kiezen om een bestaand SQL database te koppelen aan uw Mobile Apps back-end of een nieuwe SQL database te maken. In deze sectie maken we een SQL database.
 
 > [!NOTE]
-> Als u al een database op dezelfde locatie hebt als de Mobile Apps-back-end, kunt u in plaats daarvan selecteren **gebruik een bestaande database** en selecteer vervolgens die database. Het gebruik van een database in een andere locatie wordt niet aanbevolen vanwege de hogere latentie.
+> Als u al een Data Base op dezelfde locatie hebt als de Mobile Apps back-end, kunt u in plaats daarvan **een bestaande Data Base gebruiken** selecteren en vervolgens die data base selecteren. Het gebruik van een Data Base op een andere locatie wordt niet aanbevolen vanwege hogere latenties.
 
-1. Selecteer in het nieuwe Mobile Apps back-end, **instellingen** > **mobiele App** > **gegevens** >  **+ toevoegen**.
-1. In de **gegevensverbinding toevoegen** venster **SQL Database - vereiste instellingen configureren** > **een nieuwe database maken**. Voer de naam van de nieuwe database in de **naam** vak.
-1. Selecteer **Server**. In de **nieuwe server** deelvenster, voer een unieke naam in de **servernaam** in en geef een geschikte server beheerdersaanmelding bij en het wachtwoord. Zorg ervoor dat **azure-services tot server toestaan** is geselecteerd. Selecteer **OK**.
+1. Selecteer in de nieuwe Mobile apps back-end **instellingen** > **mobiele app** > -**gegevens** >  **+ toevoegen**.
+1. Selecteer in het deel venster **gegevens verbinding toevoegen** de optie **SQL database-vereiste instellingen** > configureren**een nieuwe data base maken**. Voer de naam van de nieuwe data base in het vak **naam** in.
+1. Selecteer **Server**. Voer in het deel venster **nieuwe server** een unieke server naam in het vak **Server naam** in en geef een geschikte aanmeldings-en wacht woord voor de server beheerder op. Zorg ervoor dat **Azure-Services toegang tot de server toestaan** is geselecteerd. Selecteer **OK**.
 
    ![Een Azure SQL-database maken][6]
-1. In de **nieuwe database** venster **OK**.
-1. Klik in de **gegevensverbinding toevoegen** venster **Connection string**, en voer de aanmeldingsnaam en het wachtwoord die u hebt opgegeven tijdens het maken van de database. Als u een bestaande database gebruikt, bieden u de aanmeldingsreferenties voor die database. Selecteer **OK**.
-1. Klik in de **gegevensverbinding toevoegen** deelvenster opnieuw uit, selecteer **OK** om de database te maken.
+1. Selecteer **OK**in het deel venster **nieuwe data base** .
+1. In het deel venster **gegevens verbinding toevoegen** selecteert u **verbindings reeks**en voert u de aanmeldings naam en het wacht woord in die u hebt opgegeven tijdens het maken van de data base. Als u een bestaande data base gebruikt, moet u de aanmeldings referenties voor die data base opgeven. Selecteer **OK**.
+1. Selecteer in het deel venster **gegevens verbinding toevoegen** de optie **OK** om de data base te maken.
 
 <!--- END OF ALTERNATE INCLUDE -->
 
-Het maken van de database kan enkele minuten duren. Gebruik de **meldingen** gebied voor het bewaken van de voortgang van de implementatie. Geen voortgang totdat de database is geïmplementeerd. Nadat de database is geïmplementeerd, wordt een verbindingsreeks voor de SQL Database-exemplaar in de instellingen van uw Mobile Apps-back-end-app gemaakt. U kunt zien dat deze app-instelling in **instellingen** > **toepassingsinstellingen** > **verbindingsreeksen**.
+Het maken van de data base kan enkele minuten duren. Gebruik het gebied **meldingen** om de voortgang van de implementatie te bewaken. Pas de voortgang aan als de data base is geïmplementeerd. Nadat de data base is geïmplementeerd, wordt er een connection string gemaakt voor het SQL Database exemplaar in uw Mobile Apps back-end-app-instellingen. U kunt deze app-instelling zien in **instellingen** > **Toepassings instellingen** > **verbindings reeksen**.
 
 ### <a name="howto-tables-auth"></a>Verificatie vereisen voor toegang tot tabellen
 
-Als u wilt gebruiken van App Service-verificatie met de `tables` eindpunt, moet u App Service-verificatie in configureren de [Azure Portal] eerste. Zie voor meer informatie de configuratiehandleiding voor de id-provider die u wilt gebruiken:
+Als u app service verificatie met het `tables` eind punt wilt gebruiken, moet u eerst app service-verificatie in de [Azure-portal] configureren. Zie de configuratie handleiding voor de ID-provider die u wilt gebruiken voor meer informatie:
 
 * [Azure Active Directory-verificatie configureren]
-* [Facebook-authenticatie configureren]
+* [Facebook-verificatie configureren]
 * [Google-verificatie configureren]
-* [Microsoft-verificatie configureren]
+* [Micro soft-verificatie configureren]
 * [Twitter-verificatie configureren]
 
-Elke tabel heeft een access-eigenschap die u gebruiken kunt voor het beheren van toegang tot de tabel. Het volgende voorbeeld ziet u een statisch gedefinieerde tabel met de verificatie is vereist.
+Elke tabel heeft een eigenschap Access die u kunt gebruiken om de toegang tot de tabel te beheren. Het volgende voor beeld toont een statisch gedefinieerde tabel waarvoor verificatie is vereist.
 
 ```javascript
 var azureMobileApps = require('azure-mobile-apps');
@@ -467,18 +467,18 @@ table.access = 'authenticated';
 module.exports = table;
 ```
 
-De eigenschap access kan duren voordat een van drie waarden:
+De eigenschap Access kan een van de drie volgende waarden hebben:
 
-* *anonieme* geeft aan dat de clienttoepassing voor lezen van gegevens zonder verificatie is toegestaan.
-* *geverifieerde* geeft aan dat de clienttoepassing een geldig verificatietoken met de aanvraag moet verzenden.
-* *uitgeschakeld* geeft aan dat deze tabel is momenteel uitgeschakeld.
+* *Anonymous* geeft aan dat de client toepassing gegevens mag lezen zonder authenticatie.
+* *geverifieerd* geeft aan dat de client toepassing een geldig verificatie token moet verzenden met de aanvraag.
+* *uitgeschakeld* geeft aan dat deze tabel momenteel is uitgeschakeld.
 
-Als de eigenschap access gedefinieerd is, is niet-geverifieerde toegang toegestaan.
+Als de eigenschap Access niet is gedefinieerd, is niet-geverifieerde toegang toegestaan.
 
-### <a name="howto-tables-getidentity"></a>Gebruik verificatie claims met tabellen
-U kunt instellen wanneer er verschillende claims die worden aangevraagd als verificatie is ingesteld. Deze claims zijn niet normaal beschikbaar via de `context.user` object. Echter, u kunt ze wel ophalen met behulp van de `context.user.getIdentity()` methode. De `getIdentity()` methode retourneert een promise die wordt omgezet naar een object. Het object is opgegeven met de methode voor netwerkauthenticatie (`facebook`, `google`, `twitter`, `microsoftaccount`, of `aad`).
+### <a name="howto-tables-getidentity"></a>Verificatie claims gebruiken met uw tabellen
+U kunt verschillende claims instellen die worden aangevraagd wanneer authenticatie is ingesteld. Deze claims zijn normaal gesp roken niet beschikbaar `context.user` via het object. U kunt ze echter wel ophalen met behulp `context.user.getIdentity()` van de-methode. De `getIdentity()` methode retourneert een Promise die wordt omgezet in een object. Het object wordt gesleuteld op basis van`facebook`de `google`verificatie `twitter`methode `microsoftaccount`(, `aad`,, of).
 
-Als u de verificatie van de Microsoft-account en de e-mailadressen claim aanvraag hebt ingesteld, kunt u bijvoorbeeld het e-mailadres toevoegen aan de record met de volgende tabel controller:
+Als u bijvoorbeeld Microsoft-account-verificatie hebt ingesteld en de claim voor de e-mail adressen hebt aangevraagd, kunt u het e-mail adres toevoegen aan de record met de volgende tabel controller:
 
 ```javascript
 var azureMobileApps = require('azure-mobile-apps');
@@ -535,18 +535,18 @@ table.delete(queryContextForEmail);
 module.exports = table;
 ```
 
-Als u wilt zien welke claims beschikbaar zijn, kunt u een webbrowser gebruiken om weer te geven de `/.auth/me` eindpunt van uw site.
+Als u wilt zien welke claims er beschikbaar zijn, gebruikt u een webbrowser `/.auth/me` om het eind punt van uw site weer te geven.
 
-### <a name="howto-tables-disabled"></a>De toegang tot specifieke tabelbewerkingen uitschakelen
+### <a name="howto-tables-disabled"></a>Toegang tot specifieke tabel bewerkingen uitschakelen
 
-Naast het op de tabel wordt weergegeven, kan de eigenschap access worden gebruikt voor het beheren van afzonderlijke bewerkingen. Er zijn vier bewerkingen:
+Naast de tabel kan de eigenschap Access worden gebruikt voor het beheren van afzonderlijke bewerkingen. Er zijn vier bewerkingen:
 
-* `read` de RESTful-GET-bewerking op de tabel is.
-* `insert` de RESTful POST-bewerking op de tabel is.
-* `update` de RESTful-PATCH-bewerking op de tabel is.
-* `delete` de bewerking RESTful verwijderen op de tabel is.
+* `read`is de REST GET-bewerking voor de tabel.
+* `insert`is de REST POST-bewerking voor de tabel.
+* `update`is de bewerking van de REST-PATCH voor de tabel.
+* `delete`is de REST VERWIJDERings bewerking voor de tabel.
 
-U wilt bijvoorbeeld een alleen-lezen niet-geverifieerde tabel bieden:
+U kunt bijvoorbeeld een niet-geverifieerde alleen-lezen tabel opgeven:
 
 ```javascript
 var azureMobileApps = require('azure-mobile-apps');
@@ -562,9 +562,9 @@ table.delete.access = 'disabled';
 module.exports = table;
 ```
 
-### <a name="howto-tables-query"></a>De query die wordt gebruikt voor tabelbewerkingen aanpassen
+### <a name="howto-tables-query"></a>De query die wordt gebruikt met tabel bewerkingen, aanpassen
 
-Een algemene vereiste voor tabelbewerkingen wordt een beperkte weergave van de gegevens. U kunt bijvoorbeeld opgeven dat een tabel die is gecodeerd met de geverifieerde gebruikers-ID, zodat u kunt alleen lezen of uw eigen records bij te werken. De definitie van de volgende tabel biedt deze functionaliteit:
+Een veelvoorkomende vereiste voor tabel bewerkingen is het bieden van een beperkte weer gave van de gegevens. U kunt bijvoorbeeld een tabel opgeven die is gelabeld met de geverifieerde gebruikers-ID, zodat u alleen uw eigen records kunt lezen of bijwerken. De volgende tabel definitie biedt deze functionaliteit:
 
 ```javascript
 var azureMobileApps = require('azure-mobile-apps');
@@ -597,15 +597,15 @@ table.insert(function (context) {
 module.exports = table;
 ```
 
-Bewerkingen die normaal gesproken een query worden uitgevoerd, hebben de eigenschap van een query die u aanpassen met behulp van kunt een `where` component. De eigenschap van de query is een [QueryJS] object dat wordt gebruikt voor het converteren van een OData-query naar iets dat de gegevens back-end kan worden verwerkt. Voor eenvoudige gelijkheid gevallen (zoals de voorgaande afbeelding), kunt u een kaart. U kunt ook specifieke SQL-clausules toevoegen:
+Bewerkingen waarbij een query normaal gesp roken wordt uitgevoerd, hebben een query-eigenschap die u `where` kunt aanpassen met behulp van een-component. De eigenschap query is een [QueryJS] -object dat wordt gebruikt om een OData-query te converteren naar iets dat de back-end van de gegevens kan verwerken. Voor eenvoudige gelijkheids cases (zoals de voor gaande) kunt u een kaart gebruiken. U kunt ook specifieke SQL-componenten toevoegen:
 
 ```javascript
 context.query.where('myfield eq ?', 'value');
 ```
 
-### <a name="howto-tables-softdelete"></a>Een voorlopige verwijdering configureren op een tabel
+### <a name="howto-tables-softdelete"></a>Een tijdelijke verwijdering voor een tabel configureren
 
-Een functie voor voorlopig verwijderen worden de records niet daadwerkelijk verwijderd. In plaats daarvan markeren het als verwijderd in de database door de verwijderde kolom instellen op true. De Mobile Apps SDK verwijdert automatisch voorlopig verwijderde records uit de resultaten, tenzij de mobiele Client-SDK gebruikt `IncludeDeleted()`. Voor het configureren van een tabel voor een functie voor voorlopig verwijderen, stelt de `softDelete` eigenschap in het definitiebestand van de tabel:
+Bij een tijdelijke verwijdering worden records niet echt verwijderd. In plaats daarvan worden deze gemarkeerd als verwijderd in de data base door de kolom verwijderd in te stellen op True. De Mobile Apps SDK verwijdert automatisch verwijderde records uit de resultaten, tenzij de mobiele client-SDK `IncludeDeleted()`gebruikt. Als u een tabel voor een zacht verwijderen wilt configureren, `softDelete` stelt u de eigenschap in het definitie bestand van de tabel in:
 
 ```javascript
 var azureMobileApps = require('azure-mobile-apps');
@@ -630,11 +630,11 @@ table.access = 'authenticated';
 module.exports = table;
 ```
 
-U moet een mechanisme voor het verwijderen van records instellen: een clienttoepassing, een webtaak, een Azure-functie of een aangepaste API.
+U moet een mechanisme voor het verwijderen van records instellen: een client toepassing, een Webtaak, een Azure-functie of een aangepaste API.
 
-### <a name="howto-tables-seeding"></a>Seeden van uw database met gegevens
+### <a name="howto-tables-seeding"></a>Uw data base seeden met gegevens
 
-Wanneer u een nieuwe toepassing maakt, wilt u mogelijk seed-een tabel met gegevens. U kunt dit doen in de tabel de definitie van JavaScript-bestand als volgt:
+Wanneer u een nieuwe toepassing maakt, wilt u mogelijk een tabel met gegevens seeden. U kunt dit als volgt doen in het Java script-bestand van de tabel definitie:
 
 ```javascript
 var azureMobileApps = require('azure-mobile-apps');
@@ -660,38 +660,38 @@ table.access = 'authenticated';
 module.exports = table;
 ```
 
-Seeding van de gegevens gebeurt alleen als u de Mobile Apps SDK hebt gebruikt om de tabel te maken. Als de tabel al in de database bestaat, wordt er geen gegevens opgenomen in de tabel. Als het dynamische schema is ingeschakeld, wordt het schema is afgeleid van de geseede gegevens.
+Seeding van gegevens gebeurt alleen wanneer u de Mobile Apps SDK hebt gebruikt om de tabel te maken. Als de tabel al in de data base bestaat, worden er geen gegevens in de tabel geïnjecteerd. Als het dynamische schema is ingeschakeld, wordt het schema afgeleid van de seeded data.
 
-Het is raadzaam dat u expliciet aanroepen de `tables.initialize()` methode voor het maken van de tabel wanneer de service wordt uitgevoerd.
+U wordt aangeraden de `tables.initialize()` methode voor het maken van de tabel expliciet aan te roepen wanneer de service wordt gestart.
 
-### <a name="Swagger"></a>Ondersteuning voor Swagger inschakelen
-Mobile Apps wordt geleverd met ingebouwde [Swagger] ondersteunen. Swagger als ondersteuning wilt inschakelen, moet u eerst swagger-ui installeren als een afhankelijkheid:
+### <a name="Swagger"></a>Swagger-ondersteuning inschakelen
+Mobile Apps wordt geleverd met ingebouwde [Swagger] -ondersteuning. Als u Swagger-ondersteuning wilt inschakelen, installeert u eerst Swagger-UI als afhankelijkheid:
 
     npm install --save swagger-ui
 
-Vervolgens kunt u Swagger-ondersteuning in de constructor van Mobile Apps inschakelen:
+U kunt vervolgens Swagger-ondersteuning inschakelen in de Mobile Apps-constructor:
 
 ```javascript
 var mobile = azureMobileApps({ swagger: true });
 ```
 
-U waarschijnlijk slechts wilt inschakelen Swagger-ondersteuning in de ontwikkeling-edities. U kunt dit doen met behulp van de `NODE_ENV` app-instelling:
+Waarschijnlijk wilt u de ondersteuning voor Swagger alleen inschakelen in de ontwikkelings edities. U kunt dit doen met behulp `NODE_ENV` van de app-instelling:
 
 ```javascript
 var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 ```
 
-De `swagger` eindpunt bevindt zich op http://*uw site*.azurewebsites.net/swagger. U hebt toegang tot de Swagger-gebruikersinterface via de `/swagger/ui` eindpunt. Als u ervoor verificatie vereist is voor de gehele toepassing kiest, Swagger, treedt een fout. Kies voor optimale resultaten, om toe te staan van niet-geverifieerde aanvragen in de Azure App Service-verificatie/autorisatie-instellingen en vervolgens verificatie beheren met behulp van de `table.access` eigenschap.
+Het `swagger` eind punt bevindt zich op http://*yoursite*. azurewebsites.net/Swagger. U kunt de Swagger-gebruikers interface openen `/swagger/ui` via het eind punt. Als u ervoor kiest om verificatie voor uw hele toepassing te vereisen, geeft Swagger een fout op. Voor de beste resultaten kunt u ervoor kiezen om niet-geverifieerde aanvragen toe te staan in de Azure app service verificatie/autorisatie-instellingen `table.access` en vervolgens de verificatie te beheren met behulp van de eigenschap.
 
-U kunt ook de Swagger-optie toe aan het bestand azureMobile.js toevoegen als u wilt dat alleen ondersteuning voor Swagger voor het lokaal ontwikkelen.
+U kunt ook de Swagger-optie toevoegen aan uw mobiele. js-bestand als u alleen Swagger-ondersteuning wilt voor het ontwikkelen van lokale bestanden.
 
-## <a name="a-namepushpush-notifications"></a><a name="push"/>Pushmeldingen verzenden
+## <a name="a-namepushpush-notifications"></a><a name="push"/>Push meldingen
 
-Mobile Apps kan worden geïntegreerd met Azure Notification Hubs, zodat u gerichte pushmeldingen naar miljoenen apparaten voor alle grote platformen verzenden kunt. U kunt met behulp van Notification Hubs, pushmeldingen verzenden naar iOS, Android en Windows apparaten. Zie voor meer informatie over alles wat u kunt doen met Notification Hubs, de [Notification Hubs-overzicht](../notification-hubs/notification-hubs-push-notification-overview.md).
+Mobile Apps integreert met Azure Notification Hubs zodat u gerichte push meldingen kunt verzenden naar miljoenen apparaten op alle grote platforms. U kunt met behulp van Notification Hubs push meldingen verzenden naar iOS-, Android-en Windows-apparaten. Zie [Notification hubs Overview](../notification-hubs/notification-hubs-push-notification-overview.md)voor meer informatie over alles wat u met Notification hubs kunt doen.
 
-### <a name="send-push"></a>Pushmeldingen verzenden
+### <a name="send-push"></a>Push meldingen verzenden
 
-De volgende code ziet u hoe u de `push` -object voor verzending van een pushmelding op ingeschreven iOS-apparaten:
+De volgende code laat zien hoe u met `push` behulp van het object een broadcast push melding naar geregistreerde IOS-apparaten verzendt:
 
 ```javascript
 // Create an APNS payload.
@@ -708,7 +708,7 @@ if (context.push) {
 }
 ```
 
-Als u een sjabloon voor push-registratie van de client maakt, kunt u in plaats daarvan een sjabloon voor push-bericht verzenden naar apparaten op alle ondersteunde platforms. De volgende code laat zien hoe een sjabloon-melding te verzenden:
+Als u een sjabloon push registratie maakt van de client, kunt u in plaats daarvan een sjabloon push bericht verzenden naar apparaten op alle ondersteunde platforms. De volgende code laat zien hoe u een sjabloon melding verzendt:
 
 ```javascript
 // Define the template payload.
@@ -725,8 +725,8 @@ if (context.push) {
 }
 ```
 
-### <a name="push-user"></a>Pushmeldingen verzenden naar een geverifieerde gebruiker met behulp van tags
-Wanneer een geverifieerde gebruiker geregistreerd voor pushmeldingen, wordt automatisch een label-ID toegevoegd aan de registratie. Met behulp van deze tag kunt u pushmeldingen verzenden naar alle apparaten die zijn geregistreerd door een specifieke gebruiker. De volgende code wordt de SID van gebruiker door wie de aanvraag wordt uitgevoerd en verzendt een pushmelding sjabloon naar elke device Registration service voor die gebruiker:
+### <a name="push-user"></a>Push meldingen naar een geverifieerde gebruiker verzenden met behulp van Tags
+Wanneer een geverifieerde gebruiker zich aanmeldt voor push meldingen, wordt er automatisch een label voor de gebruikers-ID toegevoegd aan de registratie. Met deze tag kunt u push meldingen verzenden naar alle apparaten die zijn geregistreerd door een specifieke gebruiker. Met de volgende code wordt de SID van de gebruiker die de aanvraag doet, opgehaald en wordt een sjabloon push melding verzonden naar elke apparaatregistratie voor die gebruiker:
 
 ```javascript
 // Only do the push if configured.
@@ -740,29 +740,29 @@ if (context.push) {
 }
 ```
 
-Wanneer u bent geregistreerd voor pushmeldingen vanuit een geverifieerde client, zorg ervoor dat de verificatie is voltooid voordat u inschrijving.
+Wanneer u registreert voor push meldingen van een geverifieerde client, moet u ervoor zorgen dat de verificatie is voltooid voordat u een registratie uitvoert.
 
-## <a name="CustomAPI"></a> Aangepaste API 's
+## <a name="CustomAPI"></a>Aangepaste Api's
 
 ### <a name="howto-customapi-basic"></a>Een aangepaste API definiëren
 
-Naast de Data Access-API via de `/tables` eindpunt, Mobile Apps krijgt u een aangepaste API-dekking. Aangepaste API's in dezelfde manier als de tabeldefinities worden gedefinieerd en hebben toegang tot dezelfde faciliteiten, met inbegrip van verificatie.
+Naast de API voor gegevens toegang via het `/tables` eind punt, kan Mobile apps aangepaste API-dekking bieden. Aangepaste Api's worden op een vergelijk bare manier gedefinieerd als de tabel definities en hebben toegang tot dezelfde faciliteiten, inclusief verificatie.
 
-Als u gebruiken van App Service-verificatie met een aangepaste API wilt, moet u App Service-verificatie in configureren de [Azure Portal] eerste. Zie voor meer informatie de configuratiehandleiding voor de id-provider die u wilt gebruiken:
+Als u App Service verificatie met een aangepaste API wilt gebruiken, moet u eerst App Service-verificatie in de [Azure-portal] configureren. Zie de configuratie handleiding voor de ID-provider die u wilt gebruiken voor meer informatie:
 
 * [Azure Active Directory-verificatie configureren]
-* [Facebook-authenticatie configureren]
+* [Facebook-verificatie configureren]
 * [Google-verificatie configureren]
-* [Microsoft-verificatie configureren]
+* [Micro soft-verificatie configureren]
 * [Twitter-verificatie configureren]
 
-Aangepaste API's zijn gedefinieerd op ongeveer dezelfde manier als de tabel-API:
+Aangepaste Api's worden op ongeveer dezelfde manier gedefinieerd als de Table-API:
 
-1. Maak een `api` directory.
-1. Maken van een API-definitie JavaScript-bestand in de `api` directory.
-1. Gebruik van de importeermethode voor het importeren van de `api` directory.
+1. Maak een `api` map.
+1. Maak een Java script-bestand in de `api` API-definitie in de map.
+1. Gebruik de import methode om de `api` map te importeren.
 
-Hier volgt een prototype van de API-definitie op basis van de steekproef van de basic-app die we eerder hebben gebruikt:
+Hier volgt de prototype-API-definitie op basis van het voor beeld van de Basic-app die we eerder hebben gebruikt:
 
 ```javascript
 var express = require('express'),
@@ -781,7 +781,7 @@ app.use(mobile);
 app.listen(process.env.PORT || 3000);
 ```
 
-We nemen een voorbeeld-API die de datum van de server met behulp van retourneert de `Date.now()` methode. Dit is het bestand api/date.js:
+Laten we een voor beeld van een API die de server datum retourneert met `Date.now()` behulp van de-methode. Dit is het API/date. js-bestand:
 
 ```javascript
 var api = {
@@ -794,11 +794,11 @@ var api = {
 module.exports = api;
 ```
 
-Elke parameter is een van de standaard RESTful termen: OPHALEN, POST, PATCH of te verwijderen. De methode is een standaard [ExpressJS middleware] functie waarmee de vereiste uitvoer wordt verzonden.
+Elke para meter is een van de standaard REST woorden: GET, POST, PATCH of DELETE. De methode is een standaard [ExpressJS-middleware] -functie die de vereiste uitvoer verzendt.
 
 ### <a name="howto-customapi-auth"></a>Verificatie vereisen voor toegang tot een aangepaste API
 
-De Mobile Apps SDK verificatie implementeert op dezelfde manier voor zowel de `tables` eindpunt en aangepaste API's. Verificatie toevoegen aan de API die is ontwikkeld in de vorige sectie, Voeg een `access` eigenschap:
+De Mobile apps SDK implementeert verificatie op dezelfde manier voor zowel het `tables` eind punt als aangepaste api's. Als u verificatie wilt toevoegen aan de API die in de vorige sectie is `access` ontwikkeld, voegt u een eigenschap toe:
 
 ```javascript
 var api = {
@@ -813,7 +813,7 @@ api.access = 'authenticated';
 module.exports = api;
 ```
 
-U kunt ook verificatie op specifieke bewerkingen opgeven:
+U kunt ook verificatie voor specifieke bewerkingen opgeven:
 
 ```javascript
 var api = {
@@ -828,11 +828,11 @@ api.get.access = 'authenticated';
 module.exports = api;
 ```
 
-Het dezelfde token die wordt gebruikt voor de `tables` eindpunt moet worden gebruikt voor aangepaste API's waarvoor verificatie vereist is.
+Het token dat wordt gebruikt voor het `tables` eind punt moet worden gebruikt voor aangepaste api's waarvoor authenticatie is vereist.
 
-### <a name="howto-customapi-auth"></a>Het uploaden van grote bestanden verwerken
+### <a name="howto-customapi-auth"></a>Uploads van grote bestanden verwerken
 
-De Mobile Apps SDK gebruikt de [body-parser middleware](https://github.com/expressjs/body-parser) om te accepteren en decoderen van de van de hoofdtekstinhoud in uw inzending. U kunt vooraf configureren body-parser voor het accepteren van grotere bestand wordt geüpload:
+De Mobile Apps SDK gebruikt de [gemiddlewarede Body-parser](https://github.com/expressjs/body-parser) om hoofd inhoud in uw inzending te accepteren en te decoderen. U kunt de hoofd tekst-parser vooraf configureren voor het accepteren van grotere uploads van bestanden:
 
 ```javascript
 var express = require('express'),
@@ -856,11 +856,11 @@ app.use(mobile);
 app.listen(process.env.PORT || 3000);
 ```
 
-Het bestand is base-64 gecodeerd voor verzending. Deze codering neemt de omvang van het uploaden van de werkelijke (en de grootte die u moet rekening).
+Het bestand is base-64-code ring vóór verzen ding. Met deze code ring wordt de grootte van de daad werkelijke upload (en de grootte die u moet account voor) verg Roten.
 
 ### <a name="howto-customapi-sql"></a>Aangepaste SQL-instructies uitvoeren
 
-De Mobile Apps SDK biedt toegang tot de volledige context via het request-object. U kunt eenvoudig geparameteriseerde SQL-instructies toe aan de gedefinieerde gegevensprovider uitvoeren:
+De Mobile Apps SDK biedt toegang tot de hele context via het aanvraag object. U kunt eenvoudig SQL-instructies met para meters uitvoeren voor de gedefinieerde gegevens provider:
 
 ```javascript
 var api = {
@@ -891,59 +891,18 @@ api.get.access = 'authenticated';
 module.exports = api;
 ```
 
-## <a name="Debugging"></a>Foutopsporing, eenvoudige tabellen en eenvoudige API 's
+## <a name="Debugging"></a>Foutopsporingsmodus
 
-### <a name="howto-diagnostic-logs"></a>Fouten opsporen, vaststellen en problemen oplossen met Mobile Apps
+### <a name="howto-diagnostic-logs"></a>Mobile Apps fouten opsporen, vaststellen en problemen oplossen
 
-Azure App Service biedt verschillende opsporen en oplossen van technieken voor Node.js-toepassingen.
-Om te beginnen bij het oplossen van uw back-end voor Node.js Mobile Apps, Zie de volgende artikelen:
+Azure App Service biedt verschillende technieken voor fout opsporing en probleem oplossing voor node. js-toepassingen.
+Raadpleeg de volgende artikelen om aan de slag te gaan met het oplossen van problemen met het knoop punt. js Mobile Apps back-end:
 
-* [Bewaking van Azure App Service]
-* [Diagnostische logboekregistratie inschakelen in Azure App Service]
-* [Azure App Service in Visual Studio oplossen]
+* [Bewakings Azure App Service]
+* [Diagnostische logboek registratie inschakelen in Azure App Service]
+* [Problemen met Azure App Service in Visual Studio oplossen]
 
-Node.js-toepassingen hebben toegang tot een breed scala aan hulpprogramma's voor diagnostisch logboek. De Mobile Apps Node.js-SDK gebruikt intern, [Winston] voor registratie in diagnoselogboek. Logboekregistratie is standaard ingeschakeld wanneer u foutopsporing inschakelen modus of stel de `MS_DebugMode` app-instelling op ' True ' in de [Azure Portal]. Gegenereerde logboeken worden weergegeven in de diagnostische logboeken in de [Azure Portal].
-
-### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Werken met eenvoudige tabellen in Azure portal
-
-U kunt eenvoudige tabellen maken en werken met tabellen direct in de portal. U kunt de gegevensset uploaden naar eenvoudige tabellen in CSV-indeling. Houd er rekening mee dat u Eigenschapsnamen (in uw CSV-gegevensset) die conflicteren met de eigenschapsnamen system van de back-end van Mobile Apps niet gebruiken. De namen van de eigenschap system zijn:
-* createdAt
-* updatedAt
-* verwijderd
-* version
-
-U kunt zelfs tabelbewerkingen bewerken met behulp van App Service-Editor. Wanneer u selecteert **eenvoudige tabellen** in uw back-end-site-instellingen, kunt u toevoegen, wijzigen of verwijderen van een tabel. U ziet ook de gegevens in de tabel.
-
-![Werken met eenvoudige tabellen](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
-
-De volgende opdrachten zijn beschikbaar op de opdrachtbalk voor een tabel:
-
-* **Machtigingen wijzigen**: Wijzigen van de machtiging voor lezen, invoegen, bijwerken en verwijderen van bewerkingen voor de tabel.
- Opties zijn voor het toestaan van anonieme toegang is verificatie vereist, of alle toegang tot de bewerking uitschakelen.
-* **Script bewerken**: Het scriptbestand voor de tabel is in App Service-Editor geopend.
-* **Schema beheren**: Toevoegen of kolommen verwijderen of wijzigen van de tabelindex.
-* **Tabel wissen**: Een bestaande tabel afkappen door het verwijderen van alle rijen met gegevens, maar het schema ongewijzigd laten.
-* **Rijen verwijderen**: Afzonderlijke rijen met gegevens verwijderen.
-* **Weergave streaminglogboeken**: Verbinding maken met de streaming log-service voor uw site.
-
-### <a name="work-easy-apis"></a>Werken met eenvoudige API's in Azure portal
-
-U kunt eenvoudig API's gebruiken om te maken en werken met aangepaste API's direct in de portal. U kunt de API-scripts bewerken met behulp van App Service-Editor.
-
-Wanneer u selecteert **eenvoudige API's** in uw back-end-site-instellingen, kunt u toevoegen, wijzigen of verwijderen van een aangepaste API-eindpunt.
-
-![Werken met eenvoudige API 's](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
-
-In de portal kunt u de toegangsmachtigingen voor een HTTP-actie wijzigen, bewerkt u het scriptbestand voor API in App Service-Editor of de streaminglogboeken bekijken.
-
-### <a name="online-editor"></a>Bewerken van code in App Service-Editor
-
-Met behulp van de Azure-portal, kunt u uw Node.js-back-end-script-bestanden in App Service-Editor zonder te downloaden van het project naar uw lokale computer. Om scriptbestanden te bewerken in de online-editor:
-
-1. In het deelvenster voor uw Mobile Apps-back-end, selecteer **alle instellingen** > beide **eenvoudige tabellen** of **eenvoudige API's**. Selecteer een tabel of de API, en selecteer vervolgens **script bewerken**. Het scriptbestand wordt geopend in App Service-Editor.
-
-   ![App Service-Editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
-1. Breng uw wijzigingen naar het codebestand in de online-editor. Wijzigingen worden automatisch opgeslagen terwijl u typt.
+Node. js-toepassingen hebben toegang tot een breed scala aan hulpprogram ma's voor Diagnostische logboeken. Intern gebruikt de Mobile Apps node. js SDK [Winston] voor diagnostische logboek registratie. Logboek registratie wordt automatisch ingeschakeld wanneer u de foutopsporingsmodus inschakelt `MS_DebugMode` of de app-instelling instelt op waar in de [Azure-portal]. Gegenereerde logboeken worden weer gegeven in de diagnostische Logboeken in de [Azure-portal].
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png
@@ -955,40 +914,40 @@ Met behulp van de Azure-portal, kunt u uw Node.js-back-end-script-bestanden in A
 [6]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/dotnet-backend-create-db.png
 
 <!-- URLs -->
-[Snelstartgids voor android-client]: app-service-mobile-android-get-started.md
-[Snelstartgids voor Apache Cordova-Client]: app-service-mobile-cordova-get-started.md
-[iOS Client Quick Start]: app-service-mobile-ios-get-started.md
+[Quick start voor Android-client]: app-service-mobile-android-get-started.md
+[Snelstartgids voor Apache Cordova-client]: app-service-mobile-cordova-get-started.md
+[Quick start voor iOS-client]: app-service-mobile-ios-get-started.md
 [Xamarin.iOS Client quickstart]: app-service-mobile-xamarin-ios-get-started.md
 [Xamarin.Android Client quickstart]: app-service-mobile-xamarin-android-get-started.md
 [Xamarin.Forms Client quickstart]: app-service-mobile-xamarin-forms-get-started.md
-[Snelstartgids voor Windows Store-Client]: app-service-mobile-windows-store-dotnet-get-started.md
-[offline gegevenssynchronisatie]: app-service-mobile-offline-data-sync.md
+[Quick start voor Windows Store-client]: app-service-mobile-windows-store-dotnet-get-started.md
+[offline gegevens synchronisatie]: app-service-mobile-offline-data-sync.md
 [Azure Active Directory-verificatie configureren]: ../app-service/configure-authentication-provider-aad.md
-[Facebook-authenticatie configureren]: ../app-service/configure-authentication-provider-facebook.md
+[Facebook-verificatie configureren]: ../app-service/configure-authentication-provider-facebook.md
 [Google-verificatie configureren]: ../app-service/configure-authentication-provider-google.md
-[Microsoft-verificatie configureren]: ../app-service/configure-authentication-provider-microsoft.md
+[Micro soft-verificatie configureren]: ../app-service/configure-authentication-provider-microsoft.md
 [Twitter-verificatie configureren]: ../app-service/configure-authentication-provider-twitter.md
-[Azure App Service-Implementatiehandleiding]: ../app-service/deploy-local-git.md
-[Bewaking van Azure App Service]: ../app-service/web-sites-monitor.md
-[Diagnostische logboekregistratie inschakelen in Azure App Service]: ../app-service/troubleshoot-diagnostic-logs.md
-[Azure App Service in Visual Studio oplossen]: ../app-service/troubleshoot-dotnet-visual-studio.md
-[Geef de versie van het knooppunt]: ../nodejs-specify-node-version-azure-apps.md
-[Node-modules gebruiken]: ../nodejs-use-node-modules-azure-apps.md
+[Implementatie handleiding Azure App Service]: ../app-service/deploy-local-git.md
+[Bewakings Azure App Service]: ../app-service/web-sites-monitor.md
+[Diagnostische logboek registratie inschakelen in Azure App Service]: ../app-service/troubleshoot-diagnostic-logs.md
+[Problemen met Azure App Service in Visual Studio oplossen]: ../app-service/troubleshoot-dotnet-visual-studio.md
+[de knooppunt versie opgeven]: ../nodejs-specify-node-version-azure-apps.md
+[Knooppunt modules gebruiken]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: https://expressjs.com/
 [Swagger]: https://swagger.io/
 
-[Azure Portal]: https://portal.azure.com/
+[Azure-portal]: https://portal.azure.com/
 [OData]: https://www.odata.org
-[Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-[basicapp voorbeeld op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
-[Todo-voorbeeld op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
-[map van de voorbeelden op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
+[Toezeg]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[basicapp-voor beeld op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
+[voor beeld van TODO op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
+[lijst met voor beelden op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
 [static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
-[Node.js-hulpprogramma's 1.1 voor Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
-[MSSQL Node.js-pakket]: https://www.npmjs.com/package/mssql
+[Node. js-Hulpprogram Ma's 1,1 voor Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
+[MSSQL node. js-pakket]: https://www.npmjs.com/package/mssql
 [Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS middleware]: https://expressjs.com/guide/using-middleware.html
+[ExpressJS-middleware]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

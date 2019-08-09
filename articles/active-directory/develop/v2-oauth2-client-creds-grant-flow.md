@@ -1,6 +1,6 @@
 ---
-title: Gebruik Microsoft identity-platform voor toegang tot beveiligde resources zonder tussenkomst van de gebruiker | Azure
-description: Bouw webtoepassingen met behulp van de Microsoft identity-platform-implementatie van het OAuth 2.0-verificatieprotocol.
+title: Micro soft Identity platform gebruiken om toegang te krijgen tot beveiligde bronnen zonder tussen komst van de gebruiker | Azure
+description: Bouw webtoepassingen met behulp van de micro soft Identity platform-implementatie van het OAuth 2,0-verificatie protocol.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -16,83 +16,83 @@ ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85a32244a9aff9319343fd7d3961941973aa9d9a
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1a3a097c164628e6d4e4b7886a195901207d83a3
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482250"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852212"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft identity-platform en de OAuth 2.0-clientreferentiestroom
+# <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Micro soft Identity platform en de OAuth 2,0-client referenties stroom
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-U kunt de [verlenen van OAuth 2.0-clientreferenties](https://tools.ietf.org/html/rfc6749#section-4.4) opgegeven in RFC 6749, ook wel genoemd *twee-legged OAuth*, toegang krijgen tot web gehoste bronnen met behulp van de identiteit van een toepassing. Dit type verlenen wordt vaak gebruikt voor interactie met server-naar-server die moeten worden uitgevoerd op de achtergrond, zonder directe interactie met een gebruiker. Dergelijke toepassingen worden vaak aangeduid als *daemons* of *serviceaccounts*.
+U kunt de [OAuth 2,0-client referenties toekenning](https://tools.ietf.org/html/rfc6749#section-4.4) die is opgegeven in RFC 6749, ook wel *twee legged OAuth*genoemd, gebruiken om toegang te krijgen tot webbronnen met behulp van de identiteit van een toepassing. Dit type toekenning wordt meestal gebruikt voor server-naar-server-interacties die op de achtergrond moeten worden uitgevoerd, zonder directe interactie met een gebruiker. Deze typen toepassingen worden vaak *daemons* of *service accounts*genoemd.
 
-De referenties voor OAuth 2.0-client verlenen flow kunnen inhoud een webservice (vertrouwelijke client) voor het gebruik van zijn eigen referenties, in plaats van een gebruiker imiteren om te verifiëren bij het aanroepen van een andere webservice. In dit scenario wordt de client is doorgaans een middelste laag webservice, een daemon-service of een website. Voor een hoger niveau van zekerheid kan de Microsoft identity-platform ook de aanroepende service een certificaat (in plaats van een gedeelde geheim genoemd) gebruikt als referentie.
+Met de OAuth 2,0-client referenties toewijzen stroom kan een webservice (vertrouwelijke client) eigen referenties gebruiken, in plaats van een gebruiker te imiteren, om te verifiëren bij het aanroepen van een andere webservice. In dit scenario is de client doorgaans een middelste laag, een daemon-service of een website. Voor een hoger garantie niveau kan het micro soft Identity-platform ook een certificaat (in plaats van een gedeeld geheim) als referentie gebruiken.
 
 > [!NOTE]
-> Het eindpunt van de Microsoft identity-platform biedt geen ondersteuning voor alle Azure AD-scenario's en onderdelen. Meer informatie over om te bepalen of moet u het eindpunt van de Microsoft identity-platform, [beperkingen van het Microsoft identity platform](active-directory-v2-limitations.md).
+> Het micro soft Identity platform-eind punt biedt geen ondersteuning voor alle Azure AD-scenario's en-functies. Lees over [micro soft Identity platform-beperkingen](active-directory-v2-limitations.md)om te bepalen of u het micro soft Identity platform-eind punt moet gebruiken.
 
-In de typische *3-legged OAuth*, een clienttoepassing is gemachtigd voor toegang tot een resource namens een specifieke gebruiker. De machtiging is overgedragen van de gebruiker voor de toepassing, meestal tijdens de [toestemming geven](v2-permissions-and-consent.md) proces. Echter, in de referenties van de client (*twee-legged OAuth*) stroom, machtigingen worden verleend om rechtstreeks naar de toepassing zelf. Wanneer de app een token aan een resource geeft, de bron wordt afgedwongen dat de app zelf is gemachtigd om uit te voeren van een actie en niet de gebruiker.
+In de meest voorkomende *legged OAuth*wordt een client toepassing gemachtigd om toegang te krijgen tot een resource namens een specifieke gebruiker. De machtiging wordt overgedragen van de gebruiker aan de toepassing, meestal tijdens het [toestemming](v2-permissions-and-consent.md) proces. In de client referenties (*twee legged OAuth*)-stroom worden machtigingen echter rechtstreeks aan de toepassing zelf verleend. Wanneer de app een token aan een resource presenteert, dwingt de resource af dat de app zelf een actie heeft uitgevoerd en niet de gebruiker.
 
-## <a name="protocol-diagram"></a>Protocol-diagram
+## <a name="protocol-diagram"></a>Protocol diagram
 
-De volledige clientreferentiestroom lijkt op het volgende diagram. We beschrijven elk van de stappen verderop in dit artikel.
+De gehele stroom van de client referenties ziet er ongeveer uit als in het volgende diagram. Verderop in dit artikel worden de stappen beschreven.
 
-![Diagram van de client clientreferenties-stroom](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
+![Diagram van de stroom van de client referenties](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
 
 ## <a name="get-direct-authorization"></a>Directe autorisatie ophalen
 
-Een app wordt doorgaans rechtstreekse toestemming voor toegang tot een bron op twee manieren:
+Een app ontvangt doorgaans directe autorisatie voor toegang tot een bron op een van de volgende twee manieren:
 
-* [Via een toegangsbeheerlijst (ACL) op de resource](#access-control-lists)
-* [Door toepassing machtiging toewijzen in Azure AD](#application-permissions)
+* [Via een toegangs beheer lijst (ACL) bij de resource](#access-control-lists)
+* [Via toewijzing van toepassings machtigingen in azure AD](#application-permissions)
 
-Deze twee methoden worden het meest gebruikt in Azure AD en het is raadzaam deze voor clients en resources die de client uitvoeren clientreferenties-stroom. Een resource kan ook voor kiezen om te autoriseren van de clients op andere manieren. Elke resource-server kan de methode die het meest zinvol voor de toepassing kiezen.
+Deze twee methoden worden het meest gebruikt in azure AD en wij raden ze aan voor clients en resources die de client referenties stroom uitvoeren. Een resource kan er ook voor kiezen om de clients op andere manieren te autoriseren. Elke resource server kan kiezen welke methode het meest zinvol is voor de toepassing.
 
 ### <a name="access-control-lists"></a>Toegangsbeheerlijsten
 
-Een resourceprovider kan een autorisatie-controle op basis van een lijst van toepassing (client)-id's die deze kent en een specifiek niveau van toegang tot verleent afdwingen. Wanneer de resource een token van het eindpunt van Microsoft identity-platform ontvangt, kan het token-decodering en uitpakken van de client toepassings-ID van de `appid` en `iss` claims. Vervolgens wordt de toepassing meer veiligheid tegen een toegangsbeheerlijst (ACL) die het onderhoudt vergeleken. De granulariteit en methode van de ACL's kunnen aanzienlijk verschillen tussen resources.
+Een resource provider kan een autorisatie controle afdwingen op basis van een lijst met toepassings-Id's die het kent en verleent een specifiek toegangs niveau voor. Wanneer de resource een token van het micro soft Identity platform-eind punt ontvangt, kan het token worden ontsleuteld en kan de toepassings `appid` - `iss` id van de client worden opgehaald uit de en claims. Vervolgens wordt de toepassing vergeleken met een toegangs beheer lijst (ACL) die het onderhoudt. De granulatie en methode van de toegangs beheer lijst kan aanzienlijk verschillen tussen resources.
 
-Een gebruikelijk is het gebruik van een ACL testen voor een web-App of voor een web-API. De web-API kan alleen een subset van volledige machtigingen verlenen aan een specifieke client. End-to-end-tests uitvoeren op de API, maakt u een testclient die tokens van het eindpunt van de Microsoft identity platform verkrijgt en zendt deze naar de API. De API controleert vervolgens of de ACL van de testclient toepassings-ID voor volledige toegang tot de volledige functionaliteit van de API. Als u dit type ACL gebruikt, moet u niet alleen van de oproepende functie valideren `appid` waarde, maar ook valideren dat de `iss` waarde van het token wordt vertrouwd.
+Een veelvoorkomende use-case is het gebruik van een ACL voor het uitvoeren van tests voor een webtoepassing of voor een web-API. De Web-API kan slechts een subset van volledige machtigingen verlenen aan een specifieke client. Als u end-to-end-tests wilt uitvoeren op de API, maakt u een test-client die tokens ophaalt uit het micro soft Identity platform-eind punt en verzendt deze vervolgens naar de API. De API controleert vervolgens de ACL voor de toepassings-ID van de test client voor volledige toegang tot de volledige functionaliteit van de API. Als u dit type toegangs beheer lijst gebruikt, moet u ervoor zorgen dat u niet alleen de `appid` waarde van de beller valideert, maar ook te controleren of de `iss` waarde van het token vertrouwd is.
 
-Dit type autorisatie is gebruikelijk voor daemons en service-accounts die toegang moeten krijgen tot gegevens die eigendom zijn van consumenten-gebruikers met persoonlijke Microsoft-accounts. Voor gegevens die eigendom zijn van organisaties, wordt u aangeraden dat u de benodigde machtiging via machtigingen van de toepassing krijgt.
+Dit type autorisatie is gebruikelijk voor daemons en service accounts die toegang nodig hebben tot gegevens die eigendom zijn van consumenten gebruikers met persoonlijke micro soft-accounts. Voor gegevens die eigendom zijn van organisaties, raden we u aan de vereiste autorisatie te verkrijgen via toepassings machtigingen.
 
-### <a name="application-permissions"></a>Machtigingen van de toepassing
+### <a name="application-permissions"></a>Toepassingsmachtigingen
 
-U kunt in plaats van ACL's, API's gebruiken om een set machtigingen van de toepassing zichtbaar te maken. De machtiging voor een toepassing te krijgen tot een toepassing door de beheerder van een organisatie en kan alleen worden gebruikt voor toegang tot gegevens die eigendom zijn van die organisatie en haar medewerkers. Microsoft Graph beschrijft bijvoorbeeld verschillende machtigingen van de toepassing het volgende doen:
+In plaats van Acl's te gebruiken, kunt u Api's gebruiken om een set toepassings machtigingen beschikbaar te maken. Een toepassings machtiging wordt verleend aan een toepassing door de beheerder van een organisatie en kan alleen worden gebruikt om toegang te krijgen tot gegevens die eigendom zijn van die organisatie en haar mede werkers. Microsoft Graph biedt bijvoorbeeld verschillende toepassings machtigingen om het volgende te doen:
 
 * E-mail in alle postvakken lezen
-* Lezen en schrijven van e-mail in alle postvakken
-* E-mail verzenden als een willekeurige gebruiker
-* Mapgegevens lezen
+* E-mail in alle postvakken lezen en schrijven
+* E-mail met elke willekeurige gebruiker als afzender verzenden
+* Adreslijstgegevens lezen
 
-Voor meer informatie over de machtigingen van de toepassing, gaat u naar [Microsoft Graph](https://developer.microsoft.com/graph).
+Ga naar [Microsoft Graph](https://developer.microsoft.com/graph)voor meer informatie over toepassings machtigingen.
 
-Voor het gebruik van machtigingen van de toepassing in uw app, volgt u de stappen in de volgende secties besproken.
+Als u toepassings machtigingen wilt gebruiken in uw app, volgt u de stappen die in de volgende secties worden besproken.
 
-#### <a name="request-the-permissions-in-the-app-registration-portal"></a>De machtigingen in de portal voor app-registratie van aanvragen
+#### <a name="request-the-permissions-in-the-app-registration-portal"></a>De machtigingen aanvragen in de portal voor app-registratie
 
-1. Registreren en maken van een app door middel van de nieuwe [(Preview) van de App-registraties ervaring](quickstart-register-app.md).
-2. Ga naar uw toepassing in de App-registraties (Preview)-ervaring. Navigeer naar de **certificaten en geheimen** sectie en voeg een **nieuwe clientgeheim**, omdat u moet ten minste één clientgeheim om aan te vragen van een token.
-3. Zoek de **API-machtigingen** sectie en voeg vervolgens de **Toepassingsmachtigingen** die uw app nodig heeft.
-4. **Sla** de app-registratie.
+1. Registreer en maak een app via de nieuwe [app-registraties-ervaring (preview-versie)](quickstart-register-app.md).
+2. Ga naar uw toepassing in de ervaring App-registraties (preview). Ga naar de sectie **certificaten & geheimen** en voeg een **Nieuw client geheim**toe, omdat u ten minste één client geheim nodig hebt om een token aan te vragen.
+3. Ga naar de sectie **API-machtigingen** en voeg de **toepassings machtigingen** toe die voor uw app zijn vereist.
+4. **Sla** de app-registratie op.
 
-#### <a name="recommended-sign-the-user-into-your-app"></a>Aanbevolen: Meld u aan de gebruiker in uw app
+#### <a name="recommended-sign-the-user-into-your-app"></a>Aanbevelingen De gebruiker aan uw app melden
 
-Wanneer u een toepassing die gebruikmaakt van machtigingen voor een toepassing bouwt, moet de app normaal gesproken een pagina of een weergave waarop de beheerder van de app-machtigingen goedkeurt. Deze pagina kan onderdeel van een van de app-aanmeldingsstroom, onderdeel van de app-instellingen, of een specifieke stroom met 'verbinding maken'. In veel gevallen is het handig voor de app weer te geven 'connect' weergave alleen nadat een gebruiker is aangemeld met een werk- of school Microsoft-account.
+Wanneer u een toepassing bouwt die gebruikmaakt van toepassings machtigingen, moet de app doorgaans een pagina of weer gave hebben waarop de beheerder de machtigingen van de app goedkeurt. Deze pagina kan deel uitmaken van de aanmeldings stroom van de app, een deel van de instellingen van de app of een specifieke stroom ' Connect ' zijn. In veel gevallen is het zinvol voor de app om deze weer gave ' verbinding maken ' alleen weer te geven nadat een gebruiker zich heeft aangemeld met een werk-of school Microsoft-account.
 
-Als u de gebruiker zich in uw app, kunt u de organisatie waarvan de gebruiker deel uitmaakt op voordat u vraagt de gebruiker om goed te keuren van de machtigingen van de toepassing te identificeren. Hoewel niet strikt noodzakelijk is, kunt u bij het maken van een meer intuïtieve ervaring voor uw gebruikers. Volg voor het tekenen van de gebruiker in onze [Microsoft identity platform protocol zelfstudies](active-directory-v2-protocols.md).
+Als u de gebruiker aan uw app ondertekent, kunt u de organisatie waartoe de gebruiker behoort, identificeren voordat u de gebruiker vraagt de machtigingen voor de toepassing goed te keuren. Hoewel het niet strikt nood zakelijk is, kan het u helpen een intuïtieve ervaring te creëren voor uw gebruikers. Als u de gebruiker wilt ondertekenen in, volgt u onze [zelf studies voor het micro soft Identity platform-protocol](active-directory-v2-protocols.md).
 
-#### <a name="request-the-permissions-from-a-directory-admin"></a>De machtigingen aanvragen van een directory-beheerder
+#### <a name="request-the-permissions-from-a-directory-admin"></a>De machtigingen van een adreslijst beheerder aanvragen
 
-Wanneer u klaar om aan te vragen van machtigingen van de organisatie-beheerder bent, kunt u de gebruiker omleiden naar de Microsoft identity-platform *toestemming het beheereindpunt*.
+Wanneer u klaar bent om machtigingen aan te vragen bij de beheerder van de organisatie, kunt u de gebruiker omleiden naar het micro soft Identity platform *Administrator toestemmings eindpunt*.
 
 > [!TIP]
-> Probeer deze aanvraag wordt uitgevoerd in Postman. (Uw eigen app-ID gebruiken voor de beste resultaten - zelfstudie-de toepassing wordt niet handig machtigingen aanvragen.) [![Probeer uit te voeren van deze aanvraag in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Probeer deze aanvraag uit te voeren in postman! (Gebruik uw eigen App-ID voor de beste resultaten: de zelfstudie toepassing vraagt geen nuttige machtigingen aan.) [![Probeer deze aanvraag uit te voeren in postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -113,16 +113,16 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parameter | Voorwaarde | Description |
 | --- | --- | --- |
-| `tenant` | Vereist | De directory-tenant die u wilt toestemming van aanvragen. Dit kan zijn in de beschrijvende naamindeling of GUID. Als u niet welk tenant de gebruiker behoort en u dat ze zich aanmelden met een tenant weet wilt, gebruikt u `common`. |
-| `client_id` | Vereist | De **(client) toepassings-ID** die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ervaring die zijn toegewezen aan uw app. |
-| `redirect_uri` | Vereist | De omleidings-URI waar u het antwoord moet worden verzonden voor uw app om af te handelen. Het moet exact overeenkomen met een van de omleidings-URI's die u in de portal hebt geregistreerd, behalve dat het URL-codering moet en aanvullende padsegmenten kunnen hebben. |
-| `state` | Aanbevolen | Een waarde die opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een tekenreeks van de inhoud die u wilt dat kan zijn. De status wordt gebruikt om informatie over de status van de gebruiker in de app coderen voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave die ze al had geopend. |
+| `tenant` | Vereist | De Directory-Tenant waarvan u toestemming wilt aanvragen. Dit kan een GUID of beschrijvende naam zijn. Als u niet weet op welke Tenant de gebruiker zich bevindt en u zich wilt aanmelden met een Tenant, gebruikt `common`u. |
+| `client_id` | Vereist | De **client-id** van de toepassing die de [Azure Portal – app-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ervaring die aan uw app is toegewezen. |
+| `redirect_uri` | Vereist | De omleidings-URI waar u het antwoord voor uw app wilt laten afhandelen. De waarde moet exact overeenkomen met een van de omleidings-Uri's die u in de portal hebt geregistreerd, behalve dat deze URL moet worden gecodeerd en dat er extra padsegmenten kunnen zijn. |
+| `state` | Aanbevolen | Een waarde die is opgenomen in de aanvraag die ook wordt geretourneerd in de token reactie. Dit kan een teken reeks zijn van elke gewenste inhoud. De status wordt gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatie aanvraag is uitgevoerd, zoals de pagina of weer gave waarin ze zich bevonden. |
 
-Azure AD kunt u op dit moment afgedwongen op die alleen een tenantbeheerder zich bij volledige de aanvraag aanmelden kan. De beheerder wordt gevraagd om goed te keuren alle machtigingen direct van de toepassing die u hebt aangevraagd voor uw app in de portal van de registratie van de app.
+Op dit moment dwingt Azure AD af dat alleen een Tenant beheerder zich kan aanmelden bij het volt ooien van de aanvraag. De beheerder wordt gevraagd om alle directe toepassings machtigingen die u hebt aangevraagd voor uw app, goed te keuren in de app-registratie Portal.
 
 ##### <a name="successful-response"></a>Geslaagde reactie
 
-Als de beheerder de machtigingen voor uw toepassing goedkeurt, de geslaagde respons ziet er uit als volgt:
+Als de beheerder de machtigingen voor uw toepassing goedkeurt, ziet het geslaagde antwoord er als volgt uit:
 
 ```
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
@@ -130,13 +130,13 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parameter | Description |
 | --- | --- |
-| `tenant` | De directory-tenant die uw toepassing, de machtigingen die zij gevraagd, in GUID-indeling. |
-| `state` | Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een tekenreeks van de inhoud die u wilt dat kan zijn. De status wordt gebruikt om informatie over de status van de gebruiker in de app coderen voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave die ze al had geopend. |
-| `admin_consent` | Ingesteld op **waar**. |
+| `tenant` | De Directory-Tenant die de toepassing heeft toegewezen aan de opgegeven machtigingen, in GUID-indeling. |
+| `state` | Een waarde die is opgenomen in de aanvraag die ook wordt geretourneerd in het token antwoord. Dit kan een teken reeks zijn van elke gewenste inhoud. De status wordt gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatie aanvraag is uitgevoerd, zoals de pagina of weer gave waarin ze zich bevonden. |
+| `admin_consent` | Stel deze **waarde**in op True. |
 
-##### <a name="error-response"></a>Foutbericht
+##### <a name="error-response"></a>Fout bericht
 
-Als de beheerder worden niet goedgekeurd voor de machtigingen voor uw toepassing, de mislukte reactie ziet er uit als volgt:
+Als de beheerder de machtigingen voor uw toepassing niet goed keuren, ziet de mislukte reactie er als volgt uit:
 
 ```
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
@@ -144,19 +144,19 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 | Parameter | Description |
 | --- | --- |
-| `error` | Een tekenreeks voor de foutcode die u gebruiken kunt voor het classificeren van typen fouten, en die u kunt gebruiken om te reageren op fouten. |
-| `error_description` | Een specifiek foutbericht die u kan helpen de hoofdoorzaak van een fout identificeren. |
+| `error` | Een teken reeks voor fout codes die u kunt gebruiken om typen fouten te classificeren en die u kunt gebruiken om te reageren op fouten. |
+| `error_description` | Een specifieke fout melding die u kan helpen bij het identificeren van de hoofd oorzaak van een fout. |
 
-Nadat u een geslaagd antwoord van het eindpunt van app-inrichting ontvangen hebt, hebben de directe Toepassingsmachtigingen aangevraagde opgedaan met uw app. U kunt nu een token voor de resource die u wilt aanvragen.
+Nadat u een geslaagde reactie van het app-inrichtings eindpunt hebt ontvangen, heeft uw app de door u aangevraagde directe toepassings machtigingen verkregen. U kunt nu een token aanvragen voor de gewenste resource.
 
-## <a name="get-a-token"></a>Een token verkrijgen
+## <a name="get-a-token"></a>Een Token ophalen
 
-Nadat u de benodigde machtiging hebt voor uw toepassing hebt verkregen, kunt u doorgaan met het verkrijgen van toegang tot tokens voor API's. Als u een token met behulp van de client clientreferenties, verzendt u een POST-aanvraag naar de `/token` Microsoft identity-platform-eindpunt:
+Nadat u de benodigde autorisatie voor uw toepassing hebt verkregen, gaat u verder met het verkrijgen van toegangs tokens voor Api's. Als u een token wilt ophalen met behulp van de client referenties toekenning, verzendt u `/token` een post-aanvraag naar het micro soft Identity platform-eind punt:
 
 > [!TIP]
-> Probeer deze aanvraag wordt uitgevoerd in Postman. (Uw eigen app-ID gebruiken voor de beste resultaten - zelfstudie-de toepassing wordt niet handig machtigingen aanvragen.) [![Probeer uit te voeren van deze aanvraag in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Probeer deze aanvraag uit te voeren in postman! (Gebruik uw eigen App-ID voor de beste resultaten: de zelfstudie toepassing vraagt geen nuttige machtigingen aan.) [![Probeer deze aanvraag uit te voeren in postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Eerste geval: Aanvraag voor een toegangstoken met een gedeeld geheim
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Eerste geval: Toegangs token aanvraag met een gedeeld geheim
 
 ```
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
@@ -175,13 +175,13 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | Parameter | Voorwaarde | Description |
 | --- | --- | --- |
-| `tenant` | Vereist | De directory-tenant de toepassing wil werken tegen in GUID of domeinnaam indeling. |
-| `client_id` | Vereist | De toepassings-ID die toegewezen aan uw app. U kunt deze informatie vinden in de portal waar u uw app hebt geregistreerd. |
-| `scope` | Vereist | De waarde die wordt doorgegeven voor de `scope` parameter in deze aanvraag moet de resource-id (toepassings-ID-URI) van de resource die u wilt, aangebracht met de `.default` achtervoegsel. De waarde voor de Microsoft Graph-bijvoorbeeld heeft `https://graph.microsoft.com/.default`. <br/>Deze waarde geeft het eindpunt van de Microsoft identity-platform dat van alle rechtstreekse Toepassingsmachtigingen die u hebt geconfigureerd voor uw app, het eindpunt moet uitgeven van een token voor de regels die zijn gekoppeld aan de resource die u wilt gebruiken. Voor meer informatie over de `/.default` scope, raadpleegt u de [toestemming geven documentatie](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Vereist | Het clientgeheim die u voor uw app in de portal van de registratie van de app hebt gegenereerd. Het clientgeheim moet URL gecodeerd voordat het wordt verzonden. |
+| `tenant` | Vereist | De Directory-Tenant waarmee de toepassing moet worden uitgevoerd, in GUID of domeinnaam indeling. |
+| `client_id` | Vereist | De toepassings-ID die is toegewezen aan uw app. U kunt deze informatie vinden in de portal waar u uw app hebt geregistreerd. |
+| `scope` | Vereist | De waarde die is door `scope` gegeven voor de para meter in deze aanvraag moet de resource-id (id van de toepassings-URI) zijn van de `.default` resource die u wilt, met het achtervoegsel. Voor het Microsoft Graph-voor beeld is `https://graph.microsoft.com/.default`de waarde. <br/>Deze waarde vertelt het micro soft Identity platform-eind punt van alle directe toepassings machtigingen die u hebt geconfigureerd voor uw app. het eind punt moet een token uitgeven voor de resources die zijn gekoppeld aan de resource die u wilt gebruiken. Zie de documentatie van de `/.default` [toestemming](v2-permissions-and-consent.md#the-default-scope)voor meer informatie over het bereik. |
+| `client_secret` | Vereist | Het client geheim dat u hebt gegenereerd voor uw app in de app-registratie Portal. Het client geheim moet URL-gecodeerd zijn voordat het wordt verzonden. |
 | `grant_type` | Vereist | Moet worden ingesteld op `client_credentials`. |
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Tweede geval: Aanvraag voor een toegangstoken met een certificaat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Tweede geval: Toegangs token aanvraag met een certificaat
 
 ```
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
@@ -197,14 +197,14 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 | Parameter | Voorwaarde | Description |
 | --- | --- | --- |
-| `tenant` | Vereist | De directory-tenant de toepassing wil werken tegen in GUID of domeinnaam indeling. |
-| `client_id` | Vereist |De toepassing (client)-ID die toegewezen aan uw app. |
-| `scope` | Vereist | De waarde die wordt doorgegeven voor de `scope` parameter in deze aanvraag moet de resource-id (toepassings-ID-URI) van de resource die u wilt, aangebracht met de `.default` achtervoegsel. De waarde voor de Microsoft Graph-bijvoorbeeld heeft `https://graph.microsoft.com/.default`. <br/>Deze waarde informeert het eindpunt van de Microsoft identity-platform dat van alle rechtstreekse Toepassingsmachtigingen die u voor uw app hebt geconfigureerd, er moet worden verleend een token voor de regels die zijn gekoppeld aan de resource die u wilt gebruiken. Voor meer informatie over de `/.default` scope, raadpleegt u de [toestemming geven documentatie](v2-permissions-and-consent.md#the-default-scope). |
+| `tenant` | Vereist | De Directory-Tenant waarmee de toepassing moet worden uitgevoerd, in GUID of domeinnaam indeling. |
+| `client_id` | Vereist |De client-ID van de toepassing die is toegewezen aan uw app. |
+| `scope` | Vereist | De waarde die is door `scope` gegeven voor de para meter in deze aanvraag moet de resource-id (id van de toepassings-URI) zijn van de `.default` resource die u wilt, met het achtervoegsel. Voor het Microsoft Graph-voor beeld is `https://graph.microsoft.com/.default`de waarde. <br/>Met deze waarde wordt het micro soft Identity platform-eind punt geïnformeerd over alle directe toepassings machtigingen die u hebt geconfigureerd voor uw app. het moet een token uitgeven voor de resources die zijn gekoppeld aan de resource die u wilt gebruiken. Zie de documentatie van de `/.default` [toestemming](v2-permissions-and-consent.md#the-default-scope)voor meer informatie over het bereik. |
 | `client_assertion_type` | Vereist | De waarde moet worden ingesteld op `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | Vereist | Een bewering (een JSON webtoken) die u wilt maken en te ondertekenen met het certificaat dat u geregistreerd als referenties voor uw toepassing. Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de verklaring.|
+| `client_assertion` | Vereist | Een verklaring (een JSON-webtoken) die u moet maken en ondertekenen met het certificaat dat u hebt geregistreerd als referenties voor uw toepassing. Lees de informatie over [certificaat referenties](active-directory-certificate-credentials.md) voor meer informatie over het registreren van uw certificaat en de indeling van de verklaring.|
 | `grant_type` | Vereist | Moet worden ingesteld op `client_credentials`. |
 
-U ziet dat de parameters bijna hetzelfde als in het geval van de aanvraag van het gedeelde geheim zijn, behalve dat de waarde voor client_secret-parameter is vervangen door twee parameters: een client_assertion_type en client_assertion.
+U ziet dat de para meters bijna hetzelfde zijn als in het geval van de aanvraag van het gedeelde geheim, behalve dat de para meter client_secret wordt vervangen door twee para meters: een client_assertion_type en client_assertion.
 
 ### <a name="successful-response"></a>Geslaagde reactie
 
@@ -220,13 +220,13 @@ Een geslaagd antwoord ziet er zo uit:
 
 | Parameter | Description |
 | --- | --- |
-| `access_token` | Het aangevraagde toegangstoken. De app kunt u dit token gebruiken om te verifiëren met de beveiligde bron, zoals een Web-API. |
-| `token_type` | Geeft aan dat de waarde van het token. Het enige type die door Microsoft identity-platform ondersteunt is `bearer`. |
-| `expires_in` | De hoeveelheid tijd die een toegangstoken geldig is (in seconden). |
+| `access_token` | Het aangevraagde toegangs token. De app kan dit token gebruiken om te verifiëren bij de beveiligde bron, zoals bij een web-API. |
+| `token_type` | Geeft de waarde van het token type aan. Het enige type dat door micro soft Identity platform `bearer`wordt ondersteund, is. |
+| `expires_in` | De hoeveelheid tijd die een toegangs token geldig is (in seconden). |
 
-### <a name="error-response"></a>Foutbericht
+### <a name="error-response"></a>Fout bericht
 
-Reactie op een fout ziet er als volgt:
+Een fout bericht ziet er als volgt uit:
 
 ```
 {
@@ -243,20 +243,20 @@ Reactie op een fout ziet er als volgt:
 
 | Parameter | Description |
 | --- | --- |
-| `error` | Een tekenreeks voor de foutcode die u gebruiken kunt voor het classificeren van typen fouten die optreden en om te reageren op fouten. |
-| `error_description` | Een bericht specifieke fout die u kan helpen bij de hoofdoorzaak van een verificatiefout identificeren. |
-| `error_codes` | Een lijst van de STS-specifieke foutcodes die u met diagnostische gegevens helpen kunnen. |
-| `timestamp` | De tijd waarop de fout is opgetreden. |
+| `error` | Een teken reeks voor de fout code die u kunt gebruiken om typen fouten te classificeren die optreden en om te reageren op fouten. |
+| `error_description` | Een specifiek fout bericht die u kan helpen bij het identificeren van de hoofd oorzaak van een verificatie fout. |
+| `error_codes` | Een lijst met STS-specifieke fout codes die mogelijk kunnen helpen met diagnostische gegevens. |
+| `timestamp` | Het tijdstip waarop de fout is opgetreden. |
 | `trace_id` | Een unieke id voor de aanvraag om te helpen met diagnostische gegevens. |
-| `correlation_id` | Een unieke id voor de aanvraag om te helpen met diagnostische gegevens voor onderdelen. |
+| `correlation_id` | Een unieke id voor de aanvraag om te helpen met diagnostische gegevens over onderdelen. |
 
 > [!NOTE]
-> U kunt het manifestbestand van de toepassing in azure portal bijwerken in volgorde voor uw toepassing kunnen zijn voor het ontvangen van de v2-token. U kunt het kenmerk toevoegen `accessTokenAcceptedVersion` en stel de waarde op 2 als `"accessTokenAcceptedVersion": 2`. Controleer of het artikel [toepassingsmanifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-reference) voor meer informatie over hetzelfde. Standaard de toepassing op dit moment krijgen een v1-token. Als dit niet is gedefinieerd in het manifest toepassing/Web-API, wordt de waarde voor dit kenmerk in het manifest standaard ingesteld op 1 en kan daarom de toepassing v1-token ontvangt.  
+> Om ervoor te zorgen dat uw toepassing het v2-token kan ontvangen, kunt u het manifest bestand van de toepassing bijwerken vanuit Azure Portal. U kunt het kenmerk `accessTokenAcceptedVersion` toevoegen en de waarde instellen op 2 als. `"accessTokenAcceptedVersion": 2` Raadpleeg het [toepassings manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-reference) van het artikel voor meer informatie over hetzelfde. De toepassing recieves momenteel standaard een v1-token. Als dit niet is gedefinieerd in het API-manifest van de toepassing/Web, wordt de waarde voor dit kenmerk in het manifest standaard ingesteld op 1. Daarom ontvangt de toepassing v1-token.  
 
 
 ## <a name="use-a-token"></a>Een token gebruiken
 
-Nu dat u hebt een token hebt aangeschaft, kunt u het token gebruiken om aan te vragen naar de resource. Wanneer het token is verlopen, herhaalt u de aanvraag voor de `/token` eindpunt om een nieuwe toegangstoken te verkrijgen.
+Nu u een token hebt verkregen, gebruikt u het token om aanvragen voor de resource te maken. Wanneer het token verloopt, herhaalt u de aanvraag `/token` voor het eind punt om een nieuw toegangs token op te halen.
 
 ```
 GET /v1.0/me/messages
@@ -272,11 +272,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
-## <a name="code-samples-and-other-documentation"></a>Codevoorbeelden en andere documentatie
+## <a name="code-samples-and-other-documentation"></a>Code voorbeelden en andere documentatie
 
-Lees de [clientreferenties overzicht documentatie](https://aka.ms/msal-net-client-credentials) van de Microsoft Authentication Library
+Raadpleeg de [documentatie over client referenties overzicht](https://aka.ms/msal-net-client-credentials) van de micro soft-verificatie bibliotheek
 
 | Voorbeeld | Platform |Description |
 |--------|----------|------------|
-|[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET core 2.1-Console | Een eenvoudige .NET Core-toepassing die de gebruikers van een tenant met behulp van de identiteit van de toepassing namens een gebruiker in plaats van Microsoft Graph uitvoeren van query's weergegeven. Het voorbeeld ziet u ook de variatie met behulp van certificaten voor verificatie. |
-|[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Een webtoepassing die worden gesynchroniseerd met gegevens uit met behulp van de identiteit van de toepassing namens een gebruiker in plaats van Microsoft Graph. |
+|[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET Core 2,1-console | Een eenvoudige .NET core-toepassing waarin de gebruikers van een Microsoft Graph Tenant worden weer gegeven met de identiteit van de toepassing, in plaats van namens een gebruiker. Het voor beeld illustreert ook de variatie met behulp van certificaten voor verificatie. |
+|[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Een webtoepassing die gegevens van de Microsoft Graph synchroniseert met behulp van de identiteit van de toepassing, in plaats van namens een gebruiker. |

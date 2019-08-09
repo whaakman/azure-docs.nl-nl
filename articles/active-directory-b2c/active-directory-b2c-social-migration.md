@@ -1,6 +1,6 @@
 ---
-title: Migreren van gebruikers met sociale identiteiten in Azure Active Directory B2C | Microsoft Docs
-description: Belangrijkste concepten besproken voor de migratie van gebruikers met sociale identiteiten in Azure AD B2C met Graph API.
+title: Gebruikers met sociale identiteiten migreren in Azure Active Directory B2C | Microsoft Docs
+description: Bespreek kern concepten over de migratie van gebruikers met sociale identiteiten in Azure AD B2C met behulp van Graph API.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,30 +10,31 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bca802bb0099b0d854d752db8341dfe74031ef3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 0117a0881422584e3cb949661b1d58cd0257cf67
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508034"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853853"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Gebruikers met sociale identiteiten migreren
-Wanneer u van plan bent om te migreren van uw id-provider naar Azure AD B2C, moet u mogelijk ook gebruikers met sociale identiteiten migreren. Dit artikel wordt uitgelegd hoe u voor het migreren van bestaande accounts voor sociale identiteiten, zoals: Facebook, LinkedIn, Microsoft en Google-accounts aan Azure AD B2C. In dit artikel geldt ook voor federatieve identiteiten, maar deze migraties minder gangbaar zijn.
+Wanneer u van plan bent om uw ID-provider naar Azure AD B2C te migreren, moet u mogelijk ook gebruikers met sociale identiteiten migreren. In dit artikel wordt uitgelegd hoe u bestaande accounts voor sociale identiteiten kunt migreren, zoals: Facebook-, LinkedIn-, micro soft-en Google-accounts voor Azure AD B2C. Dit artikel is ook van toepassing op federatieve identiteiten, maar deze migraties zijn minder gangbaar. Voor de rest van dit artikel moet u rekening houden met alles wat van toepassing is op sociale accounts om ook te gelden voor andere typen federatieve accounts.
 
 ## <a name="prerequisites"></a>Vereisten
-Dit artikel is een vervolg van het artikel van de migratie van gebruiker en is gericht op sociale id-migratie. Lees voordat u begint, [gebruikersmigratie](active-directory-b2c-user-migration.md).
+Dit artikel is een voortzetting van het artikel migratie van gebruikers en richt zich op de migratie van sociale identiteiten. Lees de [gebruikers migratie](active-directory-b2c-user-migration.md)voordat u begint.
 
-## <a name="social-identities-migration-introduction"></a>Inleiding voor sociale identiteiten migreren
+## <a name="social-identities-migration-introduction"></a>Inleiding tot migratie van sociale identiteiten
 
-* In Azure AD B2C, **lokale accounts** aanmelden namen (de gebruiker voor de naam of e-mailadres) worden opgeslagen in de `signInNames` verzameling in de record van de gebruiker. De `signInNames` bevat een of meer `signInName` records die de namen aanmelden voor de gebruiker opgeven. De naam van elke aanmelding moet uniek zijn in de tenant.
+* Bij Azure AD B2C worden de namen van de **lokale accounts** (gebruikers naam of e-mail adres) opgeslagen in `signInNames` de verzameling in de gebruikers record. De `signInNames` bevat een of meer `signInName` records waarmee de aanmeldings namen voor de gebruiker worden opgegeven. Elke aanmeldings naam moet uniek zijn binnen de Tenant.
 
-* **Sociale accounts** identiteiten worden opgeslagen in `userIdentities` verzameling. Hiermee geeft u op de vermelding de `issuer` (naam id-provider), zoals facebook.com en de `issuerUserId`, dit is een unieke gebruikers-id voor de verlener. De `userIdentities` kenmerk bevat een of meer UserIdentity records die het type sociaalnetwerkaccount en de unieke gebruikers-id van de sociale id-provider opgeven.
+* Identiteiten van **sociale accounts** worden opgeslagen `userIdentities` in de verzameling. De vermelding geeft de `issuer` (ID-provider naam), zoals Facebook.com en `issuerUserId`de, aan. Dit is een unieke gebruikers-id voor de verlener. Het `userIdentities` kenmerk bevat een of meer UserIdentity-records die het type sociale-account en de unieke gebruikers-id van de sociale ID-provider opgeven.
 
-* **Lokaal account worden gecombineerd met sociale id**. Zoals gezegd, worden lokaal account aanmelden namen en sociale account-id's worden opgeslagen in verschillende kenmerken. `signInNames` wordt gebruikt voor het lokale account, terwijl `userIdentities` voor sociaal account. Één Azure AD B2C-account, kan een lokaal account alleen zijn en sociaal account alleen, of een lokaal account worden gecombineerd met sociale id in een gebruikersrecord. Dit gedrag kunt u voor het beheren van één account, terwijl een gebruiker kan zich aanmelden met de credential(s) lokaal account of met de sociale identiteiten.
+* **Combi neer een lokaal account met sociale identiteit**. Zoals vermeld, worden de namen van de lokale accounts en de identiteit van het sociale account in verschillende kenmerken opgeslagen. `signInNames`wordt gebruikt voor een lokaal account en `userIdentities` wordt gebruikt voor sociale accounts. Een enkele Azure AD B2C account kan alleen een lokaal account, alleen een sociaal account of een lokaal account met een of meer sociale identiteiten in één gebruikers record zijn. Dit gedrag stelt u in staat om één account te beheren, terwijl een gebruiker zich kan aanmelden met de referenties van een lokaal account of met de sociale identiteiten.
 
-* `UserIdentity` Type - informatie bevat over de identiteit van een gebruiker sociaal account in een Azure AD B2C-tenant:
-  * `issuer` De tekenreeksweergave van de id-provider die de gebruikers-id, zoals facebook.com heeft uitgegeven.
-  * `issuerUserId` De unieke gebruikers-id die wordt gebruikt door de sociale id-provider in Base 64-indeling.
+* `UserIdentity`Type: bevat informatie over de identiteit van een gebruiker van een sociaal account in een Azure AD B2C Tenant:
+  * `issuer`De teken reeks representatie van de ID-provider die de gebruikers-id heeft uitgegeven, zoals facebook.com.
+  * `issuerUserId`De unieke gebruikers-id die wordt gebruikt door de sociale ID-provider in de indeling met base64-code ring.
 
     ```JSON
     "userIdentities": [{
@@ -43,35 +44,35 @@ Dit artikel is een vervolg van het artikel van de migratie van gebruiker en is g
     ]
     ```
 
-* Afhankelijk van de id-provider, de **sociale gebruikers-ID** is een unieke waarde voor een bepaalde gebruiker per toepassing of ontwikkeling-account. Het Azure AD B2C-beleid configureren met dezelfde toepassings-ID die eerder door de sociale provider is toegewezen. Of een andere toepassing binnen hetzelfde account voor de ontwikkeling.
+* Afhankelijk van de ID-provider is de **gebruikers-id** van de verlener een unieke waarde voor een bepaalde gebruiker per toepassing of ontwikkelings account. Configureer het Azure AD B2C-beleid met dezelfde toepassings-ID die eerder is toegewezen door de sociale provider of een andere toepassing binnen hetzelfde ontwikkelings account.
 
 ## <a name="use-graph-api-to-migrate-users"></a>Graph API gebruiken om gebruikers te migreren
-Maken van de Azure AD B2C-gebruikersaccount via [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Om te communiceren met de Graph API, moet u eerst een service-account met beheerdersbevoegdheden hebt. In Azure AD registreert u een toepassing en verificatie met Azure AD. De referenties van de toepassing zijn toepassings-ID en -geheim van de toepassing. De toepassing fungeert als zelf, niet als een gebruiker, de Graph-API aan te roepen. Volg de instructies in stap 1 in [gebruikersmigratie](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration) artikel.
+U maakt het Azure AD B2C gebruikers account via de [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Als u met de Graph API wilt communiceren, moet u eerst een service account met beheerders bevoegdheden hebben. In azure AD registreert u een toepassing en verificatie voor Azure AD. De referenties van de toepassing zijn toepassings-ID en toepassings geheim. De toepassing fungeert als een gebruiker om de Graph API aan te roepen. Volg de instructies in stap 1 van het artikel [gebruikers migratie](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration) .
 
 ## <a name="required-properties"></a>Vereiste eigenschappen
-De volgende lijst bevat de eigenschappen die vereist zijn wanneer u een gebruiker maken.
-* **accountEnabled** : true
-* **displayName** -de naam om weer te geven in het adresboek voor de gebruiker.
-* **passwordProfile** -wachtwoordprofiel voor de gebruiker. 
+De volgende lijst bevat de eigenschappen die vereist zijn wanneer u een gebruiker maakt.
+* **accountEnabled** -True
+* **DisplayName** : de naam die in het adres boek voor de gebruiker moet worden weer gegeven.
+* **passwordProfile** : het wachtwoord profiel voor de gebruiker. 
 
 > [!NOTE]
-> Voor sociale account (zonder referenties voor lokale accounts), moet u nog steeds het wachtwoord opgeven. Azure AD B2C wordt genegeerd door het wachtwoord die u voor sociale accounts opgeeft.
+> Alleen voor sociale accounts (zonder referenties voor lokale accounts) moet u het wacht woord opgeven. Azure AD B2C negeert het wacht woord dat u opgeeft voor sociale accounts.
 
-* **userPrincipalName** -de user principal name (someuser@contoso.com). De principal-naam van de gebruiker moet een van de gecontroleerde domeinen bevatten voor de tenant. Als u de UPN, genereren van nieuwe GUID-waarde, samenvoegen met `@` en naam van uw tenant.
-* **mailNickname** -e-mailalias voor de gebruiker. Deze waarde kan dezelfde ID die u voor de userPrincipalName gebruikt zijn. 
-* **signInNames** -records van een of meer SignInName die de namen aanmelden voor de gebruiker opgeven. De naam van elke aanmelding moet uniek zijn in het bedrijf/tenant. Voor sociaal account alleen kan deze eigenschap leeg zijn.
-* **userIdentities** -een of meer UserIdentity records die sociale opgeeft account type en de unieke gebruikers-id van de sociale id-provider.
-* [optioneel] **otherMails** - voor sociaal account alleen e-mailadressen van de gebruiker 
+* **userPrincipalName** -de User Principal Name (someuser@contoso.com). De user principal name moet een van de geverifieerde domeinen voor de Tenant bevatten. Als u de UPN wilt opgeven, genereert u een nieuwe GUID- `@` waarde, voegt u samen met de naam van uw Tenant.
+* **mailNickname** -de e-mail alias voor de gebruiker. Deze waarde kan dezelfde ID zijn die u voor de userPrincipalName gebruikt. 
+* **signInNames** : een of meer SignInName-records waarmee de aanmeldings namen voor de gebruiker worden opgegeven. Elke aanmeldings naam moet uniek zijn binnen het bedrijf/de Tenant. Voor alleen een sociaal account mag deze eigenschap leeg blijven.
+* **userIdentities** : een of meer UserIdentity-records die het type sociale-account opgeven en de unieke gebruikers-id van de ID-provider voor sociale netwerken.
+* Beschrijving **otherMails** : alleen voor het e-mail adres van de gebruiker 
 
-Zie voor meer informatie: [Graph API-verwijzing](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
+Zie voor meer informatie: [Graph API referentie](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
-## <a name="migrate-social-account-only"></a>Sociale account (alleen) migreren
-Sociale account alleen maken zonder referenties voor lokale accounts. HTTPS-POST-aanvraag naar Graph API verzenden. Hoofdtekst van de aanvraag bevat de eigenschappen van de gebruiker sociaal account te maken. U moet ten minste de vereiste eigenschappen opgeven. 
+## <a name="migrate-social-account-only"></a>Sociaal account migreren (alleen)
+Als u alleen een sociaal account wilt maken, zonder lokale account referenties, stuurt u een HTTPS POST-aanvraag naar Graph API. De aanvraag tekst bevat de eigenschappen van de gebruiker die het sociaal account maakt. U moet mini maal de vereiste eigenschappen opgeven. 
 
 
 **POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
 
-De volgende formuliergegevens verzenden: 
+De volgende formulier gegevens verzenden: 
 
 ```JSON
 {
@@ -97,12 +98,12 @@ De volgende formuliergegevens verzenden:
     "userPrincipalName": "c8c3d3b8-60cf-4c76-9aa7-eb3235b190c8@tenant-name.onmicrosoft.com"
 }
 ```
-## <a name="migrate-social-account-with-local-account"></a>Sociale account met lokaal account migreren
-Een gecombineerde lokaal account maken met sociale identiteiten. HTTPS-POST-aanvraag naar Graph API verzenden. Hoofdtekst van de aanvraag bevat de eigenschappen van de gebruiker sociaal account te maken. U moet ten minste de vereiste eigenschappen opgeven. 
+## <a name="migrate-social-account-with-local-account"></a>Sociaal account migreren met lokaal account
+Als u een gecombineerd lokaal account wilt maken met sociale identiteiten, verzendt u een HTTPS POST-aanvraag naar de Graph API. De aanvraag tekst bevat de eigenschappen van de gebruiker van het sociaal-account om te maken, inclusief de aanmeldings naam voor het lokale account. U moet mini maal de vereiste eigenschappen opgeven. 
 
 **POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
 
-De volgende formuliergegevens verzenden: 
+Volgende formulier gegevens verzenden: 
 
 ```JSON
 {
@@ -134,25 +135,25 @@ De volgende formuliergegevens verzenden:
 ```
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
-### <a name="how-can-i-know-the-issuer-name"></a>Hoe weet ik de naam van de uitgever?
-De naam van de verlener of de naam van de id-provider is geconfigureerd in uw beleid. Als u niet weet wat de waarde die u opgeeft `issuer`, volgt u deze procedure:
+### <a name="how-can-i-know-the-issuer-name"></a>Hoe kan ik de naam van de verlener weten?
+De naam van de verlener of de naam van de identiteits provider is geconfigureerd in uw beleid. Als u niet weet welke waarde u moet opgeven `issuer`in, volgt u deze procedure:
 1. Meld u aan met een van de sociale accounts
-2. De JWT-token, Kopieer de `sub` waarde. De `sub` bevat doorgaans de object-ID van de gebruiker in Azure AD B2C. Of vanuit de Azure portal, opent u de eigenschappen van de gebruiker en kopieer de object-ID.
+2. Kopieer de `sub` waarde van de JWT-token. Het `sub` bevat gewoonlijk de object-id van de gebruiker in azure AD B2C. Of van Azure Portal, open de eigenschappen van de gebruiker en kopieer de object-ID.
 3. Open [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net)
 4. Meld u aan met uw beheerder.
-5. Voer de volgende GET-aanvraag. De userObjectId vervangen door de gebruikers-ID die u hebt gekopieerd. **TOEVOEGEN** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
-6. Zoek de `userIdentities` -element in de JSON geretourneerd uit Azure AD B2C.
-7. [Optioneel] U kunt ook moet worden gedecodeerd de `issuerUserId` waarde.
+5. Voer de volgende GET-aanvraag uit. Vervang de userObjectId door de gebruikers-ID die u hebt gekopieerd. **OPHALEN**https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
+6. Zoek het `userIdentities` element in de JSON-retour waarde van Azure AD B2C.
+7. Beschrijving Misschien wilt u ook de `issuerUserId` waarde decoderen.
 
 > [!NOTE]
-> Gebruik een B2C-tenant administrator-account dat is lokaal op de B2C-tenant. De syntaxis van de naam van het account is admin@tenant-name.onmicrosoft.com.
+> Gebruik een B2C Tenant beheerders account dat lokaal is voor de B2C-Tenant. De syntaxis van de account admin@tenant-name.onmicrosoft.comnaam is.
 
-### <a name="is-it-possible-to-add-social-identity-to-an-existing-local-account"></a>Is het mogelijk om sociale id toevoegen aan een bestaande lokale account?
-Ja. Nadat het lokale account is gemaakt, kunt u de sociale id toevoegen. Patch uitvoeren voor HTTPS-aanvraag worden uitgevoerd. De userObjectId vervangen door de gebruikers-ID die u wilt bijwerken. 
+### <a name="is-it-possible-to-add-a-social-identity-to-an-existing-user"></a>Is het mogelijk om een sociale identiteit toe te voegen aan een bestaande gebruiker?
+Ja. U kunt de sociale identiteit toevoegen nadat het Azure AD B2C account is gemaakt (of dat een lokaal of sociaal account is, of een combi natie hiervan). Voer een HTTPS-PATCH aanvraag uit. Vervang de userObjectId door de gebruikers-ID die u wilt bijwerken. 
 
-**PATCH** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
+**PATCH**https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 
-De volgende formuliergegevens verzenden: 
+Volgende formulier gegevens verzenden: 
 
 ```JSON
 {
@@ -165,12 +166,12 @@ De volgende formuliergegevens verzenden:
 }
 ```
 
-### <a name="is-it-possible-to-add-multiple-social-identities"></a>Is het mogelijk om toe te voegen meerdere sociale identiteiten?
-Ja. U kunt meerdere sociale identiteiten voor één Azure AD B2C-account toevoegen. Patch uitvoeren voor HTTPS-aanvraag worden uitgevoerd. De userObjectId vervangen door de gebruikers-ID. 
+### <a name="is-it-possible-to-add-multiple-social-identities"></a>Is het mogelijk meerdere sociale identiteiten toe te voegen?
+Ja. U kunt meerdere sociale identiteiten voor één Azure AD B2C account toevoegen. Voer een HTTPS-PATCH aanvraag uit. Vervang de userObjectId door de gebruikers-ID. 
 
-**PATCH** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
+**PATCH**https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 
-De volgende formuliergegevens verzenden: 
+Volgende formulier gegevens verzenden: 
 
 ```JSON
 {
@@ -187,16 +188,16 @@ De volgende formuliergegevens verzenden:
 }
 ```
 
-## <a name="optional-user-migration-application-sample"></a>[Optioneel] Voorbeeld van de toepassing gebruiker migratie
-[Downloaden en uitvoeren van de voorbeeld-app V2](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration). De voorbeeld-app V2 maakt gebruik van een JSON-bestand met gegevens van de dummygebruiker, met inbegrip van: lokale account, sociaalnetwerkaccount en lokale en sociale identiteiten in één account.  Als u wilt het JSON-bestand bewerken, opent u de `AADB2C.UserMigration.sln` Visual Studio-oplossing. In de `AADB2C.UserMigration` project, open de `UsersData.json` bestand. Het bestand bevat een lijst met gebruikersentiteiten. Elke gebruikersentiteit heeft de volgende eigenschappen:
-* **signInName** : voor het lokale account, e-mailadres om aan te melden
-* **displayName** -weergavenaam van de gebruiker
-* **firstName** -voornaam van gebruiker
-* **Achternaam** -achternaam van gebruiker
-* **wachtwoord** voor lokale account, het wachtwoord van gebruiker (mag leeg zijn)
-* **verlener** - voor sociaal account, de naam van de id-provider
-* **issuerUserId** - voor sociaal account, de unieke gebruikers-id die wordt gebruikt door de sociale id-provider. De waarde moet liggen in niet-versleutelde tekst. De voorbeeld-app worden deze waarde aan de met base64 gecodeerd.
-* **e-mailbericht** voor sociaal account alleen (niet gecombineerde) van de gebruiker e-mailadres
+## <a name="optional-user-migration-application-sample"></a>Beschrijving Voor beeld van toepassing voor gebruikers migratie
+[Down load de voor beeld-app v2 en voer deze uit](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration). De voor beeld-app v2 gebruikt een JSON-bestand dat dummy gebruikers gegevens bevat, waaronder: lokaal account, sociaal account en lokale & sociale identiteiten in één account.  Als u het JSON-bestand wilt bewerken `AADB2C.UserMigration.sln` , opent u de Visual Studio-oplossing. Open het `AADB2C.UserMigration` `UsersData.json` bestand in het project. Het bestand bevat een lijst met gebruikers entiteiten. Elke gebruikers entiteit heeft de volgende eigenschappen:
+* **signInName** : voor het lokale account, het e-mail adres voor aanmelding
+* **DisplayName** : weergave naam van gebruiker
+* **FirstName** -de voor naam van de gebruiker
+* **LastName** : de achternaam van de gebruiker
+* **wacht woord** Voor het lokale account, het wacht woord van de gebruiker (kan leeg zijn)
+* **verlener** : voor sociaal account, de naam van de ID-provider
+* **issuerUserId** : de unieke gebruikers-id die wordt gebruikt door de ID-provider voor sociale netwerken. De waarde moet in Lees bare tekst zijn. De voor beeld-app codeert deze waarde in base64.
+* **e-mail adres** Alleen voor het e-mail adres van de gebruiker (niet gecombineerd)
 
 ```JSON
 {
@@ -234,6 +235,6 @@ De volgende formuliergegevens verzenden:
 ```
 
 > [!NOTE]
-> Als u niet de UsersData.json-bestand in het voorbeeld met uw gegevens bijwerkt, u kunt zich aanmeldt met de referenties van het voorbeeld lokaal account, maar niet met de voorbeelden sociaal account. Als u wilt migreren van uw sociale accounts, echte gegevens te leveren.
+> Als u het bestand UsersData. json in het voor beeld niet bijwerkt met uw gegevens, kunt u zich aanmelden met de referenties van het voor beeld van een lokaal account, maar niet met de voor beelden van het sociale account. Geef echte gegevens op om uw sociale accounts te migreren.
 
-Voor meer informatie over het gebruik van de voorbeeld-app, [Azure Active Directory B2C: Gebruikersmigratie](active-directory-b2c-user-migration.md)
+Zie [Azure Active Directory B2C voor meer informatie over het gebruik van de voor beeld-app: Gebruikers migratie](active-directory-b2c-user-migration.md)

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5dee966f8664bc14d81004e625ad9632066ffcb2
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: adca67152c33f4c6a3ec272b63c4c8157a777f36
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742312"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856196"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Automatische ML experimenten configureren in python
 
@@ -215,6 +215,9 @@ Primaire metriek; zoals wordt weer gegeven in de bovenstaande voor beelden, bepa
 In elk automatisch machine learning experiment worden uw gegevens [automatisch geschaald en](concept-automated-ml.md#preprocess) genormaliseerd om de Help-algoritmen goed uit te voeren.  U kunt echter ook aanvullende voor verwerking/parametrisatie inschakelen, zoals ontbrekende waarden, code ring en trans formaties. Meer [informatie over wat parametrisatie is inbegrepen](how-to-create-portal-experiments.md#preprocess).
 
 Als u deze parametrisatie wilt inschakelen `"preprocess": True` , geeft u voor de [ `AutoMLConfig` klasse](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)op.
+
+> [!NOTE]
+> Automatische machine learning vooraf verwerkte stappen (functie normalisatie, het verwerken van ontbrekende gegevens, het converteren van tekst naar numerieke waarde, enzovoort) worden onderdeel van het onderliggende model. Wanneer u het model gebruikt voor voor spellingen, worden dezelfde vooraf verwerkings stappen die tijdens de training worden toegepast, automatisch toegepast op uw invoer gegevens.
 
 ### <a name="time-series-forecasting"></a>Tijd reeks prognose
 Voor tijdreeks prognose taak type hebt u aanvullende para meters die u kunt definiëren.

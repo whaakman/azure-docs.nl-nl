@@ -1,13 +1,10 @@
 ---
 title: Aan de slag met Azure AD in Visual Studio WebApi-projecten
 description: Aan de slag met Azure Active Directory in WebApi-projecten na het maken van verbinding met of het maken van een Azure AD met behulp van Visual Studio Connected Services
-services: active-directory
-ms.service: active-directory
-ms.subservice: develop
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: bf1eb32d-25cd-4abf-8679-2ead299fedaa
-ms.prod: visual-studio-dev15
+ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
@@ -15,12 +12,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 662e0a3e85684287c636b8d0b512b072c978dd3f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 225940052e1f40f8050059532e4657df2b5410a3
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320736"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851903"
 ---
 # <a name="get-started-with-azure-active-directory-webapi-projects"></a>Aan de slag met Azure Active Directory (WebApi-projecten)
 

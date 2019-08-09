@@ -4,14 +4,14 @@ description: Hierin worden veelgestelde vragen over Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 0708502087ae6880d9559cf17f0ba9982b2ba040
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: bf591306220b2c8c1e6c8166686836d96432fc7d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372484"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856281"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate-Veelgestelde vragen (FAQ)
 
@@ -71,7 +71,8 @@ Het apparaat maakt verbinding met de vCenter Server (poort 443) met behulp van d
 
 ### <a name="can-i-connect-the-same-appliance-to-multiple-vcenter-servers"></a>Kan ik hetzelfde apparaat verbinden met meerdere vCenter-servers?
 
-Ja, Eén Azure Migrate apparaat kan worden gebruikt om meerdere vCenter-servers te detecteren, maar niet gelijktijdig. U moet detecties één na de andere uitvoeren.
+Nee. Er is een een-op-een-toewijzing tussen een apparaat en vCenter Server. Als u Vm's op meerdere vCenter-servers moet detecteren, moet u meerdere apparaten implementeren. 
+
 
 ### <a name="i-changed-my-machine-size-can-i-rerun-an-assessment"></a>Ik heb mijn computer grootte gewijzigd. Kan ik een evaluatie opnieuw uitvoeren?
 

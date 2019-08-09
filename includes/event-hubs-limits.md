@@ -8,43 +8,48 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b105fb14608d53c5c2ef469ab44e211ccdf4d3c8
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 928b0bcfb32d1a319c811d00fc84a37f85702895
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812526"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857362"
 ---
-De volgende tabel geeft een lijst van quota en limieten specifiek zijn voor [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Zie voor meer informatie over prijzen van Event Hubs [prijzen van Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
+De volgende tabel geeft een lijst van quota's en limieten die specifiek zijn voor [Azure Event hubs](https://azure.microsoft.com/services/event-hubs/). Zie [Event hubs prijzen](https://azure.microsoft.com/pricing/details/event-hubs/)voor meer informatie over Event hubs prijzen.
 
-| Limiet | Scope | Opmerkingen | Waarde |
+| Limiet | Scope | Opmerkingen | Value |
 | --- | --- | --- | --- |
-| Het aantal Event Hubs-naamruimten per abonnement |Subscription |- |100 |
-| Het aantal eventhubs per naamruimte |Naamruimte |De volgende aanvragen voor het maken van een nieuwe event hub worden geweigerd. |10 |
-| Het aantal partities per event hub |Entiteit |- |32 |
-| Aantal consumentengroepen per event hub |Entiteit |- |20 |
-| Aantal AMQP-verbindingen per naamruimte |Naamruimte |De volgende aanvragen voor extra verbindingen worden geweigerd en een uitzondering wordt ontvangen door de aanroepende code. |5,000 |
-| Maximale grootte van Event Hubs-gebeurtenis|Entiteit |- |1 MB |
-| Maximale grootte van de naam van een event hub |Entiteit |- |50 tekens |
-| Aantal niet-epoche ontvangers per consumentengroep |Entiteit |- |5 |
-| Maximale bewaarperiode van gebeurtenisgegevens |Entiteit |- |1-7 dagen |
-| Maximum aantal Throughput Units |Naamruimte |De doorvoer unit-limiet zorgt ervoor dat uw gegevens om te worden beperkt en genereert een [server bezet uitzondering](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Om aan te vragen een groter aantal doorvoereenheden voor Standard-laag, het bestand een [ondersteuningsaanvraag](/azure/azure-supportability/how-to-create-azure-support-request). [Aanvullende throughput units](../articles/event-hubs/event-hubs-auto-inflate.md) zijn beschikbaar in blokken van 20 op basis van toegezegde aankoop. |20 |
-| Aantal regels per naamruimte |Naamruimte|De volgende aanvragen voor het maken van de regel autorisatie worden geweigerd.|12 |
+| Aantal Event Hubs-naam ruimten per abonnement |Subscription |- |100 |
+| Aantal Event hubs per naam ruimte |Naamruimte |Volgende aanvragen voor het maken van een nieuwe Event Hub worden geweigerd. |10 |
+| Aantal partities per Event Hub |Entiteit |- |32 |
+| Maximale grootte van Event Hubs gebeurtenis|Entiteit |- |1 MB |
+| Maximale grootte van een Event Hub naam |Entiteit |- |50 tekens |
+| Aantal niet-epoche receivers per consumenten groep |Entiteit |- |5 |
+| Maximum aantal Throughput Units |Naamruimte |Door de limiet voor de doorvoer eenheid te overschrijden, worden uw gegevens beperkt en wordt er een [Server uitzondering](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)gegenereerd. Als u een groter aantal doorvoer eenheden wilt aanvragen voor een Standard-laag, moet u een ondersteunings [aanvraag](/azure/azure-supportability/how-to-create-azure-support-request)indienen. [Extra doorvoer eenheden](../articles/event-hubs/event-hubs-auto-inflate.md) zijn beschikbaar in blokken van 20 op basis van een vastgelegde aankoop. |20 |
+| Aantal autorisatie regels per naam ruimte |Naamruimte|Volgende aanvragen voor het maken van een autorisatie regel worden geweigerd.|12 |
 | Aantal aanroepen naar de methode GetRuntimeInformation | Entiteit | - | 50 per seconde | 
-| Aantal virtuele netwerk (VNet) en IP-Config-regels | Entiteit | - | 128 | 
+| Aantal virtuele netwerken (VNet) en IP-configuratie regels | Entiteit | - | 128 | 
 
-### <a name="event-hubs-dedicated---quotas-and-limits"></a>Event Hubs Dedicated - quota en limieten
-De aanbieding Event Hubs Dedicated wordt in rekening gebracht tegen een vaste maandelijkse prijs met een minimum van 4 uur van het gebruik van. De speciale laag biedt alle functies van de Standard-abonnement, maar met enterprise schaal capaciteiten en limieten voor klanten met veeleisende workloads. 
+### <a name="event-hubs-basic-and-standard---quotas-and-limits"></a>Event Hubs Basic-en Standard-quota en-limieten
+| Limiet | Scope | Opmerkingen | Basic | Standard |
+| --- | --- | --- | -- | --- |
+| Aantal consumenten groepen per Event Hub |Entiteit | - |1 |20 |
+| Aantal AMQP-verbindingen per naam ruimte |Naamruimte |Volgende aanvragen voor extra verbindingen worden geweigerd en er wordt een uitzonde ring ontvangen door de aanroepende code. |100 |5,000|
+| Maximale Bewaar periode van gebeurtenis gegevens |Entiteit | - |1 dag |1-7 dagen |
+
+
+### <a name="event-hubs-dedicated---quotas-and-limits"></a>Event Hubs Dedicated quota's en limieten
+De Event Hubs Dedicated aanbieding wordt gefactureerd tegen een vaste maandelijkse prijs, met een minimum van 4 uur gebruik. De toegewezen laag biedt alle functies van het Standard-abonnement, maar met de schaal capaciteit van bedrijven en limieten voor klanten met veeleisende workloads. 
 
 | Functie | Limieten |
 | --- | ---|
-| Bandbreedte |  20 Cu 's |
-| Naamruimten | 50 per Capaciteitseenheid |
-| Event Hubs |  1000 per naamruimte |
+| Bandbreedte |  20 CUs |
+| Naamruimten | 50 per CU |
+| Event Hubs |  1000 per naam ruimte |
 | Ingangsgebeurtenissen | Inbegrepen |
-| Berichtgrootte | 1 Million Bytes |
-| Partities | 2000 per Capaciteitseenheid |
-| Consumergroepen | Geen limiet per Capaciteitseenheid, 1000 per event hub |
+| Berichtgrootte | 1\.000.000 bytes |
+| Partities | 2000 per CU |
+| Consumergroepen | Geen limiet per CU, 1000 per Event Hub |
 | Brokered Connections | 100 K inbegrepen |
-| Bewaartermijn voor berichten | Omhoog tot 7 dagen (90 dagen bewaard binnenkort beschikbaar), inbegrepen 10 TB per Capaciteitseenheid |
+| Bewaartermijn voor berichten | Maxi maal 7 dagen (90 dag bewaren binnenkort beschikbaar), 10 TB inbegrepen per CU |
 | Capture | Inbegrepen |

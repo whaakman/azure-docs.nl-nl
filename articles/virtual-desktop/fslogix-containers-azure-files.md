@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: c01e138c8afcdd59fcb0c87f189d98bec10e16d7
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 13f80b42ef6dfd0c70067a3ecf5f3e172527a63f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828135"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846525"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix-profielcontainers en Azure Files
 
@@ -75,13 +75,13 @@ Op 19 november 2018 heeft [micro soft FSLogix aangeschaft](https://blogs.microso
 
 Sinds de aanschaf is micro soft begonnen met het vervangen van bestaande gebruikers profiel oplossingen, zoals UPD, met FSLogix-profiel containers.
 
-## <a name="azure-files-integration-with-azure-active-directory"></a>Integratie met Azure Active Directory Azure Files
+## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Integratie met Azure Active Directory-domein service Azure Files
 
-De prestaties en functies van het FSLogix-profiel containers profiteren van de Cloud. Op Sept. 24 2018 Microsoft Azure bestanden een open bare preview van [Azure files ondersteunen Azure Active Directory verificatie](https://azure.microsoft.com/blog/azure-active-directory-integration-for-smb-access-now-in-public-preview/). Door zowel kosten als administratieve overhead te adresseren, wordt Azure Files met Azure Active Directory-verificatie een Premium-oplossing voor gebruikers profielen in de nieuwe virtueel bureau blad-service van Windows.
+De prestaties en functies van FSLogix-profiel containers profiteren van de Cloud. Op 2019 7 augustus heeft Microsoft Azure bestanden de algemene Beschik baarheid aangekondigd van [Azure files verificatie met Azure Active Directory Domain Service (AD DS)](/articles/storage/files/storage-files-active-directory-overview.md). Door zowel kosten als administratieve overhead te adresseren, Azure Files met Azure AD DS-verificatie een Premium-oplossing voor gebruikers profielen in de virtueel-bureaublad service van Windows.
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Aanbevolen procedures voor virtueel bureau blad van Windows
 
-Virtueel bureau blad van Windows biedt volledige controle over de grootte, het type en het aantal Vm's dat door klanten wordt gebruikt. Zie [Wat is Windows virtueel bureau blad-preview?](https://docs.microsoft.com/azure/virtual-desktop/overview)voor meer informatie.
+Virtueel bureau blad van Windows biedt volledige controle over de grootte, het type en het aantal Vm's dat door klanten wordt gebruikt. Zie [Wat is Windows virtueel bureau blad-preview?](overview.md)voor meer informatie.
 
 Om ervoor te zorgen dat uw virtuele Windows-bureau blad-omgeving de best practices volgt:
 
@@ -94,11 +94,11 @@ Om ervoor te zorgen dat uw virtuele Windows-bureau blad-omgeving de best practic
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Gebruik de volgende instructies om een virtuele Windows-desktop omgeving in te stellen.
+Gebruik de volgende hand leidingen om een virtuele Windows-desktop omgeving in te stellen.
 
-- Zie [een Tenant maken in Windows virtueel bureau blad](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory)om te beginnen met het bouwen van de oplossing voor desktop virtualisatie.
-- Zie [een hostgroep maken met Azure Marketplace](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace)voor meer informatie over het maken van een hostgroep in uw virtuele Windows-bureau blad-Tenant.
-- Zie [Azure Files share instellen](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable)voor meer informatie over het instellen van volledig beheerde bestands shares in de Cloud.
-- Zie [een gebruikers profiel share instellen voor een hostgroep voor](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-user-profile)meer informatie over het configureren van FSLogix-profiel containers.
-- Zie [app-groepen beheren voor Windows virtueel bureau blad](https://docs.microsoft.com/azure/virtual-desktop/manage-app-groups)om gebruikers toe te wijzen aan een hostgroep.
-- Zie [verbinding maken met het virtuele bureau blad van Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-web)voor toegang tot uw virtuele bureau blad-resources via een webbrowser.
+- Zie [een Tenant maken in Windows virtueel bureau blad](tenant-setup-azure-active-directory.md)om te beginnen met het bouwen van de oplossing voor desktop virtualisatie.
+- Zie [een hostgroep maken met Azure Marketplace](create-host-pools-azure-marketplace.md)voor meer informatie over het maken van een hostgroep in uw virtuele Windows-bureau blad-Tenant.
+- Zie [Azure Files share instellen](/articles/storage/files/storage-files-active-directory-enable.md)voor meer informatie over het instellen van volledig beheerde bestands shares in de Cloud.
+- Zie [een gebruikers profiel share instellen voor een hostgroep voor](create-host-pools-user-profile.md)meer informatie over het configureren van FSLogix-profiel containers.
+- Zie [app-groepen beheren voor Windows virtueel bureau blad](manage-app-groups.md)om gebruikers toe te wijzen aan een hostgroep.
+- Zie [verbinding maken met het virtuele bureau blad van Windows](connect-web.md)voor toegang tot uw virtuele bureau blad-resources via een webbrowser.

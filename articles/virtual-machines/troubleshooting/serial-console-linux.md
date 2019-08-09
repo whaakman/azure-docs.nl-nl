@@ -1,6 +1,6 @@
 ---
-title: Azure-seriële Console voor Linux | Microsoft Docs
-description: Bidirectionele seriële Console voor virtuele Azure-Machines en Virtual Machine Scale Sets.
+title: Azure Serial console voor Linux | Microsoft Docs
+description: Bidirectionele seriële console voor Azure Virtual Machines en Virtual Machine Scale Sets.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -14,119 +14,119 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: f3fa646fcca99d5762f480b3fd12c5e249eabaf8
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 0eda9fe0e16a945dcb9f9a1b686afcd2aebe6306
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710567"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854390"
 ---
-# <a name="azure-serial-console-for-linux"></a>Azure-seriële Console voor Linux
+# <a name="azure-serial-console-for-linux"></a>Azure Serial console voor Linux
 
-Seriële Console van het in Azure portal biedt toegang tot een op tekst gebaseerde console voor virtuele Linux-machines (VM's) en virtuele-machineschaalset exemplaren. Deze seriële verbinding maken met de seriële poort ttys0 van de virtuele machine of virtuele machine scale set exemplaar, toegang tot deze onafhankelijk van de status van de netwerk- of -besturingssysteem. Seriële console van het alleen kan worden geopend met behulp van Azure portal en is alleen voor gebruikers die een access-rol van inzender zijn toegestaan of hoger als u wilt de schaalset voor virtuele machine of virtuele machine.
+De seriële console in de Azure Portal biedt toegang tot een op tekst gebaseerde console voor virtuele Linux-machines (Vm's) en exemplaren van virtuele-machine schaal sets. Deze seriële verbinding maakt verbinding met de ttyS0-seriële poort van de VM of de virtuele-machine Scale set-instantie, waardoor deze onafhankelijk is van de status van het netwerk of het besturings systeem. De seriële console is alleen toegankelijk via de Azure Portal en is alleen toegestaan voor gebruikers met een toegangs rol van Inzender of een hoger niveau voor virtuele-machine schaal sets.
 
-Seriële Console werkt op dezelfde manier voor virtuele machines en virtuele-machineschaalset exemplaren. In dit document bevat alle vermeldingen op virtuele machines impliciet schaalsetinstanties virtuele machine, tenzij anders vermeld.
+Seriële console werkt op dezelfde manier voor Vm's en exemplaren van virtuele-machine schaal sets. In dit document bevatten alle vermeldingen aan Vm's impliciet instanties voor schaal sets voor virtuele machines, tenzij anders vermeld.
 
-Zie voor de seriële Console-documentatie voor Windows, [seriële Console voor Windows](../windows/serial-console.md).
+Zie [seriële console voor Windows](../windows/serial-console.md)voor informatie over de seriële console voor Windows.
 
 > [!NOTE]
-> De seriële Console is algemeen beschikbaar in de globale Azure-regio's. Het is nog niet beschikbaar in de Azure government en Azure China clouds.
+> De seriële console is algemeen beschikbaar in de wereld wijde Azure-regio's. Het is nog niet beschikbaar in de Azure government en Azure China clouds.
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Uw virtuele machine of virtuele machine-exemplaar schaalset moet de resource Manager-implementatiemodel gebruiken. Klassieke implementaties worden niet ondersteund.
+- De virtuele machine of het exemplaar van de VM-schaalset moet gebruikmaken van het Resource Management-implementatie model. Klassieke implementaties worden niet ondersteund.
 
-- Uw account die gebruikmaakt van de seriële console van de [rol van inzender voor virtuele machines](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) voor de virtuele machine en de [diagnostische gegevens over opstarten](boot-diagnostics.md) storage-account
+- Uw account dat gebruikmaakt van seriële console, moet de [rol Inzender voor virtuele machines](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) hebben voor de VM en het opslag account voor [Diagnostische gegevens over opstarten](boot-diagnostics.md)
 
-- Uw virtuele machine of virtuele machine scale set-exemplaar moet een gebruiker op basis van wachtwoorden hebben. U kunt maken met de [wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functie van de VM-extensie voor toegang. Selecteer **wachtwoord opnieuw instellen** uit de **ondersteuning en probleemoplossing** sectie.
+- Uw virtuele machine of exemplaar van de VM-schaalset moet een gebruiker met een wacht woord zijn. U kunt maken met de [wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functie van de VM-extensie voor toegang. Selecteer **wachtwoord opnieuw instellen** uit de **ondersteuning en probleemoplossing** sectie.
 
-- Uw virtuele machine of virtuele machine-exemplaar schaalset moet hebben [diagnostische gegevens over opstarten](boot-diagnostics.md) ingeschakeld.
+- Voor de virtuele machine of het exemplaar van de VM-schaalset moet [Diagnostische gegevens over opstarten](boot-diagnostics.md) zijn ingeschakeld.
 
     ![De instellingen voor diagnostische gegevens over opstarten](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-- Zie voor specifieke instellingen voor Linux-distributies, [seriële console van beschikbaarheid van de Linux-distributie](#serial-console-linux-distribution-availability).
+- Zie [seriële console Linux-distributie Beschik baarheid](#serial-console-linux-distribution-availability)voor instellingen die specifiek zijn voor Linux-distributies.
 
-- Uw virtuele machine of virtuele machine-exemplaar schaalset moet worden geconfigureerd voor seriële uitvoer op `ttys0`. Dit is de standaardinstelling voor installatiekopieën van Azure, maar u zult dubbele om dit te controleren op aangepaste installatiekopieën. Details [hieronder](#custom-linux-images).
+- Uw virtuele machine of exemplaar van de VM-schaalset moet worden geconfigureerd voor `ttys0`seriële uitvoer op. Dit is de standaard instelling voor Azure-installatie kopieën, maar u kunt dit ook controleren op aangepaste installatie kopieën. Details [hieronder](#custom-linux-images).
 
 
-## <a name="get-started-with-the-serial-console"></a>Aan de slag met de seriële Console
-De seriële Console voor virtuele machines en virtuele-machineschaalset is uitsluitend toegankelijk via de Azure-portal:
+## <a name="get-started-with-the-serial-console"></a>Aan de slag met de seriële console
+De seriële console voor Vm's en schaal sets voor virtuele machines is alleen toegankelijk via de Azure Portal:
 
-### <a name="serial-console-for-virtual-machines"></a>Seriële Console voor virtuele Machines
-Seriële Console voor virtuele machines is zo eenvoudig als klikken op **seriële console** binnen de **ondersteuning en probleemoplossing** sectie in Azure portal.
+### <a name="serial-console-for-virtual-machines"></a>Seriële console voor Virtual Machines
+Seriële console voor Vm's is net zo eenvoudig als klikken op **seriële console** in de sectie **ondersteuning en probleem oplossing** in de Azure Portal.
   1. Open de [Azure Portal](https://portal.azure.com).
 
-  1. Navigeer naar **alle resources** en selecteert u een virtuele Machine. De overzichtspagina voor de virtuele machine wordt geopend.
+  1. Ga naar **alle resources** en selecteer een virtuele machine. De overzichts pagina voor de VM wordt geopend.
 
   1. Schuif omlaag naar de **ondersteuning en probleemoplossing** sectie en selecteer **seriële console**. Een nieuw deelvenster met de seriële console wordt geopend en wordt de verbinding wordt gestart.
 
-     ![Linux-seriële Console-venster](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
+     ![Venster Linux-seriële console](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
-### <a name="serial-console-for-virtual-machine-scale-sets"></a>Seriële Console voor Virtual Machine Scale Sets
-Seriële Console is beschikbaar op basis van afzonderlijke instanties voor virtuele-machineschaalsets. U hebt om te navigeren naar de afzonderlijke instantie van een virtuele-machineschaalset voordat de **seriële console** knop. Als uw virtuele-machineschaalset geen diagnostische gegevens over opstarten ingeschakeld, controleert u of dat u uw virtuele machine scale set model voor het inschakelen van diagnostische gegevens over opstarten en vervolgens alle exemplaren een upgrade naar het nieuwe model voor toegang tot de seriële console bijwerken.
+### <a name="serial-console-for-virtual-machine-scale-sets"></a>Seriële console voor Virtual Machine Scale Sets
+Seriële console is beschikbaar op basis van per instantie voor schaal sets voor virtuele machines. U moet naar de afzonderlijke instantie van een schaalset voor virtuele machines gaan voordat u de knop **seriële console** ziet. Als voor de virtuele-machine schaal sets geen diagnostische gegevens over opstarten zijn ingeschakeld, moet u het model voor de schaalset van de virtuele machine bijwerken om diagnostische gegevens over opstarten in te scha kelen en vervolgens alle exemplaren naar het nieuwe model bijwerken om toegang te krijgen tot de seriële console.
   1. Open de [Azure Portal](https://portal.azure.com).
 
-  1. Navigeer naar **alle resources** en selecteert u een virtuele-Machineschaalset opgehaald. De overzichtspagina voor de virtuele-machineschaalset instellen wordt geopend.
+  1. Ga naar **alle resources** en selecteer een schaalset voor virtuele machines. De overzichts pagina voor de schaalset voor virtuele machines wordt geopend.
 
-  1. Navigeer naar **exemplaren**
+  1. Naar **instanties** navigeren
 
-  1. Selecteer een instantie van virtuele-machineschaalset
+  1. Een instantie van een schaalset voor virtuele machines selecteren
 
-  1. Uit de **ondersteuning en probleemoplossing** sectie, selecteer **seriële console**. Een nieuw deelvenster met de seriële console wordt geopend en wordt de verbinding wordt gestart.
+  1. Selecteer **seriële console**in het gedeelte **ondersteuning en probleem oplossing** . Een nieuw deelvenster met de seriële console wordt geopend en wordt de verbinding wordt gestart.
 
-     ![Linux machineschaalset virtuele-seriële Console](./media/virtual-machines-serial-console/vmss-start-console.gif)
+     ![Seriële console voor virtuele Linux-machine schaal sets](./media/virtual-machines-serial-console/vmss-start-console.gif)
 
-
-> [!NOTE]
-> De seriële console is een lokale gebruiker met een ingestelde wachtwoord vereist. Virtuele machines of virtuele-machineschaalsets geconfigureerd alleen met een openbare SSH-sleutel zich niet aanmelden bij de seriële console. Voor het maken van een lokale gebruiker met een wachtwoord gebruikt de [VMAccess-extensie](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension), die beschikbaar zijn in de portal is door te selecteren **wachtwoord opnieuw instellen** in de Azure-portal en maak een lokale gebruiker met een wachtwoord.
-> U kunt het administrator-wachtwoord ook opnieuw instellen in uw account door [WORMGATEN gebruiken om op te starten in de modus voor één gebruiker](./serial-console-grub-single-user-mode.md).
-
-## <a name="serial-console-linux-distribution-availability"></a>Seriële Console Linux-distributie-beschikbaarheid
-Voor de seriële console te laten functioneren, moet het gastbesturingssysteem worden geconfigureerd om te lezen en schrijven van consoleberichten naar de seriële poort. De meeste [goedgekeurd Azure Linux-distributies](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) hebben van de seriële console standaard geconfigureerd. Selecteren **seriële console** in de **ondersteuning en probleemoplossing** sectie van de Azure-portal biedt toegang tot de seriële console.
 
 > [!NOTE]
-> Als u in de seriële console niet ziet, zorg er dan voor dat de diagnostische gegevens over die opstarten is ingeschakeld op de virtuele machine. Bereikt **Enter** wordt vaak problemen opgelost waarbij niets wordt weergegeven in de seriële console.
+> De seriële console vereist een lokale gebruiker met een geconfigureerd wacht woord. Vm's of virtuele-machine schaal sets die alleen met een open bare SSH-sleutel zijn geconfigureerd, kunnen zich niet aanmelden bij de seriële console. Als u een lokale gebruiker met een wacht woord wilt maken, gebruikt u de [uitbrei ding VMAccess](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension), die beschikbaar is in de portal door **wacht woord opnieuw instellen** in de Azure portal te selecteren en een lokale gebruiker met een wacht woord te maken.
+> U kunt ook het beheerders wachtwoord opnieuw instellen in uw account door [grub te gebruiken om op te starten in de modus voor één gebruiker](./serial-console-grub-single-user-mode.md).
+
+## <a name="serial-console-linux-distribution-availability"></a>Beschik baarheid van Linux-distributie voor seriële console
+Voor een juiste werking van de seriële console moet het gast besturingssysteem worden geconfigureerd om console berichten te lezen en te schrijven naar de seriële poort. Voor de meeste [goedgekeurde Azure Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) -distributies is de seriële console standaard geconfigureerd. Als u **seriële console** selecteert in het gedeelte **ondersteuning en probleem oplossing** van de Azure Portal, hebt u toegang tot de seriële console.
+
+> [!NOTE]
+> Als u niets in de seriële console ziet, zorg er dan voor dat diagnostische gegevens over opstarten zijn ingeschakeld op de virtuele machine. Bij op te **geven** , worden vaak problemen opgelost waarbij er niets wordt weer gegeven in de seriële console.
 
 Distributie      | Toegang tot seriële console
 :-----------|:---------------------
-Red Hat Enterprise Linux    | Seriële console-toegang is standaard ingeschakeld.
-CentOS      | Seriële console-toegang is standaard ingeschakeld.
-Ubuntu      | Seriële console-toegang is standaard ingeschakeld.
-CoreOS      | Seriële console-toegang is standaard ingeschakeld.
-SUSE        | Nieuwere SLES-installatiekopieën die beschikbaar zijn op Azure hebt seriële console-toegang standaard ingeschakeld. Als u van oudere versies (10 of eerder) van SLES op Azure gebruikmaakt, raadpleegt u de [KB-artikel](https://www.novell.com/support/kb/doc.php?id=3456486) seriële console inschakelen.
-Oracle Linux        | Seriële console-toegang is standaard ingeschakeld.
+Red Hat Enterprise Linux    | Seriële console toegang is standaard ingeschakeld.
+CentOS      | Seriële console toegang is standaard ingeschakeld.
+Ubuntu      | Seriële console toegang is standaard ingeschakeld.
+CoreOS      | Seriële console toegang is standaard ingeschakeld.
+SUSE        | Voor nieuwere SLES-installatie kopieën die beschikbaar zijn op Azure, is seriële console toegang standaard ingeschakeld. Als u oudere versies (10 of eerder) van SLES op Azure gebruikt, raadpleegt u het [KB-artikel](https://www.novell.com/support/kb/doc.php?id=3456486) om seriële console in te scha kelen.
+Oracle Linux        | Seriële console toegang is standaard ingeschakeld.
 
-### <a name="custom-linux-images"></a>Aangepaste Linux-installatiekopieën
-Als u de seriële console voor uw aangepaste Linux-VM-installatiekopie, wilt inschakelen toegang tot de console in het bestand */etc/inittab* om uit te voeren van een terminal op `ttyS0`. Bijvoorbeeld: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`.
+### <a name="custom-linux-images"></a>Aangepaste Linux-installatie kopieën
+Als u de seriële console voor uw aangepaste Linux VM-installatie kopie wilt inschakelen, schakelt u toegang tot de console in het `ttyS0`bestand/etc/inittab in om een Terminal op uit te voeren. Bijvoorbeeld: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`.
 
-Ook wilt ttys0 toevoegen als de bestemming voor seriële uitvoer. Zie voor meer informatie over het configureren van een aangepaste installatiekopie om te werken met de seriële console, de algemene systeemvereisten op [een Linux-VHD in Azure maken en uploaden](https://aka.ms/createuploadvhd#general-linux-system-requirements).
+U moet ook ttyS0 toevoegen als doel voor de seriële uitvoer. Voor meer informatie over het configureren van een aangepaste installatie kopie voor gebruik met de seriële console raadpleegt u de algemene systeem vereisten bij het [maken en uploaden van een Linux-VHD in azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
 
-Als u een aangepaste kernel bouwt, kunt u overwegen deze vlaggen kernel inschakelen: `CONFIG_SERIAL_8250=y` en `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Het configuratiebestand bevindt zich doorgaans de */boot/* pad. |
+Als u een aangepaste kernel bouwt, kunt u overwegen om deze kernel- `CONFIG_SERIAL_8250=y` vlaggen `CONFIG_MAGIC_SYSRQ_SERIAL=y`in te scha kelen: en. Het configuratie bestand bevindt zich doorgaans in het pad */boot/* .
 
-## <a name="common-scenarios-for-accessing-the-serial-console"></a>Algemene scenario's voor het openen van de seriële Console
+## <a name="common-scenarios-for-accessing-the-serial-console"></a>Algemene scenario's voor toegang tot de seriële console
 
-Scenario          | Acties in de seriële Console
+Scenario          | Acties in de seriële console
 :------------------|:-----------------------------------------
-Verbroken *FSTAB* bestand | Druk op de **Enter** om te gaan en gebruik een teksteditor om op te lossen de *FSTAB* bestand. U moet mogelijk worden in de modus voor één gebruiker om dit te doen. Zie voor meer informatie de sectie van de seriële console van [voor het oplossen van problemen met fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) en [seriële console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker](serial-console-grub-single-user-mode.md).
-Onjuiste firewall-regels |  Als u iptables voor het blokkeren van SSH-verbinding hebt geconfigureerd, kunt u de seriële console gebruiken om te communiceren met uw virtuele machine zonder SSH. Meer informatie kunnen u vinden op de [iptables man pagina](https://linux.die.net/man/8/iptables).<br>Op dezelfde manier als uw firewalld SSH-toegang blokkeert, kunt u toegang tot de virtuele machine via de seriële console en firewalld configureren. Meer informatie vindt u de [firewalld documentatie](https://firewalld.org/documentation/).
-Bestandssysteem beschadigd/selectievakje | Zie de sectie van de seriële console van [virtuele Azure Linux-machine kan niet worden gestart vanwege fouten in het bestandssysteem](https://support.microsoft.com/en-us/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) voor meer informatie over het oplossen van problemen met behulp van de seriële console van bestandssystemen beschadigd.
-Problemen met SSH-configuratie | Toegang tot de seriële console en de instellingen wijzigen. Seriële console kan worden gebruikt, ongeacht de SSH-configuratie van een virtuele machine, zoals vereist niet de virtuele machine verbinding met het netwerk om te werken. Een gids voor probleemoplossing vindt u op [oplossen SSH-verbindingen met een Azure Linux VM die is mislukt, fouten, of wordt geweigerd](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection). Meer details zijn beschikbaar op [gedetailleerde SSH probleemoplossing voor problemen die verbinding maken met een Linux-VM in Azure](./detailed-troubleshoot-ssh-connection.md)
-Interactie met de bootloader | Start opnieuw op uw virtuele machine uit binnen de seriële console-blade voor toegang tot WORMGATEN op uw Linux-VM. Zie voor meer informatie over en distributie-specifieke informatie [seriële console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker](serial-console-grub-single-user-mode.md).
+Gebroken *FSTAB* -bestand | Druk op **Enter** om door te gaan en gebruik een tekst editor om het *FSTAB* -bestand te herstellen. Mogelijk moet u zich in de modus voor één gebruiker bevindt. Zie voor meer informatie het gedeelte seriële console voor het [oplossen van fstab-problemen](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) en het [gebruik van seriële console voor toegang tot grub en de modus voor één gebruiker](serial-console-grub-single-user-mode.md).
+Onjuiste firewall-regels |  Als u iptables hebt geconfigureerd voor het blok keren van SSH-connectiviteit, kunt u de seriële console gebruiken om te communiceren met uw virtuele machine zonder SSH te hoeven uitvoeren. Meer informatie vindt u op de [pagina iptables man](https://linux.die.net/man/8/iptables).<br>Als uw firewall de SSH-toegang blokkeert, hebt u ook toegang tot de virtuele machine via de seriële console en kunt u de firewall opnieuw configureren. Meer informatie vindt u in de [documentatie over Firewall](https://firewalld.org/documentation/).
+Bestandssysteem beschadigd/selectievakje | Zie de sectie seriële console van [Azure Linux VM kan niet worden gestart vanwege bestandssysteem fouten](https://support.microsoft.com/en-us/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) voor meer informatie over het oplossen van problemen met beschadigde bestands systemen met behulp van seriële console.
+Problemen met SSH-configuratie | Toegang tot de seriële console en de instellingen wijzigen. Seriële console kan worden gebruikt ongeacht de SSH-configuratie van een virtuele machine, omdat er geen netwerk verbinding nodig is voor de virtuele machine. Er is een probleemoplossings handleiding beschikbaar bij het [oplossen van problemen met ssh-verbindingen met een virtuele Azure Linux-machine die mislukt, fouten of geweigerd zijn](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection). Meer informatie vindt u op [gedetailleerde stappen voor het oplossen van problemen met een virtuele Linux-machine in azure](./detailed-troubleshoot-ssh-connection.md)
+Interactie met de bootloader | Start de virtuele machine vanuit de seriële console-Blade opnieuw op om toegang te krijgen tot GRUB op uw virtuele Linux-machine. Zie voor meer informatie en distributie informatie [gebruik seriële console gebruiken voor toegang tot grub en de modus voor één gebruiker](serial-console-grub-single-user-mode.md).
 
-## <a name="disable-the-serial-console"></a>Uitschakelen van de seriële Console
-Standaard hebben alle abonnementen seriële console-toegang ingeschakeld. U kunt de seriële console op het abonnementsniveau of op VM/virtuele machine scale set niveau uitschakelen. Houd er rekening mee dat er diagnostische gegevens over opstarten moet zijn ingeschakeld op een virtuele machine in de volgorde voor de seriële console om te werken.
+## <a name="disable-the-serial-console"></a>De seriële console uitschakelen
+Standaard hebben alle abonnementen seriële console toegang ingeschakeld. U kunt de seriële console uitschakelen op het niveau van het abonnement of de VM/virtuele-machine schaalset. Houd er rekening mee dat diagnostische gegevens over opstarten moeten zijn ingeschakeld op een virtuele machine om ervoor te zorgen dat de seriële console werkt.
 
-### <a name="vmvirtual-machine-scale-set-level-disable"></a>VM/virtuele machine scale set-niveau uitschakelen
-De seriële console kan worden uitgeschakeld voor een specifieke virtuele machine of virtuele machine schaalset door de instelling van de diagnostische gegevens over opstarten uit te schakelen. Diagnostische gegevens over opstarten via de Azure-portal om uit te schakelen van de seriële console voor de virtuele machine of de virtuele-machineschaalset uitschakelen. Als u de seriële console op een virtuele-machineschaalset, controleert u of dat u exemplaren in uw virtuele machineschaalset upgraden naar de nieuwste model.
+### <a name="vmvirtual-machine-scale-set-level-disable"></a>VM/virtuele-machine schaalset uitschakelen
+De seriële console kan worden uitgeschakeld voor een specifieke VM of schaalset voor virtuele machines door de instelling diagnostische gegevens over opstarten uit te scha kelen. Schakel diagnostische gegevens over opstarten uit van de Azure Portal om de seriële console uit te scha kelen voor de virtuele machine of de schaalset van de VM. Als u een seriële console gebruikt voor een schaalset voor virtuele machines, moet u ervoor zorgen dat u de instanties van de schaalset voor virtuele machines bijwerkt naar het meest recente model.
 
 > [!NOTE]
-> Als u wilt in- of uitschakelen van de seriële console voor een abonnement, moet u hebt schrijfmachtigingen voor het abonnement. Deze machtigingen zijn beheerder of eigenaar van rollen. Aangepaste rollen kunnen ook schrijfmachtigingen hebben.
+> Als u wilt in- of uitschakelen van de seriële console voor een abonnement, moet u hebt schrijfmachtigingen voor het abonnement. Deze machtigingen omvatten Administrator-of eigenaar-rollen. Aangepaste rollen kunnen ook schrijfmachtigingen hebben.
 
 ### <a name="subscription-level-disable"></a>Abonnementsniveau uitschakelen
-De seriële console kan worden uitgeschakeld voor een volledige-abonnement via de [uitschakelen Console REST API-aanroep](/rest/api/serialconsole/console/disableconsole). Deze actie is vereist voor toegang van Inzender-niveau of hoger op het abonnement. U kunt de **uitproberen** functie beschikbaar is op deze pagina van de API-documentatie uitschakelen en inschakelen van de seriële console voor een abonnement. Voer uw abonnements-ID voor **subscriptionId**, voer **standaard** voor **standaard**, en selecteer vervolgens **uitvoeren**. Azure CLI-opdrachten zijn nog niet beschikbaar.
+De seriële console kan worden uitgeschakeld voor een volledige-abonnement via de [uitschakelen Console REST API-aanroep](/rest/api/serialconsole/console/disableconsole). Voor deze actie is toegang op Inzender niveau of hoger vereist voor het abonnement. U kunt de **uitproberen** functie beschikbaar is op deze pagina van de API-documentatie uitschakelen en inschakelen van de seriële console voor een abonnement. Voer uw abonnements-ID voor **subscriptionId**in, Voer **standaard** in als **standaard**en selecteer **uitvoeren**. Azure CLI-opdrachten zijn nog niet beschikbaar.
 
-Als u wilt inschakelen voor een abonnement op de seriële console, gebruiken de [inschakelen Console REST API-aanroep](/rest/api/serialconsole/console/enableconsole).
+Als u een seriële console opnieuw wilt inschakelen voor een abonnement, gebruikt u de [aanroep console rest API inschakelen](/rest/api/serialconsole/console/enableconsole).
 
 ![REST-API uitproberen](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
@@ -175,83 +175,83 @@ Alle toegang tot de seriële console momenteel is aangemeld de [diagnostische ge
 Als een gebruiker is verbonden met de seriële console en een andere gebruiker is toegang tot deze virtuele machine met dezelfde aanvraagt, wordt de eerste gebruiker verbroken en wordt de tweede gebruiker heeft verbinding gemaakt met dezelfde sessie.
 
 > [!CAUTION]
-> Dit betekent dat een gebruiker die niet verbonden wordt niet worden afgemeld. De mogelijkheid om af te dwingen een afmelden bij het verbreken van de verbinding (met behulp van SIGHUP of een vergelijkbaar mechanisme) is nog steeds op de planning. Voor Windows is een automatische time-out ingeschakeld in administratieve Console SAC (Special); u kunt echter de terminal time-outinstelling configureren voor Linux. Om dit te doen, Voeg `export TMOUT=600` in uw *.bash_profile* of *.profile* -bestand voor de gebruiker die u gebruiken om aan te melden bij de console. Deze instelling wordt time-out van de sessie na 10 minuten.
+> Dit betekent dat een gebruiker die niet verbonden wordt niet worden afgemeld. De mogelijkheid om een afmelding af te dwingen bij het verbreken van de verbinding (met behulp van SIGHUP of soortgelijk mechanisme) bevindt zich nog in het schema Voor Windows is er een automatische time-out ingeschakeld in speciale beheer console (SAC); voor Linux kunt u echter de instelling time-out terminal configureren. Als u dit wilt doen `export TMOUT=600` , voegt u in uw *. bash_profile* -of *. profile* -bestand toe aan de gebruiker die u gebruikt om u aan te melden bij de-console. Deze instelling is een time-out voor de sessie na 10 minuten.
 
 ## <a name="accessibility"></a>Toegankelijkheid
-Toegankelijkheid is een belangrijke focus voor de seriële Console van Azure. Wat dat betreft, hebben we ervoor gezorgd dat de seriële console volledig toegankelijk is.
+Toegankelijkheid is een belang rijke focus voor de Azure Serial console. Daarom hebben we ervoor gezorgd dat de seriële console volledig toegankelijk is.
 
 ### <a name="keyboard-navigation"></a>Toetsenbordnavigatie
 Gebruik de **tabblad** sleutel op het toetsenbord om te navigeren in de interface van de seriële console van de Azure-portal. Uw locatie wordt gemarkeerd op het scherm worden weergegeven. Als u wilt de focus van de seriële console-venster laten, drukt u op **Ctrl**+**F6** op het toetsenbord.
 
-### <a name="use-serial-console-with-a-screen-reader"></a>Seriële Console gebruiken met een schermlezer
+### <a name="use-serial-console-with-a-screen-reader"></a>Seriële console gebruiken met een scherm lezer
 De seriële console heeft ingebouwde ondersteuning voor schermlezers. Navigeren om met een schermlezer ingeschakeld, kunnen de alt-tekst voor de geselecteerde knop om te worden door de schermlezer voorgelezen.
 
 ## <a name="errors"></a>Fouten
-Omdat de meeste fouten tijdelijk zijn, opnieuw wordt geprobeerd de verbinding kan vaak worden verholpen. De volgende tabel geeft een lijst met fouten en oplossingen. Deze fouten en oplossingen op voor beide VM's en virtuele-machineschaalset exemplaren.
+Omdat de meeste fouten tijdelijk zijn, opnieuw wordt geprobeerd de verbinding kan vaak worden verholpen. De volgende tabel geeft een lijst met fouten en oplossingen. Deze fouten en oplossingen zijn van toepassing voor zowel Vm's als virtuele-machine schaal sets.
 
 Fout                            |   Oplossing
 :---------------------------------|:--------------------------------------------|
 Kan niet worden opgehaald van de instellingen voor diagnostische gegevens over opstarten voor  *&lt;VMNAME&gt;* . Voor het gebruik van de seriële console of dat de diagnostische gegevens over die opstarten is ingeschakeld voor deze virtuele machine. | Zorg ervoor dat de virtuele machine heeft [diagnostische gegevens over opstarten](boot-diagnostics.md) ingeschakeld.
-De virtuele machine is gestopt toewijzing ongedaan gemaakt. Start de virtuele machine en probeer de seriële console-verbinding. | De virtuele machine moet zich in een status die toegang tot de seriële console is gestart.
-U hebt niet de vereiste machtigingen voor het gebruik van deze virtuele machine met de seriële console. Zorg ervoor dat u ten minste beschikken over machtigingen van de rol Inzender voor virtuele machines.| De toegang tot de seriële console nodig bepaalde machtigingen. Zie voor meer informatie, [vereisten](#prerequisites).
-Kan niet bepalen van de resourcegroep voor het opslagaccount voor diagnostische gegevens van opstarten  *&lt;STORAGEACCOUNTNAME&gt;* . Controleer of u diagnostische gegevens over opstarten is ingeschakeld voor deze virtuele machine en u toegang hebt tot dit opslagaccount wordt gebruikt. | De toegang tot de seriële console nodig bepaalde machtigingen. Zie voor meer informatie, [vereisten](#prerequisites).
+De virtuele machine is gestopt toewijzing ongedaan gemaakt. Start de virtuele machine en probeer de seriële console-verbinding. | De VM moet aan de status gestart zijn om toegang te krijgen tot de seriële console.
+U beschikt niet over de vereiste machtigingen om deze virtuele machine met de seriële console te gebruiken. Zorg ervoor dat u ten minste beschikken over machtigingen van de rol Inzender voor virtuele machines.| De toegang tot de seriële console vereist bepaalde machtigingen. Zie voor meer informatie, [vereisten](#prerequisites).
+Kan niet bepalen van de resourcegroep voor het opslagaccount voor diagnostische gegevens van opstarten  *&lt;STORAGEACCOUNTNAME&gt;* . Controleer of u diagnostische gegevens over opstarten is ingeschakeld voor deze virtuele machine en u toegang hebt tot dit opslagaccount wordt gebruikt. | De toegang tot de seriële console vereist bepaalde machtigingen. Zie voor meer informatie, [vereisten](#prerequisites).
 Web socket is gesloten of kan niet worden geopend. | U moet mogelijk aan lijst met geaccepteerde `*.console.azure.com`. Een meer gedetailleerde maar langer aanpak is het whitelist de [Microsoft Azure Datacenter IP-bereiken](https://www.microsoft.com/download/details.aspx?id=41653), waardoor vrij regelmatig worden gewijzigd.
-Een antwoord 'Verboden' is opgetreden bij het openen van deze virtuele machine opstarten diagnostische storage-account. | Zorg ervoor dat diagnostische gegevens over de opstarten beschikt niet over een account-firewall. Een toegankelijke opstarten diagnostische storage-account is nodig voor de seriële console van functie.
+Een antwoord 'Verboden' is opgetreden bij het openen van deze virtuele machine opstarten diagnostische storage-account. | Zorg ervoor dat diagnostische gegevens over opstarten geen account firewall hebben. Een toegankelijke opstarten diagnostische storage-account is nodig voor de seriële console van functie.
 
 ## <a name="known-issues"></a>Bekende problemen
-We zijn op de hoogte van problemen met de seriële console. Hier volgt een lijst van deze problemen beschreven en stappen voor risicobeperking. Deze problemen en oplossingen op voor beide VM's en virtuele-machineschaalset exemplaren.
+We zijn op de hoogte van problemen met de seriële console. Hier volgt een lijst van deze problemen beschreven en stappen voor risicobeperking. Deze problemen en oplossingen zijn van toepassing voor zowel Vm's als virtuele-machine schaal sets.
 
 Probleem                           |   Oplossing
 :---------------------------------|:--------------------------------------------|
-Drukken **Enter** nadat de banner van de verbinding niet leidt een aanmeldingsprompt tot moet worden weergegeven. | Zie voor meer informatie, [Hitting invoeren, gebeurt er niets](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Dit probleem kan optreden als u werkt met een aangepaste VM, beperkte toestel of GRUB-configuratie die ervoor zorgt Linux dat tot geen verbinding maken met de seriële poort.
-Tekst van de seriële console duurt slechts een gedeelte van de schermgrootte (vaak na met een teksteditor). | Seriële consoles bieden geen ondersteuning voor het onderhandelen over venstergrootte ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), wat betekent dat er geen signaal SIGWINCH worden verzonden naar het bijwerken van de grootte van het scherm en de virtuele machine heeft geen kennis van de grootte van de terminal. Installeer xterm of een vergelijkbaar hulpprogramma zodat u kunt met de `resize` opdracht in en voer vervolgens `resize`.
+Drukken **Enter** nadat de banner van de verbinding niet leidt een aanmeldingsprompt tot moet worden weergegeven. | Zie voor meer informatie, [Hitting invoeren, gebeurt er niets](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Dit probleem kan optreden als u een aangepaste VM, een vrijgemaakt apparaat of een GRUB-configuratie uitvoert die ervoor zorgt dat Linux geen verbinding kan maken met de seriële poort.
+Seriële console tekst neemt een deel van de scherm grootte in beslag (vaak na het gebruik van een tekst editor). | Seriële consoles bieden geen ondersteuning voor onderhandelen over de venster grootte ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)). Dit betekent dat er geen SIGWINCH-signaal wordt verzonden naar de scherm grootte van de update en dat de virtuele machine geen kennis heeft van de grootte van uw Terminal. Installeer xterm of een soortgelijk hulp programma om u de `resize` opdracht te geven en vervolgens uit te voeren. `resize`
 Lange tekenreeksen plakken werkt niet. | De seriële console beperkt de lengte van tekenreeksen in de terminal naar 2048 tekens om te voorkomen dat de seriële poort-bandbreedte overbelasten geplakt.
-Seriële console werkt niet met een firewall voor storage-account. | Standaard de seriële console werkt niet met een storage-account Firewall ingeschakeld op het opslagaccount van de diagnostische gegevens over opstarten.
-Seriële console werkt niet met een opslagaccount met behulp van Azure Data Lake Storage Gen2 met hiërarchische naamruimten. | Dit is een bekend probleem met hiërarchische naamruimten. Als u wilt oplossen, zorg ervoor dat van de virtuele machine opstarten diagnostische gegevens van storage-account niet is gemaakt met behulp van Azure Data Lake Storage Gen2. Deze optie kan alleen worden ingesteld bij het opslagaccount is gemaakt. U moet een diagnostische gegevens over de afzonderlijke opstarten storage-account maken zonder Azure Data Lake Storage Gen2 ingeschakeld om dit probleem te verhelpen.
-Onverwachte toetsenbordinvoer in SLES BYOS afbeeldingen. Toetsenbordinvoer wordt slechts sporadisch herkend. | Dit is een probleem met het pakket Plymouth. Plymouth moet niet worden uitgevoerd in Azure als u een welkomstscherm niet nodig en Plymouth de platform-mogelijkheid verstoort om met de seriële Console. Verwijderen van Plymouth met `sudo zypper remove plymouth` en vervolgens opnieuw opstarten. U kunt ook de kernel-regel van de GRUB-configuratie wijzigen door toe te voegen `plymouth.enable=0` aan het einde van de regel. U kunt dit doen door [de opstartvermelding bewerken bij het opstarten](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), of door te bewerken van de regel GRUB_CMDLINE_LINUX in `/etc/default/grub`, opnieuw opbouwen met van WORMGATEN `grub2-mkconfig -o /boot/grub2/grub.cfg`, en vervolgens opnieuw op te starten.
+Seriële console werkt niet met een firewall voor opslag accounts. | Seriële console per ontwerp kan niet werken met firewalls voor opslag accounts die zijn ingeschakeld in het opslag account voor diagnostische gegevens over opstarten.
+Seriële console werkt niet met een opslag account met behulp van Azure Data Lake Storage Gen2 met hiërarchische naam ruimten. | Dit is een bekend probleem met hiërarchische naam ruimten. Als u wilt beperken, moet u ervoor zorgen dat het opslag account voor diagnostische gegevens over opstarten van de virtuele machine niet is gemaakt met behulp van Azure Data Lake Storage Gen2. Deze optie kan alleen worden ingesteld bij het maken van een opslag account. Mogelijk moet u een afzonderlijk opslag account voor diagnostische gegevens over opstarten maken zonder dat Azure Data Lake Storage Gen2 ingeschakeld om dit probleem te verhelpen.
+Er zijn geen toetsenbord invoer in SLES BYOS-installatie kopieën. Toetsenbord invoer wordt alleen sporadisch herkend. | Dit is een probleem met het Plymouth-pakket. Plymouth moet niet worden uitgevoerd in azure omdat u geen welkomst scherm nodig hebt en Plymouth de mogelijkheid biedt om de seriële console te gebruiken. Verwijder Plymouth met `sudo zypper remove plymouth` en start de computer opnieuw op. U kunt ook de kernel-regel van uw grub-configuratie wijzigen door `plymouth.enable=0` toe te voegen aan het einde van de regel. U kunt dit doen door [de opstart vermelding tijdens het opstarten te bewerken](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)of door de GRUB_CMDLINE_LINUX-regel in `/etc/default/grub`te bewerken, grub opnieuw `grub2-mkconfig -o /boot/grub2/grub.cfg`te maken met en vervolgens opnieuw op te starten.
 
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
 **Q. Hoe kan ik feedback verzenden?**
 
-A. Feedback geven door het maken van een GitHub-probleem aan https://aka.ms/serialconsolefeedback. U kunt ook (minder bij voorkeur), kunt u feedback via verzenden azserialhelp@microsoft.com of in de categorie van de virtuele machine van https://feedback.azure.com.
+A. Geef feedback door het maken van een GitHub https://aka.ms/serialconsolefeedback -probleem op. U kunt ook (minder bij voorkeur), kunt u feedback via verzenden azserialhelp@microsoft.com of in de categorie van de virtuele machine van https://feedback.azure.com.
 
 **Q. Biedt ondersteuning voor de seriële console kopiëren/plakken?**
 
 A. Ja. Gebruik **Ctrl**+**Shift**+**C** en **Ctrl**+**Shift** + **V** kopiëren en plakken in de terminal.
 
-**Q. Kan ik de seriële console in plaats van een SSH-verbinding gebruiken?**
+**Q. Kan ik een seriële console gebruiken in plaats van een SSH-verbinding?**
 
-A. Terwijl dit gebruik technisch mogelijk lijkt, is de seriële console moet worden gebruikt als een hulpprogramma voor probleemoplossing in situaties waar connectiviteit via SSH niet mogelijk is voornamelijk bedoeld. We raden het af met de seriële console als een SSH-vervanging voor de volgende redenen:
+A. Hoewel dit gebruik technisch mogelijk lijkt, is de seriële console voornamelijk bedoeld om te worden gebruikt als hulp programma voor probleem oplossing in situaties waarin connectiviteit via SSH niet mogelijk is. U wordt aangeraden de seriële console als SSH-vervanging te gebruiken om de volgende redenen:
 
-- De seriële console geen zoveel bandbreedte als SSH. Omdat het een alleen-verbinding is, wordt meer GUI-zware interacties moeilijk zijn.
-- Toegang tot de seriële console is op dit moment mogelijk alleen met behulp van een gebruikersnaam en wachtwoord. Omdat de SSH-sleutels zijn veel veiliger dan combinaties van de gebruikersnaam en wachtwoord, vanuit het beveiligingsoogpunt van aanmelding bij wordt aangeraden SSH via de seriële console.
+- De seriële console heeft niet zoveel band breedte als SSH. Omdat het een alleen-tekst verbinding is, zijn er lastigere interacties in meerdere gebruikers.
+- Seriële console toegang is momenteel alleen mogelijk als u een gebruikers naam en wacht woord gebruikt. Omdat SSH-sleutels veel veiliger zijn dan combi Naties van gebruikers namen en wacht woorden, wordt u aangeraden SSH via seriële console te maken.
 
-**Q. Wie kunt inschakelen of uitschakelen van de seriële console voor mijn abonnement?**
+**Q. Wie kan de seriële console in-of uitschakelen voor mijn abonnement?**
 
 A. Als u wilt in- of uitschakelen van de seriële console op het niveau van een brede, door het abonnement, moet u hebt schrijfmachtigingen voor het abonnement. Rollen die gemachtigd schrijven bevatten beheerder of eigenaar rollen. Aangepaste rollen kunnen ook schrijfmachtigingen hebben.
 
-**Q. Wie toegang heeft tot de seriële console voor mijn VM/virtuele-machineschaalset?**
+**Q. Wie heeft toegang tot de seriële console voor mijn virtuele machine/VM-schaalset?**
 
-A. U moet de rol Inzender voor virtuele machines hebben of hoger voor een schaalset voor virtuele machine of virtuele machine toegang tot de seriële console.
+A. U moet de rol Inzender voor virtuele machines of hoger hebben voor een VM of virtuele-machine schaalset om toegang te krijgen tot de seriële console.
 
 **Q. Mijn seriële console van alles zijn, niet wordt weergegeven wat moet ik doen?**
 
-A. Uw installatiekopie is waarschijnlijk niet goed is geconfigureerd voor toegang tot de seriële console. Zie voor meer informatie over het configureren van de afbeelding om in te schakelen van de seriële console [seriële console van beschikbaarheid van de Linux-distributie](#serial-console-linux-distribution-availability).
+A. Uw installatiekopie is waarschijnlijk niet goed is geconfigureerd voor toegang tot de seriële console. Zie [seriële console Linux-distributie Beschik baarheid](#serial-console-linux-distribution-availability)voor meer informatie over het configureren van uw installatie kopie om de seriële console in te scha kelen.
 
 **Q. Is de seriële console beschikbaar voor virtuele-machineschaalsets?**
 
-A. Ja dat is zo! Zie [seriële Console voor Virtual Machine Scale Sets](#serial-console-for-virtual-machine-scale-sets)
+A. Ja dat is zo! Zie de [seriële console voor Virtual Machine Scale sets](#serial-console-for-virtual-machine-scale-sets)
 
-**Q. Als ik mijn virtuele machine of virtuele-machineschaalset met behulp van alleen het sleutelverificatie SSH hebt ingesteld, kan ik nog steeds gebruiken de seriële console verbinding maken met mijn VM/virtuele machine scale set exemplaar?**
+**Q. Als ik mijn VM of virtuele-machine schaalset stel met alleen authenticatie van SSH-sleutel, kan ik dan nog steeds de seriële console gebruiken om verbinding te maken met mijn virtuele machine voor de VM-schaalset?**
 
-A. Ja. Omdat de seriële console geen SSH-sleutels vereist, moet u alleen voor het instellen van een combinatie van gebruikersnaam en wachtwoord. U kunt dit doen door het selecteren van **wachtwoord opnieuw instellen** in de Azure portal en met deze referenties aanmelden bij de seriële console.
+A. Ja. Omdat de seriële console geen SSH-sleutels nodig heeft, hoeft u alleen een combi natie van gebruikers naam en wacht woord in te stellen. U kunt dit doen door **wacht woord opnieuw instellen** in het Azure portal te selecteren en deze referenties te gebruiken om u aan te melden bij de seriële console.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik van de seriële console [toegang tot WORMGATEN en de modus voor één gebruiker](serial-console-grub-single-user-mode.md).
-* Gebruik de seriële console voor [NMI en SysRq aanroepen](serial-console-nmi-sysrq.md).
-* Informatie over het gebruik van de seriële console [WORMGATEN inschakelen in verschillende distributies](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
-* Seriële console van het is ook beschikbaar voor [Windows VMs](../windows/serial-console.md).
+* Gebruik de seriële console om [toegang te krijgen tot de grub en de modus voor één gebruiker](serial-console-grub-single-user-mode.md).
+* Gebruik de seriële console voor [NMI-en SYSRQ](serial-console-nmi-sysrq.md)-aanroepen.
+* Meer informatie over het gebruik van de seriële console om [grub in te scha kelen in verschillende distributies](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
+* De seriële console is ook beschikbaar voor [virtuele Windows-machines](../windows/serial-console.md).
 * Meer informatie over [diagnostische gegevens over opstarten](boot-diagnostics.md).
 
