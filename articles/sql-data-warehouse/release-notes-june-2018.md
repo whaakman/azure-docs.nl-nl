@@ -11,10 +11,10 @@ ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 4348a634fd5b2b33f36d8e79f28caf659b82ccf4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/09/2019
 ms.locfileid: "67626154"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Juni 2018
@@ -38,7 +38,7 @@ New-AzSqlDatabaseRestorePoint
 ## <a name="column-level-security"></a>Beveiliging op kolom niveau
 Het beheren van de toegang en beveiliging van gegevens in uw data warehouse is van cruciaal belang voor het ontwikkelen van vertrouwen met uw klanten en partners. SQL Data Warehouse [ondersteunt nu beveiliging op kolom niveau (CLS)](https://azure.microsoft.com/blog/column-level-security-is-now-supported-in-azure-sql-data-warehouse/) waarmee u machtigingen kunt aanpassen voor het weer geven van gevoelige gegevens door de gebruikers toegang tot specifieke kolommen in uw tabellen te beperken zonder dat u uw data warehouse opnieuw hoeft te ontwerpen.
 
-Met CLS kunt u de toegang tot tabel kolommen beheren op basis van de uitvoerings context van de gebruiker of het groepslid maatschap met [de Standard-](https://docs.microsoft.com/azure/sql-data-warehouse/column-level-security) T-SQL-instructie. De logica van de toegangs beperking bevindt zich in de database tier zelf in plaats van de gegevens in een andere toepassing, waardoor de algemene beveiligings implementatie wordt vereenvoudigd.
+Met CLS kunt u de toegang tot tabel kolommen beheren op basis van de uitvoerings context van de gebruiker of het groepslid maatschap met de Standard-T-SQL-instructie. [](https://docs.microsoft.com/azure/sql-data-warehouse/column-level-security) De logica van de toegangs beperking bevindt zich in de database tier zelf in plaats van de gegevens in een andere toepassing, waardoor de algemene beveiligings implementatie wordt vereenvoudigd.
 
 
 ```sql
@@ -51,7 +51,7 @@ Msg 230, Level 14, State 1, Line 12
 The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'.
 ```
 
-## <a name="objectschemaname"></a>OBJECT_SCHEMA_NAME
+## <a name="object_schema_name"></a>OBJECT_SCHEMA_NAME
 De functie [OBJECT_SCHEMA_NAME ()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) retourneert de naam van het database schema voor objecten met een schema bereik. Deze functie is gebruikelijk geworden in ETL-hulpprogram ma's wanneer validatie van object schema wordt uitgevoerd. 
 
 ```sql
@@ -72,7 +72,7 @@ dbo               nation
 dbo               orders
 ```
 
-## <a name="support-for-the-systimezoneinfo-view"></a>Ondersteuning voor de weer gave sys. time_zone_info
+## <a name="support-for-the-systime_zone_info-view"></a>Ondersteuning voor de weer gave sys. time_zone_info
 De [sys. time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) -weer gave retourneert informatie over de ondersteunde tijd zones in Azure SQL Data Warehouse.
 
 ```sql
@@ -89,7 +89,7 @@ Mountain Standard Time (Mexico)   -06:00               1
 Central Standard Time             -05:00               1
 ```
 
-## <a name="auto-stats-operations-appear-in-sysdmpdwexecrequests-behavior-change"></a>De bewerkingen voor automatische statistieken worden weer gegeven in sys. DM _pdw_exec_requests (gedrags wijziging)
+## <a name="auto-stats-operations-appear-in-sysdm_pdw_exec_requests-behavior-change"></a>De bewerkingen voor automatische statistieken worden weer gegeven in sys. DM _pdw_exec_requests (gedrags wijziging)
 
 Met de introductie van [automatisch gemaakte statistieken](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic)genereert Azure SQL Data Warehouse statistieken voor het optimaliseren van de uitvoering van query's. De release van juni 2018 voegt de mogelijkheid toe om te controleren wanneer de statistieken automatisch worden gegenereerd door een record toe te voegen aan de _pdw_exec_requests-weer gave [sys. DM](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) wanneer een bewerking voor het [maken van statistieken](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) wordt uitgevoerd.
 

@@ -22,7 +22,7 @@ ms.locfileid: "68383135"
 ---
 # <a name="access-and-use-apps-on-the-my-apps-portal"></a>Apps openen en gebruiken in de portal voor mijn apps
 
-U kunt uw werk-of school account gebruiken met de portal van **mijn apps** op het web, om een aantal Cloud-apps in uw organisatie weer te geven en te starten, om een aantal van uw profiel-en account  gegevens bij te werken, om uw groeps gegevens te bekijken en uit te voeren  **toegangs beoordelingen** voor uw apps en groepen. Als u geen toegang hebt tot de portal **mijn apps** , moet u contact opnemen met de Help Desk voor toestemming.
+U kunt uw werk-of school account gebruiken met de portal van **mijn apps** op het web, om een aantal Cloud-apps in uw organisatie weer te geven en te starten, om een aantal van uw profiel-en account gegevens bij te werken, om uw groeps gegevens te bekijken en uit te voeren  **toegangs beoordelingen** voor uw apps en groepen. Als u geen toegang hebt tot de portal **mijn apps** , moet u contact opnemen met de Help Desk voor toestemming.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
@@ -70,7 +70,7 @@ Er wordt aan de rechter kant van de **adres** balk een pictogram toegevoegd, zod
 #### <a name="to-change-your-my-apps-portal-using-the-extension"></a>De portal van mijn apps wijzigen met behulp van de extensie
 U kunt kiezen hoeveel apps worden weer gegeven in het gedeelte **recent used** en bepalen of de interne url's van uw organisatie mogen worden omgeleid.
 
-1. Selecteer het pictogram uitbrei](media/my-apps-portal/my-apps-portal-extension-icon.png) ding pictogram ![voor **beveiligde aanmeldings extensie van mijn apps** rechts van de **adres** balk en selecteer **aanmelden om aan de slag te gaan**.
+1. Selecteer het pictogram uitbrei ding ![pictogram](media/my-apps-portal/my-apps-portal-extension-icon.png) voor **beveiligde aanmeldings extensie van mijn apps** rechts van de **adres** balk en selecteer **aanmelden om aan de slag te gaan**.
 
 2. Klik **met de rechter** muisknop op ![de instellingen](media/my-apps-portal/my-apps-portal-extension-settings-icon.png)pictogram instellingen en selecteer vervolgens **instellingen**.
 

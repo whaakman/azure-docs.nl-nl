@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ba5d5d3aaa6a83dbcc5e5072872bca0fcd22bbf9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 3bce4922a33648f5d7c0d211dba126f35603239b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638717"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849285"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Een symbool laag aan een kaart toevoegen
 
@@ -30,9 +30,9 @@ Dit artikel laat u zien hoe u punt gegevens van een gegevens bron kunt weer geve
 
 Het eerste code blok hierboven maakt een kaart object. U kunt [een overzicht maken](./map-create.md) voor instructies.
 
-In het tweede code blok wordt een gegevens bron object gemaakt met behulp van de klasse [Data Source](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) . Een [functie] met een [punt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) geometrie wordt ingepakt door de klasse [shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) , zodat deze eenvoudiger kan worden bijgewerkt en vervolgens wordt gemaakt en toegevoegd aan de gegevens bron.
+In het tweede code blok wordt een gegevens bron object gemaakt met behulp van de klasse [Data Source](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) . Een geojson- [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature) met een [punt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) geometrie wordt verpakt door de klasse [shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) , zodat deze eenvoudiger kan worden bijgewerkt en vervolgens wordt gemaakt en toegevoegd aan de gegevens bron.
 
-Het derde code blok [maakt een gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) en werkt de coördinaten van het punt bij met de muis klik met behulp van de klasse [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) methode van de vorm.
+Het derde code blok maakt een gebeurtenislistener [](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) en werkt de coördinaten van het punt bij met de muis klik met behulp van de klasse [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) methode van de vorm.
 
 Een [symbool laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) maakt gebruik van tekst of pictogrammen voor het weer geven van op punten gebaseerde gegevens die in de [gegevens bron](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) zijn verpakt als symbolen op de kaart.  De gegevens bron, de Click-gebeurtenislistener en de symbool laag worden gemaakt en toegevoegd aan de kaart in de `ready` [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) -functie om ervoor te zorgen dat het punt wordt weer gegeven nadat de kaart is geladen en gereed is om te worden geopend.
 
@@ -47,6 +47,9 @@ Symbool lagen worden gerenderd met behulp van WebGL. Alle resources, zoals picto
 
 <iframe height='500' scrolling='no' title='Pictogram voor aangepaste symbool afbeelding' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie het <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>pictogram afbeelding voor aangepast symbool</a> voor pen door<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+> [!TIP]
+> De Azure Maps Web-SDK biedt verschillende aanpas bare afbeeldings sjablonen die u kunt gebruiken met de Symbol-laag. Zie het document [over het gebruik van afbeeldings sjablonen](how-to-use-image-templates-web-sdk.md) voor meer informatie.
 
 ## <a name="customize-a-symbol-layer"></a>Een symbool-laag aanpassen 
 
@@ -80,6 +83,9 @@ Raadpleeg de volgende artikelen voor meer code voorbeelden om toe te voegen aan 
 
 > [!div class="nextstepaction"]
 > [Op gegevens gebaseerde stijl expressies gebruiken](data-driven-style-expressions-web-sdk.md)
+
+> [!div class="nextstepaction"]
+> [Afbeeldings sjablonen gebruiken](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Een vorm toevoegen](map-add-shape.md)

@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 04/25/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be24ad78ae8f8977284deac0f3d978b35c621bcd
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
-ms.translationtype: HT
+ms.openlocfilehash: 897eff7eb77ce9f2a2795bfe534cc03076e59649
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834957"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853235"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Overzicht van micro soft Authentication Library (MSAL)
 Met micro soft Authentication Library (MSAL) kunnen ontwikkel [](developer-glossary.md#security-token) aars tokens verkrijgen van het micro soft Identity platform-eind punt om toegang te krijgen tot beveiligde web-api's. Deze web-Api's kunnen de Microsoft Graph, andere micro soft-API'S, Web-Api's van derden of uw eigen web-API zijn. MSAL is beschikbaar voor .NET, java script, Android en iOS, die ondersteuning bieden voor veel verschillende toepassings architecturen en-platforms.

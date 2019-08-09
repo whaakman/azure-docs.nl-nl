@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7b9a24161c76f9fbb0993ffb6719c1ea1b51dc55
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 846b4d95c7eb32af7c1c0ff42c2526612075a033
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775706"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882413"
 ---
 # <a name="move-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery-services"></a>SQL Server VM verplaatsen naar een andere regio binnen Azure met Azure Site Recovery Services
 
@@ -54,7 +54,7 @@ Bereid de bron SQL Server-VM en de doel regio voor de verplaatsing voor.
 - Voor Linux-Vm's volgt u de richt lijnen van uw Linux-distributeur om de meest recente vertrouwde basis certificaten en certificaatintrekkingslijsten te verkrijgen op de virtuele machine. 
 - Zorg ervoor dat u geen verificatie proxy gebruikt voor het beheren van de netwerk verbinding voor de virtuele machines die u wilt verplaatsen. 
 - Als de virtuele machine die u wilt verplaatsen geen toegang tot internet heeft of een firewall proxy gebruikt om uitgaande toegang te beheren, controleert u de vereisten. 
-- Bepaal de indeling van de bron netwerk en alle resources die momenteel worden gebruikt door your'e. Dit omvat, maar is niet beperkt tot load balancers, netwerk beveiligings groepen (Nsg's) en open bare Ip's. 
+- Identificeer de bron netwerk indeling en alle resources die u momenteel gebruikt. Dit omvat, maar is niet beperkt tot load balancers, netwerk beveiligings groepen (Nsg's) en open bare Ip's. 
 
 ### <a name="prepare-the-target-region"></a>De doelregio voorbereiden
 

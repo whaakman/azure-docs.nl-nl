@@ -1,45 +1,45 @@
 ---
-title: Schrijven van query's voor Azure Data Explorer
-description: In deze procedures leert u hoe u eenvoudige en meer geavanceerde query's uitvoeren voor Azure Data Explorer.
+title: Query's schrijven voor Azure Data Explorer
+description: In deze procedure leert u hoe u eenvoudige en geavanceerdere query's kunt uitvoeren voor Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: b1a7e64cf6b85b517bc027d6541d63c9be729734
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80d3eaaf7e588766d62f5e5885d75e61c590970e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773975"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881184"
 ---
-# <a name="write-queries-for-azure-data-explorer"></a>Schrijven van query's voor Azure Data Explorer
+# <a name="write-queries-for-azure-data-explorer"></a>Query's schrijven voor Azure Data Explorer
 
-In dit artikel leert u hoe u de querytaal in Azure Data Explorer gebruiken om uit te voeren van eenvoudige query's met de meest voorkomende operators. U ook krijgen enkele van de meer geavanceerde functies van de taal te zien.
+In dit artikel leert u hoe u de query taal in azure Data Explorer kunt gebruiken om eenvoudige query's uit te voeren met de meest voorkomende Opera tors. U krijgt ook een aantal van de meer geavanceerde functies van de taal.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U kunt de query's in dit artikel op twee manieren uitvoeren:
+U kunt de query's in dit artikel op een van de volgende twee manieren uitvoeren:
 
-- Op de Azure Data Explorer *helpcluster* dat we hebben ingesteld om te leren.
-    [Meld u aan het cluster](https://dataexplorer.azure.com/clusters/help/databases/samples) met een organisatie-e-mailaccount die deel uitmaakt van Azure Active directory.
+- Op het Azure Data Explorer- *Help-cluster* dat we hebben ingesteld voor hulp bij het leren.
+    [Meld u aan bij het cluster](https://dataexplorer.azure.com/clusters/help/databases/samples) met een e-mail account dat lid is van Azure Active Directory.
 
-- Op uw eigen cluster bevat die de StormEvents-voorbeeldgegevens. Zie voor meer informatie, [Quick Start: Maak een Azure Data Explorer-cluster en de database](create-cluster-database-portal.md) en [voorbeeldgegevens worden opgenomen in Azure Data Explorer](ingest-sample-data.md).
+- Op uw eigen cluster die de StormEvents-voorbeeld gegevens bevat. Voor meer informatie raadpleegt [u Quick Start: Een Azure Data Explorer-cluster en-](create-cluster-database-portal.md) data base maken en [voorbeeld gegevens opnemen in azure Data Explorer](ingest-sample-data.md).
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-## <a name="overview-of-the-query-language"></a>Overzicht van de querytaal
+## <a name="overview-of-the-query-language"></a>Overzicht van de query taal
 
-Een querytaal in Azure Data Explorer is een alleen-lezen-aanvraag voor het verwerken van gegevens en resultaten worden geretourneerd. De aanvraag wordt vermeld als tekst zonder opmaak, met behulp van een gegevensstroom-model dat is ontworpen om de syntaxis van de gemakkelijk te lezen, schrijven en automatiseren. De query gebruikt schema-entiteiten die zijn ingedeeld in een hiërarchie die vergelijkbaar is met SQL: databases, tabellen en kolommen.
+Een query taal in azure Data Explorer is een alleen-lezen aanvraag voor het verwerken van gegevens en het retour neren van resultaten. De aanvraag wordt in tekst zonder opmaak vermeld, waarbij gebruik wordt gemaakt van een model voor gegevens stroom dat is ontworpen om de syntaxis eenvoudig te lezen, te ontwerpen en te automatiseren. De query maakt gebruik van schema-entiteiten die zijn georganiseerd in een hiërarchie die vergelijkbaar is met SQL: data bases, tabellen en kolommen.
 
-De query bestaat uit een reeks queryinstructies, gescheiden door puntkomma's (`;`), met ten minste één instructie wordt een expressie in tabelvorm-instructie, die is een overzicht met gegevens in een tabel-achtige net van kolommen en rijen gerangschikt produceert. De resultaten van de query worden gegenereerd, in tabelvorm van de query-expressies.
+De query bestaat uit een reeks query-instructies, gescheiden door een punt komma (`;`), waarbij ten minste één instructie een tabellaire expressie instructie is. Dit is een instructie waarmee gegevens worden geproduceerd in een tabel-net als kolommen en rijen. De instructies in de tabellaire expressie van de query genereren de resultaten van de query.
 
-De syntaxis van de instructie in tabelvorm expressie bevat de gegevens in tabelvorm stroom vanuit een tabellaire query-operator naar de andere, beginnend met de gegevensbron (bijvoorbeeld een tabel in een database of een operator die gegevens produceert) en vervolgens stroomt via een set gegevenstransformatie operators die samen zijn gebonden door het gebruik van de pipe (`|`) scheidingsteken.
+De syntaxis van de instructie tabellaire expressie heeft tabellaire gegevens stroom van de ene tabellaire query operator naar een andere, beginnend met de gegevens bron (bijvoorbeeld een tabel in een Data Base of een operator die gegevens produceert) en vervolgens door een set gegevens transformatie loopt Opera tors die bij elkaar zijn verbonden door het gebruik van het`|`pipe-scheidings teken ().
 
-De volgende query heeft bijvoorbeeld één instructie, dit een instructie in tabelvorm expressie is. De instructie begint met een verwijzing naar een tabel met de naam `StormEvents` (de database die als host fungeren in deze tabel is impliciete hier en een deel van de verbindingsinformatie bevatten). De gegevens (rijen) voor deze tabel worden vervolgens gefilterd op de waarde van de `StartTime` kolom en vervolgens gefilterd op de waarde van de `State` kolom. De query retourneert vervolgens het aantal rijen "functionerende'.
+De volgende query heeft bijvoorbeeld één instructie, een tabellaire expressie-instructie. De instructie begint met een verwijzing naar een tabel met `StormEvents` de naam (de data base die als host voor deze tabel wordt gehost, en een deel van de verbindings gegevens). De gegevens (rijen) voor die tabel worden vervolgens gefilterd op de waarde `StartTime` van de kolom en vervolgens gefilterd op de `State` waarde van de kolom. De query retourneert vervolgens het aantal rijen met ' overgebleven '.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVWws1VISSxJLQGyNYwMDMx1DQ11DQw1FRLzUpBU2aArMgIpQjGvJFXB1lZByc3HP8jTxVFJQQEkm5xfmlcCAHoR9euCAAAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVWws1VISSxJLQGyNYwMDMx1DQ11DQw1FRLzUpBU2aArMgIpQjGvJFXB1lZByc3HP8jTxVFJQQEkm5xfmlcCAHoR9euCAAAA) **\]**
 
 ```Kusto
 StormEvents
@@ -48,24 +48,24 @@ StormEvents
 | count
 ```
 
-In dit geval wordt is het resultaat:
+In dit geval is het resultaat:
 
 |Count|
 |-----|
 |   23|
 | |
 
-Zie voor meer informatie de [Query language reference](https://aka.ms/kustolangref).
+Zie de naslag informatie voor de [query taal](https://aka.ms/kustolangref)voor meer gegevens.
 
-## <a name="most-common-operators"></a>Meest voorkomende operators
+## <a name="most-common-operators"></a>Meest voorkomende Opera tors
 
-De operators in deze sectie beschreven, zijn de bouwstenen voor informatie over query's in Azure Data Explorer. De meeste query's die u schrijft bevat verschillende van deze operators.
+De Opera tors die in deze sectie worden behandeld, zijn de bouw stenen voor het leren van query's in azure Data Explorer. De meeste query's die u schrijft, bevatten een aantal van deze opera tors.
 
-Query's uitvoeren op het helpcluster: Selecteer **Klik query uit te voeren** boven elke query.
+Query's uitvoeren op het Help-cluster: Selecteer **klikken om de query** boven elke query uit te voeren.
 
-Query's op uw eigen cluster uitvoeren:
+Query's uitvoeren op uw eigen cluster:
 
-1. Elke query bij de query op basis van een web-App, kopiëren en vervolgens selecteert u de query of plaats de cursor in de query.
+1. Kopieer elke query naar de Web-query toepassing en selecteer vervolgens de query of plaats de cursor in de query.
 
 1. Selecteer aan de bovenkant van de toepassing **uitvoeren**.
 
@@ -73,36 +73,36 @@ Query's op uw eigen cluster uitvoeren:
 
 [**aantal**](https://docs.microsoft.com/azure/kusto/query/countoperator): Retourneert het aantal rijen in de tabel.
 
-De volgende query retourneert het aantal rijen in de tabel StormEvents.
+Met de volgende query wordt het aantal rijen in de tabel StormEvents.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSspVqhRSM4vzSsBALU2eHsTAAAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSspVqhRSM4vzSsBALU2eHsTAAAA) **\]**
 
 ```Kusto
 StormEvents | count
 ```
 
-### <a name="take"></a>toets maken
+### <a name="take"></a>Houd
 
-[**nemen**](https://docs.microsoft.com/azure/kusto/query/takeoperator): Retourneert het opgegeven aantal rijen met gegevens.
+[**nemen**](https://docs.microsoft.com/azure/kusto/query/takeoperator): Retourneert tot het opgegeven aantal rijen gegevens.
 
-De volgende query retourneert vijf rijen uit de tabel StormEvents. Het sleutelwoord *limiet* is een alias voor *nemen.*
+De volgende query retourneert vijf rijen uit de tabel StormEvents. De *limiet* voor tref woorden is een alias voor het *nemen van.*
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSspVqhRKEnMTlUwBQDEz2b8FAAAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSspVqhRKEnMTlUwBQDEz2b8FAAAAA%3d%3d) **\]**
 
 ```Kusto
 StormEvents | take 5
 ```
 
 > [!TIP]
-> Er is geen garantie dat welke records worden geretourneerd, tenzij de brongegevens is gesorteerd.
+> Er is geen garantie dat records worden geretourneerd, tenzij de bron gegevens worden gesorteerd.
 
 ### <a name="project"></a>project
 
-[**project**](https://docs.microsoft.com/azure/kusto/query/projectoperator): Een subset van kolommen selecteert.
+[**project**](https://docs.microsoft.com/azure/kusto/query/projectoperator): Hiermee selecteert u een subset kolommen.
 
 De volgende query retourneert een specifieke set kolommen.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUShJzE5VMAWxCorys1KTSxSCSxKLSkIyc1N1FFzzUiAMoFgJiA%2fSFlJZAGS6JOYmpqcGFOUXpBaVVAKlCjKL81NS%2fRKLihJLMstSAY%2buIINnAAAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUShJzE5VMAWxCorys1KTSxSCSxKLSkIyc1N1FFzzUiAMoFgJiA%2fSFlJZAGS6JOYmpqcGFOUXpBaVVAKlCjKL81NS%2fRKLihJLMstSAY%2buIINnAAAA) **\]**
 
 ```Kusto
 StormEvents
@@ -110,13 +110,13 @@ StormEvents
 | project StartTime, EndTime, State, EventType, DamageProperty, EpisodeNarrative
 ```
 
-### <a name="where"></a>waar
+### <a name="where"></a>waarbij
 
-[**waar**](https://docs.microsoft.com/azure/kusto/query/whereoperator): Een tabel gefilterd op de subset rijen die voldoet aan een predicaat.
+[**waar**](https://docs.microsoft.com/azure/kusto/query/whereoperator): Hiermee wordt een tabel gefilterd op de subset rijen die aan een predikaat voldoen.
 
-De gegevens door de volgende query worden gefilterd `EventType` en `State`.
+Met de volgende query worden de gegevens `EventType` door `State`en gefilterd.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAEWMPQvCMBCGd8H%2fcFuWro4dBOvHkgoJOB%2fm0KjJhetRKfjjNe3g9n49r1OW1I2UdVivPvC%2bkxDM3k%2bFoG3B7F%2fMwQDmAE5Rl%2fCydceTPfjemsopPgk2VRXhB121TkV9TNRAl8MiZrz53zeww4Q3OgsXEp1%2bVYkDB7IoghpH%2bgI9OH8WnwAAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAEWMPQvCMBCGd8H%2fcFuWro4dBOvHkgoJOB%2fm0KjJhetRKfjjNe3g9n49r1OW1I2UdVivPvC%2bkxDM3k%2bFoG3B7F%2fMwQDmAE5Rl%2fCydceTPfjemsopPgk2VRXhB121TkV9TNRAl8MiZrz53zeww4Q3OgsXEp1%2bVYkDB7IoghpH%2bgI9OH8WnwAAAA%3d%3d) **\]**
 
 ```Kusto
 StormEvents
@@ -125,13 +125,13 @@ StormEvents
 | project StartTime, EndTime, State, EventType, DamageProperty, EpisodeNarrative
 ```
 
-### <a name="sort"></a>Sorteren
+### <a name="sort"></a>acties
 
-[**sorteren**](https://docs.microsoft.com/azure/kusto/query/sortoperator): De rijen van de invoertabel in volgorde sorteren op een of meer kolommen.
+[**sorteren**](https://docs.microsoft.com/azure/kusto/query/sortoperator): Sorteer de rijen van de invoer tabel in volg orde van een of meer kolommen.
 
-De volgende query worden de gegevens in aflopende volgorde door `DamageProperty`.
+Met de volgende query worden de gegevens in aflopende Volg `DamageProperty`orde gesorteerd op.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAF2NPQvCMBCGd8H%2fcFuXrI4dBOvHEoUGnM%2fm0KjphctRKfjjNe0guL0fvM%2fbKktsBuo1LxdveN1ICCbvxkRQ11Btn8y%2bAuw9tIo6h%2bd1uz%2fYnTvaquwyi8JlhA1GvNJJOJHoCJ5yV2rFB8GqqCR8p04LSdSFSAaa3s9iopvfu%2fnDfasUMnuyKIIaBvoAtvGMsb4AAAA%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAF2NPQvCMBCGd8H%2fcFuXrI4dBOvHEoUGnM%2fm0KjphctRKfjjNe0guL0fvM%2fbKktsBuo1LxdveN1ICCbvxkRQ11Btn8y%2bAuw9tIo6h%2bd1uz%2fYnTvaquwyi8JlhA1GvNJJOJHoCJ5yV2rFB8GqqCR8p04LSdSFSAaa3s9iopvfu%2fnDfasUMnuyKIIaBvoAtvGMsb4AAAA%3d) **\]**
 
 ```Kusto
 StormEvents
@@ -142,15 +142,15 @@ StormEvents
 ```
 
 > [!NOTE]
-> De volgorde van bewerkingen is belangrijk. Probeer het plaatsen van `take 5` voordat `sort by`. Waar u verschillende resultaten krijgen?
+> De volg orde van de bewerkingen is belang rijk. Probeer te `take 5` plaatsen `sort by`voordat. Krijgt u verschillende resultaten?
 
-### <a name="top"></a>top
+### <a name="top"></a>Boven
 
-[**Top**](https://docs.microsoft.com/azure/kusto/query/topoperator): Retourneert de eerste *N* records worden gesorteerd op de opgegeven kolommen.
+[**boven**](https://docs.microsoft.com/azure/kusto/query/topoperator): Retourneert de eerste *N* records, gesorteerd op de opgegeven kolommen.
 
-De volgende query retourneert hetzelfde resultaat als hierboven met een minder operator.
+Met de volgende query worden dezelfde resultaten geretourneerd als hierboven met één operator min.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAF2NOwvCMBSFd8H%2fcLcsWR07CNbHkgoJOMfmohGTG24vlYA%2fXtsOgtt5cL5jhTi1I2YZ1qs3vO7ICLN3tSA0Daj9kygo8DmAFS9LeNna48kcXGfUtBMqsIFrhZ1P%2foZnpoIsFQIO%2fdQXpgf2MgFYXEyooc1hETNU%2f071H%2bRblThQQOOZvcQRP1rSng21AAAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAF2NOwvCMBSFd8H%2fcLcsWR07CNbHkgoJOMfmohGTG24vlYA%2fXtsOgtt5cL5jhTi1I2YZ1qs3vO7ICLN3tSA0Daj9kygo8DmAFS9LeNna48kcXGfUtBMqsIFrhZ1P%2foZnpoIsFQIO%2fdQXpgf2MgFYXEyooc1hETNU%2f071H%2bRblThQQOOZvcQRP1rSng21AAAA) **\]**
 
 ```Kusto
 StormEvents
@@ -159,13 +159,13 @@ StormEvents
 | project StartTime, EndTime, State, EventType, DamageProperty, EpisodeNarrative
 ```
 
-### <a name="extend"></a>Uitbreiden
+### <a name="extend"></a>uitbreidbaar
 
-[**uitbreiden**](https://docs.microsoft.com/azure/kusto/query/extendoperator): Berekent de afgeleide kolommen.
+[**uitbreiden**](https://docs.microsoft.com/azure/kusto/query/extendoperator): Berekent afgeleide kolommen.
 
-De volgende query maakt een nieuwe kolom door een waarde in elke rij computing.
+Met de volgende query maakt u een nieuwe kolom door een waarde in elke rij te berekenen.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAF2OvQ7CMAyEdyTewVuWMDJ2QGr5WQJSKzGHxoIiEkeuKVTi4WmooBKbfXeffaUQ%2b6LDIO189oLHBRnhs1d9RMgyUOsbkVNgg4NSrIzicVVud2ZT7Y1KnFCEJZx6yK23ZzwwRWTpwWFbJx%2bfggOf39lKQwEyKIKrGo%2bwSEdZ0pyCkemKtUyi%2fib1j9ZjDz311H9%2fBys2LTk0lhPT4RvwA3pn6AAAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAF2OvQ7CMAyEdyTewVuWMDJ2QGr5WQJSKzGHxoIiEkeuKVTi4WmooBKbfXeffaUQ%2b6LDIO189oLHBRnhs1d9RMgyUOsbkVNgg4NSrIzicVVud2ZT7Y1KnFCEJZx6yK23ZzwwRWTpwWFbJx%2bfggOf39lKQwEyKIKrGo%2bwSEdZ0pyCkemKtUyi%2fib1j9ZjDz311H9%2fBys2LTk0lhPT4RvwA3pn6AAAAA%3d%3d) **\]**
 
 ```Kusto
 StormEvents
@@ -175,26 +175,26 @@ StormEvents
 | project StartTime, EndTime, Duration, State, EventType, DamageProperty, EpisodeNarrative
 ```
 
-Expressies kunnen opnemen de gebruikelijke operators (+, -, *, /, %), en er is een bereik van handige functies die u kunt aanroepen.
+Expressies kunnen alle gebruikelijke Opera tors (+,-, *,/,%) bevatten en er zijn diverse nuttige functies die u kunt aanroepen.
 
 ### <a name="summarize"></a>samenvatten
 
-[**samenvatten**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator): Aggregeert Rijgroepen.
+[](https://docs.microsoft.com/azure/kusto/query/summarizeoperator)samenvatten: Voegt groepen rijen samen.
 
-De volgende query retourneert het aantal gebeurtenissen per `State`.
+De volgende query retourneert het aantal gebeurtenissen door `State`.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIBYnFJ%2beX5pUo2CqAaQ1NhaRKheCSxJJUAB%2fedDI3AAAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIBYnFJ%2beX5pUo2CqAaQ1NhaRKheCSxJJUAB%2fedDI3AAAA) **\]**
 
 ```Kusto
 StormEvents
 | summarize event_count = count() by State
 ```
 
-De **samenvatten** operator gegroepeerd rijen met dezelfde waarden in de **door** -component, en wordt vervolgens gebruikt de statistische functie (zoals **aantal**) te combineren van elke groep in een enkele rij. Dus in dit geval wordt is er een rij voor elke status en een kolom voor het aantal rijen in deze staat.
+De **samenvatte** operator groepen groeperen rijen met dezelfde waarden in de **by** -component en gebruikt vervolgens de aggregatie functie (zoals **aantal**) om elke groep in één rij te combi neren. In dit geval is er een rij voor elke status en een kolom voor het aantal rijen in die staat.
 
-Er is een bereik van aggregatiefuncties u kunt meerdere gebruiken in een **samenvatten** operator voor het produceren van enkele berekende kolommen. Bijvoorbeeld, u kan de telling van storm in elke status en het unieke nummer van storm per status ophalen en vervolgens met **boven** om op te halen van de Staten meest storm beïnvloed.
+Er is een groot aantal functies voor aggregatie en u kunt verschillende berekende kolommen maken met behulp van een operator samenvatten. U kunt bijvoorbeeld het aantal stormen in elke staat en het unieke aantal stormen per staat weer geven en vervolgens **Top** gebruiken om de recentste statussen te verkrijgen.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlUIBkk455fmlSjYKiSDaA1NHYWQyoJU%2fzSwXDFQPAUiAdYPktJUSKoE6kwsSQUZVpJfoGAKEYGblZJanAwAgbFb73QAAAA%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlUIBkk455fmlSjYKiSDaA1NHYWQyoJU%2fzSwXDFQPAUiAdYPktJUSKoE6kwsSQUZVpJfoGAKEYGblZJanAwAgbFb73QAAAA%3d) **\]**
 
 ```Kusto
 StormEvents
@@ -202,21 +202,21 @@ StormEvents
 | top 5 by StormCount desc
 ```
 
-Het resultaat van een **samenvatten** bewerking heeft:
+Het resultaat van een **samenvattings** bewerking is:
 
-- Elke kolom met de naam in **door**
+- Elke kolom **met** een naam in
 
 - Een kolom voor elke berekende expressie
 
-- Een rij voor elke combinatie van waarden
+- Een rij voor elke combi natie van waarden
 
-### <a name="render"></a>Render
+### <a name="render"></a>waardoor
 
-[**renderen**](https://docs.microsoft.com/azure/kusto/query/renderoperator): Resultaten als een grafische uitvoer wordt weergegeven.
+[**render**](https://docs.microsoft.com/azure/kusto/query/renderoperator): Hiermee worden resultaten weer gegeven als een grafische uitvoer.
 
-De volgende query wordt een kolomdiagram weergegeven.
+Met de volgende query wordt een kolom diagram weer gegeven.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWMsQ7CQAxDdyT%2bIWMrdSgbSxmQ2Nj6Aei4Ru0hkqA0VwTi49uUBRZL9rPdmiidJmQbt5sPjJkoaHojoGeXKJmtWbUoK6DUQQNh6osj9onPwUq4vqC1YLjORc2Dpef2OaD%2bPcEBdvu6dvZQuWG077b6LTlV5A4VotwzcRyC2gxU6ktSqQAAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWMsQ7CQAxDdyT%2bIWMrdSgbSxmQ2Nj6Aei4Ru0hkqA0VwTi49uUBRZL9rPdmiidJmQbt5sPjJkoaHojoGeXKJmtWbUoK6DUQQNh6osj9onPwUq4vqC1YLjORc2Dpef2OaD%2bPcEBdvu6dvZQuWG077b6LTlV5A4VotwzcRyC2gxU6ktSqQAAAA%3d%3d) **\]**
 
 ```Kusto
 StormEvents
@@ -227,9 +227,9 @@ StormEvents
 | render columnchart
 ```
 
-De volgende query geeft een grafiek met eenvoudige weer.
+Met de volgende query wordt een eenvoudige tijd grafiek weer gegeven.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIBYnFJ%2beX5pXYgkkNTYWkSoWkzDyN4JLEopKQzNxUHQXDFE2QtqLUvJTUIoUSoFhyBlASAAyXWQJWAAAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIBYnFJ%2beX5pXYgkkNTYWkSoWkzDyN4JLEopKQzNxUHQXDFE2QtqLUvJTUIoUSoFhyBlASAAyXWQJWAAAA) **\]**
 
 ```Kusto
 StormEvents
@@ -237,9 +237,9 @@ StormEvents
 | render timechart
 ```
 
-De volgende query uit telt gebeurtenissen op het moment dat modulo één dag binned in uren en een grafiek weergegeven.
+Met de volgende query worden gebeurtenissen geteld op basis van de tijd modulo één dag, binning in uren en wordt een tijd diagram weer gegeven.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEADWNQQqDMBRE90LvMBtBwY0HcNkT2L2k8UuEJh9%2bfqSWHt4k4GZghpk3s7L450FB46P5g75KYYXjJJiwfZilm9WIvnZPaDGuGDC6vnRj8t7I%2fiNQ2S%2bWU9CpatfjfVZKLbLo7WGiLZnkGxJoxlqX%2bRf81ZbyiAAAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEADWNQQqDMBRE90LvMBtBwY0HcNkT2L2k8UuEJh9%2bfqSWHt4k4GZghpk3s7L450FB46P5g75KYYXjJJiwfZilm9WIvnZPaDGuGDC6vnRj8t7I%2fiNQ2S%2bWU9CpatfjfVZKLbLo7WGiLZnkGxJoxlqX%2bRf81ZbyiAAAAA%3d%3d) **\]**
 
 ```Kusto
 StormEvents
@@ -249,9 +249,9 @@ StormEvents
 | render timechart
 ```
 
-De volgende query vergelijkt meerdere dagelijkse reeksen op een grafiek.
+Met de volgende query vergelijkt u meerdere dagelijkse reeksen in een tijd diagram.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEACWPSwvCMBCE74L%2fYSgIFXrpD%2bihaKzxkUBTXyeputKCbSCmvvDHm9TL7gwzsN8qq03DHtTa%2b3DwBb0stRdUujMJrjetTQhlS2OLuiGMEF8QIa7GvvusyJBPLaFuEQbZZjWDnGHN9nwigyhYp1wwt7c8z7jgqZM7riZSKC6cFjIv5pimS1n4SLAdFixX7OCMzFkmRdAfundNU5r6QyAPejzrrrVJP8MxTu8eN%2fqT%2bL5xL5CBdcjnyrH%2fALPTSKnkAAAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEACWPSwvCMBCE74L%2fYSgIFXrpD%2bihaKzxkUBTXyeputKCbSCmvvDHm9TL7gwzsN8qq03DHtTa%2b3DwBb0stRdUujMJrjetTQhlS2OLuiGMEF8QIa7GvvusyJBPLaFuEQbZZjWDnGHN9nwigyhYp1wwt7c8z7jgqZM7riZSKC6cFjIv5pimS1n4SLAdFixX7OCMzFkmRdAfundNU5r6QyAPejzrrrVJP8MxTu8eN%2fqT%2bL5xL5CBdcjnyrH%2fALPTSKnkAAAA) **\]**
 
 ```Kusto
 StormEvents
@@ -262,19 +262,19 @@ StormEvents
 ```
 
 > [!NOTE]
-> De **renderen** operator is een client-side-onderdeel in plaats van onderdeel van de engine. Het geïntegreerd in de taal voor het gebruiksgemak. De web-App biedt ondersteuning voor de volgende opties: barchart, columnchart, piechart, tijdgrafiek, en linechart. 
+> De **render** -operator is een functie aan client zijde in plaats van een deel van de engine. Het is geïntegreerd in de taal voor gebruiks gemak. De webtoepassing ondersteunt de volgende opties: Barchart, columnchart, piechart, timechart en linechart. 
 
-## <a name="scalar-operators"></a>Scalaire operators
+## <a name="scalar-operators"></a>Scalaire Opera tors
 
-Deze sectie worden enkele van de belangrijkste scalaire operators.
+Deze sectie bevat enkele van de belangrijkste scalaire Opera tors.
 
 ### <a name="bin"></a>bin()
 
-[**bin()** ](https://docs.microsoft.com/azure/kusto/query/binfunction): Waarden naar een geheel getal afgerond meervoud van de grootte van een opgegeven opslaglocatie.
+[**bin()** ](https://docs.microsoft.com/azure/kusto/query/binfunction): Rondt waarden af naar een geheel getal van een bepaalde bin-grootte.
 
-De volgende query berekent het aantal en de Bucketgrootte van een van één dag.
+Met de volgende query wordt het aantal berekend met een Bucket grootte van één dag.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVWwU0hJLEktATI1jAwMzHUNjHQNTTQVEvNSkBTZYCoyMtQEGVdcmpubWJRZlaqQCrIiPjm%2fNK9EwVYBTGtoKiRVKiRl5mnAjdJRMEzRBABIhjnmkwAAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVWwU0hJLEktATI1jAwMzHUNjHQNTTQVEvNSkBTZYCoyMtQEGVdcmpubWJRZlaqQCrIiPjm%2fNK9EwVYBTGtoKiRVKiRl5mnAjdJRMEzRBABIhjnmkwAAAA%3d%3d) **\]**
 
 ```Kusto
 StormEvents
@@ -282,13 +282,13 @@ StormEvents
 | summarize event_count = count() by bin(StartTime, 1d)
 ```
 
-### <a name="case"></a>case()
+### <a name="case"></a>Case ()
 
-[**case()** ](https://docs.microsoft.com/azure/kusto/query/casefunction): Evalueert een lijst met predicaten is en retourneert de eerste resultaat expressie waarvan predicaat is voldaan of de laatste **anders** expressie. U kunt deze operator categoriseren of de groep gegevens:
+[**case()** ](https://docs.microsoft.com/azure/kusto/query/casefunction): Evalueert een lijst met predikaten en retourneert de eerste resultaat expressie waarvan het predicaat is voldaan, of de eind **else** -expressie. U kunt deze operator gebruiken om gegevens te categoriseren of te groeperen:
 
-De volgende query retourneert een nieuwe kolom `deaths_bucket` en de sterfgevallen door aantal groepen.
+Met de volgende query wordt een nieuwe `deaths_bucket` kolom geretourneerd en wordt het sterf getal gegroepeerd op het aantal.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAGWOwQrCQAxE74X%2bQ9hTCwX14FFBaK9e%2bgGS7gZdbFrYZEXFj7dbqgfNbfJmhml1DNzcaFDJsxdIZMbgnwSOUC8Cu%2fQq6lnUPpDVEroHtIpKKUB3pcEt7lMX7ZV0ClkUgiLPYLqlaQ%2fbdQWmx3AmU%2f2gTUJMzkf%2bYwkJY99%2fiDmuDqac545Bv3MAxb4Bic1Oy88AAAA%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAGWOwQrCQAxE74X%2bQ9hTCwX14FFBaK9e%2bgGS7gZdbFrYZEXFj7dbqgfNbfJmhml1DNzcaFDJsxdIZMbgnwSOUC8Cu%2fQq6lnUPpDVEroHtIpKKUB3pcEt7lMX7ZV0ClkUgiLPYLqlaQ%2fbdQWmx3AmU%2f2gTUJMzkf%2bYwkJY99%2fiDmuDqac545Bv3MAxb4Bic1Oy88AAAA%3d) **\]**
 
 ```Kusto
 StormEvents
@@ -303,11 +303,11 @@ StormEvents
 
 ### <a name="extract"></a>extract()
 
-[**extract()** ](https://docs.microsoft.com/azure/kusto/query/extractfunction): Hiermee haalt u een overeenkomst is met een reguliere expressie uit een tekenreeks.
+[**extract()** ](https://docs.microsoft.com/azure/kusto/query/extractfunction): Hiermee wordt een overeenkomst opgehaald voor een reguliere expressie uit een teken reeks.
 
-De volgende query uit waarden van specifieke kenmerken van een tracering worden uitgepakt.
+Met de volgende query worden specifieke kenmerk waarden opgehaald uit een tracering.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAE2OwQrCMBBE74X%2bw9BTojHYagSVHJRevXkrHqJdpVBbSVew4McbFYungeXtvKmJsetzxw4WZQh2x5og9t6daIWOfdVcJIpkY1OFrc0U8rt3XLWNTbOZnhultU4UfoD5A4zRmVkovInDOo6%2bojh6gh5MTTmQwR0uQckiGb5FMZ0s9WEsQ3uo%2fixSccT9jdqz8ORqKTECV1cSaSdfq2k6L8oAAAA%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAE2OwQrCMBBE74X%2bw9BTojHYagSVHJRevXkrHqJdpVBbSVew4McbFYungeXtvKmJsetzxw4WZQh2x5og9t6daIWOfdVcJIpkY1OFrc0U8rt3XLWNTbOZnhultU4UfoD5A4zRmVkovInDOo6%2bojh6gh5MTTmQwR0uQckiGb5FMZ0s9WEsQ3uo%2fixSccT9jdqz8ORqKTECV1cSaSdfq2k6L8oAAAA%3d) **\]**
 
 ```Kusto
 let MyData = datatable (Trace: string) ["A=1, B=2, Duration=123.45,...", "A=1, B=5, Duration=55.256, ..."];
@@ -315,15 +315,15 @@ MyData
 | extend Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s)
 ```
 
-Deze query gebruikt een **laten** instructie, die wordt gebonden een naam (in dit geval `MyData`) op een expressie. Voor de rest van het bereik, waarin de **laten** instructie wordt weergegeven (globaal bereik of in een bereik van de hoofdtekst van de functie), de naam kan worden gebruikt om te verwijzen naar de afhankelijke waarde.
+Deze query gebruikt een instructie voor **toestaan** , die een naam (in dit geval `MyData`) aan een expressie koppelt. Voor de rest van het bereik, waarin de instructie **toestaan** wordt weer gegeven (globaal bereik of in een functie hoofdtekst bereik), kan de naam worden gebruikt om te verwijzen naar de gekoppelde waarde.
 
-### <a name="parsejson"></a>parse_json()
+### <a name="parse_json"></a>parse_json()
 
-[**parse_json()** ](https://docs.microsoft.com/azure/kusto/query/parsejsonfunction): Interpreteert een tekenreeks als een JSON-waarde en retourneert de waarde als dynamische. Het is beter met behulp van de **extractjson()** werken wanneer u nodig hebt om op te halen van meer dan een element van een samengestelde JSON-object.
+[**parse_json()** ](https://docs.microsoft.com/azure/kusto/query/parsejsonfunction): Interpreteert een teken reeks als een JSON-waarde en retourneert de waarde als dynamisch. Het is belang rijk dat u de functie **extractjson ()** gebruikt wanneer u meer dan één element van een samengesteld JSON-object wilt extra heren.
 
-De volgende query haalt de JSON-elementen van een matrix.
+Met de volgende query worden de JSON-elementen uit een matrix geëxtraheerd.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAHWPQQuCQBCF74L%2fYdmLBSJ6EGKjU17r1E0kJh1C2XZlHc0w%2f3ur1s1O896bB%2fONRGKnVwIE7MAKOwhuEtnmYiBHwRoypbpvXSf1Bl60BqjUiot04B3IFrmIol0Q%2bpPLdauIi3iyj9KWojCcNfRWx7NuqEiw48KaMRu9bO86y3HXeTPsCVXBzvg8amlpajANXqtGq4VmO5VqoyvM6dsKfkhpmAUzkf9nM9OtLi3reg79ar788AEVX8GkOAEAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAHWPQQuCQBCF74L%2fYdmLBSJ6EGKjU17r1E0kJh1C2XZlHc0w%2f3ur1s1O896bB%2fONRGKnVwIE7MAKOwhuEtnmYiBHwRoypbpvXSf1Bl60BqjUiot04B3IFrmIol0Q%2bpPLdauIi3iyj9KWojCcNfRWx7NuqEiw48KaMRu9bO86y3HXeTPsCVXBzvg8amlpajANXqtGq4VmO5VqoyvM6dsKfkhpmAUzkf9nM9OtLi3reg79ar788AEVX8GkOAEAAA%3d%3d) **\]**
 
 ```Kusto
 let MyData = datatable (Trace: string)
@@ -333,9 +333,9 @@ MyData
 | project NewCol.duration[0].value, NewCol.duration[0].valcount, NewCol.duration[0].min, NewCol.duration[0].max, NewCol.duration[0].stdDev
 ```
 
-De volgende query haalt de JSON-elementen.
+Met de volgende query worden de JSON-elementen geëxtraheerd.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAE2OwQqCQBCG74LvsOzFBBE9CLHRKa916hYRkw6RbLuyO5pRvXvrGtZpvn9m4P8kEts%2bSiBga1a7QXCWyBZ7AxUKZslc1SVmh%2bjJe5AdcpHnyzRLxlTpThEXxRhvV%2bVOWeYZBseFZ0t1iT0XLryj4yoMprIweDEcCFXNdnjfaOnaWzAWT43VamqPx6fW6AYr%2bn6l3iH5S95hXjiLH8Mw82TxAQvJEB%2fsAAAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAE2OwQqCQBCG74LvsOzFBBE9CLHRKa916hYRkw6RbLuyO5pRvXvrGtZpvn9m4P8kEts%2bSiBga1a7QXCWyBZ7AxUKZslc1SVmh%2bjJe5AdcpHnyzRLxlTpThEXxRhvV%2bVOWeYZBseFZ0t1iT0XLryj4yoMprIweDEcCFXNdnjfaOnaWzAWT43VamqPx6fW6AYr%2bn6l3iH5S95hXjiLH8Mw82TxAQvJEB%2fsAAAA) **\]**
 
 ```Kusto
 let MyData = datatable (Trace: string) ['{"value":118.0,"valcount":5.0,"min":100.0,"max":150.0,"stdDev":0.0}'];
@@ -344,9 +344,9 @@ MyData
 | project NewCol.value, NewCol.valcount, NewCol.min, NewCol.max, NewCol.stdDev
 ```
 
-De volgende query haalt de JSON-elementen van het type dynamische gegevens.
+Met de volgende query worden de JSON-elementen geëxtraheerd met een dynamisch gegevens type.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAD2NMQvCMBBG90D%2bw5GphVLSoSARt65ubuJwJjdU0lZiWlrU%2f25MotO9x8H7LHk4bh16hAOYcDxeLUFxcqhJgdlGHHpdcnbOWDzFgnYmoZpmV8tK6GkePTmh2q8N%2fRg%2bUkbGNXAb%2beFNR4tQQd7lZc9ZGuXsBXc33Uh7iJN1jFdZcvunIf5HXCvOEqf2BwXmDCnKAAAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAD2NMQvCMBBG90D%2bw5GphVLSoSARt65ubuJwJjdU0lZiWlrU%2f25MotO9x8H7LHk4bh16hAOYcDxeLUFxcqhJgdlGHHpdcnbOWDzFgnYmoZpmV8tK6GkePTmh2q8N%2fRg%2bUkbGNXAb%2beFNR4tQQd7lZc9ZGuXsBXc33Uh7iJN1jFdZcvunIf5HXCvOEqf2BwXmDCnKAAAA) **\]**
 
 ```Kusto
 let MyData = datatable (Trace: dynamic)
@@ -355,13 +355,13 @@ MyData
 | project Trace.value, Trace.counter, Trace.min, Trace.max, Trace.stdDev
 ```
 
-### <a name="ago"></a>ago()
+### <a name="ago"></a>geleden ()
 
-[**ago()** ](https://docs.microsoft.com/azure/kusto/query/agofunction): Het opgegeven interval van de huidige UTC clock tijd trekt.
+[**geleden ()** ](https://docs.microsoft.com/azure/kusto/query/agofunction): Trekt de opgegeven time span af van de huidige UTC-klok tijd.
 
-De volgende query retourneert de gegevens voor de afgelopen 12 uur.
+Met de volgende query worden gegevens voor de afgelopen 12 uur geretourneerd.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA1WOQQ6CQAxF9yTc4S8hQcmQuNSNR4ALTKQyJDAlnSIuPLwzJGrctM3v+7+t684R7qMEhW6MafQUMJAnsUoIdl4mQm/VVrC+h0Z6shFOINZAIc/qOql24KIEL8nIAuWYohC6sfQB9yjtPtPA8SrhmGeLjF7RjTO1Gu+cIdYPVHjeisOpLyukKTbjYml5piuvXknwIU1lGlPm2Qvzg55L+u+b9udIyOZI6LfHZf/YNK58Ay2HrbAEAQAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA1WOQQ6CQAxF9yTc4S8hQcmQuNSNR4ALTKQyJDAlnSIuPLwzJGrctM3v+7+t684R7qMEhW6MafQUMJAnsUoIdl4mQm/VVrC+h0Z6shFOINZAIc/qOql24KIEL8nIAuWYohC6sfQB9yjtPtPA8SrhmGeLjF7RjTO1Gu+cIdYPVHjeisOpLyukKTbjYml5piuvXknwIU1lGlPm2Qvzg55L+u+b9udIyOZI6LfHZf/YNK58Ay2HrbAEAQAA) **\]**
 
 ```Kusto
 //The first two lines generate sample data, and the last line uses
@@ -371,28 +371,28 @@ print TimeStamp= range(now(-5d), now(), 1h), SomeCounter = range(1,121)
 | where TimeStamp > ago(12h)
 ```
 
-### <a name="startofweek"></a>startofweek()
+### <a name="startofweek"></a>opsomming ()
 
-[**startofweek()** ](https://docs.microsoft.com/azure/kusto/query/startofweekfunction): Retourneert het begin van de week waarin, de datum, verplaatst door een offset als opgegeven
+[**opsomming ()** ](https://docs.microsoft.com/azure/kusto/query/startofweekfunction): Retourneert het begin van de week met de datum, verschoven met een verschuiving, indien opgegeven
 
-De volgende query retourneert het begin van de week met een andere offset.
+Met de volgende query wordt het begin van de week met verschillende verschuivingen geretourneerd.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEACtKzEtPVchPSytOLVFIK8rPVdA1VCjJVzBUKC5JLVAw5OWqUSgoys9KTS5RKE9NzQ4uSSwqUbAFygLp%2fDSQkEZefrmGpg7UEE0dCA0AdE3lv1kAAAA%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEACtKzEtPVchPSytOLVFIK8rPVdA1VCjJVzBUKC5JLVAw5OWqUSgoys9KTS5RKE9NzQ4uSSwqUbAFygLp%2fDSQkEZefrmGpg7UEE0dCA0AdE3lv1kAAAA%3d) **\]**
 
 ```Kusto
 range offset from -1 to 1 step 1
 | project weekStart = startofweek(now(), offset),offset
 ```
 
-Deze query gebruikt de **bereik** operator, die een tabel met één kolom met waarden worden gegenereerd. Zie ook: [ **startofday()** ](https://docs.microsoft.com/azure/kusto/query/startofdayfunction), [ **startofweek()** ](https://docs.microsoft.com/azure/kusto/query/startofweekfunction), [ **startofyear()** ](https://docs.microsoft.com/azure/kusto/query/startofyearfunction)), [ **startofmonth()** ](https://docs.microsoft.com/azure/kusto/query/startofmonthfunction), [ **endofday()** ](https://docs.microsoft.com/azure/kusto/query/endofdayfunction), [ **endofweek()**  ](https://docs.microsoft.com/azure/kusto/query/endofweekfunction), [ **endofmonth()** ](https://docs.microsoft.com/azure/kusto/query/endofmonthfunction), en [ **endofyear()** ](https://docs.microsoft.com/azure/kusto/query/endofyearfunction).
+Deze query maakt gebruik van de operator **Range** , waarmee een tabel met één kolom met waarden wordt gegenereerd. Zie ook: [**startofday ()** ](https://docs.microsoft.com/azure/kusto/query/startofdayfunction), [**opsomming ()** ](https://docs.microsoft.com/azure/kusto/query/startofweekfunction), [**startofyear ()** ](https://docs.microsoft.com/azure/kusto/query/startofyearfunction)), [**startofmonth ()** ](https://docs.microsoft.com/azure/kusto/query/startofmonthfunction), [**endofday ()** ](https://docs.microsoft.com/azure/kusto/query/endofdayfunction), [**endofweek ()** ](https://docs.microsoft.com/azure/kusto/query/endofweekfunction), [**endofmonth ()** ](https://docs.microsoft.com/azure/kusto/query/endofmonthfunction)en [**endofyear ()** ](https://docs.microsoft.com/azure/kusto/query/endofyearfunction).
 
-### <a name="between"></a>Between()
+### <a name="between"></a>tussen ()
 
-[**between()** ](https://docs.microsoft.com/azure/kusto/query/betweenoperator): Komt overeen met de invoer die zich binnen het bereik liggen.
+[**tussen ()** ](https://docs.microsoft.com/azure/kusto/query/betweenoperator): Komt overeen met de invoer binnen het inclusieve bereik.
 
-De volgende query uit de gegevens worden gefilterd op een bepaald datumbereik.
+Met de volgende query worden de gegevens op basis van een bepaald datum bereik gefilterd.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVVISi0pT03NU9BISSxJLQGKaBgZGJjrApGRuaaCnp4ChrixgaYmyKTk%2fNK8EgBluyagXgAAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVVISi0pT03NU9BISSxJLQGKaBgZGJjrApGRuaaCnp4ChrixgaYmyKTk%2fNK8EgBluyagXgAAAA%3d%3d) **\]**
 
 ```Kusto
 StormEvents
@@ -400,9 +400,9 @@ StormEvents
 | count
 ```
 
-De volgende query uit de gegevens worden gefilterd op een bepaald datumbereik, met de kleine variatie van drie dagen (`3d`) vanaf de begindatum.
+Met de volgende query worden de gegevens op basis van een bepaald datum bereik gefilterd, met een`3d`geringe afwijking van drie dagen () vanaf de begin datum.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVVISi0pT03NU9BISSxJLQGKaBgZGJjrApGRuaaCnp6CcYomSF9yfmleCQCGAqjRTAAAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVVISi0pT03NU9BISSxJLQGKaBgZGJjrApGRuaaCnp6CcYomSF9yfmleCQCGAqjRTAAAAA%3d%3d) **\]**
 
 ```Kusto
 StormEvents
@@ -410,17 +410,17 @@ StormEvents
 | count
 ```
 
-## <a name="tabular-operators"></a>In tabelvorm operators
+## <a name="tabular-operators"></a>Tabellaire Opera tors
 
-Kusto bevat veel in tabelvorm operators, waarvan sommige in andere gedeelten van dit artikel worden besproken. Hier ligt de focus op **parseren**. 
+Kusto heeft veel tabellaire Opera Tors, waarvan sommige zijn opgenomen in andere secties van dit artikel. Hier richten we ons ophet parseren. 
 
 ### <a name="parse"></a>parseren
 
-[**parseren**](https://docs.microsoft.com/azure/kusto/query/parseoperator): Evalueert een tekenreeksexpressie en de waarde ervan in een of meer berekende kolommen worden geparseerd. Er zijn drie manieren om te parseren: eenvoudig (de standaardinstelling), regex, en soepele.
+[**parseren**](https://docs.microsoft.com/azure/kusto/query/parseoperator): Evalueert een teken reeks expressie en parseert de waarde ervan in een of meer berekende kolommen. Er zijn drie manieren om te parseren: eenvoudig (de standaard instelling), regex en ongeforceerd.
 
-De volgende query uit een tracering parseert en extraheert de relevante waarden, met behulp van een standaardwaarde van eenvoudige parseren. De expressie (aangeduid als StringConstant) is een normale string-waarde en de overeenkomst is strikte: uitgebreide kolommen moeten overeenkomen met de vereiste typen.
+De volgende query parseert een tracering en extraheert de relevante waarden met behulp van een standaard waarde voor het parseren. De expressie (aangeduid als StringConstant) is een reguliere teken reeks waarde en de overeenkomst is strikt: uitgebreide kolommen moeten overeenkomen met de vereiste typen.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAN2UTU%2fDMAyG75X6H6xcxlCkpRlsUNQjN6gQ2wnEoevMFsiaKk2HJvHjabqvlI91l11QLrH12vETW5Zo4H411kmKEME0MdWZSISz2yVmpvaHhdEim3V979n3OrU%2fhFgZ8boaSZHiI0pMiipEY6FKnWKcLDB6EDlKkeEoneO0lKgpGGUSWYcUER9SKOw1LhcT1BHvU5AqfR%2bLKpbxXjDscRYMgF2FFyxkwRMFvX7ngCLXuBSqLO5%2bT9S%2ftrJuh54OI7g8iMFaMdhxGOy0GJz9i25w%2fjdG0IoRHNWNNe1ph2pwEKNlqI7HsEPley83vrfZCL73CXmiq%2fr32wA%2bhJnDOZAGEQHXBNIEIq4VSpXNbAIXkbjAO8UOmuz4bWoXlrhWWO0vqyA2%2bAcw2f7B1rORd60calat3jA1TRbq1A6NxsC%2bLdCoCuj3p74AKTs4pmcFAAA%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAN2UTU%2fDMAyG75X6H6xcxlCkpRlsUNQjN6gQ2wnEoevMFsiaKk2HJvHjabqvlI91l11QLrH12vETW5Zo4H411kmKEME0MdWZSISz2yVmpvaHhdEim3V979n3OrU%2fhFgZ8boaSZHiI0pMiipEY6FKnWKcLDB6EDlKkeEoneO0lKgpGGUSWYcUER9SKOw1LhcT1BHvU5AqfR%2bLKpbxXjDscRYMgF2FFyxkwRMFvX7ngCLXuBSqLO5%2bT9S%2ftrJuh54OI7g8iMFaMdhxGOy0GJz9i25w%2fjdG0IoRHNWNNe1ph2pwEKNlqI7HsEPley83vrfZCL73CXmiq%2fr32wA%2bhJnDOZAGEQHXBNIEIq4VSpXNbAIXkbjAO8UOmuz4bWoXlrhWWO0vqyA2%2bAcw2f7B1rORd60calat3jA1TRbq1A6NxsC%2bLdCoCuj3p74AKTs4pmcFAAA%3d) **\]**
 
 ```Kusto
 let MyTrace = datatable (EventTrace:string)
@@ -436,9 +436,9 @@ MyTrace
 | project resourceName ,totalSlices , sliceNumber , lockTime , releaseTime , previouLockTime
 ```
 
-De volgende query uit een tracering parseert en extraheert de relevante waarden, met behulp van `kind = regex`. De StringConstant kan een reguliere expressie zijn.
+De volgende query parseert een tracering en extraheert de relevante waarden met `kind = regex`behulp van. De StringConstant kan een reguliere expressie zijn.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAN2UQU%2fCQBCF7036HyZ7gWKRbVHQmgY9eNPGCCcoh9KOsLK0ZLtFMf54l6LQBgUuXEyTTbP7pt3vvclwlPC47IkgRHAhCqR6Rhyher%2fAWOb7TioFi8eGrg10rZLvO%2bAlkr0su5yF%2bIwcg1SVCEyTTIToBTN0n9gcOYuxG04wyjgKE2QiA56XpK7dNiFdvXrZbITCtZsm8CSc9piqpXbDajdsarWAXjkX1KFW3wSx%2fs8exVzggiVZ%2bvD7h5rXK5lRMU%2bHYV3uxaAHMehxGPS0GDb9F2nY9t8Y1kEM66g01rSnbarWXowDTXU8xqqpdG14o2vfE0HXPmEeCHX%2fKYsjNR8EjvEdtqMB3picAKme1zrGIKh%2f3NX7w5pLoEgLt6SM56c1PzpTq6oqYpIitMOTeAxAlKb6c3Wjs3GBbAzJJUV8UjQjP91BJztuOGryKbHvGwQgxxbJK4ayTFKKBbahQCkA2DX7C29veJJmBQAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAN2UQU%2fCQBCF7036HyZ7gWKRbVHQmgY9eNPGCCcoh9KOsLK0ZLtFMf54l6LQBgUuXEyTTbP7pt3vvclwlPC47IkgRHAhCqR6Rhyher%2fAWOb7TioFi8eGrg10rZLvO%2bAlkr0su5yF%2bIwcg1SVCEyTTIToBTN0n9gcOYuxG04wyjgKE2QiA56XpK7dNiFdvXrZbITCtZsm8CSc9piqpXbDajdsarWAXjkX1KFW3wSx%2fs8exVzggiVZ%2bvD7h5rXK5lRMU%2bHYV3uxaAHMehxGPS0GDb9F2nY9t8Y1kEM66g01rSnbarWXowDTXU8xqqpdG14o2vfE0HXPmEeCHX%2fKYsjNR8EjvEdtqMB3picAKme1zrGIKh%2f3NX7w5pLoEgLt6SM56c1PzpTq6oqYpIitMOTeAxAlKb6c3Wjs3GBbAzJJUV8UjQjP91BJztuOGryKbHvGwQgxxbJK4ayTFKKBbahQCkA2DX7C29veJJmBQAA) **\]**
 
 ```Kusto
 let MyTrace = datatable (EventTrace:string)
@@ -454,9 +454,9 @@ MyTrace
 | project resourceName , sliceNumber , lockTime , releaseTime , previousLockTime
 ```
 
-De volgende query uit een tracering parseert en extraheert de relevante waarden, met behulp van `kind = relaxed`. De StringConstant is een normale string-waarde en de overeenkomst is beperkte: uitgebreide kolommen kunnen gedeeltelijk overeenkomen met de vereiste typen.
+De volgende query parseert een tracering en extraheert de relevante waarden met `kind = relaxed`behulp van. De StringConstant is een reguliere teken reeks waarde en de overeenkomst is ongeforceerd: uitgebreide kolommen kunnen gedeeltelijk overeenkomen met de vereiste typen.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAN2US0%2fCQBDH7036HSZ7wZpN2BYFrenRGzZG4KLxUNoRVpYu2W5REj%2b83fKw9QE1kYvppTOZx%2f%2b3MxmBGm5WQxXFCAEkkS6%2bsUA4uV5iqku%2fn2nF04ljWw%2b21Sr9PoRS86fVQPAY71BglBUpCjOZqxjDaI7BLV%2bg4CkO4ikmuUBFQUsdiTIlC7wehcz8hvl8jCrwOhSEjGdDXuQyr%2b322h5zu8Au%2fDPmM%2feeglr32ROxULjkMs%2f63xfqXJowp0WPh%2bGe78VgBzFYMwx2XAyP%2fYtpeN7PGO5BDLfRNNa0x12q7l6MA0vVHMMslW09XtnW5iLY1hssIlXon%2fE0CYom0SsmQP6IMxz1%2b7%2b7AnXQdX6TNXMIvHA9hVMgNYEEqiaQuj5StXwh04kpUNVLqup3ETsCsoMxpavSSdXyi7NrIohJ%2foJDtoRbzybcMeFQjkjJZ4x1nYVWtEPtleHjjaGmCujnVu%2fWU75tHgYAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAN2US0%2fCQBDH7036HSZ7wZpN2BYFrenRGzZG4KLxUNoRVpYu2W5REj%2b83fKw9QE1kYvppTOZx%2f%2b3MxmBGm5WQxXFCAEkkS6%2bsUA4uV5iqku%2fn2nF04ljWw%2b21Sr9PoRS86fVQPAY71BglBUpCjOZqxjDaI7BLV%2bg4CkO4ikmuUBFQUsdiTIlC7wehcz8hvl8jCrwOhSEjGdDXuQyr%2b322h5zu8Au%2fDPmM%2feeglr32ROxULjkMs%2f63xfqXJowp0WPh%2bGe78VgBzFYMwx2XAyP%2fYtpeN7PGO5BDLfRNNa0x12q7l6MA0vVHMMslW09XtnW5iLY1hssIlXon%2fE0CYom0SsmQP6IMxz1%2b7%2b7AnXQdX6TNXMIvHA9hVMgNYEEqiaQuj5StXwh04kpUNVLqup3ETsCsoMxpavSSdXyi7NrIohJ%2foJDtoRbzybcMeFQjkjJZ4x1nYVWtEPtleHjjaGmCujnVu%2fWU75tHgYAAA%3d%3d) **\]**
 
 ```Kusto
 let MyTrace = datatable (EventTrace:string)
@@ -474,24 +474,24 @@ MyTrace
 
 ## <a name="time-series-analysis"></a>Tijdreeksanalyse
 
-### <a name="make-series"></a>merk-serie
+### <a name="make-series"></a>reeks maken
 
-[**merk-serie**](https://docs.microsoft.com/azure/kusto/query/make-seriesoperator): aggregeert samen Rijgroepen zoals [samenvatten](https://docs.microsoft.com/azure/kusto/query/summarizeoperator), maar een reeks (tijd) genereert vector per elke combinatie van waarden.
+[**maken-serie**](https://docs.microsoft.com/azure/kusto/query/make-seriesoperator): voegt groepen rijen als samenvatten [](https://docs.microsoft.com/azure/kusto/query/summarizeoperator)samen, maar genereert een (tijd)-reeks vector per combi natie van waarden.
 
-De volgende query retourneert een set van tijdreeks voor het aantal gebeurtenissen per dag storm. De query bevat informatie over een periode van drie maanden voor elke status, ontbrekende opslaglocaties vullen met de constante 0:
+Met de volgende query wordt een set Time Series geretourneerd voor het aantal Storm-gebeurtenissen per dag. De query heeft betrekking op een periode van drie maanden voor elke status, waarbij de ontbrekende opslag locaties worden gevuld met de constante 0:
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUchNzE7VLU4tykwtVsizTc4vzSvR0FRISU1LLM0psTVQyM9TCC5JLCoJycxNVcjMUyhKzEtP1UhJLEktAYpoGBkYmOsaGAKRpo4CmqixrjFI1DBFUyGpEmRKSSoAazsM0n0AAAA%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUchNzE7VLU4tykwtVsizTc4vzSvR0FRISU1LLM0psTVQyM9TCC5JLCoJycxNVcjMUyhKzEtP1UhJLEktAYpoGBkYmOsaGAKRpo4CmqixrjFI1DBFUyGpEmRKSSoAazsM0n0AAAA%3d) **\]**
 
 ```Kusto
 StormEvents
 | make-series n=count() default=0 on StartTime in range(datetime(2007-01-01), datetime(2007-03-31), 1d) by State
 ```
 
-Zodra u een set (tijd) uit de serie hebt gemaakt, kunt u de reeksfuncties voor het detecteren van afwijkend vormen, seizoensgebonden patronen en veel meer kunt toepassen.
+Als u een reeks (tijd) hebt gemaakt, kunt u reeks functies Toep assen om afwijkende vormen, seizoensgebonden patronen en nog veel meer te detecteren.
 
-De volgende query haalt de bovenste drie statussen die de meeste gebeurtenissen in een specifieke dag had:
+Met de volgende query worden de eerste drie statussen opgehaald die de meeste gebeurtenissen in een specifieke dag hadden:
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAF2OsQoCMRBEe8F%2f2DIBAzmvsLrSLzj7EC%2brBs3mSPbkBD%2feLDYibPVmZmdGziUdn0hct5s3JH9HU7FErEDDlBdipSHgxS8PHixkgpF94VNMCJGgeLqiCp6RG1F7aw%2fGdu30Dv5ob3qhXdBwfskXRmnElZECfDtdbbgq0qJwnqEX76%2fmyCW%2ftkV1Ek9pWSwgNdOt7foAJIuybs8AAAA%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAF2OsQoCMRBEe8F%2f2DIBAzmvsLrSLzj7EC%2brBs3mSPbkBD%2feLDYibPVmZmdGziUdn0hct5s3JH9HU7FErEDDlBdipSHgxS8PHixkgpF94VNMCJGgeLqiCp6RG1F7aw%2fGdu30Dv5ob3qhXdBwfskXRmnElZECfDtdbbgq0qJwnqEX76%2fmyCW%2ftkV1Ek9pWSwgNdOt7foAJIuybs8AAAA%3d) **\]**
 
 ```Kusto
 StormEvents
@@ -501,21 +501,21 @@ StormEvents
 | render timechart
 ```
 
-Raadpleeg voor meer informatie, de volledige lijst met [reeksfuncties](https://docs.microsoft.com/azure/kusto/query/scalarfunctions#series-processing-functions).
+Bekijk de volledige lijst met [serie functies](https://docs.microsoft.com/azure/kusto/query/scalarfunctions#series-processing-functions)voor meer informatie.
 
 ## <a name="advanced-aggregations"></a>Geavanceerde aggregaties
 
-We eenvoudige aggregaties zoals besproken **aantal** en **samenvatten**, eerder in dit artikel. In deze sectie wordt een meer geavanceerde opties.
+Eerder in dit artikel hebben we elementaire aggregaties, zoals **Count** en samenvatten, behandeld. In deze sectie vindt u meer geavanceerde opties.
 
-### <a name="top-nested"></a>Top-geneste
+### <a name="top-nested"></a>boven-genest
 
-[**top-nested**](https://docs.microsoft.com/azure/kusto/query/topnestedoperator): De resultaten van hiërarchische bovenste, waarbij elk niveau Inzoomen op basis van waarden voor vorige niveau is.
+[**top-nested**](https://docs.microsoft.com/azure/kusto/query/topnestedoperator): Produceert hiërarchische belangrijkste resultaten, waarbij elk niveau een drill-down is op basis van de waarden van het vorige niveau.
 
-Deze operator is handig voor scenario's dashboard-visualisatie, of wanneer dit nodig is om te beantwoorden een vraag als volgt uit: "De top N-waarden van K1 (met behulp van sommige aggregatie); vinden voor elk van deze vinden wat zijn de waarden boven-M van K2 (met behulp van een andere aggregatie); ..."
+Deze operator is handig voor visualisatie scenario's in het dash board of wanneer het nodig is om een vraag te beantwoorden als de volgende: "De hoogste N waarden van K1 zoeken (met behulp van enige aggregatie); Zoek voor elk daarvan wat de hoogste waarden van K2 zijn (met behulp van een andere aggregatie); ..."
 
-De volgende query retourneert een hiërarchische tabel met `State` op het hoogste niveau, gevolgd door `Sources`.
+De volgende query retourneert een hiërarchische tabel `State` met op het hoogste niveau, gevolgd `Sources`door.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjJL9DNSy0uSU1RMFLIT1MILkksSVVIqlQoLs3VcEpNz8zzSSzR1OHlQlJoDFaYX1qUTEilIUila16KT35yYklmfh6GcgDrXwk5jgAAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjJL9DNSy0uSU1RMFLIT1MILkksSVVIqlQoLs3VcEpNz8zzSSzR1OHlQlJoDFaYX1qUTEilIUila16KT35yYklmfh6GcgDrXwk5jgAAAA%3d%3d) **\]**
 
 ```Kusto
 StormEvents
@@ -524,13 +524,13 @@ top-nested 3 of Source by sum(BeginLat),
 top-nested 1 of EndLocation by sum(BeginLat)
 ```
 
-### <a name="pivot-plugin"></a>pivot() plugin
+### <a name="pivot-plugin"></a>Pivot ()-invoeg toepassing
 
-[**pivot() plugin**](https://docs.microsoft.com/azure/kusto/query/pivotplugin): Een tabel draait door het inschakelen van de unieke waarden uit één kolom in de invoertabel in meerdere kolommen in de uitvoertabel. De operator voert aggregaties uit waar ze zijn vereist op alle overige waarden in de kolom in de uiteindelijke uitvoer.
+[**Pivot ()-invoeg toepassing**](https://docs.microsoft.com/azure/kusto/query/pivotplugin): Hiermee roteert u een tabel door de unieke waarden van de ene kolom in de invoer tabel in meerdere kolommen in de uitvoer tabel in te scha kelen. De operator voert aggregaties uit waar deze vereist zijn voor alle resterende kolom waarden in de uiteindelijke uitvoer.
 
-De volgende query uit een filter wordt toegepast en de rijen in kolommen opengaat.
+Met de volgende query past u een filter toe en draait u de rijen in kolommen.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSgoys9KTS5RCC5JLEnVUQBLhFQWpILkyjNSi1IhMgrFJYlFJcXlmSUZCkqOPkoIabgOhYzEYgWl8My8FLBsalliTilIZ0FmWX6JBtgUTQDlv21NfQAAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSgoys9KTS5RCC5JLEnVUQBLhFQWpILkyjNSi1IhMgrFJYlFJcXlmSUZCkqOPkoIabgOhYzEYgWl8My8FLBsalliTilIZ0FmWX6JBtgUTQDlv21NfQAAAA%3d%3d) **\]**
 
 ```Kusto
 StormEvents
@@ -540,13 +540,13 @@ StormEvents
 | evaluate pivot(State)
 ```
 
-### <a name="dcount"></a>dcount()
+### <a name="dcount"></a>DCount ()
 
-[**DCount()** ](https://docs.microsoft.com/azure/kusto/query/dcount-aggfunction): Retourneert een schatting van het aantal afzonderlijke waarden van een expressie in de groep. Gebruik [ **count()** ](https://docs.microsoft.com/azure/kusto/query/countoperator) alle waarden tellen.
+[**DCount ()** ](https://docs.microsoft.com/azure/kusto/query/dcount-aggfunction): Retourneert een schatting van het aantal afzonderlijke waarden van een expressie in de groep. Gebruik [**Count ()** ](https://docs.microsoft.com/azure/kusto/query/countoperator) om alle waarden te tellen.
 
-De volgende query uit afzonderlijke telt `Source` door `State`.
+De volgende query telt DISTINCT `Source` by `State`.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlUIzi8tSk4tVrBVSEnOL80r0YAIaCokVSoElySWpAIAFKgSBDoAAAA%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlUIzi8tSk4tVrBVSEnOL80r0YAIaCokVSoElySWpAIAFKgSBDoAAAA%3d) **\]**
 
 ```Kusto
 StormEvents
@@ -555,11 +555,11 @@ StormEvents
 
 ### <a name="dcountif"></a>dcountif()
 
-[**dcountif()** ](https://docs.microsoft.com/azure/kusto/query/dcountif-aggfunction): Retourneert een schatting van het aantal afzonderlijke waarden van de expressie voor rijen die het predicaat wordt geëvalueerd op waar.
+[**dcountif()** ](https://docs.microsoft.com/azure/kusto/query/dcountif-aggfunction): Retourneert een schatting van het aantal afzonderlijke waarden van de expressie voor rijen waarvoor het predikaat resulteert in waar.
 
-De volgende query telt de afzonderlijke waarden van `Source` waar `DamageProperty < 5000`.
+Met de volgende query worden de afzonderlijke waarden `Source` van `DamageProperty < 5000`where geteld.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSspVqhRKEnMTlUwNDDg5apRKC7NzU0syqxKVQjOLy1KTi1WsFVISc4vzSvJTNOACOkouCTmJqanBhTlF6QWlVQq2CiYGhgYaCokVSoElySWpAIAuk%2fTX14AAAA%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSspVqhRKEnMTlUwNDDg5apRKC7NzU0syqxKVQjOLy1KTi1WsFVISc4vzSvJTNOACOkouCTmJqanBhTlF6QWlVQq2CiYGhgYaCokVSoElySWpAIAuk%2fTX14AAAA%3d) **\]**
 
 ```Kusto
 StormEvents 
@@ -567,13 +567,13 @@ StormEvents
 | summarize Sources = dcountif(Source, DamageProperty < 5000) by State
 ```
 
-### <a name="dcounthll"></a>dcount_hll()
+### <a name="dcount_hll"></a>dcount_hll()
 
-[**dcount_hll()** ](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): Berekent de **dcount** van HyperLogLog resultaten (die worden gegenereerd door [**hll**](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) of [**hll_merge** ](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
+[**dcount_hll()** ](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): Berekent de **DCount** van HyperLogLog-resultaten (gegenereerd door [**HLL**](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) of [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
 
-De volgende query gebruikt het algoritme HLL voor het genereren van het aantal.
+De volgende query maakt gebruik van het HLL-algoritme voor het genereren van het aantal.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlXIyMkJSi1WsAUxNFwScxPTUwOK8gtSi0oqNRWSKhWSMvM0gksSi0pCMnNTdQwNcjUx9PumFqWnpkCMiM8FcTQgpoKVFhTlZ6UmlyikJOeX5pXEg6yB69EEAKm9wyCXAAAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlXIyMkJSi1WsAUxNFwScxPTUwOK8gtSi0oqNRWSKhWSMvM0gksSi0pCMnNTdQwNcjUx9PumFqWnpkCMiM8FcTQgpoKVFhTlZ6UmlyikJOeX5pXEg6yB69EEAKm9wyCXAAAA) **\]**
 
 ```Kusto
 StormEvents
@@ -582,13 +582,13 @@ StormEvents
 | project dcount_hll(hllMerged)
 ```
 
-### <a name="argmax"></a>arg_max()
+### <a name="arg_max"></a>arg_max()
 
-[**arg_max()** ](https://docs.microsoft.com/azure/kusto/query/arg-max-aggfunction): Hiermee zoekt u een rij in de groep die maximale een expressie en retourneert de waarde van een andere expressie (of * om terug te keren van de hele rij).
+[**arg_max()** ](https://docs.microsoft.com/azure/kusto/query/arg-max-aggfunction): Zoekt naar een rij in de groep die een expressie maximaliseert en retourneert de waarde van een andere expressie (of * om de gehele rij te retour neren).
 
-De volgende query retourneert de tijd van het laatste rapport voor grote in elke status.
+Met de volgende query wordt de tijd van het laatste floode rapport in elke status geretourneerd.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQDzQyoLUhVsbRWU3HLy81OUQLLFpbm5iUWZVakKiUXp8bmJFRrBJYlFJSGZuak6ClqaCkmVCkCBklSQ2oKi%2fKzU5BKIgI4CkkLXvBQoA2YNAHO1S0OFAAAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQDzQyoLUhVsbRWU3HLy81OUQLLFpbm5iUWZVakKiUXp8bmJFRrBJYlFJSGZuak6ClqaCkmVCkCBklSQ2oKi%2fKzU5BKIgI4CkkLXvBQoA2YNAHO1S0OFAAAA) **\]**
 
 ```Kusto
 StormEvents
@@ -599,11 +599,11 @@ StormEvents
 
 ### <a name="makeset"></a>makeset()
 
-[**makeset()** ](https://docs.microsoft.com/azure/kusto/query/makeset-aggfunction): Retourneert een dynamische (JSON)-matrix van de set met verschillende waarden die met een expressie in de groep.
+[**makeset()** ](https://docs.microsoft.com/azure/kusto/query/makeset-aggfunction): Retourneert een dynamische (JSON)-matrix van de reeks unieke waarden die een expressie in de groep neemt.
 
-De volgende query retourneert alle tijden wanneer een grote is gemeld door elke status en maakt een matrix van de set met unieke waarden.
+De volgende query retourneert alle tijden wanneer een overstroming door elke status is gerapporteerd en maakt een matrix van de set afzonderlijke waarden.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWLQQ6CQBAE7yb8ocNJE76wR3mA8IEFOxF1mM3siIHweAVPHqsq1bianCeOnovDiveNRuzczokIAWX9VL2WW80vkWjDQuzuwqTmGQESH8z0Y%2bPRvB2EJ3QzvuTcvmR6Z%2b8%2fUf3NH6ZkMFeAAAAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWLQQ6CQBAE7yb8ocNJE76wR3mA8IEFOxF1mM3siIHweAVPHqsq1bianCeOnovDiveNRuzczokIAWX9VL2WW80vkWjDQuzuwqTmGQESH8z0Y%2bPRvB2EJ3QzvuTcvmR6Z%2b8%2fUf3NH6ZkMFeAAAAA) **\]**
 
 ```Kusto
 StormEvents
@@ -614,11 +614,11 @@ StormEvents
 
 ### <a name="mv-expand"></a>mv-expand
 
-[**mv-expand**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator): Breidt de verzameling(en) meerdere waarden uit een kolom dynamisch ingevoerde zodat elke waarde in de verzameling een afzonderlijke rij wordt. De andere kolommen in een uitgevouwen rij worden gedupliceerd. Het is het tegenovergestelde van makelist.
+[**mv-expand**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator): Breidt verzameling (en) van meerdere waarden uit van een dynamische kolom, zodat elke waarde in de verzameling een afzonderlijke rij krijgt. Alle andere kolommen in een uitgevouwen rij worden gedupliceerd. Het is het tegenovergestelde van makelist.
 
-De volgende query uit voorbeeldgegevens worden gegenereerd door het maken van een set en vervolgens wordt gebruikt ter illustratie van de **mv-Vouw** mogelijkheden.
+Met de volgende query worden voorbeeld gegevens gegenereerd door een set te maken en deze vervolgens te gebruiken om de **MV-Expand-** mogelijkheden te demonstreren.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWOQQ6CQAxF9yTcoWGliTcws1MPIFygyk9EKTPpVBTj4Z2BjSz%2f738v7WF06r1vD2xcp%2bCoNq9yHDFYLIsvvW5Q0JybKYCco2omqnyNTxHW7oPFckbwajFZhB%2bIsE1trNZ0gi1dpuRmQ%2baC%2bjuuthS7Fbwvi%2f%2bP8lpGvAMP7Wr3A6BceSu7AAAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWOQQ6CQAxF9yTcoWGliTcws1MPIFygyk9EKTPpVBTj4Z2BjSz%2f738v7WF06r1vD2xcp%2bCoNq9yHDFYLIsvvW5Q0JybKYCco2omqnyNTxHW7oPFckbwajFZhB%2bIsE1trNZ0gi1dpuRmQ%2baC%2bjuuthS7Fbwvi%2f%2bP8lpGvAMP7Wr3A6BceSu7AAAA) **\]**
 
 ```Kusto
 let FloodDataSet = StormEvents
@@ -629,13 +629,13 @@ FloodDataSet
 | mv-expand FloodReports
 ```
 
-### <a name="percentiles"></a>percentiles()
+### <a name="percentiles"></a>percentielen ()
 
-[**percentiles()** ](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): Retourneert een van de schatting voor de opgegeven [**dichtstbijzijnde positie percentiel**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) van de bevolking gedefinieerd door een expressie. De nauwkeurigheid is afhankelijk van de dichtheid van populatie in de regio van het percentiel. Kan alleen worden gebruikt in de context van aggregatie in [**samenvatten**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
+[**percentielen ()** ](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): Retourneert een schatting voor het opgegeven [**dichtstbijzijnde-positie percentiel**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) van de populatie die is gedefinieerd door een expressie. De nauw keurigheid is afhankelijk van de densiteit van de populatie in de regio van het percentiel. Kan alleen worden gebruikt in de context van aggregatie in [](https://docs.microsoft.com/azure/kusto/query/summarizeoperator)samenvatten.
 
-De volgende query berekent percentielen voor de duur van storm.
+De volgende query berekent percentielen voor Storm duur.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUUitKEnNS1FIKS1KLMnMz1OwVXDNSwnJzE1V0FUILkksKgGxQQrLM1KLUhHq7BQMirEI2ygYZ4CEi0tzcxOLMqtSFQpSi5KBlmXmpBZrwJTpKJjqKBgZACkgtgBiS1NNAEC7XiaYAAAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUUitKEnNS1FIKS1KLMnMz1OwVXDNSwnJzE1V0FUILkksKgGxQQrLM1KLUhHq7BQMirEI2ygYZ4CEi0tzcxOLMqtSFQpSi5KBlmXmpBZrwJTpKJjqKBgZACkgtgBiS1NNAEC7XiaYAAAA) **\]**
 
 ```Kusto
 StormEvents
@@ -645,9 +645,9 @@ StormEvents
 | summarize percentiles(duration, 5, 20, 50, 80, 95)
 ```
 
-De volgende query percentielen berekend voor de duur van de storm per staat en de gegevens per vijf minuten durende opslaglocaties normaliseert (`5m`).
+Met de volgende query worden percentielen voor Storm-duur berekend op basis van status en worden de gegevens genormaliseerd door opslag locaties van vijf minuten (`5m`).
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG1NSwrCMBTcC95hli1EKEpBQd31BHUvafOgAZNI8uIPD28SEBVcDDMM8%2bnZedNdyHKYz56gG5NVUNFL1s5ih86qgzaEBXqWnrPOwetEnj65PZrwx95iNWU7RGOk1w8C5avj6KLlNF64qjHcMWhbvXsCralFPmT6rZ%2fJj2lAnyh8pwWWTaKEdcKmLYul%2fgLODFs%2b4AAAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG1NSwrCMBTcC95hli1EKEpBQd31BHUvafOgAZNI8uIPD28SEBVcDDMM8%2bnZedNdyHKYz56gG5NVUNFL1s5ih86qgzaEBXqWnrPOwetEnj65PZrwx95iNWU7RGOk1w8C5avj6KLlNF64qjHcMWhbvXsCralFPmT6rZ%2fJj2lAnyh8pwWWTaKEdcKmLYul%2fgLODFs%2b4AAAAA%3d%3d) **\]**
 
 ```Kusto
 StormEvents
@@ -658,17 +658,17 @@ StormEvents
 | summarize percentiles(duration, 5, 20, 50, 80, 95) by State
 ```
 
-### <a name="cross-dataset"></a>Cross-gegevensset
+### <a name="cross-dataset"></a>Meerdere gegevensset
 
-Deze sectie worden de elementen waarmee u kunt complexere query's maken, gegevens samenvoegen in tabellen en query's naar andere databases en clusters.
+In deze sectie worden elementen beschreven waarmee u complexere query's kunt maken, gegevens kunt koppelen aan tabellen en query's in data bases en clusters.
 
-### <a name="let"></a>let
+### <a name="let"></a>bekijken
 
-[**Laat**](https://docs.microsoft.com/azure/kusto/query/letstatement): Verbetert de modulariteit mogelijk te maken en hergebruik. De **laten** instructie kunt u een complexe expressie op te splitsen in meerdere delen, elk gekoppeld aan een naam, en deze onderdelen samen opstellen. Een **laten** instructie kan ook worden gebruikt om de gebruiker gedefinieerde functies en weergaven (expressies over tabellen waarvan de resultaten een nieuwe tabel eruit) te maken. Expressies gebonden bent aan een **laten** instructie van een scalair type, van het type in tabelvorm of de gebruiker gedefinieerde functie (lambdas) kan zijn.
+[**laten**](https://docs.microsoft.com/azure/kusto/query/letstatement): Verbetert de modulariteit en hergebruik. Met de instructie **toestaan** kunt u een potentieel complexe expressie opsplitsen in meerdere delen, die allemaal zijn gekoppeld aan een naam en die onderdelen samen opstellen. Een instructie can kan ook worden gebruikt voor het maken van door de gebruiker gedefinieerde functies en weer gaven (expressies over tabellen waarvan de resultaten eruitzien als een nieuwe tabel). Expressies die zijn gebonden aan een instructie can van het type scalair, van het type tabellaire of door de gebruiker gedefinieerde functie (lambdas).
 
-Het volgende voorbeeld maakt u een variabele in tabelvorm type en deze in een latere-expressie gebruikt.
+In het volgende voor beeld wordt een variabele van het type tabellair gemaakt die in een volgende expressie wordt gebruikt.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAMtJLVHwyUzPKMnLzEsPLskvyi1WsOXlArNcy1LzSop5uWoUyjNSi1IVwPyQyoJUBVtbBSW4LiVrXq4coDGOZYk5iXnJGakkGQPXBTIGzSUgPVn5mXkKGmhmayrk5ykElySWpIKUpGQWl2TmJZdARACul3kY0gAAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAMtJLVHwyUzPKMnLzEsPLskvyi1WsOXlArNcy1LzSop5uWoUyjNSi1IVwPyQyoJUBVtbBSW4LiVrXq4coDGOZYk5iXnJGakkGQPXBTIGzSUgPVn5mXkKGmhmayrk5ykElySWpIKUpGQWl2TmJZdARACul3kY0gAAAA%3d%3d) **\]**
 
 ```Kusto
 let LightningStorms =
@@ -684,11 +684,11 @@ LightningStorms
 
 ### <a name="join"></a>join
 
-[**join**](https://docs.microsoft.com/azure/kusto/query/joinoperator): De rijen van twee tabellen om te vormen een nieuwe tabel door de overeenkomende waarden van de opgegeven kolommen uit elke tabel samenvoegen. Kusto ondersteunt een breed scala aan join-typen: **fullouter**, **binnenste**, **innerunique**, **leftanti**, **leftantisemi **, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter **, **rightsemi**.
+[**join**](https://docs.microsoft.com/azure/kusto/query/joinoperator): De rijen van twee tabellen samen voegen om een nieuwe tabel te vormen door de waarden van de opgegeven kolom (men) van elke tabel te vergelijken. Kusto biedt ondersteuning voor een breed scala aan join-typen: **fullouter**, **inner**, **innerunique**, **leftanti**, **leftantisemi**, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter** , **rightsemi**.
 
-Het volgende voorbeeld worden twee tabellen gekoppeld met een inner join.
+In het volgende voor beeld worden twee tabellen samengevoegd met een inner join.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA8tJLVGIULBVSEksAcKknFQN79RKq+KSosy8dB2FsMSc0lRDq5z8vHRNXq5oXi4FIFBPVNcx1IGyk9R1jJDYxjB2srqOCS9XrDUvVw7Qhkj8Nhih2wA0ydAAySgjZI4xnJMCtMQAYkuEQo1CVn5mnkJ2Zl6KbWZeXmoR0Nb8PAWgZQAFPLdO5AAAAA==) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA8tJLVGIULBVSEksAcKknFQN79RKq+KSosy8dB2FsMSc0lRDq5z8vHRNXq5oXi4FIFBPVNcx1IGyk9R1jJDYxjB2srqOCS9XrDUvVw7Qhkj8Nhih2wA0ydAAySgjZI4xnJMCtMQAYkuEQo1CVn5mnkJ2Zl6KbWZeXmoR0Nb8PAWgZQAFPLdO5AAAAA==) **\]**
 
 ```Kusto
 let X = datatable(Key:string, Value1:long)
@@ -710,15 +710,15 @@ X
 ```
 
 > [!TIP]
-> Gebruik **waar** en **project** operatoren voor het verminderen van het aantal rijen en kolommen in de invoer tabellen, voordat de join. Als een tabel altijd kleiner zijn dan de andere is, kunt u deze als aan de linkerkant (piped) van de join gebruiken. De kolommen voor de join-overeenkomst moeten dezelfde naam hebben. Gebruik de **project** operator indien nodig om een kolom in een van de tabellen te wijzigen.
+> Gebruik **where** -en **project** -Opera tors om het aantal rijen en kolommen in de invoer tabellen te verminderen vóór de koppeling. Als de ene tabel altijd kleiner is dan de andere, gebruikt u deze als linker (piped) zijde van de koppeling. De kolommen voor de samenvoegings overeenkomst moeten dezelfde naam hebben. Gebruik de **project** -operator, indien nodig, om de naam van een kolom in een van de tabellen te wijzigen.
 
 ### <a name="serialize"></a>serialiseren
 
-[**serialiseren**](https://docs.microsoft.com/azure/kusto/query/serializeoperator): De rij instellen, zodat u kunt functies waarvoor geserialiseerde gegevens, zoals serialiseert **row_number()** .
+[**serialisatie**](https://docs.microsoft.com/azure/kusto/query/serializeoperator): De rijenset wordt geserialiseerd zodat u functies kunt gebruiken waarvoor geserialiseerde gegevens zijn vereist, zoals **row_number ()** .
 
-De volgende query is gelukt, omdat de gegevens is geserialiseerd.
+De volgende query slaagt omdat de gegevens worden geserialiseerd.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIzi%2fNK9HQVEiqVAguSSxJBcumFmUm5gBlQZzUipLUvBSFovzy%2bLzS3KTUIgVbJI6GJgB4pV4NWgAAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIzi%2fNK9HQVEiqVAguSSxJBcumFmUm5gBlQZzUipLUvBSFovzy%2bLzS3KTUIgVbJI6GJgB4pV4NWgAAAA%3d%3d) **\]**
 
 ```Kusto
 StormEvents
@@ -727,9 +727,9 @@ StormEvents
 | extend row_number = row_number()
 ```
 
-De rijenset wordt ook beschouwd als geserialiseerd als deze een resultaat van is: **sorteren**, **boven**, of **bereik** operators, eventueel gevolgd door **project**, **project opslag**, **uitbreiden**, **waar**, **parseren**, **mv-Vouw**, of **nemen** operators.
+De rij-set wordt ook als geserialiseerd beschouwd als het resultaat is van: **Sorteer**-, **Top**-of **bereik** operators, eventueel gevolgd door **project**, **project-** uit, **uitbreiden**, **where**, **parse**, **MV-Expand** of **Neem** Opera tors.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIzi%2fNK9HQVEiqVAguSSxJBcvmF5XABRQSi5NBgqkVJal5KQpF%2beXxeaW5SalFCrZIHA1NAEGimf5iAAAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIzi%2fNK9HQVEiqVAguSSxJBcvmF5XABRQSi5NBgqkVJal5KQpF%2beXxeaW5SalFCrZIHA1NAEGimf5iAAAA) **\]**
 
 ```Kusto
 StormEvents
@@ -738,11 +738,11 @@ StormEvents
 | extend row_number = row_number()
 ```
 
-### <a name="cross-database-and-cross-cluster-queries"></a>Query's tussen databases en cross-cluster
+### <a name="cross-database-and-cross-cluster-queries"></a>Query's tussen meerdere data bases en meerdere clusters
 
-[Query's tussen databases en cross-cluster](https://docs.microsoft.com/azure/kusto/query/cross-cluster-or-database-queries): U kunt een database in hetzelfde cluster opvragen door te verwijzen als `database("MyDatabase").MyTable`. U kunt een database op een extern cluster opvragen door ernaar te verwijzen als `cluster("MyCluster").database("MyDatabase").MyTable`.
+[Query's tussen meerdere data bases en meerdere clusters](https://docs.microsoft.com/azure/kusto/query/cross-cluster-or-database-queries): U kunt een query uitvoeren op een Data Base op hetzelfde cluster door `database("MyDatabase").MyTable`deze te verwijzen als. U kunt een query uitvoeren op een Data Base op een extern cluster door `cluster("MyCluster").database("MyDatabase").MyTable`hiernaar te verwijzen.
 
-De volgende query wordt aangeroepen vanuit een cluster en gegevens opvragen uit `MyCluster` cluster. Als u wilt deze query uitvoert, moet u uw eigen clusternaam en databasenaam gebruiken.
+De volgende query wordt van één cluster aangeroepen en query's gegevens uit `MyCluster` het cluster. Als u deze query wilt uitvoeren, gebruikt u uw eigen cluster naam en database naam.
 
 ```Kusto
 cluster("MyCluster").database("Wiki").PageViews
@@ -750,17 +750,17 @@ cluster("MyCluster").database("Wiki").PageViews
 | take 1000;
 ```
 
-### <a name="user-analytics"></a>Analyse van gebruikers
+### <a name="user-analytics"></a>Gebruikers analyse
 
-Deze sectie bevat de elementen en query's die laten hoe eenvoudig het is zien voor het uitvoeren van de analyse van gebruikersgedrag in Kusto.
+Deze sectie bevat elementen en query's die laten zien hoe eenvoudig het is om gebruikers gedrag in Kusto uit te voeren.
 
-### <a name="activitycountsmetrics-plugin"></a>activity_counts_metrics-invoegtoepassing
+### <a name="activity_counts_metrics-plugin"></a>activity_counts_metrics-invoeg toepassing
 
-[**de invoegtoepassing activity_counts_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-counts-metrics-plugin): Berekent de metrische gegevens van nuttige activiteiten (totale aantal waarden, uniek aantal waarden, uniek aantal van de nieuwe waarden en samengevoegde uniek aantal). Metrische gegevens worden berekend voor elke tijdvenster en ze zijn vergeleken, en samengevoegd op en met alle voorgaande tijdvensters.
+[**activity_counts_metrics-invoeg toepassing**](https://docs.microsoft.com/azure/kusto/query/activity-counts-metrics-plugin): Hiermee berekent u de metrische gegevens van de activiteit (totale aantal waarden, waarden voor unieke tellingen, unieke telling van nieuwe waarden en geaggregeerde unieke tellingen). Metrische gegevens worden berekend voor elk tijd venster, waarna ze worden vergeleken en worden geaggregeerd naar en met alle vorige Windows-tijden.
 
-De volgende query analyseert acceptatie van de gebruiker door het berekenen van de dagelijkse activiteit telt.
+De volgende query analyseert de gebruikers acceptatie door het dagelijkse activiteiten aantal te berekenen.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAJXSPQvCMBAG4L3Q%2f5CtFlLoFyiVDn4M6mqdREpsggTaKs1VEfzxXm0LDiEimcJz3CW8VwogClgDKWcgQFZiEvrB1PNnnh%2b4c9sqsUDUXMPxyA9Z8%2bsjDfhwz0hKsBzPuRSTgxLNlicKGllfKMmwBw6sbsnY0bWto205C4cS3Rso2tpgO4MtDbbSWvixzGD6eb1ttBYZev42%2fbzI8L%2fe9n9b3NkJQ8xs60XEnZUt1hBWgLxLeObFta1B5ZXAKAs1BPuVKO03iXb7gp36tXDfExVB%2f2ICAAA%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAJXSPQvCMBAG4L3Q%2f5CtFlLoFyiVDn4M6mqdREpsggTaKs1VEfzxXm0LDiEimcJz3CW8VwogClgDKWcgQFZiEvrB1PNnnh%2b4c9sqsUDUXMPxyA9Z8%2bsjDfhwz0hKsBzPuRSTgxLNlicKGllfKMmwBw6sbsnY0bWto205C4cS3Rso2tpgO4MtDbbSWvixzGD6eb1ttBYZev42%2fbzI8L%2fe9n9b3NkJQ8xs60XEnZUt1hBWgLxLeObFta1B5ZXAKAs1BPuVKO03iXb7gp36tXDfExVB%2f2ICAAA%3d) **\]**
 
 ```Kusto
 let start=datetime(2017-08-01);
@@ -788,13 +788,13 @@ T
 window)
 ```
 
-### <a name="activityengagement-plugin"></a>activity_engagement-invoegtoepassing
+### <a name="activity_engagement-plugin"></a>activity_engagement-invoeg toepassing
 
-[**de invoegtoepassing activity_engagement**](https://docs.microsoft.com/azure/kusto/query/activity-engagement-plugin): Wordt berekend op basis van de kolom-ID gedurende een sliding window van de tijdlijn van activiteit engagement verhouding. **de invoegtoepassing activity_engagement** kan worden gebruikt voor het berekenen van dagelijks actieve gebruikers, WAU en MAU (dagelijkse, wekelijkse en maandelijkse actieve gebruikers).
+[**activity_engagement-invoeg toepassing**](https://docs.microsoft.com/azure/kusto/query/activity-engagement-plugin): Hiermee wordt de activiteit betrokkenheid verhouding berekend op basis van de kolom ID in een verschuivende tijdlijn venster. de **activity_engagement-invoeg toepassing** kan worden gebruikt voor het berekenen van Dau, WAU en Mau (dagelijkse, wekelijkse en maandelijkse actieve gebruikers).
 
-De volgende query retourneert de verhouding van het totale aantal unieke gebruikers met behulp van een toepassing per dag in vergelijking met het totale aantal unieke gebruikers met behulp van de toepassing wekelijks, op een Verschuivend van zeven dagen.
+De volgende query retourneert de verhouding van het totale aantal afzonderlijke gebruikers dat dagelijks gebruikmaakt van een toepassing, vergeleken met het totale aantal afzonderlijke gebruikers dat de toepassing wekelijks gebruikt, in een zwevende periode van zeven dagen.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG1RQWrDMBC8G%2fyHvUVOHGy1lByKD6GBviDkUIoR1tpVsS0jr0MCeXxXiigpVAiBVjOzM6uigHcc0SlCcGrUdgCtSIFtYZnRgWrInA0ZnNOkR4J6JuUIKo9CMgOKp1LutqXknb1GDI76P8RzQHCXDqHW6gqt43ZRkeydNxNOIHWa3AAv5Ctei2xvx06IQNtGTlZInT0AHQN9BpFt5EO59kHmKvQVUUivX8q1y3L4c9%2fIks%2bt5LoMwsMZLxMrgtHVXcb7pOuEthWemEFvBkPARL%2fSpCjgTfXN0vuBHvbH4rQ%2fsikyNjg6q37xL3GsV47cqQ4HHEl8rIxefeZhNHmMmIehsB2dp8nunnZy9hsbiriDWuqTWqpfxdBsLb2ZGzhm8y%2f6b2i%2bWO8HLFcMGe8BAAA%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG1RQWrDMBC8G%2fyHvUVOHGy1lByKD6GBviDkUIoR1tpVsS0jr0MCeXxXiigpVAiBVjOzM6uigHcc0SlCcGrUdgCtSIFtYZnRgWrInA0ZnNOkR4J6JuUIKo9CMgOKp1LutqXknb1GDI76P8RzQHCXDqHW6gqt43ZRkeydNxNOIHWa3AAv5Ctei2xvx06IQNtGTlZInT0AHQN9BpFt5EO59kHmKvQVUUivX8q1y3L4c9%2fIks%2bt5LoMwsMZLxMrgtHVXcb7pOuEthWemEFvBkPARL%2fSpCjgTfXN0vuBHvbH4rQ%2fsikyNjg6q37xL3GsV47cqQ4HHEl8rIxefeZhNHmMmIehsB2dp8nunnZy9hsbiriDWuqTWqpfxdBsLb2ZGzhm8y%2f6b2i%2bWO8HLFcMGe8BAAA%3d) **\]**
 
 ```Kusto
 // Generate random data of user activities
@@ -812,15 +812,15 @@ range _day from _start to _end step 1d
 ```
 
 > [!TIP]
-> Bij het berekenen van dagelijks actieve gebruikers/MAU, gegevens van de end en de zwevend venster periode (OuterActivityWindow) wijzigen.
+> Bij het berekenen van DAU/MAU, wijzigt u de eind gegevens en de periode van het verhuizings venster (OuterActivityWindow).
 
-### <a name="activitymetrics-plugin"></a>activity_metrics-invoegtoepassing
+### <a name="activity_metrics-plugin"></a>activity_metrics-invoeg toepassing
 
-[**de invoegtoepassing activity_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin): Berekent de nuttig metrische gegevens van activiteiten (uniek aantal waarden, uniek aantal van de nieuwe waarden, Retentiepercentage en verloop) op basis van de huidige periode venster vergeleken met de vorige periode venster.
+[**activity_metrics-invoeg toepassing**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin): Hiermee worden de metrische gegevens van de activiteit (DISTINCT Count values, het aantal nieuwe waarden, de Bewaar periode en het verloop tempo) berekend op basis van het venster huidige periode en het vorige periode venster.
 
-De volgende query berekent het verloop en retentie-tarief voor een bepaalde gegevensset.
+Met de volgende query worden de verloop-en bewaar frequentie voor een bepaalde gegevensset berekend.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG2SwW7CMAyG70i8g2%2bk0KoNE%2bIwscsOe4hpqqLGQFjaVKkLVNrDLw7RxjRyqBTr%2fz%2f3t1OW8IYdekUIXnXataAVKXB7GAf0oBoyZ0MGh%2fnMIkE9kPIEO1YhmRbFupLbopJFtc6ekwY7%2fV%2bxKZ4kK0KXA0Kt1QR7H9olIrmbbyDsQer57AvwSlxhFjnruoMQ0VYkT1ZKnd0JfRByBpGt5F255iDDLvYVCaSXm2rpsxz%2b3FfrKnwLGeoygtszXvtABKN3Nwz%2fJ009ur1gYwbWtIZAVvGw53JEn%2fK9PJwSi3rvTthQlOWBPp%2bVJbwq24yWN3FB%2fLQTeAwByLgOeD8x0lnZkRVpL1PdInnTDOJ9YfTiI0%2fE24DyONIctvpB0x94zfBlSJBDcxz97509PgDCM%2bAMzTEgvwEO44wSMAIAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG2SwW7CMAyG70i8g2%2bk0KoNE%2bIwscsOe4hpqqLGQFjaVKkLVNrDLw7RxjRyqBTr%2fz%2f3t1OW8IYdekUIXnXataAVKXB7GAf0oBoyZ0MGh%2fnMIkE9kPIEO1YhmRbFupLbopJFtc6ekwY7%2fV%2bxKZ4kK0KXA0Kt1QR7H9olIrmbbyDsQer57AvwSlxhFjnruoMQ0VYkT1ZKnd0JfRByBpGt5F255iDDLvYVCaSXm2rpsxz%2b3FfrKnwLGeoygtszXvtABKN3Nwz%2fJ009ur1gYwbWtIZAVvGw53JEn%2fK9PJwSi3rvTthQlOWBPp%2bVJbwq24yWN3FB%2fLQTeAwByLgOeD8x0lnZkRVpL1PdInnTDOJ9YfTiI0%2fE24DyONIctvpB0x94zfBlSJBDcxz97509PgDCM%2bAMzTEgvwEO44wSMAIAAA%3d%3d) **\]**
 
 ```Kusto
 // Generate random data of user activities
@@ -839,13 +839,13 @@ range _day from _start to _end step 1d
 | render timechart
 ```
 
-### <a name="newactivitymetrics-plugin"></a>new_activity_metrics-invoegtoepassing
+### <a name="new_activity_metrics-plugin"></a>new_activity_metrics-invoeg toepassing
 
-[**new_activity_metrics plugin**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): Hiermee berekent metrische gegevens van nuttige activiteiten (uniek aantal waarden, uniek aantal van de nieuwe waarden, Retentiepercentage en verloop) voor het cohort van nieuwe gebruikers. Het concept van deze invoegtoepassing is vergelijkbaar met [**activity_metrics invoegtoepassing**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), maar is gericht op nieuwe gebruikers.
+[**new_activity_metrics-invoeg toepassing**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): Berekent de metrische gegevens over de levens duur (DISTINCT Count values, het unieke aantal nieuwe waarden, de Bewaar periode en het verloop tempo) voor de cohort van nieuwe gebruikers. Het concept van deze invoeg toepassing is vergelijkbaar met de [**activity_metrics-invoeg toepassing**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), maar is gericht op nieuwe gebruikers.
 
-De volgende query wordt een tarief retentie en het verloop met een week-over-week-venster voor het gebruikerscohort voor nieuwe (gebruikers dat is ontvangen op de eerste week) berekend.
+Met de volgende query wordt een Bewaar-en verloop frequentie berekend met een week-over-week-venster voor de nieuwe gebruikers cohort (gebruikers die de eerste week hebben gearriveerd).
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG1Ry27DIBC8W%2fI%2f7C04wbJJFeVQ5VapP9BbVVnIrGMaGyy8eVjqxxcwh1QqBx7LzCwzVBW8o0EnCcFJo%2bwISpIE28F1RgeyJX3TpHHOswEJmpmkIzgFFJIeke1rcSzrQ1mL4jVh0Kj%2fEC8R4bucEd7kAp3z3ZIg2ZU2E04gVJ79AD4oVIIU2cGaM2OBVSZKUQlVPOGcxwUHrNiJp3ITbMyn2JUlHbU91FtXcPhz3u1rP5fC10UUHm%2f4mLwiaHVaZcIzaZnQdiwQCxj0qAlEHUeeVRV8yAuCNcMC1CN02s0Ed8QLtLa33igbpK9M0skRCd3q4CaHa%2fgBg%2fcmJb40%2ft7pdmafG602XzxExpN3HsPicFQ8z1IcQWhy9htbisk2EU92XZ1vZkhb04Sv5tD2V7fufwFYtolnAgIAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG1Ry27DIBC8W%2fI%2f7C04wbJJFeVQ5VapP9BbVVnIrGMaGyy8eVjqxxcwh1QqBx7LzCwzVBW8o0EnCcFJo%2bwISpIE28F1RgeyJX3TpHHOswEJmpmkIzgFFJIeke1rcSzrQ1mL4jVh0Kj%2fEC8R4bucEd7kAp3z3ZIg2ZU2E04gVJ79AD4oVIIU2cGaM2OBVSZKUQlVPOGcxwUHrNiJp3ITbMyn2JUlHbU91FtXcPhz3u1rP5fC10UUHm%2f4mLwiaHVaZcIzaZnQdiwQCxj0qAlEHUeeVRV8yAuCNcMC1CN02s0Ed8QLtLa33igbpK9M0skRCd3q4CaHa%2fgBg%2fcmJb40%2ft7pdmafG602XzxExpN3HsPicFQ8z1IcQWhy9htbisk2EU92XZ1vZkhb04Sv5tD2V7fufwFYtolnAgIAAA%3d%3d) **\]**
 
 ```Kusto
 // Generate random data of user activities
@@ -861,13 +861,13 @@ range Day from _start to _end step 1d
 | project from_Day, to_Day, retention_rate, churn_rate
 ```
 
-### <a name="sessioncount-plugin"></a>session_count-invoegtoepassing
+### <a name="session_count-plugin"></a>session_count-invoeg toepassing
 
-[**de invoegtoepassing session_count**](https://docs.microsoft.com/azure/kusto/query/session-count-plugin): Berekent het aantal sessies dat is gebaseerd op de kolom-ID voor een tijdlijn.
+[**session_count-invoeg toepassing**](https://docs.microsoft.com/azure/kusto/query/session-count-plugin): Hiermee wordt het aantal sessies berekend op basis van de kolom ID over een tijd lijn.
 
-De volgende query retourneert het aantal sessies. Een sessie wordt beschouwd als actief als een gebruikers-ID wordt weergegeven ten minste één keer op een tijdsbestek van 100-time-sleuven, terwijl de sessie uiterlijk-back-venster 41-time-sleuven is.
+Met de volgende query wordt het aantal sessies geretourneerd. Een sessie wordt als actief beschouwd als een gebruikers-ID ten minste één keer per periode van 100-tijd sleuven wordt weer gegeven, terwijl het venster voor het weer geven van de sessie 41-tijd sleuven is.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWPQYvCQAyF74X%2bh3dZUCjYgfUgMkcP3r2XoZPqaM3INK4u7I%2ffzOwiNQRC8pKPl5EEnXfiYJEcHwmHcKUxMGFI8QoDidhoYBK6wdTVD%2bgpxB5dd6FvPSuzcwyMS2BvAzMlLP5gez%2fDrNt%2fCN4Z1iwRua5Kk2GPE6WZkY%2bMsRZt1m4pnqmXl9qouK2r1Qo75cUB5RlPQ%2bAgoWDzpPj%2bcuPdCWGiaVKp6%2bOdZbH3zYxmNFuNUhp8mmU%2bTWpWv8or%2fckl%2bQXutT48NwEAAA%3d%3d) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWPQYvCQAyF74X%2bh3dZUCjYgfUgMkcP3r2XoZPqaM3INK4u7I%2ffzOwiNQRC8pKPl5EEnXfiYJEcHwmHcKUxMGFI8QoDidhoYBK6wdTVD%2bgpxB5dd6FvPSuzcwyMS2BvAzMlLP5gez%2fDrNt%2fCN4Z1iwRua5Kk2GPE6WZkY%2bMsRZt1m4pnqmXl9qouK2r1Qo75cUB5RlPQ%2bAgoWDzpPj%2bcuPdCWGiaVKp6%2bOdZbH3zYxmNFuNUhp8mmU%2bTWpWv8or%2fckl%2bQXutT48NwEAAA%3d%3d) **\]**
 
 ```Kusto
 let _data = range Timeline from 1 to 9999 step 1
@@ -881,13 +881,13 @@ _data
 | render linechart
 ```
 
-### <a name="funnelsequence-plugin"></a>funnel_sequence-invoegtoepassing
+### <a name="funnel_sequence-plugin"></a>funnel_sequence-invoeg toepassing
 
-[**de invoegtoepassing funnel_sequence**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-plugin): Berekent de tellingen van gebruikers die al een reeks Staten; de verdeling van vorige en volgende statussen die hebben geleid tot of zijn gevolgd door de takenreeks weergeeft.
+[**funnel_sequence-invoeg toepassing**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-plugin): Berekent het unieke aantal gebruikers dat een reeks statussen heeft gemaakt; toont de distributie van vorige en volgende statussen die hebben geleid tot of werden gevolgd door de reeks.
 
-De volgende query laat zien welke gebeurtenis plaatsvindt vóór en na alle Tornado gebeurtenissen in 2007.
+Met de volgende query wordt aangegeven welke gebeurtenis plaatsvindt voor en na alle Tornado-gebeurtenissen in 2007.
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAGWOPYvCQBCG%2b0D%2bw3QmEEmieIqNVQrBRgxYiMhcdqKLyWzcnQiCP95V70DuYIrh5Xk%2f0hRWxpw1H8EwbMTYtrgSiwMnKNqJrtw8DNIU1vkcticUOGHXETv4ptpYgtJYRmWAnrbFGx39QbEWsv%2fIj7YwuHsZmx6FoO6ZqTk4uvTEFUVFp51RtFSJH4hWSt1SAsqj4r9olGXTYZb7i5Mw%2bJRnvzLkKhl%2fTXzAq668dc%2bAG2Orq2g3%2bBk22MfxA23MLGQQAQAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAGWOPYvCQBCG%2b0D%2bw3QmEEmieIqNVQrBRgxYiMhcdqKLyWzcnQiCP95V70DuYIrh5Xk%2f0hRWxpw1H8EwbMTYtrgSiwMnKNqJrtw8DNIU1vkcticUOGHXETv4ptpYgtJYRmWAnrbFGx39QbEWsv%2fIj7YwuHsZmx6FoO6ZqTk4uvTEFUVFp51RtFSJH4hWSt1SAsqj4r9olGXTYZb7i5Mw%2bJRnvzLkKhl%2fTXzAq668dc%2bAG2Orq2g3%2bBk22MfxA23MLGQQAQAA) **\]**
 
 ```Kusto
 // Looking on StormEvents statistics:
@@ -897,13 +897,13 @@ StormEvents
 | evaluate funnel_sequence(EpisodeId, StartTime, datetime(2007-01-01), datetime(2008-01-01), 1d,365d, EventType, dynamic(['Tornado']))
 ```
 
-### <a name="funnelsequencecompletion-plugin"></a>funnel_sequence_completion-invoegtoepassing
+### <a name="funnel_sequence_completion-plugin"></a>funnel_sequence_completion-invoeg toepassing
 
-[**de invoegtoepassing funnel_sequence_completion**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): Berekent de trechter van voltooide takenreeksstappen in verschillende perioden.
+[**funnel_sequence_completion-invoeg toepassing**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): Berekent de trechter van voltooide reeks stappen binnen verschillende Peri Oden.
 
-De volgende query controleert de trechter voltooiing van de reeks: `Hail -> Tornado -> Thunderstorm -> Wind` in 'algemene' duur van één uur, vier uur en één dag (`[1h, 4h, 1d]`).
+Met de volgende query wordt de voltooiings trechter van de `Hail -> Tornado -> Thunderstorm -> Wind` reeks gecontroleerd: in "algemene" tijden van één uur, vier uur en één`[1h, 4h, 1d]`dag ().
 
-**\[** [**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA) **\]**
+**\[** [**Klik om de query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA) **\]**
 
 ```Kusto
 let _start = datetime(2007-01-01);
@@ -915,14 +915,14 @@ StormEvents
 | evaluate funnel_sequence_completion(EpisodeId, StartTime, _start, _end, _windowSize, EventType, _sequence, _periods)
 ```
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Functies
 
-In deze sectie bevat informatie over [ **functies**](https://docs.microsoft.com/azure/kusto/query/functions): herbruikbare query's die zijn opgeslagen op de server. Functies kunnen worden aangeroepen door query's en andere functies (recursive-functies worden niet ondersteund).
+In deze sectie worden [**functies**](https://docs.microsoft.com/azure/kusto/query/functions)beschreven: herbruikbare query's die zijn opgeslagen op de server. Functies kunnen worden aangeroepen door query's en andere functies (recursieve functies worden niet ondersteund).
 
 > [!NOTE]
-> U kunt geen functies maken op het helpcluster, dit alleen-lezen is. Uw eigen testcluster gebruiken voor dit onderdeel.
+> U kunt geen functies maken in het Help-cluster. Dit is alleen-lezen. Gebruik uw eigen test cluster voor dit onderdeel.
 
-Het volgende voorbeeld wordt een functie die met de naam van een provincie (`MyState`) als argument.
+In het volgende voor beeld wordt een functie gemaakt die een status`MyState`naam () als argument gebruikt.
 
 ```Kusto
 .create function with (folder="Demo")
@@ -933,14 +933,14 @@ StormEvents
 }
 ```
 
-Het volgende voorbeeld wordt een functie waarmee gegevens worden opgehaald voor de status van Texas.
+In het volgende voor beeld wordt een functie aangeroepen, waarmee gegevens worden opgehaald voor de status van Texas.
 
 ```Kusto
 MyFunction ("Texas")
 | summarize count()
 ```
 
-Het volgende voorbeeld wordt de functie die in de eerste stap is gemaakt.
+In het volgende voor beeld wordt de functie verwijderd die in de eerste stap is gemaakt.
 
 ```Kusto
 .drop function MyFunction
@@ -948,4 +948,4 @@ Het volgende voorbeeld wordt de functie die in de eerste stap is gemaakt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Kusto-Query Language reference](https://aka.ms/kustolangref)
+[Naslag informatie voor Kusto-query taal](https://aka.ms/kustolangref)

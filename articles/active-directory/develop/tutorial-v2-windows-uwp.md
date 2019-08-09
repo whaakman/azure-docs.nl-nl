@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dae3f9f2f4a9f6966d3453123773887c244cf4e2
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 519a86bed6a3a09b476bce6435ae666d655dbe03
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334070"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852266"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Microsoft Graph-API aanroepen vanuit een Universeel Windows-platform toepassing (XAML)
 
@@ -55,7 +55,7 @@ In deze sectie vindt u stapsgewijze instructies voor het integreren van een Wind
 In deze hand leiding wordt een toepassing gemaakt waarmee een knop wordt weer gegeven die Graph API, een knop voor het afmelden en tekst vakken waarin de resultaten van de aanroepen worden weer gegeven.
 
 > [!NOTE]
-> Wilt u in plaats daarvan het Visual Studio-project van dit voor beeld downloaden? [Down load een project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) en ga naar [de stap]toepassings registratie(#register-your-application "toepassings") registratie om het code voorbeeld te configureren voordat deze wordt uitgevoerd.
+> Wilt u in plaats daarvan het Visual Studio-project van dit voor beeld downloaden? [Down load een project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) en ga naar []de stap toepassings registratie(#register-your-application "toepassings") registratie om het code voorbeeld te configureren voordat deze wordt uitgevoerd.
 
 ### <a name="create-your-application"></a>Uw toepassing maken
 
@@ -368,7 +368,7 @@ Wanneer u klaar bent om te testen, selecteert u **Microsoft Graph-API aanroepen*
 
 ![Aanmeldings pagina](./media/tutorial-v2-windows-uwp/sign-in-page.png)
 
-### <a name="consent"></a>Vergunning
+### <a name="consent"></a>Akkoord
 
 De eerste keer dat u zich bij uw toepassing aanmeldt, wordt er een venster voor toestemming weer gegeven dat vergelijkbaar is met het volgende. Selecteer **Ja** om expliciet toestemming te geven voor toegang:
 

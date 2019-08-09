@@ -11,18 +11,18 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/05/2019
+ms.date: 08/07/2019
 ms.author: magoedte
-ms.openlocfilehash: d2fadf6d0bf9b7422b6dbf7597a024d22b5d733f
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1c2416d9fb1d45116bb6594b29863c1fe8f524a3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839323"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883207"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>De implementatie van uw Azure Monitor-logboeken ontwerpen
 
-Azure Monitor worden [logboek](data-platform-logs.md) gegevens opgeslagen in een log Analytics-werk ruimte, een Azure-resource en een container waarin gegevens worden verzameld, geaggregeerd en fungeert als een administratieve grens. Hoewel u een of meer werk ruimten in uw Azure-abonnement kunt implementeren, zijn er verschillende overwegingen die u moet begrijpen om ervoor te zorgen dat uw eerste implementatie voldoet aan onze richt lijnen om u te voorzien van een kosten effectief, beheersbaar en schaal bare implementatie die aan uw organisatie behoeften voldoet.
+Azure Monitor worden [logboek](data-platform-logs.md) gegevens opgeslagen in een log Analytics-werk ruimte, een Azure-resource en een container waarin gegevens worden verzameld, geaggregeerd en fungeert als een administratieve grens. Hoewel u een of meer werk ruimten in uw Azure-abonnement kunt implementeren, zijn er verschillende overwegingen die u moet begrijpen om ervoor te zorgen dat uw eerste implementatie voldoet aan onze richt lijnen om u te voorzien van een kosten effectief, beheersbaar en schaalbaar implementatie die aan uw organisatie behoeften voldoet.
 
 Gegevens in een werk ruimte zijn ingedeeld in tabellen, die elk verschillende soorten gegevens opslaan en een eigen unieke set eigenschappen hebben op basis van de resource waarmee de gegevens worden gegenereerd. De meeste gegevens bronnen schrijven naar hun eigen tabellen in een Log Analytics-werk ruimte.
 
@@ -32,7 +32,7 @@ Een Log Analytics-werk ruimte biedt:
 
 * Een geografische locatie voor de opslag van gegevens.
 * Gegevens isolatie door verschillende gebruikers toegangs rechten te verlenen volgens een van onze aanbevolen ontwerp strategieën.
-* Het bereik voor de configuratie van instellingen, zoals de [prijs categorie](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), retentie en het beperken van [gegevens](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap). [](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* Bereik voor configuratie van instellingen, zoals de [prijs categorie](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), retentie en het beperken van [gegevens](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap). [](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 Dit artikel bevat een gedetailleerd overzicht van de overwegingen voor het ontwerpen en migreren, het overzicht van toegangs beheer en een uitleg van de ontwerp implementaties die wij voor uw IT-organisatie raden.
 
@@ -47,7 +47,7 @@ Het identificeren van het aantal werk ruimten dat u nodig hebt, is van invloed o
 De IT-organisaties zijn tegenwoordig gemodelleerd volgens een gecentraliseerd, gedecentraliseerd of een in-tussen hybride van beide structuren. Als gevolg hiervan zijn de volgende implementatie modellen voor werk ruimten vaak gebruikt om toe te wijzen aan een van deze organisatie structuren:
 
 * Gecentraliseerd: Alle logboeken worden opgeslagen in een centrale werk ruimte en beheerd door één team, met Azure Monitor een gedifferentieerde toegang per team bieden. In dit scenario is het eenvoudig om te beheren, te zoeken naar resources en logboeken te cross-correleren. De werk ruimte kan aanzienlijk toenemen, afhankelijk van de hoeveelheid gegevens die uit meerdere resources in uw abonnement is verzameld, met extra administratieve overhead voor het onderhouden van toegangs beheer voor verschillende gebruikers.
-* **Gedecentraliseerd**: Elk team heeft hun eigen werk ruimte gemaakt in een resource groep die ze hebben en beheren, en logboek gegevens worden gescheiden per resource. In dit scenario kan de werk ruimte veilig worden bewaard en kan toegangs beheer consistent zijn met toegang tot bronnen, maar het is lastig om logboeken te intercorreleren. Gebruikers die een brede weer gave van veel resources nodig hebben, kunnen de gegevens niet op een zinvolle manier analyseren.
+* **Gedecentraliseerd**: Elk team heeft hun eigen werk ruimte gemaakt in een resource groep die ze bezit en beheren, en logboek gegevens worden gescheiden per resource. In dit scenario kan de werk ruimte veilig worden bewaard en kan toegangs beheer consistent zijn met toegang tot bronnen, maar het is lastig om logboeken te intercorreleren. Gebruikers die een brede weer gave van veel resources nodig hebben, kunnen de gegevens niet op een zinvolle manier analyseren.
 * **Hybride**: Nalevings vereisten voor beveiligings controle worden dit scenario verder ingewik kelder omdat veel organisaties beide implementatie modellen parallel implementeren. Dit resulteert doorgaans in een complexe, dure en moeilijk te onderhouden configuratie met hiaten in de logboeken dekking.
 
 Wanneer u de Log Analytics-agents gebruikt om gegevens te verzamelen, moet u het volgende weten om de implementatie van de agent te plannen:
@@ -63,9 +63,9 @@ Als u System Center Operations Manager 2012 R2 of hoger gebruikt:
 
 ## <a name="access-control-overview"></a>Overzicht van toegangs beheer
 
-Met op rollen gebaseerd toegangs beheer (RBAC) kunt u gebruikers en groepen alleen de hoeveelheid toegang verlenen die nodig zijn om te werken met bewakings gegevens in een werk ruimte. Op die manier kunt u met uw IT-bedrijfs model uitlijnen met één werk ruimte om verzamelde gegevens op te slaan die zijn ingeschakeld voor al uw resources. U kunt bijvoorbeeld toegang verlenen aan uw team dat verantwoordelijk is voor infrastructuur services die worden gehost op Azure virtual machines (Vm's), en als gevolg hiervan hebben ze alleen toegang tot de logboeken die door de Vm's worden gegenereerd. Dit is het nieuwe bron-context logboek model. De basis voor dit model is dat elke door een Azure-resource gegenereerde logboek record automatisch aan deze resource wordt gekoppeld. Logboeken worden doorgestuurd naar een centrale werk ruimte die op de bronnen bereik en RBAC respecteert.
+Met op rollen gebaseerd toegangs beheer (RBAC) kunt u gebruikers en groepen alleen de hoeveelheid toegang verlenen die nodig zijn om te werken met bewakings gegevens in een werk ruimte. Op die manier kunt u met uw IT-bedrijfs model uitlijnen met één werk ruimte om verzamelde gegevens op te slaan die zijn ingeschakeld voor al uw resources. U kunt bijvoorbeeld toegang verlenen aan uw team dat verantwoordelijk is voor infrastructuur services die worden gehost op Azure virtual machines (Vm's), en als gevolg hiervan hebben ze alleen toegang tot de logboeken die door de Vm's worden gegenereerd. Dit is het nieuwe bron-context logboek model. De basis voor dit model geldt voor elke logboek record die wordt gegenereerd door een Azure-resource en wordt automatisch aan deze resource gekoppeld. Logboeken worden doorgestuurd naar een centrale werk ruimte die op de bronnen bereik en RBAC respecteert.
 
-De gegevens waartoe een gebruiker toegang heeft, worden bepaald aan de hand van een combi natie van factoren die in de volgende tabel worden weer gegeven. Elk wordt beschreven in de volgende secties.
+De gegevens waartoe een gebruiker toegang heeft, wordt bepaald door een combi natie van factoren die in de volgende tabel worden weer gegeven. Elk wordt beschreven in de volgende secties.
 
 | Multi-factor Authentication | Description |
 |:---|:---|
@@ -84,7 +84,7 @@ Gebruikers hebben twee opties om toegang tot de gegevens te krijgen:
 
     ![Context van Log Analytics in werk ruimte](./media/design-logs-deployment/query-from-workspace.png)
 
-* **Resource-context**: Wanneer u toegang hebt tot de werk ruimte voor een bepaalde resource, resource groep of abonnement, bijvoorbeeld wanneer u **Logboeken** selecteert in een resource menu in het Azure Portal, kunt u alleen logboeken voor die resource in alle tabellen weer geven waartoe u toegang hebt. Query's in deze modus zijn alleen van toepassing op gegevens die aan die resource zijn gekoppeld. Met deze modus kunt u ook granulaire RBAC.
+* **Resource-context**: Wanneer u toegang hebt tot de werk ruimte voor een bepaalde resource, resource groep of abonnement, bijvoorbeeld wanneer u **Logboeken** selecteert in een resource menu in het Azure Portal, kunt u Logboeken voor alleen resources weer geven in alle tabellen waartoe u toegang hebt. Query's in deze modus zijn alleen van toepassing op gegevens die aan die resource zijn gekoppeld. Met deze modus kunt u ook granulaire RBAC.
 
     ![Log Analytics context van resource](./media/design-logs-deployment/query-from-resource.png)
 
@@ -106,16 +106,16 @@ De volgende tabel bevat een overzicht van de toegangs modi:
 |:---|:---|:---|
 | Voor wie is elk model bedoeld? | Centraal beheer. Beheerders die gegevens verzameling en gebruikers moeten configureren die toegang nodig hebben tot een groot aantal verschillende bronnen. Dit is ook vereist voor gebruikers die toegang moeten hebben tot logboeken voor bronnen buiten Azure. | Toepassings teams. Beheerders van Azure-resources die worden bewaakt. |
 | Wat heeft een gebruiker nodig om logboeken weer te geven? | Machtigingen voor de werk ruimte. Zie **machtigingen voor werk ruimten** in [accounts en gebruikers beheren](manage-access.md#manage-accounts-and-users). | Lees toegang tot de resource. Zie **resource machtigingen** in [accounts en gebruikers beheren](manage-access.md#manage-accounts-and-users). Machtigingen kunnen worden overgenomen (bijvoorbeeld van de container resource groep) of rechtstreeks worden toegewezen aan de resource. De machtigingen voor de logboeken voor de resource worden automatisch toegewezen. |
-| Wat is het bereik van machtigingen? | Werk ruimte. Gebruikers met toegang tot de werk ruimte kunnen alle logboeken in die werk ruimte opvragen van tabellen waarvoor ze machtigingen hebben. Zie [Table Access Control](manage-access.md#table-level-rbac) | Azure-resource. De gebruiker kan Logboeken zoeken voor specifieke resources, resource groepen of abonnementen waartoe ze toegang hebben vanuit een wille keurige werk ruimte, maar geen logboeken kunnen doorzoeken voor andere resources. |
+| Wat is het bereik van machtigingen? | Werk ruimte. Gebruikers met toegang tot de werk ruimte kunnen alle logboeken in de werk ruimte opvragen van tabellen waarvoor ze machtigingen hebben. Zie [Table Access Control](manage-access.md#table-level-rbac) | Azure-resource. De gebruiker kan Logboeken zoeken voor specifieke resources, resource groepen of abonnementen waartoe ze toegang hebben vanuit een wille keurige werk ruimte, maar geen logboeken kunnen doorzoeken voor andere resources. |
 | Hoe kan de gebruiker toegang krijgen tot logboeken? | <ul><li>Start **Logboeken** vanuit **Azure monitor** menu.</li></ul> <ul><li>Start **Logboeken** vanuit **log Analytics werk ruimten**.</li></ul> <ul><li>Vanuit Azure Monitor [werkmappen](../visualizations.md#workbooks).</li></ul> | <ul><li>**Logboeken** starten vanuit het menu voor de Azure-resource</li></ul> <ul><li>Start **Logboeken** vanuit **Azure monitor** menu.</li></ul> <ul><li>Start **Logboeken** vanuit **log Analytics werk ruimten**.</li></ul> <ul><li>Vanuit Azure Monitor [werkmappen](../visualizations.md#workbooks).</li></ul> |
 
 ## <a name="access-control-mode"></a>Modus toegangsbeheer
 
-De *Access Control-modus* is een instelling voor elke werk ruimte die definieert hoe machtigingen voor die werk ruimte worden bepaald.
+De *Access Control-modus* is een instelling voor elke werk ruimte die definieert hoe machtigingen voor de werk ruimte worden bepaald.
 
 * **Werkruimte machtigingen vereisen**: In deze controle modus is granulaire RBAC niet toegestaan. Een gebruiker heeft alleen toegang tot de werk ruimte als deze machtigingen voor de werk ruimte of specifieke tabellen hebben.
 
-    Als een gebruiker toegang heeft tot de werk ruimte na de context modus van de werk ruimte, hebben ze toegang tot alle gegevens in een tabel waartoe ze toegang hebben gekregen. Als een gebruiker toegang heeft tot de werk ruimte die volgt op de resource-context modus, hebben ze alleen toegang tot gegevens voor die resource in een tabel waartoe ze toegang hebben gekregen.
+    Als een gebruiker toegang heeft tot de werk ruimte na de context modus van de werk ruimte, hebben ze toegang tot alle gegevens in een tabel waaraan toegang is verleend. Als een gebruiker toegang heeft tot de werk ruimte die volgt op de resource-context modus, hebben ze alleen toegang tot gegevens voor die resource in een tabel waaraan ze toegang hebben verleend.
 
     Dit is de standaard instelling voor alle werk ruimten die zijn gemaakt vóór 2019 maart.
 
@@ -127,6 +127,8 @@ De *Access Control-modus* is een instelling voor elke werk ruimte die definieert
 
     > [!NOTE]
     > Als een gebruiker alleen resource machtigingen heeft voor de werk ruimte, hebben ze alleen toegang tot de werk ruimte via de resource-context modus als de toegangs modus voor de werk ruimte is ingesteld op het **gebruik van resource-of werkruimte machtigingen**.
+
+Zie de [modus toegangs beheer definiëren](manage-access.md#define-access-control-mode)voor meer informatie over het wijzigen van de toegangs beheer modus in de portal, met Power shell of het gebruik van een resource manager-sjabloon.
 
 ## <a name="recommendations"></a>Aanbevelingen
 

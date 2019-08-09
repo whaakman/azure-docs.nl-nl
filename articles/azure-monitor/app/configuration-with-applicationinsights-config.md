@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 382f43156ab450600ff0d2e5e2db763cd6bd94df
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: fe71f4e89fb7e1b6ff3e4f59894a933fbb011692
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875052"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881401"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>De Application Insights-SDK configureren met ApplicationInsights.config of ApplicationInsights.xml
 De Application Insights .NET SDK bestaat uit een aantal NuGet-pakketten. Het [kern pakket](https://www.nuget.org/packages/Microsoft.ApplicationInsights) biedt de API voor het verzenden van telemetrie naar de Application Insights. [Aanvullende pakketten](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) bieden telemetrie- *modules* en *initialisatie functies* voor het automatisch traceren van telemetrie van uw toepassing en de bijbehorende context. Door het configuratie bestand aan te passen, kunt u telemetrie-modules en initialisatie functies in-of uitschakelen en para meters instellen voor een aantal hiervan.
 
-Het configuratie bestand heet `ApplicationInsights.config` of `ApplicationInsights.xml`, afhankelijk van het type van uw toepassing. Het wordt automatisch toegevoegd aan uw project wanneer u [de meeste versies van de SDK installeert][start]. Het wordt ook toegevoegd aan een web-app door [status monitor op een IIS-server][redfield]. Het configuratie bestand wordt genegeerd als de [extensie voor de Azure-website](azure-web-apps.md) of- [extensie voor de virtuele machine van Azure en](azure-vm-vmss-apps.md) de VM-schaalset wordt gebruikt.
+Het configuratie bestand heet `ApplicationInsights.config` of `ApplicationInsights.xml`, afhankelijk van het type van uw toepassing. Het wordt automatisch toegevoegd aan uw project wanneer u [de meeste versies van de SDK installeert][start]. De SDK maakt het `ApplicationInsights.config` bestand in de hoofdmap van het project en wanneer dit is voldaan, wordt het gekopieerd naar de bin-map. Het wordt ook toegevoegd aan een web-app door [status monitor op een IIS-server][redfield]. Het configuratie bestand wordt genegeerd als de [extensie voor de Azure-website](azure-web-apps.md) of- [extensie voor de virtuele machine van Azure en](azure-vm-vmss-apps.md) de VM-schaalset wordt gebruikt.
 
 Er is geen gelijkwaardig bestand voor het beheren [van de SDK op een webpagina][client].
 
@@ -186,7 +186,7 @@ Het aantal telemetriegegevens dat kan worden opgeslagen in de opslag ruimte in h
 
 * Min: 1
 * Aantal 1000
-* Prijs 500
+* Standaard: 500
 
 ```
 
@@ -204,7 +204,7 @@ Bepaalt hoe vaak de gegevens die in de opslag in het geheugen zijn opgeslagen, m
 
 * Min: 1
 * Aantal 300
-* Prijs 5
+* Standaard: 5
 
 ```
 
@@ -222,7 +222,7 @@ Bepaalt de maximale grootte in MB die wordt toegewezen aan de permanente opslag 
 
 * Min: 1
 * Aantal 100
-* Prijs 10
+* Standaard: 10
 
 ```
 

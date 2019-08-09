@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: b7bf9943afa2a79f98fd28d15e5ea46fa63af732
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 6a929359c0e4e0a5c64eadbf41f565dfeb56a233
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688646"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854116"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Back-ups maken van SQL Server-databases in virtuele Azure-machines
 
@@ -177,7 +177,7 @@ Data bases detecteren die worden uitgevoerd op een virtuele machine:
 
     ![Automatische beveiliging inschakelen voor de AlwaysOn-beschikbaarheids groep](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. Kies in **back-upbeleid**een beleid en selecteer vervolgens **OK**.
+5. Kies in **back-upbeleid**een beleid en selecteer vervolgens **OK**.
 
    - Selecteer het standaard beleid als HourlyLogBackup.
    - Een bestaand back-upbeleid kiezen dat u eerder hebt gemaakt voor SQL.
@@ -185,11 +185,11 @@ Data bases detecteren die worden uitgevoerd op een virtuele machine:
 
      ![Back-upbeleid selecteren](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. Selecteer **back-up inschakelen**in **back-up**.
+6. Selecteer **back-up inschakelen**in **back-up**.
 
     ![Het gekozen back-upbeleid inschakelen](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. Volg de voortgang van de configuratie in het gebied **meldingen** van de portal.
+7. De voortgang van de configuratie volgen in het **Systeemvak** van de portal.
 
     ![Systeemvak](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -273,7 +273,7 @@ U kunt automatische beveiliging inschakelen om automatisch een back-up te maken 
 
 - Er is geen limiet voor het aantal data bases dat u tegelijk voor automatische beveiliging kunt selecteren.
 - U kunt data bases niet selectief beveiligen of uitsluiten van beveiliging in een exemplaar op het moment dat u automatische beveiliging inschakelt.
-- Als uw exemplaar al beveiligde data bases bevat, blijven ze beschermd onder hun respectieve beleid, zelfs nadat u automatische beveiliging hebt ingeschakeld. Alle niet-beveiligde data bases die later worden toegevoegd, hebben slechts één beleid dat u definieert op het moment van het inschakelen van automatische beveiliging, vermeld onder **back-up configureren**. U kunt echter later het beleid wijzigen dat is gekoppeld aan een automatisch beveiligde data base.  
+- Als uw exemplaar al beveiligde data bases bevat, blijven ze beschermd onder hun respectieve beleid, zelfs nadat u automatische beveiliging hebt ingeschakeld. Alle niet-beveiligde data bases die later worden toegevoegd, hebben slechts één beleid dat u definieert op het moment van het inschakelen van automatische beveiliging, vermeld onder **back-up configureren**. U kunt echter later het beleid wijzigen dat is gekoppeld aan een automatisch beveiligde data base.  
 
 Automatische beveiliging inschakelen:
 
@@ -288,7 +288,7 @@ Als u automatische beveiliging wilt uitschakelen, selecteert u de naam van het e
 
 ![Automatische beveiliging voor dat exemplaar uitschakelen](./media/backup-azure-sql-database/disable-auto-protection.png)
 
- 
+ 
 ## <a name="next-steps"></a>Volgende stappen
 
 Leer hoe u het volgende doet:

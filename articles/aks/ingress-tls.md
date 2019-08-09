@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 30f25ad9152bc722b54a834ef0ed037ac1666014
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 845ce631209f341612b65b8d6a97e45e6b025a1f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615295"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880665"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Een HTTPS ingress-controller maken in azure Kubernetes service (AKS)
 
 Een controller voor inkomend verkeer is een stukje software dat omgekeerde proxy’s, configureerbare verkeersroutering en TLS-beëindiging voor Kubernetes-services biedt. Kubernetes-resources voor inkomend verkeer worden gebruikt om de regels en routes voor uitgaand verkeer worden geconfigureerd voor individuele Kubernetes-services. Met behulp van een controller en regels voor inkomend verkeer kan er één enkel IP-adres worden gebruikt voor het routeren van verkeer naar meerdere services in een Kubernetes-cluster.
 
-In dit artikel wordt beschreven hoe u de [NGINX ingress-controller][nginx-ingress] implementeert in een Azure Kubernetes service-cluster (AKS). Het [CERT-beheer][cert-manager] project wordt gebruikt om certificaten automatisch te genereren en [te configureren.][lets-encrypt] Ten slotte worden er twee toepassingen uitgevoerd in het AKS-cluster, die allemaal toegankelijk zijn via één IP-adres.
+In dit artikel wordt beschreven hoe u de [NGINX ingress-controller][nginx-ingress] implementeert in een Azure Kubernetes service-cluster (AKS). Het [CERT-beheer][cert-manager] project wordt gebruikt om certificaten automatisch te genereren [][lets-encrypt] en te configureren. Ten slotte worden er twee toepassingen uitgevoerd in het AKS-cluster, die allemaal toegankelijk zijn via één IP-adres.
 
 U kunt ook het volgende doen:
 
@@ -310,6 +310,7 @@ Als u de volledige voorbeeld naam ruimte wilt verwijderen `kubectl delete` , geb
 
 ```console
 kubectl delete namespace ingress-basic
+kubectl delete namespace cert-manager
 ```
 
 Verwijder vervolgens de helm-opslag plaats voor de AKS Hallo wereld-app:

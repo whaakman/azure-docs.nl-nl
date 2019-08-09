@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a64bad11f5b83ddd7f6d7236ffed4ff4a6e39c2c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fb4fa92d8b3c174cdf9b3695f8564cc11c1ad291
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561859"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851752"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Koppelen of een Azure-abonnement toevoegen aan uw Azure Active Directory-tenant
 
@@ -46,7 +46,7 @@ Voordat u kunt koppelen of uw abonnement toevoegt, moet u de volgende taken uitv
     - Als u een geregistreerde Azure Stack hebt, moet u deze na de koppeling opnieuw registreren
 
 1. Meld u aan met een account dat:
-    - Beschikt over [een roltoewijzing](../../role-based-access-control/built-in-roles.md#owner) voor het abonnement. Zie [toegang tot Azure-resources beheren met RBAC en de Azure Portal](../../role-based-access-control/role-assignments-portal.md)voor meer informatie over het toewijzen van de rol van eigenaar.
+    - Beschikt over [](../../role-based-access-control/built-in-roles.md#owner) een roltoewijzing voor het abonnement. Zie [toegang tot Azure-resources beheren met RBAC en de Azure Portal](../../role-based-access-control/role-assignments-portal.md)voor meer informatie over het toewijzen van de rol van eigenaar.
     - Er bestaat in zowel de huidige map die is gekoppeld aan het abonnement en de nieuwe map die is waar u het abonnement voortaan koppelen. Zie voor meer informatie over het verkrijgen van toegang tot een andere map [hoe voeg door Azure Active Directory-beheerders de gebruikers van B2B-samenwerking toe?](../b2b/add-users-administrator.md).
 
 1. Zorg ervoor dat u niet een Azure Cloud Service Providers (CSP)-abonnement (MS-AZR - 0145P, MS - AZR - 0146P, MS - AZR - 159P), een abonnement op Microsoft Internal (MS-AZR - 0015P) of een Microsoft Imagine-abonnement (MS-AZR - 0144P).
@@ -66,7 +66,7 @@ Voordat u kunt koppelen of uw abonnement toevoegt, moet u de volgende taken uitv
     De map wordt gewijzigd voor het abonnement en u krijgt een bericht weergegeven.
 
     ![Geslaagd bericht over Directory wijziging](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
-4. Gebruik de **Directory-schakelaar** om naar uw nieuwe map te gaan. Het kan enkele uren duren voordat alles goed wordt weer gegeven. Als het te lang lijkt te duren, controleert u of het **globale abonnements filter** voor het verplaatste abonnement wordt weer gegeven, zodat u zeker weet dat het niet gewoon verborgen is.
+4. Gebruik de **Directory-schakelaar** om naar uw nieuwe map te gaan. Het kan enkele uren duren voordat alles goed wordt weer gegeven. Als het te lang lijkt te duren, controleert u het **algemene abonnements filter** voor het verplaatste abonnement om te controleren of het niet is verborgen. Mogelijk moet u zich afmelden bij de Azure Portal en u vervolgens weer aanmelden om de nieuwe map te kunnen zien. 
 
     ![Pagina Directory-wisselaar, met voorbeeld gegevens](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 

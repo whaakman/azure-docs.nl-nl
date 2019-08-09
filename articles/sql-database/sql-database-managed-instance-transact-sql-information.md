@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 07/07/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: fd029c1e7b67d308e3e1fdbedbdc90ea430b4f5b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 822b8bd1d0f5be854b6d345d68fcdb680b2ef1c4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567253"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882569"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database van beheerde instanties T-SQL-verschillen van SQL Server
 
@@ -24,8 +24,8 @@ In dit artikel vindt u een overzicht van de verschillen in de syntaxis en het ge
 
 - [Beschik baarheid](#availability) omvat de verschillen in [altijd](#always-on-availability) en [back-ups](#backup).
 - [Beveiliging](#security) omvat de verschillen in [controle](#auditing), [certificaten](#certificates), [referenties](#credential), [cryptografische providers](#cryptographic-providers), aanmeldingen [en gebruikers](#logins-and-users), en de [Service sleutel en service hoofd sleutel](#service-key-and-service-master-key).
-- De [configuratie](#configuration) bevat de verschillen [in de](#buffer-pool-extension)buffergroepuitbreiding, [sortering](#collation), [compatibiliteits niveaus](#compatibility-levels), [database spiegeling](#database-mirroring), [database opties](#database-options), [SQL Server Agent](#sql-server-agent)en [tabel opties](#tables).
-- [Functies](#functionalities) omvatten [Bulk Insert/](#bulk-insert--openrowset)OPENROWSET, [CLR](#clr), [DBCC](#dbcc), [Distributed trans actions](#distributed-transactions), [Extended Events](#extended-events), [externe bibliotheken](#external-libraries), [FileStream en bestands tabel](#filestream-and-filetable), [volledige tekst Semantisch zoeken](#full-text-semantic-search), [gekoppelde servers](#linked-servers), [poly base](#polybase), [replicatie](#replication), [herstel](#restore-statement), [Service Broker](#service-broker), [opgeslagen procedures, functies en triggers](#stored-procedures-functions-and-triggers).
+- [De configuratie](#configuration) bevat de verschillen [](#buffer-pool-extension)in de buffergroepuitbreiding, [sortering](#collation), [compatibiliteits niveaus](#compatibility-levels), [database spiegeling](#database-mirroring), [database opties](#database-options), [SQL Server Agent](#sql-server-agent)en [tabel opties](#tables).
+- De [functies](#functionalities) omvatten [Bulk Insert/](#bulk-insert--openrowset)OPENROWSET [, CLR](#clr), [DBCC](#dbcc), [Distributed trans actions](#distributed-transactions), [Extended Events](#extended-events), [externe bibliotheken](#external-libraries), [FileStream en bestands tabel](#filestream-and-filetable), [volledige tekst Semantisch zoeken](#full-text-semantic-search), [gekoppelde servers](#linked-servers), [poly base](#polybase), [replicatie](#replication), [herstel](#restore-statement), [Service Broker](#service-broker), [opgeslagen procedures, functies en triggers](#stored-procedures-functions-and-triggers).
 - [Omgevings instellingen](#Environment) , zoals VNets en subnet-configuraties.
 - [Functies met een ander gedrag in beheerde exemplaren](#Changes).
 - [Tijdelijke beperkingen en bekende problemen](#Issues).
@@ -399,13 +399,44 @@ Externe tabellen die verwijzen naar de bestanden in HDFS of Azure Blob Storage, 
 
 ### <a name="replication"></a>Replicatie
 
-[Transactionele replicatie](sql-database-managed-instance-transactional-replication.md) is beschikbaar voor open bare preview op een beheerd exemplaar met enkele beperkingen:
-- Al de typen replicatie deelnemers (uitgever, distributeur, pull-abonnee en push-abonnee) kunnen worden geplaatst op een beheerd exemplaar, maar Publisher en Distributor kunnen niet op verschillende instanties worden geplaatst.
-- Transactionele, snap shot en bidirectionele replicatie typen worden ondersteund. Samenvoeg replicatie, peer-to-peer-replicatie en bij te werken abonnementen worden niet ondersteund.
-- Beheerd exemplaar kan communiceren met de recente versies van SQL Server. Zie de ondersteunde versies [hier](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
-- Transactionele replicatie heeft enkele [extra netwerk vereisten](sql-database-managed-instance-transactional-replication.md#requirements).
+- De moment opname en bidirectionele replicatie typen worden ondersteund. Samenvoeg replicatie, peer-to-peer-replicatie en bij te werken abonnementen worden niet ondersteund.
+- [Transactionele replicatie](sql-database-managed-instance-transactional-replication.md) is beschikbaar voor open bare preview op een beheerd exemplaar met enkele beperkingen:
+    - Alle typen replicatie deelnemers (uitgever, distributeur, pull-abonnee en push-abonnee) kunnen worden geplaatst op beheerde exemplaren, maar Publisher en Distributor kunnen niet op verschillende instanties worden geplaatst.
+    - Beheerde instanties kunnen communiceren met de recente versies van SQL Server. Zie de ondersteunde versies [hier](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+    - Transactionele replicatie heeft enkele [extra netwerk vereisten](sql-database-managed-instance-transactional-replication.md#requirements).
 
-Zie [replicatie-zelf studie](replication-with-sql-database-managed-instance.md)voor meer informatie over het configureren van replicatie.
+Zie de [zelf studie over replicatie](replication-with-sql-database-managed-instance.md)voor meer informatie over het configureren van replicatie.
+
+
+Als replicatie is ingeschakeld voor een data base in [](sql-database-auto-failover-group.md)een failovergroep, moet de beheerder van het beheerde exemplaar alle publicaties opschonen op de oude primaire en opnieuw configureren op de nieuwe primaire versie nadat een failover is uitgevoerd. In dit scenario zijn de volgende activiteiten nodig:
+
+1. Stop alle replicatie taken die worden uitgevoerd op de data base, indien aanwezig.
+2. Voer het volgende script uit op de Publisher-data base om de meta gegevens van uw abonnement uit Publisher te verwijderen:
+
+   ```sql
+   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
+   ```             
+ 
+1. De meta gegevens van het abonnement op de abonnee weghalen. Voer het volgende script uit in de abonnementen database op het exemplaar van de abonnee:
+
+   ```sql
+   EXEC sp_subscription_cleanup
+      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
+      @publisher_db = N'<publisher database>', 
+      @publication = N'<name of publication>'; 
+   ```                
+
+1. Haal alle replicatie objecten geforceerd van Publisher door het volgende script uit te voeren in de gepubliceerde Data Base:
+
+   ```sql
+   EXEC sp_removedbreplication
+   ```
+
+1. De oude Distributor geforceerd verwijderen van de oorspronkelijke primaire instantie (als er een failover wordt uitgevoerd naar een oud primair exemplaar dat is gebruikt voor een distributeur). Voer het volgende script uit op de hoofd database in het oude beheerde exemplaar van de distributie server:
+
+   ```sql
+   EXEC sp_dropdistributor 1,1
+   ```
 
 ### <a name="restore-statement"></a>Instructie Restore 
 
@@ -467,7 +498,7 @@ Service Broker met meerdere exemplaren wordt niet ondersteund:
 ## <a name="Environment"></a>Omgevings beperkingen
 
 ### <a name="subnet"></a>Subnet
-- In het subnet dat voor uw beheerde exemplaar is gereserveerd, kunt u geen andere resources (bijvoorbeeld virtuele machines) plaatsen. Plaats deze resources in andere subnetten.
+-  U kunt geen andere resources (bijvoorbeeld virtuele machines) plaatsen in het subnet waar u uw beheerde exemplaar hebt geïmplementeerd. Implementeer deze bronnen met behulp van een ander subnet.
 - Het subnet moet voldoende beschik bare [IP-adressen](sql-database-managed-instance-connectivity-architecture.md#network-requirements)hebben. Mini maal is 16, terwijl aanbeveling ten minste 32 IP-adressen in het subnet.
 - [Service-eind punten kunnen niet worden gekoppeld aan het subnet van het beheerde exemplaar](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Zorg ervoor dat de optie service-eind punten is uitgeschakeld tijdens het maken van het virtuele netwerk.
 - Het aantal vCores en typen instanties dat u in een regio kunt implementeren, hebben een aantal [beperkingen en](sql-database-managed-instance-resource-limits.md#regional-resource-limitations)beperkingen.
@@ -476,7 +507,7 @@ Service Broker met meerdere exemplaren wordt niet ondersteund:
 ### <a name="vnet"></a>VNET
 - VNet kan worden geïmplementeerd met behulp van resource model-Klassiek model voor VNet wordt niet ondersteund.
 - Nadat een beheerd exemplaar is gemaakt, wordt het beheerde exemplaar of VNet naar een andere resource groep of een ander abonnement niet ondersteund.
-- Sommige services, zoals App Service omgevingen, Logic apps en beheerde instanties (gebruikt voor geo-replicatie, transactionele replicatie of via gekoppelde servers), hebben geen toegang tot beheerde instanties in verschillende regio's als hun VNets zijn verbonden met behulp van [Global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). U kunt via VNet-gateways verbinding maken met deze resource via ExpressRoute of VNet-naar-VNet.
+- Sommige services, zoals App Service omgevingen, Logic apps en beheerde instanties (gebruikt voor geo-replicatie, transactionele replicatie of via gekoppelde servers), hebben geen toegang tot beheerde instanties in verschillende regio's als hun VNets zijn verbonden met behulp van [Global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). U kunt via VNet-gateways verbinding maken met deze resources via ExpressRoute of VNet-naar-VNet.
 
 ## <a name="Changes"></a>Gedrags wijzigingen
 
@@ -494,11 +525,11 @@ De volgende variabelen, functies en weer gaven retour neren verschillende result
 
 ### <a name="tempdb-size"></a>TEMPDB-grootte
 
-De maximale bestands grootte van `tempdb` mag niet groter zijn dan 24 GB per kern op een algemeen laag. De maximale `tempdb` grootte van een bedrijfskritiek laag is beperkt met de opslag grootte van het exemplaar. `tempdb`de grootte van het logboek bestand is beperkt tot 120 GB op Algemeen en Bedrijfskritiek lagen. De `tempdb` data base is altijd gesplitst in 12 gegevens bestanden. Deze maximum grootte per bestand kan niet worden gewijzigd en er kunnen geen nieuwe bestanden aan `tempdb`worden toegevoegd. Sommige query's retour neren mogelijk een fout als deze meer dan 24 GB per kern `tempdb` vereist of als er meer dan 120 van het logboek wordt geproduceerd. `tempdb`wordt altijd opnieuw gemaakt als een lege data base wanneer het exemplaar wordt gestart of failover en eventuele wijzigingen in `tempdb` zullen niet worden bewaard. 
+De maximale bestands grootte van `tempdb` mag niet groter zijn dan 24 GB per kern op een algemeen laag. De maximale `tempdb` grootte van een bedrijfskritiek laag wordt beperkt door de opslag grootte van het exemplaar. `Tempdb`de grootte van het logboek bestand is beperkt tot 120 GB op Algemeen en Bedrijfskritiek lagen. De `tempdb` data base is altijd gesplitst in 12 gegevens bestanden. Deze maximum grootte per bestand kan niet worden gewijzigd en er kunnen geen nieuwe bestanden aan `tempdb`worden toegevoegd. Sommige query's retour neren mogelijk een fout als deze meer dan 24 GB per kern `tempdb` nodig heeft of als er meer dan 120 GB aan logboek gegevens worden geproduceerd. `Tempdb`wordt altijd opnieuw gemaakt als een lege data base wanneer het exemplaar wordt gestart of een failover wordt uitgevoerd `tempdb` , en eventuele wijzigingen worden niet bewaard. 
 
 ### <a name="cant-restore-contained-database"></a>Kan Inge sloten data base niet herstellen
 
-Beheerd exemplaar kan [Inge sloten data bases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)niet herstellen. Herstel naar een bepaald tijdstip van de bestaande Inge sloten data bases werkt niet voor een beheerd exemplaar. Dit probleem wordt binnenkort opgelost. In de tussen tijd raden wij u aan de containment-optie uit uw data bases te verwijderen die op het beheerde exemplaar zijn geplaatst. Gebruik niet de containment-optie voor de productie databases. 
+Beheerd exemplaar kan [Inge sloten data bases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)niet herstellen. Herstel naar een bepaald tijdstip van de bestaande Inge sloten data bases werkt niet voor een beheerd exemplaar. In de tussen tijd raden wij u aan de containment-optie uit uw data bases te verwijderen die op het beheerde exemplaar zijn geplaatst. Gebruik niet de containment-optie voor de productie databases. 
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Opslag ruimte overschrijden met kleine database bestanden
 
@@ -506,7 +537,7 @@ Beheerd exemplaar kan [Inge sloten data bases](https://docs.microsoft.com/sql/re
 
 Elk Algemeen Managed instance heeft tot 35 TB aan opslag ruimte gereserveerd voor Azure Premium. Elk database bestand wordt geplaatst op een afzonderlijke fysieke schijf. Schijf grootten kunnen 128 GB, 256 GB, 512 GB, 1 TB of 4 TB zijn. Voor ongebruikte ruimte op de schijf worden geen kosten in rekening gebracht, maar de totale som van Azure Premium-schijf grootten mag niet groter zijn dan 35 TB. In sommige gevallen kan een beheerd exemplaar dat niet 8 TB in totaal nodig heeft, de Azure-limiet van 35 TB overschrijden bij de opslag grootte vanwege interne fragmentatie.
 
-Een Algemeen Managed instance kan bijvoorbeeld één bestand bevatten met een grootte van 1,2 TB op een schijf van 4 TB. Het bestand kan ook 248 bestanden van 1 GB groot zijn en op afzonderlijke 128 GB-schijven worden geplaatst. In dit voorbeeld:
+Een Algemeen beheerde instantie kan bijvoorbeeld één groot bestand hebben dat 1,2 TB groot is voor een schijf van 4 TB. Het bestand kan ook 248 bestanden van 1 GB bestanden bevatten die elk op afzonderlijke 128 GB-schijven worden geplaatst. In dit voorbeeld:
 
 - De totale toegewezen schijf ruimte is 1 x 4 TB + 248 x 128 GB = 35 TB.
 - De totale gereserveerde ruimte voor data bases op het exemplaar is 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
@@ -547,7 +578,7 @@ Fouten logboeken die beschikbaar zijn in het beheerde exemplaar, worden niet per
 
 ### <a name="error-logs-are-verbose"></a>Fouten logboeken zijn uitgebreid
 
-Een beheerd exemplaar plaatst uitgebreide informatie in fouten logboeken en veel ervan is niet relevant. De hoeveelheid gegevens in fouten logboeken zal in de toekomst afnemen.
+Een beheerd exemplaar plaatst uitgebreide informatie in fouten logboeken en veel ervan is niet relevant. 
 
 **Enkele** Gebruik een aangepaste procedure om fout logboeken te lezen die een aantal irrelevante vermeldingen filteren. Zie [Managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/)voor meer informatie.
 

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: 9852ec450b6da3814a3bd2bfc6aae7d19acaf584
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: c5484c37d89cc9ae880bbe17987bb47f3114b8a4
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370384"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847898"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Gegevens drift (preview) detecteren voor modellen die zijn geïmplementeerd in azure Kubernetes service (AKS)
 
@@ -46,12 +46,14 @@ Met behulp van Azure Machine Learning-service wordt data drift bewaakt via gegev
 
 - Een Azure-abonnement. Als u er nog geen hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
-- Een werkruimte van Azure Machine Learning-service en de Azure Machine Learning-SDK voor Python geïnstalleerd. Volg de instructies in [Create a Azure machine learning service Workspace](setup-create-workspace.md#sdk) om het volgende te doen:
+- De Azure Machine Learning SDK voor python is geïnstalleerd. Volg de instructies in [Azure machine learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) om het volgende te doen:
 
     - Een Miniconda-omgeving maken
     - De Azure Machine Learning SDK voor python installeren
-    - Een werkruimte maken
-    - Schrijf een werkruimte configuratie bestand (aml_config/config. json).
+
+- Een [Azure Machine Learning Services-werk ruimte](how-to-manage-workspace.md).
+
+- Een [configuratie bestand](how-to-configure-environment.md#workspace)voor de werk ruimte.
 
 - Installeer de data drift SDK met behulp van de volgende opdracht:
 
@@ -195,6 +197,6 @@ Op basis van de uitvoer van de vorige code kunt u het model het beste opnieuw tr
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie de [Azure ml data drift-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/data-drift/azure-ml-datadrift.ipynb)voor een volledig voor beeld van het gebruik van gegevens drift. In deze Jupyter Notebook ziet u hoe u met behulp van een [Azure open-gegevensset](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) een model traint om het weer te voors pellen, deze te implementeren op AKS en te controleren op gegevens drift. 
+* Zie de [Azure ml data drift-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb)voor een volledig voor beeld van het gebruik van gegevens drift. In deze Jupyter Notebook ziet u hoe u met behulp van een [Azure open-gegevensset](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) een model traint om het weer te voors pellen, deze te implementeren op AKS en te controleren op gegevens drift. 
 
 * We stellen uw vragen, opmerkingen of suggesties enorm op prijs naarmate de gegevens worden verplaatst naar de algemene Beschik baarheid. Gebruik de knop product feedback hieronder. 

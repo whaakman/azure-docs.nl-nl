@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 5bddcb89d26566bd2024cbde086b6e35ddaf94ef
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a630ceb1748f38dc169a4ebabcbb4e021de4273c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567177"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881561"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Prestaties bewaken Azure SQL Database het gebruik van dynamische beheer weergaven
 
@@ -28,7 +28,7 @@ SQL Database gedeeltelijk ondersteunt drie categorieën dynamische beheer weerga
 - Aan uitvoering gerelateerde dynamische beheer weergaven.
 - Dynamische beheer weergaven die betrekking hebben op trans acties.
 
-Zie [dynamische beheer weergaven en-functies (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) in SQL Server Books Online voor meer informatie over dynamische beheer weergaven.
+Zie [dynamische beheer weergaven en-functies (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) in SQL Server Books Online voor meer informatie over dynamische beheer weergaven. 
 
 ## <a name="permissions"></a>Machtigingen
 
@@ -243,7 +243,7 @@ Voor TempDB-conflicten is een gemeen schappelijke methode het verminderen of her
 
 - Tijdelijke tabellen
 - Tabel variabelen
-- Para meters voor tabel waarden
+- Tabelwaardeparameter
 - Gebruik van versie opslag (specifiek gekoppeld aan langlopende trans acties)
 - Query's met query plannen die gebruikmaken van sorteringen, hash-samen voegingen en spools
 
@@ -334,7 +334,7 @@ ORDER BY start_time ASC;
 
 Als uw hoogste wacht type is `RESOURCE_SEMAHPORE` en u geen hoog CPU-gebruik hebt, is het mogelijk dat er een wacht probleem is met geheugen toekenning.
 
-### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>Bepalen of een `RESOURCE_SEMAHPORE` wachten een ogen blik geduld
+### <a name="determine-if-a-resource_semahpore-wait-is-a-top-wait"></a>Bepalen of een `RESOURCE_SEMAHPORE` wachten een ogen blik geduld
 
 Gebruik de volgende query om te bepalen of `RESOURCE_SEMAHPORE` een wachten een ogen blik geduld
 
@@ -512,7 +512,7 @@ U kunt het gebruik ook controleren met behulp van deze twee weer gaven:
 - [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
+### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
 U kunt de weer gave [sys. DM _db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) in elke SQL database gebruiken. De weer gave **sys. DM _db_resource_stats** toont recent gebruikte resource gegevens ten opzichte van de servicelaag. Gemiddeld percentages voor CPU, gegevens-IO, logboek schrijf bewerkingen en geheugen worden elke 15 seconden geregistreerd en worden gedurende één uur bewaard.
 
@@ -533,7 +533,7 @@ FROM sys.dm_db_resource_stats;
 
 Zie de voor beelden in [sys. DM _db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)voor andere query's.
 
-### <a name="sysresourcestats"></a>sys.resource_stats
+### <a name="sysresource_stats"></a>sys.resource_stats
 
 De [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) -weer gave in de **hoofd** database bevat aanvullende informatie die u kan helpen bij het bewaken van de prestaties van uw SQL database in de desbetreffende servicelaag en de bijbehorende reken grootte. De gegevens worden elke vijf minuten verzameld en worden ongeveer 14 dagen bewaard. Deze weer gave is handig voor een historisch historische analyse van de manier waarop uw SQL database resources gebruikt.
 
