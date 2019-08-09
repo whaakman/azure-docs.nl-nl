@@ -1,240 +1,173 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met BenSelect | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en BenSelect.
+title: 'Zelfstudie: Integratie met BenSelect Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en BenSelect.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: ffa17478-3ea1-4356-a289-545b5b9a4494
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 699afd4703efc5e8f63bb13fe1dd753a0c72594d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f5ca12f89615cd4b3110b0d67268c048b8e44561
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60282702"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879738"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-benselect"></a>Zelfstudie: Azure Active Directory-integratie met BenSelect
+# <a name="tutorial-integrate-benselect-with-azure-active-directory"></a>Zelfstudie: BenSelect integreren met Azure Active Directory
 
-In deze zelfstudie leert u hoe u BenSelect integreren met Azure Active Directory (Azure AD).
+In deze zelf studie leert u hoe u BenSelect integreert met Azure Active Directory (Azure AD). Wanneer u BenSelect integreert met Azure AD, kunt u het volgende doen:
 
-BenSelect integreren met Azure AD biedt u de volgende voordelen:
+* Controle in azure AD die toegang heeft tot BenSelect.
+* Zorg ervoor dat uw gebruikers automatisch worden aangemeld bij BenSelect met hun Azure AD-accounts.
+* Beheer uw accounts op één centrale locatie: de Azure Portal.
 
-- U kunt beheren in Azure AD die toegang tot BenSelect heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij BenSelect (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)voor meer informatie over SaaS-app-integratie met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met BenSelect, moet u de volgende items:
+U hebt de volgende items nodig om aan de slag te gaan:
 
-- Een Azure AD-abonnement
-- Een BenSelect eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
+* Een Azure AD-abonnement Als u geen abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/)aanvragen.
+* BenSelect-abonnement dat is ingeschakeld voor eenmalige aanmelding (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. BenSelect uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelf studie configureert en test u Azure AD SSO in een test omgeving.
 
-## <a name="adding-benselect-from-the-gallery"></a>BenSelect uit de galerie toe te voegen
-Voor het configureren van de integratie van BenSelect in Azure AD, moet u BenSelect uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* BenSelect ondersteunt door **IDP** GEÏNITIEERDe SSO
 
-**Als u wilt toevoegen BenSelect uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-benselect-from-the-gallery"></a>BenSelect toevoegen uit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Als u de integratie van BenSelect in azure AD wilt configureren, moet u BenSelect uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![Active Directory][1]
+1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
+1. Selecteer de **Azure Active Directory** -service in het navigatie deel venster aan de linkerkant.
+1. Ga naar **bedrijfs toepassingen** en selecteer **alle toepassingen**.
+1. Selecteer **nieuwe toepassing**om een nieuwe toepassing toe te voegen.
+1. Typ in de sectie **toevoegen vanuit de galerie** **BenSelect** in het zoekvak.
+1. Selecteer **BenSelect** uit het paneel resultaten en voeg vervolgens de app toe. Wacht een paar seconden wanneer de app aan uw Tenant is toegevoegd.
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-    ![Toepassingen][3]
+Azure AD SSO met BenSelect configureren en testen met behulp van een test gebruiker met de naam **B. Simon**. Voor het werken met SSO moet u een koppelings relatie tot stand brengen tussen een Azure AD-gebruiker en de bijbehorende gebruiker in BenSelect.
 
-1. Typ in het zoekvak **BenSelect**.
+Als u Azure AD SSO wilt configureren en testen met BenSelect, voltooit u de volgende bouw stenen:
 
-    ![Het maken van een Azure AD-testgebruiker](./media/benselect-tutorial/tutorial_benselect_search.png)
+1. **[Configureer Azure AD SSO](#configure-azure-ad-sso)** -om uw gebruikers in staat te stellen deze functie te gebruiken.
+2. **[BENSELECT SSO configureren](#configure-benselect-sso)** : voor het configureren van de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
+3. **[Een Azure AD-test gebruiker maken](#create-an-azure-ad-test-user)** : u kunt eenmalige aanmelding voor Azure AD testen met B. Simon.
+4. **[Wijs de Azure AD-test gebruiker](#assign-the-azure-ad-test-user)** toe, zodat B. Simon de eenmalige aanmelding van Azure AD kan gebruiken.
+5. **[Maak een BenSelect-test gebruiker](#create-benselect-test-user)** -om een equivalent van B. Simon in BenSelect te hebben dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
+6. **[SSO testen](#test-sso)** : om te controleren of de configuratie werkt.
 
-1. Selecteer in het deelvenster resultaten **BenSelect**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+### <a name="configure-azure-ad-sso"></a>Azure AD SSO configureren
 
-    ![Het maken van een Azure AD-testgebruiker](./media/benselect-tutorial/tutorial_benselect_addfromgallery.png)
+Volg deze stappen om Azure AD SSO in te scha kelen in de Azure Portal.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met BenSelect op basis van een testgebruiker met de naam "Britta Simon."
+1. Zoek in het [Azure Portal](https://portal.azure.com/)op de pagina Toepassings integratie van **BenSelect** de sectie **beheren** en selecteer **eenmalige aanmelding**.
+1. Selecteer op de pagina **Eén aanmeldings methode selecteren** de optie **SAML**.
+1. Klik op de pagina **eenmalige aanmelding met SAML instellen** op het pictogram bewerken/pen voor **eenvoudige SAML-configuratie** om de instellingen te bewerken.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in BenSelect is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in BenSelect tot stand worden gebracht.
+   ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-In BenSelect, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+1. Voer in de sectie **basis configuratie van SAML** de waarden in voor de volgende velden:
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met BenSelect, moet u de volgende bouwstenen voltooien:
+    In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://www.benselect.com/enroll/login.aspx?Path=<tenant name>`
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker BenSelect](#creating-a-benselect-test-user)**  : als u wilt een equivalent van Britta Simon in BenSelect die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+    > [!NOTE]
+    > De waarde is niet echt. Werk de waarde bij met de werkelijke antwoord-URL. Neem contact op met het ondersteunings [team van BenSelect](mailto:support@selerix.com) om de waarde op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+1. De BenSelect-toepassing verwacht de SAML-beweringen in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing BenSelect.
+    ![image](common/edit-attribute.png)
 
-**Voor het configureren van Azure AD eenmalige aanmelding met BenSelect, moet u de volgende stappen uitvoeren:**
+1. Klik op het bewerkings pictogram om de **naam-id-waarde**te bewerken.
 
-1. In de Azure-portal op de **BenSelect** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+    ![image](media/benselect-tutorial/mail-prefix1.png)
 
-    ![Eenmalige aanmelding configureren][4]
+1. Voer de volgende stappen uit in de sectie **gebruikers claims beheren** :
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/benselect-tutorial/tutorial_benselect_samlbase.png)
+    ![image](media/benselect-tutorial/mail-prefix2.png)
 
-1. Op de **BenSelect domein en URL's** sectie, voert u de volgende stappen uit:
+    a. Selecteer **trans formatie** als **bron**.
 
-    ![Eenmalige aanmelding configureren](./media/benselect-tutorial/tutorial_benselect_url.png)
+    b. Selecteer in de vervolg keuzelijst **Transformeren** de optie **ExtractMailPrefix ()** .
 
-    In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://www.benselect.com/enroll/login.aspx?Path=<tenant name>`
+    c. Selecteer in de vervolg keuzelijst **para meter 1** de optie **User. userPrincipalName**.
 
-    > [!NOTE] 
-    > Deze waarde is niet echt. Werk deze waarde bij met de werkelijke antwoord-URL. Neem contact op met [BenSelect ondersteuningsteam](mailto:support@selerix.com) deze waarde op te halen.
- 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Raw)** en slaat u het certificaatbestand op uw computer.
+    d. Klik op **Opslaan**.
 
-    ![Eenmalige aanmelding configureren](./media/benselect-tutorial/tutorial_benselect_certificate.png) 
+1. Zoek op de pagina **eenmalige aanmelding met SAML instellen** , in de sectie **SAML-handtekening certificaat** , **certificaat (RAW)** en selecteer **downloaden** om het certificaat te downloaden en op uw computer op te slaan.
 
-1. BenSelect toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. In de volgende schermopname ziet u een voorbeeld hiervan.
+    ![De downloadkoppeling certificaat](common/certificateraw.png)
 
-    ![Eenmalige aanmelding configureren](./media/benselect-tutorial/tutorial_benselect_06.png)
+1. Op de sectie **BenSelect instellen** kopieert u de gewenste URL ('s) op basis van uw vereiste.
 
-1. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster:
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    a. In de **gebruikers-id** vervolgkeuzelijst **ExtractMailPrefix**.
+### <a name="configure-benselect-sso"></a>BenSelect SSO configureren
 
-    b. In de **e-Mail** vervolgkeuzelijst **user.userprincipalname**.
+Als u eenmalige aanmelding wilt configureren op **BenSelect** , moet u het gedownloade **certificaat (RAW)** en de juiste gekopieerde url's verzenden van Azure Portal naar [BenSelect ondersteunings team](mailto:support@selerix.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
-1. Klik op **opslaan** knop.
+> [!NOTE]
+> U moet vermelden dat deze integratie de SHA256-algoritme vereist (SHA1 wordt niet ondersteund) om de SSO in te stellen op de juiste server, zoals app2101, enzovoort.
 
-    ![Eenmalige aanmelding configureren](./media/benselect-tutorial/tutorial_general_400.png)
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-1. Op de **BenSelect configuratie** sectie, klikt u op **configureren BenSelect** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+In deze sectie maakt u een test gebruiker in de Azure Portal met de naam B. Simon.
 
-    ![Eenmalige aanmelding configureren](./media/benselect-tutorial/tutorial_benselect_configure.png) 
+1. Selecteer in het linkerdeel venster van de Azure Portal **Azure Active Directory**, selecteer **gebruikers**en selecteer vervolgens **alle gebruikers**.
+1. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
+1. Voer de volgende stappen uit in de eigenschappen van de **gebruiker** :
+   1. Voer in het veld **Naam** `B.Simon` in.  
+   1. Voer in het veld **gebruikers naam** het username@companydomain.extensionin. Bijvoorbeeld `B.Simon@contoso.com`.
+   1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
+   1. Klik op **Create**.
 
-1. Het configureren van eenmalige aanmelding op **BenSelect** zijde, moet u voor het verzenden van de gedownloade **Certificate(Raw)** en **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar [BenSelect ondersteuningsteam](mailto:support@selerix.com).
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-   >[!NOTE]
-   >U moet aangeven dat het algoritme SHA256 (SHA1 wordt niet ondersteund) voor deze integratie is vereist om in te stellen de eenmalige aanmelding op de juiste server zoals app2101 enzovoort. 
-   
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+In deze sectie schakelt u B. Simon in om eenmalige aanmelding van Azure te gebruiken door toegang te verlenen aan BenSelect.
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
+1. Selecteer in het Azure Portal **bedrijfs toepassingen**en selecteer vervolgens **alle toepassingen**.
+1. Selecteer in de lijst toepassingen de optie **BenSelect**.
+1. Ga op de pagina overzicht van de app naar de sectie **beheren** en selecteer **gebruikers en groepen**.
 
-![Azure AD-gebruiker maken][100]
+   ![De koppeling 'Gebruikers en groepen'](common/users-groups-blade.png)
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in het dialoog venster **toewijzing toevoegen** .
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+    ![De koppeling gebruiker toevoegen](common/add-assign-user.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/benselect-tutorial/create_aaduser_01.png) 
+1. Selecteer in het dialoog venster **gebruikers en groepen** **B. Simon** van de lijst gebruikers en klik vervolgens op de knop **selecteren** onder aan het scherm.
+1. Als u een wille keurige rol verwacht in de SAML-bewering, selecteert u in het dialoog venster **rol selecteren** de juiste rol voor de gebruiker in de lijst en klikt u op de knop **selecteren** onder aan het scherm.
+1. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/benselect-tutorial/create_aaduser_02.png) 
+### <a name="create-benselect-test-user"></a>BenSelect-test gebruiker maken
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/benselect-tutorial/create_aaduser_03.png) 
+In deze sectie maakt u een gebruiker met de naam Julia Simon in BenSelect. Werk samen met BenSelect-ondersteunings [team](mailto:support@selerix.com) om de gebruikers toe te voegen in het BenSelect-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/benselect-tutorial/create_aaduser_04.png) 
+### <a name="test-sso"></a>SSO testen
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
-
-    d. Klik op **Create**.
- 
-### <a name="creating-a-benselect-test-user"></a>Het maken van een testgebruiker BenSelect
-
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in BenSelect. Werken met [BenSelect ondersteuningsteam](mailto:support@selerix.com) om toe te voegen de gebruikers in de BenSelect-account.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
-
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan BenSelect.
-
-![Gebruiker toewijzen][200] 
-
-**Als u wilt Britta Simon aan BenSelect toewijst, moet u de volgende stappen uitvoeren:**
-
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
-
-    ![Gebruiker toewijzen][201] 
-
-1. Selecteer in de lijst met toepassingen, **BenSelect**.
-
-    ![Eenmalige aanmelding configureren](./media/benselect-tutorial/tutorial_benselect_app.png) 
-
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
-
-    ![Gebruiker toewijzen][202] 
-
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Gebruiker toewijzen][203]
-
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
-
-In deze sectie maakt testen u de configuratie van de Azure AD-eenmalige aanmelding via het toegangsvenster.
-
-Wanneer u op de tegel BenSelect in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing BenSelect.
+Wanneer u op de tegel BenSelect in het toegangs venster klikt, moet u automatisch worden aangemeld bij de BenSelect waarvoor u SSO hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/benselect-tutorial/tutorial_general_01.png
-[2]: ./media/benselect-tutorial/tutorial_general_02.png
-[3]: ./media/benselect-tutorial/tutorial_general_03.png
-[4]: ./media/benselect-tutorial/tutorial_general_04.png
-
-[100]: ./media/benselect-tutorial/tutorial_general_100.png
-
-[200]: ./media/benselect-tutorial/tutorial_general_200.png
-[201]: ./media/benselect-tutorial/tutorial_general_201.png
-[202]: ./media/benselect-tutorial/tutorial_general_202.png
-[203]: ./media/benselect-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

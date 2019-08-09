@@ -1,24 +1,23 @@
 ---
 title: 'Azure-procedure: Verschillende attestation-mechanismen gebruiken met de SDK van de Device Provisioning Service-client in Azure'
 description: 'Azure-procedure: Verschillende attestation-mechanismen gebruiken met de SDK van de Device Provisioning Service-client in Azure'
-author: yzhong94
-ms.author: yizhon
+author: robinsh
+ms.author: robinsh
 ms.date: 03/30/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: af59ccc6d14dce49d06e178aac3ecafc29bd982c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7dd93298c96842e4e5417a0b2ba023bb71a4e7ba
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61248127"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884427"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Verschillende attestation-mechanismen gebruiken met de SDK van de Device Provisioning Service-client voor C
 
-In dit artikel wordt beschreven hoe u verschillende [attestation-mechanismen](concepts-security.md#attestation-mechanism) gebruikt met de SDK van de Device Provisioning Service-client voor C. U kunt een fysiek apparaat of een simulator gebruiken. De inrichtingsservice ondersteunt twee typen attestation-mechanismen: X.509- en Trusted Platform Module (TPM).
+In dit artikel wordt beschreven hoe u verschillende [attestation-mechanismen](concepts-security.md#attestation-mechanism) gebruikt met de SDK van de Device Provisioning Service-client voor C. U kunt een fysiek apparaat of een simulator gebruiken. De inrichtings service ondersteunt verificatie voor twee typen Attestation-mechanismen: X. 509 en Trusted Platform Module (TPM).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -28,9 +27,9 @@ Bereid de ontwikkelomgeving voor volgens de richtlijnen in het gedeelte De ontwi
 
 Als apparaatfabrikant moet u eerst een attestation-mechanisme kiezen op basis van een van de ondersteunde typen. Momenteel biedt de [SDK van de Device Provisioning Service-client voor C](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) ondersteuning voor de volgende attestation-mechanismen: 
 
-- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM is een vastgestelde norm voor de meeste Windows-apparaatplatforms, evenals enkele Linux/Ubuntu-apparaten. Als apparaatfabrikant kunt u dit attestation-mechanisme kiezen als een van deze besturingssystemen worden uitgevoerd op uw apparaten, en u op zoek bent naar een vastgestelde norm. Met TPM-chips kunt u elk apparaat alleen afzonderlijk inschrijven bij Device Provisioning Service. U kunt de TPM-simulator voor ontwikkeldoeleinden gebruiken op een Windows- of Linux-ontwikkelmachine.
+- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM is een vastgelegde standaard voor de meeste Windows-platformen, maar ook een aantal op Linux/Ubuntu gebaseerde apparaten. Als apparaatfabrikant kunt u dit attestation-mechanisme kiezen als een van deze besturingssystemen worden uitgevoerd op uw apparaten, en u op zoek bent naar een vastgestelde norm. Met TPM-chips kunt u elk apparaat alleen afzonderlijk inschrijven bij Device Provisioning Service. U kunt de TPM-simulator voor ontwikkeldoeleinden gebruiken op een Windows- of Linux-ontwikkelmachine.
 
-- [X.509](https://cryptography.io/en/latest/x509/): X.509-certificaten kunnen worden opgeslagen op relatief nieuwe chips met de naam [Hardware Security Modules (HSM)](concepts-security.md#hardware-security-module). Er wordt ook gewerkt in Microsoft, op RIoT- of DICE-chips, die de X.509-certificaten implementeren. Met X.509-chips kunt u apparaten bulksgewijs inschrijven in de portal. Het biedt ook ondersteuning voor bepaalde niet -Windows-besturingssystemen, zoals embedOS. Voor ontwikkeldoeleinden biedt de SDK van de Device Provisioning Service-client ook ondersteuning voor een X.509-apparaatsimulator. 
+- [X. 509](https://cryptography.io/en/latest/x509/): X. 509-certificaten kunnen worden opgeslagen in relatief nieuwere chips met de naam [Hardware Security modules (hsm)](concepts-security.md#hardware-security-module). Er wordt ook gewerkt in Microsoft, op RIoT- of DICE-chips, die de X.509-certificaten implementeren. Met X.509-chips kunt u apparaten bulksgewijs inschrijven in de portal. Het biedt ook ondersteuning voor bepaalde niet -Windows-besturingssystemen, zoals embedOS. Voor ontwikkeldoeleinden biedt de SDK van de Device Provisioning Service-client ook ondersteuning voor een X.509-apparaatsimulator. 
 
 Zie [Beveiligingsconcepten](concepts-security.md) en [Concepten van automatische inrichting](/azure/iot-dps/concepts-auto-provisioning) van de IoT Hub Device Provisioning Service, voor meer informatie.
 
@@ -149,8 +148,8 @@ Als u een TPM gebruikt, volgt u de instructies in [Een gesimuleerd apparaat make
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
 2. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **Alle bronnen** en open Device Provisioning Service.
-   - X **.** 509 afzonderlijke inschrijving: Selecteer de provisioning service in de overzichtsblade van **registraties beheren**. Selecteer het tabblad **Individual Enrollments** en klik bovenaan op de knop **Add**. Selecteer **X**.**509** als het *mechanisme* voor identiteitsattestation en upload het certificaat zoals is vereist door de blade. Klik op de knop **Save** als u klaar bent. 
-   - X **.** 509-Groepsregistratie: Selecteer de provisioning service in de overzichtsblade van **registraties beheren**. Selecteer het tabblad **Group Enrollments** en klik bovenaan op de knop **Add**. Selecteer **X**.**509** als het *mechanisme* voor identiteitsattestation. voer een groepsnaam en certificaatnaam in en upload het CA-/tussencertificaat zoals is vereist door de blade. Klik op de knop **Save** als u klaar bent. 
+   - X **.** 509 individuele inschrijving: Selecteer op de Blade overzicht van de inrichtings service de optie **inschrijvingen beheren**. Selecteer het tabblad **Individual Enrollments** en klik bovenaan op de knop **Add**. Selecteer **X**.**509** als het *mechanisme* voor identiteitsattestation en upload het certificaat zoals is vereist door de blade. Klik op de knop **Save** als u klaar bent. 
+   - X **.** 509 groeps inschrijving: Selecteer op de Blade overzicht van de inrichtings service de optie **inschrijvingen beheren**. Selecteer het tabblad **Group Enrollments** en klik bovenaan op de knop **Add**. Selecteer **X**.**509** als het *mechanisme* voor identiteitsattestation. voer een groepsnaam en certificaatnaam in en upload het CA-/tussencertificaat zoals is vereist door de blade. Klik op de knop **Save** als u klaar bent. 
 
 ## <a name="enable-authentication-for-devices-using-a-custom-attestation-mechanism-optional"></a>Verificatie inschakelen voor apparaten met een aangepast attestation-mechanisme (optioneel)
 

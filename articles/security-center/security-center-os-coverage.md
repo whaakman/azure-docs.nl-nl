@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 02d993d760338356fa29ee58a03215e14d6583f1
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 7cd1d451b49faf2f8e3ad38f4ff780256ef2dc5d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295604"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883605"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Platforms en functies die door Azure Security Center worden ondersteund
 
@@ -89,7 +89,7 @@ Virtuele machines die worden uitgevoerd in een Cloud service worden ook onderste
 |Beveiligingsconfiguraties|✔|✔|✔|✔|✔|✔|Free|
 |Endpoint Protection-evaluatie|✔|✔|✔|X|X|X|Free|
 |JIT-VM-toegang|✔|X|X|✔|X|X|Standard|
-|Adaptieve toepassingsbesturingselementen|✔|X|✔|✔|X|✔|Standard|
+|Besturingselementen voor adaptieve toepassingen|✔|X|✔|✔|X|✔|Standard|
 |FIM|✔|✔|✔|✔|✔|✔|Standard|
 |Analyse van schijf versleuteling|✔|✔|X|✔|✔|X|Free|
 |Implementatie van derden|✔|X|X|✔|X|X|Free|
@@ -108,15 +108,17 @@ De volgende tabel bevat een matrix met:
 
 Zie [Endpoint Protection-evaluatie en aanbevelingen](security-center-endpoint-protection.md)voor meer informatie over wanneer er aanbevelingen worden gegenereerd voor elk van deze beveiligings maatregelen.
 
-| Eindpuntbeveiliging| Platformen | Security Center-installatie | Security Center Discovery |
+| Endpoint Protection| Platforms | Security Center-installatie | Security Center Discovery |
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| Nee, ingebouwd in besturingssysteem| Ja |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (zie opmerking hieronder) | Via extensie | Ja |
 | Trend Micro: alle versies | Windows Server-familie  | Nee | Ja |
 | Symantec v12.1.1100+| Windows Server-familie  | Nee | Ja |
 | McAfee v10+ | Windows Server-familie  | Nee | Ja |
-| Kaspersky| Windows Server-familie  | Nee | Nee  |
-| Sophos| Windows Server-familie  | Nee | Nee  |
+| McAfee v10+ | Linux-Server familie  | Nee | Klikt **\*** |
+| Sophos v9 +| Linux-Server familie  | Nee | Klikt **\***  |
+
+ **\*** De status van de dekking en de ondersteunende gegevens zijn momenteel alleen beschikbaar in de werk ruimte Log Analytics die aan uw beveiligde abonnementen is gekoppeld, en wordt niet weer gegeven in Azure Security Center Portal.
 
 > [!NOTE]
 > - Voor de detectie van System Center Endpoint Protection (SCEP) op een virtuele machine met Windows Server 2008 R2 moet SCEP worden geïnstalleerd na Power Shell 3,0 (of een hogere versie).
@@ -145,11 +147,11 @@ Zie [Endpoint Protection-evaluatie en aanbevelingen](security-center-endpoint-pr
 |Service Bus|✔| N.v.t.|
 |Stream Analytics|✔| N.v.t.|
 |Event Hub|✔| N.v.t.|
-|Logische apps|✔| N.v.t.|
+|Logic Apps|✔| N.v.t.|
 |Storage-account|✔| N.v.t.|
 |Redis|✔| N.v.t.|
 |Data Lake Analytics|✔| N.v.t.|
-|Key Vault|✔| N.v.t.|
+|Sleutelkluis|✔| N.v.t.|
 
 
 

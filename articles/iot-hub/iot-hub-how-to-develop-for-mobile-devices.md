@@ -1,56 +1,56 @@
 ---
-title: Ontwikkelen voor mobiele apparaten met behulp van Azure IoT SDK's | Microsoft Docs
-description: "Developer guide: meer informatie over het ontwikkelen voor mobiele apparaten met behulp van Azure IoT Hub SDK's."
-author: yzhong94
+title: Ontwikkel voor mobiele apparaten met Azure IoT Sdk's | Microsoft Docs
+description: "Ontwikkelaars handleiding: meer informatie over het ontwikkelen van mobiele apparaten met behulp van Azure IoT Hub Sdk's."
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/16/2018
-ms.author: yizhon
-ms.openlocfilehash: 5256a58a2b68584888abcac915392d8e389e9772
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: robinsh
+ms.openlocfilehash: 945b02003a443c04e692fdc06ca5714de362d074
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399365"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883082"
 ---
-# <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Ontwikkelen voor mobiele apparaten met behulp van Azure IoT SDK 's
+# <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Ontwikkel voor mobiele apparaten met Azure IoT Sdk's
 
-Dingen die u in de praktijk kunnen verwijzen naar een breed scala aan apparaten met verschillende mogelijkheden: sensoren, microcontrollers, slimme apparaten, industriële gateways en zelfs mobiele apparaten.  Een mobiel apparaat mag een IoT-apparaat, waar deze apparaat-naar-cloud telemetrie wordt verzonden en beheerd door de cloud.  Het uitvoeren van een back-end-service-toepassing die andere IoT-apparaten worden beheerd apparaat kan ook zijn.  In beide gevallen [Azure IoT Hub SDK's](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) kan worden gebruikt voor het ontwikkelen van toepassingen die voor mobiele apparaten werken.  
+Dingen in de Internet of Things kunnen verwijzen naar een breed scala aan apparaten met verschillende mogelijkheden: Sens oren, micro controllers, smart-apparaten, industriële gateways en zelfs mobiele apparaten.  Een mobiel apparaat kan een IoT-apparaat zijn, waarbij het apparaat-naar-Cloud-telemetrie wordt verzonden en door de Cloud wordt beheerd.  Het kan ook het apparaat met een back-end-service toepassing zijn, waarmee andere IoT-apparaten worden beheerd.  In beide gevallen kunnen [Azure IOT hub sdk's](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) worden gebruikt voor het ontwikkelen van toepassingen die geschikt zijn voor mobiele apparaten.  
 
-## <a name="develop-for-native-ios-platform"></a>Ontwikkelen voor systeemeigen iOS-platform
+## <a name="develop-for-native-ios-platform"></a>Ontwikkelen voor systeem eigen iOS-platform
 
-Azure IoT Hub SDK's bieden ondersteuning voor systeemeigen iOS-platform via C-SDK van Azure IoT Hub.  U kunt deze beschouwen als een iOS-SDK die u in uw Swift of Objective C XCode-project opnemen kunt.  Er zijn twee manieren waarop u met de C-SDK voor iOS:
+Azure IoT Hub Sdk's bieden systeem eigen iOS-platform ondersteuning via Azure IoT Hub C SDK.  U kunt dit beschouwen als een iOS-SDK die u kunt opnemen in uw SWIFT-of objectief C XCode-project.  Er zijn twee manieren om de C SDK te gebruiken op iOS:
 
-* De CocoaPod-bibliotheken in XCode-project rechtstreeks gebruiken.  
-* De broncode voor C-SDK downloaden en bouwen voor iOS-platform na de [bouwen instructie](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) voor MacOS.  
+* Gebruik de CocoaPod-bibliotheken in XCode-project rechtstreeks.  
+* Down load de bron code voor C SDK en bouwt voor het iOS-platform volgens de [Build-instructie](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) voor MacOS.  
 
-Azure IoT Hub C-SDK is geschreven in C99 voor maximale plaatsingsmogelijkheden op verschillende platforms.  De overzetten proces omvat het schrijven van een thin acceptatie-laag voor de platform-specifieke onderdelen, die u hier kunt vinden voor [iOS](https://github.com/Azure/azure-c-shared-utility/tree/master/pal/ios-osx).  De functies in de C-SDK kunnen worden gebruikt op iOS-platform, met inbegrip van de Azure IoT Hub-primitieven ondersteund en SDK-specifieke functies zoals opnieuw proberen het beleid voor netwerk-betrouwbaarheid.  De interface voor iOS SDK is ook vergelijkbaar met de interface voor C-SDK van Azure IoT Hub.  
+Azure IoT Hub C SDK is in C99 geschreven voor een maximale portabiliteit voor verschillende platforms.  Het poort proces omvat het schrijven van een smalle acceptatie laag voor de platformspecifieke onderdelen, die hier kan worden gevonden voor [IOS](https://github.com/Azure/azure-c-shared-utility/tree/master/pal/ios-osx).  De functies van de C SDK kunnen worden gebruikt op iOS-platform, met inbegrip van de Azure IoT Hub primitieven ondersteunde en SDK-specifieke functies, zoals beleid voor opnieuw proberen voor de betrouw baarheid van het netwerk.  De interface voor iOS SDK is ook vergelijkbaar met de interface voor Azure IoT Hub C SDK.  
 
-Deze documentatie helpen bij het ontwikkelen van een, apparaattoepassing of service-toepassing op een iOS-apparaat:
+In deze documentatie wordt uitgelegd hoe u een toepassings-of service toepassing op een iOS-apparaat kunt ontwikkelen:
 
-* [Snelstart: Telemetrie verzenden vanaf een apparaat naar een IoT hub](quickstart-send-telemetry-ios.md)  
-* [Berichten verzenden vanuit de cloud naar uw apparaat met IoT hub](iot-hub-ios-swift-c2d.md) 
+* [Snelstart: Telemetrie van een apparaat naar een IoT-hub verzenden](quickstart-send-telemetry-ios.md)  
+* [Berichten vanuit de Cloud naar uw apparaat verzenden met IoT hub](iot-hub-ios-swift-c2d.md) 
 
-### <a name="develop-with-azure-iot-hub-cocoapod-libraries"></a>Ontwikkelen met Azure IoT Hub CocoaPod bibliotheken
+### <a name="develop-with-azure-iot-hub-cocoapod-libraries"></a>Ontwikkelen met Azure IoT Hub CocoaPod-bibliotheken
 
-Azure IoT Hub SDK's-releases een reeks CocoaPod Objective-C-bibliotheken voor iOS-ontwikkeling.  Zie voor de meest recente lijst CocoaPod bibliotheken [CocoaPods voor Microsoft Azure IoT](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/ios/CocoaPods.md).  Zodra de relevante bibliotheken zijn opgenomen in uw XCode-project, zijn er twee manieren om te schrijven met dat IOT Hub gerelateerde code:
+Met Azure IoT Hub Sdk's wordt een set van objectief C CocoaPod-bibliotheken voor iOS-ontwikkeling vrijgegeven.  Zie [CocoaPods voor Microsoft Azure IOT voor](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/ios/CocoaPods.md)een overzicht van de meest recente lijst met CocoaPod-bibliotheken.  Zodra de relevante bibliotheken zijn opgenomen in uw XCode-project, zijn er twee manieren om IoT Hub gerelateerde code te schrijven:
 
-* Objective-C-functie: Als uw project is geschreven in Objective-C, kunt u rechtstreeks API's aanroepen vanuit de C-SDK van Azure IoT Hub.  Als uw project is geschreven in Swift, kunt u bellen `@objc func` voor het maken van uw functie en gaat u verder met het schrijven van alle logics met betrekking tot Azure IoT Hub met behulp van C of Objective-C-code.  Een aantal voorbeelden van beide kan worden gevonden in de [voorbeeldopslagplaats](https://github.com/Azure-Samples/azure-iot-samples-ios).  
+* Doel functie C: Als uw project is geschreven in doel-C, kunt u Api's rechtstreeks aanroepen vanuit Azure IoT Hub C SDK.  Als uw project in SWIFT is geschreven, kunt u aanroepen `@objc func` voordat u de functie maakt en alle logica met betrekking tot Azure-IOT hub met c of de code van de doel groep c te schrijven.  Een reeks voor beelden die beide worden weer gegeven, vindt u in de voor [beeld-opslag plaats](https://github.com/Azure-Samples/azure-iot-samples-ios).  
 
-* C-voorbeelden opnemen: Als u een toepassing C-apparaat hebt geschreven, kunt u ernaar kunt verwijzen rechtstreeks in uw XCode-project:
-    * Het bestand sample.c toevoegen aan uw XCode-project in XCode.  
-    * De headerbestand toevoegen aan uw afhankelijkheid.  Een header-bestand is opgenomen in de [voorbeeldopslagplaats](https://github.com/Azure-Samples/azure-iot-samples-ios) als voorbeeld. Voor meer informatie gaat u naar de documentatiepagina van Apple voor [Objective-C](https://developer.apple.com/documentation/objectivec).
+* C-voor beelden opnemen: Als u een C Device-toepassing hebt geschreven, kunt u deze rechtstreeks in uw XCode-project raadplegen:
+    * Voeg het voor beeld. c-bestand toe aan uw XCode-project vanuit XCode.  
+    * Voeg het header-bestand toe aan uw afhankelijkheid.  Een header-bestand wordt als voor beeld opgenomen in de voor [beeld-opslag plaats](https://github.com/Azure-Samples/azure-iot-samples-ios) . Ga voor meer informatie naar de documentatie pagina van Apple voor [doel stelling-C](https://developer.apple.com/documentation/objectivec).
 
 ## <a name="develop-for-android-platform"></a>Ontwikkelen voor Android-platform
-Azure IoT Hub Java SDK biedt ondersteuning voor Android-platform.  Voor de specifieke API-versie getest, gaat u naar onze [platform ondersteuningspagina](iot-hub-device-sdk-platform-support.md) voor de meest recente update.
+Azure IoT Hub Java SDK ondersteunt Android-platform.  Voor de geteste API-versie gaat u naar onze ondersteunings pagina voor het [platform](iot-hub-device-sdk-platform-support.md) voor de meest recente update.
 
-Deze documentatie helpen bij het ontwikkelen van een, apparaattoepassing of service-toepassing op een Android-apparaat met behulp van Gradle- en Android Studio:
+Deze documenten begeleiden u bij het ontwikkelen van een toepassings-of service toepassing op een Android-apparaat met behulp van Gradle en Android Studio:
 
-* [Snelstart: Telemetrie verzenden vanaf een apparaat naar een IoT hub](quickstart-send-telemetry-android.md)  
+* [Snelstart: Telemetrie van een apparaat naar een IoT-hub verzenden](quickstart-send-telemetry-android.md)  
 * [Snelstart: Een apparaat beheren](quickstart-control-device-android.md) 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [IoT Hub REST API-naslaginformatie](https://docs.microsoft.com/rest/api/iothub/)
-* [Azure IoT C SDK-broncode](https://github.com/Azure/azure-iot-sdk-c)
+* [Naslag informatie over IoT Hub REST API](https://docs.microsoft.com/rest/api/iothub/)
+* [Azure IoT C SDK-bron code](https://github.com/Azure/azure-iot-sdk-c)

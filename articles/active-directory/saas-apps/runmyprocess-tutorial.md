@@ -1,274 +1,191 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met RunMyProcess | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en RunMyProcess.
+title: 'Zelfstudie: Integratie met RunMyProcess Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en RunMyProcess.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d31f7395-048b-4a61-9505-5acf9fc68d9b
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/12/2017
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfef1371b7ac61712c0f70efd48c0e791c4c729d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 46c31a209e8521b24e7f604dbe630f689fca484e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60517879"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880372"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-runmyprocess"></a>Zelfstudie: Azure Active Directory-integratie met RunMyProcess
+# <a name="tutorial-integrate-runmyprocess-with-azure-active-directory"></a>Zelfstudie: RunMyProcess integreren met Azure Active Directory
 
-In deze zelfstudie leert u hoe u RunMyProcess integreren met Azure Active Directory (Azure AD).
+In deze zelf studie leert u hoe u RunMyProcess integreert met Azure Active Directory (Azure AD). Wanneer u RunMyProcess integreert met Azure AD, kunt u het volgende doen:
 
-RunMyProcess integreren met Azure AD biedt u de volgende voordelen:
+* Controle in azure AD die toegang heeft tot RunMyProcess.
+* Zorg ervoor dat uw gebruikers automatisch worden aangemeld bij RunMyProcess met hun Azure AD-accounts.
+* Beheer uw accounts op één centrale locatie: de Azure Portal.
 
-- U kunt beheren in Azure AD die toegang tot RunMyProcess heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij RunMyProcess (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)voor meer informatie over SaaS-app-integratie met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met RunMyProcess, moet u de volgende items:
+U hebt de volgende items nodig om aan de slag te gaan:
 
-- Een Azure AD-abonnement
-- Een RunMyProcess eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u een proefversie van één maand hier downloaden:[proefversie aanbieding](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/)aanvragen.
+* RunMyProcess-abonnement dat is ingeschakeld voor eenmalige aanmelding (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. RunMyProcess uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelf studie configureert en test u Azure AD SSO in een test omgeving.
 
-## <a name="adding-runmyprocess-from-the-gallery"></a>RunMyProcess uit de galerie toe te voegen
-Voor het configureren van de integratie van RunMyProcess in Azure AD, moet u RunMyProcess uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* RunMyProcess ondersteunt door **SP** GEÏNITIEERDe SSO
 
-**Als u wilt toevoegen RunMyProcess uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-runmyprocess-from-the-gallery"></a>RunMyProcess toevoegen uit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Als u de integratie van RunMyProcess in azure AD wilt configureren, moet u RunMyProcess uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![Active Directory][1]
+1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
+1. Selecteer de **Azure Active Directory** -service in het navigatie deel venster aan de linkerkant.
+1. Ga naar **bedrijfs toepassingen** en selecteer **alle toepassingen**.
+1. Selecteer **nieuwe toepassing**om een nieuwe toepassing toe te voegen.
+1. Typ in de sectie **toevoegen vanuit de galerie** **RunMyProcess** in het zoekvak.
+1. Selecteer **RunMyProcess** uit het paneel resultaten en voeg vervolgens de app toe. Wacht een paar seconden wanneer de app aan uw Tenant is toegevoegd.
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-    ![Toepassingen][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+Azure AD SSO met RunMyProcess configureren en testen met behulp van een test gebruiker met de naam **B. Simon**. Voor het werken met SSO moet u een koppelings relatie tot stand brengen tussen een Azure AD-gebruiker en de bijbehorende gebruiker in RunMyProcess.
 
-    ![Toepassingen][3]
+Als u Azure AD SSO wilt configureren en testen met RunMyProcess, voltooit u de volgende bouw stenen:
 
-1. Typ in het zoekvak **RunMyProcess**.
+1. **[Configureer Azure AD SSO](#configure-azure-ad-sso)** -om uw gebruikers in staat te stellen deze functie te gebruiken.
+2. **[RUNMYPROCESS SSO configureren](#configure-runmyprocess-sso)** : voor het configureren van de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
+3. **[Een Azure AD-test gebruiker maken](#create-an-azure-ad-test-user)** : u kunt eenmalige aanmelding voor Azure AD testen met B. Simon.
+4. **[Wijs de Azure AD-test gebruiker](#assign-the-azure-ad-test-user)** toe, zodat B. Simon de eenmalige aanmelding van Azure AD kan gebruiken.
+5. **[Maak een RunMyProcess-test gebruiker](#create-runmyprocess-test-user)** -om een equivalent van B. Simon in RunMyProcess te hebben dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
+6. **[SSO testen](#test-sso)** : om te controleren of de configuratie werkt.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/runmyprocess-tutorial/tutorial_runmyprocess_search.png)
+### <a name="configure-azure-ad-sso"></a>Azure AD SSO configureren
 
-1. Selecteer in het deelvenster resultaten **RunMyProcess**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+Volg deze stappen om Azure AD SSO in te scha kelen in de Azure Portal.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/runmyprocess-tutorial/tutorial_runmyprocess_addfromgallery.png)
+1. Zoek in het [Azure Portal](https://portal.azure.com/)op de pagina Toepassings integratie van **RunMyProcess** de sectie **beheren** en selecteer **eenmalige aanmelding**.
+1. Selecteer op de pagina **Eén aanmeldings methode selecteren** de optie **SAML**.
+1. Klik op de pagina **eenmalige aanmelding met SAML instellen** op het pictogram bewerken/pen voor **eenvoudige SAML-configuratie** om de instellingen te bewerken.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met RunMyProcess op basis van een testgebruiker 'Julia steen' genoemd.
+   ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in RunMyProcess is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in RunMyProcess tot stand worden gebracht.
+1. Voer in de sectie **basis configuratie van SAML** de waarden in voor de volgende velden:
 
-In RunMyProcess, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://live.runmyprocess.com/live/<tenant id>`
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met RunMyProcess, moet u de volgende bouwstenen voltooien:
+    > [!NOTE]
+    > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met het ondersteunings [team van RunMyProcess](mailto:support@runmyprocess.com) om de waarde op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker RunMyProcess](#creating-a-runmyprocess-test-user)**  : als u wilt een equivalent van Britta Simon in RunMyProcess die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. Zoek op de pagina **eenmalige aanmelding met SAML instellen** , in de sectie **SAML-handtekening certificaat** , naar **certificaat (base64)** en selecteer **downloaden** om het certificaat te downloaden en op uw computer op te slaan.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+    ![De downloadkoppeling certificaat](common/certificatebase64.png)
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing RunMyProcess.
+1. Op de sectie **RunMyProcess instellen** kopieert u de gewenste URL ('s) op basis van uw vereiste.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met RunMyProcess, moet u de volgende stappen uitvoeren:**
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-1. In de Azure-portal op de **RunMyProcess** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+### <a name="configure-runmyprocess-sso"></a>RunMyProcess SSO configureren
 
-    ![Eenmalige aanmelding configureren][4]
+1. Meld u in een ander browser venster aan bij uw RunMyProcess-Tenant als beheerder.
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/runmyprocess-tutorial/tutorial_runmyprocess_samlbase.png)
+1. Klik in het navigatie venster aan de linkerkant op **account** en selecteer **configuratie**.
 
-1. Op de **RunMyProcess domein en URL's** sectie, voert u de volgende stappen uit:
-
-    ![Eenmalige aanmelding configureren](./media/runmyprocess-tutorial/tutorial_runmyprocess_url.png)
-
-    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://live.runmyprocess.com/live/<tenant id>`
-
-    > [!NOTE] 
-    > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [RunMyProcess Client ondersteuningsteam](mailto:support@runmyprocess.com) om de waarde. 
-
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
-
-    ![Eenmalige aanmelding configureren](./media/runmyprocess-tutorial/tutorial_runmyprocess_certificate.png) 
-
-1. Klik op **opslaan** knop.
-
-    ![Eenmalige aanmelding configureren](./media/runmyprocess-tutorial/tutorial_general_400.png)
-
-1. Op de **RunMyProcess configuratie** sectie, klikt u op **configureren RunMyProcess** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
-
-    ![Eenmalige aanmelding configureren](./media/runmyprocess-tutorial/tutorial_runmyprocess_configure.png) 
-
-1. In een ander browservenster aanmelden voor uw tenant RunMyProcess als beheerder.
-
-1. Klik in het linkernavigatievenster, **Account** en selecteer **configuratie**.
-   
     ![Eenmalige aanmelding aan app-zijde configureren](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
 
-1. Ga naar **verificatiemethode** sectie en de onderstaande stappen uitvoeren:
-   
+1. Ga naar de sectie **verificatie methode** en voer de onderstaande stappen uit:
+
     ![Eenmalige aanmelding aan app-zijde configureren](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
 
-    a. Als **methode**, selecteer **eenmalige aanmelding met Samlv2**. 
+    a. Selecteer als **methode** **SSO met Samlv2**.
 
-    b. In de **SSO omleiden** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML**, die u hebt gekopieerd vanuit Azure portal.
+    b. Plak in het tekstvak **SSO** -omleiding de waarde van de **aanmeldings-URL**die u van Azure Portal hebt gekopieerd.
 
-    c. In de **afmelden omleiden** tekstvak, plak de waarde van **afmelding URL**, die u hebt gekopieerd vanuit Azure portal.
+    c. Plak de waarde van de afmeldings- **URL**die u van Azure Portal hebt gekopieerd in het tekstvak afleiding van afmeldingen.
 
-    d. In de **indeling van de Id** tekstvak typt u de waarde van **indeling van de id** als **urn: oasis: namen: tc: SAML:1.1:nameid-indeling: emailAddress**.
+    d. Typ in het tekstvak **naam-ID-indeling** de waarde van de **indeling naam-id** als **urn: Oasis: names: TC: SAML: 1.1: NameID-indeling: emailAddress**.
 
-    e. Kopieer de inhoud van het gedownloade certificaat-bestand en plak deze in de **certificaat** tekstvak. 
- 
-    f. Klik op **opslaan** pictogram.
+    e. Open het gedownloade certificaat bestand van Azure Portal in Klad blok, kopieer de inhoud van het certificaat bestand en plak het in het tekstvak **certificaat** .
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    f. Klik op pictogram **Opslaan** .
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-![Azure AD-gebruiker maken][100]
+In deze sectie maakt u een test gebruiker in de Azure Portal met de naam B. Simon.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+1. Selecteer in het linkerdeel venster van de Azure Portal **Azure Active Directory**, selecteer **gebruikers**en selecteer vervolgens **alle gebruikers**.
+1. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
+1. Voer de volgende stappen uit in de eigenschappen van de **gebruiker** :
+   1. Voer in het veld **Naam** `B.Simon` in.  
+   1. Voer in het veld **gebruikers naam** het username@companydomain.extensionin. Bijvoorbeeld `B.Simon@contoso.com`.
+   1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
+   1. Klik op **Create**.
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-    ![Het maken van een Azure AD-testgebruiker](./media/runmyprocess-tutorial/create_aaduser_01.png) 
+In deze sectie schakelt u B. Simon in om eenmalige aanmelding van Azure te gebruiken door toegang te verlenen aan RunMyProcess.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/runmyprocess-tutorial/create_aaduser_02.png) 
+1. Selecteer in het Azure Portal **bedrijfs toepassingen**en selecteer vervolgens **alle toepassingen**.
+1. Selecteer in de lijst toepassingen de optie **RunMyProcess**.
+1. Ga op de pagina overzicht van de app naar de sectie **beheren** en selecteer **gebruikers en groepen**.
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/runmyprocess-tutorial/create_aaduser_03.png) 
+   ![De koppeling 'Gebruikers en groepen'](common/users-groups-blade.png)
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/runmyprocess-tutorial/create_aaduser_04.png) 
+1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in het dialoog venster **toewijzing toevoegen** .
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
+    ![De koppeling gebruiker toevoegen](common/add-assign-user.png)
 
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
+1. Selecteer in het dialoog venster **gebruikers en groepen** **B. Simon** van de lijst gebruikers en klik vervolgens op de knop **selecteren** onder aan het scherm.
+1. Als u een wille keurige rol verwacht in de SAML-bewering, selecteert u in het dialoog venster **rol selecteren** de juiste rol voor de gebruiker in de lijst en klikt u op de knop **selecteren** onder aan het scherm.
+1. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+### <a name="create-runmyprocess-test-user"></a>RunMyProcess-test gebruiker maken
 
-    d. Klik op **Create**.
- 
-### <a name="creating-a-runmyprocess-test-user"></a>Het maken van een testgebruiker RunMyProcess
-
-Als u wilt dat Azure AD-gebruikers zich aanmelden bij RunMyProcess, moeten ze worden ingericht voor RunMyProcess. In het geval van RunMyProcess is inrichten een handmatige taak.
+Om ervoor te zorgen dat Azure AD-gebruikers zich kunnen aanmelden bij RunMyProcess, moeten ze worden ingericht in RunMyProcess. In het geval van RunMyProcess is inrichting een hand matige taak.
 
 **Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
 
-1. Meld u aan bij uw bedrijf RunMyProcess site aan als beheerder.
+1. Meld u als beheerder aan bij de RunMyProcess-bedrijfs site.
 
-1. Klik op **Account** en selecteer **gebruikers** in het linkernavigatievenster, en klik op **nieuwe gebruiker**.
-   
+1. Klik op **account** en selecteer **gebruikers** in het navigatie venster aan de linkerkant en klik vervolgens op **nieuwe gebruiker**.
+
     ![New User](./media/runmyprocess-tutorial/tutorial_runmyprocess_003.png "New User")
 
-1. In de **gebruikersinstellingen** sectie, voert u de volgende stappen uit:
-   
-    ![Profile](./media/runmyprocess-tutorial/tutorial_runmyprocess_004.png "Profile") 
+1. Voer de volgende stappen uit in de sectie **gebruikers instellingen** :
+
+    ![Profile](./media/runmyprocess-tutorial/tutorial_runmyprocess_004.png "Profile")
   
-    a. Type de **naam** en **e** van een geldige Azure AD-account die u inrichten in de bijbehorende tekstvakken wilt. 
+    a. Typ de **naam** en het **e-mail adres** van een geldig Azure ad-account dat u wilt inrichten in de bijbehorende tekst vakken.
 
-    b. Selecteer een **IDE taal**, **taal**, en **profiel**. 
+    b. Selecteer een **IDE-taal**,- **taal**en- **profiel**.
 
-    c. Selecteer **account maken e-mailbericht verzenden naar mij**. 
+    c. Selecteer **e-mail voor het maken van een account naar mij verzenden**.
 
     d. Klik op **Opslaan**.
-   
-    >[!NOTE]
-    >U kunt elke andere RunMyProcess gebruiker account hulpmiddelen voor het maken of API's geleverd door RunMyProcess voor het inrichten van Azure Active Directory-gebruikersaccounts. 
-    > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+    > [!NOTE]
+    > U kunt alle andere hulpprogram ma's voor het maken van RunMyProcess-gebruikers accounts of Api's die worden geleverd door RunMyProcess, gebruiken om Azure Active Directory gebruikers accounts in te richten.
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan RunMyProcess.
+### <a name="test-sso"></a>SSO testen 
 
-![Gebruiker toewijzen][200] 
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-**Als u wilt Britta Simon aan RunMyProcess toewijst, moet u de volgende stappen uitvoeren:**
-
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
-
-    ![Gebruiker toewijzen][201] 
-
-1. Selecteer in de lijst met toepassingen, **RunMyProcess**.
-
-    ![Eenmalige aanmelding configureren](./media/runmyprocess-tutorial/tutorial_runmyprocess_app.png) 
-
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
-
-    ![Gebruiker toewijzen][202] 
-
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Gebruiker toewijzen][203]
-
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
-
-Het doel van deze sectie is het testen van de configuratie van uw Azure AD-eenmalige aanmelding via het toegangsvenster.
-
-Wanneer u op de tegel RunMyProcess in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing RunMyProcess.
+Wanneer u op de tegel RunMyProcess in het toegangs venster klikt, moet u automatisch worden aangemeld bij de RunMyProcess waarvoor u SSO hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/runmyprocess-tutorial/tutorial_general_01.png
-[2]: ./media/runmyprocess-tutorial/tutorial_general_02.png
-[3]: ./media/runmyprocess-tutorial/tutorial_general_03.png
-[4]: ./media/runmyprocess-tutorial/tutorial_general_04.png
-
-[100]: ./media/runmyprocess-tutorial/tutorial_general_100.png
-
-[200]: ./media/runmyprocess-tutorial/tutorial_general_200.png
-[201]: ./media/runmyprocess-tutorial/tutorial_general_201.png
-[202]: ./media/runmyprocess-tutorial/tutorial_general_202.png
-[203]: ./media/runmyprocess-tutorial/tutorial_general_203.png
-
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

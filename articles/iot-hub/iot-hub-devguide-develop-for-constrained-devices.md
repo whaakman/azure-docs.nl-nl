@@ -1,86 +1,86 @@
 ---
-title: Azure IoT Hub ontwikkelen voor beperkte apparaten met behulp van C-SDK voor IoT Hub | Microsoft Docs
-description: Handleiding voor ontwikkelaars - richtlijnen voor het ontwikkelen met Azure IoT SDK's voor beperkte apparaten.
-author: yzhong94
+title: Azure IoT Hub ontwikkelen voor beperkte apparaten met behulp van IoT Hub C SDK | Microsoft Docs
+description: Hand leiding voor ontwikkel aars-richt lijnen voor het ontwikkelen met Azure IoT Sdk's voor beperkte apparaten.
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.author: yizhon
-ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: robinsh
+ms.openlocfilehash: d69fe6b845d3af04e42ee91daa9359dcb9a88fc5
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61320869"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880973"
 ---
-# <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Ontwikkelen voor beperkte apparaten met behulp van Azure IoT C SDK
+# <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Ontwikkelen voor beperkte apparaten met behulp van de Azure IoT C-SDK
 
-Azure IoT Hub C-SDK is geschreven in ANSI C (C99), waardoor het geschikt zijn voor het uitvoeren van een aantal verschillende platformen met weinig ruimte voor schijf en het geheugen. De aanbevolen hoeveelheid RAM is ten minste 64 KB, maar het geheugengebruik van de exacte is afhankelijk van het protocol dat wordt gebruikt, het aantal geopende verbindingen, evenals het platform dat is gericht.
+De Azure IoT Hub C SDK is geschreven in ANSI C (C99), waardoor het geschikt is voor het uitvoeren van verschillende platforms met kleine schijf-en geheugen ruimte. Het aanbevolen RAM-geheugen is ten minste 64 KB, maar de exacte geheugen capaciteit is afhankelijk van het gebruikte protocol, het aantal geopende verbindingen en het doel platform.
 > [!NOTE]
-> * Azure IoT C SDK publiceert regelmatig informatie over het verbruik van resources om te helpen bij de ontwikkeling.  Ga naar onze [GitHub-opslagplaats](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) en bekijk de meest recente benchmark.
+> * De Azure IoT C SDK publiceert regel matig informatie over het verbruik van resources om te helpen bij het ontwikkelen.  Ga naar onze [github-opslag plaats](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) en Bekijk de nieuwste benchmark versie.
 >
 
-C-SDK is beschikbaar in de vorm van apt-get, NuGet en MBED pakket. Als u wilt richten op beperkte apparaten, kunt u de SDK voor uw doelplatform lokaal bouwen. Deze documentatie wordt gedemonstreerd hoe u bepaalde functies voor het verkleinen van het bereik van het gebruik van de C-SDK verwijderen [cmake](https://cmake.org/). Deze documentatie wordt bovendien de aanbevolen procedure programmeermodellen voor het werken met beperkte apparaten beschreven.
+C SDK is beschikbaar in pakket vorm van apt-get, NuGet en MBED. Als u beperkte apparaten wilt richten, kunt u de SDK lokaal maken voor uw doel platform. In deze documentatie ziet u hoe u bepaalde functies kunt verwijderen om de footprint van de C SDK te verkleinen met behulp van [cmake](https://cmake.org/). Daarnaast wordt in deze documentatie de best practice-programmeer modellen besproken voor het werken met beperkte apparaten.
 
-## <a name="building-the-c-sdk-for-constrained-devices"></a>Het bouwen van de C-SDK voor beperkte apparaten
+## <a name="building-the-c-sdk-for-constrained-devices"></a>De C SDK bouwen voor beperkte apparaten
 
-Bouw de C-SDK voor beperkte apparaten.
+Bouw de C SDK voor beperkte apparaten.
 
 ### <a name="prerequisites"></a>Vereisten
 
-Volg deze [handleiding voor het instellen van C-SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) om voor te bereiden uw ontwikkelomgeving voor het bouwen van de C-SDK. Voordat u met de stap voor het bouwen met cmake krijgt, kunt u cmake-vlaggen als u wilt verwijderen van ongebruikte functies aanroepen.
+Volg deze [C SDK-installatie handleiding](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) om uw ontwikkel omgeving voor te bereiden voor het bouwen van de C-SDK. Voordat u naar de stap voor het maken van cmake gaat, kunt u cmake-vlaggen aanroepen om ongebruikte onderdelen te verwijderen.
 
-### <a name="remove-additional-protocol-libraries"></a>Verwijder aanvullend protocol-bibliotheken
+### <a name="remove-additional-protocol-libraries"></a>Extra protocol bibliotheken verwijderen
 
-C-SDK ondersteunt vijf protocollen vandaag: MQTT, MQTT via WebSocket, AMQPs, AMQP via WebSocket en HTTPS. De meeste scenario's vereisen een tot twee protocollen die worden uitgevoerd op een client, daarom kunt u het protocol-bibliotheek die u niet gebruikt verwijderen uit de SDK. Als u meer informatie over het kiezen van het juiste communicatieprotocol voor uw scenario kunt u vinden in [kiest u een IoT Hub-communicatieprotocol](iot-hub-devguide-protocols.md). MQTT is bijvoorbeeld een lichte protocol dat vaak beter voor beperkte apparaten geschikt is.
+C SDK ondersteunt vandaag nog vijf protocollen: MQTT, MQTT via WebSocket, AMQPs, AMQP over WebSocket en HTTPS. De meeste scenario's vereisen een tot twee protocollen die worden uitgevoerd op een client. Daarom kunt u de Protocol bibliotheek die u niet gebruikt, verwijderen uit de SDK. Meer informatie over het kiezen van het juiste communicatie protocol voor uw scenario vindt u in [een IOT hub communicatie protocol kiezen](iot-hub-devguide-protocols.md). MQTT is bijvoorbeeld een licht gewicht protocol dat vaak beter geschikt is voor beperkte apparaten.
 
-U kunt de AMQP en HTTP-bibliotheken met de volgende cmake-opdracht verwijderen:
+U kunt de AMQP-en HTTP-bibliotheken verwijderen met de volgende cmake-opdracht:
 
 ```
 cmake -Duse_amqp=OFF -Duse_http=OFF <Path_to_cmake>
 ```
 
-### <a name="remove-sdk-logging-capability"></a>Mogelijkheid tot het vastleggen van de SDK verwijderen
+### <a name="remove-sdk-logging-capability"></a>De SDK-logboek functie verwijderen
 
-De C-SDK biedt uitgebreide logboekregistratie in om te helpen bij het opsporen van fouten. U kunt de logboekregistratiemogelijkheden voor de productieapparaten met de volgende cmake-opdracht verwijderen:
+De C SDK voorziet in uitgebreide logboek registratie om u te helpen bij het opsporen van fouten. U kunt de logboek functie voor productie apparaten verwijderen met de volgende cmake-opdracht:
 
 ```
 cmake -Dno_logging=OFF <Path_to_cmake>
 ```
 
-### <a name="remove-upload-to-blob-capability"></a>Uploaden naar de blobopslag mogelijkheid verwijderen
+### <a name="remove-upload-to-blob-capability"></a>Upload naar BLOB-mogelijkheid verwijderen
 
-U kunt grote bestanden uploaden naar Azure Storage met behulp van de ingebouwde mogelijkheden in de SDK. Azure IoT Hub fungeert als een functie voor berichtverzending naar een gekoppeld Azure Storage-account. U kunt deze functie gebruiken om media-bestanden, grote telemetrie batches en logboeken te verzenden. U kunt meer informatie krijgen [uploaden van bestanden met IoT Hub](iot-hub-devguide-file-upload.md). Als uw toepassing geen deze functionaliteit is vereist, kunt u deze functie met de volgende cmake-opdracht verwijderen:
+U kunt grote bestanden uploaden naar Azure Storage met behulp van de ingebouwde mogelijkheid van de SDK. Azure IoT Hub fungeert als een verzender naar een gekoppeld Azure Storage-account. U kunt deze functie gebruiken voor het verzenden van media bestanden, grote telemetriegegevens en Logboeken. U kunt meer informatie krijgen over het [uploaden van bestanden met IOT hub](iot-hub-devguide-file-upload.md). Als uw toepassing deze functionaliteit niet vereist, kunt u deze functie verwijderen met de volgende cmake-opdracht:
 
 ```
 cmake -Ddont_use_uploadtoblob=ON <Path_to_cmake>
 ```
 
-### <a name="running-strip-on-linux-environment"></a>Actieve strook/lijn op Linux-omgeving
+### <a name="running-strip-on-linux-environment"></a>Strip op Linux-omgeving wordt uitgevoerd
 
-Als u de binaire uitgevoerd op Linux-systeem, kunt u gebruikmaken van de [opdracht van strook /](https://en.wikipedia.org/wiki/Strip_(Unix)) om de grootte van de laatste aanvraag na het compileren van te beperken.
+Als uw binaire bestanden op een Linux-systeem worden uitgevoerd, kunt u de [strook opdracht](https://en.wikipedia.org/wiki/Strip_(Unix)) gebruiken om de grootte van de uiteindelijke toepassing na het compileren te verkleinen.
 
 ```
 strip -s <Path_to_executable>
 ```
 
-## <a name="programming-models-for-constrained-devices"></a>Programmeringsmodellen voor beperkte apparaten
+## <a name="programming-models-for-constrained-devices"></a>Programmeer modellen voor beperkte apparaten
 
-Vervolgens kijken programmeermodellen voor beperkte apparaten genoemd.
+Bekijk vervolgens de programmeer modellen voor beperkte apparaten.
 
-### <a name="avoid-using-the-serializer"></a>Vermijd het gebruik van de Serializer
+### <a name="avoid-using-the-serializer"></a>Vermijd het gebruik van de Serialisatiefunctie
 
-De C-SDK is een optionele [C SDK serializer](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer), waarmee u declaratieve toewijzingstabellen voor het definiëren van methoden en apparaatdubbeleigenschappen gebruiken. De serializer is ontworpen om ontwikkeling te vereenvoudigen, maar het voegt overhead, die is niet optimaal voor beperkte apparaten. In dit geval primitieve client-API's kunt u overwegen en JSON parseren met behulp van een lichtgewicht parser zoals [parson](https://github.com/kgabis/parson).
+De C SDK bevat een optionele [C SDK serializer](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer), waarmee u declaratieve toewijzings tabellen kunt gebruiken om methoden en dubbele eigenschappen van het apparaat te definiëren. De serialisatiefunctie is ontworpen om de ontwikkeling te vereenvoudigen, maar voegt overhead toe, wat niet optimaal is voor beperkte apparaten. In dit geval kunt u overwegen primitieve client-Api's te gebruiken en JSON te parseren met behulp van een licht gewicht parser, zoals [Parson](https://github.com/kgabis/parson).
 
-### <a name="use-the-lower-layer-ll"></a>Gebruik de onderste laag (_LLE_)
+### <a name="use-the-lower-layer-_ll_"></a>De lagere laag (_ll_) gebruiken
 
-De C-SDK biedt ondersteuning voor twee programmeermodellen. Een set API's met heeft een _LLE_ infix, die staat voor de laag. Deze reeks API's is lichter gewicht en kan niet instellen werkthreads, wat betekent dat de gebruiker moet handmatig instellen voor het plannen. Bijvoorbeeld: voor de client van het apparaat, de _LLE_ API's vindt u in deze [headerbestand](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client_ll.h). 
+De C SDK ondersteunt twee programmeer modellen. Eén set heeft Api's met een _ll_ infix, die staat voor een lagere laag. Deze set Api's is lichter gewicht en er worden geen worker-threads gespind, wat betekent dat de gebruiker de planning hand matig moet beheren. De _ll_ -api's kunnen bijvoorbeeld voor de apparaatclient worden gevonden in dit [header-bestand](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client_ll.h). 
 
-Een andere set API's zonder dat de _LLE_ index heet de laag gemak, waar geen werkthread automatisch wordt genomen. Bijvoorbeeld, de laag voor uw gemak bedoeld; API's voor de apparaatclient kan worden gevonden in deze [IoT Device Client header-bestand](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client.h). Voor beperkte apparaten waar elke extra thread kan duren voordat een aanzienlijke hoeveelheid systeembronnen gebruikt, kunt u overwegen _LLE_ API's.
+Een andere set Api's zonder de _ll_ -index heet de laag van het gemak, waarbij een werk thread automatisch wordt. De gebruiks gemak-Api's voor de apparaatclient kunnen bijvoorbeeld worden gevonden in het header- [bestand](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client.h)van de client voor IOT-apparaten. Voor beperkte apparaten waarbij elke extra thread een aanzienlijk percentage systeem bronnen kan hebben, kunt u het gebruik van _ll_ api's overwegen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor meer informatie over de architectuur van Azure IoT C SDK:
--   [Azure IoT C SDK-broncode](https://github.com/Azure/azure-iot-sdk-c/)
--   [Azure IoT device-SDK voor C-Inleiding](iot-hub-device-sdk-c-intro.md)
+Meer informatie over de Azure IoT C SDK-architectuur:
+-   [Azure IoT C SDK-bron code](https://github.com/Azure/azure-iot-sdk-c/)
+-   [Azure IoT Device SDK voor C-Inleiding](iot-hub-device-sdk-c-intro.md)

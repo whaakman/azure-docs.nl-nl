@@ -1,29 +1,29 @@
 ---
-title: Azure VM-grootten voor Windows - geheugen | Microsoft Docs
-description: Geeft een lijst van de verschillende geoptimaliseerd voor geheugen-grootten beschikbaar voor Windows virtuele machines in Azure. Bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals opslag en doorvoer netwerkbandbreedte voor grootten die in deze reeks.
+title: Azure VM-grootten voor Windows-geheugen | Microsoft Docs
+description: Geeft een lijst van de verschillende voor het geheugen geoptimaliseerde grootten die beschikbaar zijn voor virtuele Windows-machines in Azure. Bevat informatie over het aantal Vcpu's, gegevens schijven en Nic's en de opslag doorvoer en netwerk bandbreedte voor grootten in deze serie.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
-keywords: Isolatie van de virtuele machine, VM, isolatie, geïsoleerd geïsoleerd
+keywords: VM-isolatie, geïsoleerde VM, isolatie, geïsoleerd
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/15/2019
+ms.date: 08/08/2019
 ms.author: jonbeck
-ms.openlocfilehash: 5ee42b2028a9aa04250598e46ebd7b6b81d6a021
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: fb28e21e87fffdc5232a350f29cd3bbfa80de760
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710159"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884029"
 ---
-# <a name="memory-optimized-virtual-machine-sizes"></a>Grootten van virtuele machines geoptimaliseerd voor geheugen
+# <a name="memory-optimized-virtual-machine-sizes"></a>Grootte van virtuele machines geoptimaliseerd voor geheugen
 
 
 [!INCLUDE [virtual-machines-common-sizes-memory](../../../includes/virtual-machines-common-sizes-memory.md)]
@@ -39,4 +39,4 @@ ms.locfileid: "67710159"
 - [Vorige generaties](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over hoe u [Azure compute units (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.
+Meer informatie over hoe [Azure Compute units (ACU)](acu.md) u kan helpen bij het vergelijken van de reken prestaties in azure-sku's.

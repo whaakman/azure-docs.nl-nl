@@ -1,6 +1,6 @@
 ---
-title: Integratie van Microsoft Azure met Oracle-Cloudinfrastructuur | Microsoft Docs
-description: Meer informatie over de oplossingen die Oracle-apps die zijn uitgevoerd op Microsoft Azure met databases in Oracle Cloud Infrastructure (OCI) integreren.
+title: Microsoft Azure integreren met Oracle-Cloud infrastructuur | Microsoft Docs
+description: Meer informatie over oplossingen voor het integreren van Oracle-apps die worden uitgevoerd op Microsoft Azure met data bases in Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
@@ -15,66 +15,66 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: fcdd46ea60ea53088ffacd7d13693b16a208d527
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 309c481c0ebf0e6061524a12356e67394e5db8d2
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707457"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880834"
 ---
-# <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oplossingen voor Oracle-toepassingen integreren van Microsoft Azure en Oracle Cloud-infrastructuur (preview)
+# <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oracle-toepassings oplossingen die Microsoft Azure en Oracle-Cloud infrastructuur integreren (preview-versie)
 
-Microsoft en Oracle werken samen voor lage latentie en hoge doorvoer cross-cloud-connectiviteit, zodat u kunt om te profiteren van het beste van beide clouds. 
+Micro soft en Oracle hebben een partnerschap voor de communicatie tussen verschillende Clouds met een lage latentie en een hoge door Voer, zodat u optimaal gebruik kunt maken van beide Clouds. 
 
-Met behulp van deze connectiviteit binnen de cloud, kunt u een toepassing met meerdere lagen om uit te voeren van uw database-laag op Oracle Cloud Infrastructure (OCI) en de toepassing en andere lagen op Microsoft Azure partitioneren. De ervaring is vergelijkbaar met die voor de gehele oplossing-stack in een enkele cloud. 
+Met deze cross-Cloud-verbinding kunt u een toepassing met meerdere lagen partitioneren om uw databaserol uit te voeren op een Oracle Cloud Infrastructure (OCI) en de toepassing en andere lagen op Microsoft Azure. De ervaring is vergelijkbaar met het uitvoeren van de volledige oplossings stack in één Cloud. 
 
 > [!IMPORTANT]
-> Deze cross-cloud-functionaliteit is momenteel in preview en sommige [gelden beperkingen](#preview-limitations). Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
+> Deze functionaliteit voor meerdere Clouds is momenteel beschikbaar als preview-versie en er [zijn enkele beperkingen van toepassing](#preview-limitations). Als u verbinding met een lage latentie tussen Azure en OCI wilt inschakelen, moet het Azure-abonnement eerst wit worden weer gegeven voor deze functie. U moet zich inschrijven voor het voor beeld door een e-mail oracleconnect@microsoft.com te verzenden naar met uw abonnements-id. U ontvangt een e-mailbevestiging zodra uw abonnement is geregistreerd. U kunt de mogelijkheid niet gebruiken totdat u een bevestigings-e-mail ontvangt. U kunt ook contact opnemen met uw micro soft-vertegenwoordiger om in te scha kelen voor deze preview. Deze preview is beschikbaar zonder service level agreement en mag niet worden gebruikt voor werk belastingen voor de productie. Bepaalde functies worden mogelijk niet ondersteund, zijn mogelijk beperkt of zijn mogelijk niet beschikbaar in alle Azure-locaties. Zie de [aanvullende gebruiks voorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor Microsoft Azure-voor beelden voor meer informatie. Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
 
-Als u geïnteresseerd bent in Oracle-oplossingen volledig op Azure-infrastructuur implementeren, Zie [Oracle VM-installatiekopieën en de implementatie ervan op Microsoft Azure](oracle-vm-solutions.md).
+Als u geïnteresseerd bent in het volledig implementeren van Oracle-oplossingen in de Azure-infra structuur, raadpleegt u [Oracle VM-installatie kopieën en de implementatie ervan op Microsoft Azure](oracle-vm-solutions.md).
 
 ## <a name="scenario-overview"></a>Overzicht van scenario's
 
-Cross-cloud-connectiviteit biedt een oplossing voor u van Oracle toonaangevende toepassingen en uw eigen aangepaste toepassingen uitvoeren op Azure virtual machines terwijl u tegelijkertijd profiteert van de voordelen van services in OCI gehoste database. 
+Connectiviteit tussen de Cloud biedt een oplossing voor het uitvoeren van toonaangevende toepassingen van Oracle en uw eigen aangepaste toepassingen, op virtuele machines van Azure, terwijl u profiteert van de voor delen van gehoste database services in OCI. 
 
-U in een configuratie met meerdere cloud uitvoeren kunt-toepassingen zijn:
+Toepassingen die u kunt uitvoeren in een configuratie met meerdere clouds zijn:
 
 * E-Business Suite
 * JD Edwards EnterpriseOne
 * PeopleSoft
-* Oracle Retail-toepassingen
-* Oracle Hyperion financieel beheer
+* Retail toepassingen van Oracle
+* Financieel beheer van Oracle Hyperion
 
-Het volgende diagram wordt een overzicht op hoog niveau van de oplossing voor verbonden. Voor het gemak toont het diagram alleen de toepassingslaag van een en een gegevenslaag. Afhankelijk van de toepassingsarchitectuur, kan uw oplossing meer lagen, zoals een weblaag opnemen in Azure. Zie de volgende secties voor meer informatie.
+Het volgende diagram is een overzicht op hoog niveau van de verbonden oplossing. Voor het gemak toont het diagram alleen een gegevenslaagtoepassing en een gegevenslaag. Afhankelijk van de toepassings architectuur kan uw oplossing extra lagen bevatten zoals een weblaag in Azure. Zie de volgende secties voor meer informatie.
 
-![Overzicht van de oplossing Azure OCI](media/oracle-oci-overview/crosscloud.png)
+![Overzicht van de Azure OCI-oplossing](media/oracle-oci-overview/crosscloud.png)
 
 ## <a name="preview-limitations"></a>Preview-beperkingen
 
-* Cross-cloud-connectiviteit in preview is beperkt tot de regio VS-Azure-Oost (VS-Oost) en de regio van OCI Ashburn (VS-ashburn-1).
+* Connectiviteit tussen de cloud in de preview-periode is beperkt tot de regio Azure-Oost (Oost) en de OCI Ashburn (US-Ashburn-1).
 
 ## <a name="networking"></a>Netwerken
 
-Zakelijke klanten kiezen vaak beheersleutel en workloads via meerdere clouds voor verschillende zakelijke en operationele redenen implementeren. Als u wilt beheersleutel, interconnect klanten cloudnetwerken met behulp van het internet, IPSec VPN of met behulp van de cloudprovider directe connectiviteit oplossing via uw on-premises netwerk. Cloudnetwerken elkaar, kan aanzienlijke investeringen in tijd, geld, ontwerp, inkoop, installatie, testen en bewerkingen vereisen. 
+Zakelijke klanten kiezen er vaak voor om werk belastingen te spreideneren en te implementeren voor verschillende Clouds en operationele redenen. Klanten verbinden Cloud netwerken via internet, IPSec VPN of via de directe connectiviteits oplossing van de Cloud provider via uw on-premises netwerk naar spreiden. Het interconnectie van Cloud netwerken kan aanzienlijke investeringen in tijd, geld, ontwerp, aankoop, installatie, testen en bewerkingen vergen. 
 
-Om deze problemen van klanten op te lossen, is Oracle en Microsoft voorzien van een geïntegreerde meerdere cloud-ervaring. Netwerken binnen de cloud tot stand is gebracht door verbinding te maken een [ExpressRoute](../../../expressroute/expressroute-introduction.md) -circuit in Microsoft Azure met een [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm) -circuit in OCI. Deze connectiviteit is mogelijk, waarbij een peering Azure ExpressRoute-locatie in de nabijheid of in de dezelfde locatie als de FastConnect OCI is. Deze instelling kunt u veilig en snelle connectiviteit tussen de twee clouds zonder de noodzaak voor een tussenliggende-provider.
+Voor deze klant uitdagingen heeft Oracle en micro soft een geïntegreerde multi-Cloud ervaring ingeschakeld. Er wordt verbinding tussen Cloud netwerken gemaakt door een [ExpressRoute](../../../expressroute/expressroute-introduction.md) -circuit in Microsoft Azure aan te sluiten met een [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm) -circuit in OCI. Deze connectiviteit is mogelijk wanneer een Azure ExpressRoute-peering locatie zich in de buurt van of op dezelfde peering-locatie bevindt als de OCI FastConnect. Met deze installatie kunt u een veilige, snelle connectiviteit tussen de twee Clouds, zonder dat u hiervoor een tussenliggende service provider nodig hebt.
 
-Met behulp van ExpressRoute en FastConnect, kunnen klanten een virtueel netwerk in Azure met een cloudnetwerk van virtuele in OCI, peer voorwaarde dat de persoonlijke IP-adresruimte elkaar niet overlappen. De twee netwerken kunt u een resource in het virtuele netwerk om te communiceren met een resource in het netwerk van de virtuele cloud OCI alsof ze beide in hetzelfde netwerk zijn.
+Met ExpressRoute en FastConnect kunnen klanten een virtueel netwerk in azure koppelen aan een virtueel Cloud netwerk in OCI, mits de privé-IP-adres ruimte elkaar niet overlapt. Door de twee netwerken te koppelen, kan een bron in het virtuele netwerk communiceren met een resource in het OCI virtuele Cloud netwerk alsof ze zich in hetzelfde netwerk bevinden.
 
 ## <a name="network-security"></a>Netwerkbeveiliging
 
-Netwerkbeveiliging is een essentieel onderdeel van een bedrijfstoepassing, en centraal staat in deze meerdere cloud-oplossing. Verkeer gaat via ExpressRoute en FastConnect wordt doorgegeven via een particulier netwerk. Deze configuratie maakt het mogelijk voor veilige communicatie tussen een Azure-netwerk en een virtuele Oracle-cloudnetwerk. U hoeft niet te bieden van een openbaar IP-adres op virtuele machines in Azure. Op deze manier hoeft u niet een internet-gateway in OCI. Alle communicatie plaatsvindt via de privé IP-adres van de machines.
+Netwerk beveiliging is een cruciaal onderdeel van een bedrijfs toepassing en is centraal voor deze oplossing met meerdere clouds. Elk verkeer dat ExpressRoute en FastConnect doorstuurt, wordt via een particulier netwerk verzonden. Met deze configuratie kunt u beveiligde communicatie tussen een virtueel Azure-netwerk en een virtuele Oracle-Cloud netwerk. U hoeft geen openbaar IP-adres op te geven voor virtuele machines in Azure. Op dezelfde manier hebt u geen Internet gateway nodig in OCI. Alle communicatie gebeurt via het privé-IP-adres van de computers.
 
-Bovendien kunt u instellen [beveiligingslijsten](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) op uw netwerk- en -regels voor de virtuele cloud voor OCI (die zijn gekoppeld aan Azure [netwerkbeveiligingsgroepen](../../../virtual-network/security-overview.md)). Deze regels gebruiken voor het beheren van het verkeer tussen de machines in de virtuele netwerken. Netwerkbeveiligingsregels kunnen worden toegevoegd op het computerniveau van een, op het subnetniveau van een, evenals op het niveau van het virtuele netwerk.
+Daarnaast kunt u [beveiligings lijsten](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) instellen voor uw OCI virtuele Cloud netwerk en beveiligings regels (gekoppeld aan Azure- [netwerk beveiligings groepen](../../../virtual-network/security-overview.md)). Gebruik deze regels voor het beheren van het verkeer tussen computers in de virtuele netwerken. Netwerk beveiligings regels kunnen worden toegevoegd op computer niveau, op subnetniveau, en op het niveau van het virtuele netwerk.
  
 ## <a name="identity"></a>Identiteit
 
-Identiteit is een van de belangrijkste onderdelen van de samenwerking tussen Microsoft en Oracle. Aanzienlijke werk is verricht als u wilt integreren [Oracle Identiteitsservice in de Cloud](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) met [Azure Active Directory](../../../active-directory/index.yml) (Azure AD). Azure AD is van Microsoft cloud-gebaseerde identiteits- en toegangsbeheer management-service. Het helpt uw gebruikers zich aanmelden en toegang tot verschillende bronnen. Azure AD kunt u uw gebruikers en hun machtigingen beheren.
+De identiteit is een van de belangrijkste pijlers van de samen werking tussen micro soft en Oracle. Er is veel werk gedaan om [Oracle Identity Cloud service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) te integreren met [Azure Active Directory](../../../active-directory/index.yml) (Azure AD). Azure AD is de cloud-gebaseerde service voor identiteits-en toegangs beheer van micro soft. Het helpt uw gebruikers zich aan te melden en toegang te krijgen tot verschillende bronnen. Met Azure AD kunt u ook uw gebruikers en hun machtigingen beheren.
 
-Momenteel kunt deze integratie u beheren in één centrale locatie, die Azure Active Directory. Azure AD de wijzigingen in de directory synchroniseert met de bijbehorende Oracle-directory en wordt gebruikt voor eenmalige aanmelding voor cross-cloud Oracle-oplossingen.
+Op dit moment kunt u met deze integratie beheren op één centrale locatie, die Azure Active Directory is. Azure AD synchroniseert alle wijzigingen in de directory met de bijbehorende Oracle-map en wordt gebruikt voor eenmalige aanmelding bij Oracle-oplossingen in meerdere clouds.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Aan de slag met een [cross-cloudnetwerk](configure-azure-oci-networking.md) tussen Azure en OCI. 
+Ga aan de slag met een [Cross-Cloud netwerk](configure-azure-oci-networking.md) tussen Azure en OCI. 
 
-Zie voor meer informatie en technische documenten over OCI de [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) documentatie.
+Zie de [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) Documentation (Engelstalig) voor meer informatie en witboeken over OCI.

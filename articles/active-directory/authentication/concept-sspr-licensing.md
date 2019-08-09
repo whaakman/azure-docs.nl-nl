@@ -1,6 +1,6 @@
 ---
-title: Licentie Self-service voor wachtwoord opnieuw instellen - Azure Active Directory
-description: Azure AD-selfservice wachtwoord opnieuw instellen van licentievereisten duidelijk zijn
+title: Self-service voor wachtwoord herstel van licentie-Azure Active Directory
+description: Licentie vereisten voor Azure AD self-service voor wacht woord opnieuw instellen
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,53 +11,53 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56b74e6a9f1d83798b557c48eb78242d70e85dfc
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 7463b86ea20a712937b8ccba7997c2551aae5be6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612635"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879115"
 ---
-# <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Vereisten voor licentieverlening voor Azure AD Self-service voor wachtwoord opnieuw instellen
+# <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Licentie vereisten voor Azure AD self-service voor wachtwoord herstel
 
-Azure Active Directory (Azure AD) is beschikbaar in vier edities: Gratis, Basic, Premium P1 en Premium P2. Er zijn diverse verschillende functies die van self-service voor wachtwoord opnieuw instellen, met inbegrip van wijzigen, herstellen, ontgrendelen en terugschrijven van wachtwoorden, die beschikbaar zijn in de verschillende edities van Azure AD. In dit artikel wordt geprobeerd om te worden de verschillen uitgelegd. Meer informatie over de functies die zijn opgenomen in elke Azure AD-editie te vinden in de [Azure Active Directory pagina met prijzen](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory (Azure AD) is verkrijgbaar in verschillende edities: Gratis, Premium P1 en Premium P2. Er zijn verschillende functies die selfservice voor het opnieuw instellen van wacht woorden maken, zoals wijzigen, opnieuw instellen, ontgrendelen en terugschrijven, die beschikbaar zijn in de verschillende edities van Azure AD. In dit artikel worden de verschillen uitgelegd. Meer informatie over de functies die deel uitmaken van elke Azure AD-editie kunt u vinden op de [pagina met Azure Active Directory prijzen](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="compare-editions-and-features"></a>Vergelijk functies en -edities
+## <a name="compare-editions-and-features"></a>Edities en functies vergelijken
 
-Azure AD-selfservice wachtwoord opnieuw instellen is een licentie per gebruiker, om te zorgen voor naleving organisaties moeten de juiste licentie toewijzen aan gebruikers.
+Voor de selfservice voor wachtwoord herstel van Azure AD is een licentie verleend per gebruiker, om nalevings organisaties te onderhouden, moeten de juiste licentie aan hun gebruikers worden toegewezen.
 
 * Wachtwoorden wijzigen via self-service voor cloudgebruikers
-   * Ik ben een **gebruikersdirectory die alleen** en weet mijn wachtwoord.
-      * Ik wil graag **wijzigen** mijn wachtwoord voor iets nieuws.
+   * Ik ben een **alleen-Cloud gebruiker** en weet mijn wacht woord.
+      * Ik wil mijn wacht woord **wijzigen** in iets nieuw.
    * Deze functionaliteit is opgenomen in alle edities van Azure AD.
 
 * Wachtwoorden opnieuw instellen via self-service voor cloudgebruikers
-   * Ik ben een **gebruikersdirectory die alleen** en Mijn wachtwoord vergeten.
-      * Ik wil graag **opnieuw** iets dat ik weet mijn wachtwoord.
-   * Deze functionaliteit is opgenomen in Azure AD Basic, Premium P1 of P2, of Microsoft 365 Business.
+   * Ik ben een **alleen-Cloud gebruiker** en ben mijn wacht woord verg eten.
+      * Ik wil mijn wacht woord **opnieuw instellen** op iets dat ik weet.
+   * Deze functionaliteit is opgenomen in Azure AD Premium P1 of P2 of Microsoft 365 Business.
 
-* Selfservice wachtwoord opnieuw instellen/wijzigen/ontgrendelen **met on-premises Write-back**
-   * Ik ben een **hybride gebruiker** mijn on-premises Active Directory-gebruikersaccount is gesynchroniseerd met mijn Azure AD-account met Azure AD Connect. Ik wil graag mijn wachtwoord wijzigen, hebt mijn wachtwoord vergeten of is vergrendeld.
-      * Ik wil mijn wachtwoord wijzigen of opnieuw wordt ingesteld op iets dat ik weten of Mijn account ontgrendelen **en** beschikt over dat wijziging worden gesynchroniseerd met on-premises Active Directory.
-   * Deze functionaliteit is opgenomen in Azure AD Premium P1 of P2, of Microsoft 365 Business.
+* Self-service voor wacht woord opnieuw instellen/wijzigen/ontgrendelen **met on-premises terugschrijven**
+   * Ik ben een **hybride gebruiker** met mijn on-premises Active Directory gebruikers account is gesynchroniseerd met mijn Azure ad-account met behulp van Azure AD Connect. Ik wil mijn wacht woord wijzigen, mijn wacht woord verg eten of dit is vergrendeld.
+      * Ik wil mijn wacht woord wijzigen of opnieuw instellen op een bekende of mijn account ontgrendelen, **en** deze wijziging wordt weer gesynchroniseerd naar on-premises Active Directory.
+   * Deze functionaliteit is opgenomen in Azure AD Premium P1 of P2 of Microsoft 365 Business.
 
 > [!WARNING]
-> Zelfstandige Office 365-abonnementen licentieverlening *bieden geen ondersteuning voor 'Selfservice wachtwoord opnieuw instellen/wijzigen/ontgrendelen met on-premises Write-back van'* en vereist een abonnement met Azure AD Premium P1, P2 Premium of Microsoft 365 Business voor deze de functionaliteit om te werken.
+> Zelfstandige Office 365-licentie plannen *bieden geen ondersteuning voor "selfservice voor wachtwoord herstel/wijzigen/ontgrendelen met on-premises terugschrijven"* en vereisen een abonnement met Azure AD Premium P1, een Premium P2 of Microsoft 365 Business om deze functionaliteit te laten werken.
 >
 
-Extra licentie-informatie, inclusief kosten, vindt u op de volgende pagina's:
+Meer informatie over licenties, waaronder kosten, vindt u op de volgende pagina's:
 
-* [Azure Active Directory-site prijzen](https://azure.microsoft.com/pricing/details/active-directory/)
-* [Azure Active Directory-functies en mogelijkheden](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
+* [Azure Active Directory-prijs site](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Azure Active Directory functies en mogelijkheden](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
-* [Beschrijving van de service Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
+* [Beschrijving van Microsoft 365 Business-Service](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
 
-## <a name="enable-group-or-user-based-licensing"></a>Groep of gebruiker op basis van licentieverlening inschakelen
+## <a name="enable-group-or-user-based-licensing"></a>Op groep of gebruiker gebaseerde licentie verlening inschakelen
 
-Nu Azure AD biedt ondersteuning voor Groepslicenties. Beheerders kunnen bulksgewijs-licenties toewijzen aan een groep gebruikers, in plaats van één voor één toewijzen. Zie voor meer informatie, [toewijzen, controleren en oplossen van problemen met licenties](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Azure AD ondersteunt nu licentie verlening op basis van een groep. Beheerders kunnen licenties bulksgewijs toewijzen aan een groep gebruikers, in plaats van ze een voor een toe te wijzen. Zie [problemen met licenties toewijzen, controleren en oplossen](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)voor meer informatie.
 
-Sommige services van Microsoft zijn niet op alle locaties beschikbaar. Voordat een licentie kan worden toegewezen aan een gebruiker, de beheerder moet opgeven de **gebruikslocatie** eigenschap van de gebruiker. Toewijzing van licenties kan worden uitgevoerd onder de **gebruiker** > **profiel** > **instellingen** sectie in Azure portal. *Wanneer u de licentietoewijzing groep, nemen alle gebruikers geen gebruikslocatie opgegeven de locatie van de map.*
+Sommige services van Microsoft zijn niet op alle locaties beschikbaar. Voordat een licentie aan een gebruiker kan worden toegewezen, moet de beheerder de eigenschap **gebruiks locatie** opgeven voor de gebruiker. De toewijzing van licenties kan worden uitgevoerd in de sectie**instellingen** voor **gebruikers** > **profielen** > in de Azure Portal. *Wanneer u de toewijzing van een groeps licentie gebruikt, nemen alle gebruikers waarvoor geen gebruiks locatie is opgegeven, de locatie van de map over.*
 
 ## <a name="next-steps"></a>Volgende stappen
 

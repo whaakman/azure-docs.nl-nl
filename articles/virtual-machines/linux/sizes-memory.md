@@ -1,29 +1,29 @@
 ---
-title: Linux Azure VM-grootten - geheugen | Microsoft Docs
-description: Geeft een lijst van de verschillende geoptimaliseerd voor geheugen-grootten beschikbaar voor virtuele Linux-machines in Azure. Bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals opslag en doorvoer netwerkbandbreedte voor grootten die in deze reeks.
+title: VM-grootten van Linux Azure-grootte-geheugen | Microsoft Docs
+description: Geeft een lijst van de verschillende voor geheugen geoptimaliseerde grootten die beschikbaar zijn voor virtuele Linux-machines in Azure. Bevat informatie over het aantal Vcpu's, gegevens schijven en Nic's en de opslag doorvoer en netwerk bandbreedte voor grootten in deze serie.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
-keywords: Isolatie van de virtuele machine, VM, isolatie, geïsoleerd geïsoleerd
+keywords: VM-isolatie, geïsoleerde VM, isolatie, geïsoleerd
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/16/2019
+ms.date: 08/08/2019
 ms.author: jonbeck
-ms.openlocfilehash: fdcfe2f78177dba7810c668d280f4f3f5127deb7
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1ca122a9a160901aa27c53faa2ab1da7a1c740dd
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708828"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881610"
 ---
-# <a name="memory-optimized-virtual-machine-sizes"></a>Grootten van virtuele machines geoptimaliseerd voor geheugen
+# <a name="memory-optimized-virtual-machine-sizes"></a>Grootte van virtuele machines geoptimaliseerd voor geheugen
 
 
 [!INCLUDE [virtual-machines-common-sizes-memory](../../../includes/virtual-machines-common-sizes-memory.md)]
@@ -41,6 +41,6 @@ ms.locfileid: "67708828"
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over hoe u [Azure compute units (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.
+* Meer informatie over hoe [Azure Compute units (ACU)](acu.md) u kan helpen bij het vergelijken van de reken prestaties in azure-sku's.
 
-* Leer hoe u [maken en beheren van virtuele Linux-machines met de Azure CLI](tutorial-manage-vm.md)
+* Meer informatie over het [maken en beheren van virtuele Linux-machines met de Azure cli](tutorial-manage-vm.md)

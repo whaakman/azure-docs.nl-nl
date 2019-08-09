@@ -1,51 +1,53 @@
 ---
-title: Azure virtuele WAN locaties-partners | Microsoft Docs
-description: In dit artikel bevat een overzicht van Azure virtuele WAN-partners en locaties van de hub.
+title: Locaties van virtuele WAN-partners van Azure | Microsoft Docs
+description: Dit artikel bevat een lijst met virtuele WAN-partners en hub-locaties van Azure.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 08/08/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: f38cd0565b2e90fe0803d8e815c622e22e954a18
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a871a527a4f8440ea3e388b1a91c19355eab3676
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60459827"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879293"
 ---
-# <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Virtuele WAN-partners en locaties van de virtuele hub
+# <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Virtuele WAN-partners en virtuele-hub-locaties
 
-Dit artikel bevat informatie over virtuele WAN ondersteunde regio's en partners voor verbindingen in de virtuele Hub.
+In dit artikel vindt u informatie over regio's en partners die worden ondersteund voor virtuele WANs voor connectiviteit in virtuele hub.
 
-Azure Virtual WAN is een netwerkservice die via Azure voor een geoptimaliseerde en geautomatiseerde verbinding tussen filialen zorgt. Met Virtual WAN kunt u apparaten in filialen verbinden en configureren, zodat deze met Azure kunnen communiceren. Dit kan worden gedaan ofwel handmatig of met behulp van de provider-apparaten via een virtueel WAN-partner. Partner-apparaten, kunt dat u eenvoudig gebruik, connectiviteit en beheer van de configuratie te vereenvoudigen.
+Azure Virtual WAN is een netwerkservice die via Azure voor een geoptimaliseerde en geautomatiseerde verbinding tussen filialen zorgt. Met Virtual WAN kunt u apparaten in filialen verbinden en configureren, zodat deze met Azure kunnen communiceren. Dit kan hand matig worden gedaan of door gebruik te maken van provider apparaten via een virtuele WAN-partner. Door gebruik te maken van partner apparaten kunt u gebruiks gemak, vereenvoudiging van connectiviteit en configuratie beheer gebruiken.
 
-De connectiviteit van de on-premises apparaat in een automatische manier voor het virtuele Hub tot stand is gebracht. Een virtuele hub is een Microsoft-beheerde virtueel netwerk. De hub bevat verschillende service-eindpunten die verbindingen vanaf uw on-premises netwerk (vpnsite) mogelijk maken. U kunt slechts één hub per regio hebben.
+De connectiviteit van het on-premises apparaat wordt op een geautomatiseerde manier ingesteld voor de virtuele hub. Een virtuele hub is een virtueel netwerk dat door micro soft wordt beheerd. De hub bevat verschillende service-eindpunten die verbindingen vanaf uw on-premises netwerk (vpnsite) mogelijk maken. U kunt slechts één hub per regio hebben.
 
-## <a name="automation"></a>Automatisering van connectiviteitspartners
+## <a name="automation"></a>Automatisering van connectiviteits partners
 
-Apparaten die verbinding met Azure virtuele WAN maken hebben ingebouwde automation om verbinding te maken. Dit wordt meestal ingesteld omhoog in de Apparaatbeheer gebruikersinterface (of equivalent), waarmee de connectiviteit en configuration management tussen het filiaal VPN-apparaat naar een Azure-virtuele Hub-VPN-eindpunt (VPN-gateway) wordt ingesteld.
+Apparaten die verbinding maken met Azure Virtual WAN hebben ingebouwde automatisering om verbinding te maken. Dit wordt meestal ingesteld in de gebruikers interface van het apparaat (of gelijkwaardig), waarmee de connectiviteit en het configuratie beheer tussen het VPN-vertakkings apparaat worden ingesteld op een Azure Virtual hub VPN-eind punt (VPN-gateway).
 
-De volgende automatisering op hoog niveau is ingesteld in het midden van de console/Beheer van apparaten:
+De volgende automatisering op hoog niveau is ingesteld in de console van het apparaat en het beheer centrum:
 
-* Juiste machtigingen voor het apparaat toegang tot Azure virtuele WAN Resource Group
-* Uploaden van Branch-apparaat naar de Azure virtuele WAN
-* Automatische downloads van informatie over Azure connectiviteit
-* Configuratie van on-premises vertakking apparaat 
+* Juiste machtigingen voor het apparaat om toegang te krijgen tot de Azure Virtual WAN-resource groep
+* Een vertakkings apparaat uploaden naar een virtueel WAN van Azure
+* Automatisch downloaden van Azure-verbindings gegevens
+* Configuratie van een on-premises vertakkings apparaat 
 
-Sommige connectiviteitspartners kunnen uitbreiden om op te nemen met het maken van de Azure virtuele Hub VNet en VPN-Gateway. Als u meer weten over automation wilt, Zie [configureren Automation – WAN-Partners](virtual-wan-configure-automation-providers.md).
+Sommige connectiviteits partners kunnen de automatisering uitbreiden om de virtuele Azure-hub VNet en VPN Gateway op te nemen. Als u meer wilt weten over Automation, raadpleegt u [Automation configureren: WAN-partners](virtual-wan-configure-automation-providers.md).
 
 ## <a name="partners"></a>Connectiviteit via partners
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-## <a name="locations"></a>locaties
+De volgende partners zijn voor de nabije toekomst zou op onze route kaart: Fortinet, Silver-piek, Velocloud, versa, nuage Nokia.
+
+## <a name="locations"></a>Maplocaties
 
 [!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over virtuele WAN, de [virtuele WAN-Veelgestelde vragen over](virtual-wan-faq.md).
+* Zie de [Veelgestelde vragen over virtuele WAN](virtual-wan-faq.md)voor meer informatie over Virtual WAN.
 
-* Zie voor meer informatie over het automatiseren van de verbinding met Azure virtuele WAN [virtuele WAN-Partners - automatiseren](virtual-wan-configure-automation-providers.md).
+* Zie voor meer informatie over het automatiseren van de connectiviteit met Azure Virtual WAN [: virtuele WAN-partners-How to Automatiseer](virtual-wan-configure-automation-providers.md).

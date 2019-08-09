@@ -5,26 +5,27 @@ author: arduppal
 manager: mchad
 ms.author: arduppal
 ms.reviewer: arduppal
-ms.date: 06/19/2019
+ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5932d51ecaca3c827ae6de268711c7f4d1b28d0a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: a40389ca378826aef1b6aa136f8f5d69783c638e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640653"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881224"
 ---
-# <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Gegevens aan de rand met Azure Blob Storage Store op IoT Edge (preview)
+# <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Gegevens opslaan aan de rand met Azure Blob Storage op IoT Edge
 
 Azure Blob-opslag op IoT Edge biedt een [blok-blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) opslagoplossing aan de rand. Een Blob Storage-module op uw IoT Edge-apparaat gedraagt zich als een Azure Block BLOB-service, behalve dat de blok-blobs lokaal op uw IoT Edge apparaat worden opgeslagen. U kunt toegang tot uw blobs met behulp van de methodes SDK van Azure storage of blob API-aanroepen die u al hebt gebruikt om te blokkeren. In dit artikel worden de concepten beschreven die betrekking hebben op Azure Blob Storage op IoT Edge-container waarop een BLOB-service op uw IoT Edge-apparaat wordt uitgevoerd.
 
-Deze module is handig in scenario's waarin gegevens lokaal moeten worden opgeslagen totdat deze kunnen worden verwerkt of overgedragen naar de Cloud. Deze gegevens kunnen Video's, afbeeldingen, financiële gegevens, ziekenhuis gegevens of andere ongestructureerde gegevens zijn.
-
-> [!NOTE]
-> Azure Blob-opslag op IoT Edge is in [preview-versie](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Deze module is handig in scenario's:
+* waar gegevens lokaal moeten worden opgeslagen totdat deze kunnen worden verwerkt of overgedragen naar de Cloud. Deze gegevens kunnen Video's, afbeeldingen, financiële gegevens, ziekenhuis gegevens of andere ongestructureerde gegevens zijn.
+* Wanneer apparaten zich op een locatie bevinden met beperkte connectiviteit.
+* Wanneer u de gegevens lokaal wilt verwerken om toegang te krijgen tot de gegevens met lage latentie, zodat u zo snel mogelijk op eventuele nood gevallen kunt reageren.
+* Wanneer u de bandbreedte kosten wilt verlagen en wilt voor komen dat terabytes aan gegevens naar de cloud worden overgebracht. U kunt de gegevens lokaal verwerken en alleen de verwerkte gegevens verzenden naar de Cloud.
 
 Bekijk de video voor snelle inleiding
 > [!VIDEO https://www.youtube.com/embed/QhCYCvu3tiM]
@@ -60,16 +61,11 @@ Een Azure IoT Edge-apparaat:
 
 - U kunt uw ontwikkel computer of een virtuele machine als IoT Edge apparaat gebruiken door de stappen in de Quick start voor [Linux](quickstart-linux.md) -of [Windows-apparaten](quickstart.md)te volgen.
 
-- De Azure Blob-opslag op IoT Edge-module biedt ondersteuning voor de volgende configuraties:
-
-  | Besturingssysteem | AMD64 | ARM32v7 | ARM64 |
-  | ---------------- | ----- | ----- | ---- |
-  | Raspbian stretch | Nee | Ja | Nee |  
-  | Ubuntu Server 16.04 | Ja | Nee | Ja |
-  | Ubuntu-Server 18.04 | Ja | Nee | Ja |
-  | Windows 10 IoT Enter prise, build 17763 | Ja | Nee | Nee |
-  | Windows Server 2019, build 17763 | Ja | Nee | Nee |
-  
+- Raadpleeg [Azure IOT Edge ondersteunde systemen](support.md#operating-systems) voor een lijst met ondersteunde besturings systemen en architecturen. De Azure Blob Storage op IoT Edge-module biedt ondersteuning voor de volgende architecturen:
+    - Windows AMD64
+    - Linux AMD64
+    - Linux ARM32
+    - Linux-ARM64 (preview-versie)
 
 Cloudresources:
 
@@ -104,7 +100,10 @@ De naam van deze instelling is`deviceAutoDeleteProperties`
 
 ## <a name="using-smb-share-as-your-local-storage"></a>SMB-share gebruiken als lokale opslag
 Als u een Windows-container van deze module op Windows host implementeert, kunt u SMB-share als uw lokale opslagpad opgeven.
-U kunt de `New-SmbGlobalMapping` Power shell-opdracht uitvoeren om de SMB-share lokaal toe te wijzen op het IOT-apparaat waarop Windows wordt uitgevoerd. Zorg ervoor dat het IoT-apparaat kan lezen/schrijven naar de externe SMB-share.
+
+Zorg ervoor dat de SMB-share en het IoT-apparaat zich in wederzijds vertrouwde domeinen bevinden.
+
+U kunt de `New-SmbGlobalMapping` Power shell-opdracht uitvoeren om de SMB-share lokaal toe te wijzen op het IOT-apparaat waarop Windows wordt uitgevoerd.
 
 Hieronder vindt u de configuratie stappen:
 ```PowerShell
@@ -112,12 +111,44 @@ $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
 Voorbeeld: <br>
-`$creds = Get-Credentials` <br>
+`$creds = Get-Credential` <br>
 `New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G: `
 
 Met deze opdracht worden de referenties gebruikt voor verificatie bij de externe SMB-server. Wijs vervolgens het externe sharepad toe aan G: stationsletter (kan elk ander beschik bare stationsletter zijn). Het IoT-apparaat heeft nu het gegevens volume toegewezen aan een pad op het station G:. 
 
-Voor uw implementatie moet u de `<storage directory bind>` waarde **G:/ContainerData: C:/BlobRoot**.
+Zorg ervoor dat de gebruiker in IoT-apparaat een lees-of schrijf bewerking naar de externe SMB-share kan uitvoeren.
+
+Voor uw implementatie moet u de `<storage mount>` waarde **G:/ContainerData: C:/BlobRoot**. 
+
+## <a name="granting-directory-access-to-container-user-on-linux"></a>Directory toegang verlenen aan de container gebruiker op Linux
+Als u [volume koppeling](https://docs.docker.com/storage/volumes/) voor opslag hebt gebruikt in uw Create-opties voor Linux-containers, hoeft u geen extra stappen uit te voeren, maar als u [BIND Mount](https://docs.docker.com/storage/bind-mounts/) hebt gebruikt, zijn deze stappen vereist om de service correct uit te voeren.
+
+Na het beginsel van de minimale bevoegdheid om de toegangs rechten voor gebruikers te beperken tot bare minimale machtigingen die ze nodig hebben om hun werk uit te voeren, bevat deze module een gebruiker (naam: absie, ID: 11000) en een gebruikers groep (naam: absie, ID: 11000). Als de container is gestart als **root** (standaard gebruiker is **hoofdmap**), wordt onze service gestart als de **absie** -gebruiker met lage bevoegdheden. 
+
+Dit gedrag maakt het configureren van de machtigingen op het hostvolume van cruciaal belang voor een goede werking van de service, anders wordt de service vastlopen met geweigerde toegang. Het pad dat wordt gebruikt in Directory binding moet toegankelijk zijn voor de container gebruiker (voor beeld: absie 11000). U kunt de container gebruiker toegang verlenen tot de Directory door de onderstaande opdrachten op de host uit te voeren:
+
+```terminal
+sudo chown -R 11000:11000 <blob-dir> 
+sudo chmod -R 700 <blob-dir> 
+```
+
+Voorbeeld:<br>
+`sudo chown -R 11000:11000 /srv/containerdata` <br>
+`sudo chmod -R 700 /srv/containerdata `
+
+
+Als u de service als een andere gebruiker dan **absie**moet uitvoeren, kunt u uw aangepaste gebruikers-id opgeven in CreateOptions onder gebruiker-eigenschap in het implementatie manifest. In dat geval moet u de standaard-of basis groep- `0`id gebruiken.
+
+```json
+“createOptions”: { 
+  “User”: “<custom user ID>:0” 
+} 
+```
+Verleen de container gebruiker nu toegang tot de Directory
+```terminal
+sudo chown -R <user ID>:<group ID> <blob-dir> 
+sudo chmod -R 700 <blob-dir> 
+```
 
 ## <a name="configure-log-files"></a>Logboek bestanden configureren
 
@@ -142,9 +173,9 @@ De documentatie voor Azure Blob Storage bevat voorbeeld code van Quick Start in 
 De volgende Quick start-voor beelden gebruiken talen die ook door IoT Edge worden ondersteund, zodat u deze kunt implementeren als IoT Edge modules naast de module Blob Storage:
 
 - [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [Java](../storage/blobs/storage-quickstart-blobs-java.md)
+- [Java](../storage/blobs/storage-quickstart-blobs-java-v10.md)
 - [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md)
+- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Verbinding maken met uw lokale opslag met Azure Storage Explorer
 
@@ -239,3 +270,5 @@ U kunt ons bereiken opabsiotfeedback@microsoft.com
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over het [implementeren van Azure Blob Storage op IOT Edge](how-to-deploy-blob.md)
+
+Blijf up-to-date met recente updates en aankondigingen in de [Azure Blob Storage op IOT Edge Blog](https://aka.ms/abs-iot-blogpost)

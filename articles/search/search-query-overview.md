@@ -1,6 +1,6 @@
 ---
-title: Typen query's en de samenstelling - Azure Search
-description: Basisbeginselen voor het bouwen van een zoekopdracht in Azure Search met behulp van parameters om te filteren, selecteert en resultaten sorteren.
+title: Query typen en samen stelling-Azure Search
+description: Basis principes voor het bouwen van een zoek query in Azure Search, met behulp van para meters voor het filteren, selecteren en sorteren van resultaten.
 author: HeidiSteen
 manager: cgronlun
 ms.author: heidist
@@ -9,33 +9,33 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 422e9209609eac19b7952557674c99789d9f6088
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c2d40865857bc3ea8367199ed29e0220a0e7c557
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485177"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882599"
 ---
-# <a name="how-to-compose-a-query-in-azure-search"></a>Opstellen van een query in Azure Search
+# <a name="how-to-compose-a-query-in-azure-search"></a>Een query opstellen in Azure Search
 
-In Azure Search is een query een volledige specificatie van een traject bewerking. Parameters voor de aanvraag bieden overeenkomen met criteria voor het vinden van documenten in een index, uitvoering instructies voor de engine en richtlijnen voor het vormgeven van het antwoord. 
+In Azure Search is een query een volledige specificatie van een round-trip bewerking. De para meters in de aanvraag bieden match criteria voor het zoeken van documenten in een index, uitvoerings instructies voor de engine en de instructies voor het vorm geven van het antwoord. 
 
-Een queryaanvraag is een uitgebreide constructie, op te geven welke velden zijn binnen de regeling vallen, hoe u kunt zoeken, welke velden u wilt terugkeren, of u wilt sorteren of filteren, enzovoort. Niets opgeeft, een query wordt uitgevoerd op alle doorzoekbare velden als een zoekbewerking volledige tekst, een in willekeurige volgorde zonder score resultatenset geretourneerd.
+Een query aanvraag is een uitgebreide construct, waarmee u kunt opgeven welke velden binnen het bereik zijn, hoe u kunt zoeken, welke velden moeten worden geretourneerd, of u wilt sorteren of filteren, enzovoort. Niet opgegeven, een query wordt uitgevoerd op alle Doorzoek bare velden als een zoek bewerking met volledige tekst, waarbij een oneven resultaat wordt geretourneerd in een wille keurige volg orde.
 
-## <a name="apis-and-tools-for-testing"></a>API's en hulpprogramma's voor het testen
+## <a name="apis-and-tools-for-testing"></a>Api's en hulpprogram ma's voor testen
 
-De volgende tabel bevat de API's en methoden op basis van een hulpprogramma voor het verzenden van query's.
+De volgende tabel geeft een lijst van de Api's en hulp op basis van gereedschappen voor het verzenden van query's.
 
 | Methodologie | Description |
 |-------------|-------------|
-| [Search explorer (portal)](search-explorer.md) | Biedt een zoekbalk en opties voor de geselecteerde index en api-versie. Resultaten worden geretourneerd als JSON-documenten. <br/>[Meer informatie.](search-get-started-portal.md#query-index) | 
-| [Postman of Fiddler](search-get-started-postman.md) | Web testhulpprogramma's vormen een uitstekende keuze voor het formuleren van REST-aanroepen. De REST-API biedt ondersteuning voor elke mogelijke bewerking in Azure Search. In dit artikel leert u hoe u het instellen van een HTTP-aanvraagheader en de hoofdtekst voor het verzenden van aanvragen naar Azure Search.  |
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | De client die kan worden gebruikt om op te vragen van een Azure Search-index.  <br/>[Meer informatie.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Documenten zoeken (REST-API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET of POST-methoden op een index, met behulp van de queryparameters voor aanvullende invoer.  |
+| [Search Explorer (Portal)](search-explorer.md) | Voorziet in een zoek balk en opties voor selecties van index en API-versie. Resultaten worden geretourneerd als JSON-documenten. <br/>[Meer informatie.](search-get-started-portal.md#query-index) | 
+| [Postman of Fiddler](search-get-started-postman.md) | Webtest-hulpprogram ma's zijn een uitstekende keuze voor het formuleren van REST-aanroepen. De REST API ondersteunt elke mogelijke bewerking in Azure Search. In dit artikel vindt u informatie over het instellen van een HTTP-aanvraag header en hoofd tekst voor het verzenden van aanvragen naar Azure Search.  |
+| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client die kan worden gebruikt om een Azure Search index op te vragen.  <br/>[Meer informatie.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Documenten zoeken (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET-of POST-methoden voor een index met behulp van query parameters voor aanvullende invoer.  |
 
 ## <a name="a-first-look-at-query-requests"></a>Een eerste blik op query-aanvragen
 
-Voorbeelden zijn handig voor de introductie van nieuwe concepten. Als een representatieve query gemaakt in de [REST-API](https://docs.microsoft.com/rest/api/searchservice/search-documents), in dit voorbeeld van doelen de [onroerend goed demo index](search-get-started-portal.md) en algemene parameters bevat.
+Voor beelden zijn handig voor het introduceren van nieuwe concepten. Als een representatieve query die in de [rest API](https://docs.microsoft.com/rest/api/searchservice/search-documents)is gebouwd, streeft dit voor beeld naar de [index](search-get-started-portal.md) van de onroerend goed en bevat algemene para meters.
 
 ```
 {
@@ -49,62 +49,62 @@ Voorbeelden zijn handig voor de introductie van nieuwe concepten. Als een repres
 }
 ```
 
-+ **`queryType`** Hiermee stelt u de parser, die in Azure Search kan de [standaard de eenvoudige queryparser](search-query-simple-examples.md) (geoptimaliseerd voor het zoeken in volledige tekst), of de [volledige Lucene-queryparser](search-query-lucene-examples.md) gebruikt voor geavanceerde query-constructs, zoals reguliere expressies , zoeken op nabijheid, fuzzy en zoeken met jokertekens, een paar te noemen.
++ **`queryType`** Hiermee stelt u de parser in, die in Azure Search de [standaard eenvoudige query-parser](search-query-simple-examples.md) (optimaal voor zoeken in volledige tekst) kan zijn, of de [volledige lucene-query-parser](search-query-lucene-examples.md) die wordt gebruikt voor geavanceerde query constructies zoals reguliere expressies, proximity Search, fuzzy en Joker teken Zoek naar een aantal namen.
 
-+ **`search`** biedt de overeenkomende criteria, meestal tekst, maar vaak vergezeld van Booleaanse operators. Termen van één zelfstandige *term* query's. Meerdelige query's tussen aanhalingstekens is geplaatst zijn *sleuteluitdrukkingen* query's. Zoeken is niet gedefinieerd, zoals in **`search=*`** , maar waarschijnlijk bestaat uit de termen en zinnen operators die vergelijkbaar is met wat wordt weergegeven in het voorbeeld.
++ **`search`** biedt de overeenkomende criteria, meestal tekst, maar vaak vergezeld van Booleaanse Opera tors. Enkele zelfstandige termen zijn *term* query's. Met een aanhalings teken voor meerdere delen worden query's voor de *sleutel woordgroepen* uitgevoerd. De zoek opdracht kan niet worden gedefinieerd, zoals **`search=*`** in, maar is waarschijnlijk meer dan de termen, zinsdelen en Opera tors die vergelijkbaar zijn met wat er in het voor beeld wordt weer gegeven.
 
-+ **`searchFields`** is optioneel, gebruikt voor het beperken van queryuitvoering op bepaalde velden.
++ **`searchFields`** is optioneel, wordt gebruikt om de uitvoering van query's te beperken tot specifieke velden.
 
-Antwoorden worden ook gevormd door de parameters die u in de query opnemen. In het voorbeeld wordt de resulterende set bestaat uit velden die worden vermeld in de **`select`** instructie. Alleen de bovenste 10 treffers in deze query zijn geretourneerd, maar **`count`** vertelt u hoeveel documenten overeenkomen met algemene. In deze query worden rijen gesorteerd op daysOnMarket.
+Antwoorden worden ook gevormd door de para meters die u in de query opneemt. In het voor beeld bestaat de resultatenset uit velden die worden weer **`select`** gegeven in de instructie. Alleen de Top 10 van treffers worden geretourneerd in deze query **`count`** , maar vertelt u hoeveel documenten er allemaal overeenkomen. In deze query worden rijen gesorteerd op daysOnMarket.
 
-In Azure Search wordt de queryuitvoering altijd op basis van een index, geverifieerd met behulp van een api-sleutel opgegeven in de aanvraag. In de REST, zijn beide opgegeven in de aanvraagheaders.
+In Azure Search wordt de uitvoering van query's altijd vergeleken met één index, geauthenticeerd met een API-sleutel die in de aanvraag is opgenomen. In REST worden beide weer gegeven in aanvraag headers.
 
-### <a name="how-to-run-this-query"></a>Hoe u deze query uit te voeren
+### <a name="how-to-run-this-query"></a>Deze query uitvoeren
 
-Voor het uitvoeren van deze query gebruiken [explorer en de index van de demo onroerend goed zoeken](search-get-started-portal.md). 
+Als u deze query wilt uitvoeren, gebruikt u [Search Explorer en de demo-index](search-get-started-portal.md)van onroerend goed. 
 
-U kunt deze querytekenreeks in de zoekbalk van de explorer plakken: `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
+U kunt deze query teken reeks in de zoek balk van de Explorer plakken:`search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
 
-## <a name="how-query-operations-are-enabled-by-the-index"></a>Hoe querybewerkingen door de index zijn ingeschakeld
+## <a name="how-query-operations-are-enabled-by-the-index"></a>Hoe query bewerkingen worden ingeschakeld door de index
 
-Ontwerp voor de index en query ontwerp nauw zijn gekoppeld in Azure Search. Een essentiële feit van tevoren weten is dat de *indexschema*, met de kenmerken voor elk veld, bepaalt het soort query die u kunt bouwen. 
+Het ontwerp van de index en het query ontwerp zijn nauw gekoppeld aan Azure Search. Een essentieel feit dat u vooraf moet weten, is dat het *index schema*, met kenmerken voor elk veld, bepaalt welk soort query u kunt maken. 
 
-Indexkenmerken op een veld de toegestane bewerkingen - instellen of een veld is *doorzoekbare* in de index *ophaalbaar* in resultaten *sorteerbaar*,  *Filterbaar*, enzovoort. In de querytekenreeks voorbeeld `"$orderby": "daysOnMarket"` werkt alleen omdat het veld daysOnMarket is gemarkeerd als *sorteerbaar* in het indexschema. 
+Index kenmerken voor een veld stel de toegestane bewerkingen in: Hiermee stelt u in dat een veld in de index kan worden doorzocht en kan worden *opgehaald* , *gesorteerd*, gefilterd, enzovoort. In de voorbeeld query teken reeks `"$orderby": "daysOnMarket"` werkt alleen omdat het veld daysOnMarket is gemarkeerd als *sorteerbaar* in het index schema. 
 
-![Index-definitie voor het voorbeeld onroerend goed](./media/search-query-overview/realestate-sample-index-definition.png "Index-definitie voor het voorbeeld onroerend goed")
+![Index definitie voor het voor beeld van] onroerend goed (./media/search-query-overview/realestate-sample-index-definition.png "Index definitie voor het voor beeld van") onroerend goed
 
-De bovenstaande schermafbeelding is een gedeeltelijke lijst van de indexkenmerken in voor het voorbeeld onroerend goed. U kunt het schema voor de gehele index weergeven in de portal. Zie voor meer informatie over indexkenmerken [Index REST-API maken](https://docs.microsoft.com/rest/api/searchservice/create-index).
+De bovenstaande scherm afbeelding is een gedeeltelijke lijst met index kenmerken voor het voor beeld van het onroerend goed. U kunt het volledige index schema weer geven in de portal. Zie [Create index rest API](https://docs.microsoft.com/rest/api/searchservice/create-index)voor meer informatie over index kenmerken.
 
 > [!Note]
-> Sommige functies van de query is ingeschakeld index hele in plaats van op basis van per veld. Deze mogelijkheden zijn onder andere: [synoniem toegewezen](search-synonyms.md), [analysevoorzieningen](index-add-custom-analyzers.md), [suggestie construeert (voor automatisch aanvullen en voorgestelde query's)](index-add-suggesters.md), [scoring-logica voor de rangschikking van resultaten](index-add-scoring-profiles.md).
+> Sommige query functies zijn in index-breed en niet per veld. Deze mogelijkheden omvatten: [synoniemen](search-synonyms.md), [aangepaste analyse](index-add-custom-analyzers.md)functies, [suggestie constructies (voor automatisch aanvullen en voorgestelde query's)](index-add-suggesters.md), [Score logica voor classificatie resultaten](index-add-scoring-profiles.md).
 
-## <a name="elements-of-a-query-request"></a>Elementen van een queryaanvraag
+## <a name="elements-of-a-query-request"></a>Elementen van een query aanvraag
 
-Query's worden altijd gericht op één index. Lid worden van indexen kan of aangepaste of tijdelijke gegevensstructuren als het doel van een query maken. 
+Query's zijn altijd gericht op één index. U kunt geen indexen samen voegen of aangepaste of tijdelijke gegevens structuren maken als een query doel. 
 
-Vereiste elementen voor een queryaanvraag zijn onder andere de volgende onderdelen:
+Vereiste elementen voor een query aanvraag zijn onder andere de volgende onderdelen:
 
-+ Service-eindpunt en index documenten verzameling, uitgedrukt als een URL naar vaste- en -onderdelen: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
-+ **`api-version`** (Alleen REST) is nodig omdat meer dan één versie van de API te allen tijde beschikbaar is. 
-+ **`api-key`** , een query of de admin api-sleutel, verifieert de aanvraag voor uw service.
-+ **`queryType`** , eenvoudig of volledig, die kan worden genegeerd als u van de ingebouwde standaard eenvoudige syntaxis gebruikmaakt.
-+ **`search`** of **`filter`** biedt de overeenkomen met criteria die niet nader omschreven worden kunnen als u wilt uitvoeren van een lege zoekopdracht. Beide typen query's worden besproken in termen van de eenvoudige parser, maar ook geavanceerde query's moeten de search-parameter voor het doorgeven van complexe query-expressies.
++ Verzameling service-eind punten en index documenten, uitgedrukt als een URL met vaste en door de gebruiker gedefinieerde onderdelen: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
++ **`api-version`** (Alleen REST) is vereist omdat meer dan één versie van de API te allen tijde beschikbaar is. 
++ **`api-key`** , ofwel een query of beheerder-API-sleutel, verifieert de aanvraag bij uw service.
++ **`queryType`** , eenvoudig of volledig, wat kan worden wegge laten als u de ingebouwde standaard eenvoudige syntaxis gebruikt.
++ **`search`** of **`filter`** biedt de overeenkomende criteria, die niet kunnen worden opgegeven als u een lege zoek opdracht wilt uitvoeren. Beide query typen worden besproken in termen van de eenvoudige parser, maar zelfs geavanceerde query's vereisen de zoek parameter voor het door geven van complexe query expressies.
 
-Alle andere zoekparameters zijn optioneel. Zie voor de volledige lijst van kenmerken, [Index maken (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). Zie voor een nog eens kijken hoe parameters worden gebruikt tijdens de verwerking, [hoe zoeken in volledige tekst in Azure Search werkt](search-lucene-query-architecture.md).
+Alle andere zoek parameters zijn optioneel. Zie [Create Index (rest) (Engelstalig)](https://docs.microsoft.com/rest/api/searchservice/create-index)voor een volledige lijst met kenmerken. Zie [Hoe zoeken in volledige tekst werkt in azure Search](search-lucene-query-architecture.md)voor meer informatie over hoe para meters worden gebruikt tijdens de verwerking.
 
-## <a name="choose-a-parser-simple--full"></a>Kies een parser: eenvoudige | volledige
+## <a name="choose-a-parser-simple--full"></a>Kies een parser: eenvoudig | waard
 
-Azure Search bevindt zich boven op Apache Lucene en biedt u een keuze tussen de twee query-parsers voor het verwerken van typische en speciale query's. Aanvragen via de eenvoudige parser worden geformuleerd met behulp van de [vereenvoudigde querysyntaxis](query-simple-syntax.md), geselecteerd als de standaardwaarde voor de snelheid en efficiëntie in vrije indeling tekstquery's. Deze syntaxis ondersteunt een aantal algemene Zoekoperators, zoals de functies en, of niet, woordgroep, achtervoegsel en prioriteit operators.
+Azure Search bevindt zich boven Apache Lucene en biedt u een keuze tussen twee query-parsers voor het verwerken van typische en gespecialiseerde query's. Aanvragen die gebruikmaken van de eenvoudige parser worden geformuleerd met behulp van de [eenvoudige query syntaxis](query-simple-syntax.md), geselecteerd als de standaard waarde voor de snelheid en effectiviteit in vrije-tekst query's. Deze syntaxis ondersteunt een aantal veelgebruikte Zoek operatoren, waaronder de Opera tors en, of, niet, frase, achtervoegsel en voor rang.
 
-De [volledige Lucene-querysyntaxis](query-Lucene-syntax.md#bkmk_syntax), ingeschakeld wanneer u toevoegen `queryType=full` wordt aangegeven dat de breed aanvaarde en expressieve querytaal die is ontwikkeld als onderdeel van de aanvraag [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Volledige syntaxis van de uitbreiding voor de eenvoudige syntaxis. Elke query die u voor de syntaxis van de eenvoudige schrijven wordt uitgevoerd onder de volledige Lucene-parser. 
+De [volledige lucene-query syntaxis](query-Lucene-syntax.md#bkmk_syntax), ingeschakeld wanneer u `queryType=full` aan de aanvraag toevoegt, geeft de uitgebreide en duidelijke query taal weer die is ontwikkeld als onderdeel van [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). De volledige syntaxis breidt de eenvoudige syntaxis uit. Alle query's die u voor de eenvoudige syntaxis schrijft, worden uitgevoerd onder de volledige lucene-parser. 
 
-De volgende voorbeelden ziet u het punt: dezelfde query, maar met verschillende queryType instellingen, verschillende resultaten opleveren. In de eerste query, de `^3` wordt beschouwd als onderdeel van de zoekterm.
+In de volgende voor beelden ziet u het punt: dezelfde query, maar met verschillende query type-instellingen kunt u verschillende resultaten opleveren. In de eerste query wordt het `^3` beschouwd als onderdeel van de zoek term.
 
 ```
 queryType=simple&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
 ```
 
-Dezelfde query met behulp van de volledige Lucene-parser interpreteert de boost veld in op 'ranch', die de positie zoeken van de resultaten met die specifieke term verhoogt.
+Dezelfde query die de volledige lucene-parser gebruikt, interpreteert de in-veld boost op ' Ranch ', waarmee de zoek positie van resultaten met die specifieke term wordt verhoogd.
 
 ```
 queryType=full&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
@@ -114,57 +114,57 @@ queryType=full&search=mountain beach garden ranch^3&searchFields=description&$co
 
 ## <a name="types-of-queries"></a>Typen query's
 
-Azure Search ondersteunt een breed scala aan typen query's. 
+Azure Search ondersteunt een breed scala aan query typen. 
 
-| Querytype | Gebruik | Meer informatie en voorbeelden |
+| Querytype | Gebruik | Voor beelden en meer informatie |
 |------------|--------|-------------------------------|
-| Vrije indeling tekst zoeken | Search-parameter en een van beide parser| Zoeken in volledige tekst zoekt naar een of meer voorwaarden in alle *doorzoekbare* velden in uw index en werkt zoals u zou verwachten een zoekmachine als Google of Bing om te werken. Het voorbeeld in de inleiding is zoeken in volledige tekst.<br/><br/>Zoeken in volledige tekst ondergaat met behulp van de standaard Lucene analyzer (standaard) voor analyse van tekst naar kleine alle voorwaarden, stopwoorden verwijderen, zoals "het". U kunt de standaardinstelling met negeren [niet-Engelse analyzers](index-add-language-analyzers.md#language-analyzer-list) of [speciale taal-neutraal analyzers](index-add-custom-analyzers.md#AnalyzerTable) die analyse van tekst wijzigen. Een voorbeeld is [sleutelwoord](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) die de volledige inhoud van een veld wordt beschouwd als een enkele token. Dit is handig voor gegevens zoals postcodes, -id's en sommige productnamen. | 
-| Gefilterde zoeken | [OData-filterexpressie](query-odata-filter-orderby-syntax.md) en een van beide parser | Filterquery's een Booleaanse expressie geëvalueerd over alle *Filterbaar* velden in een index. In tegenstelling tot search, een filterquery komt overeen met de exacte inhoud van een veld, met inbegrip van de hoofdlettergevoeligheid voor tekenreeksvelden. Een ander verschil is dat de filterquery's worden uitgedrukt in OData-syntaxis. <br/>[Voorbeeld van een expressie filteren](search-query-simple-examples.md#example-3-filter-queries) |
-| Op geografische locaties zoeken | [Type Edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) op het veld, filterexpressie en de parser | Coördinaten die zijn opgeslagen in een veld met een Edm.GeographyPoint worden gebruikt voor de 'in mijn buurt zoeken' of op basis van een kaart zoekbesturingselementen. <br/>[Voorbeeld van de geografische locaties zoeken](search-query-simple-examples.md#example-5-geo-search)|
-| Bereik zoeken | filterexpressie en eenvoudige parser | Bereik-query's zijn gebouwd met behulp van de filterparameter in Azure Search. <br/>[Voorbeeld van de Range-filter](search-query-simple-examples.md#example-4-range-filters) | 
-| [Fielded zoeken](query-lucene-syntax.md#bkmk_fields) | Zoekparameter en volledige-parser | Bouw een samengestelde query-expressie die gericht is op één veld. <br/>[Een voorbeeld van fielded zoekopdracht](search-query-lucene-examples.md#example-2-fielded-search) |
-| [fuzzy zoeken](query-lucene-syntax.md#bkmk_fuzzy) | Zoekparameter en volledige-parser | Komt overeen met op voorwaarden met een dergelijke constructie of spelling. <br/>[Een voorbeeld van fuzzy zoekopdracht](search-query-lucene-examples.md#example-3-fuzzy-search) |
-| [zoeken op nabijheid](query-lucene-syntax.md#bkmk_proximity) | Zoekparameter en volledige-parser | Hiermee zoekt u naar de voorwaarden die zich dicht bij elkaar in een document. <br/>[Voorbeeld van de zoekopdracht nabijheid](search-query-lucene-examples.md#example-4-proximity-search) |
-| [versterking](query-lucene-syntax.md#bkmk_termboost) | Zoekparameter en volledige-parser | Als deze bevat de boosted term, ten opzichte van andere gebruikers die niet worden gerangschikt op een hoger document. <br/>[Term Gradient boosting-voorbeeld](search-query-lucene-examples.md#example-5-term-boosting) |
-| [zoeken op reguliere expressies](query-lucene-syntax.md#bkmk_regex) | Zoekparameter en volledige-parser | Overeenkomsten op basis van de inhoud van een reguliere expressie. <br/>[Voorbeeld van een reguliere expressie](search-query-lucene-examples.md#example-6-regex) |
-|  [jokertekens of voorvoegsel zoeken](query-lucene-syntax.md#bkmk_wildcard) | Zoekparameter en volledige-parser | Komt overeen met op basis van een voorvoegsel en een tilde (`~`) of één teken (`?`). <br/>[Een voorbeeld van jokertekens zoekopdracht](search-query-lucene-examples.md#example-7-wildcard-search) |
+| Zoek opdracht in vrije tekst | Zoek parameter en beide parsers| Zoek opdrachten in volledige tekst scans voor een of meer voor waarden in alle *Doorzoek* bare velden in uw index en werkt op de manier waarop u een zoek machine zoals Google of Bing verwacht. Het voor beeld in de inleiding is zoeken in volledige tekst.<br/><br/>Met zoeken in volledige tekst wordt tekst analyse met behulp van de standaard-lucene Analyzer (standaard) gebruikt om alle voor waarden te kleine letters te verwijderen, stop woorden zoals ' de '. U kunt de standaard instelling overschrijven met [niet-Engelse analyses](index-add-language-analyzers.md#language-analyzer-list) of [gespecialiseerde neutraal-](index-add-custom-analyzers.md#AnalyzerTable) analyse functies waarmee tekst analyse wordt gewijzigd. Een voor beeld is een [tref woord](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) dat de volledige inhoud van een veld als één token behandelt. Dit is handig voor gegevens zoals post codes, Id's en sommige product namen. | 
+| Gefilterde zoek opdracht | [OData-filter expressie](query-odata-filter-orderby-syntax.md) en een van beide parsers | Met filter query's wordt een booleaanse expressie voor alle *filter* bare velden in een index geëvalueerd. In tegens telling tot zoeken komt een filter query overeen met de exacte inhoud van een veld, inclusief hoofdletter gevoeligheid voor teken reeks velden. Een ander verschil is dat filter query's worden weer gegeven in de OData-syntaxis. <br/>[Voor beeld van filter expressie](search-query-simple-examples.md#example-3-filter-queries) |
+| Op geografische locaties zoeken | Het [type EDM. GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) in het veld, filter expressie en beide parsers | Coördinaten die zijn opgeslagen in een veld met een EDM. GeographyPoint worden gebruikt voor de besturings elementen "dichtbij zoeken" of op basis van een kaart. <br/>[Voor beeld van geo-zoeken](search-query-simple-examples.md#example-5-geo-search)|
+| Bereik zoeken | filter expressie en eenvoudige parser | In Azure Search worden bereik query's gemaakt met behulp van de filter parameter. <br/>[Voor beeld van Range-filter](search-query-simple-examples.md#example-4-range-filters) | 
+| [Zoek opdracht in veld](query-lucene-syntax.md#bkmk_fields) | Zoek parameter en volledige parser | Bouw een samengestelde query-expressie die is gericht op één veld. <br/>[Voor beeld van een zoek opdracht naar een veld](search-query-lucene-examples.md#example-2-fielded-search) |
+| [Zoek actie op fuzzy](query-lucene-syntax.md#bkmk_fuzzy) | Zoek parameter en volledige parser | Komt overeen met de termen met een vergelijk bare constructie of spelling. <br/>[Voor beeld van fuzzy zoeken](search-query-lucene-examples.md#example-3-fuzzy-search) |
+| [Proximity Search](query-lucene-syntax.md#bkmk_proximity) | Zoek parameter en volledige parser | Hiermee worden zoek termen in een document in de buurt. <br/>[Voor beeld van proximity Search](search-query-lucene-examples.md#example-4-proximity-search) |
+| [term versterking](query-lucene-syntax.md#bkmk_termboost) | Zoek parameter en volledige parser | Hiermee wordt een document hoger gerangschikt als het de gestimuleerde term bevat, ten opzichte van andere. <br/>[Voor beeld van een betere term](search-query-lucene-examples.md#example-5-term-boosting) |
+| [reguliere expressie zoeken](query-lucene-syntax.md#bkmk_regex) | Zoek parameter en volledige parser | Komt overeen met de inhoud van een reguliere expressie. <br/>[Voor beeld van een reguliere expressie](search-query-lucene-examples.md#example-6-regex) |
+|  [Joker teken of voor voegsel zoeken](query-lucene-syntax.md#bkmk_wildcard) | Zoek parameter en volledige parser | Komt overeen met een voor voegsel en tilde (`~`) of één teken (`?`). <br/>[Zoek voorbeeld voor joker tekens](search-query-lucene-examples.md#example-7-wildcard-search) |
 
-## <a name="manage-search-results"></a>Beheren van zoekresultaten 
+## <a name="manage-search-results"></a>Zoek resultaten beheren 
 
-Queryresultaten worden gestreamd als JSON-documenten in de REST-API, maar als u .NET-API's, serialisatie is ingebouwd in. U kunt resultaten vormgeven parameters instelt op de query, specifieke velden voor het antwoord te selecteren.
+Query resultaten worden gestreamd als JSON-documenten in de REST API, hoewel u .NET Api's gebruikt, is serialisatie ingebouwd. U kunt de resultaten van de vorm bepalen door para meters in te stellen voor de query en specifieke velden te selecteren voor het antwoord.
 
-Parameters voor de query kunnen worden gebruikt om te structureren van het resultaat ingesteld op de volgende manieren:
+De para meters in de query kunnen worden gebruikt om de resultatenset op de volgende manieren te structureren:
 
-+ Beperken of batchverwerking van het aantal documenten in de resultaten (50 standaard)
-+ Velden om op te nemen in de resultaten te selecteren
-+ Instellen van een bepaalde volgorde gesorteerd
-+ Toe te voegen hit markeringen om deze te vestigen op die overeenkomt met de voorwaarden in de hoofdtekst van de lijst met zoekresultaten
++ Het aantal documenten in de resultaten beperken of batcheren (standaard 50)
++ Velden selecteren die in de resultaten moeten worden meegenomen
++ Een sorteer volgorde instellen
++ Treffers toevoegen om de aandacht te vestigen op overeenkomende voor waarden in de hoofd tekst van de zoek resultaten
 
-### <a name="tips-for-unexpected-results"></a>Tips voor het onverwachte resultaten
+### <a name="tips-for-unexpected-results"></a>Tips voor onverwachte resultaten
 
-De stof en niet de structuur van de resultaten zijn soms onverwacht. Wanneer query-resultaten niet wat u verwacht te zien, kunt u proberen deze wijzigingen in de query om te controleren of de resultaten verbeteren:
+Af en toe zijn de stoffen en niet de structuur van de resultaten onverwacht. Wanneer de resultaten van de query niet naar verwachting worden weer geven, kunt u deze query wijzigingen proberen om te zien of het resultaat wordt verbeterd:
 
-+ Wijziging **`searchMode=any`** (standaard) **`searchMode=all`** om af te dwingen van overeenkomsten op alle criteria in plaats van een van de criteria. Dit is vooral van toepassing wanneer Booleaanse operators inbegrepen zijn de query.
++ Wijzig **`searchMode=any`** (standaard **`searchMode=all`** ) in om overeenkomsten te vereisen voor alle criteria in plaats van een criterium. Dit geldt met name wanneer Boole-Opera tors worden opgenomen in de query.
 
-+ De techniek van de query wijzigen als tekst of lexicale analyse nodig is, maar het querytype linguïstische verwerking uitsluit. Zoeken in volledige tekst, tekst of autocorrects voor spelfouten, singuliere meervoud word formulieren, en zelfs onregelmatige termen of zelfstandige naamwoorden lexicale analyse. Voor sommige query's zoals fuzzy of zoeken met jokertekens, tekstanalyse maakt geen deel uit van de pijplijn parseren van de query. Voor sommige scenario's, zijn reguliere expressies gebruikt als tijdelijke oplossing. 
++ Wijzig de query techniek als tekst-of lexicale analyse nood zakelijk is, maar het query type belet taal verwerking. In zoeken in volledige tekst, tekst-of lexicale analyse auto correctie voor spel fouten, enkelvoudige Word-formulieren en zelfs onregelmatige woorden of zelfstandige naam woorden. Voor sommige query's, zoals fuzzy of joker tekens, is tekst analyse geen onderdeel van de pijp lijn voor het parseren van query's. In sommige gevallen worden reguliere expressies gebruikt als tijdelijke oplossing. 
 
 ### <a name="paging-results"></a>Resultaten pagineren
-Met Azure Search kunt u gemakkelijk zoekresultaten oproepen. Met behulp van de **`top`** en **`skip`** parameters, u kunt eenvoudig zoekaanvragen uitgeven die kunt u voor het ontvangen van het totale aantal zoekresultaten in beheersbare, geordende van subsets die eenvoudig inschakelen goede zoekopdracht uit te voeren. Tijdens het ontvangen van deze kleinere subsets van resultaten kunt u ook het aantal documenten weergeven in het totale aantal zoekresultaten.
+Met Azure Search kunt u gemakkelijk zoekresultaten oproepen. Met behulp **`top`** van **`skip`** de-en-para meters kunt u probleemloos Zoek opdrachten verzenden waarmee u de totale set Zoek resultaten in beheerbaar, bestelde subsets waarmee u eenvoudig goede zoek acties in de gebruikers interface kunt kunnen ontvangen. Tijdens het ontvangen van deze kleinere subsets van resultaten kunt u ook het aantal documenten weergeven in het totale aantal zoekresultaten.
 
 Zie het artikel [Zoekresultaten oproepen in Azure Search](search-pagination-page-layout.md) voor meer informatie over het oproepen van zoekresultaten.
 
 ### <a name="ordering-results"></a>Resultaten ordenen
 De resultaten van een zoekopdracht kunnen door Azure Search worden geordend op de waarde in een bepaald veld. Standaard ordent Azure Search zoekresultaten op basis van de positie van de zoekscore van elk document, die is afgeleid van [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
-Als u wilt dat Azure Search om terug te keren uw resultaten gesorteerd op een andere waarde dan de zoekscore, kunt u de **`orderby`** zoekparameter. U kunt opgeven dat de waarde van de **`orderby`** parameter om op te nemen van de veldnamen en aanroepen naar de [  **`geo.distance()` functie** ](query-odata-filter-orderby-syntax.md) voor georuimtelijke waarden. Elke expressie kan worden gevolgd door `asc` om aan te geven dat de resultaten zijn aangevraagd in oplopende volgorde, en **`desc`** om aan te geven dat de resultaten in aflopende volgorde worden aangevraagd. De standaard oplopende volgorde.
+Als u wilt dat Azure Search uw resultaten retourneert die zijn besteld met een andere waarde dan de zoek Score, **`orderby`** kunt u de zoek parameter gebruiken. U kunt de waarde van de **`orderby`** para meter opgeven voor het toevoegen van veld namen en aanroepen naar de [ **`geo.distance()` functie**](query-odata-filter-orderby-syntax.md) voor georuimtelijke waarden. Elke expressie kan worden gevolgd door `asc` om aan te geven dat de resultaten in oplopende Volg **`desc`** orde worden aangevraagd en om aan te geven dat de resultaten in aflopende volg orde worden aangevraagd. De standaard oplopende volgorde.
 
 
 ### <a name="hit-highlighting"></a>Markeren
-In Azure Search, waarbij de nadruk ligt het exacte aantal zoekresultaten die overeenkomen met de zoekopdracht is eenvoudig met behulp van de **`highlight`** , **`highlightPreTag`** , en **`highlightPostTag`** parameters. U kunt aangeven in welke *doorzoekbare* velden de tekst moet worden benadrukt. Ook kunt u de exacte tekenreekslabels opgeven die moeten worden toegevoegd aan het begin en einde van de overeenkomstige tekst die Azure Search retourneert.
+In azure Search is het benadrukken van het exacte deel van de zoek resultaten dat overeenkomt met de zoek query eenvoudig gemaakt **`highlight`** met **`highlightPreTag`** behulp **`highlightPostTag`** van de para meters, en. U kunt aangeven in welke *doorzoekbare* velden de tekst moet worden benadrukt. Ook kunt u de exacte tekenreekslabels opgeven die moeten worden toegevoegd aan het begin en einde van de overeenkomstige tekst die Azure Search retourneert.
 
 ## <a name="see-also"></a>Zie ook
 
-+ [Hoe vol tekstzoekopdrachten werkt in Azure Search (parseren van de architectuur van de query)](search-lucene-query-architecture.md)
-+ [Search explorer](search-explorer.md)
++ [De manier waarop zoeken in volledige tekst werkt in Azure Search (architectuur voor het parseren van query's)](search-lucene-query-architecture.md)
++ [Zoek Verkenner](search-explorer.md)
 + [Query's uitvoeren in .NET](search-query-dotnet.md)
 + [Query's uitvoeren in REST](search-create-index-rest-api.md)

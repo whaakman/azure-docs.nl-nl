@@ -5,28 +5,28 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
-ms.date: 11/02/2018
+ms.date: 08/07/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a752427d1e5873f0a27fd231872e3a13b234d9ed
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 3386cb51a8a728576f6615002d6154d89ca662c1
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402322"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883767"
 ---
 <!-- This tells how to get the connection string for the registryReadWrite shared access policy of your IoT hub -->
 
 Voer de volgende stappen uit om de IoT Hub connection string voor het **registryReadWrite** -beleid op te halen:
 
-1. Open uw IoT-hub in de [Azure Portal](https://portal.azure.com).  De eenvoudigste manier om uw IoT-hub te bereiken, is door **resource groepen**te selecteren, de resource groep te selecteren waar uw IOT-hub zich bevindt en vervolgens uw IOT-hub te selecteren in de lijst met resources.
+1. Selecteer **resource groepen**In het [Azure Portal](https://portal.azure.com). Selecteer de resource groep waar uw hub zich bevindt en selecteer vervolgens uw hub in de lijst met resources.
 
-2. Selecteer in het linkerdeel venster van uw IoT-hub het **beleid voor gedeelde toegang**.
+2. Selecteer in het linkerdeel venster van uw hub het beleid voor **gedeelde toegang**.
 
 3. Selecteer in de lijst met beleids regels het **registryReadWrite** -beleid.
 
 4. Onder **gedeelde toegangs sleutels**selecteert u het Kopieer pictogram voor de **verbindings reeks--primaire sleutel** en slaat u de waarde op.
 
-    ![Het ophalen van de verbindingsreeks](./media/iot-hub-include-find-registryrw-connection-string/iot-hub-get-connection-string.png)
+    ![Het ophalen van de verbindingsreeks](./media/iot-hub-include-find-registryrw-connection-string/iot-hub-get-connection-vs2019.png)
 
 Zie [toegangs beheer en machtigingen](../articles/iot-hub/iot-hub-devguide-security.md#access-control-and-permissions)voor meer informatie over het IOT hub van het beleid voor gedeelde toegang en machtigingen.

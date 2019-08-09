@@ -1,57 +1,56 @@
 ---
-title: Architectuur van volledige tekst zoeken (Lucene)-engine - Azure Search
-description: Uitleg van Lucene query verwerken en het document ophalen van concepten voor zoeken in volledige tekst, met betrekking tot Azure Search.
+title: Architectuur van de volledige zoek machine (lucene)-Azure Search
+description: Uitleg over de verwerking van Lucene-query's en het ophalen van document concepten voor zoeken in volledige tekst, met betrekking tot Azure Search.
 manager: jlembicz
 author: yahnoosh
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/08/2019
 ms.author: jlembicz
-ms.custom: seodec2018
-ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e54bc91ff60ce4f3c2340282410923225601df4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797485"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883911"
 ---
-# <a name="how-full-text-search-works-in-azure-search"></a>Hoe vol tekstzoekopdrachten werkt in Azure Search
+# <a name="how-full-text-search-works-in-azure-search"></a>De manier waarop zoeken in volledige tekst werkt in Azure Search
 
-In dit artikel is voor ontwikkelaars die een beter begrip van de werking van Lucene zoeken in volledige tekst in Azure Search nodig hebben. Voor tekst-query's, Azure Search naadloos verwachte resultaten in de meeste gevallen levert, maar soms krijgt u mogelijk een resultaat met een hoog 'M 'uit'. In deze situaties, dat u een achtergrond in de vier fasen van de uitvoering van Lucene-query (query's uitvoeren bij het parseren, lexicale analyse, document-koppeling, score) kunt u specifieke wijzigingen in query-parameters of indexconfiguratie die de gewenste verzorgt identificeren resultaat. 
+Dit artikel is voor ontwikkel aars die meer inzicht nodig hebben in de manier waarop de zoek opdracht in de volledige tekst van lucene in Azure Search werkt. Voor tekst query's levert Azure Search naadloos verwachte resultaten op in de meeste scenario's, maar in sommige gevallen kan er een resultaat worden weer geven dat ' uit ' lijkt. In dergelijke situaties kan een achtergrond in de vier stadia van de uitvoering van de Lucene-query (het parseren van query's, lexicale analyse, document matching, scoreing) helpen bij het identificeren van specifieke wijzigingen in de query parameters of de index configuratie die de gewenste daarvan. 
 
 > [!Note] 
-> Azure Search Lucene gebruikt voor zoeken in volledige tekst, maar Lucene-integratie is niet volledig. We selectief beschikbaar maken en uitbreiden van Lucene-functionaliteit waarmee de scenario's die belangrijk dat u Azure Search. 
+> Azure Search gebruikt lucene voor zoeken in volledige tekst, maar de integratie van Lucene is niet volledig. U kunt de Lucene-functionaliteit selectief beschikbaar maken en uitbreiden om de scenario's in te scha kelen die belang rijk zijn voor Azure Search. 
 
-## <a name="architecture-overview-and-diagram"></a>Overzicht van de architectuur en -diagram
+## <a name="architecture-overview-and-diagram"></a>Architectuur overzicht en diagram
 
-Verwerking van een zoekquery voor volledige tekst begint met het parseren van de tekst van de query om uit te pakken zoektermen. De zoekmachine maakt gebruik van een index om documenten met een overeenkomende te halen. Afzonderlijke querytermen zijn soms opgedeeld en geregenereerd naar nieuwe formulieren te casten van een bredere net over wat kan worden beschouwd als een mogelijke overeenkomst. Een resultatenset wordt vervolgens gesorteerd op een relevantiescore toegewezen aan elke afzonderlijke overeenkomende document. Die aan de bovenkant van de ranglijst staat keert terug naar de aanroepende toepassing.
+Het verwerken van een zoek opdracht voor volledige tekst begint met het parseren van de query tekst om zoek termen te extra heren. De zoek machine gebruikt een index voor het ophalen van documenten met overeenkomende voor waarden. Afzonderlijke query termen worden soms onderverdeeld in nieuwe formulieren om het net groter te maken ten opzichte van wat kan worden beschouwd als een mogelijke overeenkomst. Vervolgens wordt er een resultaatset gesorteerd op een relevantie score die is toegewezen aan elk individueel overeenkomend document. De objecten boven aan de lijst met geclassificeerde worden geretourneerd naar de aanroepende toepassing.
 
-Aangepast, bestaat uitvoeren van query's uit vier fasen: 
+De uitvoering van query's heeft vier fasen: 
 
-1. Parseren van de query 
+1. Query's parseren 
 2. Lexicale analyse 
-3. Voor het document ophalen 
-4. Scoren 
+3. Ophalen van documenten 
+4. Waardering 
 
-Het volgende diagram illustreert de onderdelen die zijn gebruikt voor het verwerken van een zoekaanvraag. 
+In het onderstaande diagram ziet u de onderdelen die worden gebruikt voor het verwerken van een zoek opdracht. 
 
- ![Architectuurdiagram van Lucene-query in Azure Search][1]
+ ![Het schema van de Lucene-query architectuur in Azure Search][1]
 
 
 | Belangrijkste onderdelen | Functionele beschrijving | 
 |----------------|------------------------|
-|**Query-parsers** | Zoektermen te scheiden van standaardoperators voor query's en de querystructuur (een boomstructuur van de query) worden verzonden naar de zoekmachine maken. |
-|**Analyzers** | Lexicale analyse uitvoeren op zoektermen. Dit proces kan betrekking hebben op transformeren, te verwijderen of uitbreiden van zoektermen. |
-|**Index** | Een efficiënte gegevensstructuur voor het opslaan en organiseren doorzoekbare voorwaarden die zijn geëxtraheerd uit geïndexeerde documenten. |
-|**Zoekmachine** | Opgehaald en scores overeenkomende documenten op basis van de inhoud van de omgekeerde index. |
+|**Query-parsers** | Scheid query termen van query operators en maak de query structuur (een query structuur) die naar de zoek machine moet worden verzonden. |
+|**Analyzers** | Voer een lexicale analyse uit op query termen. Dit proces kan betrekking hebben op het transformeren, verwijderen of uitbreiden van query termen. |
+|**Index** | Een efficiënte gegevens structuur die wordt gebruikt voor het opslaan en organiseren van Doorzoek bare termen die zijn geëxtraheerd uit geïndexeerde documenten. |
+|**Zoek machine** | Hiermee worden overeenkomende documenten opgehaald en gescoord op basis van de inhoud van de omgekeerde index. |
 
-## <a name="anatomy-of-a-search-request"></a>De anatomie van een zoekaanvraag
+## <a name="anatomy-of-a-search-request"></a>Anatomie van een zoek aanvraag
 
-Een zoekaanvraag is een complete specificatie van wat moet worden geretourneerd in een resultatenset. Het is een lege query zonder criteria van welke aard dan ook in de meest eenvoudige vorm. Een voorbeeld van een realistischer bevat parameters, verschillende querytermen, misschien binnen het bereik van bepaalde velden, met mogelijk een filterexpressie en de volgorde van regels.  
+Een zoek opdracht is een volledige specificatie van wat er in een resultatenset moet worden geretourneerd. In het eenvoudigste vorm is het een lege query zonder criteria van welke aard dan ook. Een realistischer voor beeld bevat para meters, verschillende query termen, mogelijk op bepaalde velden, met mogelijk een filter expressie en regels voor het ordenen.  
 
-Het volgende voorbeeld wordt een zoekaanvraag die u met behulp van Azure Search verzenden kunt de [REST-API](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
+Het volgende voor beeld is een zoek opdracht die u naar Azure Search kunt verzenden met behulp van de [rest API](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
 POST /indexes/hotels/docs/search?api-version=2019-05-06
@@ -65,94 +64,94 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 }
 ~~~~
 
-Voor deze aanvraag zijn de zoekmachine doet het volgende:
+Voor deze aanvraag doet de zoek machine het volgende:
 
-1. Documenten gefilterd waarbij de prijs is ten minste $60 en is minder dan $300.
-2. De query wordt uitgevoerd. In dit voorbeeld wordt de query bestaat van zinnen en voorwaarden: `"Spacious, air-condition* +\"Ocean view\""` (gebruikers normaal gesproken geen leestekens in te voeren, maar opneemt in het voorbeeld, kunnen we waarin wordt uitgelegd hoe analyzers verwerkt). Voor deze query is de zoekmachine scant de beschrijving en titelvelden opgegeven in `searchFields` voor documenten met 'In de Indische Oceaan weergeven', en daarnaast de term 'groot', of op termen die met het voorvoegsel beginnen 'air-condition'. De `searchMode` parameter wordt gebruikt om op een term (standaard) of al deze gevallen waarbij een term niet expliciet vereist is (`+`).
-3. De resulterende set hotels door nauwe binding met een bepaalde geo-locatie en vervolgens wordt geretourneerd naar de aanroepende toepassing de orders. 
+1. Filtert documenten waarvan de prijs ten minste $60 en kleiner is dan $300.
+2. Voert de query uit. In dit voor beeld bestaat de zoek query uit zinsdelen en voor waarden `"Spacious, air-condition* +\"Ocean view\""` : (gebruikers voeren doorgaans geen interpunctie tekens in, maar in het voor beeld kunnen we uitleggen hoe analyseers dit verwerken). Voor deze query scant de zoek machine de velden Beschrijving en titel die zijn opgegeven `searchFields` in voor documenten die de weer gave ' ochtend ' bevatten, en ook op de term ' spacious ', of op termen die beginnen met het voor voegsel ' Air-voor waarde '. De `searchMode` para meter wordt gebruikt om een wille keurige term (standaard) of alle waarden te vergelijken, voor gevallen waarbij een term niet`+`expliciet vereist is ().
+3. Bestelt de resulterende set hotels door nabij de opgegeven geografische locatie, en keert vervolgens terug naar de aanroepende toepassing. 
 
-Het merendeel van dit artikel is over de verwerking van de *zoekquery*: `"Spacious, air-condition* +\"Ocean view\""`. Filteren en bestellen vallen buiten het bereik. Zie voor meer informatie de [zoeken-API-referentiedocumentatie](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Het meren deel van dit artikel is het verwerken van de *Zoek query*: `"Spacious, air-condition* +\"Ocean view\""`. Filteren en ordenen vallen buiten het bereik. Zie de [naslag documentatie voor Search API](https://docs.microsoft.com/rest/api/searchservice/search-documents)voor meer informatie.
 
 <a name="stage1"></a>
-## <a name="stage-1-query-parsing"></a>Fase 1: Parseren van de query 
+## <a name="stage-1-query-parsing"></a>Fase 1: Query's parseren 
 
-Zoals is vermeld, is de query-tekenreeks in de eerste regel van de aanvraag: 
+Zoals aangegeven, is de query reeks de eerste regel van de aanvraag: 
 
 ~~~~
  "search": "Spacious, air-condition* +\"Ocean view\"", 
 ~~~~
 
-De queryparser scheidt operators (zoals `*` en `+` in het voorbeeld) uit zoekopdracht voorwaarden en de zoekopdracht in deconstructs *subquery's* van een ondersteund type: 
+De query-parser scheidt Opera tors ( `*` zoals `+` en in het voor beeld) uit zoek termen en ontbouwt de zoek query in *subquery's* van een ondersteund type: 
 
-+ *term query* voor zelfstandige voorwaarden (zoals groot)
-+ *woordgroep query* voor tussen aanhalingstekens voorwaarden (zoals in de Indische Oceaan weergeven)
-+ *voorvoegsel query* voor voorwaarden, gevolgd door een operator voorvoegsel `*` (zoals air-condition)
++ *term query* voor zelfstandige voor waarden (zoals spacious)
++ *woordgroepen query* voor geciteerde voor waarden (zoals de weer gave Oceaan)
++ *voorvoegsel query* voor voor waarden gevolgd door een voorvoegsel `*` operator (zoals airconditioning)
 
-Zie voor een volledige lijst van ondersteunde querytypen [Lucene-querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+Zie voor een volledige lijst met ondersteunde query typen de [opdracht syntaxis van Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 
-Operators die zijn gekoppeld aan een subquery bepalen of de query 'moet' of 'moet' voldaan opdat een document om te worden beschouwd als een overeenkomst. Bijvoorbeeld, `+"Ocean view"` 'moet' is vanwege de `+` operator. 
+Opera tors die zijn gekoppeld aan een subquery bepalen of de query ' moet zijn ' of ' moet ' zijn ' voldaan om een document als een overeenkomst te worden beschouwd. `+"Ocean view"` Is bijvoorbeeld ' moet ' door de `+` operator. 
 
-De queryparser is hergestructureerd de subquery's in een *querystructuur* (een interne structuur voor de query) waar deze naar de zoekmachine doorstuurt op. In de eerste fase van het parseren van de query, uitziet de querystructuur van de.  
+De query-parser structureert de subquery's in een *query structuur* (een interne structuur die de query weergeeft) die wordt door gegeven aan de zoek machine. In de eerste fase van het parseren van query's ziet de query structuur er als volgt uit.  
 
- ![Booleaanse waarde searchmode elke query][2]
+ ![Boole-query Search mode][2]
 
-### <a name="supported-parsers-simple-and-full-lucene"></a>Ondersteunde parsers: Eenvoudige en volledige-Lucene 
+### <a name="supported-parsers-simple-and-full-lucene"></a>Ondersteunde parsers: Eenvoudige en volledige lucene 
 
- Azure Search wordt aangegeven dat twee verschillende querytalen `simple` (standaard) en `full`. Door in te stellen de `queryType` parameter met uw zoekopdracht u instellen dat de queryparser welke querytaal u kiest zodat deze over het interpreteren van de operators en syntaxis. De [eenvoudige query-taal](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) is intuïtief en robuuste, vaak geschikt is voor de invoer van de gebruiker als interpreteren-is zonder client-side-verwerking. Het ondersteunt standaardoperators voor query's van webzoekmachines bekend. De [volledige Lucene-querytaal](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), die wordt geleverd door in te stellen `queryType=full`, wordt de standaardtaal van eenvoudige query uitgebreid met ondersteuning voor meer operators en typen query's, zoals jokerteken, fuzzy, regex en veldgerelateerde query's. Bijvoorbeeld, wordt een reguliere expressie verzonden eenvoudige query-syntaxis geïnterpreteerd als een queryreeks en niet een expressie. De voorbeeldaanvraag in dit artikel maakt gebruik van de volledige Lucene-querytaal.
+ Azure Search biedt twee verschillende query talen, `simple` (standaard) en. `full` Door de `queryType` para meter in te stellen met uw zoek aanvraag, vertelt u de query-parser welke query taal u kiest, zodat u weet hoe de Opera tors en de syntaxis moeten worden geïnterpreteerd. De [eenvoudige query taal](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) is intuïtief en robuust, en is vaak geschikt voor het interpreteren van gebruikers invoer zonder dat de verwerking aan de client zijde wordt uitgevoerd. De functie biedt ondersteuning voor query-Opera tors die bekend zijn met Web Search-Engines. De [volledige lucene-query taal](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), die u op basis `queryType=full`van instelling krijgt, breidt de standaard eenvoudige query taal uit door ondersteuning toe te voegen voor meer Opera tors en query typen, zoals joker tekens, fuzzy, regex en query's met een veld bereik. Een reguliere expressie die in eenvoudige query syntaxis wordt verzonden, wordt bijvoorbeeld geïnterpreteerd als een query reeks en geen expressie. In de voorbeeld aanvraag in dit artikel wordt gebruikgemaakt van de volledige lucene-query taal.
 
-### <a name="impact-of-searchmode-on-the-parser"></a>Gevolgen van het searchMode in de parser 
+### <a name="impact-of-searchmode-on-the-parser"></a>De impact van Search mode op de parser 
 
-Een andere zoekopdracht aanvraagparameter die gevolgen heeft voor het parseren is de `searchMode` parameter. Hiermee kunt u de standaardoperator voor Boole-query's: een (standaard) of alle.  
+Een andere zoek aanvraag parameter die van invloed is `searchMode` op parsering is de para meter. Het beheert de standaard operator voor Booleaanse query's: any (standaard) of alle.  
 
-Wanneer `searchMode=any`, is de standaardoptie, de spatie als scheidingsteken tussen groot en air-condition is of (`||`), gelijk aan het maken van de tekst van de voorbeeld-query: 
+Wanneer `searchMode=any`, de standaard waarde, het spatie scheidings teken tussen spacious en de lucht voorwaarde of (`||`), waarbij de voorbeeld query tekst gelijk is aan: 
 
 ~~~~
 Spacious,||air-condition*+"Ocean view" 
 ~~~~
 
-Expliciete operators, zoals `+` in `+"Ocean view"`, ondubbelzinnige Booleaanse query constructie zijn (de term *moet* overeen). Minder duidelijk wordt beschreven hoe u met het interpreteren van de overige voorwaarden: groot en air-condition. Moet de zoekmachine overeenkomsten worden gevonden voor de weergave in de Indische Oceaan *en* groot *en* air-condition? Of moet deze vinden in de Indische Oceaan weergave plus *uit, één* van de overige voorwaarden? 
+Expliciete Opera Tors, `+` zoals `+"Ocean view"`in, zijn niet eenduidig in de constructie van een Boole-query (de term *moet* overeenkomen). Minder duidelijk wordt uitgelegd hoe u de resterende voor waarden interpreteert: spacious en Air-voor waarde. Moet de zoek machine overeenkomen met de weer gave van de oceaan *en* de spacious *en* de airconditioning? Of moet de weer gave van de Oceaan en *een* van de resterende voor waarden worden gevonden? 
 
-Standaard (`searchMode=any`), de zoekmachine wordt ervan uitgegaan dat de bredere interpretatie. Een veld *moet* overeen, zetten op basis van 'of'-semantiek. De structuur van de oorspronkelijke query eerder weergegeven, met de twee 'moet' operations, ziet u de.  
+De zoek machine`searchMode=any`neemt standaard de uitgebreidere uitleg. Elk veld *moet* overeenkomen met ' of ' semantiek. De eerste query structuur die eerder is geïllustreerd, met de twee ' moet-' bewerkingen, toont de standaard waarde.  
 
-Stel dat we nu `searchMode=all`. In dit geval wordt de ruimte geïnterpreteerd als een 'en'-bewerking. Elk van de overige voorwaarden moet beide aanwezig zijn in het document dat moet worden gekwalificeerd als een overeenkomst. De resulterende voorbeeldquery wordt geïnterpreteerd als volgt: 
+Stel dat we nu hebben `searchMode=all`ingesteld. In dit geval wordt de ruimte geïnterpreteerd als een ' and '-bewerking. Elk van de resterende voor waarden moet aanwezig zijn in het document om in aanmerking te komen als overeenkomst. De resulterende voorbeeld query wordt als volgt geïnterpreteerd: 
 
 ~~~~
 +Spacious,+air-condition*+"Ocean view"
 ~~~~
 
-Een gewijzigde query-structuur voor deze query zou zijn als volgt, waarbij een overeenkomende document is het snijpunt van alle drie subquery's: 
+Een gewijzigde query structuur voor deze query zou er als volgt uitzien, waarbij een overeenkomend document het snij punt is van alle drie subquery's: 
 
- ![Booleaanse query searchmode alle][3]
+ ![Booleaanse query Search mode][3]
 
 > [!Note] 
-> Kiezen `searchMode=any` via `searchMode=all` is een aanbevolen beslissing is aangekomen door uit te voeren representatieve query's. Gebruikers die waarschijnlijk operators (algemeen zijn bij het zoeken naar documenten worden opgeslagen) bevat mogelijk intuïtiever resultaten als `searchMode=all` informeert Booleaanse query constructies. Voor meer informatie over de wisselwerking tussen `searchMode` en operators, Zie [vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search).
+> Als u kiest `searchMode=any` voor wordteenbeslissingaangeradenbijhetuitvoerenvanrepresentatievequery's.`searchMode=all` Gebruikers die waarschijnlijk Opera tors kunnen bevatten (gebruikelijk bij het zoeken naar document winkels), kunnen resultaten beter `searchMode=all` intuïtief vinden als ze Boole-query constructies informeren. Zie [eenvoudige query syntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)voor meer `searchMode` informatie over de Interplay tussen en-Opera tors.
 
 <a name="stage2"></a>
 ## <a name="stage-2-lexical-analysis"></a>Fase 2: Lexicale analyse 
 
-Lexicale analyse proces *termijn query's* en *formuleren van query's* nadat de querystructuur van de is opgebouwd. Een analyzer accepteert de invoer van de tekst krijgen tot het door de parser, verwerkt de tekst en vervolgens verzendt terug tokenized voorwaarden kunnen worden opgenomen in de querystructuur van de. 
+Lexicale analyses process *term query's* en *woordgroepen query's* nadat de query structuur is gestructureerd. Met een analyse functie worden de tekst invoer van de parser geaccepteerd, wordt de tekst verwerkt en worden vervolgens de tokens teruggestuurd zodat ze in de query structuur kunnen worden opgenomen. 
 
-Is de meestgebruikte vorm van lexicale analyse *linguïstische* welke transformaties query voorwaarden op basis van regels die specifiek zijn voor een bepaalde taal: 
+De gemeen schappelijke vorm van lexicale analyse is een *linguïstische analyse* waarmee query termen worden getransformeerd op basis van regels die specifiek zijn voor een bepaalde taal: 
 
-* Een termijn van de query voor de vorm van de hoofdmap van een woord te beperken 
-* Verwijderen van niet-essentiële woorden (stopwoorden, zoals 'de' of 'en' in het Engels) 
-* Een samengestelde woord verdelen in onderdelen 
-* Kleine hoofdlettergebruik van een woord hoofdletters 
+* Een query term verkleinen naar de hoofd vorm van een woord 
+* Niet-essentiële woorden verwijderen (stopwords, zoals "de" of "en" in het Engels) 
+* Een samengesteld woord in onderdeel delen opsplitsen 
+* Een hoofd letter woord in kleine letters verlagen 
 
-Al deze bewerkingen meestal om te wissen van de verschillen tussen de tekstinvoer die is opgegeven door de gebruiker en de voorwaarden die zijn opgeslagen in de index. Dergelijke bewerkingen plaatsvindt verder gaan dan de verwerking van tekst en diepgaande kennis van de taal zelf vereist. Als u wilt toevoegen van deze laag linguïstische bewust te zijn, Azure Search biedt ondersteuning voor een lange lijst [taalanalyse](https://docs.microsoft.com/rest/api/searchservice/language-support) van Lucene en Microsoft.
+Al deze bewerkingen verwijderen doorgaans verschillen tussen de tekst invoer van de gebruiker en de termen die zijn opgeslagen in de index. Dergelijke bewerkingen gaan verder dan tekst verwerking en vereisen uitgebreide kennis van de taal zelf. Azure Search ondersteunt een lange lijst met [taal analyse](https://docs.microsoft.com/rest/api/searchservice/language-support) functies van zowel Lucene als micro soft.
 
 > [!Note]
-> Vereisten voor analyse kunnen variëren van minimale voor uitgebreide afhankelijk van uw scenario. U kunt de complexiteit van lexicale analyse beheren door het selecteren van de vooraf gedefinieerde analyzers of door het maken van uw eigen [aangepaste analysefunctie](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search). Analysefuncties zijn gericht op doorzoekbare velden en zijn opgegeven als onderdeel van de velddefinitie van een. Hiermee kunt u verschillende lexicale analyse op basis van per veld. Niets opgeeft, de *standard* Lucene analyzer wordt gebruikt.
+> De analyse vereisten kunnen variëren van Mini maal, afhankelijk van uw scenario. U kunt de complexiteit van de lexicale analyse regelen door het selecteren van een van de vooraf gedefinieerde analyse functies of door uw eigen [aangepaste analyse functie](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search)te maken. Analyse functies zijn gericht op Doorzoek bare velden en zijn opgegeven als onderdeel van een veld definitie. Zo kunt u de lexicale analyse per veld variëren. Niet opgegeven, de *standaard* -lucene Analyzer wordt gebruikt.
 
-In ons voorbeeld voor analyse, heeft de structuur van de oorspronkelijke query de term 'Spacious', met een hoofdletter "S" en een door komma's die de queryparser wordt geïnterpreteerd als onderdeel van de queryterm die (een door komma's wordt niet beschouwd als een query language-operator).  
+In het vorige voor beeld heeft de eerste query structuur de term ' spacious ' met een hoofd letter ' S ' en een komma die de query-parser interpreteert als een deel van de query term (een komma wordt niet beschouwd als een query taal operator).  
 
-Wanneer de analyzer standaard de term verwerkt, wordt "in de Indische Oceaan view" en "groot", kleine letter en verwijder de komma. De structuur van de gewijzigde query ziet er als volgt uit: 
+Wanneer de standaard-Analyzer de term verwerkt, wordt er in een kleine letter "Oceaan" en "spacious" weer gegeven en wordt het komma teken verwijderd. De gewijzigde query structuur ziet er als volgt uit: 
 
- ![Booleaanse query's uitvoeren met geanalyseerde voorwaarden][4]
+ ![Booleaanse query met geanalyseerde termen][4]
 
-### <a name="testing-analyzer-behaviors"></a>Analyzer gedrag testen 
+### <a name="testing-analyzer-behaviors"></a>Gedrag van Test Analyzer 
 
-Het gedrag van een analyzer kan worden getest met de [analyseren API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). Geef de tekst die u wilt analyseren om te zien wat vermeldingen analyzer wordt gegenereerd. Bijvoorbeeld, als u wilt zien hoe de standaard analyzer de tekst "air-condition" wilt verwerken, kunt u de volgende aanvraag uitgeven:
+Het gedrag van een Analyzer kan worden getest met behulp van de [analyse-API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). Geef de tekst op die u wilt analyseren om te zien welke termen worden gegenereerd door de analyse functie. Als u bijvoorbeeld wilt zien hoe de tekst ' Air-condition ' door de standaard-Analyzer wordt verwerkt, kunt u de volgende aanvraag verzenden:
 
 ~~~~
 {
@@ -161,7 +160,7 @@ Het gedrag van een analyzer kan worden getest met de [analyseren API](https://do
 }
 ~~~~
 
-De standaard analyzer verdeelt de invoertekst in de volgende twee tokens, ze aantekeningen te maken met kenmerken, zoals het begin en einde offsets (gebruikt voor treffers markeren), evenals hun positie (gebruikt voor het overeenkomende woordgroepen):
+De standaard-Analyzer verbreekt de invoer tekst in de volgende twee tokens, waarbij aantekeningen worden gemaakt met kenmerken zoals begin-en eind verschuivingen (gebruikt voor het markeren van treffers) en hun positie (gebruikt voor overeenkomende woord groepen):
 
 ~~~~
 {
@@ -184,15 +183,15 @@ De standaard analyzer verdeelt de invoertekst in de volgende twee tokens, ze aan
 
 <a name="exceptions"></a>
 
-### <a name="exceptions-to-lexical-analysis"></a>Uitzonderingen aan lexicale analyse 
+### <a name="exceptions-to-lexical-analysis"></a>Uitzonde ringen voor lexicale analyse 
 
-Lexicale analyse geldt alleen voor de typen query's waarvoor volledige voorwaarden – een term query of een woordgroep-query. Het is niet van toepassing op de typen query's met een onvolledige – voorvoegsel query, jokertekens query, regex query – of op een fuzzy query. De typen, met inbegrip van de query voorvoegsel met de term query `air-condition*` in ons voorbeeld rechtstreeks aan de querystructuur, overslaan van de fase van de analyse worden toegevoegd. De enige transformatie uitgevoerd op de voorwaarden van deze typen query is locatieargument.
+Lexicale analyse geldt alleen voor query typen waarvoor volledige voor waarden zijn vereist: een term query of een woordgroepen query. Het is niet van toepassing op query typen met onvolledige voor waarden – voor voegsel query, Joker teken query, regex-query – of een fuzzy query. Deze query typen, met inbegrip van de voorvoegsel `air-condition*` query met de term in het voor beeld, worden rechtstreeks aan de query structuur toegevoegd, waarbij de analyse fase wordt overgeslagen. De enige trans formatie die wordt uitgevoerd voor query termen van deze typen is lowercasing.
 
 <a name="stage3"></a>
 
-## <a name="stage-3-document-retrieval"></a>Fase 3: Voor het document ophalen 
+## <a name="stage-3-document-retrieval"></a>Fase 3: Ophalen van documenten 
 
-Het ophalen van document verwijst naar het zoeken van documenten met de bijbehorende voorwaarden in de index. Deze fase is best begrepen door een voorbeeld. Laten we beginnen met een index hotels het volgende eenvoudige schema: 
+Het ophalen van documenten heeft betrekking op het zoeken van document met overeenkomende termen in de index. Deze fase wordt het beste geïnterpreteerd door een voor beeld. Laten we beginnen met een Hotels-index met het volgende eenvoudige schema: 
 
 ~~~~
 {
@@ -234,95 +233,95 @@ Verder wordt ervan uitgegaan dat deze index de volgende vier documenten bevat:
 }
 ~~~~
 
-**Hoe voorwaarden worden geïndexeerd**
+**Hoe termen worden geïndexeerd?**
 
-Voor meer informatie over het ophalen van, helpt het om te weten van enkele basisbeginselen indexeren. De eenheid voor opslag is een omgekeerde index, één voor elke doorzoekbaar veld. Is een gesorteerde lijst met alle termen uit alle documenten binnen een omgekeerde index. Elke term wordt toegewezen aan de lijst met documenten waarin deze zich, als duidelijk in het onderstaande voorbeeld voordoet.
+Als u meer inzicht wilt krijgen in het ophalen, kunt u een aantal basis beginselen van het indexeren weten. De opslag eenheid is een omgekeerde index, één voor elk doorzoekbaar veld. In een omgekeerde index is een gesorteerde lijst met alle termen uit alle documenten. Elke term wordt toegewezen aan de lijst met documenten waarin deze plaatsvindt, zoals duidelijk in het onderstaande voor beeld.
 
-Als u wilt maken van de voorwaarden van een omgekeerde index, voert de zoekmachine lexicale analyse over de inhoud van documenten, vergelijkbaar met wat er tijdens het verwerken van query's gebeurt:
+Voor het produceren van de voor waarden in een omgekeerde index voert de zoek machine een lexicale analyse uit op de inhoud van documenten, vergelijkbaar met wat er gebeurt tijdens de verwerking van query's:
 
-1. *Teksten* worden doorgegeven aan een analyzer, kleine-indeling, interpunctie, enzovoort, afhankelijk van de configuratie analyzer verwijderd. 
-2. *Tokens* zijn de uitvoer van de analyse van tekst.
-3. *Voorwaarden* worden toegevoegd aan de index.
+1. *Tekst invoer* wordt door gegeven aan een analyse, kleine letters, verwijderd uit interpunctie, enzovoort, afhankelijk van de configuratie van de analyse functie. 
+2. *Tokens* zijn de uitvoer van tekst analyse.
+3. De *voor waarden* worden toegevoegd aan de index.
 
-Het is algemene, maar niet vereist, voor het gebruik van de dezelfde analyzers voor zoeken en indexeren van bewerkingen, zodat de querytermen zoek meer, zoals de voorwaarden in de index.
+Het is gebruikelijk, maar niet vereist, voor het gebruik van dezelfde analyse functies voor zoek-en indexerings bewerkingen zodat de query termen in de index meer lijken op voor waarden.
 
 > [!Note]
-> Azure Search kunt u opgeven van verschillende analyzers voor indexeren en zoeken via extra `indexAnalyzer` en `searchAnalyzer` veld parameters. Als u niets opgeeft, wordt de analyzer instellen met de `analyzer` eigenschap wordt gebruikt voor zowel indexeren en zoeken.  
+> Met Azure Search kunt u verschillende analyse functies opgeven voor indexering en zoeken `indexAnalyzer` via `searchAnalyzer` extra en veld parameters. Als u geen waarde opgeeft, wordt de analyseset met de eigenschap gebruikt voor het `analyzer` indexeren en zoeken.  
 
-**Omgekeerde index voor de voorbeelddocumenten**
+**Omgekeerde index voor voorbeeld documenten**
 
-Teruggaan naar ons voorbeeld voor de **titel** veld, de omgekeerde index er als volgt uitzien:
+Als u naar ons voor beeld terugkeert, ziet u in het veld **titel** de omgekeerde index:
 
-| Termijn | Lijst met standaarddocumenten |
+| Begrip | Document lijst |
 |------|---------------|
-| atman | 1 |
-| strand | 2 |
-| hotel | 1, 3 |
-| in de Indische Oceaan | 4  |
+| Atman | 1 |
+| Beach | 2 |
+| Hotel | 1, 3 |
+| Oceaan | 4  |
 | playa | 3 |
-| resort | 3 |
-| Terugtrekken | 4 |
+| Hotel | 3 |
+| opnieuw behandelen | 4 |
 
-In het titelveld alleen *hotel* wordt weergegeven in de twee documenten: 1, 3.
+In het veld titel wordt alleen *Hotel* in twee documenten weer gegeven: 1, 3.
 
-Voor de **beschrijving** veld, de index is als volgt:
+De index voor het veld **Beschrijving** is als volgt:
 
-| Termijn | Lijst met standaarddocumenten |
+| Begrip | Document lijst |
 |------|---------------|
-| AIR | 3
-| en | 4
-| strand | 1
-| voorwaarde | 3
-| vertrouwd | 3
+| massa | 3
+| and | 4
+| Beach | 1
+| waarbij | 3
+| denkt | 3
 | distance | 1
-| island | 2
+| Réunion | 2
 | kauaʻi | 2
-| zich bevindt | 2
+| staan | 2
 | Noord | 2
-| in de Indische Oceaan | 1, 2, 3
+| Oceaan | 1, 2, 3
 | van | 2
 | op |2
-| stille | 4
-| ruimten  | 1, 3
+| stil | 4
+| kleed  | 1, 3
 | secluded | 4
-| wal | 2
-| groot | 1
+| eland | 2
+| spacious | 1
 | het | 1, 2
-| tot | 1
+| to | 1
 | weergeven | 1, 2, 3
-| lopen | 1
+| Walking | 1
 | met | 3
 
 
-**Overeenkomende querytermen tegen geïndexeerde voorwaarden**
+**Overeenkomende query termen op basis van geïndexeerde voor waarden**
 
-De bovenstaande omgekeerde indexen worden gegeven, gaan we terug naar de voorbeeldquery en Zie hoe overeenkomende documenten gevonden voor de voorbeeldquery. Let erop dat de querystructuur van de uiteindelijke er als uitzien volgt: 
+Op basis van de omgedraaide indices hierboven gaan we terug naar de voorbeeld query en bekijken hoe overeenkomende documenten worden gevonden voor de voorbeeld query. De uiteindelijke query structuur ziet er als volgt uit: 
 
- ![Booleaanse query's uitvoeren met geanalyseerde voorwaarden][4]
+ ![Booleaanse query met geanalyseerde termen][4]
 
-Tijdens de uitvoering van de query, afzonderlijke query's worden uitgevoerd op basis van de doorzoekbare velden onafhankelijk van elkaar. 
+Tijdens de uitvoering van de query worden afzonderlijke query's uitgevoerd voor de Doorzoek bare velden afzonderlijk. 
 
-+ Het komt overeen met 'groot', TermQuery, documenteer 1 (Hotel Atman). 
++ De TermQuery, ' spacious ', komt overeen met document 1 (Hotel Atman). 
 
-+ De PrefixQuery "air-condition * ', komt niet overeen met alle documenten. 
++ De PrefixQuery, "Air-voor waarde *", komt niet overeen met documenten. 
 
-  Dit is een probleem dat soms confuses ontwikkelaars. Hoewel de term air-conditioned in het document bestaat, wordt dit verdeeld in twee termen door de analyzer standaard. Intrekken voorvoegsel query's die voor gedeeltelijke termen bevatten, worden niet geanalyseerd. Daarom worden voorwaarden met het voorvoegsel "air-condition" opgezocht in de omgekeerde index en niet gevonden.
+  Dit is een gedrag dat ontwikkel aars soms congaat. Hoewel de term airconditioning in het document bestaat, wordt deze in twee termen gesplitst door de standaard analyse functie. Roep op dat voorvoegsel query's, die gedeeltelijke voor waarden bevatten, niet worden geanalyseerd. Daarom worden termen met het voor voegsel ' Air-voor waarde ' opgezocht in de omgekeerde index en niet gevonden.
 
-+ De PhraseQuery, 'in de Indische Oceaan weergeven', zoekt de termen "in de Indische Oceaan" en "weergeven" en de nabijheid van voorwaarden in het originele document wordt gecontroleerd. Documenten 1, 2 en 3 overeenkomen met deze query in het omschrijvingsveld. U ziet dat document 4 heeft de term in de Indische Oceaan in de titel, maar wordt niet beschouwd als een overeenkomst, omdat we op zoek bent voor de zinsnede 'in de Indische Oceaan weergeven' in plaats van afzonderlijke woorden. 
++ De PhraseQuery, "weer gave van de Oceaan", zoekt naar de termen "Oceaan" en "weer gave" en controleert de nabijheid van de voor waarden in het oorspronkelijke document. De documenten 1, 2 en 3 komen overeen met deze query in het veld Beschrijving. Document 4 heeft de term Oceaan in de titel, maar wordt niet als een overeenkomst beschouwd, omdat we zoeken naar de ' weer gave ' Oceaan ' in plaats van afzonderlijke woorden. 
 
 > [!Note]
-> Een zoekopdracht, tenzij u de velden die zijn ingesteld met beperken onafhankelijk tegen alle doorzoekbare velden in de Azure Search-index wordt uitgevoerd de `searchFields` parameter, zoals wordt geïllustreerd in het voorbeeld van de search-aanvraag. Documenten die overeenkomen met in een van de geselecteerde velden worden geretourneerd. 
+> Een zoek opdracht wordt onafhankelijk uitgevoerd voor alle Doorzoek bare velden in de index van de Azure Search tenzij u de velden beperkt die `searchFields` zijn ingesteld met de para meter, zoals wordt geïllustreerd in de voor beeld-zoek opdracht. Documenten die overeenkomen met een van de geselecteerde velden, worden geretourneerd. 
 
-Op de gehele voor de query is betrokken zijn de documenten die overeenkomen met 1, 2, 3. 
+In het geheel, voor de query in kwestie, zijn de documenten die overeenkomen 1, 2, 3. 
 
-## <a name="stage-4-scoring"></a>Fase 4: Scoren  
+## <a name="stage-4-scoring"></a>Fase 4: Waardering  
 
-Elk document in een resultatenset search is een relevantiescore toegewezen. De functie van de relevantiescore is positie hoger documenten die het beste een gebruiker vragen beantwoorden die door de zoekopdracht wordt uitgedrukt als. De score wordt berekend op basis van statistische eigenschappen van voorwaarden die overeenkomen met. De spil van de scoring formule is [TF/IDF (frequentie term frequentie inverse document)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). In de query's met zeldzame en algemene voorwaarden, bevordert TF/IDF resultaten met de term zeldzaam. Bijvoorbeeld in een hypothetische index met alle Wikipedia-artikelen van documenten die overeenkomen met de query *de president*, documenten die overeenkomen op *president* worden beschouwd als relevanter dan documenten overeenkomende op *de*.
+Elk document in een zoek resultatenset krijgt een relevantie score. De functie van de relevantie score is het rangschikken van de documenten die het beste een gebruikers vraag beantwoorden, zoals wordt aangegeven door de zoek opdracht. De score wordt berekend op basis van de statistische eigenschappen van de voor waarden die overeenkomen. De kern van de Score formule is [TF/IDF (term frequentie-inverse document frequentie)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). In query's met zeldzame en algemene termen leidt TF/IDF de resultaten te verhogen die de zeldzame term bevatten. In een hypothetische index met alle Wikipedia-artikelen, van documenten die overeenkomen met de query van *de Voorzitter*, worden documenten die voldoen aan de *Voorzitter* , beschouwd als meer relevant dan documenten die overeenkomen met *de*.
 
 
-### <a name="scoring-example"></a>Scoring-voorbeeld
+### <a name="scoring-example"></a>Voor beeld van Score
 
-De drie documenten die overeenkomen met onze voorbeeldquery intrekken:
+Haal de drie documenten op die overeenkomen met onze voorbeeld query:
 ~~~~
 search=Spacious, air-condition* +"Ocean view"  
 ~~~~
@@ -351,55 +350,55 @@ search=Spacious, air-condition* +"Ocean view"
 }
 ~~~~
 
-Document 1 overeenkomen met de query beste omdat zowel de term *groot* en de vereiste woordgroep *weergeven in de Indische Oceaan* optreden in het omschrijvingsveld. De volgende twee documenten overeenkomen met alleen de woordgroep *weergeven in de Indische Oceaan*. Het is mogelijk verrassende dat de relevantiescore van document 2 en 3 anders is, zelfs als ze overeenkomen met de query op dezelfde manier. Dit is omdat de scoring formule meer onderdelen dan alleen TF/IDF bevat. In dit geval document 3 die een enigszins hogere score is toegewezen, omdat de beschrijving korter is. Meer informatie over [van Lucene praktische scoren formule](https://lucene.apache.org/core/4_0_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) om te begrijpen hoe het veldlengte en andere factoren van invloed is op de relevantiescore.
+Document 1 komt overeen met de query aanbevolen omdat zowel de term *spacious* als de vereiste woordgroepen Oceaan in het veld Beschrijving worden *weer gegeven* . De volgende twee documenten komen alleen overeen met de *weer gave*van de woordgroepen Oceaan. Mogelijk is het verrassende dat de relevantie score voor document 2 en 3 afwijkt, ook al zijn ze op dezelfde manier overeenkomen met de query. De Score formule bevat meer onderdelen dan alleen TF/IDF. In dit geval is document 3 een iets hogere score toegewezen, omdat de beschrijving korter is. Meer informatie over de [praktische Score formule van Lucene](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) om te begrijpen hoe veld lengte en andere factoren van invloed kunnen zijn op de relevantie score.
 
-Sommige querytypen (jokerteken, voorvoegsel, reguliere expressie) hun bijdragen altijd een constante score is de totale score van document. Dit kan overeenkomsten gevonden via de uitbreiding van de query moet worden opgenomen in de resultaten, maar zonder gevolgen voor de volgorde. 
+Sommige query typen (joker tekens, voor voegsel, regex) dragen altijd bij aan een constante score voor de algehele document Score. Dit maakt het mogelijk om overeenkomsten te vinden in de resultaten van de query uitbreiding, maar zonder dat dit van invloed is op de rang schikking. 
 
-Een voorbeeld laat zien waarom dit belangrijk is. Zoeken met jokertekens, met inbegrip van voorvoegsel zoekopdrachten, zijn niet-eenduidige per definitie omdat de invoer een gedeeltelijke tekenreeks met mogelijke overeenkomsten op een zeer groot aantal verschillende voorwaarden is (Houd rekening met de invoer van 'rondleiding *', met overeenkomsten gevonden op "rondleidingen", 'tourettes', en " tourmaline'). Gezien de aard van deze resultaten, wordt er geen manier om te redelijkerwijs afleiden welke voorwaarden vindt u meer dan andere waardevolle is. Om deze reden negeren we term frequenties wanneer resultaten scoring in query's van de typen jokerteken, voorvoegsel en reguliere expressie. In de zoekaanvraag van een meerdelige met gedeeltelijke en volledige voorwaarden, worden de resultaten van de gedeeltelijke invoer opgenomen met een constante score om te voorkomen dat de afwijking op mogelijk onverwachte resultaten.
+Een voor beeld illustreert waarom dit van belang is. Zoek opdrachten met Joker tekens, inclusief voorvoegsel zoekacties, zijn dubbel zinnig per definitie, omdat de invoer een gedeeltelijke teken reeks is met mogelijke overeenkomsten voor een zeer groot aantal ongelijksoortige voor waarden (Overweeg een invoer van ' Tour * ', met overeenkomsten gevonden op ' rond leidingen ', ' Tourettes ' en ' tourmaline"). Gezien de aard van deze resultaten is er geen enkele manier om redelijkerwijs te afleiden welke termen waardevoler zijn dan andere. Daarom negeren we de term frequenties wanneer de Score resulteert in query's van het type Joker teken, voor voegsel en regex. In een zoek opdracht met meerdere delen die gedeeltelijke en volledige voor waarden bevat, worden resultaten van de gedeeltelijke invoer opgenomen met een constante Score om te voor komen dat er onverwacht overeenkomende overeenkomsten zijn.
 
 ### <a name="score-tuning"></a>Score afstemmen
 
-Er zijn twee manieren om af te stemmen op relevantie scores in Azure Search:
+Er zijn twee manieren voor het afstemmen van relevantie scores in Azure Search:
 
-1. **Scoreprofielen** promoveren van documenten in de gerangschikte lijst met resultaten op basis van een set regels. In ons voorbeeld, kunnen wij beschouwen als documenten die overeenkomen met in het titelveld relevanter dan documenten die overeenkomen met in het omschrijvingsveld. Als onze index een prijsveld voor elke hotel heeft, kunnen we ook documenten met een lagere prijs promoten. Meer informatie meer over het [scoren profielen toevoegen aan een search-index.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-2. **Versterking** (alleen beschikbaar in de volledige Lucene-querysyntaxis) biedt een Gradient boosting-operator `^` die kunnen worden toegepast op een deel van de querystructuur van de. In ons voorbeeld, in plaats van te zoeken op het voorvoegsel *air-condition*\*, een zoekterm voor de exacte termen *air-condition* of het voorvoegsel, maar de documenten die overeenkomen met de exacte zoekterm hoger gerangschikt op boost toe te passen op de term-query: * lucht-voorwaarde ^ 2 || AIR-condition **. Meer informatie over [versterking](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
+1. **Score profielen** verhogen documenten in de geclassificeerde lijst met resultaten op basis van een set regels. In ons voor beeld kunnen we documenten beschouwen die overeenkomen met het veld titel die relevant zijn voor documenten die overeenkomen met het veld Beschrijving. Daarnaast kunnen we documenten met een lagere prijs promoten als in onze index een prijs veld voor elk hotel voor komt. Meer informatie over het [toevoegen van Score profielen aan een zoek index.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
+2. **Term versterking** (alleen beschikbaar in de volledige lucene-query syntaxis) biedt een Boosting `^` -operator die kan worden toegepast op elk deel van de query structuur. In ons voor beeld, in plaats van te zoeken op het voor voegsel van de voor *waarde*\*, wordt er een zoek opdracht naar de term *Air-voor waarde* of het voor voegsel gezocht, maar worden documenten die overeenkomen met de exacte term, hoger gerangschikt door Boost toe te passen op de term query: * lucht voorwaarde ^ 2 | | lucht conditie * *. Meer informatie over het verbeteren van de [term](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
 
 
-### <a name="scoring-in-a-distributed-index"></a>Scoring in een gedistribueerde index
+### <a name="scoring-in-a-distributed-index"></a>Score in een gedistribueerde index
 
-Alle indexen in Azure Search worden automatisch onderverdeeld in meerdere shards, zodat we de index tussen meerdere knooppunten snel kan worden gedistribueerd tijdens service schalen omhoog of omlaag schalen. Wanneer u een zoekaanvraag verzendt, worden deze onafhankelijk van elkaar uitgegeven voor elke shard. De resultaten van elke shard vervolgens worden samengevoegd en geordend op score (als er geen andere volgorde is gedefinieerd). Het is belangrijk te weten dat de score functie gewichten query's term frequentie op basis van de frequentie inverse document in alle documenten in de shard niet voor alle shards uitvoeren.
+Alle indexen in Azure Search worden automatisch gesplitst in meerdere Shards, zodat we de index snel over meerdere knoop punten kunnen distribueren tijdens de service omhoog of omlaag schalen. Wanneer een zoek aanvraag wordt verzonden, wordt deze voor elke Shard onafhankelijk van elkaar verzonden. De resultaten van elke Shard worden vervolgens samengevoegd en op Score gesorteerd (als er geen andere volg orde is gedefinieerd). Het is belang rijk om te weten dat de functie voor de score voor de frequentie van query termen overeenkomt met de inverse document frequentie in alle documenten in de Shard, niet op alle Shards!
 
-Dit betekent dat een relevantiescore *kan* zijn verschillend voor identieke documenten als ze zich in verschillende shards bevinden. Deze verschillen vaak gelukkig verdwijnt wanneer het aantal documenten in de index vanwege meer zelfs term distributie groeit. Het is niet mogelijk om aan te nemen op welke shard een document wordt geplaatst. Echter, ervan uitgaande dat de documentsleutel van een niet wijzigen, deze wordt altijd worden toegewezen aan de dezelfde shard.
+Dit betekent dat een relevantie score *kan* verschillen voor identieke documenten als ze zich op verschillende Shards bevinden. Gelukkig kunnen dergelijke verschillen worden verwijderd omdat het aantal documenten in de index groeit vanwege een meer gelijkmatige verdeling van de term. Het is niet mogelijk om bij te gaan op welke Shard een bepaald document wordt geplaatst. Als er echter een document sleutel wordt gewijzigd, wordt deze altijd toegewezen aan dezelfde Shard.
 
-In het algemeen is document score niet de beste kenmerk voor het bestellen van documenten als de stabiliteit van de volgorde belangrijk is. Bijvoorbeeld is twee documenten met een identieke score gegeven, er geen garantie waarvoor een eerst in de volgende uitvoeringen van dezelfde query verschijnt. Document score geeft alleen een algemeen beeld van document relevantie ten opzichte van andere documenten in de resultatenset.
+In het algemeen is de document score niet het beste kenmerk voor het best Ellen van documenten als de stabiliteit van de order belang rijk is. Als er bijvoorbeeld twee documenten met een identieke Score worden opgegeven, is er geen garantie dat er een eerste wordt weer gegeven in de volgende uitvoeringen van dezelfde query. De document Score mag alleen een algemene zin van document relevantie bieden ten opzichte van andere documenten in de resultatenset.
 
 ## <a name="conclusion"></a>Conclusie
 
-Het succes van zoekmachines internet heeft deze gebeurtenis treedt verwachtingen voor zoeken in volledige tekst van persoonlijke gegevens. Voor vrijwel elke soort zoekervaring verwachten we nu de engine voor onze bedoeling kan begrijpen, zelfs wanneer de voorwaarden zijn onjuist gespeld of zijn onvolledig. We kunnen zelfs overeenkomsten in de buurt equivalente zoektermen of synoniemen die we hebben nooit daadwerkelijk opgegeven op basis van verwachten.
+Het slagen van Internet zoekprogramma's heeft de verwachtingen voor het zoeken in volledige tekst over persoonlijke gegevens gepromoveerd. Voor vrijwel elk soort Zoek ervaring verwachten we nu dat de engine onze intentie begrijpt, zelfs wanneer de termen verkeerd zijn gespeld of onvolledig zijn. We kunnen zelfs verwachten dat overeenkomsten zijn gebaseerd op de bijna overeenkomende termen of synoniemen die we nooit daad werkelijk hebben opgegeven.
 
-Zoeken in volledige tekst is van een technisch oogpunt zeer complex zijn, die geavanceerde linguïstische analyse- en een systematische benadering voor verwerking op een manier die distilleer, uitbreiden en transformeren querytermen leveren een relevante resultaat nodig hebben. Gezien de inherente complexiteit, zijn er veel van de factoren die invloed kunnen zijn op het resultaat van een query. Om deze reden biedt de tijd om te begrijpen van het mechanisme van zoeken in volledige tekst duidelijke voordelen bij te werken via onverwachte resultaten.  
+In het kader van technische Beschik baarheid is zoeken in volledige tekst zeer complex, waardoor een geavanceerde taal kundige analyse nodig is en een systematische aanpak voor het verwerken van query termen waarbij een relevant resultaat wordt afgedwongen, uitgevouwen en getransformeerd. Gezien de inherente complexen zijn er veel factoren die van invloed kunnen zijn op het resultaat van een query. Daarom is het investeren van de tijd om inzicht te krijgen in de mechanismen voor zoeken in volledige tekst, om te voor komen dat er onverwachte resultaten kunnen worden gebruikt.  
 
-In dit artikel verkend zoeken in volledige tekst in de context van Azure Search. We hopen dat dit biedt u voldoende achtergrond voor het herkennen van mogelijke oorzaken en oplossingen voor veelvoorkomende queryproblemen-adressering. 
+In dit artikel wordt gezocht in volledige tekst in de context van Azure Search. We hopen dat u voldoende achtergrond hebt om mogelijke oorzaken en oplossingen te herkennen voor het adresseren van veelvoorkomende query problemen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-+ De voorbeeldindex bouwen, probeer verschillende query's en bekijk de resultaten. Zie voor instructies [maken en query uitvoeren in een index in de portal](search-get-started-portal.md#query-index).
++ Bouw de voor beeld-index, probeer verschillende query's uit en Bekijk de resultaten. Zie [een index maken en er query's op uitvoeren in de portal](search-get-started-portal.md#query-index)voor instructies.
 
-+ Probeer van aanvullende query-syntaxis van de [documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) voorbeeld in deze sectie of [vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in de portal.
++ Probeer extra query syntaxis uit de sectie voor beeld van [Zoeken in documenten](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) of van een [eenvoudige query syntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search Explorer in de portal.
 
-+ Beoordeling [scoreprofielen](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) als u wilt om af te stemmen classificatie in uw zoektoepassing.
++ Bekijk [Score profielen](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) als u de rang schikking in uw zoek toepassing wilt aanpassen.
 
-+ Meer informatie over het toepassen van [taalspecifieke lexicale analyse](https://docs.microsoft.com/rest/api/searchservice/language-support).
++ Meer informatie over het Toep assen van [taalspecifieke lexicale analyse](https://docs.microsoft.com/rest/api/searchservice/language-support)functies.
 
-+ [Configureren van aangepaste analyse](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) voor minimale verwerking of gespecialiseerde verwerking op specifieke velden.
++ [Aangepaste analyse functies configureren](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) voor een minimale verwerking of gespecialiseerde verwerking van specifieke velden.
 
 ## <a name="see-also"></a>Zie ook
 
-[REST-API voor Search-documenten](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+[Zoeken naar documenten REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 
 [Vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
-[Volledige Lucene-querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+[Volledige lucene-query syntaxis](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
 
 [Zoekresultaten verwerken](https://docs.microsoft.com/azure/search/search-pagination-page-layout)
 

@@ -1,6 +1,6 @@
 ---
-title: Preview - gebruik van een standaard-SKU load balancer in Azure Kubernetes Service (AKS)
-description: Meer informatie over het gebruik van een load balancer met een standaard-SKU om beschikbaar te stellen van uw services met Azure Kubernetes Service (AKS).
+title: 'Preview: gebruik een standaard SKU-load balancer in azure Kubernetes service (AKS)'
+description: Meer informatie over het gebruik van een load balancer met een standaard-SKU om uw services beschikbaar te maken met Azure Kubernetes service (AKS).
 services: container-service
 author: zr-msft
 ms.service: container-service
@@ -8,21 +8,21 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
 ms.openlocfilehash: a9cf3db3a15fab5a2f067a146950e02923a20379
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
+ms.lasthandoff: 08/09/2019
 ms.locfileid: "67476814"
 ---
-# <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Preview - gebruik van een standaard-SKU load balancer in Azure Kubernetes Service (AKS)
+# <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Preview: gebruik een standaard SKU-load balancer in azure Kubernetes service (AKS)
 
-Om toegang te bieden aan uw toepassingen in Azure Kubernetes Service (AKS), kunt u maken en gebruiken van een Azure Load Balancer. Een load balancer die wordt uitgevoerd op AKS kan worden gebruikt als een interne of een externe load balancer. Een interne load balancer maakt een Kubernetes-service alleen toegankelijk is voor toepassingen die worden uitgevoerd in hetzelfde virtuele netwerk bevinden als het AKS-cluster. Een externe load balancer ontvangt van een of meer openbare IP-adressen voor inkomend verkeer en maakt een Kubernetes-service die toegankelijk is extern via het openbare IP-adressen.
+Om toegang te bieden tot uw toepassingen in azure Kubernetes service (AKS), kunt u een Azure Load Balancer maken en gebruiken. Een load balancer die wordt uitgevoerd op AKS kan worden gebruikt als een intern of een extern load balancer. Een interne load balancer maakt een Kubernetes-service alleen toegankelijk voor toepassingen die worden uitgevoerd in hetzelfde virtuele netwerk als het AKS-cluster. Een externe load balancer ontvangt een of meer open bare Ip's voor binnenkomend verkeer en maakt een Kubernetes-service extern toegankelijk met behulp van de open bare Ip's.
 
-Azure Load Balancer is beschikbaar in twee SKU's - *Basic* en *Standard*. Standaard de *Basic* SKU wordt gebruikt wanneer een servicemanifest wordt gebruikt voor het maken van een load balancer in AKS. Met behulp van een *Standard* SKU load balancer biedt aanvullende functies en functionaliteit, zoals groter voor back-end-pool en Beschikbaarheidszones. Het is belangrijk dat u bekend bent met de verschillen tussen *Standard* en *Basic* netwerktaakverdelers voordat u kiest voor het gebruik. Als u een AKS-cluster maakt, kunt u de load balancer SKU voor dat cluster niet wijzigen. Voor meer informatie over de *Basic* en *Standard* SKU's, Zie [vergelijking van Azure load balancer SKU][azure-lb-comparison].
+Azure Load Balancer is beschikbaar in twee Sku's: *Basic* en *Standard*. Standaard wordt de *basis* -SKU gebruikt wanneer een service manifest wordt gebruikt om een Load Balancer te maken op AKS. Het gebruik van een *standaard* -SKU Load Balancer biedt extra functies en functionaliteit, zoals een grotere back-end-pool grootte en Beschikbaarheidszones. Het is belang rijk dat u de verschillen tussen de load balancers *Standard* en *Basic* begrijpt voordat u kiest voor gebruik. Wanneer u een AKS-cluster hebt gemaakt, kunt u de load balancer SKU voor dat cluster niet wijzigen. Zie voor meer informatie over de *Basic* -en *Standard* -sku's [Azure Load Balancer SKU-vergelijking][azure-lb-comparison].
 
-Dit artikel leest u hoe het maken en gebruiken van een Azure Load Balancer met de *Standard* SKU met Azure Kubernetes Service (AKS).
+In dit artikel wordt beschreven hoe u een Azure Load Balancer maakt en gebruikt met de *standaard* -SKU met Azure Kubernetes service (AKS).
 
-In dit artikel wordt ervan uitgegaan van basiskennis van Kubernetes en Azure Load Balancer-concepten. Zie voor meer informatie, [Kubernetes core concepten voor Azure Kubernetes Service (AKS)][kubernetes-concepts] and [What is Azure Load Balancer?][azure-lb].
+In dit artikel wordt ervan uitgegaan dat u basis informatie krijgt over Kubernetes-en Azure Load Balancer concepten. Zie [Kubernetes core-concepten voor Azure Kubernetes service (AKS)][kubernetes-concepts] en [wat Azure Load Balancer?][azure-lb]voor meer informatie.
 
 Deze functie is momenteel beschikbaar als preview-product.
 
@@ -30,23 +30,23 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, in dit artikel is vereist dat u de Azure CLI versie 2.0.59 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][install-azure-cli] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel de Azure CLI-versie 2.0.59 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][install-azure-cli] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-De AKS-clusterservice-principal moet de machtiging voor het beheren van netwerkbronnen als u een bestaand subnet of de resourcegroep. In het algemeen toewijzen de *Inzender voor netwerken* rol aan uw service-principal op de gedeelde resources. Zie voor meer informatie over machtigingen [AKS gemachtigde toegang tot andere Azure-resources][aks-sp].
+De AKS-Cluster service-principal moet machtigingen hebben om netwerk bronnen te beheren als u een bestaand subnet of een bestaande resource groep gebruikt. In het algemeen wijst u de rol *netwerk bijdrage* toe aan uw service-principal op de gedelegeerde resources. Zie [AKS toegang tot andere Azure-resources][aks-sp]delegeren voor meer informatie over machtigingen.
 
-U moet een AKS-cluster dat Hiermee stelt u de SKU voor de load balancer maken *Standard* in plaats van de standaard *Basic*. Het maken van een AKS-cluster in een latere stap wordt behandeld, maar u moet eerst een paar preview-functies inschakelen.
+U moet een AKS-cluster maken dat de SKU voor de load balancer instelt op *Standard* in plaats van de standaard *basis*. Het maken van een AKS-cluster wordt in een latere stap behandeld, maar u moet eerst een paar preview-functies inschakelen.
 
 > [!IMPORTANT]
-> AKS-preview-functies zijn selfservice, aanmelden. Ze zijn bedoeld om het verzamelen van fouten en feedback van onze community. Preview-versie, worden deze functies zijn niet bedoeld voor gebruik in productieomgevingen. Functies in public preview vallen onder 'best effort'-ondersteuning. Hulp van de AKS-teams voor technische ondersteuning is beschikbaar tijdens kantooruren Pacific tijdzone (PST) alleen. Zie de volgende artikelen ondersteuning voor aanvullende informatie:
+> AKS preview-functies zijn self-service en opt-in. Ze zijn bedoeld om feedback en bugs van onze community te verzamelen. In de preview-versie zijn deze functies niet bedoeld voor productie gebruik. Functies in open bare preview vallen onder de ondersteuning voor beste inspanningen. Hulp van de technische ondersteunings teams van AKS is alleen beschikbaar tijdens kantoor uren Pacific time zone (PST). Raadpleeg de volgende ondersteunings artikelen voor meer informatie:
 >
-> * [Ondersteuningsbeleid voor AKS][aks-support-policies]
-> * [Veelgestelde vragen over ondersteuning van Azure][aks-faq]
+> * [AKS-ondersteunings beleid][aks-support-policies]
+> * [Veelgestelde vragen over ondersteuning voor Azure][aks-faq]
 
-### <a name="install-aks-preview-cli-extension"></a>Aks-preview CLI-extensie installeren
+### <a name="install-aks-preview-cli-extension"></a>AKS-preview CLI-extensie installeren
 
-Gebruik de Azure load balancer standaard-SKU, moet u de *aks-preview* CLI versie van de extensie 0.4.1 of hoger. Installeer de *aks-preview* Azure CLI-extensie met de [az-extensie toevoegen][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] opdracht::
+Als u de standaard-SKU van Azure load balancer wilt gebruiken, hebt u de *AKS-preview cli-* extensie versie 0.4.1 of hoger nodig. Installeer de Azure CLI *-extensie AKS-preview* met behulp van de opdracht [AZ extension add][az-extension-add] en controleer vervolgens of er beschik bare updates zijn met behulp van de opdracht [AZ extension update][az-extension-update] ::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -56,14 +56,14 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### <a name="register-aksazurestandardloadbalancer-preview-feature"></a>Preview-functie AKSAzureStandardLoadBalancer registreren
+### <a name="register-aksazurestandardloadbalancer-preview-feature"></a>Preview-functie voor AKSAzureStandardLoadBalancer registreren
 
-Het maken van een AKS-cluster met een load balancer met de *Standard* SKU, moet u inschakelen de *AKSAzureStandardLoadBalancer* functie vlag aan uw abonnement. De *AKSAzureStandardLoadBalancer* functie ook gebruikt *VMSSPreview* bij het maken van een cluster met behulp van schaalsets voor virtuele machines. Deze functie biedt de nieuwste set serviceverbeteringen bij het configureren van een cluster. Terwijl het niet vereist is, wordt het aanbevolen u inschakelt de *VMSSPreview* functie ook de vlag.
+Als u een AKS-cluster wilt maken dat een load balancer met de *standaard* -SKU kan gebruiken, moet u de *AKSAzureStandardLoadBalancer* -functie vlag inschakelen voor uw abonnement. De functie *AKSAzureStandardLoadBalancer* maakt ook gebruik van *VMSSPreview* bij het maken van een cluster met behulp van virtuele-machine schaal sets. Deze functie biedt de meest recente set service verbeteringen bij het configureren van een cluster. Hoewel het niet vereist is, is het raadzaam om ook de *VMSSPreview* -functie vlag in te scha kelen.
 
 > [!CAUTION]
-> Als u een functie op een abonnement registreert, kunt u niet op dit moment opheffen van de registratie die functie. Nadat u een preview-functies ingeschakeld, kunnen de standaardwaarden worden gebruikt voor alle AKS-clusters wordt gemaakt in het abonnement. Geen preview-functies voor productieabonnementen niet inschakelen. Gebruik een afzonderlijk abonnement voor het testen van de preview-functies en verzamelen van feedback.
+> Wanneer u een functie op een abonnement registreert, kunt u de registratie van die functie op dit moment niet ongedaan maken. Nadat u enkele preview-functies hebt ingeschakeld, kunnen standaard waarden worden gebruikt voor alle AKS-clusters die vervolgens in het abonnement zijn gemaakt. Schakel geen preview-functies in voor productie abonnementen. Gebruik een afzonderlijk abonnement om Preview-functies te testen en feedback te verzamelen.
 
-Registreert de *VMSSPreview* en *AKSAzureStandardLoadBalancer* functie worden gemarkeerd met behulp van de [az functie registreren][az-feature-register] opdracht zoals wordt weergegeven in het volgende voorbeeld:
+Registreer de functie vlaggen *VMSSPreview* en *AKSAzureStandardLoadBalancer* met behulp van de opdracht [AZ feature REGI ster][az-feature-register] , zoals weer gegeven in het volgende voor beeld:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "VMSSPreview"
@@ -71,16 +71,16 @@ az feature register --namespace "Microsoft.ContainerService" --name "AKSAzureSta
 ```
 
 > [!NOTE]
-> Een AKS-cluster dat u maakt nadat u hebt geregistreerd de *VMSSPreview* of *AKSAzureStandardLoadBalancer* functie vlaggen gebruiken deze preview-cluster-ervaring. Als u wilt doorgaan met het maken van clusters van reguliere, volledig ondersteunde, geen preview-functies voor productieabonnementen inschakelen. Gebruik een afzonderlijke test- en Azure-abonnement voor het testen van de preview-functies.
+> Elk AKS-cluster dat u maakt nadat u de functie vlaggen *VMSSPreview* of *AKSAzureStandardLoadBalancer* hebt geregistreerd, gebruiken deze preview-cluster ervaring. Schakel preview-functies niet in voor productie abonnementen om regel matige, volledig ondersteunde clusters te blijven maken. Gebruik een afzonderlijk test-of ontwikkelings-Azure-abonnement voor het testen van preview-functies.
 
-Het duurt enkele minuten duren voordat de status om weer te geven *geregistreerde*. U kunt controleren op de registratie van status met behulp van de [az Functielijst][az-feature-list] opdracht:
+Het duurt enkele minuten voordat de status is *geregistreerd*. U kunt de registratie status controleren met de opdracht [AZ Feature List][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAzureStandardLoadBalancer')].{Name:name,State:properties.state}"
 ```
 
-Wanneer u klaar bent, vernieuwt u de registratie van de *Microsoft.ContainerService* resourceprovider met behulp van de [az provider register][az-provider-register] opdracht:
+Als u klaar bent, vernieuwt u de registratie van de resource provider *micro soft. container service* met de opdracht [AZ provider REGI ster][az-provider-register] :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -88,18 +88,18 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="limitations"></a>Beperkingen
 
-De volgende beperkingen zijn van toepassing wanneer u maken en beheren van AKS-clusters die ondersteuning bieden voor een load balancer met de *Standard* SKU:
+De volgende beperkingen zijn van toepassing wanneer u AKS-clusters maakt en beheert die ondersteuning bieden voor een load balancer met de *standaard* -SKU:
 
-* Wanneer u de *Standard* SKU voor een load balancer, die u moet openbare adressen toestaan en Vermijd het maken van een Azure-beleid dat het maken van IP-verboden. Het AKS-cluster maakt automatisch een *Standard* SKU en openbare IP in dezelfde resourcegroep gemaakt voor het AKS-cluster, die doorgaans met de naam met *MC_* aan het begin. AKS wijst het openbare IP-adres aan de *Standard* SKU load balancer. Het openbare IP-adres is vereist voor het toestaan van uitgaande verkeer vanuit het AKS-cluster. Dit openbare IP-adres is ook vereist voor het onderhouden van verbinding tussen de besturingselement vlak- en agentknooppunten evenals garantie voor compatibiliteit met eerdere versies van AKS.
-* Wanneer u de *Standard* SKU voor een load balancer, moet u Kubernetes versie 1.13.5 of hoger.
+* Wanneer u de *standaard* -SKU voor een Load Balancer gebruikt, moet u open bare adressen toestaan en voor komen dat Azure Policy die IP-aanmaak, worden gemaakt. Het AKS-cluster maakt automatisch een open bare *standaard* -SKU-IP in dezelfde resource groep die is gemaakt voor het AKS-cluster, die meestal met *MC_* aan het begin wordt genoemd. AKS wijst het open bare IP-adres toe aan de *standaard* -SKU Load Balancer. Het open bare IP-adres is vereist voor het toestaan van uitgaand verkeer van het AKS-cluster. Dit open bare IP-adres is ook vereist voor het onderhouden van de connectiviteit tussen het besturings vlak en de agent knooppunten, en voor het behoud van de compatibiliteit met eerdere versies van AKS.
+* Wanneer u de *standaard* -SKU voor een Load Balancer gebruikt, moet u Kubernetes-versie 1.13.5 of hoger gebruiken.
 
-Hoewel deze functie nog in preview, gelden de volgende aanvullende beperkingen:
+Hoewel deze functie in preview is, zijn de volgende extra beperkingen van toepassing:
 
-* Wanneer u de *Standard* SKU voor een load balancer in AKS, u kunt uw eigen openbare IP-adres voor uitgaand verkeer niet instellen voor de load balancer. U moet het IP-adres dat AKS wordt toegewezen aan uw load balancer.
+* Wanneer u de *standaard* -SKU gebruikt voor een load BALANCER in AKS, kunt u uw eigen open bare IP-adres niet instellen voor uitgaand verkeer voor de Load Balancer. U moet het IP-adres AKS gebruiken dat wordt toegewezen aan uw load balancer.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een Azure-resourcegroep is een logische groep waarin Azure-resources worden geïmplementeerd en beheerd. Wanneer u een resourcegroep maakt, wordt u gevraagd een locatie op te geven. Deze locatie is waar de metagegevens van de resource is opgeslagen, het is ook waar uw resources in Azure uitvoeren als u een andere regio geen tijdens het maken van resources opgeeft. Maak een resource-groep met de [az-groep maken][az-group-create] opdracht.
+Een Azure-resourcegroep is een logische groep waarin Azure-resources worden geïmplementeerd en beheerd. Wanneer u een resourcegroep maakt, wordt u gevraagd een locatie op te geven. Op deze locatie worden de meta gegevens van de resource groep opgeslagen, maar ook de resources die in Azure worden uitgevoerd als u geen andere regio opgeeft tijdens het maken van resources. Maak een resource groep met de opdracht [AZ Group Create][az-group-create] .
 
 In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
 
@@ -124,10 +124,10 @@ In de volgende voorbeelduitvoer ziet u dat de resourcegroep is gemaakt:
 ```
 
 ## <a name="create-aks-cluster"></a>AKS-cluster maken
-Als u wilt uitvoeren van een AKS-cluster die ondersteuning biedt voor een load balancer met de *Standard* SKU, uw cluster nodig heeft om in te stellen de *load-balancer-sku* parameter *standard*. Deze parameter wordt een load balancer met de *Standard* SKU wanneer uw cluster is gemaakt. Bij het uitvoeren van een *LoadBalancer* service in uw cluster, de configuratie van de *Standard* SK load balancer wordt bijgewerkt met de configuratie van de service. Gebruik de [az aks maken][az-aks-create] opdracht voor het maken van een AKS-cluster met de naam *myAKSCluster*.
+Als u een AKS-cluster wilt uitvoeren dat een load balancer met de *standaard* -SKU ondersteunt, moet uw cluster de para meter *Load Balancer-SKU* instellen op *Standard*. Met deze para meter maakt u een load balancer met de *standaard* -SKU wanneer het cluster wordt gemaakt. Wanneer u een *Load Balancer* -service op uw cluster uitvoert, wordt de configuratie van de *standaard* SK Load Balancer bijgewerkt met de configuratie van de service. Gebruik de opdracht [AZ AKS Create][az-aks-create] om een AKS-cluster te maken met de naam *myAKSCluster*.
 
 > [!NOTE]
-> De *load-balancer-sku* eigenschap kan alleen worden gebruikt wanneer uw cluster is gemaakt. U kunt de load balancer SKU niet wijzigen nadat een AKS-cluster is gemaakt. U kunt ook alleen een type load balancer SKU in één cluster gebruiken.
+> De *Load Balancer-SKU-* eigenschap kan alleen worden gebruikt wanneer het cluster is gemaakt. U kunt de load balancer SKU niet wijzigen nadat er een AKS-cluster is gemaakt. U kunt ook slechts één type load balancer SKU gebruiken in één cluster.
 
 ```azurecli-interactive
 az aks create \
@@ -144,7 +144,7 @@ Na enkele minuten is de opdracht voltooid en retourneert deze informatie over he
 
 ## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
 
-Voor het beheren van een Kubernetes-cluster, gebruikt u [kubectl][kubectl], de Kubernetes-opdrachtregelclient. Als u Azure Cloud Shell gebruikt, is `kubectl` al geïnstalleerd. Voor het installeren van `kubectl` lokaal, gebruikt u de [az aks install-cli][az-aks-install-cli] opdracht:
+Als u een Kubernetes-cluster wilt beheren, gebruikt u [kubectl][kubectl], de Kubernetes-opdracht regel-client. Als u Azure Cloud Shell gebruikt, is `kubectl` al geïnstalleerd. Als u `kubectl` lokaal wilt installeren, gebruikt u de opdracht [AZ AKS install-cli][az-aks-install-cli] :
 
 ```azurecli
 az aks install-cli
@@ -169,9 +169,9 @@ NAME                       STATUS   ROLES   AGE     VERSION
 aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.14.0
 ```
 
-## <a name="verify-your-cluster-uses-the-standard-sku"></a>Controleer of het cluster maakt gebruik van de *Standard* SKU
+## <a name="verify-your-cluster-uses-the-standard-sku"></a>Controleren of uw cluster gebruikmaakt van de *standaard* -SKU
 
-Gebruik de [az aks show][az-aks-show] om de configuratie van uw cluster weer te geven.
+Gebruik de [AZ AKS show][az-aks-show] om de configuratie van uw cluster weer te geven.
 
 ```console
 $ az aks show --resource-group myResourceGroup --name myAKSCluster
@@ -187,13 +187,13 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster
     ...
 ```
 
-Controleer of de *loadBalancerSku* eigenschap wordt weergegeven als *standard*.
+Controleer of de eigenschap *loadBalancerSku* wordt weer gegeven als *standaard*.
 
 ## <a name="use-the-load-balancer"></a>De load balancer gebruiken
 
-Voor het gebruik van de load balancer in uw cluster, kunt u een servicemanifest maken met het servicetype *LoadBalancer*. Als u wilt weergeven van de load balancer werken, manifest voor een andere met een voorbeeldtoepassing uit te voeren op uw cluster te maken. Deze voorbeeldtoepassing wordt beschikbaar gemaakt via de load balancer en kan worden weergegeven via een browser.
+Als u de load balancer op uw cluster wilt gebruiken, maakt u een service manifest met het Service type *LoadBalancer*. Als u wilt weer geven load balancer werkt, maakt u een nieuw manifest met een voorbeeld toepassing die u in uw cluster kunt uitvoeren. Deze voorbeeld toepassing wordt weer gegeven via de load balancer en kan worden weer gegeven via een browser.
 
-Maken van een manifestbestand met de naam `sample.yaml` zoals wordt weergegeven in het volgende voorbeeld:
+Maak een manifest met `sample.yaml` de naam zoals wordt weer gegeven in het volgende voor beeld:
 
 ```yaml
 apiVersion: apps/v1
@@ -269,7 +269,7 @@ spec:
           value: "azure-vote-back"
 ```
 
-Het manifest van de bovenstaande twee implementaties configureert: *azure-vote-front* en *azure-vote-back*. Het configureren van *azure-vote-front* implementatie beschikbaar wordt gemaakt met behulp van de load balancer, maak een manifestbestand met de naam `standard-lb.yaml` zoals wordt weergegeven in het volgende voorbeeld:
+In het bovenstaande manifest worden twee implementaties geconfigureerd: *Azure-stem voor* en *Azure-stem*. Als u de implementatie van *Azure-stemmen-front* wilt configureren om te worden weer gegeven met behulp van de Load Balancer, maakt u een manifest met de naam `standard-lb.yaml` zoals weer gegeven in het volgende voor beeld:
 
 ```yaml
 apiVersion: v1
@@ -284,16 +284,16 @@ spec:
     app: azure-vote-front
 ```
 
-De service *azure-vote-front* maakt gebruik van de *LoadBalancer* type voor het configureren van de load balancer op uw AKS-cluster verbinding maken met de *azure-vote-front* implementatie.
+De service *Azure-stemmen-front* maakt gebruik van het *Load Balancer* -type om de Load Balancer op uw AKS-cluster te configureren om verbinding te maken met de implementatie van *Azure-stemmen-front* .
 
-De voorbeeldtoepassing implementeren en load balancer met behulp van de [kubectl toepassen][kubectl-apply] en geef de naam van de manifesten YAML:
+Implementeer de voorbeeld toepassing en load balancer met behulp van de [kubectl-toepassing][kubectl-apply] en geef de naam op van de yaml-manifesten:
 
 ```console
 kubectl apply -f sample.yaml
 kubectl apply -f standard-lb.yaml
 ```
 
-De *Standard* SKU load balancer is nu geconfigureerd om de voorbeeld-App weer te geven. Bekijk de servicedetails van *azure-vote-front* met behulp van [kubectl ophalen][kubectl-get] om te zien van het openbare IP-adres van de load balancer. Het openbare IP-adres van de load balancer wordt weergegeven in de *externe IP-adres* kolom. Het duurt een minuut of twee voor het IP-adres te wijzigen van *\<in behandeling\>* een werkelijke externe IP-adres, zoals weergegeven in het volgende voorbeeld:
+De *standaard* -SKU Load Balancer is nu geconfigureerd om de voorbeeld toepassing beschikbaar te maken. Bekijk de service Details van *Azure-stem vooraan* met behulp van [kubectl Get][kubectl-get] om het open bare IP-adres van de Load Balancer te zien. Het open bare IP-adres van de load balancer wordt weer gegeven in de kolom *extern-IP* . Het kan een paar minuten duren voordat het IP-adres is gewijzigd van  *\<in\> behandeling* naar een werkelijk extern IP-adres, zoals wordt weer gegeven in het volgende voor beeld:
 
 ```
 $ kubectl get service azure-vote-front
@@ -302,16 +302,16 @@ NAME                TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)       
 azure-vote-front    LoadBalancer   10.0.227.198   52.179.23.131   80:31201/TCP   16s
 ```
 
-Navigeer naar het openbare IP-adres in een browser en controleer of dat u ziet de voorbeeldtoepassing. In het bovenstaande voorbeeld wordt het openbare IP-adres is `52.179.23.131`.
+Ga in een browser naar het open bare IP-adres en controleer of u de voorbeeld toepassing ziet. In het bovenstaande voor beeld is `52.179.23.131`het open bare IP-adres.
 
 ![Afbeelding van browsen naar Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 > [!NOTE]
-> U kunt ook zo configureren dat de load balancer voor interne en een openbaar IP-adres niet beschikbaar. Voor het configureren van de load balancer als interne, toevoegen `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` als een aantekening aan de *LoadBalancer* service. U ziet een voorbeeld-yaml manifest als ook meer informatie over een interne load balancer [hier][internal-lb-yaml].
+> U kunt ook configureren dat de load balancer intern is en geen openbaar IP-adres weergeeft. Als u de Load Balancer als intern wilt configureren `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` , voegt u als aantekening toe aan de *Load Balancer* -service. [Hier][internal-lb-yaml]ziet u een voor beeld van een yaml-manifest, evenals meer informatie over een intern Load Balancer.
 
-## <a name="clean-up-the-standard-sku-load-balancer-configuration"></a>Opschonen van de standaard-SKU load balancer-configuratie
+## <a name="clean-up-the-standard-sku-load-balancer-configuration"></a>De standaard SKU-load balancer configuratie opruimen
 
-Voor het verwijderen van de voorbeeld-toepassing en de load balancer-configuratie, gebruikt u [kubectl verwijderen][kubectl-delete]:
+Als u de voorbeeld toepassing en load balancer configuratie wilt verwijderen, gebruikt u [kubectl verwijderen][kubectl-delete]:
 
 ```console
 kubectl delete -f sample.yaml
@@ -320,7 +320,7 @@ kubectl delete -f standard-lb.yaml
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over Kubernetes-services op de [documentatie voor Kubernetes services][kubernetes-services].
+Meer informatie over Kubernetes Services vindt u in de [documentatie van Kubernetes Services][kubernetes-services].
 
 <!-- LINKS - External -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

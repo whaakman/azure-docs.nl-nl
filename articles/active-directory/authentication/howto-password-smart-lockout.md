@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd03e2b98b1fd1a2a45b5feecc963bcfc7bfe83c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 489ff1824c4bc45ee7ed31e9c96377975a32baa4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499881"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879247"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory slim vergren delen
 
@@ -31,7 +31,7 @@ Slimme vergren deling houdt de laatste drie ongeldige hashes met een onjuist wac
 
 Federatieve implementaties met AD FS 2016 en AF FS 2019 kunnen vergelijk bare voor delen bieden met behulp van [AD FS extranet en extranet Smart-vergren deling](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
 
-Slimme vergren deling is altijd ingeschakeld voor alle klanten van Azure AD met deze standaard instellingen die de juiste combi natie van beveiliging en bruikbaarheid bieden. Aanpassing van de instellingen voor slim vergren delen, met waarden die specifiek zijn voor uw organisatie, vereist Azure AD Basic of hogere licenties voor uw gebruikers.
+Slimme vergren deling is altijd ingeschakeld voor alle klanten van Azure AD met deze standaard instellingen die de juiste combi natie van beveiliging en bruikbaarheid bieden. Aanpassing van de instellingen voor slim vergren delen, met waarden die specifiek zijn voor uw organisatie, vereist betaalde Azure AD-licenties voor uw gebruikers.
 
 Het gebruik van slimme vergren deling garandeert niet dat een authentiekte gebruiker nooit wordt vergrendeld. Wanneer Slim vergren delen een gebruikers account vergrendelt, proberen we ons het beste om de legitieme gebruiker te vergren delen. De vergrendelings service probeert ervoor te zorgen dat ongeldige actors geen toegang krijgen tot een authentiek gebruikers account.  
 
@@ -63,7 +63,7 @@ Gebruik de volgende instructies om uw on-premises Active Directory account vergr
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Slimme vergrendelings waarden voor Azure AD beheren
 
-Op basis van de vereisten van uw organisatie moeten slimme vergrendelings waarden mogelijk worden aangepast. Aanpassing van de instellingen voor slim vergren delen, met waarden die specifiek zijn voor uw organisatie, vereist Azure AD Basic of hogere licenties voor uw gebruikers.
+Op basis van de vereisten van uw organisatie moeten slimme vergrendelings waarden mogelijk worden aangepast. Aanpassing van de instellingen voor slim vergren delen, met waarden die specifiek zijn voor uw organisatie, vereist betaalde Azure AD-licenties voor uw gebruikers.
 
 Voer de volgende stappen uit om de slimme vergrendelings waarden voor uw organisatie te controleren of te wijzigen:
 

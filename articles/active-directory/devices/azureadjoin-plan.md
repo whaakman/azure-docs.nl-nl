@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5dc1c3fb7ae12c36a8c1fe383290435c03ee0c4
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 906ab4da941c6a0e1bc98f2f724141c719d04b89
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741375"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879424"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedure: Uw implementatie van Azure AD-deelname plannen
 
@@ -75,6 +75,10 @@ Wanneer u AD FS gebruikt, moet u de volgende WS-Trust-eind punten inschakelen:`/
  `/adfs/services/trust/13/certificatemixed`
 
 Als uw ID-provider deze protocollen niet ondersteunt, werkt Azure AD-deelname niet systeem eigen. Vanaf Windows 10 1809 kunnen uw gebruikers zich aanmelden bij een aan Azure AD gekoppeld apparaat met een id-provider op basis van SAML via de webaanmelding in [Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Op dit moment is webaanmelding een preview-functie en wordt niet aanbevolen voor productie-implementaties.
+
+>[!NOTE]
+> Azure AD join's werkt momenteel niet met [AD FS 2019, geconfigureerd met externe verificatie providers als de primaire verificatie methode](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Azure AD-koppeling wordt standaard ingesteld op wachtwoord verificatie als primaire methode, wat resulteert in verificatie fouten in dit scenario
+
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Smart Cards en verificatie op basis van certificaten
 

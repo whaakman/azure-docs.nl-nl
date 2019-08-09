@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2019
 ms.author: rogirdh
-ms.openlocfilehash: 3b901f7aba40f3548a259d36b83fedca0ff2a5c2
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 18dbc60c1a29fbc26f4bbc73faa58aeafc66c32f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68781295"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880103"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Een directe interverbinding tussen Azure en Oracle Cloud Infrastructure instellen  
 
 Als u een [geïntegreerde multi-Cloud-ervaring](oracle-oci-overview.md) wilt maken (preview), biedt micro soft en Oracle direct interconnectie tussen Azure en Oracle Cloud Infrastructure (OCI) via [ExpressRoute](../../../expressroute/expressroute-introduction.md) en [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Via de ExpressRoute-en FastConnect-verbinding kunnen klanten met een lage latentie, een hoge door Voer en een particuliere directe connectiviteit tussen de twee Clouds profiteren.
 
 > [!IMPORTANT]
-> De verbinding tussen Microsoft Azure en OCI bevindt zich in de preview-fase. Als u verbinding met een lage latentie tussen Azure en OCI wilt inschakelen, moet het Azure-abonnement eerst worden white list voor deze mogelijkheid.
+> De verbinding tussen Microsoft Azure en OCI bevindt zich in de preview-fase. Als u verbinding met een lage latentie tussen Azure en OCI wilt inschakelen, moet het Azure-abonnement eerst worden white list voor deze mogelijkheid. U moet zich inschrijven voor het voor beeld door een e-mail oracleconnect@microsoft.com te verzenden naar met uw abonnements-id. U ontvangt een e-mailbevestiging zodra uw abonnement is geregistreerd. U kunt de mogelijkheid niet gebruiken totdat u een bevestigings-e-mail ontvangt. U kunt ook contact opnemen met uw micro soft-vertegenwoordiger om in te scha kelen voor deze preview. Deze preview is beschikbaar zonder service level agreement en mag niet worden gebruikt voor werk belastingen voor de productie. Bepaalde functies worden mogelijk niet ondersteund, zijn mogelijk beperkt of zijn mogelijk niet beschikbaar in alle Azure-locaties. Zie de [aanvullende gebruiks voorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor Microsoft Azure-voor beelden voor meer informatie.
 
 De volgende afbeelding toont een overzicht op hoog niveau van de interverbinding:
 
@@ -38,7 +38,7 @@ De volgende afbeelding toont een overzicht op hoog niveau van de interverbinding
 
 * Connectiviteit is alleen mogelijk wanneer een Azure ExpressRoute-peering locatie zich in de buurt van of op dezelfde peering-locatie bevindt als de OCI FastConnect. Zie de [Preview-beperkingen](oracle-oci-overview.md#preview-limitations).
 
-* Uw Azure-abonnement moet white list zijn voor deze preview-functie. Neem contact op met uw micro soft-vertegenwoordiger om deze functie in te scha kelen voor uw abonnement.
+* Uw Azure-abonnement moet white list zijn voor deze preview-functie.
 
 ## <a name="configure-direct-connectivity-between-expressroute-and-fastconnect"></a>Directe connectiviteit tussen ExpressRoute en FastConnect configureren
 

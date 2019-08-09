@@ -1,228 +1,150 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met SafetyNet | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en SafetyNet.
+title: 'Zelfstudie: Integratie met SafetyNet Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en SafetyNet.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: caa96ea2-da21-4529-8fab-0e06367beb40
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/16/2018
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fadebc689f10b40131bb0feb12d846d3bdde704
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b94592f78a3aba46406d25d95de3a8847831eeb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104678"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880183"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-safetynet"></a>Zelfstudie: Azure Active Directory-integratie met SafetyNet
+# <a name="tutorial-integrate-safetynet-with-azure-active-directory"></a>Zelfstudie: SafetyNet integreren met Azure Active Directory
 
-In deze zelfstudie leert u hoe u SafetyNet integreren met Azure Active Directory (Azure AD).
+In deze zelf studie leert u hoe u SafetyNet integreert met Azure Active Directory (Azure AD). Wanneer u SafetyNet integreert met Azure AD, kunt u het volgende doen:
 
-SafetyNet integreren met Azure AD biedt u de volgende voordelen:
+* Controle in azure AD die toegang heeft tot SafetyNet.
+* Zorg ervoor dat uw gebruikers automatisch worden aangemeld bij SafetyNet met hun Azure AD-accounts.
+* Beheer uw accounts op één centrale locatie: de Azure Portal.
 
-- U kunt beheren in Azure AD die toegang tot SafetyNet heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij SafetyNet (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)voor meer informatie over SaaS-app-integratie met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met SafetyNet, moet u de volgende items:
+U hebt de volgende items nodig om aan de slag te gaan:
 
-- Een Azure AD-abonnement
-- Een SafetyNet eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/)aanvragen.
+* SafetyNet-abonnement dat is ingeschakeld voor eenmalige aanmelding (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. SafetyNet uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelf studie configureert en test u Azure AD SSO in een test omgeving.
 
-## <a name="adding-safetynet-from-the-gallery"></a>SafetyNet uit de galerie toe te voegen
-Voor het configureren van de integratie van SafetyNet in Azure AD, moet u SafetyNet uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* SafetyNet ondersteunt SSO die door **SP en IDP** is geïnitieerd
 
-**Als u wilt toevoegen SafetyNet uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-safetynet-from-the-gallery"></a>SafetyNet toevoegen uit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Als u de integratie van SafetyNet in azure AD wilt configureren, moet u SafetyNet uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
+1. Selecteer de **Azure Active Directory** -service in het navigatie deel venster aan de linkerkant.
+1. Ga naar **bedrijfs toepassingen** en selecteer **alle toepassingen**.
+1. Selecteer **nieuwe toepassing**om een nieuwe toepassing toe te voegen.
+1. Typ in de sectie **toevoegen vanuit de galerie** **SafetyNET** in het zoekvak.
+1. Selecteer **SafetyNET** uit het paneel resultaten en voeg vervolgens de app toe. Wacht een paar seconden wanneer de app aan uw Tenant is toegevoegd.
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+Azure AD SSO met SafetyNet configureren en testen met behulp van een test gebruiker met de naam **B. Simon**. Voor het werken met SSO moet u een koppelings relatie tot stand brengen tussen een Azure AD-gebruiker en de bijbehorende gebruiker in SafetyNet.
 
-    ![De knop Nieuwe toepassing][3]
+Als u Azure AD SSO wilt configureren en testen met SafetyNet, voltooit u de volgende bouw stenen:
 
-1. Typ in het zoekvak **SafetyNet**, selecteer **SafetyNet** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. **[Configureer Azure AD SSO](#configure-azure-ad-sso)** -om uw gebruikers in staat te stellen deze functie te gebruiken.
+2. **[SafetyNET SSO configureren](#configure-safetynet-sso)** : voor het configureren van de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
+3. **[Een Azure AD-test gebruiker maken](#create-an-azure-ad-test-user)** : u kunt eenmalige aanmelding voor Azure AD testen met B. Simon.
+4. **[Wijs de Azure AD-test gebruiker](#assign-the-azure-ad-test-user)** toe, zodat B. Simon de eenmalige aanmelding van Azure AD kan gebruiken.
+5. **[Maak een SafetyNET-test gebruiker](#create-safetynet-test-user)** -om een equivalent van B. Simon in SafetyNET te hebben dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
+6. **[SSO testen](#test-sso)** : om te controleren of de configuratie werkt.
 
-    ![SafetyNet in de lijst met resultaten](./media/safetynet-tutorial/tutorial_safetynet_addfromgallery.png)
+### <a name="configure-azure-ad-sso"></a>Azure AD SSO configureren
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+Volg deze stappen om Azure AD SSO in te scha kelen in de Azure Portal.
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met SafetyNet op basis van een testgebruiker 'Julia steen' genoemd.
+1. Zoek in het [Azure Portal](https://portal.azure.com/)op de pagina Toepassings integratie van **SafetyNET** de sectie **beheren** en selecteer **eenmalige aanmelding**.
+1. Selecteer op de pagina **Eén aanmeldings methode selecteren** de optie **SAML**.
+1. Klik op de pagina **eenmalige aanmelding met SAML instellen** op het pictogram bewerken/pen voor **eenvoudige SAML-configuratie** om de instellingen te bewerken.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in SafetyNet is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in SafetyNet tot stand worden gebracht.
+   ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met SafetyNet, moet u de volgende bouwstenen voltooien:
+1. Als u de toepassing in de gestarte modus **IDP** wilt configureren, voert u in de sectie **basis configuratie van SAML** de waarden voor de volgende velden in:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maak een testgebruiker SafetyNet](#create-a-safetynet-test-user)**  : als u wilt een equivalent van Britta Simon in SafetyNet die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<subdomain>.predictivesolutions.com/sp`
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<subdomain>.predictivesolutions.com/CRMApp/saml/SSO`
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw SafetyNet-toepassing.
+1. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-**Voor het configureren van Azure AD eenmalige aanmelding met SafetyNet, moet u de volgende stappen uitvoeren:**
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<subdomain>.predictivesolutions.com`
 
-1. In de Azure-portal op de **SafetyNet** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Neem contact op met het ondersteunings [team van SafetyNET-clients](mailto:dev@predictivesolutions.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+1. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op de kopieerknop om de **URL voor federatieve metagegevens van de app** te kopiëren en slaat u deze op uw computer op.
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/safetynet-tutorial/tutorial_safetynet_samlbase.png)
+    ![De downloadkoppeling certificaat](common/copy-metadataurl.png)
 
-1. Op de **SafetyNet-domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+### <a name="configure-safetynet-sso"></a>SafetyNet SSO configureren
 
-    ![SafetyNet-domein en URL's, eenmalige aanmelding informatie](./media/safetynet-tutorial/tutorial_safetynet_url.png)
+Als u eenmalige aanmelding wilt configureren op **SafetyNET** , moet u de URL voor de **federatieve meta gegevens** van de app verzenden naar SafetyNET ondersteunings [team](mailto:dev@predictivesolutions.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
-    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.predictivesolutions.com/sp`
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.predictivesolutions.com/CRMApp/saml/SSO`
+In deze sectie maakt u een test gebruiker in de Azure Portal met de naam B. Simon.
 
-1. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
-
-    ![SafetyNet-domein en URL's, eenmalige aanmelding informatie](./media/safetynet-tutorial/tutorial_safetynet_url1.png)
-
-    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.predictivesolutions.com`
-     
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id, antwoord-URL en aanmeldings-URL. Neem contact op met [SafetyNet-Client-ondersteuningsteam](mailto:dev@predictivesolutions.com) om deze waarden te verkrijgen.
-
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
-
-    ![De link om het certificaat te downloaden](./media/safetynet-tutorial/tutorial_safetynet_certificate.png)
-
-1. Klik op **opslaan** knop.
-
-    ![Configureren van eenmalige aanmelding opslaan](./media/safetynet-tutorial/tutorial_general_400.png)
-
-1. Het configureren van eenmalige aanmelding op **SafetyNet** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens** naar [SafetyNet-ondersteuningsteam](mailto:dev@predictivesolutions.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
-
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
-
-   ![Maak een testgebruiker Azure AD][100]
-
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
-
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
-
-    ![De Azure Active Directory-knop](./media/safetynet-tutorial/create_aaduser_01.png)
-
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
-
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/safetynet-tutorial/create_aaduser_02.png)
-
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
-
-    ![De knop toevoegen](./media/safetynet-tutorial/create_aaduser_03.png)
-
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/safetynet-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
-
-    d. Klik op **Create**.
- 
-### <a name="create-a-safetynet-test-user"></a>Maak een testgebruiker SafetyNet
-
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in SafetyNet. Werken met [SafetyNet-ondersteuningsteam](mailto:dev@predictivesolutions.com) om toe te voegen de gebruikers in het SafetyNet-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken
+1. Selecteer in het linkerdeel venster van de Azure Portal **Azure Active Directory**, selecteer **gebruikers**en selecteer vervolgens **alle gebruikers**.
+1. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
+1. Voer de volgende stappen uit in de eigenschappen van de **gebruiker** :
+   1. Voer in het veld **Naam** `B.Simon` in.  
+   1. Voer in het veld **gebruikers naam** het username@companydomain.extensionin. Bijvoorbeeld `B.Simon@contoso.com`.
+   1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
+   1. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan SafetyNet.
+In deze sectie schakelt u B. Simon in om eenmalige aanmelding van Azure te gebruiken door toegang te verlenen aan SafetyNet.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in het Azure Portal **bedrijfs toepassingen**en selecteer vervolgens **alle toepassingen**.
+1. Selecteer in de lijst toepassingen de optie **SafetyNET**.
+1. Ga op de pagina overzicht van de app naar de sectie **beheren** en selecteer **gebruikers en groepen**.
 
-**Als u wilt Britta Simon aan SafetyNet toewijst, moet u de volgende stappen uitvoeren:**
+   ![De koppeling 'Gebruikers en groepen'](common/users-groups-blade.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in het dialoog venster **toewijzing toevoegen** .
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling gebruiker toevoegen](common/add-assign-user.png)
 
-1. Selecteer in de lijst met toepassingen, **SafetyNet**.
+1. Selecteer in het dialoog venster **gebruikers en groepen** **B. Simon** van de lijst gebruikers en klik vervolgens op de knop **selecteren** onder aan het scherm.
+1. Als u een wille keurige rol verwacht in de SAML-bewering, selecteert u in het dialoog venster **rol selecteren** de juiste rol voor de gebruiker in de lijst en klikt u op de knop **selecteren** onder aan het scherm.
+1. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-    ![De SafetyNet-koppeling in de lijst met toepassingen](./media/safetynet-tutorial/tutorial_safetynet_app.png)  
+### <a name="create-safetynet-test-user"></a>SafetyNet-test gebruiker maken
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+In deze sectie maakt u een gebruiker met de naam Julia Simon in SafetyNet. Werk samen met SafetyNET-ondersteunings [team](mailto:dev@predictivesolutions.com) om de gebruikers toe te voegen in het SafetyNET-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
-
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Het deelvenster toewijzing toevoegen][203]
-
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="test-sso"></a>SSO testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel SafetyNet in het toegangsvenster, u moet u automatisch aangemeld bij uw SafetyNet-toepassing.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+Wanneer u op de tegel SafetyNet in het toegangs venster klikt, moet u automatisch worden aangemeld bij de SafetyNet waarvoor u SSO hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/safetynet-tutorial/tutorial_general_01.png
-[2]: ./media/safetynet-tutorial/tutorial_general_02.png
-[3]: ./media/safetynet-tutorial/tutorial_general_03.png
-[4]: ./media/safetynet-tutorial/tutorial_general_04.png
-
-[100]: ./media/safetynet-tutorial/tutorial_general_100.png
-
-[200]: ./media/safetynet-tutorial/tutorial_general_200.png
-[201]: ./media/safetynet-tutorial/tutorial_general_201.png
-[202]: ./media/safetynet-tutorial/tutorial_general_202.png
-[203]: ./media/safetynet-tutorial/tutorial_general_203.png
-
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

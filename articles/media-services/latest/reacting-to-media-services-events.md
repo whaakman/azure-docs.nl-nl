@@ -1,6 +1,6 @@
 ---
-title: Reageren op gebeurtenissen voor Azure Media Services | Microsoft Docs
-description: Gebruik Azure Event Grid om u te abonneren op gebeurtenissen voor Media Services.
+title: Reageren op Azure Media Services gebeurtenissen | Microsoft Docs
+description: Gebruik Azure Event Grid om u te abonneren op Media Services-gebeurtenissen.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,36 +9,37 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: cb5d6474a0c830933c712e1008015b5220617c96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64bf8f5c8de5f56ee1140e91d0472a33b35570cf
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996119"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878805"
 ---
 # <a name="handling-event-grid-events"></a>Event Grid-gebeurtenissen verwerken
 
-Media Services-gebeurtenissen kunnen toepassingen om te reageren op verschillende gebeurtenissen (bijvoorbeeld de taak statuswijzigingsgebeurtenis) met behulp van moderne architecturen zonder servers. Dit gebeurt zonder de noodzaak voor complexe code of kostbaar en inefficiënt polling-services. In plaats daarvan de gebeurtenissen worden gepusht via [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) naar gebeurtenis-handlers zoals [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), of zelfs naar uw eigen Webhook en u betaalt voor wat u gebruikt. Zie voor meer informatie over de prijzen [prijzen van Event Grid](https://azure.microsoft.com/pricing/details/event-grid/).
+Met Media Services gebeurtenissen kunnen toepassingen reageren op verschillende gebeurtenissen (bijvoorbeeld de taak status wijzigings gebeurtenis) met behulp van moderne serverloze architecturen. Dit gebeurt zonder dat er complexe code of dure en inefficiënte polling services nodig zijn. In plaats daarvan worden gebeurtenissen gepusht via [Azure Event grid](https://azure.microsoft.com/services/event-grid/) naar gebeurtenis-handlers zoals [Azure functions](https://azure.microsoft.com/services/functions/), [Azure Logic apps](https://azure.microsoft.com/services/logic-apps/)of zelfs naar uw eigen webhook en betaalt u alleen voor wat u gebruikt. Zie [Event grid prijzen](https://azure.microsoft.com/pricing/details/event-grid/)voor meer informatie over prijzen.
 
-De beschikbaarheid van Media Services-gebeurtenissen is gekoppeld aan Event Grid [beschikbaarheid](../../event-grid/overview.md) en worden pas beschikbaar in andere regio's als Event Grid.  
+De beschik baarheid voor Media Services gebeurtenissen is gekoppeld aan Event Grid [Beschik baarheid](../../event-grid/overview.md) en wordt in andere regio's beschikbaar gesteld als Event grid.  
 
-## <a name="media-services-events-and-schemas"></a>Media Services-gebeurtenissen en schema 's
+## <a name="media-services-events-and-schemas"></a>Media Services gebeurtenissen en schema's
 
-Maakt gebruik van Event grid [gebeurtenisabonnementen](../../event-grid/concepts.md#event-subscriptions) gebeurtenis om berichten te routeren voor abonnees. Media Services-gebeurtenissen bevatten alle informatie die u nodig hebt om te reageren op wijzigingen in uw gegevens. Omdat de eigenschap type gebeurtenis begint met "Microsoft.Media.", kunt u een Media Services-gebeurtenis identificeren.
+Event grid gebruikt [gebeurtenis abonnementen](../../event-grid/concepts.md#event-subscriptions) om gebeurtenis berichten te routeren naar abonnees. Media Services gebeurtenissen bevatten alle informatie die u nodig hebt om te reageren op wijzigingen in uw gegevens. U kunt een Media Services gebeurtenis identificeren omdat de eigenschap Event type met ' micro soft. media. ' begint.
 
-Zie voor meer informatie, [Media Services-gebeurtenisschema](media-services-event-schemas.md).
+Zie [Media Services-gebeurtenis schema's](media-services-event-schemas.md)voor meer informatie.
 
-## <a name="practices-for-consuming-events"></a>Procedures voor het gebruik van gebeurtenissen
+## <a name="practices-for-consuming-events"></a>Procedures voor het gebruiken van gebeurtenissen
 
-Toepassingen die Media Services-gebeurtenissen verwerken moeten volgen enkele aanbevolen procedures:
+Toepassingen die Media Services gebeurtenissen verwerken, moeten een aantal aanbevolen procedures volgen:
 
-* Als u meerdere abonnementen kunnen worden geconfigureerd om gebeurtenissen routeren naar de dezelfde gebeurtenis-handler, is het belangrijk niet wordt ervan uitgegaan dat gebeurtenissen worden van een specifieke bron, maar om te controleren of het onderwerp van het bericht om ervoor te zorgen dat het afkomstig is van het opslagaccount dat u verwacht.
-* Op dezelfde manier, Controleer of het type gebeurtenis een u bent voorbereid om te verwerken en kan niet vanuit gegaan is dat alle gebeurtenissen die u ontvangt zal de typen die u verwacht.
-* Velden die u niet machtig bent negeren.  Met deze procedure krijgt u flexibele houden bij de nieuwe functies die in de toekomst kunnen worden toegevoegd.
-* De overeenkomsten van voorvoegsel en het achtervoegsel 'onderwerp' gebruiken om te beperken van gebeurtenissen naar een bepaalde gebeurtenis.
+* Omdat meerdere abonnementen kunnen worden geconfigureerd voor het routeren van gebeurtenissen naar dezelfde gebeurtenis-handler, is het belang rijk om te voor komen dat gebeurtenissen afkomstig zijn uit een bepaalde bron, maar om het onderwerp van het bericht te controleren om ervoor te zorgen dat het afkomstig is van het opslag account dat u verwacht.
+* Controleer ook of de Event type is ingesteld als een voor bereiding op het proces en ga er niet van uit dat alle gebeurtenissen die u ontvangt, de verwachte typen zijn.
+* Velden negeren die u niet begrijpt.  Met deze procedure kunt u de nieuwe functies die in de toekomst kunnen worden toegevoegd, flexibeler maken.
+* Gebruik het voor voegsel ' subject ' en achtervoegsel overeenkomsten om gebeurtenissen te beperken tot een bepaalde gebeurtenis.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Taak statusgebeurtenissen ophalen](job-state-events-cli-how-to.md)
+* [Gebeurtenissen bewaken-Portal](monitor-events-portal-how-to.md)
+* [Gebeurtenissen bewaken-CLI](job-state-events-cli-how-to.md)

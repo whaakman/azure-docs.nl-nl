@@ -1,34 +1,34 @@
 ---
-title: Over het beheren van verbindingen en betrouwbare uitwisseling van berichten met behulp van Azure IoT Hub apparaat-SDK 's
-description: Meer informatie over het verbeteren van de connectiviteit van uw apparaten en bij het gebruik van de apparaat-SDK's van de Azure IoT Hub-berichten
+title: Connectiviteit en betrouw bare berichten beheren met behulp van Azure IoT Hub apparaat-Sdk's
+description: Meer informatie over het verbeteren van de connectiviteit en communicatie van uw apparaten bij het gebruik van de Azure IoT Hub apparaat-Sdk's
 services: iot-hub
-author: yzhong94
-ms.author: yizhon
+author: robinsh
+ms.author: robinsh
 ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
-ms.openlocfilehash: 838d0cd4f40666bc3fced22a607b9f94f27b08d3
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: e881dffbd1f286047ffcff226eb3dede7a138a0c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67535508"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884346"
 ---
-# <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Connectiviteit en betrouwbare uitwisseling van berichten met behulp van Azure IoT Hub apparaat-SDK's beheren
+# <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Connectiviteit en betrouw bare berichten beheren met behulp van Azure IoT Hub apparaat-Sdk's
 
-Dit artikel vindt u op hoog niveau hulp bij het ontwerpen van apparaattoepassingen die toleranter zijn. Hier ziet u hoe u kunt profiteren van de connectiviteit en betrouwbare berichtfuncties in Azure IoT device SDK's. Het doel van deze handleiding is voor het beheren van de volgende scenario's:
+In dit artikel vindt u meer informatie over het ontwerpen van Device-toepassingen die robuuster zijn. U leert hoe u kunt profiteren van de connectiviteits-en betrouw bare berichten functies in de Sdk's van Azure IoT-apparaten. Het doel van deze hand leiding is om u te helpen bij het beheren van de volgende scenario's:
 
-* Oplossen van een uitgevallen netwerkverbinding
+* Een verwijderde netwerk verbinding oplossen
 
-* Schakelen tussen verschillende netwerkverbindingen
+* Scha kelen tussen verschillende netwerk verbindingen
 
-* Opnieuw verbinding maken vanwege fouten in de tijdelijke verbindingsfouten service
+* Opnieuw verbinding maken vanwege problemen met de service-tijdelijke verbinding
 
-Implementatiegegevens kunnen variëren per taal. Zie voor meer informatie, de API-documentatie of de specifieke SDK:
+Implementatie details kunnen per taal verschillen. Zie de API-documentatie of specifieke SDK voor meer informatie:
 
-* [C/Python/iOS SDK](https://github.com/azure/azure-iot-sdk-c)
+* [C/python/iOS SDK](https://github.com/azure/azure-iot-sdk-c)
 
-* [.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
+* [.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/retrypolicy.md)
 
 * [Java SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 
@@ -36,65 +36,65 @@ Implementatiegegevens kunnen variëren per taal. Zie voor meer informatie, de AP
 
 ## <a name="designing-for-resiliency"></a>Ontwerpen voor flexibiliteit
 
-IoT-apparaten zijn vaak afhankelijk van niet-doorlopende of instabiel Netwerkverbindingen (bijvoorbeeld GSM of satelliet). Fouten kunnen optreden wanneer apparaten interactie met cloudservices vanwege onregelmatige service beschikbaarheid en infrastructuur op serverniveau of tijdelijke fouten hebben. Een toepassing die wordt uitgevoerd op een apparaat is voor het beheren van de mechanismen voor verbinding, opnieuw verbinding en de logica voor nieuwe pogingen voor het verzenden en ontvangen van berichten. Ook afhankelijk de vereisten van de strategie voor opnieuw proberen van geheugenlatentie van het apparaat IoT-scenario, context, mogelijkheden.
+IoT-apparaten zijn vaak afhankelijk van niet-doorlopende of onstabiele netwerk verbindingen (bijvoorbeeld GSM of satelliet). Er kunnen fouten optreden wanneer apparaten communiceren met Cloud Services vanwege een onregelmatige Beschik baarheid van de service en infrastructuur niveau of tijdelijke fouten. Een toepassing die wordt uitgevoerd op een apparaat, moet de mechanismen voor verbinding, opnieuw verbinden en de logica voor opnieuw proberen voor het verzenden en ontvangen van berichten beheren. De vereisten voor de strategie voor opnieuw proberen zijn ook sterk afhankelijk van het IoT-scenario, de context en de mogelijkheden van het apparaat.
 
-De Azure IoT Hub apparaat-SDK's erop gericht om verbinding te maken en gecommuniceerd tussen cloud-naar-apparaat- en apparaat-naar-cloud te vereenvoudigen. Deze SDK's bieden een krachtige manier om verbinding maken met Azure IoT Hub en een uitgebreide set met opties voor het verzenden en ontvangen van berichten. Ontwikkelaars kunnen de bestaande implementatie voor het aanpassen van een betere strategie voor opnieuw proberen voor een bepaald scenario ook wijzigen.
+De Sdk's van het Azure IoT Hub apparaat maken het aansluiten en communiceren van Cloud-naar-apparaat-en apparaat-naar-Cloud eenvoudiger. Deze Sdk's bieden een robuuste manier om verbinding te maken met Azure IoT Hub en een uitgebreide set opties voor het verzenden en ontvangen van berichten. Ontwikkel aars kunnen ook bestaande implementatie wijzigen om een betere pogings strategie voor een bepaald scenario aan te passen.
 
-De relevante SDK-functies die ondersteuning bieden voor connectiviteit en betrouwbare uitwisseling van berichten worden in de volgende secties besproken.
+De relevante SDK-functies die connectiviteit en betrouw bare berichten ondersteunen, worden in de volgende secties besproken.
 
 ## <a name="connection-and-retry"></a>Verbinding en probeer het opnieuw
 
-In deze sectie biedt een overzicht van de patronen opnieuw verbinding en probeer het opnieuw beschikbaar bij het beheren van verbindingen. Het advies voor implementaties voor het gebruik van een beleid voor verschillende nieuwe pogingen in uw apparaattoepassing details en een lijst met relevante API's van de apparaat-SDK's.
+In deze sectie vindt u een overzicht van de patronen voor opnieuw verbinden en opnieuw proberen wanneer u verbindingen beheert. Hier vindt u implementatie richtlijnen voor het gebruik van een ander beleid voor opnieuw proberen in uw apparaat-app en een lijst met relevante Api's van de Sdk's van het apparaat.
 
-### <a name="error-patterns"></a>Fout-patronen
+### <a name="error-patterns"></a>Fout patronen
 
-Fouten bij het verbinden kunnen gebeuren op veel niveaus:
+Verbindings fouten kunnen zich op verschillende niveaus voordoen:
 
-* Netwerkfouten: verbinding verbroken socket en de naam resolutie-fouten
+* Netwerk fouten: verbroken socket-en naam omzettings fouten
 
-* Protocolniveau fouten voor HTTP, AMQP en MQTT transport: koppelingen ontkoppeld of verlopen sessies
+* Fouten op protocol niveau voor HTTP-, AMQP-en MQTT-Trans Port: losgekoppelde koppelingen of verlopen sessies
 
-* Op toepassingsniveau fouten die het resultaat zijn van een lokale fouten: ongeldige referenties of het servicegedrag (bijvoorbeeld, het quotum overschrijden of beperking)
+* Fouten op toepassings niveau die het resultaat zijn van lokale fouten: ongeldige referenties of service gedrag (bijvoorbeeld het overschrijden van het quotum of de beperking)
 
-De apparaat-SDK's detecteren van fouten op alle drie niveaus. OS-gerelateerde fouten en hardware zijn niet gedetecteerd en verwerkt door de apparaat-SDK's. Het ontwerp van de SDK is gebaseerd op [de tijdelijke fouten afhandelen richtlijnen](/azure/architecture/best-practices/transient-faults#general-guidelines) van het Azure Architecture Center.
+De Sdk's van het apparaat detecteren fouten op alle drie de niveaus. Fouten met betrekking tot het besturings systeem en hardwarefouten worden niet gedetecteerd en afgehandeld door de Sdk's van het apparaat. Het SDK-ontwerp is gebaseerd op [de richt lijnen](/azure/architecture/best-practices/transient-faults#general-guidelines) voor het afhandelen van tijdelijke fouten van de Azure Architecture Center.
 
 ### <a name="retry-patterns"></a>Patronen opnieuw proberen
 
-De volgende stappen beschrijven het proces opnieuw wanneer er fouten worden gedetecteerd:
+In de volgende stappen wordt het proces voor opnieuw proberen beschreven wanneer verbindings fouten worden gedetecteerd:
 
 1. De SDK detecteert de fout en de bijbehorende fout in het netwerk, het protocol of de toepassing.
 
-2. De SDK gebruikt de fout-filter om te bepalen welk fouttype en bepalen of een nieuwe poging nodig is.
+2. De SDK gebruikt het fout filter om het fout type te bepalen en te bepalen of een nieuwe poging nodig is.
 
-3. Als de SDK identificeert een **onherstelbare fout**, bewerkingen, zoals verbinding, verzenden en ontvangen zijn gestopt. De SDK meldt de gebruiker. Voorbeelden van onherstelbare fouten zijn een verificatiefout en een ongeldig eindpunt-fout.
+3. Als de SDK een onherstelbare **fout**identificeert, worden bewerkingen, zoals het verbinden, verzenden en ontvangen, gestopt. De SDK waarschuwt de gebruiker. Voor beelden van onherstelbare fouten zijn een verificatie fout en een onjuiste eindpunt fout.
 
-4. Als de SDK identificeert een **onherstelbare fout**, het opnieuw probeert op basis van het opgegeven beleid totdat de opgegeven time-out is verstreken.  Houd er rekening mee dat de SDK gebruikt **exponentiële uitstelbewerking met jitter** beleid voor opnieuw proberen standaard.
-5. Wanneer de opgegeven time-out is verlopen, stopt de SDK probeert verbinding te maken of verzenden. Deze waarschuwt de gebruiker.
+4. Als de SDK een **herstel bare fout**identificeert, wordt de nieuwe poging gedaan op basis van het opgegeven beleid voor opnieuw proberen totdat de gedefinieerde time-out is verstreken.  Houd er rekening mee dat de SDK standaard **exponentiële back-ups met** het beleid voor opnieuw proberen van een jitter gebruikt.
+5. Wanneer de gedefinieerde time-out is verlopen, probeert de SDK geen verbinding te maken of te verzenden. Hiermee wordt de gebruiker hiervan op de hoogte gebracht.
 
-6. De SDK kan de gebruiker te koppelen van een callback voor het ontvangen van de status verandert.
+6. De SDK stelt de gebruiker in staat om een call back te koppelen om wijzigingen in de verbindings status te ontvangen.
 
-De SDK's bieden dat drie beleidsregels voor opnieuw proberen:
+De Sdk's bieden drie beleids regels voor opnieuw proberen:
 
-* **Exponentieel uitstel met jitter**: Dit standaardbeleid voor opnieuw proberen is doorgaans agressief aan het begin en vertragen na verloop van tijd totdat een maximale vertraging is bereikt. Het ontwerp is gebaseerd op [richtlijnen van Azure Architecture Center voor opnieuw proberen](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific). 
+* **Exponentiële back-off met jitter**: Dit standaard beleid voor opnieuw proberen is in de loop van de tijd zeer agressief, totdat het een maximale vertraging bereikt. Het ontwerp is gebaseerd op de [richt lijnen voor opnieuw proberen van Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific). 
 
-* **Aangepaste nieuwe poging**: U kunt een beleid voor aangepaste opnieuw proberen dat beter geschikt is voor uw scenario en deze vervolgens invoeren in het RetryPolicy ontwerpen voor sommige talen SDK. Aangepaste nieuwe poging is niet beschikbaar in de C-SDK.
+* **Aangepaste nieuwe poging**: Voor sommige SDK-talen kunt u een aangepast beleid voor opnieuw proberen ontwerpen dat beter geschikt is voor uw scenario en het vervolgens in het RetryPolicy injecteren. Aangepaste nieuwe poging is niet beschikbaar op de C-SDK.
 
-* **Er geen nieuwe**: Beleid voor opnieuw proberen te 'geen nieuwe poging doen,"waardoor de logica voor opnieuw proberen is uitgeschakeld, kunt u instellen. De SDK probeert verbinding maken met één keer en verzend een bericht eenmaal, ervan uitgaande dat de verbinding tot stand is gebracht. Dit beleid wordt doorgaans gebruikt in scenario's met de bandbreedte of kosten betreft. Als u deze optie kiest, worden de berichten die niet voldoen aan voor het verzenden van gaan verloren en kunnen niet worden hersteld.
+* **Geen nieuwe poging**: U kunt het beleid voor opnieuw proberen instellen op geen nieuwe poging, waardoor de logica voor opnieuw proberen wordt uitgeschakeld. De SDK probeert een keer verbinding te maken en een bericht te verzenden, ervan uitgaande dat de verbinding tot stand is gebracht. Dit beleid wordt doorgaans gebruikt in scenario's met betrekking tot band breedte of kosten. Als u deze optie kiest, gaan berichten die niet worden verzonden, verloren en kunnen ze niet worden hersteld.
 
-### <a name="retry-policy-apis"></a>API's voor beleid voor opnieuw proberen
+### <a name="retry-policy-apis"></a>Beleids-Api's opnieuw proberen
 
-   | SDK | Methode SetRetryPolicy | Beleidsimplementaties | Begeleiding bij implementatie |
+   | SDK | Methode SetRetryPolicy | Beleids implementaties | Begeleiding bij implementatie |
    |-----|----------------------|--|--|
-   |  C/Python/iOS  | [IOTHUB_CLIENT_RESULT IoTHubClient_SetRetryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/2018-05-04/iothub_client/inc/iothub_client.h#L188)        | **Standaard**: [IOTHUB_CLIENT_RETRY_EXPONENTIAL_BACKOFF](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)<BR>**Aangepast:** gebruik beschikbaar [retryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)<BR>**Er zijn geen nieuwe poging:** [IOTHUB_CLIENT_RETRY_NONE](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)  | [C/Python/iOS-implementatie](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#)  |
-   | Java| [SetRetryPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclientconfig.setretrypolicy?view=azure-java-stable)        | **Standaard**: [ExponentialBackoffWithJitter klasse](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)<BR>**Aangepast:** implementeren [RetryPolicy-interface](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/RetryPolicy.java)<BR>**Er zijn geen nieuwe poging:** [NoRetry klasse](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)  | [Java-toepassing](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md) |
-   | .NET| [DeviceClient.SetRetryPolicy](/dotnet/api/microsoft.azure.devices.client.deviceclient.setretrypolicy?view=azure-dotnet) | **Standaard**: [ExponentialBackoff klasse](/dotnet/api/microsoft.azure.devices.client.exponentialbackoff?view=azure-dotnet)<BR>**Aangepast:** implementeren [IRetryPolicy-interface](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.iretrypolicy?view=azure-dotnet)<BR>**Er zijn geen nieuwe poging:** [NoRetry klasse](/dotnet/api/microsoft.azure.devices.client.noretry?view=azure-dotnet) | [Implementatie van C#](https://github.com/Azure/azure-iot-sdk-csharp) | |
-   | Knooppunt| [setRetryPolicy](/javascript/api/azure-iot-device/client?view=azure-iot-typescript-latest) | **Standaard**: [ExponentialBackoffWithJitter klasse](/javascript/api/azure-iot-common/exponentialbackoffwithjitter?view=azure-iot-typescript-latest)<BR>**Aangepast:** implementeren [RetryPolicy-interface](/javascript/api/azure-iot-common/retrypolicy?view=azure-iot-typescript-latest)<BR>**Er zijn geen nieuwe poging:** [NoRetry klasse](/javascript/api/azure-iot-common/noretry?view=azure-iot-typescript-latest) | [Knooppunt-implementatie](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them) |
+   |  C/Python/iOS  | [IOTHUB_CLIENT_RESULT IoTHubClient_SetRetryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/2018-05-04/iothub_client/inc/iothub_client.h#L188)        | **Standaard**: [IOTHUB_CLIENT_RETRY_EXPONENTIAL_BACKOFF](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)<BR>**Aangepast:** beschik bare [retryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies) gebruiken<BR>**Geen nieuwe poging:** [IOTHUB_CLIENT_RETRY_NONE](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)  | [C/python/iOS-implementatie](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#)  |
+   | Java| [SetRetryPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclientconfig.setretrypolicy?view=azure-java-stable)        | **Standaard**: [Klasse ExponentialBackoffWithJitter](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)<BR>**Aangepast:** [RetryPolicy-interface](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/RetryPolicy.java) implementeren<BR>**Geen nieuwe poging:** [Klasse voor niet opnieuw proberen](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)  | [Java-implementatie](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md) |
+   | .NET| [DeviceClient.SetRetryPolicy](/dotnet/api/microsoft.azure.devices.client.deviceclient.setretrypolicy?view=azure-dotnet) | **Standaard**: [Klasse ExponentialBackoff](/dotnet/api/microsoft.azure.devices.client.exponentialbackoff?view=azure-dotnet)<BR>**Aangepast:** [IRetryPolicy-interface](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.iretrypolicy?view=azure-dotnet) implementeren<BR>**Geen nieuwe poging:** [Klasse voor niet opnieuw proberen](/dotnet/api/microsoft.azure.devices.client.noretry?view=azure-dotnet) | [C#verloop](https://github.com/Azure/azure-iot-sdk-csharp) | |
+   | Knooppunt| [setRetryPolicy](/javascript/api/azure-iot-device/client?view=azure-iot-typescript-latest) | **Standaard**: [Klasse ExponentialBackoffWithJitter](/javascript/api/azure-iot-common/exponentialbackoffwithjitter?view=azure-iot-typescript-latest)<BR>**Aangepast:** [RetryPolicy-interface](/javascript/api/azure-iot-common/retrypolicy?view=azure-iot-typescript-latest) implementeren<BR>**Geen nieuwe poging:** [Klasse voor niet opnieuw proberen](/javascript/api/azure-iot-common/noretry?view=azure-iot-typescript-latest) | [Knooppunt implementatie](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them) |
 
-Voorbeelden van de volgende code ziet u deze stroom:
+De volgende code voorbeelden illustreren deze stroom:
 
-#### <a name="net-implementation-guidance"></a>.NET-Implementatiehandleiding
+#### <a name="net-implementation-guidance"></a>.NET-implementatie richtlijnen
 
-Het volgende codevoorbeeld laat zien hoe om te definiëren en instellen van het standaardbeleid voor opnieuw proberen:
+In het volgende code voorbeeld ziet u hoe u het standaard beleid voor opnieuw proberen kunt definiëren en instellen:
 
    ```csharp
    // define/set default retry policy
@@ -102,9 +102,9 @@ Het volgende codevoorbeeld laat zien hoe om te definiëren en instellen van het 
    SetRetryPolicy(retryPolicy);
    ```
 
-Om te voorkomen dat een hoog CPU-gebruik, worden de nieuwe pogingen als de code onmiddellijk mislukt beperkt. Bijvoorbeeld: wanneer er is geen netwerk of de route naar de bestemming. De minimale tijd voor het uitvoeren van de volgende poging is 1 seconde.
+Om een hoog CPU-gebruik te voor komen, worden de nieuwe pogingen beperkt als de code direct mislukt. Bijvoorbeeld wanneer er zich geen netwerk of route naar de bestemming bevindt. De minimale tijd voor het uitvoeren van de volgende nieuwe poging is 1 seconde.
 
-Als de service met een beperking-fout reageert, wordt het beleid voor opnieuw proberen is anders en kan niet worden gewijzigd via de openbare API:
+Als de service met een beperkings fout reageert, is het beleid voor opnieuw proberen verschillend en kan het niet worden gewijzigd via open bare API:
 
    ```csharp
    // throttled retry policy
@@ -112,13 +112,13 @@ Als de service met een beperking-fout reageert, wordt het beleid voor opnieuw pr
      TimeSpan.FromSeconds(60), TimeSpan.FromSeconds(5)); SetRetryPolicy(retryPolicy);
    ```
 
-Het mechanisme voor opnieuw proberen na stopt `DefaultOperationTimeoutInMilliseconds`, die momenteel is ingesteld op vier minuten.
+Het mechanisme voor opnieuw proberen `DefaultOperationTimeoutInMilliseconds`stopt na, dat momenteel is ingesteld op 4 minuten.
 
-#### <a name="other-languages-implementation-guidance"></a>Andere talen-Implementatiehandleiding
+#### <a name="other-languages-implementation-guidance"></a>Richt lijnen voor de implementatie van andere talen
 
-Voor codevoorbeelden in andere talen, raadpleegt u de volgende documenten voor de implementatie. De opslagplaats bevat voorbeelden van met het gebruik van beleid voor opnieuw proberen API's.
+Raadpleeg de volgende implementatie documenten voor code voorbeelden in andere talen. De opslag plaats bevat voor beelden van het gebruik van beleids-Api's voor opnieuw proberen.
 
-* [C/Python/iOS SDK](https://github.com/azure/azure-iot-sdk-c)
+* [C/python/iOS SDK](https://github.com/azure/azure-iot-sdk-c)
 
 * [.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/retrypolicy.md)
 
@@ -136,4 +136,4 @@ Voor codevoorbeelden in andere talen, raadpleegt u de volgende documenten voor d
 
 * [Ontwikkelen voor mobiele apparaten](./iot-hub-how-to-develop-for-mobile-devices.md)
 
-* [Oplossen van apparaat wordt verbroken](iot-hub-troubleshoot-connectivity.md)
+* [Problemen met het verbreken van apparaten oplossen](iot-hub-troubleshoot-connectivity.md)

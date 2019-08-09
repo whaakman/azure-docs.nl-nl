@@ -1,6 +1,6 @@
 ---
-title: Taalanalyse - Azure Search toevoegen
-description: Van meerdere talen lexicale tekstanalyse voor niet-Engelse query's en indexen in Azure Search.
+title: Taal analysen toevoegen-Azure Search
+description: Meertalige tekst analyse in meerdere talen voor niet-Engelse query's en indexen in Azure Search.
 ms.date: 02/14/2019
 services: search
 ms.service: search
@@ -19,50 +19,50 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88d229d33f549755479d7e1c7cf012d0391bccbb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65790907"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881508"
 ---
-# <a name="add-language-analyzers-to-an-azure-search-index"></a>Taalanalyse toevoegen aan een Azure Search-index
+# <a name="add-language-analyzers-to-an-azure-search-index"></a>Taal analyse functies toevoegen aan een Azure Search-index
 
-Een *taalanalyse* is van een specifiek type [tekst analyzer](search-analyzers.md) die voert lexicale analyse uit met behulp van de linguïstische regels van de doel-taal. Elke doorzoekbaar veld heeft een **analyzer** eigenschap. Als uw index vertaalde tekenreeksen, zoals afzonderlijke velden voor Engels en Chinese bevat, kunt u taalanalyse opgeven voor elk veld voor toegang tot de uitgebreide linguïstische mogelijkheden van deze analyse.  
+Een *taal analyse* is een specifiek type [tekst analyse](search-analyzers.md) dat lexicale analyses uitvoert met behulp van de taal kundige regels van de doel taal. Elk doorzoekbaar veld heeft een eigenschap **Analyzer** . Als uw index vertaalde teken reeksen bevat, zoals afzonderlijke velden voor Engelse en Chinese tekst, kunt u taal analysen opgeven voor elk veld om toegang te krijgen tot de uitgebreide taal mogelijkheden van die analyse functies.  
 
-Azure Search biedt ondersteuning voor 35 analyzers die worden ondersteund door Lucene en 50 analyzers die worden ondersteund door een eigen Microsoft verwerking van natuurlijke taal technologie die wordt gebruikt in Office en Bing.
+Azure Search ondersteunt 35-analyse functies die worden ondersteund door Lucene, en 50-analyse functies die worden ondersteund door een eigen micro soft-technologie voor natuurlijke taal verwerking die wordt gebruikt in Office en Bing.
 
-## <a name="comparing-analyzers"></a>Vergelijking van de analyzers
+## <a name="comparing-analyzers"></a>Analyse functies vergelijken
 
-Sommige ontwikkelaars liever met de oplossing meer vertrouwde, eenvoudige, open-source van Lucene. Lucene-taalanalyse sneller zijn, maar de analyzers Microsoft zijn geavanceerde mogelijkheden, zoals lemmatisering, word decompounding (in talen zoals Duits, Deens, Nederlands, Zweeds, Noors, Ests, voltooien, Hongaars, Slowakije) en de entiteit herkenning (URL's, e-mailberichten, datums, getallen). Indien mogelijk moet u vergelijkingen van de Microsoft- en Lucene analyzers om te bepalen welke is beter geschikt uitvoeren. 
+Sommige ontwikkel aars hebben mogelijk de voor keur aan een bekendere, eenvoudige, open-source oplossing van Lucene. De taal analysen van Lucene zijn sneller, maar de micro soft-analyse functies hebben geavanceerde mogelijkheden, zoals lemmatisering, het afmaken van woorden (in talen als Duits, Deens, Nederlands, Zweeds, Noors, Estland, finish, Hong aars, Slowaaks) en entiteit herkenning (Url's, e-mails, datums, cijfers). Voer, indien mogelijk, vergelijkingen uit van de micro soft-en lucene-analyse functies om te bepalen welke een beter aansluit. 
 
-Indexeren met analysefuncties van Microsoft is op gemiddelde twee tot drie keer langzamer dan hun equivalenten Lucene, afhankelijk van de taal. Prestaties van de zoekopdracht moet niet aanzienlijk worden beïnvloed voor gemiddelde grootte van query's. 
+Indexeren met micro soft-analyse functies is gemiddeld twee tot drie keer langzamer dan hun bijbehorende Lucene, afhankelijk van de taal. Zoek prestaties moeten niet significant worden beïnvloed voor de gemiddelde grootte van query's. 
 
-### <a name="english-analyzers"></a>Engelse analyzers
+### <a name="english-analyzers"></a>Engelse analyse functies
 
-De standaard-analyzer is standaard Lucene, dat goed voor Engels, maar misschien niet en de Engelse analyzer van Lucene of Engelse analyzer van Microsoft werkt. 
+De standaard-Analyzer is standaard-Lucene, die goed werkt voor het Engels, maar mogelijk niet ook en de Engelse analyse functie van Lucene of het Engelse analyse beleid van micro soft. 
  
-+ De Engelse analyzer van Lucene breidt de standaard analyzer. Het verwijdert bezittelijke voornaamwoorden (afsluitende van) van woorden, is van toepassing als gevolg aan de hand van Porter voortvloeit algorithm, en Engelse stopwoorden.  
++ De Engelse Analyzer van Lucene breidt de Standard Analyzer uit. Hiermee verwijdert u de possessives (van het begin) van woorden, wordt de functie voor het verbreken van de splitsing van het schema en de Engelse stop woorden verwijderd.  
 
-+ Engelse analyzer van Microsoft voert lemmatisering in plaats van die voortvloeien uit. Dit betekent dat veel beter wat in meer relevante zoekresultaten resulteert verbogen en onregelmatige word-formulieren kunnen worden verwerkt 
++ De Engelse Analyzer van micro soft voert lemmatisering uit in plaats van de ontleding. Dit betekent dat het verbogen en onregelmatige woord vormen veel beter kan verwerken wat resulteert in meer relevante zoek resultaten 
 
-## <a name="configuring-analyzers"></a>Analyzers configureren
+## <a name="configuring-analyzers"></a>Analyse functies configureren
 
-Taalanalysefuncties worden gebruikt als-is. Voor elk veld in het definitie van de index, kunt u instellen de **analyzer** eigenschap in op de naam van een analyzer die Hiermee geeft u de taal en linguistics-stack (Microsoft of Lucene). De dezelfde analyzer worden toegepast wanneer het indexeren en zoeken naar dat veld. U kunt bijvoorbeeld afzonderlijke velden voor Engels, Frans en Spaans hotel beschrijvingen die naast elkaar bestaan in dezelfde index hebben. U kunt ook in plaats van **analyzer**, kunt u **indexAnalyzer** en **searchAnalyzer** hebben verschillende analysis regels op tijd en uitvoeren van query's te indexeren. 
+Taal analysen worden gebruikt als-is. Voor elk veld in de index definitie kunt u de eigenschap **Analyzer** instellen op een analyse naam die de taal en talen stack (micro soft of lucene) aangeeft. Dezelfde analyse wordt toegepast bij het indexeren en zoeken naar dat veld. U kunt bijvoorbeeld afzonderlijke velden voor Engelse, Franse en Spaanse Hotel beschrijvingen hebben die naast elkaar in dezelfde index bestaan. U kunt in plaats van **Analyzer**ook **indexAnalyzer** en **searchAnalyzer** gebruiken om verschillende analyse regels te hebben tijdens het indexeren en de query tijd. 
 
-Gebruik de **searchFields** queryparameter om op te geven welk veld taalspecifieke om te zoeken op basis van uw query's. U kunt voorbeelden die de eigenschap analyzer in bekijken [documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+Gebruik de para meter **searchFields** om op te geven in welke taal specifiek veld moet worden gezocht in uw query's. U kunt query voorbeelden bekijken die de eigenschap Analyzer in [Zoek documenten](https://docs.microsoft.com/rest/api/searchservice/search-documents)bevatten. 
 
-Zie voor meer informatie over de Indexeigenschappen van de [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). Zie voor meer informatie over analyse in Azure Search [analyse in Azure Search](https://docs.microsoft.com/azure/search/search-analyzers).
+Zie [Create index &#40;Azure Search service rest API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)voor meer informatie over eigenschappen van de index. Zie voor meer informatie over analyse in Azure Search [analyseren in azure Search](https://docs.microsoft.com/azure/search/search-analyzers).
 
 <a name="language-analyzer-list"></a>
 
-## <a name="language-analyzer-list"></a>Lijst van de analyzer taal 
- Hieronder vindt u de lijst met ondersteunde talen, samen met de namen van Lucene en Microsoft analyzer.  
+## <a name="language-analyzer-list"></a>Language Analyzer-lijst 
+ Hieronder ziet u de lijst met ondersteunde talen in combi natie met de namen van Lucene en micro soft Analyzer.  
 
-|Taal|De naam van de Microsoft Analyzer|Lucene Analyzer Name|  
+|Taal|Naam van micro soft Analyzer|Naam van Lucene Analyzer|  
 |--------------|-----------------------------|--------------------------|  
-|Arabisch|ar.microsoft|ar.lucene|  
-|Armeens||hy.lucene|  
+|Arabisch|ar.microsoft|AR. lucene|  
+|Armeens||HY. lucene|  
 |Bengalees|bn.microsoft||  
 |Baskisch||eu.lucene|  
 |Bulgaars|bg.microsoft|bg.lucene|  
@@ -73,10 +73,10 @@ Zie voor meer informatie over de Indexeigenschappen van de [Create Index &#40;Az
 |Tsjechisch|cs.microsoft|cs.lucene|  
 |Deens|da.microsoft|da.lucene|  
 |Nederlands|nl.microsoft|nl.lucene|  
-|Nederlands|en.microsoft|en.lucene|  
+|Engels|en.microsoft|en. lucene|  
 |Estisch|et.microsoft||  
 |Fins|fi.microsoft|fi.lucene|  
-|Frans|fr.microsoft|fr.lucene|  
+|Frans|fr.microsoft|fr. lucene|  
 |Galicisch||gl.lucene|  
 |Duits|de.microsoft|de.lucene|  
 |Grieks|el.microsoft|el.lucene|  
@@ -85,7 +85,7 @@ Zie voor meer informatie over de Indexeigenschappen van de [Create Index &#40;Az
 |Hindi|hi.microsoft|hi.lucene|  
 |Hongaars|hu.microsoft|hu.lucene|  
 |IJslands|is.microsoft||  
-|Indonesian (Bahasa)|id.microsoft|id.lucene|  
+|Indonesisch (Bahasa)|id.microsoft|id.lucene|  
 |Iers||ga.lucene|  
 |Italiaans|it.microsoft|it.lucene|  
 |Japans|ja.microsoft|ja.lucene|  
@@ -99,29 +99,29 @@ Zie voor meer informatie over de Indexeigenschappen van de [Create Index &#40;Az
 |Noors|nb.microsoft|no.lucene|  
 |Perzisch||fa.lucene|  
 |Pools|pl.microsoft|pl.lucene|  
-|Portugees (Brazilië)|pt-Br.microsoft|pt-Br.lucene|  
+|Portugees (Brazilië)|pt-Br.microsoft|pt-br. lucene|  
 |Portugees (Portugal)|pt-Pt.microsoft|pt-Pt.lucene|  
 |Punjabi|pa.microsoft||  
 |Roemeens|ro.microsoft|ro.lucene|  
 |Russisch|ru.microsoft|ru.lucene|  
-|Servisch (Cyrillisch)|sr-cyrillic.microsoft||  
+|Servisch (Cyrillisch)|SR-Cyrillisch. micro soft||  
 |Servisch (Latijns)|sr-latin.microsoft||  
 |Slowaaks|sk.microsoft||  
 |Sloveens|sl.microsoft||  
-|Spaans|es.microsoft|es.lucene|  
+|Spaans|es.microsoft|es. lucene|  
 |Zweeds|sv.microsoft|sv.lucene|  
 |Tamil|ta.microsoft||  
 |Telugu|te.microsoft||  
-|Thais|th.microsoft|th.lucene|  
-|Turks|tr.microsoft|tr.lucene|  
+|Thais|th. micro soft|th. lucene|  
+|Turks|tr.microsoft|tr. lucene|  
 |Oekraïens|uk.microsoft||  
 |Urdu|ur.microsoft||  
 |Vietnamees|vi.microsoft||  
 
- Alle analyzers met namen van aantekeningen voorzien met **Lucene** worden aangestuurd door [van Apache Lucene taalanalyse](https://lucene.apache.org/core/4_9_0/core/overview-summary.html ).
+ Alle analyse functies met namen die zijn gekoppeld aan **lucene** , worden aangedreven door [de taal Analyseers van Apache Lucene](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
 ## <a name="see-also"></a>Zie ook  
- [Index maken &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
- [AnalyzerName klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
+ [Index &#40;Azure Search service rest API maken&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
+ [Klasse Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
  [Video: module 7 van Azure Search MVA-presentatie](https://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps/07).  
 

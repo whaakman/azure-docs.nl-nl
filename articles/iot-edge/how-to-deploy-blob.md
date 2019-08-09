@@ -3,25 +3,22 @@ title: De Azure Blob Storage-module implementeren op apparaten-Azure IoT Edge | 
 description: Een Azure Blob Storage-module implementeren op uw IoT Edge-apparaat voor het opslaan van gegevens aan de rand.
 author: arduppal
 ms.author: arduppal
-ms.date: 06/19/2019
+ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
 ms.reviewer: arduppal
 manager: mchad
-ms.openlocfilehash: 86040020c8f9163a327b2029008e3648723b14ec
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 6cb50270eff779d7302a4676dab328046b1d50b4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839685"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883195"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>De Azure Blob Storage op IoT Edge module implementeren op uw apparaat
 
 Er zijn verschillende manieren om modules op een IoT Edge apparaat te implementeren en ze werken allemaal voor Azure Blob Storage op IoT Edge modules. De twee meest eenvoudige methoden zijn de Azure portal of Visual Studio Code-sjablonen te gebruiken.
-
-> [!NOTE]
-> Azure Blob-opslag op IoT Edge is in [preview-versie](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -58,7 +55,7 @@ Het manifest voor een implementatie is een JSON-document waarin wordt beschreven
    > [!IMPORTANT]
    > Azure IoT Edge is hoofdletter gevoelig wanneer u aanroepen naar modules uitvoert en de opslag-SDK is standaard ingesteld op kleine letters. Hoewel de naam van de module in [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) **AzureBlobStorageonIoTEdge**is, is het wijzigen van de naam in kleine letters handig om ervoor te zorgen dat uw verbindingen met de Azure Blob Storage op IOT Edge module niet worden onderbroken.
 
-1. De standaard **container maken opties** waarden definiëren de poort bindingen die uw container nodig heeft, maar u moet ook de gegevens van uw opslag account en een BIND toevoegen voor de opslagmap op het apparaat. Vervang de standaard-JSON in de portal door de volgende JSON:
+1. De standaard **container maken opties** waarden definiëren de poort bindingen die uw container nodig heeft, maar u moet ook de gegevens van uw opslag account en een koppeling voor de opslag op uw apparaat toevoegen. Vervang de standaard-JSON in de portal door de volgende JSON:
 
    ```json
    {
@@ -68,10 +65,10 @@ Het manifest voor een implementatie is een JSON-document waarin wordt beschreven
      ],
      "HostConfig":{
        "Binds":[
-           "<storage directory bind>"
+           "<storage mount>"
        ],
-     "PortBindings":{
-       "11002/tcp":[{"HostPort":"11002"}]
+       "PortBindings":{
+         "11002/tcp":[{"HostPort":"11002"}]
        }
      }
    }
@@ -83,13 +80,18 @@ Het manifest voor een implementatie is een JSON-document waarin wordt beschreven
 
    - Vervang `<your storage account key>` door een base64-sleutel van 64-bytes. U kunt een sleutel met de hulpprogramma's zoals genereren [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). U gebruikt deze referenties voor toegang tot de blob-opslag van andere modules.
 
-   - Vervangen `<storage directory bind>` door het besturings systeem van de container. Geef de naam van een [volume](https://docs.docker.com/storage/volumes/) of het absolute pad naar een map op uw IoT Edge-apparaat dat is waar u de blob-module voor het opslaan van de gegevens. De map Storage Directory BIND wijst een locatie op het apparaat toe die u opgeeft in de module.
+   - Vervangen `<storage mount>` door het besturings systeem van de container. Geef de naam van een [volume](https://docs.docker.com/storage/volumes/) of het absolute pad naar een map op uw IoT Edge-apparaat dat is waar u de blob-module voor het opslaan van de gegevens. De opslag koppeling wijst een locatie op het apparaat toe die u hebt opgegeven voor een set-locatie in de module.
 
-     - Voor Linux-containers is  *\<de indeling een opslagpad >:/blobroot*. Bijvoorbeeld **/SRV/containerdata:/blobroot** of **mijn-volume:/blobroot**.
-     - Voor Windows-containers is  *\<de indeling een opslagpad >: C:/BlobRoot*. Bijvoorbeeld **C:/ContainerData: c:/BlobRoot** of **mijn-volume: c:/BlobRoot**. In plaats van uw lokale station te gebruiken, kunt u uw SMB-netwerk locatie toewijzen voor meer informatie Raadpleeg [SMB share gebruiken als uw lokale opslag](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
+     - Voor Linux-containers is  *\<de indeling een opslagpad of volume >:/blobroot*. Bijvoorbeeld
+         - [volume koppeling](https://docs.docker.com/storage/volumes/)gebruiken: **mijn-volume:/blobroot** 
+         - [binding koppelen](https://docs.docker.com/storage/bind-mounts/)gebruiken: **/SRV/containerdata:/blobroot**. Volg de stappen om [Directory toegang te verlenen aan de container gebruiker](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
+     - Voor Windows-containers is  *\<de indeling een opslagpad of volume >: C:/BlobRoot*. Bijvoorbeeld
+         - [volume koppeling](https://docs.docker.com/storage/volumes/)gebruiken: **mijn-volume: C:/blobroot**. 
+         - [binding koppelen](https://docs.docker.com/storage/bind-mounts/)gebruiken: **C:/ContainerData: C:/BlobRoot**.
+         - In plaats van uw lokale station te gebruiken, kunt u uw SMB-netwerk locatie toewijzen voor meer informatie Raadpleeg [SMB share gebruiken als uw lokale opslag](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
      > [!IMPORTANT]
-     > Wijzig de tweede helft van de waarde van de opslagmap van de opslag directory, die verwijst naar een specifieke locatie in de module. De BIND van de opslag directory moet altijd eindigen met **:/blobroot** for Linux-containers en **: C:/blobroot** voor Windows-containers.
+     > Wijzig de tweede helft van de opslag koppelings waarde, die verwijst naar een specifieke locatie in de module. De opslag koppeling moet altijd eindigen op **:/blobroot** for Linux-containers en **: C:/blobroot** voor Windows-containers.
 
 1. Stel de eigenschappen [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) en [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) in voor uw module door de volgende JSON te kopiëren en deze te plakken in het vak **Stel de gewenste eigenschappen van de module** . Configureer elke eigenschap met een geschikte waarde, sla deze op en ga door met de implementatie.
 
@@ -178,7 +180,7 @@ Azure IoT Edge zorgt voor sjablonen in Visual Studio Code om u te helpen bij het
        "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
       ],
       "HostConfig":{
-        "Binds": ["<storage directory bind>"],
+        "Binds": ["<storage mount>"],
         "PortBindings":{
           "11002/tcp": [{"HostPort":"11002"}]
         }
@@ -191,13 +193,19 @@ Azure IoT Edge zorgt voor sjablonen in Visual Studio Code om u te helpen bij het
 
 1. Vervang `<your storage account key>` door een base64-sleutel van 64-bytes. U kunt een sleutel met de hulpprogramma's zoals genereren [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). U gebruikt deze referenties voor toegang tot de blob-opslag van andere modules.
 
-1. Vervangen `<storage directory bind>` door het besturings systeem van de container. Geef de naam van een [volume](https://docs.docker.com/storage/volumes/) of het absolute pad naar een map op uw IoT Edge-apparaat dat is waar u de blob-module voor het opslaan van de gegevens. De map Storage Directory BIND wijst een locatie op het apparaat toe die u opgeeft in de module.  
+1. Vervangen `<storage mount>` door het besturings systeem van de container. Geef de naam van een [volume](https://docs.docker.com/storage/volumes/) of het absolute pad naar een map op uw IoT Edge-apparaat dat is waar u de blob-module voor het opslaan van de gegevens. De opslag koppeling wijst een locatie op het apparaat toe die u hebt opgegeven voor een set-locatie in de module.  
 
-      - Voor Linux-containers is  *\<de indeling een opslagpad >:/blobroot*. Bijvoorbeeld **/SRV/containerdata:/blobroot** of **mijn-volume:/blobroot**.
-      - Voor Windows-containers is  *\<de indeling een opslagpad >: C:/BlobRoot*. Bijvoorbeeld **C:/ContainerData: c:/BlobRoot** of **mijn-volume: c:/BlobRoot**.  In plaats van uw lokale station te gebruiken, kunt u uw SMB-netwerk locatie toewijzen voor meer informatie Raadpleeg [SMB share gebruiken als uw lokale opslag](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
+      
+     - Voor Linux-containers is  *\<de indeling een opslagpad of volume >:/blobroot*. Bijvoorbeeld
+         - [volume koppeling](https://docs.docker.com/storage/volumes/)gebruiken: **mijn-volume:/blobroot** 
+         - [binding koppelen](https://docs.docker.com/storage/bind-mounts/)gebruiken: **/SRV/containerdata:/blobroot**. Volg de stappen om [Directory toegang te verlenen aan de container gebruiker](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
+     - Voor Windows-containers is  *\<de indeling een opslagpad of volume >: C:/BlobRoot*. Bijvoorbeeld
+         - [volume koppeling](https://docs.docker.com/storage/volumes/)gebruiken: **mijn-volume: C:/blobroot**. 
+         - [binding koppelen](https://docs.docker.com/storage/bind-mounts/)gebruiken: **C:/ContainerData: C:/BlobRoot**.
+         - In plaats van uw lokale station te gebruiken, kunt u uw SMB-netwerk locatie toewijzen voor meer informatie Raadpleeg [SMB share gebruiken als uw lokale opslag](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
-      > [!IMPORTANT]
-      > Wijzig de tweede helft van de waarde van de opslagmap van de opslag directory, die verwijst naar een specifieke locatie in de module. De BIND van de opslag directory moet altijd eindigen met **:/blobroot** for Linux-containers en **: C:/blobroot** voor Windows-containers.
+     > [!IMPORTANT]
+     > Wijzig de tweede helft van de opslag koppelings waarde, die verwijst naar een specifieke locatie in de module. De opslag koppeling moet altijd eindigen op **:/blobroot** for Linux-containers en **: C:/blobroot** voor Windows-containers.
 
 1. Configureer [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) en [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) voor uw module door de volgende JSON toe te voegen aan het bestand *Deployment. Temp late. json* . Configureer elke eigenschap met een geschikte waarde en sla het bestand op.
 
@@ -250,7 +258,5 @@ Wanneer u verbinding met aanvullende blob storage-modules maken, wijzigt u het e
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over [Azure Blob Storage op IOT Edge](how-to-store-data-blob.md)
-
-Blijf up-to-date met recente updates en aankondigingen in de [Azure Blob Storage op IOT Edge Blog](https://aka.ms/abs-iot-blogpost)
 
 Zie voor meer informatie over hoe implementatie werk manifesten en hoe ze worden gemaakt, [te begrijpen hoe IoT Edge-modules kunnen worden gebruikt, geconfigureerd en opnieuw gebruikt](module-composition.md).

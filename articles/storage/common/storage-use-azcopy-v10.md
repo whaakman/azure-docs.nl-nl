@@ -4,15 +4,15 @@ description: AzCopy is een opdracht regel programma dat u kunt gebruiken om gege
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 9dc53867cb780b2c40e76cc6f24f7e6cf882b407
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0c30225e9b5412fe1515e8503d1134dcad44871f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844859"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879986"
 ---
 # <a name="get-started-with-azcopy"></a>Aan de slag met AzCopy
 
@@ -259,7 +259,9 @@ Zie een van deze artikelen om voorbeeld opdrachten te vinden.
 
 ## <a name="use-azcopy-in-a-script"></a>AzCopy gebruiken in een script
 
-Na verloop van tijd verwijst de [Download koppeling](#download-and-install-azcopy) AzCopy naar nieuwe versies van AzCopy. Als uw script AzCopy downloadt, werkt het script mogelijk niet meer als een nieuwere versie van AzCopy functies wijzigt waarvan uw script afhankelijk is. 
+### <a name="obtain-a-static-download-link"></a>Een statische Download koppeling verkrijgen
+
+Na verloop van tijd verwijst de [Download koppeling](#download-and-install-azcopy) AzCopy naar nieuwe versies van AzCopy. Als uw script AzCopy downloadt, werkt het script mogelijk niet meer als een nieuwere versie van AzCopy functies wijzigt waarvan uw script afhankelijk is.
 
 Als u deze problemen wilt voor komen, moet u een statische koppeling (niet wijzigen) verkrijgen met de huidige versie van AzCopy. Op die manier downloadt uw script dezelfde exacte versie van AzCopy elke keer dat deze wordt uitgevoerd.
 
@@ -280,9 +282,13 @@ De URL wordt weer gegeven in de uitvoer van deze opdracht. Uw script kan vervolg
 | **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
 | **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
+### <a name="escape-special-characters-in-sas-tokens"></a>Speciale tekens in SAS-tokens escapepen
+
+In batch-bestanden met de `.cmd` extensie moet u de `%` tekens die worden weer gegeven in SAS-tokens weglaten. U kunt dit doen door een toevoeg `%` teken toe te voegen naast de bestaande `%` tekens in de SAS-token teken reeks.
+
 ## <a name="use-azcopy-in-storage-explorer"></a>AzCopy gebruiken in Storage Explorer
 
-Als u de prestatie voordelen van AzCopy wilt benutten, maar u liever Storage Explorer gebruikt in plaats van de opdracht regel om met uw bestanden te communiceren, schakelt u AzCopy in Storage Explorer. 
+Als u de prestatie voordelen van AzCopy wilt benutten, maar u liever Storage Explorer gebruikt in plaats van de opdracht regel om met uw bestanden te communiceren, schakelt u AzCopy in Storage Explorer.
 
 Kies in Storage Explorer **Preview**->**AzCopy gebruiken voor verbeterde BLOB upload en down load**.
 

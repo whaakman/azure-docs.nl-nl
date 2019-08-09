@@ -1,224 +1,155 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met SecureW2 JoinNow-Connector | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en SecureW2 JoinNow Connector.
+title: 'Zelfstudie: Integratie met SecureW2 JoinNow-connector Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en SecureW2 JoinNow-connector.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 2445b3af-f827-40de-9097-6f5c933d0f53
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b367befb90ec28ece963d67b479749e1c8ad363
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3dbb21bcea978f566082e5edb8831ac044c95fd6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60339832"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880118"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-securew2-joinnow-connector"></a>Zelfstudie: Azure Active Directory-integratie met SecureW2 JoinNow-Connector
+# <a name="tutorial-integrate-securew2-joinnow-connector-with-azure-active-directory"></a>Zelfstudie: SecureW2 JoinNow-connector integreren met Azure Active Directory
 
-In deze zelfstudie leert u hoe u SecureW2 JoinNow Connector integreren met Azure Active Directory (Azure AD).
+In deze zelf studie leert u hoe u SecureW2 JoinNow-connector kunt integreren met Azure Active Directory (Azure AD). Wanneer u SecureW2 JoinNow-connector integreert met Azure AD, kunt u het volgende doen:
 
-SecureW2 JoinNow Connector integreren met Azure AD biedt u de volgende voordelen:
+* Controle in azure AD die toegang heeft tot de SecureW2 JoinNow-connector.
+* Zorg ervoor dat uw gebruikers automatisch worden aangemeld bij SecureW2 JoinNow-connector met hun Azure AD-accounts.
+* Beheer uw accounts op één centrale locatie: de Azure Portal.
 
-- U kunt beheren in Azure AD die toegang tot SecureW2 JoinNow Connector heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij SecureW2 JoinNow Connector (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)voor meer informatie over SaaS-app-integratie met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met SecureW2 JoinNow Connector, moet u de volgende items:
+U hebt de volgende items nodig om aan de slag te gaan:
 
-- Een Azure AD-abonnement
-- Een SecureW2 JoinNow Connector eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/)aanvragen.
+* SecureW2 JoinNow-connector, eenmalige aanmelding (SSO) ingeschakeld abonnement.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. SecureW2 JoinNow Connector uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelf studie configureert en test u Azure AD SSO in een test omgeving.
 
-## <a name="adding-securew2-joinnow-connector-from-the-gallery"></a>SecureW2 JoinNow Connector uit de galerie toe te voegen
-Voor het configureren van de integratie van SecureW2 JoinNow Connector in Azure AD, moet u SecureW2 JoinNow Connector uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* SecureW2 JoinNow-connector ondersteunt door **SP** GEÏNITIEERDe SSO
 
-**Als u wilt toevoegen SecureW2 JoinNow Connector uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
-    ![De Azure Active Directory-knop][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+## <a name="adding-securew2-joinnow-connector-from-the-gallery"></a>De SecureW2 JoinNow-connector toevoegen vanuit de galerie
 
-    ![De knop Nieuwe toepassing][3]
+Als u de integratie van SecureW2 JoinNow-connector wilt configureren in azure AD, moet u SecureW2 JoinNow-connector toevoegen vanuit de galerie aan uw lijst met beheerde SaaS-apps.
 
-4. Typ in het zoekvak **SecureW2 JoinNow Connector**, selecteer **SecureW2 JoinNow Connector** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
+1. Selecteer de **Azure Active Directory** -service in het navigatie deel venster aan de linkerkant.
+1. Ga naar **bedrijfs toepassingen** en selecteer **alle toepassingen**.
+1. Selecteer **nieuwe toepassing**om een nieuwe toepassing toe te voegen.
+1. Typ in de sectie **toevoegen vanuit de galerie** de **SecureW2 JoinNow-connector** in het zoekvak.
+1. Selecteer **SecureW2 JoinNow-connector** in het resultaten paneel en voeg vervolgens de app toe. Wacht een paar seconden wanneer de app aan uw Tenant is toegevoegd.
 
-    ![SecureW2 JoinNow Connector in de lijst met resultaten](./media/securejoinnow-tutorial/tutorial_securejoinnow_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met SecureW2 JoinNow Connector op basis van een testgebruiker 'Julia steen' genoemd.
+Configureer en test Azure AD SSO met SecureW2 JoinNow-connector met behulp van een test gebruiker met de naam **B. Simon**. Voor het werken met SSO moet u een koppelings relatie tot stand brengen tussen een Azure AD-gebruiker en de bijbehorende gebruiker in SecureW2 JoinNow-connector.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in SecureW2 JoinNow Connector is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in SecureW2 JoinNow Connector tot stand worden gebracht.
+Als u Azure AD SSO wilt configureren en testen met SecureW2 JoinNow-connector, voltooit u de volgende bouw stenen:
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met SecureW2 JoinNow Connector, moet u de volgende bouwstenen voltooien:
+1. **[Configureer Azure AD SSO](#configure-azure-ad-sso)** -om uw gebruikers in staat te stellen deze functie te gebruiken.
+2. **[CONFIGUREER SSO van de SecureW2 JoinNow-connector](#configure-securew2-joinnow-connector-sso)** -om de instellingen voor eenmalige aanmelding aan de kant van de toepassing te configureren.
+3. **[Een Azure AD-test gebruiker maken](#create-an-azure-ad-test-user)** : u kunt eenmalige aanmelding voor Azure AD testen met B. Simon.
+4. **[Wijs de Azure AD-test gebruiker](#assign-the-azure-ad-test-user)** toe, zodat B. Simon de eenmalige aanmelding van Azure AD kan gebruiken.
+5. **[Maak een SecureW2 JoinNow-connector test gebruiker](#create-securew2-joinnow-connector-test-user)** -om een equivalent van B. Simon te hebben in SecureW2 JoinNow-connector die is gekoppeld aan de Azure AD-representatie van de gebruiker.
+6. **[SSO testen](#test-sso)** : om te controleren of de configuratie werkt.
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-3. **[Maak een testgebruiker SecureW2 JoinNow Connector](#create-a-securew2-joinnow-connector-test-user)**  : als u wilt een equivalent van Britta Simon in SecureW2 JoinNow Connector die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+### <a name="configure-azure-ad-sso"></a>Azure AD SSO configureren
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
+Volg deze stappen om Azure AD SSO in te scha kelen in de Azure Portal.
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing SecureW2 JoinNow Connector.
+1. Zoek in de [Azure Portal](https://portal.azure.com/)op de pagina **SecureW2 JoinNow connector** Application Integration de sectie **Manage** en selecteer eenmalige **aanmelding**.
+1. Selecteer op de pagina **Eén aanmeldings methode selecteren** de optie **SAML**.
+1. Klik op de pagina **eenmalige aanmelding met SAML instellen** op het pictogram bewerken/pen voor **eenvoudige SAML-configuratie** om de instellingen te bewerken.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met SecureW2 JoinNow Connector, moet u de volgende stappen uitvoeren:**
+   ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-1. In de Azure-portal op de **SecureW2 JoinNow Connector** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. Voer in de sectie **basis configuratie van SAML** de waarden in voor de volgende velden:
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<organization-identifier>-auth.securew2.com/auth/saml/SSO`
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/securejoinnow-tutorial/tutorial_securejoinnow_samlbase.png)
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<organization-identifier>-auth.securew2.com/auth/saml`
 
-3. Op de **SecureW2 JoinNow Connector domein en URL's** sectie, voert u de volgende stappen uit:
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het ondersteunings team van de [SecureW2 JoinNow-connector](mailto:support@securew2.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-    ![SecureW2 JoinNow Connector domein en URL's, eenmalige aanmelding informatie](./media/securejoinnow-tutorial/tutorial_securejoinnow_url.png)
+1. Ga op de pagina **eenmalige aanmelding met SAML instellen** naar de sectie SAML **-** **handtekening certificaat** en selecteer **downloaden** om het certificaat te downloaden en op uw computer op te slaan.
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<organization-identifier>-auth.securew2.com/auth/saml/SSO`
+    ![De downloadkoppeling certificaat](common/metadataxml.png)
 
-    b. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<organization-identifier>-auth.securew2.com/auth/saml`
+1. Op de **SecureW2 JoinNow-connector instellen** , kopieert u de juiste URL ('s) op basis van uw vereiste.
 
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met [SecureW2 JoinNow Connector Client-ondersteuningsteam](mailto:support@securew2.com) om deze waarden te verkrijgen. 
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+### <a name="configure-securew2-joinnow-connector-sso"></a>SSO van SecureW2 JoinNow-connector configureren
 
-    ![De downloadkoppeling certificaat](./media/securejoinnow-tutorial/tutorial_securejoinnow_certificate.png) 
+Als u eenmalige aanmelding wilt configureren op **SecureW2 JoinNow-connector** , moet u de gedownloade **meta gegevens XML** en de juiste gekopieerde url's verzenden van Azure Portal naar [SecureW2 JoinNow connector](mailto:support@securew2.com)-ondersteunings team. Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-5. Klik op **opslaan** knop.
+In deze sectie maakt u een test gebruiker in de Azure Portal met de naam B. Simon.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/securejoinnow-tutorial/tutorial_general_400.png)
-
-6. Het configureren van eenmalige aanmelding op **SecureW2 JoinNow Connector** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [SecureW2 JoinNow Connector ondersteuningsteam](mailto:support@securew2.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
-
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
-
-   ![Maak een testgebruiker Azure AD][100]
-
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
-
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
-
-    ![De Azure Active Directory-knop](./media/securejoinnow-tutorial/create_aaduser_01.png)
-
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
-
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/securejoinnow-tutorial/create_aaduser_02.png)
-
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
-
-    ![De knop toevoegen](./media/securejoinnow-tutorial/create_aaduser_03.png)
-
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/securejoinnow-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
-
-    d. Klik op **Create**.
- 
-### <a name="create-a-securew2-joinnow-connector-test-user"></a>Maak een testgebruiker SecureW2 JoinNow-Connector
-
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in SecureW2 JoinNow-Connector. Werken met [SecureW2 JoinNow Connector Client-ondersteuningsteam](mailto:support@securew2.com) om toe te voegen de gebruikers in het platform SecureW2 JoinNow Connector. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+1. Selecteer in het linkerdeel venster van de Azure Portal **Azure Active Directory**, selecteer **gebruikers**en selecteer vervolgens **alle gebruikers**.
+1. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
+1. Voer de volgende stappen uit in de eigenschappen van de **gebruiker** :
+   1. Voer in het veld **Naam** `B.Simon` in.  
+   1. Voer in het veld **gebruikers naam** het username@companydomain.extensionin. Bijvoorbeeld `B.Simon@contoso.com`.
+   1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
+   1. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan SecureW2 JoinNow Connector.
+In deze sectie schakelt u B. Simon in om eenmalige aanmelding van Azure te gebruiken door toegang te verlenen aan de SecureW2 JoinNow-connector.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in het Azure Portal **bedrijfs toepassingen**en selecteer vervolgens **alle toepassingen**.
+1. Selecteer in de lijst toepassingen de optie **SecureW2 JoinNow-connector**.
+1. Ga op de pagina overzicht van de app naar de sectie **beheren** en selecteer **gebruikers en groepen**.
 
-**Als u wilt toewijzen Britta Simon naar SecureW2 JoinNow-Connector, moet u de volgende stappen uitvoeren:**
+   ![De koppeling 'Gebruikers en groepen'](common/users-groups-blade.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in het dialoog venster **toewijzing toevoegen** .
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling gebruiker toevoegen](common/add-assign-user.png)
 
-2. Selecteer in de lijst met toepassingen, **SecureW2 JoinNow Connector**.
+1. Selecteer in het dialoog venster **gebruikers en groepen** **B. Simon** van de lijst gebruikers en klik vervolgens op de knop **selecteren** onder aan het scherm.
+1. Als u een wille keurige rol verwacht in de SAML-bewering, selecteert u in het dialoog venster **rol selecteren** de juiste rol voor de gebruiker in de lijst en klikt u op de knop **selecteren** onder aan het scherm.
+1. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-    ![De koppeling SecureW2 JoinNow Connector in de lijst met toepassingen](./media/securejoinnow-tutorial/tutorial_securejoinnow_app.png)  
+### <a name="create-securew2-joinnow-connector-test-user"></a>Test gebruiker voor SecureW2 JoinNow-connector maken
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+In deze sectie maakt u een gebruiker met de naam Julia Simon in SecureW2 JoinNow-connector. Werk met het ondersteunings [team van SecureW2 JoinNow-connector](mailto:support@securew2.com) om de gebruikers toe te voegen in het SecureW2 JoinNow-connector platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+### <a name="test-sso"></a>SSO testen
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-    ![Het deelvenster toewijzing toevoegen][203]
-
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
-
-**Als u wilt testen van de toepassing, moet u de volgende stappen uitvoeren:** 
-
-a. Open de SecureW2 JoinNow Connector-client, selecteer het juiste apparaat uit de lijst en klik op **aanmelden** knop.
-
-b. De standaardbrowser wordt geopend en u moet zich opnieuw gerichte naar de Azure-portal voor verificatie.
-
-c. Op een geslaagde verificatie moet worden geretourneerd naar de oorspronkelijke landingspagina van SecureW2 JoinNow-Connector.
+Wanneer u op de tegel SecureW2 JoinNow-connector in het toegangs venster klikt, moet u automatisch worden aangemeld bij de SecureW2 JoinNow-connector waarvoor u SSO hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/securejoinnow-tutorial/tutorial_general_01.png
-[2]: ./media/securejoinnow-tutorial/tutorial_general_02.png
-[3]: ./media/securejoinnow-tutorial/tutorial_general_03.png
-[4]: ./media/securejoinnow-tutorial/tutorial_general_04.png
-
-[100]: ./media/securejoinnow-tutorial/tutorial_general_100.png
-
-[200]: ./media/securejoinnow-tutorial/tutorial_general_200.png
-[201]: ./media/securejoinnow-tutorial/tutorial_general_201.png
-[202]: ./media/securejoinnow-tutorial/tutorial_general_202.png
-[203]: ./media/securejoinnow-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

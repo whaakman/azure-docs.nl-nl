@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 46e3780c7fc6e6a2481e774b89bfb69510865db3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 5c0bc97e5a5b362ea78f82ea99bb967a9607093a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734617"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882495"
 ---
 # <a name="document-data-sources"></a>Gegevensbronnen documenteren
 ## <a name="introduction"></a>Inleiding
@@ -23,7 +23,7 @@ Wanneer een gegevens bron wordt geregistreerd bij **Azure Data Catalog**, worden
 
 Tags en beschrijvingen zijn handig voor eenvoudige aantekeningen. Om gegevens gebruikers beter inzicht te geven in het gebruik van een gegevens bron en zakelijke scenario's voor een gegevens bron, kan een deskundige volledige, gedetailleerde documentatie bieden. Het is eenvoudig om een gegevens bron te documenteren. Selecteer een gegevens activum of container en kies **documentatie**.
 
-![](media/data-catalog-documentation/data-catalog-documentation.png)
+![Het tabblad documentatie in een Data Catalog](media/data-catalog-documentation/data-catalog-documentation.png)
 
 ## <a name="documenting-data-assets"></a>Gegevensassets documenteren
 Dankzij het voor deel van **Azure Data Catalog** documentatie kunt u uw Data Catalog gebruiken als opslag plaats voor inhoud om een volledig afronding van uw gegevensassets te maken. U kunt gedetailleerde inhoud verkennen waarin containers en tabellen worden beschreven. Als u al inhoud in een andere inhouds opslagplaats hebt, zoals share point of een bestands share, kunt u toevoegen aan de Asset-documentatie koppelingen om te verwijzen naar deze bestaande inhoud. Met deze functie kunnen uw bestaande documenten beter worden gedetecteerd.
@@ -31,9 +31,8 @@ Dankzij het voor deel van **Azure Data Catalog** documentatie kunt u uw Data Cat
 > [!NOTE]
 > Documentatie is niet opgenomen in de zoek index.
 >
->
 
-![](media/data-catalog-documentation/data-catalog-documentation2.png)
+![Het tabblad documentatie en Hyper Link naar web link](media/data-catalog-documentation/data-catalog-documentation2.png)
 
 Het documentatie niveau kan variëren van het beschrijven van de kenmerken en waarde van een gegevens Asset container naar een gedetailleerde beschrijving van het tabel schema binnen een container. Het niveau van de documentatie moet worden verstrekt door uw bedrijfs behoeften. Maar in het algemeen zijn hier enkele voor-en nadelen van het documenteren van gegevensassets:
 

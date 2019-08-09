@@ -1,244 +1,163 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Land echte reus Client | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en echte reus Land.
+title: 'Zelfstudie: Azure Active Directory integratie met land gorilla | Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en de grond gorilla.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/13/2017
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d12519a2bd0a5e3951d0ca9ae51a54bd728a782b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7c2f9b076d831f4d851a964ababb64930a7c7f8
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65987896"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879990"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Zelfstudie: Azure Active Directory-integratie met Land echte reus-Client
+# <a name="tutorial-integrate-land-gorilla-with-azure-active-directory"></a>Zelfstudie: Land-gorilla integreren met Azure Active Directory
 
-In deze zelfstudie leert u hoe u Land echte reus Client integreren met Azure Active Directory (Azure AD).
+In deze zelf studie leert u hoe u land-gorilla kunt integreren met Azure Active Directory (Azure AD). Wanneer u land-gorilla integreert met Azure AD, kunt u het volgende doen:
 
-Land echte reus Client integreren met Azure AD biedt u de volgende voordelen:
+* Controle in azure AD die toegang heeft tot de land-gorilla.
+* Zorg ervoor dat uw gebruikers automatisch worden aangemeld bij gorilla met hun Azure AD-accounts.
+* Beheer uw accounts op één centrale locatie: de Azure Portal.
 
-- U kunt beheren in Azure AD die toegang tot Land echte reus Client heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Land echte reus Client (Single Sign-On) inschakelen met hun Azure AD-accounts
-- U kunt uw accounts in één centrale locatie - de Azure Management portal beheren
-
-Zie [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
-
+Zie [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)voor meer informatie over SaaS-app-integratie met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Land echte reus-Client, moet u de volgende items:
+U hebt de volgende items nodig om aan de slag te gaan:
 
-- Een Azure AD-abonnement
-- Een Land echte reus Client eenmalige aanmelding ingeschakeld abonnement
-
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- U moet uw productie-omgeving, niet gebruiken als dit nodig is.
-- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
-
+* Een Azure AD-abonnement Als u geen abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/)aanvragen.
+* Het gorilla-abonnement met eenmalige aanmelding (SSO) van de land instelling.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Land echte reus Client uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelf studie configureert en test u Azure AD SSO in een test omgeving.
 
+* Land-gorilla ondersteunt door **IDP** GEÏNITIEERDe SSO
 
-## <a name="adding-land-gorilla-client-from-the-gallery"></a>Land echte reus Client uit de galerie toe te voegen
-Voor het configureren van de integratie van Land echte reus Client in Azure AD, moet u Land echte reus Client uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+## <a name="adding-land-gorilla-from-the-gallery"></a>Land gorilla toevoegen uit de galerie
 
-**Als u wilt toevoegen Land echte reus Client uit de galerie, moet u de volgende stappen uitvoeren:**
+Als u de integratie van gorilla in azure AD wilt configureren, moet u land gorilla uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-1. In de  **[Azure Management Portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
+1. Selecteer de **Azure Active Directory** -service in het navigatie deel venster aan de linkerkant.
+1. Ga naar **bedrijfs toepassingen** en selecteer **alle toepassingen**.
+1. Selecteer **nieuwe toepassing**om een nieuwe toepassing toe te voegen.
+1. Typ in het gedeelte **toevoegen vanuit de galerie** de tekst **land gorilla** in het zoekvak.
+1. Selecteer **land gorilla** uit het paneel resultaten en voeg vervolgens de app toe. Wacht een paar seconden wanneer de app aan uw Tenant is toegevoegd.
 
-    ![Active Directory][1]
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+Configureer en test Azure AD SSO met de land-gorilla met behulp van een test gebruiker met de naam **B. Simon**. Voor het werken met SSO moet u een koppelings relatie tot stand brengen tussen een Azure AD-gebruiker en de bijbehorende gebruiker in de land-gorilla.
 
-    ![Toepassingen][2]
-    
-1. Klik op **toevoegen** knop boven aan het dialoogvenster.
+Als u Azure AD SSO wilt configureren en testen met gorilla land, moet u de volgende bouw stenen volt ooien:
 
-    ![Toepassingen][3]
+1. **[Configureer Azure AD SSO](#configure-azure-ad-sso)** -om uw gebruikers in staat te stellen deze functie te gebruiken.
+2. **[Configureren van bodem gorilla SSO](#configure-land-gorilla-sso)** : voor het configureren van de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
+3. **[Een Azure AD-test gebruiker maken](#create-an-azure-ad-test-user)** : u kunt eenmalige aanmelding voor Azure AD testen met B. Simon.
+4. **[Wijs de Azure AD-test gebruiker](#assign-the-azure-ad-test-user)** toe, zodat B. Simon de eenmalige aanmelding van Azure AD kan gebruiken.
+5. **[Maak een gebruiker](#create-land-gorilla-test-user)** met een land-gorilla-test, om een soort tegen te brengen van B. Simon in de land-gorilla die is gekoppeld aan de Azure AD-representatie van de gebruiker.
+6. **[SSO testen](#test-sso)** : om te controleren of de configuratie werkt.
 
-1. Typ in het zoekvak **Land echte reus Client**.
+### <a name="configure-azure-ad-sso"></a>Azure AD SSO configureren
 
-    ![Het maken van een Azure AD-testgebruiker](./media/landgorilla-tutorial/tutorial_landgorilla_search.png)
+Volg deze stappen om Azure AD SSO in te scha kelen in de Azure Portal.
 
-1. Selecteer in het deelvenster resultaten **Land echte reus Client**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Ga in het [Azure Portal](https://portal.azure.com/)naar de pagina voor de integratie van de **gorilla** - toepassing en selecteer **eenmalige aanmelding**.
+1. Selecteer op de pagina **Eén aanmeldings methode selecteren** de optie **SAML**.
+1. Klik op de pagina **eenmalige aanmelding met SAML instellen** op het pictogram bewerken/pen voor **eenvoudige SAML-configuratie** om de instellingen te bewerken.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/landgorilla-tutorial/tutorial_landgorilla_addfromgallery.png)
+   ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
+1. Voer op de pagina **eenmalige aanmelding met SAML instellen** de waarden in voor de volgende velden:
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Land echte reus-Client op basis van een testgebruiker met de naam 'B. Steen'.
+    a. Typ in het tekstvak **id** een URL met behulp van een van de volgende patronen:
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Land echte reus Client is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Land echte reus Client tot stand worden gebracht.
+    | | |
+    |-|-|
+    | `https://<customer domain>.landgorilla.com/`|
+    | `https://www.<customer domain>.landgorilla.com`|
+    | | |
 
-Deze relatie koppeling tot stand is gebracht door toe te wijzen de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in Land echte reus-Client.
+    b. Typ in het tekstvak **antwoord-URL** een URL met behulp van een van de volgende patronen:
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Land echte reus-Client, moet u de volgende bouwstenen voltooien:
+    | | |
+    |-|-|
+    | `https://<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`|
+    | `https://www.<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`|
+    | `https://<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`|
+    | `https://www.<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`|
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met een beperkte groep.
-1. **[Het maken van een testgebruiker Land echte reus](#creating-a-land-gorilla-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met B. Simon.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - B. Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id en antwoord-URL. Wij raden u aan hiervoor de unieke waarde van de tekenreeks in de id te gebruiken. Neem contact op met het ondersteunings team van de [land-gorilla](https://www.landgorilla.com/support/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+1. Zoek op de pagina **eenmalige aanmelding met SAML instellen** , in de sectie **SAML-handtekening certificaat** , de **federatieve meta gegevens-XML** en selecteer **downloaden** om het certificaat te downloaden en op uw computer op te slaan.
 
-In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure Management portal inschakelen en configureren van eenmalige aanmelding in uw Land echte reus-clienttoepassing.
+    ![De downloadkoppeling certificaat](common/metadataxml.png)
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Land echte reus-Client, moet u de volgende stappen uitvoeren:**
+1. Op de sectie **gorilla instellen** kopieert u de gewenste URL ('s) op basis van uw vereiste.
 
-1. In de Azure-beheerportal, op de **Land echte reus Client** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    ![Eenmalige aanmelding configureren][4]
+### <a name="configure-land-gorilla-sso"></a>SSO van bodem gorilla configureren
 
-1. Op de **eenmalige aanmelding** dialoogvenster als **modus** Selecteer **SAML gebaseerde aanmelding** voor eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/landgorilla-tutorial/tutorial_landgorilla_samlbase.png)
+Als u eenmalige aanmelding wilt configureren voor de **gorilla** , moet u het gedownloade **XML-bestand met federatieve meta gegevens** en de juiste gekopieerde url's verzenden van Azure Portal naar [gorilla ondersteunings team](https://www.landgorilla.com/support/). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
-1. Op de **Land echte reus clientdomein en URL's** sectie, voert u de volgende stappen uit:
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-    ![Eenmalige aanmelding configureren](./media/landgorilla-tutorial/tutorial_landgorilla_url_02.png)
+In deze sectie maakt u een test gebruiker in de Azure Portal met de naam B. Simon.
 
-    a. In de **id** tekstvak typt u de waarde met een van de volgende patroon: 
-    
-    `https://<customer domain>.landgorilla.com/` 
-    
-    `https://www.<customer domain>.landgorilla.com`
+1. Selecteer in het linkerdeel venster van de Azure Portal **Azure Active Directory**, selecteer **gebruikers**en selecteer vervolgens **alle gebruikers**.
+1. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
+1. Voer de volgende stappen uit in de eigenschappen van de **gebruiker** :
+   1. Voer in het veld **Naam** `B.Simon` in.  
+   1. Voer in het veld **gebruikers naam** het username@companydomain.extensionin. Bijvoorbeeld `B.Simon@contoso.com`.
+   1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
+   1. Klik op **Create**.
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van een van de volgende patroon:
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-    `https://<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`
+In deze sectie schakelt u B. Simon in om eenmalige aanmelding van Azure te gebruiken door toegang te verlenen aan de grond gorilla.
 
-    `https://www.<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`
+1. Selecteer in het Azure Portal **bedrijfs toepassingen**en selecteer vervolgens **alle toepassingen**.
+1. Selecteer in de lijst toepassingen de optie **land gorilla**.
+1. Ga op de pagina overzicht van de app naar de sectie **beheren** en selecteer **gebruikers en groepen**.
 
-    `https://<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`
-    
-    `https://www.<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`
+   ![De koppeling 'Gebruikers en groepen'](common/users-groups-blade.png)
 
-    > [!NOTE] 
-    > Houd er rekening mee dat dit niet de werkelijke waarden zijn. U hebt deze waarden bijwerken met de werkelijke id en de antwoord-URL. Wij raden u aan hiervoor de unieke waarde van de tekenreeks in de id te gebruiken. Neem contact op met [Land echte reus Client team](https://www.landgorilla.com/support/) om deze waarden te verkrijgen. 
+1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in het dialoog venster **toewijzing toevoegen** .
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het XML-bestand op uw computer.
+    ![De koppeling gebruiker toevoegen](common/add-assign-user.png)
 
-    ![Eenmalige aanmelding configureren](./media/landgorilla-tutorial/tutorial_landgorilla_certificate.png) 
+1. Selecteer in het dialoog venster **gebruikers en groepen** **B. Simon** van de lijst gebruikers en klik vervolgens op de knop **selecteren** onder aan het scherm.
+1. Als u een wille keurige rol verwacht in de SAML-bewering, selecteert u in het dialoog venster **rol selecteren** de juiste rol voor de gebruiker in de lijst en klikt u op de knop **selecteren** onder aan het scherm.
+1. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **opslaan** knop.
+### <a name="create-land-gorilla-test-user"></a>Test gebruiker voor land-gorilla maken
 
-    ![Eenmalige aanmelding configureren](./media/landgorilla-tutorial/tutorial_general_400.png) 
+In deze sectie maakt u een gebruiker met de naam Julia Simon in land gorilla. Werk samen met het ondersteunings [team voor Gorilla](https://www.landgorilla.com/support/) om de gebruikers toe te voegen aan het land gorilla-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
-1. Als u SSO-configuratie voltooid voor uw toepassing aan Land echte reus einde, neem contact op met [Land echte reus Client ondersteuningsteam](https://www.landgorilla.com/support/) en geef ze de gedownloade **"Metadata XML** bestand.
-
-
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is het maken van een testgebruiker in de Azure Management portal B. Simon genoemd.
-
-![Azure AD-gebruiker maken][100]
-
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
-
-1. In de **Azure Management portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
-
-    ![Het maken van een Azure AD-testgebruiker](./media/landgorilla-tutorial/create_aaduser_01.png) 
-
-1. Ga naar **gebruikers en groepen** en klikt u op **alle gebruikers** om de lijst met gebruikers weer te geven.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/landgorilla-tutorial/create_aaduser_02.png) 
-
-1. Aan de bovenkant van het dialoogvenster klikt u op **toevoegen** openen de **gebruiker** dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/landgorilla-tutorial/create_aaduser_03.png) 
-
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/landgorilla-tutorial/create_aaduser_04.png) 
-
-    a. In de **naam** tekstvak, type **B. Simon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van B. Simon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
-
-    d. Klik op **Create**. 
-
-### <a name="creating-a-land-gorilla-test-user"></a>Het maken van een testgebruiker Land echte reus
-
-Neem contact op met [Land echte reus ondersteuningsteam](https://www.landgorilla.com/support/) om toe te voegen de gebruikers in het Land echte reus-platform.
-    
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
-
-In deze sectie maakt inschakelen u B. Simon Azure eenmalige aanmelding gebruiken ze door toegang te verlenen aan de grond echte reus Client.
-
-![Gebruiker toewijzen][200] 
-
-**Als u wilt toewijzen B. Simon Land echte reus client, moet u de volgende stappen uitvoeren:**
-
-1. Open de weergave toepassingen in de Azure-beheerportal, en vervolgens gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
-
-    ![Gebruiker toewijzen][201] 
-
-1. Selecteer in de lijst met toepassingen, **Land echte reus Client**.
-
-    ![Eenmalige aanmelding configureren](./media/landgorilla-tutorial/tutorial_landgorilla_app.png) 
-
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
-
-    ![Gebruiker toewijzen][202] 
-
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Gebruiker toewijzen][203]
-
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **B. Simon** in de lijst gebruikers.
-
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-
-
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="test-sso"></a>SSO testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel Land echte reus Client in het toegangsvenster, u moet u automatisch aangemeld bij uw Land echte reus-clienttoepassing.
-
+Wanneer u op de tegel land gorilla in het toegangs venster klikt, moet u automatisch worden aangemeld bij de land-gorilla waarvoor u SSO hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/landgorilla-tutorial/tutorial_general_01.png
-[2]: ./media/landgorilla-tutorial/tutorial_general_02.png
-[3]: ./media/landgorilla-tutorial/tutorial_general_03.png
-[4]: ./media/landgorilla-tutorial/tutorial_general_04.png
-
-[100]: ./media/landgorilla-tutorial/tutorial_general_100.png
-[200]: ./media/landgorilla-tutorial/tutorial_general_200.png
-[201]: ./media/landgorilla-tutorial/tutorial_general_201.png
-[202]: ./media/landgorilla-tutorial/tutorial_general_202.png
-[203]: ./media/landgorilla-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

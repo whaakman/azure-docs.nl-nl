@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: 8829f16e580d0b926781ce0a3e9f8e6a63cf3110
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 30f4558339bbfddd2296cd1cb918c6ef8999b67e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853777"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879199"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Wacht woord-en account vergrendelings beleid in beheerde domeinen
 In dit artikel wordt het standaard wachtwoord beleid voor een beheerd domein uitgelegd. Ook wordt beschreven hoe u dit beleid kunt configureren.
@@ -38,7 +38,8 @@ U kunt de volgende wachtwoord instellingen configureren met behulp van FGPP:
     * Account vergrendelings duur
     * Aantal mislukte aanmeldings pogingen toegestaan
     * Aantal mislukte aanmeldings pogingen opnieuw instellen na
-
+    
+FGPP is alleen van invloed op gebruikers die rechtstreeks zijn gemaakt in azure AD DS. Cloud gebruikers en domein gebruikers die zijn gesynchroniseerd met het door Azure AD DS beheerde domein vanuit Azure AD, worden niet beïnvloed door de instellingen voor wachtwoord complexiteit. FGPP wordt gedistribueerd via groepen-koppeling in het beheerde domein van Azure AD DS. alle wijzigingen die u aanbrengt, worden toegepast bij de volgende aanmelding van de gebruiker. Als u het beleid wijzigt, wordt een gebruikers account dat al is vergrendeld, niet ontgrendeld.
 
 ## <a name="default-fine-grained-password-policy-settings-on-a-managed-domain"></a>Standaard instellingen voor het wachtwoord beleid in een beheerd domein
 De volgende scherm afbeelding illustreert het standaard beleid voor verfijnd gekorrelde wacht woorden dat is geconfigureerd op een Azure AD Domain Services beheerd domein.

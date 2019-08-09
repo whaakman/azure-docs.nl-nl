@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: b0057815bee46d6708886302ff5b598c89b47e8f
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 4b8df538110f6c0b17a1ed37a2a6063a5b89a6e4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335729"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880985"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Cloud-naar-apparaat-berichten verzenden vanuit een IoT-hub
 
@@ -81,6 +81,10 @@ Wanneer u een Cloud-naar-apparaat-bericht verzendt, kan de service de levering v
 | volledig     | In de IoT-hub wordt in beide gevallen een feedback bericht gegenereerd. |
 
 Als de **ACK** -waarde *vol*is en er geen feedback bericht wordt weer gegeven, betekent dit dat het feedback bericht is verlopen. De service kan niet weten wat er met het oorspronkelijke bericht is gebeurd. In de praktijk moet een service ervoor zorgen dat de feedback kan worden verwerkt voordat deze verloopt. De maximale verloop tijd is twee dagen, waardoor de service opnieuw wordt uitgevoerd als er een fout optreedt.
+
+> [!NOTE]
+> Wanneer het apparaat wordt verwijderd, worden ook alle openstaande feedback verwijderd.
+>
 
 Zoals uitgelegd in [eind punten](iot-hub-devguide-endpoints.md), levert de IOT-hub feedback via een service gericht eind punt, */Messages/servicebound/feedback*, als berichten. De semantiek voor het ontvangen van feedback is hetzelfde als voor Cloud-naar-apparaat-berichten. Indien mogelijk wordt feedback over het bericht in één bericht batch gegeven, met de volgende indeling:
 

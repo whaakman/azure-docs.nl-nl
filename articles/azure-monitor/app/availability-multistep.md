@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 150c41dce06c81f2e9e07605ab6d5afa9e424453
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: a836e4cf66bf1e957f7b3779e21ec6a0296f7abe
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494490"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881447"
 ---
 # <a name="multi-step-web-tests"></a>Webtests met meerdere stappen
 
@@ -31,7 +31,7 @@ U kunt een vastgelegde reeks Url's en interacties bewaken met een website via we
 * Visual Studio 2017 Enter prise of hoger.
 * Visual Studio Web Performance en load test tools.
 
-Om de vereiste voor de test hulpprogramma's te vinden. Start de > **afzonderlijke onderdelen** >   > van Visual Studio Installer**fouten opsporen en testen**op webprestaties**en laad Programma's**.
+Om de vereiste voor de test hulpprogramma's te vinden. Start de > **afzonderlijke onderdelen** >  > van Visual Studio Installer**fouten opsporen en testen**op webprestaties**en laad Programma's**.
 
 ![Scherm afbeelding van de gebruikers interface van Visual Studio Installer waarbij afzonderlijke onderdelen zijn geselecteerd met een selectie vakje naast het item voor de hulpprogram ma's voor webprestaties en laad Programma's](./media/availability-multistep/web-performance-load-testing.png)
 
@@ -136,7 +136,18 @@ In alle gevallne moet u een account maken in uw toepassing voor testdoeleinden. 
 
 **Eenvoudige gebruikers naam en wacht woord** Registreer een webtest op de gebruikelijke manier. Verwijder eerst de cookies.
 
-**SAML-verificatie** Gebruik de SAML-invoeg toepassing die beschikbaar is voor webtests. Toegang tot de invoeg toepassing door...
+**SAML-verificatie**
+
+|Naam van eigenschap| Description|
+|----|-----|
+| Doel groep-URI | De doel groep-URI voor het SAML-token.  Dit is de URI voor de Access Control Service (ACS), met inbegrip van de ACS-naam ruimte en de hostnaam. |
+| Certificaat wachtwoord | Het wacht woord voor het client certificaat waarmee toegang wordt verleend aan de Inge sloten persoonlijke sleutel. |
+| Clientcertificaat  | De waarde van het client certificaat met de persoonlijke sleutel in base64-gecodeerde indeling. |
+| Naam-id | De naam-id voor het token |
+| Niet na | De time span waarvoor het token geldig is.  De standaard waarde is 5 minuten. |
+| Niet voor | De time span waarvoor een token in het verleden geldig is (om tijd scheef te maken).  De standaard waarde is (negatief) 5 minuten. |
+| Naam van de doel context parameter | De context parameter die de gegenereerde bevestiging ontvangt. |
+
 
 **Client geheim** Als uw app een aanmeldings route heeft die betrekking heeft op een client geheim, gebruikt u deze route. Azure Active Directory (AAD) is een voorbeeld van een service die aanmelden met een clientgeheim bevat. In AAD is het klantgeheim de App Key.
 

@@ -5,37 +5,44 @@ services: iot-hub
 author: chrissie926
 ms.service: iot-hub
 ms.topic: include
-ms.date: 04/26/2018
+ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: include file
-ms.openlocfilehash: e78c9a490d2ad02fb132d62b0ab0b55f15d3d4ed
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a5c1ddd085ae65b9920d73f50f993f4646785a69
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176688"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883752"
 ---
 ## <a name="create-a-module-identity"></a>Een module-id maken
 
-In dit gedeelte gaat u een .NET-consoletoepassing maken die een apparaat-id en een module-id kan maken in het identiteitsregister van uw IoT Hub. Een apparaat of module kan alleen verbinding maken met de IoT-hub als het apparaat of de module is vermeld in het identiteitsregister. Zie voor meer informatie de [sectie id-register van de IoT Hub developer guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md). Als u deze consoletoepassing uitvoert, worden er een unieke id en een unieke sleutel gemaakt voor zowel het apparaat als de module. Deze waarden worden door het apparaat en de module gebruikt om zichzelf te identificeren bij het verzenden van apparaat-naar-cloud-berichten naar IoT Hub. De id's zijn hoofdlettergevoelig.
+In deze sectie maakt u een .NET-console-app die een apparaat-id en een module-ID maakt in het identiteits register van uw hub. Een apparaat of module kan geen verbinding maken met hub, tenzij er een vermelding is in het identiteits register. Zie de [sectie id-REGI ster in de hand leiding voor de IOT hub-ontwikkel aars](../articles/iot-hub/iot-hub-devguide-identity-registry.md)voor meer informatie.
 
+Als u deze consoletoepassing uitvoert, worden er een unieke id en een unieke sleutel gemaakt voor zowel het apparaat als de module. Uw apparaat en module gebruiken deze waarden om zichzelf te identificeren bij het verzenden van apparaat-naar-Cloud-berichten naar IoT Hub. De id's zijn hoofdlettergevoelig.
 
-1. **Een Visual Studio-project maken**: voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan een nieuwe oplossing met behulp van de projectsjabloon **Console App (.NET Framework)** . Zorg ervoor dat de versie van .NET Framework minimaal 4.6.1 is. Geef het project de naam **CreateIdentities** en geef de oplossing de naam **IoTHubGetStarted**.
+1. Open Visual Studio en selecteer **een nieuw project maken**.
 
-    ![Een Visual Studio-project maken](./media/iot-hub-get-started-create-module-identity-csharp/create-identities-csharp1.JPG)
+1. Selecteer **console-app (.NET Framework)** in **een nieuw project maken**.
 
-2. **Azure IoT Hub .NET service SDK V1.16.0-preview-001 installeren**: Module identity and module twin is beschikbaar als openbare preview-versie. Het is alleen beschikbaar in de IoT Hub prerelease-service-SDK's. Open in Visual Studio tools > Nuget package manager > manage Nuget packages for solution. Zoek naar Microsoft.Azure.Devices. Zorg ervoor dat u het selectievakje Prerelease opnemen hebt ingeschakeld. Selecteer de versie V1.16.0-preview-001 en installeer deze. U hebt nu toegang tot alle modulefuncties. 
+1. Selecteer **volgende** om **het nieuwe project configureren**te openen. Geef het project de naam *CreateIdentities* en geef de oplossing de naam *IoTHubGetStarted*. Zorg ervoor dat de versie van .NET Framework minimaal 4.6.1 is.
 
-    ![Azure IoT Hub .NET service SDK V1.16.0-preview-001 installeren](./media/iot-hub-get-started-create-module-identity-csharp/install-sdk.png)
+    ![Voer de naam en het framework in voor uw Visual Studio-oplossing](./media/iot-hub-get-started-create-module-identity-csharp/configure-createidentities-project.png)
 
-3. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
+1. Open in Visual Studio **tools** > **NuGet package manager** > **NuGet-pakketten beheren voor oplossing**. Selecteer het tabblad **Browse**.
+
+1. Zoek naar **micro soft. Azure. devices**. Selecteer deze en selecteer vervolgens **installeren**.
+
+    ![De huidige versie van de Azure IoT Hub .NET Service SDK installeren](./media/iot-hub-get-started-create-module-identity-csharp/install-service-sdk.png)
+
+1. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
 
    ```csharp
    using Microsoft.Azure.Devices;
    using Microsoft.Azure.Devices.Common.Exceptions;
    ```
 
-4. Voeg de volgende velden toe aan de klasse **Program**: Vervang de tijdelijke aanduidingswaarde met de IoT Hub-verbindingsreeks voor de hub die u hebt gemaakt in de vorige sectie.
+1. Voeg de volgende velden toe aan de klasse **Program**: Vervang de tijdelijke aanduidingswaarde met de IoT Hub-verbindingsreeks voor de hub die u hebt gemaakt in de vorige sectie.
 
    ```csharp
    const string connectionString = "<replace_with_iothub_connection_string>";
@@ -43,8 +50,8 @@ In dit gedeelte gaat u een .NET-consoletoepassing maken die een apparaat-id en e
    const string moduleID = "myFirstModule";
    ```
 
-5. Voeg de volgende code aan de **Main** klasse.
-   
+1. Voeg de volgende code toe aan de **hoofd** klasse.
+
    ```csharp
    static void Main(string[] args)
    {
@@ -53,7 +60,7 @@ In dit gedeelte gaat u een .NET-consoletoepassing maken die een apparaat-id en e
    }
    ```
 
-6. Voeg de volgende methoden toe aan de klasse **Program**:
+1. Voeg de volgende methoden toe aan de klasse **Program**:
 
     ```csharp
     private static async Task AddDeviceAsync()
@@ -95,13 +102,13 @@ In dit gedeelte gaat u een .NET-consoletoepassing maken die een apparaat-id en e
     }
     ```
 
-    Met de methode AddDeviceAsync() maakt u een apparaat met de id **myFirstDevice**. (Als deze apparaat-id al in het id-register staat, haalt de code gewoon de bestaande apparaatgegevens op.) De app geeft vervolgens de primaire sleutel voor die identiteit weer. U gebruikt deze sleutel in de gesimuleerde apparaat-app om verbinding te maken met uw IoT-hub.
+    De `AddDeviceAsync` -methode maakt een apparaat-id met de id **myFirstDevice**. Als deze apparaat-ID al bestaat in het identiteits register, haalt de code gewoon de bestaande apparaatgegevens op. De app geeft vervolgens de primaire sleutel voor die identiteit weer. U gebruikt deze sleutel in de gesimuleerde apparaat-app om verbinding te maken met uw hub.
 
-    Met de methode AddModuleAsync() maakt u een module met de id **myFirstModule** onder het apparaat **myFirstDevice**. (Als deze module-id al in het id-register staat, haalt de code gewoon de bestaande modulegegevens op.) De app geeft vervolgens de primaire sleutel voor die identiteit weer. U gebruikt deze sleutel in de gesimuleerde module-app om verbinding te maken met uw IoT-hub.
+    De `AddModuleAsync` -methode maakt een module-identiteit met id **myFirstModule** onder apparaat **myFirstDevice**. Als die module-ID al bestaat in het identiteits register, haalt de code gewoon de bestaande module-informatie op. De app geeft vervolgens de primaire sleutel voor die identiteit weer. U gebruikt deze sleutel in de gesimuleerde module-app om verbinding te maken met uw hub.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-7. Voer deze toepassing uit en noteer de apparaatsleutel en de modulesleutel.
+1. Voer deze app uit en noteer de sleutel en de module sleutel van het apparaat.
 
 > [!NOTE]
-> In het identiteitsregister van IoT Hub worden alleen apparaat- en module-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. In het identiteitsregister worden apparaat-id's en -sleutels opgeslagen die als beveiligingsreferenties worden gebruikt. In het identiteitsregister wordt ook een vlag ingeschakeld/uitgeschakeld voor elk apparaat opgeslagen die u kunt gebruiken om de toegang tot dat apparaat uit te schakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Er is geen vlag voor ingeschakeld/uitgeschakeld voor module-id's. Zie voor meer informatie, [Ontwikkelaarshandleiding voor IoT Hub](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
+> Het IoT Hub identiteits register slaat apparaat-en module-id's op om beveiligde toegang tot de hub mogelijk te maken. In het identiteitsregister worden apparaat-id's en -sleutels opgeslagen die als beveiligingsreferenties worden gebruikt. In het identiteitsregister wordt ook een vlag ingeschakeld/uitgeschakeld voor elk apparaat opgeslagen die u kunt gebruiken om de toegang tot dat apparaat uit te schakelen. Als uw app andere apparaatspecifieke meta gegevens moet opslaan, moet deze een toepassingsspecifiek archief gebruiken. Er is geen vlag voor ingeschakeld/uitgeschakeld voor module-id's. Zie [IOT hub ontwikkelaars handleiding](../articles/iot-hub/iot-hub-devguide-identity-registry.md)voor meer informatie.

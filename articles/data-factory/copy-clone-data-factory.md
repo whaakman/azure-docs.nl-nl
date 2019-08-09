@@ -1,5 +1,5 @@
 ---
-title: Kopiëren of klonen van een data factory in Azure Data Factory | Microsoft Docs
+title: Een data factory kopiëren of klonen in Azure Data Factory | Microsoft Docs
 description: Meer informatie over het kopiëren of klonen van een data factory in Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -11,41 +11,41 @@ ms.date: 01/09/2019
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 96ea8142e2f7794d3c15c6efb436eafa585bc8fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e4d204e9bcf601bf968f06b5d9df3f36414bd5a5
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60780921"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884195"
 ---
-# <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Kopiëren of klonen van een data factory in Azure Data Factory
+# <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Een data factory in Azure Data Factory kopiëren of klonen
 
-In dit artikel wordt beschreven hoe u kopiëren of klonen van een data factory in Azure Data Factory.
+In dit artikel wordt beschreven hoe u een data factory kopieert of kloont in Azure Data Factory.
 
-## <a name="use-cases-for-cloning-a-data-factory"></a>Gebruiksvoorbeelden voor het klonen van een data factory
+## <a name="use-cases-for-cloning-a-data-factory"></a>Cases gebruiken voor het klonen van een data factory
 
-Hier volgen enkele van de omstandigheden waarin u wellicht vindt u het handig om te kopiëren of klonen van een data factory:
+Hier volgen enkele van de omstandigheden waarin het handig is om een data factory te kopiëren of te klonen:
 
--   **Naam van resources**. Azure biedt geen ondersteuning voor wijzigen van resources. Als u wijzigen van een data factory wilt, kunt u klonen van de data factory met een andere naam en verwijder vervolgens het bestaande bestand.
+-   De **naam van resources wijzigen**. Azure biedt geen ondersteuning voor het hernoemen van resources. Als u de naam van een data factory wilt wijzigen, kunt u de data factory met een andere naam klonen en vervolgens het bestaande item verwijderen.
 
--   **Foutopsporing wijzigingen** wanneer de foutopsporing-functies zijn niet voldoende. Soms om uw wijzigingen hebt getest, kunt u uw wijzigingen in een andere factory testen voordat u deze toepast op uw belangrijkste weergavenaam. In de meeste gevallen kunt u foutopsporing. Wijzigingen in de triggers, zoals de werking van uw wijzigingen op als een trigger wordt automatisch gestart, of gedurende een bepaalde periode, mogelijk niet testable eenvoudig zonder in te checken. In dergelijke gevallen vormen de factory klonen en het toepassen van uw wijzigingen er een logische combinatie. Omdat Azure Data Factory voornamelijk gekenmerkt door het aantal uitvoeringen kosten, leidt de tweede factory niet tot extra kosten in rekening gebracht.
+-   **Fout opsporing van wijzigingen** wanneer de functies voor fout opsporing niet voldoende zijn. Als u uw wijzigingen wilt testen, kunt u de wijzigingen in een andere fabriek testen voordat u deze toepast op uw hoofd. In de meeste scenario's kunt u debug gebruiken. Wijzigingen in triggers, zoals de werking van uw wijzigingen wanneer een trigger automatisch wordt geactiveerd of over een tijd venster, zijn mogelijk niet testable eenvoudig zonder in te checken. In deze gevallen is het klonen van de fabriek en het Toep assen van de wijzigingen. Omdat Azure Data Factory kosten voornamelijk door het aantal uitvoeringen, leidt de tweede Factory niet tot extra kosten.
 
-## <a name="how-to-clone-a-data-factory"></a>Het klonen van een data factory
+## <a name="how-to-clone-a-data-factory"></a>Een data factory klonen
 
-1. De gebruikersinterface van Data Factory in Azure portal kunt u de volledige nettolading van uw data factory in Resource Manager-sjabloon, samen met een parameterbestand dat u alle waarden die u wijzigen kunt wilt wanneer u uw factory kloont exporteren.
+1. Met de Data Factory gebruikers interface in de Azure Portal kunt u de volledige payload van uw data factory exporteren naar een resource manager-sjabloon, samen met een parameter bestand waarmee u de waarden kunt wijzigen die u wilt wijzigen wanneer u uw fabriek kloont.
 
-1. Als een vereiste moet u uw doel data factory maken vanuit Azure portal.
+1. Als vereiste moet u de doel-data factory maken vanuit de Azure Portal.
 
-1. Als u een SelfHosted IntegrationRuntime in uw bron-factory hebt, moet u vooraf te maken met dezelfde naam in de fabriek doel. Als u delen van de IRs zelfgehoste tussen verschillende factory's wilt, kunt u het patroon gepubliceerd [hier](author-visually.md#best-practices-for-git-integration).
+1. Als u een SelfHosted IntegrationRuntime in uw bron-Factory hebt, moet u deze vooraf maken met dezelfde naam in de doel-Factory. Als u de SelfHosted-IRs wilt delen tussen verschillende fabrieken, kunt u het patroon gebruiken dat [hier](source-control.md#best-practices-for-git-integration)wordt gepubliceerd.
 
-1. Als u in de GIT-modus, telkens wanneer u vanuit de portal publiceren, worden de fabrieksinstellingen van Resource Manager-sjabloon wordt opgeslagen in GIT in de vertakking adf_publish van de opslagplaats.
+1. Als u zich in de GIT-modus bevindt, wordt de Resource Manager-sjabloon van de fabriek in de adf_publish-vertakking van de opslag plaats opgeslagen in GIT, telkens wanneer u publiceert vanuit de portal.
 
-1. Voor andere scenario's, het Resource Manager-sjabloon kan worden gedownload door te klikken op de **Resource Manager-sjabloon exporteren** knop in de portal.
+1. Voor andere scenario's kunt u de Resource Manager-sjabloon downloaden door te klikken op de knop **Resource Manager-sjabloon exporteren** in de portal.
 
-1. Nadat u de Resource Manager-sjabloon hebt gedownload, kunt u deze kunt implementeren via standaard implementatiemethoden voor Resource Manager-sjabloon.
+1. Nadat u de Resource Manager-sjabloon hebt gedownload, kunt u deze implementeren via de standaard implementatie methoden van Resource Manager-sjablonen.
 
-1. Uit veiligheidsoverwegingen bevat de gegenereerde Resource Manager-sjabloon geen een geheime informatie, zoals wachtwoorden voor de gekoppelde services. Als gevolg hiervan moet u opgeven van deze wachtwoorden als implementatieparameters. Als parameters geven niet gewenst is, hebt u de verbindingsreeksen en wachtwoorden van de gekoppelde services ophalen van de Azure Key Vault.
+1. Uit veiligheids overwegingen bevat de gegenereerde Resource Manager-sjabloon geen geheime informatie, zoals wacht woorden voor gekoppelde services. Als gevolg hiervan moet u deze wacht woorden opgeven als implementatie parameters. Als u geen para meters kunt opgeven, moet u de verbindings reeksen en wacht woorden van de gekoppelde services ophalen van Azure Key Vault.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de gids voor het maken van een data factory in Azure portal in [een data factory maken met behulp van de Azure Data Factory-UI](quickstart-create-data-factory-portal.md).
+Raadpleeg de richt lijnen voor het maken van een data factory in het Azure Portal in [een Data Factory maken met behulp van de Azure Data Factory-gebruikers interface](quickstart-create-data-factory-portal.md).

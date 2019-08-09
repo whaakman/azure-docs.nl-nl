@@ -1,5 +1,5 @@
 ---
-title: Uw Azure Active Directory Domain Services beheerde domein beveiligen | Microsoft Docs
+title: Uw door Azure Active Directory Domain Services beheerd domein beveiligen | Microsoft Docs
 description: Uw beheerde domein beveiligen
 services: active-directory-ds
 documentationcenter: ''
@@ -15,30 +15,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: iainfou
-ms.openlocfilehash: e94cd9ca049cfdfd2321ce046714506ed1f23390
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 923ecae9dc649b8f5cdcfd447b78fdec0805927a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483278"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879153"
 ---
-# <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Beveiligen van uw Azure AD Domain Services beheerde domein
-Dit artikel helpt u uw beheerde domein beveiligen. U kunt het gebruik van zwakke coderingssuites en hash-synchronisatie van NTLM-referenties uitschakelen.
+# <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Uw door Azure AD Domain Services beheerd domein beveiligen
+Dit artikel helpt u bij het beveiligen van uw beheerde domein. U kunt het gebruik van zwakkere coderings suites uitschakelen en NTLM-referentie-hash-synchronisatie uitschakelen.
 
-## <a name="install-the-required-powershell-modules"></a>De vereiste PowerShell-modules installeren
+## <a name="install-the-required-powershell-modules"></a>De vereiste Power shell-modules installeren
 
-### <a name="install-and-configure-azure-ad-powershell"></a>Azure AD PowerShell installeren en configureren
-Volg de instructies in het artikel [installeren van de Azure AD PowerShell-module en maak verbinding met Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+### <a name="install-and-configure-azure-ad-powershell"></a>Azure AD Power Shell installeren en configureren
+Volg de instructies in het artikel om [de Azure AD Power shell-module te installeren en verbinding te maken met Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 ### <a name="install-and-configure-azure-powershell"></a>Azure PowerShell installeren en configureren
-Volg de instructies in het artikel [installeren van de Azure PowerShell-module en maak verbinding met uw Azure-abonnement](https://docs.microsoft.com/powershell/azure/install-az-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+Volg de instructies in het artikel om [de Azure PowerShell-module te installeren en verbinding te maken met uw Azure-abonnement](https://docs.microsoft.com/powershell/azure/install-az-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 
-## <a name="disable-weak-cipher-suites-and-ntlm-credential-hash-synchronization"></a>Uitschakelen van zwakke coderingssuites en hash-synchronisatie van NTLM-referenties
-Gebruik de volgende PowerShell-script voor:
+## <a name="disable-weak-cipher-suites-and-ntlm-credential-hash-synchronization"></a>Zwakke coderings suites en hash-synchronisatie van NTLM-referenties uitschakelen
+Gebruik het volgende Power shell-script om:
+
 1. Ondersteuning van NTLM v1 voor het beheerde domein uitschakelen.
-2. Uitschakelen van de synchronisatie van wachtwoord-hashes voor NTLM vanuit uw on-premises AD.
+2. Schakel de synchronisatie van NTLM-wachtwoord-hashes uit vanuit uw on-premises AD.
 3. TLS v1 voor het beheerde domein uitschakelen.
+
+Als er een fout bericht wordt weer `Get-AzResource` gegeven met de opdracht dat de resource *micro soft. Aad/DomainServices* niet bestaat, [moet u uw toegang verhogen om alle Azure-abonnementen en-beheer groepen te beheren](../role-based-access-control/elevate-access-global-admin.md).
 
 ```powershell
 // Login to your Azure AD tenant
@@ -58,9 +61,9 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySetti
 ```
 
 > [!IMPORTANT]
-> Gebruikers (en serviceaccounts) uitvoeren niet eenvoudige LDAP-bindingen als u NTLM-wachtwoord-hashsynchronisatie hebt uitgeschakeld op uw Azure AD Domain Services-exemplaar.  Lees voor meer informatie over het uitschakelen van NTLM-wachtwoord-hashsynchronisatie [beveiligen van uw Azure AD DOmain Services beheerde domein](secure-your-domain.md).
+> Gebruikers (en service accounts) kunnen geen LDAP-eenvoudige bindingen uitvoeren als NTLM-wachtwoord synchronisatie is uitgeschakeld op uw Azure AD Domain Services-exemplaar.  Lees [uw door Azure AD DOmain Services beheerde domein beveiligen](secure-your-domain.md)voor meer informatie over het uitschakelen van NTLM-wachtwoord synchronisatie.
 >
 >
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Inzicht in synchronisatie in Azure AD Domain Services](synchronization.md)
+* [Synchronisatie begrijpen in Azure AD Domain Services](synchronization.md)

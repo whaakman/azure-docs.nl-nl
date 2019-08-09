@@ -1,74 +1,74 @@
 ---
 title: Query Performance Insight in Azure Database for MySQL
-description: In dit artikel beschrijft de Query Performance Insight-functie in Azure Database for MySQL
+description: In dit artikel wordt de Query Performance Insight functie in Azure Database for MySQL beschreven
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 8f142933ebf955cbe3aa119f42779109fb6ef7db
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 05d6de31dbc3ff5bbf9365098ceae4c840bf116b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67589075"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882794"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Query Performance Insight in Azure Database for MySQL
 
-**Is van toepassing op:**  Azure Database voor MySQL 5.7
+**Van toepassing op:** Azure Database for MySQL 5,7
 
 > [!NOTE]
-> Query Performance Insight is beschikbaar als preview.
+> Query Performance Insight is in preview.
 
-Query Performance Insight kunt u snel vinden wat uw langst lopende query's zijn, hoe ze na verloop van tijd veranderen en welke wacht van invloed zijn op deze.
+Query Performance Insight helpt u snel te identificeren wat uw langste query's zijn, hoe ze in de loop van de tijd veranderen en welke wacht tijden van invloed zijn op deze.
 
 ## <a name="common-scenarios"></a>Algemene scenario's
 
-### <a name="long-running-queries"></a>Langlopende query 's
+### <a name="long-running-queries"></a>Query's waarvoor de uitvoering lang duurt
 
-- Identificeren van de langste uitvoeren van query's in het verleden X uur
-- Top N-query's die op resources wachten identificeren
+- Langst uitgevoerde query's in de afgelopen X uur identificeren
+- Eerste N query's identificeren die op resources wachten
  
-### <a name="wait-statistics"></a>Wachtstatistieken
+### <a name="wait-statistics"></a>Wacht statistieken
 
-- Understanding wacht aard van een query
-- Informatie over trends voor resource wacht en waar bronconflicten bestaat
+- Wat is de wacht aard van een query?
+- Uitleg over trends voor de resource wacht en waar de bron conflicten bestaan
 
 ## <a name="permissions"></a>Machtigingen
 
-**De eigenaar van** of **Inzender** machtigingen die nodig zijn om weer te geven van de tekst van de query's in Query Performance Insight. ** Lezer** kunt grafieken en tabellen weergeven maar geen query uitvoeren op tekst.
+De machtigingen **Eigenaar** of **Inzender** zijn vereist om de tekst van de query's weer te geven in Query Performance Insight. Met de machtiging **Lezer** kunt u grafieken en tabellen weergeven maar geen tekst opvragen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor Query Performance Insight functie, gegevens moeten aanwezig zijn in de [Query Store](concepts-query-store.md).
+Query Performance Insight werkt alleen als de gegevens in het [query archief](concepts-query-store.md)aanwezig zijn.
 
-## <a name="viewing-performance-insights"></a>Prestatie-inzichten weergeven
+## <a name="viewing-performance-insights"></a>Prestatie inzichten weer geven
 
 De weergave [Query Performance Insight](concepts-query-performance-insight.md) in de Azure Portal toont visualisaties van belangrijke informatie uit de Query Store.
 
-Selecteer in de portal-pagina van uw Azure Database for MySQL-server, **Query Performance Insight** onder de **intelligente prestaties** sectie van de in de menubalk.
+Selecteer op de pagina Portal van uw Azure Database for MySQL-server **query Performance Insight** onder het gedeelte **intelligente prestaties** van de menu balk.
 
-### <a name="long-running-queries"></a>Langlopende query 's
+### <a name="long-running-queries"></a>Query's waarvoor de uitvoering lang duurt
 
-De **langlopende query's** tabblad toont de top 5 query's door de gemiddelde duur per uitvoering, samengevoegd in intervallen van 15 minuten. U kunt meer query's weergeven door te selecteren in de **nummer van query's** vervolgkeuzelijst. Het is mogelijk dat de grafiekkleuren voor een specifieke query-id verschillen wanneer u dit doet.
+Op het tabblad **langlopende query's** worden de top 5 query's weer gegeven op gemiddelde duur per uitvoering, samengevoegd in intervallen van 15 minuten. U kunt meer query's weer geven door te selecteren in de vervolg keuzelijst **aantal query's** . Het is mogelijk dat de grafiekkleuren voor een specifieke query-id verschillen wanneer u dit doet.
 
-U kunt in de grafiek klikken en slepen om de tijdspanne te beperken tot een specifiek tijdvenster. Het zoomniveau in- en pictogrammen ook gebruiken om respectievelijk een kleiner of groter periode weer te geven.
+U kunt in de grafiek klikken en slepen om de tijdspanne te beperken tot een specifiek tijdvenster. U kunt ook de pictogrammen in-en uitzoomen gebruiken om respectievelijk een kleinere of grotere tijds periode weer te geven.
 
-![Query Performance Insight langlopende query 's](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+![Langlopende query's Query Performance Insight](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
 
-### <a name="wait-statistics"></a>Wachtstatistieken
+### <a name="wait-statistics"></a>Wacht statistieken
 
 > [!NOTE]
-> Wacht statistieken zijn bedoeld voor het oplossen van problemen met query-prestaties. Het verdient aanbeveling om te worden ingeschakeld alleen voor het oplossen van problemen.
+> Wacht statistieken zijn bedoeld voor het oplossen van problemen met de prestaties van query's. U wordt aangeraden alleen in te scha kelen voor het oplossen van problemen.
 
-Wacht statistieken biedt een overzicht van de wait-gebeurtenissen die zich tijdens het uitvoeren van een specifieke query voordoen. Meer informatie over de gebeurtenistypen wachten in de [MySQL-engine documentatie](https://go.microsoft.com/fwlink/?linkid=2098206).
+Wacht statistieken bieden een weer gave van de wacht gebeurtenissen die optreden tijdens het uitvoeren van een specifieke query. Meer informatie over de gebeurtenis typen wacht in de [documentatie](https://go.microsoft.com/fwlink/?linkid=2098206)van de MySQL-engine.
 
-Selecteer de **wacht statistieken** tabblad om de bijbehorende visualisaties op wacht op de server weer te geven.
+Selecteer het tabblad **Wachtstatistieken** om de bijbehorende visualisaties voor wachttijden in de server weer te geven.
 
-Query's weergegeven in de weergave van de statistieken wacht zijn gegroepeerd op de query's met de grootste wacht tijdens het opgegeven tijdsinterval.
+Query's die worden weer gegeven in de weer gave wachten statistieken, worden gegroepeerd op de query's die de grootste wacht tijden tijdens het opgegeven tijds interval vertonen.
 
-![Query Performance Insight wacht statistieken](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+![Query Performance Insight wacht op statistieken](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [bewaking en afstemming](concepts-monitoring.md) in Azure Database for MySQL.
+- Meer informatie over het [bewaken en afstemmen](concepts-monitoring.md) van Azure database for MySQL.

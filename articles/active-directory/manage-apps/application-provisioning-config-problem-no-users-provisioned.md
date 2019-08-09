@@ -1,6 +1,6 @@
 ---
-title: Er zijn geen gebruikers worden ingericht tot een toepassing met Azure AD-galerie | Microsoft Docs
-description: Het oplossen van veelvoorkomende problemen met het er geen gebruikers worden weergegeven in een Azure AD-galerie toepassing die u hebt geconfigureerd voor het inrichten van gebruikers met Azure AD
+title: Er worden geen gebruikers ingericht voor een Azure AD-galerie toepassing | Microsoft Docs
+description: Veelvoorkomende problemen oplossen die zich voordoen wanneer u geen gebruikers ziet die worden weer gegeven in een Azure AD Gallery-toepassing die u hebt geconfigureerd voor het inrichten van gebruikers met Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,48 +16,48 @@ ms.date: 09/20/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaeb97f88c2482cb9d091afb1c205e9b09a85ce0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b80539181e6614283b6170b9cd9d4db85f812a5f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784591"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879898"
 ---
-# <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Er zijn geen gebruikers worden ingericht tot een toepassing met Azure AD-galerie
-Nadat de automatische inrichting is geconfigureerd voor een toepassing (met inbegrip van verifiëren dat de opgegeven naar Azure AD om verbinding maken met de app app-referenties geldig zijn), zijn vervolgens gebruikers en/of groepen ingericht met de app. Inrichting wordt bepaald door de volgende zaken:
+# <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Er worden geen gebruikers ingericht voor een Azure AD-galerie toepassing
+Nadat automatische inrichting is geconfigureerd voor een toepassing (waaronder controleren of de referenties van de app die zijn opgegeven voor Azure AD om verbinding te maken met de app geldig zijn), worden gebruikers en/of groepen ingericht voor de app. Inrichting wordt bepaald door de volgende zaken:
 
--   Welke gebruikers en groepen zijn **toegewezen** naar de toepassing. Zie voor meer informatie over toewijzing [een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](assign-user-or-group-access-portal.md).
--   Wel of niet **kenmerktoewijzingen** zijn ingeschakeld en geconfigureerd voor het synchroniseren van geldige kenmerken van Azure AD aan de app. Zie voor meer informatie over kenmerktoewijzingen [aanpassen inrichting kenmerk gebruikerstoewijzingen voor de SaaS-toepassingen in Azure Active Directory](customize-application-attributes.md).
--   Ongeacht of er is of niet een **bereikfilter** aanwezig zijn die gebruikers wordt gefilterd op basis van specifieke kenmerkwaarden. Zie voor meer informatie over het bereikfilters [op kenmerken gebaseerde toepassing inrichten met bereikfilters](define-conditional-rules-for-provisioning-user-accounts.md).
+-   Welke gebruikers en groepen zijn **toegewezen** aan de toepassing. Houd er rekening mee dat het inrichten van geneste groepen of Office 365-groepen niet wordt ondersteund. Zie [een gebruiker of groep toewijzen aan een bedrijfs-app in azure Active Directory](assign-user-or-group-access-portal.md)voor meer informatie over de toewijzing.
+-   Of **kenmerk toewijzingen** zijn ingeschakeld, en geconfigureerd om geldige kenmerken van Azure ad te synchroniseren met de app. Zie voor meer informatie over kenmerk toewijzingen [aanpassen van kenmerk toewijzingen van gebruikers inrichting voor SaaS-toepassingen in azure Active Directory](customize-application-attributes.md).
+-   Hiermee wordt aangegeven of er een **bereik filter** aanwezig is waarmee gebruikers worden gefilterd op basis van specifieke kenmerk waarden. Zie voor meer informatie over het bereik van filters [kenmerk toepassing inrichten met bereik filters](define-conditional-rules-for-provisioning-user-accounts.md).
   
-Als u merkt dat gebruikers niet wordt ingericht, raadpleegt u de controlelogboeken in Azure AD. Zoeken naar vermeldingen voor een specifieke gebruiker.
+Als u ziet dat gebruikers niet worden ingericht, raadpleegt u de audit Logboeken in azure AD. Zoeken naar logboek vermeldingen voor een specifieke gebruiker.
 
-De inrichting auditlogboeken kunnen worden geopend in de Azure-portal in de **Azure Active Directory &gt; Bedrijfsapps &gt; \[toepassingsnaam\] &gt; controleren logboeken** tabblad. De logboeken filteren op de **Accountinrichting** categorie alleen de inrichten om gebeurtenissen te bekijken voor die app. U kunt zoeken naar gebruikers op basis van de "overeenkomende ID" die is geconfigureerd voor deze in de kenmerktoewijzingen. Bijvoorbeeld, als u de 'user principal name' of 'e-mailadres' als het overeenkomstige kenmerk aan de Azure AD geconfigureerd en de gebruiker niet ingericht heeft een waarde van "audrey@contoso.com', zoekt u de auditlogboeken voor 'audrey@contoso.com' en bekijk de vermeldingen geretourneerd.
+De inrichtings controle logboeken kunnen worden geopend in de Azure Portal, op het tabblad  **&gt; Azure Active Directory toepassings\] naam &gt; &gt; van de bedrijfs-apps \[** . Filter de logboeken op de **account** inrichtings categorie om alleen de inrichtings gebeurtenissen voor die app te bekijken. U kunt zoeken naar gebruikers op basis van de ' overeenkomende ID ' die voor hen is geconfigureerd in de kenmerk toewijzingen. Als u bijvoorbeeld het ' User Principal Name ' of ' e-mail adres ' hebt geconfigureerd als het overeenkomende kenmerk op de Azure AD-kant en de gebruiker die niet wordt ingericht, de waarde 'audrey@contoso.com' heeft, zoekt u in de audit logboeken naar 'audrey@contoso.com' en bekijkt u de vermeldingen geretourneerd.
 
-De inrichting auditlogboeken record alle bewerkingen worden uitgevoerd door de provisioning-service, met inbegrip van Azure AD voor toegewezen gebruikers die zich binnen het bereik van de inrichting, uitvoeren van query's de doel-app voor de aanwezigheid van deze gebruikers, werkt het vergelijken van de gebruikersobjecten uitvoeren van query 's tussen het systeem. Vervolgens toevoegen, bijwerken of het gebruikersaccount in het doelsysteem op basis van de vergelijking uitschakelen.
+De inrichtings controle logboeken registreren alle bewerkingen die worden uitgevoerd door de inrichtings service, inclusief het opvragen van Azure AD voor toegewezen gebruikers die binnen het bereik van de inrichting vallen, het opvragen van de doel-app voor het bestaan van deze gebruikers, het vergelijken van de gebruikers objecten tussen het systeem. Vervolgens kunt u het gebruikers account in het doel systeem toevoegen, bijwerken of uitschakelen op basis van de vergelijking.
 
-## <a name="general-problem-areas-with-provisioning-to-consider"></a>Algemene probleemgebieden met inrichten om te overwegen
-Hieronder volgt een lijst van de algemene probleemgebieden die u inzoomen kunt op als u een idee van waar u hebben wilt beginnen.
+## <a name="general-problem-areas-with-provisioning-to-consider"></a>Algemene probleem gebieden met het inrichten om te overwegen
+Hieronder vindt u een lijst met algemene probleem gebieden die u kunt inzoomen als u een idee hebt van waar u moet beginnen.
 
-- [Inrichting van de service niet wordt weergegeven om te starten](#provisioning-service-does-not-appear-to-start)
-- [Auditlogboeken dat gebruikers worden overgeslagen en niet is ingericht, zelfs als ze zijn toegewezen](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
+- [De inrichtings service lijkt niet te worden gestart](#provisioning-service-does-not-appear-to-start)
+- [Controle logboeken: gebruikers worden overgeslagen en niet ingericht, zelfs als ze zijn toegewezen](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
-## <a name="provisioning-service-does-not-appear-to-start"></a>Inrichting van de service niet wordt weergegeven om te starten
-Als u de **Inrichtingsstatus** moet **op** in de **Azure Active Directory &gt; Bedrijfsapps &gt; \[toepassingsnaam\] &gt;Provisioning** sectie van de Azure portal. Maar er geen andere statusdetails worden weergegeven op die pagina nadat de volgende geladen, is het waarschijnlijk dat de service wordt uitgevoerd, maar niet nog een eerste synchronisatie is voltooid. Controleer de **auditlogboeken** die hierboven worden beschreven om te bepalen welke bewerkingen die de service wordt uitgevoerd, en als er fouten zijn.
+## <a name="provisioning-service-does-not-appear-to-start"></a>De inrichtings service lijkt niet te worden gestart
+Als u instelt dat de inrichtings **status** moet worden **ingeschakeld** in de sectie  **&gt; Azure Active Directory bedrijfs\] apps &gt; \[toepassings naam &gt;inrichten** van de Azure Portal . Er worden echter geen andere status gegevens op die pagina weer gegeven na de volgende keer opnieuw laden. de service wordt waarschijnlijk uitgevoerd, maar is nog niet klaar met het volt ooien van de initiële synchronisatie. Controleer de hierboven beschreven **controle logboeken** om te bepalen welke bewerkingen de service uitvoert en of er fouten zijn.
 
 >[!NOTE]
->Een eerste synchronisatie kan duren vanaf 20 minuten tot enkele uren, afhankelijk van de grootte van de Azure AD-map en het aantal gebruikers in het bereik voor het inrichten. Volgende synchronisaties na de initiële synchronisatie zijn sneller, zoals de provisioning-service slaat watermerken die staan voor de status van beide systemen na de initiële synchronisatie. De eerste synchronisatie verbetert de prestaties van de volgende wordt gesynchroniseerd.
+>Een initiële synchronisatie kan 20 minuten tot enkele uren duren, afhankelijk van de grootte van de Azure AD-adres lijst en het aantal gebruikers in het bereik dat moet worden ingericht. Volgende synchronisaties na de initiële synchronisatie zijn sneller, omdat er door de inrichtings service water merken worden opgeslagen die de status van beide systemen na de initiële synchronisatie vertegenwoordigen. De initiële synchronisatie verbetert de prestaties van volgende synchronisaties.
 >
 
 
-## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Auditlogboeken dat gebruikers worden overgeslagen en niet ingericht zelfs als ze zijn toegewezen
+## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Controle logboeken zeggen dat gebruikers worden overgeslagen en niet ingericht, zelfs als ze worden toegewezen
 
-Wanneer een gebruiker wordt weergegeven als 'overgeslagen' in de controlelogboeken, is het belangrijk dat u de uitgebreide details in het logboekbericht om de reden vast te lezen. Hieronder vindt u veelvoorkomende oorzaken en oplossingen:
+Wanneer een gebruiker wordt weer gegeven als ' overgeslagen ' in de audit logboeken, is het belang rijk om de uitgebreide details in het logboek bericht te lezen om de reden te bepalen. Hieronder vindt u enkele veelvoorkomende redenen en oplossingen:
 
-- **Een bereikfilter is geconfigureerd** **die is gefilterd op de gebruiker op basis van een kenmerkwaarde**. Zie voor meer informatie over het bereikfilters [bereikfilters](define-conditional-rules-for-provisioning-user-accounts.md).
-- **De gebruiker is "niet effectief recht".** Als u dit bericht specifieke fout ziet, is omdat er een probleem met de gebruiker een record die zijn opgeslagen in Azure AD. Los dit probleem op door de gebruiker (of groep) uit de app intrekken en opnieuw toewijzen. Zie voor meer informatie over toewijzing [gebruiker of groep toegang toewijzen](assign-user-or-group-access-portal.md).
-- **Een vereist kenmerk is ontbreekt of niet ingevuld voor een gebruiker.** Een belangrijke dingen om te overwegen bij het instellen van de inrichting is om te controleren en configureren van de kenmerktoewijzingen en werkstromen die welke gebruiker (of groep) eigenschappen stroom van Azure AD aan de toepassing definiëren. Deze configuratie omvat het instellen de 'overeenkomende eigenschap"dat wordt gebruikt voor unieke identificatie en overeenkomen met de gebruikers/groepen tussen de twee systemen. Zie voor meer informatie over dit belangrijk proces [aanpassen inrichting kenmerk gebruikerstoewijzingen voor de SaaS-toepassingen in Azure Active Directory](customize-application-attributes.md).
-- **Kenmerktoewijzingen voor groepen:** Inrichting van de groepsnaam en de Groepsdetails, naast de leden, als dit wordt ondersteund voor sommige toepassingen. U kunt inschakelen of uitschakelen van deze functionaliteit met in- of uitschakelen de **toewijzing** voor groepsobjecten worden weergegeven in de **Provisioning** tabblad. Als u groepen inrichten is ingeschakeld, worden de kenmerktoewijzingen om te controleren of dat het juiste veld wordt gebruikt voor de "overeenkomende ID" Lees. De overeenkomende ID is de naam of e-mailalias van weergave. De groep en de bijbehorende leden zijn niet ingericht als de overeenkomende eigenschap leeg of niet ingevuld voor een groep in Azure AD is.
+- **Er is een bereik filter geconfigureerd** **waarmee de gebruiker wordt gefilterd op basis van een kenmerk waarde**. Zie [bereik filters](define-conditional-rules-for-provisioning-user-accounts.md)voor meer informatie over het bereik van filters.
+- **De gebruiker is niet effectief.** Als u dit specifieke fout bericht ziet, is er een probleem met de gebruikers toewijzings record die is opgeslagen in azure AD. U kunt dit probleem oplossen door de toewijzing van de gebruiker (of groep) uit de app ongedaan te verwijderen en opnieuw toe te wijzen. Zie [toegang toewijzen aan gebruikers of groepen](assign-user-or-group-access-portal.md)voor meer informatie over de toewijzing.
+- **Een vereist kenmerk ontbreekt of is niet ingevuld voor een gebruiker.** Het is belang rijk om rekening mee te houden bij het instellen van inrichting door de kenmerk toewijzingen en werk stromen te controleren en te configureren die bepalen welke gebruikers-(of groeps) eigenschappen stromen van Azure AD naar de toepassing. Deze configuratie omvat het instellen van de ' overeenkomende eigenschap ' die wordt gebruikt om gebruikers/groepen tussen de twee systemen uniek te identificeren en te vergelijken. Zie voor meer informatie over dit belang rijke proces de [toewijzing van kenmerk toewijzingen van gebruikers aanpassen voor SaaS-toepassingen in azure Active Directory](customize-application-attributes.md).
+- **Kenmerk toewijzingen voor groepen:** Het inrichten van de groeps naam en groeps gegevens, naast de leden, als deze worden ondersteund voor sommige toepassingen. U kunt deze functie in-of uitschakelen door de **toewijzing** voor groeps objecten die op het tabblad **inrichten** wordt weer gegeven in of uit te scha kelen. Als inrichtings groepen is ingeschakeld, moet u de kenmerk toewijzingen controleren om ervoor te zorgen dat er een geschikt veld wordt gebruikt voor de ' overeenkomende ID '. De overeenkomende ID kan de weergave naam of e-mail alias zijn. De groep en de bijbehorende leden worden niet ingericht als de overeenkomende eigenschap leeg is of niet is ingevuld voor een groep in azure AD.
 
 ## <a name="next-steps"></a>Volgende stappen
 

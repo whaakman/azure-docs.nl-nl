@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 16e12021a65a09376293f28efe9a6e9ef74ef5c2
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f0f00745f2f7781bda0e636167b1cf1a4045f7cd
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839563"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881378"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -446,11 +446,25 @@ De volgende opties voor de implementatie van de aangepaste container zijn beschi
 
 ## <a name="monitoring-functions"></a>Bewakings functies
 
-De aanbevolen manier om de uitvoering van uw functies te controleren is door te integreren met Azure-toepassing Insights. Wanneer u een functie-app maakt in de Azure Portal, wordt deze integratie standaard voor u uitgevoerd. Wanneer u echter uw functie-app maakt met behulp van Azure CLI, wordt de integratie in uw functie-app in azure niet uitgevoerd.
+De aanbevolen manier om de uitvoering van uw functies te controleren is door te integreren met Azure-toepassing Insights. U kunt ook uitvoerings logboeken streamen naar uw lokale computer. Zie [Azure functions bewaken](functions-monitoring.md)voor meer informatie.
+
+### <a name="enable-application-insights-integration"></a>Integratie van Application Insights inschakelen
+
+Wanneer u een functie-app maakt in de Azure Portal, wordt de Application Insights-integratie standaard voor u uitgevoerd. Wanneer u echter uw functie-app maakt met behulp van Azure CLI, wordt de integratie in uw functie-app in azure niet uitgevoerd.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
-Zie [Azure functions bewaken](functions-monitoring.md)voor meer informatie.
+### <a name="enable-streaming-logs"></a>Streaming-logboeken inschakelen
+
+U kunt een stroom weer geven van de logboek bestanden die worden gegenereerd door uw functies in een opdracht regel sessie op uw lokale computer. 
+
+#### <a name="native-streaming-logs"></a>Systeem eigen streaming-logboeken
+
+[!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
+
+Voor dit type streaming-logboeken moet u [Application Insights-integratie inschakelen](#enable-application-insights-integration) voor uw functie-app.   
+
+
 ## <a name="next-steps"></a>Volgende stappen
 
 Azure Functions Core Tools is [open source en wordt gehost op github](https://github.com/azure/azure-functions-cli).  

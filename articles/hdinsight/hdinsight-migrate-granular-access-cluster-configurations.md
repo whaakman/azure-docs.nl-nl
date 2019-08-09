@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: ebb1723a9a2b2d069a1766d4f78151f2b684c5b9
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 797caae3caaca14c10481cb58654c45b4bed55ae
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464665"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884319"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migreren naar gedetailleerde, op rollen gebaseerde toegang voor clusterconfiguraties
 
@@ -155,14 +155,14 @@ Update naar [AZ Power shell version 2.0.0](https://www.powershellgallery.com/pac
 
 ## <a name="add-the-hdinsight-cluster-operator-role-assignment-to-a-user"></a>De roltoewijzing van de HDInsight-cluster operator toevoegen aan een gebruiker
 
-Een gebruiker met de rol [Inzender](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) of [eigenaar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) kan de rol van de [HDInsight-cluster operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) toewijzen aan gebruikers waarvoor u lees-/schrijftoegang wilt hebben tot gevoelige HDInsight-cluster configuratie waarden (zoals cluster gateway referenties en opslag account-sleutels).
+Een gebruiker met de rol [eigenaar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) kan de rol van de [HDInsight-cluster operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) toewijzen aan gebruikers waarvoor u lees-/schrijftoegang wilt hebben tot gevoelige configuratie waarden voor het hdinsight-cluster (zoals de cluster gateway referenties en de sleutels van het opslag account).
 
 ### <a name="using-the-azure-cli"></a>Azure CLI gebruiken
 
 De eenvoudigste manier om deze roltoewijzing toe te voegen, is `az role assignment create` met behulp van de opdracht in azure cli.
 
 > [!NOTE]
-> Deze opdracht moet worden uitgevoerd door een gebruiker met de rol Inzender of eigenaar, omdat alleen deze machtigingen kunnen worden verleend. Het `--assignee` is het e-mail adres van de gebruiker aan wie u de rol van de HDInsight-cluster operator wilt toewijzen.
+> Deze opdracht moet worden uitgevoerd door een gebruiker met de rol eigenaar, omdat alleen deze machtigingen kunnen worden verleend. De `--assignee` is de naam van de service-principal of het e-mail adres van de gebruiker aan wie u de rol van de HDInsight-cluster operator wilt toewijzen. Als u een fout melding over onvoldoende machtigingen krijgt, raadpleegt u de veelgestelde vragen hieronder.
 
 #### <a name="grant-role-at-the-resource-cluster-level"></a>Rol toekennen op resource niveau (cluster)
 
@@ -185,3 +185,23 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 ### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
 
 U kunt ook de Azure Portal gebruiken om de roltoewijzing van de HDInsight-cluster operator toe te voegen aan een gebruiker. Raadpleeg de documentatie voor meer informatie over het [beheren van toegang tot Azure-resources met RBAC en de Azure Portal-een roltoewijzing toevoegen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
+
+## <a name="faq"></a>Veelgestelde vragen
+
+### <a name="why-am-i-seeing-a-403-forbidden-response-after-updating-my-api-requests-andor-tool"></a>Waarom krijg ik een 403 (verboden) reactie na het bijwerken van mijn API-aanvragen en/of hulp programma?
+
+Cluster configuraties bevinden zich nu achter een gedetailleerd toegangs beheer op basis van `Microsoft.HDInsight/clusters/configurations/*` rollen en vereisen de machtiging voor toegang. Als u deze machtiging wilt verkrijgen, wijst u de rol HDInsight-cluster operator, Inzender of eigenaar toe aan de gebruiker of service-principal die toegang probeert te krijgen tot configuraties.
+
+### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>Waarom zie ik ' onvoldoende bevoegdheden om de bewerking te volt ooien ' bij het uitvoeren van de Azure CLI-opdracht om de rol van de HDInsight-cluster operator toe te wijzen aan een andere gebruiker of Service-Principal?
+
+Naast de rol van eigenaar moet de gebruiker of service-principal die de opdracht uitvoert, voldoende AAD-machtigingen hebben om de object-Id's van de toegewezen persoon op te zoeken. Dit bericht geeft onvoldoende AAD-machtigingen. Probeer het `-–assignee` argument te vervangen `–assignee-object-id` door en de object-id van de toegewezen gebruiker op te geven als de para meter in plaats van de naam (of de principal-id in het geval van een beheerde identiteit). Zie de sectie optionele para meters van de [toewijzing AZ Role](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) voor meer informatie.
+
+Als dit nog steeds niet werkt, neemt u contact op met uw AAD-beheerder om de juiste machtigingen te verkrijgen.
+
+### <a name="what-will-happen-if-i-take-no-action"></a>Wat gebeurt er als er geen actie wordt ondernomen?
+
+De `GET /configurations` `GET /configurations/{configurationName}` en `POST /configurations/gateway` retourneert geen informatie en de aanroep zal niet langer gevoelige para meters retour neren, zoals de sleutel voor het opslag account of het wacht woord van het cluster. Hetzelfde geldt voor de bijbehorende SDK-methoden en Power shell-cmdlets.
+
+Als u een oudere versie gebruikt van een van de hulpprogram ma's voor Visual Studio, VSCode, IntelliJ of eclips die hierboven worden genoemd, werken ze niet meer totdat u deze bijwerkt.
+
+Zie de bijbehorende sectie in dit document voor uw scenario voor meer gedetailleerde informatie.

@@ -1,216 +1,145 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met SafeConnect | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en SafeConnect.
+title: 'Zelfstudie: Integratie met SafeConnect Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en SafeConnect.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: f9aaac2e-cdba-4f01-a57f-2c5c26287085
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2018
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbb94c28d56b0492fe3488d7c9e2e1257a8b9388
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 701e4ef37e9508923409a7ce65991b9174678f4f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60624205"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880207"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-safeconnect"></a>Zelfstudie: Azure Active Directory-integratie met SafeConnect
+# <a name="tutorial-integrate-safeconnect-with-azure-active-directory"></a>Zelfstudie: SafeConnect integreren met Azure Active Directory
 
-In deze zelfstudie leert u hoe u SafeConnect integreren met Azure Active Directory (Azure AD).
+In deze zelf studie leert u hoe u SafeConnect integreert met Azure Active Directory (Azure AD). Wanneer u SafeConnect integreert met Azure AD, kunt u het volgende doen:
 
-SafeConnect integreren met Azure AD biedt u de volgende voordelen:
+* Controle in azure AD die toegang heeft tot SafeConnect.
+* Zorg ervoor dat uw gebruikers automatisch worden aangemeld bij SafeConnect met hun Azure AD-accounts.
+* Beheer uw accounts op één centrale locatie: de Azure Portal.
 
-- U kunt beheren in Azure AD die toegang tot SafeConnect heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij SafeConnect (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)voor meer informatie over SaaS-app-integratie met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met SafeConnect, moet u de volgende items:
+U hebt de volgende items nodig om aan de slag te gaan:
 
-- Een Azure AD-abonnement
-- Een SafeConnect eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/)aanvragen.
+* SafeConnect-abonnement dat is ingeschakeld voor eenmalige aanmelding (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. SafeConnect uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelf studie configureert en test u Azure AD SSO in een test omgeving.
 
-## <a name="adding-safeconnect-from-the-gallery"></a>SafeConnect uit de galerie toe te voegen
-Voor het configureren van de integratie van SafeConnect in Azure AD, moet u SafeConnect uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* SafeConnect ondersteunt door **SP** GEÏNITIEERDe SSO
 
-**Als u wilt toevoegen SafeConnect uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-safeconnect-from-the-gallery"></a>SafeConnect toevoegen uit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Als u de integratie van SafeConnect in azure AD wilt configureren, moet u SafeConnect uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
+1. Selecteer de **Azure Active Directory** -service in het navigatie deel venster aan de linkerkant.
+1. Ga naar **bedrijfs toepassingen** en selecteer **alle toepassingen**.
+1. Selecteer **nieuwe toepassing**om een nieuwe toepassing toe te voegen.
+1. Typ in de sectie **toevoegen vanuit de galerie** **SafeConnect** in het zoekvak.
+1. Selecteer **SafeConnect** uit het paneel resultaten en voeg vervolgens de app toe. Wacht een paar seconden wanneer de app aan uw Tenant is toegevoegd.
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-    ![De blade Enterprise-toepassingen][2]
-    
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+Azure AD SSO met SafeConnect configureren en testen met behulp van een test gebruiker met de naam **B. Simon**. Voor het werken met SSO moet u een koppelings relatie tot stand brengen tussen een Azure AD-gebruiker en de bijbehorende gebruiker in SafeConnect.
 
-    ![De knop Nieuwe toepassing][3]
+Als u Azure AD SSO wilt configureren en testen met SafeConnect, voltooit u de volgende bouw stenen:
 
-4. Typ in het zoekvak **SafeConnect**, selecteer **SafeConnect** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. **[Configureer Azure AD SSO](#configure-azure-ad-sso)** -om uw gebruikers in staat te stellen deze functie te gebruiken.
+2. **[SAFECONNECT SSO configureren](#configure-safeconnect-sso)** : voor het configureren van de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
+3. **[Een Azure AD-test gebruiker maken](#create-an-azure-ad-test-user)** : u kunt eenmalige aanmelding voor Azure AD testen met B. Simon.
+4. **[Wijs de Azure AD-test gebruiker](#assign-the-azure-ad-test-user)** toe, zodat B. Simon de eenmalige aanmelding van Azure AD kan gebruiken.
+5. **[Maak een SafeConnect-test gebruiker](#create-safeconnect-test-user)** -om een equivalent van B. Simon in SafeConnect te hebben dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
+6. **[SSO testen](#test-sso)** : om te controleren of de configuratie werkt.
 
-    ![SafeConnect in de lijst met resultaten](./media/safeconnect-tutorial/tutorial_safeconnect_addfromgallery.png)
+### <a name="configure-azure-ad-sso"></a>Azure AD SSO configureren
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+Volg deze stappen om Azure AD SSO in te scha kelen in de Azure Portal.
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met SafeConnect op basis van een testgebruiker 'Julia steen' genoemd.
+1. Zoek in het [Azure Portal](https://portal.azure.com/)op de pagina Toepassings integratie van **SafeConnect** de sectie **beheren** en selecteer **eenmalige aanmelding**.
+1. Selecteer op de pagina **Eén aanmeldings methode selecteren** de optie **SAML**.
+1. Klik op de pagina **eenmalige aanmelding met SAML instellen** op het pictogram bewerken/pen voor **eenvoudige SAML-configuratie** om de instellingen te bewerken.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in SafeConnect is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in SafeConnect tot stand worden gebracht.
+   ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met SafeConnect, moet u de volgende bouwstenen voltooien:
+1. Voer in de sectie **basis configuratie van SAML** de waarden in voor de volgende velden:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-3. **[Maak een testgebruiker SafeConnect](#create-a-safeconnect-test-user)**  : als u wilt een equivalent van Britta Simon in SafeConnect die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://portal.myweblogon.com:8443/saml/login`
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
+1. Ga op de pagina **eenmalige aanmelding met SAML instellen** naar de sectie SAML **-** **handtekening certificaat** en selecteer **downloaden** om het certificaat te downloaden en op uw computer op te slaan.
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing SafeConnect.
+    ![De downloadkoppeling certificaat](common/metadataxml.png)
 
-**Voor het configureren van Azure AD eenmalige aanmelding met SafeConnect, moet u de volgende stappen uitvoeren:**
+1. Op de sectie **SafeConnect instellen** kopieert u de gewenste URL ('s) op basis van uw vereiste.
 
-1. In de Azure-portal op de **SafeConnect** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+### <a name="configure-safeconnect-sso"></a>SafeConnect SSO configureren
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/safeconnect-tutorial/tutorial_safeconnect_samlbase.png)
+Als u eenmalige aanmelding wilt configureren op **SafeConnect** , moet u de gedownloade **META gegevensxml** en de juiste gekopieerde url's verzenden van Azure Portal naar SafeConnect ondersteunings [team](mailto:support@impulse.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
-3. Op de **SafeConnect domein en URL's** sectie, voert u de volgende stappen uit:
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-    ![SafeConnect domein en URL's, eenmalige aanmelding informatie](./media/safeconnect-tutorial/tutorial_safeconnect_url.png)
+In deze sectie maakt u een test gebruiker in de Azure Portal met de naam B. Simon.
 
-     Typ een URL in het tekstvak **Aanmeldings-URL**: `https://portal.myweblogon.com:8443/saml/login`
-
-4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
-
-    ![De downloadkoppeling certificaat](./media/safeconnect-tutorial/tutorial_safeconnect_certificate.png) 
-
-5. Klik op **opslaan** knop.
-
-    ![Configureren van eenmalige aanmelding opslaan](./media/safeconnect-tutorial/tutorial_general_400.png)
-
-6. Het configureren van eenmalige aanmelding op **SafeConnect** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [SafeConnect ondersteuningsteam](mailto:support@impulse.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
-
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
-
-   ![Maak een testgebruiker Azure AD][100]
-
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
-
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
-
-    ![De Azure Active Directory-knop](./media/safeconnect-tutorial/create_aaduser_01.png)
-
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
-
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/safeconnect-tutorial/create_aaduser_02.png)
-
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
-
-    ![De knop toevoegen](./media/safeconnect-tutorial/create_aaduser_03.png)
-
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/safeconnect-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
-
-    d. Klik op **Create**.
- 
-### <a name="create-a-safeconnect-test-user"></a>Maak een testgebruiker SafeConnect
-
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in SafeConnect. Werken met [SafeConnect ondersteuningsteam](mailto:support@impulse.com) om toe te voegen de gebruikers in het SafeConnect-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken. 
+1. Selecteer in het linkerdeel venster van de Azure Portal **Azure Active Directory**, selecteer **gebruikers**en selecteer vervolgens **alle gebruikers**.
+1. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
+1. Voer de volgende stappen uit in de eigenschappen van de **gebruiker** :
+   1. Voer in het veld **Naam** `B.Simon` in.  
+   1. Voer in het veld **gebruikers naam** het username@companydomain.extensionin. Bijvoorbeeld `B.Simon@contoso.com`.
+   1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
+   1. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan SafeConnect.
+In deze sectie schakelt u B. Simon in om eenmalige aanmelding van Azure te gebruiken door toegang te verlenen aan SafeConnect.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in het Azure Portal **bedrijfs toepassingen**en selecteer vervolgens **alle toepassingen**.
+1. Selecteer in de lijst toepassingen de optie **SafeConnect**.
+1. Ga op de pagina overzicht van de app naar de sectie **beheren** en selecteer **gebruikers en groepen**.
 
-**Als u wilt Britta Simon aan SafeConnect toewijst, moet u de volgende stappen uitvoeren:**
+   ![De koppeling 'Gebruikers en groepen'](common/users-groups-blade.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in het dialoog venster **toewijzing toevoegen** .
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling gebruiker toevoegen](common/add-assign-user.png)
 
-2. Selecteer in de lijst met toepassingen, **SafeConnect**.
+1. Selecteer in het dialoog venster **gebruikers en groepen** **B. Simon** van de lijst gebruikers en klik vervolgens op de knop **selecteren** onder aan het scherm.
+1. Als u een wille keurige rol verwacht in de SAML-bewering, selecteert u in het dialoog venster **rol selecteren** de juiste rol voor de gebruiker in de lijst en klikt u op de knop **selecteren** onder aan het scherm.
+1. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-    ![De koppeling SafeConnect in de lijst met toepassingen](./media/safeconnect-tutorial/tutorial_safeconnect_app.png)  
+### <a name="create-safeconnect-test-user"></a>SafeConnect-test gebruiker maken
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+In deze sectie maakt u een gebruiker met de naam Julia Simon in SafeConnect. Werk samen met SafeConnect-ondersteunings [team](mailto:support@impulse.com) om de gebruikers toe te voegen in het SafeConnect-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
-
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Het deelvenster toewijzing toevoegen][203]
-
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="test-sso"></a>SSO testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel SafeConnect in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing SafeConnect.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+Wanneer u op de tegel SafeConnect in het toegangs venster klikt, moet u automatisch worden aangemeld bij de SafeConnect waarvoor u SSO hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/safeconnect-tutorial/tutorial_general_01.png
-[2]: ./media/safeconnect-tutorial/tutorial_general_02.png
-[3]: ./media/safeconnect-tutorial/tutorial_general_03.png
-[4]: ./media/safeconnect-tutorial/tutorial_general_04.png
-
-[100]: ./media/safeconnect-tutorial/tutorial_general_100.png
-
-[200]: ./media/safeconnect-tutorial/tutorial_general_200.png
-[201]: ./media/safeconnect-tutorial/tutorial_general_201.png
-[202]: ./media/safeconnect-tutorial/tutorial_general_202.png
-[203]: ./media/safeconnect-tutorial/tutorial_general_203.png
-
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

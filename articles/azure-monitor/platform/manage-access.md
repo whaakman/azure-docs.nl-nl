@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 05b022be3bd460809de77945710ed0bdcd275648
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c6fa4df1fb2fc7559f706d81621ea198f5ca7cdc
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839312"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881430"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Logboek gegevens en-werk ruimten in Azure Monitor beheren
 
@@ -32,7 +32,17 @@ In dit artikel wordt uitgelegd hoe u de toegang tot logboeken beheert en hoe u d
 
 * Toegang verlenen aan gebruikers die toegang nodig hebben tot logboek gegevens in een specifieke tabel in de werk ruimte met behulp van Azure RBAC.
 
-## <a name="define-access-control-mode-in-azure-portal"></a>Toegangs beheer modus definiëren in Azure Portal
+## <a name="define-access-control-mode"></a>Toegangs beheer modus definiëren
+
+U kunt de toegangs beheer modus die is geconfigureerd op een werk ruimte weer geven vanuit de Azure Portal of met Azure PowerShell.  U kunt deze instelling wijzigen met een van de volgende ondersteunde methoden:
+
+* Azure Portal
+
+* Azure PowerShell
+
+* Azure Resource Manager-sjabloon
+
+### <a name="configure-from-the-azure-portal"></a>Configureren vanuit de Azure Portal
 
 U kunt de huidige toegangs beheer modus voor de werk ruimte weer geven op de pagina **overzicht** van de werk ruimte in het menu van de **log Analytics werk ruimte** . 
 
@@ -45,7 +55,7 @@ U kunt deze instelling wijzigen op de pagina **Eigenschappen** van de werk ruimt
 
 ![Toegangs modus voor werk ruimte wijzigen](media/manage-access/change-access-control-mode.png)
 
-## <a name="define-access-control-mode-using-powershell"></a>Toegangs beheer modus definiëren met Power shell
+### <a name="configure-using-powershell"></a>Configureren met Power shell
 
 Gebruik de volgende opdracht om de toegangs beheer modus voor alle werk ruimten in het abonnement te controleren:
 
@@ -89,7 +99,7 @@ else
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
 
-## <a name="define-access-mode-using-resource-manager-template"></a>De toegangs modus definiëren met de Resource Manager-sjabloon
+### <a name="configure-using-a-resource-manager-template"></a>Configureren met behulp van een resource manager-sjabloon
 
 Als u de toegangs modus in een Azure Resource Manager sjabloon wilt configureren, stelt u de **enableLogAccessUsingOnlyResourcePermissions** -functie vlag in de werk ruimte in op een van de volgende waarden.
 

@@ -9,28 +9,28 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 04/30/2019
+ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: df60429a8b3d6fbdc504a7605d1502b4e084d386
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ce8c74e5c194dbd971ecb65659c4fc8a7150146d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165306"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882925"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Een aangepaste weergave delen via een geparameteriseerde URL
 
-Voor het delen van een aangepaste weergave in Time Series Insights Explorer, kunt u via programmacode een geparameteriseerde URL van de aangepaste weergave maken.
+Als u een aangepaste weer gave in Time Series Insights Explorer wilt delen, kunt u programmatisch een geparametriseerde URL maken van de aangepaste weer gave.
 
-De Verkenner van Time Series Insights ondersteunt URL-queryparameters om weergaven in de ervaring van rechtstreeks vanuit de URL opgeven. U kunt bijvoorbeeld via de URL een doelomgeving, een zoekpredicaat en de gewenste tijdspanne opgeven. Wanneer een gebruiker de aangepaste URL selecteert, bevat de interface een koppeling rechtstreeks naar dat asset in de Time Series Insights-portal. Beleid voor gegevenstoegang wordt toegepast.
+De Time Series Insights Explorer ondersteunt URL-query parameters om weer gaven in de ervaring rechtstreeks vanuit de URL op te geven. U kunt bijvoorbeeld via de URL een doelomgeving, een zoekpredicaat en de gewenste tijdspanne opgeven. Wanneer een gebruiker de aangepaste URL selecteert, biedt de interface een koppeling rechtstreeks naar die asset in de Time Series Insights Portal. Beleid voor gegevenstoegang wordt toegepast.
 
 > [!TIP]
-> * Bekijk de gratis [Time Series Insights-demo](https://insights.timeseries.azure.com/samples).
-> * Lees het bijbehorende [Time Series Insights Explorer](./time-series-insights-explorer.md) documentatie.
+> * Bekijk de gratis [Time Series Insights demo](https://insights.timeseries.azure.com/samples).
+> * Lees de documentatie bij de bijbehorende [Time Series Insights Explorer](./time-series-insights-explorer.md) .
 
 ## <a name="environment-id"></a>Omgevings-id
 
-De parameter `environmentId=<guid>` geeft de id van de doelomgeving op. Het is een onderdeel van de FQDN voor gegevenstoegang en u vindt deze in de rechterbovenhoek van het omgevingsoverzicht in Azure portal. Dit is alles wat voorafgaat aan `env.timeseries.azure.com`.
+De parameter `environmentId=<guid>` geeft de id van de doelomgeving op. Het is een onderdeel van de FQDN van gegevens toegang en u vindt het in de rechter bovenhoek van het overzicht van de omgeving in het Azure Portal. Dit is alles wat voorafgaat aan `env.timeseries.azure.com`.
 
 Een voorbeeld van de parameter voor omgevings-id is `?environmentId=10000000-0000-0000-0000-100000000108`.
 
@@ -53,75 +53,75 @@ Voor een relatieve tijdwaarde gebruikt u `relativeMillis=<value>`, waarbij *valu
 
 `&relativeMillis=3600000` geeft bijvoorbeeld de afgelopen 60 minuten aan gegevens weer.
 
-Geaccepteerde waarden komen overeen met de Verkenner van Time Series Insights **snelle time** in het menu en omvatten:
+Geaccepteerde waarden komen overeen met het menu **snelle tijd** van Time Series Insights Explorer en bevatten het volgende:
 
-* `1800000` (Afgelopen 30 minuten)
-* `3600000` (Afgelopen 60 minuten)
-* `10800000` (Afgelopen 3 uur)
-* `21600000` (Afgelopen 6 uur)
-* `43200000` (Afgelopen 12 uur)
-* `86400000` (Afgelopen 24 uur)
-* `604800000` (Afgelopen 7 dagen)
-* `2592000000` (Afgelopen 30 uur)
+* `1800000`(Afgelopen 30 minuten)
+* `3600000`(Afgelopen 60 minuten)
+* `10800000`(Afgelopen 3 uur)
+* `21600000`(Afgelopen 6 uur)
+* `43200000`(Afgelopen 12 uur)
+* `86400000`(Afgelopen 24 uur)
+* `604800000`(Afgelopen 7 dagen)
+* `2592000000`(Afgelopen 30 uur)
 
 ### <a name="optional-parameters"></a>Optionele parameters
 
-De `timeSeriesDefinitions=<collection of term objects>` parameter geeft u de voorwaarden van een Time Series Insights-weergave:
+Met `timeSeriesDefinitions=<collection of term objects>` de para meter worden de voor waarden van een time series Insights weer gave opgegeven:
 
-| Parameter | URL-Item | Description |
+| Parameter | URL-item | Description |
 | --- | --- | --- |
 | **name** | `\<string>` | De naam van het *onderdeel*. |
 | **splitBy** | `\<string>` | De naam van de kolom waarop moet worden *gesplitst*. |
 | **measureName** | `\<string>` | De kolomnaam van de *meting*. |
-| **predicate** | `\<string>` | De *where*-component voor filteren aan de serverzijde. |
-| **useSum** | `true` | Een optionele parameter waarmee het gebruik van een som voor uw meting. </br>  Opmerking: als `Events` is van de geselecteerde maateenheid count is standaard geselecteerd.  </br>  Als `Events` is niet ingeschakeld, gemiddelde is standaard geselecteerd. |
+| **predicaat** | `\<string>` | De *where*-component voor filteren aan de serverzijde. |
+| **useSum** | `true` | Een optionele para meter waarmee het gebruik van een som voor uw meting wordt opgegeven. </br>  Opmerking: als `Events` de geselecteerde meting is, wordt standaard het aantal geselecteerd.  </br>  Als `Events` niet is geselecteerd, wordt standaard het gemiddelde geselecteerd. |
 
-* De `multiChartStack=<true/false>` sleutel / waarde-paar maakt in de grafiek.
-* De `multiChartSameScale=<true/false>` sleutel / waarde-paar biedt dezelfde schaal voor y-as voor termen binnen een optionele parameter.  
-* De `timeBucketUnit=<Unit>&timeBucketSize=<integer>` kunt u aan te passen de interval van de schuifregelaar voor een gedetailleerdere of een soepelere, meer geaggregeerde weergave van de grafiek.  
-* De `timezoneOffset=<integer>` parameter kunt u instellen dat de tijdzone voor de grafiek om te worden weergegeven als een UTC-verschuiving.
+* Met `multiChartStack=<true/false>` het sleutel-waardepaar kan de grafiek worden gestapeld.
+* Met `multiChartSameScale=<true/false>` het sleutel-waardepaar kunt u dezelfde schaal van de Y-as voor alle termen binnen een optionele para meter.  
+* U `timeBucketUnit=<Unit>&timeBucketSize=<integer>` kunt de schuif regelaar voor het interval aanpassen om een meer gedetailleerde of vloeiendere weer gave van de grafiek te bieden.  
+* Met `timezoneOffset=<integer>` de para meter kunt u de tijd zone voor de grafiek instellen zodat deze wordt weer gegeven als een offset naar UTC.
 
-| Klantlicenties | Description |
+| Paar (s) | Description |
 | --- | --- |
-| `multiChartStack=false` | `true` is standaard ingeschakeld zodat doorgeven `false` stapelen. |
-| `multiChartStack=false&multiChartSameScale=true` | Stapelen moet zijn ingeschakeld om dezelfde schaling van de Y-as te gebruiken voor verschillende onderdelen.  Er `false` standaard, dus geven 'true' schakelt deze functionaliteit. |
+| `multiChartStack=false` | `true`is standaard ingeschakeld, dus door `false` gegeven aan stack. |
+| `multiChartStack=false&multiChartSameScale=true` | Stapelen moet zijn ingeschakeld om dezelfde schaling van de Y-as te gebruiken voor verschillende onderdelen.  Het is `false` standaard ingeschakeld, dus als u ' waar ' inschakelt, wordt deze functionaliteit door gegeven. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Eenheden = dagen, uren, minuten, seconden en milliseconden.  Gebruik altijd een hoofdletter voor de eenheid. </br> Definieer het aantal eenheden door het gewenste gehele getal voor timeBucketSize op te geven.  Rond af naar 7 dagen.  |
-| `timezoneOffset=-<integer>` | Het gehele getal is altijd in milliseconden. </br> Opmerking: deze functionaliteit is enigszins afwijken van wat wordt ingeschakeld in de Verkenner van Time Series Insights, waar we Hiermee kunt u kiezen lokaal (browsertijd) of UTC. |
+| `timezoneOffset=-<integer>` | Het gehele getal is altijd in milliseconden. </br> Houd er rekening mee dat deze functionaliteit enigszins afwijkt van wat er in de Time Series Insights Explorer wordt ingeschakeld, waar u lokaal kunt kiezen (browser tijd) of UTC. |
 
 ### <a name="examples"></a>Voorbeelden
 
-Time series-definities toevoegen aan een Time Series Insights-omgeving als een URL-parameter, toevoegen:
+Als u de definities van de tijd reeks wilt toevoegen aan een Time Series Insights omgeving als een URL-para meter, voegt u het volgende toe:
 
 ```plaintext
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
 {"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
-Gebruik het voorbeeld van de tijd reeks definities voor:
+Gebruik de voor beelden van Time Series-definities voor:
 
 * De omgevings-ID
-* De afgelopen 60 minuten aan gegevens
-* De voorwaarden (F1PressureID, F2TempStation en F3VibrationPL) die deel uitmaken van de volgende optionele parameters
+* De laatste 60 minuten aan gegevens
+* De voor waarden (F1PressureID, F2TempStation en F3VibrationPL) waaruit de optionele para meters bestaan
 
-u kunt de volgende geparameteriseerde URL voor een weergave maken:
+U kunt de volgende geparametriseerde URL voor een weer gave maken:
 
 ```plaintext
 https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
 > [!TIP]
-> Zie de Explorer live [met behulp van de URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]).
+> Bekijk de Explorer Live [met behulp van de URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]).
 
-De URL die hierboven wordt beschreven en de Time Series Insights Explorer-weergave is gebaseerd:
+De onderstaande URL beschrijft en bouwt de weer gave Time Series Insights Explorer:
 
-[![Time Series Insights explorer voorwaarden](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
+[![Time Series Insights Explorer-voor waarden](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 
-De volledige weergave (inclusief het diagram):
+De volledige weer gave (met inbegrip van de grafiek):
 
-[![Grafiek weergeven](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
+[![Grafiek weergave](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het [query gegevens met C# ](time-series-insights-query-data-csharp.md).
+* Meer informatie over het [opvragen van C#gegevens met behulp van ](time-series-insights-query-data-csharp.md).
 
 * Meer informatie over de [Time Series Insights Explorer](./time-series-insights-explorer.md).

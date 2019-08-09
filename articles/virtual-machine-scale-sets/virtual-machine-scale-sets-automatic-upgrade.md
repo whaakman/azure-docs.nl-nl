@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2019
 ms.author: manayar
-ms.openlocfilehash: eeb689f90197830dad98c213849b2e82ba43bbf1
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: ac754acd61700dc39ebc633da4274c74d8463824
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296355"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884171"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Upgrade van Azure virtual machine-schaal sets automatische installatie kopieën van besturings systemen
 
@@ -128,7 +128,7 @@ az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradeP
 
 Tijdens een upgrade van het besturings systeem worden VM-exemplaren in een schaalset één batch tegelijk geüpgraded. De upgrade moet alleen door gaan als de toepassing van de klant in orde is op de bijgewerkte VM-exemplaren. U wordt aangeraden de toepassing status signalen te bieden voor de upgrade-engine van het besturings systeem voor de schaalset. Tijdens de upgrade van het besturings systeem wordt het platform standaard beschouwd als de status van de VM-energie status en-extensie om te bepalen of een VM-exemplaar in orde is na een upgrade. Tijdens de upgrade van het besturings systeem van een VM-exemplaar wordt de besturingssysteem schijf op een VM-exemplaar vervangen door een nieuwe schijf op basis van de nieuwste versie van de installatie kopie. Nadat de upgrade van het besturings systeem is voltooid, worden de geconfigureerde uitbrei dingen uitgevoerd op deze Vm's. De toepassing wordt alleen in orde geacht als alle uitbrei dingen van het exemplaar zijn ingericht.
 
-Een schaalset kan eventueel worden geconfigureerd met toepassings status tests om het platform te voorzien van nauw keurige informatie over de doorlopende status van de toepassing. De status tests van toepassingen zijn aangepaste Load Balancer tests die worden gebruikt als een status signaal. De toepassing die wordt uitgevoerd op een VM-instantie van een schaalset kan reageren op externe HTTP-of TCP-aanvragen die aangeven of deze in orde zijn. Zie voor meer informatie over hoe aangepaste Load Balancer tests werken om te [begrijpen Load Balancer tests](../load-balancer/load-balancer-custom-probe-overview.md). Een status test voor een toepassing is niet vereist voor Service Fabric schaal sets, maar dit wordt wel aanbevolen. Voor niet-Service Fabric schaal sets is Load Balancer toepassings status tests of een [toepassings status uitbreiding](virtual-machine-scale-sets-health-extension.md)vereist.
+Een schaalset kan eventueel worden geconfigureerd met toepassings status tests om het platform te voorzien van nauw keurige informatie over de doorlopende status van de toepassing. De status tests van toepassingen zijn aangepaste Load Balancer tests die worden gebruikt als een status signaal. De toepassing die wordt uitgevoerd op een VM-instantie van een schaalset kan reageren op externe HTTP-of TCP-aanvragen die aangeven of deze in orde zijn. Zie voor meer informatie over hoe aangepaste Load Balancer tests werken om te [begrijpen Load Balancer tests](../load-balancer/load-balancer-custom-probe-overview.md). De status tests van toepassingen worden niet ondersteund voor Service Fabric schaal sets. Voor niet-Service Fabric schaal sets is Load Balancer toepassings status tests of een [toepassings status uitbreiding](virtual-machine-scale-sets-health-extension.md)vereist.
 
 Als de schaalset is geconfigureerd voor het gebruik van meerdere plaatsings groepen, moeten tests met een [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) worden gebruikt.
 

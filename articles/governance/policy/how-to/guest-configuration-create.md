@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 5e707fb004af7bbce915baf4b059514fcae8e52b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7dd053e3a9824ac0817db528b8b053666e1ded04
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725933"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881820"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Gast configuratie beleidsregels maken
 
@@ -321,6 +321,14 @@ Nadat u een aangepaste Azure Policy hebt gepubliceerd met behulp van uw aangepas
 
 De eenvoudigste manier om een bijgewerkt pakket vrij te geven, is het proces dat wordt beschreven in dit artikel herhalen en een bijgewerkt versie nummer opgeven.
 Zo wordt gegarandeerd dat alle eigenschappen correct zijn bijgewerkt.
+
+## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Windows-groepsbeleid inhoud converteren naar Azure Policy-gast configuratie
+
+Gast configuratie, bij het controleren van Windows-computers, is een implementatie van de desired state-configuratie syntaxis van Power shell.
+De DSC-Community heeft hulp middelen gepubliceerd voor het converteren van geëxporteerde groepsbeleid sjablonen naar de DSC-indeling.
+Als u dit hulp programma gebruikt in combi natie met de hierboven beschreven gast configuratie-cmdlets, kunt u Windows-groepsbeleid inhoud en-pakket converteren en publiceren voor Azure Policy naar controle.
+Voor meer informatie over het gebruik van het hulp programma [raadpleegt u het artikel Snelstartgids: Groepsbeleid converteren naar DSC](/powershell/dsc/quickstarts/gpo-quickstart).
+Zodra de inhoud is geconverteerd, zijn de bovenstaande stappen om een pakcage te maken en deze te publiceren als Azure Policy hetzelfde zijn als voor alle DSC-inhoud.
 
 ## <a name="optional-signing-guest-configuration-packages"></a>BESCHRIJVING Gast configuratie pakketten ondertekenen
 

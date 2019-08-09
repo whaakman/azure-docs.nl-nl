@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ccefec9e548b7981f696712bb4a983f4b577a9b
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 8ece7f93b5397db16e03c1eab1d2dc1e568113d9
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779637"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879262"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>On-premises Veelgestelde vragen over Azure AD-wachtwoord beveiliging
 
@@ -33,6 +33,8 @@ De huidige richt lijnen voor dit onderwerp van micro soft zijn te vinden op de v
 **V: Wordt on-premises Azure AD-wachtwoord beveiliging ondersteund in niet-open bare Clouds?**
 
 Geen on-premises Azure AD-wachtwoord beveiliging wordt alleen ondersteund in de open bare Cloud. Er is geen datum aangekondigd voor Beschik baarheid van niet-open bare Clouds.
+
+Met de Azure AD-Portal kunt u de configuratie van on-premises specifieke ' wachtwoord beveiliging voor Windows Server Active Directory ', zelfs in niet-open bare Clouds, wijzigen. dergelijke wijzigingen blijven behouden, maar worden anders nooit van kracht. Registratie van on-premises proxy agenten of-forests wordt niet ondersteund wanneer niet-open bare Cloud referenties worden gebruikt, en dergelijke registratie pogingen zullen altijd mislukken.
 
 **V: Hoe kan ik de voor delen van Azure AD-wachtwoord beveiliging Toep assen op een subset van mijn on-premises gebruikers?**
 
@@ -64,7 +66,7 @@ Wordt niet ondersteund. Azure AD-wachtwoord beveiliging is een Azure-functie die
 
 **V: Hoe kan ik de inhoud van het beleid op het Active Directory niveau wijzigen?**
 
-Wordt niet ondersteund. Het beleid kan alleen worden beheerd via de Azure AD-beheer Portal. Zie ook de vorige vraag.
+Wordt niet ondersteund. Het beleid kan alleen worden beheerd via de Azure AD-Portal. Zie ook de vorige vraag.
 
 **V: Waarom is DFSR vereist voor SYSVOL-replicatie?**
 
@@ -118,15 +120,15 @@ In samen vatting is de implementatie van de Azure AD-Agent service voor wachtwoo
 
 **V: Waarom werkt aangepaste slimme vergren deling niet, zelfs niet nadat de agents zijn geïnstalleerd in mijn on-premises Active Directory omgeving?**
 
-Aangepaste slimme vergren deling wordt alleen ondersteund in Azure. Wijzigingen in de aangepaste instellingen voor slim vergren delen in de Azure Management Portal hebben geen invloed op de on-premises Active Directory omgeving, zelfs niet als de agents zijn geïnstalleerd.
+Aangepaste slimme vergren deling wordt alleen ondersteund in azure AD. Wijzigingen in de aangepaste instellingen voor slim vergren delen in de Azure AD-Portal hebben geen invloed op de on-premises Active Directory omgeving, zelfs niet als de agents zijn geïnstalleerd.
 
 **V: Is er een System Center Operations Manager management pack beschikbaar voor Azure AD-wachtwoord beveiliging?**
 
 Nee.
 
-**V: Waarom wordt er nog steeds zwakke wacht woorden afgewezen hoewel ik het beleid in de controle modus heb geconfigureerd?**
+**V: Waarom wordt er nog steeds zwakke wacht woorden door Azure AD afgewezen, zelfs als ik het beleid in de controle modus heb geconfigureerd?**
 
-De controle modus wordt alleen ondersteund in de on-premises Active Directory omgeving. Azure is impliciet altijd in de modus afdwingen wanneer er wacht woorden worden geëvalueerd.
+De controle modus wordt alleen ondersteund in de on-premises Active Directory omgeving. Azure AD wordt impliciet altijd in de modus ' afdwingen ' wanneer wacht woorden worden geëvalueerd.
 
 ## <a name="additional-content"></a>Aanvullende inhoud
 

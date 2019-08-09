@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/08/2019
+ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6972c91a18f9deb240871d8c64a14647474d9d78
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 4cbaa8f22335da083506a76ad1a791576b109a00
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377270"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879771"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Fout codes voor aanmeldings activiteiten rapport 
 
@@ -127,6 +127,7 @@ U kunt ook programmatisch toegang krijgen tot de aanmeldings gegevens met behulp
 |50177|Externe controle wordt niet ondersteund voor passthrough-gebruikers.|
 |50178|Sessie beheer wordt niet ondersteund voor passthrough-gebruikers.|
 |50180|Geïntegreerde Windows-verificatie is vereist. Schakel de tenant in voor een naadloze eenmalige aanmelding (SSO).|
+|50201|Deze bericht prompt wordt weer gegeven voor de gebruiker tijdens het aanmelden wanneer aanvullende informatie aan de gebruiker moet worden verstrekt.|
 |51001|Er is geen domein Hint aanwezig met on-premises beveiligings-id-on-premises UPN.|
 |51004|Gebruikersaccount bestaat niet in de map.|
 |51006|Geïntegreerde Windows-verificatie is vereist. Gebruiker heeft zich aangemeld met een sessie token dat ontbreekt via claim. Vraag de gebruiker zich opnieuw aan te melden.|
@@ -181,6 +182,9 @@ U kunt ook programmatisch toegang krijgen tot de aanmeldings gegevens met behulp
 |500121| Verificatie is mislukt tijdens sterke verificatie aanvraag.|
 |500133| De verklaring valt niet binnen het geldige tijds bereik. Zorg ervoor dat het toegangs token niet is verlopen voordat u het gebruikt voor gebruikers bevestiging of een nieuw token aanvragen.|
 |530021|De toepassing voldoet niet aan de goedgekeurde app-vereisten voor voorwaardelijke toegang.|
+|530032|Geblokkeerd door beveiligings beleid.| 
+|700016|De toepassing met de id {appIdentifier} is niet gevonden in de map {tenantnaam}. Dit kan gebeuren als de toepassing niet is geïnstalleerd door de beheerder van de Tenant of is gezonden door een gebruiker in de Tenant. Mogelijk hebt u uw verificatie aanvraag verzonden naar de verkeerde Tenant.|
+|900432|De vertrouwelijke client wordt niet ondersteund in een cross-Cloud aanvraag.|
 |7000218|De aanvraag tekst moet de volgende para meter bevatten: ' client_assertion ' of ' client_secret '.|
 
 

@@ -6,21 +6,24 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: f00ad898ea45700b75607f89bc2c8e71288357c2
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1bb94b70510be30d676ad707ab2fbfbbcbf50833
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847575"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884130"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Virtuele machines die met Azure Disk Encryption zijn ingeschakeld repliceren naar een andere Azure-regio
 
 In dit artikel wordt beschreven hoe u Azure Disk Encryption-Vm's van de ene Azure-regio naar de andere repliceert.
 
 >[!NOTE]
->Azure Site Recovery ondersteunt momenteel alleen Azure Disk Encryption-ingeschakelde Vm's waarop een Windows-besturings systeem wordt uitgevoerd.
+>Azure Site Recovery ondersteunt momenteel alleen Azure Disk Encryption-ingeschakelde Vm's waarop een Windows-besturings systeem wordt uitgevoerd. Vm's met Azure Disk Encryption ingeschakeld zonder Azure AD-App worden alleen ondersteund als ze beheerde schijven gebruiken. Vm's met niet-beheerde schijven worden niet ondersteund.
+
+>[!NOTE]
+>Als u overschakelt van ADE v1 (met Azure AD-app) naar ADE versie 2 (zonder Azure AD-app), moet u replicatie uitschakelen en de replicatie inschakelen nadat u ADE v2 hebt ingeschakeld.
 
 ## <a id="required-user-permissions"></a>Vereiste gebruikers machtigingen
 Site Recovery vereist dat de gebruiker gemachtigd is om de sleutel kluis te maken in de doel regio en sleutels te kopiëren van de sleutel kluis van het bron gebied naar de sleutel kluis met de doel regio.

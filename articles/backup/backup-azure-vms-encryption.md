@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: dacurwin
-ms.openlocfilehash: 71a33b7263cd7a3b2f5e39ce9d24df11a7d6283c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 5c6e3ef74ea2d77ba03526e05145fe6faa61c050
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688603"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882060"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Back-up en herstel van versleutelde Azure VM
 
@@ -154,10 +154,11 @@ U herstelt versleutelde Vm's als volgt:
 2. Voer vervolgens een van de volgende handelingen uit:
     - Gebruik de sjabloon die tijdens de herstel bewerking wordt gegenereerd om de VM-instellingen aan te passen en VM-implementatie te activeren. [Meer informatie](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
     - Maak een nieuwe virtuele machine op basis van de herstelde schijven met behulp van Power shell. [Meer informatie](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+    - Stel voor Linux-Vm's de ADE-extensie opnieuw in, zodat de gegevens schijven zijn geopend en gekoppeld. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u problemen ondervindt, raadpleegt u
+Als u problemen ondervindt, raadpleegt u de volgende artikelen:
 
 - [Veelvoorkomende fouten](backup-azure-vms-troubleshoot.md) bij het maken van back-ups en herstellen van versleutelde virtuele Azure-machines.
 - Problemen met de [Azure-VM-agent/back-upextensie](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) .

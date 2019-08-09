@@ -1,6 +1,6 @@
 ---
-title: Referentiepunten voor prestaties voor Azure NetApp Files | Microsoft Docs
-description: Beschrijft de resultaten van de prestaties benchmark-tests voor Azure NetApp bestanden op het volumeniveau van het.
+title: Resultaten van de prestatie benchmark test voor Azure NetApp Files | Microsoft Docs
+description: Beschrijft resultaten van benchmark tests voor de prestaties van Azure NetApp Files op volume niveau.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,84 +12,84 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 14081daf1f45a84bc8ad19bf0239db1281d9e624
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1d6b43110046f26d8c8070b19587366588eee7b6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449507"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881743"
 ---
-# <a name="performance-benchmarks-for-azure-netapp-files"></a>Prestatiebenchmarks voor Azure NetApp Files
+# <a name="performance-benchmark-test-results-for-azure-netapp-files"></a>Resultaten van de prestatie benchmark test voor Azure NetApp Files
 
-Dit artikel beschrijft de resultaten van de prestaties benchmark-tests voor Azure NetApp bestanden op het volumeniveau van het. 
+In dit artikel worden de resultaten beschreven van benchmark tests voor Azure NetApp Files op volume niveau. 
 
-## <a name="sample-application-used-for-the-tests"></a>Voorbeeldtoepassing die wordt gebruikt voor de tests
+## <a name="sample-application-used-for-the-tests"></a>Voorbeeld toepassing die wordt gebruikt voor de tests
 
-Prestatietests zijn uitgevoerd met een voorbeeldtoepassing met behulp van Azure NetApp bestanden. De toepassing heeft de volgende kenmerken: 
+Prestatie testen zijn uitgevoerd met een voorbeeld toepassing die gebruikmaakt van Azure NetApp Files. De toepassing heeft de volgende kenmerken: 
 
-* Een Linux-gebaseerde toepassing die is gebouwd voor de cloud
-* Kan worden lineair geschaald met extra virtuele machines (VM's) om te verhogen compute-kracht, indien nodig
-* Snelle toegankelijkheid van de data lake is vereist
-* I/o-patronen die soms willekeurige en soms sequentiële heeft 
-    * Een willekeurige patroon is de lage latentie voor grote hoeveelheden i/o vereist. 
-    * Een opeenvolgend patroon is vereist voor grote hoeveelheden bandbreedte. 
+* Een op Linux gebaseerde toepassing die is gebouwd voor de Cloud
+* Kan lineair schalen met toegevoegde virtuele machines (Vm's) om de reken kracht zo nodig te verhogen
+* Vereist een snelle toegankelijkheid van de data Lake
+* Bevat I/O-patronen die soms wille keurig en soms opeenvolgend zijn 
+    * Een wille keurig patroon vereist een lage latentie voor grote hoeveel heden I/O. 
+    * Voor een sequentieel patroon is een grote hoeveelheid band breedte vereist. 
 
-## <a name="about-the-workload-generator"></a>Over de generator werkbelasting
+## <a name="about-the-workload-generator"></a>Over de workload generator
 
-De resultaten zijn afkomstig van Vdbench samenvatting bestanden. [Vdbench](https://www.oracle.com/technetwork/server-storage/vdbench-downloads-1901681.html) is een opdrachtregelprogramma waarmee schijf-i/o-werkbelastingen voor het valideren van de prestaties van opslagruimte worden gegenereerd. De configuratie van de client-server gebruikt, is schaalbaar.  Het bevat een enkele gemengde master/client en 14 toegewezen client VM's.
+De resultaten zijn afkomstig van Vdbench-samenvattings bestanden. [Vdbench](https://www.oracle.com/technetwork/server-storage/vdbench-downloads-1901681.html) is een opdracht regel programma waarmee schijf-I/O-workloads worden gegenereerd voor het valideren van de opslag prestaties. De gebruikte client-server configuratie is schaalbaar.  Het bevat één gemengde Master/client en 14 gereserveerde client-Vm's.
 
 ## <a name="about-the-tests"></a>Over de tests
 
-De tests zijn ontworpen voor het identificeren van de limieten die mogelijk van toepassing zijn op de voorbeeldtoepassing en de reactietijd die curven tot aan de limieten.  
+De tests zijn ontworpen om de limieten te identificeren die de voorbeeld toepassing kan hebben en de reactie tijd die tot de limieten buigt.  
 
 De volgende tests zijn uitgevoerd: 
 
-* 100% 8-KiB willekeurige lezen
-* 100% 8 KiB willekeurig schrijven
-* 100% 64 KiB sequentieel lezen
-* 100% 64 KiB sequentiële schrijfbewerkingen
-* 50% 64 KiB sequentieel lezen, 50% 64 KiB sequentiële schrijfbewerkingen
-* 50% 8-KiB willekeurige lezen, 50% 8 KiB willekeurig schrijven
+* 100% 8-KiB wille keurige Lees bewerking
+* 100% 8-KiB wille keurige schrijf bewerking
+* 100% 64-KiB sequentiële Lees bewerking
+* 100% 64-KiB sequentiële Schrijf bewerking
+* 50% 64-KiB sequentiële Lees, 50% 64-KiB sequentiële Schrijf bewerking
+* 50% 8-KiB wille keurig lezen, 50% 8-KiB wille keurige schrijf bewerking
 
 ## <a name="bandwidth"></a>Bandbreedte
 
-Azure Files met NetApp biedt meerdere [serviceniveaus](azure-netapp-files-service-levels.md). Elk serviceniveau biedt een andere hoeveelheid bandbreedte per TiB ingerichte capaciteit (volume quotum). De limiet voor bandbreedte voor een volume wordt ingericht op basis van de combinatie van het serviceniveau en het volume-quotum. De limiet voor bandbreedte is slechts één factor bij het bepalen van de werkelijke hoeveelheid doorvoer die zal worden gerealiseerd.  
+Azure NetApp Files biedt meerdere [service niveaus](azure-netapp-files-service-levels.md). Elk service niveau biedt een verschillende hoeveelheid band breedte per TiB van ingerichte capaciteit (volume quota). De bandbreedte limiet voor een volume wordt ingericht op basis van de combi natie van het service niveau en het volume quotum. De bandbreedte limiet is slechts één factor bij het bepalen van de werkelijke hoeveelheid door Voer die wordt gerealiseerd.  
 
-4\.500 MiB is momenteel de hoogste doorvoer die door een workload op basis van een enkel volume in de testfase is bereikt.  Met het serviceniveau Premium, wordt een volume-quotum van 70.31 TiB voldoende bandbreedte om te realiseren van deze doorvoer per de berekening van de onderstaande inrichten: 
+Momenteel is 4.500 MiB de hoogste door Voer die is behaald door een workload ten opzichte van één volume dat wordt getest.  Met het Premium-service niveau kan een volume quotum van 70,31 TiB voldoende band breedte inrichten om deze door voer te realiseren volgens de onderstaande berekening: 
 
-![Bandbreedte-formule](../media/azure-netapp-files/azure-netapp-files-bandwidth-formula.png)
+![Bandbreedte formule](../media/azure-netapp-files/azure-netapp-files-bandwidth-formula.png)
 
-![Quotum en het serviceniveau](../media/azure-netapp-files/azure-netapp-files-quota-service-level.png)
+![Quotum en service niveau](../media/azure-netapp-files/azure-netapp-files-quota-service-level.png)
 
-## <a name="throughput-intensive-workloads"></a>Doorvoer-intensieve workloads
+## <a name="throughput-intensive-workloads"></a>Door Voer intensieve workloads
 
-De test doorvoer gebruikt Vdbench en een combinatie van 12xD32s V3 storage-VM's. De voorbeeld-volume in de test bereikt de volgende doorvoerwaarden:
+De door Voer gebruikte Vdbench en een combi natie van 12xD32s v3 opslag-Vm's. Het voorbeeld volume in de test heeft de volgende doorvoer nummers bereikt:
 
-![Doorvoer testen](../media/azure-netapp-files/azure-netapp-files-throughput-test.png)
+![Doorvoer test](../media/azure-netapp-files/azure-netapp-files-throughput-test.png)
 
 ## <a name="io-intensive-workloads"></a>I/O-intensieve workloads
 
-De i/o-test gebruikt Vdbench en een combinatie van 12xD32s V3 storage-VM's. De voorbeeld-volume in de test bereikt de volgende i/o-getallen:
+De I/O-test gebruikt Vdbench en een combi natie van 12xD32s v3-opslag-Vm's. Het voor beeld van het volume in de test heeft de volgende I/O-nummers bereikt:
 
-![I/o-test](../media/azure-netapp-files/azure-netapp-files-io-test.png)
+![I/O-test](../media/azure-netapp-files/azure-netapp-files-io-test.png)
 
 ## <a name="latency"></a>Latentie
 
-De afstand tussen de test-VM's en het Azure NetApp Files-volume heeft een invloed op de i/o-prestaties.  De onderstaande tabel vergelijkt de IOPS-waarde ten opzichte van latentie respons-curven voor twee verschillende sets virtuele machines.  Een set van virtuele machines is in de buurt van Azure NetApp bestanden en de andere set verdere is afwezig.  De latentie voor de verdere set van virtuele machines heeft een invloed op de hoeveelheid IOP's op een bepaald niveau van parallelle uitvoering behaald.  Leesbewerkingen op basis van een volume kunnen ongeacht 300.000 IOPS overschrijden, zoals hieronder weergegeven: 
+De afstand tussen de virtuele machines van de test en het Azure NetApp Files volume heeft invloed op de I/O-prestaties.  De onderstaande grafiek vergelijkt de IOPS versus latentie respons curven voor twee verschillende sets Vm's.  Een set virtuele machines is bijna Azure NetApp Files en de andere set is verder weg.  De verhoogde latentie voor de nieuwe set Vm's heeft invloed op de hoeveelheid IOPS die wordt behaald op een bepaald niveau van parallelle uitvoering.  Lees-en schrijf bewerkingen voor een volume kunnen de 300.000 IOPS overschrijden, zoals hieronder wordt geïllustreerd: 
 
-![Latentie van onderzoek](../media/azure-netapp-files/azure-netapp-files-latency-study.png)
+![Latentie studie](../media/azure-netapp-files/azure-netapp-files-latency-study.png)
 
 ## <a name="summary"></a>Samenvatting
 
-Latentie van gevoelige werkbelastingen (databases) kunnen een reactietijd van één milliseconde hebben. De transactionele uitvoering kan meer dan 300 kB IOPS zijn voor één volume.
+Latentie gevoelige werk belastingen (data bases) kunnen een reactie tijd van één milliseconde hebben. De transactionele prestaties kunnen meer dan een 300-IOPS voor één volume zijn.
 
-Doorvoer-gevoelige-toepassingen (voor het streamen en imaging) kunnen hebben 4.5GiB / s-doorvoer.
+Door Voer gevoelige toepassingen (voor streaming en imaging) kunnen de door Voer van 4,5 GiB/s hebben.
 
-## <a name="example-scripts"></a>Voorbeeldscripts
+## <a name="example-scripts"></a>Voorbeeld scripts
 
-De volgende voorbeeldscripts zijn voor demonstratiedoeleinden doel alleen.  Ze zijn niet moet worden gebruikt voor productiedoeleinden.  
+De volgende voorbeeld scripts zijn alleen bedoeld voor demonstratie doeleinden.  Ze mogen niet worden gebruikt voor productie doeleinden.  
 
     #
     #This script makes the following assumptions about the environment

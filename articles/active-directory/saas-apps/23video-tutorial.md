@@ -1,255 +1,172 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met 23 Video | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en 23 Video.
+title: 'Zelfstudie: Azure Active Directory integratie met 23 video | Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en 23 video.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 5e73dd1d-3995-4a73-b9cf-1b2318d49cb3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/26/2017
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec0cfaaf0d4ae692581d63c7745660ffeacfb11f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b5061c2e4c627e7919683bbf00970b626554df43
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60439568"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879827"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-23-video"></a>Zelfstudie: Azure Active Directory-integratie met 23 Video
+# <a name="tutorial-integrate-23-video-with-azure-active-directory"></a>Zelfstudie: 23 video integreren met Azure Active Directory
 
-In deze zelfstudie leert u hoe u 23 Video integreert met Azure Active Directory (Azure AD).
+In deze zelf studie leert u hoe u 23 video integreert met Azure Active Directory (Azure AD). Wanneer u 23 video integreert met Azure AD, kunt u het volgende doen:
 
-Integratie van 23 biedt-Video met Azure AD u de volgende voordelen:
+* Controle in azure AD die toegang heeft tot 23 video.
+* Zorg ervoor dat uw gebruikers automatisch worden aangemeld bij 23 video met hun Azure AD-accounts.
+* Beheer uw accounts op één centrale locatie: de Azure Portal.
 
-- U kunt beheren in Azure AD die toegang tot 23 Video heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij 23 Video (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)voor meer informatie over SaaS-app-integratie met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met 23 Video, moet u de volgende items:
+U hebt de volgende items nodig om aan de slag te gaan:
 
-- Een Azure AD-abonnement
-- Een 23 Video eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
+* Een Azure AD-abonnement Als u geen abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/)aanvragen.
+* 23 abonnement voor eenmalige aanmelding voor video (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. 23 Video uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelf studie configureert en test u Azure AD SSO in een test omgeving.
 
-## <a name="adding-23-video-from-the-gallery"></a>23 Video uit de galerie toe te voegen
-Voor het configureren van de integratie van 23 Video in Azure AD, moet u 23 Video uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* 23 video ondersteunt door **SP** GEÏNITIEERDe SSO
 
-**Als u wilt toevoegen 23 Video uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-23-video-from-the-gallery"></a>23 video toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Als u de integratie van 23 video in azure AD wilt configureren, moet u 23 video van de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![Active Directory][1]
+1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
+1. Selecteer de **Azure Active Directory** -service in het navigatie deel venster aan de linkerkant.
+1. Ga naar **bedrijfs toepassingen** en selecteer **alle toepassingen**.
+1. Selecteer **nieuwe toepassing**om een nieuwe toepassing toe te voegen.
+1. Typ in de sectie **toevoegen vanuit de galerie** **23-video** in het zoekvak.
+1. Selecteer de optie **23 video** in het resultaten paneel en voeg vervolgens de app toe. Wacht een paar seconden wanneer de app aan uw Tenant is toegevoegd.
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-    ![Toepassingen][2]
-    
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+Azure AD SSO met 23 video configureren en testen met behulp van een test gebruiker met de naam **B. Simon**. Voor het werken met SSO moet u een koppelings relatie tot stand brengen tussen een Azure AD-gebruiker en de bijbehorende gebruiker in 23 video.
 
-    ![Toepassingen][3]
+Als u Azure AD SSO met 23 video wilt configureren en testen, voert u de volgende bouw stenen uit:
 
-4. Typ in het zoekvak **23 Video**.
+1. **[Configureer Azure AD SSO](#configure-azure-ad-sso)** -om uw gebruikers in staat te stellen deze functie te gebruiken.
+2. **[23 video-SSO configureren](#configure-23-video-sso)** : voor het configureren van de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
+3. **[Een Azure AD-test gebruiker maken](#create-an-azure-ad-test-user)** : u kunt eenmalige aanmelding voor Azure AD testen met B. Simon.
+4. **[Wijs de Azure AD-test gebruiker](#assign-the-azure-ad-test-user)** toe, zodat B. Simon de eenmalige aanmelding van Azure AD kan gebruiken.
+5. **[Maak een 23-gebruikers test gebruiker](#create-23-video-test-user)** : als u een equivalent van B. Simon in 23 video wilt hebben dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
+6. **[SSO testen](#test-sso)** : om te controleren of de configuratie werkt.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/23video-tutorial/tutorial_23video_search.png)
+### <a name="configure-azure-ad-sso"></a>Azure AD SSO configureren
 
-5. Selecteer in het deelvenster resultaten **23 Video**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+Volg deze stappen om Azure AD SSO in te scha kelen in de Azure Portal.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/23video-tutorial/tutorial_23video_addfromgallery.png)
+1. Zoek in de [Azure Portal](https://portal.azure.com/)op de pagina **23 video** toepassings integratie de sectie **beheren** en selecteer eenmalige **aanmelding**.
+1. Selecteer op de pagina **Eén aanmeldings methode selecteren** de optie **SAML**.
+1. Klik op de pagina **eenmalige aanmelding met SAML instellen** op het pictogram bewerken/pen voor **eenvoudige SAML-configuratie** om de instellingen te bewerken.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met 23 Video op basis van een testgebruiker met de naam "Britta Simon."
+   ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in 23 Video is aan een gebruiker in Azure AD. Met andere woorden, een koppeling de relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in 23 Video moet tot stand worden gebracht.
+1. Voer in de sectie **basis configuratie van SAML** de waarden in voor de volgende velden:
 
-In 23 Video, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<subdomain>.23video.com`
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met 23 Video, moet u de volgende bouwstenen voltooien:
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://www.23video.com/saml/trust/<uniqueid>`
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een gebruiker 23 Video testen](#creating-a-23-video-test-user)**  : als u wilt een equivalent van Britta Simon in 23 Video die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het ondersteunings team van de [video-client](mailto:support@23company.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+1. Zoek op de pagina **eenmalige aanmelding met SAML instellen** , in de sectie **SAML-handtekening certificaat** , naar **certificaat (base64)** en selecteer **downloaden** om het certificaat te downloaden en op uw computer op te slaan.
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw 23 Video-toepassing.
+    ![De downloadkoppeling certificaat](common/certificatebase64.png)
 
-**Voor het configureren van Azure AD eenmalige aanmelding met 23 Video, kunt u de volgende stappen uitvoeren:**
+1. Kopieer op de sectie **23 video instellen** de gewenste URL ('s) op basis van uw vereiste.
 
-1. In de Azure-portal op de **23 Video** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    ![Eenmalige aanmelding configureren][4]
+### <a name="configure-23-video-sso"></a>23-video-SSO configureren
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/23video-tutorial/tutorial_23video_samlbase.png)
+Voor het configureren van eenmalige aanmelding op 23 aan de **video** zijde moet u het gedownloade **certificaat (base64)** en de juiste gekopieerde url's verzenden van Azure Portal naar [23 video ondersteunings team](mailto:support@23company.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
-3. Op de **23 Video domein en URL's** sectie, voert u de volgende stappen uit:
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-    ![Eenmalige aanmelding configureren](./media/23video-tutorial/tutorial_23video_url.png)
+In deze sectie maakt u een test gebruiker in de Azure Portal met de naam B. Simon.
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.23video.com`
+1. Selecteer in het linkerdeel venster van de Azure Portal **Azure Active Directory**, selecteer **gebruikers**en selecteer vervolgens **alle gebruikers**.
+1. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
+1. Voer de volgende stappen uit in de eigenschappen van de **gebruiker** :
+   1. Voer in het veld **Naam** `B.Simon` in.  
+   1. Voer in het veld **gebruikers naam** het username@companydomain.extensionin. Bijvoorbeeld `B.Simon@contoso.com`.
+   1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
+   1. Klik op **Create**.
 
-    b. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://www.23video.com/saml/trust/<uniqueid>`
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met [23 Video Client-ondersteuningsteam](mailto:support@23company.com) om deze waarden te verkrijgen. 
- 
-4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+In deze sectie schakelt u B. Simon in om eenmalige aanmelding van Azure te gebruiken door toegang tot 23 video te verlenen.
 
-    ![Eenmalige aanmelding configureren](./media/23video-tutorial/tutorial_23video_certificate.png) 
+1. Selecteer in het Azure Portal **bedrijfs toepassingen**en selecteer vervolgens **alle toepassingen**.
+1. Selecteer in de lijst toepassingen de optie **23 video**.
+1. Ga op de pagina overzicht van de app naar de sectie **beheren** en selecteer **gebruikers en groepen**.
 
-5. Klik op **opslaan** knop.
+   ![De koppeling 'Gebruikers en groepen'](common/users-groups-blade.png)
 
-    ![Eenmalige aanmelding configureren](./media/23video-tutorial/tutorial_general_400.png)
+1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in het dialoog venster **toewijzing toevoegen** .
 
-6. Op de **23 videoconfiguratie** sectie, klikt u op **configureren 23 Video** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+    ![De koppeling gebruiker toevoegen](common/add-assign-user.png)
 
-    ![Eenmalige aanmelding configureren](./media/23video-tutorial/tutorial_23video_configure.png) 
+1. Selecteer in het dialoog venster **gebruikers en groepen** **B. Simon** van de lijst gebruikers en klik vervolgens op de knop **selecteren** onder aan het scherm.
+1. Als u een wille keurige rol verwacht in de SAML-bewering, selecteert u in het dialoog venster **rol selecteren** de juiste rol voor de gebruiker in de lijst en klikt u op de knop **selecteren** onder aan het scherm.
+1. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-7. Het configureren van eenmalige aanmelding op **23 Video** zijde, moet u voor het verzenden van de gedownloade **certificaat (Base64)** , **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar [23 Video-ondersteuningsteam](mailto:support@23company.com). 
+### <a name="create-23-video-test-user"></a>23 video test gebruiker maken
 
+Het doel van deze sectie is het maken van een gebruiker met de naam B. Simon in 23 video.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+**Voer de volgende stappen uit om een gebruiker te maken met de naam B. Simon in 23 video:**
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
-
-![Azure AD-gebruiker maken][100]
-
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
-
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
-
-    ![Het maken van een Azure AD-testgebruiker](./media/23video-tutorial/create_aaduser_01.png) 
-
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/23video-tutorial/create_aaduser_02.png) 
-
-3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/23video-tutorial/create_aaduser_03.png) 
-
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/23video-tutorial/create_aaduser_04.png) 
-
-    a. In de **naam** tekstvak, type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
-
-    d. Klik op **Create**.
- 
-### <a name="creating-a-23-video-test-user"></a>Het maken van een gebruiker 23 Video testen
-
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in 23 Video.
-
-**Voor het maken van een gebruiker met de naam van Britta Simon in 23 Video, kunt u de volgende stappen uitvoeren:**
-
-1. Meld u aan bij uw 23 Video bedrijf site als administrator.
+1. Meld u aan bij uw 23 video-site als beheerder.
 
 2. Ga naar **instellingen**.
- 
-3. In **gebruikers** sectie, klikt u op **configureren**.
-   
-    ![Gebruiker toewijzen][400]
 
-4. Klik op **een nieuwe gebruiker toevoegen**. 
-   
-    ![Gebruiker toewijzen][401]
+3. Klik in het gedeelte **gebruikers** op **configureren**.
 
-5. In de **iemand uitnodigen voor deelname aan deze site** sectie, voert u de volgende stappen uit:
-   
-    ![Gebruiker toewijzen][402]
+    ![Gebruiker toewijzen](./media/23video-tutorial/tutorial-23video-10.png)
 
-    a. In de **e-mailadressen** tekstvak typt u Britta Simon van e-mailadres in Azure AD.  
- 
-    b. Klik op **toevoegen van de gebruiker**.   
+4. Klik op **een nieuwe gebruiker toevoegen**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+    ![Gebruiker toewijzen](./media/23video-tutorial/tutorial-23video-11.png)
 
-In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen tot 23 Video.
+5. Voer de volgende stappen uit in de sectie **iemand uitnodigen om deel te nemen aan deze site** :
 
-![Gebruiker toewijzen][200] 
+    ![Gebruiker toewijzen](./media/23video-tutorial/tutorial-23video-12.png)
 
-**Als u wilt toewijzen Britta Simon 23 video, kunt u de volgende stappen uitvoeren:**
+    a. Typ in het tekstvak **e-mail adressen** het e-mail adres van B.Simon@contoso.comeen gebruiker zoals.  
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+    b. Klik op **gebruiker toevoegen..** .
 
-    ![Gebruiker toewijzen][201] 
+### <a name="test-sso"></a>SSO testen
 
-2. Selecteer in de lijst met toepassingen, **23 Video**.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-    ![Eenmalige aanmelding configureren](./media/23video-tutorial/tutorial_23video_app.png) 
-
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
-
-    ![Gebruiker toewijzen][202] 
-
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Gebruiker toewijzen][203]
-
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
-
-Het doel van deze sectie is het testen van de configuratie van uw Azure AD-eenmalige aanmelding via het toegangsvenster.
-
-Wanneer u op de 23 Video-tegel in het toegangsvenster, u moet u automatisch aangemeld bij uw 23 Video-toepassing. 
+Wanneer u op de tegel 23 video in het toegangs venster klikt, wordt u automatisch aangemeld bij de 23-video waarvoor u SSO hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/23video-tutorial/tutorial_general_01.png
-[2]: ./media/23video-tutorial/tutorial_general_02.png
-[3]: ./media/23video-tutorial/tutorial_general_03.png
-[4]: ./media/23video-tutorial/tutorial_general_04.png
-
-[100]: ./media/23video-tutorial/tutorial_general_100.png
-
-[200]: ./media/23video-tutorial/tutorial_general_200.png
-[201]: ./media/23video-tutorial/tutorial_general_201.png
-[202]: ./media/23video-tutorial/tutorial_general_202.png
-[203]: ./media/23video-tutorial/tutorial_general_203.png
-
-[400]: ./media/23video-tutorial/tutorial_23video_10.png
-[401]: ./media/23video-tutorial/tutorial_23video_11.png
-[402]: ./media/23video-tutorial/tutorial_23video_12.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

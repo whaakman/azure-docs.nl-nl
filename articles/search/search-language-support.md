@@ -6,15 +6,14 @@ manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 08/08/2019
 ms.author: jlembicz
-ms.custom: seodec2018
-ms.openlocfilehash: 403febfcb54194602051aaebe2952265c0675e9d
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 5383ad44f665ce809772143e23817932c3e2b7e6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854393"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883894"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-search"></a>Een index maken voor meerdere talen in Azure Search
 
@@ -35,7 +34,7 @@ Er wordt een taal analyse opgegeven wanneer een veld wordt gemaakt. Voor het toe
 
 ![Taal analyseers toewijzen tijdens veld definitie](media/search-language-support/select-analyzer.png "Taal analyseers toewijzen tijdens veld definitie")
 
-In alle Doorzoek bare velden wordt standaard de [standaard-lucene Analyzer](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) gebruikt. de taal neutraal. Als u de volledige lijst met ondersteunde analyse functies wilt bekijken, raadpleegt [u taal analysen toevoegen aan een Azure search-index](index-add-language-analyzers.md).
+In alle Doorzoek bare velden wordt standaard de [standaard-lucene Analyzer](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) gebruikt. de taal neutraal. Als u de volledige lijst met ondersteunde analyse functies wilt bekijken, raadpleegt [u taal analysen toevoegen aan een Azure search-index](index-add-language-analyzers.md).
 
 In de portal zijn analyse functies bedoeld om te worden gebruikt als-is. Als u aanpassingen of een specifieke configuratie van filters en tokenizers nodig hebt, moet u [een aangepaste Analyzer](index-add-custom-analyzers.md) in code maken. De portal biedt geen ondersteuning voor het selecteren of configureren van aangepaste analyse functies.
 

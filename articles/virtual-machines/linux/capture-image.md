@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: ed9eb990fff3a0901f3fa26526b30e8cb8a2fe66
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 328748b9dd81834b9c69f81bc0bda60c9ad12cb0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779408"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879961"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Een installatie kopie van een virtuele machine of VHD maken
 
@@ -40,9 +40,9 @@ Voordat u een installatie kopie maakt, hebt u de volgende items nodig:
 
 * De nieuwste [Azure cli](/cli/azure/install-az-cli2) is geïnstalleerd en u moet zijn aangemeld bij een Azure-account met [AZ login](/cli/azure/reference-index#az-login).
 
-## <a name="quick-commands"></a>Snelle opdrachten
+## <a name="prefer-a-tutorial-instead"></a>Wilt u in plaats daarvan een zelf studie?
 
-Zie [een aangepaste installatie kopie van een virtuele Azure-machine maken met behulp van de CLI](tutorial-custom-images.md)voor een vereenvoudigde versie van dit artikel en voor het testen, evalueren of leren over Vm's in Azure.
+Zie [een aangepaste installatie kopie van een virtuele Azure-machine maken met behulp van de CLI](tutorial-custom-images.md)voor een vereenvoudigde versie van dit artikel en voor het testen, evalueren of leren over Vm's in Azure.  Als dat niet het geval is, kunt u hier lezen om de volledige afbeelding op te halen.
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Stap 1: De inrichting van de virtuele machine ongedaan maken
@@ -58,7 +58,7 @@ Eerst moet u de inrichting van de virtuele machine ongedaan maken met behulp van
    > Voer deze opdracht alleen uit op een virtuele machine die u vastlegt als een installatie kopie. Met deze opdracht wordt niet gegarandeerd dat de installatie kopie van alle gevoelige informatie wordt gewist of geschikt is voor herdistributie. Met `+user` de para meter wordt ook het laatste ingerichte gebruikers account verwijderd. Gebruik alleen `-deprovision`als u de referenties van het gebruikers account in de virtuele machine wilt blijven gebruiken.
  
 3. Voer **y** in om door te gaan. U kunt de `-force` para meter toevoegen om deze bevestigings stap te voor komen.
-4. Nadat de opdracht is voltooid, voert u **Afsluiten** in om de SSH-client te sluiten.
+4. Nadat de opdracht is voltooid, voert u **Afsluiten** in om de SSH-client te sluiten.  De virtuele machine wordt nog steeds uitgevoerd.
 
 ## <a name="step-2-create-vm-image"></a>Stap 2: VM-installatie kopie maken
 Gebruik de Azure CLI om de virtuele machine als gegeneraliseerd te markeren en de installatie kopie vast te leggen. Vervang in de volgende voor beelden voorbeeld parameter namen door uw eigen waarden. Voor beelden van parameter namen zijn *myResourceGroup*, *myVnet*en *myVM*.
@@ -71,7 +71,7 @@ Gebruik de Azure CLI om de virtuele machine als gegeneraliseerd te markeren en d
       --name myVM
     ```
     
-    Wacht tot de virtuele machine volledig is vrijgegeven voordat u doorgaat met. Dit kan een paar minuten duren.
+    Wacht tot de virtuele machine volledig is vrijgegeven voordat u doorgaat met. Dit kan een paar minuten duren.  De virtuele machine wordt afgesloten tijdens de toewijzing.
 
 2. Markeer de virtuele machine als gegeneraliseerd met [AZ VM generalize](/cli/azure/vm). In het volgende voor beeld wordt de virtuele machine met de naam *myVM* in de resource groep met de naam *myResourceGroup* als gegeneraliseerd gemarkeerd.
    
@@ -80,6 +80,8 @@ Gebruik de Azure CLI om de virtuele machine als gegeneraliseerd te markeren en d
       --resource-group myResourceGroup \
       --name myVM
     ```
+
+    Een gegeneraliseerde VM kan niet meer opnieuw worden gestart.
 
 3. Maak een installatie kopie van de VM-resource met [AZ image Create](/cli/azure/image#az-image-create). In het volgende voor beeld wordt een installatie kopie gemaakt met de naam *myImage* in de resource groep met de naam *MYRESOURCEGROUP* met de VM-resource met de naam *myVM*.
    
@@ -93,6 +95,8 @@ Gebruik de Azure CLI om de virtuele machine als gegeneraliseerd te markeren en d
    > De installatie kopie wordt gemaakt in dezelfde resource groep als de bron-VM. U kunt in deze installatie kopie Vm's maken in elke resource groep in uw abonnement. Vanuit een beheer perspectief wilt u mogelijk een specifieke resource groep maken voor uw VM-resources en installatie kopieën.
    >
    > Als u uw installatie kopie wilt opslaan in zone-flexibele opslag, moet u deze maken in een regio die [beschikbaarheids zones](../../availability-zones/az-overview.md) ondersteunt en de `--zone-resilient true` para meter bevat.
+   
+Deze opdracht retourneert een JSON-bestand met een beschrijving van de VM-installatie kopie. Sla deze uitvoer op voor later naslag doeleinden.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Stap 3: Een virtuele machine maken op basis van de vastgelegde installatie kopie
 Maak een virtuele machine met behulp van de installatie kopie die u hebt gemaakt met [AZ VM Create](/cli/azure/vm). In het volgende voor beeld wordt een VM gemaakt met de naam *myVMDeployed* uit de installatie kopie met de naam *myImage*.

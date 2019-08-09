@@ -8,43 +8,46 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 52936b14264bd4fe1846ae365e1de447d594b612
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: eb667c398be0bd51e05a6b65d416d5bce54e4386
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639057"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881967"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Kies een kaart stijl in Azure Maps
 
-Azure Maps heeft vier verschillende stijlen voor kaarten waaruit u kunt kiezen. Zie [ondersteunde kaart stijlen in azure Maps](./supported-map-styles.md)voor meer informatie over het toewijzen van stijlen. In dit artikel wordt beschreven hoe u de stijl gerelateerde functies gebruikt om een stijl in te stellen voor het laden van kaarten, een nieuwe stijl instellen en het besturings element stijl kiezer te gebruiken.
+Veel van de [ondersteunde kaart stijlen in azure Maps](./supported-map-styles.md) zijn beschikbaar in de Web-SDK. In dit artikel wordt beschreven hoe u de stijl gerelateerde functies gebruikt om een stijl in te stellen voor het laden van kaarten, een nieuwe stijl instellen en het besturings element stijl kiezer te gebruiken.
 
 ## <a name="set-style-on-map-load"></a>Stijl instellen voor toewijzings belasting
+
+In de volgende code is de `style` optie van de kaart `grayscale_dark` ingesteld op bij initialisatie.
+
+<br/>
 
 <iframe height='500' scrolling='no' title='Stijl instellen voor toewijzings belasting' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de pen <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>instellen van de stijl van de kaart belasting</a> door<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Met het bovenstaande code blok wordt de abonnements sleutel ingesteld en een kaart object gemaakt, waarbij de stijl is ingesteld op grayscale_dark. Zie [een overzicht maken](./map-create.md) voor instructies over het maken van een kaart.
-
 ## <a name="update-the-style"></a>De stijl bijwerken
+
+In de volgende code, nadat een kaart exemplaar is geladen, wordt de kaart stijl bijgewerkt van `road` naar `satellite` met behulp van de functie [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) van de kaart.
+
+<br/>
 
 <iframe height='500' scrolling='no' title='De stijl bijwerken' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de pen <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>het profiel bijwerken</a> met Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In het bovenstaande code blok wordt de abonnements sleutel ingesteld en er wordt een kaart object gemaakt zonder de stijl vooraf in te stellen. Zie [een overzicht maken](./map-create.md) voor instructies over het maken van een kaart.
-
-Het tweede code blok maakt gebruik van de methode [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) van de kaart om de kaart stijl in te stellen op satelliet.
-
 ## <a name="add-the-style-picker"></a>De stijl kiezer toevoegen
+
+Met de volgende code wordt een [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) toegevoegd aan de kaart, zodat de gebruiker eenvoudig tussen de verschillende kaart stijlen kan scha kelen. 
+
+<br/>
 
 <iframe height='500' scrolling='no' title='De stijl kiezer toevoegen' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de pen <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>de stijl kiezer toevoegen</a> door Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Met het eerste code blok in de bovenstaande code wordt de abonnements sleutel ingesteld en een kaart object gemaakt, de kaart stijl is vooraf ingesteld op grayscale_dark. Zie [een overzicht maken](./map-create.md) voor instructies over het maken van een kaart.
-
-Met het tweede code blok wordt een stijl kiezer gemaakt met behulp van de Atlas [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) -constructor.
-
-Een stijl kiezer maakt stijl selectie voor de kaart mogelijk. Het derde code blok voegt de stijl kiezer aan de kaart toe met behulp van de [besturings elementen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) van de kaart. de methode Add. De stijl kiezer bevindt zich in de map **event listener** om er zeker van te zijn dat deze wordt geladen nadat de kaart volledig is geladen.
+> [!TIP]
+> Standaard wordt in het besturings element stijl kiezer een lijst weer gegeven met alle beschik bare stijlen voor het gebruik van de prijs categorie S0 van Azure Maps standaard. Als u het aantal stijlen in deze lijst wilt beperken, geeft u een matrix van de stijlen die u wilt weer geven in de lijst `mapStyle` in de optie van de stijl kiezer. Als u S1 gebruikt en alle beschik bare stijlen wilt weer geven, stelt u `mapStyles` de optie van de stijl kiezer `"all"`in op.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -53,12 +56,10 @@ Voor meer informatie over de klassen en methoden die in dit artikel worden gebru
 > [!div class="nextstepaction"]
 > [Diagram](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Besturings element toevoegen aan uw kaarten:
+Besturings elementen toevoegen aan uw kaarten:
 
 > [!div class="nextstepaction"]
-> [Kaart besturings elementen toevoegen](./map-add-controls.md)
-
-Een toewijzings pincode toevoegen:
+> [Kaart besturings elementen toevoegen](map-add-controls.md)
 
 > [!div class="nextstepaction"]
-> [Een pincode toevoegen](./map-add-pin.md)
+> [Een pincode toevoegen](map-add-pin.md)

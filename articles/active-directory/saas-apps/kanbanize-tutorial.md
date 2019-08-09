@@ -1,274 +1,201 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Kanbanize | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Kanbanize.
+title: 'Zelfstudie: Integratie met Kanbanize Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Kanbanize.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: b436d2f6-bfa5-43fd-a8f9-d2144dc25669
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/12/2018
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22c136225e5a8526afd482e5ef8400198947422f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 69103ea0e6088b4a823df34ebd982c67e2502cb3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60264232"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879511"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kanbanize"></a>Zelfstudie: Azure Active Directory-integratie met Kanbanize
+# <a name="tutorial-integrate-kanbanize-with-azure-active-directory"></a>Zelfstudie: Kanbanize integreren met Azure Active Directory
 
-In deze zelfstudie leert u hoe u Kanbanize integreren met Azure Active Directory (Azure AD).
+In deze zelf studie leert u hoe u Kanbanize integreert met Azure Active Directory (Azure AD). Wanneer u Kanbanize integreert met Azure AD, kunt u het volgende doen:
 
-Kanbanize integreren met Azure AD biedt u de volgende voordelen:
+* Controle in azure AD die toegang heeft tot Kanbanize.
+* Zorg ervoor dat uw gebruikers automatisch worden aangemeld bij Kanbanize met hun Azure AD-accounts.
+* Beheer uw accounts op één centrale locatie: de Azure Portal.
 
-- U kunt beheren in Azure AD die toegang tot Kanbanize heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Kanbanize (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)voor meer informatie over SaaS-app-integratie met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Kanbanize, moet u de volgende items:
+U hebt de volgende items nodig om aan de slag te gaan:
 
-- Een Azure AD-abonnement
-- Een Kanbanize eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/)aanvragen.
+* Kanbanize-abonnement dat is ingeschakeld voor eenmalige aanmelding (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Kanbanize uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelf studie configureert en test u Azure AD SSO in een test omgeving.
 
-## <a name="adding-kanbanize-from-the-gallery"></a>Kanbanize uit de galerie toe te voegen
-Voor het configureren van de integratie van Kanbanize in Azure AD, moet u Kanbanize uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Kanbanize ondersteunt SSO die door **SP en IDP** is geïnitieerd
+* Kanbanize ondersteunt **just-in-time** -gebruikers inrichting
 
-**Als u wilt toevoegen Kanbanize uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-kanbanize-from-the-gallery"></a>Kanbanize toevoegen uit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Als u de integratie van Kanbanize in azure AD wilt configureren, moet u Kanbanize uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
+1. Selecteer de **Azure Active Directory** -service in het navigatie deel venster aan de linkerkant.
+1. Ga naar **bedrijfs toepassingen** en selecteer **alle toepassingen**.
+1. Selecteer **nieuwe toepassing**om een nieuwe toepassing toe te voegen.
+1. Typ in de sectie **toevoegen vanuit de galerie** **Kanbanize** in het zoekvak.
+1. Selecteer **Kanbanize** uit het paneel resultaten en voeg vervolgens de app toe. Wacht een paar seconden wanneer de app aan uw Tenant is toegevoegd.
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-    ![De blade Enterprise-toepassingen][2]
-    
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+Azure AD SSO met Kanbanize configureren en testen met behulp van een test gebruiker met de naam **B. Simon**. Voor het werken met SSO moet u een koppelings relatie tot stand brengen tussen een Azure AD-gebruiker en de bijbehorende gebruiker in Kanbanize.
 
-    ![De knop Nieuwe toepassing][3]
+Als u Azure AD SSO wilt configureren en testen met Kanbanize, voltooit u de volgende bouw stenen:
 
-4. Typ in het zoekvak **Kanbanize**, selecteer **Kanbanize** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. **[Configureer Azure AD SSO](#configure-azure-ad-sso)** -om uw gebruikers in staat te stellen deze functie te gebruiken.
+2. **[KANBANIZE SSO configureren](#configure-kanbanize-sso)** : voor het configureren van de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
+3. **[Een Azure AD-test gebruiker maken](#create-an-azure-ad-test-user)** : u kunt eenmalige aanmelding voor Azure AD testen met B. Simon.
+4. **[Wijs de Azure AD-test gebruiker](#assign-the-azure-ad-test-user)** toe, zodat B. Simon de eenmalige aanmelding van Azure AD kan gebruiken.
+5. **[Maak een Kanbanize-test gebruiker](#create-kanbanize-test-user)** -om een equivalent van B. Simon in Kanbanize te hebben dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
+6. **[SSO testen](#test-sso)** : om te controleren of de configuratie werkt.
 
-    ![Kanbanize in de lijst met resultaten](./media/kanbanize-tutorial/tutorial_kanbanize_addfromgallery.png)
+### <a name="configure-azure-ad-sso"></a>Azure AD SSO configureren
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+Volg deze stappen om Azure AD SSO in te scha kelen in de Azure Portal.
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Kanbanize op basis van een testgebruiker 'Julia steen' genoemd.
+1. Zoek in het [Azure Portal](https://portal.azure.com/)op de pagina Toepassings integratie van **Kanbanize** de sectie **beheren** en selecteer **eenmalige aanmelding**.
+1. Selecteer op de pagina **Eén aanmeldings methode selecteren** de optie **SAML**.
+1. Klik op de pagina **eenmalige aanmelding met SAML instellen** op het pictogram bewerken/pen voor **eenvoudige SAML-configuratie** om de instellingen te bewerken.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Kanbanize is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Kanbanize tot stand worden gebracht.
+   ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Kanbanize, moet u de volgende bouwstenen voltooien:
+1. Als u de toepassing in de gestarte modus **IDP** wilt configureren, voert u in de sectie **basis configuratie van SAML** de waarden voor de volgende velden in:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-3. **[Maak een testgebruiker Kanbanize](#create-a-kanbanize-test-user)**  : als u wilt een equivalent van Britta Simon in Kanbanize die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<subdomain>.kanbanize.com/`
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<subdomain>.kanbanize.com/saml/acs`
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Kanbanize.
+    c. Klik op **Extra URL's instellen**.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Kanbanize, moet u de volgende stappen uitvoeren:**
+    d. Typ een URL in het tekstvak **Relay-status** :`/ctrl_login/saml_login`
 
-1. In de Azure-portal op de **Kanbanize** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<subdomain>.kanbanize.com`
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/kanbanize-tutorial/tutorial_kanbanize_samlbase.png)
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Neem contact op met het ondersteunings [team van Kanbanize-clients](mailto:support@ms.kanbanize.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-3. Op de **Kanbanize domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+1. De Kanbanize-toepassing verwacht de SAML-beweringen in een specifieke indeling. hiervoor moet u aangepaste kenmerk toewijzingen toevoegen aan de configuratie van uw SAML-token kenmerken. De volgende scherm afbeelding ziet u de lijst met standaard kenmerken, waarbij nameidentifier wordt toegewezen aan **User. userPrincipalName**. Kanbanize-toepassing verwacht dat nameidentifier moeten worden toegewezen aan **User. mail**, dus u moet de kenmerk toewijzing bewerken door op het pictogram bewerken te klikken en de kenmerk toewijzing te wijzigen.
 
-    ![Kanbanize domein en URL's, eenmalige aanmelding informatie](./media/kanbanize-tutorial/tutorial_kanbanize_url.png)
+    ![image](common/edit-attribute.png)
 
-    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.kanbanize.com/`
+1. Zoek op de pagina **eenmalige aanmelding met SAML instellen** , in de sectie **SAML-handtekening certificaat** , naar **certificaat (base64)** en selecteer **downloaden** om het certificaat te downloaden en op uw computer op te slaan.
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.kanbanize.com/saml/acs`
+    ![De downloadkoppeling certificaat](common/certificatebase64.png)
 
-    c. Controleer **geavanceerde URL-instellingen weergeven**.
+1. Op de sectie **Kanbanize instellen** kopieert u de gewenste URL ('s) op basis van uw vereiste.
 
-    d.  In de **Relaystatus** tekstvak, een URL typen: `/ctrl_login/saml_login`
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    e. Als u wilt configureren van de toepassing in **SP** modus gestart **aanmeldings-URL** tekstvak typt u een URL met behulp van het volgende patroon: `https://<subdomain>.kanbanize.com`
-     
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id, antwoord-URL en aanmeldings-URL. Neem contact op met [Kanbanize Client ondersteuningsteam](mailto:support@ms.kanbanize.com) om deze waarden te verkrijgen. 
+### <a name="configure-kanbanize-sso"></a>Kanbanize SSO configureren
 
-5. Kanbanize toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermopname ziet u een voorbeeld hiervan. De standaardwaarde van **gebruikers-id** is **user.userprincipalname** maar Kanbanize wordt verwacht dat deze optie om te worden toegewezen met de e-mailadres van de gebruiker. Hiervoor kunt u **user.mail** kenmerk in de lijst of gebruik de waarde van het juiste kenmerk op basis van de organisatieconfiguratie van uw
-    
-    ![Eenmalige aanmelding configureren](./media/kanbanize-tutorial/tutorial_Kanbanize_attribute.png)
+1. Meld u in een ander browser venster aan bij Kanbanize als een beveiligings beheerder.
 
-6. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+2. Ga naar de rechter bovenhoek van de pagina en klik op **instellingen** logo.
 
-    ![De link om het certificaat te downloaden](./media/kanbanize-tutorial/tutorial_kanbanize_certificate.png) 
+    ![Kanbanize-instellingen](./media/kanbanize-tutorial/tutorial-kanbanize-set.png)
 
-7. Klik op **opslaan** knop.
+3. Klik op de pagina beheer paneel aan de linkerkant van het menu op integraties en Schakel **eenmalige aanmelding**in.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/kanbanize-tutorial/tutorial_general_400.png)
-    
-8. Op de **Kanbanize configuratie** sectie, klikt u op **configureren Kanbanize** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+    ![Kanbanize-integraties](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
 
-    ![Kanbanize configuratie](./media/kanbanize-tutorial/tutorial_kanbanize_configure.png)
+4. Klik in de sectie integraties op **configureren** om de **integratie** pagina voor eenmalige aanmelding te openen.
 
-9. In een ander browservenster, meld u aan bij Kanbanize als een beveiligingsbeheerder. 
+    ![Kanbanize-configuratie](./media/kanbanize-tutorial/tutorial-kanbanize-config.png)
 
-10. Ga naar rechtsboven in de pagina, klikt u op **instellingen** logo.
+5. Voer de volgende stappen uit op de pagina voor de **integratie van eenmalige aanmelding** onder **configuraties**:
 
-    ![Instellingen voor Kanbanize](./media/kanbanize-tutorial/tutorial_kanbanize_set.png)
+    ![Kanbanize-integraties](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
 
-11. Klik op de pagina van het deelvenster Beheer menu aan de linkerkant **integraties** en schakel vervolgens **Single Sign-On**. 
+    a. Plak in het tekstvak **IDP entiteit-id** de waarde van de **Azure ad-id**, die u hebt gekopieerd van de Azure Portal.
 
-    ![Kanbanize integraties](./media/kanbanize-tutorial/tutorial_kanbanize_admin.png)
+    b. Plak in het tekstvak **IDP-aanmeld eindpunt** de waarde van de **aanmeldings-URL**die u hebt gekopieerd van de Azure Portal.
 
-12. Integraties sectie, klikt u op **configureren** openen **Single Sign-On integratie** pagina.
+    c. Plak in het tekstvak afmeldings **eindpunt van IDP** de waarde van de afmeldings- **URL**die u hebt gekopieerd van de Azure Portal.
 
-    ![Kanbanize config](./media/kanbanize-tutorial/tutorial_kanbanize_config.png)
+    d. In **kenmerk naam voor tekstvak e-mail** voert u deze waarde in`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-13. Op de **Single Sign-On integratie** pagina onder **configuraties**, voer de volgende stappen uit:
+    e. Voer deze waarde in bij **kenmerk naam voor het tekstvak voor naam**`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
-    ![Kanbanize integraties](./media/kanbanize-tutorial/tutorial_kanbanize_save.png)
+    f. Voer deze waarde in bij **kenmerk naam voor** tekstvak Achternaam`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
 
-    a. In de **Idp entiteit-Id** tekstvak, plak de waarde van **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure portal.
-
-    b. In de **Idp-eindpunt voor aanmelding** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML**, die u hebt gekopieerd vanuit Azure portal.
-
-    c. In de **Idp Afmeldingseindpunt** tekstvak, plak de waarde van **afmelding URL**, die u hebt gekopieerd vanuit Azure portal.
-
-    d. In **kenmerknaam voor e-mailbericht** tekstvak, geef deze waarde `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
-
-    e. In **kenmerknaam voornaam** tekstvak, geef deze waarde `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
-
-    f. In **kenmerknaam achternaam** tekstvak, geef deze waarde `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` 
     > [!Note]
-    > U kunt deze waarden kunt krijgen door een combinatie van waarden van naamruimte en de naam van het bijbehorende kenmerk uit de sectie van de gebruiker kenmerken in Azure portal.
+    > U kunt deze waarden ophalen door naam ruimte en naam waarden van het desbetreffende kenmerk te combi neren in de sectie gebruikers kenmerken in Azure Portal.
 
-    g. In Kladblok, opent u het base-64 gecodeerde certificaat dat u hebt gedownload vanuit Azure portal, Kopieer de inhoud (zonder de begin- en markeringen) en plak deze in de **Idp X.509-certificaat** vak.
+    g. Open in Klad blok het met base 64 gecodeerde certificaat dat u hebt gedownload van de Azure Portal, kopieer de inhoud (zonder de begin-en eind markeringen) en plak deze in het vak **IDP X. 509** .
 
-    h. Controleer **aanmelding inschakelen met eenmalige aanmelding en Kanbanize**.
-    
+    h. Schakel **Aanmelden met zowel SSO als Kanbanize**in.
+
     i. Klik op **Save Settings** (Instellingen opslaan).
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+In deze sectie maakt u een test gebruiker in de Azure Portal met de naam B. Simon.
 
-   ![Maak een testgebruiker Azure AD][100]
-
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
-
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
-
-    ![De Azure Active Directory-knop](./media/kanbanize-tutorial/create_aaduser_01.png)
-
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
-
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/kanbanize-tutorial/create_aaduser_02.png)
-
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
-
-    ![De knop toevoegen](./media/kanbanize-tutorial/create_aaduser_03.png)
-
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/kanbanize-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
-
-    d. Klik op **Create**.
- 
-### <a name="create-a-kanbanize-test-user"></a>Maak een testgebruiker Kanbanize
-
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Kanbanize. Kanbanize biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot Kanbanize als deze nog niet bestaat.
-
->[!Note]
->Als u maken van een gebruiker handmatig wilt, neem dan contact op met [Kanbanize Client ondersteuningsteam](mailto:support@ms.kanbanize.com).
+1. Selecteer in het linkerdeel venster van de Azure Portal **Azure Active Directory**, selecteer **gebruikers**en selecteer vervolgens **alle gebruikers**.
+1. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
+1. Voer de volgende stappen uit in de eigenschappen van de **gebruiker** :
+   1. Voer in het veld **Naam** `B.Simon` in.  
+   1. Voer in het veld **gebruikers naam** het username@companydomain.extensionin. Bijvoorbeeld `B.Simon@contoso.com`.
+   1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
+   1. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Kanbanize.
+In deze sectie schakelt u B. Simon in om eenmalige aanmelding van Azure te gebruiken door toegang te verlenen aan Kanbanize.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in het Azure Portal **bedrijfs toepassingen**en selecteer vervolgens **alle toepassingen**.
+1. Selecteer in de lijst toepassingen de optie **Kanbanize**.
+1. Ga op de pagina overzicht van de app naar de sectie **beheren** en selecteer **gebruikers en groepen**.
 
-**Als u wilt Britta Simon aan Kanbanize toewijst, moet u de volgende stappen uitvoeren:**
+   ![De koppeling 'Gebruikers en groepen'](common/users-groups-blade.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in het dialoog venster **toewijzing toevoegen** .
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling gebruiker toevoegen](common/add-assign-user.png)
 
-2. Selecteer in de lijst met toepassingen, **Kanbanize**.
+1. Selecteer in het dialoog venster **gebruikers en groepen** **B. Simon** van de lijst gebruikers en klik vervolgens op de knop **selecteren** onder aan het scherm.
+1. Als u een wille keurige rol verwacht in de SAML-bewering, selecteert u in het dialoog venster **rol selecteren** de juiste rol voor de gebruiker in de lijst en klikt u op de knop **selecteren** onder aan het scherm.
+1. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-    ![De koppeling Kanbanize in de lijst met toepassingen](./media/kanbanize-tutorial/tutorial_kanbanize_app.png)  
+### <a name="create-kanbanize-test-user"></a>Kanbanize-test gebruiker maken
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+In deze sectie wordt een gebruiker met de naam Julia Simon gemaakt in Kanbanize. Kanbanize biedt ondersteuning voor Just-in-time-gebruikers inrichting, die standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet bestaat in Kanbanize, wordt er een nieuwe gemaakt na verificatie. Als u hand matig een gebruiker moet maken, neemt u contact op met het ondersteunings [team van Kanbanize-clients](mailto:support@ms.kanbanize.com).
 
-    ![De koppeling 'Gebruikers en groepen'][202]
-
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Het deelvenster toewijzing toevoegen][203]
-
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="test-sso"></a>SSO testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel Kanbanize in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Kanbanize.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+Wanneer u op de tegel Kanbanize in het toegangs venster klikt, moet u automatisch worden aangemeld bij de Kanbanize waarvoor u SSO hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/kanbanize-tutorial/tutorial_general_01.png
-[2]: ./media/kanbanize-tutorial/tutorial_general_02.png
-[3]: ./media/kanbanize-tutorial/tutorial_general_03.png
-[4]: ./media/kanbanize-tutorial/tutorial_general_04.png
-
-[100]: ./media/kanbanize-tutorial/tutorial_general_100.png
-
-[200]: ./media/kanbanize-tutorial/tutorial_general_200.png
-[201]: ./media/kanbanize-tutorial/tutorial_general_201.png
-[202]: ./media/kanbanize-tutorial/tutorial_general_202.png
-[203]: ./media/kanbanize-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
