@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.topic: sample
 ms.date: 07/11/2019
 ms.author: jenhayes
-ms.openlocfilehash: c0266bd3c88dccc8b0413e617bb4a5fcadbf3720
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: b363fcdb752522db07642e625837e03429244f47
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67971353"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884297"
 ---
 # <a name="azure-lighthouse-samples"></a>Azure Lighthouse-voorbeelden
 
@@ -27,7 +27,7 @@ De volgende tabel bevat koppelingen naar belangrijke Azure Resource Manager-sjab
 | [deploy-azure-mgmt-services](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-azure-mgmt-services) | Maakt Azure-beheerservices, koppelt deze en implementeert aanvullende oplossingen. |
 | [deploy-azure-security-center](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-azure-security-center) | Configureert en schakelt Azure Security Center in binnen het Azure-doelabonnement. |
 | [marketplace-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management) | Plaatst het abonnement van een klant in gedelegeerd Azure-resourcebeheer op basis van een aanbod voor beheerde services in de marketplace. |
-| [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management) | Plaatst een of meer resourcegroepen van een klant in gedelegeerd Azure-resourcebeheer. |
+| [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) | Plaatst een of meer resourcegroepen van een klant in gedelegeerd Azure-resourcebeheer. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

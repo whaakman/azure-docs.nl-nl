@@ -133,12 +133,14 @@
       items:
         - name: Aan de slag gaan met Android-kaartbesturingselementen
           href: how-to-use-android-map-control-library.md
+        - name: Stijl van de kaart wijzigen
+          href: set-android-map-styles.md
         - name: Een symboollaag toevoegen
           href: how-to-add-symbol-to-android-map.md
         - name: Vormen toevoegen
           href: how-to-add-shapes-to-android-map.md
-        - name: Stijl van de kaart wijzigen
-          href: set-android-map-styles.md
+        - name: Een titellaag toevoegen
+          href: how-to-add-tile-layer-android-map.md
 - name: Naslaginformatie
   items:
     - name: API- en parameterextensies
