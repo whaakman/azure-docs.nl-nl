@@ -105,6 +105,8 @@
               href: clustering-point-data-web-sdk.md
             - name: Gegevensgestuurde stijlexpressies gebruiken
               href: data-driven-style-expressions-web-sdk.md
+            - name: Afbeeldingssjablonen gebruiken
+              href: how-to-use-image-templates-web-sdk.md
             - name: Een overlay aan een afbeelding toevoegen
               href: map-add-image-layer.md
             - name: Tegellagen toevoegen

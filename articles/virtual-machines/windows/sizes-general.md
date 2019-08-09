@@ -1,6 +1,6 @@
 ---
-title: Azure Windows VM-grootten - algemene doeleinden | Microsoft Docs
-description: Geeft een lijst van de verschillende algemeen gebruik-grootten die beschikbaar zijn voor Windows-machines in Azure. Bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals opslag en doorvoer netwerkbandbreedte voor grootten die in deze reeks.
+title: Groottes van Azure Windows VM-algemeen gebruik | Microsoft Docs
+description: Hier worden de verschillende algemene doel grootten vermeld die beschikbaar zijn voor virtuele Windows-machines in Azure. Bevat informatie over het aantal Vcpu's, gegevens schijven en Nic's en de opslag doorvoer en netwerk bandbreedte voor grootten in deze serie.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/01/2018
+ms.date: 08/08/2019
 ms.author: jonbeck
-ms.openlocfilehash: fe43e7cafd2077e0ab67e44ad9564801fb04e061
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 02bd309557c55ed76a6751962b6281ecb83ded3b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710316"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884036"
 ---
-# <a name="general-purpose-virtual-machine-sizes"></a>Grootten van virtuele machines voor algemeen gebruik
+# <a name="general-purpose-virtual-machine-sizes"></a>Grootte van virtuele machines voor algemene doel einden
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-general.md)]
 
@@ -38,5 +38,5 @@ ms.locfileid: "67710316"
 - [Vorige generaties](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over hoe u [Azure compute units (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.
+Meer informatie over hoe [Azure Compute units (ACU)](acu.md) u kan helpen bij het vergelijken van de reken prestaties in azure-sku's.
 

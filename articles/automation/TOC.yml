@@ -234,7 +234,7 @@
         - name: Aan de slag
           href: automation-dsc-getting-started.md
           displayName: DSC
-        - name: Een DSC-configuratie maken
+        - name: Een Linux-configuratie beheren
           href: automation-quickstart-dsc-configuration.md
           displayName: 'DSC, state configuration, config, node configuration, node'
     - name: Onboarding

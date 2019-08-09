@@ -65,13 +65,19 @@
       href: detailed-troubleshoot-ssh-connection.md
 - name: Veelvoorkomende foutberichten
   href: error-messages.md
-- name: Prestatieproblemen met Windows-VM's
+- name: Prestatieproblemen met VM's
   href: performance-diagnostics.md
   items:
-    - name: PerfInsights gebruiken
-      href: how-to-use-perfInsights.md
-    - name: Extensie voor diagnostische gegevens over prestaties
-      href: performance-diagnostics-vm-extension.md
+    - name: Windows
+      items:
+        - name: PerfInsights gebruiken
+          href: how-to-use-perfinsights.md
+        - name: Extensie voor diagnostische gegevens over prestaties
+          href: performance-diagnostics-vm-extension.md
+    - name: Linux
+      items:
+        - name: PerfInsights gebruiken
+          href: how-to-use-perfinsights-linux.md
 - name: VM-agent voor Windows offline installeren
   href: install-vm-agent-offline.md
 - name: Een virtuele machine opnieuw implementeren

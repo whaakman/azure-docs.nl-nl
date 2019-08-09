@@ -1,10 +1,10 @@
 ---
-title: Lucene-querysyntaxis - Azure Search
-description: Referentie voor de volledige Lucene-syntaxis als gebruikt met Azure Search.
+title: Lucene-query syntaxis-Azure Search
+description: Verwijzing voor de volledige lucene-syntaxis, zoals gebruikt in combi natie met Azure Search.
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 08/08/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,33 +19,33 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 26935b53d8f852289513a5a7b5d31e3befe3e3b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8e9b737676b2695b7b88430f59b0b0e79bc477a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002236"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883866"
 ---
-# <a name="lucene-query-syntax-in-azure-search"></a>Lucene-querysyntaxis in Azure Search
-U kunt ook query's voor Azure Search op basis van de uitgebreide schrijven [Lucene-Queryparser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntaxis voor het vormen van de speciale query: jokertekens, fuzzy zoeken, zoeken op nabijheid, reguliere expressies zijn een aantal voorbeelden. Veel van de syntaxis van Lucene-Queryparser [intact geïmplementeerd in Azure Search](search-lucene-query-architecture.md), met uitzondering van *bereik zoekopdrachten* die zijn gebouwd in Azure Search via `$filter` expressies. 
+# <a name="lucene-query-syntax-in-azure-search"></a>De Lucene-query syntaxis in Azure Search
+U kunt Azure Search query's schrijven op basis van de syntaxis van de Rich [lucene query-parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) voor gespecialiseerde query formulieren: Joker teken, fuzzy zoeken, proximity Search, reguliere expressies zijn enkele voor beelden. Veel van de Lucene-query-parser syntaxis is [in azure Search intact geïmplementeerd](search-lucene-query-architecture.md), met uitzonde ring van *Zoek opdrachten* in het bereik die `$filter` zijn gemaakt in azure Search via expressies. 
 
-## <a name="how-to-invoke-full-parsing"></a>Het aanroepen van de volledige parseren
+## <a name="how-to-invoke-full-parsing"></a>Volledige parsering aanroepen
 
-Stel de `queryType` zoeken parameter om op te geven welke parser te gebruiken. Geldige waarden zijn `simple|full`, met `simple` als de standaard, en `full` voor Lucene. 
+Stel de `queryType` Zoek parameter in om op te geven welke parser moet worden gebruikt. Geldige waarden zijn `simple|full`onder andere `simple` de standaard waarde en `full` voor lucene. 
 
 <a name="bkmk_example"></a> 
 
-### <a name="example-showing-full-syntax"></a>Voorbeeld van de volledige syntaxis van de weergeven
+### <a name="example-showing-full-syntax"></a>Voor beeld met volledige syntaxis
 
-Het volgende voorbeeld worden documenten gevonden in de index met behulp van de Lucene-querysyntaxis, duidelijk in de `queryType=full` parameter. Deze query retourneert hotels waar het categorieveld bevat de term 'budget' en alle doorzoekbare velden die de zin 'onlangs renovated'. Documenten die de zin 'onlangs renovated' worden hoger gerangschikt als gevolg van de termijn boost waarde (3).  
+In het volgende voor beeld wordt gezocht naar documenten in de index met behulp van de `queryType=full` lucene-query syntaxis, duidelijk in de para meter. Deze query retourneert hotels waar het veld categorie de term ' budget ' bevat en alle Doorzoek bare velden met de zin ' recent renovated '. Documenten met de zin ' recent renovated ' worden hoger als resultaat van de term Boost waarde (3).  
 
-De `searchMode=all` parameter is van belang voor dit voorbeeld. Wanneer operators op de query zijn, moet u in het algemeen instellen `searchMode=all` om ervoor te zorgen dat *alle* van de criteria overeenkomt.
+De `searchMode=all` para meter is relevant in dit voor beeld. Wanneer Opera tors zich op de query bevinden, moet `searchMode=all` u in het algemeen instellen dat *alle* criteria overeenkomen.
 
 ```
 GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2019-05-06&querytype=full
 ```
 
- U kunt ook gebruik POST:  
+ U kunt ook POST gebruiken:  
 
 ```
 POST /indexes/hotels/docs/search?api-version=2019-05-06
@@ -56,120 +56,120 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 }
 ```
 
-Zie voor meer voorbeelden van [Lucene-queryvoorbeelden syntaxis voor het bouwen van query's in Azure Search](search-query-lucene-examples.md). Zie voor meer informatie over het opgeven van de volledige afhankelijk is van queryparameters [documenten zoeken &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+Zie voor meer voor beelden de voor [beelden van Lucene-query syntaxis voor het maken van query's in azure Search](search-query-lucene-examples.md). Zie [zoeken naar documenten &#40;&#41;Azure Search service rest API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)voor meer informatie over het opgeven van de volledige afhankelijkheid van query parameters.
 
 > [!NOTE]  
->  Azure Search biedt ook ondersteuning voor [eenvoudige querysyntaxis](query-simple-syntax.md), een eenvoudige en krachtige querytaal die kunnen worden gebruikt voor eenvoudige trefwoorden zoeken.  
+>  Azure Search biedt ook ondersteuning voor [eenvoudige query syntaxis](query-simple-syntax.md), een eenvoudige en krachtige query taal die kan worden gebruikt voor eenvoudige Zoek opdrachten met tref woorden.  
 
-##  <a name="bkmk_syntax"></a> Syntaxisgrondbeginselen  
- De volgende van de syntaxisgrondbeginselen van toepassing op alle query's die gebruikmaken van de syntaxis van Lucene.  
+##  <a name="bkmk_syntax"></a>Syntaxis basis  
+ De volgende syntaxis basis is van toepassing op alle query's die gebruikmaken van de Lucene-syntaxis.  
 
-### <a name="operator-evaluation-in-context"></a>Evaluatie van de operator in context
+### <a name="operator-evaluation-in-context"></a>Operator evaluatie in de context
 
-Voor de plaatsing bepaald of een symbool wordt geïnterpreteerd als een operator of gewoon een teken in een tekenreeks.
+Plaatsing bepaalt of een symbool wordt geïnterpreteerd als een operator of alleen een ander teken in een teken reeks.
 
-In de volledige Lucene-syntaxis, bijvoorbeeld de tilde (~) gebruikt voor zowel fuzzy zoekopdrachten en zoeken op nabijheid. Als na een zin in tussen aanhalingstekens geplaatst ~ zoeken op nabijheid aanroept. Wanneer geplaatst aan het einde van een term ~ fuzzy zoeken wordt aangeroepen.
+In de volledige syntaxis van Lucene wordt bijvoorbeeld de tilde (~) gebruikt voor zowel fuzzy zoek acties als proximity-Zoek opdrachten. Wanneer deze wordt geplaatst na een woord groep met een aanhalings teken, wordt proximity-zoek opdracht aangeroepen. Wanneer deze aan het einde van een termijn wordt geplaatst, roept de zoek actie voor fuzzy aan.
 
-Binnen een term, zoals ' zakelijke ~ analist ", het teken wordt niet beoordeeld als operator. In dit geval een zoekterm of woordgroep query, ervan uitgaande dat de query is [zoeken in volledige tekst](search-lucene-query-architecture.md) met [lexicale analyse](search-lucene-query-architecture.md#stage-2-lexical-analysis) verwijdert de ~ en wordt de term ' zakelijke ~ analist ' in twee: zakelijke of analist.
+Binnen een termijn, zoals ' bedrijfs ~ analist ', wordt het teken niet geëvalueerd als een operator. In dit geval, ervan uitgaande dat de query een term of woordgroepen query is, [zoekt volledige tekst](search-lucene-query-architecture.md) met [lexicale analyse](search-lucene-query-architecture.md#stage-2-lexical-analysis) de ~ en verbreekt de term ' bedrijfs ~ analist ' in twee: bedrijf of analist.
 
-Het bovenstaande voorbeeld is de tilde (~), maar de hetzelfde geldt voor elke operator.
+Het bovenstaande voor beeld is de tilde (~), maar hetzelfde principe geldt voor elke operator.
 
-### <a name="escaping-special-characters"></a>Aanhalingstekens speciale tekens
+### <a name="escaping-special-characters"></a>Speciale tekens in een escape teken
 
- Speciale tekens moeten worden weergegeven om te worden gebruikt als onderdeel van de zoektekst. U kunt deze escape door het voorvoegsel wordt deze gemaakt met een backslash (\\). Speciale tekens die moeten worden weergegeven, omvatten het volgende:  
+ Speciale tekens moeten worden voorafgegaan om te worden gebruikt als onderdeel van de Zoek tekst. U kunt ze terugvinden door ze met een back slash\\() te voorzien. Voor beelden van speciale tekens die moeten worden voorafgegaan, zijn onder meer de volgende:  
 `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
 
- Bijvoorbeeld, om te escapen een jokerteken, gebruik \\ \*.
+ Als u bijvoorbeeld een Joker teken wilt escaperen, \\gebruikt \*u.
 
-### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Codering onveilige en gereserveerde tekens in URL 's
+### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Onveilige en gereserveerde tekens in Url's coderen
 
- Zorg ervoor dat alle onveilige en gereserveerde tekens in een URL zijn gecodeerd. Bijvoorbeeld, is '#' een onveilige teken omdat dit een fragement/anker-id in een URL is. Het teken moet worden gecodeerd naar `%23` als in een URL gebruikt. ' &' en '=' zijn voorbeelden van gereserveerde tekens zoals ook het scheiden van de parameters en geef waarden op in Azure Search. Raadpleeg [RFC1738: Uniform Resource Locator (URL)](https://www.ietf.org/rfc/rfc1738.txt) voor meer informatie.
+ Zorg ervoor dat alle onveilige en gereserveerde tekens worden gecodeerd in een URL. Bijvoorbeeld, ' # ' is een onveilig teken omdat het een fragement/anker-id in een URL is. Het teken moet worden gecodeerd `%23` als het wordt gebruikt in een URL. ' & ' en ' = ' zijn voor beelden van gereserveerde tekens wanneer ze para meters opwaarderen en waarden opgeven in Azure Search. Ga naar [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) voor meer informatie.
 
- Onveilige tekens zijn ``" ` < > # % { } | \ ^ ~ [ ]``. Gereserveerde tekens zijn `; / ? : @ = + &`.
+ Onveilige tekens ``" ` < > # % { } | \ ^ ~ [ ]``zijn. Gereserveerde tekens `; / ? : @ = + &`zijn.
 
-### <a name="precedence-operators-grouping-and-field-grouping"></a>Bewerkingsvolgorde: groeperen en groepering van veld  
- Subquery's, met inbegrip van operators binnen de tussen haakjes-instructie maken kunt u tussen haakjes. Bijvoorbeeld, `motel+(wifi||luxury)` wordt zoeken naar documenten met de term "motel" en "Wi-Fi" of 'luxe' (of beide).
+### <a name="precedence-operators-grouping-and-field-grouping"></a>Prioriteits operatoren: groeperen en groeperen van velden  
+ U kunt haakjes gebruiken om subquery's te maken, inclusief Opera tors in de instructie van de haak. Zoekt bijvoorbeeld `motel+(wifi||luxury)` naar documenten met de term ' Motel ' en ' WiFi ' of ' luxe ' (of beide).
 
-Veld groepering is vergelijkbaar, maar het bereik van de groepering één veld. Bijvoorbeeld, `hotelAmenities:(gym+(wifi||pool))` zoekt naar het veld "hotelAmenities" voor "sportschool" en "Wi-Fi," of '-sportschool' en 'groep'.  
+Veld groepering is vergelijkbaar, maar bereiken de groepering op één veld. `hotelAmenities:(gym+(wifi||pool))` Zoekt bijvoorbeeld naar het veld "hotelAmenities" voor "Gym" en "WiFi" of "Gym" en "pool".  
 
-### <a name="searchmode-parameter-considerations"></a>Overwegingen met betrekking tot SearchMode-parameter  
- De impact van `searchMode` op query's, zoals beschreven in [vereenvoudigde querysyntaxis in Azure Search](query-simple-syntax.md), geldt ook voor de Lucene-querysyntaxis. Dat wil zeggen `searchMode` operators kunnen in combinatie met niet resulteren in query-resultaten die ongebruikelijke lijken mogelijk als u niet op de gevolgen van het stelt u de parameter. Als u de standaard, behoudt `searchMode=any`, en gebruik een niet-operator, de bewerking wordt berekend als een actie of zodat "New York" niet "Seattle" retourneert alle plaatsen die geen Seattle.  
+### <a name="searchmode-parameter-considerations"></a>Overwegingen voor Search mode-para meter  
+ De impact van `searchMode` op query's, zoals beschreven in de [eenvoudige query syntaxis in azure Search](query-simple-syntax.md), is gelijk aan de Lucene-query syntaxis. Dit kan `searchMode` in combi natie met niet-Opera tors ertoe leiden dat er query's ontstaan die mogelijk ongebruikelijk zijn als u niet duidelijk weet wat de gevolgen zijn van de manier waarop u de para meter instelt. Als u de standaard waarde, `searchMode=any`en een not-operator gebruikt, wordt de bewerking berekend als een or-actie, zodat ' Amsterdam ' niet alle steden retourneert die niet Seattle zijn.  
 
-##  <a name="bkmk_boolean"></a> Booleaanse operators (AND, OR, NOT) 
- Geef tekst Booleaanse operators (AND, OR, NOT) altijd in hoofdletters.  
+##  <a name="bkmk_boolean"></a>Booleaanse Opera tors (en, of, niet) 
+ Geef altijd tekst Booleaanse Opera tors (en, of, niet) op in hoofd letters.  
 
-### <a name="or-operator-or-or-"></a>OR-operator `OR` of `||`
+### <a name="or-operator-or-or-"></a>Of operator `OR` of`||`
 
-De OR-operator is een verticale balk of een pipe-teken. Bijvoorbeeld: `wifi || luxury` wordt zoeken naar documenten "Wi-Fi" of 'luxe' of beide. Omdat of is de standaardoperator combinatie kan u dit ook laten zodat `wifi luxury` is het equivalent van `wifi || luxuery`.
+De operator OR is een verticale streep of een sluis teken. Bijvoorbeeld: `wifi || luxury` zoekt naar documenten met ofwel ' WiFi ' of ' luxe ' of beide. Omdat of de standaard operator voor samen voegen is, kunt u dit ook laten verlopen `wifi luxury` , zodat het equivalent `wifi || luxuery`is van.
 
-### <a name="and-operator-and--or-"></a>EN de operator `AND`, `&&` of `+`
+### <a name="and-operator-and--or-"></a>En operator `AND`, `&&` of`+`
 
-De operator is een en-teken of een plusteken (+). Bijvoorbeeld: `wifi && luxury` wordt zoeken naar documenten met zowel "Wi-Fi" en 'luxe'. Het plus-teken (+) wordt gebruikt voor vereiste voorwaarden. Bijvoorbeeld, `+wifi +luxury` bepaalt dat beide termen ergens moeten worden weergegeven in het veld van een document.
+De operator AND is een ampersand of een plus teken. Bijvoorbeeld: `wifi && luxury` zoekt naar documenten die zowel "WiFi" als "luxe" bevatten. Het plus teken (+) wordt gebruikt voor de vereiste voor waarden. Voor beeld: `+wifi +luxury` bepaalt dat beide termen ergens in het veld van één document moeten worden weer gegeven.
 
 
-### <a name="not-operator-not--or--"></a>GEEN operator `NOT`, `!` of `-`
+### <a name="not-operator-not--or--"></a>Geen operator `NOT`, `!` of`-`
 
-De niet-operator is een uitroepteken of het minteken. Bijvoorbeeld: `wifi !luxury` wordt zoeken naar documenten waarvoor de "Wi-Fi" termijn en/of geen 'luxe'. De `searchMode` besturingselementen de optie of een term met de operator NOT and of samengevoegd met de andere voorwaarden in de query in de afwezigheid van is een + of || operator. Intrekken die `searchMode` kan worden ingesteld op `any`(standaard) of `all`.
+De operator NOT is een uitroep teken of het minteken. Bijvoorbeeld: `wifi !luxury` zoekt naar documenten met de "WiFi"-term en/of heeft geen "luxe". Met `searchMode` de optie bepaalt u of een term met de operator Not ANDed of ORed is met de andere voor waarden in de query in het ontbreken van een operator + of | |. Intrekken `searchMode` dat kan worden ingesteld op `any`ofwel (standaard) `all`of.
 
-Met behulp van `searchMode=any` verhoogt het intrekken van query's door op te nemen meer resultaten, en de standaard - wordt geïnterpreteerd als 'Of niet'. Bijvoorbeeld, `wifi -luxury` komt overeen met documenten dat beide de term bevatten *Wi-Fi* of die niet de term hebben *luxe.*
+Met `searchMode=any` behulp van kunt u het terughalen van query's verhogen door meer resultaten op te nemen en standaard-wordt geïnterpreteerd als "of niet". Komt bijvoorbeeld overeen `wifi -luxury` met documenten die de term *Wi-Fi* bevatten of die die niet de term luxe bevatten *.*
 
-Met behulp van `searchMode=all` verhoogt de precisie van de query's door minder resultaten, en de standaard - wordt geïnterpreteerd als 'En niet'. Bijvoorbeeld, `wifi -luxury` komt overeen met de documenten die de term bevatten `wifi` en geen bevatten die de term `luxury`. Dit is weliswaar een meer intuïtieve benadering dat voor de - operator. Daarom kunt u overwegen kiezen `searchMode=all` via `searchMode=any` als u wilt optimaliseren zoekt precisie in plaats van terugroeping *en* uw gebruikers gebruiken vaak de `-` operator in zoekopdrachten.
+Met `searchMode=all` deze instelling wordt de nauw keurigheid van query's verhoogd door minder resultaten op te nemen en standaard-wordt geïnterpreteerd als "en niet". Komt bijvoorbeeld `wifi -luxury` overeen met documenten die `wifi` de voor waarden bevatten en die de term `luxury`niet bevatten. Dit is weliswaar een meer intuïtief gedrag voor de-operator. Daarom kunt u overwegen om te `searchMode=all` kiezen `searchMode=any` of u de zoek acties wilt optimaliseren, in plaats van de intrek *en* dat uw `-` gebruikers de operator vaak gebruiken in Zoek opdrachten.
 
-##  <a name="bkmk_querysizelimits"></a> Beperkingen van de bestandsgrootte query  
- Er is een limiet voor de grootte van query's die u naar Azure Search verzenden kunt. U kunt hebt maximaal 1024 van de EU (expressies gescheiden door AND, OR, enzovoort). Er is ook een limiet van ongeveer 32 KB voor de grootte van elke afzonderlijke term in een query. Als uw toepassing zoekquery's via een programma genereert, wordt u aangeraden het ontwerpen van deze zodanig dat deze query's van niet-gebonden grootte wordt gegenereerd.  
+##  <a name="bkmk_querysizelimits"></a>Beperkingen voor de query grootte  
+ Er geldt een limiet voor de grootte van query's die u naar Azure Search kunt verzenden. U kunt met name de meeste 1024-componenten hebben (expressies gescheiden door en, of, enzovoort). Er is ook een limiet van ongeveer 32 KB op de grootte van een afzonderlijke term in een query. Als uw toepassing Zoek query's programmatisch genereert, raden we u aan om deze zodanig te ontwerpen dat er geen query's van een ongebonden grootte worden gegenereerd.  
 
-##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Scoring jokerteken en regex-query 's
- Azure Search wordt gebruikt op basis van een frequentie scoren ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) voor query's van tekst. Echter wordt voor jokertekens en regex query's waarbij bereik van voorwaarden mogelijk breed zijn kan, de frequentie van meerdere factoren om te voorkomen dat de volgorde van voor de overeenkomsten van sommige voorwaarden bijstelling genegeerd. Alle overeenkomsten worden behandeld voor jokertekens en regex zoekopdrachten.
+##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a>Score Joker teken en regex-query's
+ Azure Search gebruikt op frequentie gebaseerde Score ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) voor tekst query's. Voor joker tekens en regex-query's waarbij de reik wijdte van termen mogelijk breed kan zijn, wordt de frequentie factor genegeerd om te voor komen dat de rang schikking overeenkomt met overeenkomsten van rarer-voor waarden. Alle overeenkomsten worden op dezelfde manier behandeld voor Zoek opdrachten met Joker tekens en regex.
 
-##  <a name="bkmk_fields"></a> Fielded zoeken  
-U kunt een zoekbewerking fielded met de definiëren de `fieldName:searchExpression` syntaxis, waarbij de zoekopdracht één woord of een woordgroep of een complexe expressie tussen haakjes, eventueel met Booleaanse operators zijn kan. Enkele voorbeelden omvatten het volgende:  
+##  <a name="bkmk_fields"></a>Zoek opdracht in veld  
+U kunt een zoek bewerking in een veld definiëren met `fieldName:searchExpression` de syntaxis, waarbij de zoek expressie één woord of een zin of een complexere expressie tussen haakjes, optioneel met Booleaanse Opera Tors, kan zijn. Enkele voor beelden zijn:  
 
-- GEEN geschiedenis genre: jazz  
+- genre: Jazz geen geschiedenis  
 
-- Artiesten: ("Miles Davis" "John Coltrane")
+- artiesten:("mijl Davis" "John Coltrane")
 
-Zorg ervoor dat u meerdere tekenreeksen tussen aanhalingstekens plaatsen als u wilt dat beide tekenreeksen die moeten worden geëvalueerd als één entiteit in dit geval zoekt naar twee verschillende artiesten in de `artists` veld.  
+Zorg ervoor dat u meerdere teken reeksen tussen aanhalings tekens plaatst als u wilt dat beide teken reeksen als één entiteit worden geëvalueerd. in dit geval zoekt u twee afzonderlijke `artists` artiesten in het veld.  
 
-Het veld dat is opgegeven `fieldName:searchExpression` moet een `searchable` veld.  Zie [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) voor meer informatie over het gebruik van indexkenmerken in velddefinities.  
+Het opgegeven veld in `fieldName:searchExpression` moet een `searchable` veld zijn.  Zie [index maken](https://docs.microsoft.com/rest/api/searchservice/create-index) voor meer informatie over het gebruik van index kenmerken in veld definities.  
 
 > [!NOTE]
-> Wanneer met behulp van fielded uitdrukkingen zoeken, u niet wilt gebruiken de `searchFields` parameter omdat elk zoekexpressie fielded heeft de naam van een veld expliciet worden opgegeven. U kunt echter nog steeds gebruiken de `searchFields` parameter als u wilt uitvoeren van een query waarin bepaalde onderdelen zijn gericht op een bepaald veld en de rest kan worden toegepast op meerdere velden. Bijvoorbeeld, de query `search=genre:jazz NOT history&searchFields=description` wordt gezocht naar `jazz` alleen voor de `genre` veld, terwijl deze er gezocht naar wordt `NOT history` met de `description` veld. De naam van het veld opgegeven in `fieldName:searchExpression` altijd voorrang op de `searchFields` parameter, die daarom in dit voorbeeld, hoeft er niet om op te nemen `genre` in de `searchFields` parameter.
+> Wanneer u zoek expressies met een formule gebruikt, hoeft u de `searchFields` para meter niet te gebruiken omdat elke zoek expressie in een veld expliciet een veld naam heeft opgegeven. U kunt echter nog steeds de `searchFields` para meter gebruiken als u een query wilt uitvoeren waarbij sommige onderdelen naar een specifiek veld zijn beperkt, en de rest kan van toepassing zijn op verschillende velden. De `search=genre:jazz NOT history&searchFields=description` query zou bijvoorbeeld alleen overeenkomen `jazz` met het `genre` veld, terwijl deze overeenkomt `NOT history` met het `description` veld. De naam van het veld `fieldName:searchExpression` in heeft altijd voor rang `searchFields` op de para meter, wat in dit voor beeld de oorzaak is van het `genre` niet gebruiken `searchFields` van de para meter.
 
-##  <a name="bkmk_fuzzy"></a> fuzzy zoeken  
- Bij een fuzzy zoekopdracht overeenkomsten zoekt in termen die een dergelijke constructie hebben. Per [Lucene documentatie](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy zoekopdrachten zijn gebaseerd op [Damerau Levenshtein afstand](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Fuzzy zoekopdrachten kunnen een term die tot het maximum van 50 termen die voldoen aan de criteria afstand uitbreiden. 
+##  <a name="bkmk_fuzzy"></a>Zoek actie op fuzzy  
+ Bij een fuzzy zoek opdracht vindt u overeenkomsten met een vergelijk bare constructie. Per [lucene-documentatie](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)zijn zoek acties op basis van [Damerau-Levenshtein-afstand](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Bij fuzzy Zoek opdrachten kan een term worden uitgebreid tot het maximum van 50 voor waarden die voldoen aan de afstands criteria. 
 
- Bij een fuzzy zoekopdracht, gebruikt u de tilde ' ~ ' symbool aan het einde van één woord met een optionele parameter, een getal tussen 0 en 2 (standaard), dat de afstand bewerken geeft. Bijvoorbeeld: "blauw ~ ' of ' blue ~ 1" retourneert "blue", 'blues' en 'lijmen'.
+ Als u een fuzzy zoek opdracht wilt uitvoeren, gebruikt u het tilde ' ~ ' aan het einde van één woord met een optionele para meter, een getal tussen 0 en 2 (standaard) waarmee de bewerkings afstand wordt opgegeven. Bijvoorbeeld: ' Blue ~ ' of ' Blue ~ 1 ' retourneert ' Blue ', ' blauw ' en ' lijm '.
 
- Fuzzy zoeken kan alleen worden toegepast met voorwaarden, niet bestaat, maar u kunt de tilde toevoegen aan elke term afzonderlijk van een meerdelige naam of een woordgroep. Bijvoorbeeld, "Unviersty ~ van ~" Wshington ~ "op"Rijksuniversiteit Groningen"wordt er gezocht.
+ Fuzzy Search kan alleen worden toegepast op termen, geen zinsdelen, maar u kunt de tilde aan elke afzonderlijke term afzonderlijk toevoegen in een naam of woord groep met meerdere delen. Zo komt ' Unviersty ~ van ~ ' Wshington ~ ' overeen met ' University of Washington '.
  
 
-##  <a name="bkmk_proximity"></a> zoeken op nabijheid  
- Nabijheid zoekopdrachten worden gebruikt om te vinden van voorwaarden die zich dicht bij elkaar in een document. Invoegen van een tilde ' ~ ' symbool aan het einde van een zin gevolgd door het aantal woorden die de grens nabijheid maken. Bijvoorbeeld, `"hotel airport"~5` vindt de termen "Hotels" en "luchthaven" binnen 5 woorden van elkaar in een document.  
+##  <a name="bkmk_proximity"></a>Proximity Search  
+ Proximity-Zoek opdrachten worden gebruikt om termen te vinden die zich in een document nabij elkaar bevinden. Voeg een tilde ' ~ ' aan het einde van een woord groep toe, gevolgd door het aantal woorden dat de grens van de nabijheid heeft gemaakt. De termen ' `"hotel airport"~5` Hotel ' en ' lucht haven ' worden bijvoorbeeld binnen vijf woorden van elkaar in een document weer te vinden.  
 
 
-##  <a name="bkmk_termboost"></a> versterking  
- Termenverbetering verwijst naar de positie van een document hoger als deze bevat de boosted term, ten opzichte van documenten die de term niet bevatten. Dit wijkt af van het scoreprofielen in die scoreprofielen bepaalde velden, in plaats van specifieke voorwaarden verhogen.  
+##  <a name="bkmk_termboost"></a>Term versterking  
+ De term Boosting verwijst naar een hoger niveau voor een document als dit de gestimuleerde term bevat, ten opzichte van documenten die de term niet bevatten. Dit verschilt van Score profielen in dat Score profiel om bepaalde velden in plaats van specifieke voor waarden te stimuleren.  
 
-In het volgende voorbeeld kunt u de verschillen laten zien. Stel dat er is een scoring-profiel die de loyaliteit komt overeen met in een bepaald veld bijvoorbeeld *genre* in de [musicstoreindex voorbeeld](index-add-scoring-profiles.md#bkmk_ex). Termenverbetering kan worden gebruikt om bepaalde zoeken verder hoger dan de andere voorwaarden te verbeteren. Bijvoorbeeld, `rock^2 electronic` documenten met de zoektermen in het veld genre hoger is dan andere doorzoekbare velden in de index wordt verhogen. Verder, documenten die de zoekterm bevatten *rock* hoger dan de andere zoekterm wordt gerangschikt *elektronische* als gevolg van de termijn boost waarde (2).  
+In het volgende voor beeld worden de verschillen toegelicht. Stel dat er een score profiel is dat overeenkomt met de overeenkomsten in een bepaald veld, bijvoorbeeld *genre* in het [musicstoreindex-voor beeld](index-add-scoring-profiles.md#bkmk_ex). De term versterking kan worden gebruikt om bepaalde zoek termen hoger te verhogen dan andere. U kunt bijvoorbeeld `rock^2 electronic` documenten verhogen met de zoek termen in het veld genre hoger dan andere Doorzoek bare velden in de index. Daarnaast worden documenten met de zoek term *Rock* hoger gerangschikt dan de andere zoek term *elektronisch* als resultaat van de waarde voor de verhoging van de term (2).  
 
- Om te verbeteren gebruiken een termijn van het caret-teken, "^", symbool met een boost factor (een getal) aan het einde van de term die u zoekt. U kunt ook zinnen verhogen. Hoe hoger de boost-factor, meer relevante wordt de term is ten opzichte van andere zoektermen. Standaard is de factor boost 1. Hoewel de factor boost moet positief zijn, kan het zijn dat kleiner is dan 1 (bijvoorbeeld 0.20).  
+ Als u een term wilt verhogen, gebruikt u het caret-teken (^) met een boost factor (een getal) aan het einde van de term die u zoekt. U kunt ook zinsdelen verg Roten. Hoe hoger de Boost-factor, hoe relevanter de term relatief is ten opzichte van andere zoek termen. Standaard is de Boost factor 1. Hoewel de Boost-factor positief moet zijn, kan deze kleiner zijn dan 1 (bijvoorbeeld 0,20).  
 
-##  <a name="bkmk_regex"></a> zoeken op reguliere expressies  
- Een zoekopdracht reguliere expressie zoekt een overeenkomst op basis van de inhoud tussen forward slashes bevatten '/', zoals beschreven in de [klasse RegExp](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).  
+##  <a name="bkmk_regex"></a>Reguliere expressie zoeken  
+ Een reguliere expressie zoekt zoekt naar een overeenkomst op basis van de inhoud tussen slashes '/', zoals beschreven in de [klasse RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
 
- Bijvoorbeeld, om te vinden met "motel" of "Hotels" documenten, geef `/[mh]otel/`.  Reguliere expressie zoekopdrachten worden vergeleken met enkele woorden.   
+ Als u bijvoorbeeld documenten zoekt met ' Motel ' of ' Hotel ', geeft `/[mh]otel/`u op.  Zoek opdrachten in reguliere expressies worden vergeleken met enkele woorden.   
 
-##  <a name="bkmk_wildcard"></a> zoeken met jokertekens  
- U kunt gebruiken in het algemeen erkende syntaxis voor meerdere (*) of één (?) teken zoeken met jokertekens. Houd er rekening mee dat de Lucene-queryparser ondersteunt het gebruik van deze symbolen met een termijn van één en niet een zin.  
+##  <a name="bkmk_wildcard"></a>Joker tekens zoeken  
+ U kunt de algemeen erkende syntaxis voor meerdere (*) of enkelvoudige (?) tekens gebruiken als joker tekens. Opmerking de Lucene-query-parser ondersteunt het gebruik van deze symbolen met één term en geen woord groep.  
 
- Bijvoorbeeld, als u wilt zoeken naar documenten met de woorden met het voorvoegsel "Opmerking", zoals "notebook" of "Kladblok" opgeven "Opmerking *".  
+ Als u bijvoorbeeld documenten zoekt met de woorden met het voor voegsel ' Note ', zoals ' notitie ' of ' Klad blok ', geeft u ' Opmerking * ' op.  
 
 > [!NOTE]  
->  U kunt geen gebruiken een * of? symbool als het eerste teken van een zoekopdracht.  
->  Er is geen tekstanalyse wordt uitgevoerd op query's zoeken met jokertekens. Jokertekens querytermen zijn op het moment dat de query, vergeleken met de geanalyseerde voorwaarden in de search-index en uitgebreid.
+>  U kunt geen * of gebruiken. symbool als het eerste teken van een zoek opdracht.  
+>  Er wordt geen tekst analyse uitgevoerd voor zoek query's met Joker tekens. Tijdens het uitvoeren van de query worden de Joker teken query termen vergeleken met de geanalyseerde voor waarden in de zoek index en uitgevouwen.
 
 ## <a name="see-also"></a>Zie ook  
 
 + [Documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
-+ [Syntaxis voor OData-expressie voor filters en sorteren](query-odata-filter-orderby-syntax.md)   
-+ [Vereenvoudigde querysyntaxis in Azure Search](query-simple-syntax.md)   
++ [Syntaxis van de OData-expressie voor filters en sorteren](query-odata-filter-orderby-syntax.md)   
++ [Eenvoudige query syntaxis in Azure Search](query-simple-syntax.md)   
