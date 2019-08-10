@@ -10,16 +10,16 @@ ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eda457747a6a3e374e7fdea571f64446e15ded21
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: a52b9ee26aac20d95356db6a280c5feb40023fed
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774180"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942794"
 ---
 # <a name="what-is-azure-active-directory"></a>What is Azure Active Directory? (Engelstalig)
 
-Azure Active Directory (Azure AD) is de cloud-gebaseerde service voor identiteits-en toegangs beheer van micro soft, die helpt bij het aanmelden en openen van resources van uw werk nemer in:
+Azure Active Directory (Azure AD) is de cloud-gebaseerde service voor identiteits-en toegangs beheer van micro soft, waarmee uw werk nemers zich kunnen aanmelden en toegang hebben tot resources in:
 
 - Externe resources, zoals Microsoft Office 365, de Azure-portal en duizenden andere SaaS-toepassingen.
 
@@ -50,9 +50,9 @@ Als u uw Azure AD-implementatie wilt verbeteren, kunt u ook betaalde mogelijkhed
 
 - **Azure Active Directory Free.** Biedt gebruikers-en groeps beheer, on-premises adreslijst synchronisatie, basis rapporten, selfservice wachtwoord wijziging voor Cloud gebruikers en eenmalige aanmelding voor Azure, Office 365 en vele populaire SaaS-apps.
 
-- **Azure Active Directory Premium P1.** Naast de Free- en Basic-licenties kunt u met P1 uw hybride gebruikers toegang verlenen tot zowel on-premises als cloudresources. P1 biedt tevens ondersteuning voor geavanceerd beheer, zoals dynamische groepen, selfservice voor groepsbeheer, Microsoft Identity Manager (een on-premises pakket voor identiteits- en toegangsbeheer) en cloudfuncties voor terugschrijven, die selfservice voor wachtwoordherstel voor on-premises gebruikers mogelijk maken.
+- **Azure Active Directory Premium P1.** Naast de gratis functies biedt P1 ook toegang tot zowel on-premises als cloud resources. P1 biedt tevens ondersteuning voor geavanceerd beheer, zoals dynamische groepen, selfservice voor groepsbeheer, Microsoft Identity Manager (een on-premises pakket voor identiteits- en toegangsbeheer) en cloudfuncties voor terugschrijven, die selfservice voor wachtwoordherstel voor on-premises gebruikers mogelijk maken.
 
-- **Azure Active Directory Premium P2.** In aanvulling op de functies gratis, basis en P1 biedt P2 ook [Azure Active Directory Identity Protection](../identity-protection/enable.md) om op Risico's gebaseerde voorwaardelijke toegang te bieden tot uw apps en essentiële Bedrijfs gegevens en [privileged Identity Management](../privileged-identity-management/pim-getting-started.md) om te ontdekken beheerders en hun toegang tot bronnen beperken, bewaken en controleren en zo nodig just-in-time-toegang bieden.
+- **Azure Active Directory Premium P2.** Naast de gratis en P1-functies biedt P2 ook [Azure Active Directory Identity Protection](../identity-protection/enable.md) om op Risico's gebaseerde voorwaardelijke toegang te bieden tot uw apps en essentiële Bedrijfs gegevens en [privileged Identity Management](../privileged-identity-management/pim-getting-started.md) om te ontdekken, beheerders en hun toegang tot bronnen beperken en controleren en zo nodig just-in-time-toegang bieden.
 
 - **Functielicenties met Betalen per gebruik.** U kunt ook aanvullende functielicenties krijgen, zoals Azure Active Directory Business-to-Customer (B2C). Met B2C kunt u identiteits- en toegangsbeheeroplossingen bieden voor klantgerichte apps. Voor meer informatie raadpleegt u de [documentatie over Azure Active Directory B2C](../../active-directory-b2c/index.yml).
 

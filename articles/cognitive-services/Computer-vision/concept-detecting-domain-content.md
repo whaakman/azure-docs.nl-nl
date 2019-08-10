@@ -1,7 +1,7 @@
 ---
-title: Detecteren van domeinspecifieke inhoudstypen - Computer Vision
+title: Domein-specifieke inhoud-Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Leer hoe u een installatiekopie categorisatie domein om terug te keren meer gedetailleerde informatie over een afbeelding opgeven.
+description: Informatie over het opgeven van een categorisatie domein voor een afbeelding om meer gedetailleerde informatie over een installatie kopie te retour neren.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,26 +11,26 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368069"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946327"
 ---
-# <a name="detect-domain-specific-content"></a>Domeinspecifieke inhoud detecteren
+# <a name="detect-domain-specific-content"></a>Domein-specifieke inhoud detecteren
 
-Daarnaast categorisatie tagging en op hoog niveau, Computer Vision biedt ook ondersteuning voor verdere domeinspecifieke analyse met behulp van modellen die zijn getraind op speciale gegevens.
+Naast het coderen en categoriseren op hoog niveau, ondersteunt Computer Vision ook verdere domein-specifieke analyse met behulp van modellen die zijn getraind op gespecialiseerde gegevens.
 
-Er zijn twee manieren waarop u met de domeinspecifieke modellen: zelf (analyse van binnen het bereik) of als een uitbreiding op de functie voor categorisatie.
+Er zijn twee manieren om domein-specifieke modellen te gebruiken: op zichzelf (bereik analyse) of als een uitbrei ding van de categorisatie functie.
 
-### <a name="scoped-analysis"></a>Analyse van binnen het bereik
+### <a name="scoped-analysis"></a>Bereik analyse
 
-U kunt een installatiekopie met behulp van het gekozen domeinspecifieke model door het aanroepen van analyseren de [modellen /\<model\>/het analyseren](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API.
+U kunt een installatie kopie alleen analyseren met het gekozen domein-specifieke model door de [modellen/\<model\>/-](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API aan te roepen.
 
-Hieronder volgt een voorbeeld van een JSON-antwoord geretourneerd door de **modellen/beroemdheden/analyseren** API voor de opgegeven installatiekopie:
+Hier volgt een voor beeld van een JSON-antwoord dat wordt geretourneerd door de **modellen/beroemdheden/analyse-** API voor de opgegeven installatie kopie:
 
-![Satya Nadella standing, smiling](./images/satya.jpeg)
+![Satya Nadellae, glimlachend](./images/satya.jpeg)
 
 ```json
 {
@@ -55,13 +55,13 @@ Hieronder volgt een voorbeeld van een JSON-antwoord geretourneerd door de **mode
 }
 ```
 
-### <a name="enhanced-categorization-analysis"></a>Verbeterde categorisatie-analyse
+### <a name="enhanced-categorization-analysis"></a>Uitgebreide categorisatie-analyse
 
-U kunt ook domeinspecifieke modellen gebruiken om te voorzien in algemene installatiekopie analyse. U doet dit als onderdeel van [op hoog niveau categorisatie](concept-categorizing-images.md) door te geven van domeinspecifieke modellen in de *details* parameter van de [analyseren](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API-aanroep.
+U kunt ook gebruikersspecifieke modellen gebruiken om een aanvulling op de algemene afbeeldings analyse uit te kunnen laten. U doet dit als onderdeel van [categorisatie op hoog niveau](concept-categorizing-images.md) door domein-specifieke modellen op te geven in de para meter *Details* van de API-aanroep voor [analyse](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) .
 
-In dit geval wordt de classificatie 86 categorietaxonomie eerst genoemd. Als een van de gedetecteerde categorieën beschikt over een overeenkomende domeinspecifieke-model, wordt de installatiekopie doorgegeven dat ook model en de resultaten worden toegevoegd.
+In dit geval wordt de taxonomie classificatie 86-categorie eerst aangeroepen. Als een van de gedetecteerde categorieën een overeenkomend specifiek domein model heeft, wordt de installatie kopie door het model door gegeven en worden de resultaten toegevoegd.
 
-De volgende JSON-antwoord bevat hoe domeinspecifieke analyse kunnen worden opgenomen als de `detail` knooppunt in een breder categorisatie-analyse.
+In het volgende JSON-antwoord ziet u hoe serverspecifieke analyses kunnen worden opgenomen als `detail` het knoop punt in een bredere categorisatie analyse.
 
 ```json
 "categories":[
@@ -96,16 +96,16 @@ De volgende JSON-antwoord bevat hoe domeinspecifieke analyse kunnen worden opgen
 ]
 ```
 
-## <a name="list-the-domain-specific-models"></a>Lijst met de domeinspecifieke modellen
+## <a name="list-the-domain-specific-models"></a>De domein-specifieke modellen weer geven
 
-Computer Vision ondersteunt momenteel de volgende domeinspecifieke modellen:
+Computer Vision ondersteunt momenteel de volgende domein-specifieke modellen:
 
 | Name | Description |
 |------|-------------|
-| beroemdheden | Herkenning van beroemdheden, ondersteund voor installatiekopieën geclassificeerd de `people_` categorie |
-| Oriëntatiepunten | Oriëntatiepunten spraakherkenning, ondersteund voor installatiekopieën geclassificeerd de `outdoor_` of `building_` categorieën |
+| beroemdheden | Beroemdheden-herkenning, ondersteund voor installatie kopieën die `people_` in de categorie zijn geclassificeerd |
+| oriëntatie punten | Oriëntatie punt herkenning, ondersteund voor installatie kopieën die `outdoor_` zijn `building_` geclassificeerd in de categorieën of |
 
-Aanroepen van de [modellen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) API retourneert deze informatie, samen met de categorieën die elk model kunt toepassen:
+Het aanroepen van de [modellen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) API retourneert deze informatie samen met de categorieën waarop elk model kan worden toegepast:
 
 ```json
 {
@@ -139,4 +139,4 @@ Aanroepen van de [modellen](https://westus.dev.cognitive.microsoft.com/docs/serv
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Kennis met concepten over [categoriseren van beelden](concept-categorizing-images.md).
+Leer concepten over het categoriseren van [afbeeldingen](concept-categorizing-images.md).

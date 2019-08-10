@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 07/30/2019
 ms.author: laobri
-ms.openlocfilehash: f1420bd4ebf4ef586a8f306d4a2037fc3247c9c0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 3a0b5706b41bdc51a4fe6e49b20296d3824b717c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882625"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947121"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-nodejs"></a>Quickstart: Een Azure Search-index maken in node. js
 > [!div class="op_single_selector"]
@@ -109,320 +109,235 @@ Begin met het openen van een Power shell-console of een andere omgeving waarin u
       }
     }
     ```
-
-<a name="configure"></a>
-
-## <a name="1---define-and-create-index"></a>1-index definiëren en maken 
-
 Maak een bestand **azure_search_config. json** om uw zoek service gegevens op te slaan:
 
-    ```json
-    {
-        "serviceName" : "[SERVICE_NAME]",
-        "adminKey" : "[ADMIN_KEY]",
-        "queryKey" : "[QUERY_KEY]",
-        "indexName" : "hotels-quickstart"
-    }
-    ```
+```json
+{
+    "serviceName" : "[SERVICE_NAME]",
+    "adminKey" : "[ADMIN_KEY]",
+    "queryKey" : "[QUERY_KEY]",
+    "indexName" : "hotels-quickstart"
+}
+```
 
 Vervang de `[SERVICE_NAME]` waarde door de naam van uw zoek service. Vervang `[ADMIN_KEY]` en`[QUERY_KEY]` door de sleutel waarden die u eerder hebt vastgelegd. 
 
-In Azure Search zijn documenten gegevens structuren die beide invoer zijn voor het indexeren en uitvoeren van query's. Invoer van documenten kan rijen zijn in een Data Base, blobs in Blob-opslag of, zoals in dit voor beeld, JSON-documenten op schijf. U kunt [Hotels. json](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/hotels.json) downloaden of uw eigen **Hotels. json** -bestand maken met de volgende inhoud:
+## <a name="1---create-index"></a>1-index maken 
 
-    ```json
-    {
-        "value": [
-            {
-                "HotelId": "1",
-                "HotelName": "Secret Point Motel",
-                "Description": "The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.",
-                "Description_fr": "L'hôtel est idéalement situé sur la principale artère commerciale de la ville en plein cœur de New York. A quelques minutes se trouve la place du temps et le centre historique de la ville, ainsi que d'autres lieux d'intérêt qui font de New York l'une des villes les plus attractives et cosmopolites de l'Amérique.",
-                "Category": "Boutique",
-                "Tags": ["pool", "air conditioning", "concierge"],
-                "ParkingIncluded": false,
-                "LastRenovationDate": "1970-01-18T00:00:00Z",
-                "Rating": 3.6,
-                "Address": {
-                    "StreetAddress": "677 5th Ave",
-                    "City": "New York",
-                    "StateProvince": "NY",
-                    "PostalCode": "10022"
-                }
-            },
-            {
-                "HotelId": "2",
-                "HotelName": "Twin Dome Motel",
-                "Description": "The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.",
-                "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
-                "Category": "Boutique",
-                "Tags": ["pool", "free wifi", "concierge"],
-                "ParkingIncluded": "false",
-                "LastRenovationDate": "1979-02-18T00:00:00Z",
-                "Rating": 3.6,
-                "Address": {
-                    "StreetAddress": "140 University Town Center Dr",
-                    "City": "Sarasota",
-                    "StateProvince": "FL",
-                    "PostalCode": "34243"
-                }
-            },
-            {
-                "HotelId": "3",
-                "HotelName": "Triple Landscape Hotel",
-                "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
-                "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
-                "Category": "Resort and Spa",
-                "Tags": ["air conditioning", "bar", "continental breakfast"],
-                "ParkingIncluded": "true",
-                "LastRenovationDate": "2015-09-20T00:00:00Z",
-                "Rating": 4.8,
-                "Address": {
-                    "StreetAddress": "3393 Peachtree Rd",
-                    "City": "Atlanta",
-                    "StateProvince": "GA",
-                    "PostalCode": "30326"
-                }
-            },
-            {
-                "HotelId": "4",
-                "HotelName": "Sublime Cliff Hotel",
-                "Description": "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
-                "Description_fr": "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.",
-                "Category": "Boutique",
-                "Tags": ["concierge", "view", "24-hour front desk service"],
-                "ParkingIncluded": true,
-                "LastRenovationDate": "1960-02-06T00:00:00Z",
-                "Rating": 4.6,
-                "Address": {
-                    "StreetAddress": "7400 San Pedro Ave",
-                    "City": "San Antonio",
-                    "StateProvince": "TX",
-                    "PostalCode": "78216"
-                }
-            }
-        ]
-    }
-    
-    ```
-
-Maak een bestand **hotels_quickstart_index. json**.  Dit bestand definieert hoe Azure Search werkt met de documenten die u hebt gemaakt in **Hotels. json**. Elk veld wordt geïdentificeerd door een `name` en heeft een opgegeven. `type` Elk veld bevat ook een reeks index kenmerken die aangeven of Azure Search op het veld kunnen zoeken, filteren, sorteren en facetten. De meeste velden zijn eenvoudige gegevens typen, maar sommige `AddressType` vormen zijn complexe typen waarmee u uitgebreide gegevens structuren in uw index kunt maken.  Meer informatie over [ondersteunde gegevens typen](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) en [index kenmerken](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes)vindt u hier. 
+Maak een bestand **hotels_quickstart_index. json**.  In dit bestand wordt gedefinieerd hoe Azure Search werkt met de documenten die u in de volgende stap gaat laden. Elk veld wordt geïdentificeerd door een `name` en heeft een opgegeven. `type` Elk veld bevat ook een reeks index kenmerken die aangeven of Azure Search op het veld kunnen zoeken, filteren, sorteren en facetten. De meeste velden zijn eenvoudige gegevens typen, maar sommige `AddressType` vormen zijn complexe typen waarmee u uitgebreide gegevens structuren in uw index kunt maken.  Meer informatie over [ondersteunde gegevens typen](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) en [index kenmerken](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes)vindt u hier. 
 
 Voeg het volgende toe aan **hotels_quickstart_index. json** of [down load het bestand](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/hotels_quickstart_index.json). 
 
-    ```json
-    {
-        "name": "hotels-quickstart",
-        "fields": [
-            {
-                "name": "HotelId",
-                "type": "Edm.String",
-                "key": true,
-                "filterable": true
-            },
-            {
-                "name": "HotelName",
-                "type": "Edm.String",
-                "searchable": true,
-                "filterable": false,
-                "sortable": true,
-                "facetable": false
-            },
-            {
-                "name": "Description",
-                "type": "Edm.String",
-                "searchable": true,
-                "filterable": false,
-                "sortable": false,
-                "facetable": false,
-                "analyzer": "en.lucene"
-            },
-            {
-                "name": "Description_fr",
-                "type": "Edm.String",
-                "searchable": true,
-                "filterable": false,
-                "sortable": false,
-                "facetable": false,
-                "analyzer": "fr.lucene"
-            },
-            {
-                "name": "Category",
-                "type": "Edm.String",
-                "searchable": true,
-                "filterable": true,
-                "sortable": true,
-                "facetable": true
-            },
-            {
-                "name": "Tags",
-                "type": "Collection(Edm.String)",
-                "searchable": true,
-                "filterable": true,
-                "sortable": false,
-                "facetable": true
-            },
-            {
-                "name": "ParkingIncluded",
-                "type": "Edm.Boolean",
-                "filterable": true,
-                "sortable": true,
-                "facetable": true
-            },
-            {
-                "name": "LastRenovationDate",
-                "type": "Edm.DateTimeOffset",
-                "filterable": true,
-                "sortable": true,
-                "facetable": true
-            },
-            {
-                "name": "Rating",
-                "type": "Edm.Double",
-                "filterable": true,
-                "sortable": true,
-                "facetable": true
-            },
-            {
-                "name": "Address",
-                "type": "Edm.ComplexType",
-                "fields": [
-                    {
-                        "name": "StreetAddress",
-                        "type": "Edm.String",
-                        "filterable": false,
-                        "sortable": false,
-                        "facetable": false,
-                        "searchable": true
-                    },
-                    {
-                        "name": "City",
-                        "type": "Edm.String",
-                        "searchable": true,
-                        "filterable": true,
-                        "sortable": true,
-                        "facetable": true
-                    },
-                    {
-                        "name": "StateProvince",
-                        "type": "Edm.String",
-                        "searchable": true,
-                        "filterable": true,
-                        "sortable": true,
-                        "facetable": true
-                    },
-                    {
-                        "name": "PostalCode",
-                        "type": "Edm.String",
-                        "searchable": true,
-                        "filterable": true,
-                        "sortable": true,
-                        "facetable": true
-                    },
-                    {
-                        "name": "Country",
-                        "type": "Edm.String",
-                        "searchable": true,
-                        "filterable": true,
-                        "sortable": true,
-                        "facetable": true
-                    }
-                ]
-            }
-        ],
-        "suggesters": [
-            {
-                "name": "sg",
-                "searchMode": "analyzingInfixMatching",
-                "sourceFields": [
-                    "HotelName"
-                ]
-            }
-        ]
-    }
-    ```
+```json
+{
+    "name": "hotels-quickstart",
+    "fields": [
+        {
+            "name": "HotelId",
+            "type": "Edm.String",
+            "key": true,
+            "filterable": true
+        },
+        {
+            "name": "HotelName",
+            "type": "Edm.String",
+            "searchable": true,
+            "filterable": false,
+            "sortable": true,
+            "facetable": false
+        },
+        {
+            "name": "Description",
+            "type": "Edm.String",
+            "searchable": true,
+            "filterable": false,
+            "sortable": false,
+            "facetable": false,
+            "analyzer": "en.lucene"
+        },
+        {
+            "name": "Description_fr",
+            "type": "Edm.String",
+            "searchable": true,
+            "filterable": false,
+            "sortable": false,
+            "facetable": false,
+            "analyzer": "fr.lucene"
+        },
+        {
+            "name": "Category",
+            "type": "Edm.String",
+            "searchable": true,
+            "filterable": true,
+            "sortable": true,
+            "facetable": true
+        },
+        {
+            "name": "Tags",
+            "type": "Collection(Edm.String)",
+            "searchable": true,
+            "filterable": true,
+            "sortable": false,
+            "facetable": true
+        },
+        {
+            "name": "ParkingIncluded",
+            "type": "Edm.Boolean",
+            "filterable": true,
+            "sortable": true,
+            "facetable": true
+        },
+        {
+            "name": "LastRenovationDate",
+            "type": "Edm.DateTimeOffset",
+            "filterable": true,
+            "sortable": true,
+            "facetable": true
+        },
+        {
+            "name": "Rating",
+            "type": "Edm.Double",
+            "filterable": true,
+            "sortable": true,
+            "facetable": true
+        },
+        {
+            "name": "Address",
+            "type": "Edm.ComplexType",
+            "fields": [
+                {
+                    "name": "StreetAddress",
+                    "type": "Edm.String",
+                    "filterable": false,
+                    "sortable": false,
+                    "facetable": false,
+                    "searchable": true
+                },
+                {
+                    "name": "City",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": true,
+                    "sortable": true,
+                    "facetable": true
+                },
+                {
+                    "name": "StateProvince",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": true,
+                    "sortable": true,
+                    "facetable": true
+                },
+                {
+                    "name": "PostalCode",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": true,
+                    "sortable": true,
+                    "facetable": true
+                },
+                {
+                    "name": "Country",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": true,
+                    "sortable": true,
+                    "facetable": true
+                }
+            ]
+        }
+    ],
+    "suggesters": [
+        {
+            "name": "sg",
+            "searchMode": "analyzingInfixMatching",
+            "sourceFields": [
+                "HotelName"
+            ]
+        }
+    ]
+}
+```
     
-## <a name="2---a-class-for-azure-search"></a>2: een klasse voor Azure Search 
 
 Het is raadzaam om de specifieke gegevens van een bepaald scenario te scheiden van code die breed van toepassing is. De `AzureSearchClient` klasse die in het bestand **AzureSearchClient. js** is gedefinieerd, kent het maken van aanvraag-url's, het indienen van een aanvraag met behulp van de ophaal-API en het reageren op de status code van het antwoord.
 
 Aan de slag met **AzureSearchClient. js** door het **ophalen van het knoop punt** en het maken van een eenvoudige klasse. Isoleer de wijzigbaar delen van de `AzureSearchClient` klasse door aan de constructor de verschillende configuratie waarden door te geven:
 
-    ```javascript
-    const fetch = require('node-fetch');
-    
-    class AzureSearchClient {
-      constructor(searchServiceName, adminKey, queryKey, indexName) {
-          this.searchServiceName = searchServiceName;
-          this.adminKey = adminKey;
-          // The query key is used for read-only requests and so can be distributed with less risk of abuse.
-          this.queryKey = queryKey;
-          this.indexName = indexName;
-          this.apiVersion = '2019-05-06';
-      }
-    
-      // All methods go inside class body here!
+```javascript
+const fetch = require('node-fetch');
+
+class AzureSearchClient {
+    constructor(searchServiceName, adminKey, queryKey, indexName) {
+        this.searchServiceName = searchServiceName;
+        this.adminKey = adminKey;
+        // The query key is used for read-only requests and so can be distributed with less risk of abuse.
+        this.queryKey = queryKey;
+        this.indexName = indexName;
+        this.apiVersion = '2019-05-06';
     }
-    
-    module.exports = AzureSearchClient;
-    ```
+
+    // All methods go inside class body here!
+}
+
+module.exports = AzureSearchClient;
+```
 
 De eerste verantwoordelijkheid van de klasse is om te weten hoe u Url's moet maken waarnaar de verschillende aanvragen worden verzonden. Bouw deze Url's met exemplaar methoden die gebruikmaken van de configuratie gegevens die worden door gegeven aan de klasse-constructor. U ziet dat de URL die ze maken specifiek is voor een API-versie en een argument moet hebben dat die versie opgeeft ( `2019-05-06`in deze toepassing). 
 
-Voeg de volgende methoden toe binnen de hoofd tekst van de klasse:
+Voeg de volgende methode toe binnen de hoofd tekst van de klasse:
 
-    ```javascript
-      getIndexUrl() { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}?api-version=${this.apiVersion}`; }
-      
-      getPostDataUrl() { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}/docs/index?api-version=${this.apiVersion}`;  }
-    
-      getSearchUrl(searchTerm) { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}/docs?api-version=${this.apiVersion}&search=${searchTerm}&searchMode=all`; }
-    ```
+```javascript
+    getIndexUrl() { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}?api-version=${this.apiVersion}`; }
+
+```
 
 De volgende verantwoordelijkheid maakt een asynchrone aanvraag met de API voor ophalen. De asynchrone statische methode `request` maakt gebruik van een URL, een teken reeks waarmee de HTTP-methode (' Get ', ' put ', ' post ', ' delete ') wordt opgegeven, de sleutel die moet worden gebruikt in de aanvraag en een optioneel JSON-object. De `headers` variabele wijst de `queryKey` (of de Administrator-of de alleen-lezen-query sleutel) toe aan de HTTP-aanvraag header API-Key. De aanvraag opties bevatten altijd de `method` te gebruiken en de. `headers` Als `bodyJson` dat `null`niet het geval is, wordt de hoofd tekst van de HTTP-aanvraag `bodyJson`ingesteld op de teken reeks representatie van. Het `request` retourneert de belofte van de ophaal-API voor het uitvoeren van de HTTP-aanvraag.
 
-    ```javascript
-      static async request(url, method, apiKey, bodyJson = null) {
-        // Uncomment the following for request details:
-        /*
-        console.log(`\n${method} ${url}`);
-        console.log(`\n${apiKey}`);
-        if (bodyJson !== null) {
-            console.log(`\ncontent: ${JSON.stringify(bodyJson, null, 4)}`);
+```javascript
+static async request(url, method, apiKey, bodyJson = null) {
+    // Uncomment the following for request details:
+    /*
+    console.log(`\n${method} ${url}`);
+    console.log(`\nKey ${apiKey}`);
+    if (bodyJson !== null) {
+        console.log(`\ncontent: ${JSON.stringify(bodyJson, null, 4)}`);
+    }
+    */
+
+    const headers = {
+        'content-type' : 'application/json',
+        'api-key' : apiKey
+    };
+    const init = bodyJson === null ?
+        { 
+            method, 
+            headers
         }
-        */
-      
-        const headers = {
-            'content-type' : 'application/json',
-            'api-key' : apiKey
+        : 
+        {
+            method, 
+            headers,
+            body : JSON.stringify(bodyJson)
         };
-        const init = bodyJson === null ?
-            { 
-                method, 
-                headers
-            }
-            : 
-            {
-                method, 
-                headers,
-                body : JSON.stringify(bodyJson)
-            };
-        return fetch(url, init);
-      }
-    ```
+    return fetch(url, init);
+}
+```
 
 Voor demo doeleinden gaan we een uitzonde ring genereren als de HTTP-aanvraag niet is voltooid. In een echte toepassing zou u waarschijnlijk enkele logboek registratie en probleem opsporen van de HTTP-status code in `response` de aanvraag van de zoek service. 
     
-    ```javascript
-      static throwOnHttpError(response) {
-        const statusCode = response.status;
-        if (statusCode >= 300){
-            console.log(`Request failed: ${JSON.stringify(response, null, 4)}`);
-            throw new Error(`Failure in request. HTTP Status was ${statusCode}`);
-        }
-      }
-    ```
+```javascript
+    static throwOnHttpError(response) {
+    const statusCode = response.status;
+    if (statusCode >= 300){
+        console.log(`Request failed: ${JSON.stringify(response, null, 4)}`);
+        throw new Error(`Failure in request. HTTP Status was ${statusCode}`);
+    }
+    }
+```
 
-Voeg ten slotte de methoden toe die met de Azure Search index werken. Deze methoden hebben allemaal dezelfde structuur:
+Voeg ten slotte de methoden toe om de Azure Search index te detecteren, te verwijderen en te maken. Deze methoden hebben allemaal dezelfde structuur:
 
 * Haal het eind punt op waaraan de aanvraag wordt gedaan.
 * Genereer de aanvraag met het juiste eind punt, HTTP-woord, API-sleutel en de hoofd tekst. `queryAsync()`maakt gebruik van de query sleutel, anders wordt de beheerders sleutel gebruikt.
@@ -430,131 +345,85 @@ Voeg ten slotte de methoden toe die met de Azure Search index werken. Deze metho
 * Handel over de status code van het antwoord.
 * Een belofte retour neren van een of meer toepasselijke waarden ( `this`een Booleaanse waarde, of de query resultaten). 
 
-    ```javascript
-      async indexExistsAsync() { 
-          console.log("\n Checking if index exists...");
-          const endpoint = this.getIndexUrl();
-          const response = await AzureSearchClient.request(endpoint, "GET", this.queryKey);
-          // Success has a few likely status codes: 200 or 204 (No Content), but accept all in 200 range...
-          const exists = response.status >= 200 && response.status < 300;
-          return exists;
-      }
-      
-      async deleteIndexAsync() {
-          console.log("\n Deleting existing index...");
-          const endpoint = this.getIndexUrl();
-          const response = await AzureSearchClient.request(endpoint, "DELETE", this.adminKey);
-          AzureSearchClient.throwOnHttpError(response);
-          return this;
-      }
-      
-      async createIndexAsync(definition) {
-          console.log("\n Creating index...");
-          const endpoint = this.getIndexUrl();
-          const response = await AzureSearchClient.request(endpoint, "PUT", this.adminKey, definition);
-          AzureSearchClient.throwOnHttpError(response);
-          return this;
-      }
-      
-      async postDataAsync(hotelsData) {
-          console.log("\n Adding hotel data...");
-          const endpoint = this.getPostDataUrl();
-          const response = await AzureSearchClient.request(endpoint,"POST", this.adminKey, hotelsData);
-          AzureSearchClient.throwOnHttpError(response);
-          return this;
-      }
-      
-      async queryAsync(searchTerm) {
-          console.log("\n Querying...")
-          const endpoint = this.getSearchUrl(searchTerm);
-          const response = await AzureSearchClient.request(endpoint, "GET", this.queryKey);
-          AzureSearchClient.throwOnHttpError(response);
-          return response;
-      }
-    ```
+```javascript
+    async indexExistsAsync() { 
+        console.log("\n Checking if index exists...");
+        const endpoint = this.getIndexUrl();
+        const response = await AzureSearchClient.request(endpoint, "GET", this.queryKey);
+        // Success has a few likely status codes: 200 or 204 (No Content), but accept all in 200 range...
+        const exists = response.status >= 200 && response.status < 300;
+        return exists;
+    }
+    
+    async deleteIndexAsync() {
+        console.log("\n Deleting existing index...");
+        const endpoint = this.getIndexUrl();
+        const response = await AzureSearchClient.request(endpoint, "DELETE", this.adminKey);
+        AzureSearchClient.throwOnHttpError(response);
+        return this;
+    }
+    
+    async createIndexAsync(definition) {
+        console.log("\n Creating index...");
+        const endpoint = this.getIndexUrl();
+        const response = await AzureSearchClient.request(endpoint, "PUT", this.adminKey, definition);
+        AzureSearchClient.throwOnHttpError(response);
+        return this;
+    }
+```
 
 Controleer of de methoden zich in de klasse bevinden en of u de klasse exporteert. Het ultraperifere bereik van **AzureSearchClient. js** moet zijn:
 
-    ```javascript
-    const fetch = require('node-fetch');
-    
-    class AzureSearchClient {
-        // ... code here ...
-    }
-    
-    module.exports = AzureSearchClient;
-    ```
+```javascript
+const fetch = require('node-fetch');
 
-## <a name="3---create-a-program"></a>3: een programma maken
+class AzureSearchClient {
+    // ... code here ...
+}
+
+module.exports = AzureSearchClient;
+```
 
 Een object gerichte klasse is een goede keuze voor de mogelijk herbruikbare **AzureSearchClient. js** -module, maar is niet nodig voor het hoofd programma, die we in een bestand met de naam **index. js**plaatsen. 
 
 Maak **index. js** en begin met het volgende:
 
 * Het **nconf** -pakket, waarmee u de configuratie met JSON, omgevings variabelen of opdracht regel argumenten kunt opgeven.
-* De gegevens uit het bestand **Hotels. json** .
 * De gegevens uit het bestand **hotels_quickstart_index. json** .
 * De module `AzureSearchClient`.
 
-    ```javascript
-    const nconf = require('nconf');
-    
-    const hotelData = require('./hotels.json');
-    const indexDefinition = require('./hotels_quickstart_index.json');
-    const AzureSearchClient = require('./AzureSearchClient.js');
-    ```
+```javascript
+const nconf = require('nconf');
 
-Voeg nu enkele eenvoudige query's toe: 
+const indexDefinition = require('./hotels_quickstart_index.json');
+const AzureSearchClient = require('./AzureSearchClient.js');
+```
 
-    ```javascript
-    const queries = [
-      "*&$count=true",
-      "historic&$filter=Rating gt 4&"
-    ];
-    ```
+Met het [ **nconf** -pakket](https://github.com/indexzero/nconf) kunt u configuratie gegevens opgeven in verschillende indelingen, zoals omgevings variabelen of de opdracht regel. We gaan **nconf** op een eenvoudige manier gebruiken om het bestand **azure_search_config. json** te lezen en de inhoud van het bestand als een woorden boek te retour neren. Metde `get(key)` functie nconf kunt u snel controleren of de configuratie gegevens correct zijn aangepast. Ten slotte retour neren we de configuratie:
 
-De eerste query retourneert alle gegevens (`*`) en een telling van het aantal geretourneerde records. De tweede retourneert alleen de documenten die het woord "historisch" bevatten in een van de velden die zijn gedefinieerd als ' Doorzoek bare ' in **hotels_quickstart_index. json** en `Rating` waarvan het veld een waarde bevat die groter is dan 4. Meer informatie over [het opstellen van een query in azure Search](https://docs.microsoft.com/azure/search/search-query-overview). 
-
-Met het [ **nconf** -pakket](https://github.com/indexzero/nconf) kunt u configuratie gegevens opgeven in verschillende indelingen, zoals omgevings variabelen of de opdracht regel. We gaan **nconf** op een eenvoudige manier gebruiken om het bestand **azure_search_config. json** te lezen en de inhoud van het bestand als een woorden boek te retour neren. Metde `get(key)` functie nconf kunt u snel controleren of de stap [' configuratie van Azure Search-service-informatie '](#configure) is overgeslagen. Ten slotte retour neren we de configuratie:
-
-    ```javascript
-    function getAzureConfiguration() {
-      const config = nconf.file({ file: 'azure_search_config.json' });
-      if (config.get('serviceName') === '[SEARCH_SERVICE_NAME' ) {
-        throw new Error("You have not set the values in your azure_search_config.json file. Change them to match your search service's values.");
-      }
-      return config;
+```javascript
+function getAzureConfiguration() {
+    const config = nconf.file({ file: 'azure_search_config.json' });
+    if (config.get('serviceName') === '[SEARCH_SERVICE_NAME' ) {
+    throw new Error("You have not set the values in your azure_search_config.json file. Change them to match your search service's values.");
     }
-    ```
+    return config;
+}
+```
 
 De `sleep` functie maakt een `Promise` die wordt omgezet na een opgegeven tijds duur. Met deze functie kan de app worden onderbroken tijdens het wachten tot asynchrone index bewerkingen zijn voltooid en beschikbaar worden. Het toevoegen van een dergelijke vertraging is doorgaans alleen nodig in demo's, testen en voorbeeld toepassingen.
 
-    ```javascript
-    function sleep(ms)
-    {
-      return(
-          new Promise(function(resolve, reject)
-          {
-              setTimeout(function() { resolve(); }, ms);
-          })
-      );
-    }
-    ```
-
-De `doQueries()` functie neemt een `AzureSearchClient` object en past de `AzureSearchClient.queryAsync` -methode toe op elk van de waarden `queries` in de matrix. De `Promise.all()` functie wordt gebruikt om een enkele `Promise` waarde te retour neren die alleen wordt omgezet wanneer alle query's zijn opgelost. De aanroep voor `JSON.stringify(body, null, 4)` het opmaken van het query resultaat zodat deze beter leesbaar is.
-
-    ```javascript
-    async function doQueriesAsync(client) {
-      return Promise.all(
-          queries.map( async query => {
-              const result = await client.queryAsync(query);
-              const body = await result.json();
-              const str = JSON.stringify( body, null, 4);
-              console.log(`Query: ${query} \n ${str}`);
-          })
-      );
-    }
-    ```
+```javascript
+function sleep(ms)
+{
+    return(
+        new Promise(function(resolve, reject)
+        {
+            setTimeout(function() { resolve(); }, ms);
+        })
+    );
+}
+```
 
 Geef ten slotte de asynchrone `run` functie op en roep deze aan. Deze functie roept de andere functies op in volg orde, in afwachting `Promise`van het oplossen van s.
 
@@ -565,9 +434,9 @@ Geef ten slotte de asynchrone `run` functie op en roep deze aan. Deze functie ro
 * Voeg de documenten over de hotels toe die u hebt geladen vanuit **Hotels. json**
 * Query's uitvoeren op de Azure search index `doQueriesAsync()` met de methode die u hebt geschreven
 
-    ```javascript
-    const run = async () => {
-      try {
+```javascript
+const run = async () => {
+    try {
         const cfg = getAzureConfiguration();
         const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get["serviceName"]);
         
@@ -577,21 +446,19 @@ Geef ten slotte de asynchrone `run` functie op en roep deze aan. Deze functie ro
         await sleep(2000);
         const indexDefinition = require('./hotels_quickstart_index.json');
         await client.createIndexAsync(indexDefinition);
-        // Index availability can take a few seconds
-        await sleep(2000);
-        await client.postDataAsync(hotelData);
-        // Data availability can take a few seconds
-        await sleep(5000);
-        await doQueries(client);
-      } catch (x) {
+    } catch (x) {
         console.log(x);
-      }
     }
-    
-    run();
-    ```
+}
+
+run();
+```
 
 Vergeet niet dat de laatste aanroep `run()`naar! Het is het begin punt voor uw programma wanneer u in `node index.js` de volgende stap uitvoert.
+
+Houd er `AzureSearchClient.indexExistsAsync()` rekening `AzureSearchClient.deleteIndexAsync()` mee dat en geen para meters zijn. Deze functies bellen `AzureSearchClient.request()` `bodyJson` zonder argument. In `AzureSearchClient.request()`, `indexExistsAsync()` `deleteIndexAsync()`omdat `bodyJson === null` de structuur`init` is ingesteld op alleen de HTTP-term (' Get ' voor en ' delete ' voor) en de headers, die de aanvraag `true`sleutel opgeven.  
+
+Daarentegen neemt de `AzureSearchClient.createIndexAsync(indexDefinition)` methode een para meter. Met `run` de functie `index.js`in, wordt de inhoud van het bestand **hotels_quickstart_index. json** door `AzureSearchClient.createIndexAsync(indexDefinition)` gegeven aan de-methode. De `createIndexAsync()` -methode geeft deze definitie `AzureSearchClient.request()`door aan. In `AzureSearchClient.request()`, omdat `bodyJson === null` de `false` `body` structuur nu niet alleen de HTTP-term (' put ') en de headers bevat, maar de index definitie gegevens heeft ingesteld. `init`
 
 ### <a name="prepare-and-run-the-sample"></a>Het voor beeld voorbereiden en uitvoeren
 
@@ -601,7 +468,219 @@ Gebruik een Terminal venster voor de volgende opdrachten.
 1. Installeer de pakketten voor het voor beeld `npm install`met.  Met deze opdracht worden de pakketten gedownload waarvan de code afhankelijk is.
 1. Voer uw programma uit `node index.js`met.
 
-U ziet een reeks berichten die de acties beschrijven die door het programma worden uitgevoerd, met de resultaten van sommige query's. Als u meer details van de aanvragen wilt zien, kunt u de opmerkings regels [20-26](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/AzureSearchClient.js#LL20-LL26) van **AzureSearchClient. js**onzichtbaar maakt. 
+Er wordt een reeks berichten weer gegeven met een beschrijving van de acties die door het programma worden uitgevoerd. Als u meer details van de aanvragen wilt zien, kunt u een opmerking toevoegen [aan de regels aan het begin van `AzureSearchClient.request()` de methode](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/AzureSearchClient.js#LL20-LL26) in **AzureSearchClient. js**. 
+
+Open het **overzicht** van uw zoek service in de Azure Portal. Selecteer het tabblad **indexen** . Er verschijnt informatie die er ongeveer als volgt uitziet:
+
+![Scherm opname van Azure Portal, Search Service overzicht, tabblad indexen](media/search-get-started-nodejs/create-index-no-data.png)
+
+In de volgende stap voegen we gegevens toe aan de index. 
+
+## <a name="2---load-documents"></a>2-documenten laden 
+
+In Azure Search zijn documenten gegevens structuren die beide invoer zijn voor het indexeren en uitvoeren van query's. U moet dergelijke gegevens naar de index posten. Dit maakt gebruik van een ander eind punt dan de bewerkingen die in de vorige stap zijn uitgevoerd. Open **AzureSearchClient. js** en voeg de volgende methode toe `getIndexUrl()`na:
+
+```javascript
+ getPostDataUrl() { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}/docs/index?api-version=${this.apiVersion}`;  }
+```
+
+U hebt `AzureSearchClient.request()` bijvoorbeeld een functie nodig die de gegevens van het Hotel aanroept en doorgeeft aan de hoofd tekst. `AzureSearchClient.createIndexAsync(definition)` In **AzureSearchClient. js** toevoegen `postDataAsync(hotelsData)` na `createIndexAsync(definition)`:
+
+```javascript
+async postDataAsync(hotelsData) {
+    console.log("\n Adding hotel data...");
+    const endpoint = this.getPostDataUrl();
+    const response = await AzureSearchClient.request(endpoint,"POST", this.adminKey, hotelsData);
+    AzureSearchClient.throwOnHttpError(response);
+    return this;
+}
+```
+
+ Invoer van documenten kan rijen zijn in een Data Base, blobs in Blob-opslag of, zoals in dit voor beeld, JSON-documenten op schijf. U kunt [Hotels. json](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/hotels.json) downloaden of uw eigen **Hotels. json** -bestand maken met de volgende inhoud:
+
+```json
+{
+    "value": [
+        {
+            "HotelId": "1",
+            "HotelName": "Secret Point Motel",
+            "Description": "The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.",
+            "Description_fr": "L'hôtel est idéalement situé sur la principale artère commerciale de la ville en plein cœur de New York. A quelques minutes se trouve la place du temps et le centre historique de la ville, ainsi que d'autres lieux d'intérêt qui font de New York l'une des villes les plus attractives et cosmopolites de l'Amérique.",
+            "Category": "Boutique",
+            "Tags": ["pool", "air conditioning", "concierge"],
+            "ParkingIncluded": false,
+            "LastRenovationDate": "1970-01-18T00:00:00Z",
+            "Rating": 3.6,
+            "Address": {
+                "StreetAddress": "677 5th Ave",
+                "City": "New York",
+                "StateProvince": "NY",
+                "PostalCode": "10022"
+            }
+        },
+        {
+            "HotelId": "2",
+            "HotelName": "Twin Dome Motel",
+            "Description": "The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.",
+            "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+            "Category": "Boutique",
+            "Tags": ["pool", "free wifi", "concierge"],
+            "ParkingIncluded": "false",
+            "LastRenovationDate": "1979-02-18T00:00:00Z",
+            "Rating": 3.6,
+            "Address": {
+                "StreetAddress": "140 University Town Center Dr",
+                "City": "Sarasota",
+                "StateProvince": "FL",
+                "PostalCode": "34243"
+            }
+        },
+        {
+            "HotelId": "3",
+            "HotelName": "Triple Landscape Hotel",
+            "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
+            "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+            "Category": "Resort and Spa",
+            "Tags": ["air conditioning", "bar", "continental breakfast"],
+            "ParkingIncluded": "true",
+            "LastRenovationDate": "2015-09-20T00:00:00Z",
+            "Rating": 4.8,
+            "Address": {
+                "StreetAddress": "3393 Peachtree Rd",
+                "City": "Atlanta",
+                "StateProvince": "GA",
+                "PostalCode": "30326"
+            }
+        },
+        {
+            "HotelId": "4",
+            "HotelName": "Sublime Cliff Hotel",
+            "Description": "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
+            "Description_fr": "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.",
+            "Category": "Boutique",
+            "Tags": ["concierge", "view", "24-hour front desk service"],
+            "ParkingIncluded": true,
+            "LastRenovationDate": "1960-02-06T00:00:00Z",
+            "Rating": 4.6,
+            "Address": {
+                "StreetAddress": "7400 San Pedro Ave",
+                "City": "San Antonio",
+                "StateProvince": "TX",
+                "PostalCode": "78216"
+            }
+        }
+    ]
+}
+
+```
+
+Als u deze gegevens wilt laden in uw programma, wijzigt u **index. js** door de regel `hotelData` toe te voegen aan de bovenkant:
+
+```javascript
+const nconf = require('nconf');
+
+const hotelData = require('./hotels.json');
+const indexDefinition = require('./hotels_quickstart_index.json');
+```
+
+Wijzig nu de `run()` functie in **index. js**. Het kan een paar seconden duren voordat de index beschikbaar is. Voeg daarom een pauze toe van 2 seconden voor het `AzureSearchClient.postDataAsync(hotelData)`aanroepen van:
+
+```javascript
+const run = async () => {
+    try {
+        const cfg = getAzureConfiguration();
+        const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get("indexName"));
+        
+        const exists = await client.indexExistsAsync();
+        await exists ? client.deleteIndexAsync() : Promise.resolve();
+        // Deleting index can take a few seconds
+        await sleep(2000);
+        await client.createIndexAsync(indexDefinition);
+        // Index availability can take a few seconds
+        await sleep(2000);
+        await client.postDataAsync(hotelData);
+    } catch (x) {
+        console.log(x);
+    }
+}
+```
+
+Voer het programma opnieuw uit `node index.js`met. Er wordt een iets andere set met berichten weer geven die u in stap 1 hebt gezien. Deze keer bestaat de index en wordt het bericht weer gegeven dat het verwijderen is verwijderd voordat de app de nieuwe index maakt en er gegevens naar plaatst. 
+
+## <a name="3---search-an-index"></a>3 - Een index doorzoeken
+
+Ga terug naar het tabblad **indexen** in het **overzicht** van uw zoek service op de Azure Portal. Uw index bevat nu vier documenten en verbruikt een bepaalde hoeveelheid opslag ruimte (het kan enkele minuten duren voordat de gebruikers interface de onderliggende status van de index weergeeft). Klik op de naam van de index die u wilt **Zoeken in de zoek Verkenner**. Op deze pagina kunt u experimenteren met gegevens query's. Probeer te zoeken in een query reeks `*&$count=true` van en u moet alle documenten en het aantal resultaten weer geven. Probeer met de query teken `historic&highlight=Description&$filter=Rating gt 4` reeks en ga terug naar één document met het woord "historisch" in `<em></em>` Tags. Meer informatie over [het opstellen van een query in azure Search](https://docs.microsoft.com/azure/search/search-query-overview). 
+
+Reproduceer deze query's in code door **index. js** te openen en deze code toe te voegen aan de bovenkant:
+
+```javascript
+const queries = [
+    "*&$count=true",
+    "historic&highlight=Description&$filter=Rating gt 4&"
+];
+```
+
+In hetzelfde bestand **index. js** schrijft u de `doQueries()` functie die hieronder wordt weer gegeven. Deze functie neemt een `AzureSearchClient` object en past de `AzureSearchClient.queryAsync` -methode toe op elk van de waarden `queries` in de matrix. De `Promise.all()` functie wordt gebruikt om een enkele `Promise` waarde te retour neren die alleen wordt omgezet wanneer alle query's zijn opgelost. De aanroep voor `JSON.stringify(body, null, 4)` het opmaken van het query resultaat zodat deze beter leesbaar is.
+
+```javascript
+async function doQueriesAsync(client) {
+    return Promise.all(
+        queries.map( async query => {
+            const result = await client.queryAsync(query);
+            const body = await result.json();
+            const str = JSON.stringify( body, null, 4);
+            console.log(`Query: ${query} \n ${str}`);
+        })
+    );
+}
+```
+
+Wijzig de `run()` functie om lang genoeg te pauzeren om de Indexeer functie te laten werken en roep `doQueriesAsync(client)` vervolgens de functies aan:
+
+```javascript
+const run = async () => {
+    try {
+        const cfg = getAzureConfiguration();
+        const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get("indexName"));
+        
+        const exists = await client.indexExistsAsync();
+        await exists ? client.deleteIndexAsync() : Promise.resolve();
+        // Deleting index can take a few seconds
+        await sleep(2000);
+        await client.createIndexAsync(indexDefinition);
+        // Index availability can take a few seconds
+        await sleep(2000);
+        await client.postDataAsync(hotelData);
+        // Data availability can take a few seconds
+        await sleep(5000);
+        await doQueriesAsync(client);
+    } catch (x) {
+        console.log(x);
+    }
+}
+```
+
+Als u `AzureSearchClient.queryAsync(query)`wilt implementeren, bewerkt u het bestand **AzureSearchClient. js**. Zoeken vereist een ander eind punt, dus voeg de `getSearchUrl(searchTerm)` functie toe `getIndexUrl()` naast `getPostDataUrl()` de methoden en die u al hebt geschreven.
+
+```javascript
+getSearchUrl(searchTerm) { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}/docs?api-version=${this.apiVersion}&search=${searchTerm}&searchMode=all`; }
+ ```
+
+De `queryAsync(searchTerm)` functie gaat ook in **AzureSearchClient. js** en volgt dezelfde structuur als `postDataAsync(data)` de andere query functies: 
+
+```javascript
+async queryAsync(searchTerm) {
+    console.log("\n Querying...")
+    const endpoint = this.getSearchUrl(searchTerm);
+    const response = await AzureSearchClient.request(endpoint, "GET", this.queryKey);
+    AzureSearchClient.throwOnHttpError(response);
+    return response;
+}
+```
+
+De zoek opdracht wordt uitgevoerd met de opdracht ' GET ' en geen hoofd tekst, omdat de zoek term deel uitmaakt van de URL. U ziet dat, in tegens telling tot de `this.adminKey`andere `queryAsync(searchTerm)` functies `this.queryKey`die worden gebruikt, wordt gebruikt. Query sleutels, zoals de naam al aangeeft, kunnen alleen worden gebruikt voor het uitvoeren van query's op de index en kan niet worden gebruikt om de index op een wille keurige manier te wijzigen. Query sleutels zijn daarom veiliger om te distribueren naar client toepassingen.
+
+Voer het programma uit `node index.js`met. In aanvulling op de vorige stappen worden de query's verzonden en de resultaten die naar de-console worden geschreven.
 
 ### <a name="about-the-sample"></a>Over het voor beeld
 

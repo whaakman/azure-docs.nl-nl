@@ -1,7 +1,7 @@
 ---
-title: Beschrijf erotische en ongepaste inhoud - Computer Vision
+title: Inhoud voor volwassenen en ongepaste-Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepten met betrekking tot het detecteren van erotische en ongepaste inhoud in afbeeldingen met behulp van de Computer Vision-APi.
+description: Concepten met betrekking tot het detecteren van inhoud voor volwassenen en ongepaste in afbeeldingen met behulp van de Computer Vision-APi.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,32 +11,32 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 69a4c136e9c210dd40e004b8d5e1c1a2a8fceaa7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca5f35ab47822d74de556671c38886942d23d9ff
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368334"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946285"
 ---
-# <a name="detect-adult-and-racy-content"></a>Erotische en ongepaste inhoud detecteren
+# <a name="detect-adult-and-racy-content"></a>Inhoud voor volwassenen en ongepaste detecteren
 
-Computer Vision kunt pornografisch materiaal in afbeeldingen detecteren, zodat ontwikkelaars de weergave van dergelijke beelden in hun software kunnen beperken. Inhoud vlaggen worden toegepast met een score tussen 0 en 1, zodat ontwikkelaars kunnen de resultaten op basis van hun eigen voorkeuren interpreteren. 
+Computer Vision kunnen materiaal voor volwassenen in afbeeldingen detecteren zodat ontwikkel aars de weer gave van dergelijke installatie kopieën in hun software kunnen beperken. Inhouds vlaggen worden toegepast met een score tussen nul en één zodat ontwikkel aars de resultaten kunnen interpreteren op basis van hun eigen voor keuren. 
 
 > [!NOTE]
-> Deze functie wordt ook aangeboden door de [Azure Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) service. Zie dit alternatief voor oplossingen voor strengere inhoudstoezicht-scenario's, zoals beheer van tekst en werkstromen voor menselijke beoordeling.
+> Deze functie wordt ook aangeboden door de [Azure content moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) -service. Bekijk dit alternatief voor oplossingen voor meer strenge toezicht scenario's voor inhoud, zoals tekst toezicht en Human Review-werk stromen.
 
-## <a name="content-flag-definitions"></a>Inhoud vlag definities
+## <a name="content-flag-definitions"></a>Definities van inhouds markeringen
 
-**Volwassenen** installatiekopieën zijn gedefinieerd als die welke pornografische van aard en vaak bloot en seksuele besluiten weer. 
+Installatie kopieën voor **volwassenen** worden gedefinieerd als die voor een porno grafie en worden vaak genaakte en seksuele handelingen weer gegeven. 
 
-**Ongepaste** installatiekopieën zijn gedefinieerd zoals installatiekopieën die seksueel suggestieve van aard en vaak zijn minder seksueel getint inhoud dan installatiekopieën die zijn gemarkeerd als bevatten **volwassenen**. 
+**Ongepaste** -installatie kopieën worden gedefinieerd als installatie kopieën die expliciet worden voorgesteld en bevatten vaak minder expliciete inhoud dan afbeeldingen die als volwasseneworden gelabeld. 
 
-## <a name="identify-adult-and-racy-content"></a>Erotische en ongepaste inhoud identificeren
+## <a name="identify-adult-and-racy-content"></a>Inhoud voor volwassenen en ongepaste identificeren
 
-De [analyseren](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API.
+De [analyse](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) -API.
 
-De afbeelding analyseren-methode retourneert twee Booleaanse eigenschappen, `isAdultContent` en `isRacyContent`, in de JSON-antwoord van de methode om aan te geven erotische en ongepaste inhoud respectievelijk. De methode retourneert ook twee eigenschappen, `adultScore` en `racyScore`, die staan voor de scores vertrouwen voor het identificeren van erotische en ongepaste inhoud respectievelijk.
+De methode voor het analyseren van afbeeldingen retourneert twee `isAdultContent` Booleaanse `isRacyContent`eigenschappen, en in het JSON-antwoord van de methode om respectievelijk inhoud van volwassene en ongepaste aan te geven. De methode retourneert ook twee eigenschappen `adultScore` en `racyScore`, die de betrouwbaarheids scores vertegenwoordigen voor respectievelijk het identificeren van volwassene en ongepaste-inhoud.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Kennis met concepten over [domeinspecifieke inhoud detecteren](concept-detecting-domain-content.md) en [gezichten detecteren](concept-detecting-faces.md).
+Leer concepten over [het detecteren van serverspecifieke inhoud](concept-detecting-domain-content.md) en het [detecteren van gezichten](concept-detecting-faces.md).

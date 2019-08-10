@@ -1,7 +1,7 @@
 ---
-title: Tags toepassen van inhoud naar afbeeldingen - Computer Vision
+title: Inhouds Tags-Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Meer informatie over concepten met betrekking tot de taggingfunctie van de Computer Vision-API-installatiekopieën.
+description: Leer concepten met betrekking tot de functie voor het coderen van afbeeldingen van de Computer Vision-API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: aeb03566a650fe46286d77913e0d36dcbb19f436
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad01751f7f7c573352c8fd15cc0f8cc2ebbbe700
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759670"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945109"
 ---
 # <a name="applying-content-tags-to-images"></a>Inhoudstags toepassen op afbeeldingen
 
-Computer Vision retourneert tags op basis van duizenden herkenbare objecten, levende wezens, landschappen en acties. Wanneer tags ambigu of niet algemeen bekend zijn, geeft de API-reactie tips om de betekenis van de tag in de context van een bekende situatie te verduidelijken. Tags zijn niet ingedeeld als taxonomie en er bestaan geen overnamehiërarchieën. Een verzameling inhoudstags vormt de basis voor een 'beschrijving van de afbeelding, weergegeven als voor mensen leesbare taal opgemaakt in volledige zinnen. Houd er rekening mee dat Engels op dit moment de enige ondersteunde taal is voor de beschrijving van afbeeldingen.
+Computer Vision retourneert Tags op basis van duizenden herken bare objecten, in de praktijk, de achtergrond en de acties. Wanneer tags ambigu of niet algemeen bekend zijn, geeft de API-reactie tips om de betekenis van de tag in de context van een bekende situatie te verduidelijken. Tags zijn niet ingedeeld als taxonomie en er bestaan geen overnamehiërarchieën. Een verzameling inhoudstags vormt de basis voor een 'beschrijving van de afbeelding, weergegeven als voor mensen leesbare taal opgemaakt in volledige zinnen. Houd er rekening mee dat Engels op dit moment de enige ondersteunde taal is voor de beschrijving van afbeeldingen.
 
-Computer Vision-algoritmen uitvoer na het uploaden van een afbeelding of een afbeeldings-URL op te geven, tags op basis van de objecten, levende wezens en acties die zijn geïdentificeerd in de afbeelding. U kunt tagging niet alleen gebruiken voor het hoofdonderwerp, zoals een persoon op de voorgrond, maar ook voor de omgeving (binnen of buiten), meubels, gereedschap, planten, dieren, accessoires, gadgets enzovoort.
+Na het uploaden van een installatie kopie of het opgeven van een afbeeldings-URL, Computer Vision algoritmen uitvoer Tags op basis van de objecten, het leven en de acties die in de installatie kopie worden geïdentificeerd. U kunt tagging niet alleen gebruiken voor het hoofdonderwerp, zoals een persoon op de voorgrond, maar ook voor de omgeving (binnen of buiten), meubels, gereedschap, planten, dieren, accessoires, gadgets enzovoort.
 
-## <a name="image-tagging-example"></a>Voorbeeld van de installatiekopie taggen
+## <a name="image-tagging-example"></a>Voor beeld van afbeeldings tagging
 
-Computer Vision geretourneerd bij het labelen van visuele kenmerken die zijn gedetecteerd in het voorbeeld ziet u de volgende JSON-antwoord.
+In het volgende JSON-antwoord ziet u wat Computer Vision als resultaat geeft bij het markeren van visuele functies die worden gedetecteerd in de voorbeeld afbeelding.
 
-![Een blauwe huis en de voorste yard](./Images/house_yard.png).
+![Een blauw huis en de voor tuin](./Images/house_yard.png).
 
 ```json
 {
@@ -85,4 +85,4 @@ Computer Vision geretourneerd bij het labelen van visuele kenmerken die zijn ged
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Kennis met concepten over [categoriseren van beelden](concept-categorizing-images.md) en [met een beschrijving van installatiekopieën](concept-describing-images.md).
+Leer concepten over het categoriseren van [afbeeldingen](concept-categorizing-images.md) en het [beschrijven van installatie kopieën](concept-describing-images.md).

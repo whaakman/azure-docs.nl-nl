@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Hightail | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Hightail.
+title: 'Zelfstudie: Integratie met hightail Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en hightail.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,44 +15,44 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbcf941293a30a48a17dfdf832ae8af551e834c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7f4dd89b2469d99fadd08178dbca9c17382414a
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100999"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945006"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Zelfstudie: Azure Active Directory-integratie met Hightail
+# <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Zelfstudie: Integratie met hightail Azure Active Directory
 
-In deze zelfstudie leert u hoe u Hightail integreren met Azure Active Directory (Azure AD).
-Hightail integreren met Azure AD biedt u de volgende voordelen:
+In deze zelf studie leert u hoe u hightail integreert met Azure Active Directory (Azure AD).
+Het integreren van hightail met Azure AD biedt de volgende voor delen:
 
-* U kunt beheren in Azure AD die toegang tot Hightail heeft.
-* U kunt uw gebruikers worden automatisch aangemeld Hightail (Single Sign-On) met hun Azure AD-accounts inschakelen.
-* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* U kunt beheren in azure AD die toegang heeft tot hightail.
+* U kunt ervoor zorgen dat uw gebruikers automatisch worden aangemeld bij hightail (eenmalige aanmelding) met hun Azure AD-accounts.
+* U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Hightail, moet u de volgende items:
+Als u Azure AD-integratie met hightail wilt configureren, hebt u de volgende items nodig:
 
 * Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
-* Eenmalige aanmelding ingeschakeld abonnement hightail
+* Abonnement voor eenmalige aanmelding hightail ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
 In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-* Ondersteunt hightail **SP en IDP** gestart door SSO
-* Ondersteunt hightail **Just In Time** inrichten van gebruikers
+* Hightail ondersteunt SSO die door **SP en IDP** is geïnitieerd
+* Hightail ondersteunt **just-in-time** -gebruikers inrichting
 
-## <a name="adding-hightail-from-the-gallery"></a>Hightail uit de galerie toe te voegen
+## <a name="adding-hightail-from-the-gallery"></a>Hightail toevoegen uit de galerie
 
-Voor het configureren van de integratie van Hightail in Azure AD, moet u Hightail uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Als u de integratie van hightail in azure AD wilt configureren, moet u hightail uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Hightail uit de galerie, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om hightail toe te voegen uit de galerie:**
 
 1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -62,37 +62,37 @@ Voor het configureren van de integratie van Hightail in Azure AD, moet u Hightai
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+    ![De knop nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Hightail**, selecteer **Hightail** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ **hightail**in het zoekvak, selecteer **hightail** in het resultaten paneel en klik vervolgens op de knop **toevoegen** om de toepassing toe te voegen.
 
      ![Hightail in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Hightail op basis van een testgebruiker met de naam **Britta Simon**.
-Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Hightail tot stand worden gebracht.
+In deze sectie kunt u eenmalige aanmelding voor Azure AD configureren en testen met hightail op basis van een test gebruiker met de naam **Julia Simon**.
+Voor een goede werking van eenmalige aanmelding moet er een koppelings relatie tussen een Azure AD-gebruiker en de bijbehorende gebruiker in hightail tot stand worden gebracht.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Hightail, moet u de volgende bouwstenen voltooien:
+Als u eenmalige aanmelding voor Azure AD wilt configureren en testen met hightail, moet u de volgende bouw stenen volt ooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Configureer Hightail Single Sign-On](#configure-hightail-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Maken van de testgebruiker Hightail](#create-hightail-test-user)**  : als u wilt een equivalent van Britta Simon in Hightail die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Hightail eenmalige aanmelding configureren](#configure-hightail-single-sign-on)** : Hiermee configureert u de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Maak een hightail-test gebruiker](#create-hightail-test-user)** -om een equivalent van Julia Simon in hightail te hebben dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-Voor het configureren van Azure AD eenmalige aanmelding met Hightail, moet u de volgende stappen uitvoeren:
+Voer de volgende stappen uit om eenmalige aanmelding voor Azure AD te configureren met hightail:
 
-1. In de [Azure-portal](https://portal.azure.com/)op de **Hightail** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+1. Selecteer in de [Azure Portal](https://portal.azure.com/)op de pagina **hightail** Application Integration de optie **eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
+    ![Koppeling voor eenmalige aanmelding configureren](common/select-sso.png)
 
 2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
@@ -104,24 +104,24 @@ Voor het configureren van Azure AD eenmalige aanmelding met Hightail, moet u de 
 
 4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
 
-    ![Domein en URL's één aanmelding informatie hightail](common/both-replyurl.png)
+    ![Informatie over eenmalige aanmelding voor hightail domein en Url's](common/both-replyurl.png)
 
-    In de **antwoord-URL** tekst typt u de URL als:  `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
+    Typ in het tekstvak **antwoord-URL** de URL in:`https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
 
     > [!NOTE]
-    > De antwoord-URL-waarde is geen echte waarde. U kunt de antwoord-URL-waarde wordt bijgewerkt met de werkelijke antwoord-URL, die later in de zelfstudie wordt uitgelegd.
+    > De waarde van de antwoord-URL is geen echte waarde. U gaat de antwoord-URL-waarde bijwerken met de daad werkelijke antwoord-URL, die verderop in de zelf studie wordt uitgelegd.
 
 5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-    ![Domein en URL's één aanmelding informatie hightail](common/both-signonurl.png)
+    ![Informatie over eenmalige aanmelding voor hightail domein en Url's](common/both-signonurl.png)
 
-    In de **aanmeldings-URL** tekst typt u de URL als:  `https://www.hightail.com/loginSSO`
+    Typ in het tekstvak **URL voor aanmelding** de URL als:`https://www.hightail.com/loginSSO`
 
-6. Uw toepassing Hightail wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram **Bewerken** om het dialoogvenster Gebruikerskenmerken te openen.
+6. Uw hightail-toepassing verwacht de SAML-beweringen in een specifieke indeling, waarvoor u aangepaste kenmerk toewijzingen moet toevoegen aan de configuratie van uw SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram **Bewerken** om het dialoogvenster gebruikerskenmerken te openen.
 
     ![image](common/edit-attribute.png)
 
-7. Ook als u wilt, Hightail toepassing wordt verwacht dat enkele meer kenmerken moeten worden doorgegeven in SAML-antwoord. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
+7. Daarnaast verwacht hightail toepassing nog enkele kenmerken die in het SAML-antwoord weer worden door gegeven. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
 
     | Name | Bronkenmerk|
     | -------- |-------- |
@@ -150,9 +150,9 @@ Voor het configureren van Azure AD eenmalige aanmelding met Hightail, moet u de 
 
 8. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![De link om het certificaat te downloaden](common/certificatebase64.png)
+    ![De downloadkoppeling certificaat](common/certificatebase64.png)
 
-9. Op de **Hightail instellen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
+9. Kopieer op de sectie **hightail instellen** de gewenste URL ('s) volgens uw vereiste.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
@@ -160,36 +160,36 @@ Voor het configureren van Azure AD eenmalige aanmelding met Hightail, moet u de 
 
     b. Azure AD-id
 
-    c. Afmeldings-URL
+    c. URL voor afmelden
 
     > [!NOTE]
-    > Voordat u configureert de eenmalige aanmelding bij Hightail app, neemt u witte lijst uw e-maildomein met Hightail team, zodat alle gebruikers die dit domein functionaliteit voor eenmalige aanmelding kunnen gebruiken.
+    > Voordat u de eenmalige aanmelding op de hightail-app configureert, moet u in een white list uw e-mail domein met het hightail-team maken, zodat alle gebruikers die dit domein gebruiken, de functionaliteit voor eenmalige aanmelding kunnen gebruiken.
 
-### <a name="configure-hightail-single-sign-on"></a>Configureer Hightail Single Sign-On
+### <a name="configure-hightail-single-sign-on"></a>Eenmalige aanmelding voor hightail configureren
 
-1. Open in een ander browservenster de **Hightail** -beheerportal.
+1. Open in een ander browser venster de **hightail** -beheer Portal.
 
-2. Klik op **Gebruikerspictogram** in de rechterbovenhoek van de pagina. 
+2. Klik op **gebruikers pictogram** in de rechter bovenhoek van de pagina. 
 
     ![Eenmalige aanmelding configureren](./media/hightail-tutorial/configure1.png)
 
-3. Klik op **weergave-beheerconsole** tabblad.
+3. Klik op het tabblad **beheer console weer geven** .
 
     ![Eenmalige aanmelding configureren](./media/hightail-tutorial/configure2.png)
 
-4. Klik in het menu bovenaan op de **SAML** tabblad en voer de volgende stappen uit:
+4. Klik in het menu aan de bovenkant op het tabblad **SAML** en voer de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/hightail-tutorial/configure3.png)
 
-    a. In de **aanmeldings-URL** tekstvak, plak de waarde van **aanmeldings-URL** gekopieerd vanuit Azure portal.
+    a. Plak in het tekstvak **aanmeldings-URL** de waarde van de **aanmeldings-URL** die u hebt gekopieerd uit Azure Portal.
 
-    b. Uw base-64 gecodeerde certificaat openen in Kladblok gedownload vanuit Azure portal, Kopieer de inhoud ervan in het Klembord en plakt u deze naar de **SAML-certificaat** tekstvak.
+    b. Open uw met base 64 versleutelde certificaat in Klad blok dat is gedownload van Azure Portal, kopieer de inhoud ervan naar het klem bord en plak het in het tekstvak voor het **SAML-certificaat** .
 
-    c. Klik op **kopie** naar de URL voor SAML-consument voor uw exemplaar Kopieer en plak deze in **antwoord-URL** -tekstvak in **SAML-basisconfiguratie** sectie in Azure portal.
+    c. Klik op **kopiëren** om de URL van de SAML-consument voor uw exemplaar te kopiëren en plak deze in het tekstvak **antwoord-URL** in het gedeelte basis-SAML- **configuratie** op Azure Portal.
 
     d. Klik op **configuraties opslaan**.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -207,7 +207,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
+    b. Typ in het veld **gebruikers naam** **brittasimon\@yourcompanydomain. extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -216,15 +216,15 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Hightail.
+In deze sectie schakelt u Julia Simon in om eenmalige aanmelding van Azure te gebruiken door toegang te verlenen aan hightail.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Hightail**.
+1. Selecteer in het Azure Portal **bedrijfs toepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **hightail**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **Hightail**.
+2. Selecteer in de lijst toepassingen de optie **hightail**.
 
-    ![De koppeling Hightail in de lijst met toepassingen](common/all-applications.png)
+    ![De koppeling hightail in de lijst met toepassingen](common/all-applications.png)
 
 3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
@@ -240,18 +240,18 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-### <a name="create-hightail-test-user"></a>Hightail testgebruiker maken
+### <a name="create-hightail-test-user"></a>Hightail-test gebruiker maken
 
-In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in Hightail. Hightail ondersteunt het inrichten van just-in-time-gebruikers, die standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet in Hightail bestaat, wordt een nieuw gemaakt nadat verificatie.
+In deze sectie wordt een gebruiker met de naam Julia Simon gemaakt in hightail. Hightail biedt ondersteuning voor Just-in-time-gebruikers inrichting, die standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet bestaat in hightail, wordt er een nieuwe gemaakt na verificatie.
 
 > [!NOTE]
-> Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact op met de [Hightail ondersteuningsteam](mailto:support@hightail.com).
+> Als u hand matig een gebruiker moet maken, moet u contact opnemen met het ondersteunings [team van hightail](mailto:support@hightail.com).
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel Hightail in het toegangsvenster, moet u worden automatisch aangemeld bij de Hightail waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u op de tegel hightail in het toegangs venster klikt, moet u automatisch worden aangemeld bij de hightail waarvoor u SSO hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

@@ -1,7 +1,7 @@
 ---
-title: Genereren van miniaturen - Computer Vision
+title: Miniaturen met slimme bijgesneden-Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepten met betrekking tot het genereren van miniaturen van afbeeldingen met behulp van de Computer Vision-API.
+description: Concepten met betrekking tot het genereren van miniaturen voor installatie kopieën met behulp van de Computer Vision-API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,43 +11,43 @@ ms.topic: conceptual
 ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8bbc86f5c6fe0f30968a1ba5bd5fa28160ef6963
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60372861"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945220"
 ---
-# <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Genereren van miniaturen smart bijgesneden met Computer Vision
+# <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Miniaturen met slimme bijsnijding genereren met Computer Vision
 
-Een miniatuur is een kleiner formaat weergave van een afbeelding. Miniaturen worden gebruikt om afbeeldingen en andere gegevens op een meer betaalbare en lay-out-vriendelijk manier vertegenwoordigen. De Computer Vision-API maakt gebruik van slim bijsnijden, samen met het formaat van de afbeelding, intuïtieve miniaturen voor een bepaalde installatiekopie maken.
+Een miniatuur is een weer gave met een verkleinde grootte van een afbeelding. Miniaturen worden gebruikt voor afbeeldingen en andere gegevens in een rendabelere, overzichtelijke manier. De Computer Vision-API gebruikt slimme bijsnijden, samen met het wijzigen van de grootte van de afbeelding, om intuïtieve miniaturen te maken voor een bepaalde afbeelding.
 
-De generatie van miniaturen Computer Vision-algoritme werkt als volgt:
+De Computer Vision algoritme voor het genereren van miniaturen werkt als volgt:
 
-1. Verwijderen van bepaalde elementen van de installatiekopie en Identificeer de _interessegebied_&mdash;het gebied van de installatiekopie waarin de belangrijkste objecten wordt weergegeven.
-1. De afbeelding op basis van het geïdentificeerde bijsnijden _interessegebied_.
-1. De hoogte-breedteverhouding aanpassen aan de miniaturen dimensies doel wijzigen.
+1. Verwijder de Afleidings elementen uit de afbeelding en Identificeer het _gedeelte van_ &mdash;de afbeelding waarin de hoofd objecten worden weer gegeven.
+1. De afbeelding bijsnijden op basis van het geïdentificeerde _gedeelte van de interesse_ .
+1. Wijzig de hoogte-breedte verhouding zodat deze overeenkomt met de doel miniatuur dimensies.
 
-## <a name="area-of-interest"></a>Interessegebied
+## <a name="area-of-interest"></a>Interesse gebied
 
-Wanneer u een afbeelding uploadt, de Computer Vision-API analyseert ze om te bepalen de *interessegebied*. Deze kunt vervolgens deze regio gebruiken om te bepalen hoe de afbeelding bijsnijden. De bewerking bijsnijden, echter altijd overeen met de gewenste hoogte-breedteverhouding als er een is opgegeven.
+Wanneer u een installatie kopie uploadt, wordt deze door de Computer Vision-API geanalyseerd om het *interesse gebied*te bepalen. Deze regio kan vervolgens worden gebruikt om te bepalen hoe de afbeelding moet worden bijgesneden. De bijsnijd bewerking komt echter altijd overeen met de gewenste hoogte-breedte verhouding als er een is opgegeven.
 
-U krijgt ook de onbewerkte selectiekader box-coördinaten van deze dezelfde *interessegebied* door het aanroepen van de **areaOfInterest** API in plaats daarvan. U kunt deze gegevens vervolgens naar de oorspronkelijke afbeelding wijzigen, maar u wilt gebruiken.
+U kunt ook de onbewerkte selectie kader coördinaten van hetzelfde *gebied van belang* halen door de **areaOfInterest** -API aan te roepen. U kunt deze informatie vervolgens gebruiken om de oorspronkelijke installatie kopie te wijzigen.
 
 ## <a name="examples"></a>Voorbeelden
 
-De miniatuur van het gegenereerde kan sterk verschillen, afhankelijk van wat u voor de hoogte, breedte en slim bijsnijden opgeeft, zoals wordt weergegeven in de volgende afbeelding.
+De gegenereerde miniatuur kan sterk variëren, afhankelijk van wat u opgeeft voor hoogte, breedte en Slim bijsnijden, zoals wordt weer gegeven in de volgende afbeelding.
 
-![Een installatiekopie mountain naast verschillende bijsnijden configuraties](./Images/thumbnail-demo.png)
+![Een berg afbeelding naast verschillende bijsnijd configuraties](./Images/thumbnail-demo.png)
 
-De volgende tabel ziet u standaard miniatuurweergaven die worden gegenereerd door de Computer Vision voor installatiekopieën van het voorbeeld. De miniaturen zijn gegenereerd voor een opgegeven doel-hoogte en breedte van 50 pixels, met een slim bijsnijden ingeschakeld.
+In de volgende tabel ziet u typische miniaturen die zijn gegenereerd door Computer Vision voor de voorbeeld afbeeldingen. De miniaturen zijn gegenereerd voor een opgegeven doel hoogte en-breedte van 50 pixels, waarbij Slim bijsnijden is ingeschakeld.
 
 | Image | Miniatuur |
 |-------|-----------|
-|![Mountain buitengebruik zonsondergang met van een persoon silhouet](./Images/mountain_vista.png) | ![Miniatuur van buitengebruik Mountain zonsondergang met van een persoon silhouet](./Images/mountain_vista_thumbnail.png) |
-|![Een wit bloem met een groene achtergrond](./Images/flower.png) | ![Vision analyseren bloem miniatuur](./Images/flower_thumbnail.png) |
-|![Een vrouw die op het plafond van een gebouw apartment](./Images/woman_roof.png) | ![miniatuur van een vrouw die op het plafond van een gebouw apartment](./Images/woman_roof_thumbnail.png) |
+|![Buiten bergen in Zons ondergang met de silhouet van een persoon](./Images/mountain_vista.png) | ![Miniatuur van buiten bergen van een Zons ondergang met de silhouet van een persoon](./Images/mountain_vista_thumbnail.png) |
+|![Een witte bloem met een groene achtergrond](./Images/flower.png) | ![Miniatuur weergave van Vision analyseren](./Images/flower_thumbnail.png) |
+|![Een vrouw aan het dak van een Apartment-gebouw](./Images/woman_roof.png) | ![miniatuur van een vrouw aan het dak van een Apartment-gebouw](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over [installatiekopieën taggen](concept-tagging-images.md) en [categoriseren van beelden](concept-categorizing-images.md).
+Meer informatie over het labelen van [afbeeldingen](concept-tagging-images.md) en het categoriseren van [afbeeldingen](concept-categorizing-images.md).

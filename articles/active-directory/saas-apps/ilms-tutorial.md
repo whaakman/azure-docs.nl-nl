@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met iLMS | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en iLMS.
+title: 'Zelfstudie: Integratie met iLMS Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en iLMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,89 +16,89 @@ ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b2e012a4ce8ac4a9a5afb895d545beb0a0b8946
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50097aec1c4a003d3494029e8f25bb13b564f207
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100618"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944025"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Zelfstudie: ILMS integreren met Azure Active Directory
 
-In deze zelfstudie leert u hoe u iLMS integreert met Azure Active Directory (Azure AD). Wanneer u iLMS met Azure AD integreert, kunt u het volgende doen:
+In deze zelf studie leert u hoe u iLMS integreert met Azure Active Directory (Azure AD). Wanneer u iLMS integreert met Azure AD, kunt u het volgende doen:
 
-* Beheren in Azure AD die toegang tot iLMS heeft.
-* Kunnen uw gebruikers worden automatisch aangemeld iLMS met hun Azure AD-accounts.
-* Beheer uw accounts in één centrale locatie - Azure portal.
+* Controle in azure AD die toegang heeft tot iLMS.
+* Zorg ervoor dat uw gebruikers automatisch worden aangemeld bij iLMS met hun Azure AD-accounts.
+* Beheer uw accounts op één centrale locatie: de Azure Portal.
 
-Zie voor meer informatie over de integratie van de SaaS-app met Azure AD, [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Zie [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)voor meer informatie over SaaS-app-integratie met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Om te beginnen, hebt u de volgende items nodig:
+U hebt de volgende items nodig om aan de slag te gaan:
 
-* Een Azure AD-abonnement Als u geen abonnement hebt, krijgt u de gratis proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
-* ingeschakeld abonnement iLMS eenmalige aanmelding (SSO).
+* Een Azure AD-abonnement Als u geen abonnement hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/)een gratis proef versie van één maand ontvangen.
+* iLMS-abonnement dat is ingeschakeld voor eenmalige aanmelding (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie hebt u configureren en testen van Azure AD-eenmalige aanmelding in een testomgeving. biedt ondersteuning voor iLMS **SP en IDP** gestart door SSO
+In deze zelf studie configureert en test u Azure AD SSO in een test omgeving. iLMS ondersteunt SSO die door **SP en IDP** is geïnitieerd
 
-## <a name="adding-ilms-from-the-gallery"></a>ILMS uit de galerie toe te voegen
+## <a name="adding-ilms-from-the-gallery"></a>ILMS toevoegen uit de galerie
 
-Voor het configureren van de integratie van iLMS in Azure AD, moet u iLMS uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Als u de integratie van iLMS in azure AD wilt configureren, moet u iLMS uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
-1. Selecteer in het navigatiedeelvenster links in de **Azure Active Directory** service.
-1. Navigeer naar **bedrijfstoepassingen** en selecteer vervolgens **alle toepassingen**.
-1. Nieuwe toepassing toevoegen, selecteert u **nieuwe toepassing**.
-1. In de **toevoegen vanuit de galerie** sectie, typt u **iLMS** in het zoekvak in.
-1. Selecteer **iLMS** van resultaten van het deelvenster en vervolgens de app toevoegen. Wacht een paar seconden terwijl de app wordt toegevoegd aan uw tenant.
+1. Selecteer de **Azure Active Directory** -service in het navigatie deel venster aan de linkerkant.
+1. Ga naar **bedrijfs toepassingen** en selecteer **alle toepassingen**.
+1. Selecteer **nieuwe toepassing**om een nieuwe toepassing toe te voegen.
+1. Typ in de sectie **toevoegen vanuit de galerie** **iLMS** in het zoekvak.
+1. Selecteer **iLMS** uit het paneel resultaten en voeg vervolgens de app toe. Wacht een paar seconden wanneer de app aan uw Tenant is toegevoegd.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-Configureren en testen van Azure AD-eenmalige aanmelding met iLMS met behulp van een testgebruiker met de naam **Britta Simon**. Voor eenmalige aanmelding om te werken, moet u een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in iLMS vast te stellen.
+Configureer en test Azure AD SSO met iLMS met behulp van een test gebruiker met de naam **Julia Simon**. Voor het werken met SSO moet u een koppelings relatie tot stand brengen tussen een Azure AD-gebruiker en de bijbehorende gebruiker in iLMS.
 
-Als u wilt configureren en testen van Azure AD-eenmalige aanmelding met iLMS, voert u de volgende bouwstenen:
+Als u Azure AD SSO wilt configureren en testen met iLMS, voltooit u de volgende bouw stenen:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-sso)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Configureren van eenmalige aanmelding iLMS](#configure-ilms-sso)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Maken van de testgebruiker iLMS](#create-ilms-test-user)**  : als u wilt een equivalent van Britta Simon in iLMS die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-sso)**  : als u wilt controleren of de configuratie werkt.
+1. **[Configureer Azure AD SSO](#configure-azure-ad-sso)** -om uw gebruikers in staat te stellen deze functie te gebruiken.
+2. **[ILMS SSO configureren](#configure-ilms-sso)** : voor het configureren van de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Maak een iLMS-test gebruiker](#create-ilms-test-user)** -om een equivalent van Julia Simon in iLMS te hebben dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
+6. **[SSO testen](#test-sso)** : om te controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD-eenmalige aanmelding configureren
+### <a name="configure-azure-ad-sso"></a>Azure AD SSO configureren
 
-Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de Azure-portal.
+Volg deze stappen om Azure AD SSO in te scha kelen in de Azure Portal.
 
-1. In de [Azure-portal](https://portal.azure.com/)op de **iLMS** toepassingspagina integratie, vinden de **beheren** sectie en selecteer **eenmalige aanmelding**.
-1. Op de **selecteert u een methode voor eenmalige aanmelding** pagina, selecteert u **SAML**.
-1. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op het pictogram voor bewerken/pen voor **SAML-basisconfiguratie** om de instellingen te bewerken.
+1. Zoek in het [Azure Portal](https://portal.azure.com/)op de pagina Toepassings integratie van **ILMS** de sectie **beheren** en selecteer **eenmalige aanmelding**.
+1. Selecteer op de pagina **Eén aanmeldings methode selecteren** de optie **SAML**.
+1. Klik op de pagina **eenmalige aanmelding met SAML instellen** op het pictogram bewerken/pen voor **eenvoudige SAML-configuratie** om de instellingen te bewerken.
 
    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-1. Op de **SAML-basisconfiguratie** pagina als u wilt configureren van de toepassing in **IDP** gestart modus, voer de waarden voor de volgende velden:
+1. Als u de toepassing in de gestarte modus **IDP** wilt configureren, voert u op de pagina **basis configuratie van SAML** de waarden voor de volgende velden in:
 
-    a. In de **id** in het tekstvak, plak de **id** waarde u van kopiëren **serviceprovider** sectie van SAML-instellingen in de beheerportal iLMS.
+    a. Plak in het tekstvak **id** de **id** -waarde die u kopieert vanuit de sectie **service provider** van de SAML-instellingen in de iLMS-beheer Portal.
 
-    b. In de **antwoord-URL** in het tekstvak, plak de **eindpunt (URL)** waarde u van kopiëren **serviceprovider** sectie van SAML-instellingen in het volgende patroon van iLMS-beheerportal `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
+    b. Plak in het tekstvak **antwoord-URL** de **EINDPUNT waarde (URL)** die u kopieert van de sectie **service provider** van de SAML-instellingen in de iLMS-beheer Portal met het volgende patroon`https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
 1. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-    In de **aanmeldings-URL** in het tekstvak, plak de **eindpunt (URL)** waarde u van kopiëren **serviceprovider** sectie van SAML-instellingen in de beheerportal iLMS als `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
+    Plak in het tekstvak **URL voor aanmelding** de **EINDPUNT waarde (URL)** die u kopieert vanuit de sectie **service provider** van de SAML-instellingen in de iLMS-beheer portal als`https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
-1. Om in te schakelen JIT wordt ingericht, wordt uw toepassing iLMS de SAML-asserties ondertekend verwacht in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram **Bewerken** om het dialoogvenster Gebruikerskenmerken te openen.
+1. Voor het inschakelen van JIT-inrichting verwacht uw iLMS-toepassing de SAML-beweringen in een specifieke indeling. hiervoor moet u aangepaste kenmerk toewijzingen toevoegen aan de configuratie van uw SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram **Bewerken** om het dialoogvenster gebruikerskenmerken te openen.
 
     > [!NOTE]
-    > U moet inschakelen **Un-recognized-gebruikersaccount maken** in iLMS om toe te wijzen deze kenmerken. Volg de instructies [hier](https://support.inspiredelearning.com/help/adding-updating-and-managing-users#just-in-time-provisioning-with-saml-single-signon) voor een beter beeld van de configuratie van de kenmerken.
+    > U moet het **maken van niet-herkende gebruikers account** inschakelen in iLMS om deze kenmerken toe te wijzen. Volg de [onderstaande](https://support.inspiredelearning.com/help/adding-updating-and-managing-users#just-in-time-provisioning-with-saml-single-signon) instructies om een idee te krijgen van de kenmerken van de configuratie.
 
-1. Bovendien hierboven verwacht iLMS toepassing paar meer kenmerken moeten worden doorgegeven in SAML-antwoord. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
+1. Daarnaast verwacht iLMS toepassing nog enkele kenmerken die in het SAML-antwoord weer worden door gegeven. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
 
     | Name | Bronkenmerk|
     | --------|------------- |
-    | deling | user.department |
-    | regio | user.state |
+    | daarvan | user.department |
+    | regio | gebruiker. State |
     | Afdeling | user.jobtitle |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
@@ -117,9 +117,9 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
 1. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![De link om het certificaat te downloaden](common/metadataxml.png)
+    ![De downloadkoppeling certificaat](common/metadataxml.png)
 
-1. Op de **iLMS instellen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
+1. Kopieer op de sectie **ILMS instellen** de gewenste URL ('s) volgens uw vereiste.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
@@ -127,116 +127,116 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
     b. Azure AD-id
 
-    c. Afmeldings-URL
+    c. URL voor afmelden
 
-### <a name="configure-ilms-sso"></a>ILMS eenmalige aanmelding configureren
+### <a name="configure-ilms-sso"></a>ILMS SSO configureren
 
-1. In een ander browservenster aanmelden bij uw **iLMS-beheerportal** als beheerder.
+1. Meld u in een ander webbrowser venster als beheerder aan bij uw **iLMS-beheer Portal** .
 
-2. Klik op **SSO:SAML** onder **instellingen** tabblad SAML-instellingen openen en voer de volgende stappen uit:
+2. Klik op **SSO: SAML** onder **instellingen** tabblad om de SAML-instellingen te openen en de volgende stappen uit te voeren:
 
     ![Eenmalige aanmelding configureren](./media/ilms-tutorial/1.png)
 
-3. Vouw de **serviceprovider** sectie en kopieert u de **id** en **eindpunt (URL)** waarde.
+3. Vouw de sectie **service provider** uit en kopieer de waarde voor **id** en **eind punt (URL)** .
 
     ![Eenmalige aanmelding configureren](./media/ilms-tutorial/2.png) 
 
-4. Onder **id-Provider** sectie, klikt u op **metagegevens importeren**.
+4. Klik onder de sectie **ID-provider** op **meta gegevens importeren**.
 
-5. Selecteer de **Federatiemetagegevens** bestand gedownload vanuit de Azure-portal van de **SAML-handtekeningcertificaat** sectie.
+5. Selecteer het bestand met **federatieve meta gegevens** dat is gedownload uit het gedeelte Azure portal van het **SAML-handtekening certificaat** .
 
     ![Eenmalige aanmelding configureren](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
 
-6. Als u inschakelen wilt voor het maken van accounts iLMS voor ongedaan maken inrichting JIT-gebruikers herkennen, volgt u onderstaande stappen te volgen:
+6. Als u JIT-inrichting wilt inschakelen voor het maken van iLMS-accounts voor onherkenbare gebruikers, volgt u de onderstaande stappen:
 
-    a. Controleer **Account maken voor niet-herkende gebruiker**.
+    a. Schakel het selectie vakje **niet-herkende gebruikers account maken**in.
 
     ![Eenmalige aanmelding configureren](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
 
-    b. De kenmerken in Azure AD met de kenmerken in iLMS toewijzen. Geef de naam van de kenmerken of de standaardwaarde is opgegeven in de kolom kenmerk.
+    b. Wijs de kenmerken in azure AD toe met de kenmerken in iLMS. Geef in de kolom kenmerk de naam van de kenmerken of de standaard waarde op.
 
-    c. Ga naar **bedrijfsregels** tabblad en voer de volgende stappen uit:
+    c. Ga naar het tabblad **bedrijfs regels** en voer de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/ilms-tutorial/5.png)
 
-    d. Controleer **Un-recognized regio's maken, afdelingen en afdelingen** om regio's, afdelingen en afdelingen die nog niet bestaan op het moment van eenmalige aanmelding te maken.
+    d. Controleer of u niet **-herkende regio's, afdelingen en afdelingen maakt** om regio's, afdelingen en afdelingen te maken die nog niet bestaan op het moment van eenmalige aanmelding.
 
-    e. Controleer **Update gebruiker profiel tijdens aanmelding** om op te geven of profiel van de gebruiker is bijgewerkt met elke eenmalige aanmelding.
+    e. Schakel het **gebruikers profiel bijwerken tijdens het aanmelden** in om op te geven of het profiel van de gebruiker wordt bijgewerkt met de eenmalige aanmelding.
 
-    f. Als de **lege waarden van de Update voor niet verplichte velden in het gebruikersprofiel** optie is ingeschakeld, optioneel profiel velden die leeg bij het aanmelden wordt zijn ook voor zorgen dat iLMS profiel van de gebruiker bevatten lege waarden voor deze velden.
+    f. Als de optie **lege waarden voor niet-verplichte velden bijwerken in gebruikers profiel** is ingeschakeld, wordt in het iLMS-Profiel van de gebruiker ook lege waarden voor die velden opgeslagen.
 
-    g. Controleer **fout meldingse-mail verzenden** en voer het e-mailadres van de gebruiker waar u de fout e-mailmelding ontvangen.
+    g. Controleer het **e-mail bericht verzend fout** en voer het e-mail adres in van de gebruiker waarvoor u de e-mail fout melding wilt ontvangen.
 
 7. Klik op **Save** om de instellingen op te slaan.
 
     ![Eenmalige aanmelding configureren](./media/ilms-tutorial/save.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-In deze sectie maakt u een testgebruiker in Azure portal Britta Simon genoemd.
+In deze sectie maakt u een test gebruiker in de Azure Portal met de naam Julia Simon.
 
-1. Selecteer in het linkerdeelvenster in de Azure-portal, **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
-1. Selecteer **Nieuwe gebruiker** boven aan het scherm.
-1. In de **gebruiker** eigenschappen als volgt te werk:
+1. Selecteer in het linkerdeel venster van de Azure Portal **Azure Active Directory**, selecteer **gebruikers**en selecteer vervolgens **alle gebruikers**.
+1. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
+1. Voer de volgende stappen uit in de eigenschappen van de **gebruiker** :
    1. Voer in het veld **Naam** `Britta Simon` in.  
-   1. In de **gebruikersnaam** en voer de username@companydomain.extension. Bijvoorbeeld `BrittaSimon@contoso.com`.
+   1. Voer in het veld **gebruikers naam** het username@companydomain.extensionin. Bijvoorbeeld `BrittaSimon@contoso.com`.
    1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
    1. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang tot iLMS.
+In deze sectie schakelt u Julia Simon in om de eenmalige aanmelding van Azure te gebruiken door toegang te verlenen aan iLMS.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
-1. Selecteer in de lijst met toepassingen, **iLMS**.
-1. Zoek in de pagina overzicht van de app, de **beheren** sectie en selecteer **gebruikers en groepen**.
+1. Selecteer in het Azure Portal **bedrijfs toepassingen**en selecteer vervolgens **alle toepassingen**.
+1. Selecteer in de lijst toepassingen de optie **iLMS**.
+1. Ga op de pagina overzicht van de app naar de sectie **beheren** en selecteer **gebruikers en groepen**.
 
-   ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+   ![De koppeling 'Gebruikers en groepen'](common/users-groups-blade.png)
 
-1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** dialoogvenster.
+1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in het dialoog venster **toewijzing toevoegen** .
 
     ![De koppeling gebruiker toevoegen](common/add-assign-user.png)
 
-1. In de **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** uit de lijst met gebruikers, klik vervolgens op de **Selecteer** knop aan de onderkant van het scherm.
-1. Als u een waarde voor de rol in het SAML-verklaring verwacht de **rol selecteren** dialoogvenster, selecteer de juiste rol voor de gebruiker in de lijst en klik vervolgens op de **Selecteer** knop aan de onderkant van het scherm.
+1. Selecteer in het dialoog venster **gebruikers en groepen** **Julia Simon** in de lijst gebruikers en klik vervolgens op de knop **selecteren** onder aan het scherm.
+1. Als u een wille keurige rol verwacht in de SAML-bewering, selecteert u in het dialoog venster **rol selecteren** de juiste rol voor de gebruiker in de lijst en klikt u op de knop **selecteren** onder aan het scherm.
 1. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-### <a name="create-ilms-test-user"></a>ILMS testgebruiker maken
+### <a name="create-ilms-test-user"></a>ILMS-test gebruiker maken
 
-Toepassing ondersteunt Just in time gebruikersinrichting en na-verificatiegebruikers automatisch in de toepassing gemaakt worden. JIT werkt als u hebt geklikt op de **Un-recognized-gebruikersaccount maken** selectievakje tijdens de SAML-configuratie-instelling op iLMS-beheerportal.
+De toepassing biedt ondersteuning voor Just-in-time-gebruikers en nadat verificatie gebruikers automatisch in de toepassing zijn gemaakt. JIT werkt als u op het selectie vakje **niet-herkend gebruikers account maken** hebt geklikt tijdens de SAML-configuratie-instelling op de iLMS-beheer Portal.
 
-Als u een gebruiker handmatig hebt gemaakt wilt, volgt u onderstaande stappen te volgen:
+Als u hand matig een gebruiker moet maken, volgt u de onderstaande stappen:
 
-1. Meld u aan uw bedrijf iLMS site als een beheerder.
+1. Meld u als beheerder aan bij de iLMS-bedrijfs site.
 
-2. Klik op **gebruiker registreren** onder **gebruikers** tabblad openen **gebruiker registreren** pagina.
+2. Klik op **gebruiker registreren** onder **gebruikers** tabblad om de pagina **gebruiker registreren** te openen.
 
    ![Werknemer toevoegen](./media/ilms-tutorial/3.png)
 
-3. Op de **gebruiker registreren** pagina, de volgende stappen uitvoeren.
+3. Voer de volgende stappen uit op de pagina **gebruiker registreren** .
 
     ![Werknemer toevoegen](./media/ilms-tutorial/create_testuser_add.png)
 
-    a. In de **voornaam** tekstvak, de eerste naam zoals Julia.
+    a. Typ in het tekstvak **voor de voor naam** de voor naam, bijvoorbeeld Julia.
 
-    b. In de **achternaam** tekstvak typt u de achternaam, zoals Simon.
+    b. Typ in het tekstvak Achternaam de achternaam zoals Simon.
 
-    c. In de **E-mail-ID** tekstvak, typ het e-mailadres van de gebruiker, zoals BrittaSimon@contoso.com.
+    c. Typ in het tekstvak **e-mail-id** het e-mail adres BrittaSimon@contoso.comvan de gebruiker zoals.
 
-    d. In de **regio** vervolgkeuzelijst, selecteer de waarde voor de regio.
+    d. Selecteer in de vervolg keuzelijst **regio** de waarde voor regio.
 
-    e. In de **deling** vervolgkeuzelijst, selecteer de waarde voor afdeling.
+    e. Selecteer in de vervolg keuzelijst voor **delen** de waarde voor divisie.
 
-    f. In de **afdeling** vervolgkeuzelijst, selecteer de waarde voor afdeling.
+    f. Selecteer in de vervolg keuzelijst **afdeling** de waarde voor afdeling.
 
     g. Klik op **Opslaan**.
 
     > [!NOTE]
-    > U kunt registratie-e-mail naar gebruiker verzenden door te selecteren **registratie E-mail** selectievakje.
+    > U kunt een registratie-e-mail naar de gebruiker verzenden door de selectie vakje **registratie E-mail verzenden** in te scha kelen.
 
-### <a name="test-sso"></a>Test eenmalige aanmelding
+### <a name="test-sso"></a>SSO testen
 
-Wanneer u de tegel iLMS in het toegangsvenster selecteert, moet u worden automatisch aangemeld bij de iLMS waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u de tegel iLMS in het toegangs venster selecteert, wordt u automatisch aangemeld bij de iLMS waarvoor u SSO hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

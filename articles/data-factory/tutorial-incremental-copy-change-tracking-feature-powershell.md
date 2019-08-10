@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 52dee0ee60c111c56c42e0452f8f8750ea9ea4e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c38a3e21b9533307d8cac9d467972831080c1a48
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66167643"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946982"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Incrementeel gegevens kopiëren van Azure SQL Database naar Azure Blob Storage met behulp van technologie voor bijhouden van wijzigingen 
 In deze zelfstudie maakt u een Azure data factory met een pijplijn die gewijzigde gegevens laadt op basis van informatie over **wijzigingen** in de Azure SQL-brondatabase naar een Azure blob storage.  
@@ -150,7 +150,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 ### <a name="azure-powershell"></a>Azure PowerShell
 Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/install-Az-ps).
 
-## <a name="create-a-data-factory"></a>Een gegevensfactory maken
+## <a name="create-a-data-factory"></a>Data factory maken
 1. Definieer een variabele voor de naam van de resourcegroep die u later gaat gebruiken in PowerShell-opdrachten. Kopieer de tekst van de volgende opdracht naar PowerShell, geef tussen dubbele aanhalingstekens een naam op voor de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en voer de opdracht uit. Bijvoorbeeld: `"adfrg"`. 
    
      ```powershell
@@ -177,7 +177,7 @@ Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure Pow
     ```powershell
     $dataFactoryName = "IncCopyChgTrackingDF";
     ```
-5. Voor het maken van de data factory, voer de volgende **Set AzDataFactoryV2** cmdlet: 
+5. Voer de volgende **set-AzDataFactoryV2-** cmdlet uit om de Data Factory te maken: 
     
     ```powershell       
     Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
@@ -216,8 +216,8 @@ Tijdens deze stap koppelt u uw Azure Storage-account aan de data factory.
         }
     }
     ```
-2. Schakel in **Azure PowerShell** over naar de map **C:\ADFTutorials\IncCopyMultiTableTutorial**.
-3. Voer de **Set AzDataFactoryV2LinkedService** cmdlet voor het maken van de gekoppelde service: **AzureStorageLinkedService**. In het volgende voorbeeld geeft u de waarden door voor de parameters **ResourceGroupName** en **DataFactoryName**. 
+2. Ga in **Azure PowerShell**naar de map **C:\ADFTutorials\IncCopyChangeTrackingTutorial** .
+3. Voer de cmdlet **set-AzDataFactoryV2LinkedService** uit om de gekoppelde service te maken: **AzureStorageLinkedService**. In het volgende voorbeeld geeft u de waarden door voor de parameters **ResourceGroupName** en **DataFactoryName**. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -235,7 +235,7 @@ Tijdens deze stap koppelt u uw Azure Storage-account aan de data factory.
 ### <a name="create-azure-sql-database-linked-service"></a>Maak een gekoppelde Azure SQL Database-service.
 In deze stap koppelt u uw Azure SQL-database aan uw data factory.
 
-1. Maak een JSON-bestand met de naam **AzureSQLDatabaseLinkedService.json** in de map **C:\ADFTutorials\IncCopyChangeTrackingTutorial** met de volgende inhoud: Vervang voordat u het bestand opslaat **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt; en &lt;password&gt;** door de naam van uw Azure SQL-server, databasenaam, gebruikers-id en wachtwoord. 
+1. Maak een JSON-bestand met de naam **AzureSQLDatabaseLinkedService.json** in de map **C:\ADFTutorials\IncCopyChangeTrackingTutorial** met de volgende inhoud: Vervang voordat u het bestand opslaat server database name **, &lt;user id&gt; en &lt;password&gt;** door de naam van uw Azure SQL-server, databasenaam, gebruikers-id en wachtwoord. 
 
     ```json
     {
@@ -251,7 +251,7 @@ In deze stap koppelt u uw Azure SQL-database aan uw data factory.
         }
     }
     ```
-2. In **Azure PowerShell**, voert de **Set AzDataFactoryV2LinkedService** cmdlet voor het maken van de gekoppelde service: **AzureSQLDatabaseLinkedService**. 
+2. Voer in **Azure PowerShell**de cmdlet **set-AzDataFactoryV2LinkedService** uit om de gekoppelde service te maken: **AzureSQLDatabaseLinkedService**. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -290,7 +290,7 @@ In deze stap maakt u een gegevensset die de brongegevens vertegenwoordigt.
     }   
     ```
 
-2.  Voer de cmdlet Set-AzDataFactoryV2Dataset om de gegevensset te maken: SourceDataset
+2.  Voer de cmdlet Set-AzDataFactoryV2Dataset uit om de gegevensset te maken: SourceDataset
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -332,7 +332,7 @@ In deze stap maakt u een gegevensset die de gegevens voorstelt die worden gekopi
     ```
 
     U kunt de adftutorial-container maken in uw Azure-blobopslag als onderdeel van de vereisten. Maak de container als deze bestaat niet (of) stel deze in op de naam van een bestaande container. In deze zelfstudie wordt de bestandsnaam dynamisch gegenereerd met behulp van de expressie: @CONCAT('Incremental-', pipeline().RunId, '.txt').
-2.  Voer de cmdlet Set-AzDataFactoryV2Dataset om de gegevensset te maken: SinkDataset
+2.  Voer de cmdlet Set-AzDataFactoryV2Dataset uit om de gegevensset te maken: SinkDataset
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -370,7 +370,7 @@ In deze stap maakt u een gegevensset voor het opslaan van een bovengrenswaarde.
     ```
 
     U maken de tabel table_store_ChangeTracking_version als onderdeel van de vereisten.
-2.  Voer de cmdlet Set-AzDataFactoryV2Dataset om de gegevensset te maken: WatermarkDataset
+2.  Voer de cmdlet Set-AzDataFactoryV2Dataset uit om de gegevensset te maken: WatermarkDataset
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"
@@ -419,7 +419,7 @@ In deze stap maakt u een pijplijn met een kopieeractiviteit waarmee de volledige
         }
     }
     ```
-2. Voer de cmdlet Set-AzDataFactoryV2Pipeline om de pijplijn te maken: FullCopyPipeline.
+2. Voer de cmdlet Set-AzDataFactoryV2Pipeline uit om de pijp lijn te maken: FullCopyPipeline.
     
    ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "FullCopyPipeline" -File ".\FullCopyPipeline.json"
@@ -436,7 +436,7 @@ In deze stap maakt u een pijplijn met een kopieeractiviteit waarmee de volledige
    ```
  
 ### <a name="run-the-full-copy-pipeline"></a>Voer de volledige kopie-pijplijn uit
-Voer de pijplijn uit: **FullCopyPipeline** met behulp van **Invoke-AzDataFactoryV2Pipeline** cmdlet. 
+Voer de pijplijn uit: **FullCopyPipeline** met behulp van de cmdlet **invoke-AzDataFactoryV2Pipeline** . 
 
 ```powershell
 Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName        
@@ -459,7 +459,7 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
     ![Pijplijnuitvoeringen](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. Wanneer u klikt op de koppeling in de kolom **acties** ziet u de volgende pagina met alle **activiteiten bij uitvoering** voor de pijplijn. 
 
-    ![Uitvoering van activiteiten](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
+    ![Uitvoeringen van activiteit](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
 7. Overschakelen naar de weergave **Pipeline-activiteiten** kan door te klikken op **Pijplijnen** zoals weergegeven in de afbeelding. 
 
 
@@ -608,7 +608,7 @@ In deze stap maakt u een pijplijn met de volgende activiteiten en laat deze peri
     }
     
     ```
-2. Voer de cmdlet Set-AzDataFactoryV2Pipeline om de pijplijn te maken: FullCopyPipeline.
+2. Voer de cmdlet Set-AzDataFactoryV2Pipeline uit om de pijp lijn te maken: FullCopyPipeline.
     
    ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
@@ -625,7 +625,7 @@ In deze stap maakt u een pijplijn met de volgende activiteiten en laat deze peri
    ```
 
 ### <a name="run-the-incremental-copy-pipeline"></a>De pijplijn incrementele kopie uitvoeren
-Voer de pijplijn uit: **IncrementalCopyPipeline** met behulp van **Invoke-AzDataFactoryV2Pipeline** cmdlet. 
+Voer de pijplijn uit: **IncrementalCopyPipeline** met behulp van de cmdlet **invoke-AzDataFactoryV2Pipeline** . 
 
 ```powershell
 Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName     
@@ -638,7 +638,7 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Resource
     ![Pijplijnuitvoeringen](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
 2. Wanneer u klikt op de koppeling in de kolom **acties** ziet u de volgende pagina met alle **activiteiten bij uitvoering** voor de pijplijn. 
 
-    ![Uitvoering van activiteiten](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
+    ![Uitvoeringen van activiteit](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
 3. Overschakelen naar de weergave **Pipeline-activiteiten** kan door te klikken op **Pijplijnen** zoals weergegeven in de afbeelding. 
 
 ### <a name="review-the-results"></a>De resultaten bekijken

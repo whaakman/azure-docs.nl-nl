@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: een externe afbeelding analyseren - REST, Java'
+title: 'Quickstart: Een externe installatie kopie analyseren met de REST API en Java'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart analyseert u een afbeelding met behulp van de Computer Vision-API met Java.
 services: cognitive-services
@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: eadf3aca848f1b8ad24cd387e1988cdf8ea55580
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.custom: seodec18, seo-java-august2019
+ms.openlocfilehash: 69d14b3ce84ddd1fbd54ab8a0f6f0c9e24ebac1e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604427"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946317"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Quickstart: Een externe afbeelding analyseren met behulp van de Computer Vision REST API en Java
 
@@ -27,7 +27,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 ## <a name="prerequisites"></a>Vereisten
 
 - U moet [Java&trade; Platform, Standard Edition Development Kit 7 of 8](https://aka.ms/azure-jdks) (JDK 7 of 8) hebben geïnstalleerd.
-- U moet beschikken over een abonnementssleutel voor Computer Vision. U krijgt een gratis proefversie sleutel van [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Of, volg de instructies in [een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) abonneren op de Computer Vision en haal uw sleutel.
+- U moet beschikken over een abonnementssleutel voor Computer Vision. U kunt een gratis proef versie verkrijgen van [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Of volg de instructies in [Create a cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om u te abonneren op computer vision en uw sleutel op te halen.
 
 ## <a name="create-and-run-the-sample-application"></a>De voorbeeldtoepassing maken en uitvoeren
 
@@ -129,15 +129,15 @@ public class Main {
 1. Sla vervolgens het Java-project op en bouw het.
 1. Als u een IDE gebruikt, voert u `Main` uit.
 
-Als u het programma in een opdrachtregelvenster uitvoert, u kunt ook de volgende opdrachten uitvoeren. Deze opdrachten wordt ervan uitgegaan dat uw bibliotheken zijn in een map met de naam `libs` die zich in dezelfde map als `Main.java`; als dat niet het geval is, moet u vervangen `libs` met het pad naar uw bibliotheken.
+U kunt ook de volgende opdrachten uitvoeren als u het programma uitvoert vanaf een opdracht regel venster. Deze opdrachten vermoeden dat uw bibliotheken zich in een `libs` map bevinden met de naam die `Main.java`zich in dezelfde map bevindt als. `libs` als dat niet het geval is, moet u het pad naar uw bibliotheken vervangen.
 
-1. Het bestand compileren `Main.java`.
+1. Compileer het bestand `Main.java`.
 
     ```bash
     javac -cp ".;libs/*" Main.java
     ```
 
-1. Voer het programma uit. Hiermee wordt de aanvraag verzonden naar de QnA Maker-API om de KB te maken en vervolgens worden elke 30 seconden de resultaten gecontroleerd. Elke reactie wordt afgedrukt op de opdrachtregel-venster.
+1. Voer het programma uit. Hiermee wordt de aanvraag verzonden naar de QnA Maker-API om de KB te maken en vervolgens worden elke 30 seconden de resultaten gecontroleerd. Elk antwoord wordt afgedrukt op het opdracht regel venster.
 
     ```bash
     java -cp ".;libs/*" Main

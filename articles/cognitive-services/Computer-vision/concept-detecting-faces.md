@@ -1,7 +1,7 @@
 ---
-title: Detecteren van gezichten - Computer Vision
+title: Gezichts detectie-Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Meer informatie over concepten met betrekking tot de face detection-functie van de Computer Vision-API.
+description: Leer concepten die betrekking hebben op de functie gezichts detectie van de Computer Vision-API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 699192aba87bb009d7dbddddcc9579883bb71db9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3675acf59c6889dd00c8f26089f509bbcd3c724e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368108"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945253"
 ---
-# <a name="face-detection-with-computer-vision"></a>Gezichtsdetectie met Computer Vision
+# <a name="face-detection-with-computer-vision"></a>Gezichts detectie met Computer Vision
 
-Computer Vision kunt Detecteer menselijke gezichten binnen een installatiekopie en de leeftijd, geslacht en rechthoek voor elke gedetecteerde gezicht genereren. 
+Computer Vision kunt menselijke gezichten detecteren binnen een afbeelding en de leeftijd, het geslacht en de rechthoek voor elk gedetecteerd gezicht genereren. 
 
 > [!NOTE]
-> Deze functie wordt ook aangeboden door de Azure [Face](/azure/cognitive-services/face/) service. Zie dit alternatief voor meer gedetailleerde analyse, met inbegrip van gezichts-id te maken krijgt en detectie met zich meebrengen. 
+> Deze functie wordt ook aangeboden door de Azure [Face](/azure/cognitive-services/face/) -service. Bekijk dit alternatief voor gedetailleerde analyse van het gezicht, inclusief gezichts identificatie en het detecteren van detectie. 
 
-## <a name="face-detection-examples"></a>Face detection-voorbeelden
+## <a name="face-detection-examples"></a>Voor beelden van gezichts detectie
 
-Het volgende voorbeeld ziet u de JSON-antwoord geretourneerd door de Computer Vision voor een afbeelding met een enkele menselijke gezichten.
+In het volgende voor beeld wordt het JSON-antwoord gedemonstreerd dat wordt geretourneerd door Computer Vision voor een afbeelding met één menselijk gezicht.
 
 ![Vision-analyse Vrouw op dak-gezicht](./Images/woman_roof_face.png)
 
@@ -54,9 +54,9 @@ Het volgende voorbeeld ziet u de JSON-antwoord geretourneerd door de Computer Vi
 }
 ```
 
-Het volgende voorbeeld ziet u de JSON-antwoord geretourneerd voor een afbeelding met meerdere menselijke gezichten.
+In het volgende voor beeld wordt het JSON-antwoord gedemonstreerd dat is geretourneerd voor een afbeelding met meerdere menselijke gezichten.
 
-![Vision familie foto Face analyseren](./Images/family_photo_face.png)
+![Vision Analyseer Family foto face](./Images/family_photo_face.png)
 
 ```json
 {
@@ -113,4 +113,4 @@ Het volgende voorbeeld ziet u de JSON-antwoord geretourneerd voor een afbeelding
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de [analyseren installatiekopie](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) verwijzen naar de documentatie voor meer informatie over het gebruik van de face detection-functie.
+Zie de naslag documentatie over het [analyseren van afbeeldingen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) voor meer informatie over het gebruik van de functie voor gezichts herkenning.

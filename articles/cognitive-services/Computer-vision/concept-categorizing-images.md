@@ -1,7 +1,7 @@
 ---
-title: Voor het categoriseren van beelden - Computer Vision
+title: Afbeeldings categorisatie-Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Meer informatie over concepten met betrekking tot de installatiekopie categorisatie-functie van de Computer Vision-API.
+description: Leer concepten met betrekking tot de functie voor het categoriseren van afbeeldingen van de Computer Vision-API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,28 +11,28 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 257da397e11843ee96e93f7b3e9bc5ada29822cf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2b9b8da550d80b027da919ba0834e43e2c83d4b4
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60203276"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945314"
 ---
-# <a name="categorize-images-by-subject-matter"></a>Categoriseer installatiekopieën op basis van onderwerp
+# <a name="categorize-images-by-subject-matter"></a>Afbeeldingen op onderwerp categoriseren
 
-Naast de labels en een beschrijving, Computer Vision geeft als resultaat de taxonomie op basis van categorieën gedetecteerd in een afbeelding. In tegenstelling tot tags, categorieën zijn ingedeeld in een erfelijke hiërarchie bovenliggend/onderliggend en er zijn minder van deze (in plaats van duizenden tags 86). Alle namen worden in het Engels. Categorisatie kan worden gedaan door zelf of naast het nieuwere model van de labels.
+Naast Tags en een beschrijving Computer Vision retourneert de op taxonomie gebaseerde categorieën die zijn gedetecteerd in een installatie kopie. In tegens telling tot labels worden categorieën in een bovenliggende/onderliggende Hereditary-hiërarchie ingedeeld en zijn er minder van de tags (86, in tegens telling tot duizenden Tags). Alle categorie namen zijn in het Engels. Categorisatie kan zelf of naast het nieuwere label model worden uitgevoerd.
 
 ## <a name="the-86-category-concept"></a>Het concept van de 86 categorieën
 
-Computer vision kunt categoriseren een installatiekopie van een breed of specifiek, met behulp van de lijst met 86 categorieën in het volgende diagram. Zie [Categorietaxonomie](category-taxonomy.md) voor de volledige taxonomie in tekstindeling.
+Computer vision kan een afbeelding breed of specifiek categoriseren met behulp van de lijst met 86-categorieën in het volgende diagram. Zie [Categorietaxonomie](category-taxonomy.md) voor de volledige taxonomie in tekstindeling.
 
-![gegroepeerde lijsten van de categorieën in de categorietaxonomie](./Images/analyze_categories-v2.png)
+![Gegroepeerde lijsten van alle categorieën in de categorie taxonomie](./Images/analyze_categories-v2.png)
 
-## <a name="image-categorization-examples"></a>Afbeelding categorisatie-voorbeelden
+## <a name="image-categorization-examples"></a>Voor beelden van afbeeldings categorisatie
 
-De volgende JSON-antwoord wordt geïllustreerd wat Computer Vision geretourneerd bij het categoriseren van de voorbeeld-installatiekopie op basis van de visuele kenmerken.
+In het volgende JSON-antwoord ziet u wat Computer Vision retourneert wanneer de voorbeeld afbeelding wordt gecategoriseerd op basis van de visuele functies.
 
-![Een vrouw die op het plafond van een gebouw apartment](./Images/woman_roof.png)
+![Een vrouw aan het dak van een Apartment-gebouw](./Images/woman_roof.png)
 
 ```json
 {
@@ -51,15 +51,15 @@ De volgende JSON-antwoord wordt geïllustreerd wat Computer Vision geretourneerd
 }
 ```
 
-De volgende tabel ziet u een set typische installatiekopie en de categorie die is geretourneerd door de Computer Vision voor elke afbeelding.
+In de volgende tabel ziet u een typische installatie kopie en de categorie die wordt geretourneerd door Computer Vision voor elke afbeelding.
 
-| Image | Category |
+| Image | Categorie |
 |-------|----------|
-| ![Vier personen zich voordeed samen als een familie](./Images/family_photo.png) | people_group |
-| ![Een puppy zit in een grassy veld](./Images/cute_dog.png) | animal_dog |
-| ![Een persoon die permanent op een rock mountain zonsondergang](./Images/mountain_vista.png) | outdoor_mountain |
+| ![Vier mensen die als familie samen werken](./Images/family_photo.png) | people_group |
+| ![Een puppy die in een gras veld zit](./Images/cute_dog.png) | animal_dog |
+| ![Een persoon in een Zons ondergang van een Mountain Rock](./Images/mountain_vista.png) | outdoor_mountain |
 | ![Een stapel van brood rollen in een tabel](./Images/bread.png) | food_bread |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Kennis met concepten over [installatiekopieën taggen](concept-tagging-images.md) en [met een beschrijving van installatiekopieën](concept-describing-images.md).
+Leer concepten over het labelen van [afbeeldingen](concept-tagging-images.md) en het [beschrijven van installatie kopieën](concept-describing-images.md).

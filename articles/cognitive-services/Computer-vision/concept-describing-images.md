@@ -1,7 +1,7 @@
 ---
-title: Met een beschrijving van afbeeldingen - Computer Vision
+title: Beschrijvingen van installatie kopieën-Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepten met betrekking tot de functie voor de beschrijving van afbeelding van de Computer Vision-API.
+description: Concepten met betrekking tot de functie beschrijving van afbeelding van de Computer Vision-API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 91618b211fdd869daf74491b175d6359ffa3f30c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dcf61c642a9f8ad7aa68d72736ce8fdb0e9a6e3c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368375"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945270"
 ---
-# <a name="describe-images-with-human-readable-language"></a>Installatiekopieën met leesbare taal beschrijven
+# <a name="describe-images-with-human-readable-language"></a>Afbeeldingen beschrijven met een Human-Lees bare taal
 
-Computer Vision een installatiekopie te analyseren en genereren van een leesbare zin waarmee de inhoud wordt beschreven. Het algoritme daadwerkelijk retruns verschillende beschrijvingen op basis van andere visuele kenmerken, en de beschrijving wordt gegeven een betrouwbaarheidsscore. De uiteindelijke uitvoer is een lijst met beschrijvingen gerangschikt op de hoogste naar laagste vertrouwen.
+Computer Vision kunt een afbeelding analyseren en een door de mens lees bare zin genereren waarin de inhoud wordt beschreven. Het algoritme retourneert een aantal beschrijvingen op basis van verschillende visuele functies en elke beschrijving krijgt een betrouwbaarheids Score. De uiteindelijke uitvoer is een lijst met beschrijvingen die zijn besteld van hoogste naar laagste betrouw baarheid.
 
-## <a name="image-description-example"></a>Voorbeeld van de installatiekopie van een softwarebeschrijving
+## <a name="image-description-example"></a>Voor beeld van installatie kopie beschrijving
 
-De volgende JSON-antwoord wordt geïllustreerd wat Computer Vision retourneert bij de beschrijving van de voorbeeld-installatiekopie op basis van de visuele kenmerken.
+In het volgende JSON-antwoord ziet u wat Computer Vision retourneert bij het beschrijven van de voorbeeld afbeelding op basis van de visuele functies.
 
-![Een zwart-wit beeld van de gebouwen in Manhattan](./Images/bw_buildings.png)
+![Een zwarte en witte afbeelding van gebouwen in Manhattan](./Images/bw_buildings.png)
 
 ```json
 {
@@ -58,4 +58,4 @@ De volgende JSON-antwoord wordt geïllustreerd wat Computer Vision retourneert b
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Kennis met concepten over [installatiekopieën taggen](concept-tagging-images.md) en [categoriseren van beelden](concept-categorizing-images.md).
+Leer concepten over het labelen van [afbeeldingen](concept-tagging-images.md) en het categoriseren van [afbeeldingen](concept-categorizing-images.md).

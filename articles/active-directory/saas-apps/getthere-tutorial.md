@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met GetThere | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en GetThere.
+title: 'Zelfstudie: Integratie met GetThere Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en GetThere.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 499b7f5761c97f6986ca0291af2242d694b609d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7c1a59e3b0650badd75a1170a4daaa6561bd23c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101740"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945051"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Zelfstudie: Azure Active Directory-integratie met GetThere
+# <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Zelfstudie: Integratie met GetThere Azure Active Directory
 
-In deze zelfstudie leert u hoe u GetThere integreren met Azure Active Directory (Azure AD).
-GetThere integreren met Azure AD biedt u de volgende voordelen:
+In deze zelf studie leert u hoe u GetThere integreert met Azure Active Directory (Azure AD).
+Het integreren van GetThere met Azure AD biedt de volgende voor delen:
 
-* U kunt beheren in Azure AD die toegang tot GetThere heeft.
-* U kunt uw gebruikers worden automatisch aangemeld GetThere (Single Sign-On) met hun Azure AD-accounts inschakelen.
-* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* U kunt beheren in azure AD die toegang heeft tot GetThere.
+* U kunt ervoor zorgen dat uw gebruikers automatisch worden aangemeld bij GetThere (eenmalige aanmelding) met hun Azure AD-accounts.
+* U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met GetThere, moet u de volgende items:
+Als u Azure AD-integratie met GetThere wilt configureren, hebt u de volgende items nodig:
 
 * Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
-* Eenmalige aanmelding GetThere ingeschakeld abonnement
+* Abonnement voor eenmalige aanmelding GetThere ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
 In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-* Biedt ondersteuning voor GetThere **IDP** gestart door SSO
+* GetThere ondersteunt door **IDP** GEÏNITIEERDe SSO
 
-## <a name="adding-getthere-from-the-gallery"></a>GetThere uit de galerie toe te voegen
+## <a name="adding-getthere-from-the-gallery"></a>GetThere toevoegen uit de galerie
 
-Voor het configureren van de integratie van GetThere in Azure AD, moet u GetThere uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Als u de integratie van GetThere in azure AD wilt configureren, moet u GetThere uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen GetThere uit de galerie, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om GetThere toe te voegen uit de galerie:**
 
 1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -60,37 +60,37 @@ Voor het configureren van de integratie van GetThere in Azure AD, moet u GetTher
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+    ![De knop nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **GetThere**, selecteer **GetThere** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ **GetThere**in het zoekvak, selecteer **GetThere** in het resultaten paneel en klik vervolgens op de knop **toevoegen** om de toepassing toe te voegen.
 
      ![GetThere in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met GetThere op basis van een testgebruiker met de naam **Britta Simon**.
-Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in GetThere tot stand worden gebracht.
+In deze sectie kunt u eenmalige aanmelding voor Azure AD configureren en testen met GetThere op basis van een test gebruiker met de naam **Julia Simon**.
+Voor een goede werking van eenmalige aanmelding moet er een koppelings relatie tussen een Azure AD-gebruiker en de bijbehorende gebruiker in GetThere tot stand worden gebracht.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met GetThere, moet u de volgende bouwstenen voltooien:
+Als u eenmalige aanmelding voor Azure AD wilt configureren en testen met GetThere, moet u de volgende bouw stenen volt ooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Configureren van eenmalige aanmelding GetThere](#configure-getthere-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Maken van de testgebruiker GetThere](#create-getthere-test-user)**  : als u wilt een equivalent van Britta Simon in GetThere die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[GetThere eenmalige aanmelding configureren](#configure-getthere-single-sign-on)** : Hiermee configureert u de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Maak een GetThere-test gebruiker](#create-getthere-test-user)** -om een equivalent van Julia Simon in GetThere te hebben dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-Voor het configureren van Azure AD eenmalige aanmelding met GetThere, moet u de volgende stappen uitvoeren:
+Voer de volgende stappen uit om eenmalige aanmelding voor Azure AD te configureren met GetThere:
 
-1. In de [Azure-portal](https://portal.azure.com/)op de **GetThere** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+1. Selecteer in de [Azure Portal](https://portal.azure.com/)op de pagina **GetThere** Application Integration de optie **eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
+    ![Koppeling voor eenmalige aanmelding configureren](common/select-sso.png)
 
 2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
@@ -102,7 +102,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met GetThere, moet u de 
 
 4. Op de pagina **Eenmalige aanmelding instellen met SAML** voert u de volgende stappen uit:
 
-    ![GetThere domein en URL's, eenmalige aanmelding informatie](common/idp-intiated.png)
+    ![Informatie over eenmalige aanmelding voor GetThere domein en Url's](common/idp-intiated.png)
 
     a. In het tekstvak **Id** typt u een URL:
 
@@ -111,7 +111,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met GetThere, moet u de 
     | `getthere.com` |
     | `http://idp.getthere.com` |
 
-    b. In de **antwoord-URL** tekst typt u een van de onderstaande URL's:
+    b. In het tekstvak **antwoord-URL** typt u een van de onderstaande url's:
     
     | |
     |--|
@@ -120,15 +120,15 @@ Voor het configureren van Azure AD eenmalige aanmelding met GetThere, moet u de 
     | `https://gtx2-gcte2.getthere.net/login/saml/ssoaasvalidate.act` |
     | `https://wx1.getthere.net/login/saml/ssoaavalidate.act` |
 
-5. GetThere toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram **Bewerken** om het dialoogvenster Gebruikerskenmerken te openen.
+5. De GetThere-toepassing verwacht de SAML-beweringen in een specifieke indeling. hiervoor moet u aangepaste kenmerk toewijzingen toevoegen aan de configuratie van uw SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram **Bewerken** om het dialoogvenster gebruikerskenmerken te openen.
 
     ![image](common/edit-attribute.png)
 
-6. Bovendien hierboven verwacht GetThere toepassing paar meer kenmerken moeten worden doorgegeven in SAML-antwoord. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
+6. Daarnaast verwacht GetThere toepassing nog enkele kenmerken die in het SAML-antwoord weer worden door gegeven. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
 
     | Name |  Bronkenmerk |  Naamruimte |
     | ---------------| --------------- | --------------- |
-    | Sitenaam | "Geef de waarde aan de hand van uw organisatie" | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sitename |
+    | Sitename | "Geef de waarde op volgens uw organisatie" | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sitename |
     | Gebruikersnaam |  user.mail | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/username |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
@@ -139,7 +139,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met GetThere, moet u de 
 
     b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-    c. In de **Namespace** tekstvak typt u de naamruimte van het kenmerk wordt weergegeven voor die rij.
+    c. Typ in het tekstvak **naam ruimte** de naam ruimte van het kenmerk dat voor die rij wordt weer gegeven.
 
     d. Selecteer Bron bij **Kenmerk**.
 
@@ -151,9 +151,9 @@ Voor het configureren van Azure AD eenmalige aanmelding met GetThere, moet u de 
 
 7. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![De link om het certificaat te downloaden](common/certificatebase64.png)
+    ![De downloadkoppeling certificaat](common/certificatebase64.png)
 
-8. Op de **GetThere instellen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
+8. Kopieer op de sectie **GetThere instellen** de gewenste URL ('s) volgens uw vereiste.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
@@ -161,13 +161,13 @@ Voor het configureren van Azure AD eenmalige aanmelding met GetThere, moet u de 
 
     b. Azure AD-id
 
-    c. Afmeldings-URL
+    c. URL voor afmelden
 
-### <a name="configure-getthere-single-sign-on"></a>GetThere voor eenmalige aanmelding configureren
+### <a name="configure-getthere-single-sign-on"></a>Eenmalige aanmelding voor GetThere configureren
 
-Het configureren van eenmalige aanmelding op **GetThere** zijde, moet u voor het verzenden van de gedownloade **certificaat (Base64)** en toepassing van de gekopieerde URL's van Azure portal om te [GetThere ondersteuningsteam](mailto:dataintegration@sabre.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Als u eenmalige aanmelding wilt configureren op **GetThere** , moet u het gedownloade **certificaat (base64)** en de juiste gekopieerde url's verzenden van Azure Portal naar [GetThere ondersteunings team](mailto:dataintegration@sabre.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD 
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -185,7 +185,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon** in.
   
-    b. In de **gebruikersnaam** veld, typt u **brittasimon\@yourcompanydomain.extension**  
+    b. Typ **brittasimon\@yourcompanydomain. extension** in het veld **gebruikers naam** .  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -194,13 +194,13 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan GetThere.
+In deze sectie schakelt u Julia Simon in om eenmalige aanmelding van Azure te gebruiken door toegang te verlenen aan GetThere.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **GetThere**.
+1. Selecteer in het Azure Portal **bedrijfs toepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **GetThere**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **GetThere**.
+2. Selecteer in de lijst toepassingen de optie **GetThere**.
 
     ![De koppeling GetThere in de lijst met toepassingen](common/all-applications.png)
 
@@ -210,7 +210,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+    ![Het deelvenster toewijzing toevoegen](common/add-assign-user.png)
 
 5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst Gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
@@ -218,15 +218,15 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-### <a name="create-getthere-test-user"></a>GetThere testgebruiker maken
+### <a name="create-getthere-test-user"></a>GetThere-test gebruiker maken
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in GetThere. Werken met [GetThere ondersteuningsteam](mailto:dataintegration@sabre.com) om toe te voegen de gebruikers in het GetThere-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie maakt u een gebruiker met de naam Julia Simon in GetThere. Werk samen met GetThere-ondersteunings [team](mailto:dataintegration@sabre.com) om de gebruikers toe te voegen in het GetThere-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel GetThere in het toegangsvenster, moet u worden automatisch aangemeld bij de GetThere waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u op de tegel GetThere in het toegangs venster klikt, moet u automatisch worden aangemeld bij de GetThere waarvoor u SSO hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

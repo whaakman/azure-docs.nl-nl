@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0725988ff88baea2458f0a5e459440874e66088
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 579a553f151cf34215af3188cfddada6da42e691
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596435"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943633"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Zelfstudie: Oracle Cloud Infrastructure console integreren met Azure Active Directory
 
@@ -101,11 +101,11 @@ Volg deze stappen om Azure AD SSO in te scha kelen in de Azure Portal.
 
    ![De downloadkoppeling certificaat](common/metadataxml.png)
 
-1. De toepassing Oracle Cloud Infrastructure console verwacht de SAML-beweringen in een specifieke indeling, waarvoor u aangepaste kenmerk toewijzingen moet toevoegen aan de configuratie van uw SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram **Bewerken** om het dialoogvenster Gebruikerskenmerken te openen.
+1. De toepassing Oracle Cloud Infrastructure console verwacht de SAML-beweringen in een specifieke indeling, waarvoor u aangepaste kenmerk toewijzingen moet toevoegen aan de configuratie van uw SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram **Bewerken** om het dialoogvenster gebruikerskenmerken te openen.
 
    ![image](common/edit-attribute.png)
 
-1. Daarnaast verwacht een Oracle Cloud Infrastructure console-toepassing nog enkele kenmerken die in de SAML-respons kunnen worden door gegeven. Voer de volgende stappen uit in de sectie **gebruikers kenmerken & claims** van het dialoog venster **groeps claims (preview)**  :
+1. Daarnaast verwacht een Oracle Cloud Infrastructure console-toepassing nog enkele kenmerken die in de SAML-respons kunnen worden door gegeven. Voer de volgende stappen uit in de sectie **gebruikers kenmerken & claims** van het dialoog venster **groeps claims (preview)** :
 
    1. Klik op de **pen** naast **naam identificatie waarde**.
 
