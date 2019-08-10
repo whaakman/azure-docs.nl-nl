@@ -1,5 +1,5 @@
 ---
-title: Azure SignalR Service zonder server Quick Start - JavaScript
+title: Serverloze Quick Start van Azure signalering-java script
 description: Een quickstart waarin u leert hoe u de service Azure SignalR en Azure Functions gebruikt om een chatruimte te maken.
 author: sffamily
 ms.service: signalr
@@ -7,12 +7,12 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: b096a6c7bb5b1fedaa5d2963dddae03df9fe6954
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: c234324bf76f9d944037a411ed8bb3b7e4841cbe
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494041"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882550"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Snelstart: Een chatruimte maken met Azure Functions en SignalR Service met behulp van JavaScript
 
@@ -25,6 +25,8 @@ Deze quickstart kan worden uitgevoerd op macOS, Windows of Linux.
 Zorg ervoor dat u een code-editor hebt geïnstalleerd, bijvoorbeeld [Visual Studio Code](https://code.visualstudio.com/).
 
 Installeer [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing) om de Azure Function-apps lokaal uit te voeren.
+
+Voor Azure Functions is [node. js](https://nodejs.org/en/download/) versie 8 of 10 vereist.
 
 Momenteel moet [.NET Core SDK](https://www.microsoft.com/net/download) zijn geïnstalleerd voor Azure Functions Core Tools om de extensies te installeren. Er is echter geen kennis van .NET vereist om JavaScript Azure-functie-apps te bouwen.
 
@@ -50,7 +52,7 @@ Meld u met uw Azure-account aan bij Azure Portal op <https://portal.azure.com/>.
 
     ![De service SignalR maken](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. Open in uw code-editor de *chat-src/javascript* map in de gekloonde opslagplaats.
+1. Open in de code-editor de map *src/chat/java script* in de gekloonde opslag plaats.
 
 1. Wijzig de naam *local.settings.sample.json* in *local.settings.json*.
 
@@ -61,7 +63,7 @@ Meld u met uw Azure-account aan bij Azure Portal op <https://portal.azure.com/>.
     - **negotiate**: gebruikt de invoerbinding *SignalRConnectionInfo* om geldige verbindingsgegevens te genereren en te retourneren.
     - **messages**: ontvangt een chatbericht in de hoofdtekst van de aanvraag en gebruikt de uitvoerbinding *SignalR* om het bericht uit te zenden naar alle verbonden clienttoepassingen.
 
-1. In de terminal, zorg ervoor dat u de *chat-src/javascript* map. Gebruik Azure Functions Core Tools om extensies te installeren die zijn vereist om de app uit te voeren.
+1. Controleer in de terminal of u zich in de map *src/chat/java script* bevindt. Gebruik Azure Functions Core Tools om extensies te installeren die zijn vereist om de app uit te voeren.
 
     ```bash
     func extensions install
@@ -81,7 +83,7 @@ Meld u met uw Azure-account aan bij Azure Portal op <https://portal.azure.com/>.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt gemaakt en is een realtime toepassing zonder server wordt uitgevoerd in VS Code. Nu volgt meer informatie over het implementeren van Azure Functions vanuit VS Code.
+In deze Quick Start hebt u een realtime serverloze toepassing gemaakt en uitgevoerd in VS code. Nu volgt meer informatie over het implementeren van Azure Functions vanuit VS Code.
 
 > [!div class="nextstepaction"]
-> [Azure Functions met VS Code implementeren](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started)
+> [Azure Functions met VS Code implementeren](https://code.visualstudio.com/tutorials/functions-extension/getting-started)

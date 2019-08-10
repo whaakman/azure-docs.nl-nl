@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 15d23016df9b0c85b9d252b4c4a9ea48d3608f75
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 419e11862b2c584686922cfc8d1db72ee4751a03
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595050"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934037"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>Translator Text-API 3,0: Voorbeelden in woordenlijst
 
@@ -123,13 +123,9 @@ Een geslaagde reactie is een JSON-matrix met één resultaat voor elke teken ree
 
 In dit voor beeld ziet u hoe u voor beelden kunt opzoeken voor het paar dat `fly` is gemaakt met de `volar`Engelse term en de Spaanse vertaling.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"
 ```
-
----
 
 De antwoord tekst (afgekort voor de duidelijkheid) is:
 

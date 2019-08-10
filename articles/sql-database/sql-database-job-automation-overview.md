@@ -10,12 +10,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/25/2019
-ms.openlocfilehash: 1b8d4965edb446235e28f47a0226c82b89c73e0b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f4d2afd65ec06c331498ce974e933fe08c8e67dd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845053"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935192"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Beheertaken automatiseren met behulp van databasetaken
 
@@ -44,7 +44,7 @@ Er zijn verschillende scenario's waarin u taakautomatisering kunt gebruiken:
 De volgende technologieën voor het plannen van taken zijn beschikbaar in Azure SQL Database:
 
 - **SQL Agent-taken** zijn een klassiek en bewezen SQL Server-onderdeel voor taakplanning dat beschikbaar is in het beheerde exemplaar. SQL Agent-taken zijn niet beschikbaar in individuele databases.
-- **Elastic database taken** zijn taak plannings services waarmee aangepaste taken worden uitgevoerd op een of meer Azure SQL-data bases.
+- **Elastic database-taken (preview)** zijn taak plannings services waarmee aangepaste taken worden uitgevoerd op een of meer Azure SQL-data bases.
 
 Hier volgen enkele noemenswaardige verschillen tussen SQL Agent (on-premises beschikbaar en als onderdeel van SQL Database Managed Instance) en de taakagent van Elastic Database (beschikbaar voor individuele databases in Azure SQL-database en databases in SQL Data Warehouse).
 
@@ -168,7 +168,7 @@ Enkele van de SQL Agent-functies die beschikbaar zijn in SQL Server worden niet 
 
 Zie [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) voor meer informatie over SQL Server Agent.
 
-## <a name="elastic-database-jobs"></a>Taken voor Elastic Database
+## <a name="elastic-database-jobs-preview"></a>Taken van Elastic Database (preview)
 
 **Taak voor Elastic Database** biedt de mogelijkheid om een of meer T-SQL-scripts parallel in een groot aantal databases uit te voeren volgens een schema of op aanvraag.
 

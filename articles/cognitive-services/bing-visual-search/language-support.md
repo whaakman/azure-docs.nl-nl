@@ -1,40 +1,40 @@
 ---
-title: Taalondersteuning - Bing visuele zoekopdrachten-API
+title: Taal ondersteuning-Bing Visual Search-API
 titleSuffix: Azure Cognitive Services
-description: Een lijst van natuurlijke talen, landen en regio's die worden ondersteund door de Bing visuele zoekopdrachten-API. De Bing visuele zoekopdrachten-API biedt ondersteuning voor meer dan drie tientallen landen/regio's, veel met meer dan één taal.
+description: Een lijst met natuurlijke talen, landen en regio's die worden ondersteund door de Bing Visual Search-API. Het Bing Visual Search-API ondersteunt meer dan drie dozijn landen/regio's, veel met meer dan één taal.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 1639b8066f3c9943bc42f5151fcb456585441baf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b17341bc234ff3dfecc2c6dcd84ef77116a95d61
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64866233"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883554"
 ---
-# <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Ondersteuning voor taal en regio voor de Bing visuele zoekopdrachten-API
+# <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Ondersteuning van talen en regio's voor de Bing Visual Search-API
 
-Bing visuele zoekopdrachten-API biedt ondersteuning voor meer dan drie tientallen landen/regio's, veel met meer dan één taal. Elke aanvraag moet bevatten voor land/regio en taal naar keuze van de gebruiker. Markt van de gebruiker weet, kunt u Bing juiste resultaten worden geretourneerd. Als u een land/regio en taal niet opgeeft, maakt Bing een best-effort om te bepalen van de gebruiker land/regio en taal. Omdat de resultaten koppelingen naar Bing bevatten kunnen, kan weet de land/regio en taal bieden een voorkeur gelokaliseerde Bing gebruikerservaring als de gebruiker op de Bing-koppelingen.
+Bing Visual Search-API ondersteunt meer dan drie dozijn landen/regio's, veel met meer dan één taal. Elke aanvraag moet het land/de regio en de taal van de gebruiker bevatten. Als u de markt van de gebruiker weet, kan Bing de juiste resultaten retour neren. Als u geen land/regio en taal opgeeft, maakt Bing een beste poging om het land/de regio en taal van de gebruiker te bepalen. Omdat de resultaten mogelijk koppelingen naar Bing bevatten, is het mogelijk dat het land/de regio en de taal een voor keur hebben van een gelokaliseerde Bing gebruikers ervaring als de gebruiker op de Bing-koppelingen klikt.
 
-Als de land/regio en taal opgeven, stelt u de `mkt` queryparameter (markt) naar een code van de **markten** in de volgende tabel. De markt Hiermee geeft u een land/regio en taal. Als de gebruiker geeft de voorkeur aan om te zien in een andere taal-tekst weergeven, stelt u `setLang` queryparameter in de juiste taal-code.
+Als u het land/de regio en taal wilt opgeven `mkt` , stelt u de query parameter (Market) in op een code uit de tabel **markten** hieronder. Op de markt wordt een land/regio en taal opgegeven. Als de gebruiker de weer gave van tekst in een andere taal wilt zien, `setLang` stelt u de query parameter in op de juiste taal code.
 
-U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u een land/regio opgeeft, moet u ook opgeven een of meer taalcodes die met behulp van de `Accept-Language` HTTP-header. De ondersteunde talen variëren per land/regio; voor elk land in de tabel markten wordt verstrekt.
+U kunt ook het land/de regio opgeven met behulp `cc` van de query-para meter. Als u een land/regio opgeeft, moet u ook een of meer taal codes opgeven met de `Accept-Language` http-header. De ondersteunde talen variëren per land/regio. ze worden voor elk land in de tabel markten gegeven.
 
 
 
 > [!NOTE]
-> Er gelden de volgende beperkingen in de markt:
+> De volgende beperkingen gelden voor de markt:
 >
-> - Image recognition aantekeningen zijn alleen beschikbaar in het Engels.
-> - Recept, aankopen en pagina's, inclusief inzichten zijn beschikbaar in de Amerikaanse markt.
+> - Aantekeningen bij afbeeldings herkenning zijn alleen beschikbaar in het Engels.
+> - Recepten, winkelen en pagina's, met inbegrip van inzichten, zijn alleen beschikbaar in de en VS-markt.
 
 
-## <a name="countriesregions"></a>Landen/regio 's
+## <a name="countriesregions"></a>Landen/regio's
 
 |Land/regio|Code|
 |-------|----|
@@ -51,10 +51,10 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Duitsland|DE|
 |Hongkong SAR|HK|
 |India|IN|
-|Indonesië|Id|
-|Italië|IT|
+|Indonesië|id|
+|Italië|it|
 |Japan|JP|
-|Korea|KR|
+|Zuid-Korea|KR|
 |Maleisië|MY|
 |Mexico|MX|
 |Nederland|NL|
@@ -65,7 +65,7 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Portugal|PT|
 |Filipijnen|PH|
 |Rusland|RU|
-|Saoedi-Arabië|SA|
+|Saudi-Arabië|SA|
 |Zuid-Afrika|ZA|
 |Spanje|ES|
 |Zweden|SE|
@@ -76,17 +76,17 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Verenigde Staten|VS|
 
 
-## <a name="markets"></a>Markten
+## <a name="markets"></a>Landen
 
-|Land/regio|Taal|Code van de markt|
+|Land/regio|Taal|Markt code|
 |-------|--------|-----------|
 |Argentinië|Spaans|es-AR|
-|Australië|Nederlands|en-AU|
+|Australië|Engels|en-AU|
 |Oostenrijk|Duits|de-AT|
 |België|Nederlands|nl-BE|
-|België|Frans|fr-BE|
+|België|Frans|fr-worden|
 |Brazilië|Portugees|pt-BR|
-|Canada|Nederlands|NL-CA|
+|Canada|Engels|NL-CA|
 |Canada|Frans|fr-CA|
 |Chili|Spaans|es-CL|
 |Denemarken|Deens|da-DK|
@@ -94,28 +94,28 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Frankrijk|Frans|fr-FR|
 |Duitsland|Duits|de-DE|
 |Hongkong SAR|Traditioneel Chinees|zh-HK|
-|India|Nederlands|NL-IN|
-|Indonesië|Nederlands|NL-ID|
+|India|Engels|NL-IN|
+|Indonesië|Engels|en-ID|
 |Italië|Italiaans|IT-IT|
 |Japan|Japans|ja-JP|
-|Korea|Koreaans|ko-KR|
-|Maleisië|Nederlands|en Mijn|
+|Zuid-Korea|Koreaans|ko-KR|
+|Maleisië|Engels|en-mijn|
 |Mexico|Spaans|es-MX|
 |Nederland|Nederlands|NL-NL|
-|Nieuw-Zeeland|Nederlands|NL-NZ|
+|Nieuw-Zeeland|Engels|NL-NZ|
 |China|Chinees|zh-CN|
 |Polen|Pools|pl-PL|
 |Portugal|Portugees|pt-PT|
-|Filipijnen|Nederlands|NL-PH|
+|Filipijnen|Engels|en-PH|
 |Rusland|Russisch|ru-RU|
-|Saoedi-Arabië|Arabisch|ar-SA|
-|Zuid-Afrika|Nederlands|en-ZA|
+|Saudi-Arabië|Arabisch|ar-SA|
+|Zuid-Afrika|Engels|en-ZA|
 |Spanje|Spaans|es-ES|
 |Zweden|Zweeds|SV-SE|
 |Zwitserland|Frans|FR-h|
 |Zwitserland|Duits|de CH|
 |Taiwan|Traditioneel Chinees|zh-TW|
 |Turkije|Turks|tr-TR|
-|Verenigd Koninkrijk|Nederlands|en-GB|
-|Verenigde Staten|Nederlands|en-US|
+|Verenigd Koninkrijk|Engels|en-GB|
+|Verenigde Staten|Engels|en-US|
 |Verenigde Staten|Spaans|es-US|

@@ -6,19 +6,19 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
-ms.openlocfilehash: 5a26324f22ed46d0c06ecb0eb7ecaf74f589051e
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 1938bb0464eee458e7320cba4bf713a67c298d27
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423435"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882874"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Query's en antwoorden van Bing Local Business Search-API verzenden en gebruiken
 
-U kunt lokale resultaten ophalen van de Bing Local Business Search-API door een zoek opdracht naar het eind punt te verzenden `Ocp-Apim-Subscription-Key` en de header op te nemen, wat vereist is. Naast de beschik bare kopteksten en [para meters](local-search-reference.md#query-parameters)kunnen Zoek opdrachten worden aangepast door [geografische grenzen](specify-geographic-search.md) op te geven voor het gebied dat moet worden doorzocht, en de [locatie van de](local-search-query-response.md) geretourneerde locaties. [](local-search-reference.md#headers)
+U kunt lokale resultaten ophalen van de Bing Local Business Search-API door een zoek opdracht naar het eind punt te verzenden `Ocp-Apim-Subscription-Key` en de header op te nemen, wat vereist is. Naast de beschik bare [kopteksten](local-search-reference.md#headers) en [para meters](local-search-reference.md#query-parameters)kunnen Zoek opdrachten worden aangepast door [geografische grenzen](specify-geographic-search.md) op te geven voor het [](local-search-query-response.md) gebied dat moet worden doorzocht, en de locatie van de geretourneerde locaties.
 
 ## <a name="creating-a-request"></a>Een aanvraag maken
 
@@ -58,7 +58,7 @@ De JSON-resultaten die door de API worden geretourneerd, bevatten de volgende ke
 * _type
 * address
 * entityPresentationInfo
-* Geo
+* geo
 * id
 * name
 * routeablePoint

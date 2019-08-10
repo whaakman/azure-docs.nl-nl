@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: diberry
-ms.openlocfilehash: a61f196a509c3e84b518fffb4eb78f5f7430cb28
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 82285b27822b6c93f8efc24579bb99c308649ac0
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667572"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932677"
 ---
 # <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Preview: Migreren naar API versie 3. x voor LUIS-apps
 
@@ -223,7 +223,7 @@ In v2 wordt de entiteit geïdentificeerd door de naam van de _entiteit_ met de r
 ]
 ```
 
-In v3 wordt naar de entiteit verwezen door de rol van de _entiteit_, als de voor spelling voor de rol is:
+In v3 wordt naar de entiteit verwezen door de rol van de _entiteit_ , als de voor spelling voor de rol is:
 
 ```JSON
 "entities":{

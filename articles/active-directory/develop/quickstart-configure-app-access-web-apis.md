@@ -1,28 +1,27 @@
 ---
-title: Een toepassing voor toegang tot web-API's - Microsoft identity-platform configureren
+title: Een toepassing configureren voor toegang tot Web-Api's-micro soft Identity-platform
 description: Informatie over het configureren van een toepassing die is geregistreerd bij het Microsoft Identity Platform zodat deze omleidings-URI('s), referenties of machtigingen bevat voor toegang tot web-API's.
 services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 08/07/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: aragra, lenalepa, sureshja
+ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e8b0e17248dff3c53b96fd240a7566f09b22fae
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 937fca5698378a8c877b4a981557f87d06170e9a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482684"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879346"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Quickstart: Een clienttoepassing configureren voor toegang tot web-API's
 
@@ -39,7 +38,9 @@ Voordat een client toegang krijgt tot een web-API die beschikbaar is gemaakt doo
 In deze snelstart leert u hoe u uw toepassing kunt configureren voor het volgende:
 
 * [Omleidings-URI's toevoegen aan uw toepassing](#add-redirect-uris-to-your-application)
-* [Referenties toevoegen aan uw web-App](#add-credentials-to-your-web-application)
+* [Geavanceerde instellingen configureren voor uw toepassing](#configure-advanced-settings-for-your-application)
+* [Ondersteunde account typen wijzigen](#modify-supported-account-types)
+* [Referenties toevoegen aan uw webtoepassing](#add-credentials-to-your-web-application)
 * [Machtigingen toevoegen voor toegang tot web-API's](#add-permissions-to-access-web-apis)
 
 ## <a name="prerequisites"></a>Vereisten
@@ -55,38 +56,93 @@ Zorg ervoor dat u, voordat u aan de slag gaat, aan deze vereisten voldoet:
 Voordat u de app kunt configureren, volgt u deze stappen:
 
 1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
-1. Als u via uw account toegang hebt tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en stelt u de portalsessie in op de gewenste Azure Active Directory-tenant.
-1. Selecteer in het navigatiedeelvenster links het **Azure Active Directory** service en selecteer vervolgens **App-registraties**.
+1. Als uw account u toegang geeft tot meer dan één Tenant, selecteert u uw account in de rechter bovenhoek en stelt u uw portal sessie in op de gewenste Azure AD-Tenant.
+1. Selecteer in het navigatie deel venster aan de linkerkant de **Azure Active Directory** -service en selecteer vervolgens **app-registraties**.
 1. Zoek en selecteer de toepassing die u wilt configureren. Wanneer u de app hebt geselecteerd, ziet u het **Overzicht** of de hoofdregistratiepagina van de toepassing.
-1. Volg de stappen om uw toepassing te configureren voor toegang tot web-API's: 
+1. Volg de stappen om uw toepassing te configureren voor toegang tot web-API's:
     * [Omleidings-URI's toevoegen aan uw toepassing](#add-redirect-uris-to-your-application)
-    * [Referenties toevoegen aan uw web-App](#add-credentials-to-your-web-application)
+    * [Geavanceerde instellingen configureren voor uw toepassing](#configure-advanced-settings-for-your-application)
+    * [Ondersteunde account typen wijzigen](#modify-supported-account-types)
+    * [Referenties toevoegen aan uw webtoepassing](#add-credentials-to-your-web-application)
     * [Machtigingen toevoegen voor toegang tot web-API's](#add-permissions-to-access-web-apis)
 
 ## <a name="add-redirect-uris-to-your-application"></a>Omleidings-URI('s) toevoegen aan uw toepassing
 
-[![Aangepaste omleidings-URI's toevoegen voor web- en openbare client-apps](./media/quickstart-update-azure-ad-app-preview/authentication-redirect-uris-expanded.png)](./media/quickstart-update-azure-ad-app-preview/authentication-redirect-uris-expanded.png#lightbox)
-
 Ga als volgt te werk om een omleidings-URI toe te voegen aan uw toepassing:
 
 1. Selecteer op de pagina **Overzicht** van de app de sectie **Verificatie**.
-
 1. Als u een aangepaste omleidings-URI's voor web- en openbare client-apps wilt toevoegen, voert u deze stappen uit:
-
    1. Ga naar de sectie **Omleidings-URI**.
    1. Selecteer het type toepassing dat u bouwt, **Web** of **Openbare client (mobiel en desktop)** .
    1. Voer de omleidings-URI voor uw toepassing in.
       * Geef voor webtoepassingen de basis-URL van uw toepassing op. `http://localhost:31544` kan bijvoorbeeld de URL zijn van een webtoepassing die op uw lokale machine wordt uitgevoerd. Gebruikers moeten deze URL gebruiken om zich bij een webclienttoepassing aan te melden.
-      * Geef voor openbare toepassingen de URI op die door Azure Active Directory wordt gebruikt om tokenantwoorden te retourneren. Voer een waarde in die specifiek is voor uw toepassing, bijvoorbeeld https://MyFirstApp.
+      * Geef voor openbare toepassingen de URI op die door Azure Active Directory wordt gebruikt om tokenantwoorden te retourneren. Voer een waarde in die specifiek is voor uw toepassing, `https://MyFirstApp`bijvoorbeeld:.
 
 1. Volg deze stappen om een keuze te maken uit voorgestelde omleidings-URI's voor openbare clients (mobiel, desktop):
-
     1. Ga naar de sectie **Voorgestelde omleidings-URI's voor openbare clients (mobiel, desktop)** .
     1. Selecteer de juiste omleidings-URI's voor uw toepassing met behulp van de selectievakjes.
 
-## <a name="add-credentials-to-your-web-application"></a>Referenties toevoegen aan uw webtoepassing
+> [!NOTE]
+> Probeer de nieuwe ervaring voor **verificatie** -instellingen uit, waar u instellingen voor uw toepassing kunt configureren op basis van het platform of apparaat dat u wilt instellen.
+>
+> Als u deze weer gave wilt weer geven, selecteert u **de nieuwe ervaring uitproberen** in de standaard instelling voor de **verificatie** pagina.
+>
+> ![Klik op ' Probeer de nieuwe ervaring ' om de weer gave platform configuratie te bekijken](./media/quickstart-update-azure-ad-app-preview/authentication-try-new-experience-cropped.png)
+>
+> Hiermee gaat u naar de [pagina nieuwe **platform configuraties** ](#configure-platform-settings-for-your-application).
 
-[![Certificaten en clientgeheimen toevoegen](./media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)](./media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png#lightbox)
+### <a name="configure-advanced-settings-for-your-application"></a>Geavanceerde instellingen configureren voor uw toepassing
+
+Afhankelijk van de toepassing die u wilt registreren, zijn er enkele extra instellingen die u mogelijk moet configureren, zoals:
+
+* **Afmeldings-URL**
+* Voor apps met één pagina kunt u impliciete **toekenning** inschakelen en de tokens selecteren die u wilt verlenen aan het autorisatie-eind punt.
+* Voor desktop-apps die tokens verkrijgen met geïntegreerde Windows-verificatie, programma code stroom of gebruikers naam/wacht woord in het gedeelte **standaard client type** , configureert u de **toepassing behandelen als open bare client** ingesteld op **Ja**.
+* Voor oudere apps die gebruikmaken van de Live SDK om te integreren met de Microsoft-account-service, moet u de **ondersteuning voor Live SDK**configureren. Deze instelling is niet vereist voor nieuwe apps.
+* **Type standaard client**
+
+### <a name="modify-supported-account-types"></a>Ondersteunde account typen wijzigen
+
+De **ondersteunde account typen** bepalen wie de toepassing kan gebruiken of toegang kan krijgen tot de API.
+
+Wanneer u [de ondersteunde account typen hebt geconfigureerd](quickstart-register-app.md) wanneer u de toepassing voor het eerst hebt geregistreerd, kunt u deze instelling alleen wijzigen met behulp van de manifest editor van de toepassing in de volgende gevallen:
+
+* U kunt de account typen wijzigen van **AzureADMyOrg** of **AzureADMultipleOrgs** in **AzureADandPersonalMicrosoftAccount**, of andersom.
+* U kunt de account typen wijzigen van **AzureADMyOrg** in **AzureADMultipleOrgs**, of andersom.
+
+De ondersteunde account typen voor een bestaande app-registratie wijzigen:
+
+* Zie [het toepassings manifest configureren](reference-app-manifest.md) en de `signInAudience` sleutel bijwerken.
+
+## <a name="configure-platform-settings-for-your-application"></a>Platform instellingen voor uw toepassing configureren
+
+[![Instellingen configureren voor uw app op basis van het platform of apparaat](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-expanded.png)](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-small.png#lightbox)
+
+Als u toepassings instellingen wilt configureren op basis van het platform of apparaat, bent u gericht op het volgende:
+
+1. Selecteer op de pagina **platform configuraties** de optie **een platform toevoegen** en kies uit de beschik bare opties.
+
+   ![Toont de pagina platforms configureren](./media/quickstart-update-azure-ad-app-preview/authentication-platform-configurations-configure-platforms.png)
+
+1. Voer de instellingen gegevens in op basis van het platform dat u hebt geselecteerd.
+
+   | Platform                | Opties              | Configuratie-instellingen            |
+   |-------------------------|----------------------|-----------------------------------|
+   | **Webtoepassingen**    | **Web**              | Voer de omleidings- **URI** voor uw toepassing in. |
+   | **Mobiele toepassingen** | **iOS**              | Voer de **bundel-id**van de app in, die u kunt vinden in Xcode in info. plist of build-instellingen. Als u de bundel-ID toevoegt, wordt er automatisch een omleidings-URI voor de toepassing gemaakt. |
+   |                         | **Android**          | * Geef de **pakket naam**van de app op die u in het bestand AndroidManifest. XML kunt vinden.<br/>* Genereer en voer de **hand tekening-hash**in. Als de hand tekening-hash wordt toegevoegd, wordt er automatisch een omleidings-URI voor de toepassing gemaakt.  |
+   | **Bureau blad + apparaten**   | **Bureau blad + apparaten** | Beschrijving. Selecteer een van de aanbevolen omleidings- **uri's** als u apps voor desktop-en apparaten bouwt.<br/>Beschrijving. Voer een **aangepaste**omleidings-URI in, die wordt gebruikt als de locatie waar Azure AD gebruikers omleidt als reactie op verificatie aanvragen. Voor .NET core-toepassingen waarbij u bijvoorbeeld interactie wilt, gebruikt `https://localhost`u. |
+
+   > [!IMPORTANT]
+   > Voor mobiele toepassingen die niet gebruikmaken van de meest recente MSAL-bibliotheek of die geen Broker gebruikt, moet u de omleidings-Uri's voor deze toepassingen configureren in **Desktop +-apparaten**.
+
+1. Afhankelijk van het platform dat u hebt gekozen, zijn er mogelijk extra instellingen die u kunt configureren. Voor **Web** apps kunt u het volgende doen:
+    * Meer omleidings-Uri's toevoegen
+    * Configureer **impliciete toekenning** om de tokens te selecteren die u wilt uitgeven door het autorisatie-eind punt:
+        * Selecteer voor apps met één pagina zowel **toegangs tokens** als **id-tokens**
+        * Voor web apps selecteert u **id-tokens**
+
+## <a name="add-credentials-to-your-web-application"></a>Referenties toevoegen aan uw webtoepassing
 
 Ga als volgt te werk om een referentie aan uw webtoepassing toe te voegen:
 
@@ -109,8 +165,6 @@ Ga als volgt te werk om een referentie aan uw webtoepassing toe te voegen:
 > Nadat u de configuratiewijzigingen hebt opgeslagen, bevat de meest rechtse kolom de waarde van het clientgeheim. **Vergeet niet de waarde te kopiëren** voor gebruik in de code van uw clienttoepassing. Deze is namelijk niet meer toegankelijk wanneer u deze pagina verlaat.
 
 ## <a name="add-permissions-to-access-web-apis"></a>Machtigingen toevoegen voor toegang tot web-API's
-
-[![Geeft het scherm waar u de API-machtigingen kunt toevoegen](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png)](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png#lightbox)
 
 Ga als volgt te werk om machtiging(en) voor toegang tot resource-API's van uw client toe te voegen:
 

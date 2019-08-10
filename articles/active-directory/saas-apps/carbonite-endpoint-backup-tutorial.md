@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5bf49538823ea50bca197a78ec54d4ddcae1ff
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: e078cb7daa787b9fe5e8bc996b36f0fef198f41c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708282"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879685"
 ---
 # <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>Zelfstudie: Carbonite-eind punt back-up integreren met Azure Active Directory
 
@@ -125,27 +125,35 @@ Volg deze stappen om Azure AD SSO in te scha kelen in de Azure Portal.
 
 ### <a name="configure-carbonite-endpoint-backup-sso"></a>EENMALIGe back-up van Carbonite-eind punt configureren
 
-1. Meld u in een ander webbrowser venster aan bij uw Carbonite endpoint backup-bedrijfs site als beheerder.
+1. Als u de configuratie in Carbonite-eind punt back-up wilt automatiseren, moet u de **uitbrei ding mijn apps Secure Sign-in browser** installeren door te klikken op **de uitbrei ding installeren**.
 
-1. Klik op het **bedrijf** in het linkerdeel venster.
+    ![Uitbrei ding voor mijn apps](common/install-myappssecure-extension.png)
+
+2. Nadat u een uitbrei ding aan de browser hebt toegevoegd, klikt u op **Setup Carbonite endpoint backup** wordt u doorgestuurd naar de Carbonite-eindpunt back-uptoepassing. Geef de beheerders referenties op om u aan te melden bij het Carbonite-eind punt. In de browserextensie wordt de toepassing automatisch voor u geconfigureerd en worden stappen 3-7 geautomatiseerd.
+
+    ![Configuratie van Setup](common/setup-sso.png)
+
+3. Als u Carbonite endpoint backup hand matig wilt instellen, opent u een nieuw webbrowser venster en meldt u zich aan bij de bedrijfs site van uw Carbonite-eind punt als beheerder en voert u de volgende stappen uit:
+
+4. Klik op het **bedrijf** in het linkerdeel venster.
 
     ![Back-upconfiguratie voor Carbonite-eind punt ](media/carbonite-endpoint-backup-tutorial/configure1.png)
 
-1. Klik op **eenmalige aanmelding**.
+5. Klik op **eenmalige aanmelding**.
 
     ![Back-upconfiguratie voor Carbonite-eind punt ](media/carbonite-endpoint-backup-tutorial/configure2.png)
 
-1. Klik op **inschakelen** en klik vervolgens op **Instellingen bewerken** om te configureren.
+6. Klik op **inschakelen** en klik vervolgens op **Instellingen bewerken** om te configureren.
 
     ![Back-upconfiguratie voor Carbonite-eind punt ](media/carbonite-endpoint-backup-tutorial/configure3.png)
 
-1. Voer de volgende stappen uit op de pagina instellingen voor **eenmalige aanmelding** :
+7. Voer de volgende stappen uit op de pagina instellingen voor **eenmalige aanmelding** :
 
     ![Back-upconfiguratie voor Carbonite-eind punt ](media/carbonite-endpoint-backup-tutorial/configure4.png)
 
-    1. Voer in het tekstvak **naam van ID-provider** de naam van de ID-provider in, zoals **Microsoft Azure AD**.
+    1. Plak in het tekstvak naam van de **identiteits provider** de waarde van de **Azure ad-id** , die u hebt gekopieerd van de Azure Portal.
 
-    1. Plak in het tekstvak **ID-provider-URL** de id-waarde van **Azure AD** , die u hebt gekopieerd uit de Azure Portal.
+    1. Plak in het tekstvak **ID-provider-URL** de waarde voor de AANMELDINGS- **URL** , die u hebt gekopieerd uit de Azure Portal.
 
     1. Klik op **bestand kiezen** om het gedownloade **certificaat bestand (base64)** te uploaden van de Azure Portal.
 

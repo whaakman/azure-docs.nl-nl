@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: f1059fac4d44138a4e9bc04c858501234974dc43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 08/08/2019
+ms.openlocfilehash: 5d7414d13b3fb1390b12084f0480e0549a380264
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60526226"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931610"
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database for MySQL: Python gebruiken om verbinding te maken met gegevens en er query's op uit te voeren
 In deze snelstartgids ziet u hoe u met behulp van [Python](https://python.org) verbinding maakt met Azure Database voor MySQL. Er worden SQL-instructies gebruikt om gegevens op te vragen, in te voegen, bij te werken en te verwijderen in de database vanaf Mac OS-, Ubuntu Linux- en Windows-platforms. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Python, maar geen ervaring hebt met het werken met Azure Database voor MySQL.
@@ -31,8 +31,8 @@ Installeer [Python](https://www.python.org/downloads/) en de [MySQL-connector vo
 >
 
 ### <a name="windows"></a>Windows
-1. Download en installeer Python 2.7 van [python.org](https://www.python.org/downloads/windows/). 
-2. Controleer de Python-installatie door de opdrachtprompt te starten. Voer de opdracht `C:\python27\python.exe -V` uit met als enige argument een hoofdletter V om het versienummer op te vragen.
+1. Down load en installeer Python 3,7 van [python.org](https://www.python.org/downloads/windows/). 
+2. Controleer de Python-installatie door de opdrachtprompt te starten. Voer de opdracht `C:\python37\python.exe -V` uit met als enige argument een hoofdletter V om het versienummer op te vragen.
 3. Installeer de Python-connector voor MySQL op [mysql.com](https://dev.mysql.com/downloads/connector/python/) die overeenkomt met uw versie van Python.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)

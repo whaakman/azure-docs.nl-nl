@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: a36a16b6cb64c300647d16695edfbb73f4884104
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0ea020ca76381a4ae5d6b6e480c94e63f9aa2dab
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854867"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933134"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Snelstartgids voor project akoestische eenheid
 Gebruik de voorbeeld inhoud van de project akoestische voor eenheid om te experimenteren met ontwerp besturings elementen met simulatie-ondersteuning.
@@ -38,16 +38,35 @@ Importeer het voorbeeld pakket naar een nieuw Unity-project.
 
 * Kies **ProjectAcoustics. unitypackage**
 
+* Klik op de knop **importeren** om het Unity-pakket in uw project te integreren  
+  
+    ![Scherm opname van unit import package-dialoog venster](media/import-dialog.png)  
+
 Zie [Unit-integratie](unity-integration.md) voor aanvullende stappen en notities als u het pakket importeert in een bestaand project.
+
+>[!NOTE] 
+>Er worden verschillende fouten weer gegeven in het console logboek nadat het importeren is voltooid.  Ga door naar de volgende stap en start Unity opnieuw.
 
 ## <a name="restart-unity"></a>Eenheid opnieuw opstarten
 Het maken-gedeelte van de akoestische Toolkit vereist de .NET 4. x Scripting runtime-versie. Bij het importeren van pakketten worden de instellingen voor Unity Player bijgewerkt. De eenheid moet opnieuw worden opgestart om deze instelling van kracht te laten worden.
 
 U kunt controleren of deze instelling is doorgevoerd door de instellingen van de **speler**te openen:
 
-![Scherm afbeelding van het deel venster instellingen voor Unity Player](media/player-settings.png)
+![Scherm afbeelding van het deel venster instellingen voor Unity Player](media/player-settings.png)  
 
-![Scherm afbeelding van het deel venster instellingen voor Unity Player met .NET 4,5 geselecteerd](media/net45.png)
+![Scherm afbeelding van het deel venster instellingen voor Unity Player met .NET 4,5 geselecteerd](media/net45.png)  
+
+>[!NOTE]
+>Scherm opname wordt gemaakt van unit 2018. x. Nieuwere versies van Unity kunnen variëren.
+
+## <a name="open-the-project-acoustics-bake-window"></a>Open het maken-venster voor project akoestische
+Kies **venster > geluids** van het Unity-menu:
+
+![Scherm afbeelding van Unity editor met de menu optie akoestische venster gemarkeerd](media/window-acoustics.png)
+
+Er wordt een nieuw zwevend venster met de naam **akoestisches** weer gegeven.  In dit venster worden de eigenschappen van de akoestische simulatie ingesteld.
+
+![Scherm afbeelding van Unity editor met geluids venster geopend](media/unity-editor-plugin-window.png)  
 
 ## <a name="experiment-with-design-controls"></a>Experimenteren met ontwerp besturings elementen
 Open de voorbeeld scène in de map **ProjectAcousticsSample** en klik op de afspeel knop in de Unity-editor. Gebruik W, A, S, D en de muis om door te gaan. Als u wilt vergelijken hoe de scène met en zonder Acoustics klinkt, drukt u op **R** totdat de overlaytekst rood wordt en zegt "Acoustics: Disabled." Als u sneltoetsen wilt zien voor meer besturingselementen, drukt u op **F1**. Besturings elementen zijn ook bruikbaar door met de rechter muisknop te klikken om de actie te selecteren die u wilt uitvoeren en vervolgens te klikken met de linkermuisknop om de actie uit te voeren.
@@ -56,7 +75,7 @@ Het script **AcousticsAdjust** wordt gekoppeld aan de geluids bronnen in de voor
 
 ![Scherm opname van Unity AcousticsAdjust-script](media/acoustics-adjust.png)
 
-Hieronder vindt u enkele van de effecten die kunnen worden geproduceerd met de beschik bare besturings elementen. Voor gedetailleerde informatie over elk besturings element, raadpleegt u de zelf studie over het ontwerpen van de [project akoestische unit-ontwerp](unreal-workflow.md).
+Hieronder vindt u enkele van de effecten die kunnen worden geproduceerd met de beschik bare besturings elementen. Voor gedetailleerde informatie over elk besturings element, raadpleegt u de zelf studie over het ontwerpen van de [project akoestische unit-ontwerp](unity-workflow.md).
 
 ### <a name="modify-distance-based-attenuation"></a>Afzwakking op afstand wijzigen
 De audio-DSP die wordt verschaft door de spatializer-invoeg toepassing voor de **project geluids** eenheid, respecteert de op afstand gebaseerde verzwakking die is ingebouwd in de Unity-editor. Besturings elementen voor verzwakking op afstand bevinden zich in het **audio bron** onderdeel dat is gevonden in het deel venster **Inspector** van geluids bronnen, onder **3D-geluids instellingen**:

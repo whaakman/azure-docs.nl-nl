@@ -7,15 +7,15 @@ author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: sajagtap
-ms.openlocfilehash: 70bc2c9f457aba09f3d3220061b2fd31d0923906
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5e12806aca7c53c254cc43c8ff5bb8d314f9993e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565669"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882726"
 ---
 # <a name="configure-the-review-tool"></a>Het beoordelingsprogramma configureren
 
@@ -35,7 +35,7 @@ In deze sectie wordt uitgelegd hoe u subteamsen maakt en snel Recensies toewijst
 
 ### <a name="create-a-subteam"></a>Een subteam maken
 
-Ga naar de  sectie subteams en klik op **subteam toevoegen**. Voer de naam van uw subteam in het dialoog venster in en klik op **Opslaan**.
+Ga naar de sectie subteams en klik op **subteam toevoegen**. Voer de naam van uw subteam in het dialoog venster in en klik op **Opslaan**.
 
 ![Naam van subteam](images/1-Teams-2.PNG)
 
@@ -88,9 +88,9 @@ U kunt aangepaste tags verwijderen door het prullenbak pictogram naast hun verme
 
 ## <a name="connectors"></a>Connectors
 
-Op  het tabblad connectors kunt u uw connectors beheren. Dit zijn service-specifieke invoeg toepassingen die inhoud op verschillende manieren kunnen verwerken als onderdeel van [werk stromen](../review-api.md#workflows)voor inhoud.
+Op het tabblad connectors kunt u uw connectors beheren. Dit zijn service-specifieke invoeg toepassingen die inhoud op verschillende manieren kunnen verwerken als onderdeel van [werk stromen](../review-api.md#workflows)voor inhoud.
 
-De standaard connector wanneer u een werk stroom maakt, is de Content Moderator-connector, waarmee inhoud  als volwassene of **ongepaste**kan worden gemarkeerd, de woorden kunnen worden gevonden, enzovoort. U kunt echter andere connectors gebruiken die hier worden weer gegeven, op voor waarde dat u referenties voor de respectieve services hebt (om [Face-API](https://docs.microsoft.com/azure/cognitive-services/face/overview) bijvoorbeeld de face-API-connector te gebruiken).
+De standaard connector wanneer u een werk stroom maakt, is de Content Moderator-connector, waarmee inhoud als volwassene of **ongepaste**kan worden gemarkeerd, de woorden kunnen worden gevonden, enzovoort. U kunt echter andere connectors gebruiken die hier worden weer gegeven, op voor waarde dat u referenties voor de respectieve services hebt (om [Face-API](https://docs.microsoft.com/azure/cognitive-services/face/overview) bijvoorbeeld de face-API-connector te gebruiken).
 
 Het [hulp programma voor beoordeling](./human-in-the-loop.md) bevat de volgende connectors:
 
@@ -125,7 +125,7 @@ Als u een [Content moderator resource](https://ms.portal.azure.com/#create/Micro
 
 ![Content Moderator sleutels in de Azure Portal](images/credentials-azure-portal-keys.PNG)
 
-Ga op **het tabblad** controle van het [hulp programma](https://contentmoderator.cognitive.microsoft.com)naar het deel venster **werk stroom instellingen** , selecteer **bewerken**en plak uw sleutel in het veld **OCP-APIM-Subscription-Key** . Nu gebruiken werk stromen die de toezicht-Api's aanroepen, uw Azure-referentie.
+Ga op het tabblad controle van het [hulp programma](https://contentmoderator.cognitive.microsoft.com)naar het deel venster **werk stroom instellingen** , selecteer **bewerken**en plak uw sleutel in het veld **OCP-APIM-Subscription-Key** . Nu gebruiken werk stromen die de toezicht-Api's aanroepen, uw Azure-referentie.
 
 > [!NOTE]
 > De andere twee velden in het deel venster **werk stroom instellingen** zijn voor aangepaste termen en lijsten met installatie kopieën. Raadpleeg de hand leidingen voor [aangepaste voor waarden](../try-terms-list-api.md) of [aangepaste afbeeldingen](../try-image-list-api.md) voor meer informatie.

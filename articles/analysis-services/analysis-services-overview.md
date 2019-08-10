@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 07/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ac27f3b1ea777e7a88a44a16edf8867f97381297
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 260d2774eecb42d0234c33e40b4f10680a4fbfbd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508992"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932236"
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
 
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Azure Analysis Services is een volledig beheerd platform als een service (PaaS) dat gegevensmodellen van ondernemingsklasse in de cloud levert. Gebruik geavanceerde mashup- en modelleringsfuncties om gegevens uit meerdere gegevensbronnen te verfijnen en te combineren, metrische gegevens te definiëren, en uw gegevens te beveiligen in één vertrouwd tabellarisch semantisch gegevensmodel. Het gegevensmodel biedt een gemakkelijkere en snellere manier voor gebruikers om te bladeren enorme hoeveelheden gegevens voor ad hoc gegevensanalyse.
+Azure Analysis Services is een volledig beheerd platform als een service (PaaS) dat gegevensmodellen van ondernemingsklasse in de cloud levert. Gebruik geavanceerde mashup- en modelleringsfuncties om gegevens uit meerdere gegevensbronnen te verfijnen en te combineren, metrische gegevens te definiëren, en uw gegevens te beveiligen in één vertrouwd tabellarisch semantisch gegevensmodel. Het gegevens model biedt gebruikers een gemakkelijke en snellere manier om te zoeken naar enorme hoeveel heden gegevens voor ad-hoc gegevens analyse.
 
 ![Gegevensbronnen](./media/analysis-services-overview/aas-overview-overall.png)
 
@@ -46,7 +46,7 @@ Deze laag wordt aanbevolen voor evaluatie-, ontwikkelings- en testscenario's. E�
 |D1    |    20     |    3     |
 
 
-### <a name="basic-tier"></a>Basislaag
+### <a name="basic-tier"></a>Basic-laag
 
 Deze-laag wordt aanbevolen voor productieoplossingen met kleinere tabellarische modellen, een beperkt aantal gelijktijdige gebruikers en eenvoudige vereisten voor gegevensvernieuwing. Uitschalen van queryreplica’s *is niet beschikbaar* voor deze laag. Perspectieven, meerdere partities en functies van het tabellarische DirectQuery-model *worden niet ondersteund* in deze laag.  
 
@@ -55,7 +55,7 @@ Deze-laag wordt aanbevolen voor productieoplossingen met kleinere tabellarische 
 |B1    |    40     |    10     |
 |B2    |    80     |    20     |
 
-### <a name="standard-tier"></a>Standaardlaag
+### <a name="standard-tier"></a>Standard-laag
 
 Deze laag is de meest geschikte voor essentiële productietoepassingen waarvoor elastische gebruikersgelijktijdigheid is vereist en waarvan de gegevensmodellen snel groter worden. Deze laag ondersteunt geavanceerde gegevensvernieuwing voor bijna real-time gegevensmodelupdates en ondersteunt alle tabellarische modelleringsfuncties.
 
@@ -89,8 +89,8 @@ Azure Analysis Services wordt ondersteund in regio's in de hele wereld. Onderste
 |US - west-centraal   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |US - west     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
 |US - west     |    S8, S9   |    2  |
-|US - west 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|US - west 2    |    S8, S9  |    1     |
+|VS - west 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
+|VS - west 2    |    S8, S9  |    1     |
 
 ### <a name="europe"></a>Europa
 
@@ -136,7 +136,7 @@ Azure Analysis Services is compatibel met veel geweldige functies die al deel ui
 
 Tabellarische modellen in zowel in-memory- als DirectQuery-modi worden ondersteund. In de in-memory-modus (standaard) ondersteunen tabellarische modellen meerdere gegevensbronnen. Omdat modelgegevens in hoge mate worden gecomprimeerd en in het geheugen worden gecachet, biedt deze modus de snelste queryrespons op grote hoeveelheden gegevens. Deze modus biedt ook de meeste flexibiliteit voor complexe gegevenssets en query's. Partitionering maakt incrementele belastingen mogelijk, verhoogt de parallellisatie en vermindert het geheugenverbruik. Andere geavanceerde functies voor gegevensmodellering, zoals berekende tabellen, en alle DAX-functies worden ondersteund. Geheugenmodellen moeten worden vernieuwd (verwerkt) om gecachete gegevens uit gegevensbronnen bij te werken. Dankzij Azure-service-principal-ondersteuning bieden onbeheerde vernieuwingsbewerkingen met PowerShell, TOM, TMSL en REST flexibiliteit om ervoor te zorgen dat uw modelgegevens altijd up-to-date zijn. 
 
-DirectQuery-modus* maakt gebruik van de relationele back-end-database voor opslag en query-uitvoering. Extreem grote gegevenssets in afzonderlijke SQL Server-, SQL Server Data Warehouse-, Azure SQL Database-, Azure SQL Data Warehouse-, Oracle- en Teradata-gegevensbronnen worden ondersteund. Backend-gegevenssets kunnen het beschikbare serverresourcesgeheugen overschrijden. Complexe scenario's voor het vernieuwen van gegevensmodellen zijn niet nodig. Er zijn ook enkele beperkingen, zoals beperkte gegevensbrontypen en DAX-formulebeperkingen, en enkele geavanceerde functies voor gegevensmodellering worden niet ondersteund. Zie [DirectQuery-modus](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular)voordat u bepaalt wat voor u de beste modus is.
+DirectQuery-modus* maakt gebruik van de relationele back-end-database voor opslag en query-uitvoering. Extreem grote gegevenssets in afzonderlijke SQL Server-, SQL Server Data Warehouse-, Azure SQL Database-, Azure SQL Data Warehouse-, Oracle- en Teradata-gegevensbronnen worden ondersteund. Backend-gegevenssets kunnen het beschikbare serverresourcesgeheugen overschrijden. Complexe scenario's voor het vernieuwen van gegevensmodellen zijn niet nodig. Er zijn ook enkele beperkingen, zoals beperkte gegevensbrontypen en DAX-formulebeperkingen, en enkele geavanceerde functies voor gegevensmodellering worden niet ondersteund. Zie [DirectQuery-modus](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular)voordat u bepaalt wat voor u de beste modus is.
 
 \* Welke functies beschikbaar zijn hangt af van de laag.
 
@@ -146,7 +146,7 @@ Tabellarische modellen in Azure Analysis Services ondersteunen een breed scala a
 
 ## <a name="compatibility-level"></a>Compatibiliteitsniveau
 
-Compatibiliteitsniveau verwijst naar de release-specifieke gedrag in de Analysis Services-engine. Azure Analysis Services ondersteunt tabellaire modellen met het compatibiliteitsniveau 1200 en hoger. Zie voor meer informatie, [compatibiliteitsniveau voor tabellaire modellen van Analysis Services](analysis-services-compat-level.md).
+Compatibiliteits niveau verwijst naar een release-specifiek gedrag in de Analysis Services-engine. Azure Analysis Services ondersteunt modellen in tabel vorm met de compatibiliteits niveaus 1200 en hoger. Zie [compatibiliteits niveau voor Analysis Services tabellaire modellen voor](analysis-services-compat-level.md)meer informatie.
 
 
 ## <a name="your-data-is-secure"></a>Gegevens zijn beveiligd
@@ -159,7 +159,7 @@ Op serverniveau biedt Analysis Services firewall, Azure-verificatie, serverbehee
 
 De firewall van Azure Analysis Services blokkeert alle clientverbindingen behalve die met IP-adressen die zijn opgegeven in regels. Firewall-beveiliging is standaard niet ingeschakeld voor nieuwe servers. Het verdient aanbeveling om onmiddellijk nadat de server is gemaakt de firewallbeveiliging in te schakelen en de regels te configureren als onderdeel van een serverinrichtingsscript of in de portal. Configureer regels voor toegestane IP-adressen als individuele client-IP-adressen of als een bereik. Verbindingen van Power BI (service) kunnen ook worden toegestaan of geblokkeerd. Configureer de firewall en regels in de portal of met behulp van PowerShell. Zie [Configure a server firewall](analysis-services-qs-firewall.md) (een serverfirewall configureren) voor meer informatie.
 
-### <a name="authentication"></a>Verificatie
+### <a name="authentication"></a>Authentication
 
 Gebruikersverificatie wordt afgehandeld door [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md). Bij het inloggen gebruiken gebruikers de identiteit van een organisatie-account met op rollen gebaseerde toegang tot de database. Gebruikers-id's moeten lid zijn van de standaard Azure Active Directory voor het abonnement waarin de server is ondergebracht. Raadpleeg voor meer informatie [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md).
 
@@ -171,7 +171,7 @@ Beveiligde toegang tot on-premises gegevens binnen uw organisatie wordt gerealis
 
 ### <a name="roles"></a>Rollen
 
-Analysis Services maakt gebruik van [op rollen gebaseerde autorisatie](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular) die toegang verleent tot server- en modeldatabasebewerkingen, -objecten en -gegevens. Alle gebruikers die toegang hebben tot een server of database, doen dit met hun Azure AD-gebruikersaccount binnen een toegewezen rol. De serverbeheerdersrol bevindt zich op serverresourceniveau. Standaard wordt het account dat wordt gebruikt bij het maken van een server automatisch opgenomen in de rol Serverbeheerder. Extra gebruikers en groepen worden toegevoegd met behulp van de portal, SSMS of PowerShell.
+Analysis Services maakt gebruik van [op rollen gebaseerde autorisatie](https://docs.microsoft.com/analysis-services/tabular-models/roles-ssas-tabular) die toegang verleent tot server- en modeldatabasebewerkingen, -objecten en -gegevens. Alle gebruikers die toegang hebben tot een server of database, doen dit met hun Azure AD-gebruikersaccount binnen een toegewezen rol. De serverbeheerdersrol bevindt zich op serverresourceniveau. Standaard wordt het account dat wordt gebruikt bij het maken van een server automatisch opgenomen in de rol Serverbeheerder. Extra gebruikers en groepen worden toegevoegd met behulp van de portal, SSMS of PowerShell.
   
 Eindgebruikers die geen beheerder zijn, krijgen toegang via databaserollen wanneer ze gegevens opvragen. Een databaserol wordt gemaakt als een afzonderlijk object in de database en is alleen van toepassing op de database waarin die rol is gemaakt. Databaserollen worden gedefinieerd door de machtigingen (database)Beheerder, Lezen, en Lezen en verwerken. Gebruikers- en groepsaccounts worden toegevoegd met behulp van SSMS of PowerShell.
 
@@ -181,7 +181,7 @@ Tabellarische modellen op alle compatibiliteitsniveaus ondersteunen beveiliging 
 
 ### <a name="object-level-security"></a>Beveiliging op objectniveau 
 
-Tabellarische modellen op het 1400-compatibiliteitsniveau ondersteunen beveiliging op objectniveau, waaronder beveiliging op paginaniveau en beveiliging op kolomniveau. Beveiliging op objectniveau wordt met behulp van TMSL of TOM ingesteld in de op JSON-gebaseerde metagegevens in het bestand Model.bim. Zie [Object-level security](https://docs.microsoft.com/sql/analysis-services/tabular-models/object-level-security) (beveiliging op objectniveau) voor meer informatie.
+Tabellarische modellen op het 1400-compatibiliteitsniveau ondersteunen beveiliging op objectniveau, waaronder beveiliging op paginaniveau en beveiliging op kolomniveau. Beveiliging op objectniveau wordt met behulp van TMSL of TOM ingesteld in de op JSON-gebaseerde metagegevens in het bestand Model.bim. Zie [Object-level security](https://docs.microsoft.com/analysis-services/tabular-models/object-level-security) (beveiliging op objectniveau) voor meer informatie.
 
 ### <a name="automation-through-service-principals"></a>Automatisering via service-principals
 
@@ -200,7 +200,7 @@ Ga naar het [Microsoft Vertrouwenscentrum](https://www.microsoft.com/trustcenter
 
 Ontwikkel en implementeer modellen met de gratis [SQL Server Data Tools (SSDT) voor Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt). SSDT bevat Analysis Services-projectsjablonen waarmee u snel aan de slag kunt gaan. Bovendien biedt SSDT voor tabellaire modellen met compatibiliteitsniveau 1400 nu ook de innovatieve queryfunctie Get Data en mashup-functionaliteit. Als u al bekend bent met Get Data in Power BI Desktop en Excel 2016, weet u hoe eenvoudig het is om voor gegevensbronnen query's te maken die naadloos aansluiten bij uw behoeften. 
 
-Als u Visual Studio 2017 of hoger, Microsoft Analysis Services-projecten beschikbaar als een gratis installeerbare VSIX-pakket zijn. [Downloaden van Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+Als u Visual Studio 2017 of hoger gebruikt, zijn micro soft Analysis Services-projecten beschikbaar als een gratis Installeer bare VSIX-pakket. [Downloaden van Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
@@ -212,7 +212,7 @@ Beheertaken voor serverresources, zoals het maken van serverresources, het onder
 
 ### <a name="object-model-and-scripting"></a>Objectmodel en scripts
 
-De tabellaire modellen kunnen snel worden ontwikkeld en zijn in hoge mate aanpasbaar. Tabellarische modellen bevatten ook het [Tabular Object Model](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM) om modelobjecten te beschrijven. TOM wordt in JSON weergegeven via [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) en in de AMO Data Definition Language met behulp van de naamruimte [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular). 
+De tabellaire modellen kunnen snel worden ontwikkeld en zijn in hoge mate aanpasbaar. Tabellarische modellen bevatten ook het [Tabular Object Model](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM) om modelobjecten te beschrijven. TOM wordt in JSON weergegeven via [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) en in de AMO Data Definition Language met behulp van de naamruimte [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular). 
 
 ## <a name="supports-the-latest-client-tools"></a>Ondersteuning voor de nieuwste clienthulpprogramma's
 
@@ -224,13 +224,13 @@ Moderne hulpprogramma's voor het verkennen en visualiseren van gegevens, zoals P
 
 Azure Analysis Services is geïntegreerd met metrische gegevens van Azure en biedt een groot aantal resourcespecifieke metrische gegevens waarmee u de prestaties en de status van uw servers kunt volgen. Zie [Monitor server metrics](analysis-services-monitor.md) (Metrische servergegevens bewaken) voor meer informatie. Leg metrische gegevens vast met [diagnostische logboeken van Azure-resources](../azure-monitor/platform/diagnostic-logs-overview.md). Bewaak en verzend logbestanden naar [Azure Storage](https://azure.microsoft.com/services/storage/), stream ze naar [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)en exporteer ze naar [Azure Monitor-logboeken](https://azure.microsoft.com/services/log-analytics/), een service van [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Zie [Registratie in diagnoselogboek instellen](analysis-services-logging.md) voor meer informatie.
 
-Azure Analysis Services ondersteunt ook het gebruik van [DMV's (dynamische beheerweergaven)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). DMV’s zijn gebaseerd op SQL-syntaxis en werken samen met schemarijensets die metagegevens en bewakingsgegevens over serverexemplaren retourneren.
+Azure Analysis Services ondersteunt ook het gebruik van [DMV's (dynamische beheerweergaven)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). DMV’s zijn gebaseerd op SQL-syntaxis en werken samen met schemarijensets die metagegevens en bewakingsgegevens over serverexemplaren retourneren.
 
 ## <a name="documentation"></a>Documentatie
 
 Specifieke documentatie bij Azure Analysis Services is hier opgenomen. Gebruik de inhoudsopgave aan de linkerkant van uw browserscherm om artikelen te zoeken. 
 
-Omdat Azure Analysis Services-modellen in tabelvorm bijna hetzelfde als tabellaire modellen in SQL Server Analysis Services zijn, er is een uitgebreide bibliotheek met gedeelde overzichtsinformatie, procedures, developer en naslaginformatie in [SQL Server Analysis Services Documentatie](https://docs.microsoft.com/sql/analysis-services/analysis-services). Bij artikelen in de documentatie van SQL Server Analysis Services wordt aangegeven of ze ook van toepassing zijn op Azure Analysis Services door de banner VAN TOEPASSING OP onder de titel.
+Omdat Azure Analysis Services tabellaire modellen veel hetzelfde zijn als tabellaire modellen in SQL Server Analysis Services, is er een uitgebreide bibliotheek met gedeelde conceptuele, procedures, ontwikkel aars en referentie artikelen in [SQL Server Analysis Services Documentatie](https://docs.microsoft.com/analysis-services/analysis-services-overview). Bij artikelen in de documentatie van SQL Server Analysis Services wordt aangegeven of ze ook van toepassing zijn op Azure Analysis Services door de banner VAN TOEPASSING OP onder de titel.
 
 ![Gedeelde documentatie](./media/analysis-services-overview/aas-overview-applies-to.png)
 

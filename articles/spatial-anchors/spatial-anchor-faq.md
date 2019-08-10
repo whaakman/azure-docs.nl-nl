@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 435ad986a9f0b96d42c88d450f40e5900ad33b7c
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 06936a196813dacfc1fc9d02945bee4119b7eea8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653257"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927497"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Veelgestelde vragen over Azure Spatial Anchors
 
@@ -120,12 +120,8 @@ Klik [hier](index.yml) om aan de slag te gaan met ontwikkeling.
 
 **V: Werkt het met Unreal?**
 
-**A:** Ondersteuning voor Unreal wordt in de toekomst beschouwd.
+**A:** Ondersteuning voor Unreal wordt in de toekomst in overweging genomen.
 
-**V: Werkt het met Xamarin?**
+**V: Welke poorten en protocollen worden door Azure ruimtelijk-ankers gebruikt?**
 
-**A:** Ondersteuning voor Xamarin wordt in de toekomst beschouwd.
-
-**V: Gebruikt Azure ruimtelijke ankers welke poorten en protocollen?**
-
-**A:** Azure ruimtelijke ankers communiceert via TCP-poort 443 met behulp van een versleutelde-protocol. Voor de verificatie wordt gebruikt [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), die communiceert met behulp van HTTPS via poort 443.
+**A:** Ruimtelijke Azure-ankers communiceren via TCP-poort 443 met behulp van een versleuteld protocol. Voor verificatie gebruikt het [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), dat communiceert met behulp van HTTPS via poort 443.

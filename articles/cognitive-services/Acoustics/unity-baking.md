@@ -11,18 +11,18 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: e26df58de08d0941b5e3165852ed0b26f8890f66
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b7249c3048ba3af3adbaac01f43770482a0d38ad
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854938"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933203"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Zelf studie voor het maken van de project-unit-eenheid
 In deze zelf studie worden akoestische Baking met project akoestische in eenheid beschreven.
 
 Software vereisten:
-* [Unity 2018.2 +](https://unity3d.com) voor Windows
+* [Unity 2018.2 +](https://unity3d.com) voor Windows of MacOS
 * [Invoeg toepassing voor project akoestische, geïntegreerd in uw Unity-project](unity-integration.md) of de [voorbeeld inhoud van de project akoestische-eenheid](unity-quickstart.md)
 * Optioneel: Een [Azure batch account](create-azure-account.md) voor het versnellen van Bakes met behulp van Cloud Computing
 
@@ -179,6 +179,25 @@ Zodra u een maken hebt gestart, kunt u de eenheid sluiten. Afhankelijk van het p
 
 De Azure-referenties worden veilig opgeslagen op uw lokale machine en gekoppeld aan uw Unity-editor. Ze worden alleen gebruikt om een beveiligde verbinding met Azure tot stand te brengen.
 
+## <a name="to-find-the-status-of-a-running-job-on-the-azure-portal"></a>De status van een actieve taak op het Azure Portal vinden
+
+1. Zoek de maken-taak-ID op het tabblad maken:
+
+![Scherm opname van ID van Unit maken-taak](media/unity-job-id.png)  
+
+2. Open de [Azure Portal](https://portal.azure.com), ga naar het batch-account dat wordt gebruikt voor de maken en selecteer **taken**
+
+![Scherm afbeelding van de koppeling taken](media/azure-batch-jobs.png)  
+
+3. Zoeken naar de taak-id in de lijst met taken
+
+![Scherm opname van de status van de maken-taak](media/azure-bake-job-status.png)  
+
+4. Klik op de taak-id om de status van de gerelateerde taken en de algehele taak status weer te geven
+
+![Scherm opname van de taak status maken](media/azure-batch-task-state.png)  
+
+
 ### <a name="Estimating-bake-cost"></a>Kosten voor Azure maken schatten
 
 Als u wilt schatten wat een bepaalde maken kost, neemt u de waarde voor **geschatte reken kosten**op, die een duur is en vermenigvuldigt u die met de kosten per uur in uw lokale valuta van het **VM-knooppunt type** dat u hebt geselecteerd. Het resultaat bevat niet de tijd van het knoop punt dat nodig is om de knoop punten actief en werkend te krijgen. Als u bijvoorbeeld **Standard_F8s_v2** selecteert voor het knooppunt type, dat een kost prijs van $0.40/uur heeft en de geschatte reken kosten 3 uur en 57 minuten zijn, is de geschatte kosten voor het uitvoeren van de taak $0,40 * ~ 4 uur = ~ $1,60. De werkelijke kosten zijn waarschijnlijk iets hoger als gevolg van de extra tijd voor het starten van de knoop punten. U kunt de kosten van het knoop punt per uur vinden op de pagina met [Azure batch prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (Selecteer ' verwerkte optimalisatie ' of ' high performance Compute ' voor de categorie).
@@ -188,6 +207,7 @@ U kunt uw scène op uw eigen PC maken. Dit kan handig zijn om te experimenteren 
 
 ### <a name="minimum-hardware-requirements"></a>Minimale hardwarevereisten
 * Een x86-64-processor met ten minste 8 kernen en 32 GB aan RAM-geheugen
+* [Hyper-V ingeschakeld](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) om docker uit te voeren
 
 Een voor beeld: in onze tests op een 8-core computer met Intel Xeon E5-1660 @ 3 GHz en 32 GB RAM-
 * Een kleine scène met 100 tests kan ongeveer 2 uur duren voor een ruwe maken of 32 uur voor een fijne maken.
@@ -195,13 +215,15 @@ Een voor beeld: in onze tests op een 8-core computer met Intel Xeon E5-1660 @ 3 
 
 ### <a name="setup-docker"></a>Docker instellen
 Installeer en configureer docker op de PC waarop de simulatie wordt uitgevoerd-
-1. Installeer de [docker](https://www.docker.com/products/docker-desktop)-toolset.
-2. Start docker-instellingen, navigeer naar de opties Geavanceerd en configureer bronnen voor ten minste 8 GB RAM-geheugen. Hoe meer Cpu's u aan docker kunt toewijzen, hoe sneller de maken wordt voltooid. ![Scherm afbeelding van voor beeld van docker-instellingen](media/docker-settings.png)
-3. Navigeer naar gedeelde stations en schakel delen in voor het station dat wordt gebruikt voor de verwerking.![Scherm opname van opties voor gedeeld docker-station](media/docker-shared-drives.png)
+1. Installeer het [docker-bureau blad](https://www.docker.com/products/docker-desktop).
+2. Start docker-instellingen, navigeer naar de opties Geavanceerd en configureer bronnen voor ten minste 8 GB RAM-geheugen. Hoe meer Cpu's u aan docker kunt toewijzen, hoe sneller de maken wordt voltooid.  
+![Scherm afbeelding van voor beeld van docker-instellingen](media/docker-settings.png)
+1. Navigeer naar gedeelde stations en schakel delen in voor het station dat wordt gebruikt voor de verwerking.  
+![Scherm opname van opties voor gedeeld docker-station](media/docker-shared-drives.png)
 
 ### <a name="run-local-bake"></a>Lokale maken uitvoeren
 1. Klik op de knop ' lokale maken voorbereiden ' op het tabblad **maken** en selecteer een map waarin de invoer bestanden en uitvoerings scripts worden opgeslagen. U kunt de maken vervolgens op elke computer uitvoeren, zolang deze voldoet aan de minimale hardwarevereisten en docker heeft geïnstalleerd door de map naar die computer te kopiëren.
-2. Start de simulatie met het script ' runlocalbake. bat '. Met dit script wordt de project akoestische docker-installatie kopie opgehaald met de hulpprogram ma's die nodig zijn voor simulatie verwerking en de simulatie starten. 
+2. Start de simulatie met het script ' runlocalbake. bat ' in Windows of gebruik het script ' runlocalbake.sh ' in MacOS. Met dit script wordt de project akoestische docker-installatie kopie opgehaald met de hulpprogram ma's die nodig zijn voor simulatie verwerking en de simulatie starten. 
 3. Zodra de simulatie is voltooid, kopieert u het resulterende. Ace-bestand terug naar uw Unity-project. Om ervoor te zorgen dat unit deze als een binair bestand herkent, voegt u '. bytes ' toe aan de bestands extensie (bijvoorbeeld ' Scene1. ace. bytes '). De gedetailleerde logboeken voor de simulatie worden opgeslagen in ' AcousticsLog. txt '. Als u problemen ondervindt, deelt u dit bestand om te helpen met de diagnose.
 
 ## <a name="Data-Files"></a>Gegevens bestanden die worden toegevoegd door het maken-proces

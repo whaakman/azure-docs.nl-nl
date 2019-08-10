@@ -7,15 +7,15 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: c6f3d9c1605dc97b315550d8b7e3fdf08144c1bc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: af636deaafc05238c287d095e644588ed8c5f26d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561230"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880051"
 ---
 # <a name="define-and-use-moderation-jobs-rest"></a>Toezicht taken definiëren en gebruiken (REST)
 
@@ -115,7 +115,7 @@ Voer de para meters voor REST-aanroep in, zoals in de bovenstaande sectie. Voor 
 
 ### <a name="examine-the-new-reviews"></a>Bekijk de nieuwe beoordeling (en)
 
-Als uw inhouds taak heeft geresulteerd in het maken van een beoordeling, kunt u deze weer geven in het [beoordelings programma](https://contentmoderator.cognitive.microsoft.com). Selecteer  > **afbeeldings** **tekst** **video** bekijken (afhankelijk van de inhoud die u hebt gebruikt).// De inhoud moet worden weer gegeven, gereed voor menselijke beoordeling. Nadat een menselijke moderator de automatisch toegewezen tags en Voorspellings gegevens heeft beoordeeld en een beslissing van definitieve controle indient, verzendt de taak-API al deze informatie naar het opgegeven eind punt eind punt van de aanroep.
+Als uw inhouds taak heeft geresulteerd in het maken van een beoordeling, kunt u deze weer geven in het [beoordelings programma](https://contentmoderator.cognitive.microsoft.com). Selecteer > **afbeeldings** **tekst** **video** bekijken (afhankelijk van de inhoud die u hebt gebruikt).// De inhoud moet worden weer gegeven, gereed voor menselijke beoordeling. Nadat een menselijke moderator de automatisch toegewezen tags en Voorspellings gegevens heeft beoordeeld en een beslissing van definitieve controle indient, verzendt de taak-API al deze informatie naar het opgegeven eind punt eind punt van de aanroep.
 
 ## <a name="next-steps"></a>Volgende stappen
 

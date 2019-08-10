@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: ab3d1e71515df80b5bdba1edf8cd16ba3ed6b0a9
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 786302b882fbd59932af17ccc6a390fa41b30ac9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500120"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932957"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Quickstart: Video's zoeken met de Bing Video's zoeken-REST API en Node.js
 
@@ -75,7 +75,7 @@ Gebruik deze quickstart om voor het eerst de Bing Video's zoeken-API aan te roep
        });
        ```
 
-# <a name="create-and-send-the-search-request"></a>De zoekaanvraag samenstellen en verzenden
+## <a name="create-and-send-the-search-request"></a>De zoekaanvraag samenstellen en verzenden
 
 1. Maak de functie `bing_video_search()`. Voeg de parameters voor uw aanvraag toe, inclusief uw hostnaam en de headers. Codeer uw zoekterm en voeg deze met de parameter `?q=` toe achter uw padparameter. Verzend vervolgens de aanvraag met `req.end()`.
 

@@ -1,31 +1,31 @@
 ---
-title: Taalondersteuning - Computer Vision
+title: Taal ondersteuning-Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Een lijst van natuurlijke talen die worden ondersteund door de Computer Vision-functies.
+description: Een lijst met natuurlijke talen die worden ondersteund door Computer Vision-functies.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1a70d1b2ea504d0ccfba925810a2d19d0c7583cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 516d21bc69bbc20f924a3bdf39eda7245fc08a28
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759602"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882969"
 ---
-# <a name="language-support-for-computer-vision"></a>Taalondersteuning voor Computer Vision
+# <a name="language-support-for-computer-vision"></a>Taal ondersteuning voor Computer Vision
 
-Sommige functies van de Computer Vision ondersteuning voor meerdere talen. Engels wordt alleen ondersteund door een van de functies die hier niet worden vermeld.
+Sommige functies van Computer Vision ondersteunen meerdere talen; alle functies die hier niet worden vermeld, bieden alleen ondersteuning voor Engels.
 
 ## <a name="text-recognition"></a>Tekstherkenning
 
-Computer Vision kan herkennen tekst in vele talen. Met name de [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) API ondersteunt een groot aantal talen, terwijl de [lezen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API en [tekst herkennen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) API ondersteunt alleen Engels. Zie [gedrukte en handgeschreven tekstherkenning](concept-recognizing-text.md) voor meer informatie over deze functionaliteit en de voordelen van elke API.
+Computer Vision kunt tekst in veel talen herkennen. Met name de [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) -API ondersteunt diverse talen, terwijl de [Lees](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) -API en de [tekst herkennen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) -API alleen ondersteuning bieden voor Engels. Zie [gedrukte en handgeschreven tekst herkennen](concept-recognizing-text.md) voor meer informatie over deze functionaliteit en de voor delen van elke API.
 
-OCR detecteert automatisch de taal van de invoer-materiaal, zodat er geen nodig om op te geven van een taalcode die in de API-aanroep is. Taalcodes worden echter altijd geretourneerd als de waarde van de `"language"` knooppunt in het JSON-antwoord.
+OCR detecteert automatisch de taal van het invoer materiaal, dus het is niet nodig om een taal code op te geven in de API-aanroep. Taal codes worden echter altijd geretourneerd als de waarde van het `"language"` knoop punt in het JSON-antwoord.
 
 |Taal| Taalcode | OCR-API |
 |:-----|:----:|:-----:|
@@ -56,11 +56,11 @@ OCR detecteert automatisch de taal van de invoer-materiaal, zodat er geen nodig 
 |Zweeds | `sw` |✔ |
 |Turks | `tr` |✔ |
 
-## <a name="image-analysis"></a>Analyse van de afbeelding
+## <a name="image-analysis"></a>Analyse van afbeeldingen
 
-Sommige acties van de [analyseren - Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API kan resultaten retourneren in andere talen wordt opgegeven met de `language` queryparameter. Andere acties retourneren resultaten in het Engels, ongeacht welke taal is opgegeven en anderen genereert een uitzondering voor niet-ondersteunde talen. Acties zijn opgegeven met de `visualFeatures` en `details` queryparameters; Zie de [overzicht](home.md) voor een lijst van alle acties die u met de analyse van de afbeelding doen kunt.
+Sommige acties van de [analyse-image-](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API kunnen resultaten retour neren in andere talen, opgegeven `language` met de query-para meter. Andere acties retour neren resultaten in het Engels, ongeacht de taal die is opgegeven, en anderen genereren een uitzonde ring voor niet-ondersteunde talen. Acties zijn opgegeven met de `visualFeatures` para `details` meters en query; Zie het [overzicht](home.md) voor een lijst met alle acties die u kunt uitvoeren met afbeeldings analyse.
 
-|Taal | Taalcode | Categories | Tags | Description | Volwassene | Merken | Kleur | Gezichten | ImageType | Objecten | Beroemdheden | Oriëntatiepunten |
+|Taal | Taalcode | Categories | Labels | Description | Volwassen | Merken | Kleur | Gezichten | ImageType | Objecten | Beroemdheden | Oriëntatie punten |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Chinees | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Engels | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|
@@ -70,7 +70,7 @@ Sommige acties van de [analyseren - Image](https://westus.dev.cognitive.microsof
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Aan de slag met behulp van de Computer Vision-functies die worden vermeld in deze handleiding.
+Ga aan de slag met de Computer Vision-functies die in deze hand leiding worden beschreven.
 
-* [Analyseren van een lokale installatiekopie (REST)](./quickstarts/csharp-analyze.md)
-* [Haal de gedrukte tekst (REST)](./quickstarts/csharp-print-text.md)
+* [Een lokale installatie kopie analyseren (REST)](./quickstarts/csharp-analyze.md)
+* [Afgedrukte tekst extra heren (REST)](./quickstarts/csharp-print-text.md)

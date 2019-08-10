@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3fe9a28a99ea8becbfc40e1e64d1f5b109caace3
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 47f39e8dcd96ea3bdba564df348e9b89a6b036ba
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854373"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933162"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Unreal-en WWise-integratie in Project akoestische
 Met deze procedure kunt u gedetailleerde integratie stappen van het invoeg toepassing project akoestische conversies in uw bestaande Unreal-en WWise-Game project. 
 
 Software vereisten:
-* [Unreal-Engine](https://www.unrealengine.com/) 4,20 of 4,21
+* [Unreal Engine](https://www.unrealengine.com/) 4.20 +
 * [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018,1.\*
 * [WWise-invoeg toepassing voor Unreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * Als u een directe integratie van de WWise-SDK gebruikt in plaats van de WWise Unreal-invoeg toepassingen, raadpleegt u de Unreal-invoeg toepassing voor project akoestische en past u WWise-API-aanroepen aan.
@@ -52,7 +52,7 @@ Dit zijn de belangrijkste stappen om het pakket te installeren en te implementer
 
 * Kies de `AcousticsWwisePlugin\ProjectAcoustics` map die is opgenomen in het pakket dat u hebt gedownload. Deze bevat de WWise mixer-invoeg toepassing.
 
-* WWise installeert de invoeg toepassing. De geluids items van het project worden nu weer gegeven in de lijst geïnstalleerde invoeg toepassingen in WWise.
+* WWise installeert de invoeg toepassing. De geluids items van het project worden nu weer gegeven in de lijst geïnstalleerde invoeg toepassingen in WWise.  
 ![Scherm opname van de lijst met WWise geïnstalleerde invoeg toepassingen na de installatie van de project akoestische](media/unreal-integration-post-mixer-plugin-install.png)
 
 ## <a name="2-redeploy-wwise-into-your-game"></a>2. (Re) Implementeer WWise in uw game
@@ -81,9 +81,13 @@ Implementeer WWise opnieuw op uw game, zelfs als u al een WWise hebt geïntegree
 
     ![Scherm opname van het Windows Verkenner-venster met de patch WWise](media/patch-wwise-script.png)
 
-* Als u de DirectX SDK niet hebt geïnstalleerd, moet u een opmerking plaatsen bij de regel met DXSDK_DIR in`[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* Als de DirectX SDK niet is geïnstalleerd, is het mogelijk dat u, afhankelijk van de versie van WWise die u gebruikt, een opmerking moet toevoegen aan de `DXSDK_DIR` regel `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`met de volgende opdrachten:
 
     ![Scherm opname van code-editor met DXSDK-opmerkingen](media/directx-sdk-comment.png)
+
+* Als u met Visual Studio 2019 compileert om een koppelings fout met WWise te omzeilen, bewerkt u `VSVersion` de standaard `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` waarde `vc150`hand matig in:
+
+    ![Scherm afbeelding van code-editor met VSVersion gewijzigd in vc150](media/vsversion-comment.png)
 
 ## <a name="5-build-game-and-check-python-is-enabled"></a>5. Games bouwen en controleren of python is ingeschakeld
 
@@ -117,7 +121,7 @@ Een voor beeld van een WWise-project is opgenomen in de down load samples. We ra
 
 * Ga vervolgens naar het tabblad invoeg toepassing voor mixer en voeg de invoeg toepassing voor de project akoestische mixers toe aan de bus
 
-    ![Screenshow van WWise bus waarin wordt getoond hoe u de project akoestische mixer-invoeg toepassing kunt toevoegen](media/add-mixer-plugin.png)
+    ![Scherm afbeelding van WWise bus waarin wordt getoond hoe u de project akoestische mixer-invoeg toepassing kunt toevoegen](media/add-mixer-plugin.png)
 
 ### <a name="actor-mixer-hierarchy-setup"></a>Setup actor-mixer-hiërarchie
 * Uit het oogpunt van prestaties past de geluids kwaliteit van het project op alle bronnen tegelijk audio-DSP toe. Hiervoor moet de invoeg toepassing worden gebruikt als een mixer-invoeg toepassing. WWise vereist dat mixer-invoeg toepassingen zich op de uitvoer bus bevinden, hoewel de uitvoer bus doorgaans het droge uitvoer signaal uitvoert. Voor de geluids sterkte van het project moet het droge signaal worden gerouteerd via aux Busses terwijl het natte signaal `Project Acoustics Bus`wordt uitgevoerd op de. Het volgende proces ondersteunt geleidelijke migratie naar deze signaal stroom.
@@ -159,7 +163,7 @@ Helaas kunnen andere op objecten gebaseerde spatializer-invoeg toepassingen op d
 
 * Wijs nu de geïntegreerde akoestische-gegevensasset toe aan de gegevens sleuf van de akoestische ruimte op de akoestische Space actor. Uw scène heeft nu akoestische beelden.
 
-    ![Scherm opname van de Unreal-editor voor howing geluids toewijzing van activa](media/acoustics-asset-assign.png)
+    ![Scherm opname van de Unreal-editor die de geluids toewijzing van akoestische activa toont](media/acoustics-asset-assign.png)
 
 * Voeg nu een lege actor toe en Ga als volgt te werk:
 
@@ -167,7 +171,7 @@ Helaas kunnen andere op objecten gebaseerde spatializer-invoeg toepassingen op d
 
 1. Voeg een geluid geluids onderdeel toe aan de actor. Dit onderdeel breidt het WWise-audio onderdeel uit met functionaliteit voor het akoestische project.
 2. Het vak afspelen op begin is standaard ingeschakeld. Hiermee wordt de gekoppelde WWise-gebeurtenis geactiveerd wanneer het niveau wordt opgestart.
-3. Gebruik het selectie vakje akoestische para meters weer geven om informatie over fout opsporing op het scherm af te drukken over de bron.
+3. Gebruik het selectie vakje akoestische para meters weer geven om informatie over fout opsporing op het scherm af te drukken over de bron.  
     ![Scherm opname van het Unreal editor-geluids paneel op de geluids bron, waarbij de waarden voor fout opsporing zijn ingeschakeld](media/debug-values.png)
 4. Een WWise-gebeurtenis toewijzen per gewone WWise-werk stroom
 5. Zorg ervoor dat ruimtelijke audio gebruiken is uitgeschakeld. Als u op dit moment project akoestische gebruikt voor een bepaald audio onderdeel, kunt u de ruimtelijke audio-engine van WWise niet tegelijkertijd gebruiken voor geluids fragmenten.

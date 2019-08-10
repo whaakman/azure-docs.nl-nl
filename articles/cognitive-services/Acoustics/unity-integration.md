@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: dffef5062e89ef725abcfda187f5e6159c676b9c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 54bc98e0ddba0292c6a5dbb07f2bbdfce6a1cb45
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854312"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933146"
 ---
 # <a name="project-acoustics-unity-integration"></a>Integratie van de eenheid project akoestische unit
 In dit artikel wordt uitgelegd hoe u de integratie van de invoeg toepassing project akoestische unit-eenheid in uw Unity-project kunt zien.
@@ -32,6 +32,10 @@ Importeer de akoestische UnityPackage naar uw project.
     ![Scherm opname van het menu pakket eenheids import](media/import-package.png)  
 
 * Kies **ProjectAcoustics. unitypackage**
+
+* Klik op de knop **importeren** om het Unity-pakket in uw project te integreren  
+
+    ![Scherm opname van unit import package-dialoog venster](media/import-dialog.png)  
 
 Als u de invoeg toepassing in een bestaand project importeert, heeft het project mogelijk al een **mcs. RSP** -bestand in de hoofdmap van het project, waarmee de C# opties voor de compiler worden opgegeven. U moet de inhoud van dat bestand samen voegen met het bestand mcs. RSP dat wordt meegeleverd met de invoeg toepassing voor project akoestische.
 

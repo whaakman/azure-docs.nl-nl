@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8809c80f2ecba4ea2b3e3d280be0c4ad81d78d37
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 927ce403130460c302f546038ff3a0c3a16e0368
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854838"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933035"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Unreal/WWise Quick start voor project akoestische
 In deze Quick start gaat u experimenteren met de ontwerp besturings elementen voor project akoestische, met behulp van de meegeleverde voorbeeld inhoud voor de Unreal-Engine en WWise.
 
-Software vereisten:
-* [Unreal-Engine](https://www.unrealengine.com/) 4,21
-* [AudioKinetic WWise](https://www.audiokinetic.com/products/wwise/) 2018.1.6
+Software vereisten voor het gebruik van voorbeeld inhoud:
+* [Unreal-Engine](https://www.unrealengine.com/) 4,22
+* [AudioKinetic WWise](https://www.audiokinetic.com/products/wwise/) 2019.1.2
 
 ## <a name="download-the-sample-package"></a>Het voorbeeld pakket downloaden
 Down load het [Unreal + WWise-voorbeeld pakket voor project akoestische](https://www.microsoft.com/download/details.aspx?id=58090). Het voorbeeld pakket bevat een Unreal-Engine project, het WWise-project voor dat Unreal-project en de-invoeg toepassing voor project akoestische WWise.
@@ -55,12 +55,16 @@ De Unreal-invoeg toepassing voor project akoestische vereist extra gedrag van de
 
     ![Scherm opname van code-editor met DXSDK-opmerkingen](media/directx-sdk-comment.png)
 
+* Als u met Visual Studio 2019 compileert om een koppelings fout met WWise te omzeilen, bewerkt u `VSVersion` de standaard `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` waarde `vc150`hand matig in:
+
+    ![Scherm afbeelding van code-editor met VSVersion gewijzigd in vc150](media/vsversion-comment.png)
+
 ### <a name="open-the-unreal-project"></a>Open het Unreal-project. 
 U wordt gevraagd om de modules opnieuw te bouwen. Klik op Ja.
 
 >Als het project niet kan worden geopend wanneer er fouten zijn opgetreden, controleert u of u de WWise-invoeg toepassing voor project akoestische hebt geïnstalleerd in dezelfde versie van WWise die wordt gebruikt in het voorbeeld project van het project akoestische.
 
->Als u [AudioKinetic WWise](https://www.audiokinetic.com/products/wwise/) 2018.1.6 niet gebruikt, moet u de geluids banken opnieuw genereren voordat audio in het voorbeeld project wordt afgespeeld.
+>Als u een versie van [AudioKinetic WWise](https://www.audiokinetic.com/products/wwise/) gebruikt die ouder is dan 2019,1, kunt u geen geluids banken genereren met het voorbeeld project van het project akoestische.  Het is vereist om WWise-versie 2019,1 te integreren in het voorbeeld project, zodat het correct kan worden gebruikt.
 
 ## <a name="experiment-with-project-acoustics-design-controls"></a>Experimenteer met ontwerp controles voor project akoestische
 Luister naar hoe de scène klinkt door te klikken op de knop afspelen in de Unreal-editor. Gebruik op bureau blad W, A, S, D en de muis om door te gaan. Als u sneltoetsen wilt zien voor meer besturingselementen, drukt u op **F1**. Hier volgen enkele ontwerp activiteiten die u kunt proberen:

@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 7/01/2019
 ms.author: aahi
-ms.openlocfilehash: b0b26c771f19edeb45fd4fb6aa3f24c335d0f51e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6604e5d5b3b77955c9e5f78df5d2a5b804bf09ef
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562719"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883584"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Zoek query's naar de Bing Visual Search-API verzenden
 
@@ -73,11 +73,11 @@ Aanvragen mogen alleen worden verzonden als HTTP POST-aanvragen.
 
 Hier volgen de queryparameters die in uw aanvraag moeten worden opgegeven. U moet mini maal de `mkt` query parameter toevoegen:
 
-| Name | Waarde | type | Vereist |
+| Name | Value | type | Vereist |
 | --- | --- | --- | --- |
-| <a name="cc" />cc  | Een land code van twee tekens die aangeeft waar de resultaten vandaan komen.<br /><br /> Als u deze parameter instelt, moet u ook de [Accept-Language](#acceptlanguage)-header opgeven. Bing gebruikt de eerste ondersteunde taal die wordt gevonden in de lijst met talen en combineert de taal met de landcode die u opgeeft om de markt te bepalen waaruit de resultaten moeten worden geretourneerd. Als de talenlijst geen ondersteunde taal bevat, vindt Bing de dichtstbijzijnde taal en markt die de aanvraag ondersteunen. Of het kan een geaggregeerde of standaardmarkt voor de resultaten gebruiken in plaats van degene die is opgegeven.<br /><br /> Gebruik deze queryparameter en de parameter `Accept-Language` alleen als u meerdere talen opgeeft; anders moet u de queryparameters `mkt` en `setLang` gebruiken.<br /><br /> Deze parameter en de parameter [mkt](#mkt) sluiten elkaar uit&mdash;geef ze niet beide op. | Reeks | Nee       |
-| <a name="mkt" />mkt   | De markt waaruit de resultaten afkomstig zijn. <br /><br /> **OPMERKING:** U moet altijd de markt opgeven, indien bekend. Het specificeren van de markt helpt Bing de aanvraag te routeren en een passend en optimaal antwoord te geven.<br /><br /> Deze parameter en de parameter [cc](#cc) sluiten elkaar uit&mdash;geef ze niet beide op. | Reeks | Ja      |
-| <a name="safesearch" />safeSearch | Een filter voor inhoud voor volwassenen. Hier volgen de mogelijke niet-hoofdlettergevoelige filterwaarden.<br /><ul><li>Uit&mdash;Retourneer webpagina's met tekst of afbeeldingen voor volwassenen.<br /><br/></li><li>Gemiddeld&mdash;Retourneer webpagina's met tekst voor volwassenen, maar geen afbeeldingen voor volwassenen.<br /><br/></li><li>Strikt&mdash;Retourneer geen webpagina's met tekst of afbeeldingen voor volwassenen.</li></ul><br /> De standaardwaarde is Moderate.<br /><br /> **OPMERKING:** Als de aanvraag afkomstig is van een markt waarvoor het beleid voor volwassene `safeSearch` van Bing is ingesteld op strikt, wordt de `safeSearch` waarde door Bing genegeerd en wordt strikt gebruikt.<br/><br/>**OPMERKING:** Als u de `site:` operator query gebruikt, is het mogelijk dat het antwoord inhoud voor volwassenen bevat, ongeacht de `safeSearch` query parameter is ingesteld op. Gebruik `site:` alleen als u zich bewust bent van de inhoud op de site en uw scenario de mogelijkheid van inhoud voor volwassenen ondersteunt.  | Reeks | Nee       |
+| <a name="cc" />cc  | Een land code van twee tekens die aangeeft waar de resultaten vandaan komen.<br /><br /> Als u deze parameter instelt, moet u ook de [Accept-Language](#acceptlanguage)-header opgeven. Bing gebruikt de eerste ondersteunde taal die wordt gevonden in de lijst met talen en combineert de taal met de landcode die u opgeeft om de markt te bepalen waaruit de resultaten moeten worden geretourneerd. Als de talenlijst geen ondersteunde taal bevat, vindt Bing de dichtstbijzijnde taal en markt die de aanvraag ondersteunen. Of het kan een geaggregeerde of standaardmarkt voor de resultaten gebruiken in plaats van degene die is opgegeven.<br /><br /> Gebruik deze queryparameter en de parameter `Accept-Language` alleen als u meerdere talen opgeeft; anders moet u de queryparameters `mkt` en `setLang` gebruiken.<br /><br /> Deze parameter en de parameter [mkt](#mkt) sluiten elkaar uit&mdash;geef ze niet beide op. | Tekenreeks | Nee       |
+| <a name="mkt" />mkt   | De markt waaruit de resultaten afkomstig zijn. <br /><br /> **OPMERKING:** U moet altijd de markt opgeven, indien bekend. Het specificeren van de markt helpt Bing de aanvraag te routeren en een passend en optimaal antwoord te geven.<br /><br /> Deze parameter en de parameter [cc](#cc) sluiten elkaar uit&mdash;geef ze niet beide op. | Tekenreeks | Ja      |
+| <a name="safesearch" />safeSearch | Een filter voor inhoud voor volwassenen. Hier volgen de mogelijke niet-hoofdlettergevoelige filterwaarden.<br /><ul><li>Uit&mdash;Retourneer webpagina's met tekst of afbeeldingen voor volwassenen.<br /><br/></li><li>Gemiddeld&mdash;Retourneer webpagina's met tekst voor volwassenen, maar geen afbeeldingen voor volwassenen.<br /><br/></li><li>Strikt&mdash;Retourneer geen webpagina's met tekst of afbeeldingen voor volwassenen.</li></ul><br /> De standaardwaarde is Moderate.<br /><br /> **OPMERKING:** Als de aanvraag afkomstig is van een markt waarvoor het beleid voor volwassene `safeSearch` van Bing is ingesteld op strikt, wordt de `safeSearch` waarde door Bing genegeerd en wordt strikt gebruikt.<br/><br/>**OPMERKING:** Als u de `site:` operator query gebruikt, is het mogelijk dat het antwoord inhoud voor volwassenen bevat, ongeacht de `safeSearch` query parameter is ingesteld op. Gebruik `site:` alleen als u zich bewust bent van de inhoud op de site en uw scenario de mogelijkheid van inhoud voor volwassenen ondersteunt.  | Tekenreeks | Nee       |
 | <a name="setlang" />setLang  | De taal die moet worden gebruikt voor gebruikersinterfacetekenreeksen. Geef de taal op die gebruikmaakt van de ISO 639-1-taal code van twee letters. De taalcode voor Nederlands is bijvoorbeeld NL. De standaardwaarde is EN (Engels).<br /><br /> Hoewel dit optioneel is, moet u altijd de taal opgeven. Doorgaans stelt u `setLang` in op dezelfde taal die is opgegeven door `mkt`, tenzij de gebruiker wil dat gebruikersinterfacetekenreeksen in een andere taal worden weergegeven.<br /><br /> Deze parameter en de header [Accept-Language](#acceptlanguage) sluiten elkaar uit&mdash;geef ze niet beide op.<br /><br /> Een gebruikersinterfacetekenreeks is een tekenreeks die wordt gebruikt als label in een gebruikersinterface. Er zijn maar weinig gebruikersinterfacetekenreeksen in de JSON-antwoordobjecten. De opgegeven taal wordt ook toegepast op koppelingen naar Bing.com-eigenschappen in de antwoordobjecten. | Tekenreeks | Nee   |
 
 ## <a name="headers"></a>Headers

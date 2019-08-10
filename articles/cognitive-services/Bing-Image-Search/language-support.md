@@ -1,38 +1,38 @@
 ---
-title: Taalondersteuning - Bing afbeeldingen zoeken-API
+title: Taal ondersteuning-Bing Afbeeldingen zoeken-API
 titleSuffix: Azure Cognitive Services
-description: Ontdek welke landen/regio's en talen worden ondersteund door de Bing afbeeldingen zoeken-API.
+description: Ontdek welke landen/regio's en talen worden ondersteund door de Bing Afbeeldingen zoeken-API.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 6f4c354c89fa00d5fc65c635f5f6315761be2f01
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca3821b6088e45730334d1b0971e270b1d86dfce
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384146"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881923"
 ---
-# <a name="language-and-region-support-for-the-bing-image-search-api"></a>Ondersteuning voor taal en regio voor de Bing afbeeldingen zoeken-API
+# <a name="language-and-region-support-for-the-bing-image-search-api"></a>Ondersteuning van talen en regio's voor de Bing Afbeeldingen zoeken-API
 
-De Bing afbeeldingen zoeken-API biedt ondersteuning voor meer dan drie tientallen landen/regio's, veel met meer dan één taal. Een land/regio met een query op te geven fungeert voornamelijk om zoekresultaten te verfijnen op basis van de interesses in dat land/regio. Bovendien worden de resultaten kunnen koppelingen naar Bing bevatten en deze koppelingen kunnen lokaliseren van de gebruikerservaring van Bing op basis van de opgegeven land/regio's of de taal.
+Het Bing Afbeeldingen zoeken-API ondersteunt meer dan drie dozijn landen/regio's, veel met meer dan één taal. Het opgeven van een land/regio met een query is voornamelijk bedoeld voor het verfijnen van de zoek resultaten op basis van interesses in dat land/deze regio. Daarnaast kunnen de resultaten koppelingen naar Bing bevatten en kunnen deze koppelingen de Bing-gebruikers ervaring lokaliseren op basis van de opgegeven land/regio's of taal.
 
-Als de land/regio en taal opgeven, stelt u de `mkt` queryparameter (markt) naar een code van de **markten** in de volgende tabel. De markt Hiermee geeft u een land/regio en taal. Als de gebruiker geeft de voorkeur aan om te zien in een andere taal-tekst weergeven, stelt u `setLang` queryparameter in de juiste taal-code.
+Als u het land/de regio en taal wilt opgeven `mkt` , stelt u de query parameter (Market) in op een code uit de tabel **markten** hieronder. Op de markt wordt een land/regio en taal opgegeven. Als de gebruiker de weer gave van tekst in een andere taal wilt zien, `setLang` stelt u de query parameter in op de juiste taal code.
 
-U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u een land/regio opgeeft, moet u ook opgeven een of meer taalcodes die met behulp van de `Accept-Language` HTTP-header. De ondersteunde talen variëren per land/regio; voor elk land/regio in de tabel markten wordt verstrekt.
+U kunt ook het land/de regio opgeven met behulp `cc` van de query-para meter. Als u een land/regio opgeeft, moet u ook een of meer taal codes opgeven met de `Accept-Language` http-header. De ondersteunde talen variëren per land/regio. ze worden vermeld voor elk land/elke regio in de tabel markten.
 
 > [!NOTE]
-> De Trending afbeeldingen-API ondersteunt momenteel alleen de volgende markten:
+> De API voor trending-installatie kopieën ondersteunt momenteel alleen de volgende markten:
 > - en-US (Engels, Verenigde Staten)
-> - NL-CA (Engels, Canada)
+> - en-CA (Engels, Canada)
 > - en-AU (Engels, Australië)
 > - zh-CN (Chinees, China)
 
-## <a name="countriesregions"></a>Landen/regio 's
+## <a name="countriesregions"></a>Landen/regio's
 
 |Land/regio|Code|
 |-------|----|
@@ -49,10 +49,10 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Duitsland|DE|
 |Hongkong SAR|HK|
 |India|IN|
-|Indonesië|Id|
-|Italië|IT|
+|Indonesië|id|
+|Italië|it|
 |Japan|JP|
-|Korea|KR|
+|Zuid-Korea|KR|
 |Maleisië|MY|
 |Mexico|MX|
 |Nederland|NL|
@@ -63,7 +63,7 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Portugal|PT|
 |Filipijnen|PH|
 |Rusland|RU|
-|Saoedi-Arabië|SA|
+|Saudi-Arabië|SA|
 |Zuid-Afrika|ZA|
 |Spanje|ES|
 |Zweden|SE|
@@ -74,17 +74,17 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Verenigde Staten|VS|
 
 
-## <a name="markets"></a>Markten
+## <a name="markets"></a>Landen
 
-|Land/regio|Taal|Code van de markt|
+|Land/regio|Taal|Markt code|
 |-------|--------|-----------|
 |Argentinië|Spaans|es-AR|
-|Australië|Nederlands|en-AU|
+|Australië|Engels|en-AU|
 |Oostenrijk|Duits|de-AT|
 |België|Nederlands|nl-BE|
-|België|Frans|fr-BE|
+|België|Frans|fr-worden|
 |Brazilië|Portugees|pt-BR|
-|Canada|Nederlands|NL-CA|
+|Canada|Engels|NL-CA|
 |Canada|Frans|fr-CA|
 |Chili|Spaans|es-CL|
 |Denemarken|Deens|da-DK|
@@ -92,31 +92,31 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Frankrijk|Frans|fr-FR|
 |Duitsland|Duits|de-DE|
 |Hongkong SAR|Traditioneel Chinees|zh-HK|
-|India|Nederlands|NL-IN|
-|Indonesië|Nederlands|NL-ID|
+|India|Engels|NL-IN|
+|Indonesië|Engels|en-ID|
 |Italië|Italiaans|IT-IT|
 |Japan|Japans|ja-JP|
-|Korea|Koreaans|ko-KR|
-|Maleisië|Nederlands|en Mijn|
+|Zuid-Korea|Koreaans|ko-KR|
+|Maleisië|Engels|en-mijn|
 |Mexico|Spaans|es-MX|
 |Nederland|Nederlands|NL-NL|
-|Nieuw-Zeeland|Nederlands|NL-NZ|
+|Nieuw-Zeeland|Engels|NL-NZ|
 |China|Chinees|zh-CN|
 |Polen|Pools|pl-PL|
 |Portugal|Portugees|pt-PT|
-|Filipijnen|Nederlands|NL-PH|
+|Filipijnen|Engels|en-PH|
 |Rusland|Russisch|ru-RU|
-|Saoedi-Arabië|Arabisch|ar-SA|
-|Zuid-Afrika|Nederlands|en-ZA|
+|Saudi-Arabië|Arabisch|ar-SA|
+|Zuid-Afrika|Engels|en-ZA|
 |Spanje|Spaans|es-ES|
 |Zweden|Zweeds|SV-SE|
 |Zwitserland|Frans|FR-h|
 |Zwitserland|Duits|de CH|
 |Taiwan|Traditioneel Chinees|zh-TW|
 |Turkije|Turks|tr-TR|
-|Verenigd Koninkrijk|Nederlands|en-GB|
-|Verenigde Staten|Nederlands|en-US|
+|Verenigd Koninkrijk|Engels|en-GB|
+|Verenigde Staten|Engels|en-US|
 |Verenigde Staten|Spaans|es-US|
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het zoeken in Bing nieuws-eindpunten [nieuws afbeeldingen zoeken-API voor Bing versie 7 verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+Zie voor meer informatie over de Bing News Search-eind punten [News afbeeldingen zoeken API V7-referentie](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

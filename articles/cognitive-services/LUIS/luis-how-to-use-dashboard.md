@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 42dfe4af56149e4305d076b0427f15038a01fadc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a5c60a4c7d4f1b441ec5e8444b10594a1e67d7db
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563637"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932723"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Het dash board gebruiken om uw app te verbeteren
 
@@ -68,7 +68,7 @@ Elk probleem gebied heeft intenties die moeten worden opgelost. Wanneer u de naa
 
 ### <a name="compare-changes-across-versions"></a>Wijzigingen in versies vergelijken
 
-Maak een nieuwe versie voordat u wijzigingen aanbrengt in de app. In de nieuwe versie maakt u de voorgestelde wijzigingen in het voor beeld van het intentie uitingen en traint u het opnieuw. Op **de kaart van** de dashboard pagina kunt u de wijzigingen **weer geven van** de getrainde versie gebruiken. 
+Maak een nieuwe versie voordat u wijzigingen aanbrengt in de app. In de nieuwe versie maakt u de voorgestelde wijzigingen in het voor beeld van het intentie uitingen en traint u het opnieuw. Op de kaart van de dashboard pagina kunt u de wijzigingen **weer geven van** de getrainde versie gebruiken. 
 
 ![Wijzigingen in versies vergelijken](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
 
@@ -113,7 +113,7 @@ In de lijst met **onjuiste** Voorspellings intentie worden intenties met uitinge
 
 ### <a name="review-unclear-predictions"></a>Onduidelijke voor spellingen controleren
 
-De  lijst met onduidelijke Voorspellings intentie bevat intenties met uitingen met Voorspellings scores die niet ver genoeg zijn vanaf hun dichtstbijzijnde gegelijke manier, waardoor de beste intentie voor de utterance kan worden gewijzigd in de volgende training vanwege [negatieve steek proeven](luis-how-to-train.md#train-with-all-data).
+De lijst met onduidelijke Voorspellings intentie bevat intenties met uitingen met Voorspellings scores die niet ver genoeg zijn vanaf hun dichtstbijzijnde gegelijke manier, waardoor de beste intentie voor de utterance kan worden gewijzigd in de volgende training vanwege [negatieve steek proeven](luis-how-to-train.md#train-with-all-data).
 
 **Om dit probleem op te lossen**;
 

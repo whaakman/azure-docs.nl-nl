@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Implementeren van Node.js apps die worden aangestuurd door Azure Cosmos DB met Azure DevOps Projects'
-description: Azure DevOps Projects zorgt ervoor dat u eenvoudig aan de slag kunt met Azure. Met DevOps Projects, kunt u uw Node.js-app mogelijk gemaakt door Azure Cosmos DB aan Windows-Web-App in een paar snelle stappen implementeren.
+title: 'Zelfstudie: Node. js-Apps implementeren die worden aangedreven door Azure Cosmos DB met Azure DevOps Projects'
+description: Azure DevOps Projects zorgt ervoor dat u eenvoudig aan de slag kunt met Azure. Met DevOps Projects kunt u in een paar snelle stappen uw node. js-app implementeren die wordt aangedreven door Azure Cosmos DB naar Windows Web app.
 ms.author: mlearned
 ms.manager: douge
 ms.prod: devops
@@ -9,59 +9,59 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 4310807423600b96078ee48a04a5ad6dab68cd7e
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.openlocfilehash: 38fc4aa04269924ad0acd529e961dd3228ec236e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813064"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884423"
 ---
-# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Implementeren van Node.js apps die worden aangestuurd door Azure Cosmos DB met DevOps Projects
+# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Node. js-Apps implementeren die worden aangedreven door Azure Cosmos DB met DevOps Projects
 
-Met Azure DevOps Projects biedt een gestroomlijnde ervaring, kunt u uw bestaande code en Git-repo of Selecteer een voorbeeldtoepassing te maken van een continue integratie (CI) en een pipeline voor continue levering (CD) naar Azure.
+Azure DevOps Projects biedt een gestroomlijnde ervaring waar u een doorlopende integratie (CI) en een doorlopende implementatie (CD)-pijp lijn kunt maken naar Azure. U kunt dit doen met behulp van uw bestaande code en git-opslag plaats (opslag plaats) of door een voorbeeld toepassing te selecteren.
 
 In DevOps Projects gebeurt ook het volgende:
 
-* Azure-resources automatisch, zoals Azure Cosmos DB, Application Insights, App Service- en App Service maken.
+* Maakt automatisch Azure-resources, zoals Azure Cosmos DB, Azure-toepassing inzichten, Azure App Service en App Service plannen
 
-* Maakt en configureert een release-pijplijn in Azure DevOps voor CI/CD
+* Hiermee wordt een CI/CD-release pijplijn gemaakt en geconfigureerd in azure DevOps
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * DevOps Projects gebruiken voor het implementeren van een Node.js-app mogelijk gemaakt door Azure Cosmos DB
+> * Gebruik DevOps Projects om een node. js-app te implementeren die wordt aangedreven door Azure Cosmos DB
 > * Azure DevOps en een Azure-abonnement configureren
-> * Bekijk de Azure Cosmos DB
+> * Azure Cosmos DB onderzoeken
 > * De CI-pijplijn onderzoeken
 > * De CD-pijplijn onderzoeken
-> * Voer de wijzigingen door in Git en deze automatisch geïmplementeerd op Azure
+> * De wijzigingen door voeren in Git en deze automatisch implementeren in azure
 > * De resources opschonen
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Azure-abonnement. U krijgt een gratis tot [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
+U hebt een Azure-abonnement nodig. dit kunt u gratis doen met [Visual Studio dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) .
 
-## <a name="use-devops-projects-to-deploy-nodejs-app"></a>Node.js-app implementeren met behulp van DevOps-projecten
+## <a name="use-devops-projects-to-deploy-nodejs-app"></a>De node. js-app implementeren met behulp van DevOps Projects
 
-In DevOps Projects wordt een CI/CD-pijplijn gemaakt in Azure Pipelines. U kunt een nieuwe Azure DevOps-organisatie maken of een bestaande organisatie gebruiken. DevOps Projects maakt ook Azure-resources, zoals Azure Cosmos DB, Application Insights, App Service en App Service-plan, in het Azure-abonnement van uw keuze.
+In DevOps Projects wordt een CI/CD-pijplijn gemaakt in Azure Pipelines. U kunt een nieuwe Azure DevOps-organisatie maken of een bestaande organisatie gebruiken. DevOps Projects maakt ook Azure-resources, zoals Azure Cosmos DB, Application Insights, App Service en App Service plannen, in het Azure-abonnement van uw keuze.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com)
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-1. Selecteer in het linkerdeelvenster de sectie **een resource maken**.
+1. Selecteer **Een resource maken** in het linkerdeelvenster.
 
-1. Typ in het zoekvak **DevOps Projects**, en klik vervolgens op **toevoegen**.
+1. Voer **DevOps projects**in het zoekvak in en selecteer vervolgens **toevoegen**.
 
-   ![DevOps Projects](_img/azure-devops-project-cosmos-db/devops-project.png)
+   ![DevOps Projects deel venster](_img/azure-devops-project-cosmos-db/devops-project.png)
 
-1. Selecteer **Node.js** als de runtime en selecteer vervolgens **volgende**. Onder **een toepassingsframework kiezen**, selecteer **Express.js**.
+1. Selecteer **node. js** als runtime en selecteer vervolgens **volgende**. Selecteer onder **een toepassings raamwerk kiezen de**optie **Express. js**.
 
-1. Inschakelen van de sectie **toevoegen van een database** voor **Cosmos DB** en klikt u op **volgende**.
+1. Schakel de sectie **een Data Base** voor **Cosmos DB**toevoegen in en selecteer **volgende**.
 
-    ![Database toevoegen](_img/azure-devops-project-cosmos-db/add-database.png)
+    ![Een Data Base toevoegen](_img/azure-devops-project-cosmos-db/add-database.png)
 
-    Cosmos DB biedt ondersteuning voor verschillende App-frameworks, zoals **Express.js**, **voorbeeld Node.js-app**, en **Sail.js**. In deze zelfstudie, kunt u overwegen **Express.js**.
+    Azure DevOps Projects ondersteunt verschillende toepassings raamwerken, zoals **Express. js**, **voorbeeld knooppunt. js-app**en **zeilen. js**. In deze zelf studie gebruiken we **Express. js**.
 
-1. Selecteer een Azure-service om de toepassing te implementeren. Hebt u verschillende services, zoals Web-App voor Windows, de Kubernetes-Service en de Web-App voor Containers. Voor deze zelfstudie gebruiken we **Web-App voor Windows**. Klik op **volgende**.
+1. Selecteer een Azure-service om de toepassing te implementeren en selecteer vervolgens **volgende**. Uw opties zijn onder andere Windows Web app, Azure Kubernetes service en Azure Web App for Containers. In deze zelf studie gebruiken we **Windows Web app**.
 
 ## <a name="configure-azure-devops-and-azure-subscription"></a>Azure DevOps en Azure-abonnement configureren
 
@@ -71,27 +71,27 @@ In DevOps Projects wordt een CI/CD-pijplijn gemaakt in Azure Pipelines. U kunt e
 
 1. Selecteer uw Azure-abonnement.
 
-1. Aanvullende Azure-configuratie-instellingen weergeven en voor het identificeren van de prijzen laag en de locatie, klikt u op de overige instellingen op. Dit deelvenster geeft de verschillende opties voor het configureren van de prijzen laag en de locatie van de Azure-services.
+1. Als u aanvullende Azure-configuratie-instellingen wilt weer geven of de prijs categorie en locatie wilt identificeren, selecteert u **aanvullende instellingen**. Dit deel venster toont diverse opties voor het configureren van de prijs categorie en de locatie van Azure-Services.
 
 1. Verlaat het Azure-configuratiegebied en selecteer **Gereed**.
 
-1. Na enkele minuten is het proces voltooid. Een Node.js-voorbeeld-app is ingesteld in een Git-opslagplaats in uw organisatie Azure DevOps, een Azure Cosmos DB, de App Service, de App Service-plan en de Application Insights worden gemaakt, een CI/CD-pijplijn wordt uitgevoerd en uw app is geïmplementeerd in Azure.
+1. Het proces is na een paar minuten voltooid. Een voor beeld van een node. js-app is ingesteld in een Git-opslag plaats in uw Azure DevOps-organisatie. Vervolgens worden Azure Cosmos DB, App Service, App Service plan en Application Insights resources gemaakt, evenals een CI/CD-pijp lijn. Uw app wordt vervolgens geïmplementeerd naar Azure.
 
-   Nadat u dit alles hebt voltooid, wordt het dashboard van Azure DevOps Projects in de Azure-portal weergegeven. U kunt ook rechtstreeks vanuit **Alle resources** in de Azure-portal naar het dashboard van DevOps Projects gaan.
+   Wanneer al deze processen zijn voltooid, wordt het dash board van het Azure DevOps-project weer gegeven in de Azure Portal. U kunt ook rechtstreeks vanuit **Alle resources** in de Azure-portal naar het dashboard van DevOps Projects gaan.
 
-   Dit dashboard biedt inzicht in uw opslagplaats met Azure DevOps-code, uw CI/CD-pijplijn, en in uw Azure Cosmos DB. U kunt meer CI/CD-opties configureren in uw Azure DevOps-pijplijn. Selecteer aan de rechterkant **Azure Cosmos DB** om weer te geven.
+   Dit dash board biedt inzicht in uw Azure DevOps code-opslag plaats, uw CI/CD-pijp lijn en uw Azure Cosmos DB-Data Base. U kunt meer CI/CD-opties configureren in uw Azure DevOps-pijplijn. Selecteer aan de rechter kant van het dash board **Azure Cosmos DB** om deze opties weer te geven.
 
-## <a name="examine-the-azure-cosmos-db"></a>Bekijk de Azure Cosmos DB
+## <a name="examine-azure-cosmos-db"></a>Azure Cosmos DB onderzoeken
 
-DevOps-projecten wordt automatisch geconfigureerd voor Cosmos DB, dat u kunt verkennen en aanpassen. Om vertrouwd te raken met de Cosmos DB, het volgende doen:
+DevOps Projects configureert automatisch Azure Cosmos DB, dat u kunt verkennen en aanpassen. Ga als volgt te werk om vertrouwd te raken met Azure Cosmos DB:
 
 1. Ga naar het DevOps Projects-dashboard.
 
-    ![DevOps-projecten Dashboard](_img/azure-devops-project-cosmos-db/devops-project-dashboard.png)
+    ![DevOps Projects dash board](_img/azure-devops-project-cosmos-db/devops-project-dashboard.png)
 
-1. Selecteer de Cosmos DB aan de rechterkant. Er wordt een deelvenster geopend voor de Cosmos DB. In deze weergave kunt u verschillende acties zoals bewerkingen controleren en te zoeken in Logboeken uitvoeren.
+1. Selecteer aan de rechter kant Azure Cosmos DB. Er wordt een deel venster geopend voor Azure Cosmos DB. In deze weer gave kunt u verschillende acties uitvoeren, zoals het bewaken van bewerkingen en het zoeken naar Logboeken.
 
-    ![Functie-app](_img/azure-devops-project-cosmos-db/cosmos-db.png)
+    ![Azure Cosmos DB deel venster](_img/azure-devops-project-cosmos-db/cosmos-db.png)
 
 ## <a name="examine-the-ci-pipeline"></a>De CI-pijplijn onderzoeken
 
@@ -99,19 +99,19 @@ DevOps Projects configureert automatisch een Azure-CI/CD-pijplijn in uw Azure De
 
 1. Ga naar het DevOps Projects-dashboard.
 
-1. Klik op de hyperlink onder **bouwen**. Op een tabblad in de browser wordt de build-pijplijn voor het nieuwe project weergegeven.
+1. Selecteer de Hyper link onder **Build**. Op een tabblad in de browser wordt de build-pijplijn voor het nieuwe project weergegeven.
 
-    ![Ontwikkelen](_img/azure-devops-project-cosmos-db/build.png)
+    ![Deel venster maken](_img/azure-devops-project-cosmos-db/build.png)
 
-1. Selecteer **Bewerken**. In dit deelvenster kunt u de verschillende taken voor uw build-pijplijn onderzoeken. De build voert verschillende taken, zoals het ophalen van de broncode van de Git-opslagplaats, het bouwen van de toepassing, eenheidstests uitgevoerd en publiceren van uitvoer die worden gebruikt voor implementaties.
+1. Selecteer **Bewerken**. In dit deelvenster kunt u de verschillende taken voor uw build-pijplijn onderzoeken. De build voert diverse taken uit, zoals het ophalen van de bron code uit de Git-opslag plaats, het bouwen van de toepassing, het uitvoeren van eenheids tests en het publiceren van uitvoer die worden gebruikt voor implementaties.
 
-1. Selecteer **Triggers**. In DevOps Projects wordt automatisch een CI-trigger gemaakt en met elke doorvoering naar de opslagplaats wordt een nieuwe build gestart. U kunt eventueel kiezen of u branches van het CI-proces wilt opnemen of uitsluiten.
+1. Selecteer **Triggers**. In DevOps Projects wordt automatisch een CI-trigger gemaakt en met elke doorvoering naar de opslagplaats wordt een nieuwe build gestart. U kunt ervoor kiezen om vertakkingen op te nemen of uit te sluiten van het CI-proces.
 
 1. Selecteer **Retentie**. Afhankelijk van het scenario kunt u beleidsregels opgeven om een bepaald aantal builds te behouden of te verwijderen.
 
 1. Selecteer bovenaan de build-pijplijn de naam van de build-pijplijn.
 
-1. Wijzig de naam van uw build-pijplijn in iets meer beschrijvende en selecteer vervolgens **opslaan** uit de **opslaan en in de wachtrij** vervolgkeuzelijst.
+1. Wijzig de naam van uw build-pijp lijn in iets beschrijvender en selecteer vervolgens **Opslaan** in de vervolg keuzelijst **Opslaan & wachtrij** .
 
 1. Selecteer onder de naam van de build-pijplijn de optie **Geschiedenis**. In dit deelvenster ziet u een audittrail van recente wijzigingen voor de build. In Azure DevOps worden alle wijzigingen in de build-pijplijn bijgehouden en krijgt u de mogelijkheid om versies te vergelijken.
 
@@ -119,52 +119,56 @@ DevOps Projects configureert automatisch een Azure-CI/CD-pijplijn in uw Azure De
 
 In DevOps Projects worden automatisch de benodigde stappen gemaakt en geconfigureerd om vanuit uw Azure DevOps-organisatie te implementeren naar uw Azure-abonnement. Deze stappen omvatten het configureren van een Azure-serviceverbinding om Azure DevOps te verifiëren bij uw Azure-abonnement. Er wordt ook automatisch ook een release-pijplijn gemaakt, die de CD levert aan Azure. Voor meer informatie over de release-pijplijn doet u het volgende:
 
-1. Navigeer naar de **pijplijnen | Releases**.
+1. Ga naar **pijp lijnen** en selecteer **releases**.
 
-1. Klik op **Edit**.
+1. Selecteer **Bewerken**.
 
 1. Onder **Artefacten** selecteert u **Neerzetten**. Met de build-pijplijn die u in de vorige stappen hebt onderzocht, wordt de uitvoer geproduceerd die wordt gebruikt voor het artefact.
 
-1. Selecteer **Continue implementatietrigger** rechts van het pictogram **Neerzetten**. Deze release-pijplijn heeft ingeschakeld voor het CD-trigger, die een implementatie wordt uitgevoerd telkens wanneer een nieuwe build-artefact beschikbaar is. U kunt de trigger eventueel uitschakelen zodat de implementaties handmatig moeten worden uitgevoerd.
+1. Selecteer de **trigger voor continue implementatie**rechts van het pictogram voor **neerzetten** . Deze release pijplijn heeft voortdurende implementatie geactiveerd, waardoor een implementatie wordt uitgevoerd wanneer een nieuw build-artefact beschikbaar is. U kunt de trigger uitschakelen zodat uw implementaties hand matig worden uitgevoerd.
 
-1. Selecteer de sectie aan de rechterkant **releases weergeven** om een historisch overzicht van de versies weer te geven.
+1. Selecteer aan de rechter kant de sectie **weergave releases** om een geschiedenis van releases weer te geven.
 
-1. Klik op de release, waarmee de pijplijn wordt weergegeven. Klik op een omgeving om te controleren of de release **samenvatting, doorvoeringen**, gekoppeld **werkitems**.
+1. Selecteer de release, waarmee de pijp lijn wordt weer gegeven. Selecteer een wille keurige omgeving om de release samenvatting, door voeringen of gekoppelde werk items te controleren.
 
 1. Selecteer **Doorvoeringen**. In deze weergave worden de codedoorvoeringen weergegeven die zijn gekoppeld aan deze implementatie. Vergelijk versies om de doorvoerverschillen tussen implementaties weer te geven.
 
-1. Selecteer **logboeken bekijken**. De logboeken bevatten nuttige informatie over het implementatieproces. U kunt beide weergeven tijdens en na de implementaties.
+1. Selecteer **Logboeken weer geven**. De logboeken bevatten nuttige informatie over het implementatieproces. U kunt beide weergeven tijdens en na de implementaties.
 
-## <a name="commit-code-changes-and-execute-cicd"></a>Codewijzigingen doorvoeren en CI/CD uitvoeren
+## <a name="commit-code-changes-and-execute-the-cicd-pipeline"></a>Code wijzigingen door voeren en de CI/CD-pijp lijn uitvoeren
 
 > [!NOTE]
 > Met de volgende procedure wordt de CI/CD-pijplijn getest door een eenvoudige tekstwijziging aan te brengen.
 
-U bent nu klaar om samen te werken met een team van uw app met behulp van een CI/CD-proces waarmee automatisch de meest recente werk in uw Azure App Service wordt geïmplementeerd. Bij elke wijziging in de Git-opslagplaats wordt een build gestart in Azure DevOps, en met een CD-pijplijn wordt een implementatie uitgevoerd in Azure. Volg de procedure in deze sectie of gebruik een andere methode om wijzigingen in de opslagplaats door te voeren. U kunt bijvoorbeeld de Git-opslagplaats in uw favoriete hulpprogramma of IDE klonen en wijzigingen vervolgens naar deze opslagplaats pushen.
+U bent nu klaar om samen te werken met een team in uw app door een CI/CD-proces te gebruiken waarmee u uw laatste werk op uw App Service implementeert. Bij elke wijziging in de Git-opslagplaats wordt een build gestart in Azure DevOps, en met een CD-pijplijn wordt een implementatie uitgevoerd in Azure. Volg de procedure in deze sectie of gebruik een andere methode om wijzigingen in de opslagplaats door te voeren. U kunt bijvoorbeeld de Git-opslagplaats in uw favoriete hulpprogramma of IDE klonen en wijzigingen vervolgens naar deze opslagplaats pushen.
 
-1. Selecteer in het menu Azure DevOps **opslagplaatsen | Bestanden**, en ga vervolgens naar uw opslagplaats.
+1. Selecteer in het menu van Azure DevOps **opslag plaatsen** en vervolgens **bestanden**. Ga vervolgens naar uw opslag plaats.
 
-1. De opslagplaats bevat al een code op basis van de taal van de toepassing die u hebt gekozen tijdens het proces. Open de **Application/views/index.pug** bestand.
+1. De opslag plaats bevat al code op basis van de toepassings taal die u hebt gekozen tijdens het maken van het proces. Open het bestand **Application/views/index. Pug** .
 
-1. Selecteer **bewerken**, en breng een wijziging in **regelnummer 15** . Bijvoorbeeld, kunt u deze bijwerken naar **Mijn eerste implementatie in Azure App Service is mogelijk gemaakt door Azure Cosmos DB**
+1. Selecteer **bewerken**en breng vervolgens een wijziging aan in **regel nummer 15**. U kunt deze bijvoorbeeld wijzigen in ' mijn eerste implementatie naar Azure App Service die wordt ingeschakeld door Azure Cosmos DB '.
 
-1. Selecteer in de rechterbovenhoek **Doorvoeren** en selecteer vervolgens nogmaals **Doorvoeren** om de wijziging te pushen.
+1. Selecteer **door voeren**in de rechter bovenhoek en selecteer vervolgens **door voeren** opnieuw om uw wijziging te pushen.
 
-     Na een paar seconden wordt er in Azure DevOps een build gestart en wordt er een versie uitgevoerd om de wijzigingen te implementeren. Bewaak de buildstatus via het DevOps Projects-dashboard of in de browser met uw Azure DevOps-organisatie.
+     Na een paar seconden wordt een build gestart in azure DevOps en wordt een release uitgevoerd om de wijzigingen te implementeren. Bewaak de buildstatus via het DevOps Projects-dashboard of in de browser met uw Azure DevOps-organisatie.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-U kunt de gerelateerde resources die u hebt gemaakt toen u ze niet meer nodig verwijderen. Gebruik de functionaliteit **Verwijderen** op het DevOps Projects-dashboard.
+Verwijder de gerelateerde resources die u hebt gemaakt wanneer u deze niet meer nodig hebt. Gebruik de functionaliteit **Verwijderen** op het DevOps Projects-dashboard.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt de build- en release-pijplijn desgewenst wijzigen in overeenstemming met de behoeften van uw team. U kunt dit CI/CD-patroon ook als een sjabloon voor uw andere pijplijnen gebruiken. In deze zelfstudie heeft u het volgende geleerd:
+U kunt deze build- en release-pipelines desgewenst wijzigen in overeenstemming met de behoeften van uw team. U kunt dit CI/CD-patroon ook als een sjabloon voor uw andere pijplijnen gebruiken. In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * DevOps Projects gebruiken voor het implementeren van een Node.js-app mogelijk gemaakt door Azure Cosmos DB
+> * Gebruik DevOps Projects om een node. js-app te implementeren die wordt aangedreven door Azure Cosmos DB
 > * Azure DevOps en een Azure-abonnement configureren 
-> * Bekijk de Azure Cosmos DB
+> * Azure Cosmos DB onderzoeken
 > * De CI-pijplijn onderzoeken
 > * De CD-pijplijn onderzoeken
 > * Wijzigingen doorvoeren in Git en automatisch implementeren naar Azure
 > * Resources opschonen
+
+Zie [uw cd-pipeline (multi-fase continue implementatie) definiëren](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) voor meer informatie en de volgende stappen.
+
+

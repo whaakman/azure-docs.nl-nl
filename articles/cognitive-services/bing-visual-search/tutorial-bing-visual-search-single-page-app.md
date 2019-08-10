@@ -1,37 +1,37 @@
 ---
-title: " Bouw een Web-app van één pagina - Bing visuele zoekopdrachten"
+title: " Een web-app met één pagina maken-Bing Visual Search"
 titleSuffix: Azure Cognitive Services
-description: Informatie over het integreren van de Bing visuele zoekopdrachten-API in een Web-App van één pagina.
+description: Meer informatie over het integreren van de Bing Visual Search-API in een webtoepassing met één pagina.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: aahi
-ms.openlocfilehash: 084aad5540a2bd56d98e343639a45c16f786e599
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0370be1c10bc0f5813bec833be78ad31a3d61a7
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829596"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880648"
 ---
-# <a name="create-a-visual-search-single-page-web-app"></a>Een visuele zoekopdrachten één pagina web-app maken
+# <a name="create-a-visual-search-single-page-web-app"></a>Een Visual Search Web-app met één pagina maken
 
-De Bing visuele zoekopdrachten-API retourneert insights voor een afbeelding. U kunt een installatiekopie uploaden of geef een URL naar een. Inzichten zijn visueel vergelijkbare afbeeldingen, bronnen voor winkelen, webpagina's, zoals de installatiekopie en meer. Inzichten die zijn geretourneerd door de Bing visuele zoekopdrachten-API zijn vergelijkbaar met die op Bing.com/images weergegeven.
+Het Bing Visual Search-API retourneert inzichten voor een afbeelding. U kunt een installatie kopie uploaden of een URL naar een afbeelding opgeven. Inzichten zijn visueel vergelijkbaar met afbeeldingen, Shop ping, webpagina's die de afbeelding bevatten, en meer. Inzichten die door de Bing Visual Search-API zijn geretourneerd, zijn vergelijkbaar met die van Bing.com/images.
 
-In deze zelfstudie wordt uitgelegd hoe u een één pagina WebApp voor de Bing afbeeldingen zoeken-API uit te breiden. Als u wilt weergeven die zelfstudie of haal de broncode hier gebruikt, Zie [zelfstudie: Een app met één pagina maken voor de Bing afbeeldingen zoeken-API](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md).
+In deze zelf studie wordt uitgelegd hoe u een web-app met één pagina kunt uitbreiden voor de Bing Afbeeldingen zoeken-API. Zie zelf studie: als u deze zelf studie wilt bekijken of de [gebruikte bron code wilt ophalen, raadpleegt u Maak een app met één pagina voor de Bing Afbeeldingen zoeken-API](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md).
 
-De volledige broncode voor deze toepassing (na het uitbreiden van het gebruik van de Bing visuele zoekopdrachten-API), is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
+De volledige bron code voor deze toepassing (na uitbrei ding voor het gebruik van de Bing Visual Search-API) is beschikbaar op [github](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
 
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-## <a name="call-the-bing-visual-search-api-and-handle-the-response"></a>De Bing visuele zoekopdrachten-API aanroepen en de verwerking van het antwoord
+## <a name="call-the-bing-visual-search-api-and-handle-the-response"></a>De Bing Visual Search-API aanroepen en het antwoord verwerken
 
-De Bing afbeeldingen zoeken-zelfstudie bewerken en voeg de volgende code toe aan het einde van de `<script>` element (en voordat de afsluiting `</script>` tag). De volgende code een visuele zoekopdrachten-reactie van de API worden verwerkt, doorloopt de resultaten en geeft deze weer:
+Bewerk de Bing Image Search zelf studie en voeg de volgende code toe aan het einde `<script>` van het element (en vóór `</script>` de afsluitende tag). Met de volgende code wordt een visueel Zoek resultaat van de API verwerkt, worden de resultaten door lopen en worden ze weer gegeven:
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -63,7 +63,7 @@ function handleVisualSearchResponse(){
 }
 ```
 
-De volgende code verzendt een zoekaanvraag naar de API met behulp van een gebeurtenislistener om aan te roepen `handleVisualSearchResponse()`:
+Met de volgende code wordt een zoek opdracht naar de API verzonden met behulp van een gebeurtenislistener `handleVisualSearchResponse()`voor het aanroepen van:
 
 ```javascript
 function bingVisualSearch(insightsToken){
@@ -101,7 +101,7 @@ function bingVisualSearch(insightsToken){
 
 ## <a name="capture-insights-token"></a>Inzichttoken vastleggen
 
-Voeg de volgende code aan de `searchItemsRenderer` object. Deze code voegt de koppeling **find similar** toe (vergelijkbare zoeken) die de `bingVisualSearch`-functie aanroept wanneer erop wordt geklikt. De functie ontvangt de `imageInsightsToken` als argument.
+Voeg de volgende code toe aan `searchItemsRenderer` het object. Deze code voegt de koppeling **find similar** toe (vergelijkbare zoeken) die de `bingVisualSearch`-functie aanroept wanneer erop wordt geklikt. De functie ontvangt de `imageInsightsToken` als argument.
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
@@ -109,7 +109,7 @@ html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + 
 
 ## <a name="display-similar-images"></a>Vergelijkbare afbeeldingen weergeven
 
-Voeg de volgende HTML-code toe op regel 601. Deze code markup wordt toegevoegd een element om de resultaten van de Bing visuele zoekopdrachten-API-aanroep weer te geven:
+Voeg de volgende HTML-code toe op regel 601. Deze markerings code voegt een element toe om de resultaten van de Bing Visual Search-API-aanroep weer te geven:
 
 ``` html
 <div id="insights">
@@ -123,4 +123,4 @@ Met alle nieuwe JavaScript-code en HTML-elementen op hun plaats, worden zoekresu
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Een afbeelding met de Bing Visual Search SDK voor bijsnijdenC#](tutorial-visual-search-crop-area-results.md)
+> [Zelfstudie: Een afbeelding bijsnijden met de Bing Visual Search SDK voorC#](tutorial-visual-search-crop-area-results.md)

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 08/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9de7a6fdddf732f13c8dc7ab50fd151d9f90dc20
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0649fea0b598ffaaaf2611c9d1324174105ee5d4
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855862"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931541"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Een Azure Search-service maken in de portal
 
@@ -44,7 +44,7 @@ U kunt ook [voordelen voor MSDN-abonnees activeren](https://azure.microsoft.com/
 
 Als u meer dan één abonnement hebt, moet u er één kiezen dat ook services voor gegevensopslag of File Storage-services biedt. Azure Search kunnen Azure Table-en Blob-opslag, SQL Database en Azure Cosmos DB voor indexering automatisch detecteren via [*Indexeer functies*](search-indexer-overview.md), maar alleen voor services onder hetzelfde abonnement.
 
-## <a name="select-a-resource-group"></a>Selecteer een resourcegroep
+## <a name="set-a-resource-group"></a>Een resource groep instellen
 
 Een resource groep is vereist en is handig voor het beheren van resources, met inbegrip van kosten beheer. Een resource groep kan bestaan uit één service of meerdere services die samen worden gebruikt. Als u bijvoorbeeld Azure Search gebruikt voor het indexeren van een Azure Cosmos DB-Data Base, kunt u beide services onderdeel maken van dezelfde resource groep voor beheer doeleinden. 
 
@@ -57,7 +57,7 @@ Wanneer u de service gebruikt, kunt u de huidige en geschatte kosten bijhouden (
 > [!TIP]
 > Als u een resourcegroep verwijdert, worden de services binnen die resourcegroep ook verwijderd. Bij prototypeprojecten die gebruikmaken van meerdere services, wordt het opschonen na afloop van het project gemakkelijker als die services zich allemaal in dezelfde resourcegroep bevinden.
 
-## <a name="name-the-service-and-url-endpoint"></a>De service en het URL-eindpunt een naam geven
+## <a name="name-the-service"></a>Naam van de service
 
 Geef in de details van het exemplaar een service naam op in het veld **URL** . De naam maakt deel uit van het URL-eind punt waartegen API-aanroepen worden uitgegeven: `https://your-service-name.search.windows.net`. Als u bijvoorbeeld wilt dat het eindpunt `https://myservice.search.windows.net` wordt, voert u `myservice` in.
 
@@ -72,7 +72,7 @@ Vereisten voor servicenaam:
 > [!TIP]
 > Als u denkt dat u meerdere services gaat gebruiken, is het raadzaam om de regio (of locatie) in de service naam op te nemen als een naamgevings Conventie. Services binnen dezelfde regio kunnen zonder kosten worden uitgewisseld, dus als Azure Search zich in VS West bevindt en u andere services hebt in het VS-West, `mysearchservice-westus` kunt u met een naam op de pagina eigenschappen een reis opslaan in een bestand met de informatie over het combi neren of koppelen van resources.
 
-## <a name="select-a-location"></a>Een locatie selecteren
+## <a name="choose-a-location"></a>Locatie kiezen
 
 Azure Search kan als Azure-service worden gehost in datacenters over de hele wereld. De lijst met ondersteunde regio's kunt u vinden op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/search/). 
 
@@ -83,11 +83,11 @@ Daarnaast kunt u, als u verrijkingen van cognitieve Zoek opdrachten AI gebruikt,
 > [!Note]
 > Centraal-India is momenteel niet beschikbaar voor nieuwe services. Voor services die zich al in Centraal-India bevinden, kunt u opschalen zonder beperkingen en wordt uw service volledig ondersteund in die regio. De beperking voor deze regio is tijdelijk en beperkt tot alleen nieuwe services. Deze notitie wordt verwijderd wanneer de beperking niet meer van toepassing is.
 
-## <a name="select-a-pricing-tier-sku"></a>Een prijscategorie selecteren (SKU)
+## <a name="choose-a-pricing-tier-sku"></a>Een prijs categorie kiezen (SKU)
 
 [Azure Search wordt momenteel aangeboden in verschillende prijscategorieën](https://azure.microsoft.com/pricing/details/search/): Gratis, Basic of Standard. Elke categorie heeft eigen [capaciteiten en limieten](search-limits-quotas-capacity.md). Raadpleeg [Choose a pricing tier or SKU](search-sku-tier.md) (Een prijscategorie of SKU kiezen) voor hulp.
 
-Basic en Standard zijn de meest voorkomende opties voor productie werkbelastingen, maar de meeste klanten beginnen met de gratis service.
+Basic en Standard zijn de meest voorkomende opties voor productie werkbelastingen, maar de meeste klanten beginnen met de gratis service. De belangrijkste verschillen tussen lagen zijn de partitie grootte en de snelheid, en limieten voor het aantal objecten dat u kunt maken.
 
 Houd er rekening mee dat een prijs categorie niet kan worden gewijzigd nadat de service is gemaakt. Als u een hogere of lagere categorie nodig hebt, moet u de service opnieuw maken.
 

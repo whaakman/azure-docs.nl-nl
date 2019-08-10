@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7bd18ab0cedf94f0ecc08c3523a608a8d554e6b2
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 2ef207a14582e6ba0d9f8a25c0314c5ec639c7cb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827915"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882850"
 ---
 # <a name="what-is-azure-security-center"></a>Wat is Azure Security Center?
 
@@ -32,9 +32,9 @@ Azure Security Center biedt een oplossing voor de drie dringendste beveiligingsp
 
 -   **Snel veranderende workloads**: dit is zowel een sterke kant als een uitdaging van de cloud. Enerzijds kunnen eindgebruikers zelf meer doen. Maar hoe zorgt u ervoor dat de voortdurend veranderende services die gebruikers gebruiken en maken, voldoen aan uw beveiligingsnormen en in overeenstemming zijn met de best practices voor beveiliging?
 
--   **Aanvallen die steeds geavanceerder worden** : overal waar u de workloads uitvoert, worden de aanvallen steeds geavanceerder. U moet uw workloads in de openbare cloud beveiligen. Dit zijn immers workloads die gebruikmaken van internet, zodat u nog kwetsbaarder bent als u zich niet houdt aan de best practices voor beveiliging.
+-   **Steeds meer geavanceerde aanvallen** : wanneer u uw werk belastingen uitvoert, blijven de aanvallen meer geavanceerd. U moet uw workloads in de openbare cloud beveiligen. Dit zijn immers workloads die gebruikmaken van internet, zodat u nog kwetsbaarder bent als u zich niet houdt aan de best practices voor beveiliging.
 
--   **Beveiligings vaardigheden bevinden zich in de korte voeding** . het aantal beveiligings waarschuwingen en waarschuwings systemen dat in handen is, is het aantal beheerders met de benodigde achtergrond en ervaring om ervoor te zorgen dat uw omgevingen worden beschermd. Het is een hele uitdaging om constant op de hoogte te blijven van de meest recente aanvallen. Stilstand is geen optie in de wereld van de beveiliging die altijd in beweging is.
+-   **Beveiligings vaardigheden bevinden zich in de korte voeding** . het aantal beveiligings waarschuwingen en waarschuwings systemen dat in handen is, is het aantal beheerders met de benodigde achtergrond en ervaring om ervoor te zorgen dat uw omgevingen worden beschermd. Het is een hele uitdaging om constant op de hoogte te blijven van de meest recente aanvallen. Stilstand is geen optie in de wereld van de beveiliging die altijd in beweging is.
 
 Met Security Center kunt u zich tegen deze bedreigingen beveiligen. Het biedt namelijk hulpprogramma's waarmee u het volgende kunt doen:
 
@@ -60,15 +60,15 @@ Azure Security Center helpt u bij het verbeteren van de beveiligingsstatus. Dit 
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>Het beveiligingsbeleid en de naleving voor een organisatie beheren
 
-Voor een goede beveiliging moet u natuurlijk weten of de workloads veilig zijn en deze hierop controleren. Hiervoor past u een beveiligingsbeleid toe dat op uw organisatie is afgestemd. Omdat het Azure-beleidsbeheer wordt overkoepeld door alle beleidsregels in Security Center, beschikt u over alle mogelijkheden en de flexibiliteit van een **beleidsoplossing van wereldklasse**. U kunt in Security Center uw beleid zo instellen dat dit wordt uitgevoerd in beheergroepen, in verschillende abonnementen en zelfs voor een hele tenant.
+Voor een goede beveiliging moet u natuurlijk weten of de workloads veilig zijn en deze hierop controleren. Hiervoor past u een beveiligingsbeleid toe dat op uw organisatie is afgestemd. Omdat alle beleids regels in Security Center boven op de besturings elementen van Azure-beleid zijn gebouwd, krijgt u het volledige bereik en de flexibiliteit van een **beleids oplossing van wereld klasse**. U kunt in Security Center uw beleid zo instellen dat dit wordt uitgevoerd in beheergroepen, in verschillende abonnementen en zelfs voor een hele tenant.
 
 ![Dashboard van Security Center](media/security-center-intro/sc-dashboard.png)
 
-Met Security Center kunt u  **schaduw-IT-abonnementen identificeren**. Wanneer u in uw dashboard abonnementen ziet met het label **valt niet onder beleid**, weet u meteen wanneer er recent gemaakte abonnementen zijn en kunt u ervoor zorgen dat deze onder uw beleid vallen en door Azure Security Center worden beveiligd.
+Security Center helpt u bij **het identificeren van schaduw-it-abonnementen**. Wanneer u in uw dashboard abonnementen ziet met het label **valt niet onder beleid**, weet u meteen wanneer er recent gemaakte abonnementen zijn en kunt u ervoor zorgen dat deze onder uw beleid vallen en door Azure Security Center worden beveiligd.
 
 ![Beleidsdashboard van Security Center](media/security-center-intro/sc-policy-dashboard.png)
 
-Door de geavanceerde controlemogelijkheden in Security Center kunt u ook  **de naleving en het beheer in de loop van de tijd bijhouden en beheren**. De  **algehele naleving**  biedt u een maatstaf met betrekking tot de mate waarin uw abonnementen het beleid naleven dat aan uw workload is gekoppeld. 
+Met de geavanceerde bewakings mogelijkheden in Security Center kunt u ook naleving en beheer in de loop van de **tijd bijhouden en beheren**. De **algemene naleving** voorziet in een meting van de mate waarin uw abonnementen voldoen aan het beleid dat is gekoppeld aan uw werk belasting. 
 
 ![Security Center-beleid in de loop van de tijd](media/security-center-intro/sc-policy-time.png)
 
@@ -76,11 +76,11 @@ Door de geavanceerde controlemogelijkheden in Security Center kunt u ook  **de 
 
 Security Center detecteert doorlopend nieuwe resources die voor uw workloads worden geïmplementeerd en beoordeelt of deze zijn geconfigureerd volgens de best practices voor de beveiliging. Als dit niet het geval is, worden ze gemarkeerd en ontvangt u een lijst met prioriteit die aanbevelingen bevat voor de problemen die moeten worden opgelost zodat uw machines kunnen worden beveiligd.
 
-Een van de meest efficiënte hulpprogramma's waarover Security Center beschikt voor het doorlopend controleren van de beveiligingsstatus van uw netwerk is het  **netwerkoverzicht**. In het overzicht kunt u de topologie van uw workloads bekijken, zodat u kunt zien of elk knooppunt goed is geconfigureerd. U kunt bekijken hoe uw knooppunten zijn verbonden, zodat u ongewenste verbindingen kunt blokkeren die een aanvaller in staat kunnen stellen om in uw netwerk in te breken.
+Een van de krach tigste hulpprogram ma's Security Center voorziet in het voortdurend controleren van de beveiligings status van uw netwerk is de **netwerk kaart**. In het overzicht kunt u de topologie van uw workloads bekijken, zodat u kunt zien of elk knooppunt goed is geconfigureerd. U kunt bekijken hoe uw knooppunten zijn verbonden, zodat u ongewenste verbindingen kunt blokkeren die een aanvaller in staat kunnen stellen om in uw netwerk in te breken.
 
 ![Security Center-netwerkoverzicht](media/security-center-intro/sc-net-map.png)
 
-Security Center maakt het beperken van beveiligingswaarschuwingen eenvoudiger door een **beveiligingsscore** toe te voegen. De beveiligingsscores worden nu gekoppeld aan elke aanbeveling die u ontvangt, zodat u weet hoe belangrijk elke aanbeveling is voor uw algehele beveiligingsstatus. Dit is van cruciaal belang bij  **het stellen van prioriteiten bij uw beveiligingswerkzaamheden**.
+Security Center verkleint uw beveiligings waarschuwingen één stap eenvoudiger door een **beveiligde Score**toe te voegen. De beveiligingsscores worden nu gekoppeld aan elke aanbeveling die u ontvangt, zodat u weet hoe belangrijk elke aanbeveling is voor uw algehele beveiligingsstatus. Dit is van cruciaal belang bij het instellen van **de prioriteit van uw beveiligings werk**.
 
 ![Security Center-beveiligingsscore](media/security-center-intro/sc-secure-score.png)
 

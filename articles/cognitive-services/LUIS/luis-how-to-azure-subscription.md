@@ -1,22 +1,22 @@
 ---
 title: Abonnements sleutels-LUIS
 titleSuffix: Azure Cognitive Services
-description: U hoeft geen abonnements sleutels te maken om uw gratis eerste-1000-eindpunt query's te gebruiken. Als u _een fout melding_ ontvangt in de vorm van een HTTP 403 of 429, moet u een sleutel maken en deze toewijzen aan uw app.
+description: U hoeft geen abonnements sleutels te maken om uw gratis eerste-1000-eindpunt query's te gebruiken. Als u een fout melding ontvangt in de vorm van een HTTP 403 of 429, moet u een sleutel maken en deze toewijzen aan uw app.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: c7e23c78b5d03b834d593bd2b53958c3379c51f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1f8b84722c881cee1fe196e5a614b58cf3c19031
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560526"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932863"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Abonnementssleutels gebruiken met uw LUIS-app
 

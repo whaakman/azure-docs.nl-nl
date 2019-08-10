@@ -17,12 +17,12 @@ ms.date: 07/25/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 946eb0343c2858e275e40b7a581fd48e1713accd
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 507758831885bff7f61677ebae0224cc828dcb2e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853521"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879277"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Verificatie stromen en toepassings scenario's
 
@@ -143,7 +143,7 @@ Lees voor meer informatie [de mobiele app die web-api's aanroept](scenario-mobil
 
 ### <a name="protected-web-api"></a>Beveiligde web-API
 
-U kunt het micro soft Identity platform-eind punt gebruiken voor het beveiligen van webservices, zoals de REST Web API van uw app. Een beveiligde web-API wordt aangeroepen met een toegangs token om de gegevens te beveiligen en inkomende aanvragen te verifiëren. De aanroeper van een web-API voegt een toegangs token toe in de autorisatie-header van een HTTP-aanvraag. Als u ASP.NET of ASP.NET Core Web-API wilt beveiligen, moet u het toegangs token valideren. Hiervoor gebruikt u de ASP.NET JWT-middleware. Onder de motorkap wordt de validatie uitgevoerd door de [Identity model-extensies voor .net](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) -bibliotheek, niet MSAL.net
+U kunt het micro soft Identity platform-eind punt gebruiken voor het beveiligen van webservices, zoals de REST Web API van uw app. Een beveiligde web-API wordt aangeroepen met een toegangs token om de gegevens te beveiligen en inkomende aanvragen te verifiëren. De aanroeper van een web-API voegt een toegangs token toe in de autorisatie-header van een HTTP-aanvraag. Als u uw ASP.NET of ASP.NET Core Web-API wilt beveiligen, moet u het toegangs token valideren. Hiervoor gebruikt u de ASP.NET JWT-middleware. Onder de motorkap wordt de validatie uitgevoerd door de [Identity model-extensies voor .net](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) -bibliotheek, niet MSAL.net
 
 Lees de [beveiligde web-API](scenario-protected-web-api-overview.md)voor meer informatie.
 

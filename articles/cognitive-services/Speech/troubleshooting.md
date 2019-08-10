@@ -1,7 +1,7 @@
 ---
-title: Het oplossen van Bing Speech | Microsoft Docs
+title: Problemen oplossen Bing Speech | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Over het oplossen van problemen bij het gebruik van de Bing Speech.
+description: Problemen oplossen bij het gebruik van Bing Speech.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
@@ -11,49 +11,49 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e70e7b79be7dd4ea55c56898eaf8007d25732366
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f222d9d4cf6c56dea0832938dcb132cf711491bc
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60513981"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934066"
 ---
-# <a name="troubleshooting-bing-speech"></a>Bing Speech oplossen
+# <a name="troubleshooting-bing-speech"></a>Problemen met Bing Speech oplossen
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-## <a name="error-http-403-forbidden"></a>Fout `HTTP 403 Forbidden`
+## <a name="error-http-403-forbidden"></a>Optreedt`HTTP 403 Forbidden`
 
-Wanneer u de the spraakherkennings-API, het resultaat een `HTTP 403 Forbidden` fout.
+Wanneer u de API voor spraak herkenning gebruikt, `HTTP 403 Forbidden` wordt er een fout geretourneerd.
 
 ### <a name="cause"></a>Oorzaak
 
-Deze fout wordt vaak veroorzaakt door verificatieproblemen met. Verbindingsaanvragen zonder geldige `Ocp-Apim-Subscription-Key` of `Authorization` header worden geweigerd door de service met een `HTTP 403 Forbidden` antwoord.
+Deze fout wordt vaak veroorzaakt door verificatie problemen. Verbindings aanvragen zonder geldige `Ocp-Apim-Subscription-Key` of `Authorization` header worden door de service afgewezen met een `HTTP 403 Forbidden` antwoord.
 
-Als u de abonnementssleutel voor verificatie gebruikt, kan de reden zijn
+Als u abonnements sleutel voor verificatie gebruikt, kan dit de reden zijn
 
-- de abonnementssleutel is ongeldig of ontbreekt
-- het quotum voor het gebruik van de abonnementssleutel is overschreden
-- de `Ocp-Apim-Subscription-Key` veld is niet ingesteld in de aanvraagheader als REST-API wordt aangeroepen
+- de abonnements sleutel ontbreekt of is ongeldig
+- het gebruiks quotum van de abonnements sleutel is overschreden
+- het `Ocp-Apim-Subscription-Key` veld is niet ingesteld in de aanvraag header wanneer rest API wordt aangeroepen
 
-Als u van de verificatietoken voor de verificatie gebruikmaakt, kunnen de fout veroorzaakt door de volgende oorzaken hebben.
+Als u een autorisatie token gebruikt voor verificatie, kunnen de volgende oorzaken de fout veroorzaken.
 
-- de `Authorization` koptekst ontbreekt in de aanvraag bij het gebruik van REST
-- het verificatietoken dat is opgegeven in de autorisatie-header is ongeldig
-- het verificatietoken is verlopen. Het toegangstoken heeft een vervaldatum van 10 minuten
+- de `Authorization` header ontbreekt in de aanvraag bij gebruik van rest
+- het autorisatie token dat is opgegeven in de autorisatie-header, is ongeldig
+- het autorisatie token is verlopen. Het toegangs token heeft een verloop tijd van 10 minuten
 
-Zie voor meer informatie over verificatie, de [verificatie](How-to/how-to-authentication.md) pagina.
+Zie de pagina [verificatie](How-to/how-to-authentication.md) voor meer informatie over verificatie.
 
 ### <a name="troubleshooting-steps"></a>Stappen voor probleemoplossing
 
-#### <a name="verify-that-your-subscription-key-is-valid"></a>Controleer of de abonnementssleutel van uw geldig is
+#### <a name="verify-that-your-subscription-key-is-valid"></a>Controleer of de abonnements sleutel geldig is
 
-U kunt de volgende opdracht voor verificatie kunt uitvoeren. Houd er rekening mee te vervangen *YOUR_SUBSCRIPTION_KEY* door uw eigen abonnementssleutel. Als de abonnementssleutel van uw geldig is, ontvangt u in het antwoord het Autorisatietoken als een JSON Web Token (JWT). Anders wordt er een fout optreedt in het antwoord.
+U kunt de volgende opdracht voor verificatie uitvoeren. Opmerking: *YOUR_SUBSCRIPTION_KEY* vervangen door uw eigen abonnements sleutel. Als uw abonnements sleutel geldig is, ontvangt u in het antwoord het autorisatie token als een JSON Web Token (JWT). Anders wordt er een fout bericht weer geven als reactie.
 
 > [!NOTE]
-> Vervang `YOUR_SUBSCRIPTION_KEY` door uw eigen abonnementssleutel.
+> Vervang `YOUR_SUBSCRIPTION_KEY` door uw eigen abonnements sleutel.
 
-# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -71,25 +71,25 @@ $OAuthToken
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
-Het voorbeeld wordt curl gebruikt op Linux met bash. Als deze niet beschikbaar is op uw platform, moet u mogelijk curl installeren. Het voorbeeld moet ook op Cygwin werken op Windows, Git Bash, zsh en andere shells.
+In het voor beeld wordt krul op Linux met bash gebruikt. Als deze niet beschikbaar is op uw platform, moet u mogelijk een krul installeren. Het voor beeld moet ook worden gebruikt in Cygwin op Windows, Git bash, zsh en andere shells.
 
 ```
 curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 ---
 
-Zorg ervoor dat u dezelfde abonnementssleutel in uw toepassing of in de REST-aanvraag zoals die hierboven wordt gebruikt.
+Zorg ervoor dat u dezelfde abonnements sleutel gebruikt in uw toepassing of in de REST-aanvraag, zoals hierboven wordt gebruikt.
 
-#### <a name="verify-the-authorization-token"></a>Controleer of het Autorisatietoken
+#### <a name="verify-the-authorization-token"></a>Verificatie token controleren
 
-Deze stap is alleen nodig als u de verificatietoken voor verificatie gebruiken. Voer de volgende opdracht om te verifiëren dat het Autorisatietoken nog geldig is. De opdracht maakt een POST-aanvraag naar de service en wordt verwacht dat een antwoordbericht van de service. Als u nog steeds HTTP `403 Forbidden` fout, Controleer de toegang tot de token is correct ingesteld en niet verlopen.
+Deze stap is alleen nodig als u een autorisatie token gebruikt voor verificatie. Voer de volgende opdracht uit om te controleren of het autorisatie token nog geldig is. De opdracht maakt een POST-aanvraag naar de service en verwacht een antwoord bericht van de service. Als u nog steeds een `403 Forbidden` HTTP-fout ontvangt, controleert u of het toegangs token juist is ingesteld en niet is verlopen.
 
 > [!IMPORTANT]
-> Het token heeft een vervaldatum van 10 minuten.
+> Het token heeft een verloop tijd van 10 minuten.
 > [!NOTE]
-> Vervang `YOUR_AUDIO_FILE` met het pad naar uw vooraf opgenomen audiobestand en `YOUR_ACCESS_TOKEN` geretourneerd door het Autorisatietoken in de vorige stap.
+> Vervang `YOUR_AUDIO_FILE` door het pad naar uw vastgelegde audio bestand en `YOUR_ACCESS_TOKEN` met het autorisatie token dat u in de vorige stap hebt geretourneerd.
 
-# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 
@@ -121,17 +121,17 @@ curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Fout `HTTP 400 Bad Request`
+## <a name="error-http-400-bad-request"></a>Optreedt`HTTP 400 Bad Request`
 
-Daarom is meestal dat de aanvraagtekst ongeldige audiogegevens bevat. We ondersteunen momenteel alleen WAV-bestand.
+Deze reden is doorgaans dat de hoofd tekst van de aanvraag ongeldige audio gegevens bevat. Momenteel wordt WAV-bestand alleen ondersteund.
 
-## <a name="error-http-408-request-timeout"></a>Fout `HTTP 408 Request Timeout`
+## <a name="error-http-408-request-timeout"></a>Optreedt`HTTP 408 Request Timeout`
 
-De fout is hoogstwaarschijnlijk omdat dat geen audio gegevens worden verzonden naar de service en de service na de time-out voor deze fout geeft als resultaat. Voor de REST-API, moeten de gegevens worden geplaatst in de aanvraagtekst.
+De fout is hoogstwaarschijnlijk omdat er geen audio gegevens naar de service worden verzonden en de service deze fout na een time-out retourneert. Voor REST API moeten de audio gegevens in de hoofd tekst van de aanvraag worden geplaatst.
 
-## <a name="the-recognitionstatus-in-the-response-is-initialsilencetimeout"></a>De `RecognitionStatus` in het antwoord is `InitialSilenceTimeout`
+## <a name="the-recognitionstatus-in-the-response-is-initialsilencetimeout"></a>De `RecognitionStatus` in het antwoord is`InitialSilenceTimeout`
 
-Audiogegevens is meestal de reden dat het probleem veroorzaakt. Bijvoorbeeld:
+Audio gegevens worden meestal veroorzaakt door de oorzaak van het probleem. Bijvoorbeeld:
 
-- de audio heeft een lange stilte tijd aan het begin. De service stopt de opname na een aantal seconden en retourneert `InitialSilenceTimeout`.
-- niet-ondersteunde codec indeling, waardoor de gegevens worden behandeld als stilte maakt gebruik van de audio.
+- de audio heeft een lange stilte tijd aan het begin. De service stopt de herkenning na een aantal seconden en wordt geretourneerd `InitialSilenceTimeout`.
+- de audio gebruikt de niet-ondersteunde codec-indeling, waardoor de audio gegevens als stilte worden beschouwd.

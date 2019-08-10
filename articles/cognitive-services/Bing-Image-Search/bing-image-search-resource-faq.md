@@ -1,47 +1,47 @@
 ---
-title: Veelgestelde vragen (FAQ) - Bing afbeeldingen zoeken-API
+title: Veelgestelde vragen (FAQ)-Bing Afbeeldingen zoeken-API
 titleSuffix: Azure Cognitive Services
-description: Vind antwoorden op veelgestelde vragen over concepten, code en scenario's met betrekking tot de Bing afbeeldingen zoeken-API.
+description: Hier vindt u antwoorden op veelgestelde vragen over concepten, code en scenario's met betrekking tot de Bing Afbeeldingen zoeken-API.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 20b8dbcae36555baf3913ab160575a631e204dd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6841e573446103466e2719797da9e4161b70b5a6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60917803"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881704"
 ---
-# <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Veelgestelde vragen (FAQ) over de Bing afbeeldingen zoeken-API
+# <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Veelgestelde vragen over de Bing Afbeeldingen zoeken-API
 
-Vind antwoorden op veelgestelde vragen over concepten, code en scenario's met betrekking tot de Bing afbeeldingen zoeken-API voor Microsoft Cognitive Services op Azure.
+Hier vindt u antwoorden op veelgestelde vragen over concepten, code en scenario's met betrekking tot de Bing Afbeeldingen zoeken-API voor Microsoft Cognitive Services op Azure.
 
-## <a name="response-headers-in-javascript"></a>Antwoordheaders in JavaScript
+## <a name="response-headers-in-javascript"></a>Antwoord headers in Java script
 
-De volgende headers kunnen optreden in de reacties van de Bing afbeeldingen zoeken-API.
+De volgende headers kunnen optreden in reacties van de Bing Afbeeldingen zoeken-API.
 
 | `Attribute`         | `Description` |
 | ------------------- | ------------- |
-| `X-MSEdge-ClientID` |De unieke ID die Bing is toegewezen aan de gebruiker |
-| `BingAPIs-Market`   |De markt die is gebruikt om te voldoen aan de aanvraag |
-| `BingAPIs-TraceId`  |De vermelding op de server-API voor Bing voor deze aanvraag (voor ondersteuning) |
+| `X-MSEdge-ClientID` |De unieke ID die Bing aan de gebruiker heeft toegewezen |
+| `BingAPIs-Market`   |De markt die is gebruikt om aan de aanvraag te voldoen |
+| `BingAPIs-TraceId`  |De logboek vermelding op de Bing API-server voor deze aanvraag (voor ondersteuning) |
 
-Dit is vooral belangrijk voor het behouden van de client-ID en retourneer het met de volgende aanvragen. Als u dit doet, wordt de zoekopdracht gebruikt voorbij context in volgorde van zoekresultaten en bieden ook een consistente gebruikerservaring.
+Het is vooral belang rijk dat u de client-ID persistent maakt en de volgende aanvragen retourneert. Wanneer u dit doet, wordt in de zoek opdracht in de context van de zoek resultaten gebruikgemaakt van de focus, en wordt ook een consistente gebruikers ervaring geboden.
 
-Echter, wanneer u de Bing afbeeldingen zoeken-API vanuit JavaScript aanroepen, van uw browser ingebouwde beveiligingsfuncties (CORS) kunnen voorkomen dat u toegang tot de waarden van deze headers.
+Wanneer u echter de Bing Afbeeldingen zoeken-API aanroept vanuit Java script, kunnen de ingebouwde beveiligings functies (CORS) van uw browser ertoe leiden dat u geen toegang hebt tot de waarden van deze headers.
 
-Om toegang te krijgen tot de headers, kunt u de Bing afbeeldingen zoeken-API-aanvraag via een proxy CORS. Het antwoord van een dergelijke proxy heeft een `Access-Control-Expose-Headers`-header waardoor antwoordheaders worden opgenomen in de whitelist en beschikbaar gemaakt voor JavaScript.
+Als u toegang wilt krijgen tot de headers, kunt u de Bing Afbeeldingen zoeken-API aanvraag indienen via een CORS-proxy. Het antwoord van een dergelijke proxy heeft een `Access-Control-Expose-Headers`-header waardoor antwoordheaders worden opgenomen in de whitelist en beschikbaar gemaakt voor JavaScript.
 
-Het is eenvoudig te installeren van een CORS-proxy om toe te staan onze [zelfstudie app](tutorial-bing-image-search-single-page-app.md) voor toegang tot de optionele client-headers. Als u [Node.js](https://nodejs.org/en/download/) nog niet hebt, moet u dit eerst installeren. Voer vervolgens de volgende opdracht in een opdrachtprompt in.
+Het is eenvoudig om een CORS-proxy te installeren zodat onze [zelf studie-app](tutorial-bing-image-search-single-page-app.md) toegang kan krijgen tot de optionele client headers. Als u [Node.js](https://nodejs.org/en/download/) nog niet hebt, moet u dit eerst installeren. Voer vervolgens de volgende opdracht in een opdrachtprompt in.
 
     npm install -g cors-proxy-server
 
-Vervolgens de Bing afbeeldingen zoeken-API-eindpunt in het HTML-bestand te wijzigen:
+Wijzig vervolgens het Bing Afbeeldingen zoeken-API-eind punt in het HTML-bestand in:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
@@ -51,17 +51,17 @@ Start ten slotte de CORS-proxy met de volgende opdracht:
 
 Laat het opdrachtvenster geopend terwijl u de zelfstudie-app gebruikt. Als u het venster sluit, wordt de proxy gestopt. In de uitbreidbare sectie met HTTP-headers onder de zoekresultaten ziet u nu (onder andere) de `X-MSEdge-ClientID`-header en kunt u controleren of deze voor elke aanvraag gelijk is.
 
-## <a name="response-headers-in-production"></a>Antwoordheaders in productie
+## <a name="response-headers-in-production"></a>Antwoord headers in productie
 
-De CORS-proxy-benadering beschreven in het vorige antwoord is geschikt voor ontwikkeling, testen en leren.
+De in het vorige antwoord beschreven methode voor CORS-proxy is geschikt voor ontwikkeling, testen en leren.
 
-In een productieomgeving, moet u echter een script op de server in hetzelfde domein als de webpagina die gebruikmaakt van de Bing webzoekopdrachten-API hosten. Met dit script moet daadwerkelijk uitvoeren van de API-aanroepen op verzoek van de webpagina JavaScript en alle resultaten, met inbegrip van headers, terug naar de client. Aangezien de twee resources (pagina en script) een oorsprong delen, CORS wordt niet geleverd aan de orde en de speciale headers zijn toegankelijk voor de JavaScript op de webpagina wordt weergegeven.
+In een productie omgeving moet u echter een script aan de server zijde hosten in hetzelfde domein als de webpagina die gebruikmaakt van de Bing Webzoekopdrachten-API. Dit script moet de API-aanroepen op aanvraag van de webpagina-java script en alle resultaten, inclusief headers, terugsturen naar de client. Omdat de twee resources (pagina en script) een oorsprong delen, komt CORS niet in Play en zijn de speciale headers toegankelijk voor de Java script op de webpagina.
 
-Deze benadering ook voorkomt dat uw API-sleutel blootstelling aan het publiek, omdat alleen het script op de server nodig heeft. Het script kunt u een andere methode (zoals de HTTP-verwijzende site) gebruiken om te controleren of dat de aanvraag is geautoriseerd.
+Deze benadering beschermt ook uw API-sleutel tegen bloot stelling aan het publiek, omdat alleen het script aan de server zijde dit vereist. Het script kan een andere methode (zoals de HTTP-verwijzings reeks) gebruiken om ervoor te zorgen dat de aanvraag wordt geautoriseerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Uw vraag over een ontbrekende functie of functionaliteit is? Houd rekening met aanvragen of uw stem op deze op onze [User Voice-website](https://cognitive.uservoice.com/forums/555907-bing-search).
+Is uw vraag over een ontbrekend onderdeel of functionaliteit? Overweeg om het te vragen of te stemmen op onze [website voor gebruikers spraak](https://cognitive.uservoice.com/forums/555907-bing-search).
 
 ## <a name="see-also"></a>Zie ook
 

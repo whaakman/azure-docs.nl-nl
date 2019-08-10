@@ -1,57 +1,57 @@
 ---
-title: Eindpunten voor de Bing afbeeldingen zoeken-API
+title: Eind punten voor de Bing Afbeeldingen zoeken-API
 titleSuffix: Azure Cognitive Services
-description: Een lijst met beschikbare eindpunten voor de Bing afbeeldingen zoeken-API.
+description: Een lijst met beschik bare eind punten voor de Bing Afbeeldingen zoeken-API.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 076dbb26c267cf65a0d6f3a9835375b09951f2aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc1a0670767b134ad6e330fb41fc5564c754d91c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388521"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883408"
 ---
-# <a name="endpoints-for-the-bing-image-search-api"></a>Eindpunten voor de Bing afbeeldingen zoeken-API
+# <a name="endpoints-for-the-bing-image-search-api"></a>Eind punten voor de Bing Afbeeldingen zoeken-API
 
-De **afbeeldingen zoeken-API** bevat drie eindpunten.  Eindpunt 1 geeft als resultaat van installatiekopieën van het Web op basis van een query. Eindpunt 2 retourneert [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse).  3-eindpunt retourneert trending afbeeldingen.
+De **afbeeldingen zoeken-API** bevat drie eind punten.  Eind punt 1 retourneert installatie kopieën van het web op basis van een query. Eind punt 2 retourneert [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse).  Eind punt 3 retourneert trend afbeeldingen.
 
 ## <a name="endpoints"></a>Eindpunten
 
-Als u de resultaten van de installatiekopie met behulp van de Bing-API, een aanvraag te verzenden naar een van de volgende eindpunten. De kop- en URL-parameters gebruiken om te definiëren verder specificaties.
+Als u afbeeldings resultaten wilt ophalen met behulp van de Bing API, verzendt u een aanvraag naar een van de volgende eind punten. Gebruik de para meters headers en URL om verdere specificaties te definiëren.
 
-**Eindpunt 1:** Retourneert de installatiekopieën die relevant voor de zoekquery van de gebruiker gedefinieerd zijn door `?q=""`.
+**Eind punt 1:** Hiermee worden installatie kopieën geretourneerd die relevant zijn voor de zoek query van `?q=""`de gebruiker die is gedefinieerd door.
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
 
-**2-eindpunt:** Inzichten over een afbeelding, met behulp van retourneert `GET` of `POST`.
+**Eind punt 2:** Retourneert inzichten over een installatie kopie met `GET` behulp `POST`van of.
 ```
  GET or POST https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
-Een GET-aanvraag retourneert inzichten over een afbeelding, zoals webpagina's die de installatiekopie van het opnemen. Bevatten de [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) parameter met een `GET` aanvraag.
+Een GET-aanvraag retourneert inzichten over een afbeelding, zoals webpagina's die de afbeelding bevatten. Neem de para meter [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) op `GET` met een aanvraag.
 
-Of u kunt een binaire opnemen in de hoofdtekst van een `POST` aanvragen en stel de [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) parameter `RecognizedEntities`. Dit resulteert in een [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference#insightstoken) te gebruiken als een parameter in een latere `GET` aanvraag informatie over mensen in de afbeelding retourneert.  Instellen `modules` naar `All` alle om inzichten te verkrijgen, behalve `RecognizedEntities` in de resultaten van de `POST` zonder te maken met behulp van een andere aanroep van de `insightsToken`.
+U kunt ook een binaire installatie kopie in de hoofd tekst van een `POST` aanvraag toevoegen en de para meter [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) instellen op `RecognizedEntities`. Hiermee wordt een [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference#insightstoken) geretourneerd dat als para meter wordt gebruikt in een `GET` volgende aanvraag, die informatie over personen in de installatie kopie retourneert.  `modules` `RecognizedEntities` `POST` `insightsToken`Stel deze waarde in opomalleinzichtenoptehalen,behalveinderesultatenvandezondereenandereaanroeptegebruiken.`All`
 
 
-**3-eindpunt:** Retourneert de installatiekopieën die populair zijn gebaseerd op zoekaanvragen anderen. De afbeeldingen worden gescheiden in verschillende categorieën, bijvoorbeeld op basis van opmerkelijk personen of gebeurtenissen.
+**Eind punt 3:** Hiermee worden afbeeldingen geretourneerd die worden getrendd op basis van zoek opdrachten die door anderen zijn gemaakt. De afbeeldingen worden onderverdeeld in verschillende categorieën, bijvoorbeeld op basis van de vervelende personen of gebeurtenissen.
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/trending
 ```
 
-Zie voor een lijst van markten die ondersteuning bieden voor trending afbeeldingen, [Trending afbeeldingen](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images).
+Zie [trending afbeeldingen](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images)voor een lijst met markten die trending afbeeldingen ondersteunen.
 
-Voor meer informatie over kopteksten, parameters, markt codes, antwoordobjecten, fouten, enz., Zie de [Bing afbeeldingen zoeken-API voor Bing versie 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) verwijzing.
-## <a name="response-json"></a>JSON-antwoord
-Het antwoord op een zoekaanvraag afbeelding bevat resultaten als JSON-objecten. Voor Zie voor voorbeelden van het parseren van de resultaten de [zelfstudie](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) en [broncode](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source).
+Zie de naslag informatie over [Bing afbeeldingen zoeken-API V7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) voor meer informatie over kopteksten, para meters, markt codes, reactie objecten, fouten, enzovoort.
+## <a name="response-json"></a>JSON van antwoord
+Het antwoord op een aanvraag voor het zoeken naar een afbeelding bevat resultaten als JSON-objecten. Raadpleeg de [zelf studie](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) en de [bron code](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source)voor voor beelden van het parseren van de resultaten.
 
 ## <a name="next-steps"></a>Volgende stappen
-De **Bing** API's ondersteunen zoekacties die retourneren van resultaten op basis van hun type. Alle eindpunten voor zoeken worden resultaten geretourneerd als JSON-antwoord-objecten.  Alle eindpunten ondersteuning voor query's die een specifieke taal en/of locatie door lengtegraad, breedtegraad en zoeken radius retourneren.
+De **Bing** api's ondersteunen zoek acties die resultaten retour neren op basis van hun type. Alle zoek eindpunten retour neren resultaten als JSON-antwoord objecten.  Alle eind punten ondersteunen query's die een specifieke taal en/of locatie retour neren met de lengte graad, breedte graad en de zoek RADIUS.
 
-Zie de referentiepagina's voor elk type voor volledige informatie over de parameters die worden ondersteund door elk eindpunt.
-Zie voor meer voorbeelden van basic met behulp van de afbeeldingen zoeken-API-aanvragen [snel starten van afbeeldingen zoeken-](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/search-the-web).
+Zie de naslag pagina's voor elk type voor volledige informatie over de para meters die door elk eind punt worden ondersteund.
+Zie [afbeeldingen zoeken Quick Start (](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/search-the-web)Engelstalig) voor voor beelden van basis aanvragen met behulp van de afbeelding zoeken-API.

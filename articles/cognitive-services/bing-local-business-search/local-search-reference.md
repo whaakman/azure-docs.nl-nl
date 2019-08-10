@@ -6,15 +6,15 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 36d87ee9db68c47ee96519cb6b04ff24478427d6
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 9030d85ff5bc83bb54f4a67a9f319a1670a6c2ad
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423400"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881851"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Naslag informatie Bing Local Business Search API V7
 
@@ -70,10 +70,10 @@ Hieronder ziet u de kopteksten die een aanvraag en antwoord kan bevatten.
 De aanvraag kan de volgende query parameters bevatten. Zie de vereiste kolom voor de vereiste para meters. U moet de URL van de query parameters coderen.  
   
   
-|Name|Waarde|type|Vereist|  
+|Name|Value|type|Vereist|  
 |----------|-----------|----------|--------------|
 |<a name="count" />aantal|Het aantal resultaten dat moet worden geretourneerd, te beginnen met de index die `offset` is opgegeven door de para meter.|Tekenreeks|Nee|   
-|<a name="localCategories" />localCategories|Lijst met opties waarmee zoek acties op bedrijfs categorie worden gedefinieerd.  Zie [lokale bedrijfs categorieën zoeken](local-categories.md)|Reeks|Nee|  
+|<a name="localCategories" />localCategories|Lijst met opties waarmee zoek acties op bedrijfs categorie worden gedefinieerd.  Zie [lokale bedrijfs categorieën zoeken](local-categories.md)|Tekenreeks|Nee|  
 |<a name="mkt" />mkt|De markt waaruit de resultaten afkomstig zijn. <br /><br />Zie markt codes voor een lijst met mogelijke markt waarden.<br /><br /> **OPMERKING:** De lokale Business Search-API ondersteunt momenteel alleen de markt en taal van de VS.<br /><br />|Tekenreeks|Ja|
 |<a name="offset"/>offset|De index voor het starten van de resultaten `count` die zijn opgegeven met de para meter.|Geheel getal|Nee|  
 |<a name="query" />q|De zoek term van de gebruiker.|Tekenreeks|Nee|  
@@ -97,8 +97,8 @@ Hiermee definieert u de fout die is opgetreden.
 |Element|Description|type|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />gecodeerd|De fout code waarmee de fout categorie wordt aangeduid. Zie [fout codes](#error-codes)voor een lijst met mogelijke codes.|Tekenreeks|  
-|<a name="error-message" />Bericht|Een beschrijving van de fout.|Reeks|  
-|<a name="error-moredetails" />moreDetails|Een beschrijving die extra informatie biedt over de fout.|Reeks|  
+|<a name="error-message" />Bericht|Een beschrijving van de fout.|Tekenreeks|  
+|<a name="error-moredetails" />moreDetails|Een beschrijving die extra informatie biedt over de fout.|Tekenreeks|  
 |<a name="error-parameter" />parameter|De query parameter in de aanvraag die de fout heeft veroorzaakt.|Tekenreeks|  
 |<a name="error-subcode" />subCode|De fout code die de fout identificeert. Als `code` bijvoorbeeld InvalidRequest is, `subCode` kan ParameterInvalid of ParameterInvalidValue zijn. |Tekenreeks|  
 |<a name="error-value" />Value|De waarde van de query parameter die ongeldig is.|Tekenreeks|  
@@ -109,7 +109,7 @@ Het object op het hoogste niveau dat het antwoord bevat wanneer de aanvraag is m
   
 |Name|Value|type|  
 |----------|-----------|----------|  
-|_type|Type hint.|Reeks|  
+|_type|Type hint.|Tekenreeks|  
 |<a name="errors" />bufferoverschrijdingsfouten|Een lijst met fouten die de redenen beschrijven waarom de aanvraag is mislukt.|[Fout](#error) []|  
 
   
@@ -120,7 +120,7 @@ Hiermee wordt de licentie gedefinieerd waarmee de tekst of foto kan worden gebru
 |Name|Value|type|  
 |----------|-----------|----------|  
 |name|De naam van de licentie.|Tekenreeks|  
-|url|De URL naar een website waar de gebruiker meer informatie over de licentie kan krijgen.<br /><br /> Gebruik de naam en URL om een Hyper link te maken.|Reeks|  
+|url|De URL naar een website waar de gebruiker meer informatie over de licentie kan krijgen.<br /><br /> Gebruik de naam en URL om een Hyper link te maken.|Tekenreeks|  
 
 
 ### <a name="link"></a>Koppelen  
@@ -142,8 +142,8 @@ Houd er rekening mee dat een uitgever hun naam of hun website of beide kan opgev
   
 |Name|Value|type|  
 |----------|-----------|----------|  
-|name|De naam van de uitgever.|Reeks|  
-|url|De URL naar de website van de uitgever.<br /><br /> Houd er rekening mee dat de uitgever mogelijk geen website levert.|Reeks|  
+|name|De naam van de uitgever.|Tekenreeks|  
+|url|De URL naar de website van de uitgever.<br /><br /> Houd er rekening mee dat de uitgever mogelijk geen website levert.|Tekenreeks|  
   
   
 
@@ -154,8 +154,8 @@ Definieert informatie over een lokale onderneming, zoals een restaurant of Hotel
 |----------|-----------|----------|  
 |_type|Type hint, die kan worden ingesteld op een van de volgende opties:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurant</ul><li>|Tekenreeks|  
 |address|Het post adres van de locatie waar de entiteit zich bevindt.|PostalAddress|  
-|entityPresentationInfo|Aanvullende informatie over de entiteit, zoals hints, die u kunt gebruiken om het type van de entiteit te bepalen. Bijvoorbeeld of het nu gaat om een restaurant of Hotel. Het `entityScenario` veld wordt ingesteld op lijst item.|entityPresentationInfo|  
-|name|De naam van de entiteit.|Reeks|  
+|entityPresentationInfo|Aanvullende informatie over de entiteit, zoals hints, die u kunt gebruiken om het type van de entiteit te bepalen. Bijvoorbeeld of het nu gaat om een restaurant of Hotel. Het `entityScenario` veld wordt ingesteld op lijst item.|EntityPresentationInfo|  
+|name|De naam van de entiteit.|Tekenreeks|  
 |telefoonnummer|Het telefoon nummer van de entiteit.|Tekenreeks|  
 |url|De URL naar de website van de entiteit.<br /><br /> Gebruik deze URL samen met de naam van de entiteit om een Hyper link te maken waarop wordt geklikt op de gebruiker van de website van de entiteit.|Tekenreeks|  
 |webSearchUrl|De URL naar het Zoek resultaat van Bing voor deze locatie.|Tekenreeks| 
@@ -212,7 +212,7 @@ Houd er rekening mee dat als de service een DOS-aanval (Denial of service) vermo
 |Name|Value|type|  
 |----------|-----------|----------|  
 |_type|Type hint, die is ingesteld op SearchResponse.|Tekenreeks|  
-|Gelegenheden|Een lijst met entiteiten die relevant zijn voor de zoek query.|JSON-object|  
+|gelegenheden|Een lijst met entiteiten die relevant zijn voor de zoek query.|JSON-object|  
 |queryContext|Een object dat de query reeks bevat die Bing heeft gebruikt voor de aanvraag.<br /><br /> Dit object bevat de query reeks die is ingevoerd door de gebruiker. Het kan ook een gewijzigde query reeks bevatten die Bing heeft gebruikt voor de query als de query reeks een spel fout bevat.|[QueryContext](#querycontext)|  
 
 

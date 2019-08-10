@@ -1,55 +1,55 @@
 ---
-title: Upgrade van de API-versie 5 naar versie 7 - Bing webzoekopdrachten-API
+title: Upgrade van API v5 naar V7-Bing Webzoekopdrachten-API
 titleSuffix: Azure Cognitive Services
-description: Bepalen welke onderdelen van uw toepassing vereisen updates voor de Bing webzoekopdrachten v7 API's gebruiken.
+description: Bepaal welke onderdelen van uw toepassing updates moeten gebruiken voor het gebruik van de Bing Web Search V7-Api's.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: e3d78a1b7488e7489b02e34e9733a5d741213855
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2133cd59c524112ae8a77c0a20cbce1d1336a38d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384896"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881308"
 ---
-# <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Een upgrade uitvoeren voor Bing Web Search API versie 5 naar versie 7
+# <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Upgrade van Bing Webzoekopdrachten-API v5 naar v7
 
-Deze upgrade handleiding identificeert de wijzigingen tussen 5 en versie 7 van de Bing webzoekopdrachten-API. Deze handleiding gebruiken om te bepalen van de onderdelen van uw toepassing die u nodig hebt om bij te werken voor het gebruik van versie 7.
+Deze upgrade handleiding bevat de wijzigingen tussen versie 5 en versie 7 van de Bing Webzoekopdrachten-API. Gebruik deze hand leiding om u te helpen bij het identificeren van de onderdelen van uw toepassing die u moet bijwerken om versie 7 te gebruiken.
 
 ## <a name="breaking-changes"></a>Wijzigingen die fouten veroorzaken
 
 ### <a name="endpoints"></a>Eindpunten
 
-- Het versienummer van het eindpunt is gewijzigd van versie 5 naar versie 7. Bijvoorbeeld: https:\/\/api.cognitive.microsoft.com/bing/**v7.0**  /zoeken.
+- Het versie nummer van het eind punt is gewijzigd van v5 naar v7. Bijvoorbeeld https:\/\/API.Cognitive.Microsoft.com/Bing/**v 7.0**/Search.
 
-### <a name="error-response-objects-and-error-codes"></a>Fout antwoordobjecten en foutcodes
+### <a name="error-response-objects-and-error-codes"></a>Fout bericht objecten en fout codes
 
-- Alle mislukte aanvragen moeten nu bevatten een `ErrorResponse` object in de hoofdtekst van het antwoord.
+- Alle mislukte aanvragen moeten nu een `ErrorResponse` object bevatten in de hoofd tekst van het antwoord.
 
-- De volgende velden toevoegt aan de `Error` object.  
-  - `subCode`&mdash;Indien mogelijk partities van de foutcode in discrete buckets
-  - `moreDetails`&mdash;Als u meer informatie over de fout wordt beschreven in de `message` veld
+- De volgende velden zijn toegevoegd aan `Error` het object.  
+  - `subCode`&mdash;Partitioneert de fout code indien mogelijk naar discrete buckets
+  - `moreDetails`&mdash;Aanvullende informatie over de fout die in het `message` veld wordt beschreven
 
 
-- De foutcodes v5 vervangen door de volgende mogelijke `code` en `subCode` waarden.
+- De V5-fout codes zijn vervangen door de `code` volgende `subCode` mogelijke en waarden.
 
 |Code|SubCode|Description
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing retourneert ServerError wanneer een van de voorwaarden van de onderliggende code optreden. De reactie omvat deze fouten als de HTTP-statuscode 500.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Geblokkeerd|Bing retourneert InvalidRequest wanneer er een deel van de aanvraag niet geldig is. Bijvoorbeeld, een vereiste parameter ontbreekt of een parameterwaarde is niet geldig.<br/><br/>Als de fout ParameterMissing of ParameterInvalidValue is, is de HTTP-statuscode 400.<br/><br/>Als de fout HttpNotAllowed, de HTTP-statuscode 410 is.
-|RateLimitExceeded||Bing retourneert RateLimitExceeded wanneer u uw query's per seconde (QPS) of query's per maand (QPM) quotum overschrijdt.<br/><br/>Bing retourneert HTTP-statuscode 429 als u overschreden QPS en 403 als u QPM overschreden.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing retourneert InvalidAuthorization wanneer Bing de oproepende functie kan niet worden geverifieerd. Bijvoorbeeld, de `Ocp-Apim-Subscription-Key` koptekst ontbreekt of de abonnementssleutel is niet geldig.<br/><br/>Redundantie treedt op als u meer dan één verificatiemethode opgeven.<br/><br/>Als de fout InvalidAuthorization is, is de HTTP-statuscode 401.
-|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing retourneert InsufficientAuthorization wanneer de oproepende functie heeft geen machtigingen voor toegang tot de resource. Deze fout kan optreden als de abonnementssleutel is uitgeschakeld of is verlopen. <br/><br/>Als de fout InsufficientAuthorization is, is de HTTP-statuscode 403.
+|ServerError|UnexpectedError<br/>ResourceError<br/>Niet geïmplementeerd|Bing retourneert server error wanneer een van de voor waarden van de onderliggende code optreedt. De respons bevat deze fouten als de HTTP-status code 500 is.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Geblokkeerd|Bing retourneert InvalidRequest wanneer een deel van de aanvraag ongeldig is. Een vereiste para meter ontbreekt bijvoorbeeld of een parameter waarde is niet geldig.<br/><br/>Als de fout ParameterMissing of ParameterInvalidValue is, is de HTTP-status code 400.<br/><br/>Als de fout HttpNotAllowed is, wordt de HTTP-status code 410.
+|RateLimitExceeded||Bing retourneert RateLimitExceeded wanneer u het quotum voor query's per seconde (QPS) of query's per maand (QPM) overschrijdt.<br/><br/>Bing retourneert HTTP-status code 429 als u QPS en 403 hebt overschreden als u QPM hebt overschreden.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing retourneert InvalidAuthorization wanneer Bing de oproepende functie niet kan verifiëren. De `Ocp-Apim-Subscription-Key` koptekst ontbreekt bijvoorbeeld of de abonnements sleutel is niet geldig.<br/><br/>Redundantie treedt op als u meer dan één verificatie methode opgeeft.<br/><br/>Als de fout InvalidAuthorization is, is de HTTP-status code 401.
+|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing retourneert InsufficientAuthorization wanneer de aanroeper geen machtigingen heeft voor toegang tot de resource. Deze fout kan optreden als de abonnements sleutel is uitgeschakeld of is verlopen. <br/><br/>Als de fout InsufficientAuthorization is, is de HTTP-status code 403.
 
-- Het volgende wordt de vorige foutcodes toegewezen aan de nieuwe codes. Als u een afhankelijkheid hebt gemaakt in de foutcodes versie 5, overeenkomstig uw code bijwerken.
+- De volgende fout codes worden toegewezen aan de nieuwe codes. Als u een afhankelijkheid van V5-fout codes hebt genomen, werkt u de code dienovereenkomstig bij.
 
-|Versie 5-code|Versie 7 code.subCode
+|Versie 5-code|Versie 7 code. subcode
 |-|-
 |RequestParameterMissing|InvalidRequest.ParameterMissing
 RequestParameterInvalidValue|InvalidRequest.ParameterInvalidValue
@@ -62,27 +62,27 @@ DataSourceErrors|ServerError.ResourceError
 AuthorizationMissing|InvalidAuthorization.AuthorizationMissing
 HttpNotAllowed|InvalidRequest.HttpNotAllowed
 UserAgentMissing|InvalidRequest.ParameterMissing
-NotImplemented|ServerError.NotImplemented
+Niet geïmplementeerd|ServerError.NotImplemented
 InvalidAuthorization|InvalidAuthorization
 InvalidAuthorizationMethod|InvalidAuthorization
 MultipleAuthorizationMethod|InvalidAuthorization.AuthorizationRedundancy
 ExpiredAuthorizationToken|InsufficientAuthorization.AuthorizationExpired
 InsufficientScope|InsufficientAuthorization
-Geblokkeerd|InvalidRequest.Blocked
+Geblokkeerd|InvalidRequest. blocked
 
 
-## <a name="non-breaking-changes"></a>Niet-belangrijke wijzigingen  
+## <a name="non-breaking-changes"></a>Niet-brekende wijzigingen  
 
 ### <a name="headers"></a>Headers
 
-- De optionele toegevoegd [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) aanvraagheader. Bing retourneert standaard cache-inhoud, indien beschikbaar. Om te voorkomen dat Bing inhoud uit de cache retourneert, stelt u de Pragma-header in op no-cache (bijvoorbeeld: Pragma: no-cache).
+- De optionele header [pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) -aanvraag is toegevoegd. Bing retourneert standaard cache-inhoud, indien beschikbaar. Om te voorkomen dat Bing inhoud uit de cache retourneert, stelt u de Pragma-header in op no-cache (bijvoorbeeld: Pragma: no-cache).
 
 ### <a name="query-parameters"></a>Queryparameters
 
-- Toegevoegd de [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) queryparameter. Gebruik deze parameter om op te geven van het aantal antwoorden die u wilt dat het antwoord om op te nemen. De antwoorden worden gekozen op basis van de positie. Bijvoorbeeld, als u deze parameter instellen op drie (3), het antwoord bevat de top drie gerangschikte antwoorden.  
+- De query parameter [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) is toegevoegd. Gebruik deze para meter om het aantal antwoorden op te geven dat u wilt dat het antwoord bevat. De antwoorden worden gekozen op basis van de rang schikking. Als u deze para meter bijvoorbeeld instelt op drie (3), bevat het antwoord de eerste drie geclassificeerde antwoorden.  
 
-- Toegevoegd de [bevorderen](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) queryparameter. Gebruik deze parameter samen met `answerCount` om op te nemen expliciet een of meer antwoord typen, ongeacht hun positie. Bijvoorbeeld, als u wilt promoveren video's en afbeeldingen in het antwoord, stelt u verhogen naar *video's, afbeeldingen*. De lijst met antwoorden die u wilt promoveren komt niet in mindering gebracht de `answerCount` limiet. Bijvoorbeeld, als `answerCount` 2 en `promote` is ingesteld op *video's, afbeeldingen*, het antwoord advies inwinnen webpagina's, nieuws, video's en afbeeldingen.
+- De [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) query-para meter is toegevoegd. Gebruik deze para meter `answerCount` om expliciet een of meer antwoord typen toe te voegen, ongeacht hun positie. Als u bijvoorbeeld Video's en afbeeldingen in het antwoord wilt promoten, stelt u promo veren in op *Video's, afbeeldingen*. De lijst met antwoorden die u wilt promoten, telt niet op basis van `answerCount` de limiet. Als `answerCount` bijvoorbeeld 2 is en `promote` is ingesteld op *Video's, installatie kopieën*, kan de reactie webpagina's, nieuws, Video's en afbeeldingen bevatten.
 
-### <a name="object-changes"></a>Wijzigingen van object
+### <a name="object-changes"></a>Object wijzigingen
 
-- Toegevoegd de `someResultsRemoved` veld de [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) object. Het veld bevat een Booleaanse waarde die aangeeft of het antwoord bepaalde resultaten van de web-antwoord uitgesloten.  
+- Het `someResultsRemoved` veld is toegevoegd aan [](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) het webantwoord-object. Het veld bevat een Booleaanse waarde die aangeeft of het antwoord een deel van de resultaten van het webantwoorden heeft uitgesloten.  

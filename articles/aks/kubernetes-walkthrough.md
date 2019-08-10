@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/20/2019
 ms.author: mlearned
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 2079144cf6cb36870645d3182aabdecccfcbadd0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8a5fb9313fca2a8d787d0fbde47401f6d3e1d229
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615078"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880686"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Quickstart: Een AKS-cluster (Azure Kubernetes Service) implementeren met behulp van de Azure CLI
 
@@ -242,16 +242,16 @@ Voer de volgende stappen uit om de huidige status, de actieve tijds duur en het 
 
 1. Open een webbrowser op de Azure Portal [https://portal.azure.com][azure-portal].
 1. Selecteer de resourcegroep, zoals *myResourceGroup*, selecteer vervolgens uw AKS-cluster, zoals *myAKSCluster*.
-1. Kies onder **Bewaking** aan de linkerkant de optie **Inzichten**
-1. Kies bovenaan **+ Filter toevoegen**
-1. Selecteer *Namespace* als eigenschap en kies vervolgens  *\<Alles behalve kube-systeem\>*
-1. Kies de weergave **Containers**.
+1. Onder **bewaking** aan de linkerkant selecteert u **inzichten**.
+1. Selecteer boven en **filter toevoegen**.
+1. Selecteer *naam ruimte* als eigenschap en kies  *\<vervolgens alle, behalve uitvoeren-\>System*.
+1. Selecteer **containers**.
 
 De containers *azure-vote-back* en *azure-vote-front* worden weergegeven, zoals in het volgende voorbeeld:
 
 ![De status van actieve containers in AKS weergeven](media/kubernetes-walkthrough/monitor-containers.png)
 
-Als u de logboeken `azure-vote-back` voor de pod wilt zien, kiest u de optie voor **weer gave in Analytics**en klikt u op de koppeling **container logboeken weer geven** aan de rechter kant van de lijst met containers. Deze logboeken bevatten de stromen *stdout* en *stderr* van de container.
+Als u de logboeken `azure-vote-back` voor de pod wilt zien, kiest u de optie voor **weer gave in analyse**en selecteert u de koppeling **container logboeken weer geven** aan de rechter kant van de lijst met containers. Deze logboeken bevatten de stromen *stdout* en *stderr* van de container.
 
 ![De containerlogboeken in AKS weergeven](media/kubernetes-walkthrough/monitor-container-logs.png)
 

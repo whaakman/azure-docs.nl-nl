@@ -7,15 +7,15 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 71b7be74ca7b6ac072dfd7c9fa6b8efa72361dfa
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cb93cf1b7a5338058c6f2d93b4bb27f60286882e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561191"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881213"
 ---
 # <a name="define-and-use-moderation-workflows-rest"></a>Toezicht werk stromen definiëren en gebruiken (REST)
 
@@ -98,7 +98,7 @@ Als u details over een bestaande werk stroom wilt ophalen, gaat u naar de pagina
 
 ![Werk stroom-selectie van regio ophalen](images/test-drive-region.png)
 
-Voer de para meters voor REST-aanroep in, zoals in de bovenstaande sectie. Controleer of deze keer de naam van een bestaande werk **stroom is.**
+Voer de para meters voor REST-aanroep in, zoals in de bovenstaande sectie. Controleer of deze keer de naam van een bestaande werk stroom is.
 
 ![Query parameters en kopteksten ophalen](images/workflow-get-default.PNG)
 

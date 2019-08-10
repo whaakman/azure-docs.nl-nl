@@ -1,6 +1,6 @@
 ---
-title: 'QuickStart: instellen en ophalen van een geheim uit Azure Key Vault met behulp van een knooppunt web-app | Microsoft Docs'
-description: In deze snelstartgids hebt u instellen en ophalen van een geheim uit Azure Key Vault met behulp van een knooppunt web-app
+title: 'Quick Start: een geheim instellen en ophalen van Azure Key Vault met behulp van een node web app | Microsoft Docs'
+description: In deze Quick Start kunt u een geheim van Azure Key Vault instellen en ophalen met behulp van een node web app
 services: key-vault
 author: msmbaldwin
 manager: sumedhb
@@ -9,25 +9,25 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 5e8c29e033d895e24047754e686420fb4db86142
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ca6289b1af02a54d8c66d5a9835e24f61c58559
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236638"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934464"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Quickstart: Instellen en ophalen van een geheim uit Azure Key Vault met behulp van een knooppunt web-app 
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Quickstart: Een geheim van Azure Key Vault instellen en ophalen met behulp van een knoop punt web-app 
 
-In deze snelstartgids leest u hoe u een geheim in Azure Key Vault opslaan en ophalen met behulp van een web-app. Met Key Vault kunt u de informatie beveiligen. De geheime waarde wilt weergeven, moet u deze snelstartgids uitvoeren op Azure. In de snelstart wordt gebruikgemaakt van Node.js en beheerde identiteiten voor Azure-resources. In deze zelfstudie leert u procedures om het volgende te doen:
+In deze Quick start ziet u hoe u een geheim opslaat in Azure Key Vault en hoe u het kunt ophalen met behulp van een web-app. Met Key Vault kunt u de informatie beveiligen. Als u de geheime waarde wilt zien, moet u deze snelstartgids uitvoeren op Azure. In de snelstart wordt gebruikgemaakt van Node.js en beheerde identiteiten voor Azure-resources. In deze zelfstudie leert u procedures om het volgende te doen:
 
 * Een sleutelkluis maken.
 * Een geheim opslaan in de sleutelkluis.
 * Een geheim ophalen uit de sleutelkluis.
 * Een Azure-webtoepassing maken.
-* Schakel een [Beheerde identiteit](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) in voor de web-app.
+* Schakel een [Beheerde identiteit](../active-directory/managed-service-identity/overview.md) in voor de web-app.
 * De vereiste machtigingen verlenen aan de webtoepassing om gegevens te lezen uit de sleutelkluis.
 
-Voordat u doorgaat, zorgt u ervoor dat u bekend met bent de [basisconcepten voor Key Vault](key-vault-whatis.md#basic-concepts).
+Voordat u doorgaat, moet u ervoor zorgen dat u bekend bent met de [basis concepten voor Key Vault](key-vault-whatis.md#basic-concepts).
 
 > [!NOTE]
 > Key Vault is een centrale opslagplaats voor het opslaan van geheimen via een programma. Maar hiervoor moeten toepassingen en gebruikers eerst worden geverifieerd bij Key Vault, wat betekent dat ze een geheim moeten presenteren. Als u de aanbevolen procedures voor beveiliging wilt volgen, moet dit eerste geheim periodiek worden gerouleerd. 
@@ -38,7 +38,7 @@ Voordat u doorgaat, zorgt u ervoor dat u bekend met bent de [basisconcepten voor
 
 * [Node.js](https://nodejs.org/en/)
 * [Git](https://www.git-scm.com/)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.4 of hoger. In deze quickstart vereist dat u de Azure CLI lokaal uitvoert. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](https://review.docs.microsoft.com/en-us/cli/azure/install-azure-cli?branch=master&view=azure-cli-latest).
+* [Azure cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.4 of hoger. Voor deze Quick start moet u de Azure CLI lokaal uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](https://review.docs.microsoft.com/en-us/cli/azure/install-azure-cli?branch=master&view=azure-cli-latest).
 * Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
@@ -54,7 +54,7 @@ az login
 Maak een resourcegroep met de opdracht [az group create](/cli/azure/group#az-group-create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
 Selecteer de naam van een resourcegroep en vul de tijdelijke aanduiding in.
-Het volgende voorbeeld wordt een resourcegroep gemaakt in de locatie VS-Oost.
+In het volgende voor beeld wordt een resource groep gemaakt in de locatie VS-Oost.
 
 ```azurecli
 # To list locations: az account list-locations --output table
@@ -65,9 +65,9 @@ De resourcegroep die u net hebt gemaakt, wordt overal in dit artikel gebruikt.
 
 ## <a name="create-a-key-vault"></a>Een sleutelkluis maken
 
-Vervolgens maakt u een sleutelkluis met behulp van de resourcegroep die u in de vorige stap hebt gemaakt. Hoewel dit artikel wordt gebruikgemaakt van 'ContosoKeyVault' als de naam, die u moet een unieke naam gebruiken. Geef de volgende informatie op:
+Vervolgens maakt u een sleutel kluis met behulp van de resource groep die u in de vorige stap hebt gemaakt. Hoewel in dit artikel ' ContosoKeyVault ' als naam wordt gebruikt, moet u een unieke naam gebruiken. Geef de volgende informatie op:
 
-* Key vault-naam.
+* De naam van de sleutel kluis.
 * Naam van de resourcegroep. De naam moet een tekenreeks zijn met 3-24 tekens en mag alleen 0-9, a-z, A-Z en een streepje (-) bevatten.
 * Locatie: **US - oost**.
 
@@ -105,23 +105,23 @@ git clone https://github.com/Azure-Samples/key-vault-node-quickstart.git
 
 ## <a name="install-dependencies"></a>Afhankelijkheden installeren
 
-Voer de volgende opdrachten voor het installeren van afhankelijkheden:
+Voer de volgende opdrachten uit om afhankelijkheden te installeren:
 
 ```
 cd key-vault-node-quickstart
 npm install
 ```
 
-Dit project gebruikt twee knooppuntmodules: [ms-rest-azure](https://www.npmjs.com/package/ms-rest-azure) en [azure keyvault](https://www.npmjs.com/package/azure-keyvault).
+In dit project worden twee knooppunt modules gebruikt: [MS-rest-Azure](https://www.npmjs.com/package/ms-rest-azure) en [Azure-sleutel kluis](https://www.npmjs.com/package/azure-keyvault).
 
 ## <a name="publish-the-web-app-to-azure"></a>De web-app publiceren in Azure
 
-Maak een [Azure App Service](https://azure.microsoft.com/services/app-service/) plan. In dit plan kunt u meerdere web-apps opslaan.
+Een [Azure app service](https://azure.microsoft.com/services/app-service/) -abonnement maken. In dit plan kunt u meerdere web-apps opslaan.
 
     ```
     az appservice plan create --name myAppServicePlan --resource-group myResourceGroup
     ```
-Maak vervolgens een web-app. Vervang in het volgende voorbeeld wordt `<app_name>` met een unieke naam (geldige tekens zijn a-z, 0-9, en -). De runtime wordt ingesteld op NODE|6.9. Als u wilt zien van alle ondersteunde runtimes, `az webapp list-runtimes`.
+Maak vervolgens een web-app. Vervang `<app_name>` in het volgende voor beeld door een globaal unieke app-naam (geldige tekens zijn a-z, 0-9 en-). De runtime wordt ingesteld op NODE|6.9. Als u alle ondersteunde Runtimes wilt weer `az webapp list-runtimes`geven, voert u uit.
 
     ```
     # Bash
@@ -143,14 +143,14 @@ Wanneer de web-app is gemaakt, toont de Azure CLI soortgelijke uitvoer als in he
       < JSON data removed for brevity. >
     }
     ```
-Blader naar uw nieuwe web-app en ziet u of deze werkt. Vervang `<app_name>` door een unieke app-naam.
+Blader naar de zojuist gemaakte web-app en u ziet dat deze werkt. Vervang `<app_name>` door een unieke app-naam.
 
     ```
     http://<app name>.azurewebsites.net
     ```
-De voorgaande opdracht maakt ook een app met Git-functionaliteit waarmee u implementeren in Azure vanuit uw lokale Git-opslagplaats. De lokale Git-opslagplaats is geconfigureerd met deze URL: `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`.
+Met de voor gaande opdracht wordt ook een app met git-functionaliteit gemaakt waarmee u naar Azure kunt implementeren vanuit uw lokale Git-opslag plaats. De lokale Git-opslag plaats is geconfigureerd met deze URL `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`:.
 
-Nadat u de voorgaande opdracht, kunt u een externe Azure toevoegen aan uw lokale Git-opslagplaats. Vervang `<url>` met de URL van de Git-opslagplaats.
+Nadat u de voor gaande opdracht hebt voltooid, kunt u een externe Azure-toepassing toevoegen aan uw lokale Git-opslag plaats. Vervang `<url>` door de URL van het git-opslag plaats.
 
     ```
     git remote add azure <url>
@@ -178,21 +178,21 @@ Noteer de uitvoer van de vorige opdracht. Deze moet de volgende indeling hebben:
           "type": "SystemAssigned"
         }
         
-Voer de volgende opdracht uit met behulp van de naam van uw key vault en de waarde van **principalId**:
+Voer vervolgens de volgende opdracht uit met behulp van de naam van de sleutel kluis en de waarde van **principalId**:
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get set
 ```
 
-## <a name="deploy-the-node-app-to-azure-and-retrieve-the-secret-value"></a>De Node-app implementeren in Azure en de geheime waarde op te halen
+## <a name="deploy-the-node-app-to-azure-and-retrieve-the-secret-value"></a>De node-app implementeren in Azure en de geheime waarde ophalen
 
-Voer de volgende opdracht uit om de app implementeren in Azure:
+Voer de volgende opdracht uit om de app te implementeren in Azure:
 
 ```
 git push azure master
 ```
 
-Na deze, wanneer u bladert naar `https://<app_name>.azurewebsites.net`, ziet u de geheime waarde. Zorg ervoor dat u de naam van de vervangen `<YourKeyVaultName>` met de kluisnaam van uw.
+Wanneer u vervolgens naar `https://<app_name>.azurewebsites.net`bladert, kunt u de geheime waarde zien. Zorg ervoor dat u de naam `<YourKeyVaultName>` hebt vervangen door de naam van uw kluis.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,141 +1,182 @@
 ---
-title: 'Quickstart: Roep de Text Analytics-service aan met behulp van de Azure SDK voor .NET enC#'
+title: 'Quickstart: Text Analytics-client bibliotheek voor .NET | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Informatie en code voorbeelden waarmee u kunt beginnen met het gebruik van de C#Text Analytics-service en.
+description: Gebruik deze Quick Start om te beginnen met het Text Analytics-API van Azure Cognitive Services.
 services: cognitive-services
 author: raymondl
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/30/2019
+ms.date: 08/05/2019
 ms.author: assafi
-ms.openlocfilehash: d12f6b400b270c6ef631d9f503980efef1ae8458
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 4373cd8da8d302722c5edbe3ee716eec96e6419f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840377"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881049"
 ---
-# <a name="quickstart-use-the-net-sdk-and-c-to-call-the-text-analytics-service"></a>Quickstart: De .NET-SDK gebruiken C# en de Text Analytics-Service aanroepen
+# <a name="quickstart-text-analytics-client-library-for-net"></a>Quickstart: Tekst analyse-client bibliotheek voor .NET
 <a name="HOLTop"></a>
 
-Deze Quick Start helpt u de Azure SDK voor .NET te gebruiken C# en om taal te analyseren. Hoewel de [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) rest API compatibel is met de meeste programmeer talen, biedt de SDK een gemakkelijke manier om de service te integreren in uw toepassingen.
+Ga aan de slag met de Text Analytics-client bibliotheek voor .NET. Volg deze stappen om het pakket te installeren en de voorbeeld code voor basis taken uit te proberen. 
 
-> [!NOTE]
-> In de demo code in dit artikel wordt gebruikgemaakt van de synchrone methoden van de Text Analytics .NET SDK voor eenvoud. Voor productie scenario's kunt u echter het beste de batch-asynchrone methoden in uw eigen toepassingen gebruiken om ze schaalbaar en responsief te maken. U kunt bijvoorbeeld in plaats van `SentimentBatchAsync` `Sentiment`gebruiken.
->
-> Een batch-asynchrone versie van dit voor beeld is te vinden op [github](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics).
+Gebruik de Text Analytics-client bibliotheek voor python om uit te voeren:
 
-Raadpleeg de [Naslag informatie](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet)voor de SDK voor .net Text Analytics voor technische informatie.
+* Sentimentanalyse
+* Taaldetectie
+* Entiteit herkenning
+* Sleuteltermextractie
+
+[](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet-preview) | NuGet-voor[beelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples) ([Source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | [package)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) | voor referentie documentatie
+
+> [!NOTE] 
+> In de demo code in dit artikel wordt gebruikgemaakt van de synchrone methoden van de Text Analytics .NET SDK voor eenvoud. Voor productie scenario's kunt u echter het beste de batch-asynchrone methoden in uw eigen toepassingen gebruiken om ze schaalbaar en responsief te maken. U kunt bijvoorbeeld [SentimentBatchAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentimentbatchasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet-preview) aanroepen in plaats van [sentiment ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet).
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Elke versie van Visual Studio 2017 of hoger
-* De Text Analytics [SDK voor .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+* Azure-abonnement: [Maak er gratis een](https://azure.microsoft.com/free/)
+* De huidige versie van de [.net core SDK](https://dotnet.microsoft.com/download/dotnet-core).
 
-[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+## <a name="setting-up"></a>Instellen
 
-## <a name="create-the-visual-studio-solution-and-install-the-sdk"></a>De Visual Studio-oplossing maken en de SDK installeren
+### <a name="create-a-text-analytics-azure-resource"></a>Een Text Analytics Azure-resource maken
 
-1. Maak een nieuw console-app-project (.NET core). [Open Visual Studio](https://visualstudio.microsoft.com/vs/).
-1. Klik met de rechter muisknop op de oplossing en selecteer **NuGet-pakketten beheren voor oplossing**.
-1. Selecteer het tabblad **Browse**. Zoek naar **micro soft. Azure. CognitiveServices. language. TextAnalytics**.
+Down load een sleutel voor het verifiëren van uw toepassingen door Azure Cognitive Services worden vertegenwoordigd door Azure-resources waarop u zich abonneert. Maak een resource voor Text Analytics met behulp van de [Azure Portal](../../cognitive-services-apis-create-account.md) of [Azure cli](../../cognitive-services-apis-create-account-cli.md) op uw lokale machine. U kunt ook het volgende doen:
 
-## <a name="authenticate-your-credentials"></a>Uw referenties verifiëren
+* Ontvang een [proef versie](https://azure.microsoft.com/try/cognitive-services/#decision) die 7 dagen gratis geldig is. Nadat u zich hebt aangemeld, is deze beschikbaar op de [Azure-website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Bekijk uw resource op het [Azure Portal](https://portal.azure.com/)
 
-1. Voeg de volgende `using` -instructies toe aan het bestand van de hoofd klasse (dit is standaard Program.cs).
+Wanneer u een sleutel van uw proef abonnement of resource hebt ontvangen, [maakt u een omgevings variabele](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) voor de `TEXT_ANALYTICS_SUBSCRIPTION_KEY`sleutel met de naam.
 
-    ```csharp
-    using System;
-    using System.Collections.Generic;
-    using System.Net.Http;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-    using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
-    using Microsoft.Rest;
-    ```
+### <a name="create-a-new-c-application"></a>Een nieuwe C# toepassing maken
 
-2. Maak een nieuwe `ApiKeyServiceClientCredentials` klasse om de referenties op te slaan en toe te voegen voor elke aanvraag.
+Maak een nieuwe .NET core-toepassing in uw voorkeurs editor of IDE. 
 
-    ```csharp
-    class ApiKeyServiceClientCredentials : ServiceClientCredentials
-    {
-        private readonly string apiKey;
+In een console venster (zoals cmd, Power shell of bash) gebruikt u de `dotnet new` opdracht om een nieuwe console-app met de naam `text-analytics quickstart`te maken. Met deze opdracht maakt u een eenvoudig ' C# Hallo wereld '-project met één bron bestand: *Program.cs*. 
 
-        public ApiKeyServiceClientCredentials(string apiKey)
-        {
-            this.apiKey = apiKey;
-        }
-
-        public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-        {
-            if (request == null)
-            {
-                throw new ArgumentNullException("request");
-            }
-            request.Headers.Add("Ocp-Apim-Subscription-Key", this.apiKey);
-            return base.ProcessHttpRequestAsync(request, cancellationToken);
-        }
-    }
-    ```
-
-3. Werk de `Program` klasse bij. Voeg een constant lid toe voor uw Text Analytics-API sleutel en een ander voor het service-eind punt. Vergeet niet om de juiste Azure-locatie voor uw Text Analytics-resource te gebruiken.
-
-    ```csharp
-    // Enter your Text Analytics (TA) API Key (available in Azure Portal -> your TA resource -> Keys)
-    private const string ApiKey = "enter-your-textanalytics-api-key-here";
-    // You can get the resource location from Azure Portal -> your TA resource -> Overview
-    // There are two acceptable formats for the endpoint, both
-    // require that you omit the `/text/analytics/<version>` suffix:
-    // 1. A location based endpoint URL -
-    //     "https://<your-location>.api.cognitive.microsoft.com";
-    // 2. A resource name based endpoint URL -
-    //     "https://<your-resource-name>.cognitiveservices.azure.com";
-    private const string Endpoint = "enter-your-base-resource-endpoint-here";
-    ```
-
-> [!Tip]
-> Als u de beveiliging van geheimen in productie systemen wilt verbeteren, raden we u aan [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net)te gebruiken.
->
-
-## <a name="create-a-text-analytics-client"></a>Een Text Analytics-client maken
-
-In de `Main` functie van uw project roept u de voorbeeld methode op die u wilt aanroepen. Geef de `Endpoint` para `ApiKey` meters en op die u hebt gedefinieerd.
-
-```csharp
-    public static void Main(string[] args)
-    {
-        var credentials = new ApiKeyServiceClientCredentials(ApiKey);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = Endpoint
-        };
-
-        // Change the console encoding to display non-ASCII characters.
-        Console.OutputEncoding = System.Text.Encoding.UTF8;
-        SentimentAnalysisExample(client);
-        // DetectLanguageExample(client);
-        // RecognizeEntitiesExample(client);
-        // KeyPhraseExtractionExample(client);
-        Console.ReadLine();
-    }
+```console
+dotnet new console -n text-analytics-quickstart
 ```
 
-In de volgende secties wordt beschreven hoe u elke service functie aanroept.
+Wijzig uw directory in de zojuist gemaakte app-map. U kunt de toepassing samen stellen met:
 
-## <a name="perform-sentiment-analysis"></a>Sentiment-analyse uitvoeren
+```console
+dotnet build
+```
 
-1. Maak een nieuwe functie `SentimentAnalysisExample()` die de-client gaat gebruiken die u eerder hebt gemaakt.
-2. Roep `client.Sentiment()` en haal het resultaat op in dezelfde functie. Het resultaat bevat de sentiment `Score` als dit is gelukt, `errorMessage` en als dat niet het geval is. Een score die dicht bij 0 aangeeft, duidt op een negatieve sentiment, terwijl een score die dichter bij 1 staat, een positief sentiment aangeeft.
+De build-uitvoer mag geen waarschuwingen of fouten bevatten. 
 
-    ```csharp
+```console
+...
+Build succeeded.
+ 0 Warning(s)
+ 0 Error(s)
+...
+```
+
+Open het *Program.cs* -bestand in de map van het project in uw voorkeurs editor of IDE. Voeg de volgende `using` instructies toe:
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
+using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
+using Microsoft.Rest;
+```
+
+Maak in de methode `Main` van de toepassing variabelen voor het Azure-eind punt en de sleutel van uw resource. Als u de omgevings variabele hebt gemaakt nadat u de toepassing hebt gestart, moet u de editor, IDE of shell waarmee deze wordt uitgevoerd, sluiten en opnieuw openen om toegang te krijgen tot de variabele. U gaat de methoden later definiëren.
+
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+
+```csharp
+static void Main(string[] args)
+{
+    // replace this endpoint with the correct one for your Azure resource. 
+    string endpoint = $"https://westus2.api.cognitive.microsoft.com";
+    //This sample assumes you have created an environment variable for your key
+    string key = Environment.GetEnvironmentVariable("TEXT_ANALYTICS_SUBSCRIPTION_KEY");
+    ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials(key));
+    Console.OutputEncoding = System.Text.Encoding.UTF8;
+    SentimentAnalysisExample(client);
+    // languageDetectionExample(client);
+    // RecognizeEntitiesExample(client);
+    // KeyPhraseExtractionExample(client);
+    Console.ReadLine();
+}
+```
+
+### <a name="install-the-client-library"></a>De client bibliotheek installeren
+
+Installeer de Text Analytics-client bibliotheek voor .NET in de toepassingsmap met de volgende opdracht:
+
+```console
+dotnet add package Microsoft.Azure.CognitiveServices.Language.TextAnalytics --version 4.0.0
+```
+
+Als u de Visual Studio IDE gebruikt, is de client bibliotheek beschikbaar als een downloadbaar NuGet-pakket.
+
+## <a name="object-model"></a>Object model
+
+De Text Analytics-client is een [TextAnalyticsClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-dotnet) -object dat wordt geverifieerd bij Azure met behulp van uw sleutel, en biedt functies om tekst als afzonderlijke teken reeksen of als batch te accepteren. U kunt tekst synchroon of asynchroon verzenden naar de API. Het antwoord object bevat de analyse-informatie voor elk document dat u verzendt. 
+
+
+## <a name="code-examples"></a>Code voorbeelden
+
+* [De client verifiëren](#authenticate-the-client)
+* [Sentimentanalyse](#sentiment-analysis)
+* [Taal detectie](#language-detection)
+* [Entiteit herkenning](#entity-recognition)
+* [Extractie van sleutel woorden](#key-phrase-extraction)
+
+## <a name="authenticate-the-client"></a>De client verifiëren
+
+Maak een nieuwe `ApiKeyServiceClientCredentials` klasse om de referenties op te slaan en toe te voegen aan de aanvragen van de client. U kunt een onderdrukking voor `ProcessHttpRequestAsync()` de sleutel toevoegen aan de `Ocp-Apim-Subscription-Key` koptekst.
+
+```csharp
+class ApiKeyServiceClientCredentials : ServiceClientCredentials
+{
+    private readonly string apiKey;
+
+    public ApiKeyServiceClientCredentials(string apiKey)
+    {
+        this.apiKey = apiKey;
+    }
+
+    public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+    {
+        if (request == null)
+        {
+            throw new ArgumentNullException("request");
+        }
+        request.Headers.Add("Ocp-Apim-Subscription-Key", this.apiKey);
+        return base.ProcessHttpRequestAsync(request, cancellationToken);
+    }
+}
+```
+
+In de `main()` -methode maakt u een instantie van de client.
+
+```csharp
+ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials(key));
+```
+
+## <a name="sentiment-analysis"></a>Sentimentanalyse
+
+Maak een nieuwe functie met `SentimentAnalysisExample()` de naam die de client gaat gebruiken die u eerder hebt gemaakt en roep de functie [sentiment ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) aan. Het geretourneerde [SentimentResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) -object bevat de `Score` sentiment als dit is geslaagd `errorMessage` en een if not. 
+
+Een score die dicht bij 0 aangeeft, duidt op een negatieve sentiment, terwijl een score die dichter bij 1 staat, een positief sentiment aangeeft.
+
+```csharp
+static void SentimentAnalysisExample(ITextAnalyticsClient client){
     var result = client.Sentiment("I had the best day of my life.", "en");
-
-    // Printing sentiment results
     Console.WriteLine($"Sentiment Score: {result.Score:0.00}");
-    ```
+}
+```
 
 ### <a name="output"></a>Output
 
@@ -143,20 +184,22 @@ In de volgende secties wordt beschreven hoe u elke service functie aanroept.
 Sentiment Score: 0.87
 ```
 
-## <a name="perform-language-detection"></a>Taal detectie uitvoeren
+## <a name="language-detection"></a>Taaldetectie
 
-1. Maak een nieuwe functie `DetectLanguageExample()` die de-client gaat gebruiken die u eerder hebt gemaakt.
-2. Roep `client.DetectLanguage()` en haal het resultaat op in dezelfde functie. Het resultaat bevat de lijst met gedetecteerde talen in `DetectedLanguages` als dat is gelukt `errorMessage` , en wel als dat niet het geval is. Druk vervolgens de eerste geretourneerde taal af.
-
-    ```csharp
-    var result = client.DetectLanguage("This is a document written in English.");
-
-    // Printing detected languages
-    Console.WriteLine($"Language: {result.DetectedLanguages[0].Name}");
-    ```
+Maak een nieuwe functie met `languageDetectionExample()` de naam die de client gaat gebruiken die u eerder hebt gemaakt en roep de functie [DetectLanguage ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.detectlanguage?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_DetectLanguage_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) aan. Het geretourneerde [LanguageResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.languageresult?view=azure-dotnet) -object bevat de lijst met gedetecteerde `DetectedLanguages` talen in als dat is `errorMessage` gelukt, en wel als dat niet het geval is.  De eerste geretourneerde taal afdrukken.
 
 > [!Tip]
 > In sommige gevallen kan het lastig zijn om talen te dubbel zinnigheid op basis van de invoer. U kunt de `countryHint` para meter gebruiken om een land nummer van twee letters op te geven. Standaard gebruikt de API de standaard countryHint om dit gedrag te verwijderen, kunt u deze para meter opnieuw instellen door deze waarde in te stellen op een lege teken reeks `countryHint = ""` .
+
+```csharp
+static void languageDetectionExample(ITextAnalyticsClient client){
+    var result = client.DetectLanguage("This is a document written in English.");
+    Console.WriteLine($"Language: {result.DetectedLanguages[0].Name}");
+}
+```
+<!--
+[!code-csharp[Language Detection example](~/cognitive-services-dotnet-sdk-samples/samples/language/Program.cs?name=language-detection)]
+-->
 
 ### <a name="output"></a>Output
 
@@ -164,25 +207,26 @@ Sentiment Score: 0.87
 Language: English
 ```
 
-## <a name="perform-entity-recognition"></a>Entiteits herkenning uitvoeren
+## <a name="entity-recognition"></a>Entiteit herkenning
 
-1. Maak een nieuwe functie `RecognizeEntitiesExample()` die de-client gaat gebruiken die u eerder hebt gemaakt.
-2. Roep `client.Entities()` en haal het resultaat op in dezelfde functie. Herhaal vervolgens de resultaten. Het resultaat bevat de lijst met gedetecteerde entiteiten in `Entities` als dat is gelukt `errorMessage` , en wel als dat niet het geval is. Voor elke gedetecteerde entiteit, het type, subtype, naam van de Wikipedia (indien aanwezig) afdrukken, evenals de locaties in de oorspronkelijke tekst.
+Maak een nieuwe functie met `RecognizeEntitiesExample()` de naam die de client gaat gebruiken die u eerder hebt gemaakt en roep de functie [entities ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.entities?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_Entities_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) aan. Herhaal de resultaten. Het geretourneerde [EntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.entitiesresult?view=azure-dotnet) -object bevat de lijst met gedetecteerde `Entities` entiteiten in als dit is `errorMessage` gelukt, en een als dat niet het geval is. Voor elke gedetecteerde entiteit, het type, subtype, naam van de Wikipedia (indien aanwezig) afdrukken, evenals de locaties in de oorspronkelijke tekst.
 
-    ```csharp
+```csharp
+static void entityRecognitionExample(ITextAnalyticsClient client){
+
     var result = client.Entities("Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.");
-
-    // Printing recognized entities
     Console.WriteLine("Entities:");
-    foreach (var entity in result.Entities)
-    {
+    foreach (var entity in result.Entities){
         Console.WriteLine($"\tName: {entity.Name},\tType: {entity.Type ?? "N/A"},\tSub-Type: {entity.SubType ?? "N/A"}");
-        foreach (var match in entity.Matches)
-        {
+        foreach (var match in entity.Matches){
             Console.WriteLine($"\t\tOffset: {match.Offset},\tLength: {match.Length},\tScore: {match.EntityTypeScore:F3}");
         }
     }
-    ```
+}
+```
+<!--
+[!code-csharp[Entity Recognition example](~/cognitive-services-dotnet-sdk-samples/samples/language/Program.cs?name=language-detection)]
+-->
 
 ### <a name="output"></a>Output
 
@@ -204,22 +248,21 @@ Entities:
         Offset: 116,    Length: 11,     Score: 0.800
 ```
 
-## <a name="perform-key-phrase-extraction"></a>Extractie van sleutel woorden uitvoeren
+## <a name="key-phrase-extraction"></a>Sleuteltermextractie
 
-1. Maak een nieuwe functie `KeyPhraseExtractionExample()` die de-client gaat gebruiken die u eerder hebt gemaakt.
-2. Roep `client.KeyPhrases()` en haal het resultaat op in dezelfde functie. Het resultaat bevat de lijst met gedetecteerde sleutel zinnen in `KeyPhrases` als dit is geslaagd, `errorMessage` en een als dat niet zo is. Druk vervolgens een of meer gedetecteerde sleutel zinnen af.
+Maak een nieuwe functie met `KeyPhraseExtractionExample()` de naam die de client gaat gebruiken die u eerder hebt gemaakt en roep de functie voor de sleutel [woorden ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.keyphrases?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_KeyPhrases_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) aan. Het resultaat bevat de lijst met gedetecteerde sleutel zinnen in `KeyPhrases` als dit is geslaagd, `errorMessage` en een als dat niet zo is. Alle gedetecteerde sleutel zinnen afdrukken.
 
-    ```csharp
-    var result = client.KeyPhrases("My cat might need to see a veterinarian.");
+```csharp
+var result = client.KeyPhrases("My cat might need to see a veterinarian.");
 
-    // Printing key phrases
-    Console.WriteLine("Key phrases:");
+// Printing key phrases
+Console.WriteLine("Key phrases:");
 
-    foreach (string keyphrase in result.KeyPhrases)
-    {
-        Console.WriteLine($"\t{keyphrase}");
-    }
-    ```
+foreach (string keyphrase in result.KeyPhrases)
+{
+    Console.WriteLine($"\t{keyphrase}");
+}
+```
 
 ### <a name="output"></a>Output
 
@@ -229,6 +272,13 @@ Key phrases:
     veterinarian
 ```
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Als u een Cognitive Services-abonnement wilt opschonen en verwijderen, kunt u de resource of resource groep verwijderen. Als u de resource groep verwijdert, worden ook alle andere resources die aan de resource groep zijn gekoppeld, verwijderd.
+
+* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure-CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
@@ -236,4 +286,7 @@ Key phrases:
 
 
 * [Overzicht van Text Analytics](../overview.md)
-* [Veelgestelde vragen](../text-analytics-resource-faq.md)
+* [Sentiment analyse](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Entiteit herkenning](../how-tos/text-analytics-how-to-entity-linking.md)
+* [Taal detecteren](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Taal herkenning](../how-tos/text-analytics-how-to-language-detection.md)

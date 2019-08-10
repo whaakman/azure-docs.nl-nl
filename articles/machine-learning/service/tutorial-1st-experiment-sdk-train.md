@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 66a0c625d300a74787e3640992675d5a3f31610c
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a3db70925d59f9d0e2793b04824b2e8606719dd4
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828533"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934238"
 ---
 # <a name="tutorial-train-your-first-model"></a>Zelfstudie: Uw eerste model trainen
 
@@ -23,6 +23,7 @@ Deze zelfstudie is **deel twee van een tweedelige reeks**. In de vorige zelf stu
 
 In deze zelfstudie leert u het volgende:
 
+> [!div class="checklist"]
 > * Uw werk ruimte verbinden en een experiment maken
 > * Gegevens laden en scikit trainen-informatie over modellen
 > * Trainings resultaten weer geven in de portal

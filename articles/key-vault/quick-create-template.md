@@ -1,6 +1,6 @@
 ---
-title: 'Azure-Snelstart: een Azure-sleutelkluis en een geheim maken met behulp van Azure Resource Manager-sjabloon | Microsoft Docs'
-description: Snelstart van het Azure-sleutelkluizen maken en geheimen toevoegen aan de kluizen met behulp van Azure Resource Manager-sjabloon.
+title: 'Azure-Snelstartgids: een Azure-sleutel kluis en een geheim maken met behulp van Azure Resource Manager sjabloon | Microsoft Docs'
+description: Quick Start laat zien hoe u Azure-sleutel kluizen maakt en geheimen aan de kluizen kunt toevoegen met behulp van Azure Resource Manager sjabloon.
 services: key-vault
 author: mumian
 manager: dougeby
@@ -10,16 +10,16 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2019
 ms.author: jgao
-ms.openlocfilehash: 802c0409fe3ac88f73c383958d2337be09ef7992
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: b27caa3d91d67ad63bfbf5e7c549d690980cdd7b
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016462"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934441"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Quickstart: Instellen en ophalen van een geheim uit Azure Key Vault met behulp van Resource Manager-sjabloon
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Quickstart: Een geheim instellen en ophalen uit Azure Key Vault met behulp van Resource Manager-sjabloon
 
-[Azure Key Vault](./key-vault-overview.md) is een cloudservice die voorziet in een beveiligd archief geheimen, zoals sleutels, wachtwoorden, certificaten, en andere geheimen. In deze snelstart richt zich op het proces voor het implementeren van een Resource Manager-sjabloon voor het maken van een key vault en een geheim. Zie voor meer informatie over het ontwikkelen van Resource Manager-sjablonen [Resource Manager-documentatie](/azure/azure-resource-manager/) en de [sjabloonverwijzing](/azure/templates/microsoft.keyvault/allversions).
+[Azure Key Vault](./key-vault-overview.md) is een Cloud service die een veilig archief voor geheimen levert, zoals sleutels, wacht woorden, certificaten en andere geheimen. Deze Snelstartgids is gericht op het proces van het implementeren van een resource manager-sjabloon om een sleutel kluis en een geheim te maken. Zie de [documentatie van Resource Manager](/azure/azure-resource-manager/) en de [sjabloon verwijzing](/azure/templates/microsoft.keyvault/allversions)voor meer informatie over het ontwikkelen van Resource Manager-sjablonen.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -29,7 +29,7 @@ Als u dit artikel wilt voltooien, hebt u het volgende nodig:
 
 * Uw Azure AD-gebruikersobject-id is in de sjabloon nodig om machtigingen te kunnen configureren. Met de volgende procedure wordt de object-id (GUID) opgehaald.
 
-    1. Voer de volgende Azure PowerShell of Azure CLI-opdracht door Selecteer **uitproberen**, en plak het script in het deelvenster shell. Als u het script, met de rechtermuisknop op de shell en selecteer vervolgens **plakken**. 
+    1. Voer de volgende Azure PowerShell of de Azure CLI-opdrachtuit door het te selecteren en vervolgens het script in het deel venster shell te plakken. Als u het script wilt plakken, klikt u met de rechter muisknop op de shell en selecteert u vervolgens **Plakken**. 
 
         ```azurecli-interactive
         echo "Enter your email address that is used to sign in to Azure:" &&
@@ -42,11 +42,11 @@ Als u dit artikel wilt voltooien, hebt u het volgende nodig:
         (Get-AzADUser -UserPrincipalName $upn).Id
         ```
 
-    2. Noteer de object-id. U hebt deze nodig in de volgende sectie van deze quickstart.
+    2. Noteer de object-id. U hebt deze nodig in de volgende sectie van deze Snelstartgids.
 
 ## <a name="create-a-vault-and-a-secret"></a>Een kluis en een geheim maken
 
-De sjabloon die wordt gebruikt in deze Quick Start is afkomstig van [Azure Quickstart-sjablonen](https://azure.microsoft.com/resources/templates/101-key-vault-create/). Meer voorbeelden van Azure Key Vault sjabloon vindt [hier](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
+De sjabloon die in deze Quick Start wordt gebruikt, is afkomstig uit [Azure Quick](https://azure.microsoft.com/resources/templates/101-key-vault-create/)start-sjablonen. Meer Azure Key Vault sjabloon voorbeelden vindt u [hier](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
 
 1. Selecteer de volgende afbeelding om u aan te melden bij Azure en een sjabloon te openen. Met de sjabloon worden een sleutelkluis en een geheim gemaakt.
 
@@ -56,22 +56,22 @@ De sjabloon die wordt gebruikt in deze Quick Start is afkomstig van [Azure Quick
 
     ![Resource Manager-sjabloon - sleutelkluisintegratie - portalimplementatie](./media/quick-create-template/create-key-vault-using-template-portal.png)
 
-    Tenzij deze is opgegeven, wordt de standaardwaarde gebruiken om de sleutelkluis en een geheim te maken.
+    Tenzij deze is opgegeven, gebruikt u de standaard waarde om de sleutel kluis en een geheim te maken.
 
     * **Abonnement**: selecteer een Azure-abonnement.
-    * **Resourcegroep**: Selecteer **nieuw**, voer een unieke naam voor de resourcegroep en klik vervolgens op **OK**. 
+    * **Resource groep**: Selecteer **nieuwe maken**, voer een unieke naam in voor de resource groep en klik vervolgens op **OK**. 
     * **Locatie**: selecteer een locatie.  Bijvoorbeeld **US - centraal**.
-    * **Key Vault-naam**: Voer een naam voor de sleutelkluis die u moet globaal uniek zijn binnen de. vault.azure.net naamruimte.  
-    * **Tenant-id**: met de sjabloonfunctie wordt uw tenant-id automatisch opgehaald.  De standaardwaarde niet te wijzigen.
-    * **AD-gebruikers-Id**: Voer uw Azure AD gebruiker object-ID die u hebt opgehaald via [vereisten](#prerequisites).
-    * **Geheime naam**: Voer een naam voor de geheime sleutel die u in de key vault opslaat.  Bijvoorbeeld, **adminpassword**.
-    * **Geheime waarde**: Voer de geheime waarde.  Als u een wachtwoord opslaat, is het raadzaam het gegenereerde wachtwoord dat u hebt gemaakt in vereisten.
+    * **Key Vault naam**: Voer een naam in voor de sleutel kluis die wereld wijd uniek moet zijn binnen de. Vault.Azure.net-naam ruimte.  
+    * **Tenant-id**: met de sjabloonfunctie wordt uw tenant-id automatisch opgehaald.  Wijzig de standaard waarde niet.
+    * **AD-gebruikers-id**: Voer uw Azure AD-gebruikers object-id in die u hebt opgehaald uit de [vereisten](#prerequisites).
+    * **Geheime naam**: Voer een naam in voor het geheim dat u opslaat in de sleutel kluis.  Bijvoorbeeld **AdminPassword**.
+    * **Geheime waarde**: Voer de geheime waarde in.  Als u een wacht woord opslaat, wordt u aangeraden het gegenereerde wacht woord te gebruiken dat u hebt gemaakt in vereisten.
     * **Ik ga akkoord met de bovenstaande voorwaarden**: Selecteren.
 3. Selecteer **Aankoop**.
 
 ## <a name="validate-the-deployment"></a>De implementatie valideren
 
-U kunt Azure portal gebruiken om de key vault en het geheim te controleren of u de volgende Azure CLI of Azure PowerShell-script gebruiken om het geheim die is gemaakt.
+U kunt de Azure Portal gebruiken om de sleutel kluis en het geheim te controleren, of het volgende Azure CLI-of Azure PowerShell-script gebruiken om het gemaakte geheim weer te geven.
 
 ```azurecli-interactive
 echo "Enter your key vault name:" &&
@@ -87,7 +87,7 @@ Get-AzKeyVaultSecret -vaultName $keyVaultName
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 Andere Key Vault-snelstarts en zelfstudies bouwen voort op deze snelstart. Als u van plan bent om verder te gaan met volgende snelstarts en zelfstudies, kunt u deze resources intact laten.
-Als u die niet meer nodig hebt, verwijdert u de resourcegroep. Hierdoor worden ook de sleutelkluis en de gerelateerde resources verwijderd. De resourcegroep verwijderen met behulp van Azure CLI of Azure Powershell:
+Als u die niet meer nodig hebt, verwijdert u de resourcegroep. Hierdoor worden ook de sleutelkluis en de gerelateerde resources verwijderd. De resource groep verwijderen met behulp van Azure CLI of Azure Power shell:
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -102,6 +102,6 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Startpagina van Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
-* [Documentatie voor Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)
+* [Documentatie voor Azure Key Vault](index.yml)
 * [Azure SDK voor Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
 * [Azure REST API-naslaginformatie](https://docs.microsoft.com/rest/api/keyvault/)
