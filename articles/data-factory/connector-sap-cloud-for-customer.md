@@ -157,7 +157,7 @@ Als u gegevens wilt kopiëren naar een SAP-Cloud voor de klant, stelt u het sink
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **SapCloudForCustomerSink**  | Ja |
-| writeBehavior | Het schrijf gedrag van de bewerking. Kan ' Insert ', ' update ' zijn. | Nee. Standaard invoegen. |
+| writeBehavior | Het schrijf gedrag van de bewerking. Kan ' Insert ', ' Update ' zijn. | Nee. Standaard ' Insert '. |
 | writeBatchSize | De Batch grootte van de schrijf bewerking. De Batch grootte voor het verkrijgen van de beste prestaties kan verschillen voor de verschillende tabellen of servers. | Nee. Standaard 10. |
 
 **Voorbeeld:**
