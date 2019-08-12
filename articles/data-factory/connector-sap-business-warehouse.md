@@ -121,7 +121,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 ### <a name="sap-bw-as-source"></a>SAP BW als bron
 
-Om gegevens te kopiëren van SAP BW, stelt u het brontype in de kopieeractiviteit naar **RelationalSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
+Om gegevens te kopiëren van SAP BW, stelt u het brontype in de kopieeractiviteit naar **RelationalSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **source** sectie:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
