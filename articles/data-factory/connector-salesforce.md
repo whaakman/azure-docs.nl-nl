@@ -316,25 +316,25 @@ Wanneer u gegevens uit Sales Force kopieert, worden de volgende toewijzingen geb
 
 | Sales Force-gegevens type | Data Factory tussentijdse gegevenstype |
 |:--- |:--- |
-| Auto Number |Tekenreeks |
-| Checkbox |Boolean-waarde |
+| Auto Number |String |
+| Checkbox |Boolean |
 | Currency |Decimal |
-| Date |Datetime |
-| Date/Time |Datetime |
-| Email |Tekenreeks |
-| ID |Tekenreeks |
-| Lookup Relationship |Tekenreeks |
-| Multi-Select Picklist |Tekenreeks |
+| Date |DateTime |
+| Date/Time |DateTime |
+| Email |String |
+| Id |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
 | Number |Decimal |
 | Percent |Decimal |
-| Phone |Tekenreeks |
-| Selectie lijst |Tekenreeks |
-| Text |Reeks |
-| Text Area |Tekenreeks |
-| Text Area (Long) |Tekenreeks |
-| Text Area (Rich) |Tekenreeks |
-| Text (Encrypted) |Reeks |
-| URL |Tekenreeks |
+| Phone |String |
+| Picklist |String |
+| Text |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
+| URL |String |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
