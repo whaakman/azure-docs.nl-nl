@@ -219,32 +219,32 @@ Bij het kopiëren van gegevens uit SAP HANA worden de volgende toewijzingen gebr
 
 | SAP HANA gegevens type | Data factory tussentijdse gegevenstype |
 | ------------------ | ------------------------------ |
-| ALPHANUM           | Reeks                         |
+| ALPHANUM           | String                         |
 | BIGINT             | Int64                          |
-| WAARDE             | Byte[]                         |
-| BINTEXT            | Tekenreeks                         |
-| BLOBCACHE               | Byte[]                         |
+| BINARY             | Byte[]                         |
+| BINTEXT            | String                         |
+| BLOB               | Byte[]                         |
 | BOOL               | Byte                           |
-| CLOB               | Reeks                         |
-| DATE               | Datetime                       |
+| CLOB               | String                         |
+| DATE               | DateTime                       |
 | DECIMAL            | Decimal                        |
-| DUBBELKLIK             | Double                         |
+| DOUBLE             | Double                         |
 | FLOAT              | Double                         |
 | INTEGER            | Int32                          |
-| NCLOB              | Reeks                         |
-| NVARCHAR           | Tekenreeks                         |
+| NCLOB              | String                         |
+| NVARCHAR           | String                         |
 | REAL               | Single                         |
-| SECONDDATE         | Datetime                       |
-| SHORTTEXT          | Reeks                         |
+| SECONDDATE         | DateTime                       |
+| SHORTTEXT          | String                         |
 | SMALLDECIMAL       | Decimal                        |
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte[]                         |
 | STPOINTTYPE        | Byte[]                         |
-| TEXT               | Reeks                         |
-| TIJD               | TimeSpan                       |
+| TEXT               | String                         |
+| TIME               | TimeSpan                       |
 | TINYINT            | Byte                           |
-| VARCHAR            | Tekenreeks                         |
-| TIMESTAMP          | Datetime                       |
+| VARCHAR            | String                         |
+| TIMESTAMP          | DateTime                       |
 | VARBINARY          | Byte[]                         |
 
 ## <a name="next-steps"></a>Volgende stappen
