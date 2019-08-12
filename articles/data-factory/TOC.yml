@@ -166,6 +166,8 @@
       items:
         - name: Visueel gegevensfabrieken maken
           href: author-visually.md
+        - name: Broncodebeheer
+          href: source-control.md
         - name: Continue integratie en levering
           href: continuous-integration-deployment.md
         - name: Iteratieve ontwikkeling en foutopsporing

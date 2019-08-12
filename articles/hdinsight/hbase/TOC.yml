@@ -25,14 +25,6 @@
       href: ../hdinsight-component-versioning.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
-    - name: Problemen oplossen
-      items:
-        - name: Apache HBase REST reageert niet
-          href: ./hbase-troubleshoot-rest-not-spending.md
-        - name: Constant hoog CPU-gebruik op de regioserver
-          href: ./hbase-troubleshoot-pegged-cpu-region-server.md
-        - name: Time-outs bij gebruik van de opdracht 'hbase hbck'
-          href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
 - name: Procedures
   items:
     - name: Clusteropslag gebruiken
@@ -167,8 +159,25 @@
         - name: OS-patches voor HDInsight-cluster
           href: ../hdinsight-os-patching.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
     - name: Problemen oplossen
-      href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
       items:
+        - name: Problemen met resources oplossen
+          href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
+        - name: Geen gegevens in Apache Phoenix-weergaven
+          href: ./hbase-troubleshoot-phoenix-no-data.md
+        - name: BindException - Adres in gebruik
+          href: ./hbase-troubleshoot-bindexception-address-use.md
+        - name: Apache HBase kan niet worden gestart
+          href: ./hbase-troubleshoot-start-fails.md
+        - name: Problemen met regioservers
+          href: ./hbase-troubleshoot-unassigned-regions.md
+        - name: Connectiviteitsproblemen met Apache Phoenix
+          href: ./hbase-troubleshoot-phoenix-connectivity.md
+        - name: Apache HBase REST reageert niet
+          href: ./hbase-troubleshoot-rest-not-spending.md
+        - name: Constant hoog CPU-gebruik op de regioserver
+          href: ./hbase-troubleshoot-pegged-cpu-region-server.md
+        - name: Time-outs bij gebruik van de opdracht 'hbase hbck'
+          href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
         - name: Problemen met een traag of niet werkend HDInsight-cluster oplossen
           href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
         - name: Problemen met Apache Hadoop HDFS oplossen

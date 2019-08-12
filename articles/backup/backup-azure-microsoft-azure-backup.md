@@ -1,18 +1,19 @@
 ---
 title: Azure Backup Server gebruiken om een back-up te maken van workloads naar Azure
 description: Gebruik Azure Backup Server om werk belastingen te beveiligen of een back-up te maken van de Azure Portal.
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: kasinh
-ms.openlocfilehash: bf0e964c46088947fa50d1eadbcc12b78978251f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: d815b471b0a1d7842118c7ac0b5e1665b8fb3c1e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466377"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879945"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server installeren en upgraden
 > [!div class="op_single_selector"]
@@ -77,12 +78,14 @@ U kunt met de optie voor opslagreplicatie kiezen tussen geografisch redundante o
 
 De instelling voor opslagreplicatie bewerken:
 
-1. Selecteer uw kluis om het dash board kluis en het menu instellingen te openen. Als het menu **instellingen** niet wordt geopend, klikt u op **alle instellingen** in het kluis dashboard.
-2. Klik in het menu **instellingen** op back-upconfiguratie **Backup-infra structuur** > om de Blade **back-upconfiguratie** te openen. Kies in het menu **back-upconfiguratie** de optie voor opslag replicatie voor uw kluis.
+1. Klik op de blade **Recovery Services-kluizen** op de nieuwe kluis. Klik onder de sectie **instellingen** op **Eigenschappen**.
+2. In **Eigenschappen**, onder **back-upconfiguratie**, klikt u op **bijwerken**.
 
-    ![Lijst met back-upkluizen](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+3. Selecteer het type opslag replicatie en klik op **Opslaan**.
 
-    Nadat u de opslagoptie voor uw kluis hebt gekozen, bent u klaar om de VM aan de kluis te koppelen. Voordat u de VM aan de kluis koppelt, moet u eerst de virtuele Azure-machines detecteren en registreren.
+     ![De opslagconfiguratie voor nieuwe kluis instellen](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+
+ 
 
 ## <a name="software-package"></a>Software pakket
 ### <a name="downloading-the-software-package"></a>Het software pakket downloaden
@@ -115,7 +118,7 @@ De instelling voor opslagreplicatie bewerken:
 
     ![on-premises en workloads als doel stellingen](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
-    Selecteer in de vervolg keuzelijst **waarover wilt u een back-up maken?** de werk belastingen die u wilt beveiligen met Azure backup server en klik vervolgens op **OK**.
+    Selecteer in de vervolg keuzelijst **waarvan wilt u een back-up maken?** de werk belastingen die u wilt beveiligen met Azure backup server en klik vervolgens op **OK**.
 
     Met de wizard aan de slag **met back-up** kunt u de optie **infra structuur voorbereiden** gebruiken om een back-up te maken van werk belastingen naar Azure.
 
@@ -159,7 +162,7 @@ Zodra het uitpakken is voltooid, schakelt u het selectie vakje in om de vers geÃ
 
     ![Azure Backup Server-SQL-controle](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    Als er een fout optreedt met een aanbeveling om de computer opnieuw op te starten, moet u dit doen en op **controleren**klikken. Als er SQL-configuratie problemen optreden, moet u SQL opnieuw configureren volgens de SQL-richt lijnen en opnieuw proberen om MABS te installeren of bij te werken met behulp van het bestaande exemplaar van SQL.
+    Als er een fout optreedt met een aanbeveling om de computer opnieuw op te starten, moet u dit doen en op **controleren**klikken. Als er SQL-configuratie problemen zijn, moet u SQL opnieuw configureren volgens de SQL-richt lijnen en opnieuw proberen om MABS te installeren of bij te werken met behulp van het bestaande exemplaar van SQL.
 
    > [!NOTE]
    > Azure Backup Server werkt niet met een extern SQL Server exemplaar. Het exemplaar dat door Azure Backup Server wordt gebruikt, moet lokaal zijn. Als u een bestaande SQL Server gebruikt voor MABS, ondersteunt MABS-installatie alleen het gebruik van *benoemde exemplaren* van SQL Server.
@@ -250,7 +253,7 @@ Hier volgen de stappen als u MABS moet verplaatsen naar een nieuwe server, terwi
   > - U moet een back-up hebben van de MABS-data base (DPMDB). U moet de data base herstellen.
 
 1. Selecteer in het weergave paneel de client computers waarvoor u de beveiligings agent wilt bijwerken.
-2. Sluit de oorspronkelijke Azure-back-upserver af of neem de kabel weg.
+2. Sluit de oorspronkelijke Azure backup-server af of neem de kabel weg.
 3. Stel de computer account in Active Directory opnieuw in.
 4. Installeer Server 2016 op de nieuwe computer en geef deze dezelfde computer naam als de oorspronkelijke Azure Backup Server.
 5. Lid worden van het domein
@@ -267,7 +270,7 @@ Hier volgen de stappen als u MABS moet verplaatsen naar een nieuwe server, terwi
     Als u nieuwe schijven aan de DPM-opslag groep hebt toegevoegd in plaats van de oude te verplaatsen, voert u DPMSYNC-Reallocatereplica uit uit.
 
 ## <a name="network-connectivity"></a>Netwerk verbinding
-Azure Backup Server moet verbinding hebben met de Azure Backup-service om het product goed te laten werken. Als u wilt controleren of de computer de verbinding met Azure heeft, ```Get-DPMCloudConnection``` gebruikt u de cmdlet in de Azure Backup Server Power shell-console. Als de uitvoer van de cmdlet waar is, is er connectiviteit aanwezig. anders is er geen verbinding.
+Azure Backup Server moet verbinding hebben met de Azure Backup-service om het product goed te laten werken. Als u wilt controleren of de computer de verbinding met Azure heeft, ```Get-DPMCloudConnection``` gebruikt u de cmdlet in de Azure Backup Server Power shell-console. Als de uitvoer van de cmdlet TRUE is, is er verbinding, maar is er geen verbinding.
 
 Op hetzelfde moment moet het Azure-abonnement de status in orde hebben. Als u de status van uw abonnement wilt weten en wilt beheren, meldt u zich aan bij de [Portal voor abonnementen](https://account.windowsazure.com/Subscriptions).
 
@@ -296,7 +299,7 @@ Zodra de verbinding met Azure is hersteld op de Azure Backup Server machine, wor
 ### <a name="handling-subscription-states"></a>Abonnements statussen verwerken
 Het is mogelijk om een Azure-abonnement te maken van een *verlopen* of oningerichte status naar de *actieve* status. Dit heeft echter enkele gevolgen voor het product gedrag terwijl de status niet *actief*is:
 
-* Een  ongedaan gemaakt abonnement verliest de functionaliteit voor de periode dat de inrichting ongedaan is gemaakt. Bij het inschakelen van actief wordt de product functionaliteit van Backup/Restore opnieuw *geactiveerd*. De back-upgegevens op de lokale schijf kunnen ook worden opgehaald als deze zijn opgeslagen met een voldoende lange Bewaar periode. De back-upgegevens in azure zijn echter IRRETRIEVABLY kwijt wanneer het abonnement de  status unprovision heeft ingevoerd.
+* Een ongedaan gemaakt abonnement verliest de functionaliteit voor de periode dat de inrichting ongedaan is gemaakt. Bij het inschakelen van actief wordt de product functionaliteit van Backup/Restore opnieuw *geactiveerd*. De back-upgegevens op de lokale schijf kunnen ook worden opgehaald als deze zijn opgeslagen met een voldoende lange Bewaar periode. De back-upgegevens in azure zijn echter IRRETRIEVABLY kwijt wanneer het abonnement de status unprovision heeft ingevoerd.
 * Een *verlopen* abonnement verliest alleen de functionaliteit als deze weer *actief* is geweest. Back-ups die zijn gepland voor de periode dat het abonnement is *verlopen* , worden niet uitgevoerd.
 
 ## <a name="upgrade-mabs"></a>MABS bijwerken

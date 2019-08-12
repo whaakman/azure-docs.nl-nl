@@ -159,6 +159,8 @@
     - name: Problemen oplossen
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/kafka/toc.json&bc=/azure/hdinsight/kafka/breadcrumb/toc.json
       items:
+        - name: Onvoldoende foutdomeinen
+          href: ./kafka-troubleshoot-insufficient-domains.md
         - name: Problemen met een traag of niet werkend HDInsight-cluster oplossen
           href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/kafka/toc.json&bc=/azure/hdinsight/kafka/breadcrumb/toc.json
         - name: Problemen met Apache Hadoop HDFS oplossen

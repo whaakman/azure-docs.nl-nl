@@ -6,7 +6,7 @@
     - name: Wat is de Azure Machine Learning-service?
       displayName: 'AML, services, overview, introduction'
       href: overview-what-is-azure-ml.md
-    - name: De werking van de service
+    - name: Architectuur en voorwaarden
       displayName: 'architecture, concepts, definitions, glossary'
       href: concept-azure-machine-learning-architecture.md
 - name: Zelfstudies
@@ -216,6 +216,8 @@
         - name: Waar en hoe u implementeert
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
+        - name: Notebook-VM's
+          href: how-to-deploy-local-container-notebook-vm.md
         - name: Azure Container Instances
           href: how-to-deploy-azure-container-instance.md
         - name: Azure Kubernetes Service
@@ -256,9 +258,9 @@
     - name: Herbruikbare werkstromen maken
       displayName: pipelines
       items:
-        - name: ML-pijplijn maken
+        - name: 'ML-pijplijnen: batch, berekeningen, opnieuw gebruiken, delen'
           href: how-to-create-your-first-pipeline.md
-        - name: CI/CD van ML-werkstromen met Azure-pijplijnen
+        - name: Azure-pijplijnen voor CI/CD
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
     - name: Resourcequota beheren

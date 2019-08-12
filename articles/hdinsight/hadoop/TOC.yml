@@ -41,30 +41,6 @@
       href: ../hdinsight-hadoop-compare-storage-options.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
     - name: Inzicht in beheerde identiteiten
       href: ../hdinsight-managed-identities.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
-    - name: Problemen oplossen
-      items:
-        - name: Fouten bij het maken van een cluster
-          href: ./hdinsight-troubleshoot-cluster-creation-fails.md
-        - name: Onvoldoende schijfruimte
-          href: ./hdinsight-troubleshoot-out-disk-space.md
-        - name: Zacht vergrendeling - CPU
-          href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
-        - name: 'InvalidNetworkConfigurationErrorCode: maken van cluster mislukt'
-          href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
-        - name: 'InvalidNetworkSecurityGroupSecurityRules: het maken van een cluster mislukt'
-          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
-        - name: Aanmelden bij het HDInsight-cluster is niet mogelijk
-          href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
-        - name: Kan geen knooppunten toevoegen aan het HDInsight-cluster
-          href: ./hdinsight-troubleshoot-unable-add-nodes.md
-        - name: Certificaat van service-principal converteren
-          href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
-        - name: Lokale HDFS vastgelopen in veilige modus
-          href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
-        - name: Problemen met de Apache Ambari-heartbeat
-          href: ./apache-ambari-troubleshoot-heartbeat-issues.md
-        - name: Apache Ambari-hosts en -services zijn buiten werking
-          href: ./apache-ambari-troubleshoot-down-hosts-services.md
 - name: Procedures
   items:
     - name: Apache Hadoop-sandbox gebruiken
@@ -310,6 +286,30 @@
     - name: Problemen oplossen
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
       items:
+        - name: Fouten bij het maken van een cluster
+          href: ./hdinsight-troubleshoot-cluster-creation-fails.md
+        - name: Onvoldoende schijfruimte
+          href: ./hdinsight-troubleshoot-out-disk-space.md
+        - name: Zacht vergrendeling - CPU
+          href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
+        - name: 'InvalidNetworkConfigurationErrorCode: maken van cluster mislukt'
+          href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
+        - name: 'InvalidNetworkSecurityGroupSecurityRules: het maken van een cluster mislukt'
+          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
+        - name: Aanmelden bij het HDInsight-cluster is niet mogelijk
+          href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
+        - name: Kan geen knooppunten toevoegen aan het HDInsight-cluster
+          href: ./hdinsight-troubleshoot-unable-add-nodes.md
+        - name: Certificaat van service-principal converteren
+          href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+        - name: Lokale HDFS vastgelopen in veilige modus
+          href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
+        - name: Problemen met de Apache Ambari-heartbeat
+          href: ./apache-ambari-troubleshoot-heartbeat-issues.md
+        - name: 502-fout in de Apache Ambari-gebruikersinterface
+          href: ./apache-ambari-troubleshoot-fivezerotwo-error.md
+        - name: Apache Ambari-hosts en -services zijn buiten werking
+          href: ./apache-ambari-troubleshoot-down-hosts-services.md
         - name: Problemen met een traag of niet werkend HDInsight-cluster oplossen
           href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
         - name: Problemen met Apache Hadoop HDFS oplossen

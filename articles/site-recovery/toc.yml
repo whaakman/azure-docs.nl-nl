@@ -155,6 +155,8 @@
           items:
             - name: Netwerken voorbereiden voor herstel na noodgevallen voor Azure-VM
               href: azure-to-azure-about-networking.md
+            - name: Netwerkconfiguraties van de beoogde Azure-VM aanpassen
+              href: azure-to-azure-customize-networking.md
             - name: Netwerktoewijzing instellen en IP-adressen behouden na een failover
               href: azure-to-azure-network-mapping.md
             - name: Voorbeelden voor het behouden van IP-adressen na een failover

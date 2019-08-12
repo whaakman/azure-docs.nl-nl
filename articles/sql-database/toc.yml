@@ -4,7 +4,7 @@
   items:
     - name: Wat is SQL Database?
       href: sql-database-technical-overview.md
-    - name: Een versie van Azure SQL kiezen
+    - name: Welke SQL-optie moet ik kiezen?
       href: sql-database-paas-vs-sql-server-iaas.md
     - name: Releaseopmerkingen
       href: sql-database-release-notes.md
@@ -280,14 +280,18 @@
               href: sql-vulnerability-assessment.md
             - name: Advanced Threat Protection
               href: sql-database-threat-detection-overview.md
-        - name: IP-firewallregels op serverniveau
+        - name: Netwerkbeveiliging
           items:
-            - name: Maken en beheren
+            - name: Overzicht van netwerktoegangsbeheer
+              href: sql-database-networkaccess-overview.md
+            - name: Op IP gebaseerde firewall
               href: sql-database-firewall-configure.md
-            - name: Eindpunten van virtueel netwerk
-              href: sql-database-vnet-service-endpoint-rule-overview.md
-            - name: Eindpunten van virtueel netwerk - PowerShell
-              href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: Firewallregels voor virtueel netwerk
+              items:
+                - name: Eindpunten van virtueel netwerk
+                  href: sql-database-vnet-service-endpoint-rule-overview.md
+                - name: Eindpunten van virtueel netwerk - PowerShell
+                  href: sql-database-vnet-service-endpoint-rule-powershell.md
         - name: Toegangsbeheer
           items:
             - name: Toegangsbeheer

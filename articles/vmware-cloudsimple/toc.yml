@@ -62,6 +62,8 @@
           items:
             - name: Knooppunten inrichten
               href: create-nodes.md
+            - name: Knooppunten verwijderen
+              href: delete-nodes.md
         - name: Privécloudresources beheren
           items:
             - name: Een privécloud maken
@@ -76,6 +78,8 @@
               href: azure-subscription-mapping.md
             - name: Bevoegdheden escaleren
               href: escalate-private-cloud-privileges.md
+            - name: Een privécloud verwijderen
+              href: delete-private-cloud.md
         - name: CloudSimple-activiteit controleren
           href: 'https://docs.azure.cloudsimple.com/activity/'
         - name: Privécloudnetwerken instellen

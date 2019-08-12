@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-manager: craigg
-ms.date: 07/19/2019
-ms.openlocfilehash: 1cc8828f5a936b130480c2c7516d00b8bee6760f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.date: 08/02/2019
+ms.openlocfilehash: 0139b3471eb9117830180088498eb14efd6ab661
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357273"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781305"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Vooruitbetalen voor het SQL Database Compute-resources met Azure SQL Database gereserveerde capaciteit
 
@@ -64,13 +63,9 @@ In de volgende tabel worden de vereiste velden beschreven.
 1. Selecteer **Aankoop**.
 1. Selecteer **deze reserve ring weer geven** om de status van uw aankoop te bekijken.
 
-## <a name="cancellations-and-exchanges"></a>Annuleringen en uitwisselingen
+## <a name="cancel-exchange-or-refund-reservations"></a>Reserve ringen annuleren, omruilen of terugbetalen
 
-Als u de reserve ring van de gereserveerde capaciteit van SQL Database moet annuleren, kunnen er 12% vroege ontslag kosten in rekening worden gebracht. Restituties worden gebaseerd op de laagste prijs, zijnde de aankoopprijs of de huidige prijs van de reservering, welke het laagste is. Restituties zijn beperkt tot $ 50.000 per jaar. De restitutie die u ontvangt, is het resterende bedrag naar rato saldo minus de kosten voor vroegtijdige beëindiging van 12%. Als u wilt annuleren, gaat u naar de reserve ring in het Azure Portal en selecteert u **terugbetaling**.
-
-Als u de reservering voor SQL Database-reservecapaciteit wilt wijzigen in een andere regio, implementatietype, prestatielaag of termijn, kunt u de reservering uitwisselen voor een andere reservering van gelijke of grotere waarde. De begindatum van de periode voor de nieuwe reservering wordt niet meegenomen naar de uitgewisselde reservering. De periode van één of drie jaar start vanaf het moment dat u de nieuwe reservering maakt. Als u Exchange wilt, gaat u naar de reserve ring in het Azure Portal en selecteert u **Exchange**.
-
-Zie reserverings [uitwisselingen en](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)terugbetalingen voor meer informatie over het omruilen of terugbetalen van reserve ringen.
+U kunt reserve ringen annuleren, vervangen of terugbetalen met bepaalde beperkingen. Zie [self-service-uitwisseling en terugbetalingen voor Azure Reservations](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)voor meer informatie.
 
 ## <a name="vcore-size-flexibility"></a>flexibiliteit van vCore-grootte
 

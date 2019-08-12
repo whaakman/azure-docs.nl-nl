@@ -107,29 +107,29 @@
       href: Tutorials/storage-lab-tutorial.md
 - name: Concepten
   items:
-    - name: Afbeeldingen taggen
+    - name: Inhoudstags
       href: concept-tagging-images.md
-    - name: Objecten detecteren
+    - name: Objectdetectie
       href: concept-object-detection.md
-    - name: Merken detecteren
+    - name: Merkdetectie
       href: concept-brand-detection.md
-    - name: Afbeeldingen categoriseren
+    - name: Categorisatie van afbeeldingen
       href: concept-categorizing-images.md
-    - name: Afbeeldingen beschrijven
+    - name: Beschrijvingen van afbeeldingen
       href: concept-describing-images.md
-    - name: Gezichten detecteren
+    - name: Gezichtsdetectie
       href: concept-detecting-faces.md
-    - name: Afbeeldingstypen detecteren
+    - name: Detectie van afbeeldingstype
       href: concept-detecting-image-types.md
-    - name: Domeinspecifieke inhoud detecteren
+    - name: Domeinspecifieke inhoud
       href: concept-detecting-domain-content.md
-    - name: Kleurenschema’s detecteren
+    - name: Detectie van kleurenschema
       href: concept-detecting-color-schemes.md
-    - name: Miniaturen genereren
+    - name: Slim bijgesneden miniaturen
       href: concept-generating-thumbnails.md
-    - name: Afgedrukte en handgeschreven tekst herkennen
+    - name: Herkenning van afgedrukte en handgeschreven tekst
       href: concept-recognizing-text.md
-    - name: Erotische en ongepaste inhoud detecteren
+    - name: Detectie van erotische en ongepaste inhoud
       href: concept-detecting-adult-content.md
 - name: Handleidingen
   items:

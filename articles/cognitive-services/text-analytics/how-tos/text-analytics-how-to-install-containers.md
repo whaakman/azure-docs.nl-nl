@@ -11,16 +11,16 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: dapine
-ms.openlocfilehash: f1df962208fe466c3833faa82b6f9dff5c5e7046
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
-ms.translationtype: MT
+ms.openlocfilehash: f658e8d0f820ccec513b5665fc1ce94c083c3b3e
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697881"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703530"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Text Analytics containers installeren en uitvoeren
 
-De Text Analytics-containers bieden geavanceerde verwerking van natuurlijke taal via onbewerkte tekst en bevatten drie belang rijke functies: sentiment analyse, extractie van sleutel zinnen en taal detectie. Het koppelen van entiteiten wordt momenteel niet ondersteund in een container.
+Met containers kunt u de tekst analyse-Api's in uw eigen omgeving uitvoeren en zijn geweldig voor uw specifieke vereisten voor beveiliging en gegevens beheer. De Text Analytics-containers bieden geavanceerde verwerking van natuurlijke taal via onbewerkte tekst en bevatten drie belang rijke functies: sentiment analyse, extractie van sleutel zinnen en taal detectie. Het koppelen van entiteiten wordt momenteel niet ondersteund in een container.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -52,7 +52,8 @@ De volgende tabel beschrijft de minimale en aanbevolen CPU-kernen, ten minste 2,
 |-----------|---------|-------------|--|
 |Sleuteltermextractie | 1 Core, 2 GB geheugen | 1 kern geheugen van 4 GB |15, 30|
 |Taaldetectie | 1 Core, 2 GB geheugen | 1 kern geheugen van 4 GB |15, 30|
-|Sentimentanalyse | 1 Core, 2 GB geheugen | 1 kern geheugen van 4 GB |15, 30|
+|Sentimentanalyse 2. x | 1 Core, 2 GB geheugen | 1 kern geheugen van 4 GB |15, 30|
+|Sentimentanalyse 3. x | 1 Core, 2 GB geheugen | 4-core, 4 GB geheugen |15, 30|
 
 * Elke kern moet ten minste 2,6 gigahertz (GHz) of sneller zijn.
 * TPS-trans acties per seconde
@@ -61,13 +62,14 @@ Core en geheugen komen overeen met `--cpus` de `--memory` instellingen en, die w
 
 ## <a name="get-the-container-image-with-docker-pull"></a>De container installatie kopie ophalen met`docker pull`
 
-Containerinstallatiekopieën voor Text Analytics zijn beschikbaar via Microsoft Container Registry. 
+Containerinstallatiekopieën voor Text Analytics zijn beschikbaar via Microsoft Container Registry.
 
 | Container | Opslagplaats |
 |-----------|------------|
 |Sleuteltermextractie | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 |Taaldetectie | `mcr.microsoft.com/azure-cognitive-services/language` |
-|Sentimentanalyse | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+|Sentimentanalyse 2. x| `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+|Sentimentanalyse 3. x| `containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v3.0` |
 
 Gebruik de [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) opdracht om een container installatie kopie te downloaden van micro soft container Registry.
 
@@ -91,25 +93,34 @@ docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 ```
 
-### <a name="docker-pull-for-the-sentiment-container"></a>Docker-pull voor de sentiment-container
+### <a name="docker-pull-for-the-sentiment-2x-container"></a>Docker-pull voor de sentiment 2. x-container
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 ```
 
-[!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
+### <a name="docker-pull-for-the-sentiment-3x-container"></a>Docker-pull voor de sentiment 3. x-container
 
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v3.0:latest
+```
+
+[!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 ## <a name="how-to-use-the-container"></a>De container gebruiken
 
 Wanneer de container zich op de [hostcomputer](#the-host-computer)bevindt, gebruikt u het volgende proces om met de container te werken.
 
-1. [Voer de container uit](#run-the-container-with-docker-run)met de vereiste facturerings instellingen. Er zijn meer [voor beelden](../text-analytics-resource-container-config.md#example-docker-run-commands) van de `docker run` opdracht beschikbaar. 
-1. [Zoek het Voorspellings eindpunt van de container](#query-the-containers-prediction-endpoint)op. 
+1. [Voer de container uit](#run-the-container-with-docker-run)met de vereiste facturerings instellingen. Er zijn meer [voor beelden](../text-analytics-resource-container-config.md#example-docker-run-commands) van de `docker run` opdracht beschikbaar.
+1. Zoek het Voorspellings eindpunt van de container voor [v2](#query-the-containers-v2-prediction-endpoint) of [v3](#query-the-containers-v3-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>Voer de container uit met`docker run`
 
 Gebruik de opdracht [docker run](https://docs.docker.com/engine/reference/commandline/run/) om een van de drie containers uit te voeren. Raadpleeg de [vereiste para meters verzamelen](#gathering-required-parameters) voor meer informatie over het `{Endpoint_URI}` ophalen `{API_Key}` van de waarden en.
+
+[Voor beelden](../text-analytics-resource-container-config.md#example-docker-run-commands) van `docker run` de opdracht zijn beschikbaar.
+
+### <a name="run-v2-container-example-of-docker-run-command"></a>V2-container voorbeeld uitvoeren van de opdracht docker run
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -124,20 +135,136 @@ Deze opdracht:
 * Voert een sleutel woordgroepen container uit vanuit de container installatie kopie
 * Wijst een CPU-kern en 4 GB aan geheugen toe
 * Gebruikt TCP-poort 5000 en wijst er een pseudo-TTY voor de container
-* Verwijdert de container automatisch nadat deze is afgesloten. De container installatie kopie is nog steeds beschikbaar op de hostcomputer. 
+* Verwijdert de container automatisch nadat deze is afgesloten. De container installatie kopie is nog steeds beschikbaar op de hostcomputer.
 
-Er zijn meer [voor beelden](../text-analytics-resource-container-config.md#example-docker-run-commands) van de `docker run` opdracht beschikbaar. 
+### <a name="run-v3-container-example-of-docker-run-command"></a>Voor beeld van een v3-container uitvoeren opdracht docker run
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
+containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v3.0 \
+Eula=accept \
+Billing={BILLING_ENDPOINT_URI} \
+ApiKey={BILLING_KEY}
+```
+
+Deze opdracht:
+
+* Voert een sleutel woordgroepen container uit vanuit de container installatie kopie
+* Wijst 4 CPU-kernen en 4 GB aan geheugen toe
+* Gebruikt TCP-poort 5000 en wijst er een pseudo-TTY voor de container
+* Verwijdert de container automatisch nadat deze is afgesloten. De container installatie kopie is nog steeds beschikbaar op de hostcomputer.
 
 > [!IMPORTANT]
 > De `Eula`, `Billing`, en `ApiKey` opties moeten worden opgegeven voor het uitvoeren van de container; anders wordt de container niet start.  Zie voor meer informatie, [facturering](#billing).
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
-## <a name="query-the-containers-prediction-endpoint"></a>Query uitvoeren op het prediction-eind punt van de container
+## <a name="query-the-containers-v2-prediction-endpoint"></a>Query uitvoeren op het v2-Voorspellings eindpunt van de container
 
-De container bevat op REST gebaseerde query Voorspellings eindpunt-Api's. 
+De container bevat op REST gebaseerde query Voorspellings eindpunt-Api's.
 
 Gebruik de host, `https://localhost:5000`voor container-api's.
+
+## <a name="query-the-containers-v3-prediction-endpoint"></a>Het v3-Voorspellings eindpunt van de container opvragen
+
+De container bevat op REST gebaseerde query Voorspellings eindpunt-Api's.
+
+Gebruik de host, `https://localhost:5000`voor container-api's.
+
+### <a name="v3-api-request-post-body"></a>Hoofd tekst van v3 API-aanvraag
+
+De volgende JSON is een voor beeld van de hoofd tekst van een v3 API-aanvraag:
+
+```json
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Hello world. This is some input text that I love."
+    },
+    {
+      "language": "en",
+      "id": "2",
+      "text": "It's incredibly sunny outside! I'm so happy."
+    }
+  ]
+}
+```
+
+### <a name="v3-api-response-body"></a>V3 API-antwoord tekst
+
+De volgende JSON is een voor beeld van de hoofd tekst van een v3 API-aanvraag:
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.98570585250854492,
+                "neutral": 0.0001625834556762,
+                "negative": 0.0141316400840878
+            },
+            "sentences": [
+                {
+                    "sentiment": "neutral",
+                    "sentenceScores": {
+                        "positive": 0.0785155147314072,
+                        "neutral": 0.89702343940734863,
+                        "negative": 0.0244610067456961
+                    },
+                    "offset": 0,
+                    "length": 12
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.98570585250854492,
+                        "neutral": 0.0001625834556762,
+                        "negative": 0.0141316400840878
+                    },
+                    "offset": 13,
+                    "length": 36
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.89198976755142212,
+                "neutral": 0.103382371366024,
+                "negative": 0.0046278294175863
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.78401315212249756,
+                        "neutral": 0.2067587077617645,
+                        "negative": 0.0092281140387058
+                    },
+                    "offset": 0,
+                    "length": 30
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.99996638298034668,
+                        "neutral": 0.0000060341349126,
+                        "negative": 0.0000275444017461
+                    },
+                    "offset": 31,
+                    "length": 13
+                }
+            ]
+        }
+    ],
+    "errors": []
+}
+```
 
 <!--  ## Validate container is running -->
 
@@ -149,7 +276,7 @@ Gebruik de host, `https://localhost:5000`voor container-api's.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Als u de container uitvoert met een uitvoer [koppeling](../text-analytics-resource-container-config.md#mount-settings) en logboek registratie ingeschakeld, genereert de container logboek bestanden die handig zijn om problemen op te lossen die optreden tijdens het starten of uitvoeren van de container. 
+Als u de container uitvoert met een uitvoer [koppeling](../text-analytics-resource-container-config.md#mount-settings) en logboek registratie ingeschakeld, genereert de container logboek bestanden die handig zijn om problemen op te lossen die optreden tijdens het starten of uitvoeren van de container.
 
 ## <a name="billing"></a>Billing
 

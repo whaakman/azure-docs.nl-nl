@@ -53,6 +53,16 @@
           href: pim-how-to-change-default-settings.md
         - name: Waarschuwingen configureren
           href: pim-how-to-configure-security-alerts.md
+        - name: Preview van aangepaste rollen
+          items:
+            - name: Een aangepaste rol activeren
+              href: azure-ad-custom-roles-activate.md
+            - name: Een aangepaste rol toewijzen
+              href: azure-ad-custom-roles-assign.md
+            - name: Roltoewijzing verwijderen
+              href: azure-ad-custom-roles-update-remove.md
+            - name: Aangepaste rollen configureren
+              href: azure-ad-custom-roles-configure.md
         - name: Controlegeschiedenis weergeven
           href: pim-how-to-use-audit-log.md
     - name: Azure-resourcerollen beheren
