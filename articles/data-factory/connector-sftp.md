@@ -66,7 +66,7 @@ Als u basis verificatie wilt gebruiken, stelt u de eigenschap ' authenticationTy
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | userName | Gebruiker die toegang heeft tot de SFTP-server. |Ja |
-| password | Wacht woord voor de gebruiker (gebruikers naam). Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory, of [verwijs naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| password | Wacht woord voor de gebruiker (userName). Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory, of [verwijs naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Voorbeeld:**
 
@@ -105,7 +105,7 @@ Als u verificatie via een open bare SSH-sleutel wilt gebruiken, stelt u de eigen
 | userName | Gebruiker die toegang heeft tot de SFTP-server |Ja |
 | privateKeyPath | Geef een absoluut pad op naar het bestand met de persoonlijke sleutel waartoe Integration Runtime toegang heeft. Is alleen van toepassing als het zelf-hostende type Integration Runtime is opgegeven in connectVia. | Geef de `privateKeyPath` or `privateKeyContent`op.  |
 | privateKeyContent | Met base64 gecodeerde SSH-inhoud voor persoonlijke sleutels. De persoonlijke SSH-sleutel moet de OpenSSH-indeling hebben. Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory, of [verwijs naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Geef de `privateKeyPath` or `privateKeyContent`op. |
-| Wachtzin | Geef de wachtwoordzin/het wacht woord op voor het ontsleutelen van de persoonlijke sleutel als het sleutel bestand wordt beveiligd door een wachtwoordzin. Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory, of [verwijs naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja als het persoonlijke-sleutel bestand is beveiligd door een wachtwoordzin. |
+| passPhrase | Geef de wachtwoordzin/het wacht woord op voor het ontsleutelen van de persoonlijke sleutel als het sleutel bestand wordt beveiligd door een wachtwoordzin. Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory, of [verwijs naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja als het persoonlijke-sleutel bestand is beveiligd door een wachtwoordzin. |
 
 > [!NOTE]
 > SFTP-connector ondersteunt RSA/DSA OpenSSH-sleutel. Zorg ervoor dat de inhoud van het sleutel bestand begint met de persoonlijke sleutel-----BEGIN [RSA/DSA]-----. Als het persoonlijke-sleutel bestand een PPK is, gebruikt u het hulp programma Putty om te converteren van. ppk naar OpenSSH-indeling. 
