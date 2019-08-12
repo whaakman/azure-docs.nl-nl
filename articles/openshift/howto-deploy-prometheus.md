@@ -182,7 +182,7 @@ Als u wilt Prometheus voor het verzamelen van metrische gegevens van zichzelf, p
 
 ## <a name="optional-deploy-example-application"></a>Optioneel: Van de voorbeeldtoepassing implementeren
 
-Alles goed werkt, maar er zijn geen gegevensbronnen metrische. Ga naar de URL Prometheus (https://prom-prometheus-project.apps. *willekeurige-id*. *regio*.azmosa.io/). U vindt deze met behulp van de volgende opdracht:
+Alles goed werkt, maar er zijn geen gegevensbronnen metrische. Ga naar de URL Prometheus (https://prom-prometheus-project.apps.*willekeurige-id*.*regio*.azmosa.io/). U vindt deze met behulp van de volgende opdracht:
 
 ```
 oc get route prom -n prometheus-project

@@ -61,7 +61,7 @@ Als uw para meter niet van het type teken reeks is, wordt u altijd weer gegeven 
 
 Elke toewijzings gegevens stroom kan een combi natie van de para meters van de pijplijn-en data flow-expressie hebben. 
 
-Voor ![beeld van gegevens stroom parameters] Voor (media/data-flow/parameter-example.png "beeld van gegevens stroom parameters")
+Voor ![beeld van gegevens stroom parameters](media/data-flow/parameter-example.png "Voor beeld van gegevens stroom parameters")
 
 
 
