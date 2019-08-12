@@ -142,7 +142,7 @@ Als u wilt kopiëren van gegevens van en naar SAP BW Open Hub, stel de eigenscha
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **SapOpenHubTable**.  | Ja |
 | openHubDestinationName | De naam van de Open Hub bestemming gegevens kopiëren naar. | Ja |
-| excludeLastRequest | Of u wilt uitsluiten van de records van de laatste aanvraag. | Nee (de standaardwaarde is **waar**) |
+| excludeLastRequest | Of u wilt uitsluiten van de records van de laatste aanvraag. | Nee (de standaardwaarde is **true**) |
 | baseRequestId | De ID van de aanvraag voor de delta-laden. Zodra deze is ingesteld, alleen gegevens met aanvraag-id **groter is dan** de waarde van deze eigenschap wordt opgehaald.  | Nee |
 
 >[!TIP]
@@ -213,12 +213,12 @@ Het kopiëren van gegevens van SAP BW Open Hub, worden de volgende toewijzingen 
 |:--- |:--- |
 | C (String) | String |
 | I (integer) | Int32 |
-| F (drijvende komma) | Double |
+| F (Float) | Double |
 | D (Date) | String |
 | T (Time) | String |
-| P (BCD verpakt, valuta, decimaal, hoeveelheid) | Decimal |
+| P (BCD Packed, Currency, Decimal, Qty) | Decimal |
 | N (Numc) | String |
-| X (binaire en onbewerkte) | String |
+| X (Binary and Raw) | String |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
