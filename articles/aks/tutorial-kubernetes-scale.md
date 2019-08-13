@@ -9,10 +9,10 @@ ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 5a942aa10f36df55ac232defa610102700e3995b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67614202"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Zelfstudie: toepassingen schalen in AKS (Azure Kubernetes Service)
@@ -28,13 +28,13 @@ In aanvullende zelfstudies wordt de Azure Vote-toepassing bijgewerkt naar een ni
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In eerdere zelfstudies is een toepassing verpakt in een containerinstallatiekopie. Deze installatiekopie is geüpload naar Azure Container Registry en u hebt een AKS-cluster gemaakt. De toepassing is vervolgens geïmplementeerd in het AKS-cluster. Als u deze stappen niet hebt gedaan, en u wilt volgen, begint u met [zelfstudie 1: containerinstallatiekopieën maken][aks-tutorial-prepare-app].
+In eerdere zelfstudies is een toepassing verpakt in een containerinstallatiekopie. Deze installatiekopie is geüpload naar Azure Container Registry en u hebt een AKS-cluster gemaakt. De toepassing is vervolgens geïmplementeerd in het AKS-cluster. Als u deze stappen niet hebt uitgevoerd en wilt door gaan met de [zelf studie 1: container installatie kopieën maken][aks-tutorial-prepare-app].
 
 Voor deze zelfstudie moet u Azure CLI versie 2.0.53 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][azure-cli-install] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="manually-scale-pods"></a>Schillen handmatig schalen
 
-Bij de implementatie van de front-end van Azure Vote en het Redis-exemplaar in eerdere zelfstudies, is er één replica gemaakt. Als het aantal en de status van de schillen in uw cluster wilt weergeven, gebruikt de [kubectl ophalen][kubectl-get] opdracht als volgt:
+Bij de implementatie van de front-end van Azure Vote en het Redis-exemplaar in eerdere zelfstudies, is er één replica gemaakt. Als u het aantal en de status van de peul in uw cluster wilt zien, gebruikt u de opdracht [kubectl Get][kubectl-get] als volgt:
 
 ```console
 kubectl get pods
@@ -48,13 +48,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Handmatig wijzigen van het aantal schillen in de *azure-vote-front* implementatie, gebruik de [kubectl scale][kubectl-scale] opdracht. In het volgende voorbeeld wordt het aantal pods voor de front-end verhoogd naar *5*:
+Als u het aantal peulen voor de implementatie van *Azure-stemmen-front* hand matig wilt wijzigen, gebruikt u de opdracht [kubectl Scale][kubectl-scale] . In het volgende voorbeeld wordt het aantal pods voor de front-end verhoogd naar *5*:
 
 ```console
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Voer [kubectl ophalen schillen][kubectl-get] opnieuw om te controleren of dat de extra schillen worden gemaakt met AKS. Na ongeveer een minuut zijn de extra pods beschikbaar in uw cluster:
+Voer [kubectl][kubectl-get] opnieuw uit om te controleren of Aks het nieuwe Peul maakt. Na ongeveer een minuut zijn de extra pods beschikbaar in uw cluster:
 
 ```console
 $ kubectl get pods
@@ -70,20 +70,20 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Schillen automatisch schalen
 
-Biedt ondersteuning voor Kubernetes [horizontale u automatisch schalen][kubernetes-hpa] to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] wordt gebruikt voor gebruik van resources voor Kubernetes en wordt automatisch geïmplementeerd in AKS clusters versies 1,10 en hoger. Als de versie van uw AKS-cluster wilt weergeven, gebruikt de [az aks show][az-aks-show] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
+Kubernetes biedt ondersteuning voor het [automatisch horizontaal schalen van schillen][kubernetes-hpa] om zo het aantal schillen in een implementatie aan te passen op basis van het CPU-gebruik of andere geselecteerde metrische gegevens. De [Metrics-server][metrics-server] wordt gebruikt om het resource gebruik te voorzien van Kubernetes en wordt automatisch GEÏMPLEMENTEERD in AKS-cluster versies 1,10 en hoger. Als u de versie van uw AKS-cluster wilt zien, gebruikt u de opdracht [AZ AKS show][az-aks-show] , zoals wordt weer gegeven in het volgende voor beeld:
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
 ```
 
-Als uw AKS-cluster een lagere versie dan *1.10* heeft, installeert u de Metrics Server. Anders kunt u deze stap overslaan. Om deze te installeren, kloont u de GitHub-opslagplaats `metrics-server` en installeert u de voorbeelden van resourcedefinities. De inhoud van deze definities YAML Zie [Server van de metrische gegevens voor Kuberenetes 1.8 +][metrics-server-github].
+Als uw AKS-cluster een lagere versie dan *1.10* heeft, installeert u de Metrics Server. Anders kunt u deze stap overslaan. Om deze te installeren, kloont u de GitHub-opslagplaats `metrics-server` en installeert u de voorbeelden van resourcedefinities. Als u de inhoud van deze YAML definities wilt weer geven, raadpleegt u [Metrics server voor Kuberenetes 1.8 +][metrics-server-github].
 
 ```console
 git clone https://github.com/kubernetes-incubator/metrics-server.git
 kubectl create -f metrics-server/deploy/1.8+/
 ```
 
-Voor het gebruik van automatisch schalen, moet alle containers in uw schillen en uw schillen CPU-aanvragen en -limieten die zijn gedefinieerd. In de `azure-vote-front`-implementatie vraagt de front-end container al om 0,25 CPU, met een limiet van 0,5 CPU. Deze resourceaanvragen en -limieten worden gedefinieerd zoals weergegeven in het volgende voorbeeldfragment:
+Als u de automatische schaal functie wilt gebruiken, moeten voor alle containers in uw peul en uw peul CPU-aanvragen en-limieten zijn gedefinieerd. In de `azure-vote-front`-implementatie vraagt de front-end container al om 0,25 CPU, met een limiet van 0,5 CPU. Deze resourceaanvragen en -limieten worden gedefinieerd zoals weergegeven in het volgende voorbeeldfragment:
 
 ```yaml
 resources:
@@ -93,7 +93,7 @@ resources:
      cpu: 500m
 ```
 
-Het volgende voorbeeld wordt de [kubectl autoscale][kubectl-autoscale] opdracht voor het automatisch schalen het aantal schillen in de *azure-vote-front* implementatie. Als het CPU-gebruik hoger wordt dan 50%, wordt het aantal pods automatisch verhoogd tot een maximum van *10* exemplaren. Minimaal *3* exemplaren worden dan gedefinieerd voor de implementatie:
+In het volgende voor beeld wordt de opdracht [kubectl AutoScale][kubectl-autoscale] gebruikt voor het automatisch schalen van het aantal peulen in de implementatie van *Azure-stemmen-front* . Als het CPU-gebruik hoger wordt dan 50%, wordt het aantal pods automatisch verhoogd tot een maximum van *10* exemplaren. Minimaal *3* exemplaren worden dan gedefinieerd voor de implementatie:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10

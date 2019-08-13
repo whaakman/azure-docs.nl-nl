@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: a4fbfeb96d2316ce6af100cb16fcbf0d13f230f2
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 526c60916854d4918607a1fd1b887ac9d27cd1c7
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737118"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950013"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Wat is de Azure Backup-Service?
 
@@ -55,7 +55,7 @@ Gebruik de tabel om uw behoeften op BCDR-gebied te bepalen.
 
 **Doel** | **Details** | **Vergelijking**
 --- | --- | ---
-**Gegevensback-up/-retentie** | Back-upgegevens kunnen dagen, maanden of zelfs jaren worden bewaard en opgeslagen als dat vanuit complianceperspectief nodig is. | Met back-upoplossingen zoals Azure Backup kunt u nauwkeurig gegevens selecteren waarvan u een back-up wilt maken en het back-up- en retentiebeleid nauwkeurig afstemmen.<br/><br/> Site Recovery is niet toegestaan om hetzelfde stem afstemmen.
+**Gegevensback-up/-retentie** | Back-upgegevens kunnen worden bewaard en opgeslagen voor dagen, maanden of zelfs jaren, indien nodig van een perspectief voor naleving. | Met back-upoplossingen zoals Azure Backup kunt u nauwkeurig gegevens selecteren waarvan u een back-up wilt maken en het back-up- en retentiebeleid nauwkeurig afstemmen.<br/><br/> Site Recovery is niet toegestaan om hetzelfde stem afstemmen.
 **Recovery point objective (RPO)** | Acceptabele hoeveelheid gegevens die verloren gaat wanneer een herstelbewerking moet worden uitgevoerd. | Back-ups hebben meer variabele RPO.<br/><br/> Back-ups van VM's hebben doorgaans een RPO van één dag, terwijl de RPO bij databaseback-up soms maar 15 minuten is.<br/><br/> Site Recovery biedt een lage RPO omdat replicatie continu of frequent is, zodat de verschillen tussen het bron- en replica-exemplaar klein zijn.
 **Beoogde hersteltijd (RTO)** |De hoeveelheid tijd die nodig is om een terugzet- of herstelbewerking te voltooien. | Vanwege de grotere RPO is de hoeveelheid gegevens die een back-upoplossing moet verwerken doorgaans veel grote, wat resulteert in langere RTO's. Het kan bijvoorbeeld dagen duren om gegevens te herstellen vanaf tapes, afhankelijk van de tijd die nodig is voor het transport van de tape vanaf een externe locatie.
 
@@ -66,7 +66,7 @@ Azure Backup kan een back-up maken van zowel on-premises machines als Azure-VM's
 **Machine** | **Back-upscenario**
 --- | ---
 **On-premises back-up** |  1) Voer de MARS-agent (Azure Backup Microsoft Azure Recovery Services) uit op on-premises Windows-machines om een back-up te maken van afzonderlijke bestanden en systeemstatus. <br/><br/>2) Maak een back-up van on-premises machines naar een back-upserver (System Center Data Protection Manager (DPM) of Microsoft Azure Backup Server (MABS)) en configureer vervolgens de back-upserver om een back-up te maken van een Azure Backup Recovery Services kluis in Azure.
-**Azure VM's** | (1) Schakel het maken van back-ups voor afzonderlijke Azure-VM's in. Wanneer u het maken van back-ups inschakelt, installeert Azure Backup een extensie op de Azure VM-agent die op de virtuele machine wordt uitgevoerd. De agent maakt een back-up van de hele virtuele machine.<br/><br/> 2) Voer de MARS-agent uit op een Azure-VM. Dit is handig als u een back-up wilt maken van afzonderlijke bestanden en mappen op de virtuele machine.<br/><br/> 3) Maak een back-up van een Azure-VM naar een DPM-server of MABS die wordt uitgevoerd in Azure. Gebruik vervolgens Azure Backup om een back-up van de DPM-server/MABS te maken naar een kluis.
+**Azure VM's** | (1) Schakel het maken van back-ups voor afzonderlijke Azure-VM's in. Wanneer u het maken van back-ups inschakelt, installeert Azure Backup een extensie op de Azure VM-agent die op de virtuele machine wordt uitgevoerd. De agent maakt een back-up van de hele virtuele machine.<br/><br/> 2) Voer de MARS-agent uit op een Azure-VM. Dit is handig als u een back-up wilt maken van afzonderlijke bestanden en mappen op de virtuele machine.<br/><br/> 
 
 
 ## <a name="why-use-a-backup-server"></a>Waarom een back-upserver gebruiken?
@@ -116,7 +116,7 @@ Azure Backup heeft een limiet van 9999 herstelpunten, ook wel back-ups of moment
 - Een beveiligd exemplaar is een computer, een server (fysiek of virtueel) of een werkbelasting die is geconfigureerd voor het opslaan van back-ups van gegevens in Azure. Een exemplaar is beveiligd zodra er een back-up van de gegevens is opgeslagen.
 - De back-up van de gegevens biedt beveiliging. Als de brongegevens verloren gaan of beschadigd raken, kunt u met de back-up de brongegevens herstellen.
 
-In de volgende tabel wordt de maximale back-upfrequentie voor elk onderdeel weer gegeven. De configuratie van het back-upbeleid bepaalt hoe snel u de herstel punten verbruikt. Als u bijvoorbeeld één herstelpunt per dag maakt, kunt u 27 jaar gebruikmaken van herstelpunten voordat ze opraken. Als u één herstelpunt per maand maakt, duurt het maar liefst 833 jaar voordat uw herstelpunten op zijn. In de Backup-service worden geen verlooptijden ingesteld voor herstelpunten.
+In de volgende tabel wordt de maximale back-upfrequentie voor elk onderdeel weergegeven. De configuratie van uw back-upbeleid bepaalt hoe snel u de herstelpunten verbruikt. Als u bijvoorbeeld één herstelpunt per dag maakt, kunt u 27 jaar gebruikmaken van herstelpunten voordat ze opraken. Als u één herstelpunt per maand maakt, duurt het maar liefst 833 jaar voordat uw herstelpunten op zijn. In de Backup-service worden geen verlooptijden ingesteld voor herstelpunten.
 
 |  | Azure Backup-agent | System Center DPM | Azure Backup-server | Back-up van virtuele machines van Azure IaaS |
 | --- | --- | --- | --- | --- |

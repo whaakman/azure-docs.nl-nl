@@ -11,16 +11,16 @@ ms.service: azure-functions
 ms.custom: mvc, fasttrack-edit
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: 857646bb1b9b317f1e51218d258616e775056b43
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 84e05b7afa2746587f2ea5008d493730ccbfad7e
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442259"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950041"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Uw eerste Linux-functie maken met Azure Functions Core Tools en de Azure CLI (preview)
 
-Met Azure Functions kunt u uw code in een [serverloze](https://azure.com/serverless) Linux-omgeving uitvoeren zonder dat u eerst een virtuele machine moet maken of een webtoepassing publiceren. Linux-hosting vereist [de runtime van Functions 2.0](functions-versions.md). Ondersteuning voor het uitvoeren van een functie-app op Linux in de serverloze [verbruiksabonnement](functions-scale.md#consumption-plan) is momenteel in preview. Zie voor meer informatie, [in dit artikel van de overwegingen met betrekking tot preview](https://aka.ms/funclinux).
+Met Azure Functions kunt u uw code in een [serverloze](https://azure.com/serverless) Linux-omgeving uitvoeren zonder dat u eerst een virtuele machine moet maken of een webtoepassing publiceren. Linux-hosting vereist [de functies 2,0 runtime](functions-versions.md). Ondersteuning voor het uitvoeren van een functie-app in Linux in het serverloze [verbruiks abonnement](functions-scale.md#consumption-plan) is momenteel beschikbaar als preview-versie. Zie [het artikel preview-overwegingen](https://aka.ms/funclinux)voor meer informatie.
 
 In dit snelstartartikel leert u hoe u de Azure CLI gebruikt om uw eerste functie-app te maken die in Linux wordt uitgevoerd. De functiecode wordt lokaal gemaakt en vervolgens naar Azure geïmplementeerd met behulp van de [Azure Functions Core Tools](functions-run-local.md).
 
@@ -30,7 +30,7 @@ De volgende stappen worden ondersteund op een Mac-, Windows- of Linux-computer. 
 
 Voordat u dit voorbeeld kunt uitvoeren moet u ervoor zorgen dat u het volgende hebt:
 
-- Installeer [Azure Functions Core Tools](./functions-run-local.md#v2) versie 2.6.666 of hoger.
+- Installeer [Azure functions core tools](./functions-run-local.md#v2) versie 2.6.666 of hoger.
 
 + Installeer de [Azure CLI]( /cli/azure/install-azure-cli). In dit artikel is Azure CLI versie 2.0 of hoger vereist. Voer `az --version` uit om te zien welke versie u hebt. U kunt ook de [Azure Cloud Shell](https://shell.azure.com/bash) gebruiken.
 
@@ -38,36 +38,9 @@ Voordat u dit voorbeeld kunt uitvoeren moet u ervoor zorgen dat u het volgende h
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-local-function-app-project"></a>Het lokale functie-app-project maken
+[!INCLUDE [functions-create-function-app-cli](../../includes/functions-create-function-app-cli.md)]
 
-Voer de volgende opdracht uit vanaf de opdrachtregel om een functie-app-project te maken in de map `MyFunctionProj` van de huidige lokale map. Er wordt ook een GitHub-opslagplaats gemaakt in `MyFunctionProj`.
-
-```bash
-func init MyFunctionProj
-```
-
-Wanneer u hierom wordt gevraagd, gebruikt u de pijltoetsen om een runtime voor de werkrol te selecteren uit de volgende taalopties:
-
-+ `dotnet`: hiermee maakt u een .NET-klassebibliotheekproject (.csproj).
-+ `node`: Hiermee maakt u een JavaScript- of TypeScript-project. Wanneer u hierom wordt gevraagd, kiest u `JavaScript`.
-+ `python`: hiermee maakt u een Python-project. Zie de [Python-quickstart](functions-create-first-function-python.md) voor Python-functies.
-
-Wanneer de opdracht wordt uitgevoerd, ziet u ongeveer de volgende uitvoer:
-
-```output
-Writing .gitignore
-Writing host.json
-Writing local.settings.json
-Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
-```
-
-Gebruik de volgende opdracht om naar de nieuwe projectmap `MyFunctionProj` te navigeren.
-
-```bash
-cd MyFunctionProj
-```
-
-## <a name="enable-extension-bundles"></a>Extensie-bundels inschakelen
+## <a name="enable-extension-bundles"></a>Uitbreidings bundels inschakelen
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -83,7 +56,7 @@ cd MyFunctionProj
 
 U moet beschikken over een functie-app om de uitvoering van uw functies in Linux te hosten. De functie-app biedt een serverloze omgeving voor de uitvoering van uw functiecode. U kunt er functies mee groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren en delen. U maakt een functie-app die in Linux wordt uitgevoerd met behulp van de opdracht [az functionapp create](/cli/azure/functionapp#az-functionapp-create).
 
-Gebruik in de volgende opdracht een unieke functie-appnaam in plaats van de tijdelijke plaatsaanduiding `<app_name>` en gebruik de naam van het opslagaccount in plaats van `<storage_name>`. De `<app_name>` is ook het standaard DNS-domein voor de functie-app. Deze naam moet uniek zijn in alle apps in Azure. U moet ook ingesteld de `<language>` -runtime voor uw functie-app van `dotnet` (C#), `node` (JavaScript/TypeScript) of `python`.
+Gebruik in de volgende opdracht een unieke functie-appnaam in plaats van de tijdelijke plaatsaanduiding `<app_name>` en gebruik de naam van het opslagaccount in plaats van `<storage_name>`. De `<app_name>` is ook het standaard DNS-domein voor de functie-app. Deze naam moet uniek zijn in alle apps in Azure. U moet ook de `<language>` runtime instellen voor uw functie-app, vanC# `node` `dotnet` (), (Java script/type script) `python`, of.
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --consumption-plan-location westus --os-type Linux \

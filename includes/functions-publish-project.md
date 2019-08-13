@@ -8,18 +8,27 @@ ms.topic: include
 ms.date: 04/24/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: fbb537c9584c948af37694b3bfc77a7c345e084d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9fefba9c79e9c58956243de8db67ca4cf316251c
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639111"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949991"
 ---
 ## <a name="deploy-the-function-app-project-to-azure"></a>Het functie-appproject implementeren in Azure
 
-Nadat de functie-app is gemaakt in azure, kunt u de [`func azure functionapp publish`](../articles/azure-functions/functions-run-local.md#project-file-deployment) opdracht kern hulpprogramma's gebruiken om uw project code te implementeren in Azure. Vervang `<APP_NAME>` in de volgende opdracht door de naam van uw app uit de vorige stap.
+Nadat de functie-app is gemaakt in azure, kunt u de [`func azure functionapp publish`](../articles/azure-functions/functions-run-local.md#project-file-deployment) opdracht kern hulpprogramma's gebruiken om uw project code te implementeren in Azure. In deze voor beelden vervangt `<APP_NAME>` u door de naam van uw app uit de vorige stap.
 
-```bash
+### <a name="c--javascript"></a>C\# /java script
+
+```command
+func azure functionapp publish <APP_NAME>
+```
+
+### <a name="typescript"></a>TypeScript
+
+```command
+npm run build:production 
 func azure functionapp publish <APP_NAME>
 ```
 

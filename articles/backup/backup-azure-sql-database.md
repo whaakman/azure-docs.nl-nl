@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7312821320084c766f5b3357fe64c061df83673b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 647ab76760d0c5ce5315a60d0a671163b902be0f
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827640"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954541"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Over SQL Server-back-ups in virtuele Azure-machines
 
@@ -58,7 +58,7 @@ Azure Backup heeft onlangs ondersteuning aangekondigd voor [EOS SQL-servers](htt
 2. .NET Framework 4.5.2 en hierboven moeten worden geïnstalleerd op de VM
 3. Back-ups voor FCI en gespiegelde data bases worden niet ondersteund
 
-Er worden geen kosten in rekening gebracht voor deze functie en de tijd die het algemeen beschikbaar is. Alle andere [functie overwegingen en beperkingen](#feature-consideration-and-limitations) zijn ook van toepassing op deze versies. Raadpleeg de [vereisten](backup-sql-server-database-azure-vms.md#prerequisites) voor het configureren van beveiliging op SQL-servers 2008 en 2008 R2, zoals het instellen van de [register sleutel](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (deze stap is niet vereist wanneer de functie algemeen beschikbaar is).
+Gebruikers worden niet in rekening gebracht voor deze functie tot de tijd die het algemeen beschikbaar is. Alle andere [functie overwegingen en beperkingen](#feature-consideration-and-limitations) zijn ook van toepassing op deze versies. Raadpleeg de [vereisten](backup-sql-server-database-azure-vms.md#prerequisites) voor het configureren van beveiliging op SQL-servers 2008 en 2008 R2, waaronder het instellen van de [register sleutel](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (deze stap is niet vereist wanneer de functie algemeen beschikbaar is).
 
 
 ## <a name="feature-consideration-and-limitations"></a>Overwegingen voor functies en beperkingen
@@ -75,7 +75,7 @@ Er worden geen kosten in rekening gebracht voor deze functie en de tijd die het 
 - U kunt back-ups maken naar **~ 2000** SQL server data bases in een kluis. U kunt meerdere kluizen maken voor het geval u een groter aantal data bases hebt.
 - U kunt in één bezoek back-ups configureren voor Maxi maal **50** data bases. Deze beperking helpt bij het optimaliseren van back-upbelasting.
 - Data bases worden ondersteund met een grootte van Maxi maal **2 TB** . voor grootten is het mogelijk dat er prestatie problemen zijn.
-- Om een idee te hebben van het aantal data bases dat per server kan worden beveiligd, moet u rekening houden met factoren zoals band breedte, VM-grootte, back-upfrequentie, database grootte enzovoort. [Down load](http://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) de resource planner die het geschatte aantal data bases bevat dat per server kan worden uitgevoerd op basis van de VM-resources en het back-upbeleid.
+- Om een idee te hebben van het aantal data bases dat per server kan worden beveiligd, moet u rekening houden met factoren zoals band breedte, VM-grootte, back-upfrequentie, database grootte enzovoort. [Down load](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) de resource planner die het geschatte aantal data bases bevat dat per server kan worden uitgevoerd op basis van de VM-resources en het back-upbeleid.
 - In het geval van beschikbaarheids groepen worden er back-ups gemaakt van de verschillende knoop punten op basis van een aantal factoren. Hieronder vindt u een overzicht van het back-upgedrag voor een beschikbaarheids groep.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Back-up van gedrag in het geval van AlwaysOn-beschikbaarheids groepen
@@ -190,7 +190,7 @@ Voor alle andere versies herstelt u de machtigingen met de volgende stappen:
 
 7. Klik op OK.
 8. Herhaal dezelfde reeks stappen (1-7 hierboven) om NT Service\AzureWLBackupPluginSvc-aanmelding toe te voegen aan het SQL Server-exemplaar. Als de aanmelding al bestaat, moet u ervoor zorgen dat deze de serverrol sysadmin heeft en onder status heeft de machtiging verlenen om verbinding te maken met de data base-engine en de aanmelding als ingeschakeld.
-9. Nadat u een machtiging hebt verleend, detecteert u **Db's opnieuw** in de portal: Workload **->** back- **->** upinfrastructuur van kluis in azure VM:
+9. Nadat u een machtiging hebt verleend, detecteert u **db's** in de portal: Workload **->** back- **->** upinfrastructuur van kluis in azure VM:
 
     ![Db's in Azure Portal opnieuw detecteren](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 

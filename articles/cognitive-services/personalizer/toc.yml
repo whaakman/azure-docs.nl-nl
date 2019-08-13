@@ -8,9 +8,12 @@
       displayName: 'loop, context, feature, action, rank, reward, developer, use case'
 - name: Snelstartgidsen
   items:
-    - name: Feedback-lus gebruiken
+    - name: 'C# gebruiken'
       href: csharp-quickstart-commandline-feedback-loop.md
       displayName: 'code, sample, quickstart, c#'
+    - name: Python gebruiken
+      href: python-quickstart-commandline-feedback-loop.md
+      displayName: 'code, sample, quickstart, python'
 - name: Concepten
   items:
     - name: Hoe Personalizer werkt

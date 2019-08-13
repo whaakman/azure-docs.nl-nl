@@ -12,12 +12,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 625fcda4b612fdeda940f9219238ac79354dd056
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4e65abdb500d61aa72b142f598a17e4cb8fb05f8
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444670"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950007"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>Uw eerste functie maken vanaf de opdrachtregel
 
@@ -29,7 +29,7 @@ U kunt de onderstaande stappen volgen op een Mac-, Windows- of Linux-computer.
 
 Voordat u dit voorbeeld kunt uitvoeren moet u ervoor zorgen dat u het volgende hebt:
 
-+ Installeer [Azure Functions Core Tools](./functions-run-local.md#v2) versie 2.6.666 of hoger.
++ Installeer [Azure functions core tools](./functions-run-local.md#v2) versie 2.6.666 of hoger.
 
 + Installeer de [Azure CLI]( /cli/azure/install-azure-cli). In dit artikel is Azure CLI versie 2.0 of hoger vereist. Voer `az --version` uit om te zien welke versie u hebt. U kunt ook de [Azure Cloud Shell](https://shell.azure.com/bash) gebruiken.
 
@@ -37,35 +37,9 @@ Voordat u dit voorbeeld kunt uitvoeren moet u ervoor zorgen dat u het volgende h
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-local-function-app-project"></a>Het lokale functie-app-project maken
+[!INCLUDE [functions-create-function-app-cli](../../includes/functions-create-function-app-cli.md)]
 
-Voer de volgende opdracht uit vanaf de opdrachtregel om een functie-app-project te maken in de map `MyFunctionProj` van de huidige lokale map. Er wordt ook een GitHub-opslagplaats gemaakt in `MyFunctionProj`.
-
-```bash
-func init MyFunctionProj
-```
-
-Wanneer u hierom wordt gevraagd, selecteert u een runtime voor de werkrol uit de volgende taalopties:
-
-+ `dotnet`: hiermee maakt u een .NET-klassebibliotheekproject (.csproj).
-+ `node`: hiermee maakt u een JavaScript-project.
-
-Wanneer de opdracht wordt uitgevoerd, ziet u ongeveer de volgende uitvoer:
-
-```output
-Writing .gitignore
-Writing host.json
-Writing local.settings.json
-Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
-```
-
-Gebruik de volgende opdracht om naar de nieuwe projectmap `MyFunctionProj` te navigeren.
-
-```bash
-cd MyFunctionProj
-```
-
-## <a name="enable-extension-bundles"></a>Extensie-bundels inschakelen
+## <a name="enable-extension-bundles"></a>Uitbreidings bundels inschakelen
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 

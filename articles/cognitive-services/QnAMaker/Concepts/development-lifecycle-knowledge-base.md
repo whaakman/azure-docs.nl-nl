@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6ffc8931f23835f096c99480b286422fc6e20119
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 97a4673be2a611149806855e792c5bf1f7a0942a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447622"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955178"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Levenscyclus van de Knowledge base in QnA Maker
 QnA Maker leert beste in een iteratief cyclus van wijzigingen in het gegevensmodel, utterance voorbeelden, publiceren en verzamelen van gegevens van eindpunt query's. 
@@ -28,14 +28,14 @@ QnA Maker knowledge base (KB)-eindpunt biedt een best-none-match-antwoord op een
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>Testen en bijwerken van de knowledge base
 
-De knowledge base is klaar voor testen wanneer het wordt gevuld met inhoud, redactioneel of via automatische extractie. Interactieve testen kan worden uitgevoerd in de QnA Maker portal via de **Test** Configuratiescherm door te voeren van de algemene query's van gebruikers en verifiëren dat het antwoord geretourneerd met de juiste reactie en voldoende betrouwbaarheidsscore. 
+De knowledge base is klaar voor testen wanneer het wordt gevuld met inhoud, redactioneel of via automatische extractie. Interactieve tests kunnen worden uitgevoerd in de QnA Maker portal via het deel venster **testen** door algemene gebruikers query's in te voeren en te controleren of de antwoorden die zijn geretourneerd met de juiste reactie en voldoende betrouw bare Score zijn. 
 
-* **Om op te lossen lage vertrouwen scores**: alternatieve vragen toevoegen. 
-* **Wanneer een query onjuist retourneert de [Standaardantwoord](confidence-score.md#change-default-answer)** : nieuwe antwoorden op de juiste vraag toevoegen. 
+* **Zo kunt u lage betrouwbaarheids scores herstellen**: alternatieve vragen toevoegen. 
+* **Wanneer een query niet de [standaard reactie](confidence-score.md#change-default-answer)retourneert**: nieuwe antwoorden toevoegen aan de juiste vraag. 
 
 Deze lus van test-update gaat door totdat u tevreden met de resultaten bent. Meer informatie over het [uw knowledge base test](../How-To/test-knowledge-base.md).
 
-Voor grote kB's, gebruik automatisch testen met de [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) en de `isTest` body eigenschap welke query's de `test` knowledge base in plaats van de gepubliceerde knowledge base. 
+Gebruik voor grote kb's geautomatiseerde tests met de [generateAnswer-API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) en de `isTest` eigenschap Body die de `test` Knowledge Base doorzoekt in plaats van de gepubliceerde kennis database. 
 
 ```json
 {
@@ -51,7 +51,7 @@ Zodra u klaar bent met testen van de knowledge base, kunt u deze publiceert. De 
 
 Op deze manier alle wijzigingen aan de testversie van de knowledge base niet van invloed op de gepubliceerde versie die mogelijk live in een productietoepassing.
 
-Elk van deze knowledge bases kan worden gericht voor het testen van afzonderlijk. Met de API's, kunt u de testversie van de knowledge base met richten `isTest` eigenschap in de aanroep van generateAnswer hoofdtekst.
+Elk van deze knowledge bases kan worden gericht voor het testen van afzonderlijk. Met behulp van de api's kunt u de test versie van de Knowledge Base `isTest` richten op de eigenschap Body in de generateAnswer-aanroep.
 
 Meer informatie over het [kennisbank publiceren](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 

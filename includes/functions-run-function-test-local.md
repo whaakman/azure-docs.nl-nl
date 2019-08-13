@@ -9,24 +9,37 @@ ms.topic: include
 ms.date: 10/20/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 74e14e36b1ac0979da31203a2d16e2396ed821d0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: dcfa65c655d1508510282fe66e90e4076278b29b
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175809"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949963"
 ---
 ## <a name="run-the-function-locally"></a>De functie lokaal uitvoeren
 
-Met de volgende opdracht start u de functie-app. De app wordt uitgevoerd met dezelfde Azure Functions-runtime als die van Azure.
+Met de volgende opdracht start u de functie-app. De app wordt uitgevoerd met dezelfde Azure Functions-runtime als die van Azure. De start opdracht varieert, afhankelijk van de taal van uw project.
 
-```bash
-func host start --build
+### <a name="c"></a>C\#
+
+```command
+func start --build
 ```
 
-De optie `--build` is vereist voor het compileren van C#-projecten. U hebt deze optie niet nodig voor een JavaScript-project.
+### <a name="javascript"></a>JavaScript
 
-Wanneer de Functions-host start, wordt ongeveer de volgende uitvoer weergegeven. Deze is voor de leesbaarheid afgekapt:
+```command
+func start
+```
+
+### <a name="typescript"></a>TypeScript
+
+```command
+npm install
+npm start     
+```
+
+Wanneer de host functions wordt gestart, wordt er iets zoals de volgende uitvoer geschreven, die voor de Lees baarheid is afgekapt:
 
 ```output
 

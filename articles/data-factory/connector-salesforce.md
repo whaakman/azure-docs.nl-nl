@@ -306,7 +306,7 @@ Wanneer u de SOQL of SQL-query opgeeft, moet u rekening best Eden aan het versch
 * Voor **beeld van SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL**-voor beeld:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
-### <a name="error-of-malformedquerytruncated"></a>Fout van MALFORMED_QUERY: afgekapt
+### <a name="error-of-malformed_querytruncated"></a>Fout van MALFORMED_QUERY: afgekapt
 
 Als u de fout ' MALFORMED_QUERY: Afgekapt, normaal gesp roken is de kolom Type JunctionIdList in data en Sales Force beperkt over het ondersteunen van dergelijke gegevens met een groot aantal rijen. Als u het probleem wilt oplossen, probeert u de kolom JunctionIdList uit te sluiten of het aantal te kopiëren rijen te beperken (u kunt partitioneren op meerdere uitvoeringen van de Kopieer activiteit).
 
@@ -322,18 +322,18 @@ Wanneer u gegevens uit Sales Force kopieert, worden de volgende toewijzingen geb
 | Date |DateTime |
 | Date/Time |DateTime |
 | Email |String |
-| Id |String |
+| ID |String |
 | Lookup Relationship |String |
 | Multi-Select Picklist |String |
 | Number |Decimal |
 | Percent |Decimal |
 | Phone |String |
-| Picklist |String |
-| Text |String |
+| Selectie lijst |String |
+| Text |Reeks |
 | Text Area |String |
 | Text Area (Long) |String |
 | Text Area (Rich) |String |
-| Text (Encrypted) |String |
+| Text (Encrypted) |Reeks |
 | URL |String |
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: c2e78f6925ae8ff72e7f603c886376b32e40cd94
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 03b65c71201ba125cb3924a52e8760a088374aa6
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737259"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954722"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Back-ups maken van Azure-bestandsshares en deze terugzetten
 In dit artikel wordt uitgelegd hoe u met Azure Portal back-ups kunt maken van [Azure-bestandsshares](../storage/files/storage-files-introduction.md) en deze kunt herstellen.
@@ -188,7 +188,7 @@ Als u de beveiliging voor de bestandsshare wilt hervatten, gaat u naar het back-
 
 ### <a name="delete-backup-data"></a>Back-upgegevens verwijderen
 
-U kunt de back-up van een bestandsshare verwijderen tijdens de taak Back-up stoppen of op elk gewenst moment nadat u de beveiliging hebt gestopt. Het kan zelfs handig zijn om een aantal dagen of weken te wachten voordat u de herstelpunten verwijdert. Wanneer u back-upgegevens verwijdert, kunt u niet specifieke herstelpunten kiezen om te verwijderen, in tegenstelling tot bij het herstellen van herstelpunten. Als uw back-gegevens verwijdert, verwijdert u alle herstelpunten die aan het item zijn gekoppeld.
+U kunt de back-up van een bestands share verwijderen tijdens de taak back-up stoppen of op elk moment nadat u de beveiliging hebt gestopt. Het kan zelfs handig zijn om een aantal dagen of weken te wachten voordat u de herstelpunten verwijdert. Wanneer u back-upgegevens verwijdert, kunt u niet specifieke herstelpunten kiezen om te verwijderen, in tegenstelling tot bij het herstellen van herstelpunten. Als uw back-gegevens verwijdert, verwijdert u alle herstelpunten die aan het item zijn gekoppeld.
 
 Bij de volgende procedure wordt ervan uitgegaan dat de back-uptaak voor de virtuele machine is gestopt. Nadat de back-uptaak is gestopt, zijn de opties Back-up hervatten en Back-upgegevens verwijderen beschikbaar in het dashboard Back-upitem. Klik op Back-upgegevens verwijderen en typ de naam van de bestandsshare om het verwijderen te bevestigen. Geef desgewenst een reden voor verwijdering of een opmerking op.
 

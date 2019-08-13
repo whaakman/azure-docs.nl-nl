@@ -1,79 +1,79 @@
 ---
-title: Bestanden van SharePoint - QnA Maker
+title: Share Point-bestanden-QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Beveiligde SharePoint-gegevensbronnen toevoegen aan uw knowledge base te verrijken van de knowledge base met vragen en antwoorden die kunnen worden beveiligd met Active Directory.
+description: Voeg beveiligde share point-gegevens bronnen aan uw Knowledge Base toe om de Knowledge Base te verrijken met vragen en antwoorden die kunnen worden beveiligd met Active Directory.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: ecb9777643296685d0dcc7cd5a177f2fe00d2580
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: da73f42c17a3688e7f1f464ec4a3bbe77cbc9229
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704635"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955197"
 ---
-# <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Een beveiligde SharePoint-gegevensbron toevoegen aan uw knowledge base
+# <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Een beveiligde share point-gegevens bron toevoegen aan uw Knowledge Base
 
-Beveiligde SharePoint-gegevensbronnen toevoegen aan uw knowledge base te verrijken van de knowledge base met vragen en antwoorden die kunnen worden beveiligd met Active Directory. 
+Voeg beveiligde share point-gegevens bronnen aan uw Knowledge Base toe om de Knowledge Base te verrijken met vragen en antwoorden die kunnen worden beveiligd met Active Directory. 
 
-Wanneer u een beveiligde SharePoint-document aan uw knowledge base, als de beheerder van de QnA Maker toevoegt, moet u Active Directory-machtigingen voor QnA Maker vragen. Zodra deze machtiging is opgegeven in de Active Directory-beheer met QnA Maker voor toegang tot SharePoint, moet deze niet opnieuw worden gegeven. Elke volgende document toevoeging aan de knowledge base moet autorisatie niet als het zich in dezelfde SharePoint-resource. 
+Wanneer u een beveiligd share point-document aan uw Knowledge Base toevoegt als QnA Maker Manager, moet u Active Directory machtigingen voor QnA Maker aanvragen. Zodra deze machtiging van de Active Directory Manager is ontvangen QnA Maker om toegang te krijgen tot share point, hoeft deze niet opnieuw te worden opgegeven. Elk volgend document toevoegen aan de Knowledge Base heeft geen autorisatie nodig als het zich in dezelfde share point-resource bevindt. 
 
-Als de QnA Maker knowledge base-manager niet gelijk is aan de Active Directory-manager, moet u om te communiceren met de Active Directory-beheer voor het voltooien van dit proces.
+Als de QnA Maker Knowledge Base manager niet de Active Directory Manager is, moet u met de Active Directory Manager communiceren om dit proces te volt ooien.
 
-## <a name="add-supported-file-types-to-knowledge-base"></a>Ondersteunde bestandstypen in knowledge base toevoegen
+## <a name="add-supported-file-types-to-knowledge-base"></a>Ondersteunde bestands typen toevoegen aan de Knowledge Base
 
-U kunt toevoegen met alle QnA Maker-ondersteunde [bestandstypen](../Concepts/data-sources-supported.md) uit een SharePoint-site aan uw knowledge base. Mogelijk moet u verlenen [machtigingen](#permissions) als de bestandsbron is beveiligd.
+U kunt alle door QnA Maker ondersteunde [Bestands typen](../Concepts/data-sources-supported.md) van een share point-site toevoegen aan uw Knowledge Base. Mogelijk moet u [machtigingen](#permissions) verlenen als de bron van het bestand is beveiligd.
 
-1. Selecteer in de bibliotheek met de SharePoint-site, beletseltekenmenu van het bestand, `...`.
+1. Selecteer in de bibliotheek met de share point-site het weglatings menu `...`van het bestand.
 1. Kopieer de URL van het bestand.
 
-   ![De URL van de SharePoint-bestand ophalen door het selecteren van het bestand beletseltekenmenu vervolgens de URL te kopiëren.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
+   ![Haal de URL van het share point-bestand op door het menu met het beletsel teken van het bestand te selecteren en de URL te kopiëren.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. In de QnA Maker-portal op de **instellingen** pagina [toevoegen de URL](edit-knowledge-base.md#add-datasource) in de knowledge base. 
+1. In de QnA Maker Portal, op de pagina **instellingen** , [voegt u de URL](edit-knowledge-base.md#add-datasource) toe aan de Knowledge Base. 
 
-### <a name="images-with-sharepoint-files"></a>Installatiekopieën met SharePoint-bestanden
+### <a name="images-with-sharepoint-files"></a>Installatie kopieën met share Point-bestanden
 
-Als bestanden afbeeldingen bevatten, worden deze niet opgehaald. U kunt de installatiekopie toevoegen vanuit de portal QnA Maker, nadat het bestand is uitgepakt naar paren met QnA.
+Als bestanden installatie kopieën bevatten, worden deze niet uitgepakt. U kunt de installatie kopie vanuit de QnA Maker portal toevoegen nadat het bestand is geëxtraheerd in QnA-paren.
 
-De installatiekopie met de volgende markdown-syntaxis kunt toevoegen: 
+Voeg de installatie kopie met de volgende afkortings syntaxis toe: 
 
 ```markdown
 ![Explanation or description of image](URL of public image)
 ```
 
-De tekst in de tussen vierkante haken, `[]`, wordt de installatiekopie van het uitgelegd. De URL in de haakjes `()`, is de directe koppeling naar de installatiekopie. 
+De tekst in de vier Kante haken `[]`, met uitleg over de afbeelding. De URL tussen haakjes, `()`, is de directe koppeling naar de afbeelding. 
 
-Wanneer u het paar QnA in het deelvenster interactieve test in de portal voor QnA Maker test, wordt de afbeelding weergegeven, in plaats van de markdown-tekst. Hiermee valideert u de installatiekopie van het openbaar kunnen worden opgehaald uit uw clienttoepassing.
+Wanneer u het QnA-paar in het interactieve test paneel test, wordt de afbeelding in het QnA Maker portal weer gegeven in plaats van de tekst voor de prijs verlaging. Hiermee wordt gecontroleerd of de installatie kopie openbaar kan worden opgehaald uit uw client toepassing.
 
 ## <a name="permissions"></a>Machtigingen
 
-Machtigingen verlenen gebeurt wanneer een beveiligd bestand uit een SharePoint-server is toegevoegd aan een knowledge base. Afhankelijk van hoe de SharePoint is ingesteld en de machtigingen van de persoon die het bestand toevoegt die dit heeft mogelijk:
+Het verlenen van machtigingen gebeurt wanneer een beveiligd bestand van een share Point-server wordt toegevoegd aan een Knowledge Base. Afhankelijk van hoe de share point is ingesteld en de machtigingen van de persoon die het bestand toevoegt, kan dit het volgende vereisen:
 
-* Er zijn geen extra stappen uitvoeren: de persoon die het bestand toe te voegen heeft alle machtigingen die nodig zijn.
-* stappen door beide [knowledge base-manager](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) en [Active Directory-beheer](#active-directory-manager-grant-file-read-access-to-qna-maker).
+* geen extra stappen: de persoon die het bestand toevoegt, heeft alle benodigde machtigingen.
+* stappen door zowel [Knowledge Base manager](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) als [Active Directory Manager](#active-directory-manager-grant-file-read-access-to-qna-maker).
 
-Zie de onderstaande stappen uitvoeren. 
+Zie de stappen die hieronder worden weer gegeven. 
 
-### <a name="knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal"></a>Knowledge base-manager: SharePoint-gegevensbron in de QnA Maker portal toevoegen
+### <a name="knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal"></a>Knowledge Base-beheer: share point-gegevens bron toevoegen in QnA Maker Portal
 
-Wanneer de **QnA Maker manager** een beveiligde SharePoint-document wordt toegevoegd aan een knowledge base, de kennisdatabase manager start met een verzoek tot toestemming die de Active Directory-beheerder nodig heeft om te voltooien.
+Wanneer de **QnA Maker Manager** een beveiligd share point-document aan een Knowledge Base toevoegt, initieert de Knowledge Base manager een aanvraag om toestemming die de Active Directory manager moet volt ooien.
 
-De aanvraag begint met een pop-upvenster om Active Directory-account te verifiëren. 
+De aanvraag begint met een pop-up om te verifiëren met een Active Directory-account. 
 
-![Verifiëren van gebruikersaccount](../media/add-sharepoint-datasources/authenticate-user-account.png)
+![Gebruikers account verifiëren](../media/add-sharepoint-datasources/authenticate-user-account.png)
 
-Zodra de QnA Maker-manager selecteert het account, is de Azure Active Directory-beheerder ontvangt een melding dat ze nodig hebben om toe te staan de QnA Maker (niet de QnA Maker-manager) apptoegang tot de SharePoint-resource. De Azure Active Directory-beheerder moet dit doen voor elke SharePoint-resource, maar niet elk document in die bron. 
+Zodra de QnA Maker Manager het account selecteert, ontvangt de Azure Active Directory-beheerder een melding dat de QnA Maker app (niet de QnA Maker Manager) toegang tot de share point-resource nodig heeft. De Azure Active Directory manager moet dit doen voor elke share point-resource, maar niet elk document in die resource. 
 
-### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>Active Directorybeheer: bestand lezen toegang verlenen tot QnA Maker
+### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>Active Directory-beheer: Lees toegang verlenen aan het bestand QnA Maker
 
-De Active Directory-beheer (niet de QnA Maker-manager) moet toegang verlenen tot QnA Maker toegang tot de SharePoint-resource selecteren [deze koppeling](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) om de QnA Maker Portal SharePoint enterprise-app lezen-bestand te autoriseren machtigingen. 
+De Active Directory Manager (niet de QnA Maker Manager) moet toegang verlenen tot QnA Maker om toegang te krijgen tot de share point-resource door [deze koppeling](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) te selecteren om de QnA Maker Portal share point Enter prise-app toestemming te geven om machtigingen voor bestanden te lezen. 
 
-![Azure Active Directory-beheer verleent machtiging interactief](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
+![Azure Active Directory Manager verleent interactief machtigingen](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 
 <!--
 The Active Directory manager must grant QnA Maker access either by application name, `QnAMakerPortalSharePoint`, or by application ID, `c2c11949-e9bb-4035-bda8-59542eb907a6`. 
@@ -111,19 +111,19 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
     ![Grant required permissions](../media/add-sharepoint-datasources/grant-required-permissions.png)
 -->
-### <a name="grant-access-from-the-azure-active-directory-admin-center"></a>Toegang verlenen vanuit de Azure Active Directory-beheercentrum
+### <a name="grant-access-from-the-azure-active-directory-admin-center"></a>Toegang verlenen vanuit het Azure Active Directory-beheer centrum
 
-1. De Active Directory-beheerder zich aanmeldt bij Azure portal en wordt geopend  **[bedrijfstoepassingen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)** . 
+1. De Active Directory Manager meldt zich aan bij de Azure Portal en opent **[bedrijfs toepassingen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)** . 
 
-1. Zoeken naar `QnAMakerPortalSharePoint` het selecteren van de QnA Maker-app. 
+1. Zoek naar `QnAMakerPortalSharePoint` de QnA Maker-app selecteren. 
 
-    [![QnAMakerPortalSharePoint zoeken in de lijst met Enterprise-apps](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
+    [![Zoeken naar QnAMakerPortalSharePoint in de lijst met zakelijke apps](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 
-1. Onder **Security**, gaat u naar **machtigingen**. Selecteer **beheerder toestemming voor organisatie**. 
+1. Onder **beveiliging**gaat u naar **machtigingen**. Selecteer **toestemming geven voor de beheerder voor de organisatie**. 
 
-    [![Selecteer de geverifieerde gebruiker voor Active Directory-beheerder](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
+    [![Geverifieerde gebruiker voor Active Directory beheerder selecteren](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
 
-1. Selecteer een Sign-On-account met machtigingen voor het verlenen van machtigingen voor de Active Directory. 
+1. Selecteer een aanmeldings account met machtigingen om machtigingen te verlenen voor de Active Directory. 
 
 
   
@@ -188,4 +188,4 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Samenwerken aan uw knowledge base](collaborate-knowledge-base.md)
+> [Samen werken aan uw Knowledge Base](collaborate-knowledge-base.md)

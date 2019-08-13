@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: 7b27637ca63ec69d7f4c33f05e7c037d67676b2d
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 04162f074dba05ac6492c16acb446912296cd673
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828295"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952106"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Virtuele VMware-machines beoordelen met Azure Migrate: Server Assessment
 
@@ -180,8 +180,39 @@ De detectie wordt gestart. Het duurt ongeveer 15 minuten voor de meta gegevens v
 
 ### <a name="scoping-discovery"></a>Detectie van bereik
 
-Detectie kan worden beperkt door de toegang te beperken tot het vCenter-account dat wordt gebruikt voor detectie. U kunt het bereik instellen op vCenter Server Data Centers, clusters, map met clusters, hosts, de map hosts of afzonderlijke Vm's. 
+Detectie kan worden beperkt door de toegang te beperken tot het vCenter-account dat wordt gebruikt voor detectie. U kunt het bereik instellen op vCenter Server Data Centers, clusters, map met clusters, hosts, de map hosts of afzonderlijke Vm's.
 
+Als u het bereik wilt instellen, moet u de volgende stappen uitvoeren:
+1.  Maak een vCenter-gebruikers account.
+2.  Definieer een nieuwe rol met de vereiste bevoegdheden. (<em>vereist voor server migratie zonder agent</em>)
+3.  Machtigingen toewijzen aan het gebruikers account op vCenter-objecten.
+
+**Een vCenter-gebruikers account maken**
+1.  Meld u aan bij de vSphere-webclient als de vCenter Server beheerder.
+2.  Klik op **beheer** > **SSO-gebruikers en groepen** > **gebruikers** tabblad.
+3.  Klik op het pictogram **nieuwe gebruiker** .
+4.  Vul de vereiste gegevens in om een nieuwe gebruiker te maken en klik op **OK**.
+
+**Een nieuwe rol definiëren met vereiste bevoegdheden** (<em>vereist voor server migratie zonder agent</em>)
+1.  Meld u aan bij de vSphere-webclient als vCenter Server beheerder.
+2.  Blader naar **beheer** > **rolbeheer**.
+3.  Selecteer uw vCenter Server in de vervolg keuzelijst.
+4.  Klik op actie voor het maken van een **rol** .
+5.  Typ een naam voor de nieuwe rol. (zoals <em>Azure_Migrate</em>).
+6.  Wijs deze [machtigingen](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) toe aan de nieuw gedefinieerde rol.
+7.  Klik op **OK**.
+
+**Machtigingen toewijzen voor vCenter-objecten**
+
+Er zijn twee methoden voor het toewijzen van machtigingen aan inventaris objecten in vCenter aan het vCenter-gebruikers account waaraan een rol is toegewezen.
+- Voor Server evaluatie moet de rol **alleen-lezen** worden toegepast op het vCenter-gebruikers account voor alle bovenliggende objecten waar de vm's worden gehost die moeten worden gedetecteerd. Alle bovenliggende objecten-host, map van hosts, cluster, map met clusters in de hiërarchie tot aan het Data Center moeten worden opgenomen. Deze machtigingen moeten worden door gegeven aan onderliggende objecten in de hiërarchie. 
+
+    Net als bij server migratie moet een door de gebruiker gedefinieerde rol (met de naam <em>Azure _Migrate</em>) [](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) worden toegepast op het vCenter-gebruikers account voor alle bovenliggende objecten waar de virtuele machines worden gehost die worden gemigreerd.
+
+![Machtigingen toewijzen](./media/tutorial-assess-vmware/assign-perms.png)
+
+- De alternatieve methode is het toewijzen van het gebruikers account en de rol op het datacenter niveau en het door geven van deze aan de onderliggende objecten. Geef vervolgens voor elk object (zoals Vm's) dat u niet wilt detecteren of migreren het account een **Access** -rol. Deze configuratie is omslachtig. Het biedt onbedoelde toegangs controles, omdat voor elk nieuw onderliggend object ook automatisch toegang wordt verleend die wordt overgenomen van de bovenliggende. Daarom wordt u aangeraden de eerste benadering te gebruiken.
+ 
 > [!NOTE]
 > Momenteel kan server evaluatie geen Vm's detecteren als het vCenter-account toegang heeft gekregen op het niveau van de vCenter-VM-map. Als u uw detectie op basis van VM-mappen wilt beperken, kunt u dit doen door ervoor te zorgen dat het vCenter-account alleen-lezen toegang heeft dat is toegewezen op een VM-niveau.  Hieronder vindt u instructies over hoe u dit kunt doen:
 >

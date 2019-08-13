@@ -3,18 +3,17 @@ title: Inleiding tot Azure IoT Hub | Microsoft Docs
 description: Lees hier alles over Azure IoT Hub. Deze IoT-service is gebouwd voor schaalbare gegevensopname, apparaatbeheer en beveiliging.
 author: nberdy
 ms.author: nberdy
-ms.date: 07/04/2018
+ms.date: 08/08/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
-manager: briz
-ms.openlocfilehash: 6dadd746bccd028a2b81a980d99ab47ec9e6e2a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0dde7bd9bd3372f0f5eddbbd56727eca3ae4a9dd
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61320573"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950469"
 ---
 # <a name="what-is-azure-iot-hub"></a>Wat is Azure IoT Hub?
 
@@ -26,7 +25,7 @@ De mogelijkheden van IoT Hub helpen u bij het bouwen van schaalbare, complete Io
 
 ## <a name="scale-your-solution"></a>Uw oplossing schalen
 
-IoT Hub kan worden opgeschaald naar miljoenen gelijktijdig verbonden apparaten en miljoenen gebeurtenissen per seconde om zo uw IoT-workloads te ondersteunen. IoT Hub biedt verschillende servicelagen om optimaal tegemoet te kunnen komen aan de schaalbaarheid die u nodig hebt. Krijg meer informatie door de [prijzen](https://azure.microsoft.com/pricing/details/iot-hub/) te bekijken.
+IoT Hub kan worden opgeschaald naar miljoenen gelijktijdig verbonden apparaten en miljoenen gebeurtenissen per seconde om zo uw IoT-workloads te ondersteunen. Zie [IOT hub schalen](iot-hub-scaling.md?branch=release-iotbasic)voor meer informatie over het schalen van uw IOT hub. Bekijk de [pagina met prijzen](https://azure.microsoft.com/pricing/details/iot-hub/)voor meer informatie over de verschillende lagen van de service die worden aangeboden door IOT hub en hoe u de schaal baarheid optimaal kunt aanpassen aan uw behoeften.
 
 ## <a name="secure-your-communications"></a>Uw communicatie beveiligen
 
@@ -50,7 +49,7 @@ Met IoT Hub beschikt u over een beveiligd communicatiekanaal dat uw apparaten ku
 
 De ingebouwde functionaliteit voor het routeren van berichten biedt u de flexibiliteit voor het instellen van automatische berichtendistributie op basis van regels:
 
-* Gebruik berichtroutering om te bepalen naar welke locatie de hub telemetriegegevens van apparaten verstuurt.
+* Gebruik [bericht routering](iot-hub-devguide-messages-d2c.md) om te bepalen waar de hub apparaat-telemetrie verzendt.
 
 * Er zijn geen extra kosten verbonden aan het routeren van berichten naar meerdere eindpunten.
 
@@ -110,7 +109,7 @@ Als uw oplossing geen van de ondersteunde protocollen kan gebruiken, kunt u IoT 
 
 ## <a name="quotas-and-limits"></a>Quota en limieten
 
-Voor elk Azure-abonnement gelden standaardquotalimieten ter voorkoming van misbruik van de service. Deze limieten kunnen invloed hebben op het bereik van uw IoT-oplossing. De huidige limiet per abonnement per is 50 IoT-hubs per abonnement. U kunt een verzoek voor een groter quota indienen door contact op te nemen met de ondersteuning. Meer informatie over quotalimieten vindt u hier:
+Voor elk Azure-abonnement gelden standaardquotalimieten ter voorkoming van misbruik van de service. Deze limieten kunnen invloed hebben op het bereik van uw IoT-oplossing. De huidige limiet voor per abonnement is 50 IoT hubs per abonnement. U kunt een verzoek voor een groter quota indienen door contact op te nemen met de ondersteuning. Zie [IOT hub quota's en beperking](iot-hub-devguide-quotas-throttling.md)voor meer informatie. Raadpleeg een van de volgende artikelen voor meer informatie over quotum limieten:
 
 * [Limieten, quota en beperkingen van Azure-abonnementen en -services](../azure-subscription-service-limits.md)
 
@@ -120,4 +119,4 @@ Voor elk Azure-abonnement gelden standaardquotalimieten ter voorkoming van misbr
 
 Bekijk de snelstartgidsen voor IoT Hub als u een end-to-end IoT-oplossing wilt uitproberen:
 
-* [Snelstart: Telemetrie verzenden vanaf een apparaat naar een IoT hub](quickstart-send-telemetry-node.md)
+* [Snelstart: Telemetrie van een apparaat naar een IoT-hub verzenden](quickstart-send-telemetry-node.md)

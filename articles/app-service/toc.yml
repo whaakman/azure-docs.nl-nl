@@ -63,8 +63,6 @@
       href: samples-resource-manager-templates.md
 - name: Concepten
   items:
-    - name: De werking van App Service
-      href: app-service-how-works-readme.md
     - name: App Service-abonnementen
       href: overview-hosting-plans.md
     - name: OS-functionaliteit

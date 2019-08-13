@@ -258,7 +258,7 @@
     - name: Herbruikbare werkstromen maken
       displayName: pipelines
       items:
-        - name: 'ML-pijplijnen: batch, berekeningen, opnieuw gebruiken, delen'
+        - name: Machine learning-pijplijnen
           href: how-to-create-your-first-pipeline.md
         - name: Azure-pijplijnen voor CI/CD
           displayName: 'continuous, integration, delivery'
