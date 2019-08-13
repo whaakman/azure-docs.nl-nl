@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
 ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60193181"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Zelfstudie: Azure Firewall-logboeken en metrische gegevens bewaken
@@ -44,7 +44,7 @@ Voordat u met deze zelfstudie begint, leest u de [Azure Firewall-logboeken en me
 Nadat u deze procedure voor het inschakelen van diagnostische logboekregistratie hebt voltooid, kan het enkele minuten duren voordat de gegevens in uw logboeken verschijnen. Als u aanvankelijk niets ziet, controleert u het een paar minuten later opnieuw.
 
 1. Open in de Azure-portal uw firewall-resourcegroep en klik op de firewall.
-2. Onder **bewaking**, klikt u op **diagnostische instellingen**.
+2. Klik onder **bewaking**op **Diagnostische instellingen**.
 
    Voor Azure Firewall zijn er twee servicespecifieke logboeken beschikbaar:
 
@@ -71,11 +71,11 @@ Activiteitenlogboekregistratie is automatisch ingeschakeld voor elke Resource Ma
 
 Volg de onderstaande stappen om diagnostische logboekregistratie in te schakelen:
 
-1. Noteer de resource-ID van uw opslagaccount waar de logboekgegevens worden opgeslagen. Deze waarde heeft de volgende indeling: */abonnementen/\<subscriptionId\>/resourceGroups/\<resourcegroepnaam\>/providers/Microsoft.Storage/storageAccounts/\<opslagaccountnaam\>*.
+1. Noteer de resource-ID van uw opslagaccount waar de logboekgegevens worden opgeslagen. Deze waarde heeft de volgende indeling: */abonnementen/\<subscriptionId\>/resourceGroups/\<resourcegroepnaam\>/providers/Microsoft.Storage/storageAccounts/\<opslagaccountnaam\>* .
 
    U kunt elk opslagaccount in uw abonnement gebruiken. U kunt de Azure-portal gebruiken om deze informatie te vinden. De informatie staat op de pagina **Eigenschap** van de resource.
 
-2. Noteer de resource-ID van uw firewall waarvoor logboekregistratie is ingeschakeld. Deze waarde heeft de volgende indeling: */abonnementen/\<subscriptionId\>/resourceGroups/\<resourcegroepnaam\>/providers/Microsoft.Network/azureFirewalls/\<firewallnaam\>*.
+2. Noteer de resource-ID van uw firewall waarvoor logboekregistratie is ingeschakeld. Deze waarde heeft de volgende indeling: */abonnementen/\<subscriptionId\>/resourceGroups/\<resourcegroepnaam\>/providers/Microsoft.Network/azureFirewalls/\<firewallnaam\>* .
 
    U kunt de portal gebruiken om deze informatie te vinden.
 

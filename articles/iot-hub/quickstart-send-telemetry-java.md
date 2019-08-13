@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: Telemetrie verzenden naar Azure IoT Hub (Java) | Microsoft Docs'
+title: 'Quickstart: Telemetrie verzenden naar Azure IoT Hub met Java'
 description: In deze snelstart voert u twee Java-voorbeeldtoepassingen uit om gesimuleerde telemetrie te verzenden naar een IoT-hub en telemetrie van de IoT-hub te lezen voor verwerking in de cloud.
 author: wesmc7777
 manager: philmea
@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, seo-java-august2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 52e221088a7b12551636ecdc81532448f38eb26c
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 15d9447d7078fd4858a7957448dd30d07049d6e9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330449"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68958624"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-java"></a>Quickstart: telemetrie vanaf een apparaat verzenden naar een IoT-hub en lezen met een back-endtoepassing (Java)
 
@@ -49,7 +49,7 @@ Gebruik de volgende opdracht om de huidige versie van Maven op uw ontwikkelcompu
 mvn --version
 ```
 
-Voer de volgende opdracht om toe te voegen van de Microsoft Azure IoT-extensie voor Azure CLI met de Cloud Shell-sessie. De IOT-extensie worden IoT Hub, IoT Edge en IoT Device Provisioning Service (DPS) specifieke opdrachten toegevoegd aan Azure CLI.
+Voer de volgende opdracht uit om de Microsoft Azure IoT-extensie voor Azure CLI toe te voegen aan uw Cloud Shell-exemplaar. De IOT-extensie voegt IoT Hub, IoT Edge en IoT Device Provisioning Service (DPS)-specifieke opdrachten toe aan Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -65,7 +65,7 @@ Download het Java-voorbeeldproject van https://github.com/Azure-Samples/azure-io
 
 Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze snelstart gebruikt u Azure Cloud Shell om een gesimuleerd apparaat te registreren.
 
-1. Voer de volgende opdracht in Azure Cloud Shell te maken van de apparaat-id.
+1. Voer de volgende opdracht uit in Azure Cloud Shell om de apparaat-id te maken.
 
    **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
@@ -87,7 +87,7 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 
     U gebruikt deze waarde verderop in de snelstartgids.
 
-3. U moet ook de _Event Hubs-compatibele eindpunt_, _Event Hubs-compatibele pad_, en _primaire sleutel van service_ van uw IoT-hub om in te schakelen van de back-endtoepassing naar verbinding maken met uw IoT-hub en de berichten ophalen. Met de volgende opdrachten worden deze waarden opgehaald voor uw IoT-hub:
+3. U hebt ook het _Event hubs-compatibele eind punt_, _Event hubs compatibel pad_en de _primaire sleutel_ van de service van uw IOT-hub nodig om de back-endtoepassing in staat te stellen verbinding te maken met uw IOT-hub en de berichten op te halen. Met de volgende opdrachten worden deze waarden opgehaald voor uw IoT-hub:
 
      **YourIoTHubName: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
@@ -139,7 +139,7 @@ De back-endtoepassing maakt verbinding met het eindpunt **Events** aan de servic
     | -------- | ----------- |
     | `eventHubsCompatibleEndpoint` | Vervang de waarde van de variabele door het met Event Hubs compatibele eindpunt dat u eerder hebt genoteerd. |
     | `eventHubsCompatiblePath`     | Vervang de waarde van de variabele door het met Event Hubs compatibele pad dat u eerder hebt genoteerd. |
-    | `iotHubSasKey`                | Vervang de waarde van de variabele met de service primaire sleutel die u eerder een notitie van gemaakt. |
+    | `iotHubSasKey`                | Vervang de waarde van de variabele door de primaire sleutel van de service die u eerder hebt genoteerd. |
 
 3. Voer in het lokale terminalvenster de volgende opdrachten uit om de vereiste bibliotheken te installeren en de back-endtoepassing te compileren:
 

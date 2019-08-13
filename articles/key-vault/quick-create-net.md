@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Instellen en ophalen van een geheim uit Azure Key Vault met behulp van een .NET-web-app - Azure Key Vault | Microsoft Docs'
+title: 'Quickstart: Een geheim van Azure Key Vault instellen en ophalen met behulp van een .NET-Web-app-Azure Key Vault | Microsoft Docs'
 description: In deze quickstart gaat u met behulp van een .NET-web-app een geheim instellen in Azure Key Vault en dit geheim vervolgens ophalen
 services: key-vault
 author: msmbaldwin
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4f9fff41e4b9043c271d656583fb8b9a11ff3a7a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ddb1db9b39ac942a3476f50aad39c98198b2a18
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052783"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68958598"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Quickstart: een geheim uit Azure Key Vault instellen en ophalen met behulp van een .NET-web-app
 
@@ -39,7 +39,7 @@ Neem eerst de [basisconcepten voor Key Vault](key-vault-whatis.md#basic-concepts
 ## <a name="prerequisites"></a>Vereisten
 
 * In Windows:
-  * [Visual Studio 2019](https://www.microsoft.com/net/download/windows) met de volgende workloads:
+  * [Visual Studio 2019](https://www.microsoft.com/net/download/windows) met de volgende werk belastingen:
     * ASP.NET-ontwikkeling en webontwikkeling
     * Platformoverschrijdende ontwikkelmogelijkheden van .NET Core
   * [.NET Core 2.1 SDK of hoger](https://www.microsoft.com/net/download/windows)
@@ -119,14 +119,14 @@ git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
 Bewerk het bestand program.cs om het voorbeeld met de naam van uw specifieke sleutelkluis uit te voeren:
 
 1. Ga naar de map key-vault-dotnet-core-quickstart.
-2. Open het bestand key-vault-dotnet-core-quickstart.sln in Visual Studio 2019.
+2. Open het bestand Key-Vault-DotNet-core-QuickStart. SLN in Visual Studio 2019.
 3. Open het bestand Program.cs en vervang de tijdelijke aanduiding *YourKeyVaultName* door de naam van de sleutelkluis die u eerder hebt gemaakt.
 
 Deze oplossing maakt gebruik van NuGet-bibliotheken van [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) en [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
 ## <a name="run-the-app"></a>De app uitvoeren
 
-Selecteer in het hoofdmenu van Visual Studio 2019 **Debug** > **starten zonder foutopsporing**. Wanneer de browser wordt weergegeven, gaat u naar de pagina **Over**. De waarde voor **AppGeheim** wordt weergegeven.
+Selecteer in het hoofd menu van Visual Studio 2019 **fout opsporing** > **starten zonder fout opsporing**. Wanneer de browser wordt weergegeven, gaat u naar de pagina **Over**. De waarde voor **AppGeheim** wordt weergegeven.
 
 ## <a name="publish-the-web-application-to-azure"></a>De webtoepassing publiceren in Azure
 
@@ -171,10 +171,10 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ```
 
-Tijdens het uitvoeren van de toepassing ziet u nu de geheime waarde die is opgehaald. In de voorgaande opdracht, bent u de identiteit van de app service-machtigingen wilt geven **ophalen** en **lijst** bewerkingen op uw key vault.
+Tijdens het uitvoeren van de toepassing ziet u nu de geheime waarde die is opgehaald. In de voor gaande opdracht geeft u de identiteit van de app service-machtigingen voor het **ophalen** en **weer geven** van bewerkingen op uw sleutel kluis.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Verwijder de resourcegroep, de virtuele machine en alle gerelateerde resources wanneer u ze niet meer nodig hebt. Om dit te doen, selecteert u de resourcegroep voor de key vault en selecteer **verwijderen**.
+Verwijder de resourcegroep, de virtuele machine en alle gerelateerde resources wanneer u ze niet meer nodig hebt. Als u dit wilt doen, selecteert u de resource groep voor de sleutel kluis en selecteert u **verwijderen**.
 
 Verwijder de sleutelkluis met behulp van de opdracht [az keyvault delete](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete):
 
@@ -187,4 +187,4 @@ az keyvault delete --name
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
+> [Meer informatie over Key Vault](key-vault-whatis.md)

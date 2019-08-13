@@ -15,16 +15,16 @@ ms.date: 06/14/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 4484269194aa3d637101a6a0b83eacb268d4c16e
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67147290"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Log Analytics-agent configureren voor Linux-computers in een hybride omgeving
 [Azure Log Analytics](../platform/agent-windows.md) kan gegevens rechtstreeks vanuit uw fysieke of virtuele Linux-computer in uw datacentrum of andere cloudomgeving verzamelen en onderbrengen in één opslagplaats voor uitvoerige analyse en correlatie. In deze Quick Start wordt beschreven hoe u met een paar eenvoudige stappen gegevens van uw Linux-computer configureert en verzamelt.  Zie het volgende onderwerp, [Gegevens over Azure Virtual Machines verzamelen](quick-collect-azurevm.md), voor informatie over virtuele Linux-machines in Azure.  
 
-Voordat u verdergaat, controleert u eerst de Log Analytics-agent [overzicht](../platform/log-analytics-agent.md) artikel om te begrijpen welke configuraties worden ondersteund, de [ondersteund Linux-besturingssystemen](../platform/log-analytics-agent.md#supported-linux-operating-systems) en [ firewall-netwerkconfiguratie](../platform/log-analytics-agent.md#network-firewall-requirements). 
+Voordat u doorgaat, moet u eerst het overzichts artikel [](../platform/log-analytics-agent.md) van de log Analytics agent raadplegen om te begrijpen welke configuraties worden ondersteund, welke [Linux-besturings systemen](../platform/log-analytics-agent.md#supported-linux-operating-systems) en [netwerk firewall configuratie](../platform/log-analytics-agent.md#network-firewall-requirements)worden ondersteund. 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -44,7 +44,7 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
    * Selecteer de **Locatie** waarop uw virtuele machines zijn geïmplementeerd.  Bekijk [in welke regio's Log Analytics beschikbaar is](https://azure.microsoft.com/regions/services/) voor aanvullende informatie.  
    * Als u een werkruimte maakt in een nieuw abonnement dat na 2 april 2018 is gemaakt, gebruikt deze automatisch de prijscategorie *Per GB*. De optie voor het selecteren van een prijscategorie is dan niet beschikbaar.  Als u een werkruimte maakt voor een bestaand abonnement dat is gemaakt vóór 2 april, of voor een abonnement dat is gekoppeld aan een bestaande EA-inschrijving, kunt u hier uw gewenste prijscategorie selecteren.  Zie [Prijzen voor Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) voor aanvullende informatie over de afzonderlijke lagen.
 
-        ![Log Analytics-resource-blade maken](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
+        ![Log Analytics resource-Blade maken](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
 
 3. Nadat u de vereiste gegevens hebt opgegeven in het deelvenster **Log Analytics-werkruimte**, klikt u op **OK**.  
 

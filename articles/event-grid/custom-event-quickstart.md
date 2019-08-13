@@ -9,12 +9,12 @@ ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: d135b89d2b053e5d8d98a1319ae21759f3ff5594
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe821fbcea78719095e5353b0d4165f85916b67d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66156065"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68958655"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Snelstartgids: Aangepaste gebeurtenissen naar het webeindpunt routeren met behulp van Azure CLI en Event Grid
 
@@ -85,10 +85,10 @@ Het eindpunt voor uw web-app moet het achtervoegsel `/api/updates/` bevatten.
 endpoint=https://$sitename.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
-  -g gridResourceGroup \
-  --topic-name $topicname \
-  --name demoViewerSub \
+  --source-resource-id "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/$topicname" 
+  --name demoViewerSub 
   --endpoint $endpoint
+  
 ```
 
 Bekijk opnieuw uw web-app en u zult zien dat er een validatiegebeurtenis voor een abonnement naartoe is verzonden. Selecteer het oogpictogram om de gebeurtenisgegevens uit te breiden. Via Event Grid wordt de validatiegebeurtenis verzonden zodat het eindpunt kan controleren of de gebeurtenisgegevens in aanmerking komen om ontvangen te worden. De web-app bevat code waarmee het abonnement kan worden gevalideerd.
