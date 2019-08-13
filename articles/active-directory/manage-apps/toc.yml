@@ -1,28 +1,33 @@
 - name: Documentatie over toepassingsbeheer
   href: index.yml
-- name: Toepassingsbeheer en eenmalige aanmelding
+- name: Overzicht
   expanded: true
   items:
-    - name: Overzicht
-      expanded: true
-      items:
-        - name: Wat is toepassingsbeheer?
-          href: what-is-application-management.md
-    - name: Snelstartgidsen
-      items:
-        - name: Een galerie-toepassing toevoegen - portal
-          href: add-application-portal.md
-        - name: Tenant-apps bekijken - portal
-          href: view-applications-portal.md
-    - name: Zelfstudies
-      items:
-        - name: Zelfstudies voor SaaS-toepassingen
-          href: /azure/active-directory/saas-apps/
-    - name: Concepten
+    - name: Wat houdt beheer van cloud-apps en eenmalige aanmelding in?
+      href: what-is-application-management.md
+    - name: Wat is automatische inrichting van gebruikers?
+      href: user-provisioning.md
+    - name: Wat is een toepassingsproxy voor on-premises apps?
+      href: what-is-application-proxy.md
+- name: Snelstartgidsen
+  items:
+    - name: Een cloud-app uit de galerie toevoegen
+      href: add-application-portal.md
+    - name: Uw bedrijfstoepassingen bekijken
+      href: view-applications-portal.md
+- name: Zelfstudies
+  items:
+    - name: Zelfstudies voor SaaS-apps
+      href: /azure/active-directory/saas-apps/
+    - name: Een on-premises app toevoegen met een toepassingsproxy
+      href: application-proxy-add-on-premises-application.md
+- name: Concepten
+  items:
+    - name: Cloud-apps en eenmalige aanmelding
       items:
         - name: Integratie van een cloud-app plannen
           items:
-            - name: Wat gebeurt er wanneer u een app toevoegt?
+            - name: Aan de slag met app-integratie
               href: plan-an-application-integration.md
             - name: Begeleiding voor ontwikkelaars
               href: developer-guidance-for-integrating-applications.md
@@ -56,9 +61,34 @@
               href: tenant-restrictions.md
             - name: Configureren van SAML-tokenversleuteling (preview)
               href: howto-saml-token-encryption.md
-        - name: Portals voor eindgebruikers
-          href: end-user-experiences.md
-    - name: Handleidingen
+            - name: Portals voor eindgebruikers
+              href: end-user-experiences.md
+    - name: Automatisch gebruikers inrichten
+      items:
+        - name: Automatisch inrichten voor apps die SCIM ondersteunen
+          href: use-scim-to-provision-users-and-groups.md
+    - name: Toepassingsproxy voor on-premises apps
+      items:
+        - name: Toepassingsproxy
+          href: application-proxy.md
+        - name: Een implementatie van een toepassingsproxy plannen
+          href: application-proxy-deployment-plan.md
+        - name: Connectors
+          href: application-proxy-connectors.md
+        - name: Connectorgroepen
+          href: application-proxy-connector-groups.md
+        - name: Beveiliging
+          href: application-proxy-security.md
+        - name: Netwerktopologie
+          href: application-proxy-network-topology.md
+        - name: Hoge beschikbaarheid en taakverdeling
+          href: application-proxy-high-availability-load-balancing.md
+        - name: Vergelijking van toegangsoplossingen op afstand
+          href: application-proxy-migration.md
+- name: Handleidingen
+  expanded: true
+  items:
+    - name: Cloud-apps en eenmalige aanmelding
       items:
         - name: Een cloud-app toevoegen
           items:
@@ -182,36 +212,7 @@
                   href: access-panel-extension-problem-installing.md
                 - name: Fout bij selfservice-app-toegang gebruiken
                   href: access-panel-troubleshoot-self-service-access.md
-    - name: Resources
-      items:
-        - name: Azure-feedbackforum
-          href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-        - name: MSDN-forum
-          href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-        - name: Prijzen
-          href: 'https://azure.microsoft.com/pricing/details/active-directory'
-        - name: Service-updates
-          href: 'https://azure.microsoft.com/updates/?product=active-directory'
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
-        - name: Video's
-          href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'
-- name: Automatisch gebruikers inrichten
-  items:
-    - name: Overzicht
-      expanded: true
-      items:
-        - name: Wat is inrichting?
-          href: user-provisioning.md
-    - name: Zelfstudies
-      items:
-        - name: Zelfstudies voor SaaS-toepassingen
-          href: /azure/active-directory/saas-apps/
-    - name: Concepten
-      items:
-        - name: Automatisch inrichten voor apps die SCIM ondersteunen
-          href: use-scim-to-provision-users-and-groups.md
-    - name: Handleidingen
+    - name: Automatisch gebruikers inrichten
       items:
         - name: Gebruikersinrichting configureren
           items:
@@ -223,8 +224,6 @@
               href: configure-automatic-user-provisioning-portal.md
             - name: Toepassingsattributen aanpassen
               href: Customize-application-attributes.md
-            - name: Expressies schrijven voor kenmerktoewijzingen
-              href: functions-for-customizing-application-data.md
             - name: Bereikfilters
               href: define-conditional-rules-for-provisioning-user-accounts.md
             - name: De inrichtingsstatus controleren
@@ -245,50 +244,7 @@
               href: application-provisioning-config-problem-no-users-provisioned.md
             - name: Verkeerde gebruikers ingericht - galerie-app
               href: application-provisioning-config-problem-wrong-users-provisioned.md
-    - name: Resources
-      items:
-        - name: Azure-feedbackforum
-          href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-        - name: MSDN-forum
-          href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-        - name: Prijzen
-          href: 'https://azure.microsoft.com/pricing/details/active-directory'
-        - name: Service-updates
-          href: 'https://azure.microsoft.com/updates/?product=active-directory'
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
-        - name: Video's
-          href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'
-- name: Toepassingsproxy voor on-premises apps
-  items:
-    - name: Overzicht
-      expanded: true
-      items:
-        - name: Wat is toepassingsproxy?
-          href: what-is-application-proxy.md
-    - name: Zelfstudies
-      items:
-        - name: Een on-premises app toevoegen - portal
-          href: application-proxy-add-on-premises-application.md
-    - name: Concepten
-      items:
-        - name: Toepassingsproxy
-          href: application-proxy.md
-        - name: Een implementatie van een toepassingsproxy plannen
-          href: application-proxy-deployment-plan.md
-        - name: Connectors
-          href: application-proxy-connectors.md
-        - name: Connectorgroepen
-          href: application-proxy-connector-groups.md
-        - name: Beveiliging
-          href: application-proxy-security.md
-        - name: Netwerktopologie
-          href: application-proxy-network-topology.md
-        - name: Hoge beschikbaarheid en taakverdeling
-          href: application-proxy-high-availability-load-balancing.md
-        - name: Vergelijking van toegangsoplossingen op afstand
-          href: application-proxy-migration.md
-    - name: Handleidingen
+    - name: Toepassingsproxy voor on-premises apps
       items:
         - name: Connectors configureren
           items:
@@ -376,21 +332,27 @@
               href: application-sign-in-problem-on-premises-application-proxy.md
             - name: Problemen met CORS in de toepassingsproxy
               href: application-proxy-understand-cors-issues.md
-    - name: Naslaginformatie
+- name: Naslaginformatie
+  items:
+    - name: Automatisch gebruikers inrichten
+      items:
+        - name: Expressies schrijven voor kenmerktoewijzingen
+          href: functions-for-customizing-application-data.md
+    - name: Toepassingsproxy voor on-premises apps
       items:
         - name: Versiegeschiedenis van toepassingsproxy
           href: application-proxy-release-version-history.md
-    - name: Resources
-      items:
-        - name: Azure-feedbackforum
-          href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-        - name: MSDN-forum
-          href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-        - name: Prijzen
-          href: 'https://azure.microsoft.com/pricing/details/active-directory'
-        - name: Service-updates
-          href: 'https://azure.microsoft.com/updates/?product=active-directory'
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
-        - name: Video's
-          href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'
+- name: Resources
+  items:
+    - name: Azure-feedbackforum
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/active-directory'
+    - name: Service-updates
+      href: 'https://azure.microsoft.com/updates/?product=active-directory'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: Video's
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

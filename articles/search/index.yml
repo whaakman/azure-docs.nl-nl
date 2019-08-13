@@ -11,10 +11,10 @@ metadata:
   ms.service: search
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/02/2019
+  ms.date: 08/12/2019
   ms.author: heidist
 abstract:
-  description: 'Leer hoe u een bedrijfsoplossing voor zoekopdrachten in persoonlijke, heterogene inhoud maakt met behulp van Azure Search. In zelfstudies, API-referentiemateriaal en andere documenten kunt u zien hoe u doorzoekbare inhoud samenvoegt in één snelle index, waarin u kunt zoeken met behulp van eenvoudige-tot-geavanceerde syntaxis voor een grote verscheidenheid aan scenario’s. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Cognitive Search</b></a> is nu algemeen beschikbaar, met AI-verrijkingen die worden ondersteund voor productiescenario''s.<p/><a href="/azure/search/knowledge-store-concept-intro"><b>Knowledge Store (preview)</b></a> is een uitbreiding van Cognitive Search. Sla AI-verrijkingen op naar de opslag waar u verrijkingen ook in andere apps dan Azure Search kunt bekijken, wijzigen en verbruiken. Ga vandaag nog <a href="/azure/search/knowledge-store-howto"><b>aan de slag</b></a>.'
+  description: 'Leer hoe u een bedrijfsoplossing voor zoekopdrachten in persoonlijke, heterogene inhoud maakt met behulp van Azure Search. In zelfstudies, API-referentiemateriaal en andere documenten kunt u zien hoe u doorzoekbare inhoud samenvoegt in één snelle index, waarin u kunt zoeken met behulp van eenvoudige-tot-geavanceerde syntaxis voor een grote verscheidenheid aan scenario’s. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Cognitieve zoekopdracht</b></a> is een functie van Azure Search waarbij AI-processen worden gekoppeld aan opdrachten voor indexeren, het detecteren van tekst en kenmerken in afbeeldingsbestanden en het vinden van patronen in grote blokken ongestructureerde tekst.<p/><a href="/azure/search/knowledge-store-concept-intro"><b>Knowledge Store (preview)</b></a> is een uitbreiding van Cognitive Search. Sla AI-verrijkingen op naar de opslag waar u deze kunt bekijken, wijzigen en gebruiken in client-apps of downstreamprocessen. Ga vandaag nog <a href="/azure/search/knowledge-store-howto"><b>aan de slag</b></a>.'
   aside:
     image:
       alt: null

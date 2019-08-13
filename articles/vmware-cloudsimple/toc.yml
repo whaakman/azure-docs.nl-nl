@@ -58,6 +58,8 @@
           href: create-cloudsimple-service.md
         - name: Toegang tot de CloudSimple-portal
           href: access-cloudsimple-portal.md
+        - name: Configuratie van de on-premises firewall
+          href: on-premises-firewall-configuration.md
         - name: Knooppunten beheren
           items:
             - name: Knooppunten inrichten

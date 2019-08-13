@@ -9,10 +9,14 @@
   items:
     - name: 'C# gebruiken'
       href: Quickstart.md
+    - name: Swift (iOS) gebruiken
+      href: ios-quickstart.md
 - name: Zelfstudies
   items:
     - name: Start de Insluitende lezer (Node.js)
       href: tutorial.md
+    - name: Afbeelding naar Insluitende lezer (Swift)
+      href: ios-picture-immersive-reader-tutorial.md
 - name: 'Uitleg:'
   items:
     - name: Verificatie via Azure Active Directory
@@ -21,6 +25,8 @@
   items:
     - name: SDK-naslaginformatie
       href: reference.md
+    - name: iOS SDK-naslaginformatie
+      href: ios-reference.md
 - name: Resources
   items:
     - name: Azure-roadmap

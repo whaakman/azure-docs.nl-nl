@@ -137,6 +137,8 @@
           items:
             - name: Toegangslagen
               href: storage-blob-storage-tiers.md
+            - name: Gegevens vanuit Archive Storage reactiveren
+              href: storage-blob-rehydration.md
             - name: De levenscyclus van Azure Blob Storage beheren
               href: storage-lifecycle-management-concepts.md
         - name: Prestaties en schalen

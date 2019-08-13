@@ -11,7 +11,7 @@
       href: search-create-service-portal.md
     - name: Portal
       items:
-        - name: Een index laden en er query's op uitvoeren
+        - name: Een index maken en gebruiken
           href: search-get-started-portal.md
         - name: Verrijken met AI (cognitief zoeken)
           href: cognitive-search-quickstart-blob.md
