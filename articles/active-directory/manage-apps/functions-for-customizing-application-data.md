@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e741e8d4d68c9862aaabffaccb86740a3e1e9b8a
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 3524f34773f4627dff478ee7cc9cbff9f674bf8e
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694165"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931768"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory
 Bij het configureren van inrichting tot een SaaS-toepassing, is een van de typen kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Voor deze, moet u een script-achtige-expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -148,7 +148,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **Bron** |Vereist |Reeks |Doorgaans naam van het kenmerk van het **bron** object. |
+| **Bron** |Vereist |Tekenreeks |Doorgaans naam van het kenmerk van het **bron** object. |
 | **oldValue** |Optioneel |Reeks |Waarde die moet worden vervangen **bron** of **sjabloon**. |
 | **regexPattern** |Optioneel |Reeks |Regex-patroon voor de waarde die moet worden vervangen **bron**. Of, wanneer **replacementPropertyName** wordt gebruikt, patroon om waarde uit **replacementPropertyName**te halen. |
 | **regexGroupName** |Optioneel |Reeks |Naam van de groep binnen **regexPattern**. Alleen wanneer **replacementPropertyName** wordt gebruikt, wordt de waarde van deze groep geëxtraheerd als **replacementValue** van **replacementPropertyName**. |
@@ -171,7 +171,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **uniqueValueRule1... uniqueValueRuleN** |Ten minste zijn 2 afhankelijk van de vereiste, geen hoofdletters |Reeks | Lijst met regels voor het genereren van unieke waarden om te evalueren. |
+| **uniqueValueRule1... uniqueValueRuleN** |Ten minste zijn 2 afhankelijk van de vereiste, geen hoofdletters |Tekenreeks | Lijst met regels voor het genereren van unieke waarden om te evalueren. |
 
 
 ---
@@ -237,7 +237,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject |
-| **culturele** |Optioneel |Reeks |De notatie voor de cultuur naam op basis van RFC 4646 is *languagecode2-Country/regioncode2*, waarbij *languagecode2* de taal code van twee letters is en *land/regioncode2* de subcultuurcode van twee letters is. Voor beelden zijn ja-JP voor Japans (Japan) en en-US voor Engels (Verenigde Staten). In gevallen waarin een taal code van twee letters niet beschikbaar is, wordt er een code van drie letters gebruikt die is afgeleid van ISO 639-2.|
+| **culturele** |Optioneel |Tekenreeks |De notatie voor de cultuur naam op basis van RFC 4646 is *languagecode2-Country/regioncode2*, waarbij *languagecode2* de taal code van twee letters is en *land/regioncode2* de subcultuurcode van twee letters is. Voor beelden zijn ja-JP voor Japans (Japan) en en-US voor Engels (Verenigde Staten). In gevallen waarin een taal code van twee letters niet beschikbaar is, wordt er een code van drie letters gebruikt die is afgeleid van ISO 639-2.|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -366,7 +366,7 @@ Gebaseerd op van de gebruiker voornaam, de tweede voornaam en achternaam, moet u
 
     SelectUniqueValue( 
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
-        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com")
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com"),
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
     )
 

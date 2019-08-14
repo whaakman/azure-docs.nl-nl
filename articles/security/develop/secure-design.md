@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e31db74807b850b3d8cb8fc057e94e98db18fca2
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 87acc6e8c561349b734bd9cd98300b65e730abe7
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780634"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68928075"
 ---
 # <a name="design-secure-applications-on-azure"></a>Veilige toepassingen ontwerpen in azure
 In dit artikel bieden we beveiligings activiteiten en-controles waarmee u rekening moet houden bij het ontwerpen van toepassingen voor de Cloud. Trainings bronnen samen met beveiligings vragen en concepten die u kunt overwegen tijdens de vereisten en ontwerp fasen van micro soft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) , worden gedekt. Het doel is om u te helpen bij het definiëren van activiteiten en Azure-Services die u kunt gebruiken om een veiligere toepassing te ontwerpen.
@@ -36,7 +36,7 @@ Gebruik de volgende resources tijdens de trainings fase om vertrouwd te raken me
 
   - In [de hand leiding voor ontwikkel aars van Azure](https://azure.microsoft.com/campaigns/developer-guide/) ziet u hoe u aan de slag kunt gaan met Azure. De hand leiding laat zien welke services u kunt gebruiken om uw toepassingen uit te voeren, uw gegevens op te slaan, intelligentie op te nemen, IoT-apps te bouwen en uw oplossingen op een efficiënte en veilige manier te implementeren.
 
-  - De [aan de slag-hand leiding voor Azure-ontwikkel aars](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide) biedt essentiële informatie voor ontwikkel aars die aan de slag willen gaan met het Azure-platform voor hun ontwikkelings behoeften.
+  - De [aan de slag-hand leiding voor Azure-ontwikkel aars](../../guides/developer/azure-developer-guide.md) biedt essentiële informatie voor ontwikkel aars die aan de slag willen gaan met het Azure-platform voor hun ontwikkelings behoeften.
 
   - [Sdk's en hulpprogram ma's](https://docs.microsoft.com/azure/index#pivot=sdkstools) beschrijft de hulpprogram ma's die beschikbaar zijn in Azure.
 
@@ -66,7 +66,7 @@ Vraag beveiligings vragen als:
 
   - Bevat mijn toepassing gevoelige gegevens?
 
-  - Verzamelt of slaat mijn toepassing gegevens op die mij nodig heeft om te voldoen aan de industrie normen en nalevings Programma's zoals de [Federal Financial Instituut onderzoeksbureau (FFIEC)](https://docs.microsoft.com/azure/security/blueprints/ffiec-analytics-overview) of de [Payment Card Industry Data Security standards (PCI DSS) ](https://docs.microsoft.com/azure/security/blueprints/pcidss-analytics-overview)?
+  - Verzamelt of slaat mijn toepassing gegevens op die mij nodig heeft om te voldoen aan de industrie normen en nalevings Programma's zoals de [Federal Financial Instituut onderzoeksbureau (FFIEC)](../blueprints/ffiec-analytics-overview.md) of de [Payment Card Industry Data Security standards (PCI DSS) ](../blueprints/pcidss-analytics-overview.md)?
 
   - Verzamelt mijn toepassing gevoelige persoonlijke of klant gegevens die kunnen worden gebruikt, hetzij zelf, hetzij met andere informatie, om een persoon te identificeren, contact op te nemen of te vinden.
 
@@ -129,13 +129,13 @@ U kunt profiteren van Ide's (Full-complete Integrated Development Environments) 
 Micro soft biedt diverse [talen, frameworks en hulpprogram ma's](https://docs.microsoft.com/azure/index#pivot=sdkstools&panel=sdkstools-all) die u kunt gebruiken om toepassingen te ontwikkelen in Azure. Een voor beeld is [Azure voor .net-en .net core-ontwikkel aars](https://docs.microsoft.com/dotnet/azure/). Voor elke taal en elk Framework dat we bieden, vindt u Quick starts, zelf studies en API-verwijzingen waarmee u snel aan de slag kunt.
 
 Azure biedt tal van services die u kunt gebruiken voor het hosten van websites en webtoepassingen. Met deze services kunt u ontwikkelen in uw favoriete taal, of dat nu .NET, .NET core, Java, Ruby, node. js, PHP of python is.
-[Azure App Service web apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (Web Apps) is een van deze services.
+[Azure App Service web apps](../../app-service/overview.md) (Web Apps) is een van deze services.
 
 Web Apps voegt de kracht van Microsoft Azure toe aan uw toepassing. Het bevat beveiliging, taak verdeling, automatisch schalen en geautomatiseerd beheer. U kunt ook profiteren van de DevOps-mogelijkheden in Web Apps, zoals pakket beheer, faserings omgevingen, aangepaste domeinen, SSL/TLS-certificaten en doorlopende implementatie vanuit Azure DevOps, GitHub, docker hub en andere bronnen.
 
 Azure biedt andere services die u kunt gebruiken voor het hosten van websites en webtoepassingen. Voor de meeste scenario's is Web Apps de beste keuze. Voor een micro service-architectuur kunt u [Azure service Fabric](https://azure.microsoft.com/documentation/services/service-fabric)overwegen.
 Als u meer controle wilt over de virtuele machines waarop uw code wordt uitgevoerd, kunt u [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/) overwegen.
-Zie een [vergelijking van Azure app service, virtual machines, service Fabric en Cloud Services](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)voor meer informatie over het kiezen van deze Azure-Services.
+Zie een [vergelijking van Azure app service, virtual machines, service Fabric en Cloud Services](/azure/architecture/guide/technology-choices/compute-decision-tree)voor meer informatie over het kiezen van deze Azure-Services.
 
 ### <a name="apply-updates-to-components"></a>Updates Toep assen op onderdelen
 
@@ -147,18 +147,18 @@ Zie de pagina [OWASP (Web Application Security project) openen](https://www.owas
 
 Bedreigings modellering is het proces van het identificeren van mogelijke beveiligings Risico's voor uw bedrijf en toepassing en zorgt ervoor dat de juiste oplossingen worden uitgevoerd. SDL specificeert dat teams tijdens de ontwerp fase een bedreigings model moeten nemen, wanneer het oplossen van potentiële problemen relatief eenvoudig en rendabel is. Met het gebruik van bedreigings modellen in de ontwerp fase kunt u de totale ontwikkelings kosten aanzienlijk verlagen.
 
-Ter ondersteuning van het proces van bedreigings modellering hebben we de [sdl-Threat Modeling tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) ontworpen met niet-beveiligings experts. Met dit hulp programma kunnen alle ontwikkel aars de bedreigings modellen vereenvoudigen door duidelijke richt lijnen te bieden voor het maken en analyseren van bedreigingen.
+Ter ondersteuning van het proces van bedreigings modellering hebben we de [sdl-Threat Modeling tool](threat-modeling-tool.md) ontworpen met niet-beveiligings experts. Met dit hulp programma kunnen alle ontwikkel aars de bedreigings modellen vereenvoudigen door duidelijke richt lijnen te bieden voor het maken en analyseren van bedreigingen.
 
 Het ontwerpen van het toepassings ontwerp en het opsommen van [STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) -dreigingen, spoofing, manipulatie, afwijzing, openbaar making van informatie, denial of service en uitbrei ding van bevoegdheden: in alle vertrouwens grenzen is een efficiënte manier bewezen om ontwerp fouten te ondervangen vroeg op. De volgende tabel geeft een lijst van de STRIDE-bedreigingen en biedt enkele voor beelden van oplossingen die gebruikmaken van de functies van Azure. Deze oplossingen werken niet in elke situatie.
 
 | Bestaat | Beveiligings eigenschap | Potentieel beperking van het Azure-platform |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Spoofing               | Authentication        | [HTTPS-verbindingen vereisen](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
-| Manipulatie              | Gegevensintegriteit             | SSL/TLS-certificaten valideren. Toepassingen die gebruikmaken van SSL/TLS moeten de X. 509-certificaten van de entiteiten waarmee ze verbinding maken, volledig controleren. Gebruik Azure Key Vault certificaten om [uw x509-certificaten te beheren](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
+| Manipulatie              | Gegevensintegriteit             | SSL/TLS-certificaten valideren. Toepassingen die gebruikmaken van SSL/TLS moeten de X. 509-certificaten van de entiteiten waarmee ze verbinding maken, volledig controleren. Gebruik Azure Key Vault certificaten om [uw x509-certificaten te beheren](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
 | Ging            | Geen weerlegbaarheid       | [Bewaking en diagnose](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)van Azure inschakelen.|
-| Openbaarmaking van informatie | Aard       | Versleutel gevoelige gegevens in [rust](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) en [onderweg](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit). |
-| Denial of service (DoS)      | Beschikbaarheid          | Bewaak de prestatie gegevens voor mogelijke denial of service-voor waarden. Verbindings filters implementeren. [Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), gecombineerd met aanbevolen procedures voor het ontwerpen van toepassingen, biedt bescherming tegen DDoS-aanvallen.|
-| Verhoging van bevoegdheden | Authorization         | Gebruik Azure Active Directory <span class="underline"></span> [privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
+| Openbaarmaking van informatie | Aard       | Versleutel gevoelige gegevens in [rust](../fundamentals/encryption-atrest.md) en [onderweg](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
+| Denial of service (DoS)      | Beschikbaarheid          | Bewaak de prestatie gegevens voor mogelijke denial of service-voor waarden. Verbindings filters implementeren. [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md#next-steps), gecombineerd met aanbevolen procedures voor het ontwerpen van toepassingen, biedt bescherming tegen DDoS-aanvallen.|
+| Verhoging van bevoegdheden | Authorization         | Gebruik Azure Active Directory <span class="underline"></span> [privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
 
 ### <a name="reduce-your-attack-surface"></a>Kwetsbaarheid verminderen
 
@@ -203,21 +203,21 @@ Dingen die u kunt doen om een identiteits gerichte aanpak te ontwikkelen voor he
 
 #### <a name="enforce-multi-factor-authentication-for-users"></a>Multi-factor Authentication afdwingen voor gebruikers
 
-Gebruik twee ledige verificatie. Verificatie met twee factoren is de huidige standaard voor verificatie en autorisatie, omdat hiermee wordt voor komen dat de zwakke plekken in de beveiliging van gebruikers naam en wacht woord worden geauthenticeerd. Toegang tot de Azure-beheer interfaces (Azure Portal/Remote Power shell) en aan klant gerichte services moeten zijn ontworpen en geconfigureerd voor gebruik van [Azure multi-factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication).
+Gebruik twee ledige verificatie. Verificatie met twee factoren is de huidige standaard voor verificatie en autorisatie, omdat hiermee wordt voor komen dat de zwakke plekken in de beveiliging van gebruikers naam en wacht woord worden geauthenticeerd. Toegang tot de Azure-beheer interfaces (Azure Portal/Remote Power shell) en aan klant gerichte services moeten zijn ontworpen en geconfigureerd voor gebruik van [Azure multi-factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 #### <a name="use-strong-authentication-and-authorization-platforms"></a>Sterke verificatie-en autorisatie platforms gebruiken
 
-Gebruik platform verificatie-en autorisatie mechanismen in plaats van aangepaste code. Dit komt doordat het ontwikkelen van aangepaste verificatie code gevoelig voor fouten kan zijn. Commerciële code (bijvoorbeeld van micro soft) wordt vaak uitgebreid gecontroleerd op beveiliging. [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is de Azure-oplossing voor identiteits-en toegangs beheer. Deze Azure AD-hulpprogram ma's en-services helpen bij veilige ontwikkeling:
+Gebruik platform verificatie-en autorisatie mechanismen in plaats van aangepaste code. Dit komt doordat het ontwikkelen van aangepaste verificatie code gevoelig voor fouten kan zijn. Commerciële code (bijvoorbeeld van micro soft) wordt vaak uitgebreid gecontroleerd op beveiliging. [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) is de Azure-oplossing voor identiteits-en toegangs beheer. Deze Azure AD-hulpprogram ma's en-services helpen bij veilige ontwikkeling:
 
-- [Azure AD Identity platform (Azure AD voor ontwikkel aars)](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) is een Cloud-identiteits service die ontwikkel aars gebruiken om apps te bouwen waarmee gebruikers zich veilig kunnen aanmelden. Azure AD helpt ontwikkel aars die een LOB-app (line-of-Business) en ontwikkel aars van één Tenant bouwen die apps voor meerdere tenants willen ontwikkelen. Naast de eenvoudige aanmelding kunnen apps die zijn gebouwd met behulp van Azure AD, micro soft-Api's en aangepaste Api's aanroepen die zijn gebouwd op het Azure AD-platform. Het Azure AD-identiteits platform ondersteunt industrie-standaard protocollen zoals OAuth 2,0 en OpenID Connect Connect.
+- [Azure AD Identity platform (Azure AD voor ontwikkel aars)](../../active-directory/develop/about-microsoft-identity-platform.md) is een Cloud-identiteits service die ontwikkel aars gebruiken om apps te bouwen waarmee gebruikers zich veilig kunnen aanmelden. Azure AD helpt ontwikkel aars die een LOB-app (line-of-Business) en ontwikkel aars van één Tenant bouwen die apps voor meerdere tenants willen ontwikkelen. Naast de eenvoudige aanmelding kunnen apps die zijn gebouwd met behulp van Azure AD, micro soft-Api's en aangepaste Api's aanroepen die zijn gebouwd op het Azure AD-platform. Het Azure AD-identiteits platform ondersteunt industrie-standaard protocollen zoals OAuth 2,0 en OpenID Connect Connect.
 
-- [Azure Active Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/) is een service voor identiteits beheer die u kunt gebruiken voor het aanpassen en bepalen van de manier waarop gebruikers zich aanmelden, aanmelden en hun profielen beheren wanneer ze uw toepassingen gebruiken. Dit geldt ook voor toepassingen die zijn ontwikkeld voor iOS, Android en .NET, onder andere. Azure AD B2C maakt deze acties mogelijk tijdens het beveiligen van de identiteiten van klanten.
+- [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml) is een service voor identiteits beheer die u kunt gebruiken voor het aanpassen en bepalen van de manier waarop gebruikers zich aanmelden, aanmelden en hun profielen beheren wanneer ze uw toepassingen gebruiken. Dit geldt ook voor toepassingen die zijn ontwikkeld voor iOS, Android en .NET, onder andere. Azure AD B2C maakt deze acties mogelijk tijdens het beveiligen van de identiteiten van klanten.
 
 #### <a name="apply-the-principle-of-least-privilege"></a>Het principe van minimale bevoegdheden Toep assen
 
 Het concept van de [minimale bevoegdheid](https://en.wikipedia.org/wiki/Principle_of_least_privilege) betekent dat gebruikers het nauw keurige toegangs niveau en het beheer kunnen geven dat ze nodig hebben om hun taken uit te voeren en niets meer te doen.
 
-Moet een software ontwikkelaar domein beheerders rechten hebben? Moet een administratief mede werker toegang hebben tot de besturings elementen voor beheer op hun personal computer? Het evalueren van de toegang tot de software is niet anders. Als u gebruikmaakt [van op rollen gebaseerd toegangs beheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) om gebruikers verschillende vaardig heden en instanties in uw toepassing te geven, geeft u iedereen geen toegang tot alles. Door de toegang te beperken tot wat vereist is voor elke rol, beperkt u het risico van een beveiligings probleem dat optreedt.
+Moet een software ontwikkelaar domein beheerders rechten hebben? Moet een administratief mede werker toegang hebben tot de besturings elementen voor beheer op hun personal computer? Het evalueren van de toegang tot de software is niet anders. Als u gebruikmaakt [van op rollen gebaseerd toegangs beheer (RBAC)](../../role-based-access-control/overview.md) om gebruikers verschillende vaardig heden en instanties in uw toepassing te geven, geeft u iedereen geen toegang tot alles. Door de toegang te beperken tot wat vereist is voor elke rol, beperkt u het risico van een beveiligings probleem dat optreedt.
 
 Zorg ervoor dat uw toepassing [minimale bevoegdheden](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) afdwingt in de bijbehorende toegangs patronen.
 
@@ -226,7 +226,7 @@ Zorg ervoor dat uw toepassing [minimale bevoegdheden](https://docs.microsoft.com
 
 #### <a name="implement-just-in-time-access"></a>Just-in-time-toegang implementeren
 
-Implementeer just *-in-time* -toegang (JIT) om de belichtings tijd van bevoegdheden verder te verlagen. Gebruik [Azure AD privileged Identity Management](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#stage-3-build-visibility-and-take-full-control-of-admin-activity) voor het volgende:
+Implementeer just *-in-time* -toegang (JIT) om de belichtings tijd van bevoegdheden verder te verlagen. Gebruik [Azure AD privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-build-visibility-and-take-full-control-of-admin-activity) voor het volgende:
 
 - Geef gebruikers de machtigingen die ze alleen JIT nodig hebben.
 - Wijs rollen toe voor een verkorte duur met vertrouwen dat de bevoegdheden automatisch worden ingetrokken.
@@ -242,7 +242,7 @@ De beste manier om dit soort aanvallen te tegen komen, is door de gebruiker te v
 
 Het verlies van sleutels en referenties is een veelvoorkomend probleem. Het enige wat u nog ergert dan het verlies van uw sleutels en referenties is dat een niet-geautoriseerde partij er toegang toe krijgt. Aanvallers kunnen gebruikmaken van geautomatiseerde en hand matige technieken om sleutels en geheimen te vinden die zijn opgeslagen in code opslagplaatsen zoals GitHub. Plaats geen sleutels en geheimen in deze open bare code opslagplaatsen of op een andere server.
 
-Plaats altijd uw sleutels, certificaten, geheimen en verbindings reeksen in een oplossing voor sleutel beheer. U kunt een gecentraliseerde oplossing gebruiken waarin sleutels en geheimen worden opgeslagen in Hardware Security modules (Hsm's). Azure biedt u een HSM in de Cloud met [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis).
+Plaats altijd uw sleutels, certificaten, geheimen en verbindings reeksen in een oplossing voor sleutel beheer. U kunt een gecentraliseerde oplossing gebruiken waarin sleutels en geheimen worden opgeslagen in Hardware Security modules (Hsm's). Azure biedt u een HSM in de Cloud met [Azure Key Vault](../../key-vault/key-vault-whatis.md).
 
 Key Vault is een *geheim archief*: het is een gecentraliseerde Cloud service voor het opslaan van toepassings geheimen. Key Vault uw vertrouwelijke gegevens veilig houdt door toepassings geheimen op één centrale locatie te bewaren en beveiligde toegang, machtigings beheer en logboek registratie van toegang te bieden.
 
@@ -267,7 +267,7 @@ Voorzie alle toepasselijke gegevens als vertrouwelijk wanneer u uw gegevens inde
 #### <a name="use-encryption"></a>Versleuteling gebruiken
 
 Het beveiligen van gegevens moet een essentieel onderdeel zijn van uw beveiligings strategie.
-Als uw gegevens worden opgeslagen in een Data Base of als deze tussen locaties worden teruggezet, gebruikt u versleuteling van [gegevens in rust](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) (in de data base) en versleuteling van [gegevens die onderweg](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit) zijn (op de manier van en naar de gebruiker, de data base, een API of service-eind punt). U wordt aangeraden altijd SSL/TLS-protocollen te gebruiken om gegevens uit te wisselen. Zorg ervoor dat u de meest recente versie van TLS gebruikt voor versleuteling (momenteel is dit versie 1,2).
+Als uw gegevens worden opgeslagen in een Data Base of als deze tussen locaties worden teruggezet, gebruikt u versleuteling van [gegevens in rust](../fundamentals/encryption-atrest.md) (in de data base) en versleuteling van [gegevens die onderweg](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit) zijn (op de manier van en naar de gebruiker, de data base, een API of service-eind punt). U wordt aangeraden altijd SSL/TLS-protocollen te gebruiken om gegevens uit te wisselen. Zorg ervoor dat u de meest recente versie van TLS gebruikt voor versleuteling (momenteel is dit versie 1,2).
 
 #### <a name="avoid-hard-coding"></a>Geen vaste code
 
@@ -277,7 +277,7 @@ Als u opmerkingen in uw code plaatst, moet u ervoor zorgen dat u geen gevoelige 
 
 In principe wordt ervan uitgegaan dat alles in uw ontwikkelings project openbaar kennis is wanneer het is geïmplementeerd. Vermijd het opnemen van gevoelige gegevens van elk soort in het project.
 
-Eerder zijn we besproken [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis). U kunt Key Vault gebruiken om geheimen zoals sleutels en wacht woorden op te slaan in plaats van ze vast te schrijven. Wanneer u Key Vault gebruikt in combi natie met beheerde identiteiten voor Azure-resources, kan uw Azure-web-app eenvoudig en veilig toegang krijgen tot geheime configuratie waarden zonder geheimen in uw bron beheer of configuratie op te slaan. Zie [geheimen beheren in uw server-apps met Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/)voor meer informatie.
+Eerder zijn we besproken [Azure Key Vault](../../key-vault/key-vault-whatis.md). U kunt Key Vault gebruiken om geheimen zoals sleutels en wacht woorden op te slaan in plaats van ze vast te schrijven. Wanneer u Key Vault gebruikt in combi natie met beheerde identiteiten voor Azure-resources, kan uw Azure-web-app eenvoudig en veilig toegang krijgen tot geheime configuratie waarden zonder geheimen in uw bron beheer of configuratie op te slaan. Zie [geheimen beheren in uw server-apps met Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/)voor meer informatie.
 
 ### <a name="implement-fail-safe-measures"></a>Fout veilige maat regelen implementeren
 
@@ -299,7 +299,7 @@ Zorg ervoor dat:
 
 - Uitzonde ringen worden vastgelegd en er wordt voldoende informatie geboden voor forensische of reacties op incidenten die kunnen worden onderzocht.
 
-[Azure Logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) biedt een eersteklas ervaring voor het afhandelen van [fouten en uitzonde ringen](https://docs.microsoft.com/azure/logic-apps/logic-apps-exception-handling) die worden veroorzaakt door afhankelijke systemen. U kunt Logic Apps gebruiken om werk stromen te maken voor het automatiseren van taken en processen die apps, gegevens, systemen en services integreren in ondernemingen en organisaties.
+[Azure Logic apps](../../logic-apps/logic-apps-overview.md) biedt een eersteklas ervaring voor het afhandelen van [fouten en uitzonde ringen](../../logic-apps/logic-apps-exception-handling.md) die worden veroorzaakt door afhankelijke systemen. U kunt Logic Apps gebruiken om werk stromen te maken voor het automatiseren van taken en processen die apps, gegevens, systemen en services integreren in ondernemingen en organisaties.
 
 ### <a name="use-logging-and-alerting"></a>Logboek registratie en waarschuwingen gebruiken
 

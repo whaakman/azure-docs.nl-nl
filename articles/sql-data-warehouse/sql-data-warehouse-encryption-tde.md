@@ -1,6 +1,6 @@
 ---
-title: Transparante gegevensversleuteling in SQL datawarehouse (Portal) | Microsoft Docs
-description: Transparante gegevensversleuteling (TDE) in SQL datawarehouse
+title: Transparent Data Encryption in SQL Data Warehouse (Portal) | Microsoft Docs
+description: Transparent Data Encryption (TDE) in SQL Data Warehouse
 services: sql-data-warehouse
 author: KavithaJonnakuti
 manager: craigg
@@ -11,46 +11,46 @@ ms.date: 04/30/2019
 ms.author: kavithaj
 ms.reviewer: rortloff
 ms.openlocfilehash: e756049110f7d4a81950abf6ebbe73edb3e3ca0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "65143166"
 ---
-# <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>Aan de slag met transparante gegevensversleuteling (TDE) in SQL Data Warehouse
+# <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>Aan de slag met Transparent Data Encryption (TDE) in SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Beveiligingsoverzicht](sql-data-warehouse-overview-manage-security.md)
+> * [Beveiligings overzicht](sql-data-warehouse-overview-manage-security.md)
 > * [Verificatie](sql-data-warehouse-authentication.md)
 > * [Versleuteling (Portal)](sql-data-warehouse-encryption-tde.md)
-> * [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+> * [Versleuteling (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 > 
 > 
 
 ## <a name="required-permissions"></a>Vereiste machtigingen
-Om in te schakelen transparante gegevensversleuteling (TDE), moet u een beheerder of lid zijn van de rol dbmanager.
+Als u Transparent Data Encryption (TDE) wilt inschakelen, moet u een beheerder of lid van de DBManager-rol zijn.
 
-## <a name="enabling-encryption"></a>Versleuteling is ingeschakeld
-Als u wilt TDE inschakelen voor een SQL Data Warehouse, de volgende stappen uit te voeren:
+## <a name="enabling-encryption"></a>Versleuteling inschakelen
+Volg de onderstaande stappen om TDE in te scha kelen voor een SQL Data Warehouse:
 
-1. Openen van de database in de [Azure-portal](https://portal.azure.com)
-2. Klik in de databaseblade op de **instellingen** knop
-3. Selecteer de **transparante gegevensversleuteling** optie ![][1]
-4. Selecteer de **op** instelling ![][2]
-5. Selecteer **opslaan**
+1. Open de data base in de [Azure Portal](https://portal.azure.com)
+2. Klik op de Blade Data Base op de knop **instellingen**
+3. Selecteer de optie voor **transparante gegevens versleuteling**![][1]
+4. Selecteer de instelling **bij**![][2]
+5. Selecteer **Opslaan**
    ![][3]  
 
-## <a name="disabling-encryption"></a>Als u versleuteling uitschakelt
-Als u wilt uitschakelen TDE voor een SQL Data Warehouse, de volgende stappen uit te voeren:
+## <a name="disabling-encryption"></a>Versleuteling uitschakelen
+Volg de onderstaande stappen om TDE uit te scha kelen voor een SQL Data Warehouse:
 
-1. Openen van de database in de [Azure-portal](https://portal.azure.com)
-2. Klik in de databaseblade op de **instellingen** knop
-3. Selecteer de **transparante gegevensversleuteling** optie ![][1]
-4. Selecteer de **uit** instelling ![][4]
-5. Selecteer **opslaan**
+1. Open de data base in de [Azure Portal](https://portal.azure.com)
+2. Klik op de Blade Data Base op de knop **instellingen**
+3. Selecteer de optie voor **transparante gegevens versleuteling**![][1]
+4. Selecteer de instelling **uit**![][4]
+5. Selecteer **Opslaan**
    ![][5]  
 
-## <a name="encryption-dmvs"></a>Versleuteling DMV 's
-Versleuteling kan worden bevestigd met de volgende DMV's:
+## <a name="encryption-dmvs"></a>Versleuteling Dmv's
+Versleuteling kan worden bevestigd met de volgende Dmv's:
 
 * [sys.databases]
 * [sys.dm_pdw_nodes_database_encryption_keys]

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91cc2707034eabf85afae70278f2448b77d3ee14
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 413df402d5acc878130a47821efd5fa3a512257d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608070"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931940"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Basislijn beleid: Verouderde verificatie blok keren (preview-versie)
 
@@ -37,7 +37,7 @@ Voordat u verouderde verificatie in uw Directory kunt blok keren, moet u eerst b
 
 1. Navigeer naar het **Azure Portal** >  **-** **Azure Active Directory** > aanmeldingen.
 1. Voeg de kolom client toepassing toe als deze niet wordt weer gegeven door > te klikken op de**client-app**columns.
-1. Filteren op **client-app** > **andere clients** en klik op **Toep assen**.
+1. Filters > toevoegen**client-app** > Selecteer alle opties voor **andere clients** en klik op **Toep assen**.
 
 Bij filteren worden alleen de aanmeldings pogingen weer gegeven die zijn gemaakt door verouderde verificatie protocollen. Als u op elke afzonderlijke aanmeldings poging klikt, wordt er meer informatie weer gegeven. In het veld **client-app** onder het tabblad **basis informatie** wordt aangegeven welk verouderde verificatie protocol is gebruikt.
 

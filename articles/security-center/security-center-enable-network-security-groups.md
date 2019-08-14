@@ -1,6 +1,6 @@
 ---
-title: Netwerkbeveiligingsgroepen in Azure Security Center inschakelen | Microsoft Docs
-description: Dit document wordt beschreven hoe u de Azure Security Center-aanbeveling kunt implementeren **Netwerkbeveiligingsgroepen inschakelen**.
+title: Netwerk beveiligings groepen inschakelen in Azure Security Center | Microsoft Docs
+description: Dit document bevat informatie over het implementeren van de Azure Security Center aanbeveling **netwerk beveiligings groepen inschakelen**.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -15,51 +15,51 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 14b7cc8f8162574380ca21ac515af8b7d3d5ded9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60911415"
 ---
-# <a name="enable-network-security-groups-in-azure-security-center"></a>Netwerkbeveiligingsgroepen in Azure Security Center inschakelen
-Azure Security Center raadt aan dat u een netwerkbeveiligingsgroep (NSG) inschakelen als een nog niet is ingeschakeld. Nsg's bevatten een lijst van lijst met ACL (Access Control)-regels toestaan of weigeren van netwerkverkeer naar uw VM-exemplaren in een Virtueelnetwerk. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet. Bovendien verkeer naar een afzonderlijke virtuele machine kan worden beperkt verder door een NSG rechtstreeks naar die virtuele machine koppelen. Voor meer informatie over meer [wat is er een Netwerkbeveiligingsgroep (NSG)?](../virtual-network/security-overview.md)
+# <a name="enable-network-security-groups-in-azure-security-center"></a>Netwerk beveiligings groepen inschakelen in Azure Security Center
+Azure Security Center wordt aangeraden een netwerk beveiligings groep (NSG) in te scha kelen als deze nog niet is ingeschakeld. Nsg's bevatten een lijst met regels voor Access Control lijst (ACL) waarmee netwerk verkeer naar uw VM-exemplaren in een Virtual Network wordt toegestaan of geweigerd. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet. Daarnaast kan het verkeer naar een afzonderlijke virtuele machine verder worden beperkt door een NSG rechtstreeks aan die VM te koppelen. Zie [Wat is een netwerk beveiligings groep (NSG)?](../virtual-network/security-overview.md) voor meer informatie.
 
-Als u geen nsg's ingeschakeld, worden twee aanbevelingen in Security Center aan u gepresenteerd: Netwerkbeveiligingsgroepen inschakelen op subnetten en Netwerkbeveiligingsgroepen inschakelen op virtuele machines. U kiezen welk niveau, subnet of VM, om toe te passen nsg's.
+Als Nsg's niet is ingeschakeld, biedt Security Center twee aanbevelingen voor u: Netwerk beveiligings groepen inschakelen op subnetten en netwerk beveiligings groepen op virtuele machines inschakelen. U kiest welk niveau, subnet of virtuele machine u wilt gebruiken om Nsg's toe te passen.
 
 > [!NOTE]
 > In dit document wordt de service geïntroduceerd aan de hand van een voorbeeldimplementatie.  Dit is geen stapsgewijze handleiding.
 >
 >
 
-## <a name="implement-the-recommendation"></a>De aanbeveling voor het implementeren
-1. In de **aanbevelingen** Selecteer **Netwerkbeveiligingsgroepen inschakelen** op subnetten of virtuele machines.
+## <a name="implement-the-recommendation"></a>De aanbeveling implementeren
+1. Op de Blade **aanbevelingen** selecteert u **netwerk beveiligings groepen inschakelen** op subnetten of op virtuele machines.
    ![Netwerkbeveiligingsgroepen inschakelen][1]
-2. Hiermee opent u de blade **ontbrekende Netwerkbeveiligingsgroepen configureren** voor subnetten of virtuele machines, afhankelijk van de aanbeveling die u hebt geselecteerd. Selecteer een subnet of een virtuele machine voor het configureren van een NSG op.
+2. Hiermee opent u de Blade voor het **configureren van ontbrekende netwerk beveiligings groepen** voor subnetten of voor virtuele machines, afhankelijk van de aanbeveling die u hebt geselecteerd. Selecteer een subnet of een virtuele machine voor het configureren van een NSG op.
 
    ![NSG voor subnet configureren][2]
 
-   ![NSG voor virtuele machine configureren][3]
-3. Op de **netwerkbeveiligingsgroep kiezen** blade, selecteert u een bestaande NSG of **nieuw** aan een NSG te maken.
+   ![NSG voor VM configureren][3]
+3. Selecteer op de Blade **netwerk beveiligings groep kiezen** een bestaande NSG of selecteer **nieuwe maken** om een NSG te maken.
 
-   ![Netwerkbeveiligingsgroep kiezen][4]
+   ![Netwerk beveiligings groep kiezen][4]
 
-Als u een NSG te maken, volgt u de stappen in [beheren van een netwerkbeveiligingsgroep](../virtual-network/manage-network-security-group.md) maken een Netwerkbeveiligingsgroep en beveiligingsregels voor verbindingen.
+Als u een NSG maakt, volgt u de stappen in [een netwerk beveiligings groep beheren](../virtual-network/manage-network-security-group.md) om een NSG te maken en beveiligings regels in te stellen.
 
 ## <a name="see-also"></a>Zie ook
-In dit artikel laat zien hoe u de aanbeveling van Security Center 'Netwerkbeveiligingsgroepen inschakelen' voor subnetten of virtuele machines implementeert. Zie de volgende onderwerpen voor meer informatie over het inschakelen van nsg's:
+In dit artikel wordt uitgelegd hoe u de Security Center aanbeveling ' netwerk beveiligings groepen inschakelen ' voor subnetten of virtuele machines kunt implementeren. Ga voor meer informatie over het inschakelen van Nsg's naar het volgende:
 
 * [Wat is een netwerkbeveiligingsgroep (NSG)?](../virtual-network/security-overview.md)
-* [Een netwerkbeveiligingsgroep beheren](../virtual-network/manage-network-security-group.md)
+* [Een netwerk beveiligings groep beheren](../virtual-network/manage-network-security-group.md)
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
 * [Setting security policies in Azure Security Center](tutorial-security-policy.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
-* [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md) --Leer hoe aanbevelingen helpen u uw Azure-resources te beveiligen.
-* [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md) --informatie over het bewaken van de status van uw Azure-resources.
+* [Aanbevelingen voor beveiliging in azure Security Center](security-center-recommendations.md) : Ontdek hoe aanbevelingen u helpen uw Azure-resources te beveiligen.
+* [Beveiligings status controleren in azure Security Center](security-center-monitoring.md) --meer informatie over het controleren van de status van uw Azure-resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
 * [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt bewaken.
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.
-* [Azure-Beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/) --de meest recente Azure-beveiliging nieuws en informatie.
+* [Azure-beveiligings blog](https://blogs.msdn.com/b/azuresecurity/) : krijg het meest recente Azure-beveiligings nieuws en-informatie.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-nsg/enable-nsg.png

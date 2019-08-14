@@ -1,6 +1,6 @@
 ---
-title: Statuscontrole in Service Fabric | Microsoft Docs
-description: Een inleiding tot de Azure Service Fabric-model, deze biedt bewaking van het cluster en de toepassingen en services voor statuscontrole.
+title: Status controle in Service Fabric | Microsoft Docs
+description: Een inleiding tot het Azure Service Fabric Health Monitoring-model, waarmee de cluster en de bijbehorende toepassingen en services kunnen worden bewaakt.
 services: service-fabric
 documentationcenter: .net
 author: oanapl
@@ -15,88 +15,88 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60949134"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Inleiding tot de statuscontrole Service Fabric
-Azure Service Fabric introduceert een statusmodel dat u uitgebreide, flexibele en uitbreidbare evalueren en rapportage kunt. Het model kunt bijna-realtime bewaking van de status van het cluster en de services die erin worden uitgevoerd. U kunt eenvoudig ophalen van gegevens over de servicestatus en corrigeren mogelijke problemen voordat ze zich opstapelen en enorme storingen veroorzaken. In het model typische services rapporten op basis van hun lokale weergaven verzenden, en dat gegevens worden samengevoegd voor een algemene-niveau cluster weergeven.
+Azure Service Fabric introduceert een status model dat voorziet in uitgebreide, flexibele en uitbreid bare status-en rapportage doeleinden. Het model staat bijna realtime bewaking toe van de status van het cluster en de services die hierop worden uitgevoerd. U kunt eenvoudig status informatie verkrijgen en mogelijke problemen corrigeren voordat ze trapsgewijs worden gecascaded en aanzienlijke storingen veroorzaken. In het typische model verzenden Services rapporten op basis van hun lokale weer gaven en wordt deze informatie geaggregeerd om een algemene weer gave op cluster niveau te bieden.
 
-Dit model uitgebreide health service Fabric-onderdelen gebruiken voor het rapporteren van de huidige status. U kunt hetzelfde mechanisme gebruiken tot de status van het rapport uit uw toepassingen. Als u investeert in de gezondheid van hoge kwaliteit reporting waarmee uw aangepaste voorwaarden wordt vastgelegd, kunt u detecteren en oplossen van problemen gemakkelijker voor de toepassing wordt uitgevoerd.
+Service Fabric onderdelen gebruiken dit uitgebreide status model om hun huidige status te rapporteren. U kunt hetzelfde mechanisme gebruiken om de status van uw toepassingen te rapporteren. Als u investeert in status rapportage met hoge kwaliteit die uw aangepaste voor waarden vastlegt, kunt u veel eenvoudiger problemen vaststellen en oplossen voor uw toepassing die wordt uitgevoerd.
 
 > [!NOTE]
-> We begonnen met het subsysteem health om nodig voor bewaakte upgrades op te lossen. Service Fabric biedt bewaakte upgrades van toepassing en cluster die ervoor zorgen dat de volledige beschikbaarheid, zonder uitvaltijd en minimale aan geen tussenkomst van de gebruiker. Als u wilt deze doelen kan bereiken, controleert de upgrade status op basis van geconfigureerde upgrade beleid. Een upgrade kan worden voortgezet wanneer health respecteert de gewenste drempelwaarden. Anders wordt is de upgrade automatisch teruggedraaid of onderbroken zodat beheerders een kans de problemen op te lossen. Zie voor meer informatie over upgrades van toepassingen, [in dit artikel](service-fabric-application-upgrade.md).
+> We hebben het Health Subsystem gestart om te voldoen aan de behoefte aan bewaakte upgrades. Service Fabric biedt bewaakte toepassingen en cluster upgrades die zorgen voor volledige Beschik baarheid, geen downtime en minimale voor geen tussen komst van de gebruiker. Om deze doel stellingen te bereiken, controleert de upgrade de status op basis van het geconfigureerde upgrade beleid. Een upgrade kan alleen door gaan als de drempel waarden voor de status worden bepaald. Anders wordt de upgrade automatisch teruggedraaid of onderbroken om beheerders de kans te geven de problemen op te lossen. Zie [dit artikel](service-fabric-application-upgrade.md)voor meer informatie over toepassings upgrades.
 > 
 > 
 
-## <a name="health-store"></a>Health store
-De health store blijft health-gerelateerde informatie over entiteiten in het cluster voor eenvoudig op te halen en de evaluatie. Deze is geïmplementeerd als een Service Fabric persistent stateful service om ervoor te zorgen voor hoge beschikbaarheid en schaalbaarheid. De health store maakt deel uit van de **fabric: / System** toepassing, en is beschikbaar wanneer het cluster actief is en worden uitgevoerd.
+## <a name="health-store"></a>Health Store
+De Health Store houdt informatie over de status van entiteiten in het cluster eenvoudig op te halen en te evalueren. Het wordt geïmplementeerd als een Service Fabric permanente stateful service om hoge Beschik baarheid en schaal baarheid te garanderen. De Health Store maakt deel uit van de **Fabric:/-systeem** toepassing en is beschikbaar wanneer het cluster actief is.
 
-## <a name="health-entities-and-hierarchy"></a>De gezondheid van entiteiten en de hiërarchie
-De health-entiteiten zijn ingedeeld in een logische hiërarchie waarmee interacties en afhankelijkheden tussen verschillende entiteiten wordt vastgelegd. De health store worden automatisch de statusentiteiten en hiërarchie op basis van rapporten die zijn ontvangen van Service Fabric-onderdelen bouwt.
+## <a name="health-entities-and-hierarchy"></a>Status entiteiten en hiërarchie
+De status entiteiten zijn ingedeeld in een logische hiërarchie waarin interacties en afhankelijkheden tussen verschillende entiteiten worden vastgelegd. De Health Store maakt automatisch status entiteiten en hiërarchie op basis van de rapporten die van Service Fabric onderdelen zijn ontvangen.
 
-De health-entiteiten mirror van de Service Fabric-entiteiten. (Bijvoorbeeld **health Toepassingsentiteit** komt overeen met een exemplaar van de toepassing geïmplementeerd in het cluster, terwijl **health knooppunt entiteit** komt overeen met het knooppunt van een Service Fabric-cluster.) De health-hiërarchie legt de interactie van het systeementiteiten en het is de basis voor geavanceerde evalueren. U kunt meer informatie over belangrijke concepten voor Service Fabric in [technisch overzicht van Service Fabric](service-fabric-technical-overview.md). Zie voor meer informatie over de toepassing [Service Fabric-toepassingsmodel](service-fabric-application-model.md).
+De status entiteiten spie gelen de Service Fabric entiteiten. (De **entiteit status toepassing** komt bijvoorbeeld overeen met een toepassings exemplaar dat is geïmplementeerd in het cluster, terwijl de **entiteit status knooppunt** overeenkomt met een service Fabric cluster knooppunt.) De status hiërarchie legt de interacties van de systeem entiteiten vast en vormt de basis voor de geavanceerde status evaluatie. Meer informatie over belangrijkste Service Fabric concepten vindt u in [service Fabric technisch overzicht](service-fabric-technical-overview.md). Zie [service Fabric toepassings model](service-fabric-application-model.md)voor meer informatie over de toepassing.
 
-De health-entiteiten en de hiërarchie kunnen het cluster en de toepassingen worden effectief gerapporteerd, foutopsporing en bewaakt. Het statusmodel biedt een nauwkeurige *gedetailleerde* weergave van de status van de veel bewegende onderdelen in het cluster.
+Met de status entiteiten en-hiërarchie kunnen het cluster en de toepassingen effectief worden gerapporteerd, worden er fouten opgespoord en worden bewaakt. Het status model biedt een nauw keurige, *gedetailleerde* weer gave van de status van de vele bewegende onderdelen in het cluster.
 
-![De gezondheid van entiteiten.][1]
-De health-entiteiten, ingedeeld in een hiërarchie op basis van de relaties tussen bovenliggende en onderliggende.
+![Status entiteiten.][1]
+De status entiteiten, geordend in een hiërarchie op basis van relaties tussen bovenliggende en onderliggende items.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 
-De health-entiteiten zijn:
+De status entiteiten zijn:
 
-* **Cluster**. Hiermee geeft u de status van een Service Fabric-cluster. Statusrapporten cluster beschrijven voorwaarden die invloed hebben op het hele cluster. Deze voorwaarden van invloed zijn op meerdere entiteiten in het cluster of het cluster zelf. Op basis van de voorwaarde, beperken niet de journalist het probleem op een of meer beschadigde onderliggende. Voorbeelden zijn onder meer het brein van het cluster door netwerkproblemen partitioneren of communicatie te splitsen.
-* **Knooppunt**. Hiermee geeft u de status van een Service Fabric-knooppunt. Knooppunt statusrapporten beschrijven voorwaarden die van invloed op de functionaliteit van het knooppunt. Ze doorgaans invloed op de geïmplementeerde entiteiten die erop worden uitgevoerd. Voorbeelden zijn onder meer onvoldoende schijfruimte-knooppunt (of andere eigenschappen van alle computers, zoals geheugen, verbindingen) en wanneer een knooppunt niet actief is. De entiteit knooppunt wordt aangeduid met de naam van het knooppunt (tekenreeks).
-* **Toepassing**. Hiermee geeft u de status van het exemplaar van een toepassing die wordt uitgevoerd in het cluster. Statusrapporten van de toepassing beschrijven voorwaarden die invloed hebben op de algemene status van de toepassing. Ze kunnen niet worden verkleind naar afzonderlijke items (services of toepassingen). Voorbeelden zijn de end-to-end-interactie tussen verschillende services in de toepassing. De Toepassingsentiteit wordt aangeduid met de naam van de toepassing (URI).
-* **Service**. Hiermee geeft u de status van een service die wordt uitgevoerd in het cluster. Statusrapporten van service omschrijven voorwaarden die invloed hebben op de algemene status van de service. Het probleem met een beschadigde partitie of replica kan niet de journalist beperken. Voorbeelden zijn onder meer een serviceconfiguratie (zoals poort of een externe bestandsshare) die wordt veroorzaakt door problemen voor alle partities. De service-entiteit wordt aangeduid met de naam van de service (URI).
-* **Partitie**. Hiermee geeft u de status van een servicepartitie. Partitie statusrapporten beschrijven voorwaarden die invloed hebben op de hele replicaset. Voorbeelden zijn wanneer het aantal replica's lager dan het aantal doel is en wanneer een partitie sprake van quorumverlies is. De partitie-entiteit wordt aangeduid met de partitie-ID (GUID).
-* **Replica**. Hiermee geeft u de status van een stateful service-replica of een stateless service-exemplaar. De replica is de kleinste eenheid die watchdogs en onderdelen van het systeem kunnen worden weergegeven voor een toepassing. Voorbeelden zijn voor stateful services, een primaire replica die bewerkingen tot de secundaire replica's en trage replicatie kan niet worden gerepliceerd. Een stateless exemplaar kan ook rapporteren wanneer deze is onvoldoende resources of problemen met de netwerkverbinding heeft. De replica-entiteit wordt aangeduid met de partitie-ID (GUID) en de replica of het exemplaar-ID (lang).
-* **DeployedApplication**. Hiermee geeft u de status van een *toepassing die wordt uitgevoerd op een knooppunt*. Statusrapporten van gedistribueerde toepassing beschrijven voorwaarden die specifiek zijn voor de toepassing op het knooppunt dat naar service-pakketten die zijn geïmplementeerd op hetzelfde knooppunt kan niet worden verkleind. Voorbeelden zijn fouten bij het toepassingspakket kan niet worden gedownload op dat knooppunt en problemen met het instellen van beveiligings-principals van toepassing op het knooppunt. De geïmplementeerde toepassing wordt aangeduid met de naam van de toepassing (URI) en de naam van knooppunt (tekenreeks).
-* **DeployedServicePackage**. Hiermee geeft u de status van een servicepakket op een knooppunt in het cluster uitgevoerd. Hierin wordt beschreven specifiek is voor een servicepakket voorwaarden die niet van invloed op de andere servicepakketten op hetzelfde knooppunt voor dezelfde toepassing. Voorbeelden zijn een codepakket in het servicepakket dat kan niet worden gestart en een configuratiepakket die niet kan worden gelezen. De geïmplementeerde service-pakket wordt aangeduid met de toepassingsnaam (URI), naam van het knooppunt (tekenreeks), manifest servicenaam (tekenreeks) en service-pakket activerings-ID (tekenreeks).
+* **Cluster**. Hiermee wordt de status van een Service Fabric cluster aangeduid. In cluster status rapporten worden de voor waarden beschreven die van invloed zijn op het hele cluster. Deze voor waarden zijn van invloed op meerdere entiteiten in het cluster of het cluster zelf. Op basis van de voor waarde kan de rapporter het probleem niet verlagen tot een of meer niet-bevolkte onderliggende items. Voor beelden zijn het brein van het splitsen van clusters vanwege netwerk partities of communicatie problemen.
+* **Knoop punt**. Hiermee wordt de status van een Service Fabric knoop punt aangeduid. Knooppunt status rapporten beschrijven voor waarden die van invloed zijn op de knooppunt functionaliteit. Deze zijn doorgaans van invloed op alle geïmplementeerde entiteiten die erop worden uitgevoerd. Voor beelden zijn het ontbreken van schijf ruimte op een knoop punt (of andere eigenschappen voor de hele computer, zoals geheugen, verbindingen) en wanneer een knoop punt niet beschikbaar is. De knooppunt entiteit wordt geïdentificeerd aan de hand van de naam van het knoop punt (teken reeks).
+* **Toepassing**. Vertegenwoordigt de status van een toepassings exemplaar dat in het cluster wordt uitgevoerd. In de status rapporten van de toepassing worden de voor waarden beschreven die van invloed zijn op de algemene status van de toepassing. Ze kunnen niet worden beperkt tot afzonderlijke onderliggende items (Services of geïmplementeerde toepassingen). Voor beelden zijn de end-to-end-interactie tussen de verschillende services in de toepassing. De toepassings entiteit wordt geïdentificeerd aan de hand van de toepassings naam (URI).
+* **Service**. Hiermee wordt de status aangegeven van een service die in het cluster wordt uitgevoerd. In service status rapporten worden de voor waarden beschreven die van invloed zijn op de algemene status van de service. De rapporter kan het probleem niet beperken tot een beschadigde partitie of replica. Voor beelden zijn onder andere een service configuratie (zoals poort of externe bestands share) die problemen voor alle partities veroorzaakt. De service-entiteit wordt geïdentificeerd door de service naam (URI).
+* **Partitie**. Hiermee wordt de status van een service partitie aangeduid. Bij partitie status rapporten worden de voor waarden beschreven die van invloed zijn op de volledige replicaset. Voor beelden zijn onder meer wanneer het aantal replica's lager is dan het aantal doelen en wanneer een partitie zich in quorum verlies bevindt. De partitie-entiteit wordt geïdentificeerd door de partitie-ID (GUID).
+* **Replica**. Hiermee wordt de status van een stateful service replica of een stateless service exemplaar aangeduid. De replica is de kleinste eenheid die door watchdog en systeem onderdelen kan worden gerapporteerd voor een toepassing. Voor stateful services bevatten voor beelden een primaire replica waarmee bewerkingen niet kunnen worden gerepliceerd naar secundaire zones en langzame replicatie. Daarnaast kan een staatloze exemplaar rapporteren wanneer er onvoldoende bronnen zijn of verbindings problemen zijn. De replica-entiteit wordt geïdentificeerd door de partitie-ID (GUID) en de replica-of exemplaar-ID (Long).
+* **DeployedApplication**. Vertegenwoordigt de status van een *toepassing die op een knoop punt wordt uitgevoerd*. Geïmplementeerde toepassings status rapporten beschrijven voor waarden die specifiek zijn voor de toepassing op het knoop punt dat niet kan worden beperkt tot service pakketten die op hetzelfde knoop punt zijn geïmplementeerd. Voor beelden zijn fouten wanneer het toepassings pakket niet kan worden gedownload op dat knoop punt en problemen met het instellen van beveiligings-principals voor toepassingen op het knoop punt. De geïmplementeerde toepassing wordt geïdentificeerd aan de hand van de toepassings naam (URI) en de naam van het knoop punt (teken reeks).
+* **DeployedServicePackage**. Hiermee wordt de status van een service pakket aangeduid dat wordt uitgevoerd op een knoop punt in het cluster. Hierin worden de voor waarden beschreven die specifiek zijn voor een service pakket die geen invloed hebben op de andere service pakketten op hetzelfde knoop punt voor dezelfde toepassing. Voor beelden zijn een code pakket in het service pakket dat niet kan worden gestart en een configuratie pakket dat niet kan worden gelezen. Het geïmplementeerde service pakket wordt geïdentificeerd door de toepassings naam (URI), de knooppunt naam (de teken reeks), de naam van het service manifest (teken reeks) en de activerings-ID van het service pakket (teken reeks).
 
-De granulatie van het statusmodel kunt u eenvoudig is om te detecteren en oplossen van problemen. Bijvoorbeeld, als een service niet reageert, is het mogelijk om te rapporteren dat exemplaar van de toepassing niet in orde is. Rapportage op dat niveau niet ideaal zijn, maar is omdat het probleem kan niet worden die betrekking hebben op de services binnen die toepassing. Het rapport moet worden toegepast met de service niet in orde of naar een specifieke onderliggende partitie, als u meer informatie naar de betreffende partitie verwijst. De gegevens automatisch oppervlakken via de hiërarchie en een beschadigde partitie zichtbaar op het niveau van service en toepassing. Met deze aggregatie helpt bij het identificeren en de hoofdoorzaak van het probleem sneller oplossen.
+De granulatie van het status model maakt het eenvoudig om problemen op te sporen en te verhelpen. Als een service bijvoorbeeld niet reageert, is het haalbaar om te rapporteren dat het toepassings exemplaar een slechte status heeft. Rapportage op dat niveau is echter niet ideaal, omdat het probleem mogelijk niet van invloed is op alle services in de toepassing. Het rapport moet worden toegepast op de beschadigde service of op een specifieke onderliggende partitie, als er meer informatie naar die partitie verwijst. De gegevens worden automatisch door de hiërarchie geoppereerd en er wordt een beschadigde partitie zichtbaar gemaakt op service-en toepassings niveau. Deze aggregatie helpt om de hoofd oorzaak van het probleem sneller te lokaliseren en op te lossen.
 
-De health-hiërarchie is samengesteld uit de relaties tussen bovenliggende en onderliggende. Een cluster bestaat uit knooppunten en toepassingen. Toepassingen services en geïmplementeerde toepassingen. Geïmplementeerde toepassingen hebt servicepakketten geïmplementeerd. Services partities hebben en elke partitie heeft een of meer replica's. Er is een speciale relatie tussen de knooppunten en geïmplementeerde entiteiten. Een beschadigd knooppunt zoals gemeld door onderdeel van de instantie, de Failover Manager-service, is van invloed op de geïmplementeerde toepassingen, service-pakketten en geïmplementeerd op deze replica's.
+De status hiërarchie bestaat uit bovenliggende en onderliggende relaties. Een cluster bestaat uit knoop punten en toepassingen. Toepassingen hebben Services en geïmplementeerde toepassingen. Geïmplementeerde toepassingen hebben geïmplementeerde service pakketten. Services hebben partities en elke partitie heeft een of meer replica's. Er is een speciale relatie tussen knoop punten en geïmplementeerde entiteiten. Een beschadigd knoop punt zoals gerapporteerd door het systeem onderdeel van de instantie, de Failover Manager-service, is van invloed op de geïmplementeerde toepassingen, service pakketten en replica's die erop zijn geïmplementeerd.
 
-De health-hiërarchie staat voor de meest recente status van het systeem op basis van de meest recente statusrapporten dat is bijna real-time informatie.
-Interne en externe watchdogs kunnen rapporteren dat op de dezelfde entiteiten op basis van toepassingsspecifieke logica of aangepaste bewaakte voorwaarden. Gebruikersrapporten worden gecombineerd met de systeemrapporten.
+De status hiërarchie vertegenwoordigt de meest recente status van het systeem op basis van de meest recente status rapporten. Dit is bijna realtime-informatie.
+Interne en externe watchdog kunnen op dezelfde entiteiten rapporteren op basis van toepassingsspecifieke logica of aangepaste bewaakte voor waarden. Gebruikers rapporten worden samen met de systeem rapporten gebruikt.
 
-Plan te investeren in het rapport en reageren op status tijdens het ontwerpen van een grote cloudservice. Deze investeringen vooraf wordt de service gemakkelijker fouten opsporen, bewaken en beheren.
+Plan in te investeren in hoe de status moet worden gerapporteerd en gereageerd tijdens het ontwerpen van een grote Cloud service. Met deze investering vooraf maakt u de service eenvoudiger om fouten op te sporen, te bewaken en te beheren.
 
 ## <a name="health-states"></a>Statussen
-Service Fabric maakt gebruik van drie statussen voor het beschrijven van of een entiteit in orde of niet is: OK, waarschuwingen en fouten. Een rapport wordt verzonden naar de store health moet een van deze statussen opgeven. Het resultaat van evaluatie van health is een van deze statussen.
+Service Fabric gebruikt drie statussen om te beschrijven of een entiteit in orde is of niet: OK, waarschuwing en fout. Elk rapport dat naar de Health Store wordt verzonden, moet een van deze statussen opgeven. Het resultaat van de status evaluatie is een van deze statussen.
 
 De mogelijke [statussen](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) zijn:
 
-* **OK**. De entiteit is in orde. Er zijn geen bekende problemen die worden gerapporteerd of de onderliggende objecten (indien van toepassing).
-* **Waarschuwing**. De entiteit heeft enkele problemen, maar deze nog steeds correct kan werken. Bijvoorbeeld, er vertragingen zijn, maar ze zorgen niet functioneel problemen nog. In sommige gevallen kan de waarschuwingsvoorwaarde zelf oplossen zonder tussenkomst van de externe. In dergelijke gevallen statusrapporten bewustzijn en bieden inzicht in wat er gebeurt. In andere gevallen kan de waarschuwingsvoorwaarde afnemen in een ernstig probleem zonder tussenkomst van de gebruiker.
-* **Fout**. De entiteit is beschadigd. Actie moet worden genomen om op te lossen van de status van de entiteit, omdat deze niet naar behoren.
-* **Onbekende**. De entiteit bestaat niet in de health-store. Dit resultaat kan worden verkregen van de gedistribueerde query's die worden samengevoegd resultaten uit meerdere onderdelen. Bijvoorbeeld, de lijstquery voor get-knooppunt wordt gerouteerd naar **FailoverManager**, **ClusterManager**, en **HealthManager**; toepassing lijstquery gaat naar  **ClusterManager** en **HealthManager**. Deze query's samenvoegen resultaten uit meerdere onderdelen van het systeem. Als onderdeel van een andere resulteert in een entiteit die niet aanwezig zijn in health store, het samengevoegde resultaat heeft een onbekende status. Een entiteit is niet in de store omdat statusrapporten nog niet zijn verwerkt of de entiteit zijn opgeschoond na verwijdering.
+* **OK**. De entiteit is in orde. Er zijn geen bekende problemen die zijn gerapporteerd voor de service of de onderliggende items (indien van toepassing).
+* **Waarschuwing**. De entiteit heeft enkele problemen, maar kan nog wel goed functioneren. Er zijn bijvoorbeeld vertragingen, maar er zijn nog geen functie problemen. In sommige gevallen kan de waarschuwings voorwaarde zichzelf oplossen zonder externe interventie. In dergelijke gevallen worden de status rapporten gebewustmakingd en wordt er inzicht geboden in wat er gebeurt. In andere gevallen kan de waarschuwings voorwaarde afnemen in een ernstig probleem zonder tussen komst van de gebruiker.
+* **Fout**. De entiteit is niet in orde. U moet actie ondernemen om de status van de entiteit te herstellen, omdat deze niet goed werkt.
+* **Onbekend**. De entiteit bestaat niet in de Health Store. Dit resultaat kan worden verkregen uit de gedistribueerde query's die resultaten van meerdere onderdelen samen voegen. De query voor het ophalen van een knooppunt lijst gaat bijvoorbeeld naar **FailoverManager**, **ClusterManager**en **HealthManager**; de lijst met toepassings lijsten ophalen gaat naar **ClusterManager** en **HealthManager**. Deze query's kunnen resultaten van meerdere systeem onderdelen samen voegen. Als een ander systeem onderdeel een entiteit retourneert die niet aanwezig is in Health Store, heeft het samengevoegde resultaat een onbekende status. Een entiteit bevindt zich niet in het archief omdat de status rapporten nog niet zijn verwerkt of de entiteit na het verwijderen is opgeruimd.
 
-## <a name="health-policies"></a>Statusbeleid
-De health store geldt statusbeleid om te bepalen of een entiteit in orde op basis van de rapporten en onderliggende items.
+## <a name="health-policies"></a>Status beleid
+De Health Store past status beleid toe om te bepalen of een entiteit in orde is op basis van de rapporten en de onderliggende items.
 
 > [!NOTE]
-> Beleid kunnen worden opgegeven in het clustermanifest (voor cluster- en knooppunt evalueren) of in het toepassingsmanifest (voor toepassingsevaluatie en alle onderliggende items). Status evaluatie aanvragen kunnen ook doorgeven in aangepaste evaluatie statusbeleid, die alleen voor die evaluatie worden gebruikt.
+> Status beleid kan worden opgegeven in het cluster manifest (voor de cluster-en knooppunt status evaluatie) of in het manifest van de toepassing (voor evaluatie van de toepassing en alle onderliggende items). Status evaluatie aanvragen kunnen ook worden door gegeven in een aangepast beleid voor status evaluatie dat alleen wordt gebruikt voor die evaluatie.
 > 
 > 
 
-Service Fabric geldt standaard strikte regels (Alles moet zich in orde) voor de hiërarchische relatie bovenliggend-onderliggend. Als een van de onderliggende objecten een slechte gebeurtenis heeft, wordt de bovenliggende als slecht beschouwd.
+Service Fabric worden standaard strikte regels toegepast (alles moet in orde zijn) voor de hiërarchische relatie bovenliggende en onderliggende. Als zelfs een van de onderliggende items een slechte gebeurtenis heeft, wordt het bovenliggende item als slecht beschouwd.
 
-### <a name="cluster-health-policy"></a>Beleid voor cluster-status
-De [cluster statusbeleid](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy) wordt gebruikt voor het evalueren van de clusterstatus en knooppunt-statussen. Het beleid kan worden gedefinieerd in het clustermanifest. Als dit niet aanwezig is, wordt het standaardbeleid (nul verdragen fouten) gebruikt.
-Het statusbeleid cluster bevat:
+### <a name="cluster-health-policy"></a>Cluster status beleid
+Het [cluster status beleid](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy) wordt gebruikt om de status van de cluster status en de status van het knoop punt te evalueren. Het beleid kan worden gedefinieerd in het cluster manifest. Als deze niet aanwezig is, wordt het standaard beleid (nul niet-toegestaan) gebruikt.
+Het cluster status beleid bevat:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Hiermee geeft u op of voor het behandelen van waarschuwing status als fouten tijdens de evaluatie van de status rapporteert. Standaard: false.
-* [MaxPercentUnhealthyApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). Hiermee geeft u het maximumpercentage verdragen van toepassingen die niet in orde zijn mag voordat het cluster wordt beschouwd als fout.
-* [MaxPercentUnhealthyNodes](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). Hiermee geeft u het maximumpercentage verdragen van knooppunten die niet in orde zijn mag voordat het cluster wordt beschouwd als fout. In grote clusters sommige knooppunten zijn altijd in of uit voor herstellingen, zodat dit percentage moet worden geconfigureerd om te tolereren die.
-* [ApplicationTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). Het toepassingsoverzicht type health beleid kan worden gebruikt tijdens de evaluatie van cluster health om te beschrijven van speciale typen. Standaard worden alle toepassingen in een pool plaatsen en geëvalueerd met MaxPercentUnhealthyApplications. Als sommige toepassingtypen anders moeten worden behandeld, kunnen ze worden uitgevoerd buiten de globale groep. In plaats daarvan worden deze geëvalueerd op basis van de percentages die zijn gekoppeld aan de naam van het toepassingstype op de kaart. Bijvoorbeeld in een cluster zijn er duizenden toepassingen van verschillende typen en een paar exemplaren van een besturingselement toepassing van een speciale toepassingstype. De toepassingen moeten geen fout zijn. U kunt globale MaxPercentUnhealthyApplications 20% te tolereren fouten opgetreden, maar dan voor het type 'ControlApplicationType' de MaxPercentUnhealthyApplications ingesteld op 0. Op deze manier als enkele van de vele toepassingen niet in orde zijn, maar onder het globale niet in orde percentage uitkomen, zou het cluster worden geëvalueerd voor de waarschuwing. Een waarschuwingsstatus heeft geen invloed op het cluster upgraden of andere bewakings geactiveerd op basis van de status fout. Maar zelfs één besturingselement toepassing fout zouden cluster niet in orde, die wordt geactiveerd terugdraaien of onderbreken van de upgrade van het cluster, afhankelijk van de configuratie van de upgrade.
-  Bij de toepassingstypen die zijn gedefinieerd in de kaart, worden alle exemplaren van een toepassing uitgevoerd buiten de algemene groep van toepassingen. Ze worden geëvalueerd op basis van het totale aantal aanvragen van het toepassingstype, met behulp van de specifieke MaxPercentUnhealthyApplications van de kaart. De rest van de toepassingen blijven in de algemene groep en met MaxPercentUnhealthyApplications worden geëvalueerd.
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Hiermee geeft u op of waarschuwing status rapporten moeten worden behandeld als fouten tijdens de status evaluatie. Standaard: onwaar.
+* [MaxPercentUnhealthyApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). Hiermee geeft u het Maxi maal toegestane percentage aan van toepassingen die een slechte status kunnen hebben voordat het cluster als fout wordt beschouwd.
+* [MaxPercentUnhealthyNodes](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). Hiermee geeft u het Maxi maal toegestane percentage van knoop punten op waarvan de status niet in orde kan zijn voordat het cluster als fout wordt beschouwd. In grote clusters zijn bepaalde knoop punten altijd beschikbaar voor reparaties, dus dit percentage moet zo worden geconfigureerd dat dit wordt toegestaan.
+* [ApplicationTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). De toewijzing van het status beleid van het toepassings type kan worden gebruikt tijdens de cluster status evaluatie om speciale toepassings typen te beschrijven. Standaard worden alle toepassingen in een groep geplaatst en geëvalueerd met MaxPercentUnhealthyApplications. Als sommige toepassings typen anders moeten worden behandeld, kunnen ze uit de globale groep worden gehaald. In plaats daarvan worden ze geëvalueerd op basis van de percentages die zijn gekoppeld aan hun toepassings type naam in de kaart. In een cluster zijn bijvoorbeeld duizenden toepassingen van verschillende typen en enkele exemplaren van de controle toepassingen van een speciaal toepassings type. De besturings toepassingen moeten nooit een fout hebben. U kunt globale MaxPercentUnhealthyApplications opgeven tot 20% om bepaalde fouten te verdragen, maar voor het toepassings type ' ControlApplicationType ' is de MaxPercentUnhealthyApplications ingesteld op 0. Op deze manier, als sommige toepassingen niet in orde zijn, maar onder het globale percentage van de status, wordt het cluster geëvalueerd op waarschuwing. Een waarschuwings status heeft geen invloed op de cluster upgrade of andere bewaking die wordt geactiveerd door de status van de fout. Maar zelfs een fout in een besturings toepassing zou het cluster beschadigd kunnen maken, waardoor de cluster upgrade wordt teruggedraaid of gepauzeerd, afhankelijk van de upgrade configuratie.
+  Voor de toepassings typen die in de kaart zijn gedefinieerd, worden alle exemplaren van de toepassing uit de algemene groep toepassingen gehaald. Ze worden geëvalueerd op basis van het totale aantal toepassingen van het toepassings type, met behulp van de specifieke MaxPercentUnhealthyApplications van de kaart. Alle overige toepassingen blijven aanwezig in de globale groep en worden geëvalueerd met MaxPercentUnhealthyApplications.
 
-Het volgende voorbeeld wordt een fragment uit een clustermanifest van het. Voorvoegsel voor het definiëren van vermeldingen in de overzichtsweergave van het type toepassing, de parameternaam van de met 'ApplicationTypeMaxPercentUnhealthyApplications-', gevolgd door de naam van toepassing.
+Het volgende voor beeld is een fragment uit een cluster manifest. Als u vermeldingen wilt definiëren in de toewijzing van het toepassings type, typt u de parameter naam met ' ApplicationTypeMaxPercentUnhealthyApplications-', gevolgd door de naam van het toepassings type.
 
 ```xml
 <FabricSettings>
@@ -109,23 +109,23 @@ Het volgende voorbeeld wordt een fragment uit een clustermanifest van het. Voorv
 </FabricSettings>
 ```
 
-### <a name="application-health-policy"></a>Statusbeleid voor de toepassing
-De [statusbeleid voor de toepassing](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) wordt beschreven hoe de evaluatie van gebeurtenissen en onderliggende Staten aggregatie wordt uitgevoerd voor toepassingen en hun kinderen. Deze kan worden gedefinieerd in het toepassingsmanifest **ApplicationManifest.xml**, in het toepassingspakket. Als er geen beleidsregels zijn opgegeven, Service Fabric wordt ervan uitgegaan dat de entiteit niet in orde als er een statusrapport of een onderliggend element op de status waarschuwing of fout.
-De configureerbare beleidsregels zijn:
+### <a name="application-health-policy"></a>Beleid voor toepassings status
+Het [beleid voor toepassings status](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) beschrijft hoe de evaluatie van gebeurtenissen en aggregatie van de onderliggende status wordt uitgevoerd voor toepassingen en hun kinderen. Het kan worden gedefinieerd in het toepassings manifest **ApplicationManifest. XML**in het toepassings pakket. Als er geen beleid is opgegeven, wordt door Service Fabric aangenomen dat de entiteit een slechte status heeft als deze een status rapport of een onderliggend item met de waarschuwings-of fout status bevat.
+De Configureer bare beleids regels zijn:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Hiermee geeft u op of voor het behandelen van waarschuwing status als fouten tijdens de evaluatie van de status rapporteert. Standaard: false.
-* [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Hiermee geeft u het maximumpercentage verdragen van gedistribueerde toepassingen die niet in orde zijn mag voordat de toepassing wordt beschouwd als fout. Dit percentage wordt berekend door het aantal beschadigde geïmplementeerde toepassingen delen via het aantal knooppunten dat de toepassingen die momenteel zijn geïmplementeerd op in het cluster. De berekening rondt af naar één tolereren op kleine aantallen knooppunten. Percentage standaard: 0.
-* [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Hiermee geeft u het service type health standaardbeleid, dat het standaardbeleid voor de status voor alle servicetypen in de toepassing vervangt.
-* [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Geeft een overzicht van service health beleidsregels per servicetype. Deze beleidsregels vervangen door de service type health standaardbeleidsregels voor elk type opgegeven service. Bijvoorbeeld, als een toepassing een Gatewaytype stateless service en een servicetype stateful-engine heeft, kunt u het statusbeleid voor de evaluatie anders. Wanneer u het beleid per servicetype opgeeft, kunt u gedetailleerde controle over de status van de service krijgen.
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Hiermee geeft u op of waarschuwing status rapporten moeten worden behandeld als fouten tijdens de status evaluatie. Standaard: onwaar.
+* [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Hiermee geeft u het Maxi maal toegestane percentage van geïmplementeerde toepassingen op dat slecht kan zijn voordat de toepassing wordt beschouwd als fout. Dit percentage wordt berekend door het aantal beschadigde geïmplementeerde toepassingen te delen via het aantal knoop punten waarop de toepassingen momenteel zijn geïmplementeerd in het cluster. De berekening wordt afgerond om één fout te verdragen op een klein aantal knoop punten. Standaard percentage: nul.
+* [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Hiermee geeft u het standaard status beleid voor het Service type op, waarmee het standaard status beleid wordt vervangen voor alle service typen in de toepassing.
+* [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Biedt een overzicht van service status beleid per service type. Deze beleids regels vervangen het standaard status beleid voor service typen voor elk opgegeven service type. Als een toepassing bijvoorbeeld een stateless Gateway Service type heeft en een stateful Engine service-type, kunt u de status beleidsregels voor de evaluatie anders configureren. Wanneer u beleid per service type opgeeft, kunt u een nauw keurigere controle krijgen over de status van de service.
 
-### <a name="service-type-health-policy"></a>Beleid voor de status van service type
-De [service type statusbeleid](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy) geeft aan hoe om te evalueren en samenvoegen van de services en de onderliggende objecten van services. Het beleid bevat:
+### <a name="service-type-health-policy"></a>Status beleid Service type
+In het [status beleid Service type](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy) wordt aangegeven hoe u de services en de onderliggende services ervan evalueert en samenvoegt. Het beleid bevat:
 
-* [MaxPercentUnhealthyPartitionsPerService](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice). Hiermee geeft u het maximumpercentage verdragen van beschadigde partities voordat een service als slecht beschouwd. Percentage standaard: 0.
-* [MaxPercentUnhealthyReplicasPerPartition](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition). Hiermee geeft u het maximumpercentage verdragen van replica's beschadigd voordat een partitie als slecht beschouwd. Percentage standaard: 0.
-* [MaxPercentUnhealthyServices](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices). Hiermee geeft u het maximumpercentage verdragen van beschadigde services voordat de toepassing als slecht beschouwd. Percentage standaard: 0.
+* [MaxPercentUnhealthyPartitionsPerService](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice). Hiermee geeft u het Maxi maal toegestane percentage van beschadigde partities op voordat een service wordt beschouwd als beschadigd. Standaard percentage: nul.
+* [MaxPercentUnhealthyReplicasPerPartition](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition). Hiermee geeft u het Maxi maal toegestane percentage van beschadigde replica's op voordat een partitie als slecht wordt beschouwd. Standaard percentage: nul.
+* [MaxPercentUnhealthyServices](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices). Hiermee geeft u het Maxi maal toegestane percentage van slechte services op voordat de toepassing wordt beschouwd als beschadigd. Standaard percentage: nul.
 
-Het volgende voorbeeld wordt een fragment uit een manifest van de toepassing:
+Het volgende voor beeld is een fragment uit een toepassings manifest:
 
 ```xml
     <Policies>
@@ -147,90 +147,90 @@ Het volgende voorbeeld wordt een fragment uit een manifest van de toepassing:
     </Policies>
 ```
 
-## <a name="health-evaluation"></a>Evalueren
-Gebruikers en geautomatiseerde services kunnen de status voor een entiteit op elk gewenst moment evalueren. Om te evalueren de status van een entiteit, het health store statistische functies status van alle rapporten weergeven over de entiteit en evalueert alle onderliggende items (indien van toepassing). De status van aggregatie-algoritme maakt gebruik van statusbeleid dat statusrapporten evalueren en de te aggregeren onderliggende statussen (indien van toepassing) opgeven.
+## <a name="health-evaluation"></a>Status evaluatie
+Gebruikers en geautomatiseerde Services kunnen op elk gewenst moment de status voor elke entiteit evalueren. Om de status van een entiteit te evalueren, worden alle status rapporten op de entiteit door de Health Store geaggregeerd en worden alle onderliggende items geëvalueerd (indien van toepassing). Het algoritme voor status aggregatie maakt gebruik van status beleid waarmee wordt aangegeven hoe status rapporten moeten worden geëvalueerd en hoe onderliggende gezondheids statussen moeten worden geaggregeerd (indien van toepassing).
 
-### <a name="health-report-aggregation"></a>Aggregatie van de Health-rapport
-Een entiteit kan meerdere statusrapporten die zijn verzonden door verschillende rapporteurs (onderdelen van het systeem of watchdogs) op verschillende eigenschappen hebben. De aggregatie gebruikt beleidsregels voor de bijbehorende status, in het bijzonder de ConsiderWarningAsError lid is van toepassing of het cluster statusbeleid. ConsiderWarningAsError geeft aan hoe waarschuwingen te evalueren.
+### <a name="health-report-aggregation"></a>Aggregatie van status rapporten
+Eén entiteit kan meerdere status rapporten verzenden door verschillende reporters (systeem onderdelen of watchdog) op verschillende eigenschappen. De aggregatie maakt gebruik van het bijbehorende status beleid, met name het ConsiderWarningAsError-lid van de toepassing of het cluster status beleid. ConsiderWarningAsError geeft aan hoe waarschuwingen moeten worden geëvalueerd.
 
-De geaggregeerde status wordt geactiveerd door de *slechtste* systeemstatusrapporten over de entiteit. Als er ten minste één fout health-rapport, wordt de geaggregeerde status van een fout.
+De geaggregeerde status wordt geactiveerd door de slechtste status rapporten voor de entiteit. Als er ten minste één fout status rapport is, is de geaggregeerde status fout.
 
-![Aggregatie voor Health rapport met een foutrapport kan worden opgenomen.][2]
+![Aggregatie van status rapporten met fouten rapport.][2]
 
-Een health-entiteit met een of meer fout statusrapporten geëvalueerd als de fout. Hetzelfde geldt voor een verlopen statusrapport, ongeacht de status.
+Een status entiteit met een of meer fouten status rapporten wordt geëvalueerd als fout. Hetzelfde geldt voor een verlopen status rapport, ongeacht de status.
 
 [2]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-error.png
 
-Als er geen foutenrapporten en een of meer waarschuwingen, wordt de geaggregeerde status waarschuwing of fout, afhankelijk van de vlag ConsiderWarningAsError-beleid.
+Als er geen fout rapporten en een of meer waarschuwingen zijn, is de geaggregeerde status een waarschuwing of fout, afhankelijk van de ConsiderWarningAsError-beleids vlag.
 
-![Aggregatie van de Health rapport waarschuwing rapport en een ConsiderWarningAsError false.][3]
+![Aggregatie van status rapporten met waarschuwings rapport en ConsiderWarningAsError false.][3]
 
-Aggregatie van de Health-rapport waarschuwing rapport en een ConsiderWarningAsError ingesteld op false (standaard).
+Aggregatie van status rapporten met waarschuwings rapport en ConsiderWarningAsError ingesteld op False (standaard).
 
 [3]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-warning.png
 
-### <a name="child-health-aggregation"></a>Aggregatie van onderliggende health
-De samengevoegde status van een entiteit is inclusief de statussen van onderliggende (indien van toepassing). Het algoritme voor het verzamelen van statussen van de onderliggende maakt gebruik van het beleid van toepassing op basis van het entiteitstype.
+### <a name="child-health-aggregation"></a>Aggregatie van onderliggende status
+De geaggregeerde status van een entiteit weerspiegelt de onderliggende gezondheids status (indien van toepassing). Het algoritme voor het samen voegen van onderliggende statussen maakt gebruik van de status beleidsregels die van toepassing zijn op basis van het entiteits type.
 
-![Onderliggende entiteiten health aggregatie.][4]
+![Aggregatie van de status van onderliggende entiteiten.][4]
 
-Onderliggende aggregatie op basis van de gezondheid van beleid.
+Onderliggende aggregatie op basis van status beleid.
 
 [4]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy-eval.png
 
-Nadat de health store heeft vastgesteld dat alle onderliggende objecten, worden hun statussen op basis van het geconfigureerde maximale percentage van beschadigde onderliggende items. Dit percentage is afkomstig uit het beleid op basis van het type entiteit en onderliggende.
+Nadat de Health Store alle onderliggende items heeft geëvalueerd, worden de statussen geaggregeerd op basis van het geconfigureerde maximum percentage van onderliggende items met een onjuiste status. Dit percentage wordt uit het beleid gehaald op basis van het type entiteit en onderliggend element.
 
-* Als alle onderliggende items OK Staten hebt, wordt de status van de onderliggende samengevoegd OK.
-* Als onderliggende items OK en statussen van de waarschuwing hebt, wordt de status van de onderliggende samengevoegd waarschuwing.
-* Als er onderliggende items met foutstatussen die niet aansluiten bij de maximaal toegestane percentage van slechte kinderen, wordt de status van de samengevoegde bovenliggende een fout.
-* Als de onderliggende objecten met foutstatussen met inachtneming van de maximaal toegestane percentage van de beschadigde onderliggende items, de status van de samengevoegde bovenliggende is een waarschuwing.
+* Als alle onderliggende objecten de status OK hebben, is de geaggregeerde status van het onderliggende element OK.
+* Als kinderen zowel OK als waarschuwings status hebben, is de geaggregeerde status van het onderliggende element een waarschuwing.
+* Als er kinderen zijn met fout statussen die het Maxi maal toegestane percentage van beschadigde onderliggende elementen niet eerbiedigen, is de geaggregeerde bovenliggende status fout.
+* Als de onderliggende items met fout status het Maxi maal toegestane percentage van beschadigde onderliggende elementen eerbiedigen, is de geaggregeerde bovenliggende status waarschuwing.
 
-## <a name="health-reporting"></a>Status rapporteren
-Onderdelen van het systeem, systeem-Fabric-toepassingen en interne of externe watchdogs kunnen rapporteren op basis van Service Fabric-entiteiten. Controleer de verslaggevers *lokale* bepalingen van de status van de bewaakte entiteiten, op basis van de voorwaarden die ze bewaken. Ze nodig niet om te kijken naar alle globale status- of statistische gegevens. Het gewenste gedrag is dat eenvoudige rapporteurs en geen complexe organismen die nodig hebt om te kijken naar veel dingen die u moet het afleiden van welke gegevens te verzenden.
+## <a name="health-reporting"></a>Status rapportage
+Systeem onderdelen, systeem infrastructuur toepassingen en interne/externe watchdog kunnen rapporteren aan Service Fabric entiteiten. De rapporten maken *lokale* bepalingen van de status van de bewaakte entiteiten, op basis van de voor waarden die ze volgen. Ze hoeven geen globale staats-of aggregatie gegevens te bekijken. Het gewenste gedrag is om eenvoudige rapporten te hebben, en geen complexe organismen die een groot aantal dingen moeten bekijken om te bepalen welke gegevens moeten worden verzonden.
 
-Health om gegevens te verzenden naar de health-store, moet een Rapportagefout de betrokken entiteit identificeert en maakt u een statusrapport. Voor het verzenden van het rapport, gebruikt u de [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API, rapport health API's beschikbaar gesteld op de `Partition` of `CodePackageActivationContext` objecten, PowerShell-cmdlets en REST.
+Een rapporter moet de betrokken entiteit identificeren en een status rapport maken om status gegevens naar het Health Store te verzenden. Als u het rapport wilt verzenden, gebruikt u de API [FabricClient. HealthClient. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) , rapporteert u `Partition` de `CodePackageActivationContext` status-api's die worden weer gegeven in de objecten, Power shell-cmdlets of de rest.
 
-### <a name="health-reports"></a>Statusrapporten
-De [statusrapporten](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthreport) voor elk van de entiteiten in het cluster de volgende informatie bevatten:
+### <a name="health-reports"></a>Status rapporten
+De [status rapporten](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthreport) voor elk van de entiteiten in het cluster bevatten de volgende informatie:
 
-* **SourceId**. Een tekenreeks is die de journalist van de health-gebeurtenis wordt aangeduid.
-* **Id van de entiteit**. Hiermee geeft u de entiteit wanneer het rapport wordt toegepast. Het verschilt op basis van de [entiteitstype](service-fabric-health-introduction.md#health-entities-and-hierarchy):
+* **SourceId**. Een teken reeks die een unieke identificatie vormt van het rapport van de status gebeurtenis.
+* **Entiteits-ID**. Hiermee wordt de entiteit geïdentificeerd waarop het rapport wordt toegepast. Het verschil is afhankelijk van het [entiteits type](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
   * Cluster. Geen.
-  * Knooppunt. Naam van knooppunt (tekenreeks).
-  * de toepassing. Toepassingsnaam (URI). Hiermee geeft u de naam van het exemplaar van de toepassing geïmplementeerd in het cluster.
-  * Service. Servicenaam (URI). Hiermee geeft u de naam van de service-exemplaar geïmplementeerd in het cluster.
-  * De partitie. Partitie-ID (GUID). Hiermee geeft u de unieke id van de partitie.
-  * De replica. De stateful service-replica-ID of de stateless service-exemplaar-ID (INT64).
-  * DeployedApplication. Toepassingsnaam (URI) en de naam van knooppunt (tekenreeks).
-  * DeployedServicePackage. Toepassingsnaam (URI), naam van het knooppunt (tekenreeks) en service manifest van de naam (tekenreeks).
-* **De eigenschap**. Een *tekenreeks* (niet een vaste opsomming) waarmee de journalist voor het categoriseren van de statusgebeurtenis voor een bepaalde eigenschap van de entiteit. Bijvoorbeeld, de status van de Node01 kan rapporteren dat journalist A 'Opslag'-eigenschap en journalist B kunnen de status van de Node01 rapporteren 'Connectiviteit'-eigenschap. In de winkel de gezondheid van worden deze rapporten behandeld als afzonderlijke statusgebeurtenissen voor de entiteit Node01.
-* **Beschrijving**. Een tekenreeks waarmee een Rapportagefout gedetailleerde informatie over de statusgebeurtenis opgeven. **SourceId**, **eigenschap**, en **HealthState** moet volledig worden beschreven het rapport. De beschrijving van de leesbare informatie over het rapport toegevoegd. De tekst gemakkelijker voor beheerders en gebruikers te begrijpen van het statusrapport.
-* **HealthState**. Een [opsomming](service-fabric-health-introduction.md#health-states) met de beschrijving van de status van het rapport. De geaccepteerde waarden zijn OK, waarschuwing en fout.
-* **TimeToLive**. Een TimeSpan-waarde die aangeeft hoe lang het statusrapport is ongeldig. In combinatie met **RemoveWhenExpired**, wordt de health store verlopen gebeurtenissen evalueren. Standaard de waarde is oneindig en het rapport altijd geldig is.
-* **RemoveWhenExpired**. Een Booleaanse waarde. Indien ingesteld op true, het verlopen statusrapport wordt automatisch verwijderd uit de store status en het rapport niet invloed hebben op evalueren entiteit. Gebruikt wanneer het rapport voor een opgegeven periode alleen geldig is en de journalist hoeft niet te deze expliciet wissen. Ook wordt gebruikt voor het verwijderen van rapporten uit de store health (bijvoorbeeld een watchdog is gewijzigd en stopt met het verzenden van rapporten met vorige bron en de eigenschap). Een rapport met een korte TimeToLive samen met RemoveWhenExpired om te wissen van een vorige status van de health store kan verzenden. Als de waarde is ingesteld op false, wordt het verlopen rapport behandeld als een fout opgetreden in de health-evaluatie. De waarde false geeft aan de health store dat de bron voor deze eigenschap regelmatig moet rapporteren. Als dat niet het geval is, moet er iets mis is met de watchdog. Status van de watchdog wordt op basis van de gebeurtenis als een fout vastgelegd.
-* **SequenceNumber**. Een positief geheel getal dat moet worden toenemende, staat de volgorde van de rapporten. Deze wordt gebruikt door de health store voor het detecteren van verouderde rapporten die worden ontvangen, laat vanwege vertragingen in het netwerk of andere problemen. Een rapport wordt geweigerd als het volgnummer is dat kleiner dan of gelijk zijn aan de meest recent nummer voor de dezelfde entiteit, de bron en de eigenschap toegepast. Als deze niet is opgegeven, wordt het volgnummer automatisch gegenereerd. Het is nodig om te zetten in het volgnummer alleen tijdens het rapporteren van verloopgebeurtenissen bij statuswijzigingen. In dit geval wordt de bron moet onthouden welke rapporten, verzonden en blijven de gegevens voor herstel bij failover.
+  * Subknooppuntsleutels. Knooppunt naam (teken reeks).
+  * Modules. Toepassings naam (URI). Vertegenwoordigt de naam van het toepassings exemplaar dat in het cluster is geïmplementeerd.
+  * Service. Service naam (URI). Vertegenwoordigt de naam van het service-exemplaar dat in het cluster is geïmplementeerd.
+  * Partitie. Partitie-ID (GUID). Vertegenwoordigt de unieke partitie-id.
+  * Exacte. De stateful service replica-ID of de stateless service exemplaar-ID (INT64).
+  * DeployedApplication. De naam van de toepassing (URI) en de naam van het knoop punt (teken reeks).
+  * DeployedServicePackage. Toepassings naam (URI), knooppunt naam (teken reeks) en naam service manifest (teken reeks).
+* **Eigenschap**. Een *teken reeks* (geen vaste opsomming) waarmee de rapporter de status gebeurtenis kan categoriseren voor een specifieke eigenschap van de entiteit. Bijvoorbeeld, rapporter A kunnen de status van de Node01-eigenschap ' Storage ' rapporteren en de reporter B kan de status van de eigenschap ' connectiviteit ' van de Node01 rapporteren. In de Health Store worden deze rapporten behandeld als afzonderlijke status gebeurtenissen voor de entiteit Node01.
+* **Beschrijving**. Een teken reeks waarmee een rapporter gedetailleerde informatie kan geven over de status gebeurtenis. Voor **SourceId**, **Property**en **HealthState** moet het rapport volledig worden beschreven. De beschrijving bevat informatie over iedereen-lees bare gegevens over het rapport. De tekst maakt het gemakkelijker voor beheerders en gebruikers om het status rapport te begrijpen.
+* **HealthState**. Een [opsomming](service-fabric-health-introduction.md#health-states) die de status van het rapport beschrijft. De geaccepteerde waarden zijn OK, waarschuwing en fout.
+* **TimeToLive**. Een time span die aangeeft hoe lang het status rapport geldig is. In combi natie met **RemoveWhenExpired**kan het Health Store weten hoe verlopen gebeurtenissen moeten worden geëvalueerd. Standaard is de waarde oneindig en is het rapport altijd geldig.
+* **RemoveWhenExpired**. Een Booleaanse waarde. Als deze eigenschap is ingesteld op True, wordt het verlopen status rapport automatisch verwijderd uit de Health Store. het rapport heeft geen invloed op de evaluatie van de entiteits status. Wordt gebruikt wanneer het rapport alleen gedurende een opgegeven periode geldig is en de representatieer het niet expliciet hoeft te wissen. Het wordt ook gebruikt om rapporten te verwijderen uit de Health Store (een watchdog wordt bijvoorbeeld gewijzigd en stopt met het verzenden van rapporten met de vorige bron en eigenschap). Het kan een rapport verzenden met een korte TimeToLive samen met RemoveWhenExpired om een eerdere status te wissen uit de Health Store. Als de waarde is ingesteld op ONWAAR, wordt het verlopen rapport beschouwd als een fout bij de status evaluatie. De waarde False geeft aan de Health Store door dat de bron regel matig moet worden gerapporteerd voor deze eigenschap. Als dat niet het geval is, moet er iets mis zijn met de watchdog. De status van de watchdog wordt vastgelegd door de gebeurtenis als een fout te beschouwen.
+* **SequenceNumber**. Een positief geheel getal dat steeds groter moet worden, het vertegenwoordigt de volg orde van de rapporten. De Health Store wordt gebruikt voor het detecteren van verouderde rapporten die te laat worden ontvangen vanwege vertragingen in het netwerk of andere problemen. Een rapport wordt afgewezen als het Volg nummer kleiner is dan of gelijk is aan het meest recent toegepaste nummer voor dezelfde entiteit, bron en eigenschap. Als deze niet is opgegeven, wordt het Volg nummer automatisch gegenereerd. U hoeft alleen maar een Volg nummer in te stellen bij het rapporteren van status overgangen. In dit geval moet de bron onthouden welk rapport het verzendt en de gegevens voor herstel op failover bewaren.
 
-Deze vier onderdelen van informatie, SourceId, entiteits-id, eigenschap en HealthState--zijn vereist voor elke statusrapport. De SourceId tekenreeks mag niet beginnen met het voorvoegsel "**systeem.** ', die is gereserveerd voor systeemrapporten. Er is slechts één rapport voor de dezelfde bron en de eigenschap voor de dezelfde entiteit. Meerdere rapporten voor de bron en de eigenschap overschrijven elkaar en aan de clientzijde health (als ze worden batchgewijs) of op de status aan clientzijde opslaan. De vervanging is gebaseerd op volgnummers; nieuwere rapporten (met hogere volgnummers) vervangt oudere rapporten.
+Deze vier stukjes informatie:-SourceId, entiteits-id, eigenschap en HealthState zijn vereist voor elk status rapport. De SourceId-teken reeks mag niet beginnen met het voor voegsel '**System.** ', dat is gereserveerd voor systeem rapporten. Voor dezelfde entiteit is er slechts één rapport voor dezelfde bron en eigenschap. Meerdere rapporten voor dezelfde bron en eigenschap worden elkaar overschreven, hetzij op de status client (als deze batches zijn) of aan de Health Store zijde. De vervanging is gebaseerd op Volg nummers; nieuwere rapporten (met hogere Volg nummers) vervangen oudere rapporten.
 
-### <a name="health-events"></a>Statusgebeurtenissen
-Intern, houdt u de health store [statusgebeurtenissen](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthevent), die alle gegevens van de rapporten en aanvullende metagegevens bevatten. De metagegevens bevatten de tijd die het rapport is gegeven aan de health-client en de tijd die het op de server is gewijzigd. De health-gebeurtenissen worden geretourneerd door [statusquery's](service-fabric-view-entities-aggregated-health.md#health-queries).
+### <a name="health-events"></a>Status gebeurtenissen
+Intern blijven de Health Store [status gebeurtenissen](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthevent), die alle informatie uit de rapporten bevatten, en aanvullende meta gegevens. De meta gegevens bevatten het tijdstip waarop het rapport is gegeven aan de Health-client en de tijd waarop het aan de server zijde is gewijzigd. De status gebeurtenissen worden geretourneerd door [status query's](service-fabric-view-entities-aggregated-health.md#health-queries).
 
-De metagegevens van de toegevoegde bevat:
+De toegevoegde meta gegevens bevatten:
 
-* **SourceUtcTimestamp**. De tijd die het rapport is gegeven aan de health-client (Coordinated Universal Time).
-* **LastModifiedUtcTimestamp**. De tijd die het rapport het laatst is gewijzigd op de server (Coordinated Universal Time).
-* **IsExpired**. Een vlag die aangeeft of het rapport is verlopen wanneer de query is uitgevoerd door de health-store. Een gebeurtenis kan zijn verlopen alleen als RemoveWhenExpired ingesteld op false is. Anders wordt de gebeurtenis is niet geretourneerd door de query en wordt verwijderd uit de store.
-* **LastOkTransitionAt**, **LastWarningTransitionAt**, **LastErrorTransitionAt**. De laatste keer voor OK/waarschuwing/fout overgangen. Deze velden geeft de geschiedenis van de status van statusovergangen voor de gebeurtenis.
+* **SourceUtcTimestamp**. De tijd waarop het rapport is gegeven aan de Health-client (Coordinated Universal Time).
+* **LastModifiedUtcTimestamp**. De tijd waarop het rapport voor het laatst is gewijzigd aan de server zijde (Coordinated Universal Time).
+* **IsExpired**. Een markering om aan te geven of het rapport is verlopen tijdens het uitvoeren van de query door de Health Store. Een gebeurtenis kan alleen worden verlopen als RemoveWhenExpired False is. Anders wordt de gebeurtenis niet geretourneerd door de query en uit het archief verwijderd.
+* **LastOkTransitionAt**, **LastWarningTransitionAt**, **LastErrorTransitionAt**. De laatste keer dat er overgangen voor OK/waarschuwing/fouten zijn. Deze velden geven de geschiedenis van de status overgangen voor de gebeurtenis.
 
-De velden van de overgang status kunnen worden gebruikt voor slimmer waarschuwingen of informatie over 'historische' health-gebeurtenissen. Deze inschakelen scenario's zoals:
+De status overgangs velden kunnen worden gebruikt voor Smarter-waarschuwingen of historische status informatie over de gebeurtenis. Ze bieden scenario's zoals:
 
-* Waarschuwen wanneer een eigenschap op de waarschuwing/fout voor meer dan X minuten is. Controle van de voorwaarde voor een bepaalde periode, voorkomt u waarschuwingen op tijdelijke omstandigheden. Bijvoorbeeld, een waarschuwing als de status van de is zijn waarschuwing voor meer dan vijf minuten kan worden vertaald naar (HealthState waarschuwings- en nu - LastWarningTransitionTime == > 5 minuten).
-* Waarschuwing is alleen van de voorwaarden die zijn gewijzigd in de laatste X minuten. Als een rapport al bij fout voordat u de opgegeven periode is, kan worden genegeerd omdat deze al eerder is gesignaleerd.
-* Als een eigenschap tussen de waarschuwings- en uitschakelen is, moet u bepalen hoe lang het is niet in orde (dat wil zeggen, niet OK). Bijvoorbeeld, een waarschuwing als de eigenschap niet in orde meer dan vijf minuten is kan worden vertaald naar (HealthState! = Ok en nu - LastOkTransitionTime > 5 minuten).
+* Waarschuwen wanneer een eigenschap meer dan X minuten een waarschuwing/fout heeft. Als u de voor waarde voor een bepaalde periode controleert, voor komt u waarschuwingen voor tijdelijke voor waarden. Bijvoorbeeld: een waarschuwing als de status voor meer dan vijf minuten een waarschuwing kan worden omgezet in (HealthState = = Warning and now-LastWarningTransitionTime > 5 minuten).
+* Waarschuw alleen voor voor waarden die in de afgelopen X minuten zijn gewijzigd. Als een rapport al eerder is dan de opgegeven tijd, kan dit worden genegeerd omdat het al eerder is gesignaleerd.
+* Als er een waarschuwing en fout wordt weer gegeven in een eigenschap, moet u bepalen hoe lang het slecht is (dat wil zeggen, niet OK). Bijvoorbeeld: een waarschuwing als de eigenschap meer dan vijf minuten niet in orde is, kan worden vertaald naar (HealthState! = OK en Now-LastOkTransitionTime > 5 minuten).
 
-## <a name="example-report-and-evaluate-application-health"></a>Voorbeeld: Rapporteren en evalueren van de status van de toepassing
-Het volgende voorbeeld verzendt een statusrapport via PowerShell op de toepassing **fabric: / WordCount** van de bron **MyWatchdog**. Het statusrapport bevat informatie over de health-eigenschap 'beschikbaarheid' in een foutstatus, met onbeperkte TimeToLive. Vervolgens hiervoor wordt de status van de toepassing deze retourneert fouten voor de status en de gerapporteerde statusgebeurtenissen in de lijst met statusgebeurtenissen samengevoegde.
+## <a name="example-report-and-evaluate-application-health"></a>Voorbeeld: De status van de toepassing rapporteren en evalueren
+In het volgende voor beeld wordt een status rapport verzonden via Power shell op de Application **Fabric:/WordCount** uit de bron- **MyWatchdog**. Het status rapport bevat informatie over de status van de eigenschap Beschik baarheid in een fout status, met oneindige TimeToLive. Vervolgens wordt een query uitgevoerd op de status van de toepassing, die de geaggregeerde status fouten en de gerapporteerde status gebeurtenissen in de lijst met status gebeurtenissen retourneert.
 
 ```powershell
 PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
@@ -297,22 +297,22 @@ HealthEvents                    :
                                   Transitions           : Ok->Error = 3/23/2016 3:27:56 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-## <a name="health-model-usage"></a>Gebruik van de gezondheid van modellen
-Het statusmodel kunt cloudservices en de onderliggende Service Fabric-platform om te schalen, omdat de controle en statusrapporten bepalingen zijn verdeeld over de verschillende monitors binnen het cluster.
-Andere systemen een gecentraliseerde service hebben op het niveau van het cluster waarop alle parseert de *mogelijk* nuttige informatie verzonden door de services. Deze benadering, kunnen hun schaalbaarheid. Deze ook kan geen specifieke informatie verzamelen om te helpen bij het identificeren van problemen en potentiële problemen als dicht bij de hoofdoorzaak mogelijk.
+## <a name="health-model-usage"></a>Gebruik van het status model
+Met het status model kunnen Cloud Services en de onderliggende Service Fabric platform worden geschaald, omdat de controle-en status bepaling worden gedistribueerd tussen de verschillende monitors in het cluster.
+Andere systemen hebben één gecentraliseerde service op het cluster niveau waarmee alle *potentieel* nuttige informatie wordt geparseerd die door Services wordt gegenereerd. Deze aanpak belemmert de schaal baarheid. Ook kunnen ze geen specifieke informatie verzamelen om problemen en mogelijke problemen zo dicht mogelijk bij de hoofd oorzaak te identificeren.
 
-Het statusmodel wordt intensief gebruikt voor controle en diagnose van, voor het evalueren van de gezondheid van cluster en de toepassing en voor bewaakte upgrades. Statusgegevens andere services gebruiken voor het uitvoeren van automatische reparaties, statusgeschiedenis cluster maken en uitgeven van waarschuwingen van bepaalde voorwaarden.
+Het status model wordt intensief gebruikt voor het bewaken en diagnosticeren, voor het evalueren van de cluster-en toepassings status en voor bewaakte upgrades. Andere services gebruiken status gegevens voor het automatisch herstellen, het samen stellen van de cluster status en het uitgeven van waarschuwingen voor bepaalde voor waarden.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Service Fabric-statusrapporten weergeven](service-fabric-view-entities-aggregated-health.md)
+[Service Fabric status rapporten weer geven](service-fabric-view-entities-aggregated-health.md)
 
-[Systeemstatusrapporten gebruiken voor het oplossen van problemen](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+[Systeem status rapporten gebruiken om problemen op te lossen](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-[Het servicestatus rapporteren en controleren](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+[Service status rapporteren en controleren](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
-[Aangepaste statusrapporten van Service Fabric toevoegen](service-fabric-report-health.md)
+[Aangepaste Service Fabric status rapporten toevoegen](service-fabric-report-health.md)
 
-[Controle en diagnose van services lokaal](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[Services lokaal controleren en diagnosticeren](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Service Fabric-toepassingsupgrade](service-fabric-application-upgrade.md)
+[Upgrade van toepassing Service Fabric](service-fabric-application-upgrade.md)
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33704c3392726ccd12ca0fd74f26465a54697e11
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 178f81cf42e5c57be4a0b69ada6560d46951a3a3
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722132"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942851"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identiteit gegevensopslag voor Europese klanten in Azure Active Directory
 Identiteits gegevens worden opgeslagen door Azure AD op een geografische locatie op basis van het adres van uw organisatie bij het abonneren op een micro soft online service, zoals Office 365 en Azure. Voor informatie over waar uw identiteits gegevens worden opgeslagen, kunt u de sectie [waar bevinden zich uw gegevens?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) in het micro soft vertrouwens centrum gebruiken.
@@ -43,6 +43,15 @@ Azure AD B2B slaat uitnodigingen met Verwissel-en omleidings-URL-informatie op i
 ## <a name="microsoft-azure-active-directory-domain-services-azure-ad-ds"></a>Microsoft Azure Active Directory Domain Services (Azure AD DS)
 
 Azure Active Directory Domain Services slaat gebruikersgegevens op dezelfde locatie op als het door de klant geselecteerde Azure Virtual Network. Dus als het netwerk zich buiten Europa bevindt, worden de gegevens gerepliceerd en opgeslagen buiten Europa.
+
+## <a name="federation-in-microsoft-exchange-server-2013"></a>Federatie in micro soft Exchange Server 2013
+    
+- Toepassings-id (AppID): een uniek nummer dat wordt gegenereerd door het Azure Active Directory-verificatie systeem om Exchange-organisaties te identificeren.
+- Lijst met goedgekeurde federatieve domeinen voor toepassing
+- Open bare sleutel voor token ondertekening van toepassing 
+
+Zie voor meer informatie over Federatie in micro soft Exchange Server de [Federatie: Exchange 2013 Help](https://docs.microsoft.com/exchange/federation-exchange-2013-help) -artikel.
+
 
 ## <a name="other-considerations"></a>Andere overwegingen
 

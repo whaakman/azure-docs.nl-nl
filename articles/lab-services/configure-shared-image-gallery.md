@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 80610168e0d293b65626da71ee349f25e456576b
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 93b3c7671a5beb4b3a451fe0efd13b9f48e00436
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774572"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941806"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Een gedeelde galerie met installatiekopieën configureren in Azure DevTest Labs
 DevTest Labs ondersteunt nu de functie [gedeelde installatie kopie galerie](../virtual-machines/windows/shared-image-galleries.md) . Hiermee kunnen labgebruikers toegang krijgen tot installatiekopieën vanaf een gedeelde locatie terwijl ze labresources maken. Het zorgt ook voor structuur en organisatie in uw aangepaste, beheerde VM-installatiekopieën. De functie Gedeelde afbeeldingen galerie ondersteunt:
@@ -36,7 +36,7 @@ Als u een groot aantal beheerde installatiekopieën hebt dat u moet onderhouden 
 ## <a name="considerations"></a>Overwegingen
 - U kunt slechts één gedeelde installatie kopie galerie tegelijk aan een Lab koppelen. Als u een andere galerie wilt koppelen, moet u de bestaande Gallery loskoppelen en er een toevoegen. 
 - DevTest Labs biedt momenteel geen ondersteuning voor het uploaden van installatie kopieën naar de galerie via het lab. 
-- Bij het maken van een virtuele machine met behulp van een afbeelding in de galerie met gedeelde installatie kopieën, gebruikt DevTest Labs altijd de meest recente gepubliceerde versie van deze installatie kopie.
+- Bij het maken van een virtuele machine met behulp van een afbeelding in de galerie met gedeelde installatie kopieën, gebruikt DevTest Labs altijd de meest recente gepubliceerde versie van deze installatie kopie. Als een installatie kopie echter meerdere versies heeft, kan de gebruiker ervoor kiezen om een machine te maken op basis van een eerdere versie door te gaan naar het tabblad Geavanceerde instellingen tijdens het maken van virtuele machines.  
 - Hoewel in DevTest Labs automatisch een beste poging wordt gedaan om ervoor te zorgen dat de galerie met gedeelde afbeeldingen installatie kopieën repliceert naar de regio waarin het lab zich bevindt, is het niet altijd mogelijk. Om te voor komen dat gebruikers problemen hebben met het maken van Vm's van deze installatie kopieën, moet u ervoor zorgen dat de installatie kopieën al worden gerepliceerd naar de regio van het lab.
 
 ## <a name="use-azure-portal"></a>Azure Portal gebruiken

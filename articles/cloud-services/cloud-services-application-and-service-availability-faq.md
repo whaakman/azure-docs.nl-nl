@@ -1,6 +1,6 @@
 ---
-title: Toepassings- en problemen met de servicebeschikbaarheid voor veelgestelde vragen over Microsoft Azure Cloud Services | Microsoft Docs
-description: In dit artikel geeft een lijst van de veelgestelde vragen over de toepassing en servicebeschikbaarheid voor Microsoft Azure Cloud Services.
+title: Problemen met Beschik baarheid van toepassingen en services voor Microsoft Azure Cloud Services Veelgestelde vragen | Microsoft Docs
+description: In dit artikel vindt u de veelgestelde vragen over de beschik baarheid van toepassingen en services voor Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
 author: genlin
@@ -11,39 +11,38 @@ ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: fb4b5dde63d8c7c75419d3202d9848cd6fde8b8a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0d70e52b77c7f34444ce12f84f17a5ed2d1afe46
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337541"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941779"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Toepassings- en problemen met de servicebeschikbaarheid voor Azure Cloud Services: Veelgestelde vragen (FAQ's)
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemen met toepassings-en service beschikbaarheid voor Azure Cloud Services: Veelgestelde vragen (FAQ)
 
-Dit artikel bevat veelgestelde vragen over de toepassing en problemen met de servicebeschikbaarheid voor [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). U kunt ook raadpleegt u de [VM-grootte voor Cloud Services-pagina](cloud-services-sizes-specs.md) voor informatie over de grootte.
+In dit artikel vindt u veelgestelde vragen over problemen met toepassings-en service beschikbaarheid voor [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). U kunt ook de [pagina Cloud Services VM-grootte](cloud-services-sizes-specs.md) raadplegen voor informatie over de grootte.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="my-role-got-recycled-was-there-any-update-rolled-out-for-my-cloud-service"></a>Mijn rol is gerecycled. Is er een update geïmplementeerd voor mijn cloudservice?
-Ongeveer brengt één keer per maand, Microsoft een nieuwe Guest OS-versie voor Windows Azure PaaS-VM's. Het Gastbesturingssysteem is slechts één update in de pijplijn. Een release kan worden beïnvloed door vele andere factoren. Bovendien Azure wordt uitgevoerd op honderden of duizenden machines. Daarom is het onmogelijk is om te voorspellen van de exacte datum en tijd wanneer uw functies wordt opnieuw opgestart. We de Gast OS bijwerken RSS-Feed bijwerken met de meest recente informatie die we hebben, maar u moet overwegen dat de tijd die een geschatte waarde wordt gerapporteerd. We weten dat dit problematisch voor klanten is en bezig bent met een plan om te beperken of nauwkeurig keer opnieuw wordt opgestart.
+## <a name="my-role-got-recycled-was-there-any-update-rolled-out-for-my-cloud-service"></a>Mijn rol is gerecycled. Was er een update geïmplementeerd voor mijn Cloud service?
+Ongeveer eenmaal per maand brengt micro soft een nieuwe versie van het gast besturingssysteem uit voor Windows Azure PaaS Vm's. Het gast besturingssysteem is slechts één update in de pijp lijn. Een release kan worden beïnvloed door vele andere factoren. Bovendien wordt Azure op honderden duizenden computers uitgevoerd. Daarom is het onmogelijk om de exacte datum en tijd te voors pellen wanneer uw rollen opnieuw worden opgestart. De RSS-feed voor het gast besturingssysteem wordt bijgewerkt met de meest recente informatie die we hebben, maar u moet wel rekening houden met de gerapporteerde tijd om een geschatte waarde te zijn. We weten dat dit probleem kan worden veroorzaakt door klanten en werkt aan een abonnement om de herstarts te beperken of nauw keuriger in te stellen.
 
-Zie voor meer informatie over recente updates van het Gast-besturingssysteem, [Azure Guest OS releases en SDK compatibiliteitsmatrix](cloud-services-guestos-update-matrix.md).
+Zie [Azure Guest OS releases en SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md)(Engelstalig) voor meer informatie over recente updates voor het gast besturingssysteem.
 
-Voor nuttige informatie over het opnieuw is opgestart en verwijzingen naar de technische details van de Gast en Host-OS-updates, Zie het MSDN-blogbericht [rol exemplaar wordt opnieuw opgestart vanwege de Besturingssysteemupgrades](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
+Voor nuttige informatie over het opnieuw opstarten en verwijzingen naar technische details van gast-en host OS-updates raadpleegt u de MSDN blog post- [rolinstantie wordt opnieuw gestart als gevolg van upgrades van het besturings systeem](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
 
-## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>Waarom de eerste aanvraag in mijn cloud-service nadat de service voor enige tijd inactief is geweest duurt langer dan normaal?
-Wanneer de Server de eerste aanvraag ontvangt, eerst de code gecompileerd en verwerkt vervolgens de aanvraag. Daarom is de eerste aanvraag duurt langer dan de andere. Standaard wordt de groep van toepassingen afgesloten in geval van inactiviteit van de gebruiker. De app-groep wordt ook recycle standaard elke 1,740 minuten (29 uur).
+## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>Waarom duurt de eerste aanvraag voor mijn Cloud service nadat de service enige tijd langer inactief is dan gebruikelijk?
+Wanneer de webserver de eerste aanvraag ontvangt, wordt de code eerst opnieuw gecompileerd en wordt de aanvraag verwerkt. Daarom duurt de eerste aanvraag langer dan de andere. De groep van toepassingen wordt standaard afgesloten in gevallen van inactiviteit van de gebruiker. De groep van toepassingen wordt ook elke 1.740 minuten (29 uur) automatisch gerecycled.
 
-Internet Information Services (IIS)-toepassing van toepassingen periodiek gerecycled worden kunnen om te voorkomen dat instabiel statussen die tot de toepassing leiden kunnen vastloopt, loopt vast, of geheugen lekt.
+Internet Information Services-toepassings groepen (IIS) kunnen periodiek worden gerecycled om onstabiele statussen te voor komen die kunnen leiden tot crashes van toepassingen, vastlopen of geheugen lekkage.
 
-De volgende documenten kunt u te begrijpen en oplossen van dit probleem:
-* [Trage laden oplossen voor IIS](https://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)
-* [IIS 7.5 web application eerste aanvraag na het recyclen van app-pool erg traag](https://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow)
+De volgende documenten helpen u bij het begrijpen en oplossen van dit probleem:
+* [Trage initiële belasting voor IIS herstellen](https://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)
+* [IIS 7,5-webtoepassing eerste aanvraag na een langzame recycling van de app-groep](https://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow)
 
-Als u wijzigen van het standaardgedrag van IIS wilt, moet u gebruik opstarttaken, omdat het als u handmatig wijzigingen op de Webrol-exemplaren toepast, de wijzigingen uiteindelijk verbroken worden.
+Als u het standaard gedrag van IIS wilt wijzigen, moet u opstart taken gebruiken, omdat als u hand matig wijzigingen toepast op de Webonderdeelverzoeken, de wijzigingen uiteindelijk verloren gaan.
 
-Zie voor meer informatie, [over het configureren en uitvoeren van opstarttaken voor een cloudservice](cloud-services-startup-tasks.md).
+Zie [opstart taken voor een Cloud service configureren en uitvoeren](cloud-services-startup-tasks.md)voor meer informatie.

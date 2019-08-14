@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 14bf7dc62bb97cb14232660db6d0649e3d77d4fa
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 2c43a3c046243c4802fb433f3b755cee158002b6
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662938"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950561"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Beveiligingsoplossingen integreren in Azure Security Center
 Dit document helpt u bij het beheren van beveiligingsoplossingen die al zijn gekoppeld aan Azure Security Center en bij het toevoegen van nieuwe oplossingen.
@@ -56,7 +56,7 @@ Azure-beveiligingsoplossingen die zijn geïmplementeerd vanuit Security Center, 
 
    ![Overzicht van Security Center](./media/security-center-partner-integration/overview.png)
 
-Bij **beveiligingsoplossingen** kunt u informatie bekijken over de status van de geïntegreerde Azure-beveiligingsoplossingen en algemene beheertaken uitvoeren. U kunt ook andere typen gegevensbronnen voor beveiliging verbinden, zoals Azure Active Directory Identity Protection-waarschuwingen en firewall-logboeken in CEF (Common Event Format).
+Bij **beveiligingsoplossingen** kunt u informatie bekijken over de status van de geïntegreerde Azure-beveiligingsoplossingen en algemene beheertaken uitvoeren.
 
 ### <a name="connected-solutions"></a>Verbonden oplossingen
 
@@ -97,8 +97,6 @@ Security Center detecteert automatisch beveiligingsoplossingen die worden uitgev
 Selecteer **CONNECT** onder een oplossing om met Security Center te integreren en meldingen over beveiligingswaarschuwingen te ontvangen.
 
 ![Gedetecteerde oplossingen](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
-
-Security Center detecteert ook oplossingen die worden uitgevoerd in het abonnement en die Common Event Format-logboeken (CEF) kunnen doorsturen. Informatie over hoe u [een beveiligingsoplossing met Security Center verbindt](quick-security-solutions.md) die CEF-logboeken gebruikt.
 
 ### <a name="add-data-sources"></a>Gegevensbronnen toevoegen
 

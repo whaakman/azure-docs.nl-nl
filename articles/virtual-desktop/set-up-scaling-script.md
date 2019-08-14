@@ -1,138 +1,138 @@
 ---
-title: Automatisch schalen Windows Virtual Desktop Preview sessie hosts - Azure
-description: Beschrijft hoe u het script voor automatische schaling instellen voor Windows Virtual Desktop Preview sessie hosts.
+title: Windows Virtual Desktop Preview Session Host automatisch schalen-Azure
+description: Hierin wordt beschreven hoe u het script voor automatisch schalen instelt voor hosts met virtuele bureau blad-sessies voor Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 3b98db361a8ec888eb8bf9e1bf3658a7e38111c6
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d7b91e3e74c65919a3afe80addfbd0fadd23b03c
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620421"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931811"
 ---
 # <a name="automatically-scale-session-hosts"></a>Sessiehosts automatisch schalen
 
-Voor veel implementaties van Windows Virtual Desktop Preview in Azure vertegenwoordigen de kosten voor de virtuele machine groot deel van de totale kosten voor virtuele Windows-bureaublad-implementatie. Als u wilt verlagen, is het raadzaam te sluit en toewijzing ongedaan maken sessie hosten van virtuele machines (VM's) tijdens het van de minder drukke gebruiksuren af en start deze opnieuw tijdens piekuren.
+Voor veel Windows-preview-implementaties van virtuele Bureau bladen in azure vertegenwoordigen de kosten van de virtuele machine een aanzienlijk deel van de totale kosten voor de implementatie van Windows virtueel bureau blad. Om de kosten te reduceren, kunt u het beste de virtuele machines van de sessiehost afsluiten en de toewijzing ervan ongedaan maken tijdens daluren, en ze vervolgens opnieuw opstarten tijdens piek uren.
 
-In dit artikel wordt een eenvoudig script vergroten/verkleinen sessie hosten van virtuele machines automatisch schalen in uw virtuele Windows-bureaublad-omgeving. Zie voor meer informatie over de werking van het script vergroten/verkleinen, de [de werking van het script vergroten/verkleinen](#how-the-scaling-script-works) sectie.
+In dit artikel wordt gebruikgemaakt van een eenvoudig schaalbaar script om de virtuele machines van de host automatisch in uw Windows Virtual Desktop-omgeving te schalen. Voor meer informatie over hoe het schaal script werkt, zie de sectie [How to Scaling script](#how-the-scaling-script-works) (Engelstalig).
 
 ## <a name="prerequisites"></a>Vereisten
 
-De omgeving waarin u het script uitvoert, moet de volgende zaken:
+De omgeving waarin u het script uitvoert, moet het volgende doen:
 
-- Een virtuele Windows-bureaublad-tenant en -account of een service-principal met machtigingen om op te vragen die tenant (zoals Inzender voor extern bureaublad-services).
-- Sessie host pool-VM's geconfigureerd en geregistreerd bij de virtuele Windows-bureaublad-service.
-- Een extra virtuele machine die de geplande taak wordt uitgevoerd via Taakplanner en heeft toegang tot het netwerk voor hosts van de sessie. Dit wordt genoemd in het document later scaler VM.
-- De [Microsoft Azure Resource Manager PowerShell-module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) geïnstalleerd op de virtuele machine waarop de geplande taak wordt uitgevoerd.
-- De [Windows virtuele bureaublad PowerShell-module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) geïnstalleerd op de virtuele machine waarop de geplande taak wordt uitgevoerd.
+- Een Windows-Tenant en-account voor virtueel bureau blad of een service-principal met machtigingen voor het opvragen van de Tenant (zoals RDS Contributor).
+- Vm's van de hostgroep zijn geconfigureerd en geregistreerd bij de virtuele bureau blad-service van Windows.
+- Een extra virtuele machine waarop de geplande taak wordt uitgevoerd via taak planner en netwerk toegang heeft tot sessie-hosts. Dit wordt later in het document verwezen als Scaler VM.
+- De [Microsoft Azure Resource Manager Power shell-module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) die is geïnstalleerd op de VM waarop de geplande taak wordt uitgevoerd.
+- De [Windows Virtual Desktop Power shell-module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) die is geïnstalleerd op de VM waarop de geplande taak wordt uitgevoerd.
 
 ## <a name="recommendations-and-limitations"></a>Aanbevelingen en beperkingen
 
-Als u de vergroten/verkleinen script is uitgevoerd, moet u de volgende zaken waarmee u rekening moet:
+Houd bij het uitvoeren van het schaal script de volgende zaken in acht:
 
-- Met dit script vergroten/verkleinen kan slechts één host groep per exemplaar van de geplande taak die wordt uitgevoerd het vergroten/verkleinen script verwerken.
-- De geplande taken die worden uitgevoerd, vergroten/verkleinen scripts moeten zich op een virtuele machine die is altijd ingeschakeld.
-- Maak een afzonderlijke map voor elk exemplaar van het script vergroten/verkleinen en de configuratie ervan.
-- Met dit script biedt geen ondersteuning voor aanmelden als een beheerder met virtuele Windows-bureaublad met een Azure AD-gebruikersaccount die meervoudige verificatie vereisen. U wordt aangeraden dat u service-principals gebruiken voor toegang tot de virtuele Windows-bureaublad-service en Azure. Ga als volgt [in deze zelfstudie](create-service-principal-role-powershell.md) maken van een service-principal en een roltoewijzing met PowerShell.
-- SLA-garantie van Azure geldt alleen voor virtuele machines in een beschikbaarheidsset. De huidige versie van het document beschrijft een omgeving met één virtuele machine doet de schaal die wellicht niet voldoen aan de vereisten voor beschikbaarheid.
+- Met dit script voor schalen kan slechts één hostgroep per exemplaar van de geplande taak waarmee het schaal script wordt uitgevoerd, worden afgehandeld.
+- De geplande taken voor het uitvoeren van schaal scripts moeten zich op een VM bevindt die altijd is ingeschakeld.
+- Maak een afzonderlijke map voor elk exemplaar van het schaal script en de configuratie.
+- Dit script biedt geen ondersteuning voor het aanmelden als beheerder voor een virtueel bureau blad van Windows met Azure AD-gebruikers accounts waarvoor multi-factor Authentication is vereist. We raden u aan service-principals te gebruiken voor toegang tot de virtueel-bureaublad service van Windows en Azure. Volg [deze zelf studie](create-service-principal-role-powershell.md) om een Service-Principal en een roltoewijzing te maken met Power shell.
+- De SLA-garantie van Azure geldt alleen voor Vm's in een beschikbaarheidsset. In de huidige versie van het document wordt een omgeving met één virtuele machine beschreven, die mogelijk niet aan de beschikbaarheids vereisten voldoet.
 
-## <a name="deploy-the-scaling-script"></a>Implementeert u het script voor vergroten/verkleinen
+## <a name="deploy-the-scaling-script"></a>Het schaal script implementeren
 
-De volgende procedures wordt uitgelegd hoe u om de schaal script te implementeren.
+In de volgende procedures wordt uitgelegd hoe u het schaal script implementeert.
 
-### <a name="prepare-your-environment-for-the-scaling-script"></a>Bereid uw omgeving voor het script vergroten/verkleinen
+### <a name="prepare-your-environment-for-the-scaling-script"></a>Uw omgeving voorbereiden voor het schaal script
 
-Bereid eerst uw omgeving voor het vergroten/verkleinen script:
+Bereid eerst uw omgeving voor op het schaal script:
 
-1. Meld u aan de virtuele machine (VM scaler) dat de geplande taak wordt uitgevoerd met een domeinaccount met beheerdersrechten.
-2. Maak een map op de virtuele machine om het script vergroten/verkleinen en de configuratie van de scaler (bijvoorbeeld **C:\\schalen HostPool1**).
-3. Download de **basicScale.ps1**, **Config.xml**, en **functies PSStoredCredentials.ps1** bestanden, en de **PowershellModules** map van de [schalen scriptbibliotheek](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) en kopieer deze naar de map die u in stap 2 hebt gemaakt. Er zijn twee primaire manieren om op te halen van de bestanden voordat ze kopiëren naar de scaler VM:
-    - De git-opslagplaats naar uw lokale computer klonen.
-    - Weergave de **Raw** versie van elk bestand kopiëren en plak de inhoud van elk bestand naar een teksteditor en sla vervolgens de bestanden met de bijbehorende naam en het bestandstype. 
+1. Meld u aan bij de virtuele machine (scaleer VM) waarmee de geplande taak wordt uitgevoerd met een domein beheerders account.
+2. Maak een map op de schaal machine om het schaal script en de configuratie ervan te bewaren (bijvoorbeeld **C:\\schalen-HostPool1**).
+3. Down load de bestanden **basicScale. ps1**, **config. XML**en **functions-PSStoredCredentials. ps1** en de map **PowershellModules** van de [opslag plaats](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) voor het schalen van het script en kopieer deze naar de map die u in stap 2 hebt gemaakt. Er zijn twee manieren om de bestanden op te halen voordat u ze naar de scaleer-machine kopieert:
+    - Kloon de Git-opslag plaats naar uw lokale computer.
+    - Bekijk de onbewerkte versie van elk bestand, kopieer en plak de inhoud van elk bestand in een tekst editor en sla de bestanden vervolgens op met de bijbehorende bestands naam en dit bestands type. 
 
 ### <a name="create-securely-stored-credentials"></a>Veilig opgeslagen referenties maken
 
 Vervolgens moet u de veilig opgeslagen referenties maken:
 
-1. Open PowerShell ISE als beheerder.
-2. De extern bureaublad-services PowerShell-module importeren door de volgende cmdlet:
+1. Open Power shell ISE als beheerder.
+2. Importeer de RDS Power shell-module door de volgende cmdlet uit te voeren:
 
     ```powershell
     Install-Module Microsoft.RdInfra.RdPowershell
     ```
     
-3. Open het deelvenster bewerken en laad de **functie PSStoredCredentials.ps1** bestand.
+3. Open het bewerkings venster en laad het bestand **Function-PSStoredCredentials. ps1** en voer vervolgens het hele script uit (F5)
 4. Voer de volgende cmdlet uit:
     
     ```powershell
     Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
     ```
     
-    Bijvoorbeeld, **variabele instellen - naam KeyPath-Scope globale-waarde ' c:\\schalen HostPool1 "**
-5. Voer de **New-StoredCredential - sleutelpad \$sleutelpad** cmdlet. Voer desgevraagd de referenties van uw virtuele Windows-bureaublad met machtigingen voor het opvragen van de groep host (de groep host is opgegeven in de **config.xml**).
-    - Als u andere service-principals of standard-account gebruikt, voert u de **New-StoredCredential - sleutelpad \$sleutelpad** cmdlet eenmaal voor elk account voor het maken van lokaal referenties opgeslagen.
-6. Voer **Get-StoredCredential-lijst** om te bevestigen van de referenties zijn gemaakt.
+    Bijvoorbeeld: **set-variable-name sleutelpad-Scope Global-value "c:\\scaling-HostPool1"**
+5. Voer de cmdlet **New-StoredCredential- \$** sleutelpad. Wanneer u hierom wordt gevraagd, voert u de referenties voor uw Windows-bureau blad in met machtigingen voor het opvragen van de hostgroep (de hostgroep is opgegeven in het **bestand config. XML**).
+    - Als u verschillende service-principals of standaard account gebruikt, voert u de cmdlet **New-StoredCredential \$-sleutelpad pad** naar een keer uit voor elk account om lokale opgeslagen referenties te maken.
+6. Voer **Get-StoredCredential-List** uit om te bevestigen dat de referenties zijn gemaakt.
 
-### <a name="configure-the-configxml-file"></a>Het bestand config.xml configureren
+### <a name="configure-the-configxml-file"></a>Het bestand config. xml configureren
 
-Geef de relevante waarden in de volgende velden in de script-instellingen in config.xml vergroten/verkleinen bijwerken:
+Voer de relevante waarden in de volgende velden in om de instellingen voor het schalen van het script bij te werken in config. XML:
 
 | Veld                     | Description                    |
 |-------------------------------|------------------------------------|
-| AADTenantId                   | Azure AD-Tenant-ID die wordt gekoppeld aan het abonnement waarin de VM's voor het hosten van de sessie uitvoeren     |
-| AADApplicationId              | Service-principal toepassings-ID                                                       |
-| AADServicePrincipalSecret     | Dit kan worden ingevoerd tijdens de testfase, maar moet worden bewaard leeg als u referenties met maakt **functies PSStoredCredentials.ps1**    |
-| currentAzureSubscriptionId    | De ID van het Azure-abonnement waarin de VM's voor het hosten van de sessie uitvoeren                        |
-| tenantName                    | De naam van de tenant virtuele Windows-bureaublad                                                    |
-| hostPoolName                  | Virtuele Windows-bureaublad-hostnaam voor groep van toepassingen                                                 |
-| RDBroker                      | URL naar de service WVD standaard waarde https:\//rdbroker.wvd.microsoft.com             |
-| Gebruikersnaam                      | De service principal toepassings-ID (dit is mogelijk dezelfde serviceprincipal als in AADApplicationId) of een normale gebruiker zonder multi-factor authentication |
-| isServicePrincipal            | Geaccepteerde waarden zijn **waar** of **false**. Geeft aan of de tweede set referenties die wordt gebruikt een service-principal of een standard-account. |
-| BeginPeakTime                 | Wanneer gebruik piektijd begint                                                            |
-| EndPeakTime                   | Wanneer gebruik piektijd eindigt                                                              |
-| TimeDifferenceInHours         | Verschil in tijd tussen lokale tijd en UTC, in uren                                   |
-| SessionThresholdPerCPU        | Maximum aantal sessies per CPU-drempelwaarde die wordt gebruikt om te bepalen wanneer een nieuwe sessiehost-VM moet worden gestart tijdens de piekuren.  |
-| MinimumNumberOfRDSH           | Minimum aantal host pool-VM's blijven uitvoeren tijdens minder drukke gebruikstijd             |
-| LimitSecondsToForceLogOffUser | Het aantal seconden dat moet worden gewacht voordat gebruikers zich afmelden. Als u instelt op 0, gebruikers afmelden worden niet afgedwongen.  |
-| LogOffMessageTitle            | Titel van het bericht verzonden naar een gebruiker voordat ze zich afmelden bent gedwongen                  |
-| LogOffMessageBody             | De hoofdtekst van de waarschuwing verzonden naar gebruikers voordat ze bent afgemeld. Bijvoorbeeld: ' deze computer wordt afgesloten omlaag in X minuten. Sla uw werk op en meld u af." |
+| AADTenantId                   | De Azure AD-Tenant-ID waarmee het abonnement wordt gekoppeld waarbij de Vm's van de host worden uitgevoerd     |
+| AADApplicationId              | Service-Principal-toepassings-ID                                                       |
+| AADServicePrincipalSecret     | Dit kan tijdens de test fase worden ingevoerd, maar moet leeg blijven nadat u referenties hebt gemaakt met **functions-PSStoredCredentials. ps1**    |
+| currentAzureSubscriptionId    | De ID van het Azure-abonnement waar de host-Vm's voor de sessie worden uitgevoerd                        |
+| tenantName                    | Tenant naam van virtueel bureau blad van Windows                                                    |
+| hostPoolName                  | Naam van de Windows-hostgroep voor virtueel bureau blad                                                 |
+| RDBroker                      | URL naar de WVD-service, standaard waarde https\/:/rdbroker.WVD.Microsoft.com             |
+| Gebruikersnaam                      | De ID van de Service-Principal-toepassing (dit is mogelijk dezelfde service-principal als in AADApplicationId) of standaard gebruiker zonder multi-factor Authentication |
+| isServicePrincipal            | Geaccepteerde waarden zijn **waar** of onwaar. Hiermee wordt aangegeven of de tweede set met gebruikte referenties een service-principal of een standaard account is. |
+| BeginPeakTime                 | Wanneer de piek gebruiks tijd begint                                                            |
+| EndPeakTime                   | Wanneer de piek gebruiks tijd eindigt                                                              |
+| TimeDifferenceInHours         | Tijd verschil tussen lokale tijd en UTC, in uren                                   |
+| SessionThresholdPerCPU        | Maximum aantal sessies per CPU-drempel die wordt gebruikt om te bepalen wanneer een nieuwe sessiehost van een host moet worden gestart tijdens piek uren.  |
+| MinimumNumberOfRDSH           | Minimum aantal Vm's van de hostgroep dat moet worden uitgevoerd tijdens de gebruiks tijd buiten de piek             |
+| LimitSecondsToForceLogOffUser | Het aantal seconden dat moet worden gewacht voordat gebruikers zich afmelden. Als deze waarde is ingesteld op 0, kunnen gebruikers zich niet afmelden.  |
+| LogOffMessageTitle            | Titel van het bericht dat naar een gebruiker wordt verzonden voordat ze worden afgemeld                  |
+| LogOffMessageBody             | Hoofd tekst van het waarschuwings bericht dat naar gebruikers wordt verzonden voordat ze worden afgemeld. Bijvoorbeeld: "deze computer wordt over X minuten afgesloten. Sla uw werk op en meld u af. " |
 
-### <a name="configure-the-task-scheduler"></a>Configureren van de Taakplanner
+### <a name="configure-the-task-scheduler"></a>De taak planner configureren
 
-Na het configureren van de configuratie-XML-bestand, moet u de Task Scheduler om uit te voeren van het bestand basicScaler.ps1 met een regelmatig interval te configureren.
+Nadat u het XML-configuratie bestand hebt geconfigureerd, moet u de taak planner configureren om het basicScaler. ps1-bestand met een regel matig interval uit te voeren.
 
-1. Start **Task Scheduler**.
-2. In de **Task Scheduler** venster **-taak maken...**
-3. In **de taak maken** dialoogvenster, selecteer de **algemene** tabblad, voer een **naam** (bijvoorbeeld 'Dynamische RDSH'), selecteer **uitgevoerd of gebruiker is aangemeld of niet** en **uitvoeren met de hoogste bevoegdheden**.
-4. Ga naar de **Triggers** tabblad, en selecteer vervolgens **nieuw...**
-5. In de **nieuwe Trigger** dialoogvenster onder **geavanceerde instellingen**, Controleer **taak herhalen elke** en selecteer de gewenste periode en de duur (bijvoorbeeld **15 minuten** of **voor onbepaalde tijd**).
-6. Selecteer de **acties** tabblad en **nieuw...**
-7. In de **nieuwe actie** dialoogvenster Voer **powershell.exe** in de **programma/script** veld, voert u **C:\\schalen\\ RDSScaler.ps1** in de **argumenten toevoegen (optioneel)** veld.
-8. Ga naar de **voorwaarden** en **instellingen** tabbladen en selecteer **OK** naar accepteer de standaardinstellingen voor elk.
-9. Voer het wachtwoord voor de Administrator-account waar u van plan bent de vergroten/verkleinen script uit te voeren.
+1. Start de **taak planner**.
+2. Selecteer in het venster **taak planner** de optie **taak maken...**
+3. In **het dialoog venster taak maken** selecteert u het tabblad **Algemeen** , voert u een **naam** in (bijvoorbeeld ' dynamische RDSH '), selecteert u **uitvoeren of gebruiker is aangemeld of niet** en **met de hoogste bevoegdheden uitvoeren**.
+4. Ga naar het tabblad **Triggers** en selecteer vervolgens **Nieuw...**
+5. Controleer in het dialoog venster **nieuwe trigger** onder **Geavanceerde instellingen**de optie **taak herhalen elke** en selecteer de gewenste periode en duur (bijvoorbeeld **15 minuten** of oneindig).
+6. Selecteer het tabblad **acties** en **Nieuw...**
+7. Voer in het dialoog venster **nieuwe actie** **Power shell. exe** in het veld **programma/script** in en **\\Voer vervolgens\\C: basicScale. ps1** in het veld **toevoegen (optioneel)** in.
+8. Ga naar de tabbladen **voor waarden** en **instellingen** en selecteer **OK** om de standaard instellingen voor elk te accepteren.
+9. Voer het wacht woord in voor het beheerders account waarop u het schaal script wilt uitvoeren.
 
-## <a name="how-the-scaling-script-works"></a>De werking van het script vergroten/verkleinen
+## <a name="how-the-scaling-script-works"></a>Hoe het schaal script werkt
 
-Met dit script vergroten/verkleinen leest de instellingen van een bestand config.xml, met inbegrip van het begin en einde van de periode voor het gebruik van piek gedurende de dag.
+Met dit schaal script worden de instellingen van een config. XML-bestand, inclusief het begin en het einde van de piek gebruiks periode gedurende de dag, gelezen.
 
-Tijdens het gebruik van piektijd controleert het script het huidige aantal sessies en de huidige actieve RDSH-capaciteit voor elke groep host. Als de actieve sessiehost virtuele machines voldoende capaciteit hebt voor de ondersteuning van bestaande sessies op basis van de parameter SessionThresholdPerCPU is gedefinieerd in het bestand config.xml wordt berekend. Als dat niet het geval is, start het script extra sessiehost VM's in de groep host.
+Tijdens de piek gebruiks tijd controleert het script het huidige aantal sessies en de huidige actieve RDSH-capaciteit voor elke hostgroep. Er wordt berekend of de actieve host-Vm's voldoende capaciteit hebben voor de ondersteuning van bestaande sessies op basis van de para meter SessionThresholdPerCPU die is gedefinieerd in het bestand config. XML. Als dat niet het geval is, start het script extra Vm's voor de host van hosts in de hostgroep.
 
-Tijdens het gebruik van buiten piektijden bepaalt het script welke VM's af op basis van de parameter MinimumNumberOfRDSH in het bestand config.xml sluiten te-sessiehost. Het script wordt de sessie hosten van virtuele machines verwijderen uit de modus om te voorkomen dat nieuwe sessies verbinding te maken met de hosts ingesteld. Als u de **LimitSecondsToForceLogOffUser** parameter in het bestand config.xml op een positieve waarde dan nul, het script wordt op de hoogte stellen een aangemeld gebruikers te werk op te slaan, wacht de ingestelde tijd wordt opgelost en dwing de gebruikers afmelden. Zodra alle gebruikerssessies ondertekend zijn uitgeschakeld op een VM-sessiehost, kan het script de server wordt afgesloten.
+Tijdens de gebruiks tijd bepaalt het script welke host-Vm's moeten worden afgesloten op basis van de para meter MinimumNumberOfRDSH in het bestand config. XML. Met het script worden de Vm's van de host ingesteld op drain-modus om te voor komen dat nieuwe sessies verbinding maken met de hosts. Als u de para meter **LimitSecondsToForceLogOffUser** in het bestand config. XML instelt op een positieve waarde die niet gelijk is aan nul, zal het script alle momenteel aangemelde gebruikers op de hoogte stellen om werk op te slaan, de ingestelde tijd te wachten en de gebruikers vervolgens af te dwingen om af te melden. Zodra alle gebruikers sessies zijn afgemeld op een host-VM, wordt de server door het script afgesloten.
 
-Als u de **LimitSecondsToForceLogOffUser** parameter in het bestand config.xml op nul, het script wordt de configuratie-instelling van de sessie in de host Pooleigenschappen toestaan om af te handelen ondertekening gebruikerssessies afmelden. Als er geen sessies op een VM-sessiehost, blijft tot de host virtuele machine uitgevoerd. Als er geen sessies niet, kan het script de sessiehost-VM wordt afgesloten.
+Als u de para meter **LimitSecondsToForceLogOffUser** in het bestand config. XML instelt op nul, staat het script de instelling van de sessie configuratie toe in de eigenschappen van de hostgroep om het afmelden van gebruikers sessies af te handelen. Als er sessies op een host-VM worden uitgevoerd, wordt de VM van de host verlaten. Als er geen sessies zijn, wordt de host-VM van de sessie afgesloten door het script.
 
-Het script is ontworpen om periodiek wordt uitgevoerd op de scaler-VM-server met behulp van Taakplanner. Selecteer het juiste tijdsinterval op basis van de grootte van uw omgeving voor extern bureaublad-Services en houd er rekening mee dat starten en afsluiten van virtuele machines kunnen enige tijd duren. Het is raadzaam om het script vergroten/verkleinen is om de 15 minuten uitgevoerd.
+Het script is ontworpen om periodiek te worden uitgevoerd op de scaleer-VM-server met behulp van de taak planner. Selecteer het juiste tijds interval op basis van de grootte van uw Extern bureaublad-services omgeving en houd er rekening mee dat het starten en afsluiten van virtuele machines enige tijd kan duren. U wordt aangeraden om de 15 minuten het schaal script uit te voeren.
 
 ## <a name="log-files"></a>Logboekbestanden
 
-Het vergroten/verkleinen script maakt u twee logboekbestanden, **WVDTenantScale.log** en **WVDTenantUsage.log**. De **WVDTenantScale.log** bestand loggen de gebeurtenissen en fouten (indien aanwezig) tijdens de uitvoering van het script vergroten/verkleinen.
+Het schaal script maakt twee logboek bestanden: **WVDTenantScale. log** en **WVDTenantUsage. log**. In het bestand **WVDTenantScale. log** worden de gebeurtenissen en fouten (indien aanwezig) geregistreerd tijdens de uitvoering van het schaal script.
 
-De **WVDTenantUsage.log** bestand worden vastgelegd het actieve aantal kernen en het aantal actieve virtuele machines telkens wanneer u het vergroten/verkleinen script uitvoeren. U kunt deze informatie gebruiken om te schatten het werkelijke gebruik van Microsoft Azure-VM's en de kosten. Het bestand is opgemaakt als door komma's gescheiden waarden met elk item met de volgende gegevens:
+In het bestand **WVDTenantUsage. log** wordt het actieve aantal kernen en actieve aantal virtuele machines telkens vastgelegd wanneer u het schaal script uitvoert. U kunt deze informatie gebruiken om het werkelijke gebruik van Microsoft Azure Vm's en de kosten te schatten. Het bestand wordt opgemaakt als door komma's gescheiden waarden, waarbij elk item de volgende informatie bevat:
 
->tijd, de groep van de host, kernen, virtuele machines
+>tijd, hostgroep, kern geheugens, Vm's
 
-Naam van het bestand kan ook worden gewijzigd om een CSV-extensie, geladen in Microsoft Excel en geanalyseerd.
+De naam van het bestand kan ook worden gewijzigd in een CSV-extensie, wordt geladen in micro soft Excel en geanalyseerd.

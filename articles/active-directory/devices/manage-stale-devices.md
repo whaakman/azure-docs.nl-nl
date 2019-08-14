@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c6793581b797892c0bb468906d4f8ae72182618
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 78ddda8ff67cfdfebcf19f53c307c689884baf4d
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562111"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942903"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedure: Verlopen apparaten beheren in Azure Active Directory
 
@@ -101,7 +101,7 @@ Azure AD opschonen:
 - **Windows 7/8** : Schakel eerst Windows 7/8-apparaten in uw on-premises AD in of verwijder deze. U kunt Azure AD Connect niet gebruiken voor het uitschakelen of verwijderen van Windows 7/8-apparaten in Azure AD. In plaats daarvan moet u, wanneer u de wijziging in uw on-premises aanbrengt, u in azure AD uitschakelen of verwijderen.
 
 > [!NOTE]
->* Het verwijderen van apparaten in uw on-premises AD of Azure AD registreert niet op de client. Er wordt alleen voor komen dat toegang tot resources wordt gebruikt als identiteit (bijvoorbeeld voorwaardelijke toegang). Lees meer informatie over het [verwijderen van de registratie op de client](faq.md#hybrid-azure-ad-join-faq).
+>* Als u apparaten in uw on-premises AD of Azure AD verwijdert, wordt de registratie op de client niet verwijderd. Er wordt alleen voor komen dat toegang tot resources wordt gebruikt als identiteit (bijvoorbeeld voorwaardelijke toegang). Lees meer informatie over het [verwijderen van de registratie op de client](faq.md#hybrid-azure-ad-join-faq).
 >* Wanneer u een Windows 10-apparaat alleen in azure AD verwijdert, wordt het apparaat opnieuw gesynchroniseerd vanuit uw on-premises met Azure AD Connect, maar als een nieuw object met de status in behandeling. Er is een nieuwe registratie vereist op het apparaat.
 >* Als u het apparaat verwijdert uit het synchronisatie bereik voor Windows 10/server 2016-apparaten, wordt het Azure AD-apparaat verwijderd. Als u het weer toevoegt aan het synchronisatie bereik, wordt een nieuw object in de status ' in behandeling ' geplaatst. Er is een nieuwe registratie van het apparaat vereist.
 >* Als u Azure AD Connect niet gebruikt voor het synchroniseren van Windows 10-apparaten (bijvoorbeeld alleen met behulp van AD FS voor registratie), moet u de levens cyclus op dezelfde manier beheren als Windows 7/8-apparaten.

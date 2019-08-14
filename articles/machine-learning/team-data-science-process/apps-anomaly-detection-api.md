@@ -12,25 +12,25 @@ ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: 16f13cd4ad580ea2f163fe87b5924c1462890972
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "64926186"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning-Anomaliedetectie-API
 
 > [!NOTE]
-> Dit item is in onderhoud. We raden u aan het gebruik van de [Anomaliedetectie Detector API-service](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) mogelijk gemaakt door een galerie van Machine Learning-algoritmen onder Azure Cognitive Services voor het detecteren van afwijkingen van bedrijven, operationeel is, en IoT-metrische gegevens.
+> Dit item is onderhouds werkzaamheden. We raden u aan de afwijkende [API-service](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) te gebruiken die wordt ondersteund door een galerie met machine learning-algoritmen onder Azure Cognitive Services om afwijkingen van bedrijfs-, operationele en IOT-gegevens te detecteren.
 
 ## <a name="overview"></a>Overzicht
 [API voor afwijkingsdetectie](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) volgt een voorbeeld gebouwd met Azure Machine Learning waarmee afwijkingen worden gedetecteerd in time series-gegevens met numerieke waarden zijn gelijkmatig verdeeld in de tijd.
 
 Deze API kan de volgende typen afwijkende patronen in time series-gegevens detecteren:
 
-* **Positieve en negatieve trends**: Bijvoorbeeld, bij de bewaking van geheugengebruik in computing een opwaartse trend mogelijk interessant omdat dit mogelijk voor een geheugenlek
-* **Wijzigingen in het dynamisch bereik van waarden**: Bijvoorbeeld, als u bewaking van de uitzonderingen die door een cloudservice, eventuele wijzigingen in het dynamisch bereik van waarden kunnen duiden op instabiliteit van de status van de service, en
-* **Pieken en dalen**: Bijvoorbeeld, als u bewaking van het aantal mislukte aanmeldpogingen bij in een service of het aantal kassabetalingen in een e-commerce-site, kunnen pieken en dalen duiden op abnormaal gedrag.
+* **Positieve en negatieve trends**: Wanneer het geheugen gebruik in het berekenen van een opwaartse trend bijvoorbeeld kan worden bewaken, kan dit van belang zijn, omdat dit mogelijk indicatief is voor een geheugenlek,
+* **Wijzigingen in het dynamische waarden bereik**: Bij het bewaken van de uitzonde ringen die worden veroorzaakt door een Cloud service, kunnen wijzigingen in het dynamische bereik van waarden bijvoorbeeld duiden op instabiliteit in de status van de service, en
+* **Pieken en spannings dips**: Bij het bewaken van het aantal mislukte aanmeldingen in een service of het aantal afhandelingen in een e-commerce site kunnen pieken of spannings dips bijvoorbeeld duiden op abnormaal gedrag.
 
 Dergelijke wijzigingen in de waarden bijhouden gedurende een tijd en rapport doorlopende wijzigingen in hun waarden van deze machine learning-detectoren als anomaliedetectie scores. Ze vereisen geen ad-hoc drempelwaarde afstemmen en hun scores kunnen worden gebruikt voor het beheren van fout-positief-ratio. De anomaliedetectie-API handig in verschillende scenario's is zoals servicecontrole door bij te houden van KPI's na verloop van tijd gebruiksbewaking via metrische gegevens zoals het aantal zoekopdrachten, aantal klikken, door items, zoals geheugen, CPU, bewaking van toepassingsprestaties bestand wordt gelezen, enzovoort. na verloop van tijd.
 
@@ -46,7 +46,7 @@ De Anomaliedetectie-aanbieding wordt geleverd met handige's aan de slag te gaan.
 -->
 
 ## <a name="api-deployment"></a>API-implementatie
-Als u wilt gebruiken de API, moet u deze implementeren naar uw Azure-abonnement waar deze wordt gehost als Azure Machine Learning-webservice.  U kunt dit doen vanuit de [Azure AI Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Hierdoor wordt geïmplementeerd twee Azure Machine Learning studio-webservices (en hun verwante bronnen) aan uw Azure-abonnement: één voor afwijkingsdetectie met detectie van de periodieke variatie en één zonder te worden periodieke variatie gedetecteerd.  Als de implementatie is voltooid, kunt u zich voor het beheren van uw API's van de [Azure Machine Learning studio-webservices](https://services.azureml.net/webservices/) pagina.  Op deze pagina zich kunt u kunnen vinden van uw eindpuntlocaties, API-sleutels, evenals voorbeeldcode voor het aanroepen van de API.  Meer gedetailleerde instructies vindt u [hier](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Als u wilt gebruiken de API, moet u deze implementeren naar uw Azure-abonnement waar deze wordt gehost als Azure Machine Learning-webservice.  U kunt dit doen vanuit de [Azure AI Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Hiermee worden twee Azure Machine Learning Studio-webservices (en hun gerelateerde resources) geïmplementeerd in uw Azure-abonnement, een voor anomalie detectie met seizoensgebonden detectie en één zonder de seizoensgebonden detectie.  Zodra de implementatie is voltooid, kunt u uw Api's beheren via de pagina [Azure machine learning Studio Web Services](https://services.azureml.net/webservices/) .  Op deze pagina zich kunt u kunnen vinden van uw eindpuntlocaties, API-sleutels, evenals voorbeeldcode voor het aanroepen van de API.  Meer gedetailleerde instructies vindt u [hier](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Schalen van de API
 Uw implementatie heeft standaard een gratis Dev/Test-abonnement met inbegrip van 1000 transacties per maand en 2 compute uur/maand.  U kunt upgraden naar een ander abonnement aan de hand van uw behoeften.  Meer informatie over de prijzen van verschillende abonnementen zijn beschikbaar [hier](https://azure.microsoft.com/pricing/details/machine-learning/) onder de 'Web API voor productie prijsinformatie'.
@@ -58,7 +58,7 @@ U kunt uw abonnement beheren [hier](https://services.azureml.net/plans/).  Naam 
 De webservice biedt een REST-API via HTTPS die kan worden gebruikt op verschillende manieren, met inbegrip van een web- of mobiele toepassing, R, Python, Excel, enzovoort.  U uw time series-gegevens verzenden naar deze service via een REST-API-aanroep en het uitvoeren van een combinatie van de drie anomaliedetectie-typen die hieronder worden beschreven.
 
 ## <a name="calling-the-api"></a>De API aanroepen
-Als u wilt de API aanroepen, moet u weten de eindpuntlocatie en de API-sleutel.  Beide van deze samen met de voorbeeldcode voor het aanroepen van de API, zijn beschikbaar via de [Azure Machine Learning studio-webservices](https://services.azureml.net/webservices/) pagina.  Navigeer naar de gewenste API en klik vervolgens op het tabblad "Verbruiken" voor deze.  Houd er rekening mee dat u de API als een Swagger-API kunt aanroepen (dat wil zeggen met de URL-parameter `format=swagger`) of als een niet - Swagger API (dat wil zeggen zonder de `format` URL-parameter).  De voorbeeldcode maakt gebruik van de Swagger-indeling.  Hieronder volgt een van de voorbeeldaanvraag en respons in niet-Swagger-indeling.  Deze voorbeelden zijn met het eindpunt seizoensgebondenheid.  Het eindpunt niet seizoensgebonden is vergelijkbaar.
+Als u wilt de API aanroepen, moet u weten de eindpuntlocatie en de API-sleutel.  Beide, samen met voorbeeld code voor het aanroepen van de API, zijn beschikbaar op de pagina [Azure machine learning Studio Web Services](https://services.azureml.net/webservices/) .  Navigeer naar de gewenste API en klik vervolgens op het tabblad "Verbruiken" voor deze.  Houd er rekening mee dat u de API als een Swagger-API kunt aanroepen (dat wil zeggen met de URL-parameter `format=swagger`) of als een niet - Swagger API (dat wil zeggen zonder de `format` URL-parameter).  De voorbeeldcode maakt gebruik van de Swagger-indeling.  Hieronder volgt een van de voorbeeldaanvraag en respons in niet-Swagger-indeling.  Deze voorbeelden zijn met het eindpunt seizoensgebondenheid.  Het eindpunt niet seizoensgebonden is vergelijkbaar.
 
 ### <a name="sample-request-body"></a>De hoofdtekst van de voorbeeld-aanvraag
 De aanvraag bevat twee objecten: `Inputs` en `GlobalParameters`.  In de onderstaande voorbeeldaanvraag enkele parameters worden verzonden, expliciet terwijl andere niet (Schuif omlaag voor een volledige lijst met parameters voor elk eindpunt).  Parameters die niet worden verzonden, expliciet in de aanvraag gebruikt de standaardwaarden staan hieronder vermeld.
@@ -113,10 +113,10 @@ De anomaliedetectie-API biedt ondersteuning voor detectoren in 3 hoofdcategorie�
 
 | Categorie detector | Detector | Description | Invoerparameters | Uitvoer |
 | --- | --- | --- | --- | --- |
-| Piek detectoren |TSpike Detector |Pieken en dips n op basis van veel van de waarden afkomstig zijn van de eerste en derde kwartielen detecteren |*tspikedetector.Sensitivity:* duurt geheel getal in het bereik 1-10, standaard: 3. Hogere waarden wordt meer extreme waarden zijn waardoor er minder gevoelig zijn variabel |TSpike: binaire waarden: '1' als er een piek/dip wordt gedetecteerd, '0' anders |
-| Piek detectoren | ZSpike Detector |Pieken en dips n op basis van hoe ver de datapoints afkomstig van hun gemiddelde zijn detecteren |*zspikedetector.Sensitivity:* geheel getal in het bereik 1-10, standaard nemen: 3. Hogere waarden wordt meer extreme waarden, zodat u minder gevoelig zijn variabel |ZSpike: binaire waarden: '1' als er een piek/dip wordt gedetecteerd, '0' anders |
-| Trage Trend Detector |Trage Trend Detector |Detecteren van trage positieve trend aan de hand van de gevoeligheid instellen |*trenddetector.Sensitivity:* drempelwaarde op detector score (standaard: 3,25, 3,25 – 5 is en selecteer deze optie uit; een redelijke liggen Hoe hoger de minder gevoelig) |tscore: zwevende getal voor anomaliedetectie score op trend |
-| De detectoren niveau wijzigen | Het niveau van bidirectionele wijziging Detector |Omhoog en omlaag de wijzigingen aan de hand van de gevoeligheid instellen detecteren |*bileveldetector.Sensitivity:* drempelwaarde op detector score (standaard: 3,25, 3,25 – 5 is en selecteer deze optie uit; een redelijke liggen Hoe hoger de minder gevoelig) |rpscore: zwevende getal voor anomaliedetectie score op omhoog en omlaag niveau wijzigen |
+| Piek detectoren |TSpike Detector |Pieken en dips n op basis van veel van de waarden afkomstig zijn van de eerste en derde kwartielen detecteren |*tspikedetector. sensitivity:* Hiermee wordt een geheel getal in het bereik 1-10, standaard waarde, gebruikt: 3D Bij hogere waarden worden er meer extreme waarden onderschept waardoor deze minder gevoelig zijn |TSpike: binaire waarden: '1' als er een piek/dip wordt gedetecteerd, '0' anders |
+| Piek detectoren | ZSpike Detector |Pieken en dips n op basis van hoe ver de datapoints afkomstig van hun gemiddelde zijn detecteren |*zspikedetector. sensitivity:* waarde van geheel getal in het bereik 1-10 opgeven, standaard: 3D Bij hogere waarden worden er meer extreme waarden onderschept waardoor deze minder gevoelig zijn |ZSpike: binaire waarden: '1' als er een piek/dip wordt gedetecteerd, '0' anders |
+| Trage Trend Detector |Trage Trend Detector |Detecteren van trage positieve trend aan de hand van de gevoeligheid instellen |*trenddetector. sensitivity:* drempel op de detector Score (standaard: 3,25, 3,25 – 5 is een redelijk bereik om dit te selecteren. Hoe hoger de minder gevoelige) |tscore: zwevende getal voor anomaliedetectie score op trend |
+| De detectoren niveau wijzigen | Het niveau van bidirectionele wijziging Detector |Omhoog en omlaag de wijzigingen aan de hand van de gevoeligheid instellen detecteren |*bileveldetector. sensitivity:* drempel op de detector Score (standaard: 3,25, 3,25 – 5 is een redelijk bereik om dit te selecteren. Hoe hoger de minder gevoelige) |rpscore: zwevende getal voor anomaliedetectie score op omhoog en omlaag niveau wijzigen |
 
 ### <a name="parameters"></a>Parameters
 Meer gedetailleerde informatie over deze invoerparameters die zijn opgegeven wordt in de onderstaande tabel vermeld:

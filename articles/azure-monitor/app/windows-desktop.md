@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 08/09/2019
 ms.author: mbullwin
-ms.openlocfilehash: 567163a5d5ce37eeffb5ef2bc6f9adb7c5b027ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ed6df8b4724dbb297a0c64fd869d3377545a7595
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255725"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932336"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Gebruik en prestaties bewaken in Klassieke Windows-bureaublad-apps
 
@@ -37,10 +37,11 @@ Toepassingen die on-premises worden gehost, in Azure, en in andere clouds, kunne
    
     Als u ApplicationInsights.config gebruikt, moet u ervoor zorgen dat de bijbehorende eigenschappen in Solution Explorer zijn ingesteld op **Buildactie = Inhoud, Naar uitvoermap kopiëren = Kopiëren**.
 5. [Gebruik de API](../../azure-monitor/app/api-custom-events-metrics.md) om telemetrie te verzenden.
-6. Uw app uitvoeren en de telemetrie bekijken in de resource die u hebt gemaakt in Azure portal.
+6. Voer uw app uit en Bekijk de telemetrie in de resource die u hebt gemaakt in de Azure Portal.
 
 ## <a name="telemetry"></a>Voorbeeldcode
 ```csharp
+using Microsoft.ApplicationInsights;
 
     public partial class Form1 : Form
     {
@@ -52,7 +53,6 @@ Toepassingen die on-premises worden gehost, in Azure, en in andere clouds, kunne
             tc.InstrumentationKey = "key copied from portal";
 
             // Set session data:
-            tc.Context.User.Id = Environment.UserName;
             tc.Context.Session.Id = Guid.NewGuid().ToString();
             tc.Context.Device.OperatingSystem = Environment.OSVersion.ToString();
 
@@ -61,9 +61,10 @@ Toepassingen die on-premises worden gehost, in Azure, en in andere clouds, kunne
             ...
         }
 
-        protected override void OnClosing(CancelEventArgs e)
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
-            stop = true;
+            e.Cancel = true;
+
             if (tc != null)
             {
                 tc.Flush(); // only for desktop apps

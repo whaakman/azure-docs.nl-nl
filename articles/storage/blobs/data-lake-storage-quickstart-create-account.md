@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 07/19/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 2803b316585228fc6e4e6fd48d67f235e27f0a65
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f7c83e67c2162561aa579d38116f8ce01fceda9a
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847314"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014382"
 ---
 # <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Een Azure Data Lake Storage Gen2-opslagaccount maken
 
@@ -125,7 +125,7 @@ Begin door een PowerShell-sessie met verhoogde bevoegdheden te openen.
 De module Az.Storage installeren
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
 ```
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Meld u aan bij uw Azure-abonnement

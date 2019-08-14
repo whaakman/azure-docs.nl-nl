@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 619a4de993f052f143e4117f0100ed1e0aa77b03
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: bde4572ec72286be7d845f4e83bf9c0fe3bff6f1
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498593"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932397"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Herstel na nood geval implementeren met behulp van back-up en herstel van de service in azure API Management
 
@@ -176,6 +176,7 @@ Houd rekening met de volgende beperkingen bij het maken van een back-upaanvraag:
 -   Zorg dat er een back-up wordt gemaakt **van wijzigingen in Service beheer** , zoals SKU-upgrade of downgrade, wijziging in domein naam en meer.
 -   Het terugzetten van een **back-up wordt alleen 30 dagen** na het moment van maken gegarandeerd.
 -   **Gebruiks gegevens** die worden gebruikt voor het maken van analyse rapporten, worden **niet opgenomen** in de back-up. Gebruik [Azure API Management rest API][azure api management rest api] om periodiek analyse rapporten op te halen voor het bewaren van gegevens.
+-   Daarnaast maken de volgende items geen deel uit van de back-upgegevens: SSL-certificaten voor aangepaste domeinen en alle tussenliggende of basis certificaten die zijn geüpload door de klant, de inhoud van de ontwikkelaars Portal en de integratie-instellingen van het virtuele netwerk.
 -   De frequentie waarmee u Service back-ups uitvoert, is van invloed op uw Recovery Point Objective. Om het te minimaliseren, wordt u aangeraden regel matige back-ups te implementeren en back-ups op aanvraag uit te voeren nadat u wijzigingen hebt aangebracht in uw API Management-service.
 -   **Wijzigingen** in de service configuratie, (bijvoorbeeld api's, beleids regels en ontwikkelaars Portal) terwijl de back-upbewerking wordt uitgevoerd, wordt **mogelijk uitgesloten van de back-up en gaat verloren**.
 -   Toegang vanaf het besturings element tot Azure Storage account **toestaan** . De klant moet de volgende set inkomende Ip's op hun opslag account openen voor back-up. 

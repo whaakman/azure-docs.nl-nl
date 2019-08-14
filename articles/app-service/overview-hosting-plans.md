@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: fef509d705d0b904586a86b7dc58decc54e7023d
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 4ea983255463080592181cda321ef6b6d1ff147f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716642"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932342"
 ---
 # <a name="azure-app-service-plan-overview"></a>Overzicht van Azure App Service plan
 
@@ -32,14 +32,13 @@ Wanneer u in een bepaalde regio een App Service plan maakt (bijvoorbeeld Europa-
 - Regio (VS-West, VS-Oost, etc.)
 - Aantal VM-exemplaren
 - Grootte van VM-exemplaren (klein, normaal, groot)
-- Prijs categorie (gratis, gedeeld, Basic, Standard, Premium, PremiumV2, geïsoleerd, verbruik)
+- Prijs categorie (gratis, gedeeld, Basic, Standard, Premium, PremiumV2, geïsoleerd)
 
 De _prijs categorie_ van een app service plan bepaalt welke app service functies u krijgt en hoeveel u betaalt voor het abonnement. Er zijn een aantal categorie prijs Categorieën:
 
 - **Gedeelde Compute**: **Gratis** en **gedeeld**, de twee basis lagen, voert een app op dezelfde Azure-VM uit als andere app service-apps, waaronder apps van andere klanten. Deze lagen wijzen CPU-quota toe aan elke app die wordt uitgevoerd op de gedeelde bronnen, en de resources kunnen niet worden uitgeschaald.
 - **Toegewezen reken kracht**: Met de lagen **Basic**, **Standard**, **Premium**en **PremiumV2** worden apps op toegewezen Azure-vm's uitgevoerd. Alleen apps in hetzelfde App Service plan delen dezelfde reken resources. Hoe hoger de laag is, hoe meer VM-exemplaren er beschikbaar zijn voor uitschalen.
-- **Geïsoleerd**: Deze laag voert specifieke Azure-Vm's uit op specifieke virtuele netwerken van Azure, waarmee netwerk isolatie wordt geboden naast reken isolatie voor uw apps. Het biedt de maximale schaal mogelijkheden.
-- **Verbruik**: Deze laag is alleen beschikbaar voor het [werken met apps](../azure-functions/functions-overview.md). De functies worden dynamisch geschaald, afhankelijk van de werk belasting. Zie [Azure functions-hosting plannen](../azure-functions/functions-scale.md)voor meer informatie.
+- **Geïsoleerd**: Deze laag voert specifieke virtuele Azure-machines uit op specifieke Azure Virtual Networks. Het biedt netwerk isolatie boven op reken isolatie voor uw apps. Het biedt de maximale schaal mogelijkheden.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -80,8 +79,7 @@ Met uitzonde ring van de laag **gratis** geldt een app service plan een uurtarie
 
 - In de **gedeelde** laag ontvangt elke app een QUOTUM van CPU-minuten, zodat _elke app elk_ uur in rekening wordt gebracht voor het CPU-quotum.
 - In de toegewezen reken lagen (**Basic**, **Standard**, **Premium**, **PremiumV2**) wordt met het app service plan het aantal VM-exemplaren gedefinieerd waarmee de apps worden geschaald, zodat _elk VM-exemplaar_ in het app service plan over een uurtarief in rekening wordt gebracht. Deze VM-exemplaren worden op dezelfde manier in rekening gebracht, ongeacht het aantal apps dat erop wordt uitgevoerd. Zie [een app service plan](app-service-plan-manage.md#delete)opschonen om onverwachte kosten te voor komen.
-- In de **geïsoleerde** laag definieert het app service Environment het aantal geïsoleerde werk rollen waarop uw apps worden uitgevoerd, en _elke werk nemer_ wordt per uur in rekening gebracht. Daarnaast zijn er kosten per uur voor het uitvoeren van de App Service Environment zelf. 
-- (Alleen Azure Functions) De laag **verbruik** wijst dynamisch VM-exemplaren toe om de werk belasting van een functie-app te verwerken en wordt dynamisch berekend per seconde door Azure. Zie voor meer informatie, [prijzen van Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+- In de **geïsoleerde** laag definieert het app service Environment het aantal geïsoleerde werk rollen waarop uw apps worden uitgevoerd, en _elke werk nemer_ wordt per uur in rekening gebracht. Daarnaast zijn er kosten per uur voor het uitvoeren van de App Service Environment zelf.
 
 Er worden geen kosten in rekening gebracht voor het gebruik van de App Service functies die voor u beschikbaar zijn (het configureren van aangepaste domeinen, SSL-certificaten, implementatie sleuven, back-ups, enz.). De uitzonde ringen zijn:
 
