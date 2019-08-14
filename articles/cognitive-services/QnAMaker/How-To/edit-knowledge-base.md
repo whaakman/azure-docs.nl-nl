@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 006170b2030b6511ba732a1b12aa5b5b811d8900
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1342616a0d32d8ac68965bc04f1fd3ca60146369
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447483"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966773"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Een kennisdatabase in QnA Maker bewerken
 
@@ -54,7 +54,7 @@ QnA Maker kunt u de inhoud van uw knowledge base beheren door op te geven van ee
 
 ## <a name="add-a-qna-pair"></a>Een QnA-set toevoegen
 
-Op de **instellingen** weergeeft, schakelt **QnA toevoegen paar** naar een nieuwe rij toevoegt aan de tabel knowledge base.
+Selecteer op de pagina **instellingen** de optie **QnA paar toevoegen** om een nieuwe rij toe te voegen aan de Knowledge Base-tabel.
 
 ![QnA paar toevoegen](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
@@ -72,7 +72,7 @@ Alternatieve vragen toevoegen aan een bestaande QnA-paar voor het verbeteren van
 
 ## <a name="add-metadata"></a>metagegevens toevoegen
 
-Metagegevens paren toevoegen door eerst te selecteren **weergaveopties**, vervolgens de optie **metagegevens weergeven**. U ziet nu de kolommen met metagegevens. Selecteer vervolgens de **+** zich bij het toevoegen van een combinatie van metagegevens. Deze paar bestaat uit één sleutel en één waarde.
+Voeg eerst de **Opties voor**het toevoegen van meta gegevens toe, en selecteer vervolgens **meta gegevens weer geven**. Hiermee wordt de kolom meta gegevens weer gegeven. Selecteer vervolgens het **+** teken om een meta gegevens paar toe te voegen. Dit paar bestaat uit één sleutel en één waarde.
 
 ![Metagegevens toevoegen](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
@@ -81,17 +81,17 @@ Metagegevens paren toevoegen door eerst te selecteren **weergaveopties**, vervol
 
 ## <a name="manage-large-knowledge-bases"></a>Beheren van grote knowledge bases
 
-* **Groepen van gegevensbron**: De vragen en antwoorden supereenvoudig zijn gegroepeerd op de gegevensbron waaruit deze zijn geëxtraheerd. U kunt uitvouwen of samenvouwen van de gegevensbron.
+* **Gegevens bron groepen**: De QnAs worden gegroepeerd op de gegevens bron van waaruit ze zijn geëxtraheerd. U kunt uitvouwen of samenvouwen van de gegevensbron.
 
-    ![Gebruik de QnA Maker bron gegevensbalk samenvouwen en uitvouwen data source vragen en antwoorden](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
+    ![Gebruik de QnA Maker gegevens bron balk om vragen en antwoorden over de gegevens bron samen te vouwen en uit te breiden](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
 
-* **Zoeken in knowledge base**: U kunt de kennisdatabase zoeken door te typen in het tekstvak aan de bovenkant van de Knowledge Base-tabel. Klik op enter om te zoeken op de vraag, antwoord of de metagegevens van inhoud. Klik op het pictogram X om de search-filter te verwijderen.
+* **Zoek Knowledge Base**: U kunt de Knowledge Base doorzoeken door in het tekstvak boven aan de Knowledge Base-tabel te typen. Klik op enter om te zoeken op de vraag, antwoord of de metagegevens van inhoud. Klik op het pictogram X om de search-filter te verwijderen.
 
-    ![De QnA Maker-zoekvak boven de vragen en antwoorden naar de weergave beperken tot alleen items die overeenkomen met een filter gebruiken](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+    ![Gebruik het zoekvak van QnA Maker boven de vragen en antwoorden om de weer gave te verkleinen zodat alleen items kunnen worden gefilterd](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
 
-* **Paginering**: Gegevensbronnen snel doorlopen voor het beheren van grote knowledge bases
+* **Paginering**: Snel door gegevens bronnen bladeren om grote kennis slagen te beheren
 
-    ![De functies van de QnA Maker paginering boven de vragen en antwoorden gebruiken om te verplaatsen door middel van pagina's van vragen en antwoorden](../media/qnamaker-how-to-edit-kb/pagination.png)
+    ![Gebruik de QnA Maker paginerings functies boven de vragen en antwoorden om door pagina's van vragen en antwoorden te bladeren](../media/qnamaker-how-to-edit-kb/pagination.png)
 
 ## <a name="delete-knowledge-bases"></a>Knowledge bases verwijderen
 

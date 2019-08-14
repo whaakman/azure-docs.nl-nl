@@ -1,58 +1,62 @@
 ---
-title: Azure Key Vault - functie voor voorlopig verwijderen gebruiken met PowerShell
-description: De aanvraag voorbeelden van voorlopig verwijderen gebruiken met PowerShell-codefragmenten
+title: Azure Key Vault-het gebruik van voorlopig verwijderen met Power shell
+description: Voorbeeld voorbeelden van het gebruik van zacht verwijderen met Power shell-code knipsels
+services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 03/19/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ecc87e03a80ce10bedbe26b3ebb452ec704eefcb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6a24f2dd52c3ac3c51df54bf5c01c7b31ca16147
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60461362"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985754"
 ---
-# <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Key Vault-functie voor voorlopig verwijderen gebruiken met PowerShell
+# <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Key Vault Soft-verwijdering gebruiken met Power shell
 
-Functie voor voorlopig verwijderen van Azure Key Vault de maakt het herstellen van verwijderde kluizen en -objecten van de kluis. Met name voorlopig verwijderen adressen de volgende scenario's:
+Met de functie voor voorlopig verwijderen van Azure Key Vault kunt u verwijderde kluizen en kluis objecten herstellen. Met name de volgende scenario's worden door zacht verwijderen opgelost:
 
-- Ondersteuning voor het herstelbare verwijderen van een key vault
-- Ondersteuning voor verwijdering van de herstelbare objecten van de sleutelkluis. sleutels, geheimen, en certificaten
+- Ondersteuning voor herstel bare verwijdering van een sleutel kluis
+- Ondersteuning voor herstel bare verwijdering van sleutel kluis-objecten; sleutels, geheimen en certificaten
 
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- Azure PowerShell 1.0.0 of hoger - als u niet dat al ingesteld hebt, Azure PowerShell installeren en deze aan uw Azure-abonnement koppelen, Zie [hoe u Azure PowerShell installeren en configureren](https://docs.microsoft.com/powershell/azure/overview). 
+- Azure PowerShell 1.0.0 of hoger: als u dit al hebt ingesteld, installeert u Azure PowerShell en koppelt u dit aan uw Azure-abonnement. Zie [Azure PowerShell installeren en configureren voor meer informatie](https://docs.microsoft.com/powershell/azure/overview). 
 
 >[!NOTE]
-> Er is een verouderde versie van onze Key Vault PowerShell uitvoeropmaak bestand dat de **kan** worden geladen in uw omgeving in plaats van de juiste versie. We zijn anticiperen op een bijgewerkte versie van PowerShell bevat de benodigde correctie voor de opmaak van de uitvoer en dit onderwerp wordt bijgewerkt op dat moment. De huidige oplossing, moet u dit probleem zich voordoet opmaak, is:
-> - Gebruik de volgende query uit als u merkt dat u de functie voor voorlopig verwijderen niet ziet in dit onderwerp beschreven van de eigenschap enabled: `$vault = Get-AzKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
+> Er is een verouderde versie van het Key Vault Power shell-uitvoer indelings bestand dat in uw omgeving **kan** worden geladen in plaats van de juiste versie. We anticiperen een bijgewerkte versie van Power shell om de benodigde correctie voor de uitvoer indeling te bevatten en zullen dit onderwerp op dat moment bijwerken. De huidige tijdelijke oplossing: als dit probleem zich voordoet, kunt u het volgende doen.
+> - Gebruik de volgende query als u merkt dat u de eigenschap voorlopig verwijderen is ingeschakeld in dit onderwerp niet ziet: `$vault = Get-AzKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
 
 
-Zie voor Key Vault specifieke naslaginformatie voor PowerShell, [Azure Key Vault PowerShell-referentie](/powershell/module/az.keyvault).
+Zie [Azure Key Vault Power shell Reference](/powershell/module/az.keyvault)(Engelstalig) voor Key Vault specifieke Naslag informatie voor Power shell.
 
 ## <a name="required-permissions"></a>Vereiste machtigingen
 
-Key Vault-bewerkingen worden afzonderlijk beheerd via machtigingen voor op rollen gebaseerd toegangsbeheer (RBAC) als volgt:
+Key Vault bewerkingen worden als volgt afzonderlijk beheerd via machtigingen op basis van op rollen gebaseerde toegangs beheer (RBAC):
 
-| Bewerking | Description | Machtigingen van gebruiker |
+| Bewerking | Description | Gebruikers machtiging |
 |:--|:--|:--|
-|Lijst|Een lijst met verwijderde sleutelkluizen.|Microsoft.KeyVault/deletedVaults/read|
-|Herstellen|Hiermee herstelt u een verwijderde key vault.|Microsoft.KeyVault/vaults/write|
-|Opschonen|Een verwijderde key vault en alle bijbehorende inhoud verwijderd permanent.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
+|List|Een lijst met verwijderde sleutel kluizen.|Microsoft.KeyVault/deletedVaults/read|
+|Herstellen|Hiermee herstelt u een verwijderde sleutel kluis.|Microsoft.KeyVault/vaults/write|
+|Leegmaken|Verwijdert permanent een verwijderde sleutel kluis en alle bijbehorende inhoud.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
-Zie voor meer informatie over de machtigingen en access control [uw key vault beveiligen](key-vault-secure-your-key-vault.md).
+Zie [uw sleutel kluis beveiligen](key-vault-secure-your-key-vault.md)voor meer informatie over machtigingen en toegangs beheer.
 
-## <a name="enabling-soft-delete"></a>Inschakelen van voorlopig verwijderen
+## <a name="enabling-soft-delete"></a>Voorlopig verwijderen inschakelen
 
-U inschakelen "voorlopig verwijderen' om toe te staan van herstel van een verwijderde key vault of objecten die zijn opgeslagen in een key vault.
+U schakelt ' voorlopig verwijderen ' in om het herstellen van een verwijderde sleutel kluis of objecten die zijn opgeslagen in een sleutel kluis, toe te staan.
 
-### <a name="existing-key-vault"></a>Bestaande key vault
+> [!IMPORTANT]
+> Het inschakelen van ' zacht verwijderen ' op een sleutel kluis is een onomkeerbaare actie. Zodra de eigenschap soft-delete is ingesteld op ' True ', kan deze niet worden gewijzigd of verwijderd.  
 
-Voor een bestaande sleutelkluis met de naam ContosoVault, moet u voorlopig verwijderen als volgt inschakelen. 
+### <a name="existing-key-vault"></a>Bestaande sleutel kluis
+
+Voor een bestaande sleutel kluis met de naam ContosoVault, schakelt u voorlopig verwijderen als volgt in. 
 
 ```powershell
 ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
@@ -60,189 +64,189 @@ Voor een bestaande sleutelkluis met de naam ContosoVault, moet u voorlopig verwi
 Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ```
 
-### <a name="new-key-vault"></a>Nieuwe key vault
+### <a name="new-key-vault"></a>Nieuwe sleutel kluis
 
-Door toe te voegen van de functie voor voorlopig verwijderen inschakelen-vlag voor het inschakelen van voorlopig verwijderen voor een nieuwe key vault wordt uitgevoerd op Aanmaaktijd uw opdracht maken.
+Het inschakelen van het voorlopig verwijderen van een nieuwe sleutel kluis wordt uitgevoerd tijdens de aanmaak tijd door de vlag voor zacht verwijderen toevoegen toe te voegen aan de opdracht Create.
 
 ```powershell
 New-AzKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete
 ```
 
-### <a name="verify-soft-delete-enablement"></a>Controleer of de activering van de functie voor voorlopig verwijderen
+### <a name="verify-soft-delete-enablement"></a>Activering van voorlopig verwijderen controleren
 
-Uitvoeren om te controleren of een key vault voorlopig verwijderen ingeschakeld heeft, de *weergeven* opdracht en zoekt u de 'voorlopig verwijderen ingeschakeld?' kenmerk:
+Als u wilt controleren of een sleutel kluis voorlopig is ingeschakeld, voert u de opdracht *weer geven* uit en zoekt u naar ' voorlopig verwijderen ingeschakeld? ' geschreven
 
 ```powershell
 Get-AzKeyVault -VaultName "ContosoVault"
 ```
 
-## <a name="deleting-a-soft-delete-protected-key-vault"></a>Sleutelkluis beveiligd verwijderen van een functie voor voorlopig verwijderen
+## <a name="deleting-a-soft-delete-protected-key-vault"></a>Een met Soft verwijderde beveiligde sleutel kluis verwijderen
 
-De opdracht voor het verwijderen van een sleutelkluis wijzigingen in werking, afhankelijk van of de functie voor voorlopig verwijderen is ingeschakeld.
+De opdracht voor het verwijderen van wijzigingen in de sleutel kluis, afhankelijk van het feit of het voorlopig verwijderen is ingeschakeld.
 
 > [!IMPORTANT]
->Als u de volgende opdracht uit voor een key vault die geen functie voor voorlopig verwijderen ingeschakeld uitvoert, wordt u deze sleutelkluis en alle bijbehorende inhoud met geen opties voor herstel permanent verwijderd.
+>Als u de volgende opdracht uitvoert voor een sleutel kluis waarvoor geen tijdelijke verwijdering is ingeschakeld, verwijdert u deze sleutel kluis en alle inhoud zonder opties voor herstel.
 
 ```powershell
 Remove-AzKeyVault -VaultName 'ContosoVault'
 ```
 
-### <a name="how-soft-delete-protects-your-key-vaults"></a>Hoe uw sleutelkluizen worden beveiligd met voorlopig verwijderen
+### <a name="how-soft-delete-protects-your-key-vaults"></a>Hoe soft-delete uw sleutel kluizen beschermt
 
-Met de functie voor voorlopig verwijderen ingeschakeld:
+Met voorlopig verwijderen ingeschakeld:
 
-- Een verwijderde key vault wordt verwijderd uit de resourcegroep en geplaatst in een gereserveerde naamruimte, die zijn gekoppeld aan de locatie waar deze is gemaakt. 
-- Verwijderde objecten, zoals sleutels, geheimen en certificaten, niet toegankelijk zijn, zolang de betreffende sleutelkluis de status verwijderd heeft is. 
-- De DNS-naam voor een verwijderde key vault is gereserveerd, zo wordt voorkomen dat een nieuwe sleutelkluis met dezelfde naam wordt gemaakt.  
+- Een verwijderde sleutel kluis wordt verwijderd uit de resource groep en in een gereserveerde naam ruimte geplaatst, die is gekoppeld aan de locatie waar deze is gemaakt. 
+- Verwijderde objecten, zoals sleutels, geheimen en certificaten, zijn niet toegankelijk als de sleutel kluis de status verwijderd heeft. 
+- De DNS-naam voor een verwijderde sleutel kluis is gereserveerd, waardoor wordt voor komen dat er een nieuwe sleutel kluis met dezelfde naam wordt gemaakt.  
 
-U kunt verwijderde sleutelkluizen, dat wordt gekoppeld aan uw abonnement weergeven met de volgende opdracht:
+U kunt de sleutel kluizen voor verwijderde status weer geven die zijn gekoppeld aan uw abonnement met behulp van de volgende opdracht:
 
 ```powershell
 Get-AzKeyVault -InRemovedState 
 ```
 
-- *ID* kan worden gebruikt voor het identificeren van de resource bij het herstellen of verwijderen. 
-- *Resource-ID* is de oorspronkelijke bron-ID van deze kluis. Omdat deze sleutelkluis nu in een verwijderde status is, bestaat er is geen bron met die resource-ID. 
-- *Geplande datum opschonen* is als de kluis worden definitief verwijderd, als er geen actie ondernomen. De bewaartermijn, die wordt gebruikt voor het berekenen van de *opschonen datum gepland*, is 90 dagen.
+- De *id* kan worden gebruikt om de resource te identificeren bij het herstellen of verwijderen. 
+- De *resource-id* is de oorspronkelijke resource-id van deze kluis. Omdat deze sleutel kluis nu een verwijderde status heeft, bestaat er geen resource met die resource-ID. 
+- De *geplande opschoon datum* is wanneer de kluis permanent wordt verwijderd als er geen actie wordt ondernomen. De standaard retentie periode, die wordt gebruikt om de *geplande opschoon datum*te berekenen, is 90 dagen.
 
-## <a name="recovering-a-key-vault"></a>Herstellen van een key vault
+## <a name="recovering-a-key-vault"></a>Een sleutel kluis herstellen
 
-Als u wilt herstellen van een key vault, door de key vault-naam, resourcegroep en locatie op te geven. Noteer de locatie en de resourcegroep van de verwijderde key vault, als u deze nodig voor het herstelproces hebt.
+Als u een sleutel kluis wilt herstellen, geeft u de naam van de sleutel kluis, de resource groep en de locatie op. Let op de locatie en de resource groep van de verwijderde sleutel kluis, wanneer u deze nodig hebt voor het herstel proces.
 
 ```powershell
 Undo-AzKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
 ```
 
-Wanneer een key vault is hersteld, wordt een nieuwe resource gemaakt met de key vault oorspronkelijke resource-ID. Als de oorspronkelijke resourcegroep wordt verwijderd, moet een met dezelfde naam worden gemaakt voordat wordt geprobeerd herstel.
+Wanneer een sleutel kluis wordt hersteld, wordt een nieuwe resource gemaakt met de oorspronkelijke resource-ID van de sleutel kluis. Als de oorspronkelijke resource groep is verwijderd, moet er een worden gemaakt met dezelfde naam voordat u probeert te herstellen.
 
-## <a name="deleting-and-purging-key-vault-objects"></a>Verwijderen en het verwijderen van key vault-objecten
+## <a name="deleting-and-purging-key-vault-objects"></a>Sleutel kluis objecten verwijderen en verwijderen
 
-De volgende opdracht wordt de sleutel 'ContosoFirstKey' in een key vault met de naam 'ContosoVault', die ingeschakeld voor voorlopig verwijderen is verwijderen:
+Met de volgende opdracht wordt de sleutel ' ContosoFirstKey ' verwijderd in een sleutel kluis met de naam ' ContosoVault ', waarvoor het voorlopig verwijderen is ingeschakeld:
 
 ```powershell
 Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey
 ```
 
-Met uw key vault voor voorlopig verwijderen zijn ingeschakeld, een verwijderde sleutel nog steeds weergegeven moet worden verwijderd, tenzij u expliciet verwijderde sleutels weergeven. De meeste bewerkingen voor een sleutel in de status verwijderd heeft mislukken, met uitzondering van de aanbieding, herstellen, verwijderen van een verwijderde sleutel. 
+Als uw sleutel kluis is ingeschakeld voor zacht verwijderen, wordt er nog steeds een verwijderde sleutel verwijderd, tenzij u expliciet Verwijderde sleutels vermeldt. De meeste bewerkingen met een sleutel in de verwijderde status mislukken, behalve voor het weer geven van een lijst, het herstellen van een verwijderde sleutel. 
 
-Bijvoorbeeld, de volgende opdracht worden verwijderde sleutels in de key vault 'ContosoVault':
+Met de volgende opdracht worden bijvoorbeeld Verwijderde sleutels in de sleutel kluis ' ContosoVault ' weer gegeven:
 
 ```powershell
 Get-AzKeyVaultKey -VaultName ContosoVault -InRemovedState
 ```
 
-### <a name="transition-state"></a>Status van de overgang 
+### <a name="transition-state"></a>Overgangs status 
 
-Wanneer u een sleutel in een key vault met de functie voor voorlopig verwijderen ingeschakeld verwijdert, wordt het duurt een paar seconden voor de overgang te voltooien. Tijdens deze overgang, wordt deze mogelijk weergegeven dat de sleutel niet in de actieve status of de status verwijderd heeft is. 
+Wanneer u een sleutel in een sleutel kluis verwijdert waarvoor het uitvoeren van zacht verwijderen is ingeschakeld, kan het enkele seconden duren voordat de overgang is voltooid. Tijdens deze overgang kan het lijken of de sleutel niet de status actief of verwijderd heeft. 
 
-### <a name="using-soft-delete-with-key-vault-objects"></a>Voorlopig verwijderen gebruiken met key vault-objecten
+### <a name="using-soft-delete-with-key-vault-objects"></a>Voorlopig verwijderen gebruiken met Key kluis objecten
 
-Net als bij sleutelkluizen blijft een verwijderde sleutel, het geheim of het certificaat, in verwijderde status maximaal 90 dagen, tenzij u deze herstellen of het opschonen. 
+Net als bij sleutel kluizen, behoudt een verwijderde sleutel, geheim of certificaat, de status verwijderd tot 90 dagen, tenzij u deze herstelt of opschoont. 
 
 #### <a name="keys"></a>Sleutels
 
-Een sleutel voorlopig verwijderde herstellen:
+Een voorlopig verwijderde sleutel herstellen:
 
 ```powershell
 Undo-AzKeyVaultKeyRemoval -VaultName ContosoVault -Name ContosoFirstKey
 ```
 
-Definitief verwijderen (ook wel bekend als opschonen) een voorlopig verwijderde key:
+Een voorlopig verwijderde sleutel permanent verwijderen (ook wel het verwijderen genoemd):
 
 > [!IMPORTANT]
-> Bezig met het verwijderen van een sleutel wordt definitief verwijderen en deze niet worden hersteld. 
+> Als u een sleutel verwijdert, wordt deze definitief verwijderd en kan deze niet worden hersteld. 
 
 ```powershell
 Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
 ```
 
-De **herstellen** en **opschonen** acties hebben hun eigen machtigingen die zijn gekoppeld in een toegangsbeleid voor key vault. Voor een gebruiker of service-principal te kunnen zijn om uit te voeren een **herstellen** of **opschonen** actie, moeten ze de respectieve machtiging voor deze sleutel of geheim hebben. Standaard **opschonen** is niet toegevoegd aan een key vault-toegangsbeleid, wanneer de snelkoppeling naar de 'all' wordt gebruikt om alle machtigingen te verlenen. U moet expliciet verleent **opschonen** machtiging. 
+De **herstel** - en opschoon acties hebben hun eigen machtigingen die zijn gekoppeld aan een sleutel kluis toegangs beleid. Als een gebruiker of service-principal een **herstel** -of opschoon actie kan uitvoeren, moeten ze beschikken over de juiste machtiging voor die sleutel of dit geheim. Standaard wordt **leegmaken** niet toegevoegd aan het toegangs beleid van een sleutel kluis wanneer de snelkoppeling ' alle ' wordt gebruikt om alle machtigingen te verlenen. U moet de machtiging **verwijderen** specifiek verlenen. 
 
-#### <a name="set-a-key-vault-access-policy"></a>Een toegangsbeleid voor key vault instellen
+#### <a name="set-a-key-vault-access-policy"></a>Een sleutel kluis toegangs beleid instellen
 
-De volgende opdracht verleent user@contoso.com toestemming voor het gebruik van verschillende bewerkingen voor sleutels in *ContosoVault* inclusief **opschonen**:
+Met de volgende opdracht user@contoso.com wordt een machtiging verleend voor het gebruik van verschillende bewerkingen op sleutels in *ContosoVault* , waaronder opschonen:
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys get,create,delete,list,update,import,backup,restore,recover,purge
 ```
 
 >[!NOTE] 
-> Als u een bestaande sleutelkluis die zojuist voorlopig verwijderen ingeschakeld heeft hebt, hebt u geen **herstellen** en **opschonen** machtigingen.
+> Als u een bestaande sleutel kluis hebt die zojuist is ingeschakeld, hebt u mogelijk geen machtigingen voor **herstellen** en **verwijderen** .
 
 #### <a name="secrets"></a>Geheimen
 
-Zoals sleutels, geheimen beheerd met hun eigen opdrachten:
+Net als sleutels worden geheimen beheerd met hun eigen opdrachten:
 
-- Een geheim met de naam SQLPassword verwijderen: 
+- Verwijder een geheim met de naam SQLPassword: 
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
   ```
 
-- Een overzicht van alle verwijderde geheimen in een key vault: 
+- Alle verwijderde geheimen in een sleutel kluis weer geven: 
   ```powershell
   Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
   ```
 
-- Een geheim in de status verwijderd heeft herstellen: 
+- Een geheim herstellen met de status verwijderd: 
   ```powershell
   Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
   ```
 
-- Opschonen van een geheim status verwijderd: 
+- Verwijder een geheim met de status verwijderd: 
 
   > [!IMPORTANT]
-  > Bezig met het verwijderen van een geheim definitief verwijderd en deze niet worden hersteld.
+  > Als u een geheim verwijdert, wordt dit permanent verwijderd en kan het niet worden hersteld.
 
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
 
-## <a name="purging-a-soft-delete-protected-key-vault"></a>Bezig met het verwijderen van een functie voor voorlopig verwijderen beveiligd sleutelkluis
+## <a name="purging-a-soft-delete-protected-key-vault"></a>Een tijdelijke beveiligde sleutel kluis verwijderen
 
 > [!IMPORTANT]
-> Een key vault of een van de daarin opgenomen objecten verwijderen, verwijderd definitief, wat betekent dat deze niet worden hersteld.
+> Als u een sleutel kluis of een van de objecten erin opschoont, wordt deze definitief verwijderd, wat betekent dat het niet kan worden hersteld.
 
-De functie opschonen wordt gebruikt om een sleutelkluis-object of een hele sleutelkluis, die is eerder voorlopig verwijderde definitief te verwijderen. Zoals in de vorige sectie wordt gedemonstreerd, kunnen objecten die zijn opgeslagen in een key vault met de functie voor voorlopig verwijderen ingeschakeld, gaat u door meerdere statussen:
-- **Actieve**: voordat u deze verwijdert.
-- **Voorlopig verwijderde**: nadat u hebt verwijderd, kunnen worden weergegeven en hersteld op actieve status.
-- **Definitief verwijderd**: na het opschonen van Logboeken, kan niet worden hersteld.
+De functie opschonen wordt gebruikt voor het permanent verwijderen van een sleutel kluis-object of een volledige sleutel kluis die voorheen zacht werd verwijderd. Zoals u in de vorige sectie hebt gedemonstreerd, kunnen objecten die zijn opgeslagen in een sleutel kluis met de functie voor het voorlopig verwijderen ingeschakeld, meerdere statussen door lopen:
+- **Actief**: vóór verwijdering.
+- **Zacht verwijderd**: na verwijdering kan deze worden weer gegeven en teruggezet naar de actieve status.
+- **Permanent verwijderd**: na leegmaken, kan niet worden hersteld.
 
 
-Hetzelfde geldt voor de key vault. Als u wilt een voorlopig verwijderde sleutelkluis en de inhoud ervan permanent verwijderd, moet u de sleutelkluis zelf verwijderen.
+Dit geldt ook voor de sleutel kluis. Als u een voorlopig verwijderde sleutel kluis en de inhoud ervan permanent wilt verwijderen, moet u de sleutel kluis zelf leegmaken.
 
-### <a name="purging-a-key-vault"></a>Een sleutelkluis verwijderen
+### <a name="purging-a-key-vault"></a>Een sleutel kluis verwijderen
 
-Wanneer een key vault wordt verwijderd, worden de volledige inhoud ervan definitief verwijderd, met inbegrip van sleutels, geheimen en certificaten. Als u wilt een voorlopig verwijderde sleutelkluis leegmaken, gebruikt u de `Remove-AzKeyVault` opdracht met de optie `-InRemovedState` en door te geven van de locatie van de verwijderde key vault met de `-Location location` argument. U kunt zoeken naar de locatie van een verwijderde kluis met de opdracht `Get-AzKeyVault -InRemovedState`.
+Wanneer een sleutel kluis wordt leeg gemaakt, wordt de volledige inhoud definitief verwijderd, inclusief de sleutels, geheimen en certificaten. Als u een voorlopig verwijderde sleutel kluis wilt verwijderen, gebruikt u `Remove-AzKeyVault` de opdracht met de `-InRemovedState` optie en geeft u de locatie van de verwijderde sleutel kluis met `-Location location` het argument op. U kunt de locatie van een verwijderde kluis vinden met behulp `Get-AzKeyVault -InRemovedState`van de opdracht.
 
 ```powershell
 Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus
 ```
 
-### <a name="purge-permissions-required"></a>Opschonen van de machtigingen die vereist zijn
-- Als u wilt verwijderen van een verwijderde key vault, moet de gebruiker RBAC-machtiging voor de *Microsoft.KeyVault/locations/deletedVaults/purge/action* bewerking. 
-- Als u een verwijderde key vault, moet de gebruiker RBAC-machtiging voor de *Microsoft.KeyVault/deletedVaults/read* bewerking. 
-- Alleen de beheerder van een abonnement heeft standaard de machtigingen toegewezen. 
+### <a name="purge-permissions-required"></a>Machtigingen voor leegmaken vereist
+- Als u een verwijderde sleutel kluis wilt verwijderen, moet de gebruiker RBAC-machtigingen hebben voor de bewerking *micro soft. sleutel kluis/locaties/deletedVaults/verwijderen/actie* . 
+- Om een verwijderde sleutel kluis weer te geven, moet de gebruiker RBAC-machtigingen hebben voor de *micro soft. deletedVaults/Read-* bewerking. 
+- Standaard heeft alleen een abonnements beheerder deze machtigingen. 
 
-### <a name="scheduled-purge"></a>Geplande opschonen
+### <a name="scheduled-purge"></a>Gepland opschonen
 
-Aanbieding verwijderde key vault-objecten wordt ook weergegeven wanneer ze zijn gepland om te worden opgeschoond met Key Vault. *Geplande datum opschonen* geeft aan wanneer een key vault-object wordt definitief verwijderd, als er geen actie ondernomen. Standaard is de bewaarperiode voor een object verwijderde sleutelkluis 90 dagen.
+Bij het vermelden van verwijderde sleutel kluis objecten wordt ook weer gegeven wanneer deze zijn gepland om te worden verwijderd door Key Vault. *Geplande opschoon datum* geeft aan wanneer een sleutel kluis object definitief wordt verwijderd als er geen actie wordt ondernomen. De Bewaar periode voor een verwijderd sleutel kluis object is standaard 90 dagen.
 
 >[!IMPORTANT]
->Een object opgeschoonde kluis, geactiveerd door de *opschonen datum gepland* veld, wordt definitief verwijderd. Het kan niet worden hersteld.
+>Een verwijderd kluis object, geactiveerd door het veld *geplande opschoon datum* , wordt permanent verwijderd. Deze kan niet worden hersteld.
 
-## <a name="enabling-purge-protection"></a>Leegmaken van de beveiliging inschakelen
+## <a name="enabling-purge-protection"></a>Leegmaken van beveiliging inschakelen
 
-Bij het leegmaken van de beveiliging is ingeschakeld in een kluis of een object in de verwijderde status niet leegmaken totdat de bewaarperiode van 90 dagen is verstreken. Deze kluis of het object kan nog steeds worden hersteld. Deze functie biedt de zekerheid dat een kluis of een object kan niet permanent worden verwijderd voordat de bewaarperiode voor het periode is verstreken.
+Wanneer het leegmaken van de beveiliging is ingeschakeld, kan een kluis of een object in de status verwijderd pas worden verwijderd als de retentie periode van 90 dagen is verstreken. Een dergelijke kluis of dit object kan nog steeds worden hersteld. Deze functie biedt een extra zekerheid dat een kluis of een object nooit permanent kan worden verwijderd totdat de Bewaar periode is verstreken.
 
-Alleen als de functie voor voorlopig verwijderen ook is ingeschakeld, kunt u leegmaken van de beveiliging inschakelen. 
+U kunt het leegmaken van de beveiliging alleen inschakelen als de functie voor voorlopig verwijderen ook is ingeschakeld. 
 
-Als u wilt inschakelen op beide voorlopig verwijderen en beveiliging verwijderen bij het maken van een kluis, gebruikt u de [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet:
+Gebruik de cmdlet [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) om de beveiliging bij het maken van een kluis van zowel zacht verwijderen als opschonen in te scha kelen:
 
 ```powershell
 New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete -EnablePurgeProtection
 ```
 
-Leegmaken van de beveiliging toevoegen aan een bestaande kluis (die al is voorlopig verwijderen zijn ingeschakeld), gebruikt de [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0), [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0), en [Set AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) cmdlets:
+Gebruik de cmdlets [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0), [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0)en [set-AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) om een schone beveiliging toe te voegen aan een bestaande kluis (waarvoor al een tijdelijke verwijdering is ingeschakeld):
 
 ```
 ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"
@@ -252,5 +256,5 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 
 ## <a name="other-resources"></a>Meer informatie
 
-- Zie voor een overzicht van de functie voor voorlopig verwijderen van de Sleutelkluis, [overzicht van Azure Key Vault-functie voor voorlopig verwijderen](key-vault-ovw-soft-delete.md).
-- Zie voor een algemeen overzicht van gebruik van Azure Key Vault, [wat is Azure Key Vault?](key-vault-overview.md). aken = geslaagd}
+- Zie [Azure Key Vault overzicht van tijdelijke verwijdering](key-vault-ovw-soft-delete.md)voor een overzicht van de functie voor voorlopig verwijderen van Key Vault.
+- Zie [Wat is Azure Key Vault?](key-vault-overview.md)voor een algemeen overzicht van Azure Key Vault gebruik. Aken = geslaagd}

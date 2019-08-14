@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 8a12c9e5d569092440552958554681c0b1d79590
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f77a95af1edcd37043ea1e067560577140a81a04
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552539"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967596"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Over de aangepaste spraak-eerste virtuele assistenten preview
 
@@ -36,14 +36,25 @@ Direct line speech en de bijbehorende functionaliteit voor aangepaste spraak-eer
 |[Tekst-naar-spraak](text-to-speech.md) | Tekstuele reacties van uw bot worden gesynthesizerd met behulp van [tekst naar spraak](text-to-speech.md) vanuit Azure speech Services. Deze synthese wordt vervolgens beschikbaar gesteld voor uw client toepassing als een audio stroom. Micro soft biedt u de mogelijkheid om uw eigen aangepaste Neural TTS-stem van hoge kwaliteit op te bouwen die een stem op uw merk levert, voor meer informatie over [contact met ons](mailto:mstts@microsoft.com).
 |[Directe lijn spraak](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | Als een kanaal binnen het bot-Framework, biedt directe lijn spraak een soepele en naadloze verbinding tussen uw client toepassing, een compatibele bot en de mogelijkheden van Azure speech Services. Zie de [pagina van de bot Framework-documentatie](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)voor meer informatie over het configureren van uw bot voor het gebruik van het directe lijn spraak kanaal.
 
+## <a name="get-started-with-virtual-assistants"></a>Aan de slag met virtuele assistenten
+
+We bieden Quick starts die zijn ontworpen om code in minder dan 10 minuten uit te voeren. Deze tabel bevat een lijst met Quick starts voor de eerste virtuele assistent, geordend op taal.
+
+| Quick Start | Platform | API-verwijzing |
+|------------|----------|---------------|
+| C#, UWP | Windows | [Door](https://aka.ms/csspeech/csharpref) |
+| Java | Windows, macOS, Linux | [Door](https://aka.ms/csspeech/javaref) |
+| Java | Android | [Door](https://aka.ms/csspeech/javaref) |
+
 ## <a name="sample-code"></a>Voorbeeldcode
 
 Voorbeeld code voor het maken van een televoice-eerste virtuele assistent is beschikbaar op GitHub. Deze voor beelden beslaan de client toepassing voor het maken van verbinding met uw bot in verschillende populaire programmeer talen.
 
 * [Voor beelden van spraak-eerste virtuele assistent (SDK)](https://aka.ms/csspeech/samples)
-* [Quick Start: virtuele assistenten voor spraak (C#)](quickstart-virtual-assistant-csharp-uwp.md)
-* [Snelstartgids: virtuele assistenten voor spraak (Java)](quickstart-virtual-assistant-java-jre.md)
-* [Direct line speech-clientC#(, WPF)](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client)
+* [Zelfstudie: Stem uw bot in met de Speech SDK,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+
+## <a name="tutorial"></a>Zelfstudie
+Een zelf studie over het [instellen van uw bot met behulp van de Speech SDK en direct line speech Channel](tutorial-voice-enable-your-bot-speech-sdk.md).
 
 ## <a name="customization"></a>Aanpassing
 

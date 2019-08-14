@@ -1,7 +1,7 @@
 ---
-title: Wat is de Speech-service?
+title: Wat zijn de Speech Services?
 titleSuffix: Azure Cognitive Services
-description: De speech-service is de combineert van spraak naar tekst, tekst naar spraak en spraak omzetting in één Azure-abonnement. Het is eenvoudig om spraak op uw toepassingen, hulpprogram ma's en apparaten toe te voegen aan de Speech SDK, de speech-apparaten SDK of REST Api's. Voeg spraak functionaliteit toe aan een bestaande chat-bot, Converteer tekst naar spraak in een Vertaal toepassing of verstuur grote hoeveel heden Call Center-gegevens.
+description: De spraak Services zijn de combineert van spraak naar tekst, tekst naar spraak en spraak omzetting in één Azure-abonnement. Het is eenvoudig om spraak op uw toepassingen, hulpprogram ma's en apparaten toe te voegen aan de Speech SDK, de speech-apparaten SDK of REST Api's. Voeg spraak functionaliteit toe aan een bestaande chat-bot, Converteer tekst naar spraak in een Vertaal toepassing of verstuur grote hoeveel heden Call Center-gegevens.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1d722d7e2886008aa5aa3acff8095fcf35ac38d8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4ea6f04dbfd18a6e561a255988ba0465b9e017be
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68554178"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967617"
 ---
 # <a name="what-are-the-speech-services"></a>Wat zijn de Speech Services?
 
-Azure speech Services zijn de combineert van spraak naar tekst, tekst naar spraak en spraak omzetting in één Azure-abonnement. Het is eenvoudig om uw toepassingen, hulpprogram ma's en apparaten met de spraak- [SDK](speech-sdk-reference.md), [Speech-apparaten SDK](https://aka.ms/sdsdk-quickstart)of [rest api's](rest-apis.md)in te scha kelen.
+De spraak Services zijn de combineert van spraak naar tekst, tekst naar spraak en spraak omzetting in één Azure-abonnement. Het is eenvoudig om uw toepassingen, hulpprogram ma's en apparaten met de spraak- [SDK](speech-sdk-reference.md), [Speech-apparaten SDK](https://aka.ms/sdsdk-quickstart)of [rest api's](rest-apis.md)in te scha kelen.
 
 > [!IMPORTANT]
 > Spraak Services zijn vervangen Bing Speech-API, Translator Speech en Custom Speech. Raadpleeg de *hand leidingen > migratie* voor migratie-instructies.
@@ -41,14 +41,14 @@ Deze functies vormen de spraak services van Azure. Gebruik de koppelingen in dez
 
 Meer informatie over wat er nieuw is in de Azure speech Services.
 
+* 2019 augustus
+  * **Nieuwe zelf studie**: [Stem uw bot in met de Speech SDK,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 * Juni 2019
-    * 1\.6.0 van vrijgegeven spraak-SDK. Zie [release opmerkingen](releasenotes.md)voor een volledige lijst met updates, verbeteringen en bekende problemen.
+  * 1\.6.0 van vrijgegeven spraak-SDK. Zie [release opmerkingen](releasenotes.md)voor een volledige lijst met updates, verbeteringen en bekende problemen.
 * Mei 2019-documentatie is nu beschikbaar voor [transcriptie](conversation-transcription-service.md), [Call Center transcriptie](call-center-transcription.md)en [spraak-eerste virtuele assistenten](voice-first-virtual-assistants.md).
 * Mei 2019
-    * 1\.5.1 van vrijgegeven spraak-SDK. Zie [release opmerkingen](releasenotes.md)voor een volledige lijst met updates, verbeteringen en bekende problemen.
-    * 1\.5.0 van vrijgegeven spraak-SDK. Zie [release opmerkingen](releasenotes.md)voor een volledige lijst met updates, verbeteringen en bekende problemen.
-* 1\.4.0 van april 2019-release van Speech SDK met ondersteuning voor Text-to-speech (bèta C++) C#voor, en Java op Windows en Linux. Daarnaast ondersteunt de SDK nu MP3-en opus/OGG-audio- C++ indelingen C# voor en op Linux. Zie [release opmerkingen](releasenotes.md)voor een volledige lijst met updates, verbeteringen en bekende problemen.
-* 2019 maart: een nieuw eind punt voor Text-to-speech (TTS) dat een volledige lijst met stemmen retourneert die beschikbaar zijn in een bepaalde regio is nu beschikbaar. Daarnaast worden nieuwe regio's nu ondersteund voor TTS. Zie [Text-to-Speech API Reference (rest) (Engelstalig)](rest-text-to-speech.md)voor meer informatie.
+  * 1\.5.1 van vrijgegeven spraak-SDK. Zie [release opmerkingen](releasenotes.md)voor een volledige lijst met updates, verbeteringen en bekende problemen.
+  * 1\.5.0 van vrijgegeven spraak-SDK. Zie [release opmerkingen](releasenotes.md)voor een volledige lijst met updates, verbeteringen en bekende problemen.
 
 ## <a name="try-speech-services"></a>Probeer spraak Services
 
@@ -67,6 +67,7 @@ We bieden Quick starts in de populairste programmeer talen, die allemaal ontworp
 Nadat u de spraak Services hebt gebruikt, kunt u zelf zelf studie proberen om de intenties van spraak te herkennen met behulp van de Speech SDK en LUIS.
 
 * [Zelfstudie: Intenties herkennen vanuit spraak met de Speech SDK en LUIS,C#](how-to-recognize-intents-from-speech-csharp.md)
+* [Zelfstudie: Stem uw bot in met de Speech SDK,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 * [Zelfstudie: Bouw een kolf-app voor het vertalen van tekst, analyseer sentiment en vertaalde tekst naar spraak, REST](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 
 ## <a name="get-sample-code"></a>Voorbeeldcode ophalen
@@ -76,6 +77,7 @@ De voorbeeld code is beschikbaar op GitHub voor elk van de Azure speech-Services
 * [Voor beelden van spraak naar tekst, tekst naar spraak en spraak omzetting (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Voor beelden van batch transcriptie (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 * [Voor beelden van tekst naar spraak (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Voor beelden van spraak-eerste virtuele assistent (SDK)](https://aka.ms/csspeech/samples)
 
 ## <a name="customize-your-speech-experience"></a>Uw spraak ervaring aanpassen
 

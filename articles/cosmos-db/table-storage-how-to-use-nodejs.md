@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 977b59c3344eaf2c4877f51afea176455d22ecc9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 45925b1c4252b0ff0080a2c287e7ed2fae444168
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130514"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986283"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Azure Table Storage of de Azure Cosmos DB Table-API van Node.js gebruiken
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -365,7 +365,7 @@ dc.table.queryEntities(tableName,
 
 Als u het `continuationToken`-object inspecteert, vindt u eigenschappen zoals `nextPartitionKey`, `nextRowKey` en `targetLocation`, die kunnen worden gebruikt om door alle resultaten te lopen.
 
-U kunt ook `top` samen met `continuationToken` om in te stellen de paginagrootte. 
+U kunt ook `continuationToken` samen `top` gebruiken om de pagina grootte in te stellen. 
 
 ## <a name="work-with-shared-access-signatures"></a>Werken met handtekeningen voor gedeelde toegang
 Shared Access Signatures (SAS) zijn een veilige manier om op detailniveau toegang te bieden tot tabellen zonder dat u de naam of sleutels van uw opslagaccount hoeft te geven. SAS wordt vaak gebruikt voor beperkte toegang tot uw gegevens, bijvoorbeeld om een mobiele app toe te staan om een query uit te voeren op records.
@@ -394,7 +394,7 @@ var host = tableSvc.host;
 
 Houd er rekening mee dat u ook de informatie over de host moet opgeven, aangezien dit is vereist wanneer de SAS-houder toegang probeert te krijgen tot de tabel.
 
-De clienttoepassing maakt dan gebruik van de SAS met **TableServiceWithSAS** om bewerkingen op de tabel uit te voeren. In het volgende voorbeeld wordt verbinding gemaakt met de tabel en een query uitgevoerd. Zie het artikel [Using shared access signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris) (gedeelde toegangshandtekeningen gebruiken) voor de indeling van tableSAS. 
+De clienttoepassing maakt dan gebruik van de SAS met **TableServiceWithSAS** om bewerkingen op de tabel uit te voeren. In het volgende voorbeeld wordt verbinding gemaakt met de tabel en een query uitgevoerd. Zie [beperkte toegang verlenen tot Azure storage resources met behulp van het artikel voor Shared Access signatures (SAS)](../storage/common/storage-sas-overview.md) voor de indeling van tableSAS. 
 
 ```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;

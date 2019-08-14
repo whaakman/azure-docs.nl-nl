@@ -9,18 +9,18 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 08/01/2019
 ms.author: t-meroa
-ms.openlocfilehash: 4b2bdc1a2babadbe5cb7f12135de0eaef8557a97
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 64b3cab857a541d0bede88e7fdf21c00526b9a43
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950798"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965152"
 ---
 # <a name="quickstart-create-an-ios-app-that-launches-the-immersive-reader-swift"></a>Quickstart: Een iOS-app maken waarmee de insluitende lezer wordt gestart (SWIFT)
 
 De [insluitende lezer](https://www.onenote.com/learningtools) is een inclusief ontworpen hulp programma waarmee bewezen technieken worden geïmplementeerd om de Lees vaardigheid te verbeteren.
 
-In deze Quick Start bouwt u een volledig nieuwe iOS-app en integreert u de insluitende lezer met behulp van de insluitende lezer-SDK. [Hier](https://github.com/microsoft/immersive-reader-sdk/iOS/samples/quickstart-swift)vindt u een volledig werkend voor beeld van deze Quick Start.
+In deze Quick Start bouwt u een volledig nieuwe iOS-app en integreert u de insluitende lezer met behulp van de insluitende lezer-SDK. [Hier](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/samples/quickstart-swift)vindt u een volledig werkend voor beeld van deze Quick Start.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -43,7 +43,7 @@ Kies **app met één weer gave**.
 De eenvoudigste manier om de insluitende lezer-SDK te gebruiken is via CocoaPods. Installeren via Cocoapods:
 1. [Installeer Cocoapods](http://guides.cocoapods.org/using/getting-started.html) -Volg de aan de slag-hand leiding om Cocoapods te installeren.
 2. Maak een Podfile door uit `pod init` te voeren in de hoofdmap van uw Xcode-project.
-3.  Voeg de CocoaPod toe aan uw Podfile door `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/iOS/immersive-reader-sdk'`toe te voegen. Uw Pofile moet er als volgt uitzien, met de naam van de doel computer vervangen-SWIFT:
+3.  Voeg de CocoaPod toe aan uw Podfile door `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'`toe te voegen. Uw Pofile moet er als volgt uitzien, met de naam van de doel computer vervangen-SWIFT:
  ```ruby
   platform :ios, '9.0'
 
@@ -102,4 +102,4 @@ Wanneer u op de knop ' insluitende lezer ' klikt, ziet u dat de insluitende leze
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Verken de insluitende [lezer IOS SDK](https://github.com/microsoft/immersive-reader-sdk/iOS) en de referentie voor de insluitende [lezer IOS SDK](./ios-reference.md)
+* Verken de insluitende [lezer IOS SDK](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS) en de referentie voor de insluitende [lezer IOS SDK](./ios-reference.md)

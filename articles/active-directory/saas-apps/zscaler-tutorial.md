@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Integratie met Zscaler Azure Active Directory | Microsoft Docs'
+title: 'Zelfstudie: Azure Active Directory-integratie met eenmalige aanmelding (SSO) met Zscaler | Microsoft Docs'
 description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Zscaler.
 services: active-directory
 documentationCenter: na
@@ -13,120 +13,92 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/24/2019
+ms.date: 08/13/2019
 ms.author: jeedes
-ms.openlocfilehash: dee44b10040fa1f94825ac51825f32cc39cdc788
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dcf0341e03a5d95abbe8b1a8ce69379fef8251b7
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68825198"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989055"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler"></a>Zelfstudie: Integratie met Zscaler Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler"></a>Zelfstudie: Azure Active Directory-integratie met eenmalige aanmelding (SSO) met Zscaler
 
-In deze zelf studie leert u hoe u Zscaler integreert met Azure Active Directory (Azure AD).
-Het integreren van Zscaler met Azure AD biedt de volgende voor delen:
+In deze zelf studie leert u hoe u Zscaler integreert met Azure Active Directory (Azure AD). Wanneer u Zscaler integreert met Azure AD, kunt u het volgende doen:
 
-* U kunt beheren in azure AD die toegang heeft tot Zscaler.
-* U kunt ervoor zorgen dat uw gebruikers automatisch worden aangemeld bij Zscaler (eenmalige aanmelding) met hun Azure AD-accounts.
-* U kunt uw accounts in één centrale locatie - Azure portal beheren.
+* Controle in azure AD die toegang heeft tot Zscaler.
+* Zorg ervoor dat uw gebruikers automatisch worden aangemeld bij Zscaler met hun Azure AD-accounts.
+* Beheer uw accounts op één centrale locatie: de Azure Portal.
 
-Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
-Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+Zie [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)voor meer informatie over SaaS-app-integratie met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Azure AD-integratie met Zscaler wilt configureren, hebt u de volgende items nodig:
+U hebt de volgende items nodig om aan de slag te gaan:
 
-* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u een [gratis account](https://azure.microsoft.com/free/) aanvragen
-* Abonnement voor eenmalige aanmelding Zscaler ingeschakeld
+* Een Azure AD-abonnement Als u geen abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/)aanvragen.
+* Zscaler-abonnement dat is ingeschakeld voor eenmalige aanmelding (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
+In deze zelf studie configureert en test u Azure AD SSO in een test omgeving.
 
 * Zscaler ondersteunt door **SP** GEÏNITIEERDe SSO
-
 * Zscaler ondersteunt **just-in-time** -gebruikers inrichting
 
 ## <a name="adding-zscaler-from-the-gallery"></a>Zscaler toevoegen uit de galerie
 
 Als u de integratie van Zscaler in azure AD wilt configureren, moet u Zscaler uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Voer de volgende stappen uit om Zscaler toe te voegen uit de galerie:**
+1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
+1. Selecteer de **Azure Active Directory** -service in het navigatie deel venster aan de linkerkant.
+1. Ga naar **bedrijfs toepassingen** en selecteer **alle toepassingen**.
+1. Selecteer **nieuwe toepassing**om een nieuwe toepassing toe te voegen.
+1. Typ in de sectie **toevoegen vanuit de galerie** **Zscaler** in het zoekvak.
+1. Selecteer **Zscaler** uit het paneel resultaten en voeg vervolgens de app toe. Wacht een paar seconden wanneer de app aan uw Tenant is toegevoegd.
 
-1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-zscaler"></a>Eenmalige aanmelding voor Azure AD configureren en testen voor Zscaler
 
-    ![De knop Azure Active Directory](common/select-azuread.png)
+Azure AD SSO met Zscaler configureren en testen met behulp van een test gebruiker met de naam **B. Simon**. Voor het werken met SSO moet u een koppelings relatie tot stand brengen tussen een Azure AD-gebruiker en de bijbehorende gebruiker in Zscaler.
 
-2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
+Als u Azure AD SSO wilt configureren en testen met Zscaler, voltooit u de volgende bouw stenen:
 
-    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+1. **[Configureer Azure AD SSO](#configure-azure-ad-sso)** -om uw gebruikers in staat te stellen deze functie te gebruiken.
+    1. **[Een Azure AD-test gebruiker maken](#create-an-azure-ad-test-user)** : u kunt eenmalige aanmelding voor Azure AD testen met B. Simon.
+    1. **[Wijs de Azure AD-test gebruiker](#assign-the-azure-ad-test-user)** toe, zodat B. Simon de eenmalige aanmelding van Azure AD kan gebruiken.
+1. **[ZSCALER SSO configureren](#configure-zscaler-sso)** : voor het configureren van de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
+    1. **[Maak een Zscaler-test gebruiker](#create-zscaler-test-user)** -om een equivalent van B. Simon in Zscaler te hebben dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
+1. **[SSO testen](#test-sso)** : om te controleren of de configuratie werkt.
 
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO configureren
 
-    ![De knop nieuwe toepassing](common/add-new-app.png)
+Volg deze stappen om Azure AD SSO in te scha kelen in de Azure Portal.
 
-4. Typ **Zscaler**in het zoekvak, selecteer **Zscaler** in het resultaten paneel en klik vervolgens op de knop **toevoegen** om de toepassing toe te voegen.
+1. Zoek in het [Azure Portal](https://portal.azure.com/)op de pagina Toepassings integratie van **Zscaler** de sectie **beheren** en selecteer **eenmalige aanmelding**.
+1. Selecteer op de pagina **Eén aanmeldings methode selecteren** de optie **SAML**.
+1. Klik op de pagina **eenmalige aanmelding met SAML instellen** op het pictogram bewerken/pen voor **eenvoudige SAML-configuratie** om de instellingen te bewerken.
 
-     ![Zscaler in de lijst met resultaten](common/search-new-app.png)
+   ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
-
-In deze sectie kunt u eenmalige aanmelding voor Azure AD configureren en testen met Zscaler op basis van een test gebruiker met de naam **Julia Simon**.
-Voor een goede werking van eenmalige aanmelding moet er een koppelings relatie tussen een Azure AD-gebruiker en de bijbehorende gebruiker in Zscaler tot stand worden gebracht.
-
-Als u eenmalige aanmelding voor Azure AD wilt configureren en testen met Zscaler, moet u de volgende bouw stenen volt ooien:
-
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Zscaler eenmalige aanmelding configureren](#configure-zscaler-single-sign-on)** : Hiermee configureert u de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
-3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Maak een Zscaler-test gebruiker](#create-zscaler-test-user)** -om een equivalent van Julia Simon in Zscaler te hebben dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
-
-In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
-
-Voer de volgende stappen uit om eenmalige aanmelding voor Azure AD te configureren met Zscaler:
-
-1. Selecteer in de [Azure Portal](https://portal.azure.com/)op de pagina **Zscaler** Application Integration de optie **eenmalige aanmelding**.
-
-    ![Koppeling voor eenmalige aanmelding configureren](common/select-sso.png)
-
-2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
-
-    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
-
-3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
-
-    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
-
-4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
-
-    ![Informatie over eenmalige aanmelding voor Zscaler domein en Url's](common/sp-signonurl.png)
+1. Voer in de sectie **basis configuratie van SAML** de waarden in voor de volgende velden:
 
     In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<companyname>.zscaler.net`
 
     > [!NOTE]
     > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met het ondersteunings [team van Zscaler](https://www.zscaler.com/company/contact) om de waarde op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-5. Uw Zscaler-toepassing verwacht de SAML-beweringen in een specifieke indeling, waarvoor u aangepaste kenmerk toewijzingen moet toevoegen aan de configuratie van uw SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op pictogram **bewerken** om het dialoog venster **gebruikers kenmerken** te openen.
+1. Uw Zscaler-toepassing verwacht de SAML-beweringen in een specifieke indeling, waarvoor u aangepaste kenmerk toewijzingen moet toevoegen aan de configuratie van uw SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op pictogram **bewerken** om het dialoog venster **gebruikers kenmerken** te openen.
 
     ![image](common/edit-attribute.png)
 
-6. Daarnaast verwacht Zscaler toepassing nog enkele kenmerken die in het SAML-antwoord weer worden door gegeven. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
-    
+1. Daarnaast verwacht Zscaler toepassing nog enkele kenmerken die in het SAML-antwoord weer worden door gegeven. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
+
     | Name | Bronkenmerk |
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
-
-    ![image](common/new-save-attribute.png)
-
-    ![image](common/new-attribute-details.png)
 
     b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
@@ -135,129 +107,31 @@ Voer de volgende stappen uit om eenmalige aanmelding voor Azure AD te configurer
     d. Selecteer Bron bij **Kenmerk**.
 
     e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
-    
+
     f. Klik op **Opslaan**.
 
     > [!NOTE]
     > Klik [hier](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) als u wilt weten hoe u rollen in Azure AD moet configureren
 
-7. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
+1. Zoek op de pagina **eenmalige aanmelding met SAML instellen** , in de sectie **SAML-handtekening certificaat** , naar **certificaat (base64)** en selecteer **downloaden** om het certificaat te downloaden en op uw computer op te slaan.
 
     ![De downloadkoppeling certificaat](common/certificatebase64.png)
 
-8. Kopieer op de sectie **Zscaler instellen** de gewenste URL ('s) volgens uw vereiste.
+1. Op de sectie **Zscaler instellen** kopieert u de gewenste URL ('s) op basis van uw vereiste.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    a. Aanmeldings-URL
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-    b. Azure AD-id
+In deze sectie maakt u een test gebruiker in de Azure Portal met de naam B. Simon.
 
-    c. URL voor afmelden
-
-### <a name="configure-zscaler-single-sign-on"></a>Eenmalige aanmelding voor Zscaler configureren
-
-1. Als u de configuratie wilt automatiseren in Zscaler, moet u de **uitbrei ding mijn apps Secure Sign-in browser** installeren door te klikken op **de uitbrei ding installeren**.
-
-    ![Uitbrei ding voor mijn apps](common/install-myappssecure-extension.png)
-
-2. Nadat u de extensie aan de browser hebt toegevoegd, klikt u op **Setup Zscaler** gaat u naar de Zscaler-toepassing. Geef de beheerders referenties op om u aan te melden bij Zscaler. Met de browser uitbreiding wordt de toepassing automatisch voor u geconfigureerd en wordt stap 3-6 geautomatiseerd.
-
-    ![SSO instellen](common/setup-sso.png)
-
-3. Als u Zscaler hand matig wilt instellen, opent u een nieuw webbrowser venster en meldt u zich aan bij uw Zscaler-bedrijfs site als beheerder en voert u de volgende stappen uit:
-
-4. Ga naar **Beheer > Verificatie > Verificatie-instellingen** en voer de volgende stappen uit:
-   
-    ![Beheer](./media/zscaler-tutorial/ic800206.png "Beheer")
-
-    a. Kies onder Verificatietype de optie **SAML**.
-
-    b. Klik op **SAML configureren**.
-
-5. Voer in het venster **SAML bewerken** de volgende stappen uit en klik op Opslaan.  
-            
-    ![Manage Users & Authentication](./media/zscaler-tutorial/ic800208.png "Manage Users & Authentication")
-    
-    a. Plak in het tekstvak **SAML Portal URL** de **aanmeldings-URL** die u in de Azure-portal hebt gekopieerd.
-
-    b. Voer in het tekstvak **Login Name Attribute** **NameID** in.
-
-    c. Klik op **Uploaden** om het Azure SAML-ondertekeningscertificaat te uploaden dat u in de Azure-portal in het **openbare SSL-certificaat** hebt gedownload.
-
-    d. Schakel **Enable SAML Auto-Provisioning** in.
-
-    e. Voer in het tekstvak **User Display Name Attribute** **displayName** in als u automatische inrichting van SAML wilt inschakelen voor displayName-kenmerken.
-
-    f. Voer in het tekstvak **Group Name Attribute** **memberOf** in als u automatische inrichting van SAML wilt inschakelen voor memberOf-kenmerken.
-
-    g. Voer in het tekstvak **Department Name Attribute** **department** in als u automatische inrichting van SAML wilt inschakelen voor department-kenmerken.
-
-    h. Klik op **Opslaan**.
-
-6. Voer in het dialoogvenster **Configure User Authentication** de volgende stappen uit:
-
-    ![Beheer](./media/zscaler-tutorial/ic800207.png)
-
-    a. Beweeg de muisaanwijzer boven het menu **Activering** linksonder.
-
-    b. Klik op **Activeren**.
-
-## <a name="configuring-proxy-settings"></a>Proxyinstellingen configureren
-
-### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>De proxyinstellingen configureren in Internet Explorer
-
-1. Start **Internet Explorer**.
-
-2. Selecteer **Internetopties** in het menu **Extra** om het dialoogvenster **Internetopties** te openen.   
-    
-     ![Internetopties](./media/zscaler-tutorial/ic769492.png "Internetopties")
-
-3. Klik op het tabblad **Verbindingen**.   
-  
-     ![Verbindingen](./media/zscaler-tutorial/ic769493.png "Verbindingen")
-
-4. Klik op **LAN-instellingen** om het dialoogvenster **LAN-instellingen** te openen.
-
-5. In het gedeelte Proxyserver voert u de volgende stappen uit:   
-   
-    ![Proxyserver](./media/zscaler-tutorial/ic769494.png "Proxyserver")
-
-    a. Selecteer **Een proxyserver voor uw LAN-netwerk gebruiken**.
-
-    b. Typ **gateway.zscaler.net**in het tekstvak Address.
-
-    c. Typ **80** in het tekstvak Poort.
-
-    d. Selecteer **Proxyserver niet voor lokale adressen gebruiken**.
-
-    e. Klik op **OK** om het dialoogvenster **LAN-instellingen** te sluiten.
-
-6. Klik op **OK** om het dialoogvenster **Internetopties** te sluiten.
-
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD 
-
-Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
-
-1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
-
-    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
-
-2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
-
-    ![Knop Nieuwe gebruiker](common/new-user.png)
-
-3. In Gebruikerseigenschappen voert u de volgende stappen uit.
-
-    ![Het dialoogvenster Gebruiker](common/user-properties.png)
-
-    a. Voer in het veld **Naam** **Britta Simon**in.
-  
-    b. Typ`brittasimon@yourcompanydomain.extension`in het veld **gebruikers naam** . Bijvoorbeeld: BrittaSimon@contoso.com
-
-    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
-
-    d. Klik op **Create**.
+1. Selecteer in het linkerdeel venster van de Azure Portal **Azure Active Directory**, selecteer **gebruikers**en selecteer vervolgens **alle gebruikers**.
+1. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
+1. Voer de volgende stappen uit in de eigenschappen van de **gebruiker** :
+   1. Voer in het veld **Naam** `B.Simon` in.  
+   1. Voer in het veld **gebruikers naam** het username@companydomain.extensionin. Bijvoorbeeld `B.Simon@contoso.com`.
+   1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
+   1. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
@@ -291,14 +165,94 @@ In deze sectie schakelt u Julia Simon in om eenmalige aanmelding van Azure te ge
 
     ![image](./media/zscaler-tutorial/tutorial_zscaler_assign.png)
 
+## <a name="configure-zscaler-sso"></a>Zscaler SSO configureren
+
+1. Als u de configuratie wilt automatiseren in Zscaler, moet u de **uitbrei ding mijn apps Secure Sign-in browser** installeren door te klikken op **de uitbrei ding installeren**.
+
+    ![Uitbrei ding voor mijn apps](common/install-myappssecure-extension.png)
+
+1. Nadat u de extensie aan de browser hebt toegevoegd, klikt u op **Setup Zscaler** gaat u naar de Zscaler-toepassing. Geef de beheerders referenties op om u aan te melden bij Zscaler. Met de browser uitbreiding wordt de toepassing automatisch voor u geconfigureerd en wordt stap 3-6 geautomatiseerd.
+
+    ![SSO instellen](common/setup-sso.png)
+
+1. Als u Zscaler hand matig wilt instellen, opent u een nieuw webbrowser venster en meldt u zich aan bij uw Zscaler-bedrijfs site als beheerder en voert u de volgende stappen uit:
+
+1. Ga naar **Beheer > Verificatie > Verificatie-instellingen** en voer de volgende stappen uit:
+
+    ![Beheer](./media/zscaler-tutorial/ic800206.png "Beheer")
+
+    a. Kies onder Verificatietype de optie **SAML**.
+
+    b. Klik op **SAML configureren**.
+
+1. Voer in het venster **SAML bewerken** de volgende stappen uit en klik op Opslaan.  
+
+    ![Manage Users & Authentication](./media/zscaler-tutorial/ic800208.png "Manage Users & Authentication")
+    
+    a. Plak in het tekstvak **SAML Portal URL** de **aanmeldings-URL** die u in de Azure-portal hebt gekopieerd.
+
+    b. Voer in het tekstvak **Login Name Attribute** **NameID** in.
+
+    c. Klik op **Uploaden** om het Azure SAML-ondertekeningscertificaat te uploaden dat u in de Azure-portal in het **openbare SSL-certificaat** hebt gedownload.
+
+    d. Schakel **Enable SAML Auto-Provisioning** in.
+
+    e. Voer in het tekstvak **User Display Name Attribute** **displayName** in als u automatische inrichting van SAML wilt inschakelen voor displayName-kenmerken.
+
+    f. Voer in het tekstvak **Group Name Attribute** **memberOf** in als u automatische inrichting van SAML wilt inschakelen voor memberOf-kenmerken.
+
+    g. Voer in het tekstvak **Department Name Attribute** **department** in als u automatische inrichting van SAML wilt inschakelen voor department-kenmerken.
+
+    h. Klik op **Opslaan**.
+
+1. Voer in het dialoogvenster **Configure User Authentication** de volgende stappen uit:
+
+    ![Beheer](./media/zscaler-tutorial/ic800207.png)
+
+    a. Beweeg de muisaanwijzer boven het menu **Activering** linksonder.
+
+    b. Klik op **Activeren**.
+
+## <a name="configuring-proxy-settings"></a>Proxyinstellingen configureren
+
+### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>De proxyinstellingen configureren in Internet Explorer
+
+1. Start **Internet Explorer**.
+
+1. Selecteer **Internetopties** in het menu **Extra** om het dialoogvenster **Internetopties** te openen.
+
+    ![Internetopties](./media/zscaler-tutorial/ic769492.png "Internetopties")
+
+1. Klik op het tabblad **Verbindingen**.
+  
+    ![Verbindingen](./media/zscaler-tutorial/ic769493.png "Verbindingen")
+
+1. Klik op **LAN-instellingen** om het dialoogvenster **LAN-instellingen** te openen.
+
+1. In het gedeelte Proxyserver voert u de volgende stappen uit:   
+
+    ![Proxyserver](./media/zscaler-tutorial/ic769494.png "Proxyserver")
+
+    a. Selecteer **Een proxyserver voor uw LAN-netwerk gebruiken**.
+
+    b. Typ **gateway.zscaler.net**in het tekstvak Address.
+
+    c. Typ **80** in het tekstvak Poort.
+
+    d. Selecteer **Proxyserver niet voor lokale adressen gebruiken**.
+
+    e. Klik op **OK** om het dialoogvenster **LAN-instellingen** te sluiten.
+
+1. Klik op **OK** om het dialoogvenster **Internetopties** te sluiten.
+
 ### <a name="create-zscaler-test-user"></a>Zscaler-test gebruiker maken
 
 In deze sectie wordt een gebruiker met de naam Julia Simon gemaakt in Zscaler. Zscaler biedt ondersteuning voor Just-in-time-gebruikers inrichting, die standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet bestaat in Zscaler, wordt er een nieuwe gemaakt na verificatie.
 
->[!Note]
->Als u hand matig een gebruiker moet maken, neemt u contact op met het ondersteunings [team van Zscaler](https://www.zscaler.com/company/contact).
+> [!Note]
+> Als u hand matig een gebruiker moet maken, neemt u contact op met het ondersteunings [team van Zscaler](https://www.zscaler.com/company/contact).
 
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
+## <a name="test-sso"></a>SSO testen 
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
@@ -306,9 +260,10 @@ Wanneer u op de tegel Zscaler in het toegangs venster klikt, moet u automatisch 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Probeer Zscaler met Azure AD](https://aad.portal.azure.com/)

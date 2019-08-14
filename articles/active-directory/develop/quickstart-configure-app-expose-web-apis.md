@@ -1,5 +1,5 @@
 ---
-title: Een toepassing om beschikbaar te stellen van web-API's - Microsoft identity-platform configureren
+title: Een toepassing configureren voor het beschikbaar maken van web-Api's-micro soft Identity-platform
 description: Leer hoe u een toepassing kunt configureren voor het beschikbaar maken van een nieuwe machtiging/nieuw bereik en een nieuwe rol, om de toepassing beschikbaar te maken voor clienttoepassingen.
 services: active-directory
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f770539e2f60a960a52a877dd4eaa79c60a1af4a
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: f9c8e4a2e5dadf64312481f33993911177c90bc7
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482676"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989277"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Quickstart: Een toepassing configureren voor het beschikbaar maken van web-API 's
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Quickstart: Een toepassing configureren voor het beschikbaar maken van web-Api's
 
 U kunt een web-API ontwikkelen en deze beschikbaar maken voor clienttoepassingen door [machtigingen/bereiken](developer-glossary.md#scopes) en [rollen](developer-glossary.md#roles) beschikbaar te maken. Een correct geconfigureerde web-API wordt net als de andere Microsoft web-API's beschikbaar gesteld, met inbegrip van de Graph API en de Office 365-API's.
 
@@ -44,7 +44,7 @@ Voordat u de app kunt configureren, volgt u deze stappen:
 
 1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
 1. Als u via uw account toegang hebt tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en stelt u de portalsessie in op de gewenste Azure Active Directory-tenant.
-1. Selecteer in het navigatiedeelvenster links het **Azure Active Directory** service en selecteer vervolgens **App-registraties**.
+1. Selecteer in het navigatie deel venster aan de linkerkant de **Azure Active Directory** -service en selecteer vervolgens **app-registraties**.
 1. Zoek en selecteer de toepassing die u wilt configureren. Wanneer u de app hebt geselecteerd, ziet u de pagina **Overzicht** of de hoofdregistratiepagina van de toepassing.
 1. Kies welke methode u wilt gebruiken - een gebruikersinterface of een toepassingsmanifest - om een nieuw bereik beschikbaar te maken:
     * [Een nieuw bereik beschikbaar maken via de gebruikersinterface](#expose-a-new-scope-through-the-ui)
@@ -52,7 +52,7 @@ Voordat u de app kunt configureren, volgt u deze stappen:
 
 ## <a name="expose-a-new-scope-through-the-ui"></a>Een nieuw bereik beschikbaar maken via de gebruikersinterface
 
-[![Laat zien hoe u een API met behulp van de gebruikersinterface beschikbaar](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+[![Laat zien hoe u een API beschikbaar maakt met behulp van de gebruikers interface](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
 
 Een nieuw bereik beschikbaar maken via de gebruikersinterface:
 
@@ -116,8 +116,9 @@ Een nieuw bereik beschikbaar maken via het toepassingsmanifest:
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Controleren of de web-API beschikbaar is gemaakt voor andere toepassingen
 
 1. Ga terug naar de Azure Active Directory-tenant, selecteer **App-registraties** en zoek en selecteer de clienttoepassing die u wilt configureren.
-1. Herhaal de stappen die worden beschreven in Een clienttoepassing configureren voor toegang tot web-API's.
-1. Wanneer u bij de stap **Een API selecteren** bent aangekomen, selecteert u de resource. U ziet nu het nieuwe bereik, dat beschikbaar is voor machtigingsaanvragen voor clients.
+1. Herhaal de stappen die worden beschreven in [Een clienttoepassing configureren voor toegang tot web-API's](quickstart-configure-app-access-web-apis.md).
+1. Wanneer u naar de stap gaat om [een API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
+)te selecteren, selecteert u uw resource. U ziet nu het nieuwe bereik, dat beschikbaar is voor machtigingsaanvragen voor clients.
 
 ## <a name="more-on-the-application-manifest"></a>Meer informatie over het toepassingsmanifest
 
