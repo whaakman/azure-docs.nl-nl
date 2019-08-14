@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 08/12/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ca42532fe6ba954180ce06ed0e3561e42f1fb447
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 9e3159a083d21e4a7a81df2fcf7a7d5db882b757
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424230"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976920"
 ---
 ::: zone target="docs"
 
@@ -109,12 +109,9 @@ Azure-data centers in Australië hebben een extra beveiligings melding. Alle ink
 1. Schrijf uw bedrijfs naam en adres gegevens in de begeleide notitie als gegevens van de afzender.
 2. Quantium-oplossing voor e-mail met de volgende e-mail sjabloon.
 
-    - Als er geen Chakubarai-zending van Japan post is opgenomen of ontbreekt, noteert u deze in dit e-mail bericht. Quantium Solutions Japan vraagt een Japanse post aan om de zending op te halen wanneer deze wordt opgehaald.
-    - Als u meerdere orders hebt, moet u een e-mail verzenden om afzonderlijke op te halen.
-
     ```
     To: Customerservice.JP@quantiumsolutions.com
-    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Subject: Pickup request for Microsoft Azure Data Box Disk｜Job Name： 
     Body: 
     - Japan Post Yu-Pack tracking number (reference number)：
     - Requested pickup date：mmdd (Select a requested time slot from below).
@@ -123,6 +120,9 @@ Azure-data centers in Australië hebben een extra beveiligings melding. Alle ink
         c. 15：00-17：00 
         d. 17：00-19：00 
     ```
+    - **Als u ophaalt in Osaka**, wijzigt u het onderwerp in het e-mail sjabloon naar `Pickup request for Microsoft Azure OSA`:.
+    - Als er geen Chakubarai-zending van Japan post is opgenomen of ontbreekt, noteert u deze in dit e-mail bericht. Quantium Solutions Japan vraagt een Japanse post aan om de zending op te halen wanneer deze wordt opgehaald.
+    - Als u meerdere orders hebt, moet u een e-mail verzenden om afzonderlijke op te halen.
 
 3. Ontvang een e-mail bevestiging van Quantium-oplossingen nadat u een ophaling hebt vastgelegd. De e-mail bevestiging bevat ook informatie over het Chakubarai-begeleidings document.
 

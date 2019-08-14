@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Implementatie vanuit GitHub in Azure App Service met Jenkins'
+title: 'Zelfstudie: Implementeren van GitHub naar Azure App Service met Jenkins'
 description: Jenkins instellen voor continue integratie (CI) vanuit GitHub en continue implementatie (CD) in Azure App Service voor Java-web-apps
 services: jenkins
 ms.service: jenkins
@@ -8,12 +8,13 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 51ca9602ff155bf61eb28a59a97faa7a06322c7a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.custom: seo-java-august2019
+ms.openlocfilehash: 955ce9724d576e56766ab3d87a374a65e4ca5c0e
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855162"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967124"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Zelfstudie: implementatie vanuit GitHub naar Azure App Service met continue integratie en implementatie in Jenkins
 

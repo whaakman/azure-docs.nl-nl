@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 07/31/2019
-ms.openlocfilehash: 0a497ce506e1aa3b0f9afc47bf1ab8382c9c0405
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: e571c65e64fad73c646aa05366cab685aa745caa
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951420"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68968853"
 ---
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) met behulp van de referenties voor het Azure-abonnement dat u gebruikt. 
 
@@ -45,10 +45,13 @@ ms.locfileid: "68951420"
 
    ![Status van het maken van de werk ruimte](./media/aml-create-in-portal/notifications.png)
 
-1. Als uw code naar deze werk ruimte verwijst vanuit uw lokale omgeving, selecteert u **downloaden van config. json** in het gedeelte **overzicht** van de werk ruimte.  
+1. Als u een gratis code optie van de portal gebruikt, zoals de Visual-Interface of geautomatiseerde ML experimenten, bent u nu klaar. Als u een [notebook-VM](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md#azure) maakt, bent u ook klaar. 
+
+1. Als u van plan bent code te gebruiken in uw lokale omgeving die verwijst naar deze werk ruimte, selecteert u **config. json downloaden** in het gedeelte **overzicht** van de werk ruimte.  
 
    ![Config.json downloaden](./media/aml-create-in-portal/configure.png)
+   
+   Plaats het bestand in de mapstructuur met uw python-scripts of Jupyter-notebooks. Deze kan zich in dezelfde map bevindt, in een submap met de naam *. azureml*of in een bovenliggende map. Wanneer u een VM van een notebook maakt, wordt dit bestand toegevoegd aan de juiste map op de virtuele machine.
 
-    Plaats dit JSON-bestand in de mapstructuur die uw python-scripts of Jupyter-notebooks bevat. Deze kan zich in dezelfde map bevindt, in een submap met de naam *. azureml*of in een bovenliggende map.
+    
 
-   Als u een [notebook-VM](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md#azure) wilt gebruiken, hoeft u dit bestand niet te downloaden, maar het wordt toegevoegd aan de juiste map op de virtuele machine.

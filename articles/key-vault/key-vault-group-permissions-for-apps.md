@@ -1,41 +1,41 @@
 ---
-title: Veel toepassingen om een Azure-sleutelkluis - Azure Key Vault toegang te verlenen tot | Microsoft Docs
-description: Leer hoe u toestemming te verlenen voor veel toepassingen toegang tot een key vault
+title: Veel toepassingen toegang verlenen tot een Azure-sleutel kluis-Azure Key Vault | Microsoft Docs
+description: Meer informatie over het verlenen van machtigingen aan veel toepassingen om toegang te krijgen tot een sleutel kluis
 services: key-vault
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 01/07/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: b1d0b0948e089d41f460ac2a54150ee51333f87c
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 07ee544057ffeb0a5859cc771b124523ec79c9c0
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64721996"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976406"
 ---
-# <a name="grant-several-applications-access-to-a-key-vault"></a>Verschillende toepassingen toegang verlenen tot een key vault
+# <a name="grant-several-applications-access-to-a-key-vault"></a>Verschillende toepassingen toegang verlenen tot een sleutel kluis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Beleid voor toegangsbeheer kan worden gebruikt om verschillende toepassingen toegang verlenen tot een key vault. Een beleid voor toegangsbeheer kan maximaal 1024 toepassingen ondersteunen en is als volgt geconfigureerd:
+Toegangs beheer beleid kan worden gebruikt om verschillende toepassingen toegang te verlenen tot een sleutel kluis. Een toegangscontrole beleid kan Maxi maal 1024 toepassingen ondersteunen en wordt als volgt geconfigureerd:
 
-1. Een Azure Active Directory-beveiligingsgroep maken. 
-2. Voeg alle van de toepassingen die de service-principals aan de beveiligingsgroep die is gekoppeld.
-3. De beveiliging groepstoegang verlenen tot uw Key Vault.
+1. Een Azure Active Directory beveiligings groep maken. 
+2. Voeg alle bijbehorende service-principals van de toepassing toe aan de beveiligings groep.
+3. Verleen de beveiligings groep toegang tot uw Key Vault.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Hier volgen de vereisten:
+Dit zijn de vereisten:
 * [Installeer Azure PowerShell](/powershell/azure/overview).
-* [Installeer de Azure Active Directory V2 PowerShell-module](https://www.powershellgallery.com/packages/AzureAD).
-* Machtigingen voor groepen in de Azure Active Directory-tenant maken/bewerken. Als u geen machtigingen hebt, moet u mogelijk contact op met uw Azure Active Directory-beheerder. Zie [over Azure Key Vault sleutels, geheimen en certificaten](about-keys-secrets-and-certificates.md) voor meer informatie over Key Vault-beleid toegangsmachtigingen.
+* [Installeer de Azure Active Directory v2 Power shell-module](https://www.powershellgallery.com/packages/AzureAD).
+* Machtigingen voor het maken/bewerken van groepen in de Azure Active Directory Tenant. Als u geen machtigingen hebt, moet u mogelijk contact opnemen met uw Azure Active Directory-beheerder. Zie [informatie over Azure Key Vault sleutels, geheimen en certificaten](about-keys-secrets-and-certificates.md) voor meer informatie over Key Vault machtigingen voor toegangs beleid.
 
 ## <a name="granting-key-vault-access-to-applications"></a>Key Vault toegang verlenen tot toepassingen
 
-Voer de volgende opdrachten uit in PowerShell:
+Voer de volgende opdrachten uit in Power shell:
 
 ```powershell
 # Connect to Azure AD 
@@ -60,8 +60,8 @@ Set-AzKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.Objec
 # Of course you can adjust the permissions as required 
 ```
 
-Als u een andere set machtigingen aan een groep van toepassingen te verlenen wilt, maakt u een afzonderlijke Azure Active Directory-beveiligingsgroep voor deze toepassingen.
+Als u een andere set machtigingen voor een groep toepassingen wilt verlenen, maakt u een afzonderlijke Azure Active Directory beveiligings groep voor dergelijke toepassingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het [uw key vault beveiligen](key-vault-secure-your-key-vault.md).
+Meer informatie over hoe u [uw sleutel kluis kunt beveiligen](key-vault-secure-your-key-vault.md).

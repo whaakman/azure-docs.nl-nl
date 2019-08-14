@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 08/01/2019
-ms.openlocfilehash: a834c3c20f11ee4dbf070ae7c836f302c82c9def
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 854760ea0158d356cc5449c9f1fdab6161588640
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950284"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976862"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Quickstart: Een Azure Data Catalog maken
 
@@ -36,7 +36,7 @@ U kunt per organisatie (Azure Active Directory-domein) slechts één gegevenscat
 
 1. Ga naar de [Azure Portal](https://portal.azure.com) > **een resource maken** en selecteer **Data Catalog**.
 
-    ![Data Catalog maken](media/data-catalog-get-started/data-catalog-create.png)
+    ![Knop Azure Data Catalog maken](media/data-catalog-get-started/data-catalog-create.png)
 
 2. Geef een **naam** op voor de gegevens catalogus, het **abonnement** dat u wilt gebruiken, de **locatie** voor de catalogus en de **prijs categorie**. Selecteer vervolgens **Maken**.
 

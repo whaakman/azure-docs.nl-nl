@@ -9,12 +9,12 @@ ms.date: 05/30/2018
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: 8e56b02b84c0324f723ead1bbf156c847edbbeb5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2cd7a83b597d656ddbb0210aacfe96f6c056248b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787993"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986688"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Toegang tot gegevens van een toepassing in de cloud beveiligen
 
@@ -27,11 +27,11 @@ In deel drie van de serie leert u het volgende:
 > * Versleuteling aan de serverzijde inschakelen
 > * Alleen-HTTPS-transport inschakelen
 
-[Azure Blob Storage](../common/storage-introduction.md#blob-storage) biedt een robuuste service voor het opslaan van bestanden voor toepassingen. Deze zelfstudie gaat nog een stapje verder dan [het vorige onderwerp][previous-tutorial] om te tonen hoe u toegang tot uw opslagaccount vanuit een webtoepassing kunt beveiligen. Wanneer u klaar bent, zijn de afbeeldingen versleuteld en gebruikt de web-app beveiligde SAS-tokens voor toegang tot de miniatuurafbeeldingen.
+[Azure Blob Storage](../common/storage-introduction.md#blob-storage) biedt een robuuste service voor het opslaan van bestanden voor toepassingen. In deze zelf studie wordt [het vorige onderwerp][previous-tutorial] uitgebreid om te laten zien hoe u de toegang tot uw opslag account kunt beveiligen vanuit een webtoepassing. Wanneer u klaar bent, zijn de afbeeldingen versleuteld en gebruikt de web-app beveiligde SAS-tokens voor toegang tot de miniatuurafbeeldingen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet de vorige zelfstudie over opslag hebben voltooid: [Formaat van geüploade afbeeldingen automatisch wijzigen met Event Grid][previous-tutorial]. 
+U moet de vorige zelfstudie over opslag hebben voltooid: Het [formaat van geüploade afbeeldingen automatisch wijzigen met behulp van Event grid][previous-tutorial]. 
 
 ## <a name="set-container-public-access"></a>Openbare toegang tot de container instellen
 
@@ -49,7 +49,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 ## <a name="configure-sas-tokens-for-thumbnails"></a>SAS-tokens voor miniaturen configureren
 
-In deel één van deze serie zelfstudies, werden door de webtoepassing afbeeldingen van een openbare container weergegeven. In dit deel van de serie gaat u [Shared Access Signature-tokens (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) gebruiken om de miniatuurafbeeldingen op te halen. Met SAS-tokens kunt u beperkte toegang verlenen tot een container of blob op basis van IP, protocol, tijdsinterval of toegestane rechten.
+In deel één van deze serie zelfstudies, werden door de webtoepassing afbeeldingen van een openbare container weergegeven. In dit deel van de reeks gebruikt u SAS-tokens (Shared Access signatures) om de miniatuur afbeeldingen op te halen. Met SAS-tokens kunt u beperkte toegang verlenen tot een container of blob op basis van IP, protocol, tijdsinterval of toegestane rechten. Zie voor meer informatie over SA'S [beperkte toegang verlenen tot Azure storage-resources met behulp van Shared Access signatures (SAS)](../common/storage-sas-overview.md).
 
 In dit voorbeeld maakt de opslagplaats van de broncode gebruik van de vertakking `sasTokens` die een bijgewerkt codevoorbeeld bevat. Verwijder de bestaande GitHub-implementatie met [az webapp deployment source delete](/cli/azure/webapp/deployment/source). Configureer vervolgens GitHub-implementatie naar de webtoepassing met de opdracht [az webapp deployment source config](/cli/azure/webapp/deployment/source).  
 
@@ -128,7 +128,7 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 
 In de vorige taak zijn de volgende klassen, eigenschappen en methoden gebruikt:
 
-|Klasse  |Properties| Methoden  |
+|Klasse  |properties| Methoden  |
 |---------|---------|---------|
 |[StorageCredentials](/dotnet/api/microsoft.azure.cosmos.table.storagecredentials)    |         |
 |[CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)     | |[CreateCloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient)        |

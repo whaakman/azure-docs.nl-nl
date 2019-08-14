@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37eb989f49593570aa9fcc2ee6f2e5863b59fbc1
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: fe57c0655cf01f8dfa0f9cd0d75584fd4f130c0a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637763"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976112"
 ---
 # <a name="tutorial-integrate-expensify-with-azure-active-directory"></a>Zelfstudie: Expensify integreren met Azure Active Directory
 
@@ -36,7 +36,7 @@ Zie [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Di
 
 U hebt de volgende items nodig om aan de slag te gaan:
 
-* Een Azure AD-abonnement Als u geen abonnement hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/)een gratis proef versie van één maand ontvangen.
+* Een Azure AD-abonnement Als u geen abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/)aanvragen.
 * Expensify-abonnement dat is ingeschakeld voor eenmalige aanmelding (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -56,20 +56,20 @@ Als u de integratie van Expensify met Azure AD wilt configureren, moet u Expensi
 1. Typ in de sectie **toevoegen vanuit de galerie** **Expensify** in het zoekvak.
 1. Selecteer **Expensify** uit het paneel resultaten en voeg vervolgens de app toe. Wacht een paar seconden wanneer de app aan uw Tenant is toegevoegd.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on-for-expensify"></a>Eenmalige aanmelding voor Azure AD configureren en testen voor Expensify
 
 Azure AD SSO met Expensify configureren en testen met behulp van een test gebruiker met de naam **B. Simon**. Voor het werken met SSO moet u een koppelings relatie tot stand brengen tussen een Azure AD-gebruiker en de bijbehorende gebruiker in Expensify.
 
 Als u Azure AD SSO wilt configureren en testen met Expensify, voltooit u de volgende bouw stenen:
 
 1. **[Configureer Azure AD SSO](#configure-azure-ad-sso)** -om uw gebruikers in staat te stellen deze functie te gebruiken.
+    1. **[Een Azure AD-test gebruiker maken](#create-an-azure-ad-test-user)** : u kunt eenmalige aanmelding voor Azure AD testen met B. Simon.
+    1. **[Wijs de Azure AD-test gebruiker](#assign-the-azure-ad-test-user)** toe, zodat B. Simon de eenmalige aanmelding van Azure AD kan gebruiken.
 2. **[EXPENSIFY SSO configureren](#configure-expensify-sso)** : voor het configureren van de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
-3. **[Een Azure AD-test gebruiker maken](#create-an-azure-ad-test-user)** : u kunt eenmalige aanmelding voor Azure AD testen met B. Simon.
-4. **[Wijs de Azure AD-test gebruiker](#assign-the-azure-ad-test-user)** toe, zodat B. Simon de eenmalige aanmelding van Azure AD kan gebruiken.
-5. **[Maak een Expensify-test gebruiker](#create-expensify-test-user)** -om een equivalent van B. Simon in Expensify te hebben dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
+    1. **[Maak een Expensify-test gebruiker](#create-expensify-test-user)** -om een equivalent van B. Simon in Expensify te hebben dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
 6. **[SSO testen](#test-sso)** : om te controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO configureren
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO configureren
 
 Volg deze stappen om Azure AD SSO in te scha kelen in de Azure Portal.
 
@@ -83,10 +83,12 @@ Volg deze stappen om Azure AD SSO in te scha kelen in de Azure Portal.
 
     a. In het tekstvak **Aanmeldings-URL** typt u een URL: `https://www.expensify.com/authentication/saml/login`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://www.<companyname>.expensify.com`
+    b. Typ een URL in het vak **Id (Entiteits-id)** : `https://www.expensify.com`
+
+    c. b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://www.expensify.com/authentication/saml/loginCallback?domain=<yourdomain>`
 
     > [!NOTE]
-    > De id-waarde is niet echt. Werk deze waarde bij met de werkelijke id. Neem contact op met [Expensify-ondersteuningsteam](mailto:help@expensify.com) om deze waarde op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > De waarde van de antwoord-URL is niet de echte waarde. Werk deze waarde bij met de werkelijke antwoord-URL. Neem contact op met [Expensify-ondersteuningsteam](mailto:help@expensify.com) om deze waarde op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 1. Ga op de pagina **eenmalige aanmelding met SAML instellen** naar de sectie SAML **-** **handtekening certificaat** en selecteer **downloaden** om het certificaat te downloaden en op uw computer op te slaan.
 
@@ -95,20 +97,6 @@ Volg deze stappen om Azure AD SSO in te scha kelen in de Azure Portal.
 1. Op de sectie **Expensify instellen** kopieert u de gewenste URL ('s) op basis van uw vereiste.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
-
-### <a name="configure-expensify-sso"></a>Expensify SSO configureren
-
-Als u SSO bij Expensify wilt inschakelen, moet u in de toepassing eerst **Domeincontrole** inschakelen. In de stappen die [hier](https://help.expensify.com/domain-control) worden vermeld, schakelt u Domeincontrole in. Voor extra ondersteuning richt u zich tot het [ondersteuningsteam van Expensify](mailto:help@expensify.com). Nadat u Domeincontrole hebt ingeschakeld, volgt u deze stappen:
-
-![Eenmalige aanmelding configureren](./media/expensify-tutorial/tutorial_expensify_51.png)
-
-1. Meld u aan bij uw Expensify-toepassing.
-
-2. Klik in het linkerdeelvenster op **Instellingen** en navigeer naar **SAML**.
-
-3. Schakel de optie **SAML-aanmelding** in op **Ingeschakeld**.
-
-4. Open de gedownloade federatiemetagegevens uit Azure AD in Kladblok, kopieer de inhoud en plak deze vervolgens in het tekstvak **Metagegevens identiteitsprovider**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
@@ -140,11 +128,25 @@ In deze sectie schakelt u B. Simon in om eenmalige aanmelding van Azure te gebru
 1. Als u een wille keurige rol verwacht in de SAML-bewering, selecteert u in het dialoog venster **rol selecteren** de juiste rol voor de gebruiker in de lijst en klikt u op de knop **selecteren** onder aan het scherm.
 1. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
+## <a name="configure-expensify-sso"></a>Expensify SSO configureren
+
+Als u SSO bij Expensify wilt inschakelen, moet u in de toepassing eerst **Domeincontrole** inschakelen. In de stappen die [hier](https://help.expensify.com/domain-control) worden vermeld, schakelt u Domeincontrole in. Voor extra ondersteuning richt u zich tot het [ondersteuningsteam van Expensify](mailto:help@expensify.com). Nadat u Domeincontrole hebt ingeschakeld, volgt u deze stappen:
+
+![Eenmalige aanmelding configureren](./media/expensify-tutorial/tutorial_expensify_51.png)
+
+1. Meld u aan bij uw Expensify-toepassing.
+
+2. Klik in het linkerdeelvenster op **Instellingen** en navigeer naar **SAML**.
+
+3. Schakel de optie **SAML-aanmelding** in op **Ingeschakeld**.
+
+4. Open de gedownloade federatiemetagegevens uit Azure AD in Kladblok, kopieer de inhoud en plak deze vervolgens in het tekstvak **Metagegevens identiteitsprovider**.
+
 ### <a name="create-expensify-test-user"></a>Testgebruiker voor Expensify maken
 
 In deze sectie maakt u een gebruiker met de naam B. Simon in Expensify. Werk met het [Expensify-klantenondersteuningsteam](mailto:help@expensify.com) om de gebruikers toe te voegen in het Expensify-platform.
 
-### <a name="test-sso"></a>SSO testen
+## <a name="test-sso"></a>SSO testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 

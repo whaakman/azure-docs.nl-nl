@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 08/13/2019
 ms.author: diberry
-ms.openlocfilehash: 1960856ce2f15945d1b1bfa093f349771d481ffc
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: db54a71a6bd252c1ca60ae356cbf340bc660d142
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663842"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989086"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Functies zijn informatie over acties en context
 
@@ -25,7 +25,7 @@ Personaler maakt gebruik van **functies**. Dit is informatie over de **huidige c
 
 U hebt bijvoorbeeld een **functie** over:
 
-* De _gebruiker_ , zoals een `UserID`. 
+* De _gebruiker_ , zoals een `Sports_Shopper`. Dit mag geen afzonderlijke gebruikers-ID zijn. 
 * De _inhoud_ , bijvoorbeeld als een video een `Documentary`, een `Movie`of een `TV Series`is, of een retail-item beschikbaar is in de Store.
 * De _huidige_ tijds periode, zoals de dag van de week.
 
@@ -150,7 +150,7 @@ U kunt verschillende andere [Azure-Cognitive Services](https://www.microsoft.com
 
 Elke actie:
 
-* Heeft een ID.
+* Heeft een _gebeurtenis_ -id. Als u al een gebeurtenis-ID hebt, moet u dat doen. Als u geen gebeurtenis-ID hebt, mag er geen worden verzonden, wordt er voor u een persoonlijker gemaakt en wordt deze geretourneerd in het antwoord van de rang aanvraag. De ID is gekoppeld aan de positie van de gebeurtenis, niet aan de gebruiker. Als u een ID maakt, werkt een GUID het beste. 
 * Bevat een lijst met functies.
 * De lijst met functies kan groot (honderden) zijn, maar we raden u aan de effectiviteit van de functie te evalueren om functies te verwijderen die niet bijdragen aan het verkrijgen van beloningen. 
 * De functies in de **acties** kunnen of mogelijk geen correlatie hebben met functies in de **context** die wordt gebruikt door personaler.

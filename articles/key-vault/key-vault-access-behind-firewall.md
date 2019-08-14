@@ -1,24 +1,24 @@
 ---
-title: Toegang tot Key Vault achter een firewall - Azure Key Vault | Microsoft Docs
+title: Toegang tot Key Vault achter een firewall-Azure Key Vault | Microsoft Docs
 description: Meer informatie over toegang tot Azure Key Vault vanuit een toepassing achter een firewall
 services: key-vault
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 01/07/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: bc6315f5ab264108369410b73a667fa1e07e1e44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57c5e3f2741f81bce2eff2d5ef2b0f2d029096e3
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689943"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976390"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Toegang tot Azure Key Vault achter een firewall
 
-## <a name="what-ports-hosts-or-ip-addresses-should-i-open-to-enable-my-key-vault-client-application-behind-a-firewall-to-access-key-vault"></a>Welke poorten, hosts of IP-adressen moet ik openen voor het inschakelen van de clienttoepassing voor key vault achter een firewall voor toegang tot key vault?
+## <a name="what-ports-hosts-or-ip-addresses-should-i-open-to-enable-my-key-vault-client-application-behind-a-firewall-to-access-key-vault"></a>Welke poorten, hosts of IP-adressen moet ik openen om mijn sleutel kluis-client toepassing achter een firewall in te scha kelen voor toegang tot de sleutel kluis?
 
 Als u toegang wilt krijgen tot een key vault, moet de clienttoepassing voor de key vault toegang hebben tot meerdere eindpunten voor verschillende functies:
 
@@ -32,7 +32,7 @@ Er zijn enkele verschillen, afhankelijk van uw configuratie en omgeving.
 
 Al het verkeer naar de key vault voor de drie functies (verificatie, beheer en toegang tot gegevenslaag) gaat via HTTPS: poort 443. Voor CRL gaat het verkeer soms echter via HTTP (poort 80). Clients die ondersteuning bieden voor OCSP, mogen CRL niet bereiken, maar kunnen soms [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl) bereiken.  
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
 Key vault-clienttoepassingen moet toegang hebben tot Azure Active Directory-eindpunten voor verificatie. Welk eindpunt wordt gebruikt, hangt af van de configuratie van de Azure AD-tenant en het type principal (gebruikers-principal of service-principal) en het type account, bijvoorbeeld een Microsoft-account of een werk- of schoolaccount.  
 

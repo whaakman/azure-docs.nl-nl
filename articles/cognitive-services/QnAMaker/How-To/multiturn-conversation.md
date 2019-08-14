@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: diberry
-ms.openlocfilehash: 264d9e89d22b30b83821f691e134d032eb4220f5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 585dc03503a61ff6666d3da3374586287e24283f
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563134"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966703"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Volg prompts gebruiken om meerdere beurten van een gesprek te maken
 
@@ -159,7 +159,7 @@ Wanneer u een nieuw vraag-en-antwoord paar toevoegt aan de Knowledge Base, moet 
 1. Selecteer in de kolom **antwoord** op deze vraag **opvolgen prompt toevoegen**. 
 1. Bij **opvolgings prompt (preview)** maakt u een nieuwe opvolgings prompt door de volgende waarden in te voeren: 
 
-    |Veld|Waarde|
+    |Veld|Value|
     |--|--|
     |Tekst weer geven|*Maak een Windows-account*. De aangepaste tekst die moet worden weer gegeven in de opvolgings prompt.|
     |Alleen context|Schakel dit selectie vakje in. Dit antwoord wordt alleen geretourneerd als de vraag context aangeeft.|

@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 978b56f5c38a154c79544c7deb5d49396b1deff9
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0d67385975db13539c28745eede4fb288a0daedd
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688865"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989146"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Quickstart: Een web-app maken waarmee de insluitende lezerC#wordt gestart ()
 
@@ -223,5 +223,7 @@ Wanneer u op de knop ' insluitende lezer ' klikt, ziet u dat de insluitende leze
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Bekijk de [zelf studie](./tutorial.md) om te zien wat u nog meer kunt doen met de SDK voor insluitende lezers
+* Bekijk de [node. js-zelf studie](./tutorial-nodejs.md) om te zien wat u nog meer kunt doen met de insluitende lezer-SDK met behulp van node. js
+* Bekijk de [python-zelf studie](./tutorial-python.md) om te zien wat u nog meer kunt doen met de insluitende Reader SDK met behulp van python
+* Bekijk de [IOS-zelf studie](./tutorial-ios-picture-immersive-reader.md) om te zien wat u nog meer kunt doen met de insluitende lezer-SDK met behulp van SWIFT
 * Verken de insluitende [Lezer SDK](https://github.com/microsoft/immersive-reader-sdk) en de referentie voor de insluitende [Lezer SDK](./reference.md)

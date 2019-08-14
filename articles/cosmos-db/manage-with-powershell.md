@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 08/05/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 79302fc0f9addc70461d21c03b02416d15a6fa6c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 45f5e21e05cf627d418cb66418cf305833a73891
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814942"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965095"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Azure Cosmos DB SQL-API-resources beheren met Power shell
 
@@ -87,7 +87,7 @@ Azure Cosmos-accounts kunnen worden geconfigureerd met IP-firewall en Virtual Ne
 
 ### <a id="list-accounts"></a>Alle Azure Cosmos-accounts in een abonnement weer geven
 
-Met deze opdracht kunt u een lijst met alle Azure Cosmos-accounts in een abonnement.
+Met deze opdracht kunt u alle Azure Cosmos-accounts in een abonnement weer geven.
 
 ```azurepowershell-interactive
 # List Azure Cosmos Accounts
@@ -116,16 +116,15 @@ Met deze opdracht kunt u de eigenschappen van uw Azure Cosmos DB-database bijwer
 
 * Regio's toevoegen of verwijderen
 * Standaard consistentie beleid wijzigen
-* Beleid voor failover wijzigen
 * IP-bereik filter wijzigen
 * Virtual Network configuraties wijzigen
 * Multi-Master inschakelen
 
 > [!NOTE]
-> Met deze opdracht kunt u toevoegen en verwijderen van regio's, maar staat niet toe dat u failover-prioriteiten wijzigen. Zie [prioriteit van failover voor een Azure Cosmos-account wijzigen](#modify-failover-priority)als u de prioriteit van failover wilt wijzigen.
+> Met deze opdracht kunt u regio's toevoegen en verwijderen, maar kunt u geen failover-prioriteiten wijzigen of de regio wijzigen met `failoverPriority=0`. Zie [prioriteit van failover voor een Azure Cosmos-account wijzigen](#modify-failover-priority)als u de prioriteit van failover wilt wijzigen.
 
 ```azurepowershell-interactive
-# Update an Azure Cosmos Account and set Consistency level to Session
+# Get an Azure Cosmos Account (assume it has two regions currently West US 2 and East US 2) and add a third region
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "myaccountname"
@@ -133,9 +132,13 @@ $accountName = "myaccountname"
 $account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
 
-$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
+$locations = @(
+    @{ "locationName"="West US 2"; "failoverPriority"=0 },
+    @{ "locationName"="East US 2"; "failoverPriority"=1 },
+    @{ "locationName"="South Central US"; "failoverPriority"=2 }
+)
 
-$account.Properties.consistencyPolicy = $consistencyPolicy
+$account.Properties.locations = $locations
 $CosmosDBProperties = $account.Properties
 
 Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
@@ -235,9 +238,9 @@ Select-Object $keys
 
 ### <a id="modify-failover-priority"></a>Prioriteit van failover wijzigen
 
-Voor database accounts met meerdere regio's kunt u de volg orde wijzigen waarin een Cosmos-account secundaire Lees-replica's onderneemt, anders moet er een regionale failover optreden op de primaire schrijf replica. Wanneer de regio met `failoverPriority=0` wordt gewijzigd, kan deze opdracht ook worden gebruikt om een nood herstel analyse te initiëren om planning van nood herstel te testen.
+Voor database accounts met meerdere regio's kunt u de volg orde wijzigen waarin een Cosmos-account secundaire Lees-replica's onderneemt, anders moet er een regionale failover optreden op de primaire schrijf replica. Wijzigen `failoverPriority=0` kan ook worden gebruikt om een nood herstel analyse te initiëren om planning voor nood herstel te testen.
 
-In het onderstaande voor beeld wordt ervan uitgegaan dat het account een huidige failover-prioriteit van westus = 0 en Oost-US = 1 heeft en de regio's spie gelen.
+In het onderstaande voor beeld wordt ervan uitgegaan dat het account een huidige `West US 2 = 0` failover `East US 2 = 1` -prioriteit heeft en de regio's spiegelt.
 
 > [!CAUTION]
 > Als `locationName` u `failoverPriority=0` wijzigt voor, wordt een hand matige failover geactiveerd voor een Azure Cosmos-account. Bij eventuele andere wijzigingen van de prioriteit wordt geen failover geactiveerd.
@@ -248,10 +251,14 @@ In het onderstaande voor beeld wordt ervan uitgegaan dat het account een huidige
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 
-$failoverPolicies = @(
-    @{ "locationName"="East US"; "failoverPriority"=0 },
-    @{ "locationName"="West US"; "failoverPriority"=1 }
+$failoverRegions = @(
+    @{ "locationName"="East US 2"; "failoverPriority"=0 },
+    @{ "locationName"="West US 2"; "failoverPriority"=1 }
 )
+
+$failoverPolicies = @{
+    "failoverPolicies"= $failoverRegions
+}
 
 Invoke-AzResourceAction -Action failoverPriorityChange `
     -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
