@@ -1,7 +1,7 @@
 ---
 title: ML-pijp lijnen maken, uitvoeren, & bijhouden
 titleSuffix: Azure Machine Learning service
-description: Maken en uitvoeren van een machine learning-pijplijn met de Azure Machine Learning-SDK voor Python. U gebruikt pijp lijnen om de werk stromen te maken en te beheren die samen machine learning (ML) fasen. Deze fasen omvatten gegevens voorbereiding, model training, model implementatie en defactory/Score.
+description: Maken en uitvoeren van een machine learning-pijplijn met de Azure Machine Learning-SDK voor Python. Gebruik ML-pijp lijnen om de werk stromen te maken en te beheren die samen machine learning (ML) fasen. Deze fasen omvatten gegevens voorbereiding, model training, model implementatie en defactory/Score.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,49 +9,48 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 05/02/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 497c4d9708a7b67bf0b5433c455d90dd277297d7
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1e68f60880e09dfeb46641f40eca12e1fc0560bc
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68873614"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950426"
 ---
-# <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Een machine learning pijp lijn maken en uitvoeren met behulp van Azure Machine Learning SDK
+# <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>machine learning-pijp lijnen maken en uitvoeren met Azure Machine Learning SDK
 
-In dit artikel leert u hoe u een [machine learning pijp lijn](concept-ml-pipelines.md) kunt maken, publiceren, uitvoeren en bijhouden met behulp van de [Azure machine learning SDK](https://aka.ms/aml-sdk).  Gebruik **ml-pijp lijnen** om een werk stroom te maken die verschillende stadia van de milliliter bundelt en vervolgens die pijp lijn naar uw Azure machine learning-werk ruimte te publiceren om deze later te openen of te delen met anderen.  
+In dit artikel leert u hoe u een [machine learning pijp lijn](concept-ml-pipelines.md) kunt maken, publiceren, uitvoeren en bijhouden met behulp van de [Azure machine learning SDK](https://aka.ms/aml-sdk).  Gebruik **ml-pijp lijnen** om een werk stroom te maken die verschillende stadia van de milliliter bundelt en vervolgens die pijp lijn naar uw Azure machine learning-werk ruimte te publiceren om deze later te openen of te delen met anderen.  ML-pijp lijnen zijn ideaal voor batch Score scenario's, met behulp van verschillende reken processen, het opnieuw gebruiken van stappen in plaats van deze opnieuw uit te voeren, evenals het delen van werk stromen met anderen. 
 
-U kunt ook een [Azure-pijp lijn](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) gebruiken om taken (CI/cd) ml te automatiseren, maar dit type pijp lijn wordt niet opgeslagen in uw werk ruimte. [Vergelijk deze typen pijp lijnen](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+Hoewel u een ander type pijp lijn kunt gebruiken dat een [Azure-pijp lijn](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) voor CI/cd-automatisering van ml-taken wordt genoemd, wordt die soort pijp lijn nooit opgeslagen in uw werk ruimte. [Vergelijk deze verschillende pijp lijnen](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
-Elke fase van een pijplijn, zoals gegevens voor te bereiden en trainen van het model, kan een of meer stappen bevatten.
+Elke fase van een ML-pijp lijn, zoals gegevens voorbereiding en model training, kan een of meer stappen bevatten.
 
-De pijplijnen die u maakt zijn zichtbaar voor de leden van de service Azure Machine Learning [werkruimte](how-to-manage-workspace.md). 
+De ML-pijp lijnen die u maakt, zijn zichtbaar voor de leden van uw Azure Machine Learning service- [werk ruimte](how-to-manage-workspace.md). 
 
-Externe compute-doelen pijplijnen gebruiken voor berekeningen en opslag van de tussenliggende en laatste gegevens die zijn gekoppeld aan die pijplijn. Pijp lijnen kunnen gegevens van en naar ondersteunde [Azure Storage](https://docs.microsoft.com/azure/storage/) locaties lezen en schrijven.
+ML-pijp lijnen gebruiken externe Compute-doelen voor berekening en de opslag van de tussenliggende en laatste gegevens die zijn gekoppeld aan deze pijp lijn. Ze kunnen gegevens lezen en schrijven naar ondersteunde [Azure Storage](https://docs.microsoft.com/azure/storage/) locaties.
 
 Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer de [gratis of betaalde versie van Azure machine learning service](https://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Vereisten
 
-* [Uw ontwikkelomgeving configureren](how-to-configure-environment.md) voor het installeren van de SDK van Azure Machine Learning.
+* Maak een [Azure Machine Learning-werkruimte](how-to-manage-workspace.md) voor het opslaan van alle resources van uw pijplijn.
 
-* Maak een [Azure Machine Learning-werkruimte](how-to-configure-environment.md#workspace) voor het opslaan van alle resources van uw pijplijn. 
+* [Configureer uw ontwikkel omgeving](how-to-configure-environment.md) om de Azure machine learning SDK te installeren of gebruik een [notebook-VM](tutorial-1st-experiment-sdk-setup.md#azure) met de SDK die al is geïnstalleerd.
 
-  ```python
-  from azureml.core import Workspace
-  
-  ws = Workspace.create(
-     name = '<workspace-name>',
-     subscription_id = '<subscription-id>',
-     resource_group = '<resource-group>',
-     location = '<workspace_region>',
-     exist_ok = True)
-  ```
+Begin met het koppelen van uw werk ruimte:
+
+```Python
+import azureml.core
+from azureml.core import Workspace, Datastore
+
+ws = Workspace.from_config()
+```
+
 
 ## <a name="set-up-machine-learning-resources"></a>Machine learning-resources instellen
 
-De resources die vereist voor het uitvoeren van een pijplijn maken:
+Maak de resources die vereist zijn voor het uitvoeren van een ML-pijp lijn:
 
 * Instellen van een gegevensarchief gebruikt voor toegang tot de gegevens die nodig zijn in de stappen van de pijplijn.
 
@@ -60,22 +59,24 @@ De resources die vereist voor het uitvoeren van een pijplijn maken:
 * Instellen van de [compute-doelen](concept-azure-machine-learning-architecture.md#compute-targets) op waarmee de stappen van de pijplijn wordt uitgevoerd.
 
 ### <a name="set-up-a-datastore"></a>Instellen van een gegevensarchief
+
 De gegevens voor de pijplijn voor toegang tot worden opgeslagen in een gegevensarchief. Elke werkruimte heeft een standaard-gegevensopslag. U kunt aanvullende gegevensopslag registreren. 
 
 Wanneer u uw werk ruimte maakt, worden [Azure files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) en [Azure Blob-opslag](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) gekoppeld aan de werk ruimte. Er is een standaard gegevens opslag geregistreerd om verbinding te maken met de Azure Blob-opslag. Zie [bepalen wanneer u Azure files, Azure-blobs of Azure-schijven wilt gebruiken](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)voor meer informatie. 
 
 ```python
-# Default datastore (Azure blob storage)
+# Default datastore 
 def_data_store = ws.get_default_datastore()
 
-# The above call is equivalent to this
-def_data_store = Datastore(ws, "workspaceblobstore")
+# Get the blob storage associated with the workspace
+def_blob_store = Datastore(ws, "workspaceblobstore")
 
 # Get file storage associated with the workspace
 def_file_store = Datastore(ws, "workspacefilestore")
+
 ```
 
-Upload bestanden of mappen met het gegevensarchief zodat deze toegankelijk is vanaf uw pijplijnen. In dit voor beeld wordt de Blob Storage-versie van het gegevens archief gebruikt:
+Upload bestanden of mappen met het gegevensarchief zodat deze toegankelijk is vanaf uw pijplijnen. In dit voor beeld wordt de Blob-opslag gebruikt als het gegevens archief:
 
 ```python
 def_blob_store.upload_files(
@@ -337,19 +338,21 @@ Wanneer u een pijp lijn voor het eerst uitvoert, Azure Machine Learning:
 
 Zie voor meer informatie de referentie over de experimentele [klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) .
 
+
+
 ## <a name="github-tracking-and-integration"></a>GitHub bijhouden en integreren
 
 Wanneer u begint met het uitvoeren van een training waarbij de bronmap een lokale Git-opslag plaats is, wordt informatie over de opslag plaats opgeslagen in de uitvoerings geschiedenis. De huidige doorvoer-ID voor de opslag plaats wordt bijvoorbeeld vastgelegd als onderdeel van de geschiedenis.
 
 ## <a name="publish-a-pipeline"></a>Publiceren van een pijplijn
 
-U kunt een pijplijn uit te voeren met verschillende soorten invoer later publiceren. Voor het REST-eind punt van een al gepubliceerde pijp lijn om para meters te accepteren, moet u de pijp lijn para meters voordat u deze publiceert. 
+U kunt een pijplijn uit te voeren met verschillende soorten invoer later publiceren. Voor het REST-eind punt van een al gepubliceerde pijp lijn om para meters te accepteren, moet u de pijp lijn para meters voordat u deze publiceert.
 
 1. Voor het maken van een pijplijnparameter gebruikt een [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) object met een standaardwaarde.
 
    ```python
    pipeline_param = PipelineParameter(
-     name="pipeline_arg", 
+     name="pipeline_arg",
      default_value=10)
    ```
 
@@ -360,20 +363,21 @@ U kunt een pijplijn uit te voeren met verschillende soorten invoer later publice
      script_name="compare.py",
      arguments=["--comp_data1", comp_data1, "--comp_data2", comp_data2, "--output_data", out_data3, "--param1", pipeline_param],
      inputs=[ comp_data1, comp_data2],
-     outputs=[out_data3],    
-     target=compute_target, 
+     outputs=[out_data3],
+     target=compute_target,
      source_directory=project_folder)
    ```
 
 3. Publiceer deze pijplijn waarmee een parameter wanneer aangeroepen worden geaccepteerd.
 
    ```python
-   published_pipeline1 = pipeline1.publish(
-       name="My_Published_Pipeline", 
-       description="My Published Pipeline Description")
+   published_pipeline1 = pipeline_run1.publish_pipeline(
+        name="My_Published_Pipeline",
+        description="My Published Pipeline Description",
+        version="1.0")
    ```
 
-## <a name="run-a-published-pipeline"></a>Een gepubliceerde pijplijn uitvoeren
+### <a name="run-a-published-pipeline"></a>Een gepubliceerde pijplijn uitvoeren
 
 Alle gepubliceerde pijp lijnen hebben een REST-eind punt. Met dit eind punt wordt de uitvoering van de pijp lijn vanuit externe systemen aangeroepen, zoals niet-python-clients. Met dit eind punt wordt ' beheerde Herhaal baarheid ' ingeschakeld in batch-scores en retraining-scenario's.
 
@@ -386,15 +390,28 @@ response = requests.post(published_pipeline1.endpoint,
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-## <a name="view-results"></a>Resultaten weergeven
+### <a name="view-results-of-a-published-pipeline"></a>Resultaten van een gepubliceerde pijp lijn weer geven
 
-Zie de lijst van alle uw pijplijnen en de details van de uitvoering:
+Bekijk de lijst met alle gepubliceerde pijp lijnen en de details van de uitvoering:
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).  
 
 1. [Uw werkruimte weergeven](how-to-manage-workspace.md#view) te vinden van de lijst met pijplijnen.
  ![lijst met machine learning-pijplijnen](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Selecteer een specifieke pijplijn om te zien van de resultaten van de uitvoering.
+
+### <a name="disable-a-published-pipeline"></a>Een gepubliceerde pijp lijn uitschakelen
+
+Als u een pijp lijn wilt verbergen in de lijst met gepubliceerde pijp lijnen, schakelt u deze uit:
+
+```
+# Get the pipeline by using its ID in the Azure portal
+p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
+p.disable()
+```
+
+U kunt deze opnieuw inschakelen met `p.enable()`.
+
 
 ## <a name="caching--reuse"></a>Caching & opnieuw gebruiken  
 
@@ -416,6 +433,7 @@ step = PythonScriptStep(name="Hello World",
  
 
 ## <a name="next-steps"></a>Volgende stappen
+
 - Gebruik [deze Jupyter-notebooks in GitHub](https://aka.ms/aml-pipeline-readme) machine learning-pijplijnen verder verkennen.
 - Raadpleeg de help van de SDK-verwijzing voor de [azureml-pijplijnen-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) pakket en de [azureml-pijplijnen-stappen](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) pakket.
 

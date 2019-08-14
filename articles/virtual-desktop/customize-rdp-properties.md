@@ -1,58 +1,58 @@
 ---
-title: Eigenschappen van RDP met PowerShell - Azure aanpassen
-description: Het RDP-eigenschappen voor Windows virtueel bureaublad aanpassen met PowerShell-cmdlets.
+title: RDP-eigenschappen aanpassen met Power shell-Azure
+description: RDP-eigenschappen voor virtuele Windows-Bureau bladen aanpassen met Power shell-cmdlets.
 services: virtual-desktop
-author: v-hevem
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: v-hevem
-ms.openlocfilehash: ce14f990272fa1e70d07c0f4a1f18025b536eccc
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: helohr
+ms.openlocfilehash: 624edaea9a0fb56e34eb83f033dfdab64985bd5c
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618867"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950716"
 ---
-# <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Remote Desktop Protocol-eigenschappen voor een groep host aanpassen
+# <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Remote Desktop Protocol eigenschappen voor een hostgroep aanpassen
 
-Eigenschappen van een host-pool Remote Desktop Protocol (RDP), zoals meerdere beeldschermen ervaring en audio-omleiding, aanpassen, kunt u een optimale gebruikerservaring voor uw gebruikers op basis van hun behoeften. U kunt de RDP-eigenschappen in met behulp van virtuele Windows-bureaublad aanpassen de **- CustomRdpProperty** parameter in de **Set RdsHostPool** cmdlet.
+Als u de eigenschappen van de Remote Desktop Protocol (RDP) van een hostgroep wilt aanpassen, zoals de ervaring voor meerdere monitors en audio-omleiding, kunt u een optimale ervaring bieden aan uw gebruikers op basis van hun behoeften. U kunt RDP-eigenschappen in virtueel bureau blad van Windows aanpassen met behulp van de para meter **-CustomRdpProperty** in de cmdlet **set-RdsHostPool** .
 
-Zie [Remote Desktop RDP-bestandsinstellingen](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files) voor een volledige lijst met ondersteunde eigenschappen en hun standaardwaarden.
+Zie [extern bureaublad RDP-Bestands instellingen](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files) voor een volledige lijst met ondersteunde eigenschappen en hun standaard waarden.
 
-Eerste, [downloaden en importeren van de Windows virtuele bureaublad PowerShell-module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) te gebruiken in uw PowerShell-sessie als u dat nog niet gedaan hebt.
+[Down load en Importeer eerst de Windows Virtual Desktop Power shell-module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) voor gebruik in uw Power shell-sessie als u dat nog niet hebt gedaan.
 
-## <a name="add-or-edit-a-single-custom-rdp-property"></a>Toevoegen of bewerken van een aangepaste eigenschap RDP
+## <a name="add-or-edit-a-single-custom-rdp-property"></a>Eén aangepaste RDP-eigenschap toevoegen of bewerken
 
-Als u wilt toevoegen of bewerken van een aangepaste eigenschap RDP, voer de volgende PowerShell-cmdlet:
+Als u één aangepaste RDP-eigenschap wilt toevoegen of bewerken, voert u de volgende Power shell-cmdlet uit:
 
 ```powershell
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty "<property>"
 ```
-![Een schermafbeelding van de PowerShell-cmdlet Get-RDSRemoteApp met de naam en FriendlyName gemarkeerd.](media/singlecustomrdpproperty.png)
+![Een scherm opname van de Power shell-cmdlet Get-RDSRemoteApp met de naam en FriendlyName is gemarkeerd.](media/singlecustomrdpproperty.png)
 
-## <a name="add-or-edit-multiple-custom-rdp-properties"></a>Toevoegen of bewerken aangepaste meerdere RDP-eigenschappen
+## <a name="add-or-edit-multiple-custom-rdp-properties"></a>Meerdere aangepaste RDP-eigenschappen toevoegen of bewerken
 
-Als u wilt toevoegen of bewerken aangepaste meerdere RDP-eigenschappen, de volgende PowerShell-cmdlets worden uitgevoerd door te geven van de aangepaste RDP-eigenschappen als een tekenreeks met door puntkomma's gescheiden:
+Als u meerdere aangepaste RDP-eigenschappen wilt toevoegen of bewerken, voert u de volgende Power shell-cmdlets uit door de aangepaste RDP-eigenschappen op te geven als een door punt komma's gescheiden teken reeks:
 
 ```powershell
 $properties="<property1>;<property2>;<property3>"
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty $properties
 ```
-![Een schermafbeelding van de PowerShell-cmdlet Get-RDSRemoteApp met de naam en FriendlyName gemarkeerd.](media/multiplecustomrdpproperty.png)
+![Een scherm opname van de Power shell-cmdlet Get-RDSRemoteApp met de naam en FriendlyName is gemarkeerd.](media/multiplecustomrdpproperty.png)
 
-## <a name="reset-all-custom-rdp-properties"></a>Opnieuw instellen van alle aangepaste RDP-eigenschappen
+## <a name="reset-all-custom-rdp-properties"></a>Alle aangepaste RDP-eigenschappen opnieuw instellen
 
-U kunt afzonderlijke aangepaste RDP-eigenschappen op hun standaardwaarden herstellen door de instructies in [toevoegen of bewerken van een aangepaste eigenschap RDP](#add-or-edit-a-single-custom-rdp-property), of u kunt alle aangepaste RDP-eigenschappen voor een groep host opnieuw instellen door het uitvoeren van de volgende PowerShell-cmdlet:
+U kunt afzonderlijke aangepaste RDP-eigenschappen opnieuw instellen op de standaard waarden door de instructies in [een enkele aangepaste RDP-eigenschap toevoegen of bewerken](#add-or-edit-a-single-custom-rdp-property)te volgen, of u kunt alle aangepaste RDP-eigenschappen voor een hostgroep opnieuw instellen door de volgende Power shell-cmdlet uit te voeren:
 
 ```powershell
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty ""
 ```
-![Een schermafbeelding van de PowerShell-cmdlet Get-RDSRemoteApp met de naam en FriendlyName gemarkeerd.](media/resetcustomrdpproperty.png)
+![Een scherm opname van de Power shell-cmdlet Get-RDSRemoteApp met de naam en FriendlyName is gemarkeerd.](media/resetcustomrdpproperty.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u de RDP-eigenschappen voor een bepaalde host pool hebt aangepast, kunt u zich een virtuele Windows-bureaublad-client om te testen als onderdeel van een gebruikerssessie. Om dit te doen, gaat u verder naar het verbinding maken met Windows virtuele bureaublad uitleg:
+Nu u de RDP-eigenschappen voor een bepaalde hostgroep hebt aangepast, kunt u zich aanmelden bij een virtueel-bureaubladclient van Windows om ze te testen als onderdeel van een gebruikers sessie. Als u dit wilt doen, gaat u naar de uitleg verbinding maken met Windows virtueel bureau blad:
 
 - [Verbinding maken vanaf Windows 10 en Windows 7](connect-windows-7-and-10.md)
 - [Verbinding maken via een webbrowser](connect-web.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: e43b8c951d8c7d5d60904fe49d8639efaba5c89f
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 529a8b6136a5d9c69b044df2614644bdbd4fd4f4
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775863"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012096"
 ---
 Galerie met gedeelde afbeeldingen is een service die u helpt bij het bouwen van structuur en organisatie rond uw beheerde installatie kopieën. Galerieën met gedeelde afbeeldingen bieden:
 
@@ -73,7 +73,7 @@ Hieronder ziet u andere para meters die kunnen worden ingesteld voor de definiti
 
 ## <a name="regional-support"></a>Regionale ondersteuning
 
-De bron regio's worden weer gegeven in de volgende tabel. Alle open bare regio's kunnen doel regio's zijn, maar om naar Australië-centraal te repliceren en Australië-centraal 2 moet u uw abonnement white list. Als u White List wilt aanvragen, gaat u naar: https://azure.microsoft.com/en-au/global-infrastructure/australia/contact/
+De bron regio's worden weer gegeven in de volgende tabel. Alle open bare regio's kunnen doel regio's zijn, maar om naar Australië-centraal te repliceren en Australië-centraal 2 moet u uw abonnement white list. Als u White List wilt aanvragen, gaat u naar: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 
 | Bron regio's |
@@ -179,7 +179,7 @@ Met de volgende Sdk's wordt ondersteuning geboden voor het maken van gedeelde af
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
 - [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Go](https://docs.microsoft.com/go/azure/)
+- [Go](https://docs.microsoft.com/azure/go/)
 
 ## <a name="templates"></a>Sjablonen
 

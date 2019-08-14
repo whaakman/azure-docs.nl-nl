@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 8e24489ad2909879b035a08316e66788034e99bc
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 5ef1749217dd8980892d7bf933cbe1412929fbbd
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377210"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976981"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Verrijkingen van berichten voor IoT Hub berichten van apparaat-naar-Cloud (preview-versie)
 
@@ -29,9 +29,9 @@ Een bericht verrijking heeft drie belang rijke elementen:
 
 * Een of meer [eind punten](iot-hub-devguide-endpoints.md) waarvoor de verrijking moet worden toegepast.
 
-De sleutel kan een wille keurige teken reeks zijn.
+De **sleutel** is een teken reeks. Een sleutel mag alleen alfanumerieke tekens bevatten of deze speciale tekens: hyphen`-`(), onderstrepings teken (`_`) en`.`punt ().
 
-De waarde kan een van de volgende voor beelden zijn:
+De **waarde** kan een van de volgende voor beelden zijn:
 
 * Een statische teken reeks. Dynamische waarden zoals voor waarden, logica, bewerkingen en functies zijn niet toegestaan. Als u bijvoorbeeld een SaaS-toepassing ontwikkelt die wordt gebruikt door verschillende klanten, kunt u een id toewijzen aan elke klant en die id beschikbaar maken in de toepassing. Wanneer de toepassing wordt uitgevoerd, stemt IoT Hub de telemetrie-berichten van het apparaat in met de id van de klant, waardoor het mogelijk is om de berichten anders voor elke klant te verwerken.
 

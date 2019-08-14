@@ -6,13 +6,13 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 797caae3caaca14c10481cb58654c45b4bed55ae
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.date: 08/09/2019
+ms.openlocfilehash: 1e5eb1e363ac9e282a72a9c1430c3f80c825bb91
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884319"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945078"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migreren naar gedetailleerde, op rollen gebaseerde toegang voor clusterconfiguraties
 
@@ -20,8 +20,9 @@ We introduceren enkele belang rijke wijzigingen ter ondersteuning van meer verfi
 
 ## <a name="what-is-changing"></a>Wat wordt er gewijzigd?
 
-Voorheen kunnen geheimen worden verkregen via de HDInsight API door cluster gebruikers die beschikken over de [rol](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)van eigenaar, bijdrager of lezer, aangezien ze beschikbaar zijn voor iedereen met de `*/read` machtiging.
-Als u toegang wilt krijgen tot deze geheimen, `Microsoft.HDInsight/clusters/configurations/*` is de machtiging vereist, wat betekent dat gebruikers niet langer toegang hebben tot de rol van lezer. Geheimen worden gedefinieerd als waarden die kunnen worden gebruikt om meer verhoogde toegang te verkrijgen dan de rol van een gebruiker moet toestaan. Dit zijn onder andere waarden zoals de HTTP-referenties van de cluster gateway, sleutels voor opslag accounts en database referenties.
+Voorheen kunnen geheimen worden verkregen via de HDInsight API door cluster gebruikers die beschikken over de [rol](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)van eigenaar, bijdrager of lezer, aangezien ze beschikbaar zijn voor iedereen met de `*/read` machtiging. Geheimen worden gedefinieerd als waarden die kunnen worden gebruikt om meer verhoogde toegang te verkrijgen dan de rol van een gebruiker moet toestaan. Dit zijn onder andere waarden zoals de HTTP-referenties van de cluster gateway, sleutels voor opslag accounts en database referenties.
+
+Als u toegang wilt krijgen tot deze geheimen, `Microsoft.HDInsight/clusters/configurations/action` is de machtiging vereist, wat betekent dat gebruikers niet langer toegang hebben tot de rol van lezer. De functies die deze machtiging hebben, zijn Inzender, eigenaar en de nieuwe rol HDInsight-cluster operator (meer hierover).
 
 We introduceren ook een nieuwe rol van een [HDInsight-cluster operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) die geheimen kan ophalen zonder dat de beheerders machtigingen van Inzender of eigenaar worden toegewezen. Samenvatten:
 
@@ -128,7 +129,7 @@ Update naar [versie 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.0.0/)
 
 ### <a name="sdk-for-java"></a>SDK voor Java
 
-Update naar [versie 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/) of hoger van de HDINSIGHT-SDK voor Java. U kunt minimale code wijzigingen opgeven als u een methode gebruikt die wordt beïnvloed door deze wijzigingen:
+Update naar [versie 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar) of hoger van de HDINSIGHT-SDK voor Java. U kunt minimale code wijzigingen opgeven als u een methode gebruikt die wordt beïnvloed door deze wijzigingen:
 
 - [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get)**retourneert niet langer gevoelige para meters** , zoals opslag sleutels (kern site) of http-referenties (gateway).
     - Gebruik [`ConfigurationsInner.list`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.configurationsinner.list?view=azure-java-stable) voorwaarts om alle configuraties, inclusief gevoelige para meters, op te halen.  Houd er rekening mee dat gebruikers met de rol ' lezer ' deze methode niet kunnen gebruiken. Dit biedt gedetailleerde controle over welke gebruikers toegang hebben tot gevoelige informatie voor een cluster. 
