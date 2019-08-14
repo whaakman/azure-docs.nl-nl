@@ -83,7 +83,7 @@
             - name: Een privécloud verwijderen
               href: delete-private-cloud.md
         - name: CloudSimple-activiteit controleren
-          href: 'https://docs.azure.cloudsimple.com/activity/'
+          href: monitor-activity.md
         - name: Privécloudnetwerken instellen
           items:
             - name: VLAN's en subnetten maken en beheren
