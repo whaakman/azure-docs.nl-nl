@@ -1,167 +1,169 @@
 ---
-title: Herschrijf de HTTP-headers met Azure Application Gateway | Microsoft Docs
-description: In dit artikel biedt een overzicht van het herschrijven van HTTP-headers in Azure Application Gateway
+title: HTTP-headers herschrijven met Azure-toepassing gateway | Microsoft Docs
+description: Dit artikel bevat een overzicht van het herschrijven van HTTP-headers in Azure-toepassing gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 08/08/2019
 ms.author: absha
-ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6f26eca0592017306eaefd3f5fecb544dc6fb36
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476030"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932194"
 ---
-# <a name="rewrite-http-headers-with-application-gateway"></a>Herschrijf de HTTP-headers met Application Gateway
+# <a name="rewrite-http-headers-with-application-gateway"></a>HTTP-headers herschrijven met Application Gateway
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-HTTP-headers kunnen een client en server om door te geven aanvullende informatie met een aanvraag of antwoord. Deze headers herschrijven, kunt u belangrijke taken, zoals beveiligingsgerelateerde kopvelden, zoals HSTS / X-XSS-beveiliging toe te voegen en verwijderen van informatie over de poort van verwijderen van antwoord-header-velden die mogelijk gevoelige informatie onthullen uitvoeren X-doorgestuurd-voor-headers.
+Met HTTP-headers kan een client en server aanvullende informatie door geven met een aanvraag of antwoord. Door deze headers te herschrijven, kunt u belang rijke taken uitvoeren, zoals het toevoegen van aan beveiliging gerelateerde header velden zoals HSTS/X-XSS-Protection, het verwijderen van antwoord header velden die mogelijk gevoelige informatie onthullen en poort gegevens verwijderen uit X-doorgestuurd-voor kopteksten.
 
 In Application Gateway kunt u headers van HTTP-aanvragen en -antwoorden toevoegen, verwijderen of bijwerken terwijl aanvraag- en antwoordpakketten zich verplaatsen tussen de client en back-endpools. En u kunt voorwaarden toevoegen om ervoor te zorgen dat de opgegeven headers alleen worden herschreven wanneer is voldaan aan bepaalde voorwaarden.
 
-Application Gateway ondersteunt ook meerdere [servervariabelen](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) waarmee u meer informatie over aanvragen en antwoorden opslaan. Dit maakt het eenvoudiger voor u om krachtige herschrijvingsregels te maken.
+Application Gateway biedt ook ondersteuning voor verschillende [Server variabelen](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) die u helpen bij het opslaan van aanvullende informatie over aanvragen en antwoorden. Dit maakt het eenvoudiger voor u om krachtige regels voor herschrijven te maken.
 
 > [!NOTE]
 >
-> De HTTP-ondersteuning voor het herschrijven van-header is alleen beschikbaar voor de [Standard_V2 en WAF_v2 SKU](application-gateway-autoscaling-zone-redundant.md).
+> De ondersteuning voor het opnieuw schrijven van HTTP-headers is alleen beschikbaar voor de [SKU Standard_V2 en WAF_v2](application-gateway-autoscaling-zone-redundant.md).
 
-![Voor het herschrijven van kopteksten](media/rewrite-http-headers/rewrite-headers.png)
+![Headers opnieuw schrijven](media/rewrite-http-headers/rewrite-headers.png)
 
-## <a name="supported-headers"></a>Ondersteunde kopteksten
+## <a name="supported-headers"></a>Ondersteunde headers
 
-U kunt alle headers in aanvragen en antwoorden, met uitzondering van de Host, verbinding en Upgrade-headers herschrijven. U kunt ook de toepassingsgateway te maken van aangepaste kopteksten en ze toevoegen aan de aanvragen en -antwoorden worden gerouteerd via deze gebruiken.
+U kunt alle headers in aanvragen en antwoorden opnieuw schrijven, met uitzonde ring van de headers host, verbinding en upgrade. U kunt ook de Application gateway gebruiken om aangepaste kopteksten te maken en deze toe te voegen aan de aanvragen en antwoorden die via deze service worden doorgestuurd.
 
-## <a name="rewrite-conditions"></a>Herschrijf de voorwaarden
+## <a name="rewrite-conditions"></a>Voor waarden opnieuw schrijven
 
-U kunt herschrijven voorwaarden gebruiken om te evalueren van de inhoud van HTTP (S) aanvragen en antwoorden en uitvoeren van een koptekst herschrijven alleen wanneer een of meer voorwaarden wordt voldaan. De application gateway maakt gebruik van deze typen variabelen voor de evaluatie van de inhoud van HTTP (S) aanvragen en antwoorden:
+U kunt herschrijf voorwaarden gebruiken om de inhoud van HTTP (S)-aanvragen en-antwoorden te evalueren en een herschrijf bewerking voor de header alleen uit te voeren als aan een of meer voor waarden wordt voldaan. De toepassings gateway gebruikt deze typen variabelen om de inhoud van HTTP (S)-aanvragen en-antwoorden te evalueren:
 
 - HTTP-headers in de aanvraag.
 - HTTP-headers in het antwoord.
-- Variabelen voor Application Gateway-server.
+- Application Gateway server-variabelen.
 
-U kunt een voorwaarde om te evalueren of een opgegeven variabele aanwezig, is of een opgegeven variabele komt overeen met een specifieke waarde, of dat een opgegeven variabele overeenkomt met een specifieke patroon gebruiken. U gebruikt de [Perl compatibel reguliere expressies (PCRE)-bibliotheek](https://www.pcre.org/) voor het instellen van reguliere-expressiepatroon die overeenkomt met de voorwaarden. Zie voor meer informatie over de syntaxis van reguliere expressie, de [Perl reguliere expressies hoofdpagina](https://perldoc.perl.org/perlre.html).
+U kunt een voor waarde gebruiken om te evalueren of een opgegeven variabele aanwezig is, of een opgegeven variabele overeenkomt met een specifieke waarde, of of een opgegeven variabele overeenkomt met een specifiek patroon. U gebruikt de [perl compatibele reguliere expressies (pcre) bibliotheek](https://www.pcre.org/) voor het instellen van reguliere expressie patroon matching in de voor waarden. Voor meer informatie over de syntaxis van een reguliere expressie raadpleegt u de [hoofd pagina van de perl-reguliere expressies](https://perldoc.perl.org/perlre.html).
 
-## <a name="rewrite-actions"></a>Herschrijf de acties
+## <a name="rewrite-actions"></a>Acties opnieuw schrijven
 
-U herschrijven acties gebruiken om op te geven van de aanvraag- en reactieheaders die u wilt opnieuw schrijven en de nieuwe waarde voor de headers. U kunt maakt u een nieuwe, de waarde van een bestaande koptekst wijzigen of verwijderen van een bestaande-header. De waarde van een nieuwe kop of een bestaande-header kan worden ingesteld op dergelijke waarden:
+U gebruikt herschrijf acties om de aanvraag-en antwoord headers op te geven die u wilt herschrijven en de nieuwe waarde voor de kopteksten. U kunt een nieuwe header maken, de waarde van een bestaande koptekst wijzigen of een bestaande header verwijderen. De waarde van een nieuwe koptekst of een bestaande koptekst kan worden ingesteld op deze typen waarden:
 
-- De tekst.
-- De aanvraagheader. Als u wilt een aanvraagheader opgeeft, moet u de syntaxis van de {http_req_*headernaam*}.
-- Antwoordheader. Als u wilt een antwoordheader opgeeft, moet u de syntaxis van de {http_resp_*headernaam*}.
-- Servervariabele. Als u wilt opgeven als u servervariabelen, moet u de syntaxis van de {var_*serverVariable*}.
-- Een combinatie van tekst, een aanvraagheader, een antwoordheader en een servervariabele.
+- SMS.
+- Aanvraag header. Als u een aanvraag header wilt opgeven, moet u de syntaxis {http_req_-headernaam} gebruiken.
+- Antwoordheader. Als u een antwoord header wilt opgeven, moet u de syntaxis {http_resp_-headernaam} gebruiken.
+- Server variabele. Als u een server variabele wilt opgeven, moet u de syntaxis {var_*serverVariable*} gebruiken.
+- Een combi natie van tekst, een aanvraag header, een reactie header en een server variabele.
 
-## <a name="server-variables"></a>Servervariabelen voor de
+## <a name="server-variables"></a>Server variabelen
 
-Application Gateway maakt gebruik van servervariabelen voor de voor het opslaan van nuttige informatie over de server, wordt de verbinding met de client en de huidige aanvraag via de verbinding. Voorbeelden van de gegevens die zijn van de client-IP-adres en het type web browser. Servervariabelen dynamisch worden gewijzigd, bijvoorbeeld wanneer een nieuwe pagina wordt geladen of wanneer een formulier wordt geplaatst. U kunt deze variabelen gebruiken om te herschrijven voorwaarden evalueren en headers herschrijven.
+Application Gateway gebruikt Server variabelen om nuttige informatie over de server, de verbinding met de client en de huidige aanvraag op de verbinding op te slaan. Voor beelden van opgeslagen informatie zijn het IP-adres van de client en het type webbrowser. Server variabelen worden dynamisch gewijzigd, bijvoorbeeld wanneer een nieuwe pagina wordt geladen of wanneer een formulier wordt gepost. U kunt deze variabelen gebruiken om herschrijf voorwaarden te evalueren en kopteksten opnieuw te schrijven.
 
-Application gateway ondersteunt de servervariabelen voor deze:
+Application Gateway ondersteunt deze server variabelen:
 
 | Naam van de variabele | Description                                                  |
 | -------------------------- | :----------------------------------------------------------- |
-| add_x_forwarded_for_proxy  | Het veld met de X doorgestuurd voor client-header met de `client_ip` variabele (Zie de uitleg later in deze tabel) toegevoegd aan het in de notatie IP1, IP2, IP3, enzovoort. Als het veld X doorgestuurd voor zich niet in de aanvraagheader van de client de `add_x_forwarded_for_proxy` variabele is gelijk aan de `$client_ip` variabele. Deze variabele is bijzonder nuttig wanneer u de X-doorgestuurd-voor-header instellen door Application Gateway wilt, zodat de header alleen de IP-adres zonder de poortgegevens bevat herschrijven. |
-| ciphers_supported          | Een lijst van de coderingen die wordt ondersteund door de client.          |
-| ciphers_used               | De tekenreeks van de coderingen die worden gebruikt voor een vastgestelde SSL-verbinding. |
-| client_ip                  | Het IP-adres van de client van waaruit de application gateway de aanvraag ontvangen. Als er een omgekeerde proxy voor de toepassingsgateway en de oorspronkelijke client *client_ip* retourneert het IP-adres van de omgekeerde proxy. |
-| client_port                | De clientpoort.                                                  |
-| client_tcp_rtt             | Informatie over de client TCP-verbinding. Beschikbaar op systemen die ondersteuning bieden voor de optie TCP_INFO socket. |
-| client_user                | Als HTTP-verificatie wordt gebruikt, wordt de naam van de gebruiker opgegeven voor verificatie. |
-| host                       | In deze volgorde van prioriteit: de naam van de host vanaf de opdrachtregel van de aanvraag, de hostnaam van het veld met de Host-header of de naam van de server die overeenkomt met een aanvraag. |
-| cookie_*naam*              | De *naam* cookie.                                            |
-| http_method                | de methode die wordt gebruikt voor het maken van de URL-aanvraag. Bijvoorbeeld, ophalen of een bericht geplaatst. |
-| http_status                | De sessiestatus. Bijvoorbeeld, 200, 400 of 403.                       |
-| http_version               | De aanvraagprotocol. Meestal HTTP/1.0, HTTP/1.1 of HTTP-/ 2.0. |
-| query_string               | De lijst met variabele/waarde-paren die volgt op de '? ' in de aangevraagde URL. |
-| received_bytes             | De lengte van de aanvraag (met inbegrip van de aanvraagregel, koptekst en hoofdtekst van de aanvraag). |
-| request_query              | De argumenten in de aanvraagregel.                                |
-| request_scheme             | Het schema van de aanvraag: http of https.                            |
+| add_x_forwarded_for_proxy  | Het veld X-doorgestuurde client aanvraag header met de `client_ip` variabele (Zie de uitleg verderop in deze tabel) in de notatie IP1, IP2, IP3, enzovoort. Als het X-doorgestuurde-veld zich niet in de header van de `add_x_forwarded_for_proxy` client aanvraag bevindt `$client_ip` , is de variabele gelijk aan de variabele. Deze variabele is vooral handig wanneer u de X-doorgestuurde header wilt herschrijven, zodat deze door Application Gateway wordt ingesteld, zodat de header alleen het IP-adres zonder de poort gegevens bevat. |
+| ciphers_supported          | Een lijst met de code ringen die door de client worden ondersteund.          |
+| ciphers_used               | De teken reeks voor de versleuteling die wordt gebruikt voor een bestaande SSL-verbinding. |
+| client_ip                  | Het IP-adres van de client van waaruit de toepassings gateway de aanvraag heeft ontvangen. Als er een omgekeerde proxy is vóór de toepassings gateway en de oorspronkelijke client, retourneert *client_ip* het IP-adres van de omgekeerde proxy. |
+| client_port                | De client poort.                                                  |
+| client_tcp_rtt             | Informatie over de TCP-verbinding van de client. Beschikbaar op systemen die ondersteuning bieden voor de TCP_INFO-socket optie. |
+| client_user                | Wanneer HTTP-verificatie wordt gebruikt, wordt de gebruikers naam opgegeven voor verificatie. |
+| host                       | In deze volg orde van prioriteit: de hostnaam van de aanvraag regel, de hostnaam uit het veld met de aanvraag header van de host of de server naam die overeenkomt met een aanvraag. |
+| cookie_-*naam*              | De *naam* cookie.                                            |
+| http_method                | De methode die wordt gebruikt om de URL-aanvraag te maken. Bijvoorbeeld GET of POST. |
+| http_status                | De sessie status. Bijvoorbeeld 200, 400 of 403.                       |
+| http_version               | Het aanvraag protocol. Meestal HTTP/1.0, HTTP/1.1 of HTTP/2.0. |
+| query_string               | De lijst met variabele/waarde-paren die volgt op '? ' in de aangevraagde URL. |
+| received_bytes             | De lengte van de aanvraag (inclusief de aanvraag regel, kop en hoofd tekst van de aanvraag). |
+| request_query              | De argumenten in de aanvraag regel.                                |
+| request_scheme             | Het aanvraag schema: http of https.                            |
 | request_uri                | De volledige oorspronkelijke aanvraag-URI (met argumenten).                   |
-| sent_bytes                 | Het aantal bytes dat is verzonden naar een client.                             |
-| server_port                | De poort van de server die een aanvraag geaccepteerd.                 |
-| ssl_connection_protocol    | Het protocol van een SSL-verbinding.        |
-| ssl_enabled                | 'Aan' als de verbinding is beschikbaar in SSL-modus. Anders wordt een lege tekenreeks. |
+| sent_bytes                 | Het aantal bytes dat naar een client is verzonden.                             |
+| server_port                | De poort van de server die een aanvraag heeft geaccepteerd.                 |
+| ssl_connection_protocol    | Het Protocol van een tot stand gebrachte SSL-verbinding.        |
+| ssl_enabled                | Aan als de verbinding in SSL-modus werkt. Zoniet, een lege teken reeks. |
 
-## <a name="rewrite-configuration"></a>Herschrijf de configuratie
+## <a name="rewrite-configuration"></a>Configuratie opnieuw schrijven
 
-Voor het configureren van HTTP-header herschrijven, moet u deze stappen hebt voltooid.
+Als u het opnieuw schrijven van HTTP-headers wilt configureren, moet u deze stappen volt ooien.
 
-1. Maak de objecten die vereist voor HTTP-header herschrijven zijn:
+1. De objecten maken die vereist zijn voor het herschrijven van HTTP-headers:
 
-   - **Actie schrijven**: Hiermee geeft de aanvraag en aanvraagheader-velden die u wilt opnieuw schrijven en de nieuwe waarde voor de headers. U kunt een koppelen of meer voorwaarden met een actie herschrijven herschrijven.
+   - **Herschrijf actie**: Hiermee geeft u de velden aanvraag en aanvraag header op die u opnieuw wilt schrijven en de nieuwe waarde voor de kopteksten. U kunt een of meer herschrijf voorwaarden koppelen met een herschrijf actie.
 
-   - **Herschrijf de voorwaarde**: Een optionele configuratie. Herschrijven voorwaarden evalueren de inhoud van het HTTP (S) aanvragen en antwoorden. De actie herschrijven treedt op als de HTTP (S)-aanvraag of antwoord komt overeen met de voorwaarde herschrijven.
+   - **Voor waarde voor herschrijven**: Een optionele configuratie. Bij herschrijf voorwaarden wordt de inhoud van de HTTP (S)-aanvragen en-antwoorden geëvalueerd. De actie herschrijven vindt plaats als de HTTP (S)-aanvraag of het antwoord overeenkomt met de voor waarde voor herschrijven.
 
-     Als u meer dan één voorwaarde aan een actie koppelen, wordt de actie optreedt, alleen wanneer alle voorwaarden wordt voldaan. De bewerking is met andere woorden, een logische AND-bewerking.
+     Als u meer dan één voor waarde aan een actie koppelt, treedt de actie alleen op wanneer aan alle voor waarden wordt voldaan. Met andere woorden, de bewerking is een logische en-bewerking.
 
-   - **Regel herschrijven**: Bevat meerdere herschrijven actie / Herschrijf de voorwaarde combinaties.
+   - **Regel**voor herschrijven: Bevat meerdere combi Naties van Herschrijf acties/voor waarden voor herschrijven.
 
-   - **Reeks regel**: Helpt u bepalen de volgorde waarin de herschrijvingsregels uitvoeren. Deze configuratie is handig wanneer u meerdere herschrijvingsregels in een set herschrijven hebt. Eerste een herschrijvingsregel voor met een lagere waarde van de regel-reeks wordt gestart. Als u de regel in dezelfde volgorde aan twee herschrijvingsregels toewijst, is de volgorde van de uitvoering van niet-deterministisch.
+   - **Regel volgorde**: Helpt bij het bepalen van de volg orde waarin de regels voor herschrijven worden uitgevoerd. Deze configuratie is handig wanneer u meerdere regels voor herschrijven hebt opgegeven in een herschrijfset. Een regel voor herschrijven met een lagere regel reeks waarde wordt eerst uitgevoerd. Als u dezelfde regel reeks aan twee herschrijf regels toewijst, is de volg orde van uitvoering niet-deterministisch.
 
-   - **Herschrijf de set**: Bevat meerdere herschrijvingsregels dat gekoppeld aan een regel voor het doorsturen van aanvragen is.
+   - **Set opnieuw schrijven**: Bevat meerdere regels voor herschrijven die worden gekoppeld aan een regel voor het door sturen van aanvragen.
 
-2. De set herschrijven koppelen (*rewriteRuleSet*) op een regel voor doorsturen. De configuratie opnieuw schrijven is gekoppeld aan de bron-listener via de regel voor doorsturen. Wanneer u een regel voor het doorsturen van basic gebruikt, wordt de configuratie van de herschrijven header is gekoppeld aan de listener van een bron en is een algemene header herschrijven. Wanneer u een pad gebaseerde routering regel gebruikt, wordt de configuratie van de koptekst opnieuw schrijven is gedefinieerd in de URL-path-map. In dat geval van de toepassing alleen op het padgebied van het specifieke van een site.
+2. Koppel de herschrijfset (*rewriteRuleSet*) aan een routerings regel. De herschrijf configuratie wordt gekoppeld aan de bron-listener via de routerings regel. Wanneer u een basis regel voor door sturen gebruikt, wordt de configuratie voor het opnieuw schrijven van kopteksten gekoppeld aan een bronhost en is het herschrijven van de globale header. Wanneer u een op pad gebaseerde routerings regel gebruikt, wordt de configuratie voor het herschrijven van kopteksten gedefinieerd op de URL-pad toewijzing. In dat geval geldt dit alleen voor het specifieke pad van een site.
+   > [!NOTE]
+   > URL herschrijven wijzigen de headers; de URL voor het pad wordt niet gewijzigd.
 
-U kunt meerdere sets van HTTP-header herschrijven maken en toepassen van elke opnieuw ingesteld op meerdere listeners. Maar u kunt alleen een is ingesteld op een specifieke listener opnieuw toepassen.
+U kunt meerdere herschrijf sets voor HTTP-headers maken en elke herschrijfset Toep assen op meerdere listeners. Maar u kunt slechts één herschrijfset Toep assen op een specifieke listener.
 
 ## <a name="common-scenarios"></a>Algemene scenario's
 
-Hier volgen enkele algemene scenario's voor het gebruik van koptekst herschrijven.
+Hier volgen enkele veelvoorkomende scenario's voor het gebruik van header herschrijven.
 
-### <a name="remove-port-information-from-the-x-forwarded-for-header"></a>Informatie over de poort van de koptekst X doorgestuurd voor verwijderen
+### <a name="remove-port-information-from-the-x-forwarded-for-header"></a>Poort gegevens verwijderen van de X-doorgestuurd-voor koptekst
 
-Application Gateway wordt een header X doorgestuurd voor ingevoegd in alle aanvragen, voordat deze de aanvragen voor de back-end worden doorgestuurd. Deze header is een door komma's gescheiden lijst met IP-poorten. Er zijn scenario's waarin de back-endservers alleen de headers bevat IP-adressen moeten. Koptekst herschrijven kunt u de informatie over de poort van de koptekst X doorgestuurd voor verwijderen. Eén manier om dit te doen is het instellen van de kop aan de variabele add_x_forwarded_for_proxy-server:
+Application Gateway voegt een X-doorgestuurd-voor koptekst in alle aanvragen voordat de aanvragen worden doorgestuurd naar de back-end. Deze header is een door komma's gescheiden lijst met IP-poorten. Er zijn mogelijk scenario's waarin de-back-endservers alleen IP-adressen nodig hebben om de headers te kunnen bevatten. U kunt header herschrijven gebruiken om de poort gegevens te verwijderen uit de X-forward-for-header. Een manier om dit te doen is door de header in te stellen op de add_x_forwarded_for_proxy-server variabele:
 
 ![Poort verwijderen](media/rewrite-http-headers/remove-port.png)
 
-### <a name="modify-a-redirection-url"></a>Wijzigen van een Omleidings-URL
+### <a name="modify-a-redirection-url"></a>Een omleidings-URL wijzigen
 
-Wanneer een back-endtoepassing een antwoord omleiding stuurt, is het raadzaam om te leiden van de client naar een andere URL dan die is opgegeven door de back-end-toepassing. Bijvoorbeeld, als u wilt dit te doen wanneer een appservice achter een application gateway wordt gehost en vereist dat de client een omleiding naar het relatieve pad doen. (Bijvoorbeeld een omleiding van contoso.azurewebsites.net/path1 naar contoso.azurewebsites.net/path2.)
+Wanneer een back-end-toepassing een omleidings reactie verzendt, wilt u mogelijk de client omleiden naar een andere URL dan die opgegeven door de back-end-toepassing. Stel dat u dit wilt doen wanneer een app service wordt gehost achter een toepassings gateway en dat de client een omleiding moet doen naar het relatieve pad. (Bijvoorbeeld een omleiding van contoso.azurewebsites.net/path1 naar contoso.azurewebsites.net/path2.)
 
-Omdat App Service een multitenant service is, wordt de host-header in de aanvraag voor het routeren van de aanvraag naar het juiste eindpunt. App-services hebben een standaarddomeinnaam van *. azurewebsites.net (bijvoorbeeld contoso.azurewebsites.net) die verschilt van de application gateway-domeinnaam (bijvoorbeeld contoso.com). Omdat de oorspronkelijke aanvraag van de client de toepassingsgateway domeinnaam (contoso.com) als de hostnaam heeft, verandert de toepassingsgateway de hostnaam contoso.azurewebsites.net. Wordt deze wijziging zodat de appservice de aanvraag naar de juiste eindpunten versturen kan.
+Omdat App Service een multi tenant-service is, gebruikt de host-header in de aanvraag om de aanvraag naar het juiste eind punt te sturen. App-Services hebben een standaard domein naam van *. azurewebsites.net (contoso.azurewebsites.net) die verschilt van de domein naam van de toepassings gateway (zeg contoso.com). Omdat de oorspronkelijke aanvraag van de client de domein naam van de toepassings gateway (contoso.com) als de hostnaam heeft, wijzigt de toepassings gateway de hostnaam in contoso.azurewebsites.net. Deze wijziging wordt aangebracht zodat de app service de aanvraag naar het juiste eind punt kan routeren.
 
-Wanneer de appservice een antwoord omleiding stuurt, wordt de dezelfde hostnaam in de location-header van de reactie als het account dat in de aanvraag die wordt ontvangen van de toepassingsgateway. De client wordt dus maken van de aanvraag rechtstreeks naar contoso.azurewebsites.net/path2 in plaats van via de application gateway (contoso.com/path2). Overslaan van de toepassingsgateway niet wenselijk is.
+Wanneer de app-service een omleidings reactie verzendt, gebruikt deze dezelfde hostnaam in de locatie header van de reactie als die in de aanvraag die wordt ontvangen van de toepassings gateway. De client gaat de aanvraag dus rechtstreeks naar contoso.azurewebsites.net/path2 in plaats van de Application Gateway (contoso.com/path2). Het overs laan van de toepassings gateway is niet gewenst.
 
-U kunt dit probleem oplossen door het instellen van de hostnaam in de location-header naar de domeinnaam van de toepassingsgateway.
+U kunt dit probleem oplossen door de hostnaam in de locatie header in te stellen op de domein naam van de toepassings gateway.
 
-Hier volgen de stappen voor het vervangen van de hostnaam:
+Dit zijn de stappen voor het vervangen van de hostnaam:
 
-1. Maak een herschrijvingsregel voor met een voorwaarde die wordt geëvalueerd als de location-header in het antwoord azurewebsites.net bevat. Geef het patroon `(https?):\/\/.*azurewebsites\.net(.*)$`.
-1. Voer een actie voor het herschrijven van de location-header, zodat deze hostnaam voor de toepassingsgateway. Dit doen door in te voeren `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` als waarde van de header.
+1. Maak een regel voor herschrijven met een voor waarde die evalueert of de locatie header in het antwoord azurewebsites.net bevat. Geef het patroon `(https?):\/\/.*azurewebsites\.net(.*)$`op.
+1. Voer een actie uit om de locatie header opnieuw te schrijven, zodat deze de hostnaam van de toepassings gateway heeft. Dit doet u door `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` als waarde voor de header in te voeren.
 
-![Location-header wijzigen](media/rewrite-http-headers/app-service-redirection.png)
+![Locatie header wijzigen](media/rewrite-http-headers/app-service-redirection.png)
 
-### <a name="implement-security-http-headers-to-prevent-vulnerabilities"></a>-HTTP-beveiligingsheaders om te voorkomen dat zwakke plekken implementeren
+### <a name="implement-security-http-headers-to-prevent-vulnerabilities"></a>Beveiligings-HTTP-headers implementeren om beveiligings problemen te voor komen
 
-U kunt verschillende beveiligingsproblemen oplossen door de benodigde headers implementeren in de reactietijd van toepassingen. Deze beveiligingsheaders omvatten X-XSS-beveiliging, strikt transportbeveiliging en inhoud beveiligingsbeleid. Application Gateway kunt u deze headers voor alle antwoorden instellen.
+U kunt verschillende beveiligings problemen oplossen door de vereiste headers in de reactie van de toepassing te implementeren. Deze beveiligings headers zijn onder andere X-XSS-Protection, strikte transport beveiliging en beveiligings beleid voor inhoud. U kunt Application Gateway gebruiken om deze headers voor alle antwoorden in te stellen.
 
-![Beveiligings-header](media/rewrite-http-headers/security-header.png)
+![Beveiligingskop tekst](media/rewrite-http-headers/security-header.png)
 
-### <a name="delete-unwanted-headers"></a>Ongewenste headers verwijderen
+### <a name="delete-unwanted-headers"></a>Ongewenste kopteksten verwijderen
 
-Het is raadzaam om te verwijderen van kopteksten die gevoelige informatie van een HTTP-antwoord onthullen. Bijvoorbeeld, als u wilt verwijderen van gegevens, zoals de naam van de back-endserver, besturingssysteem of details van tapewisselaar. De application gateway kunt u deze headers verwijderen:
+Mogelijk wilt u kopteksten verwijderen die gevoelige informatie uit een HTTP-antwoord onthullen. U kunt bijvoorbeeld informatie verwijderen, zoals de naam van de back-endserver, het besturings systeem of de details van de bibliotheek. U kunt de Application gateway gebruiken om deze headers te verwijderen:
 
 ![Koptekst verwijderen](media/rewrite-http-headers/remove-headers.png)
 
-### <a name="check-for-the-presence-of-a-header"></a>Controleer op de aanwezigheid van een koptekst
+### <a name="check-for-the-presence-of-a-header"></a>Controleren op de aanwezigheid van een header
 
-U kunt een HTTP-aanvraag of antwoord-header voor de aanwezigheid van een variabele kop- of server evalueren. Deze evaluatie is handig als u wilt uitvoeren van een koptekst herschrijven alleen wanneer een bepaalde header aanwezig is.
+U kunt een HTTP-aanvraag of reactie header evalueren voor de aanwezigheid van een header-of server variabele. Deze evaluatie is handig als u een header opnieuw wilt schrijven wanneer een bepaalde header aanwezig is.
 
-![Controleren op aanwezigheid van een koptekst](media/rewrite-http-headers/check-presence.png)
+![Aanwezigheid van een header controleren](media/rewrite-http-headers/check-presence.png)
 
 ## <a name="limitations"></a>Beperkingen
 
-- Als een antwoord meer dan één kopteksten met dezelfde naam bevat, resulteert vervolgens herschrijven van de waarde van een van deze headers in de andere headers verwijderen in het antwoord. Dit kan meestal gebeuren met Set-Cookie-header, omdat u meer dan één Set-Cookie-header in een antwoord kan hebben. Een dergelijke scenario is wanneer u van een appservice met een application gateway gebruikmaakt en cookies gebaseerde sessieaffiniteit op de application gateway hebt geconfigureerd. In dit geval het antwoord bevat 2 Set-Cookie headers: gebruikt door de appservice, dat wil zeggen, `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` en een andere voor relatie met application gateway, dat wil zeggen, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Een van de Set-Cookie-headers in dit scenario voor het herschrijven kan resulteren in de andere Set-Cookie-header verwijderen uit het antwoord.
+- Als een antwoord meer dan één header met dezelfde naam heeft en vervolgens de waarde van een van deze headers herschrijft, worden de andere headers in het antwoord verwijderd. Dit kan meestal gebeuren met de set-cookie-header omdat u in een antwoord meer dan één set-cookie-header kunt hebben. Een dergelijk scenario is wanneer u een app service gebruikt met een toepassings gateway en op cookies gebaseerde sessie affiniteit hebt geconfigureerd op de toepassings gateway. In dit geval bevat het antwoord twee set-cookie headers: één die wordt gebruikt door de app service, bijvoorbeeld: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` en een andere voor Application Gateway-affiniteit, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`bijvoorbeeld. Het opnieuw schrijven van een van de set-cookie headers in dit scenario kan ertoe leiden dat de andere set-cookie-header van het antwoord wordt verwijderd.
 
-- De verbinding, Upgrade en Host-headers voor het herschrijven wordt momenteel niet ondersteund.
+- Het opnieuw schrijven van de verbinding, bijwerken en host-headers wordt momenteel niet ondersteund.
 
-- Naam van de header mag alfanumerieke tekens en symbolen zoals gedefinieerd in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Het onderstrepingsteken momenteel niet ondersteund (\_) speciaal teken in naam van de Header.
+- Header namen mogen alfanumerieke tekens en specifieke symbolen bevatten zoals gedefinieerd in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Het onderstrepings teken (\_) wordt momenteel niet ondersteund in header namen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor informatie over het herschrijven van HTTP-headers, Zie:
+Zie voor meer informatie over het herschrijven van HTTP-headers:
 
-- [Herschrijf de HTTP-headers met behulp van Azure portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
-- [Herschrijf de HTTP-headers met behulp van Azure PowerShell](add-http-header-rewrite-rule-powershell.md)
+- [HTTP-headers herschrijven met Azure Portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [HTTP-headers herschrijven met Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

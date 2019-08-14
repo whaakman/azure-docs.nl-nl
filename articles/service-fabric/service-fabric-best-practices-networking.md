@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric best practices voor netwerken | Microsoft Docs
-description: Aanbevolen procedures voor het beheren van Service Fabric-netwerken.
+title: Aanbevolen procedures voor Azure Service Fabric-netwerken | Microsoft Docs
+description: Aanbevolen procedures voor het beheren van Service Fabric netwerk.
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
@@ -15,20 +15,20 @@ ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "66237324"
 ---
 # <a name="networking"></a>Netwerken
 
-Bij het maken en beheren van Azure Service Fabric-clusters, biedt u verbinding met het netwerk voor uw knooppunten en toepassingen. De netwerkresources zijn IP-adresbereiken, virtuele netwerken, load balancers en netwerkbeveiligingsgroepen. In dit artikel leert u aanbevolen procedures voor deze resources.
+Wanneer u Azure Service Fabric-clusters maakt en beheert, biedt u netwerk connectiviteit voor uw knoop punten en toepassingen. De netwerk bronnen omvatten IP-adresbereiken, virtuele netwerken, load balancers en netwerk beveiligings groepen. In dit artikel vindt u aanbevolen procedures voor deze resources.
 
-Bekijk Azure [Service Fabric netwerken patronen](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) voor meer informatie over het maken van clusters die gebruikmaken van de volgende functies: Bestaand virtueel netwerk of subnet, statische openbare IP-adres, alleen-interne load balancer, of interne en externe load balancer.
+Bekijk Azure [service Fabric-netwerk patronen](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) voor meer informatie over het maken van clusters die gebruikmaken van de volgende functies: Bestaand virtueel netwerk of subnet, statisch openbaar IP-adres, intern alleen load balancer, of intern en extern load balancer.
 
-## <a name="infrastructure-networking"></a>Netwerken voor infrastructuur
-Optimale prestaties van de virtuele Machine met versnelde netwerken, is door op te geven enableAcceleratedNetworking-eigenschap in de Resource Manager-sjabloon, het volgende fragment van een virtuele Machine schaal ingesteld NetworkInterfaceConfigurations die u kunt versnelde netwerken:
+## <a name="infrastructure-networking"></a>Infrastructuur netwerken
+Maximaliseer de prestaties van uw virtuele machine met versneld netwerken door de eigenschap enableAcceleratedNetworking in uw Resource Manager-sjabloon te declareren, het volgende code fragment is van een Networkinterfaceconfigurations schaalset voor virtuele-machine schaal sets die versnelde netwerken inschakelen:
 
 ```json
 "networkInterfaceConfigurations": [
@@ -46,38 +46,38 @@ Optimale prestaties van de virtuele Machine met versnelde netwerken, is door op 
   }
 ]
 ```
-Service Fabric-cluster kan worden ingericht op [Linux met versnelde netwerken](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli), en [Windows met versnelde netwerken](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
+Service Fabric cluster kan worden ingericht op [Linux met versneld netwerken](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)en [Windows met versneld netwerken](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
 
-Versneld netwerken wordt ondersteund voor Azure Virtual Machine-serie-SKU's: D/DSv2-, D/DSv3, E/ESv3, F/FS, FSv2 en Ms-/ Mms. Versneld netwerken is getest met succes met behulp van de SKU Standard_DS8_v3 23-1/2019 voor een Service Fabric Windows-Cluster en het gebruik van Standard_DS12_v2 01/29/2019 voor een Service Fabric Linux-Cluster.
+Versnelde netwerken worden ondersteund voor Sku's van de Azure-machine serie: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 en MS/MMS. Versneld netwerken zijn getest met behulp van de Standard_DS8_v3-SKU op 1/23/2019 voor een Service Fabric Windows-cluster, en met Standard_DS12_v2 op 01/29/2019 voor een Service Fabric Linux-cluster.
 
-Om in te schakelen versnelde netwerken op een bestaande Service Fabric-cluster, moet u eerst [schalen van een Service Fabric-cluster af door het toevoegen van een virtuele-Machineschaalset](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), voer de volgende stappen uit:
-1. Inrichten van een NodeType met versnelde netwerken ingeschakeld
-2. Migreren van uw services en hun status naar de ingerichte NodeType met versnelde netwerken ingeschakeld
+Als u versneld netwerken op een bestaand Service Fabric cluster wilt inschakelen, moet u eerst [een service Fabric cluster uitschalen door een schaalset voor virtuele machines toe](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)te voegen, zodat u het volgende kunt doen:
+1. Een NodeType inrichten met versneld netwerken ingeschakeld
+2. Migreer uw services en hun status naar het ingerichte NodeType met versneld netwerken ingeschakeld
 
-Uitschalen infrastructuur is vereist om in te schakelen versnelde netwerken in een bestaand cluster, omdat downtime, waardoor Accelerated Networking in plaats veroorzaken zou omdat hiervoor alle virtuele machines in een beschikbaarheidsset worden [stoppen en toewijzing ongedaan maken voordat u inschakelt versnelde netwerken op een bestaande NIC](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Er is een uitbrei ding van de infra structuur vereist om versnelde netwerken in te scha kelen op een bestaand cluster, omdat het inschakelen van versnelde netwerken op de juiste manier downtime zou veroorzaken, omdat alle virtuele machines in een beschikbaarheidsset moeten worden gestopt en de toewijzing wordt ongedaan gemaakt [voordat versnelde netwerken inschakelen op een bestaande NIC](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
-## <a name="cluster-networking"></a>Clusternetwerk
+## <a name="cluster-networking"></a>Cluster netwerken
 
-* Service Fabric-clusters kunnen worden geïmplementeerd in een bestaand virtueel netwerk met de volgende stappen wordt beschreven in [Service Fabric netwerken patronen](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
+* Service Fabric clusters kunnen worden geïmplementeerd in een bestaand virtueel netwerk door de stappen te volgen die worden beschreven in [service Fabric-netwerk patronen](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
 
-* Netwerkbeveiligingsgroepen (nsg's) worden aanbevolen voor knooppunttypen dat binnenkomend en uitgaand verkeer tot het cluster beperken. Zorg ervoor dat de vereiste poorten zijn geopend in de NSG. Bijvoorbeeld: ![Service Fabric NSG-regels][NSGSetup]
+* Netwerk beveiligings groepen (Nsg's) worden aanbevolen voor knooppunt typen die binnenkomend en uitgaand verkeer naar hun cluster beperken. Zorg ervoor dat de benodigde poorten zijn geopend in de NSG. Bijvoorbeeld: ![Service Fabric NSG-regels][NSGSetup]
 
-* Het primaire knooppunttype, waarin de Service Fabric-systeemservices hoeft niet te worden blootgesteld via de externe load balancer en kunnen worden weergegeven door een [interne load balancer](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)
+* Het primaire knooppunt type, dat de Service Fabric systeem services bevat, hoeft niet te worden weer gegeven via de externe load balancer en kan worden weer gegeven door een [interne Load Balancer](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)
 
 * Gebruik een [statisch openbaar IP-adres](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#static-public-ip-address-1) voor uw cluster.
 
-## <a name="application-networking"></a>Toepassing netwerken
+## <a name="application-networking"></a>Toepassings netwerken
 
-* Gebruiken om uit te voeren op Windows-containerwerkbelastingen, [open netwerken modus](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) service-naar-servicecommunicatie om gemakkelijker te maken.
+* Als u Windows-container werkbelastingen wilt uitvoeren, gebruikt u de [open-netwerk modus](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) om service-to-service-communicatie eenvoudiger te maken.
 
-* Een omgekeerde proxy gebruiken zoals [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) of de [Service Fabric reverse proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) om algemene toepassingspoorten, zoals 80 of 443 zichtbaar te maken.
+* Gebruik een omgekeerde proxy zoals [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) of de [service Fabric reverse proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) om algemene toepassings poorten weer te geven, zoals 80 of 443.
 
-* Voor Windows-Containers die worden gehost op lucht onderbroken virtuele machines die de basis-lagen van Azure-cloud-opslag, kunnen geen pull overschrijven het gedrag refererende laag met behulp van de [--toestaan nondistributable artefacten](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) vlag in de Docker-daemon.
+* Voor Windows-containers die worden gehost op gapped machines die geen basis lagen kunnen halen uit Azure-Cloud opslag, kunt u het gedrag van de afwijkende laag overschrijven met behulp van de vlag [--Allow-niet-distribueer bare artefacten](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) in de docker-daemon.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Een cluster maken op virtuele machines of op computers met Windows Server: [Service Fabric-cluster maken voor Windows Server](service-fabric-cluster-creation-for-windows-server.md)
-* Een cluster maken op VM's of computers waarop Linux wordt uitgevoerd: [Een Linux-cluster maken](service-fabric-cluster-creation-via-portal.md)
+* Een cluster maken op Vm's of computers met Windows Server: [Service Fabric cluster maken voor Windows Server](service-fabric-cluster-creation-for-windows-server.md)
+* Een cluster maken op Vm's of op computers met Linux: [Een Linux-cluster maken](service-fabric-cluster-creation-via-portal.md)
 * Meer informatie over [ondersteuningsopties voor Service Fabric](service-fabric-support.md)
 
 [NSGSetup]: ./media/service-fabric-best-practices/service-fabric-nsg-rules.png

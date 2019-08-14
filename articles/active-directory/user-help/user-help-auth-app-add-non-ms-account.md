@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d7a039f25339d91d77d5b6924674ea36a16c15b
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e1521d2b3d47667466636a1ac15f107826e40942
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880818"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942932"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Uw niet-micro soft-accounts toevoegen
 
@@ -33,6 +33,9 @@ Over het algemeen moet u voor al uw persoonlijke accounts het volgende doen:
 1. Meld u aan bij uw account en schakel twee ledige verificatie in met behulp van het apparaat of de computer.
 
 2. Voeg het account toe aan de app Microsoft Authenticator. U wordt mogelijk gevraagd om een QR-code te scannen als onderdeel van dit proces.
+
+    >[!Note]
+    >Als dit de eerste keer is dat u de Microsoft Authenticator-app instelt, wordt u mogelijk gevraagd of u de app toegang wilt geven tot uw camera (iOS) of dat de app afbeeldingen en record video (Android) mag maken. U moet **toestaan** inschakelen zodat de verificator-app toegang heeft tot uw camera om een foto van de QR-code in de volgende stap te maken. Als u de camera niet toestaat, kunt u nog steeds de verificator-app instellen, maar u moet de code gegevens hand matig toevoegen. Zie [hand matig een account toevoegen aan de app](user-help-auth-app-add-account-manual.md)voor meer informatie over het hand matig toevoegen van de code.
 
 We bieden hier het proces voor uw Facebook-, Google-, GitHub-en Amazon-accounts, maar dit proces is hetzelfde voor alle andere apps, zoals Insta gram, Netflix of Adobe.
 
@@ -168,9 +171,6 @@ Voeg uw Amazon-account toe door twee ledige verificatie in te scha kelen en het 
     De pagina wordt gewijzigd om een QR-code weer te geven. Sluit deze pagina niet.
 
 5. Open de Microsoft Authenticator-app, selecteer **account toevoegen** uit het pictogram **aanpassen en beheer** in de rechter bovenhoek en selecteer vervolgens **ander account (Google, Facebook, enzovoort)** .
-
-    >[!Note]
-    >Als dit de eerste keer is dat u de Microsoft Authenticator-app instelt, wordt u mogelijk gevraagd of u de app toegang wilt geven tot uw camera (iOS) of dat de app afbeeldingen en record video (Android) mag maken. U moet **toestaan** inschakelen zodat de verificator-app toegang heeft tot uw camera om een foto van de QR-code in de volgende stap te maken. Als u de camera niet toestaat, kunt u nog steeds de verificator-app instellen, maar u moet de code gegevens hand matig toevoegen. Zie [hand matig een account toevoegen aan de app](user-help-auth-app-add-account-manual.md)voor meer informatie over het hand matig toevoegen van de code.
 
 6. Gebruik de camera van uw apparaat om de QR-code te scannen vanaf de pagina **kiezen hoe u codes** op uw computer wilt ontvangen.
 

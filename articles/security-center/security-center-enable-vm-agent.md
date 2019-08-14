@@ -1,6 +1,6 @@
 ---
-title: VM-Agent in Azure Security Center inschakelen | Microsoft Docs
-description: Dit document wordt beschreven hoe u de Azure Security Center-aanbeveling kunt implementeren **VM-Agent inschakelen**.
+title: VM-agent inschakelen in Azure Security Center | Microsoft Docs
+description: Dit document bevat informatie over het implementeren van de Azure Security Center aanbeveling **VM-agent inschakelen**.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 12934ad53050d16b89dd5b4175ca19a24d1ec4d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60916281"
 ---
-# <a name="enable-vm-agent-in-azure-security-center"></a>VM-Agent in Azure Security Center inschakelen
-De VM-Agent moet worden geïnstalleerd op virtuele machines (VM's) om [verzamelen van gegevens inschakelen](security-center-enable-data-collection.md).  Azure Security Center kunt u zien welke VM's vereisen dat de VM-Agent en wordt aanbevolen dat u de VM-Agent op deze virtuele machines inschakelt.
+# <a name="enable-vm-agent-in-azure-security-center"></a>VM-agent inschakelen in Azure Security Center
+De VM-agent moet worden geïnstalleerd op virtuele machines (Vm's) om het [verzamelen van gegevens mogelijk te maken](security-center-enable-data-collection.md).  Met Azure Security Center kunt u zien welke Vm's de VM-agent nodig hebben en wordt u aangeraden de VM-agent op deze Vm's in te scha kelen.
 
 De VM-agent wordt standaard geïnstalleerd op VM's die zijn geïmplementeerd vanuit Azure Marketplace. Het artikel [VM Agent and Extensions – Part 2)](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) (VM-agent en -extensies – deel 2) bevat informatie over het installeren van de VM-agent.
 
@@ -31,11 +31,11 @@ De VM-agent wordt standaard geïnstalleerd op VM's die zijn geïmplementeerd van
 >
 >
 
-## <a name="implement-the-recommendation"></a>De aanbeveling voor het implementeren
-1. In de **blade aanbevelingen**, selecteer **VM-Agent inschakelen**.
+## <a name="implement-the-recommendation"></a>De aanbeveling implementeren
+1. Selecteer **VM-agent inschakelen**op de **Blade aanbevelingen**.
    ![VM-agent inschakelen][1]
-2. Hiermee opent u de blade **VM-Agent ontbreekt of reageert niet**. Deze blade geeft een lijst van de virtuele machines waarvoor de VM-Agent. Volg de instructies op de blade voor het installeren van de VM-agent.
-   ![VM-Agent ontbreekt][2]
+2. Hiermee opent u de Blade **VM-agent ontbreekt of reageert niet**. Deze Blade bevat de virtuele machines waarvoor de VM-agent is vereist. Volg de instructies op de Blade om de VM-agent te installeren.
+   ![De VM-agent ontbreekt][2]
 
 ## <a name="see-also"></a>Zie ook
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:

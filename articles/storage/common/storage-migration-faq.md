@@ -1,6 +1,6 @@
 ---
-title: Azure Veelgestelde vragen over opslagmigratie | Microsoft Docs
-description: Antwoorden op veelgestelde vragen over Azure-opslag migreren
+title: Veelgestelde vragen over Azure Storage migratie | Microsoft Docs
+description: Antwoorden op veelgestelde vragen over het migreren van Azure Storage
 services: storage
 author: genlin
 ms.service: storage
@@ -8,123 +8,123 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: cf1cba6f6d26d66fc560c86ea42459fa276cc880
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ba09496ed8c110e3bf0e431da20f09c82d5ea0b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66114911"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985589"
 ---
-# <a name="frequently-asked-questions-about-azure-storage-migration"></a>Veelgestelde vragen over Azure Storage-migratie
+# <a name="frequently-asked-questions-about-azure-storage-migration"></a>Veelgestelde vragen over Azure Storage migratie
 
-In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Storage-migratie. 
+In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Storage migratie. 
 
 ## <a name="faq"></a>Veelgestelde vragen
 
-**Hoe maak ik een script om bestanden te kopiëren uit een container naar een andere?**
+**Hoe kan ik een script maken om bestanden van de ene container naar de andere te kopiëren?**
 
-U kunt AzCopy gebruiken om bestanden te kopiëren tussen containers. Zie het volgende voorbeeld:
+U kunt AzCopy gebruiken om bestanden tussen containers te kopiëren. Zie het volgende voorbeeld:
 
     AzCopy /Source:https://xxx.blob.core.windows.net/xxx
     /Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
     /S
 
-AzCopy gebruikt de [kopie Blob API](https://docs.microsoft.com/rest/api/storageservices/copy-blob) om te kopiëren van elk bestand in de container.  
+AzCopy maakt gebruik van de [copy BLOB API](https://docs.microsoft.com/rest/api/storageservices/copy-blob) om elk bestand in de container te kopiëren.  
   
-U kunt elke virtuele machine of de lokale computer met internettoegang om uit te voeren van AzCopy gebruiken. U kunt de planning van een Azure Batch ook gebruiken om dit te doen automatisch, maar dit is wat ingewikkelder.  
+U kunt elke virtuele machine of lokale computer met Internet toegang gebruiken om AzCopy uit te voeren. U kunt dit ook een Azure Batch schema gebruiken om dit automatisch te doen, maar het is gecompliceerder.  
   
-Het automatiseringsscript is ontworpen voor Azure Resource Manager-implementatie in plaats van inhoud manipulatie van opslag. Zie voor meer informatie, [resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+Het Automation-script is ontworpen voor de implementatie van Azure Resource Manager in plaats van het bewerken van opslag inhoud. Zie [resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)voor meer informatie.
 
-**Is er kosten in rekening gebracht voor het kopiëren van gegevens tussen twee bestandsshares op hetzelfde opslagaccount binnen dezelfde regio?**
+**Worden er kosten in rekening gebracht voor het kopiëren van gegevens tussen twee bestands shares op hetzelfde opslag account in dezelfde regio?**
 
-Nee. Er zijn geen kosten voor dit proces.
+Nee. Er worden geen kosten in rekening gebracht voor dit proces.
 
-**Hoe kan ik back-up van mijn hele storage-account naar een ander opslagaccount?**
+**Hoe kan ik back-ups maken van mijn hele opslag account naar een ander opslag account?**
 
-Er is geen optie voor het rechtstreeks een back-up van een hele storage-account. Maar u kunt handmatig verplaatsen de container in het storage-account naar een ander account met behulp van AzCopy of Storage Explorer. De volgende stappen laten zien hoe u kunt AzCopy gebruiken om te verplaatsen van de container:  
+Er is geen optie om rechtstreeks een back-up te maken van een volledig opslag account. Maar u kunt de container in dat opslag account hand matig naar een ander account verplaatsen met behulp van AzCopy of Storage Explorer. De volgende stappen laten zien hoe u AzCopy kunt gebruiken om de container te verplaatsen:  
  
 
-1.  Installeer de [AzCopy](storage-use-azcopy.md) opdrachtregel-hulpprogramma. Dit hulpprogramma kunt u de VHD-bestand verplaatsen tussen storage-accounts.
+1.  Installeer het [AzCopy](storage-use-azcopy.md) -opdracht regel programma. Met dit hulp programma kunt u het VHD-bestand verplaatsen tussen opslag accounts.
 
-2.  Nadat u AzCopy in Windows installeren met behulp van het installatieprogramma, open een opdrachtpromptvenster en blader vervolgens naar de installatiemap van AzCopy op uw computer. AzCopy wordt standaard geïnstalleerd in **% ProgramFiles (x86) %\Microsoft SDKs\Azure\AzCopy** of **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
+2.  Nadat u AzCopy op Windows hebt geïnstalleerd met behulp van het installatie programma, opent u een opdracht prompt venster en bladert u naar de installatiemap van AzCopy op de computer. AzCopy wordt standaard geïnstalleerd in **% ProgramFiles (x86) %\Microsoft SDKs\Azure\AzCopy** of **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
 
-3.  Voer de volgende opdracht om te verplaatsen van de container. U moet de tekst vervangen door de werkelijke waarden.   
+3.  Voer de volgende opdracht uit om de container te verplaatsen. U moet de tekst vervangen door de werkelijke waarden.   
      
             AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
 
-    - `/Source`: Hiermee geeft u de URI voor de bron-storage-account (tot de container).  
-    - `/Dest`: Hiermee geeft u de URI voor de doel-opslagaccount (tot de container).  
-    - `/SourceKey`: Geef de primaire sleutel voor de bron-storage-account. U kunt deze sleutel kopiëren vanuit Azure portal door het opslagaccount te selecteren.  
-    - `/DestKey`: Geef de primaire sleutel voor het doelopslagaccount. U kunt deze sleutel kopiëren vanuit de portal door het opslagaccount te selecteren.
+    - `/Source`: Geef de URI voor het bron-opslag account (Maxi maal de container) op.  
+    - `/Dest`: Geef de URI voor het doel-opslag account op (Maxi maal de container).  
+    - `/SourceKey`: Geef de primaire sleutel voor het bron-opslag account op. U kunt deze sleutel uit de Azure Portal kopiëren door het opslag account te selecteren.  
+    - `/DestKey`: Geef de primaire sleutel voor het doel-opslag account op. U kunt deze sleutel kopiëren vanuit de portal door het opslag account te selecteren.
 
-Nadat u deze opdracht uitvoert, wordt de containerbestanden worden verplaatst naar het doelopslagaccount.
+Nadat u deze opdracht hebt uitgevoerd, worden de container bestanden verplaatst naar het doel-opslag account.
 
 > [!NOTE]
-> De CLI AzCopy niet werkt samen met de **patroon** overschakelen bij het kopiëren van het ene Azure blob naar een andere.
+> De AzCopy CLI werkt niet samen met de **patroon** schakelaar wanneer u van de ene Azure-Blob naar een andere kopieert.
 >
-> U kunt rechtstreeks kopiëren en bewerken van de AzCopy-opdracht, en te controleren om ervoor te zorgen dat **patroon** komt overeen met de bron. Controleer ook of **/S** jokertekens worden van kracht. Zie voor meer informatie, [AzCopy parameters](storage-use-azcopy.md).
+> U kunt de AzCopy-opdracht rechtstreeks kopiëren en bewerken, en kruis controleren om ervoor te zorgen dat het **patroon** overeenkomt met de bron. Zorg er ook voor dat **/s** joker tekens van kracht zijn. Zie [AzCopy para meters](storage-use-azcopy.md)voor meer informatie.
 
-**Hoe verplaats ik gegevens van een storage-container naar een andere?**
+**Hoe kan ik gegevens verplaatsen van de ene opslag container naar de andere?**
 
 Volg deze stappen:
 
-1.  Maak de container (map) in de bestemmings-blob.
+1.  Maak de container (map) in de doel-blob.
 
-2.  Gebruik [AzCopy](https://azure.microsoft.com/blog/azcopy-5-1-release/) om de inhoud van de oorspronkelijke blobcontainer kopiëren naar een andere blob-container.
+2.  Gebruik [AzCopy](https://azure.microsoft.com/blog/azcopy-5-1-release/) om de inhoud van de oorspronkelijke BLOB-container naar een andere blob-container te kopiëren.
 
-**Hoe maak ik een PowerShell-script voor het verplaatsen van gegevens uit een Azure-bestandsshare naar een andere in Azure Storage?**
+**Hoe kan ik een Power shell-script maken om gegevens van een Azure-bestands share te verplaatsen naar een andere in Azure Storage?**
 
-AzCopy gebruiken om te verplaatsen van de gegevens uit een Azure-bestandsshare naar een andere in Azure Storage. Zie voor meer informatie, [gegevens overdragen met AzCopy voor Windows](storage-use-azcopy.md) en [gegevens overdragen met AzCopy voor Linux](storage-use-azcopy-linux.md).
+Gebruik AzCopy om de gegevens van een Azure-bestands share te verplaatsen naar een andere in Azure Storage. Zie [gegevens overdragen met AzCopy in Windows](storage-use-azcopy.md) en [gegevens overdragen met AzCopy in Linux](storage-use-azcopy-linux.md)voor meer informatie.
 
-**Hoe kan ik grote CSV-bestanden uploaden naar Azure Storage?**
+**Hoe kan ik u grote CSV-bestanden uploaden naar Azure Storage?**
 
-AzCopy gebruiken om te grote CSV-bestanden uploaden naar Azure Storage. Zie voor meer informatie, [gegevens overdragen met AzCopy voor Windows](storage-use-azcopy.md) en [gegevens overdragen met AzCopy voor Linux](storage-use-azcopy-linux.md).
+Gebruik AzCopy om grote CSV-bestanden te uploaden naar Azure Storage. Zie [gegevens overdragen met AzCopy in Windows](storage-use-azcopy.md) en [gegevens overdragen met AzCopy in Linux](storage-use-azcopy-linux.md)voor meer informatie.
 
-**Ik hoef te verplaatsen van de logboeken van station D naar Mijn Azure storage-account elke dag. Hoe Automatiseer ik dit?**
+**Ik moet elke dag de logboeken van station D naar mijn Azure-opslag account verplaatsen. Hoe kan ik dit automatisch?**
 
-U kunt AzCopy gebruiken en maken van een taak in Taakplanner. Bestanden uploaden naar Azure storage-account met behulp van een batchscript AzCopy. Zie voor meer informatie, [over het configureren en uitvoeren van opstarttaken voor een cloudservice](../../cloud-services/cloud-services-startup-tasks.md).
+U kunt AzCopy gebruiken en een taak maken in taak planner. Bestanden uploaden naar een Azure-opslag account met behulp van een AzCopy-batch script. Zie [opstart taken voor een Cloud service configureren en uitvoeren](../../cloud-services/cloud-services-startup-tasks.md)voor meer informatie.
 
-**Hoe kan ik mijn storage-account verplaatsen tussen abonnementen?**
+**Hoe kan ik mijn opslag account verplaatsen tussen abonnementen?**
 
-AzCopy gebruiken uw storage-account verplaatsen tussen abonnementen. Zie voor meer informatie, [gegevens overdragen met AzCopy voor Windows](storage-use-azcopy.md) en [gegevens overdragen met AzCopy voor Linux](storage-use-azcopy-linux.md).
+Gebruik AzCopy om uw opslag account te verplaatsen tussen abonnementen. Zie [gegevens overdragen met AzCopy in Windows](storage-use-azcopy.md) en [gegevens overdragen met AzCopy in Linux](storage-use-azcopy-linux.md)voor meer informatie.
 
-**Hoe kan ik verplaatsen over 10 TB aan gegevens naar de opslag op een andere regio?**
+**Hoe kan ik ongeveer 10 TB aan gegevens verplaatsen naar de opslag in een andere regio?**
 
-AzCopy gebruiken om de gegevens te verplaatsen. Zie voor meer informatie, [gegevens overdragen met AzCopy voor Windows](storage-use-azcopy.md) en [gegevens overdragen met AzCopy voor Linux](storage-use-azcopy-linux.md).
+Gebruik AzCopy om de gegevens te verplaatsen. Zie [gegevens overdragen met AzCopy in Windows](storage-use-azcopy.md) en [gegevens overdragen met AzCopy in Linux](storage-use-azcopy-linux.md)voor meer informatie.
 
-**Hoe kan ik gegevens kopiëren van on-premises naar Azure Storage?**
+**Hoe kan ik gegevens van on-premises naar Azure Storage kopiëren?**
 
-AzCopy gebruiken om de gegevens te kopiëren. Zie voor meer informatie, [gegevens overdragen met AzCopy voor Windows](storage-use-azcopy.md) en [gegevens overdragen met AzCopy voor Linux](storage-use-azcopy-linux.md).
+Gebruik AzCopy om de gegevens te kopiëren. Zie [gegevens overdragen met AzCopy in Windows](storage-use-azcopy.md) en [gegevens overdragen met AzCopy in Linux](storage-use-azcopy-linux.md)voor meer informatie.
 
-**Hoe kan ik gegevens vanaf on-premises naar Azure Files verplaatsen?**
+**Hoe kan ik gegevens van on-premises verplaatsen naar Azure Files?**
 
-AzCopy gebruiken om gegevens te verplaatsen. Zie voor meer informatie, [gegevens overdragen met AzCopy voor Windows](storage-use-azcopy.md) en [gegevens overdragen met AzCopy voor Linux](storage-use-azcopy-linux.md).
+Gebruik AzCopy om gegevens te verplaatsen. Zie [gegevens overdragen met AzCopy in Windows](storage-use-azcopy.md) en [gegevens overdragen met AzCopy in Linux](storage-use-azcopy-linux.md)voor meer informatie.
 
-**Hoe ik een container-map op een virtuele machine toegewezen?**
+**Hoe kan ik een container-map op een virtuele machine toewijzen?**
 
-Gebruik een Azure-bestandsshare.
+Een Azure-bestands share gebruiken.
 
-**Hoe kan ik back-up Azure file storage?**
+**Hoe kan ik back-up maken van Azure File Storage?**
 
-Er is geen back-upoplossing. Azure Files ondersteunt echter ook asynchrone kopiëren. U kunt dus bestanden kopiëren:
+Er is geen back-upoplossing. Azure Files ondersteunt echter ook asynchrone kopieën. Zo kunt u bestanden kopiëren:
 
-- Van een share naar een andere share binnen een opslagaccount of een ander opslagaccount.
+- Van een share naar een andere share in een opslag account of een ander opslag account.
 
-- Van een share naar een blob-container binnen een opslagaccount of naar een ander opslagaccount.
+- Van een share naar een BLOB-container in een opslag account of een ander opslag account.
 
-Zie voor meer informatie, [gegevens overdragen met AzCopy voor Windows](storage-use-azcopy.md).
+Zie [gegevens overdragen met AzCopy in Windows](storage-use-azcopy.md)voor meer informatie.
 
-**Hoe verplaats ik beheerde schijven naar een ander opslagaccount?**
+**Hoe kan ik beheerde schijven naar een ander opslag account verplaatsen?**
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Volg deze stappen:
 
-1.  Stop de virtuele machine die de beheerde schijf is gekoppeld aan.
+1.  Stop de virtuele machine waaraan de beheerde schijf is gekoppeld.
 
-2.  De beheerde schijf VHD van het ene gebied kopiëren naar een andere de volgende Azure PowerShell-script uit te voeren:
+2.  Kopieer de VHD van de beheerde schijf van het ene naar het andere gebied door het volgende Azure PowerShell script uit te voeren:
 
     ```
     Connect-AzAccount
@@ -138,7 +138,7 @@ Volg deze stappen:
     Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
     ```
 
-3.  Een beheerde schijf maken met behulp van het VHD-bestand in een andere regio waarnaar u de VHD hebt gekopieerd. U doet dit door de volgende Azure PowerShell-script worden uitgevoerd:  
+3.  Maak een beheerde schijf met behulp van het VHD-bestand in een andere regio waarnaar u de VHD hebt gekopieerd. U doet dit door het volgende Azure PowerShell script uit te voeren:  
 
     ```
     $resourceGroupName = 'MDDemo'
@@ -158,145 +158,145 @@ Volg deze stappen:
     $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ``` 
 
-Zie voor meer informatie over het implementeren van een virtuele machine van een beheerde schijf [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
+Zie [CreateVmFromManagedOsDisk. ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1)voor meer informatie over het implementeren van een virtuele machine vanaf een beheerde schijf.
 
-**Hoe kan ik 1-2 TB aan gegevens downloaden uit de Azure-portal?**
+**Hoe kan ik 1-2 TB aan gegevens downloaden van de Azure Portal?**
 
-AzCopy gebruiken om de gegevens te downloaden. Zie voor meer informatie, [gegevens overdragen met AzCopy voor Windows](storage-use-azcopy.md) en [gegevens overdragen met AzCopy voor Linux](storage-use-azcopy-linux.md).
+Gebruik AzCopy om de gegevens te downloaden. Zie [gegevens overdragen met AzCopy in Windows](storage-use-azcopy.md) en [gegevens overdragen met AzCopy in Linux](storage-use-azcopy-linux.md)voor meer informatie.
 
-**Hoe kan ik de secundaire locatie in de regio Europa voor een storage-account wijzigen?**
+**Hoe kan ik de secundaire locatie wijzigen in de regio Europa van een opslag account?**
 
-Als u een opslagaccount maakt, selecteert u de primaire regio voor het account. De selectie van de secundaire regio is gebaseerd op de primaire regio en kan niet worden gewijzigd. Zie voor meer informatie, [geografisch redundante opslag (GRS): Regio-overschrijdend-replicatie voor Azure Storage](storage-redundancy.md).
+Wanneer u een opslag account maakt, selecteert u de primaire regio voor het account. De selectie van de secundaire regio is gebaseerd op de primaire regio en kan niet worden gewijzigd. Zie [geo-redundante opslag (GRS) voor meer informatie: Kruis regionale replicatie voor Azure Storage](storage-redundancy.md).
 
-**Waar vind ik meer informatie over Azure Storage Service Encryption (SSE)?**  
+**Waar vind ik meer informatie over Azure Storage service Encryption (SSE)?**  
   
 Zie de volgende artikelen:
 
 -  [Veiligheidsgids voor Azure Storage](storage-security-guide.md)
 
--  [Azure Storage-Serviceversleuteling voor Data-at-Rest](storage-service-encryption.md)
+-  [Versleuteling van Azure Storage-service voor Data-at-rest](storage-service-encryption.md)
 
-**Hoe ik verplaatsen of downloaden van gegevens van een storage-account?**
+**Hoe kan ik gegevens van een opslag account verplaatsen of downloaden?**
 
-AzCopy gebruiken om de gegevens te downloaden. Zie voor meer informatie, [gegevens overdragen met AzCopy voor Windows](storage-use-azcopy.md) en [gegevens overdragen met AzCopy voor Linux](storage-use-azcopy-linux.md).
+Gebruik AzCopy om de gegevens te downloaden. Zie [gegevens overdragen met AzCopy in Windows](storage-use-azcopy.md) en [gegevens overdragen met AzCopy in Linux](storage-use-azcopy-linux.md)voor meer informatie.
 
 
-**Hoe ik gegevens in een opslagaccount versleutelen?**
+**Gegevens in een opslag account Hoe kan ik versleutelen?**
 
-Nadat u versleuteling in een opslagaccount hebt ingeschakeld, wordt de bestaande gegevens niet versleuteld. Voor het versleutelen van de bestaande gegevens, moet u opnieuw uploaden naar het opslagaccount.
+Nadat u versleuteling in een opslag account hebt ingeschakeld, worden de bestaande gegevens niet versleuteld. Als u de bestaande gegevens wilt versleutelen, moet u deze opnieuw uploaden naar het opslag account.
 
-AzCopy gebruiken om te kopiëren van de gegevens naar een ander opslagaccount en klikt u vervolgens de gegevens terug te verplaatsen. U kunt ook [versleuteling-at-rest](storage-service-encryption.md).
+Gebruik AzCopy om de gegevens te kopiëren naar een ander opslag account en vervolgens de gegevens terug te verplaatsen. U kunt ook [versleuteling gebruiken bij rest](storage-service-encryption.md).
 
-**Hoe kan ik een VHD downloaden naar een lokale computer, andere dan met behulp van de opties voor het downloaden in de portal?**
+**Hoe kan ik een VHD downloaden naar een lokale computer, met uitzonde ring van de download optie in de portal?**
 
-U kunt [Opslagverkenner](https://azure.microsoft.com/features/storage-explorer/) downloaden van een VHD.
+U kunt [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) gebruiken om een VHD te downloaden.
 
-**Zijn er vereisten voor het wijzigen van de replicatie van een storage-account vanuit geografisch redundante opslag met lokaal redundante opslag?**
+**Zijn er vereisten voor het wijzigen van de replicatie van een opslag account van geografisch redundante opslag naar lokaal redundante opslag?**
 
 Nee. 
 
-**Hoe krijg ik toegang tot Azure Files-redundante opslag?**
+**Hoe kan ik toegang Azure Files redundante opslag?**
 
-Geografisch redundante opslag met leestoegang is vereist voor toegang tot redundante opslag. Azure Files ondersteunt echter alleen lokaal redundante opslag en standaard geografisch redundante opslag die geen alleen-lezen toegang toestaat. 
+Geografisch redundante opslag met lees toegang is vereist voor toegang tot redundante opslag. Azure Files ondersteunt echter alleen lokaal redundante opslag en standaard geografisch redundante opslag waarvoor alleen-lezen toegang is toegestaan. 
 
-**Hoe verplaats ik vanuit een premium storage-account naar een standard storage-account?**
+**Hoe kan ik van een Premium Storage-account naar een Standard-opslag account gaan?**
 
 Volg deze stappen:
 
-1.  Maak een standard storage-account. (Of een bestaand account van de standard-opslag gebruiken in uw abonnement).
+1.  Maak een standaard-opslag account. (Of gebruik een bestaand standaard opslag account in uw abonnement.)
 
-2.  AzCopy downloaden. Voer een van de volgende AzCopy-opdrachten.
+2.  Down load AzCopy. Voer een van de volgende AzCopy-opdrachten uit.
       
-    Om te kopiëren hele schijven in de storage-account:
+    De hele schijven in het opslag account kopiëren:
 
         AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
         /SourceKey:key1 /DestKey:key2 /S 
 
-    Als u wilt kopiëren slechts één schijf, geef de naam van de schijf in **patroon**:
+    Als u slechts één schijf wilt kopiëren, geeft u de naam van de schijf op in **patroon**:
 
         AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
         /SourceKey:key1 /DestKey:key2 /Pattern:abc.vhd
 
    
-De bewerking kan enkele uren duren.
+Het kan enkele uren duren voordat de bewerking is voltooid.
 
-Om ervoor te zorgen dat de overdracht is voltooid, controleert u de doelcontainer voor het account van opslag in Azure portal. Nadat de schijven worden gekopieerd naar de standard storage-account, kunt u ze als een bestaande schijf koppelen aan de virtuele machine. Zie voor meer informatie, [een beheerde gegevensschijf koppelen aan een Windows-machine in Azure portal](../../virtual-machines/windows/attach-managed-disk-portal.md).  
+Als u ervoor wilt zorgen dat de overdracht is voltooid, controleert u de container van het bestemmings opslag account in de Azure Portal. Nadat de schijven zijn gekopieerd naar het standaard opslag account, kunt u ze als een bestaande schijf aan de virtuele machine koppelen. Zie [een beheerde gegevens schijf koppelen aan een virtuele Windows-machine in de Azure Portal](../../virtual-machines/windows/attach-managed-disk-portal.md)voor meer informatie.  
   
-**Hoe kan ik converteren naar Azure Premium Storage voor een bestandsshare?**
+**Hoe kan ik converteren naar Azure Premium Storage voor een bestands share?**
 
-Premium-opslag is niet toegestaan op een Azure-bestandsshare.
+Premium Storage is niet toegestaan op een Azure-bestands share.
 
-**Hoe voer ik een upgrade van een standard storage-account naar een premium storage-account? Hoe ik downgraden van een premium storage-account naar een standard storage-account?**
+**Hoe kan ik upgrade van een standaard-opslag account naar een Premium Storage-account? Hoe kan ik downgrade van een Premium Storage-account naar een Standard-opslag account?**
 
-U moet het doel-opslagaccount maken, kopieert gegevens van het bronaccount naar het doelaccount en verwijder vervolgens het bronaccount. U kunt een hulpprogramma zoals AzCopy gebruiken om de gegevens te kopiëren.
+U moet het doel-opslag account maken, gegevens van het bron account naar het doel account kopiëren en het bron account vervolgens verwijderen. U kunt een hulp programma zoals AzCopy gebruiken om de gegevens te kopiëren.
 
-Als u virtuele machines hebt, moet u extra stappen uitvoeren voordat u de gegevens van storage-account migreren. Zie voor meer informatie, [migreren naar Azure Premium Storage (niet-beheerde schijven)](storage-migration-to-premium-storage.md).
+Als u virtuele machines hebt, moet u extra stappen uitvoeren voordat u de gegevens van het opslag account migreert. Zie [migreren naar Azure Premium Storage (niet-beheerde schijven)](storage-migration-to-premium-storage.md)voor meer informatie.
 
-**Hoe verplaats ik van een klassiek opslagaccount naar een Azure Resource Manager-opslagaccount?**
+**Hoe kan ik van een klassiek opslag account naar een Azure Resource Manager Storage-account gaan?**
 
-U kunt de **verplaatsen AzStorageAccount** cmdlet. Deze cmdlet heeft meerdere stappen (valideren, voorbereiden, doorvoeren). U kunt de overstap kunt valideren voordat u deze maakt.
+U kunt de cmdlet **Move-AzStorageAccount** gebruiken. Deze cmdlet heeft meerdere stappen (valideren, voorbereiden, door voeren). U kunt de verplaatsing valideren voordat u deze maakt.
 
-Als u virtuele machines hebt, moet u extra stappen uitvoeren voordat u de gegevens van storage-account migreren. Zie voor meer informatie, [migreren IaaS-resources van klassiek naar Azure Resource Manager met behulp van Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
+Als u virtuele machines hebt, moet u extra stappen uitvoeren voordat u de gegevens van het opslag account migreert. Zie [IaaS-resources van klassiek naar Azure Resource Manager migreren](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md)met behulp van Azure PowerShell voor meer informatie.
 
-**Hoe ik gegevens naar een Linux-computer downloaden vanaf een Azure storage-account of uploaden van gegevens van een Linux-machine?**
+**Hoe kan ik gegevens downloaden naar een Linux-computer vanuit een Azure-opslag account of gegevens uploaden vanaf een Linux-computer?**
 
 U kunt de Azure CLI gebruiken.
 
-- Één blob downloaden:
+- Een enkele BLOB downloaden:
 
       azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
 
-- Één blob uploaden: 
+- Eén BLOB uploaden: 
 
       azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
 
-**Hoe kan ik andere gebruikers toegang biedt tot mijn storage-resources?**
+**Hoe kan ik anderen toegang geven tot mijn opslag resources?**
 
-Zodat andere personen toegang tot de storage-resources:
+Andere personen toegang geven tot de opslag resources:
 
--   De token van een shared access signature (SAS) gebruiken voor toegang tot een resource. 
+-   Gebruik een SAS-token (Shared Access Signature) om toegang te bieden tot een resource. 
 
--   Een gebruiker voorzien van de primaire of secundaire sleutel voor het opslagaccount. Zie voor meer informatie, [uw opslagaccount beheren](storage-account-manage.md#access-keys).
+-   Geef een gebruiker op met de primaire of secundaire sleutel voor het opslag account. Zie [uw opslag account beheren](storage-account-manage.md#access-keys)voor meer informatie.
 
--   Het toegangsbeleid voor anonieme toegang wijzigen. Zie voor meer informatie, [anonieme gebruikersmachtigingen verlenen voor containers en blobs](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
+-   Wijzig het toegangs beleid om anonieme toegang toe te staan. Zie [anonieme gebruikers machtigingen verlenen aan containers en blobs](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs)voor meer informatie.
 
-**Waar is AzCopy geïnstalleerd?**
+**Waar wordt AzCopy geïnstalleerd?**
 
--   Als u AzCopy via de Microsoft Azure Storage-opdrachtregel openen, typt u **AzCopy**. Vanaf de opdrachtregel wordt geïnstalleerd samen met AzCopy.
+-   Als u toegang hebt tot AzCopy vanaf de opdracht regel van Microsoft Azure Storage, typt u **AzCopy**. De opdracht regel wordt naast AzCopy geïnstalleerd.
 
--   Als u de 32-bits versie geïnstalleerd is die u hier: **% ProgramFiles(x86) %\\Microsoft SDKs\\Azure\\AzCopy**.
+-   Als u de 32-bits versie hebt geïnstalleerd, bevindt deze zich hier: **% Program Files\\(x86\\)\\% micro soft sdk's Azure AzCopy**.
 
--   Als u de 64-bits versie geïnstalleerd is die u hier: **% ProgramFiles %\\Microsoft SDKs\\Azure\\AzCopy**.
+-   Als u de 64-bits versie hebt geïnstalleerd, bevindt deze zich hier: **% Program\\files\\%\\micro soft sdk's Azure AzCopy**.
 
-**Voor een gerepliceerde storage-account (zoals zone-redundante opslag, geografisch redundante opslag of geografisch redundante opslag met leestoegang) hoe krijg ik toegang tot gegevens die zijn opgeslagen in de secundaire regio?**
+**Hoe kan ik toegang krijgen tot gegevens die zijn opgeslagen in de secundaire regio voor een gerepliceerd opslag account (zoals zone-redundante opslag, geografisch redundante opslag of geografisch redundante opslag met lees toegang)?**
 
--   Als u zone-redundante opslag of geografisch redundante opslag gebruikt, u geen toegang tot gegevens van de secundaire regio, tenzij u een failover voor deze regio start. Zie voor meer informatie over het failoverproces [Disaster recovery en storage-account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md).
+-   Als u gebruikmaakt van zone-redundante opslag of geografisch redundante opslag, hebt u geen toegang tot gegevens uit de secundaire regio, tenzij u een failover naar die regio initieert. Zie voor meer informatie over het failoverproces [nood herstel en failover van het opslag account (preview) in azure Storage](storage-disaster-recovery-guidance.md).
 
--   Als u geografisch redundante opslag met leestoegang, u kunt toegang tot gegevens van de secundaire regio op elk gewenst moment. Gebruik een van de volgende methoden:  
+-   Als u geografisch redundante opslag met lees toegang gebruikt, kunt u op elk gewenst moment toegang krijgen tot gegevens uit de secundaire regio. Gebruik een van de volgende methoden:  
       
-    - **AzCopy**: Toevoeg- **-secundaire** op de naam van het opslagaccount in de URL voor toegang tot het secundaire eindpunt. Bijvoorbeeld:  
+    - **AzCopy**: Voeg **-secundair** toe aan de naam van het opslag account in de URL voor toegang tot het secundaire eind punt. Bijvoorbeeld:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **SAS-token**: Een SAS-token gebruiken voor toegang tot gegevens van het eindpunt. Zie voor meer informatie, [voor gedeelde toegangshandtekeningen](storage-dotnet-shared-access-signature-part-1.md).
+    - **SAS-token**: Gebruik een SAS-token om toegang te krijgen tot gegevens van het eind punt. Zie [using Shared Access signatures](storage-sas-overview.md)(Engelstalig) voor meer informatie.
 
-**Hoe gebruik ik een aangepast domein met HTTPS met mijn storage-account? Bijvoorbeeld, hoe zorg ik ' https:\//mystorageaccountname.blob.core.windows.net/images/image.gif ' worden weergegeven als ' https:\//www.contoso.com/images/image.gif '?**
+**Hoe kan ik een aangepast HTTPS-domein met mijn opslag account gebruiken? Hoe kan ik bijvoorbeeld ' https:\//mystorageaccountname.blob.core.Windows.net/Images/image.gif ' weer geven als ' https:\//www.contoso.com/images/image.gif '?**
 
-SSL is momenteel niet ondersteund voor opslagaccounts met aangepaste domeinen.
-Maar u kunt aangepaste niet-HTTPS-domeinen. Zie voor meer informatie, [een aangepaste domeinnaam voor uw Blob storage-eindpunt configureren](../blobs/storage-custom-domain-name.md).
+SSL wordt momenteel niet ondersteund voor opslag accounts met aangepaste domeinen.
+U kunt echter geen aangepaste niet-HTTPS-domeinen gebruiken. Zie [een aangepaste domein naam configureren voor het eind punt van de Blob-opslag](../blobs/storage-custom-domain-name.md)voor meer informatie.
 
-**Hoe gebruik ik FTP toegang tot gegevens die zich in een storage-account?**
+**Hoe kan ik FTP gebruiken om toegang te krijgen tot gegevens in een opslag account?**
 
-Er is geen manier voor toegang tot een opslagaccount via FTP. U kunt echter instellen van een virtuele machine van Azure en vervolgens een FTP-server installeren op de virtuele machine. U kunt de FTP-server bestanden opslaan op een Azure-bestandsshare of op een gegevensschijf die is beschikbaar voor de virtuele machine hebben.
+Er is geen manier om rechtstreeks toegang te krijgen tot een opslag account via FTP. U kunt echter een virtuele machine van Azure instellen en vervolgens een FTP-server op de virtuele machine installeren. U kunt de FTP-server bestanden opslaan op een Azure Files share of op een gegevens schijf die beschikbaar is voor de virtuele machine.
 
-Als u wilt dat alleen om gegevens te downloaden zonder gebruik te maken van Storage Explorer of een vergelijkbare toepassing, kunt u mogelijk een SAS-token gebruiken. Zie voor meer informatie, [voor gedeelde toegangshandtekeningen](storage-dotnet-shared-access-signature-part-1.md).
+Als u alleen gegevens wilt downloaden zonder gebruik te hoeven maken van Storage Explorer of een soort gelijke toepassing, kunt u mogelijk een SAS-token gebruiken. Zie [using Shared Access signatures](storage-sas-overview.md)(Engelstalig) voor meer informatie.
 
-**Hoe Migreer ik Blobs van één opslagaccount naar een andere?**
+**Hoe kan ik migreert u blobs van het ene opslag account naar het andere?**
 
- U kunt dit doen met behulp van onze [Blob-migratiescript](../scripts/storage-common-transfer-between-storage-accounts.md).
+ U kunt dit doen met behulp van het [BLOB-migratie script](../scripts/storage-common-transfer-between-storage-accounts.md).
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 
-Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
+Als u nog steeds hulp nodig hebt, [neemt u contact op met de ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel op te lossen.

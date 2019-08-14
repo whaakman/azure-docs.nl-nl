@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: c0b4a83b2c950683926be7fb3be3b0cbe977fef8
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 06e1d881a14367c579bd58ffae04dc0970eb041a
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618410"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941940"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Bedrijfs kritieke gegevens opslaan in Azure Blob Storage
 
@@ -175,7 +175,7 @@ Ja. Om naleving te documenteren, heeft micro soft een toonaangevende onafhankeli
 
 **Is de functie alleen van toepassing op blok-blobs, maar ook op pagina-en toevoeg-blobs?**
 
-Onveranderbare opslag kan worden gebruikt met een BLOB-type, maar we raden u aan dit voornamelijk te gebruiken voor blok-blobs. In tegens telling tot blok-blobs moeten pagina-blobs en toevoeg-blobs worden gemaakt buiten een WORM-container en vervolgens worden gekopieerd in. Nadat u deze blobs naar een WORM container hebt gekopieerd, worden er geen nieuwe *toevoeg* -blobs of wijzigingen aan een pagina-BLOB toegestaan.
+Onveranderbare opslag kan worden gebruikt in combi natie met een BLOB-type dat is ingesteld op het niveau van de container, maar we raden u aan om WORM te gebruiken voor containers die voornamelijk blok-blobs bevatten. In tegens telling tot blok-blobs moeten nieuwe pagina-blobs en toevoeg-blobs worden gemaakt buiten een WORM container en vervolgens worden gekopieerd in. Nadat u deze blobs naar een WORM container hebt gekopieerd, worden er geen nieuwe *toevoeg* -blobs of wijzigingen aan een pagina-BLOB toegestaan. Daarom is het instellen van een WORM beleid voor een container waarin Vhd's worden opgeslagen (pagina-blobs) voor actieve Virtual Machines sterk afgeraden, omdat hiermee de VM-schijf wordt vergrendeld.
 
 **Moet ik een nieuw opslag account maken om deze functie te gebruiken?**
 

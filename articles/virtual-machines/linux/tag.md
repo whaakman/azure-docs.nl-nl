@@ -1,6 +1,6 @@
 ---
-title: Informatie over het taggen van een Azure Linux-machine | Microsoft Docs
-description: Meer informatie over het taggen van een virtuele Azure Linux-machine hebt gemaakt in Azure met behulp van de Resource Manager-implementatiemodel.
+title: Een Azure Linux-virtuele machine coderen | Microsoft Docs
+description: Meer informatie over het coderen van een virtuele Azure Linux-machine die is gemaakt in azure met behulp van het Resource Manager-implementatie model.
 services: virtual-machines-linux
 documentationcenter: ''
 author: mmccrory
@@ -16,28 +16,28 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
 ms.openlocfilehash: 290105b4e5e3ac3337b0be1b7d437601223bdf68
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67708734"
 ---
-# <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Informatie over het taggen van een virtuele Linux-machine in Azure
-Dit artikel beschrijft de verschillende manieren voor het taggen van een virtuele Linux-machine in Azure via het Resource Manager-implementatiemodel. Tags zijn de gebruiker gedefinieerde sleutel/waarde-paren die rechtstreeks op een resource of resourcegroep kunnen worden geplaatst. Azure biedt momenteel ondersteuning voor maximaal 15 tags per resource en resourcegroep. Labels kunnen worden geplaatst op een resource op het moment dat wordt gemaakt of toegevoegd aan een bestaande resource. Houd er rekening mee, tags worden ondersteund voor resources die zijn gemaakt via het Resource Manager-implementatiemodel alleen.
+# <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Een virtuele Linux-machine in azure labelen
+In dit artikel worden verschillende manieren beschreven om een virtuele Linux-machine in azure te labelen via het Resource Manager-implementatie model. Tags zijn door de gebruiker gedefinieerde sleutel/waarde-paren die rechtstreeks kunnen worden geplaatst op een resource of resource groep. Azure ondersteunt momenteel Maxi maal 15 Tags per resource en resource groep. Labels kunnen worden geplaatst op een resource op het moment dat ze worden gemaakt of worden toegevoegd aan een bestaande resource. Let op: Tags worden alleen ondersteund voor resources die zijn gemaakt via het Resource Manager-implementatie model.
 
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
-## <a name="tagging-with-azure-cli"></a>Met Azure CLI-tagging
+## <a name="tagging-with-azure-cli"></a>Labelen met Azure CLI
 
-Als u wilt beginnen, moet u de meest recente [Azure CLI](/cli/azure/install-azure-cli) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az-login).
+Als u wilt beginnen, hebt u de nieuwste [Azure cli](/cli/azure/install-azure-cli) geïnstalleerd en aangemeld bij een Azure-account met de opdracht [AZ login](/cli/azure/reference-index#az-login).
 
-U kunt alle eigenschappen weergeven voor een bepaalde virtuele Machine, met inbegrip van de afsluitcodes met de volgende opdracht:
+U kunt alle eigenschappen van een bepaalde virtuele machine, inclusief de tags, weer geven met behulp van deze opdracht:
 
 ```azurecli
 az vm show --resource-group MyResourceGroup --name MyTestVM
 ```
 
-Als u wilt toevoegen van een nieuw label van de virtuele machine via de Azure CLI, kunt u de `azure vm update` opdracht samen met de parameter tag **--instellen**:
+Als u een nieuwe VM-tag wilt toevoegen via de Azure CLI, kunt `azure vm update` u de opdracht gebruiken samen met de para meter tag **--set**:
 
 ```azurecli
 az vm update \
@@ -46,19 +46,19 @@ az vm update \
     --set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
 ```
 
-Om tags te verwijderen, kunt u de **--verwijderen** parameter in de `azure vm update` opdracht.
+Als u tags wilt verwijderen, kunt u de para meter **--Remove** gebruiken in de `azure vm update` opdracht.
 
 ```azurecli
 az vm update --resource-group MyResourceGroup --name MyTestVM --remove tags.myNewTagName1
 ```
 
-Nu dat we hebben onze bronnen in de Portal en Azure CLI tags hebt toegepast, laten we eens de informatie over het gebruik om te zien van de labels in het factureringsportal.
+Nu we tags hebben toegepast op onze resources Azure CLI en de portal, gaan we de gebruiks gegevens bekijken om de tags in de facturerings portal te bekijken.
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het taggen van uw Azure-resources, [overzicht van Azure Resource Manager][Azure Resource Manager Overview] and [Using Tags to organize your Azure Resources][Using Tags to organize your Azure Resources].
-* Als u wilt zien hoe labels kunnen u helpen uw gebruik van Azure-resources beheren, Zie [informatie over uw Azure-factuur][Understanding your Azure Bill] and [Gain insights into your Microsoft Azure resource consumption][Gain insights into your Microsoft Azure resource consumption].
+* Zie [Azure Resource Manager Overview][Azure Resource Manager Overview] en [Tags gebruiken om uw Azure-resources te organiseren][Using Tags to organize your Azure Resources]voor meer informatie over het coderen van uw Azure-resources.
+* Als u wilt zien hoe Tags u kunnen helpen bij het beheren van uw gebruik van Azure-resources, raadpleegt u [inzicht in uw Azure-factuur][Understanding your Azure Bill] en [krijgt u inzicht in uw Microsoft Azure Resource verbruik][Gain insights into your Microsoft Azure resource consumption].
 
 [Azure CLI environment]: ../../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md

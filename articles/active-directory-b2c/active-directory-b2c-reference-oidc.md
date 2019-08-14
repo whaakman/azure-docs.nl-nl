@@ -11,12 +11,12 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6b5157a71ce15d4dfd199b6826be22235e61df97
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0e60bedcf1324b443d9b9cd34e8dc695fdb0b372
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848532"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931758"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Webaanmelding met OpenID Connect Connect in Azure Active Directory B2C
 
@@ -76,14 +76,14 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Parameter | Vereist | Description |
 | --------- | -------- | ----------- |
 | client_id | Ja | De toepassings-ID die de [Azure Portal](https://portal.azure.com/) toegewezen aan uw toepassing. |
-| response_type | Ja | Moet een ID-token voor OpenID Connect Connect bevatten. Als uw webtoepassing ook tokens nodig heeft voor het aanroepen van een web- `code+id_token`API, kunt u gebruiken. |
-| redirect_uri | Nee | De `redirect_uri` para meter van uw toepassing, waar verificatie reacties kunnen worden verzonden en ontvangen door uw toepassing. De waarde moet exact overeenkomen met `redirect_uri` een van de para meters die u hebt geregistreerd in de Azure Portal, behalve dat deze URL moet worden gecodeerd. |
-| bereik | Ja | Een lijst met door spaties gescheiden bereiken. Het `openid` bereik geeft een machtiging aan voor het aanmelden van de gebruiker en het ophalen van gegevens over de gebruiker in de vorm van id-tokens. Het `offline_access` bereik is optioneel voor webtoepassingen. Dit geeft aan dat uw toepassing een vernieuwings *token* nodig heeft voor uitgebreide toegang tot resources. |
-| response_mode | Nee | De methode die wordt gebruikt om de resulterende autorisatie code terug te sturen naar uw toepassing. Dit kan ofwel `query`, `form_post`, of `fragment`.  De `form_post` antwoord modus wordt aanbevolen voor de beste beveiliging. |
-| toestand | Nee | Een waarde die is opgenomen in de aanvraag die ook wordt geretourneerd in de token reactie. Dit kan een teken reeks zijn van elke gewenste inhoud. Een wille keurig gegenereerde unieke waarde wordt doorgaans gebruikt om vervalsing van aanvragen op meerdere sites te voor komen. De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de toepassing voordat de verificatie aanvraag heeft plaatsgevonden, zoals de pagina waarop deze zich bevonden. |
 | nonce | Ja | Een waarde die is opgenomen in de aanvraag (gegenereerd door de toepassing) die is opgenomen in de resulterende ID-token als claim. De toepassing kan vervolgens deze waarde verifiëren om token replay-aanvallen te verhelpen. De waarde is doorgaans een wille keurige unieke teken reeks die kan worden gebruikt om de oorsprong van de aanvraag te identificeren. |
 | p | Ja | De gebruikers stroom die wordt uitgevoerd. Dit is de naam van een gebruikers stroom die is gemaakt in uw Azure AD B2C-Tenant. De naam van de gebruikers stroom moet beginnen met `b2c\_1\_`. |
+| response_type | Ja | Moet een ID-token voor OpenID Connect Connect bevatten. Als uw webtoepassing ook tokens nodig heeft voor het aanroepen van een web- `code+id_token`API, kunt u gebruiken. |
+| bereik | Ja | Een lijst met door spaties gescheiden bereiken. Het `openid` bereik geeft een machtiging aan voor het aanmelden van de gebruiker en het ophalen van gegevens over de gebruiker in de vorm van id-tokens. Het `offline_access` bereik is optioneel voor webtoepassingen. Dit geeft aan dat uw toepassing een vernieuwings *token* nodig heeft voor uitgebreide toegang tot resources. |
 | verschijnt | Nee | Het type gebruikers interactie dat is vereist. De enige geldige waarde is `login`op dit moment, waardoor de gebruiker de referenties voor die aanvraag invoert. |
+| redirect_uri | Nee | De `redirect_uri` para meter van uw toepassing, waar verificatie reacties kunnen worden verzonden en ontvangen door uw toepassing. De waarde moet exact overeenkomen met `redirect_uri` een van de para meters die u hebt geregistreerd in de Azure Portal, behalve dat deze URL moet worden gecodeerd. |
+| response_mode | Nee | De methode die wordt gebruikt om de resulterende autorisatie code terug te sturen naar uw toepassing. Dit kan ofwel `query`, `form_post`, of `fragment`.  De `form_post` antwoord modus wordt aanbevolen voor de beste beveiliging. |
+| toestand | Nee | Een waarde die is opgenomen in de aanvraag die ook wordt geretourneerd in de token reactie. Dit kan een teken reeks zijn van elke gewenste inhoud. Een wille keurig gegenereerde unieke waarde wordt doorgaans gebruikt om vervalsing van aanvragen op meerdere sites te voor komen. De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de toepassing voordat de verificatie aanvraag heeft plaatsgevonden, zoals de pagina waarop deze zich bevonden. |
 
 Op dit moment wordt de gebruiker gevraagd om de werk stroom te volt ooien. De gebruiker moet mogelijk hun gebruikers naam en wacht woord invoeren, zich aanmelden met een sociale identiteit of zich aanmelden voor de Directory. Er kunnen verschillende stappen worden uitgevoerd, afhankelijk van de manier waarop de gebruikers stroom is gedefinieerd.
 
@@ -169,13 +169,13 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | Parameter | Vereist | Description |
 | --------- | -------- | ----------- |
-| p | Ja | De gebruikers stroom die is gebruikt om de autorisatie code op te halen. U kunt in deze aanvraag niet een andere gebruikers stroom gebruiken. Voeg deze para meter toe aan de query reeks, niet op de hoofd tekst van het bericht. |
 | client_id | Ja | De toepassings-ID die de [Azure Portal](https://portal.azure.com/) toegewezen aan uw toepassing. |
-| grant_type | Ja | Het type toekenning, dat voor de autorisatie `authorization_code` code stroom moet gelden. |
-| bereik | Nee | Een lijst met door spaties gescheiden bereiken. Het `openid` bereik geeft een machtiging aan voor het aanmelden van de gebruiker en het ophalen van gegevens over de gebruiker in de vorm van id_token-para meters. Het kan worden gebruikt om tokens te verkrijgen voor de eigen back-end web-API van uw toepassing, die wordt vertegenwoordigd door dezelfde toepassings-ID als de client. Het `offline_access` bereik geeft aan dat uw toepassing een vernieuwings token nodig heeft voor uitgebreide toegang tot resources. |
-| code | Ja | De autorisatie code die u aan het begin van de gebruikers stroom hebt verkregen. |
-| redirect_uri | Ja | De `redirect_uri` para meter van de toepassing waarin u de autorisatie code hebt ontvangen. |
 | client_secret | Ja | Het toepassings geheim dat is gegenereerd in de [Azure Portal](https://portal.azure.com/). Dit toepassings geheim is een belang rijk beveiligings artefact. U moet deze veilig opslaan op uw server. Wijzig dit client geheim op periodieke basis. |
+| code | Ja | De autorisatie code die u aan het begin van de gebruikers stroom hebt verkregen. |
+| grant_type | Ja | Het type toekenning, dat voor de autorisatie `authorization_code` code stroom moet gelden. |
+| p | Ja | De gebruikers stroom die is gebruikt om de autorisatie code op te halen. U kunt in deze aanvraag niet een andere gebruikers stroom gebruiken. Voeg deze para meter toe aan de query reeks, niet op de hoofd tekst van het bericht. |
+| redirect_uri | Ja | De `redirect_uri` para meter van de toepassing waarin u de autorisatie code hebt ontvangen. |
+| bereik | Nee | Een lijst met door spaties gescheiden bereiken. Het `openid` bereik geeft een machtiging aan voor het aanmelden van de gebruiker en het ophalen van gegevens over de gebruiker in de vorm van id_token-para meters. Het kan worden gebruikt om tokens te verkrijgen voor de eigen back-end web-API van uw toepassing, die wordt vertegenwoordigd door dezelfde toepassings-ID als de client. Het `offline_access` bereik geeft aan dat uw toepassing een vernieuwings token nodig heeft voor uitgebreide toegang tot resources. |
 
 Een geslaagd token antwoord ziet er als volgt uit:
 
@@ -236,13 +236,13 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 | Parameter | Vereist | Description |
 | --------- | -------- | ----------- |
-| p | Ja | De gebruikers stroom die is gebruikt om het oorspronkelijke vernieuwings token te verkrijgen. U kunt in deze aanvraag niet een andere gebruikers stroom gebruiken. Voeg deze para meter toe aan de query reeks, niet op de hoofd tekst van het bericht. |
 | client_id | Ja | De toepassings-ID die de [Azure Portal](https://portal.azure.com/) toegewezen aan uw toepassing. |
-| grant_type | Ja | Het type toekenning, dat een vernieuwings token moet zijn voor dit deel van de autorisatie code stroom. |
-| bereik | Nee | Een lijst met door spaties gescheiden bereiken. Het `openid` bereik geeft een machtiging aan voor het aanmelden van de gebruiker en het ophalen van gegevens over de gebruiker in de vorm van id-tokens. Het kan worden gebruikt voor het verzenden van tokens naar de eigen back-end web-API van uw toepassing, die wordt vertegenwoordigd door dezelfde toepassings-ID als de client. Het `offline_access` bereik geeft aan dat uw toepassing een vernieuwings token nodig heeft voor uitgebreide toegang tot resources. |
-| redirect_uri | Nee | De `redirect_uri` para meter van de toepassing waarin u de autorisatie code hebt ontvangen. |
-| refresh_token | Ja | Het oorspronkelijke vernieuwings token dat is verkregen in het tweede deel van de stroom. Het `offline_access` bereik moet worden gebruikt in de autorisatie-en Token aanvragen om een vernieuwings token te kunnen ontvangen. |
 | client_secret | Ja | Het toepassings geheim dat is gegenereerd in de [Azure Portal](https://portal.azure.com/). Dit toepassings geheim is een belang rijk beveiligings artefact. U moet deze veilig opslaan op uw server. Wijzig dit client geheim op periodieke basis. |
+| grant_type | Ja | Het type toekenning, dat een vernieuwings token moet zijn voor dit deel van de autorisatie code stroom. |
+| refresh_token | Ja | Het oorspronkelijke vernieuwings token dat is verkregen in het tweede deel van de stroom. Het `offline_access` bereik moet worden gebruikt in de autorisatie-en Token aanvragen om een vernieuwings token te kunnen ontvangen. |
+| p | Ja | De gebruikers stroom die is gebruikt om het oorspronkelijke vernieuwings token te verkrijgen. U kunt in deze aanvraag niet een andere gebruikers stroom gebruiken. Voeg deze para meter toe aan de query reeks, niet op de hoofd tekst van het bericht. |
+| redirect_uri | Nee | De `redirect_uri` para meter van de toepassing waarin u de autorisatie code hebt ontvangen. |
+| bereik | Nee | Een lijst met door spaties gescheiden bereiken. Het `openid` bereik geeft een machtiging aan voor het aanmelden van de gebruiker en het ophalen van gegevens over de gebruiker in de vorm van id-tokens. Het kan worden gebruikt voor het verzenden van tokens naar de eigen back-end web-API van uw toepassing, die wordt vertegenwoordigd door dezelfde toepassings-ID als de client. Het `offline_access` bereik geeft aan dat uw toepassing een vernieuwings token nodig heeft voor uitgebreide toegang tot resources. |
 
 Een geslaagd token antwoord ziet er als volgt uit:
 

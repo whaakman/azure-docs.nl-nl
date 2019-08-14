@@ -6,15 +6,15 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/12/2019
 ms.author: stegaw
 ms.custom: seodec18
-ms.openlocfilehash: 577467a6322b7f6d3cd7f199d80963f2f1a98ed6
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 61c3f033fbe3febe7b0d048b247cc1fe8d597698
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849332"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014177"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Fout opsporing door door de gebruiker gedefinieerde functies in azure Digital Apparaatdubbels
 
@@ -45,7 +45,7 @@ Als u de telemetrie van de sensor wilt traceren, controleert u of de diagnostisc
 
 Als u een telemetrie-bericht sensor wilt vergelijken met de respectieve logboeken, kunt u een correlatie-ID opgeven voor de gebeurtenis gegevens die worden verzonden. Als u dit wilt doen, `x-ms-client-request-id` stelt u de eigenschap in op een GUID.
 
-Open log Analytics na het verzenden van telemetrie om logboeken te zoeken met de set correlatie-ID:
+Open Azure Monitor Log Analytics na het verzenden van telemetrie om logboeken te zoeken met de set correlatie-ID:
 
 ```Kusto
 AzureDiagnostics
@@ -100,7 +100,7 @@ GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSO
 | *YOUR_MATCHER_IDENTIFIER* | De ID van de overeenkomst die u wilt evalueren |
 | *YOUR_SENSOR_IDENTIFIER* | De ID van de sensor die u wilt evalueren |
 
-Reactie:
+Antwoord:
 
 ```JavaScript
 {
@@ -123,7 +123,7 @@ GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=Use
 | --- | --- |
 | *YOUR_SENSOR_IDENTIFIER* | De ID van de sensor voor het verzenden van telemetrie |
 
-Reactie:
+Antwoord:
 
 ```JavaScript
 [

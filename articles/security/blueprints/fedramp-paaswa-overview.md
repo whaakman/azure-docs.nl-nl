@@ -1,6 +1,6 @@
 ---
-title: Azure-beveiliging en naleving blauwdruk - PaaS-webtoepassing voor FedRAMP
-description: Azure-beveiliging en naleving blauwdruk - PaaS-webtoepassing voor FedRAMP
+title: Azure-blauwdruk voor beveiliging en naleving-PaaS-webtoepassing voor FedRAMP
+description: Azure-blauwdruk voor beveiliging en naleving-PaaS-webtoepassing voor FedRAMP
 services: security
 author: jomolesk
 ms.assetid: 41570fc1-4d74-48ed-afb0-ef1be857029e
@@ -8,39 +8,39 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: 46c72191ee17f63311b041d798cccec279e4b000
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b74373201db26405653584fc4000993b9d6fdf43
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60585955"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946830"
 ---
-# <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Azure-beveiliging en naleving blauwdruk: PaaS-webtoepassing voor FedRAMP
+# <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Azure-blauwdruk voor beveiliging en naleving: PaaS-webtoepassing voor FedRAMP
 
 ## <a name="overview"></a>Overzicht
 
-De [Federal Risk and Authorization Management Program (FedRAMP)](https://www.fedramp.gov/) Verenigde Staten government-is een programma is dat een gestandaardiseerde benadering voor de beveiligingsbeoordeling, de autorisatie en voortdurende bewaking biedt voor cloud producten en services. Deze Azure-beveiliging en naleving blauwdruk biedt richtlijnen voor het leveren van een Microsoft Azure-platform als een service (PaaS)-architectuur waarmee een subset van FedRAMP High besturingselementen implementeren. Deze oplossing biedt richtlijnen voor de implementatie en configuratie van Azure-resources voor een algemene referentiearchitectuur manieren waarin klanten specifieke vereisten voor beveiliging en naleving kunnen voldoen aan te tonen en fungeert als een basis voor klanten bouwen en configureren van hun eigen oplossingen op Azure.
+De [Federal Risk and Authorization Management Program (FedRAMP)](https://www.fedramp.gov/) is een Verenigde Staten overheids programma dat een gestandaardiseerde benadering biedt voor de beveiligings beoordeling, de autorisatie en de voortdurende bewaking van Cloud producten en-services. Deze Azure-blauwdruk voor beveiliging en naleving biedt richt lijnen voor het leveren van een Microsoft Azure Platform as a Service-architectuur (PaaS) die helpt bij het implementeren van een subset van FedRAMP High Controls. Deze oplossing biedt richt lijnen voor de implementatie en configuratie van Azure-resources voor een algemene referentie architectuur, waarbij u kunt zien hoe klanten aan specifieke vereisten voor beveiliging en naleving kunnen voldoen en als basis voor klanten worden gebruikt om bouw en configureer hun eigen oplossingen op Azure.
 
-Deze referentiearchitectuur, bijbehorende besturingselement implementatiehandleidingen en bedreigingsmodellen zijn bedoeld om te fungeren als een basis voor klanten om aan te passen op hun specifieke behoeften en mag niet worden gebruikt als-is in een productieomgeving. Er is onvoldoende om volledig te voldoen aan de vereisten van de basislijn FedRAMP High implementeren van een toepassing in deze omgeving zonder aanpassingen. Houd rekening met het volgende:
-- De architectuur biedt een basislijn om workloads naar Azure te implementeren op een manier die compatibel is met FedRAMP klanten te helpen.
-- Klanten zijn verantwoordelijk voor het uitvoeren van de juiste beveiliging en naleving evaluaties van een oplossing die is gebouwd met behulp van deze architectuur als vereisten kunnen variëren op basis van de details van de uitvoering van elke klant.
+Deze referentie architectuur, de bijbehorende beheer implementatie handleidingen en bedreigings modellen zijn bedoeld om te fungeren als basis voor klanten om aan hun specifieke vereisten aan te passen en mogen niet worden gebruikt als in een productie omgeving. Het implementeren van een toepassing in deze omgeving zonder aanpassing is niet voldoende om volledig te voldoen aan de vereisten van de FedRAMP hoge basis lijn. Houd rekening met het volgende:
+- De architectuur biedt een basis lijn om klanten te helpen bij het implementeren van werk belastingen naar Azure op een FedRAMP.
+- Klanten zijn verantwoordelijk voor het uitvoeren van passende beveiligings-en nalevings beoordelingen van alle oplossingen die zijn gebouwd met behulp van deze architectuur, aangezien de vereisten kunnen variëren afhankelijk van de specifieke implementaties van elke klant.
 
-## <a name="architecture-diagram-and-components"></a>Diagram van architectuur en onderdelen
-Deze oplossing biedt een referentiearchitectuur voor een PaaS-webtoepassing met een Azure SQL Database-back-end. De web-App wordt gehost in een geïsoleerde Azure App Service Environment, dit een exclusieve privéomgeving in een Azure-datacenter is. De omgeving verdeelt verkeer voor de web-App voor virtuele machines die worden beheerd door Azure. Deze architectuur bevat ook netwerkbeveiligingsgroepen, een Application Gateway, Azure DNS en Load Balancer. Bovendien biedt Azure Monitor realtime analyses van de systeemstatus. **Azure wordt aanbevolen voor het configureren van een VPN of ExpressRoute-verbinding voor beheer en de gegevens importeren in het subnet van referentie-architectuur.**
+## <a name="architecture-diagram-and-components"></a>Architectuur diagram en onderdelen
+Deze oplossing biedt een referentie architectuur voor een PaaS-webtoepassing met een Azure SQL Database back-end. De webtoepassing wordt gehost in een geïsoleerde Azure App Service Environment, een persoonlijke, toegewezen omgeving in een Azure-Data Center. De omgevings taak verdeelt het verkeer voor de webtoepassing op virtuele machines die worden beheerd door Azure. Deze architectuur omvat ook netwerk beveiligings groepen, een Application Gateway, Azure DNS en Load Balancer. Daarnaast biedt Azure Monitor een realtime analyse van de systeem status. **Azure raadt aan om een VPN-of ExpressRoute-verbinding te configureren voor beheer en gegevens import in het subnet met referentie architectuur.**
 
-![PaaS-webtoepassing voor FedRAMP verwijzing Architectuurdiagram](images/fedramp-paaswa-architecture.png?raw=true "PaaS-webtoepassing voor Architectuurdiagram van FedRAMP-verwijzing")
+![PaaS-webtoepassing voor FedRAMP-referentie architectuur diagram](images/fedramp-paaswa-architecture.png?raw=true "PaaS-webtoepassing voor FedRAMP-referentie architectuur diagram")
 
-Deze oplossing maakt gebruik van de volgende Azure-services. Details van de implementatiearchitectuur bevinden zich in de [architectuur](#deployment-architecture) sectie.
+Deze oplossing maakt gebruik van de volgende Azure-Services. Details van de implementatie architectuur vindt u in de sectie [implementatie architectuur](#deployment-architecture) .
 
 - Azure Active Directory
 - Azure Key Vault
 - Azure SQL Database
 - Application Gateway
-    - (1) web Application Firewall
-        - Firewallmodus: preventie
-        - regel is ingesteld: OWASP 3.0
-        - listener: poort 443
-- Azure Virtual Network
+    - (1) Web Application firewall
+        - Firewall modus: voor komen
+        - Regelset: OWASP 3,0
+        - Listener: poort 443
+- Virtueel Azure-netwerk
 - Netwerkbeveiligingsgroepen
 - Azure DNS
 - Azure Storage
@@ -50,143 +50,143 @@ Deze oplossing maakt gebruik van de volgende Azure-services. Details van de impl
 - Azure Web App
 - Azure Resource Manager
 
-## <a name="deployment-architecture"></a>Implementatie-architectuur
-De volgende sectie bevat de elementen van de implementatie en uitvoering.
+## <a name="deployment-architecture"></a>Implementatie architectuur
+De volgende sectie bevat informatie over de implementatie-en implementatie-elementen.
 
-**Azure Resource Manager**: [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) kunnen klanten voor het werken met de resources in de oplossing als een groep. Klanten kunnen implementeren, bijwerken of verwijderen van alle resources voor de oplossing in een enkele, gecoördineerde bewerking. Klanten een sjabloon voor implementatie gebruiken en deze sjabloon kunt werken voor verschillende omgevingen, zoals testen, fasering en productie. Resource Manager biedt beveiliging, controle en tagfuncties die helpen bij klanten die hun resources beheren na de implementatie.
+**Azure Resource Manager**: Met [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) kunnen klanten samen werken met de resources in de oplossing als groep. Klanten kunnen alle resources voor de oplossing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking. Klanten gebruiken een sjabloon voor implementatie en die sjabloon kan worden gebruikt voor verschillende omgevingen, zoals testen, faseren en productie. Resource Manager biedt functies voor beveiliging, controle en labeling om klanten te helpen bij het beheren van hun resources na de implementatie.
 
-**App Service Environment v2**: De [Azure App Service Environment (ASE)](https://docs.microsoft.com/azure/app-service/environment/intro) is een App Service-functie waarmee een volledig geïsoleerde en toegewezen omgeving voor App Service-toepassingen op een grote schaal veilig kunnen worden uitgevoerd.
+**App service Environment v2**: De [Azure app service Environment (ASE)](https://docs.microsoft.com/azure/app-service/environment/intro) is een app service-functie die een volledig geïsoleerde en toegewezen omgeving biedt voor het veilig uitvoeren van app service toepassingen op een hoge schaal.
 
-As-omgevingen zijn geïsoleerd om één klant toepassingen alleen worden uitgevoerd en worden altijd geïmplementeerd in een virtueel netwerk. Klanten hebben meer controle over zowel toepassing binnenkomend en uitgaand netwerkverkeer en toepassingen zeer snelle, veilige verbindingen kunnen maken via virtuele netwerken tot on-premises bedrijfsresources.
+As zijn alleen geïsoleerd voor het uitvoeren van de toepassingen van één klant en worden altijd geïmplementeerd in een virtueel netwerk. Klanten hebben nauw keurige controle over zowel binnenkomend als uitgaand netwerk verkeer en toepassingen kunnen snelle, veilige verbindingen tot stand brengen via virtuele netwerken naar on-premises bedrijfs bronnen.
 
-Gebruik van de as-omgevingen voor deze architectuur zijn toegestaan voor de volgende besturingselementen/configuraties:
+Het gebruik van as voor deze architectuur is toegestaan voor de volgende besturings elementen/configuraties:
 
-- Hosten in een beveiligde Virtueelnetwerk van Azure en netwerkbeveiligingsregels
-- As-omgeving geconfigureerd met de zelf-ondertekend ILB-certificaat voor HTTPS-communicatie
-- [Interne Load Balancing modus](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer)
-- Uitschakelen [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
-- Wijziging [TLS-codering](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
-- Besturingselement [binnenkomende verkeer N/W poorten](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic)
-- [Web Application Firewall: gegevens beperken](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
-- Toestaan dat [verkeer van de Azure SQL Database](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
+- Host binnen een beveiligde Azure-Virtual Network en netwerk beveiligings regels
+- ASE geconfigureerd met zelfondertekend ILB-certificaat voor HTTPS-communicatie
+- [Modus voor interne taak verdeling](../../app-service/environment/app-service-environment-with-internal-load-balancer.md)
+- [TLS 1,0](../../app-service/environment/app-service-app-service-environment-custom-settings.md) uitschakelen
+- [TLS-code ring](../../app-service/environment/app-service-app-service-environment-custom-settings.md) wijzigen
+- Inkomend [verkeer voor N/W-poorten](../../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md) beheren
+- [Web Application firewall: gegevens beperken](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md)
+- [Azure SQL database verkeer](../../app-service/environment/app-service-app-service-environment-network-architecture-overview.md) toestaan
 
-De [richtlijnen en aanbevelingen](#guidance-and-recommendations) sectie bevat aanvullende informatie over as-omgevingen.
+De sectie [instructies en aanbevelingen](#guidance-and-recommendations) bevat aanvullende informatie over as.
 
-**Azure-Web-App**: [Azure App Service](https://docs.microsoft.com/azure/app-service/) kunnen klanten bouwen en hosten van webtoepassingen in de programmeertaal van hun keuze zonder het beheren van infrastructuur. Het biedt automatisch schalen en een hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux en maakt automatische implementaties mogelijk vanuit GitHub, Azure DevOps of een willekeurige Git-repo.
+**Azure-web-app**: Met [Azure app service](https://docs.microsoft.com/azure/app-service/) kunnen klanten webtoepassingen bouwen en hosten in de programmeer taal van hun keuze zonder dat de infra structuur hoeft te worden beheerd. Het biedt automatisch schalen en een hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux en maakt automatische implementaties mogelijk vanuit GitHub, Azure DevOps of een willekeurige Git-repo.
 
 ### <a name="virtual-network"></a>Virtueel netwerk
-De architectuur definieert een particulier virtueel netwerk met een adresruimte van 10.200.0.0/16.
+De architectuur definieert een particulier virtueel netwerk met een adres ruimte van 10.200.0.0/16.
 
-**Netwerkbeveiligingsgroepen**: [Netwerkbeveiligingsgroepen (nsg's)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) bevatten toegangsbeheerlijsten die verkeer binnen een virtueel netwerk toestaan of weigeren. Nsg's kunnen worden gebruikt om verkeer een subnet of afzonderlijke virtuele machine te beveiligen. De volgende nsg's bestaan:
+**Netwerk beveiligings groepen**: [Netwerk beveiligings groepen (nsg's)](../../virtual-network/virtual-network-vnet-plan-design-arm.md) bevatten toegangs beheer lijsten waarmee verkeer binnen een virtueel netwerk wordt toegestaan of geweigerd. Nsg's kan worden gebruikt om verkeer op een subnet of een afzonderlijk VM-niveau te beveiligen. De volgende Nsg's bestaan:
 - 1 NSG voor Application Gateway
-- 1 NSG voor App Service-omgeving
+- 1 NSG voor App Service Environment
 - 1 NSG voor Azure SQL Database
 
-Elk van de nsg's zijn bepaalde poorten en protocollen openen, zodat de oplossing kunt veilig en goed werken. Bovendien zijn de volgende configuraties voor elke NSG ingeschakeld:
-  - [Diagnostische logboeken en gebeurtenissen](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) zijn ingeschakeld en die zijn opgeslagen in een storage-account
-  - Logboeken in Azure Monitor is verbonden met de [NSG van diagnostische gegevens](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+Voor elk van de Nsg's zijn specifieke poorten en protocollen geopend, zodat de oplossing veilig en goed werkt. Daarnaast zijn de volgende configuraties ingeschakeld voor elke NSG:
+  - [Diagnostische logboeken en gebeurtenissen](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) worden ingeschakeld en opgeslagen in een opslag account
+  - Azure Monitor-logboeken zijn verbonden met de [Diagnostische gegevens van de NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Subnetten**: Elk subnet is gekoppeld aan de bijbehorende NSG.
 
-**Azure DNS**: De Domain Name System of DNS is verantwoordelijk voor het omzetten van (of het oplossen van) de naam van een website of -service naar het IP-adres. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) is een hostingservice voor DNS-domeinen die naamomzetting met behulp van Azure-infrastructuur biedt. Door domeinen te hosten in Azure, kunnen gebruikers de DNS-records met dezelfde referenties, API's, hulpprogramma's en facturering als andere Azure-services beheren. Azure DNS ondersteunt ook persoonlijke DNS-domeinen.
+**Azure DNS**: De Domain Name System, of DNS, is verantwoordelijk voor het vertalen van een website-of service naam naar het IP-adres. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) is een hosting service voor DNS-domeinen die naam omzetting biedt met behulp van Azure-infra structuur. Door domeinen in azure te hosten, kunnen gebruikers DNS-records beheren met dezelfde referenties, Api's, hulpprogram ma's en facturering als andere Azure-Services. Azure DNS biedt ook ondersteuning voor privé-DNS-domeinen.
 
-**Azure Load Balancer**: [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) kunnen klanten hun toepassingen schalen en hoge beschikbaarheid voor services. Load Balancer ondersteunt zowel binnenkomende als uitgaande-scenario's, en lage latentie, hoge doorvoer, en kan worden geschaald tot miljoenen stromen voor alle TCP en UDP-toepassingen.
+**Azure Load Balancer**: Met [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) kunnen klanten hun toepassingen schalen en hoge Beschik baarheid maken voor services. Load Balancer ondersteunt zowel binnenkomende als uitgaande scenario's, en biedt lage latentie, hoge door Voer en schaalbaar tot miljoenen stromen voor alle TCP-en UDP-toepassingen.
 
 ### <a name="data-in-transit"></a>Actieve gegevens
-Alle communicatie naar en van Azure-datacenters versleutelt Azure standaard. Alle transacties met Azure Storage via Azure portal plaatsvinden via HTTPS.
+Azure versleutelt standaard alle communicatie naar en van Azure-data centers. Alle trans acties die via de Azure Portal worden Azure Storage, vindt plaats via HTTPS.
 
-### <a name="data-at-rest"></a>Inactieve gegevens
-De architectuur beveiligt gegevens in rust via versleuteling, controle-database en andere metingen.
+### <a name="data-at-rest"></a>Data-at-rest
+De architectuur beveiligt gegevens op rest door versleuteling, database controle en andere metingen.
 
-**Azure Storage**: Om versleutelde data-at-rest-vereisten te voldoen aan alle [Azure Storage](https://azure.microsoft.com/services/storage/) maakt gebruik van [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption).
+**Azure Storage**: Om te voldoen aan de versleutelde gegevens op rest-vereisten, gebruikt alle [Azure Storage](https://azure.microsoft.com/services/storage/) [Storage service Encryption](../../storage/common/storage-service-encryption.md).
 
-**Azure Disk Encryption**
-[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) maakt gebruik van de BitLocker-functie van Windows om volumeversleuteling voor gegevensschijven te bieden. De oplossing kan worden geïntegreerd met Azure Key Vault voor het beheren en beheren van de versleutelingssleutels op de schijf.
+AzureDiskEncryption
+[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) maakt gebruik van de BitLocker-functie van Windows om volume versleuteling voor gegevens schijven te bieden. De oplossing kan worden geïntegreerd met Azure Key Vault om de versleutelings sleutels voor de schijf te controleren en te beheren.
 
-**Azure SQL Database**: De Azure SQL Database-exemplaar maakt gebruik van de volgende metingen van de database-beveiliging:
--   [AD-verificatie en autorisatie](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) maakt identiteitsbeheer van databasegebruikers en andere Microsoft-services op één centrale locatie.
--   [SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) databasegebeurtenissen bijgehouden en geschreven naar een auditlogboek in Azure storage-account.
--   Azure SQL Database is geconfigureerd voor het gebruik van [transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), die voert realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogboekbestanden ter bescherming van gegevens op over de rest.
--   [Firewall-regels](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) voorkomen dat u alle toegang tot de database-servers, totdat de juiste machtigingen zijn toegekend. De firewall verleent toegang tot databases op basis van het IP-adres waar de aanvraag vandaan komt.
--   [SQL Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) kunt u detectie en reactie op mogelijke bedreigingen wanneer deze zich voordoen, dankzij beveiligingswaarschuwingen voor verdachte databaseactiviteiten, potentiële kwetsbaarheden, SQL-injectieaanvallen en afwijkende database-toegang patronen.
--   [Altijd versleuteld kolommen](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) ervoor te zorgen dat gevoelige gegevens nooit wordt weergegeven als tekst zonder opmaak in de database-systeem. Na het inschakelen van versleuteling van gegevens, alleen clienttoepassingen of toepassingsservers met toegang tot de sleutels gegevens zijn toegankelijk als tekst zonder opmaak.
-- [Beveiliging op rijniveau](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) kunnen gebruikers voor het definiëren van beleid om toegang te beperken tot gegevens te verwerken.
-- [SQL Database dynamische gegevensmaskering](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) kan worden uitgevoerd nadat de referentiearchitectuur implementeert. Klanten moet aanpassen, dynamische gegevensmaskering instellingen om te voldoen aan het schema van de database.
+**Azure SQL Database**: Het Azure SQL Database exemplaar maakt gebruik van de volgende data base Security-maat eenheden:
+-   [Ad-verificatie en-autorisatie](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) maken het identiteits beheer mogelijk van database gebruikers en andere micro soft-Services op één centrale locatie.
+-   Met [SQL database controle](../../sql-database/sql-database-auditing.md) worden database gebeurtenissen bijgehouden en naar een audit logboek in een Azure-opslag account geschreven.
+-   Azure SQL Database is geconfigureerd voor het gebruik van [transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), waarmee de data base, gekoppelde back-ups en transactie logboek bestanden in realtime kunnen worden geversleuteld en ontsleuteld om informatie te beveiligen.
+-   [Firewall regels](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) voor komen dat alle toegang tot database servers tot de juiste machtigingen worden verleend. De firewall verleent toegang tot databases op basis van het IP-adres waar de aanvraag vandaan komt.
+-   Met de [detectie van SQL-bedreigingen](../../sql-database/sql-database-threat-detection.md) kunnen mogelijke dreigingen worden gedetecteerd en gereageerd als ze optreden door beveiligings waarschuwingen te bieden voor verdachte database activiteiten, potentiële kwetsbaar heden, SQL-injectie aanvallen en afwijkende database toegangs patronen.
+-   [Always encrypted kolommen](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) zorgen ervoor dat gevoelige gegevens nooit als tekst zonder opmaak in het database systeem worden weer gegeven. Na het inschakelen van gegevens versleuteling, hebben alleen client toepassingen of toepassings servers met toegang tot de sleutels toegang tot tekst zonder opmaak.
+- Met [beveiliging op rijniveau](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) kunnen gebruikers beleid definiëren om de toegang tot gegevens te beperken om de verwerking te stoppen.
+- [SQL database dynamische gegevens maskering](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) kunnen worden uitgevoerd nadat de referentie architectuur is geïmplementeerd. Klanten moeten de instellingen voor dynamische gegevens maskering aanpassen om te voldoen aan hun database schema.
 
 ### <a name="identity-management"></a>Identiteitsbeheer
-De volgende technologieën bieden identiteit beheermogelijkheden in de Azure-omgeving:
--   [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) is van Microsoft met meerdere tenants cloudgebaseerde directory service- en identiteit. Alle gebruikers voor deze oplossing worden gemaakt in AAD, met inbegrip van gebruikers met toegang tot de Azure SQL Database.
--   Verificatie van de toepassing wordt uitgevoerd met behulp van AAD. Zie voor meer informatie, [toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Bovendien de versleuteling van de kolom database maakt gebruik van Azure Active Directory om te verifiëren van de toepassing naar Azure SQL Database. Zie voor meer informatie over het [bescherming van gevoelige gegevens in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
--   [Op rollen gebaseerd toegangsbeheer in Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) maakt nauwkeurig beheer gerichte toegang voor Azure. Abonnementstoegang is beperkt tot de beheerder van het abonnement en toegang tot bronnen worden beperkt op basis van gebruikersrol.
-- [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started) kunnen klanten voor het minimaliseren van het aantal gebruikers die toegang tot bepaalde gegevens hebben.  Beheerders kunnen AAD Privileged Identity Management gebruiken om te detecteren, beperken en controleren van bevoegde identiteiten en hun toegang tot bronnen. Deze functionaliteit kan ook worden gebruikt om af te dwingen op aanvraag, just-in-time beheerderstoegang wanneer dat nodig is.
-- [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) mogelijke beveiligingsproblemen die betrekking hebben op van een organisatie-id's detecteert, configureert u automatische antwoorden op gedetecteerde verdachte activiteit met betrekking tot een organisatie-id's en onderzoekt het probleem verdachte incidenten, onderneem gepaste actie op te lossen.
+De volgende technologieën bieden mogelijkheden voor identiteits beheer in de Azure-omgeving:
+-   [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) is de multi tenant-Cloud Directory en identiteits beheer service van micro soft. Alle gebruikers voor deze oplossing worden gemaakt in AAD, met inbegrip van gebruikers die toegang hebben tot de Azure SQL Database.
+-   Verificatie voor de toepassing wordt uitgevoerd met behulp van AAD. Zie [toepassingen integreren met Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)voor meer informatie. Daarnaast maakt de database kolom versleuteling gebruik van Azure Active Directory om de toepassing te verifiëren voor Azure SQL Database. Zie voor meer informatie hoe u [gevoelige gegevens in Azure SQL database kunt beveiligen](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+-   [Met op rollen gebaseerd toegangs](../../role-based-access-control/role-assignments-portal.md) beheer van Azure kunt u nauw keurig toegang krijgen tot Azure. Abonnements toegang is beperkt tot de abonnements beheerder en de toegang tot bronnen kan worden beperkt op basis van de gebruikersrol.
+- Met [Azure Active Directory privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md) kunnen klanten het aantal gebruikers dat toegang heeft tot bepaalde informatie minimaliseren.  Beheerders kunnen AAD-Privileged Identity Management gebruiken om bevoegde identiteiten en hun toegang tot bronnen te detecteren, beperken en controleren. Deze functie kan ook worden gebruikt voor het afdwingen van alleen-in-time-beheer toegang op aanvraag als dat nodig is.
+- [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) detecteert mogelijke beveiligings problemen die invloed hebben op de identiteiten van een organisatie, configureert automatische antwoorden op gedetecteerde verdachte acties die betrekking hebben op de identiteit van een organisatie en onderzoeken verdachte incidenten om deze problemen op te lossen.
 
 ### <a name="security"></a>Beveiliging
-**Geheimen Management** maakt gebruik van de oplossing [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) voor het beheer van sleutels en geheimen. Met Azure Sleutelkluis kunt u de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services worden gebruikt. De volgende mogelijkheden van Azure Key Vault zodat klanten beschermen van gegevens en toegang tot deze gegevens:
-- Geavanceerde beleidsregels zijn geconfigureerd op basis van behoefte.
-- Toegangsbeleid voor Key Vault zijn met de minimaal vereiste machtigingen voor sleutels en geheimen gedefinieerd.
-- Verloopdatum hebben alle sleutels en geheimen in Key Vault.
-- Alle sleutels in Key Vault worden beschermd door gespecialiseerde hardware security modules (HSM's). Het sleuteltype is een HSM beveiligd 2048-bits RSA-sleutel.
-- Minimaal vereiste machtigingen met behulp van op rollen gebaseerd toegangsbeheer worden verleend door alle gebruikers en identiteiten.
-- Diagnostische logboeken voor Key Vault worden ingeschakeld met een bewaarperiode van ten minste 365 dagen.
-- Toegestane cryptografiebewerkingen voor sleutels zijn beperkt tot die nodig is.
+**Geheimen beheren** De oplossing maakt gebruik van [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) voor het beheer van sleutels en geheimen. Met Azure Sleutelkluis kunt u de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services worden gebruikt. Met de volgende Azure Key Vault mogelijkheden kunnen klanten gegevens en toegang tot gegevens beveiligen:
+- Geavanceerd toegangs beleid wordt geconfigureerd op basis van behoefte.
+- Key Vault toegangs beleid wordt gedefinieerd met mini maal vereiste machtigingen voor sleutels en geheimen.
+- Alle sleutels en geheimen in Key Vault hebben verloop datums.
+- Alle sleutels in Key Vault worden beveiligd door gespecialiseerde hardware security modules (Hsm's). Het sleutel type is een met HSM beschermde 2048-bits RSA-sleutel.
+- Aan alle gebruikers en identiteiten worden mini maal vereiste machtigingen verleend met toegangs beheer op basis van rollen.
+- Diagnostische logboeken voor Key Vault zijn ingeschakeld met een Bewaar periode van ten minste 365 dagen.
+- Toegestane cryptografische bewerkingen voor sleutels zijn beperkt tot de vereisten die nodig zijn.
 
-**Application Gateway** de architectuur vermindert het risico van beveiligingsproblemen met behulp van een toepassingsgateway met Web Application Firewall en het ruleset OWASP is ingeschakeld. Aanvullende mogelijkheden zijn onder andere:
+**Application Gateway** De architectuur vermindert het risico op beveiligings problemen met behulp van een Application Gateway met Web Application firewall en de ruleset OWASP ingeschakeld. Aanvullende mogelijkheden zijn onder andere:
 - [End-to-End-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
-- Schakel [SSL-Offload](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
-- Uitschakelen [TLS v1.0 en v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
-- [Web Application Firewall](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview)
-- [Preventiemodus](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) met OWASP 3.0 ruleset
-- Schakel [logboekregistratie van diagnostische gegevens](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
-- [Aangepaste statuscontroles](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-gateway-portal)
-- [Azure Security Center](https://azure.microsoft.com/services/security-center) en [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) bieden extra beveiliging en meldingen. Azure Security Center biedt ook een reputatie-systeem.
+- [SSL-offload](../../application-gateway/create-ssl-portal.md) inschakelen
+- [TLS v 1.0 en v 1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) uitschakelen
+- [Web Application firewall](../../application-gateway/waf-overview.md)
+- [Preventie modus](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) met OWASP 3,0 ruleSet
+- [Logboek registratie van diagnostische gegevens](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics) inschakelen
+- [Aangepaste status tests](../../application-gateway/quick-create-portal.md)
+- [Azure Security Center](https://azure.microsoft.com/services/security-center) en [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) bieden extra beveiliging en meldingen. Azure Security Center biedt ook een reputatie systeem.
 
-### <a name="logging-and-auditing"></a>Logboekregistratie en controle
-Azure Monitor biedt uitgebreide logboekregistratie van het systeem- en gebruikersactiviteit, evenals de status van het bestandssysteem. Deze verzamelt en analyseert gegevens gegenereerd door resources in Azure en on-premises omgevingen.
-- **Activiteitenlogboeken**: [Activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in bewerkingen die worden uitgevoerd op resources in een abonnement. Activiteitenlogboeken kunnen u eenvoudiger bepalen van een bewerking initiator, tijdstip van de gebeurtenis en status.
-- **Diagnostische logboeken**: [Diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) bevatten alle logboeken die zijn gegenereerd door elke resource. Deze logboeken bevatten de logboeken voor Windows-systeem, Azure Storage-Logboeken, Key Vault-auditlogboeken en Application Gateway toegangs- en firewall-Logboeken.
-- **Logboek archiveren**: Alle logboeken met diagnostische gegevens schrijven naar een gecentraliseerd en versleutelde Azure storage-account voor archivering. De bewaarperiode is om te voldoen aan vereisten voor de bewaarperiode van de organisatie-specifieke gebruiker-configureren, tot maximaal 730 dagen. Deze logboeken verbinden met Azure Monitor-logboeken voor verwerking, opslag en -dashboardrapporten.
+### <a name="logging-and-auditing"></a>Logboek registratie en controle
+Azure Monitor biedt uitgebreide logboek registratie van systeem-en gebruikers activiteiten, evenals de systeem status. Het verzamelt en analyseert gegevens die zijn gegenereerd door resources in Azure-en on-premises omgevingen.
+- **Activiteiten logboeken**: [Activiteiten logboeken](../../azure-monitor/platform/activity-logs-overview.md) bieden inzicht in bewerkingen die worden uitgevoerd op resources in een abonnement. Activiteiten logboeken kunnen helpen bij het bepalen van de initiator, het tijdstip van de gebeurtenis en de status van een bewerking.
+- **Diagnostische logboeken**: [Diagnostische logboeken](../../azure-monitor/platform/diagnostic-logs-overview.md) bevatten alle logboeken die elke resource heeft verzonden. Deze logboeken bevatten Windows-gebeurtenis systeem logboeken, Azure Storage logboeken, Key Vault controle logboeken en Application Gateway toegang en firewall Logboeken.
+- **Archivering**van Logboeken: Alle Diagnostische logboeken schrijven naar een gecentraliseerd en versleuteld Azure Storage-account voor archivering. De retentie kan door de gebruiker worden geconfigureerd, tot 730 dagen, om te voldoen aan de specifieke vereisten voor het bewaren van een organisatie. Deze logboeken maken verbinding met Azure Monitor logboeken voor verwerking, opslag en dashboard rapportage.
 
-Bovendien is de volgende bewakingsoplossingen, opgenomen als onderdeel van deze architectuur:
--   [Active directory-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): De oplossing statuscontrole van Active Directory beoordeelt het risico en de gezondheid van server-omgevingen op een vast interval en biedt een geprioriteerde lijst met aanbevelingen die specifiek zijn voor de geïmplementeerde serverinfrastructuur.
--   [Antimalware-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): De Antimalware-oplossing rapporteert over de status van schadelijke software, bedreigingen en beveiliging.
--   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): De oplossing Azure Automation opgeslagen, wordt uitgevoerd en runbooks worden beheerd. In deze oplossing te runbooks verzamelen van Logboeken van Application Insights en Azure SQL Database.
--   [Beveiliging en controle](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): Het dashboard beveiliging en controle biedt een hoogwaardig inzicht in de beveiligingsstatus van resources, dankzij metrische gegevens over beveiligingsdomeinen, problemen die aandacht vereisen, detecties, bedreigingsinformatie en algemene Beveiligingsquery's.
--   [SQL-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): De oplossing SQL-statuscontrole beoordeelt het risico en de gezondheid van server-omgevingen op een vast interval en biedt klanten een geprioriteerde lijst met aanbevelingen die specifiek zijn voor de geïmplementeerde serverinfrastructuur.
--   [Updatebeheer](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): De oplossing Update Management kunt Klantenbeheer van updates voor besturingssysteem, met inbegrip van de status van de beschikbare updates en het installatieproces van vereiste updates.
--   [Status van agent](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): De oplossing status van Agent rapporteert het aantal agents zijn geïmplementeerd en hun geografische verdeling, evenals hoeveel agents die niet meer reageert en het aantal agents die zijn operationele gegevens kan verzenden.
--   [Azure-activiteitenlogboeken](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): De oplossing Activity Log Analytics biedt ondersteuning voor analyse van de Azure-activiteitenlogboeken voor alle Azure-abonnementen voor een klant.
--   [Wijzigingen bijhouden](https://docs.microsoft.com/azure/automation/automation-change-tracking): De oplossing wijzigingen bijhouden kan klanten eenvoudig wijzigingen in de omgeving identificeren.
+Daarnaast zijn de volgende bewakings oplossingen opgenomen als onderdeel van deze architectuur:
+-   [Active Directory-evaluatie](../../azure-monitor/insights/ad-assessment.md): De Active Directory Health Check-oplossing evalueert het risico en de status van de server omgevingen volgens een regel matig interval en biedt een lijst met aanbevelingen die specifiek zijn voor de geïmplementeerde server infrastructuur.
+-   [Anitmalware-evaluatie](../../security-center/security-center-install-endpoint-protection.md): De antimalware-oplossing rapporteert over malware, bedreigingen en de beveiligings status.
+-   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): Met de Azure Automation oplossing worden runbooks opgeslagen, uitgevoerd en beheerd. In deze oplossing helpen runbooks bij het verzamelen van logboeken van Application Insights en Azure SQL Database.
+-   [Beveiliging en audit](../../security-center/security-center-intro.md): Het Beveiliging en audit-dash board biedt een hoog niveau inzicht in de beveiligings status van bronnen door metrische gegevens op te geven over beveiligings domeinen, belang rijke problemen, detecties, bedreigings informatie en algemene beveiligings query's.
+-   [SQL-evaluatie](../../azure-monitor/insights/sql-assessment.md): De SQL Health Check-oplossing evalueert het risico en de status van de server omgevingen met een regel matig interval en biedt klanten een lijst met prioriteiten die specifiek zijn voor de geïmplementeerde server infrastructuur.
+-   [Updatebeheer](../../automation/automation-update-management.md): Met de Updatebeheer oplossing kan het klant beheer van beveiligings updates van besturings systemen worden uitgevoerd, inclusief de status van beschik bare updates en het proces voor het installeren van vereiste updates.
+-   [Status van agent](../../monitoring/monitoring-solution-agenthealth.md): De Status van agent oplossing meldt hoeveel agents zijn geïmplementeerd en wat hun geografische distributie zijn, en hoeveel agents niet reageren en het aantal agents dat operationele gegevens verzendt.
+-   [Azure-activiteiten logboeken](../../azure-monitor/platform/collect-activity-logs.md): De Analyse van activiteitenlogboek oplossing helpt bij het analyseren van de activiteiten logboeken van Azure in alle Azure-abonnementen voor een klant.
+-   [Wijzigingen bijhouden](../../automation/change-tracking.md): Met de Wijzigingen bijhouden oplossing kunnen klanten eenvoudig wijzigingen in de omgeving identificeren.
 
-**Azure Monitor**
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) helpt gebruikers bij het bijhouden van prestaties, beveiliging en trends te identificeren doordat organisaties om te controleren, waarschuwingen maken en archiveren van gegevens, zoals het bijhouden van API-aanroepen in klanten Azure-resources.
+Azuremonitor
+[Azure monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) helpt gebruikers bij het volgen van prestaties, het onderhouden van de beveiliging en het identificeren van trends door organisaties in staat te stellen om gegevens te controleren, te maken en te archiveren, inclusief het volgen van API-aanroepen in azure-bronnen van klanten.
 
-## <a name="threat-model"></a>Risicomodel
+## <a name="threat-model"></a>Bedreigings model
 
-Het diagram van de gegevensstroom voor deze referentiearchitectuur is beschikbaar voor [downloaden](https://aka.ms/fedrampPaaSWebAppDFD) of vindt u hieronder. Dit model kunt klanten inzicht krijgen in de punten van de mogelijke risico's in de infrastructuur van het systeem als u wijzigingen aanbrengt.
+Het gegevensstroom diagram voor deze referentie architectuur is beschikbaar voor [downloaden](https://aka.ms/fedrampPaaSWebAppDFD) of kan hieronder worden weer gegeven. Dit model kan klanten helpen om inzicht te krijgen in de punten van potentieel risico in de systeem infrastructuur bij het aanbrengen van wijzigingen.
 
-![PaaS-webtoepassing voor FedRAMP risicomodel](images/fedramp-paaswa-threat-model.png?raw=true "PaaS-webtoepassing voor risicomodel FedRAMP")
+![PaaS-webtoepassing voor FedRAMP Threat model](images/fedramp-paaswa-threat-model.png?raw=true "PaaS-webtoepassing voor FedRAMP Threat model")
 
-## <a name="compliance-documentation"></a>Naleving-documentatie
-De [Azure-beveiliging en naleving blauwdruk - FedRAMP hoog klant verantwoordelijkheid Matrix](https://aka.ms/blueprinthighcrm) geeft een lijst van alle beveiligingsmaatregelen die zijn vereist voor de basislijn FedRAMP High. De matrix geeft aan of de implementatie van elk besturingselement de verantwoordelijkheid van Microsoft, de klant is, of gedeeld tussen de twee.
+## <a name="compliance-documentation"></a>Documentatie voor naleving
+De [FedRAMP-matrix voor hoge klant verantwoordelijkheden bevat Azure-blauwdruk voor beveiliging en naleving](https://aka.ms/blueprinthighcrm) een lijst met alle beveiligings controles die vereist zijn voor de hoge basis lijn van FedRAMP. De matrix geeft aan of de implementatie van elk besturings element de verantwoordelijkheid is van micro soft, de klant of gedeeld door de twee.
 
-De [Azure-beveiliging en blauwdruk voor naleving - FedRAMP PaaS WebApp hoge besturingselement implementatie Matrix](https://aka.ms/fedrampPaaSWebAppCIM) geeft een lijst van alle beveiligingsmaatregelen die zijn vereist voor de basislijn FedRAMP High. De matrix bevat informatie waarop besturingselementen worden gedekt door de PaaS architectuur voor webtoepassingen, waaronder gedetailleerde beschrijvingen van de manier waarop de implementatie voldoet aan de vereisten van elk besturingselement vallen.
+In [Azure-blauwdruk voor beveiliging en naleving de FedRAMP PaaS webapp-implementatie matrix voor hoge controle](https://aka.ms/fedrampPaaSWebAppCIM) worden alle beveiligings controles vermeld die zijn vereist voor de FedRAMP hoge basis lijn. De matrix bevat informatie over welke besturings elementen worden gedekt door de architectuur van de PaaS-webtoepassing, met inbegrip van gedetailleerde beschrijvingen van de manier waarop de implementatie voldoet aan de vereisten van elk gedekte besturings element.
 
-## <a name="guidance-and-recommendations"></a>Richtlijnen en aanbevelingen
-### <a name="vpn-and-expressroute"></a>VPN en ExpressRoute
-Een beveiligde VPN-tunnel of [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) moet worden geconfigureerd voor een veilig verbinding met de resources die zijn geïmplementeerd als onderdeel van deze referentiearchitectuur van PaaS web toepassing. Door op de juiste wijze instellen van een VPN of ExpressRoute, toevoegen klanten een beveiligingslaag voor gegevens in transit.
+## <a name="guidance-and-recommendations"></a>Richt lijnen en aanbevelingen
+### <a name="vpn-and-expressroute"></a>VPN-en ExpressRoute
+Een beveiligde VPN-tunnel of [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) moet worden geconfigureerd om een veilige verbinding tot stand te brengen met de resources die zijn geïmplementeerd als onderdeel van deze PaaS-referentie architectuur voor webtoepassingen. Door een VPN-of ExpressRoute in te stellen, kunnen klanten een beveiligingslaag toevoegen voor gegevens die onderweg zijn.
 
-Door het implementeren van een beveiligde VPN-tunnel met Azure, kan een VPN-verbinding tussen een on-premises netwerk en een Azure-netwerk worden gemaakt. Deze verbinding vindt plaats via Internet en kan klanten veilig 'tunnel' gegevens in een gecodeerde verbinding tussen het netwerk en Azure van de klant. Site-naar-Site VPN is een veilige, volwassen technologie die is geïmplementeerd door bedrijven van alle groottes decennia. De [IPsec-tunnelmodus](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) bij deze optie als een versleutelingsmechanisme voor wordt gebruikt.
+Als u een beveiligde VPN-tunnel met Azure implementeert, kan een VPN-verbinding tussen een on-premises netwerk en een Azure-Virtual Network worden gemaakt. Deze verbinding vindt plaats via internet en stelt klanten in staat om ' tunnel-informatie veilig ' te maken binnen een versleutelde koppeling tussen het netwerk van de klant en Azure. Site-naar-site-VPN is een veilige, rijpere technologie die is geïmplementeerd door ondernemingen van elke omvang voor tien tallen. De [IPSec-tunnel modus](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) wordt in deze optie als een versleutelings mechanisme gebruikt.
 
-Omdat het verkeer binnen de VPN-tunnel via Internet met een site-naar-site-VPN, biedt Microsoft een andere verbinding nog veiliger optie. Azure ExpressRoute is een speciale WAN koppeling tussen Azure en een on-premises locatie of een Exchange-hostingprovider. Als het ExpressRoute-verbindingen gaan niet via het Internet, bieden deze verbindingen een meer betrouwbaarheid, hogere snelheden, kortere wachttijden en hogere beveiliging dan gebruikelijke verbindingen via Internet. Bovendien, omdat dit een rechtstreekse verbinding van de klant telecommunicatie-provider, de gegevens niet via Internet kan worden verzonden en daarom geen toegang heeft tot deze.
+Omdat verkeer binnen de VPN-tunnel via internet met een site-naar-site-VPN gaat, biedt micro soft een andere, nog veiliger verbindings optie. Azure ExpressRoute is een specifieke WAN-verbinding tussen Azure en een on-premises locatie of een Exchange-hosting provider. Omdat ExpressRoute-verbindingen niet via internet werken, bieden deze verbindingen meer betrouw baarheid, hogere snelheden, lagere latenties en een betere beveiliging dan typische verbindingen via internet. Omdat dit een directe verbinding is tussen de telecom municatie-provider van de klant, worden de gegevens niet via internet verzonden en worden ze daarom niet blootgesteld aan IT.
 
-Aanbevolen procedures voor het implementeren van een beveiligd hybride netwerk dat een on-premises netwerk naar Azure uitbreidt zijn [beschikbaar](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
+Aanbevolen procedures voor het implementeren van een veilig hybride netwerk dat een on-premises netwerk uitbreidt naar Azure, zijn [beschikbaar](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
 
 ## <a name="disclaimer"></a>Vrijwaring
 
- - Dit document is uitsluitend ter informatie bedoeld. MICROSOFT BIEDT GEEN GARANTIES, EXPLICIETE, IMPLICIETE OF WETTELIJKE GARANTIE VOOR DE INFORMATIE IN DIT DOCUMENT. Dit document wordt geleverd ' as-is. " Informatie en meningen in dit document, inclusief URL's en andere websiteverwijzingen, kunnen zonder kennisgeving worden gewijzigd. Klanten die in dit document leest draagt het risico van het gebruik ervan.
- - Dit document biedt klanten met een enkel wettelijk recht op enig intellectueel in andere Microsoft-producten of oplossingen.
- - Klanten kunnen kopiëren en gebruiken van dit document voor interne referentiedoeleinden.
- - Bepaalde aanbevelingen in dit document kunnen leiden tot grotere hoeveelheden gegevens, netwerk- of gebruik van de compute-bronnen in Azure en de Azure-licentie of abonnement kosten van een klant kunnen verhogen.
- - Deze architectuur is bedoeld om te fungeren als een basis voor klanten om aan te passen op hun specifieke behoeften en mag niet worden gebruikt als-is in een productieomgeving.
- - Dit document is ontwikkeld als referentie en mag niet worden gebruikt voor het definiëren van alle middelen waarmee een klant kan voldoen aan specifieke nalevingsvereisten en voorschriften. Klanten moeten juridische ondersteuning van hun organisatie op goedgekeurde klantimplementaties gezocht.
+ - Dit document is alleen ter informatie bedoeld. MICRO SOFT BIEDT GEEN ENKELE GARANTIE, UITDRUKKELIJK, IMPLICIET OF WETTELIJK, MET BETREKKING TOT DE INFORMATIE IN DIT DOCUMENT. Dit document wordt in de as-is opgenomen. Informatie en weer gaven in dit document, inclusief URL'S en andere website verwijzingen, kunnen zonder kennisgeving worden gewijzigd. Klanten die dit document lezen, hebben het risico van het gebruik ervan.
+ - Dit document biedt klanten geen juridische rechten voor intellectueel eigendom in een micro soft-product of-oplossingen.
+ - Klanten kunnen dit document kopiëren en gebruiken voor interne referentie doeleinden.
+ - Bepaalde aanbevelingen in dit document kunnen leiden tot meer gegevens-, netwerk-of COMPUTE-resource gebruik in azure, en kunnen de kosten van de Azure-licentie of het abonnement van de klant verhogen.
+ - Deze architectuur is bedoeld om te fungeren als basis voor klanten om aan hun specifieke vereisten aan te passen en mag niet worden gebruikt in een productie omgeving.
+ - Dit document is ontwikkeld als referentie en mag niet worden gebruikt voor het definiëren van de manier waarop een klant kan voldoen aan specifieke nalevings vereisten en-voor Schriften. Klanten moeten juridische ondersteuning van hun organisatie zoeken op goedgekeurde klant implementaties.

@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Azure-pagina-blobs | Microsoft Docs
-description: Een overzicht van Azure-pagina-blobs en hun voordelen, waaronder gebruiksvoorbeelden met voorbeelden van scripts.
+title: Overzicht van Azure page-blobs | Microsoft Docs
+description: Een overzicht van Azure-pagina-blobs en hun voor delen, met inbegrip van gebruiks voorbeelden met voorbeeld scripts.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,44 +9,44 @@ ms.date: 05/13/2019
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: 88bf81852a4501f4fc5807d865214d57dbc0aab3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 060e1d01e5f078bad9852ae35d0af9142192a7b6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65794501"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985620"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Overzicht van Azure-pagina-blobs
 
-Azure Storage biedt drie typen van blob-opslag: Blok-Blobs, toevoeg-Blobs en pagina-blobs. Blok-blobs bestaan uit blokken en zijn ideaal voor het opslaan van tekst of binaire bestanden en voor het uploaden van grote bestanden efficiënt. Toevoeg-blobs ook bestaan uit blokken, maar ze zijn geoptimaliseerd voor toevoegbewerkingen, waardoor ze ideaal voor scenario's voor logboekregistratie. Pagina-blobs bestaan uit 512-byte-pagina's omhoog naar 8 TB in totale grootte en zijn ontworpen voor frequente willekeurige lees-/ schrijfbewerkingen. Pagina-blobs vormen de basis van Azure IaaS-schijven. In dit artikel is gericht op uitleg van de functies en voordelen van pagina-blobs.
+Azure Storage biedt drie typen Blob Storage: Blok-blobs, toevoeg-blobs en pagina-blobs. Blok-blobs bestaan uit blokken en zijn ideaal voor het opslaan van tekst of binaire bestanden, en voor het efficiënt uploaden van grote bestanden. Toevoeg-blobs bestaan ook uit blokken, maar ze zijn geoptimaliseerd voor toevoeg bewerkingen, waardoor ze ideaal zijn voor logboek scenario's. Pagina-blobs bestaan uit 512-byte pagina's tot 8 TB in totale grootte en zijn ontworpen voor frequente, wille keurige Lees-en schrijf bewerkingen. Pagina-blobs zijn de basis van Azure IaaS-schijven. Dit artikel richt zich op de uitleg van de functies en voor delen van pagina-blobs.
 
-Pagina-blobs zijn een verzameling van 512-byte-pagina's, waardoor de mogelijkheid om willekeurige bereiken in bytes voor lezen/schrijven. Daarom kan de pagina-blobs zijn ideaal voor het opslaan van gegevens op basis van een index en sparse-structuren, zoals besturingssysteem en gegevensschijven voor virtuele Machines en Databases. Bijvoorbeeld, Azure SQL-database maakt gebruik van pagina-blobs als de onderliggende permanente opslag voor de databases. Pagina-blobs worden bovendien ook vaak gebruikt voor bestanden die zijn bijgewerkt op basis van een bereik.  
+Pagina-blobs zijn een verzameling van 512-byte pagina's, die de mogelijkheid bieden om wille keurig bereik van bytes te lezen/schrijven. Pagina-blobs zijn daarom ideaal voor het opslaan van op index gebaseerde en sparse gegevens structuren zoals besturings systeem-en gegevens schijven voor Virtual Machines en data bases. Azure SQL DB maakt bijvoorbeeld gebruik van pagina-blobs als de onderliggende permanente opslag voor de data bases. Daarnaast worden pagina-blobs ook vaak gebruikt voor bestanden met updates op basis van een bereik.  
 
-Belangrijke functies van Azure-pagina-blobs zijn de REST-interface, de duurzaamheid van de onderliggende opslag en de mogelijkheden voor naadloze migratie naar Azure. Deze functies worden gedetailleerd besproken in de volgende sectie beschreven. Bovendien worden Azure pagina-blobs momenteel ondersteund op twee soorten opslag: Premium-opslag- en Standard-opslag. Premium Storage is speciaal ontworpen voor workloads waarvoor consistent hoge prestaties en lage latentie, waardoor premium-pagina-blobs ideaal voor high performance storage scenario's vereist. Standard storage-accounts zijn kostenefficiënter voor het uitvoeren van niet gevoelig workloads.
+De belangrijkste functies van Azure page-blobs zijn de REST interface, de duurzaamheid van de onderliggende opslag en de naadloze migratie mogelijkheden naar Azure. Deze functies worden gedetailleerd beschreven in de volgende sectie. Daarnaast worden Azure page-blobs momenteel ondersteund op twee soorten opslag: Premium Storage en standaard opslag. Premium Storage is speciaal ontworpen voor werk belastingen die consistente hoge prestaties en lage latentie nodig hebben om Premium-pagina-blobs te maken die ideaal zijn voor opslag scenario's met hoge prestaties. Standaard opslag accounts zijn rendabeler voor het uitvoeren van latentie gevoelige werk belastingen.
 
-## <a name="sample-use-cases"></a>Voorbeelden van use cases
+## <a name="sample-use-cases"></a>Voorbeeld Cases gebruiken
 
-Laten we bespreken enkele gebruiksvoorbeelden voor pagina-blobs die beginnen met Azure IaaS-schijven. Azure-pagina-blobs vormen de ruggengraat van de virtuele schijven platform voor Azure IaaS. Azure-besturingssysteem en de gegevensschijven worden geïmplementeerd als virtuele schijven waaruit gegevens worden blijvend opgeslagen in het Azure Storage-platform en vervolgens geleverd aan de virtuele machines voor maximale prestaties. Azure-schijven zijn opgeslagen in Hyper-V [VHD-indeling](https://technet.microsoft.com/library/dd979539.aspx) en opgeslagen als een [pagina-blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) in Azure Storage. Naast het gebruik van virtuele schijven voor Azure IaaS VM's, inschakelen pagina-blobs ook voor PaaS en DBaaS scenario's zoals Azure SQL DB-service, die momenteel pagina-blobs gebruikt voor het opslaan van SQL-gegevens, zodat snel, willekeurig lees-/ schrijfbewerkingen voor de database. Een ander voorbeeld zou zijn als u een PaaS-service voor toegang tot gedeelde media voor samenwerkingstoepassingen video bewerken hebt, pagina-blobs snelle toegang tot willekeurige locaties in de media inschakelen. Ook kunt met snelle en efficiënte bewerken en samenvoegen van de dezelfde media door meerdere gebruikers. 
+We bespreken enkele gebruiks voorbeelden voor pagina-blobs die beginnen met Azure IaaS-schijven. Azure-pagina-blobs zijn de ruggen graat van het platform voor virtuele schijven voor Azure IaaS. Zowel Azure-besturings systemen als-gegevens schijven worden geïmplementeerd als virtuele schijven waar gegevens blijvend worden opgeslagen in het Azure Storage-platform en vervolgens worden geleverd aan de virtuele machines voor maximale prestaties. Azure-schijven worden bewaard in de Hyper-V [VHD-indeling](https://technet.microsoft.com/library/dd979539.aspx) en opgeslagen als een pagina- [BLOB](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) in azure Storage. Naast het gebruik van virtuele schijven voor Azure IaaS Vm's, kunnen pagina-blobs ook PaaS-en DBaaS-scenario's, zoals Azure SQL DB-Service, die momenteel gebruikmaken van pagina-blobs voor het opslaan van SQL-gegevens en snelle, wille keurige Lees bewerkingen voor de data base inschakelen. Een ander voor beeld is dat als u een PaaS-service voor gedeelde media toegang hebt voor toepassingen voor gezamenlijke video bewerking, de pagina-blobs snelle toegang tot wille keurige locaties in de media bieden. Het biedt ook snelle en efficiënte bewerking en samen voeging van hetzelfde medium door meerdere gebruikers. 
 
-Eerste partij Microsoft-services zoals Azure Site Recovery, Azure Backup, evenals veel ontwikkelaars van derden hebben toonaangevende innovaties met behulp van pagina-blob REST-interface geïmplementeerd. Hier volgen enkele van de unieke scenario's geïmplementeerd op Azure: 
+Micro soft-services van derden, zoals Azure Site Recovery, Azure Backup, en veel ontwikkel aars hebben toonaangevende innovaties geïmplementeerd met behulp van de REST-interface van de pagina-blob. Hier volgen enkele van de unieke scenario's die in azure zijn geïmplementeerd: 
 
-* Beheer van incrementele momentopnamen toepassing omgeleid: Toepassingen kunnen gebruikmaken van pagina-blob-momentopnamen en REST-API's voor het opslaan van de controlepunten van de toepassing zonder kostbare duplicatie van gegevens. Azure Storage biedt ondersteuning voor lokale momentopnamen voor pagina-blobs, die geen kopiëren van de gehele blob is vereist. Deze momentopname van de openbare API's kunnen ook toegang tot en het kopiëren van de verschillen tussen momentopnamen.
-* Livemigratie van de toepassing en gegevens van on-premises naar de cloud: Kopieer de on-premises-gegevens en REST-API's gebruiken om te schrijven rechtstreeks naar een Azure-pagina-blob tijdens de on-premises die virtuele machine blijft om uit te voeren. Wanneer het doel is bijgewerkt, kunt u snel een failover voor Azure-VM met behulp van die gegevens. Op deze manier kunt u uw virtuele machines migreren en virtuele schijven van on-premises naar de cloud met minimale downtime, omdat de migratie van gegevens op de achtergrond treedt op wanneer u echter ook doorgaan met de virtuele machine en de downtime die nodig is voor failover zijn kort (in minuten).
-* [Op basis van een SAS](../common/storage-dotnet-shared-access-signature-part-1.md) gedeelde toegang, waardoor scenario's met meerdere lezers en één-schrijver met ondersteuning voor gelijktijdigheidsbeheer.
+* Toepassings gerichte incrementele momentopname beheer: Toepassingen kunnen gebruikmaken van pagina-BLOB-moment opnamen en REST Api's voor het opslaan van de controle punten van de toepassing zonder kost bare duplicatie van gegevens. Azure Storage ondersteunt lokale moment opnamen voor pagina-blobs, waarvoor het kopiëren van de hele BLOB niet is vereist. Deze open bare momentopname-Api's bieden ook toegang tot en het kopiëren van verschillen tussen moment opnamen.
+* Live migratie van toepassingen en gegevens van on-premises naar de Cloud: Kopieer de on-premises gegevens en gebruik REST-Api's om rechtstreeks naar een Azure-pagina-BLOB te schrijven terwijl de on-premises VM actief blijft. Zodra het doel actief is, kunt u snel een failover uitvoeren naar Azure VM met behulp van die gegevens. Op deze manier kunt u uw Vm's en virtuele schijven van on-premises naar de Cloud migreren met minimale downtime omdat de gegevens migratie op de achtergrond wordt uitgevoerd terwijl u de virtuele machine blijft gebruiken en de downtime die nodig is voor de failover kort is (in minuten).
+* Gedeelde toegang [op basis van SAS](../common/storage-sas-overview.md) , waarmee scenario's zoals meerdere lezers en single Writer met ondersteuning voor gelijktijdigheids beheer worden ingeschakeld.
 
 ## <a name="page-blob-features"></a>Functies voor pagina-blobs
 
 ### <a name="rest-api"></a>REST-API
 
-Raadpleeg het volgende document aan de slag met [ontwikkelen met behulp van pagina-blobs](storage-dotnet-how-to-use-blobs.md). Bekijk bijvoorbeeld over toegang tot pagina-blobs met behulp van Storage-clientbibliotheek voor .NET. 
+Raadpleeg het volgende document om aan de slag te gaan met [ontwikkelen met behulp van pagina](storage-dotnet-how-to-use-blobs.md)-blobs. Bekijk bijvoorbeeld hoe u met de Storage-client bibliotheek voor .NET toegang hebt tot pagina-blobs. 
 
-Het volgende overzicht beschrijft de algehele relaties tussen de account, containers en pagina-blobs.
+In het volgende diagram worden de algemene relaties tussen accounts, containers en pagina-blobs beschreven.
 
-![Schermafbeelding van de relaties tussen de account, containers en pagina-blobs](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure1.png)
+![Scherm opname van relaties tussen accounts, containers en pagina-blobs](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure1.png)
 
-#### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>Het maken van een lege pagina-blob van een opgegeven grootte
+#### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>Een lege pagina-Blob maken van een opgegeven grootte
 
-Voor het maken van een pagina-blob, maken we eerst een **CloudBlobClient** object met de basis-URI voor de toegang tot de blob-opslag voor uw storage-account (*pbaccount* in afbeelding 1) samen met de  **StorageCredentialsAccountAndKey** -object, zoals wordt weergegeven in het volgende voorbeeld. In het voorbeeld wordt vervolgens het maken van een verwijzing naar een **CloudBlobContainer** object en klikt u vervolgens het maken van de container (*testvhds*) als deze nog niet bestaat. Vervolgens met behulp van de **CloudBlobContainer** object, maakt u een verwijzing naar een **CloudPageBlob** object met de naam van de pagina-blob (os4.vhd) om toegang te geven. Aanroepen voor het maken van de pagina-blob, [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create)aan te in de maximale grootte voor de blob te maken. De *blobSize* moet een meervoud van 512 bytes.
+Als u een pagina-BLOB wilt maken, maakt u eerst een **CloudBlobClient** -object met de basis-URI voor toegang tot de Blob-opslag voor uw opslag account (*pbaccount* in afbeelding 1) samen met het object **StorageCredentialsAccountAndKey** , zoals wordt weer gegeven in de volgende voor beeld. In het voor beeld wordt vervolgens een verwijzing naar een **CloudBlobContainer** -object gemaakt en vervolgens de container (*testvhds*) gemaakt als deze nog niet bestaat. Maak vervolgens met behulp van het object **CloudBlobContainer** een verwijzing naar een **CloudPageBlob** -object door de naam van de pagina-BLOB (OS4. VHD) op te geven die u wilt openen. Als u de pagina-BLOB wilt maken, roept u [CloudPageBlob. Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create)aan en geeft u de maximale grootte voor de BLOB op die moet worden gemaakt. De *blobSize* moet een meervoud van 512 bytes zijn.
 
 ```csharp
 using Microsoft.Azure;
@@ -71,45 +71,45 @@ CloudPageBlob pageBlob = container.GetPageBlobReference("os4.vhd");
 pageBlob.Create(16 * OneGigabyteAsBytes);
 ```
 
-#### <a name="resizing-a-page-blob"></a>Formaat van een pagina-blob
+#### <a name="resizing-a-page-blob"></a>Het formaat van een pagina-BLOB wijzigen
 
-Als u wilt het formaat van een pagina-blob na het maken, gebruikt u de [vergroten of verkleinen](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize) methode. De aangevraagde grootte moet een meervoud zijn van 512 bytes.
+Als u na het maken het formaat van een pagina-BLOB wilt wijzigen, gebruikt u de methode [formaat wijzigen](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize) . De aangevraagde grootte moet een meervoud van 512 bytes zijn.
 
 ```csharp
 pageBlob.Resize(32 * OneGigabyteAsBytes);
 ```
 
-#### <a name="writing-pages-to-a-page-blob"></a>Pagina's schrijven naar een pagina-blob
+#### <a name="writing-pages-to-a-page-blob"></a>Pagina's naar een pagina-BLOB schrijven
 
-Voor het schrijven van pagina's, gebruikt u de [CloudPageBlob.WritePages](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages) methode.  Hiermee kunt u een opeenvolgende reeks's tot 4MBs schrijven. De verschuiving naar worden geschreven moet starten op een grens van een 512-byte (startingOffset % 512 == 0), en eindigen op een 512 grens - 1.  Het volgende codevoorbeeld laat zien hoe u aan te roepen **WritePages** voor een blob:
+Als u pagina's wilt schrijven, gebruikt u de methode [CloudPageBlob. WritePages](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages) .  Zo kunt u een reeks pagina's naar 4MBs schrijven. De offset waarnaar wordt geschreven, moet beginnen met een 512-byte-grens (startingOffset% 512 = = 0) en eindigen op een 512 grens-1.  In het volgende code voorbeeld ziet u hoe u **WritePages** aanroept voor een blob:
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
 ```
 
-Als u een aanvraag voor een opeenvolgende reeks pagina's in de blob-service is voltooid en wordt gerepliceerd voor duurzaamheid en meer flexibiliteit, de schrijfbewerking is doorgevoerd en succes terug naar de client wordt geretourneerd.  
+Zodra een schrijf aanvraag voor een opeenvolgende set pagina's slaagt in de BLOB-service en wordt gerepliceerd voor duurzaamheid en tolerantie, wordt de schrijf bewerking doorgevoerd en wordt het resultaat teruggestuurd naar de client.  
 
-Het onderstaande diagram laat zien 2 afzonderlijke schrijfbewerkingen:
+In het onderstaande diagram ziet u twee afzonderlijke schrijf bewerkingen:
 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
 
-1.  Een schrijfbewerking vanaf offset 0 met een lengte van 1024 bytes 
-2.  Een schrijfbewerking beginnen bij verschuiving 4096 van de lengte van 1024 
+1.  Een schrijf bewerking beginnend bij een offset van 0 tot en met een lengte van 1024 bytes 
+2.  Een schrijf bewerking vanaf een offset van 4096 met een lengte van 1024 
 
-#### <a name="reading-pages-from-a-page-blob"></a>Gelezen pagina's van een pagina-blob
+#### <a name="reading-pages-from-a-page-blob"></a>Pagina's lezen van een pagina-BLOB
 
-Gelezen pagina's, gebruikt u de [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray) methode voor het lezen van een bereik van bytes van de pagina-blob. Hiermee kunt u de volledige blob of een bereik van bytes vanaf de verschuiving in de blob te downloaden. Bij het lezen, heeft de verschuiving niet starten op een veelvoud van 512 bytes. Bij het lezen van bytes van een pagina met NUL, retourneert de service nul bytes.
+Als u pagina's wilt lezen, gebruikt u de methode [CloudPageBlob. DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray) om een bereik aan bytes te lezen van de pagina-blob. Zo kunt u de volledige BLOB of het bereik van de bytes downloaden, te beginnen bij een offset in de blob. Bij het lezen hoeft de offset niet te beginnen op een meervoud van 512. Bij het lezen van bytes van een NUL-pagina retourneert de service nul bytes.
 
 ```csharp
 byte[] buffer = new byte[rangeSize];
 pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, pageBlobOffset, rangeSize); 
 ```
 
-De volgende afbeelding toont een leesbewerking met een verschuiving van 256 en de grootte van een bereik van 4352. Gegevens die worden geretourneerd is in oranje gemarkeerd. Nullen worden voor NUL's geretourneerd.
+In de volgende afbeelding ziet u een lees bewerking met een offset van 256 en een bereik grootte van 4352. Gegevens die worden geretourneerd, worden oranje gemarkeerd. Nullen worden geretourneerd voor NUL pagina's.
 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
-Als u een facturatiemodel ingevuld blob hebt, kunt u alleen de regio geldige pagina's om te voorkomen dat betaalt voor egressing van nul bytes en verminder de latentie van de download te downloaden.  Gebruiken om te bepalen welke pagina's worden ondersteund door de gegevens, [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges). U kunt vervolgens het inventariseren van de geretourneerde bereiken en downloaden van de gegevens in elk bereik. 
+Als u een met sparse gevulde BLOB hebt, wilt u misschien alleen de geldige pagina regio's downloaden om te voor komen dat u betaalt voor egressing van nul bytes en om de latentie van de down load te verminderen.  Gebruik [CloudPageBlob. GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges)om te bepalen voor welke pagina's een back-up van gegevens wordt gemaakt. U kunt vervolgens de geretourneerde bereiken opsommen en de gegevens in elk bereik downloaden. 
 
 ```csharp
 IEnumerable<PageRange> pageRanges = pageBlob.GetPageRanges();
@@ -129,26 +129,26 @@ foreach (PageRange range in pageRanges)
 }
 ```
 
-#### <a name="leasing-a-page-blob"></a>Overdracht van een pagina-blob
+#### <a name="leasing-a-page-blob"></a>Een pagina-BLOB leasen
 
-De Lease-Blob-bewerking wordt tot stand gebracht en een vergrendeling voor een blob beheert voor schrijven en verwijderen van bewerkingen. Met deze bewerking is handig in situaties waar een pagina-blob van meerdere clients om ervoor te zorgen slechts één client tegelijk kunt schrijven naar de blob wordt geopend. Azure-schijven, bijvoorbeeld: maakt gebruik van deze lease-mechanisme om te controleren of de schijf alleen wordt beheerd door een enkele virtuele machine. De vergrendelingsduur van de kan 15 tot 60 seconden, of kunt oneindige. Zie de documentatie [hier](/rest/api/storageservices/lease-blob) voor meer informatie.
+Met de bewerking lease BLOB wordt een vergren deling voor een BLOB tot stand gebracht en beheerd voor schrijf-en verwijder bewerkingen. Deze bewerking is handig in scenario's waarbij een pagina-BLOB wordt geopend vanaf meerdere clients om ervoor te zorgen dat er slechts één client tegelijk naar de Blob kan schrijven. Azure disks maakt bijvoorbeeld gebruik van dit lease mechanisme om ervoor te zorgen dat de schijf alleen wordt beheerd door één virtuele machine. De vergrendelings duur kan 15 tot 60 seconden zijn, of kan oneindig zijn. Raadpleeg de documentatie [](/rest/api/storageservices/lease-blob) voor meer informatie.
 
-Naast uitgebreide REST-API's en bieden pagina-blobs ook gedeelde toegang, duurzaamheid en verbeterde beveiliging. We komen aan bod die voordelen in de volgende alinea's in meer detail. 
+Naast Rich REST-Api's bieden pagina-blobs ook gedeelde toegang, duurzaamheid en verbeterde beveiliging. Deze voor delen worden in de volgende alinea's uitvoeriger besproken. 
 
 ### <a name="concurrent-access"></a>Gelijktijdige toegang
 
-De pagina-blobs REST-API en de leasemechanisme zorgt ervoor dat toepassingen toegang hebben tot de pagina-blob vanaf meerdere clients. Stel dat u wilt maken van een gedistribueerde cloud-service die opslagobjecten met meerdere gebruikers deelt. Het kan een webtoepassing die een grote verzameling van installatiekopieën voor meerdere gebruikers zijn. Een optie voor het implementeren van dit is het gebruik van een virtuele machine met gekoppelde schijven. De nadelen van deze toevoegen (i) de beperking van een schijf kan alleen worden gekoppeld aan een enkele virtuele machine zo beperken van de schaalbaarheid, flexibiliteit en risico's te vergroten. Als er een probleem met de virtuele machine of de service wordt uitgevoerd op de virtuele machine, vanwege de lease is de installatiekopie niet toegankelijk totdat de lease is verlopen of beschadigd is; en (ii) extra kosten van een IaaS-VM met. 
+Met de pagina-blobs REST API en het lease mechanisme kunnen toepassingen vanaf meerdere clients toegang krijgen tot de pagina-blob. Stel bijvoorbeeld dat u een gedistribueerde Cloud service moet maken die opslag objecten deelt met meerdere gebruikers. Dit kan een webtoepassing zijn die een grote verzameling installatie kopieën aan verschillende gebruikers levert. Een optie voor het implementeren hiervan is het gebruik van een virtuele machine met gekoppelde schijven. Dit nadeel is onder andere, (i) de beperking die een schijf alleen kan worden gekoppeld aan één virtuele machine, waardoor de schaal baarheid, flexibiliteit en toename van Risico's worden beperkt. Als er een probleem is met de virtuele machine of de service die op de virtuele machine wordt uitgevoerd, is de installatie kopie vanwege de lease ontoegankelijk totdat de lease verloopt of verbroken is. en (II) extra kosten voor het gebruik van een IaaS-VM. 
 
-Een alternatief is het gebruik van de pagina-blobs rechtstreeks via Azure Storage REST-API's. Deze optie elimineert de noodzaak voor kostbare IaaS-VM's, biedt volledige flexibiliteit van directe toegang vanaf meerdere clients, vereenvoudigt het klassieke implementatiemodel door het elimineren van de noodzaak om te koppelen en loskoppelen van schijven en wordt voorkomen dat de kans op problemen op de virtuele machine. En het biedt dezelfde mate van prestaties voor willekeurige lees-/ schrijfbewerkingen als een schijf
+Een alternatieve optie is het gebruik van de pagina-blobs rechtstreeks via Azure Storage REST Api's. Deze optie elimineert de nood zaak van dure IaaS Vm's, biedt volledige flexibiliteit van rechtstreekse toegang vanaf meerdere clients, vereenvoudigt het klassieke implementatie model door de nood zaak om schijven te koppelen/loskoppelen te elimineren en elimineert het risico van problemen op de virtuele machine. En biedt het hetzelfde prestatie niveau voor wille keurige Lees-en schrijf bewerkingen als een schijf
 
-### <a name="durability-and-high-availability"></a>Duurzaamheid en hoge beschikbaarheid
+### <a name="durability-and-high-availability"></a>Duurzaamheid en hoge Beschik baarheid
 
-Standard en premium storage zijn duurzame opslag waar-de pagina-blob-gegevens worden altijd gerepliceerd voor duurzaamheid en hoge beschikbaarheid. Zie voor meer informatie over Azure-Opslagredundantie [documentatie](../common/storage-redundancy.md). Azure heeft geavanceerde duurzaamheid consistent geleverd voor IaaS-schijven en pagina-blobs, met een toonaangevende nul procent [foutpercentage op jaarbasis](https://en.wikipedia.org/wiki/Annualized_failure_rate).
+De standaard-en Premium-opslag zijn duurzame opslag waar de gegevens van de pagina-BLOB altijd worden gerepliceerd om duurzaamheid en hoge Beschik baarheid te garanderen. Raadpleeg deze [documentatie](../common/storage-redundancy.md)voor meer informatie over Azure Storage redundantie. Azure heeft consistente duurzaamheid op ondernemings niveau geboden voor IaaS-schijven en pagina-blobs, met een toonaangevende uitval percentage van 0 procent [per jaar](https://en.wikipedia.org/wiki/Annualized_failure_rate).
 
 ### <a name="seamless-migration-to-azure"></a>Naadloze migratie naar Azure
 
-Voor de klanten en ontwikkelaars die geïnteresseerd zijn in de implementatie van hun eigen aangepaste back-upoplossing, biedt Azure ook incrementele momentopnamen die alleen de delta's bevatten. Deze functie wordt voorkomen dat de kosten van de eerste volledige kopie, die aanzienlijk de kosten voor back-up verlaagt. Naast de mogelijkheid om efficiënt lezen en differentiële gegevens kopiëren is dit een andere krachtige functie waarmee u nog meer innovaties van ontwikkelaars die leiden tot een best mogelijke back-ups en disaster recovery (DR)-ervaring op Azure. U kunt instellen van uw eigen back-up of DR-oplossing voor uw virtuele machines in Azure met behulp [Blob-momentopname](/rest/api/storageservices/snapshot-blob) samen met de [Get Page-bereiken](/rest/api/storageservices/get-page-ranges) API en de [incrementeel kopiëren van de Blob](/rest/api/storageservices/incremental-copy-blob) API, die u kunt Gebruik voor het snel kopiëren van de incrementele gegevens voor herstel na Noodgevallen. 
+Voor klanten en ontwikkel aars die geïnteresseerd zijn in het implementeren van hun eigen aangepaste back-upoplossing, biedt Azure ook incrementele moment opnamen die alleen de verschillen bevatten. Deze functie voor komt de kosten van de eerste volledige kopie, waardoor de back-upkosten aanzienlijk lager worden. Naast de mogelijkheid om op efficiënte wijze differentiële gegevens te lezen en te kopiëren, is dit een krachtige mogelijkheid waarmee ontwikkel aars nog meer innovaties kunnen maken, waardoor er een beste ervaring met back-ups en herstel na nood gevallen (DR) in azure mogelijk is. U kunt uw eigen back-up-of DR-oplossing voor uw virtuele machines in azure instellen met behulp van [BLOB-moment opname](/rest/api/storageservices/snapshot-blob) samen met de API [Get Page Ranges](/rest/api/storageservices/get-page-ranges) en de BLOB-API voor [incrementele kopieën](/rest/api/storageservices/incremental-copy-blob) , die u kunt gebruiken voor het eenvoudig kopiëren van de incrementele gegevens voor Dr. 
 
-Bovendien hebben veel ondernemingen die essentiële workloads die al wordt uitgevoerd in de on-premises datacenters. Voor het migreren van de werkbelasting naar de cloud, zou een van de belangrijkste betrekking heeft op de hoeveelheid uitvaltijd beperkt die nodig zijn voor het kopiëren van de gegevens en het risico van onvoorziene problemen na de overschakeling zijn. In veel gevallen kan de downtime een verbluffend veel bekijks voor migratie naar de cloud zijn. REST-API met behulp van de pagina-blobs, Azure pakken dit probleem door het inschakelen van de cloudmigratie met minimale verstoring voor essentiële workloads. 
+Daarnaast hebben veel bedrijven essentiële werk belastingen die al worden uitgevoerd in on-premises data centers. Voor de migratie van de werk belasting naar de Cloud is een van de belangrijkste problemen de uitval tijd die nodig is voor het kopiëren van de gegevens en het risico dat er onverwachte problemen zijn na het overschakelen. In veel gevallen kan de downtime een showstopper zijn voor migratie naar de Cloud. Met behulp van de pagina-blobs REST API wordt dit probleem door Azure opgelost door Cloud migratie in te scha kelen met minimale onderbreking van kritieke werk belastingen. 
 
-Voor voorbeelden van hoe u een momentopname te maken en herstellen van een pagina-blob van een momentopname, raadpleegt u de [instellen van een back-upproces met incrementele momentopnamen](../../virtual-machines/windows/incremental-snapshots.md) artikel.
+Voor voor beelden van hoe u een moment opname maakt en hoe u een pagina-BLOB herstelt vanuit een moment opname, raadpleegt u het artikel [een back-upproces instellen met incrementele moment opnamen](../../virtual-machines/windows/incremental-snapshots.md) .

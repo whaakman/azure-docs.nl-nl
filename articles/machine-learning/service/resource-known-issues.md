@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d1bce7575272b7df185c4e261685d989f49436c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 4e7b3905295e619c5a9500f80b5c43126b919e2f
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716540"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946465"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bekende problemen en oplossen van problemen met Azure Machine Learning-service
 
@@ -71,7 +71,7 @@ Automatische machine learning flow tensor biedt momenteel geen ondersteuning voo
 
 ### <a name="experiment-charts"></a>Grafieken experimenteren
 
-Binaire classificatie grafieken (Precision-intrekken, ROC, winst curve enzovoort) die worden weer gegeven in automatische ML-experimenten, worden niet gerenderd in de gebruikers interface sinds 4/12. In grafiek grafieken worden momenteel inverse resultaten weer gegeven, waarbij betere modellen worden weer gegeven met lagere resultaten. Een oplossing wordt onderzocht.
+Binaire classificatie grafieken (Precision-intrekken, ROC, winst curve enz.) die worden weer gegeven in automatische ML-experimenten, worden sinds 4/12 niet correct gerenderd in de gebruikers interface. In grafiek grafieken worden momenteel inverse resultaten weer gegeven, waarbij betere modellen worden weer gegeven met lagere resultaten. Een oplossing wordt onderzocht.
 
 ## <a name="databricks"></a>Databricks
 
@@ -134,6 +134,15 @@ Als u rechtstreeks naar het weergeven van uw werkruimte van een koppeling voor h
 
 Soms kan het handig zijn als u diagnostische gegevens opgeven kunt wanneer u hulp vragen. Als u bepaalde logboeken wilt zien, gaat u naar [Azure Portal](https://portal.azure.com) en gaat u naar uw werk ruimte en selecteert u **werk ruimte > experiment > > Logboeken uit te voeren**.
 
+> [!NOTE]
+> Azure Machine Learning-service registreert gegevens uit verschillende bronnen tijdens de training, zoals AutoML of de docker-container die de trainings taak uitvoert. Veel van deze logboeken zijn niet gedocumenteerd. Als u problemen ondervindt en contact opneemt met micro soft ondersteuning, kunnen ze deze logboeken gebruiken tijdens het oplossen van problemen.
+
+## <a name="activity-logs"></a>Activiteitenlogboeken
+
+Sommige acties in de Azure Machine Learning-werk ruimte registreren geen gegevens in het __activiteiten logboek__. U kunt bijvoorbeeld een training starten of een model registreren.
+
+Sommige van deze acties worden weer gegeven in het gebied __activiteiten__ van uw werk ruimte, maar ze geven niet aan wie de activiteit heeft gestart.
+
 ## <a name="resource-quotas"></a>Resourcequota
 
 Meer informatie over de [resourcequota](how-to-manage-quotas.md) optreden tijdens het werken met Azure Machine Learning.
@@ -154,6 +163,6 @@ U ontvangt bijvoorbeeld een fout melding als u een reken doel probeert te maken 
 
 ## <a name="overloaded-azurefile-storage"></a>Overbelaste AzureFile-opslag
 
-Als er een fout bericht wordt weer gegeven dat er geen project bestanden kunnen worden geüpload naar de werkmap in AzureFile, omdat de opslag is overbelast, moet u de volgende tijdelijke oplossingen Toep assen.
+Als er een fout `Unable to upload project files to working directory in AzureFile because the storage is overloaded`bericht wordt weer gegeven, moet u de volgende tijdelijke oplossingen Toep assen.
 
 Als u bestands share gebruikt voor andere werk belastingen, zoals gegevens overdracht, is de aanbeveling om blobs te gebruiken zodat de bestands share gratis kan worden gebruikt voor het verzenden van uitvoeringen. U kunt de werk belasting ook splitsen tussen twee verschillende werk ruimten.

@@ -1,6 +1,6 @@
 ---
-title: Set Omleidings-URL's op b2clogin.com - Azure Active Directory B2C | Microsoft Docs
-description: Meer informatie over het gebruik van b2clogin.com in uw Omleidings-URL's voor Azure Active Directory B2C.
+title: Omleidings-Url's instellen op b2clogin.com-Azure Active Directory B2C | Microsoft Docs
+description: Meer informatie over het gebruik van b2clogin.com in de omleidings-Url's voor Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,43 +10,46 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4d70fe3f3f19723cd37080ae09dce97bfd8f3d34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 080c1933f88d9e824969a42212de2eacd0f62e14
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511682"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927287"
 ---
-# <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Set Omleidings-URL's op b2clogin.com voor Azure Active Directory B2C
+# <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Omleidings-Url's instellen op b2clogin.com voor Azure Active Directory B2C
 
-Bij het instellen van een id-provider voor registratie en aanmelding in uw Azure Active Directory (Azure AD) B2C-toepassing, moet u een Omleidings-URL opgeven. Login.microsoftonline.com is in het verleden gebruikt, nu u b2clogin.com moet worden gebruikt.
+Wanneer u een id-provider voor registratie instelt en u zich aanmeldt in uw Azure Active Directory (Azure AD) B2C-toepassing, moet u een omleidings-URL opgeven. In het verleden werd login.microsoftonline.com gebruikt, nu moet u b2clogin.com gebruiken.
 
-Met b2clogin.com biedt extra voordelen, zoals:
+> [!NOTE]
+> U kunt Java script-client-side code (momenteel als preview-versie) gebruiken in b2clogin.com. Uw Java script-code wordt verwijderd van uw aangepaste pagina als u login.microsoftonline.com gebruikt. Aanvullende beveiligings beperkingen worden ook toegepast op login.microsoftonline.com, zoals HTML-formulier elementen uit uw aangepaste pagina verwijderen. 
 
-- Ruimte in de kop van de cookie wordt gebruikt door Microsoft-services wordt verminderd.
-- De URL's zijn niet langer een verwijzing naar Microsoft. Bijvoorbeeld `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
+Met b2clogin.com krijgt u extra voor delen, zoals:
 
->[!NOTE]
-> U kunt zowel de naam van de tenant en de GUID van de tenant als volgt gebruiken:
-> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` (die nog steeds verwijst naar `onmicrosoft.com`)
-> * `https://your-tenant-name.b2clogin.com/your-tenant-guid` (in dat geval er is geen verwijzing naar Microsoft in alle)
+- De ruimte die wordt gebruikt in de cookie-header door micro soft-Services is beperkt.
+- Uw Url's bevatten niet langer een verwijzing naar micro soft. Bijvoorbeeld `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
+
+> [!NOTE]
+> U kunt de Tenant naam en de Tenant-GUID als volgt gebruiken:
+> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`(Hiermee wordt nog steeds `onmicrosoft.com`verwezen naar)
+> * `https://your-tenant-name.b2clogin.com/your-tenant-guid`(in dit geval is er helemaal geen verwijzing naar micro soft)
 >
-> U kunt geen echter gebruiken een _aangepast domein_ voor uw Azure Active Directory B2C-tenant, bijvoorbeeld `https://your-tenant-name.b2clogin.com/your-custom-domain-name` zou _niet_ werken.
+> U kunt echter geen _aangepast domein_ gebruiken voor uw Azure Active Directory B2C Tenant, bijvoorbeeld `https://your-tenant-name.b2clogin.com/your-custom-domain-name` _niet_ .
 
-Houd rekening met deze instellingen die nodig hebt mogelijk bij het gebruik van b2clogin.com wijzigen:
+Houd rekening met deze instellingen die mogelijk moeten worden gewijzigd wanneer u b2clogin.com gebruikt:
 
-- Instellen van de omleidings-URL's in uw toepassingen identity provider b2clogin.com gebruiken. 
-- Uw Azure AD B2C-toepassing met b2clogin.com voor gebruiker stroom-verwijzingen en token-eindpunten instellen. 
-- Als u MSAL gebruikt, moet u instellen de **ValidateAuthority** eigenschap `false`.
-- Zorg ervoor dat u een wijzigen **oorsprongen toegestaan** die u hebt gedefinieerd in de CORS-instellingen voor [aanpassingen van de gebruiker-gebruikersinterface](active-directory-b2c-ui-customization-custom-dynamic.md).  
+- Stel de omleidings-Url's in uw ID-provider toepassingen in om b2clogin.com te gebruiken. 
+- Stel uw Azure AD B2C-toepassing in voor het gebruik van b2clogin.com voor gebruikers stroom verwijzingen en Token-eind punten. 
+- Als u MSAL gebruikt, moet u de eigenschap **ValidateAuthority** instellen op `false`.
+- Zorg ervoor dat u de **toegestane oorsprong** wijzigt die u hebt gedefinieerd in de CORS-instellingen voor het aanpassen van de [gebruikers interface](active-directory-b2c-ui-customization-custom-dynamic.md).  
 
-## <a name="change-redirect-urls"></a>Wijziging Omleidings-URL's
+## <a name="change-redirect-urls"></a>Omleidings-Url's wijzigen
 
-Voor het gebruik van b2clogin.com, in de instellingen voor de toepassing van uw id-provider, zoekt en wijzigen van de lijst met vertrouwde URL's terug te keren naar Azure AD B2C.  Op dit moment hebt u waarschijnlijk het ingesteld op wordt terug omgeleid naar de site van sommige login.microsoftonline.com. 
+Als u b2clogin.com wilt gebruiken, zoekt u in de instellingen voor uw ID-provider toepassing naar en wijzigt u de lijst met vertrouwde Url's om terug te sturen naar Azure AD B2C.  Op dit moment hebt u het waarschijnlijk ingesteld om terug te sturen naar een login.microsoftonline.com-site. 
 
-U moet de omleidings-URL wijzigen zodat `your-tenant-name.b2clogin.com` is geautoriseerd. Vervang `your-tenant-name` met de naam van uw Azure AD B2C-tenant en verwijder `/te` als deze in de URL bestaat. Er zijn kleine verschillen naar deze URL voor elke id-provider zodat de bijbehorende pagina om de exacte URL controleren.
+U moet de omleidings-URL wijzigen zodat `your-tenant-name.b2clogin.com` deze wordt geautoriseerd. Zorg ervoor dat u `your-tenant-name` vervangt door de naam van uw Azure AD B2C Tenant en `/te` verwijderen als deze bestaat in de URL. Er zijn een kleine variatie op deze URL voor elke id-provider. Controleer daarom de corresponderende pagina om de exacte URL op te halen.
 
-U kunt configuratie-informatie voor id-providers vinden in de volgende artikelen:
+In de volgende artikelen vindt u informatie over het instellen van id-providers:
 
 - [Microsoft-account](active-directory-b2c-setup-msa-app.md)
 - [Facebook](active-directory-b2c-setup-fb-app.md)
@@ -63,13 +66,13 @@ U kunt configuratie-informatie voor id-providers vinden in de volgende artikelen
 
 ## <a name="update-your-application"></a>Uw toepassing bijwerken
 
-Uw Azure AD B2C-toepassing waarschijnlijk verwijst naar `login.microsoftonline.com` op verschillende plaatsen, zoals uw gebruiker stroom-verwijzingen en token-eindpunten.  Zorg ervoor dat de autorisatie-eindpunt, token-eindpunt en uitgever zijn bijgewerkt voor het gebruik van `your-tenant-name.b2clogin.com`.  
+Uw Azure AD B2C-toepassing verwijst waarschijnlijk `login.microsoftonline.com` naar verschillende locaties, zoals de verwijzingen naar uw gebruikers stroom en Token-eind punten.  Zorg ervoor dat uw autorisatie-eind punt, het eind punt van het token en de uitgever `your-tenant-name.b2clogin.com`zijn bijgewerkt voor gebruik.  
 
-## <a name="set-the-validateauthority-property"></a>Stel de eigenschap ValidateAuthority
+## <a name="set-the-validateauthority-property"></a>De eigenschap ValidateAuthority instellen
 
-Als u MSAL, stelt u de **ValidateAuthority** eigenschap `false`. Wanneer **ValidateAuthority** is ingesteld op `false`, omleidingen op b2clogin.com zijn toegestaan. 
+Als u MSAL gebruikt, stelt u de eigenschap **ValidateAuthority** in `false`op. Wanneer **ValidateAuthority** is ingesteld op `false`, worden omleidingen toegestaan voor b2clogin.com. 
 
-Het volgende voorbeeld ziet u hoe u de eigenschap kunt instellen:
+In het volgende voor beeld ziet u hoe u de eigenschap kunt instellen:
 
 In [MSAL voor .net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet):
 
@@ -78,7 +81,7 @@ In [MSAL voor .net](https://github.com/AzureAD/microsoft-authentication-library-
  client.ValidateAuthority = false;
 ```
 
-En in [MSAL voor Javascript](https://github.com/AzureAD/microsoft-authentication-library-for-js):
+En in [MSAL voor Java script](https://github.com/AzureAD/microsoft-authentication-library-for-js):
 
 ```Javascript
 this.clientApplication = new UserAgentApplication(

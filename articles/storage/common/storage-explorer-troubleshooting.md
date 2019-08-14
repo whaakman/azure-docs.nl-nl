@@ -1,235 +1,235 @@
 ---
-title: Probleemoplossingsgids voor Azure Storage Explorer | Microsoft Docs
-description: Overzicht van technieken voor foutopsporing voor Azure Storage Explorer
+title: Gids voor het oplossen van problemen met Azure Storage Explorer | Microsoft Docs
+description: Overzicht van technieken voor fout opsporing voor Azure Storage Explorer
 services: virtual-machines
 author: Deland-Han
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: fd34ab7cd899549962663e8cee8ee2121c39c49e
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 96a8eab57f1714eed4831bea01508e9140d1dfad
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840388"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934976"
 ---
-# <a name="azure-storage-explorer-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Storage Explorer
+# <a name="azure-storage-explorer-troubleshooting-guide"></a>Gids voor het oplossen van problemen Azure Storage Explorer
 
-Microsoft Azure Storage Explorer is een zelfstandige app waarmee u eenvoudig met Azure Storage-gegevens kunt werken via Windows, macOS en Linux. De app kan verbinding maken met de Storage-accounts die worden gehost op Azure, nationale Clouds en Azure Stack.
+Microsoft Azure Storage Explorer is een zelfstandige app waarmee u eenvoudig met Azure Storage gegevens kunt werken in Windows, macOS en Linux. De app kan verbinding maken met opslag accounts die worden gehost op Azure, nationale Clouds en Azure Stack.
 
-Deze handleiding bevat een overzicht van oplossingen voor problemen die regelmatig voorkomen in Storage Explorer.
+Deze hand leiding bevat een overzicht van oplossingen voor veelvoorkomende problemen die worden weer gegeven in Storage Explorer.
 
-## <a name="role-based-access-control-permission-issues"></a>Problemen met de machtigingen van de Role-based Access Control
+## <a name="role-based-access-control-permission-issues"></a>Op rollen gebaseerde Access Control machtigings problemen
 
-[Op rollen gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) biedt verfijnd toegangsbeheer van Azure-resources door een combinatie van machtigingen in _rollen_. Hier volgen enkele suggesties die u volgen kunt om het ophalen van RBAC in Storage Explorer werkt.
+[Op rollen gebaseerd toegangs beheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) biedt een nauw keurig toegangs beheer van Azure-resources door het combi neren van machtigingen sets in _rollen_. Hieronder vindt u enkele suggesties die u kunt volgen om RBAC te laten werken in Storage Explorer.
 
-### <a name="what-do-i-need-to-see-my-resources-in-storage-explorer"></a>Wat heb ik nodig om te zien van mijn resources in Storage Explorer?
+### <a name="what-do-i-need-to-see-my-resources-in-storage-explorer"></a>Wat heb ik nodig om mijn resources te zien in Storage Explorer?
 
-Als u problemen met het openen van de storage-resources met RBAC ondervindt, is het mogelijk omdat u de juiste rollen nog niet zijn toegewezen. De volgende secties beschrijven de machtigingen die Storage Explorer is op dit moment is vereist voor toegang tot uw opslagresources.
+Als u problemen ondervindt bij het openen van opslag resources met RBAC, kan dat zijn omdat u niet de juiste rollen hebt toegewezen. In de volgende secties worden de machtigingen beschreven Storage Explorer momenteel vereist voor toegang tot uw opslag resources.
 
-Neem contact op met de beheerder van uw Azure-account als u niet zeker weet dat u hebt de juiste rollen of machtigingen.
+Neem contact op met de beheerder van uw Azure-account als u niet zeker weet of u de juiste rollen of machtigingen hebt.
 
-#### <a name="read-listget-storage-accounts"></a>Lezen: Opslagaccount (s) een lijst of ophalen
+#### <a name="read-listget-storage-accounts"></a>Wie Opslagaccounts opnemen in een lijst of ophalen
 
-U moet machtiging aan de lijst met storage-accounts hebben. U kunt deze machtiging krijgen door de rol 'Lezer' wordt toegewezen.
+U moet gemachtigd zijn om opslag accounts weer te geven. U kunt deze machtiging krijgen door de rol ' lezer ' toe te wijzen.
 
-#### <a name="list-storage-account-keys"></a>Een lijst met Storage Accountsleutels
+#### <a name="list-storage-account-keys"></a>Opslagsleutels voor account opnemen in een lijst
 
-Storage Explorer kunt accountsleutels ook gebruiken om aanvragen te verifiëren. U krijgt toegang tot sleutels met krachtige functies, zoals de rol 'Inzender'.
+Storage Explorer kunt ook account sleutels gebruiken om aanvragen te verifiëren. U kunt toegang krijgen tot sleutels met krachtigere rollen, zoals de rol ' Inzender '.
 
 > [!NOTE]
-> Toegangssleutels worden onbeperkte machtigingen verlenen aan iedereen die deze bevat. Daarom wordt het in het algemeen niet aanbevolen ze worden verstrekt aan de gebruikers-accounts. Als u intrekken van toegang tot sleutels wilt, kunt u opnieuw te genereren van de [Azure Portal](https://portal.azure.com/).
+> Met toegangs sleutels worden onbeperkte machtigingen verleend aan iedereen die deze bevat. Daarom wordt het over het algemeen niet aanbevolen dat ze worden overgedragen aan gebruikers van het account. Als u toegangs sleutels wilt intrekken, kunt u ze opnieuw genereren via [Azure Portal](https://portal.azure.com/).
 
-#### <a name="data-roles"></a>Gegevens-rollen
+#### <a name="data-roles"></a>Gegevens rollen
 
-U moet ten minste één rol die verleent toegang tot gegevens lezen van resources worden toegewezen. Bijvoorbeeld, als u wilt weergeven of downloaden van blobs, moet u ten minste de rol 'Gegevenslezer voor Opslagblob'.
+U moet ten minste één rol toewijzen die toegang verleent tot gegevens uit resources. Als u bijvoorbeeld blobs wilt weer geven of downloaden, hebt u ten minste de rol Storage BLOB data Reader nodig.
 
-### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Waarom moet ik een beheerrol laag om te zien van mijn resources in Storage Explorer?
+### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Waarom heb ik een rol van beheer laag nodig om mijn resources in Storage Explorer te zien?
 
-Azure Storage bestaat uit twee lagen van access: _management_ en _gegevens_. Abonnementen en opslagaccounts zijn toegankelijk via de beheerlaag. Containers, blobs en andere gegevensbronnen die toegankelijk zijn via de gegevenslaag. Bijvoorbeeld, als u wilt voor een lijst van uw opslagaccounts van Azure, stuurt u een aanvraag naar het beheereindpunt. Als u een lijst met blob-containers in een account wilt, kunt u een aanvraag verzendt naar de juiste service-eindpunt.
+Azure Storage heeft twee toegangs niveaus: _beheer_ en _gegevens_. Abonnementen en opslag accounts zijn toegankelijk via de Management-laag. Containers, blobs en andere gegevens bronnen worden geopend via de gegevenslaag. Als u bijvoorbeeld een lijst wilt ophalen van uw opslag accounts van Azure, verzendt u een aanvraag naar het beheer eindpunt. Als u een lijst met Blob-containers in een account wilt, verzendt u een aanvraag naar het juiste service-eind punt.
 
-RBAC-rollen kunnen machtigingen voor toegang tot laag management of gegevens bevatten. De rol 'Lezer', verleent u bijvoorbeeld alleen-lezen toegang management layer-resources.
+RBAC-rollen kunnen machtigingen bevatten voor toegang tot beheer of gegevenslaag. Met de rol ' lezer ' krijgt u bijvoorbeeld alleen-lezen toegangs beheer laag bronnen.
 
-Strikt genomen met de rol 'Lezer' bevat geen gegevens laag machtigingen en is niet nodig voor toegang tot de gegevenslaag.
+De rol ' lezer ' biedt geen gegevenslaag machtigingen en is niet nodig om toegang te krijgen tot de gegevenslaag.
 
-Storage Explorer kunt eenvoudig toegang tot uw resources door te verzamelen van de benodigde informatie om te verbinden met uw Azure-resources voor u. Bijvoorbeeld, als u uw blob-containers, verzendt Storage Explorer een lijst met containers-aanvraag naar het eindpunt van blob service. Als u dit eindpunt, Opslagverkenner zoekt in de lijst met abonnementen en storage-accounts hebt toegang tot. Maar als u wilt zoeken in uw abonnementen en opslagaccounts, moet Storage Explorer ook toegang hebben tot de beheerlaag.
+Met Storage Explorer kunt u eenvoudig toegang krijgen tot uw resources door de gegevens te verzamelen die nodig zijn om verbinding te maken met uw Azure-resources. Als u bijvoorbeeld uw BLOB-containers wilt weer geven, verzendt Storage Explorer een aanvraag lijst containers naar het eind punt van de BLOB-service. Storage Explorer zoekt in de lijst met abonnementen en opslag accounts waartoe u toegang hebt om dit eind punt op te halen. Om uw abonnementen en opslag accounts te vinden, moet Storage Explorer ook toegang hebben tot de laag van het beheer.
 
-Als u een rol die machtigingen worden de management laag hebt, kan de Storage Explorer gegevens die nodig zijn om te verbinden met de gegevenslaag niet ophalen.
+Als u geen rol hebt die machtigingen voor beheer lagen verleent, kan Storage Explorer de informatie die nodig is om verbinding te maken met de gegevenslaag niet ophalen.
 
-### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Wat gebeurt er als ik niet kan het beheer van laag machtigingen krijgen die ik nodig van mijn beheerder?
+### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Wat moet ik doen als ik de beheer laag machtigingen niet kan ophalen die ik nodig heb van mijn beheerder?
 
-Er zijn geen nog een oplossing RBAC met betrekking tot op dit moment. Als tijdelijke oplossing, kunt u een SAS-URI op aanvragen [koppelen aan uw resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
+Er is op dit moment nog geen oplossing op het gebied van RBAC. Als tijdelijke oplossing kunt u een SAS-URI aanvragen om [aan uw resource te koppelen](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
 
-## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Fout: Zelf-ondertekend certificaat in de certificaatketen (en vergelijkbare fouten)
+## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Fout: Zelfondertekend certificaat in de certificaat keten (en vergelijk bare fouten)
 
-Certificaatfouten worden veroorzaakt door een van de twee volgende situaties:
+Certificaat fouten worden veroorzaakt door een van de volgende twee situaties:
 
-1. De app is verbonden via een 'transparante proxy', wat betekent dat een server (zoals de bedrijfsserver van uw) is HTTPS-verkeer onderschept, ontsleutelt en vervolgens versleutelt met behulp van een zelfondertekend certificaat.
-2. U voert een toepassing die een zelf-ondertekend SSL-certificaat injecteert in de HTTPS-berichten die u ontvangt. Voorbeelden van toepassingen die certificaten invoeren bevat antivirusprogramma's en netwerk verkeer inspectie software.
+1. De app is verbonden via een ' transparante proxy ', wat betekent dat een server (zoals uw bedrijfs server) HTTPS-verkeer onderschept, ontsleutelt en vervolgens versleutelt met een zelfondertekend certificaat.
+2. U voert een toepassing uit die een zelfondertekend SSL-certificaat injecteert in de HTTPS-berichten die u ontvangt. Voor beelden van toepassingen die certificaten invoeren, omvatten anti virus-en netwerk verkeer inspectie software.
 
-Wanneer Storage Explorer ziet een zelf-ondertekend of niet-vertrouwd certificaat, kan het niet meer te weten of het ontvangen HTTPS-bericht is gewijzigd. Als u een kopie van de zelf-ondertekend certificaat hebt, kunt u Storage Explorer instrueren vertrouwen aan de hand van de volgende stappen uit:
+Wanneer Storage Explorer een zelfondertekend of niet-vertrouwd certificaat ziet, kan het niet meer weten of het ontvangen HTTPS-bericht is gewijzigd. Als u een exemplaar van het zelfondertekende certificaat hebt, kunt u dit als volgt door geven Storage Explorer vertrouwen:
 
-1. Verkrijgen van een Base-64 gecodeerde X.509 (.cer)-exemplaar van het certificaat
-2. Klik op **bewerken** > **SSL-certificaten** > **certificaten importeren**, en vervolgens de bestandskiezer om te zoeken, selecteer en open het cer-bestand
+1. Een met base 64 gecodeerde X. 509 (. CER)-kopie van het certificaat verkrijgen
+2. Klik op**SSL-certificaten** >  **bewerken** > **certificaten importeren**en gebruik vervolgens de bestands kiezer om het. cer-bestand te zoeken, selecteren en openen
 
-Dit probleem kan ook worden de resultaten van meerdere certificaten (hoofdmap en tussenliggende). Beide certificaten moeten worden toegevoegd aan de fout te verhelpen.
+Dit probleem kan ook het gevolg zijn van meerdere certificaten (basis en tussenliggend). Beide certificaten moeten worden toegevoegd om de fout te verholpen.
 
-Als u niet zeker weet waar het certificaat is afkomstig van bent, kunt u proberen deze stappen om te zoeken:
+Als u niet zeker weet waar het certificaat vandaan komt, kunt u deze stappen proberen om het te vinden:
 
 1. Installeer Open SSL
-    * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (een van de lichte versies is voldoende)
-    * Mac en Linux: moet worden opgenomen met het besturingssysteem
+    * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (alle licht versies moeten voldoende zijn)
+    * Mac en Linux: moeten zijn opgenomen in uw besturings systeem
 2. Voer Open SSL uit
-    * Windows: open de map wilt installeren, klik op **/bin/** , en dubbelklik vervolgens op **openssl.exe**.
-    * Mac en Linux: Voer **openssl** vanuit een terminal.
+    * Windows: Open de installatiemap, klik op **/bin/** en dubbel klik vervolgens op **openssl. exe**.
+    * Mac en Linux: Voer **openssl** uit vanaf een Terminal.
 3. Voer `s_client -showcerts -connect microsoft.com:443` uit
-4. Zoek naar zelfondertekende certificaten. Als u niet zeker weet welke certificaten zelfondertekend zijn, zoek naar een willekeurige plaats het onderwerp `("s:")` en -verlenersleutel `("i:")` zijn hetzelfde.
-5. Als u geen zelfondertekende certificaten hebt gevonden, voor elk adres, kopieert en plakt u alles vanaf **---BEGIN CERTIFICATE---** naar **---END CERTIFICATE---** naar een nieuw .cer-bestand.
-6. Storage Explorer openen, klikt u op **bewerken** > **SSL-certificaten** > **certificaten importeren**, en vervolgens de bestandskiezer om te zoeken, selecteren, en Open de CER-bestanden die u hebt gemaakt.
+4. Zoek naar zelfondertekende certificaten. Als u niet zeker weet welke certificaten zelfondertekend zijn, zoekt u naar een wille keurige `("s:")` plaats waar het `("i:")` onderwerp en de uitgever hetzelfde zijn.
+5. Wanneer u zelfondertekende certificaten hebt gevonden, kopieert en plakt u alles uit en voegt u **-----begin certificaat-----** toe **-----eind certificaat-----** naar een nieuw CER-bestand.
+6. Open Storage Explorer, klik op**SSL-certificaten** >  **bewerken** > **certificaten importeren**en gebruik vervolgens de bestands kiezer om de CER-bestanden die u hebt gemaakt, te zoeken, te selecteren en te openen.
 
-Als u geen zelfondertekende certificaten met behulp van de voorgaande stappen niet kunt vinden, contact met ons opnemen via het hulpprogramma feedback voor meer informatie. U kunt ook Storage Explorer starten vanaf de opdrachtregel met de `--ignore-certificate-errors` vlag. Wanneer met deze markering wordt gestart, zal de Storage Explorer certificaatfouten negeren.
+Als u geen zelfondertekende certificaten kunt vinden met behulp van de voor gaande stappen, neemt u contact met ons op via het feedback programma voor meer informatie. U kunt er ook voor kiezen om Storage Explorer te starten vanaf de opdracht `--ignore-certificate-errors` regel met de vlag. Wanneer deze vlag wordt gestart, worden certificaat fouten door Storage Explorer genegeerd.
 
 ## <a name="sign-in-issues"></a>Aanmeldingsproblemen
 
-### <a name="blank-sign-in-dialog"></a>Lege aanmeldingsdialoogvenster
+### <a name="blank-sign-in-dialog"></a>Dialoog venster voor leeg aanmelden
 
-Lege aanmelden dialoogvensters worden meestal veroorzaakt door AD FS Storage Explorer waarin wordt gevraagd om uit te voeren een omleiding, wordt niet ondersteund door Electron. U kunt dit probleem omzeilen, kunt u proberen apparaat Code Flow gebruiken voor aanmelding bij. Voer de volgende stappen uit om dit te doen:
+Lege aanmeldings dialoogvensters worden meestal veroorzaakt door ADFS die Storage Explorer vraagt om een omleiding uit te voeren, wat niet wordt ondersteund door elektron. U kunt dit probleem omzeilen door de code stroom van het apparaat te gebruiken voor aanmelding. Voer hiervoor de volgende stappen uit:
 
-1. Menu: Preview -> 'Apparaat Code-aanmelding gebruiken'.
-2. Open het dialoogvenster voor verbinding maken (ofwel via de plug-pictogram in de linkerbenedenhoek verticale balk of 'Account toevoegen' in het venster account).
-3. Kies welke omgeving u aanmelden wilt bij.
-4. Klik op de knop 'Aanmelden'.
-5. Volg de instructies in het volgende deelvenster.
+1. Snelmenu's Preview-> ' de aanmeldings code van het apparaat gebruiken '.
+2. Open het dialoog venster verbinding maken (via het pictogram met de plug-in links op de verticale balk of ' account toevoegen ' in het deel venster account).
+3. Kies de omgeving waarin u zich wilt aanmelden.
+4. Klik op de knop aanmelden.
+5. Volg de instructies op het volgende scherm.
 
-Als u zelf hebt u problemen bij het aanmelden bij het account dat u gebruiken wilt, omdat de standaardbrowser is al aangemeld bij een ander account, kunt u ofwel:
+Als u problemen ondervindt bij het aanmelden van het account dat u wilt gebruiken omdat uw standaard browser al is aangemeld bij een ander account, kunt u het volgende doen:
 
-1. De koppeling en de code handmatig kopiëren naar een persoonlijke sessie van uw browser.
-2. De koppeling en code handmatig kopiëren naar een andere browser.
+1. Kopieer de koppeling en code hand matig naar een persoonlijke sessie van uw browser.
+2. Kopieer de koppeling en code hand matig naar een andere browser.
 
-### <a name="reauthentication-loop-or-upn-change"></a>Herauthenticatie lus of UPN wijzigen
+### <a name="reauthentication-loop-or-upn-change"></a>Herauthenticatie lus of UPN-wijziging
 
-Als u zich in een lus opnieuw verifiëren of de UPN van een van uw accounts hebt gewijzigd, probeert u de volgende stappen uit:
+Als u een lus voor opnieuw verifiëren hebt of als u de UPN van een van uw accounts hebt gewijzigd, voert u de volgende stappen uit:
 
-1. Alle accounts verwijderen en sluit vervolgens Storage Explorer
-2. Verwijder de. IdentityService map vanaf uw computer. Op Windows, de map bevindt zich in `C:\users\<username>\AppData\Local`. U kunt de map in de hoofdmap van uw directory gebruiker vinden voor Mac en Linux.
-3. Als u Mac- of Linux, moet u ook de vermelding Microsoft.Developer.IdentityService verwijderen uit uw besturingssystemen keystore. Op de Mac is de sleutelopslag de toepassing 'Gnome Keychain'. Voor Linux, de toepassing wordt meestal 'Sleutelhanger' genoemd, maar de naam kan afwijken afhankelijk van uw distributie.
+1. Verwijder alle accounts en sluit Storage Explorer
+2. Verwijder de. De map IdentityService van uw computer. In Windows bevindt de map zich `C:\users\<username>\AppData\Local`op. Voor Mac en Linux vindt u de map in de hoofdmap van de gebruikers lijst.
+3. Als u een Mac-of Linux-versie gebruikt, moet u de vermelding micro soft. developer. IdentityService ook verwijderen uit de Store van het besturings systeem. Op Mac is het sleutel archief de toepassing ' gnome-keten '. Voor Linux wordt de toepassing meestal ' sleutel hanger ' genoemd, maar de naam kan verschillen, afhankelijk van uw distributie.
 
 ### <a name="conditional-access"></a>Voorwaardelijke toegang
 
-Voorwaardelijke toegang wordt niet ondersteund wanneer Storage Explorer wordt gebruikt op Windows 10, Linux of macOS. Dit is vanwege een beperking in de AAD-bibliotheek die worden gebruikt door de Storage Explorer.
+Voorwaardelijke toegang wordt niet ondersteund wanneer Storage Explorer wordt gebruikt in Windows 10, Linux of macOS. Dit komt door een beperking in de AAD-bibliotheek die wordt gebruikt door Storage Explorer.
 
-## <a name="mac-keychain-errors"></a>Mac-sleutelhanger fouten
+## <a name="mac-keychain-errors"></a>Mac-sleutel keten fouten
 
-De Mac OS Keychain krijgt soms in een status die ervoor zorgt problemen met de Storage-Explorer-verificatiebibliotheek dat. Als u de sleutelketen uit deze status, probeert u de volgende stappen uit:
+De macOS-sleutel hanger kan soms een status krijgen die problemen veroorzaakt voor de verificatie bibliotheek van de Storage Explorer. Voer de volgende stappen uit om de sleutel hanger uit deze staat te halen:
 
-1. Sluit de Storage Explorer.
-2. Open sleutelhanger (**cmd + SPATIEBALK**, typt u in de sleutelketen, bereikt invoeren).
-3. Selecteer de sleutelketen 'aanmelding'.
-4. Klik op het hangslotpictogram als u wilt vergrendelen van de sleutelhanger (het hangslot wordt laten bewegen naar een vergrendelde positie als u klaar bent, duurt het enkele seconden, afhankelijk van welke apps die u hebt geopend).
+1. Storage Explorer sluiten.
+2. Open sleutel hanger (**cmd + spatie**, type sleutel hanger, druk op ENTER).
+3. Selecteer de sleutel hanger aanmelden.
+4. Klik op het hang slot pictogram om de sleutel hanger te vergren delen (het hang slot wordt op een vergrendelde positie geanimeerd wanneer het proces is voltooid. het kan enkele seconden duren afhankelijk van de apps die u hebt geopend).
 
     ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
-5. Storage Explorer starten.
-6. Een pop-upvenster weergegeven met de melding iets zoals 'Service hub wil toegang tot de sleutelketen'. Wanneer dit doet, voer het wachtwoord van uw Mac admin-account en klikt u op **altijd toestaan** (of **toestaan** als **altijd toestaan** is niet beschikbaar).
-7. Probeert aan te melden.
+5. Start Storage Explorer.
+6. Er wordt een pop-upvenster weer gegeven met de melding ' service hub wil toegang tot de sleutel keten? '. Wanneer dit het geval is, voert u het wacht woord voor uw Mac-beheerders account in en klikt u op **altijd toestaan** (of **toestaan** als **altijd toestaan** niet beschikbaar is).
+7. Probeer u aan te melden.
 
-### <a name="general-sign-in-troubleshooting-steps"></a>Algemene aanmelden stappen voor probleemoplossing
+### <a name="general-sign-in-troubleshooting-steps"></a>Algemene stappen voor het oplossen van problemen met aanmelding
 
-* Als u op Mac OS bent en het venster aanmelden is nooit wordt weergegeven boven de 'wachten op verificatie...' dialoogvenster, klikt u vervolgens probeert [stappen](#mac-keychain-errors)
-* Start u Opslagverkenner opnieuw
-* Als het verificatievenster leeg is, wacht u minstens één minuut voordat de verificatie-dialoogvenster wordt gesloten.
-* Zorg ervoor dat uw proxy en de instellingen juist zijn geconfigureerd voor uw computer en de Storage Explorer-certificaat.
-* Als u op Windows en toegang tot Visual Studio 2019 op dezelfde computer en meld u aan, probeert u aanmelden bij Visual Studio 2019. Na een geslaagde aanmelding bij Visual Studio 2019, kunt u Storage Explorer openen en uw account in het deelvenster account ziet.
+* Als u zich in macOS bevindt, wordt het aanmeld venster nooit meer weer gegeven over het ' wachten op verificatie... ' en voer vervolgens [de volgende stappen uit](#mac-keychain-errors)
+* Opnieuw opstarten Storage Explorer
+* Als het verificatie venster leeg is, wacht u ten minste één minuut voordat u het dialoog venster verificatie sluit.
+* Zorg ervoor dat uw proxy-en certificaat instellingen juist zijn geconfigureerd voor zowel uw computer als Storage Explorer.
+* Als u werkt met Windows en toegang tot Visual Studio 2019 op dezelfde computer hebt en u zich hebt aangemeld, probeert u zich aan te melden bij Visual Studio 2019. Nadat u zich hebt aangemeld bij Visual Studio 2019, kunt u Storage Explorer openen en uw account bekijken in het deel venster account.
 
-Als geen van deze methoden werken [opent u een probleem op GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+Als geen van deze methoden [een probleem opent op github](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ### <a name="missing-subscriptions-and-broken-tenants"></a>Ontbrekende abonnementen en verbroken tenants
 
-Als u niet uw abonnementen ophalen nadat u zich met succes hebt aangemeld, probeert u de volgende methoden:
+Als u uw abonnementen niet kunt ophalen nadat u zich hebt aangemeld, kunt u de volgende probleemoplossings methoden proberen:
 
-* Controleer of dat uw account toegang heeft tot de abonnementen die u verwacht. U kunt uw toegang controleren door aan te melden bij de portal voor de Azure-omgeving die u probeert te gebruiken.
-* Zorg ervoor dat u zich hebt aangemeld met behulp van de juiste Azure-omgeving (Azure, Azure China 21Vianet, Azure Duitsland, Azure US Government, of aangepaste omgeving).
-* Als u zich achter een proxy bevindt, zorg ervoor dat u de Storage Explorer-proxy correct hebt geconfigureerd.
-* Probeer te verwijderen en opnieuw toe te voegen in het account.
-* Als er een koppeling 'Informatie', en weten welke foutberichten worden gerapporteerd voor de tenants die mislukken. Als you'ren't zeker wat te doen met de fout voor berichten van u en u kunt vervolgens Zie [opent u een probleem op GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* Controleer of uw account toegang heeft tot de abonnementen die u verwacht. U kunt uw toegang controleren door u aan te melden bij de portal voor de Azure-omgeving die u wilt gebruiken.
+* Zorg ervoor dat u bent aangemeld met de juiste Azure-omgeving (Azure, Azure-China 21Vianet, Azure Duitsland, Azure Amerikaanse overheid of aangepaste omgeving).
+* Als u zich achter een proxy bevindt, moet u ervoor zorgen dat u de Storage Explorer proxy op de juiste wijze hebt geconfigureerd.
+* Probeer het account te verwijderen en opnieuw toe te voegen.
+* Als er een koppeling meer informatie is, zoekt en ziet u welke fout berichten worden gerapporteerd voor de tenants die zijn mislukt. Als you'ren't weet wat u moet doen met de fout berichten die u ziet, kunt u [een probleem op github openen](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## <a name="cant-remove-attached-account-or-storage-resource"></a>Kan de gekoppelde account of storage resource niet verwijderen
+## <a name="cant-remove-attached-account-or-storage-resource"></a>Kan bijgevoegd account of opslag resource niet verwijderen
 
-Als u niet te verwijderen van een gekoppelde account of een resource voor opslag via de gebruikersinterface, kunt u alle gekoppelde resources handmatig verwijderen door het verwijderen van de volgende mappen:
+Als u een bijgevoegd account of opslag resource niet kunt verwijderen via de gebruikers interface, moet u alle gekoppelde resources hand matig verwijderen door de volgende mappen te verwijderen:
 
 * Windows: `%AppData%/StorageExplorer`
 * macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
 * Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
-> Storage Explorer sluiten voordat u de bovenstaande mappen worden verwijderd.
+> Sluit Storage Explorer voordat u de bovenstaande mappen verwijdert.
 
 > [!NOTE]
-> Als u ooit een SSL-certificaten hebt geïmporteerd en vervolgens back-up van de inhoud van de `certs` directory. Later, kunt u de back-up uw SSL-certificaten opnieuw importeren.
+> Als u ooit SSL-certificaten hebt geïmporteerd, maakt u een back- `certs` up van de inhoud van de map. Later kunt u de back-up gebruiken om uw SSL-certificaten opnieuw te importeren.
 
-## <a name="proxy-issues"></a>Proxy-problemen
+## <a name="proxy-issues"></a>Proxy problemen
 
-Controleer eerst of de volgende informatie die u hebt ingevoerd juist zijn:
+Controleer eerst of de volgende gegevens die u hebt ingevoerd, juist zijn:
 
-* De proxy-URL en het poortnummer
-* Gebruikersnaam en het wachtwoord indien nodig door de proxy
+* De proxy-URL en het poort nummer
+* Gebruikers naam en wacht woord indien vereist door de proxy
 
 > [!NOTE]
-> Storage Explorer biedt geen ondersteuning voor proxy auto config-bestanden voor het configureren van proxy-instellingen.
+> Storage Explorer biedt geen ondersteuning voor automatische proxy-configuratie bestanden voor het configureren van proxy-instellingen.
 
 ### <a name="common-solutions"></a>Algemene oplossingen
 
-Als u nog steeds problemen ondervindt, probeert u de volgende methoden:
+Als u nog steeds problemen ondervindt, kunt u de volgende probleemoplossings methoden proberen:
 
-* Als u verbinding met Internet maken kunt zonder gebruik van uw proxy, moet u controleren of Storage Explorer zonder proxy-instellingen die zijn ingeschakeld werkt. Als dit het geval is, is er mogelijk een probleem met de proxy-instellingen. Samen met uw proxybeheerder om de problemen te identificeren.
-* Controleer of dat andere toepassingen met behulp van de proxy-server werkt zoals verwacht.
-* Controleren of u verbinding naar de portal voor de Azure-omgeving die u probeert maken kunt te gebruiken
-* Controleer of u kunt reacties van uw service-eindpunten te ontvangen. Voer een van uw eindpunt-URL's in uw browser. Als u verbinding maken kunt, ontvangt u een InvalidQueryParameterValue of een vergelijkbare XML-antwoord.
-* Als iemand anders Storage Explorer ook met uw proxyserver gebruiken is, controleert u of dat ze verbinding kunnen maken. Als ze verbinding maken kunnen, hebt u mogelijk contact op met uw proxy-server.
+* Als u verbinding kunt maken met internet zonder uw proxy te gebruiken, controleert u of Storage Explorer werkt zonder dat er proxy instellingen zijn ingeschakeld. Als dit het geval is, is er mogelijk een probleem met de proxy-instellingen. Werk samen met uw proxy beheerder om de problemen te identificeren.
+* Controleer of andere toepassingen die gebruikmaken van de proxy server naar verwachting werken.
+* Controleer of u verbinding kunt maken met de portal voor de Azure-omgeving die u wilt gebruiken
+* Controleer of u antwoorden kunt ontvangen van uw service-eind punten. Voer een van uw eind punt-Url's in uw browser in. Als u verbinding kunt maken, moet u een InvalidQueryParameterValue of soortgelijk XML-antwoord ontvangen.
+* Als iemand anders ook gebruikmaakt van Storage Explorer met uw proxy server, controleert u of ze verbinding kunnen maken. Als ze verbinding kunnen maken, moet u mogelijk contact opnemen met de beheerder van de proxy server.
 
-### <a name="tools-for-diagnosing-issues"></a>Hulpprogramma's voor het oplossen van problemen
+### <a name="tools-for-diagnosing-issues"></a>Hulpprogram ma's voor het oplossen van problemen
 
-Als u hulpprogramma's voor netwerken, zoals Fiddler voor Windows hebt, kunt u als volgt de problemen onderzoeken:
+Als u hulpprogram ma's voor netwerken hebt, zoals Fiddler voor Windows, kunt u de problemen als volgt vaststellen:
 
-* Als u om te werken via de proxy hebt, is het wellicht uw netwerken hulpprogramma verbinding maken via de proxy configureren.
-* Controleer het poortnummer dat door uw netwerken tool gebruikt.
-* Voer de URL van de lokale host en het poortnummer van de netwerken van het programma als proxy-instellingen in Storage Explorer. Indien correct uitgevoerd, begint uw netwerken hulpprogramma logboekregistratie netwerkaanvragen die zijn gesteld door Storage Explorer management en service-eindpunten. Voer bijvoorbeeld https://cawablobgrs.blob.core.windows.net/ voor het eindpunt van de blob in een browser, en u ontvangt een antwoord lijkt op het volgende voorbeeld, waarin stelt de resource bestaat, hoewel u geen toegang krijgt.
+* Als u uw proxy moet gebruiken, moet u mogelijk uw netwerk hulpprogramma configureren om verbinding te maken via de proxy.
+* Controleer het poort nummer dat wordt gebruikt door uw netwerk programma.
+* Voer de URL van de lokale host en het poort nummer van het netwerk hulpprogramma in als proxy-instellingen in Storage Explorer. Wanneer het netwerk hulpprogramma correct is uitgevoerd, wordt het registreren van netwerk aanvragen van Storage Explorer naar beheer-en service-eind punten gestart. Voer https://cawablobgrs.blob.core.windows.net/ bijvoorbeeld in voor uw BLOB-eind punt in een browser, en u ontvangt een antwoord dat lijkt op het volgende, waarmee wordt voorgesteld dat de resource bestaat, hoewel u er geen toegang tot hebt.
 
-![Voorbeeld van code](./media/storage-explorer-troubleshooting/4022502_en_2.png)
+![code voorbeeld](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
-### <a name="contact-proxy-server-admin"></a>Neem contact op met de serverbeheerder proxy
+### <a name="contact-proxy-server-admin"></a>Beheerder van de proxy server
 
-Als de proxy-instellingen juist zijn, hebt u mogelijk contact op met uw proxy-server-beheerder, en
+Als uw proxy-instellingen juist zijn, moet u mogelijk contact opnemen met de beheerder van uw proxy server en
 
-* Zorg ervoor dat uw proxy het verkeer naar de Azure management of resource-eindpunten niet blokkeert.
-* Controleer of de verificatieprotocol wordt gebruikt door de proxyserver. Storage Explorer ondersteunt momenteel geen NTLM-proxy's.
+* Zorg ervoor dat uw proxy geen verkeer naar Azure-beheer-of resource-eind punten blokkeert.
+* Controleer het verificatie protocol dat door uw proxy server wordt gebruikt. Storage Explorer ondersteunt momenteel geen NTLM-proxy's.
 
-## <a name="unable-to-retrieve-children-error-message"></a>Foutbericht "Kan niet naar items ophalen"
+## <a name="unable-to-retrieve-children-error-message"></a>Fout bericht ' kan geen onderliggende items ophalen '
 
-Als u met Azure via een proxy verbonden bent, of u de proxy-instellingen juist zijn. Als u nu toegang verleend aan een resource van de eigenaar van het abonnement of account, controleert u of u hebt gelezen of lijst met machtigingen voor die bron.
+Als u met Azure bent verbonden via een proxy, controleert u of de proxy-instellingen juist zijn. Als u toegang hebt tot een resource van de eigenaar van het abonnement of het account, controleert u of u lees-of lijst machtigingen voor die resource hebt.
 
-## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>Verbindingsreeks niet hebben voltooid configuratie-instellingen
+## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>De verbindings reeks heeft geen volledige configuratie-instellingen
 
-Als u dit foutbericht ontvangt, is het mogelijk dat u hebt de benodigde machtigingen om op te halen van de sleutels voor uw Storage-account. Om te bevestigen of dit het geval is, gaat u naar de portal en zoek uw opslagaccount. U kunt dit snel doen door met de rechtermuisknop op het knooppunt voor uw opslagaccount en te klikken op 'Openen in Portal'. Als u dit doet, gaat u naar de blade 'Toegangssleutel'. Als u geen machtigingen voor het weergeven van sleutels, ziet u een pagina met het bericht 'U hebt geen toegang'. U kunt dit probleem omzeilen, kunt u de accountsleutel ophalen van iemand anders en koppelen met de naam en sleutel, of u kunt vragen voor een SAS met de Storage-account en deze gebruiken om te koppelen van het Storage-account.
+Als dit fout bericht wordt weer gegeven, is het mogelijk dat u niet over de benodigde machtigingen beschikt om de sleutels voor uw opslag account te verkrijgen. Als u wilt controleren of dit het geval is, gaat u naar de portal en zoekt u naar uw opslag account. U kunt dit snel doen door met de rechter muisknop te klikken op het knoop punt voor uw opslag account en op ' openen in portal ' te klikken. Zodra u dit hebt gedaan, gaat u naar de Blade toegangs sleutels. Als u geen machtigingen hebt om sleutels weer te geven, ziet u een pagina met het bericht "u hebt geen toegang". U kunt dit probleem omzeilen door de account sleutel van iemand anders te verkrijgen en de naam en sleutel te koppelen. u kunt ook iemand vragen voor een SAS aan het opslag account en deze gebruiken om het opslag account te koppelen.
 
-Als u de accountsleutels ziet, moet u een probleem op GitHub bestand, zodat we kunt u het probleem is opgelost.
+Als u de account sleutels ziet, kunt u een probleem in GitHub oplossen, zodat we u kunnen helpen het probleem op te lossen.
 
 ## <a name="issues-with-sas-url"></a>Problemen met SAS-URL
 
-Als u verbinding met een service met behulp van een SAS-URL en deze fout optreedt maakt:
+Als u verbinding maakt met een service via een SAS-URL en deze fout ondervindt:
 
-* Controleer of dat de URL biedt de benodigde machtigingen om te lezen of lijst met resources.
-* Controleer of de URL is niet verlopen.
-* Als de SAS-URL is gebaseerd op een toegangsbeleid, controleert u of het toegangsbeleid niet is ingetrokken.
+* Controleer of de URL de benodigde machtigingen heeft om resources te lezen of weer te geven.
+* Controleer of de URL niet is verlopen.
+* Als de SAS-URL is gebaseerd op een toegangs beleid, controleert u of het toegangs beleid niet is ingetrokken.
 
-Als u per ongeluk die is gekoppeld met behulp van een ongeldige SAS-URL en kan niet worden losgekoppeld, volgt u deze stappen:
+Als u per ongeluk hebt gekoppeld met een ongeldige SAS-URL en niet kunt ontkoppelen, voert u de volgende stappen uit:
 
-1. Wanneer Storage Explorer wordt uitgevoerd, drukt u op F12 om de developer-hulpprogramma's-venster te openen.
-2. Klik op het tabblad toepassingen, en klik vervolgens op lokale opslag > file:// in de boomstructuur aan de linkerkant.
-3. Zoek de sleutel die is gekoppeld aan het type van de service van de problematische SAS-URI. Bijvoorbeeld, als de slechte SAS-URI een blob-container is, zoekt u naar de sleutel met de naam `StorageExplorer_AddStorageServiceSAS_v1_blob`.
-4. De waarde van de sleutel moet een JSON-matrix. Het object dat is gekoppeld aan de ongeldige URI vinden en verwijderen.
-5. Druk op Ctrl + R om opnieuw te laden van Storage Explorer.
+1. Wanneer u Storage Explorer uitvoert, drukt u op F12 om het venster ontwikkel hulpprogramma's te openen.
+2. Klik op het tabblad toepassing en klik vervolgens op lokale opslag > file://in de structuur aan de linkerkant.
+3. Zoek de sleutel die is gekoppeld aan het Service type van de problematische SAS-URI. Als de beschadigde SAS-URI bijvoorbeeld voor een BLOB-container is, zoekt u naar de sleutel `StorageExplorer_AddStorageServiceSAS_v1_blob`met de naam.
+4. De waarde van de sleutel moet een JSON-matrix zijn. Zoek het object dat is gekoppeld aan de ongeldige URI en verwijder het.
+5. Druk op CTRL + R om Storage Explorer opnieuw te laden.
 
 ## <a name="linux-dependencies"></a>Linux-afhankelijkheden
 
@@ -244,31 +244,31 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
 
 > [!IMPORTANT]
-> Storage Explorer zoals beschreven in de..GZ downloaden wordt alleen ondersteund voor Ubuntu-distributies. Andere distributies zijn niet geverifieerd en vereisen mogelijk alternatieve of extra pakketten.
+> Storage Explorer zoals gegeven in de. tar. gz-down load wordt alleen ondersteund voor Ubuntu-distributies. Andere distributies zijn niet geverifieerd en kunnen alternatieve of extra pakketten vereisen.
 
-Deze pakketten zijn de meest algemene vereisten voor Storage Explorer op Linux:
+Deze pakketten zijn de meest voorkomende vereisten voor Storage Explorer op Linux:
 
-* [.NET core 2.0-Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2,0-runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libgconf-2-4`
 * `libgnome-keyring0` of `libgnome-keyring-dev`
 * `libgnome-keyring-common`
 
 > [!NOTE]
-> Storage Explorer versie 1.7.0 en eerder vereist .NET Core 2.0. Als u een nieuwere versie van .NET Core die zijn geïnstalleerd hebt en vervolgens u moet [vullen van de Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). Als u werkt met Storage Explorer 1.8.0 of groter zijn dan zou het mogelijk om te gebruiken om .NET Core 2.2. Oudere versies dan 2.2 zijn niet werken op dit moment geverifieerd.
+> Voor Storage Explorer versie 1.7.0 en eerder is .NET Core 2,0 vereist. Als u een nieuwere versie van .NET core hebt geïnstalleerd, moet u [Storage Explorer patches](#patching-storage-explorer-for-newer-versions-of-net-core). Als u Storage Explorer 1.8.0 of hoger gebruikt, kunt u gebruikmaken van tot .NET Core 2,2. Versies van meer dan 2,2 zijn op dit moment niet geverifieerd.
 
 # <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
 
-1. Download Storage Explorer.
-2. Installeer de [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
+1. Down load Storage Explorer.
+2. Installeer de [.net core-runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
 3. Voer de volgende opdracht uit:
    ```bash
    sudo apt-get install libgconf-2-4 libgnome-keyring0
    ```
 
-# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
+# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18,04](#tab/1804)
 
-1. Download Storage Explorer.
-2. Installeer de [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
+1. Down load Storage Explorer.
+2. Installeer de [.net core-runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
 3. Voer de volgende opdracht uit:
    ```bash
    sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
@@ -276,8 +276,8 @@ Deze pakketten zijn de meest algemene vereisten voor Storage Explorer op Linux:
 
 # <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
 
-1. Download Storage Explorer
-2. Installeer de [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
+1. Storage Explorer downloaden
+2. Installeer de [.net core-runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
 3. Voer de volgende opdracht uit:
    ```bash
    sudo apt install libgnome-keyring-dev
@@ -285,28 +285,29 @@ Deze pakketten zijn de meest algemene vereisten voor Storage Explorer op Linux:
 
 # <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
 
-1. Download Storage Explorer
-2. Installeer de [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
+1. Storage Explorer downloaden
+2. Installeer de [.net core-runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
 3. Voer de volgende opdracht uit:
    ```bash
    sudo apt install libgnome-keyring-dev
    ```
+---
 
-### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Storage Explorer patches voor nieuwere versies van .NET Core
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Patches Storage Explorer voor nieuwere versies van .NET core
 
-Voor Storage Explorer 1.7.0 of ouder bent, moet u voor het vullen van de versie van .NET Core gebruikt door de Storage Explorer.
+Voor Storage Explorer 1.7.0 of ouder moet u mogelijk de versie van .NET core die door Storage Explorer wordt gebruikt, bijwerken.
 
-1. Download versie 1.5.43 van StreamJsonRpc [vanuit nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Zoek naar de koppeling 'Downloaden' aan de rechterkant van de pagina.
-2. Na het downloaden van het pakket, wijzigt u het de bestandsextensie van `.nupkg` naar `.zip`.
-3. Pak het pakket.
+1. Down load versie 1.5.43 van StreamJsonRpc van [nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Zoek naar de koppeling pakket downloaden aan de rechter kant van de pagina.
+2. Nadat u het pakket hebt gedownload, wijzigt u de `.nupkg` bestands `.zip`extensie van in.
+3. Pak het pakket uit.
 4. Open de map `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
-5. Kopie `StreamJsonRpc.dll` naar de volgende locaties in de map Storage Explorer:
+5. Kopieer `StreamJsonRpc.dll` naar de volgende locaties in de map Storage Explorer:
    * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
    * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
-## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Openen In Explorer van Azure portal werkt niet
+## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Openen in Verkenner vanuit Azure Portal werkt niet
 
-Als de knop 'Openen In Explorer' in de Azure-portal niet voor u werkt, zorg er dan voor dat u een compatibele browser. De volgende browsers zijn getest op compatibiliteit.
+Als de knop openen in Verkenner op de Azure Portal niet voor u werkt, moet u ervoor zorgen dat u een compatibele browser gebruikt. De volgende browsers zijn getest op compatibiliteit.
 * Microsoft Edge
 * Mozilla Firefox
 * Google Chrome
@@ -314,6 +315,6 @@ Als de knop 'Openen In Explorer' in de Azure-portal niet voor u werkt, zorg er d
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als geen van de oplossingen voor u, klikt u vervolgens werken [opent u een probleem op GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). U kunt ook snel GitHub krijgen met behulp van de knop 'Probleem melden op GitHub' in de linkerbenedenhoek.
+Als geen van de oplossingen voor u werkt, [opent u een probleem op github](https://github.com/Microsoft/AzureStorageExplorer/issues). U kunt ook snel aan de slag met GitHub met behulp van de knop ' probleem melden aan GitHub ' in de linkerbenedenhoek.
 
 ![Feedback](./media/storage-explorer-troubleshooting/feedback-button.PNG)

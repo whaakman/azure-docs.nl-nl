@@ -1,33 +1,44 @@
 ---
 title: Inleiding tot Azure Search-Azure Search
-description: Azure Search is een volledig beheerde, gehoste service voor zoeken in de cloud van micro soft. Bekijk de beschrijvingen van functies, een ontwikkelingswerkstroom en een vergelijking van Azure Search met andere Microsoft-zoekproducten en lees hoe u aan de slag gaat.
-manager: cgronlun
+description: Azure Search is een volledig beheerde, gehoste service voor zoeken in de cloud van micro soft. Bekijk functie beschrijvingen, de werk stroom voor ontwikkel aars, vergelijkingen met andere producten van micro soft Search en hoe u aan de slag gaat.
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 08/13/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 7a12c9153332e9d6fc70512bc55fe0a53f7c78fc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a48e4026ee3d7108f3b8e77dcb482d9904891cd4
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827151"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014465"
 ---
 # <a name="what-is-azure-search"></a>Wat is Azure Search?
-Azure Search is een SaaS-cloudoplossing (Search-as-a-Service) die ontwikkelaars API’s en hulpprogramma’s biedt waarmee ze een uitgebreide zoekervaring binnen privé- en heterogene inhoud kunnen toevoegen aan web-, mobiele en bedrijfstoepassingen. De query wordt uitgevoerd op een door de gebruiker gedefinieerde index.
 
-+ Bouw een zoek index die alleen uw gegevens bevat, die zijn afgeleid van meerdere inhouds typen en platformen. 
+Azure Search is een SaaS-cloudoplossing (Search-as-a-Service) die ontwikkelaars API’s en hulpprogramma’s biedt waarmee ze een uitgebreide zoekervaring binnen privé- en heterogene inhoud kunnen toevoegen aan web-, mobiele en bedrijfstoepassingen. Met uw aangepaste code wordt gegevens opname (indexering) aangeroepen, worden query aanvragen uitgevoerd en worden antwoorden verwerkt. De zoek ervaring wordt gedefinieerd in uw client code met behulp van de functionaliteit van Azure Search, waarbij de query wordt uitgevoerd via een persistente index die u maakt. 
 
-+ Maak gebruik van AI-verrijkingen om tekst en functies te extra heren uit afbeeldings bestanden, of entiteiten en sleutel zinnen uit onbewerkte tekst.
+![Azure Search architectuur](media/search-what-is-azure-search/azure-search-diagram.png "Azure Search architectuur")
 
-+ Maak intuïtieve zoek functies met facet navigatie en filters, synoniemen, automatisch aanvullen en tekst analyse voor ' wist u ' gecorrigeerde zoek termen. Haal relevantie voor afstemmen via functies en verbeter logica.
-
-+ Zoek apps maken voor specifieke gebruiks scenario's. Geo-search biedt ondersteuning voor de ervaring ' vind dichtbij '. Zoeken in meerdere talen wordt ondersteund door taal analyse functies voor het zoeken naar een niet-Engelse volledige tekst.
+<!-- + Build a search index containing only your data, sourced from multiple content types and platforms. 
++ Leverage AI enrichments to extract text and features from image files, or entities and key phrases from raw text.
++ Create intuitive search experiences with facet navigation and filters, synonyms, autocomplete, and text analysis for "did you mean" autocorrected search terms. Get relevance tuning through functions and boosting logic.
++ Create search apps for specific use-cases. Geo-search supports a "find near me" experience. Multi-lingual search is supported through language analyzers for non-English full text search. -->
 
 Functionaliteit wordt beschikbaar gemaakt via een eenvoudige [REST API](/rest/api/searchservice/) of [.NET SDK](search-howto-dotnet-sdk.md) waarmee de inherente complexiteit van het ophalen van gegevens wordt gemaskeerd. Naast API’s biedt Azure Portal ondersteuning voor administratie- en inhoudsbeheer met hulpprogramma’s voor het ontwikkelen van prototypen en het doorzoeken van indexen. Omdat de service wordt uitgevoerd in de cloud, worden de infrastructuur en beschikbaarheid beheerd met Microsoft.
+
+## <a name="when-to-use-azure-search"></a>Wanneer moet ik Azure Search gebruiken?
+
+Azure Search is heel geschikt voor de volgende toepassings scenario's:
+
++ Consolidatie van heterogene inhouds typen in een persoonlijke, enkelvoudige, Doorzoek bare index. Query's zijn altijd een index die u maakt en laadt met documenten, en de index bevindt zich altijd in de Cloud op uw Azure Search service. U kunt een index vullen met stromen van JSON-documenten van elke bron of elk platform. Voor inhoud die in Azure is gebrond, kunt u ook een *Indexeer functie* gebruiken om gegevens in een index op te halen. Index definitie en beheer/eigendom is een belang rijke reden voor het gebruik van Azure Search.
+
++ Eenvoudige implementatie van zoek functies. Azure Search-Api's vereenvoudigen de constructie van query's, facet navigatie, filters (inclusief georuimtelijke Zoek opdrachten), synoniemen toewijzing, typeahead query's en relevantie afstemmen. Door ingebouwde functies te gebruiken, kunt u aan eind gebruikers verwachtingen voldoen voor een zoek ervaring die vergelijkbaar is met webzoekmachines.
+
++ Het indexeren van ongestructureerde tekst of het extra heren van tekst en informatie uit afbeeldings bestanden. De cognitieve zoek functie van Azure Search voegt AI-verwerking toe aan een Indexing-pijp lijn. Enkele veelvoorkomende toepassingen zijn onder andere OCR via gescande documenten, herkenning van entiteiten en het uitpakken van sleutel zinnen over grote documenten, taal detectie en tekst omzetting en sentiment analyse.
+
++ Er zijn taal vereisten die voldoen aan de aangepaste en taal analyse functies van Azure Search. Als u niet-Engelse inhoud hebt, ondersteunt Azure Search zowel de Lucene-analyse functies als de natuurlijke taal-processors van micro soft. U kunt analyse functies ook configureren voor het uitvoeren van gespecialiseerde verwerking van onbewerkte inhoud, zoals het filteren van diakritische tekens.
 
 <a name="feature-drilldown"></a>
 
@@ -101,6 +112,7 @@ Belangrijke pluspunten zijn onder andere:
 + Azure-gegevensintegratie (verkenners) in de indexeringslaag
 + Azure Portal voor centraal beheer
 + Schaling, betrouwbaarheid en beschikbaarheid van wereldklasse in Azure
++ AI-verwerking van onbewerkte gegevens om deze meer doorzoekbaar te maken, inclusief tekst uit afbeeldingen of patronen te vinden in ongestructureerde inhoud.
 + Taalkundige en aangepaste analyse met analysefuncties voor grondig zoeken in volledige tekst in 56 talen
 + [Kernfuncties die eigen zijn aan zoekgerichte apps](#feature-drilldown): scoren, facetten, suggesties, synoniemen, op geografische locaties zoeken, en meer.
 

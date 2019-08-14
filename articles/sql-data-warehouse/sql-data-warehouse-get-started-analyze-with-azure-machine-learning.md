@@ -11,10 +11,10 @@ ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: cae2acf98f39030f4ff340d32f1911bb2b5763ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "65860832"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Gegevens analyseren met Azure Machine Learning
@@ -41,10 +41,10 @@ Voor deze zelfstudie hebt u het volgende nodig:
 ## <a name="1-get-the-data"></a>1. De gegevens ophalen
 De gegevens bevinden zich in de weergave dbo.vTargetMail in de AdventureWorksDW-database. Deze gegevens lezen:
 
-1. Meld u aan bij [Azure Machine Learning Studio][Azure Machine Learning studio] en klik op My experiments (Mijn experimenten).
-2. Klik op **+ nieuw** in de linkerbenedenhoek van het scherm en selecteer **leeg Experiment**.
-3. Voer een naam in voor uw experiment: Doelgerichte Marketing.
-4. Sleep de **gegevens importeren** module onder **gegevensinvoer en uitvoer** vanuit het deelvenster met modules naar het canvas.
+1. Meld u aan bij [Azure Machine Learning Studio][Azure Machine Learning studio] en klik op My experiments.
+2. Klik op **+ Nieuw** linksonder in het scherm en selecteer **leeg experiment**.
+3. Voer een naam in voor uw experiment: Doel gericht marketing.
+4. Sleep de module **gegevens importeren** onder **gegevens invoer en uitvoer** van het deel venster modules naar het canvas.
 5. Geef de details van uw SQL Data Warehouse-database op in het deelvenster Properties.
 6. Geef de database**query** op om de gewenste gegevens te lezen.
 
@@ -77,20 +77,20 @@ Wanneer het experiment is uitgevoerd, klikt u op de uitvoerpoort onder in de mod
 ## <a name="2-clean-the-data"></a>2. De gegevens opschonen
 Als u de gegevens wilt opschonen, verwijdert u enkele kolommen die niet relevant zijn voor het model. Om dit te doen:
 
-1. Sleep de **Select Columns in Dataset** module onder **gegevenstransformatie < manipulatie** naar het canvas. Verbinding maken met deze module aan de **importgegevens** module.
+1. Sleep de module **select columns in dataset** onder **Data Transformation < manipulatie** in het canvas. Deze module verbinden met de module **gegevens importeren** .
 2. Klik in het deelvenster Properties (Eigenschappen) op **Launch column selector** (Kolomselectie starten) om de kolommen op te geven die u wilt verwijderen.
    ![Projectkolommen][4]
-3. Sluit twee kolommen: CustomerAlternateKey en GeographyKey.
+3. Twee kolommen uitsluiten: CustomerAlternateKey en GeographyKey.
    ![Overbodige kolommen verwijderen][5]
 
 ## <a name="3-build-the-model"></a>3. Het model maken
-We zullen de gegevens 80-20 splitsen: 80% naar een machine learning-model te trainen en 20% voor het testen van het model. Voor dit binair klassificatieprobleem gaat u de algoritme Two-Class gebruiken.
+De gegevens 80-20 worden gesplitst: 80% voor het trainen van een machine learning model en 20% om het model te testen. Voor dit binair klassificatieprobleem gaat u de algoritme Two-Class gebruiken.
 
 1. Sleep de module **Split** (Splitsen) naar het canvas.
-2. Voer in het eigenschappendeelvenster met 0,8 voor fractie van rijen in de eerste uitvoergegevensset.
+2. Voer in het deel venster Eigenschappen 0,8 in voor het gedeelte van rijen in de eerste uitvoer gegevensset.
    ![Gegevens splitsen in trainings- en testset][6]
 3. Sleep de module **Two-Class Boosted Decision Tree** (Beslissingsstructuur op basis van twee klassen) naar het canvas.
-4. Sleep de **Train Model** module naar het canvas en invoer opgeven door deze te verbinden met de **Two-Class Boosted beslissingsstructuur** (ML-algoritme) en **splitsen** (gegevens met het trainen van de de algoritme op)-modules. 
+4. Sleep de module **Train model** naar het canvas en geef de invoer op door deze te verbinden met de **twee klasse versterkte beslissings structuur** (ml-algoritme) en **Split** (gegevens voor het trainen van de algoritmen op) modules. 
      ![Verbinding maken met de module Train Model (Model trainen)][7]
 5. Klik vervolgens in het deelvenster Properties (Eigenschappen) op **Launch column selector** (Kolomselectie starten). Selecteer de kolom **BikeBuyer** als de kolom die u wilt voorspellen.
    ![Te voorspellen kolom selecteren][8]
@@ -98,7 +98,7 @@ We zullen de gegevens 80-20 splitsen: 80% naar een machine learning-model te tra
 ## <a name="4-score-the-model"></a>4. Het model scoren
 Nu gaat u testen hoe het model functioneert met testgegevens. U gaat het gekozen algoritme vergelijken met een ander algoritme om te zien welk algoritme de beste prestaties levert.
 
-1. Sleep **Score Model** module naar het canvas en verbindt deze met **Train Model** en **Split Data** modules.
+1. Sleep de module **score model** naar het canvas en verbind deze met een **Train model** en **Splits gegevens** modules.
    ![Het model beoordelen][9]
 2. Sleep de **Two-Class Bayes Point Machine** naar het experimentencanvas. U gaat dit algoritme vergelijken met de Two-Class Boosted Decision Tree (Beslissingsstructuur met twee klassen).
 3. Kopieer en plak de modules Train Model en Score Model naar het canvas.

@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: f7cd0125de886eed4b3e5c31503fdd4b7cbb76dd
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7b14ed2c18c1106477e21062afaa4cc8f672c203
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847825"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946391"
 ---
-# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Metrische gegevens vastleggen tijdens trainings uitvoeringen in Azure Machine Learning
+# <a name="log-metrics-during-training-runs"></a>Metrische gegevens vastleggen tijdens trainings uitvoeringen
 
 Verbeter het proces voor het maken van het model door de metrische gegevens voor experimenten en controles bij te houden. In dit artikel vindt u informatie over het toevoegen van logboek registratie aan uw trainings script, het verzenden van een experiment, het bewaken van de uitvoering en het weer geven van de resultaten van een uitvoering in Azure Machine Learning service.
+
+> [!NOTE]
+> Azure Machine Learning-service kan ook gegevens van andere bronnen tijdens de training registreren, zoals AutoML of de docker-container waarop de trainings taak wordt uitgevoerd. Deze logboeken worden niet gedocumenteerd. Als u problemen ondervindt en contact opneemt met micro soft ondersteuning, kunnen ze deze logboeken gebruiken tijdens het oplossen van problemen.
 
 ## <a name="list-of-training-metrics"></a>Overzicht van metrische gegevens voor training 
 
@@ -221,7 +224,7 @@ In dit voorbeeld is een vervolg op het basismodel sklearn Ridge van boven. Hierv
 
 ## <a name="manage-a-run"></a>Een uitvoering beheren
 
-In het [Start-, controle-en geannuleerde trainings](how-to-manage-runs.md) artikel worden specifieke Azure machine learning werk stromen gemarkeerd voor het beheren van uw experimenten.
+In het [Start-, controle-en annulerings artikel over training worden](how-to-manage-runs.md) specifieke Azure machine learning werk stromen gemarkeerd voor het beheren van uw experimenten.
 
 ## <a name="view-run-details"></a>Details van de uitvoering weergeven
 

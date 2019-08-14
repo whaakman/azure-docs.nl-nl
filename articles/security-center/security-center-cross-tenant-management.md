@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2019
+ms.date: 08/11/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b8d27178a75cb39c7d7769f2db6a193292a3f9f1
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: d6b5b528c3021bfb62bc30ad5910524db36e7e95
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782562"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950553"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Beheer van meerdere tenants in Security Center
 
@@ -27,9 +27,7 @@ Met beheer op meerdere tenants kunt u de beveiligings postuur van meerdere tenan
 
 - Service providers kunnen de beveiligings postuur van resources, voor meerdere klanten, beheren vanuit hun eigen Tenant.
 
-- Beveiligings teams van organisaties met meerdere tenants kunnen hun beveiligings postuur vanaf één locatie weer geven en beheren
-
-  ![Beheer van meerdere tenants](./media/security-center-cross-tenant-management/cross-tenant-security-center.png)
+- Beveiligings teams van organisaties met meerdere tenants kunnen hun beveiligings postuur op één locatie bekijken en beheren.
 
 ## <a name="set-up-cross-tenant-management"></a>Beheer van meerdere tenants instellen
 
@@ -48,22 +46,13 @@ Klik op het filter pictogram in de bovenste menu balk en selecteer de abonnement
 
 De weer gaven en acties zijn in principe hetzelfde. Hier volgen enkele voorbeelden:
 
-- **Beveiligings beleid beheren**: In één weer gave kunt u de beveiligings postuur van veel resources met [beleids regels](tutorial-security-policy.md)beheren, acties uitvoeren met aanbevelingen voor beveiliging en beveiligings gegevens verzamelen en beheren. In de volgende afbeelding zijn bijvoorbeeld vier verschillende directory's voor tenants (Doug. Lora, micro soft, SSO, wilde Company) en elke Tenant heeft abonnementen. De geselecteerde abonnementen van de verschillende tenants worden vermeld in deze lijst met beleids beheer.
-
-     ![Beheer van meerdere tenants voor beleids regels](./media/security-center-cross-tenant-management/cross-tenant-policy.png)
-
-- **Verbeter de beveiligde Score-en nalevings postuur**: Met de zicht baarheid van meerdere tenants kunt u de algemene beveiligings postuur van al uw tenants bekijken en waar en hoe u de [beveiligde Score](security-center-secure-score.md) en [nalevings postuur](security-center-compliance-dashboard.md) voor elk hiervan het beste kunt verbeteren, zoals in de volgende afbeelding wordt weer gegeven.
-
-     ![Beveiligingsscore](./media/security-center-cross-tenant-management/cross-tenant-secure-score.png)
-
-- **Aanbevelingen herstellen**: Bewaak en herstel een [aanbeveling](security-center-recommendations.md) voor veel resources van verschillende tenants tegelijk (zoals wordt weer gegeven in de onderstaande afbeelding). Vervolgens kunt u de beveiligings problemen die het hoogst mogelijke risico op alle tenants Voorst Ellen, direct aanpakken.
-
-  ![Cross-Tenant beheer van aanbevelingen](./media/security-center-cross-tenant-management/cross-tenant-recommendation.png)
-
+- **Beveiligings beleid beheren**: In één weer gave kunt u de beveiligings postuur van veel resources met [beleids regels](tutorial-security-policy.md)beheren, acties uitvoeren met aanbevelingen voor beveiliging en beveiligings gegevens verzamelen en beheren.
+- **Verbeter de beveiligde Score-en nalevings postuur**: Met de zicht baarheid van meerdere tenants kunt u de algemene beveiligings postuur van al uw tenants bekijken en waar en hoe u het beste de [beveiligde Score](security-center-secure-score.md) en [nalevings postuur](security-center-compliance-dashboard.md) kunt verbeteren.
+- **Aanbevelingen herstellen**: Bewaak en herstel een [aanbeveling](security-center-recommendations.md) voor veel resources van verschillende tenants tegelijk. Vervolgens kunt u de beveiligings problemen die het hoogst mogelijke risico op alle tenants Voorst Ellen, direct aanpakken.
 - **Waarschuwingen beheren**: [Waarschuwingen](security-center-alerts-overview.md) detecteren in de verschillende tenants. Onderneem actie op resources die niet compatibel zijn met herstels [tappen](security-center-managing-and-responding-alerts.md)waarvoor actie kan worden ondernomen.
 
 - **Geavanceerde functies voor Cloud beveiliging en meer beheren**: Beheer de verschillende services voor detectie en beveiliging van bedreigingen, zoals [just-in-time-VM-toegang](security-center-just-in-time.md), [adaptieve netwerk beveiliging](security-center-adaptive-network-hardening.md), [adaptieve toepassings besturings elementen](security-center-adaptive-application.md), en meer.
-
+ 
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel wordt uitgelegd hoe cross-Tenant beheer werkt in Security Center. Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 

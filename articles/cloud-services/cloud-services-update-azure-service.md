@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: gwallace
-ms.openlocfilehash: 10d919b21e05195e8a7b6b351a742a4f9a57ee2b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: ae9d124391a1b17187ca98964874f681352498da
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360704"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945341"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Een Cloud service bijwerken
 
@@ -21,7 +21,7 @@ Het bijwerken van een Cloud service, met inbegrip van de rollen en het gast best
 ## <a name="update-an-azure-service"></a>Een Azure-service bijwerken
 Met Azure worden uw rolinstanties ingedeeld in logische groepen met de naam upgrade domeinen (UD). Upgrade domeinen (UD) zijn logische sets van rolinstanties die als groep worden bijgewerkt.  Azure werkt een Cloud service één UD tegelijk bij, waardoor instanties in andere UDs geen verkeer meer kunnen verwerken.
 
-Het standaard aantal upgrade domeinen is 5. U kunt een ander aantal upgrade domeinen opgeven door het kenmerk upgradeDomainCount in het definitie bestand (. csdef) van de service op te nemen. Zie [Webrole schema](/previous-versions/azure/reference/gg557553(v=azure.100)) of [WorkerRole-schema](/previous-versions/azure/reference/gg557552(v=azure.100))voor meer informatie over het kenmerk upgradeDomainCount.
+Het standaard aantal upgrade domeinen is 5. U kunt een ander aantal upgrade domeinen opgeven door het kenmerk upgradeDomainCount in het definitie bestand (. csdef) van de service op te nemen. Zie [Azure Cloud Services definition schema (csdef-bestand)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file)voor meer informatie over het kenmerk upgradeDomainCount.
 
 Wanneer u een in-place update van een of meer functies in uw service uitvoert, worden door Azure de sets rolinstanties bijgewerkt op basis van het upgrade domein waartoe ze behoren. Alle exemplaren in een opgegeven upgrade domein worden door Azure bijgewerkt. deze worden vervolgens gestopt, bijgewerkt, teruggezet, waarna ze weer online worden gezet. vervolgens gaat u naar het volgende domein. Als u alleen de exemplaren stopt die worden uitgevoerd in het huidige upgrade domein, zorgt Azure ervoor dat er een update wordt uitgevoerd met de minste mogelijke gevolgen voor de actieve service. Zie [hoe de update verloopt](#howanupgradeproceeds) verderop in dit artikel voor meer informatie.
 
@@ -47,7 +47,7 @@ In de volgende tabel ziet u de wijzigingen die zijn toegestaan voor een service 
 
 | Wijzigingen die zijn toegestaan voor hosting, services en rollen | In-place update | Gefaseerd (VIP swap) | Verwijderen en opnieuw implementeren |
 | --- | --- | --- | --- |
-| Versie besturingssysteem |Ja |Ja |Ja |
+| Versie van het besturingssysteem |Ja |Ja |Ja |
 | .NET-vertrouwens niveau |Ja |Ja |Ja |
 | Grootte van virtuele machine<sup>1</sup> |Ja<sup>2</sup> |Ja |Ja |
 | Instellingen voor lokale opslag |Meer dan<sup>2</sup> |Ja |Ja |
