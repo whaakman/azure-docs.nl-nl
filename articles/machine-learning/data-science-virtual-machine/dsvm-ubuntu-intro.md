@@ -15,13 +15,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/16/2018
-ms.openlocfilehash: 8a19f414f31c307111edad876ed973ff4027d907
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.date: 08/13/2019
+ms.openlocfilehash: 6d79bfa8f390d145bfd963b40497030140a3d135
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68591930"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013600"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>De virtuele Machine voor Datatechnologie voor Linux (Ubuntu) inrichten
 
@@ -86,32 +86,35 @@ Voordat u een virtuele Machine voor Datatechnologie voor Linux maken kunt, moet 
 Hier volgen de stappen voor het maken van een exemplaar van de Data Science Virtual Machine voor Linux:
 
 1. Navigeer naar de virtuele machine weergeven op de [Azure-portal](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu). U wordt mogelijk gevraagd om u aan te melden bij uw Azure-account als u zich nog niet hebt aangemeld. 
-1. Klik op **maken** (aan de onderkant) om de wizard.![ Configureer-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
-1. De volgende secties vindt u de invoer voor elk van de stappen in de wizard (geïnventariseerd aan de rechterkant van de afbeelding hierboven) gebruikt voor het maken van de Microsoft Data Science Virtual Machine. Hier volgen de invoer die nodig zijn voor elk van deze stappen configureren:
+1. Klik op **maken** om de wizard te openen.
+    ![configure-data-Science-VM](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+1. De volgende secties bevatten de invoer voor elk van de stappen in de wizard die wordt gebruikt om de micro soft-Data Science Virtual Machine te maken. Hier volgen de invoer die nodig zijn voor elk van deze stappen configureren:
 
-   a. **Grondbeginselen van**:
-
-   * **Naam**: De naam van uw data Science-server die u maakt.
-   * **VM-schijf type**: Kies **Premium-SSD** als u de voor keur geeft aan een SSD (Solid-State Drive). Kies anders **Standard HDD**. 
-   * **Gebruikersnaam**: Eerste aanmeldings-ID van account.
-   * **Wachtwoord**: Wacht woord voor eerste account (u kunt een open bare SSH-sleutel gebruiken in plaats van een wacht woord).
-   * **Abonnement**: Als u meer dan één abonnement hebt, selecteert u een waar de machine zich moet worden gemaakt en worden kosten in rekening gebracht. U hebt privileges voor het maken van resources nodig voor dit abonnement.
-   * **Resourcegroep**: U kunt een nieuwe groep maken of een bestaande groep gebruikt.
-   * **Locatie**: Selecteer het Data Center dat het meest geschikt is. Dit is meestal het datacenter dat de meeste van uw gegevens, of zich het dichtst bij uw fysieke locatie voor de snelste toegang tot het netwerk.
-
-   b. **Grootte**:
-
-   * Selecteer een van de servertypen die voldoet aan de vereisten van het functionele en kostenbeperkingen. Selecteer een NC-of ND-klasse-VM voor op GPU gebaseerde VM-exemplaren. De [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/) pagina geeft een lijst van de regio's met GPU's.
-
-   c. **Instellingen voor**:
-
-   * In de meeste gevallen kunt u alleen de standaardwaarden gebruiken. U moet overwegen niet-standaard waarden, de muisaanwijzer over de informatieve koppeling voor meer informatie over de specifieke velden.
-
-   d. **Samenvatting**:
-
-   * Controleer of alle informatie die u hebt ingevoerd juist is. Een koppeling volgen met de gebruiksvoorwaarden. De virtuele machine heeft geen eventuele extra kosten buiten de rekenkracht voor de servergrootte van de die u hebt gekozen in de **grootte** stap. Voor het starten van het inrichten, klikt u op **maken**. 
-
-De inrichting duurt ongeveer 5 minuten. De status van de inrichting wordt weergegeven op de Azure-portal.
+    a. **Grondbeginselen van**:
+    
+    * **Abonnement**: Als u meer dan één abonnement hebt, selecteert u een waar de machine zich moet worden gemaakt en worden kosten in rekening gebracht. U hebt privileges voor het maken van resources nodig voor dit abonnement.
+    * **Resourcegroep**: U kunt een nieuwe groep maken of een bestaande groep gebruikt.
+    * **Naam van de virtuele machine**: De naam van uw data Science-server die u maakt.
+    * **Regio**: Selecteer het Data Center dat het meest geschikt is. Dit is meestal het datacenter dat de meeste van uw gegevens, of zich het dichtst bij uw fysieke locatie voor de snelste toegang tot het netwerk.
+    * **Beschikbaarheidsopties**: Stel dit in als u deze virtuele machine wilt gebruiken in beschikbaarheids sets/zones else de standaard waarde laten.
+    * **Installatie kopie**: De standaard waarde behouden
+    * **Grootte**: Selecteer een van de servertypen die voldoet aan de vereisten van het functionele en kostenbeperkingen. Selecteer een VM van de NC of ND-serie voor op GPU gebaseerde VM-exemplaren. 
+    * **Gebruikersnaam**: Gebruikers naam van beheerder
+    * **Open bare SSH-sleutel**: Open bare RSA-sleutel in enkelvoudige-regel indeling (u kunt wacht woord gebruiken in plaats van SSH-sleutel).
+    
+    b. **Schijven**:
+    
+    * **Type besturingssysteem schijf**: Kies **Premium-SSD** als u de voor keur geeft aan een SSD (Solid-State Drive). Kies anders **Standard HDD**.
+    
+    c. Voor de rest van de instellingen kunt u gewoon de standaard waarden gebruiken. U moet overwegen niet-standaard waarden, de muisaanwijzer over de informatieve koppeling voor meer informatie over de specifieke velden.
+    
+    Selecteer ten slotte **controleren en maken**
+    
+    d. **Controleren en maken**:
+    
+    * Nadat de validatie is geslaagd, controleert u of alle gegevens die u hebt ingevoerd juist zijn. Een koppeling volgen met de gebruiksvoorwaarden. Er zijn geen extra kosten in rekening gebracht voor de virtuele machine die u hebt gekozen in de grootte-invoer. Voor het starten van het inrichten, klikt u op **maken**.
+    
+    De inrichting duurt ongeveer 5 minuten. De status van de inrichting wordt weergegeven op de Azure-portal.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Toegang tot de virtuele Machine voor Datatechnologie voor Linux
 

@@ -1,9 +1,9 @@
 ---
-title: Fouten oplossen in Azure Active Directory reporting API | Microsoft Docs
-description: Biedt u een oplossing voor fouten tijdens het aanroepen van Azure Active Directory Reporting API's.
+title: Problemen oplossen in de API voor Azure Active Directory rapportage | Microsoft Docs
+description: Biedt een oplossing voor fouten tijdens het aanroepen van Azure Active Directory rapportage-Api's.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 0030c5a4-16f0-46f4-ad30-782e7fea7e40
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b517204fb650020bdebf8172186f30fff58f722
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e6f1f34dcece9acb20d0db091152b24b26cb9fa2
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60285027"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989537"
 ---
-# <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Fouten oplossen in Azure Active Directory reporting API
+# <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Problemen in Azure Active Directory rapportage-API oplossen
 
-In dit artikel geeft een lijst van de veelvoorkomende foutberichten die u ondervindt mogelijk bij het openen van de activiteitenrapporten met behulp van de MS Graph API en de stappen voor de oplossing.
+Dit artikel bevat een overzicht van de algemene fout berichten die u kunt uitvoeren tijdens het openen van activiteiten rapporten met behulp van de MS Graph API en stappen voor de oplossing.
 
-### <a name="500-http-internal-server-error-while-accessing-microsoft-graph-v2-endpoint"></a>500 HTTP-interne serverfout opgetreden tijdens het openen van Microsoft Graph-V2-eindpunt
+### <a name="500-http-internal-server-error-while-accessing-microsoft-graph-v2-endpoint"></a>500 interne HTTP-server fout bij het openen van Microsoft Graph v2-eind punt
 
-We ondersteunen momenteel geen de v2-eindpunt voor Microsoft Graph - Zorg ervoor dat u toegang tot de activiteitenlogboeken met behulp van de Microsoft Graph-v1-eindpunt.
+Het Microsoft Graph v2-eind punt wordt momenteel niet ondersteund. Zorg ervoor dat u toegang hebt tot de activiteiten logboeken met behulp van het Microsoft Graph v1-eind punt.
 
-### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Fout: Kan geen gebruikersrollen ophalen uit AD Graph
+### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Fout: Kan de gebruikers rollen niet ophalen uit de AD-grafiek
 
-U mag deze foutmelding krijgt bij het openen van aanmeldingen met behulp van Graph Explorer. Zorg ervoor dat u bent aangemeld bij uw account met behulp van de knoppen voor aanmelding bij in de Graph Explorer-gebruikersinterface, zoals wordt weergegeven in de volgende afbeelding. 
+Dit fout bericht kan worden weer gegeven wanneer u probeert toegang te krijgen tot aanmeldingen met Graph Explorer. Zorg ervoor dat u bent aangemeld bij uw account met behulp van beide aanmeld knoppen in de interface van Graph Verkenner, zoals wordt weer gegeven in de volgende afbeelding. 
 
 ![Graph Explorer](./media/troubleshoot-graph-api/graph-explorer.png)
 
-### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Fout: Kan geen premium-licentie om uit te voeren vanuit AD Graph 
+### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Fout: Kan geen Premium-licentie controle uitvoeren vanuit de AD-grafiek 
 
-Als u dit foutbericht opgetreden tijdens het openen van aanmeldingen met behulp van Graph Explorer, kies **wijzigingsmachtigingen** onder uw account in het navigatievenster aan de linkerkant en selecteer **Tasks.ReadWrite** en **Directory.Read.All**. 
+Als u in dit fout bericht wordt weer gegeven terwijl u probeert toegang te krijgen tot aanmeldingen met behulp van Graph Explorer, kiest u **machtigingen voor wijzigen** onder uw account in het navigatie venster links en selecteert u **taken. readwrite** en **Directory. Read. all**. 
 
-![Machtigingen voor gebruikersinterface wijzigen](./media/troubleshoot-graph-api/modify-permissions.png)
+![Machtigingen voor gebruikers interface wijzigen](./media/troubleshoot-graph-api/modify-permissions.png)
 
 
-### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Fout: De tenant is B2C noch tenant heeft geen premium-licentie
+### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Fout: Geen van de tenants is B2C of de Tenant heeft geen Premium-licentie
 
-Toegang tot rapporten-aanmelding vereist een Azure Active Directory premium 1 (P1) licentie. Als u dit foutbericht ziet tijdens het openen van aanmeldingen, zorg ervoor dat uw tenant in licentie met een Azure AD P1-licentie gegeven wordt.
+Voor toegang tot aanmeldings rapporten is een licentie voor Azure Active Directory Premium 1 (P1) vereist. Als dit fout bericht wordt weer gegeven tijdens het openen van de aanmeldingen, moet u ervoor zorgen dat uw Tenant is gelicentieerd met een Azure AD P1-licentie.
 
-### <a name="error-user-is-not-in-the-allowed-roles"></a>Fout: Gebruiker is niet in de toegestane rollen 
+### <a name="error-user-is-not-in-the-allowed-roles"></a>Fout: De gebruiker bevindt zich niet in de toegestane rollen 
 
-Als u dit foutbericht ziet opgetreden tijdens het openen van de logboeken voor controle of aanmeldingen met behulp van de API, zorg ervoor dat uw account deel van uitmaakt de **Beveiligingslezer** of **rapportlezer** rol in uw Azure Active Directory tenant. 
+Als dit fout bericht wordt weer gegeven tijdens het openen van controle Logboeken of-aanmeldingen met behulp van de API, moet u ervoor zorgen dat uw account deel uitmaakt van de rol **beveiligings lezer** of **rapport lezer** in uw Azure Active Directory Tenant. 
 
-### <a name="error-application-missing-aad-read-directory-data-permission"></a>Fout: Toepassing AAD 'directory-gegevens lezen-machtiging ontbreekt 
+### <a name="error-application-missing-aad-read-directory-data-permission"></a>Fout: De machtiging voor het lezen van mapgegevens van de toepassing AAD ontbreekt 
 
-Volg de stappen in de [vereisten voor toegang tot de Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md) om te controleren of uw toepassing wordt uitgevoerd met de juiste set machtigingen. 
+Volg de stappen in de [vereisten voor toegang tot de API voor Azure Active Directory rapportage](howto-configure-prerequisites-for-reporting-api.md) om ervoor te zorgen dat uw toepassing wordt uitgevoerd met de juiste set machtigingen. 
 
-### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Fout: Toepassing MSGraph API 'Lezen alle logboekgegevens controleren' machtiging ontbreekt
+### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Fout: MSGraph-API voor ontbrekende toepassing alle controle logboek gegevens lezen
 
-Volg de stappen in de [vereisten voor toegang tot de Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md) om te controleren of uw toepassing wordt uitgevoerd met de juiste set machtigingen. 
+Volg de stappen in de [vereisten voor toegang tot de API voor Azure Active Directory rapportage](howto-configure-prerequisites-for-reporting-api.md) om ervoor te zorgen dat uw toepassing wordt uitgevoerd met de juiste set machtigingen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Gebruik de API-verwijzing-controle](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit)
-[gebruikt u de aanmeldingsactiviteiten rapport API-verwijzing](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+[Gebruik de controle-API-verwijzing](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit)
+[gebruiken de aanmeld activiteit rapport API-verwijzing](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

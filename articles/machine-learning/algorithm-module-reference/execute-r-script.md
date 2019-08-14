@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 710d64b445953ae3124830931c8cbb9315d32b83
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 3594d9670e8fb94b053479352fb88997caa16db6
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875717"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016476"
 ---
 # <a name="execute-r-script"></a>R-Script uitvoeren
 
@@ -76,8 +76,7 @@ Gegevens sets die zijn opgeslagen in de visuele interface, worden automatisch ge
 
 1.  Voeg de module voor het **uitvoeren van R-scripts** toe aan uw experiment.
 
-    > [!NOTE]
-    > Alle gegevens die worden door gegeven aan de module voor het uitvoeren van R `data.frame` - **scripts** , worden geconverteerd naar de r-indeling.
+  
 
 1. Verbind alle invoer gegevens die nodig zijn voor het script. Invoer zijn optioneel en kunnen gegevens en aanvullende R-code bevatten.
 
@@ -90,10 +89,33 @@ Gegevens sets die zijn opgeslagen in de visuele interface, worden automatisch ge
 1. Typ of plak een geldig R-script in het tekstvak **R-script** .
 
     Om u te helpen aan de slag te gaan, is het tekstvak **R-script** vooraf ingevuld met voorbeeld code, die u kunt bewerken of vervangen.
+    
+```R
+# R version: 3.5.1
+# The script MUST contain a function named azureml_main
+# which is the entry point for this module.
 
-    * Het script moet een functie bevatten met `azureml_main`de naam, het toegangs punt voor deze module.
+# The entry point function can contain up to two input arguments:
+#   Param<dataframe1>: a R DataFrame
+#   Param<dataframe2>: a R DataFrame
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
 
-    * De functie voor het toegangs punt kan Maxi maal twee invoer argumenten `Param<dataframe1>` bevatten: en`Param<dataframe2>`
+  # If a zip file is connected to the third input port, it is
+  # unzipped under "./Script Bundle". This directory is added
+  # to sys.path.
+
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
+ * Het script moet een functie bevatten met `azureml_main`de naam, het toegangs punt voor deze module.
+
+ * De functie voor het toegangs punt kan Maxi maal twee invoer argumenten `Param<dataframe1>` bevatten: en`Param<dataframe2>`
+ 
+   > [!NOTE]
+    > Er wordt verwezen `dataframe1` naar de gegevens die worden door gegeven aan de Execute `dataframe2`R- **script** module en die verschilt van Azure machine learning Studio `dataset1`( `dataset2`Studio Reference as,). Controleer of de ingevoerde gegevens correct zijn referneced in het script.  
  
     > [!NOTE]
     >  Bestaande R-code heeft mogelijk kleine wijzigingen nodig om te worden uitgevoerd in een Visual Interface-experiment. Invoer gegevens die u in CSV-indeling opgeeft, moeten bijvoorbeeld expliciet worden geconverteerd naar een gegevensset voordat u deze in uw code kunt gebruiken. Gegevens-en kolom typen die in de R-taal worden gebruikt, verschillen ook op een aantal manieren van de gegevens-en kolom typen die in de visuele interface worden gebruikt.
@@ -243,8 +265,8 @@ De huidige lijst met vooraf geïnstalleerde R-pakketten die beschikbaar zijn voo
 | Binder        | 0.1.1      | 
 | bindrcpp     | 0.2.2      | 
 | bitops       | 1.0-6      | 
-| modus         | 1,3-22     | 
-| Broom        | 0.5.2      | 
+| opstarten         | 1,3-22     | 
+| broom        | 0.5.2      | 
 | aanroeper        | 3.2.0      | 
 | verplaatsen        | 6.0-84     | 
 | caTools      | 1.17.1.2   | 
@@ -280,7 +302,7 @@ De huidige lijst met vooraf geïnstalleerde R-pakketten die beschikbaar zijn voo
 | gplots       | 3.0.1.1    | 
 | PNG     | 3.5.1      | 
 | grDevices    | 3.5.1      | 
-| YRaster         | 3.5.1      | 
+| raster         | 3.5.1      | 
 | gtable       | 0.3.0      | 
 | gtools       | 3.8.1      | 
 | recent        | 2.1.0      | 

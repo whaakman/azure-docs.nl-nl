@@ -2,18 +2,17 @@
 title: Meer informatie over Azure IoT Hub quota's en beperking | Microsoft Docs
 description: "Ontwikkelaars handleiding: beschrijving van de quota's die van toepassing zijn op IoT Hub en het verwachte beperkings gedrag."
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/17/2019
-ms.openlocfilehash: 1c19696b10584bc55989b9270978486d7f5aa157
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 08/08/2019
+ms.openlocfilehash: 184cdaddc638461d50f322292d5cfaf28ab93093
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326729"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950531"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referentie-IoT Hub quota's en beperking
 
@@ -66,7 +65,7 @@ De volgende tabel geeft de afgedwongen vertragingen weer. Waarden verwijzen naar
 
 *  **Quota** is het totale aantal berichten dat *per dag*in uw hub kan worden verzonden. U kunt de quotum limiet van uw hub vinden onder het kolom **Totaal aantal berichten/dag** op de [pagina met IOT hub prijzen](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-*  De beperkings limieten voor Cloud-naar-apparaat-en apparaat-naar-Cloud bepalen *het maximum aantal* berichten dat kan worden verzonden, ongeacht de 4 KB-segmenten. Elk bericht kan Maxi maal 256 KB groot zijn. Dit is de [maximale bericht grootte](iot-hub-devguide-quotas-throttling.md#other-limits).
+*  De beperkings limieten voor Cloud-naar-apparaat-en apparaat-naar- Cloud bepalen het maximum aantal berichten dat kan worden verzonden, ongeacht de 4 KB-segmenten. Elk bericht kan Maxi maal 256 KB groot zijn. Dit is de [maximale bericht grootte](iot-hub-devguide-quotas-throttling.md#other-limits).
 
 *  Het is een goed idee om uw oproepen te beperken, zodat u de beperkings limieten niet bereikt of overschrijdt. Als u de limiet bereikt, reageert IoT Hub met fout code 429. de client moet er een back-up van maken en het opnieuw proberen. Deze limieten zijn per hub (of in sommige gevallen per hub/eenheid). Raadpleeg [connectiviteit en betrouw bare patronen voor berichten/nieuwe pogingen beheren](iot-hub-reliability-features-in-sdks.md#retry-patterns)voor meer informatie.
 
@@ -96,7 +95,8 @@ IoT Hub dwingt andere operationele limieten af:
 | Uploaden van bestanden | 10 gelijktijdige uploads van bestanden per apparaat. |
 | Jobs<sup>1</sup> | Maximum aantal gelijktijdige taken is 1 (gratis en S1), 5 (voor S2) en 10 (voor S3). Het maximum aantal gelijktijdige [import/export-taken voor apparaten](iot-hub-bulk-identity-mgmt.md) is echter 1 voor alle lagen. <br/>De taak geschiedenis wordt Maxi maal 30 dagen bewaard. |
 | Extra eind punten | Betaalde SKU hubs kunnen 10 extra eind punten hebben. Gratis SKU-hubs kunnen één extra eind punt hebben. |
-| Routerings regels voor berichten | Betaalde SKU-hubs hebben mogelijk 100 routerings regels. Gratis SKU-hubs kunnen vijf routerings regels hebben. |
+| Bericht routering query's | Betaalde SKU-hubs hebben mogelijk 100 routerings query's. Gratis SKU-hubs kunnen vijf routerings query's hebben. |
+| Berichtverrijkingen | Betaalde SKU hubs kunnen Maxi maal 10 bericht verrijkingen hebben. Gratis SKU-hubs kunnen Maxi maal 2 bericht verrijkingen hebben.|
 | Apparaat-naar-Cloud-berichten | Maximale bericht grootte 256 KB |
 | Cloud-naar-apparaat-berichten<sup>1</sup> | Maximale bericht grootte van 64 KB. Maximum aantal in behandeling zijnde berichten voor levering is 50 per apparaat. |
 | Directe methode<sup>1</sup> | De maximale grootte van de directe methode lading is 128 KB. |
