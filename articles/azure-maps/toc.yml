@@ -91,23 +91,27 @@
               href: choose-map-style.md
             - name: Besturingselementen toevoegen aan de kaart
               href: map-add-controls.md
+            - name: Een gegevensbron maken
+              href: create-data-source-web-sdk.md
             - name: Een symboollaag toevoegen
               href: map-add-pin.md
-            - name: Een pop-up toevoegen
-              href: map-add-popup.md
             - name: Een bubbellaag toevoegen
               href: map-add-bubble-layer.md
-            - name: Vormen toevoegen
+            - name: Een lijnlaag toevoegen
+              href: map-add-line-layer.md
+            - name: Een polygoonlaag toevoegen
               href: map-add-shape.md
             - name: Een heatmap-laag toevoegen
               href: map-add-heat-map-layer.md
+            - name: Een pop-up toevoegen
+              href: map-add-popup.md
             - name: Gegevens van clusterpunt
               href: clustering-point-data-web-sdk.md
             - name: Gegevensgestuurde stijlexpressies gebruiken
               href: data-driven-style-expressions-web-sdk.md
             - name: Afbeeldingssjablonen gebruiken
               href: how-to-use-image-templates-web-sdk.md
-            - name: Een overlay aan een afbeelding toevoegen
+            - name: Een afbeeldingslaag toevoegen
               href: map-add-image-layer.md
             - name: Tegellagen toevoegen
               href: map-add-tile-layer.md
@@ -139,6 +143,8 @@
           href: how-to-add-symbol-to-android-map.md
         - name: Vormen toevoegen
           href: how-to-add-shapes-to-android-map.md
+        - name: Functie-informatie weergeven
+          href: display-feature-information-android.md
         - name: Een titellaag toevoegen
           href: how-to-add-tile-layer-android-map.md
 - name: Naslaginformatie

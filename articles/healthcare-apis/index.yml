@@ -22,7 +22,7 @@ sections:
   - title: QuickStarts van vijf minuten
     items:
       - type: paragraph
-        text: Informatie over hoe Azure API for FHIR Preview de interoperabiliteit in de gezondheidszorg in Azure kan verbeteren door een pijlkoppeling te selecteren <img src="media/index/link.jpg" height="15" width="15"></img>.
+        text: Ontdek hoe de Azure API for FHIR Preview de interoperabiliteit in de gezondheidszorg in Azure kan verbeteren door een pijlkoppeling te selecteren <img src="media/index/link.jpg" height="15" width="15"></img>.
       - type: table
         style: dataMatrix
         columns:

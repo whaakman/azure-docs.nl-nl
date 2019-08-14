@@ -162,6 +162,8 @@
       items:
         - name: Problemen met resources oplossen
           href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
+        - name: hbase hbck retourneert inconsistenties
+          href: ./hbase-troubleshoot-hbase-hbck-inconsistencies.md
         - name: Opslaguitzondering na opnieuw instellen van verbinding
           href: ./hbase-troubleshoot-storage-exception-reset.md
         - name: Geen gegevens in Apache Phoenix-weergaven

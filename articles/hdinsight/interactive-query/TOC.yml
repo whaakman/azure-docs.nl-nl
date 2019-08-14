@@ -191,6 +191,12 @@
     - name: Problemen oplossen
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       items:
+        - name: Apache Tez-toepassing loopt vast
+          href: ./interactive-query-troubleshoot-tez-hangs.md
+        - name: Query-prestaties van Apache Hive LLAP
+          href: ./interactive-query-troubleshoot-query-performance.md
+        - name: Trage reducer
+          href: ./interactive-query-troubleshoot-slow-reducer.md
         - name: Time-out van de Apache Hive-weergave
           href: ./interactive-query-troubleshoot-view-time-out.md
         - name: Machtigingsfout bij maken van tabel

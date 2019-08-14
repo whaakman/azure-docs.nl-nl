@@ -13,10 +13,12 @@
       href: ios-quickstart.md
 - name: Zelfstudies
   items:
-    - name: Start de Insluitende lezer (Node.js)
-      href: tutorial.md
+    - name: De Insluitende lezer starten (Node.js)
+      href: tutorial-nodejs.md
+    - name: De Insluitende lezer starten (Python)
+      href: tutorial-python.md
     - name: Afbeelding naar Insluitende lezer (Swift)
-      href: ios-picture-immersive-reader-tutorial.md
+      href: tutorial-ios-picture-immersive-reader.md
 - name: 'Uitleg:'
   items:
     - name: Verificatie via Azure Active Directory

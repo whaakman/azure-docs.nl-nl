@@ -295,6 +295,8 @@
               href: v2-oauth2-device-code.md
             - name: Toewijzing van OAuth 2.0-wachtwoordreferenties van resource-eigenaar
               href: v2-oauth-ropc.md
+            - name: 'OAuth 2,0-assertiestroom voor SAML-bearer'
+              href: v2-saml-bearer-assertion.md
             - name: Rollover van ondertekeningssleutel
               href: active-directory-signing-key-rollover.md
             - name: Id-tokens

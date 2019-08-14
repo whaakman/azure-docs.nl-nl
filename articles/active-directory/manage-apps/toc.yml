@@ -284,6 +284,8 @@
                   href: application-proxy-configure-single-sign-on-on-premises-apps.md
             - name: Publicatie-overzicht
               items:
+                - name: Integreren met Power BI
+                  href: application-proxy-integrate-with-power-bi.md
                 - name: Integreren met Cloud App Security
                   href: application-proxy-integrate-with-microsoft-cloud-application-security.md
                 - name: Integreren via Extern bureaublad
