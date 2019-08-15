@@ -1,6 +1,6 @@
 ---
-title: Media Encoder Premium Workflow-indelingen en codecs voor | Microsoft Docs
-description: In dit onderwerp overzicht een van indelingen voor Media Encoder Premium Workflow-indelingen en codecs voor
+title: Media Encoder Premium Workflow indelingen en codecs | Microsoft Docs
+description: Dit onderwerp bevat een overzicht van Media Encoder Premium Workflow indelingen en codecs
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,71 +12,72 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
-ms.author: juliako;anilmur
-ms.openlocfilehash: 25f32750b612bb66f23eb19c378f7935689f3a73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: anilmur
+ms.openlocfilehash: 9ec8e2df8befa28fc023edb30889f177b60939f9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463086"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69015042"
 ---
-# <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Media Encoder Premium Workflow-indelingen en codecs voor
+# <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Media Encoder Premium Workflow indelingen en codecs
 
 > [!NOTE]
-> Voor premium encoder vragen, e- mepd@microsoft.com.
+> Voor Premium encoder-vragen kunt mepd@microsoft.comu e-mail verzenden.
 > 
-> Media Encoder Premium Workflow Mediaprocessor besproken in dit onderwerp is niet beschikbaar in China. 
+> Media Encoder Premium Workflow media processor die in dit onderwerp wordt besproken, is niet beschikbaar in China. 
 
-Dit document bevat een overzicht van de invoer- en indelingen en codecs voor die worden ondersteund door de openbare preview-versie van de **Media Encoder Premium Workflow** coderingsprogramma.
+Dit document bevat een lijst met invoer-en uitvoer bestands indelingen en-codecs die worden ondersteund door de open bare preview-versie van het coderings programma **Media Encoder Premium workflow** .
 
-[De invoer-indelingen en codecs voor Media Encoder Premium Workflow](#input_formats)
+[Invoer indelingen en codecs Media Encoder Premium Workflow](#input_formats)
 
-Media Encoder Premium Workflow uitvoer-indelingen en codecs voor
+Uitvoer indelingen en codecs Media Encoder Premium Workflow
 
-**Media Encoder Premium Workflow** ondersteunt ondertiteling in beschreven [dit](#closed_captioning) sectie. 
+**Media Encoder Premium workflow** ondersteunt closed captioning die in [deze](#closed_captioning) sectie wordt beschreven. 
 
-## <a id="input_formats"></a>De invoer-indelingen en codecs voor Media Encoder Premium Workflow
+## <a id="input_formats"></a>Invoer indelingen en codecs Media Encoder Premium Workflow
 
-De volgende sectie vindt u de codecs- en bestandsindelingen die ondersteuning biedt voor de Mediaprocessor als invoer.
+In de volgende sectie worden de codecs en bestands indelingen vermeld die door deze media processor als invoer worden ondersteund.
 
-### <a name="input-containerfile-formats"></a>Invoer/bestandsindelingen
+### <a name="input-containerfile-formats"></a>Invoer van container/bestands indelingen
 
 * Adobe® Flash® F4V
 * MXF/SMPTE 377M
 * GXF
-* MPEG-2-Transport Streams
-* Programma voor MPEG-2-Streams
+* MPEG-2-transport stromen
+* MPEG-2-programma-streams
 * MPEG-4/MP4
 * Windows Media/ASF
-* AVI (niet-gecomprimeerde 8-bits/10 bits)
+* AVI (niet-gecomprimeerd 8bit/10bit)
 
-### <a name="input-video-codecs"></a>Codecs Invoervideo
+### <a name="input-video-codecs"></a>Video-codecs invoeren
 
-* AVC 8-bits/10 bits, maximaal 4:2:2, inclusief AVCIntra
+* AVC 8-bits/10-bits, tot 4:2:2, inclusief AVCIntra
 * Avid DNxHD (in MXF)
 * DVCPro/DVCProHD (in MXF)
-* HEVC/H.265, hoofd- en Main 10-profiel
+* HEVC/H. 265, hoofd-en hoofd-10-profiel
 * JPEG2000
-* MPEG-2 (maximaal 422-profiel en hoog niveau, inclusief varianten zoals XDCAM, XDCAM HD XDCAM IMX, CableLabs® en D10)
+* MPEG-2 (Maxi maal 422 profiel en hoog niveau; inclusief varianten zoals XDCAM, XDCAM HD, XDCAM IMX, CableLabs® en D10)
 * MPEG-1
 * Windows Media Video/VC-1
 
-### <a name="input-audio-codecs"></a>Codecs Audio-invoer
+### <a name="input-audio-codecs"></a>Audio-codecs invoeren
 
-* AES (SMPTE 331 M en 302 M, AES3-2003)
+* AES (SMPTE 331M en 302M, AES3-2003)
 * Dolby® E
 * Dolby® Digital (AC3)
-* AAC (AAC-LC, AAC-HE en AAC-HEv2; tot. 5.1)
-* MPEG-laag 2
-* MP3 (laag 3 Audio MPEG-1)
+* AAC (AAC-LC, AAC-HE en AAC-HEv2; tot 5,1)
+* MPEG Layer 2
+* MP3 (MPEG-1 Audio Layer 3)
 * Windows Media Audio
 * WAV/PCM
 
-## <a id="output_format"></a>Media Encoder Premium Workflow uitvoer-indelingen en codecs voor
+## <a id="output_format"></a>Uitvoer indelingen en codecs Media Encoder Premium Workflow
 
-Het volgende gedeelte bevat de codecs en bestandsindelingen die worden ondersteund als uitvoer van de Mediaprocessor.
+In de volgende sectie worden de codecs en bestands indelingen vermeld die worden ondersteund als uitvoer van deze media processor.
 
-### <a name="output-containerfile-formats"></a>Uitvoer/bestandsindelingen
+### <a name="output-containerfile-formats"></a>Uitvoer container/bestands indelingen
 
 * Adobe® Flash® F4V
 * MXF (OP1a, XDCAM en AS02)
@@ -84,61 +85,61 @@ Het volgende gedeelte bevat de codecs en bestandsindelingen die worden ondersteu
 * GXF
 * MPEG-4/MP4
 * Windows Media/ASF
-* AVI (niet-gecomprimeerde 8-bits/10 bits)
-* Smooth Streaming-bestandsindeling (PIFF 1.3)
+* AVI (niet-gecomprimeerd 8bit/10bit)
+* Smooth Streaming bestands indeling (PIFF 1,3)
 * MPEG-TS 
 
-### <a name="output-video-codecs"></a>Codecs Invoervideo voor uitvoer
+### <a name="output-video-codecs"></a>Video-codecs voor uitvoer
 
-* AVC (H.264; 8-bits; tot hoge profiel, niveau 5.2; 4 K Ultra HD; AVC Intra)
+* AVC (H. 264; 8-bits; tot hoog profiel, niveau 5,2; 4 KB Ultra HD; AVC-Intra)
 * Avid DNxHD (in MXF)
 * DVCPro/DVCProHD (in MXF)
-* MPEG-2 (maximaal 422-profiel en hoog niveau, inclusief varianten zoals XDCAM, XDCAM HD XDCAM IMX, CableLabs® en D10)
+* MPEG-2 (Maxi maal 422 profiel en hoog niveau; inclusief varianten zoals XDCAM, XDCAM HD, XDCAM IMX, CableLabs® en D10)
 * MPEG-1
 * Windows Media Video/VC-1
 * JPEG-miniatuur maken
-* HEVC (H.265; 8-bits en 10 bits, hoofd- en Main-10-profiel)
+* HEVC (H. 265; 8-bits en 10-bits, hoofd-en hoofd-10-profiel)
 
-  Ondersteuning voor Kopregel 10 is beschikbaar in bepaalde scenario's, neem contact op met mepd@microsoft.com voor meer informatie
+  Ondersteuning voor HDR 10 is beschikbaar in bepaalde scenario's. Neem contact mepd@microsoft.com op met voor meer informatie
 
 
-### <a name="output-audio-codecs"></a>Codecs Audio-uitvoer
+### <a name="output-audio-codecs"></a>Audio-codecs voor uitvoer
 
-* AES (SMPTE 331 M en 302 M, AES3-2003)
+* AES (SMPTE 331M en 302M, AES3-2003)
 * Dolby® Digital (AC3)
-* Dolby® Digital Plus (E-AC3) tot 7.1
-* AAC (AAC-LC, AAC-HE en AAC-HEv2; tot. 5.1)
-* MPEG-laag 2
-* MP3 (laag 3 Audio MPEG-1)
+* Dolby® Digital Plus (E-AC3) tot 7,1
+* AAC (AAC-LC, AAC-HE en AAC-HEv2; tot 5,1)
+* MPEG Layer 2
+* MP3 (MPEG-1 Audio Layer 3)
 * Windows Media Audio
 
 >[!NOTE]
->Als u codeert naar Dolby® Digital (AC3), kan de uitvoer alleen in een ISO-MP4-bestand worden geschreven.
+>Als u codeert naar Dolby® Digital (AC3), kan de uitvoer alleen naar een ISO MP4-bestand worden geschreven.
 
 ## <a id="closed_captioning"></a>Ondersteuning voor ondertiteling
 
-Op opnemen, **Media Encoder Premium Workflow** ondersteunt:
+**Media Encoder Premium workflow** ondersteunt in opname:
 
-1. SCC bestanden
-2. SMPTE TT-bestanden
-3. CEA-608/CEA-708-uitgevoerd als gebruikersgegevens (SEI berichten van H.264 elementaire stromen, ATSC/53, SCTE20) of uitgevoerd als aanvullende gegevens in MXF/GXF-bestanden
-4. STL subtitel bestanden
+1. SCC-bestanden
+2. SMPTE-TT-bestanden
+3. CEA-608/CEA-708: wordt als gebruikers gegevens (SEI berichten van H. 264-elementaire stromen, ATSC/53, SCTE20) of vervoerd als bijkomende gegevens in MXF/GXF-bestanden
+4. STL-ondertitelings bestanden
 
-Op de uitvoer van zijn de volgende opties beschikbaar:
+Bij uitvoer zijn de volgende opties beschikbaar:
 
-1. CEA-608 CEA-708 vertaling
-2. CEA-608/CEA-708 doorgeven (ingesloten in SEI berichten van H.264 elementaire stromen of uitgevoerd als aanvullende gegevens in MXF-bestanden)
+1. CEA-608 naar CEA-708-vertaling
+2. CEA-608/CEA-708 Pass Through (Inge sloten in SEI berichten van H. 264 elementaire stromen of vervoerd als bijkomende gegevens in MXF-bestanden)
 3. SCC
-4. SMPTE is een time-out opgetreden tekst (van bron CEA-608 per SMPTE RP2052, inclusief het maken van het bestand DFXP)
-5. Het ondertitelbestand is SRT
-6. DVB subtitel streams
+4. Getimede tekst van SMPTE (van bron CEA-608 per SMPTE RP2052, inclusief het maken van DFXP-bestanden)
+5. Ondertitelings bestand SRT
+6. DVB-ondertitel stromen
 
 > [!NOTE]
-> Niet alle van de bovenstaande uitvoerindelingen worden ondersteund voor levering via streaming in Azure Media Services.
+> Niet alle hierboven genoemde uitvoer indelingen worden ondersteund voor levering via streaming in Azure Media Services.
 
 ## <a name="known-issues"></a>Bekende problemen
 
-Als uw invoervideo geen bevat bevat ondertiteling, de uitvoer Asset nog steeds een leeg TTML-bestand. 
+Als uw invoer video geen ondertiteling bevat, bevat het uitvoer activum nog een leeg TTML-bestand. 
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 

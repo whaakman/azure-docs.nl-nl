@@ -1,9 +1,9 @@
 ---
-title: Hoe lang slaat Azure AD reporting gegevens? | Microsoft Docs
-description: Meer informatie over hoe lang de verschillende typen gegevens worden opgeslagen in Azure.
+title: Hoe lang worden de gegevens van Azure AD Store gerapporteerd? | Microsoft Docs
+description: Meer informatie over hoe lang Azure de verschillende typen rapport gegevens opslaat.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
@@ -14,67 +14,67 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41fa12c9d79d14a6602d995ed93b5d1a23be8a4d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c52f8873527d92e621ef032f5bc3e82d3364a691
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65781048"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989587"
 ---
-# <a name="how-long-does-azure-ad-store-reporting-data"></a>Hoe lang slaat Azure AD reporting gegevens?
+# <a name="how-long-does-azure-ad-store-reporting-data"></a>Hoe lang worden de gegevens van Azure AD Store gerapporteerd?
 
-In dit artikel hebt u meer informatie over het bewaarbeleid voor gegevens voor de verschillende aanmeldactiviteitenrapporten in Azure Active Directory. 
+In dit artikel vindt u informatie over het Bewaar beleid voor gegevens voor de verschillende activiteiten rapporten in Azure Active Directory. 
 
-### <a name="when-does-azure-ad-start-collecting-data"></a>Wanneer begint Azure AD het verzamelen van gegevens?
+### <a name="when-does-azure-ad-start-collecting-data"></a>Wanneer begint Azure AD met het verzamelen van gegevens?
 
-| Azure AD Edition | Verzameling starten |
+| Azure AD Edition | Begin verzameling |
 | :--              | :--   |
-| Azure AD Premium P1 <br /> Azure AD Premium P2 | Wanneer u zich aanmeldt voor een abonnement |
-| Azure AD Free <br /> Azure AD Basic | De eerste keer dat u opent de [Azure Active Directory-blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) of gebruik de [reporting API's](https://aka.ms/aadreports)  |
+| Azure AD Premium P1 <br /> Azure AD Premium P2 | Wanneer u zich registreert voor een abonnement |
+| Azure AD Free <br /> Azure AD Basic | De eerste keer dat u de [blade Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) opent of de [rapportage-api's](https://aka.ms/aadreports) gebruikt  |
 
 ---
 
-### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>Wanneer is de activiteitsgegevens beschikbaar zijn in Azure portal?
+### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>Wanneer zijn de activiteit gegevens beschikbaar in de Azure Portal?
 
-- **Onmiddellijk** : als u al met rapporten in Azure portal werkt.
-- **Binnen 2 uur** : als u dit nog niet hebt ingeschakeld op rapportage in Azure portal.
-
----
-
-### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Hoe snel kan ik activiteiten gegevens zien nadat u een premium-licentie?
-
-Als u al gegevens van activiteiten met uw gratis licentie hebt, kunt klikt u vervolgens u zien deze onmiddellijk bij een upgrade. Als u geen gegevens, duurt het een of twee dagen voor de gegevens worden weergegeven in de rapporten na de upgrade naar een premium-licentie.
+- **Onmiddellijk** : als u al met rapporten werkt in de Azure Portal.
+- **Binnen 2 uur** : als u rapportage niet hebt ingeschakeld in de Azure Portal.
 
 ---
 
-### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Kan ik van afgelopen maand gegevens zien nadat u een Azure AD premium-licentie?
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Hoe kan ik activiteiten gegevens weer geven na het verkrijgen van een Premium-licentie?
 
-Als u onlangs hebt overgeschakeld naar een premiumversie (met inbegrip van een evaluatieversie), ziet u gegevens van 7 dagen in eerste instantie. Wanneer gegevens worden bij elkaar opgeteld, ziet u gegevens voor de afgelopen 30 dagen.
-
----
-
-### <a name="when-does-azure-ad-start-collecting-security-signal-data"></a>Wanneer begint Azure AD signaal beveiligingsgegevens verzamelen?  
-
-Voor beveiliging signalen, de verzamelingsproces wordt gestart wanneer u zich aanmelden voor gebruik van de **Identity Protection Center**. 
+Als u al activiteiten gegevens met uw gratis licentie hebt, kunt u deze direct na de upgrade bekijken. Als u geen gegevens hebt, duurt het één of twee dagen voordat de gegevens in de rapporten worden weer gegeven nadat u een upgrade hebt uitgevoerd naar een Premium-licentie.
 
 ---
 
-### <a name="how-long-does-azure-ad-store-the-data"></a>Hoe lang de gegevens opslaan in Azure AD?
+### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Kan ik de gegevens van de afgelopen maand zien na het ophalen van een Azure AD Premium-licentie?
+
+Als u onlangs bent overgeschakeld naar een Premium-versie (met inbegrip van een proef versie), kunt u in eerste instantie de gegevens weer geven tot 7 dagen. Wanneer gegevens worden verzameld, kunt u de gegevens weer geven voor de afgelopen 30 dagen.
+
+---
+
+### <a name="when-does-azure-ad-start-collecting-security-signal-data"></a>Wanneer wordt door Azure AD begonnen met het verzamelen van gegevens over beveiligings signalen?  
+
+Voor beveiligings signalen wordt het verzamelings proces gestart wanneer u zich aanmeldt om het **Identity Protection Center**te gebruiken. 
+
+---
+
+### <a name="how-long-does-azure-ad-store-the-data"></a>Hoe lang worden de gegevens opgeslagen in azure AD?
 
 **Activiteitsrapporten**    
 
 | Rapport                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
-| Auditlogboeken             | 7 dagen        |  7 dagen        | 30 dagen             | 30 dagen             |
+| Controlelogboeken             | 7 dagen        |  7 dagen        | 30 dagen             | 30 dagen             |
 | Aanmeldingen               | N/A           |  N/A           | 30 dagen             | 30 dagen             |
 | Gebruik van Azure MFA        | 30 dagen       |  30 dagen       | 30 dagen             | 30 dagen             |
 
-U kunt de gegevens van de activiteit controleren en meld u langer dan de bewaartermijn die hierboven worden beschreven door het routering naar Azure storage-account met behulp van Azure Monitor behouden. Zie voor meer informatie, [archief Azure AD vastgelegd in een Azure storage-account](quickstart-azure-monitor-route-logs-to-storage-account.md).
+U kunt de gegevens voor audits en aanmeldings activiteiten langer bewaren dan de standaard retentie periode die hierboven wordt beschreven door deze te routeren naar een Azure-opslag account met behulp van Azure Monitor. Zie [Azure AD-logboeken archiveren in een Azure Storage-account](quickstart-azure-monitor-route-logs-to-storage-account.md)voor meer informatie.
 
-**Beveiliging signalen**
+**Beveiligings signalen**
 
 | Rapport         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--            | :--                 | :--                 |

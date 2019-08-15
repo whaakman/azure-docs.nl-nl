@@ -1,6 +1,6 @@
 ---
 title: Een pop-upvenster met Azure Maps toevoegen | Microsoft Docs
-description: Een pop-upvenster toevoegen aan java script-toewijzing
+description: Een pop-up toevoegen aan de Azure Maps Web-SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: caf661faf00d1d32664b7958a14a8719a37ab36e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: cde6c745034d0963bd372e36e6e5a046113c202b
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882102"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976557"
 ---
 # <a name="add-a-popup-to-the-map"></a>Een pop-upvenster toevoegen aan de kaart
 
@@ -22,9 +22,61 @@ In dit artikel wordt uitgelegd hoe u een pop-upvenster kunt toevoegen aan een pu
 
 ## <a name="understand-the-code"></a>De code begrijpen
 
-<a id="addAPopup"></a>
-
 Met de volgende code wordt een punt functie `name` met en `description` eigenschappen aan de kaart toegevoegd met behulp van een Symbol-laag. Er wordt een exemplaar van de [pop](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) -upklasse gemaakt, maar dit wordt niet weer gegeven. Muis gebeurtenissen worden toegevoegd aan de symbool-laag om te activeren en sluiten van het pop-upvenster wanneer de muis aanwijzer over en op de symbool markering wordt gehouden. Wanneer het markerings symbool wordt aangevallen, wordt `position` de eigenschap van het pop-upvenster bijgewerkt met `content` de positie van de markering en de optie wordt bijgewerkt `name` met `description` een aantal HTML-code die de eigenschappen van de punt en de plaats van de functie aanwijst. De pop-up wordt vervolgens met behulp `open` van de functie weer gegeven op de kaart.
+
+```javascript
+//Define an HTML template for a custom popup content laypout.
+var popupTemplate = '<div class="customInfobox"><div class="name">{name}</div>{description}</div>';
+
+//Create a data source and add it to the map.
+var dataSource = new atlas.source.DataSource();
+map.sources.add(dataSource);
+
+dataSource.add(new atlas.data.Feature(new atlas.data.Point([-122.1333, 47.63]), {
+  name: 'Microsoft Building 41', 
+  description: '15571 NE 31st St, Redmond, WA 98052'
+}));
+
+//Create a layer to render point data.
+var symbolLayer = new atlas.layer.SymbolLayer(dataSource);
+
+//Add the polygon and line the symbol layer to the map.
+map.layers.add(symbolLayer);
+
+//Create a popup but leave it closed so we can update it and display it later.
+popup = new atlas.Popup({
+  pixelOffset: [0, -18],
+  closeButton: false
+});
+
+//Add a hover event to the symbol layer.
+map.events.add('mouseover', symbolLayer, function (e) {
+  //Make sure that the point exists.
+  if (e.shapes && e.shapes.length > 0) {
+    var content, coordinate;
+    var properties = e.shapes[0].getProperties();
+    content = popupTemplate.replace(/{name}/g, properties.name).replace(/{description}/g, properties.description);
+    coordinate = e.shapes[0].getCoordinates();
+
+    popup.setOptions({
+      //Update the content of the popup.
+      content: content,
+
+      //Update the popup's position with the symbol's coordinate.
+      position: coordinate
+
+    });
+    //Open the popup.
+    popup.open(map);
+  }
+});
+
+map.events.add('mouseleave', symbolLayer, function (){
+  popup.close();
+});
+```
+
+Hieronder ziet u het volledige programma voor het uitvoeren van code van de bovenstaande functionaliteit.
 
 <br/>
 
@@ -79,4 +131,7 @@ Raadpleeg de volgende fantastische artikelen voor voor beelden van volledige cod
 > [Een HTML-markering toevoegen](./map-add-custom-html.md)
 
 > [!div class="nextstepaction"]
-> [Een vorm toevoegen](./map-add-shape.md)
+> [Een line laag toevoegen](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Een polygoon laag toevoegen](map-add-shape.md)

@@ -1,71 +1,71 @@
 ---
-title: Voorbereiden van de bronmachines voor het installeren van de Mobility-Service via push-installatie voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure | Microsoft Docs
-description: Informatie over het voorbereiden van uw server voor het installeren van de Mobility-agent via push-installatie voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met behulp van de Azure Site Recovery-service.
+title: Bron machines voorbereiden voor het installeren van de Mobility-service via een push-installatie voor nood herstel van virtuele VMware-machines en fysieke servers naar Azure | Microsoft Docs
+description: Informatie over het voorbereiden van uw server voor het installeren van Mobility agent via push-installatie voor nood herstel van virtuele VMware-machines en fysieke servers naar Azure met behulp van de Azure Site Recovery-service.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f1a96302d180f3b4b179f42013232f3b48d4e2b0
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318166"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016367"
 ---
-# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Voorbereiden van de bron-VM voor push-installatie van de mobility-agent
+# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Bron machine voorbereiden voor de push-installatie van de Mobility-agent
 
-Wanneer u herstel na noodgevallen voor VMware-VM's en fysieke servers met behulp van instellen [Azure Site Recovery](site-recovery-overview.md), u installeert de [Site Recovery Mobility service](vmware-physical-mobility-service-overview.md) op elke on-premises virtuele VMware-machine en de fysieke server.  De Mobility-service worden vastgelegd schrijven van gegevens op de machine, en ze doorstuurt naar de processerver van Site Recovery.
+Wanneer u herstel na nood gevallen instelt voor virtuele VMware-machines en fysieke servers met behulp van [Azure site Recovery](site-recovery-overview.md), installeert u de [site Recovery Mobility-service](vmware-physical-mobility-service-overview.md) op elke on-premises VMware-VM en fysieke server.  De Mobility-service legt gegevens op de computer vast en stuurt deze door naar de Site Recovery-proces server.
 
 ## <a name="install-on-windows-machine"></a>Installeren op Windows-machine
 
-Op elke Windows-machine die u wilt beveiligen, doet u het volgende:
+Ga als volgt te werk op elke Windows-computer die u wilt beveiligen:
 
-1. Zorg ervoor dat er een netwerkverbinding tussen de computer en de processerver is. Als u geen afzonderlijke processerver hebt ingesteld, wordt wordt standaard het uitgevoerd op de configuratieserver.
-1. Maak een account dat op de processerver kan worden gebruikt voor toegang tot de computer. Het account moet beheerdersrechten, lokaal of domein hebben. Gebruik dit account alleen voor de push-installatie en agentupdates.
-2. Als u niet een domeinaccount, schakelt u toegangsbeheer voor externe gebruikers op de lokale computer als volgt uit:
-    - Voeg een nieuwe DWORD onder HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registersleutel: **LocalAccountTokenFilterPolicy**. Stel de waarde voor **1**.
-    -  Om dit te doen bij een opdrachtprompt, voer de volgende opdracht:  
-   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
-3. Selecteer in Windows Firewall op de computer die u wilt beveiligen, **toestaan een app of functie via Firewall**. Schakel **bestands- en printerdeling** en **Windows Management Instrumentation (WMI)** . Voor computers die deel uitmaken van een domein, kunt u de firewall-instellingen configureren met behulp van een groepsbeleidsobject (GPO).
+1. Zorg ervoor dat er een netwerk verbinding is tussen de computer en de proces server. Als u geen afzonderlijke proces server hebt ingesteld, wordt deze standaard uitgevoerd op de configuratie server.
+1. Maak een account dat op de processerver kan worden gebruikt voor toegang tot de computer. Het account moet beheerders rechten, lokaal of domein, hebben. Gebruik dit account alleen voor de push-installatie en voor agent-updates.
+2. Als u geen domein account gebruikt, schakelt u toegangs beheer voor externe gebruikers op de lokale computer als volgt uit:
+    - Onder de register sleutel HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System voegt u een nieuwe DWORD toe: **LocalAccountTokenFilterPolicy**. Stel de waarde in op **1**.
+    -  Voer de volgende opdracht uit vanaf een opdracht prompt:  
+   ' REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System/v LocalAccountTokenFilterPolicy/t REG_DWORD/d
+3. Selecteer in Windows Firewall op de computer die u wilt beveiligen, **een app of onderdeel toestaan via de firewall**. Schakel **Bestands-en printer deling** en **Windows Management Instrumentation (WMI)** in. Voor computers die tot een domein behoren, kunt u de firewall instellingen configureren met behulp van een groepsbeleid-object (GPO).
 
    ![Firewallinstellingen](./media/vmware-azure-install-mobility-service/mobility1.png)
 
-4. Voeg het account toe dat u hebt gemaakt in CSPSConfigtool. Om dit te doen, moet u zich aanmelden bij uw configuratieserver.
-5. Open **cspsconfigtool.exe**. Het is beschikbaar als snelkoppeling op het bureaublad en in de map %ProgramData%\home\svsystems\bin.
-6. Op de **Accounts beheren** tabblad **-Account toevoegen**.
+4. Voeg het account toe dat u hebt gemaakt in CSPSConfigtool. Hiertoe meldt u zich aan bij uw configuratie server.
+5. Open **cspsconfigtool.exe**. Het is beschikbaar als snelkoppeling op het bureau blad en in de map%ProgramData%\home\svsystems\bin.
+6. Klik op het tabblad **accounts beheren** op **account toevoegen**.
 7. Voeg het account toe dat u hebt gemaakt.
 8. Voer de referenties in die u gebruikt wanneer u replicatie voor een computer inschakelt.
 
-## <a name="install-on-linux-machine"></a>Installeren op Linux-machine
+## <a name="install-on-linux-machine"></a>Installeren op Linux-computer
 
-Op elke Linux-machine die u wilt beveiligen, het volgende doen:
+Ga als volgt te werk op elke Linux-computer die u wilt beveiligen:
 
-1. Zorg ervoor dat er een netwerkverbinding tussen de Linux-machine en de processerver is.
+1. Zorg ervoor dat er een netwerk verbinding is tussen de Linux-computer en de proces server.
 2. Maak een account dat op de processerver kan worden gebruikt voor toegang tot de computer. Het account moet een **rootgebruiker** zijn op de Linux-bronserver. Gebruik dit account alleen voor de push-installatie en voor updates.
 3. Controleer of het bestand /etc/hosts op de Linux-bronserver vermeldingen bevat die de lokale hostnaam toewijzen aan IP-adressen die zijn gekoppeld aan alle netwerkadapters.
 4. Installeer de meest recente openssh, openssh-server en openssl-pakketten op de computer die u wilt repliceren.
 5. Zorg ervoor dat SSH (Secure Shell) is ingeschakeld en wordt uitgevoerd op poort 22.
-4. SFTP-subsysteem en wachtwoordverificatie verificatie in het bestand sshd_config inschakelen. Om dit te doen, moet u zich aanmelden als **hoofdmap**.
-5. In de **/etc/ssh/sshd_config** bestand, zoek de regel die met begint **PasswordAuthentication**.
-6. Verwijder opmerkingen bij de regel en wijzig de waarde in **Ja**.
-7. Zoek de regel die met begint **subsysteem**, en verwijder opmerkingen bij de regel.
+4. Schakel het SFTP-subsysteem en de verificatie van wacht woorden in het sshd_config-bestand in. Als u dit wilt doen, meldt u zich aan als **root**.
+5. Zoek in het bestand **/etc/ssh/sshd_config** de regel die begint met **PasswordAuthentication**.
+6. Verwijder de opmerking bij de regel en wijzig de waarde in **Ja**.
+7. Zoek de regel die begint met **subsysteem**en verwijder de opmerking over de regel.
 
       ![Linux](./media/vmware-azure-install-mobility-service/mobility2.png)
 
 8. Start de service **sshd** opnieuw.
-9. Voeg het account toe dat u hebt gemaakt in CSPSConfigtool. Om dit te doen, moet u zich aanmelden bij uw configuratieserver.
-10. Open **cspsconfigtool.exe**. Het is beschikbaar als snelkoppeling op het bureaublad en in de map %ProgramData%\home\svsystems\bin.
-11. Op de **Accounts beheren** tabblad **-Account toevoegen**.
+9. Voeg het account toe dat u hebt gemaakt in CSPSConfigtool. Hiertoe meldt u zich aan bij uw configuratie server.
+10. Open **cspsconfigtool.exe**. Het is beschikbaar als snelkoppeling op het bureau blad en in de map%ProgramData%\home\svsystems\bin.
+11. Klik op het tabblad **accounts beheren** op **account toevoegen**.
 12. Voeg het account toe dat u hebt gemaakt.
 13. Voer de referenties in die u gebruikt wanneer u replicatie voor een computer inschakelt.
 
-## <a name="anti-virus-on-replicated-machines"></a>Antivirusprogramma's op gerepliceerde machines
+## <a name="anti-virus-on-replicated-machines"></a>Anti-virus op gerepliceerde computers
 
-Als computers die u wilt repliceren actieve antivirusprogramma's software die wordt uitgevoerd, controleert u of u de installatiemap van de Mobility-service uitsluiten van antivirusprogramma's bewerkingen (*C:\ProgramData\ASR\agent*). Dit zorgt ervoor dat de replicatie werkt zoals verwacht.
+Als de computers die u wilt repliceren, actieve antivirus software hebben, moet u de installatiemap van de Mobility-service uitsluiten van anti-virus bewerkingen (*C:\ProgramData\ASR\agent*). Dit zorgt ervoor dat de replicatie werkt zoals verwacht.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nadat de Mobility-Service is geïnstalleerd, in de Azure-portal, selecteert u **+ repliceren** om te beginnen met het beveiligen van deze VM's. Meer informatie over het inschakelen van replicatie voor [VMware VMs(vmware-azure-enable-replication.md) en [fysieke servers](physical-azure-disaster-recovery.md#enable-replication).
+Nadat de Mobility-service is geïnstalleerd, selecteert u in de Azure Portal **+ repliceren** om te beginnen met het beveiligen van deze vm's. Meer informatie over het inschakelen van replicatie voor [virtuele VMware-machines](vmware-azure-enable-replication.md) en [fysieke servers](physical-azure-disaster-recovery.md#enable-replication).
 
 

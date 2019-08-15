@@ -1,9 +1,9 @@
 ---
-title: Azure Active Directory-logboeken naar SumoLogic met behulp van Azure Monitor Stream | Microsoft Docs
+title: Azure Active Directory logboeken streamen naar SumoLogic met behulp van Azure Monitor | Microsoft Docs
 description: Meer informatie over het integreren van Azure Active Directory-logboeken met SumoLogic met behulp van Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -14,31 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ccf9cd550b3848be841f193f4ab8a6094cf671d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1645415a8cfd86b142c25dc145c60e8b986d1013
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437849"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989746"
 ---
-# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Logboeken van Azure Active Directory integreren met SumoLogic met behulp van Azure Monitor
+# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Azure Active Directory-logboeken integreren met SumoLogic met behulp van Azure Monitor
 
-In dit artikel leert u hoe u Azure Active Directory (Azure AD)-logboeken integreren met SumoLogic met behulp van Azure Monitor. U eerst de logboeken versturen naar een Azure event hub, en vervolgens het integreren van de event hub met SumoLogic.
+In dit artikel leert u hoe u Azure Active Directory (Azure AD)-logboeken integreert met SumoLogic met behulp van Azure Monitor. U stuurt de logboeken eerst naar een Azure Event Hub en integreert de Event Hub vervolgens met SumoLogic.
 
 ## <a name="prerequisites"></a>Vereisten
 
 U hebt het volgende nodig om deze functie te gebruiken:
-* Een Azure event hub met Azure AD-activiteit zich aanmeldt. Meer informatie over het [uw activiteitenlogboeken streamen naar een event hub streamen](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
-* Een SumoLogic eenmalige aanmelding ingeschakeld abonnement.
+* Een Azure-Event Hub die Azure AD-activiteiten Logboeken bevat. Meer informatie over het streamen van [uw activiteiten logboeken naar een event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
+* Een SumoLogic-abonnement met eenmalige aanmelding.
 
 ## <a name="steps-to-integrate-azure-ad-logs-with-sumologic"></a>Stappen voor het integreren van Azure AD-logboeken met SumoLogic 
 
-1. Eerste, [stream het Azure AD-logboeken naar een Azure event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md).
-2. Configureren van uw exemplaar SumoLogic naar [verzamelen van Logboeken voor Azure Active Directory](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory).
-3. [Installeer de app Azure AD SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) het gebruik van de vooraf geconfigureerde dashboards die voorzien in realtime analyse van uw omgeving.
+1. Eerst [moet u de Azure AD-logboeken streamen naar een Azure-Event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md).
+2. Configureer uw SumoLogic-exemplaar voor het [verzamelen van Logboeken voor Azure Active Directory](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory).
+3. [Installeer de Azure AD SumoLogic-app](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) voor het gebruik van de vooraf geconfigureerde Dash boards die een realtime-analyse van uw omgeving bieden.
 
    ![Dashboard](./media/howto-integrate-activity-logs-with-sumologic/overview-dashboard.png)
 
