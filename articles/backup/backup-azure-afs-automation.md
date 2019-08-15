@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: dacurwin
 ms.reviewer: pullabhk
-ms.openlocfilehash: 5f62bd0456bfbf5882d6d8c3ee822433fbb58302
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: f933b926aa0e277976416ae1b3b2eb684d9fcc85
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688779"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955087"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Back-ups maken en herstellen Azure Files met Power shell
 
@@ -167,7 +167,7 @@ Met een back-upbeleid kunt u het schema voor back-ups opgeven en bepalen hoe lan
 - Bekijk het standaard schema voor back-upbeleid met [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
 -  U kunt de cmdlet [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) gebruiken om een nieuw back-upbeleid te maken. U het schema en de Bewaar beleidsobjecten invoert.
 
-In het volgende voor beeld worden het plannings beleid en het Bewaar beleid opgeslagen in variabelen. Vervolgens wordt deze variabele gebruikt als para meters voor een nieuw beleid (**NewAFSPolicy**). **NewAFSPolicy** neemt dagelijks een back-up en behoudt deze 30 dagen.
+In het volgende voor beeld worden het plannings beleid en het Bewaar beleid opgeslagen in variabelen. Vervolgens worden deze variabelen gebruikt als para meters voor een nieuw beleid (**NewAFSPolicy**). **NewAFSPolicy** neemt dagelijks een back-up en behoudt deze 30 dagen.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"

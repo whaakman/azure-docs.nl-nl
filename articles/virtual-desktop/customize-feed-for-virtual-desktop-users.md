@@ -1,64 +1,64 @@
 ---
-title: Pas de feed voor virtuele Windows-bureaublad - gebruikers van Azure
-description: Over het aanpassen van feed voor virtuele Windows-bureaublad-gebruikers met een PowerShell-cmdlets.
+title: Feed aanpassen voor Windows-gebruikers met virtueel bureau blad-Azure
+description: Het aanpassen van de feed voor Windows-virtuele bureau blad-gebruikers met Power shell-cmdlets.
 services: virtual-desktop
-author: v-hevem
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: v-hevem
-ms.openlocfilehash: 5fe2a8b8ee5870ff7986ca2d91739f82a5128882
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: helohr
+ms.openlocfilehash: 40fd863d9ad92b91b8e691fbb7be233e16b82c17
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619021"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950757"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Feed aanpassen voor Windows Virtual Desktop-gebruikers
 
-U kunt de feed aanpassen zodat de RemoteApp- en bronnen voor extern bureaublad wordt weergegeven in een herkenbare manier voor uw gebruikers.
+U kunt de feed aanpassen zodat de RemoteApp-en extern bureau blad-resources op een herken bare manier worden weer gegeven voor uw gebruikers.
 
-Eerste, [downloaden en importeren van de Windows virtuele bureaublad PowerShell-module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) te gebruiken in uw PowerShell-sessie als u dat nog niet gedaan hebt.
+[Down load en Importeer eerst de Windows Virtual Desktop Power shell-module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) voor gebruik in uw Power shell-sessie als u dat nog niet hebt gedaan.
 
-## <a name="customize-the-display-name-for-a-remoteapp"></a>De weergavenaam voor een RemoteApp-aanpassen
+## <a name="customize-the-display-name-for-a-remoteapp"></a>De weergave naam voor een RemoteApp aanpassen
 
-U kunt de weergavenaam voor een gepubliceerde RemoteApp-wijzigen door in te stellen de beschrijvende naam. De beschrijvende naam is standaard hetzelfde als de naam van de RemoteApp-programma.
+U kunt de weergave naam voor een gepubliceerde RemoteApp wijzigen door de beschrijvende naam in te stellen. De beschrijvende naam is standaard hetzelfde als de naam van het RemoteApp-programma.
 
-Om op te halen een lijst met gepubliceerde RemoteApps voor een app-groep, kunt u de volgende PowerShell-cmdlet uitvoeren:
+Voer de volgende Power shell-cmdlet uit om een lijst met gepubliceerde RemoteApps voor een app-groep op te halen:
 
 ```powershell
 Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![Een schermafbeelding van de PowerShell-cmdlet Get-RDSRemoteApp met de naam en FriendlyName gemarkeerd.](media/get-rdsremoteapp.png)
+![Een scherm opname van de Power shell-cmdlet Get-RDSRemoteApp met de naam en FriendlyName is gemarkeerd.](media/get-rdsremoteapp.png)
 
-Als u wilt een beschrijvende naam toewijzen aan een RemoteApp, voer de volgende PowerShell-cmdlet:
+Voer de volgende Power shell-cmdlet uit om een beschrijvende naam toe te wijzen aan een RemoteApp:
 
 ```powershell
 Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -Name <existingappname> -FriendlyName <newfriendlyname>
 ```
-![Een schermafbeelding van de PowerShell-cmdlet Set-RDSRemoteApp met de naam en nieuw FriendlyName gemarkeerd.](media/set-rdsremoteapp.png)
+![Een scherm opname van de Power shell-cmdlet Set-RDSRemoteApp met de naam en de nieuwe FriendlyName is gemarkeerd.](media/set-rdsremoteapp.png)
 
-## <a name="customize-the-display-name-for-a-remote-desktop"></a>De weergavenaam voor een extern bureaublad aanpassen
+## <a name="customize-the-display-name-for-a-remote-desktop"></a>De weergave naam voor een Extern bureaublad aanpassen
 
-U kunt de weergavenaam voor een gepubliceerde extern bureaublad wijzigen door in te stellen van een beschrijvende naam. Als u een host handmatig van toepassingen en bureaublad-app-groep via PowerShell hebt gemaakt, is de beschrijvende naam die standaard "Sessie-Desktop." Als u een host gemaakt van toepassingen en bureaublad-app-groep via de GitHub Azure Resource Manager-sjabloon of de Azure Marketplace-aanbieding, is de beschrijvende naam die standaard hetzelfde als de hostnaam van de groep van toepassingen.
+U kunt de weergave naam voor een gepubliceerd extern bureau blad wijzigen door een beschrijvende naam in te stellen. Als u hand matig een hostgroep en een groep met desktop-apps hebt gemaakt via Power shell, is de standaard beschrijvende naam "Session Desktop". Als u een groep voor een hostgroep en een bureau blad-app hebt gemaakt via de GitHub Azure Resource Manager sjabloon of de Azure Marketplace-aanbieding, is de standaard beschrijvende naam hetzelfde als de naam van de hostgroep.
 
-Als u wilt ophalen van de remote desktop resource, voer de volgende PowerShell-cmdlet:
+Voer de volgende Power shell-cmdlet uit om de resource van het externe bureau blad op te halen:
 
 ```powershell
 Get-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![Een schermafbeelding van de PowerShell-cmdlet Get-RDSRemoteApp met de naam en FriendlyName gemarkeerd.](media/get-rdsremotedesktop.png)
+![Een scherm opname van de Power shell-cmdlet Get-RDSRemoteApp met de naam en FriendlyName is gemarkeerd.](media/get-rdsremotedesktop.png)
 
-Als u wilt een beschrijvende naam toewijzen aan de remote desktop resource, voer de volgende PowerShell-cmdlet:
+Voer de volgende Power shell-cmdlet uit om een beschrijvende naam toe te wijzen aan de extern bureau blad-resource:
 
 ```powershell
 Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -FriendlyName <newfriendlyname>
 ```
-![Een schermafbeelding van de PowerShell-cmdlet Set-RDSRemoteApp met de naam en nieuw FriendlyName gemarkeerd.](media/set-rdsremotedesktop.png)
+![Een scherm opname van de Power shell-cmdlet Set-RDSRemoteApp met de naam en de nieuwe FriendlyName is gemarkeerd.](media/set-rdsremotedesktop.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u de feed voor gebruikers hebt aangepast, kunt u aanmelden bij een virtuele Windows-bureaublad-client om te testen. Om dit te doen, gaat u verder naar het verbinding maken met Windows virtuele bureaublad uitleg:
+Nu u de feed voor gebruikers hebt aangepast, kunt u zich aanmelden bij een virtueel-bureaubladclient van Windows om het te testen. Als u dit wilt doen, gaat u naar de uitleg verbinding maken met Windows virtueel bureau blad:
     
  * [Verbinding maken vanaf Windows 10 of Windows 7](connect-windows-7-and-10.md)
  * [Verbinding maken via een webbrowser](connect-web.md) 

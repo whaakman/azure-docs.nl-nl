@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6f6dc7745a47c61cf28a0e860a68af677dae8010
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67869114"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure Virtual Machines hoge Beschik baarheid voor SAP NetWeaver
@@ -198,7 +198,7 @@ In deze reeks artikelen komen de volgende onderwerpen aan bod:
     >
 * Hoge Beschik baarheid van SAP op:
   * ![Windows][Logo_Windows]**Windows**, met behulp van **WSFC (Windows Server failover cluster)**
-  * ![Linux][Logo_Linux] **Linux, met**behulp van **Linux-Cluster Framework**
+  * ![Linux][Logo_Linux] Linux, met behulp van **Linux-Cluster Framework**
 
 In deze artikelen leert u hoe u Single Point of Failure-onderdelen (SPOF), zoals SAP Central Services (ASCS/SCS) en database beheersystemen (DBMS) kunt beveiligen. Ook leest u meer over redundante onderdelen in azure, zoals SAP Application Server.
 

@@ -1,6 +1,6 @@
 ---
-title: Inhoud publiceren in Azure portal | Microsoft Docs
-description: Deze zelfstudie leert u de stappen voor het publiceren van uw inhoud in Azure portal.
+title: Inhoud publiceren in de Azure Portal | Microsoft Docs
+description: In deze zelf studie wordt u begeleid bij de stappen voor het publiceren van uw inhoud in de Azure Portal.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 2639d47a6c9d8da53c9d6bccde0d317698d5d9fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f242018abfb15cea1b76cbcaad00942ec25d78d
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61127859"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69015067"
 ---
-# <a name="publish-content-in-the-azure-portal"></a>Inhoud publiceren in Azure portal  
+# <a name="publish-content-in-the-azure-portal"></a>Inhoud publiceren in de Azure Portal  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -35,9 +35,9 @@ ms.locfileid: "61127859"
 > 
 > 
 
-Als u aan uw gebruikers een URL wilt leveren die ze kunnen gebruiken om uw inhoud te streamen of te downloaden, moet u uw asset eerst publiceren door een locator te maken. Locators bieden toegang tot assetbestanden. Azure Media Services ondersteunt twee typen locators: 
+Als u aan uw gebruikers een URL wilt leveren die ze kunnen gebruiken om uw inhoud te streamen of te downloaden, moet u uw asset eerst publiceren door een locator te maken. Locators bieden toegang tot Asset-bestanden. Azure Media Services ondersteunt twee typen locators: 
 
-* **Streaming-locators (OnDemandOrigin)** . Streaming-locators worden gebruikt voor adaptief streamen. Voorbeelden van adaptief streamen zijn Apple HTTP Live Streaming (HLS), Smooth Streaming van Microsoft en Dynamic Adaptive Streaming via HTTP (DASH, ook wel MPEG-DASH genoemd). Als u een streaming-locator wilt maken, moet uw asset een ISM-bestand bevatten. Bijvoorbeeld http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
+* **Streaming-locators (OnDemandOrigin)** . Streaming-locators worden gebruikt voor adaptief streamen. Voor beelden van adaptieve streaming zijn Apple HTTP Live Streaming (HLS), micro soft Smooth Streaming en dynamisch adaptief streamen via HTTP (DASH, ook wel MPEG-DASH) genoemd. Als u een streaming-locator wilt maken, moet uw asset een ISM-bestand bevatten. Bijvoorbeeld http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
 * **Progressieve locators (Shared Access Signature)** . Progressieve locators worden gebruikt voor het leveren van video via progressief downloaden.
 
 Als u een streaming-URL voor HLS wilt maken, voegt u *(format=m3u8-aapl)* toe aan de URL:
@@ -56,14 +56,14 @@ Een Shared Access Signature-URL heeft de volgende indeling:
 
     {blob container name}/{asset name}/{file name}/{shared access signature}
 
-Zie voor meer informatie de [overzicht inhoud leveren](media-services-deliver-content-overview.md).
+Zie [overzicht van inhoud leveren](media-services-deliver-content-overview.md)voor meer informatie.
 
 > [!NOTE]
 > Locators die vóór maart 2015 in Azure Portal zijn gemaakt, hebben een vervaldatum over twee jaar.  
 > 
 > 
 
-Als u wilt een vervaldatum van een locator bijwerkt, kunnen gebruiken een [REST-API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) of een [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259). 
+Als u een verval datum van een Locator wilt bijwerken, kunt u gebruikmaken van een [rest API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) of een [.net API](https://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
 > Wanneer u de vervaldatum van een Shared Access Signature-locator bijwerkt, wordt de URL gewijzigd.
@@ -89,8 +89,8 @@ Selecteer de video en selecteer vervolgens de knop **Afspelen**.
 Hierbij geldt het volgende:
 
 * De video moet zijn gepubliceerd.
-* Met de mediaspeler in Azure Portal wordt inhoud afgespeeld vanaf het standaardstreaming-eindpunt. Als u inhoud vanaf een ander streaming-eindpunt wilt afspelen, selecteert en kopieert u de URL en plak u deze in een andere speler. U kunt uw video bijvoorbeeld in de [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) testen.
-* Het streaming-eindpunt van waaruit u streaming moet worden uitgevoerd.  
+* Met de mediaspeler in Azure Portal wordt inhoud afgespeeld vanaf het standaardstreaming-eindpunt. Als u inhoud vanaf een ander streaming-eindpunt wilt afspelen, selecteert en kopieert u de URL en plak u deze in een andere speler. U kunt uw video bijvoorbeeld in de [Azure Media Player](https://aka.ms/azuremediaplayer) testen.
+* Het streaming-eind punt van waaruit u streaming wilt uitvoeren, moet worden uitgevoerd.  
 
 ## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

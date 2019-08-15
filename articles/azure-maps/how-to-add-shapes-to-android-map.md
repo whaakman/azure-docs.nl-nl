@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 53bc9f14b91bafd69d3c67745f6b981f4faea991
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c8e3f16b939d05a4c055fba3a9f1ab5e47e54070
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881669"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976597"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Een shape aan een kaart toevoegen met Azure Maps Android SDK
 
@@ -355,7 +355,13 @@ Als u de toepassing nu uitvoert, ziet u een veelhoek op de kaart zoals hieronder
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Raadpleeg het volgende artikel voor meer informatie over manieren om kaart stijlen in te stellen
+Meer gegevens toevoegen aan uw kaart:
+
+> [!div class="nextstepaction"]
+> [Een symbool laag toevoegen](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Een laag voor een tegel toevoegen](how-to-add-tile-layer-android-map.md)
+
+> [!div class="nextstepaction"]
+> [Onderdeel informatie weer geven](display-feature-information-android.md)

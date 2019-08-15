@@ -1,6 +1,6 @@
 ---
 title: Gegevens kopiëren van MySQL met behulp van Azure Data Factory | Microsoft Docs
-description: Meer informatie over de MySQL-connector in Azure Data Factory waarmee u gegevens kopiëren van een MySQL-database naar een gegevensarchief dat wordt ondersteund als een sink.
+description: Meer informatie over MySQL-Connector in Azure Data Factory waarmee u gegevens van een MySQL-data base kunt kopiëren naar een gegevens opslag die wordt ondersteund als sink.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,56 +10,58 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: e05e2f2d04aeb572307f8114ca80f148b3d50e3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b17b6d12dc60546a29d37cfa12fe1f11186579e1
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61370699"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967456"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Gegevens kopiëren van MySQL met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-onprem-mysql-connector.md)
 > * [Huidige versie](connector-mysql.md)
 
-In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit een MySQL-database. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel wordt beschreven hoe u de Kopieer activiteit in Azure Data Factory kunt gebruiken om gegevens uit een MySQL-data base te kopiëren. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens uit de MySQL-database kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens uit de MySQL-data base kopiëren naar elk ondersteund Sink-gegevens archief. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
-Om precies deze MySQL-connector biedt ondersteuning voor MySQL **versie 5.6 en 5.7**.
+Deze MySQL-connector ondersteunt met name MySQL- **versie 5,6 en 5,7**.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als uw MySQL-database niet openbaar toegankelijk is is, moet u voor het instellen van een zelfgehoste Cloudintegratieruntime. Zie voor meer informatie over de zelf-hostende integratieruntimes, [zelfgehoste Cloudintegratieruntime](create-self-hosted-integration-runtime.md) artikel. De Integration Runtime biedt een ingebouwde stuurprogramma voor MySQL vanaf versie 3.7, dus u hoeft te installeren op een stuurprogramma.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-Voor de zelfgehoste IR-versie is lager dan 3.7, moet u voor het installeren van de [MySQL Connector/Net voor Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) versie tussen 6.6.5 en 6.10.7 op de machine Integration Runtime. Deze 32-bits stuurprogramma is compatibel met 64-bits IR.
+De Integration Runtime biedt een ingebouwd MySQL-stuur programma vanaf versie 3,7. Daarom hoeft u niet hand matig een stuur programma te installeren.
+
+Voor een zelf-hostende IR-versie lager dan 3,7, moet u de [mysql-connector/net voor de micro soft Windows-](https://dev.mysql.com/downloads/connector/net/) versie installeren tussen 6.6.5 en 6.10.7 op de Integration runtime machine. Dit 32 bits stuur programma is compatibel met 64-bits IR.
 
 ## <a name="getting-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten die specifiek voor MySQL-connector.
+De volgende secties bevatten informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory entiteiten die specifiek zijn voor de MySQL-Connector.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
-De volgende eigenschappen worden ondersteund voor MySQL gekoppelde service:
+De volgende eigenschappen worden ondersteund voor een gekoppelde MySQL-service:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **MySql** | Ja |
-| connectionString | Geef informatie op die nodig zijn voor het verbinding maken met de Azure Database for MySQL-exemplaar.<br/>Dit veld markeert als een SecureString Bewaar deze zorgvuldig in Data Factory. U kunt ook wachtwoord plaatsen in Azure Key Vault en pull de `password` configuratie buiten de verbindingsreeks. Raadpleeg de volgende voorbeelden en [referenties Store in Azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. | Ja |
-| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
+| connectionString | Geef de gegevens op die nodig zijn om verbinding te maken met het Azure Database for MySQL exemplaar.<br/>Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory. U kunt ook wacht woord in azure Key Vault plaatsen en de `password` configuratie uit de Connection String halen. Raadpleeg de volgende voor beelden en [Sla referenties op in azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. | Ja |
+| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Meer informatie vindt u in de sectie [vereisten](#prerequisites) . Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 Een gebruikelijke verbindingsreeks is `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Meer eigenschappen die u per uw situatie instellen kunt:
 
 | Eigenschap | Description | Opties | Vereist |
 |:--- |:--- |:--- |:--- |
-| SSLMode | Deze optie bepaalt u of het stuurprogramma maakt gebruik van SSL-versleuteling en verificatie bij het verbinden met MySQL. Bijvoorbeeld `SSLMode=<0/1/2/3/4>`| UITGESCHAKELD (0) / VOORKEUR (1) **(standaard)** / vereist (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Nee |
-| UseSystemTrustStore | Deze optie bepaalt u of u wilt gebruiken van een CA-certificaat uit het archief van de vertrouwensrelatie system of vanuit een opgegeven PEM-bestand. Bijvoorbeeld `UseSystemTrustStore=<0/1>;`| (1) ingeschakeld / uitgeschakeld (0) **(standaard)** | Nee |
+| SSLMode | Met deze optie geeft u op of het stuur programma SSL-versleuteling en verificatie gebruikt bij het verbinden met MySQL. Bijvoorbeeld `SSLMode=<0/1/2/3/4>`| UITGESCHAKELD (0)/voor keur (1) **(standaard)** /vereist (2)/VERIFY_CA (3)/VERIFY_IDENTITY (4) | Nee |
+| UseSystemTrustStore | Met deze optie geeft u aan of u een CA-certificaat wilt gebruiken uit het archief van het systeem vertrouwen of van een opgegeven PEM-bestand. Bijvoorbeeld `UseSystemTrustStore=<0/1>;`| Ingeschakeld (1)/uitgeschakeld (0) **(standaard)** | Nee |
 
 **Voorbeeld:**
 
@@ -82,7 +84,7 @@ Een gebruikelijke verbindingsreeks is `Server=<server>;Port=<port>;Database=<dat
 }
 ```
 
-**Voorbeeld: wachtwoord opslaan in Azure Key Vault**
+**Voor beeld: wacht woord opslaan in Azure Key Vault**
 
 ```json
 {
@@ -111,9 +113,9 @@ Een gebruikelijke verbindingsreeks is `Server=<server>;Port=<port>;Database=<dat
 }
 ```
 
-Als u MySQL gekoppelde service met de nettolading van de volgende, nog steeds wordt ondersteund als-is, terwijl u gebruik van het nieuwe knooppunt voortaan worden voorgesteld.
+Als u een gekoppelde MySQL-service met de volgende Payload gebruikt, wordt deze nog steeds ondersteund als-is, terwijl u wordt geadviseerd om het nieuwe item te gebruiken.
 
-**De nettolading van de vorige:**
+**Vorige nettolading:**
 
 ```json
 {
@@ -141,12 +143,12 @@ Als u MySQL gekoppelde service met de nettolading van de volgende, nog steeds wo
 
 Zie het artikel gegevenssets voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de MySQL-gegevensset.
 
-Om gegevens te kopiëren van MySQL, stel de eigenschap type van de gegevensset in **RelationalTable**. De volgende eigenschappen worden ondersteund:
+Als u gegevens wilt kopiëren uit MySQL, stelt u de eigenschap type van de gegevensset in op **RelationalTable**. De volgende eigenschappen worden ondersteund:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **RelationalTable** | Ja |
-| tableName | De naam van de tabel in de MySQL-database. | Nee (als 'query' in de activiteitbron is opgegeven) |
+| tableName | De naam van de tabel in de MySQL-data base. | Nee (als 'query' in de activiteitbron is opgegeven) |
 
 **Voorbeeld**
 
@@ -171,11 +173,11 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 ### <a name="mysql-as-source"></a>MySQL als bron
 
-Om gegevens te kopiëren van MySQL, stelt u het brontype in de kopieeractiviteit naar **RelationalSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
+Als u gegevens wilt kopiëren vanuit MySQL, stelt u het bron type in de Kopieer activiteit in op **RelationalSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **source** sectie:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **RelationalSource** | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **RelationalSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM MyTable"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**
@@ -210,11 +212,11 @@ Om gegevens te kopiëren van MySQL, stelt u het brontype in de kopieeractiviteit
 ]
 ```
 
-## <a name="data-type-mapping-for-mysql"></a>Toewijzing voor MySQL-gegevenstype
+## <a name="data-type-mapping-for-mysql"></a>Toewijzing van gegevens type voor MySQL
 
-Het kopiëren van gegevens van MySQL, worden de volgende toewijzingen van MySQL-gegevenstypen gebruikt om Azure Data Factory tussentijdse gegevenstypen. Zie [Schema en gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe copy activity in het schema en de gegevens van een brontype aan de sink toegewezen.
+Bij het kopiëren van gegevens uit MySQL worden de volgende toewijzingen gebruikt van MySQL-gegevens typen voor het Azure Data Factory van tussenliggende gegevens typen. Zie [Schema en gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe copy activity in het schema en de gegevens van een brontype aan de sink toegewezen.
 
-| MySQL-gegevenstype | Data factory tussentijdse gegevenstype |
+| MySQL-gegevens type | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | `bigint` |`Int64` |
 | `bigint unsigned` |`Decimal` |

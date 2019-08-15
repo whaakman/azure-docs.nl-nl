@@ -1,31 +1,31 @@
 ---
-title: Uitgaand verkeer en eindpunten in Azure, digitale dubbels | Microsoft Docs
-description: Richtlijnen voor het maken van eindpunten met digitale dubbels van Azure.
+title: Uitgangen en eind punten in azure Digital Apparaatdubbels | Microsoft Docs
+description: Richt lijnen voor het maken van eind punten met Azure Digital Apparaatdubbels.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 08/12/2019
 ms.author: alinast
-ms.openlocfilehash: 478fe1859dd9067e8097df0384657793602c1378
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3c33992ce3c130d6c06e0709a9c4ddcab4fff159
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071460"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013941"
 ---
-# <a name="egress-and-endpoints"></a>Uitgaand verkeer en eindpunten
+# <a name="egress-and-endpoints"></a>Uitgangen en eind punten
 
-Azure van digitale dubbels *eindpunten* vertegenwoordigen een bericht of gebeurtenis-broker binnen Azure-abonnement van een gebruiker. Gebeurtenissen en -berichten kunnen worden verzonden naar Azure Event Hubs, Azure Event Grid en Azure Service Bus-onderwerpen.
+Azure Digital Apparaatdubbels- *eind punten* vertegenwoordigen een bericht of gebeurtenis Broker binnen het Azure-abonnement van een gebruiker. Gebeurtenissen en berichten kunnen worden verzonden naar de onderwerpen over Azure Event Hubs, Azure Event Grid en Azure Service Bus.
 
-Gebeurtenissen worden doorgestuurd naar eindpunten op basis van vooraf gedefinieerde routering voorkeuren. Gebruikers opgeven die *gebeurtenistypen* elk eindpunt kan ontvangen.
+Gebeurtenissen worden doorgestuurd naar eind punten volgens de vooraf gedefinieerde voor keuren voor route ring. Gebruikers opgeven welke *gebeurtenis typen* elk eind punt kunnen ontvangen.
 
-Voor meer informatie over gebeurtenissen, Routering en gebeurtenistypen, verwijzen naar [Routing gebeurtenissen en -berichten in Azure, digitale dubbels](./concepts-events-routing.md).
+Raadpleeg voor meer informatie over gebeurtenissen, route ring en gebeurtenis typen routerings [gebeurtenissen en berichten in azure Digital apparaatdubbels](./concepts-events-routing.md).
 
-## <a name="events"></a>Gebeurtenissen
+## <a name="events"></a>Events
 
-Gebeurtenissen worden verzonden door de IoT-objecten (zoals apparaten en sensoren) voor de verwerking van door Azure bericht en gebeurtenis-brokers. Gebeurtenissen worden gedefinieerd door de volgende [schemaverwijzing voor Azure Event Grid-gebeurtenis](../event-grid/event-schema.md).
+Gebeurtenissen worden verzonden door IoT-objecten (zoals apparaten en Sens oren) voor verwerking door Azure Message en Event brokers. Gebeurtenissen worden gedefinieerd door de volgende [Azure Event grid gebeurtenis schema verwijzing](../event-grid/event-schema.md).
 
 ```JSON
 {
@@ -47,25 +47,25 @@ Gebeurtenissen worden verzonden door de IoT-objecten (zoals apparaten en sensore
 }
 ```
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --- | --- | --- |
 | id | string | De unieke id voor de gebeurtenis. |
-| subject | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| data | object | De gegevens van de gebeurtenis is specifiek voor de resourceprovider. |
-| eventType | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
-| eventTime | string | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
-| dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
-| metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
-| topic | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet schrijfbaar. Event Grid biedt deze waarde. |
+| subject | string | Het door de uitgever gedefinieerde pad naar het gebeurtenis onderwerp. |
+| data | object | Gebeurtenis gegevens die specifiek zijn voor de resource provider. |
+| eventType | string | Een van de geregistreerde gebeurtenis typen voor deze gebeurtenis bron. |
+| eventTime | string | Het tijdstip waarop de gebeurtenis is gegenereerd op basis van de UTC-tijd van de provider. |
+| dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schema versie. |
+| metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid levert deze waarde. |
+| topic | string | Volledige bronpad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid levert deze waarde. |
 
-Voor meer informatie over de Event Grid-gebeurtenisschema:
+Voor meer informatie over het Event Grid-gebeurtenis schema:
 
-- Controleer de [schemaverwijzing voor Azure Event Grid-gebeurtenis](../event-grid/event-schema.md).
-- Lees de [Azure EventGrid Node.js SDK EventGridEvent verwijzing](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
+- Raadpleeg de [Naslag informatie over het Azure Event grid-gebeurtenis schema](../event-grid/event-schema.md).
+- Lees de [Naslag informatie voor Azure EventGrid node. js SDK EventGridEvent](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
 
-## <a name="event-types"></a>Gebeurtenistypen
+## <a name="event-types"></a>Gebeurtenis typen
 
-Gebeurtenistypen classificeren van de aard van de gebeurtenis en zijn ingesteld de **type gebeurtenis** veld. Beschikbare gebeurtenistypen zijn gegeven door de volgende lijst:
+De typen gebeurtenissen classificeren de aard van de gebeurtenis en worden ingesteld in het veld type. Beschik bare gebeurtenis typen vindt u in de volgende lijst:
 
 - TopologyOperation
 - UdfCustom
@@ -73,24 +73,24 @@ Gebeurtenistypen classificeren van de aard van de gebeurtenis en zijn ingesteld 
 - SpaceChange
 - DeviceMessage
 
-De indeling voor elk gebeurtenistype worden nader beschreven in de volgende subsecties.
+De gebeurtenis indelingen voor elk gebeurtenis type worden verder beschreven in de volgende subsecties.
 
 ### <a name="topologyoperation"></a>TopologyOperation
 
-**TopologyOperation** is van toepassing op wijzigingen in de metagegevensgrafiek. De **onderwerp** eigenschap geeft u het type object dat is beïnvloed. De volgende typen objecten mogelijk deze gebeurtenis te activeren:
+**TopologyOperation** is van toepassing op de grafiek wijzigingen. De eigenschap **subject** geeft het type object aan dat wordt beïnvloed. Deze gebeurtenis kan worden geactiveerd door de volgende typen objecten:
 
 - Apparaat
 - DeviceBlobMetadata
 - DeviceExtendedProperty
 - ExtendedPropertyKey
-- ExtendedType
+- Extended type
 - KeyStore
 - Rapport
-- Roldefinitie
+- RoleDefinition
 - Sensor
 - SensorBlobMetadata
 - SensorExtendedProperty
-- Ruimte
+- Spatiebalk
 - SpaceBlobMetadata
 - SpaceExtendedProperty
 - SpaceResource
@@ -124,11 +124,11 @@ De indeling voor elk gebeurtenistype worden nader beschreven in de volgende subs
 
 | Value | Vervangen door |
 | --- | --- |
-| YOUR_TOPIC_NAME | De naam van uw aangepaste onderwerp |
+| YOUR_TOPIC_NAME | De naam van het aangepaste onderwerp |
 
 ### <a name="udfcustom"></a>UdfCustom
 
-**UdfCustom** is een gebeurtenis die is verzonden door een gebruiker gedefinieerde functie (UDF's).
+**UdfCustom** is een gebeurtenis die door een door de gebruiker gedefinieerde functie (UDF) wordt verzonden.
   
 > [!IMPORTANT]  
 > Deze gebeurtenis moet expliciet worden verzonden vanuit de UDF zelf.
@@ -155,11 +155,11 @@ De indeling voor elk gebeurtenistype worden nader beschreven in de volgende subs
 
 | Value | Vervangen door |
 | --- | --- |
-| YOUR_TOPIC_NAME | De naam van uw aangepaste onderwerp |
+| YOUR_TOPIC_NAME | De naam van het aangepaste onderwerp |
 
 ### <a name="sensorchange"></a>SensorChange
 
-**SensorChange** is een update van een sensor status op basis van wijzigingen van telemetrie.
+**SensorChange** is een update van de status van een sensor op basis van wijzigingen in telemetrie.
 
 #### <a name="example"></a>Voorbeeld
 
@@ -190,11 +190,11 @@ De indeling voor elk gebeurtenistype worden nader beschreven in de volgende subs
 
 | Value | Vervangen door |
 | --- | --- |
-| YOUR_TOPIC_NAME | De naam van uw aangepaste onderwerp |
+| YOUR_TOPIC_NAME | De naam van het aangepaste onderwerp |
 
 ### <a name="spacechange"></a>SpaceChange
 
-**SpaceChange** is een update van een spatie staat op basis van wijzigingen van telemetrie.
+**SpaceChange** is een update van de status van een ruimte op basis van wijzigingen in telemetrie.
 
 #### <a name="example"></a>Voorbeeld
 
@@ -225,34 +225,34 @@ De indeling voor elk gebeurtenistype worden nader beschreven in de volgende subs
 
 | Value | Vervangen door |
 | --- | --- |
-| YOUR_TOPIC_NAME | De naam van uw aangepaste onderwerp |
+| YOUR_TOPIC_NAME | De naam van het aangepaste onderwerp |
 
 ### <a name="devicemessage"></a>DeviceMessage
 
-Met behulp van **DeviceMessage**, kunt u een **EventHub** verbinding waarmee onbewerkte telemetriegebeurtenissen ook kunnen worden gerouteerd van digitale dubbels van Azure.
+Met behulp van **DeviceMessage**kunt u een **EventHub** -verbinding opgeven waarmee onbewerkte telemetriegegevens ook kunnen worden gerouteerd vanuit Azure Digital apparaatdubbels.
 
 > [!NOTE]
-> - **DeviceMessage** is alleen met combineerbare **EventHub**. Kan niet worden gecombineerd **DeviceMessage** met een van de andere typen gebeurtenissen.
-> - U kunt slechts één eindpunt van de combinatie van het type opgeven **EventHub** of **DeviceMessage**.
+> - **DeviceMessage** is alleen Combineer bare met **EventHub**. U kunt **DeviceMessage** niet combi neren met een van de andere gebeurtenis typen.
+> - U kunt slechts één eind punt opgeven van de combi natie van het type **EventHub** of **DeviceMessage**.
 
 ## <a name="configure-endpoints"></a>Eindpunten configureren
 
-Eindpunt management wordt uitgevoerd via de API-eindpunten.
+Eindpunt beheer wordt uitgeoefend via de eind punt-API.
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-De volgende voorbeelden laten zien hoe u de ondersteunde eindpunten configureren.
+De volgende voor beelden laten zien hoe u de ondersteunde eind punten kunt configureren.
 
 >[!IMPORTANT]
-> Let op de **eigenschap eventTypes** kenmerk. Hiermee definieert u welke gebeurtenis typen worden verwerkt door het eindpunt en dus bepalen de routering.
+> Betaal voorzichtig met het kenmerk **eventTypes** . Hiermee wordt gedefinieerd welke gebeurtenis typen door het eind punt worden verwerkt en bepalen ze de route ring.
 
-Op basis van een geverifieerde HTTP POST-aanvraag
+Een geverifieerde HTTP POST-aanvraag voor:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/endpoints
 ```
 
-- Route naar Service Bus-gebeurtenistypen **SensorChange**, **SpaceChange**, en **TopologyOperation**:
+- Route naar Service Bus gebeurtenis typen **SensorChange**, **SpaceChange**en **TopologyOperation**:
 
   ```JSON
   {
@@ -270,12 +270,12 @@ YOUR_MANAGEMENT_API_URL/endpoints
 
     | Value | Vervangen door |
     | --- | --- |
-    | YOUR_NAMESPACE | De naamruimte van uw eindpunt |
-    | YOUR_PRIMARY_KEY | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | YOUR_SECONDARY_KEY | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | YOUR_TOPIC_NAME | De naam van uw aangepaste onderwerp |
+    | YOUR_NAMESPACE | De naam ruimte van uw eind punt |
+    | YOUR_PRIMARY_KEY | De primaire connection string gebruikt voor verificatie |
+    | YOUR_SECONDARY_KEY | De secundaire connection string gebruikt voor verificatie |
+    | YOUR_TOPIC_NAME | De naam van het aangepaste onderwerp |
 
-- Route naar Event Grid gebeurtenistypen **SensorChange**, **SpaceChange**, en **TopologyOperation**:
+- Route naar Event Grid gebeurtenis typen **SensorChange**, **SpaceChange**en **TopologyOperation**:
 
   ```JSON
   {
@@ -293,11 +293,11 @@ YOUR_MANAGEMENT_API_URL/endpoints
 
     | Value | Vervangen door |
     | --- | --- |
-    | YOUR_PRIMARY_KEY | De primaire verbindingsreeks die wordt gebruikt om te verifiëren|
-    | YOUR_SECONDARY_KEY | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | YOUR_TOPIC_NAME | De naam van uw aangepaste onderwerp |
+    | YOUR_PRIMARY_KEY | De primaire connection string gebruikt voor verificatie|
+    | YOUR_SECONDARY_KEY | De secundaire connection string gebruikt voor verificatie |
+    | YOUR_TOPIC_NAME | De naam van het aangepaste onderwerp |
 
-- Route naar Event Hubs gebeurtenistypen **SensorChange**, **SpaceChange**, en **TopologyOperation**:
+- Route naar Event Hubs gebeurtenis typen **SensorChange**, **SpaceChange**en **TopologyOperation**:
 
   ```JSON
   {
@@ -315,12 +315,12 @@ YOUR_MANAGEMENT_API_URL/endpoints
 
     | Value | Vervangen door |
     | --- | --- |
-    | YOUR_NAMESPACE | De naamruimte van uw eindpunt |
-    | YOUR_PRIMARY_KEY | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | YOUR_SECONDARY_KEY | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | YOUR_EVENT_HUB_NAME | De naam van uw event hub |
+    | YOUR_NAMESPACE | De naam ruimte van uw eind punt |
+    | YOUR_PRIMARY_KEY | De primaire connection string gebruikt voor verificatie |
+    | YOUR_SECONDARY_KEY | De secundaire connection string gebruikt voor verificatie |
+    | YOUR_EVENT_HUB_NAME | De naam van uw Event Hub |
 
-- Route naar Event Hubs-gebeurtenistype **DeviceMessage**. De opname van `EntityPath` in de **connectionString** is verplicht:
+- Route naar Event Hubs gebeurtenis type **DeviceMessage**. De opname van `EntityPath` in de **Connections Tring** is verplicht:
 
   ```JSON
   {
@@ -336,28 +336,28 @@ YOUR_MANAGEMENT_API_URL/endpoints
 
     | Value | Vervangen door |
     | --- | --- |
-    | YOUR_NAMESPACE | De naamruimte van uw eindpunt |
-    | YOUR_PRIMARY_KEY | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | YOUR_SECONDARY_KEY | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | YOUR_EVENT_HUB_NAME | De naam van uw event hub |
+    | YOUR_NAMESPACE | De naam ruimte van uw eind punt |
+    | YOUR_PRIMARY_KEY | De primaire connection string gebruikt voor verificatie |
+    | YOUR_SECONDARY_KEY | De secundaire connection string gebruikt voor verificatie |
+    | YOUR_EVENT_HUB_NAME | De naam van uw Event Hub |
 
 > [!NOTE]  
-> Bij het maken van een nieuw eindpunt duurt het maximaal 5 tot 10 minuten te ontvangen van gebeurtenissen op het eindpunt.
+> Na het maken van een nieuw eind punt kan het tot vijf tot tien minuten duren voordat gebeurtenissen worden ontvangen op het eind punt.
 
-## <a name="primary-and-secondary-connection-keys"></a>Van primaire en secundaire verbindingssleutels
+## <a name="primary-and-secondary-connection-keys"></a>Primaire en secundaire verbindings sleutels
 
-Wanneer een primaire verbinding-sleutel niet-geautoriseerde wordt, probeert het systeem automatisch de van secundaire verbindingssleutel. Dat biedt een back-up en kunt de mogelijkheid om zonder problemen worden geverifieerd en bijwerken van de primaire sleutel via de API-eindpunten.
+Wanneer een primaire verbindings sleutel niet-geautoriseerd wordt, probeert het systeem automatisch de secundaire verbindings sleutel. Hiermee wordt een back-up gemaakt en kunt u de primaire sleutel zonder problemen verifiëren en bijwerken via de eind punt-API.
 
-Als de primaire en secundaire verbindingssleutels niet gemachtigd bent, krijgt het systeem een exponentieel uitstel wachttijd van 30 minuten. Gebeurtenissen worden verwijderd op elke geactiveerde uitstel wachttijd.
+Als zowel de primaire als secundaire verbindings sleutel niet-geautoriseerd zijn, voert het systeem een exponentiële wacht tijd van Maxi maal 30 minuten in. Gebeurtenissen worden verwijderd op elke geactiveerde time-outtijd.
 
-Wanneer het systeem zich in de wacht staat een back-off, bijwerken verbindingen sleutels via de API-eindpunten kunnen pas van kracht tot 30 minuten duren.
+Wanneer het systeem zich in een wacht tijd bevindt, kan het tot 30 minuten duren voordat de verbindings sleutels via de eind punten van de API worden bijgewerkt.
 
-## <a name="unreachable-endpoints"></a>Niet bereikbaar-eindpunten
+## <a name="unreachable-endpoints"></a>Onbereikbare eind punten
 
-Wanneer u een eindpunt niet meer bereikbaar is, krijgt het systeem een exponentieel uitstel wachttijd van 30 minuten. Gebeurtenissen worden verwijderd op elke geactiveerde uitstel wachttijd.
+Wanneer een eind punt onbereikbaar wordt, voert het systeem een exponentiële wacht tijd van Maxi maal 30 minuten in. Gebeurtenissen worden verwijderd op elke geactiveerde time-outtijd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Informatie over [het gebruik van Azure digitale dubbele Swagger](how-to-use-swagger.md).
+- Meer informatie [over het gebruik van Azure Digital Apparaatdubbels Swagger](how-to-use-swagger.md).
 
-- Meer informatie over [routering van gebeurtenissen en berichten](concepts-events-routing.md) in digitale dubbels van Azure.
+- Meer informatie over [route ring van gebeurtenissen en berichten](concepts-events-routing.md) in azure Digital apparaatdubbels.

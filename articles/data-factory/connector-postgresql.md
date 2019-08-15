@@ -1,6 +1,6 @@
 ---
-title: Kopiëren van gegevens van PostgreSQL met behulp van Azure Data Factory | Microsoft Docs
-description: Leer hoe u gegevens kopiëren van PostgreSQL naar ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
+title: Gegevens kopiëren van PostgreSQL met behulp van Azure Data Factory | Microsoft Docs
+description: Meer informatie over het kopiëren van gegevens uit PostgreSQL naar ondersteunde Sink-gegevens archieven met behulp van een Kopieer activiteit in een Azure Data Factory-pijp lijn.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,39 +10,39 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 0cad0895b63e8c201183284e9d754a482669c48d
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 0efb884de9deaa2784e160785c26d78179da6567
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312006"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966888"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Gegevens kopiëren van PostgreSQL met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-onprem-postgresql-connector.md)
 > * [Huidige versie](connector-postgresql.md)
 
-In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit een PostgreSQL-database. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel wordt beschreven hoe u de Kopieer activiteit in Azure Data Factory kunt gebruiken om gegevens uit een PostgreSQL-data base te kopiëren. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens uit PostgreSQL-database kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens uit de PostgreSQL-data base kopiëren naar elk ondersteund Sink-gegevens archief. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
-Specifiek, PostgreSQL biedt ondersteuning voor deze connector PostgreSQL **versie 7.4 of hoger**.
+Met name deze PostgreSQL-connector ondersteunt PostgreSQL **versie 7,4 en hoger**.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als de PostgreSQL-database niet openbaar toegankelijk is is, moet u voor het instellen van een zelfgehoste Cloudintegratieruntime. Zie voor meer informatie over de zelf-hostende integratieruntimes, [zelfgehoste Cloudintegratieruntime](create-self-hosted-integration-runtime.md) artikel. De Integration Runtime biedt een ingebouwd PostgreSQL-stuurprogramma vanaf versie 3.7, dus u hoeft te installeren op een stuurprogramma.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-Voor de zelfgehoste IR-versie is lager dan 3.7, moet u voor het installeren van de [Ngpsql data provider voor PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) met versie tussen 2.0.12 en punt 3.1.9 op de machine Integration Runtime.
+Voor een zelf-hostende IR-versie lager dan 3,7, moet u de [Ngpsql-gegevens provider voor postgresql](https://go.microsoft.com/fwlink/?linkid=282716) met de versie tussen 2.0.12 en 3.1.9 op de Integration runtime machine installeren.
 
 ## <a name="getting-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met PostgreSQL-connector.
+De volgende secties bevatten informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten die specifiek zijn voor PostgreSQL-connector.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
@@ -51,8 +51,8 @@ De volgende eigenschappen worden ondersteund voor PostgreSQL gekoppelde service:
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **PostgreSql** | Ja |
-| connectionString | Een ODBC-verbindingsreeks verbinding maakt met Azure Database voor PostgreSQL. <br/>Dit veld markeert als een SecureString Bewaar deze zorgvuldig in Data Factory. U kunt ook wachtwoord plaatsen in Azure Key Vault en pull de `password` configuratie buiten de verbindingsreeks. Raadpleeg de volgende voorbeelden en [referenties Store in Azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. | Ja |
-| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
+| connectionString | Een ODBC-verbindingsreeks verbinding maakt met Azure Database voor PostgreSQL. <br/>Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory. U kunt ook wacht woord in azure Key Vault plaatsen en de `password` configuratie uit de Connection String halen. Raadpleeg de volgende voor beelden en [Sla referenties op in azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. | Ja |
+| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Meer informatie vindt u in de sectie [vereisten](#prerequisites) . Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 Een gebruikelijke verbindingsreeks is `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Meer eigenschappen die u per uw situatie instellen kunt:
 
@@ -82,7 +82,7 @@ Een gebruikelijke verbindingsreeks is `Server=<server>;Database=<database>;Port=
 }
 ```
 
-**Voorbeeld: wachtwoord opslaan in Azure Key Vault**
+**Voor beeld: wacht woord opslaan in Azure Key Vault**
 
 ```json
 {
@@ -111,9 +111,9 @@ Een gebruikelijke verbindingsreeks is `Server=<server>;Database=<database>;Port=
 }
 ```
 
-Als u gekoppeld PostgreSQL-service met de nettolading van de volgende, nog steeds wordt ondersteund als-is, terwijl u gebruik van het nieuwe knooppunt voortaan worden voorgesteld.
+Als u PostgreSQL gekoppelde service met de volgende Payload gebruikt, wordt deze nog steeds ondersteund als-is, terwijl u wordt geadviseerd om het nieuwe item te gebruiken.
 
-**De nettolading van de vorige:**
+**Vorige nettolading:**
 
 ```json
 {
@@ -139,14 +139,14 @@ Als u gekoppeld PostgreSQL-service met de nettolading van de volgende, nog steed
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie het artikel gegevenssets voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund voor PostgreSQL-gegevensset.
+Zie het artikel gegevenssets voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de PostgreSQL-gegevensset.
 
-Om gegevens te kopiëren van PostgreSQL, stel de eigenschap type van de gegevensset in **RelationalTable**. De volgende eigenschappen worden ondersteund:
+Als u gegevens van PostgreSQL wilt kopiëren, stelt u de eigenschap type van de gegevensset in op **RelationalTable**. De volgende eigenschappen worden ondersteund:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **RelationalTable** | Ja |
-| tableName | De naam van de tabel in de PostgreSQL-database. | Nee (als 'query' in de activiteitbron is opgegeven) |
+| tableName | De naam van de tabel in de PostgreSQL-data base. | Nee (als 'query' in de activiteitbron is opgegeven) |
 
 **Voorbeeld**
 
@@ -167,19 +167,19 @@ Om gegevens te kopiëren van PostgreSQL, stel de eigenschap type van de gegevens
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door PostgreSQL-bron.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die door PostgreSQL-bron worden ondersteund.
 
 ### <a name="postgresql-as-source"></a>PostgreSQL als bron
 
-Om gegevens te kopiëren van PostgreSQL, stelt u het brontype in de kopieeractiviteit naar **RelationalSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
+Als u gegevens wilt kopiëren uit PostgreSQL, stelt u het bron type in de Kopieer activiteit in op **RelationalSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **source** sectie:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **RelationalSource** | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **RelationalSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 > [!NOTE]
-> Schema- en tabelnamen zijn hoofdlettergevoelig. Deze omsluit `""` (dubbele aanhalingstekens) in de query.
+> Schema-en tabel namen zijn hoofdletter gevoelig. Plaats deze in `""` (dubbele aanhalings tekens) in de query.
 
 **Voorbeeld:**
 

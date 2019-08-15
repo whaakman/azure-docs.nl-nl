@@ -1,30 +1,30 @@
 ---
-title: Azure Data Box, Azure Data Box zware via Azure portal beheren | Microsoft Docs
-description: Beschrijft hoe u Azure portal gebruiken om uw Azure Data Box en Azure Data Box zware te beheren.
+title: Azure Data Box beheren, Azure Data Box Heavy via Azure Portal | Microsoft Docs
+description: Hierin wordt beschreven hoe u de Azure Portal gebruikt voor het beheren van uw Azure Data Box en Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 08/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 5ece12e117db7b334bce8edfd49a5a622e46e13c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 581f95bd813445d2cc9bd83d91917ea83f0bf04f
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427716"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987477"
 ---
-# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>De Azure portal gebruiken voor het beheren van uw Azure Data Box en Azure Data Box-zwaar
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Gebruik de Azure Portal om uw Azure Data Box en Azure Data Box Heavy te beheren
 
-In dit artikel is van toepassing op Azure Data Box en het Azure Data Box zware. In dit artikel worden enkele van de complexe werkstromen en beheertaken die kunnen worden uitgevoerd op het Azure Data Box-apparaat beschreven. U kunt beheren van de Data Box-apparaat via de Azure-portal of via de lokale webgebruikersinterface.
+Dit artikel is van toepassing op zowel Azure Data Box als Azure Data Box Heavy. In dit artikel worden enkele van de complexe werk stromen en beheer taken beschreven die op het Azure Data Box apparaat kunnen worden uitgevoerd. U kunt het Data Box-apparaat beheren via de Azure Portal of via de lokale web-UI.
 
-Dit artikel richt zich op de taken die u kunt uitvoeren met behulp van de Azure-portal. De Azure portal gebruiken voor het beheren van orders, Data Box-apparaat beheren en bijhouden van de status van de volgorde zoals deze wordt voortgezet tot voltooiing.
+Dit artikel richt zich op de taken die u kunt uitvoeren met behulp van de Azure-portal. Gebruik de Azure Portal om orders te beheren, Data Box-apparaat te beheren en de status van de order bij te houden terwijl deze wordt voltooid.
 
 
 ## <a name="cancel-an-order"></a>Een order annuleren
 
-Soms moet u een order om een bepaalde reden annuleren nadat u deze hebt geplaatst. U kunt de order alleen annuleren als deze nog niet is verwerkt. Zodra de bestelling is verwerkt en Data Box-apparaat is voorbereid, is het niet mogelijk om te annuleren de order.
+Soms moet u een order om een bepaalde reden annuleren nadat u deze hebt geplaatst. U kunt de order alleen annuleren als deze nog niet is verwerkt. Wanneer de order wordt verwerkt en Data Box apparaat wordt voor bereid, is het niet mogelijk om de volg orde te annuleren.
 
 Voer de volgende stappen uit om een order te annuleren.
 
@@ -40,7 +40,7 @@ Voer de volgende stappen uit om een order te annuleren.
 
 ## <a name="clone-an-order"></a>Een order klonen
 
-Klonen is handig in bepaalde situaties. Een voorbeeld: Een gebruiker heeft Data Box gebruikt om wat gegevens over te dragen. Als u meer gegevens worden gegenereerd, is er behoefte hebt aan een andere Data Box-apparaat om over te dragen van die gegevens naar Azure. In dit geval kan dezelfde order gewoon worden gekloond.
+Klonen is handig in bepaalde situaties. Een voorbeeld: Een gebruiker heeft Data Box gebruikt om wat gegevens over te dragen. Naarmate er meer gegevens worden gegenereerd, is er een andere Data Box apparaat nodig om die gegevens over te brengen naar Azure. In dit geval kan dezelfde order gewoon worden gekloond.
 
 Voer de volgende stappen uit om een order te klonen.
 
@@ -69,7 +69,7 @@ U kunt alleen orders verwijderen die zijn voltooid of geannuleerd. Voer de volge
 
 ## <a name="download-shipping-label"></a>Verzendlabel downloaden
 
-Als het E-ink-scherm van uw Data Box niet werkt en het verzendlabel voor retourzending niet weergeeft, kunt u het verzendlabel downloaden. Er is geen E-ink worden weergegeven op de Data Box-zwaar en kan daarom deze werkstroom is niet van toepassing op gegevens in het zware.
+Als het E-ink-scherm van uw Data Box niet werkt en het verzendlabel voor retourzending niet weergeeft, kunt u het verzendlabel downloaden. Er wordt geen E-inkt weer gegeven op het Data Box Heavy en daarom is deze werk stroom niet van toepassing op Data Box Heavy.
 
 Voer de volgende stappen uit om een verzendlabel te downloaden.
 
@@ -97,7 +97,7 @@ Voer de volgende stappen uit om de order te bewerken.
 
 ## <a name="edit-notification-details"></a>Meldingsdetails bewerken
 
-U moet wellicht wijzigen welke gebruikers de e-mails met de orderstatus ontvangen. Een voorbeeld: Een bepaalde gebruiker moet worden geïnformeerd wanneer het apparaat wordt afgeleverd of opgehaald. Een andere gebruiker mogelijk op de hoogte worden gebracht bij het kopiëren van gegevens voltooid is, zodat ze kunnen controleren of dat de gegevens zich in de Azure storage-account voordat deze worden verwijderd uit de bron. In deze gevallen kunt u de meldingsdetails bewerken.
+U moet wellicht wijzigen welke gebruikers de e-mails met de orderstatus ontvangen. Een voorbeeld: Een bepaalde gebruiker moet worden geïnformeerd wanneer het apparaat wordt afgeleverd of opgehaald. Een andere gebruiker moet mogelijk een melding ontvangen wanneer het kopiëren van de gegevens is voltooid, zodat de gegevens in het Azure Storage-account kunnen worden gecontroleerd voordat deze uit de bron worden verwijderd. In deze gevallen kunt u de meldingsdetails bewerken.
 
 Voer de volgende stappen uit om meldingsdetails te bewerken.
 
@@ -120,10 +120,10 @@ Voer de volgende stappen uit om de ordergeschiedenis te downloaden.
 
     ![Ordergeschiedenis downloaden](media/data-box-portal-admin/download-order-history-1.png)
 
-2. Klik op **Ordergeschiedenis downloaden**. In de downloadgeschiedenis ziet u een record met logboeken voor tracering van de koerier. Er zijn twee sets van logboek overeenkomt met de twee knooppunten in een Data Box-zwaar. Als u naar de onderkant van dit logboek bladert, kunt u koppelingen zien naar:
+2. Klik op **Ordergeschiedenis downloaden**. In de downloadgeschiedenis ziet u een record met logboeken voor tracering van de koerier. Er worden twee sets logboeken die overeenkomen met de twee knoop punten op een Data Box Heavy. Als u naar de onderkant van dit logboek bladert, kunt u koppelingen zien naar:
     
    - **Logboeken kopiëren**: hier vindt u de lijst met bestanden met fouten tijdens het kopiëren van gegevens van de Data Box naar uw Azure Storage-account.
-   - **Auditlogboeken**: hier vindt u informatie over het inschakelen en delen van toegang tot de Data Box wanneer deze zich buiten het Azure-datacenter bevindt.
+   - **Audit logboeken** : bevatten informatie over het inschakelen en openen van shares op de data Box wanneer deze zich buiten het Azure-Data Center bevindt.
    - **BOM-bestanden**: hier vindt u de lijst met bestanden (ook wel bekend als het bestandsmanifest) die u kunt downloaden tijdens **Voorbereiding voor verzending** en de bestandsnamen, grootte en de bestandscontrolesommen.
 
        ```
@@ -207,7 +207,8 @@ Wanneer de apparaatstatus in de portal verandert, wordt u per e-mail op de hoogt
 |Ontvangen     | Uw apparaat is ontvangen en gescand in het Azure-datacenter. <br> Zodra de verzending is geïnspecteerd, wordt de apparaatupload gestart.      |
 |Gegevens kopiëren     | Het kopiëren van gegevens is in voortgang. Houd de kopieervoortgang voor uw order bij in de Azure-portal. <br> Wacht totdat het kopiëren van gegevens is voltooid. |
 |Voltooid       |De order is voltooid.<br> Verifieer dat uw gegevens zich in Azure bevinden voordat u de on-premises gegevens van servers verwijdert.         |
-|Voltooid met fouten| Het kopiëren van gegevens is voltooid, maar er zijn fouten opgetreden tijdens het kopiëren. <br> Bekijk de logboeken met kopieerbewerkingen via het pad in de Azure-portal.   |
+|Voltooid met fouten| Het kopiëren van gegevens is voltooid, maar er zijn fouten opgetreden tijdens het kopiëren. <br> Bekijk de logboeken met kopieerbewerkingen via het pad in de Azure-portal. Zie [voor beelden van Kopieer Logboeken wanneer het uploaden is voltooid met fouten](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Voltooid met waarschuwingen| De gegevens kopie is voltooid, maar de gegevens zijn gewijzigd. De gegevens bevatten niet-kritieke BLOB-of bestandsnaam fouten die zijn opgelost door het wijzigen van de naam van het bestand of de blob. <br> Bekijk de logboeken met kopieerbewerkingen via het pad in de Azure-portal. Noteer de wijzigingen in uw gegevens. Zie [voor beelden van Kopieer Logboeken wanneer het uploaden is voltooid met waarschuwingen](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
 |Geannuleerd            |De order is geannuleerd. <br> U hebt de order zelf geannuleerd, of er is een fout opgetreden waardoor de service de order heeft geannuleerd. Als de order niet binnen 90 dagen kan worden voltooid, wordt deze ook geannuleerd en wordt u op de hoogte gesteld.     |
 |Opruimen | De gegevens op het apparaat worden gewist. Het opruimen van het apparaat wordt als voltooid beschouwd zodra de ordergeschiedenis beschikbaar is om te downloaden in de Azure-portal.|
 
@@ -215,4 +216,4 @@ Wanneer de apparaatstatus in de portal verandert, wordt u per e-mail op de hoogt
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het [problemen oplossen van Data Box en gegevens in het zware](data-box-troubleshoot.md).
+- Meer informatie over het oplossen van problemen [met data box en data Box Heavy](data-box-troubleshoot.md).

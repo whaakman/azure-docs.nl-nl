@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 51e0379607c49019590a99c9fb7304f28be2afe5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: d94f6297f27eb3ea130b443ccf94052d391eb46d
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305740"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985327"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Failover van een opslag account initiëren (preview-versie)
 
@@ -68,12 +68,13 @@ Als u Power shell wilt gebruiken om een account-failover te initiëren, moet u e
 
     - Verwijder eerdere installaties van Azure PowerShell van Windows met de instelling **Apps & onderdelen** onder **instellingen**.
     - Verwijder alle **Azure** -modules `%Program Files%\WindowsPowerShell\Modules`uit.
-    
+
 1. Zorg ervoor dat de meest recente versie van PowerShellGet is geïnstalleerd. Open een Windows Power shell-venster en voer de volgende opdracht uit om de meest recente versie te installeren:
- 
+
     ```powershell
     Install-Module PowerShellGet –Repository PSGallery –Force
     ```
+
 1. Sluit het Power shell-venster en open het opnieuw nadat u PowerShellGet hebt geïnstalleerd. 
 
 1. Installeer de nieuwste versie van Azure PowerShell:
@@ -82,14 +83,14 @@ Als u Power shell wilt gebruiken om een account-failover te initiëren, moet u e
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Installeer een Azure Storage preview-module die ondersteuning biedt voor Azure AD:
-   
+1. Installeer een Azure Storage preview-module die de failover van het account ondersteunt:
+
     ```powershell
     Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force 
     ```
+
 1. Sluit het Power shell-venster en open het opnieuw.
  
-
 Voer de volgende opdracht uit om een account-failover te initiëren vanuit Power shell:
 
 ```powershell

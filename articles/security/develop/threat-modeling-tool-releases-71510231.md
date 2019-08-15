@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: d8e6aa96ef2296cfaa876823e671d279e42cea0f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 2fb3756e153a52515e598bb31fea1e999144bb28
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727934"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934761"
 ---
 # <a name="threat-modeling-tool-update-release-71510231---1112018"></a>Threat Modeling Tool-updaterelease 7.1.51023.1 - 11/1/2018
 
@@ -45,7 +45,7 @@ Zoals oorspronkelijk vermeld in de informatie over de [release](threat-modeling-
 
 ## <a name="documentation-and-feedback"></a>Documentatie en feedback
 
-- Documentatie voor de Threat Modeling Tool bevindt zich op [docs.Microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool)en bevat informatie [over het gebruik van het hulp programma](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started).
+- Documentatie voor de Threat Modeling Tool bevindt zich op [docs.Microsoft.com](threat-modeling-tool.md)en bevat informatie [over het gebruik van het hulp programma](threat-modeling-tool-getting-started.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

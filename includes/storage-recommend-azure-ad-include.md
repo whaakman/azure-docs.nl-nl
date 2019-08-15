@@ -8,14 +8,16 @@ ms.topic: include
 ms.date: 06/20/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 44d4078fa5f48531a660f6d2ed981407fb1f230f
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 825a9f5668cc80f1306d74623db2ea54614ba4a3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302334"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985386"
 ---
 > [!TIP]
-> Azure Storage ondersteunt het verlenen van toegang tot Blob en Queue storage-resources met behulp van Azure Active Directory (Azure AD). Autoriseren van gebruikers of toepassingen die gebruikmaken van een OAuth 2.0 dat wordt geretourneerd door Azure AD biedt uitstekende beveiliging en gebruiksgemak ten opzichte van de gedeelde sleutel autorisatie en shared access signatures (SAS). Met Azure AD is er niet nodig voor het opslaan van de toegangssleutel met uw code en het risico potentiële beveiligingsproblemen.
+> Azure Storage ondersteunt het machtigen van aanvragen voor Blob-en wachtrij opslag met behulp van Azure Active Directory (Azure AD). Het autoriseren van gebruikers of toepassingen met een OAuth 2,0-token dat wordt geretourneerd door Azure AD biedt een superieure beveiliging en gebruiks vriendelijk gebruik van de gedeelde sleutel verificatie. Met Azure AD hoeft u de toegangs sleutel voor het account niet op te slaan met uw code en mogelijke beveiligings problemen.
 >
-> Microsoft raadt u aan met behulp van Azure AD met uw Azure Storage-toepassingen indien mogelijk. Zie voor meer informatie, [autoriseren de toegang tot Azure-blobs en wachtrijen met behulp van Azure Active Directory](../articles/storage/common/storage-auth-aad.md).
+> Daarnaast ondersteunt Azure Storage de Shared Access Signature (SAS) van de gebruikers overdracht voor Blob Storage. De SAS voor gebruikers overdracht is ondertekend met Azure AD-referenties. Wanneer het ontwerp van uw toepassing gedeelde toegangs handtekeningen vereist voor toegang tot Blob Storage, kunt u Azure AD-referenties gebruiken om een gebruikers delegering SA'S te maken voor superieure beveiliging.
+>
+> Micro soft raadt u aan Azure AD te gebruiken met uw Azure Storage-toepassingen wanneer dat mogelijk is. Zie [toegang tot Azure-blobs en-wacht rijen toestaan met Azure Active Directory](../articles/storage/common/storage-auth-aad.md)voor meer informatie.

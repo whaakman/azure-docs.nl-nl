@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 91ac8b596373963aeba00c1932dfde5d76f27bd0
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: bc14ba2bcaa80236717c062abd1dc8a63b58305c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856029"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966835"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Keten modellen trainen en registreren op schaal met Azure Machine Learning-service
 
@@ -214,3 +214,5 @@ In dit artikel hebt u een diep gaande training getraind en geregistreerd, Neural
 * [Afstemmen van hyperparameters](how-to-tune-hyperparameters.md)
 
 * [Metrische gegevens over uitvoeren tijdens de training bijhouden](how-to-track-experiments.md)
+
+* [Bekijk onze referentie architectuur voor gedistribueerde training voor diepe trainingen in azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

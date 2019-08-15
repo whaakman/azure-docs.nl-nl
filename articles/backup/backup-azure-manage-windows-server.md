@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 4ce6ef67c24bd623a4162329442693ed1628dae2
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7e7312f942103125217c1f61ae8fe8007a49529b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639877"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954765"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services-kluizen beheren en controleren
 
@@ -175,7 +175,7 @@ De lijst met virtuele machines bevat nuttige gegevens: de bijbehorende resource 
 
 De tegel **back-uptaken** in het kluis Dashboard toont het aantal taken dat wordt uitgevoerd of is mislukt in de afgelopen 24 uur. De tegel bevat een idee van het menu back-uptaken.
 
-![Back-upitems uit instellingen](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
+![Back-ups maken van items uit instellingen](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
 Als u meer informatie over de taken wilt weer geven, klikt u op **in voortgang** of het openen van het menu back-uptaken dat **is** gefilterd voor die status.
 
@@ -185,11 +185,11 @@ Het menu **back-uptaken** bevat informatie over het item type, de werking, de st
 
 Als u het menu back-uptaken wilt openen, klikt u in het hoofd menu van de kluis op **back-uptaken**.
 
-![Back-upitems uit instellingen](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
+![Back-ups maken van items uit instellingen](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
 De lijst met back-uptaken wordt geopend.
 
-![Back-upitems uit instellingen](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+![Back-ups maken van items uit instellingen](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
 
 Het menu back-uptaken toont de status van alle bewerkingen op alle back-uptypen voor de afgelopen 24 uur. Gebruik **filter** om de filters te wijzigen. De filters worden beschreven in de volgende secties.
 
@@ -197,11 +197,11 @@ De filters wijzigen:
 
 1. Klik in het menu kluis back-uptaken op **filter**.
 
-   ![Back-upitems uit instellingen](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
+   ![Back-ups maken van items uit instellingen](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
 
     Het menu filter wordt geopend.
 
-   ![Back-upitems uit instellingen](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
+   ![Back-ups maken van items uit instellingen](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
 
 2. Kies de filter instellingen en klik op **gereed**. De gefilterde lijst wordt vernieuwd op basis van de nieuwe instellingen.
 

@@ -1,6 +1,6 @@
 ---
-title: Schalen mediaverwerking door toe te voegen encoding-eenheden - Azure |  Microsoft Docs
-description: Meer informatie over het toevoegen van encoding-eenheden met .NET
+title: Media verwerking schalen door coderings eenheden toe te voegen-Azure |  Microsoft Docs
+description: Meer informatie over het toevoegen van coderings eenheden met .NET
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;milangada;
-ms.openlocfilehash: 65b647a375ecbe70f7f29af5b09827f1c34dcd6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: milangada
+ms.openlocfilehash: 9d393e07008d981834d9deb48ded73995366d7e4
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61217161"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016572"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Codering schalen met .NET SDK
 > [!div class="op_single_selector"]
@@ -33,11 +34,11 @@ ms.locfileid: "61217161"
 
 ## <a name="overview"></a>Overzicht
 > [!IMPORTANT]
-> Controleer de [overzicht](media-services-scale-media-processing-overview.md) voor meer informatie over het mediaverwerking schalen.
+> Controleer het [overzicht](media-services-scale-media-processing-overview.md) voor meer informatie over het schalen van media-verwerkingen.
 > 
 > 
 
-Als u wilt wijzigen van de gereserveerde-eenheidstype en het aantal gereserveerde coderingseenheden met .NET SDK, het volgende doen:
+Ga als volgt te werk om het gereserveerde eenheids type en het aantal gereserveerde encoding-eenheden te wijzigen met behulp van .NET SDK:
 
     IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
     encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
@@ -49,9 +50,9 @@ Als u wilt wijzigen van de gereserveerde-eenheidstype en het aantal gereserveerd
 
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
-## <a name="opening-a-support-ticket"></a>Een Ondersteuningsticket openen
+## <a name="opening-a-support-ticket"></a>Een ondersteunings ticket openen
 
-Standaard kan elke Media Services-account worden geschaald tot maximaal 10 S2 of S3 gereserveerde Media-eenheden (groepsbeleidsinstelling) of 25 S1 groepsbeleidsinstelling en 5 On-Demand Streaming gereserveerde eenheden. U kunt een hogere limiet aanvragen door een ondersteuningsticket te openen.
+Elke Media Services-account kan standaard worden geschaald naar Maxi maal 10 S2-of S3-media gereserveerde eenheden (MRUs) of 25 S1 MRUs en 5 gereserveerde on-demand streaming-eenheden. U kunt een hogere limiet aanvragen door een ondersteunings ticket te openen.
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

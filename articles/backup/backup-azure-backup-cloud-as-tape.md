@@ -1,72 +1,72 @@
 ---
 title: Azure Backup gebruiken om uw tape-infrastructuur te vervangen
-description: Informatie over hoe Azure Backup biedt tape-achtige semantiek waarmee u back-up en herstellen van gegevens in Azure
+description: Meer informatie over het Azure Backup van tape-achtige semantiek waarmee u back-ups kunt maken en gegevens kunt herstellen in azure
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/30/2017
 ms.author: dacurwin
-ms.openlocfilehash: d768f0fae9487a555f6ace12303f8a4bd7cb8bd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3be3a2e3355793a8d0b4fcaf0e7f62668f78f0c8
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146025"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954880"
 ---
-# <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Uw langdurige opslag van tape verplaatsen naar de Azure-cloud
-Azure Backup en System Center Data Protection Manager-klanten kunnen:
+# <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Uw lange termijn opslag verplaatsen van tape naar de Azure-Cloud
+Azure Backup en System Center Data Protection Manager klanten kunnen:
 
-* Back-up van gegevens in de schema's die het best past bij de behoeften van de organisatie.
-* De back-upgegevens behouden voor langere tijd
-* Controleer Azure een deel van hun langetermijnretentie (in plaats van tape moet).
+* Maak een back-up van gegevens in schema's die het beste aansluiten bij de behoeften van de organisatie.
+* De back-upgegevens bewaren voor langere Peri Oden
+* Maak Azure een deel van de vereisten voor de Bewaar periode voor de lange termijn (in plaats van tape).
 
-In dit artikel wordt uitgelegd hoe klanten een back-up-en bewaarbeleid kunnen inschakelen. Klanten die gebruikmaken van tapes voor de lange-termijn-bewaarperiode moeten beschikt nu over een krachtige en levensvatbaar alternatief met de beschikbaarheid van deze functie. De functie is ingeschakeld in de nieuwste versie van de Azure Backup (die beschikbaar is [hier](https://aka.ms/azurebackup_agent)). System Center DPM moeten klanten bijwerken naar, ten minste DPM 2012 R2 UR5 voordat u DPM met de Azure Backup-service.
+In dit artikel wordt uitgelegd hoe klanten een back-up-en bewaar beleid kunnen inschakelen. Klanten die gebruikmaken van tapes, hebben nu een krachtig en levensvatbaar alternatief voor de beschik baarheid van deze functie. De functie is ingeschakeld in de meest recente versie van de Azure Backup (deze is [hier](https://aka.ms/azurebackup_agent)beschikbaar). System Center DPM-klanten moeten worden bijgewerkt naar ten minste DPM 2012 R2 UR5 voordat DPM met de Azure Backup-service wordt gebruikt.
 
-## <a name="what-is-the-backup-schedule"></a>Wat is de back-upschema?
-De back-upschema geeft aan dat de frequentie van de back-upbewerking. Bijvoorbeeld, de instellingen in het volgende scherm geven aan dat de back-ups dagelijks om 18: 00 uur en om middernacht worden genomen.
+## <a name="what-is-the-backup-schedule"></a>Wat is het back-upschema?
+Het back-upschema geeft de frequentie van de back-upbewerking aan. De instellingen in het volgende scherm geven bijvoorbeeld aan dat back-ups dagelijks worden uitgevoerd op 18:00 uur en om middernacht.
 
 ![Dagelijks schema](./media/backup-azure-backup-cloud-as-tape/dailybackupschedule.png)
 
-Klanten kunnen ook een wekelijkse back-up plannen. Bijvoorbeeld, de instellingen in het volgende scherm geven aan dat back-ups elke alternatieve zondag & woensdag worden genomen om 9:30 uur en 1:00 uur.
+Klanten kunnen ook een wekelijkse back-up plannen. De instellingen in het volgende scherm geven bijvoorbeeld aan dat back-ups worden genomen op elke tweede zondag & woensdag om 9: om 9:30 uur en 1: am.
 
 ![Wekelijks schema](./media/backup-azure-backup-cloud-as-tape/weeklybackupschedule.png)
 
-## <a name="what-is-the-retention-policy"></a>Wat is het bewaarbeleid?
-Het bewaarbeleid geeft de periode waarvoor de back-up moet worden opgeslagen. In plaats van alleen 'plat beleid' voor alle back-uppunten opgeeft, kunnen klanten opgeven ander retentiebeleid op basis van wanneer de back-up is gemaakt. De back-uppunt worden genomen, dagelijks, dat als een operationele herstelpunt fungeert, is bijvoorbeeld 90 dagen bewaard. De back-uppunt genomen aan het einde van elk kwartaal voor auditdoeleinden blijft behouden gedurende een langere periode.
+## <a name="what-is-the-retention-policy"></a>Wat is het Bewaar beleid?
+In het Bewaar beleid wordt de duur opgegeven waarvoor de back-up moet worden opgeslagen. In plaats van alleen een ' plat beleid ' voor alle back-uppunten op te geven, kunnen klanten een ander Bewaar beleid opgeven op basis van wanneer de back-up wordt gemaakt. Het back-uppunt dat bijvoorbeeld dagelijks is gemaakt en dat fungeert als operationeel herstel punt, blijft 90 dagen bewaard. Het back-uppunt dat wordt gemaakt aan het einde van elk kwar taal voor controle doeleinden, blijft bewaard gedurende een langere periode.
 
 ![Bewaarbeleid](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
 
-Het totale aantal 'bewaarpunten' opgegeven in dit beleid is 90 (punten per dag) + 40 (een elk kwartaal 10 jaar) = 130.
+Het totale aantal "Bewaar punten" dat is opgegeven in dit beleid is 90 (dagelijks punt) + 40 (één kwar taal gedurende 10 jaar) = 130.
 
-## <a name="example--putting-both-together"></a>Voorbeeld: het samenstellen van beide
-![Voorbeeldscherm](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
+## <a name="example--putting-both-together"></a>Voor beeld: beide samen zetten
+![Voorbeeld scherm](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Dagelijks bewaarbeleid**: Back-ups dagelijks die worden opgeslagen voor de zeven dagen.
-2. **Wekelijks bewaarbeleid**: Back-ups die elke dag om middernacht en 18: 00 uur zaterdag bewaard voor vier weken
-3. **Maandelijks bewaarbeleid**: Back-ups genomen om middernacht en 18: 00 uur op de laatste zaterdag van elke maand worden bewaard gedurende 12 maanden
-4. **Jaarlijks bewaarbeleid**: Back-ups die op de laatste zaterdag van elke maart om middernacht worden bewaard gedurende tien jaar
+1. **Dagelijks Bewaar beleid**: Dagelijkse back-ups worden dagelijks opgeslagen voor zeven dagen.
+2. **Wekelijks Bewaar beleid**: Back-ups die elke dag om middernacht en 18:00 uur zaterdag worden gemaakt, worden vier weken bewaard
+3. **Maandelijks Bewaar beleid**: Back-ups die zijn gemaakt om middernacht en 18:00 uur op de laatste zaterdag van elke maand, worden twaalf maanden bewaard
+4. **Jaarlijks Bewaar beleid**: Back-ups die zijn gemaakt om middernacht op de laatste zaterdag van elke maart worden tien jaar bewaard
 
-Het totale aantal 'bewaarpunten' (punt van waaruit een klant kunt gegevens herstellen) in het voorgaande diagram wordt berekend als volgt:
+Het totale aantal Bewaar punten (punten van waaruit een klant gegevens kan herstellen) in het voor gaande diagram wordt als volgt berekend:
 
-* twee punten herstelpunten per dag voor zeven dagen = 14
-* twee punten per week voor vier weken = 8 herstelpunten
-* twee punten herstelpunten per maand gedurende 12 maanden = 24
-* een punt per jaar per 10 jaar = 10 recovery verwijst
+* twee punten per dag voor zeven dagen = 14 herstel punten
+* twee punten per week voor vier weken = 8 herstel punten
+* twee punten per maand gedurende 12 maanden = 24 herstel punten
+* Eén punt per jaar per 10 jaar = 10 herstel punten
 
-Het totale aantal herstelpunten is 56.
+Het totale aantal herstel punten is 56.
 
 > [!NOTE]
-> U kunt maximaal 9999 herstelpunten per beveiligd exemplaar met behulp van Azure Backup maken. Een beveiligd exemplaar is een computer, server (fysiek of virtueel) of werkbelasting waarvan een back-ups van Azure.
+> Met Azure Backup kunt u Maxi maal 9999 herstel punten per beveiligd exemplaar maken. Een beveiligd exemplaar is een computer, een server (fysiek of virtueel) of een werk belasting die back-ups maakt van Azure.
 >
 
 ## <a name="advanced-configuration"></a>Geavanceerde configuratie
-Door te klikken op **wijzigen** in het vorige scherm, hebben klanten meer flexibiliteit bij het bewaarschema op te geven.
+Door te klikken op **wijzigen** in het voor gaande scherm, hebben klanten nog meer flexibiliteit bij het opgeven van Bewaar schema's.
 
 ![Wijzigen](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over Azure Backup:
+Voor meer informatie over Azure Backup raadpleegt u:
 
 * [Kennismaking met Azure Backup](backup-introduction-to-azure-backup.md)
-* [Probeer Azure Backup](backup-try-azure-backup-in-10-mins.md)
+* [Probeer het Azure Backup](backup-try-azure-backup-in-10-mins.md)

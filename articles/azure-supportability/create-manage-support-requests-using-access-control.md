@@ -1,44 +1,44 @@
 ---
-title: Azure Role-Based toegangsbeheer (RBAC) om toegangsrechten te maken en beheren van ondersteuningsaanvragen | Microsoft Docs
-description: Azure Role-Based toegangsbeheer (RBAC) om toegangsrechten te maken en beheren van aanvragen voor ondersteuning
+title: Azure Role Access Control (RBAC) voor het beheren van de toegangs rechten voor het maken en beheren van ondersteunings aanvragen | Microsoft Docs
+description: Azure Role Access Control (RBAC) voor het beheren van de toegangs rechten voor het maken en beheren van ondersteunings aanvragen
 author: ganganarayanan
 ms.author: gangan
 ms.date: 1/31/2017
 ms.topic: article
 ms.service: azure
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: d98d0637c6d520193b11f4267c59016772ef063a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3cf17f6e391608af9d17591a81c579a1db779a6a
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809800"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967795"
 ---
-# <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Azure Role-Based toegangsbeheer (RBAC) om toegangsrechten te maken en beheren van aanvragen voor ondersteuning
+# <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Azure Role Access Control (RBAC) voor het beheren van de toegangs rechten voor het maken en beheren van ondersteunings aanvragen
 
-[Rollen gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) kunt u over Geavanceerd toegangsbeheer voor Azure.
-Ondersteuning voor het maken van aanvraag in de Azure-portal [portal.azure.com](https://portal.azure.com), het model van Azure RBAC gebruikt om te definiëren die kunt maken en beheren van aanvragen voor ondersteuning.
-Toegang wordt verleend door de juiste RBAC-rol toewijzen aan gebruikers, groepen en toepassingen met een bepaald bereik, dit kan een abonnement, resourcegroep of een resource.
+[Met Access Control op basis van rollen (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) hebt u verfijnd toegangs beheer voor Azure.
+Ondersteuningsaanvraag maken in de Azure Portal, [Portal.Azure.com](https://portal.azure.com), gebruikt het RBAC-model van Azure om te bepalen wie ondersteunings aanvragen kan maken en beheren.
+Toegang wordt verleend door de juiste RBAC-rol toe te wijzen aan gebruikers, groepen en toepassingen bij een bepaald bereik, die een abonnement, resource groep of resource kunnen zijn.
 
-We nemen een voorbeeld: U kunt alle resources onder de resourcegroep, zoals websites, virtuele machines en subnetten te beheren als een eigenaar van de groep resource met machtigingen voor lezen op het abonnementsbereik.
-Echter, wanneer u probeert een ondersteuningsaanvraag op basis van de bron van de virtuele machine wilt maken, de volgende fout optreedt
+Laten we een voor beeld doen: Als eigenaar van een resource groep met lees machtigingen voor het abonnements bereik, kunt u alle resources in de resource groep, zoals websites, virtuele machines en subnetten, beheren.
+Wanneer u echter probeert een ondersteunings aanvraag te maken op basis van de virtuele-machine bron, treedt de volgende fout op
 
-![Abonnement-fout](./media/create-manage-support-requests-using-access-control/subscription-error.png)
+![Abonnements fout](./media/create-manage-support-requests-using-access-control/subscription-error.png)
 
-Aanvraag in beheer van ondersteuning moet u toestemming of een functie die de actie ondersteuning Microsoft.Support/* op het abonnementsbereik heeft mogelijk te maken en beheren van ondersteuningsaanvragen schrijven.
+In ondersteunings aanvraag beheer hebt u schrijf machtiging of een rol met de ondersteunings actie micro soft. support/* bij het abonnements bereik nodig om ondersteunings aanvragen te kunnen maken en beheren.
 
-Het volgende artikel wordt uitgelegd hoe u Azure van aangepaste rollen gebaseerd toegangsbeheer (RBAC) kunt gebruiken om te maken en beheren van aanvragen voor ondersteuning in Azure portal.
+In het volgende artikel wordt uitgelegd hoe u de aangepaste op rollen gebaseerde Access Control (RBAC) van Azure kunt gebruiken om ondersteunings aanvragen te maken en te beheren in de Azure Portal.
 
 ## <a name="getting-started"></a>Aan de slag
 
-In het bovenstaande voorbeeld zou u een ondersteuningsaanvraag voor uw resource te maken als u een aangepaste RBAC-rol op het abonnement zijn toegewezen door de eigenaar van het abonnement zijn.
-[Aangepaste RBAC-rollen](https://azure.microsoft.com/documentation/articles/role-based-access-control-custom-roles/) kunnen worden gemaakt met Azure PowerShell, Azure-opdrachtregelinterface (CLI) en de REST-API.
+Met het bovenstaande voor beeld zou u een ondersteunings aanvraag voor uw resource kunnen maken als u een aangepaste RBAC-rol aan het abonnement hebt toegewezen door de eigenaar van het abonnement.
+[Aangepaste RBAC-rollen](https://azure.microsoft.com/documentation/articles/role-based-access-control-custom-roles/) kunnen worden gemaakt met behulp van Azure PowerShell, de Azure-opdracht regel interface (CLI) en de rest API.
 
-De eigenschap acties van een aangepaste rol Hiermee geeft u de Azure-bewerkingen waarmee de rol toegang verleent.
-Voor het maken van een aangepaste rol voor het beheer van de aanvraag voor ondersteuning, moet de rol de actie Microsoft.Support/* hebben.
+De eigenschap Actions van een aangepaste rol specificeert de Azure-bewerkingen waartoe de rol toegang verleent.
+Als u een aangepaste rol wilt maken voor het beheer van ondersteunings aanvragen, moet de rol micro soft. support/* hebben.
 
-Hier volgt een voorbeeld van een aangepaste rol die u gebruiken kunt voor het maken en beheren van ondersteuningsaanvragen.
-We hebben met de naam "Ondersteuning aanvragen bijdrager" van deze rol en dat is hoe verwijzen we naar de aangepaste rol die in dit artikel.
+Hier volgt een voor beeld van een aangepaste rol die u kunt gebruiken om ondersteunings aanvragen te maken en te beheren.
+We hebben de rol ' Inzender voor ondersteunings aanvragen ' genoemd, en dat is de manier waarop we in dit artikel naar de aangepaste rol verwijzen.
 
 ``` Json
 {
@@ -57,54 +57,54 @@ We hebben met de naam "Ondersteuning aanvragen bijdrager" van deze rol en dat is
 }
 ```
 
-Volg de stappen in [in deze video](https://www.youtube.com/watch?v=-PaBaDmfwKI) voor informatie over het maken van een aangepaste rol voor uw abonnement.
+Volg de stappen in [deze video](https://www.youtube.com/watch?v=-PaBaDmfwKI) voor meer informatie over het maken van een aangepaste rol voor uw abonnement.
 
-## <a name="create-and-manage-support-requests-in-the-azure-portal"></a>Maken en beheren van aanvragen voor ondersteuning in Azure portal
+## <a name="create-and-manage-support-requests-in-the-azure-portal"></a>Ondersteunings aanvragen maken en beheren in de Azure Portal
 
-We nemen een voorbeeld: u bent de eigenaar van het abonnement "Visual Studio MSDN-abonnement.
-Jaap is die een resource-eigenaar tot een aantal van de resourcegroepen in dit abonnement is en leesrechten heeft voor het abonnement van uw peer.
-Wilt u toegang geven tot uw peer, Jan, de mogelijkheid om te maken en beheren van ondersteuningstickets voor de resources in dit abonnement.
+We gaan een voor beeld bekijken: u bent de eigenaar van het abonnement ' Visual Studio MSDN Subscription '.
+Joe is uw peer die een resource-eigenaar is van een aantal resource groepen in dit abonnement en lees machtigingen heeft voor het abonnement.
+U wilt toegang verlenen aan uw peer, Joe, de mogelijkheid om ondersteunings tickets te maken en te beheren voor de resources in dit abonnement.
 
-1. De eerste stap is om naar het abonnement te gaan en onder 'Instellingen' ziet u een lijst van gebruikers. Klik op de gebruiker Jan die lezerstoegang voor het abonnement heeft en laten we een nieuwe aangepaste rol toewijzen aan hem.
+1. De eerste stap is om naar het abonnement te gaan. Onder **instellingen**ziet u een lijst met gebruikers. Selecteer de gebruiker Joe, die lezers toegang heeft voor het abonnement. We gaan een nieuwe aangepaste rol toewijzen aan Joe.
 
     ![Rol toevoegen](./media/create-manage-support-requests-using-access-control/add-role.png)
 
-2. Klik op 'Toevoegen' op de blade 'Gebruikers'. Selecteer de aangepaste rol 'Ondersteuning aanvragen Inzender' uit de lijst met rollen
+2. Klik op toevoegen onder de Blade gebruikers. Selecteer de aangepaste rol ' Inzender voor ondersteunings aanvragen ' in de lijst met rollen
 
-    ![Toevoegen van ondersteuning voor de rol van Inzender](./media/create-manage-support-requests-using-access-control/add-support-contributor-role.png)
+    ![Rol voor ondersteunings bijdrage toevoegen](./media/create-manage-support-requests-using-access-control/add-support-contributor-role.png)
 
-3. Na het selecteren van de naam van de rol, klikt u op 'Gebruikers toevoegen' en voer de Jaaps e-referenties. Klik op Selecteren.
+3. Nadat u de rolnaam hebt geselecteerd, klikt u op gebruikers toevoegen en voert u de e-mail referenties van de Joe in. Klik op Selecteren.
 
     ![Gebruikers toevoegen](./media/create-manage-support-requests-using-access-control/add-users.png)
 
-4. Klik op "Ok" om door te gaan
+4. Klik op OK om door te gaan
 
     ![Toegang toevoegen](./media/create-manage-support-requests-using-access-control/add-access.png)
 
-5. U ziet nu de gebruiker met de zojuist toegevoegde aangepaste rol 'Ondersteuning aanvragen Inzender' onder het abonnement waarvoor u de eigenaar bent
+5. Nu ziet u de gebruiker met de zojuist toegevoegde aangepaste rol ' mede werker ondersteunings aanvraag ' onder het abonnement waarvoor u de eigenaar bent
 
-    ![Gebruiker is toegevoegd](./media/create-manage-support-requests-using-access-control/user-added.png)
+    ![Gebruiker toegevoegd](./media/create-manage-support-requests-using-access-control/user-added.png)
 
-    Wanneer de Jaap beschikbaar zijn in de portal, ziet hij het abonnement waaraan hij is toegevoegd.
+    Als Jan zich bij de portal aanmeldt, ziet Joe het abonnement waaraan Jan is toegevoegd.
 
-7. Jaap klikt op 'Nieuwe ondersteuningsaanvraag' op de blade 'Help en ondersteuning voor' en aanvragen voor ondersteuning kunt maken voor "Visual Studio Ultimate met MSDN"
+7. Joe klikt op ' New Ondersteuningsaanvraag ' op de Blade Help en ondersteuning en kan ondersteunings aanvragen voor ' Visual Studio Ultimate met MSDN ' maken
 
     ![Nieuw ondersteuningsverzoek](./media/create-manage-support-requests-using-access-control/new-support-request.png)
 
-8. Te klikken op "Alle ondersteuningsaanvragen" Jaap ziet de lijst met aanvragen voor ondersteuning voor dit abonnement gemaakt ![Aanvraagdetails weergeven](./media/create-manage-support-requests-using-access-control/case-details-view.png)
+8. Als u op alle ondersteunings aanvragen hebt geklikt, wordt de lijst met ondersteunings aanvragen voor deze weer gave voor Case details van deze abonnementen ![weer gegeven](./media/create-manage-support-requests-using-access-control/case-details-view.png)
 
-## <a name="remove-support-request-access-in-the-azure-portal"></a>Ondersteuning aanvragen voor toegang in Azure portal verwijderen
+## <a name="remove-support-request-access-in-the-azure-portal"></a>Toegang tot ondersteunings aanvragen verwijderen in de Azure Portal
 
-Net zoals het is mogelijk om toegang te verlenen aan een gebruiker maken en beheren van ondersteuningsaanvragen, is het mogelijk toegang tot de voor de gebruiker ook verwijderen.
-Als u wilt verwijderen van de mogelijkheid om te maken en beheren van ondersteuningsaanvragen, gaat u naar het abonnement, klikt u op 'Instellingen' en klik op de gebruiker (in dit geval Jaap).
-Met de rechtermuisknop op de naam van de rol, "Ondersteuning aanvragen bijdrager" en klik op "Verwijderen"
+Net zoals het mogelijk is om toegang te verlenen aan een gebruiker om ondersteunings aanvragen te maken en te beheren, is het mogelijk om de toegang voor de gebruiker te verwijderen.
 
-![Ondersteuning aanvragen voor toegang verwijderen](./media/create-manage-support-requests-using-access-control/remove-support-request-access.png)
+Als u de mogelijkheid wilt om ondersteunings aanvragen te maken en te beheren, gaat u naar het abonnement, klikt u op instellingen en klikt u op de gebruiker (in dit geval Joe). Klik met de rechter muisknop op de naam van de rol, ' Inzender voor ondersteunings aanvragen ' en klik op verwijderen.
 
-Wanneer Jaap zich bij de portal aanmeldt en probeert te maken van een ondersteuningsaanvraag, optreedt hij de volgende fout
+![Toegang tot ondersteunings aanvragen verwijderen](./media/create-manage-support-requests-using-access-control/remove-support-request-access.png)
 
-![Abonnement fout-2](./media/create-manage-support-requests-using-access-control/subscription-error-2.png)
+Als Joe zich aanmeldt bij de portal en probeert een ondersteunings aanvraag te maken, wordt de volgende fout aangetroffen:
 
-Jaap Zie niet alle ondersteuningsaanvragen wanneer hij klikt op "Alle ondersteuningsaanvragen"
+![Abonnements fout-2](./media/create-manage-support-requests-using-access-control/subscription-error-2.png)
 
-![Aanvraagdetails weergeven-2](./media/create-manage-support-requests-using-access-control/case-details-view-2.png)
+Joe kan geen ondersteunings aanvragen zien als Jan alle ondersteunings aanvragen selecteert
+
+![Case-details weer geven-2](./media/create-manage-support-requests-using-access-control/case-details-view-2.png)

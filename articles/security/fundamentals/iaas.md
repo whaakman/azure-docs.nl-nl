@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: barclayn
-ms.openlocfilehash: 5e449ae33b19b27c3ea50d982ed84f681a0beb8f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c04d5fc5b455c798ffc8cb4a88948deaea0cf348
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727272"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927930"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Best practices voor beveiliging voor IaaS-workloads in Azure
 In dit artikel worden de aanbevolen beveiligings procedures voor Vm's en besturings systemen beschreven.
@@ -79,7 +79,7 @@ U moet antimalware Protection installeren om virussen, spyware en andere schadel
 
 Micro soft antimalware bevat functies als realtime-beveiliging, geplande scans, malware-herstel, handtekening updates, engine-updates, voor beelden van rapporten en uitsluitings gebeurtenissen verzamelen. Voor omgevingen die afzonderlijk worden gehost vanuit uw productie omgeving, kunt u een antimalware-extensie gebruiken om uw Vm's en Cloud Services te beveiligen.
 
-U kunt micro soft antimalware en partner oplossingen integreren met [Azure Security Center](https://docs.microsoft.com/azure/security-center/) voor een gemakkelijke implementatie en ingebouwde detecties (waarschuwingen en incidenten).
+U kunt micro soft antimalware en partner oplossingen integreren met [Azure Security Center](../../security-center/index.yml) voor een gemakkelijke implementatie en ingebouwde detecties (waarschuwingen en incidenten).
 
 **Aanbevolen procedure**: Installeer een antimalware-oplossing om te beschermen tegen malware.   
 **Details**: [Een micro soft-partner oplossing of micro soft antimalware installeren](../../security-center/security-center-install-endpoint-protection.md)

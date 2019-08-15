@@ -8,18 +8,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: a0a7a413d6c3344ccf5c3f7e4d14dd3d82715034
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1882e994c5d062d3ca841025edb61965f7eb0aa0
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840321"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967058"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen2 met behulp van Azure Data Factory
 
-Azure Data Lake Storage Gen2 is een set mogelijkheden die is toegewezen aan big data Analytics ingebouwd in [Azure Blob-opslag](../storage/blobs/storage-blobs-introduction.md). U kunt het gebruiken om de interface met uw gegevens te maken met behulp van zowel bestands systeem-als object opslag-modellen.
+Azure Data Lake Storage Gen2 (ADLS Gen2) is een set mogelijkheden die is toegewezen aan big data Analytics in [Azure Blob-opslag](../storage/blobs/storage-blobs-introduction.md). U kunt het gebruiken om de interface met uw gegevens te maken met behulp van zowel bestands systeem-als object opslag-modellen.
 
 In dit artikel wordt beschreven hoe u gegevens kopieert van en naar Azure Data Lake Storage Gen2. Lees voor meer informatie over Azure Data Factory, de [inleidende artikel](introduction.md).
 
@@ -73,6 +73,9 @@ Voor het gebruik van storage-account sleutelverificatie, worden de volgende eige
 | url | Eind punt voor Data Lake Storage Gen2 met het patroon `https://<accountname>.dfs.core.windows.net`van. | Ja |
 | accountKey | Account sleutel voor Data Lake Storage Gen2. Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory, of [verwijs naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de Azure Integration runtime of een zelf-hostende Integration runtime gebruiken als uw gegevens archief zich in een particulier netwerk bevindt. Als deze eigenschap niet is opgegeven, wordt de standaard Azure Integration runtime gebruikt. |Nee |
+
+>[!NOTE]
+>Het ADLS-eind punt van het secundaire bestands systeem wordt niet ondersteund bij het gebruik van account sleutel verificatie. U kunt andere verificatie typen gebruiken.
 
 **Voorbeeld:**
 

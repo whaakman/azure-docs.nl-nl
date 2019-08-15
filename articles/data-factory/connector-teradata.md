@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: ce326d7284e22a8734f6be671a277795ba659522
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 6cbddfc5e529bc48e08407796024e5232d1a22e8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720530"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966376"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Gegevens uit Teradata kopiëren met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory service die u gebruikt:"]
@@ -43,7 +43,9 @@ Deze Teradata-connector ondersteunt met name:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als uw Teradata niet openbaar toegankelijk is, moet u een [zelf-hostende Integration runtime](create-self-hosted-integration-runtime.md)instellen. Integration runtime biedt een ingebouwd Teradata-stuur programma vanaf versie 3,18. U hoeft geen stuur Programma's hand matig te installeren. Het stuur programma vereist ' C++ Visual Redistributable 2012 update 4 ' op de zelf-hostende Integration runtime-computer. Als u de app nog niet hebt geïnstalleerd, kunt u deze [hier](https://www.microsoft.com/en-sg/download/details.aspx?id=30679)downloaden.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+Integration runtime biedt een ingebouwd Teradata-stuur programma vanaf versie 3,18. U hoeft geen stuur Programma's hand matig te installeren. Het stuur programma vereist ' C++ Visual Redistributable 2012 update 4 ' op de zelf-hostende Integration runtime-computer. Als u de app nog niet hebt geïnstalleerd, kunt u deze [hier](https://www.microsoft.com/en-sg/download/details.aspx?id=30679)downloaden.
 
 Voor een zelf-hostende Integration runtime-versie die ouder is dan 3,18, installeert u de [.net-gegevens provider voor Teradata](https://go.microsoft.com/fwlink/?LinkId=278886), versie 14 of hoger op de computer met de Integration runtime. 
 
@@ -63,7 +65,7 @@ De gekoppelde Teradata-service ondersteunt de volgende eigenschappen:
 | connectionString | Hiermee geeft u de gegevens op die nodig zijn om verbinding te maken met het Teradata-data base-exemplaar Raadpleeg de volgende voor beelden.<br/>U kunt ook een wacht woord in azure Key Vault plaatsen en de `password` configuratie uit de Connection String halen. Raadpleeg [referenties opslaan in azure Key Vault](store-credentials-in-key-vault.md) met meer informatie. | Ja |
 | userName | Geef een gebruikers naam op om verbinding te maken met de Teradata-data base. Van toepassing wanneer u Windows-verificatie gebruikt. | Nee |
 | password | Geef een wacht woord op voor het gebruikers account dat u hebt opgegeven voor de gebruikers naam. U kunt er ook voor kiezen om te [verwijzen naar een geheim dat is opgeslagen in azure Key Vault](store-credentials-in-key-vault.md). <br>Is van toepassing wanneer u Windows-verificatie gebruikt of een verwijzing naar een wacht woord in Key Vault voor basis verificatie. | Nee |
-| connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Een zelf-hostende Integration runtime is vereist, zoals vermeld in [vereisten](#prerequisites). |Ja |
+| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Meer informatie vindt u in de sectie [vereisten](#prerequisites) . Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Ja |
 
 **Voor beeld van basis verificatie**
 
@@ -184,11 +186,10 @@ Als u gegevens wilt kopiëren uit Teradata, worden de volgende eigenschappen ond
 
 Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de Teradata-bron. Voor een volledige lijst met secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, Zie [pijp lijnen](concepts-pipelines-activities.md). 
 
-### <a name="teradata-as-a-source-type"></a>Teradata als bron type
+### <a name="teradata-as-source"></a>Teradata als bron
 
-> [!TIP]
->
-> Zie de sectie [parallelle kopie van Teradata](#parallel-copy-from-teradata) voor informatie over het efficiënt laden van gegevens met behulp van gegevens partitioneren.
+>[!TIP]
+>Zie de sectie [parallelle kopie van Teradata](#parallel-copy-from-teradata) voor informatie over het efficiënt laden van gegevens met behulp van gegevens partitioneren.
 
 Als u gegevens wilt kopiëren uit Teradata, worden de volgende eigenschappen ondersteund in de sectie **bron** van de Kopieer activiteit:
 
@@ -200,7 +201,7 @@ Als u gegevens wilt kopiëren uit Teradata, worden de volgende eigenschappen ond
 | partitionSettings | Geef de groep van de instellingen voor het partitioneren van gegevens op. <br>Toep assen als de partitie `None`optie niet is. | Nee |
 | partitionColumnName | Geef de naam op van de bron kolom **in een geheel getal** dat wordt gebruikt voor het partitioneren van het bereik voor parallelle kopieën. Als u niets opgeeft, wordt de primaire sleutel van de tabel automatisch gedetecteerd en gebruikt als partitie kolom. <br>Toep assen wanneer de partitie optie `Hash` is `DynamicRange`of. Als u een query gebruikt om de bron gegevens, de Hook `?AdfHashPartitionCondition` of `?AdfRangePartitionColumnName` de component WHERE op te halen. Zie voor beeld in [parallelle kopie van](#parallel-copy-from-teradata) de sectie Teradata. | Nee |
 | partitionUpperBound | De maximum waarde van de partitie kolom waaruit de gegevens moeten worden gekopieerd. <br>Toep assen wanneer partitie optie `DynamicRange`is. Als u query gebruikt om bron gegevens op te halen `?AdfRangePartitionUpbound` , Hook in de component WHERE. Zie de sectie [parallelle kopie van Teradata](#parallel-copy-from-teradata) voor een voor beeld. | Nee |
-| PartitionLowerBound | De minimum waarde van de partitie kolom waaruit de gegevens moeten worden gekopieerd. <br>Toep assen wanneer de partitie optie `DynamicRange`is. Als u een query gebruikt om de bron gegevens op te halen `?AdfRangePartitionLowbound` , Hook in de component WHERE. Zie de sectie [parallelle kopie van Teradata](#parallel-copy-from-teradata) voor een voor beeld. | Nee |
+| partitionLowerBound | De minimum waarde van de partitie kolom waaruit de gegevens moeten worden gekopieerd. <br>Toep assen wanneer de partitie optie `DynamicRange`is. Als u een query gebruikt om de bron gegevens op te halen `?AdfRangePartitionLowbound` , Hook in de component WHERE. Zie de sectie [parallelle kopie van Teradata](#parallel-copy-from-teradata) voor een voor beeld. | Nee |
 
 > [!NOTE]
 >
@@ -294,7 +295,7 @@ Wanneer u gegevens uit Teradata kopieert, zijn de volgende toewijzingen van toep
 | ByteInt |Int16 |
 | Char |Tekenreeks |
 | Clob |Tekenreeks |
-| Date |Datetime |
+| Date |DateTime |
 | Decimal |Decimal |
 | Double |Double |
 | Graphic |Wordt niet ondersteund. Expliciete cast Toep assen in bron query. |
@@ -321,10 +322,10 @@ Wanneer u gegevens uit Teradata kopieert, zijn de volgende toewijzingen van toep
 | SmallInt |Int16 |
 | Time |TimeSpan |
 | Time With Time Zone |TimeSpan |
-| Timestamp |Datetime |
-| Timestamp With Time Zone |Datetime |
+| Timestamp |DateTime |
+| Timestamp With Time Zone |DateTime |
 | VarByte |Byte[] |
-| VarChar |Reeks |
+| VarChar |Tekenreeks |
 | VarGraphic |Wordt niet ondersteund. Expliciete cast Toep assen in bron query. |
 | Xml |Wordt niet ondersteund. Expliciete cast Toep assen in bron query. |
 

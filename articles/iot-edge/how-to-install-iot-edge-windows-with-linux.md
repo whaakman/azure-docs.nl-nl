@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Edge voor Linux installeren op Windows | Microsoft Docs
-description: Azure IoT Edge-installatie-instructies voor Linux-containers op Windows 10, Windows Server en Windows IoT Core
+description: Azure IoT Edge installatie-instructies voor Linux-containers op Windows 10, Windows Server en Windows IoT core
 author: kgremban
 manager: philmea
 ms.reviewer: veyalla
@@ -9,92 +9,92 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: b7386cbbe18d7e05c2fbffb96f6214b468956192
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d3586c571c2d70034f10cb3e1efd9242d6a1023
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66151709"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986967"
 ---
-# <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Gebruik van IoT Edge op Windows om uit te voeren van Linux-containers
+# <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Gebruik IoT Edge in Windows om Linux-containers uit te voeren
 
-Test IoT Edge-modules voor Linux-apparaten met behulp van een Windows-computer. 
+Test IoT Edge-modules voor Linux-apparaten met behulp van een Windows-machine. 
 
-In een productiescenario voor, moeten Windows-apparaten alleen Windows-containers uitvoeren. Een veelvoorkomend ontwikkelingsscenario is echter een Windows-computer gebruiken om te maken van IoT Edge-modules voor Linux-apparaten. IoT Edge-runtime voor Windows kunt u uitvoeren van Linux-containers voor **testen en ontwikkeling** doeleinden. 
+In een productie scenario moeten Windows-apparaten alleen Windows-containers uitvoeren. Een veelvoorkomend ontwikkel scenario is het gebruik van een Windows-computer om IoT Edge-modules voor Linux-apparaten te bouwen. Met de IoT Edge runtime voor Windows kunt u Linux-containers uitvoeren voor **test-en ontwikkelings** doeleinden. 
 
-In dit artikel vindt u de stappen voor het installeren van de Azure IoT Edge-runtime met behulp van Linux-containers op uw Windows x64 (AMD/Intel) systeem. Zie voor meer informatie over het IoT Edge-runtime installatieprogramma, waaronder informatie over alle installatieparameters [Azure IoT Edge-runtime installeren op Windows](how-to-install-iot-edge-windows.md).
+Dit artikel bevat de stappen voor het installeren van de Azure IoT Edge runtime met Linux-containers op uw Windows x64-systeem (AMD/Intel). Zie [de Azure IOT Edge runtime installeren op Windows](how-to-install-iot-edge-windows.md)voor meer informatie over het installatie programma van IOT Edge runtime, inclusief details over alle installatie parameters.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Gebruik deze sectie om te controleren of uw Windows-apparaat IoT Edge kan ondersteunen en voorbereidt een container-engine voordat de installatie. 
+Gebruik deze sectie om te controleren of uw Windows-apparaat IoT Edge kan ondersteunen en om dit voor te bereiden voor een container engine vóór de installatie. 
 
 ### <a name="supported-windows-versions"></a>Ondersteunde versies van Windows
 
-Azure IoT Edge met Linux-containers kunt uitvoeren op de volgende versies van Windows: 
-* Windows 10 jubileumupdate (build 14393) of hoger
+Azure IoT Edge met Linux-containers kan worden uitgevoerd op de volgende versies van Windows: 
+* Windows 10 jubileum update (build 14393) of nieuwer
 * Windows Server 2016 of hoger
 
-Zie voor meer informatie over wat inbegrepen in de meest recente versie van IoT Edge, [releases van Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
+Zie [Azure IOT Edge releases](https://github.com/Azure/azure-iotedge/releases)voor meer informatie over wat er is opgenomen in de nieuwste versie van IOT Edge.
 
-Als u installeren van IoT Edge op een virtuele machine wilt, geneste virtualisatie inschakelen en ten minste 2 GB geheugen toewijzen. Hoe het inschakelen van geneste virtualisatie verschilt afhankelijk van de hypervisor het gebruik. Voor Hyper-V geneste virtuele machines van generatie 2 virtualisatie is standaard ingeschakeld. Voor VMWare is er een in-/ uitschakelen om in te schakelen van de functie op uw virtuele machine. 
+Als u IoT Edge wilt installeren op een virtuele machine, schakelt u geneste virtualisatie in en wijst u ten minste 2 GB geheugen toe. Het inschakelen van geneste virtualisatie verschilt afhankelijk van de Hyper Visor die u gebruikt. Voor virtuele machines van de 2e generatie is geneste virtualisatie standaard ingeschakeld. Voor VMWare is er een wissel knop om de functie op uw virtuele machine in te scha kelen. 
 
-### <a name="prepare-the-container-engine"></a>Voorbereiden van de container-engine 
+### <a name="prepare-the-container-engine"></a>De container engine voorbereiden 
 
-Azure IoT Edge is afhankelijk van een [OCI-compatibele](https://www.opencontainers.org/) container-engine. Het grootste configuratie verschil tussen Windows en Linux-containers die wordt uitgevoerd op een Windows-machine is dat de installatie van de IoT Edge een Windows-container-runtime omvat, maar u uw eigen runtime voor Linux-containers opgeven moet voor de installatie van IoT Edge. 
+Azure IoT Edge is afhankelijk van een met [OCI compatibele](https://www.opencontainers.org/) container engine. Het grootste verschil in de configuratie tussen het uitvoeren van Windows-en Linux-containers op een Windows-computer is dat de IoT Edge-installatie een Windows-container runtime bevat, maar u moet uw eigen runtime voor Linux-containers opgeven voordat u IoT Edge installeert. 
 
-Als u een Windows-machine kunt ontwikkelen en testen van containers voor Linux-apparaten instelt, kunt u [Docker Desktop](https://www.docker.com/docker-windows) als uw container-engine. U moet Docker installeren en configureer deze [Linux-containers gebruiken](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) voor de installatie van IoT Edge.  
+Als u een Windows-computer wilt instellen voor het ontwikkelen en testen van containers voor Linux-apparaten, kunt u [docker Desktop](https://www.docker.com/docker-windows) gebruiken als uw container engine. U moet docker installeren en configureren voor het [gebruik van Linux-containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) voordat u IOT Edge installeert.  
 
-Als uw IoT Edge-apparaat een Windows-computer is, controleert u of het voldoet aan de [systeemvereisten](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) voor Hyper-V.
+Als uw IoT Edge-apparaat een Windows-computer is, controleert u of deze voldoet aan de [systeem vereisten](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) voor Hyper-V.
 
-## <a name="install-iot-edge-on-a-new-device"></a>IoT Edge op een nieuw apparaat installeren
+## <a name="install-iot-edge-on-a-new-device"></a>IoT Edge installeren op een nieuw apparaat
 
 >[!NOTE]
 >Azure IoT Edge-softwarepakketten zijn afhankelijk van de licentievoorwaarden die zich in de pakketten (in de map LICENSE). Lees de licentievoorwaarden voordat u het pakket. De installatie en het gebruik van het pakket wordt verstaan onder uw acceptatie van deze voorwaarden. Als u niet akkoord met de licentievoorwaarden gaat, moet u het pakket niet gebruiken.
 
-Een PowerShell-script downloadt en installeert de Azure IoT Edge-daemon voor beveiliging. De daemon security start vervolgens de eerste dag van de twee runtimemodules, de IoT Edge-agent, waarmee externe implementaties van andere modules. 
+Met een Power shell-script wordt de Azure IoT Edge Security daemon gedownload en geïnstalleerd. De Security daemon start vervolgens de eerste van twee runtime modules, de IoT Edge-agent, waarmee externe implementaties van andere modules worden ingeschakeld. 
 
-Wanneer u de IoT Edge-runtime voor de eerste keer op een apparaat installeert, moet u voor het inrichten van het apparaat een identiteit van een IoT-hub. Een enkele IoT Edge-apparaat kan worden ingericht handmatig met behulp van een apparaatreeks voor verbindingen die worden geleverd door uw IoT-hub. Of u de Device Provisioning Service kunt gebruiken voor het automatisch inrichten van apparaten, dit is handig wanneer er veel apparaten zijn om in te stellen. 
+Wanneer u de IoT Edge runtime voor de eerste keer op een apparaat installeert, moet u het apparaat inrichten met een identiteit van een IoT-hub. Eén IoT Edge apparaat kan hand matig worden ingericht met behulp van een apparaat verbindings reeks die is geleverd door uw IoT-hub. U kunt ook de Device Provisioning Service gebruiken om apparaten automatisch in te richten. Dit is handig wanneer u veel apparaten hebt om in te stellen. 
 
-U kunt meer lezen over de verschillende installatieopties en parameters in het artikel [Azure IoT Edge-runtime installeren op Windows](how-to-install-iot-edge-windows.md). Zodra u hebt de Docker-Desktop geïnstalleerd en geconfigureerd voor Linux-containers, de installatie van het belangrijkste verschil is het declareren van Linux met de **- ContainerOs** parameter. Bijvoorbeeld: 
+U vindt meer informatie over de verschillende installatie opties en-para meters in het artikel [installatie van de Azure IOT Edge runtime op Windows](how-to-install-iot-edge-windows.md). Zodra u docker-bureau blad hebt geïnstalleerd en geconfigureerd voor Linux-containers, wordt door het belangrijkste installatie verschil Linux met de para meter **-ContainerOs** gedeclareerd. Bijvoorbeeld: 
 
-1. Als u dat nog niet gedaan hebt, een nieuwe IoT Edge-apparaat registreren en de verbindingsreeks op te halen. Kopieer de verbindingsreeks voor later gebruik in deze sectie. U kunt deze stap uit met de volgende hulpprogramma's kunt uitvoeren:
+1. Als u dit nog niet hebt gedaan, registreert u een nieuw IoT Edge apparaat en haalt u het apparaat connection string op. Kopieer de connection string voor gebruik verderop in deze sectie. U kunt deze stap volt ooien met behulp van de volgende hulpprogram ma's:
 
-   * [Azure Portal](how-to-register-device-portal.md)
+   * [Azure-portal](how-to-register-device-portal.md)
    * [Azure-CLI](how-to-register-device-cli.md)
    * [Visual Studio Code](how-to-register-device-vscode.md)
 
-2. Voer PowerShell uit als beheerder.
+2. Voer Power shell uit als beheerder.
 
    >[!NOTE]
-   >IoT Edge, niet PowerShell (x86) installeert met behulp van een AMD64-sessie van PowerShell. Als u niet zeker weet welke Sessietype die u gebruikt, moet u de volgende opdracht uitvoeren:
+   >Gebruik een AMD64-sessie van Power shell om IoT Edge, niet Power shell (x86), te installeren. Als u niet zeker weet welk sessie type u gebruikt, voert u de volgende opdracht uit:
    >
    >```powershell
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    >```
 
-3. De **implementeren IoTEdge** opdracht controleert of uw Windows-machine op een ondersteunde versie is, schakelt de functie voor containers en downloadt vervolgens de runtime moby (die niet wordt gebruikt voor Linux-containers) en de IoT Edge-runtime. De opdracht standaard ingesteld op Windows-containers, declareren dus Linux als het besturingssysteem van de gewenste container. 
+3. Met de opdracht **Deploy-IoTEdge** wordt gecontroleerd of de Windows-computer een ondersteunde versie heeft, wordt de functie containers ingeschakeld en wordt de Moby-runtime (die niet wordt gebruikt voor Linux-containers) en de IOT Edge runtime gedownload. De opdracht wordt standaard ingesteld op Windows-containers, dus Linux declareren als het desired container-besturings systeem. 
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge -ContainerOs Linux
    ```
 
-4. Op dit moment IoT Core-apparaten kunnen automatisch opnieuw opgestart. Andere apparaten met Windows 10 of Windows Server mogelijk gevraagd om opnieuw te starten. Als dit het geval is, kunt u uw apparaat opnieuw. Zodra het apparaat gereed is, opnieuw uitvoeren van PowerShell als beheerder.
+4. Op dit moment kunnen IoT-kern apparaten automatisch opnieuw worden opgestart. Op andere Windows 10-of Windows Server-apparaten wordt u mogelijk gevraagd om opnieuw op te starten. Als dit het geval is, start u het apparaat nu opnieuw op. Zodra het apparaat klaar is, voert u Power shell als beheerder opnieuw uit.
 
-5. De **initialiseren IoTEdge** opdracht configureert de IoT Edge-runtime op uw computer. De standaardinstellingen van de opdracht voor het inrichten van handmatige met een verbindingsreeks voor het apparaat. Linux opnieuw als het besturingssysteem van de gewenste container declareren. 
+5. De **initialisatie-IoTEdge-** opdracht configureert de IOT Edge runtime op de computer. De opdracht wordt standaard ingesteld op hand matig inrichten met een apparaat connection string. Declareer Linux als het gewenste container besturingssysteem. 
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -ContainerOs Linux
    ```
 
-6. Geef desgevraagd de apparaatverbindingsreeks die u in stap 1 hebt opgehaald. De verbindingsreeks van het apparaat wordt gekoppeld aan het fysieke apparaat met een apparaat-ID van IoT-Hub. 
+6. Wanneer u hierom wordt gevraagd, geeft u de connection string op van het apparaat dat u in stap 1 hebt opgehaald. Het apparaat connection string het fysieke apparaat koppelt aan een apparaat-ID in IoT Hub. 
 
-   De verbindingsreeks heeft de volgende notatie en niet tussen aanhalingstekens moet worden opgenomen: `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
+   De connection string van het apparaat heeft de volgende indeling en mag geen aanhalings tekens bevatten:`HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
 ## <a name="verify-successful-installation"></a>Controleer of geslaagde installatie
 
-Controleer de status van de IoT Edge-service. Deze moet worden weergegeven als het uitvoeren.  
+Controleer de status van de IoT Edge-service. Deze moet worden weer gegeven als actief.  
 
 ```powershell
 Get-Service iotedge
@@ -106,7 +106,8 @@ Bekijk Logboeken van de laatste 5 minuten.
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Lijst met modules. Na een nieuwe installatie, de enige module ziet u het uitvoeren is **edgeAgent**. Nadat u [IoT Edge-modules implementeren](how-to-deploy-modules-portal.md), ziet u anderen. 
+Lijst met modules. Na een nieuwe installatie is de enige module die u moet zien, **edgeAgent**. Nadat u [IOT Edge-modules](how-to-deploy-modules-portal.md) voor de eerste keer hebt geïmplementeerd, wordt de andere systeem module, **edgeHub**, ook op het apparaat gestart. 
+
 
 ```powershell
 iotedge list
@@ -116,6 +117,6 @@ iotedge list
 
 Nu u een IoT Edge-apparaat dat is ingericht met de runtime geïnstalleerd hebt, kunt u [IoT Edge-modules implementeren](how-to-deploy-modules-portal.md).
 
-Als u hebt met het IoT Edge niet goed geïnstalleerd problemen, bekijk de [probleemoplossing](troubleshoot.md) pagina.
+Als u problemen ondervindt met de installatie van IoT Edge op de juiste wijze, raadpleegt u de pagina [probleem oplossing](troubleshoot.md) .
 
-Als u wilt een bestaande installatie bijwerken naar de nieuwste versie van IoT Edge, Zie [bijwerken van de IoT Edge security-daemon en de runtime](how-to-update-iot-edge.md).
+Zie [de IOT Edge Security daemon en runtime bijwerken](how-to-update-iot-edge.md)als u een bestaande installatie wilt bijwerken naar de nieuwste versie van IOT Edge.

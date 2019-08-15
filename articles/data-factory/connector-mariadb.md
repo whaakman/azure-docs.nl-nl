@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 1fdaef319235b90d05dc6ddc6d8eb1c5bb7ba294
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 1374f2f819c0c5704ecf01f4d8412fd78c8560c3
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720696"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966952"
 ---
 # <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Gegevens kopiëren van MariaDB met Azure Data Factory
 
@@ -30,6 +30,10 @@ U kunt gegevens uit MariaDB kopiëren naar een ondersteunde sink-gegevensopslag.
 Azure Data Factory biedt een ingebouwde stuurprogramma als connectiviteit wilt inschakelen, dus hoeft u stuurprogramma voor gebruik van deze connector handmatig installeren.
 
 Deze connector ondersteunt momenteel MariaDB van versie 10.0 10.2.
+
+## <a name="prerequisites"></a>Vereisten
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -45,7 +49,7 @@ De volgende eigenschappen worden ondersteund voor MariaDB gekoppelde service:
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **MariaDB** | Ja |
 | connectionString | Een ODBC-verbindingsreeks verbinding maken met MariaDB. <br/>Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory. U kunt ook wacht woord in azure Key Vault plaatsen en de `pwd` configuratie uit de Connection String halen. Raadpleeg de volgende voor beelden en [Sla referenties op in azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. | Ja |
-| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
+| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Meer informatie vindt u in de sectie [vereisten](#prerequisites) . Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 **Voorbeeld:**
 

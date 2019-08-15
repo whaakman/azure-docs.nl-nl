@@ -8,26 +8,13 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 438f450efe207999947795878a9815fca64f45ca
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: a627592bdfcbebc3c7fcda911e31c0ae6f4a630f
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68702921"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976625"
 ---
-De toegewezen Azure-host is een service die fysieke servers biedt en een of meer virtuele machines kan hosten die zijn toegewezen aan één Azure-abonnement. Toegewezen hosts zijn dezelfde fysieke servers die worden gebruikt in onze data centers als een resource. U kunt toegewezen hosts inrichten binnen een regio, een beschikbaarheids zone en een fout domein. Vervolgens kunt u Vm's rechtstreeks op uw ingerichte hosts plaatsen, in welke configuratie het beste voldoet aan uw behoeften.
-
-> [!IMPORTANT]
-> Exclusieve Azure-hosts bevindt zich momenteel in de open bare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
->
-> **Bekende preview-beperkingen**
-> - Virtuele-machine schaal sets worden momenteel niet ondersteund op toegewezen hosts.
-> - De eerste release van de preview-versie ondersteunt de volgende VM-serie: DSv3 en ESv3. 
-> - Tijdens de preview-periode kunt u de grootte van een virtuele machine die is geïmplementeerd op een specifieke host niet wijzigen.
-> - Controle over de onderhouds mogelijkheden bevindt zich in een beperkte preview. Begin met het nemen van deze [Benoemings enquête](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u) om ze uit te proberen.  
-> Tijdens de preview-periode bieden we geen optie voor gereserveerde capaciteit. 
-
 ## <a name="benefits"></a>Voordelen 
 
 Het reserveren van de hele host biedt de volgende voor delen:

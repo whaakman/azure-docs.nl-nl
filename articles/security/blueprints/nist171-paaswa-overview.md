@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: 101d7b621287972571fb5d3ba9ea02ace2ef1421
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 4d635d04c5207b3668bd179cec4f21e26dd59452
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780705"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946684"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Azure-blauwdruk voor beveiliging en naleving-PaaS-webtoepassing voor NIST speciale publicatie 800-171
 
@@ -77,8 +77,8 @@ De volgende sectie bevat informatie over de implementatie-en implementatie-eleme
 
 Met deze oplossing wordt een VM gemaakt als een aan een domein gekoppelde bastion-host met de volgende configuraties:
 -   [Uitbrei ding](https://docs.microsoft.com/azure/security/fundamentals/antimalware)van antimalware.
--   [Azure Diagnostics extensie](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template).
--   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) met behulp van Key Vault.
+-   [Azure Diagnostics extensie](../../virtual-machines/windows/extensions-diagnostics-template.md).
+-   [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) met behulp van Key Vault.
 -   Een [beleid voor automatisch afsluiten](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) om het verbruik van VM-resources te verminderen wanneer het niet wordt gebruikt.
 -   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) is ingeschakeld, zodat referenties en andere geheimen worden uitgevoerd in een beveiligde omgeving die is geïsoleerd van het besturings systeem dat wordt uitgevoerd.
 
@@ -92,17 +92,17 @@ Het gebruik van App Service Environment voor deze architectuur biedt de volgende
 
 - Host binnen een beveiligde Azure Virtual Network-en netwerk beveiligings regels.
 - Zelfondertekend intern load balancer certificaat voor HTTPS-communicatie. Als best practice, raadt micro soft u aan het gebruik van een vertrouwde certificerings instantie te gebruiken voor verbeterde beveiliging.
-- [Modus voor interne taak verdeling](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer) (modus 3).
-- Schakel [TLS 1,0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)uit.
-- [TLS-versleuteling](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)wijzigen.
-- Beheer [poorten voor binnenkomend verkeer N/W](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic).
-- [Web Application firewall: gegevens beperken](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall).
-- [Azure SQL database verkeer](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)toestaan.
+- [Modus voor interne taak verdeling](../../app-service/environment/app-service-environment-with-internal-load-balancer.md) (modus 3).
+- Schakel [TLS 1,0](../../app-service/environment/app-service-app-service-environment-custom-settings.md)uit.
+- [TLS-versleuteling](../../app-service/environment/app-service-app-service-environment-custom-settings.md)wijzigen.
+- Beheer [poorten voor binnenkomend verkeer N/W](../../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md).
+- [Web Application firewall: gegevens beperken](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
+- [Azure SQL database verkeer](../../app-service/environment/app-service-app-service-environment-network-architecture-overview.md)toestaan.
 
 ### <a name="virtual-network"></a>Virtueel netwerk
 De architectuur definieert een particulier virtueel netwerk met een adres ruimte van 10.200.0.0/16.
 
-**Netwerk beveiligings groepen**: [Nsg's](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) bevatten toegangs beheer lijsten waarmee verkeer binnen een virtueel netwerk wordt toegestaan of geweigerd. Nsg's kan worden gebruikt om verkeer op een subnet of een afzonderlijk VM-niveau te beveiligen. De volgende Nsg's bestaan:
+**Netwerk beveiligings groepen**: [Nsg's](../../virtual-network/virtual-network-vnet-plan-design-arm.md) bevatten toegangs beheer lijsten waarmee verkeer binnen een virtueel netwerk wordt toegestaan of geweigerd. Nsg's kan worden gebruikt om verkeer op een subnet of een afzonderlijk VM-niveau te beveiligen. De volgende Nsg's bestaan:
 - Eén NSG voor Application Gateway
 - Eén NSG voor App Service Environment
 - Eén NSG voor SQL Database
@@ -125,26 +125,26 @@ Azure versleutelt standaard alle communicatie naar en van Azure-data centers. Al
 
 De architectuur beveiligt gegevens op rest door versleuteling, database controle en andere metingen.
 
-**Azure Storage**: Om te voldoen aan de vereisten voor versleutelde gegevens in rust, gebruikt alle [opslag](https://azure.microsoft.com/services/storage/) [Storage service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Deze functie helpt bij het beschermen en beschermen van gegevens ter ondersteuning van organisatie beveiligings verplichtingen en nalevings vereisten die zijn gedefinieerd door NIST SP 800-171.
+**Azure Storage**: Om te voldoen aan de vereisten voor versleutelde gegevens in rust, gebruikt alle [opslag](https://azure.microsoft.com/services/storage/) [Storage service Encryption](../../storage/common/storage-service-encryption.md). Deze functie helpt bij het beschermen en beschermen van gegevens ter ondersteuning van organisatie beveiligings verplichtingen en nalevings vereisten die zijn gedefinieerd door NIST SP 800-171.
 
-**Azure Disk Encryption**: [Schijf versleuteling](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) maakt gebruik van de BitLocker-functie van Windows om volume versleuteling voor gegevens schijven te bieden. De oplossing kan worden geïntegreerd met Key Vault om de versleutelings sleutels voor de schijf te controleren en te beheren.
+**Azure Disk Encryption**: [Schijf versleuteling](../azure-security-disk-encryption-overview.md) maakt gebruik van de BitLocker-functie van Windows om volume versleuteling voor gegevens schijven te bieden. De oplossing kan worden geïntegreerd met Key Vault om de versleutelings sleutels voor de schijf te controleren en te beheren.
 
 **Azure SQL Database**: Het SQL Database exemplaar maakt gebruik van de volgende data base Security-maat eenheden:
 -   Met [Active Directory verificatie en autorisatie](https://docs.microsoft.com/azure/sql-database/sql-database-AAD-authentication) kan identiteits beheer van database gebruikers en andere micro soft-Services op één centrale locatie worden beheerd.
--   Met [SQL database controle](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) worden database gebeurtenissen bijgehouden en naar een audit logboek in een Azure-opslag account geschreven.
+-   Met [SQL database controle](../../sql-database/sql-database-auditing.md) worden database gebeurtenissen bijgehouden en naar een audit logboek in een Azure-opslag account geschreven.
 -   SQL Database is geconfigureerd voor het gebruik van [transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). De data base, gekoppelde back-ups en transactie logboek bestanden worden in realtime versleuteld en ontsleuteld om informatie op rest te beveiligen. Transparent Data Encryption biedt zekerheid dat opgeslagen gegevens niet zijn onderworpen aan onbevoegde toegang.
 -   [Firewall regels](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) voor komen dat alle toegang tot database servers tot de juiste machtigingen worden verleend. De firewall verleent toegang tot databases op basis van het IP-adres waar de aanvraag vandaan komt.
--   Met de [SQL-bedreigings detectie](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) kan de detectie en het antwoord op mogelijke dreigingen worden uitgevoerd. Het biedt beveiligings waarschuwingen voor verdachte database activiteiten, potentiële kwetsbaar heden, SQL-injectie aanvallen en afwijkende patronen voor database toegang.
+-   Met de [SQL-bedreigings detectie](../../sql-database/sql-database-threat-detection.md) kan de detectie en het antwoord op mogelijke dreigingen worden uitgevoerd. Het biedt beveiligings waarschuwingen voor verdachte database activiteiten, potentiële kwetsbaar heden, SQL-injectie aanvallen en afwijkende patronen voor database toegang.
 -   [Versleutelde kolommen](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) zorgen ervoor dat gevoelige gegevens nooit als tekst zonder opmaak in het database systeem worden weer gegeven. Nadat de gegevens versleuteling is ingeschakeld, hebben alleen client toepassingen of toepassings servers met toegang tot de sleutels toegang tot onbewerkte-tekst gegevens.
 - [Dynamische gegevens maskering](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) beperkt de bloot stelling van gevoelige gegevens door de gegevens te maskeren voor niet-gemachtigde gebruikers of toepassingen. Er kunnen mogelijk gevoelige gegevens automatisch worden gedetecteerd en de juiste maskers worden voorgesteld om toe te passen. Dynamische gegevens maskering helpt de toegang te beperken, zodat gevoelige gegevens de data base niet sluiten via onbevoegde toegang. *Klanten zijn verantwoordelijk voor het aanpassen van de instellingen om te voldoen aan hun database schema.*
 
 ### <a name="identity-management"></a>Identiteitsbeheer
 De volgende technologieën bieden mogelijkheden voor het beheren van toegang tot gegevens in de Azure-omgeving:
 -   [Azure AD](https://azure.microsoft.com/services/active-directory/) is de multi tenant-Cloud Directory-en identiteits beheer service van micro soft. Alle gebruikers voor deze oplossing worden gemaakt in azure AD en bevatten gebruikers die toegang hebben tot de SQL database.
--   Verificatie voor de toepassing wordt uitgevoerd met behulp van Azure AD. Zie [toepassingen integreren met Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)voor meer informatie. De database kolom versleuteling maakt ook gebruik van Azure AD om de toepassing te verifiëren voor SQL Database. Zie voor meer informatie hoe u [gevoelige gegevens in SQL database kunt beveiligen](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
--   [Azure RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) kan door beheerders worden gebruikt voor het definiëren van verfijnde toegangs machtigingen. Hiermee kunnen ze alleen de hoeveelheid toegang verlenen die gebruikers nodig hebben om hun taken uit te voeren. In plaats van elke gebruiker onbeperkte toegang voor Azure-resources te geven, kunnen beheerders alleen bepaalde acties toestaan voor het openen van bronnen en gegevens. Abonnements toegang is beperkt tot de abonnements beheerder.
-- [Azure Active Directory privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started) kunnen door klanten worden gebruikt om het aantal gebruikers dat toegang tot bepaalde gegevens heeft, te minimaliseren. Beheerders kunnen Azure AD Privileged Identity Management gebruiken om bevoegde identiteiten en hun toegang tot bronnen te detecteren, beperken en controleren. Deze functie kan ook worden gebruikt voor het afdwingen van alleen-in-time-beheer toegang op aanvraag wanneer dit nodig is.
-- [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) detecteert mogelijke beveiligings problemen die van invloed zijn op de identiteiten van een organisatie. Hiermee configureert u automatische antwoorden op gedetecteerde verdachte acties die betrekking hebben op de identiteiten van een organisatie. Er worden ook verdachte incidenten onderzocht om de juiste maat regelen te nemen om deze op te lossen.
+-   Verificatie voor de toepassing wordt uitgevoerd met behulp van Azure AD. Zie [toepassingen integreren met Azure AD](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)voor meer informatie. De database kolom versleuteling maakt ook gebruik van Azure AD om de toepassing te verifiëren voor SQL Database. Zie voor meer informatie hoe u [gevoelige gegevens in SQL database kunt beveiligen](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+-   [Azure RBAC](../../role-based-access-control/role-assignments-portal.md) kan door beheerders worden gebruikt voor het definiëren van verfijnde toegangs machtigingen. Hiermee kunnen ze alleen de hoeveelheid toegang verlenen die gebruikers nodig hebben om hun taken uit te voeren. In plaats van elke gebruiker onbeperkte toegang voor Azure-resources te geven, kunnen beheerders alleen bepaalde acties toestaan voor het openen van bronnen en gegevens. Abonnements toegang is beperkt tot de abonnements beheerder.
+- [Azure Active Directory privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md) kunnen door klanten worden gebruikt om het aantal gebruikers dat toegang tot bepaalde gegevens heeft, te minimaliseren. Beheerders kunnen Azure AD Privileged Identity Management gebruiken om bevoegde identiteiten en hun toegang tot bronnen te detecteren, beperken en controleren. Deze functie kan ook worden gebruikt voor het afdwingen van alleen-in-time-beheer toegang op aanvraag wanneer dit nodig is.
+- [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) detecteert mogelijke beveiligings problemen die van invloed zijn op de identiteiten van een organisatie. Hiermee configureert u automatische antwoorden op gedetecteerde verdachte acties die betrekking hebben op de identiteiten van een organisatie. Er worden ook verdachte incidenten onderzocht om de juiste maat regelen te nemen om deze op te lossen.
 
 ### <a name="security"></a>Beveiliging
 **Beheer van geheimen**: De oplossing maakt gebruik van [Key Vault](https://azure.microsoft.com/services/key-vault/) voor het beheer van sleutels en geheimen. Key Vault helpt bij het beveiligen van cryptografische sleutels en geheimen die worden gebruikt door Cloud toepassingen en-services. Met de volgende Key Vault mogelijkheden kunnen klanten gegevens beveiligen:
@@ -165,33 +165,33 @@ Security Center biedt prioriteiten voor beveiligings waarschuwingen en incidente
 **Azure-toepassing gateway**: De architectuur vermindert het risico op beveiligings problemen door gebruik te maken van een toepassings gateway met een Web Application Firewall geconfigureerd en dat de regel set OWASP is ingeschakeld. Aanvullende mogelijkheden zijn onder andere:
 
 - [End-to-end-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
-- [SSL-offload](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)inschakelen.
+- [SSL-offload](../../application-gateway/create-ssl-portal.md)inschakelen.
 - Schakel [TLS v 1.0 en v 1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)uit.
-- [Web Application firewall](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (preventie modus).
+- [Web Application firewall](../../application-gateway/waf-overview.md) (preventie modus).
 - [Preventie modus](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) met OWASP 3,0-regelset.
 - Schakel [logboek registratie van diagnostische gegevens](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)in.
-- [Aangepaste status controles](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-gateway-portal).
+- [Aangepaste status controles](../../application-gateway/quick-create-portal.md).
 - [Security Center](https://azure.microsoft.com/services/security-center) en [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) bieden extra beveiliging en meldingen. Security Center biedt ook een reputatie systeem.
 
 ### <a name="logging-and-auditing"></a>Logboek registratie en controle
 
 Azure-Services registreren systeem-en gebruikers activiteiten uitvoerig, evenals systeem status:
-- **Activiteiten logboeken**: [Activiteiten logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in bewerkingen die worden uitgevoerd op resources in een abonnement. Activiteiten logboeken kunnen helpen bij het bepalen van de initiator, het tijdstip van de gebeurtenis en de status van een bewerking.
-- **Diagnostische logboeken**: [Diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) bevatten alle logboeken die elke resource heeft verzonden. Deze logboeken bevatten Windows-gebeurtenis systeem logboeken, opslag logboeken, Key Vault controle logboeken en Application Gateway toegang en firewall Logboeken. Alle Diagnostische logboeken schrijven naar een gecentraliseerd en versleuteld Azure Storage-account voor archivering. Gebruikers kunnen de Bewaar periode tot 730 dagen configureren om te voldoen aan de specifieke vereisten.
+- **Activiteiten logboeken**: [Activiteiten logboeken](../../azure-monitor/platform/activity-logs-overview.md) bieden inzicht in bewerkingen die worden uitgevoerd op resources in een abonnement. Activiteiten logboeken kunnen helpen bij het bepalen van de initiator, het tijdstip van de gebeurtenis en de status van een bewerking.
+- **Diagnostische logboeken**: [Diagnostische logboeken](../../azure-monitor/platform/diagnostic-logs-overview.md) bevatten alle logboeken die elke resource heeft verzonden. Deze logboeken bevatten Windows-gebeurtenis systeem logboeken, opslag logboeken, Key Vault controle logboeken en Application Gateway toegang en firewall Logboeken. Alle Diagnostische logboeken schrijven naar een gecentraliseerd en versleuteld Azure Storage-account voor archivering. Gebruikers kunnen de Bewaar periode tot 730 dagen configureren om te voldoen aan de specifieke vereisten.
 
 **Azure monitor logboeken**: Logboeken worden samengevoegd in [Azure monitor logboeken](https://azure.microsoft.com/services/log-analytics/) voor verwerking, opslag en dashboard rapportage. Nadat de gegevens zijn verzameld, worden deze in verschillende tabellen ingedeeld voor elk gegevens type binnen Log Analytics werk ruimten. Op deze manier kunnen alle gegevens samen worden geanalyseerd, ongeacht de oorspronkelijke bron. Security Center integreert met Azure Monitor-Logboeken. Klanten kunnen Kusto-query's gebruiken om toegang te krijgen tot de gegevens van de beveiligings gebeurtenis en deze te combi neren met gegevens uit andere services.
 
-De volgende Azure- [bewakings oplossingen](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) zijn opgenomen als onderdeel van deze architectuur:
--   [Active Directory beoordeling](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): De Active Directory Health Check-oplossing evalueert het risico en de status van de server omgevingen volgens een regel matig interval. Het bevat een lijst met prioriteiten die specifiek zijn voor de geïmplementeerde server infrastructuur.
-- [SQL-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): De SQL Health Check-oplossing evalueert het risico en de status van de server omgevingen volgens een regel matig interval. Het biedt klanten een lijst met prioriteiten die specifiek zijn voor de geïmplementeerde server infrastructuur.
-- [Status van agent](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): De Status van agent oplossing meldt hoeveel agents er zijn geïmplementeerd en wat hun geografische distributie is. Ook wordt gerapporteerd hoeveel agents niet reageren en hoeveel agents operationele gegevens indienen.
--   [Analyse van activiteitenlogboek](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): De Analyse van activiteitenlogboek oplossing helpt bij het analyseren van de activiteiten logboeken van Azure in alle Azure-abonnementen voor een klant.
+De volgende Azure- [bewakings oplossingen](../../monitoring/monitoring-solutions.md) zijn opgenomen als onderdeel van deze architectuur:
+-   [Active Directory beoordeling](../../azure-monitor/insights/ad-assessment.md): De Active Directory Health Check-oplossing evalueert het risico en de status van de server omgevingen volgens een regel matig interval. Het bevat een lijst met prioriteiten die specifiek zijn voor de geïmplementeerde server infrastructuur.
+- [SQL-evaluatie](../../azure-monitor/insights/sql-assessment.md): De SQL Health Check-oplossing evalueert het risico en de status van de server omgevingen volgens een regel matig interval. Het biedt klanten een lijst met prioriteiten die specifiek zijn voor de geïmplementeerde server infrastructuur.
+- [Status van agent](../../monitoring/monitoring-solution-agenthealth.md): De Status van agent oplossing meldt hoeveel agents er zijn geïmplementeerd en wat hun geografische distributie is. Ook wordt gerapporteerd hoeveel agents niet reageren en hoeveel agents operationele gegevens indienen.
+-   [Analyse van activiteitenlogboek](../../azure-monitor/platform/collect-activity-logs.md): De Analyse van activiteitenlogboek oplossing helpt bij het analyseren van de activiteiten logboeken van Azure in alle Azure-abonnementen voor een klant.
 
-**Azure Automation**: [](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) Met Automation worden runbooks opgeslagen, uitgevoerd en beheerd. In deze oplossing helpen runbooks bij het verzamelen van logboeken van SQL Database. Klanten kunnen de oplossing Automation [Wijzigingen bijhouden](https://docs.microsoft.com/azure/automation/automation-change-tracking) gebruiken om eenvoudig wijzigingen in de omgeving te identificeren.
+**Azure Automation**: [](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) Met Automation worden runbooks opgeslagen, uitgevoerd en beheerd. In deze oplossing helpen runbooks bij het verzamelen van logboeken van SQL Database. Klanten kunnen de oplossing Automation [Wijzigingen bijhouden](../../automation/change-tracking.md) gebruiken om eenvoudig wijzigingen in de omgeving te identificeren.
 
 **Azure monitor**: [Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) helpt gebruikers bij het volgen van prestaties, het onderhouden van de beveiliging en het identificeren van trends. Organisaties kunnen deze gebruiken om gegevens te controleren, te maken en te archiveren. Ze kunnen ook API-aanroepen volgen in hun Azure-resources.
 
-**Application Insights**: [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is een uitbreid bare service voor het beheer van toepassings prestaties voor webontwikkelaars op meerdere platforms. Application Insights detecteert prestatie afwijkingen. Klanten kunnen het gebruiken om de Live webtoepassing te bewaken. Application Insights bevat krachtige analyse hulpprogramma's om klanten te helpen bij het vaststellen van problemen en inzicht te krijgen in wat gebruikers met hun app doen. Het&#39;is ontworpen om klanten voortdurend te helpen de prestaties en bruikbaarheid te verbeteren.
+**Application Insights**: [Application Insights](../../azure-monitor/app/app-insights-overview.md) is een uitbreid bare service voor het beheer van toepassings prestaties voor webontwikkelaars op meerdere platforms. Application Insights detecteert prestatie afwijkingen. Klanten kunnen het gebruiken om de Live webtoepassing te bewaken. Application Insights bevat krachtige analyse hulpprogramma's om klanten te helpen bij het vaststellen van problemen en inzicht te krijgen in wat gebruikers met hun app doen. Het&#39;is ontworpen om klanten voortdurend te helpen de prestaties en bruikbaarheid te verbeteren.
 
 ## <a name="threat-model"></a>Bedreigings model
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: d7fb9fadcfac0b57fb98dc54f40ff0d2f07c6827
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: eb4f0e26d1795abc3392e9736e71093fab79aae2
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728398"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967933"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Beveiligings frame: Verificatie | Oplossingen 
 
@@ -435,7 +435,7 @@ Let op: als u de effectiviteit van deze configuratie wilt testen, meldt u zich a
 | **Toepasselijke technologieën** | Encarta |
 | **Eigenschappen**              | N/A  |
 | **Referentie**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
-| **Stappen** | <p>Met de Azure AD Authentication Library (ADAL) kunnen ontwikkel aars van client toepassingen eenvoudig gebruikers verifiëren voor Cloud-of on-premises Active Directory (AD) en vervolgens toegangs tokens verkrijgen voor het beveiligen van API-aanroepen.</p><p>ADAL heeft een groot aantal functies die de verificatie vereenvoudigen voor ontwikkel aars, zoals asynchrone ondersteuning, een Configureer bare token cache waarmee toegangs tokens worden opgeslagen en tokens worden vernieuwd, automatische token vernieuwing wanneer een toegangs token verloopt en er een vernieuwings token beschikbaar is, en grotere.</p><p>Door de meeste complexiteit te verwerken, kan ADAL een ontwikkelaar helpen zich te richten op de bedrijfs logica in hun toepassing en eenvoudig bronnen beveiligen zonder een expert op het niveau van beveiliging. Er zijn afzonderlijke bibliotheken beschikbaar voor .NET, java script (client en node. js), iOS, Android en Java.</p>|
+| **Stappen** | <p>Met de Azure AD Authentication Library (ADAL) kunnen ontwikkel aars van client toepassingen eenvoudig gebruikers verifiëren voor Cloud-of on-premises Active Directory (AD) en vervolgens toegangs tokens verkrijgen voor het beveiligen van API-aanroepen.</p><p>ADAL heeft een groot aantal functies die de verificatie vereenvoudigen voor ontwikkel aars, zoals asynchrone ondersteuning, een Configureer bare token cache waarmee toegangs tokens worden opgeslagen en tokens worden vernieuwd, automatische token vernieuwing wanneer een toegangs token verloopt en er een vernieuwings token beschikbaar is, en grotere.</p><p>Door de meeste complexiteit te verwerken, kan ADAL een ontwikkelaar helpen zich te richten op de bedrijfs logica in hun toepassing en eenvoudig bronnen beveiligen zonder een expert op het niveau van beveiliging. Er zijn afzonderlijke bibliotheken beschikbaar voor .NET, java script (client en node. js), Python, iOS, Android en Java.</p>|
 
 ## <a id="authn-devices-field"></a>Apparaten verifiëren die verbinding maken met de veld Gateway
 

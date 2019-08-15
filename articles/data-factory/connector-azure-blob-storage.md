@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 02bafb7fe2e0689beee8919594fcbd3f87235b2e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2770a15211e24c9b79c906287295554b2cb94db8
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840345"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986126"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Blob-opslag met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory service die u gebruikt:"]
@@ -76,6 +76,9 @@ Voor het gebruik van storage-account sleutelverificatie, worden de volgende eige
 | connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt Azure Integration Runtime of zelfgehoste Cloudintegratieruntime gebruiken (als uw gegevensopslag in een particulier netwerk is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 >[!NOTE]
+>Secundair eind punt van BLOB service wordt niet ondersteund bij het gebruik van account sleutel verificatie. U kunt andere verificatie typen gebruiken.
+
+>[!NOTE]
 >Als u "AzureStorage" type gekoppelde service zijn gebruikt, wordt deze nog steeds ondersteund als-is, terwijl u het gebruik van deze nieuwe 'Azure BLOB Storage"gekoppeld servicetype voortaan worden voorgesteld.
 
 **Voorbeeld:**
@@ -133,7 +136,7 @@ Voor het gebruik van storage-account sleutelverificatie, worden de volgende eige
 Een shared access signature biedt gedelegeerde toegang tot resources in uw opslagaccount. U kunt een shared access signature toekennen van dat een client beperkte machtigingen voor objecten in uw storage-account voor een opgegeven periode. U hebt geen delen van de toegangssleutels van uw account. De shared access signature is een URI die in de queryparameters alle informatie die nodig zijn voor geverifieerde toegang tot een opslagresource omvat. Voor toegang tot de storage-resources met de shared access signature, moet de client alleen worden doorgegeven in de handtekening voor gedeelde toegang tot de juiste constructor of methode. Zie [Shared Access signatures (Engelstalig) voor meer informatie over hand tekeningen voor gedeelde toegang: Meer informatie over het model](../storage/common/storage-dotnet-shared-access-signature-part-1.md)voor de Shared Access-hand tekening.
 
 > [!NOTE]
->- Data Factory ondersteunt nu zowel **service gedeelde toegangshandtekeningen** en **account gedeelde toegangshandtekeningen**. Zie voor meer informatie over deze twee typen en hoe u een van deze [typen handtekeningen voor gedeelde toegang](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures).
+>- Data Factory ondersteunt nu zowel **service gedeelde toegangshandtekeningen** en **account gedeelde toegangshandtekeningen**. Zie voor meer informatie over gedeelde toegangs handtekeningen [beperkte toegang verlenen tot Azure storage-resources met behulp van Shared Access signatures (SAS)](../storage/common/storage-sas-overview.md).
 >- In latere configuratie van de gegevensset is het pad naar het absolute pad vanaf het niveau van de container. U moet een afgestemd op het pad naar uw SAS-URI configureren.
 
 > [!TIP]

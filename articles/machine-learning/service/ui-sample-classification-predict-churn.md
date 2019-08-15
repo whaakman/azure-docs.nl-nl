@@ -1,5 +1,5 @@
 ---
-title: Ontbreekt Voor spel verloop + verlangen + up-sell
+title: '#5 voor beeld van visuele interface: Classificatie voor het voors pellen van verloop en verlangen + up-sell'
 titleSuffix: Azure Machine Learning service
 description: In dit voorbeeld experiment van de Visual-Interface ziet u de binaire classifier-voor spelling van het verloop, een algemene taak voor Customer Relationship Management (CRM).
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: a0b3e3de604e7c59ea6a06bd59007964c98e0057
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a2eabdd601fcf350d2076d33882e3d90255fee92
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845982"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016474"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Voor beeld 5-classificatie: Verloop, verlangen en up-sell voors pellen 
 

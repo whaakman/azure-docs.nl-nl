@@ -1,6 +1,6 @@
 ---
 title: Een afbeelding slaag toevoegen aan Azure Maps | Microsoft Docs
-description: Een afbeelding slaag toevoegen aan de Java script-kaart
+description: Een afbeelding slaag toevoegen aan de Azure Maps Web-SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 7ea0f37e307196af4b27fd3f8fb1aa0d42443dfa
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 6c43ccaee473eca701d15a5a83f84814d65c6b7c
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638729"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976148"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Een afbeelding slaag toevoegen aan een kaart
 
@@ -31,28 +31,38 @@ Dit artikel laat u zien hoe u een afbeelding kunt bedekken naar een vaste set co
 
 ## <a name="add-an-image-layer"></a>Een afbeeldingslaag toevoegen
 
-Dit voor beeld laat zien hoe u een afbeelding van een [kaart van Newark New Jersey](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) kunt bedekken vanaf 1922 op de kaart.
+In de volgende code wordt een afbeelding overlay van een [kaart van Newark New Jersey van 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) op de kaart. Er wordt een [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) gemaakt door een URL door te geven aan een afbeelding en coördinaten voor de vier hoeken `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`in de notatie.
+
+```javascript
+//Create an image layer and add it to the map.
+map.layers.add(new atlas.layer.ImageLayer({
+    url: 'newark_nj_1922.jpg',
+    coordinates: [
+        [-74.22655, 40.773941], //Top Left Corner
+        [-74.12544, 40.773941], //Top Right Corner
+        [-74.12544, 40.712216], //Bottom Right Corner
+        [-74.22655, 40.712216]  //Bottom Left Corner
+    ]
+}));
+```
+
+Hieronder ziet u het volledige programma voor het uitvoeren van code van de bovenstaande functionaliteit.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Laag met eenvoudige afbeeldingen' src='//codepen.io/azuremaps/embed/eQodRo/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Bekijk de <a href='https://codepen.io/azuremaps/pen/eQodRo/'>eenvoudige afbeelding slaag</a> van de pen door<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In de bovenstaande code maakt het eerste code blok een kaart object. U kunt [een overzicht maken](./map-create.md) voor instructies.
-
-In het tweede code blok wordt een [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) gemaakt door een URL door te geven aan een afbeelding en een coördinaten voor de vier hoeken in de `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`notatie.
-
 ## <a name="import-a-kml-ground-overlay"></a>Een KML-wegdek-overlay importeren
 
-In dit voor beeld ziet u hoe u de KML-bedekkings gegevens als een afbeelding slaag op de kaart kunt bedekken. KML-bedekkingen bieden Noord-, Zuid-, Oost-en West-coördinaten en een rotatie linksom, waarbij de afbeelding slaag coördinaten voor elke hoek van de afbeelding verwacht. De KML-vlak bedekking in dit voor beeld is van de Chartres-Cathedral en gesourceeerd van [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
+In dit voor beeld ziet u hoe u de KML-bedekkings gegevens als een afbeelding slaag op de kaart kunt bedekken. KML-oppervlak bedekkingen bieden Noord-, Zuid-, Oost-en West-coördinaten en een rotatie linksom, terwijl de afbeelding slaag coördinaten voor elke hoek van de afbeelding verwacht. De KML-vlak bedekking in dit voor beeld is van de Chartres-Cathedral en gesourceeerd van [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
+
+De volgende code maakt gebruik van `getCoordinatesFromEdges` de statische functie van de klasse [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) om de vier hoeken van de afbeelding te berekenen op basis van de Noord-, Zuid-, Oost-, West-en rotatie gegevens van de KML-wegdek bedekking.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='KML-oppervlak overlay als afbeelding slaag' src='//codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Bekijk de KML-bedekking van de pen <a href='https://codepen.io/azuremaps/pen/EOJgpj/'>als afbeelding slaag</a> door Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
-De bovenstaande code maakt gebruik van `getCoordinatesFromEdges` de statische functie van de klasse [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) om de vier hoeken van de afbeelding te berekenen op basis van de Noord-, Zuid-, Oost-, West-en rotatie gegevens van de KML-wegdek bedekking.
-
 
 ## <a name="customize-an-image-layer"></a>Een afbeelding slaag aanpassen
 

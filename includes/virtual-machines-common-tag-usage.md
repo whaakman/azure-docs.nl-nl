@@ -5,26 +5,26 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 17778b3edf1845d85302a0bcdf72a1ebc3919cea
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67175973"
 ---
-## <a name="viewing-your-tags-in-the-usage-details"></a>De labels weergeven in de informatie over het gebruik
-Tags op Compute, netwerk, geplaatst en Storage-resources in het Resource Manager-implementatiemodel wordt ingevuld in de informatie over het gebruik in de [factureringsportal](https://account.windowsazure.com/).
+## <a name="viewing-your-tags-in-the-usage-details"></a>Uw tags weer geven in de gebruiks gegevens
+Labels die worden geplaatst op compute-, netwerk-en opslag resources in het Resource Manager-implementatie model, worden ingevuld in de gebruiks gegevens in de [facturerings Portal](https://account.windowsazure.com/).
 
-Klik op **gebruiksgegevens downloaden** om de informatie over het gebruik in uw abonnement weer te geven.
+Klik op **gebruiks gegevens downloaden** om de details van het gebruik in uw abonnement weer te geven.
 
-![Informatie over het gebruik in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
+![Details van gebruik in Azure Portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
 
-Uw factuuroverzicht selecteren en de **versie 2** informatie over het gebruik:
+Selecteer uw factuur overzicht en de details van het **versie 2** -gebruik:
 
-![Versie 2 Preview informatie over het gebruik in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
+![Versie 2 Preview-gebruiks Details in Azure Portal](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
 
-In de informatie over het gebruik, ziet u alle labels in de **Tags** kolom:
+In de gebruiks gegevens ziet u alle labels in de kolom **Tags** :
 
-![De kolom labels in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
+![De kolom Tags in Azure Portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
 
-Door het analyseren van deze tags, samen met gebruik van organisaties worden nieuwe inzichten in hun gegevens krijgen.
+Door deze tags samen met het gebruik te analyseren, kunnen organisaties nieuwe inzichten in hun verbruiks gegevens krijgen.
 

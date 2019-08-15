@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 7/9/2019
 ms.author: b-juche
-ms.openlocfilehash: 6e425eba3159f8840e1a7960f6a6c3171b1ba163
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 9409beea3f22fd7ff09fe49838a37d9ff0b485f6
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850416"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975914"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Een SMB-volume maken voor Azure NetApp Files
 
@@ -148,4 +148,6 @@ Er moet een subnet zijn gedelegeerd aan Azure NetApp Files.
 
 * [Een volume koppelen of ontkoppelen voor virtuele Windows-of Linux-machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resourcelimieten voor Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Veelgestelde vragen over SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs)
 * Meer informatie over [Integratie van virtuele netwerken voor Azure-services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Een nieuw Active Directory-forest installeren met behulp van Azure CLI](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

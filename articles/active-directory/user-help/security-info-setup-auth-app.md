@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20d5131c773e2a9f7b6830725ccd934786d6dd67
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a5fff27094881ffbada2bda7937fa714ffc07133
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880955"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954355"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Beveiligings gegevens instellen (preview) voor het gebruik van een verificator-app
 
@@ -78,7 +78,7 @@ Afhankelijk van de instellingen van uw organisatie kunt u mogelijk een verificat
 
     De verificator-app moet nu uw werk of schoolaccount toevoegen zonder aanvullende informatie van u. Als de QR-codelezer de code echter niet lezen kan, kunt u de **Koppeling kan QR-code niet scannen** selecteren en handmatig de code en URL in de Microsoft Authenticator-app invoeren. Zie voor meer informatie over het handmatig toevoegen van een code [Handmatig een account toevoegen aan de app](user-help-auth-app-add-account-manual.md).
 
-9. Selecteer **volgende** op de pagina **QR-code scannen** op uw.
+9. Selecteer **Volgende** op de pagina **QR-code scannen** op uw computer.
 
     Een melding wordt verzonden naar de Microsoft Authenticator-app op uw mobiele apparaat voor het testen van uw account.
 

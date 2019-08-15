@@ -2,7 +2,7 @@
 title: Gebruikers die zijn gemarkeerd voor risico op het Azure Active Directory Portal | Microsoft Docs
 description: Meer informatie over het beveiligingsrapport over gebruikers voor wie wordt aangegeven dat ze risico lopen in de Azure Active Directory-portal
 services: active-directory
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d02c5484ea4cce2953eac6b1b7b26a17c142bc
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d1412cacd453de01f1937fbcf5e712afdac88def
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276554"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989700"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Gebruikers herstellen voor wie wordt aangegeven dat ze risico lopen in de Azure Active Directory-portal
 
@@ -36,7 +36,7 @@ U kunt gebruikers voor wie wordt aangegeven dat ze risico lopen, bekijken via he
 
 Vanuit de gebruikers die zijn gemarkeerd voor risico rapport, kunt u de volgende acties uitvoeren voor elke gebruiker:
 
-- Een tijdelijk wachtwoord genereren
+- Tijdelijk wachtwoord genereren
 - Vereisen dat gebruikers veilig hun wachtwoord opnieuw instellen de volgende keer dat ze zich aanmelden
 - Het gebruikersrisico afwijzen zonder een herstelactie uit te voeren.
 

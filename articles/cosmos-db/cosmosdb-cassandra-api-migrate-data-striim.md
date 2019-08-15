@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 1e14e9819f4b3344d0f0155ac5c15337a45952dc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: c739a6e79cab14ecc8e5a4be23c551d2774cbbd8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828048"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933978"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Gegevens migreren naar Azure Cosmos DB Cassandra-API-account met behulp van Realtimeplatform
 
 De Realtimeplatform-installatie kopie in de Azure Marketplace biedt continue realtime gegevens verplaatsing van data warehouses en data bases naar Azure. Tijdens het verplaatsen van de gegevens kunt u in-line denormalisatie, gegevens transformatie, realtime analyses en scenario's voor gegevens rapportage uitvoeren. Het is eenvoudig om aan de slag te gaan met Realtimeplatform om de Bedrijfs gegevens voortdurend te verplaatsen naar Azure Cosmos DB Cassandra-API. Azure biedt een Marketplace-aanbieding die het eenvoudig maakt om Realtimeplatform te implementeren en gegevens te migreren naar Azure Cosmos DB. 
 
-In dit artikel wordt beschreven hoe u Realtimeplatform kunt gebruiken om gegevens uit een **Oracle-data base** te migreren naar een **Azure Cosmos DB Cassnadra-API-account**.
+In dit artikel wordt beschreven hoe u Realtimeplatform kunt gebruiken om gegevens uit een **Oracle-data base** te migreren naar een **Azure Cosmos DB Cassandra-API-account**.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -41,7 +41,7 @@ In dit artikel wordt beschreven hoe u Realtimeplatform kunt gebruiken om gegeven
 
 1. Kies in het deel venster **Realtimeplatform cluster instellingen** het type van de realtimeplatform-implementatie en de grootte van de virtuele machine.
 
-   |Instelling | Waarde | Description |
+   |Instelling | Value | Description |
    | ---| ---| ---|
    |Implementatie type realtimeplatform |Zelfstandig | Realtimeplatform kan worden uitgevoerd in een **zelfstandige** of **cluster** implementatie type. In de zelfstandige modus wordt de Realtimeplatform-server op één virtuele machine geïmplementeerd en kunt u de grootte van de virtuele machines selecteren, afhankelijk van uw gegevens volume. De cluster modus implementeert de Realtimeplatform-server op twee of meer virtuele machines met de geselecteerde grootte. Cluster omgevingen met meer dan twee knoop punten bieden automatische hoge Beschik baarheid en failover.</br></br> In deze zelf studie kunt u de optie zelfstandige selecteren. Gebruik de standaard VM met de grootte ' Standard_F4s '. | 
    | Naam van het Realtimeplatform-cluster|    < Striim_cluster_Name >|  De naam van het Realtimeplatform-cluster.|

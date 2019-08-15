@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 75888d9da0d8a6e76e787b7d3867e94eefff337e
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: ca2f346950d84fda736437f439efc5d35e342799
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726577"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934578"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Overzicht van Azure Service Fabric-beveiliging
-[Azure service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) is een platform voor gedistribueerde systemen waarmee schaal bare en betrouw bare micro services eenvoudig kunnen worden verpakt, geïmplementeerd en beheerd. Service Fabric verhelpt de uitdagingen bij het ontwikkelen en beheren van Cloud toepassingen. Ontwikkel aars en beheerders kunnen complexe infrastructuur problemen voor komen en zich richten op het implementeren van essentiële, veeleisende workloads die schaalbaar en betrouwbaar zijn.
+[Azure service Fabric](../../service-fabric/service-fabric-overview.md) is een platform voor gedistribueerde systemen waarmee schaal bare en betrouw bare micro services eenvoudig kunnen worden verpakt, geïmplementeerd en beheerd. Service Fabric verhelpt de uitdagingen bij het ontwikkelen en beheren van Cloud toepassingen. Ontwikkel aars en beheerders kunnen complexe infrastructuur problemen voor komen en zich richten op het implementeren van essentiële, veeleisende workloads die schaalbaar en betrouwbaar zijn.
 
 Dit artikel bevat een overzicht van beveiligings overwegingen voor een Service Fabric-implementatie.
 
@@ -41,7 +41,7 @@ Clusters die worden uitgevoerd op Azure of zelfstandige clusters die worden uitg
 
 Service Fabric maakt gebruik van X. 509-server certificaten die u opgeeft wanneer u een cluster maakt. Zie [werken met certificaten](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates)voor een snel overzicht van wat deze certificaten zijn en hoe u deze kunt verkrijgen of maken.
 
-U configureert certificaat beveiliging wanneer u het cluster maakt met behulp van de Azure Portal, Azure Resource Manager sjablonen of een zelfstandige JSON-sjabloon. U kunt een primair certificaat en een optioneel secundair certificaat opgeven dat wordt gebruikt voor certificaat overschakelingen. De primaire en secundaire certificaten die u opgeeft, moeten afwijken van de admin-client en alleen-lezen client certificaten die u opgeeft voor [client-naar-knoop punt beveiliging](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
+U configureert certificaat beveiliging wanneer u het cluster maakt met behulp van de Azure Portal, Azure Resource Manager sjablonen of een zelfstandige JSON-sjabloon. U kunt een primair certificaat en een optioneel secundair certificaat opgeven dat wordt gebruikt voor certificaat overschakelingen. De primaire en secundaire certificaten die u opgeeft, moeten afwijken van de admin-client en alleen-lezen client certificaten die u opgeeft voor [client-naar-knoop punt beveiliging](../../service-fabric/service-fabric-cluster-security.md).
 
 ### <a name="client-to-node-security"></a>Beveiliging van client naar knoop punt
 U kunt de beveiliging van client naar knoop punt configureren met behulp van client identiteiten. Om een vertrouwens relatie tussen een client en een cluster tot stand te brengen, moet u het cluster configureren om te weten welke client identiteiten het kan vertrouwen.
@@ -59,11 +59,11 @@ U configureert certificaat beveiliging van client naar knoop punt wanneer u een 
 
 Clients die verbinding maken met het cluster met behulp van het beheerders certificaat, hebben volledige toegang tot beheer mogelijkheden. Clients die verbinding maken met het cluster met behulp van het client certificaat alleen-lezen gebruiker hebben alleen lees toegang tot beheer mogelijkheden. Met andere woorden, deze certificaten worden gebruikt voor op rollen gebaseerd toegangs beheer (RBAC).
 
-Zie [een cluster instellen met behulp van een Azure Resource Manager sjabloon](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)voor meer informatie over het configureren van certificaat beveiliging in een cluster.
+Zie [een cluster instellen met behulp van een Azure Resource Manager sjabloon](../../service-fabric/service-fabric-cluster-creation-via-arm.md)voor meer informatie over het configureren van certificaat beveiliging in een cluster.
 
 #### <a name="client-to-node-azure-active-directory-security"></a>Beveiliging van client naar knoop punt Azure Active Directory
 
-Clusters die worden uitgevoerd op Azure, kunnen ook de toegang tot de beheer eindpunten beveiligen met behulp van Azure Active Directory (Azure AD). Zie [een cluster instellen met behulp van een Azure Resource Manager sjabloon](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)voor informatie over het maken van de benodigde Azure Active Directory artefacten, hoe u deze kunt vullen tijdens het maken van het cluster en hoe u verbinding maakt met deze clusters.
+Clusters die worden uitgevoerd op Azure, kunnen ook de toegang tot de beheer eindpunten beveiligen met behulp van Azure Active Directory (Azure AD). Zie [een cluster instellen met behulp van een Azure Resource Manager sjabloon](../../service-fabric/service-fabric-cluster-creation-via-arm.md)voor informatie over het maken van de benodigde Azure Active Directory artefacten, hoe u deze kunt vullen tijdens het maken van het cluster en hoe u verbinding maakt met deze clusters.
 
 Azure Active Directory maakt het beheren van toegang tot toepassingen door organisaties (bekend als tenants) mogelijk. Er zijn toepassingen met een webgebaseerde aanmeldings GEBRUIKERSINTERFACE en toepassingen met een eigen client ervaring.
 
@@ -74,7 +74,7 @@ Voor Azure-clusters wordt u aangeraden Azure AD-beveiliging te gebruiken voor he
 Voor zelfstandige Windows Server-clusters met Windows Server 2012 R2 en Active Directory raden wij u aan Windows-beveiliging te gebruiken met door een groep beheerde service accounts (Gmsa's). Gebruik anders Windows-beveiliging met Windows-accounts.
 
 ## <a name="understand-monitoring-and-diagnostics-in-service-fabric"></a>Bewaking en diagnostische gegevens in Service Fabric begrijpen
-[Bewaking en diagnose](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview) zijn essentieel voor het ontwikkelen, testen en implementeren van toepassingen en services in elke omgeving. Service Fabric oplossingen werken het beste wanneer u bewaking en diagnostische gegevens implementeert om ervoor te zorgen dat toepassingen en services werken zoals verwacht in een lokale ontwikkel omgeving of productie.
+[Bewaking en diagnose](../../service-fabric/service-fabric-diagnostics-overview.md) zijn essentieel voor het ontwikkelen, testen en implementeren van toepassingen en services in elke omgeving. Service Fabric oplossingen werken het beste wanneer u bewaking en diagnostische gegevens implementeert om ervoor te zorgen dat toepassingen en services werken zoals verwacht in een lokale ontwikkel omgeving of productie.
 
 Vanuit het oogpunt van beveiliging zijn de belangrijkste doel stellingen van bewaking en diagnose:
 
@@ -84,13 +84,13 @@ Vanuit het oogpunt van beveiliging zijn de belangrijkste doel stellingen van bew
 
 De werk stroom van controle en diagnostische gegevens bestaat uit drie stappen:
 
-1.  **Genereren van gebeurtenissen**: Het genereren van gebeurtenissen omvat gebeurtenissen (logboeken, traceringen, aangepaste gebeurtenissen) op het niveau van de infra structuur (cluster) en het toepassings/service niveau. Lees meer over [gebeurtenissen op infrastructuur niveau](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-infra) en [gebeurtenissen op toepassings niveau](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) om te begrijpen wat er wordt weer gegeven en hoe u verdere instrumentatie kunt toevoegen.
+1.  **Genereren van gebeurtenissen**: Het genereren van gebeurtenissen omvat gebeurtenissen (logboeken, traceringen, aangepaste gebeurtenissen) op het niveau van de infra structuur (cluster) en het toepassings/service niveau. Lees meer over [gebeurtenissen op infrastructuur niveau](../../service-fabric/service-fabric-diagnostics-event-generation-infra.md) en [gebeurtenissen op toepassings niveau](../../service-fabric/service-fabric-diagnostics-event-generation-app.md) om te begrijpen wat er wordt weer gegeven en hoe u verdere instrumentatie kunt toevoegen.
 
-2.  **Aggregatie van gebeurtenissen**: Gegenereerde gebeurtenissen moeten worden verzameld en geaggregeerd voordat ze kunnen worden weer gegeven. U wordt aangeraden [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) te gebruiken (vergelijkbaar met logboek verzameling op basis van een agent) of [Event flow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (logboek verzameling in het proces).
+2.  **Aggregatie van gebeurtenissen**: Gegenereerde gebeurtenissen moeten worden verzameld en geaggregeerd voordat ze kunnen worden weer gegeven. U wordt aangeraden [Azure Diagnostics](../../service-fabric/service-fabric-diagnostics-event-aggregation-wad.md) te gebruiken (vergelijkbaar met logboek verzameling op basis van een agent) of [Event flow](../../service-fabric/service-fabric-diagnostics-event-aggregation-eventflow.md) (logboek verzameling in het proces).
 
-3.  **Analyse**: Gebeurtenissen moeten in een bepaalde indeling worden gevisualiseerd en toegankelijk om analyse en weer gave mogelijk te maken. Er zijn verschillende platformen voor de analyse en visualisatie van gegevens over bewaking en diagnostiek. U wordt aangeraden [Azure monitor logboeken](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) en [Azure-toepassing inzichten](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) uit te voeren, omdat ze goed zijn geïntegreerd met Service Fabric.
+3.  **Analyse**: Gebeurtenissen moeten in een bepaalde indeling worden gevisualiseerd en toegankelijk om analyse en weer gave mogelijk te maken. Er zijn verschillende platformen voor de analyse en visualisatie van gegevens over bewaking en diagnostiek. U wordt aangeraden [Azure monitor logboeken](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md) en [Azure-toepassing inzichten](../../service-fabric/service-fabric-diagnostics-event-analysis-appinsights.md) uit te voeren, omdat ze goed zijn geïntegreerd met Service Fabric.
 
-U kunt [Azure monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) ook gebruiken om veel van de Azure-resources waarop een service Fabric-cluster is gebouwd, te bewaken.
+U kunt [Azure monitor](../../azure-monitor/overview.md) ook gebruiken om veel van de Azure-resources waarop een service Fabric-cluster is gebouwd, te bewaken.
 
 Een watchdog is een afzonderlijke service die de status kan bekijken en laden tussen services, en de status rapporteren voor alles in de status model hiërarchie. Het gebruik van een watchdog kan helpen voor komen dat fouten die niet worden gedetecteerd op basis van de weer gave van één service. 
 
@@ -109,17 +109,17 @@ De volgende tabel geeft een lijst van de certificaten die u nodig hebt voor de i
 |ServerCertificate| Dit certificaat wordt weer gegeven aan de client wanneer deze probeert verbinding te maken met dit cluster. U kunt twee server certificaten gebruiken: een primair certificaat en een secundaire voor upgrade.|
 |ClientCertificateThumbprints|  Dit is een set certificaten die op de geverifieerde clients moet worden geïnstalleerd.|
 |ClientCertificateCommonNames|  Dit is de algemene naam van het eerste client certificaat voor CertificateCommonName. CertificateIssuerThumbprint is de vinger afdruk voor de verlener van dit certificaat.|
-|ReverseProxyCertificate|   Dit is een optioneel certificaat dat u kunt opgeven om uw [omgekeerde proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy)te beveiligen.|
+|ReverseProxyCertificate|   Dit is een optioneel certificaat dat u kunt opgeven om uw [omgekeerde proxy](../../service-fabric/service-fabric-reverseproxy.md)te beveiligen.|
 
-Zie voor meer informatie over het beveiligen van certificaten, [een zelfstandige cluster in Windows beveiligen met behulp van X. 509-certificaten](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security).
+Zie voor meer informatie over het beveiligen van certificaten, [een zelfstandige cluster in Windows beveiligen met behulp van X. 509-certificaten](../../service-fabric/service-fabric-windows-cluster-x509-security.md).
 
 ## <a name="understand-role-based-access-control"></a>Meer informatie over op rollen gebaseerd toegangs beheer
-U geeft de gebruikers rollen beheerder en gebruiker op het moment van maken van het cluster op door afzonderlijke identiteiten (inclusief certificaten) op te geven. Zie [op rollen gebaseerd toegangs beheer voor service Fabric-clients](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles)voor meer informatie over de standaard instellingen voor toegangs beheer en het wijzigen van de standaard instellingen.
+U geeft de gebruikers rollen beheerder en gebruiker op het moment van maken van het cluster op door afzonderlijke identiteiten (inclusief certificaten) op te geven. Zie [op rollen gebaseerd toegangs beheer voor service Fabric-clients](../../service-fabric/service-fabric-cluster-security-roles.md)voor meer informatie over de standaard instellingen voor toegangs beheer en het wijzigen van de standaard instellingen.
 
 ## <a name="secure-standalone-clusters-by-using-windows-security"></a>Zelfstandige clusters beveiligen met behulp van Windows-beveiliging
 Als u ongeoorloofde toegang tot een Service Fabric cluster wilt voor komen, moet u het cluster beveiligen. Beveiliging is vooral belang rijk wanneer het cluster productie werkbelastingen uitvoert. U kunt de beveiliging van knoop punt-naar-knoop punt en client-naar-knoop punt configureren met behulp van Windows-beveiliging in het bestand ClusterConfig. JSON.
 
-Als Service Fabric moet worden uitgevoerd onder een gMSA, configureert u de beveiliging van knoop punt naar knoop punt door [ClustergMSAIdentity](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security)in te stellen. Als u vertrouwens relaties tussen knoop punten wilt maken, moet u ze op de hoogte stellen van elkaar.
+Als Service Fabric moet worden uitgevoerd onder een gMSA, configureert u de beveiliging van knoop punt naar knoop punt door [ClustergMSAIdentity](../../service-fabric/service-fabric-windows-cluster-windows-security.md)in te stellen. Als u vertrouwens relaties tussen knoop punten wilt maken, moet u ze op de hoogte stellen van elkaar.
 
 Als u een computer groep binnen een Active Directory domein wilt gebruiken, configureert u de beveiliging van knoop punt naar knoop punt door ClusterIdentity in te stellen. Zie [een machine groep maken in Active Directory](https://msdn.microsoft.com/library/aa545347)voor meer informatie.
 
@@ -132,14 +132,14 @@ U kunt de beveiliging van client naar knoop punt configureren met behulp van Cli
 ### <a name="manage-secrets-in-service-fabric-applications"></a>Geheimen in Service Fabric toepassingen beheren
 Geheimen kunnen gevoelige informatie zijn, zoals verbindings reeksen voor opslag, wacht woorden of andere waarden die niet in tekst zonder opmaak moeten worden verwerkt.
 
-U kunt [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) gebruiken om sleutels en geheimen te beheren. Het gebruik van geheimen in een toepassing is echter niet afhankelijk van een specifiek Cloud platform. U kunt toepassingen implementeren in een cluster dat overal wordt gehost. Er zijn vier belang rijke stappen in deze stroom:
+U kunt [Azure Key Vault](../../key-vault/key-vault-whatis.md) gebruiken om sleutels en geheimen te beheren. Het gebruik van geheimen in een toepassing is echter niet afhankelijk van een specifiek Cloud platform. U kunt toepassingen implementeren in een cluster dat overal wordt gehost. Er zijn vier belang rijke stappen in deze stroom:
 
 1.  Een certificaat voor gegevens versleuteling ophalen.
 2.  Installeer het certificaat op uw cluster.
 3.  Versleutel de geheime waarden bij het implementeren van een toepassing met het certificaat en Injecteer deze in het configuratie bestand instellingen. XML van een service.
 4.  Lees versleutelde waarden uit Settings. XML door ze te ontsleutelen met hetzelfde coderings certificaat.
 
-Zie [geheimen beheren in service Fabric-toepassingen](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management)voor meer informatie.
+Zie [geheimen beheren in service Fabric-toepassingen](../../service-fabric/service-fabric-application-secret-management.md)voor meer informatie.
 
 ### <a name="configure-security-policies-for-an-application"></a>Beveiligings beleid voor een toepassing configureren
 Met behulp van Azure Service Fabric beveiliging kunt u toepassingen die in het cluster worden uitgevoerd, beveiligen onder verschillende gebruikers accounts. Met Service Fabric beveiliging kunt u ook de bronnen beveiligen die toepassingen gebruiken op het moment van de implementatie onder de gebruikers accounts, bijvoorbeeld bestanden, directory's en certificaten. Dit maakt het uitvoeren van toepassingen, zelfs in een gedeelde gehoste omgeving, beter beveiligd.
@@ -153,8 +153,8 @@ Taken voor het configureren van beveiligings beleid zijn onder andere:
 -   Een beleid voor beveiligings toegang toewijzen voor HTTP-en HTTPS-eind punten
 
 ## <a name="secure-communication-for-services"></a>Beveiligde communicatie voor services
-Beveiliging is een van de belangrijkste aspecten van de communicatie. Het Reliable Services-toepassings raamwerk bevat enkele vooraf ontwikkelde communicatie stacks en hulpprogram ma's die u kunt gebruiken om de beveiliging te verbeteren. Zie voor meer informatie [Secure service externe communicatie voor een service](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-secure-communication).
+Beveiliging is een van de belangrijkste aspecten van de communicatie. Het Reliable Services-toepassings raamwerk bevat enkele vooraf ontwikkelde communicatie stacks en hulpprogram ma's die u kunt gebruiken om de beveiliging te verbeteren. Zie voor meer informatie [Secure service externe communicatie voor een service](../../service-fabric/service-fabric-reliable-services-secure-communication.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-- Zie [een service Fabric cluster maken](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) met behulp van Azure Resource Manager en [een service Fabric cluster maken met behulp van de Azure Portal](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)voor conceptuele informatie over de beveiliging van een cluster.
-- Zie [service Fabric cluster beveiligings scenario's](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)voor meer informatie over de beveiliging van een cluster in service Fabric.
+- Zie [een service Fabric cluster maken](../../service-fabric/service-fabric-cluster-creation-via-arm.md) met behulp van Azure Resource Manager en [een service Fabric cluster maken met behulp van de Azure Portal](../../service-fabric/service-fabric-cluster-creation-via-portal.md)voor conceptuele informatie over de beveiliging van een cluster.
+- Zie [service Fabric cluster beveiligings scenario's](../../service-fabric/service-fabric-cluster-security.md)voor meer informatie over de beveiliging van een cluster in service Fabric.

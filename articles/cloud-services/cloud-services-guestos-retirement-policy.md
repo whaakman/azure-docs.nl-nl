@@ -1,6 +1,6 @@
 ---
-title: Ondersteuning en buiten gebruik stellen beleid-handleiding voor Azure-Gastbesturingssysteem | Microsoft Docs
-description: Bevat informatie over wat Microsoft wordt ondersteund met betrekking tot op het Azure-Gastbesturingssysteem die worden gebruikt door Cloud Services.
+title: Gids voor ondersteunings-en buitengebruikstellings beleid voor Azure-gast besturingssysteem | Microsoft Docs
+description: Bevat informatie over wat micro soft ondersteunt ten aanzien van het Azure-gast besturingssysteem dat door Cloud Services wordt gebruikt.
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -8,75 +8,74 @@ manager: timlt
 editor: ''
 ms.assetid: 919dd781-4dc6-4e50-bda8-9632966c5458
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: ce66d44c0ddb84ed8c2908d02b8062195d6b461d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fbe9b3379799fe3cf0a56d921ab257bc87606ca9
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61215836"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945454"
 ---
-# <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure Guest OS-beleid voor ondersteuning en buiten gebruik stellen
-De informatie op deze pagina is gekoppeld aan het Azure-gastbesturingssysteem ([Guest OS](cloud-services-guestos-update-matrix.md)) voor Cloud Services worker en webservice-rollen (PaaS). Dit geldt niet voor virtuele Machines (IaaS).
+# <a name="azure-guest-os-supportability-and-retirement-policy"></a>Ondersteunings beleid voor Azure-gast besturingssystemen
+De informatie op deze pagina is gekoppeld aan het Azure-gast besturingssysteem ([gast besturingssysteem](cloud-services-guestos-update-matrix.md)) voor Cloud Services Worker en Web roles (PaaS). Het is niet van toepassing op Virtual Machines (IaaS).
 
-Microsoft heeft een gepubliceerde [ondersteuningsbeleid voor het Gastbesturingssysteem](https://support.microsoft.com/gp/azure-cloud-lifecycle-faq). De pagina die u leest nu wordt beschreven hoe het beleid is geïmplementeerd.
+Micro soft heeft een gepubliceerd ondersteunings [beleid voor het gast besturingssysteem](https://support.microsoft.com/gp/azure-cloud-lifecycle-faq). Op de pagina die u leest, wordt beschreven hoe het beleid wordt geïmplementeerd.
 
 Het beleid is
 
-1. Microsoft biedt ondersteuning voor **ten minste de laatste twee families van het Gastbesturingssysteem**. Wanneer een productfamilie is buiten gebruik gesteld, hebben klanten 12 maanden vanaf de officiële vervaldatum bij te werken naar een nieuwere ondersteunde Guest OS family.
-2. Microsoft biedt ondersteuning voor **ten minste de laatste twee versies van de ondersteunde Gastbesturingssysteem families**.
-3. Microsoft biedt ondersteuning voor **ten minste de laatste twee versies van de Azure SDK**. Wanneer u een versie van de SDK is buiten gebruik gesteld, wordt klanten 12 maanden vanaf de datum van de officiële buiten gebruik stellen om bij te werken naar een nieuwere versie hebben.
+1. Micro soft biedt ondersteuning voor **ten minste de nieuwste twee families van het gast besturingssysteem**. Wanneer een familie buiten gebruik wordt gesteld, hebben klanten 12 maanden na de officiële pensioen datum een update naar een nieuwere ondersteunde gast besturingssysteem familie.
+2. Micro soft ondersteunt **ten minste de nieuwste twee versies van de ondersteunde gast besturingssysteem families**.
+3. Micro soft ondersteunt **ten minste de nieuwste twee versies van de Azure SDK**. Wanneer een versie van de SDK buiten gebruik wordt gesteld, hebben klanten 12 maanden na de officiële pensioen datum een update naar een nieuwere versie.
 
-Soms kan meer dan twee families of versies worden ondersteund. Officiële Gastbesturingssysteem ondersteunende informatie wordt weergegeven op de [Azure Guest OS Releases en SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
+Het kan zijn dat er meer dan twee families of releases worden ondersteund. De officiële ondersteunings informatie voor het gast besturingssysteem wordt weer gegeven in de [Azure Guest OS releases en SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
 
-## <a name="when-a-guest-os-version-is-retired"></a>Wanneer een gast-OS-versie is buiten gebruik gesteld
-Nieuwe Gastbesturingssysteem **versies** over elke maand op te nemen van de meest recente MSRC-updates zijn geïntroduceerd. Een gast-OS-versie vanwege de reguliere maandelijkse updates is normaal gesproken ongeveer 60 dagen na de release uitgeschakeld. Deze activiteit wordt ten minste twee Gast-OS-versies voor elke serie beschikbaar voor gebruik.
+## <a name="when-a-guest-os-version-is-retired"></a>Wanneer een gast besturingssysteem versie buiten gebruik wordt gesteld
+Nieuwe **versies** van gast besturingssystemen worden over elke maand geïntroduceerd om de meest recente MSRC-updates op te nemen. Vanwege de reguliere maandelijkse updates wordt een gast besturingssysteem versie normaal gesp roken ongeveer 60 dagen na de release uitgeschakeld. Deze activiteit houdt ten minste twee gast besturingssysteem versies voor elke familie die beschikbaar zijn voor gebruik.
 
-### <a name="process-during-a-guest-os-family-retirement"></a>Verwerken tijdens een familie buitengebruikstelling van Gastbesturingssysteem
-Zodra het buiten gebruik stellen is aangekondigd, hebben klanten een overgangsperiode van 12 maanden "' voordat de oudere familie officieel gebruik gesteld buiten. Overgangsduur van deze kan worden uitgebreid naar keuze van Microsoft. Updates wordt gepost op de [Azure Guest OS Releases en SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
+### <a name="process-during-a-guest-os-family-retirement"></a>Proces tijdens een uittreding van een gast besturingssysteem familie
+Zodra de buiten gebruiks telling is aangekondigd, hebben klanten een ' overgangs periode van 12 maanden ' voordat de oudere familie officieel uit de service wordt verwijderd. Deze overgangs tijd kan worden uitgebreid naar de keuze van micro soft. Updates worden gepubliceerd in de [Azure Guest OS releases en SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
 
-Een geleidelijke buitengebruikstellingsproces begint met zes (6) maanden in de overgangsperiode. Gedurende deze tijd:
+Een geleidelijk buitengebruikstellings proces begint zes (6) maanden in de overgangs periode. Gedurende deze tijd:
 
-1. Microsoft ontvangt klanten van de buiten gebruik stellen.
-2. De nieuwere versie van de Azure SDK niet de buiten gebruik gestelde Guest OS family wordt ondersteund.
-3. Nieuwe implementaties en nieuwe distributies van Cloud Services niet toegestaan voor de buiten gebruik gestelde-familie
+1. Micro soft brengt klanten op de hoogte van de buiten gebruiks telling.
+2. De nieuwere versie van de Azure SDK biedt geen ondersteuning voor de buiten gebruik gestelde gast besturingssysteem-familie.
+3. Nieuwe implementaties en herimplementaties van Cloud Services zijn niet toegestaan voor de buiten gebruik gestelde familie
 
-Microsoft blijft introduceren nieuwe Guest OS-versie de nieuwste updates MSRC tot de laatste dag van de overgangsperiode, ook wel de "vervaldatum" opnemen. Op de vervaldatum wordt Cloud Services nog steeds uitgevoerd worden ondersteund onder de Azure SLA. Microsoft heeft de keuze dwingen bijwerken, verwijderen of stoppen van die services na die datum.
+Micro soft blijft nieuwe versie van het gast besturingssysteem introduceren met de laatste MSRC-updates tot de laatste dag van de overgangs periode, ook wel de ' verval datum ' genoemd. Cloud Services nog steeds wordt uitgevoerd op de verval datum, wordt niet ondersteund onder de SLA van Azure. Micro soft heeft de keuze om de upgrade af te dwingen, de Services na die datum te verwijderen of te stoppen.
 
-### <a name="process-during-a-guest-os-version-retirement"></a>Verwerken tijdens een versie van het besturingssysteem Gast buiten gebruik stellen
-Als klanten hun Gastbesturingssysteem automatisch bij te werken, hebben ze nooit te hoeven maken over het afhandelen van Gast-OS-versies. Ze worden altijd worden met behulp van de meest recente versie van de Gast-besturingssysteem.
+### <a name="process-during-a-guest-os-version-retirement"></a>Verwerken tijdens een uittreding van een gast besturingssysteem versie
+Als klanten hun gast besturingssysteem zo instellen dat ze automatisch worden bijgewerkt, hoeven ze zich nooit zorgen te maken over de versies van het gast besturingssysteem. Ze gebruiken altijd de meest recente versie van het gast besturingssysteem.
 
-Gast OS-versies worden elke maand uitgebracht. Elke versie is vanwege de frequentie van reguliere releases, vaste geldig.
+De versies van het gast besturingssysteem worden elke maand uitgebracht. Vanwege de frequentie van normale releases heeft elke versie een vaste levens duur.
 
-Na 60 dagen in de levensduur van een versie is '*uitgeschakeld*'. "Uitgeschakeld" betekent dat de versie is verwijderd uit de portal. De versie kan niet meer worden ingesteld in het CSCFG-configuratiebestand. Bestaande implementaties zijn actief blijven. Maar nieuwe implementaties en code en configuratie-updates aan bestaande implementaties wordt niet toegestaan.
+Op 60 dagen in de levens duur is een versie '*uitgeschakeld*'. ' Uitgeschakeld ' betekent dat de versie is verwijderd uit de portal. De versie kan niet meer worden ingesteld vanuit het CSCFG-configuratie bestand. Bestaande implementaties blijven actief. Nieuwe implementaties en code-en configuratie-updates voor bestaande implementaties worden echter niet toegestaan.
 
-Enige tijd opnieuw uit nadat u "uitgeschakeld", versie van het Gast-besturingssysteem 'verloopt' en alle installaties die verlopen versie nog wordt uitgevoerd worden blootgesteld aan beveiligings- en beveiligingsproblemen problemen. Over het algemeen is verlopen uitgevoerd in batches, zodat de periode van deactivering tot vervaldatum kan verschillen.
+Na ' uitgeschakeld ' is de versie van het gast besturingssysteem ' Expires ' en worden alle installaties met de verlopen versie weer gegeven aan beveiligings-en beveiligings problemen. Over het algemeen wordt de verval datum uitgevoerd in batches, zodat de periode van uitschakeling tot verval datum kan verschillen.
 
-Klanten die hun services voor het bijwerken van het Gastbesturingssysteem handmatig configureren moet ervoor zorgen dat hun services worden uitgevoerd op een ondersteunde Gastbesturingssystemen. Als een service is geconfigureerd voor het automatisch bijwerken van het Gastbesturingssysteem, wordt het onderliggende platform zorgt ervoor dat de naleving en wordt een upgrade naar de meest recente Gastbesturingssysteem.
+Klanten die hun services zo configureren dat ze het gast besturingssysteem hand matig bijwerken, moeten ervoor zorgen dat hun services worden uitgevoerd op een ondersteund gast besturingssysteem. Als een service is geconfigureerd om het gast besturingssysteem automatisch bij te werken, zorgt het onderliggende platform voor compatibiliteit en wordt er een upgrade uitgevoerd naar het meest recente gast besturingssysteem.
 
-Deze punten kunnen worden verricht langer goeddunken van Microsoft om de overgang van de klant. Eventuele wijzigingen zullen worden meegedeeld de [Azure Guest OS Releases en SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
+Deze peri Oden kunnen langer worden gemaakt door micro soft om de overgangen van klanten te vereenvoudigen. Eventuele wijzigingen worden door gegeven aan de [Azure Guest OS releases en SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
 
 ### <a name="notifications-during-retirement"></a>Meldingen tijdens het buiten gebruik stellen
-* **Familie buiten gebruik stellen** <br>Microsoft gebruikt lezen in blogposts en portalmelding. Klanten die nog steeds een buiten gebruik gestelde Guest OS family worden op de hoogte gesteld via directe communicatie (e-mailbericht, portal berichten, telefonische oproep) met toegewezen servicebeheerders. Alle wijzigingen worden geboekt naar de [Azure Guest OS Releases en SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
-* **Versie buiten gebruik stellen** <br>Alle wijzigingen en de datums ze zich voordoen worden geboekt naar de [Azure Guest OS Releases en SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md), met inbegrip van release, uitgeschakeld of verlopen. Services-beheerders ontvangt e-mailberichten als ze beschikken over implementaties die worden uitgevoerd op een uitgeschakelde Guest OS-versie of een groep. De timing van deze e-mailberichten kan variëren. Ze zijn in het algemeen ten minste een maand voor deactivering, hoewel dit tijdstip niet een officiële SLA is.
+* **Gezins buiten gebruik stellen** <br>Micro soft maakt gebruik van blog berichten en Portal meldingen. Klanten die nog steeds een buiten gebruik gestelde gast besturingssysteem familie gebruiken, worden op de hoogte gebracht via directe communicatie (e-mail adres, portal berichten, telefoon gesprek) aan toegewezen service beheerders. Alle wijzigingen worden geplaatst in de [Azure Guest OS releases en SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
+* **Buiten gebruik stellen** <br>Alle wijzigingen en de datums die ze hebben, worden geplaatst in de [Azure Guest OS releases en SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md), inclusief release, disabled en Expires. Services-beheerders ontvangen e-mail berichten als ze implementaties hebben die worden uitgevoerd op een uitgeschakelde gast besturingssysteem versie of-familie. De timing van deze e-mail berichten kan variëren. Over het algemeen zijn ze ten minste een maand vóór de uitschakeling, hoewel deze timing geen officiële SLA is.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
-**Hoe kan ik het risico van de gevolgen van migratie?**
+**Hoe kan ik de gevolgen van de migratie beperken?**
 
-U wordt aangeraden dat u nieuwste Guest OS family gebruiken voor het ontwerpen van uw Cloud-Services.
+U wordt aangeraden de meest recente gast besturingssysteem familie te gebruiken voor het ontwerpen van uw Cloud Services.
 
-1. Begin uw migratie naar een nieuwere familie vroeg met plannen.
-2. Tijdelijke testimplementaties instellen om uw Cloud-Service die wordt uitgevoerd op de nieuwe serie te testen.
-3. De Gast-OS-versie ingesteld op **automatische** (osVersion = * in de [.cscfg](cloud-services-model-and-package.md#cscfg) bestand), zodat de migratie naar de nieuwe versies van het Gast-besturingssysteem automatisch uitgevoerd.
+1. Begin met het plannen van de migratie naar een nieuwere familie.
+2. Stel implementaties van tijdelijke tests in om uw Cloud service te testen die wordt uitgevoerd op de nieuwe serie.
+3. Stel de versie van het gast besturingssysteem in op **automatisch** (met de extensie = * in het [cscfg](cloud-services-model-and-package.md#cscfg) -bestand), zodat de migratie naar nieuwe gast besturingssysteem versies automatisch plaatsvindt.
 
-**Wat gebeurt er als mijn web-App vereist diepere integratie met het besturingssysteem?**
+**Wat moet ik doen als mijn webtoepassing een diep gaande integratie met het besturings systeem vereist?**
 
-Als uw architectuur voor webtoepassingen, is afhankelijk van onderliggende functies van het besturingssysteem, gebruikt u de mogelijkheden van platform wordt ondersteund, zoals [opstarttaken](cloud-services-startup-tasks.md) of andere mechanismen voor uitbreidbaarheid. U kunt ook u kunt ook gebruiken [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS-infrastructuur als een dienst), waarbij u bent verantwoordelijk voor het onderhouden van het onderliggende besturingssysteem.
+Als de architectuur van uw webtoepassing afhankelijk is van de onderliggende functies van het besturings systeem, gebruikt u ondersteunde mogelijkheden van het platform, zoals [opstart taken](cloud-services-startup-tasks.md) of andere uitbreidings mechanismen. U kunt ook [Azure virtual machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure as a Service) gebruiken, waarbij u verantwoordelijk bent voor het onderhouden van het onderliggende besturings systeem.
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk de meest recente [releases van Gastbesturingssystemen](cloud-services-guestos-update-matrix.md).
+Bekijk de nieuwste [versies van het gast besturingssysteem](cloud-services-guestos-update-matrix.md).

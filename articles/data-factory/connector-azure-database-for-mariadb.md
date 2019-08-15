@@ -1,6 +1,6 @@
 ---
-title: Gegevens kopiëren van Azure Database voor MariaDB met Azure Data Factory | Microsoft Docs
-description: Leer hoe u gegevens kopiëren van Azure Database voor MariaDB naar ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
+title: Gegevens kopiëren van Azure Database for MariaDB met behulp van Azure Data Factory | Microsoft Docs
+description: Informatie over het kopiëren van gegevens van Azure Database for MariaDB naar ondersteunde Sink-gegevens archieven door gebruik te maken van een Kopieer activiteit in een Azure Data Factory-pijp lijn.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,22 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: cd46e99b89b4081dcf0d67509edaabf168da4ba0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cb783630b32b4cc28d4e4f1cfb33027da3b8d2e0
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387881"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966568"
 ---
-# <a name="copy-data-from-azure-database-for-mariadb-using-azure-data-factory"></a>Gegevens kopiëren van Azure Database voor MariaDB met Azure Data Factory 
+# <a name="copy-data-from-azure-database-for-mariadb-using-azure-data-factory"></a>Gegevens kopiëren van Azure Database for MariaDB met behulp van Azure Data Factory 
 
-In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit een Azure Database voor MariaDB. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel wordt beschreven hoe u de Kopieer activiteit in Azure Data Factory kunt gebruiken om gegevens uit Azure Database for MariaDB te kopiëren. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens uit een Azure Database voor MariaDB kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens van Azure Database for MariaDB kopiëren naar elk ondersteund Sink-gegevens archief. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
 Azure Data Factory biedt een ingebouwde stuurprogramma als connectiviteit wilt inschakelen, dus hoeft u stuurprogramma voor gebruik van deze connector handmatig installeren.
 
@@ -33,17 +33,17 @@ Azure Data Factory biedt een ingebouwde stuurprogramma als connectiviteit wilt i
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met Azure Database voor MariaDB-connector.
+De volgende secties bevatten informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory entiteiten die specifiek zijn voor Azure Database for MariaDB-connector.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
-De volgende eigenschappen worden ondersteund voor Azure Database voor MariaDB gekoppelde service:
+De volgende eigenschappen worden ondersteund voor Azure Database for MariaDB gekoppelde service:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **MariaDB** | Ja |
-| connectionString | Een verbindingsreeks voor de verbinding met Azure Database voor MariaDB. U kunt zoeken naar deze vanuit Azure portal > uw Azure Database voor MariaDB -> verbindingsreeksen -> ADO.NET een. <br/>Dit veld markeert als een SecureString Bewaar deze zorgvuldig in Data Factory. U kunt ook wachtwoord plaatsen in Azure Key Vault en pull de `pwd` configuratie buiten de verbindingsreeks. Raadpleeg de volgende voorbeelden en [referenties Store in Azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. | Ja |
-| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
+| connectionString | Een connection string om verbinding te maken met Azure Database for MariaDB. U kunt dit vinden in de Azure Portal-> uw Azure Database for MariaDB-> verbindings reeksen-> ADO.NET één. <br/>Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory. U kunt ook wacht woord in azure Key Vault plaatsen en de `pwd` configuratie uit de Connection String halen. Raadpleeg de volgende voor beelden en [Sla referenties op in azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. | Ja |
+| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 **Voorbeeld:**
 
@@ -66,7 +66,7 @@ De volgende eigenschappen worden ondersteund voor Azure Database voor MariaDB ge
 }
 ```
 
-**Voorbeeld: wachtwoord opslaan in Azure Key Vault**
+**Voor beeld: wacht woord opslaan in Azure Key Vault**
 
 ```json
 {
@@ -97,9 +97,9 @@ De volgende eigenschappen worden ondersteund voor Azure Database voor MariaDB ge
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Azure Database voor MariaDB-gegevensset.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die door Azure Database for MariaDB DataSet worden ondersteund.
 
-Om gegevens te kopiëren uit een Azure Database voor MariaDB, stel de eigenschap type van de gegevensset in **MariaDBTable**. De volgende eigenschappen worden ondersteund:
+Als u gegevens wilt kopiëren uit Azure Database for MariaDB, stelt u de eigenschap type van de gegevensset in op **MariaDBTable**. De volgende eigenschappen worden ondersteund:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
@@ -124,15 +124,15 @@ Om gegevens te kopiëren uit een Azure Database voor MariaDB, stel de eigenschap
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Azure Database voor MariaDB-bron.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die door Azure Database for MariaDB bron worden ondersteund.
 
-### <a name="azure-database-for-mariadb-as-source"></a>Azure Database voor MariaDB als bron
+### <a name="azure-database-for-mariadb-as-source"></a>Azure Database for MariaDB als bron
 
-Om gegevens te kopiëren uit een Azure Database voor MariaDB, stelt u het brontype in de kopieeractiviteit naar **MariaDBSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
+Als u gegevens wilt kopiëren uit Azure Database for MariaDB, stelt u het bron type in de Kopieer activiteit in op **MariaDBSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **source** sectie:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **MariaDBSource** | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **MariaDBSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM MyTable"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**

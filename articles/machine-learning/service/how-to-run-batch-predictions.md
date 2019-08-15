@@ -1,5 +1,5 @@
 ---
-title: Batch voorspellingen op grote hoeveelheden gegevens uitvoeren
+title: Batch voorspellingen uitvoeren op grote gegevens met pijp lijnen
 titleSuffix: Azure Machine Learning service
 description: Leer hoe u batch om voorspellingen te doen asynchroon op grote hoeveelheden gegevens met behulp van Azure Machine Learning-service.
 services: machine-learning
@@ -10,16 +10,16 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: 689ee003e0923a65d3ca3f2d13c1a2d05c299dbd
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 97b66bff0e6413b7774a054a01a0dc73649c9cce
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358724"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963008"
 ---
-# <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Batch voorspellingen uitvoeren op grote gegevenssets met Azure Machine Learning-service
+# <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Batch voorspellingen uitvoeren voor grote gegevens sets met Azure Machine Learning pijp lijnen
 
-In dit artikel leert u hoe u voor spellingen voor grote hoeveel heden gegevens asynchroon kunt maken met behulp van de Azure Machine Learning-service.
+In dit artikel leert u hoe u voor spellingen voor grote hoeveel heden gegevens asynchroon kunt maken met behulp van de ML-pijp lijnen met Azure Machine Learning service.
 
 Batch voorspelling (of batch scoreing) biedt rendabele interferentie, met een niet-parallelle door Voer voor asynchrone toepassingen. Batch voorspelling pijplijnen kunnen schalen om uit te voeren Deductie op terabytes aan productiegegevens. Batch voorspellingen zijn geoptimaliseerd voor voor spellingen met hoge door Voer, brand-en-vergeet voor een grote verzameling gegevens.
 
@@ -358,7 +358,4 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u deze end-to-end-bewerking wilt zien, probeert u de batch Score notebook in [github](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines).
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
-
+Als u wilt zien hoe deze end-to-end werkt, probeert u de batch Score notebook in [github](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)of gaat u naar het [Azure Architecture Center](/azure/architecture/reference-architectures/ai/batch-scoring-python) om een voor beeld van een oplossings architectuur te bekijken.

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: ed7e53570127f12dbe41932481a3286a78865dde
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 70107311b189e1692b902812c4ccbbd91c3695a1
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828277"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952117"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Ondersteuningsmatrix voor VMware-evaluatie en -migratie
 
@@ -90,8 +90,8 @@ Het Azure Migrate-apparaat heeft verbinding met internet nodig.
 **URL** | **Details**  
 --- | --- |
 *.portal.azure.com  | Ga naar de Azure Migrate in het Azure Portal.
-*.windows.net | Meld u aan bij uw Azure-abonnement.
-*.microsoftonline.com | Maak Active Directory apps voor het apparaat om te communiceren met de Azure Migrate-service.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com | Meld u aan bij uw Azure-abonnement.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Maak Active Directory apps voor het apparaat om te communiceren met de Azure Migrate-service.
 management.azure.com | Maak Active Directory apps voor het apparaat om te communiceren met de Azure Migrate-service.
 dc.services.visualstudio.com | App-logboeken uploaden die worden gebruikt voor interne bewaking.
 *.vault.azure.net | Geheimen beheren in de Azure Key Vault.
@@ -104,7 +104,7 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 
 **Apparaatconfiguratie** | **verbinding**
 --- | ---
-Apparaat | Binnenkomende verbindingen op TCP-poort 3389 om extern bureau blad-verbindingen met het apparaat toe te staan.<br/><br/> Binnenkomende verbindingen op poort 44368 voor externe toegang tot de app voor het beheren van apparaten met behulp van de URL:```https://<appliance-ip-or-name>:44368``` <br/><br/>Uitgaande verbindingen op poort 443 voor het verzenden van meta gegevens voor detectie en prestaties naar Azure Migrate.
+Apparaat | Binnenkomende verbindingen op TCP-poort 3389 om extern bureau blad-verbindingen met het apparaat toe te staan.<br/><br/> Binnenkomende verbindingen op poort 44368 voor externe toegang tot de app voor het beheren van apparaten met behulp van de URL:```https://<appliance-ip-or-name>:44368``` <br/><br/>Uitgaande verbindingen op poort 443, 5671 en 5672 voor het verzenden van meta gegevens voor detectie en prestaties naar Azure Migrate.
 vCenter-server | Binnenkomende verbindingen op TCP-poort 443 zodat het apparaat configuratie-en prestatie-meta gegevens voor evaluaties kan verzamelen. <br/><br/> Het apparaat maakt standaard verbinding met vCenter op poort 443. Als de vCenter-Server op een andere poort luistert, kunt u de poort wijzigen bij het instellen van detectie.
 
 
@@ -175,8 +175,8 @@ Het Azure Migrate-apparaat heeft Internet verbinding met internet nodig.
 **URL** | **Details**  
 --- | ---
 *.portal.azure.com | Ga naar de Azure Migrate in het Azure Portal.
-*.windows.net | Meld u aan bij uw Azure-abonnement.
-*.microsoftonline.com | Maak Active Directory apps voor het apparaat om te communiceren met de Azure Migrate-service.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Meld u aan bij uw Azure-abonnement.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Maak Active Directory apps voor het apparaat om te communiceren met de Azure Migrate-service.
 management.azure.com | Maak Active Directory apps voor het apparaat om te communiceren met de Azure Migrate-service.
 dc.services.visualstudio.com | App-logboeken uploaden die worden gebruikt voor interne bewaking.
 *.vault.azure.net | Geheimen beheren in de Azure Key Vault.

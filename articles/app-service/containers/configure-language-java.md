@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 1488dbdcc042b29880560e7255de96b8d0409779
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 825379c04c22b3f13e651455c490a58ad47169d8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498511"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967162"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Een Linux java-app voor Azure App Service configureren
 
@@ -243,9 +243,6 @@ Als u deze geheimen wilt injecteren in het configuratie bestand voor de lente of
 
 In deze sectie wordt beschreven hoe u Java-toepassingen die zijn geïmplementeerd op Azure App Service op Linux verbindt met de NewRelic-en AppDynamics-platformen voor het controleren van de prestaties van toepassingen (APM).
 
-[Nieuwe Relic](#configure-new-relic)
-configureren[AppDynamics configureren](#configure-appdynamics)
-
 ### <a name="configure-new-relic"></a>Nieuwe Relic configureren
 
 1. Een NewRelic-account maken op [NewRelic.com](https://newrelic.com/signup)
@@ -258,7 +255,6 @@ configureren[AppDynamics configureren](#configure-appdynamics)
     - Als uw app **Java SE**gebruikt, maakt u een omgevings variabele `JAVA_OPTS` met de naam `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`met de waarde.
     - Als u **Tomcat**gebruikt, maakt u een omgevings variabele `CATALINA_OPTS` met de naam `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`met de waarde.
     - Als u **WildFly**gebruikt, raadpleegt u de nieuwe Relic-documentatie [hier](https://docs.newrelic.com/docs/agents/java-agent/additional-installation/wildfly-version-11-installation-java) voor meer informatie over het installeren van de Java-Agent en de configuratie van JBoss.
-    - Als u al een omgevings variabele voor `JAVA_OPTS` of `CATALINA_OPTS`hebt, voegt `javaagent` u de optie toe aan het einde van de huidige waarde.
 
 ### <a name="configure-appdynamics"></a>AppDynamics configureren
 
@@ -270,6 +266,8 @@ configureren[AppDynamics configureren](#configure-appdynamics)
     - Als u **Java SE**gebruikt, maakt u een omgevings variabele `JAVA_OPTS` met de naam `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` met `<app-name>` de waarde waar de naam van uw app service is.
     - Als u **Tomcat**gebruikt, maakt u een omgevings variabele `CATALINA_OPTS` met de naam `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` met `<app-name>` de waarde waar de naam van uw app service is.
     - Als u **WildFly**gebruikt, raadpleegt u de AppDynamics-documentatie [hier](https://docs.appdynamics.com/display/PRO45/JBoss+and+Wildfly+Startup+Settings) voor meer informatie over het installeren van de Java-Agent en de configuratie van JBoss.
+
+>  Als u al een omgevings variabele voor `JAVA_OPTS` of `CATALINA_OPTS`hebt, voegt `-javaagent:/...` u de optie toe aan het einde van de huidige waarde.
 
 ## <a name="configure-jar-applications"></a>JAR-toepassingen configureren
 

@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: a5db2c1c40c9c6f5c05205b9b2c652d2e23cf229
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2f6d45613120d02dd96a9fe0a14ce388d20cf0c6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848245"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990573"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Automatische machine learning experimenten maken, verkennen en implementeren in de Azure Portal (preview-versie)
 
@@ -66,6 +66,10 @@ Selecteer **experiment maken** en vul het formulier **een nieuw automatisch mach
 1. Selecteer een opslag container.
 
 1. Selecteer een gegevens bestand uit uw opslag container of upload een bestand van uw lokale computer naar de container. Open bare preview biedt alleen ondersteuning voor het uploaden van lokale bestanden en Azure Blob Storage-accounts.
+    >[!Important]
+    > Vereisten voor trainings gegevens:
+    >* Gegevens moeten in tabel vorm zijn.
+    >* De waarde die u wilt voors pellen (doel kolom), moet aanwezig zijn in de gegevens.
 
     [![Gegevens bestand selecteren](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
 

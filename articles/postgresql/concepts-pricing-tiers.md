@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 376620459a0ab2f0f170b0743c0ab51a51bca9c4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2f6be256801983924cc794d6c8b8fa31e39959e1
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698952"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967858"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Prijs categorieën in Azure Database for PostgreSQL-één server
 
@@ -107,6 +107,9 @@ De service maakt automatisch back-ups van uw server. De minimale Bewaar periode 
 ## <a name="scale-resources"></a>Resources omhoog/omlaag schalen
 
 Nadat u de server hebt gemaakt, kunt u de vCores, de generatie van de hardware, de prijs categorie (met uitzonde ring van en van basis), de hoeveelheid opslag en de Bewaar periode voor back-ups afzonderlijk wijzigen. U kunt het opslag type voor back-ups niet wijzigen nadat een server is gemaakt. Het aantal vCores kan omhoog of omlaag worden geschaald. De Bewaar periode van de back-up kan worden uitgebreid of omlaag van 7 tot 35 dagen. De opslag grootte kan alleen worden verhoogd. U kunt de resources verg Roten of verkleinen via de portal of Azure CLI. Zie [een Azure database for postgresql server bewaken en schalen met behulp van Azure cli](scripts/sample-scale-server-up-or-down.md)voor een voor beeld van schalen met behulp van Azure cli.
+
+> [!NOTE] 
+> De opslag grootte kan alleen worden verhoogd. U kunt niet teruggaan naar een kleinere opslag grootte na de verhoging.
 
 Wanneer u het aantal vCores, het genereren van de hardware of de prijs categorie wijzigt, wordt er een kopie van de oorspronkelijke server gemaakt met de nieuwe reken toewijzing. Wanneer de nieuwe server actief is, worden de verbindingen hiernaartoe overgeschakeld. Op het moment dat het systeem overschakelt naar de nieuwe server, kunnen er geen nieuwe verbindingen worden vastgelegd en worden alle niet-doorgevoerde transacties teruggedraaid. Dit tijdvenster is variabel, maar is in de meeste gevallen minder dan een minuut.
 

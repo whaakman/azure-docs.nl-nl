@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
 ms.openlocfilehash: 126c3fb348b1d53769a818ae4b21fcdbbef65615
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68517241"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connectors voor Azure Logic Apps
@@ -187,7 +187,7 @@ Verbindingen hebben toegang tot de doel service of het systeem zolang de service
 
 ## <a name="custom-apis-and-connectors"></a>Aangepaste Api's en connectors
 
-Als u Api's wilt aanroepen waarmee aangepaste code wordt uitgevoerd of die niet beschikbaar zijn als connectors, kunt u het Logic Apps platform uitbreiden door [aangepaste API apps te maken](../logic-apps/logic-apps-create-api-app.md). U kunt ook [aangepaste connectors maken](../logic-apps/custom-connector-overview.md) *voor rest-* of SOAP-Api's, zodat deze api's beschikbaar zijn voor elke logische app in uw Azure-abonnement.
+Als u Api's wilt aanroepen waarmee aangepaste code wordt uitgevoerd of die niet beschikbaar zijn als connectors, kunt u het Logic Apps platform uitbreiden door [aangepaste API apps te maken](../logic-apps/logic-apps-create-api-app.md). U kunt ook [aangepaste connectors maken](../logic-apps/custom-connector-overview.md) voor rest-of SOAP-api's, zodat deze api's beschikbaar zijn voor elke logische app in uw Azure-abonnement.
 Als u aangepaste API Apps of connectors openbaar wilt maken zodat iedereen deze kan gebruiken in azure, kunt u [connectors voor micro soft-certificering verzenden](../logic-apps/custom-connector-submit-certification.md).
 
 > [!NOTE]

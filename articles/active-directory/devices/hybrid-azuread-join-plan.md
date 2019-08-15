@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49f8d0e418f43648665b95f5bf1f672e9f9dae28
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: cad2568702909274030d3c7c6469a7e4cbf670c4
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779456"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989261"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedure: Uw hybride Azure Active Directory deelname-implementatie plannen
 
@@ -101,7 +101,7 @@ Organisaties willen mogelijk een gecontroleerde validatie van hybride Azure AD-d
 
 ## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Selecteer uw scenario op basis van uw identiteits infrastructuur
 
-Hybride Azure AD-deelname werkt met zowel beheerde als federatieve omgevingen.  
+Hybride Azure AD-deelname werkt met zowel beheerde als federatieve omgevingen, afhankelijk van het feit of de UPN routeerbaar of niet-routeerbaar is. Zie de onderkant van de pagina voor de tabel op ondersteunde scenario's.  
 
 ### <a name="managed-environment"></a>Beheerde omgeving
 

@@ -1,6 +1,6 @@
 ---
-title: Live streamen met on-premises coderingsprogramma's met behulp van .NET | Microsoft Docs
-description: Dit onderwerp leest hoe u met .NET live codering met on-premises coderingsprogramma's.
+title: Live streamen met on-premises encoders met behulp van .NET | Microsoft Docs
+description: In dit onderwerp wordt beschreven hoe u .NET gebruikt voor het uitvoeren van Live code ring met on-premises encoders.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: cenkdin;juliako
-ms.openlocfilehash: 8baff356e1a4916bcc21b28f422a6e98342c0d34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.openlocfilehash: bc7c8a059e1e17b7b280a7061206b10ed6c530aa
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869452"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "69015841"
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Live streamen met on-premises coderingsprogramma's met behulp van .NET
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Live streamen met on-premises encoders met behulp van .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -29,9 +29,9 @@ ms.locfileid: "64869452"
 > 
 
 > [!NOTE]
-> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
+> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [migratie richtlijnen van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
 
-In deze zelfstudie leidt u door de stappen voor het gebruik van de Azure Media Services .NET SDK te maken van een **kanaal** die is geconfigureerd voor een doorvoerlevering. 
+In deze zelf studie wordt stapsgewijs uitgelegd hoe u de Azure Media Services .NET SDK gebruikt om een **kanaal** te maken dat is geconfigureerd voor een Pass-Through-levering. 
 
 ## <a name="prerequisites"></a>Vereisten
 Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
@@ -39,10 +39,10 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
 * Een Azure-account.
 * Een Media Services-account. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
 * Controleer of het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** heeft. 
-* Uw ontwikkelaarsomgeving instellen. Zie voor meer informatie, [instellen van uw omgeving](media-services-set-up-computer.md).
+* Stel uw ontwikkel omgeving in. Zie [uw omgeving instellen](media-services-set-up-computer.md)voor meer informatie.
 * Een webcam. Bijvoorbeeld [Telestream Wirecast-coderingsprogramma](https://www.telestream.net/wirecast/overview.htm).
 
-Aanbevolen om te controleren van de volgende artikelen:
+Aanbevolen om de volgende artikelen te controleren:
 
 * [Azure Media Services RTMP-ondersteuning en live coderingsprogramma's](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Live streamen met on-premises coderingsprogramma's die multi-bitrate streams maken](media-services-live-streaming-with-onprem-encoders.md)
@@ -53,23 +53,23 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
 
 ## <a name="example"></a>Voorbeeld
 
-Het volgende codevoorbeeld ziet u het bereiken van de volgende taken:
+In het volgende code voorbeeld ziet u hoe u de volgende taken kunt uitvoeren:
 
 * Verbinding met Media Services maken
 * Een kanaal maken
 * Het kanaal bijwerken
-* Ophalen van het kanaal invoereindpunt. Het eindpunt van de invoer moet worden opgegeven om de on-premises live coderingsprogramma. Het live coderingsprogramma zet signalen van de camera naar stromen die worden verzonden naar de invoer van het kanaal opnemen () eindpunt.
-* Ophalen van het kanaal preview-eindpunt
-* Maken en starten van een programma
-* Maak een locator nodig voor toegang tot het programma
-* Maak en start een streamingendpoint zo
-* Het streaming-eindpunt bijwerken
+* Het invoer eindpunt van het kanaal ophalen. Het invoer eindpunt moet worden opgegeven voor het on-premises Live coderings programma. Met het Live coderings programma worden signalen van de camera geconverteerd naar stromen die worden verzonden naar het invoer eindpunt van het kanaal.
+* Het voor beeld-eind punt van het kanaal ophalen
+* Een programma maken en starten
+* Een Locator maken die nodig is om toegang te krijgen tot het programma
+* Een StreamingEndpoint maken en starten
+* Het streaming-eind punt bijwerken
 * Resources afsluiten
     
 >[!NOTE]
 >Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Raadpleeg [dit artikel](media-services-dotnet-manage-entities.md#limit-access-policies) voor meer informatie.
 
-Zie voor meer informatie over het configureren van een live coderingsprogramma [Azure Media Services RTMP-ondersteuning en Live coderingsprogramma's](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+Zie [Azure Media Services RTMP-ondersteuning en live](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)coderings Programma's voor meer informatie over het configureren van een live coderings programma.
 
 ```csharp
 using System;
@@ -400,7 +400,7 @@ namespace AMSLiveTest
 ```
 
 ## <a name="next-step"></a>Volgende stap
-Media Services-leertrajecten bekijken
+Media Services Learning-paden controleren
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

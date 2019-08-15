@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9a6ea961f7433f511ef22a6ac9aaefa51b5df8aa
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 1f8086580d60d13251052636d4d771855e9605a5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663689"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954953"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Back-ups maken van virtuele Azure-machines in een Recovery Services kluis
 
@@ -138,7 +138,7 @@ Na het inschakelen van back-up:
 Als u hebt geselecteerd voor het maken van een nieuw back-upbeleid, vult u de beleids instellingen in.
 
 1. Geef in **beleids naam**een beschrijvende naam op.
-2. Geef in **back-upschema** op wanneer back-ups moeten worden gemaakt. U kunt dagelijks of wekelijks back-ups maken voor Azure-Vm's.
+2. Geef in **back-upschema**op wanneer back-ups moeten worden gemaakt. U kunt dagelijks of wekelijks back-ups maken voor Azure-Vm's.
 2. Geef in **direct terugzetten**op hoe lang u moment opnamen lokaal wilt behouden voor direct terugzetten.
     - Wanneer u een back-up van VM-schijven herstelt, worden deze vanuit het netwerk gekopieerd naar de opslag locatie voor herstel. Met direct terugzetten kunt u lokaal opgeslagen moment opnamen gebruiken die zijn gemaakt tijdens een back-uptaak, zonder te wachten tot back-upgegevens worden overgebracht naar de kluis.
     - U kunt moment opnamen voor direct terugzetten tussen een en vijf dagen bewaren. Twee dagen is de standaard instelling.
@@ -164,8 +164,8 @@ De eerste back-up wordt uitgevoerd volgens de planning, maar u kunt deze als vol
 
 ## <a name="verify-backup-job-status"></a>Status van back-uptaak controleren
 
-De details van de back-uptaak voor elke VM-back-up bestaat uit twee fasen: de **momentopname** fase, gevolgd door de fase **gegevens overdragen naar de kluis** .<br/>
-De momentopname fase garandeert de beschik baarheid van een herstel punt dat is opgeslagen samen met de schijven voor **onmiddellijke herstel** bewerkingen en is Maxi maal 5 dagen beschikbaar, afhankelijk van de retentie van de moment opname die door de gebruiker is geconfigureerd. Bij het overdragen van gegevens naar de kluis wordt een herstel punt in de kluis gemaakt voor lange termijn retentie. Het overdragen van gegevens naar de kluis begint alleen wanneer de fase van de moment opname is voltooid.
+De details van de back-uptaak voor elke VM-back-up bestaan uit twee fasen: de **momentopname** fase, gevolgd door de fase **gegevens overdragen naar de kluis** .<br/>
+De momentopname fase garandeert de beschik baarheid van een herstel punt dat is opgeslagen samen met de schijven voor **onmiddellijke herstel** bewerkingen en is Maxi maal vijf dagen beschikbaar, afhankelijk van de retentie van de moment opname die door de gebruiker is geconfigureerd. Bij het overdragen van gegevens naar de kluis wordt een herstel punt in de kluis gemaakt voor lange termijn retentie. Het overdragen van gegevens naar de kluis begint alleen wanneer de fase van de moment opname is voltooid.
 
   ![Status van back-uptaak](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
 
@@ -210,7 +210,7 @@ De back-upextensie die op de virtuele machine wordt uitgevoerd, heeft uitgaande 
 
 **Optie** | **Actie** | **Details**
 --- | --- | ---
-**NSG-regels instellen** | Sta de [IP-adresbereiken van Azure Data Center](https://www.microsoft.com/download/details.aspx?id=41653)toe.<br/><br/> In plaats van elk adres bereik toe te staan en te beheren, kunt u een regel toevoegen waarmee u toegang krijgt tot de Azure Backup-service met behulp [van een servicetag](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | Meer [informatie](../virtual-network/security-overview.md#service-tags) over service tags.<br/><br/> Met services Tags wordt het toegangs beheer vereenvoudigd en worden er geen extra kosten in rekening gebracht.
+**NSG-regels instellen** | Sta de [IP-adresbereiken van Azure Data Center](https://www.microsoft.com/download/details.aspx?id=41653)toe.<br/><br/> In plaats van elk adres bereik toe te staan en te beheren, kunt u een regel toevoegen waarmee u toegang krijgt tot [](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure)de Azure backup-service met behulp van een servicetag. | Meer [informatie](../virtual-network/security-overview.md#service-tags) over service tags.<br/><br/> Met services Tags wordt het toegangs beheer vereenvoudigd en worden er geen extra kosten in rekening gebracht.
 **Een proxy implementeren** | Implementeer een HTTP-proxy server voor route ring van verkeer. | Biedt toegang tot het hele Azure en niet alleen opslag.<br/><br/> Gedetailleerde controle over de opslag-Url's is toegestaan.<br/><br/> Eén punt van Internet toegang voor Vm's.<br/><br/> Aanvullende kosten voor proxy.
 **Azure Firewall instellen** | Verkeer via de Azure Firewall op de virtuele machine toestaan met behulp van een FQDN-code voor de Azure Backup-Service | Eenvoudig te gebruiken als u Azure Firewall hebt ingesteld in een VNet-subnet.<br/><br/> U kunt geen eigen FQDN-Tags maken of FQDN-namen in een label wijzigen.<br/><br/> Als uw Azure-Vm's beheerde schijven hebben, moet u mogelijk een extra poort (8443) openen op de firewalls.
 

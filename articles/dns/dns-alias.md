@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 08/09/2019
 ms.author: victorh
-ms.openlocfilehash: 89b50cff2d46f8c92c09653aeaac49551c97e9c6
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 9a3cdb846921c2d73dd2cca5d679663c1ba9e192
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314473"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946889"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Overzicht van Azure DNS alias records
 
@@ -20,16 +20,16 @@ Azure DNS alias records zijn kwalificaties voor een DNS-Recordset. Ze kunnen ver
 
 Een aliasset wordt ondersteund voor de volgende record typen in een Azure DNS zone: 
 
-- A
+- G
 - AAAA
 - CNAME
 
 > [!NOTE]
 > Als u van plan bent een alias record te gebruiken voor de A-of AAAA-record typen om te verwijzen naar een [Azure Traffic Manager-profiel](../traffic-manager/quickstart-create-traffic-manager-profile.md) , moet u ervoor zorgen dat het Traffic Manager profiel alleen [externe eind punten](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints)heeft. U moet het IPv4-of IPv6-adres opgeven voor externe eind punten in Traffic Manager. U kunt geen volledig gekwalificeerde domein namen (FQDN) in eind punten gebruiken. In het ideale geval gebruikt u statische IP-adressen.
 
-## <a name="capabilities"></a>Functionaliteit
+## <a name="capabilities"></a>Mogelijkheden
 
-- **Wijs naar een open bare IP-bron van een DNS A/AAAA-Recordset.** U kunt een A/AAAA-recordset maken en hiervan een alias instellen om naar een open bare IP-resource te verwijzen. De DNS-record sets worden automatisch gewijzigd als het open bare IP-adres wordt gewijzigd of verwijderd. Dangling DNS-records die verwijzen naar onjuiste IP-adressen, worden vermeden.
+- **Wijs naar een open bare IP-bron van een DNS A/AAAA-Recordset.** U kunt een A/AAAA-recordset maken en hiervan een alias instellen om te verwijzen naar een open bare IP-resource (standaard of basis). De DNS-record sets worden automatisch gewijzigd als het open bare IP-adres wordt gewijzigd of verwijderd. Dangling DNS-records die verwijzen naar onjuiste IP-adressen, worden vermeden.
 
    Er is een huidige limiet van 20 alias record sets per resource.
 

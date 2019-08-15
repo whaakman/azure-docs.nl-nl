@@ -1,6 +1,6 @@
 ---
-title: Met een beschrijving van Azure Service Fabric-apps en -services | Microsoft Docs
-description: Hierin wordt beschreven hoe manifesten worden gebruikt om Service Fabric-toepassingen en services te beschrijven.
+title: Azure Service Fabric-apps en-services beschrijven | Microsoft Docs
+description: Beschrijft hoe manifesten worden gebruikt voor het beschrijven van Service Fabric toepassingen en-services.
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
@@ -12,23 +12,23 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/19/2018
+ms.date: 8/12/2019
 ms.author: atsenthi
-ms.openlocfilehash: e5fb28b176ce14a9b871b2a6a775e0017fcc993d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5e452bf3dc9f35c345a5f27af829904b4839ece
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052662"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977114"
 ---
-# <a name="service-fabric-application-and-service-manifests"></a>Service Fabric-toepassing- en servicemanifesten
-Dit artikel wordt beschreven hoe Service Fabric-toepassingen en services worden gedefinieerd en is samengesteld met behulp van de bestanden ApplicationManifest.xml en ServiceManifest.xml.  Zie voor meer voorbeelden van gedetailleerde [toepassing en service manifest van de voorbeelden](service-fabric-manifest-examples.md).  Het XML-schema voor deze manifestbestanden wordt gedocumenteerd in [ServiceFabricServiceModel.xsd schemadocumentatie](service-fabric-service-model-schema.md).
+# <a name="service-fabric-application-and-service-manifests"></a>Toepassings-en service manifesten Service Fabric
+In dit artikel wordt beschreven hoe Service Fabric toepassingen en-services worden gedefinieerd en geversiond met behulp van de bestanden ApplicationManifest. XML en ServiceManifest. XML.  Zie voor beelden van toepassings- [en service manifesten](service-fabric-manifest-examples.md)voor meer gedetailleerde voor beelden.  Het XML-schema voor deze manifest bestanden wordt beschreven in de [documentatie bij ServiceFabricServiceModel. XSD-schema](service-fabric-service-model-schema.md).
 
 > [!WARNING]
-> Het manifest schema van de XML-bestand dwingt de juiste volgorde van de onderliggende elementen.  Als een gedeeltelijke oplossing "C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd" in Visual Studio te openen tijdens het ontwerpen of wijzigen van een van de Service Fabric-manifesten. Hiermee kunt u om te controleren of de volgorde van de onderliggende elementen en biedt beschikt.
+> Het XML-manifest bestand schema afdwingt de juiste volg orde van onderliggende elementen af.  Als gedeeltelijke tijdelijke oplossing opent u ' C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd ' in Visual Studio tijdens het ontwerpen of wijzigen van een van de Service Fabric-manifesten. Zo kunt u de volg orde van de onderliggende elementen controleren en beschikt.
 
-## <a name="describe-a-service-in-servicemanifestxml"></a>Een service in ServiceManifest.xml beschrijven
-Het servicemanifest definieert declaratief het servicetype en de versie. Het geeft de metagegevens zoals servicetype, health eigenschappen, taakverdeling metrische gegevens, de binaire bestanden en -configuratiebestanden.  Anders gezegd, beschrijft de code, configuratie en gegevens pakketten waaruit een servicepakket ter ondersteuning van een of meer servicetypen. Een servicemanifest kan bevatten meerdere code, configuratie en gegevenspakketten die onafhankelijk is samengesteld kunnen zijn. Dit is een servicemanifest voor de ASP.NET Core web-front-endservice van de [stemmen voorbeeldtoepassing](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (en hier volgen enkele [meer gedetailleerde voorbeelden van](service-fabric-manifest-examples.md)):
+## <a name="describe-a-service-in-servicemanifestxml"></a>Een service beschrijven in ServiceManifest. XML
+Het service manifest definieert declaratief het Service type en de versie. Hiermee worden de meta gegevens van de service, zoals service type, eigenschappen van de taak verdeling, metrische gegevens over de belasting en configuratie bestanden opgegeven.  Een andere manier, hierin worden de code, configuratie en gegevens pakketten beschreven voor het samen stellen van een service pakket ter ondersteuning van een of meer service typen. Een service manifest kan meerdere code-, configuratie-en gegevens pakketten bevatten, die onafhankelijk van de versie kunnen worden verwerkt. Hier vindt u een service manifest voor de ASP.NET Core web-front-end-service van de [toepassing stem voorbeeld](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (en hier vindt u een aantal [gedetailleerde voor beelden](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -68,24 +68,24 @@ Het servicemanifest definieert declaratief het servicetype en de versie. Het gee
 </ServiceManifest>
 ```
 
-**Versie** kenmerken zijn tekenreeksen met niet-gestructureerde en niet worden geparseerd door het systeem. Versie-kenmerken worden gebruikt voor de versie van elk onderdeel voor upgrades.
+**Versie** kenmerken zijn ongestructureerde teken reeksen en worden niet geparseerd door het systeem. Versie kenmerken worden gebruikt voor het versie nummer van elk onderdeel voor upgrades.
 
-**ServiceTypes** wordt gedeclareerd welke servicetypen worden ondersteund door **CodePackages** in dit manifest. Wanneer een service wordt gestart op basis van een van deze servicetypen, worden alle pakketten gedefinieerd in deze manifest geactiveerd door het uitvoeren van hun toegangspunten. De resulterende processen worden verwacht voor het registreren van de typen ondersteunde service tijdens runtime. Service-typen zijn gedefinieerd op het niveau van het manifest en niet het niveau van de code-pakket. Dus wanneer er meerdere pakketten, worden alle geactiveerd wanneer er wordt gezocht naar een van de gedeclareerde servicetypen.
+**ServiceTypes** declareert welke service typen worden ondersteund door **CodePackages** in dit manifest. Wanneer een service wordt geïnstantieerd voor een van deze service typen, worden alle code pakketten die zijn gedeclareerd in dit manifest geactiveerd door hun toegangs punten uit te voeren. De resulterende processen worden verwacht de ondersteunde service typen tijdens runtime te registreren. Service typen worden op manifest niveau gedeclareerd en niet op het niveau van het code pakket. Als er meerdere code pakketten zijn, worden deze allemaal geactiveerd wanneer het systeem zoekt naar een van de gedeclareerde service typen.
 
-Het uitvoerbare bestand opgegeven door **EntryPoint** is doorgaans de ServiceHost langlopende. **SetupEntryPoint** is een privileged ingangspunt gebruikt dat wordt uitgevoerd met dezelfde referenties als Service Fabric (meestal de *LocalSystem* account) voordat u een ander toegangspunt.  De aanwezigheid van een toegangspunt voor de afzonderlijke instellingen zo voorkomt u dat de ServiceHost met hoge bevoegdheden voor langere tijd worden uitgevoerd. Het uitvoerbare bestand opgegeven door **EntryPoint** wordt uitgevoerd na **SetupEntryPoint** is afgesloten. Als het proces wordt beëindigd ooit of vastloopt, het resulterende proces wordt bewaakt en opnieuw opgestart (opnieuw vanaf **SetupEntryPoint**).  
+Het uitvoer bare bestand dat is opgegeven met **Entry Point** is doorgaans de langlopende servicehost. **SetupEntryPoint** is een geprivilegieerd toegangs punt dat wordt uitgevoerd met dezelfde referenties als service Fabric (doorgaans de *LocalSystem* -account) vóór een ander toegangs punt.  Door de aanwezigheid van een afzonderlijk installatie punt wordt voor komen dat de servicehost gedurende lange tijd met hoge bevoegdheden kan worden uitgevoerd. Het uitvoer bare bestand dat is opgegeven met **Entry Point** wordt uitgevoerd nadat de **SetupEntryPoint** is afgesloten. Als het proces ooit wordt beëindigd of vastloopt, wordt het resulterende proces gecontroleerd en opnieuw gestart (opnieuw starten met **SetupEntryPoint**).  
 
-Typische scenario's voor het gebruik van **SetupEntryPoint** zijn wanneer u een uitvoerbaar bestand voordat u de service wordt gestart uitvoeren of u een bewerking met verhoogde bevoegdheden uit te voeren. Bijvoorbeeld:
+Typische scenario's voor het gebruik van **SetupEntryPoint** zijn wanneer u een uitvoerbaar bestand uitvoert voordat de service wordt gestart of een bewerking uitvoert met verhoogde bevoegdheden. Bijvoorbeeld:
 
-* Instellen van en het initialiseren van omgevingsvariabelen die het uitvoerbare bestand van de service nodig heeft. Dit is niet beperkt tot alleen uitvoerbare bestanden die zijn geschreven via de Service Fabric-programmeermodellen. Npm.exe moet bijvoorbeeld enkele omgevingsvariabelen die is geconfigureerd voor het implementeren van een node.js-toepassing.
-* Toegangsbeheer instellen door het installeren van beveiligingscertificaten.
+* Instellen en initialiseren van omgevings variabelen die voor het uitvoer bare bestand van de service nodig zijn. Dit is niet beperkt tot uitvoer bare bestanden die zijn geschreven via de Service Fabric-programmeer modellen. NPM. exe vereist bijvoorbeeld enkele omgevings variabelen die zijn geconfigureerd voor het implementeren van een node. js-toepassing.
+* Toegangs beheer instellen door beveiligings certificaten te installeren.
 
-Zie voor meer informatie over het configureren van de SetupEntryPoint [het beleid voor een toegangspunt voor service-instellingen configureren](service-fabric-application-runas-security.md)
+Zie voor meer informatie over het configureren van de SetupEntryPoint [het beleid configureren voor een toegangs punt voor een service-instelling](service-fabric-application-runas-security.md)
 
-**Omgevingsvariabelen** (niet ingesteld in het vorige voorbeeld) bevat een lijst van omgevingsvariabelen die zijn ingesteld voor dit codepakket. Omgevingsvariabelen kunnen worden overschreven in de `ApplicationManifest.xml` voor verschillende waarden voor verschillende service-exemplaren. 
+**Omgevings variabelen** (niet ingesteld in het voor gaande voor beeld) bevat een lijst met omgevings variabelen die zijn ingesteld voor dit code pakket. Omgevings variabelen kunnen worden overschreven in `ApplicationManifest.xml` de om verschillende waarden te bieden voor verschillende service-exemplaren. 
 
-**Gegevenspakket** (niet ingesteld in het vorige voorbeeld) declareert een map met de naam van de **naam** kenmerk met willekeurige statische gegevens om te worden verbruikt door het proces tijdens runtime.
+**Sectie gegevens pakket** (niet ingesteld in het voor gaande voor beeld) declareert een map, met de **naam** kenmerk, die wille keurige statische gegevens bevat die tijdens de uitvoering door het proces moeten worden gebruikt.
 
-**ConfigPackage** declareert u een map met de naam van de **naam** kenmerk dat bevat een *Settings.xml* bestand. Het instellingenbestand bevat secties van de gebruiker gedefinieerde, sleutel / waarde-paar instellingen die het proces weer tijdens runtime leest. Tijdens een upgrade wordt als alleen de **ConfigPackage** **versie** is gewijzigd, en vervolgens het proces dat wordt uitgevoerd niet opnieuw wordt opgestart. In plaats daarvan een retouraanroep hoogte gebracht van het proces dat configuratie-instellingen hebt gewijzigd, zodat ze kunnen dynamisch worden geladen. Hier volgt een voorbeeld *Settings.xml* bestand:
+**ConfigPackage** declareert een map met de naam van het kenmerk **name** , dat een bestand *Settings. XML* bevat. Het instellingen bestand bevat secties van door de gebruiker gedefinieerde combi natie van sleutel waarden waarmee het proces tijdens runtime terugkeert. Als er tijdens een upgrade alleen de **ConfigPackage** - **versie** is gewijzigd, wordt het proces dat wordt uitgevoerd, niet opnieuw gestart. In plaats daarvan wordt met een call back het proces gewaarschuwd dat de configuratie-instellingen zijn gewijzigd zodat ze dynamisch opnieuw kunnen worden geladen. Hier volgt een voor beeld van *instellingen. XML-* bestand:
 
 ```xml
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -96,8 +96,12 @@ Zie voor meer informatie over het configureren van de SetupEntryPoint [het belei
 </Settings>
 ```
 
-Een Service Fabric-Service **eindpunt** volgt een voorbeeld van een Service Fabric-Resource. Een Service Fabric-Resource kan worden opgegeven/gewijzigd zonder de gecompileerde code te wijzigen. Toegang tot de Service Fabric-Resources die zijn opgegeven in het servicemanifest kan worden beheerd via de **Toewijzingsmodule** in het toepassingsmanifest. Als een Resource-eindpunt is gedefinieerd in het servicemanifest, wijst Service Fabric poorten van het gereserveerde bereik toe wanneer een poort niet expliciet is opgegeven. Meer informatie over [op te geven of het vervangen van eindpunt resources](service-fabric-service-manifest-resources.md).
+Een Service Fabric service- **eind punt** is een voor beeld van een service Fabric resource. Een Service Fabric resource kan worden gedeclareerd/gewijzigd zonder de gecompileerde code te wijzigen. Toegang tot de Service Fabric resources die zijn opgegeven in het service manifest kan worden beheerd via de **beveiligings groep** in het manifest van de toepassing. Wanneer een eindpunt resource is gedefinieerd in het service manifest, Service Fabric wijst poorten toe uit het gereserveerde poort bereik van de toepassing wanneer een poort niet expliciet is opgegeven. Meer informatie over het [opgeven of overschrijven van eindpunt resources](service-fabric-service-manifest-resources.md).
 
+ 
+> [!WARNING]
+> Door statische poorten voor het ontwerp mogen niet overlappen met het toepassings poort bereik dat is opgegeven in de ClusterManifest. Als u een statische poort opgeeft, dient u deze buiten het toepassings poort bereik toe te wijzen, anders leidt dit tot poort conflicten. Met release 6.5 CU2 zullen we een **status waarschuwing** uitgeven wanneer een dergelijk conflict wordt gedetecteerd, maar de implementatie met het gedistribueerde 6,5-gedrag kan worden voortgezet. We kunnen er echter voor zorgen dat de implementatie van de toepassing van de volgende grote releases wordt voor komen.
+>
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -108,10 +112,10 @@ For more information about other features supported by service manifests, refer 
 *TODO: Configuration overrides
 -->
 
-## <a name="describe-an-application-in-applicationmanifestxml"></a>Een toepassing in ApplicationManifest.xml beschrijven
-Het toepassingsmanifest beschrijving declaratief van het toepassingstype en de versie. Het geeft de metagegevens van samenstelling zoals stabiele namen, schema, exemplaar, aantal/replicatiefactor, isolatie/beleid, plaatsingsbeperkingen, configuratie van onderdrukkingen en samenstellende servicetypen partitioneren. De load-balancing domeinen waarin de toepassing is geplaatst, worden ook beschreven.
+## <a name="describe-an-application-in-applicationmanifestxml"></a>Een toepassing beschrijven in ApplicationManifest. XML
+Het toepassings manifest beschrijft declaratief het toepassings type en de versie. Hierin worden de meta gegevens van de service compositie opgegeven, zoals stabiele namen, het partitioneren van het schema, het aantal exemplaren/de replicatie factor, het beveiligings beleid, de plaatsings beperkingen, de configuratie-onderdrukkingen en de service typen van het onderdeel. De taakverdelings domeinen waarin de toepassing wordt geplaatst, worden ook beschreven.
 
-Manifest van de toepassing worden elementen op toepassingsniveau en dus verwijst naar een of meer servicemanifesten voor het opstellen van een toepassingstype. Hier volgt een manifest voor de toepassing voor de [stemmen voorbeeldtoepassing](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (en hier volgen enkele [meer gedetailleerde voorbeelden van](service-fabric-manifest-examples.md)):
+Een toepassings manifest beschrijft dus elementen op toepassings niveau en verwijst naar een of meer service manifesten om een toepassings type samen te stellen. Hier volgt het toepassings manifest voor de [toepassing stem voorbeeld](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (en hier vindt u een aantal [gedetailleerde voor beelden](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -147,29 +151,32 @@ Manifest van de toepassing worden elementen op toepassingsniveau en dus verwijst
     <Service Name="VotingWeb" ServicePackageActivationMode="ExclusiveProcess">
       <StatelessService ServiceTypeName="VotingWebType" InstanceCount="[VotingWeb_InstanceCount]">
         <SingletonPartition />
+         <PlacementConstraints>(NodeType==NodeType0)</PlacementConstraints
       </StatelessService>
     </Service>
   </DefaultServices>
 </ApplicationManifest>
 ```
 
-Servicemanifesten, zoals **versie** kenmerken zijn tekenreeksen met niet-gestructureerde en niet worden geparseerd door het systeem. Versie-kenmerken worden ook gebruikt voor de versie van elk onderdeel voor upgrades.
+Evenals service manifesten zijn **versie** -kenmerken ongestructureerde teken reeksen en worden ze niet geparseerd door het systeem. Versie kenmerken worden ook gebruikt voor het versie nummer van elk onderdeel voor upgrades.
 
-**Parameters** definieert de parameters gebruikt in het toepassingsmanifest. De waarden van deze parameters kunnen worden opgegeven wanneer de toepassing wordt gestart en toepassing of service configuratie-instellingen overschrijven kunt.  De standaardwaarde voor de parameter wordt gebruikt als de waarde niet is gewijzigd tijdens instantiëring van toepassing. Zie voor informatie over het onderhouden van andere toepassing en serviceparameters voor afzonderlijke omgevingen, [parameters voor de toepassing voor meerdere omgevingen beheren](service-fabric-manage-multiple-environment-app-configuration.md).
+**Para meters** definieert de para meters die worden gebruikt in het toepassings manifest. De waarden van deze para meters kunnen worden opgegeven wanneer de toepassing wordt geïnstantieerd en de configuratie-instellingen van de toepassing of service kunnen worden overschreven.  De standaard parameter waarde wordt gebruikt als de waarde niet wordt gewijzigd tijdens het instantiëren van de toepassing. Zie [toepassings parameters voor meerdere omgevingen beheren](service-fabric-manage-multiple-environment-app-configuration.md)voor meer informatie over het onderhouden van verschillende toepassings-en service parameters voor afzonderlijke omgevingen.
 
-**ServiceManifestImport** bevat verwijzingen naar servicemanifesten waaruit deze toepassingstype. Manifest van de toepassing kan meerdere service manifest invoer bevatten, elk kan worden bijgehouden onafhankelijk van elkaar. Geïmporteerde servicemanifesten te bepalen welke servicetypen zijn geldig binnen dit toepassingstype. Binnen de ServiceManifestImport overschrijven u configuratiewaarden in Settings.xml en omgevingsvariabelen in ServiceManifest.xml bestanden. **Beleid** (niet ingesteld in het voorgaande voorbeeld) voor het eindpunt binding, beveiliging en toegang en pakket delen kan worden ingesteld voor geïmporteerde servicemanifesten.  Zie voor meer informatie, [beveiligingsbeleid configureren voor uw toepassing](service-fabric-application-runas-security.md).
+**ServiceManifestImport** bevat verwijzingen naar service manifesten die dit toepassings type vormen. Een toepassings manifest kan meerdere service manifest-import bewerkingen bevatten, die elk afzonderlijk kunnen worden geversied. Geïmporteerde service manifesten bepalen welke service typen geldig zijn binnen dit toepassings type. Binnen de ServiceManifestImport overschrijft u de configuratie waarden in Settings. XML en omgevings variabelen in ServiceManifest. XML-bestanden. **Beleids regels** (niet ingesteld in het voor gaande voor beeld) voor end-point binding, beveiliging en toegang en het delen van pakketten kunnen worden ingesteld voor geïmporteerde service manifesten.  Zie [beveiligings beleid voor uw toepassing configureren](service-fabric-application-runas-security.md)voor meer informatie.
 
-**DefaultServices** declareert de service-exemplaren die automatisch worden gemaakt wanneer een toepassing wordt geïnstantieerd op basis van dit toepassingstype. Standaard-services zijn alleen uw gemak en zich gedraagt als normale services in alle opzichten nadat ze zijn gemaakt. Ze worden bijgewerkt, samen met eventuele andere services in een exemplaar van de toepassing en kunnen ook worden verwijderd. Manifest van de toepassing kan meerdere standaardservices bevatten.
+**DefaultServices** declareert service-exemplaren die automatisch worden gemaakt wanneer een toepassing wordt geïnstantieerd voor dit toepassings type. Standaard services zijn slechts een gemak en gedragen zich als normale Services in elk opzicht nadat ze zijn gemaakt. Ze worden samen met andere services in het toepassings exemplaar bijgewerkt en kunnen ook worden verwijderd. Een toepassings manifest kan meerdere standaard services bevatten.
 
-**Certificaten** (niet ingesteld in het vorige voorbeeld) verklaart de certificaten voor het [HTTPS-eindpunten instellen](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) of [versleutelen geheimen in het toepassingsmanifest](service-fabric-application-secret-management.md).
+**Certificaten** (niet ingesteld in het voor gaande voor beeld) declareert de certificaten die worden gebruikt voor het [instellen van HTTPS-eind punten](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) of [het versleutelen van geheimen in het toepassings manifest](service-fabric-application-secret-management.md).
 
-**Beleid** (niet ingesteld in het vorige voorbeeld) beschrijft de logboekverzameling [standaard run as](service-fabric-application-runas-security.md), [health](service-fabric-health-introduction.md#health-policies), en [beveiligingstoegang](service-fabric-application-runas-security.md) beleid om in te stellen op de niveau van de toepassing, waaronder of de service (s) toegang tot de Service Fabric-runtime hebben.
+**Plaatsings beperkingen** zijn de instructies die bepalen waar services moeten worden uitgevoerd. Deze instructies zijn gekoppeld aan afzonderlijke services die u voor een of meer knooppunt eigenschappen selecteert. Zie [plaatsing van beperkingen en syntaxis van knooppunt eigenschappen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax) voor meer informatie.
+
+**Beleids regels** (niet ingesteld in het voor gaande voor beeld) hierin worden de logboek verzameling, het standaard beleid voor [uitvoeren als](service-fabric-application-runas-security.md), de [status](service-fabric-health-introduction.md#health-policies)en [beveiligings toegang](service-fabric-application-runas-security.md) beschreven die op toepassings niveau moeten worden ingesteld, inclusief of de service (s) toegang heeft tot de service Fabric runtime.
 
 > [!NOTE] 
-> Service Fabric-toepassingen hebben standaard toegang tot de Service Fabric-runtime, in de vorm van een eindpunt toepassingsspecifieke aanvragen en omgevingsvariabelen die verwijst naar paden op de host met Fabric en toepassingsspecifieke bestanden accepteren . Houd rekening met deze toegang uitschakelen wanneer de toepassing als host fungeert voor niet-vertrouwde code (dat wil zeggen code waarvan herkomst is onbekend of die eigenaar van de toepassing weet niet als veilig kan worden uitgevoerd). Zie voor meer informatie, [best practices voor beveiliging in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
+> Service Fabric-toepassingen hebben standaard toegang tot de Service Fabric runtime, in de vorm van een eind punt dat toepassingsspecifieke aanvragen accepteert, en omgevings variabelen die verwijzen naar bestands paden op de host die Fabric-en toepassingsspecifieke bestanden bevatten . U kunt deze toegang uitschakelen wanneer de toepassing niet-vertrouwde code host (dat wil zeggen code waarvan de herkomst onbekend is, of die de eigenaar van de toepassing weet dat deze niet veilig kan worden uitgevoerd). Zie [Aanbevolen procedures voor beveiliging in service Fabric](service-fabric-best-practices-security.md#platform-isolation)voor meer informatie. 
 >
 
-**Beveiligings-principals** (niet ingesteld in het voorgaande voorbeeld) de beveiligings-principals (gebruikers of groepen) vereist om te beschrijven [uitvoeren services en bronnen van veilige service](service-fabric-application-runas-security.md).  Beveiligings-principals zijn waarnaar wordt verwezen in de **beleid** secties.
+**Principals** (niet ingesteld in het voor gaande voor beeld) Beschrijf de beveiligings-principals (gebruikers of groepen) die zijn vereist voor het [uitvoeren van services en het beveiligen van service bronnen](service-fabric-application-runas-security.md).  Er wordt verwezen naar principals in de secties van het **beleid** .
 
 
 
@@ -185,12 +192,12 @@ For more information about other features supported by application manifests, re
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Een toepassing verpakken](service-fabric-package-apps.md) en geef deze klaar om te implementeren.
-- [Implementeren en verwijderen van toepassingen](service-fabric-deploy-remove-applications.md).
-- [Configureren van de parameters en variabelen voor exemplaren van een andere toepassing](service-fabric-manage-multiple-environment-app-configuration.md).
-- [Beveiligingsbeleid configureren voor uw toepassing](service-fabric-application-runas-security.md).
-- [Setup-HTTPS-eindpunten](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service).
-- [Geheimen in het toepassingsmanifest versleutelen](service-fabric-application-secret-management.md)
+- [Verpakken een toepassing](service-fabric-package-apps.md) en maak deze klaar om te implementeren.
+- [Toepassingen implementeren en verwijderen](service-fabric-deploy-remove-applications.md).
+- [Configureer para meters en omgevings variabelen voor verschillende toepassings exemplaren](service-fabric-manage-multiple-environment-app-configuration.md).
+- [Configureer beveiligings beleid voor uw toepassing](service-fabric-application-runas-security.md).
+- [Https-eind punten instellen](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service).
+- [Geheimen in het toepassings manifest versleutelen](service-fabric-application-secret-management.md)
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png

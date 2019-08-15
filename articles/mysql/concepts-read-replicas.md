@@ -1,137 +1,162 @@
 ---
-title: Lezen-replica's in Azure Database voor MySQL.
-description: Dit artikel beschrijft lezen replica's voor Azure Database voor MySQL.
+title: Replica's in Azure Database for MySQL lezen.
+description: In dit artikel wordt het lezen van replica's voor Azure Database for MySQL beschreven.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/30/2019
-ms.openlocfilehash: 2d70e1b5434b2fb263d1f4587888d4758fac2828
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/12/2019
+ms.openlocfilehash: 00cace13a1d3db2bca45791960ca9bf2fb9260bd
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66225364"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976907"
 ---
-# <a name="read-replicas-in-azure-database-for-mysql"></a>Lezen-replica's in Azure Database for MySQL
+# <a name="read-replicas-in-azure-database-for-mysql"></a>Leesreplica's in Azure Database for MySQL
 
-De functie lezen replica kunt u voor het repliceren van gegevens uit een Azure Database for MySQL-server met een alleen-lezen-server. U kunt vanaf de hoofd-server repliceren naar maximaal vijf replica's. Replica's zijn bijgewerkt asynchroon met de MySQL-engine systeemeigen binair logboek (binlog)-bestand op basis van positie-Replicatietechnologie. Zie voor meer informatie over binlog replicatie, de [MySQL binlog replicatie-overzicht](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+Met de functie leesreplica kunt u gegevens van een Azure Database for MySQL-server repliceren naar een alleen-lezen server. U kunt van de hoofdserver naar maximaal vijf replica's repliceren. Replica's worden asynchroon bijgewerkt met behulp van de systeemeigen, op de positie van het binlog-bestand (binair logboekbestand) gebaseerde replicatietechnologie van het MySQL-systeem. Meer informatie over binlog-replicatie vindt u in het [overzicht van MySQL binlog-replicatie](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 > [!IMPORTANT]
-> U kunt een lezen replica maken in dezelfde regio als de hoofd-server of in een andere Azure-regio van uw keuze. Regio-overschrijdende replicatie is momenteel in openbare preview.
+> U kunt een lees replica maken in dezelfde regio als uw hoofd server of in andere Azure-regio's van uw keuze. Replicatie tussen regio's is momenteel beschikbaar als open bare preview.
 
-Replica's zijn nieuwe servers die u die vergelijkbaar is met normale Azure Database for MySQL-servers beheert. Voor elke replica hebt gelezen en u wordt gefactureerd voor de ingerichte Computing in vCores en opslag in GB / maand.
+Replica's zijn nieuwe servers die u op dezelfde manier beheert als gewone Azure Database for MySQL servers. Voor elke Lees replica wordt u gefactureerd voor de ingerichte Compute in vCores en Storage in GB/maand.
 
-Raadpleeg voor meer informatie over functies voor MySQL-replicatie en problemen met de [MySQL replicatie documentatie](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
+Raadpleeg de [MySQL-replicatie documentatie](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)voor meer informatie over MySQL-replicatie functies en-problemen.
 
-## <a name="when-to-use-a-read-replica"></a>Wanneer u een replica lezen
+## <a name="when-to-use-a-read-replica"></a>Wanneer moet u een lees replica gebruiken?
 
-De functie lezen replica helpt bij het verbeteren van de prestaties en schaal van lees-intensieve werkbelastingen. Lezen workloads kunnen worden geïsoleerd voor de replica's, terwijl schrijven workloads kunnen worden omgeleid naar het hoofdniveau.
+De functie voor het lezen van replica's helpt bij het verbeteren van de prestaties en schaal baarheid van Lees bare werk belastingen. Lees werkbelastingen kunnen worden geïsoleerd voor de replica's, terwijl schrijf werkbelastingen kunnen worden omgeleid naar de Master.
 
-Een veelvoorkomend scenario is dat BI en analytische werkbelastingen gebruiken de lezen replica als de gegevensbron voor rapportage.
+Een veelvoorkomend scenario is om BI-en analytische werk belastingen de Lees replica te laten gebruiken als gegevens bron voor rapportage.
 
-Omdat de replica's zijn alleen-lezen, verlagen niet rechtstreeks schrijven-capaciteit Bezig te houden op de hoofddoelserver. Deze functie is niet gericht op schrijven-intensieve workloads.
+Omdat replica's alleen-lezen zijn, worden ze niet rechtstreeks op de Master gereduceerd. Deze functie is niet gericht op write-intensieve workloads.
 
-De functie lezen replica maakt gebruik van asynchrone replicatie van de MySQL. De functie is niet bedoeld voor scenario's met synchrone replicatie. Er is een meetbare vertraging tussen het model en de replica. De gegevens op de replica wordt uiteindelijk consistent zijn met de gegevens op de hoofddoelserver. Gebruik deze functie voor workloads die deze vertraging aankan.
+De functie replica lezen maakt gebruik van MySQL-asynchrone replicatie. De functie is niet bedoeld voor synchrone replicatie scenario's. Er is een meet bare vertraging tussen het hoofd en de replica. De gegevens op de replica worden uiteindelijk consistent met de gegevens op de Master. Gebruik deze functie voor werk belastingen die deze vertraging kunnen bevatten.
 
-Lezen-replica's kunnen u uw plan voor herstel na noodgevallen verbeteren. Als er een regionaal noodgeval en de hoofd-server niet beschikbaar is, kunt u uw werkbelasting naar een replica in een andere regio sturen. Om dit te doen, kunt u eerst de replica schrijfbewerkingen accepteren met behulp van de functie van de replicatie stoppen. U kunt uw toepassing vervolgens omleiden door de verbindingsreeks bij te werken. Meer informatie in de [replicatie stoppen](#stop-replication) sectie.
+## <a name="cross-region-replication"></a>Replicatie tussen regio's
+U kunt een lees replica maken in een andere regio dan de hoofd server. Replicatie tussen regio's kan handig zijn voor scenario's zoals het plannen van herstel na nood gevallen of gegevens dichter bij uw gebruikers te brengen.
+
+> [!IMPORTANT]
+> Replicatie tussen regio's is momenteel beschikbaar als open bare preview.
+
+U kunt een hoofd server in een [Azure database for MySQL regio](https://azure.microsoft.com/global-infrastructure/services/?products=mysql)hebben.  Een hoofd server kan een replica hebben in het gekoppelde gebied of in de universele replica regio's.
+
+### <a name="universal-replica-regions"></a>Universele replica regio's
+U kunt altijd een lees replica maken in een van de volgende regio's, ongeacht waar uw master server zich bevindt. Dit zijn de universele replica regio's:
+
+Australië-oost, Australië-zuidoost, centraal VS, Azië-oost, VS-Oost, VS-Oost 2, Japan-Oost, Japan-West, Korea-centraal, Korea-zuid, Noord-Centraal VS, Europa-noord, Zuid-Centraal VS, Zuidoost-Azië, UK-zuid, UK-west, Europa-west, VS-West, VS-West 2.
+
+
+### <a name="paired-regions"></a>Gekoppelde regio's
+Naast de universele replica regio's, kunt u een lees replica maken in het gekoppelde Azure-gebied van uw hoofd server. Als u het paar van uw regio niet weet, kunt u meer informatie vinden in het [artikel gekoppelde regio's in azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+Als u verschillende regio's replica's gebruikt voor het plannen van herstel na nood gevallen, raden we u aan om de replica in het gekoppelde gebied te maken in plaats van een van de andere regio's. Gekoppelde regio's vermijden gelijktijdige updates en geven geen prioriteiten voor fysieke isolatie en gegevens locatie.  
+
+Er zijn echter beperkingen om rekening mee te houden: 
+
+* Regionale beschikbaarheid: Azure Database for MySQL is beschikbaar in VS-West 2, Frankrijk-centraal, UAE-noord en Duitsland-centraal. De gekoppelde regio's zijn echter niet beschikbaar.
+    
+* Uni-directionele paren: Sommige Azure-regio's zijn in slechts één richting gekoppeld. Deze regio's omvatten West-India, Brazilië-zuid en US Gov-Virginia. 
+   Dit betekent dat een master-server in West-India een replica kan maken in India-zuid. Een hoofd server in India-zuid kan echter geen replica maken in West-India. Dit komt doordat de secundaire regio van West-India India-zuid is, India-zuid maar de secundaire regio van het westen is niet West-India.
+
 
 ## <a name="create-a-replica"></a>Replica's maken
 
-Als een hoofd-server geen bestaande replicaservers heeft, wordt eerst het model opnieuw zelf voorbereiden voor replicatie.
+Als een master server geen bestaande replica servers heeft, wordt de Master eerst opnieuw opgestart om zichzelf voor te bereiden voor replicatie.
 
-Wanneer u de werkstroom van de replica maken start, wordt een lege Azure Database voor MySQL-server gemaakt. De nieuwe server is gevuld met de gegevens op de hoofd-server. De tijd voor het maken, is afhankelijk van de hoeveelheid gegevens op de hoofd- en de tijd sinds de laatste wekelijkse volledige back-up. De tijd kan variëren van enkele minuten tot enkele uren.
+Wanneer u de werk stroom voor het maken van de replica start, wordt er een lege Azure Database for MySQL-server gemaakt. De nieuwe server wordt gevuld met de gegevens die zich op de hoofd server bevonden. De aanmaak tijd is afhankelijk van de hoeveelheid gegevens op de Master en de tijd sinds de laatste wekelijkse volledige back-up. De tijd kan variëren van een paar minuten tot enkele uren.
 
-Elke replica is ingeschakeld voor de opslag [automatisch vergroten](concepts-pricing-tiers.md#storage-auto-grow). De functie auto-grow kunt de replica om te blijven van de gegevens gerepliceerd naar deze, en te voorkomen dat een onderbreking in replicatie veroorzaakt door buiten Opslagfouten.
+Elke replica is ingeschakeld voor [automatische groei](concepts-pricing-tiers.md#storage-auto-grow)van opslag. Met de functie voor automatisch uitbreiden kan de replica de gegevens repliceren, en wordt voor komen dat de replicatie wordt onderbroken vanwege onvoldoende opslag fouten.
 
-Meer informatie over het [een lezen replica maken in Azure portal](howto-read-replicas-portal.md).
+Meer informatie over [het maken van een lees replica in de Azure Portal](howto-read-replicas-portal.md).
 
 ## <a name="connect-to-a-replica"></a>Verbinding maken met een replica
 
-Wanneer u een replica maakt, overnemen niet het van de firewall-regels of VNet-service-eindpunt van de hoofd-server. Deze regels moeten afzonderlijk worden ingesteld voor de replica.
+Wanneer u een replica maakt, neemt deze de firewall regels of het VNet-service-eind punt van de hoofd server niet over. Deze regels moeten onafhankelijk worden ingesteld voor de replica.
 
-De replica neemt het beheerdersaccount van de hoofd-server. Alle gebruikersaccounts op de hoofd-server worden gerepliceerd naar de lezen-replica's. U kunt alleen verbinding maken met een replica lezen met behulp van de gebruikersaccounts die beschikbaar op de hoofd-server zijn.
+De replica neemt het beheerders account over van de hoofd server. Alle gebruikers accounts op de hoofd server worden gerepliceerd naar de replica's die worden gelezen. U kunt alleen verbinding maken met een lees replica met behulp van de gebruikers accounts die beschikbaar zijn op de master server.
 
-U kunt verbinding maken met de replica met behulp van de hostnaam en een geldig gebruikersaccount, zoals u zou voor een gewone Azure Database voor MySQL-server doen. Voor een server met de naam **myreplica** met de gebruikersnaam van beheerder **myadmin**, u kunt verbinding maken met de replica met behulp van de mysql-CLI:
+U kunt verbinding maken met de replica door de hostnaam en een geldig gebruikers account te gebruiken, net zoals bij een gewone Azure Database for MySQL-server. Voor een server met de naam **myreplica** met de gebruikers naam **myadmin**van de beheerder kunt u verbinding maken met de replica met behulp van de MySQL cli:
 
 ```bash
 mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 ```
 
-Voer het wachtwoord voor het gebruikersaccount dat bij de prompt.
+Voer bij de prompt het wacht woord voor het gebruikers account in.
 
-## <a name="monitor-replication"></a>Monitor voor replicatie
+## <a name="monitor-replication"></a>Replicatie controleren
 
-Azure Database for MySQL biedt de **vertraging van replicatie in een paar seconden** metrische gegevens in Azure Monitor. Met deze metriek is beschikbaar voor alleen replica's.
+Azure Database for MySQL levert de **replicatie vertraging in seconden** metric in azure monitor. Deze metriek is alleen beschikbaar voor replica's.
 
-Met deze metriek wordt berekend met behulp van de `seconds_behind_master` metrische gegevens beschikbaar zijn in de MySQL `SHOW SLAVE STATUS` opdracht.
+Deze metrische gegevens worden berekend met `seconds_behind_master` behulp van de beschik bare metrische gegevens in de opdracht van `SHOW SLAVE STATUS` mysql.
 
-Stel een waarschuwing om u te informeren wanneer de vertraging van replicatie een waarde die niet acceptabel voor uw workload is bereikt.
+Stel een waarschuwing in om u te informeren wanneer de replicatie vertraging een waarde bereikt die niet geschikt is voor uw werk belasting.
 
 ## <a name="stop-replication"></a>Replicatie stoppen
 
-U kunt replicatie tussen een hoofd- en een replica stoppen. Nadat de replicatie tussen een hoofd-server en een lezen replica is gestopt, wordt de replica een zelfstandige server. De gegevens in de zelfstandige server zijn de gegevens die beschikbaar zijn op de replica is op het moment dat de opdracht stop-replicatie is gestart. De zelfstandige server actueel met de hoofd-server niet.
+U kunt de replicatie tussen een Master en een replica stoppen. Nadat de replicatie tussen een hoofd server en een lees replica is gestopt, wordt de replica een zelfstandige server. De gegevens op de zelfstandige server zijn de gegevens die beschikbaar zijn op de replica op het moment dat de opdracht stop-replicatie werd gestart. De zelfstandige server is niet actief bij de hoofd server.
 
-Als u ervoor kiest om replicatie naar een replica te stoppen, verliest deze alle koppelingen naar de vorige hoofd- en andere replica's. Er is geen automatische failover tussen een model en de bijbehorende replica.
+Wanneer u ervoor kiest om de replicatie naar een replica te stoppen, gaan alle koppelingen naar het vorige hoofd object en andere replica's verloren. Er is geen automatische failover tussen een hoofd database en de replica.
 
 > [!IMPORTANT]
-> De zelfstandige server kan niet opnieuw worden gemaakt in een replica.
-> Voordat u replicatie op een replica lezen stoppen, controleert u of de replica de gegevens die u nodig hebt.
+> De zelfstandige server kan niet opnieuw in een replica worden gemaakt.
+> Voordat u de replicatie op een lees replica stopt, moet u ervoor zorgen dat de replica over alle gegevens beschikt die u nodig hebt.
 
-Meer informatie over het [stop de replicatie naar een replica](howto-read-replicas-portal.md).
+Meer informatie over het [stoppen van replicatie naar een replica](howto-read-replicas-portal.md).
 
 ## <a name="considerations-and-limitations"></a>Overwegingen en beperkingen
 
 ### <a name="pricing-tiers"></a>Prijscategorieën
 
-Lezen-replica's zijn momenteel alleen beschikbaar in de Prijscategorieën voor algemeen gebruik en geoptimaliseerd voor geheugen.
+Het lezen van replica's is momenteel alleen beschikbaar in de prijs Categorieën Algemeen en geoptimaliseerd voor geheugen.
 
-### <a name="master-server-restart"></a>Hoofd-server opnieuw opstarten
+### <a name="master-server-restart"></a>Hoofd server opnieuw opstarten
 
-Wanneer u een replica voor een model waarvoor geen bestaande replica's maakt, wordt eerst het model opnieuw zelf voorbereiden voor replicatie. Dit rekening mee te houden en het uitvoeren van deze bewerkingen gedurende een periode buiten piektijden.
+Wanneer u een replica maakt voor een model zonder bestaande replica's, wordt de Master eerst opnieuw opgestart om zichzelf voor te bereiden voor replicatie. Houd er rekening mee dat u deze bewerkingen uitvoert tijdens een rustige periode.
 
-### <a name="new-replicas"></a>Nieuwe replica 's
+### <a name="new-replicas"></a>Nieuwe replica's
 
-Een lezen replica wordt gemaakt als een nieuwe Azure-Database voor MySQL-server. Een bestaande server kan niet worden gemaakt in een replica. U kunt een replica van een andere lezen replica kan niet maken.
+Er wordt een lees replica gemaakt als een nieuwe Azure Database for MySQL-server. Een bestaande server kan niet worden gemaakt in een replica. Het is niet mogelijk om een replica van een andere Lees replica te maken.
 
-### <a name="replica-configuration"></a>Configuratie van de replica
+### <a name="replica-configuration"></a>Replica configuratie
 
-Een replica wordt gemaakt met behulp van de configuratie van de dezelfde server als het model. Nadat een replica is gemaakt, verschillende instellingen van de hoofdserver onafhankelijk van elkaar kunnen worden gewijzigd: compute genereren, vCores, opslag, bewaarperiode voor back- en MySQL-engine-versie. De prijscategorie kan ook afzonderlijk worden gewijzigd met uitzondering van of naar de Basic-laag.
+Een replica wordt gemaakt met behulp van dezelfde server configuratie als de Master. Nadat een replica is gemaakt, kunnen verschillende instellingen onafhankelijk van de hoofd server worden gewijzigd: generatie van compute, vCores, opslag, back-up van Bewaar periode en MySQL-Engine versie. De prijs categorie kan ook onafhankelijk worden gewijzigd, met uitzonde ring van of van de Basic-laag.
 
 > [!IMPORTANT]
-> Werk de configuratie van de replica op gelijke of grotere waarden voordat een hoofd-server-configuratie is bijgewerkt met nieuwe waarden. Deze actie zorgt ervoor dat de replica kunt houden met eventuele wijzigingen in het model.
+> Voordat een configuratie van een hoofd server wordt bijgewerkt naar nieuwe waarden, moet u de replica configuratie bijwerken naar de waarden gelijk of hoger. Met deze actie zorgt u ervoor dat de replica alle wijzigingen kan aanbrengen die in de master zijn aangebracht.
 
-### <a name="stopped-replicas"></a>Gestopte replica 's
+### <a name="stopped-replicas"></a>Gestopte replica's
 
-Als u replicatie tussen een hoofd-server en een lezen replica stopt, wordt de gestopte replica een zelfstandige server die zowel lees- en schrijfbewerkingen accepteert. De zelfstandige server kan niet opnieuw worden gemaakt in een replica.
+Als u de replicatie tussen een hoofd server en een lees replica stopt, wordt de gestopte replica een zelfstandige server die zowel lees-als schrijf bewerkingen accepteert. De zelfstandige server kan niet opnieuw in een replica worden gemaakt.
 
-### <a name="deleted-master-and-standalone-servers"></a>Verwijderde hoofd- en zelfstandige servers
+### <a name="deleted-master-and-standalone-servers"></a>Verwijderde Master-en zelfstandige servers
 
-Wanneer een hoofd-server wordt verwijderd, wordt replicatie gestopt op alle lezen-replica's. Zelfstandige servers, worden deze replica's. De hoofd-server zelf wordt verwijderd.
+Wanneer een master server wordt verwijderd, wordt replicatie gestopt voor alle replica's. Deze replica's worden zelfstandige servers. De hoofd server zelf wordt verwijderd.
 
 ### <a name="user-accounts"></a>Gebruikersaccounts
 
-Gebruikers op de hoofd-server worden gerepliceerd naar de lezen-replica's. U kunt alleen verbinding maken met een lezen-replica met behulp van de gebruikersaccounts die beschikbaar op de hoofd-server.
+Gebruikers op de hoofd server worden gerepliceerd naar de Lees replica's. U kunt alleen verbinding maken met een lees replica met behulp van de beschik bare gebruikers accounts op de master server.
 
 ### <a name="server-parameters"></a>Serverparameters
 
-Om te voorkomen dat gegevens worden gesynchroniseerd en om te voorkomen van gegevensverlies of beschadiging van mogelijke, zijn sommige parameters van de server worden bijgewerkt wanneer met behulp van replica's worden gelezen vergrendeld.
+Om te voor komen dat gegevens kunnen worden gesynchroniseerd en om mogelijke gegevens verlies of-beschadiging te voor komen, worden bepaalde server parameters vergrendeld bij het gebruik van replica's voor lezen.
 
-De volgende parameters van de server zijn vergrendeld op de hoofd- en de replica-servers:
+De volgende server parameters zijn vergrendeld op de Master-en replica servers:
 - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) 
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
-De [ `event_scheduler` ](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parameter is vergrendeld op de replicaservers. 
+De [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) para meter is vergrendeld op de replica servers. 
 
 ### <a name="other"></a>Overige
 
-- Algemene transactie-id's (GTID) worden niet ondersteund.
+- Algemene trans actie-id's (GTID) worden niet ondersteund.
 - Het maken van een replica van een replica wordt niet ondersteund.
-- Tabellen in het geheugen kunnen ertoe leiden dat de replica's worden niet gesynchroniseerd. Dit is een beperking van de MySQL-Replicatietechnologie. Meer informatie in de [MySQL-referentiedocumentatie](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) voor meer informatie.
-- Zorg ervoor dat de hoofd-server-tabellen primaire sleutels hebben. Gebrek aan primaire sleutels kan leiden tot replicatielatentie tussen de hoofd- en replica's.
-- Bekijk de volledige lijst met MySQL replicatiebeperkingen in de [MySQL-documentatie](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
+- In-Memory tabellen kunnen ertoe leiden dat replica's niet meer synchroon zijn. Dit is een beperking van de MySQL-replicatie technologie. Meer informatie vindt u in de [referentie documentatie voor mysql](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) .
+- Zorg ervoor dat de hoofd Server tabellen primaire sleutels hebben. Als er geen primaire sleutels zijn, kan dit leiden tot replicatie latentie tussen de hoofd-en replicas.
+- Bekijk de volledige lijst met MySQL-replicatie beperkingen in de [MySQL-documentatie](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Leer hoe u [maken en beheren van meer replica's met behulp van de Azure portal](howto-read-replicas-portal.md)
-- Leer hoe u [maken en beheren van meer replica's met de Azure CLI](howto-read-replicas-cli.md)
+- Meer informatie over [het maken en beheren van Lees replica's met behulp van de Azure Portal](howto-read-replicas-portal.md)
+- Meer informatie over [het maken en beheren van Lees replica's met behulp van Azure cli](howto-read-replicas-cli.md)

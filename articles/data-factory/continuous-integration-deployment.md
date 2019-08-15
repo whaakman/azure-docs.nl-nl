@@ -1,6 +1,6 @@
 ---
 title: Continue integratie en levering in Azure Data Factory | Microsoft Docs
-description: Informatie over het gebruik van continue integratie en levering Data Factory-pijplijnen verplaatsen van de ene omgeving (ontwikkeling, testen, productie) naar een andere.
+description: Leer hoe u doorlopende integratie en levering kunt gebruiken om Data Factory pijp lijnen van de ene omgeving (ontwikkeling, test, productie) naar een andere te verplaatsen.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -8,133 +8,145 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 ms.reviewer: maghan
 manager: craigg
-ms.openlocfilehash: 76962975705ff53a292f41a0a54e42c5f2991a2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c090d9a864bfb5218836627a5579cd3089387af8
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002528"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013834"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Continue integratie en levering (CI/CD) in Azure Data Factory
 
-Continue integratie is het testen van elke wijziging gereed om terug te uw codebasis automatisch en zo vroeg mogelijk. Continue levering volgt de tests die plaatsvindt tijdens de continue integratie en verstuurd van wijzigingen naar een systeem fasering of productie.
+## <a name="overview"></a>Overzicht
 
-Betekent verplaatsen Data Factory-pijplijnen van de ene omgeving (ontwikkeling, testen, productie) naar een andere voor Azure Data Factory, continue integratie en levering. Als u wilt doen continue integratie en levering, kunt u Data Factory-UI-integratie met Azure Resource Manager-sjablonen. De gebruikersinterface van Data Factory een Resource Manager-sjabloon kunt genereren wanneer u selecteert de **ARM-sjabloon** opties. Wanneer u selecteert **exporteren ARM-sjabloon**, de portal voor het Resource Manager-sjabloon voor de data factory en een configuratiebestand met alle tekenreeksen in uw verbindingen en andere parameters wordt gegenereerd. Vervolgens moet u maken van een configuratiebestand voor elke omgeving (ontwikkeling, testen, productie). Het belangrijkste Resource Manager-sjabloonbestand blijft hetzelfde voor alle omgevingen.
+Continue integratie is de praktijk van het testen van elke wijziging die in uw code base wordt uitgevoerd automatisch en zo snel mogelijk. Continue levering volgt de tests die optreden tijdens continue integratie en het pushen van wijzigingen in een staging-of productie systeem.
 
-Bekijk de volgende video voor een 9 minuten durende inleiding en demonstratie van deze functie:
+In Azure Data Factory wordt doorlopende integratie & levering het verplaatsen van Data Factory pijp lijnen van de ene omgeving (ontwikkeling, test, productie) naar een andere. Als u doorlopende integratie & levering wilt uitvoeren, kunt u Data Factory UX-integratie met Azure Resource Manager-sjablonen gebruiken. De Data Factory UX kan een resource manager-sjabloon genereren op basis van de vervolg keuzelijst **arm-sjabloon** . Wanneer u **arm-sjabloon exporteren**selecteert, genereert de Portal de Resource Manager-sjabloon voor de Data Factory en een configuratie bestand dat alle verbindings reeksen en andere para meters bevat. Vervolgens maakt u een configuratie bestand voor elke omgeving (ontwikkelen, testen, productie). Het sjabloon bestand van de hoofd Resource Manager blijft hetzelfde voor alle omgevingen.
+
+Bekijk de volgende video voor een inleiding en demonstratie van negen minuten voor deze functie:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="create-a-resource-manager-template-for-each-environment"></a>Een Resource Manager-sjabloon voor elke omgeving maken
-Selecteer **exporteren ARM-sjabloon** voor het exporteren van de Resource Manager-sjabloon voor uw gegevensfactory in de ontwikkelomgeving.
+## <a name="continuous-integration-lifecycle"></a>Continue integratie levenscyclus
+
+Hieronder vindt u een voor beeld van een overzicht van de levens cyclus voor continue integratie en levering in een Azure-gegevensfactory die is geconfigureerd met Azure opslag plaatsen git. Zie [broncode beheer in azure Data Factory](source-control.md)voor meer informatie over het configureren van een Git-opslag plaats.
+
+1.  Een ontwikkelings data factory wordt gemaakt en geconfigureerd met Azure opslag plaatsen Git, waar alle ontwikkel aars toestemming hebben om Data Factory resources zoals pijp lijnen en gegevens sets te schrijven.
+
+1.  Wanneer de ontwikkel aars wijzigingen aanbrengen in hun functie vertakking, kunnen ze fouten opsporen in hun pijplijn uitvoeringen met hun meest recente wijzigingen. Zie [iteratieve ontwikkeling en fout opsporing met Azure Data Factory](iterative-development-debugging.md)voor meer informatie over het opsporen van fouten in een pijplijn uitvoering.
+
+1.  Zodra de ontwikkel aars tevreden zijn met hun wijzigingen, maken ze een pull-aanvraag van hun functie vertakking in de vertakking Master of collaboration om hun wijzigingen te verkrijgen die door peers worden gecontroleerd.
+
+1.  Nadat de pull-aanvraag is goedgekeurd en wijzigingen zijn samengevoegd in de hoofd vertakking, kunnen ze publiceren naar de ontwikkelings fabriek.
+
+1.  Wanneer het team gereed is voor het implementeren van de wijzigingen in de test-Factory en vervolgens naar de productie-Factory, exporteren ze de Resource Manager-sjabloon uit de hoofd vertakking.
+
+1.  De geëxporteerde Resource Manager-sjabloon wordt geïmplementeerd met verschillende parameter bestanden naar de test-Factory en de productie-Factory.
+
+## <a name="create-a-resource-manager-template-for-each-environment"></a>Een resource manager-sjabloon maken voor elke omgeving
+
+Selecteer in de vervolg keuzelijst **arm-sjabloon** de optie **arm-sjabloon exporteren** om de Resource Manager-sjabloon voor uw Data Factory te exporteren in de ontwikkel omgeving.
 
 ![](media/continuous-integration-deployment/continuous-integration-image1.png)
 
-Vervolgens gaat u naar uw gegevensfactory testen en productie data factory en selecteer **importeren ARM-sjabloon**.
+Selecteer in uw test-en productie gegevens fabrieken de optie **arm-sjabloon importeren**. Met deze actie gaat u naar de Azure Portal, waar u de geëxporteerde sjabloon kunt importeren. Selecteer **uw eigen sjabloon bouwen in de editor** om de Resource Manager-sjabloon editor te openen.
 
-![](media/continuous-integration-deployment/continuous-integration-image2.png)
+![](media/continuous-integration-deployment/continuous-integration-image3.png) 
 
-Hiermee gaat u naar de Azure-portal, waar u de geëxporteerde sjabloon kunt importeren. Selecteer **bouw uw eigen sjabloon in de editor** en vervolgens **bestand laden** en selecteer de gegenereerde Resource Manager-sjabloon. Geef de instellingen en de data factory en de hele pijplijn wordt geïmporteerd in uw productieomgeving.
-
-![](media/continuous-integration-deployment/continuous-integration-image3.png)
+Klik op **bestand laden** en selecteer de gegenereerde Resource Manager-sjabloon.
 
 ![](media/continuous-integration-deployment/continuous-integration-image4.png)
 
-Selecteer **bestand laden** voor het selecteren van de geëxporteerde Resource Manager-sjabloon en geef alle configuratiewaarden (bijvoorbeeld, gekoppelde services).
+Voer in het deel venster instellingen de configuratie waarden in, zoals de referenties van de gekoppelde service. Zodra u klaar bent, klikt u op **aanschaffen** om de Resource Manager-sjabloon te implementeren.
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
 
-**Tekenreeksen voor databaseverbindingen**. U kunt de informatie die is vereist voor het maken van verbindingsreeksen in de artikelen over de afzonderlijke connectors vinden. Bijvoorbeeld, voor Azure SQL Database, Zie [gegevens kopiëren naar of van Azure SQL Database met behulp van Azure Data Factory](connector-azure-sql-database.md). Om te controleren of de juiste verbindingsreeks - voor een gekoppelde service, bijvoorbeeld: kunt u ook openen codeweergave voor de resource in de gebruikersinterface van Data Factory. In de weergave van code, maar het wachtwoord of account sleutel gedeelte van de verbindingsreeks verwijderd. Als codeweergave wilt openen, selecteert u het pictogram gemarkeerd in de volgende schermafbeelding.
+### <a name="connection-strings"></a>Verbindingsreeksen
 
-![Open-code weer te geven van de verbindingsreeks](media/continuous-integration-deployment/continuous-integration-codeview.png)
+Informatie over het configureren van verbindings reeksen vindt u in het artikel van elke connector. Zie bijvoorbeeld voor Azure SQL Database [gegevens kopiëren naar of van Azure SQL database met behulp van Azure Data Factory](connector-azure-sql-database.md). Als u een connection string wilt controleren, kunt u de code weergave voor de resource openen in de Data Factory UX. In de code weergave wordt het wacht woord of account sleutel gedeelte van de connection string verwijderd. Als u de code weergave wilt openen, selecteert u het pictogram dat is gemarkeerd in de volgende scherm afbeelding.
 
-## <a name="continuous-integration-lifecycle"></a>Levenscyclus van continue integratie
-Hier wordt de hele levenscyclus voor continue integratie en levering die u kunt gebruiken nadat u Azure-opslagplaatsen Git-integratie in de Data Factory-gebruikersinterface ingeschakeld:
+![Open de code weergave om connection string te bekijken](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
-1.  Instellen van een development data factory met Azure-opslagplaatsen waarin alle ontwikkelaars Data Factory-resources, zoals de pijplijnen en gegevenssets kunnen maken.
+## <a name="automate-continuous-integration-with-azure-pipelines-releases"></a>Continue integratie automatiseren met Azure pipelines-releases
 
-1.  Ontwikkelaars kunnen vervolgens resources zoals pijplijnen wijzigen. Wanneer ze hun wijzigingen aanbrengt, kunnen ze selecteren **Debug** om te zien hoe de pijplijn wordt uitgevoerd met de meest recente wijzigingen.
+Hieronder vindt u een hand leiding voor het instellen van een Azure pipelines-release, waarmee de implementatie van een data factory naar meerdere omgevingen wordt geautomatiseerd.
 
-1.  Nadat ontwikkelaars tevreden met hun wijzigingen bent, kunnen ze een pull-aanvraag maken van de vertakking naar de master-vertakking (of de vertakking samenwerking) om op te halen van hun wijzigingen gecontroleerd door de peers.
-
-1.  Nadat wijzigingen in de master-vertakking zijn, kunnen ze publiceren naar de factory ontwikkeling door te selecteren **publiceren**.
-
-1.  Wanneer het team gereed om te promoten wijzigingen in de fabriek test en de productie-factory is, kunnen zij de Resource Manager-sjabloon exporteren vanuit de master-vertakking of vanuit een andere vertakking in het geval de master-vertakking back-ups de live Data Factory-ontwikkeling.
-
-1.  De geëxporteerde Resource Manager-sjabloon kan worden geïmplementeerd met andere parameterbestanden voor de factory test en de productie-factory.
-
-## <a name="automate-continuous-integration-with-azure-pipelines-releases"></a>Continue integratie met Azure-pijplijnen releases automatiseren
-
-Hier volgen de stappen voor het instellen van een Azure-pijplijnen release, zodat u kunt de implementatie van een data factory om meerdere omgevingen te automatiseren.
-
-![Diagram van continue integratie met Azure-pijplijnen](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Diagram van doorlopende integratie met Azure-pijp lijnen](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Vereisten
 
--   Een Azure-abonnement is gekoppeld voor het gebruik van Team Foundation Server of Azure-opslagplaatsen de [*Azure Resource Manager-service-eindpunt*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
+-   Een Azure-abonnement dat is gekoppeld aan Team Foundation Server of Azure opslag plaatsen met behulp van het [eind punt Azure Resource Manager service](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
--   Een Data Factory met Azure-opslagplaatsen Git-integratie is geconfigureerd.
+-   Een Data Factory dat is geconfigureerd met Azure opslag plaatsen Git-integratie.
 
--   Een [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) met de geheimen.
+-   Een [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) met de geheimen voor elke omgeving.
 
-### <a name="set-up-an-azure-pipelines-release"></a>Instellen van een Azure-pijplijnen-versie
+### <a name="set-up-an-azure-pipelines-release"></a>Een Azure pipelines-release instellen
 
-1.  Ga naar de pagina van uw Azure-opslagplaatsen in hetzelfde project als het account dat is geconfigureerd met de Data Factory.
+1.  Open in de [Azure DevOps-gebruikers ervaring](https://dev.azure.com/)het project dat is geconfigureerd met uw Data Factory.
 
-1.  Klik op het bovenste menu **Azure pijplijnen** &gt; **Releases** &gt; **release-definitie maken**.
+1.  Klik aan de linkerkant van de pagina op **pijp lijnen** en selecteer vervolgens **releases**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-1.  Selecteer de **leeg proces** sjabloon.
+1.  Selecteer **nieuwe pijp lijn** of als u bestaande pijp lijnen, **Nieuw**en vervolgens **nieuwe release pijplijn**hebt.
 
-1.  Voer de naam van uw omgeving.
+1.  Selecteer de **lege taak** sjabloon.
 
-1.  Een Git-artefact toevoegen en selecteer de dezelfde opslagplaats is geconfigureerd met de Data Factory. Kies `adf_publish` als de standaardvertakking met de meest recente standaardversie.
+    ![](media/continuous-integration-deployment/continuous-integration-image13.png)
+
+1.  Voer in het veld **naam fase** de naam van uw omgeving in.
+
+1.  Selecteer **een artefact toevoegen**en selecteer dezelfde opslag plaats die is geconfigureerd met uw Data Factory. Kies `adf_publish` als standaard vertakking met de nieuwste standaard versie.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
-1.  Een implementatie van Azure Resource Manager-taak toevoegen:
+1.  Een Azure Resource Manager implementatie taak toevoegen:
 
-    a.  Nieuwe taak maken, te zoeken naar **Azure Resource Group Deployment**, en voeg deze toe.
+    a.  Klik in de weer gave fase op de koppeling **taak fase taken weer geven** .
 
-    b.  In de implementatie-taak, kies het abonnement, resourcegroep en locatie voor het doel van Data Factory en referenties opgeven indien nodig.
+    ![](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    c.  Selecteer de **resourcegroep maken of bijwerken** actie.
+    b.  Een nieuwe taak maken. Zoek naar de implementatie van een **Azure-resource groep**en klik op **toevoegen**.
 
-    d.  Selecteer **...** in de **sjabloon** veld. Bladeren naar het Resource Manager-sjabloon (*ARMTemplateForFactory.json*) die is gemaakt door de actie publiceren in de portal. Zoek naar dit bestand in de map `<FactoryName>` van de `adf_publish` vertakking.
+    c.  Kies in de implementatie taak het abonnement, de resource groep en de locatie voor het doel Data Factory en geef indien nodig referenties op.
 
-    e.  Doe hetzelfde voor de parameterbestand. Kies het juiste bestand, afhankelijk van of u een kopie gemaakt of u het standaardbestand *ARMTemplateParametersForFactory.json*.
+    d.  Selecteer in de vervolg keuzelijst actie de optie **resource groep maken of bijwerken**.
 
-    f.  Selecteer **...** naast de **overschrijven Sjabloonparameters** veld en vul de gegevens voor het doel van Data Factory. Voor de referenties die worden geleverd vanuit key vault, gebruikt u dezelfde naam voor het geheim in de volgende indeling: ervan uitgaande dat de naam van het geheim is `cred1`, voer `"$(cred1)"` (tussen aanhalingstekens).
+    e.  Selecteren **...** in het veld **sjabloon** . Blader naar het Azure Resource Manager sjabloon maken via de stap **arm-sjabloon importeren** in [een resource manager-sjabloon maken voor elke omgeving](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment). Zoek het bestand in de map `<FactoryName>` van de `adf_publish` vertakking.
+
+    f.  Selecteren **...** in het **veld sjabloon parameters.** om het parameter bestand te kiezen. Kies het juiste bestand, afhankelijk van of u een kopie hebt gemaakt of gebruikmaakt van het standaard bestand *ARMTemplateParametersForFactory. json*.
+
+    g.  Selecteren **...** Naast het veld **para meters van sjabloon negeren** voert u de gegevens voor de doel Data Factory in. Voer de geheime naam tussen dubbele aanhalings tekens in voor referenties die afkomstig zijn van sleutel kluis. Als de naam van het geheim bijvoorbeeld is `cred1`, voert `"$(cred1)"`u in voor de waarde.
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-    g. Selecteer de **incrementele** Implementatiemodus.
+    h. Selecteer de **incrementele** implementatie modus.
 
     > [!WARNING]
-    > Als u selecteert **voltooid** implementatiemodus, bestaande bronnen kan worden verwijderd, met inbegrip van alle resources in de doelresourcegroep die niet zijn gedefinieerd in het Resource Manager-sjabloon.
+    > Als u **volledige** implementatie modus selecteert, kunnen bestaande resources worden verwijderd, inclusief alle resources in de doel resource groep die niet zijn gedefinieerd in de Resource Manager-sjabloon.
 
-1.  Sla de release-pijplijn.
+1.  Sla de release pijplijn op.
 
-1.  Maak een nieuwe versie van deze release-pijplijn.
+1. Als u een release wilt activeren, klikt u op **release maken**
 
-    ![](media/continuous-integration-deployment/continuous-integration-image10.png)
+![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
-### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Optioneel: de geheimen ophalen uit Azure Key Vault
+### <a name="get-secrets-from-azure-key-vault"></a>Geheimen van Azure Key Vault ophalen
 
-Als u geheimen om door te geven in een Azure Resource Manager-sjabloon hebt, raden wij met behulp van Azure Key Vault met de release van Azure-pijplijnen.
+Als u geheimen hebt om in een Azure Resource Manager-sjabloon door te geven, raden we u aan Azure Key Vault te gebruiken met de versie van Azure pipeline.
 
-Er zijn twee manieren voor het afhandelen van de geheimen:
+Er zijn twee manieren om geheimen af te handelen:
 
-1.  De geheimen toevoegen aan het parameterbestand. Zie voor meer informatie, [Azure Key Vault gebruikt om door te geven beveiligde parameterwaarde tijdens de implementatie van](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+1.  Voeg de geheimen toe aan het parameter bestand. Zie [Azure Key Vault gebruiken om de waarde van een beveiligde para meter door te geven tijdens de implementatie](../azure-resource-manager/resource-manager-keyvault-parameter.md)voor meer informatie.
 
-    -   Maak een kopie van de parameterbestand dat is geüpload naar de vertakking publiceren en stel de waarden van de parameters die u wilt ophalen uit key vault met de volgende indeling:
+    -   Maak een kopie van het parameter bestand dat is geüpload naar de Publish-vertakking en stel de waarden in van de para meters die u wilt ophalen uit de sleutel kluis met de volgende indeling:
 
     ```json
     {
@@ -151,29 +163,31 @@ Er zijn twee manieren voor het afhandelen van de geheimen:
     }
     ```
 
-    -   Wanneer u deze methode gebruikt, wordt het geheim automatisch opgehaald uit de key vault.
+    -   Wanneer u deze methode gebruikt, wordt het geheim automatisch opgehaald uit de sleutel kluis.
 
-    -   Het parameterbestand moet zich in de vertakking publiceren ook.
+    -   Het parameter bestand moet ook in de publicatie vertakking staan.
 
-1.  Voeg een [Azure Key Vault-taak](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) voordat u de Azure Resource Manager-implementatie in de vorige sectie beschreven:
+1.  Voeg een [Azure Key Vault-taak](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) toe vóór de Azure Resource Manager-implementatie die wordt beschreven in de vorige sectie:
 
-    -   Selecteer de **taken** tabblad, een nieuwe taak maken, zoekt u **Azure Key Vault** en toe te voegen.
+    -   Selecteer het tabblad **taken** , maak een nieuwe taak, zoek naar **Azure Key Vault** en voeg deze toe.
 
-    -   Kies in de Key Vault-taak, het abonnement waarin u de sleutelkluis hebt gemaakt, geeft u indien nodig referenties in en kies vervolgens de key vault.
+    -   Kies in de Key Vault taak het abonnement waarin u de sleutel kluis hebt gemaakt, Geef indien nodig referenties op en kies vervolgens de sleutel kluis.
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Machtigingen verlenen voor de Azure-pijplijnen-agent
-De Azure Key Vault-taak mislukken de tijd van de Runtime fIntegration met een foutbericht over geweigerde toegang. De logboeken voor de versie te downloaden, en Ga naar de `.ps1` bestand met de opdracht machtigingen geven tot de Azure-pijplijnen-agent. U kunt de opdracht rechtstreeks uitvoeren, of u kunt kopiëren van de principal-ID uit het bestand en het handmatig toevoegen van het toegangsbeleid in Azure portal. (*Ophalen* en *lijst* zijn de minimale machtigingen die zijn vereist).
+#### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Machtigingen verlenen aan de Azure pipelines-agent
+
+De Azure Key Vault taak kan mislukken met een fout bericht over geweigerde toegang als de juiste machtigingen niet aanwezig zijn. Down load de logboeken voor de release en zoek `.ps1` het bestand met de opdracht om machtigingen te verlenen aan de Azure pipelines-agent. U kunt de opdracht rechtstreeks uitvoeren, of u kunt de principal-ID uit het bestand kopiëren en het toegangs beleid hand matig toevoegen in de Azure Portal. **Get** en **List** zijn de mini maal vereiste machtigingen.
 
 ### <a name="update-active-triggers"></a>Actieve triggers bijwerken
-Implementatie kan mislukken als u probeert active triggers bijwerken. Voor het actieve triggers bijwerken, moet u handmatig ze stopt en start deze na de implementatie. U kunt een Azure Powershell-taak toevoegen voor dit doel, zoals wordt weergegeven in het volgende voorbeeld:
 
-1.  Zoek in het tabblad taken van de release van **Azure Powershell** en toe te voegen.
+De implementatie kan mislukken als u probeert actieve triggers bij te werken. Als u actieve triggers wilt bijwerken, moet u deze hand matig stoppen en na de implementatie starten. U kunt dit doen via een Azure Power shell-taak.
 
-1.  Kies **Azure Resource Manager** als de verbinding typt en selecteer uw abonnement.
+1.  Voeg op het tabblad taken van de release een **Azure Power shell** -taak toe.
 
-1.  Kies **Inline Script** als het script typt en geef vervolgens uw code. Het volgende voorbeeld stopt de triggers:
+1.  Kies **Azure Resource Manager** als het verbindings type en selecteer uw abonnement.
+
+1.  Kies in- **line script** als het script type en geef vervolgens uw code op. In het volgende voor beeld worden de triggers gestopt:
 
     ```powershell
     $triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
@@ -183,554 +197,14 @@ Implementatie kan mislukken als u probeert active triggers bijwerken. Voor het a
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
-U kunt uitvoeren van gelijksoortige stappen en vergelijkbare code gebruiken (met de `Start-AzDataFactoryV2Trigger` functie) opnieuw op te starten van de triggers na de implementatie.
+U kunt dezelfde stappen volgen (met de `Start-AzDataFactoryV2Trigger` functie) om de triggers na de implementatie opnieuw te starten.
 
 > [!IMPORTANT]
-> Continue integratie en implementatie-scenario's moet het type Integratieruntime in verschillende omgevingen hetzelfde zijn. Als u hebt bijvoorbeeld een *zelf-Hostend* Integration Runtime (IR) in de ontwikkelomgeving, dezelfde IR moet van het type *zelf-Hostend* in andere omgevingen zoals test- en productieomgevingen ook. Op dezelfde manier als u integratieruntimes in meerdere fasen deelt, u moet configureren de Integratieruntimes als *gekoppelde zelf-Hostend* in alle omgevingen, zoals ontwikkeling, testen en productie.
+> In doorlopende integratie-en implementatie scenario's moet het Integration Runtime type in verschillende omgevingen hetzelfde zijn. Als u bijvoorbeeld een *zelf-hostend* Integration runtime (IR) in de ontwikkel omgeving hebt, moet dezelfde IR van het type zelf worden *gehost* in andere omgevingen, zoals test en productie. En als u integratie-runtime in meerdere fasen deelt, moet u de Integration Runtimes als *gekoppelde zelf-hostende* in alle omgevingen configureren, zoals ontwikkeling, testen en productie.
 
-## <a name="sample-deployment-template"></a>Voorbeeldsjabloon voor implementatie
+#### <a name="sample-prepostdeployment-script"></a>Voor beeld van pre/na implementatie-script
 
-Hier volgt een voorbeeld-implementatiesjabloon die u in Azure-pijplijnen importeren kunt.
-
-```json
-{
-    "source": 2,
-    "id": 1,
-    "revision": 51,
-    "name": "Data Factory Prod Deployment",
-    "description": null,
-    "createdBy": {
-        "displayName": "Sample User",
-        "url": "https://pde14b1dc-d2c9-49e5-88cb-45ccd58d0335.codex.ms/vssps/_apis/Identities/c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-        "id": "c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-        "uniqueName": "sampleuser@microsoft.com",
-        "imageUrl": "https://sampleuser.visualstudio.com/_api/_common/identityImage?id=c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-        "descriptor": "aad.M2Y2N2JlZGUtMDViZC03ZWI3LTgxYWMtMDcwM2UyODMxNTBk"
-    },
-    "createdOn": "2018-03-01T22:57:25.660Z",
-    "modifiedBy": {
-        "displayName": "Sample User",
-        "url": "https://pde14b1dc-d2c9-49e5-88cb-45ccd58d0335.codex.ms/vssps/_apis/Identities/c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-        "id": "c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-        "uniqueName": "sampleuser@microsoft.com",
-        "imageUrl": "https://sampleuser.visualstudio.com/_api/_common/identityImage?id=c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-        "descriptor": "aad.M2Y2N2JlZGUtMDViZC03ZWI3LTgxYWMtMDcwM2UyODMxNTBk"
-    },
-    "modifiedOn": "2018-03-14T17:58:11.643Z",
-    "isDeleted": false,
-    "path": "\\",
-    "variables": {},
-    "variableGroups": [],
-    "environments": [{
-        "id": 1,
-        "name": "Prod",
-        "rank": 1,
-        "owner": {
-            "displayName": "Sample User",
-            "url": "https://pde14b1dc-d2c9-49e5-88cb-45ccd58d0335.codex.ms/vssps/_apis/Identities/c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-            "id": "c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-            "uniqueName": "sampleuser@microsoft.com",
-            "imageUrl": "https://sampleuser.visualstudio.com/_api/_common/identityImage?id=c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-            "descriptor": "aad.M2Y2N2JlZGUtMDViZC03ZWI3LTgxYWMtMDcwM2UyODMxNTBk"
-        },
-        "variables": {
-            "factoryName": {
-                "value": "sampleuserprod"
-            }
-        },
-        "variableGroups": [],
-        "preDeployApprovals": {
-            "approvals": [{
-                "rank": 1,
-                "isAutomated": true,
-                "isNotificationOn": false,
-                "id": 1
-            }],
-            "approvalOptions": {
-                "requiredApproverCount": null,
-                "releaseCreatorCanBeApprover": false,
-                "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
-                "enforceIdentityRevalidation": false,
-                "timeoutInMinutes": 0,
-                "executionOrder": 1
-            }
-        },
-        "deployStep": {
-            "id": 2
-        },
-        "postDeployApprovals": {
-            "approvals": [{
-                "rank": 1,
-                "isAutomated": true,
-                "isNotificationOn": false,
-                "id": 3
-            }],
-            "approvalOptions": {
-                "requiredApproverCount": null,
-                "releaseCreatorCanBeApprover": false,
-                "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
-                "enforceIdentityRevalidation": false,
-                "timeoutInMinutes": 0,
-                "executionOrder": 2
-            }
-        },
-        "deployPhases": [{
-            "deploymentInput": {
-                "parallelExecution": {
-                    "parallelExecutionType": "none"
-                },
-                "skipArtifactsDownload": false,
-                "artifactsDownloadInput": {
-                    "downloadInputs": []
-                },
-                "queueId": 19,
-                "demands": [],
-                "enableAccessToken": false,
-                "timeoutInMinutes": 0,
-                "jobCancelTimeoutInMinutes": 1,
-                "condition": "succeeded()",
-                "overrideInputs": {}
-            },
-            "rank": 1,
-            "phaseType": 1,
-            "name": "Run on agent",
-            "workflowTasks": [{
-                "taskId": "72a1931b-effb-4d2e-8fd8-f8472a07cb62",
-                "version": "2.*",
-                "name": "Azure PowerShell script: FilePath",
-                "refName": "",
-                "enabled": true,
-                "alwaysRun": false,
-                "continueOnError": false,
-                "timeoutInMinutes": 0,
-                "definitionType": "task",
-                "overrideInputs": {},
-                "condition": "succeeded()",
-                "inputs": {
-                    "ConnectedServiceNameSelector": "ConnectedServiceNameARM",
-                    "ConnectedServiceName": "",
-                    "ConnectedServiceNameARM": "e4e2ef4b-8289-41a6-ba7c-92ca469700aa",
-                    "ScriptType": "FilePath",
-                    "ScriptPath": "$(System.DefaultWorkingDirectory)/Dev/deployment.ps1",
-                    "Inline": "param\n(\n    [parameter(Mandatory = $false)] [String] $rootFolder=\"C:\\Users\\sampleuser\\Downloads\\arm_template\",\n    [parameter(Mandatory = $false)] [String] $armTemplate=\"$rootFolder\\arm_template.json\",\n    [parameter(Mandatory = $false)] [String] $armTemplateParameters=\"$rootFolder\\arm_template_parameters.json\",\n    [parameter(Mandatory = $false)] [String] $domain=\"microsoft.onmicrosoft.com\",\n    [parameter(Mandatory = $false)] [String] $TenantId=\"72f988bf-86f1-41af-91ab-2d7cd011db47\",\n    [parame",
-                    "ScriptArguments": "-rootFolder \"$(System.DefaultWorkingDirectory)/Dev/\" -DataFactoryName $(factoryname) -predeployment $true",
-                    "TargetAzurePs": "LatestVersion",
-                    "CustomTargetAzurePs": "5.*"
-                }
-            }, {
-                "taskId": "1e244d32-2dd4-4165-96fb-b7441ca9331e",
-                "version": "1.*",
-                "name": "Azure Key Vault: sampleuservault",
-                "refName": "secret1",
-                "enabled": true,
-                "alwaysRun": false,
-                "continueOnError": false,
-                "timeoutInMinutes": 0,
-                "definitionType": "task",
-                "overrideInputs": {},
-                "condition": "succeeded()",
-                "inputs": {
-                    "ConnectedServiceName": "e4e2ef4b-8289-41a6-ba7c-92ca469700aa",
-                    "KeyVaultName": "sampleuservault",
-                    "SecretsFilter": "*"
-                }
-            }, {
-                "taskId": "94a74903-f93f-4075-884f-dc11f34058b4",
-                "version": "2.*",
-                "name": "Azure Deployment:Create Or Update Resource Group action on sampleuser-datafactory",
-                "refName": "",
-                "enabled": true,
-                "alwaysRun": false,
-                "continueOnError": false,
-                "timeoutInMinutes": 0,
-                "definitionType": "task",
-                "overrideInputs": {},
-                "condition": "succeeded()",
-                "inputs": {
-                    "ConnectedServiceName": "e4e2ef4b-8289-41a6-ba7c-92ca469700aa",
-                    "action": "Create Or Update Resource Group",
-                    "resourceGroupName": "sampleuser-datafactory",
-                    "location": "East US",
-                    "templateLocation": "Linked artifact",
-                    "csmFileLink": "",
-                    "csmParametersFileLink": "",
-                    "csmFile": "$(System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json",
-                    "csmParametersFile": "$(System.DefaultWorkingDirectory)/Dev/ARMTemplateParametersForFactory.json",
-                    "overrideParameters": "-factoryName \"$(factoryName)\" -linkedService1_connectionString \"$(linkedService1-connectionString)\" -linkedService2_connectionString \"$(linkedService2-connectionString)\"",
-                    "deploymentMode": "Incremental",
-                    "enableDeploymentPrerequisites": "None",
-                    "deploymentGroupEndpoint": "",
-                    "project": "",
-                    "deploymentGroupName": "",
-                    "copyAzureVMTags": "true",
-                    "outputVariable": "",
-                    "deploymentOutputs": ""
-                }
-            }, {
-                "taskId": "72a1931b-effb-4d2e-8fd8-f8472a07cb62",
-                "version": "2.*",
-                "name": "Azure PowerShell script: FilePath",
-                "refName": "",
-                "enabled": true,
-                "alwaysRun": false,
-                "continueOnError": false,
-                "timeoutInMinutes": 0,
-                "definitionType": "task",
-                "overrideInputs": {},
-                "condition": "succeeded()",
-                "inputs": {
-                    "ConnectedServiceNameSelector": "ConnectedServiceNameARM",
-                    "ConnectedServiceName": "",
-                    "ConnectedServiceNameARM": "e4e2ef4b-8289-41a6-ba7c-92ca469700aa",
-                    "ScriptType": "FilePath",
-                    "ScriptPath": "$(System.DefaultWorkingDirectory)/Dev/deployment.ps1",
-                    "Inline": "# You can write your azure powershell scripts inline here. \n# You can also pass predefined and custom variables to this script using arguments",
-                    "ScriptArguments": "-rootFolder \"$(System.DefaultWorkingDirectory)/Dev/\" -DataFactoryName $(factoryname) -predeployment $false",
-                    "TargetAzurePs": "LatestVersion",
-                    "CustomTargetAzurePs": ""
-                }
-            }]
-        }],
-        "environmentOptions": {
-            "emailNotificationType": "OnlyOnFailure",
-            "emailRecipients": "release.environment.owner;release.creator",
-            "skipArtifactsDownload": false,
-            "timeoutInMinutes": 0,
-            "enableAccessToken": false,
-            "publishDeploymentStatus": true,
-            "badgeEnabled": false,
-            "autoLinkWorkItems": false
-        },
-        "demands": [],
-        "conditions": [{
-            "name": "ReleaseStarted",
-            "conditionType": 1,
-            "value": ""
-        }],
-        "executionPolicy": {
-            "concurrencyCount": 1,
-            "queueDepthCount": 0
-        },
-        "schedules": [],
-        "retentionPolicy": {
-            "daysToKeep": 30,
-            "releasesToKeep": 3,
-            "retainBuild": true
-        },
-        "processParameters": {
-            "dataSourceBindings": [{
-                "dataSourceName": "AzureRMWebAppNamesByType",
-                "parameters": {
-                    "WebAppKind": "$(WebAppKind)"
-                },
-                "endpointId": "$(ConnectedServiceName)",
-                "target": "WebAppName"
-            }]
-        },
-        "properties": {},
-        "preDeploymentGates": {
-            "id": 0,
-            "gatesOptions": null,
-            "gates": []
-        },
-        "postDeploymentGates": {
-            "id": 0,
-            "gatesOptions": null,
-            "gates": []
-        },
-        "badgeUrl": "https://sampleuser.vsrm.visualstudio.com/_apis/public/Release/badge/19749ef3-2f42-49b5-9696-f28b49faebcb/1/1"
-    }, {
-        "id": 2,
-        "name": "Staging",
-        "rank": 2,
-        "owner": {
-            "displayName": "Sample User",
-            "url": "https://pde14b1dc-d2c9-49e5-88cb-45ccd58d0335.codex.ms/vssps/_apis/Identities/c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-            "id": "c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-            "uniqueName": "sampleuser@microsoft.com",
-            "imageUrl": "https://sampleuser.visualstudio.com/_api/_common/identityImage?id=c9f828d1-2dbb-4e39-b096-f1c53d82bc2c",
-            "descriptor": "aad.M2Y2N2JlZGUtMDViZC03ZWI3LTgxYWMtMDcwM2UyODMxNTBk"
-        },
-        "variables": {
-            "factoryName": {
-                "value": "sampleuserstaging"
-            }
-        },
-        "variableGroups": [],
-        "preDeployApprovals": {
-            "approvals": [{
-                "rank": 1,
-                "isAutomated": true,
-                "isNotificationOn": false,
-                "id": 4
-            }],
-            "approvalOptions": {
-                "requiredApproverCount": null,
-                "releaseCreatorCanBeApprover": false,
-                "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
-                "enforceIdentityRevalidation": false,
-                "timeoutInMinutes": 0,
-                "executionOrder": 1
-            }
-        },
-        "deployStep": {
-            "id": 5
-        },
-        "postDeployApprovals": {
-            "approvals": [{
-                "rank": 1,
-                "isAutomated": true,
-                "isNotificationOn": false,
-                "id": 6
-            }],
-            "approvalOptions": {
-                "requiredApproverCount": null,
-                "releaseCreatorCanBeApprover": false,
-                "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
-                "enforceIdentityRevalidation": false,
-                "timeoutInMinutes": 0,
-                "executionOrder": 2
-            }
-        },
-        "deployPhases": [{
-            "deploymentInput": {
-                "parallelExecution": {
-                    "parallelExecutionType": "none"
-                },
-                "skipArtifactsDownload": false,
-                "artifactsDownloadInput": {
-                    "downloadInputs": []
-                },
-                "queueId": 19,
-                "demands": [],
-                "enableAccessToken": false,
-                "timeoutInMinutes": 0,
-                "jobCancelTimeoutInMinutes": 1,
-                "condition": "succeeded()",
-                "overrideInputs": {}
-            },
-            "rank": 1,
-            "phaseType": 1,
-            "name": "Run on agent",
-            "workflowTasks": [{
-                "taskId": "72a1931b-effb-4d2e-8fd8-f8472a07cb62",
-                "version": "2.*",
-                "name": "Azure PowerShell script: FilePath",
-                "refName": "",
-                "enabled": true,
-                "alwaysRun": false,
-                "continueOnError": false,
-                "timeoutInMinutes": 0,
-                "definitionType": "task",
-                "overrideInputs": {},
-                "condition": "succeeded()",
-                "inputs": {
-                    "ConnectedServiceNameSelector": "ConnectedServiceNameARM",
-                    "ConnectedServiceName": "",
-                    "ConnectedServiceNameARM": "e4e2ef4b-8289-41a6-ba7c-92ca469700aa",
-                    "ScriptType": "FilePath",
-                    "ScriptPath": "$(System.DefaultWorkingDirectory)/Dev/deployment.ps1",
-                    "Inline": "# You can write your azure powershell scripts inline here. \n# You can also pass predefined and custom variables to this script using arguments",
-                    "ScriptArguments": "-rootFolder \"$(System.DefaultWorkingDirectory)/Dev/\" -DataFactoryName $(factoryname) -predeployment $true",
-                    "TargetAzurePs": "LatestVersion",
-                    "CustomTargetAzurePs": ""
-                }
-            }, {
-                "taskId": "1e244d32-2dd4-4165-96fb-b7441ca9331e",
-                "version": "1.*",
-                "name": "Azure Key Vault: sampleuservault",
-                "refName": "",
-                "enabled": true,
-                "alwaysRun": false,
-                "continueOnError": false,
-                "timeoutInMinutes": 0,
-                "definitionType": "task",
-                "overrideInputs": {},
-                "condition": "succeeded()",
-                "inputs": {
-                    "ConnectedServiceName": "e4e2ef4b-8289-41a6-ba7c-92ca469700aa",
-                    "KeyVaultName": "sampleuservault",
-                    "SecretsFilter": "*"
-                }
-            }, {
-                "taskId": "94a74903-f93f-4075-884f-dc11f34058b4",
-                "version": "2.*",
-                "name": "Azure Deployment:Create Or Update Resource Group action on sampleuser-datafactory",
-                "refName": "",
-                "enabled": true,
-                "alwaysRun": false,
-                "continueOnError": false,
-                "timeoutInMinutes": 0,
-                "definitionType": "task",
-                "overrideInputs": {},
-                "condition": "succeeded()",
-                "inputs": {
-                    "ConnectedServiceName": "e4e2ef4b-8289-41a6-ba7c-92ca469700aa",
-                    "action": "Create Or Update Resource Group",
-                    "resourceGroupName": "sampleuser-datafactory",
-                    "location": "East US",
-                    "templateLocation": "Linked artifact",
-                    "csmFileLink": "",
-                    "csmParametersFileLink": "",
-                    "csmFile": "$(System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json",
-                    "csmParametersFile": "$(System.DefaultWorkingDirectory)/Dev/ARMTemplateParametersForFactory.json",
-                    "overrideParameters": "-factoryName \"$(factoryName)\" -linkedService1_connectionString \"$(linkedService1-connectionString)\" -linkedService2_connectionString \"$(linkedService2-connectionString)\"",
-                    "deploymentMode": "Incremental",
-                    "enableDeploymentPrerequisites": "None",
-                    "deploymentGroupEndpoint": "",
-                    "project": "",
-                    "deploymentGroupName": "",
-                    "copyAzureVMTags": "true",
-                    "outputVariable": "",
-                    "deploymentOutputs": ""
-                }
-            }, {
-                "taskId": "72a1931b-effb-4d2e-8fd8-f8472a07cb62",
-                "version": "2.*",
-                "name": "Azure PowerShell script: FilePath",
-                "refName": "",
-                "enabled": true,
-                "alwaysRun": false,
-                "continueOnError": false,
-                "timeoutInMinutes": 0,
-                "definitionType": "task",
-                "overrideInputs": {},
-                "condition": "succeeded()",
-                "inputs": {
-                    "ConnectedServiceNameSelector": "ConnectedServiceNameARM",
-                    "ConnectedServiceName": "",
-                    "ConnectedServiceNameARM": "16a37943-8b58-4c2f-a3d6-052d6f032a07",
-                    "ScriptType": "FilePath",
-                    "ScriptPath": "$(System.DefaultWorkingDirectory)/Dev/deployment.ps1",
-                    "Inline": "param(\n$x,\n$y,\n$z)\nwrite-host \"----------\"\nwrite-host $x\nwrite-host $y\nwrite-host $z | ConvertTo-SecureString\nwrite-host \"----------\"",
-                    "ScriptArguments": "-rootFolder \"$(System.DefaultWorkingDirectory)/Dev/\" -DataFactoryName $(factoryname) -predeployment $false",
-                    "TargetAzurePs": "LatestVersion",
-                    "CustomTargetAzurePs": ""
-                }
-            }]
-        }],
-        "environmentOptions": {
-            "emailNotificationType": "OnlyOnFailure",
-            "emailRecipients": "release.environment.owner;release.creator",
-            "skipArtifactsDownload": false,
-            "timeoutInMinutes": 0,
-            "enableAccessToken": false,
-            "publishDeploymentStatus": true,
-            "badgeEnabled": false,
-            "autoLinkWorkItems": false
-        },
-        "demands": [],
-        "conditions": [{
-            "name": "ReleaseStarted",
-            "conditionType": 1,
-            "value": ""
-        }],
-        "executionPolicy": {
-            "concurrencyCount": 1,
-            "queueDepthCount": 0
-        },
-        "schedules": [],
-        "retentionPolicy": {
-            "daysToKeep": 30,
-            "releasesToKeep": 3,
-            "retainBuild": true
-        },
-        "processParameters": {
-            "dataSourceBindings": [{
-                "dataSourceName": "AzureRMWebAppNamesByType",
-                "parameters": {
-                    "WebAppKind": "$(WebAppKind)"
-                },
-                "endpointId": "$(ConnectedServiceName)",
-                "target": "WebAppName"
-            }]
-        },
-        "properties": {},
-        "preDeploymentGates": {
-            "id": 0,
-            "gatesOptions": null,
-            "gates": []
-        },
-        "postDeploymentGates": {
-            "id": 0,
-            "gatesOptions": null,
-            "gates": []
-        },
-        "badgeUrl": "https://sampleuser.vsrm.visualstudio.com/_apis/public/Release/badge/19749ef3-2f42-49b5-9696-f28b49faebcb/1/2"
-    }],
-    "artifacts": [{
-        "sourceId": "19749ef3-2f42-49b5-9696-f28b49faebcb:a6c88f30-5e1f-4de8-b24d-279bb209d85f",
-        "type": "Git",
-        "alias": "Dev",
-        "definitionReference": {
-            "branches": {
-                "id": "adf_publish",
-                "name": "adf_publish"
-            },
-            "checkoutSubmodules": {
-                "id": "",
-                "name": ""
-            },
-            "defaultVersionSpecific": {
-                "id": "",
-                "name": ""
-            },
-            "defaultVersionType": {
-                "id": "latestFromBranchType",
-                "name": "Latest from default branch"
-            },
-            "definition": {
-                "id": "a6c88f30-5e1f-4de8-b24d-279bb209d85f",
-                "name": "Dev"
-            },
-            "fetchDepth": {
-                "id": "",
-                "name": ""
-            },
-            "gitLfsSupport": {
-                "id": "",
-                "name": ""
-            },
-            "project": {
-                "id": "19749ef3-2f42-49b5-9696-f28b49faebcb",
-                "name": "Prod"
-            }
-        },
-        "isPrimary": true
-    }],
-    "triggers": [{
-        "schedule": {
-            "jobId": "b5ef09b6-8dfd-4b91-8b48-0709e3e67b2d",
-            "timeZoneId": "UTC",
-            "startHours": 3,
-            "startMinutes": 0,
-            "daysToRelease": 31
-        },
-        "triggerType": 2
-    }],
-    "releaseNameFormat": "Release-$(rev:r)",
-    "url": "https://sampleuser.vsrm.visualstudio.com/19749ef3-2f42-49b5-9696-f28b49faebcb/_apis/Release/definitions/1",
-    "_links": {
-        "self": {
-            "href": "https://sampleuser.vsrm.visualstudio.com/19749ef3-2f42-49b5-9696-f28b49faebcb/_apis/Release/definitions/1"
-        },
-        "web": {
-            "href": "https://sampleuser.visualstudio.com/19749ef3-2f42-49b5-9696-f28b49faebcb/_release?definitionId=1"
-        }
-    },
-    "tags": [],
-    "properties": {
-        "DefinitionCreationSource": {
-            "$type": "System.String",
-            "$value": "ReleaseNew"
-        }
-    }
-}
-```
-
-## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Voorbeeld van een script om te stoppen en opnieuw opstarten van triggers en opschonen
-
-Hier volgt een voorbeeld van een script om te stoppen triggers vóór de implementatie en triggers daarna opnieuw starten. Het script bevat ook een code voor het verwijderen van resources die zijn verwijderd. Zie voor het installeren van de meest recente versie van Azure PowerShell, [Azure PowerShell installeren op Windows met PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Hieronder vindt u een voorbeeld script voor het stoppen van triggers vóór de implementatie en het opnieuw starten van triggers. Het script bevat ook code voor het verwijderen van resources die zijn verwijderd. Zie [install Azure PowerShell in Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps)(Engelstalig) om de nieuwste versie van Azure PowerShell te installeren.
 
 ```powershell
 param
@@ -848,33 +322,35 @@ else {
 }
 ```
 
-## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Aangepaste parameters met de Resource Manager-sjabloon gebruiken
+## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Aangepaste para meters gebruiken met de Resource Manager-sjabloon
 
-Als u in de GIT-modus, kunt u de standaardeigenschappen overschrijven in de Resource Manager-sjabloon voor het instellen van eigenschappen die als parameters worden gebruikt in de sjabloon en de eigenschappen die vastgelegd zijn. Het is raadzaam voor de onderdrukking van de standaardsjabloon voor parameterisering in deze scenario's:
+Als u zich in de GIT-modus bevindt, kunt u de standaard eigenschappen in uw Resource Manager-sjabloon vervangen om eigenschappen in te stellen die zijn vastgelegd in de sjabloon en eigenschappen die in een code zijn vastgelegd. In deze scenario's wilt u mogelijk de standaard sjabloon parameterisering overschrijven:
 
-* Gebruik van geautomatiseerde CI/CD en u wilt wijzigen van bepaalde eigenschappen tijdens de implementatie van Resource Manager, maar de eigenschappen worden niet standaard parameters.
-* Uw gegevensfactory is zo groot is dat de standaard-Resource Manager-sjabloon ongeldig is omdat het meer dan de maximaal toegestane parameters (256).
+* U gebruikt automatische CI/CD en u wilt enkele eigenschappen wijzigen tijdens de implementatie van Resource Manager, maar de eigenschappen zijn niet standaard ingesteld op para meters.
+* Uw fabriek is zo groot dat de standaard Resource Manager-sjabloon ongeldig is omdat deze meer dan de Maxi maal toegestane para meters (256) heeft.
 
-Onder deze omstandigheden, als u wilt overschrijven de standaardsjabloon voor parameterisering, maak een bestand genaamd *arm-sjabloon-parameters-definition.json* in de hoofdmap van de opslagplaats. De bestandsnaam moet exact overeenkomen. Data Factory probeert te lezen van dit bestand, vanuit welke vertakking u bevindt zich op in de portal voor Azure Data Factory, niet alleen de vertakking samenwerking. U kunt maken of bewerken van het bestand van een privé-vertakking, waarin u uw wijzigingen testen met behulp van kunt de **exporteren ARM-sjabloon** in de gebruikersinterface. Vervolgens kunt u het bestand naar de vertakking samenwerking samenvoegen. Als er geen bestand wordt gevonden, wordt de standaardsjabloon wordt gebruikt.
+Onder deze omstandigheden kunt u de standaard parameterisering-sjabloon overschrijven door een bestand te maken met de naam *arm-sjabloon-para meters, definitie. json* in de hoofdmap van de opslag plaats. De bestands naam moet exact overeenkomen. Data Factory probeert dit bestand te lezen van de vertakking waar u zich momenteel bevindt in de Azure Data Factory Portal, niet alleen vanuit de vertakking voor samen werking. U kunt het bestand maken of bewerken vanuit een persoonlijke vertakking, waar u uw wijzigingen kunt testen met behulp van de sjabloon voor het **exporteren van arm** in de gebruikers interface. Vervolgens kunt u het bestand samen voegen in de vertakking voor samen werking. Als er geen bestand wordt gevonden, wordt de standaard sjabloon gebruikt.
 
 
-### <a name="syntax-of-a-custom-parameters-file"></a>Syntaxis van een bestand met aangepaste parameters
+### <a name="syntax-of-a-custom-parameters-file"></a>Syntaxis van een bestand met aangepaste para meters
 
-Hier vindt u enkele richtlijnen te gebruiken wanneer u het bestand met aangepaste parameters ontwerpt. Het bestand bestaat uit een sectie voor elk entiteitstype: trigger, pijplijn, linkedservice, dataset, integrationruntime, enzovoort.
-* Geef het eigenschapspad onder het type relevante entiteit.
-* Als u de naam van een eigenschap instelt op '\*'', geeft u aan dat u wilt om te voorzien van alle eigenschappen daaronder (alleen op het eerste niveau, niet recursief). U kunt ook eventuele uitzonderingen op deze opgeven.
-* Als u de waarde van een eigenschap als een tekenreeks instelt, kunt u aangeven dat u wilt parameter van de eigenschap. Gebruik de indeling `<action>:<name>:<stype>`.
-   *  `<action>` een van de volgende tekens kan zijn:
-      * `=` de huidige waarde behouden betekent als de standaardwaarde voor de parameter.
-      * `-` de standaardwaarde voor de parameter bijhouden betekent niet.
-      * `|` is een speciaal geval voor geheimen in Azure Key Vault voor tekenreeksen voor databaseverbindingen of sleutels.
-   * `<name>` is de naam van de parameter. Als deze leeg is, heeft deze de naam van de eigenschap. Als de waarde met met begint een `-` teken, de naam is verkort. Bijvoorbeeld, `AzureStorage1_properties_typeProperties_connectionString` zou worden ingekort tot `AzureStorage1_connectionString`.
-   * `<stype>` is het type parameter. Als `<stype>` is leeg, het type is `string`. Ondersteunde waarden: `string`, `bool`, `number`, `object`, en `securestring`.
-* Wanneer u een matrix in het definitiebestand opgeeft, kunt u aangeven dat de overeenkomende eigenschap in de sjabloon een matrix is. Data Factory doorloopt de objecten in de matrix met behulp van de definitie die opgegeven in de Integration Runtime-object van de matrix. Het tweede object, een tekenreeks, wordt de naam van de eigenschap, die wordt gebruikt als de naam voor de parameter voor elke iteratie.
-* Het is niet mogelijk om een definitie die specifiek is voor een exemplaar van de resource. Een definitie is van toepassing op alle resources van dit type.
-* Standaard worden alle beveiligde tekenreeksen, zoals de geheimen van de Key Vault en beveiligde tekenreeksen, zoals verbindingsreeksen, sleutels en tokens, parameters.
+Hier volgen enkele richt lijnen die u kunt gebruiken wanneer u het bestand met aangepaste para meters ontwerpt. Het bestand bestaat uit een sectie voor elk entiteits type: trigger, pijp lijn, gekoppelde service, gegevensset, Integration runtime, enzovoort.
+* Voer het pad naar de eigenschap in onder het relevante entiteits type.
+* Wanneer u een eigenschaps naam instelt op\*' ', geeft u aan dat u alle eigenschappen daaronder wilt para meters (alleen naar het eerste niveau, niet recursief). U kunt hier ook eventuele uitzonde ringen opgeven.
+* Wanneer u de waarde van een eigenschap instelt als een teken reeks, geeft u aan dat u de eigenschap wilt para meters. Gebruik de indeling `<action>:<name>:<stype>`.
+   *  `<action>` Dit kan een van de volgende tekens zijn:
+      * `=` houdt in dat de huidige waarde wordt ingesteld als de standaard waarde voor de para meter.
+      * `-` houdt in dat de standaard waarde voor de para meter niet wordt bewaard.
+      * `|` is een speciaal geval voor geheimen van Azure Key Vault voor verbindings reeksen of sleutels.
+   * `<name>` is de naam van de para meter. Als deze leeg is, wordt de naam van de eigenschap gebruikt. Als de waarde begint met een `-` teken, wordt de naam Inge kort. Zo wordt bijvoorbeeld `AzureStorage1_properties_typeProperties_connectionString` Inge kort tot. `AzureStorage1_connectionString`
+   * `<stype>` is het type para meter. `string`Als `<stype>`deze leeg is, is het standaard type. Ondersteunde waarden: `string` `bool`,, ,`object`en .`securestring` `number`
+* Wanneer u een matrix opgeeft in het definitie bestand, geeft u aan dat de overeenkomende eigenschap in de sjabloon een matrix is. Data Factory doorloopt alle objecten in de matrix met behulp van de definitie die is opgegeven in het Integration Runtime-object van de matrix. Het tweede object, een teken reeks, wordt de naam van de eigenschap, die wordt gebruikt als de naam voor de para meter voor elke iteratie.
+* Het is niet mogelijk een definitie te hebben die specifiek is voor een resource-exemplaar. Elke wille keurige definitie is van toepassing op alle resources van dat type.
+* Standaard zijn alle beveiligde teken reeksen, zoals Key Vault geheimen en beveiligde teken reeksen, zoals verbindings reeksen, sleutels en tokens, para meters.
  
-## <a name="sample-parameterization-template"></a>De parameterisering voorbeeldsjabloon
+### <a name="sample-parameterization-template"></a>Voor beeld van parameterisering-sjabloon
+
+Hieronder ziet u een voor beeld van hoe een parameterisering-sjabloon eruit kan zien:
 
 ```json
 {
@@ -935,35 +411,35 @@ Hier vindt u enkele richtlijnen te gebruiken wanneer u het bestand met aangepast
     }
 }
 ```
-
-### <a name="explanation"></a>Uitleg:
+Hieronder volgt een uitleg van de manier waarop de bovenstaande sjabloon is samengesteld, onderverdeeld op resource type.
 
 #### <a name="pipelines"></a>Pijplijnen
     
-* Er is een eigenschap in het pad activiteiten/typeProperties/waitTimeInSeconds parameters. Dit betekent dat elke activiteit in een pijplijn met een code-niveau eigenschap met de naam `waitTimeInSeconds` (bijvoorbeeld de `Wait` activiteit) als parameters als een getal, met een standaardnaam wordt gebruikt. Maar deze bewerking dit geen een standaardwaarde is opgegeven in het Resource Manager-sjabloon. Dit is een verplichte invoer tijdens de implementatie van Resource Manager.
-* Op deze manier een eigenschap met de naam `headers` (bijvoorbeeld in een `Web` activiteit) met parameters met het type `object` (JObject). Er is een standaardwaarde, die de dezelfde waarde als in de fabriek bron is.
+* Elke eigenschap in het pad activities/typeProperties/waitTimeInSeconds is para meters. Alle activiteiten in een pijp lijn met de naam `waitTimeInSeconds` eigenschap (bijvoorbeeld de `Wait` activiteit) worden als een getal met een standaard naam vastgelegd. Maar heeft geen standaard waarde in de Resource Manager-sjabloon. Het is een verplichte invoer tijdens de implementatie van Resource Manager.
+* Op dezelfde manier is een `headers` eigenschap (bijvoorbeeld in een `Web` activiteit) para meters van het type `object` (JObject). Het heeft een standaard waarde. Dit is dezelfde waarde als in de bron-Factory.
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* Alleen de eigenschappen en alle eigenschappen, onder het pad `typeProperties` bestaan parameters met hun respectieve standaardwaarden. Bijvoorbeeld, vanaf vandaag schema, zijn er twee eigenschappen onder **IntegrationRuntimes** eigenschappen van het type: `computeProperties` en `ssisProperties`. Beide typen eigenschappen zijn gemaakt met hun respectieve standaardwaarden en -typen (Object).
+* Alle eigenschappen onder het pad `typeProperties` zijn para meters met hun respectievelijke standaard waarden. Er zijn bijvoorbeeld twee eigenschappen onder **IntegrationRuntimes** type-eigenschappen: `computeProperties` en. `ssisProperties` Beide eigenschaps typen worden gemaakt met hun respectievelijke standaard waarden en typen (object).
 
 #### <a name="triggers"></a>Triggers
 
-* Onder `typeProperties`, twee eigenschappen als parameters worden gebruikt. Ten eerste `maxConcurrency`, die is opgegeven voor een standaardwaarde hebben en het type zou worden `string`. Dit is de standaardnaam van de parameter van `<entityName>_properties_typeProperties_maxConcurrency`.
-* De `recurrence` eigenschap ook met parameters. Alle eigenschappen op dat niveau worden Klik hieronder op als parameters worden gebruikt als tekenreeksen met standaardwaarden en namen van parameters opgegeven. Een uitzondering hierop is de `interval` eigenschap, die als type als parameters gebruikt, en met de parameternaam voorafgegaan door `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Op dezelfde manier de `freq` eigenschap is een tekenreeks en parameters wordt gebruikt als een tekenreeks. Echter, de `freq` eigenschap parameters zonder een standaardwaarde wordt gebruikt. De naam is ingekort en volgen. Bijvoorbeeld `<entityName>_freq`.
+* Onder `typeProperties`zijn twee eigenschappen para meters. De eerste is `maxConcurrency`, die is opgegeven om een standaard waarde te hebben en van het type`string`is. Deze heeft de standaard parameter naam van `<entityName>_properties_typeProperties_maxConcurrency`.
+* De `recurrence` eigenschap is ook para meters. Hieronder worden alle eigenschappen op dat niveau opgegeven om para meters te worden ingesteld als teken reeksen, met standaard waarden en parameter namen. Een uitzonde ring `interval` is de eigenschap, die para meters is van het type nummer en de parameter naam met `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Op dezelfde manier `freq` is de eigenschap een teken reeks en wordt de para meter als teken reeks. De `freq` eigenschap is echter para meters zonder standaard waarde. De naam is inge kort en achtervoegsel. Bijvoorbeeld `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
-* Gekoppelde services is uniek. Omdat de gekoppelde services en gegevenssets van verschillende typen mogelijk zijn kunnen, kunt u specifieke aanpassingen kunt opgeven. U kunt bijvoorbeeld zeggen dat voor alle services van het type gekoppelde `AzureDataLakeStore`, een specifieke sjabloon kan worden toegepast, en voor alle andere (via \*) een andere sjabloon worden toegepast.
-* In het voorgaande voorbeeld wordt de `connectionString` eigenschap wordt als parameters worden gebruikt als een `securestring` -waarde, met deze bewerking dit geen standaardwaarde en er een korte parameternaam op die wordt voorafgegaan door `connectionString`.
-* De eigenschap `secretAccessKey`, echter gebeurt er moet een `AzureKeyVaultSecret` (bijvoorbeeld een `AmazonS3` gekoppelde service). Deze automatisch als een Azure Key Vault-geheim met parameters, en dus wordt het opgehaald uit de sleutelkluis die geconfigureerd met in de fabriek bron. U kunt ook parameter van de key vault zelf.
+* Gekoppelde services zijn uniek. Omdat gekoppelde services en gegevens sets een breed scala van typen hebben, kunt u type-specifieke aanpassing opgeven. In dit voor beeld worden alle gekoppelde services van `AzureDataLakeStore`het type, een specifieke sjabloon toegepast en voor alle anderen (via \*) wordt een andere sjabloon toegepast.
+* De `connectionString` eigenschap wordt `securestring` als waarde para meters ingesteld, heeft geen standaard waarde en heeft een kortere parameter naam die wordt gebruikt voor `connectionString`het achtervoegsel.
+* De eigenschap `secretAccessKey` gebeurt als een `AzureKeyVaultSecret` (bijvoorbeeld in een `AmazonS3` gekoppelde service). De para meter wordt automatisch ingesteld als een Azure Key Vault geheim en opgehaald uit de geconfigureerde sleutel kluis. U kunt ook de sleutel kluis zelf para meters.
 
 #### <a name="datasets"></a>Gegevenssets
 
-* Hoewel typespecifieke aanpassing beschikbaar voor gegevenssets is, configuratie kan worden opgegeven zonder expliciet een \*-configuratie. In het voorgaande voorbeeld, alle eigenschappen van gegevensset onder `typeProperties` bestaan parameters.
+* Hoewel het type-specifieke aanpassing beschikbaar is voor gegevens sets, kan de configuratie worden opgegeven zonder \*dat dit expliciet een configuratie van een niveau heeft. In het bovenstaande voor beeld zijn alle eigenschappen van `typeProperties` de gegevensset onder para meters.
 
-De parameterisering standaardsjabloon kunt wijzigen, maar dit is de huidige sjabloon. Dit is handig als u slechts één extra eigenschap wordt toevoegen als een parameter, maar ook als u niet wilt verliezen van de bestaande parameteriseringen en moeten ze opnieuw maken.
+### <a name="default-parameterization-template"></a>Standaard parameterisering-sjabloon
 
+Hieronder ziet u de huidige standaard sjabloon parameterisering. Als u slechts één of enkele para meters hoeft toe te voegen, is het mogelijk dat u de bestaande parameterisering-structuur niet kwijtraakt.
 
 ```json
 {
@@ -1070,9 +546,9 @@ De parameterisering standaardsjabloon kunt wijzigen, maar dit is de huidige sjab
 }
 ```
 
-**Voorbeeld**: Een interactieve Databricks-cluster-ID (van een aan Databricks gekoppelde Service) naar het parameterbestand toevoegen:
+Hieronder ziet u een voor beeld van hoe u een enkele waarde kunt toevoegen aan de standaard sjabloon parameterisering. We willen alleen een bestaande Databricks interactief cluster-ID voor een gekoppelde Databricks-service toevoegen aan het parameter bestand. Opmerking: het onderstaande bestand is hetzelfde als het bovenstaande bestand, behalve `existingClusterId` onder het veld eigenschappen van. `Microsoft.DataFactory/factories/linkedServices`
 
-```
+```json
 {
     "Microsoft.DataFactory/factories/pipelines": {
     },
@@ -1178,37 +654,60 @@ De parameterisering standaardsjabloon kunt wijzigen, maar dit is de huidige sjab
 }
 ```
 
-
 ## <a name="linked-resource-manager-templates"></a>Gekoppelde Resource Manager-sjablonen
 
-Als u continue integratie en implementatie (CI/CD) voor uw Data Factory's hebt ingesteld, kunt u zien dat, als uw factory groeit, u uitgevoerd in de Resource Manager-sjabloon-limieten, zoals het maximum aantal resources of de maximale nettolading in een Resource Manager-sjabloon. Voor scenario's zoals deze, samen met het genereren van de volledige Resource Manager-sjabloon voor een fabriek, genereert de Data Factory nu ook Gekoppelde Resource Manager-sjablonen. Als gevolg hiervan hebben de nettolading van de gehele factory onderverdeeld in verschillende bestanden, zodat u de genoemde limieten niet uitvoeren.
+Als u doorlopende integratie en implementatie (CI/CD) voor uw gegevens fabrieken hebt ingesteld, kunt u de limieten voor de Azure Resource Manager-sjablonen uitvoeren naarmate uw fabriek groter groeit. Een voor beeld van een limiet is het maximum aantal resources in een resource manager-sjabloon. Data Factory nu gekoppelde Resource Manager-sjablonen genereert om grote fabrieken te kunnen samen met het genereren van de volledige Resource Manager-sjabloon voor een fabriek. Met deze functie wordt de gehele nettolading van de fabriek onderverdeeld in verschillende bestanden, zodat u de limieten niet kunt uitvoeren.
 
-Als u Git geconfigureerd hebt, de gekoppelde sjablonen worden gegenereerd en opgeslagen samen met de volledige Resource Manager-sjablonen de `adf_publish` vertakking, onder een nieuwe map met de naam `linkedTemplates`.
+Als u Git hebt geconfigureerd, worden de gekoppelde sjablonen gegenereerd en opgeslagen in de volledige Resource Manager-sjablonen in `adf_publish` de vertakking onder een nieuwe map `linkedTemplates`met de naam.
 
-![Gekoppelde map voor Resource Manager-sjablonen](media/continuous-integration-deployment/linked-resource-manager-templates.png)
+![Map gekoppelde Resource Manager-sjablonen](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
-De gekoppelde Resource Manager-sjablonen hebben meestal een master sjabloon en een set van onderliggende sjablonen die zijn gekoppeld aan het model. De bovenliggende sjabloon heet `ArmTemplate_master.json`, en de onderliggende sjablonen hebben een naam met het patroon `ArmTemplate_0.json`, `ArmTemplate_1.json`, enzovoort. Als u wilt verplaatsen via de volledige Resource Manager-sjabloon voor het gebruik van de gekoppelde sjablonen gebruiken, werken uw CI/CD-taak om te verwijzen naar `ArmTemplate_master.json` in plaats van dat verwijst naar `ArmTemplateForFactory.json` (dat wil zeggen, de volledige Resource Manager-sjabloon). Resource Manager moet u de gekoppelde sjablonen uploaden naar een opslagaccount, zodat ze tijdens de implementatie kunnen worden geopend door Azure. Zie voor meer informatie, [gekoppelde ARM-sjablonen met VSTS implementeren](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+De gekoppelde Resource Manager-sjablonen bevatten meestal een hoofd sjabloon en een set onderliggende sjablonen die aan het hoofd zijn gekoppeld. De bovenliggende sjabloon wordt aangeroepen `ArmTemplate_master.json`en de onderliggende sjablonen worden benoemd met het patroon `ArmTemplate_0.json`, `ArmTemplate_1.json`enzovoort. Als u gekoppelde sjablonen wilt gebruiken in plaats van de volledige Resource Manager-sjabloon, moet u uw CI/ `ArmTemplate_master.json` cd- `ArmTemplateForFactory.json` taak bijwerken zodat deze verwijst naar in plaats van (de volledige Resource Manager-sjabloon). Resource Manager vereist ook dat u de gekoppelde sjablonen uploadt naar een opslag account, zodat deze door Azure kunnen worden gebruikt tijdens de implementatie. Zie voor meer informatie [gekoppelde arm-sjablonen implementeren met VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
 
-Vergeet niet om toe te voegen van de Data Factory-scripts in uw CI/CD-pijplijn voor en na de Implementatietaak.
+Vergeet niet om de Data Factory scripts in uw CI/CD-pijp lijn vóór en na de implementatie taak toe te voegen.
 
-Als u geen Git geconfigureerd, de gekoppelde sjablonen zijn toegankelijk via de **exporteren ARM-sjabloon** gebaar.
+Als u geen git hebt geconfigureerd, kunt u de gekoppelde sjablonen openen via de beweging voor het exporteren van de **arm-sjabloon** .
+
+## <a name="hot-fix-production-branch"></a>Productie vertakking warm herstellen
+
+Als u een Factory implementeert voor productie en beseft dat er een fout is die direct moet worden opgelost, maar u niet de huidige collaboration Branch kunt implementeren, moet u mogelijk een hot-fix implementeren.
+
+1.  Ga in azure DevOps naar de release die is geïmplementeerd voor productie en zoek de laatste door voering die is geïmplementeerd.
+
+2.  Haal in het commit-bericht de commit-ID van de samenwerkings vertakking op.
+
+3.  Maak een nieuwe Hot-Fix vertakking van die doorvoer.
+
+4.  Ga naar de Azure Data Factory UX en schakel over naar deze vertakking.
+
+5.  Los de fout op met behulp van de Azure Data Factory UX. Test uw wijzigingen.
+
+6.  Zodra de oplossing is geverifieerd, klikt u op **arm-sjabloon exporteren** om de sjabloon Hot-Fix Resource Manager te downloaden.
+
+7.  Deze build hand matig in de adf_publish-vertakking controleren.
+
+8.  Als u uw release pijplijn hebt geconfigureerd om automatisch te activeren op basis van adf_publish check-ins, wordt een nieuwe release automatisch gestart. U kunt ook hand matig een release in de wachtrij plaatsen.
+
+9.  Implementeer de hot-fix release voor de test-en productie fabrieken. Deze release bevat de vorige nettolading van de productie plus de oplossing die u in stap 5 hebt gemaakt.
+
+10. Voeg de wijzigingen van de Hot-Fix toe aan de ontwikkelings vertakking zodat latere releases niet in dezelfde bug worden uitgevoerd.
 
 ## <a name="best-practices-for-cicd"></a>Aanbevolen procedures voor CI/CD
 
-Als u met behulp van Git-integratie met uw data factory en u een CI/CD-pijplijn die de wijzigingen van ontwikkeling hebt, testen en vervolgens naar productie verplaatst, wordt aangeraden de volgende aanbevolen procedures:
+Als u gebruik wilt maken van Git-integratie met uw data factory en u een CI/CD-pijp lijn hebt die uw wijzigingen van de ontwikkeling naar de test verplaatst en vervolgens naar productie, raden we u aan de volgende aanbevolen procedures te volgen:
 
--   **GIT-integratie**. U alleen moet configureren van uw gegevensfactory ontwikkeling met Git-integratie. Wijzigingen in de Test en productie zijn geïmplementeerd via CI/CD en niet hoeven te hebben van Git-integratie.
+-   **Git-integratie**. U hoeft uw ontwikkel data factory alleen te configureren met git-integratie. Wijzigingen in testen en productie worden geïmplementeerd via CI/CD en beschikken niet over git-integratie.
 
--   **Data Factory CI/CD-script**. Voordat u de implementatiestap van Resource Manager in CI/CD moet u zorgen van items zoals het stoppen van de triggers en een ander soort factory opruimen. Wordt u aangeraden [met dit script](#sample-script-to-stop-and-restart-triggers-and-clean-up) als dit zorgt dat al deze dingen. Voer het script in één keer voor de implementatie, en eenmaal na, met behulp van de juiste vlaggen.
+-   **Data Factory CI/cd-script**. Voor de implementatie stap van resource manager in CI/CD zijn bepaalde taken vereist, zoals het stoppen/starten van triggers en opschonen. We raden u aan om Power shell-scripts te gebruiken vóór en na de implementatie. Zie [actieve triggers bijwerken](#update-active-triggers)voor meer informatie. 
 
--   **Integratieruntimes en het delen van**. Integratieruntimes vormen een van de infrastructurele componenten in uw data factory, die minder vaak wijzigingen ondergaan en zijn vergelijkbaar in alle fasen van uw CI/CD. Als gevolg hiervan Data Factory wordt verwacht dat u hebt dezelfde naam en hetzelfde type Integratieruntimes in alle fasen van CI/CD. Als u wilt delen Integratieruntimes in alle fasen - bijvoorbeeld: de zelfgehoste Integration Runtimes - is één manier om te delen die als host fungeert voor de zelfgehoste IR in een fabriek Ternair alleen voor dat de gedeelde Integratieruntimes bevat. Vervolgens kunt u ze in Dev/Test/Prod als een gekoppelde IR-type.
+-   **Integration Runtimes en delen**. Integration Runtimes veranderen niet vaak en zijn vergelijkbaar in alle fasen van uw CI/CD. Als gevolg hiervan Data Factory verwacht dat u dezelfde naam en hetzelfde type Integration Runtimes in alle fasen van CI/CD hebt. Als u integratie-Runtimes in alle fasen wilt delen, kunt u overwegen een ternaire fabriek alleen te gebruiken voor de gedeelde integratie runtime. U kunt deze gedeelde Factory in al uw omgevingen gebruiken als het type gekoppelde integratie runtime.
 
--   **Key Vault**. Als u de aanbevolen Azure Key Vault op basis van gekoppelde services, kunt u de voordelen één niveau verder in afzonderlijke sleutelkluizen mogelijk te houden voor ontwikkelen/testen/productie nemen. U kunt ook afzonderlijke machtigingen configureren voor elk van deze. U kunt niet uw teamleden machtigingen hebben voor de productie-geheimen. We raden aan dezelfde geheime namen houdt in alle fasen. Als u dezelfde namen wilt houden, bevindt u zich hoeft te wijzigen van uw Resource Manager-sjablonen voor CI/CD, omdat het enige wat die moet worden gewijzigd, is de key vault-naam een van de parameters van de Resource Manager-sjabloon is.
+-   **Key Vault**. Wanneer u Azure Key Vault op basis van gekoppelde services gebruikt, kunt u de voor delen hiervan verder benutten door afzonderlijke sleutel kluizen voor verschillende omgevingen te bewaren. U kunt ook afzonderlijke machtigings niveaus configureren voor elk van deze. Het is bijvoorbeeld mogelijk dat uw team leden geen machtigingen voor productie geheimen mogen hebben. Als u deze aanpak volgt, wordt u aangeraden dezelfde geheime namen in alle fasen te houden. Als u dezelfde namen wilt gebruiken, hoeft u uw Resource Manager-sjablonen niet te wijzigen in CI/CD-omgevingen, omdat de naam van de sleutel kluis een van de para meters voor de Resource Manager-sjabloon is.
 
 ## <a name="unsupported-features"></a>Niet-ondersteunde functies
 
--   U kunt afzonderlijke resources, niet publiceren omdat de data factory-entiteiten van elkaar afhankelijk. Bijvoorbeeld, triggers afhankelijk zijn van pijplijnen, pijplijnen zijn afhankelijk van gegevenssets en andere pijplijnen, enzovoort. Tracering wijzigen afhankelijkheden is moeilijk. Als deze mogelijk om de resources handmatig publiceren te selecteren is, zou het mogelijk zijn om op te halen, alleen een subset van de volledige set van wijzigingen, die tot onverwacht gedrag dingen nadat deze is gepubliceerd leiden kunnen.
+-   U kunt geen afzonderlijke resources publiceren. Data Factory-entiteiten zijn afhankelijk van elkaar en het bijhouden van veranderende afhankelijkheden kan lastig zijn en leiden tot onverwacht gedrag. Triggers zijn bijvoorbeeld afhankelijk van pijp lijnen, pijp lijnen zijn afhankelijk van gegevens sets en andere pijp lijnen, een dergelijke. Als het mogelijk is om slechts een subset van de hele wijzigings te publiceren, kunnen er een aantal onvoorziene fouten optreden.
 
--   U kunt niet publiceren van de persoonlijke vertakkingen.
+-   U kunt niet publiceren vanuit privé-filialen.
 
--   U kunt geen projecten in Bitbucket hosten.
+-   U kunt geen projecten hosten op bitbucket.

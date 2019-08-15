@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 8e2a98748f4fef69b4fd6e3b32d15560641a6336
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a8545939fd027989519e0f7a161f750ec676749a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737061"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976806"
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Zoek opdrachten opslaan en gegevensassets vastmaken in Azure Data Catalog
 ## <a name="introduction"></a>Inleiding
@@ -37,7 +37,7 @@ Als u een opgeslagen zoek opdracht wilt maken, gaat u als volgt te werk:
 ### <a name="manage-saved-searches"></a>Opgeslagen Zoek opdrachten beheren
 Nadat u een of meer zoek opdrachten hebt opgeslagen, wordt de optie **opgeslagen Zoek opdrachten** weer gegeven onder het **huidige zoekvak** . Wanneer de lijst is uitgevouwen, worden alle opgeslagen Zoek opdrachten weer gegeven.
 
- ![Lijst met opgeslagen Zoek opdrachten](./media/data-catalog-how-to-save-pin/03-list.png)
+ ![Data Catalog-lijst met opgeslagen Zoek opdrachten](./media/data-catalog-how-to-save-pin/03-list.png)
 
 Voer een van de volgende handelingen uit:
 
@@ -56,18 +56,18 @@ Voer een van de volgende handelingen uit:
 ### <a name="organizational-saved-searches"></a>Opgeslagen Zoek opdrachten in de organisatie
 Alle gebruikers in uw organisatie kunnen Zoek opdrachten opslaan voor eigen gebruik. Data Catalog-beheerders kunnen ook Zoek opdrachten opslaan voor alle gebruikers binnen de organisatie. Wanneer beheerders een zoek opdracht opslaan, worden ze weer gegeven met een **share binnen de optie bedrijf** . Als u deze optie selecteert, wordt de opgeslagen zoek opdracht gedeeld voor alle gebruikers in de organisatie.
 
- ![Opgeslagen Zoek opdrachten in de organisatie](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
+ ![Data Catalog-opgeslagen Zoek opdrachten in de organisatie](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
 
 ## <a name="pinned-data-assets"></a>Vastgemaakte gegevensassets
 Met opgeslagen Zoek opdrachten kunt u Zoek definities opslaan en opnieuw gebruiken. De gegevensassets die worden geretourneerd door de Zoek opdrachten, kunnen na verloop van tijd veranderen als de inhoud van de catalogus verandert. Wanneer u gegevensassets vastmaakt, kunt u specifieke gegevensassets expliciet identificeren, zodat ze gemakkelijker toegankelijk zijn zonder dat ze een zoek opdracht hoeven te gebruiken.
 
 Het vastmaken van een gegevens activum is eenvoudig. Als u de gegevensasset wilt toevoegen aan uw vastgemaakte lijst, klikt u gewoon op het speld pictogram. Het pictogram wordt weer gegeven in de hoek van de activa tegel in de tegel weergave en in de meest linkse kolom in de lijst weergave in de Azure Data Catalog Portal.
 
-![Het pictogram voor het vastmaken van gegevens en assets](./media/data-catalog-how-to-save-pin/05-pinning.png)
+![Data Catalog-het pictogram voor het vastmaken van gegevens elementen](./media/data-catalog-how-to-save-pin/05-pinning.png)
 
 Losmaken is even eenvoudig een gegevensasset. Klik op het pictogram **losmaken** om de instelling voor de geselecteerde Asset te scha kelen.
 
-![Het pictogram voor het losmaken van het gegevens element](./media/data-catalog-how-to-save-pin/06-unpinning.png)
+![Data Catalog-het pictogram voor het losmaken van het gegevens element](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
 ## <a name="the-my-assets-section"></a>De sectie mijn assets
 De start pagina van de Data Catalog-Portal bevat een sectie **mijn assets** die de activa van belang voor de huidige gebruiker weergeeft. Deze sectie bevat zowel vastgemaakte activa als opgeslagen Zoek opdrachten.

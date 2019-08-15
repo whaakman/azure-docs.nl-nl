@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: met behulp van Azure IoT Hub bericht enrichments'
-description: Zelfstudie over het gebruik van bericht enrichments voor Azure IoT Hub-berichten weergeven
+title: Zelf studie-een verrijking van Azure IoT Hub-berichten gebruiken
+description: Zelf studie waarin wordt getoond hoe u verrijkingen van berichten gebruikt voor Azure IoT Hub berichten
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,27 +8,27 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: e4906bf9f2aead69c315ddb7b2e3b10489378d87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c115bf0ad21e905e998692fbbc175f5aa52b86d
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66259072"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014255"
 ---
-# <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>Zelfstudie: Met behulp van Azure IoT Hub bericht enrichments (preview)
+# <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>Zelfstudie: Azure IoT Hub-bericht verrijkingen gebruiken (preview-versie)
 
-*Bericht enrichments* is het vermogen van de IoT-Hub kunt u *stempel* berichten met aanvullende informatie voordat de berichten worden verzonden naar het opgegeven eindpunt. Eén reden voor het gebruik van bericht enrichments is om op te nemen van gegevens die kunnen worden gebruikt voor het vereenvoudigen van de downstream-verwerkingen. Bijvoorbeeld, het verrijkende telemetrieberichten van apparaten met een dubbele apparaattag belasting van klanten om te maken van de apparaatdubbel die API-voor deze informatie aanroepen verminderen. Zie voor meer informatie de [overzicht van bericht enrichments](iot-hub-message-enrichments-overview.md).
+Verrijkingen van berichten is de mogelijkheid van de IOT hub om berichten met aanvullende informatie af te *stem pelen* voordat de berichten naar het aangewezen eind punt worden verzonden. Een reden voor het gebruik van verrijkingen van berichten is het insluiten van gegevens die kunnen worden gebruikt voor het vereenvoudigen van de downstream-verwerking. Het verrijken van telemetriegegevens van een apparaat met een dubbele tag van een apparaat kan bijvoorbeeld de belasting van klanten verminderen om deze informatie te laten opleveren voor Device-dubbele API-aanroepen. Zie het [overzicht van verrijkingen van berichten](iot-hub-message-enrichments-overview.md)voor meer informatie.
 
-In deze zelfstudie gebruikt u de Azure CLI voor het instellen van de resources, met inbegrip van twee eindpunten die naar twee verschillende storage-containers verwijzen: **verrijkt** en **oorspronkelijke**. Vervolgens u gebruikt de [Azure-portal](https://portal.azure.com) configureren enrichments bericht moet worden toegepast op berichten die worden verzonden naar het eindpunt met alleen de **verrijkt** storage-container. U verzenden berichten naar de IoT-Hub die worden doorgestuurd naar beide storage-containers. Alleen de berichten verzonden naar het eindpunt voor de **verrijkt** opslagcontainer zal worden uitgebreid.
+In deze zelf studie gebruikt u de Azure CLI om de resources in te stellen, waaronder twee eind punten die naar twee verschillende opslag containers verwijzen: verrijkt en **Origineel**. Vervolgens gebruikt u de [Azure Portal](https://portal.azure.com) voor het configureren van verrijkingen van berichten die alleen worden toegepast op berichten die naar het eind punt worden verzonden met de verrijkte opslag container. U stuurt berichten naar de IoT Hub, die worden doorgestuurd naar beide opslag containers. Alleen de berichten die naar het eind punt voor de verrijkte opslag container worden verzonden, worden verrijkt.
 
-Hier volgen de taken die u wilt uitvoeren om deze zelfstudie te voltooien:
+Hier volgen de taken die u moet uitvoeren om deze zelf studie te volt ooien:
 
-**Met behulp van IoT-Hub bericht enrichments**
+**IoT Hub-bericht verrijkingen gebruiken**
 > [!div class="checklist"]
-> * Met de Azure CLI, maakt u de resources--een IoT-hub, een opslagaccount met twee eindpunten en de configuratie van de routering.
-> * De Azure portal gebruiken voor het bericht enrichments configureren.
-> * Een app die een IoT-apparaat verzenden van berichten naar de hub simuleert uitvoeren.
-> * Bekijk de resultaten en controleer of dat het bericht enrichments werkt zoals verwacht.
+> * Maak met behulp van de Azure CLI de resources--een IoT-hub, een opslag account met twee eind punten en de routerings configuratie.
+> * Gebruik de Azure Portal voor het configureren van verrijkingen van berichten.
+> * Voer een app uit die een IoT-apparaat simuleert die berichten naar de hub verzendt.
+> * Bekijk de resultaten en controleer of de verrijkingen van het bericht werken zoals verwacht.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -38,48 +38,48 @@ Hier volgen de taken die u wilt uitvoeren om deze zelfstudie te voltooien:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="retrieve-the-sample-code"></a>De voorbeeldcode halen
+## <a name="retrieve-the-sample-code"></a>De voorbeeld code ophalen
 
-Download [IoT Apparaatsimulatie](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) en pak het uit. Deze opslagplaats bevat verschillende toepassingen, inclusief de functie die u gebruikt om berichten te verzenden naar de IoT hub.
+Down load [IOT Device simulatie](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) en pak deze uit. Deze opslag plaats bevat meerdere toepassingen, waaronder het account dat u gaat gebruiken om berichten te verzenden naar de IoT-hub.
 
-Deze download bevat ook het script voor het maken van de resources die worden gebruikt voor het testen van bericht enrichments. Het script is in /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli. U kunt nu kijken naar het script en deze gebruiken. U kunt ook het script kopiëren rechtstreeks vanuit het artikel.
+Deze down load bevat ook het script voor het maken van de resources die worden gebruikt voor het testen van de verrijkingen van berichten. Het script bevindt zich in/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli. U kunt het script nu bekijken en gebruiken. U kunt het script ook rechtstreeks vanuit het artikel kopiëren.
 
-Wanneer u klaar bent om te testen, gebruikt u de toepassing Apparaatsimulatie uit deze download bericht te verzenden naar uw IoT-hub.
+Wanneer u klaar bent om te testen, gebruikt u de toepassing Device simulatie van deze down load om een bericht te verzenden naar uw IoT-hub.
 
-## <a name="set-up-and-configure-resources"></a>Instellen en configureren van resources
+## <a name="set-up-and-configure-resources"></a>Bronnen instellen en configureren
 
-De Azure CLI-script configureert ook de twee routes naar de eindpunten die afzonderlijke storage-containers zijn naast het maken van de benodigde resources. Zie voor meer informatie over het configureren van de routering, de [routering zelfstudie](tutorial-routing.md). Nadat de resources zijn ingesteld, gebruikt u de [Azure-portal](https://portal.azure.com) bericht enrichments voor elk eindpunt configureren en ga vervolgens door met de stap testen.
+Naast het maken van de benodigde resources, configureert het Azure CLI-script ook de twee routes naar de eind punten die afzonderlijke opslag containers zijn. Zie de [zelf studie voor route ring](tutorial-routing.md)voor meer informatie over het configureren van de route ring. Nadat de resources zijn ingesteld, gebruikt u de [Azure Portal](https://portal.azure.com) voor het configureren van verrijkingen van berichten voor elk eind punt en gaat u verder met de test stap.
 
 > [!NOTE]
-> Alle berichten worden gerouteerd naar beide eindpunten, maar alleen de berichten die naar het eindpunt met de geconfigureerde bericht enrichments zal worden uitgebreid.
+> Alle berichten worden doorgestuurd naar beide eind punten, maar alleen de berichten naar het eind punt met geconfigureerde bericht verrijkingen worden uitgebreid.
 >
 
-U kunt het onderstaande script gebruiken of open het script in de map /resources van de gedownloade opslagplaats. Hier volgen de stappen die het script wordt uitgevoerd:
+U kunt het onderstaande script gebruiken of het script openen in de map/resources van de gedownloade opslag plaats. Dit zijn de stappen die door het script worden uitgevoerd:
 
 * Een IoT Hub maken.
 * Een opslagaccount maken.
-* Twee containers maken in de storage-account, één voor de verrijkt berichten en één voor berichten die niet worden uitgebreid.
-* Instellen van de routering voor de twee verschillende opslagaccounts.
-    * Een eindpunt voor elke container van het opslagaccount maken.
-    * Een route voor elk van de containereindpunten van opslagaccounts maken.
+* Maak twee containers in het opslag account: een voor de verrijkte berichten en een voor berichten die niet zijn verrijkt.
+* Route ring voor de twee verschillende opslag accounts instellen.
+    * Maak een eind punt voor elke container van het opslag account.
+    * Maak een route naar elk van de container-eind punten van het opslag account.
 
-Er zijn verschillende namen van voorbeeldresources die globaal uniek zijn, zoals de naam van de IoT Hub en de naam van het opslagaccount moeten. Als u het script gemakkelijker is uitgevoerd, de namen van voorbeeldresources worden toegevoegd met een willekeurige alfanumerieke waarde met de naam *randomValue*. De randomValue wordt gegenereerd zodra aan de bovenkant van het script en toegevoegd aan de namen van voorbeeldresources zo nodig in het script. Als u niet dat deze willekeurige wilt, kunt u dit instellen op een lege tekenreeks of op een specifieke waarde.
+Er zijn verschillende resource namen die wereld wijd uniek moeten zijn, zoals de naam van de IoT Hub en de naam van het opslag account. Om het script eenvoudiger te kunnen uitvoeren, worden deze resource namen toegevoegd met een wille keurige alfanumerieke waarde met de naam *randomValue*. De randomValue wordt eenmaal aan het begin van het script gegenereerd en aan de resource namen toegevoegd, zoals nodig is in het script. Als u niet wilt dat deze wille keurig worden ingesteld, kunt u deze instellen op een lege teken reeks of op een specifieke waarde.
 
-Als u dit nog niet hebt gedaan, opent u een [Cloud Shell-venster voor Bash.](https://shell.azure.com). Open het script in de uitgepakte opslagplaats, gebruikt u Ctrl + A om alles van het te selecteren en vervolgens op Ctrl + C om te kopiëren. U kunt ook de volgende CLI-script kopiëren of opent u het rechtstreeks in de cloudshell. Plak het script in de Azure cloud shell-venster met de rechtermuisknop op de opdrachtregel en selecteert u **plakken**. Het script wordt één instructie uitgevoerd op een tijdstip. Nadat het script niet meer werkt, selecteert u **Enter** om ervoor te zorgen dat deze de laatste opdracht wordt uitgevoerd. Het volgende codeblok ziet u het script dat wordt gebruikt, met opmerkingen waarin wordt uitgelegd wat het doet.
+Als u dit nog niet hebt gedaan, opent u een [Cloud shell-venster voor bash.](https://shell.azure.com). Open het script in de uitgepakte opslag plaats, druk op CTRL-A om alles te selecteren en druk vervolgens op CTRL + C om de map te kopiëren. U kunt ook het volgende CLI-script kopiëren of het rechtstreeks openen in Cloud shell. Plak het script in het Azure Cloud shell-venster door met de rechter muisknop op de opdracht regel te klikken en **Plakken**te selecteren. Het script wordt één instructie per keer uitgevoerd. Nadat het script is uitgevoerd, selecteert u **Enter** om te controleren of de laatste opdracht wordt uitgevoerd. In het volgende code blok ziet u het script dat wordt gebruikt, met opmerkingen waarin wordt uitgelegd wat er gebeurt.
 
-Hier vindt u de resources die zijn gemaakt door het script. **Verrijkt** betekent dat de resource voor berichten met enrichments is. **Oorspronkelijke** betekent dat de resource is voor berichten die niet worden uitgebreid.
+Dit zijn de resources die zijn gemaakt door het script. Verrijkt betekent dat de resource is bedoeld voor berichten met verrijkingen. **Oorspronkelijk** betekent dat de resource is bedoeld voor berichten die niet zijn verrijkt.
 
 | Name | Value |
 |-----|-----|
-| ResourceGroup | ContosoResourcesMsgEn |
-| Containernaam | Origineel  |
-| Containernaam | verrijkt  |
-| De naam van de IoT-apparaat | Contoso-Test-Device |
-| De naam van IoT Hub | ContosoTestHubMsgEn |
-| De naam van opslagaccount | contosostorage |
-| eindpunt 1 naam | ContosoStorageEndpointOriginal |
-| eindpunt naam 2 | ContosoStorageEndpointEnriched|
-| route Naam1 | ContosoStorageRouteOriginal |
+| resourceGroup | ContosoResourcesMsgEn |
+| container naam | Origineel  |
+| container naam | geavanceerde  |
+| IoT-apparaatnaam | Contoso-Test-Device |
+| Naam van IoT-hub | ContosoTestHubMsgEn |
+| Naam van opslag account | contosostorage |
+| eindpunt naam 1 | ContosoStorageEndpointOriginal |
+| Naam van eind punt 2 | ContosoStorageEndpointEnriched|
+| route naam 1 | ContosoStorageRouteOriginal |
 | route naam 2 | ContosoStorageRouteEnriched |
 
 ```azurecli-interactive
@@ -236,50 +236,50 @@ az iot hub route create \
   --condition $condition
 ```
 
-Op dit moment de resources zijn klaar en de routering is geconfigureerd. U kunt de configuratie van de routering van het bericht in de portal weergeven en instellen van het bericht enrichments voor berichten naar de **verrijkt** storage-container.
+Op dit moment worden de resources allemaal ingesteld en wordt de route ring geconfigureerd. U kunt de configuratie voor bericht routering bekijken in de portal en de bericht verrijkingen instellen voor berichten die worden verzonden naar de verrijkde opslag container.
 
-### <a name="view-routing-and-configure-the-message-enrichments"></a>Routering en het bericht enrichments configureren
+### <a name="view-routing-and-configure-the-message-enrichments"></a>Route ring weer geven en de bericht verrijkingen configureren
 
-1. Ga naar uw IoT-Hub door te selecteren **resourcegroepen**, selecteer vervolgens de resourcegroep die is ingesteld voor deze zelfstudie (**ContosoResources_MsgEn**). De IoT-Hub niet vinden in de lijst en selecteer deze. Selecteer *berichtroutering** voor de Iot Hub.
+1. Ga naar uw IoT Hub door **resource groepen**te selecteren en selecteer vervolgens de resource groep die u voor deze zelf studie hebt ingesteld (**ContosoResources_MsgEn**). Zoek de IoT Hub in de lijst en selecteer deze. Selecteer *bericht routering** voor de IOT-hub.
 
-   ![Selecteer berichtroutering](./media/tutorial-message-enrichments/select-iot-hub.png)
+   ![Bericht routering selecteren](./media/tutorial-message-enrichments/select-iot-hub.png)
 
-   Het bericht routering deelvenster bevat drie tabbladen-- **Routes**, **aangepaste eindpunten**, en **verrijken berichten**. U kunt de eerste twee tabbladen om te zien van de configuratie ingesteld door het script te bladeren. Gebruik het derde tabblad bericht enrichments toevoegen. Laten we verrijken berichten naar het eindpunt voor de storage-container met de naam **verrijkt**. Vul de naam en waarde, en selecteer vervolgens het eindpunt **ContosoStorageEndpointEnriched** in de vervolgkeuzelijst. Hier volgt een voorbeeld van het instellen van een verrijking die door de naam van de IoT Hub worden toegevoegd aan het bericht:
+   Het deel venster bericht routering bevat drie tabbladen: **routes**, **aangepaste eind punten**en verrijkte **berichten**. U kunt door de eerste twee tabbladen bladeren om de configuratie weer te geven die door het script is ingesteld. Gebruik het derde tabblad om bericht verrijkingen toe te voegen. Laten we berichten verrijken naar het eind punt voor de opslagcontainer met de naam verrijkt. Vul de naam en waarde in en selecteer het eind punt **ContosoStorageEndpointEnriched** in de vervolg keuzelijst. Hier volgt een voor beeld van het instellen van een verrijking waarmee de IoT Hub naam wordt toegevoegd aan het bericht:
 
    ![Eerste verrijking toevoegen](./media/tutorial-message-enrichments/add-message-enrichments.png)
 
-2. Deze waarden toevoegen aan de lijst voor het eindpunt ContosoStorageEndpointEnriched.
+2. Voeg deze waarden toe aan de lijst voor het ContosoStorageEndpointEnriched-eind punt.
 
-   | Name | Value | Eindpunt (vervolgkeuzelijst) |
+   | Name | Value | Eind punt (vervolg keuzelijst) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   | Locatie apparaat | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   |customerID | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
+   | DeviceLocation | $twin. Tags. locatie | AzureStorageContainers > ContosoStorageEndpointEnriched |
+   |Nummer | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
 
    > [!NOTE]
-   > Als uw apparaat beschikt niet over een dubbel, wordt de waarde die u hier in plaatsen als een tekenreeks voor de waarde in het bericht enrichments worden geautoriseerd. Als u wilt zien van het apparaat informatie twin, gaat u naar uw hub in de portal, selecteert u vervolgens **IoT-apparaten**, selecteer uw apparaat en selecteer vervolgens **apparaatdubbel** aan de bovenkant van de pagina.
+   > Als uw apparaat geen dubbele waarde heeft, wordt de door u in deze plaats in te voegen stempel als teken reeks weer gegeven voor de waarde in de verrijkingen van het bericht. Als u de dubbele gegevens van het apparaat wilt zien, gaat u naar uw hub in de portal, selecteert u **IOT-apparaten**, selecteert u uw apparaat en selecteert u vervolgens **apparaat-twee** boven aan de pagina.
    >
-   > U kunt de apparaatdubbel-informatie voor het toevoegen van tags (zoals locatie) en deze instellen op een specifieke waarde als u wilt bewerken. Zie [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) (Apparaatdubbelen begrijpen en gebruiken in IoT Hub) voor meer informatie
+   > U kunt de dubbele informatie bewerken om tags toe te voegen (zoals locatie) en deze zo in te stellen op een specifieke waarde als u wilt. Zie [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) (Apparaatdubbelen begrijpen en gebruiken in IoT Hub) voor meer informatie
 
-3. Wanneer u klaar bent, is het deelvenster ziet die vergelijkbaar is met deze afbeelding:
+3. Wanneer u klaar bent, moet het deel venster er ongeveer als volgt uitzien:
 
-   ![Tabel met alle enrichments toegevoegd](./media/tutorial-message-enrichments/all-message-enrichments.png)
+   ![Tabel met alle verrijkingen toegevoegd](./media/tutorial-message-enrichments/all-message-enrichments.png)
 
-4. Selecteer **toepassen** de wijzigingen op te slaan.
+4. Selecteer **Toep assen** om de wijzigingen op te slaan.
 
-## <a name="send-messages-to-the-iot-hub"></a>Berichten verzenden naar de IoT-Hub
+## <a name="send-messages-to-the-iot-hub"></a>Berichten verzenden naar de IoT Hub
 
-Nu dat de bericht-enrichments zijn geconfigureerd voor het eindpunt, voert u de toepassing Simulated Device berichten te verzenden naar de IoT-Hub. De hub is ingesteld met regels die de volgende taken uitvoeren:
+Nu de verrijkingen van het bericht zijn geconfigureerd voor het eind punt, voert u de toepassing voor gesimuleerde apparaten uit om berichten naar de IoT Hub te verzenden. De hub is ingesteld met regels die de volgende taken uitvoeren:
 
-* Berichten die worden doorgestuurd naar het opslageindpunt ContosoStorageEndpointOriginal zal niet worden uitgebreid en worden opgeslagen in de storage-container `original`.
+* Berichten die naar de ContosoStorageEndpointOriginal van het opslag eindpunt worden doorgestuurd, worden niet verrijkt en worden opgeslagen in `original`de opslag container.
 
-* Berichten die worden doorgestuurd naar het opslageindpunt ContosoStorageEndpointEnriched worden verrijkt en die zijn opgeslagen in de storage-container `enriched`.
+* Berichten die naar de ContosoStorageEndpointEnriched van het opslag eindpunt worden doorgestuurd, worden verrijkt en opgeslagen `enriched`in de opslag container.
 
-De gesimuleerde apparaattoepassing is een van de toepassingen in de uitgepakte download. De toepassing berichten verzendt voor elk van de methoden in voor het doorsturen van berichten de [routering zelfstudie](tutorial-routing.md); dit omvat Azure Storage.
+De toepassing van het gesimuleerde apparaat is een van de toepassingen in de uitgepakte down load. De toepassing verzendt berichten voor elk van de verschillende routerings methoden voor berichten in de [zelf studie voor route ring](tutorial-routing.md). Dit omvat Azure Storage.
 
-Dubbelklik op het oplossingsbestand (IoT_SimulatedDevice.sln) te openen van de code in Visual Studio en opent u Program.cs. Vervang `{your hub name}` met de naam van de IoT-hub. De indeling van de IoT hub-hostnaam is **{naam van uw hub} .azure-devices.net**. Voor deze zelfstudie is de naam van de host hub **ContosoTestHubMsgEn.azure devices.net**. Vervang vervolgens `{device key}` door de sleutelwaarde u opgeslagen eerder wanneer het script voor het maken van de resources die worden uitgevoerd.
+Dubbel klik op het oplossings bestand (IoT_SimulatedDevice. SLN) om de code te openen in Visual Studio en open vervolgens Program.cs. Vervang `{your hub name}` door de naam van de IOT-hub. De indeling van de naam van de IoT-hub is **{uw naam van de hub}. Azure-devices.net**. Voor deze zelf studie is de hostnaam van de hub **ContosoTestHubMsgEn.Azure-devices.net**. Vervang `{device key}` vervolgens door de apparaatnaam die u eerder hebt opgeslagen tijdens het uitvoeren van het script om de resources te maken.
 
-Als u geen sleutel voor het apparaat hebt, kunt u deze ophalen van de portal. Wanneer u zich aanmeldt, gaat u naar **resourcegroepen**, selecteer de resourcegroep en selecteer vervolgens uw IoT-Hub. Kijk onder **IoT-apparaten** voor uw testapparaat en selecteer uw apparaat. Selecteer het kopieerpictogram bij **primaire sleutel** naar het Klembord kopiëren.
+Als u de apparaatcode niet hebt, kunt u deze ophalen uit de portal. Nadat u zich hebt aangemeld, gaat u naar **resource groepen**, selecteert u de resource groep en selecteert u uw IOT hub. Zoek in **IOT-apparaten** voor uw test apparaat en selecteer uw apparaat. Selecteer het Kopieer pictogram naast **primaire sleutel** om het naar het klem bord te kopiëren.
 
    ```csharp
         static string myDeviceId = "contoso-test-device";
@@ -291,31 +291,31 @@ Als u geen sleutel voor het apparaat hebt, kunt u deze ophalen van de portal. Wa
 
 ## <a name="run-and-test"></a>Uitvoeren en testen
 
-Voer de consoletoepassing uit. Wacht enkele minuten. De berichten die worden verzonden, worden weergegeven op het scherm van de console van de toepassing.
+Voer de consoletoepassing uit. Wacht enkele minuten. De berichten die worden verzonden, worden weer gegeven in het console scherm van de toepassing.
 
-Deze app verzendt elke seconde een nieuw apparaat-naar-cloud-bericht naar de IoT Hub. Het bericht bevat een JSON-geserialiseerd object met een apparaat-id, temperatuur, vochtigheid en berichtniveau, die als standaardwaarde `normal` heeft. Wordt een willekeurig toegewezen `critical` of `storage`, zodat het bericht moet worden doorgestuurd naar het storage-account of het standaardeindpunt. De berichten verzonden naar de **verrijkt** container in het opslagaccount dat zal worden uitgebreid.
+Deze app verzendt elke seconde een nieuw apparaat-naar-cloud-bericht naar de IoT Hub. Het bericht bevat een JSON-geserialiseerd object met een apparaat-id, temperatuur, vochtigheid en berichtniveau, die als standaardwaarde `normal` heeft. Er wordt wille keurig een niveau van `critical` of `storage`toegewezen, waardoor het bericht wordt doorgestuurd naar het opslag account of het standaard eindpunt. De berichten die worden verzonden naar de uitgebreide container in het opslag account, worden verrijkt.
 
-Na aantal opslag e-mailberichten zijn verzonden, moet u de gegevens bekijken.
+Nadat er meerdere opslag berichten zijn verzonden, bekijkt u de gegevens.
 
-1. Selecteer **resourcegroepen**, Ga naar uw resourcegroep (ContosoResourcesMsgEn) en selecteer deze.
+1. Selecteer **resource groepen**, zoek de resource groep (ContosoResourcesMsgEn) en selecteer deze.
 
-2. Selecteer uw opslagaccount (contosostorage). Selecteer vervolgens **Opslagverkenner (preview)** in het selectiedeelvenster aan de linkerkant.
+2. Selecteer uw opslag account (contosostorage). Selecteer vervolgens **Storage Explorer (preview)** in het selectie deel venster aan de linkerkant.
 
-   ![Selecteer Opslagverkenner](./media/tutorial-message-enrichments/select-storage-explorer.png)
+   ![Opslag Verkenner selecteren](./media/tutorial-message-enrichments/select-storage-explorer.png)
 
-   Selecteer **BLOBCONTAINERS** om te zien van de twee containers die kunnen worden gebruikt.
+   Selecteer **BLOB-containers** om de twee containers te zien die kunnen worden gebruikt.
 
-   ![Zie de containers in het storage-account](./media/tutorial-message-enrichments/show-blob-containers.png)
+   ![Zie de containers in het opslag account](./media/tutorial-message-enrichments/show-blob-containers.png)
 
-De berichten in de container met de naam **verrijkt** hebben de bericht-enrichments opgenomen in de berichten. De berichten in de container met de naam **oorspronkelijke** heeft de onbewerkte berichten met geen enrichments. Inzoomen op een van de containers totdat u naar de onderkant ophalen en opent u het meest recente berichtenbestand en vervolgens Doe hetzelfde voor de andere container om te controleren of er geen enrichments toegevoegd aan de berichten in die container.
+De berichten in de container met de naam verrijkt de bericht verrijkingen die in de berichten zijn opgenomen. De berichten in de container **Origineel** hebben de onbewerkte berichten zonder verrijkingen. Zoom in op een van de containers totdat u het meest recente bericht bestand opent en open vervolgens de andere container om te controleren of er geen verrijkingen worden toegevoegd aan berichten in die container.
 
-Wanneer u berichten die zijn verrijkt bekijkt, ziet u de "Mijn IoT-Hub' met de naam van de hub, evenals de locatie en de klant-ID, als volgt:
+Wanneer u kijkt naar berichten die zijn verrijkt, ziet u de ' mijn IoT Hub ' met de naam van de hub, evenals de locatie en de klant-ID, zoals:
 
 ```json
-{"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","my IoT Hub":"contosotesthubmsgen3276","device location":"$twin.tags.location","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
+{"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","my IoT Hub":"contosotesthubmsgen3276","devicelocation":"$twin.tags.location","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
-En hier niet aangepaste bericht is. "'Mijn IoT-Hub',"Locatie van het apparaat"en"customerID", niet worden weergegeven, omdat dit eindpunt geen enrichments heeft.
+En dit is een niet-verrijkt bericht. ' Mijn IoT Hub ', ' devicelocation ' en ' KlantId ' worden hier niet weer gegeven, omdat dit eind punt geen verrijkingen heeft.
 
 ```json
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
@@ -323,11 +323,11 @@ En hier niet aangepaste bericht is. "'Mijn IoT-Hub',"Locatie van het apparaat"en
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u verwijderen van alle resources die u in deze zelfstudie hebt gemaakt wilt, verwijdert u de resourcegroep. Hiermee verwijdert u ook alle resources in de groep. In dit geval worden de IoT-hub, het opslagaccount en de resourcegroep zelf verwijderd.
+Als u alle resources wilt verwijderen die u in deze zelf studie hebt gemaakt, verwijdert u de resource groep. Hiermee verwijdert u ook alle resources in de groep. In dit geval worden de IoT-hub, het opslagaccount en de resourcegroep zelf verwijderd.
 
-### <a name="use-the-azure-cli-to-clean-up-resources"></a>De Azure CLI gebruiken voor het opschonen van resources
+### <a name="use-the-azure-cli-to-clean-up-resources"></a>De Azure CLI gebruiken om resources op te schonen
 
-U kunt de resourcegroep verwijderen met de opdracht [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` is ingesteld op **ContosoResources** terug aan het begin van deze zelfstudie.
+U kunt de resourcegroep verwijderen met de opdracht [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup`is ingesteld om terug te **ContosoResources** aan het begin van deze zelf studie.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -335,19 +335,19 @@ az group delete --name $resourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt geconfigureerd en getest toe te voegen bericht enrichments naar IoT Hub-berichten met behulp van de volgende stappen uit:
+In deze zelf studie hebt u geconfigureerd en getest hoe u verrijkingen van berichten kunt toevoegen aan IoT Hub berichten met de volgende stappen:
 
-**Met behulp van IoT-Hub bericht enrichments**
+**IoT Hub-bericht verrijkingen gebruiken**
 > [!div class="checklist"]
-> * Met de Azure CLI, maakt u de resources--een IoT-hub, een opslagaccount met twee enendpoints en de configuratie van de routering.
-> * De Azure portal gebruiken voor het bericht enrichments configureren.
-> * Een app die een IoT-apparaat bericht naar de hub simuleert uitvoeren.
-> * Bekijk de resultaten en controleer of dat het bericht enrichments werkt zoals verwacht.
+> * Maak met behulp van de Azure CLI de resources--een IoT-hub, een opslag account met twee enendpoints en de routerings configuratie.
+> * Gebruik de Azure Portal voor het configureren van verrijkingen van berichten.
+> * Voer een app uit die een IoT-apparaat simuleert dat een bericht verzendt naar de hub.
+> * Bekijk de resultaten en controleer of de verrijkingen van het bericht werken zoals verwacht.
 
-Zie voor meer informatie over het bericht enrichments de [overzicht van bericht enrichments](iot-hub-message-enrichments-overview.md).
+Zie voor meer informatie over het verrijken van berichten het [overzicht van verrijkingen van berichten](iot-hub-message-enrichments-overview.md).
 
 Zie de volgende artikelen voor meer informatie over het routeren van berichten:
 
-* [Gebruik IoT Hub-berichtroutering apparaat-naar-cloud-berichten te verzenden naar verschillende eindpunten](iot-hub-devguide-messages-d2c.md)
+* [IoT Hub bericht routering gebruiken om apparaat-naar-Cloud-berichten te verzenden naar verschillende eind punten](iot-hub-devguide-messages-d2c.md)
 
-* [Zelfstudie: IoT Hub-routering](tutorial-routing.md)
+* [Zelfstudie: IoT Hub route ring](tutorial-routing.md)

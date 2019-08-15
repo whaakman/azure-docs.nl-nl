@@ -1,6 +1,6 @@
 ---
-title: Problemen met cloud service-implementaties oplossen | Microsoft Docs
-description: Er zijn enkele veelvoorkomende problemen die u ondervindt mogelijk bij het implementeren van een service in de cloud naar Azure. In dit artikel voorziet in oplossingen voor enkele ervan.
+title: Problemen met de implementatie van Cloud Services oplossen | Microsoft Docs
+description: Er zijn enkele veelvoorkomende problemen die u kunt ondervinden bij het implementeren van een Cloud service naar Azure. In dit artikel vindt u oplossingen voor sommige daarvan.
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
@@ -9,80 +9,79 @@ editor: ''
 tags: top-support-issue
 ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: cc2a0177525013736445db5fd1befa478dc9b9b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8ed7066025dd60f0c157a4ce4caec925fe08792
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62106910"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945375"
 ---
-# <a name="troubleshoot-cloud-service-deployment-problems"></a>Problemen met cloud service-implementaties oplossen
-Wanneer u een toepassingspakket voor cloud-service in Azure implementeert, kunt u informatie over de implementatie van de **eigenschappen** deelvenster in de Azure-portal. U kunt de details in dit deelvenster gebruiken om u te helpen bij het oplossen van problemen met de cloudservice en u kunt deze informatie opgeven voor de ondersteuning van Azure bij het openen van een nieuwe ondersteuningsaanvraag.
+# <a name="troubleshoot-cloud-service-deployment-problems"></a>Problemen met de implementatie van Cloud Services oplossen
+Wanneer u een Cloud service toepassings pakket implementeert in azure, kunt u informatie over de implementatie verkrijgen via het deel venster **Eigenschappen** in de Azure Portal. U kunt de details in dit deel venster gebruiken om problemen met de Cloud service op te lossen en u kunt deze informatie aan Azure-ondersteuning verstrekken bij het openen van een nieuwe ondersteunings aanvraag.
 
-U vindt de **eigenschappen** deelvenster als volgt te werk:
+U kunt het deel venster **Eigenschappen** als volgt vinden:
 
-* In de Azure-portal, klikt u op de implementatie van uw cloudservice **alle instellingen**, en klik vervolgens op **eigenschappen**.
+* Klik in de Azure Portal op de implementatie van uw Cloud service, klik op **alle instellingen**en klik vervolgens op **Eigenschappen**.
 
 > [!NOTE]
-> U kunt de inhoud van de **eigenschappen** deelvenster naar het Klembord door te klikken op het pictogram in de rechterbovenhoek van het deelvenster.
+> U kunt de inhoud van het deel venster **Eigenschappen** naar het klem bord kopiëren door te klikken op het pictogram in de rechter bovenhoek van het deel venster.
 >
 >
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>Probleem: Ik kan geen toegang tot mijn website, maar mijn implementatie is gestart en alle rolinstanties zijn gereed
-De website-URL-koppeling die wordt weergegeven in de portal bevat geen de poort. De standaardpoort voor websites is 80. Als uw toepassing is geconfigureerd om te worden uitgevoerd in een andere poort, moet u het juiste poortnummer toevoegen aan de URL bij het openen van de website.
+## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>Fout Ik heb geen toegang tot mijn website, maar mijn implementatie wordt gestart en alle rolinstanties zijn gereed
+De URL-koppeling van de website die in de portal wordt weer gegeven, bevat niet de poort. De standaard poort voor websites is 80. Als uw toepassing is geconfigureerd om te worden uitgevoerd in een andere poort, moet u het juiste poort nummer toevoegen aan de URL bij het openen van de website.
 
-1. Klik op de implementatie van uw cloudservice in de Azure-portal.
-2. In de **eigenschappen** in de Azure portal, controleert u de poorten voor de rolinstanties (onder **invoer eindpunten**).
-3. Als de poort niet 80, moet u de waarde van de juiste poort toevoegen aan de URL wanneer u toegang de toepassing tot. Als een niet-standaard poort opgeven, typt u de URL, gevolgd door een dubbele punt (:), gevolgd door het poortnummer, zonder spaties.
+1. Klik in de Azure Portal op de implementatie van uw Cloud service.
+2. Controleer in het deel venster **Eigenschappen** van de Azure Portal de poorten voor de rolinstanties (onder **invoer**eindpunten).
+3. Als de poort niet 80 is, voegt u de juiste poort waarde toe aan de URL wanneer u de toepassing opent. Als u een niet-standaard poort wilt opgeven, typt u de URL, gevolgd door een dubbele punt (:), gevolgd door het poort nummer, zonder spaties.
 
-## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>Probleem: Mijn rolinstanties gerecycled zonder dat ik iets doen
-Service healing gebeurt automatisch wanneer u Azure knooppunten probleem wordt gedetecteerd en daarom rolinstanties verplaatst naar nieuwe knooppunten. Wanneer dit gebeurt, ziet u mogelijk uw rolinstanties automatisch herhalen. Zoek uit of serviceherstel zijn opgetreden:
+## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>Fout Mijn rolinstanties worden gerecycled zonder dat ik iets hoeft te doen
+Service retoucheert automatisch wanneer Azure probleem knooppunten detecteert en daarom rollen instanties verplaatst naar nieuwe knoop punten. Als dit gebeurt, worden uw rolinstanties mogelijk automatisch opnieuw gerecycled. Nagaan of service Retoucheer is:
 
-1. Klik op de implementatie van uw cloudservice in de Azure-portal.
-2. In de **eigenschappen** in de Azure portal, lees de informatie en bepalen of serviceherstel opgetreden tijdens de periode dat u de rollen recycling waargenomen.
+1. Klik in de Azure Portal op de implementatie van uw Cloud service.
+2. Bekijk de informatie in het deel venster **Eigenschappen** van de Azure Portal en bepaal of service retoucheert tijdens de tijd dat u de rollen recycling hebt geobserveerd.
 
-Rollen wordt ook ongeveer recycle één keer per maand tijdens het host-OS- en Gast-OS-updates.  
-Zie voor meer informatie het blogbericht [rol exemplaar wordt opnieuw opgestart vanwege de Upgrades voor het besturingssysteem](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
+Rollen worden ook ongeveer eenmaal per maand herhaald tijdens de updates van het hostbesturingssysteem en het gast besturingssysteem.  
+Zie voor meer informatie de instantie blog post [opnieuw opstarten als gevolg van upgrades van het besturings systeem](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
 
-## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Probleem: Ik kan geen VIP's wisselen doen en een foutbericht weergegeven
-Geen VIP's wisselen is niet toegestaan als een implementatie-update uitgevoerd wordt. Implementatie-updates automatisch kunnen worden uitgevoerd wanneer:
+## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Fout Ik kan geen VIP-swap uitvoeren en er wordt een fout bericht weer gegeven
+Een VIP-swap is niet toegestaan als een implementatie-update wordt uitgevoerd. Implementatie-updates kunnen automatisch worden uitgevoerd wanneer:
 
-* Een nieuwe gastbesturingssysteem beschikbaar is en u zijn geconfigureerd voor automatische updates.
-* Serviceherstel optreedt.
+* Er is een nieuw gast besturingssysteem beschikbaar en u hebt geconfigureerd voor automatische updates.
+* Herstel van de service vindt plaats.
 
-Als u wilt nagaan of een automatische update voorkomt dat u geen VIP's wisselen doen:
+Als u wilt weten of een automatische update verhindert dat u een VIP-wissel uitvoert:
 
-1. Klik op de implementatie van uw cloudservice in de Azure-portal.
-2. In de **eigenschappen** deelvenster van de Azure-portal, kijkt u naar de waarde van **Status**. Als het **gereed**, controleert u **laatste bewerking** om te zien als een onlangs is er gebeurd die mogelijk te voorkomen dat het wisselen van VIP.
-3. Herhaal stappen 1 en 2 voor de productie-implementatie.
-4. Als een automatische update uitgevoerd wordt, wacht tot deze is voltooid voordat u probeert uit te voeren van het wisselen van VIP.
+1. Klik in de Azure Portal op de implementatie van uw Cloud service.
+2. Bekijk in het deel venster **Eigenschappen** van de Azure Portal de waarde **status**. Als de app **klaar**is, controleert u de **laatste bewerking** om te zien of er onlangs een fout is opgetreden waardoor de VIP niet kan worden gewisseld.
+3. Herhaal stap 1 en 2 voor de productie-implementatie.
+4. Als een automatische update wordt uitgevoerd, wacht u totdat deze is voltooid voordat u de VIP-swap uitvoert.
 
-## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Probleem: Een rolinstantie is in een lus van gestart, Bezig met initialiseren, bezet en gestopt
-Dit probleem kan duiden op een probleem met uw programmacode, pakket of configuratiebestand. In dat geval moet u kunnen de status wijzigen om de paar minuten kunt bekijken en de Azure-portal kan staan er ongeveer als **Bezig met recyclen**, **bezet**, of **Bezig met initialiseren**. Dit geeft aan dat er iets mis met de toepassing die is het houden van de rolinstantie die worden uitgevoerd.
+## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Fout Een rolinstantie is een lus tussen start, initialiseren, bezet en gestopt
+Dit probleem kan duiden op een probleem met uw programmacode, pakket of configuratiebestand. In dat geval ziet u dat de status elke paar minuten kan worden gewijzigd. de Azure Portal kan bijvoorbeeld worden gerecycled, **bezet**of **initialisatie**. Dit geeft aan dat er iets mis is met de toepassing die ervoor zorgt dat de rolinstantie actief blijft.
 
-Zie voor meer informatie over het oplossen van dit probleem, het blogbericht [Azure PaaS Compute Diagnostics Data](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) en [algemene problemen waardoor rollen worden herhaald](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Voor meer informatie over het oplossen van problemen met dit probleem raadpleegt u het blog bericht [Azure PaaS Compute Diagnostics-gegevens](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) en [veelvoorkomende problemen waardoor rollen kunnen worden](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)gerecycled.
 
-## <a name="problem-my-application-stopped-working"></a>Probleem: Mijn toepassing werkt niet
-1. Klik op de rolinstantie in de Azure-portal.
-2. In de **eigenschappen** in de Azure portal, houd rekening met de volgende voorwaarden om uw probleem te verhelpen:
-   * Als de rolinstantie is onlangs gestopt (u kunt de waarde van controleren **aantal afbrekingen**), de implementatie kan worden bijgewerkt. Wacht om te zien als de rolinstantie werkt op een eigen hervat.
-   * Als de rolinstantie is **bezet**, controleert u de code van uw toepassing om te controleren of de [StatusCheck](/previous-versions/azure/reference/ee758135(v=azure.100)) gebeurtenis wordt verwerkt. Mogelijk moet u toevoegen of corrigeren van code die verantwoordelijk is voor deze gebeurtenis.
-   * Ga via de diagnostische gegevens en probleemoplossende scenario's in het blogbericht [Azure PaaS Compute Diagnostics Data](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+## <a name="problem-my-application-stopped-working"></a>Fout Mijn toepassing werkt niet meer
+1. Klik in de Azure Portal op de rolinstantie.
+2. Houd rekening met de volgende voor waarden in het deel venster **Eigenschappen** van de Azure Portal om het probleem op te lossen:
+   * Als de rolinstantie onlangs is gestopt (u kunt de waarde van het **aantal afgebroken items**controleren), kan de implementatie worden bijgewerkt. Wacht om te zien of de rolinstantie wordt hervat.
+   * Als de rolinstantie **bezet**is, controleert u de toepassings code om te zien of de gebeurtenis [StatusCheck](/previous-versions/azure/reference/ee758135(v=azure.100)) wordt verwerkt. Mogelijk moet u een code toevoegen of herstellen waarmee deze gebeurtenis wordt afgehandeld.
+   * Bespreek de diagnostische gegevens en scenario's voor probleem oplossing in de blog post [Azure PaaS Compute Diagnostics-gegevens](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 > [!WARNING]
-> Als u uw cloudservice recyclen, u opnieuw instellen van de eigenschappen voor de implementatie daadwerkelijk wissen van de gegevens voor het oorspronkelijke probleem.
+> Als u de Cloud service opnieuw hebt gerecycled, worden de eigenschappen voor de implementatie opnieuw ingesteld en worden de gegevens voor het oorspronkelijke probleem effectief gewist.
 >
 >
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer weergeven [artikelen over probleemoplossing](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) voor cloudservices.
+Bekijk meer [artikelen over probleem oplossing](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) voor Cloud Services.
 
-Zie voor informatie over het oplossen van problemen met de rol van de cloud service met behulp van Azure PaaS computer diagnostische gegevens, [van Kevin Williamson blogserie](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Voor informatie over het oplossen van problemen met Cloud service rollen met behulp van Azure PaaS computer diagnostische gegevens raadpleegt u [de blog serie van Kevin Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

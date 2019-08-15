@@ -1,29 +1,29 @@
 ---
-title: Tensor flow-modellen trainen en registreren
+title: Een diepe Learning Neural-netwerk trainen met tensor flow
 titleSuffix: Azure Machine Learning service
-description: In dit artikel leest u hoe u een tensor flow-model traint en registreert met behulp van Azure Machine Learning-service.
+description: Meer informatie over het uitvoeren van tensor flow-trainings scripts op schaal met behulp van Azure Machine Learning-service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
-ms.date: 06/10/2019
+ms.date: 08/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a5d281598bc905914b71f40d556cfa0b16a46485
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 41ebca7bd4ea299bda7e2d7a95edced583866527
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847656"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966794"
 ---
-# <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Tensor flow-modellen trainen en registreren op schaal met Azure Machine Learning service
+# <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Bouw een tensor flow-Learning model op schaal met Azure Machine Learning
 
-In dit artikel leest u hoe u een tensor flow-model traint en registreert met behulp van Azure Machine Learning-service. De populaire MNIST- [gegevensset](http://yann.lecun.com/exdb/mnist/) wordt gebruikt voor het classificeren van handgeschreven cijfers met een diep Neural netwerk dat is gebouwd met behulp van de [tensor flow python-bibliotheek](https://www.tensorflow.org/overview).
+Dit artikel laat u zien hoe u uw [tensor flow](https://www.tensorflow.org/overview) -trainings scripts op schaal kunt uitvoeren met behulp van de [tensor flow Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) -klasse van Azure machine learning. In dit voor beeld wordt een tensor flow-model getraind en geregistreerd om handgeschreven cijfers te classificeren met behulp van een diepe Neural Network (DNN).
 
-Tensor flow is een open-source reken kundig Framework dat vaak wordt gebruikt voor het maken van diepe Neural-netwerken (DNN). Met Azure Machine Learning-service kunt u snel openstaande trainings taken met behulp van Elastic Cloud Compute-resources uitschalen. U kunt ook uw trainings uitvoeringen, versie modellen, implementatie modellen en nog veel meer volgen.
+Of u nu een tensor flow-model ontwikkelt of een [bestaand model](how-to-deploy-existing-model.md) in de Cloud brengt, u kunt Azure machine learning gebruiken voor het uitschalen van open-source trainings taken om productie-kwaliteits modellen te bouwen, te implementeren, te maken en te bewaken .
 
-Of u nu een tensor flow-model ontwikkelt of een [bestaand model](how-to-deploy-existing-model.md) in de Cloud brengt, Azure machine learning service kan u helpen bij het bouwen van modellen die gereed zijn voor productie.
+Meer informatie over [uitgebreide kennis en machine learning](concept-deep-learning-vs-machine-learning.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -32,7 +32,7 @@ Voer deze code uit in een van de volgende omgevingen:
  - Azure Machine Learning-notebook-VM-geen down loads of installatie vereist
 
      - U moet de [Zelfstudie: Omgeving en werk ruimte](tutorial-1st-experiment-sdk-setup.md) instellen voor het maken van een toegewezen notebook server vooraf geladen met de SDK en de voor beeld-opslag plaats.
-    - Zoek in de map met voor beelden op de notebook server een volledig en uitgebreid notitie blok door naar deze map te navigeren: **instructies-to-use-azureml > training-met-learning > Train-afstemming-Tune-Deploy-with-tensor flow** -map. 
+    - Zoek in de map met uitgebreide trainingen op de notebook server een volledig en uitgebreid notitie blok door naar deze map te navigeren: **instructies-to-use-azureml > training-met-learning > Train-afstemming-Tune-Deploy-with-tensor flow** map. 
  
  - Uw eigen Jupyter Notebook-server
 
@@ -73,7 +73,7 @@ Maak een werkruimte object op basis `config.json` van het bestand dat in de [sec
 ws = Workspace.from_config()
 ```
 
-### <a name="create-an-experiment"></a>Een experiment maken
+### <a name="create-a-deep-learning-experiment"></a>Een diep leer experiment maken
 
 Maak een experiment en een map om uw trainings scripts te bewaren. In dit voor beeld maakt u een experiment met de naam ' TF-mnist '.
 
@@ -292,5 +292,9 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 In dit artikel hebt u een tensor flow-model getraind en geregistreerd. Voor meer informatie over het implementeren van een model op een GPU-cluster gaat u verder met het artikel over het implementeren van het GPU-model.
 
-[Implementatie voor](how-to-deploy-inferencing-gpus.md)
-demijnen met gpu's met behulp van[Tensorboard](how-to-monitor-tensorboard.md)
+> [!div class="nextstepaction"]
+> [Hoe en waar modellen moeten worden geïmplementeerd](how-to-deploy-and-where.md)
+* [Metrische gegevens over uitvoeren tijdens de training bijhouden](how-to-track-experiments.md)
+* [Afstemmen van hyperparameters](how-to-tune-hyperparameters.md)
+* [Een getraind model implementeren](how-to-deploy-and-where.md)
+* [Referentie architectuur voor gedistribueerde training van diep gaande lessen in azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

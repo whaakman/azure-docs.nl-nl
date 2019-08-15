@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4d002a82e3968e0462e5f6e775ec147669c01b0d
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 448d416ce4915aeae048639f6021197ed8c1d334
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147951"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967874"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export-systeemvereisten
 
@@ -41,9 +41,9 @@ Voor het voorbereiden van de harde schijven met het hulpprogramma WAImportExport
 
 Azure Import/Export-service ondersteunt de volgende typen opslagaccounts:
 
-- Standaard voor algemeen gebruik v2-opslagaccounts (aanbevolen voor de meeste scenario's)
+- Standard Algemeen v2-opslag accounts (aanbevolen voor de meeste scenario's)
 - Blob Storage-accounts
-- Storage-accounts voor algemeen gebruik v1 (zowel klassieke als Azure Resource Manager-implementaties), 
+- Algemeen v1-opslag accounts (klassiek of Azure Resource Manager implementaties), 
 
 Zie voor meer informatie over de storage-accounts, [overzicht van Azure storage-accounts](storage-account-overview.md).
 
@@ -72,11 +72,15 @@ Voor de Azure Import/Export-service moet u ondersteunde schijven om gegevens te 
 De volgende lijst van schijven wordt ondersteund voor gebruik met de Import/Export-service.
 
 
-|Schijftype  |Grootte  |Ondersteund |Niet ondersteund  |
-|---------|---------|---------|---------|
-|SSD    |   2,5-inch      |SATA III          |  USB       |
-|HDD     |  2,5-inch<br>3,5-inch       |SATA II, SATA III         |Externe harde schijf met ingebouwde USB-adapter <br> Schijf binnen het hoofdlettergebruik van een externe harde schijf         |
+|Schijftype  |Grootte  |Ondersteund |
+|---------|---------|---------|
+|SSD    |   2,5-inch      |SATA III          | 
+|HDD     |  2,5-inch<br>3,5-inch       |SATA II, SATA III         |
 
+De volgende schijf typen worden niet ondersteund:
+- USBs.
+- Externe HDD met ingebouwde USB-adapter.
+- Schijven die zich in het hoofdletter gebruik van een externe HDD bevinden.
 
 Een enkele import-/ exporttaak kan hebben:
 - Maximaal 10 HDD/SSD's.

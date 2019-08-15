@@ -4,17 +4,17 @@ description: Informatie over welke besturingssystemen voor de Azure IoT Edge-dae
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/22/2019
+ms.date: 08/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9b9acac829fd128a66e3ceea603bb804adf2a88b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: fdecc34b49b853c34624cabf4688e0387c303a16
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598599"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985801"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge ondersteunde systemen
 
@@ -67,7 +67,7 @@ De systemen die worden vermeld in de volgende tabel worden ondersteund door micr
 | Windows 10 IoT Enter prise, build 17763 | ![Windows 10 IoT Enter prise + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | Windows Server 2019, build 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | Windows Server IoT 2019, build 17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows 10 IoT core, build 17763 | Openbare preview |  |  |
+| Windows 10 IoT core, build 17763 | ![Windows IoT core + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 
 
 De Windows-besturings systemen die hierboven worden vermeld, zijn de vereisten voor apparaten waarop Windows-containers in Windows worden uitgevoerd. Deze configuratie is de enige ondersteunde configuratie voor productie. Met de Azure IoT Edge-installatie pakketten voor Windows is het gebruik van Linux-containers in Windows toegestaan. deze configuratie is echter alleen voor ontwikkelings-en test doeleinden. Het gebruik van Linux-containers in Windows is geen ondersteunde configuratie voor productie. Een versie van Windows 10 build 14393 of hoger en Windows Server 2016 of nieuwer kunnen worden gebruikt voor dit ontwikkel scenario.

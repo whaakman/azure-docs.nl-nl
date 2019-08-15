@@ -4,14 +4,14 @@ description: Meer informatie over het instellen van ingerichte door Voer voor uw
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/12/2019
 ms.author: rimman
-ms.openlocfilehash: 2bcd428e2de90251d4d64111b1c3e6b6f812ac4c
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 146cc9e89959035ca211a036be4730b59cae8c0b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467625"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987393"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Doorvoer voor containers en databases inrichten
 
@@ -40,7 +40,7 @@ In de volgende afbeelding ziet u hoe een fysieke partitie als host fungeert voor
 
 ## <a name="set-throughput-on-a-database"></a>Door Voer instellen voor een Data Base
 
-Wanneer u de door Voer voor een Azure Cosmos-data base inricht, wordt de door Voer gedeeld via alle containers in de data base. Een uitzonde ring hierop is als u een ingerichte door Voer hebt opgegeven voor specifieke containers in de data base. Het delen van de ingerichte door Voer op database niveau tussen de containers is vergelijkbaar met het hosten van een Data Base op een cluster machines. Omdat alle containers in een Data Base de resources delen die beschikbaar zijn op een computer, kunt u natuurlijk geen voorspel bare prestaties op een specifieke container krijgen. Zie [ingerichte door Voer configureren voor een Azure Cosmos-data base](how-to-provision-database-throughput.md)voor meer informatie over het configureren van een ingerichte door Voer voor een Data Base.
+Wanneer u de door Voer inricht in een Azure Cosmos-data base, wordt de door Voer gedeeld via alle containers (shared data base-containers genoemd) in de-data base. Een uitzonde ring hierop is als u een ingerichte door Voer hebt opgegeven voor specifieke containers in de data base. Het delen van de ingerichte door Voer op database niveau tussen de containers is vergelijkbaar met het hosten van een Data Base op een cluster machines. Omdat alle containers in een Data Base de resources delen die beschikbaar zijn op een computer, kunt u natuurlijk geen voorspel bare prestaties op een specifieke container krijgen. Zie [ingerichte door Voer configureren voor een Azure Cosmos-data base](how-to-provision-database-throughput.md)voor meer informatie over het configureren van een ingerichte door Voer voor een Data Base.
 
 Door de door Voer voor een Azure Cosmos-data base in te stellen, zorgt u ervoor dat u de ingerichte door Voer voor de Data Base op elk moment ontvangt. Omdat alle containers in de data base de ingerichte door voer hebben gedeeld, biedt Azure Cosmos DB geen voorspel bare doorvoer garanties voor een bepaalde container in die data base. Het gedeelte van de doorvoer die een specifieke container kan ontvangen, is afhankelijk van:
 
@@ -60,7 +60,9 @@ Alle containers die in een Data Base zijn gemaakt met een ingerichte door Voer, 
 
 Als de werk belasting op een logische partitie meer gebruikt dan de door Voer die is toegewezen aan een specifieke logische partitie, zijn uw bewerkingen een beperkt aantal. Wanneer de snelheids beperking optreedt, kunt u de door Voer voor de gehele data base verg Roten of de bewerkingen opnieuw proberen. Zie voor meer informatie over het partitioneren van [logische partities](partition-data.md).
 
-Meerdere logische partities die deel uitmaken van verschillende containers die de door Voer inrichten voor een Data Base delen, kunnen worden gehost op één fysieke partitie. Hoewel één logische partitie van een container zich altijd binnen een fysieke partitie bevindt, kunnen *' L '* logische partities in *C* -containers die de ingerichte door Voer van een Data Base delen, worden toegewezen en gehost op *' R '* fysieke Partition. 
+De door Voer die is ingericht voor een Data Base kan worden gedeeld door de containers in die data base. Een maximum van 25 containers kan de door Voer die is ingericht voor de data base delen. Meer dan 25 containers, voor elke nieuwe container die in die data base wordt gemaakt, kan een deel van de data base door Voer delen met andere verzamelingen die al beschikbaar zijn in de data base. De hoeveelheid door Voer die kan worden gedeeld, is afhankelijk van het aantal containers dat in de data base is ingericht. 
+
+Als uw workloads het verwijderen en opnieuw maken van alle verzamelingen in een Data Base vereisen, is het raadzaam om de lege data base weg te halen en opnieuw een nieuwe Data Base te maken voordat u de verzameling maakt.
 
 In de volgende afbeelding ziet u hoe een fysieke partitie een of meer logische partities kan hosten die deel uitmaken van verschillende containers in een Data Base:
 
@@ -77,6 +79,9 @@ U kunt de twee modellen combi neren. De door Voer voor de data base en de contai
 
 * De *"K"* RUs-door Voer wordt gedeeld in de vier containers *A*, *C*, *D*en *E*. De exacte hoeveelheid door Voer die beschikbaar is voor *A*, *C*, *D*of *E* , varieert. Er zijn geen service overeenkomsten voor de door Voer van elke afzonderlijke container.
 * De container met de naam *B* is gegarandeerd dat de *"P"* RUs-door Voer altijd wordt opgehaald. Er wordt een back-up gemaakt van service overeenkomsten.
+
+> [!NOTE]
+> Een container met ingerichte door Voer kan niet worden geconverteerd naar een gedeelde database container. Een gedeelde database container kan niet worden geconverteerd naar een specifieke door voer.
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>De door Voer van een Data Base of container bijwerken
 

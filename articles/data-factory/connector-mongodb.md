@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 03ad098b2f83341150a59247f47b9a4abaa1b9d2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
-ms.translationtype: HT
+ms.openlocfilehash: 86029c5617d2a3c2723e388fb5812a3947166623
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726095"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966938"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Gegevens kopiëren van MongoDB met behulp van Azure Data Factory
 
@@ -34,7 +34,7 @@ Deze MongoDB-connector ondersteunt **met name versie 3,4**.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u gegevens wilt kopiëren uit een MongoDB-data base die niet openbaar toegankelijk is, moet u een zelf-hostende Integration Runtime instellen. Zie [zelf-hostende Integration runtime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -51,7 +51,7 @@ De volgende eigenschappen worden ondersteund voor MongoDB gekoppelde service:
 | type |De eigenschap type moet worden ingesteld op: **MongoDbV2** |Ja |
 | connectionString |Geef de MongoDB op connection string bijvoorbeeld `mongodb://[username:password@]host[:port][/[database][?options]]`. Raadpleeg de [hand leiding voor MongoDb op Connection String](https://docs.mongodb.com/manual/reference/connection-string/) voor meer informatie. <br/><br />Dit veld als markeert een **SecureString** type voor het veilig opslaan in Data Factory. U kunt ook [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | database | De naam van de data base die u wilt openen. | Ja |
-| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
+| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Meer informatie vindt u in de sectie [vereisten](#prerequisites) . Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 **Voorbeeld:**
 
@@ -109,7 +109,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 ### <a name="mongodb-as-source"></a>MongoDB als bron
 
-De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
+De volgende eigenschappen worden ondersteund in de kopieeractiviteit **source** sectie:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |

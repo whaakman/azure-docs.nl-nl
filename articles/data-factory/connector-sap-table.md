@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 18b5b941716fd2c6664c37f9e7c1ab2a37d07a88
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: da7dbdee4a376d88219a7a621ed7e3867873a37c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720649"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967393"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Gegevens uit een SAP-tabel kopiëren met behulp van Azure Data Factory
 
@@ -201,7 +201,7 @@ De volgende eigenschappen worden ondersteund voor het kopiëren van gegevens van
 
 Voor een volledige lijst van de secties en eigenschappen voor het definiëren van activiteiten raadpleegt u [pijp lijnen](concepts-pipelines-activities.md). De volgende sectie bevat een lijst met de eigenschappen die worden ondersteund door de SAP-tabel bron.
 
-### <a name="sap-table-as-a-source"></a>SAP-tabel als bron
+### <a name="sap-table-as-source"></a>SAP-tabel als bron
 
 Als u gegevens wilt kopiëren uit een SAP-tabel, worden de volgende eigenschappen ondersteund:
 
@@ -223,7 +223,7 @@ Als u gegevens wilt kopiëren uit een SAP-tabel, worden de volgende eigenschappe
 <br/>
 >`maxPartitionsNumber` `partitionLowerBound` `partitionUpperBound` Als voor beeld wordt het aantal rijen in elke partitie berekend met de volgende formule: (totaal aantal rijen tussen en)/. `partitionOption` `partitionOnInt`<br/>
 <br/>
->Als u partities parallel wilt uitvoeren om het kopiëren te versnellen, raden we `maxPartitionsNumber` u ten zeerste aan een veelvoud `parallelCopies` van de waarde van de eigenschap te maken. Zie [parallelle kopie](copy-activity-performance.md#parallel-copy)voor meer informatie.
+>Als u gegevens partities parallel wilt laden om de kopie sneller te maken, wordt de parallelle graad [`parallelCopies`](copy-activity-performance.md#parallel-copy) bepaald door de instelling in de Kopieer activiteit. Als u bijvoorbeeld hebt ingesteld `parallelCopies` op vier, worden met Data Factory gelijktijdig vier query's gegenereerd en uitgevoerd op basis van uw opgegeven partitie optie en instellingen, en met elke query wordt een deel van de gegevens uit uw SAP-tabel opgehaald. We raden u ten `maxPartitionsNumber` zeerste aan een veelvoud van de `parallelCopies` waarde van de eigenschap te maken.
 
 In `rfcTableOptions`kunt u de volgende algemene SAP-query operators gebruiken om de rijen te filteren:
 
@@ -269,7 +269,8 @@ In `rfcTableOptions`kunt u de volgende algemene SAP-query operators gebruiken om
             },
             "sink": {
                 "type": "<sink type>"
-            }
+            },
+            "parallelCopies": 4
         }
     }
 ]

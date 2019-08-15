@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0c762054ed0df3a3781dda7057ff8793dbf82565
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 71070a778e54e51cdb528041f746489bb64e979c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689306"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954717"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Voorbereiden op back-ups van workloads naar Azure met System Center DPM
 
@@ -91,7 +91,7 @@ U gebruikt kluis referenties wanneer u de DPM-server in de kluis registreert.
 
 ### <a name="best-practices-for-vault-credentials"></a>Aanbevolen procedures voor kluis referenties
 
-Als u de referenties wilt ophalen, downloadt u het kluis referentie bestand via een beveiligd kanaal van de Azure Portal:
+Down load het kluis referentie bestand via een beveiligd kanaal van de Azure Portal om de referenties te verkrijgen:
 
 - De kluis referenties worden alleen gebruikt tijdens de registratie werk stroom.
 - Het is uw verantwoordelijkheid om ervoor te zorgen dat het kluis referentie bestand veilig is en niet is aangetast.
@@ -183,7 +183,7 @@ Het kluis referentie bestand is alleen geldig gedurende 48 uur (nadat het is ged
 
 ### <a name="access-error"></a>Toegangs fout
 
-Zorg ervoor dat het kluis referentie bestand beschikbaar is op een locatie waartoe toegang kan worden verkregen door de installatie toepassing. Als u toegang krijgt tot fouten, kopieert u het kluis referentie bestand naar een tijdelijke locatie op deze computer en voert u de bewerking opnieuw uit.
+Zorg ervoor dat het kluis referentie bestand beschikbaar is op een locatie die toegankelijk is voor de installatie toepassing. Als u toegang krijgt tot fouten, kopieert u het kluis referentie bestand naar een tijdelijke locatie op deze computer en voert u de bewerking opnieuw uit.
 
 ### <a name="invalid-credentials-error"></a>Fout vanwege ongeldige referenties
 

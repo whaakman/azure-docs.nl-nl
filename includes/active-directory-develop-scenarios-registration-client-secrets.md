@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/18/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: cd37880be6d518105e880b93a0bd748f7c729d88
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 8f98808aa0f8a2c32e2117447824114747091a82
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68286229"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912340"
 ---
 ## <a name="registration-of-secrets-or-certificates"></a>Registratie van geheimen of certificaten
 
@@ -29,7 +29,7 @@ Net als bij elke vertrouwelijke client toepassing moet u een geheim of certifica
 
 Het beheer van client referenties vindt plaats op de pagina **certificaten & geheimen** voor een toepassing:
 
-![image](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)
+![image](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
 
 - het toepassings geheim (ook wel client geheim genoemd) wordt gegenereerd door Azure AD tijdens de registratie van de vertrouwelijke client toepassing. Deze generatie gebeurt wanneer u **Nieuw client geheim**selecteert. Op dat moment moet u de geheime teken reeks in het klem bord kopiëren voor gebruik in uw app voordat u **Opslaan**selecteert. Deze teken reeks wordt niet meer weer gegeven.
 - het certificaat wordt geüpload in de registratie van de toepassing met behulp van de knop **certificaat uploaden** . Azure AD ondersteunt alleen certificaten die rechtstreeks zijn geregistreerd bij de toepassing en die geen certificaat ketens volgen.
