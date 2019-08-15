@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: guide
 ms.date: 07/05/2019
-ms.openlocfilehash: 16ed52aa2b56a97469ae8fc47299f09593b19c45
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: d6a0fec6e2efbd943a9b240df0db2c270a1b7e45
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668342"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955573"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Een commercieel Marketplace-account maken in het partner centrum
 
@@ -71,7 +71,7 @@ Hartelijk dank voor het maken van een account in Partner Center. U gaat nu naar 
 
 Als uw account is gemigreerd vanuit de [Cloud Partner-Portal (cpp)](https://cloudpartner.azure.com), hoeft u geen nieuw partner centrum-account te maken, maar hebt u via e-mail een aangepaste koppeling naar uw nieuwe partner centrum-account ontvangen en wordt in een banner melding weer gegeven na Meld u aan bij uw bestaande CPP-account.
 
-Zodra u uw nieuwe partner Center-account hebt ingeschakeld, gaat u naar deze aangepaste koppeling en kunt u teruggaan naar uw account door het [dash board voor commerciële Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/) in het partner centrum te bezoeken.
+Zodra u uw nieuwe partner Center-account hebt ingeschakeld, gaat u naar deze aangepaste koppeling en kunt u teruggaan naar uw account door het [dash board voor commerciële Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in het partner centrum te bezoeken.
 
 De gegevens voor de publicatie overeenkomst en het bedrijfs profiel worden gemigreerd naar uw nieuwe partner centrum-account, samen met alle eerder ingestelde account gegevens van het profiel voor uitbetaling, gebruikers accounts en machtigingen en actieve aanbiedingen die aan uw CPP-account zijn gekoppeld. 
 
@@ -82,7 +82,7 @@ Nadat uw account gegevens zijn verplaatst van CPP naar partner Center, kunt u ni
 Een organisatie kan meerdere uitgevers koppelen aan een commerciële Marketplace-account. Een bestaande gebruiker kan meer uitgevers toevoegen na het aanmelden bij het partner centrum door **account instellingen** -> te selecteren**uitgevers** -> **uitgever toevoegen**.
 
 >[!Note]
->Voordat u een nieuwe uitgever toevoegt, kunt u uw bestaande uitgevers controleren door u aan te melden bij Partner Center en **account instellingen** -> **te selecteren** om een lijst met bestaande uitgevers weer te geven.
+>Voordat u een nieuwe uitgever toevoegt, kunt u uw bestaande uitgevers controleren door u aan te melden bij Partner Center en **account instellingen** -> te selecteren om een lijst met bestaande uitgevers weer te geven.
 
 Een andere gebruiker uit dezelfde Azure Active Directory-Tenant kan een nieuwe uitgever toevoegen door de volgende stappen uit te voeren:
 

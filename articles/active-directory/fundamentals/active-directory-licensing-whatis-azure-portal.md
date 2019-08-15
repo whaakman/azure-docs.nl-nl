@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a89443062f7d5cc697e83cc4039d0f3a47ad3077
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a455f0e1959ad496a04f531cc0c3ece240c757ad
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561845"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987152"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Wat is licentieverlening in Azure Active Directory op basis van groep?
 
@@ -32,7 +32,7 @@ Azure AD bevat nu licenties op basis van groepen om met dergelijke uitdagingen o
 ## <a name="licensing-requirements"></a>Licentie vereisten
 U moet een van de volgende licenties hebben voor het gebruik van op groepen gebaseerde licentie verlening:
 
-- Betaalde of proef abonnement voor Azure AD Basic en hoger
+- Betaalde of proef abonnement voor Azure AD Premium P1 en hoger
 
 - Betaalde of proef versie van Office 365 Enter prise E3 of Office 365 a3 of Office 365 GCC G3 en hoger
 

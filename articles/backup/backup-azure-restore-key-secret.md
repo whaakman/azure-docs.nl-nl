@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: dacurwin
-ms.openlocfilehash: 379dd87edbbfa878a034cd61854ee15f215b0228
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: cca8cf3a222b71954e6727e184ff5d16839a6a68
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689113"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954558"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Key Vault sleutel en geheim voor versleutelde Vm's herstellen met Azure Backup
 
@@ -23,7 +23,7 @@ In dit artikel vindt u informatie over het gebruik van Azure VM backup voor het 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Back-up van versleutelde vm's met virtuele machines** -versleutelde Azure vm's zijn gemaakt met Azure backup. Raadpleeg het artikel [back-ups en herstel van Azure-Vm's beheren met Power shell](backup-azure-vms-automation.md) voor meer informatie over het maken van back-ups van versleutelde Azure-vm's.
+* **Back-up van versleutelde vm's met virtuele machines** -versleutelde Azure vm's zijn gemaakt met Azure backup. Raadpleeg het artikel [back-ups en herstel van Azure-Vm's beheren met Power shell](backup-azure-vms-automation.md) voor meer informatie over het maken van een back-up van versleutelde virtuele machines in Azure.
 * **Azure Key Vault configureren** : Zorg ervoor dat sleutel kluis waarmee sleutels en geheimen moeten worden hersteld, al aanwezig is. Raadpleeg het artikel aan de [slag met Azure Key Vault](../key-vault/key-vault-get-started.md) voor meer informatie over het beheer van de sleutel kluis.
 * **Herstel schijf** : Zorg ervoor dat u de herstel taak hebt geactiveerd voor het herstellen van schijven voor een versleutelde VM met behulp van [Power shell-stappen](backup-azure-vms-automation.md#restore-an-azure-vm). Dit komt doordat met deze taak een JSON-bestand wordt gegenereerd in uw opslag account met sleutels en geheimen voor de versleutelde virtuele machine die moet worden hersteld.
 

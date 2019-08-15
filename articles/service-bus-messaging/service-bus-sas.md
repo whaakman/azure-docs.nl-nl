@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus-toegangsbeheer met handtekeningen voor gedeelde toegang | Microsoft Docs
-description: Overzicht van Service Bus-toegangsbeheer met het overzicht van handtekeningen voor gedeelde toegang, informatie over SAS autorisatie met Azure Service Bus.
+title: Toegangs beheer Azure Service Bus met hand tekeningen voor gedeelde toegang | Microsoft Docs
+description: Overzicht van Service Bus toegangs beheer met behulp van hand tekeningen voor gedeelde toegang, Details over SAS-autorisatie met Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -14,103 +14,103 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: a14e03c21de0b5388040943fbe5e9434271b567f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2cd7c8e24571f66fa73ceaa9a70ce33d6105e9c
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258819"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69017742"
 ---
-# <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus-toegangsbeheer met handtekeningen voor gedeelde toegang
+# <a name="service-bus-access-control-with-shared-access-signatures"></a>Toegangs beheer Service Bus met hand tekeningen voor gedeelde toegang
 
-*Shared Access Signatures* (SAS) zijn een beveiligingsmechanisme voor de primaire voor Service Bus-berichten. Dit artikel worden besproken SAS, hoe deze werken en hoe u deze kunt gebruiken in een platform-agnostische manier.
+*Shared Access signatures* (SAS) vormen het primaire beveiligings mechanisme voor Service Bus berichten. In dit artikel worden SA'S beschreven, hoe ze werken en hoe u ze op een platform neutraal manier kunt gebruiken.
 
-SAS biedt toegang tot Service Bus op basis van regels voor bescherming. Die zijn geconfigureerd op een naamruimte of een Berichtentiteit (relay, wachtrij of onderwerp). Een autorisatieregel heeft een naam, is gekoppeld aan specifieke rechten, en een combinatie van een cryptografische sleutel heeft. U de naam van de regel en de sleutel via de Service Bus-SDK of in uw eigen code gebruiken om een SAS-token te genereren. Een client kan het token vervolgens doorgeven met Service Bus om te bewijzen dat de autorisatie voor de aangevraagde bewerking.
+SAS-beveiligingen hebben toegang tot Service Bus op basis van autorisatie regels. Deze worden geconfigureerd op een naam ruimte of een bericht entiteit (relay, wachtrij of onderwerp). Een autorisatie regel heeft een naam, is gekoppeld aan specifieke rechten en bevat een paar cryptografische sleutels. U gebruikt de naam en sleutel van de regel via de Service Bus SDK of uw eigen code om een SAS-token te genereren. Een client kan vervolgens het token door geven aan Service Bus om autorisatie voor de aangevraagde bewerking te bewijzen.
 
 ## <a name="overview-of-sas"></a>Overzicht van SAS
 
-Shared Access Signatures zijn een autorisatiemechanisme voor op basis van claims met behulp van eenvoudige-tokens. Met behulp van SAS, sleutels nooit doorgegeven op de kabel. Sleutels worden cryptografisch om informatie te ondertekenen die later kan worden geverifieerd door de service gebruikt. SAS kan worden gebruikt die vergelijkbaar is met een gebruikersnaam en wachtwoord schema waar de client deel uitmaakt van onmiddellijke bezit is van een regelnaam autorisatie en een overeenkomende sleutel. SAS kan ook worden gebruikt die vergelijkbaar is met een federatieve beveiligingsmodel, waar de client een beperkte tijd en ondertekende toegangstoken ontvangt van een service voor beveiligingstokens zonder ooit in bezit is van de ondertekeningssleutel die afkomstig zijn.
+Shared Access Signatures zijn een autorisatie mechanisme op basis van claims met behulp van eenvoudige tokens. Met SAS worden sleutels nooit door gegeven op de kabel. Sleutels worden gebruikt voor het cryptografisch ondertekenen van informatie die later door de service kan worden geverifieerd. SAS kan worden gebruikt in combi natie met een gebruikers naam-en wachtwoord schema waarbij de client onmiddellijk in bezit is van een naam van een autorisatie regel en een overeenkomende sleutel. SAS kan ook worden gebruikt als een federatief beveiligings model, waarbij de client een time-Limited en ondertekend toegangs token ontvangt van een beveiligings token service, zonder dat deze ooit in bezit is van de handtekening sleutel.
 
-SAS-verificatie in Service Bus is geconfigureerd met de naam [autorisatieregels voor gedeelde toegang](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) hebben die zijn gekoppeld aan toegangsrechten en een combinatie van primaire en secundaire cryptografische sleutels. De sleutels zijn 256-bits waarden in Base 64-indeling. U kunt regels configureren op het niveau van de naamruimte voor Service Bus [relays](../service-bus-relay/relay-what-is-it.md), [wachtrijen](service-bus-messaging-overview.md#queues), en [onderwerpen](service-bus-messaging-overview.md#topics).
+SAS-verificatie in Service Bus is geconfigureerd met benoemde [Shared Access Authorization-autorisatie regels](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) die gekoppelde toegangs rechten hebben en een paar primaire en secundaire cryptografische sleutels. De sleutels zijn 256-bits waarden in Base64-weer gave. U kunt regels configureren op het niveau van de naam ruimte [](../service-bus-relay/relay-what-is-it.md), op service bus relays, [wacht rijen](service-bus-messaging-overview.md#queues)en [onderwerpen](service-bus-messaging-overview.md#topics).
 
-De [Shared Access Signature](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) token bevat de naam van de gekozen autorisatieregel, de URI van de resource die moet worden geopend, een directe, verlopen en een cryptografische handtekening voor HMAC-SHA256 berekend voor deze velden gebruiken de primaire of de secundaire cryptografische sleutel van de gekozen autorisatieregel.
+Het [Shared Access Signature](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) -token bevat de naam van de gekozen autorisatie regel, de URI van de resource die moet worden geopend, het verloop van de bron en een door de HMAC-sha256 cryptografische hand tekening die wordt berekend op basis van de velden Primary of secundaire cryptografische sleutel van de gekozen autorisatie regel.
 
-## <a name="shared-access-authorization-policies"></a>Beleid voor gedeelde toegang autorisatie
+## <a name="shared-access-authorization-policies"></a>Beleid voor gedeelde toegang
 
-Elke Service Bus-naamruimte en elke Service Bus-entiteit heeft een beleid voor gedeelde toegangsautorisatie bestaat uit regels. Het beleid op het niveau van de naamruimte is van toepassing op alle entiteiten in de naamruimte, ongeacht hun afzonderlijke beleidsconfiguratie.
+Elke Service Bus naam ruimte en elke Service Bus entiteit heeft een beleid voor gedeelde toegang dat bestaat uit regels. Het beleid op het niveau van de naam ruimte is van toepassing op alle entiteiten in de naam ruimte, ongeacht hun afzonderlijke beleids configuratie.
 
-Voor elke beleidsregel autorisatie u besluit op drie soorten informatie: **naam**, **bereik**, en **rechten**. De **naam** precies dat; is een unieke naam binnen dat bereik. Het bereik is simpel: dit is de URI van de betreffende resource. Voor een Service Bus-naamruimte, is het bereik de volledig gekwalificeerde domeinnaam (FQDN), zoals `https://<yournamespace>.servicebus.windows.net/`.
+Voor elke autorisatie beleids regel besluit u over drie stukjes informatie: **naam**, **bereik**en **rechten**. De **naam** is gewoon. een unieke naam binnen dat bereik. Het bereik is eenvoudig genoeg: het is de URI van de bron in kwestie. Voor een Service Bus naam ruimte is de scope de Fully Qualified Domain Name (FQDN), zoals `https://<yournamespace>.servicebus.windows.net/`.
 
-De rechten die door de beleidsregel kunnen bestaan uit een combinatie van:
+De rechten die worden verleend door de beleids regel, kunnen een combi natie zijn van:
 
-* 'Verzenden' - biedt het recht om berichten te verzenden naar de entiteit
-* 'Listen' - biedt het recht om te luisteren (relais) of ontvangen (wachtrij, abonnementen) en alle gerelateerde afhandeling van berichten
-* 'Beheren' - het recht voor het beheren van de topologie van de naamruimte, inclusief het maken en verwijderen van instanties biedt
+* ' Verzenden ': het recht om berichten te verzenden naar de entiteit
+* ' Luis teren ': verleent het recht om te Luis teren (door sturen) of ontvangen (wachtrij, abonnementen) en alle gerelateerde bericht afhandeling
+* ' Beheren ': verleent het recht om de topologie van de naam ruimte te beheren, met inbegrip van het maken en verwijderen van entiteiten
 
-Het recht 'Beheren' bevat de rechten 'Verzenden' en 'Ontvangen'.
+Het recht ' beheren ' bevat de rechten Send en receive.
 
-Een beleid voor de naamruimte of entiteit kan maximaal 12 gedeelde toegang tot autorisatieregels, ruimte voor drie sets met regels, die elk die betrekking hebben op de fundamentele rechten en de combinatie van verzenden en luisteren naar bevatten. Deze limiet onderstrepingen waarin de SAS-beleid is niet bedoeld voor een gebruiker of service-account opslaan. Als uw toepassing nodig heeft om toegang te verlenen aan de Service Bus op basis van gebruiker of service-identiteiten, moet deze een service voor beveiligingstokens die problemen met SAS-tokens na een controle-verificatie en toegangsbeheer implementeren.
+Een naam ruimte-of entiteits beleid kan Maxi maal 12 Shared Access Authorization Rules bevatten, zodat er ruimte is voor drie sets regels, elk met de basis rechten en de combi natie van verzenden en Luis teren. Deze limiet onderstreept dat het SAS-beleids archief niet bedoeld is als een gebruikers-of service account-archief. Als uw toepassing toegang moet verlenen tot Service Bus op basis van gebruikers-of service-identiteiten, moet het een beveiligings token service implementeren die SAS-tokens uitgeeft na een verificatie en toegangs controle.
 
-Een autorisatieregel is toegewezen een *primaire sleutel* en een *secundaire sleutel*. Dit zijn cryptografisch sterke sleutels. Niet ze verloren gaan of ze lekken - ze altijd zijn beschikbaar in de [Azure-portal][Azure portal]. U kunt een van de gegenereerde sleutels gebruiken en u ze op elk gewenst moment kunt opnieuw genereren. Als u opnieuw genereren of een sleutel in het beleid wijzigt, alle eerder dat is uitgegeven tokens op basis van die sleutel onmiddellijk ongeldig geworden. Actieve verbindingen gemaakt op basis van deze tokens blijven echter werken totdat het token is verlopen.
+Aan een autorisatie regel is een *primaire sleutel* en een *secundaire sleutel*toegewezen. Dit zijn cryptografische sterke sleutels. Zorg ervoor dat ze niet verloren gaan of lekken: ze zijn altijd beschikbaar in de [Azure Portal][Azure portal]. U kunt een van de gegenereerde sleutels gebruiken en u kunt deze op elk gewenst moment opnieuw genereren. Als u een sleutel in het beleid opnieuw genereert of wijzigt, worden alle eerder uitgegeven tokens op basis van die sleutel onmiddellijk ongeldig. Actieve verbindingen die zijn gemaakt op basis van deze tokens blijven echter werken totdat het token verloopt.
 
-Wanneer u een Service Bus-naamruimte hebt gemaakt, een beleidsregel met de naam **RootManageSharedAccessKey** voor de naamruimte wordt automatisch gemaakt. Dit beleid heeft machtigingen voor de gehele naamruimte beheren. Het wordt aanbevolen dat u net zo deze regel, zoals een administratieve behandelt **hoofdmap** en dit niet gebruiken in uw toepassing. Kunt u extra regels in de **configureren** tabblad voor de naamruimte in de portal via Powershell of Azure CLI.
+Wanneer u een Service Bus naam ruimte maakt, wordt automatisch een beleids regel gemaakt met de naam **RootManageSharedAccessKey** voor de naam ruimte. Dit beleid heeft beheer machtigingen voor de volledige naam ruimte. Het is raadzaam deze regel te behandelen als een account met beheerders rechten en niet in uw toepassing te gebruiken. U kunt aanvullende beleids regels maken op het tabblad **configureren** van de naam ruimte in de portal via Power shell of Azure cli.
 
-## <a name="configuration-for-shared-access-signature-authentication"></a>Configuratie voor de Shared Access Signature-verificatie
+## <a name="configuration-for-shared-access-signature-authentication"></a>Configuratie voor Shared Access Signature-verificatie
 
-U kunt configureren dat de [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) -regel op Service Bus-naamruimten, wachtrijen of onderwerpen. Configureren van een [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in een Service Bus abonnement wordt momenteel niet ondersteund, maar u kunt regels die zijn geconfigureerd in een naamruimte of onderwerp gebruiken voor beveiligde toegang tot abonnementen. Zie voor een voorbeeld van werken die deze procedure laat zien, de [met behulp van Shared Access Signature (SAS)-verificatie met Service Bus-abonnementen](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) voorbeeld.
+U kunt de [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) -regel configureren voor service bus naam ruimten, wacht rijen of onderwerpen. Het configureren van een [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) op een service bus-abonnement wordt momenteel niet ondersteund, maar u kunt regels die zijn geconfigureerd in een naam ruimte of onderwerp, gebruiken om de toegang tot abonnementen te beveiligen. Zie het voor beeld voor het [beheren van Azure service bus wachtrijen](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule) voor een werk voorbeeld waarin deze procedure wordt geïllustreerd.
 
-![SAS](./media/service-bus-sas/service-bus-namespace.png)
+![GEBASEERD](./media/service-bus-sas/service-bus-namespace.png)
 
-In deze afbeelding is de *manageRuleNS*, *sendRuleNS*, en *listenRuleNS* autorisatieregels van toepassing op zowel Q1 wachtrij en onderwerp T1, terwijl *listenRuleQ*  en *sendRuleQ* gelden alleen voor wachtrij Q1 en *sendRuleT* geldt alleen voor onderwerp T1.
+In deze afbeelding zijn de *manageRuleNS*-, *SendRuleNS*-en *listenRuleNS* -autorisatie regels van toepassing op zowel wachtrij W1 als onderwerp T1, terwijl *listenRuleQ* en *SendRuleQ* alleen van toepassing zijn op wachtrij W1 en *sendRuleT* alleen van toepassing is naar onderwerp T1.
 
 ## <a name="generate-a-shared-access-signature-token"></a>Een Shared Access Signature-token genereren
 
-Een willekeurige client die toegang tot de naam van een regel voor autorisatie heeft en een van de ondertekeningssleutels kunnen een SAS-token genereren. Het token wordt gegenereerd door het samenstellen van een tekenreeks in de volgende indeling:
+Elke client die toegang heeft tot de naam van een verificatie regel naam en een van de handtekening sleutels kan een SAS-token genereren. Het token wordt gegenereerd door een teken reeks in de volgende indeling te maken:
 
 ```
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`** -Directe token verlopen. Geheel getal zijn dat weergeeft seconden sinds de epoche `00:00:00 UTC` op 1 januari 1970 (UNIX-epoche) wanneer het token is verlopen.
-* **`skn`** : De naam van de autorisatieregel.
-* **`sr`** -URI van de resource waartoe toegang wordt verkregen.
-* **`sig`** -Handtekening.
+* **`se`** -Token verloop datum direct. Geheel getal dat seconden weergeeft sinds de `00:00:00 UTC` epoche op 1 januari 1970 (UNIX-epoche) wanneer het token verloopt.
+* **`skn`** -De naam van de autorisatie regel.
+* **`sr`** -De URI van de bron waartoe toegang wordt verkregen.
+* **`sig`** Ondertekening.
 
-De `signature-string` is de SHA-256-hash berekend voor de resource-URI (**bereik** zoals beschreven in de vorige sectie) en de tekenreeksweergave van de vervaldatum van token instant, gescheiden door CRLF.
+De `signature-string` is de SHA-256-Hash berekend op basis van de resource-URI (**bereik** zoals beschreven in de vorige sectie) en de teken reeks representatie van het token verloop, gescheiden door CRLF.
 
-De berekening van de hash op de volgende pseudocode lijkt en retourneert een 256-bits/32-byte-hash-waarde.
+De hash-berekening ziet er ongeveer uit als de volgende pseudo code en retourneert een 256-bits/32-byte hash-waarde.
 
 ```
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-Het token bevat de waarden niet gehasht, zodat de ontvanger kan opnieuw van de hash met dezelfde parameters, gecontroleerd of de uitgever in het bezit is van een geldige ondertekeningssleutel is.
+Het token bevat de niet-gehashte waarden, zodat de ontvanger de hash opnieuw kan berekenen met dezelfde para meters, zodat u kunt controleren of de uitgever in het bezit is van een geldige ondertekeningssleutel.
 
-De resource-URI is de volledige URI van de Service Bus-resource waaraan toegang is aangevraagd. Bijvoorbeeld, `http://<namespace>.servicebus.windows.net/<entityPath>` of `sb://<namespace>.servicebus.windows.net/<entityPath>`; dat wil zeggen, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
+De resource-URI is de volledige URI van de Service Bus resource waarmee de toegang wordt geclaimd. Bijvoorbeeld, `http://<namespace>.servicebus.windows.net/<entityPath>` of `sb://<namespace>.servicebus.windows.net/<entityPath>`; `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`... 
 
-**De URI moet [procent gecodeerde](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
+**De URI moet een [percentage zijn gecodeerd](/dotnet/api/system.web.httputility.urlencode?view=netframework-4.8).**
 
-De verificatieregel voor gedeelde toegang die wordt gebruikt voor het ondertekenen van moet worden geconfigureerd op de entiteit die door deze URI of door een van de hiërarchische bovenliggende items hebt opgegeven. Bijvoorbeeld, `http://contoso.servicebus.windows.net/contosoTopics/T1` of `http://contoso.servicebus.windows.net` in het vorige voorbeeld.
+De gedeelde toegangs autorisatie regel die wordt gebruikt voor ondertekening moet worden geconfigureerd voor de entiteit die door deze URI wordt opgegeven of door een van de hiërarchische bovenliggende items. Bijvoorbeeld `http://contoso.servicebus.windows.net/contosoTopics/T1` of`http://contoso.servicebus.windows.net` in het vorige voor beeld.
 
-Een SAS-token is geldig voor alle resources die worden voorafgegaan door de `<resourceURI>` gebruikt in de `signature-string`.
+Een SAS-token is geldig voor alle resources die worden voorafgegaan `<resourceURI>` door de gebruikt `signature-string`in de.
 
 ## <a name="regenerating-keys"></a>Sleutels opnieuw genereren
 
-Het is raadzaam dat u de sleutels die worden gebruikt regelmatig opnieuw genereert de [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object. De primaire en secundaire sleutel sleuven bestaan zodat u kunt sleutels geleidelijk draaien. Als uw toepassing wordt doorgaans gebruikt voor de primaire sleutel, kunt u de primaire sleutel kopiëren naar de secundaire sleutel sleuf, en vervolgens alleen de primaire sleutel opnieuw genereren. De nieuwe waarde voor de primaire sleutel kan vervolgens worden geconfigureerd in de clienttoepassingen, die voortdurend toegang met behulp van de oude primaire sleutel in de secundaire site hebben. Als alle clients worden bijgewerkt, kunt u de secundaire sleutel voor het uiteindelijk buiten gebruik stellen van de oude primaire sleutel opnieuw genereren.
+Het is raadzaam om regel matig de sleutels te genereren die worden gebruikt in het [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) -object. De primaire en secundaire sleutel sleuven bestaan zodat u de sleutels geleidelijk kunt draaien. Als uw toepassing in het algemeen gebruikmaakt van de primaire sleutel, kunt u de primaire sleutel kopiëren naar de tweede sleutel sleuf en de primaire sleutel vervolgens opnieuw genereren. De nieuwe primaire-sleutel waarde kan vervolgens worden geconfigureerd in de client toepassingen, die de toegang tot de oude primaire sleutel in de secundaire sleuf blijven gebruiken. Zodra alle clients zijn bijgewerkt, kunt u de secundaire sleutel opnieuw genereren tot ten slotte de oude primaire sleutel buiten gebruik stellen.
 
-Als u weet of u vermoedt dat een sleutel is geïnfecteerd en wordt u om in te trekken van de sleutels hebt, kunt u opnieuw te genereren beide de [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) en de [secundaire sleutel](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) van een [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), deze overal vervangen door nieuwe sleutels. Deze procedure worden alle tokens die zijn ondertekend met de oude sleutels ongeldig.
+Als u weet of vermoedt dat een sleutel is aangetast en u de sleutels moet intrekken, kunt u zowel de [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) als de [secundaire sleutel](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) van een [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)opnieuw genereren en vervangen door nieuwe sleutels. Met deze procedure worden alle tokens die zijn ondertekend met de oude sleutels ongeldig gemaakt.
 
-## <a name="shared-access-signature-authentication-with-service-bus"></a>Shared Access Signature-verificatie met Service Bus
+## <a name="shared-access-signature-authentication-with-service-bus"></a>Verificatie Shared Access Signature met Service Bus
 
-De scenario's beschreven als volgt zijn de configuratie van autorisatieregels, het genereren van SAS-tokens en Clientautorisatie.
+De scenario's die hieronder worden beschreven, zijn onder andere het configureren van autorisatie regels, het genereren van SAS-tokens en client autorisatie.
 
-Voor een volledig werkend voorbeeld van een Service Bus-toepassing die laat zien van de configuratie en maakt gebruik van SAS-autorisatie Zie [Shared Access Signature-verificatie met Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Een gerelateerde voorbeeld illustreert het gebruik van SAS-autorisatieregels geconfigureerd op de naamruimten of -onderwerpen voor het beveiligen van Service Bus-abonnementen is hier beschikbaar: [Gebruik van Shared Access Signature (SAS)-verificatie met Service Bus-abonnementen](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+Zie het volgende voor beeld in onze GitHub-opslag plaats voor een volledig werkend voor beeld van een Service Bus-toepassing die de configuratie illustreert en gebruikmaakt van SAS-autorisatie: [Azure service bus wachtrijen beheren](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
+ 
+## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Toegang tot de autorisatie regels voor gedeelde toegang voor een entiteit
 
-## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Machtigingen voor gedeelde toegang toegangsregels voor een entiteit
+Met Service Bus .NET Framework bibliotheken hebt u toegang tot een [micro soft. ServiceBus. Messa ging. SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) -object dat is geconfigureerd in een service bus wachtrij of onderwerp via de verzameling [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) in de bijbehorende [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) of [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription).
 
-Met Service Bus .NET Framework-bibliotheken, kunt u toegang tot een [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) -object is geconfigureerd op een Service Bus-wachtrij of onderwerp via de [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) verzameling in de bijbehorende [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) of [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription).
-
-De volgende code laat zien hoe om toe te voegen autorisatieregels voor een wachtrij.
+De volgende code laat zien hoe u autorisatie regels voor een wachtrij kunt toevoegen.
 
 ```csharp
 // Create an instance of NamespaceManager for the operation
@@ -141,9 +141,9 @@ qd.Authorization.Add(new SharedAccessAuthorizationRule("contosoQManageKey",
 nsm.CreateQueue(qd);
 ```
 
-## <a name="use-shared-access-signature-authorization"></a>Shared Access Signature-verificatie gebruiken
+## <a name="use-shared-access-signature-authorization"></a>Shared Access Signature autorisatie gebruiken
 
-Toepassingen met behulp van de Azure .NET SDK met de Service Bus .NET-bibliotheken kunnen gebruikmaken van SAS-autorisatie via de [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) klasse. De volgende code illustreert het gebruik van de tokenprovider berichten te verzenden naar een Service Bus-wachtrij. Alternatief voor het gebruik die hier worden weergegeven, dat kunt u ook een eerder uitgegeven tokens doorgeven aan de tokenprovider factory-methode.
+Toepassingen die gebruikmaken van de Azure .NET SDK met de Service Bus .NET-bibliotheken, kunnen SAS-autorisatie gebruiken via de [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) -klasse. De volgende code illustreert het gebruik van de token provider om berichten te verzenden naar een Service Bus wachtrij. Als alternatief voor het gebruik dat hier wordt weer gegeven, kunt u ook een eerder uitgegeven token door geven aan de fabrieks methode van de token provider.
 
 ```csharp
 Uri runtimeUri = ServiceBusEnvironment.CreateServiceUri("sb",
@@ -158,15 +158,15 @@ helloMessage.MessageId = "SAS-Sample-Message";
 sendClient.Send(helloMessage);
 ```
 
-U kunt ook de tokenprovider rechtstreeks voor het uitgeven van tokens gebruiken om door te geven aan andere clients.
+U kunt de token provider ook rechtstreeks voor het uitgeven van tokens gebruiken om aan andere clients door te geven.
 
-Verbindingsreeksen kunnen bestaan uit een regelnaam (*SharedAccessKeyName*) en de sleutel van de regel (*SharedAccessKey*) of een eerder uitgegeven tokens (*SharedAccessSignature*). Wanneer die aanwezig in de verbindingsreeks die is doorgegeven aan een constructor of factory methode accepteert een verbindingsreeks zijn, wordt de SAS-tokenprovider automatisch gemaakt en ingevuld.
+Verbindings reeksen kunnen bestaan uit een regel naam (*SharedAccessKeyName*) en regel sleutel (*SharedAccessKey*) of een eerder uitgegeven token (*SharedAccessSignature*). Als deze aanwezig zijn in de connection string die is door gegeven aan een wille keurige constructor of fabrieks methode die een connection string accepteert, wordt de SAS-token provider automatisch gemaakt en gevuld.
 
-Houd er rekening mee dat voor het gebruik van SAS-autorisatie met Service Bus relays, kunt u SAS-sleutels die zijn geconfigureerd op de Service Bus-naamruimte. Als u expliciet een relay in de naamruimte maakt ([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) met een [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription))-object, kunt u de SAS-regels alleen voor de desbetreffende relay instellen. Voor het gebruik van SAS-autorisatie met Service Bus-abonnementen, kunt u SAS-sleutels die zijn geconfigureerd op een Service Bus-naamruimte of op een onderwerp.
+Als u SAS-autorisatie wilt gebruiken met Service Bus relays, kunt u SAS-sleutels gebruiken die zijn geconfigureerd voor de Service Bus naam ruimte. Als u expliciet een relay maakt in de naam ruimte ([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) met een [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription))-object, kunt u de SAS-regels voor die relay instellen. Als u SAS-autorisatie wilt gebruiken met Service Bus-abonnementen, kunt u SAS-sleutels gebruiken die zijn geconfigureerd op een Service Bus naam ruimte of op een onderwerp.
 
-## <a name="use-the-shared-access-signature-at-http-level"></a>Gebruik de Shared Access Signature (op het niveau van de HTTP)
+## <a name="use-the-shared-access-signature-at-http-level"></a>De Shared Access Signature gebruiken (op HTTP-niveau)
 
-Nu u weet hoe handtekeningen voor gedeelde toegang maken voor alle entiteiten in Service Bus, bent u klaar voor het uitvoeren van een HTTP POST:
+Nu u weet hoe u hand tekeningen voor gedeelde toegang kunt maken voor entiteiten in Service Bus, kunt u een HTTP POST uitvoeren:
 
 ```http
 POST https://<yournamespace>.servicebus.windows.net/<yourentity>/messages
@@ -175,17 +175,17 @@ Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus
 ContentType: application/atom+xml;type=entry;charset=utf-8
 ```
 
-Denk eraan dat dit voor van alles werkt. U kunt een SAS maken voor een wachtrij, onderwerp of abonnement.
+Houd er rekening mee dat dit voor alles werkt. U kunt SAS maken voor een wachtrij, onderwerp of abonnement.
 
-Als u een afzender of een client een SAS-token, ze hoeft de sleutel rechtstreeks, en ze niet de hash voor het ongedaan maken. Zo hebt u controle over wat ze toegang krijgen tot, en hoe lang. Een belangrijke dingen om te onthouden is dat als u de primaire sleutel in het beleid wijzigt, alle handtekeningen voor gedeelde toegang gemaakt op basis van deze zijn ongeldig.
+Als u een SAS-token voor een afzender of client hebt, heeft deze de sleutel niet rechtstreeks en kan de hash niet worden teruggedraaid om deze te verkrijgen. Zo hebt u de controle over wat ze kunnen benaderen, en hoe lang het is. Het is belang rijk te onthouden dat wanneer u de primaire sleutel in het beleid wijzigt, alle gedeelde toegangs handtekeningen die worden gemaakt, ongeldig worden verklaard.
 
-## <a name="use-the-shared-access-signature-at-amqp-level"></a>De handtekening voor gedeelde toegang (op het niveau van de AMQP) gebruiken
+## <a name="use-the-shared-access-signature-at-amqp-level"></a>De Shared Access Signature gebruiken (op AMQP niveau)
 
-In de vorige sectie hebt u gezien hoe u met het SAS-token met een HTTP POST-aanvraag voor het verzenden van gegevens naar de Service Bus. Zoals u weet, kunt u Service Bus met behulp van de geavanceerde AMQP Message Queuing Protocol () die het gewenste protocol te gebruiken voor betere prestaties in veel scenario's kunt openen. Het gebruik van de SAS-token met AMQP wordt beschreven in het document [AMQP Claim-Based Security versie 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) dat wil zeggen in werken concept sinds 2013 maar goed ondersteund door Azure vandaag nog.
+In de vorige sectie hebt u gezien hoe u het SAS-token gebruikt met een HTTP POST-aanvraag voor het verzenden van gegevens naar de Service Bus. Zoals u weet, hebt u toegang tot Service Bus met behulp van de Advanced Message Queueing Protocol (AMQP) die het voorkeurs protocol voor prestatie redenen is, in veel scenario's. Het gebruik van SAS-tokens met AMQP wordt beschreven in de document [AMQP op claims gebaseerde beveiligings versie 1,0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) die zich in Working Draft bevindt sinds 2013, maar goed wordt ondersteund door Azure.
 
-Voordat u begint met het verzenden van gegevens naar Service Bus, moet de uitgever van de SAS-token in een AMQP-bericht verzenden naar een goed gedefinieerde AMQP-knooppunt met de naam **$cbs** (u kunt zien dit als een 'speciale' wachtrij gebruikt door de service te verkrijgen en alle SAS te valideren tokens). De uitgever moet opgeven de **ReplyTo** veld in het bericht AMQP; dit is het knooppunt waarin de service met de publisher met het resultaat van de validatie van tokens (een eenvoudige aanvraag/antwoord patroon tussen publisher en de service antwoorden ). Dit knooppunt antwoord wordt gemaakt 'op elk gewenst moment,"spreken over 'dynamische maken van het externe knooppunt', zoals is beschreven in de AMQP 1.0-specificatie. Nadat u hebt gecontroleerd dat de SAS-token geldig is, de uitgever vooruit en beginnen met het verzenden van gegevens naar de service.
+Voordat u begint met het verzenden van gegevens naar Service Bus, moet de uitgever het SAS-token in een AMQP-bericht verzenden naar een goed gedefinieerd AMQP-knoop punt met de naam **$CBS** (dit kan worden weer gegeven als een ' speciale ' wachtrij die door de service wordt gebruikt om alle SAS-tokens te verkrijgen en te valideren). De uitgever moet het **ReplyTo** -veld in het AMQP-bericht opgeven. Dit is het knoop punt waarin de service antwoordt op de uitgever met het resultaat van de token validatie (een eenvoudig patroon van aanvraag/antwoord tussen Publisher en service). Dit antwoord knooppunt wordt ' op de hoogte ' gemaakt, zoals beschreven in de AMQP 1,0-specificatie. Nadat u hebt gecontroleerd of het SAS-token geldig is, kan de uitgever door gaan en gegevens verzenden naar de service.
 
-De volgende stappen laten zien hoe u voor het verzenden van de SAS-token met het gebruik van AMQP-protocol de [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) bibliotheek. Dit is handig als u niet kunt gebruiken met de officiële Service Bus-SDK (bijvoorbeeld op WinRT, .NET Compact Framework, .NET Micro Framework en Mono) ontwikkeling in C\#. Deze bibliotheek is natuurlijk nuttig voor meer informatie over hoe op claims gebaseerde beveiliging op het niveau van AMQP werkt zoals u hebt gezien hoe het werkt op het niveau van HTTP (met een HTTP POST-aanvraag en de SAS-token verzonden in de header "Autorisatie"). Als u geen grondige kennis over AMQP nodig hebt, kunt u de officiële Service Bus-SDK gebruiken met .NET Framework-toepassingen, die het voor u doen.
+De volgende stappen laten zien hoe u het SAS-token met het AMQP-protocol kunt verzenden met behulp van de [AMQP.net Lite](https://github.com/Azure/amqpnetlite) -bibliotheek. Dit is handig als u de officiële Service Bus SDK niet kunt gebruiken (bijvoorbeeld op WinRT, .NET Compact Framework, .NET Micro Framework en mono) die in C\#worden ontwikkeld. Deze bibliotheek is natuurlijk handig om te begrijpen hoe beveiliging op basis van claims werkt op het niveau van de AMQP, zoals u hebt gezien hoe het werkt op het HTTP-niveau (met een HTTP POST-aanvraag en het SAS-token dat in de header ' autorisatie ' is verzonden). Als u dergelijke uitgebreide kennis over AMQP niet nodig hebt, kunt u de officiële Service Bus SDK gebruiken met .NET Framework toepassingen.
 
 ### <a name="c35"></a>C&#35;
 
@@ -238,66 +238,66 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-De `PutCbsToken()` methode ontvangt de *verbinding* (AMQP-verbinding klasse-instantie worden geleverd door de [AMQP .NET Lite-bibliotheek](https://github.com/Azure/amqpnetlite)) die staat voor de TCP-verbinding naar de service en de *sasToken* parameter die de SAS-token voor het verzenden van.
+De `PutCbsToken()` methode ontvangt de *verbinding* (AMQP-verbindings klasse-instantie zoals gegeven door de [AMQP .net Lite-bibliotheek](https://github.com/Azure/amqpnetlite)) die de TCP-verbinding met de service en de *sasToken* -para meter vertegenwoordigt die het SAS-token moet verzenden.
 
 > [!NOTE]
-> Het is belangrijk dat de verbinding wordt gemaakt met **SASL verificatiemechanisme ingesteld op anoniem** (en niet de standaard zonder opmaak met gebruikersnaam en wachtwoord dat wordt gebruikt wanneer u niet nodig hebt voor het verzenden van de SAS-token).
+> Het is belang rijk dat de verbinding wordt gemaakt met **sasl-verificatie mechanisme ingesteld op anoniem** (en niet de standaard instelling met gebruikers naam en wacht woord die worden gebruikt wanneer u het SAS-token niet hoeft te verzenden).
 >
 >
 
-De uitgever maakt vervolgens twee AMQP koppelingen voor het SAS-token verzenden en ontvangen van het antwoord (het resultaat van de validatie van tokens) van de service.
+Vervolgens maakt de uitgever twee AMQP-koppelingen voor het verzenden van het SAS-token en het ontvangen van het antwoord (het token validatie resultaat) van de service.
 
-Het AMQP-bericht bevat een set eigenschappen en meer gegevens dan een eenvoudige bericht. De SAS-token is de hoofdtekst van het bericht (met behulp van de constructor). De **"ReplyTo"** eigenschap is ingesteld op de naam van het knooppunt voor het ontvangen van het resultaat van clustervalidatie op de koppeling van de ontvanger (u kunt de naam wijzigen als u wilt en het wordt dynamisch worden gemaakt door de service). De laatste drie toepassing/aangepaste eigenschappen worden gebruikt door de service om aan te geven wat voor soort bewerking heeft om uit te voeren. Zoals wordt beschreven in de ontwerp-specificatie van CBS, moeten ze de **bewerkingsnaam** ('put-token'), de **type token** (in dit geval een `servicebus.windows.net:sastoken`), en de **'name' van de doelgroep** waarop het token van toepassing is (de volledige entiteit).
+Het AMQP-bericht bevat een aantal eigenschappen en meer informatie dan een eenvoudig bericht. Het SAS-token is de hoofd tekst van het bericht (met behulp van de bijbehorende constructor). De eigenschap **' ReplyTo '** is ingesteld op de naam van het knoop punt voor het ontvangen van het validatie resultaat op de ontvanger koppeling (u kunt de naam ervan wijzigen als u wilt en het dynamisch wordt gemaakt door de service). De laatste drie toepassings-en aangepaste eigenschappen worden door de service gebruikt om aan te geven wat voor soort bewerking het moet worden uitgevoerd. Zoals beschreven in de specificatie van de CBS-concept moet het de bewerkings **naam** ("put-token"), het **type token** (in dit geval `servicebus.windows.net:sastoken`, a) en de **"naam" van de doel groep** waarop het token van toepassing is (de hele entiteit).
 
-Nadat het SAS-token is verzonden op de koppeling van de afzender, moet de uitgever van het antwoord op de koppeling ontvanger gelezen. Het antwoord is een eenvoudige AMQP-bericht met een eigenschap van de toepassing met de naam **'statuscode'** die dezelfde waarden als een HTTP-statuscode kan bevatten.
+Nadat het SAS-token op de afzender koppeling is verzonden, moet de uitgever het antwoord op de koppeling ontvanger lezen. Het antwoord is een eenvoudig AMQP-bericht met een toepassings eigenschap met de naam **' status-code '** die dezelfde waarden kan bevatten als een HTTP-status code.
 
-## <a name="rights-required-for-service-bus-operations"></a>Rechten die zijn vereist voor Service Bus-bewerkingen
+## <a name="rights-required-for-service-bus-operations"></a>Benodigde rechten voor het Service Bus van bewerkingen
 
-De volgende tabel toont de toegangsrechten nodig zijn voor verschillende bewerkingen voor Service Bus-resources.
+De volgende tabel bevat de toegangs rechten die zijn vereist voor verschillende bewerkingen op Service Bus resources.
 
 | Bewerking | Claim vereist | Claim bereik |
 | --- | --- | --- |
 | **Naamruimte** | | |
-| Verificatieregel voor een naamruimte configureren |Beheren |Een naamruimte-adres |
-| **Service-register** | | |
-| Opsommen van privé-beleid |Beheren |Een naamruimte-adres |
-| Beginnen met het luisteren naar een naamruimte |Luisteren |Een naamruimte-adres |
-| Berichten verzenden naar een listener in een naamruimte |Verzenden |Een naamruimte-adres |
-| **wachtrij** | | |
-| Een wachtrij maken |Beheren |Een naamruimte-adres |
-| Een wachtrij verwijderen |Beheren |Een geldige wachtrij-adres |
-| Het inventariseren van wachtrijen |Beheren |Map resources/wachtrijen |
-| De wachtrijbeschrijving van de ophalen |Beheren |Een geldige wachtrij-adres |
-| Verificatieregel voor een wachtrij configureren |Beheren |Een geldige wachtrij-adres |
-| In de naar de wachtrij verzenden |Verzenden |Een geldige wachtrij-adres |
-| Berichten ontvangen van een wachtrij |Luisteren |Een geldige wachtrij-adres |
-| Afbreken of voltooien berichten na de ontvangst van het bericht in peek-lock-modus |Luisteren |Een geldige wachtrij-adres |
-| Een bericht voor het ophalen van hoger uitstellen |Luisteren |Een geldige wachtrij-adres |
-| Onbestelbare berichten van een bericht |Luisteren |Een geldige wachtrij-adres |
-| De status is gekoppeld aan een sessie van de wachtrij bericht ophalen |Luisteren |Een geldige wachtrij-adres |
-| De status die is gekoppeld aan een sessie van de wachtrij bericht instellen |Luisteren |Een geldige wachtrij-adres |
-| Een bericht voor latere levering; plannen bijvoorbeeld, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Luisteren | Een geldige wachtrij-adres
+| Autorisatie regel configureren voor een naam ruimte |Beheren |Elk naam ruimte adres |
+| **Service register** | | |
+| Privé beleid opsommen |Beheren |Elk naam ruimte adres |
+| Beginnen met Luis teren op een naam ruimte |Luisteren |Elk naam ruimte adres |
+| Berichten naar een listener verzenden in een naam ruimte |Verzenden |Elk naam ruimte adres |
+| **Wachtrij** | | |
+| Een wachtrij maken |Beheren |Elk naam ruimte adres |
+| Een wachtrij verwijderen |Beheren |Een geldig wachtrij adres |
+| Wacht rijen opsommen |Beheren |/$Resources/queues |
+| De beschrijving van de wachtrij ophalen |Beheren |Een geldig wachtrij adres |
+| Autorisatie regel configureren voor een wachtrij |Beheren |Een geldig wachtrij adres |
+| Verzenden naar de wachtrij |Verzenden |Een geldig wachtrij adres |
+| Berichten van een wachtrij ontvangen |Luisteren |Een geldig wachtrij adres |
+| Berichten afbreken of volt ooien na ontvangst van het bericht in de modus Peek-Lock |Luisteren |Een geldig wachtrij adres |
+| Een bericht uitstellen voor later ophalen |Luisteren |Een geldig wachtrij adres |
+| Deadletter een bericht |Luisteren |Een geldig wachtrij adres |
+| De status ophalen die is gekoppeld aan een berichten wachtrij sessie |Luisteren |Een geldig wachtrij adres |
+| De status van een berichten wachtrij sessie instellen |Luisteren |Een geldig wachtrij adres |
+| Een bericht plannen voor latere levering; bijvoorbeeld, [ScheduleMessageAsync ()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Luisteren | Een geldig wachtrij adres
 | **Onderwerp** | | |
-| Een onderwerp maken |Beheren |Een naamruimte-adres |
-| Een onderwerp verwijderen |Beheren |Elk adres geldig onderwerp |
-| Onderwerpen over opsommen |Beheren |Map resources/onderwerpen |
-| De beschrijving van het onderwerp ophalen |Beheren |Elk adres geldig onderwerp |
-| Verificatieregel voor een onderwerp configureren |Beheren |Elk adres geldig onderwerp |
-| Verzenden naar het onderwerp |Verzenden |Elk adres geldig onderwerp |
+| Een onderwerp maken |Beheren |Elk naam ruimte adres |
+| Een onderwerp verwijderen |Beheren |Een geldig onderwerp-adres |
+| Onderwerpen opsommen |Beheren |/$Resources/topics |
+| De beschrijving van het onderwerp ophalen |Beheren |Een geldig onderwerp-adres |
+| Verificatie regel voor een onderwerp configureren |Beheren |Een geldig onderwerp-adres |
+| Verzenden naar het onderwerp |Verzenden |Een geldig onderwerp-adres |
 | **Abonnement** | | |
-| Een abonnement maken |Beheren |Een naamruimte-adres |
+| Een abonnement maken |Beheren |Elk naam ruimte adres |
 | Abonnement verwijderen |Beheren |../myTopic/Subscriptions/mySubscription |
-| Het inventariseren van abonnementen |Beheren |../myTopic/Subscriptions |
-| Beschrijving van het abonnement ophalen |Beheren |../myTopic/Subscriptions/mySubscription |
-| Afbreken of voltooien berichten na de ontvangst van het bericht in peek-lock-modus |Luisteren |../myTopic/Subscriptions/mySubscription |
-| Een bericht voor het ophalen van hoger uitstellen |Luisteren |../myTopic/Subscriptions/mySubscription |
-| Onbestelbare berichten van een bericht |Luisteren |../myTopic/Subscriptions/mySubscription |
-| De status is gekoppeld aan een sessie onderwerp ophalen |Luisteren |../myTopic/Subscriptions/mySubscription |
-| De status die is gekoppeld aan een sessie voor onderwerp instellen |Luisteren |../myTopic/Subscriptions/mySubscription |
+| Abonnementen opsommen |Beheren |.. /myTopic/Subscriptions |
+| Beschrijving van abonnement ophalen |Beheren |../myTopic/Subscriptions/mySubscription |
+| Berichten afbreken of volt ooien na ontvangst van het bericht in de modus Peek-Lock |Luisteren |../myTopic/Subscriptions/mySubscription |
+| Een bericht uitstellen voor later ophalen |Luisteren |../myTopic/Subscriptions/mySubscription |
+| Deadletter een bericht |Luisteren |../myTopic/Subscriptions/mySubscription |
+| De status ophalen die is gekoppeld aan een onderwerps sessie |Luisteren |../myTopic/Subscriptions/mySubscription |
+| De status die is gekoppeld aan een onderwerps sessie instellen |Luisteren |../myTopic/Subscriptions/mySubscription |
 | **Regels** | | |
 | Een regel maken |Beheren |../myTopic/Subscriptions/mySubscription |
 | Een regel verwijderen |Beheren |../myTopic/Subscriptions/mySubscription |
-| Regels opsommen |Beheren of luisteren |../myTopic/Subscriptions/mySubscription/Rules
+| Regels opsommen |Beheren of Belui Steren |.. /myTopic/Subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>Volgende stappen
 

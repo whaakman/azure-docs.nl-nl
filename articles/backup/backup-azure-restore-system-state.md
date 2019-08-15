@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: dacurwin
-ms.openlocfilehash: 6dc478f569b94450921e56c05b148bae357fef8e
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 83c4d8a90bf9ae348026c14beaec4975636b29b5
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689132"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018793"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Systeem status herstellen naar Windows Server
 
@@ -124,9 +124,9 @@ Nadat u de systeem status hebt hersteld als bestanden met behulp van Azure Recov
 
 1. Gebruik de volgende opdrachten om de server opnieuw op te starten in de *modus Active Directory-Services herstellen*. In een opdracht prompt met verhoogde bevoegdheid:
 
-    ```
-    PS C:\> Bcdedit /set safeboot dsrepair
-    PS C:\> Shutdown /r /t 0
+    ```cmd
+    Bcdedit /set safeboot dsrepair
+    Shutdown /r /t 0
     ```
 
 2. Nadat het systeem opnieuw is opgestart, opent u de module Windows Server Back-up. Als u niet weet waar de module is geïnstalleerd, zoekt u op de computer of server naar **Windows Server back-up**.
@@ -166,7 +166,7 @@ Nadat u de systeem status hebt hersteld als bestanden met behulp van Azure Recov
 Back-up van de systeem status bevat Active Directory gegevens. Gebruik de volgende stappen om Active Directory-domein-service (AD DS) te herstellen van de huidige status naar een eerdere status.
 
 1. Start de domein controller opnieuw op in de modus Active Directory terugzetten (DSRM).
-2. Volg de onderstaande [stappen om](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) Windows Server back-up-cmdlets te gebruiken om AD DS te herstellen.
+2. Volg de onderstaande [](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) stappen om Windows Server back-up-cmdlets te gebruiken om AD DS te herstellen.
 
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Problemen met het herstellen van de systeem status oplossen
@@ -189,14 +189,14 @@ Als het vorige proces van het Toep assen van de systeem status niet is voltooid,
 
 5. Wanneer u de opdracht prompt in de beheerders modus opent, voert u de volgende opdracht uit om de back-upversie van de systeem status te verkrijgen.
 
-    ```
+    ```cmd
     Wbadmin get versions -backuptarget:<Volume where WindowsImageBackup folder is copied>:
     ```
     ![back-upversies van systeem status ophalen](./media/backup-azure-restore-system-state/winre-4.png)
 
 6. Voer de volgende opdracht uit om alle volumes te verkrijgen die beschikbaar zijn in de back-up.
 
-    ```
+    ```cmd
     Wbadmin get items -version:<copy version from above step> -backuptarget:<Backup volume>
     ```
 
@@ -204,7 +204,7 @@ Als het vorige proces van het Toep assen van de systeem status niet is voltooid,
 
 7. Met de volgende opdracht worden alle volumes hersteld die deel uitmaken van de systeem status back-up. Houd er rekening mee dat met deze stap alleen de essentiële volumes die deel uitmaken van de systeem status, worden hersteld. Alle niet-systeem gegevens worden gewist.
 
-    ```
+    ```cmd
     Wbadmin start recovery -items:C: -itemtype:Volume -version:<Backupversion> -backuptarget:<backup target volume>
     ```
      ![back-upversies van systeem status ophalen](./media/backup-azure-restore-system-state/winre-6.png)

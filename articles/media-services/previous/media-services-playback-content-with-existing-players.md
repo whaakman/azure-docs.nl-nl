@@ -1,6 +1,6 @@
 ---
-title: Gebruik bestaande spelers afspelen uw inhoud - Azure | Microsoft Docs
-description: In dit onderwerp een lijst met bestaande spelers dat u uw inhoud om af te spelen gebruiken kunt.
+title: Bestaande spelers gebruiken om uw inhoud af te spelen-Azure | Microsoft Docs
+description: In dit onderwerp vindt u een lijst met bestaande spelers die u kunt gebruiken om uw inhoud af te spelen.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,57 +14,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: c96710d6dcca9f5ef99b3a02a0bc875d433f814d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0da8ce396ce07b7c9859fcfccb5cb524c0ce21c1
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463384"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69015293"
 ---
-# <a name="playing-your-content-with-existing-players"></a>Uw inhoud met bestaande spelers afspelen
-Azure Media Services biedt ondersteuning voor veel populaire streaming-indelingen, zoals Smooth Streaming, HTTP Live Streaming en MPEG-Dash. In dit onderwerp verwijst u naar bestaande spelers die u gebruiken kunt voor het testen van uw stromen.
+# <a name="playing-your-content-with-existing-players"></a>Uw inhoud afspelen met bestaande spelers
+Azure Media Services ondersteunt veel populaire streaming-indelingen, zoals Smooth Streaming, HTTP Live Streaming en MPEG-Dash. In dit onderwerp vindt u een overzicht van de bestaande spelers die u kunt gebruiken om uw stromen te testen.
 
-### <a name="the-azure-portal-media-services-content-player"></a>De Azure portal Media Services-speler
-De **Azure** portal biedt een speler die u gebruiken kunt om uw video te testen.
+### <a name="the-azure-portal-media-services-content-player"></a>De Azure Portal Media Services inhouds speler
+De **Azure** -Portal biedt een inhouds speler die u kunt gebruiken om uw video te testen.
 
-Klik op de gewenste video (Zorg ervoor dat er [gepubliceerd](media-services-portal-publish.md)) en klik op de **afspelen** knop aan de onderkant van de portal.
+Klik op de gewenste video (Controleer of deze is [gepubliceerd](media-services-portal-publish.md)) en klik op de knop **afspelen** onder aan de portal.
 
 Hierbij geldt het volgende:
 
-* **MEDIA SERVICES CONTENT PLAYER** speelt af vanaf het standaard streaming-eindpunt. Als u wilt afspelen vanaf een ander streaming-eindpunt, gebruikt u een andere speler. Bijvoorbeeld, [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* **MEDIA SERVICES CONTENT PLAYER** speelt af vanaf het standaard streaming-eindpunt. Als u wilt afspelen vanaf een ander streaming-eindpunt, gebruikt u een andere speler. Bijvoorbeeld [Azure Media Player](https://aka.ms/azuremediaplayer).
 
 ![AMSPlayer][AMSPlayer]
 
 ### <a name="azure-media-player"></a>Azure Media Player
-Gebruik [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) af te spelen uw inhoud (wissen of beveiligde) in een van de volgende indelingen:
+
+Gebruik [Azure Media Player](https://aka.ms/azuremediaplayer) om uw inhoud (helder of beveiligd) in een van de volgende indelingen af te spelen:
 
 * Smooth Streaming
 * MPEG DASH
 * HLS
 * Progressieve MP4
 
-### <a name="flash-player"></a>Flash Player
-#### <a name="aes-encrypted-with-token"></a>AES-versleuteling met een Token
+### <a name="flash-player"></a>Flash-speler
+
+#### <a name="aes-encrypted-with-token"></a>AES-versleuteld met token
+
 [https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
 
-### <a name="silverlight-players"></a>Silverlight Players
+#### <a name="playready-with-token"></a>PlayReady met token
 
-#### <a name="playready-with-token"></a>PlayReady met Token
 [https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
 
-### <a name="dash-players"></a>DASH-spelers
+### <a name="dash-players"></a>STREEPJE-spelers
+
 [https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
 
 [https://dashif.org](https://dashif.org)
 
 ### <a name="other"></a>Overige
-Test HLS-URL's die u kunt ook gebruiken als volgt:
+Als u HLS-Url's wilt testen, kunt u ook het volgende gebruiken:
 
-* **Safari** op een iOS-apparaat of
-* **3ivx HLS Player** op Windows.
+* **Safari** op een IOS-apparaat of
+* **3IVX HLS Player** in Windows.
 
-## <a name="developing-video-players"></a>Videospelers ontwikkelen
-Zie voor meer informatie over het ontwikkelen van uw eigen spelers [videospelers ontwikkelen](media-services-develop-video-players.md)
+## <a name="developing-video-players"></a>Video spelers ontwikkelen
+Zie [video spelers ontwikkelen](media-services-develop-video-players.md) voor meer informatie over het ontwikkelen van uw eigen spelers
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

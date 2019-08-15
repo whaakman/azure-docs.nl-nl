@@ -1,21 +1,21 @@
 ---
-title: Verifiëren met Azure Active Directory om toegang te krijgen tot Blob-en wachtrij gegevens vanuit uw client toepassing
+title: Toegang verlenen tot blobs en wacht rijen met Azure Active Directory van een client toepassing-Azure Storage
 description: Gebruik Azure Active Directory om te verifiëren vanuit een client toepassing, verschaf een OAuth 2,0-token en machtig aanvragen voor Azure Blob Storage en Queue Storage.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2019
+ms.date: 07/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ffae7467e9f94c68cf004b74c9791f2d9cda3171
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5138fb6338f4ade322414619f8785d77550a91d1
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249993"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986788"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Verifiëren met Azure Active Directory van een toepassing om toegang te krijgen tot blobs en wacht rijen
+# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>Toegang verlenen tot blobs en wacht rijen met Azure Active Directory van een client toepassing
 
 Een belang rijk voor deel van het gebruik van Azure Active Directory (Azure AD) met Azure Blob Storage of de wachtrij opslag is dat uw referenties niet meer in uw code hoeven te worden opgeslagen. In plaats daarvan kunt u een OAuth 2,0-toegangs token aanvragen bij het micro soft Identity-platform (voorheen Azure AD). Azure AD verifieert de beveiligingsprincipal (een gebruiker, groep of Service-Principal) die de toepassing uitvoert. Als de verificatie slaagt, retourneert Azure AD het toegangs token voor de toepassing en kan de toepassing vervolgens het toegangs token gebruiken om aanvragen voor Azure Blob Storage of de wachtrij opslag te autoriseren.
 
@@ -88,7 +88,7 @@ Voor de openbare cloud van Microsoft, de base Azure AD-instantie is als volgt, w
 
 `https://login.microsoftonline.com/<tenant-id>/`
 
-De tenant-ID geeft de Azure AD-tenant te gebruiken voor verificatie. Dit wordt ook wel de Directory-ID genoemd. Als u de Tenant-ID wilt ophalen,  gaat u naar de overzichts pagina voor de registratie van uw app in de Azure Portal en kopieert u de waarde daar.
+De tenant-ID geeft de Azure AD-tenant te gebruiken voor verificatie. Dit wordt ook wel de Directory-ID genoemd. Als u de Tenant-ID wilt ophalen, gaat u naar de overzichts pagina voor de registratie van uw app in de Azure Portal en kopieert u de waarde daar.
 
 ### <a name="azure-storage-resource-id"></a>Resource-ID Azure Storage
 

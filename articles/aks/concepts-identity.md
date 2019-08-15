@@ -1,6 +1,6 @@
 ---
-title: Concepten - toegang en identiteit in Azure Kubernetes Services (AKS)
-description: Meer informatie over toegang en identiteit in Azure Kubernetes Service (AKS), met inbegrip van Azure Active Directory-integratie, Kubernetes-op rollen gebaseerd toegangsbeheer (RBAC), en rollen en -bindingen.
+title: 'Concepten: toegang en identiteit in azure Kubernetes Services (AKS)'
+description: Meer informatie over toegang en identiteit in azure Kubernetes service (AKS), met inbegrip van Azure Active Directory integratie, Kubernetes op rollen gebaseerd toegangs beheer (RBAC) en rollen en bindingen.
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,82 +8,82 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
 ms.openlocfilehash: a1ed1eccd7a10d78cd503559469654e5562cde0c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67615869"
 ---
-# <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opties voor toegang en identiteit voor Azure Kubernetes Service (AKS)
+# <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opties voor toegang en identiteiten voor Azure Kubernetes service (AKS)
 
-Er zijn verschillende manieren om te verifiëren met en Kubernetes-clusters beveiligen. Met behulp van op rollen gebaseerd toegangsbeheer (RBAC), verleent u gebruikers of groepen toegang tot alleen de resources die ze nodig hebben. Met Azure Kubernetes Service (AKS), kunt u verder verbeteren van de structuur van de beveiliging en machtigingen met behulp van Azure Active Directory. Deze methoden bij het beveiligen van uw werkbelastingen van toepassingen en gegevens van de klant.
+Er zijn verschillende manieren om te verifiëren met en beveiligde Kubernetes-clusters. Met op rollen gebaseerde toegangs beheer (RBAC) kunt u gebruikers of groepen alleen toegang geven tot de resources die ze nodig hebben. Met Azure Kubernetes service (AKS) kunt u de structuur van beveiliging en machtigingen verder verbeteren met behulp van Azure Active Directory. Deze benaderingen helpen u bij het beveiligen van de werk belastingen en klant gegevens van uw toepassing.
 
-In dit artikel worden de belangrijkste concepten die u helpen bij verifiëren en toewijzen van machtigingen in AKS geïntroduceerd:
+In dit artikel worden de belangrijkste concepten geïntroduceerd die u helpen bij het verifiëren en toewijzen van machtigingen in AKS:
 
-- [Kubernetes service-accounts](#kubernetes-service-accounts)
-- [Azure Active Directory-integratie](#azure-active-directory-integration)
-- [Op rollen gebaseerd toegangsbeheer (RBAC)](#role-based-access-controls-rbac)
-- [Functies en ClusterRoles](#roles-and-clusterroles)
+- [Kubernetes-service accounts](#kubernetes-service-accounts)
+- [Integratie van Azure Active Directory](#azure-active-directory-integration)
+- [Op rollen gebaseerde toegangs beheer (RBAC)](#role-based-access-controls-rbac)
+- [Rollen en ClusterRoles](#roles-and-clusterroles)
 - [RoleBindings en ClusterRoleBindings](#rolebindings-and-clusterrolebindings)
 
-## <a name="kubernetes-service-accounts"></a>Kubernetes service-accounts
+## <a name="kubernetes-service-accounts"></a>Kubernetes-service accounts
 
-Een van de primaire gebruiker typt in Kubernetes is een *-serviceaccount*. Een service-account bestaat, en wordt beheerd door de Kubernetes-API. De referenties voor service-accounts worden opgeslagen als geheimen voor Kubernetes, waardoor ze moeten worden gebruikt door een geautoriseerde schillen om te communiceren met de API-Server. De meeste API-aanvragen bieden een verificatietoken voor een service-account of een normaal gebruikersaccount.
+Een van de primaire gebruikers typen in Kubernetes is een *Service account*. Er bestaat een service account in en wordt beheerd door de Kubernetes-API. De referenties voor service accounts worden opgeslagen als Kubernetes geheimen, waardoor ze kunnen worden gebruikt door geautoriseerde peul om te communiceren met de API-server. De meeste API-aanvragen bieden een verificatie token voor een service account of een normaal gebruikers account.
 
-Normale gebruikersaccounts toestaan meer traditionele toegang voor menselijke beheerders of ontwikkelaars, niet alleen services en processen. Kubernetes zelf biedt geen een oplossing voor identiteitsbeheer waar gewone gebruikersaccounts en wachtwoorden worden opgeslagen. Externe id-oplossingen kunnen in plaats daarvan worden geïntegreerd in Kubernetes. Voor clusters met AKS is deze identiteitsoplossing geïntegreerde Azure Active Directory.
+Normale gebruikers accounts staan meer traditionele toegang toe voor beheerders of ontwikkel aars van personen, niet alleen voor services en processen. Kubernetes zelf biedt geen oplossing voor identiteits beheer waar reguliere gebruikers accounts en wacht woorden worden opgeslagen. In plaats daarvan kunnen externe identiteits oplossingen worden geïntegreerd in Kubernetes. Voor AKS-clusters is deze geïntegreerde identiteits oplossing Azure Active Directory.
 
-Zie voor meer informatie over de identiteitsopties in Kubernetes [Kubernetes verificatie][kubernetes-authentication].
+Zie [Kubernetes-verificatie][kubernetes-authentication]voor meer informatie over de identiteits opties in Kubernetes.
 
 ## <a name="azure-active-directory-integration"></a>Integratie van Azure Active Directory
 
-De beveiliging van AKS-clusters kan worden uitgebreid met de integratie van Azure Active Directory (AD). Gebouwd op tientallen jaren van enterprise identity management, is Azure AD een multitenant, cloudgebaseerde directory, en identity management-service die belangrijke directoryservices, toegangsbeheer voor toepassingen en Identiteitsbescherming combineert. Met Azure AD, kunt u on-premises identiteiten integreren in AKS-clusters voor één bron voor accountbeheer en beveiliging.
+De beveiliging van AKS-clusters kan worden uitgebreid met de integratie van Azure Active Directory (AD). Azure AD is gebouwd op tien tallen bedrijfs identiteits beheer en is een multi tenant-, Cloud-en identiteits beheer service die belang rijke Directory Services, Toegangs beheer voor toepassingen en identiteits beveiliging combineert. Met Azure AD kunt u on-premises identiteiten integreren in AKS-clusters om één bron te bieden voor account beheer en beveiliging.
 
-![Azure Active Directory-integratie met AKS-clusters](media/concepts-identity/aad-integration.png)
+![Integratie met AKS-clusters Azure Active Directory](media/concepts-identity/aad-integration.png)
 
-Met Azure AD geïntegreerde AKS-clusters verleent u gebruikers of groepen toegang tot de Kubernetes-resources binnen een naamruimte of in het cluster. Verkrijgen van een `kubectl` configuratiecontext, een gebruiker kan worden uitgevoerd de [az aks get-credentials][az-aks-get-credentials] opdracht. Wanneer een gebruiker vervolgens communiceert met de AKS-cluster met `kubectl`, ze zich aanmelden met hun Azure AD-referenties wordt gevraagd. Deze benadering biedt één bron voor het beheer van gebruikersaccounts en wachtwoord opgeven. De gebruiker kan alleen toegang tot de resources, zoals gedefinieerd door de Clusterbeheerder van de.
+Met Azure AD geïntegreerde AKS-clusters kunt u gebruikers of groepen toegang verlenen tot Kubernetes-resources binnen een naam ruimte of in het cluster. Een gebruiker kan `kubectl` een configuratie context verkrijgen door de opdracht [AZ AKS Get-credentials][az-aks-get-credentials] uit te voeren. Wanneer een gebruiker vervolgens met het AKS-cluster communiceert `kubectl`met, wordt ze gevraagd zich aan te melden met hun Azure AD-referenties. Deze benadering biedt één bron voor gebruikers account beheer en wachtwoord referenties. De gebruiker heeft alleen toegang tot de resources zoals gedefinieerd door de Cluster beheerder.
 
-Azure AD-verificatie in AKS clusters maakt gebruik van de OpenID Connect, een identiteitslaag is gebaseerd op het OAuth 2.0-protocol. OAuth 2.0 definieert mechanismen voor het verkrijgen en gebruiken van toegangstokens toegang krijgen tot beveiligde bronnen en verificatie als een uitbreiding van het autorisatieproces van OAuth 2.0 OpenID Connect implementeert. Zie voor meer informatie over het OpenID Connect, de [Open ID Connect documentatie][openid-connect]. To verify the authentication tokens obtained from Azure AD through OpenID Connect, AKS clusters use Kubernetes Webhook Token Authentication. For more information, see the [Webhook Token Authentication documentation][webhook-token-docs].
+Azure AD-verificatie in AKS-clusters maakt gebruik van OpenID Connect Connect, een laag-id die boven op het OAuth 2,0-protocol is gebouwd. OAuth 2,0 definieert mechanismen voor het verkrijgen en gebruiken van toegangs tokens voor toegang tot beveiligde bronnen en OpenID Connect Connect implementeert verificatie als een uitbrei ding van het OAuth 2,0-autorisatie proces. Voor meer informatie over OpenID Connect Connect raadpleegt u de [Open-ID Connect-documentatie][openid-connect]. Voor het controleren van de verificatie tokens die zijn verkregen via Azure AD via OpenID Connect Connect, maken AKS-clusters gebruik van Kubernetes webhook-token verificatie. Zie de documentatie voor webhook- [token verificatie][webhook-token-docs]voor meer informatie.
 
-## <a name="role-based-access-controls-rbac"></a>Op rollen gebaseerd toegangsbeheer (RBAC)
+## <a name="role-based-access-controls-rbac"></a>Op rollen gebaseerde toegangs beheer (RBAC)
 
-Kubernetes maakt gebruik van op rollen gebaseerd toegangsbeheer (RBAC) voor gedetailleerde filteren van de acties die gebruikers kunnen uitvoeren. Dit mechanisme voor toegangsbeheer kunt u gebruikers toe te wijzen, of groepen gebruikers, toestemming voor handelingen zoals maken of wijzigen van resources of weergeven van Logboeken van het uitvoeren van werkbelastingen van toepassingen. Deze machtigingen worden afgestemd op één enkele naamruimte of verleend voor het hele AKS-cluster. Met RBAC Kubernetes, maakt u *rollen* voor het definiëren van machtigingen en vervolgens deze rollen toewijzen aan gebruikers met *rol bindingen*.
+Kubernetes maakt gebruik van op rollen gebaseerde toegangs beheer (RBAC) om nauw keurig filteren te bieden van de acties die gebruikers kunnen uitvoeren. Met dit besturings systeem kunt u gebruikers of groepen gebruikers toewijzen, machtigingen geven om resources te maken of te wijzigen, of logboeken van actieve werk belastingen van toepassingen bekijken. Deze machtigingen kunnen worden ingesteld op een enkele naam ruimte of worden toegestaan in het hele AKS-cluster. Met Kubernetes RBAC maakt u *rollen* om machtigingen te definiëren en wijst u deze rollen vervolgens toe aan gebruikers met *functie bindingen*.
 
-Zie voor meer informatie, [met behulp van RBAC-autorisatie][kubernetes-rbac].
+Zie [using RBAC Authorization][kubernetes-rbac](Engelstalig) voor meer informatie.
 
-### <a name="azure-role-based-access-controls-rbac"></a>Azure op rollen gebaseerd toegangsbeheer (RBAC)
-Een aanvullend mechanisme voor het beheren van toegang tot resources is Azure op rollen gebaseerd toegangsbeheer (RBAC). Kubernetes RBAC is ontworpen voor gebruik van resources in uw AKS-cluster en Azure RBAC is ontworpen voor gebruik op resources binnen uw Azure-abonnement. Met Azure RBAC, maakt u een *roldefinitie* die geeft een overzicht van de machtigingen om te worden toegepast. Een gebruiker of groep krijgt vervolgens deze roldefinitie voor een bepaalde *bereik*, die een afzonderlijke resource, een resource, groep of voor het abonnement kan zijn.
+### <a name="azure-role-based-access-controls-rbac"></a>Op rollen gebaseerd toegangs beheer (RBAC) van Azure
+Een aanvullend mechanisme voor het beheren van de toegang tot resources is op rollen gebaseerd toegangs beheer (RBAC) van Azure. Kubernetes RBAC is ontworpen om te werken aan resources in uw AKS-cluster en Azure RBAC is ontworpen om te werken aan resources in uw Azure-abonnement. Met Azure RBAC maakt u een *roldefinitie* waarin de machtigingen worden beschreven die moeten worden toegepast. Vervolgens wordt aan een gebruiker of groep de functie definitie toegewezen voor een bepaald *bereik*. Dit kan een afzonderlijke resource, een resource groep of het hele abonnement zijn.
 
-Zie voor meer informatie, [wat is Azure RBAC?][azure-rbac]
+Zie [Wat is Azure RBAC?][azure-rbac] voor meer informatie.
 
-## <a name="roles-and-clusterroles"></a>Functies en ClusterRoles
+## <a name="roles-and-clusterroles"></a>Rollen en ClusterRoles
 
-Voordat u machtigingen aan gebruikers met Kubernetes RBAC toewijzen, definieert u eerst de juiste machtigingen als een *rol*. Kubernetes-rollen *verlenen* machtigingen. Er is geen concept van een *weigeren* machtiging.
+Voordat u machtigingen toewijst aan gebruikers met Kubernetes RBAC, definieert u eerst die machtigingen als een *rol*. Kubernetes-rollen *verlenen* machtigingen. Er is geen principe voor het *weigeren* van machtigingen.
 
-Rollen worden gebruikt voor het verlenen van machtigingen in een naamruimte. Als u nodig hebt om machtigingen te verlenen in het hele cluster of cluster bronnen buiten een bepaalde naamruimte, kunt u in plaats daarvan gebruiken *ClusterRoles*.
+Rollen worden gebruikt voor het verlenen van machtigingen binnen een naam ruimte. Als u machtigingen wilt verlenen voor het hele cluster of als u cluster bronnen buiten een bepaalde naam ruimte wilt toewijzen, kunt u in plaats daarvan *ClusterRoles*gebruiken.
 
-Een ClusterRole werkt op dezelfde manier voor het verlenen van machtigingen voor resources, maar kan worden toegepast op resources in het hele cluster, niet een bepaalde naamruimte.
+Een ClusterRole werkt op dezelfde manier om machtigingen te verlenen aan resources, maar kan worden toegepast op resources in het hele cluster, niet op een specifieke naam ruimte.
 
 ## <a name="rolebindings-and-clusterrolebindings"></a>RoleBindings en ClusterRoleBindings
 
-Nadat rollen zijn gedefinieerd voor het verlenen van machtigingen voor resources, wijst u toe die Kubernetes RBAC-machtigingen met een *RoleBinding*. Als uw AKS-cluster kan worden geïntegreerd met Azure Active Directory, zijn bindingen hoe deze Azure AD-gebruikers zijn gemachtigd om uit te voeren acties binnen het cluster.
+Zodra rollen zijn gedefinieerd om machtigingen te verlenen voor bronnen, wijst u deze Kubernetes RBAC-machtigingen toe aan een *RoleBinding*. Als uw AKS-cluster wordt geïntegreerd met Azure Active Directory, zijn bindingen de manier waarop de Azure AD-gebruikers machtigingen krijgen om acties in het cluster uit te voeren.
 
-Rol bindingen worden gebruikt voor het toewijzen van rollen voor een bepaalde naamruimte. Deze aanpak kunt u een één AKS-cluster, met gebruikers alleen toegang krijgen tot de toepassingsresources in hun toegewezen naamruimte logische manier te scheiden. Als u binden van rollen in het hele cluster of cluster bronnen buiten een bepaalde naamruimte wilt, kunt u in plaats daarvan gebruiken *ClusterRoleBindings*.
+Roltoewijzingen worden gebruikt voor het toewijzen van rollen voor een bepaalde naam ruimte. Met deze benadering kunt u een enkel AKS-cluster logisch scheiden, met gebruikers die alleen toegang hebben tot de toepassings resources in hun toegewezen naam ruimte. Als u rollen moet binden in het hele cluster of als u cluster bronnen buiten een bepaalde naam ruimte wilt koppelen, kunt u in plaats daarvan *ClusterRoleBindings*gebruiken.
 
-Een ClusterRoleBinding werkt op dezelfde manier binden rollen aan gebruikers, maar kan worden toegepast op resources in het hele cluster, niet een bepaalde naamruimte. Deze aanpak kunt u beheerders verlenen of ondersteuning voor technici toegang tot alle resources in het AKS-cluster.
+Een ClusterRoleBinding werkt op dezelfde manier om rollen aan gebruikers te binden, maar kan worden toegepast op resources in het hele cluster, niet op een specifieke naam ruimte. Met deze aanpak kunt u beheerders of ondersteunings technici toegang verlenen tot alle resources in het AKS-cluster.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Aan de slag met Azure AD en Kubernetes RBAC, Zie [Integreer Azure Active Directory met AKS][aks-aad].
+Zie [Azure Active Directory integreren met AKS][aks-aad]om aan de slag te gaan met Azure AD en Kubernetes RBAC.
 
-Zie voor de bijbehorende best practices, [aanbevolen procedures voor verificatie en autorisatie in AKS][operator-best-practices-identity].
+Zie [Aanbevolen procedures voor verificatie en autorisatie in AKS][operator-best-practices-identity]voor gekoppelde aanbevolen procedures.
 
-Zie de volgende artikelen voor meer informatie over core Kubernetes en concepten voor AKS:
+Raadpleeg de volgende artikelen voor meer informatie over de belangrijkste Kubernetes-en AKS-concepten:
 
-- [Kubernetes / AKS-clusters en workloads][aks-concepts-clusters-workloads]
-- [Kubernetes / AKS-beveiliging][aks-concepts-security]
-- [Kubernetes / AKS virtuele netwerken][aks-concepts-network]
-- [Kubernetes / AKS-opslag][aks-concepts-storage]
-- [Kubernetes / AKS schalen][aks-concepts-scale]
+- [Kubernetes/AKS-clusters en-workloads][aks-concepts-clusters-workloads]
+- [Kubernetes/AKS-beveiliging][aks-concepts-security]
+- [Kubernetes/AKS virtuele netwerken][aks-concepts-network]
+- [Kubernetes/AKS-opslag][aks-concepts-storage]
+- [Kubernetes/AKS-schaal][aks-concepts-scale]
 
 <!-- LINKS - External -->
 [kubernetes-authentication]: https://kubernetes.io/docs/reference/access-authn-authz/authentication

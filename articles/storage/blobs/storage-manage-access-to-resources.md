@@ -1,6 +1,6 @@
 ---
-title: Openbare leestoegang voor containers en blobs in Azure Blob-opslag inschakelen | Microsoft Docs
-description: Leer hoe u containers en blobs beschikbaar voor anonieme toegang, en hoe u ze via een programma te openen.
+title: Open bare Lees toegang voor containers en blobs in Azure Blob-opslag inschakelen | Microsoft Docs
+description: Meer informatie over het maken van containers en blobs beschikbaar voor anonieme toegang en hoe u deze via een programma kunt openen.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,58 +8,58 @@ ms.topic: article
 ms.date: 04/30/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: e0f93b0a95a228b26fae266129aea4b595b05e0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6293fc84969c4e246c05da4482f76142263db230
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148353"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985547"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Anonieme leestoegang tot containers en blobs beheren
 
-U kunt anoniem, openbare leestoegang tot een container en de blobs in Azure Blob-opslag inschakelen. Op deze manier kunt u alleen-lezen toegang tot deze resources verlenen zonder het delen van uw accountsleutel en zonder een shared access signature (SAS).
+U kunt anonieme, open bare Lees toegang inschakelen voor een container en de bijbehorende blobs in Azure Blob-opslag. Door dit te doen, kunt u alleen-lezen toegang verlenen aan deze resources zonder uw account sleutel te delen en zonder een Shared Access Signature (SAS).
 
-Openbare leestoegang wordt aanbevolen voor scenario's waar u bepaalde blobs moet altijd beschikbaar voor anonieme toegang voor lezen. Voor preciezere beheermogelijkheden kunt u een shared access signature maken. Handtekeningen voor gedeelde toegang kunnen u beperkte toegang met behulp van verschillende machtigingen voor een bepaalde periode te bieden. Voor meer informatie over het maken van gedeelde toegangshandtekeningen, Zie [Using shared access signatures (SAS) in Azure Storage](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Open bare Lees toegang is het beste voor scenario's waarin u wilt dat bepaalde blobs altijd beschikbaar zijn voor anonieme lees toegang. Voor meer nauw keurige controle kunt u een gedeelde toegangs handtekening maken. Met hand tekeningen voor gedeelde toegang kunt u beperkte toegang bieden met behulp van verschillende machtigingen, voor een specifieke periode. Zie [using Shared Access signatures (SAS) (Engelstalig) in azure Storage](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)voor meer informatie over het maken van hand tekeningen voor gedeelde toegang.
 
-## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Anonieme gebruikersmachtigingen verlenen voor containers en blobs
+## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Anonieme gebruikers machtigingen verlenen aan containers en blobs
 
-Standaard kunnen een container en alle bestaande blobs erin alleen worden geopend door een gebruiker die de juiste machtigingen heeft gekregen. Anonieme gebruikers lezen om toegang te verlenen tot een container en de blobs, kunt u de container openbaar toegangsniveau instellen. Wanneer u openbare toegang tot een container verlenen, kunnen anonieme gebruikers kunnen blobs in een openbaar toegankelijke container lezen zonder dat de aanvraag machtigen.
+Standaard kan een container en alle blobs in deze alleen worden geopend door een gebruiker die de juiste machtigingen heeft gekregen. Als u anonieme gebruikers lees toegang wilt verlenen voor een container en de bijbehorende blobs, kunt u het open bare toegangs niveau van de container instellen. Wanneer u open bare toegang verleent aan een container, kunnen anonieme gebruikers blobs lezen binnen een openbaar toegankelijke container zonder de aanvraag te autoriseren.
 
-U kunt een container configureren met de volgende machtigingen:
+U kunt een container met de volgende machtigingen configureren:
 
-* **Er zijn geen openbare leestoegang:** De container en de blobs kunnen alleen worden geopend door de eigenaar van het storage-account. Dit is de standaardinstelling voor alle nieuwe containers.
-* **Openbare leestoegang alleen voor blobs:** BLOBs in de container kunnen worden gelezen door anonieme aanvraag, maar de containergegevens is niet beschikbaar. Anonieme clients kunnen de blobs in de container niet inventariseren.
-* **Openbare leestoegang voor containers en de blobs:** Container- en blob-gegevens kunnen worden gelezen door anonieme aanvraag. Clients kunnen opsommen en blobs in de container door anonieme aanvraag, maar kunnen de containers in het opslagaccount niet opsommen.
+* **Geen open bare Lees toegang:** De container en de blobs kunnen alleen worden geopend door de eigenaar van het opslag account. Dit is de standaard waarde voor alle nieuwe containers.
+* **Open bare Lees toegang alleen voor blobs:** Blobs in de container kunnen worden gelezen door anonieme aanvragen, maar er zijn geen container gegevens beschikbaar. Anonieme clients kunnen de blobs in de container niet inventariseren.
+* **Open bare Lees toegang voor container en de bijbehorende blobs:** Alle container-en BLOB-gegevens kunnen door anonieme aanvragen worden gelezen. Clients kunnen blobs in de container inventariseren door anonieme aanvragen, maar kunnen containers niet inventariseren binnen het opslag account.
 
-U kunt de volgende containermachtigingen in te stellen:
+U kunt het volgende gebruiken om container machtigingen in te stellen:
 
-* [Azure Portal](https://portal.azure.com)
+* [Azure-portal](https://portal.azure.com)
 * [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Azure-CLI](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
-* Via een programma, met behulp van een van de storage-clientbibliotheken of de REST-API
+* Programmatisch, met behulp van een van de opslag-client bibliotheken of de REST API
 
-### <a name="set-container-public-access-level-in-the-azure-portal"></a>Container openbaar toegangsniveau instellen in Azure portal
+### <a name="set-container-public-access-level-in-the-azure-portal"></a>Stel een openbaar toegangs niveau in voor de container in de Azure Portal
 
-Uit de [Azure-portal](https://portal.azure.com), kunt u het niveau openbare toegang voor een of meer containers bijwerken:
+Vanuit het [Azure Portal](https://portal.azure.com)kunt u het niveau van open bare toegang voor een of meer containers bijwerken:
 
 1. Ga in Azure Portal naar uw opslagaccount.
-1. Onder **Blob-service** Selecteer op de blade menu **Blobs**.
-1. Selecteer de containers waarvoor u wilt instellen van het niveau van de openbare toegang.
-1. Gebruik de **toegangsniveau wijzigen** knop om de instellingen van de openbare toegang te geven.
-1. Selecteer de gewenste openbaar toegangsniveau van de **openbaar toegangsniveau** vervolgkeuzelijst en klik op de knop OK om de wijziging toepassen op de geselecteerde containers.
+1. Selecteer onder **BLOB service** op de menu Blade de optie **blobs**.
+1. Selecteer de containers waarvoor u het niveau van open bare toegang wilt instellen.
+1. Gebruik de knop **toegangs niveau wijzigen** om de instellingen voor open bare toegang weer te geven.
+1. Selecteer het gewenste open bare toegangs niveau van de vervolg keuzelijst **openbaar toegangs niveau** en klik op de knop OK om de wijziging toe te passen op de geselecteerde containers.
 
-De volgende schermafbeelding ziet u hoe u het niveau openbare toegang voor de geselecteerde containers wijzigen.
+De volgende scherm afbeelding laat zien hoe u het niveau van open bare toegang voor de geselecteerde containers kunt wijzigen.
 
-![Schermopname die laat zien hoe niveau openbare toegang instelt in de portal](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+![Scherm afbeelding die laat zien hoe u het niveau van open bare toegang instelt in de portal](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 > [!NOTE]
-> U kunt het niveau openbare toegang voor een afzonderlijke blob niet wijzigen. Niveau openbare toegang is ingesteld op het niveau van de container.
+> U kunt het niveau van de open bare toegang voor een afzonderlijke BLOB niet wijzigen. Niveau van open bare toegang wordt alleen op container niveau ingesteld.
 
-### <a name="set-container-public-access-level-with-net"></a>Instellen van de container openbaar toegangsniveau met .NET
+### <a name="set-container-public-access-level-with-net"></a>Het niveau van open bare toegang tot de container instellen met .NET
 
-Voor het instellen van machtigingen voor een container met behulp van C# en de Storage-clientbibliotheek voor .NET, eerst ophalen van de bestaande machtigingen van de container door het aanroepen van de **GetPermissions** methode. Stel vervolgens de **PublicAccess** eigenschap voor de **BlobContainerPermissions** object dat wordt geretourneerd door de **GetPermissions** methode. Roep ten slotte de **SetPermissions** methode met de bijgewerkte machtigingen.
+Als u machtigingen wilt instellen voor een C# container met en de Storage-client bibliotheek voor .net, moet u eerst de bestaande machtigingen van de container ophalen door de methode **GetPermissions** aan te roepen. Stel vervolgens de eigenschap **PublicAccess** in voor het **BlobContainerPermissions** -object dat wordt geretourneerd door de methode **GetPermissions** . Roep ten slotte de **SetPermissions** -methode aan met de bijgewerkte machtigingen.
 
-Het volgende voorbeeld wordt de machtigingen van de container naar volledige openbare leestoegang. Om in te stellen van machtigingen voor openbare leestoegang voor blobs alleen de **PublicAccess** eigenschap **BlobContainerPublicAccessType.Blob**. Als u wilt verwijderen van alle machtigingen voor anonieme gebruikers, kunt u de eigenschap instellen op **BlobContainerPublicAccessType.Off**.
+In het volgende voor beeld worden de machtigingen van de container ingesteld op volledige open bare Lees toegang. Als u machtigingen wilt instellen op open bare Lees toegang voor blobs, stelt u de eigenschap **PublicAccess** in op **BlobContainerPublicAccessType. blob**. Als u alle machtigingen voor anonieme gebruikers wilt verwijderen, stelt u de eigenschap in op **BlobContainerPublicAccessType. off**.
 
 ```csharp
 public static void SetPublicContainerPermissions(CloudBlobContainer container)
@@ -70,13 +70,13 @@ public static void SetPublicContainerPermissions(CloudBlobContainer container)
 }
 ```
 
-## <a name="access-containers-and-blobs-anonymously"></a>Toegang tot containers en blobs anoniem
+## <a name="access-containers-and-blobs-anonymously"></a>Anoniem toegang krijgen tot containers en blobs
 
-Een client die toegang heeft tot containers en blobs anoniem kan constructors waarvoor geen referenties gebruiken. De volgende voorbeelden ziet een aantal verschillende manieren om te verwijzen naar containers en blobs anoniem.
+Een client die toegang heeft tot containers en blobs anoniem kan gebruikmaken van constructors waarvoor geen referenties zijn vereist. In de volgende voor beelden ziet u een aantal verschillende manieren om te verwijzen naar containers en blobs anoniem.
 
-### <a name="create-an-anonymous-client-object"></a>Een anonieme clientobject maken
+### <a name="create-an-anonymous-client-object"></a>Een anoniem client object maken
 
-U kunt een nieuwe service-clientobject voor anonieme toegang maken door op te geven van het eindpunt van Blob storage voor het account. U moet echter ook de naam van een container in het account dat beschikbaar is voor anonieme toegang weten.
+U kunt een nieuw service-client object voor anonieme toegang maken door het eind punt van de Blob-opslag voor het account op te geven. U moet echter ook de naam weten van een container in dat account die beschikbaar is voor anonieme toegang.
 
 ```csharp
 public static void CreateAnonymousBlobClient()
@@ -94,9 +94,9 @@ public static void CreateAnonymousBlobClient()
 }
 ```
 
-### <a name="reference-a-container-anonymously"></a>Een container anoniem verwijzen naar
+### <a name="reference-a-container-anonymously"></a>Anoniem verwijzen naar een container
 
-Als u de URL naar een container die anoniem beschikbaar hebt, kunt u deze rechtstreeks verwijzen naar de container.
+Als u de URL naar een container hebt die anoniem beschikbaar is, kunt u deze gebruiken om rechtstreeks naar de container te verwijzen.
 
 ```csharp
 public static void ListBlobsAnonymously()
@@ -112,9 +112,9 @@ public static void ListBlobsAnonymously()
 }
 ```
 
-### <a name="reference-a-blob-anonymously"></a>Een blob anoniem verwijzen naar
+### <a name="reference-a-blob-anonymously"></a>Anoniem verwijzen naar een BLOB
 
-Als u de URL naar een blob die beschikbaar is voor anonieme toegang hebt, kunt u verwijzen naar de blob die URL rechtstreeks gebruiken:
+Als u de URL naar een BLOB hebt die beschikbaar is voor anonieme toegang, kunt u rechtstreeks naar de BLOB verwijzen met behulp van die URL:
 
 ```csharp
 public static void DownloadBlobAnonymously()
@@ -126,38 +126,38 @@ public static void DownloadBlobAnonymously()
 
 ## <a name="features-available-to-anonymous-users"></a>Functies die beschikbaar zijn voor anonieme gebruikers
 
-De volgende tabel ziet u welke bewerkingen kunnen worden aangeroepen anoniem wanneer een container is geconfigureerd voor openbare toegang.
+In de volgende tabel ziet u welke bewerkingen anoniem kunnen worden aangeroepen wanneer een container wordt geconfigureerd voor open bare toegang.
 
-| REST-bewerking | Openbare leestoegang tot de container | Openbare leestoegang alleen voor blobs |
+| REST-bewerking | Open bare Lees toegang tot container | Openbare leestoegang alleen voor blobs |
 | --- | --- | --- |
-| Lijst met Containers | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
+| Containers weer geven | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
 | Container maken | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
-| Eigenschappen van de Container ophalen | Anonieme aanvragen dat is toegestaan | Alleen geautoriseerde aanvragen |
-| De Containermetagegevens van de ophalen | Anonieme aanvragen dat is toegestaan | Alleen geautoriseerde aanvragen |
-| De Containermetagegevens van de instellen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
-| Container ACL ophalen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
-| Container ACL instellen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
+| Container eigenschappen ophalen | Anonieme aanvragen toegestaan | Alleen geautoriseerde aanvragen |
+| Meta gegevens van container ophalen | Anonieme aanvragen toegestaan | Alleen geautoriseerde aanvragen |
+| Meta gegevens van container instellen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
+| Container-ACL ophalen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
+| Container-ACL instellen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
 | Container verwijderen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
-| Lijst met Blobs | Anonieme aanvragen dat is toegestaan | Alleen geautoriseerde aanvragen |
-| Blob plaatsen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
-| Blob ophalen | Anonieme aanvragen dat is toegestaan | Anonieme aanvragen dat is toegestaan |
-| Blobeigenschappen ophalen | Anonieme aanvragen dat is toegestaan | Anonieme aanvragen dat is toegestaan |
-| Blobeigenschappen instellen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
-| De Blobmetagegevens van de ophalen | Anonieme aanvragen dat is toegestaan | Anonieme aanvragen dat is toegestaan |
-| Instellen van de metagegevens van de Blob | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
-| Blok plaatsen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
-| Lijst met geblokkeerde websites (alleen toegezegde blokken) ophalen | Anonieme aanvragen dat is toegestaan | Anonieme aanvragen dat is toegestaan |
-| Lijst met geblokkeerde websites (alleen niet-doorgevoerde blokken of alle blokken) ophalen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
-| Lijst met geblokkeerde websites plaatsen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
+| Blobs weer geven | Anonieme aanvragen toegestaan | Alleen geautoriseerde aanvragen |
+| BLOB plaatsen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
+| BLOB ophalen | Anonieme aanvragen toegestaan | Anonieme aanvragen toegestaan |
+| BLOB-eigenschappen ophalen | Anonieme aanvragen toegestaan | Anonieme aanvragen toegestaan |
+| BLOB-eigenschappen instellen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
+| De metagegevens van de blob ophalen | Anonieme aanvragen toegestaan | Anonieme aanvragen toegestaan |
+| BLOB-meta gegevens instellen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
+| Blok keren | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
+| Blokkerings lijst ophalen (alleen toegewezen blokken) | Anonieme aanvragen toegestaan | Anonieme aanvragen toegestaan |
+| Blokkerings lijst ophalen (alleen niet-toegewezen blokken of alle blokken) | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
+| Blokkerings lijst plaatsen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
 | Blob verwijderen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
 | Blob kopiëren | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
-| Momentopname maken van Blob | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
-| Lease-Blob | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
+| Moment opname-BLOB | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
+| Lease-BLOB | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
 | Pagina plaatsen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
-| Get Page-bereiken | Anonieme aanvragen dat is toegestaan | Anonieme aanvragen dat is toegestaan |
-| Toevoeg-Blob | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
+| Paginabereiken ophalen | Anonieme aanvragen toegestaan | Anonieme aanvragen toegestaan |
+| Blob toevoegen | Alleen geautoriseerde aanvragen | Alleen geautoriseerde aanvragen |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Autorisatie voor de Azure Storage-Services](https://docs.microsoft.com/rest/api/storageservices/authorization-for-the-azure-storage-services)
-* [Shared Access Signatures (SAS) gebruiken](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Autorisatie voor de Azure Storage services](https://docs.microsoft.com/rest/api/storageservices/authorization-for-the-azure-storage-services)
+* [Shared Access signatures (SAS) gebruiken](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

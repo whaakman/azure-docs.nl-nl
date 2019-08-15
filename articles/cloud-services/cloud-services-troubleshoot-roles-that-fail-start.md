@@ -1,6 +1,6 @@
 ---
-title: Functies die niet worden gestart oplossen | Microsoft Docs
-description: Hier volgen enkele veelvoorkomende redenen waarom een cloudservicerol kan niet worden gestart. Oplossingen voor deze problemen worden ook gegeven.
+title: Problemen oplossen met rollen die niet worden gestart | Microsoft Docs
+description: Hier volgen enkele veelvoorkomende redenen waarom een Cloud service functie niet kan worden gestart. Er worden ook oplossingen voor deze problemen gegeven.
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
@@ -9,120 +9,119 @@ editor: ''
 tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e1ae9ca6106a6a55e0cfc933ad47a5944ed5abb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60653364"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945397"
 ---
-# <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Problemen oplossen van cloudservicerollen die niet worden gestart
-Hier volgen enkele veelvoorkomende problemen en oplossingen met betrekking tot Azure Cloud Services functies die niet worden gestart.
+# <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Problemen met Cloud service rollen oplossen die niet worden gestart
+Hier volgen enkele veelvoorkomende problemen en oplossingen met betrekking tot Azure Cloud Services-rollen die niet worden gestart.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="missing-dlls-or-dependencies"></a>Ontbrekende dll's of afhankelijkheden
-Niet-reagerende rollen en functies die zijn achterblijvende tussen **Bezig met initialiseren**, **bezet**, en **stoppen** Staten kunnen worden veroorzaakt door ontbrekende dll's of assembly's.
+## <a name="missing-dlls-or-dependencies"></a>Ontbrekende Dll's of afhankelijkheden
+Niet-reagerende rollen en rollen die worden uitgevoerd tussen de initialisatie, **bezet**en **het** **stoppen** van de status, kunnen worden veroorzaakt door ontbrekende dll's of assembly's.
 
-Symptomen van het ontbrekende dll's of assembly's zijn:
+Symptomen van ontbrekende Dll's of assembly's kunnen zijn:
 
-* Uw rolinstantie wordt doorlopen **Bezig met initialiseren**, **bezet**, en **stoppen** Staten.
-* Uw rolinstantie is verplaatst naar **gereed** , maar als u naar uw web-App navigeren, de pagina niet wordt weergegeven.
+* Uw rolinstantie wordt uitgevoerd door de **initialisatie**, **bezet**en de status van het **stoppen** .
+* De rolinstantie is verplaatst naar **gereed** , maar als u naar uw webtoepassing navigeert, wordt de pagina niet weer gegeven.
 
-Er zijn enkele aanbevolen methoden voor het onderzoeken van deze problemen.
+Er zijn verschillende aanbevolen methoden om deze problemen te onderzoeken.
 
-## <a name="diagnose-missing-dll-issues-in-a-web-role"></a>Vaststellen van problemen met ontbrekende dll-bestand in een Webrol
-Wanneer u gaat u naar een website die wordt geïmplementeerd in een web-rol en de browser een vergelijkbaar met de volgende serverfout wordt weergegeven, kan dit betekenen dat een DLL-bestand ontbreekt.
+## <a name="diagnose-missing-dll-issues-in-a-web-role"></a>Ontbrekende DLL-problemen in een webfunctie diagnosticeren
+Wanneer u navigeert naar een website die is geïmplementeerd in een webrole, en de browser een server fout weergeeft die lijkt op het volgende, kan dit erop duiden dat er een DLL-bestand ontbreekt.
 
-![Serverfout in '/' Application.](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
+![Server fout in/-toepassing.](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
 
-## <a name="diagnose-issues-by-turning-off-custom-errors"></a>Problemen vaststellen door het uitschakelen van aangepaste fouten
-Volledig foutgegevens kunnen worden bekeken door te configureren van het bestand web.config voor de Webrol in de aangepaste foutpagina modus instellen op uitgeschakeld en de service opnieuw te implementeren.
+## <a name="diagnose-issues-by-turning-off-custom-errors"></a>Problemen vaststellen door aangepaste fouten uit te scha kelen
+Meer informatie over de fout kan worden weer gegeven door Web. config voor de webfunctie te configureren om de aangepaste fout modus in te stellen op uit en de service opnieuw te implementeren.
 
-Gedetailleerde fouten weergeven zonder gebruik van extern bureaublad:
+Meer volledige fouten weer geven zonder Extern bureaublad te gebruiken:
 
-1. Open de oplossing in Microsoft Visual Studio.
-2. In de **Solution Explorer**en zoek het bestand web.config en open deze.
-3. In het bestand web.config, zoek de sectie system.web en voeg de volgende regel toe:
+1. Open de oplossing in micro soft Visual Studio.
+2. Ga in het **Solution Explorer**naar het bestand Web. config en open het.
+3. Zoek in het bestand Web. config de sectie System. Web en voeg de volgende regel toe:
 
     ```xml
     <customErrors mode="Off" />
     ```
 4. Sla het bestand op.
-5. Verpakken en implementeer de service opnieuw.
+5. De service opnieuw te verpakken en opnieuw te implementeren.
 
-Zodra de service opnieuw is geïmplementeerd, ziet u een foutbericht weergegeven met de naam van de ontbrekende assembly of DLL-bestand.
+Zodra de service opnieuw is geïmplementeerd, wordt er een fout bericht weer gegeven met de naam van de ontbrekende assembly of DLL.
 
-## <a name="diagnose-issues-by-viewing-the-error-remotely"></a>Problemen vaststellen door de fout op afstand weer te geven
-U kunt Extern bureaublad gebruiken voor toegang tot de rol en gedetailleerde foutgegevens extern weergeven. Gebruik de volgende stappen uit om de fouten met behulp van extern bureaublad weer te geven:
+## <a name="diagnose-issues-by-viewing-the-error-remotely"></a>Problemen vaststellen door de fout op afstand te bekijken
+U kunt Extern bureaublad gebruiken om toegang te krijgen tot de rol en meer informatie over de fout extern te bekijken. Gebruik de volgende stappen om de fouten weer te geven met behulp van Extern bureaublad:
 
-1. Zorg ervoor dat de Azure SDK 1.3 of hoger is geïnstalleerd.
-2. Tijdens de implementatie van de oplossing met behulp van Visual Studio, extern bureaublad inschakelen. Zie voor meer informatie, [extern bureaublad inschakelen voor een rol in Azure Cloud Services met behulp van Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
-3. In de Microsoft Azure-portal, zodra het exemplaar de status van wordt **gereed**afstand verbinding met het exemplaar. Zie voor meer informatie over het gebruik van de extern bureaublad met Cloud Services, [afstand verbinding met de rolinstanties](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
-5. Meld u aan de virtuele machine met behulp van de referenties die zijn opgegeven bij de configuratie van extern bureaublad.
+1. Zorg ervoor dat Azure SDK 1,3 of hoger is geïnstalleerd.
+2. Schakel tijdens de implementatie van de oplossing met behulp van Visual Studio Extern bureaublad in. Zie [verbinding met extern bureaublad inschakelen voor een rol in Azure Cloud Services met behulp van Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)voor meer informatie.
+3. In de Microsoft Azure-portal, zodra het exemplaar de status **gereed**, extern in het exemplaar toont. Zie voor meer informatie over het gebruik van extern bureau blad met Cloud Services op [afstand in rolinstanties](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
+5. Meld u aan bij de virtuele machine met behulp van de referenties die zijn opgegeven tijdens de Extern bureaublad configuratie.
 6. Open een opdrachtvenster.
 7. Typ `IPconfig`.
-8. Noteer de waarde IPV4-adres.
+8. Noteer de waarde van het IPV4-adres.
 9. Open Internet Explorer.
-10. Typ het adres en de naam van de web-App. Bijvoorbeeld `http://<IPV4 Address>/default.aspx`.
+10. Typ het adres en de naam van de webtoepassing. Bijvoorbeeld `http://<IPV4 Address>/default.aspx`.
 
-Navigeren naar de website retourneert gedetailleerde foutberichten nu:
+Als u naar de website navigeert, worden er nu meer expliciete fout berichten weer gegeven:
 
-* Serverfout in '/' Application.
-* Beschrijving: Er is een onverwerkte uitzondering opgetreden tijdens het uitvoeren van de huidige webaanvraag. Controleer de stack-trace voor meer informatie over de fout en waar deze afkomstig is in de code.
-* Details van uitzondering: System.IO.FIleNotFoundException: Kan bestand of de assembly niet laden ' Microsoft.WindowsAzure.StorageClient, versie 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35 =' of een van de bijbehorende afhankelijkheden. Het systeem kan het opgegeven bestand niet vinden.
+* Server fout in/-toepassing.
+* Beschrijving: Er is een onverwerkte uitzonde ring opgetreden tijdens het uitvoeren van de huidige webaanvraag. Raadpleeg de stack tracering voor meer informatie over de fout en de herkomst van de-code.
+* Details van uitzonde ring: System. IO. FIleNotFoundException: Kan bestand of Assembly ' micro soft. WindowsAzure. StorageClient, version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35 ' of een van de bijbehorende afhankelijkheden niet laden. Het systeem kan het opgegeven bestand niet vinden.
 
 Bijvoorbeeld:
 
-![Expliciete Serverfout in '/' Application](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
+![Expliciete server fout in/-toepassing](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
-## <a name="diagnose-issues-by-using-the-compute-emulator"></a>Problemen met behulp van de rekenemulator
-De Microsoft Azure-rekenemulator kunt u problemen vaststellen en oplossen van problemen met ontbrekende afhankelijkheden en fouten van web.config.
+## <a name="diagnose-issues-by-using-the-compute-emulator"></a>Problemen vaststellen met behulp van de compute-emulator
+U kunt de Microsoft Azure Compute emulator gebruiken om problemen met ontbrekende afhankelijkheden en web. config-fouten op te sporen en op te lossen.
 
-Voor de beste resultaten bij het gebruik van deze methode van de diagnose van, moet u een computer of virtuele machine waarvoor een schone installatie van Windows. Gebruik voor het beste de Azure-omgeving simuleren, Windows Server 2008 R2 x64.
+Voor de beste resultaten bij het gebruik van deze diagnose methode moet u een computer of virtuele machine gebruiken die een schone installatie van Windows heeft. Gebruik Windows Server 2008 R2 x64 om de Azure-omgeving het beste te simuleren.
 
 1. Installeer de zelfstandige versie van de [Azure SDK](https://azure.microsoft.com/downloads/).
-2. Bouw het cloudserviceproject op de ontwikkelcomputer.
-3. Navigeer in Windows Verkenner naar de map bin\debug van het cloudserviceproject.
-4. Kopieer het .csx map- en .cscfg-bestand naar de computer die u gebruikt om op te sporen van de problemen.
-5. Open een venster van de Azure SDK-opdrachtprompt en typ op de machine schone `csrun.exe /devstore:start`.
-6. Typ het volgende achter de opdrachtprompt `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`.
-7. Wanneer de rol wordt gestart, ziet u de gedetailleerde foutgegevens in Internet Explorer. U kunt ook de standaard Windows hulpprogramma's voor probleemoplossing gebruiken bij nader onderzoek het probleem.
+2. Bouw het Cloud service project op de ontwikkel machine.
+3. Navigeer in Windows Verkenner naar de map bin\debug van het Cloud service-project.
+4. Kopieer de CSX-map en het cscfg-bestand naar de computer die u gebruikt om de problemen op te lossen.
+5. Open op de schone computer een Azure SDK-opdracht prompt venster en typ `csrun.exe /devstore:start`.
+6. Typ `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`bij de opdracht prompt.
+7. Wanneer de rol wordt gestart, worden gedetailleerde fout gegevens weer geven in Internet Explorer. U kunt ook de standaard hulpprogram ma's voor probleem oplossing van Windows gebruiken om het probleem verder te onderzoeken.
 
-## <a name="diagnose-issues-by-using-intellitrace"></a>Problemen met behulp van IntelliTrace
-Voor werkrollen en webrollen die gebruikmaken van .NET Framework 4, kunt u [IntelliTrace](/visualstudio/debugger/intellitrace), die beschikbaar is in Microsoft Visual Studio Enterprise.
+## <a name="diagnose-issues-by-using-intellitrace"></a>Problemen vaststellen met behulp van IntelliTrace
+Voor werk nemers en webrollen die gebruikmaken van .NET Framework 4, kunt u [IntelliTrace](/visualstudio/debugger/intellitrace)gebruiken, dat beschikbaar is in micro soft Visual Studio Enter prise.
 
-Volg deze stappen voor het implementeren van de service met IntelliTrace ingeschakeld:
+Voer de volgende stappen uit om de service te implementeren met IntelliTrace ingeschakeld:
 
-1. Bevestig dat de Azure SDK 1.3 of hoger is geïnstalleerd.
-2. De oplossing implementeren met behulp van Visual Studio. Tijdens de implementatie, controleert u de **IntelliTrace inschakelen voor .NET 4 rollen** selectievakje.
-3. Nadat het exemplaar wordt gestart, opent u de **Server Explorer**.
-4. Vouw de **Azure\\Cloudservices** knooppunt en zoekt u de implementatie.
-5. De implementatie uitbreiden tot u de rolinstanties. Met de rechtermuisknop op een van de exemplaren.
-6. Kies **protokoly intellitrace weergave**. De **IntelliTrace samenvatting** wordt geopend.
-7. Zoek de sectie uitzonderingen van de samenvatting openen. Als er uitzonderingen zijn, de sectie wordt worden gelabeld **uitzonderingsgegevens**.
-8. Vouw de **uitzonderingsgegevens** en zoek naar **System.IO.FileNotFoundException** vergelijkbaar met de volgende fouten:
+1. Controleer of Azure SDK 1,3 of hoger is geïnstalleerd.
+2. Implementeer de oplossing met behulp van Visual Studio. Schakel tijdens de implementatie het selectie vakje **IntelliTrace inschakelen voor .net 4-rollen** in.
+3. Zodra het exemplaar is gestart, opent u het **Server Explorer**.
+4. Vouw het knoop punt **Azure\\Cloud Services** uit en zoek de implementatie.
+5. Vouw de implementatie uit totdat u de rolinstanties ziet. Klik met de rechter muisknop op een van de exemplaren.
+6. Kies **IntelliTrace-logboeken weer geven**. De **IntelliTrace-samen vatting** wordt geopend.
+7. Zoek de sectie uitzonde ringen van de samen vatting. Als er uitzonde ringen zijn, wordt de sectie uitzonderings **gegevens**genoemd.
+8. Vouw de **uitzonderings gegevens** uit en zoek naar **System. io. FileNotFoundException** -fouten die vergelijkbaar zijn met het volgende:
 
-![Uitzonderingsgegevens, ontbrekende bestand of assembly](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503390.png)
+![Uitzonderings gegevens, ontbrekend bestand of assembly](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503390.png)
 
-## <a name="address-missing-dlls-and-assemblies"></a>Ontbrekende dll's en-assembly 's
-Om ontbrekende dll-bestand en de assembly-fouten op te lossen, als volgt te werk:
+## <a name="address-missing-dlls-and-assemblies"></a>Ontbrekende Dll's en assembly's in adres
+Ga als volgt te werk om ontbrekende DLL-en assembly fouten op te lossen:
 
 1. Open de oplossing in Visual Studio.
-2. In **Solution Explorer**, open de **verwijzingen** map.
-3. Klik op de assembly die is geïdentificeerd in de fout.
-4. In de **eigenschappen** deelvenster, zoek **lokale kopie van de eigenschap** en stel de waarde voor **waar**.
-5. Implementeer de cloudservice opnieuw.
+2. Open de map References in **Solution Explorer**.
+3. Klik op de assembly die in de fout is geïdentificeerd.
+4. Zoek in het deel venster **Eigenschappen** naar **lokale eigenschap kopiëren** en stel de waarde in op **waar**.
+5. Implementeer de Cloud service opnieuw.
 
-Nadat u hebt gecontroleerd dat alle fouten zijn opgelost, kunt u de service implementeren zonder te controleren of de **IntelliTrace inschakelen voor .NET 4 rollen** selectievakje.
+Wanneer u hebt gecontroleerd of alle fouten zijn gecorrigeerd, kunt u de service implementeren zonder het selectie vakje **IntelliTrace inschakelen voor .net 4-rollen** in te scha kelen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer weergeven [artikelen over probleemoplossing](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) voor cloudservices.
+Bekijk meer [artikelen over probleem oplossing](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) voor Cloud Services.
 
-Zie voor informatie over het oplossen van problemen met de rol van de cloud service met behulp van Azure PaaS computer diagnostische gegevens, [van Kevin Williamson blogserie](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Voor informatie over het oplossen van problemen met Cloud service rollen met behulp van Azure PaaS computer diagnostische gegevens raadpleegt u [de blog serie van Kevin Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

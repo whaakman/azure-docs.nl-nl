@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
-ms.date: 07/07/2019
+ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 822b8bd1d0f5be854b6d345d68fcdb680b2ef1c4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1581a62f0999cf502feaad31d2c884f4d171e770
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882569"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019665"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database van beheerde instanties T-SQL-verschillen van SQL Server
 
@@ -309,12 +309,12 @@ Zie [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agen
 
 ### <a name="tables"></a>Tabellen
 
-De volgende tabellen worden niet ondersteund:
+De volgende tabel typen worden niet ondersteund:
 
-- `FILESTREAM`
-- `FILETABLE`
-- `EXTERNAL TABLE`
-- `MEMORY_OPTIMIZED` 
+- [-](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server)
+- [BESTANDS TABEL](https://docs.microsoft.com/sql/relational-databases/blob/filetables-sql-server)
+- [externe tabel](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) Poly base
+- [MEMORY_OPTIMIZED](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables) (niet alleen ondersteund in Algemeen-laag)
 
 Zie [Create Table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) en [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql)voor meer informatie over het maken en wijzigen van tabellen.
 
@@ -468,10 +468,13 @@ De volgende database opties zijn ingesteld of worden overschreven en kunnen late
 
 Beperkingen: 
 
+- Back-ups van de beschadigde data bases kunnen worden hersteld, afhankelijk van het type beschadiging, maar automatische back-ups worden pas uitgevoerd als de beschadiging is opgelost. Zorg ervoor dat u uitvoert `DBCC CHECKDB` op het bron exemplaar en gebruik back `WITH CHECKSUM` -up om dit probleem te voor komen.
+- Herstellen van `.BAK` een bestand met een beperking die in dit document is `FILESTREAM` beschreven (bijvoorbeeld of `FILETABLE` objecten) kan niet worden hersteld op een beheerd exemplaar.
 - `.BAK`bestanden die meerdere back-upsets bevatten, kunnen niet worden hersteld. 
 - `.BAK`bestanden die meerdere logboek bestanden bevatten, kunnen niet worden hersteld.
-- Herstellen mislukt als. bak gegevens `FILESTREAM` bevat.
-- Back-ups met data bases die actieve objecten in het geheugen bevatten, kunnen niet worden hersteld op een Algemeen-exemplaar. Zie Restore statements ( [instructies herstellen](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)) voor meer informatie over Restore-instructies.
+- Back-ups die data bases bevatten die groter zijn dan 8TB, actieve in-Memory OLTP-objecten of meer dan 280 bestanden kunnen niet worden hersteld op een Algemeen-exemplaar. 
+- Back-ups met data bases die groter zijn dan 4 TB of in-Memory OLTP-objecten met de totale grootte die groter is dan de grootte die is beschreven in [resource limieten](sql-database-managed-instance-resource-limits.md) , kunnen niet worden hersteld op bedrijfskritiek exemplaar.
+Zie Restore statements ( [instructies herstellen](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)) voor meer informatie over Restore-instructies.
 
 ### <a name="service-broker"></a>Service Broker
 
@@ -548,11 +551,6 @@ In dit voor beeld blijven bestaande data bases werken en kunnen ze zonder enig p
 
 U kunt [het aantal resterende bestanden identificeren](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) met behulp van systeem weergaven. Als u deze limiet bereikt, kunt u [een aantal kleinere bestanden leegmaken en verwijderen met behulp van de DBCC SHRINKFILE-instructie](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) of overschakelen naar de [bedrijfskritiek-laag, die deze limiet niet overschrijdt](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
-### <a name="incorrect-configuration-of-the-sas-key-during-database-restore"></a>Onjuiste configuratie van de SAS-sleutel tijdens het herstellen van de data base
-
-`RESTORE DATABASE`het. bak-bestand wordt mogelijk voortdurend opnieuw geprobeerd het. bak-bestand te lezen en na een lange periode een fout te retour neren als de gedeelde toegangs handtekening in `CREDENTIAL` onjuist is. Voer Restore HEADERONLY uit voordat u een Data Base herstelt om ervoor te zorgen dat de SAS-sleutel juist is.
-Zorg ervoor dat u de regel `?` verwijdert uit de SAS-sleutel die wordt gegenereerd met behulp van de Azure Portal.
-
 ### <a name="tooling"></a>Hulpprogram ma's
 
 SQL Server Management Studio en SQL Server Data Tools kunnen problemen ondervinden bij het openen van een beheerd exemplaar.
@@ -624,11 +622,6 @@ CLR-modules die worden geplaatst in een beheerd exemplaar en gekoppelde servers 
 U kunt niet `BACKUP DATABASE ... WITH COPY_ONLY` uitvoeren op een Data Base die is versleuteld met door service beheerde transparent Data Encryption (TDE). Door service beheerde TDE zorgt ervoor dat back-ups worden versleuteld met een interne TDE-sleutel. De sleutel kan niet worden geëxporteerd, dus u kunt de back-up niet herstellen.
 
 **Enkele** Gebruik automatische back-ups en herstel naar een bepaald tijdstip, of gebruik in plaats daarvan door de [klant beheerde (BYOK) TDe](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) . U kunt versleuteling ook uitschakelen voor de data base.
-
-### <a name="point-in-time-restore-follows-time-by-the-time-zone-set-on-the-source-instance"></a>Herstel naar een bepaald tijdstip: de tijd zone die is ingesteld voor het bron exemplaar
-
-Herstel naar een bepaald tijdstip interpreteert op dit moment de tijd om naar te herstellen op basis van de volgende tijd zone van het bron exemplaar in plaats van UTC.
-Raadpleeg de [bekende problemen met tijd zones voor beheerde instanties](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

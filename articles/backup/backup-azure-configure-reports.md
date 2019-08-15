@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: 169ce73ead52d6a275f13f084c681e14c89ab606
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 293af600f4bd58efe8383d019ca3d17f724f242c
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689360"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933342"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup-rapporten configureren
 In dit artikel worden de stappen beschreven die u moet volgen om rapporten voor Azure Backup te configureren met behulp van een Recovery Services kluis. Ook wordt uitgelegd hoe u met behulp van Power BI toegang krijgt tot rapporten. Nadat u deze stappen hebt voltooid, kunt u rechtstreeks naar Power BI gaan om rapporten weer te geven, aan te passen en te maken.
@@ -37,7 +37,7 @@ Down load de nieuwste app (versie 1,8) om dit probleem te voor komen.
 - Registreer de resource provider **micro soft. Insights**als deze nog niet is geregistreerd. Gebruik de abonnementen voor het opslag account en de Recovery Services kluis zodat rapport gegevens naar het opslag account kunnen stromen. Als u deze stap wilt uitvoeren, gaat u naar de Azure Portal, selecteert u **abonnements** > **serviceproviders**en controleert u of deze provider deze kan registreren.
 
 ## <a name="configure-storage-account-for-reports"></a>Opslag account voor rapporten configureren
-Volg deze stappen om het opslag account voor een Recovery Services kluis te configureren met behulp van de Azure Portal. Dit is een eenmalige configuratie. Nadat het opslag account is geconfigureerd, kunt u rechtstreeks naar Power BI gaan om het inhouds pakket weer te geven en rapporten te gebruiken.
+Volg deze stappen om het opslag account voor een Recovery Services kluis te configureren met behulp van de Azure Portal. Dit is een eenmalige configuratie. Nadat het opslag account is geconfigureerd, kunt u rechtstreeks naar Power BI gaan om de sjabloon-app weer te geven en rapporten te gebruiken.
 
 1. Als er al een Recovery Services kluis is geopend, gaat u naar de volgende stap. Als u geen Recovery Services kluis hebt geopend, selecteert u in de Azure Portal **alle services**.
 
@@ -80,11 +80,11 @@ Nadat u een opslag account voor rapporten hebt geconfigureerd met behulp van een
 Als u het rapport wilt aanpassen en delen, maakt u een werk ruimte en voert u de volgende stappen uit
 
 1. [Meld](https://powerbi.microsoft.com/landing/signin/) u aan bij Power bi.
-2. Selecteer **Gegevens ophalen**. Selecteer op de **meer manieren om uw eigen inhoud te maken**, **service-inhouds pakketten**. Volg de stappen in de [Power bi-documentatie om verbinding te maken met een service](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+2. Navigeer naar **apps > meer apps van micro soft Appsource ophalen**. Volg de stappen in de [Power bi-documentatie om verbinding te maken met een service](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
 
 3. Voer **Azure backup** in op de **Zoek** balk en selecteer **nu ophalen**.
 
-      ![Inhouds pakket ophalen](./media/backup-azure-configure-reports/content-pack-get.png)
+      ![Sjabloon-app ophalen](./media/backup-azure-configure-reports/template-app-get.png)
 4. Voer de naam in van het opslag account dat in de vorige stap 5 is geconfigureerd en selecteer **volgende**.
 
     ![De opslagaccountnaam invoeren](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
@@ -96,11 +96,11 @@ Als u het rapport wilt aanpassen en delen, maakt u een werk ruimte en voert u de
 
     ![Inhouds pakket importeren](./media/backup-azure-configure-reports/content-pack-importing-data.png) <br/>
 
-    Nadat het importeren is voltooid, ziet u een **geslaagde** melding. Als de hoeveelheid gegevens in het opslag account groot is, kan het enige tijd duren voordat het inhouds pakket is geïmporteerd.
+    Nadat het importeren is voltooid, ziet u een **geslaagde** melding. Als de hoeveelheid gegevens in het opslag account groot is, kan het wat langer duren om de sjabloon-app te importeren.
 
     ![Inhouds pakket voor geslaagde import bewerking](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
 
-7. Nadat de gegevens zijn geïmporteerd, is het **Azure backup** inhouds pakket zichtbaar in **apps** in het navigatie deel venster. In de lijst met **Dash boards**, **rapporten**en **gegevens sets**wordt nu Azure backup weer gegeven.
+7. Nadat de gegevens zijn geïmporteerd, is de app **Azure backup** sjabloon zichtbaar in **apps** in het navigatie deel venster. In de lijst met **Dash boards**, **rapporten**en **gegevens sets**wordt nu Azure backup weer gegeven.
 
 8. Selecteer in **Dash boards**de optie **Azure backup**, die een set met vastgemaakte sleutel rapporten bevat.
 
@@ -117,10 +117,10 @@ Als u het rapport wilt aanpassen en delen, maakt u een werk ruimte en voert u de
 | Foutdetails | Oplossing |
 | --- | --- |
 | Nadat u het opslag account voor back-uprapporten hebt ingesteld, wordt in het **opslag account** nog steeds **niet geconfigureerd**weer gegeven. | Als u een opslag account hebt geconfigureerd, stromen uw rapport gegevens ondanks dit probleem. Als u dit probleem wilt oplossen, gaat u naar de Azure Portal en selecteert u **alle services** > **Diagnostische instellingen** > **Recovery Services kluis** > bewerkings**instelling**. Verwijder de eerder geconfigureerde instelling en maak een nieuwe instelling op dezelfde Blade. In dit tijdstip selecteert u in het vak **naam** de optie **service**. Nu wordt het geconfigureerde opslag account weer gegeven. |
-|Nadat u het Azure Backup inhouds pakket in Power BI hebt geïmporteerd, wordt het fout bericht ' 404-container is niet gevonden ' weer gegeven. | Zoals eerder vermeld, moet u 24 uur wachten nadat u rapporten hebt geconfigureerd in de Recovery Services kluis om ze correct te bekijken in Power BI. Als u de rapporten vóór 24 uur probeert te openen, wordt dit fout bericht weer gegeven omdat de voltooide gegevens nog niet aanwezig zijn om geldige rapporten weer te geven. |
+|Nadat u de Azure Backup sjabloon-app in Power BI hebt geïmporteerd, wordt het fout bericht ' 404-container is niet gevonden ' weer gegeven. | Zoals eerder vermeld, moet u 24 uur wachten nadat u rapporten hebt geconfigureerd in de Recovery Services kluis om ze correct te bekijken in Power BI. Als u de rapporten vóór 24 uur probeert te openen, wordt dit fout bericht weer gegeven omdat de voltooide gegevens nog niet aanwezig zijn om geldige rapporten weer te geven. |
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u het opslag account hebt geconfigureerd en het Azure Backup-inhouds pakket hebt geïmporteerd, moet u de volgende stappen uitvoeren om rapporten aan te passen en een rapport gegevens model te gebruiken voor het maken van rapporten. Zie de volgende artikelen voor meer informatie.
+Nadat u het opslag account hebt geconfigureerd en de app Azure Backup sjabloon hebt geïmporteerd, moeten de volgende stappen worden uitgevoerd om rapporten aan te passen en een rapport gegevens model te gebruiken voor het maken van rapporten. Zie de volgende artikelen voor meer informatie.
 
 * [Een Azure Backup rapport gegevens model gebruiken](backup-azure-reports-data-model.md)
 * [Rapporten filteren in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)

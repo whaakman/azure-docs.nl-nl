@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: dacurwin
-ms.openlocfilehash: 07faf03ee9b12d1bf4a200de47d6df714c2248d9
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 72ab33cd280892ac6de827986e21e04672e58960
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737151"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951850"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Een overzicht van Azure VM backup
 
@@ -138,6 +138,50 @@ Gegevens schijf 1 | 4095 GB | 30 GB
 Gegevens schijf 2 | 4095 GB | 0 GB
 
 De werkelijke grootte van de virtuele machine in dit geval 17 GB + 30 GB + 0 GB = 47 GB. Deze beveiligde-instantie grootte (47 GB) wordt de basis voor de maandelijkse factuur. Naarmate de hoeveelheid gegevens in de virtuele machine groeit, wordt de grootte van de beveiligde instantie die wordt gebruikt voor het aanpassen van de facturering, gewijzigd.
+
+<a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
+## <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Beperkte open bare Preview: Back-up van de VM met schijf grootten tot 30 TB
+
+Azure Backup ondersteunt nu een beperkte open bare preview van grotere en krachtige [Azure-Managed disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) van Maxi maal 30 TB. Deze preview biedt ondersteuning op productie niveau voor beheerde virtuele machines.
+
+U kunt de preview-versie probleemloos registreren zonder dat dit van invloed is op uw doorlopende back-ups. Nadat het abonnement is inge schreven in de preview, moet een back-up worden gemaakt van alle virtuele machines met een schijf grootte van Maxi maal 30 TB. Inschrijven voor de preview-versie:
+ 
+Voer de volgende cmdlets uit vanuit een Power shell-terminal met verhoogde bevoegdheden:
+
+1. Meld u aan bij uw Azure-account.
+
+    ```powershell
+    PS C:> Login-AzureRmAccount
+    ```
+
+2. Selecteer het abonnement dat u voor de upgrade wilt registreren:
+
+    ```powershell
+    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    ```
+3. Registreer dit abonnement in het preview-programma: 
+
+    ```powershell
+    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+    Wacht 30 minuten totdat het abonnement is inge schreven in de preview-versie. 
+
+ 4. Voer de volgende cmdlets uit om de status te controleren:
+
+    ```powershell
+    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
+    ```
+5. Wanneer het abonnement wordt weer gegeven als geregistreerd, voert u de volgende opdracht uit:
+    
+    ```powershell
+    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+> [!NOTE]
+> Versleutelde Vm's met schijven die groter zijn dan 4 TB, worden niet ondersteund in deze preview-versie.
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

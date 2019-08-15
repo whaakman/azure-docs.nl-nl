@@ -1,26 +1,26 @@
 ---
-title: 'Genereren en exporteren van certificaten voor punt-naar-Site: Linux: CLI: Azure | Microsoft Docs'
-description: Een zelfondertekend basiscertificaat maken, de openbare sleutel exporteren en clientcertificaten genereren via de Linux (strongSwan) CLI.
+title: 'Certificaten genereren en exporteren voor punt-naar-site: Linux: CLI: Azure | Microsoft Docs'
+description: Maak een zelfondertekend basis certificaat, Exporteer de open bare sleutel en Genereer client certificaten met behulp van de Linux-CLI (strongSwan).
 services: vpn-gateway
-author: cherylmc
+author: anzaman
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: cherylmc
-ms.openlocfilehash: b673be47d4951adab08f04efc56410095f549356
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: alzam
+ms.openlocfilehash: 79840010561746f2885909123012ffb4efbea5f6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60766165"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990317"
 ---
 # <a name="generate-and-export-certificates"></a>Certificaten genereren en exporteren
 
-Punt-naar-Site-verbindingen gebruiken certificaten om te verifiëren. Dit artikel ziet u hoe u een zelfondertekend basiscertificaat maken en clientcertificaten genereren via de Linux-CLI en strongSwan. Als u naar ander certificaat-instructies zoekt, Zie de [Powershell](vpn-gateway-certificates-point-to-site.md) of [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) artikelen. Zie voor informatie over het installeren van strongSwan met behulp van de gebruikersinterface in plaats van de CLI de stappen in de [clientconfiguratie](point-to-site-vpn-client-configuration-azure-cert.md#install) artikel.
+Punt-naar-site-verbindingen gebruiken certificaten voor verificatie. In dit artikel wordt beschreven hoe u een zelfondertekend basis certificaat maakt en client certificaten genereert met behulp van de Linux CLI en strongSwan. Als u andere certificaat instructies zoekt, raadpleegt u de [Power shell](vpn-gateway-certificates-point-to-site.md) -of [makecert](vpn-gateway-certificates-point-to-site-makecert.md) -artikelen. Voor informatie over het installeren van strongSwan met behulp van de gebruikers interface in plaats van CLI, zie de stappen in het artikel [client configuratie](point-to-site-vpn-client-configuration-azure-cert.md#install) .
 
 ## <a name="generate-and-export"></a>Genereren en exporteren
 [!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga door met de punt-naar-Site-configuratie met [Create and install VPN-clientconfiguratiebestanden](point-to-site-vpn-client-configuration-azure-cert.md#linuxinstallcli).
+Ga door met uw punt-naar-site-configuratie om [configuratie bestanden voor VPN-clients te maken en te installeren](point-to-site-vpn-client-configuration-azure-cert.md#linuxinstallcli).

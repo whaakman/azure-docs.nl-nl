@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7fc288ad9e33088b1b5248c1b61ed439ac95a9c4
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: f47afd450350226aa944287e756b73f61b15b32d
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688982"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952049"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup fout oplossen: Problemen met de agent of uitbrei ding
 
@@ -29,12 +29,10 @@ Dit artikel bevat probleemoplossings stappen die u kunnen helpen bij het oplosse
 **Fout code**: UserErrorGuestAgentStatusUnavailable <br>
 **Fout bericht**: De VM-agent kan niet communiceren met Azure Backup<br>
 
-Nadat u een virtuele machine voor de back-upservice hebt geregistreerd en gepland, wordt de taak door de back-up geïnitieerd door te communiceren met de VM-agent om een tijdgebonden moment opname te maken. Een van de volgende situaties kan verhinderen dat de moment opname wordt geactiveerd. Wanneer een moment opname niet wordt geactiveerd, kan de back-up mislukken. Voer de volgende stappen voor probleem oplossing in de aangegeven volg orde uit en voer de bewerking opnieuw uit:<br>
-**Oorzaak 1: [De agent is geïnstalleerd op de VM, maar reageert niet (voor Windows-Vm's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
-**Oorzaak 2: [De agent die is geïnstalleerd in de virtuele machine is verouderd (voor Linux-Vm's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Oorzaak 3: [De status van de moment opname kan niet worden opgehaald, of een moment opname kan niet worden gemaakt](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**     
-**Oorzaak 4: [De back-upextensie kan niet worden bijgewerkt of geladen](#the-backup-extension-fails-to-update-or-load)**  
-**Oorzaak 5: [De virtuele machine heeft geen Internet toegang](#the-vm-has-no-internet-access)**
+De Azure VM-agent is mogelijk gestopt, verouderd, in een inconsistente status of niet geïnstalleerd en voor komen dat Azure Backup Service moment opnamen kan activeren.  
+    
+- Als de VM-agent is gestopt of niet consistent is, start u **de agent opnieuw** en voert u de back-upbewerking opnieuw uit (probeer een ad-hoc back-up). Zie [Windows vm's](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) of [Linux-vm's](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)voor stappen om de agent opnieuw te starten. 
+- Als de VM-agent niet is geïnstalleerd of is verouderd, installeert u de VM-agent en voert u de back-upbewerking opnieuw uit. Zie [Windows vm's](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) of [Linux-vm's](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)voor stappen om de agent te installeren of bij te werken.  
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError: kan niet communiceren met de VM-agent voor de status van de moment opname
 
@@ -44,7 +42,8 @@ Nadat u een virtuele machine voor de back-upservice hebt geregistreerd en geplan
 Nadat u een virtuele machine voor de Azure Backup-service hebt geregistreerd en gepland, wordt met de back-up de taak gestart door te communiceren met de back-upextensie van de VM om een tijdgebonden moment opname te maken. Een van de volgende situaties kan verhinderen dat de moment opname wordt geactiveerd. Als de moment opname niet wordt geactiveerd, kan er een back-upfout optreden. Voer de volgende stappen voor probleem oplossing in de aangegeven volg orde uit en voer de bewerking opnieuw uit:  
 **Oorzaak 1: [De agent is geïnstalleerd op de VM, maar reageert niet (voor Windows-Vm's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Oorzaak 2: [De agent die is geïnstalleerd in de virtuele machine is verouderd (voor Linux-Vm's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Oorzaak 3: [De virtuele machine heeft geen Internet toegang](#the-vm-has-no-internet-access)**
+**Oorzaak 3: [De status van de moment opname kan niet worden opgehaald, of een moment opname kan niet worden gemaakt](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**     
+**Oorzaak 4: [De back-upextensie kan niet worden bijgewerkt of geladen](#the-backup-extension-fails-to-update-or-load)** 
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached-de maximale limiet voor de verzameling met herstel punten is bereikt
 
@@ -107,7 +106,7 @@ Nadat u een virtuele machine voor de Azure Backup-service hebt geregistreerd en 
 **Fout code**: UserErrorUnsupportedDiskSize <br>
 **Fout bericht**: Momenteel Azure Backup biedt geen ondersteuning voor schijf grootten die groter zijn dan 4095 GB <br>
 
-De back-upbewerking kan mislukken bij het maken van een back-up van een VM met een grotere schijf grootte dan 4095 GB. Als u zich wilt aanmelden voor een persoonlijke preview van Azure Backup ondersteuning voor de grote schijf voor schijven die groter zijn dan 4 TB tot 30TB groot AskAzureBackupTeam@microsoft.comzijn, schrijft u terug naar ons.
+De back-upbewerking kan mislukken bij het maken van een back-up van een virtuele machine met een schijf grootte groter dan 4.095 GB. Als u zich wilt aanmelden voor een beperkte open bare preview van Azure Backup ondersteuning voor grote schijven voor schijven die groter zijn dan 4 TB en tot Maxi maal 30 TB groot zijn, raadpleegt u [een overzicht van Azure VM-back-up](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress: kan geen back-up initiëren omdat er momenteel een andere back-upbewerking wordt uitgevoerd
 

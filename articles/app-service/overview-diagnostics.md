@@ -1,7 +1,7 @@
 ---
-title: Overzicht van Azure App Service-diagnostics | Microsoft Docs
-description: Meer informatie over hoe u problemen kunt oplossen met uw app met App Service-diagnostics.
-keywords: appservice, azure appservice, diagnostische gegevens, ondersteuning, web-app, het oplossen van problemen zelfhulp
+title: Overzicht van Azure App Service diagnostische gegevens | Microsoft Docs
+description: Meer informatie over hoe u problemen met uw app kunt oplossen met App Service diagnostische gegevens.
+keywords: app service, Azure app service, diagnostische gegevens, ondersteuning, Web-app, probleem oplossing, zelf hulp
 services: app-service
 documentationcenter: ''
 author: jen7714
@@ -15,100 +15,104 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: f2f798be85e9c3aeb8d4b54cba89d8be059427e0
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 50caa666245b0401c2c584f0a357ca6bfa53230c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147339"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945629"
 ---
-# <a name="azure-app-service-diagnostics-overview"></a>Overzicht van Azure App Service-diagnostics
+# <a name="azure-app-service-diagnostics-overview"></a>Overzicht van Azure App Service diagnostische gegevens
 
-Wanneer u een web-App uitvoert, die u wilt worden voorbereid voor eventuele problemen die zich voordoen kunnen, van 500-fouten naar uw gebruikers om u aan te geven dat uw site niet actief is. App Service-diagnostics is een intelligente en interactieve ervaring om op te lossen van uw app geen configuratie vereist. Als u problemen met uw app uitvoert, wijst App Service-diagnostics wat er mis om u te helpen de juiste informatie snel en eenvoudig kunt oplossen en los het probleem is.
+Wanneer u een webtoepassing uitvoert, wilt u voor bereid zijn op problemen die zich kunnen voordoen, van 500 fouten aan uw gebruikers door gegeven dat uw site niet beschikbaar is. App Service Diagnostics is een intelligente en interactieve ervaring om u te helpen bij het oplossen van problemen met uw app zonder dat hiervoor configuratie is vereist. Wanneer u problemen ondervindt met uw app, App Service diagnostische gegevens naar aanleiding van een probleem met de juiste informatie om eenvoudiger en snel problemen op te lossen en het probleem op te lossen.
 
-Hoewel deze ervaring handig is als u problemen met uw app in de afgelopen 24 uur ondervindt, zijn de diagnostische grafieken altijd beschikbaar voor u om te analyseren.
+Hoewel deze ervaring het handigst is wanneer u problemen ondervindt met uw app in de afgelopen 24 uur, zijn alle diagnostische grafieken altijd beschikbaar om te analyseren.
 
-App Service-diagnostics werkt niet alleen uw app op Windows, maar ook apps op [Linux/containers](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [App Service-omgeving](https://docs.microsoft.com/azure/app-service/environment/intro), en [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+App Service diagnostische gegevens werken alleen voor uw app in Windows, maar ook apps op [Linux/containers](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [app service Environment](https://docs.microsoft.com/azure/app-service/environment/intro)en [Azure functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
 
-## <a name="open-app-service-diagnostics"></a>Open App Service-diagnostics
+## <a name="open-app-service-diagnostics"></a>App Service diagnostische gegevens openen
 
-Voor toegang tot App Service-diagnostics, gaat u naar uw App Service-web-app of een App Service-omgeving in de [Azure-portal](https://portal.azure.com). Klik in het linkernavigatievenster op **vaststellen en oplossen van problemen met**.
+Om toegang te krijgen tot App Service diagnostische gegevens, gaat u naar uw App Service web-app of App Service Environment in de [Azure Portal](https://portal.azure.com). Klik in de linkernavigatiebalk op **problemen vaststellen en oplossen**.
 
-Voor Azure Functions, gaat u naar uw functie-app en in de bovenste navigatiebalk, klikt u op **platformfuncties**, en selecteer **vaststellen en oplossen van problemen met** uit de **resourcebeheer** sectie.
+Voor Azure Functions gaat u naar de functie-app en klikt u in de bovenste navigatie balk op **platform functies**en selecteert u **problemen vaststellen en oplossen** van het **resource beheer** gedeelte.
 
-In de startpagina van de diagnostische gegevens van App Service kunt u de categorie die het beste het probleem met uw app beschrijft met behulp van de trefwoorden in elke tegel startpagina. Bovendien is deze pagina waar u kunt vinden **diagnostische hulpprogramma's voor** voor Windows-apps. Zie [diagnostische hulpprogramma's (alleen voor Windows-app)](#diagnostic-tools-only-for-windows-app).
+Op de start pagina van App Service diagnostische gegevens kunt u de categorie kiezen die het probleem met uw app het beste beschrijft met behulp van de tref woorden in elke start pagina tegel. Op deze pagina vindt u ook **Diagnostische Hulpprogram ma's** voor Windows-apps. Zie [Diagnostische hulpprogram ma's (alleen voor Windows-apps)](#diagnostic-tools-only-for-windows-app).
 
 ![Startpagina](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
 ## <a name="interactive-interface"></a>Interactieve interface
 
-Wanneer u een startpagina-categorie die het beste bij de probleem van uw app aansluit selecteert, kunt u bij het onderzoeken en oplossen van probleem met uw app in App Service-diagnostics interactieve interface, Genie, leiden. U kunt de tegel snelkoppelingen geleverd door Genie gebruiken om weer te geven van de volledige diagnostisch rapport van de probleemcategorie dat u geïnteresseerd bent. De tegel sneltoetsen bieden u een directe manier om toegang tot uw diagnostische gegevens.
+Wanneer u een startpagina categorie selecteert die het beste past bij het probleem van uw app, kan App Service diagnostische gegevens van de interactieve interface, genie, u helpen bij het vaststellen en oplossen van problemen met uw app. U kunt de snelkoppelingen voor tegels in genie gebruiken om het volledige diagnostische rapport van de probleem categorie die u wilt bekijken weer te geven. De snelkoppelingen voor tegels bieden u een directe manier om toegang te krijgen tot uw diagnostische gegevens.
 
-![Tegel snelkoppelingen](./media/app-service-diagnostics/tile-shortcuts-2.png)
+![Snelkoppelingen voor tegels](./media/app-service-diagnostics/tile-shortcuts-2.png)
 
-Nadat de gebruiker op deze tegels, ziet u een lijst met onderwerpen met betrekking tot het probleem dat wordt beschreven in de tegel. Deze onderwerpen bevatten fragmenten van belangrijke gegevens van het volledige rapport. U kunt klikken op een van de volgende onderwerpen om de problemen verder te onderzoeken. U kunt ook klikken op **volledig rapport weergeven** alle onderwerpen verkennen op één pagina.
+Nadat u op deze tegels hebt geklikt, kunt u een lijst met onderwerpen weer geven die betrekking hebben op het probleem dat wordt beschreven in de tegel. Deze onderwerpen bevatten fragmenten van belang rijke informatie uit het volledige rapport. U kunt op een van deze onderwerpen klikken om de problemen verder te onderzoeken. U kunt ook klikken op **volledig rapport weer geven** om alle onderwerpen op één pagina te verkennen.
 
 ![Onderwerpen](./media/app-service-diagnostics/application-logs-insights-3.png)
 
-![Volledig rapport weergeven](./media/app-service-diagnostics/view-full-report-4.png)
+![Volledig rapport weer geven](./media/app-service-diagnostics/view-full-report-4.png)
 
 ## <a name="diagnostic-report"></a>Diagnostisch rapport
 
-Nadat u hebt gekozen voor het onderzoeken van het probleem verder door te klikken op een onderwerp, vindt u meer informatie over het onderwerp die vaak worden aangevuld met grafieken en promoties. Diagnostisch rapport is een krachtig hulpmiddel voor dicht van het probleem met uw app.
+Nadat u hebt gekozen om het probleem verder te onderzoeken door te klikken op een onderwerp, kunt u meer informatie bekijken over het onderwerp dat vaak wordt aangevuld met grafieken en prijs opgaven. Diagnostisch rapport kan een krachtig hulp middel zijn voor het lokaliseren van het probleem met uw app.
 
 ![Diagnostisch rapport](./media/app-service-diagnostics/full-diagnostic-report-5.png)
 
-## <a name="health-checkup"></a>Gezondheidscontrole
+## <a name="health-checkup"></a>Status controle van agenten
 
-Als u niet weet wat er mis is met uw app is of niet weet waar u uw problemen met het starten, is de gezondheidscontrole een goede plaats om te starten. De gezondheidscontrole analyseert uw toepassingen waarin u een snelle, interactieve overzicht die op wat in orde is en wat is het probleem aangegeven waar u wijst wilt zoeken voor het onderzoeken van het probleem. De intelligente en interactieve interface biedt u instructies voor het proces voor het oplossen van problemen. Gezondheidscontrole is geïntegreerd met de Genie-ervaring voor Windows-apps en web-app omlaag diagnostisch rapport voor Linux-apps.
+Als u niet weet wat er mis is met uw app of als u niet weet waar u uw problemen kunt oplossen, is de status controle van agenten een goede plaats om te starten. De controle van agenten van de status analyseert uw toepassingen om u een snel, interactief overzicht te geven waarin wordt uitgelegd wat er in orde is en wat het probleem is, zodat u kunt zien waar het moet worden onderzocht. De intelligente en interactieve interface bevat richt lijnen voor het oplossen van problemen. De status controle van agenten is geïntegreerd in de genie-ervaring voor Windows-apps en web-app-diagnose rapport voor Linux-apps.
 
-### <a name="health-checkup-graphs"></a>Status checkup grafieken
+### <a name="health-checkup-graphs"></a>Grafieken voor status controle van agenten
 
-Er zijn vier verschillende grafieken weergegeven in de gezondheidscontrole.
+Er zijn vier verschillende grafieken in de status controle van agenten.
 
-- **aanvragen en fouten:** Een grafiek waarin het aantal aanvragen in de afgelopen 24 uur, samen met HTTP-serverfouten.
-- **App-prestaties:** Een grafiek met reactietijd in de afgelopen 24 uur voor groepen van verschillende percentiel.
-- **CPU-gebruik:** Een grafiek waarin het totale percentage CPU-gebruik per exemplaar in de afgelopen 24 uur.  
-- **geheugengebruik:** Een grafiek waarin het totale percentage fysieke geheugengebruik per exemplaar in de afgelopen 24 uur.
+- **aanvragen en fouten:** Een grafiek met het aantal aanvragen dat in de afgelopen 24 uur wordt gemaakt, samen met HTTP-server fouten.
+- **app-prestaties:** Een grafiek waarin de reactie tijd in de afgelopen 24 uur voor verschillende percentiel groepen wordt weer gegeven.
+- **CPU-gebruik:** Een grafiek waarin het totale percentage CPU-gebruik per instantie wordt weer gegeven in de afgelopen 24 uur.  
+- **geheugen gebruik:** Een grafiek met het totale percentage fysiek geheugen gebruik per instantie in de afgelopen 24 uur.
 
-![Gezondheidscontrole](./media/app-service-diagnostics/health-checkup-6.png)
+![Status controle van agenten](./media/app-service-diagnostics/health-checkup-6.png)
 
-### <a name="investigate-application-code-issues-only-for-windows-app"></a>Onderzoeken van problemen met toepassingen code (alleen voor Windows-app)
+### <a name="investigate-application-code-issues-only-for-windows-app"></a>Problemen met toepassings code onderzoeken (alleen voor Windows-apps)
 
-Omdat veel app problemen zijn met betrekking tot problemen in uw toepassingscode, App Service-diagnostics kan worden geïntegreerd met [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) markeren van uitzonderingen en afhankelijkheidsproblemen in te correleren met de geselecteerde downtime. Application Insights heeft afzonderlijk worden ingeschakeld.
+Omdat veel app-problemen zijn gerelateerd aan problemen in de toepassings code, worden App Service diagnostische gegevens geïntegreerd met [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) om uitzonde ringen en afhankelijkheids kwesties te markeren om te correleren met de geselecteerde uitval tijd. Application Insights moet afzonderlijk worden ingeschakeld.
 
 ![Application Insights](./media/app-service-diagnostics/application-insights-7.png)
 
-Als u wilt weergeven in Application Insights-uitzonderingen en afhankelijkheden, selecteert u de **web-app omlaag** of **WebApp is langzaam** snelkoppelingen tegel.
+Als u Application Insights-uitzonde ringen en-afhankelijkheden wilt weer geven, selecteert u de snelkoppelingen **Web-app down** of **Web-app langzaam** naast elkaar.
 
-### <a name="troubleshooting-steps-only-for-windows-app"></a>Stappen voor probleemoplossing (alleen voor Windows-app)
+### <a name="troubleshooting-steps-only-for-windows-app"></a>Probleemoplossings stappen (alleen voor Windows-apps)
 
-Als er een probleem is gedetecteerd met een specifiek probleemcategorie in de afgelopen 24 uur, kunt u de volledige diagnostische rapport bekijken en App Service-diagnostics wordt u om weer te geven van advies voor meer probleemoplossing en de volgende stappen voor een meer begeleide ervaring mogelijk gevraagd.
+Als er in de afgelopen 24 uur een probleem met een specifieke probleem categorie wordt gedetecteerd, kunt u het volledige diagnostische rapport weer geven en kunnen App Service diagnostische gegevens u vragen om meer informatie over probleem oplossing en volgende stappen voor een meer begeleide ervaring.
 
-![Application Insights en probleemoplossing en de volgende stappen](./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png)
+![Application Insights en probleem oplossing en volgende stappen](./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png)
 
-## <a name="diagnostic-tools-only-for-windows-app"></a>Diagnostische hulpprogramma's (alleen voor Windows-app)
+## <a name="diagnostic-tools-only-for-windows-app"></a>Diagnostische hulpprogram ma's (alleen voor Windows-apps)
 
-Diagnostische hulpprogramma's omvatten meer geavanceerde diagnostische hulpprogramma's, dat hulp bij het onderzoeken van toepassing problemen, traagheid, verbindingsreeksen en meer code. en proactieve hulpmiddelen die u helpen oplossen van problemen met CPU-gebruik, aanvragen en geheugen.
+Diagnostische Hulpprogram Ma's bevatten meer geavanceerde diagnostische hulpprogram ma's die u helpen bij het onderzoeken van problemen met toepassings codes, vertragingen, verbindings reeksen en nog veel meer. en proactieve hulp middelen die u helpen bij het oplossen van problemen met CPU-gebruik,-aanvragen en-geheugen.
 
-### <a name="proactive-cpu-monitoring"></a>Proactieve controle van CPU
+### <a name="proactive-cpu-monitoring"></a>Proactieve CPU-bewaking
 
-Proactieve controle van CPU, biedt u een eenvoudige, proactieve manier om een actie ondernemen wanneer uw app of een onderliggend proces voor uw app van de hoge CPU-resources gebruikmaakt al. U kunt uw eigen regels CPU drempelwaarde tijdelijk een hoog CPU om probleem te verhelpen totdat de echte oorzaak van het onverwachte probleem wordt aangetroffen instellen.
+Proactieve CPU-bewaking biedt u een eenvoudige, proactieve manier om een actie uit te voeren wanneer uw app of een onderliggend proces voor uw app hoge CPU-bronnen verbruikt. U kunt uw eigen drempel waarden voor de CPU instellen om een hoog CPU-probleem tijdelijk op te lossen totdat de echte oorzaak van het onverwachte probleem wordt gevonden.
 
-![Proactieve controle van CPU](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
+![Proactieve CPU-bewaking](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 
-### <a name="proactive-auto-healing"></a>Proactieve automatisch herstel
+### <a name="auto-healing-and-proactive-auto-healing"></a>Automatisch herstel en proactief automatisch herstel
 
-Net als proactieve controle van CPU, biedt proactieve automatisch herstel een eenvoudige en proactieve benadering van beperkende onverwacht gedrag van uw app. U kunt uw eigen regels op basis van het aantal aanvragen, trage aanvragen, geheugenlimiet en HTTP-statuscode om acties starten-risicobeperking instellen. Dit hulpprogramma kan worden gebruikt om tijdelijk een onverwacht gedrag tot de echte oorzaak van het probleem wordt gevonden. Voor meer informatie over proactieve automatisch herstel, gaat u naar [aankondiging van de nieuwe automatische Retoucheerpenseel ervaring in app service-diagnostics](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
+Automatisch herstel is een actie die u kunt uitvoeren wanneer uw app onverwachte gedrag heeft. U kunt uw eigen regels instellen op basis van het aantal aanvragen, de langzame aanvraag, de geheugen limiet en de HTTP-status code om beperkings acties te activeren. Gebruik het hulp programma om tijdelijk een onverwacht gedrag te beperken tot u de hoofd oorzaak hebt gevonden.
 
-![Proactieve automatisch herstel](./media/app-service-diagnostics/proactive-auto-healing-10.png)
+![Automatisch herstellen](./media/app-service-diagnostics/auto-healing-10.png)
 
-## <a name="change-analysis-only-for-windows-app"></a>Analyse van wijzigen (alleen voor Windows-app)
+Net als proactieve CPU-bewaking is proactieve automatische herstel bewerking een oplossing om het onverwachte gedrag van uw app te beperken. Met proactieve automatische herstel bewerking wordt uw app opnieuw gestart wanneer App Service bepaalt dat uw app een onherstelbare status heeft. Zie [de nieuwe automatische Retoucheer ervaring aankondigen in app service Diagnostics](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html)voor meer informatie.
 
-In een ontwikkelingsomgeving snelle kan soms het lastig zijn alle wijzigingen in uw app bijhouden en laat alleen pinpoint op een wijziging die niet in orde gedrag veroorzaakt. Wijziging analyse kunt u op de wijzigingen in uw app om oplossen van problemen ervaring mogelijk te beperken. Analyse van de wijziging is gevonden in **wijzigingen in de toepassing** en ook opgenomen in een diagnostisch rapport zoals **toepassing vastloopt** zodat u deze als andere metrische gegevens gebruiken kunt.
+## <a name="navigator-and-change-analysis-only-for-windows-app"></a>Navigator-en wijzigings analyse (alleen voor Windows-apps)
 
-Analyse van de wijziging moet worden ingeschakeld voordat u de functie. Voor meer informatie over analysis wijzigen, gaat u naar [aankondiging van de nieuwe ervaring van de analyse wijzigen in App Service-Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
+In een groot team met continue integratie en waar uw app veel afhankelijkheden heeft, kan het lastig zijn om de specifieke wijziging te lokaliseren die een slecht gedrag veroorzaakt. Met Navigator krijgt u inzicht in de topologie van uw app door automatisch een afhankelijkheids kaart van uw app en alle resources in hetzelfde abonnement te renderen. Met Navigator kunt u een geconsolideerde lijst met wijzigingen bekijken die door uw app en de afhankelijkheden ervan zijn gemaakt en een beperking instellen voor een wijziging die een slecht gedrag veroorzaakt. U kunt deze openen via de tegel **Navigator** van de start pagina en moet worden ingeschakeld voordat u deze de eerste keer gebruikt. Zie [inzicht in de afhankelijkheden van uw app verkrijgen met Navigator](https://azure.github.io/AppService/2019/08/06/Bring-visibility-to-your-app-and-its-dependencies-with-Navigator.html)voor meer informatie.
 
-![Analyse van standaard-pagina wijzigen](./media/app-service-diagnostics/change-analysis-default-page-11.png)
+![Standaard pagina Navigator](./media/app-service-diagnostics/navigator-default-page-11.png)
 
-![Diff-weergave](./media/app-service-diagnostics/diff-view-12.png)
+![Diff-weer gave](./media/app-service-diagnostics/diff-view-12.png)
+
+Wijzigings analyse voor app-wijzigingen is toegankelijk via tegel snelkoppelingen, **toepassings wijzigingen** en crashes van **toepassingen** in **Beschik baarheid en prestaties** , zodat u deze gelijktijdig met andere metrische gegevens kunt gebruiken. Voordat u de functie kunt gebruiken, moet u deze eerst inschakelen. Zie voor meer informatie [de nieuwe ervaring voor wijzigings analyse aankondigen in app service Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
+
+Post uw vragen of feedback op [UserVoice](https://feedback.azure.com/forums/169385-web-apps) door ' [diag] ' toe te voegen in de titel.

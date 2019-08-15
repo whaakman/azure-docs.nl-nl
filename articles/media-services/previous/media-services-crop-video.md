@@ -1,6 +1,6 @@
 ---
-title: Het bijsnijden van video's met Media Encoder Standard - Azure | Microsoft Docs
-description: In dit artikel laat zien hoe bijsnijden video's met Media Encoder Standard.
+title: Video's bijsnijden met Media Encoder Standard-Azure | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u Video's bijsnijdt met Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -12,36 +12,37 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: anilmur;juliako;
-ms.openlocfilehash: 9a81050fca935f688f2ff58cb04a148bf676f04b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: anilmur
+ms.reviewer: juliako
+ms.openlocfilehash: 03d68cc3a60abba8b7189a9d03fbc21d7606f736
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61217180"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "69016613"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Video’s bijsnijden met Media Encoder Standard  
 
-Media Encoder Standard (MES) kunt u uw invoer video bijsnijden. Bijsnijden, is het proces van het selecteren van een rechthoekig venster in het kader van de video en codering van alleen de pixels binnen dit venster. Het volgende diagram kunt u het proces wordt verduidelijkt.
+U kunt Media Encoder Standard (MES) gebruiken om uw invoer video bij te snijden. Bijsnijden is het proces van het selecteren van een rechthoekig venster binnen het video frame en het coderen van alleen de pixels in het venster. Het volgende diagram illustreert het proces.
 
 ![Een video bijsnijden](./media/media-services-crop-video/media-services-crop-video01.png)
 
-Stel dat u hebt als invoer een video die een resolutie van 1920 x 1080 pixels (hoogte-breedteverhouding 16:9), maar heeft een zwarte balken (pijler vakken) op de links en rechts, zodat alleen een venster 4:3 of 1440 x 1080 pixels bevat actieve video. U kunt MES gebruiken om bijsnijden of bewerken van de balken en de regio 1440 x 1080 coderen.
+Stel, u hebt als invoer een video met een resolutie van 1920 pixels (verhouding van 16:9 hoogte), maar heeft zwarte balken aan de linkerkant en rechts, zodat alleen een 4:3-venster of 1440x1080 pixels actieve video bevatten. U kunt MES gebruiken om de zwarte balken te bijsnijden of te bewerken en de regio 1440x1080 te coderen.
 
-Bijsnijden in MES is een vooraf verwerken fase, zodat de bijsnijden parameters in de vooraf ingestelde standaardcodering van toepassing op de oorspronkelijke invoervideo. Codering is een latere fase en de breedte en hoogte-instellingen toepassen op de *vooraf verwerkte* video, en niet naar de oorspronkelijke video. Bij het ontwerpen van uw vooraf ingestelde moet u het volgende doen: (a) de parameters van de bijsnijden op basis van de oorspronkelijke invoervideo selecteert en (b) selecteert u uw instellingen op basis van de bijgesneden video coderen. Als u niet overeenkomt met uw instellingen op de bijgesneden video coderen, de uitvoer worden niet zoals verwacht.
+Bijsnijden in MES is een pre-verwerkings fase, waardoor de bijsnijd parameters in de voor instelling voor versleuteling van toepassing zijn op de oorspronkelijke invoer video. Encoding is een volgende fase en de instellingen voor breedte/hoogte zijn van toepassing op de *vooraf* verwerkte video en niet op de oorspronkelijke video. Bij het ontwerpen van uw voor instelling moet u het volgende doen: (a) Selecteer de snij parameters op basis van de oorspronkelijke invoer video en (b) Selecteer uw coderings instellingen op basis van de bijgesneden video. Als u de versleutelings instellingen niet overeenkomt met de bijgesneden video, is de uitvoer niet zoals verwacht.
 
-De [volgende](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) onderwerp wordt beschreven hoe u een coderingstaak met MES maakt en hoe u om op te geven van een aangepaste voorinstelling voor de coderingstaak. 
+In het [volgende](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) onderwerp ziet u hoe u een coderings taak met mes maakt en hoe u een aangepaste voor instelling voor de coderings taak opgeeft. 
 
-## <a name="creating-a-custom-preset"></a>Het maken van een aangepaste voorinstelling
-In het voorbeeld dat wordt weergegeven in het diagram:
+## <a name="creating-a-custom-preset"></a>Een aangepaste voor instelling maken
+In het voor beeld dat in het diagram wordt weer gegeven:
 
-1. Oorspronkelijke invoer is 1920 x 1080
-2. Deze moeten worden bijgesneden tot een uitvoer van 1440 x 1080, die in het kader van de invoer wordt gecentreerd
-3. Dit betekent dat een X-verschuiving van (1920-1440) / 2 = 240 en een Y-verschuiving van nul
-4. De breedte en hoogte van de rechthoek bijsnijden zijn 1440 1080, respectievelijk en
-5. In de fase coderen wordt de vraag is voor het produceren van drie lagen, resoluties 1440 x 1080, 960 x 720 en 480 x 360, respectievelijk zijn
+1. De oorspronkelijke invoer is 1920
+2. Het moet worden bijgesneden tot een uitvoer van 1440x1080, die in het invoer kader is gecentreerd
+3. Dit betekent een X-verschuiving van (1920 – 1440)/2 = 240 en een Y-verschuiving van nul
+4. De breedte en hoogte van de rechthoek voor bijsnijden zijn respectievelijk 1440 en 1080
+5. In de fase versleutelen is de vraag om drie lagen te produceren, respectievelijk oplossingen 1440x1080, 960x720 en 480x360
 
-### <a name="json-preset"></a>JSON-definitie
+### <a name="json-preset"></a>JSON-voor instelling
     {
       "Version": 1.0,
       "Sources": [
@@ -126,20 +127,20 @@ In het voorbeeld dat wordt weergegeven in het diagram:
     }
 
 
-## <a name="restrictions-on-cropping"></a>Beperkingen voor bijsnijden
-De functie voor bijsnijden is bedoeld om te worden handmatig. U moet uw invoervideo laden in een geschikte bewerken hulpprogramma waarmee u Selecteer frames van belang zijn, plaats de cursor om te bepalen verschuivingen voor de bijsnijden rechthoek, om te bepalen van de vooraf ingestelde standaardcodering die is afgestemd op die bepaalde video, enzovoort. Deze functie is niet bedoeld om in te schakelen, bijvoorbeeld: automatische detectie en het verwijderen van de zwarte letterbox/pillarbox randen in uw video-invoer.
+## <a name="restrictions-on-cropping"></a>Beperkingen bij bijsnijden
+De functie voor bijsnijden is bedoeld om hand matig te zijn. U moet uw invoer video in een geschikt bewerkings programma laden waarmee u interessante frames kunt selecteren, de cursor kunt positioneren om de verplaatsings rechthoeken te bepalen, om te bepalen welke coderings voorinstelling is afgestemd op die specifieke video, enzovoort. Deze functie is niet bedoeld voor het inschakelen van dingen als: automatische detectie en verwijdering van Black letterbox/pillarbox-randen in uw invoer video.
 
-De volgende beperkingen gelden voor de functie voor bijsnijden. Als deze niet wordt voldaan, kan de coderen taak mislukt of er onverwachte uitvoer gegenereerd.
+De volgende beperkingen zijn van toepassing op de functie voor bijsnijden. Als niet aan deze voor waarden wordt voldaan, kan de versleutelings taak mislukken of wordt er een onverwachte uitvoer gegenereerd.
 
-1. De coördinaten en de grootte van de rechthoek bijsnijden hebben om te passen binnen de invoervideo
-2. Zoals eerder vermeld, moet de breedte en hoogte in de instellingen voor coderen overeenkomen met de bijgesneden video
-3. Bijsnijden is van toepassing op video's die zijn vastgelegd in de liggende modus (dat wil zeggen niet van toepassing op video's die zijn geregistreerd met een smartphone, die zijn ondergebracht in de staande modus of verticaal)
-4. Werkt het beste met progressieve video vastgelegd met vierkante pixels
+1. De co-coördinaten en de grootte van de rechthoek voor bijsnijden moeten binnen de invoer video passen
+2. Zoals hierboven vermeld, moet de breedte & hoogte in de instellingen voor code ring overeenkomen met de bijgesneden video
+3. Bijsnijden is van toepassing op Video's die zijn vastgelegd in de modus Liggend (dat wil zeggen niet van toepassing op Video's die zijn opgenomen met een smartphone die verticaal of in de modus Staand is opgeslagen)
+4. Werkt het beste met progressieve video die is vastgelegd met vier kante pixels
 
 ## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Volgende stap
-Azure Media Services-leertrajecten vindt u informatie over de handige functies die worden aangeboden door AMS zien.  
+Zie Azure Media Services leer trajecten om meer te weten te komen over fantastische functies die worden aangeboden door AMS.  
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

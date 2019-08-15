@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 3f991d90dfdd5d31d1a7cf7119356f40458e7614
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7e5c33577a2d926266ae45057509b112dc27ce7b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568238"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985729"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Vergelijking van functies: Azure SQL Database versus SQL Server
 
@@ -84,7 +84,7 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en geeft inform
 | [Zoek opdracht in volledige tekst (FT'S)](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Ja, maar woord afbreekers van derden worden niet ondersteund | Ja, maar [woord afbreekers van derden worden niet ondersteund](sql-database-managed-instance-transact-sql-information.md#full-text-semantic-search) |
 | [Functies](https://docs.microsoft.com/sql/t-sql/functions/functions) | De meeste-Zie afzonderlijke functies | Ja, Zie [opgeslagen procedures, functies, triggers-verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Grafiek verwerking](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Ja | Ja |
-| [Optimalisatie in het geheugen](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Alleen de [lagen ja-Premium en bedrijfskritiek](sql-database-in-memory.md) | Ja, [alleen bedrijfskritiek laag](sql-database-managed-instance.md) |
+| [Optimalisatie in het geheugen](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja, [Premium en bedrijfskritiek lagen alleen](sql-database-in-memory.md) beperkte ondersteuning voor objecten die niet persistent zijn in het geheugen, zoals tabel typen | Ja, [alleen bedrijfskritiek laag](sql-database-managed-instance.md) |
 | [Ondersteuning voor JSON-gegevens](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Ja](sql-database-json-features.md) | [Ja](sql-database-json-features.md) |
 | [Taal elementen](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | De meeste-Zie afzonderlijke elementen |  Ja, Zie [T-SQL-verschillen](sql-database-managed-instance-transact-sql-information.md) |
 | [Gekoppelde servers](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Nee, Zie [elastische query's](sql-database-elastic-query-horizontal-partitioning.md) | Ja. Alleen voor [SQL Server en SQL database](sql-database-managed-instance-transact-sql-information.md#linked-servers) zonder gedistribueerde trans acties. |

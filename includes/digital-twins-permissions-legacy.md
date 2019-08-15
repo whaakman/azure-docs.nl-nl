@@ -5,21 +5,21 @@ services: digital-twins
 author: alinamstanciu
 ms.service: digital-twins
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 08/12/2019
 ms.author: alinast
 ms.custom: include file
-ms.openlocfilehash: 9a5b3b04287a8b732d01bd8fe4610e073332da0d
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9f4bf6fb92b590e274e8880b5f900e5469f85727
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478964"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012104"
 ---
 1. Open in de [Azure-portal](https://portal.azure.com) **Azure Active Directory** in linkerdeelvenster en open vervolgens het deelvenster **Eigenschappen**. Kopieer de **Map-id** naar een tijdelijk bestand. U gebruikt deze waarde om de voorbeeldtoepassing in de volgende sectie te configureren.
 
     ![Map-id voor Azure Active Directory](./media/digital-twins-permissions-legacy/aad-app-reg-tenant.png)
 
-1. In de [Azure-portal](https://portal.azure.com)Open **Azure Active Directory** in het linkerdeelvenster en open vervolgens de **App-registraties (verouderd)** deelvenster. Selecteer de **nieuwe toepassing registreren** knop.
+1. Open in de [Azure Portal](https://portal.azure.com) **Azure Active Directory** in het linkerdeel venster en open vervolgens het deel venster **app-registraties (verouderd)** . Selecteer de knop **nieuwe toepassing registreren** .
 
 1. Geef een beschrijvende naam voor deze app-registratie op in het vak **Naam**. Kies voor **Toepassingstype** de optie **Systeemeigen** en voor **Omleidings-URI** `https://microsoft.com`. Selecteer **Maken**.
 
@@ -41,7 +41,7 @@ ms.locfileid: "67478964"
 
    e. Selecteer **Gereed** in het deelvenster **API-toegang toevoegen**.
 
-   f. Selecteer in het deelvenster **Vereiste machtigingen** de knop **Machtigingen verlenen** en accepteer de bevestiging die wordt weergegeven. Als de machtiging is niet verleend voor deze API, contact op met uw beheerder.
+   f. Selecteer in het deelvenster **Vereiste machtigingen** de knop **Machtigingen verlenen** en accepteer de bevestiging die wordt weergegeven. Neem contact op met de beheerder als de machtiging voor deze API niet is toegekend.
 
       ![Deelvenster Vereiste machtigingen](./media/digital-twins-permissions-legacy/aad-app-req-permissions.png)
 

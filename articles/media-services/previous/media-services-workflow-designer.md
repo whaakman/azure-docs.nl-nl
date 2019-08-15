@@ -1,6 +1,6 @@
 ---
-title: Geavanceerde Coderingswerkstromen maken met Workflow Designer | Microsoft Docs
-description: Meer informatie over hoe u geavanceerde coderingswerkstromen maken met Workflow Designer.
+title: Geavanceerde coderings werk stromen maken met Workflow Designer | Microsoft Docs
+description: Meer informatie over het maken van geavanceerde encoding-werk stromen met Workflow Designer.
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -13,66 +13,67 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: 0ade52d3ae9714f2b370308253e455bcde7ac7a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: anilmur
+ms.reviewer: juliako;johndeu
+ms.openlocfilehash: 246a1461973dba129a5b1d12be8a09703eb99267
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60825129"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69015978"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Geavanceerde encoding-werkstromen maken met Workflow Designer  
 ## <a name="overview"></a>Overzicht
-De **Workflow Designer** is een Windows-bureaublad hulpprogramma dat wordt gebruikt voor het ontwerpen en bouwen van aangepaste werkstromen voor codering met **Media Encoder Premium Workflow**.
-Met behulp van de kracht van de workflow designer-hulpprogramma, u kunt ontwerpen en maken van complexe werkstromen die wordt uitgevoerd in de **Media Encoder Premium**.  
+De **Workflow Designer** is een Windows-bureau blad dat wordt gebruikt voor het ontwerpen en bouwen van aangepaste werk stromen voor code ring met **Media Encoder Premium workflow**.
+Met de kracht van het hulp programma werk stroom ontwerper kunt u complexe werk stromen ontwerpen en maken die worden uitgevoerd in **Media Encoder Premium**.  
 
-Werkstromen kunnen klant besluit logica en vertakkingen op basis van de eigenschappen van de invoerbron-bestand. U kunt werkstromen maken met overschrijfbare eigenschappen en dynamische waarden, zelfs de meest complexe coderingstaken om eenvoudig te maken en aanpassen in de cloud.
+Werk stromen kunnen een beslissings logica van de klant en vertakkingen omvatten op basis van de eigenschappen van het invoer bron bestand. U kunt werk stromen maken met Overschrijf bare-eigenschappen en dynamische waarden, zodat u zelfs de meest complexe coderings taken eenvoudig kunt herhalen en aanpassen in de Cloud.
 
-Voorbeeld van de werkstromen die u kunt maken, zijn onder andere:
+Voor beelden van werk stromen die u kunt maken zijn:
 
-* Besluit op basis van werkstromen die de bron van de inhoud voor het omzetten van controleren en alleen de gewenste uitvoer sporen coderen.  Dit is handig door het elimineren van de verspilde nummers die door de broninhoud per ongeluk upscaling wordt gegenereerd.
-* Meerdere invoerbestanden kunnen worden gebruikt voor de ondersteuning van bijschriften, overlays en hechten samen inhoud. 
+* Op beslissingen gebaseerde werk stromen die de bron inhoud controleren op omzetting en alleen de gewenste uitvoer traceringen coderen.  Dit is handig door de verspilde sporen te elimineren die zouden worden gegenereerd door de bron inhoud per ongeluk te schalen.
+* Meerdere invoer bestanden kunnen worden gebruikt ter ondersteuning van bijschriften, overlays en het samen voegen van inhoud. 
 
-Dit hulpprogramma kan ook worden gebruikt om te wijzigen van een van onze [gepubliceerd werkstromen](media-services-workflow-designer.md#existing_workflows). 
+Dit hulp programma kan ook worden gebruikt om een van onze [gepubliceerde werk stromen](media-services-workflow-designer.md#existing_workflows)te wijzigen. 
 
 > [!NOTE]
-> Als u uw exemplaar van het hulpprogramma Workflow Designer, neem contact op met mepd@microsoft.com.
+> Neem contact op mepd@microsoft.commet om uw exemplaar van het Workflow Designer-hulp programma te verkrijgen.
 
-Wanneer een werkstroombestand is gemaakt, kunnen worden geüpload als een Asset, en vervolgens worden gebruikt voor het coderen van mediabestanden. Voor meer informatie over het coderen met **Media Encoder Premium Workflow** met behulp van **.NET**, Zie [geavanceerde codering met Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
+Zodra een werk stroom bestand is gemaakt, kan het worden geüpload als een Asset en vervolgens worden gebruikt voor het coderen van media bestanden. Zie [geavanceerde code ring met Media Encoder Premium workflow](media-services-encode-with-premium-workflow.md)voor meer informatie over het coderen met **Media Encoder Premium workflow** met behulp van **.net**.
 
-## <a id="existing_workflows"></a>Wijzigen van bestaande werkstromen
-De standaardwaarde [gepubliceerd werkstromen](media-services-workflow-designer.md#existing_workflows) kan worden gewijzigd met behulp van de ontwerpfunctie hulpprogramma. U kunt de standaardwaarde krijgen Werkstroombestanden [hier](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). De map bevat ook de beschrijving van deze bestanden.
+## <a id="existing_workflows"></a>Bestaande werk stromen wijzigen
+De standaard [gepubliceerde werk stromen](media-services-workflow-designer.md#existing_workflows) kunnen worden gewijzigd met behulp van het ontwerp hulpprogramma. U kunt [hier](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)de standaard werk stroom bestanden ophalen. De map bevat ook de beschrijving van deze bestanden.
 
-De volgende video's laten zien hoe u de ontwerpfunctie.
+De volgende Video's laten zien hoe u de ontwerp functie kunt gebruiken.
 
-### <a name="day-1--getting-started"></a>Dag 1 – aan de slag
-Dag 1 video komen aan bod:
+### <a name="day-1--getting-started"></a>Dag 1: aan de slag
+Video van dag 1:
 
-* Designer-overzicht
-* Eenvoudige werkstromen: "Hallo wereld"
-* Het maken van meerdere uitvoer MP4-bestanden voor gebruik met Azure Media Services streaming
+* Overzicht van de ontwerp functie
+* Basis werk stromen – "Hallo wereld"
+* Maken van meerdere MP4-uitvoer bestanden voor gebruik met Azure Media Services streaming
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
 > 
 > 
 
 ### <a name="day-2"></a>Dag 2
-Dag 2 video komen aan bod:
+Dag 2 video omvat:
 
-* Verschillende scenario's voor het bestand van bron: verwerken van audio
-* Werkstromen met geavanceerde logica
-* Graph-fasen
+* Scenario's voor verschillende bron bestanden: verwerking van audio
+* Werk stromen met geavanceerde logica
+* Grafiek fasen
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
 > 
 > 
 
 ### <a name="day-3"></a>Dag 3
-Dag 3 video komen aan bod:
+Video over dag 3:
 
-* Uitvoeren van scripts in werkstromen/blauwdrukken
-* Beperkingen bij het huidige coderingsprogramma
-* Q &AMP; A
+* Scripts in werk stromen/blauw drukken
+* Beperkingen met de huidige encoder
+* Q & A
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
 > 
@@ -86,8 +87,8 @@ Media Services-leertrajecten bekijken.
 ## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-Als u moet ondersteunen of vragen hebt over het maken van aangepaste werkstromen in de Workflow designer-hulpprogramma, stuur e-mail naar mepd@microsoft.com.
+Als u ondersteuning nodig hebt of vragen hebt over het maken van aangepaste werk stromen in het hulp programma voor werk mepd@microsoft.comstroom ontwerp, stuurt u een e-mail naar.
 
 ## <a name="see-also"></a>Zie ook
-[Azure Premium Encoder Workflow Designer trainingsvideo 's](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
+[Trainings Video's voor Azure Premium encoder Workflow Designer](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 

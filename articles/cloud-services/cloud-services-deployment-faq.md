@@ -1,6 +1,6 @@
 ---
-title: Problemen bij de implementatie voor veelgestelde vragen over Microsoft Azure Cloud Services | Microsoft Docs
-description: In dit artikel geeft een lijst van de veelgestelde vragen over de implementatie voor Microsoft Azure Cloud Services.
+title: Implementatie problemen voor Microsoft Azure Cloud Services Veelgestelde vragen | Microsoft Docs
+description: In dit artikel vindt u de veelgestelde vragen over de implementatie van Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
 author: genlin
@@ -11,73 +11,72 @@ ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 08d74f866fe28a4c424ba504795b4a22f09785ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fff70cc0c80d26d5454e54e43a6ef6c0b39b5cac
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337320"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941732"
 ---
-# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemen bij de implementatie voor Azure Cloud Services: Veelgestelde vragen (FAQ's)
+# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Implementatie problemen voor Azure Cloud Services: Veelgestelde vragen (FAQ)
 
-Dit artikel bevat veelgestelde vragen over problemen met de implementatie voor [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). U kunt ook raadpleegt u de [VM-grootte voor Cloud Services-pagina](cloud-services-sizes-specs.md) voor informatie over de grootte.
+In dit artikel vindt u veelgestelde vragen over implementatie problemen voor [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). U kunt ook de [pagina Cloud Services VM-grootte](cloud-services-sizes-specs.md) raadplegen voor informatie over de grootte.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="why-does-deploying-a-cloud-service-to-the-staging-slot-sometimes-fail-with-a-resource-allocation-error-if-there-is-already-an-existing-deployment-in-the-production-slot"></a>Waarom een cloudservice implementeren in de staging-site soms mislukt met een toewijzingsfout resource als er al een bestaande implementatie in de productiesite?
-Als een service in de cloud een implementatie in een sleuf heeft, wordt het hele cloudservice is vastgemaakt aan een specifieke cluster. Dit betekent dat als een implementatie al in de productiesite bestaat, een nieuwe staging-implementatie kan alleen worden toegewezen in hetzelfde cluster als de productiesite.
+## <a name="why-does-deploying-a-cloud-service-to-the-staging-slot-sometimes-fail-with-a-resource-allocation-error-if-there-is-already-an-existing-deployment-in-the-production-slot"></a>Waarom is het implementeren van een Cloud service naar de staging-sleuf soms mislukt met een resource toewijzings fout als er al een bestaande implementatie in de productie sleuf is?
+Als een Cloud service in een van de sleuven een implementatie heeft, wordt de volledige Cloud service vastgemaakt aan een specifiek cluster. Dit betekent dat als er al een implementatie in de productie site bestaat, een nieuwe faserings implementatie alleen kan worden toegewezen in hetzelfde cluster als de productie site.
 
-Toewijzingsfouten optreden wanneer het cluster waar uw cloudservice zich bevindt geen voldoende fysieke compute-resources om te voldoen aan de implementatieaanvraag.
+Toewijzings fouten treden op wanneer het cluster waar uw Cloud service zich bevindt onvoldoende fysieke reken bronnen heeft om te voldoen aan uw implementatie aanvraag.
 
-Zie voor meer informatie over het oplossen van dergelijke toewijzingsfouten [Cloudservice toewijzingsfout: Oplossingen](cloud-services-allocation-failures.md#solutions).
+Zie [Cloud service toewijzings fout voor meer informatie over het beperken van dergelijke toewijzings fouten: Oplossingen](cloud-services-allocation-failures.md#solutions).
 
-## <a name="why-does-scaling-up-or-scaling-out-a-cloud-service-deployment-sometimes-result-in-allocation-failure"></a>Waarom wordt omhoog of uit een cloud service-implementatie soms leiden tot toewijzingsfout schalen?
-Wanneer een service in de cloud wordt geïmplementeerd, wordt deze meestal vastgemaakt aan een specifieke cluster. Dit betekent dat nieuwe exemplaren binnen hetzelfde cluster omhoog/uit een bestaande cloudservice schalen moet toewijzen. Als het cluster heeft capaciteit bijna bereikt of de gewenste VM-instantiegrootte /-type niet beschikbaar is, kan het verzoek mislukken.
+## <a name="why-does-scaling-up-or-scaling-out-a-cloud-service-deployment-sometimes-result-in-allocation-failure"></a>Waarom wordt het omhoog of schalen van een Cloud service-implementatie in sommige gevallen ook wel de toewijzings fout veroorzaakt?
+Wanneer een Cloud service is geïmplementeerd, wordt deze meestal vastgemaakt aan een specifiek cluster. Dit betekent dat het omhoog/omlaag schalen van een bestaande Cloud service nieuwe instanties in hetzelfde cluster moet toewijzen. Als het cluster de capaciteit bijna heeft of de gewenste grootte/type van de virtuele machine niet beschikbaar is, kan de aanvraag mislukken.
 
-Zie voor meer informatie over het oplossen van dergelijke toewijzingsfouten [Cloudservice toewijzingsfout: Oplossingen](cloud-services-allocation-failures.md#solutions).
+Zie [Cloud service toewijzings fout voor meer informatie over het beperken van dergelijke toewijzings fouten: Oplossingen](cloud-services-allocation-failures.md#solutions).
 
-## <a name="why-does-deploying-a-cloud-service-into-an-affinity-group-sometimes-result-in-allocation-failure"></a>Waarom voor het implementeren van een service in de cloud in een affiniteitsgroep is het soms resulteert in toewijzingsfout?
-Een nieuwe implementatie in een lege cloudservice kan worden toegewezen door de infrastructuur in een cluster in deze regio, tenzij de cloudservice is vastgemaakt aan een affiniteitsgroep. Implementaties naar dezelfde affiniteitsgroep bevinden worden geprobeerd in hetzelfde cluster. Als het cluster heeft capaciteit bijna bereikt, mislukken de aanvraag.
+## <a name="why-does-deploying-a-cloud-service-into-an-affinity-group-sometimes-result-in-allocation-failure"></a>Waarom resulteert het implementeren van een Cloud service in een affiniteits groep soms in toewijzings fout?
+Een nieuwe implementatie naar een lege Cloud service kan worden toegewezen door de infra structuur in een cluster in die regio, tenzij de Cloud service is vastgemaakt aan een affiniteits groep. Implementaties voor dezelfde affiniteits groep worden geprobeerd op hetzelfde cluster. Als de capaciteit van het cluster bijna is bereikt, kan de aanvraag mislukken.
 
-Zie voor meer informatie over het oplossen van dergelijke toewijzingsfouten [Cloudservice toewijzingsfout: Oplossingen](cloud-services-allocation-failures.md#solutions).
+Zie [Cloud service toewijzings fout voor meer informatie over het beperken van dergelijke toewijzings fouten: Oplossingen](cloud-services-allocation-failures.md#solutions).
 
-## <a name="why-does-changing-vm-size-or-adding-a-new-vm-to-an-existing-cloud-service-sometimes-result-in-allocation-failure"></a>Waarom wijzigen van VM-grootte of voor het toevoegen van een nieuwe virtuele machine aan een bestaande cloudservice is het soms resulteert in toewijzingsfout?
-De clusters in een datacenter mogelijk verschillende configuraties van machine-typen (bijvoorbeeld, een serie, Av2-serie, D-serie, Dv2-serie, G-serie, H-serie, enzovoort). Maar niet alle clusters moet altijd alle typen virtuele machines. Als u probeert een virtuele machine uit de D-serie toevoegen aan een cloudservice die al in een A-serie alleen-lezen-cluster is geïmplementeerd, zult u bijvoorbeeld een toewijzingsfout ervaren. Dit wordt ook gebeuren als u probeert te wijzigen dat VM-SKU-grootten (bijvoorbeeld van een A-serie overschakelen naar een D-serie).
+## <a name="why-does-changing-vm-size-or-adding-a-new-vm-to-an-existing-cloud-service-sometimes-result-in-allocation-failure"></a>Waarom resulteert het wijzigen van de VM-grootte of het toevoegen van een nieuwe virtuele machine aan een bestaande Cloud service er soms toe voor toewijzings fouten?
+De clusters in een Data Center kunnen verschillende configuraties van computer typen hebben (bijvoorbeeld een serie, Av2-serie, D-serie, dv2-serie, G-serie, H-serie, enzovoort). Maar niet alle clusters zouden altijd alle typen Vm's hebben. Als u bijvoorbeeld probeert een D-serie-VM toe te voegen aan een Cloud service die al is geïmplementeerd in een cluster met alleen een reeks, zal er een toewijzings fout optreden. Dit gebeurt ook als u VM-SKU-grootten probeert te wijzigen (bijvoorbeeld het overschakelen van een serie naar een D-serie).
 
-Zie voor meer informatie over het oplossen van dergelijke toewijzingsfouten [Cloudservice toewijzingsfout: Oplossingen](cloud-services-allocation-failures.md#solutions).
+Zie [Cloud service toewijzings fout voor meer informatie over het beperken van dergelijke toewijzings fouten: Oplossingen](cloud-services-allocation-failures.md#solutions).
 
-U kunt de grootten die beschikbaar zijn in uw regio controleren [Microsoft Azure: Producten beschikbaar per regio](https://azure.microsoft.com/regions/services).
+Zie [Microsoft Azure voor het controleren van de beschik bare grootten in uw regio: Beschik bare producten](https://azure.microsoft.com/regions/services)per regio.
 
-## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Waarom enige tijd opnieuw uit met het implementeren van een cloudservice mislukken vanwege quota-limieten/beperkingen op mijn abonnement of de service?
-Implementatie van een service in de cloud kan mislukken als de resources die nodig zijn om te worden toegewezen langer zijn dan de standaard- of maximumquotum voor uw service op het niveau van de regio/datacenter wordt toegestaan. Zie voor meer informatie, [Cloud Services beperkt](../azure-subscription-service-limits.md#azure-cloud-services-limits).
+## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Waarom is het implementeren van een Cloud service ergens mislukt vanwege limieten/quota's/beperkingen voor mijn abonnement of service?
+De implementatie van een Cloud service kan mislukken als de resources die moeten worden toegewezen, het standaard-of maximum quotum overschrijden dat is toegestaan voor uw service op het niveau van de regio/Data Center. Zie [Cloud Services limieten](../azure-subscription-service-limits.md#azure-cloud-services-limits)voor meer informatie.
 
-U kunt ook de huidige gebruiksquotum bijhouden voor uw abonnement in de portal: Azure-portal = > abonnementen = > \<abonnement van toepassing > = > 'Gebruik + quota'.
+U kunt ook het huidige gebruik/quotum volgen voor uw abonnement op de portal: Azure Portal = >-abonnementen = \<> juiste abonnement > = > ' gebruik en quotum '.
 
-Resource-gebruik/verbruik-gerelateerde informatie kan ook worden opgehaald via de Azure Billing API's. Zie [Azure Resourcegebruik-API (Preview)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
+Informatie over het resource gebruik/het verbruik kan ook worden opgehaald via de Azure Billing-API's. Zie de [Azure resource usage-API (preview)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
 
-## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>Hoe kan ik de grootte van een geïmplementeerde cloudservice-VM wijzigen zonder deze opnieuw te implementeren?
-U kunt de VM-grootte van een geïmplementeerde cloudservice niet wijzigen zonder deze opnieuw te implementeren. De VM-grootte is ingebouwd in het CSDEF, kan alleen worden bijgewerkt met een opnieuw implementeren.
+## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>Hoe kan ik de grootte van een geïmplementeerde Cloud service-VM wijzigen zonder deze opnieuw te implementeren?
+U kunt de VM-grootte van een geïmplementeerde Cloud service niet wijzigen zonder deze opnieuw te implementeren. De VM-grootte is ingebouwd in de CSDEF, die alleen kan worden bijgewerkt met een nieuwe implementatie.
 
-Zie voor meer informatie, [het bijwerken van een cloudservice](cloud-services-update-azure-service.md).
+Zie [How to update a Cloud service](cloud-services-update-azure-service.md)(Engelstalig) voor meer informatie.
 
-## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Waarom kan ik geen implementeren van Cloud-Services via Service Management API's of PowerShell bij het gebruik van Azure Resource Manager-Storage-account? 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Waarom kan ik Cloud Services niet implementeren via Service Management-Api's of Power shell wanneer ik Azure Resource Manager-opslag account gebruik? 
 
-Omdat de Service in de Cloud een Classic-resource die niet rechtstreeks compatibel is met het Azure Resource Manager-model is, kunt u deze niet koppelen met de Azure Resource Manager-opslagaccounts. Hier zijn enkele opties: 
+Omdat de Cloud service een klassieke resource is die niet rechtstreeks compatibel is met het Azure Resource Manager model, kunt u deze niet koppelen aan de Azure Resource Manager-opslag accounts. Hier volgen enkele opties: 
  
-- Implementeren via REST-API.
+- Implementeren via REST API.
 
-    Wanneer u via de Service Management REST-API implementeert, kan u de beperking omzeilen door een SAS-URL naar de blob-opslag, die is voor zowel klassieke als Azure Resource Manager-Storage-account geschikt op te geven. Meer informatie over de eigenschap 'PackageUrl' [hier](/previous-versions/azure/reference/ee460813(v=azure.100)).
+    Wanneer u implementeert via Service Management REST API, kunt u de beperking omzeilen door een SAS-URL op te geven voor de Blob-opslag, die met zowel het klassieke als het Azure Resource Manager Storage-account wordt gebruikt. Lees [hier](/previous-versions/azure/reference/ee460813(v=azure.100))meer over de eigenschap ' PackageUrl '.
   
-- Implementeren via [Azure-portal](https://portal.azure.com).
+- Implementeren via [Azure Portal](https://portal.azure.com).
 
-    Dit werkt vanuit de [Azure-portal](https://portal.azure.com) wanneer de aanroep niet via een proxy/shim waarmee de communicatie tussen Azure Resource Manager en klassieke resources. 
+    Dit werkt vanaf de [Azure Portal](https://portal.azure.com) omdat de aanroep via een proxy/Shim verloopt, waardoor communicatie tussen Azure Resource Manager en klassieke bronnen mogelijk is. 
  
-## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Waarom vereist Azure-portal me voor een storage-account voor implementatie? 
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Waarom moet ik een opslag account opgeven voor de implementatie van Azure Portal? 
 
-Het pakket rechtstreeks naar de laag van de API management is geüpload in de klassieke portal en vervolgens de API-laag tijdelijk plaatst het pakket naar een interne storage-account.  Dit proces zorgt ervoor dat problemen met prestaties en schaalbaarheid omdat de API-laag niet ontworpen is om te worden van een bestand uploaden-service.  In de Azure-portal (Resource Manager-implementatiemodel) hebben we de tussentijdse stap van het eerste uploaden naar de API-laag, overgeslagen leidt tot sneller en betrouwbaarder implementaties. 
+In de klassieke Portal is het pakket rechtstreeks naar de Management API-laag geüpload, waarna de API-laag het pakket tijdelijk in een intern opslag account plaatst.  Dit proces veroorzaakt prestatie-en schaalbaarheids problemen omdat de API-laag niet is ontworpen om een file upload-service te zijn.  In het Azure Portal (Resource Manager-implementatie model) hebben we de tijdelijke stap voor het eerst uploaden naar de API-laag overgeslagen, wat resulteert in snellere en betrouwbaardere implementaties. 
 
-Als de kosten voor het is erg klein en u kunt hetzelfde opslagaccount opnieuw gebruiken voor alle implementaties. U kunt de [opslag kostencalculator](https://azure.microsoft.com/pricing/calculator/#storage1) om te bepalen van de kosten voor het uploaden van het servicepakket (CSPKG), de CSPKG downloaden en verwijder vervolgens de CSPKG. 
+Net als voor de kosten is het zeer klein en kunt u hetzelfde opslag account voor alle implementaties gebruiken. U kunt de [reken machine voor opslag kosten](https://azure.microsoft.com/pricing/calculator/#storage1) gebruiken om de kosten te bepalen voor het uploaden van het service pakket (CSPKG), de CSPKG te downloaden en vervolgens de CSPKG te verwijderen. 

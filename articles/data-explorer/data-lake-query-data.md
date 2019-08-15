@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: cd53e1386d9d6f2a38beb1661554c8cc9116169d
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: ef4dfc4370c71eac1978a6f3535b571a5e6009b5
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494871"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950139"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Query's uitvoeren op gegevens in Azure Data Lake met behulp van Azure Data Explorer (preview-versie)
 
@@ -45,8 +45,11 @@ Azure Data Explorer kan worden geïntegreerd met Azure Blob Storage en Azure Dat
     dataformat=csv (h@'http://storageaccount.blob.core.windows.net/container1;secretKey') 
     with (compressed = true)  
     ```
-
-    Met deze query maakt u dagelijks partities *container1/jjjj/mm/dd/all_exported_blobs. CSV*. Er worden betere prestaties verwacht met een gedetailleerdere partitionering. Query's over externe tabellen met dagelijkse partities, zoals de bovenstaande, hebben bijvoorbeeld betere prestaties dan die query's met maandelijkse gepartitioneerde tabellen.
+    
+    > [!NOTE]
+    > * Er worden betere prestaties verwacht met een gedetailleerdere partitionering. Query's over externe tabellen met dagelijkse partities hebben bijvoorbeeld betere prestaties dan die query's met maandelijkse gepartitioneerde tabellen.
+    > * Wanneer u een externe tabel met partities definieert, wordt de opslag structuur naar verwachting identiek.
+Als de tabel bijvoorbeeld is gedefinieerd met een DateTime-partitie in JJJJ/MM/DD-indeling (standaard), moet het pad naar het URI-opslag bestand *container1/jjjj/mm/dd/all_exported_blobs*zijn. 
 
 1. De externe tabel is zichtbaar in het linkerdeel venster van de Web-UI
 

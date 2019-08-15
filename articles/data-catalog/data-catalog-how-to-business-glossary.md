@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 6ecb481245484332221e45b8f27c776291ea532d
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 1065abecb1f0ef57eb13b1ec3f194f07ae01eaee
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736414"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976797"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>De zakelijke woorden lijst instellen voor de onderhevige labels
 
@@ -36,11 +36,11 @@ De zakelijke woorden lijst is alleen beschikbaar in de Standard-editie van Azure
 
 U kunt de bedrijfs woordenlijst openen via de optie voor de **woorden lijst** in het navigatie menu van de Data Catalog-Portal.  
 
-![De zakelijke woorden lijst openen](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
+![Data Catalog: toegang tot de woorden lijst van de onderneming](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
 Data Catalog beheerders en leden van de rol Administrators van woorden lijst kunnen termen van een woorden lijst maken, bewerken en verwijderen in de zakelijke woorden lijst. Alle Data Catalog gebruikers kunnen de termen definities en label activa weer geven met woordenlijst termen.
 
-![Een nieuwe woordenlijst term toevoegen](./media/data-catalog-how-to-business-glossary/02-new-term.png)
+![Data Catalog-een nieuwe woordenlijst term toevoegen](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
 ## <a name="creating-glossary-terms"></a>Termen voor een woorden lijst maken
 

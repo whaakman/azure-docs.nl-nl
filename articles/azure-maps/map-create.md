@@ -1,6 +1,6 @@
 ---
 title: Een kaart maken met Azure Maps | Microsoft Docs
-description: Een Java script-kaart maken
+description: Een kaart maken met de Azure Maps Web-SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/26/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9f1188fcf2aa24791ca5181f5c94a1b0f6b15dc1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 932c244ff41e757413a05cde019ee7ee1a82232d
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882067"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976122"
 ---
 # <a name="create-a-map"></a>Een kaart maken
 
@@ -22,7 +22,7 @@ Dit artikel laat u zien hoe u een kaart maakt en een kaart kunt animeren.
 
 ## <a name="loading-a-map"></a>Een kaart laden
 
-Als u een kaart wilt laden, maakt u een nieuw exemplaar van de [kaart klasse](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). Bij het initialiseren van de kaart een DIV element-ID om de kaart en een set opties weer te geven die moeten worden gebruikt wanneer het laden van de kaart wordt door gegeven. Als er geen standaard verificatie gegevens zijn opgegeven `atlas` in de naam ruimte, moet deze informatie worden opgegeven in de kaart opties bij het laden van de kaart. De kaart laadt verschillende bronnen asynchroon voor prestaties. Koppel, na het maken van het exemplaar van de kaart `ready` , `load` een of-gebeurtenis aan de kaart en voeg vervolgens extra code toe die samenwerkt met de kaart in die gebeurtenis-handler. De `ready` gebeurtenis wordt geactiveerd zodra de kaart voldoende resources heeft geladen om via een programma te communiceren. De `load` gebeurtenis wordt geactiveerd nadat het laden van de eerste kaart weergave volledig is voltooid. 
+Als u een kaart wilt laden, maakt u een nieuw exemplaar van de [kaart klasse](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). Bij het initialiseren van de kaart, een DIV element-ID voor het renderen van de kaart en een set opties die moeten worden gebruikt wanneer het laden van de kaart wordt door gegeven. Als er geen standaard verificatie gegevens zijn opgegeven `atlas` in de naam ruimte, moet deze informatie worden opgegeven in de kaart opties bij het laden van de kaart. De kaart laadt verschillende bronnen asynchroon voor prestaties. Koppel, na het maken van het exemplaar van de kaart `ready` , `load` een of-gebeurtenis aan de kaart en voeg vervolgens extra code toe die samenwerkt met de kaart in die gebeurtenis-handler. De `ready` gebeurtenis wordt geactiveerd zodra de kaart voldoende resources heeft geladen om via een programma te communiceren. De `load` gebeurtenis wordt geactiveerd nadat het laden van de eerste kaart weergave volledig is voltooid. 
 
 <br/>
 
@@ -104,3 +104,6 @@ Zie code voorbeelden om functionaliteit toe te voegen aan uw app:
 
 > [!div class="nextstepaction"]
 > [Besturings elementen toevoegen aan de kaart](map-add-controls.md)
+
+> [!div class="nextstepaction"]
+> [Codevoorbeelden](https://docs.microsoft.com/samples/browse/?products=azure-maps)

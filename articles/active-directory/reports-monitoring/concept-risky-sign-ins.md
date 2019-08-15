@@ -2,7 +2,7 @@
 title: Rapport Riskante aanmeldingen in de Azure Active Directory-portal | Microsoft Docs
 description: Meer informatie over het rapport Riskante aanmeldingen in de Azure Active Directory-portal
 services: active-directory
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
@@ -12,65 +12,65 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e125f8e1e7909c5866a03c0571f49ec42d690a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 629e7bf8ee7100b5927483ecfd4efa1d9223c151
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60287394"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989925"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Het rapport Riskante aanmeldingen in de Azure Active Directory-portal
 
-Azure Active Directory (Azure AD) detecteert verdachte activiteit die is gekoppeld aan uw gebruikersaccounts. Voor elke gedetecteerde activiteit wordt een record met de naam **risicogebeurtenis** gemaakt. Zie voor meer informatie, [Azure AD-risicogebeurtenissen](concept-risk-events.md). 
+Azure Active Directory (Azure AD) detecteert verdachte acties die zijn gerelateerd aan uw gebruikers accounts. Voor elke gedetecteerde activiteit wordt een record met de naam **risicogebeurtenis** gemaakt. Zie [risico gebeurtenissen in azure AD](concept-risk-events.md)voor meer informatie. 
 
 De beveiligingsrapporten zijn beschikbaar via de [Azure-portal](https://portal.azure.com). Selecteer de blade **Azure Active Directory** en ga vervolgens naar de sectie **Beveiliging**. 
 
-Er zijn twee verschillende beveiligingsrapporten die worden berekend op basis van de risicogebeurtenissen:
+Er zijn twee verschillende beveiligings rapporten die worden berekend op basis van de risico gebeurtenissen:
 
 - **Riskante aanmeldingen** - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is.
 
-- **Gebruikers van wie wordt aangegeven dat ze risico lopen** - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. 
+- **Gebruikers voor wie wordt aangegeven dat ze risico lopen** - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. 
 
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/10.png)
 
 Zie [Het beleid voor gebruikersrisico's configureren](../identity-protection/howto-user-risk-policy.md) voor informatie over het configureren van de beleidsregels die deze risicogebeurtenissen activeren.  
 
-## <a name="who-can-access-the-risky-sign-ins-report"></a>Wie toegang heeft tot het rapport riskante aanmeldingen?
+## <a name="who-can-access-the-risky-sign-ins-report"></a>Wie kan het rapport Risk ante aanmeldingen openen?
 
-De rapporten over riskante aanmeldingen zijn beschikbaar voor gebruikers in de volgende rollen:
+De rapporten met Risk ante aanmeldingen zijn beschikbaar voor gebruikers in de volgende rollen:
 
 - Beveiligingsbeheerder
 - Globale beheerder
 - Beveiligingslezer
 
-Zie voor meer informatie over beheerdersrollen toewijzen aan een gebruiker in Azure Active Directory, [weergeven en toewijzen beheerdersrollen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
+Zie [beheerders rollen weer geven en toewijzen in azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal)voor meer informatie over het toewijzen van beheerders rollen aan een gebruiker in azure Active Directory.
 
 ## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Welke Azure AD-licentie heb ik nodig voor toegang tot een beveiligingsrapport?  
 
-Alle edities van Azure AD bieden rapporten over riskante aanmeldingen. Het detailniveau van rapporten verschilt wel per editie: 
+Alle versies van Azure AD bieden u rapporten met Risk ante aanmeldingen. Het detailniveau van rapporten verschilt wel per editie: 
 
-- In de **Azure Active Directory gratis en Basic edities**, krijgt u een lijst met riskante aanmeldingen. 
+- In de **Azure Active Directory Free en Basic-edities**krijgt u een lijst met Risk ante aanmeldingen. 
 
 - Daarnaast kunt u in de editie **Azure Active Directory Premium 1** bepaalde onderliggende risicogebeurtenissen onderzoeken die voor elk rapport zijn gedetecteerd. 
 
 - De editie **Azure Active Directory Premium 2** biedt u de meest gedetailleerde informatie over alle onderliggende risicogebeurtenissen. Deze editie stelt u ook in staat beveiligingsbeleidsregels te configureren die automatisch op de geconfigureerde risiconiveaus reageren.
 
-## <a name="risky-sign-ins-report-for-azure-ad-free-and-basic-edition"></a>Rapport riskante aanmeldingen voor Azure AD gratis en basic-editie
+## <a name="risky-sign-ins-report-for-azure-ad-free-and-basic-edition"></a>Rapport Risk ante aanmeldingen voor Azure AD Free en Basic Edition
 
-De Azure AD gratis en basic edities bieden u een lijst met riskante aanmeldingen die zijn gedetecteerd voor uw gebruikers. Elke record bevat de volgende kenmerken:
+De gratis en Basic-edities van Azure AD bieden een lijst met Risk ante aanmeldingen die zijn gedetecteerd voor uw gebruikers. Elke record bevat de volgende kenmerken:
 
-- **Gebruiker** -de naam van de gebruiker die is gebruikt tijdens het aanmelden.
-- **IP** -het IP-adres van het apparaat dat is gebruikt voor het verbinding maken met Azure Active Directory.
-- **Locatie** -de locatie die wordt gebruikt om te verbinden met Azure Active Directory. Dit is een aanbevolen inspanning benadering op basis van traceringen, register, omgekeerde zoekopdrachten en andere gegevens.
+- **Gebruiker** -de naam van de gebruiker die is gebruikt tijdens de aanmeldings bewerking.
+- **IP** : het IP-adres van het apparaat dat is gebruikt om verbinding te maken met Azure Active Directory.
+- **Locatie** : de locatie die wordt gebruikt om verbinding te maken met Azure Active Directory. Dit is een best mogelijke benadering op basis van traceringen, register gegevens, het terugdraaien van ups en andere informatie.
 - **Tijd van aanmelden**: de tijd waarop de aanmelding heeft plaatsgevonden
 - **Status**: de status van de aanmelding
 
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/01.png)
 
-Op basis van uw onderzoek van de riskante aanmelding, kunt u feedback geven aan Azure AD door de volgende acties te ondernemen:
+Op basis van uw onderzoek naar de Risk ante aanmelding kunt u Azure AD feedback geven door de volgende acties uit te voeren:
 
 - Oplossen
 - Markeren als fout-positief
@@ -79,18 +79,18 @@ Op basis van uw onderzoek van de riskante aanmelding, kunt u feedback geven aan 
 
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/21.png)
 
-Dit rapport bevat ook een optie voor het:
+Dit rapport geeft u ook een optie om het volgende te doen:
 
 - Resources zoeken
 - De rapportgegevens downloaden
 
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/93.png)
 
-## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Rapport riskante aanmeldingen voor Azure AD premium-edities
+## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Rapport Risk ante aanmeldingen voor Azure AD Premium-edities
 
-Het rapport riskante aanmeldingen in de Azure AD premium-edities biedt u met:
+Het rapport Risk ante aanmeldingen in de Azure AD Premium-edities biedt u het volgende:
 
-- Verzamelde informatie over de [risicogebeurtenistypen](concept-risk-events.md) die zijn gedetecteerd. Met de **editie van Azure AD Premium P1**, detecties die niet bij uw licentie inbegrepen zijn worden weergegeven als de risicogebeurtenis **aanmelden met extra risico gedetecteerd**. Met de **Azure AD Premium P2-editie**, krijgt u de meest gedetailleerde informatie over alle onderliggende detecties.
+- Samengevoegde informatie over de [typen risico gebeurtenissen](concept-risk-events.md) die zijn gedetecteerd. Met de **Azure AD Premium P1 Edition**worden detecties die niet onder uw licentie vallen, weer gegeven als het aanmelden met een risico gebeurtenis **waarvoor extra risico is gedetecteerd**. Met de **Azure AD Premium P2-editie**krijgt u de meest gedetailleerde informatie over alle onderliggende detecties.
 
 - Een optie voor het downloaden van het rapport
 
@@ -104,12 +104,12 @@ Wanneer u een risicogebeurtenis selecteert, krijgt u een gedetailleerde rapportw
 
 - Een lijst met gebruikers bekijken waarvoor deze risicogebeurtenis is gedetecteerd
 
-- Risicogebeurtenissen handmatig sluiten. 
+- Risico gebeurtenissen hand matig sluiten. 
 
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/457.png)
 
 > [!IMPORTANT]
-> Soms wellicht vindt u een risicogebeurtenis zonder een bijbehorende aanmelding vermelding in de [aanmeldingenrapport](concept-sign-ins.md). Dit komt doordat Identity Protection risico's voor zowel evalueert **interactieve** en **niet-interactieve** aanmeldingen, terwijl de aanmeldingen-lijst alleen de interactieve aanmeldingen bevat.
+> Soms vindt u een risico gebeurtenis zonder een bijbehorende aanmeldings vermelding in het [aanmeld rapport](concept-sign-ins.md). Dit komt doordat identiteits beveiliging het risico evalueert voor **interactieve** en **niet-interactieve** aanmeldingen, terwijl in het rapport voor aanmeldingen alleen de interactieve aanmeldingen worden weer gegeven.
 
 Wanneer u een gebruiker selecteert, krijgt u een gedetailleerde rapportweergave voor deze gebruiker waarmee u het volgende kunt:
 

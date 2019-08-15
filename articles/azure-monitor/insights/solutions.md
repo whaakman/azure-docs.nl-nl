@@ -1,6 +1,6 @@
 ---
-title: Bewakingsoplossingen in Azure Monitor | Microsoft Docs
-description: Bewakingsoplossingen in Azure Monitor zijn een verzameling logische, visualisatie en gegevensverzameling gegevensverzamelingsregels waarmee metrische gegevens gedraaid rondom een specifiek probleemgebied.  In dit artikel bevat informatie over het installeren en gebruiken van bewakingsoplossingen.
+title: Bewakings oplossingen in Azure Monitor | Microsoft Docs
+description: Bewakings oplossingen in Azure Monitor zijn een verzameling regels voor logica, visualisatie en gegevens aanschaf die gegevens over een bepaald probleem gebied hebben gedraaid.  Dit artikel bevat informatie over het installeren en gebruiken van bewakings oplossingen.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,29 +11,29 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 08/13/2019
 ms.author: bwren
-ms.openlocfilehash: b66d9cf15aaeaca975b60f24601b8ad7f555f458
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6932f9f302bf1816842d78a662f01ebaafed8686
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110154"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989208"
 ---
-# <a name="monitoring-solutions-in-azure-monitor"></a>Bewakingsoplossingen in Azure Monitor
-Bewakingsoplossingen gebruikmaken van services in Azure om meer inzicht in de werking van een bepaalde toepassing of service. In dit artikel geeft een kort overzicht van bewakingsoplossingen in Azure en meer informatie over het gebruiken en ze te installeren.
+# <a name="monitoring-solutions-in-azure-monitor"></a>Bewakings oplossingen in Azure Monitor
+Bewakings oplossingen maken gebruik van services in azure om meer inzicht te krijgen in de werking van een bepaalde toepassing of service. Dit artikel bevat een kort overzicht van de bewakings oplossingen in Azure en informatie over het gebruik en de installatie ervan.
 
 > [!NOTE]
-> Bewakingsoplossingen werden eerder beheeroplossingen genoemd.
+> Bewakings oplossingen werden voorheen beheer oplossingen genoemd.
 
-Bewakingsoplossingen doorgaans logboekgegevens verzamelen en query's en weergaven om verzamelde gegevens te analyseren. Ze kunnen ook gebruikmaken van andere services zoals Azure Automation om uit te voeren met betrekking tot de toepassing of service.
+Bewakings oplossingen verzamelen doorgaans logboek gegevens en bieden query's en weer gaven om verzamelde gegevens te analyseren. Ze kunnen ook gebruikmaken van andere services zoals Azure Automation om uit te voeren met betrekking tot de toepassing of service.
 
-U kunt bewakingsoplossingen toevoegen aan Azure Monitor voor alle toepassingen en services die u gebruikt. Ze zijn doorgaans beschikbaar er worden geen kosten, maar verzamelen gegevens kosten voor het gebruik kan worden aangeroepen. Naast de oplossingen die worden geleverd door Microsoft, partners en klanten kunnen [beheeroplossingen maken](solutions-creating.md) moet worden gebruikt in hun eigen omgeving of beschikbaar gesteld aan klanten via de community.
+U kunt bewakings oplossingen toevoegen aan Azure Monitor voor alle toepassingen en services die u gebruikt. Ze zijn doorgaans beschikbaar er worden geen kosten, maar verzamelen gegevens kosten voor het gebruik kan worden aangeroepen. Naast de oplossingen die worden geleverd door Microsoft, partners en klanten kunnen [beheeroplossingen maken](solutions-creating.md) moet worden gebruikt in hun eigen omgeving of beschikbaar gesteld aan klanten via de community.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="use-monitoring-solutions"></a>Bewakingsoplossingen gebruiken
-Open de **overzicht** pagina in Azure Monitor om weer te geven van een tegel voor elke oplossing in de werkruimte geïnstalleerd. 
+Open de pagina **overzicht** in azure monitor om een tegel weer te geven voor elke oplossing die in de werk ruimte is geïnstalleerd. 
 
 1. Meld u aan bij Azure Portal.
 1. Open **alle services** en zoek **Monitor**.
@@ -43,14 +43,14 @@ Open de **overzicht** pagina in Azure Monitor om weer te geven van een tegel voo
 
 ![Overzicht](media/solutions/overview.png)
 
-Oplossingen voor de controle kan bevatten meerdere typen Azure-resources, en u kunt alle resources die deel uitmaakt van een oplossing net als bij een andere bron weergeven. Bijvoorbeeld, alle logboeken-query's die deel uitmaken van de oplossing worden vermeld in **oplossing query's** in [queryverkenner](../log-query/get-started-portal.md#load-queries) kunt u deze query's bij het uitvoeren van ad-hoc-analyse met [melden van query's ](../log-query/log-query-overview.md).
+Bewakings oplossingen kunnen meerdere typen Azure-resources bevatten en u kunt alle resources die zijn opgenomen in een oplossing, net als elke andere resource bekijken. Alle logboek query's die in de oplossing zijn opgenomen, worden bijvoorbeeld vermeld onder **oplossingen query's** in [query Explorer](../log-query/get-started-portal.md#load-queries) . u kunt deze query's gebruiken bij het uitvoeren van ad hoc analyses met [logboek query's](../log-query/log-query-overview.md).
 
-## <a name="list-installed-monitoring-solutions"></a>Lijst van geïnstalleerde bewakingsoplossingen 
-Gebruik de volgende procedure om de bewakingsoplossingen geïnstalleerd in uw abonnement weer te geven.
+## <a name="list-installed-monitoring-solutions"></a>Geïnstalleerde bewakings oplossingen weer geven 
+Gebruik de volgende procedure om de bewakings oplossingen weer te geven die in uw abonnement zijn geïnstalleerd.
 
 1. Meld u aan bij Azure Portal.
 1. Open **alle services** en zoek **oplossingen**.
-4. Oplossingen die zijn geïnstalleerd in al uw werkruimten worden weergegeven. De naam van de oplossing wordt gevolgd door de naam van de werkruimte die deze wordt geïnstalleerd op.
+4. Oplossingen die zijn geïnstalleerd in al uw werkruimten worden weergegeven. De naam van de oplossing wordt gevolgd door de naam van de werk ruimte waarin deze is geïnstalleerd.
 1. Gebruik de vervolgkeuzelijsten boven aan het scherm om te filteren op abonnement of resourcegroep.
 
 
@@ -62,14 +62,14 @@ Klik op de naam van een oplossing voor het openen van de pagina overzicht. Deze 
 
 
 
-## <a name="install-a-monitoring-solution"></a>Installeren van een oplossing voor bewaking
-Bewakingsoplossingen van Microsoft en partners zijn beschikbaar via de [Azure Marketplace](https://azuremarketplace.microsoft.com). U kunt zoeken naar beschikbare oplossingen en installeren met behulp van de volgende procedure. Wanneer u een oplossing installeert, moet u een [Log Analytics-werkruimte](../platform/manage-access.md) installatie van de oplossing en waar de gegevens worden verzameld.
+## <a name="install-a-monitoring-solution"></a>Een bewakings oplossing installeren
+Bewakings oplossingen van micro soft en partners zijn beschikbaar via [Azure Marketplace](https://azuremarketplace.microsoft.com). U kunt zoeken naar beschikbare oplossingen en installeren met behulp van de volgende procedure. Wanneer u een oplossing installeert, moet u een [Log Analytics-werkruimte](../platform/manage-access.md) installatie van de oplossing en waar de gegevens worden verzameld.
 
-1. Uit de [lijst met oplossingen voor uw abonnement](#list-installed-monitoring-solutions), klikt u op **toevoegen**. 
-1. Aan de rechterkant van **beheeroplossingen**, klikt u op **meer**. 
-1. Ga naar de oplossing voor controle u wilt gebruiken en lees de beschrijving.
+1. Uit de [lijst met oplossingen voor uw abonnement](#list-installed-monitoring-solutions), klikt u op **toevoegen**.
+1. Blader of zoek naar een oplossing. U kunt ook naar oplossingen bladeren via [deze zoek koppeling](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions).
+1. Zoek de gewenste bewakings oplossing en lees de beschrijving.
 1. Klik op **maken** om het installatieproces te starten.
-1. Wanneer het installatieproces wordt gestart, wordt u gevraagd voor de vereiste configuratie die varieert voor elke oplossing.
+1. Wanneer het installatie proces wordt gestart, wordt u gevraagd om de Log Analytics-werk ruimte op te geven en de vereiste configuratie voor de oplossing op te geven.
 
 ![Installeren van een oplossing](media/solutions/install-solution.png)
 
@@ -86,7 +86,7 @@ Leden van de community kunnen oplossingen voor gegevensbeheer voor Azure-Snelsta
 
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics-werkruimte en het Automation-account
-Alle controle-oplossingen vereisen een [Log Analytics-werkruimte](../platform/manage-access.md) voor het opslaan van gegevens die zijn verzameld door de oplossing en voor het hosten van de logboeken en weergaven. Sommige oplossingen ook vereisen een [Automation-account](../../automation/automation-security-overview.md#automation-account-overview) runbooks en verwante resources bevat. De werkruimte en account moeten voldoen aan de volgende vereisten.
+Voor alle bewakings oplossingen is een [log Analytics-werk ruimte](../platform/manage-access.md) vereist voor het opslaan van gegevens die zijn verzameld door de oplossing en het vinden van zoek opdrachten in Logboeken en weer gaven. Sommige oplossingen ook vereisen een [Automation-account](../../automation/automation-security-overview.md#automation-account-overview) runbooks en verwante resources bevat. De werkruimte en account moeten voldoen aan de volgende vereisten.
 
 * Elke installatie van een oplossing kan alleen een Log Analytics-werkruimte en een Automation-account gebruiken. U kunt de oplossing afzonderlijk installeren in meerdere werkruimten.
 * Als een oplossing een Automation-account vereist, moeten klikt u vervolgens de Log Analytics-werkruimte en het Automation-account worden gekoppeld aan elkaar. Een Log Analytics-werkruimte kan alleen worden gekoppeld aan een Automation-account en een Automation-account kan slechts aan één Log Analytics-werkruimte zijn gekoppeld.
@@ -105,11 +105,11 @@ U kunt controleren of de koppeling tussen een Log Analytics-werkruimte en een Au
 1. Schuif naar de **gerelateerde Resources** gedeelte van het menu.
 1. Als de **werkruimte** instelling is ingeschakeld, wordt deze account is gekoppeld aan een Log Analytics-werkruimte. U kunt klikken op **werkruimte** om de details van de werkruimte weer te geven.
 
-## <a name="remove-a-monitoring-solution"></a>Verwijderen van een oplossing voor bewaking
+## <a name="remove-a-monitoring-solution"></a>Een bewakings oplossing verwijderen
 Als u wilt verwijderen van een oplossing voor is geïnstalleerd, zoekt u deze in de [lijst met geïnstalleerde oplossingen](#list-installed-monitoring-solutions). Klik op de naam van de oplossing voor het openen van de pagina Samenvatting en klik vervolgens op **verwijderen**.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Krijgen een [lijst met oplossingen van Microsoft voor de controle](solutions-inventory.md).
-* Meer informatie over het [query's maken](../log-query/log-query-overview.md) voor het analyseren van gegevens die zijn verzameld door de bewaking van oplossingen.
+* Een [lijst met bewakings oplossingen van micro soft](solutions-inventory.md)ophalen.
+* Meer informatie over het [maken van query's](../log-query/log-query-overview.md) voor het analyseren van gegevens die zijn verzameld door bewakings oplossingen.
 

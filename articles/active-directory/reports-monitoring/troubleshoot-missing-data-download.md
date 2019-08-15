@@ -1,9 +1,9 @@
 ---
-title: 'Probleemoplossing: Ontbrekende gegevens in de gedownloade activiteitenlogboeken van Azure Active Directory | Microsoft Docs'
+title: Meer Ontbrekende gegevens in de gedownloade activiteiten logboeken van Azure Active Directory | Microsoft Docs
 description: Biedt een oplossing voor ontbrekende gegevens in de gedownloade activiteitenlogboeken van Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2200a9c75b371ed72ffefe6900367e698101e0fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f120c1b86efe94f4ff6316e6116b9049582b07e9
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437092"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987989"
 ---
-# <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Ik kan niet alle gegevens vinden in de activiteitenlogboeken van Azure Active Directory die ik gedownload
+# <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Ik kan niet alle gegevens vinden in de Azure Active Directory activiteiten logboeken die ik heb gedownload
 
 ## <a name="symptoms"></a>Symptomen
 
-Ik heb de activiteitenlogboeken (audit of aanmeldingen) gedownload en ik zie niet alle records voor de tijd die ik heb geselecteerd. Hoe komt dat? 
+Ik heb de activiteitenlogboeken (audit of aanmeldingen) gedownload en ik zie niet alle records voor de tijd die ik heb geselecteerd. Waarom? 
 
  ![Rapportage](./media/troubleshoot-missing-data-download/01.png)
  
 ## <a name="cause"></a>Oorzaak
 
-Wanneer u activiteitenlogboeken in Azure portal downloadt, beperkt de schaal aan 250.000 records, gesorteerd op meest recente eerst. 
+Wanneer u activiteiten Logboeken in de Azure Portal downloadt, beperken we de schaal tot 250.000 records, gesorteerd op meest recente eerst. 
 
 ## <a name="resolution"></a>Oplossing
 
@@ -42,5 +42,5 @@ U kunt gebruikmaken van [API's van Azure AD Reporting](concept-reporting-api.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Veelgestelde vragen over Azure Active Directory-rapporten](reports-faq.md)
+* [Veelgestelde vragen over Azure Active Directory rapporten](reports-faq.md)
 

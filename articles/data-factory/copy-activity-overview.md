@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: ae8b2bb7cce545ab9c0aa0c9d4d682089cc482ab
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a8265496c475566ec7a87a19eab6d975838e9da4
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827483"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966395"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>De Kopieeractiviteit in Azure Data Factory
 
@@ -33,7 +33,7 @@ In Azure Data Factory, kunt u Kopieeractiviteit om gegevens tussen gegevens wink
 
 Kopieeractiviteit wordt uitgevoerd op een [Integration Runtime](concepts-integration-runtime.md). Voor een ander scenario voor het kopiëren van gegevens kunnen verschillende soorten Integration Runtime worden gebruikt:
 
-* Bij het kopiëren van gegevens tussen de gegevens worden opgeslagen dat beide openbaar toegankelijk zijn, kopieeractiviteit gemachtigd zijn door **Azure Integration Runtime**, die is beveiligd, betrouwbaar, schaalbare en [wereldwijd beschikbaar](concepts-integration-runtime.md#integration-runtime-location).
+* Bij het kopiëren van gegevens tussen gegevens archieven die via internet openbaar toegankelijk zijn vanuit elke Ip's, kan de Kopieer activiteit worden toegestaan door **Azure Integration runtime**, dat veilig, betrouwbaar, schaalbaar en [wereld wijd beschikbaar](concepts-integration-runtime.md#integration-runtime-location)is.
 * Wanneer gegevens kopiëren van/naar de opgeslagen gegevens zich on-premises of in een netwerk met toegangsbeheer (bijvoorbeeld Azure Virtual Network), moet u voor het instellen van een **geïntegreerde Runtime zelf-hostend** om te kopiëren van gegevens.
 
 Integratieruntime moet worden gekoppeld aan elke bron en sink-gegevensopslag. Meer informatie over hoe u kopieeractiviteit [bepaalt welke IR u moet gebruiken](concepts-integration-runtime.md#determining-which-ir-to-use).
@@ -193,7 +193,7 @@ Uitvoerings Details van de Kopieer activiteit en prestatie kenmerken worden ook 
 | usedDataIntegrationUnits | De effectieve gegevens integratie eenheden tijdens het kopiëren. | Int32-waarde |
 | usedParallelCopies | De effectieve parallelCopies tijdens het kopiëren. | Int32-waarde |
 | redirectRowPath | Pad naar het logboek van overgeslagen incompatibele rijen in de blob-opslag die u onder "redirectIncompatibleRowSettings" configureren. Zie onderstaande voorbeeld. | Tekst (tekenreeks) |
-| executionDetails | Meer informatie over de fasen copy-activiteit doorloopt, en de bijbehorende stappen, duur, gebruikte configuraties, enzovoort. Het is niet raadzaam deze sectie parseren als kan worden gewijzigd.<br/><br/>ADF rapporteert ook de gedetailleerde duur (in seconden) die is besteed aan de `detailedDurations`verschillende stappen onder:<br/>- **Wachtrij duur** (`queuingDuration`): De tijd tot de Kopieer activiteit daad werkelijk begint op Integration runtime. Als u een zelf-hostende IR gebruikt en deze waarde groot is, kunt u het beste de IR-capaciteit en het gebruik controleren en omhoog/omlaag schalen op basis van uw werk belasting. <br/>- **Script duur vooraf kopiëren** (`preCopyScriptDuration`): De tijd die is besteed aan het uitvoeren van het script dat voorafgaat aan de Sink-gegevens opslag. Toep assen wanneer u het script vóór kopiëren configureert. <br/>- **Time-to-first-byte** (`timeToFirstByte`): De tijd dat de Integration runtime de eerste byte van de brongegevens opslag ontvangt. Toep assen op bron die niet op een bestand is gebaseerd. Als deze waarde groot is, Voorst Ellen om de query of server te controleren en te optimaliseren.<br/>- **Overdrachts duur** (`transferDuration`): De tijd voor Integration runtime om alle gegevens over te dragen van de bron naar de Sink na het ophalen van de eerste byte. | Array |
+| executionDetails | Meer informatie over de fasen copy-activiteit doorloopt, en de bijbehorende stappen, duur, gebruikte configuraties, enzovoort. Het is niet raadzaam deze sectie parseren als kan worden gewijzigd.<br/><br/>ADF rapporteert ook de gedetailleerde duur (in seconden) die is besteed aan de `detailedDurations`verschillende stappen onder. De duur van deze stappen is exclusief en alleen de waarden die van toepassing zijn op de opgegeven Kopieer activiteit, worden weer gegeven:<br/>- **Wachtrij duur** (`queuingDuration`): De verstreken tijd totdat de Kopieer activiteit daad werkelijk wordt gestart op de Integration runtime. Als u een zelf-hostende IR gebruikt en deze waarde groot is, kunt u het beste de IR-capaciteit en het gebruik controleren en omhoog/omlaag schalen op basis van uw werk belasting. <br/>- **Script duur vooraf kopiëren** (`preCopyScriptDuration`): De verstreken tijd tussen de Kopieer activiteit, te beginnen bij de IR-en kopieer activiteit, waarbij het vooraf kopiëren van het script in de Sink-gegevens opslag wordt voltooid. Toep assen wanneer u het script vóór kopiëren configureert. <br/>- **Time-to-first-byte** (`timeToFirstByte`): De verstreken tijd tussen het einde van de vorige stap en de IR waarbij de eerste byte van de brongegevens opslag wordt ontvangen. Toep assen op bron die niet op een bestand is gebaseerd. Als deze waarde groot is, Voorst Ellen om de query of server te controleren en te optimaliseren.<br/>- **Overdrachts duur** (`transferDuration`): De verstreken tijd tussen het einde van de vorige stap en de IR waarbij alle gegevens van de bron naar de Sink worden overgebracht. | Array |
 | perfRecommendation | Tips voor het afstemmen van de prestaties kopiëren. Zie de sectie [prestaties en afstemmen](#performance-and-tuning) voor meer informatie. | Array |
 
 ```json

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c41381dd3e53c80e74da3dc0d0a08e1ac83daec6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 415a25dbe63b8942509827cd8434cc0f50fde87a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827629"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954814"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Veelgestelde vragen over Azure Backup
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-service.
@@ -27,7 +27,7 @@ U kunt Maxi maal 1000 Azure virtuele machines per kluis registreren. Als u de Mi
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Hoeveel gegevens bronnen/items kunnen worden beveiligd in een kluis? 
 U kunt Maxi maal 2000 gegevens bronnen of-items beveiligen voor alle werk belastingen (IaaS VM, SQL, AFS, enz.) in een kluis.<br>  
-Als u bijvoorbeeld al 500 Vm's en 400 Azure Files-shares in de kluis hebt beveiligd, kunt u Maxi maal 1100 SQL-data bases in het bestand beveiligen. 
+Als u bijvoorbeeld al 500 Vm's en 400 Azure Files shares in de kluis hebt beveiligd, kunt u Maxi maal 1100 SQL-data bases in het bestand beveiligen. 
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>Hoeveel beleids regels kan ik per kluis maken? 
 U kunt Maxi maal 200 beleids regels per kluis hebben.
@@ -36,7 +36,7 @@ U kunt Maxi maal 200 beleids regels per kluis hebben.
 Server gegevens die u samen wilt herstellen, moeten dezelfde wachtwoordzin gebruiken bij het instellen van de back-up. Als u herstel op een specifieke server of servers wilt isoleren, gebruikt u alleen een wachtwoordzin voor die server of servers. U kunt bijvoorbeeld verschillende wachtwoordzinnen voor de human resource-server, de accountingserver en de opslagserver gebruiken.
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>Kan ik mijn kluis verplaatsen tussen abonnementen?
-Ja. Raadpleeg dit [artikel](backup-azure-move-recovery-services-vault.md) als u een Recovery Services kluis wilt verplaatsen
+Ja. Als u een Recovery Services kluis wilt verplaatsen, raadpleegt u dit [artikel](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Kan ik back-upgegevens verplaatsen naar een andere kluis?
 Nee. Back-upgegevens die zijn opgeslagen in een kluis, kunnen niet worden verplaatst naar een andere kluis.
@@ -45,7 +45,7 @@ Nee. Back-upgegevens die zijn opgeslagen in een kluis, kunnen niet worden verpla
 Nee. Een Recovery Services kluis kan alleen opslag opties wijzigen voordat back-ups zijn opgeslagen.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Kan ik een herstel op item niveau (ILR) uitvoeren voor Vm's waarvan een back-up is gemaakt naar een Recovery Services kluis?
-- ILR wordt ondersteund voor Azure-Vm's waarvoor een back-up van Azure VM is gemaakt. Zie [artikel](backup-azure-restore-files-from-vm.md) voor meer informatie.
+- ILR wordt ondersteund voor Azure-Vm's waarvoor een back-up van Azure VM is gemaakt. Zie voor meer informatie [artikel](backup-azure-restore-files-from-vm.md)
 - ILR wordt niet ondersteund voor online herstel punten van on-premises Vm's waarvan een back-up is gemaakt door Azure backup server of System Center DPM.
 
 
@@ -125,7 +125,7 @@ Nee. Alle gegevens die zijn overgebracht naar de kluis voordat de back-uptaak we
 
 - Azure Backup gebruikt een controlepuntmechanisme waarmee tijdens de back-up van tijd tot tijd controlepunten worden toegevoegd aan de back-upgegevens.
 - Omdat de back-upgegevens controlepunten bevatten, kan tijdens het volgende back-upproces de integriteit van de bestanden worden gecontroleerd.
-- De volgende back-uptaak is incrementeel ten opzichte van de gegevens waarvan eerder een back-up is gemaakt. Incrementele back-ups dragen alleen nieuwe of gewijzigde gegevens over, zodat de bandbreedte beter wordt benut.
+- De volgende back-uptaak is incrementeel ten opzichte van de gegevens waarvan eerder een back-up is gemaakt. Incrementele back-ups brengen alleen nieuwe of gewijzigde gegevens over, wat gelijk is aan een beter gebruik van band breedte.
 
 Als u een back-uptaak voor een virtuele Azure-machine annuleert, worden eventuele overgedragen gegevens geannuleerd. De volgende back-uptaak draagt incrementele gegevens over van na de vorige succesvolle back-up-taak.
 
@@ -138,7 +138,7 @@ Ja, ze hebben allebei een dagelijks, wekelijks, maandelijks en jaarlijks Bewaar 
 Ja, u hebt beleids regels aanpassen. U kunt bijvoorbeeld wekelijks en dagelijks Bewaar vereisten configureren, maar niet jaarlijks en maandelijks.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>Kan ik verschillende tijdstippen gebruiken voor de back-upplanning en het Bewaar beleid?
-Nee. Het bewaarbeleid kan alleen worden toegepast op back-uppunten. In deze installatie kopieën ziet u bijvoorbeeld een Bewaar beleid voor back-ups die zijn gemaakt op 12am en 18:00 uur.
+Nee. Het bewaarbeleid kan alleen worden toegepast op back-uppunten. In deze afbeelding ziet u bijvoorbeeld een Bewaar beleid voor back-ups die zijn gemaakt op 12am en 18:00 uur.
 
 ![Back-up en retentie plannen](./media/backup-azure-backup-faq/Schedule.png)
 

@@ -1,6 +1,6 @@
 ---
-title: OPC-Twin cloud afhankelijkheden in Azure implementeren | Microsoft Docs
-description: Klik hier voor meer informatie over het implementeren van OPC dubbele Azure afhankelijkheden.
+title: OPC-dubbele Cloud afhankelijkheden implementeren in azure | Microsoft Docs
+description: OPC-dubbele Azure-afhankelijkheden implementeren.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 95c2130727c0cef889771c181fec53557a2a4b0f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cb07899b51280cff8613d637640c0da23debbc8e
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603719"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016516"
 ---
-# <a name="deploying-dependencies-for-local-development"></a>Afhankelijkheden voor lokale ontwikkeling implementeren
+# <a name="deploying-dependencies-for-local-development"></a>Afhankelijkheden implementeren voor lokale ontwikkeling
 
-In dit artikel wordt uitgelegd hoe u alleen de Azure-platformservices behoefte aan lokale ontwikkeling en foutopsporing te implementeren.   Aan het einde hebt u een resourcegroep geïmplementeerd die alles bevat wat die u nodig hebt voor lokale ontwikkeling en foutopsporing.
+In dit artikel wordt uitgelegd hoe u alleen de services van het Azure-platform implementeert die nodig zijn om lokale ontwikkeling en fout opsporing uit te voeren.   Aan het einde hebt u een resource groep geïmplementeerd die alles bevat wat u nodig hebt voor lokale ontwikkeling en fout opsporing.
 
-## <a name="deploy-azure-platform-services"></a>Azure-platform-services implementeren
+## <a name="deploy-azure-platform-services"></a>Azure-platform services implementeren
 
-1. Zorg ervoor dat u hebt PowerShell en [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.1.0) extensies geïnstalleerd.  Open een opdrachtprompt of terminal en voer:
+1. Zorg ervoor dat Power shell-en [AzureRM Power](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) shell-extensies zijn geïnstalleerd.  Open een opdracht prompt of Terminal en voer het volgende uit:
 
    ```bash
    git clone https://github.com/Azure/azure-iiot-components
@@ -32,27 +32,27 @@ In dit artikel wordt uitgelegd hoe u alleen de Azure-platformservices behoefte a
    deploy -type local
    ```
 
-2. Volg de aanwijzingen voor het toewijzen van een naam aan de resourcegroep voor uw implementatie.  Het script worden alleen de afhankelijkheden aan deze resourcegroep in uw Azure-abonnement, maar niet de microservices.  Het script wordt een toepassing ook geregistreerd in Azure Active Directory.  Dit is nodig om op basis van OAUTH-verificatie te ondersteunen.  Implementatie kan enkele minuten duren.
+2. Volg de aanwijzingen om een naam toe te wijzen aan de resource groep voor uw implementatie.  Het script implementeert alleen de afhankelijkheden van deze resource groep in uw Azure-abonnement, maar niet de micro Services.  Met het script wordt ook een toepassing geregistreerd in Azure Active Directory.  Dit is nodig om verificatie op basis van OAUTH te ondersteunen.  De implementatie kan enkele minuten duren.
 
-3. Nadat het script is voltooid, kunt u de .env-bestand op te slaan.  Het bestand van de omgeving .env is het configuratiebestand van alle services en hulpprogramma's die u wilt uitvoeren op uw ontwikkelcomputer.  
+3. Zodra het script is voltooid, kunt u selecteren om het. env-bestand op te slaan.  Het. env-omgevings bestand is het configuratie bestand van alle services en hulpprogram ma's die u wilt uitvoeren op uw ontwikkel computer.  
 
-## <a name="troubleshooting-deployment-failures"></a>Fouten bij het oplossen van problemen
+## <a name="troubleshooting-deployment-failures"></a>Implementatie fouten oplossen
 
-### <a name="resource-group-name"></a>Naam van de resourcegroep
+### <a name="resource-group-name"></a>Resourcegroepnaam
 
-Zorg ervoor dat u een kort en eenvoudig Resourcegroepnaam.  De naam wordt ook gebruikt voor naam resources als zodanig die het moet voldoen aan resource naamgevingsvereisten.  
+Zorg ervoor dat u een korte en eenvoudige naam voor de resource groep gebruikt.  De naam wordt ook gebruikt om resources te noemen, omdat deze moeten voldoen aan de vereisten voor resource naamgeving.  
 
 ### <a name="azure-active-directory-aad-registration"></a>Registratie van Azure Active Directory (AAD)
 
-Het implementatiescript probeert te registreren van AAD-toepassingen in Azure Active Directory.  Dit kan, afhankelijk van uw rechten voor de geselecteerde AAD-tenant mislukken.   Er zijn 3 opties:
+Het implementatie script probeert AAD-toepassingen te registreren in Azure Active Directory.  Afhankelijk van uw rechten voor de geselecteerde AAD-Tenant kan dit mislukken.   Er zijn drie opties:
 
-1. Als u ervoor een AAD-tenant in een lijst met tenants kiest, het script nogmaals starten en kies een andere naam in de lijst.
-2. U kunt ook een persoonlijke AAD-tenant implementeren, het script nogmaals starten en selecteren om deze te gebruiken.
-3. Doorgaan zonder verificatie.  Nadat u uw microservices lokaal uitvoert, dit acceptabel is, maar biedt niet nabootsen voor productie-omgevingen.  
+1. Als u een AAD-Tenant hebt gekozen uit een lijst met tenants, start u het script opnieuw en kiest u een ander account in de lijst.
+2. U kunt ook een persoonlijke AAD-Tenant implementeren, het script opnieuw starten en selecteren om het te gebruiken.
+3. Door gaan zonder verificatie.  Omdat u uw micro services lokaal uitvoert, is dit acceptabel, maar worden productie omgevingen niet nagebootst.  
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u dubbele OPC-services aan een bestaand project hebt geïmplementeerd, volgt de voorgestelde volgende stap:
+Nu u OPC dubbele Services hebt geïmplementeerd voor een bestaand project, is dit de voorgestelde volgende stap:
 
 > [!div class="nextstepaction"]
-> [Meer informatie over het implementeren van OPC-Twin-modules](howto-opc-twin-deploy-modules.md)
+> [Meer informatie over het implementeren van OPC-dubbele modules](howto-opc-twin-deploy-modules.md)

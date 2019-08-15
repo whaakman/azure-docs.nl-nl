@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c5c133fe728126ea07834c8ff5b02b1203ec326
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62bc550a809d596b5378c03aa95877db5e15febb
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112695"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019511"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Wat is gastgebruikerstoegang in Azure Active Directory B2B?
 
@@ -35,7 +35,7 @@ Met Azure AD B2B gebruikt de partner hun eigen oplossing voor identiteitsbeheer,
 - U hoeft te beheren externe accounts of wachtwoorden. 
 - U hoeft accounts niet te synchroniseren of account levenscycli niet te beheren.  
 
-![Schermopname van de ledenpagina](media/what-is-b2b/add-member.png)
+![Scherm opname met de pagina leden toevoegen](media/what-is-b2b/add-member.png)
 
 ## <a name="invite-guest-users-with-a-simple-invitation-and-redemption-process"></a>Uitnodigen van gastgebruikers met een eenvoudige uitnodiging en inwisselproces
 Gastgebruikers melden zich met hun eigen werk-, school- of sociale identiteiten aan bij uw apps en services. Als de gastgebruiker geen Microsoft-account of een Azure AD-account heeft, wordt er een gemaakt voor hen wanneer ze hun uitnodiging inwisselen. 
@@ -43,15 +43,15 @@ Gastgebruikers melden zich met hun eigen werk-, school- of sociale identiteiten 
 - Stuur een directe koppeling naar een app of een uitnodiging naar het toegangsvenster van de gastgebruiker. 
 - Gastgebruikers volgen een paar eenvoudige inwisselstappen om zich aan te melden.
 
-![Schermopname van de pagina van de machtigingen controleren](media/what-is-b2b/consentscreen.png)
+![Scherm opname met de pagina Machtigingen controleren](media/what-is-b2b/consentscreen.png)
 
 ## <a name="use-policies-to-securely-share-your-apps-and-services"></a>Gebruik beleidsrichtlijnen voor het veilig delen van uw apps en services
-U kunt een autorisatiebeleid voeren om uw zakelijke inhoud te beveiligen. Beleid voor voorwaardelijke toegang, zoals meervoudige verificatie, kunnen worden afgedwongen:
+U kunt autorisatie beleid gebruiken om uw bedrijfs inhoud te beschermen. Beleids regels voor voorwaardelijke toegang, zoals multi-factor Authentication, kunnen worden afgedwongen:
 - Op tenantniveau.
 - Op toepassingsniveau.
 - Voor specifieke gastgebruikers om zakelijke apps en gegevens te beschermen.
 
-![Schermopname van de optie voor voorwaardelijke toegang](media/what-is-b2b/tutorial-mfa-policy-2.png)
+![Scherm afbeelding van de optie voorwaardelijke toegang](media/what-is-b2b/tutorial-mfa-policy-2.png)
 
 
 ## <a name="easily-add-guest-users-in-the-azure-ad-portal"></a>Gastgebruikers eenvoudig toevoegen in de Azure AD portal
@@ -61,7 +61,7 @@ Als beheerder kunt u eenvoudig gastgebruikers toevoegen aan uw organisatie in de
 - De gastgebruiker ontvangt onmiddellijk een aangepaste uitnodiging waarmee ze aanmelden bij hun Toegangsvenster.
 - Gastgebruikers in de map kunnen aan apps of groepen worden toegewezen.  
 
-![Schermopname van de pagina nieuwe gastgebruiker de uitnodiging vermelding](media/what-is-b2b/adding-b2b-users-admin.png)
+![Scherm opname van de pagina met de nieuwe uitnodiging voor gast gebruikers](media/what-is-b2b/adding-b2b-users-admin.png)
 
 ## <a name="let-application-and-group-owners-manage-their-own-guest-users"></a>Toepassings- en groepseigenaars toestaan om hun eigen gastgebruikers te beheren
 
@@ -69,7 +69,7 @@ U kunt beheer van gastgebruikers overdragen aan toepassingseigenaars zodat ze ga
  - Administrators stellen selfservice app en groepsbeheer in.
  - Niet-administrators gebruiken hun [Toegangsvenster](https://myapps.microsoft.com) om gastgebruikers aan toepassingen of groepen toe te voegen.
 
-![Schermopname van het toegangsvenster voor een gastgebruiker](media/what-is-b2b/access-panel-manage-app.png)
+![Scherm opname van het toegangs venster voor een gast gebruiker](media/what-is-b2b/access-panel-manage-app.png)
 
 ## <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>API's en voorbeeldcode gebruiken om toepassingen voor onboarding eenvoudig te compileren
 
@@ -77,7 +77,7 @@ Breng uw externe partners aan boord op manieren die zijn aangepast aan de behoef
 - Gebruik de [B2B-samenwerkingsuitnodiging API's](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) voor het aanpassen van uw onboarding-ervaringen, met inbegrip van het maken van selfservice aanmeldingsportals. 
 - Gebruik de voorbeeldcode die we voor een selfservice portal bieden [op GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
-![Schermopname van de aanmelding voorbeeldportal](media/what-is-b2b/sign-up-portal.png)
+![Scherm afbeelding van de voor beeld-portal voor aanmelden](media/what-is-b2b/sign-up-portal.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

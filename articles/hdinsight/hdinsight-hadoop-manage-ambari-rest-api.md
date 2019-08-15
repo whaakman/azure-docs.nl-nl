@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: hrasheed
-ms.openlocfilehash: 301ad4f940e6bd4eedb3a4df64e4740d29effe03
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 5836dda186c7bd9baeafa193052b0b75d63e291b
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406234"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019610"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>HDInsight-clusters beheren met behulp van de Apache Ambari REST API
 
@@ -42,6 +42,8 @@ Meer informatie over het gebruik van de Apache Ambari REST API voor het beheren 
 ## <a name="authentication"></a>Authentication
 
 Voor het maken van verbinding met Ambari op HDInsight is HTTPS vereist. Gebruik de naam van het beheerders account (de standaard **beheerder**) en het wacht woord dat u hebt opgegeven tijdens het maken van het cluster.
+
+Voor Enterprise Security Package clusters gebruikt u in `admin`plaats van een volledig gekwalificeerde gebruikers naam `username@domain.onmicrosoft.com`zoals.
 
 ## <a name="examples"></a>Voorbeelden
 

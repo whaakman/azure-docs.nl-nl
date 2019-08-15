@@ -1,6 +1,6 @@
 ---
-title: Overzicht van de Community voor Azure Media Services | Microsoft Docs
-description: Deze community-pagina voor Azure Media Services worden verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
+title: Azure Media Services Community-overzicht | Microsoft Docs
+description: Op deze Azure Media Services Community-pagina worden verschillende manieren beschreven om vragen te stellen, feedback te geven en updates te ontvangen over Media Services.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: 6a3c02c1f14c37317a03cb6ebe63bcddc92f3253
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8d3a26d015c129a04e54ba9633aa5d1ccfcacf8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710176"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "69016113"
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services-community  
 
-Deze community-pagina voor Azure Media Services worden verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
+Op deze Azure Media Services Community-pagina worden verschillende manieren beschreven om vragen te stellen, feedback te geven en updates te ontvangen over Media Services.
 
-## <a name="provide-feedback-and-make-suggestions"></a>Uw feedback en suggesties
+## <a name="provide-feedback-and-make-suggestions"></a>Feedback geven en suggesties doen
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
@@ -32,32 +32,23 @@ Deze community-pagina voor Azure Media Services worden verschillende manieren ku
 
 ### <a name="twitter"></a>Twitter
 
-U kunt de [ @MSFTAzureMedia ](https://twitter.com/MSFTAzureMedia) twitter-handle contact met ons opnemen of Voer de updates op Twitter. Gebruik de [ @AzureSupport ](https://twitter.com/azuresupport) twitter-handle het aanvragen van ondersteuning op Twitter.  
+U kunt de [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) Twitter-handle gebruiken om contact met ons op te nemen of om updates op Twitter te volgen. Gebruik de [@AzureSupport](https://twitter.com/azuresupport) Twitter-ingang om ondersteuning op Twitter aan te vragen.  
 
 ### <a name="online-forums"></a>Onlineforums
 
-De volgende forums kunnen worden gebruikt voor het stellen van vragen over de huidige producten en -functies.
+De volgende forums kunnen worden gebruikt voor het stellen van vragen over huidige producten en functies.
 
-MSDN is momenteel de primaire communityforum van Media Services-team.
+Op dit moment is MSDN Media Services het primaire Community-Forum van het team.
 
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
-Het team controleert ook vragen gemarkeerd op Stack Overflow met de 'azure-media-services'.
+Het team bewaakt ook vragen die zijn gelabeld op Stack Overflow met ' Azure-Media-Services '.
 
-[![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
+[![Stack overflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="contact-the-team"></a>Contact opnemen met het team
 
-Azure Media Services primaire e-mailadres is: **amshelp\@microsoft.com**.
-
-De volgende tabel geeft een lijst van e-mailadres van de functie sub teams:
-
-| Functie | Email |
-| --- | --- |
-| Azure Media Player |ampinfo@microsoft.com |
-| Azure Media Explorer |amse@microsoft.com |
-| Workflow Designer |mepd@microsoft.com |
-| Live Streaming en -verpakking |amslived@microsoft.com |
+Azure Media Services primaire ondersteunings-e-mail is: **amshelp\@Microsoft.com**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

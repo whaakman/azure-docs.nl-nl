@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b3513ab2583939943ff188b582f57f49530e5ded
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 45e1ad6bd757ec5acaf784c94e4cfb5e487ce9ba
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736246"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975740"
 ---
 # <a name="configure-a-custom-domain-name"></a>Een aangepaste domeinnaam configureren
 
@@ -34,7 +34,8 @@ Voor het uitvoeren van de stappen die in dit artikel worden beschreven, hebt u h
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 -   Een API Management-exemplaar. Zie [een Azure API Management-exemplaar maken](get-started-create-service-instance.md)voor meer informatie.
--   Een aangepaste domein naam die eigendom is van u. De aangepaste domein naam die u wilt gebruiken, moet afzonderlijk worden aangeschaft en worden gehost op een DNS-server. Dit onderwerp geeft geen instructies voor het hosten van een aangepaste domein naam.
+-   Een aangepaste domein naam die eigendom is van u of uw organisatie. In dit onderwerp vindt u geen instructies voor het aanschaffen van een aangepaste domein naam.
+-   Een CNAME-record die wordt gehost op een DNS-server die de aangepaste domein naam toewijst aan de standaard domein naam van uw API Management-exemplaar. In dit onderwerp vindt u geen instructies voor het hosten van een CNAME-record.
 -   U moet een geldig certificaat met een open bare en persoonlijke sleutel hebben (. PFX). Het onderwerp of de alternatieve naam voor het onderwerp (SAN) moet overeenkomen met de domein naam (dit zorgt ervoor dat API Management exemplaar veilig Url's via SSL beschikbaar maakt).
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>De Azure Portal gebruiken om een aangepaste domein naam in te stellen
@@ -52,13 +53,17 @@ Voor het uitvoeren van de stappen die in dit artikel worden beschreven, hebt u h
     > [!NOTE]
     > Alleen het **Gateway** -eind punt in beschikbaar voor configuratie in de laag verbruik.
     > U kunt alle eind punten of een aantal hiervan bijwerken. Klanten updaten **Gateway** (deze URL wordt meestal gebruikt voor het aanroepen van de API die wordt weer gegeven via API Management) en de **Portal** (de URL van de ontwikkelaars Portal).
-    > **Beheer** -en **SCM** -eind punten worden intern gebruikt door de eigen aren van het API Management-exemplaar en zijn dus minder vaak toegewezen aan een aangepaste domein naam. De **Premium** -laag biedt ondersteuning voor het instellen van meerdere hostnamen voor het **Gateway** -eind punt.
+    > **Beheer** -en **SCM** -eind punten worden intern gebruikt door de eigen aren van het API Management-exemplaar en zijn dus minder vaak toegewezen aan een aangepaste domein naam.
+    > De **Premium** -laag biedt ondersteuning voor het instellen van meerdere hostnamen voor het **Gateway** -eind punt.
 
 1. Selecteer het eind punt dat u wilt bijwerken.
 1. Klik in het venster aan de rechter kant op **aangepast**.
 
-    - Geef in de naam van het **aangepaste domein**de naam op die u wilt gebruiken. Bijvoorbeeld `api.contoso.com`. Domein namen met Joker tekens (bijvoorbeeld \*. domain.com) worden ook ondersteund.
+    - Geef in de naam van het **aangepaste domein**de naam op die u wilt gebruiken. Bijvoorbeeld `api.contoso.com`.
     - Selecteer in het **certificaat**een certificaat van Key Vault. U kunt ook een geldige uploaden. PFX-bestand en geef het **wacht woord**op als het certificaat is beveiligd met een wacht woord.
+
+    > [!NOTE]
+    > Domein namen met Joker tekens, `*.contoso.com` zoals worden ondersteund in alle lagen, behalve de laag verbruik.
 
     > [!TIP]
     > U kunt het beste Azure Key Vault gebruiken voor het beheren van certificaten en het instellen hiervan op automatisch draaien.
@@ -71,7 +76,7 @@ Voor het uitvoeren van de stappen die in dit artikel worden beschreven, hebt u h
 1. Klik op Toep assen.
 
     > [!NOTE]
-    > Het proces voor het toewijzen van het certificaat kan 15 minuten of langer duren, afhankelijk van de grootte van de implementatie. Ontwikkel aars-SKU heeft downtime, Basic-en hogere SKU'S hebben geen downtime.
+    > Het proces voor het toewijzen van het certificaat kan 15 minuten of langer duren, afhankelijk van de grootte van de implementatie. Ontwikkel aars-SKU heeft downtime, Basic-en hogere Sku's hebben geen downtime.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
@@ -79,8 +84,8 @@ Voor het uitvoeren van de stappen die in dit artikel worden beschreven, hebt u h
 
 Bij het configureren van DNS voor uw aangepaste domein naam hebt u twee opties:
 
-- Configureer een CNAME-record die verwijst naar het eind punt van uw geconfigureerde aangepaste domein naam.
-- Configureer een A-record die verwijst naar het IP-adres van uw API Management Gateway.
+-   Configureer een CNAME-record die verwijst naar het eind punt van uw geconfigureerde aangepaste domein naam.
+-   Configureer een A-record die verwijst naar het IP-adres van uw API Management Gateway.
 
 > [!NOTE]
 > Hoewel het IP-adres van de API Management-instantie statisch is, kan dit in een paar scenario's worden gewijzigd. Daarom is het raadzaam om CNAME te gebruiken bij het configureren van een aangepast domein. Neem hierbij rekening mee bij het kiezen van een DNS-configuratie methode. Meer informatie vindt u in de [Veelgestelde vragen over API Mananagement](https://docs.microsoft.com/azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules).

@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Live streamen met Azure Media Services | Microsoft Docs
-description: In dit onderwerp biedt een overzicht van live streamen met Azure Media Services.
+title: Overzicht van live streamen met behulp van Azure Media Services | Microsoft Docs
+description: Dit onderwerp bevat een overzicht van live streamen met behulp van Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,21 +14,21 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: c5dd0146fe59e7dc85787f146b10cfde7d6addb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45089c77ff2fed7ea5903333514f4d4edbad7cb3
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64867895"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "69015548"
 ---
-# <a name="overview-of-live-streaming-using-media-services"></a>Overzicht van Live streamen met Media Services
+# <a name="overview-of-live-streaming-using-media-services"></a>Overzicht van live streamen met Media Services
 
 > [!NOTE]
-> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
+> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [migratie richtlijnen van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>Overzicht
 
-Bij het leveren van live streaming-gebeurtenissen met Azure Media Services wordt u doorgaans gebruik van de volgende onderdelen:
+Bij het leveren van live streaming-gebeurtenissen met Azure Media Services worden de volgende onderdelen doorgaans betrokken:
 
 * Een camera die wordt gebruikt voor het uitzenden van een gebeurtenis.
 * Een coderingsprogramma voor live video dat de signalen van de camera converteert naar stromen die worden verzonden naar een service voor live streamen.
@@ -44,47 +44,47 @@ Bij het leveren van live streaming-gebeurtenissen met Azure Media Services wordt
 
 Met **Microsoft Azure Media Services** (AMS) kunt u de inhoud van uw live-streaming opnemen, coderen, een voorbeeld bekijken, opslaan en leveren.
 
-Met Media Services, kunt u profiteren van [dynamische verpakking](media-services-dynamic-packaging-overview.md)en waarmee u voor het uitzenden van uw live streams in MPEG-DASH, HLS, Smooth Streaming-indelingen uit de feed bijdrage die worden verzonden naar de service. De doelgroep kunnen de live stream met een compatibele spelers HLS, DASH of Smooth Streaming worden afgespeeld. U kunt Azure Media Player in uw web- of mobiele toepassingen gebruiken voor het leveren van uw stroom in een van deze protocollen.
+Met Media Services kunt u gebruikmaken van [dynamische pakketten](media-services-dynamic-packaging-overview.md), waarmee u uw live streams kunt uitzenden in MPEG Dash-, HLS-en Smooth streaming-indelingen van de bijdrage-feed die naar de service wordt verzonden. Uw viewers kunnen de Live Stream afspelen met een HLS, DASH of Smooth Streaming compatibele spelers. U kunt Azure Media Player in uw web-of mobiele toepassingen gebruiken om uw stream in een van deze protocollen te leveren.
 
 > [!NOTE]
-> Vanaf 12 mei 2018 livekanalen wordt niet langer ondersteuning voor het RTP/MPEG-2-transportstroom-opnameprotocol. Voer een migratie uit van RTP/MPEG-2 naar RTMP- of gefragmenteerde MP4 (Smooth Streaming) opnameprotocollen.
+> Vanaf 12 mei 2018 krijgen Live kanalen niet langer ondersteuning voor het RTP/MPEG-2 Trans Port stream opname protocol. Migreer van RTP/MPEG-2 naar RTMP-of gefragmenteerde MP4 (Smooth Streaming)-opname protocollen.
 
-## <a name="streaming-endpoints-channels-programs"></a>Streaming-eindpunten, kanalen en programma 's
+## <a name="streaming-endpoints-channels-programs"></a>Streaming-eind punten, kanalen, Program Ma's
 
 In Azure Media Services wordt alle functionaliteiten voor live streamen afgehandeld door **kanalen**, **programma's** en **streaming-eindpunten**, waaronder opnemen, opmaken, DVR, beveiliging, schaalbaarheid en redundantie.
 
 Een **kanaal** vertegenwoordigt een pijplijn voor de verwerking van inhoud voor live-streaming. Een kanaal kan op de volgende manieren live invoerstromen ontvangen:
 
-* Een on-premises live codering verzendt multi-bitrate **RTMP** of **Smooth Streaming** (gefragmenteerd MP4) naar het kanaal dat is geconfigureerd voor **passthrough**-levering. **Passthrough**-levering vindt plaats wanneer de opgenomen streams het **kanaal** passeren zonder verdere verwerking. U kunt de volgende live coderingsprogramma's die multi-bitrate Smooth Streaming gebruiken: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco en Elemental. De volgende live coderingsprogramma's voeren RTMP uit: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek and Tricaster transcoders.  Een live coderingsprogramma kan ook een stream met één bitsnelheid verzenden naar een kanaal dat niet is ingeschakeld voor Live Encoding, maar dit wordt niet aanbevolen. Desgevraagd levert Media Services de stream aan klanten.
+* Een on-premises live codering verzendt multi-bitrate **RTMP** of **Smooth Streaming** (gefragmenteerd MP4) naar het kanaal dat is geconfigureerd voor **passthrough**-levering. **Passthrough**-levering vindt plaats wanneer de opgenomen streams het **kanaal** passeren zonder verdere verwerking. U kunt de volgende Live coderings Programma's gebruiken die multi-bitrate Smooth Streaming uitvoeren: MediaExcel, Ateme, denk aan communicatie, Envivio, Cisco en elementair. De volgende Live coderings Programma's uitvoer RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek en TriCaster transcodeers.  Een live coderingsprogramma kan ook een stream met één bitsnelheid verzenden naar een kanaal dat niet is ingeschakeld voor Live Encoding, maar dit wordt niet aanbevolen. Desgevraagd levert Media Services de stream aan klanten.
 
   > [!NOTE]
   > Het gebruik van de passthrough-methode is de meest voordelige manier om live te streamen wanneer u meerdere gebeurtenissen gedurende een langere periode streamt en u al hebt geïnvesteerd in on-premises coderingsprogramma’s. Zie de details over de [prijzen](https://azure.microsoft.com/pricing/details/media-services/).
   > 
   > 
-* Een on-premises live codering verzendt een single-bitrate stream naar het kanaal dat is ingeschakeld voor live coderen met Media Services in een van de volgende indelingen: RTMP of Smooth Streaming (gefragmenteerde MP4). De volgende live coderingsprogramma's met RTMP uitvoer bekend is dat ze werken met kanalen van dit type: Telestream Wirecast, FMLE. Het kanaal codeert de inkomende single-bitrate stream vervolgens live naar een (adaptieve) multi-bitrate videostream. Desgevraagd levert Media Services de stream aan klanten.
+* Een on-premises Live Encoder verzendt een stream met één bitsnelheid naar het kanaal dat is ingeschakeld voor het uitvoeren van Live code ring met Media Services in een van de volgende indelingen: RTMP of Smooth Streaming (gefragmenteerde MP4). De volgende Live coderings Programma's met RTMP-uitvoer zijn bekend om te werken met kanalen van dit type: Telestream-Wirecast, FMLE. Het kanaal codeert de inkomende single-bitrate stream vervolgens live naar een (adaptieve) multi-bitrate videostream. Desgevraagd levert Media Services de stream aan klanten.
 
-Beginnen met de release van Media Services 2.10 wanneer u een kanaal maakt, kunt u opgeven op welke manier u wilt gebruiken voor uw kanaal voor het ontvangen van de invoerstroom en of u wilt gebruiken voor het kanaal live codering van uw stroom. U hebt hiervoor twee opties:
+Als u begint met de release van Media Services 2,10, kunt u, wanneer u een kanaal maakt, opgeven op welke manier u wilt dat uw kanaal de invoer stroom ontvangt en of u wilt dat het kanaal Live code ring van uw stream uitvoert. U hebt hiervoor twee opties:
 
-* **Geen** (pass-through): Geef deze waarde op als u van plan bent te gebruiken van een on-premises live coderingsprogramma die multi-bitrate stream (een Pass Through-stream) wordt uitgevoerd. In dit geval wordt de stroom inkomende doorgegeven aan de uitvoer zonder eventuele te coderen. Dit is het gedrag van een kanaal vóór 2,10 release.  
-* **Standard** : Kies deze waarde als u van plan bent uw single-bitrate live stream naar een multi-bitrate stream coderen met Media Services. Deze methode is voordeliger om omhoog te schalen snel voor incidentele gebeurtenissen. Let erop dat er een facturering invloed voor live codering en u eraan denken moet dat facturering kosten in als u een verlaten van een live encoding kanaal in de status 'Running gebracht rekening'.  Het verdient aanbeveling uw actieve kanalen onmiddellijk te beëindigen nadat uw live streaming gebeurtenissen is voltooid om extra per uur kosten te voorkomen.
+* **Geen** (Pass-Through) – Geef deze waarde op als u van plan bent een on-premises Live Encoder te gebruiken waarmee een multi-bitrate stroom (een Pass-Through-stroom) wordt uitgevoerd. In dit geval wordt de inkomende stroom door gegeven aan de uitvoer zonder code ring. Dit is het gedrag van een kanaal vóór 2,10 release.  
+* **Standaard** : Kies deze waarde als u Media Services wilt gebruiken om uw live stream met één bitsnelheid te coderen naar een multi-bitrate stream. Deze methode is rendabeler voor het snel omhoog schalen van onregelmatige gebeurtenissen. Houd er rekening mee dat er sprake is van een facturerings effect voor Live code ring en u moet er rekening mee houden dat het gebruik van een live coderings kanaal in de status ' running ' in rekening wordt gebracht.  Het is raadzaam om uw actieve kanalen direct te stoppen nadat uw live streaming-gebeurtenis is voltooid om extra kosten per uur te voor komen.
 
-## <a name="comparison-of-channel-types"></a>Vergelijking van de typen kanalen
+## <a name="comparison-of-channel-types"></a>Vergelijking van kanaal typen
 
-Volgende tabel bevat een handleiding voor het vergelijken van de twee Channel-typen worden ondersteund in Media Services
+De volgende tabel bevat een hand leiding voor het vergelijken van de twee typen kanalen die worden ondersteund in Media Services
 
-| Functie | Pass Through-kanaal | Standard-kanaal |
+| Functie | Pass-Through-kanaal | Standaard kanaal |
 | --- | --- | --- |
-| Single-bitrate-invoer is gecodeerd in meerdere bitsnelheden in de cloud |Nee |Ja |
-| Maximale resolutie, aantal lagen |1080p, 8 lagen, meer dan 60 fps |720p, 6 lagen, 30 fps |
-| Invoer-protocollen |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
-| Prijs |Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/media-services/) en klik op het tabblad "Live Video" |Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/media-services/) |
-| Maximale uitvoeringstijd |24x7 |8 uur |
-| Ondersteuning voor slates invoegen |Nee |Ja |
-| Ondersteuning voor ad-signalering |Nee |Ja |
-| Pass Through-CEA 608/708-ondertiteling |Ja |Ja |
-| Ondersteuning voor niet-uniforme invoer GOPs |Ja |Nee – invoer moet worden gecorrigeerd 2sec GOPs |
-| Ondersteuning voor variabele frame tarief invoer |Ja |Nee – moet dat invoer framesnelheid worden opgelost.<br/>Kleine variaties zijn toegestaan, bijvoorbeeld tijdens hoge beweging schermen. Maar het coderingsprogramma kan niet verwijderen naar 10 frames per seconde. |
-| Automatisch-signalen van kanalen als invoer-kanaal is verbroken |Nee |Na 12 uur, als er is geen programma actief |
+| Invoer met één bitsnelheid wordt gecodeerd in meerdere bitrates in de Cloud |Nee |Ja |
+| Maximum resolutie, aantal lagen |1080p, 8 lagen, 60 + fps |720p, 6 lagen, 30 fps |
+| Invoer protocollen |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
+| Prijs |Bekijk de [pagina met prijzen](https://azure.microsoft.com/pricing/details/media-services/) en klik op het tabblad live video |De [pagina met prijzen](https://azure.microsoft.com/pricing/details/media-services/) bekijken |
+| Maximale uitvoerings tijd |24x7 |8 uur |
+| Ondersteuning voor het invoegen van pastels |Nee |Ja |
+| Ondersteuning voor AD-Signa lering |Nee |Ja |
+| Pass-Through CEA 608/708-bijschriften |Ja |Ja |
+| Ondersteuning voor niet-uniforme invoer GOPs |Ja |Nee – invoer moet worden vastgesteld 2sec GOPs |
+| Ondersteuning voor variabele frame-rate invoer |Ja |Nee – invoer moet een vaste frame frequentie zijn.<br/>Kleine variaties zijn toegestaan, bijvoorbeeld tijdens hoge bewegende scènes. Code ring kan echter niet worden verwijderd uit 10 frames per seconde. |
+| Automatische shutoff van kanalen wanneer invoer toevoer verloren gaat |Nee |Na 12 uur, als er geen programma wordt uitgevoerd |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Werken met kanalen die een multi-bitrate livestream van on-premises encoders ontvangen (pass-through)
 
@@ -106,52 +106,52 @@ Zie [Werken met kanalen waarmee Live Encoding kan worden uitgevoerd met Azure Me
 
 ### <a name="channel"></a>Kanaal
 
-In Media Services [kanaal](https://docs.microsoft.com/rest/api/media/operations/channel)s zijn verantwoordelijk voor het verwerken van live streaming-inhoud. Een kanaal biedt een invoereindpunt (URL voor opnemen) dat u vervolgens aan een live transcoder verstrekt. Het kanaal live invoerstromen ontvangen van de live transcoder en maakt deze beschikbaar voor streamen via een of meer door. Kanalen bieden ook een preview-eindpunt (de voorbeeld-URL) die u gebruikt om te bekijken en uw stream te valideren voordat deze verder wordt verwerkt en geleverd.
+In Media Services zijn [Channel](https://docs.microsoft.com/rest/api/media/operations/channel)s verantwoordelijk voor het verwerken van live streaming-inhoud. Een kanaal biedt een invoer eindpunt (opname-URL) dat u vervolgens verstrekt aan een live-transcodeer. Het kanaal ontvangt Live-invoer stromen van de Live-transcodeer en maakt deze beschikbaar voor streaming via een of meer StreamingEndpoints. Kanalen bieden ook een preview-eind punt (Preview-URL) die u gebruikt om uw stroom te bekijken en te valideren vóór verdere verwerking en levering.
 
-U kunt de URL voor opnemen en de voorbeeld-URL ophalen bij het maken van het kanaal. Als u deze URL's, heeft het kanaal geen zich in de status gestart. Wanneer u klaar om te beginnen met het pushen van gegevens van een live transcoder naar het kanaal bent, kan het kanaal moet worden gestart. Zodra de live transcoder ophalen van gegevens start, kunt u uw stream kunt bekijken.
+U kunt de opname-URL en de voor beeld-URL ophalen wanneer u het kanaal maakt. Om deze Url's op te halen, hoeft het kanaal niet de status gestart te hebben. Wanneer u klaar bent om gegevens van een live-transcodeer naar het kanaal te pushen, moet het kanaal worden gestart. Zodra de Live-code ring begint met het opnemen van gegevens, kunt u een voor beeld van de stroom bekijken.
 
-Elke Media Services-account kan meerdere kanalen, meerdere programma's en meerdere door bevatten. Afhankelijk van de behoeften van de bandbreedte en beveiliging, kunnen de streamingendpoint zo services worden toegewezen aan een of meer kanalen. Alle streamingendpoint zo kunt ophalen uit een ander kanaal.
+Elk Media Services-account kan meerdere kanalen, meerdere Program Ma's en meerdere StreamingEndpoints bevatten. Afhankelijk van de behoefte aan band breedte en beveiliging, kunnen StreamingEndpoint-services worden toegewezen aan een of meer kanalen. Elk StreamingEndpoint kan uit elk kanaal halen.
 
-Bij het maken van een kanaal, kunt u toegestane IP-adressen opgeven in een van de volgende indelingen: IpV4-adres met 4 cijfers, CIDR-adresbereik.
+Wanneer u een kanaal maakt, kunt u toegestane IP-adressen in een van de volgende indelingen opgeven: IpV4-adres met 4 cijfers, CIDR-adresbereik.
 
 ### <a name="program"></a>Programma
-Een [programma](https://docs.microsoft.com/rest/api/media/operations/program) kunt u het publiceren en opslaan van segmenten in een live stream beheren. Kanalen beheren programma's. De kanaal-/programmarelatie lijkt erg op traditionele media waarbij een kanaal een constante stream met inhoud heeft en een programma is afgestemd op een bepaalde getimede gebeurtenis op dat kanaal.
-U kunt opgeven dat het aantal uren dat u wilt behouden van de opgenomen inhoud voor het programma door in te stellen de **ArchiveWindowLength** eigenschap. Deze waarde kan worden ingesteld van minimaal 5 minuten tot maximaal 25 uur.
+Met een [programma](https://docs.microsoft.com/rest/api/media/operations/program) kunt u het publiceren en opslaan van segmenten in een live stream beheren. Kanalen beheren programma's. De kanaal-/programmarelatie lijkt erg op traditionele media waarbij een kanaal een constante stream met inhoud heeft en een programma is afgestemd op een bepaalde getimede gebeurtenis op dat kanaal.
+U kunt het aantal uren opgeven dat u de opgenomen inhoud voor het programma wilt behouden door de eigenschap **ArchiveWindowLength** in te stellen. Deze waarde kan worden ingesteld van minimaal 5 minuten tot maximaal 25 uur.
 
-ArchiveWindowLength bepaalt ook dat de maximale hoeveelheid tijd die clients terug in tijd kan zoeken vanaf de huidige live positie. Programma's kunnen in de opgegeven tijdsduur worden uitgevoerd, maar de inhoud die achter de lengte van het venster valt, wordt altijd verwijderd. De waarde van deze eigenschap bepaalt ook hoe lang de clientmanifesten kunnen groeien.
+ArchiveWindowLength bepaalt ook de maximale hoeveelheid tijd die clients vanaf de huidige Live positie op tijd kunnen zoeken. Programma's kunnen in de opgegeven tijdsduur worden uitgevoerd, maar de inhoud die achter de lengte van het venster valt, wordt altijd verwijderd. De waarde van deze eigenschap bepaalt ook hoe lang de clientmanifesten kunnen groeien.
 
-Elk programma is gekoppeld aan een asset. Voor het publiceren van het programma moet u een locator voor de gekoppelde asset maken. Met deze locator kunt u een streaming-URL maken die u aan uw clients kunt leveren.
+Elk programma is gekoppeld aan een asset. Als u het programma wilt publiceren, moet u een Locator voor de gekoppelde Asset maken. Met deze locator kunt u een streaming-URL maken die u aan uw clients kunt leveren.
 
 Een kanaal ondersteunt maximaal drie gelijktijdig actieve programma's, zodat u meerdere archieven van dezelfde binnenkomende stream kunt maken. Hierdoor kunt u verschillende onderdelen van een gebeurtenis naar behoefte publiceren en archiveren. Zo kan het voor uw bedrijf nodig zijn zes uur van een programma te archiveren, maar alleen de laatste tien minuten uit te zenden. Hiervoor moet u twee gelijktijdig actieve programma's maken. Het ene programma wordt ingesteld om zes uur van de gebeurtenis te archiveren, maar het programma wordt niet gepubliceerd. Het andere programma wordt ingesteld om tien minuten te archiveren en dit programma wordt wel gepubliceerd.
 
-## <a name="billing-implications"></a>Gevolgen van facturering
-Een kanaal begint de facturering zodra het statusovergangen naar "Uitvoeren" via de API is.  
+## <a name="billing-implications"></a>Facturerings implicaties
+Een kanaal begint met het factureren zodra de status overgangen via de API wordt uitgevoerd.  
 
-De volgende tabel ziet u hoe kanaal statussen worden toegewezen aan facturering statussen in de API en Azure-portal. Houd er rekening mee dat de Staten enigszins tussen de API en de Portal-UX. verschillen Zodra een kanaal in de status 'Actief' via de API of in de status 'Ready' of 'Streaming' in de Azure-portal is, wordt de facturering actief zijn.
+In de volgende tabel ziet u hoe kanaal statussen worden toegewezen aan facturerings statussen in de API en Azure Portal. Houd er rekening mee dat de statussen enigszins verschillen tussen de API en de UX van de portal. Zodra een kanaal zich in de status ' running ' bevindt via de API of in de status ' gereed ' of ' streaming ' in de Azure Portal, wordt de facturering actief.
 
-Als u wilt stoppen met het kanaal van u verdere facturering, moet u Stop het kanaal via de API of in de Azure portal.
-U bent verantwoordelijk voor het stoppen van uw kanalen wanneer u klaar bent met het kanaal. Fout bij stoppen van het kanaal wordt voortdurende facturering tot gevolg hebben.
+Als u het kanaal niet meer wilt factureren, moet u het kanaal stoppen via de API of in de Azure Portal.
+U bent zelf verantwoordelijk voor het stoppen van uw kanalen wanneer u klaar bent met het kanaal. Als het kanaal niet kan worden gestopt, wordt de facturering voortgezet.
 
 > [!NOTE]
-> Als u werkt met standaard kanalen, automatisch AMS signalen een kanaal dat is nog steeds in de status 'Running' 12 uur nadat de invoer feed verbroken is en er zijn geen programma's uitvoeren. Echter, wordt u nog steeds worden gefactureerd voor de tijd die het kanaal in de status 'Running is'.
+> Wanneer u werkt met standaard kanalen, wordt AMS automatisch shutoff elk kanaal dat nog steeds de status actief heeft, 12 uur nadat de invoer is verwijderd en er geen Program Ma's worden uitgevoerd. Er worden echter nog steeds kosten in rekening gebracht voor de tijd dat het kanaal de status actief heeft.
 >
 >
 
-### <a id="states"></a>Kanaal Staten en hoe deze worden toegewezen en de facturering
+### <a id="states"></a>Kanaal statussen en hoe deze worden toegewezen aan de facturerings modus
 De huidige status van een Kanaal. Mogelijke waarden:
 
-* **Gestopt**. Dit is de beginstatus van het kanaal nadat het is gemaakt (tenzij autostart is geselecteerd in de portal.) Er is geen facturering vindt plaats in deze status. In deze status kunnen de eigenschappen van het Kanaal worden bijgewerkt, maar is streaming niet toegestaan.
-* **Vanaf**. Het Kanaal wordt gestart. Er is geen facturering vindt plaats in deze status. In deze status zijn streaming en updates niet toegestaan. Als er een fout optreedt, wordt het Kanaal teruggezet naar de status Stopped.
-* **Met**. Het Kanaal kan nu live streams verwerken. Het is nu facturering van gebruik. Het kanaal om te voorkomen dat verdere facturering, moet u stoppen.
-* **Stoppen**. Het Kanaal wordt gestopt. Geen facturering vindt plaats in deze tijdelijke status. In deze status zijn streaming en updates niet toegestaan.
-* **Deleting**. Het Kanaal wordt verwijderd. Geen facturering vindt plaats in deze tijdelijke status. In deze status zijn streaming en updates niet toegestaan.
+* **Gestopt**. Dit is de begin status van het kanaal nadat het is gemaakt (tenzij automatisch starten is geselecteerd in de portal.) Er vindt geen facturering plaats in deze status. In deze status kunnen de eigenschappen van het Kanaal worden bijgewerkt, maar is streaming niet toegestaan.
+* Wordt **gestart**. Het Kanaal wordt gestart. Er vindt geen facturering plaats in deze status. In deze status zijn streaming en updates niet toegestaan. Als er een fout optreedt, wordt het Kanaal teruggezet naar de status Stopped.
+* **Wordt uitgevoerd**. Het Kanaal kan nu live streams verwerken. Het is nu een facturerings verbruik. U moet het kanaal stoppen om verdere facturering te voor komen.
+* Wordt **gestopt**. Het Kanaal wordt gestopt. Er vindt geen facturering plaats in deze tijdelijke status. In deze status zijn streaming en updates niet toegestaan.
+* **Verwijderen**. Het Kanaal wordt verwijderd. Er vindt geen facturering plaats in deze tijdelijke status. In deze status zijn streaming en updates niet toegestaan.
 
 In de volgende tabel wordt het verband tussen de verschillende Kanaalstatussen en de facturering weergegeven.
 
-| Kanaalstatus | Portal UI-indicatoren | Is het facturering? |
+| Kanaalstatus | Portal UI-indicatoren | Is het facturerings abonnement? |
 | --- | --- | --- |
 | Starten |Starten |Nee (overgangsstatus) |
-| In uitvoering |Ready (er worden geen programma's uitgevoerd)<br/>of<br/>Streaming (er wordt ten minste een programma uitgevoerd) |JA |
+| Wordt uitgevoerd |Ready (er worden geen programma's uitgevoerd)<br/>of<br/>Streaming (er wordt ten minste een programma uitgevoerd) |JA |
 | Stoppen |Stoppen |Nee (overgangsstatus) |
 | Gestopt |Gestopt |Nee |
 
@@ -162,12 +162,12 @@ In de volgende tabel wordt het verband tussen de verschillende Kanaalstatussen e
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Verwante onderwerpen
-[Specificatie van Azure mediaservices Live gefragmenteerde MP4-Liveopname](media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services gefragmenteerde MP4 Live opname-specificatie](../media-services-fmp4-live-ingest-overview.md)
 
-[Werken met kanalen die voor het uitvoeren van Live codering met Azure Media Services geschikt zijn](media-services-manage-live-encoder-enabled-channels.md)
+[Werken met kanalen die zijn ingeschakeld om Live Encoding uit te voeren met Azure Media Services](media-services-manage-live-encoder-enabled-channels.md)
 
 [Werken met kanalen die een multi-bitrate livestream van on-premises encoders ontvangen](media-services-live-streaming-with-onprem-encoders.md)
 
 [Quota en beperkingen](media-services-quotas-and-limitations.md).  
 
-[Media Services-concepten](media-services-concepts.md)
+[Media Services concepten](media-services-concepts.md)

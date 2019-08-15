@@ -5,21 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5fefe469bfac4816a67c6ceb344f12c1e52de60c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f4e36edf86823453e663ed875c7d5e4ffdc2e524
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68550458"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016411"
 ---
-# <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Zone-redundante opslag (ZRS): Maxi maal beschik bare Azure Storage toepassingen
+# <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Zone-redundante opslag (ZRS) voor het bouwen van Maxi maal beschik bare Azure Storage toepassingen
+
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 ## <a name="support-coverage-and-regional-availability"></a>Dekking en regionale Beschik baarheid
+
 ZRS ondersteunt momenteel standaard v2-account typen voor algemeen gebruik. Zie [Overzicht van Azure-opslagaccounts](storage-account-overview.md) voor meer informatie over de typen opslagaccounts.
 
 ZRS is beschikbaar voor blok-blobs, niet-schijf pagina-blobs, bestanden, tabellen en wacht rijen.
@@ -45,6 +47,7 @@ Micro soft blijft ZRS inschakelen in extra Azure-regio's. Controleer regel matig
 - Managed disks bieden geen ondersteuning voor ZRS. U kunt moment opnamen en installatie kopieën voor Standard-SSD-Managed Disks op Standard-HDD opslag opslaan en [kiezen tussen opties voor LRS en ZRS](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## <a name="what-happens-when-a-zone-becomes-unavailable"></a>Wat gebeurt er wanneer een zone niet meer beschikbaar is?
+
 Uw gegevens zijn nog steeds toegankelijk voor zowel lees-als schrijf bewerkingen, zelfs als een zone niet meer beschikbaar is. Micro soft raadt u aan om de procedures voor het afhandelen van tijdelijke fouten voort te zetten. Deze procedures omvatten het implementeren van beleid voor opnieuw proberen met exponentiële back-ups.
 
 Wanneer een zone niet beschikbaar is, onderneemt Azure netwerk updates, zoals DNS-distributie. Deze updates kunnen van invloed zijn op uw toepassing als u toegang hebt tot uw gegevens voordat de updates zijn voltooid.
@@ -52,6 +55,7 @@ Wanneer een zone niet beschikbaar is, onderneemt Azure netwerk updates, zoals DN
 ZRS kan uw gegevens mogelijk niet beschermen tegen een regionale ramp waarbij meerdere zones permanent worden beïnvloed. In plaats daarvan biedt ZRS tolerantie voor uw gegevens als deze tijdelijk niet beschikbaar is. Voor beveiliging tegen regionale rampen raadt micro soft aan gebruik te maken van geo-redundante opslag (GRS). Zie [geo-redundante opslag (GRS) voor meer informatie over GRS: Kruis regionale replicatie voor Azure Storage](storage-redundancy-grs.md).
 
 ## <a name="converting-to-zrs-replication"></a>Converteren naar ZRS-replicatie
+
 Migreren naar of van LRS, GRS en RA-GRS is eenvoudig. Gebruik de Azure Portal of de opslag Resource provider-API om het redundantie type van uw account te wijzigen. De gegevens worden vervolgens dienovereenkomstig door Azure gerepliceerd. 
 
 Voor het migreren van gegevens naar ZRS is een andere strategie vereist. ZRS-migratie omvat de fysieke verplaatsing van gegevens van één opslag stempel naar meerdere stem pels binnen een regio.
@@ -61,14 +65,14 @@ Er zijn twee primaire opties voor migratie naar ZRS:
 - Gegevens hand matig kopiëren of verplaatsen naar een nieuw ZRS-account vanuit een bestaand account.
 - Een Live migratie aanvragen.
 
-Micro soft raadt u ten zeerste aan een hand matige migratie uit te voeren. Een hand matige migratie biedt meer flexibiliteit dan een Livemigratie. Met een hand matige migratie hebt u de controle over de timing.
+Als u de migratie op een bepaalde datum wilt volt ooien, kunt u een hand matige migratie uitvoeren. Een hand matige migratie biedt meer flexibiliteit dan een Livemigratie. Met een hand matige migratie hebt u de controle over de timing.
 
 Als u een hand matige migratie wilt uitvoeren, hebt u de volgende opties:
 - Gebruik bestaande hulp middelen, zoals AzCopy, een van de Azure Storage-client bibliotheken of betrouw bare hulpprogram ma's van derden.
 - Als u bekend bent met Hadoop of HDInsight, koppelt u het bron-en doel account (ZRS) aan uw cluster. Parallelliseren vervolgens het proces voor het kopiëren van gegevens met een hulp programma zoals DistCp.
 - Bouw uw eigen hulp programma met behulp van een van de Azure Storage-client bibliotheken.
 
-Een hand matige migratie kan leiden tot uitval tijd van toepassingen. Als voor uw toepassing hoge Beschik baarheid is vereist, biedt micro soft ook een optie voor Livemigratie. Een Livemigratie is een in-place migratie. 
+Een hand matige migratie kan leiden tot uitval tijd van toepassingen. Als voor uw toepassing hoge Beschik baarheid is vereist, biedt micro soft ook een optie voor Livemigratie. Een Livemigratie is een interne migratie zonder uitval tijd. 
 
 Tijdens een Livemigratie kunt u uw opslag account gebruiken terwijl uw gegevens worden gemigreerd tussen de bron-en doel opslag tempels. Tijdens het migratie proces hebt u hetzelfde niveau van de SLA-en beschik baarheid op de gebruikelijke manier.
 
@@ -137,9 +141,9 @@ ZRS Classic is alleen beschikbaar voor **blok** -blobs in opslag accounts voor a
 
 Gebruik een van de volgende hulpprogram ma's om de ZRS-account gegevens hand matig te migreren naar of van een LRS-, ZRS klassieke, GRS-of RA-GRS-account: AzCopy, Azure Storage Explorer, Azure PowerShell of Azure CLI. U kunt ook uw eigen migratie oplossing bouwen met een van de Azure Storage-client bibliotheken.
 
-U kunt ook uw klassieke ZRS-account (s) upgraden naar ZRS in de portal of gebruikmaken van Azure PowerShell of Azure CLI in de regio's waar ZRS beschikbaar is.
+U kunt ook uw klassieke ZRS-account (s) upgraden naar ZRS in de portal of gebruikmaken van Azure PowerShell of Azure CLI in de regio's waar ZRS beschikbaar is. Als u een upgrade wilt uitvoeren naar ZRS in de Azure Portal, gaat u naar de sectie **configuratie** van het account en kiest u **upgrade uitvoeren**:
 
-Als u een upgrade wilt uitvoeren naar ZRS in de portal, gaat u naar de sectie configuratie van het account en kiest u upgrade:![Upgrade ZRS Classic naar ZRS in de portal](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.jpg)
+![Upgrade ZRS Classic naar ZRS in de portal](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.png)
 
 Als u een upgrade wilt uitvoeren naar ZRS met Power shell roept u de volgende opdracht aan:
 ```powershell

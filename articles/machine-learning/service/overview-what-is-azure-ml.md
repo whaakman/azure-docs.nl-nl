@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 80a04333260b7aa710c1598b64a414ce53a1037a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1dea5e174c66685f889595ab15b3edf57dd02493
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883311"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018233"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Wat is de Azure Machine Learning-service?
 
@@ -49,15 +49,15 @@ Start training op uw lokale machine met behulp van de <a href="https://aka.ms/am
 
 U kunt [model training en-aanpassing ook automatiseren](tutorial-auto-train-models.md) met de SDK.
 
-### <a name="code-free--low-code-experience"></a>Code-gratis/laag code-ervaring
+### <a name="ui-based-low-code-experience"></a>Op de gebruikers interface gebaseerde, ervaring met weinig code
 
 Voor code-Free training kunt u het volgende proberen:
 
-+ De visuele interface voor het experimenteren en implementeren met slepen en neerzetten
++ Het maken van [automatische ml-experimenten](tutorial-first-experiment-automated-ml.md) in de gebruiks vriendelijke interface.
++ Het [experimenteren met slepen en neerzetten in de visuele interface](ui-tutorial-automobile-price-train-score.md).
+  ![Visual-Interface voor de Azure Machine Learning-service](media/overview-what-is-azure-ml/visual-interface.png)
 
-    ![Visual-Interface voor de Azure Machine Learning-service](media/overview-what-is-azure-ml/visual-interface.png)
 
-+ De optie Azure Portal voor automatische ML experimenten
 
 ### <a name="operationalization-mlops"></a>Uitoefening (MLOps)
 
@@ -69,10 +69,10 @@ Deze modellen kunnen worden gebruikt en voor spellingen in [realtime](how-to-con
 
 En met geavanceerde [machine learning pijp lijnen](concept-ml-pipelines.md)kunt u samen werken aan elke stap van het voorbereiden van gegevens, het model leren en evalueren van een cursus, via implementatie. Met pijp lijnen kunt u het volgende doen:
 
-* het end-to-end-machine learning proces automatiseren in de Cloud
-* onderdelen hergebruiken en alleen stappen opnieuw uitvoeren wanneer dat nodig is
-* in elke stap verschillende reken bronnen gebruiken
-* batch Score taken uitvoeren
+* Het end-to-end-machine learning proces automatiseren in de Cloud
+* Onderdelen opnieuw gebruiken en de stappen alleen opnieuw uitvoeren wanneer dit nodig is
+* In elke stap verschillende reken bronnen gebruiken
+* Batch Score taken uitvoeren
 
 Bekijk [Volgende stappen](#next-steps) om te beginnen met de Azure Machine Learning-service.
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1cbd0f649bd5e89c1ed424604697afa179964175
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 23492133035f27aa3e1217269022565e0ff217a9
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689009"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018762"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Back-ups van virtuele Azure-machines maken en herstellen met Power shell
 
@@ -312,7 +312,7 @@ $bkpPol.SnapshotRetentionInDays=7
 PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ````
 
-De standaard waarde is 2, de gebruiker kan de waarde instellen met een minimum van 1 en Maxi maal 5. Voor wekelijkse back-upbeleiden wordt de periode ingesteld op 5 en kan niet worden gewijzigd.
+De standaard waarde is 2, de gebruiker kan de waarde instellen met een minimum van 1 en Maxi maal 5. Voor wekelijks back-upbeleid is de periode ingesteld op 5 en kan niet worden gewijzigd.
 
 ### <a name="trigger-a-backup"></a>Een back-up activeren
 
@@ -340,7 +340,7 @@ V2VM              Backup              InProgress          4/23/2016             
 
 ### <a name="change-policy-for-backup-items"></a>Beleid voor back-upitems wijzigen
 
-De gebruiker kan een bestaand beleid wijzigen of het beleid van het back-upitem wijzigen van Policy1 in Policy2. Als u wilt scha kelen tussen beleids regels voor een back-upitem, haalt u het relevante beleid op en maakt u een back-up van het item. Gebruik de opdracht [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) met back-upitem als de para meter.
+De gebruiker kan een bestaand beleid wijzigen of het beleid van het back-upitem wijzigen van Policy1 in Policy2. Als u wilt scha kelen tussen beleids regels voor een back-upitem, haalt u het relevante beleid op en maakt u een back-up van het item. Gebruik de opdracht [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) met back-upitem als para meter.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -511,7 +511,7 @@ Nadat u de schijven hebt hersteld, gebruikt u de volgende stappen om de virtuele
 > [!NOTE]
 > Na het herstellen van de schijven kunt u nu een implementatie sjabloon ophalen die u rechtstreeks kunt gebruiken om een nieuwe virtuele machine te maken. Er zijn geen andere PS-cmdlets meer om beheerde/onbeheerde Vm's te maken die zijn versleuteld/niet-versleuteld.
 
-De details van de resulterende taak geven de sjabloon-URI die kan worden opgevraagd en geïmplementeerd.
+De resulterende taak details geven de sjabloon-URI die kan worden opgevraagd en geïmplementeerd.
 
 ```powershell
    $properties = $details.properties
@@ -806,7 +806,7 @@ OsType  Password        Filename
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe
 ```
 
-Voer het script uit op de computer waarop u de bestanden wilt herstellen. Als u het script wilt uitvoeren, moet u het opgegeven wacht woord invoeren. Nadat de schijven zijn gekoppeld, gebruikt u Windows Verkenner om door de nieuwe volumes en bestanden te bladeren. Raadpleeg het artikel back-up [herstellen van de back-up van Azure virtual machine](backup-azure-restore-files-from-vm.md)voor meer informatie.
+Voer het script uit op de computer waarop u de bestanden wilt herstellen. Als u het script wilt uitvoeren, moet u het opgegeven wacht woord invoeren. Nadat de schijven zijn gekoppeld, gebruikt u Windows Verkenner om door de nieuwe volumes en bestanden te bladeren. Zie het artikel back-up [herstellen van back-ups van virtuele Azure-machines](backup-azure-restore-files-from-vm.md)voor meer informatie.
 
 ### <a name="unmount-the-disks"></a>De schijven ontkoppelen
 

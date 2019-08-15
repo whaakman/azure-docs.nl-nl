@@ -1,6 +1,6 @@
 ---
-title: Toevoegen van een laag symbool op Android-kaarten in Azure kaarten | Microsoft Docs
-description: Symbolen toevoegen aan een kaart met behulp van Azure Maps Android SDK
+title: Een Symbol-laag toevoegen aan Android-kaarten in Azure Maps | Microsoft Docs
+description: Symbolen toevoegen aan een kaart met Azure Maps Android SDK
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: add6e23d023753e217c102dc946837a71a64c781
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0292c8a441589a01241fbef6923246b4bcafb5c8
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64871075"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976262"
 ---
-# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Een symbool laag toevoegen aan een kaart met behulp van Azure Maps Android SDK
+# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Een symbool laag aan een kaart toevoegen met Azure Maps Android SDK
 
-In dit artikel wordt beschreven hoe u gegevens uit een gegevensbron weergeven als een laag symbool op een kaart met behulp van de Android SDK van Azure Maps.
+Dit artikel laat u zien hoe u punt gegevens van een gegevens bron kunt weer geven als een symbool laag op een kaart met behulp van de Azure Maps Android SDK.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Volledig stappen in dit artikel, moet u installeren [Android SDK van Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) laden van een kaart.
+Als u de stappen in dit artikel volledig wilt volgen, moet u [Azure Maps ANDROID SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) installeren om een kaart te laden.
 
 ## <a name="add-a-symbol-layer"></a>Een symboollaag toevoegen
 
-Als u wilt toevoegen een markering op de kaart met behulp van het symbool-laag, de volgende stappen uit te voeren:
+Volg de onderstaande stappen om een markering op de kaart toe te voegen met behulp van de Symbol-laag:
 
-1. Bewerken **res** > **lay-out** > **activity_main.xml** , zodat het ziet als de volgende XML eruit:
+1. Bewerk > deindelingRes > **activity_main. XML** zodat deze eruitziet als de volgende XML:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -50,7 +50,7 @@ Als u wilt toevoegen een markering op de kaart met behulp van het symbool-laag, 
     </FrameLayout>
     ```
 
-2. Kopieer het volgende codefragment in de **onCreate()** -methode van uw `MainActivity.java` klasse.
+2. Kopieer het volgende code fragment in de methode **onCreate ()** van uw `MainActivity.java` klasse.
 
     ```Java
     mapControl.onReady(map -> {
@@ -72,9 +72,9 @@ Als u wilt toevoegen een markering op de kaart met behulp van het symbool-laag, 
     
     ```
     
-    Het bovenstaande codefragment verkrijgt eerst een Azure-kaarten map control-exemplaar met de **onReady()** terugbelmethode. Het maakt vervolgens een gegevensbron object via de **DataSource** klasse en voegt deze toe aan de kaart. Vervolgens wordt toegevoegd een **functie** met een punt geometrie toe. Een afbeelding van rode markering wordt vervolgens ingesteld als pictogram voor het symbool. Een **symbool laag** tekst of pictogrammen gebruikt om op basis van een punt-gegevens die zijn ingepakt in de gegevensbron als symbool op de kaart weer te geven. Een symbool-laag wordt vervolgens gemaakt en de gegevensbron wordt doorgegeven aan deze om weer te geven, en wordt vervolgens toegevoegd aan de lagen van de kaart.
+    In het bovenstaande code fragment wordt eerst een exemplaar van Azure Maps kaart besturings element opgehaald met de call back methode **onReady ()** . Vervolgens wordt een gegevens bron object gemaakt met behulp van de klasse **Data Source** en toegevoegd aan de kaart. Vervolgens wordt er een **functie** met een punt geometrie toegevoegd. Vervolgens wordt een rode afbeelding van de markering ingesteld als pictogram voor het symbool. Een **symbool laag** gebruikt tekst of pictogrammen voor het weer geven van op punten gebaseerde gegevens die in de gegevens bron zijn verpakt als symbool op de kaart. Er wordt vervolgens een symbool laag gemaakt en de gegevens bron wordt door gegeven om weer te geven en wordt vervolgens toegevoegd aan de lagen van de kaart.
     
-    Na het toevoegen van het bovenstaande codefragment uw `MainActivity.java` moet er uitzien zoals hieronder:
+    Nadat u het code fragment hierboven hebt toegevoegd `MainActivity.java` , ziet uw er als volgt uit:
     
     ```Java
     package com.example.myapplication;
@@ -166,16 +166,19 @@ Als u wilt toevoegen een markering op de kaart met behulp van het symbool-laag, 
     }
     ```
     
-Op dit moment als u uw toepassing uitvoert ziet u een markering op de kaart, zoals hier wordt weergegeven:
+Als u de toepassing uitvoert, moet u op dit punt een markering op de kaart zien, zoals hier wordt weer gegeven:
 
 <center>
 
-![Android kaart pincode](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
+![Pincode van Android-kaart](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer moois toevoegen aan uw kaart, Zie:
+Als u meer dingen wilt toevoegen aan uw kaart, raadpleegt u:
 
 > [!div class="nextstepaction"]
 > [Vormen toevoegen aan een Android-kaart](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+
+> [!div class="nextstepaction"]
+> [Onderdeel informatie weer geven](display-feature-information-android.md)

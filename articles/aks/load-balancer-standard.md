@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: a9cf3db3a15fab5a2f067a146950e02923a20379
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4e234d3849e09bd8c57a8c33bb378ab801ce0f6d
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "67476814"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019455"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Preview: gebruik een standaard SKU-load balancer in azure Kubernetes service (AKS)
 
@@ -92,6 +92,7 @@ De volgende beperkingen zijn van toepassing wanneer u AKS-clusters maakt en behe
 
 * Wanneer u de *standaard* -SKU voor een Load Balancer gebruikt, moet u open bare adressen toestaan en voor komen dat Azure Policy die IP-aanmaak, worden gemaakt. Het AKS-cluster maakt automatisch een open bare *standaard* -SKU-IP in dezelfde resource groep die is gemaakt voor het AKS-cluster, die meestal met *MC_* aan het begin wordt genoemd. AKS wijst het open bare IP-adres toe aan de *standaard* -SKU Load Balancer. Het open bare IP-adres is vereist voor het toestaan van uitgaand verkeer van het AKS-cluster. Dit open bare IP-adres is ook vereist voor het onderhouden van de connectiviteit tussen het besturings vlak en de agent knooppunten, en voor het behoud van de compatibiliteit met eerdere versies van AKS.
 * Wanneer u de *standaard* -SKU voor een Load Balancer gebruikt, moet u Kubernetes-versie 1.13.5 of hoger gebruiken.
+* Als u de [open bare IP-functie van het knoop punt](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool) met standaard load balancers gebruikt, kunt u een regel voor een uitgaande SLB of een openbaar IP-adres voor het knoop punt instellen. U moet een van de twee selecteren, omdat één virtuele machine niet tegelijkertijd kan worden gekoppeld aan een SLB-uitgaande regel en een openbaar IP-adres.
 
 Hoewel deze functie in preview is, zijn de volgende extra beperkingen van toepassing:
 
@@ -135,7 +136,6 @@ az aks create \
     --name myAKSCluster \
     --enable-vmss \
     --node-count 1 \
-    --kubernetes-version 1.14.0 \
     --load-balancer-sku standard \
     --generate-ssh-keys
 ```
@@ -166,7 +166,7 @@ In de volgende voorbeelduitvoer ziet u het enkele knooppunt dat is gemaakt in de
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.14.0
+aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.9
 ```
 
 ## <a name="verify-your-cluster-uses-the-standard-sku"></a>Controleren of uw cluster gebruikmaakt van de *standaard* -SKU

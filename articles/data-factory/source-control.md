@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 91c0ad260c16ac09fd764246d31f99d481f8f147
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: fd8168b5786f669de0c5c2109c9e02b43c62c582
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886830"
+ms.locfileid: "68933658"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Broncode beheer in Azure Data Factory
 
@@ -243,7 +243,7 @@ Het gebruik van Key Vault zorgt ook voor continue integratie en implementatie, o
 
 Als de publicatie vertakking niet is gesynchroniseerd met de Master vertakking en verouderde bronnen bevat ondanks een recente publicatie, voert u de volgende stappen uit:
 
-1. Uw huidige Git-opslag plaats verwijderen/
+1. Uw huidige Git-opslag plaats verwijderen
 1. Configureer Git opnieuw met dezelfde instellingen, maar zorg ervoor dat **bestaande Data Factory resources importeren in opslag plaats** is geselecteerd en kies **nieuwe vertakking**
 1. Alle resources uit uw samenwerkings vertakking verwijderen
 1. Een pull-aanvraag maken om de wijzigingen aan de collaboration Branch samen te voegen 

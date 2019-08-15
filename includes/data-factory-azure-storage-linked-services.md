@@ -4,22 +4,22 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: b8585b62b0728d1ba6e010e42b44840903c46833
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ee368b58195d61a1c6792a3a3655122af7104d58
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176503"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012098"
 ---
 ### <a name="azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service
-De **gekoppelde Azure Storage-service** kunt u een Azure storage-account koppelen aan een Azure data factory met behulp van de **accountsleutel**, waarmee u de data factory met wereldwijde toegang tot de Azure Storage. De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zijn voor de gekoppelde Azure Storage-service.
+Met de **Azure Storage gekoppelde service** kunt u een Azure Storage-account koppelen aan een azure-Data Factory met behulp van de **account sleutel**, waarmee u de Data Factory met wereld wijde toegang tot de Azure Storage. In de volgende tabel vindt u een beschrijving van de JSON-elementen die specifiek zijn voor Azure Storage gekoppelde service.
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type |De eigenschap type moet worden ingesteld op: **AzureStorage** |Ja |
-| connectionString |Geef informatie op die nodig zijn voor het verbinding maken met Azure storage voor de connectionString-eigenschap. |Ja |
+| connectionString |Geef de gegevens op die nodig zijn om verbinding te maken met Azure Storage voor de Connections Tring-eigenschap. |Ja |
 
-Zie de volgende sectie voor stappen voor het weergeven/kopiëren de accountsleutel voor een Azure Storage: [Toegangssleutels](../articles/storage/common/storage-account-manage.md#access-keys).
+Raadpleeg de volgende sectie voor de stappen voor het weer geven/kopiëren van de account sleutel voor een Azure Storage: [Toegangs sleutels](../articles/storage/common/storage-account-manage.md#access-keys).
 
 **Voorbeeld:**  
 
@@ -35,22 +35,22 @@ Zie de volgende sectie voor stappen voor het weergeven/kopiëren de accountsleut
 }
 ```
 
-### <a name="azure-storage-sas-linked-service"></a>Sas van Azure Storage gekoppelde Service
-Een shared access signature (SAS) biedt gedelegeerde toegang tot resources in uw opslagaccount. Hiermee kunt u een client beperkte machtigingen voor objecten in uw storage-account voor een bepaalde periode en met een opgegeven set machtigingen, zonder dat u hoeft voor het delen van de toegangssleutels van uw account verlenen. De SAS is een URI die in de queryparameters alle informatie die nodig zijn voor geverifieerde toegang tot een opslagresource omvat. Voor toegang tot de storage-resources met de SAS moet moet de client alleen worden doorgegeven in de SAS tot de juiste constructor of methode. Zie voor gedetailleerde informatie over SAS [handtekeningen voor gedeelde toegang: Inzicht in het SAS-Model](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)
+### <a name="azure-storage-sas-linked-service"></a>Azure Storage SAS-gekoppelde service
+Een Shared Access Signature (SAS) biedt gedelegeerde toegang tot resources in uw opslag account. U kunt een client beperkte machtigingen verlenen voor objecten in uw opslag account voor een bepaalde periode en met een opgegeven set machtigingen, zonder dat u de toegangs sleutels van uw account hoeft te delen. De SAS is een URI die in de query parameters omvat alle informatie die nodig is voor geverifieerde toegang tot een opslag resource. Om toegang te krijgen tot opslag bronnen met de SAS, hoeft de client alleen de SA'S door te geven aan de juiste constructor of methode. Zie voor meer informatie over SA'S [beperkte toegang verlenen tot Azure storage-resources met behulp van Shared Access signatures (SAS)](../articles/storage/common/storage-sas-overview.md).
 
 > [!IMPORTANT]
-> Azure Data Factory nu alleen ondersteunt **Service-SAS** , maar geen Account-SAS. Zie [typen van handtekeningen voor gedeelde toegang](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) voor meer informatie over deze twee typen en hoe u een van. Houd er rekening mee de SAS-URL generable vanuit Azure portal of Storage Explorer is een Account-SAS, wat niet wordt ondersteund.
+> Azure Data Factory ondersteunt nu alleen **service-sa's** maar geen Sa's van accounts. Let op dat de SAS-URL kan worden afgeleid van Azure Portal of Storage Explorer een account-SA'S is, wat niet wordt ondersteund.
 
 > [!TIP]
-> U kunt de onderstaande PowerShell-opdrachten voor het genereren van een SAS-Service voor uw opslagaccount (Vervang de plaatsaanduidingen en de benodigde machtiging verlenen) uitvoeren: `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> U kunt de volgende Power shell-opdrachten uitvoeren om een service-SAS te genereren voor uw opslag account (Vervang de plaats houders en Ken de benodigde machtiging toe):`$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
-De SAS van Azure Storage gekoppelde service kunt u een Azure Storage-Account koppelen aan een Azure data factory met behulp van een Shared Access Signature (SAS). Het biedt de data factory met beperkte/tijdelijke toegang tot alle of naar een specifiek resources (blob/container) in de opslag. De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zijn voor Azure Storage SAS gekoppelde service. 
+Met de gekoppelde Azure Storage SAS-service kunt u een Azure Storage account koppelen aan een Azure-data factory met behulp van een Shared Access Signature (SAS). Het biedt de data factory met beperkte/gebonden toegang tot alle/specifieke resources (BLOB/container) in de opslag. In de volgende tabel vindt u een beschrijving van de JSON-elementen die specifiek zijn voor Azure Storage gekoppelde SAS-service. 
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type |De eigenschap type moet worden ingesteld op: **AzureStorageSas** |Ja |
-| sasUri |Shared Access Signature URI voor de Azure Storage-resources, zoals blob, container of tabel opgeven.  |Ja |
+| sasUri |Geef Shared Access Signature-URI op voor de Azure Storage resources, zoals blob, container of table.  |Ja |
 
 **Voorbeeld:**
 
@@ -66,9 +66,9 @@ De SAS van Azure Storage gekoppelde service kunt u een Azure Storage-Account kop
 }
 ```
 
-Bij het maken van een **SAS-URI**, overweegt het volgende:  
+Wanneer u een **SAS-URI**maakt, overweeg dan het volgende:  
 
-* Instellen van de juiste lezen/schrijven **machtigingen** op objecten op basis van hoe de gekoppelde service (lezen, schrijven, lezen/schrijven) wordt gebruikt in uw data factory.
-* Stel **verlooptijd** op de juiste wijze. Zorg ervoor dat de toegang tot Azure Storage-objecten niet binnen een actieve periode van de pijplijn verloopt.
-* URI moet worden gemaakt op de juiste container/blob of het niveau van de tabel op basis van de behoeften. Een SAS-Uri met een Azure-blob kan de Data Factory-service voor toegang tot die specifieke blob. Een SAS-Uri naar een Azure blob-container kan de Data Factory-service u doorloopt de blobs in deze container. Als u wilt toegang later meer/minder objecten bieden of bijwerken van de SAS-URI, vergeet dan niet bijwerken van de gekoppelde service met de nieuwe URI.   
+* Stel de juiste lees-en schrijf **machtigingen** voor objecten in op basis van de manier waarop de gekoppelde service (lezen, schrijven, lezen/schrijven) wordt gebruikt in uw Data Factory.
+* Stel **verlooptijd** op de juiste wijze. Zorg ervoor dat de toegang tot Azure Storage objecten niet verloopt binnen de actieve periode van de pijp lijn.
+* URI moet worden gemaakt in de juiste container/BLOB of op basis van de benodigde tabel niveau. Met een SAS-URI naar een Azure-Blob kan de Data Factory-service toegang krijgen tot die specifieke blob. Met een SAS-URI naar een Azure-Blob-container kan de Data Factory-Service blobs in die container door lopen. Als u later toegang wilt bieden tot meer of minder objecten of als u de SAS-URI wilt bijwerken, moet u de gekoppelde service bijwerken met de nieuwe URI.   
 

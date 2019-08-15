@@ -1,77 +1,85 @@
 ---
-title: Aangepaste beleidsproblemen oplossen in Azure Active Directory B2C | Microsoft Docs
-description: Meer informatie over methoden voor het oplossen van fouten bij het werken met aangepaste beleidsregels in Azure Active Directory B2C.
+title: Problemen oplossen met aangepaste beleids regels in Azure Active Directory B2C
+description: Meer informatie over benaderingen voor het oplossen van fouten bij het werken met aangepaste beleids regels in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/07/2017
+ms.date: 08/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 552f056a6637b3ebacfbd15eb878c28adbec6b88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5dee0ef768180057452a232436fc295b36fd756c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509978"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963737"
 ---
-# <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Problemen oplossen met Azure AD B2C aangepaste beleidsregels en Identity-Ervaringsframework
+# <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Problemen met Azure AD B2C aangepaste beleids regels en het Framework voor identiteits ervaring oplossen
 
-Als u Azure Active Directory B2C (Azure AD B2C) aangepaste beleidsregels, kunt u ervaren uitdagingen instellen van het Framework identiteit ervaring in het XML-indeling van de beleid-taal.  Leren schrijven van aangepaste beleidsregels kan worden, zoals een nieuwe taal te leren. In dit artikel wordt beschreven hulpprogramma's en tips waarmee u kunnen snel opsporen en oplossen van problemen. 
+Als u Azure Active Directory B2C (Azure AD B2C) aangepast beleid gebruikt, kunt u problemen ondervinden bij het instellen van het Framework voor identiteits ervaring in de XML-indeling van de beleids taal. Leer hoe u aangepaste beleids regels kunt schrijven, bijvoorbeeld om een nieuwe taal te leren. In dit artikel worden enkele hulp middelen en tips beschreven die u kunnen helpen bij het detecteren en oplossen van problemen.
 
-> [!NOTE]
-> In dit artikel gaat over het oplossen van uw aangepaste configuratie Azure AD B2C. Het niet de relying party-toepassing of de id-bibliotheek op te lossen.
+In dit artikel vindt u informatie over het oplossen van problemen met de Azure AD B2C aangepaste beleids configuratie. Er wordt geen oplossing voor de Relying Party toepassing of de bijbehorende id-bibliotheek.
 
-## <a name="xml-editing"></a>XML-bewerken
+## <a name="xml-editing"></a>XML bewerken
 
-De meest voorkomende fout bij het instellen van aangepaste beleidsregels is onjuist opgemaakt XML. Er is een goede XML-editor bijna essentieel. Een goede XML-editor XML systeemeigen wordt weergegeven, inhoud codeert, prefills algemene voorwaarden, houdt XML-elementen die zijn geïndexeerd en kan valideren met schema. Hier volgen twee van onze favoriete XML-editors:
+De meest voorkomende fout bij het instellen van aangepast beleid is XML met een onjuiste indeling. Een goede XML-editor is bijna essentieel. Er wordt een XML-bestand met inhoud, kleur codes, vooraf gevulde termen en XML-elementen geïndexeerd en kan worden gevalideerd tegen een XML-schema.
 
-* [Visual Studio Code](https://code.visualstudio.com/)
-* [Notepad++](https://notepad-plus-plus.org/)
+Twee van onze favoriete editors zijn [Visual Studio code](https://code.visualstudio.com/) en [Klad blok + +](https://notepad-plus-plus.org/).
 
-XML-schemavalidatie identificeert fouten voordat u uw XML-bestand uploaden. In de hoofdmap van het starter-pack, de definitie van de XML-schema TrustFrameworkPolicy_0.3.0.0.xsd ophalen Zoek voor meer informatie in de documentatie van uw XML-editor, *XML-hulpprogramma's* en *XML-validatie*.
+Validatie van XML-schema identificeert fouten voordat u het XML-bestand uploadt. In de hoofdmap van het [Starter Pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)haalt u het XML-schema definitie bestand *trustframeworkpolicy_ 0.3.0.0. XSD*op. Als u wilt weten hoe u het XSD-schema bestand gebruikt voor validatie in uw editor, zoekt u naar *XML-hulpprogram ma's* en *XML-validatie* of vergelijk bare informatie in de documentatie van de editor.
 
-Een overzicht van XML-regels is wellicht handig zijn. Azure AD B2C geweigerd eventuele XML indelingsfouten die worden gedetecteerd. Af en toe een onjuiste indeling XML kan leiden tot foutberichten die misleidend zijn.
+Mogelijk vindt u een beoordeling van de XML-regels handig. Azure AD B2C weigert XML-opmaak fouten die worden gedetecteerd. In sommige gevallen kan XML met onjuiste opmaak fout berichten veroorzaken die misleidend zijn.
 
-## <a name="upload-policies-and-policy-validation"></a>Upload-beleidsregels en validatie van het gebruikersbeleid
+## <a name="upload-policies-and-policy-validation"></a>Beleids regels en beleids validatie uploaden
 
- Validatie van het XML-bestand uploaden is automatisch. De meeste fouten leiden tot het uploaden mislukt. Validatie bevat het beleidsbestand dat u uploadt. Dit omvat ook de keten van bestanden die het uploadbestand naar (het bestand met de relying party, het extensiebestand en de base-bestand verwijst). 
- 
- Algemene validatiefouten omvatten het volgende.
+Validatie van het XML-beleids bestand wordt automatisch uitgevoerd bij het uploaden. De meeste fouten zorgen ervoor dat het uploaden mislukt. Validatie bevat het beleids bestand dat u uploadt. Het bevat ook de keten van bestanden waarnaar het upload bestand verwijst (het Relying Party-beleids bestand, het extensie bestand en het basis bestand).
 
-Fout-fragment: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
-* De ClaimType-waarde is mogelijk verkeerd gespeld of bestaat niet in het schema.
-* De ClaimType-waarden moeten worden gedefinieerd in ten minste een van de bestanden in het beleid. 
-    Bijvoorbeeld: `<ClaimType Id="socialIdpUserId">`
-* Als de ClaimType is gedefinieerd in het extensiebestand, maar kan ook worden gebruikt in een waarde van het technische profiel in de base-bestand, resulteert het basis-bestand uploaden in een fout.
+Veelvoorkomende validatie fouten zijn onder andere:
 
-Fout-fragment: `...makes a reference to a ClaimsTransformation with id...`
-* De oorzaken van de fout kunnen zijn dezelfde als de fout ClaimType.
+> Fout fragment:`...makes a reference to ClaimType with id "displayName" but neither the policy nor any of its base policies contain such an element`
 
-Fout-fragment: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
-* Controleer of de tenant-id de waarde in de **\<TrustFrameworkPolicy\>** en **\<BasePolicy\>** schermelementen overeenkomen met de doel-Azure AD B2C-tenant.  
+* De waarde voor claim type is mogelijk verkeerd gespeld of bestaat niet in het schema.
+* Claim type-waarden moeten worden gedefinieerd in ten minste een van de bestanden in het beleid.
+    Bijvoorbeeld: `<ClaimType Id="issuerUserId">`
+* Als claim type is gedefinieerd in het extensie bestand, maar dit ook wordt gebruikt in een TechnicalProfile-waarde in het basis bestand, resulteert het uploaden van het basis bestand in een fout.
 
-## <a name="troubleshoot-the-runtime"></a>De runtime oplossen
+> Fout fragment:`...makes a reference to a ClaimsTransformation with id...`
 
-* Gebruik `Run Now` en `https://jwt.io` voor het testen van uw beleid onafhankelijk van uw web- of mobiele toepassing. Deze website fungeert als een relying party-toepassing. De inhoud van de JSON Web Token (JWT) die wordt gegenereerd door uw Azure AD B2C-beleid wordt weergegeven. Voor het maken van een testtoepassing in Identiteitservaring-Framework, gebruikt u de volgende waarden:
-    * Naam: TestApp
-    * Web-App/Web-API: Nee
-    * Systeemeigen client: Nee
+* De oorzaak van deze fout kan hetzelfde zijn als voor de fout claim type.
 
-* Als u wilt traceren de uitwisseling van berichten tussen de clientbrowser en de Azure AD B2C, gebruikt u [Fiddler](https://www.telerik.com/fiddler). U kunt een indicatie van waar de gebruikersbeleving is mislukt in uw indelingsstappen ophalen.
+> Fout fragment:`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 
-* In **Ontwikkelingsmodus**, gebruikt u **Application Insights** traceren van de activiteit van de gebruikersbeleving Identiteitservaring-Framework. In **Ontwikkelingsmodus**, ziet u de uitwisseling van claims tussen de Identiteitservaring-Framework en de verschillende claimproviders die zijn gedefinieerd door technische profielen, zoals id-providers, op basis van API-services, de Azure AD B2C-map voor gebruiker, en andere services, zoals Azure meerdere meervoudige verificatie.  
+* Controleer of de TenantId-waarde in `<TrustFrameworkPolicy\>` de `<BasePolicy\>` elementen en overeenkomt met uw doel Azure AD B2C Tenant.
+
+## <a name="troubleshoot-the-runtime"></a>Problemen met de runtime oplossen
+
+* Gebruik **nu uitvoeren** en `https://jwt.ms` om uw beleids regels onafhankelijk van uw web-of mobiele toepassing te testen. Deze website fungeert als een Relying Party-toepassing. Hier wordt de inhoud weer gegeven van de JSON Web Token (JWT) die is gegenereerd door uw Azure AD B2C-beleid. Als u een test toepassing wilt maken, gaat u naar **Azure AD B2C** \> - **toepassingen** in de Azure Portal en voegt u een toepassing toe met de volgende waarden:
+
+  * **Naam**: TestApp
+  * **Web-app/Web-API**: Nee
+  * **Systeem eigen client**: Nee
+
+  Voeg vervolgens toe `https://jwt.ms` als een **antwoord-URL**.
+
+* Gebruik [Fiddler](https://www.telerik.com/fiddler)om de uitwisseling van berichten tussen uw client browser en Azure AD B2C te traceren. Het kan u helpen een indicatie te krijgen van waar uw gebruikers zich niet meer in de Orchestration-stappen bevinden.
+
+* Gebruik in de **ontwikkelings modus** [Application Insights](active-directory-b2c-troubleshoot-custom.md) om de activiteit van uw gebruikers traject voor identiteits ervaring te traceren. In de **ontwikkelings modus**kunt u de uitwisseling van claims tussen het Framework voor identiteits ervaring en de verschillende claim providers bekijken die zijn gedefinieerd door technische profielen, zoals id-providers, API-gebaseerde services, de Azure AD B2C gebruiker Directory en andere services, zoals Azure multi-factor Authentication.
 
 ## <a name="recommended-practices"></a>Aanbevolen procedures
 
-**Houd meerdere versies van uw scenario's. Ze te groeperen in een project met uw toepassing.** De base, uitbreidingen en relying party-bestanden zijn rechtstreeks van elkaar afhankelijk. Sla deze op als een groep. Wanneer er nieuwe functies worden toegevoegd aan uw beleid, houd u afzonderlijke werkende versies. Fase werkende versies in uw eigen systeem met de toepassingscode die ze met communiceren het bestand.  Uw toepassingen mogelijk nog vele andere relying party beleidsregels in een tenant worden aangeroepen. Ze kunnen worden afhankelijk van de claims die ze van uw Azure AD B2C-beleid verwachten.
+**Bewaar meerdere versies van uw scenario's. Deze groeperen in een project met uw toepassing.** De basis-, uitbrei dingen-en Relying Party-bestanden zijn direct afhankelijk van elkaar. Sla ze op als groep. Wanneer er nieuwe functies aan uw beleid worden toegevoegd, kunt u afzonderlijke werk versies gebruiken. Werk versies in uw eigen bestands systeem faseren met de toepassings code waarmee ze communiceren. Uw toepassingen kunnen veel verschillende Relying Party-beleid aanroepen in een Tenant. Ze worden mogelijk afhankelijk van de claims die ze verwachten van uw Azure AD B2C-beleid.
 
-**Ontwikkel en test technische profielen met bekende gebruikers reizen.** Geteste starter pack beleid gebruiken voor het instellen van uw technische profielen. Ze afzonderlijk testen voordat u ze in uw eigen reizen gebruiker opnemen.
+**Technische profielen ontwikkelen en testen met bekende gebruikers reizen.** Geteste Starter Pack-beleids regels gebruiken om uw technische profielen in te stellen. U kunt ze afzonderlijk testen voordat u ze opneemt in uw eigen trajecten voor gebruikers.
 
-**Ontwikkel en test gebruiker reizen met geteste technische profielen.** De orchestration-stappen van een gebruikersbeleving incrementeel wijzigen. Bouw geleidelijk uw beoogde scenario's.
+**Ontwikkel en test gebruikers ritten met geteste technische profielen.** Wijzig de indelings stappen van een gebruikers traject incrementeel. Bouw geleidelijk uw beoogde scenario's.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Download in GitHub, de [active-directory-b2c-custom-policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) ZIP-bestand.
+Beschikbaar op GitHub: down load het [Active Directory-B2C-Custom-Policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) . zip-archief. U kunt ook de opslag plaats klonen:
+
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
+```

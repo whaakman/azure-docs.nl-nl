@@ -1,6 +1,6 @@
 ---
-title: Beschikbaarheid in regio's StorSimple | Microsoft Docs
-description: Legt uit Azure-regio's waarin de verschillende modellen van de StorSimple-apparaat beschikbaar zijn.
+title: Beschik baarheid van StorSimple-regio | Microsoft Docs
+description: Hierin worden de Azure-regio's beschreven waarin de verschillende StorSimple beschikbaar zijn.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,58 +14,60 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: e290feb278a1cddf1cfecfcb66458d8290ec122a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b41f738c2419f806aef60374a545ff004a6f19e
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943597"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965126"
 ---
-# <a name="available-regions-for-your-storsimple"></a>Beschikbare regio's voor uw StorSimple
+# <a name="available-regions-for-your-storsimple"></a>Beschik bare regio's voor uw StorSimple
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Overzicht
 
-De Azure-datacenters worden uitgevoerd in meerdere regio's over de hele wereld om te voldoen aan de eisen van de klant van prestaties, vereisten en voorkeuren wat betreft de locatie van gegevens. Een Azure-Geografie is een bepaald gebied van de hele wereld met ten minste één Azure-regio. Een Azure-regio is een gebied in een geografisch gebied, met een of meer datacenters.
+De Azure-data centers werken in meerdere geografische locaties over de hele wereld om te voldoen aan de behoeften van de klant, de vereisten en de voor keuren met betrekking tot de gegevens locatie. Een Azure-geografie is een gedefinieerd gebied van de wereld dat ten minste één Azure-regio bevat. Een Azure-regio is een gebied binnen een geografie met een of meer data centers.
 
-Het kiezen van een Azure-regio is erg belangrijk en de keuze van de regio wordt beïnvloed door factoren zoals gegevensresidentie en soevereiniteit, servicebeschikbaarheid, prestaties, kosten en redundantie. Voor meer informatie over hoe u een regio kiest, gaat u naar [die Azure-regio is geschikt voor mij?](https://azure.microsoft.com/overview/datacenters/how-to-choose/)
+Het kiezen van een Azure-regio is zeer belang rijk en de keuze van de regio wordt beïnvloed door factoren zoals gegevens locatie en soevereiniteit, Beschik baarheid van de service, prestaties, kosten en redundantie. Ga naar de [Azure-regio voor mij](https://azure.microsoft.com/overview/datacenters/how-to-choose/) voor meer informatie over het kiezen van een regio?
 
-De keuze van de regio is specifiek voor StorSimple-oplossing bepaald door de volgende factoren:
+Voor een StorSimple-oplossing wordt de keuze van de regio specifiek bepaald door de volgende factoren:
 
-- De regio's waar de StorSimple Device Manager-service beschikbaar is.
-- De landen/regio's waar het fysieke StorSimple, een cloud of een virtueel apparaat beschikbaar is.
-- De regio's waar de opslagaccounts die opslaan van StorSimple-gegevens geplaatst voor optimale prestaties worden.
+- Regio's waar de StorSimple-Apparaatbeheer service beschikbaar is.
+- De landen/regio's waar de fysieke StorSimple, de Cloud of het virtuele apparaat beschikbaar is.
+- De regio's waar de opslag accounts die StorSimple gegevens opslaan, voor optimale prestaties moeten worden gevonden.
 
-Deze zelfstudie wordt de beschikbaarheid in regio voor de StorSimple Device Manager-service, de fysieke on-premises en de cloud-apparaten beschreven. De informatie in dit artikel is van toepassing op StorSimple 8000 en apparaten van 1200-serie.
+In deze zelf studie wordt de beschik baarheid van regio's voor de StorSimple-Apparaatbeheer service, de on-premises fysieke en de Cloud apparaten beschreven. De informatie in dit artikel is van toepassing op apparaten uit de StorSimple 8000-en 1200-serie.
 
-## <a name="region-availability-for-storsimple-device-manager-service"></a>Beschikbaarheid in regio's voor StorSimple Device Manager-service
+## <a name="region-availability-for-storsimple-device-manager-service"></a>Beschik baarheid van regio's voor StorSimple Apparaatbeheer service
 
-StorSimple Device Manager-service wordt momenteel ondersteund in 12 openbare regio's en 2 Azure Government-regio's.
+StorSimple Apparaatbeheer-service wordt momenteel ondersteund in 12 open bare regio's en 2 Azure Government regio's.
 
-U definieert een regio of locatie wanneer u de service StorSimple Device Manager voor het eerst maakt. In het algemeen is een locatie die het dichtst bij de geografische regio waar het apparaat is geïmplementeerd gekozen. Maar het apparaat en de service kunnen ook worden geïmplementeerd op verschillende locaties.
+U definieert een regio of locatie wanneer u de StorSimple-Apparaatbeheer service voor het eerst maakt. In het algemeen wordt een locatie gekozen die het dichtst bij de geografische regio ligt waar het apparaat wordt geïmplementeerd. Het apparaat en de service kunnen ook op verschillende locaties worden geïmplementeerd.
 
-Hier volgt een lijst met regio's waar StorSimple Device Manager-service is beschikbaar voor openbare Azure-cloud en kan worden geïmplementeerd.
+Hier volgt een lijst met regio's waar StorSimple-Apparaatbeheer service beschikbaar is voor de open bare Azure-Cloud en kan worden geïmplementeerd.
 
-![storsimple-apparaat-manager-service-regio 's](./media/storsimple-region/storsimple-device-manager-service-regions.png)
+![storsimple-apparaat-Manager-service-regio's](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
-De StorSimple Device Manager-service is voor Azure Government-cloud, beschikbaar in VS (overheid)-Iowa en VS (overheid) Virginia datacenters.
+Voor Azure Government Cloud is de StorSimple Apparaatbeheer-service beschikbaar in US Gov-Iowa en US Gov-Virginia data centers.
 
-## <a name="region-availability-for-data-stored-in-storsimple"></a>Beschikbaarheid in regio's voor gegevens die zijn opgeslagen in StorSimple
+## <a name="region-availability-for-data-stored-in-storsimple"></a>Beschik baarheid van regio's voor gegevens die zijn opgeslagen in StorSimple
 
-StorSimple-gegevens fysiek worden opgeslagen in Azure storage-accounts en deze accounts zijn beschikbaar in alle Azure-regio's. Wanneer u een Azure storage-account maakt, wordt de primaire locatie van het opslagaccount dat is gekozen en waarmee wordt bepaald met de regio waar de gegevens zich bevinden.
+StorSimple gegevens worden fysiek opgeslagen in azure Storage-accounts en deze accounts zijn beschikbaar in alle Azure-regio's. Wanneer u een Azure-opslag account maakt, wordt de primaire locatie van het opslag account gekozen en wordt de regio bepaald waarin de gegevens zich bevinden.
 
-Wanneer u eerst een StorSimple Device Manager-service maken en een opslagaccount koppelen, kunnen uw StorSimple Device Manager-service en Azure storage zich in twee verschillende locaties bevinden. In dat geval moet u de StorSimple--apparaatbeheerfunctie en het Azure Storage-account afzonderlijk maken.
+Wanneer u voor het eerst een StorSimple-Apparaatbeheer service maakt en hieraan een opslag account koppelt, kunnen uw StorSimple Apparaatbeheer-service en Azure-opslag zich op twee verschillende locaties bevinden. In dat geval moet u de StorSimple--apparaatbeheerfunctie en het Azure Storage-account afzonderlijk maken.
 
-Kies in het algemeen de dichtstbijzijnde regio voor uw service voor uw storage-account. Echter, de dichtstbijzijnde regio voor de Microsoft Azure mogelijk niet de regio met de laagste latentie. Het is de latentie die bepaalt de netwerkprestaties van de service en wordt daarmee de prestaties van de oplossing. Dus als u een opslagaccount in een andere regio kiest, is het belangrijk te weten wat de latenties zijn tussen uw service en de regio die is gekoppeld aan uw storage-account.
+In het algemeen kiest u de dichtstbijzijnde regio voor uw opslag account voor uw service. De dichtstbijzijnde Microsoft Azure-regio is echter mogelijk niet echt de regio met de laagste latentie. Het is de latentie waarmee de prestaties van de netwerk service en de prestaties van de oplossing worden bepaald. Als u dus een opslag account in een andere regio kiest, is het belang rijk om te weten wat de latentie tussen uw service en de regio die aan uw opslag account is gekoppeld.
 
-Als u een StorSimple-Cloudapparaat gebruikt, klikt u vervolgens het beste dat de service en het bijbehorende opslagaccount zich in dezelfde regio bevinden. Storage-accounts in een andere regio kunnen leiden tot slechte prestaties.
+Als u een StorSimple Cloud Appliance gebruikt, raden we u aan de service en het bijbehorende opslag account zich in dezelfde regio te bevinden. Opslag accounts in een andere regio kunnen leiden tot slechte prestaties.
 
-## <a name="availability-of-storsimple-device"></a>Beschikbaarheid van StorSimple-apparaat
+## <a name="availability-of-storsimple-device"></a>Beschik baarheid van StorSimple-apparaat
 
-Afhankelijk van het model, kunnen de StorSimple-apparaten beschikbaar zijn in verschillende fysieke locaties of landen/regio's.
+Afhankelijk van het model, kunnen de StorSimple-apparaten beschikbaar zijn in verschillende locaties of landen/regio's.
 
-### <a name="storsimple-physical-device-models-81008600"></a>Fysieke StorSimple-apparaat (modellen 8100/8600)
+### <a name="storsimple-physical-device-models-81008600"></a>Fysiek StorSimple-apparaat (modellen 8100/8600)
 
-Als u een StorSimple 8100 of 8600 fysiek apparaat, wordt het apparaat is beschikbaar in de volgende landen/regio's.
+Als u een fysiek StorSimple 8100-of 8600-apparaat gebruikt, is het apparaat beschikbaar in de volgende landen/regio's.
 
 | #  | Land/regio        | #  | Land/regio     | #  | Land/regio      | #  | Land/regio             |
 |----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
@@ -76,34 +78,34 @@ Als u een StorSimple 8100 of 8600 fysiek apparaat, wordt het apparaat is beschik
 | 5  | Brazilië                | 20 | Indonesië          | 35 | Filipijnen         | 50 | Zweden                     |
 | 6  | Canada                | 21 | Ierland            | 36 | Polen              | 51 | Zwitserland                |
 | 7  | Chili                 | 22 | Israël             | 37 | Portugal            | 52 | Taiwan                     |
-| 8  | Colombia              | 23 | Italië              | 38 | Puerto Rico         | 53 | Thailand                   |
-| 9  | Tsjechië        | 24 | Japan              | 39 | Qatar               | 54 | Turkije                     |
+| 8  | Colombia              | 23 | Italië              | 38 | Porto Rico         | 53 | Thailand                   |
+| 9  | Tsjechische Republiek        | 24 | Japan              | 39 | Qatar               | 54 | Turkije                     |
 | 10 | Denemarken               | 25 | Kenia              | 40 | Roemenië             | 55 | Oekraïne                    |
 | 11 | Egypte                 | 26 | Koeweit             | 41 | Rusland              | 56 | Verenigde Arabische Emiraten       |
-| 12 | Finland               | 27 | Macau SAR          | 42 | Saoedi-Arabië        | 57 | Verenigd Koninkrijk             |
+| 12 | Finland               | 27 | Macau SAR          | 42 | Saudi-Arabië        | 57 | Verenigd Koninkrijk             |
 | 13 | Frankrijk                | 28 | Maleisië           | 43 | Singapore           | 58 | Verenigde Staten              |
 | 14 | Duitsland               | 29 | Mexico             | 44 | Slowakije            | 59 | Vietnam                    |
-| 15 | Griekenland                | 30 | Nederland        | 45 | Slovenië            | 60 | Kroatië                    |
+| 15 | Griekenland                | 30 | Nederland        | 45 | Slovenië            | 60 | Kroatië (Hrvatska)                    |
 
-Deze lijst wordt gewijzigd wanneer er meer landen/regio's worden toegevoegd. Voor een actuele lijst van de verschillende geografische gebieden, gaat u naar de bijlage Storage Array voorwaarden in de [productvoorwaarden](https://www.microsoft.com/en-us/licensing/product-licensing/products).
+Deze lijst wordt gewijzigd naarmate er meer landen/regio's worden toegevoegd. Voor een actuele lijst van de geographs gaat u naar de voor waarden van de opslag matrix in de [product termen](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
-Microsoft kunt verzenden fysieke hardware en hardware reserveonderdelen vervanging voor StorSimple om de locaties in de voorgaande lijst te bieden.
+Micro soft kan fysieke hardware leveren en vervanging van reserve onderdelen voor StorSimple naar de geographs in de voor gaande lijst.
 
 > [!IMPORTANT]
-> Plaats een fysiek StorSimple-apparaat niet in een regio waar StorSimple wordt niet ondersteund. Microsoft is niet mogelijk zijn voor het verzenden van eventuele vervangende onderdelen naar landen/regio's waar StorSimple wordt niet ondersteund.
+> Plaats geen StorSimple fysieke apparaat in een regio waarbij StorSimple niet wordt ondersteund. Micro soft kan geen vervangende onderdelen verzenden naar landen/regio's waar StorSimple niet wordt ondersteund.
 
-### <a name="storsimple-cloud-appliance-models-80108020"></a>StorSimple-Cloudapparaat (8010/8020 modellen)
+### <a name="storsimple-cloud-appliance-models-80108020"></a>StorSimple Cloud Appliance (modellen 8010/8020)
 
-Als u een StorSimple Cloud Appliance 8010 of 8020, klikt u vervolgens wordt het apparaat ondersteund en beschikbaar in alle regio's waar de onderliggende virtuele machine wordt ondersteund. De 8010 gebruikt een _Standard_A3_ virtuele machine die wordt ondersteund in alle Azure-regio's.
+Als u een StorSimple Cloud Appliance 8010 of 8020 gebruikt, wordt het apparaat ondersteund en beschikbaar in alle regio's waar de onderliggende virtuele machine wordt ondersteund. De 8010 maakt gebruik van een _Standard_A3_ -VM die wordt ondersteund in alle Azure-regio's.
 
-De 8020 maakt gebruik van premium storage en _Standard_DS3_ VM naar een cloudapparaat maken. De 8020 wordt ondersteund in Azure-regio's die ondersteuning bieden voor Premium Storage en _Standard_DS3_ virtuele Azure-machines. Gebruik [deze lijst](https://azure.microsoft.com/regions/services/) om te kijken of zowel **Virtuele Machines > DS-serie** als **Opslag > Schijfruimte** beschikbaar is in uw regio.
+De 8020 maakt gebruik van Premium Storage en _Standard_DS3_ VM om een Cloud apparaat te maken. De 8020 wordt ondersteund in azure-regio's die ondersteuning bieden voor Premium Storage en _Standard_DS3_ Azure-vm's. Gebruik [deze lijst](https://azure.microsoft.com/regions/services/) om te kijken of zowel **Virtuele Machines > DS-serie** als **Opslag > Schijfruimte** beschikbaar is in uw regio.
 
-### <a name="storsimple-virtual-array-model-1200"></a>StorSimple Virtual Array (Model 1200)
+### <a name="storsimple-virtual-array-model-1200"></a>StorSimple Virtual array (model 1200)
 
-Als u een 1200-serie StorSimple Virtual Array, wordt klikt u vervolgens de installatiekopie van de virtuele schijf ondersteund in alle Azure-regio's.
+Als u een virtuele-matrix van 1200 Series StorSimple gebruikt, wordt de installatie kopie van de virtuele schijf in alle Azure-regio's ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over de [prijzen voor verschillende StorSimple modellen](https://azure.microsoft.com/pricing/calculator/#storsimple2).
-* Meer informatie over [beheren van uw StorSimple-opslagaccount](storsimple-8000-manage-storage-accounts.md).
-* Meer informatie over het [de StorSimple Device Manager-service gebruiken voor het beheren van uw StorSimple-apparaat](storsimple-8000-manager-service-administration.md).
+* Meer informatie over de [prijzen voor verschillende StorSimple-modellen](https://azure.microsoft.com/pricing/calculator/#storsimple2).
+* Meer informatie over [het beheren van uw StorSimple-opslag account](storsimple-8000-manage-storage-accounts.md).
+* Meer informatie over [het gebruik van de StorSimple Apparaatbeheer-service voor het beheren van uw StorSimple-apparaat](storsimple-8000-manager-service-administration.md).

@@ -1,9 +1,9 @@
 ---
-title: Implementeren en upgraden van toepassingen en services met Azure Resource Manager | Microsoft Docs
-description: Informatie over het implementeren van toepassingen en services in een Service Fabric-cluster met behulp van een Azure Resource Manager-sjabloon.
+title: Toepassingen en services implementeren en upgraden met Azure Resource Manager | Microsoft Docs
+description: Meer informatie over het implementeren van toepassingen en services naar een Service Fabric cluster met behulp van een Azure Resource Manager sjabloon.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,48 +13,48 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: dekapur
-ms.openlocfilehash: db515454c68fe3a7eb1a4616c3278d9fc93ddb2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 3810afa7ad00aa731751aa1f0bfe38d503de5850
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258668"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953207"
 ---
-# <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Toepassingen en services als Azure Resource Manager-resources beheren
+# <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Toepassingen en services beheren als Azure Resource Manager resources
 
-U kunt toepassingen en services implementeren in uw Service Fabric-cluster via Azure Resource Manager. Dit betekent dat in plaats van implementeren en beheren van toepassingen via PowerShell of CLI nadat er na afloop van het cluster gereed is, kunt u nu toepassingen en services in JSON express en deze implementeren in de dezelfde Resource Manager-sjabloon als uw cluster. Het proces van toepassingsregistratie, -inrichting en -implementatie wordt in één stap uitgevoerd.
+U kunt toepassingen en services implementeren in uw Service Fabric-cluster via Azure Resource Manager. Dit betekent dat in plaats van het implementeren en beheren van toepassingen via Power shell of CLI, nadat u hebt gewacht totdat het cluster gereed is, u nu toepassingen en services in JSON opneemt en ze in dezelfde resource manager-sjabloon kunt implementeren als uw cluster. Het proces van toepassingsregistratie, -inrichting en -implementatie wordt in één stap uitgevoerd.
 
-Dit is de aanbevolen manier om een installatie, governance of Clusterbeheertoepassingen die u nodig in uw cluster hebt implementeren. Dit omvat de [Patch Orchestration toepassing](service-fabric-patch-orchestration-application.md), Watchdogs of toepassingen die moeten worden uitgevoerd in uw cluster voordat u andere toepassingen of services worden geïmplementeerd. 
+Dit is de aanbevolen manier om de installatie-, governance-of cluster beheer toepassingen te implementeren die u nodig hebt in uw cluster. Dit omvat de [patch](service-fabric-patch-orchestration-application.md)-indelings toepassing, watchdog of toepassingen die in uw cluster moeten worden uitgevoerd voordat andere toepassingen of services worden geïmplementeerd. 
 
-Indien van toepassing, beheren van uw toepassingen als Resource Manager-resources te verbeteren:
-* Audittrail: Resource Manager voert een controle uit elke bewerking en houdt een gedetailleerde *activiteitenlogboek* die kunt u alle wijzigingen aan deze toepassingen en het cluster te traceren.
-* Op rollen gebaseerd toegangsbeheer (RBAC): Beheer van toegang tot clusters, evenals de toepassingen die zijn geïmplementeerd op het cluster kan worden gedaan via dezelfde Resource Manager-sjabloon.
-* Azure Resource Manager (via Azure portal), wordt een one-stop-shop voor het beheren van uw cluster en implementaties van essentiële toepassingen.
+Als dit van toepassing is, kunt u uw toepassingen beheren als Resource Manager-resources om te verbeteren:
+* Audittrail: Resource Manager controleert elke bewerking en houdt een gedetailleerd *activiteiten logboek* bij waarmee u wijzigingen kunt traceren die zijn aangebracht in deze toepassingen en uw cluster.
+* Op rollen gebaseerd toegangs beheer (RBAC): Het beheren van toegang tot clusters en toepassingen die op het cluster zijn geïmplementeerd, kunnen worden uitgevoerd via dezelfde resource manager-sjabloon.
+* Azure Resource Manager (via Azure Portal) wordt een one-stop-shop voor het beheren van uw cluster en essentiële toepassings implementaties.
 
-Het volgende fragment toont de verschillende soorten resources die kunnen worden beheerd via een sjabloon:
+Het volgende code fragment toont de verschillende soorten resources die kunnen worden beheerd via een sjabloon:
 
 ```json
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applicationTypes",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applicationTypes/versions",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applications",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applications/services",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
     "location": "[variables('clusterLocation')]"
@@ -64,10 +64,10 @@ Het volgende fragment toont de verschillende soorten resources die kunnen worden
 
 ## <a name="add-a-new-application-to-your-resource-manager-template"></a>Een nieuwe toepassing toevoegen aan uw Resource Manager-sjabloon
 
-1. Voorbereiden van uw cluster Resource Manager-sjabloon voor implementatie. Zie [maken van een Service Fabric-cluster met behulp van Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) voor meer informatie hierover.
-2. Denk na over enkele van de toepassingen die u van plan bent over het implementeren van in het cluster. Zijn er die zal altijd worden uitgevoerd die andere toepassingen kan duren voordat er afhankelijkheden op? Bent u van plan zijn over het implementeren van een cluster governance of van installatietoepassingen? Deze soorten toepassingen zijn best beheerd via Resource Manager-sjabloon, zoals hierboven wordt beschreven. 
-3. Wanneer u welke toepassingen u wilt worden geïmplementeerd op deze manier hebt begrepen, de toepassingen moeten worden verpakt, ingepakt en plaatsen op een bestandsshare. De share moet toegankelijk zijn via een REST-eindpunt voor Azure Resource Manager te gebruiken tijdens de implementatie.
-4. In het Resource Manager-sjabloon, onder de declaratie van uw cluster, beschrijft eigenschappen van de toepassing. Deze eigenschappen zijn doelreplica of count en eventuele afhankelijkheidsketens tussen resources (andere toepassingen of services). Zie voor een lijst van uitgebreide eigenschappen, de [specificaties REST API Swagger](https://aka.ms/sfrpswaggerspec). Houd er rekening mee dat dit is geen vervanging voor de toepassing of Service zich voordoet, maar in plaats daarvan beschrijft een aantal van wat is er in als onderdeel van de Resource Manager-sjabloon van het cluster. Hier volgt een voorbeeldsjabloon met de implementatie van een staatloze service *Service1* en een stateful service *Service2* als onderdeel van *Toepassing1*:
+1. Bereid de Resource Manager-sjabloon voor uw cluster voor op implementatie. Zie [een service Fabric cluster maken](service-fabric-cluster-creation-via-arm.md) met behulp van Azure Resource Manager voor meer informatie.
+2. Denk na over enkele van de toepassingen die u wilt implementeren in het cluster. Zijn er nog steeds andere toepassingen waarop mogelijk afhankelijkheden kunnen worden toegepast? Bent u van plan een cluster governance of installatie toepassingen te implementeren? Deze soorten toepassingen worden het best beheerd via een resource manager-sjabloon, zoals hierboven is beschreven. 
+3. Wanneer u hebt vastgesteld welke toepassingen u op deze manier wilt implementeren, moeten de toepassingen worden verpakt, ingepakt en op een bestands share worden geplaatst. De share moet toegankelijk zijn via een REST-eind punt voor Azure Resource Manager om te worden gebruikt tijdens de implementatie.
+4. Beschrijf in uw Resource Manager-sjabloon onder uw cluster declaratie de eigenschappen van elke toepassing. Deze eigenschappen omvatten het aantal replica's of instanties en eventuele afhankelijkheids ketens tussen bronnen (andere toepassingen of Services). Zie de [rest API Swagger spec](https://aka.ms/sfrpswaggerspec)voor een lijst met uitgebreide eigenschappen. Houd er rekening mee dat hiermee de toepassings-of service manifesten niet worden vervangen, maar wordt in plaats daarvan een deel van de Resource Manager-sjabloon van het cluster beschreven. Hier volgt een voorbeeld sjabloon met een stateless service *Service1* en een stateful service *Service2* implementeren als onderdeel van *Application1*:
 
    ```json
    {
@@ -142,7 +142,7 @@ Het volgende fragment toont de verschillende soorten resources die kunnen worden
     },
     "resources": [
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applicationTypes",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
         "location": "[variables('clusterLocation')]",
@@ -152,7 +152,7 @@ Het volgende fragment toont de verschillende soorten resources die kunnen worden
         }
       },
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applicationTypes/versions",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
         "location": "[variables('clusterLocation')]",
@@ -165,7 +165,7 @@ Het volgende fragment toont de verschillende soorten resources die kunnen worden
         }
       },
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applications",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
         "location": "[variables('clusterLocation')]",
@@ -200,7 +200,7 @@ Het volgende fragment toont de verschillende soorten resources die kunnen worden
         }
       },
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applications/services",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
         "location": "[variables('clusterLocation')]",
@@ -221,7 +221,7 @@ Het volgende fragment toont de verschillende soorten resources die kunnen worden
         }
       },
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applications/services",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName2'))]",
         "location": "[variables('clusterLocation')]",
@@ -255,30 +255,30 @@ Het volgende fragment toont de verschillende soorten resources die kunnen worden
    ```
 
    > [!NOTE] 
-   > De *apiVersion* moet worden ingesteld op `"2017-07-01-preview"`. Deze sjabloon kan ook onafhankelijk van het cluster worden geïmplementeerd, zolang het cluster al is geïmplementeerd.
+   > De *apiVersion* moet worden ingesteld op `"2019-03-01"`. Deze sjabloon kan ook onafhankelijk van het cluster worden geïmplementeerd, zolang het cluster al is geïmplementeerd.
 
-5. Implementeer. 
+5. Zetten! 
 
-## <a name="remove-service-fabric-resource-provider-application-resource"></a>Service Fabric-toepassing voor Provider van Resource-resource verwijderen
-Het volgende wordt het app-pakket niet ingerichte uit het cluster worden geactiveerd en dit wordt opschonen van de schijfruimte die wordt gebruikt:
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>Service Fabric resource provider toepassings resource verwijderen
+De volgende trigger wordt het app-pakket voor het ongedaan maken van de inrichting van het cluster geactiveerd en de gebruikte schijf ruimte wordt opgeruimd:
 ```powershell
-Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
+Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2019-03-01" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
 ```
-De toepassing wordt niet inrichting gewoon Microsoft.ServiceFabric/clusters/application verwijderen uit de ARM-sjabloon
+Als u micro soft. ServiceFabric/clusters/Application uit uw ARM-sjabloon verwijdert, wordt de inrichting van de toepassing niet ongedaan gemaakt
 
 >[!NOTE]
-> Nadat de verwijdering voltooid is moet u de versie van het toepassingspakket in SFX of ARM niet meer ziet. U kunt de toepassing type versie resource die de toepassing wordt uitgevoerd met; niet verwijderen ARM/SFRP wordt voorkomen dat dit. Als u probeert de inrichting van het pakket wordt uitgevoerd, wordt deze service voorkomen dat SF-runtime.
+> Zodra het verwijderen is voltooid, moet u de pakket versie in SFX of ARM niet meer zien. U kunt de bron van het toepassings type versie waarop de toepassing wordt uitgevoerd, niet verwijderen. ARM/SFRP zorgt ervoor dat dit niet mogelijk is. Als u probeert de inrichting van het verwerkte pakket ongedaan te maken, wordt dit door de SF-runtime voor komen.
 
 
-## <a name="manage-an-existing-application-via-resource-manager"></a>Een bestaande toepassing via Resource Manager beheren
+## <a name="manage-an-existing-application-via-resource-manager"></a>Een bestaande toepassing beheren via Resource Manager
 
-Als uw cluster al actief is en sommige toepassingen die u beheren als Resource Manager wilt, resources al zijn geïmplementeerd, in plaats van de toepassingen te verwijderen en opnieuw te implementeren op deze, kunt u een PUT-aanroep met behulp van dezelfde API's om de toepassingen ophalen erkend als Resource Manager-resources. 
+Als uw cluster al is geïnstalleerd en sommige toepassingen die u wilt beheren als Resource Manager-resources, al zijn geïmplementeerd, kunt u in plaats van de toepassingen te verwijderen en ze opnieuw te implementeren, een PUT-aanroep gebruiken met dezelfde Api's om de toepassingen te laten ophalen erkend als Resource Manager-resources. 
 
 > [!NOTE]
-> De clusterupgrade van een worden niet in orde apps genegeerd zodat de klant kunt opgeven ' maxPercentUnhealthyApplications: 100" in de sectie ' upgradeDescription/healthPolicy'; gedetailleerde beschrijvingen voor alle instellingen zijn [documentatie over Service Fabrics REST API-Cluster Upgradebeleid](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Als u wilt toestaan dat een cluster upgrade de beschadigde apps negeert, kan de klant "maxPercentUnhealthyApplications: 100 ' in de sectie ' upgradeDescription/healthPolicy '; gedetailleerde beschrijvingen voor alle instellingen bevinden zich in [service fabrics rest API documentatie voor het upgrade beleid](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)van het cluster.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Gebruik de [Service Fabric-CLI](service-fabric-cli.md) of [PowerShell](service-fabric-deploy-remove-applications.md) om andere toepassingen in uw cluster te implementeren. 
-* [Uw Service Fabric-cluster upgraden](service-fabric-cluster-upgrade.md)
+* Gebruik de [service Fabric cli](service-fabric-cli.md) of [Power shell](service-fabric-deploy-remove-applications.md) om andere toepassingen te implementeren in uw cluster. 
+* [Service Fabric cluster bijwerken](service-fabric-cluster-upgrade.md)
 

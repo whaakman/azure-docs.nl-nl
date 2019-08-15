@@ -6,15 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 708c62971a20a7071accf7591a4e2914f7dbd9f3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: c1e022591ce1aee073330055744fbd78d97c0b1d
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736360"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950264"
 ---
-# <a name="how-to-annotate-data-sources"></a>Aantekeningen toevoegen aan gegevensbronnen
+# <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Aantekeningen toevoegen aan gegevens bronnen in Azure Data Catalog
+
 ## <a name="introduction"></a>Inleiding
+
 **Microsoft Azure Data Catalog** is een volledig beheerde Cloud service die fungeert als registratie systeem en detectie systeem voor zakelijke gegevens bronnen. Met andere woorden, het Data Catalog is alles wat helpt mensen bij het detecteren, begrijpen en gebruiken van gegevens bronnen, en helpt organisaties bij het verkrijgen van meer waarde dan hun bestaande gegevens. Wanneer een gegevens bron wordt geregistreerd bij Data Catalog, worden de meta gegevens gekopieerd en geïndexeerd door de service, maar het artikel eindigt daar niet. Met Data Catalog kunnen gebruikers hun eigen beschrijvende meta gegevens, zoals beschrijvingen en tags, opgeven om de meta gegevens die zijn geëxtraheerd uit de gegevens bron op te vullen en de gegevens bron beter te begrijpen voor meer mensen.
 
 ## <a name="annotation-and-crowdsourcing"></a>Aantekening en crowdsourcing

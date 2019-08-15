@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 18d8f2a974fb192578163f71a57d00824ae6b0fa
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 507af54b8b4c2e7c67538a1a25a040c7ee5fdfd5
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839459"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976322"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Gegevensgestuurde stijl expressies (Web SDK)
 
@@ -65,7 +65,8 @@ In alle voor beelden in dit document wordt de volgende functie gebruikt om versc
         "type": "Point",
         "coordinates": [-122.13284, 47.63699]
     },
-    "properties": {     
+    "properties": { 
+        "id": 123,
         "entityType": "restaurant",
         "revenue": 12345,
         "subTitle": "Building 40", 
@@ -310,6 +311,28 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
         //Specify a default value to return if no match is found.
         'black'
+    ]
+});
+```
+
+In het volgende voor beeld wordt een match-expressie gebruikt voor het uitvoeren van een ' in matrix ' of ' matrix bevat ' type filter. in dit geval worden gegevens met een ID-waarde in een lijst met toegestane Id's gefilterd. Wanneer u expressies met filters gebruikt, moet het resultaat een Booleaanse waarde zijn.
+
+```javascript
+var layer = new atlas.layer.BubbleLayer(datasource, null, {
+    filter: [
+        'match',  
+
+        //Get the property to match.
+        ['get', 'id'],  
+
+         //List of values to match.
+        [24, 53, 98], 
+
+        //If there is a match, return true.
+        true,
+    
+        //Otherwise return false.
+        false
     ]
 });
 ```
@@ -634,7 +657,7 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 });
 ```
 
-[Zie Live voor beeld](map-add-shape.md#line-stroke-gradient)
+[Zie Live voor beeld](map-add-line-layer.md#line-stroke-gradient)
 
 ### <a name="text-field-format-expression"></a>Expressie voor tekst veld notatie
 
@@ -816,8 +839,11 @@ Raadpleeg de volgende artikelen voor meer code voorbeelden voor het implementere
 > [!div class="nextstepaction"] 
 > [Een Bubble laag toevoegen](map-add-bubble-layer.md)
 
-> [!div class="nextstepaction"] 
-> [Vormen toevoegen](map-add-shape.md)
+> [!div class="nextstepaction"]
+> [Een line laag toevoegen](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Een polygoon laag toevoegen](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
 > [Een hitte kaart laag toevoegen](map-add-heat-map-layer.md)

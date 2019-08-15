@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 0c07cbd9fef865f3fc7b782210ef44094df9f629
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 9ab09c7215827369b3e1fc449af68be307881f51
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779831"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68928019"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolatie in de open bare Azure-Cloud
 ##  <a name="introduction"></a>Inleiding
@@ -54,7 +54,7 @@ Met betrekking tot werklocaties in de cloud kan een tenant worden gedefinieerd a
 Elke Azure AD-directory is uniek en werkt afzonderlijk van andere Azure AD-directory’s. Net zoals een kantoorgebouw een beveiligd bedrijfsmiddel is van uw organisatie, is ook een Azure AD-directory ontworpen als een beveiligd bedrijfsmiddel dat alleen door uw organisatie kan worden gebruikt. De Azure AD-architectuur isoleert klant- en identiteitsgegevens, zodat deze niet door elkaar worden gehaald. Dit betekent dat gebruikers en beheerders van een Azure AD-directory niet per ongeluk of opzettelijk gegevens in een andere directory kunnen openen.
 
 ### <a name="azure-tenancy"></a>Azure pacht
-Azure pacht (Azure-abonnement) verwijst naar een ' klant/facturerings relatie ' en een unieke [Tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) in [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Isolatie op Tenant niveau in Microsoft Azure wordt bereikt met behulp van Azure Active Directory en op [rollen gebaseerde besturings elementen die hiermee](https://docs.microsoft.com/azure/role-based-access-control/overview) worden aangeboden. Elk Azure-abonnement is gekoppeld aan één Azure Active Directory (AD) Directory.
+Azure pacht (Azure-abonnement) verwijst naar een ' klant/facturerings relatie ' en een unieke [Tenant](../../active-directory/develop/quickstart-create-new-tenant.md) in [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). Isolatie op Tenant niveau in Microsoft Azure wordt bereikt met behulp van Azure Active Directory en op [rollen gebaseerde besturings elementen die hiermee](../../role-based-access-control/overview.md) worden aangeboden. Elk Azure-abonnement is gekoppeld aan één Azure Active Directory (AD) Directory.
 
 Gebruikers, groepen en toepassingen van die Directory kunnen resources in het Azure-abonnement beheren. U kunt deze toegangs rechten toewijzen met behulp van de Azure Portal, Azure-opdracht regel Programma's en Azure Management-Api's. Een Azure AD-Tenant is logisch geïsoleerd met behulp van beveiligings grenzen, zodat geen enkele klant op een schadelijke of onopzettelijke manier mede tenants kan openen of misbruiken. Azure AD wordt uitgevoerd op ' bare metal ' servers die zijn geïsoleerd op een gescheiden netwerk segment, waarbij pakket filters op hostniveau worden gefilterd en Windows Firewall ongewenste verbindingen en verkeer blokkeert.
 
@@ -71,7 +71,7 @@ Gebruikers, groepen en toepassingen van die Directory kunnen resources in het Az
 
 - Azure AD-gebruikers hebben geen toegang tot fysieke assets of locaties en daarom is het niet mogelijk om de logische RBAC-beleids controles die hieronder worden vermeld, te omzeilen.
 
-Voor diagnostische en onderhouds behoeften is een operationeel model dat gebruikmaakt van een just-in-time-uitbrei ding van bevoegdheden vereist en wordt gebruikt. Azure AD Privileged Identity Management (PIM) introduceert het concept van een in aanmerking komende beheerder. [In aanmerking komende beheerders](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) moeten gebruikers zijn die nu uitgebreide toegang nodig hebben en vervolgens, maar niet elke dag. De rol is inactief totdat gebruikers toegang nodig hebben. Op dat moment voeren ze een activeringsproces uit en zijn ze gedurende een vooraf bepaalde hoeveelheid tijd een actieve beheerder.
+Voor diagnostische en onderhouds behoeften is een operationeel model dat gebruikmaakt van een just-in-time-uitbrei ding van bevoegdheden vereist en wordt gebruikt. Azure AD Privileged Identity Management (PIM) introduceert het concept van een in aanmerking komende beheerder. [In aanmerking komende beheerders](../../active-directory/privileged-identity-management/pim-configure.md) moeten gebruikers zijn die nu uitgebreide toegang nodig hebben en vervolgens, maar niet elke dag. De rol is inactief totdat gebruikers toegang nodig hebben. Op dat moment voeren ze een activeringsproces uit en zijn ze gedurende een vooraf bepaalde hoeveelheid tijd een actieve beheerder.
 
 ![Azure AD Privileged Identity Management](./media/isolation-choices/azure-isolation-fig2.png)
 
@@ -82,7 +82,7 @@ Het concept van Tenant containers is diep gekorreld in de Directory service op a
 Zelfs wanneer meta gegevens van meerdere Azure Active Directory tenants op dezelfde fysieke schijf worden opgeslagen, is er geen relatie tussen de containers die zijn gedefinieerd door de Directory service, die op zijn beurt door de Tenant beheerder wordt bepaald.
 
 ### <a name="azure-role-based-access-control-rbac"></a>Access Control op basis van rollen (RBAC) van Azure
-Met [Access Control op basis van rollen (RBAC) van Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) kunt u verschillende onderdelen delen die beschikbaar zijn binnen een Azure-abonnement door nauw keurig toegangs beheer te bieden voor Azure. Met Azure RBAC kunt u taken binnen uw organisatie scheiden en toegang verlenen op basis van wat gebruikers nodig hebben om hun taken uit te voeren. In plaats van iedereen onbeperkte machtigingen in een Azure-abonnement of-resources te geven, kunt u alleen bepaalde acties toestaan.
+Met [Access Control op basis van rollen (RBAC) van Azure](../../role-based-access-control/overview.md) kunt u verschillende onderdelen delen die beschikbaar zijn binnen een Azure-abonnement door nauw keurig toegangs beheer te bieden voor Azure. Met Azure RBAC kunt u taken binnen uw organisatie scheiden en toegang verlenen op basis van wat gebruikers nodig hebben om hun taken uit te voeren. In plaats van iedereen onbeperkte machtigingen in een Azure-abonnement of-resources te geven, kunt u alleen bepaalde acties toestaan.
 
 Azure RBAC heeft drie basis rollen die van toepassing zijn op alle resource typen:
 
@@ -96,16 +96,16 @@ Azure RBAC heeft drie basis rollen die van toepassing zijn op alle resource type
 
 Met de rest van de RBAC-rollen in azure kunt u specifieke Azure-resources beheren. Zo kan de gebruiker met de rol Inzender voor virtuele machines virtuele machines maken en beheren. Deze geeft geen toegang tot de Azure-Virtual Network of het subnet waarmee de virtuele machine verbinding maakt.
 
-[Ingebouwde RBAC-rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) hebben een lijst van de functies die beschikbaar zijn in Azure. Hiermee geeft u de bewerkingen en het bereik op die elke ingebouwde rol aan gebruikers verleent. Als u uw eigen rollen wilt definiëren voor nog meer controle, raadpleegt u [aangepaste rollen bouwen in azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+[Ingebouwde RBAC-rollen](../../role-based-access-control/built-in-roles.md) hebben een lijst van de functies die beschikbaar zijn in Azure. Hiermee geeft u de bewerkingen en het bereik op die elke ingebouwde rol aan gebruikers verleent. Als u uw eigen rollen wilt definiëren voor nog meer controle, raadpleegt u [aangepaste rollen bouwen in azure RBAC](../../role-based-access-control/custom-roles.md).
 
 Azure Active Directory zijn onder andere de volgende mogelijkheden:
 - Azure AD maakt SSO aan SaaS-toepassingen mogelijk, ongeacht waar ze worden gehost. Voor sommige toepassingen kan federatieve aanmelding worden gebruikt via Azure AD en voor andere toepassingen kan eenmalige aanmelding (SSO) met een wachtwoord worden gebruikt. Federatieve toepassingen kunnen ook gebruikers inrichten en [wachtwoord kluizen](https://www.techopedia.com/definition/31415/password-vault)ondersteunen.
 
-- De toegang tot gegevens in [Azure Storage](https://azure.microsoft.com/services/storage/) wordt geregeld via verificatie. Elk opslag account heeft een primaire sleutel ([opslag account Key](https://docs.microsoft.com/azure/storage/storage-create-storage-account), of SAK) en een secundaire geheime sleutel (de Shared Access-hand tekening of SAS).
+- De toegang tot gegevens in [Azure Storage](https://azure.microsoft.com/services/storage/) wordt geregeld via verificatie. Elk opslag account heeft een primaire sleutel ([opslag account Key](../../storage/common/storage-create-storage-account.md), of SAK) en een secundaire geheime sleutel (de Shared Access-hand tekening of SAS).
 
-- Azure AD biedt identiteit als een service via federatie door gebruik te maken van [Active Directory Federation Services](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-azure-adfs), synchronisatie en replicatie met on-premises directory's.
+- Azure AD biedt identiteit als een service via federatie door gebruik te maken van [Active Directory Federation Services](../../active-directory/hybrid/how-to-connect-fed-azure-adfs.md), synchronisatie en replicatie met on-premises directory's.
 
-- [Multi-factor Authentication van Azure](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) is de multi-factor Authentication-service die gebruikers nodig hebben om aanmeldingen te verifiëren met behulp van een mobiele app, telefoon gesprek of SMS-bericht. Het kan worden gebruikt met Azure AD om on-premises resources te beveiligen met de Azure multi-factor Authentication-Server, en ook met aangepaste toepassingen en mappen met behulp van de SDK.
+- [Multi-factor Authentication van Azure](../../active-directory/authentication/multi-factor-authentication.md) is de multi-factor Authentication-service die gebruikers nodig hebben om aanmeldingen te verifiëren met behulp van een mobiele app, telefoon gesprek of SMS-bericht. Het kan worden gebruikt met Azure AD om on-premises resources te beveiligen met de Azure multi-factor Authentication-Server, en ook met aangepaste toepassingen en mappen met behulp van de SDK.
 
 - Met [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) kunt u virtuele Azure-machines toevoegen aan een Active Directory domein zonder dat u domein controllers hoeft te implementeren. U kunt u aanmelden bij deze virtuele machines met uw zakelijke Active Directory referenties en virtuele machines die lid zijn van een domein beheren door gebruik te maken van groepsbeleid om beveiligings basislijnen af te dwingen op al uw virtuele machines van Azure.
 
@@ -140,7 +140,7 @@ Het gebruik van een geïsoleerde grootte garandeert dat uw virtuele machine de e
 * Standard_D15_v2
 * Standard_F72s_v2
 
-Hier vindt u meer informatie over elke geïsoleerde grootte die u [hier](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)kunt vinden.
+Hier vindt u meer informatie over elke geïsoleerde grootte die u [hier](../../virtual-machines/windows/sizes-memory.md)kunt vinden.
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Hyper-V-&-basis besturingssysteem isolatie tussen de virtuele machines van de virtuele machine & gast-Vm's
 Het Compute-platform van Azure is gebaseerd op machine virtualisatie, wat inhoudt dat alle klant code wordt uitgevoerd in een Hyper-V-virtuele machine. Op elk Azure-knoop punt (of netwerk eindpunt) bevindt zich een Hyper Visor die rechtstreeks over de hardware wordt uitgevoerd en die een knoop punt opsplitst in een variabele aantal gast Virtual Machines (Vm's).
@@ -215,12 +215,12 @@ Daarom worden Azure Storage uitgevoerd op afzonderlijke hardware zonder netwerk 
 
 ![Isolatie met behulp van opslag toegangs beheer](./media/isolation-choices/azure-isolation-fig9.png)
 
-**Toegang tot Azure Storage gegevens (met inbegrip van tabellen)** kan worden beheerd via een [SAS-token (Shared Access Signature)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) , waarmee toegang met een bereik wordt verleend. De SA'S worden gemaakt via een query sjabloon (URL), ondertekend met de [SAK (Storage account Key)](https://msdn.microsoft.com/library/azure/ee460785.aspx). Deze [ondertekende URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) kan worden toegewezen aan een ander proces (dat wil zeggen, gedelegeerd), waardoor de details van de query kunnen worden ingevuld en de opslag service wordt aangevraagd. Met een SAS kunt u op tijd gebaseerde toegang verlenen aan clients zonder dat de geheime sleutel van het opslag account wordt onthuld.
+**Toegang tot Azure Storage gegevens (met inbegrip van tabellen)** kan worden beheerd via een [SAS-token (Shared Access Signature)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) , waarmee toegang met een bereik wordt verleend. De SA'S worden gemaakt via een query sjabloon (URL), ondertekend met de [SAK (Storage account Key)](https://msdn.microsoft.com/library/azure/ee460785.aspx). Deze [ondertekende URL](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) kan worden toegewezen aan een ander proces (dat wil zeggen, gedelegeerd), waardoor de details van de query kunnen worden ingevuld en de opslag service wordt aangevraagd. Met een SAS kunt u op tijd gebaseerde toegang verlenen aan clients zonder dat de geheime sleutel van het opslag account wordt onthuld.
 
 De SAS betekent dat we een door de client beperkte machtigingen kunnen verlenen aan objecten in het opslag account voor een bepaalde periode en met een opgegeven set machtigingen. We kunnen deze beperkte machtigingen verlenen zonder dat ze de toegangs sleutels van uw account hoeven te delen.
 
 ### <a name="ip-level-storage-isolation"></a>Isolatie van opslag op IP-niveau
-U kunt firewalls tot stand brengen en een IP-adres bereik definiëren voor uw vertrouwde clients. Met een IP-adres bereik kunnen alleen clients met een IP-adres binnen het gedefinieerde bereik verbinding maken met [Azure Storage](https://docs.microsoft.com/azure/storage/storage-security-guide).
+U kunt firewalls tot stand brengen en een IP-adres bereik definiëren voor uw vertrouwde clients. Met een IP-adres bereik kunnen alleen clients met een IP-adres binnen het gedefinieerde bereik verbinding maken met [Azure Storage](../../storage/common/storage-security-guide.md).
 
 IP-opslag gegevens kunnen worden beschermd tegen onbevoegde gebruikers via een netwerk mechanisme dat wordt gebruikt om een toegewezen of toegewezen tunnel van verkeer toe te wijzen aan de IP-opslag.
 
@@ -233,23 +233,23 @@ Azure biedt de volgende typen versleuteling om gegevens te beveiligen:
 #### <a name="encryption-in-transit"></a>Versleuteling in transit
 Versleuteling in transit is een mechanisme voor het beveiligen van gegevens wanneer deze via netwerken worden verzonden. Met Azure Storage kunt u gegevens beveiligen met behulp van:
 
--   [Versleuteling op transport niveau](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), zoals https wanneer u gegevens overbrengt naar of van Azure Storage.
+-   [Versleuteling op transport niveau](../../storage/common/storage-security-guide.md), zoals https wanneer u gegevens overbrengt naar of van Azure Storage.
 
 -   [Wire-versleuteling](../../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), zoals SMB 3,0-versleuteling voor Azure-bestands shares.
 
--   [Versleuteling aan de client zijde](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), voor het versleutelen van de gegevens voordat deze naar de opslag wordt overgebracht en voor het ontsleutelen van de gegevens nadat deze buiten de opslag zijn overgedragen.
+-   [Versleuteling aan de client zijde](../../storage/common/storage-security-guide.md), voor het versleutelen van de gegevens voordat deze naar de opslag wordt overgebracht en voor het ontsleutelen van de gegevens nadat deze buiten de opslag zijn overgedragen.
 
 #### <a name="encryption-at-rest"></a>Versleuteling bij rest
-Voor veel organisaties is [gegevens versleuteling in rust](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices) een verplichte stap op het vlak van gegevens privacy, naleving en data soevereiniteit. Er zijn drie Azure-functies voor het versleutelen van gegevens met de waarde ' op rest ':
+Voor veel organisaties is [gegevens versleuteling in rust](isolation-choices.md) een verplichte stap op het vlak van gegevens privacy, naleving en data soevereiniteit. Er zijn drie Azure-functies voor het versleutelen van gegevens met de waarde ' op rest ':
 
--   Met [Storage service Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) kunt u aanvragen dat de opslag service automatisch gegevens versleutelt bij het schrijven naar Azure Storage.
+-   Met [Storage service Encryption](../../storage/common/storage-security-guide.md) kunt u aanvragen dat de opslag service automatisch gegevens versleutelt bij het schrijven naar Azure Storage.
 
--   [Versleuteling aan de client zijde](https://docs.microsoft.com/azure/storage/storage-security-guide#client-side-encryption) biedt ook de mogelijkheid om op rest te versleutelen.
+-   [Versleuteling aan de client zijde](../../storage/common/storage-security-guide.md) biedt ook de mogelijkheid om op rest te versleutelen.
 
--   Met [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) kunt u de stations van het besturings systeem en de gegevens schijven die worden gebruikt door een virtuele machine van IaaS versleutelen.
+-   Met [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) kunt u de stations van het besturings systeem en de gegevens schijven die worden gebruikt door een virtuele machine van IaaS versleutelen.
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
-[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) voor virtuele machines (vm's) helpt u bij het versleutelen van de beveiligings-en nalevings vereisten van uw organisatie door uw VM-schijven (inclusief opstart-en gegevens schijven) met sleutels en beleids regels die u beheert in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) voor virtuele machines (vm's) helpt u bij het versleutelen van de beveiligings-en nalevings vereisten van uw organisatie door uw VM-schijven (inclusief opstart-en gegevens schijven) met sleutels en beleids regels die u beheert in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 De oplossing voor schijf versleuteling voor Windows is gebaseerd op [micro soft BitLocker-stationsversleuteling](https://technet.microsoft.com/library/cc732774.aspx)en de Linux-oplossing is gebaseerd op [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
@@ -293,7 +293,7 @@ SQL Database is een relationele database-service in de Microsoft Cloud op basis 
 
 ### <a name="sql-azure-application-model"></a>SQL Azure toepassings model
 
-[Micro soft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) Data Base is een relationele database service in de Cloud, gebouwd op basis van SQL Server technologieën. Het biedt een Maxi maal beschik bare, meerdere Tenant database service die door micro soft wordt gehost in de Cloud.
+[Micro soft SQL Azure](../../sql-database/sql-database-single-database-get-started.md) Data Base is een relationele database service in de Cloud, gebouwd op basis van SQL Server technologieën. Het biedt een Maxi maal beschik bare, meerdere Tenant database service die door micro soft wordt gehost in de Cloud.
 
 Vanuit een toepassings perspectief SQL Azure levert de volgende hiërarchie: Elk niveau heeft een een-op-veel container-niveaus.
 
@@ -344,9 +344,9 @@ Azure-implementatie heeft meerdere lagen voor netwerk isolatie. In het volgende 
 
 ![Netwerk isolatie](./media/isolation-choices/azure-isolation-fig13.png)
 
-**Verkeers isolatie:** Een [virtueel netwerk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) is de isolatie grens van het verkeer op het Azure-platform. Virtuele machines (Vm's) in één virtueel netwerk kunnen niet rechtstreeks communiceren met Vm's in een ander virtueel netwerk, zelfs niet als beide virtuele netwerken door dezelfde klant worden gemaakt. Isolatie is een kritieke eigenschap waarmee wordt gegarandeerd dat de virtuele machines van de klant en de communicatie privé blijven binnen een virtueel netwerk.
+**Verkeers isolatie:** Een [virtueel netwerk](../../virtual-network/virtual-networks-overview.md) is de isolatie grens van het verkeer op het Azure-platform. Virtuele machines (Vm's) in één virtueel netwerk kunnen niet rechtstreeks communiceren met Vm's in een ander virtueel netwerk, zelfs niet als beide virtuele netwerken door dezelfde klant worden gemaakt. Isolatie is een kritieke eigenschap waarmee wordt gegarandeerd dat de virtuele machines van de klant en de communicatie privé blijven binnen een virtueel netwerk.
 
-[Subnet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) biedt een extra laag isolatie met in het virtuele netwerk op basis van het IP-bereik. IP-adressen in het virtuele netwerk kunt u een virtueel netwerk onderverdelen in meerdere subnetten voor organisatie en beveiliging. Tussen VM's en PaaS-rolexemplaren die in (dezelfde of verschillende) subnetten in een VNET zijn geïmplementeerd, is communicatie mogelijk zonder extra configuratie. U kunt ook [netwerk beveiligings groep (nsg's)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) configureren om netwerk verkeer naar een VM-exemplaar toe te staan of te weigeren op basis van regels die zijn geconfigureerd in de toegangs beheer lijst (ACL) van NSG. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet.
+[Subnet](../../virtual-network/virtual-networks-overview.md) biedt een extra laag isolatie met in het virtuele netwerk op basis van het IP-bereik. IP-adressen in het virtuele netwerk kunt u een virtueel netwerk onderverdelen in meerdere subnetten voor organisatie en beveiliging. Tussen VM's en PaaS-rolexemplaren die in (dezelfde of verschillende) subnetten in een VNET zijn geïmplementeerd, is communicatie mogelijk zonder extra configuratie. U kunt ook [netwerk beveiligings groep (nsg's)](../../virtual-network/virtual-networks-overview.md) configureren om netwerk verkeer naar een VM-exemplaar toe te staan of te weigeren op basis van regels die zijn geconfigureerd in de toegangs beheer lijst (ACL) van NSG. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet.
 
 ## <a name="next-steps"></a>Volgende stappen
 

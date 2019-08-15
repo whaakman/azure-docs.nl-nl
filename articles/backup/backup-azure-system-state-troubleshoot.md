@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 55af6d17f18efd11fe2d6f89b9b87ca9f407ec25
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 26ba811eba1a25dacddd04814f8e0d2805360920
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688660"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018784"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Problemen met de systeem status back-up oplossen
 
@@ -25,7 +25,7 @@ U wordt aangeraden de onderstaande validatie uit te voeren voordat u begint met 
 
 - [Controleren of de MARS-agent (Microsoft Azure Recovery Services) up-to-date is](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Zorg ervoor dat er netwerkverbinding is tussen de MARS-agent en Azure](https://aka.ms/AB-A4dp50)
-- Controleer of Microsoft Azure Recovery Services wordt uitgevoerd (in Service-console). Indien nodig kunt u de services opnieuw starten en de bewerking nogmaals proberen
+- Controleer of Microsoft Azure Recovery Services wordt uitgevoerd (in Service-console). Start indien nodig opnieuw op en voer de bewerking opnieuw uit
 - [Zorg ervoor dat er 5-10% ruimte vrij is op de locatie van de scratch-map](https://aka.ms/AB-AA4dwtt)
 - [Controleer of er geen ander proces of antivirussoftware conflicten veroorzaakt met Azure Backup](https://aka.ms/AB-AA4dwtk)
 - [Geplande back-up mislukt, maar handmatige back-up werkt](https://aka.ms/ScheduledBackupFailManualWorks)
@@ -36,7 +36,7 @@ U wordt aangeraden de onderstaande validatie uit te voeren voordat u begint met 
 - Als u probeert om **uw server opnieuw te registreren** bij een kluis, moet u: <br>
   - Ervoor zorgen dat de agent wordt verwijderd op de server en uit de portal <br>
   - Dezelfde wachtwoordzin gebruiken die in eerste instantie is gebruikt voor het registreren van de server <br>
-- In het geval van een offline back-up moet Azure PowerShell versie 3.7.0 op zowel de bron-als de Kopieer computer worden geïnstalleerd voordat u een offline back-upbewerking start
+- Controleer bij offline back-up of Azure PowerShell versie 3.7.0 is geïnstalleerd op zowel de bron-als de Kopieer computer voordat u een offline back-upbewerking start
 - [Overweging wanneer back-upagent wordt uitgevoerd op een virtuele machine van Azure](https://aka.ms/AB-AA4dwtr)
 
 ### <a name="limitation"></a>Beperking
@@ -45,14 +45,14 @@ U wordt aangeraden de onderstaande validatie uit te voeren voordat u begint met 
 
 ## <a name="pre-requisite"></a>Vereiste
 
-Voordat u de systeem status back-up met Azure Backup oplost, moet u ervoor zorgen dat u de onderstaande controle vooraf informeert.  
+Voordat er problemen met de systeem status back-up met Azure Backup worden opgelost, voert u de onderstaande controle van de vereisten uit.  
 
 ### <a name="verify-windows-server-backup-is-installed"></a>Controleren of de Windows Server Back-up is geïnstalleerd
 
-Zorg ervoor dat Windows Server Back-up is geïnstalleerd en is ingeschakeld op de server. Als u de installatie status wilt controleren, voert u de onderstaande Power shell-opdracht uit:
+Zorg ervoor dat Windows Server Back-up is geïnstalleerd en is ingeschakeld op de server. Als u de installatie status wilt controleren, voert u deze Power shell-opdracht uit:
 
- ```
- PS C:\> Get-WindowsFeature Windows-Server-Backup
+ ```powershell
+Get-WindowsFeature Windows-Server-Backup
  ```
 Als voor de uitvoer de **installatie status** **beschikbaar**wordt weer gegeven, betekent dit dat Windows Server back-upfunctie beschikbaar is voor de installatie, maar niet is geïnstalleerd op de server. Als Windows Server Back-up echter niet is geïnstalleerd, gebruikt u een van de onderstaande methoden om het te installeren.
 
@@ -60,15 +60,15 @@ Als voor de uitvoer de **installatie status** **beschikbaar**wordt weer gegeven,
 
 Als u Windows Server Back-up wilt installeren met behulp van Power shell, voert u de onderstaande opdracht uit:
 
-  ```
-  PS C:\> Install-WindowsFeature -Name Windows-Server-Backup
+  ```powershell
+  Install-WindowsFeature -Name Windows-Server-Backup
   ```
 
 **Methode 2: Windows Server Back-up installeren met behulp van Serverbeheer**
 
-Als u Windows Server Back-up wilt installeren met behulp van Serverbeheer, voert u de onderstaande stappen uit:
+Voer de volgende stappen uit om Windows Server Back-up te installeren met behulp van Serverbeheer:
 
-1. Klik in de **Server Manager** op **functies en onderdelen toevoegen**. De **wizard functies en onderdelen toevoegen** wordt weer gegeven.
+1. Klik in **Server**beheer op **functies en onderdelen toevoegen**. De **wizard functies en onderdelen toevoegen** wordt weer gegeven.
 
     ![Dashboard](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
@@ -114,7 +114,7 @@ Als u de Windows Server Back-up status wilt valideren, voert u de onderstaande s
     > [!WARNING]
     > Get-WBJob: De term ' Get-WBJob ' wordt niet herkend als de naam van een cmdlet, functie, script bestand of bruikbaar programma. Controleer of de naam juist is gespeld of Controleer of het pad correct is en probeer het opnieuw.
 
-    -   Als dit mislukt met deze fout, installeert u de Windows Server Back-up-functie op de Server computer zoals vermeld in de vereisten voor stap 1.
+    -   Als deze fout is opgetreden, installeert u de functie Windows Server Back-up op de Server computer, zoals vermeld in de vereisten voor stap 1.
 
   * Zorg ervoor dat WSB-back-up correct werkt door de onderstaande opdracht uit te voeren vanaf een opdracht prompt met verhoogde bevoegdheid:
 
@@ -126,7 +126,7 @@ Als u de Windows Server Back-up status wilt valideren, voert u de onderstaande s
     - Regel matig de status van de taak controleren door `Get-WBJob` de opdracht uit te voeren vanuit een verhoogde Power shell        
     - Nadat de back-uptaak is voltooid, controleert u de uiteindelijke status `Get-WBJob -Previous 1` van de taak door de opdracht uit te voeren
 
-Als de taak mislukt, duidt dit op een WSB-probleem dat ertoe leidt dat de systeem status back-ups van de MARS-agent mislukken.
+Als de taak mislukt, wordt een WSB-probleem aangegeven dat kan leiden tot storingen van de systeem status van de MARS-agent.
 
 ## <a name="common-errors"></a>Veelvoorkomende fouten
 
@@ -141,14 +141,14 @@ Als de taak mislukt, duidt dit op een WSB-probleem dat ertoe leidt dat de systee
 
 | Symptoom | Oplossing
 | -- | --
-| -MARS-agent mislukt met fout bericht: Het maken van de back-up is mislukt omdat het schaduw kopie volume niet kan groeien vanwege onvoldoende schijf ruimte op volumes met systeem bestanden <br/><br/> -Het volgende fout/waarschuwings logboek bevindt zich in de logboeken met systeem gebeurtenissen: Er is onvoldoende schijf ruimte op volume C: voor het verg Roten van de schaduw kopie opslag voor schaduw kopieën van C: vanwege deze fout zijn alle schaduw kopieën van volume C: risico dat ze worden verwijderd. | -Maak ruimte vrij in het gemarkeerde volume in het gebeurtenis logboek, zodat er voldoende ruimte is voor het uitbreiden van schaduw kopieën terwijl de back-up wordt uitgevoerd <br/><br/> -Tijdens het configureren van de schaduw kopie ruimte kunnen we de hoeveelheid ruimte beperken die wordt gebruikt voor de schaduw kopie. Zie dit [artikel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax) voor meer informatie
+| -MARS-agent mislukt met fout bericht: Het maken van de back-up is mislukt omdat het schaduw kopie volume niet kan groeien vanwege onvoldoende schijf ruimte op volumes met systeem bestanden <br/><br/> -Het volgende fout/waarschuwings logboek bevindt zich in de logboeken met systeem gebeurtenissen: Er is onvoldoende schijf ruimte op volume C: voor het verg Roten van de schaduw kopie opslag voor schaduw kopieën van C: vanwege deze fout zijn alle schaduw kopieën van volume C: risico dat ze worden verwijderd. | -Maak ruimte vrij in het gemarkeerde volume in het gebeurtenis logboek, zodat er voldoende ruimte is voor het uitbreiden van schaduw kopieën terwijl de back-up wordt uitgevoerd <br/><br/> -Tijdens het configureren van de schaduw kopie ruimte kunnen we de hoeveelheid ruimte beperken die wordt gebruikt voor de schaduw kopie. Raadpleeg dit [artikel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax) voor meer informatie
 
 
 ### <a name="efi-partition-locked"></a>EFI-partitie is vergrendeld
 
 | Symptoom | Oplossing
 | -- | --
-| MARS-agent mislukt met fout bericht: Het maken van een back-up van de systeem status is mislukt omdat de EFI-systeem partitie is vergrendeld. Dit kan worden veroorzaakt door de toegang tot de systeem partitie door de beveiliging van derden of het maken van een back-up van software. | -Als het probleem wordt veroorzaakt door een beveiligings software van derden, moet u contact opnemen met de leverancier van het anti virus zodat ze MARS-agent kunnen toestaan <br/><br/> -Als er een back-upsoftware van derden wordt uitgevoerd, wacht dan tot deze is voltooid en probeer het vervolgens opnieuw.
+| MARS-agent mislukt met fout bericht: De systeem status back-up is mislukt omdat de EFI-systeem partitie is vergrendeld. Dit kan worden veroorzaakt door de toegang tot de systeem partitie door de beveiliging van derden of het maken van een back-up van software. | -Als het probleem wordt veroorzaakt door een beveiligings software van derden, moet u contact opnemen met de leverancier van het anti virus zodat ze MARS-agent kunnen toestaan <br/><br/> -Als er een back-upsoftware van derden wordt uitgevoerd, wacht dan tot deze is voltooid en probeer het vervolgens opnieuw.
 
 
 ## <a name="next-steps"></a>Volgende stappen

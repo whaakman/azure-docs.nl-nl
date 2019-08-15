@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 27ec77e15d1289742fa40320631684d37c9660a1
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: dadab604e95c375e6f963f2d5eb9b619ddad7880
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614254"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018849"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Zelfstudie: Een AKS-cluster (Azure Kubernetes Service) implementeren
 
@@ -29,7 +29,7 @@ In volgende zelfstudies wordt de Azure Vote-toepassing geïmplementeerd in het c
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In de vorige zelfstudies is een containerinstallatiekopie gemaakt en geüpload naar een Azure Container Registry-exemplaar. Als u deze stappen niet hebt gedaan, en u wilt volgen, beginnen bij [zelfstudie 1: containerinstallatiekopieën maken][aks-tutorial-prepare-app].
+In de vorige zelfstudies is een containerinstallatiekopie gemaakt en geüpload naar een Azure Container Registry-exemplaar. Als u deze stappen niet hebt uitgevoerd en u wilt door gaan met de [zelf studie 1: container installatie kopieën maken][aks-tutorial-prepare-app].
 
 Voor deze zelfstudie moet u Azure CLI versie 2.0.53 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][azure-cli-install] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
@@ -77,7 +77,7 @@ az role assignment create --assignee <appId> --scope <acrId> --role acrpull
 
 AKS-clusters kunnen gebruikmaken van op rollen gebaseerd toegangsbeheer (RBAC) van Kubernetes. Met deze vorm van toegangsbeheer kunt u de toegang tot resources definiëren op basis van rollen die zijn toegewezen aan gebruikers. Machtigingen worden gecombineerd als aan een gebruiker meerdere rollen zijn toegewezen, en machtigingen kunnen gelden voor één enkele naamruimte of voor een heel cluster. Standaard schakelt de Azure CLI automatisch RBAC in wanneer u een AKS-cluster maakt.
 
-Maak een AKS-cluster met behulp van [az aks create][]. In het volgende voorbeeld wordt een cluster met de naam *myAKSCluste* gemaakt in de resourcegroep met de naam *myResourceGroup*. Deze resourcegroep is gemaakt in de [vorige zelfstudie][aks-tutorial-prepare-acr]. Voer uw eigen `<appId>` en `<password>` in die in de vorige stap zijn gemaakt toen de service-principal werd gemaakt.
+Maak een AKS-cluster met behulp van [az aks create][]. In het volgende voorbeeld wordt een cluster met de naam *myAKSCluste* gemaakt in de resourcegroep met de naam *myResourceGroup*. Deze resource groep is gemaakt in de [vorige zelf studie][aks-tutorial-prepare-acr]. Voer uw eigen `<appId>` en `<password>` in die in de vorige stap zijn gemaakt toen de service-principal werd gemaakt.
 
 ```azurecli
 az aks create \
@@ -93,7 +93,7 @@ Na enkele minuten is de implementatie voltooid en retourneert JSON opgemaakte in
 
 ## <a name="install-the-kubernetes-cli"></a>De Kubernetes-CLI installeren
 
-Voor verbinding met het Kubernetes-cluster vanaf uw lokale computer, gebruikt u [kubectl][kubectl], de Kubernetes-opdrachtregelclient.
+Als u verbinding wilt maken met het Kubernetes-cluster vanaf uw lokale computer, gebruikt u [kubectl][kubectl], de Kubernetes-opdracht regel-client.
 
 Als u Azure Cloud Shell gebruikt, is `kubectl` al geïnstalleerd. Als u het lokaal wilt installeren, gebruikt u de opdracht [az aks install-cli][]:
 
@@ -109,13 +109,13 @@ Gebruik de opdracht [az aks get-credentials][] om `kubectl` zodanig te configure
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Uitvoeren om te controleren of de verbinding met uw cluster, de [kubectl ophalen knooppunten][kubectl-get] opdracht:
+Als u de verbinding met uw cluster wilt controleren, voert u de opdracht [kubectl Get nodes][kubectl-get] uit:
 
 ```
 $ kubectl get nodes
 
-NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-28993262-0   Ready    agent   3m18s   v1.9.11
+NAME                       STATUS   ROLES   AGE   VERSION
+aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.9
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

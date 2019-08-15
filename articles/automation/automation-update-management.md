@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1bb437511ed89de626489516ce5b06664ace6fba
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 51ef55247d3262d8707403ed09cc8643403dda23
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741846"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952972"
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer oplossing in azure
 
@@ -84,6 +84,7 @@ In de volgende tabel ziet u een lijst met ondersteunde besturings systemen:
 
 > [!NOTE]
 > Virtuele-machine schaal sets van Azure kunnen worden beheerd met Updatebeheer. Updatebeheer werkt op de instanties zelf en niet op de basis installatie kopie. U moet de updates op een incrementele manier plannen, alsof u niet alle VM-instanties tegelijk bijwerkt.
+> U kunt VMSS-knoop punten toevoegen door de stappen onder [Onbaord een niet-Azure-machine](automation-tutorial-installed-software.md#onboard-a-non-azure-machine)uit te voeren.
 
 ### <a name="unsupported-client-types"></a>Niet-ondersteunde client-typen
 
@@ -93,6 +94,7 @@ De volgende tabel geeft een overzicht van de besturingssystemen die niet worden 
 |---------|---------|
 |Windows-client     | Client-besturingssystemen (zoals Windows 7 en Windows 10) worden niet ondersteund.        |
 |Windows Server 2016 Nano Server     | Wordt niet ondersteund.       |
+|Azure Kubernetes-service knooppunten | Wordt niet ondersteund. Gebruik het patch proces dat wordt beschreven in [beveiligings-en kernel-updates Toep assen op Linux-knoop punten in azure Kubernetes service (AKS)](../aks/node-updates-kured.md)|
 
 ### <a name="client-requirements"></a>Client vereisten
 
@@ -359,6 +361,10 @@ De volgende adressen zijn specifiek vereist voor Updatebeheer. Communicatie met 
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |*.azure-automation.net|*. azure-automation.us|
+
+Voor Windows-computers moet u ook verkeer toestaan voor eind punten die vereist zijn voor Windows Update.  U kunt een bijgewerkte lijst met vereiste endoints vinden in [kwesties met betrekking tot http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Als u een lokale [Windows Update server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)hebt, moet u ook verkeer toestaan naar de server die is opgegeven in uw [WSUS-sleutel](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+
+Voor Red Hat Linux-machines raadpleegt u [de IP-adressen voor de RHUI content delivery servers](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) voor vereiste eind punten. Raadpleeg de documentatie van de provider voor andere Linux-distributies.
 
 Zie [Hybrid worker Role ports](automation-hybrid-runbook-worker.md#hybrid-worker-role)(Engelstalig) voor meer informatie over poorten die de Hybrid Runbook worker nodig heeft.
 

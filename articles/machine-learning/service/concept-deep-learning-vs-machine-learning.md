@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 4b66d015e8a182e305a36dacaa2e082288a3e19e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 186ba03142e01c4b9340fc5b492621cc17575104
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840536"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934278"
 ---
 # <a name="introduction-to-deep-learning-vs-machine-learning"></a>Inleiding tot diep gaande informatie versus machine learning
 
@@ -78,7 +78,7 @@ Een belang rijke taak die grondige kennis kan uitvoeren, is e-discovery. Bedrijv
 
 ## <a name="what-are-artificial-neural-networks"></a>Wat zijn kunst matige Neural-netwerken?
 
-Een kunst matig Neural netwerk is een diep leer model dat is geïnspireerd op de manier waarop biologische Neural-netwerken in de informatie over het humane hersenen proces worden uitgevoerd. Er zijn meerdere typen kunst matige Neural-netwerken die momenteel worden gebruikt. De meest populaire kunst matige Neural-netwerk-topologieën worden hieronder besproken.
+Kunst matige Neural netwerken worden gevormd door lagen van verbonden knoop punten. Uitgebreide leer modellen gebruiken Neural-netwerken met een zeer groot aantal lagen. De meest populaire kunst matige Neural-netwerk-topologieën worden hieronder besproken.
 
 ### <a name="feedforward-neural-network"></a>Feedforward Neural-netwerk
 

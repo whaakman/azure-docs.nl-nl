@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, azure, AKS, Azure Kubernetes service, containers, helm, service-net, service mesh routing, kubectl, K8S '
-ms.openlocfilehash: 2434507ac89d631bb96ae9633403075801879a37
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 6ab2e0866c4e6c5cc8f89cb490504f6ca6a076fc
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277405"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019649"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -283,7 +283,7 @@ Container image build failed
 De bovenstaande opdracht toont aan dat de pod van de service is toegewezen aan *virtueel-node-ACI-Linux*. Dit is een virtueel knoop punt.
 
 ### <a name="try"></a>Probeer:
-Werk de helm-grafiek voor de service bij om alle *nodeSelector* -en/of *toegestane waarden te* verwijderen waarmee de service op een virtueel knoop punt kan worden uitgevoerd. Deze waarden worden meestal gedefinieerd in het bestand van `values.yaml` de grafiek.
+Werk de helm-grafiek voor de service bij om alle *nodeSelector* -en /of toegestane waarden te verwijderen waarmee de service op een virtueel knoop punt kan worden uitgevoerd. Deze waarden worden meestal gedefinieerd in het bestand van `values.yaml` de grafiek.
 
 U kunt nog steeds een AKS-cluster gebruiken waarop de functie virtuele knoop punten is ingeschakeld, als de service die u wilt bouwen/debuggen via dev Spaces wordt uitgevoerd op een VM-knoop punt. Dit is de standaard configuratie.
 
@@ -385,7 +385,7 @@ De RBAC-rol van de gebruiker voor de controller bijwerken:
 1. Schakel het selectie vakje *verborgen typen weer geven* in.
 1. Klik op de controller.
 1. Open het deel venster *Access Control (IAM)* .
-1. Klik *op het tabblad* roltoewijzingen.
+1. Klik op het tabblad roltoewijzingen.
 1. Klik op *toevoegen* en vervolgens op *functie toewijzing toevoegen*.
     * Selecteer *Inzender* of *eigenaar*voor een *rol* .
     * Voor *toegang toewijzen aan* *gebruiker, groep of Service-Principal van Azure AD*selecteren.
@@ -422,7 +422,7 @@ Momenteel is Azure dev Spaces alleen bedoeld om te worden uitgevoerd op Linux en
 Azure dev Spaces kan geen controller maken op uw AKS-cluster omdat er geen untainted-knoop punt met de status *gereed* kan worden gevonden voor het plannen van een Peul op. Voor Azure-ontwikkel ruimten is ten minste één Linux-knoop punt met de status *gereed* die het plannen van peulen toestaat zonder dat er toleranties worden opgegeven.
 
 ### <a name="try"></a>Proberen
-[Werk uw Taint-configuratie](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) op uw AKS-cluster bij om ervoor te zorgen dat er ten minste één Linux-knoop punt kan worden gepland, zonder dat u de toleranties opgeeft. Zorg er ook voor dat er ten minste één Linux-knoop punt is *dat het plannen* van Peul toestaat zonder dat u de toleranties kunt opgeven. Als het knoop punt lange tijd neemt om de status *gereed* te bereiken, kunt u het knoop punt opnieuw starten.
+[Werk uw Taint-configuratie](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) op uw AKS-cluster bij om ervoor te zorgen dat er ten minste één Linux-knoop punt kan worden gepland, zonder dat u de toleranties opgeeft. Zorg er ook voor dat er ten minste één Linux-knoop punt is dat het plannen van Peul toestaat zonder dat u de toleranties kunt opgeven. Als het knoop punt lange tijd neemt om de status *gereed* te bereiken, kunt u het knoop punt opnieuw starten.
 
 ## <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>Fout ' Azure dev Spaces is niet correct geïnstalleerd ' bij het uitvoeren`az aks use-dev-spaces`
 
@@ -445,7 +445,14 @@ Werk uw installatie van [Azure cli](/cli/azure/install-azure-cli?view=azure-cli-
 
 ### <a name="reason"></a>Reason
 
-Wanneer u een service in een dev-ruimte uitvoert, wordt de pod van die service [geïnjecteerd met extra containers voor instrumentatie](how-dev-spaces-works.md#prepare-your-aks-cluster). Voor deze containers zijn geen resource-aanvragen of limieten gedefinieerd, waardoor de horizontale pod automatisch schalen wordt uitgeschakeld voor de pod.
+Wanneer u een service in een dev-ruimte uitvoert, wordt de pod van die service [geïnjecteerd met extra containers voor instrumentatie](how-dev-spaces-works.md#prepare-your-aks-cluster) en moeten alle containers in een pod resource limieten en aanvragen instellen voor Horizon taal pod automatisch schalen. 
+
+
+Resource aanvragen en-limieten kunnen worden toegepast voor de geïnjecteerde container (devspaces-proxy) door `azds.io/proxy-resources` de aantekening toe te voegen aan uw Pod spec. De waarde moet worden ingesteld op een JSON-object dat de sectie Resources vertegenwoordigt van de container specificatie van de proxy.
 
 ### <a name="try"></a>Proberen
-Voer de horizontale pod autoscaleer uit in een naam ruimte waarvoor geen dev Spaces zijn ingeschakeld.
+
+Hieronder ziet u een voor beeld van een aantekening voor proxy bronnen die moet worden toegepast op uw Pod-specificatie.
+```
+azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"},\"Requests\": {\"cpu\": \"150m\",\"memory\": \"200Mi\"}}"
+```

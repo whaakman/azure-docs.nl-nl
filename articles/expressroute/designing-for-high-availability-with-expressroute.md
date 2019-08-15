@@ -1,6 +1,6 @@
 ---
-title: Ontwerpen voor hoge beschikbaarheid met Azure ExpressRoute | Microsoft Docs
-description: Deze pagina bevat architectuur aanbevelingen voor hoge beschikbaarheid tijdens het gebruik van Azure ExpressRoute.
+title: Ontwerpen voor hoge Beschik baarheid met Azure ExpressRoute | Microsoft Docs
+description: Deze pagina bevat architectuur aanbevelingen voor hoge Beschik baarheid tijdens het gebruik van Azure ExpressRoute.
 documentationcenter: na
 services: networking
 author: rambk
@@ -11,85 +11,85 @@ ms.workload: infrastructure-services
 ms.date: 06/28/2019
 ms.author: rambala
 ms.openlocfilehash: 4984b30daf6170873cad9472bfed2d879af57efe
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67466649"
 ---
-# <a name="designing-for-high-availability-with-expressroute"></a>Ontwerpen voor hoge beschikbaarheid met ExpressRoute
+# <a name="designing-for-high-availability-with-expressroute"></a>Ontwerpen voor hoge Beschik baarheid met ExpressRoute
 
-ExpressRoute is ontworpen voor hoge beschikbaarheid voor de provider over geavanceerde privénetwerkverbinding met Microsoft-resources. Met andere woorden, is er geen single point of failure wordt in het pad ExpressRoute binnen Microsoft-netwerk. Als u wilt de beschikbaarheid te maximaliseren, moeten de klant en de serviceprovider-segment van uw ExpressRoute-circuit ook worden ontworpen voor hoge beschikbaarheid. In dit artikel, eerst laten we kijken aandachtspunten voor netwerken architectuur voor het bouwen van robuuste netwerkverbinding met behulp van een ExpressRoute en vervolgens laten we bekijken de nauwkeuriger functies die u helpen bij het verbeteren van de hoge beschikbaarheid van uw ExpressRoute-circuit.
+ExpressRoute is ontworpen voor hoge Beschik baarheid om de communicatie van particuliere netwerken naar micro soft-resources te verzorgen. Met andere woorden: er is geen Single Point of Failure in het pad ExpressRoute in het micro soft-netwerk. Om de beschik baarheid te maximaliseren, moeten de klant en het service provider segment van uw ExpressRoute-circuit ook worden ontworpen voor hoge Beschik baarheid. In dit artikel kijken we eerst naar de overwegingen voor de netwerk architectuur voor het bouwen van robuuste netwerk connectiviteit met behulp van een ExpressRoute. vervolgens bekijken we de functies voor het afstemmen van de hoge Beschik baarheid van uw ExpressRoute-circuit.
 
 
-## <a name="architecture-considerations"></a>Overwegingen voor architectuur
+## <a name="architecture-considerations"></a>Architectuur overwegingen
 
-De volgende afbeelding ziet u de aanbevolen manier om verbinding maken met behulp van een ExpressRoute-circuit voor het optimaliseren van de beschikbaarheid van een ExpressRoute-circuit.
+In de volgende afbeelding ziet u de aanbevolen manier om verbinding te maken met behulp van een ExpressRoute-circuit voor het maximaliseren van de beschik baarheid van een ExpressRoute-circuit.
 
  [![1]][1]
 
-Voor hoge beschikbaarheid is het essentieel voor het onderhouden van de redundantie van de ExpressRoute-circuit in de end-to-end-netwerk. Met andere woorden, u moet onderhouden redundantie in uw on-premises netwerk en redundantie al dan niet mogen binnendringen in uw serviceprovider-netwerk. Onderhoud van redundantie ten minste houdt in één storingspunt netwerkfouten vermijden. Verbeter de hoge beschikbaarheid met redundante voeding en koeling voor het netwerk die apparaten wordt verder.
+Voor maximale Beschik baarheid is het essentieel om de redundantie van het ExpressRoute-circuit in het volledige netwerk te hand haven. Met andere woorden, u moet de redundantie binnen uw on-premises netwerk behouden en de redundantie niet in uw netwerk van de service provider vertasten. Het onderhoud van redundantie op het minimale impliceert het voor komen van één punt van netwerk fouten. Met redundante voeding en koeling voor de netwerk apparaten kunt u de maximale Beschik baarheid nog verder verbeteren.
 
-### <a name="first-mile-physical-layer-design-considerations"></a>Eerste mijl fysieke laag overwegingen bij het ontwerpen
+### <a name="first-mile-physical-layer-design-considerations"></a>Ontwerp overwegingen voor de fysieke laag van de eerste mijl
 
- Als u zowel de primaire en secundaire verbindingen van een ExpressRoute-circuits op de dezelfde klant Premises apparatuur (CPE) wordt beëindigd, bent u in gevaar brengt de hoge beschikbaarheid binnen uw on-premises netwerk. Als u zowel de primaire en secundaire verbindingen via dezelfde poort van een CPE (een door de twee verbindingen onder verschillende subinterfaces wordt beëindigd of door het samenvoegen van de twee verbindingen in het partner network) configureert, bent u ook de partner forceren voor hoge beschikbaarheid in hun-netwerksegment inbreuk. Deze inbreuk wordt weergegeven in de volgende afbeelding.
+ Als u de primaire en secundaire verbindingen van een ExpressRoute-circuit op dezelfde locatie van de klant (CPE) beëindigt, wordt de hoge Beschik baarheid in uw on-premises netwerk in gevaar. Als u de primaire en secundaire verbindingen configureert via dezelfde poort van een CPE (door de twee verbindingen in verschillende Subinterfaces te beëindigen of door de twee verbindingen in het partner netwerk samen te voegen), dwingt u de partner af om een hoge Beschik baarheid in hun netwerk segment te voor komen. Deze inbreuk wordt geïllustreerd in de volgende afbeelding.
 
 [![2]][2]
 
-Anderzijds, als u de primaire en secundaire verbindingen van een ExpressRoute-circuits in verschillende geografische locaties beëindigen, kan klikt u vervolgens u worden inbreuk op de netwerkprestaties van de verbinding. Als verkeer actief gelijkmatig verdeeld zijn over de primaire en de secundaire verbindingen die worden beëindigd op verschillende geografische locaties, zou potentiële aanzienlijk verschil in de netwerklatentie tussen de twee paden leiden tot suboptimale netwerk prestaties. 
+Als u daarentegen de primaire en secundaire verbindingen van een ExpressRoute-circuit op verschillende geografische locaties beëindigt, kunt u de netwerk prestaties van de connectiviteit in gevaar brengen. Als verkeer actief wordt verdeeld over de primaire en de secundaire verbindingen die op verschillende geografische locaties worden beëindigd, zou een potentieel aanzienlijk verschil in de netwerk latentie tussen de twee paden leiden tot een suboptimaal netwerk nemen. 
 
-Zie voor overwegingen bij het ontwerpen van geografisch redundante, [ontwerpen voor herstel na noodgeval met ExpressRoute][DR].
+Zie [ontwerpen voor herstel na nood gevallen met ExpressRoute][DR]voor geo-redundante ontwerp overwegingen.
 
-### <a name="active-active-connections"></a>Actief-actief-verbindingen
+### <a name="active-active-connections"></a>Actief-actieve verbindingen
 
-Microsoft-netwerk is geconfigureerd voor gebruik van de primaire en secundaire verbindingen van ExpressRoute-circuits in de modus actief-actief. U kunt echter de redundante verbindingen van een ExpressRoute-circuit te werken in de modus actief-passief forceren via uw routeadvertenties. Advertentie-meer specifieke routes en BGP-padtoevoeging zijn de veelgebruikte methoden gebruikt voor het maken van één pad beter dan de andere.
+Micro soft Network is geconfigureerd voor het uitvoeren van de primaire en secundaire verbindingen van ExpressRoute-circuits in de modus actief-actief. Via uw route advertenties kunt u echter de redundante verbindingen van een ExpressRoute-circuit afdwingen in de modus actief-passief. Het adverteren van meer specifieke routes en BGP als voor aanstaande paden zijn de algemene technieken die worden gebruikt om één pad boven de andere te maken.
 
-Het is raadzaam om te hoge beschikbaarheid verbeteren, werken beide de verbindingen van een ExpressRoute-circuit in de modus actief-actief. Als u de verbindingen die werken in de modus actief-actief laat, wordt Microsoft-netwerk taakverdeling het verkeer tussen de verbindingen op basis van per-stroom.
+Om hoge Beschik baarheid te verbeteren, is het raadzaam om zowel de verbindingen van een ExpressRoute-circuit in de modus actief-actief te laten worden uitgevoerd. Als u de verbindingen in de modus actief-actief laat, wordt door micro soft Network Load het verkeer over de verbindingen per stroom verdeeld.
 
-De primaire en secundaire verbindingen van een ExpressRoute-circuit in de modus actief-passief face het risico van beide mislukt na een storing in het pad van de actieve verbindingen uitgevoerd. De meest voorkomende oorzaken van fouten op overschakelen via zijn gebrek aan actieve beheer van de passieve verbindingen en passieve verbindingen verouderde routes te adverteren.
+Het uitvoeren van de primaire en secundaire verbindingen van een ExpressRoute-circuit in Active-passieve modus bevindt zich het risico van beide verbindingen die mislukken na een fout in het actieve pad. De veelvoorkomende oorzaken voor het mislukken van de overschakeling van het niet actief beheren van de passieve verbinding en passieve verbinding die verouderde routes adverteren.
 
-U kunt ook de primaire en secundaire verbindingen van een ExpressRoute-circuit uitgevoerd in de modus actief-actief, resulteert in alleen ongeveer een halve stromen mislukken en het ophalen van omgeleid, een ExpressRoute-verbindingsfout te volgen. Modus actief-actief wordt dus aanzienlijk te verbeteren van de gemiddelde tijd om te herstellen (MTTR).
+Als u de primaire en secundaire verbindingen van een ExpressRoute-circuit in de modus actief-actief uitvoert, worden er bij een ExpressRoute-verbindings fout alleen de helft van de stromen uitgevoerd en wordt deze omgeleid. De modus actief-actief helpt de gemiddelde tijd om te herstellen (MTTR) aanzienlijk te verbeteren.
 
-### <a name="nat-for-microsoft-peering"></a>NAT voor Microsoft-peering 
+### <a name="nat-for-microsoft-peering"></a>NAT voor micro soft-peering 
 
-Microsoft-peering is ontworpen voor de communicatie tussen openbare eindpunten. Dus meestal zijn on-premises persoonlijke eindpunten netwerk adres omgezet (gestaan) met openbare IP-adres van de klant of partnernetwerk voordat ze met elkaar via Microsoft-peering communiceren. Ervan uitgaande dat u de primaire en secundaire verbindingen in de modus actief-actief, waar en hoe u NAT heeft een invloed op hoe snel u na een storing in een van de ExpressRoute-verbindingen herstellen. Twee verschillende NAT-opties worden weergegeven in de volgende afbeelding:
+Micro soft-peering is ontworpen voor communicatie tussen open bare eind punten. On-premises privé-eind punten zijn dus netwerk adressen vertaald (gecommuniceerd) met het open bare IP-adres van de klant of het partner netwerk voordat ze communiceren via micro soft-peering. Ervan uitgaande dat u de primaire en secundaire verbindingen in de modus actief-actief gebruikt, waar en hoe u NAT een invloed heeft op hoe snel u een fout in een van de ExpressRoute-verbindingen herstelt. Er worden twee verschillende NAT-opties geïllustreerd in de volgende afbeelding:
 
 [![3]][3]
 
-In de optie 1, NAT toegepast na de splitsing van het verkeer tussen de primaire en secundaire verbindingen van ExpressRoute. Onafhankelijke NAT-groepen worden gebruikt tussen de primaire en secundaire apparaten om te voldoen aan de vereisten voor stateful NAT-apparaat, zodat het retourverkeer op hetzelfde edge-apparaat waarmee de stroom egressed zou aankomen.
+In de optie 1 wordt NAT toegepast na het splitsen van het verkeer tussen de primaire en secundaire verbindingen van de ExpressRoute. Om aan de stateful-vereisten van NAT te voldoen, worden onafhankelijke NAT-Pools gebruikt tussen de primaire en secundaire apparaten, zodat het retour verkeer zou aankomen op hetzelfde edge-apparaat via de stroom egressed.
 
-In de optie 2, wordt een algemene NAT-pool gebruikt voordat het splitsen van het verkeer tussen de primaire en secundaire verbindingen van ExpressRoute. Het is belangrijk om het verschil is dat de algemene NAT-pool voordat het verkeer splitsen betekent niet dat introductie van single point of failure waardoor inbreuk op hoge beschikbaarheid.
+In de optie 2 wordt een gemeen schappelijke NAT-groep gebruikt voordat het verkeer tussen de primaire en secundaire verbindingen van de ExpressRoute wordt gesplitst. Het is belang rijk om het onderscheid te maken dat de gemeen schappelijke NAT-groep vóór het splitsen van het verkeer niet leidt tot een storing in één punt, waardoor de hoge Beschik baarheid wordt gecompromisd.
 
-Mogelijkheid voor het bereiken van de bijbehorende NAT-adresgroep is met de optie 1, na een mislukte ExpressRoute-verbinding verbroken. Daarom alle de verbroken stromen moeten ook worden opnieuw tot stand gebracht door TCP of toepassingslaag de time-out voor de bijbehorende venster te volgen. Als een van de NAT-groepen worden gebruikt voor het front-end die een van de on-premises servers en als de bijbehorende verbinding mislukt, de on-premises servers naar Azure kunnen niet worden bereikt totdat de verbinding is opgelost.
+Met de optie 1, na een ExpressRoute-verbindings fout, wordt de mogelijkheid om de bijbehorende NAT-groep te bereiken, verbroken. Daarom moeten alle verbroken stromen opnieuw worden ingesteld door de TCP-of toepassingslaag na de bijbehorende time-out van het venster. Als een van de NAT-groepen wordt gebruikt voor het uitvoeren van een front-end van een van de on-premises servers en als de bijbehorende connectiviteit mislukt, kan de on-premises servers niet worden bereikt vanuit Azure totdat de verbinding is hersteld.
 
-Terwijl met de optie 2, de NAT bereikbaar is, zelfs nadat een primaire of secundaire verbindingsfout is. De netwerklaag zelf kan daarom worden de pakketten en help sneller herstel de fout te volgen omgeleid. 
+Overwegende dat met de optie 2 de NAT bereikbaar is, zelfs na een primaire of secundaire verbindings fout. Daarom kan de netwerklaag zelf de pakketten omleiden en sneller herstel uitvoeren na de fout. 
 
 > [!NOTE]
-> Als u NAT-optie 1 (onafhankelijke NAT-groepen voor de primaire en secundaire ExpressRoute-verbindingen) en een poort van een IP-adres van een van de NAT-pool naar een on-premises server wijzen, de server zich niet bereikbaar is via de ExpressRoute-circuit wanneer de bijbehorende verbinding is mislukt.
+> Als u NAT-optie 1 (onafhankelijke NAT-Pools voor primaire en secundaire ExpressRoute-verbindingen) gebruikt en een poort van een IP-adres uit een van de NAT-groep aan een on-premises server toewijst, kan de server niet bereikbaar zijn via het ExpressRoute-circuit wanneer de overeenkomstige de verbinding is mislukt.
 > 
 
-## <a name="fine-tuning-features-for-private-peering"></a>Functies voor persoonlijke peering aan te passen
+## <a name="fine-tuning-features-for-private-peering"></a>Functies voor het afstemmen van privé-peering
 
-In deze sectie laat het ons revisie optioneel (afhankelijk van uw Azure-implementatie en hoe gevoelig u bent aan MTTR) functies te verbeteren van hoge beschikbaarheid van uw ExpressRoute-circuit. We gaan Lees met name zone-bewuste implementatie van virtuele netwerkgateways voor ExpressRoute en in twee richtingen doorsturen van detectie (BFD).
+In deze sectie laten we optioneel kijken (afhankelijk van uw Azure-implementatie en hoe gevoelig u MTTR) functies waarmee u de hoge Beschik baarheid van uw ExpressRoute-circuit kunt verbeteren. We gaan de zone-bewuste implementatie van ExpressRoute-gateways voor virtuele netwerken en bidirectionele forwarding-detectie (BFD) bekijken.
 
-### <a name="availability-zone-aware-expressroute-virtual-network-gateways"></a>Binnen een Beschikbaarheidszone op de hoogte ExpressRoute virtuele netwerkgateways
+### <a name="availability-zone-aware-expressroute-virtual-network-gateways"></a>ExpressRoute virtuele netwerk gateways voor beschikbaarheids zone
 
-Een beschikbaarheidszone in een Azure-regio is een combinatie van een foutdomein en een updatedomein. Als u ervoor voor de zone-redundante Azure IaaS-implementatie kiezen, wilt u mogelijk ook configureren zone-redundante virtuele netwerkgateways die ExpressRoute-privépeering beëindigen. Zie voor meer informatie [over zone-redundante virtuele netwerkgateways in Azure-Beschikbaarheidszones][zone redundant vgw]. To configure zone-redundant virtual network gateway, see [Create a zone-redundant virtual network gateway in Azure Availability Zones][conf zone redundant vgw].
+Een beschikbaarheidszone in een Azure-regio is een combinatie van een foutdomein en een updatedomein. Als u ervoor kiest om een zone-redundante Azure IaaS-implementatie te implementeren, wilt u wellicht ook zone-redundante virtuele netwerk gateways configureren die ExpressRoute persoonlijke peering beëindigen. Zie [over zone-redundante virtuele netwerk gateways in azure-beschikbaarheidszones][zone redundant vgw]voor meer informatie. Zie [een zone-redundante virtuele netwerk gateway maken in azure-beschikbaarheidszones om een][conf zone redundant vgw]zone-redundante virtuele netwerk gateway te configureren.
 
-### <a name="improving-failure-detection-time"></a>Verbetering van de fout detectietijd
+### <a name="improving-failure-detection-time"></a>Fout detectie tijd verbeteren
 
-ExpressRoute ondersteunt BFD via persoonlijke peering. BFD vermindert detectietijd van de fout via het netwerk laag 2 tussen Microsoft Enterprise Edge (msee's) en de BGP-neighbors aan de on-premises van ongeveer drie minuten (standaardinstelling) tot minder dan een seconde. Snelle fout detectietijd helpt hastening foutherstel. Zie voor meer informatie [BFD configureren via ExpressRoute][BFD].
+ExpressRoute biedt ondersteuning voor BFD via privé-peering. BFD vermindert de detectie tijd van de fout over het laag 2-netwerk tussen micro soft Enter prise Edge (Msee's) en hun BGP-neighbors op de on-premises zijde van ongeveer drie minuten (standaard) tot minder dan een seconde. De detectie tijd van de snelle fout helpt hastening fout herstel te herstellen. Zie [Configure BFD over ExpressRoute][BFD]voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel wordt besproken hoe u kunt ontwerpen voor hoge beschikbaarheid van een ExpressRoute-circuit-connectiviteit. Een ExpressRoute-circuit peering punt is vastgemaakt aan een geografische locatie en daarom kan worden beïnvloed door een onherstelbare fout die van invloed is op de gehele locatie. 
+In dit artikel wordt uitgelegd hoe u een hoge Beschik baarheid van een ExpressRoute-circuit connectiviteit kunt ontwerpen. Een ExpressRoute-circuit peering-punt is vastgemaakt aan een geografische locatie en kan daarom worden beïnvloed door een onherstelbare fout die van invloed is op de volledige locatie. 
 
-Zie voor overwegingen bij het ontwerp aan het bouwen van geografisch redundante netwerkverbinding met de Microsoft-backbone dat bestand is tegen kritieke fouten optreden die van invloed op een hele regio, [ontwerpen voor herstel na noodgeval met persoonlijke peeringExpressRoute][DR].
+Zie [ontwerpen voor herstel na nood gevallen met persoonlijke ExpressRoute][DR]-peering voor het ontwerp van overwegingen bij het bouwen van geo-redundante netwerk connectiviteit met micro soft backbone. Dit kan van invloed zijn op een hele regio.
 
 <!--Image References-->
-[1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png "aanbevolen manier om te verbinden met behulp van ExpressRoute"
-[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png "Suboptimal laatste mile-connectiviteit"
-[3]: ./media/designing-for-high-availability-with-expressroute/nat-options.png "NAT-opties"
+[1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png  "Aanbevolen manier om verbinding te maken met ExpressRoute"
+[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png De  "meest optimale connectiviteit voor de laatste mijl"
+[3]: ./media/designing-for-high-availability-with-expressroute/nat-options.png  "NAT-opties"
 
 
 <!--Link References-->

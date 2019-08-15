@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: da8e82652b5406cb4e5fe6438f721e3394a4cd96
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b79086298983e807cbfe0f4413d1fde54969cc6c
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854593"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986376"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Ontwikkelen voor Azure Files met .NET
 
@@ -221,7 +221,7 @@ if (share.Exists())
 }
 ```
 
-Zie [using Shared Access signatures (SAS) (Engelstalig)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)voor meer informatie over het maken en gebruiken van hand tekeningen voor gedeelde toegang.
+Zie [using Shared Access signatures (SAS) (Engelstalig)](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)voor meer informatie over het maken en gebruiken van hand tekeningen voor gedeelde toegang.
 
 ## <a name="copy-files"></a>Bestanden kopiëren
 Vanaf versie 5.x van de Azure Storage-clientbibliotheek kunt u een bestand kopiëren naar een ander bestand, een bestand naar een blob of een blob naar een bestand. In de volgende secties ziet u hoe u deze kopieerbewerkingen uitvoert via een programma.

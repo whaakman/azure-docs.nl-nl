@@ -1,5 +1,5 @@
 ---
-title: Modellen implementeren met een aangepaste docker-installatie kopie
+title: Modellen implementeren met behulp van een aangepaste docker-installatie kopie
 titleSuffix: Azure Machine Learning service
 description: Meer informatie over het gebruik van een aangepaste docker-installatie kopie bij het implementeren van uw Azure Machine Learning-service modellen. Bij het implementeren van een getraind model wordt een docker-installatie kopie gemaakt voor het hosten van de installatie kopie, webserver en andere onderdelen die nodig zijn om de service uit te voeren. Hoewel Azure Machine Learning service een standaard installatie kopie voor u biedt, kunt u ook uw eigen installatie kopie gebruiken.
 services: machine-learning
@@ -10,16 +10,16 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/11/2019
-ms.openlocfilehash: 0025f488f6a9b0af4e05a8bdf3ddf36c089d4d9f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f41ccef7803366e63247e6862c59ddb983527d26
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856126"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990534"
 ---
-# <a name="deploy-a-model-using-a-custom-docker-image"></a>Een model implementeren met behulp van een aangepaste docker-installatie kopie
+# <a name="deploy-a-model-by-using-a-custom-docker-image"></a>Een model implementeren met behulp van een aangepaste docker-installatie kopie
 
-Meer informatie over het gebruik van een aangepaste docker-installatie kopie bij het implementeren van getrainde modellen met de Azure Machine Learning-service.
+Meer informatie over het gebruik van een aangepaste docker-installatie kopie wanneer u getrainde modellen met de Azure Machine Learning-service implementeert.
 
 Wanneer u een getraind model implementeert voor een webservice of IoT Edge apparaat, wordt een docker-installatie kopie gemaakt. Deze installatie kopie bevat het model, de Conda-omgeving en de activa die nodig zijn voor het gebruik van het model. Het bevat ook een webserver voor het verwerken van binnenkomende aanvragen wanneer deze zijn geïmplementeerd als een webservice en onderdelen die nodig zijn om te werken met Azure IoT Hub.
 
@@ -28,7 +28,7 @@ Azure Machine Learning-service biedt een standaard-docker-installatie kopie, zod
 Normaal gesp roken maakt u een aangepaste installatie kopie wanneer u de versie van het onderdeel wilt beheren of tijdens de implementatie tijd wilt besparen. U kunt bijvoorbeeld standaardiseren op een specifieke versie van python, Conda of een ander onderdeel. Het is ook mogelijk dat u software wilt installeren die vereist is voor uw model, waarbij het installatie proces veel tijd in beslag neemt. Het installeren van de software bij het maken van de basis installatie kopie betekent dat u deze niet voor elke implementatie hoeft te installeren.
 
 > [!IMPORTANT]
-> Wanneer u een model implementeert, kunt u de kern onderdelen, zoals de webserver-of IoT Edge onderdelen, niet overschrijven. Deze onderdelen bieden een bekende werk omgeving die wordt getest en ondersteund door micro soft.
+> Wanneer u een model implementeert, kunt u de kern onderdelen, zoals de webserver of de IoT Edge onderdelen, niet overschrijven. Deze onderdelen bieden een bekende werk omgeving die wordt getest en ondersteund door micro soft.
 
 > [!WARNING]
 > Micro soft kan niet helpen bij het oplossen van problemen die zijn veroorzaakt door een aangepaste installatie kopie. Als u problemen ondervindt, wordt u mogelijk gevraagd om de standaard installatie kopie of een van de installatie kopieën te gebruiken die micro soft biedt om te controleren of het probleem specifiek is voor uw installatie kopie.
@@ -98,6 +98,8 @@ Als u al modellen hebt getraind of geïmplementeerd met behulp van de Azure Mach
     ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
     ```
+
+    [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
     De informatie die wordt geretourneerd, is vergelijkbaar met de volgende tekst:
 

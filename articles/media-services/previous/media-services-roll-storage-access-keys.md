@@ -1,6 +1,6 @@
 ---
-title: Media Services bijwerken na gebruik toegangssleutels voor opslag | Microsoft Docs
-description: In dit artikel geeft u informatie over het Media Services bijwerken na gebruik toegangssleutels voor opslag.
+title: Media Services bijwerken na de toegangs sleutels voor de Rolling opslag | Microsoft Docs
+description: Deze artikelen bevatten richt lijnen voor het bijwerken van de Media Services na de toegangs sleutels voor de Rolling opslag.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,51 +13,52 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: c688169dc21304f234aead7196f377a3fa5fd633
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: juliako
+ms.reviewer: milanga;cenkdin
+ms.openlocfilehash: 1cebe0fda7da97933fc94082a62c671535fe689b
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407305"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69015805"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Media Services bijwerken na gebruik toegangssleutels voor opslag 
 
-Wanneer u een nieuwe Azure Media Services (AMS)-account maakt, kunt u wordt ook gevraagd om te selecteren van een Azure Storage-account dat wordt gebruikt voor het opslaan van uw media-inhoud. U kunt meer dan één storage-accounts toevoegen aan uw Media Services-account. In dit artikel laat zien hoe opslagsleutels draaien. U ziet ook hoe u storage-accounts toevoegen aan een media-account. 
+Wanneer u een nieuw Azure Media Services-account (AMS) maakt, wordt u ook gevraagd om een Azure Storage account te selecteren dat wordt gebruikt voor het opslaan van uw media-inhoud. U kunt meer dan één opslag account toevoegen aan uw Media Services-account. In dit artikel wordt beschreven hoe u opslag sleutels kunt draaien. Ook wordt uitgelegd hoe u opslag accounts toevoegt aan een media account. 
 
-Als u wilt de in dit artikel beschreven acties uitvoeren, moet u [Azure Resource Manager-API's](/rest/api/media/operations/azure-media-services-rest-api-reference) en [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Zie voor meer informatie, [over het beheren van Azure-resources met PowerShell en Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md).
+U moet [Azure Resource Manager-api's](/rest/api/media/operations/azure-media-services-rest-api-reference) en [Power shell](https://docs.microsoft.com/powershell/module/az.media)gebruiken om de acties uit te voeren die in dit artikel worden beschreven.  Zie [Azure-resources beheren met Power shell en Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md)voor meer informatie.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Overzicht
 
-Als u een nieuw opslagaccount maakt, genereert Azure twee 512-bits opslagtoegangssleutels, die worden gebruikt voor het verifiëren van toegang tot uw storage-account. Uw Opslagverbindingen om veiliger te houden, is het aanbevolen om periodiek opnieuw genereren en uw toegangssleutel voor opslag draaien. Twee toegangssleutels (primaire en secundaire) worden geleverd zodat u het onderhouden van verbinding met de storage-account met behulp van één toegangssleutel terwijl u de toegangssleutel opnieuw genereren. Deze procedure wordt ook 'rolling toegangssleutels' genoemd.
+Wanneer een nieuw opslag account wordt gemaakt, genereert Azure 2 512-bits toegangs sleutels voor opslag, die worden gebruikt voor het verifiëren van toegang tot uw opslag account. Om uw opslag verbindingen veiliger te maken, is het raadzaam om uw toegangs sleutel voor opslag periodiek opnieuw te genereren en te draaien. Er zijn twee toegangs sleutels (primair en secundair) beschikbaar om u in staat te stellen verbindingen met het opslag account met behulp van één toegangs sleutel bij te houden terwijl u de andere toegangs sleutel opnieuw genereert. Deze procedure wordt ook wel ' Rolling toegangs sleutels ' genoemd.
 
-Media Services is afhankelijk van een storage-sleutel opgegeven. De locators die worden gebruikt om te streamen of te downloaden van de activa is specifiek, afhankelijk van de opgegeven toegangssleutel. Wanneer een AMS-account wordt gemaakt, het duurt een afhankelijkheid op de primaire toegangssleutel standaard, maar als een gebruiker kunt u de toegangssleutel van het opslagaccount met AMS bijwerken. U moet ervoor zorgen om te laten weten welke sleutel voor gebruik door de volgende stappen in dit artikel beschreven mediaservices.  
+Media Services is afhankelijk van een opslag sleutel die hieraan is gegeven. Met name de Locators die worden gebruikt om uw assets te streamen of te downloaden, zijn afhankelijk van de opgegeven toegangs sleutel voor opslag. Wanneer er een AMS-account wordt gemaakt, wordt er standaard een afhankelijkheid van de primaire toegangs sleutel voor opslag gebruikt, maar als gebruiker kunt u de opslag sleutel bijwerken die AMS heeft. U moet Media Services weten welke sleutel moet worden gebruikt door de stappen uit te voeren die in dit artikel worden beschreven.  
 
 >[!NOTE]
-> Als u meerdere opslagaccounts hebt, kunt u deze procedure met de storage-account wilt uitvoeren. De volgorde waarin u de opslagsleutels draaien is niet opgelost. U kunt de secundaire sleutel en vervolgens de primaire sleutel of vice versa draaien.
+> Als u meerdere opslag accounts hebt, voert u deze procedure uit met elk opslag account. De volg orde waarin u opslag sleutels roteert, is niet opgelost. U kunt de secundaire sleutel eerst draaien en vervolgens de primaire sleutel of andersom.
 >
-> Zorg dat u ze op een Pre-productie-account testen alvorens de stappen in dit artikel wordt beschreven in een productieaccount.
+> Voordat u de stappen die in dit artikel worden beschreven, uitvoert op een productie account, moet u deze testen op een pre-productie account.
 >
 
-## <a name="steps-to-rotate-storage-keys"></a>Stappen voor het opslagsleutels draaien 
+## <a name="steps-to-rotate-storage-keys"></a>Stappen voor het draaien van opslag sleutels 
  
- 1. Wijzigen van de primaire sleutel uit de storage-account via de powershell-cmdlet of [Azure](https://portal.azure.com/) portal.
- 2. Aanroepen van de cmdlet Sync-AzMediaServiceStorageKeys met de juiste parameters om af te dwingen van media-account om op te halen opslagaccountsleutels
+ 1. Wijzig de primaire sleutel voor het opslag account via de Power shell-cmdlet of [Azure](https://portal.azure.com/) Portal.
+ 2. Roep Sync-AzMediaServiceStorageKeys cmdlet aan met de juiste para meters om media account af te dwingen sleutels van het opslag account op te halen
  
-    Het volgende voorbeeld laat zien hoe om te synchroniseren van sleutels voor storage-accounts.
+    In het volgende voor beeld ziet u hoe u sleutels synchroniseert met opslag accounts.
   
          Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
   
- 3. Wacht een uur. Controleer of dat de streaming-scenario's werken.
- 4. Secundaire sleutel van het opslagaccount via de powershell-cmdlet of Azure-portal wijzigen.
- 5. Synchronisatie-AzMediaServiceStorageKeys powershell met de juiste parameters om af te dwingen van media-account om op te halen nieuwe opslagaccountsleutels aanroepen. 
- 6. Wacht een uur. Controleer of dat de streaming-scenario's werken.
+ 3. Wacht een uur. Controleer of de streaming-scenario's werken.
+ 4. Wijzig de secundaire sleutel voor het opslag account via de Power shell-cmdlet of de Azure Portal.
+ 5. Roep Sync-AzMediaServiceStorageKeys Power shell aan met de juiste para meters om media-account af te dwingen om nieuwe sleutels voor het opslag account op te halen. 
+ 6. Wacht een uur. Controleer of de streaming-scenario's werken.
  
-### <a name="a-powershell-cmdlet-example"></a>Een powershell-cmdlet-voorbeeld 
+### <a name="a-powershell-cmdlet-example"></a>Een voor beeld van een Power shell-cmdlet 
 
-Het volgende voorbeeld laat zien hoe u het opslagaccount ophaalt en deze synchroniseren met de AMS-account.
+In het volgende voor beeld ziet u hoe u het opslag account kunt ophalen en synchroniseren met het AMS-account.
 
     $regionName = "West US"
     $resourceGroupName = "SkyMedia-USWest-App"
@@ -68,9 +69,9 @@ Het volgende voorbeeld laat zien hoe u het opslagaccount ophaalt en deze synchro
     Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
 
  
-## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Stappen voor het storage-accounts toevoegen aan uw AMS-account
+## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Stappen voor het toevoegen van opslag accounts aan uw AMS-account
 
-Het volgende artikel laat zien hoe storage-accounts toevoegen aan uw AMS-account: [Meerdere opslagaccounts koppelen aan een Media Services-account](meda-services-managing-multiple-storage-accounts.md).
+In het volgende artikel ziet u hoe u opslag accounts kunt toevoegen aan uw AMS-account: [Koppel meerdere opslag accounts aan een Media Services-account](meda-services-managing-multiple-storage-accounts.md).
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -79,4 +80,4 @@ Het volgende artikel laat zien hoe storage-accounts toevoegen aan uw AMS-account
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Bevestigingen
-Wij willen graag om te bevestigen van de volgende personen die heeft bijgedragen tot het maken van dit document: Cenk Dingiloglu, Milan Gada, Seva Titov.
+We willen de volgende personen erkennen die hebben bijgedragen aan het maken van dit document: Cenk Dingiloglu, Milan Gada, Seva Titov.

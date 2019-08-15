@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric-Gebeurtenisanalyse met Application Insights | Microsoft Docs
-description: Meer informatie over het visualiseren en analyseren van gebeurtenissen met Application Insights voor controle en diagnose van Azure Service Fabric-clusters.
+title: Azure Service Fabric-gebeurtenis analyse met Application Insights | Microsoft Docs
+description: Meer informatie over het visualiseren en analyseren van gebeurtenissen met Application Insights voor het bewaken en diagnosticeren van Azure Service Fabric-clusters.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: f4c620bbb0e17abfacb504866230786a971ff409
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e682a5c768ed4b3f35382c87528c1b0d11a3c3d
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393158"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019715"
 ---
-# <a name="event-analysis-and-visualization-with-application-insights"></a>Gebeurtenis analyses en visualisatie met Application Insights
+# <a name="event-analysis-and-visualization-with-application-insights"></a>Gebeurtenis analyse en visualisatie met Application Insights
 
-Onderdeel van Azure Monitor, Application Insights is een uitbreidbaar platform voor de toepassingsbewaking en diagnostische gegevens. Het bevat een krachtige analyses en het uitvoeren van query's hulpprogramma, aanpasbaar dashboard en visualisaties en meer opties, waaronder automatische waarschuwingen. De Application Insights-integratie met Service Fabric bevat verschillende hulpprogramma's voor Visual Studio en Azure portal, evenals Service Fabric-specifieke metrische gegevens, biedt een uitgebreide logboekregistratie voor out-of-the-box-ervaring. Hoewel veel logboeken worden automatisch gemaakt en die voor u worden verzameld met Application Insights, raden wij u aan meer aangepaste logboekregistratie voor uw toepassingen voor het maken van een rijkere ervaring voor diagnostische gegevens.
+Een deel van Azure Monitor is Application Insights een uitbreidbaar platform voor het controleren van toepassingen en diagnostische gegevens. Het bevat een krachtig analyse-en query programma, aanpas bare Dash boards en visualisaties en andere opties, waaronder geautomatiseerde waarschuwingen. De integratie van Application Insights met Service Fabric bevat hulp middelen voor Visual Studio en Azure Portal, evenals Service Fabric specifieke metrische gegevens, waarmee u een allesomvattende out-of-the-box-registratie ervaring kunt bieden. Hoewel er automatisch veel logboeken worden gemaakt en verzameld voor u met Application Insights, raden we u aan om verdere aangepaste logboek registratie toe te voegen aan uw toepassingen om een uitgebreide diagnostische ervaring te creëren.
 
-Dit artikel helpt de volgende veelgestelde vragen-adres:
+Dit artikel helpt u bij het oplossen van de volgende veelgestelde vragen:
 
-* Hoe weet ik wat er gebeurt in mijn toepassingen en services en verzamelen telemetrie?
-* Hoe los ik mijn toepassing, met name services met elkaar communiceren?
-* Hoe krijg ik metrische gegevens over hoe mijn services uitvoert, bijvoorbeeld, de laadtijd van browserpagina, HTTP-aanvragen?
+* Hoe kan ik weet wat er gebeurt in mijn toepassing en services en hoe u telemetrie verzamelt?
+* Hoe kan ik problemen met mijn toepassing oplossen, met name services die met elkaar communiceren?
+* Hoe kan ik metrische gegevens weer geven over hoe mijn services worden uitgevoerd, bijvoorbeeld pagina laad tijd, HTTP-aanvragen?
 
-Het doel van dit artikel is om te laten zien hoe u inzicht en oplossen van in Application Insights. Als u wilt meer informatie over het instellen en configureren van Application Insights met Service Fabric, bekijk dan deze [zelfstudie](service-fabric-tutorial-monitoring-aspnet.md).
+In dit artikel wordt uitgelegd hoe u inzicht krijgt en problemen oplost vanuit Application Insights. Als u meer wilt weten over het instellen en configureren van Application Insights met Service Fabric, raadpleegt u deze [zelf studie](service-fabric-tutorial-monitoring-aspnet.md).
 
-## <a name="monitoring-in-application-insights"></a>Bewaken in Application Insights
+## <a name="monitoring-in-application-insights"></a>Bewaking in Application Insights
 
-Application Insights is een geavanceerde buiten de box-ervaring bij het gebruik van Service Fabric. De pagina overzicht van biedt Application Insights belangrijke informatie over uw service, zoals de reactietijd en het aantal aanvragen dat is verwerkt. Door te klikken op de knop 'Zoeken' aan de bovenkant, ziet u een lijst met recente aanvragen in uw toepassing. Bovendien kunt u zou zich hier mislukte aanvragen weergeven en een diagnose kunnen welke fouten zijn opgetreden.
+Application Insights heeft een rijke out van de box-ervaring bij het gebruik van Service Fabric. Op de pagina overzicht bevat Application Insights belang rijke informatie over uw service, zoals de reactie tijd en het aantal verwerkte aanvragen. Als u bovenaan op de knop Zoeken klikt, ziet u een lijst met recente aanvragen in uw toepassing. Daarnaast kunt u hier mislukte aanvragen bekijken en vaststellen welke fouten zijn opgetreden.
 
 ![Overzicht van Application Insights](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 
-In het rechterdeelvenster in de vorige afbeelding, er zijn twee soorten gegevens in de lijst: aanvragen en gebeurtenissen. Aanvragen zijn oproepen naar de API via HTTP-aanvragen van de app in dit geval en gebeurtenissen zijn aangepaste gebeurtenissen, die fungeren als telemetrie die u overal in uw code kunt toevoegen. U kunt verder verkennen instrumenteren van uw toepassingen in [Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens](../azure-monitor/app/api-custom-events-metrics.md). Te klikken op een aanvraag zou meer details weergeven zoals wordt weergegeven in de volgende afbeelding, met inbegrip van gegevens die specifiek zijn voor Service Fabric, dat wordt verzameld in het nuget-pakket voor Application Insights-Service Fabric. Deze informatie is nuttig voor het oplossen van problemen en weet wat de status van uw toepassing is, en al deze gegevens wordt gezocht binnen de Application Insights
+In het rechterdeel venster van de voor gaande afbeelding bevinden zich twee hoofd typen vermeldingen in de lijst: aanvragen en gebeurtenissen. Aanvragen zijn aanroepen naar de API van de app met behulp van HTTP-aanvragen in dit geval en gebeurtenissen zijn aangepaste gebeurtenissen, die als telemetrie fungeren, die u overal in uw code kunt toevoegen. U kunt het instrumenteren van uw toepassingen verder verkennen in [Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens](../azure-monitor/app/api-custom-events-metrics.md). Als u op een aanvraag klikt, wordt er meer informatie weer gegeven, zoals wordt weer gegeven in de volgende afbeelding, inclusief gegevens die specifiek zijn voor Service Fabric, die worden verzameld in het Application Insights Service Fabric nuget-pakket. Deze informatie is nuttig voor het oplossen van problemen en het weten wat de status van uw toepassing is, en al deze gegevens kunnen worden doorzocht in Application Insights
 
-![Details van de aanvraag Application Insights](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
+![Details van Application Insights-aanvraag](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
-Application Insights heeft een aangewezen weergave voor het uitvoeren van query's op alle gegevens die wordt geleverd in. Klik op 'Metrics Explorer' boven aan de pagina overzicht om te navigeren naar de Application Insights-portal. Hier kunt u query's uitvoeren op basis van aangepaste gebeurtenissen al eerder vermeld, aanvragen, uitzonderingen, prestatiemeteritems en andere metrische gegevens met behulp van de Kusto-query-taal. Het volgende voorbeeld ziet alle aanvragen in het afgelopen uur.
+Application Insights heeft een specifieke weer gave voor het uitvoeren van query's op alle gegevens in. Klik op Metrics Explorer boven aan de pagina overzicht om naar de Application Insights portal te navigeren. Hier kunt u query's uitvoeren op basis van aangepaste gebeurtenissen die worden genoemd vóór, aanvragen, uitzonde ringen, prestatie meter items en andere metrische gegevens met behulp van de Kusto-query taal. In het volgende voor beeld worden alle aanvragen in het afgelopen uur weer gegeven.
 
-![Details van de aanvraag Application Insights](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
+![Details van Application Insights-aanvraag](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
-Als u wilt de mogelijkheden van de Application Insights-portal verder verkennen, Ga naar de [documentatie voor Application Insights-portal](../azure-monitor/app/app-insights-dashboards.md).
+Als u meer wilt weten over de mogelijkheden van de Application Insights Portal, gaat u naar de [documentatie over Application Insights Portal](../azure-monitor/app/app-insights-dashboards.md).
 
-### <a name="configuring-application-insights-with-eventflow"></a>Configuratie van Application Insights samenstellen met EventFlow
+### <a name="configuring-application-insights-with-eventflow"></a>Application Insights configureren met Event flow
 
-Als u van EventFlow naar gebeurtenissen gebruikmaakt, controleert u of voor het importeren van de `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`NuGet-pakket. De volgende code is vereist in de *levert* sectie van de *eventFlowConfig.json*:
+Als u Event Flow gebruikt om gebeurtenissen te verzamelen, moet u ervoor zorgen dat `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`u het NuGet-pakket importeert. De volgende code is vereist in het gedeelte outputs van de *eventFlowConfig. json*:
 
 ```json
 "outputs": [
@@ -62,25 +62,25 @@ Als u van EventFlow naar gebeurtenissen gebruikmaakt, controleert u of voor het 
 ]
 ```
 
-Zorg ervoor dat u de benodigde wijzigingen aanbrengen in de filters, evenals alle andere invoer (samen met hun respectieve NuGet-pakketten) bevatten.
+Zorg ervoor dat u de vereiste wijzigingen in uw filters aanbrengt, evenals andere invoer (samen met hun respectieve NuGet-pakketten).
 
 ## <a name="application-insights-sdk"></a>Application Insights SDK
 
-Het verdient aanbeveling met EventFlow en WAD aggregatieoplossingen, omdat ze toestaan voor een meer modulaire benadering voor diagnose en controle, dat wil zeggen als u wilt wijzigen van de uitvoer van EventFlow, zonder veranderingen in uw werkelijke instrumentation vereist alleen een eenvoudige wijziging aan het configuratiebestand. Als u echter besluit om door te investeren in met behulp van Application Insights en waarschijnlijk niet wijzigen in een ander platform, moet u zoeken naar nieuwe Application Insights-SDK gebruiken voor het aggregeren van gebeurtenissen en deze te verzenden naar Application Insights. Dit betekent dat u niet langer hoeft EventFlow voor het verzenden van uw gegevens naar Application Insights configureren, maar in plaats daarvan de ApplicationInsight van Service Fabric NuGet-pakket wordt geïnstalleerd. Meer informatie over het pakket kunnen worden gevonden [hier](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
+Het is raadzaam om event flow en WAD te gebruiken als aggregatie oplossingen, omdat ze een meer modulaire benadering van diagnostische gegevens en bewaking toestaan, d.w.z. Als u uw uitvoer wilt wijzigen van Event flow, hoeft u geen wijzigingen aan te brengen in uw eigen instrumentatie, alleen een eenvoudige wijziging van het configuratie bestand. Als u echter besluit om te investeren in het gebruik van Application Insights en waarschijnlijk niet naar een ander platform overschakelt, moet u Application Insights ' nieuwe SDK gebruiken voor het samen voegen van gebeurtenissen en deze naar Application Insights verzenden. Dit betekent dat u niet langer Event flow hoeft te configureren om uw gegevens naar Application Insights te verzenden, maar u kunt in plaats daarvan het Service Fabric NuGet-pakket van de ApplicationInsight installeren. Meer informatie over het pakket vindt u [hier](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 
-[Application Insights-ondersteuning voor Microservices en Containers](https://azure.microsoft.com/blog/app-insights-microservices/) ziet u enkele van de nieuwe functies die zijn wordt gewerkt (momenteel nog steeds in beta), waarmee u kunt uitgebreidere controle out-of-the-box-opties met Application Insights hebt. Hieronder vallen afhankelijkheid bijhouden (gebruikt voor het bouwen van een toepassingstoewijzing van uw services en toepassingen in een cluster en de communicatie ertussen) en betere correlatie van traceringen die afkomstig zijn van uw services (helpt u bij het beter een probleem in de werkstroom van dicht een toepassing of service).
+[Application Insights ondersteuning voor micro Services en containers](https://azure.microsoft.com/blog/app-insights-microservices/) toont u een aantal van de nieuwe functies waaraan wordt gewerkt (momenteel nog steeds in de bèta versie), zodat u geavanceerde opties voor het controleren van de mogelijkheden met Application Insights kunt hebben. Dit omvat het bijhouden van afhankelijkheden (gebruikt voor het bouwen van een AppMap van al uw services en toepassingen in een cluster en de communicatie ertussen), en een betere correlatie van traceringen die afkomstig zijn van uw services (helpt bij het beter herkennen van een probleem in de werk stroom van een toepassing of service).
 
-Als u in .NET ontwikkelt en zal waarschijnlijk worden met behulp van enkele van Service Fabric-programmeermodellen en bereid Application Insights gebruiken als uw platform voor het visualiseren en analyseren van de gebeurtenis-en log, klikt u vervolgens raadzaam dat u via de Application Insights gaat SDK-route als de werkstroom voor controle en diagnostische gegevens. Lezen [dit](../azure-monitor/app/asp-net-more.md) en [dit](../azure-monitor/app/asp-net-trace-logs.md) aan de slag met het gebruik van Application Insights te verzamelen en weergeven van uw Logboeken.
+Als u in .NET ontwikkelt en waarschijnlijk enkele van de programmeer modellen van Service Fabric gebruikt, en u bereid bent Application Insights te gebruiken als uw platform voor het visualiseren en analyseren van gebeurtenis-en logboek gegevens, wordt u aangeraden om via de Application Insights te gaan SDK-route als uw bewakings-en diagnostische werk stroom. Lees [Dit](../azure-monitor/app/asp-net-more.md) en [](../azure-monitor/app/asp-net-trace-logs.md) om aan de slag te gaan met het gebruik van Application Insights om uw logboeken te verzamelen en weer te geven.
 
-## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>Navigeren in de Application Insights-resource in Azure portal
+## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>Navigeren door de Application Insights resource in Azure Portal
 
-Als u Application Insights hebt geconfigureerd als uitvoer voor uw gebeurtenissen en Logboeken, moet informatie worden weergegeven in uw Application Insights-resource in een paar minuten beginnen. Navigeer naar de Application Insights-resource, die u naar de Application Insights-resource-dashboard gaat. Klik op **zoeken** in de taakbalk van Application Insights om te zien van de meest recente traceringen die is ontvangen en kunnen ze filteren.
+Zodra u Application Insights hebt geconfigureerd als uitvoer voor uw gebeurtenissen en Logboeken, moeten de gegevens in een paar minuten worden weer gegeven in uw Application Insights resource. Ga naar de Application Insights resource waarmee u naar het Application Insights resource dashboard gaat. Klik op **zoeken** op de taak balk Application Insights om de meest recente traceringen te zien die zijn ontvangen en om ze te kunnen filteren.
 
-*Metrics Explorer* een handig hulpmiddel voor het maken van aangepaste dashboards op basis van metrische gegevens die uw toepassingen, services en -cluster kunnen rapporteren. Zie [verkennen van metrische gegevens in Application Insights](../azure-monitor/app/metrics-explorer.md) voor het instellen van een aantal grafieken voor zelf is gebaseerd op de gegevens die u verzamelt.
+*Metrics Explorer* is een handig hulp middel voor het maken van aangepaste Dash boards op basis van metrische gegevens die uw toepassingen, services en cluster kunnen rapporteren. Zie [metrische gegevens verkennen in Application Insights](../azure-monitor/app/metrics-explorer.md) voor het instellen van een paar grafieken die u zelf hebt gemaakt op basis van de door u verzamelde informatie.
 
-Te klikken op **Analytics** gaat u naar de Application Insights Analytics-portal, waar u kunt een query gebeurtenissen en traceringen met groter bereik en optionaliteit. Meer informatie over deze [analyses in Application Insights](../azure-monitor/app/analytics.md).
+Als u op **Analytics** klikt, gaat u naar de Application Insights Analytics-Portal, waar u kunt zoeken naar gebeurtenissen en traceringen met een grotere omvang en optioneel. Meer informatie hierover vindt u [in Application Insights](../azure-monitor/app/analytics.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Stel waarschuwingen in AI](../azure-monitor/app/alerts.md) om te worden geïnformeerd over wijzigingen in de prestaties of gebruik
-* [Slimme detectie in Application Insights](../azure-monitor/app/proactive-diagnostics.md) voert een proactieve analyse van de telemetrie wordt verzonden naar Application Insights om te waarschuwen voor mogelijke prestatieproblemen
+* [Stel waarschuwingen in AI in](../azure-monitor/app/alerts.md) om een melding te ontvangen over wijzigingen in prestaties of gebruik
+* [Slimme detectie in Application Insights](../azure-monitor/app/proactive-diagnostics.md) voert een proactieve analyse uit van de telemetrie die wordt verzonden naar Application Insights om u te waarschuwen over mogelijke prestatie problemen

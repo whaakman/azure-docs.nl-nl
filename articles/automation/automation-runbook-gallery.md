@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ef739a7053fffdd45c6d5e144ae736429597a4f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 5daa1cf04e04507174fa480c785bd15b656541a1
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850499"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019108"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook-en module galerieën voor Azure Automation
 
@@ -99,6 +99,15 @@ Python-Runbooks zijn beschikbaar in de [Script Center-galerie](https://gallery.t
 ## <a name="requesting-a-runbook-or-module"></a>Een runbook of module aanvragen
 
 U kunt aanvragen verzenden naar de stem van de [gebruiker](https://feedback.azure.com/forums/246290-azure-automation/).  Als u hulp nodig hebt bij het schrijven van een runbook of als u een vraag hebt over Power shell, plaatst u een vraag naar ons [forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+
+## <a name="common-solutions-available-in-the-runbook-gallery"></a>Algemene oplossingen die beschikbaar zijn in de runbook Gallery
+
+De onderstaande lijst bevat enkele runbooks die oplossingen bieden voor veelvoorkomende scenario's. Zie [AzureAutomationTeam-profiel](https://www.powershellgallery.com/profiles/AzureAutomationTeam)voor een volledige lijst met runbooks die zijn gemaakt door het Azure Automation team.
+
+* [Update-ModulesInAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/) : Hiermee wordt de meest recente versie van PowerShell Gallery van alle modules in een Automation-account geïmporteerd.
+* [Enable-AzureDiagnostics](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/) : met dit script worden Azure Diagnostics en log Analytics geconfigureerd om Azure Automation logboeken te ontvangen met taak status en taak stromen.
+* [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) : met dit runbook wordt een extern bestand van een virtuele Windows Azure-machine gekopieerd.
+* [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) : met dit runbook wordt een lokaal bestand naar een virtuele machine van Azure gekopieerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

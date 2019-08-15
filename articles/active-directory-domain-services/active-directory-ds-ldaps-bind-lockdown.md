@@ -1,6 +1,6 @@
 ---
-title: Binden aan een Azure AD Domain Services beheerde domein met behulp van Secure LDAP (LDAPS) | Microsoft Docs
-description: Verbinding maken met een Azure AD Domain Services beheerde domein met behulp van veilige LDAP (LDAPS)
+title: Binden met behulp van Secure LDAP (LDAPS) aan een Azure AD Domain Services beheerd domein | Microsoft Docs
+description: Een binding met een door Azure AD Domain Services beheerd domein maken met behulp van secure LDAP (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,67 +15,67 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: iainfou
-ms.openlocfilehash: df0b3d27eec478280a33be831a2431eccdf05a74
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: cbc5bee0f4cc59f59af6e3f57219279cd8fcb030
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483374"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988582"
 ---
-# <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Verbinding maken met een Azure AD Domain Services beheerde domein met behulp van veilige LDAP (LDAPS)
+# <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Een binding met een door Azure AD Domain Services beheerd domein maken met behulp van secure LDAP (LDAPS)
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Volledige [taak 4: configureren van DNS voor toegang tot het beheerde domein van het internet](active-directory-ds-ldaps-configure-dns.md).
+[Taak 4 volt ooien: CONFIGUREER DNS voor toegang tot het beheerde domein via internet](active-directory-ds-ldaps-configure-dns.md).
 
 
-## <a name="task-5-bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>Taak 5: Verbinding maken met het beheerde domein via LDAP met LDP.exe
-U kunt het hulpprogramma LDP.exe, die is opgenomen in het pakket Remote Server Administration tools te binden en zoek via LDAP gebruiken.
+## <a name="task-5-bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>Taak 5: Verbinding maken met het beheerde domein via LDAP met behulp van LDP. exe
+U kunt het hulp programma LDP. exe gebruiken, dat is opgenomen in het pakket Remote Server Administration Tools voor het binden en doorzoeken van LDAP.
 
-Eerst LDP te openen en verbinding maken met het beheerde domein. Klik op **verbinding** en klikt u op **verbinden...**  in het menu. Geef de DNS-domeinnaam van het beheerde domein. Geef de poort moet worden gebruikt voor verbindingen. Gebruik poort 389 voor LDAP-verbindingen. Gebruik poort 636 voor LDAPS-verbindingen. Klik op **OK** knop verbinding maken met het beheerde domein.
+Open eerst LDP en maak verbinding met het beheerde domein. Klik op **verbinding** en klik op **verbinden...** in het menu. Geef de DNS-domein naam van het beheerde domein op. Geef de poort op die moet worden gebruikt voor verbindingen. Gebruik voor LDAP-verbindingen poort 389. Gebruik poort 636 voor LDAPS-verbindingen. Klik op de knop **OK** om verbinding te maken met het beheerde domein.
 
-Vervolgens verbinding maken met het beheerde domein. Klik op **verbinding** en klikt u op **verbinden...**  in het menu. Geef de referenties van een gebruikersaccount van de groep 'AAD DC Administrators'.
+Maak vervolgens een binding met het beheerde domein. Klik op **verbinding** en klik in het menu op **binden...** . Geef de referenties op van een gebruikers account dat deel uitmaakt van de groep AAD DC Administrators.
 
 > [!IMPORTANT]
-> Gebruikers (en serviceaccounts) uitvoeren niet eenvoudige LDAP-bindingen als u NTLM-wachtwoord-hashsynchronisatie hebt uitgeschakeld op uw Azure AD Domain Services-exemplaar.  Lees voor meer informatie over het uitschakelen van NTLM-wachtwoord-hashsynchronisatie [beveiligen van uw Azure AD DOmain Services beheerde domein](secure-your-domain.md).
+> Gebruikers (en service accounts) kunnen geen LDAP-eenvoudige bindingen uitvoeren als NTLM-wachtwoord synchronisatie is uitgeschakeld op uw Azure AD Domain Services-exemplaar.  Lees [Beveilig uw door Azure AD Domain Services beheerde domein](secure-your-domain.md)voor meer informatie over het uitschakelen van NTLM-wachtwoord synchronisatie.
 >
 >
 
-Selecteer **weergave**, en selecteer vervolgens **structuur** in het menu. De Base DN-veld leeg laat, en klik op OK. Navigeer naar de container die u wilt zoeken en selecteer zoeken met de rechtermuisknop op de container.
+Selecteer **weer gave**en selecteer vervolgens **structuur** in het menu. Laat het veld basis-DN leeg en klik op OK. Ga naar de container waarin u wilt zoeken, klik met de rechter muisknop op de container en selecteer zoeken.
 
 > [!TIP]
-> - Gebruikers en groepen die zijn gesynchroniseerd van Azure AD worden opgeslagen in de **AADDC gebruikers** organisatie-eenheid. Het zoekpad voor deze organisatie-eenheid ziet eruit als ```OU=AADDC Users,DC=CONTOSO100,DC=COM```.
-> - Computeraccounts voor computers die zijn gekoppeld aan het beheerde domein worden opgeslagen in de **AADDC Computers** organisatie-eenheid. Het zoekpad voor deze organisatie-eenheid ziet eruit als ```OU=AADDC Computers,DC=CONTOSO100,DC=COM```.
+> - Gebruikers en groepen die zijn gesynchroniseerd vanuit Azure AD worden opgeslagen in de organisatie-eenheid **AADDC-gebruikers** . Het zoekpad voor deze organisatie-eenheid ziet er als ```OU=AADDC Users,DC=CONTOSO100,DC=COM```volgt uit.
+> - Computer accounts voor computers die zijn gekoppeld aan het beheerde domein, worden opgeslagen in de organisatie-eenheid **AADDC computers** . Het zoekpad voor deze organisatie-eenheid ziet er als ```OU=AADDC Computers,DC=CONTOSO100,DC=COM```volgt uit.
 >
 >
 
-Meer informatie - [grondbeginselen van de LDAP-query](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
+Meer informatie- [basis beginselen van LDAP-query's](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
 
 
-## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>Taak 6: Toegang van secure LDAP tot uw beheerde domein te vergrendelen via internet
+## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>Taak 6: Veilige LDAP-toegang tot uw beheerde domein via internet vergren delen
 > [!NOTE]
-> Als u via internet LDAPS toegang tot het beheerde domein niet hebt ingeschakeld, slaat u deze taak voor de configuratie.
+> Als u LDAPS-toegang tot het beheerde domein niet via internet hebt ingeschakeld, kunt u deze configuratie taak overs Laan.
 >
 >
 
-Voordat u deze taak uitvoert, complete de stappen die worden beschreven in [taak 3](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md).
+Voordat u met deze taak begint, voert u de stappen uit die worden beschreven in [taak 3](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md).
 
-Wanneer u LDAPS-toegang via internet met uw beheerde domein inschakelt, maakt het een beveiligingsrisico. Het beheerde domein is bereikbaar is vanaf het internet op de poort die wordt gebruikt voor secure LDAP (dat wil zeggen, poort 636). U kunt toegang tot het beheerde domein specifieke bekende IP-adressen te beperken. Maak een netwerkbeveiligingsgroep (NSG) en deze koppelen aan het subnet waarin u Azure AD Domain Services hebt ingeschakeld.
+Wanneer u LDAPS-toegang via internet naar uw beheerde domein inschakelt, wordt er een beveiligings risico gegenereerd. Het beheerde domein is bereikbaar vanaf internet op de poort die wordt gebruikt voor beveiligde LDAP (poort 636). U kunt ervoor kiezen om de toegang tot het beheerde domein te beperken tot specifieke IP-adressen. Maak een netwerk beveiligings groep (NSG) en koppel deze aan het subnet waar u Azure AD Domain Services hebt ingeschakeld.
 
-Het voorbeeld NSG in de volgende tabel wordt vergrendeld toegang van secure LDAP via internet. De regels in de NSG toestaan binnenkomende toegang van secure LDAP via TCP-poort 636 alleen uit een opgegeven set van IP-adressen. De standaardregel voor 'DenyAll' is van toepassing op alle andere binnenkomend verkeer van internet. De NSG-regel om toe te staan van LDAPS toegang via internet vanaf een opgegeven IP-adressen heeft een hogere prioriteit dan de DenyAll NSG-regel.
+De voor beeld-NSG in de volgende tabel vergrendelt beveiligde LDAP-toegang via internet. De regels in de NSG geven binnenkomende beveiligde LDAP-toegang via TCP-poort 636 alleen uit een opgegeven reeks IP-adressen. De standaard regel DenyAll is van toepassing op alle andere inkomende verkeer van het internet. De NSG-regel voor het toestaan van LDAPS-toegang via internet vanaf opgegeven IP-adressen heeft een hogere prioriteit dan de DenyAll NSG-regel.
 
-![Voorbeeld NSG voor het beveiligen van LDAPS toegang via internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+![Voor beeld van NSG voor het beveiligen van LDAPS-toegang via Internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
-**Meer informatie** - [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md).
+**Meer informatie** - [netwerk beveiligings groepen](../virtual-network/security-overview.md).
 
 
 ## <a name="related-content"></a>Gerelateerde inhoud
-* [Azure AD Domain Services - handleiding aan de slag](create-instance.md)
-* [Een Azure AD Domain Services-domein beheren](manage-domain.md)
-* [Grondbeginselen van de LDAP-query](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
-* [Beheren van Groepsbeleid voor Azure AD Domain Services](manage-group-policy.md)
+* [Azure AD Domain Services aan de slag-hand leiding](create-instance.md)
+* [Een Azure AD Domain Services domein beheren](manage-domain.md)
+* [Basis principes LDAP-query's](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
+* [groepsbeleid voor Azure AD Domain Services beheren](manage-group-policy.md)
 * [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md)
-* [Een Netwerkbeveiligingsgroep maken](../virtual-network/tutorial-filter-network-traffic.md)
+* [Een netwerk beveiligings groep maken](../virtual-network/tutorial-filter-network-traffic.md)
 
 
 ## <a name="next-step"></a>Volgende stap
-[Oplossen van secure LDAP in een beheerd domein](tshoot-ldaps.md)
+[Problemen met het beveiligen van LDAP op een beheerd domein oplossen](tshoot-ldaps.md)

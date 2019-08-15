@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: 62f73f17d598cb2a22ef57d3ec0bcf91b8852298
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 77f04b9688be2a7b7343bac05b24a3fcd4e0fcde
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728792"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019703"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Informatie over MSP-partners voor Azure-netwerken
 
@@ -24,9 +24,11 @@ Azure Networking Msp's is een gespecialiseerde set beheerde service providers di
 
 Klanten kunnen MSP-Managed Services-aanbiedingen kopen op de Azure Marketplace of rechtstreeks vanuit de MSP. Msp's kan Azure-netwerk resources in de abonnementen en resource groepen van klanten implementeren en beheren met behulp van Azure Lighthouse.
 
-## <a name="msp"></a>MSP-partners
+## <a name="msp"></a>MSP-partners voor Azure Networking
 
 Gebruik de koppelingen in deze sectie voor meer informatie over beheerde Cloud netwerk services die worden aangeboden door Azure Networking MSP-partners. Als uw Cloud Network Services-partner niet wordt vermeld in de onderstaande sectie, laat u de provider contact met ons opnemen. Ze kunnen contact met ons opnemen door een e-mail ManagedVirtualWAN@microsoft.comte verzenden naar. 
+
+[ANT groep UK](https://www.ans.co.uk/)
 
 [Aryaka-netwerken](https://www.aryaka.com/)
 
@@ -43,6 +45,8 @@ Gebruik de koppelingen in deze sectie voor meer informatie over beheerde Cloud n
 [ixreach](https://www.ixreach.com/)
 
 [Megaport](https://www.megaport.com/)
+
+[Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)
 
 [Tata-communicatie](https://www.tatacommunications.com/)
 

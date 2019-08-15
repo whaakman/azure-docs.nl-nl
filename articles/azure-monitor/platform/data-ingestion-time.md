@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: cdd1c8348acac37acbe8ad15199f3953bfe95a8e
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: e07a436ee18a216bab569d299e534e729996db19
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370655"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990160"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Opname tijd van gegevens vastleggen in Azure Monitor
 Azure Monitor is een grootschalige gegevens service waarmee duizenden klanten elke maand terabytes aan gegevens verzenden in een groei tempo. Er zijn vaak vragen over de tijd die nodig is om te zorgen dat logboek gegevens beschikbaar worden nadat deze zijn verzameld. In dit artikel worden de verschillende factoren beschreven die van invloed zijn op deze latentie.
@@ -90,7 +90,7 @@ De opname tijd kan variëren voor verschillende bronnen onder verschillende omst
 ### <a name="ingestion-latency-delays"></a>Vertragingen bij opname latentie
 U kunt de latentie van een specifieke record meten door het resultaat van de functie [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) te vergelijken met de eigenschap _TimeGenerated_ . Deze gegevens kunnen met verschillende aggregaties worden gebruikt om te ontdekken hoe de latentie van opname wordt gedraagt. Bekijk een aantal percentiel van de opname tijd om inzicht te krijgen in grote hoeveel heden gegevens. 
 
-Met de volgende query ziet u bijvoorbeeld welke computers de hoogste opname tijd hebben gehad gedurende de huidige dag: 
+Met de volgende query kunt u bijvoorbeeld zien welke computers de hoogste 8 uur hebben geduurd: 
 
 ``` Kusto
 Heartbeat
@@ -101,7 +101,7 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
  
-Als u wilt inzoomen op de opname tijd voor een specifieke computer gedurende een bepaalde periode, gebruikt u de volgende query waarmee ook de gegevens in een grafiek worden gevisualiseerd: 
+Als u wilt inzoomen op de opname tijd voor een specifieke computer gedurende een bepaalde periode, gebruikt u de volgende query, waarmee ook de gegevens van de afgelopen dag in een grafiek worden gevisualiseerd: 
 
 ``` Kusto
 Heartbeat 

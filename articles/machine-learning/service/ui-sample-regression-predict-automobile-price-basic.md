@@ -1,5 +1,5 @@
 ---
-title: Regressie Prijs voorspellen
+title: 'Voor beeld van een Visual-Interface #1: regressie om de prijs te voors pellen'
 titleSuffix: Azure Machine Learning service
 description: Meer informatie over het bouwen van een machine learning model voor het voors pellen van de prijs van een auto, zonder dat u een regel code hoeft te schrijven.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 95373bdd58332f49307004067cdd04b9c313b935
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0c86955e0b10111bf9b6db0d884b73867a4467c5
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845944"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990407"
 ---
 # <a name="sample-1---regression-predict-price"></a>Voor beeld 1-regressie: Prijs voorspellen
 

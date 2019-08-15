@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7cd916c8e52b40dee3ce2d63d43dc88f09001b32
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 1d50f239a0ef4de02c9f0c87a28b0f5092d9c529
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827558"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019038"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Back-ups van SQL Server-data bases beheren en bewaken
 
@@ -92,9 +92,9 @@ Ga als volgt te werk om de beveiliging van een database te stoppen:
 
 > [!NOTE]
 >
-Raadpleeg de onderstaande veelgestelde vragen voor meer informatie over de optie gegevens verwijderen:
-* [Wat gebeurt er met de back-ups als ik een Data Base uit een automatisch beveiligde exemplaar Verwijder?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
-* [Als ik de back-upbewerking van een automatisch beveiligde data base stop, wat is dan het gedrag?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>Zie de veelgestelde vragen hieronder voor meer informatie over de optie gegevens verwijderen:
+>* [Wat gebeurt er met de back-ups als ik een Data Base uit een automatisch beveiligde exemplaar Verwijder?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>* [Als ik de back-upbewerking van een automatisch beveiligde data base stop, wat is dan het gedrag?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >
 
@@ -145,7 +145,7 @@ Hef de registratie van een SQL Server-exemplaar op nadat u de beveiliging hebt u
 
 Soms kan de uitbrei ding van de werk belasting op de VM een of meer redenen hebben. In dergelijke gevallen zullen alle bewerkingen die op de virtuele machine worden geactiveerd, mislukken. Mogelijk moet u de extensie opnieuw registreren op de VM. Met de bewerking **opnieuw registreren** wordt de back-upextensie van de werk belasting op de VM opnieuw geïnstalleerd zodat bewerkingen kunnen worden voortgezet.  <br>
 
-Het is raadzaam om deze optie te gebruiken. Wanneer een virtuele machine wordt geactiveerd met een uitbrei ding die al in orde is, wordt de extensie door deze bewerking opnieuw gestart. Dit kan ertoe leiden dat alle taken mislukken. Controleer op een of meer van de [symptomen](backup-sql-server-azure-troubleshoot.md#re-registration-failures) voordat u de bewerking opnieuw registreren start.
+Gebruik deze optie om voorzichtig te zijn. Wanneer een virtuele machine wordt geactiveerd met een uitbrei ding die al in orde is, wordt de extensie door deze bewerking opnieuw gestart. Dit kan ertoe leiden dat alle taken mislukken. Controleer op een of meer van de [symptomen](backup-sql-server-azure-troubleshoot.md#re-registration-failures) voordat u de bewerking opnieuw registreren start.
 
 ## <a name="next-steps"></a>Volgende stappen
 

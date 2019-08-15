@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 05e2375998b3bce4320b2d66ab7fce44cd911dcc
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 6767644e037c6abb3e3044c8707e923a9137a01c
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479129"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019551"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Kosten en gebruik van AWS in azure beheren
 
@@ -138,7 +138,7 @@ Er zijn twee manieren om machtigingen te krijgen voor de kosten van de AWS gekop
 
 De maker van de AWS-connector is standaard de eigenaar van alle objecten die de connector heeft gemaakt. Inclusief, het geconsolideerde AWS-account en het gekoppelde AWS-account.
 
-Om te kunnen controleren of de connector instellingen die u nodig hebt, ten minste een rol van Contribute hebben, kan de lezer geen connector instellingen verifiëren
+Om te kunnen controleren of de connector instellingen die u nodig hebt, ten minste een rol Inzender, kan de lezer de connector instellingen niet verifiëren
 
 ### <a name="collection-failed-with-assumerole"></a>Verzameling is mislukt met AssumeRole
 

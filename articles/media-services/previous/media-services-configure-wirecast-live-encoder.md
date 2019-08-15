@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: d0da69601bfc6fd09c10b30d45195722781d87d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: cenkdin;anilmur
+ms.openlocfilehash: be3c75680599c07a3cebe3dcf0436884958e1706
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61232037"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016671"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Gebruik de Wirecast-coderingsprogramma voor het verzenden van een single-bitrate live stream 
 > [!div class="op_single_selector"]
@@ -69,22 +70,22 @@ Terwijl het kanaal wordt gestart, kunt u [configureren van het coderingsprogramm
 >
 >
 
-## <a name="a-idconfigurewirecastrtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />De Telestream Wirecast-coderingsprogramma configureren
+## <a name="a-idconfigure_wirecast_rtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />De Telestream Wirecast-coderingsprogramma configureren
 In deze zelfstudie worden de volgende uitvoerinstellingen gebruikt. De rest van deze sectie worden de configuratiestappen in meer detail beschreven.
 
 **Video**:
 
-* Codec: H.264
-* Profiel: Hoog (niveau 4.0)
-* Bitrate: 5000 kbps
-* Sleutelframes: 2 seconden (60 seconden)
-* Framesnelheid: 30
+* Videocodec H.264
+* Uplinkpoortprofiel Hoog (niveau 4,0)
+* Bitsnelheid 5000 kbps
+* Keyframe: 2 seconden (60 seconden)
+* Frame frequentie: 30
 
 **Audio**:
 
-* Codec: AAC (LC)
-* Bitrate: 192 kbps
-* Samplefrequentie: 44.1 kHz
+* Videocodec AAC (LC)
+* Bitsnelheid 192 kbps
+* Sample frequentie: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Configuratiestappen
 1. Open de Telestream Wirecast-toepassing op de computer die wordt gebruikt, en voor het streamen van RTMP instellen.
@@ -103,16 +104,16 @@ In deze zelfstudie worden de volgende uitvoerinstellingen gebruikt. De rest van 
 
     **Video**
 
-   * Coderingsprogramma: MainConcept H.264
+   * Ring MainConcept H. 264
    * Frames per seconde: 30
-   * Gemiddelde bitsnelheid: 5000 kbits per seconde (kan worden aangepast op basis van de beperkingen op het netwerk)
-   * Profiel: Hoofdvenster
-   * Belangrijkste frame elke: 60 frames
+   * Gemiddelde bitsnelheid: 5000 KBits per seconde (kan worden aangepast op basis van de netwerk beperkingen)
+   * Uplinkpoortprofiel Algemeen
+   * Sleutel frame elke: 60-frames
 
      **Audio**
 
-   * Doelbitsnelheid: 192 kbits/sec
-   * Samplefrequentie: 44,100 kHz
+   * Bitsnelheid van doel: 192 KBits per seconde
+   * Sample frequentie: 44,100 kHz
 
      ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 6. Klik op **Opslaan**.

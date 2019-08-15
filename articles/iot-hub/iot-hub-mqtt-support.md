@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 9b1f0042f501cefc99343d53bbf2ad39f0ae1f4c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9a6b3a538304f2d09941650e3087130c21422dc0
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640468"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946349"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communiceren met uw IoT-hub met behulp van het MQTT-Protocol
 
@@ -77,7 +77,7 @@ Als een apparaat de Sdk's van het apparaat niet kan gebruiken, kan het nog steed
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > Als u X. 509-certificaat authenticatie gebruikt, zijn SAS-token wachtwoorden niet vereist. Zie voor meer informatie [X. 509-beveiliging instellen in uw Azure IOT hub](iot-hub-security-x509-get-started.md)
+  > Als u X. 509-certificaat authenticatie gebruikt, zijn SAS-token wachtwoorden niet vereist. Zie voor meer informatie [instellen van X. 509-beveiliging in uw Azure IOT hub](iot-hub-security-x509-get-started.md) en volg de [onderstaande](#tlsssl-configuration)code instructies.
 
   Zie voor meer informatie over het genereren van SAS-tokens het gedeelte apparaat van het [gebruik van IOT hub beveiligings tokens](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
@@ -113,7 +113,7 @@ Als een apparaat de Sdk's van het apparaat niet kan gebruiken, kan het nog steed
 
 Voor MQTT Connect-en Disconnect-pakketten IoT Hub een gebeurtenis op het kanaal van de **Operations-bewaking** . Deze gebeurtenis bevat aanvullende informatie die u kan helpen bij het oplossen van verbindings problemen.
 
-De apparaat-app **kan een bericht** in het **Connect** -pakket opgeven. De app van het apparaat `devices/{device_id}/messages/events/` moet `devices/{device_id}/messages/events/{property_bag}` de naam van **het onderwerp gebruiken** om **te definiëren dat** berichten worden doorgestuurd als een telemetrie-bericht. Als de netwerk verbinding is gesloten, maar er nog geen verbrekings pakket van het apparaat is ontvangen, stuurt IoT Hub **het bericht dat** in het **Connect** -pakket is opgegeven, naar het telemetrie-kanaal. Het telemetrie-kanaal kan het eind punt van de standaard **gebeurtenissen** zijn of een aangepast eind punt dat is gedefinieerd door IOT hub route ring. Aan het bericht is de eigenschap **iothub-Message type** met de waarde **van toegewezen** .
+De apparaat-app kan een bericht in het **Connect** -pakket opgeven. De app van het apparaat `devices/{device_id}/messages/events/` moet `devices/{device_id}/messages/events/{property_bag}` de naam van het onderwerp gebruiken om te definiëren dat berichten worden doorgestuurd als een telemetrie-bericht. Als de netwerk verbinding is gesloten, maar er nog geen verbrekings pakket van het apparaat is ontvangen, stuurt IoT Hub het bericht dat in het **Connect** -pakket is opgegeven, naar het telemetrie-kanaal. Het telemetrie-kanaal kan het eind punt van de standaard **gebeurtenissen** zijn of een aangepast eind punt dat is gedefinieerd door IOT hub route ring. Aan het bericht is de eigenschap **iothub-Message type** met de waarde van toegewezen.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Het MQTT-protocol direct gebruiken (als een module)
 
@@ -159,7 +159,7 @@ Implementeer vervolgens de client in een python-script. Vervang de tijdelijke aa
 from paho.mqtt import client as mqtt
 import ssl
 
-path_to_root_cert = "<local path to digicert.cer>"
+path_to_root_cert = "<local path to digicert.cer file>"
 device_id = "<device id from device registry>"
 sas_token = "<generated SAS token>"
 iot_hub_name = "<iot hub name>"
@@ -199,6 +199,26 @@ client.loop_forever()
 Hier volgen de installatie-instructies voor de vereisten.
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+
+Als u wilt verifiëren met behulp van een certificaat voor een apparaat, werkt u het code fragment hierboven bij met de volgende wijzigingen (Zie [een X. 509 CA-certificaat verkrijgen](./iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) over het voorbereiden op verificatie op basis van een certificaat):
+
+```python
+# Create the client as before
+# ...
+
+# Set the username but not the password on your client
+client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
+                       device_id + "/?api-version=2018-06-30", password=None)
+
+# Set the certificate and key paths on your client
+cert_file = "<local path to your certificate file>"
+key_file = "<local path to your device key file>"
+client.tls_set(ca_certs=path_to_root_cert, certfile=cert_file, keyfile=key_file,
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+
+# Connect as before
+client.connect(iot_hub_name+".azure-devices.net", port=8883)
+```
 
 ## <a name="sending-device-to-cloud-messages"></a>Apparaat-naar-Cloud-berichten verzenden
 

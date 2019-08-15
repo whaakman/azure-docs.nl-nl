@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: eb49649e9c92416fc674c032b9dc6a613a34dd77
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b99dbd403de0de948527fbe74b7e1205316822c0
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569669"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019681"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Azure Active Directory authenticatie gebruiken voor verificatie met SQL
 
@@ -98,7 +98,7 @@ Als u een Inge sloten database gebruiker wilt maken in Azure SQL Database, een b
   - `SUSER_ID(<admin name>)`
   - `SUSER_SID(<admin name>)`
 
-### <a name="manage-instances"></a>Instanties beheren
+### <a name="managed-instances"></a>Beheerde exemplaren
 
 - Azure AD-server-principals (aanmeldingen) en gebruikers worden ondersteund als een preview-functie voor [beheerde exemplaren](sql-database-managed-instance.md).
 - Het instellen van Azure AD-server principals (aanmeldingen) die zijn toegewezen aan een Azure AD-groep als de data base-eigenaar, wordt niet ondersteund in [beheerde exemplaren](sql-database-managed-instance.md).

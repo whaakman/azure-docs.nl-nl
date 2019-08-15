@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 7/13/2019
+ms.date: 08/10/2019
 ms.author: victorh
-ms.openlocfilehash: 7d20ef750aa4556a73852982631423d3d08271f5
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 4f9a42f3d054becfed0b0a6acbf92cdf1e421c16
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854117"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946950"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Host load balanced Azure web apps op de zone Apex
 
@@ -52,23 +52,23 @@ Maak twee Web App Service-abonnementen in uw resource groep met behulp van de vo
 
 Maak twee web-apps, één in elk App Service-abonnement.
 
-1. Klik in de linkerbovenhoek van de pagina Azure Portal op **een resource maken**.
+1. Selecteer in de linkerbovenhoek van de pagina Azure Portal **een resource maken**.
 2. Typ **Web-app** in de zoek balk en druk op ENTER.
-3. Klik op **Web-app**.
-4. Klik op **Create**.
+3. Selecteer **Web-app**.
+4. Selecteer **Maken**.
 5. Accepteer de standaard waarden en gebruik de volgende tabel om de twee web-apps te configureren:
 
-   |Name<br>(moet uniek zijn binnen. azurewebsites.net)|Resourcegroep |Abonnement/locatie App Service
-   |---------|---------|---------|
-   |App-01|Bestaande gebruiken<br>Uw resourcegroep selecteren|ASP-01 (VS-Oost)|
-   |App-02|Bestaande gebruiken<br>Uw resourcegroep selecteren|ASP-02 (VS-Centraal)|
+   |Name<br>(moet uniek zijn binnen. azurewebsites.net)|Resourcegroep |Runtime stack|Regio|Abonnement/locatie App Service
+   |---------|---------|-|-|-------|
+   |App-01|Bestaande gebruiken<br>Uw resourcegroep selecteren|.NET Core 2.2|East US|ASP-01 (D1)|
+   |App-02|Bestaande gebruiken<br>Uw resourcegroep selecteren|.NET Core 2.2|US - centraal|ASP-02 (D1)|
 
 ### <a name="gather-some-details"></a>Enkele details verzamelen
 
-Nu moet u het IP-adres en de hostnaam voor de apps noteren.
+Nu moet u het IP-adres en de hostnaam voor de web-apps noteren.
 
-1. Open de resource groep en klik op uw eerste app (**app-01** in dit voor beeld).
-2. Klik in de linkerkolom op **Eigenschappen**.
+1. Open de resource groep en selecteer uw eerste web-app (**app-01** in dit voor beeld).
+2. Selecteer in de linkerkolom **Eigenschappen**.
 3. Noteer het adres onder **URL**en noteer het eerste IP-adres in de lijst onder **uitgaande IP-adressen** . U gebruikt deze informatie later wanneer u uw Traffic Manager-eind punten configureert.
 4. Herhaal dit voor **app-02**.
 
@@ -82,45 +82,60 @@ Voor informatie over het maken van een Traffic Manager profiel [raadpleegt u Qui
 
 U kunt nu de eind punten voor de twee web-apps maken.
 
-1. Open de resource groep en klik op uw Traffic Manager profiel.
-2. Klik in de linkerkolom op **eind punten**.
-3. Klik op **Toevoegen**.
+1. Open de resource groep en selecteer uw Traffic Manager profiel.
+2. Selecteer **eind punten**in de linkerkolom.
+3. Selecteer **Toevoegen**.
 4. Gebruik de volgende tabel om de eind punten te configureren:
 
-   |type  |Name  |Doel  |Location  |Instellingen voor aangepaste header|
+   |type  |Name  |Doel  |Location  |Instellingen voor aangepaste headers|
    |---------|---------|---------|---------|---------|
-   |Extern eind punt     |End-01|IP-adres dat u hebt genoteerd voor app-01|East US|host:\<de URL die u hebt vastgelegd voor app-01\><br>Voor beeld: **host: app-01.azurewebsites.net**|
-   |Extern eind punt     |End-02|IP-adres dat u hebt vastgelegd voor app-02|US - centraal|host:\<de URL die u voor app-02 hebt vastgelegd\><br>Voor beeld: **host: app-02.azurewebsites.net**
+   |Extern eindpunt     |End-01|IP-adres dat u hebt genoteerd voor app-01|East US|host:\<de URL die u hebt vastgelegd voor app-01\><br>Voor beeld: **host: app-01.azurewebsites.net**|
+   |Extern eindpunt     |End-02|IP-adres dat u hebt vastgelegd voor app-02|US - centraal|host:\<de URL die u voor app-02 hebt vastgelegd\><br>Voor beeld: **host: app-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>DNS-zone maken
 
 U kunt een bestaande DNS-zone gebruiken om te testen of u kunt een nieuwe zone maken. Zie [zelf studie voor het maken en delegeren van een nieuwe DNS-zone in Azure: Uw domein hosten in Azure DNS](dns-delegate-domain-azure-dns.md) voor meer informatie.
 
-### <a name="add-the-alias-record-set"></a>De set met alias records toevoegen
+## <a name="add-a-txt-record-for-custom-domain-validation"></a>Een TXT-record toevoegen voor het valideren van aangepaste domeinen
 
-Wanneer uw DNS-zone klaar is, kunt u een alias record voor de zone Apex toevoegen.
+Wanneer u een aangepaste hostnaam aan uw web-apps toevoegt, zoekt deze naar een specifieke TXT-record om uw domein te valideren.
 
-1. Open de resource groep en klik op de DNS-zone.
-2. Klik op **Recordset**.
+1. Open de resource groep en selecteer de DNS-zone.
+2. Selecteer **Recordset**.
+3. Voeg de recordset toe met behulp van de volgende tabel. Voor de waarde gebruikt u de daad werkelijke web-app-URL die u eerder hebt vastgelegd:
+
+   |Name  |Type  |Value|
+   |---------|---------|-|
+   |@     |TXT|App-01.azurewebsites.net|
+
+
+## <a name="add-a-custom-domain"></a>Een aangepast domein toevoegen
+
+Voeg een aangepast domein toe voor beide web-apps.
+
+1. Open de resource groep en selecteer uw eerste web-app.
+2. Selecteer in de linkerkolom **aangepaste domeinen**.
+3. Onder **aangepaste domeinen**selecteert u **aangepast domein toevoegen**.
+4. Onder **aangepast domein**typt u uw aangepaste domein naam. Bijvoorbeeld contoso.com.
+5. Selecteer **Valideren**.
+
+   Uw domein moet validatie door geven en groene vinkjes weer geven naast **hostnamen Beschik baarheid** en **domein eigendom**.
+5. Selecteer **Aangepast domein toevoegen**.
+6. Vernieuw uw browser om de nieuwe hostnaam te bekijken onder **hostnamen die zijn toegewezen aan de site**. Bij het vernieuwen op de pagina worden de wijzigingen niet altijd meteen weer gegeven.
+7. Herhaal deze procedure voor uw tweede web-app.
+
+## <a name="add-the-alias-record-set"></a>De set met alias records toevoegen
+
+Voeg nu een alias record toe voor de zone Apex.
+
+1. Open de resource groep en selecteer de DNS-zone.
+2. Selecteer **Recordset**.
 3. Voeg de recordset toe met behulp van de volgende tabel:
 
    |Name  |type  |Alias records instellen  |Alias type  |Azure-resource|
    |---------|---------|---------|---------|-----|
-   |@     |A|Ja|Azure-resource|Traffic Manager-uw profiel|
+   |@     |G|Ja|Azure-resource|Traffic Manager-uw profiel|
 
-## <a name="add-custom-hostnames"></a>Aangepaste hostnamen toevoegen
-
-Voeg een aangepaste hostnaam toe aan beide web-apps.
-
-1. Open de resource groep en klik op uw eerste web-app.
-2. Klik in de linkerkolom op **aangepaste domeinen**.
-3. Klik op **hostnaam toevoegen**.
-4. Typ onder hostnaam de naam van uw domein. Bijvoorbeeld contoso.com.
-
-   Uw domein moet validatie door geven en groene vinkjes weer geven naast **hostnamen Beschik baarheid** en **domein eigendom**.
-5. Klik op **hostnaam toevoegen**.
-6. Vernieuw uw browser om de nieuwe hostnaam te bekijken onder **hostnamen die zijn toegewezen aan de site**. Op de pagina vernieuwen worden niet altijd de wijzigingen meteen weer gegeven.
-7. Herhaal deze procedure voor uw tweede web-app.
 
 ## <a name="test-your-web-apps"></a>Uw Web-Apps testen
 

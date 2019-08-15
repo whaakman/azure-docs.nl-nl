@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: eece1520a4b7e3bf37e1d209c58b5019921fdb98
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 7591cefddd6e7217c885293a2f5c878d7a82e158
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884386"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015937"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
 
@@ -155,7 +155,7 @@ Nieuwe bestands shares beginnen met het volledige aantal tegoeden in de burst-Bu
 
 ## <a name="file-share-redundancy"></a>Redundantie van bestands share
 
-Azure Files standaard shares ondersteunen drie opties voor gegevens redundantie: lokaal redundante opslag (LRS), zone redundante opslag (ZRS) en geografisch redundante opslag (GRS).
+Azure Files standaard shares ondersteunt drie opties voor gegevens redundantie: lokaal redundante opslag (LRS), zone redundant Storage (ZRS), geografisch redundante opslag (GRS) en geo-zone-redundante opslag (GZRS) (preview).
 
 Azure Files Premium-shares ondersteunen alleen lokaal redundante opslag (LRS).
 
@@ -186,6 +186,7 @@ De primaire en secundaire regio's beheren replica's in afzonderlijke fout domein
 
 Houd bij het bepalen van de te gebruiken replicatie optie de volgende punten in acht:
 
+* Geo-zone-redundante opslag (GZRS) biedt een hoge Beschik baarheid en maximale duurzaamheid door gegevens synchroon te repliceren over drie Azure-beschikbaarheids zones en vervolgens gegevens asynchroon te repliceren naar de secundaire regio. U kunt ook lees toegang tot de secundaire regio inschakelen. GZRS is ontworpen om ten minste 99.99999999999999% (16 9) duurzaamheid van objecten in een bepaald jaar te bieden. Zie [geo-zone-redundante opslag voor hoge Beschik baarheid en maximale duurzaamheid (preview)](../common/storage-redundancy-gzrs.md)voor meer informatie over GZRS.
 * Zone-redundante opslag (ZRS) biedt een hoge Beschik baarheid met synchrone replicatie en is mogelijk een betere keuze voor sommige scenario's dan GRS. Zie [ZRS](../common/storage-redundancy-zrs.md)voor meer informatie over ZRS.
 * Asynchrone replicatie vergt een vertraging van de tijd dat gegevens naar de primaire regio worden geschreven, naar wanneer deze wordt gerepliceerd naar de secundaire regio. In het geval van een regionale ramp kunnen wijzigingen die nog niet zijn gerepliceerd naar de secundaire regio, verloren gaan als de gegevens niet kunnen worden hersteld vanuit de primaire regio.
 * Met GRS is de replica niet beschikbaar voor lees-of schrijf toegang tenzij micro soft een failover naar de secundaire regio initieert. In het geval van een failover hebt u lees-en schrijf toegang tot deze gegevens nadat de failover is voltooid. Zie [richt lijnen voor herstel na nood gevallen](../common/storage-disaster-recovery-guidance.md)voor meer informatie.
@@ -198,7 +199,7 @@ Deze sectie is alleen van toepassing op de standaard bestands shares. Alle Premi
 
 - Azure preview- [voor waarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) zijn van toepassing op grote bestands shares in de preview-versie, inclusief wanneer ze worden gebruikt met Azure file sync-implementaties.
 - Hiervoor moet u een nieuw opslag account voor algemene doel einden maken (kan bestaande opslag accounts niet uitbreiden).
-- LRS/ZRS naar GRS-account conversie is niet mogelijk voor een nieuw opslag account dat is gemaakt nadat het abonnement is geaccepteerd op de preview-versie van grotere bestands shares.
+- LRS/ZRS naar GRS/GZRS-account conversie is niet mogelijk voor een nieuw opslag account dat is gemaakt nadat het abonnement is geaccepteerd op de preview-versie van grotere bestands shares.
 
 
 ### <a name="regional-availability"></a>Regionale beschikbaarheid
@@ -214,7 +215,7 @@ Standaard bestands shares zijn beschikbaar in alle regio's tot 5 TiB. In bepaald
 |Europa -west     |LRS, ZRS|Nee    |Ja|
 |US - west 2       |LRS, ZRS|Nee    |Ja|
 
-\* Voor regio's zonder ondersteuning van de portal kunt u Power shell of de Azure-opdracht regel interface (CLI) nog steeds gebruiken om meer dan 5 TiB-shares te maken. Altenatively maakt u een nieuwe share via de Portal zonder een quotum op te geven. Hiermee wordt een share gemaakt met de standaard grootte van 100 TiB, die later kan worden bijgewerkt via Power shell of Azure CLI.
+\* Voor regio's zonder ondersteuning van de portal kunt u Power shell of de Azure-opdracht regel interface (CLI) nog steeds gebruiken om meer dan 5 TiB-shares te maken. U kunt ook een nieuwe share maken via de Portal zonder een quotum op te geven. Hiermee wordt een share gemaakt met de standaard grootte van 100 TiB, die later kan worden bijgewerkt via Power shell of Azure CLI.
 
 Vul deze [enquête](https://aka.ms/azurefilesatscalesurvey)in om u te helpen bij het bepalen van de prioriteit van nieuwe regio's en functies.
 

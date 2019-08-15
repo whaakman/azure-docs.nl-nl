@@ -1,6 +1,6 @@
 ---
-title: Problemen oplossen met verbindingen met Azure Network Watcher - REST-API van Azure | Microsoft Docs
-description: Meer informatie over het gebruik van de verbinding oplossen van de mogelijkheden van Azure Network Watcher met de REST-API van Azure.
+title: Problemen met verbindingen met Azure Network Watcher-Azure REST API oplossen | Microsoft Docs
+description: Meer informatie over het gebruik van de functie verbinding oplossen van Azure Network Watcher met behulp van de Azure REST API.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: kumud
-ms.openlocfilehash: 7fbe36d9ee15ffbdaa2ba978aabf3cc4f5db3889
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82dd77e8ea36610244b97c1701209d5aa3be2869
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694065"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69017771"
 ---
-# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Problemen oplossen met verbindingen met Azure Network Watcher met de Azure REST-API
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Verbindings problemen met Azure Network Watcher met Azure REST API oplossen
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -28,19 +28,19 @@ ms.locfileid: "64694065"
 > - [Azure-CLI](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-Informatie over het gebruik van de verbinding oplossen om te controleren of een rechtstreekse TCP-verbinding van een virtuele machine naar een bepaald eindpunt kan worden gemaakt.
+Meer informatie over het gebruik van verbindings problemen oplossen om te controleren of een directe TCP-verbinding van een virtuele machine naar een bepaald eind punt tot stand kan worden gebracht.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel wordt ervan uitgegaan dat u hebt de volgende bronnen:
+In dit artikel wordt ervan uitgegaan dat u de volgende resources hebt:
 
-* Een exemplaar van Network Watcher in de regio die u wilt oplossen, een verbinding.
-* Virtuele machines, problemen oplossen met verbindingen met.
+* Een exemplaar van Network Watcher in de regio waarvoor u problemen met een verbinding wilt oplossen.
+* Virtuele machines voor het oplossen van verbindingen met.
 
 > [!IMPORTANT]
-> Probleemoplossing voor verbindingen vereist dat de virtuele machine bij het oplossen van problemen met van heeft de `AzureNetworkWatcherExtension` VM-extensie is geïnstalleerd. Ga voor het installeren van de extensie op een Windows-VM naar [Azure Network Watcher-Agent de extensie van de virtuele machine voor Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) en voor Linux-VM naar [Azure Network Watcher-Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). De extensie is niet vereist op het eindpunt van de bestemming.
+> Verbindings problemen oplossen vereist dat de `AzureNetworkWatcherExtension` VM-extensie is geïnstalleerd op de VM die u wilt oplossen. Voor het installeren van de uitbrei ding op een Windows-VM gaat u naar [azure Network Watcher agent-extensie voor virtuele machines voor Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) en voor Linux VM gaat u naar de [Azure Network Watcher agent-extensie voor virtuele machines voor Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). De uitbrei ding is niet vereist voor het eind punt van de bestemming.
 
-## <a name="log-in-with-armclient"></a>Meld u aan met ARMClient
+## <a name="log-in-with-armclient"></a>Aanmelden met ARMClient
 
 Meld u aan bij armclient met uw Azure-referenties.
 
@@ -50,12 +50,12 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Een virtuele machine ophalen
 
-Voer het volgende script om te retourneren van een virtuele machine. Deze informatie is nodig voor het uitvoeren van connectiviteit. 
+Voer het volgende script uit om een virtuele machine te retour neren. Deze informatie is nodig voor het uitvoeren van connectiviteit.
 
-De volgende code moet waarden voor de volgende variabelen:
+De volgende code heeft waarden nodig voor de volgende variabelen:
 
-- **abonnements-id** -de abonnements-ID te gebruiken.
-- **resourceGroupName** -de naam van een resourcegroep met virtuele machines.
+- **subscriptionId** : de abonnements-id die moet worden gebruikt.
+- **resourceGroupName** : de naam van een resource groep die virtuele machines bevat.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -64,7 +64,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-De ID van de virtuele machine wordt gebruikt in de volgende uitvoer in het volgende voorbeeld:
+Vanuit de volgende uitvoer wordt de ID van de virtuele machine in het volgende voor beeld gebruikt:
 
 ```json
 ...
@@ -81,7 +81,7 @@ De ID van de virtuele machine wordt gebruikt in de volgende uitvoer in het volge
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Controleer de verbinding met een virtuele machine
 
-In dit voorbeeld controleert de verbinding met een virtuele doelmachine via poort 80.
+In dit voor beeld wordt de verbinding met een virtuele doel machine via poort 80 gecontroleerd.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -90,7 +90,7 @@ $subscriptionId = "00000000-0000-0000-0000-000000000000"
 $resourceGroupName = "NetworkWatcherRG"
 $networkWatcherName = "NetworkWatcher_westcentralus"
 $sourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/MultiTierApp0"
-$destinationAddress = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/Database0"
+$destinationResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/Database0"
 $destinationPort = "0"
 $requestBody = @"
 {
@@ -99,7 +99,7 @@ $requestBody = @"
     'port': 0
   },
   'destination': {
-    'resourceId': '${destinationAddress}',
+    'resourceId': '${destinationResourceId}',
     'port': ${destinationPort}
   }
 }
@@ -108,11 +108,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Omdat deze bewerking lang is uitgevoerd, de URI voor het resultaat wordt geretourneerd in de antwoordkop zoals wordt weergegeven in het volgende antwoord:
+Omdat deze bewerking langdurig wordt uitgevoerd, wordt de URI voor het resultaat geretourneerd in de reactie header, zoals wordt weer gegeven in het volgende antwoord:
 
-**Belangrijke waarden**
+**Belang rijke waarden**
 
-* **Locatie** -deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking voltooid is
+* **Locatie** : deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking is voltooid
 
 ```
 HTTP/1.1 202 Accepted
@@ -133,7 +133,7 @@ null
 
 ### <a name="response"></a>Antwoord
 
-Het volgende antwoord is uit het vorige voorbeeld.  In dit antwoord de `ConnectionStatus` is **onbereikbaar**. U kunt zien dat alle tests mislukte verzonden. De verbinding is mislukt op het virtuele apparaat vanwege een gebruiker geconfigureerde `NetworkSecurityRule` met de naam **UserRule_Port80**, is geconfigureerd voor het blokkeren van verkeer dat binnenkomt op poort 80. Deze informatie kan worden gebruikt voor het onderzoeken van problemen met verbindingen.
+Het volgende antwoord is afkomstig uit het vorige voor beeld.  In dit antwoord is de `ConnectionStatus` onbereikbaar. U kunt zien dat alle probe-verzen ding is mislukt. De connectiviteit op het virtuele apparaat is mislukt vanwege een door de gebruiker `NetworkSecurityRule` geconfigureerde **UserRule_Port80**, geconfigureerd om inkomend verkeer op poort 80 te blok keren. Deze informatie kan worden gebruikt om verbindings problemen te onderzoeken.
 
 ```json
 {
@@ -195,9 +195,9 @@ Het volgende antwoord is uit het vorige voorbeeld.  In dit antwoord de `Connecti
 }
 ```
 
-## <a name="validate-routing-issues"></a>Problemen met routering valideren
+## <a name="validate-routing-issues"></a>Routerings problemen valideren
 
-Het voorbeeld wordt de verbinding tussen een virtuele machine en een externe eindpunt.
+In het voor beeld wordt de verbinding tussen een virtuele machine en een extern eind punt gecontroleerd.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -206,7 +206,7 @@ $subscriptionId = "00000000-0000-0000-0000-000000000000"
 $resourceGroupName = "NetworkWatcherRG"
 $networkWatcherName = "NetworkWatcher_westcentralus"
 $sourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/MultiTierApp0"
-$destinationAddress = "13.107.21.200"
+$destinationResourceId = "13.107.21.200"
 $destinationPort = "80"
 $requestBody = @"
 {
@@ -215,7 +215,7 @@ $requestBody = @"
     'port': 0
   },
   'destination': {
-    'address': '${destinationAddress}',
+    'address': '${destinationResourceId}',
     'port': ${destinationPort}
   }
 }
@@ -224,11 +224,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Omdat deze bewerking lang is uitgevoerd, de URI voor het resultaat wordt geretourneerd in de antwoordkop zoals wordt weergegeven in het volgende antwoord:
+Omdat deze bewerking langdurig wordt uitgevoerd, wordt de URI voor het resultaat geretourneerd in de reactie header, zoals wordt weer gegeven in het volgende antwoord:
 
-**Belangrijke waarden**
+**Belang rijke waarden**
 
-* **Locatie** -deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking voltooid is
+* **Locatie** : deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking is voltooid
 
 ```
 HTTP/1.1 202 Accepted
@@ -249,7 +249,7 @@ null
 
 ### <a name="response"></a>Antwoord
 
-In het volgende voorbeeld wordt de `connectionStatus` wordt weergegeven als **onbereikbaar**. In de `hops` details, kunt u zien onder `issues` die het verkeer geblokkeerd vanwege een `UserDefinedRoute`.
+In het volgende voor beeld wordt `connectionStatus` de wordt weer gegeven als onbereikbaar. In de `hops` Details kunt u `issues` zien dat het verkeer is geblokkeerd vanwege een `UserDefinedRoute`.
 
 ```json
 {
@@ -291,9 +291,9 @@ In het volgende voorbeeld wordt de `connectionStatus` wordt weergegeven als **on
 }
 ```
 
-## <a name="check-website-latency"></a>Latentie van de website controleren
+## <a name="check-website-latency"></a>Website latentie controleren
 
-Het volgende voorbeeld wordt de verbinding met een website.
+In het volgende voor beeld wordt de verbinding met een website gecontroleerd.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -302,7 +302,7 @@ $subscriptionId = "00000000-0000-0000-0000-000000000000"
 $resourceGroupName = "NetworkWatcherRG"
 $networkWatcherName = "NetworkWatcher_westcentralus"
 $sourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/MultiTierApp0"
-$destinationAddress = "https://bing.com"
+$destinationResourceId = "https://bing.com"
 $destinationPort = "0"
 $requestBody = @"
 {
@@ -311,7 +311,7 @@ $requestBody = @"
     'port': 0
   },
   'destination': {
-    'address': '${destinationAddress}',
+    'address': '${destinationResourceId}',
     'port': ${destinationPort}
   }
 }
@@ -320,11 +320,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Omdat deze bewerking lang is uitgevoerd, de URI voor het resultaat wordt geretourneerd in de antwoordkop zoals wordt weergegeven in het volgende antwoord:
+Omdat deze bewerking langdurig wordt uitgevoerd, wordt de URI voor het resultaat geretourneerd in de reactie header, zoals wordt weer gegeven in het volgende antwoord:
 
-**Belangrijke waarden**
+**Belang rijke waarden**
 
-* **Locatie** -deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking voltooid is
+* **Locatie** : deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking is voltooid
 
 ```
 HTTP/1.1 202 Accepted
@@ -345,7 +345,7 @@ null
 
 ### <a name="response"></a>Antwoord
 
-In het volgende antwoord, ziet u de `connectionStatus` wordt weergegeven als **bereikbaar**. Als een verbinding geslaagd is, zijn latentie waarden opgegeven.
+In het volgende antwoord ziet u dat de `connectionStatus` weer gave kan worden weer gegeven als **bereikbaar**. Wanneer een verbinding tot stand is gebracht, worden er latentie waarden gegeven.
 
 ```json
 {
@@ -378,9 +378,9 @@ In het volgende antwoord, ziet u de `connectionStatus` wordt weergegeven als **b
 }
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>Controleer de verbinding met een opslageindpunt
+## <a name="check-connectivity-to-a-storage-endpoint"></a>Connectiviteit met een opslag eindpunt controleren
 
-Het volgende voorbeeld wordt de verbinding van een virtuele machine met een BLOB-opslagaccount.
+In het volgende voor beeld wordt de connectiviteit van een virtuele machine naar een blog Storage-account gecontroleerd.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -389,7 +389,7 @@ $subscriptionId = "00000000-0000-0000-0000-000000000000"
 $resourceGroupName = "NetworkWatcherRG"
 $networkWatcherName = "NetworkWatcher_westcentralus"
 $sourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/MultiTierApp0"
-$destinationAddress = "https://build2017nwdiag360.blob.core.windows.net/"
+$destinationResourceId = "https://build2017nwdiag360.blob.core.windows.net/"
 $destinationPort = "0"
 $requestBody = @"
 {
@@ -398,7 +398,7 @@ $requestBody = @"
     'port': 0
   },
   'destination': {
-    'address': '${destinationAddress}',
+    'address': '${destinationResourceId}',
     'port': ${destinationPort}
   }
 }
@@ -407,11 +407,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Omdat deze bewerking lang is uitgevoerd, de URI voor het resultaat wordt geretourneerd in de antwoordkop zoals wordt weergegeven in het volgende antwoord:
+Omdat deze bewerking langdurig wordt uitgevoerd, wordt de URI voor het resultaat geretourneerd in de reactie header, zoals wordt weer gegeven in het volgende antwoord:
 
-**Belangrijke waarden**
+**Belang rijke waarden**
 
-* **Locatie** -deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking voltooid is
+* **Locatie** : deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking is voltooid
 
 ```
 HTTP/1.1 202 Accepted
@@ -432,7 +432,7 @@ null
 
 ### <a name="response"></a>Antwoord
 
-Het volgende voorbeeld wordt het antwoord van het uitvoeren van de vorige API-aanroep. Als de controle geslaagd is, de `connectionStatus` eigenschap wordt weergegeven als **bereikbaar**.  U vindt de details met betrekking tot het aantal hops is vereist om de storage-blob en de latentie te bereiken.
+Het volgende voor beeld is het antwoord van het uitvoeren van de vorige API-aanroep. Als de controle is geslaagd, wordt `connectionStatus` de eigenschap weer gegeven als **bereikbaar**.  U vindt de details over het aantal hops dat is vereist om de opslag-Blob en latentie te bereiken.
 
 ```json
 {
@@ -467,20 +467,6 @@ Het volgende voorbeeld wordt het antwoord van het uitvoeren van de vorige API-aa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het automatiseren van pakketopnamen met waarschuwingen van de virtuele machine via [maken van een waarschuwing geactiveerd pakketopname](network-watcher-alert-triggered-packet-capture.md).
+Meer informatie over het automatiseren van pakket opnames met waarschuwingen voor virtuele machines door het weer geven van [een waarschuwing](network-watcher-alert-triggered-packet-capture.md)voor het genereren van pakketten.
 
-Zoeken of bepaalde verkeer is toegestaan in of buiten uw virtuele machine door naar de pagina [controleren IP-stroom controleren](diagnose-vm-network-traffic-filtering-problem.md).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Controleren of bepaalde verkeer is toegestaan in of buiten uw virtuele machine door te kijken naar [controle van IP-stroom](diagnose-vm-network-traffic-filtering-problem.md)controleren.
